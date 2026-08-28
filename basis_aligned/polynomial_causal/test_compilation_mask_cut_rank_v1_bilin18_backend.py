@@ -64,7 +64,7 @@ def F_norm(value):
 class TinyTransformer(torch.nn.Module):
     def __init__(self, dimensions):
         super().__init__()
-        self.wte = torch.nn.Embedding(dimensions.tokenizer_vocab, dimensions.model_width)
+        self.wte = torch.nn.Embedding(dimensions.logit_vocab, dimensions.model_width)
         self.h = torch.nn.ModuleList([
             TinyBlock(dimensions.model_width, layer)
             for layer in range(dimensions.layer_count)
@@ -202,6 +202,102 @@ def test_ridge_map_and_token_materialization_keep_covered_rows_exact():
     assert torch.allclose(
         dense[[1, 3]], (embeddings[[1, 3]].double() @ coefficient).float(), atol=1e-6,
     )
+
+
+def test_production_vocab_padding_is_removed_before_dense_program_materialization():
+    dimensions = backend_module.ProgramDimensions(
+        model_width=4, tokenizer_vocab=50_257, logit_vocab=50_304, layer_count=18,
+        table_rank=2, map_rank=2, ridge=1e-2,
+        expected_covered_token_count=6, build_batch_size=3, eval_batch_size=2,
+    )
+    padded = (
+        torch.arange(dimensions.logit_vocab * dimensions.model_width, dtype=torch.float32)
+        .reshape(dimensions.logit_vocab, dimensions.model_width)
+        .div_(10_000.0)
+        .contiguous()
+    )
+    embedding = backend_module.tokenizer_embedding_rows(
+        padded, dimensions=dimensions,
+    )
+    assert tuple(embedding.shape) == (
+        dimensions.tokenizer_vocab, dimensions.model_width,
+    )
+    assert torch.equal(embedding, padded[:dimensions.tokenizer_vocab])
+
+    covered = torch.tensor([0, 3, 127, 4_096, 32_768, 50_256], dtype=torch.long)
+    coefficient = torch.eye(dimensions.model_width, dtype=torch.float64)
+    covered_rows = (embedding[covered] + 0.25).contiguous()
+    dense = backend_module.materialize_token_rows(
+        token_embeddings=embedding, covered_token_ids=covered,
+        covered_rows=covered_rows, coefficient=coefficient,
+    )
+    assert tuple(dense.shape) == (50_257, 4)
+    assert torch.equal(dense[covered], covered_rows)
+    program = backend_module.SharedProgram(
+        dimensions=dimensions, fit_wave_receipt={"kind": "production-axis miniature"},
+        covered_token_ids=covered,
+        output_nearest_covered_index=torch.zeros(50_257, dtype=torch.long),
+        dense_rows=tuple((site, dense) for site in adapter.ALL_NATIVE_SITES),
+        model_realization_sha256=_hash("production-axis model"),
+        program_source_sha256=_hash("production-axis source"),
+    )
+    assert all(tuple(program.rows_for(site).shape) == (50_257, 4)
+               for site in adapter.ALL_NATIVE_SITES)
+
+
+def test_real_tiny_builder_slices_a_padded_checkpoint_embedding():
+    dimensions = replace(_dimensions(), logit_vocab=13)
+    model = TinyModel(dimensions)
+    fit_wave = _wave(row_count=2)
+    backend = backend_module.Bilin18CutRankBackend(
+        dimensions=dimensions, device="cpu",
+        model_loader=lambda: (model, _binding(model)),
+        fit_wave_loader=lambda: fit_wave,
+    )
+    bank = backend.prepare(_wave().clone_rows(), measurement.REQUESTS)
+    assert tuple(model.transformer.wte.weight.shape) == (13, 4)
+    assert all(tuple(backend._program.rows_for(site).shape) == (11, 4)
+               for site in adapter.ALL_NATIVE_SITES)
+    assert len(bank.programs) == 64
+    backend.close()
+
+
+def test_dense_row_failure_reports_only_site_and_invariant_metadata():
+    dimensions = _dimensions()
+    covered = torch.arange(6, dtype=torch.long)
+    nearest = torch.zeros(dimensions.tokenizer_vocab, dtype=torch.long)
+    good = torch.zeros(
+        dimensions.tokenizer_vocab, dimensions.model_width, dtype=torch.float32,
+    )
+    bad_site = adapter.ALL_NATIVE_SITES[7]
+    malformed = (
+        (torch.full((dimensions.tokenizer_vocab + 1, dimensions.model_width),
+                    123456.75), "shape"),
+        (good.double(), "dtype"),
+        (torch.full_like(good, float("nan")), "finite"),
+        (torch.zeros(dimensions.model_width, dimensions.tokenizer_vocab).T, "contiguous"),
+    )
+    for bad, failed_invariant in malformed:
+        dense_rows = [
+            (site, bad if site == bad_site else good)
+            for site in adapter.ALL_NATIVE_SITES
+        ]
+        with pytest.raises(ValueError, match="dense token row invariant") as captured:
+            backend_module.SharedProgram(
+                dimensions=dimensions, fit_wave_receipt={"kind": "diagnostic"},
+                covered_token_ids=covered,
+                output_nearest_covered_index=nearest,
+                dense_rows=dense_rows,
+                model_realization_sha256=_hash("diagnostic model"),
+                program_source_sha256=_hash("diagnostic source"),
+            )
+        message = str(captured.value)
+        assert f'"site": "{bad_site[0]}{bad_site[1]}"' in message
+        assert all(f'"{field}"' in message for field in (
+            "shape", "dtype", "device", "finite", "contiguous", "invariants",
+        ))
+        assert f'"{failed_invariant}": false' in message
+        assert "123456" not in message
 
 
 def test_output_nearest_control_is_cosine_and_covered_ids_self_map():

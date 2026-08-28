@@ -231,6 +231,69 @@ def materialize_token_rows(
     return dense
 
 
+def tokenizer_embedding_rows(
+    embedding_weight: torch.Tensor, *, dimensions: ProgramDimensions,
+) -> torch.Tensor:
+    """Bind the padded checkpoint embedding to the tokenizer-ID support.
+
+    The bilin18 checkpoint has ``logit_vocab`` physical embedding rows, while
+    input token IDs and every compiled lookup table live on ``tokenizer_vocab``.
+    This boundary is explicit so padded output-only rows can never silently
+    become executable input-table rows.
+    """
+
+    if not torch.is_tensor(embedding_weight) or embedding_weight.layout != (
+        torch.strided
+    ) or tuple(embedding_weight.shape) != (
+        dimensions.logit_vocab, dimensions.model_width,
+    ) or embedding_weight.dtype != torch.float32 or embedding_weight.requires_grad or (
+        not embedding_weight.is_contiguous()
+    ) or not bool(torch.isfinite(embedding_weight).all()) or (
+        dimensions.tokenizer_vocab > dimensions.logit_vocab
+    ):
+        raise ValueError("checkpoint token embedding realization is malformed")
+    return embedding_weight[:dimensions.tokenizer_vocab].contiguous()
+
+
+def _dense_row_diagnostic(
+    site: measurement.cut.Site, value: Any, *, dimensions: ProgramDimensions,
+    expected_device: torch.device,
+) -> dict[str, Any]:
+    """Return invariant metadata only; never include tensor contents."""
+
+    is_tensor = torch.is_tensor(value)
+    shape = list(value.shape) if is_tensor else None
+    dtype = str(value.dtype) if is_tensor else None
+    device = str(value.device) if is_tensor else None
+    contiguous = bool(value.is_contiguous()) if is_tensor else False
+    strided = bool(value.layout == torch.strided) if is_tensor else False
+    detached = bool(not value.requires_grad) if is_tensor else False
+    finite = False
+    if is_tensor and strided and value.device.type != "meta":
+        try:
+            finite = bool(torch.isfinite(value).all())
+        except (RuntimeError, TypeError):
+            finite = False
+    return {
+        "site": f"{site[0]}{site[1]}",
+        "shape": shape,
+        "dtype": dtype,
+        "device": device,
+        "finite": finite,
+        "contiguous": contiguous,
+        "invariants": {
+            "tensor": is_tensor,
+            "shape": shape == [dimensions.tokenizer_vocab, dimensions.model_width],
+            "dtype": dtype == str(torch.float32),
+            "device": device == str(expected_device),
+            "finite": finite,
+            "contiguous": contiguous,
+            "strided": strided,
+            "detached": detached,
+        },
+    }
+
+
 def output_nearest_indices(
     *, covered_probabilities: torch.Tensor, all_probabilities: torch.Tensor,
     covered_token_ids: torch.Tensor,
@@ -272,10 +335,13 @@ class SharedProgram:
         model_realization_sha256: str, program_source_sha256: str,
     ) -> None:
         object.__setattr__(self, "_sealed", False)
+        dense_rows = tuple(dense_rows)
         if not isinstance(dimensions, ProgramDimensions) or not isinstance(
             fit_wave_receipt, dict
         ) or not _sha256_text(model_realization_sha256) or not _sha256_text(
             program_source_sha256
+        ) or not torch.is_tensor(covered_token_ids) or not torch.is_tensor(
+            output_nearest_covered_index
         ) or covered_token_ids.dtype != torch.long or covered_token_ids.ndim != 1 or (
             len(covered_token_ids) != dimensions.expected_covered_token_count
         ) or output_nearest_covered_index.dtype != torch.long or tuple(
@@ -288,13 +354,17 @@ class SharedProgram:
         self._fit_wave_receipt = json.loads(json.dumps(fit_wave_receipt, allow_nan=False))
         self.covered_token_ids = covered_token_ids.detach().contiguous()
         self.output_nearest_covered_index = output_nearest_covered_index.detach().contiguous()
-        self.dense_rows = tuple((site, value.detach().contiguous()) for site, value in dense_rows)
-        if any(
-            tuple(value.shape) != (dimensions.tokenizer_vocab, dimensions.model_width)
-            or value.dtype != torch.float32 or value.requires_grad
-            for _, value in self.dense_rows
-        ):
-            raise ValueError("shared program dense token rows are malformed")
+        for site, value in dense_rows:
+            diagnostic = _dense_row_diagnostic(
+                site, value, dimensions=dimensions,
+                expected_device=self.covered_token_ids.device,
+            )
+            if not all(diagnostic["invariants"].values()):
+                raise ValueError(
+                    "shared program dense token row invariant failed: "
+                    + json.dumps(diagnostic, sort_keys=True, allow_nan=False)
+                )
+        self.dense_rows = tuple((site, value) for site, value in dense_rows)
         self._metadata = {
             "covered_token_ids": _tensor_metadata(self.covered_token_ids),
             "output_nearest_covered_index": _tensor_metadata(
@@ -529,7 +599,9 @@ class Bilin18CutRankBackend:
             for handle in handles:
                 handle.remove()
 
-        embedding = self._model.transformer.wte.weight.detach().float()
+        embedding = tokenizer_embedding_rows(
+            self._model.transformer.wte.weight.detach(), dimensions=dimensions,
+        )
         covered_embedding = embedding[covered]
         dense_rows = []
         for site in adapter.ALL_NATIVE_SITES:
