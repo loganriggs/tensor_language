@@ -45333,3 +45333,49 @@ identical covered-position tensors, which would itself need explaining given the
 
 Controls (pred_d): every poke landed on its own position; live CE reproduces 3.29205 covered and
 3.13704 all-position; coverage 5419 of 50257.
+
+## §1764 — the diagnostic reproduces the partition exactly and now two careful measurements contradict each other. I do not know which premise is wrong.
+
+`ops/arm_difference_localisation.py`, 151.7s, **DIAGNOSTIC**.
+**pred_a True | pred_b False | pred_c True | pred_d True.**
+
+One batch, both arms, per-position loss difference:
+
+```
+  scored positions            1536
+  covered                     1201      uncovered                335
+  NONZERO at covered             0      NONZERO at uncovered     335
+  max delta at covered         0.0      max delta at uncovered  14.540
+  sum |delta| at covered       0.0      sum |delta| uncovered  1071.35
+```
+
+**Every uncovered position differs. No covered position differs. The partition is exact** — 335 of
+335 on one side, 0 of 1201 on the other — and it reproduces §1762's zero at position granularity
+rather than dissolving it.
+
+**And it contradicts §1763.** That run poked attn0's output at uncovered position 65 by +10 per
+channel and measured **0.118 nats** of change at later *covered* positions, with a positive control
+confirming the instrument. Here the two arms differ at every uncovered position by up to 14.54 nats
+of loss — a larger perturbation, at every uncovered position rather than one — and **nothing reaches
+a covered position at all.**
+
+**Both cannot be right, and I am not going to pick one by reasoning.** The chain that says covered
+positions must move is short and I believe every link of it: attention is causal, an uncovered
+position's substituted output enters the residual stream, a later covered position attends to it, and
+that position's own program correction reads its residual input, so both its input and its output
+should differ. §1763 measured exactly that. §1764 measures the opposite in the same codebase.
+
+What I can say without choosing:
+- **§1762's headline is unaffected either way.** The all-position figures — standalone at **−0.392205**
+  and **−0.699946** where hybrid is +0.502208 and +0.078800 — come from the uncovered side, which both
+  measurements agree is where the arms differ and where the difference is large.
+- **Every covered-position figure for a STANDALONE arm remains unverified**, as §1763 already recorded.
+- **The covered-position figures for HYBRID arms are untouched** by this: they reproduce §1758 to five
+  decimals in three separate scripts and never depended on the standalone arm existing.
+
+**Queued: the decisive test.** Re-run §1763's poke *inside* the compiled program context rather than
+on the live model — same site, same uncovered position, same magnitude, but with all 36 programs
+installed. If the poke still reaches covered positions there, the contradiction is sharp and localised
+to the arm comparison. If it does not, then something about the installed program suppresses
+propagation that the live model permits, and that is a finding about the program rather than a bug in
+the measurement. Either outcome resolves it; guessing between them now would not.

@@ -1,0 +1,29 @@
+{
+ "config": {
+  "table_rank": 64,
+  "corr_rank": 128,
+  "batch": "skip7000 rows 0-7",
+  "WHY": "S1762 reported an exactly-zero covered-position difference; S1763 showed a poke at an uncovered position moves later covered ones by 0.118 nats, so the zero cannot be physical.",
+  "ROLE_NOTE": "DIAGNOSTIC. Opens no role, produces no scientific figure."
+ },
+ "stats": {
+  "n_scored": 1536,
+  "n_nonzero": 335,
+  "n_covered": 1201,
+  "n_uncovered": 335,
+  "n_nonzero_covered": 0,
+  "n_nonzero_uncovered": 335,
+  "max_delta": 14.540353924036026,
+  "max_delta_covered": 0.0,
+  "max_delta_uncovered": 14.540353924036026,
+  "sum_abs_covered": 0.0,
+  "sum_abs_uncovered": 1071.3517012111843
+ },
+ "predictions": {
+  "pred_a_arms_differ": true,
+  "pred_b_reaches_covered": false,
+  "pred_c_uncovered_carries_more": true,
+  "pred_d_controls": true
+ },
+ "runtime_s": 151.7
+}
