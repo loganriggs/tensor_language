@@ -49740,8 +49740,14 @@ already streams to determine coverage) uses **no new data**, stores **exactly th
 is honestly held out from every eval role. It recovers **43.5pp of the 61.2pp stake — 71% of the stake
 and 92% of the 47.4pp the eval-fitted upper bound achieves.**
 
-> **The length-1 context-free table is simply the wrong choice at mlp5, and the right one costs nothing
-> extra.** §1834 measured mlp5 at +61.2pp with a single-token forward. Averaging the same site's output
+> **SCOPED BY §1846 — this holds for a SINGLE compiled site, and inverts for the whole program.** §1846
+> compiled all 36 sites and found the fit-context table makes the program **worse**: 13.55% -> 13.19%
+> uniformly, and 12.89% under the per-site "better" choice. The single-site gains below do not compose;
+> they reverse. Read every figure in this section as a statement about compiling ONE site into a live
+> stream, which is what it measures.
+>
+> **The length-1 context-free table is the wrong choice at mlp5 WHEN mlp5 IS THE ONLY COMPILED SITE, and
+> the right one costs nothing extra.** §1834 measured mlp5 at +61.2pp with a single-token forward. Averaging the same site's output
 > over its occurrences in the fit corpus — same interface, same storage, same pipeline — brings that to
 > **+17.7pp**. §1844 attributed 77% of the cost to the table; §1845 shows **71 of those 77 points are
 > recoverable in practice**, not merely in principle.
@@ -49763,9 +49769,68 @@ and being a better substitute are different things, and at mlp4 they point oppos
 within 0.03; endpoints reproduce §1789's full-rank top-1; the placement control moves top-1 under
 0.05pp. Coverage 5419 of 50257.
 
-**Open question this ends on.** Two tables over the identical interface and storage, and **which one is
-better is site-dependent** — mlp5 wants the context average, mlp4 wants the single-token forward. That
-is a per-site choice a compiler can actually make, decided by one held-out measurement per site. Running
-both tables at all 34 sites and taking the better of the two **per site** asks whether the mixed program
-beats either uniform choice, and by how much. It is the first thing in this arc that would change the
-artefact rather than describe it, and §1834's cost table is exactly the object it would improve.
+**Open question this ends on — ANSWERED BY §1846, and answered NO.** I proposed running both tables at
+every site and taking the better per site, calling it "the first thing in this arc that would change the
+artefact rather than describe it". §1846 ran it: the mixed program is **worse than either uniform one**,
+and both are worse than the deployed length-1 program. §1846 also explains why, from §1765, and the
+explanation retires the line rather than extending it.
+
+## §1846 — the single-site gains REVERSE in the whole program, and §1765 already said why: the length-1 table is the fixed point
+
+`ops/per_site_table_choice.py`, 601.4s, **DISCOVERY ONLY**, rung 3 (§1845's open question).
+**pred_a False | pred_b False | pred_c True | pred_d True.**
+
+```
+  single-site gap fraction, skip7000 (B0 64.8%)          WHOLE-PROGRAM top-1 (all 36 sites compiled)
+    attn1  L1 27.4%  FIT 28.5%  -> FIT                     ALL_L1     13.55%  14.25%  13.64%
+    mlp1   L1 26.1%  FIT 28.5%  -> FIT                     EARLY_FIT  13.19%  13.63%  13.15%
+    attn2  L1 21.9%  FIT 26.0%  -> FIT                     MIXED      12.89%  13.45%  13.02%
+    mlp3   L1 16.3%  FIT -3.0%  -> L1
+    mlp4   L1 20.3%  FIT -3.1%  -> L1
+    attn5  L1 47.9%  FIT 60.6%  -> FIT                   9 of 12 early sites prefer the context table
+    mlp5   L1  3.6%  FIT 47.1%  -> FIT
+```
+
+**pred_a FAILED into the branch I registered as "a genuinely important negative for the compiler, not
+just for me".** Swapping the twelve early sites to the fit-context table makes the whole compiled program
+**worse**, by **−0.37pp** on skip7000 against a +2pp bar. **pred_b FAILED harder and in the direction
+that matters most:** choosing the *better* table per site, on held-out roles, gives **−0.79pp** and
+**−0.63pp** — the greedy per-site optimum is worse than *either* uniform program. **A choice that helps
+at every site it was measured on hurts when the sites are combined.**
+
+> **§1765 already contains the explanation, and it is a derivation rather than a hypothesis.** §1765
+> proved that when every site is substituted, the forward at position j is a pure function of token j —
+> and a **length-1 forward computes exactly that function**. So each site's length-1 row is precisely
+> what that site emits when every site beneath it is also at its length-1 row. **The length-1 table is
+> the self-consistent fixed point of the fully compiled program**, and §1764's bit-for-bit agreement at
+> covered positions is the same fact measured.
+>
+> A fit-context table is an average over a **live** stream — a stream the fully compiled program never
+> produces. It is a better predictor of a site's output *in the model*, and an **off-manifold** one *in
+> the program*. §1845 measured the first; §1846 measures the price of the second: **−0.37pp uniformly,
+> −0.66pp greedily.**
+
+**This resolves §1845 and §1846 with one mechanism, and it yields a design rule rather than a fix.**
+Compile **one** site into a live stream and the site should predict what it emits *in that live stream* —
+the context table wins, by up to 43.5pp at mlp5. Compile **every** site and each should predict what it
+emits *in the compiled stream* — the length-1 table wins, and it wins **by construction**, because it is
+that quantity exactly. **No iteration can improve on it**: re-fitting a context table inside the compiled
+program returns the length-1 rows, since at a covered position the compiled forward *is* the length-1
+forward. The line is closed by proof, not by another sweep.
+
+**pred_c PASSED (9 FIT, 3 L1)**, so the per-site choice was genuine and not a degenerate one-table
+answer — which is what makes pred_b's failure informative rather than vacuous.
+
+**Controls (pred_d).** B0 reproduces §1829's published 64.8%; **ALL_L1 reproduces §1789's published
+full-rank top-1 exactly** (13.55 / 14.25 / 13.64%), which also confirms the all-sites arm here is the
+same object as the deployed program; the length-1 single-site arms reproduce §1834's published mlp5
+(3.6%) and mlp4 (20.3%), and mlp3 (16.3% against 64.8 − 48.5); FIT_mlp5 reproduces §1845's published
+47.1%. Coverage 5419 of 50257.
+
+**Open question this ends on.** The two regimes are now both understood at their endpoints — one
+compiled site wants context, thirty-six want length-1 — and §1832 established that partial compilation
+is a smooth dose-response between them with no frontier. **Where does the crossover sit?** Running both
+tables at a partial compile (§1832's TOP9 arm, 20 of 36 sites, which recovers 22.3%) asks whether the
+context table is still a liability at half compilation or only at full. That is the one remaining
+practically useful question in this line: it tells a hybrid program which table to use, and unlike this
+run it has a real chance of a positive answer.
