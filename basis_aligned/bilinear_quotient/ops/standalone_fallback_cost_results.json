@@ -1,0 +1,112 @@
+{
+ "config": {
+  "cells": [
+   [
+    64,
+    128
+   ],
+   [
+    8,
+    8
+   ]
+  ],
+  "arms": [
+   "hybrid",
+   "standalone"
+  ],
+  "hybrid": "table where the token was covered at fit, LIVE module elsewhere (\u00a71661)",
+  "standalone": "table everywhere; an uncovered token gets the site global mean row. The native module is never called. SAME cost -- the mean row is already stored and already counted.",
+  "ROLE_NOTE": "DISCOVERY ONLY."
+ },
+ "baseline": {
+  "skip7000": {
+   "live": 3.29205,
+   "table_only_hybrid": 7.35114,
+   "stake": 4.05909,
+   "scored_positions": 36864,
+   "covered_positions": 27974,
+   "fallback_fraction": 0.24116
+  },
+  "skip11000": {
+   "live": 3.09711,
+   "table_only_hybrid": 7.35825,
+   "stake": 4.26114,
+   "scored_positions": 36864,
+   "covered_positions": 27497,
+   "fallback_fraction": 0.2541
+  }
+ },
+ "cells": {
+  "t64_c128_hybrid": {
+   "table_rank": 64,
+   "corr_rank": 128,
+   "arm": "hybrid",
+   "total_cost_M": 25.8394,
+   "recovered": {
+    "skip7000": 0.77615,
+    "skip11000": 0.78542
+   },
+   "frac_of_stake": {
+    "skip7000": 0.19121,
+    "skip11000": 0.18432
+   },
+   "nats_per_Mreal": 0.030396
+  },
+  "t64_c128_standalone": {
+   "table_rank": 64,
+   "corr_rank": 128,
+   "arm": "standalone",
+   "total_cost_M": 25.8394,
+   "recovered": {
+    "skip7000": 0.77615,
+    "skip11000": 0.78542
+   },
+   "frac_of_stake": {
+    "skip7000": 0.19121,
+    "skip11000": 0.18432
+   },
+   "nats_per_Mreal": 0.030396
+  },
+  "t8_c8_hybrid": {
+   "table_rank": 8,
+   "corr_rank": 8,
+   "arm": "hybrid",
+   "total_cost_M": 2.6389,
+   "recovered": {
+    "skip7000": 0.4021,
+    "skip11000": 0.41052
+   },
+   "frac_of_stake": {
+    "skip7000": 0.09906,
+    "skip11000": 0.09634
+   },
+   "nats_per_Mreal": 0.155562
+  },
+  "t8_c8_standalone": {
+   "table_rank": 8,
+   "corr_rank": 8,
+   "arm": "standalone",
+   "total_cost_M": 2.6389,
+   "recovered": {
+    "skip7000": 0.4021,
+    "skip11000": 0.41052
+   },
+   "frac_of_stake": {
+    "skip7000": 0.09906,
+    "skip11000": 0.09634
+   },
+   "nats_per_Mreal": 0.155562
+  }
+ },
+ "standalone_loss_fraction": {
+  "fidelity_point": 0.0,
+  "efficiency_point": 0.0
+ },
+ "predictions": {
+  "pred_a_standalone_loses_under_30pc": true,
+  "pred_b_loss_larger_at_starved_table": false,
+  "pred_c_standalone_stays_positive": true,
+  "pred_d_controls": true
+ },
+ "runtime_s": 318.7
+}

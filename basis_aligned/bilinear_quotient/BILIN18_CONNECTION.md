@@ -45189,3 +45189,50 @@ zero **or negative**". I wrote that sentence and then wrote four more scripts wh
 the first half. A lesson written as prose is a lesson that has to be re-applied by hand every time;
 a lesson written as a function that refuses to divide is applied by default. That is the difference
 between LESSONS 34's known-answer check — which has caught things since — and the rest of the file.
+
+## §1761 — the fallback assay returned 0.00% because it scored the only positions where the two arms are identical, and reported it from rounded values
+
+`ops/standalone_fallback_cost.py`, 318.7s, **DISCOVERY ONLY**.
+**pred_a True | pred_b False | pred_c True | pred_d True — and the passes are worthless.**
+
+```
+  fallback fraction, MEASURED: skip7000 24.12% of scored positions, skip11000 25.41%
+    table 64 corr 128  hybrid      +0.77615 / +0.78542
+    table 64 corr 128  standalone  +0.77615 / +0.78542
+    table  8 corr   8  hybrid      +0.40210 / +0.41052
+    table  8 corr   8  standalone  +0.40210 / +0.41052
+```
+
+**The two arms come out identical, and they could not have come out otherwise.** `ce()` scores only
+positions whose token was covered at fit time, and **at a covered position the hybrid and standalone
+hooks emit the identical tensor by construction.** The arms differ only at uncovered positions —
+exactly the positions excluded from scoring — so the run could see nothing but a propagation
+remainder. I noticed this while the run was in flight and let it finish rather than stopping it.
+
+**And the 0.00% is computed from values already rounded to five decimals.** `loss_frac` reads
+`out[key]['recovered']`, which is `round(rec, 5)`. **That is LESSON 36 for the third time**, in the
+run immediately after I wrote a self-audit (§1760) about not re-applying my own lessons. I cannot say
+from this run whether the propagated difference is zero or merely below 5e-6.
+
+**The hooks do differ — verified, not assumed.** A synthetic four-token check: at an uncovered token
+the hybrid keeps the live output (−99.0) and the standalone takes the table's mean row (4.0). So the
+null is a scoring-population artifact, not a dead flag.
+
+**Codex red-teamed the framing while the run was going and they are right; I am taking it in full.**
+Both arms are **post-forward hooks**, so the native module *executes* at every site in both arms and
+the hook only replaces what it returns. **"The native module is never called" is mechanically false
+and is withdrawn.** What the standalone arm measures is a program whose *output* never depends on the
+native module at an uncovered position — **zero-native-OUTPUT, not zero-native-CALL**. Two things
+follow that no arm in this thread removes: the compute of the native forward, and, for attention, the
+`v1` value-bus element of the returned tuple, which is passed through unchanged in both arms per
+§1682's standing scope note. **Every "reals" figure in §1748–§1758 is storage for the substituted
+output path and always was.**
+
+**The one thing worth keeping** is the measured fallback fraction — **24.12% and 25.41%** — which had
+been quoted as "24%" from memory in six sections and is now measured on both roles.
+
+`ops/standalone_all_position.py` is queued: both scoring populations in one pass at full precision,
+so the honest standalone number and the propagation remainder separate instead of collapsing. Its
+`pred_d` uses **3.13704** as a known answer for all-position live CE — the value §1728's baseline
+assert fired on when I first scored every position by mistake. A failure that stopped a run three
+hours ago is now a control.
