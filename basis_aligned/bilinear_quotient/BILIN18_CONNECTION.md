@@ -49101,8 +49101,14 @@ not something this run tested.
 > it generalise: a length-1 context-free table, scored in top-1 gap fraction over all positions, **on top
 > of an already-compiled layer 0**. §1840 measured single-site damage on the FULLY LIVE model using the
 > ideal empirical per-token mean, scored in CE on covered positions, and there `mlp1` leads at +0.1935
-> nats with `mlp5` ninth at +0.0512. The two orderings still agree overall (Spearman +0.851), but mlp5's
-> primacy is specific to compilation **beneath a compiled layer 0**, not a property of the site alone.
+> nats with `mlp5` ninth at +0.0512. The two orderings still agree overall (Spearman +0.851).
+>
+> **ATTRIBUTION CORRECTED BY §1841.** §1840 attributed mlp5's primacy to the compiled layer 0 beneath it.
+> §1841 measured that interaction and it is only **1.31x** (+0.0668 on the B0 stream against +0.0512
+> live), far short of the 2x its own prediction required. **The scoping stands; the cause named for it
+> does not.** What remains to separate mlp5's +61.2pp from its unremarkable live-stream CE rise is the
+> other three differences: the length-1 context-free table versus the ideal empirical per-token mean, the
+> top-1 gap-fraction readout versus CE, and all-positions-with-map-fallback versus covered-only.
 
 **Layer 5 returns, but as the MLP.** §1804 measured attention at layer 5 exploding **152x** on a compiled
 stream and §1818 pinned 85% of that excess on head 5.7. Those are measurements on the fully compiled
@@ -49488,3 +49494,56 @@ lives in the last half of the interpolation, but six points cannot locate a knee
 the B0 stream where §1834's figures were measured, would say whether "remove the last 20% of context
 dependence" is where compilation actually becomes expensive — and that is a threshold a compiled program
 could be designed against rather than merely a diagnosis.
+
+## §1841 — no threshold, but a SHARED curve shape; and the compiled-layer-0 interaction is only 1.31x
+
+`ops/knee_location.py`, 121.1s, **DISCOVERY ONLY**, rung 3 (§1840's open question).
+**pred_a False | pred_b False | pred_c True | pred_d True.**
+
+CE above each stream's own base, nine alphas dense near 0 (B0 stream, base 3.34214):
+
+```
+  mlp5    a.5 +.0145  a.3 +.0292  a.2 +.0393  a.15 +.0452  a.1 +.0517  a.05 +.0589  a.0 +.0668
+  mlp1    a.5 +.0390  a.3 +.0727  a.2 +.0953  a.15 +.1101  a.1 +.1288  a.05 +.1539  a.0 +.1884
+  attn5   a.5 +.0137  a.3 +.0335  a.2 +.0481  a.15 +.0568  a.1 +.0665  a.05 +.0773  a.0 +.0893
+  mlp17   a.5 +.0373  a.3 +.0719  a.2 +.0930  a.15 +.1044  a.1 +.1164  a.05 +.1290  a.0 +.1421
+  attn14  a.5 +.0034  a.3 +.0084  a.2 +.0117  a.15 +.0136  a.1 +.0157  a.05 +.0180  a.0 +.0204
+  half-damage alpha:  mlp1 .205   attn5 .223   attn14 .246   mlp5 .259   mlp17 .305
+```
+
+**pred_a FAILED: there is no threshold.** Only **41.1%** of mlp5's damage accrues below alpha = 0.2,
+against the >50% the prediction required. The curve is convex — the last fifth of the context-dependent
+component costs four times what an equal share of the first fifth costs — but convex is not a knee, and
+pred_a's failure branch is the honest reading: *"'non-linear' means only 'convex', and there is no
+threshold for a design rule."* §1840's non-linearity stands; the hope of a designable cut-off does not.
+
+**pred_c PASSED and is the finding.** The half-damage alpha varies by only **0.100** across five sites
+spanning a 9x range in total damage (attn14 +0.0204 to mlp1 +0.1884) and both site types: every one
+reaches half its damage between **alpha 0.21 and 0.31**. **The curve has essentially one shape, scaled
+per site.** That is a stronger statement than a threshold would have been in one respect — it says the
+*non-linearity* is a property of the compilation operation itself rather than of any particular site —
+and weaker in another, since a shared shape with no knee gives nothing to design against.
+
+> **pred_b FAILED, and it corrects an attribution I made yesterday's section.** §1840 found mlp5 ninth
+> on a live model where §1834 ranks it first, and I attributed the difference to the compiled layer 0
+> beneath it. **Measured, that interaction is 1.31x** — +0.0668 on the B0 stream against +0.0512 live,
+> against the 2x the prediction required. **§1834's scoping stands and the cause I named for it does
+> not.** I have corrected the note inside §1834 in place rather than leave a wrong attribution attached
+> to a right caveat.
+
+**Controls (pred_d), and they are exact.** alpha = 1 reproduces each stream's own base CE to
+**0.0e+00** on *both* streams at all five sites — bit-for-bit, the known-answer check §1838 and §1839
+could not provide. The live-stream alpha=0 values reproduce §1840's published +0.0512, +0.1935, +0.0768
+and +0.1325 with a maximum drift of **0.0000**. §1837's explained variance reproduces to 0.0005.
+Coverage 5419 of 50257. The B0 stream itself costs +0.0501 nats over live before any target site is
+touched, which is the compiled-layer-0 baseline.
+
+**Open question this ends on.** Three differences still separate §1834's +61.2pp for mlp5 from the
++0.0668 nats this run measures, and §1841 has now eliminated the one I guessed. The remaining candidate
+with a mechanism behind it is the **table itself**: §1834 uses a *length-1 context-free* table — each
+site's output on a one-token sequence — while every alpha curve here uses the *empirical per-token mean
+over real contexts*. Those are different objects and nothing has ever compared them per site. If the
+length-1 table is far worse than the empirical mean specifically at mlp5, that is both the explanation
+for §1834's ranking and a concrete statement about what layer 5's MLP does that a single-token forward
+cannot see. Measuring `||length-1 row − empirical mean||` against each site's output scale, for all 36
+sites, is one pass and settles it.

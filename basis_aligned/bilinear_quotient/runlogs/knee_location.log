@@ -1,1 +1,25 @@
 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+KNEE LOCATION | alphas (1.0, 0.5, 0.3, 0.2, 0.15, 0.1, 0.05, 0.02, 0.0), 5 sites x LIVE and B0 streams | DISCOVERY ONLY
+  live covered CE 3.292052; B0-stream base 3.342141 (+0.0501) (4s)
+  swept (121s)
+
+  LIVE stream, CE above its own base 3.29205:
+    mlp5    a1.0:+0.0000 a0.5:+0.0088 a0.3:+0.0203 a0.2:+0.0284 a0.15:+0.0332 a0.1:+0.0386 a0.05:+0.0446 a0.02:+0.0484 a0.0:+0.0512   half at a=0.235
+    mlp1    a1.0:+0.0000 a0.5:+0.0137 a0.3:+0.0401 a0.2:+0.0682 a0.15:+0.0880 a0.1:+0.1116 a0.05:+0.1447 a0.02:+0.1721 a0.0:+0.1935   half at a=0.132
+    attn5   a1.0:+0.0000 a0.5:+0.0104 a0.3:+0.0273 a0.2:+0.0401 a0.15:+0.0477 a0.1:+0.0564 a0.05:+0.0660 a0.02:+0.0724 a0.0:+0.0768   half at a=0.213
+    mlp17   a1.0:+0.0000 a0.5:+0.0351 a0.3:+0.0672 a0.2:+0.0867 a0.15:+0.0973 a0.1:+0.1085 a0.05:+0.1202 a0.02:+0.1275 a0.0:+0.1325   half at a=0.306
+    attn14  a1.0:+0.0000 a0.5:+0.0043 a0.3:+0.0096 a0.2:+0.0131 a0.15:+0.0151 a0.1:+0.0173 a0.05:+0.0196 a0.02:+0.0210 a0.0:+0.0221   half at a=0.260
+
+  B0 stream, CE above its own base 3.34214:
+    mlp5    a1.0:+0.0000 a0.5:+0.0145 a0.3:+0.0292 a0.2:+0.0393 a0.15:+0.0452 a0.1:+0.0517 a0.05:+0.0589 a0.02:+0.0635 a0.0:+0.0668   half at a=0.259
+    mlp1    a1.0:+0.0000 a0.5:+0.0390 a0.3:+0.0727 a0.2:+0.0953 a0.15:+0.1101 a0.1:+0.1288 a0.05:+0.1539 a0.02:+0.1733 a0.0:+0.1884   half at a=0.205
+    attn5   a1.0:+0.0000 a0.5:+0.0137 a0.3:+0.0335 a0.2:+0.0481 a0.15:+0.0568 a0.1:+0.0665 a0.05:+0.0773 a0.02:+0.0844 a0.0:+0.0893   half at a=0.223
+    mlp17   a1.0:+0.0000 a0.5:+0.0373 a0.3:+0.0719 a0.2:+0.0930 a0.15:+0.1044 a0.1:+0.1164 a0.05:+0.1290 a0.02:+0.1368 a0.0:+0.1421   half at a=0.305
+    attn14  a1.0:+0.0000 a0.5:+0.0034 a0.3:+0.0084 a0.2:+0.0117 a0.15:+0.0136 a0.1:+0.0157 a0.05:+0.0180 a0.02:+0.0194 a0.0:+0.0204   half at a=0.246
+
+  the KNEE IS LATE for mlp5 on B0 (>50% of damage below a=0.2) -> False  41.1% of +0.0668 nats
+  and the INTERACTION is real (B0 mlp5 >= 2x live +0.0512) -> False  B0 +0.0668 vs live +0.0512, ratio 1.31x
+  and the KNEE IS SHARED (half-alpha spread <0.15 on B0) -> True  spread 0.100   mlp5 0.259  mlp1 0.205  attn5 0.223  mlp17 0.305  attn14 0.246
+  alpha=1 exact on both streams (0.0e+00 / 0.0e+00), §1840 a0 drift 0.0000, §1837 drift 0.0005 -> control True
+
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/knee_location_results.json (121.1s)
