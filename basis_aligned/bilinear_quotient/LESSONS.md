@@ -761,3 +761,31 @@ failure, and none was caught by the usual defences:
   so the guard is to write it two-sided or to bound the magnitude.
 - **What it is NOT:** a reason to weaken bars. All three of these were strict. Strictness does not
   help when the quantity cannot move.
+
+## LESSON 32 — one control is not a control
+
+A specificity ratio with a single denominator is a coin flip wearing a ratio's clothes. §1724
+scored every registry circuit against one deterministically-picked matched-size control set and
+concluded the median circuit "matters less than arbitrary". §1725 replaced the single pick with
+twelve random draws and two headline rows **reversed**: mlp0 from 0.12 to 14.81, mlp1 from 8.25 to
+151.56. The 0.12 was not a fact about mlp0; it was a fact about mlp1 having been drawn as its
+control.
+
+The tell was visible in the v2 output before any second run and I read past it: **four of fifteen
+rows were exact reciprocal pairs.** 4.3301/3.5570 = 1.2173 next to 3.5570/4.3301 = 0.8215;
+7.0213/0.8514 = 8.2468 next to 0.8514/7.0213 = 0.1213. Reciprocals in a table of ratios mean the
+numerator and denominator are drawn from a two-element pool — the control set is not a sample of
+"elsewhere", it is the one other thing.
+
+Two rules from this:
+- **A denominator drawn once is a denominator with no error bar.** If a comparison set can be
+  sampled, sample it more than once and report the percentile, not just the ratio. If it *cannot*
+  be sampled more than once — a set naming all 18 sites of one kind has exactly one matched-size
+  elsewhere — report that the percentile does not exist rather than a degenerate 0 or 1.
+- **Scan a results table for algebraic coincidences before interpreting it.** Exact reciprocals,
+  exact complements, and rows that sum suspiciously to a round number are usually the instrument
+  showing through, not the model.
+
+Related: LESSONS 29 (a full set of passing predictions is not evidence the code ran) and LESSONS 31
+(a prediction that cannot fail is not a prediction). This is the third member of the family: **a
+comparison whose baseline has one degree of freedom cannot fail informatively either.**

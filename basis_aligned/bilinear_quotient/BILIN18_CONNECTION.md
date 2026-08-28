@@ -43483,3 +43483,65 @@ Header/code drift also found and fixed in v3: v2's docstring still lists the v1 
 for a/b/c/d while the code computes the specificity ones. The printed line is authoritative; the
 docstring was stale. No result depends on it, but a reader of the file alone would have mismatched
 every predicate with its bar.
+
+## §1725 — the randomised control reverses two of v2's headline rows: mlp0 goes from 0.12 to 14.81, mlp1 from 8.25 to 151.56
+
+`ops/circuit_audit_v3.py`, 239.5s, registry now 85 entries / 59 certified, 16 auditable.
+**pred_a True | pred_b True | pred_c True | pred_d True.**
+
+Specificity is now the named set's removal over the **median** of up to 12 random matched-size
+control sets, with the named set's **percentile** among them.
+
+```
+  circuit                                    spec   pct  draws  claim        consistent
+  _mlp1_dossier                            151.56  1.00     12  important    YES
+  _mlp0_dossier_resolved                    14.81  1.00     12  important    YES
+  _front_band_tableability_ladder            7.88  1.00     12  important    YES
+  _front_is_tabular_middle_is_not            7.88  1.00     12  important    YES
+  _front_mlps_are_synergistic                7.88  1.00     12  important    YES
+  _program_price_curve                       1.22   n/a      1  important    -
+  _best_compiled_program_for_mlp_stack       1.22   n/a      1  important    -
+  _band_synergy_sign_depends_on_band         1.04  0.58     12  ambiguous    -
+  _middle_band_is_redundant_not_small        0.84  0.33     12  redundant    no
+  _middle_band_program_family_prices         0.84  0.33     12  ambiguous    -
+  _mid_band_feature_price_curve              0.84  0.33     12  ambiguous    -
+  _attention_output_write_is_nonlocal        0.82   n/a      1  important    -
+  _attention_write_is_mostly_two_position    0.82   n/a      1  important    -
+  _only_attention_routing_is_compressible    0.82   n/a      1  important    -
+  _lag1_failure_is_middle_band               0.68  0.00     12  important    no
+  _whole_model_program                        no control exists (names every site)
+```
+
+**§1724's diagnosis was right and the correction is large.** `_mlp0_dossier_resolved` goes from
+0.12 to **14.81** and `_mlp1_dossier` from 8.25 to **151.56** — both at percentile 1.00, the most
+costly of every draw. v2's reading that mlp0 "matters 8x less than an arbitrary site" was **entirely
+an artifact of mlp1 being the one site drawn as its control**. The median random single MLP costs
+0.0575 nats against mlp0's 0.8513. The front band lands at 7.88 with all three of its entries at
+percentile 1.00. Neither of the two circuits I could most easily have defended in v2 needed
+defending; the instrument was wrong, not the circuits.
+
+**§1724's median-0.82 headline is therefore withdrawn as stated.** Against a proper control
+distribution the front band and both dossiers are strongly specific. What survives is narrower and
+still worth having: **the middle band sits at percentile 0.33 and middle-band attention at 0.00**.
+
+**Two rows fail their own claim's bar, and both failures are informative rather than embarrassing.**
+
+`_middle_band_is_redundant_not_small` is annotated `redundant`, so a low percentile confirms it —
+but 0.33 does not clear the 0.25 bar. The band is *slightly below* the median arbitrary twelve
+sites, not dramatically redundant. Directionally right, quantitatively weaker than the entry reads.
+
+`_lag1_failure_is_middle_band` sits at **percentile 0.00** — the least costly of all twelve matched
+draws — while annotated `important`. **This does not refute the entry.** The entry claims lag-1
+copying *fails* in middle-band attention; it never claimed those sites carry the most global CE.
+It is a clean demonstration that **removal is the wrong estimand for that claim**, which is exactly
+the point Codex raised on the board within minutes of this run: direction picks the bar, it does not
+change what is being measured.
+
+**A limit that v3 names rather than fixes.** Five of the sixteen rows have `n_control_draws: 1` and
+no percentile. A circuit naming all 18 sites of one kind has exactly one matched-size control — all
+18 of the other kind — so its specificity is the fixed reciprocal pair 1.22 / 0.82 and carries no
+information beyond "the MLP stack costs more than the attention stack", which §1662/§1707 already
+established. Reported as null rather than as a 0 or a 1.
+
+pred_b was aimed at my own §1724 reasoning and passed: two circuits moved by more than 2x. Had it
+failed, the record would have said §1724 overstated the artifact.
