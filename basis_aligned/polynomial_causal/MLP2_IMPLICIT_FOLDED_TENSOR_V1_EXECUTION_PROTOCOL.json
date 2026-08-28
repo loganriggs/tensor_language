@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "experiment_id": "bilin18_mlp2_implicit_folded_tensor_v1",
+  "status": "prospective_no_mlp2_checkpoint_tensor_loaded",
+  "site": 2,
+  "device": "cpu",
+  "analysis_arithmetic": "numpy.float64",
+  "blas_thread_count": 1,
+  "frozen_mlp2_sources": {
+    "preregistration_commit": "899f81d6e120ecedb4d7fbd3b0f819740fb5a034",
+    "implementation_commit": "58b4040ddcab72d96965f792f0c2da787d100864",
+    "preregistration_sha256": "d97f8c29307c8199bd8846bca3a16356ccd1767e356f067f8f23b465ac081d12",
+    "math_source_sha256": "e6093e9ae6f66078cb49f5a479e5131be1d7e0b880c290e8a44ebe17d7af063e",
+    "math_test_sha256": "3bbb750170b46ebb8f16e115a49eaffe09cb4b5850e6f8968099bb9443b3de3e"
+  },
+  "energy_levels": [0.9, 0.95, 0.99, 0.999],
+  "native_dtype_schema": {
+    "torch.bfloat16": [
+      "transformer.wte.weight",
+      "transformer.h.*.lambdas",
+      "transformer.h.*.attn.lamb",
+      "transformer.h.*.mlp.Down_bias"
+    ],
+    "torch.float32": "every other key in the exact 218-key TT.GPT state tree"
+  },
+  "state_key_counts": {
+    "total": 218,
+    "torch.bfloat16": 55,
+    "torch.float32": 163
+  },
+  "mlp2_factor_dtypes": {
+    "Left.weight": "torch.float32",
+    "Right.weight": "torch.float32",
+    "Down.weight": "torch.float32",
+    "Down_bias": "torch.bfloat16"
+  },
+  "bias_rule": "Clone and hash the original MLP2 bf16 Down_bias before conversion; make and separately hash one disjoint float64 analysis copy; retain all 1152 values exactly; bias is not an input to balancing, mode Grams, spectra, HOSVD tails, or price-rank selection.",
+  "checkpoint_load_rule": "Only after exact MLP2 source/weight authority: one local torch.load(weights_only=True,mmap=True,map_location=cpu), exact 218-key shape/native-dtype validation, clone only MLP2 Left/Right/Down/Down_bias, then delete the state tree.",
+  "publication_order": [
+    "mlp2_source_weight_authority",
+    "mlp2_nonauthoritative_result",
+    "mlp2_last_written_outcome_authority"
+  ],
+  "failure_rule": "Failure is create-only, may bind a partial MLP2 result, and can never overwrite or authorize an artifact.",
+  "claim_boundary": "spectral_and_fixed_grammar_price_diagnostic_only; no CP-rank, CE, causal, semantic, removal, OOD, or cube credit"
+}
