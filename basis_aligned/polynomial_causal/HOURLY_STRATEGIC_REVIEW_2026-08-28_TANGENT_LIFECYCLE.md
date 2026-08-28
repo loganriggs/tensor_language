@@ -20,7 +20,7 @@ The corrected plan has 48 rows/16 documents in primary and 48 rows/17 documents 
 replication. Every one of 32 directions at each of MLP0, MLP1, and MLP2 is evaluated on
 every row. With 16 categorical-Fisher probes per row, the cut-3 response matrix is
 $768\times96$ independently in each split. The exact plan fingerprint is
-`062ad87d552112bd2064726848a5f3d1a1e1ee13118e01cf3a4b462c2c8e0141`.
+`b9caa7ce2ecbd63a197262098931541c32dce27ed31b35454753b773f8cf4e20`.
 
 ## Honest progress ledgers
 

@@ -115,13 +115,18 @@ def finalize_score(accumulator: dict[str, dict[str, float | int]]) -> dict[str, 
 
 
 @torch.no_grad()
-def compile_shared_bank(model: torch.nn.Module, fit_rows: torch.Tensor):
+def compile_shared_bank(
+    model: torch.nn.Module, fit_rows: torch.Tensor, *, rank: int | None = None,
+):
     programs = []
     receipt: dict[str, Any] = {}
     device = next(model.parameters()).device
     blocks = tuple(model.transformer.h)
     batch = frontier.FIT_BATCH
-    spec = frontier.ArmSpec(qk_rank=RANK, value_rank=None, shared_qk=True)
+    selected_rank = RANK if rank is None else rank
+    if type(selected_rank) is not int or selected_rank <= 0 or selected_rank > frontier.D:
+        raise ValueError("shared-QK rank must be a positive integer no larger than width")
+    spec = frontier.ArmSpec(qk_rank=selected_rank, value_rank=None, shared_qk=True)
 
     for target in range(LAYERS):
         covariance = torch.zeros(

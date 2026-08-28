@@ -348,6 +348,7 @@ class TensorBilin18TangentTransaction:
         self, *, program: TensorBilin18Program, plan: TangentResponsePlan,
         row_ids: Sequence[str], tokens: torch.Tensor,
         geometries: Mapping[int, WriteCovarianceGeometry], production: bool = True,
+        injection_positions_for_test: Sequence[int] | None = None,
     ) -> None:
         if not isinstance(program, TensorBilin18Program) or not isinstance(
             plan, TangentResponsePlan
@@ -364,6 +365,8 @@ class TensorBilin18TangentTransaction:
         ):
             raise ValueError("tangent tokens have the wrong shape, dtype, or device")
         if production:
+            if injection_positions_for_test is not None:
+                raise ValueError("production injection positions come only from the frozen plan")
             cost = program.cost_receipt()
             if program.width != PRODUCTION_WIDTH or program.logit_vocab != PRODUCTION_VOCAB or (
                 program.vocab_size != PRODUCTION_TOKEN_VOCAB
@@ -371,6 +374,15 @@ class TensorBilin18TangentTransaction:
                 int(cost["native_calls_per_forward"]) != 0
             ) or not bool(cost["total_input_support"]):
                 raise ValueError("production tangent collection requires the admitted rank640 program")
+        if not production:
+            positions = tuple(injection_positions_for_test or (0,) * len(rows))
+            if len(positions) != len(rows) or any(
+                type(position) is not int or not 0 <= position < tokens.shape[1]
+                for position in positions
+            ):
+                raise ValueError("test injection positions must align with tokens")
+        else:
+            positions = ()
         dimension_ledger = dict(plan.input_dims)
         if tuple(sorted(dimension_ledger)) != SOURCE_SITES or set(geometries) != set(SOURCE_SITES):
             raise ValueError("tangent source-site ledger changed")
@@ -381,6 +393,10 @@ class TensorBilin18TangentTransaction:
             if not isinstance(geometry, WriteCovarianceGeometry) or geometry.site != site:
                 raise ValueError("tangent direction geometry is missing or site-mismatched")
             value = geometry.directions
+            if _tensor_sha256(geometry.covariance) != geometry.covariance_sha256 or (
+                _tensor_sha256(value) != geometry.directions_sha256
+            ):
+                raise ValueError("tangent geometry content differs from its frozen hash")
             if not torch.is_tensor(value) or tuple(value.shape) != (
                 dimension_ledger[site], program.width,
             ) or value.device.type != "cpu" or value.dtype != torch.float64 or (
@@ -399,10 +415,14 @@ class TensorBilin18TangentTransaction:
         self.__program: TensorBilin18Program | None = program
         self.__plan: TangentResponsePlan | None = plan
         self.__row_ids: tuple[str, ...] | None = rows
-        self.__tokens: torch.Tensor | None = tokens
+        self.__tokens: torch.Tensor | None = tokens.contiguous().clone()
+        self.__tokens_sha256: str | None = _tensor_sha256(self.__tokens)
         self.__directions: dict[int, torch.Tensor] | None = copied
         self.__geometry_receipt: dict[int, dict[str, Any]] | None = geometry_receipt
         self.__production = production
+        self.__test_injection_positions: tuple[int, ...] | None = (
+            positions if not production else None
+        )
         self.__closed = False
 
     @property
@@ -416,8 +436,10 @@ class TensorBilin18TangentTransaction:
             "_TensorBilin18TangentTransaction__plan",
             "_TensorBilin18TangentTransaction__row_ids",
             "_TensorBilin18TangentTransaction__tokens",
+            "_TensorBilin18TangentTransaction__tokens_sha256",
             "_TensorBilin18TangentTransaction__directions",
             "_TensorBilin18TangentTransaction__geometry_receipt",
+            "_TensorBilin18TangentTransaction__test_injection_positions",
         ))
 
     def _revoke(self) -> None:
@@ -425,8 +447,10 @@ class TensorBilin18TangentTransaction:
         self.__plan = None
         self.__row_ids = None
         self.__tokens = None
+        self.__tokens_sha256 = None
         self.__directions = None
         self.__geometry_receipt = None
+        self.__test_injection_positions = None
         self.__closed = True
 
     def consume(self) -> TangentBatchResult:
@@ -434,15 +458,20 @@ class TensorBilin18TangentTransaction:
             raise RuntimeError("tangent graph transaction is spent")
         program, plan, row_ids = self.__program, self.__plan, self.__row_ids
         tokens, directions = self.__tokens, self.__directions
+        tokens_sha256 = self.__tokens_sha256
         geometry_receipt = self.__geometry_receipt
+        test_injection_positions = self.__test_injection_positions
         assert program is not None and plan is not None and row_ids is not None
-        assert tokens is not None and directions is not None and geometry_receipt is not None
+        assert tokens is not None and tokens_sha256 is not None
+        assert directions is not None and geometry_receipt is not None
         logits: torch.Tensor | None = None
         leaves: dict[int, torch.Tensor] | None = None
         targets: torch.Tensor | None = None
         try:
             if tuple(program.parameters()):
                 raise RuntimeError("owned tensor program unexpectedly has trainable parameters")
+            if _tensor_sha256(tokens) != tokens_sha256:
+                raise RuntimeError("owned tangent tokens changed after transaction construction")
             if any(buffer.requires_grad or buffer.grad is not None for buffer in program.buffers()):
                 raise RuntimeError("owned tensor program buffer gradient state changed")
             logits, leaves, forward_receipt = _forward_with_additive_write_leaves(
@@ -461,8 +490,9 @@ class TensorBilin18TangentTransaction:
             )
             row_ordinals = [plan.row_ids.index(row_id) for row_id in row_ids]
             injection_positions = torch.tensor([
-                plan.scored_positions[index] if self.__production else 0
-                for index in row_ordinals
+                plan.scored_positions[index] if self.__production
+                else test_injection_positions[row]
+                for row, index in enumerate(row_ordinals)
             ], device=logits.device, dtype=torch.long)
             score_start = SCORE_START if self.__production else 0
             score_stop = SCORE_STOP if self.__production else tokens.shape[1]
@@ -513,6 +543,7 @@ class TensorBilin18TangentTransaction:
                 "status": "complete",
                 "plan_fingerprint": plan.fingerprint,
                 "row_ids": list(row_ids),
+                "tokens_sha256": tokens_sha256,
                 "source_sites": list(SOURCE_SITES),
                 "probe_seeds": list(probe_seeds),
                 "target_ids_sha256": target_hash,

@@ -82,7 +82,10 @@ rather than treated as separable Euclidean modules.
   gap is at least 2 and the rank is strictly below full measured support.
 
 The exact plan fingerprint is
-`062ad87d552112bd2064726848a5f3d1a1e1ee13118e01cf3a4b462c2c8e0141`.
+`b9caa7ce2ecbd63a197262098931541c32dce27ed31b35454753b773f8cf4e20`.
+This fingerprint now also commits to the exact direction construction, categorical
+Fisher sampling and future-only score rule, Monte-Carlo-sum units, and the restricted
+shared-linear-interface claim.
 `finite_horizon_tangent_response_bank.py` enforces complete source coverage, exact
 shapes, detached CPU float64 responses, duplicate rejection, whole-document splits,
 one-use sealing, content hashes, and fail-closed incomplete collection. It does not
@@ -90,7 +93,8 @@ claim to implement or audit the model-side VJP.
 
 ## Gates and consequence beyond reconstruction
 
-1. Primary/replication response traces differ by at most 5%; selected shared-linear
+1. Primary/replication response traces, divided by each split's registered total
+   future-position exposure, differ by at most 5%; selected shared-linear
    ranks differ by at most two; trace-normalized squared spectra have $L^1$ distance at
    most 0.10; normalized right-projector chordal distance in the common intervention
    coordinates is at most 0.15. Per-context rank distributions are reported separately

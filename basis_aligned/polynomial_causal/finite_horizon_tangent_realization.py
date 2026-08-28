@@ -191,6 +191,8 @@ def compare_split_cuts(
     gap_ratio: float = 2.0, maximum_rank_difference: int = 2,
     maximum_spectrum_l1: float = 0.10,
     maximum_projector_distance: float = 0.15,
+    primary_exposure: int | None = None,
+    replication_exposure: int | None = None,
 ) -> dict[str, Any]:
     """Compare independently measured cut operators in their common input gauge.
 
@@ -202,6 +204,13 @@ def compare_split_cuts(
         maximum_spectrum_l1 < 0 or maximum_projector_distance < 0
     ):
         raise ValueError("split-cut comparison constants are malformed")
+    if (primary_exposure is None) != (replication_exposure is None) or (
+        primary_exposure is not None and (
+            type(primary_exposure) is not int or type(replication_exposure) is not int
+            or primary_exposure <= 0 or replication_exposure <= 0
+        )
+    ):
+        raise ValueError("split exposures must be supplied together as positive integers")
     reports: dict[str, Any] = {}
     for cut in cuts:
         primary, _ = assemble_cut(primary_blocks, input_dims, output_dims, cut)
@@ -214,9 +223,11 @@ def compare_split_cuts(
         energy_replication = singular_replication.square()
         trace_primary = float(energy_primary.sum())
         trace_replication = float(energy_replication.sum())
-        mean_trace = (trace_primary + trace_replication) / 2
+        density_primary = trace_primary / (primary_exposure or 1)
+        density_replication = trace_replication / (replication_exposure or 1)
+        mean_trace = (density_primary + density_replication) / 2
         relative_trace = (
-            abs(trace_primary - trace_replication) / mean_trace
+            abs(density_primary - density_replication) / mean_trace
             if mean_trace > 0 else math.inf
         )
         if trace_primary <= 0 or trace_replication <= 0:
@@ -280,6 +291,13 @@ def compare_split_cuts(
             "combined_selected_rank": comparison_rank,
             "rank_difference": rank_difference,
             "relative_trace_difference": relative_trace,
+            "raw_trace": {"primary": trace_primary, "replication": trace_replication},
+            "exposure_normalized_trace": {
+                "primary": density_primary, "replication": density_replication,
+            },
+            "trace_exposure": {
+                "primary": primary_exposure, "replication": replication_exposure,
+            },
             "normalized_squared_spectrum_l1": spectrum_l1,
             "normalized_right_projector_chordal_distance": projector_distance,
             "gates": gates,

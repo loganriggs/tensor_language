@@ -46319,3 +46319,51 @@ truncated basis is the repair, and it is the next thing to run rather than a not
 Controls (pred_c, pred_d): covered CE is identical between the two fallbacks to 1e-9 at every rank and
 role, as it must be; the neighbour arm reproduces §1782/§1783's three all-position and three covered
 numbers within 0.002; coverage 5419 of 50257.
+
+## §1785 — the repair holds: refitting the map inside each basis clears the bar §1784 failed, on every cell
+
+`ops/learned_row_rank_consistent.py`, 361.7s, **DISCOVERY ONLY**.
+**pred_a True | pred_b True | pred_c True | pred_d True.**
+
+```
+  all-position CE          neighbour    learned    margin      cost
+  skip7000  full            6.01897     6.01167    +0.00730    230.087M
+  skip7000  rank 64         6.19187     6.17330    +0.01857     20.531M
+  skip11000 full            6.00091     5.98477    +0.01614    230.087M
+  skip11000 rank 64         6.18267     6.15261    +0.03006     20.531M
+  skip1200  full            6.00733     6.00165    +0.00568    230.087M
+  skip1200  rank 64         6.15065     6.14463    +0.00602     20.531M
+```
+
+**pred_a now passes at every cell**, including the one §1784 failed: skip1200 at rank 64 moves from
+**−0.00091 to +0.00602**. The failure was my construction, not the method.
+
+**pred_b is the check that the repair is actually in force, and it has teeth.** The rank-64 learned
+arm's uncovered-only CE now differs from the full-rank one by **0.032, 0.022, 0.029** across roles. In
+§1784 that difference was under 3e-5 — the tell that exposed the defect — so a repair that had not
+taken would have reproduced it.
+
+**pred_d holds the other way: the full-rank arm did not move at all** (6.01167 / 5.98477 / 6.00165,
+identical to §1784), which is required, since that arm was already coherent and refitting inside the
+untruncated basis is a no-op.
+
+**Is the map worth its 5.308M reals?** Both readings, since they differ:
+
+- **At fixed table rank it is a real gain**: rank 64 goes from 6.18267 to 6.15261 held out.
+- **As a marginal buy it beats the alternative**: 0.03006 nats for 5.308M is **0.00566 nats per
+  million**, against **0.00367** for spending the same way on table rank (§1770's rank 64 → 256 step
+  bought 0.16649 nats for 45.418M). So if you have reals to spend at rank 64, the embedding→row map
+  is the better place to put them.
+
+**Best standalone position-wise programs measured, all-position CE on skip11000** (live model
+2.93450):
+
+| program | cost | all-position CE |
+|---|---:|---:|
+| full-rank tables + learned map | 230.087M | **5.98477** |
+| full-rank tables + output-NN neighbour | 224.778M | 6.00091 |
+| rank-64 tables + learned map | **20.531M** | 6.15261 |
+| rank-64 tables + output-NN neighbour | 15.223M | 6.18267 |
+
+Controls (pred_c, pred_d): covered CE identical between fallbacks to 1e-9 at every rank and role; the
+neighbour arms reproduce §1782/§1783 within 0.002; coverage 5419 of 50257.

@@ -7879,3 +7879,24 @@ left/context projectors. All three cuts must pass the frozen trace, 95%-energy g
 rank, squared-spectrum, and projector gates; otherwise consequence execution remains
 closed. Thirty focused tests pass. Pending independent GO/NO-GO, no role or GPU has
 been opened by this source commit.
+
+### 2026-08-28T10:49Z — Codex: independent NO-GO converted into staged authority
+
+Two read-only audits agreed that the Fisher/VJP algebra is sound but the previous
+launcher could not bind a freshly rebuilt equal-price program to the admitted rank640
+realization. Root import also failed on `jacclust`, geometry trusted stale hashes,
+protected inputs were hashed after measurement, and direct publication was
+crash-fragile. No GPU outcome was opened.
+
+The repair now requires three create-only stages: exact every-buffer rank640 program
+authority with no outcomes; identical program rebuild plus frozen covariance/direction
+geometry with no score targets or gradients; then response measurement with pre/post
+source, row, program and geometry validation, an exclusive lock, and atomic
+publication. Rank is an explicit compiler argument rather than mutable module state.
+The amended protocol fingerprint is
+`b9caa7ce2ecbd63a197262098931541c32dce27ed31b35454753b773f8cf4e20`.
+Focused suite is 39/39 from repository root. Independent final-byte audit now gives
+implementation GO with no code-level blocker; launch remains operationally NO-GO until
+these exact bytes are committed/pushed and the program and geometry receipts are
+created and inspected in separate stages. Full record:
+`basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-08-28_1049.md`.

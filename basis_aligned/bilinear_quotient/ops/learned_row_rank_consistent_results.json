@@ -1,0 +1,113 @@
+{
+ "config": {
+  "map_rank": 64,
+  "ridge": 0.01,
+  "table_ranks": [
+   "full",
+   "64"
+  ],
+  "learned": "ridge map from the token embedding to the site row, fitted on the 5419 COVERED tokens and applied only at uncovered ones; still a function of the current token alone",
+  "map_cost_M": 5.3084,
+  "neighbour": "the settled output-NN fallback (\u00a71780/\u00a71781)",
+  "ROLE_NOTE": "DISCOVERY ONLY."
+ },
+ "results": {
+  "skip7000": {
+   "live": {
+    "cov": 3.29205,
+    "all": 3.13704
+   },
+   "neighbour_full": {
+    "cov": 6.03465,
+    "all": 6.01897,
+    "cost_M": 224.7782,
+    "uncovered_ce": 5.96963
+   },
+   "learned_full": {
+    "cov": 6.03465,
+    "all": 6.01167,
+    "cost_M": 230.0867,
+    "uncovered_ce": 5.93936
+   },
+   "neighbour_64": {
+    "cov": 6.25792,
+    "all": 6.19187,
+    "cost_M": 15.2225,
+    "uncovered_ce": 5.98403
+   },
+   "learned_64": {
+    "cov": 6.25792,
+    "all": 6.1733,
+    "cost_M": 20.5309,
+    "uncovered_ce": 5.90703
+   }
+  },
+  "skip11000": {
+   "live": {
+    "cov": 3.09711,
+    "all": 2.9345
+   },
+   "neighbour_full": {
+    "cov": 5.979,
+    "all": 6.00091,
+    "cost_M": 224.7782,
+    "uncovered_ce": 6.06523
+   },
+   "learned_full": {
+    "cov": 5.979,
+    "all": 5.98477,
+    "cost_M": 230.0867,
+    "uncovered_ce": 6.00171
+   },
+   "neighbour_64": {
+    "cov": 6.21152,
+    "all": 6.18267,
+    "cost_M": 15.2225,
+    "uncovered_ce": 6.09798
+   },
+   "learned_64": {
+    "cov": 6.21152,
+    "all": 6.15261,
+    "cost_M": 20.5309,
+    "uncovered_ce": 5.97968
+   }
+  },
+  "skip1200": {
+   "live": {
+    "cov": 3.40277,
+    "all": 3.23027
+   },
+   "neighbour_full": {
+    "cov": 5.96423,
+    "all": 6.00733,
+    "cost_M": 224.7782,
+    "uncovered_ce": 6.14239
+   },
+   "learned_full": {
+    "cov": 5.96423,
+    "all": 6.00165,
+    "cost_M": 230.0867,
+    "uncovered_ce": 6.11891
+   },
+   "neighbour_64": {
+    "cov": 6.16197,
+    "all": 6.15065,
+    "cost_M": 15.2225,
+    "uncovered_ce": 6.11518
+   },
+   "learned_64": {
+    "cov": 6.16197,
+    "all": 6.14463,
+    "cost_M": 20.5309,
+    "uncovered_ce": 6.09029
+   }
+  }
+ },
+ "predictions": {
+  "pred_a_learned_beats_neighbour_everywhere": true,
+  "pred_b_rank64_arm_is_now_rank_consistent": true,
+  "pred_c_covered_untouched": true,
+  "pred_d_controls": true
+ },
+ "runtime_s": 361.7
+}

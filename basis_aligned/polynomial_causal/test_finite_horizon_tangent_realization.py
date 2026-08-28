@@ -91,6 +91,18 @@ def test_split_comparison_rejects_incompatible_right_state():
     assert result["gates"]["right_projector_stability"] is False
 
 
+def test_split_trace_gate_normalizes_registered_future_exposure():
+    base = torch.diag(torch.tensor([5.0, 1.0, 0.1], dtype=torch.float64))
+    result = realization.compare_split_cuts(
+        {(3, 0): 2 * base}, {(3, 0): base}, {0: 3}, {3: 3}, (1,),
+        primary_exposure=4, replication_exposure=1,
+        energy_fraction=0.90, gap_ratio=2.0,
+    )["1"]
+    assert result["gates"]["positive_stable_trace"] is True
+    assert result["relative_trace_difference"] == 0.0
+    assert result["raw_trace"]["primary"] == 4 * result["raw_trace"]["replication"]
+
+
 def test_contextwise_rank_is_not_conflated_with_stacked_shared_rank():
     # Each context has a one-dimensional encoder, but the encoder rotates between
     # contexts. The stacked shared-linear interface therefore needs dimension two.

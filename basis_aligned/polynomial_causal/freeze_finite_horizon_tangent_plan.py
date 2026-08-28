@@ -14,6 +14,8 @@ from pathlib import Path
 import torch
 
 from finite_horizon_tangent_response_bank import (
+    TANGENT_PROTOCOL,
+    TANGENT_PROTOCOL_SHA256,
     TangentResponsePlan,
     allocate_whole_document_splits,
 )
@@ -88,6 +90,8 @@ def main() -> None:
     result = {
         "status": "frozen_cpu_plan_no_gpu_authority",
         "plan_fingerprint": plan.fingerprint,
+        "protocol": TANGENT_PROTOCOL,
+        "protocol_sha256": TANGENT_PROTOCOL_SHA256,
         "row_cache": {
             "path": str(ROWS),
             "file_sha256": observed_file,

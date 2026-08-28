@@ -54,7 +54,14 @@
       2
     ]
   },
-  "plan_fingerprint": "062ad87d552112bd2064726848a5f3d1a1e1ee13118e01cf3a4b462c2c8e0141",
+  "plan_fingerprint": "b9caa7ce2ecbd63a197262098931541c32dce27ed31b35454753b773f8cf4e20",
+  "protocol": {
+    "causal_score_rule": "for each row and source edit at frozen absolute position p, sum log probability scores over every absolute output position t>=p through 255; compare split trace after normalization by total future-position exposure",
+    "direction_rule": "float64 natural-write covariance on every registered row at positions 64:256; PSD clip rtol=1e-10; support rtol=1e-12; unit-coordinate-RMS C^1/2 Rademacher directions; seed=direction_seed+1000003*site+direction",
+    "fisher_rule": "16 independent full-50304-way categorical score probes from baseline float32 probabilities; stateless sha256 inverse-CDF sampling; report Monte-Carlo Fisher sum (not probe average)",
+    "shared_interface_claim": "stacked rank lower-bounds only a context-independent linear encoder in the frozen direction-coefficient gauge; per-context rank lower-bounds a context-specific tangent state"
+  },
+  "protocol_sha256": "6d6f523966649877eddf542e94724d19483ce457e7a56267f9a2c85bdef9bc7f",
   "remaining_authority": "A separately committed model-side Fisher-VJP collector and independent lifecycle audit are still required before GPU execution.",
   "row_cache": {
     "dtype": "torch.int64",

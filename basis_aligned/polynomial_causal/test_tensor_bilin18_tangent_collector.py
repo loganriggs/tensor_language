@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import pytest
 import torch
+import torch.nn.functional as F
 
 from finite_horizon_tangent_response_bank import TangentResponsePlan
 from tensor_bilin18_tangent_collector import (
@@ -106,6 +107,18 @@ def test_transaction_rejects_posthoc_short_code_contract_before_forward() -> Non
         )
 
 
+def test_transaction_rejects_geometry_mutated_under_stale_hash() -> None:
+    program = tiny_program()
+    geometries = tiny_geometries()
+    geometries[0].directions[0, 0] += 1
+    with pytest.raises(ValueError, match="frozen hash"):
+        TensorBilin18TangentTransaction(
+            program=program, plan=tiny_plan(), row_ids=("r0", "r1"),
+            tokens=torch.tensor([[0, 1, 2], [1, 2, 3]]), geometries=geometries,
+            production=False,
+        )
+
+
 def test_tiny_transaction_emits_only_projected_cpu_rows_and_revokes() -> None:
     program = tiny_program()
     plan = tiny_plan()
@@ -126,6 +139,45 @@ def test_tiny_transaction_emits_only_projected_cpu_rows_and_revokes() -> None:
                    for value in rows.values())
     with pytest.raises(RuntimeError, match="spent"):
         transaction.consume()
+
+
+def test_nonzero_injection_vjp_matches_explicit_future_only_score() -> None:
+    program = tiny_program()
+    plan = tiny_plan()
+    tokens = torch.tensor([[0, 1, 2], [1, 2, 3]])
+    geometries = tiny_geometries()
+    positions = (1, 2)
+    transaction = TensorBilin18TangentTransaction(
+        program=program, plan=plan, row_ids=plan.row_ids, tokens=tokens,
+        geometries=geometries, production=False,
+        injection_positions_for_test=positions,
+    )
+    result = transaction.consume()
+
+    logits, leaves, _ = _forward_with_additive_write_leaves(program, tokens)
+    seeds = tuple(plan.probe_seed + index for index in range(plan.probes_per_row))
+    targets = stateless_categorical_fisher_targets(
+        logits, plan.row_ids, seeds, score_start=0, score_stop=tokens.shape[1],
+    )
+    log_probabilities = F.log_softmax(logits.float(), dim=-1)
+    absolute = torch.arange(tokens.shape[1])
+    mask = absolute.unsqueeze(0) >= torch.tensor(positions).unsqueeze(1)
+    row_index = torch.arange(len(tokens))
+    for probe in range(plan.probes_per_row):
+        selected = torch.gather(
+            log_probabilities, -1, targets[probe].unsqueeze(-1),
+        ).squeeze(-1)
+        gradients = torch.autograd.grad(
+            (selected * mask).sum(), tuple(leaves.values()),
+            retain_graph=probe + 1 < plan.probes_per_row,
+        )
+        for site, gradient in zip((0, 1, 2), gradients, strict=True):
+            chosen = gradient[row_index, torch.tensor(positions)].double()
+            expected = chosen @ geometries[site].directions.T
+            actual = torch.stack([
+                result.responses[row_id][site][probe] for row_id in plan.row_ids
+            ])
+            torch.testing.assert_close(actual, expected, rtol=1e-12, atol=1e-12)
 
 
 def test_transaction_revokes_on_injected_graph_failure() -> None:

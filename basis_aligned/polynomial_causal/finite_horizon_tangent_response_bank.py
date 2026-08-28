@@ -18,6 +18,33 @@ import torch
 import finite_horizon_tangent_realization as realization
 
 
+TANGENT_PROTOCOL = {
+    "direction_rule": (
+        "float64 natural-write covariance on every registered row at positions "
+        "64:256; PSD clip rtol=1e-10; support rtol=1e-12; unit-coordinate-RMS "
+        "C^1/2 Rademacher directions; seed=direction_seed+1000003*site+direction"
+    ),
+    "fisher_rule": (
+        "16 independent full-50304-way categorical score probes from baseline "
+        "float32 probabilities; stateless sha256 inverse-CDF sampling; report "
+        "Monte-Carlo Fisher sum (not probe average)"
+    ),
+    "causal_score_rule": (
+        "for each row and source edit at frozen absolute position p, sum log "
+        "probability scores over every absolute output position t>=p through 255; "
+        "compare split trace after normalization by total future-position exposure"
+    ),
+    "shared_interface_claim": (
+        "stacked rank lower-bounds only a context-independent linear encoder in "
+        "the frozen direction-coefficient gauge; per-context rank lower-bounds a "
+        "context-specific tangent state"
+    ),
+}
+TANGENT_PROTOCOL_SHA256 = hashlib.sha256(json.dumps(
+    TANGENT_PROTOCOL, sort_keys=True, separators=(",", ":"),
+).encode()).hexdigest()
+
+
 def _canonical_sha256(value: Any) -> str:
     payload = json.dumps(value, sort_keys=True, separators=(",", ":")).encode()
     return hashlib.sha256(payload).hexdigest()
@@ -72,6 +99,7 @@ class TangentResponsePlan:
     direction_seed: int
     probe_seed: int
     position_seed: int
+    protocol_sha256: str = TANGENT_PROTOCOL_SHA256
 
     def __post_init__(self) -> None:
         n_rows = len(self.row_ids)
@@ -109,6 +137,8 @@ class TangentResponsePlan:
             self.direction_seed, self.probe_seed, self.position_seed,
         )):
             raise ValueError("seeds must be nonnegative integers")
+        if self.protocol_sha256 != TANGENT_PROTOCOL_SHA256:
+            raise ValueError("tangent protocol identity changed")
 
     @property
     def fingerprint(self) -> str:
@@ -125,6 +155,7 @@ class TangentResponsePlan:
             "direction_seed": self.direction_seed,
             "probe_seed": self.probe_seed,
             "position_seed": self.position_seed,
+            "protocol_sha256": self.protocol_sha256,
         })
 
 
