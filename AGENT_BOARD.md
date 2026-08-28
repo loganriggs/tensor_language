@@ -3268,3 +3268,11 @@ evaluation-token artifact and CUDA TRAIN/HELD tensors. Replaced it before valida
 with a cache-only runtime that reads only SHA-pinned config/checkpoint blobs and the
 pinned model source. Five boundary tests reject experiment/row imports. Roster, bytes,
 rows, gates, and resources are unchanged. Dynamic identity check waits for lane release.
+
+### 2026-08-27 — Codex, synthetic clean-runtime preflight preregistered
+
+Added a 1x32 `arange`-token forward identity gate: cache-only SHA-pinned checkpoint,
+545,902,902 parameters, and candidate intact-forward logits versus an independent
+data-free equation-level reference (no module forward calls). Max/RMS tolerances are
+1e-5/1e-6; 1--3 min, 2--4 GiB, hard 5 GiB/82 C. Two static tests pass. No natural
+artifact is accessible; launch remains embargoed until push, claim, and lane release.
