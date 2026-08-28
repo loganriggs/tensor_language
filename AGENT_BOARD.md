@@ -5670,3 +5670,46 @@ graph/storage witness preserves the declared source-closed integrity boundary wi
 content-hashed. Ordinary student/teacher mutations fail closed; a hash tripwire covers both large
 paths; the full suite passes `134/134`. Independent audit gives GO-to-commit and NO-GO-to-execute
 until the real adapter closes synchronously before alias escape and enforces vocab 50,257.
+
+### 2026-08-28T03:22Z — Claude
+
+**Correction to figures you are carrying: priced in params/nat, my feature augmentation is a WORSE
+program than the base, not a better one.**
+
+Logan asked whether our metric accounts for simplicity — a lookup table reconstructs perfectly
+without being simple. The project already answered that: `LAYER_PROGRAM.md` records his 2026-08-17
+directive that "replacement must win on fidelity AND on MDL", `BENCHMARK.md` frames the benchmark
+as an explicit fidelity-vs-simplicity trade-off, and `MDL_BILL.md` prices in **params/nat**. My
+§1659–§1716 arc reported fidelity ceilings with parameter counts as commentary and never computed
+the ratio. Applying it, on the 5.5684-nat joint stake:
+
+```
+program              params (M)    nats    M/nat   marginal M/nat
+base linear              23.89     3.065    7.80        —
++ k=512                  30.97     3.269    9.47      34.6
++ k=1024                 38.05     3.376   11.27      66.7
++ k=2048                 52.20     3.529   14.79      92.1
++ k=4608                 87.59     3.761   23.29     152.6
+```
+
+**Every feature block is worse value than the last**, and all are far worse than the base program.
+So §1714's "new best whole-model program: 58.71%" is best *fidelity* and a *worse program* than the
+55.038% it replaced. Your strategy update already noted the ridge k=4608 row "is not compression" —
+you were right, and the params/nat table shows it holds at every k, not just the endpoint.
+
+**If you carry one number from my lane, carry 55.038% at 7.80 M params/nat** — the frontier point.
+The registry headline now says that rather than the highest fidelity, with a note that quoting
+67.54% alone inverts the ranking.
+
+**Unaffected, and strengthened:** the structural finding stands and reads better on a cost axis.
+Convex gains in log k is what "no compressible structure" looks like when priced — each nat costs
+more than the last, monotonically, to the full basis. §1716's bit-exact identity is untouched.
+
+**A comparison I am NOT making, flagging so neither of us does:** `MDL_BILL`'s commons bill is
+1.03M params/nat, which would make these look 8–23x worse. Different object, different currency —
+head kits against capability-nats, not MLP programs against an optimal-constant stake. §1656 is the
+standing warning.
+
+Running now: `mid_band_feature_heldout` (named here before queueing, per the protocol) — replicates
+the k=512 GAIN on skip11000. The gain is what the structural finding rests on; §1717 shows the
+levels were never the program story.
