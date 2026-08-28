@@ -46584,7 +46584,11 @@ exactly what context buys. That is the same boundary §1788 priced at ~25 accura
 where a bigram would. §1767's LOO bigram is worse than the program in CE; is it worse *on the top
 bucket* in accuracy, or is the program's remaining strength entirely bigram-reachable?
 
-## §1790 — on the head, the program is a bigram: an eval-fitted bigram matches it there and beats it overall
+## §1790 — an eval-fitted bigram matches the program on the head and beats it overall
+
+> **Heading corrected in §1791.** This section originally read "on the head, the program is a
+> bigram". The accuracy parity below is right; the identity is not — §1791 measured only ~50%
+> top-1 agreement between the two on the head. Read "bigram-CLASS", never "a bigram".
 
 `ops/bigram_reachable_accuracy.py`, 48.3s, **DISCOVERY ONLY**, rung 3 (the question §1789 ended on).
 **pred_a True | pred_b FALSE | pred_c True | pred_d True.** The failure is the finding.
@@ -46638,3 +46642,54 @@ and the CE gap over a bigram does not survive translation to top-1.**
 
 **Open question this ends on.** Accuracy parity is not identity. Do the program and the LOO bigram
 make the *same* predictions on the head, or do they reach the same score by different routes?
+
+## §1791 — they are not the same predictor: ~50% agreement on the head, and I overstated §1790
+
+`ops/program_vs_bigram_agreement.py`, 54.2s, **DISCOVERY ONLY**, rung 3 (the question §1790 ended on).
+**pred_a FALSE | pred_b True | pred_c FALSE | pred_d True.**
+
+```
+  skip7000                     n     P<->B    P<->L    B<->L  | decided  prog wins
+    fit-count 0             8904   37.76%   13.22%   14.65%       556     10.07%
+    fit-count 1-4           6585   39.23%   13.74%   14.02%       344     18.02%
+    fit-count 5-24          4783   44.72%   17.35%   17.27%       412     22.82%
+    fit-count 25-124        6003   54.46%   25.17%   22.76%       490     31.02%
+    fit-count 125+         10589   51.30%   40.27%   33.53%      2312     53.98%
+```
+
+**I titled §1790 "on the head, the program is a bigram". That is wrong and I am withdrawing the
+phrase.** pred_a asked for ≥70% agreement on the head and got **51.30 / 52.91 / 48.96%** — they
+disagree on about half of all head positions. §1790's accuracy parity is real and stands; the identity
+I read into it does not. Its own registered sentence anticipated this: *"the program would be doing
+something a bigram does not do, and merely doing it no better."* The ledger heading and both registry
+notes are corrected to **bigram-class in accuracy, not bigram-identical in behaviour**.
+
+**pred_b passed with room.** On the head the program agrees with the bigram **+11.03 / +12.29 / +9.19
+pp** more than with the live model it was compiled from (51.30 vs 40.27, 52.91 vs 40.62, 48.96 vs
+39.77). So: not the same predictor as a bigram, but decidedly nearer to one than to its own source.
+
+**pred_c FAILED, and it changes where §1790's deficit comes from.** I predicted the program would win
+fewer than half the positions where the two disagree and exactly one is right. On the head it wins
+**53.98 / 52.14 / 48.16%** of 2312 / 2309 / 1335 decided cases — a coin flip, and a majority on two of
+three roles. Its registered sentence: *"the program wins its disagreements and §1790's overall deficit
+comes from coverage rather than from being wrong where it commits."* That is what happened. The tail
+is where it loses arguments, decisively: on fit-count 0 it wins only **10.07 / 24.12 / 10.22%**.
+
+**Derived without another run** — an oracle that took whichever arm is right gets, on the head:
+
+```
+    program   bigram    UNION     live
+     39.01%   37.28%   49.06%   61.46%      +10.05pp over the better arm
+     40.42%   39.48%   50.91%   64.31%      +10.49pp
+     38.91%   39.84%   52.03%   61.37%      +12.19pp
+```
+
+The two are **substantially complementary**: ~10-12 points of head accuracy are reachable by exactly
+one of them, and the union still sits 9-12 points below live. Whatever the program has on the head is
+not what counting pairs has, and neither is what context has.
+
+Controls (pred_d): top-1 accuracies reproduce §1789/§1790 within 0.001 for all three arms; fit-row
+bigram CE reproduces §1767's 7.88804 / 7.90729; buckets partition; coverage 5419.
+
+**Open question this ends on.** CE says the program beats the bigram, top-1 says it loses. Top-1 is one
+point of a ranking. Where in the ranking does the crossover happen?
