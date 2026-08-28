@@ -49166,12 +49166,14 @@ mean |live − row| max 603.9, median 118.8; and the **top-16 by discrepancy and
 structural fact about the site, measured rather than inferred, and it is why pred_b's two selections
 could and did come apart.
 
-**An interpretation I am flagging as untested.** §1804 found layer 5 exploding 152x when fed a compiled
-stream. If mlp5's live module produces garbage in exactly its largest channels when its input is
-compiled, then the table substitution is *protecting* against that explosion and preserving the outlier
-channels reintroduces it — which would explain the negative sign and the non-monotonicity of the OUT arm
-(+3.4% at k=64, then −2.4% at k=256). **This run did not measure that**, and I am recording it as a
-hypothesis with a named test rather than as a finding.
+**~~An interpretation I am flagging as untested.~~ STRUCK BY §1836 — MEASURED AND FALSE.** I wrote here
+that §1804's 152x explosion might mean mlp5's live module produces garbage in its largest channels when
+fed a compiled stream, so that the table was *protecting* against it and preserving those channels
+reintroduced it. §1836 measured the ratio directly: mlp5's output in the B0 stream is **0.899x** the
+fully live model's on exactly those channels — slightly *smaller*, not exploded. The hypothesis is false
+and is struck rather than left standing. §1804's explosion is layer 5's **attention** on a **fully
+compiled** stream and does not carry to mlp5 beneath a compiled layer 0. The negative sign of the OUT
+arm has no mechanism at present.
 
 **Controls (pred_d).** K0 — mlp5 fully compiled — reproduces §1834's published 3.6% gap fraction and
 +61.2pp cost exactly, which also confirms that `partial_row_hook` with an all-False mask is arithmetically

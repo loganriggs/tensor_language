@@ -193,6 +193,12 @@ def _finite_number(name: str, value: Any) -> float:
     return float(value)
 
 
+def _sha256_text(value: Any) -> bool:
+    return isinstance(value, str) and len(value) == 64 and all(
+        character in "0123456789abcdef" for character in value
+    )
+
+
 def _exact_cell_mapping(
     name: str, value: Mapping[Cell, Any], expected: Sequence[Cell],
 ) -> dict[Cell, Any]:
@@ -272,6 +278,28 @@ def observed_costs(observations: Mapping[Cell, ObservedCell]) -> CellCosts:
             for cell, value in observations.items()
         },
     )
+
+
+@dataclass(frozen=True, slots=True)
+class FrozenSingletonCosts:
+    """Prospectively source-bound singleton baseline in one target currency."""
+
+    target: str
+    costs: Mapping[Site, float]
+    source_sha256: str
+
+    def __post_init__(self) -> None:
+        expected = {
+            (kind, layer) for layer in range(1, 18) for kind in ("attn", "mlp")
+        }
+        values = dict(self.costs)
+        if self.target not in {"top1_pp", "ce_nats"} or set(values) != expected or (
+            not _sha256_text(self.source_sha256)
+        ):
+            raise ValueError("frozen singleton baseline identity/support changed")
+        for site, value in values.items():
+            values[site] = _finite_number(f"singleton baseline {site}", value)
+        object.__setattr__(self, "costs", MappingProxyType(values))
 
 
 def anchored_interaction_cells(
@@ -384,14 +412,22 @@ def _fit_one_rank_model(
     target = torch.tensor(
         [interactions[cell] / scale for cell in entries], dtype=torch.float64,
     )
-    row_entries = {
-        i: tuple(index for index, (row, _column) in enumerate(entries) if row == i)
+    row_columns = torch.tensor([
+        [column - 1 for row, column in entries if row == i]
         for i in range(1, 8)
-    }
-    column_entries = {
-        j: tuple(index for index, (_row, column) in enumerate(entries) if column == j)
+    ], dtype=torch.long)
+    row_targets = torch.stack([
+        torch.stack([target[index] for index, (row, _column) in enumerate(entries) if row == i])
+        for i in range(1, 8)
+    ])
+    column_rows = torch.tensor([
+        [row - 1 for row, column in entries if column == j]
         for j in range(1, 8)
-    }
+    ], dtype=torch.long)
+    column_targets = torch.stack([
+        torch.stack([target[index] for index, (_row, column) in enumerate(entries) if column == j])
+        for j in range(1, 8)
+    ])
     best: tuple[float, int, int, torch.Tensor, torch.Tensor] | None = None
     identity = torch.eye(rank, dtype=torch.float64)
     for restart in range(ALS_RESTARTS):
@@ -399,24 +435,19 @@ def _fit_one_rank_model(
         previous = math.inf
         iterations = 0
         for iteration in range(1, ALS_MAX_ITERATIONS + 1):
-            for i in range(1, 8):
-                indices = row_entries[i]
-                design = torch.stack([right[entries[index][1] - 1] for index in indices])
-                values = target[list(indices)]
-                penalty = len(entries) * ridge / (7 * rank)
-                left[i - 1] = torch.linalg.solve(
-                    design.T @ design + penalty * identity,
-                    design.T @ values,
-                )
-            for j in range(1, 8):
-                indices = column_entries[j]
-                design = torch.stack([left[entries[index][0] - 1] for index in indices])
-                values = target[list(indices)]
-                penalty = len(entries) * ridge / (7 * rank)
-                right[j - 1] = torch.linalg.solve(
-                    design.T @ design + penalty * identity,
-                    design.T @ values,
-                )
+            penalty = len(entries) * ridge / (7 * rank)
+            row_design = right[row_columns]
+            left = torch.linalg.solve(
+                row_design.transpose(1, 2) @ row_design + penalty * identity,
+                (row_design.transpose(1, 2) @ row_targets.unsqueeze(-1)).squeeze(-1),
+            )
+            column_design = left[column_rows]
+            right = torch.linalg.solve(
+                column_design.transpose(1, 2) @ column_design + penalty * identity,
+                (
+                    column_design.transpose(1, 2) @ column_targets.unsqueeze(-1)
+                ).squeeze(-1),
+            )
             objective = _factor_objective(left, right, entries, target, ridge)
             iterations = iteration
             if not math.isfinite(objective):
@@ -584,7 +615,7 @@ def _solve_monotone_quadratic(
 
 
 def _baseline_models(
-    costs: Mapping[Cell, float], singleton_costs: Mapping[Site, float] | None,
+    costs: Mapping[Cell, float], singleton_costs: FrozenSingletonCosts | None,
 ) -> tuple[dict[str, _BaselineModel], tuple[BaselineSummary, ...], str]:
     models: dict[str, _BaselineModel] = {
         "additive_anchors": _BaselineModel(
@@ -596,11 +627,9 @@ def _baseline_models(
         model.name = f"count_depth_type_ridge/{ridge:.12g}"
         models[model.name] = model
     if singleton_costs is not None:
-        if set(singleton_costs) != {
-            (kind, layer) for layer in range(1, 18) for kind in ("attn", "mlp")
-        } or any(not math.isfinite(float(value)) for value in singleton_costs.values()):
-            raise ValueError("singleton baseline costs must cover all 34 finite sites")
-        frozen = {site: float(value) for site, value in singleton_costs.items()}
+        if type(singleton_costs) is not FrozenSingletonCosts:
+            raise TypeError("singleton baseline must be prospectively source-bound")
+        frozen = dict(singleton_costs.costs)
         models["literal_singleton_sum"] = _BaselineModel(
             "literal_singleton_sum",
             lambda cell, _values: _singleton_sum(cell, frozen),
@@ -650,6 +679,7 @@ class TargetDevelopmentSummary:
     candidates: tuple[RankCandidateSummary, ...]
     baselines: tuple[BaselineSummary, ...]
     selected_baseline: str
+    singleton_baseline_source_sha256: str | None
 
 
 class _TargetDevelopment:
@@ -691,8 +721,10 @@ class CutRankDevelopment:
 
 def _prepare_target(
     name: str, costs: Mapping[Cell, float],
-    singleton_costs: Mapping[Site, float] | None,
+    singleton_costs: FrozenSingletonCosts | None,
 ) -> _TargetDevelopment:
+    if singleton_costs is not None and singleton_costs.target != name:
+        raise ValueError("singleton baseline target currency differs from fitted target")
     interactions = anchored_interaction_cells(
         costs, (*TRAIN_CELLS, *VALIDATION_CELLS),
     )
@@ -721,6 +753,9 @@ def _prepare_target(
         selected_validation_rmse=selected_validation_rmse,
         candidates=candidates, baselines=baseline_summaries,
         selected_baseline=selected_baseline,
+        singleton_baseline_source_sha256=(
+            None if singleton_costs is None else singleton_costs.source_sha256
+        ),
     )
     return _TargetDevelopment(
         costs=costs, summary=summary, rank_model=rank_model,
@@ -730,8 +765,8 @@ def _prepare_target(
 
 def prepare_development(
     observations: Mapping[Cell, ObservedCell], *,
-    singleton_top1_pp: Mapping[Site, float] | None = None,
-    singleton_ce_nats: Mapping[Site, float] | None = None,
+    singleton_top1_pp: FrozenSingletonCosts | None = None,
+    singleton_ce_nats: FrozenSingletonCosts | None = None,
 ) -> CutRankDevelopment:
     """Fit/select using exactly anchors+train+validation; heldout keys fail closed."""
 
