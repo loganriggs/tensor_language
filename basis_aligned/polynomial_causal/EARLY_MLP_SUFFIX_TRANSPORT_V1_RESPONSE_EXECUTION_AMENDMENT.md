@@ -98,19 +98,12 @@ student forwards. Any failure discards partial tensors and receipts. The termina
 final closure must require this run receipt and structured ledger before response
 statistics can influence a scientific result.
 
-## Implementation state after the 2026-08-28 19:48 UTC audit
+## Implementation state at freeze
 
 Implemented and tested: authority-derived semantic/code/physical edits, mutation and
 replay guards, distinct perturbation-bound student identities, the private exact
-teacher forward, private one-use student response consumption, response support,
-vector and output-KL reductions, and one fail-closed ordered 69-forward batch router.
-The batch router executes three shared teacher forwards plus 66 student forwards,
-reduces all 22 arms immediately, binds each reduction to its actual observed teacher
-and student receipt hashes, and refuses to return unless the schedule, coordinator,
-and 66/66/66 broker ledger close. The affected response/capability/adapter suite passes
-78 tests, including a synthetic full-batch transaction and exact fake-model teacher
-and student forward tests.
+teacher forward, response support, vector reductions, and output-KL reductions.
 
-Still NO-GO: the ordered 48-batch accumulator, its mandatory 144-teacher/3,168-student
-run ledger, terminal closure wiring, and final-role execution. The synthetic batch
-test proves routing and receipt integrity, not scientific behavior on the final role.
+Still NO-GO: student response-output consumption, complete 69-forward batch routing,
+observed-receipt-bound arm reductions, 48-batch accumulation, terminal closure wiring,
+and final-role execution.
