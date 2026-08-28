@@ -46583,3 +46583,58 @@ exactly what context buys. That is the same boundary §1788 priced at ~25 accura
 **Open question this ends on.** The top bucket is where the program nearly keeps up, and it is also
 where a bigram would. §1767's LOO bigram is worse than the program in CE; is it worse *on the top
 bucket* in accuracy, or is the program's remaining strength entirely bigram-reachable?
+
+## §1790 — on the head, the program is a bigram: an eval-fitted bigram matches it there and beats it overall
+
+`ops/bigram_reachable_accuracy.py`, 48.3s, **DISCOVERY ONLY**, rung 3 (the question §1789 ended on).
+**pred_a True | pred_b FALSE | pred_c True | pred_d True.** The failure is the finding.
+
+Three reference arms on §1789's buckets — the fit-row bigram (add-alpha 0.01 with unigram backoff on
+the same 96x256 rows the program was fitted on: the fair floor), an eval-row leave-one-out bigram
+built **per role** (fitted on the very rows it is scored on: not fair, an upper bound on what any
+bigram could reach), and live.
+
+```
+  skip7000                        n     live     prog   fit-bg   LOO-bg
+    target fit-count 0         8904   25.29%    0.67%    0.00%    5.66%
+    target fit-count 1-4       6585   26.65%    1.11%    0.00%    4.45%
+    target fit-count 5-24      4783   30.52%    2.89%    0.10%    7.57%
+    target fit-count 25-124    6003   41.98%    9.90%    3.85%   12.99%
+    target fit-count 125+     10589   61.46%   39.01%   28.77%   37.27%
+    OVERALL                          39.32%   13.55%    8.90%   15.97%
+```
+
+**pred_b FAILED.** I asked the program to beat the LOO bigram on the top bucket by at least 1
+percentage point. Margins: **+1.74, +0.94, −0.93 pp** — one role clears it, one misses the bar, and on
+skip1200 the bigram is **better**. pred_b's registered sentence said what that means: *"losing to the
+LOO arm instead would mean the program is genuinely within the bigram class and merely better
+estimated."* **On the head — the one regime where the program still works (§1789) — 36 sites of
+position-wise arithmetic are matched by counting pairs.**
+
+**And overall the LOO bigram beats the program at every role**: 15.97 / 16.63 / 18.00% against 13.55 /
+14.25 / 13.64%, margins **+2.42 / +2.38 / +4.36 pp**. In CE the program beats the LOO bigram
+comfortably (6.573 vs 7.295, §1767). Two instruments, opposite verdicts, same two objects — §1788's
+lesson landing on a claim rather than on a figure.
+
+**What survives, stated fairly.** The LOO bigram is fitted on its own test rows and is not a fair
+baseline; the program does beat the fair one, by **+4.65 / +5.18 / +4.04 pp** overall (pred_a: **+10.25
+/ +10.96 / +8.13 pp** on the head). But the bigram's own **estimation** gap — fit-row to eval-row,
+identical model class, more data — is **+7.07 / +7.56 / +8.40 pp**, larger than the program's entire
+advantage over the fair arm at every role. So the program's accuracy edge over counting is smaller
+than what counting gains from data alone, and cannot be attributed to the architecture on this
+evidence.
+
+**pred_c passed**: on targets never seen in the fit rows the LOO bigram scores 5.66 / 5.32 / 7.56%
+against the program's 0.67 / 1.86 / 0.94%. Statistics with support beat the program in the tail. The
+fit-row bigram is exactly 0.00% there by construction and is reported, not used as evidence.
+
+Controls (pred_d): accuracies reproduce §1789 within 0.001; the fit-row bigram's covered CE reproduces
+§1767's 7.88804 / 7.90729 exactly, confirming it is the same object; buckets partition every scored
+position; coverage 5419.
+
+**Nothing published is retracted** — every CE figure stands and the program still beats a same-data
+bigram. What changes is the reading: **the position-wise program's accuracy is bigram-class behaviour,
+and the CE gap over a bigram does not survive translation to top-1.**
+
+**Open question this ends on.** Accuracy parity is not identity. Do the program and the LOO bigram
+make the *same* predictions on the head, or do they reach the same score by different routes?

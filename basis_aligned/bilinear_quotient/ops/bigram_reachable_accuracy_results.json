@@ -1,0 +1,156 @@
+{
+ "config": {
+  "table_ranks": [
+   "full"
+  ],
+  "map_rank": 64,
+  "program": "context-free tables, output-NN fallback with a rank-64 embedding->row map -- the settled design of \u00a71780-\u00a71786",
+  "instruments": "top-1 agreement with the live model, top-1 accuracy against the true next token, and KL(live || program). All three are NEW to this thread, which has been CE-only since \u00a71747.",
+  "ROLE_NOTE": "DISCOVERY ONLY; a second-class confirmation with a DIFFERENT instrument, not a replication of the same one."
+ },
+ "results": {
+  "skip7000": {
+   "overall": {
+    "acc_live": 0.3932,
+    "acc_prog": 0.13553,
+    "acc_fitbg": 0.08903,
+    "acc_loobg": 0.15967,
+    "n": 36864
+   },
+   "0-0": {
+    "acc_live": 0.25292,
+    "acc_prog": 0.00674,
+    "acc_fitbg": 0.0,
+    "acc_loobg": 0.0566,
+    "n": 8904
+   },
+   "1-4": {
+    "acc_live": 0.26651,
+    "acc_prog": 0.01109,
+    "acc_fitbg": 0.0,
+    "acc_loobg": 0.0445,
+    "n": 6585
+   },
+   "5-24": {
+    "acc_live": 0.30525,
+    "acc_prog": 0.02885,
+    "acc_fitbg": 0.00105,
+    "acc_loobg": 0.07568,
+    "n": 4783
+   },
+   "25-124": {
+    "acc_live": 0.41979,
+    "acc_prog": 0.09895,
+    "acc_fitbg": 0.03848,
+    "acc_loobg": 0.12994,
+    "n": 6003
+   },
+   "125-1000000000": {
+    "acc_live": 0.6146,
+    "acc_prog": 0.39012,
+    "acc_fitbg": 0.28766,
+    "acc_loobg": 0.37275,
+    "n": 10589
+   }
+  },
+  "skip11000": {
+   "overall": {
+    "acc_live": 0.42348,
+    "acc_prog": 0.1425,
+    "acc_fitbg": 0.09068,
+    "acc_loobg": 0.16631,
+    "n": 36864
+   },
+   "0-0": {
+    "acc_live": 0.29899,
+    "acc_prog": 0.01865,
+    "acc_fitbg": 0.0,
+    "acc_loobg": 0.05317,
+    "n": 9385
+   },
+   "1-4": {
+    "acc_live": 0.30114,
+    "acc_prog": 0.01612,
+    "acc_fitbg": 0.0,
+    "acc_loobg": 0.05544,
+    "n": 6638
+   },
+   "5-24": {
+    "acc_live": 0.34999,
+    "acc_prog": 0.02813,
+    "acc_fitbg": 0.00147,
+    "acc_loobg": 0.06592,
+    "n": 4763
+   },
+   "25-124": {
+    "acc_live": 0.42661,
+    "acc_prog": 0.10458,
+    "acc_fitbg": 0.04201,
+    "acc_loobg": 0.14281,
+    "n": 5546
+   },
+   "125-1000000000": {
+    "acc_live": 0.64309,
+    "acc_prog": 0.4042,
+    "acc_fitbg": 0.29463,
+    "acc_loobg": 0.3948,
+    "n": 10532
+   }
+  },
+  "skip1200": {
+   "overall": {
+    "acc_live": 0.38883,
+    "acc_prog": 0.13645,
+    "acc_fitbg": 0.09597,
+    "acc_loobg": 0.17996,
+    "n": 18432
+   },
+   "0-0": {
+    "acc_live": 0.26152,
+    "acc_prog": 0.0094,
+    "acc_fitbg": 0.0,
+    "acc_loobg": 0.07562,
+    "n": 4470
+   },
+   "1-4": {
+    "acc_live": 0.25397,
+    "acc_prog": 0.01184,
+    "acc_fitbg": 0.0,
+    "acc_loobg": 0.07385,
+    "n": 3209
+   },
+   "5-24": {
+    "acc_live": 0.2832,
+    "acc_prog": 0.03525,
+    "acc_fitbg": 0.00287,
+    "acc_loobg": 0.07295,
+    "n": 2440
+   },
+   "25-124": {
+    "acc_live": 0.41291,
+    "acc_prog": 0.09746,
+    "acc_fitbg": 0.04544,
+    "acc_loobg": 0.15212,
+    "n": 3037
+   },
+   "125-1000000000": {
+    "acc_live": 0.61372,
+    "acc_prog": 0.38912,
+    "acc_fitbg": 0.30781,
+    "acc_loobg": 0.39841,
+    "n": 5276
+   }
+  }
+ },
+ "fit_bigram_covered_ce": {
+  "skip7000": 7.88804,
+  "skip11000": 7.90729
+ },
+ "predictions": {
+  "pred_a_beats_fit_bigram_on_frequent_targets": true,
+  "pred_b_beats_loo_bigram_on_frequent_targets": false,
+  "pred_c_loo_bigram_beats_program_on_unseen": true,
+  "pred_d_controls": true
+ },
+ "runtime_s": 48.3
+}

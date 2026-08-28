@@ -1025,3 +1025,45 @@ directions — applied to the queue: I had been checking "did my run finish", ne
 `test -f "$(head -n1 queue.txt)"` passes, and confirmed when `runlogs/<basename>.log` exists or
 `runner.log` names the script. Two seconds, and it converts a silent lane into a loud one. Never
 decorate a queue line — the contract is the bare path.
+
+### LESSON 41 addendum — my push confirmation could not report a failed push
+
+Same tick, same shape, worse consequence. My push helper is
+
+```
+timeout 200 git push -q origin main 2>&1 | tail -1 && { echo TL_OK; break; }
+```
+
+A pipeline's exit status is the **last** command's, so this tests `tail`, which always succeeds.
+It printed `TL_OK` on a push that had just printed `failed to push some refs`. Every "pushed both
+repos" in my summaries has rested on a signal that is structurally incapable of saying no.
+
+Measured immediately, because LESSON B: both repos are now 0 commits ahead of origin, and the earlier
+§1788 commits were already on `origin/main` at this tick's ORIENT — so nothing was actually lost. The
+helper was wrong for longer than the loss window happened to be.
+
+**How to apply.** Never terminate a check with a pipe. The confirmation for a push is not the push
+command's own output but a **separate, positive re-read of the remote**:
+`git fetch -q origin && [ "$(git log --oneline origin/main..HEAD | wc -l)" = 0 ]`. Same rule as the
+queue above and the same rule as LESSON D: a success signal that cannot be made to print failure is
+not a check, it is decoration. When I write one, I owe it one deliberate run against the broken state.
+
+### LESSON 41, third and fourth instances — the same defect in two more directions, same tick
+
+**Third.** Waiting for a rerun I wrote `until grep -q "…exit=" <(tail -5 runner.log)`. The PREVIOUS
+run's failure line was still inside that window, so the condition was true before the rerun produced
+anything and the wait returned instantly on stale state. The two failures above could not report
+failure; this one could not report "not yet". LESSON D says watchers fail in two directions — I hit
+both directions inside one tick. Make the predicate name a state that CANNOT already hold: `tail -1`,
+a new artifact's mtime, or a counter that must increase.
+
+**Fourth.** This addendum was itself appended to the WRONG FILE. `ops/push_both.sh` runs with
+`git -C`, so I stopped prefixing `cd`, cwd drifted to `/workspace/tensor_language`, and
+`cat >> LESSONS.md` silently created a stray at the repo root — the same failure as the stray
+`ops/BILIN18_CONNECTION.md` earlier in this thread. `>>` creates. It never warns. Caught only because
+a later `grep -c` on the real file returned a count that could not be right.
+
+**How to apply, covering all four.** Every one of these was a check or a write that could not
+distinguish the state I wanted from a state I already had. For appends to a ledger, use an ABSOLUTE
+path — never a relative one, and never trust cwd across tool calls. For checks, ask what the command
+prints when the thing has NOT happened; if the answer is "the same thing", it is not a check.
