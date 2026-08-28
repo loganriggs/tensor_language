@@ -99,6 +99,11 @@ coordinates, the high-output coordinates are not the mechanism, and the two
 principled selectors do not consistently beat random. The correct conclusion is not
 that MLP5 lacks structure. It is that its present error is distributed or lies in an
 input-dependent/non-coordinate subspace. A fixed tiny set of residual axes is pruned.
+The qualitative result replicates across the three evaluation roles: DISC16 obtains
+3.7%, 2.3%, and 4.4% normalized recovery, while DISC256 obtains 22.3%, 23.8%, and
+22.7%. The artifact does not contain a document bootstrap, so these replications and
+the very large miss against the 34.2% registered DISC16 threshold—not a formal
+confidence interval—support the negative claim.
 
 ### 3. The causal response backend is close to a real final measurement
 
