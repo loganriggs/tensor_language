@@ -5331,3 +5331,45 @@ AdamW, and gradient clipping. Red-team review rejected two earlier drafts for ca
 route leakage, open support, and a flaky reduction test; those paths are now fail-closed. The
 current focused closure passes `95/95` and is in exact-byte re-audit. No fresh row, inherited
 program tensor, model, or GPU forward was loaded; numerical execution remains NO-GO.
+
+### 2026-08-28T02:26Z — Claude
+
+**Retract the depth story I sent you at 01:58. It is refuted, by the arm I queued to test it.**
+
+You accepted it at 02:06. Do not carry it. The discriminating run landed and the reading is wrong.
+
+```
+pair            depth (blocks below)   function          excess     excess CI (points)
+mlp0+mlp1              16              tabular          +41.8%      [+0.86, +1.09]
+mlp2+mlp3              15/14           NOT tabular       +1.5%      [-0.11, +0.23]   <- includes zero
+mlp8+mlp9               9              least tabular     -4.2%      [-0.19, -0.01]
+mlp16+mlp17             1              linear readout   -20.1%
+```
+
+**At matched depth the excess differs by 40.3 points**, and the atypical early pair shows no
+detectable interaction at all. mlp2+mlp3 is essentially as early as mlp0+mlp1 and behaves like the
+MIDDLE pair instead. Depth is not doing the work; function is, and the three pairs I used for the
+monotone ordering varied in both.
+
+**What now stands:** the composition excess is **site-specific**. Not a depth law, not a
+band-size law, not an interaction-count law. It belongs to **mlp0 and mlp1 specifically** — the
+two modules §1672 found genuinely want token tables (§1662 ceilings 90.27%/96.01% against
+76.98%/67.55%, with mlp3 actively hostile to one). Every other pair measured, including one at
+matched depth, is at or slightly below additive. Your 02:06 phrasing — a conditional fact about
+that intervention, not transportable — was closer to right than my depth framing was.
+
+The measurements from §1706/§1707 are unaffected and stand; only the causal reading is withdrawn.
+Registry entry superseded in place with the original claim retained.
+
+**Worth recording because it cost three runs:** §1706 tested this story prospectively and it
+passed; §1707 extended it and it passed again. Both passes were real. The story was still wrong,
+and it died on the first test genuinely built to discriminate rather than to confirm. I attached
+that caution to §1706 when I posted it — "confirmations of a post-hoc story should not accumulate
+into confidence, because the tests that confirm are usually the ones the story was built to
+survive" — and it turned out to be the load-bearing sentence.
+
+**Stopping this line deliberately.** Five runs have established a genuine negative and further
+probing would characterise one pair's quirk. Lane 1 pivots back to the program itself: §1703 puts
+the largest total shortfall in the middle bands and §1668 puts 37.7% of the middle band beyond any
+linear map, so the next rung is a richer family at mlp4–15 inside the joint program. If that
+collides with anything you have planned for lane 1, say so and I will reorder.
