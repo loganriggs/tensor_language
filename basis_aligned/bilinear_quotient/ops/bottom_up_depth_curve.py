@@ -1,56 +1,43 @@
-# CROSS-POSITION INFLUENCE -- the joint-structure instrument §1827's pred_a branch named.
+# THE BOTTOM-UP DEPTH CURVE -- closing a six-section gap in the record, not adding an instrument.
 #
-# §1824 closed MAGNITUDE for the deep-prefix residual (best possible gain correction recovers ~12%).
-# §1825 closed MEAN DIRECTION (~77% aligned after correction). §1826 closed SINGLE-LAYER LOCALISATION
-# (the one anti-aligned layer costs 1-2 points of 88). §1827 closed the SECOND MOMENT -- and closed it
-# in the strongest way available: the mean dispersion ratio is ANTI-correlated with recovery, B0 at
-# 0.784x recovering 64.8% while B3 at 0.820x recovers 11.9%. Four independent per-layer summaries,
-# none of which separates the arm that works from the arm that does not.
+# §1824 through §1828 closed five accounts for the deep-prefix residual: magnitude, mean direction,
+# single-layer localisation, second moment, and now cross-position routing shape and influence mass.
+# Every one of them compared B0 (recovers 64.8%) against B3 (11.9%) and B5 (12.3%). **Depths 1 and 2
+# have never been run.** Fifteen scripts in ops/ carry a DEPTHS constant and every one of them is
+# (-1, ...), (0, 3, 5) or (3, 5).
 #
-# §1827's pred_a failure branch stated the consequence verbatim: "the low-order accounts are
-# exhausted -- the damage lives in the JOINT structure across positions, which no per-layer summary
-# of any order can express." §1765 already measured exactly that structure, with a poke: perturbing
-# one position reached later positions by 0.118 nats on the live model and by EXACTLY 0.000e+00 with
-# the program installed, because substituting every site deletes attention. This generalises that
-# single number into a MATRIX. Poke source position k at the top of the compiled prefix; read the
-# per-position loss change at every later position q. M[k, q] is the finite-difference cross-position
-# Jacobian -- the one object none of §1824-§1827's instruments can represent.
+# So the fall from 64.8% to 11.9% is a TWO-POINT BRACKET that six sections have been calling a cliff.
+# That is LESSON 47 exactly: points sampled to bracket a feature do not estimate a curve. Before any
+# further instrument is built on top of the "cliff" framing, the curve itself has to be measured.
 #
-# The comparison is SHAPE, not size. Each source row is compared to a DEPTH-MATCHED live control --
-# the identical poke, at the identical site, on the live model -- so the arm and its control differ
-# only in the compiled prefix and not in how many live layers the perturbation still has to cross
-# (LESSON 49/53: compare like units, and name the object). Row cosine answers "does the influence go
-# to the same places"; row mass ratio answers "does the right amount of it arrive".
+# This runs the bottom-up compile at EVERY depth 0..7 -- depths 0..L compiled, L+1..17 live -- with the
+# same four gain treatments (raw, global, depth-matched, sequential) the published sections used, so
+# depths 0, 3 and 5 are simultaneously the measurement and a four-family cross-run control.
 #
-# ROLES. Gap fractions on all three; the influence matrix on skip7000 rows. Depths 0, 3, 5 -- B0
-# recovers 64.8% and B3/B5 ~12%, so the contrast is the test. FULL RANK. DISCOVERY ONLY.
+# ROLES. All three (skip7000, skip11000, skip1200). FULL RANK, settled program. DISCOVERY ONLY.
 #
 # Registered predictions, TWO-SIDED per LESSONS 31, margins per LESSON 40, read back per LESSON 39,
 # failure branches enumerated per LESSON 44, constants named with OBJECT and UNITS per LESSON 53:
-#   pred_a THE JOINT ROUTING IS DAMAGED: at B3 the mean per-source cosine between the corrected arm's
-#          influence profile and the depth-matched live model's is at most 0.70. If FALSE, the live
-#          layers above a compiled prefix route influence across positions to essentially the same
-#          places the live model does -- and then the joint structure is preserved too, the last
-#          first-principles account is exhausted, and the damage is not in WHERE information goes but
-#          in WHAT is carried there: content, not routing.
-#   pred_b AND IT TRACKS RECOVERY: B0's mean cosine exceeds B3's. This is the discriminator every
-#          instrument since §1824 has failed, most sharply at §1827 where the quantity ran BACKWARDS.
-#          If FALSE, a fifth independent summary of the corrected stream fails to separate a 65% arm
-#          from a 12% one, and that string of failures is itself the result: the difference between
-#          recovery and collapse is not visible in any summary of the stream, only in the loss.
-#   pred_c THE INFLUENCE IS NOT MERELY RESCALED: at B3 the mean per-source mass ratio against the
-#          depth-matched live control lies outside [0.33, 3.0]. If TRUE the cross-position channel
-#          has a magnitude fault of its own, distinct from the per-layer one §1824 closed, and a gain
-#          correction on that channel is the obvious next remedy. If FALSE roughly the right amount
-#          of influence crosses positions and only its destination can be wrong, which makes pred_a
-#          the whole question.
-#   pred_d CONTROLS, cross-run per LESSON 42 and known-answer per LESSON 46 (the instrument must be
-#          able to TURN, not merely fail to fire): with every site substituted the matrix must be
-#          EXACTLY 0.0, reproducing §1765's 0.000e+00 -- zero, not small; the depth-matched live
-#          control must propagate above 1e-6, reproducing §1765's live side; every poke must move its
-#          OWN position in every arm; the bottom-up arms must reproduce §1806, §1822, §1823 and
-#          §1824's PUBLISHED gap fractions; endpoints must reproduce §1789's FULL-RANK figures; the
-#          placement control must move top-1 by under 0.05pp. Coverage 5419 of 50257.
+#   pred_a THE FALL IS SHARP AT ONE DEPTH: the largest single-depth drop in SEQUENTIAL-arm recovery
+#          between consecutive depths accounts for at least 50% of the total fall from B0 to B7, on
+#          skip7000. If TRUE one layer's compilation is what breaks it and this names that layer. If
+#          FALSE the recovery declines gradually, the "cliff" framing six sections have used is wrong,
+#          and the deep-prefix collapse is CUMULATIVE rather than localised to a transition -- which
+#          would also explain why no per-layer summary could find a culprit: there is not one.
+#   pred_b AND IT HAS ALREADY FALLEN BY B2: sequential recovery at depth 2 is below 30% on skip7000,
+#          i.e. nearer B3's 11.9% than B0's 64.8%. If FALSE, depths 1 and 2 hold up and the entire
+#          fall happens across the single B2->B3 boundary, which names layer 3 -- a concrete, testable
+#          object the record does not currently contain.
+#   pred_c AND IT SATURATES: sequential recovery across depths 3..7 stays inside a 10 PERCENTAGE-POINT
+#          band on skip7000. If TRUE the damage saturates -- compiling layers 4..7 costs essentially
+#          nothing once 0..3 are compiled, and the deep prefix is one regime rather than a slope. If
+#          FALSE recovery keeps declining with depth, the cost is cumulative in the number of compiled
+#          layers, and "deep prefix" is a misnomer for what is really a dose-response.
+#   pred_d CONTROLS, cross-run per LESSON 42, four PUBLISHED families at the three depths this run
+#          overlaps: §1806's raw, §1822's global-gain, §1823's depth-matched and §1824's sequential
+#          gap fractions at depths 0, 3 and 5, on all three roles. Endpoints must reproduce §1789's
+#          FULL-RANK top-1 figures; the placement control must move top-1 by under 0.05pp. Coverage
+#          5419 of 50257.
 import json, time, sys, os, torch
 import torch.nn.functional as F
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -62,12 +49,12 @@ NH = 9; HD = D // NH        # bilin18: nine heads of 128
 MAP_RANK = 64
 RIDGE = 1e-2
 PT = '/workspace/tensor_language/basis_aligned/bilinear_quotient/'
-OUT = PT + 'ops/cross_position_influence_results.json'
+OUT = PT + 'ops/bottom_up_depth_curve_results.json'
 CALROWS = 32   # rows used for the per-layer calibration passes; the eval uses the full role
 PROBE_LS = ()
 KIND_LS = ()
 RANKS = (64,)                # the settled table rank; only the STREAM matters here
-DEPTHS = (0, 3, 5)           # B0 recovers 65%, B3/B5 only ~12% -- the contrast is the point
+DEPTHS = tuple(range(8))     # 0..7 -- 1, 2, 4, 6 and 7 have NEVER been run; 0, 3, 5 are controls
 POKE_MAG = 10.0              # §1765's magnitude, kept so the live side is comparable across runs
 POKE_ROWS = 8                # one batch; the matrix is a per-position mean over these rows
 KSRC = (64, 88, 112, 136, 160, 184)   # source positions, all >=64 so every reader is scored
@@ -375,7 +362,7 @@ def main():
     g = torch.Generator().manual_seed(0)
     perm = all_toks[torch.randperm(NFULL, generator=g)]
     sites = [(k, L) for k in ('mlp', 'attn') for L in range(18)]
-    print(f'CROSS-POSITION INFLUENCE | finite-difference Jacobian M[k,q], depths {DEPTHS} | '
+    print(f'BOTTOM-UP DEPTH CURVE | depths {DEPTHS}, 1/2/4/6/7 never run before | '
           f'settled program (context-free tables + output-NN fallback + rank-{MAP_RANK} map) | '
           f'DISCOVERY ONLY', flush=True)
 
@@ -589,43 +576,6 @@ def main():
         run_g(f'B{L}_seq', botup, gseq[L])
         run_g('allsub_gain5', sites, {5: gain_global[5]})     # placement control
 
-    # ---- CROSS-POSITION INFLUENCE. The instrument §1827's pred_a branch named. Poke the TOP of
-    # the compiled prefix at source position k and read the loss change at every later position q:
-    # M[k, q] is the finite-difference cross-position Jacobian. Everything above the poke site is
-    # live, so what the matrix measures is how the live layers route a perturbation once the stream
-    # beneath them was produced position-wise.
-    pidx = ev0[:POKE_ROWS, :-1].to(DEV).contiguous()
-    ptg = ev0[:POKE_ROWS, 1:].to(DEV).contiguous()
-    inf_arm, inf_live, shape_cos, mass_ratio, own_ok = {}, {}, {}, {}, []
-    for L in DEPTHS:
-        botup = [st for st in sites if st[1] <= L]
-        site = ('mlp', L)          # the last COMPILED site; layers L+1..17 above it are all live
-        gh = [H[q].attn.c_proj.register_forward_pre_hook(gain_hook(gv))
-              for q, gv in gseq[L].items()]
-        try:
-            inf_arm[L] = influence(pidx, ptg, [(st, allh[st]) for st in botup], site)
-        finally:
-            for hd in gh:
-                hd.remove()
-        # DEPTH-MATCHED live control: same poke, same site, no compiled prefix. The arm and its
-        # control then differ ONLY in the prefix, not in how many live layers remain above the poke.
-        inf_live[L] = influence(pidx, ptg, [], site)
-        shape_cos[L] = {k: float(F.cosine_similarity(inf_arm[L][k][0].unsqueeze(0),
-                                                     inf_live[L][k][0].unsqueeze(0)).item())
-                        for k in KSRC}
-        mass_ratio[L] = {k: float(inf_arm[L][k][0].sum()
-                                  / max(float(inf_live[L][k][0].sum()), 1e-12)) for k in KSRC}
-        own_ok += [inf_arm[L][k][1] > 1e-6 and inf_live[L][k][1] > 1e-6 for k in KSRC]
-    # KNOWN-ANSWER control (LESSON 46): with EVERY site substituted the program is position-wise by
-    # construction (§1765), so the matrix must be EXACTLY zero. An instrument that cannot produce a
-    # zero here is not measuring cross-position influence at all.
-    inf_all = influence(pidx, ptg, [(st, allh[st]) for st in sites], ('mlp', 0))
-    allsub_max = max(float(v[0].max()) for v in inf_all.values())
-    allsub_own = min(v[1] for v in inf_all.values())
-    live_reach = max(float(inf_live[0][k][0].max()) for k in KSRC)
-    print(f'\n  known-answer: all-substituted matrix max {allsub_max:.3e} (§1765 says 0.000e+00), '
-          f'own-position {allsub_own:.3e}; depth-matched live reach {live_reach:.3e} '
-          f'(§1765 live was {S1765_LIVE_REACH_NATS})', flush=True)
     del ev0, evs, frr, allh
     torch.cuda.empty_cache()
 
@@ -640,24 +590,24 @@ def main():
 
     def rec(L, arm):
         return {e: (d(e, arm) - d(e, f'B{L}_raw')) / max(defc[L][e], 1e-9) for e in roles}
-    mean_cos = {L: sum(shape_cos[L].values()) / len(KSRC) for L in DEPTHS}
-    mean_mass = {L: sum(mass_ratio[L].values()) / len(KSRC) for L in DEPTHS}
-    worst = {L: min(shape_cos[L], key=shape_cos[L].get) for L in DEPTHS}
-    pa = mean_cos[3] <= 0.70
-    pb = mean_cos[0] > mean_cos[3]
-    pc = not (0.33 <= mean_mass[3] <= 3.0)
-    pd = (allsub_max == 0.0
-          and allsub_own > 1e-6
-          and live_reach > 1e-6
-          and all(own_ok)
-          and all(abs(frac[e][f'B{L}_raw'] - S1806_FULLRANK_GAPFRAC[L][e]) <= 0.03
-                  for e in roles for L in DEPTHS)
+    seq = {L: frac[PICK_ROLE][f'B{L}_seq'] for L in DEPTHS}
+    drops = {L: seq[L - 1] - seq[L] for L in DEPTHS if L - 1 in seq}
+    biggest = max(drops, key=drops.get)
+    total_fall = seq[DEPTHS[0]] - seq[DEPTHS[-1]]
+    share = drops[biggest] / total_fall if abs(total_fall) > 1e-9 else 0.0
+    tailv = [seq[L] for L in DEPTHS if L >= 3]
+    band = max(tailv) - min(tailv)
+    pa = share >= 0.50
+    pb = seq[2] < 0.30
+    pc = band <= 0.10
+    pd = (all(abs(frac[e][f'B{L}_raw'] - S1806_FULLRANK_GAPFRAC[L][e]) <= 0.03
+              for e in roles for L in S1806_FULLRANK_GAPFRAC)
           and all(abs(frac[e][f'B{L}_global'] - S1822_GLOBALGAIN_GAPFRAC[L][e]) <= 0.03
-                  for e in roles for L in DEPTHS)
+                  for e in roles for L in S1822_GLOBALGAIN_GAPFRAC)
           and all(abs(frac[e][f'B{L}_matched'] - S1823_MATCHED_GAPFRAC[L][e]) <= 0.05
-                  for e in roles for L in DEPTHS)
+                  for e in roles for L in S1823_MATCHED_GAPFRAC)
           and all(abs(frac[e][f'B{L}_seq'] - S1824_SEQ_GAPFRAC[L][e]) <= 0.03
-                  for e in roles for L in DEPTHS)
+                  for e in roles for L in S1824_SEQ_GAPFRAC)
           and all(abs(res[e]['all_substituted']['top1'] - S1789_FULLRANK_TOP1_PP[e]) <= 0.001
                   and abs(res[e]['live_model']['top1'] - S1789_LIVE_TOP1_PP[e]) <= 0.001
                   for e in roles)
@@ -667,46 +617,34 @@ def main():
     print('\n  gap fraction recovered (0..L compiled, L+1..17 live):', flush=True)
     for L in DEPTHS:
         for e in roles:
+            star = '  <- NEW' if L not in S1824_SEQ_GAPFRAC else ''
             print(f'    B{L} {e:10s} raw {frac[e][f"B{L}_raw"]:8.1%}  global '
                   f'{frac[e][f"B{L}_global"]:8.1%}  matched {frac[e][f"B{L}_matched"]:8.1%}'
-                  f'  SEQUENTIAL {frac[e][f"B{L}_seq"]:8.1%}', flush=True)
-    print('\n  influence SHAPE cosine (corrected arm vs DEPTH-MATCHED live), by source position:',
+                  f'  SEQUENTIAL {frac[e][f"B{L}_seq"]:8.1%}{star}', flush=True)
+    print(f'\n  THE CURVE ({PICK_ROLE}, sequential arm): ' + '  '.join(
+        f'B{L} {seq[L]:.1%}' for L in DEPTHS), flush=True)
+    print('  consecutive drops:            ' + '  '.join(
+        f'B{L-1}->B{L} {drops[L]:+.1%}' for L in sorted(drops)), flush=True)
+    print(f'\n  the fall is SHARP -- one depth holds >=50% of it -> {pa}  '
+          f'biggest is B{biggest-1}->B{biggest} at {drops[biggest]:+.1%}, '
+          f'{share:.1%} of the {total_fall:.1%} total fall', flush=True)
+    print(f'  and it has already fallen by B2 (<30%) -> {pb}  B2 {seq[2]:.1%}', flush=True)
+    print(f'  and it SATURATES -- depths 3..7 inside a 10pp band -> {pc}  band {band:.1%} '
+          f'(min {min(tailv):.1%}, max {max(tailv):.1%})', flush=True)
+    print(f'  four PUBLISHED gap-fraction families reproduce at depths 0/3/5 -> control {pd}',
           flush=True)
-    for L in DEPTHS:
-        print(f'    B{L}: ' + '  '.join(
-            f'{"*" if k == worst[L] else " "}k{k} {shape_cos[L][k]:+.3f}' for k in KSRC), flush=True)
-    print('\n  influence MASS ratio (corrected arm / depth-matched live), by source position:',
-          flush=True)
-    for L in DEPTHS:
-        print(f'    B{L}: ' + '  '.join(
-            f'k{k} {mass_ratio[L][k]:6.2f}x' for k in KSRC), flush=True)
-    print('\n  mean shape cosine: ' + '  '.join(f'B{L} {mean_cos[L]:+.3f}' for L in DEPTHS)
-          + '   |   mean mass ratio: '
-          + '  '.join(f'B{L} {mean_mass[L]:.2f}x' for L in DEPTHS), flush=True)
-    print(f'\n  the JOINT ROUTING is damaged at B3 (mean cosine <=0.70) -> {pa}  '
-          f'{mean_cos[3]:+.3f}', flush=True)
-    print(f'  and it TRACKS RECOVERY, B0 (65%) above B3 (12%) -> {pb}  '
-          f'B0 {mean_cos[0]:+.3f} vs B3 {mean_cos[3]:+.3f}', flush=True)
-    print(f'  the influence is not merely RESCALED (mass ratio outside [0.33, 3.0]) -> {pc}  '
-          f'{mean_mass[3]:.2f}x', flush=True)
-    print(f'  all-substituted matrix exactly zero (§1765), live control fires, seq arms reproduce '
-          f'§1824 -> control {pd}', flush=True)
 
-    json.dump({'run': 'cross_position_influence', 'depths': list(DEPTHS),
-               'poke_magnitude': POKE_MAG, 'poke_rows': POKE_ROWS, 'source_positions': list(KSRC),
-               'shape_cosine': {str(L): shape_cos[L] for L in DEPTHS},
-               'mean_shape_cosine': {str(L): mean_cos[L] for L in DEPTHS},
-               'worst_source': {str(L): worst[L] for L in DEPTHS},
-               'mass_ratio': {str(L): mass_ratio[L] for L in DEPTHS},
-               'mean_mass_ratio': {str(L): mean_mass[L] for L in DEPTHS},
-               'allsub_matrix_max': allsub_max, 'allsub_own_position': allsub_own,
-               'depth_matched_live_reach': live_reach,
+    json.dump({'run': 'bottom_up_depth_curve', 'depths': list(DEPTHS), 'role': PICK_ROLE,
+               'gap_fraction': frac,
+               'sequential_curve': {str(L): seq[L] for L in DEPTHS},
+               'consecutive_drops': {str(L): drops[L] for L in drops},
+               'biggest_drop_at_depth': biggest, 'biggest_drop_share': share,
+               'total_fall': total_fall, 'tail_band_depths_3_to_7': band,
                'layer_norm_live': ln_live, 'gain_global': gain_global,
                'gain_sequential': {str(L): gseq[L] for L in DEPTHS},
-               'gap_fraction': frac,
-               'predictions': {'pred_a_joint_routing_damaged_at_B3': bool(pa),
-                               'pred_b_shape_tracks_recovery': bool(pb),
-                               'pred_c_not_merely_rescaled': bool(pc),
+               'predictions': {'pred_a_fall_is_sharp_at_one_depth': bool(pa),
+                               'pred_b_already_fallen_by_B2': bool(pb),
+                               'pred_c_saturates_after_depth_3': bool(pc),
                                'pred_d_controls': bool(pd)}},
               open(OUT, 'w'), indent=1)
     print(f'wrote {OUT} ({time.time() - t0:.1f}s)', flush=True)

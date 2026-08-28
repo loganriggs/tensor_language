@@ -1417,3 +1417,37 @@ reads your artifact and finds something you did not report, the artifact was rig
 lazy: fix the write-up, credit the catch, and check what else the same summary was hiding. Related:
 [[lesson-44]] -- emit the discriminating quantity, of which "which component is worst" is the simplest
 possible case.
+
+## LESSONS 56 — the docstring gets rewritten and the BANNER does not, so the log header names the wrong experiment
+
+Building a script by editing a predecessor (the house pattern, and the right one) rewrites the header
+comment, the predictions and the output path — and leaves the runtime `print()` banner untouched,
+because nothing reads it during development. So `ops/cross_position_influence.py` ran correctly, wrote
+the right JSON, and opened its log with:
+
+```
+SECOND MOMENT | across-position dispersion of corrected writes, depths (0, 3, 5) | ...
+```
+
+**The banner is the first line a reader sees and the line a write-up is quoted from.** §1828 was written
+from that log. Nothing was mis-stated because I had the run fresh in context — but a stale banner is a
+mis-attribution waiting for the reader who does not.
+
+This is the same failure family as LESSONS 54 (a duplicate constant the later assignment silently wins)
+and LESSONS 53 (name the OBJECT, not just number and units): **editing a predecessor propagates whatever
+you did not think to look at.** It had propagated two generations here, second_moment ->
+cross_position_influence -> bottom_up_depth_curve, and would have gone further.
+
+**Measured before flagging, per PRE-FLIGHT B.** Auditing all 107 ops scripts for a house-convention
+banner (`TITLE IN CAPS | detail`) sharing no word with its filename: **16 of 101 scripts that have one,
+all 16 true positives on inspection.** The oldest chains are six scripts still printing `CONTEXT-FREE
+FRONTIER, THIRD ROLE` and five printing `ACCURACY BY TARGET FREQUENCY`. `OUT` paths, by contrast, were
+correct in **107 of 107** — the artifact naming was never the problem, only the human-facing header.
+
+**Gate check added** (`ops/gate.py`), tested in both directions per PRE-FLIGHT D: FAILs the three known
+stale scripts, PASSes correct ones, and stays silent on scripts with no banner. It immediately caught
+`cross_position_influence.py`, which I had listed as a should-PASS when writing the test — the check
+was right and I was wrong about my own script, which is the best evidence it earns its place.
+
+**How to apply:** when a script is built by editing another, change the banner in the same edit as the
+docstring. The gate now enforces it before queueing.

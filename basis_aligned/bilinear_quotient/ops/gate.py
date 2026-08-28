@@ -171,6 +171,39 @@ def gate(path):
                 fails.append(f'{fn.name}(): comprehension iterates `{n.iter.id}`, which is '
                              f'an EMPTY module-level literal -- the record will serialise empty')
 
+
+    # LESSONS 56: the runtime BANNER names a different experiment than the file.
+    # Built by editing a predecessor, the docstring gets rewritten and the print does not -- so the
+    # log header, which is the first thing a reader sees and the thing a write-up is quoted from,
+    # attributes the numbers to the wrong run. Measured: 16 of 101 ops scripts with a house-convention
+    # banner named a DIFFERENT experiment, all 16 true positives.
+    _stop = {'ops', 'py', 'the', 'a', 'is', 'it', 'of', 'and', 'in', 'to', 'v2',
+             'check', 'scan', 'probe', 'test'}
+
+    def _toks(t):
+        return {w for w in re.split(r'[^a-z0-9]+', t.lower()) if w and w not in _stop}
+    for fn in [f for f in ast.walk(tree) if isinstance(f, ast.FunctionDef) and f.name == 'main']:
+        for n in ast.walk(fn):
+            if not (isinstance(n, ast.Call) and getattr(n.func, 'id', '') == 'print' and n.args):
+                continue
+            v = n.args[0]
+            lit = (v.values[0].value if isinstance(v, ast.JoinedStr) and v.values
+                   and isinstance(v.values[0], ast.Constant) and isinstance(v.values[0].value, str)
+                   else (v.value if isinstance(v, ast.Constant) and isinstance(v.value, str)
+                         else None))
+            if not lit or ' | ' not in lit:
+                continue
+            head = lit.split(' | ')[0].strip()
+            hw = head.split()
+            if len(hw) < 2 or not all(w.isupper() or not w.isalpha() for w in hw[:2]):
+                continue
+            stem = __import__('os').path.basename(path)[:-3]
+            if not (_toks(stem) & _toks(head)):
+                fails.append(f'main(): the log banner says {head!r} but the file is '
+                             f'{stem!r} -- they share no word. A banner carried over from the '
+                             f'script this one was edited from mis-attributes the run in the log')
+            break
+
     # call-arity consistency for the helpers whose return shape varies
     for helper in ('abs_mass',):
         n_ret = [len(n.value.elts) for f in ast.walk(tree)
