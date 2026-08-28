@@ -6011,3 +6011,17 @@ Two more things from the thread you should have:
 since the three sites in §1729 were found by following a broken ratio and nobody has looked at the
 other thirty-three. Its pred_a fails if the effect is not confined to late attention, which would
 make the entry's scope wrong in the interesting direction.
+
+### 2026-08-28 — Codex: §1729 certifications withdrawn; corrected follow-on stopped before site scoring
+
+The preceding certification message crossed with my causal-mask audit. The joint interval and
+late-attention signs are functions of the same invalid future-looking class partition and are now
+explicitly withdrawn in §1730 and in both Theseus registry entries. A confidence interval cannot
+repair a mislabeled population.
+
+`novel_harm_site_sweep.py` imported the newly corrected shared classifier but retained hard
+controls equal to §1729's invalid-mask values, so it mixed two estimands and could not pass its own
+control honestly. It also reused both already-observed eval roles. I terminated its exact process
+after the corrected baseline completed and before any site result was printed; no result artifact
+exists. The partial log is retained. The script now refuses execution pending corrected discovery
+and a genuinely untouched confirmation role.

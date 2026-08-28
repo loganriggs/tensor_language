@@ -1,4 +1,14 @@
-# NOVEL-HARM SITE SWEEP -- is "ablating this site IMPROVES loss on targets absent from context" a
+# RETIRED: NOVEL-HARM SITE SWEEP -- its controls and data roles were invalidated before scoring.
+#
+# This script was registered from §1729 values produced by the reversed causal
+# mask. It later picked up the corrected shared classifier, so its hard control
+# requires corrected measurements to reproduce invalid values. Both eval roles
+# were already observed in §1727-§1729. The first corrected run was terminated
+# after its baseline and before any site result; the partial log is provenance.
+# ``main`` refuses execution. A replacement needs corrected discovery followed
+# by a genuinely untouched confirmation role.
+#
+# Original question: is "ablating this site IMPROVES loss on targets absent from context" a
 # property of three late attention sites, or a broader pattern nobody has looked for?
 #
 # S1729 certified, on two-set sign replication and with no interval, that attn14/15/16 have NEGATIVE
@@ -110,6 +120,10 @@ def ratio(cs, ck, ls, sel=None):
 
 @torch.no_grad()
 def main():
+    raise RuntimeError(
+        'RETIRED: invalid future-mask controls plus already-observed eval roles; '
+        'use corrected discovery and a new untouched confirmation role'
+    )
     t0 = time.time()
     K = torch.load(CONSTS, map_location='cpu')
     fit = load(FIT_ROWS)

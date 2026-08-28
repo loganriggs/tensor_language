@@ -1,4 +1,9 @@
-# JOINT CLASS-RATIO CI, and what the NEGATIVE attention ratios at layers 14-16 actually are.
+# RETIRED: JOINT CLASS-RATIO CI used future tokens in its induction mask.
+#
+# The completed artifact inherits the reversed causal comparison from §1727/§1728:
+# it selected p > j while interpreting p < j. It remains failure evidence but has
+# no scientific authority. Correcting the mask after both eval roles were observed
+# cannot rescue the registered confirmation. ``main`` refuses execution.
 #
 # §1728 (class_ratio_site_sweep) split §1727's contrast into two very different findings:
 #
@@ -40,6 +45,7 @@ import json, time, sys, os, torch
 import torch.nn.functional as F
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from bilin18_joint_removal import m, DEV
+from ops.target_token_classes import target_token_classes
 
 D = 1152; T = 256; NB = 2000
 PT = '/workspace/tensor_language/basis_aligned/bilinear_quotient/'
@@ -74,19 +80,6 @@ def mod_of(kind, L):
 
 
 @torch.no_grad()
-def token_classes(idx, tg):
-    B, L = idx.shape
-    ar = torch.arange(L, device=idx.device)
-    causal = ar.unsqueeze(1) < ar.unsqueeze(0)
-    causal_incl = ar.unsqueeze(1) >= ar.unsqueeze(0)
-    nxt = torch.cat([idx[:, 1:], torch.full((B, 1), -1, device=idx.device, dtype=idx.dtype)], 1)
-    induction = ((idx.unsqueeze(1) == idx.unsqueeze(2))
-                 & (nxt.unsqueeze(1) == tg.unsqueeze(2)) & causal.unsqueeze(0)).any(2)
-    seen_tg = ((idx.unsqueeze(1) == tg.unsqueeze(2)) & causal_incl.unsqueeze(0)).any(2)
-    return {'induction': induction, 'repeat': seen_tg & ~induction, 'novel': ~seen_tg & ~induction}
-
-
-@torch.no_grad()
 def per_row(rows, hooks=()):
     n = rows.shape[0]
     s = {c: torch.zeros(n) for c in CLASSES}
@@ -103,7 +96,7 @@ def per_row(rows, hooks=()):
             tg = bb[:, 1:].to(DEV)
             e = F.cross_entropy(lg.reshape(-1, lg.shape[-1]).float(), tg.reshape(-1),
                                 reduction='none').reshape(tg.shape)[:, 64:]
-            cls = token_classes(idx, tg)
+            cls = target_token_classes(idx, tg)
             cov = COV['seen'][idx[:, 64:]]
             for c in CLASSES:
                 msk = cls[c][:, 64:] & cov
@@ -131,6 +124,10 @@ def ratio(cs, ck, ls, sel=None):
 
 @torch.no_grad()
 def main():
+    raise RuntimeError(
+        'RETIRED: the registered class-ratio confirmation used a future-looking '
+        'induction mask and cannot be repaired after both eval roles were observed'
+    )
     t0 = time.time()
     K = torch.load(CONSTS, map_location='cpu')
     fit = load(FIT_ROWS)

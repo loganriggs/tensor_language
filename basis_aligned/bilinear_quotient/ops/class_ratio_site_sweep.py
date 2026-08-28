@@ -1,4 +1,4 @@
-# CLASS RATIO SITE SWEEP -- is "MLP damage lands on tokens you cannot copy, attention damage lands
+# RETIRED: CLASS RATIO SITE SWEEP -- is "MLP damage lands on tokens you cannot copy, attention damage lands
 # everywhere" a real structural law, per site, on held-out rows?
 #
 # §1727 (circuit_audit v4) decomposed each circuit's constant-ablation damage over disjoint
@@ -38,10 +38,20 @@
 #          baseline reproduces 3.09711 (§1701) within 1e-2, per-class token counts sum exactly to
 #          the scored count on both sets, and the 18-MLP and 18-attention JOINT ratios reproduce
 #          §1727's 0.838 and 1.002 within 0.02 on skip7000.
+#
+# RETIREMENT (2026-08-28): §1727 and this sweep used a target-class mask whose
+# causal comparison was reversed: it selected p > j while claiming p < j.  The
+# completed artifact is retained as failure evidence but carries no scientific
+# authority.  Correcting the mask after seeing skip11000 cannot rescue this
+# preregistration, and the S1727 control constants below are values of the invalid
+# estimand.  A new prospective test must first discover against the corrected mask
+# and then use an untouched role.  ``main`` refuses execution to prevent accidental
+# reuse; the corrected pure classifier remains imported for reference and tests.
 import json, time, sys, os, torch
 import torch.nn.functional as F
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from bilin18_joint_removal import m, DEV
+from ops.target_token_classes import target_token_classes
 
 D = 1152; T = 256; NB = 2000
 PT = '/workspace/tensor_language/basis_aligned/bilinear_quotient/'
@@ -76,22 +86,6 @@ def mod_of(kind, L):
 
 
 @torch.no_grad()
-def token_classes(idx, tg):
-    """Disjoint target-side classes, identical to circuit_audit v4 (§1727)."""
-    B, L = idx.shape
-    ar = torch.arange(L, device=idx.device)
-    causal = ar.unsqueeze(1) < ar.unsqueeze(0)
-    causal_incl = ar.unsqueeze(1) >= ar.unsqueeze(0)
-    nxt = torch.cat([idx[:, 1:], torch.full((B, 1), -1, device=idx.device, dtype=idx.dtype)], 1)
-    prev_match = idx.unsqueeze(1) == idx.unsqueeze(2)
-    copy_match = nxt.unsqueeze(1) == tg.unsqueeze(2)
-    induction = (prev_match & copy_match & causal.unsqueeze(0)).any(2)
-    seen_tg = ((idx.unsqueeze(1) == tg.unsqueeze(2)) & causal_incl.unsqueeze(0)).any(2)
-    return {'induction': induction, 'repeat': seen_tg & ~induction,
-            'novel': ~seen_tg & ~induction}
-
-
-@torch.no_grad()
 def per_row(rows, hooks=()):
     """Per-ROW class loss sums and counts, so the bootstrap can resample rows (§1701 convention)."""
     n = rows.shape[0]
@@ -110,7 +104,7 @@ def per_row(rows, hooks=()):
             tg = bb[:, 1:].to(DEV)
             e = F.cross_entropy(lg.reshape(-1, lg.shape[-1]).float(), tg.reshape(-1),
                                 reduction='none').reshape(tg.shape)[:, 64:]
-            cls = token_classes(idx, tg)
+            cls = target_token_classes(idx, tg)
             # SAME SCORED POPULATION as circuit_audit v1-v4: only positions whose input token was
             # seen in the fit rows. Dropping this scored every position and moved the baseline CE
             # from 3.29205 to 3.13704 -- caught by the pred_d baseline assert on the first run,
@@ -140,6 +134,10 @@ def ratio(cs, ck, ls, lk, sel=None):
 
 @torch.no_grad()
 def main():
+    raise RuntimeError(
+        'RETIRED: the registered discovery/control used a future-looking induction mask; '
+        'design a new test from the corrected target_token_classes on an untouched role'
+    )
     t0 = time.time()
     K = torch.load(CONSTS, map_location='cpu')
     fit = load(FIT_ROWS)

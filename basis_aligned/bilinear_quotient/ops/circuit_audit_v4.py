@@ -1,4 +1,10 @@
-# circuit_audit v4 -- WHAT KIND OF TOKEN does each circuit's damage land on?
+# circuit_audit v4 causal-mask correction -- descriptive replay only.
+#
+# The original v4 result used ``j < p`` while documenting ``p < j`` and therefore
+# allowed future positions into the induction class.  The original artifact is
+# retained as failure evidence.  This source imports the known-answer-tested causal
+# implementation and writes a distinct filename; its replay is a correction, not a
+# prospective test of the original registered predictions.
 #
 # v1 gave every circuit a removal cost and a per-token-table extraction score. v2 added a
 # specificity control; v3 (§1725) fixed that control by randomising it, which reversed two of v2's
@@ -52,11 +58,12 @@ import json, time, sys, os, torch
 import torch.nn.functional as F
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from bilin18_joint_removal import m, DEV
+from ops.target_token_classes import target_token_classes
 
 D = 1152; T = 256
 PT = '/workspace/tensor_language/basis_aligned/bilinear_quotient/'
 REG = '/workspace/theseus-bench/registry/circuits.json'
-OUT = PT + 'ops/circuit_audit_v4_results.json'
+OUT = PT + 'ops/circuit_audit_v4_causalfix_results.json'
 EVAL = ('skip7000', PT + '.rowcache/fineweb_n192_skip7000.pt')
 FIT_ROWS = PT + '.rowcache/fineweb_n96_skip80.pt'
 CONSTS = PT + 'opt_ablation_consts_all.pt'
@@ -145,28 +152,6 @@ def mod_of(kind, L):
 
 
 @torch.no_grad()
-def token_classes(idx, tg):
-    """Disjoint target-side classes over ALL positions of a batch, before the >=64 crop.
-
-    induction  exists p < j with idx[p] == idx[j] and idx[p+1] == tg[j]
-    repeat     exists p <= j with idx[p] == tg[j], and not induction
-    novel      everything else
-    """
-    B, L = idx.shape
-    ar = torch.arange(L, device=idx.device)
-    causal = ar.unsqueeze(1) < ar.unsqueeze(0)                 # [j, p] with p < j
-    causal_incl = ar.unsqueeze(1) >= ar.unsqueeze(0)           # [j, p] with p <= j
-    nxt = torch.cat([idx[:, 1:], torch.full((B, 1), -1, device=idx.device, dtype=idx.dtype)], 1)
-    prev_match = idx.unsqueeze(1) == idx.unsqueeze(2)          # [b, j, p] idx[p] == idx[j]
-    copy_match = nxt.unsqueeze(1) == tg.unsqueeze(2)           # [b, j, p] idx[p+1] == tg[j]
-    induction = (prev_match & copy_match & causal.unsqueeze(0)).any(2)
-    seen_tg = ((idx.unsqueeze(1) == tg.unsqueeze(2)) & causal_incl.unsqueeze(0)).any(2)
-    return {'induction': induction,
-            'repeat': seen_tg & ~induction,
-            'novel': ~seen_tg & ~induction}
-
-
-@torch.no_grad()
 def sweep(rows, hooks=(), score=None):
     hs = list(hooks)
     try:
@@ -197,7 +182,7 @@ def ce_by_class(rows, seen, hooks=()):
                             reduction='none').reshape(tg.shape)[:, 64:]
         cov = seen[idx[:, 64:]]
         acc['t'] += float(e[cov].sum()); acc['n'] += int(cov.sum())
-        cls = token_classes(idx, tg)
+        cls = target_token_classes(idx, tg)
         for c in CLASSES:
             msk = cls[c][:, 64:] & cov
             acc[c][0] += float(e[msk].sum()); acc[c][1] += int(msk.sum())
@@ -338,7 +323,9 @@ def main():
     print(f'  lag-1 entry induction {lg1["induction"]:.4f} vs novel {lg1["novel"]:.4f} nats/tok '
           f'-> per-context estimand rescues it {pd}', flush=True)
 
-    res = {'config': {'eval_set': EVAL[0], 'fit_rows': 'fineweb_n96_skip80.pt',
+    res = {'scientific_status': 'corrected descriptive replay; original v4 preregistration '
+                                'invalidated by reversed causal mask',
+           'config': {'eval_set': EVAL[0], 'fit_rows': 'fineweb_n96_skip80.pt',
                       'classes': 'target-side, disjoint, exhaustive: induction (target appears '
                                  'earlier preceded by the current token), repeat (target appears '
                                  'earlier, not in an induction position), novel (target absent from '

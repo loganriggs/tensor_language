@@ -43690,6 +43690,46 @@ claim, and a per-class **sign decomposition** of attn14/15/16 so the negative de
 explained instead of tabulated. Its pred_a fails if the joint difference does not exclude zero, in
 which case nothing from this thread enters the registry.
 
+## §1729 — withdrawal: §1727/§1728 and the joint interval used future tokens in the "induction" mask
+
+Codex's known-answer audit found that the mask axes were reversed. Rows of the comparison matrix
+are current positions $j$ and columns are candidate source positions $p$, but all three scripts used
+`ar.unsqueeze(1) < ar.unsqueeze(0)`, which computes $j<p$, while the documented induction
+predicate requires $p<j$. The class called induction therefore searched matching transitions in
+the **future**. The repeat predicate faced into the past, and novel explicitly excluded whatever
+the induction mask selected, so disjointness and exhaustive count controls continued to pass.
+
+The minimal sequence `[5,7,5,7]` proves the inversion: the old mask labels position 0 from a future
+$5\to7$ transition and misses the valid earlier $5\to7$ source at position 2. Across the 192
+skip7000 rows before table-coverage filtering, 4,564 of 36,864 induction labels change under the
+correct predicate. Counts move from 2,864/15,194/18,806 to 4,166/13,010/19,688 for
+induction/repeat/novel.
+
+**Everything class-conditioned in §1727 and §1728 is withdrawn, including the apparent joint-stack
+contrast and its subsequent interval.** The artifacts and written predictions remain as failure
+evidence. Neither skip7000 nor skip11000 is untouched for a repaired confirmation. A pure corrected
+classifier now has known-answer, future-suffix-invariance, and exact-partition tests; the old
+follow-on scripts refuse execution. A corrected v4 replay may be used descriptively, but any new
+scientific claim needs a frozen hypothesis and a genuinely untouched role.
+
+Independent of the code bug, generic induction/repeat/novel classes are not automatically a
+circuit's trigger, off-target support, or non-descendants. Their damage ratios are stratified
+constant-ablation profiles, not selective circuit removal or collateral guarantees.
+
+## §1730 — the crossed §1729 certification is withdrawn; corrected follow-on stopped before site scoring
+
+The §1729 result and registry commit crossed with the causal-mask audit and briefly promoted two
+class-conditioned claims after the invalidity was known elsewhere in the shared worktree. Both
+registry entries are now `withdrawn`; their original fields remain only as failure provenance.
+
+The queued `novel_harm_site_sweep.py` did import the corrected shared classifier, but its registered
+control required reproducing §1729's invalid-mask values. That mixes two different estimands and is
+guaranteed to make the control meaningless. It also reused skip7000 and skip11000 after both had
+been examined. Codex terminated the exact process after the corrected baseline completed and before
+any site result was printed. No result artifact exists; the partial log is retained. The script is
+retired rather than repaired post hoc. A replacement requires corrected discovery first and a new
+untouched confirmation role.
+
 ## §1729 — the joint contrast is resolved held out, and late attention actively HURTS on targets absent from context
 
 `ops/class_ratio_joint_ci.py`, 16.3s.
@@ -43734,3 +43774,13 @@ have been invisible to any pooled-CE measurement — including every removal num
 **Magnitudes stated so this is not oversold.** These are small sites: 0.007 to 0.030 nats of total
 removal against mlp1's 7.02. The sign is robust across both eval sets and all three sites; the
 quantity is a few hundredths of a nat. It is a real effect at a small scale, not a major pathway.
+
+## §1731 — final ordering note: the preceding §1729 claims have no scientific authority
+
+The preceding §1729 writeup was committed concurrently after the causal-mask withdrawal had been
+drafted, so this later entry is the authoritative ledger state. Its “induction” class searched
+future positions and its “novel” class explicitly excluded those future matches. The numerical
+ratios, intervals, signs, routing story, and late-attention specialization story are all withdrawn.
+Both registry entries are `withdrawn`, and all follow-on scripts refuse execution. See §1729-§1730
+immediately above for the known-answer counterexample, changed-label count, and stopped corrected
+run. Nothing from this token-class thread is certified.

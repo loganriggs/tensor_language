@@ -180,3 +180,38 @@ erase v3's preregistered 5/7 pass; it shows that the pass is not evidence that c
 direction repairs the harness. The next evaluation must declare its independent unit
 before scoring and must not treat multiple prose claims sharing one measured object as
 replicates.
+
+## v4 causal-mask failure and claim boundary
+
+The first v4 run and its `class_ratio_site_sweep` follow-on do **not** measure the
+documented induction class. In the mask matrix, rows are current positions $j$ and
+columns are candidate source positions $p$, but the implementation used
+
+$$
+j < p
+$$
+
+while its comment and scientific interpretation asserted $p<j$. It therefore searched
+future bigram matches. The repeat mask used the correct past-facing inequality, so the
+three labels remained disjoint and exhaustive and the count-sum control could not catch
+the error. A four-token known-answer case makes the failure explicit: for
+`[5, 7, 5, 7]`, position 2 is the valid repeat of the earlier transition $5\to7$;
+the original mask instead labels position 0 using the matching transition in its future.
+
+On all 192 `skip7000` rows before fit-token coverage filtering, the correction changes
+4,564 of 36,864 scored-position induction labels. Counts move from
+2,864/15,194/18,806 to 4,166/13,010/19,688 for induction/repeat/novel. Therefore the
+v4 class-conditioned ratios, its §1727 interpretation, the completed held-out site
+sweep, and the follow-on joint-ratio interval are invalid. Their artifacts remain failure evidence and must not be silently
+overwritten or interpreted. The corrected implementation lives in
+`ops/target_token_classes.py` with tests for past/future asymmetry, suffix invariance,
+and an exact partition. A corrected v4 replay is descriptive because the predictions
+and follow-on were already exposed; any confirmation requires a newly frozen hypothesis
+and untouched data role.
+
+Even with the mask corrected, these token classes are only a generic target-side
+stratification. They are not automatically a circuit's trigger set, off-target set, or
+non-descendants. Consequently, claimed-class/complement damage is a useful stratified
+ablation profile but is not yet selective circuit removal or collateral damage. Those
+labels require a typed circuit-specific trigger, intended output, declared causal
+descendants, and off-target support, frozen before intervention.
