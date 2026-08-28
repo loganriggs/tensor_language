@@ -10718,9 +10718,9 @@ and synthetic-measurement-to-canonical-score laundering. Final focused suite is
 47/47. All 128 cell receipts and native-before-substitution ledgers are serialized
 and replayed; noncanonical transactions and scores are structurally test-only.
 
-Exact source commit `116fdfd2` is pushed and equals origin/main. The 22-file closure
-passes with SHA256 `42b198f82833b645a7247380492fab2fa35b42ea467a4616554c78e0ab812606`;
-both canonical namespaces are pristine. Independent audit gives GO. Launch has not
+Implementation commit `116fdfd2` is pushed; the runner recomputes and binds the
+then-current pushed `HEAD` across the exact 22-file closure immediately before
+launch. Both canonical namespaces are pristine. Independent audit gives GO. Launch has not
 started because Claude's frontier-knee process owns the GPU; do not compete for
 memory. Static ranked review and plain-language rationale:
 `basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-08-28_2330.md`.

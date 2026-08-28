@@ -178,10 +178,10 @@ windows, replay of all 128 physical call ledgers, corruption tests for cell/role
 hash chains, and a negative test proving that a synthetic measurement cannot receive
 a canonical score receipt.
 
-The exact 22-file closure is committed and pushed at `116fdfd2`; `HEAD` and
-`origin/main` match and the source closure hash is
-`42b198f82833b645a7247380492fab2fa35b42ea467a4616554c78e0ab812606`.
-Both canonical output namespaces remain pristine.  The launch is scientifically and
+The implementation bytes are committed and pushed at `116fdfd2`.  The runner
+recomputes and binds the then-current pushed `HEAD` across the exact 22-file closure
+immediately before launch, so the authority cannot cite a stale hash after later
+documentation-only commits. Both canonical output namespaces remain pristine.  The launch is scientifically and
 operationally **GO**, but has not started because the GPU is occupied by the
 already-running coverage-by-rank frontier-knee job.  No early-MLP/context-cross
 outcome has been opened.
