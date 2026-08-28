@@ -1370,3 +1370,26 @@ number, and is my run that build?" Here the answer was visible in one line of th
 constructed by `build(NFULL, 64, 64)`, so only rank-64 constants can be quoted against it. Related:
 [[lesson-49]], [[lesson-42]] -- the cross-run control is still the only thing that catches a changed
 definition, which is exactly why mis-specifying it is expensive.
+
+## LESSON 54 — building a script by editing a previous one leaves duplicate constants, and the later one silently wins
+
+`ops/bottom_up_gain_rescue` set `DEPTHS = (0, 3, 5)` for §1806's pathological depths. Eight lines
+later an inherited `DEPTHS = (-1, 7, 10, 13)` from the previous script in the lineage silently
+overrode it. The run executed the WRONG DEPTHS for three minutes of GPU time and then died on a
+`KeyError: 'B3_first'` -- an arm that was never created, because the loop had built B7/B10/B13 instead.
+
+The defect is invisible when your intended value happens to come SECOND and fatal when it comes FIRST,
+which is why it survives: it is silently correct most of the time. **Measured across the whole
+directory: 12 of 99 ops scripts carry a duplicate module-level constant.** Every one is a true
+positive and every one is a single edit away from doing the wrong thing quietly.
+
+Added to `ops/gate.py`, tested both directions per LESSON D and with a fixture that actually contains
+the defect per LESSON 52: it names `DEPTHS` on the broken file, says nothing on the same file with the
+duplicate line deleted, and Python confirms on the fixture that the later value is what runs. It fires
+on 12% of existing scripts, which is not a flood -- those twelve really are defective.
+
+**How to apply.** When a script is derived from another by editing, the constants block is where stale
+definitions accumulate, because new ones get PREPENDED and old ones are easy to miss. Grep `^NAME =`
+before running, or let the gate do it. And if a duplicate is found in something already run, check
+which value won before assuming the published result is wrong -- usually the intended one was second
+and the output stands.

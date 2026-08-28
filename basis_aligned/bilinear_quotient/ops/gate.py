@@ -99,6 +99,21 @@ def gate(path):
                     f'that {fn.name}() also assigns -- the assignment shadows the global for the '
                     f'whole function and the nested call will fail')
 
+    # A MODULE-LEVEL CONSTANT ASSIGNED TWICE is almost always a merge error in this lineage, where
+    # scripts are built by editing a previous one. §1822's bottom_up_gain_rescue set DEPTHS = (0,3,5)
+    # and an inherited DEPTHS = (-1,7,10,13) eight lines later silently won; the run executed the
+    # wrong depths for three minutes and died on a KeyError for an arm that was never created.
+    seen_const, dupes = set(), set()
+    for n in tree.body:
+        if isinstance(n, ast.Assign):
+            for t in _targets(n):
+                if t.isupper() and t in seen_const:
+                    dupes.add(t)
+                seen_const.add(t)
+    if dupes:
+        fails.append(f'module-level constant(s) assigned twice: {sorted(dupes)} '
+                     f'-- the later assignment silently wins')
+
     # every function used AS A VALUE must return something (LESSONS 18).
     # A call that is the whole of an Expr statement is statement-use, not value-use.
     stmt_calls = {id(n.value) for n in ast.walk(tree) if isinstance(n, ast.Expr)
