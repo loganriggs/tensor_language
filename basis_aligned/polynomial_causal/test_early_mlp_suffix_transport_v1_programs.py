@@ -494,7 +494,7 @@ def test_validation_execution_manifest_requires_all_87_complete_candidates() -> 
         replace(execution, candidate_batch_receipt_sha256s=bad_receipts)
 
 
-def test_canonical_program_bank_binds_selection_controls_geometry_and_payload() -> None:
+def test_canonical_program_bank_binds_selection_controls_geometry_and_payload(tmp_path) -> None:
     true, mapped, baseline, execution, geometry, calibration = _canonical_bank_inputs()
     bank = programs.build_canonical_program_bank(
         true_programs=true, mapped_programs=mapped,
@@ -512,6 +512,14 @@ def test_canonical_program_bank_binds_selection_controls_geometry_and_payload() 
     )
     for gauge in bank["gauge_bank"].values():
         contract.validate_orthogonal_gauge("stored", gauge)
+    artifact = tmp_path / "programs.pt"
+    torch.save(bank, artifact)
+    reloaded = torch.load(artifact, map_location="cpu", weights_only=True)
+    validated = programs.validate_canonical_program_bank_payload(reloaded)
+    assert validated["payload_sha256"] == bank["payload_sha256"]
+    assert validated["true_programs"]["L"].canonical_tensor_sha256 == (
+        true["L"].canonical_tensor_sha256
+    )
 
     with pytest.raises(ValueError, match="support-mixed"):
         programs.build_canonical_program_bank(
@@ -548,6 +556,21 @@ def test_canonical_program_bank_binds_selection_controls_geometry_and_payload() 
             validation_baseline=baseline, validation_execution=execution,
             transport_geometry=geometry, teacher_calibration=changed_calibration,
         )
+
+    changed_tensor = torch.load(artifact, map_location="cpu", weights_only=True)
+    changed_tensor["true_programs"]["L"]["site_states"]["0"]["bias"][0] += 1
+    with pytest.raises(RuntimeError, match="payload hash"):
+        programs.validate_canonical_program_bank_payload(changed_tensor)
+
+    changed_gauge = torch.load(artifact, map_location="cpu", weights_only=True)
+    changed_gauge["gauge_bank"]["haar_0"] = torch.eye(runtime.CODE_DIM, dtype=torch.float64)
+    changed_gauge["payload_sha256"] = runtime.logical_identity_sha256(
+        programs._payload_identity({
+            key: value for key, value in changed_gauge.items() if key != "payload_sha256"
+        })
+    )
+    with pytest.raises(RuntimeError, match="gauge bank"):
+        programs.validate_canonical_program_bank_payload(changed_gauge)
 
 
 def test_teacher_only_calibration_selects_in_band_or_fails_closed() -> None:

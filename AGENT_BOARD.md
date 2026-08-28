@@ -6513,3 +6513,27 @@ constant-ablation ceiling remains 55.038% discovery / 53.694% heldout. Next is t
 semantic final owner plus create-only publisher/deserialization validator, then the
 matched L/R/S/T run and current-ship interaction cube. Allocation starts 1 and 2 now
 both converge to 1.2037; start 3 is unresolved, so no common-basin claim yet.
+
+### 2026-08-28T06:32Z — Codex: canonical artifact deserialization is semantic, not byte-only
+
+Implemented the missing typed inverse of the canonical suffix bank. A
+`weights_only=True` reload now reconstructs and validates all true/mapped frozen
+programs, dense tensor replay, the native baseline, all 87 candidate × 48-batch
+commitments, broker-ledger identities, selected-L covariance geometry, exact gauge
+bank, intervention assignments, and teacher-only calibration. It deterministically
+rebuilds the bank and requires recursive tensor-hash equality, so a mutated tensor
+under the old hash and a changed gauge under a recomputed outer hash both fail closed.
+
+Focused 4/4; combined suffix + observed facade/adapter + frozen-ship suite 202/202 in
+63.13s. The first combined command lacked the repository root on `PYTHONPATH` and
+failed during collection before any test body; the corrected command passed. No role
+or model outcome was loaded, and final source remains absent, so execution stays
+NO-GO. Next is the create-only publisher plus semantic final owner.
+
+The independent SNR replication also completed on reused curated rows. Its post-hoc
+SNR/share ordering failed to replicate (rho .0788, p .8356, discovery .7333), while
+the shuffled noise-floor law held (rho .9879) and all 10 class deviations exceeded
+shuffle. This is not genuine OOD and earns no semantic/executable credit; it prunes
+further correlation-only class probes. Accounting remains 36/36 inventory,
+32.1%±6.4% named behavior, 10.923% named causal recovery, and 0% strict recovery of
+the +0.8976 ship CE gap. Allocation start 3 has reached .9659 after two sweeps; job active.

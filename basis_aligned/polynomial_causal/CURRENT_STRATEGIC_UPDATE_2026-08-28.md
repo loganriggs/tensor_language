@@ -933,3 +933,68 @@ allocation scans remain pruned because they cannot presently change a common-sup
 causal or executable decision. The independent GPU allocation audit has now shown
 starts 1 and 2 both converge to 1.2037, but start 3 has only initialized; a shared
 basin claim remains withheld.
+
+## 06:32 UTC continuation: the canonical artifact now has a trusted inverse
+
+The strategic denominator still does not move: 36/36 sites are inventoried, named
+behavior is $32.1\%\pm6.4\%$, named causal recovery is $10.923\%$, and no admitted
+program yet recovers any of the paired $+0.8976$ current-ship CE gap. The separate
+constant-replacement ceiling remains $55.038\%$ discovery and $53.694\%$ held-out.
+The limiting uncertainty is executable composition, not another local fit statistic.
+
+The highest-priority CPU action this interval closed the missing inverse of the
+canonical program builder. A `weights_only=True` artifact load is now reconstructed
+into typed `FrozenProgram`, `FrozenMappedProgram`, baseline, execution-manifest, and
+transport-geometry objects. Validation checks exact schemas; three-trial identities;
+metric and copy gates; source/statistics/tensor hashes; the two factorized site states;
+T's $64\times64$ cross map; dense tensor replay; all 87 candidate and 48-batch
+commitments; native baseline support; the covariance eigensystem; the exact eight
+gauges; balanced validation/final assignments; and replay of the teacher calibration
+rule. It then deterministically rebuilds the whole bank and requires recursive
+tensor-hash identity with the deserialized artifact.
+
+This matters because an outer file receipt alone authenticates bytes but does not
+show that those bytes still denote the program selected by the mathematical contract.
+The new inverse supplies the semantic half of that check; the create-only publisher
+will supply the row/fit/source/protected-file provenance half. Tests cover a literal
+tensor mutation under the old hash and a changed gauge under a recomputed outer hash.
+Both fail. The focused bank gate passes 4/4, and the combined suffix, observed-model,
+and frozen-ship suite passes 202/202 in 63.13 seconds with the repository root bound
+explicitly on `PYTHONPATH`. The first combined invocation failed at collection because
+that path was absent; it ran no test bodies and is retained as an invocation failure,
+not hidden as a code failure.
+
+A separate agent result also narrows the semantic-probe branch. On ten registered
+classes, the earlier post-hoc SNR-versus-share correlation did not replicate:
+$\rho=0.0788$, $p=0.8356$, versus the discovery reference $0.7333$. Frequency likewise
+had $\rho=0.0182$. The shuffled noise-floor law did replicate
+($\rho=0.9879$), and all ten class deviations exceeded their shuffled controls. These
+are reused curated rows, not genuine OOD, so the result falsifies the proposed class
+ordering while preserving only “signal exceeds shuffle.” It strengthens the decision
+to prune more isolated semantic correlations until an executable interface supplies
+consequences.
+
+Updated priority order:
+
+1. **Implement the create-only publisher and semantic final owner.** The typed inverse
+   makes this lower-risk now. Publication must bind row receipt, fit ledger/manifest,
+   complete validation evidence, source closure, protected artifacts, and the exact
+   bank before any one-shot final-role load.
+2. **Execute the matched L/R/S0/S1/T experiment with all mapped controls.** It is the
+   first falsifiable test of whether a local code, suffix objective, or cross-site
+   transport provides an admitted early-stack interface.
+3. **Measure whole-ship composition with a preregistered Mobius cube.** Cross early
+   MLP, interaction-selected attention, and deep restoration on one support to locate
+   the unexplained CE and prevent local fidelity from being mistaken for recovery.
+4. **Compile MLP2/3 conditionally on the admitted early state.** Favor tensor and
+   polynomial factorization only when producer/consumer replay and gauge invariance
+   survive; independent local fits are redundant with prior failures.
+5. **Compile attention as routing plus value/content, then certify simplicity by
+   consequence.** Equal-fidelity candidates must predict unseen distributions,
+   extract circuits, support selective edits/removal, limit collateral, and compose.
+
+Rank-only sweeps, token clustering, SNR/share variants, OAT/LOO rankings, and further
+spent-role allocation searches stay below the cut: they are cheap but do not close a
+causal interface or move a whole-model denominator. The GPU allocation job remains
+active; starts 1 and 2 converged to 1.2037, while start 3 has reached 0.9659 after two
+sweeps. No common-basin claim is made until that run terminates.

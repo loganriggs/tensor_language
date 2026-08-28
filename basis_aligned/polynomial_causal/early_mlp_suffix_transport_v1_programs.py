@@ -1855,3 +1855,249 @@ def build_canonical_program_bank(
         },
     }
     return {**body, "payload_sha256": runtime.logical_identity_sha256(_payload_identity(body))}
+
+
+def _exact_payload_keys(value: Any, keys: set[str], name: str) -> Mapping[str, Any]:
+    if not isinstance(value, Mapping) or set(value) != keys:
+        raise RuntimeError(f"canonical {name} payload schema changed")
+    return value
+
+
+def _restore_frozen_program_payload(
+    value: Any, *, expected_route: str,
+) -> FrozenProgram:
+    payload = _exact_payload_keys(value, {
+        "route", "trial", "learning_rate", "validation_metric_name",
+        "validation_metric", "validation_copy_worsening",
+        "validation_common_support_sha256",
+        "validation_sufficient_statistics_sha256", "source_program_sha256",
+        "source_tensor_sha256", "canonical_tensor_sha256", "site_states", "cross",
+        "svd_max_errors",
+    }, "frozen program")
+    trial = payload["trial"]
+    if payload["route"] != expected_route or expected_route not in SELECTABLE_ROUTES or (
+        type(trial) is not int
+    ) or trial not in range(len(runtime.LEARNING_RATES)) or payload["learning_rate"] != (
+        runtime.LEARNING_RATES[trial]
+    ) or payload["validation_metric_name"] != METRIC_BY_ROUTE[expected_route] or any(
+        not isinstance(payload[name], (int, float)) or not math.isfinite(float(payload[name]))
+        for name in ("validation_metric", "validation_copy_worsening")
+    ) or float(payload["validation_metric"]) < 0 or float(
+        payload["validation_copy_worsening"]
+    ) > 0.01 or any(not _sha256(payload[name]) for name in (
+        "validation_common_support_sha256",
+        "validation_sufficient_statistics_sha256", "source_program_sha256",
+        "source_tensor_sha256", "canonical_tensor_sha256",
+    )):
+        raise RuntimeError("canonical frozen program identity changed")
+    states_payload = _exact_payload_keys(payload["site_states"], {"0", "1"}, "site states")
+    states: dict[int, Mapping[str, Any]] = {}
+    for site in (0, 1):
+        state = _exact_payload_keys(states_payload[str(site)], {
+            "grammar", "interface", "mean", "scale", "left", "right", "bias",
+        }, f"site{site} state")
+        states[site] = MappingProxyType({
+            name: item.detach().cpu().contiguous().clone() if torch.is_tensor(item) else item
+            for name, item in state.items()
+        })
+    errors = payload["svd_max_errors"]
+    if not isinstance(errors, (tuple, list)) or len(errors) != 2 or any(
+        not isinstance(error, (int, float)) or not math.isfinite(float(error))
+        or not 0 <= float(error) <= 2e-6 for error in errors
+    ):
+        raise RuntimeError("canonical frozen program SVD receipt changed")
+    cross = payload["cross"]
+    if cross is not None:
+        if not torch.is_tensor(cross) or tuple(cross.shape) != (
+            runtime.CODE_DIM, runtime.CODE_DIM
+        ) or cross.dtype != torch.float32 or not bool(torch.isfinite(cross).all()):
+            raise RuntimeError("canonical frozen program cross tensor changed")
+        cross = cross.detach().cpu().contiguous().clone()
+    if (expected_route == "T") != (cross is not None):
+        raise RuntimeError("canonical frozen program cross route changed")
+    frozen = FrozenProgram(
+        route=expected_route, trial=trial,
+        learning_rate=float(payload["learning_rate"]),
+        validation_metric_name=payload["validation_metric_name"],
+        validation_metric=float(payload["validation_metric"]),
+        validation_copy_worsening=float(payload["validation_copy_worsening"]),
+        validation_common_support_sha256=payload["validation_common_support_sha256"],
+        validation_sufficient_statistics_sha256=(
+            payload["validation_sufficient_statistics_sha256"]
+        ),
+        source_program_sha256=payload["source_program_sha256"],
+        source_tensor_sha256=payload["source_tensor_sha256"],
+        canonical_tensor_sha256=payload["canonical_tensor_sha256"],
+        site_states=MappingProxyType(states), cross=cross,
+        svd_max_errors=(float(errors[0]), float(errors[1])),
+    )
+    frozen.make_program()
+    return frozen
+
+
+def validate_canonical_program_bank_payload(value: Any) -> Mapping[str, Any]:
+    """Reconstruct and replay every typed invariant after artifact deserialization."""
+
+    payload = _exact_payload_keys(value, {
+        "schema_version", "kind", "true_programs", "mapped_programs",
+        "validation_baseline", "validation_execution", "transport_geometry",
+        "gauge_bank", "intervention_assignments", "teacher_calibration",
+        "payload_sha256",
+    }, "program bank")
+    if payload["schema_version"] != 1 or payload["kind"] != (
+        "early_mlp_suffix_transport_v1_canonical_program_bank"
+    ) or not _sha256(payload["payload_sha256"]):
+        raise RuntimeError("canonical program bank header changed")
+    body = {key: payload[key] for key in payload if key != "payload_sha256"}
+    observed_identity = runtime.logical_identity_sha256(_payload_identity(body))
+    if observed_identity != payload["payload_sha256"]:
+        raise RuntimeError("canonical program bank payload hash changed")
+
+    true_payload = _exact_payload_keys(
+        payload["true_programs"], set(SELECTABLE_ROUTES), "true program bank",
+    )
+    true_programs = MappingProxyType({
+        route: _restore_frozen_program_payload(true_payload[route], expected_route=route)
+        for route in SELECTABLE_ROUTES
+    })
+    mapped_payload = _exact_payload_keys(
+        payload["mapped_programs"], set(required_mapped_control_keys()),
+        "mapped program bank",
+    )
+    mapped_programs: dict[str, FrozenMappedProgram] = {}
+    for key in required_mapped_control_keys():
+        control, route = key.split("/", 1)
+        entry = _exact_payload_keys(mapped_payload[key], {
+            "control", "mapping_sha256", "mapped_sufficient_statistics_sha256", "program",
+        }, "mapped program")
+        if entry["control"] != control:
+            raise RuntimeError("canonical mapped program control changed")
+        mapped_programs[key] = FrozenMappedProgram(
+            control=control, mapping_sha256=entry["mapping_sha256"],
+            mapped_sufficient_statistics_sha256=(
+                entry["mapped_sufficient_statistics_sha256"]
+            ),
+            program=_restore_frozen_program_payload(entry["program"], expected_route=route),
+        )
+    mapped_programs_proxy = MappingProxyType(mapped_programs)
+
+    baseline_payload = _exact_payload_keys(payload["validation_baseline"], {
+        "common_support_sha256", "baseline_sha256", "row_ce_sum", "row_ce_count",
+        "row_copy_ce_sum", "row_copy_count",
+    }, "validation baseline")
+    baseline = ValidationBaselineSufficientStatistics(
+        common_support_sha256=baseline_payload["common_support_sha256"],
+        row_ce_sum=baseline_payload["row_ce_sum"],
+        row_ce_count=baseline_payload["row_ce_count"],
+        row_copy_ce_sum=baseline_payload["row_copy_ce_sum"],
+        row_copy_count=baseline_payload["row_copy_count"],
+        literal_early_mlp_calls=ZERO_NATIVE_CALLS,
+        native_guard_restored=True, native_guard_inert=True,
+    )
+    if baseline.sha256 != baseline_payload["baseline_sha256"]:
+        raise RuntimeError("canonical validation baseline hash changed")
+
+    execution_payload = _exact_payload_keys(payload["validation_execution"], {
+        "manifest_sha256", "validation_role_tensor_sha256", "common_support_sha256",
+        "baseline_statistics_sha256", "baseline_batch_receipt_sha256s",
+        "candidate_batch_receipt_sha256s", "candidate_statistics_sha256s",
+        "broker_ledger_sha256s",
+    }, "validation execution")
+    execution = ValidationExecutionManifest(
+        validation_role_tensor_sha256=execution_payload["validation_role_tensor_sha256"],
+        common_support_sha256=execution_payload["common_support_sha256"],
+        baseline_statistics_sha256=execution_payload["baseline_statistics_sha256"],
+        baseline_batch_receipt_sha256s=tuple(
+            execution_payload["baseline_batch_receipt_sha256s"]
+        ),
+        candidate_batch_receipt_sha256s={
+            key: tuple(execution_payload["candidate_batch_receipt_sha256s"][key])
+            for key in required_validation_candidate_keys()
+        },
+        candidate_statistics_sha256s=execution_payload["candidate_statistics_sha256s"],
+        broker_ledger_sha256s=execution_payload["broker_ledger_sha256s"],
+    )
+    if execution.sha256 != execution_payload["manifest_sha256"]:
+        raise RuntimeError("canonical validation execution manifest hash changed")
+
+    geometry_payload = _exact_payload_keys(payload["transport_geometry"], {
+        "selected_l_program_sha256", "fit_role_tensor_sha256",
+        "code_trajectory_sha256", "code_count", "clip_floor", "natural_rms",
+        "geometry_sha256", "mean", "covariance", "eigenvalues", "eigenvectors",
+        "clipped_eigenvalues", "raw_rademacher_signs", "normalized_directions",
+    }, "transport geometry")
+    geometry = TransportInterventionGeometry(
+        selected_l_program_sha256=geometry_payload["selected_l_program_sha256"],
+        fit_role_tensor_sha256=geometry_payload["fit_role_tensor_sha256"],
+        code_trajectory_sha256=geometry_payload["code_trajectory_sha256"],
+        code_count=geometry_payload["code_count"], mean=geometry_payload["mean"],
+        covariance=geometry_payload["covariance"],
+        eigenvalues=geometry_payload["eigenvalues"],
+        eigenvectors=geometry_payload["eigenvectors"],
+        clipped_eigenvalues=geometry_payload["clipped_eigenvalues"],
+        clip_floor=geometry_payload["clip_floor"], natural_rms=geometry_payload["natural_rms"],
+        raw_rademacher_signs=geometry_payload["raw_rademacher_signs"],
+        normalized_directions=geometry_payload["normalized_directions"],
+    )
+    if geometry.sha256 != geometry_payload["geometry_sha256"]:
+        raise RuntimeError("canonical transport geometry hash changed")
+
+    gauge_payload = _exact_payload_keys(
+        payload["gauge_bank"], set(orthogonal_gauge_bank()), "gauge bank",
+    )
+    for name, expected in orthogonal_gauge_bank().items():
+        if not torch.is_tensor(gauge_payload[name]) or not torch.equal(
+            gauge_payload[name], expected
+        ):
+            raise RuntimeError("canonical gauge bank changed")
+    assignment_payload = _exact_payload_keys(
+        payload["intervention_assignments"], {"validation", "final"},
+        "intervention assignments",
+    )
+    for role in ("validation", "final"):
+        observed = _exact_payload_keys(
+            assignment_payload[role], {"positions", "row_permutation", "direction_indices"},
+            f"{role} intervention assignment",
+        )
+        expected = intervention_assignments(role)
+        if any(not torch.is_tensor(observed[name]) or not torch.equal(
+            observed[name], expected[name]
+        ) for name in expected):
+            raise RuntimeError("canonical intervention assignment changed")
+
+    calibration_payload = _exact_payload_keys(payload["teacher_calibration"], {
+        "selected_amplitude_multiplier", "selected_teacher_median_kl",
+        "geometric_center", "calibration_passed", "teacher_median_kls",
+    }, "teacher calibration")
+    median_payload = _exact_payload_keys(
+        calibration_payload["teacher_median_kls"],
+        {str(amplitude) for amplitude in INTERVENTION_AMPLITUDES},
+        "teacher median KL",
+    )
+    calibration = select_teacher_calibration({
+        amplitude: median_payload[str(amplitude)] for amplitude in INTERVENTION_AMPLITUDES
+    })
+    rebuilt = build_canonical_program_bank(
+        true_programs=true_programs, mapped_programs=mapped_programs_proxy,
+        validation_baseline=baseline, validation_execution=execution,
+        transport_geometry=geometry, teacher_calibration={
+            **{key: calibration_payload[key] for key in calibration_payload if key != (
+                "teacher_median_kls"
+            )},
+            "teacher_median_kls": {
+                amplitude: median_payload[str(amplitude)]
+                for amplitude in INTERVENTION_AMPLITUDES
+            },
+        },
+    )
+    if _payload_identity(rebuilt) != _payload_identity(payload):
+        raise RuntimeError("canonical program bank did not replay after deserialization")
+    return MappingProxyType({
+        "true_programs": true_programs,
+        "mapped_programs": mapped_programs_proxy,
+        "validation_baseline": baseline,
+        "validation_execution": execution,
+        "transport_geometry": geometry,
+        "teacher_calibration": calibration,
+        "payload_sha256": payload["payload_sha256"],
+    })
