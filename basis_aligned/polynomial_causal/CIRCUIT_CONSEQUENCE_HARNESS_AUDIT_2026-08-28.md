@@ -215,3 +215,19 @@ non-descendants. Consequently, claimed-class/complement damage is a useful strat
 ablation profile but is not yet selective circuit removal or collateral damage. Those
 labels require a typed circuit-specific trigger, intended output, declared causal
 descendants, and off-target support, frozen before intervention.
+
+### Corrected descriptive replay
+
+The corrected v4 replay completed in 51.2 seconds and wrote a separate artifact rather
+than overwriting v4. On fit-covered `skip7000` positions, class counts change from the
+invalid 2,341/10,885/14,748 to 3,394/9,127/15,453. The numerical interpretation changes
+materially: middle-attention removal is 2.664 nats/token on induction targets versus
+2.248 on novel targets, and its claimed-class/complement selectivity moves from 1.060
+to 1.308. The all-attention induction/novel damage ratio is 1.165 versus 0.881 for all
+MLPs. The old four Boolean predicates move from false/true/true/false to all true.
+
+These values are a corrected **discovery profile**, not restored preregistered results.
+Both original eval roles were exposed, and the predicates were observed under the old
+mask before correction. The next legitimate confirmation must freeze a hypothesis from
+the corrected profile and evaluate a newly declared role. It must still avoid calling
+generic target-class selectivity selective circuit removal.

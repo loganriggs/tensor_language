@@ -1,0 +1,393 @@
+{
+ "source_commit": "0c58c1364938e5419f3f779e72ec007f198ded9f",
+ "source_sha256": {
+  "ops/circuit_audit_v4.py": "76a192db23a16391234f286bed20db6017bc3f6dcdf6a19e174cb29eb660d271",
+  "ops/target_token_classes.py": "f19fc71572729380f2bb8d42326e573ef280d4262c28d9920bb000c94f9222d0"
+ },
+ "scientific_status": "corrected descriptive replay; original v4 preregistration invalidated by reversed causal mask",
+ "config": {
+  "eval_set": "skip7000",
+  "fit_rows": "fineweb_n96_skip80.pt",
+  "classes": "target-side, disjoint, exhaustive: induction (target appears earlier preceded by the current token), repeat (target appears earlier, not in an induction position), novel (target absent from the context)",
+  "selectivity": "per-token removal on the class the entry CLAIMS over per-token removal on the other two. The first per-context collateral number in this arc (\u00a71721). Only claims whose context is a target-token property can be expressed; the rest are `all`.",
+  "claim_class": "HAND-ANNOTATED reading of each entry, disputable per line"
+ },
+ "circuits": {
+  "_mlp0_dossier_resolved": {
+   "n_sites": 1,
+   "removal_nats": 0.85135,
+   "per_token_removal": {
+    "induction": 0.21339,
+    "repeat": 0.63529,
+    "novel": 1.11907
+   },
+   "damage_share": {
+    "induction": 0.0304,
+    "repeat": 0.2435,
+    "novel": 0.7261
+   },
+   "class_token_counts": {
+    "induction": 3394,
+    "repeat": 9127,
+    "novel": 15453
+   },
+   "claim_class": "all",
+   "selectivity_claimed_vs_complement": null
+  },
+  "_mlp1_dossier": {
+   "n_sites": 1,
+   "removal_nats": 7.0213,
+   "per_token_removal": {
+    "induction": 7.41844,
+    "repeat": 5.5993,
+    "novel": 7.77394
+   },
+   "damage_share": {
+    "induction": 0.1282,
+    "repeat": 0.2602,
+    "novel": 0.6116
+   },
+   "class_token_counts": {
+    "induction": 3394,
+    "repeat": 9127,
+    "novel": 15453
+   },
+   "claim_class": "all",
+   "selectivity_claimed_vs_complement": null
+  },
+  "_front_band_tableability_ladder": {
+   "n_sites": 4,
+   "removal_nats": 4.3928,
+   "per_token_removal": {
+    "induction": 4.54351,
+    "repeat": 3.73482,
+    "novel": 4.74833
+   },
+   "damage_share": {
+    "induction": 0.1255,
+    "repeat": 0.2774,
+    "novel": 0.5971
+   },
+   "class_token_counts": {
+    "induction": 3394,
+    "repeat": 9127,
+    "novel": 15453
+   },
+   "claim_class": "all",
+   "selectivity_claimed_vs_complement": null
+  },
+  "_front_is_tabular_middle_is_not": {
+   "n_sites": 4,
+   "removal_nats": 4.3928,
+   "per_token_removal": {
+    "induction": 4.54351,
+    "repeat": 3.73482,
+    "novel": 4.74833
+   },
+   "damage_share": {
+    "induction": 0.1255,
+    "repeat": 0.2774,
+    "novel": 0.5971
+   },
+   "class_token_counts": {
+    "induction": 3394,
+    "repeat": 9127,
+    "novel": 15453
+   },
+   "claim_class": "all",
+   "selectivity_claimed_vs_complement": null
+  },
+  "_middle_band_is_redundant_not_small": {
+   "n_sites": 12,
+   "removal_nats": 2.64962,
+   "per_token_removal": {
+    "induction": 3.22357,
+    "repeat": 1.70668,
+    "novel": 3.08049
+   },
+   "damage_share": {
+    "induction": 0.1476,
+    "repeat": 0.2102,
+    "novel": 0.6422
+   },
+   "class_token_counts": {
+    "induction": 3394,
+    "repeat": 9127,
+    "novel": 15453
+   },
+   "claim_class": "all",
+   "selectivity_claimed_vs_complement": null
+  },
+  "_middle_band_program_family_prices": {
+   "n_sites": 12,
+   "removal_nats": 2.64962,
+   "per_token_removal": {
+    "induction": 3.22357,
+    "repeat": 1.70668,
+    "novel": 3.08049
+   },
+   "damage_share": {
+    "induction": 0.1476,
+    "repeat": 0.2102,
+    "novel": 0.6422
+   },
+   "class_token_counts": {
+    "induction": 3394,
+    "repeat": 9127,
+    "novel": 15453
+   },
+   "claim_class": "all",
+   "selectivity_claimed_vs_complement": null
+  },
+  "_mid_band_feature_price_curve": {
+   "n_sites": 12,
+   "removal_nats": 2.64962,
+   "per_token_removal": {
+    "induction": 3.22357,
+    "repeat": 1.70668,
+    "novel": 3.08049
+   },
+   "damage_share": {
+    "induction": 0.1476,
+    "repeat": 0.2102,
+    "novel": 0.6422
+   },
+   "class_token_counts": {
+    "induction": 3394,
+    "repeat": 9127,
+    "novel": 15453
+   },
+   "claim_class": "all",
+   "selectivity_claimed_vs_complement": null
+  },
+  "_front_mlps_are_synergistic": {
+   "n_sites": 4,
+   "removal_nats": 4.3928,
+   "per_token_removal": {
+    "induction": 4.54351,
+    "repeat": 3.73482,
+    "novel": 4.74833
+   },
+   "damage_share": {
+    "induction": 0.1255,
+    "repeat": 0.2774,
+    "novel": 0.5971
+   },
+   "class_token_counts": {
+    "induction": 3394,
+    "repeat": 9127,
+    "novel": 15453
+   },
+   "claim_class": "all",
+   "selectivity_claimed_vs_complement": null
+  },
+  "_band_synergy_sign_depends_on_band": {
+   "n_sites": 2,
+   "removal_nats": 0.71117,
+   "per_token_removal": {
+    "induction": 0.12317,
+    "repeat": 0.12918,
+    "novel": 1.18406
+   },
+   "damage_share": {
+    "induction": 0.021,
+    "repeat": 0.0593,
+    "novel": 0.9197
+   },
+   "class_token_counts": {
+    "induction": 3394,
+    "repeat": 9127,
+    "novel": 15453
+   },
+   "claim_class": "all",
+   "selectivity_claimed_vs_complement": null
+  },
+  "_attention_output_write_is_nonlocal": {
+   "n_sites": 18,
+   "removal_nats": 3.55704,
+   "per_token_removal": {
+    "induction": 4.28999,
+    "repeat": 3.07419,
+    "novel": 3.68124
+   },
+   "damage_share": {
+    "induction": 0.1463,
+    "repeat": 0.282,
+    "novel": 0.5717
+   },
+   "class_token_counts": {
+    "induction": 3394,
+    "repeat": 9127,
+    "novel": 15453
+   },
+   "claim_class": "repeat",
+   "selectivity_claimed_vs_complement": 0.8109
+  },
+  "_attention_write_is_mostly_two_position": {
+   "n_sites": 18,
+   "removal_nats": 3.55704,
+   "per_token_removal": {
+    "induction": 4.28999,
+    "repeat": 3.07419,
+    "novel": 3.68124
+   },
+   "damage_share": {
+    "induction": 0.1463,
+    "repeat": 0.282,
+    "novel": 0.5717
+   },
+   "class_token_counts": {
+    "induction": 3394,
+    "repeat": 9127,
+    "novel": 15453
+   },
+   "claim_class": "induction",
+   "selectivity_claimed_vs_complement": 1.2414
+  },
+  "_lag1_failure_is_middle_band": {
+   "n_sites": 12,
+   "removal_nats": 2.11373,
+   "per_token_removal": {
+    "induction": 2.66424,
+    "repeat": 1.68101,
+    "novel": 2.24839
+   },
+   "damage_share": {
+    "induction": 0.1529,
+    "repeat": 0.2595,
+    "novel": 0.5876
+   },
+   "class_token_counts": {
+    "induction": 3394,
+    "repeat": 9127,
+    "novel": 15453
+   },
+   "claim_class": "induction",
+   "selectivity_claimed_vs_complement": 1.3075
+  },
+  "_whole_model_program": {
+   "n_sites": 36,
+   "removal_nats": 5.56837,
+   "per_token_removal": {
+    "induction": 6.46905,
+    "repeat": 3.44154,
+    "novel": 6.62672
+   },
+   "damage_share": {
+    "induction": 0.141,
+    "repeat": 0.2016,
+    "novel": 0.6574
+   },
+   "class_token_counts": {
+    "induction": 3394,
+    "repeat": 9127,
+    "novel": 15453
+   },
+   "claim_class": "all",
+   "selectivity_claimed_vs_complement": null
+  },
+  "_program_price_curve": {
+   "n_sites": 18,
+   "removal_nats": 4.33011,
+   "per_token_removal": {
+    "induction": 4.72537,
+    "repeat": 2.43712,
+    "novel": 5.36136
+   },
+   "damage_share": {
+    "induction": 0.1324,
+    "repeat": 0.1836,
+    "novel": 0.684
+   },
+   "class_token_counts": {
+    "induction": 3394,
+    "repeat": 9127,
+    "novel": 15453
+   },
+   "claim_class": "all",
+   "selectivity_claimed_vs_complement": null
+  },
+  "_best_compiled_program_for_mlp_stack": {
+   "n_sites": 18,
+   "removal_nats": 4.33011,
+   "per_token_removal": {
+    "induction": 4.72537,
+    "repeat": 2.43712,
+    "novel": 5.36136
+   },
+   "damage_share": {
+    "induction": 0.1324,
+    "repeat": 0.1836,
+    "novel": 0.684
+   },
+   "class_token_counts": {
+    "induction": 3394,
+    "repeat": 9127,
+    "novel": 15453
+   },
+   "claim_class": "all",
+   "selectivity_claimed_vs_complement": null
+  },
+  "_only_attention_routing_is_compressible": {
+   "n_sites": 18,
+   "removal_nats": 3.55704,
+   "per_token_removal": {
+    "induction": 4.28999,
+    "repeat": 3.07419,
+    "novel": 3.68124
+   },
+   "damage_share": {
+    "induction": 0.1463,
+    "repeat": 0.282,
+    "novel": 0.5717
+   },
+   "class_token_counts": {
+    "induction": 3394,
+    "repeat": 9127,
+    "novel": 15453
+   },
+   "claim_class": "all",
+   "selectivity_claimed_vs_complement": null
+  }
+ },
+ "claim_class": {
+  "_lag1_failure_is_middle_band": "induction",
+  "_attention_write_is_mostly_two_position": "induction",
+  "_attention_output_write_is_nonlocal": "repeat",
+  "_mlp0_dossier_resolved": "all",
+  "_mlp1_dossier": "all",
+  "_front_band_tableability_ladder": "all",
+  "_front_is_tabular_middle_is_not": "all",
+  "_middle_band_is_redundant_not_small": "all",
+  "_middle_band_program_family_prices": "all",
+  "_mid_band_feature_price_curve": "all",
+  "_front_mlps_are_synergistic": "all",
+  "_band_synergy_sign_depends_on_band": "all",
+  "_whole_model_program": "all",
+  "_program_price_curve": "all",
+  "_best_compiled_program_for_mlp_stack": "all",
+  "_only_attention_routing_is_compressible": "all"
+ },
+ "distinct_component_sets": [
+  "_mlp0_dossier_resolved",
+  "_mlp1_dossier",
+  "_front_band_tableability_ladder",
+  "_middle_band_is_redundant_not_small",
+  "_band_synergy_sign_depends_on_band",
+  "_attention_output_write_is_nonlocal",
+  "_lag1_failure_is_middle_band",
+  "_whole_model_program",
+  "_program_price_curve"
+ ],
+ "DEDUPLICATION_NOTE": "aggregates use DISTINCT component sets, not registry rows. Sixteen entries collapse to fewer measurements; counting rows inflated v3 pred_d from a fail to a pass (Codex, 2026-08-28).",
+ "registry_entries": 87,
+ "certified": 59,
+ "auditable": 16,
+ "predictions": {
+  "pred_a_profile_discriminates": true,
+  "pred_b_attention_copy_concentrated": true,
+  "pred_c_removals_reproduce": true,
+  "pred_d_per_context_rescues_lag1": true
+ },
+ "runtime_s": 51.2
+}

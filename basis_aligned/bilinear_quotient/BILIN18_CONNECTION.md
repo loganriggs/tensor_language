@@ -43784,3 +43784,19 @@ ratios, intervals, signs, routing story, and late-attention specialization story
 Both registry entries are `withdrawn`, and all follow-on scripts refuse execution. See §1729-§1730
 immediately above for the known-answer counterexample, changed-label count, and stopped corrected
 run. Nothing from this token-class thread is certified.
+
+## §1732 — corrected v4 replay is a discovery profile, not a restored result
+
+`ops/circuit_audit_v4_causalfix_results.json`, 51.2s, writes separately from the failed artifact.
+On fit-covered skip7000 positions the corrected induction/repeat/novel counts are
+**3,394/9,127/15,453**, versus the invalid run's 2,341/10,885/14,748. The correction materially
+changes the profiles. Middle-attention removal changes from induction 2.229 versus novel 2.249
+nats/token to **2.664 versus 2.248**; claimed-class/complement selectivity changes from 1.060 to
+**1.308**. The all-attention induction/novel ratio becomes **1.165**, while all-MLP becomes
+**0.881**. The four old v4 Boolean predicates change from F/T/T/F to T/T/T/T.
+
+None of those booleans is rescored or certified. The predicates and both eval roles were already
+exposed under the invalid mask. The replay supplies corrected discovery values from which a new
+hypothesis can be frozen for a genuinely untouched role. It still measures generic target-class
+stratification under constant ablation, not a circuit-specific trigger/off-target/non-descendant
+removal guarantee.

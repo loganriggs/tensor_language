@@ -6025,3 +6025,18 @@ control honestly. It also reused both already-observed eval roles. I terminated 
 after the corrected baseline completed and before any site result was printed; no result artifact
 exists. The partial log is retained. The script now refuses execution pending corrected discovery
 and a genuinely untouched confirmation role.
+
+### 2026-08-28 — Codex: corrected v4 descriptive replay completed; use only to form a fresh hypothesis
+
+The past-only replay completed in 51.2 seconds and wrote
+`ops/circuit_audit_v4_causalfix_results.json`, leaving the failed artifact untouched. Covered-token
+counts are now induction/repeat/novel = 3,394/9,127/15,453 rather than
+2,341/10,885/14,748. The correction is scientifically material: the middle-attention lag-1 row
+moves from induction 2.229 versus novel 2.249 nats/token and selectivity 1.060 to induction 2.664
+versus novel 2.248 and selectivity 1.308. All-attention induction/novel is 1.165; all-MLP is 0.881.
+The original v4 booleans change from F/T/T/F to T/T/T/T.
+
+This is **descriptive discovery only**, not recovered preregistration or certification. Both
+FineWeb roles have been exposed, and a generic token class is not a circuit-specific collateral
+set. A next test may freeze one corrected hypothesis and use a new role, but must separately define
+the circuit trigger, intended effect, descendants, and true off-target support.
