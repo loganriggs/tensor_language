@@ -104,6 +104,13 @@ different subspaces. The cross-context contrast is real in this sample, especial
 ranks 8 and 16, but it sits on top of large same-context estimation variation.
 Therefore it cannot authorize a context-conditioned low-rank compiler.
 
+There is nevertheless some context signal. At rank 16, the normalized overlap implied
+by the distance is $1-0.5621^2\approx0.684$ within context, versus
+$1-0.6965^2\approx0.515$ across contexts; two random rank-16 subspaces in the measured
+32-dimensional space have expected overlap 0.5. The likely object is therefore a
+smooth context-dependent response covariance whose finite-probe eigenspaces are not
+canonical, rather than either a clean rank-16 state or pure noise.
+
 This resolves the earlier ambiguity. The prior 16-probe saturation was not evidence
 for a stable rank-16 state, and simply doubling to 32 probes does not reveal one. It
 also does not prove that MLP1 is intrinsically high-dimensional: a much larger probe
@@ -111,19 +118,27 @@ bank could estimate a smooth covariance spectrum more accurately. That route is
 expensive and, without a sharp cutoff, unlikely to yield an executable decomposition.
 
 The more useful next object is the model's exact physical product gates. For MLP1 gate
-$n$ at context $c$,
+$n$ at token position $q$ in context $c$,
 
 $$
-h_n(z_c)=(\ell_n^{\mathsf T}z_c)(r_n^{\mathsf T}z_c),
-\qquad
-E_{(c,a),n}=h_n(z_c)\,d_n^{\mathsf T}g_{c,a}.
+h_n(z_{c,q})=(\ell_n^{\mathsf T}z_{c,q})(r_n^{\mathsf T}z_{c,q}).
 $$
 
-$E$ directly attributes downstream Fisher response to existing bilinear gates. Sparse
-column selection in this matrix has an executable meaning—retain or remove specific
-products—and can be validated by finite CE, KL, rare/coverage, causal-recovery, and
-collateral-damage tests. It is therefore preferable to fitting another arbitrary
-rotated local subspace.
+A gate is shared across all positions, so the exact first-order response to scaling
+that gate globally is trajectory-complete:
+
+$$
+E_{(c,a),n}
+=\sum_q h_n(z_{c,q})\,d_n^{\mathsf T}g_{c,a,q}.
+$$
+
+The expression without $\sum_q$ is exact only for a position-local edit and cannot
+justify pruning a shared gate. $E$ directly attributes downstream Fisher response to
+existing bilinear gates. Paired ridge-leverage or response-energy column selection can
+be evaluated on independent probes and fresh documents without requiring a spectral
+knee. Selected columns have an executable meaning—retain or remove specific products—
+but response capture alone is not a compiler: finite CE, KL, coverage-stratified
+accuracy, causal recovery, and collateral-damage tests must still pass.
 
 ## Claim boundary
 

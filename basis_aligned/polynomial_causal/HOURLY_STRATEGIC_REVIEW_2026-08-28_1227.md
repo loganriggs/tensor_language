@@ -97,8 +97,13 @@ The candidates were compared by expected information gain, causal relevance,
 whole-model composability, falsifiability, GPU cost, and redundancy.
 
 - More token tables, lexical clustering, bigram arms, and context-free rank sweeps are
-  pruned. The latest discovery results locate a frequent-target lexical class but have
-  zero cross-position state and do not move a whole-model denominator.
+  pruned. Concurrent discovery results sharpen this to a **fit-support/coverage**
+  boundary rather than generic frequency: frequent targets absent from the fit table
+  are still almost unreachable. They also found and corrected a target-favouring
+  leave-one-out bigram tie-break; against the leak-free arm the context-free program
+  leads by 1.1--1.4 accuracy points overall and 5.1--6.2 points on the high-coverage
+  head. This rescues a real lexical advantage, but the program still has zero
+  cross-position state and does not move a whole-model denominator.
 - A standalone repeat of the full MLP0/1/2 tangent cut campaign is pruned. The existing
   negative already localizes roughly 95% of early response to MLP1.
 - Immediate context-to-frame regression is pruned. A positive response bundle would
@@ -115,8 +120,8 @@ whole-model composability, falsifiability, GPU cost, and redundancy.
    Its outcomes sharply prune $\le16$ local state, admit only a response bundle, or
    reject the tangent route as unstable. Cost: 256 backwards.
 2. **Freeze a separate MLP1 physical product-gate leverage protocol.** For downstream
-   gradient $g_{c,a}$, native gate $n$ has exact tangent response
-   $E_{(c,a),n}=h_n(z_c)d_n^\top g_{c,a}$. Selecting actual columns could yield a
+   write gradient $g_{c,a,q}$, native gate $n$ has exact global-scaling response
+   $E_{(c,a),n}=\sum_q h_n(z_{c,q})d_n^\top g_{c,a,q}$. Selecting actual columns could yield a
    sparse executable polynomial program and avoids an arbitrary rotated latent basis.
    It should share a VJP engine but have a separate prospectively authorized sink.
 3. **Characterize rank640 argmax disagreements under a frozen margin/calibration
@@ -156,8 +161,10 @@ CUDA, queue, or `rspd` blocker exists.
 ## Post-result priority ranking
 
 1. **Exact MLP1 product-gate leverage.** Reuse the VJP engine but score the 4,608
-   native bilinear products, whose columns have direct executable meaning. This has the
-   highest information gain about the 52.51% dense-MLP storage gap.
+   native bilinear products with the trajectory-complete sum over all token positions,
+   whose columns have direct executable meaning. Fit paired leverage/response-energy
+   selectors and test response capture on independent probes and fresh documents. This
+   has the highest information gain about the 52.51% dense-MLP storage gap.
 2. **Fresh-row finite gate removal and composition.** Turn any sparse leverage set
    into a causal claim by measuring CE, KL, coverage-stratified accuracy, recovery of
    named interventions, and collateral damage with matched controls.
@@ -166,6 +173,8 @@ CUDA, queue, or `rspd` blocker exists.
 4. **Joint producer/consumer gauge and MDL optimization.** Only after physical gates
    survive finite tests, search for a sparse shared coordinate system whose cost counts
    both the producer and all downstream readers.
-5. **Higher-probe covariance estimation, conditionally.** Revisit the MLP1 tangent
-   spectrum only if physical-gate selection fails; the current smooth spectrum and
-   0.56 same-context distance make this lower value per GPU backward.
+5. **Bounded probe-convergence diagnostic, conditionally.** On a small frozen context
+   set, measure projector distance, spectral-gap ratio, cross-half energy capture, and
+   shrinkage-covariance distance at 64/128 probes. Run this only if it can distinguish
+   estimator error from a genuinely smooth spectrum; do not reopen an unrestricted
+   search for a canonical rank.

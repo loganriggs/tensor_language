@@ -8420,8 +8420,10 @@ cohort is 0/12, response-bundle gate fails: `no_admitted_local_bundle`.
 
 This rules out using the current MLP1 tangent frames as a context-conditioned compiler.
 It does not prove intrinsic high dimension. The next priority is exact physical gate
-leverage $E_{(c,a),n}=h_n(z_c)d_n^Tg_{c,a}$, because selected columns correspond to
-actual executable bilinear products and can be tested by finite removal/composition.
+leverage $E_{(c,a),n}=\sum_q h_n(z_{c,q})d_n^Tg_{c,a,q}$, because a shared gate acts
+at every token position; the position-local expression alone cannot justify pruning.
+Selected columns correspond to actual executable bilinear products and can be tested
+by finite removal/composition.
 Static explanation:
 `basis_aligned/polynomial_causal/MLP1_SPLIT_PROBE_FINDINGS.md`.
 
