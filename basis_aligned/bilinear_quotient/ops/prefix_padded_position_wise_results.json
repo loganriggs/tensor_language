@@ -1,0 +1,148 @@
+{
+ "config": {
+  "k_values": [
+   0,
+   1,
+   2,
+   4,
+   8,
+   16,
+   32,
+   64
+  ],
+  "pads": {
+   "token0": 0,
+   "most_common": 13
+  },
+  "margin": 0.01,
+  "construction": "the model run on [pad]*k + [token], reading the LAST position. For fixed k and fixed pad this is a function of the current token alone, hence a member of the position-wise class.",
+  "selection": "k and pad selected on skip7000; the bound is read on skip11000",
+  "WHY": "\u00a71772 found temperature and corpus blending both fail to beat the length-1 model. \u00a71771b asks what a fundamentally better member is. A length-1 forward is far off the training distribution; a neutral prefix of realistic length is the cheapest way to move it back on.",
+  "ROLE_NOTE": "DISCOVERY ONLY."
+ },
+ "arms": {
+  "token0_k0": {
+   "pad": "token0",
+   "pad_id": 0,
+   "k": 0,
+   "skip7000": 6.03465,
+   "skip11000": 5.979
+  },
+  "token0_k1": {
+   "pad": "token0",
+   "pad_id": 0,
+   "k": 1,
+   "skip7000": 6.44643,
+   "skip11000": 6.40567
+  },
+  "token0_k2": {
+   "pad": "token0",
+   "pad_id": 0,
+   "k": 2,
+   "skip7000": 6.47017,
+   "skip11000": 6.44792
+  },
+  "token0_k4": {
+   "pad": "token0",
+   "pad_id": 0,
+   "k": 4,
+   "skip7000": 6.47737,
+   "skip11000": 6.47267
+  },
+  "token0_k8": {
+   "pad": "token0",
+   "pad_id": 0,
+   "k": 8,
+   "skip7000": 6.60449,
+   "skip11000": 6.60346
+  },
+  "token0_k16": {
+   "pad": "token0",
+   "pad_id": 0,
+   "k": 16,
+   "skip7000": 6.5373,
+   "skip11000": 6.53631
+  },
+  "token0_k32": {
+   "pad": "token0",
+   "pad_id": 0,
+   "k": 32,
+   "skip7000": 6.53486,
+   "skip11000": 6.53198
+  },
+  "token0_k64": {
+   "pad": "token0",
+   "pad_id": 0,
+   "k": 64,
+   "skip7000": 6.57989,
+   "skip11000": 6.57279
+  },
+  "most_common_k0": {
+   "pad": "most_common",
+   "pad_id": 13,
+   "k": 0,
+   "skip7000": 6.03465,
+   "skip11000": 5.979
+  },
+  "most_common_k1": {
+   "pad": "most_common",
+   "pad_id": 13,
+   "k": 1,
+   "skip7000": 6.46565,
+   "skip11000": 6.43154
+  },
+  "most_common_k2": {
+   "pad": "most_common",
+   "pad_id": 13,
+   "k": 2,
+   "skip7000": 6.55807,
+   "skip11000": 6.5213
+  },
+  "most_common_k4": {
+   "pad": "most_common",
+   "pad_id": 13,
+   "k": 4,
+   "skip7000": 6.33436,
+   "skip11000": 6.30709
+  },
+  "most_common_k8": {
+   "pad": "most_common",
+   "pad_id": 13,
+   "k": 8,
+   "skip7000": 6.46678,
+   "skip11000": 6.45964
+  },
+  "most_common_k16": {
+   "pad": "most_common",
+   "pad_id": 13,
+   "k": 16,
+   "skip7000": 6.4985,
+   "skip11000": 6.49422
+  },
+  "most_common_k32": {
+   "pad": "most_common",
+   "pad_id": 13,
+   "k": 32,
+   "skip7000": 6.53156,
+   "skip11000": 6.53073
+  },
+  "most_common_k64": {
+   "pad": "most_common",
+   "pad_id": 13,
+   "k": 64,
+   "skip7000": 6.61478,
+   "skip11000": 6.6053
+  }
+ },
+ "selected": "token0_k0",
+ "new_upper_bound_on_class_optimum": 5.979,
+ "previous_bound_S1768": 5.97902,
+ "tightened_by": 2e-05,
+ "predictions": {
+  "pred_a_prefix_tightens_by_0p01": false,
+  "pred_b_interior_k": false,
+  "pred_c_pad_choice_matters": false,
+  "pred_d_controls": true
+ },
+ "runtime_s": 38.9
+}

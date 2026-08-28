@@ -45781,3 +45781,43 @@ which these three constructions are not — or the defensible estimate of `H(T_{
 
 Controls (pred_d): the pure length-1 arm reproduces §1768 to 2e-5 and the pure bigram arm reproduces
 §1766 to 5e-4, both within their 0.001 bars, with coverage 5419 of 50257.
+
+## §1773 — every neutral prefix makes it worse: the length-1 model survives a third attempt to beat it
+
+`ops/prefix_padded_position_wise.py`, 38.9s, **DISCOVERY ONLY**.
+**pred_a False | pred_b False | pred_c False | pred_d True.**
+
+The model run on `[pad]*k + [token]`, reading the last position — a member of the position-wise class
+for any fixed `k` and pad. Two pads (token 0, and token 13, the most frequent in the fit rows),
+`k` from 0 to 64:
+
+```
+  skip11000 (held out)     k=0      1       2       4       8      16      32      64
+    pad = token 0        5.9790  6.4057  6.4479  6.4727  6.6035  6.5363  6.5320  6.5728
+    pad = most common    5.9790  6.4315  6.5213  6.3071  6.4596  6.4942  6.5307  6.6053
+```
+
+**k = 0 wins by 0.43 nats over the next best arm, and every prefix length is worse than none.** All
+three substantive predictions failed, and pred_a was written so that its failure says something:
+*"If FALSE, a neutral prefix does not help and the length-1 model's calibration was not the
+limitation — which, after §1772's temperature null, would make the length-1 point look genuinely hard
+to beat inside this class."* That is where this leaves it.
+
+**The premise was backwards and the data says so.** I reasoned that a length-1 forward is far off the
+model's training distribution and a realistic-length prefix would move it back on. **A run of 64
+identical pad tokens is far more unusual than a single token**, and the model evidently reads it as
+informative rather than as neutral — the harm grows with k for token 0 (6.406 → 6.573) and is
+non-monotone but always large for the common-token pad. There is no neutral filler in a language
+model's input space, which is obvious in hindsight and was worth 39 seconds to establish.
+
+**Three independent attempts have now failed to improve on the length-1 model**: temperature scaling
+(§1772, optimum at τ = 1.0 on both roles), convex blending with the fit-row bigram and unigram
+(§1772, both weights selected to zero), and prefix padding (here, all 14 non-trivial arms worse).
+**5.97902 is a considerably more robust upper bound on the position-wise optimum than it was two
+sections ago**, though it remains an upper bound and not the optimum, exactly as Codex established.
+
+§1771b's corrected statement is unchanged and now better supported: the position-wise class reaches
+**at least** 32.4% of the stake, and context is worth **at most** 67.6%.
+
+Controls (pred_d): the k=0 arm reproduces §1768's 6.03465 and 5.97900 — it is the length-1 model by
+construction — and coverage is 5419 of 50257.
