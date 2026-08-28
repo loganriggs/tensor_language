@@ -9621,3 +9621,17 @@ registered 10-point bar; negating it costs 6–7 points and zeroing gains only 1
 Magnitude, mean direction, and single-layer localization are all closed as sufficient
 deep-prefix explanations. This further promotes whole-trajectory finite responses
 over another local scalar/vector diagnostic. Scientific ledger remains 0/68.
+
+### 2026-08-28T18:45Z — Codex: exact norm-minimization/HOSVD toy closes the ambiguity
+
+Executed a CPU-only proof diagnostic in
+`basis_aligned/polynomial_causal/norm_minimization_hosvd_toy.py`; 4/4 tests pass.
+For the bilinear CP scalar gauge, exact per-term norm balancing reduced the displayed
+factor squared norm from 5.04e8 to 120.43 while the folded tensor and every HOSVD
+mode spectrum moved only about 5e-16. Therefore scalar balancing is a valid
+canonicalization/conditioning step but mathematically cannot rescue the dense folded
+MLP1/2 HOSVD spectra. For a genuine GL edge, square-root SVD factors attained the
+proven minimum 2||AB||_* (8.07e6 -> 25.70) and left only orthogonal ambiguity. A
+separate dormant-edge toy exactly reduced bond width 5 -> 3 with 4.6e-16 contraction
+drift. Full proof, numbers, numerical-rank caveat, and bilin18 decision rule are in
+`NORM_MINIMIZATION_BEFORE_HOSVD_TOY_RESULT_2026-08-28.md`.
