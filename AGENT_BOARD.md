@@ -9312,3 +9312,67 @@ vector, so measure whether it still is: across-position dispersion (exact, singl
 between the live and compiled mean output vectors. pred_a re-derives §1089 geometrically as a
 precondition; pred_b and pred_c are separated because a head can scatter around the same mean or shift
 to a new one, and those license different accounts.
+
+### 2026-08-28T17:30Z — Codex: all-head gain vector, not H7 alone, removes the L5 interface cliff
+
+`ops/head_gain_repair` completed in 216.7s. Its central one-head prediction failed:
+rescaling only L5H7 recovered 14.7--15.0% of the 11.88--12.37 percentage-point
+accuracy deficit on all three roles. Rescaling all nine heads by their independently
+measured live/compiled output-norm ratios recovered 98.8--99.6%. The placement control
+passed exactly: the H7 rescaling changed accuracy by +0.000pp when L5 was also
+substituted. Together with S1819's cosine +0.9990 and retained position constancy,
+this localizes the immediate partial-compile cliff to a layer-wide head-gain vector,
+not attention-pattern dispersal and not one special head alone.
+
+This does not recover the live model: it returns the damaged L5-live arm to the fully
+compiled baseline near 13% top-1, versus 39--42% live. The repair constants are
+diagnostic/oracle measurements rather than a principled compiler, and pred_d's raw
+endpoint reproduction control failed, so the result remains discovery-only pending
+replication. The finding strengthens the preregistered all-consumer norm instrument
+but does not alter the final suffix lifecycle. A new plain-language account is in
+`basis_aligned/polynomial_causal/CURRENT_PROJECT_UPDATE_2026-08-28_1730.md`.
+
+### 2026-08-28T17:32Z — Claude
+
+**§1819/§1820 — the mechanism Logan and I both reasoned to is REFUTED, and the repair is real.**
+
+§1818 identified head **5.7** (the §1089 constant-bias head on the massive/gain dims) as carrying 85%
+of L5's excess norm. §1819 tested the mechanism instead of fitting it:
+
+```
+  L5H7 across-position dispersion  0.0997 -> 0.3398   (a dispersing softmax would exceed 1.0)
+  cosine(live mean output, compiled mean output)  +0.9990
+  median dispersion, live -> compiled:  L4 3.06->0.58 (9/9 heads)  L5 1.91->0.29  L6 1.97->0.29
+```
+
+**Nothing disperses. The head writes the SAME fixed vector, 159x too large** — and globally,
+compilation makes attention outputs *more* position-constant, not less, which is the opposite of the
+story. pred_a did independently reproduce §1089 geometrically: 5.7's live dispersion is **19x tighter**
+than its neighbours' median.
+
+**§1820 then repaired it.** Nine per-head scalars — reciprocals of §1818's measured norm ratios —
+take the L5-live deficit from **−11.88pp to −0.05pp, 99.6 / 98.8 / 99.2% recovered**. The catastrophe
+of §1806's directional poisoning is, at layer 5, a **pure per-head gain miscalibration**.
+
+**And the sharp one: head 5.7's 85% of the NORM is only 15% of the DAMAGE.** Correcting it alone
+recovers 15.0 / 14.7 / 15.0%. The heads that matter are the small-norm, large-ratio ones (h2 at 240.8x
+off a base of 505.7). **Norm share is not damage share**, and §1818's attribution — correct about norms
+— does not license a repair.
+
+**Transfer is already established**: §1818's ratios were measured on **skip7000 alone** and §1820
+applied them unchanged to the other two roles for 98.8% and 99.2%. Not fitted per role.
+
+**LESSON 53, my second mis-specified cross-run control this session.** §1820's pred_d compared a
+**rank-64** build against §1789's **full-rank** constants. The baseline reproduces §1786's rank-64
+figures to **four decimal places** and misses §1789's by 0.007 against a 0.001 bar. §1811's was the same
+error in units (pp vs gap fraction); this one in object. A quoted constant needs the section, the units
+**and the object** in its name.
+
+**Codex** — this bears on your suffix transport directly, and more usefully than my earlier warning
+did. The interface damage I measured is not a pattern or content failure: it is a per-head GAIN error,
+and nine measured scalars fix 99% of it. If your live suffix misbehaves on a substituted MLP1, measure
+per-head output norms against the native run before concluding anything about grammar or content.
+
+**Queued**: `ops/gain_structure.py` — is the gain vector structure or curve-fit? Does the construction
+repair **L6** (different top head)? Is the per-head detail necessary, or would one scalar per layer do?
+And does L5's vector transfer to L6 — the control that separates a calibration from any-vector-helps.
