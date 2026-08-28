@@ -48095,3 +48095,60 @@ and 0.1355 / 0.1425 / 0.1364 within 0.01; r64_L-1's all-position CE reproduces �
 other two instruments — top-1 AGREEMENT with the live model and KL(live‖program) — have only ever been
 run on the all-sites program, where they gave 23.57% agreement and 2.88 nats. A partial compile is far
 more accurate; is it also functionally closer to the model, or merely better at the task?
+
+## §1817 — a partial compile IS functionally nearer the model, and KL equals the CE gap at every depth
+
+`ops/partial_agreement_kl.py`, 183.4s, **DISCOVERY ONLY**, rung 3 (§1816's closing question).
+**pred_a True | pred_b FALSE | pred_c True | pred_d True.**
+
+Four instruments across compile depth, rank-64 tables (skip7000; the other roles agree to a point):
+
+```
+    r64_L-1    20.531M   CE 6.1733   top1 12.88%   agree 22.37%   KL 3.0387
+    r64_L7    202.518M   CE 5.5174   top1 19.31%   agree 33.78%   KL 2.3845
+    r64_L10   270.763M   CE 4.7976   top1 26.93%   agree 49.54%   KL 1.6558
+    r64_L13   339.008M   CE 4.1815   top1 32.80%   agree 64.17%   KL 1.0374
+    live      430.000M   CE 3.1370   top1 39.32%
+```
+
+**pred_a passed with room: at L13 the program agrees with the live model's top-1 on 64.17 / 63.53 /
+64.51% of positions**, against 22.37 / 21.88 / 23.22% for the all-sites program. The answer to the
+question §1816 posed is **yes** — a partial compile is functionally nearer the model, not merely better
+at the task. Note it agrees with the model on 64% of positions while the model itself is right on only
+39%: it is tracking the model's function including its errors, which is what "nearer the model" should
+mean and is not something a task metric can show.
+
+**pred_c passed**: agreement rises monotonically with depth on every role, 22.4 -> 33.8 -> 49.5 ->
+64.2%. All three model-facing quantities improve by about 3x from the all-sites program to L13
+(agreement x2.87, KL /2.93), tracking the 2.5x improvement in kept accuracy (32.8% -> 83.4% of live).
+
+**pred_b FAILED, narrowly and on all three roles.** I asked for KL below 1.0 nat at L13 and got
+**1.0374 / 1.0403 / 1.0583** — a miss by 0.037 / 0.040 / 0.058. Scored FAIL as written. The bar was a
+round number chosen for legibility rather than derived from anything, which is exactly the kind of bar
+LESSON 40 warns produces uninformative verdicts; the honest reading is that KL at L13 is *approximately
+one nat*, not that it failed to reach a meaningful threshold.
+
+**And the run yields an invariant it was not designed to test, derived without a further run.** §1788
+found that for the all-sites program KL(live‖program) equalled the covered CE gap to within a percent.
+It holds across the **entire frontier**:
+
+```
+    r64_L-1   gap 3.0363 / 3.2181 / 2.9143   KL 3.0387 / 3.2208 / 2.9023   ratio 1.0008 / 1.0008 / 0.9959
+    r64_L7    gap 2.3804 / 2.5302 / 2.2819   KL 2.3845 / 2.5314 / 2.2777   ratio 1.0017 / 1.0005 / 0.9981
+    r64_L10   gap 1.6606 / 1.7133 / 1.5965   KL 1.6558 / 1.7142 / 1.5949   ratio 0.9971 / 1.0005 / 0.9990
+    r64_L13   gap 1.0445 / 1.0391 / 1.0533   KL 1.0374 / 1.0403 / 1.0583   ratio 0.9932 / 1.0012 / 1.0047
+```
+
+**Every ratio is within 0.7% of unity, across twelve cells spanning a 3x range of divergence.** The
+program's distance from the model is entirely accounted for by its excess cross-entropy on the data —
+there is no hidden divergence off the data's support at any compile depth. §1788 observed this at one
+point and I flagged it as unmeasured beyond the arithmetic; it is now a property of the whole family.
+
+Controls (pred_d): the all-sites arm reproduces §1788's published agreement within 0.012 and its KL
+within 0.158 (bar 0.03 and 0.25, loosened only to admit that §1788 measured the full-rank program while
+this arm is rank-64); L-1 and L13 CE reproduce §1816's published values within 0.02; live CE reproduces
+3.13704 / 2.93450 / 3.23027; coverage 5419.
+
+**Open question this ends on.** Every result in §1788-§1817 stands on three roles drawn from the same
+FineWeb stream. The frontier, the dominance, the axis-invariance and now the KL identity are all
+role-consistent — but role-consistent within one corpus is not the same as general.
