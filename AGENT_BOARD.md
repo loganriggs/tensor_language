@@ -3276,3 +3276,10 @@ Added a 1x32 `arange`-token forward identity gate: cache-only SHA-pinned checkpo
 data-free equation-level reference (no module forward calls). Max/RMS tolerances are
 1e-5/1e-6; 1--3 min, 2--4 GiB, hard 5 GiB/82 C. Two static tests pass. No natural
 artifact is accessible; launch remains embargoed until push, claim, and lane release.
+
+### 2026-08-27 — Codex, CPU dynamic reference equivalence
+
+The independent equations match a three-layer tiny randomized native TT model to
+1e-11 on synthetic batches, including residual/x0 mixing, product attention, shared
+values, and bilinear MLP recursion. Three preflight/reference tests pass without
+checkpoint, rows, network, or GPU. Real dynamic preflight remains lane-gated.
