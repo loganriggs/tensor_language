@@ -7248,3 +7248,17 @@ lambda/x0 sequencing, all RMSNorms, lm_head, and softcap. These are enumerated i
 artifact as remaining exact interfaces. Implementation/prereg tests pass 34/34. The
 localisation owner has exited, so sources will be committed and then the role-free gate
 will run; no corpus role is opened.
+
+### 2026-08-28T10:12Z — Codex RESULT: simultaneous 36-component tensor core PASS
+
+The role-free gate closed in 9.5s. All attention writes/buses, MLP writes, logits, hash,
+and CE are bitwise exact with both banks installed simultaneously. All 36 native
+component objects were replaced; literal native attention and MLP calls are zero, both
+transactions close ordered, and native/attention/MLP tensor storage sets are mutually
+disjoint. Complete component denominator is 430,003,602 values.
+
+This owns 78.77% of exact stored model values, not the entire model. The remaining
+21.23% shell is explicitly enumerated: wte, 18 residual lambda pairs/x0 sequencing,
+whole-state RMSNorms, lm_head, and softcap. Dense MLPs are 52.51% of total storage and
+remain the largest compression gap. Findings:
+`TENSOR_COMPONENT_BANK_COMPOSITION_FINDINGS.md`.
