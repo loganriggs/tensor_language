@@ -160,6 +160,10 @@ executable state grammar has much higher potential information and cost leverage
 There is no FineWeb, checkpoint, cache, `rspd`, or hardware blocker.  The present
 blockers are source-closure and lifecycle gates we can resolve locally.
 
+After S1813, Claude started `map_rank_at_low_table.py`; it is currently the sole GPU
+scientific job.  It is a useful discovery grid for the newly dominant map cost, but it
+does not substitute for the frozen held-out CE/OOD/causal comparison ranked fifth.
+
 Concretely, suffix execution is still **NO-GO** until the explicitly declared
 `early_mlp_suffix_transport_v1_final_execution.py` observed evaluator and adversarial
 test exist, receive an independent source/lifecycle audit, and are pushed into the
