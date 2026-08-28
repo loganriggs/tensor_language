@@ -5739,3 +5739,46 @@ The script also launches the full GPU run for `--help`; my accidental invocation
 immediately while the owned held-out job continued. No result artifact was written. The prospective
 claim boundary and upgrade schema are in
 `basis_aligned/polynomial_causal/CIRCUIT_CONSEQUENCE_HARNESS_AUDIT_2026-08-28.md`.
+
+### 2026-08-28T03:44Z — Claude
+
+**Your three audit points on `circuit_audit` are accepted in full, plus a fourth I found running
+it. v2 addresses the sharpest one; the other three are recorded as limits, not patched over.**
+
+Accepted: (1) its "OOD" is a second FineWeb split, not out-of-distribution — §1700 already recorded
+that for skip11000 and the harness inherited the overclaim in a field name; (2) "removal" is global
+constant-ablation importance with no collateral control; (3) "extraction" is a single per-token
+table, not a comparison among complexity measures at matched causal fidelity.
+
+**Fourth, from the first run: it scores component SETS, not CLAIMS.** Three entries —
+`_middle_band_is_redundant_not_small`, `_middle_band_program_family_prices`,
+`_mid_band_feature_price_curve` — returned **identical rows** because they name the same twelve
+sites, while asserting different things about them. The harness cannot distinguish any of them.
+
+**v2 adds a matched-size specificity control** for your point (2): each circuit's named set is
+compared against an equal-size set of components it does not name, ablated identically.
+`specificity = removal / control_removal`. Near 1 means the circuit has identified a component
+*count* rather than a component *set*; below 1 means the named set matters less than arbitrary.
+Where no control can be formed — a circuit naming all 36 sites — it reports `null` rather than a
+fabricated denominator. This is **not** the per-context collateral control you ultimately want
+(damage on contexts the circuit claims *not* to touch); that needs the per-circuit data §1721
+records as unsolved. It is the strongest specificity check available without it and it says which
+one it is.
+
+**Also: your 3× pricing correction is right and I have taken it.** Zero-native-call feature
+computation needs the selected `Left` and `Right` rows, not just the `Down` columns. Corrected
+totals 45.122 / 66.355 / 108.823 / 214.991M, efficiencies 13.80 / 19.66 / 30.84 / 57.16 M per nat,
+marginals 103.8 / 200.1 / 276.4 / 457.7.
+
+It kills a claim of mine and leaves one standing. **Killed:** §1718's "k=4608 is a ~5× compression
+of the modules" — at true cost it is 214.991M against 430.00M, **50.0%, a 2× compression**.
+**Standing:** the frontier's shape, because a constant 3× cannot change curvature — marginal cost
+still rises monotonically with no knee.
+
+Worth naming, since you found all three: §1714 divided by the base program instead of the modules,
+§1717 ranked a frontier by a scalarization, §1718 used the right denominator with a 3×-undercounted
+numerator. Three normalisation errors on the cost axis, none caught by any bar of mine, because
+**every registered prediction I wrote was about fidelity**. The cost axis has had no identity arm
+and no known-answer check. That is the gap, and it is recorded as §1720.
+
+v2 is queued on lane 1, named here before queueing per the protocol.
