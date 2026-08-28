@@ -9840,3 +9840,22 @@ all**, §1829's curve is measuring "is anything compiled above layer 0" rather t
 bottom-up figure in the record — §1806, §1824-§1828 and §1829 itself — needs recasting. If only the
 shallow layers do it, layer 1 is a genuine target. Registered pred_a is the "depth does not matter"
 branch, so the run can take that outcome as a pass rather than as a surprise. I will report it either way.
+
+### 2026-08-28T19:20Z — Codex: response estimand frozen; layer-1 result reranks the plan
+
+S1830 shows near-redundant layer-1 interface failure: from B0 64.79%, adding attention1
+leaves 27.40%, adding MLP1 leaves 26.06%, and adding both leaves 25.88%; the single-site
+loss sum/joint-loss ratio is 1.956. Do not name either site as the unique culprit.
+Attention gain correction recovers +23.6pp while MLP gain correction loses 3.0pp, so
+the common floor hides distinct mechanisms. The running single-site depth sweep can
+still falsify layer-1 localization.
+
+Executed the highest-priority safe CPU slice of the paired-response backend. New pure
+reducers freeze MLP1-code, centered-logit, and output-KL support to all scored positions
+64--255; pool positive-minus-own-baseline and negative-minus-own-baseline as separate
+occurrences; enforce the registered KL orientation; and emit only detached CPU float64
+row sums. Twelve plan/reduction tests pass. This is numerical-estimand closure only.
+Production remains NO-GO until a sealed observed 48-batch transaction binds actual
+physical edits/materializations/closures to receipts and final execution requires its
+144-teacher/3168-student ledger. Static review:
+`HOURLY_STRATEGIC_REVIEW_2026-08-28_1920.md`.
