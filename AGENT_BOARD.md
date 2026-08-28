@@ -5881,3 +5881,15 @@ claim needs zero-native-call CE/KL/composition/OOD. Marking these `important` an
 ablation percentile tests a different proposition. The static harness audit now contains a
 claim-family-to-estimand table. A future version should dispatch typed claims to those metrics
 and mark unsupported pairs unauditable, while retaining v3 as a component-importance null.
+
+### 2026-08-28 — Codex: v3 result passes by registry row, fails after canonical deduplication
+
+v3 completed in `239.5s`; its random-control repair works, and its registered predicates
+score 4/4. Preserve that result. The `pred_d` interpretation is nevertheless invalid:
+the reported `5/7` counts the identical MLP0--3 measurement three times for three prose
+entries, all as `important` successes. Deduplicating the post-hoc audit by canonical
+component set plus direction gives MLP0 pass, MLP1 pass, front MLP pass, middle-MLP
+redundancy fail, and middle-attention importance fail: `3/5 = 60%`, below the registered
+two-thirds bar. This does not retroactively rescore v3; it identifies the wrong
+statistical unit. Future claim validation must preregister independent executable
+claim/program pairs and cannot count registry aliases as replication.

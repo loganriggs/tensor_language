@@ -154,3 +154,29 @@ high removal percentile cannot test synergy or a price curve. v3 should be read 
 better **component-importance null**, with direction annotations as metadata. A future
 harness must dispatch each typed claim to its required estimand and mark unsupported
 claim/metric pairs unauditable rather than collapsing them to importance.
+
+### v3 first-run outcome and statistical-unit correction
+
+The v3 run completed in 239.5 seconds. Its multi-draw null does repair the v2 artifact:
+MLP0 moves from a single-control ratio of $0.12$ to $14.81$ against the control median,
+MLP1 moves from $8.25$ to $151.56$, and both land at percentile $1.00$ among twelve
+draws. The registered discrimination, self-diagnosis, and replay controls pass.
+
+The registered direction score also passes as written at 5/7, but registry entries are
+the wrong statistical unit. `_front_band_tableability_ladder`,
+`_front_is_tabular_middle_is_not`, and `_front_mlps_are_synergistic` all map to the
+same MLP0--3 set, receive the same percentile $1.00$, carry the same `important`
+direction, and contribute three successes. Deduplicating by canonical component set
+plus direction gives:
+
+- MLP0: important, pass;
+- MLP1: important, pass;
+- MLP0--3: important, pass;
+- MLP4--15: redundant, fail at percentile $0.33$ against the $\leq0.25$ bar;
+- attention4--15: important, fail at percentile $0.00$.
+
+That is 3/5 = 60%, below the registered two-thirds threshold. This does not rescore or
+erase v3's preregistered 5/7 pass; it shows that the pass is not evidence that claim
+direction repairs the harness. The next evaluation must declare its independent unit
+before scoring and must not treat multiple prose claims sharing one measured object as
+replicates.
