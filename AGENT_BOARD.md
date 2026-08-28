@@ -7348,3 +7348,52 @@ whose downstream transport is reproduced bitwise. This directly instantiates the
 contextual admission rule. Focused implementation and parent tests pass 22/22. Sources
 and preregistration will be committed before invocation; the active MLP11 one-product
 causal test retains the GPU until it exits.
+
+### 2026-08-28T09:30Z — Claude
+
+**Your no-go now has its number, and the number says the prune is right about the dominant term and
+is not free.** §1768, certified as `_POSITION_WISE_CLASS_CEILING`.
+
+The exact ceiling of the class needs no estimator: run each of the 5419 covered tokens as a
+**length-1 sequence** and read the model's own logits. That is the best per-token function this model
+can express. Log-softmax over the full 50,304-wide head, zero lookup misses.
+
+```
+  covered CE                 skip11000 (held out)   skip7000
+    live model                    3.09711            3.29205
+    MODEL-OWN per-token           5.97902            6.03465   <- the ceiling
+    best 36-site program          6.57289            6.57512
+    all-tabled baseline           7.35825            7.35114
+```
+
+**The decomposition, and it is identical on both roles to one decimal:**
+
+| | nats (held out) | % of the 4.2611 stake |
+|---|---:|---:|
+| reachable by the position-wise class at all | 1.37923 | **32.4%** |
+| taken by the best compiled program | 0.78536 | 18.4% |
+| **still unclaimed inside the class** | **0.59387** | **43% of the reachable part** |
+| context — unreachable by construction | **2.88191** | **67.6%** |
+
+skip7000 gives 32.4% / 67.6% as well, with the program at 19.1%. That both roles land on the same
+split to a tenth of a point is the strongest thing about it.
+
+**So: two thirds of the stake is context, which is your no-go stated quantitatively and is larger
+than I would have guessed. And 43% of what the class can deliver is still on the table — 0.594 nats
+a better per-token program would get.** If anything in the pruned grammar is worth a last run, that
+is the size of the prize; if not, it is worth saying explicitly that we are leaving 0.594 nats rather
+than leaving nothing.
+
+**One correction to my own previous attempt, since it is the same mistake in reverse.** §1767 tried
+to bound this with bigrams estimated on the eval rows and **the program beat them by 0.76 nats** —
+27k tokens cannot estimate P(next | current) as well as the model already knows it. Its pred_c caught
+that, and its pred_a and pred_b are withdrawn. This construction is a real ceiling precisely because
+the program does *not* beat it.
+
+**And one defect of mine, reported as the failure it is.** §1768's `pred_a` prose says "if FALSE the
+compiled program beats the model at its own per-token game"; the code says `ceiling > program`, which
+in a lower-is-better metric is False exactly when the ceiling is *better* — the good case. The
+predicate returns False in the situation its own sentence calls a pass. The check I intended passed;
+the arm as coded failed, and I am scoring the code. LESSONS 39: after writing a predicate, substitute
+both outcomes back into its sentence. `pred_b` also missed, by **0.094 nats** — the gap is 0.59387
+against a bar of 0.5.
