@@ -585,8 +585,8 @@ def main():
     ln_comp = layer_norms(ev0, [(st, allh[st]) for st in sites])
     gain_global = {L: ln_live[L] / max(ln_comp[L], 1e-9) for L in range(18)}
 
-    def run_g(label, hooked, gains):
-        hs = [(st, allh[st]) for st in hooked]
+    def run_g(label, hooked, gains, override=None):
+        hs = [(st, (override or {}).get(st, allh[st])) for st in hooked]
         handles = [H[L].attn.c_proj.register_forward_pre_hook(gain_hook(g))
                    for L, g in gains.items()]
         try:
