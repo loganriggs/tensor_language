@@ -1206,3 +1206,23 @@ against a stubbed empty process list (prints FREE, exit 0).
 **How to apply.** Never pair a command with a hard-coded description of what its output means. Either
 the check exits with a status you can chain on, or it is decoration. Same family as the queue append
 and the push confirmation in [[lesson-41]].
+
+## LESSON 47 — points sampled to bracket a feature do not estimate a curve
+
+§1804 probed a cliff at L5/L6 and sampled depths 4, 5, 6 and 13 for that purpose. Its prefix arms were
+a by-product, and I noted at the time that they were the most informative thing in the section. In the
+next run I registered a prediction about the SHAPE of that curve — that it accelerates with depth —
+reading the shape off those four points. The full eighteen-point curve says the opposite: it
+decelerates, and the per-layer maximum is at L7-L8, inside the 7-12 range the four points skipped
+entirely.
+
+The four depths were well chosen for their own question (two cliff layers, the adjacent control, a
+weaker instance). They were a terrible sample for a shape, because they were selected by where a
+feature was, not by where a curve needed resolving.
+
+**How to apply.** When a by-product of one experiment suggests a trend, do not register a prediction
+about that trend until it has been sampled for that purpose. Ask what the sampling was optimised for:
+points chosen to bracket a discontinuity cluster around it and leave the rest of the domain unresolved,
+which is exactly the wrong design for estimating slope or curvature. Run the curve, then predict about
+the curve. Related: [[lesson-37]] (one observation is not a law, especially when it becomes a design
+decision) — this is the same error with four observations and a shape instead of one and a rule.

@@ -47381,3 +47381,57 @@ deltas within 0.5pp — the cliff was rebuilt before it was explained; coverage 
 **Open question this ends on.** The prefix curve was a by-product of four sampled depths and it is the
 most informative thing in this section. Run it for all eighteen: where does compiling from the top down
 stop being cheap?
+
+## §1805 — the compile-depth curve: the bottom four layers are nearly free, layers 7-8 are the expensive ones, and §1804's shape was wrong
+
+`ops/compile_depth_curve.py`, 107.0s, **DISCOVERY ONLY**, rung 3 (the question §1804 ended on).
+**pred_a FALSE | pred_b FALSE | pred_c True | pred_d True.**
+
+Depths 0..L live, L+1..17 compiled. Fraction of the 25.77 / 28.10 / 25.24 pp gap recovered:
+
+```
+     L     skip7000    skip11000    skip1200        marginal gap-fraction from layer L (skip7000)
+     0        0.0%        -0.0%       -0.0%           L0  +0.0   L1  +0.1   L2  +0.6   L3  +1.5
+     3        2.2%         2.2%        1.7%           L4  -0.9   L5  +8.0   L6  +5.5   L7 +10.5
+     7       25.3%        22.9%       23.0%           L8 +12.0   L9  +8.9   L10 +7.6   L11 +8.5
+    10       53.8%        51.8%       52.6%           L12 +5.9   L13 +6.7   L14 +7.2   L15 +5.8
+    13       74.9%        73.8%       74.2%           L16 +7.3   L17 +4.8
+    17      100.0%       100.0%      100.0%
+```
+
+**pred_a FAILED: half the gap needs eleven live layers, not thirteen.** Keeping depths 0..10 live
+recovers **53.8 / 51.8 / 52.6%**, so **compiling the top seven layers costs under half the gap**. Its
+registered alternative was the one that matters: *"a partial compile is a far better deal than the
+all-sites figures suggest — which would make the partial program, not the full one, the object this
+thread should be characterising."*
+
+**And the bottom of the stack is nearly free.** Keeping the first four layers live buys **2.2 / 2.2 /
+1.7%** of the gap. Compiling layers 0-3 to per-token tables costs essentially nothing; everything the
+all-sites program loses is lost above them.
+
+**pred_b FAILED, and the failure is about my own sampling.** I predicted the curve would accelerate
+with depth. It **decelerates**: L5->L9 buys 36.9 points of gap where L9->L13 buys 28.7. The per-layer
+marginals put the maximum squarely in the middle — **L7 (+10.5) and L8 (+12.0)** are the two most
+expensive layers to compile, against +4.8 to +7.3 for L13-L17 and +0.0 to +1.5 for L0-L3. I inferred
+the shape from §1804's four points (4, 5, 6, 13), which were chosen to bracket a **cliff**, not to
+estimate a curve — they skipped exactly the 7-12 range where the mass is. **LESSON 47.**
+
+**pred_c passed**: the L5 prefix arm beats the L4 arm (+2.39 vs +0.34 pp) at every role, so the cliff
+layer is not damaging on its own natural input. That confirms §1804's mismatch reading from the other
+direction: L5 explodes only when fed a compiled stream.
+
+**A small consistent oddity, recorded not explained.** Making layer 4 live is **worse** than compiling
+it: the marginal is **-0.9 / -0.5 / -0.1** points of gap, negative on all three roles. Tiny in absolute
+terms (0.03-0.22pp) but the sign is stable. I am not theorising about it on three numbers.
+
+Controls (pred_d): the all-substituted and live arms reproduce §1789's published figures within 0.001,
+and the L4, L5, L6, L13 prefix arms reproduce §1804's published deltas within 0.5pp; coverage 5419.
+
+**What this changes.** Everything from §1747 to §1802 characterises the **all-sites** program, and
+§1800/§1802 concluded its gap is context and irreducible. That stands. But this curve says the
+interesting object is a **partial** compile: 11 of 18 layers can be replaced by per-token tables for
+under half the gap, and the bottom four for almost nothing.
+
+**Open question this ends on.** This curve compiles a suffix — top-down. The mirror, compiling
+bottom-up, is a second instrument on the same claim and would confirm or break the "middle layers are
+expensive" reading. And it makes the actionable version testable: compile everything except L6-L9.
