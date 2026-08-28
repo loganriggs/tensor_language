@@ -45479,3 +45479,49 @@ it is the part of the model that is *about other positions*, which this program 
 by construction. That is the same conclusion §1747 reached from the attention side (median attention
 site −1.45% correctable) and §1752 from the feature side (adding context made it worse), now derived
 rather than observed.
+
+## §1767 — my "position-wise ceiling" is not a ceiling: the program beats it by 0.76 nats, and pred_c caught it
+
+`ops/position_wise_ceiling.py`, 1.4s, CPU only, **DISCOVERY ONLY**.
+**pred_a True | pred_b True | pred_c False | pred_d True — and pred_c's failure voids pred_a and
+pred_b.**
+
+```
+  covered CE, skip11000                      skip7000
+    live model                3.09711          3.29205
+    in-sample MLE bigram      3.32386          3.36274   (degenerate: a token seen once scores 0)
+    best 36-site program      6.57289          6.57512
+    LOO bigram on eval        7.33406          7.29459
+    all-tabled baseline       7.35825          7.35114
+    2-fold bigram on eval     8.08517          8.13338
+    fit-row bigram (§1766)    7.90729          7.88804
+```
+
+**pred_c failed and it is the one that mattered.** I predicted an oracle fitted on the eval role must
+beat an out-of-sample program. **It does not: the program at 6.57289 beats the leave-one-out bigram
+at 7.33406 by 0.76 nats.** Since §1765 proved the program is a pure function of the current token,
+that is only possible if my "oracle" is not the best per-token function — and it is not. **A LOO
+bigram estimated from 27,497 eval tokens is data-limited**, exactly as §1766 said of the fit-row
+bigram, while the program's tables are estimated from the model's activations and inherit its
+training-corpus knowledge of P(next | current).
+
+**So pred_a and pred_b are void, not merely unimpressive.** "The best program is within 1.0 nat of
+the ceiling" is meaningless when the program sits **below** the quantity I called a ceiling, and "the
+ceiling is 4.24 nats above the live model" measures my estimator's data limitation, not the value of
+context. Both are withdrawn.
+
+**What the run does establish** is the same point §1766 made, more strongly: the program is a better
+per-token function than **any** estimator I can build from these row budgets, beating the LOO bigram
+by 0.76, the fit-row bigram by 1.33 and the 2-fold bigram by 1.51 nats. My three estimates span 4.76
+nats between the degenerate MLE at 3.32 and the 2-fold at 8.09, and **none of them brackets the true
+optimum.** The position-wise ceiling is not estimable from 27k tokens, and I should have seen that
+before writing a prediction that assumed it was.
+
+**The construction that actually gives the ceiling needs no estimation at all.** The best per-token
+function *this model can express* is the model's own output when it is given only the current token:
+run each covered token as a length-1 sequence, collect its logits, and score the eval rows with that
+lookup. That is exact, requires no smoothing, no corpus, and is the true ceiling of the class
+§1765 identified and Codex pruned. `ops/model_own_per_token_ceiling.py` is queued.
+
+pred_d held: the fit-row bigram reproduced §1766's **7.88804 and 7.90729 to five decimals with no
+model in the process**, and coverage was asserted at 5419 of 50257.

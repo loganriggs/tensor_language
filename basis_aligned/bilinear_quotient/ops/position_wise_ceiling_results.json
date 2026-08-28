@@ -1,0 +1,43 @@
+{
+ "config": {
+  "alpha": 0.01,
+  "scoring": "covered positions from 64, matching every published figure",
+  "model_loaded": false,
+  "ceilings": "LOO and 2-fold are estimated ON the eval role, so both are OPTIMISTIC -- a ceiling on what any function of the current token can achieve there. The in-sample MLE is degenerate (a token seen once gets probability 1) and is reported only to make that optimism legible.",
+  "WHY": "Codex pruned rank and degree sweeps inside the position-wise grammar as mathematically pruned (CONTEXTUAL_COMPILER_NO_GO_AND_GATE.md). Correct about context, but silent on how much fidelity remains unclaimed inside the class. This measures it.",
+  "ROLE_NOTE": "DISCOVERY ONLY."
+ },
+ "results": {
+  "skip7000": {
+   "scored_positions": 27974,
+   "with_loo_context": 27114,
+   "LOO_ceiling": 7.29459,
+   "twofold_ceiling": 8.13338,
+   "in_sample_MLE_degenerate": 3.36274,
+   "fit_row_bigram": 7.88804,
+   "live_ce": 3.29205,
+   "best_program_ce": 6.57512,
+   "all_tabled_ce": 7.35114
+  },
+  "skip11000": {
+   "scored_positions": 27497,
+   "with_loo_context": 26625,
+   "LOO_ceiling": 7.33406,
+   "twofold_ceiling": 8.08517,
+   "in_sample_MLE_degenerate": 3.32386,
+   "fit_row_bigram": 7.90729,
+   "live_ce": 3.09711,
+   "best_program_ce": 6.57289,
+   "all_tabled_ce": 7.35825
+  }
+ },
+ "gap_best_program_to_LOO_ceiling": -0.76117,
+ "gap_LOO_ceiling_to_live": 4.23695,
+ "predictions": {
+  "pred_a_class_nearly_exhausted": true,
+  "pred_b_context_dominates": true,
+  "pred_c_oracle_beats_program": false,
+  "pred_d_controls": true
+ },
+ "runtime_s": 1.4
+}
