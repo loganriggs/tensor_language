@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "snapshot_id": "bilin18.hybrid-payload-sources.2026-08-28",
+  "source_sha256": {
+    "checkpoint_payload_inventory.json": "836123c84e07ce2f4cbb838b90a3985819026e32d1d1cb02dceb64c8f017cb01",
+    "whole_model_coverage.json": "0780470f5df4f95eda2e9a2942b3d2d7ef88166a0125adf1e5411a84f937c1c7",
+    "retained_qk_dtype_audit.json": "28082b7cffdd52b84208ddd8b100721b762277df71dab5851c080aab85d3ea08"
+  },
+  "identity": {
+    "checkpoint_element_count": 545902902,
+    "checkpoint_tensor_payload_bits": 16541356896
+  },
+  "disjoint_checkpoint_scope": [
+    {"scope_id": "mlp0_3", "element_count": 63705600},
+    {"scope_id": "mlp4_17", "element_count": 222969600},
+    {"scope_id": "attention_qk_all162", "element_count": 95551488},
+    {"scope_id": "attention_vo", "element_count": 47775744},
+    {"scope_id": "structural_scalars", "element_count": 54},
+    {"scope_id": "token_embedding_x0", "element_count": 57950208},
+    {"scope_id": "unembedding", "element_count": 57950208}
+  ],
+  "charges": [
+    {"charge_id": "candidate_mlp0_3", "kind": "candidate_codec", "covered_checkpoint_elements": 63705600, "bits": 422718360},
+    {"charge_id": "retained_mlp4_17", "kind": "literal_checkpoint_payload", "covered_checkpoint_elements": 222969600, "bits": 7134769152},
+    {"charge_id": "candidate_attention_qk139", "kind": "candidate_codec", "covered_checkpoint_elements": 81985536, "bits": 290859424},
+    {"charge_id": "retained_attention_qk23", "kind": "literal_checkpoint_slices", "covered_checkpoint_elements": 13565952, "bits": 434110464},
+    {"charge_id": "retained_attention_vo", "kind": "literal_checkpoint_payload", "covered_checkpoint_elements": 47775744, "bits": 1528823808},
+    {"charge_id": "structural_schedule", "kind": "exact_candidate_codec", "covered_checkpoint_elements": 54, "bits": 661},
+    {"charge_id": "retained_token_embedding_x0", "kind": "literal_checkpoint_payload", "covered_checkpoint_elements": 57950208, "bits": 927203328},
+    {"charge_id": "retained_unembedding", "kind": "literal_checkpoint_payload", "covered_checkpoint_elements": 57950208, "bits": 1854406656}
+  ],
+  "derivation": "Exact summaries copied from the three SHA256-bound source artifacts; no behavioral result or missing cost was inferred."
+}
