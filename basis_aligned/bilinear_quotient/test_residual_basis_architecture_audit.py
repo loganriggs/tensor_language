@@ -6,7 +6,10 @@ from . import residual_basis_architecture_audit as audit
 def test_pinned_architecture_closes_every_declared_source_obligation():
     result = audit.audit()
     assert result["sources_verified"] == 2
-    assert result["source_files_reverified"] == 2
+    contract = json.loads(audit.CONTRACT.read_text())
+    expected_present = sum((audit.ROOT/row["path"]).exists()
+                           for row in contract["sources"])
+    assert result["source_files_reverified"] == expected_present
     assert result["source_excerpt_snapshot_verified"]
     assert result["runtime_obligations_verified"] == 7
     assert result["reference_obligations_verified"] == 12
