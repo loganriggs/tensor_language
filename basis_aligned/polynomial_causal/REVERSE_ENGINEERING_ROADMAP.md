@@ -179,6 +179,23 @@ The prefix/continuation Hankel route is currently demoted by these rules: splice
 is roughly 3.5 nats/token above natural, rank-95 is 23–24 of 48, and low-rank
 completion improves only 4.5–10.1% against a registered 30% bar.
 
+## Consequence-harness checkpoint — 2026-08-28
+
+The first standing registry audit is retained as a fast component-set screen, not a
+circuit validator. In 144.7 seconds it reproduced known constant-ablation controls and
+separated early-MLP token-table recovery from attention, but only 16 of 55 certified
+entries have component mappings and different claims sharing one component set are
+indistinguishable. Its `skip7000` to `skip11000` comparison is FineWeb document-split
+replication, not OOD; its constant replacement is global importance, not selective
+removal; and its one token-table grammar is not an extraction frontier.
+
+The next version must make the statistical unit a matched-fidelity pair of executable
+programs for one declared causal interface. Each row needs a complexity vector,
+zero-native-call receipt, trigger and off-target support, target and collateral effects,
+composition error, and a genuinely shifted final role. Simplicity definitions then
+compete by prospectively predicting those held-out consequences across circuits and
+grammar families.
+
 ## Hourly strategic review
 
 The local session receives an hourly prompt from

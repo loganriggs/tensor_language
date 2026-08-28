@@ -50,9 +50,6 @@ EXPECTED_CONFIG: Mapping[str, Any] = {
     "step": 9726,
 }
 
-EarlyDispatcher = Callable[[int, torch.nn.Module, torch.Tensor], torch.Tensor]
-
-
 @dataclass(frozen=True)
 class CheckpointReceipt:
     revision: str
@@ -62,6 +59,43 @@ class CheckpointReceipt:
     weights_bytes: int
     tokenizer_vocab: int
     logit_vocab: int
+
+
+@dataclass(frozen=True)
+class EarlyMLPEvent:
+    """One synchronous early-site event on the live sequential trajectory.
+
+    ``prior_writes`` contains effective writes already added to the residual
+    stream, not merely the frozen ship's native/deployed proposals.  This is
+    required because deployed N1 and N2 depend on post-P0 and post-P1 writes.
+    The adapter must consume the event before the callback returns and must not
+    expose any contained tensor alias.
+    """
+
+    site: int
+    block: torch.nn.Module
+    state: torch.Tensor
+    attention_write: torch.Tensor
+    tokens: torch.Tensor
+    prior_writes: tuple[torch.Tensor, ...]
+
+
+EarlyDispatcher = Callable[[EarlyMLPEvent], torch.Tensor]
+
+
+@dataclass(frozen=True)
+class AttentionEvent:
+    site: int
+    block: torch.nn.Module
+    state: torch.Tensor
+    tokens: torch.Tensor
+    first_value: torch.Tensor | None
+
+
+AttentionDispatcher = Callable[
+    [AttentionEvent], tuple[torch.Tensor, torch.Tensor]
+]
+MLPDispatcher = Callable[[EarlyMLPEvent], torch.Tensor]
 
 
 def _sha256_file(path: Path) -> str:
@@ -179,40 +213,70 @@ def validate_tokens(tokens: torch.Tensor, *, production_shape: bool = True) -> N
         raise RuntimeError("token ID is outside the 50,257-entry tokenizer support")
 
 
-def forward_with_early_dispatch(
+def forward_with_dispatch(
     model: TT.GPT,
     tokens: torch.Tensor,
-    dispatcher: EarlyDispatcher,
+    attention_dispatcher: AttentionDispatcher,
+    mlp_dispatcher: MLPDispatcher,
     *,
     require_production: bool = True,
 ) -> torch.Tensor:
-    """Run one exact model forward, delegating MLP0/1/2 to ``dispatcher``.
+    """Run one model forward with explicit attention and MLP dispatchers.
 
-    The dispatcher receives the literal site, block object, and live normalized
-    MLP input.  It must return the deployed write at that site.  This facade owns
-    the single softcap and never slices padded output columns.
+    This is the source-closed surface needed by the frozen-ship adapter: it owns
+    residual sequencing and the single output softcap, while the injected
+    dispatchers own the exact frozen attention and MLP programs.  Dispatchers are
+    synchronous and must not retain event tensor aliases.
     """
 
     if require_production:
         validate_production_model(model)
     validate_tokens(tokens, production_shape=require_production)
-    if not callable(dispatcher):
-        raise TypeError("early dispatcher must be callable")
+    if not callable(attention_dispatcher) or not callable(mlp_dispatcher):
+        raise TypeError("model dispatchers must be callable")
 
     x = model.transformer.wte(tokens)
     x = F.rms_norm(x, (x.size(-1),))
     x0 = x
     v1 = None
+    prior_writes: list[torch.Tensor] = []
     for site, block in enumerate(model.transformer.h):
         x = block.lambdas[0] * x + block.lambdas[1] * x0
-        attention_write, v1 = block.attn(F.rms_norm(x, (x.size(-1),)), v1)
+        attention_state = F.rms_norm(x, (x.size(-1),))
+        attention_result = attention_dispatcher(AttentionEvent(
+            site=site,
+            block=block,
+            state=attention_state,
+            tokens=tokens,
+            first_value=v1,
+        ))
+        if not isinstance(attention_result, tuple) or len(attention_result) != 2:
+            raise RuntimeError(f"attention{site} dispatcher result is malformed")
+        attention_write, next_v1 = attention_result
+        if not torch.is_tensor(attention_write) or attention_write.shape != x.shape or (
+            attention_write.dtype != x.dtype or attention_write.device != x.device
+        ) or not bool(torch.isfinite(attention_write.detach()).all()):
+            raise RuntimeError(f"attention{site} dispatcher write is malformed")
+        if not torch.is_tensor(next_v1) or next_v1.device != x.device or not bool(
+            torch.isfinite(next_v1.detach()).all()
+        ):
+            raise RuntimeError(f"attention{site} dispatcher first-value state is malformed")
+        v1 = next_v1
         x = x + attention_write
         z = F.rms_norm(x, (x.size(-1),))
-        write = dispatcher(site, block, z) if site in EARLY_SITES else block.mlp(z)
+        write = mlp_dispatcher(EarlyMLPEvent(
+            site=site,
+            block=block,
+            state=z,
+            attention_write=attention_write,
+            tokens=tokens,
+            prior_writes=tuple(prior_writes),
+        ))
         if not torch.is_tensor(write) or write.shape != z.shape or write.dtype != z.dtype or (
             write.device != z.device
         ) or not bool(torch.isfinite(write.detach()).all()):
             raise RuntimeError(f"MLP{site} dispatcher write is malformed")
+        prior_writes.append(write)
         x = x + write
 
     logits = model.lm_head(F.rms_norm(x, (x.size(-1),)))
@@ -223,3 +287,37 @@ def forward_with_early_dispatch(
     if not bool(torch.isfinite(logits).all()):
         raise RuntimeError("bilin18 logits are nonfinite")
     return logits
+
+
+def forward_with_early_dispatch(
+    model: TT.GPT,
+    tokens: torch.Tensor,
+    dispatcher: EarlyDispatcher,
+    *,
+    require_production: bool = True,
+) -> torch.Tensor:
+    """Native model forward with only MLP0/1/2 delegated.
+
+    This helper is an identity/test surface, not the frozen-ship forward.  The
+    observed adapter must use :func:`forward_with_dispatch` so every frozen ship
+    component is explicit.
+    """
+
+    if not callable(dispatcher):
+        raise TypeError("early dispatcher must be callable")
+
+    def native_attention(event: AttentionEvent) -> tuple[torch.Tensor, torch.Tensor]:
+        return event.block.attn(event.state, event.first_value)
+
+    def mixed_mlp(event: EarlyMLPEvent) -> torch.Tensor:
+        if event.site in EARLY_SITES:
+            return dispatcher(event)
+        return event.block.mlp(event.state)
+
+    return forward_with_dispatch(
+        model,
+        tokens,
+        native_attention,
+        mixed_mlp,
+        require_production=require_production,
+    )

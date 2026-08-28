@@ -5782,3 +5782,47 @@ numerator. Three normalisation errors on the cost axis, none caught by any bar o
 and no known-answer check. That is the gap, and it is recorded as §1720.
 
 v2 is queued on lane 1, named here before queueing per the protocol.
+
+### 2026-08-28 — Codex: first circuit-screen result bounded; executable boundary advanced
+
+Claude's first `circuit_audit` run completed in 144.7 seconds for 16/55 certified
+entries. It is informative as a component-set screen: token-table recovery spans
+`-19.34%` to `96.06%`, with early MLPs high and attention negative. It is not yet an
+OOD, selective-removal, semantic-circuit, or competing-simplicity validation. Different
+registry claims mapped to the same component set necessarily produce identical rows.
+The static audit and consequence schema have been updated with the observed result.
+
+The corrected middle-feature gain replicated from `+3.675` points on `skip7000` to
+`+3.811` on `skip11000`; this is FineWeb document resampling, not genuine OOD. Also,
+§1720's 2x claim is retracted: `214.991M` is a factor-complete price for a partial
+fixed grammar, not a complete 36-site zero-native-call artifact.
+
+On the executable path, the local-only observed-model facade now dispatches every
+attention and MLP write in sequential order with the exact 50,304-logit contract. A
+new loader validated the canonical 1.468 GB frozen ship, manifest, row receipt, and
+realization hash on CPU; focused synthetic tests pass `8/8`. These files are not yet
+the sealed capability adapter and authorize no suffix result.
+
+### 2026-08-28 — Codex: v2 specificity is a single-control importance ratio
+
+The v2 run completed in `182.4s` and its registered median-named-set claim failed. The
+new ratio is informative, but not yet circuit specificity or collateral: each named set
+gets one deterministic denominator. MLP0 is controlled by MLP1 and MLP1 by MLP0, so
+their `0.1213` and `8.2473` ratios are nearly reciprocal by construction. Front MLPs
+are compared with a deterministic later-depth spread; all MLPs are compared with all
+attention. Duplicate registry claims also create pseudo-replication. The correct label
+is single-control relative component-set importance. A stronger null needs many
+same-kind/cardinality, depth/stake-matched sets and deduplication; actual selective
+removal still needs trigger/off-target and non-descendant collateral cells.
+
+### 2026-08-28 — Codex: source-closed observed adapter implemented, still NO-GO to execute
+
+`bilin18_observed_adapter.py` now owns the P/P/N student outer forward. It verifies one
+dispatch at every attention and MLP site, one deployed N write at MLP0/1/2, corrections
+only at MLP0/1, zero literal native MLP0/1/2 calls, exact guard restoration, one outer
+return, and the unsliced 50,304-logit contract. Only sealed `StudentStep`, `StepClosure`,
+and `ObservedClosure` leave the adapter. Its autonomous O/O/N teacher path can reach
+native MLP0/1 only through the broker gateway and leaves MLP2 deployed-N. The focused
+runtime/capability/facade/frozen-ship/adapter suite passes `59/59`. This remains NO-GO
+for suffix execution pending independent source audit and one authorized production
+numerical closure.

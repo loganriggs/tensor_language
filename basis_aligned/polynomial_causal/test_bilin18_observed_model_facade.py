@@ -40,16 +40,19 @@ def test_token_ids_must_be_reachable_but_padded_logits_are_not_sliced() -> None:
     tokens = torch.tensor([[0, facade.TOKENIZER_VOCAB - 1]], dtype=torch.long)
     calls = []
 
-    def native(site, block, z):
-        calls.append((site, block))
-        return block.mlp(z)
+    def native(event):
+        calls.append(event)
+        return event.block.mlp(event.state)
 
     logits = facade.forward_with_early_dispatch(
         model, tokens, native, require_production=False,
     )
     assert logits.shape == (1, 2, facade.LOGIT_VOCAB)
-    assert [site for site, _ in calls] == [0, 1, 2]
-    assert all(block is model.transformer.h[site] for site, block in calls)
+    assert [event.site for event in calls] == [0, 1, 2]
+    assert all(event.block is model.transformer.h[event.site] for event in calls)
+    assert [len(event.prior_writes) for event in calls] == [0, 1, 2]
+    assert all(event.tokens is tokens for event in calls)
+    torch.testing.assert_close(calls[1].prior_writes[0], calls[0].block.mlp(calls[0].state))
 
     invalid = tokens.clone()
     invalid[0, 1] = facade.TOKENIZER_VOCAB
@@ -63,12 +66,42 @@ def test_dispatcher_must_return_exact_live_write_contract() -> None:
     model = tiny_model()
     tokens = torch.zeros((1, 2), dtype=torch.long)
 
-    def wrong_shape(site, block, z):
-        return z[..., :-1]
+    def wrong_shape(event):
+        return event.state[..., :-1]
 
     with pytest.raises(RuntimeError, match="dispatcher write is malformed"):
         facade.forward_with_early_dispatch(
             model, tokens, wrong_shape, require_production=False,
+        )
+
+
+def test_full_dispatch_surface_observes_all_sites_and_rejects_bad_attention() -> None:
+    model = tiny_model()
+    tokens = torch.zeros((1, 2), dtype=torch.long)
+    attention_sites = []
+    mlp_sites = []
+
+    def attention(event):
+        attention_sites.append(event.site)
+        return event.block.attn(event.state, event.first_value)
+
+    def mlp(event):
+        mlp_sites.append((event.site, len(event.prior_writes)))
+        return event.block.mlp(event.state)
+
+    logits = facade.forward_with_dispatch(
+        model, tokens, attention, mlp, require_production=False,
+    )
+    assert logits.shape[-1] == facade.LOGIT_VOCAB
+    assert attention_sites == [0, 1, 2, 3]
+    assert mlp_sites == [(0, 0), (1, 1), (2, 2), (3, 3)]
+
+    def bad_attention(event):
+        return event.state
+
+    with pytest.raises(RuntimeError, match="result is malformed"):
+        facade.forward_with_dispatch(
+            model, tokens, bad_attention, mlp, require_production=False,
         )
 
 

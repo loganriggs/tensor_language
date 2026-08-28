@@ -91,3 +91,42 @@ Before running the bootstrap repeatedly:
 Until these gates land, the harness should remain explicitly labeled **bootstrap
 descriptive screening**. The governing definition-to-consequence protocol remains
 `SIMPLICITY_CONSEQUENCE_VALIDATION_V1.md`.
+
+## First-run evidence
+
+The first committed run at `d1e97c41` completed in 144.7 seconds and audited 16 of
+55 certified entries. Its known controls held, and current-token table recovery spans
+approximately $-19.3\%$ to $96.1\%$. The strongest positive rows are MLP1 ($96.06\%$)
+and MLP0 ($91.01\%$); all-attention and middle-attention tables are negative
+($-1.88\%$ and $-19.34\%$). This is coherent descriptive evidence that early MLP
+writes are unusually token-local while attention writes require cross-position state.
+
+It does not remove the claim-boundary problem. Three different registry claims about
+the middle band receive bit-identical scores because all three resolve to MLP4--15.
+The run therefore validates the screen as a discriminator between component-set
+replacement grammars, not as an evaluator of semantic circuits or simplicity
+definitions.
+
+## v2 matched-size control audit
+
+`circuit_audit_v2.py` adds one deterministic same-size component-set ablation and
+reports named-set removal divided by control-set removal as `specificity`. This is a
+useful relative-importance diagnostic, and its first run correctly fails the registered
+claim that the median named set beats its selected control. It still is not circuit
+specificity or collateral control.
+
+The ratio is strongly identified by the one chosen denominator. For the single-site
+rows, MLP0 is controlled by the exceptionally consequential MLP1 and MLP1 is controlled
+by MLP0, producing nearly reciprocal scores $0.1213$ and $8.2473$. Front MLPs are
+compared with a deterministic spread of later MLPs; all MLPs are compared with all
+attention, changing component kind. These comparisons mostly restate depth and module
+importance. Duplicate registry claims also repeat identical ratios and cannot be used
+as independent observations when taking a median.
+
+The field should therefore be interpreted as **single-control relative component-set
+importance**. A stronger module-set null would enumerate or sample many same-kind,
+same-cardinality sets, stratify or match depth and baseline stake, report the null
+distribution and percentile, deduplicate canonical component sets, and avoid ratios
+whose numerator or denominator is CE-saturated. Even that would not measure selective
+removal: circuit specificity still requires trigger-target and trigger-off-target cells
+with collateral bounds on declared non-descendants.

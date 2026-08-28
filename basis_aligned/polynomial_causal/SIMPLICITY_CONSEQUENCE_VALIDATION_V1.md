@@ -88,10 +88,12 @@ not, the definition is pruned regardless of mathematical elegance.
 
 The middle-feature curve currently validates only a fixed-grammar structural-efficiency
 claim: after factor-complete pricing, every arm remains Pareto-nondominated, while both
-total and successive marginal params per recovered nat worsen with $k$. The attempted
-held-out replication failed before scoring because the evaluation hook supplied 1152
-rather than 1664 input coordinates to the compiled program; a corrected rerun is active.
-The curve establishes neither editability nor semantic simplicity.
+total and successive marginal params per recovered nat worsen with $k$. The corrected
+held-out replication is complete: the $k=512$ gain over $k=0$ is $+3.675$ percentage
+points on `skip7000` and $+3.811$ points on `skip11000`, with paired-bootstrap 95%
+intervals $[3.514,3.841]$ and $[3.671,3.957]$. This validates portability across a
+second FineWeb document split of the *incremental native-feature return*. It does not
+validate OOD generalization, executable compression, editability, or semantic simplicity.
 
 The early-MLP suffix L/R/T experiment is the first planned consequence-tested
 frontier slice. L and R have matched program size but different objectives; T adds a

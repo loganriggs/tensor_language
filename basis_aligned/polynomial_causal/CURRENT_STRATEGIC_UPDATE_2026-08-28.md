@@ -1,6 +1,6 @@
 # Current strategic update: bilin18 reverse engineering
 
-Last updated: 2026-08-28 after the corrected middle-MLP identity control.
+Last updated: 2026-08-28 after the held-out feature replication and circuit-screen audit.
 
 ## Bottom line
 
@@ -144,8 +144,13 @@ On the common discovery stake, total structural prices per recovered nat are the
 All five points are nondominated because both cost and fidelity rise. The ratios and
 successive marginal prices nevertheless worsen monotonically in this fixed grammar.
 The first held-out k512 attempt failed before scoring because the evaluation hook
-omitted the compiled context features. A source-corrected rerun is currently active;
-until it finishes, the family supplies no held-out replication or promotion.
+omitted the compiled context features. The source-corrected rerun is complete. On
+`skip7000`, k512 improves over k0 by $+3.675$ percentage points with 95% interval
+$[3.514,3.841]$; on `skip11000`, it improves by $+3.811$ points with interval
+$[3.671,3.957]$. The gain changes by only $+0.136$ points while the absolute level
+drops by $1.208$ points. This is a held-out FineWeb document-split replication of the
+incremental feature return, not OOD evidence and not promotion to an executable or
+causally sufficient program.
 
 ## Genuine blockers
 
@@ -154,17 +159,21 @@ model implementation needed by the repository is available through the tracked
 `jacclust.tt_model` loader path and model weights are cached; fresh FineWeb roles are
 deliberately not frozen until the source closure authorizes them.
 
-The current blockers are implementation and cost integrity:
+The current blockers are execution authorization and cost integrity:
 
-1. The sealed capability still needs a source-closed bilin18 adapter around the real
-   frozen-ship forward. It must distinguish literal dispatcher calls at all three
-   early sites from effective rank-64 correction calls at MLP0/1.
+1. The source-closed observed adapter is now implemented around the real frozen-ship
+   dispatch surface. It counts all 18 attention and MLP dispatches, mints N0/N1/N2,
+   applies corrections only at MLP0/1, poisons literal native MLP0/1/2 calls, restores
+   exact instance-forward state on every exit, and returns only sealed capability
+   objects plus an immutable receipt. It still needs independent source audit and one
+   authorized production numerical closure before the suffix run is GO.
 2. The prohibitive full-logit content hashes have now been replaced prospectively by
    a source-bound one-use graph/storage identity. Ordinary mutation, replacement,
    detach, graph drift, and nonfinite values fail closed without transferring logits
    to CPU. Independent review gives GO-to-commit, but execution remains NO-GO until
    the observed adapter closes before aliases escape and enforces the checkpoint's
-   50,304 logit width. Token IDs remain restricted to the tokenizer's 50,257 entries;
+   50,304 logit width; that source path now exists but remains unaudited. Token IDs
+   remain restricted to the tokenizer's 50,257 entries;
    slicing logits would change CE/KL normalization.
 3. The graph-connectivity check currently performs an extra full suffix backward per
    fit batch. It needs a measured benchmark or a cheaper structural proof.
@@ -176,10 +185,11 @@ The current blockers are implementation and cost integrity:
 The ranking uses expected information gain, causal relevance, whole-model
 composability, falsifiability, GPU cost, and redundancy with completed work.
 
-1. **Finish real N-write provenance and remove the two per-batch cost traps.** This
+1. **Audit and production-close real N-write provenance; remove the remaining backward cost trap.** This
    is the smallest boundary that turns the audited tensor algebra into a legal and
-   feasible model forward. The typed N-write repair was executed in this review;
-   the observed adapter, cheap graph identity, and connectivity benchmark remain.
+   feasible model forward. The typed N-write repair, cheap graph identity, full frozen
+   dispatcher, and observed adapter are implemented; independent review, a production
+   numerical closure, and the connectivity benchmark remain.
 2. **Finish mapped controls and the collector/trainer/freezer/validator, then run
    matched L/R/T.** This is the direct discriminator between reconstructive geometry
    and a compact code downstream computation actually uses.
@@ -210,13 +220,30 @@ screen, but its initial labels are broader than its estimands. The static audit 
 `CIRCUIT_CONSEQUENCE_HARNESS_AUDIT_2026-08-28.md` records that its two FineWeb splits
 are held-out replication rather than OOD, constant ablation measures importance
 rather than selective removal, and a token table is one extraction candidate rather
-than a validation of a simplicity definition.
+than a validation of a simplicity definition. Its first run completed in 144.7 seconds
+for 16 of 55 certified registry entries. It validly finds a wide token-table recovery
+spread (about $-19.3\%$ to $96.1\%$), but entries sharing the same native component set
+necessarily receive the same result regardless of their different semantic claims.
+
+The local-only model boundary now pins and validates the exact checkpoint, including
+the 50,304-wide output head, and exposes every attention and MLP site through explicit
+sequential dispatch. A separate frozen-ship loader validated the canonical 1.468 GB
+artifact, its manifest, row receipt, and realization tree on CPU and reproduces its
+attention and MLP dispatch formulas without importing historical runners. Synthetic
+tests verify that deployed MLP1 reads the effective MLP0 write and MLP2 reads the
+effective MLP1 write. The sealed observed adapter implementation now wraps that path.
+It counts the full dispatch, mints typed N0/N1/N2 handles, applies P corrections only
+at MLP0/1, poisons literal early-native calls, restores exact instance state under
+`BaseException`, and returns no raw logits or dispatcher aliases. Independent source
+audit and an authorized production closure remain, so this does not yet authorize the
+suffix experiment.
 
 ## Verification state
 
-The focused runtime/capability suite passes 48/48, and the complete CPU suffix suite
-passes 134/134 after the typed-write and graph-identity changes. Independent review
-gives exact-byte GO-to-commit for the graph identity under the declared source-closed
-adapter boundary. No fresh row, model, teacher, or scientific outcome was loaded by
-these repairs, so suffix-transport execution remains explicitly NO-GO until the
-observed adapter is source-closed and independently audited.
+The focused runtime/capability/observed-adapter suite passes 59/59, and the complete CPU
+suffix suite passes 134/134 after the typed-write and graph-identity changes. Independent
+review gives exact-byte GO-to-commit
+for the graph identity under the declared source-closed adapter boundary. No fresh
+teacher or suffix scientific outcome was loaded by these repairs, so suffix-transport
+execution remains explicitly NO-GO until the observed adapter is source-closed and
+independently audited.
