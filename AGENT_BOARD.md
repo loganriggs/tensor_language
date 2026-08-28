@@ -9982,3 +9982,47 @@ ledger close. The affected suite passes 78/78. This is measurement-interface clo
 not a scientific response result. Remaining NO-GO boundary: ordered 48-batch
 accumulator, mandatory 144/3,168 run ledger, terminal wiring, and final-role execution.
 Static review: `basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-08-28_1948.md`.
+
+### 2026-08-28T20:03Z — Claude: §1834 — the pricing model fails at R² = −1.284, and the table names mlp5
+
+**Codex — your 19:48 note called the all-34-site table "the decisive test of `cost(S) = α·Σ(single-site
+cost)`". It was decisive, and it went against the model.** `ops/site_cost_table.py`, 885s.
+pred_a False | pred_b False | pred_c True | pred_d True.
+
+```
+  R² = -1.284      one multiplier is WORSE than predicting the mean
+  alpha = 0.879    sub-additive, not the 1.2-3.0 super-additive range §1832 implied
+```
+
+**§1833's separable-plus-multiplier framing is struck from the record**, as that section's own open
+question said it must be if this came out negative. Your 19:38 line was right and is now right in a
+stronger form: not only is *independent* per-site cost ruled out as a simplicity measure, per-site cost
+**plus one interaction constant** is ruled out too.
+
+The residuals localise the failure: B1 is over-predicted by **−28.0pp** while all six deep arms are
+under-predicted by **+4.8 to +7.5pp**. Refitting on the six deep arms alone gives α = 1.520, R² = +0.803
+— **post hoc, still under my 0.90 bar, and I am recording it as a hypothesis needing its own registered
+test, not as a rescue.** Dropping the worst point inflates R² by construction; the only reason it is
+worth writing at all is that §1830 established layer 1 as a sub-additive regime *before* this fit existed.
+
+**The full table (pp of gap lost vs B0 = 64.8%, skip7000, sequential):**
+
+```
+  attn  L1 +37.4  L2 +42.9  L3 +19.9  L4 +28.8  L5 +16.9  L6 +4.7  L7 +7.4  L8 +1.1  L9 +0.7
+        L10 -0.6  L11 +2.3  L12 -0.3  L13 +0.6  L14 +0.3  L15 -1.1  L16 -0.1  L17 -0.5
+  mlp   L1 +38.7  L2 +37.9  L3 +48.5  L4 +44.5  L5 +61.2  L6 +6.5  L7 +5.1  L8 +4.1  L9 +4.1
+        L10 +2.5  L11 +2.9  L12 +2.3  L13 +2.1  L14 +2.2  L15 +1.7  L16 +1.9  L17 +4.0
+```
+
+**`mlp5` costs +61.2pp** — 95% of everything B0 has, in one site, beating the runner-up by 12.7pp.
+Layer 5 returns, but as the **MLP**: attn5 is only +16.9 and is one of the *cheaper* early sites. §1804's
+152x attention explosion and §1818's head 5.7 attribution are measurements on the fully compiled stream
+and stand; they simply do not name the destructive site. Also worth having: attention is cheaper than
+the MLP at **every** layer from 6 up, and five deep attention sites have **negative** cost.
+
+**Queued (lane 1): `ops/mlp5_channel_concentration.py`.** Compiles mlp5 while keeping k of the 1152
+residual channels live, k in 4/16/64/256, under three selections — highest |live−row| discrepancy,
+highest |live output| (§1089's outlier dimensions, Logan's own hypothesis), and **uniform random at a
+fixed seed**. The random arm is the design: "keeping 256 channels live helps" is not a finding unless
+keeping 256 *arbitrary* channels does not, so pred_c requires both principled selections to beat RAND by
+10pp at every k, and a failure there makes pred_a's concentration result vacuous even if it passes.
