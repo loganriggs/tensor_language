@@ -49305,3 +49305,55 @@ confirmed and the cost table is explained by what sits *above* each site rather 
 the site itself. The controls that matter are depth again — sensitivity must beat **+0.853** to be worth
 anything — and the product of sensitivity with the substitution error, which is what a first-order
 account would actually predict.
+
+## §1838 — VOID: the perturbation never landed, so the sensitivity correlations measure nothing. My own control caught it.
+
+`ops/downstream_sensitivity.py`, 143.3s, **DISCOVERY ONLY**, rung 3 (§1837's open question).
+**pred_a False | pred_b False | pred_c False | pred_d FALSE.**
+
+**pred_d is the controls, it FAILED, and that voids the other three.** The registered bar was that the
+injected noise move top-1 by more than 0.1pp at *every* site, written precisely to distinguish "the
+instrument turned and found nothing" from "the instrument had nowhere to turn" (LESSON 46's addendum).
+The minimum sensitivity came out at **−0.009%** — *negative* — and the median site moved about
+**0.03pp**:
+
+```
+  attn  L1 -0.002%  L2 0.004%  L3 -0.001%  L4 0.013%  L5 0.241%  L6 0.044% ... L17 0.018%
+  mlp   L1 -0.009%  L2 0.017%  L3 0.013%   L4 0.037%  L5 0.031%  L6 0.024% ... L17 0.283%
+```
+
+**The reported Spearman of −0.234 is a correlation over noise and I am not interpreting it.** On a
+192-row eval there are 36,864 scored positions, so 0.03pp is **eleven tokens**. Nothing in that table
+except `attn5` (0.241%) and `mlp17` (0.283%) is distinguishable from sampling variation, and those two
+are about one standard deviation. pred_a, pred_b and pred_c are **void**, not negative.
+
+**The run does contain one genuinely useful measurement, and it explains the failure.** The RMS
+best-per-token-table error, relative to each site's RMS output:
+
+```
+  attn  L1 .248  L2 .744  L3 .818  L4 .752  L5 .147  L6 .259  L7 .371  L8 .858  L9 .501
+        L10 .521  L11 .719  L12 .771  L13 .881  L14 .934  L15 .866  L16 .914  L17 .596
+  mlp   L1 .617  L2 .732  L3 .727  L4 .773  L5 .571  L6 .605  L7 .780  L8 .824  L9 .745
+        L10 .845  L11 .686  L12 .740  L13 .705  L14 .781  L15 .414  L16 .335  L17 .427
+```
+
+**A real substitution replaces 15% to 93% of a site's output magnitude with error.** I injected **10%**.
+The probe was three to nine times too small to be comparable to the thing it was supposed to model, and
+I should have read this column off §1837's decomposition before choosing the magnitude rather than after.
+
+**Two design faults, both mine, and the second is the more instructive.** The magnitude was wrong. But
+the *readout* was worse: top-1 accuracy is a thresholded statistic with a discreteness floor, so a
+perturbation must flip an argmax before it registers at all. **Cross-entropy would have registered the
+same perturbation continuously**, with no floor, and is the obvious readout for a sensitivity sweep. I
+reached for top-1 because every arm in §1829-§1836 is scored in top-1 gap fractions and I matched the
+units without asking whether they suited the instrument.
+
+**What the controls do certify.** §1837's token-explained variance reproduces here to a maximum drift of
+**0.0005** across all 34 sites — an exact independent recomputation, which is worth having. Live top-1
+reproduces §1789's published 39.32% and 42.35%. Coverage 5419 of 50257.
+
+**Requeued, not abandoned.** `ops/downstream_sensitivity_ce.py` repeats the sweep with **cross-entropy**
+as the readout and the noise raised to **50% relative**, inside the measured 15-93% band rather than an
+order of magnitude below it, with pred_d's bar restated in nats so it can fail the same way if the probe
+still does not land. The question §1837 posed is untouched by this: nothing yet tests whether downstream
+sensitivity explains the §1834 cost table, because nothing yet has measured downstream sensitivity.
