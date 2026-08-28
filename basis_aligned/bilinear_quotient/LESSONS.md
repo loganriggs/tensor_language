@@ -945,3 +945,20 @@ four of six cells in the grid became uninterpretable.
 The control is what caught it — the two cells that were supposed to reproduce a published number came
 out 0.33 and 0.76 nats away. Sibling of LESSON 34: a control that can actually fail is the only kind
 worth writing.
+
+## LESSON 38 — a correction lands when the last artifact is updated, not when the ledger is written
+
+§1718, §1720 and §1723 corrected one quantity three times. All three corrections went into the
+ledger. **None reached the registry**, where three certified entries kept quoting the superseded
+figures — including `_CURRENT_HEADLINE_FIGURES`, whose entire purpose is to stop people quoting
+superseded figures (§1759).
+
+- **When a number changes, grep for it before closing the correction.** Not for the section that
+  introduced it: for the *value*. It takes seconds and it is the only step that finds the copies.
+- **Rank artifacts by who reads them.** A ledger is read by its author; a registry is read by
+  collaborators and by future runs as ground truth. The one with the wider audience should be
+  corrected FIRST, not last.
+- **Record superseded values, do not delete them.** A reader who saw the old figure needs to find out
+  it moved, which a silent overwrite denies them.
+
+Sibling of LESSON 33: both are cases where the number was right somewhere and wrong where it counted.

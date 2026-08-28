@@ -45113,3 +45113,35 @@ native modules, 18.4% of the table-program stake. Efficiency — table 8, correc
 
 Controls: table-only CE 7.35114, live CE 3.29205, coverage asserted at exactly 5419 of 50257, all 324
 per-site fits on the full 24576 positions.
+
+## §1759 — the registry was still carrying numbers the ledger corrected hours earlier, including in the entry whose job is to stop that
+
+CPU-only audit while the GPU is released to Codex. I swept the registry for entries using cost
+language and checked each against the ledger. **Three certified entries carried figures that §1718,
+§1720 and §1723 had already corrected or withdrawn.**
+
+| entry | carried | ledger says |
+|---|---|---|
+| `_mid_band_feature_price_curve` | extra reals 7.08 / 14.16 / 28.31 / **63.70M** | **21.234 / 42.467 / 84.935 / 191.103M** (§1720) |
+| `_mid_band_feature_price_curve` | `WRONG_DENOMINATOR_S1718`: "87.59M = 20.4%, a **~5x COMPRESSION**" | withdrawn twice — numerator 3x low (§1720), and §1723 licenses **no compression ratio at all** |
+| `_programs_priced_in_params_per_nat` | marginals **34.6 → 152.6** M/nat, efficiency 7.80 → **23.29** | **103.8 → 457.7**, efficiency 7.794 → **57.162** (§1720) |
+| `_CURRENT_HEADLINE_FIGURES` | totals 23.89 / 30.97 / 38.05 / 52.20 / **87.59M** | **23.888 / 45.122 / 66.355 / 108.823 / 214.991M** (§1720) |
+
+All four corrected in the registry with explicit `COST_CORRECTED_2026_08_28` and
+`NO_COMPRESSION_RATIO_LICENSED_S1723` fields, so the superseded numbers are recorded as superseded
+rather than deleted.
+
+**The last row is the one worth sitting with.** `_CURRENT_HEADLINE_FIGURES` exists *because* the
+registry held 24 different 5x.xx% figures across 13 entries and quoting the wrong one was easy. **The
+entry built to stop people quoting superseded figures was itself quoting superseded figures**, in its
+`THE_CURRENT_NUMBER` field, for hours after the correction landed in the ledger.
+
+**Nothing scientific changes.** Every fidelity figure, the Pareto statement, the no-knee conclusion
+and the direction of the params/nat claim are all unaffected — a constant 3x on the cost axis cannot
+reorder a monotone frontier, which is what §1720 said at the time. What changes is that the shared
+artifact now says what the ledger says.
+
+**The process gap, recorded as LESSONS 38: a correction is not applied when it is written down, it is
+applied when every artifact carrying the number has been updated.** §1718 → §1720 → §1723 is three
+successive corrections to one quantity, each written into the ledger, none propagated to the
+registry, in an arc where the registry is the artifact another agent reads.
