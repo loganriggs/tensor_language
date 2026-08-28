@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "experiment_id": "bilin18_mlp1_implicit_folded_tensor_v2_dtype_retry",
+  "status": "prospective_retry_after_v1_fail_closed_before_scientific_outcome",
+  "parent_v1_authority_sha256": "7b2cebe982559a3e232e073d238b984df6246461b92c622e0275bc9279b8b468",
+  "parent_v1_failure_sha256": "350d7dc7bb4ec3207853abaa5db83da57b58b1613898553320824245c3f48526",
+  "parent_failure_scope": "v1 stopped during full checkpoint state-tree metadata validation at transformer.wte.weight; no MLP1 tensor was extracted, no Gram/spectrum/core/result was computed, and no partial result exists",
+  "scientific_plan": "exactly inherited from MLP1 implicit folded-tensor v1; no rank, threshold, core, price, or claim rule changes",
+  "native_dtype_schema": {
+    "torch.bfloat16": [
+      "transformer.wte.weight",
+      "transformer.h.*.lambdas",
+      "transformer.h.*.attn.lamb",
+      "transformer.h.*.mlp.Down_bias"
+    ],
+    "torch.float32": "every other key in the exact 218-key TT.GPT state tree"
+  },
+  "state_key_counts": {
+    "total": 218,
+    "torch.bfloat16": 55,
+    "torch.float32": 163
+  },
+  "mlp1_factor_dtypes": {
+    "Left.weight": "torch.float32",
+    "Right.weight": "torch.float32",
+    "Down.weight": "torch.float32",
+    "Down_bias": "torch.bfloat16"
+  },
+  "bias_rule": "Hash and record the owned native bf16 MLP1 Down_bias before conversion. Make a distinct float64 analysis copy, hash it separately, and pass only that copy to the bias-separated diagnostic. Bias is excluded from balancing, mode Grams, spectra, HOSVD bases, and projected cores.",
+  "checkpoint_load_rule": "After v2 source/weight authority only: local torch.load(weights_only=True,mmap=True,map_location=cpu), exact 218-key shape and native-dtype validation, clone only MLP1 factors, then delete the state tree.",
+  "publication_order": [
+    "v2_source_weight_authority",
+    "v2_nonauthoritative_result",
+    "v2_last_written_outcome_authority"
+  ],
+  "failure_rule": "All v1 artifacts remain immutable. V2 failure is create-only, may bind a partial v2 result, and can never authorize or relabel either version.",
+  "claim_boundary": "Weight-space coefficient-Frobenius spectrum and fixed-grammar prices only; no CE, causal, semantic, CP-rank, product-minimality, OOD, edit, removal, or composition credit."
+}
