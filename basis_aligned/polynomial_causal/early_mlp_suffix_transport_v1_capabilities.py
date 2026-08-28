@@ -915,6 +915,73 @@ class StudentStep:
             raise RuntimeError("student step identity or issuer mismatch")
 
 
+class _FinalResponseStudentTensors:
+    """One-use adapter-private owner of scored MLP1 codes and suffix logits."""
+
+    __slots__ = (
+        "__consumed", "__identity_sha256", "__code1", "__logits", "__sealed",
+    )
+
+    def __init__(
+        self, *, identity: runtime.TraceIdentity, code1: torch.Tensor,
+        logits: torch.Tensor,
+    ) -> None:
+        object.__setattr__(self, "_FinalResponseStudentTensors__sealed", False)
+        if not torch.is_tensor(code1) or tuple(code1.shape) != (
+            runtime.BATCH_SIZE, runtime.SCORE_STOP - runtime.SCORE_START,
+            runtime.CODE_DIM,
+        ) or code1.device.type != "cpu" or code1.requires_grad or code1.grad_fn is not (
+            None
+        ) or not bool(torch.isfinite(code1).all()):
+            raise RuntimeError("final response student MLP1 code is malformed")
+        if not torch.is_tensor(logits) or logits.ndim != 3 or tuple(logits.shape[:2]) != (
+            runtime.BATCH_SIZE, runtime.SCORE_STOP - runtime.SCORE_START,
+        ) or logits.shape[-1] <= 1 or logits.device.type != "cpu" or logits.requires_grad or (
+            logits.grad_fn is not None
+        ) or not bool(torch.isfinite(logits).all()):
+            raise RuntimeError("final response student logits are malformed")
+        self.__identity_sha256 = identity.sha256
+        self.__code1 = code1.detach().clone().contiguous()
+        self.__logits = logits.detach().clone().contiguous()
+        self.__consumed = False
+        object.__setattr__(self, "_FinalResponseStudentTensors__sealed", True)
+
+    def __setattr__(self, name: str, value: Any) -> None:
+        if getattr(self, "_FinalResponseStudentTensors__sealed", False):
+            raise AttributeError("final response student tensors are sealed")
+        object.__setattr__(self, name, value)
+
+    def __copy__(self):
+        raise RuntimeError("final response student tensors cannot be copied")
+
+    def __deepcopy__(self, memo):
+        raise RuntimeError("final response student tensors cannot be copied")
+
+    def __reduce__(self):
+        raise RuntimeError("final response student tensors cannot be serialized")
+
+    @property
+    def sha256(self) -> str:
+        return runtime.logical_identity_sha256({
+            "identity_sha256": self.__identity_sha256,
+            "code1_sha256": runtime.tensor_identity_sha256(self.__code1),
+            "logits_sha256": runtime.tensor_identity_sha256(self.__logits),
+        })
+
+    def _take_for_observed_adapter(
+        self, identity: runtime.TraceIdentity,
+    ) -> tuple[torch.Tensor, torch.Tensor]:
+        if self.__consumed or not isinstance(identity, runtime.TraceIdentity) or (
+            identity.sha256 != self.__identity_sha256
+        ):
+            raise RuntimeError("final response student tensor identity was spent or changed")
+        object.__setattr__(self, "_FinalResponseStudentTensors__consumed", True)
+        code1, logits = self.__code1, self.__logits
+        object.__setattr__(self, "_FinalResponseStudentTensors__code1", torch.empty(0))
+        object.__setattr__(self, "_FinalResponseStudentTensors__logits", torch.empty(0))
+        return code1, logits
+
+
 class _TeacherResult:
     __slots__ = (
         "__broker", "__consumed", "__identity", "__metadata", "__metadata_sha256",
@@ -1590,6 +1657,51 @@ class CapabilityBroker:
         ) or self.__outstanding_identity_sha256 != identity.sha256:
             raise RuntimeError("teacher identity lacks one unused paired student step")
         self.__teacher_identities.add(identity.sha256)
+
+    def _consume_final_response_student(
+        self, identity: runtime.TraceIdentity, step: StudentStep,
+    ) -> tuple[_FinalResponseStudentTensors, StepClosure]:
+        """Adapter-private one-use consumer for a final P/P/N response forward."""
+
+        if identity.phase != "final" or dict(identity.student_states).get(2) != "N" or (
+            identity.trial not in range(3)
+        ):
+            raise RuntimeError("final response student requires a trial-bound P/P/N trace")
+        step._require_available(issuer_id=self.issuer_id, identity=identity)
+        self._spend_teacher_identity(identity)
+        trace, outputs = step._take(issuer_id=self.issuer_id, identity=identity)
+        complete = False
+        try:
+            states = trace._consume(issuer_id=self.issuer_id, identity=identity)
+            states.clear()
+            codes, logits = outputs.consume("final", identity)
+            code1 = runtime.scored_positions(codes[1]).detach().cpu().float().contiguous()
+            scored_logits = runtime.scored_positions(logits).detach().cpu().float().contiguous()
+            result = _FinalResponseStudentTensors(
+                identity=identity, code1=code1, logits=scored_logits,
+            )
+            codes = ()
+            logits = None
+            closure = self._mint_closure(
+                identity=identity, scope="final_response_student",
+                producer_invocations=0, outer_forward_count=0,
+                hook_calls=EXACT_ZERO_CALLS, original_calls=EXACT_ZERO_CALLS,
+                outer_returned=True, hook_restored=True, hook_inert=True,
+                output_shapes=(tuple(code1.shape), tuple(scored_logits.shape)),
+                output_dtypes=(str(code1.dtype), str(scored_logits.dtype)),
+                support="64:256-final-response-student",
+                requires_grad=False, grad_fn_absent=True, consumed=True,
+                output_sha256=result.sha256,
+            )
+            self._complete_identity(identity)
+            complete = True
+            return result, closure
+        finally:
+            if not complete:
+                try:
+                    outputs.force_discard(identity)
+                finally:
+                    self._abort_identity(identity)
 
     def consume_final_ce(
         self, identity: runtime.TraceIdentity, step: StudentStep,

@@ -15,7 +15,9 @@ from typing import Any, Iterator
 import torch
 
 import bilin18_observed_model_facade as facade
+import early_mlp_suffix_transport_v1 as contract
 import early_mlp_suffix_transport_v1_final_actions as final_actions
+import early_mlp_suffix_transport_v1_response_execution as response_execution
 import early_mlp_suffix_transport_v1_runtime as runtime
 
 
@@ -174,6 +176,83 @@ class ObservedFinalBaselineBatchReceipt:
     observed_student_closure_sha256: str
     observed_teacher_closure_sha256: str | None
     teacher_reused_student: bool
+
+
+@dataclass(frozen=True)
+class _ObservedResponseTeacherForward:
+    """Private exact-teacher tensors for immediate in-adapter paired reduction."""
+
+    code1: torch.Tensor
+    logits: torch.Tensor
+    edit_sha256: str
+    unit_identity_sha256: str
+    observed_closure: ObservedClosure
+
+    def __post_init__(self) -> None:
+        if not torch.is_tensor(self.code1) or tuple(self.code1.shape) != (
+            runtime.BATCH_SIZE, runtime.SCORE_STOP - runtime.SCORE_START,
+            runtime.CODE_DIM,
+        ) or self.code1.device.type != "cpu" or self.code1.requires_grad or not (
+            bool(torch.isfinite(self.code1).all())
+        ):
+            raise RuntimeError("response teacher MLP1 code is malformed")
+        if not torch.is_tensor(self.logits) or self.logits.ndim != 3 or tuple(
+            self.logits.shape[:2]
+        ) != (
+            runtime.BATCH_SIZE, runtime.SCORE_STOP - runtime.SCORE_START,
+        ) or self.logits.shape[-1] <= 1 or self.logits.device.type != "cpu" or (
+            self.logits.requires_grad
+        ) or not bool(torch.isfinite(self.logits).all()):
+            raise RuntimeError("response teacher logits are malformed")
+        if not runtime._sha256_text(self.edit_sha256) or not runtime._sha256_text(
+            self.unit_identity_sha256
+        ) or not isinstance(self.observed_closure, ObservedClosure):
+            raise RuntimeError("response teacher identity or closure is malformed")
+        object.__setattr__(self, "code1", self.code1.detach().clone().contiguous())
+        object.__setattr__(self, "logits", self.logits.detach().clone().contiguous())
+
+
+@dataclass(frozen=True)
+class _ObservedResponseStudentForward:
+    """Private student tensors and receipts for immediate triplet reduction."""
+
+    code1: torch.Tensor
+    logits: torch.Tensor
+    response_execution_identity_sha256: str
+    edit_sha256: str
+    unit_identity_sha256: str
+    student_step_ledger_sha256: str
+    consumer_ledger_sha256: str
+    broker_ledger_sha256: str
+    observed_closure: ObservedClosure
+
+    def __post_init__(self) -> None:
+        if not torch.is_tensor(self.code1) or tuple(self.code1.shape) != (
+            runtime.BATCH_SIZE, runtime.SCORE_STOP - runtime.SCORE_START,
+            runtime.CODE_DIM,
+        ) or self.code1.device.type != "cpu" or self.code1.requires_grad or not (
+            bool(torch.isfinite(self.code1).all())
+        ):
+            raise RuntimeError("response student MLP1 code is malformed")
+        if not torch.is_tensor(self.logits) or self.logits.ndim != 3 or tuple(
+            self.logits.shape[:2]
+        ) != (
+            runtime.BATCH_SIZE, runtime.SCORE_STOP - runtime.SCORE_START,
+        ) or self.logits.shape[-1] <= 1 or self.logits.device.type != "cpu" or (
+            self.logits.requires_grad
+        ) or not bool(torch.isfinite(self.logits).all()):
+            raise RuntimeError("response student logits are malformed")
+        for name in (
+            "response_execution_identity_sha256", "edit_sha256",
+            "unit_identity_sha256", "student_step_ledger_sha256",
+            "consumer_ledger_sha256", "broker_ledger_sha256",
+        ):
+            if not runtime._sha256_text(getattr(self, name)):
+                raise RuntimeError(f"response student {name} is malformed")
+        if not isinstance(self.observed_closure, ObservedClosure):
+            raise RuntimeError("response student observed closure is malformed")
+        object.__setattr__(self, "code1", self.code1.detach().clone().contiguous())
+        object.__setattr__(self, "logits", self.logits.detach().clone().contiguous())
 
 
 class _EarlyNativePoison:
@@ -1198,3 +1277,105 @@ class ObservedBilin18Adapter:
             "hook_restored": True,
             "hook_inert": True,
         }
+
+    def _run_final_response_teacher_forward(
+        self, *, edit: response_execution.FinalResponseEdit,
+        role_rows: torch.Tensor, ordered_batch_indices: Any,
+        basis0: torch.Tensor, basis1: torch.Tensor,
+    ) -> _ObservedResponseTeacherForward:
+        """Execute one exact O/O/N teacher edit without releasing live tensors.
+
+        This is deliberately private.  The eventual public response-batch method must
+        call it three times and reduce those tensors with all 22 student triplets
+        before returning anything.
+        """
+
+        if not isinstance(edit, response_execution.FinalResponseEdit):
+            raise TypeError("response teacher requires an authority-derived edit")
+        indices = tuple(ordered_batch_indices)
+        edit.require_pristine(
+            role_rows=role_rows, ordered_batch_indices=indices, basis0=basis0,
+        )
+        checked_basis1 = basis1.detach().cpu().float().contiguous()
+        contract.validate_orthonormal_basis("response basis1", checked_basis1)
+        try:
+            model_parameter = next(self._model.parameters())
+        except StopIteration as error:
+            raise RuntimeError("observed model has no device-bearing parameters") from error
+        model_device = model_parameter.device
+        tokens = role_rows[:, :runtime.SEQUENCE_LENGTH].contiguous().to(model_device)
+        native_forwards = {
+            site: self._model.transformer.h[site].mlp.forward
+            for site in CORRECTION_SITES
+        }
+        poison = _EarlyNativePoison(self._model)
+        attention_calls = {site: 0 for site in range(len(self._model.transformer.h))}
+        mlp_calls = {site: 0 for site in range(len(self._model.transformer.h))}
+        deployed_n_calls = {site: 0 for site in EARLY_SITES}
+        exact_calls = {site: 0 for site in EARLY_SITES}
+        code1: torch.Tensor | None = None
+        logits: torch.Tensor | None = None
+        outer_returned = False
+
+        def attention(event: facade.AttentionEvent):
+            attention_calls[event.site] += 1
+            return self._ship.attention(event)
+
+        def mlp(event: facade.EarlyMLPEvent):
+            nonlocal code1
+            mlp_calls[event.site] += 1
+            if event.site == 0:
+                exact_calls[0] += 1
+                native = native_forwards[0](event.state)
+                physical = edit.physical_edit.to(
+                    device=native.device, dtype=native.dtype,
+                )
+                return native + physical
+            if event.site == 1:
+                exact_calls[1] += 1
+                native = native_forwards[1](event.state)
+                projected = native.float() @ checked_basis1.to(native.device)
+                code1 = runtime.scored_positions(projected).detach().cpu().float().contiguous()
+                return native
+            if event.site == 2:
+                deployed_n_calls[2] += 1
+            return self._ship.mlp(event)
+
+        with torch.no_grad():
+            with poison.scope():
+                logits = facade.forward_with_dispatch(
+                    self._model, tokens, attention, mlp,
+                    require_production=self._production,
+                )
+                outer_returned = True
+        expected_all = tuple((site, 1) for site in range(len(self._model.transformer.h)))
+        literal_calls = {
+            site: exact_calls[site] + poison.calls[site] for site in EARLY_SITES
+        }
+        if _counts(attention_calls) != expected_all or _counts(mlp_calls) != (
+            expected_all
+        ) or _counts(deployed_n_calls) != ((0, 0), (1, 0), (2, 1)) or _counts(
+            literal_calls
+        ) != ((0, 1), (1, 1), (2, 0)) or not outer_returned or not poison.restored or not (
+            poison.inert
+        ) or any(poison.calls.values()) or code1 is None or logits is None:
+            raise RuntimeError("exact response teacher forward did not close exactly")
+        scored_logits = runtime.scored_positions(logits).detach().cpu().float().contiguous()
+        observed = ObservedClosure(
+            scope=f"final_response_exact_teacher_{edit.edit_sign:+d}",
+            outer_forward_count=1, outer_returned=True,
+            attention_dispatch_calls=_counts(attention_calls),
+            mlp_dispatch_calls=_counts(mlp_calls),
+            deployed_n_calls=_counts(deployed_n_calls),
+            correction_calls=((0, 0), (1, 0), (2, 0)),
+            literal_early_mlp_calls=_counts(literal_calls),
+            native_guard_restored=poison.restored,
+            native_guard_inert=poison.inert,
+            logit_shape=tuple(scored_logits.shape),
+            logit_dtype=str(scored_logits.dtype),
+        )
+        return _ObservedResponseTeacherForward(
+            code1=code1, logits=scored_logits, edit_sha256=edit.sha256,
+            unit_identity_sha256=edit.unit_identity_sha256,
+            observed_closure=observed,
+        )
