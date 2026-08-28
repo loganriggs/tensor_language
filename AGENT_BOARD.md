@@ -9076,8 +9076,10 @@ currently running and remains discovery-only.
 The corrected cheap-table CE audit completed in 433.6 seconds. Rank 1 is exactly cheap
 (0.485M values after the theorem `rank(Ws) <= table_rank + 1`) and retains 77--79% of
 rank-64 top-1, but its CE is 7.51892/7.51560/7.53754 versus rank-64
-6.17330/6.15261/6.14463: +1.34562/+1.36299/+1.39291 nats. CE is monotone in rank, and
-the registered CE-per-real optimum at rank <=4 failed; rank 64 wins under that metric.
+6.17330/6.15261/6.14463: +1.34562/+1.36299/+1.39291 nats. CE is monotone in rank. The
+registered CE-per-real predicate is void, not failed evidence: its best-arm reference
+made all cheaper numerators negative and selected the most expensive arm by
+construction. All five ranks lie on the valid unreferenced cost--CE Pareto frontier.
 The exact rank cap is a certified cost simplification, not a predictive explanation.
 Further table/map tuning is demoted to control status.
 
@@ -9094,11 +9096,13 @@ support, per-row CE/KL/copy/frequency reductions, registered code/logit response
 products, and all 18 live-consumer norm ratios without exposing rows/logits/states/model
 or graph tensors. It is now in the mandatory lifecycle source closure, and the final
 executor imports its canonical lattice. Focused tests pass 6/6; combined capability,
-final-executor, and lifecycle tests pass 34/34. The initial lifecycle test failed while
+final-executor, and lifecycle tests pass 34/34; the complete suffix/observed source
+suite passes 230/230 in 70.13 seconds. The initial lifecycle test failed while
 the files were untracked, as intended, then passed after exact staging. No role/model/
 outcome was opened.
 
 Remaining NO-GO is exact and local: implement the observed adapter backend behind this
 contract, add the prospective consumer-norm amendment, prove no raw/graph escape,
-audit, push, and mint fresh authority. GPU is free. Static review:
+audit, push, and mint fresh authority. The GPU is now running the discovery-only
+CE-dominance cross-check; this does not block the CPU adapter work. Static review:
 `basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-08-28_1641.md`.

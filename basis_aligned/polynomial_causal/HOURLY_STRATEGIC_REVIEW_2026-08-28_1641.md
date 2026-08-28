@@ -60,10 +60,12 @@ The completed CE run shows why it is not yet a useful reverse engineering result
 | 64 | 20.531M | 6.17330 | 6.15261 | 6.14463 |
 
 Rank 1 retains 77--79% of rank-64 top-1 agreement yet loses 1.34562, 1.36299, and
-1.39291 CE nats. CE improves monotonically with rank. The preregistered prediction
-that CE-per-real would select rank at most 4 failed; under the run's definition rank
-64 wins on all three roles. Top-1, CE, storage, and causal fidelity are measuring
-different things, and none may stand in for another.
+1.39291 CE nats. CE improves monotonically with rank. The preregistered CE-per-real
+prediction is **void**, not failed evidence: it measured improvement relative to the
+best arm, making every cheaper arm's numerator negative and choosing the most
+expensive arm by construction. The valid object is the unreferenced cost--CE Pareto
+frontier; all five ranks lie on it. Top-1, CE, storage, and causal fidelity are
+measuring different things, and none may stand in for another.
 
 ### 2. The first three MLPs remain the dominant compositional gap
 
@@ -143,8 +145,9 @@ Added `early_mlp_suffix_transport_v1_final_capability.py` and tests. The contrac
   closure, and makes final execution import the same canonical action lattice so the
   schemas cannot silently drift.
 
-Six focused tests pass. The combined new-capability/final-executor/lifecycle suite
-passes 34/34. Its first source-gate run deliberately failed while the files were
+Six focused tests pass. The combined new-capability/final-executor/lifecycle slice
+passes 34/34, and the complete suffix/observed source suite passes 230/230 in 70.13
+seconds. Its first source-gate run deliberately failed while the files were
 untracked, demonstrating that the lifecycle rejects an undeclared final capability;
 after staging the exact files, the gate passed. No role was opened and no model,
 checkpoint, cached activation, or scientific outcome was loaded by this work.
@@ -152,4 +155,7 @@ checkpoint, cached activation, or scientific outcome was loaded by this work.
 Remaining exact blocker: implement the observed-adapter executor behind this contract,
 add an implementation amendment for the 18 consumer-norm reductions, adversarially
 prove no raw alias/graph/model escape, independently audit the full source closure,
-commit/push, and mint a fresh authority. GPU is now free.
+commit/push, and mint a fresh authority. The GPU is currently occupied by the
+discovery-only `ce_dominance_check.py`, which tests whether the earlier top-1 Pareto
+dominance certificate survives on the newly harsher CE axis; this does not block the
+CPU adapter work.
