@@ -32,10 +32,16 @@ However, this is not a one-head-only instability: L5H2 has the largest relative 
 (about 241x), and the layer-wide median is about 34x. At L6 the dominant excess head is
 H1, not H7. A follow-up refuted the proposed softmax-pattern-dispersal mechanism: H7's
 direction stays almost identical (cosine 0.9990) and remains unusually constant across
-positions; the same fixed vector is simply amplified about 159x. The active falsifier
-now asks whether a single per-head gain repair fixes the partial compile and whether
-the same edit is inert when L5 itself is substituted. The final all-consumer norm
-measurements remain necessary regardless of that result.
+positions; the same fixed vector is simply amplified about 159x. The gain falsifier
+has now completed. Correcting only H7 recovers about 15% of the accuracy cliff, while
+correcting the gains of all nine heads recovers 98.8--99.6%. The same H7 correction is
+exactly inert when L5 itself is substituted. Thus the immediate cliff is a layer-wide
+vector of head-gain errors, not a one-head mechanism. This only restores the fully
+compiled baseline, not the live model. A reported endpoint-control failure was a
+mis-specified comparison to a different full-rank program; the run reproduces its
+correct rank-64 parent to four decimals. The repair remains discovery-only because its
+gains were diagnosed from the mismatch and it has not passed final CE/OOD/edit gates.
+The final all-consumer norm measurements remain necessary.
 
 ## EARLIER UPDATE SINCE THE LAST EXPLANATION
 

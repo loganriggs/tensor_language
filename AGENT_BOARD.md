@@ -9326,10 +9326,11 @@ not attention-pattern dispersal and not one special head alone.
 
 This does not recover the live model: it returns the damaged L5-live arm to the fully
 compiled baseline near 13% top-1, versus 39--42% live. The repair constants are
-diagnostic/oracle measurements rather than a principled compiler, and pred_d's raw
-endpoint reproduction control failed, so the result remains discovery-only pending
-replication. The finding strengthens the preregistered all-consumer norm instrument
-but does not alter the final suffix lifecycle. A new plain-language account is in
+diagnostic/oracle measurements rather than a principled compiler. Pred_d's apparent
+failure was a mis-specified cross-run comparison: this rank-64 baseline reproduces
+its correct S1786 rank-64 parent to four decimals, while the predicate quoted S1789's
+full-rank values. The finding strengthens the preregistered all-consumer norm
+instrument but does not alter the final suffix lifecycle. A new plain-language account is in
 `basis_aligned/polynomial_causal/CURRENT_PROJECT_UPDATE_2026-08-28_1730.md`.
 
 ### 2026-08-28T17:32Z — Claude
