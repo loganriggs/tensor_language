@@ -424,3 +424,94 @@ def test_suffix_kl_row_pool_matches_registered_token_weighted_loss() -> None:
     torch.testing.assert_close(
         row_sum.sum() / row_count.sum(), expected.double(), rtol=2e-6, atol=1e-9,
     )
+
+
+def test_common_validation_support_binds_rows_targets_mask_and_semantics(monkeypatch) -> None:
+    monkeypatch.setattr(programs, "VALIDATION_ROWS", 8)
+    rows = torch.arange(8 * 257, dtype=torch.long).view(8, 257) % 19
+    first = programs.validation_common_support_sha256(rows)
+    assert first == programs.validation_common_support_sha256(rows.clone())
+    changed = rows.clone()
+    changed[4, 100] = (changed[4, 100] + 1) % 19
+    assert programs.validation_common_support_sha256(changed) != first
+    with pytest.raises(ValueError, match="all frozen role rows"):
+        programs.validation_common_support_sha256(rows[:4])
+
+
+def _collector(monkeypatch):
+    monkeypatch.setattr(programs, "VALIDATION_ROWS", 8)
+    baseline_count = torch.tensor([1, 2, 3, 4, 4, 3, 2, 1], dtype=torch.long)
+    collector = programs.ValidationStatisticsCollector(
+        route="R", program_sha256="a" * 64, common_support_sha256="b" * 64,
+        baseline_row_copy_ce_sum=baseline_count.double() / 10,
+        baseline_row_copy_count=baseline_count,
+    )
+    return collector, baseline_count
+
+
+def _add_collector_batch(collector, baseline_count, ordinal):
+    start = ordinal * runtime.BATCH_SIZE
+    stop = start + runtime.BATCH_SIZE
+    collector.add_batch(
+        batch_ordinal=ordinal, ordered_row_indices=tuple(range(start, stop)),
+        row_primary_sum=torch.arange(start, stop, dtype=torch.float64) + 1,
+        row_primary_count=torch.full((4,), 192, dtype=torch.long),
+        row_ce_sum=torch.arange(start, stop, dtype=torch.float64) + 10,
+        row_ce_count=torch.full((4,), 192, dtype=torch.long),
+        row_copy_ce_sum=baseline_count[start:stop].double() / 5,
+        row_copy_count=baseline_count[start:stop],
+        student_original_calls=programs.ZERO_NATIVE_CALLS,
+        hook_restored=True, hook_inert=True,
+    )
+
+
+def test_validation_collector_assembles_every_row_once_and_finalizes(monkeypatch) -> None:
+    collector, baseline_count = _collector(monkeypatch)
+    _add_collector_batch(collector, baseline_count, 0)
+    assert collector.completed_rows == 4
+    with pytest.raises(RuntimeError, match="missing"):
+        collector.finalize()
+    _add_collector_batch(collector, baseline_count, 1)
+    statistics = collector.finalize()
+    assert statistics.route == "R" and statistics.program_sha256 == "a" * 64
+    assert statistics.common_support_sha256 == "b" * 64
+    assert torch.equal(statistics.row_copy_count, baseline_count)
+    assert statistics.row_primary_sum.tolist() == list(range(1, 9))
+    with pytest.raises(RuntimeError, match="already finalized"):
+        collector.finalize()
+
+
+def test_validation_collector_rejects_replay_support_and_closure_drift(monkeypatch) -> None:
+    collector, baseline_count = _collector(monkeypatch)
+    with pytest.raises(RuntimeError, match="out of order"):
+        _add_collector_batch(collector, baseline_count, 1)
+    with pytest.raises(RuntimeError, match="row identity"):
+        collector.add_batch(
+            batch_ordinal=0, ordered_row_indices=(0, 1, 2, 4),
+            row_primary_sum=torch.ones(4, dtype=torch.float64),
+            row_primary_count=torch.full((4,), 192, dtype=torch.long),
+            row_ce_sum=torch.ones(4, dtype=torch.float64),
+            row_ce_count=torch.full((4,), 192, dtype=torch.long),
+            row_copy_ce_sum=torch.ones(4, dtype=torch.float64),
+            row_copy_count=baseline_count[:4],
+            student_original_calls=programs.ZERO_NATIVE_CALLS,
+            hook_restored=True, hook_inert=True,
+        )
+    with pytest.raises(RuntimeError, match="closure"):
+        collector.add_batch(
+            batch_ordinal=0, ordered_row_indices=(0, 1, 2, 3),
+            row_primary_sum=torch.ones(4, dtype=torch.float64),
+            row_primary_count=torch.full((4,), 192, dtype=torch.long),
+            row_ce_sum=torch.ones(4, dtype=torch.float64),
+            row_ce_count=torch.full((4,), 192, dtype=torch.long),
+            row_copy_ce_sum=torch.ones(4, dtype=torch.float64),
+            row_copy_count=baseline_count[:4],
+            student_original_calls=((0, 1), (1, 0), (2, 0)),
+            hook_restored=True, hook_inert=True,
+        )
+    wrong_count = baseline_count.clone(); wrong_count[0] += 1
+    with pytest.raises(RuntimeError, match="support changed"):
+        _add_collector_batch(collector, wrong_count, 0)
+    _add_collector_batch(collector, baseline_count, 0)
+    with pytest.raises(RuntimeError, match="out of order"):
+        _add_collector_batch(collector, baseline_count, 0)

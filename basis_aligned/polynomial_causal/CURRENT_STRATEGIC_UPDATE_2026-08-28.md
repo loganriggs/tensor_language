@@ -757,3 +757,71 @@ are complete; (2) publish the canonical true/mapped program bank, calibration an
 gauge receipts with full fit/row/source/protected bindings; (3) execute matched
 L/R/S/T; (4) insert any admitted program into the current-ship interaction cube; and
 (5) compile conditional MLP2/3 and typed attention from that composed residual.
+
+## 05:53 UTC continuation: validation assembly is now exact, not aspirational
+
+The explanatory balance sheet has not changed: all $36/36$ sites have structural
+inventory entries, named behavior remains $32.1\%\pm6.4\%$, named causal recovery is
+$10.923\%$ under its own denominator, and strict executable recovery remains $0\%$ of
+the paired $+0.8976$ current-ship CE gap. The largest missing interface is therefore
+still an admitted early program that can be composed under the ship denominator; the
+second is a typed routing-and-value account of the attention-heavy allocation; the
+third is conditional MLP2/3 behavior after upstream replacement. Parameter compression
+and site inventory do not move any of those currencies by themselves.
+
+This interval closed a narrower but necessary gap in the suffix lifecycle. The program
+stage already knew how to reduce one tensor batch to per-row local MSE, suffix KL, CE,
+and copy CE. It now has an exactly-once collector which:
+
+- hashes the exact 192-row validation tensor, shifted targets, frozen 64-token copy
+  mask, and score interval into one common-support identity;
+- consumes all 48 four-row batches in canonical order and rejects a replay, omission,
+  row permutation, support-count change, nonfinite reduction, native student call, or
+  non-inert hook closure;
+- freezes a separately computed native copy baseline at construction and requires the
+  candidate to reproduce its per-row copy-mask counts; and
+- releases only the already-preregistered raw per-row sums/counts after complete
+  assembly. It never receives or releases a logit, activation, label, or fit tensor.
+
+This is not yet a scoring result and does not open a role. It removes an important
+failure mode in which a launcher could average partial batches, change row order, or
+compare copy loss on a different mask. The complete suffix source suite passes 183/183
+in 54.11 seconds, and the prospectively frozen algebra files still have their exact
+registered hashes. The final owner/test pair remains absent, so the row gate remains
+NO-GO by construction.
+
+The current candidate-action pruning, updated for this implementation rather than
+copied from the prior checkpoint, is:
+
+1. **Finish the sealed validation observation boundary and semantic final owner.** It
+   has the highest information gain because it is the only action that can turn five
+   fitted objective/transport hypotheses and 24 mapped controls into falsifiable,
+   common-support evidence. The CPU assembly half is now complete; the remaining half
+   must compute reductions inside the observed adapter so raw held-out tensors cannot
+   escape.
+2. **Publish the canonical true/mapped program and preflight bank before any final
+   load.** This is low-GPU and high-integrity: it binds selected programs, all 21 row
+   maps, eight gauge tensors, intervention geometry, native baseline, and protected
+   snapshots into the lifecycle unlock. Without it, final replay and causal edits are
+   not composable or auditable.
+3. **Execute the matched L/R/S/T experiment once the source gate is genuinely GO.**
+   This is the first action that can distinguish local-coordinate objective failure
+   from missing executable parent-code transport. Its document shuffles and finite
+   A-null bank make both claims causally falsifiable rather than reconstruction-only.
+4. **Insert any admitted early program into the common-support attention × early ×
+   deep factorial.** This alone can move strict current-ship recovery and reveal
+   cross-half interaction failure. S1742/1743 make a greedy attention prefix a useful
+   lower bound, not an optimum: rising marginals disprove submodularity even though the
+   K=6 greedy set is one-swap locally optimal.
+5. **Compile the residual conditionally: MLP2/3 first, then typed attention routing
+   plus value/content.** This exploits polynomial/tensor structure where it buys a
+   closed downstream interface. Attention rank alone and independent MLP fits are
+   pruned because neither supplies an executable consumer/producer contract.
+
+Additional token clustering, isolated MLP0 semantic regressions, unpriced rank curves,
+more OAT/LOO site rankings, and new descriptive allocation searches remain below the
+cut. They are cheaper, but redundant with known structure and cannot currently change
+a causal, OOD, edit, composition, or ship-denominator decision. The active GPU basin
+run is still useful as a bounded robustness audit; its first random start has climbed
+from $0.4261$ to $1.0873$ through three sweeps but has not yet converged, so no basin
+claim is recorded.

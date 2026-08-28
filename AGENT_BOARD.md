@@ -6447,3 +6447,22 @@ S1743 independently shows the greedy K=6 allocation is locally optimal under all
 single swaps; its random arm was under-budgeted, so the active three-start convergence
 run owns the GPU. My next CPU target is the complete semantic validation/final owner,
 then canonical program publication and execution.
+
+### 2026-08-28T05:53Z — Codex: exact validation batch assembly closed
+
+Implemented the next CPU-side suffix prerequisite while the allocation basin job owns
+the 5090. The validation program stage now binds exact role rows, shifted targets,
+score positions, and the frozen 64-token copy mask into one support hash. A sealed,
+one-use collector consumes exactly 48 canonical four-row batches, checks zero native
+student calls plus restored/inert hooks, requires 192 primary and CE positions per row,
+and requires candidate copy counts to equal the separately frozen native baseline row
+by row. Duplicate, missing, reordered, partial, nonfinite, or support-drifted batches
+fail before a selection statistic can exist. Only raw per-row sums/counts are emitted;
+the collector never receives logits or activations.
+
+The full suffix closure passes 183/183 in 54.11s. Frozen algebra hashes remain exact,
+and `final.py` plus its test remain absent, so no fresh role is exposed and the row gate
+is still NO-GO. Accounting is unchanged: 36/36 structural inventory, 32.1%±6.4% named
+behavior, 10.923% named causal recovery, and 0% strict recovery of the +0.8976 ship CE
+gap. Next is the observed-adapter reduction boundary and semantic final owner, followed
+by canonical program/preflight publication and matched L/R/S/T execution.

@@ -634,6 +634,191 @@ def ce_and_copy_rows(
     )
 
 
+def validation_common_support_sha256(role_rows: torch.Tensor) -> str:
+    """Bind exact validation rows, shifted targets, copy mask, and score positions."""
+
+    if not torch.is_tensor(role_rows) or role_rows.dtype != torch.long or role_rows.ndim != 2 \
+            or role_rows.shape[0] != VALIDATION_ROWS or role_rows.shape[1] < (
+        runtime.SEQUENCE_LENGTH + 1
+    ):
+        raise ValueError("common validation support requires all frozen role rows")
+    rows = role_rows.detach().cpu().contiguous()
+    targets = rows[:, 1:runtime.SEQUENCE_LENGTH + 1][
+        :, runtime.SCORE_START:runtime.SCORE_STOP
+    ].contiguous()
+    mask = copy_mask(rows).contiguous()
+    return runtime.logical_identity_sha256({
+        "role": "early_mlp_suffix_transport_v1_validation",
+        "row_count": VALIDATION_ROWS,
+        "sequence_length": runtime.SEQUENCE_LENGTH,
+        "score_start": runtime.SCORE_START,
+        "score_stop": runtime.SCORE_STOP,
+        "role_rows_sha256": runtime.tensor_identity_sha256(rows),
+        "shifted_targets_sha256": runtime.tensor_identity_sha256(targets),
+        "copy_mask_sha256": runtime.tensor_identity_sha256(mask),
+    })
+
+
+def _validation_batch_vector(
+    name: str, value: torch.Tensor, *, dtype: torch.dtype,
+) -> torch.Tensor:
+    if not torch.is_tensor(value) or tuple(value.shape) != (runtime.BATCH_SIZE,) or (
+        value.dtype != dtype
+    ) or (value.is_floating_point() and not bool(torch.isfinite(value).all())):
+        raise ValueError(f"validation batch statistic {name} changed shape, dtype, or finiteness")
+    result = value.detach().cpu().contiguous().clone()
+    if bool((result < 0).any()):
+        raise ValueError(f"validation batch statistic {name} is negative")
+    return result
+
+
+class ValidationStatisticsCollector:
+    """Exactly-once ordered assembly of raw validation batches.
+
+    The collector sees only per-row reductions, never logits, labels, activations, or
+    fit parameters.  A separately computed native baseline is frozen at construction;
+    every candidate batch must reproduce its exact copy-mask counts.  Finalization is
+    possible only after all 192 rows have been consumed in canonical order.
+    """
+
+    __slots__ = (
+        "__baseline_copy_count", "__baseline_copy_sum", "__common_support_sha256",
+        "__next_batch", "__program_sha256", "__route", "__sealed", "__spent",
+        "__vectors",
+    )
+
+    _FLOAT_FIELDS = ("primary_sum", "ce_sum", "copy_ce_sum")
+    _COUNT_FIELDS = ("primary_count", "ce_count", "copy_count")
+
+    def __init__(
+        self, *, route: str, program_sha256: str, common_support_sha256: str,
+        baseline_row_copy_ce_sum: torch.Tensor,
+        baseline_row_copy_count: torch.Tensor,
+    ) -> None:
+        object.__setattr__(self, "_ValidationStatisticsCollector__sealed", False)
+        if route not in SELECTABLE_ROUTES or not _sha256(program_sha256) or not _sha256(
+            common_support_sha256
+        ) or VALIDATION_ROWS <= 0 or VALIDATION_ROWS % runtime.BATCH_SIZE:
+            raise ValueError("validation collector identity or batch partition changed")
+        baseline_sum = _row_vector(
+            "baseline_row_copy_ce_sum", baseline_row_copy_ce_sum, dtype=torch.float64,
+        )
+        baseline_count = _row_vector(
+            "baseline_row_copy_count", baseline_row_copy_count, dtype=torch.long,
+        )
+        if bool((baseline_sum < 0).any()) or bool((baseline_count < 0).any()) or int(
+            baseline_count.sum()
+        ) <= 0:
+            raise ValueError("validation copy baseline is negative or empty")
+        self.__route = route
+        self.__program_sha256 = program_sha256
+        self.__common_support_sha256 = common_support_sha256
+        self.__baseline_copy_sum = baseline_sum
+        self.__baseline_copy_count = baseline_count
+        self.__vectors = {
+            name: [] for name in (*self._FLOAT_FIELDS, *self._COUNT_FIELDS)
+        }
+        self.__next_batch = 0
+        self.__spent = False
+        object.__setattr__(self, "_ValidationStatisticsCollector__sealed", True)
+
+    def __setattr__(self, name: str, value: Any) -> None:
+        if getattr(self, "_ValidationStatisticsCollector__sealed", False):
+            raise AttributeError("validation collector is sealed")
+        object.__setattr__(self, name, value)
+
+    def __copy__(self):
+        raise RuntimeError("validation collectors cannot be copied")
+
+    def __deepcopy__(self, memo):
+        raise RuntimeError("validation collectors cannot be copied")
+
+    def __reduce__(self):
+        raise RuntimeError("validation collectors cannot be serialized")
+
+    @property
+    def completed_rows(self) -> int:
+        return self.__next_batch * runtime.BATCH_SIZE
+
+    def add_batch(
+        self, *, batch_ordinal: int, ordered_row_indices: Sequence[int],
+        row_primary_sum: torch.Tensor, row_primary_count: torch.Tensor,
+        row_ce_sum: torch.Tensor, row_ce_count: torch.Tensor,
+        row_copy_ce_sum: torch.Tensor, row_copy_count: torch.Tensor,
+        student_original_calls: tuple[tuple[int, int], ...],
+        hook_restored: bool, hook_inert: bool,
+    ) -> None:
+        if self.__spent:
+            raise RuntimeError("validation collector was already finalized")
+        if type(batch_ordinal) is not int or batch_ordinal != self.__next_batch:
+            raise RuntimeError("validation batch is duplicated, missing, or out of order")
+        start = batch_ordinal * runtime.BATCH_SIZE
+        expected_indices = tuple(range(start, start + runtime.BATCH_SIZE))
+        if tuple(ordered_row_indices) != expected_indices or expected_indices[-1] >= (
+            VALIDATION_ROWS
+        ):
+            raise RuntimeError("validation batch row identity changed")
+        if student_original_calls != ZERO_NATIVE_CALLS or hook_restored is not True or (
+            hook_inert is not True
+        ):
+            raise RuntimeError("validation batch lacks a clean poisoned-student closure")
+        supplied = {
+            "primary_sum": row_primary_sum, "primary_count": row_primary_count,
+            "ce_sum": row_ce_sum, "ce_count": row_ce_count,
+            "copy_ce_sum": row_copy_ce_sum, "copy_count": row_copy_count,
+        }
+        batch = {
+            name: _validation_batch_vector(
+                name, supplied[name],
+                dtype=torch.float64 if name in self._FLOAT_FIELDS else torch.long,
+            )
+            for name in supplied
+        }
+        expected_primary = torch.full(
+            (runtime.BATCH_SIZE,), runtime.SCORE_STOP - runtime.SCORE_START,
+            dtype=torch.long,
+        )
+        if not torch.equal(batch["primary_count"], expected_primary) or not torch.equal(
+            batch["ce_count"], expected_primary
+        ) or not torch.equal(
+            batch["copy_count"], self.__baseline_copy_count[start:start + runtime.BATCH_SIZE]
+        ):
+            raise RuntimeError("validation batch primary/CE/copy support changed")
+        for name, value in batch.items():
+            self.__vectors[name].append(value)
+        object.__setattr__(
+            self, "_ValidationStatisticsCollector__next_batch", self.__next_batch + 1,
+        )
+
+    def finalize(self) -> ValidationSufficientStatistics:
+        if self.__spent:
+            raise RuntimeError("validation collector was already finalized")
+        expected_batches = VALIDATION_ROWS // runtime.BATCH_SIZE
+        if self.__next_batch != expected_batches or any(
+            len(values) != expected_batches for values in self.__vectors.values()
+        ):
+            raise RuntimeError("validation collector cannot finalize with missing batches")
+        object.__setattr__(self, "_ValidationStatisticsCollector__spent", True)
+        joined = {
+            name: torch.cat(values).contiguous() for name, values in self.__vectors.items()
+        }
+        for values in self.__vectors.values():
+            values.clear()
+        return ValidationSufficientStatistics(
+            route=self.__route, program_sha256=self.__program_sha256,
+            common_support_sha256=self.__common_support_sha256,
+            row_primary_sum=joined["primary_sum"],
+            row_primary_count=joined["primary_count"],
+            row_ce_sum=joined["ce_sum"], row_ce_count=joined["ce_count"],
+            row_copy_ce_sum=joined["copy_ce_sum"],
+            row_copy_count=joined["copy_count"],
+            baseline_row_copy_ce_sum=self.__baseline_copy_sum,
+            baseline_row_copy_count=self.__baseline_copy_count,
+            student_original_calls=ZERO_NATIVE_CALLS,
+            hook_restored=True, hook_inert=True,
+        )
+
+
 @dataclass(frozen=True)
 class ScoredCandidate:
     fit_candidate: fit.FitCandidate
