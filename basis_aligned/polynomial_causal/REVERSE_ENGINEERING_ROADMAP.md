@@ -581,3 +581,53 @@ prefix-32 identity across all candidate roles and the prior union; and emits onl
 hashes for rejected candidates. The focused contract suite passes 54/54 on synthetic fixtures.
 The actual canonical census and candidate harvest remain embargoed until these source bytes are
 committed, pushed, and independently re-audited.
+
+## Strategic checkpoint — 2026-08-28 01:38 UTC
+
+The global accounting currencies remain deliberately unchanged. Top-level inventory is
+`36/36`, named-variable behavior is `32.1% +/- 6.4%`, named causal recovery is `10.92%`, and
+certified executable recovery against the current ship's `+0.8976` CE residual is zero. The
+best separate 36-site constant-replacement ceiling is `55.038%`, replicated at
+`53.69% [52.92,54.39]`; its unexplained share is `44.962%` of that stake and must not be mixed
+with the current-ship denominator.
+
+The new front-MLP site decomposition sharpens the missing interface. Recompiled singleton
+restorations recover `mlp2 +1.981`, `mlp3 +1.623`, `mlp1 +1.004`, and `mlp0 +0.361` ceiling
+points. The `+4.969` singleton sum is below the jointly restored front-band gain of `+7.528`,
+leaving a `+2.559`-point composition excess. MLP0 is therefore not the largest whole-program
+local defect even though it is the source of the transported-code hypothesis; MLP2/3 are larger
+conditional consumers. This favors jointly typed early-stack interfaces and intervention
+transport over four independent semantic decompositions. It does not yet identify the latent
+code or earn explanation credit. The running late-band control tests whether the
+super-additivity is a generic error cascade and whether it shrinks with a two-site band.
+
+After pruning by expected information gain, causal relevance, whole-model composability,
+falsifiability, GPU cost, and redundancy, the current top five are:
+
+1. Implement the single shared differentiable runtime/trainer, model loader, collectors, program
+   freezer, and semantic final validator for the frozen suffix-transport protocol; enumerate the
+   complete transitive model-forward closure and obtain execution audit GO before harvesting.
+2. Freeze the canonical disjoint FineWeb roles, then run the registered matched local-loss versus
+   suffix-KL and physical `B0 A B1^T` discriminator. This tests whether the rank-64 code is merely
+   locally reconstructive or is the code MLP1 causally reads.
+3. Put the first admitted early program into a same-row current-ship
+   `attention x early-MLP x deep` cube with exact Mobius interactions. This is the shortest path
+   from a local program to recovery of the actual `+0.8976` residual.
+4. Compile attention with separate grammars for low-rank/content-dependent routing and richer
+   values, concentrating on the middle attention band where total conditional headroom is
+   largest. A uniform low-rank grammar is already falsified by the routing/value contrast.
+5. Condition MLP2/3 programs on the transported early state and require second-corpus, code-OOD,
+   held-out intervention, and selective-edit tests. Their large front-band singleton effects and
+   the 34% joint excess make them the next consumers to explain after the interface assay.
+
+Executed this tick: the complete CPU row harvester/publication transaction was hardened through
+adversarial review. It now internally re-harvests every candidate from the canonical source,
+replays collision adjudication, deserializes and exact-compares staged tensors, revalidates the
+protected registry and artifact bindings, and reconstructs the receipt before any later role
+load. A reviewer found a final lock-loss race across the heavyweight replay; publication now
+rechecks ownership immediately before the last-written receipt, and a lock-swap regression proves
+the receipt remains absent on loss. The focused suite passes `77/77`, and both reviewers give
+exact-byte commit GO. No real candidate rows or model forwards were loaded. Because lifecycle and
+mathematical review disagree on whether CPU-only freezing may precede complete numerical source
+closure, the stricter lifecycle embargo governs: execution waits until every numerical and
+transitive model-forward source exists inside the frozen closure and receives re-audit.

@@ -94,6 +94,16 @@ CANONICAL_ROW_TENSORS = {
 }
 
 PROTECTED_NONROW_FILES = {
+    BQ / "early_mlp_state_complete_compiler_v21_final_authority.json":
+        "659051ed8e2d34a2d755d1942f4112161294831e724d6697f4c3e2ef466f6987",
+    BQ / "early_mlp_state_complete_compiler_v21_final_result.pt":
+        "c73f2a7f6099de9e28550b02d7d02904fe37477c65cb8c5c9c6f4beed9bfb5cd",
+    BQ / "early_mlp_state_complete_compiler_v21_programs_receipt.json":
+        "c9c67bdd14a34dd83192a02d49705d0ed7043e2f9751d042250f44395f88ec2c",
+    BQ / "early_mlp_state_complete_compiler_v21_programs.pt":
+        "36a8e5203ec72d8c8f30909dba9241d1bf2a4a2d3fd980d8c558e28c3c0b614e",
+    BQ / "joint_early_mlp_pca_composition_authoritative_v3_bases.pt":
+        "0eee01f39087548a479486d068404f78c4bdc2fd930932add162212da31fe4d9",
     Path("/workspace/runs/bilin18_frozen_ship_v2_manifest.json"):
         "21c89c4d1bd03e1c4be34023781c027b13d2c98202b855938488e33c99e9ba04",
     Path("/workspace/runs/bilin18_frozen_ship_v2.pt"):
@@ -299,9 +309,9 @@ def _validate_record(record: Mapping[str, Any], row_index: int) -> tuple[str, in
     required = {
         "document_id", "dataset_document_index", "chunk_id", "token_start",
     }
-    if set(record) < required:
+    if set(record) != required:
         raise RuntimeError(
-            f"row {row_index} provenance lacks {sorted(required - set(record))}"
+            f"row {row_index} provenance schema changed: {sorted(record)}"
         )
     document = record["document_id"]
     dataset_index = record["dataset_document_index"]
@@ -331,6 +341,11 @@ def role_identities(
     if role not in ROLES:
         raise ValueError(f"unknown role {role!r}")
     expected = _required_rows(triple)[role]
+    minimum_index = {
+        "fit": triple.fit_skip,
+        "validation": triple.validation_skip,
+        "final": triple.final_skip,
+    }[role]
     if not isinstance(rows, torch.Tensor) or rows.dtype != torch.long \
             or rows.ndim != 2 or tuple(rows.shape) != (expected, TOKEN_LENGTH):
         raise RuntimeError(
@@ -349,8 +364,16 @@ def role_identities(
     provenance_units: set[tuple[str, int, int]] = set()
     ordered_provenance: list[list[Any]] = []
     ordered_bindings: list[list[Any]] = []
+    previous_position: tuple[int, int] | None = None
     for offset, (row, record) in enumerate(zip(rows, records, strict=True)):
         document, dataset_index = _validate_record(record, offset)
+        chunk_id = int(record["chunk_id"])
+        if dataset_index < minimum_index:
+            raise RuntimeError(f"{role} provenance precedes its registered skip")
+        position = (dataset_index, chunk_id)
+        if previous_position is not None and position <= previous_position:
+            raise RuntimeError(f"{role} provenance is not in canonical source order")
+        previous_position = position
         if document in document_to_index and document_to_index[document] != dataset_index:
             raise RuntimeError(f"{role} maps one document_id to multiple dataset indices")
         if dataset_index in index_to_document and index_to_document[dataset_index] != document:
@@ -364,10 +387,12 @@ def role_identities(
         documents.add(document)
         indices.add(dataset_index)
         values = tuple(int(token) for token in row.tolist())
+        if min(values) < 0 or max(values) >= 50_257:
+            raise RuntimeError(f"{role} contains an out-of-vocabulary token")
         row_values.append(values)
         prefixes.append(values[:32])
         provenance = [
-            document, dataset_index, int(record["chunk_id"]), int(record["token_start"]),
+            document, dataset_index, chunk_id, int(record["token_start"]),
         ]
         ordered_provenance.append(provenance)
         ordered_bindings.append([*provenance, _row_sha256(row)])

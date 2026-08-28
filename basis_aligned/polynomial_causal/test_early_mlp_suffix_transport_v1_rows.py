@@ -15,19 +15,26 @@ def candidate(index=0):
         "validation": triple.validation_n,
         "final": triple.final_n,
     }
-    starts = {"fit": 0, "validation": 1000, "final": 2000}
+    token_starts = {"fit": 0, "validation": 1000, "final": 2000}
+    index_starts = {
+        "fit": triple.fit_skip,
+        "validation": triple.validation_skip,
+        "final": triple.final_skip,
+    }
     tensors = {}
     records = {}
     for role in rows.ROLES:
         n = counts[role]
-        start = starts[role]
-        base = torch.arange(start, start + n, dtype=torch.long)[:, None]
-        position = torch.arange(rows.TOKEN_LENGTH, dtype=torch.long)[None, :]
-        tensors[role] = base * 1000 + position
+        token_start = token_starts[role]
+        index_start = index_starts[role]
+        tensors[role] = torch.arange(
+            rows.TOKEN_LENGTH, dtype=torch.long,
+        )[None, :].repeat(n, 1)
+        tensors[role][:, 0] = torch.arange(token_start, token_start + n, dtype=torch.long)
         records[role] = [
             {
-                "document_id": f"doc-{start + offset}",
-                "dataset_document_index": start + offset,
+                "document_id": f"doc-{index_start + offset}",
+                "dataset_document_index": index_start + offset,
                 "chunk_id": 0,
                 "token_start": 0,
             }
@@ -55,7 +62,7 @@ def test_clean_candidate_is_accepted_and_reports_hashes_only():
 def test_prior_and_cross_role_collisions_are_rejected():
     tensors, records = candidate()
     tensors["final"][0] = tensors["fit"][0]
-    records["validation"][0] = dict(records["fit"][0])
+    records["validation"][0]["document_id"] = records["fit"][0]["document_id"]
     prior = rows.IdentitySets(
         documents=frozenset({records["fit"][1]["document_id"]}),
         dataset_indices=frozenset(),
@@ -101,6 +108,16 @@ def test_bad_provenance_fails_closed(field, value):
             candidate_index=0,
             rows_by_role=tensors,
             records_by_role=records,
+            prior=rows.IdentitySets.empty(),
+        )
+
+
+def test_extra_provenance_fields_fail_closed():
+    tensors, records = candidate()
+    records["fit"][0]["raw_text"] = "leak"
+    with pytest.raises(RuntimeError, match="schema changed"):
+        rows.adjudicate_candidate(
+            candidate_index=0, rows_by_role=tensors, records_by_role=records,
             prior=rows.IdentitySets.empty(),
         )
 
@@ -175,7 +192,9 @@ def test_ordered_provenance_to_row_mapping_is_bound():
         prior=rows.IdentitySets.empty(),
     )
     permuted = copy.deepcopy(records)
-    permuted["fit"][0], permuted["fit"][1] = permuted["fit"][1], permuted["fit"][0]
+    first = permuted["fit"][0]["document_id"]
+    permuted["fit"][0]["document_id"] = permuted["fit"][1]["document_id"]
+    permuted["fit"][1]["document_id"] = first
     changed = rows.adjudicate_candidate(
         candidate_index=0, rows_by_role=tensors, records_by_role=permuted,
         prior=rows.IdentitySets.empty(),
@@ -186,6 +205,30 @@ def test_ordered_provenance_to_row_mapping_is_bound():
         changed["role_identity_hashes"]["fit"]["ordered_provenance"]
     assert original["role_identity_hashes"]["fit"]["ordered_row_provenance_binding"] != \
         changed["role_identity_hashes"]["fit"]["ordered_row_provenance_binding"]
+
+
+def test_registered_skip_order_and_vocabulary_are_enforced():
+    tensors, records = candidate()
+    records["fit"][0]["dataset_document_index"] = 42_999
+    with pytest.raises(RuntimeError, match="registered skip"):
+        rows.adjudicate_candidate(
+            candidate_index=0, rows_by_role=tensors, records_by_role=records,
+            prior=rows.IdentitySets.empty(),
+        )
+    tensors, records = candidate()
+    records["fit"][1], records["fit"][2] = records["fit"][2], records["fit"][1]
+    with pytest.raises(RuntimeError, match="canonical source order"):
+        rows.adjudicate_candidate(
+            candidate_index=0, rows_by_role=tensors, records_by_role=records,
+            prior=rows.IdentitySets.empty(),
+        )
+    tensors, records = candidate()
+    tensors["fit"][0, 0] = 50_257
+    with pytest.raises(RuntimeError, match="out-of-vocabulary"):
+        rows.adjudicate_candidate(
+            candidate_index=0, rows_by_role=tensors, records_by_role=records,
+            prior=rows.IdentitySets.empty(),
+        )
 
 
 @pytest.mark.parametrize("mutation,message", [

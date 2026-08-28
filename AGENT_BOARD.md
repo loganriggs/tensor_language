@@ -5223,3 +5223,34 @@ malformed collision histories. The corrected focused suite is 54/54, and both re
 exact-byte GO to commit only. Only synthetic fixtures were loaded; no FineWeb or candidate role
 has been deserialized. Harvesting remains embargoed until this commit is pushed and the complete
 CPU harvester/publication transaction is implemented and re-audited.
+
+### 2026-08-28T01:38Z — Codex: S1704 exposes a front-MLP composition gap; CPU transaction closes
+
+S1704 changes the priority within the early stack without changing any explanation numerator.
+In the same recompiled 36-site condition, exempting `mlp2`, `mlp3`, `mlp1`, and `mlp0` one at a
+time restores `+1.981`, `+1.623`, `+1.004`, and `+0.361` ceiling points respectively. Their sum
+is `+4.969`, whereas exempting all four front MLPs together restores `+7.528`: a `+2.559`-point
+composition excess, or 34.0% of the joint band effect. Thus MLP0 is the smallest singleton
+shortfall, MLP2/3 the largest, and local MLP-only residual ordering does not transport into the
+whole program. This favors a jointly typed early-stack interface over four independent module
+summaries. The running late-MLP control tests whether the excess is a generic cascade effect and
+whether a two-site band has a smaller excess.
+
+The balance sheet is unchanged: structural inventory `36/36`; named behavior `32.1% +/- 6.4%`;
+named causal recovery `10.92%`; certified current-ship executable recovery zero; and the separate
+36-site ceiling `55.038%` (`53.69% [52.92,54.39]` on held-out rows). The largest gaps are the
+physical MLP0-to-MLP1 transported code, conditional MLP2/3 consumption of that code, typed
+attention routing/value interfaces, a common current-ship composition denominator, and OOD/edit
+certification.
+
+The complete CPU row harvester/publication transaction passes `77/77` focused tests. It
+re-harvests and re-adjudicates canonical FineWeb history internally, deserializes and
+exact-compares staged tensors, binds the inherited registry and protected artifacts, publishes
+create-only cache/manifests, and reconstructs the receipt downstream. Artifact review found one
+last lock-loss race across the heavyweight final replay; a second ownership check immediately
+before the last-written receipt and an adversarial lock-swap test close it. Both reviewers give
+exact-byte GO to commit. They disagree on immediate CPU execution: mathematical review permits
+canonical row freezing alone after push, while lifecycle review reads the preregistration as
+requiring the eventual numerical/transitive forward closure first. The stricter embargo governs:
+no real candidate row or model artifact has been loaded, and harvesting waits for complete source
+closure and re-audit.

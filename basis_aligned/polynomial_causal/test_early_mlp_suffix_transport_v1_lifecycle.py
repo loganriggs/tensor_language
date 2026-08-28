@@ -172,6 +172,7 @@ def test_role_loader_enforces_operation_phase_and_requested_role(
 ) -> None:
     paths = lifecycle.ArtifactPaths(tmp_path)
     _, entries, _ = _write_row_receipt(paths)
+    monkeypatch.setattr(lifecycle, "_validate_rows_receipt", lambda receipt, paths: None)
     lock = tmp_path / "run.lock"
 
     original_load = torch.load
@@ -274,6 +275,7 @@ def test_final_requires_canonical_unlock_attempt_and_owned_lock(
 ) -> None:
     paths = lifecycle.ArtifactPaths(tmp_path)
     _, entries, _ = _write_row_receipt(paths)
+    monkeypatch.setattr(lifecycle, "_validate_rows_receipt", lambda receipt, paths: None)
     source_closure = {"source_commit": "c" * 40, "source_hashes": {"x": "y"}}
     monkeypatch.setattr(lifecycle, "verify_source_closure", lambda *_: None)
     protected = {"pin": "same"}

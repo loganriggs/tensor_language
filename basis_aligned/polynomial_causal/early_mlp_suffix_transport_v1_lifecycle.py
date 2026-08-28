@@ -44,6 +44,8 @@ SOURCE_CLOSURE = (
     HERE / "test_early_mlp_suffix_transport_v1_statistics.py",
     HERE / "early_mlp_suffix_transport_v1_rows.py",
     HERE / "test_early_mlp_suffix_transport_v1_rows.py",
+    HERE / "early_mlp_suffix_transport_v1_row_freezer.py",
+    HERE / "test_early_mlp_suffix_transport_v1_row_freezer.py",
 )
 
 ROLE_NAMES = (
@@ -243,6 +245,11 @@ def atomic_create_bytes(data: bytes, path: Path) -> None:
             handle.flush()
             os.fsync(handle.fileno())
         os.link(temporary, path)
+        directory = os.open(path.parent, os.O_RDONLY | getattr(os, "O_DIRECTORY", 0))
+        try:
+            os.fsync(directory)
+        finally:
+            os.close(directory)
     except FileExistsError as error:
         raise RuntimeError(f"refusing to overwrite create-only artifact: {path}") from error
     finally:
@@ -263,6 +270,11 @@ def atomic_create_torch(value: Any, path: Path) -> None:
             handle.flush()
             os.fsync(handle.fileno())
         os.link(temporary, path)
+        directory = os.open(path.parent, os.O_RDONLY | getattr(os, "O_DIRECTORY", 0))
+        try:
+            os.fsync(directory)
+        finally:
+            os.close(directory)
     except FileExistsError as error:
         raise RuntimeError(f"refusing to overwrite create-only artifact: {path}") from error
     finally:
@@ -426,15 +438,151 @@ def collision_report(
     return {"collision_free": not collisions, "collisions": collisions}
 
 
-def _validate_rows_receipt(receipt: Mapping[str, Any]) -> None:
-    if receipt.get("role_licenses") != ROLE_LICENSES or set(
-        receipt.get("entries", {})
-    ) != set(ROLE_NAMES):
-        raise RuntimeError("row receipt roles or licenses changed")
-    if receipt.get("authorized_for_scored_experiments") is not False or (
-        receipt.get("authorized_for_training") is not False
-    ):
-        raise RuntimeError("row receipt grants authority prematurely")
+def _validate_rows_receipt(
+    receipt: Mapping[str, Any], paths: ArtifactPaths = PATHS,
+) -> None:
+    """Reconstruct and validate the complete CPU row transaction before a role load."""
+    import early_mlp_suffix_transport_v1_row_freezer as freezer
+    import early_mlp_suffix_transport_v1_rows as row_contract
+
+    exact_keys = {
+        "schema_version", "status", "authority", "authorized_for_scored_experiments",
+        "authorized_for_training", "chosen_candidate_index", "chosen_decision",
+        "collision_history_sha256", "collision_manifest", "entries",
+        "role_record_counts", "role_record_hashes", "role_licenses",
+        "registry_census", "source_closure", "source_identity", "receipt_kind",
+        "rows_manifest", "document_provenance",
+    }
+    if not isinstance(receipt, Mapping) or set(receipt) != exact_keys:
+        raise RuntimeError("row receipt schema changed")
+    fixed = {
+        "schema_version": 1,
+        "status": "row_roles_frozen_before_any_model_forward",
+        "authority": "none",
+        "authorized_for_scored_experiments": False,
+        "authorized_for_training": False,
+        "receipt_kind": "early_mlp_suffix_transport_v1_rows",
+        "role_licenses": ROLE_LICENSES,
+    }
+    if any(receipt.get(key) != value for key, value in fixed.items()):
+        raise RuntimeError("row receipt fixed fields changed")
+    source_closure = receipt["source_closure"]
+    if not isinstance(source_closure, Mapping) or set(source_closure) != {
+        "source_commit", "source_hashes",
+    }:
+        raise RuntimeError("row receipt source closure schema changed")
+    verify_source_closure(
+        source_closure["source_commit"], source_closure["source_hashes"],
+    )
+
+    # Revalidate current canonical data/protected identities without requiring that
+    # unrelated later commits leave HEAD equal to the row-publication commit.
+    gate, source = freezer.validate_ordered_source()
+    _, census = row_contract.load_canonical_prior()
+    import tiktoken
+    source_identity = freezer._source_identity(
+        gate, source, tiktoken.get_encoding("gpt2"),
+    )
+    if receipt["registry_census"] != census or receipt["source_identity"] != source_identity:
+        raise RuntimeError("row receipt canonical registry/source identity changed")
+
+    candidate_index = receipt["chosen_candidate_index"]
+    if isinstance(candidate_index, bool) or not isinstance(candidate_index, int) \
+            or candidate_index < 0:
+        raise RuntimeError("row receipt candidate index is malformed")
+    chosen = receipt["chosen_decision"]
+    row_contract.validate_collision_report(chosen, candidate_index)
+    if chosen["accepted"] is not True:
+        raise RuntimeError("row receipt chosen decision is not accepted")
+
+    collision_binding = receipt["collision_manifest"]
+    if candidate_index == 0:
+        expected_absent = {
+            "path": str(paths.collision_manifest.resolve()), "absent": True,
+        }
+        if collision_binding != expected_absent or paths.collision_manifest.exists():
+            raise RuntimeError("unexpected collision manifest for candidate zero")
+        history = [chosen]
+    else:
+        if collision_binding != artifact_binding(paths.collision_manifest):
+            raise RuntimeError("collision manifest binding changed")
+        collision = json.loads(paths.collision_manifest.read_text())
+        if not isinstance(collision, Mapping) or set(collision) != {
+            "schema_version", "status", "authority", "reports", "reports_sha256",
+        } or collision.get("schema_version") != 1 or collision.get(
+            "status"
+        ) != "rejected_candidates_hash_only" or collision.get("authority") != "none":
+            raise RuntimeError("collision manifest schema changed")
+        reports = collision["reports"]
+        if not isinstance(reports, list) or len(reports) != candidate_index \
+                or collision["reports_sha256"] != logical_json_sha256(reports):
+            raise RuntimeError("collision manifest reports changed")
+        history = [*reports, chosen]
+    row_contract.validate_collision_history(history, candidate_index)
+    if receipt["collision_history_sha256"] != row_contract.collision_history_hash(history):
+        raise RuntimeError("collision history binding changed")
+
+    entries = receipt["entries"]
+    if not isinstance(entries, Mapping) or set(entries) != set(ROLE_NAMES):
+        raise RuntimeError("row receipt entries changed")
+    provenance = receipt["document_provenance"]
+    if not isinstance(provenance, Mapping) or set(provenance) != {
+        "schema_version", "sets",
+    } or provenance["schema_version"] != 1 or not isinstance(
+        provenance["sets"], Mapping
+    ) or set(provenance["sets"]) != set(ROLE_NAMES):
+        raise RuntimeError("row receipt provenance schema changed")
+    if not isinstance(receipt["role_record_counts"], Mapping) or set(
+        receipt["role_record_counts"]
+    ) != set(ROLE_NAMES) or not isinstance(receipt["role_record_hashes"], Mapping) \
+            or set(receipt["role_record_hashes"]) != set(ROLE_NAMES):
+        raise RuntimeError("row receipt provenance census schema changed")
+    short_roles = dict(zip(ROLE_NAMES, row_contract.ROLES, strict=True))
+    for role in ROLE_NAMES:
+        entry = entries[role]
+        if not isinstance(entry, Mapping) or set(entry) != {
+            "cache_path", "cache_file_sha256", "shape_full",
+            "tensor_full_raw_sha256", "tensor_bytes_raw_sha256",
+        }:
+            raise RuntimeError(f"row entry schema changed: {role}")
+        short = short_roles[role]
+        expected_name = freezer.expected_filename(short, candidate_index)
+        cache_path = Path(entry["cache_path"])
+        expected_shape = chosen["candidate"][short]["n"]
+        records = provenance["sets"][role]
+        if cache_path != paths.cache / expected_name or not isinstance(records, list) \
+                or any(not isinstance(record, Mapping) or set(record) != {
+                    "document_id", "dataset_document_index", "chunk_id", "token_start",
+                } for record in records) or entry["shape_full"] != [
+                    expected_shape, row_contract.TOKEN_LENGTH,
+                ] or receipt["role_record_counts"][role] != len(records) \
+                or len(records) != expected_shape or receipt["role_record_hashes"][
+                    role
+                ] != logical_json_sha256(records):
+            raise RuntimeError(f"row entry/provenance binding changed: {role}")
+        hashes = chosen["role_identity_hashes"][short]
+        ordered_provenance = [
+            [
+                record["document_id"], record["dataset_document_index"],
+                record["chunk_id"], record["token_start"],
+            ]
+            for record in records
+        ]
+        if hashes["ordered_tensor_raw"] != entry["tensor_bytes_raw_sha256"] \
+                or hashes["ordered_provenance"] != logical_json_sha256(
+                    ordered_provenance
+                ):
+            raise RuntimeError(f"row decision binding changed: {role}")
+
+    if receipt["rows_manifest"] != artifact_binding(paths.rows_manifest):
+        raise RuntimeError("rows manifest binding changed")
+    manifest = json.loads(paths.rows_manifest.read_text())
+    expected_manifest = dict(receipt)
+    for key in ("receipt_kind", "rows_manifest", "document_provenance"):
+        expected_manifest.pop(key)
+    expected_manifest["status"] = "rows_frozen_before_any_model_forward"
+    if manifest != expected_manifest:
+        raise RuntimeError("rows manifest content changed")
 
 
 def _expected_final_cache(receipt: Mapping[str, Any]) -> dict[str, Any]:
@@ -508,7 +656,7 @@ def load_roles(
     global _FINAL_ROLE_LOADS
     require_run_claim(lock_nonce, lock_path)
     receipt = json.loads(paths.rows_receipt.read_text())
-    _validate_rows_receipt(receipt)
+    _validate_rows_receipt(receipt, paths)
     if not requested or len(set(requested)) != len(requested) or any(
         role not in ROLE_NAMES for role in requested
     ):
@@ -565,7 +713,7 @@ def write_final_attempt(
         source_closure["source_commit"], source_closure["source_hashes"],
     )
     rows_receipt = json.loads(paths.rows_receipt.read_text())
-    _validate_rows_receipt(rows_receipt)
+    _validate_rows_receipt(rows_receipt, paths)
     unlock = load_programs_unlock(paths)
     if source_closure != {
         "source_commit": unlock["source_commit"],
