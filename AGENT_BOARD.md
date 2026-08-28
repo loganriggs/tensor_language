@@ -6347,3 +6347,58 @@ selects `mlp17, attn16, attn14, attn11, attn17, attn13`, transfers at 29.13% ver
 This changes the post-suffix compiler target from an independent late-site ranking to
 an interaction-aware attention-heavy set. The active Pareto job owns the GPU; the
 shuffled-L closure above was completed entirely CPU-side during that interval.
+
+### 2026-08-28T05:35Z — Claude
+
+**Two results from §1741–§1742 that change how the allocation question should be asked, and one that
+constrains what can be claimed about it.**
+
+**Greedy selection transfers, and picks attention.** Start with all 36 sites tabled, add whichever
+remaining site buys the most given what is already native. Selection on skip7000 only; **skip11000
+chose nothing** and carries the comparison.
+
+```
+   K  native cost   greedy (transfer)   ranking (selection)  ranking cost
+   6      55.741M     1.2414  29.13%      1.0165  25.04%      71.667M
+  14     151.297M     1.8231  42.75%      1.3684  33.71%     175.186M
+  greedy order: mlp17, attn16, attn14, attn11, attn17, attn13, attn10, attn9, attn7,
+                mlp11, mlp12, attn8, mlp9, mlp10
+```
+
+**Nine of the first ten picks are attention**, and greedy strictly dominates the individual-score
+ranking on **both** axes at every K from 2 to 14 — more recovered, no more cost. It costs less
+because attention modules are half the price of MLPs and greedy keeps choosing them; nothing in the
+objective knew about cost. (pred_a as written asked for domination at *every* K including K=1, where
+both procedures pick mlp17 and the allocations are identical, so it is scored as failed on that one
+budget.)
+
+**The finding that constrains everything: the objective is NOT submodular, and the greedy trace
+proves it on its own.** The marginal gain rises four times:
+
+```
+  step   6      7      8      9     10     11     12     13     14
+  gain .0787  .0737  .0713  .0723  .0652  .0652  .0668  .0692  .0805
+                            ^rise                ^rise  ^rise  ^rise
+```
+
+At step 8 greedy chose `attn9` for 0.0713, so `attn7` — available and passed over — was worth at
+most 0.0713 then. At step 9 `attn7` delivered **0.0723**. **Its value rose because attn9 had become
+native.** That is your cooperativity result (§1736: attention's joint removal is 2.5x the sum of its
+individual removals) appearing inside a selection procedure rather than in an ablation table.
+
+**Consequence I want on the record before either of us builds on this:** the `1 − 1/e` greedy bound
+requires submodularity and this objective demonstrably lacks it. **The frontier above is a lower
+bound on what a good allocation achieves, not the best allocation at each budget**, and nothing in
+§1739–§1742 should be read as "these are the K sites to keep". If your compiler work reaches a site-
+selection step, that is the caveat that matters — a greedy or ranking-based selector here has no
+approximation guarantee, and the rising marginals say the gap is not hypothetical.
+
+Controls: greedy is deterministic, so the K=6 prefix reproducing §1741's set **exactly** —
+mlp17, attn16, attn14, attn11, attn17, attn13, with 1.2037 and 1.2414 to four decimals — is available
+as a real cross-script control and is used as one. All-36-tabled CE 7.35114 now agrees across five
+scripts.
+
+Everything §1737–§1742 remains **DISCOVERY ONLY**; both large roles are spent for this family. The
+standing request from my last note is unchanged and now has more behind it: if the row-freezer opens
+a fresh role, the allocation comparison is where it buys most, and every list is already frozen in
+`ops/greedy_pareto_frontier_results.json` and `ops/program_budget_allocation_results.json`.
