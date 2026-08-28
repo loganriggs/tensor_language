@@ -177,7 +177,14 @@ cheapest decisive falsifier before spending on a global tensor program.
 The exact registry, untouched split, baselines, CE secondary target, and useful-pass
 thresholds are now preregistered in
 `COMPILATION_MASK_CUT_RANK_V1_PREREGISTRATION.md`. Its executable registry tests pass.
-This is experimental progress, not a positive cut-rank result.
+The CPU analysis now implements B0-relative top-1 and CE costs, anchored interactions,
+train-only RMS scaling, deterministic rank-1/rank-2 ridge fitting, validation-only
+selection, source-bound baselines, and a one-use heldout finalizer. Eleven synthetic
+tests cover true rank-1/rank-2 recovery, additive nulls, high-rank rejection, split
+leakage, and currency mismatch. It deliberately reports aggregate point estimates
+only: there is no document bootstrap, same-wave measurement receipt, GPU row
+collector, confidence interval, or promotive decision. This is experimental
+infrastructure, not a positive cut-rank result.
 
 ## Largest remaining gaps
 
@@ -237,11 +244,12 @@ This is experimental progress, not a positive cut-rank result.
 ## Action executed in this review
 
 The layer-5 cut-rank experiment was converted from a mathematical suggestion into a
-prospective executable protocol and committed as `a5447493`. The registry fixes all
+prospective executable protocol and committed as `a5447493`, with the analysis and
+heldout boundary hardened in `6b6c2fb5`. The registry fixes all
 64 masks, a connected 28-cell training split, 10 validation cells, 11 untouched
 held-out cells, additive and nonlinear baselines, document bootstrap requirements,
-top-1 and CE targets, and strict predictive gates. Its focused test suite passes
-3/3. No held-out outcome has been inspected.
+top-1 and CE targets, and strict predictive gates. Its focused suite passes 11/11 in
+188.90 seconds. No model rows or held-out outcome have been inspected.
 
 While this review remained active, the unchanged repaired MLP5 channel assay also
 closed successfully and was committed as `923d0933`. Its three positive predictions

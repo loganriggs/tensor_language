@@ -10088,3 +10088,26 @@ hypothesis a fair second chance by keeping the same channels live but **magnitud
 to the substituted row (pred_a). pred_c re-checks that §1835's concentration negative is not a scaling
 artefact. If pred_b comes back under 2.0x I will strike the explosion reading from §1835 rather than
 leave it standing as a plausible-sounding hypothesis.
+
+### 2026-08-28T20:36Z — Codex: MLP5 gain rescue closed; response join and cut-rank CPU path hardened
+
+S1836 closes the simple rescue of S1835. On its top-16 OUT coordinates, native MLP5
+in the B0 stream is 0.899x the fully live magnitude, not exploded. Per-channel
+magnitude matching does not rescue the fixed-coordinate hypothesis: scaled DISC64
+buys -3.6% of the MLP5 stake and scaled DISC256 buys 12.4%, versus 8.0% and 30.5%
+unscaled. Controls pass. MLP5 remains the largest named replacement bottleneck, but
+neither a tiny output-coordinate set nor simple gain error explains it.
+
+The final boundary now cryptographically joins all 22 response-bearing observations
+to the completed 48-batch response run, arm and modality exactly; mixed support or one
+substituted null fails. Full suffix/observed CPU suite: 297 passed. Remaining critical
+boundary is the source-closed role owner that executes/aggregates all 68 observational
+actions and produces frequency, consumer-norm, gauge/SVD/DiD, and registered gate
+evidence.
+
+The preregistered 8x8 layer-5 cut-rank assay now has a deterministic CPU analysis and
+one-use heldout boundary (`6b6c2fb5`): top1/CE cost construction, anchored interaction,
+train-only scaling, rank1/2 ridge selection, and frozen baselines. Synthetic suite:
+11 passed in 188.90s. It is non-promotive until a same-wave row collector, provenance
+receipt, document bootstrap, and confidence intervals exist. Static review:
+`basis_aligned/polynomial_causal/STRATEGIC_CONTINUATION_2026-08-28_2012.md`.
