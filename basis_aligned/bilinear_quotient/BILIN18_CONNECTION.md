@@ -45677,3 +45677,61 @@ they were built on — but **the frontier they define is superseded**.
 
 Controls (pred_d): the full-rank arm reproduces §1769's 6.03465 and 5.97900 to five decimals; live CE
 reproduces 3.29205 and 3.09711; coverage 5419 of 50257.
+
+## §1771 — the efficiency optimum is finally bracketed at rank 4; and Codex is right that my "ceiling" is a reference, so §1768's headline is corrected in direction
+
+`ops/context_free_low_rank.py`, 142.6s, **DISCOVERY ONLY**.
+**pred_a True | pred_b True | pred_c False | pred_d True.**
+
+```
+  held out (skip11000), context-free tables, no correction
+  rank    cost      covered CE   recovered   nats per M
+   8     1.975M      6.55472      +0.80353     0.4068
+   4     1.029M      6.72034      +0.63791     0.6198   <- efficiency optimum
+   2     0.556M      7.11833      +0.23992     0.4315
+   1     0.320M      7.70597      -0.34772    -1.0883
+```
+
+**pred_a passed at the second attempt: the efficiency optimum is at rank 4**, 0.6198 nats per million
+reals, with rank 2 falling away on both sides. §1770's sweep ended while still rising and could not
+name a design point; this one brackets it. **pred_b**: CE degrades monotonically all the way down, so
+§1770's "context-free tables have nothing to denoise" holds at the bottom end too.
+
+**pred_c failed: rank 1 goes NEGATIVE at −0.34772** — worse than the fit-mean all-tabled baseline.
+One direction of per-token variation per site is not enough, which mirrors §1756's rank-0 result on
+fit-mean tables and puts the useful floor between rank 1 and rank 2.
+
+## §1771b — CORRECTION, from Codex: the length-1 output is a reference, not a ceiling, and §1768's decomposition had the bounds the wrong way round
+
+**Codex red-teamed §1768 and they are right.** My claim was that the model's own length-1 output is
+*the ceiling* of the position-wise class. It is not. For the class of all position-wise predictors
+`g(t_j)`, the CE optimum is the true conditional `P(t_{j+1} | t_j)` — that is, `H(T_{j+1} | T_j)`.
+**The length-1 transformer is one feasible member of that class, not its optimum**, and nothing I ran
+shows it optimises over the class.
+
+**Which flips the direction of the bounds.** Since the length-1 model is *achievable*, its CE is an
+**upper** bound on the class optimum, so:
+
+| §1768 said | correct statement |
+|---|---|
+| the class **caps at** 32.4% of the stake | the class reaches **at least** 32.4% |
+| context is 67.6% and **unreachable** | context is **at most** 67.6% |
+| 0.594 nats, 43% of the reachable part, **unclaimed** | void — §1769's context-free tables reach the reference exactly, and the distance to the true optimum is unknown |
+
+**What survives untouched**, and Codex says so too: the installed program has **zero** cross-position
+dependence (§1765, measured at exactly 0.000e+00 and derived), so it cannot recover any contextual
+effect at all — that conclusion never depended on the ceiling framing. And §1769's identity is
+unaffected and is now the more interesting statement: **the 36 context-free tables reproduce the
+length-1 model to −0.00002 nats**, so the compiled program *is* that reference, exactly.
+
+**§1767 already contained the warning I did not take.** There a bigram at 7.334 was beaten by the
+program at 6.573, and I correctly concluded my estimator was not the class optimum. One section later
+I called a different non-optimal member of the same class "the ceiling" and built a decomposition on
+it. The lesson is the same one, unlearned across two sections: **an achievable point bounds the
+optimum from one side only, and which side depends on the metric's direction.**
+
+Both registry entries are corrected: `_POSITION_WISE_CLASS_CEILING` is renamed in substance to a
+**self-only reference** with the bounds stated as inequalities, and `_CONTEXT_FREE_TABLE_FRONTIER`'s
+"32.4% of what the class can reach" is restated as a lower bound. Quantifying the true position-wise
+frontier needs a defensible estimate of `H(T_{j+1} | T_j)`, which §1767 showed these row budgets
+cannot supply.

@@ -1,0 +1,80 @@
+{
+ "config": {
+  "tables": "CONTEXT-FREE (length-1 forward per covered token), then rank-r truncated; no linear correction anywhere",
+  "costing": "identical accounting to \u00a71755/\u00a71756: r*(5419+1152) + 2*1152 per site",
+  "recovered_against": "the FIT-MEAN all-tabled baseline (7.35114 / 7.35825), so these recoveries are directly comparable to \u00a71747-\u00a71758",
+  "WHY": "\u00a71769 attributed the whole 0.594-nat gap to the tables being context averages. \u00a71755 found fit-mean tables IMPROVED under truncation because they were overfitted to 96 fit rows; a context-free table is an exact model output and is not estimated from data, so truncation should be pure loss. That is a test of \u00a71755's explanation, not just a sweep.",
+  "ROLE_NOTE": "DISCOVERY ONLY."
+ },
+ "baseline": {
+  "skip7000": {
+   "live": 3.29205,
+   "all_tabled_fitmean": 7.35114
+  },
+  "skip11000": {
+   "live": 3.09711,
+   "all_tabled_fitmean": 7.35825
+  }
+ },
+ "by_table_rank": {
+  "8": {
+   "table_rank": 8,
+   "cost_M": 1.9754,
+   "skip7000": {
+    "ce": 6.58011,
+    "recovered_vs_fitmean_base": 0.77103
+   },
+   "skip11000": {
+    "ce": 6.55472,
+    "recovered_vs_fitmean_base": 0.80353
+   },
+   "nats_per_Mreal": 0.40677
+  },
+  "4": {
+   "table_rank": 4,
+   "cost_M": 1.0292,
+   "skip7000": {
+    "ce": 6.73858,
+    "recovered_vs_fitmean_base": 0.61256
+   },
+   "skip11000": {
+    "ce": 6.72034,
+    "recovered_vs_fitmean_base": 0.63791
+   },
+   "nats_per_Mreal": 0.619831
+  },
+  "2": {
+   "table_rank": 2,
+   "cost_M": 0.5561,
+   "skip7000": {
+    "ce": 7.10765,
+    "recovered_vs_fitmean_base": 0.24349
+   },
+   "skip11000": {
+    "ce": 7.11833,
+    "recovered_vs_fitmean_base": 0.23992
+   },
+   "nats_per_Mreal": 0.431467
+  },
+  "1": {
+   "table_rank": 1,
+   "cost_M": 0.3195,
+   "skip7000": {
+    "ce": 7.75418,
+    "recovered_vs_fitmean_base": -0.40304
+   },
+   "skip11000": {
+    "ce": 7.70597,
+    "recovered_vs_fitmean_base": -0.34772
+   },
+   "nats_per_Mreal": -1.088326
+  }
+ },
+ "predictions": {
+  "pred_a_efficiency_optimum_bracketed": true,
+  "pred_b_compression_still_pure_loss": true,
+  "pred_c_rank1_still_positive": false,
+  "pred_d_controls": true
+ },
+ "runtime_s": 142.6
+}
