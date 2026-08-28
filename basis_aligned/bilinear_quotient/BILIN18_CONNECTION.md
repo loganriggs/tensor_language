@@ -48623,3 +48623,60 @@ position-constant — median across-position dispersion fell 3.06 → 0.58 at L4
 live layers above a compiled prefix are emitting writes that are right on average but insufficiently
 varied across positions, that is exactly a second-moment failure the first moment cannot see, and it is
 measurable with the machinery §1819 already used.
+
+## §1826 — L9's inversion is a symptom, not a cause: removing it buys 1-2 points of an 88-point deficit
+
+`ops/l9_inversion.py`, 288.2s, **DISCOVERY ONLY**, rung 3 (the question §1825's correction opened).
+**pred_a False | pred_b True | pred_c True | pred_d True.**
+
+```
+  cosine by layer, sequentially corrected
+    B3:  L4 +0.827  L5 +0.998  L6 +0.993  L7 +0.968  L8 +0.794  *L9 -0.134  L10 +0.949
+         L11 +0.914  L12 +0.868  L13 +0.868  L14 +0.564  L15 +0.561  L16 +0.736  L17 +0.872
+    B5:  L6 +0.992  L7 +0.968  L8 +0.886  *L9 -0.628  L10 +0.950 ... L14 +0.503  L15 +0.573
+
+  gap fraction at B3      seq      L9-compiled   L9-negated   L9-zeroed
+    skip7000             11.9%       12.7%          5.5%        13.2%
+    skip11000            11.6%       12.5%          4.5%        12.9%
+    skip1200             12.0%       13.7%          5.5%        14.1%
+```
+
+**pred_a FAILED, and it closes the line. Compiling L9 recovers +0.8 / +0.9 / +1.7 points** against a
+10-point bar. Its registered branch: *"the layer is anti-aligned without being costly — a symptom, not
+a cause — and the deep-prefix residual is distributed after all, which sends the question back to the
+aggregate I should not have led with."*
+
+> **So my original aggregate was right, and the striking feature was a red herring for causation.**
+> Codex's catch was correct as an *observation* — L9 really is the only anti-aligned layer, and I
+> really had hidden it behind a mean — and reporting it was correct. But the follow-up shows the
+> inversion is not where the damage lives. The mean and the extreme were each informative about
+> different things, and neither alone was the answer: the mean said "distributed", the extreme said
+> "one layer is strange", and only the intervention distinguished them.
+
+**pred_b PASSED, and negation is actively harmful**: flipping L9's gain scores **−6.4 / −7.2 / −6.5**
+points against compiling's +0.8 / +0.9 / +1.7. The anti-alignment is not a sign error — inverting the
+layer makes the program substantially worse than leaving it inverted.
+
+**pred_c PASSED, narrowly and in the expected direction**: zeroing L9 beats leaving it live by
+**+1.3 / +1.3 / +2.1** points. An anti-aligned layer is worse than no layer, but the margin is
+1-2 points, not 88.
+
+**A second soft region the extremes surfaced.** L14 and L15 sit at **+0.564 / +0.561** at B3 and
+**+0.503 / +0.573** at B5 — well below their neighbours though never negative — while L5 and L6 are
+near-perfect at **+0.998 / +0.993**. Printing the whole vector rather than four sampled layers is what
+made this visible, which is the constructive half of LESSON 55.
+
+**Three accounts are now closed for the deep-prefix residual.** Magnitude: the best possible gain
+correction recovers ~12% (§1824). Mean direction: writes are ~77% aligned after correction, and the one
+anti-aligned layer costs 1-2 points (§1825, §1826). Single-layer localisation: no layer carries it.
+**The residual is genuinely distributed and no low-order per-layer summary reaches it.**
+
+Controls (pred_d): L9's cosine reproduces §1825's published −0.134 and −0.628 — the figures Codex
+surfaced, re-measured before being acted on; the sequential arms reproduce §1824's published gap
+fractions; the interface gain identity holds; the single-interface L5 cosine is **+0.9979** against
+§1819's +0.9990; endpoints and placement control pass.
+
+**Open question this ends on.** Every instrument used on the deep-prefix residual has been a per-layer
+summary of a single site's write. What none of them can see is the *relationship between positions* —
+and §1765 established that the compiled program's cross-position Jacobians are exactly zero, which is
+precisely the structure a per-layer mean or norm cannot represent.
