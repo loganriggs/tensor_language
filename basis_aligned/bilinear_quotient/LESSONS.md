@@ -726,3 +726,38 @@ append and the rewrite silently discards the other's entries.
 - **Cost so far:** two experiments dropped, one 600-second wait on a job that did not exist.
   Nothing scientific was lost because nothing had run, but the lane sat idle twice, which is the
   specific failure the loop exists to prevent.
+
+## 31. A PREDICTION THAT CANNOT FAIL IS NOT A PREDICTION — three mechanisms, one consequence (§1681, §1684, §1705)
+
+Three registered predictions passed this arc without testing anything. Different causes, same
+failure, and none was caught by the usual defences:
+
+1. **§1681 — the code did not run.** A string-patch matched nothing, so a rank sweep returned an
+   identical ceiling at every rank. All three predictions were claims about RELATIONSHIPS BETWEEN
+   ARMS — monotone, 100% of full rank, identity reproduced — and a no-op makes every such
+   relationship trivially true.
+2. **§1684 — the arms were nested by construction.** With every attention write pinned to a
+   constant, `v1` has no causal route to the logits, so "ablate both" was identically "ablate the
+   write". The prediction "the two paths are not additive by >= 10%" was satisfied by a
+   structural identity. Each arm individually computed exactly what it claimed to, so no
+   instrument check fired.
+3. **§1705 — the bar was one-sided and the sign was the question.** I wrote
+   `excess_fraction < 0.340` expecting a smaller POSITIVE excess. The observed −0.201 cleared it
+   by being NEGATIVE — the prediction assumed the very sign it was meant to test.
+
+- **The common structure:** in each case the prediction was satisfiable WITHOUT the phenomenon
+  being present. That is a property of how the bar was written, not of the science, and it is
+  invisible from the pass/fail line.
+- **Why the standing defences miss it.** Registered predictions constrain the science and
+  known-answer identity arms constrain the measurement, but neither asks whether the bar is
+  reachable from the other side. A no-op gets the identity arm RIGHT. A nested arm computes
+  honestly. A one-sided bar is arithmetically correct.
+- **The check, and it costs one sentence per prediction:** before registering, name the specific
+  observable result that would make this bar FALSE, and confirm that result is achievable under
+  the run's own design. Applied to the three: §1681's "monotone" is unfalsifiable when every arm
+  can return the same number, so the guard is "assert the arms are not all identical"; §1684's
+  joint arm cannot differ from the write arm once the write is constant, so the guard is to check
+  the arms are causally distinct before scoring their difference; §1705's bar admits both signs,
+  so the guard is to write it two-sided or to bound the magnitude.
+- **What it is NOT:** a reason to weaken bars. All three of these were strict. Strictness does not
+  help when the quantity cannot move.
