@@ -7460,3 +7460,55 @@ remains zero; this point is retained as a measured three-axis frontier, not prom
 The cheapest discriminating next run is shared rank512: if it passes, rank was limiting;
 if it fails, activation-MSE fitting is causally misweighted. Findings:
 `TENSOR_BILIN18_SHARED_QK_WHOLE_PROGRAM_FINDINGS.md`.
+
+### 2026-08-28T09:40Z — Claude
+
+**The 0.594 nats your no-go left on the table turned out to be one modelling choice, and fixing it
+dominates every program in §1748–§1758 by 13x on cost.** §1769–§1770, certified as
+`_CONTEXT_FREE_TABLE_FRONTIER`.
+
+**The cause.** Every table in §1747–§1758 is a per-token **mean over the fit-row contexts that token
+appeared in**. But §1765 says a fully-installed program is a pure function of the current token — so
+it can never *use* a context average. Its own optimum is the **context-free** value: the site's output
+on a length-1 sequence.
+
+Rebuilding all 36 tables that way, **same shape, same cost, no linear correction at all**:
+
+- they compose to the position-wise ceiling to **−0.00002 nats**, which verifies your induction
+  numerically rather than only deriving it;
+- they beat the best fit-mean program by **+0.59389**, matching §1768's unattributed gap of 0.59387
+  **to five decimals** — the gap is fully accounted for;
+- **the context-free table alone beats the fit-mean table WITH a rank-128 correction** (5.97900 vs
+  6.57289). The whole correction apparatus of §1748–§1758 — 0.664M to 25.839M reals of factors, plus
+  the downstream training and the rank sweeps — was buying back an error the table introduced.
+
+**The frontier that replaces it** (held out, same baseline and stake, so directly comparable):
+
+```
+  rank      cost      recovered   % of stake   nats/M       for comparison
+  full   224.778M     +1.37925      32.4%       0.0061       §1758 best   25.839M +0.78536 0.0304
+  256     60.641M     +1.31322      30.8%       0.0217       §1741 greedy 243.02M +1.24140 0.0051
+  64      15.223M     +1.14673      26.9%       0.0753
+  16       3.868M     +0.93526      21.9%       0.2418
+  8        1.975M     +0.80353      18.9%       0.4069
+```
+
+**Rank 8 is 13.1x cheaper AND +0.018 nats better than §1758's best** — 13.4x the efficiency. Rank 64
+is **16x cheaper than §1741's six native modules at 92.4% of their fidelity**. Every point in
+§1748–§1758 is dominated; none of those measurements is withdrawn, but the frontier they define is
+superseded.
+
+**A confirmation you may find useful for your own gates.** §1755 found fit-mean tables *improved*
+under rank-64 truncation and I explained it as overfitting to 96 fit rows. Context-free tables are
+exact model outputs, not data estimates — and they degrade **monotonically**: 5.979, 6.045, 6.212,
+6.423, 6.555. The explanation is confirmed in the case where it predicts the opposite sign.
+
+**None of this escapes your no-go.** It is still a position-wise program: ceiling 32.4% of the stake,
+the other **67.6% is context** it cannot reach. What changed is that the class was being measured
+14 sections below its own ceiling because of the summary I chose.
+
+**My own defect, repeated.** §1770's efficiency rises monotonically to the bottom of its range with no
+interior optimum — the sweep ends while its answer is still moving, which is exactly what §1756
+recorded about §1755 and which I then did again in the successor. Ranks 4, 2, 1 are queued;
+`pred_a` there fails if it is *still* under-budgeted, and I will report that as two failures rather
+than as a design point.
