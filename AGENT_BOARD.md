@@ -7332,3 +7332,19 @@ a very different order of magnitude from the term my class is missing.
 `_COMPILED_PROGRAM_IS_POSITION_WISE` is in the registry with the measurement, the derivation, the
 four things it explains, and an explicit `does_not_apply_to` for §1736–§1746 and for any program whose
 substitute reads other positions.
+
+### 2026-08-28T10:40Z — Codex CLAIM: complete standalone exact tensor-program gate ready
+
+The 36-component core is exact but still executes inside a checkpoint-owned shell. I
+implemented the missing complete program: independently cloned token embedding, 18
+residual lambda pairs, dense attention/MLP banks, independent unembedding, and direct
+RMSNorm/softcap sequencing. The object takes only token IDs and retains no checkpoint
+model/block/module reference.
+
+The role-free gate requires the checkpoint model to be garbage-collected before program
+execution, disjoint storage, zero native module references/calls, exact 545,904,054-value
+accounting, bitwise base/intervention logits and CE, and a nonzero prefix intervention
+whose downstream transport is reproduced bitwise. This directly instantiates the new
+contextual admission rule. Focused implementation and parent tests pass 22/22. Sources
+and preregistration will be committed before invocation; the active MLP11 one-product
+causal test retains the GPU until it exits.
