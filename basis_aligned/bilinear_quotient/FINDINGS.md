@@ -475,3 +475,112 @@ total effect size and are not compared across bands. The all-eighteen linear row
 table (−42.99%) is a failed arm, not a measurement. And there is no standalone table program
 at all: a table substituted everywhere is the broken arm of result 1, so a linear map can be
 a program while a lookup table can only be an account of the positions it covers.
+
+## 16. Both halves of bilin18 on one scale, and what a whole-model program costs (§1678–§1703)
+
+**The artifact.** A compiled 36-piece program — token tables at mlp0–2, linear maps at mlp3–17,
+four-position maps `[x_t, x_{t-1}, x_{t-2}, x_{t-4}, x_{t-8}]` at every attention output write, and
+a token table for `v1` — reproduces **55.04%** of what bilin18's modules contribute (5.5684 nats),
+and **53.69% [52.92, 54.39]** on held-out documents. Compilation must be interleaved bottom-up:
+the same programs fitted independently and installed together came out at **−42.99%**, worse than
+replacing every module with a constant.
+
+**Attention decomposes into a cheap selection over an expensive payload.** Priced as ceilings on a
+3.5570-nat stake:
+
+```
+16.4%   computable from the current position alone
++39.9%  the previous position — irreplaceable, worth 27.9 points even against a six-slot spread
++13.8%  a handful of further positions, and it barely matters which (spread beats contiguous)
+ 29.9%  outside ANY fixed-position linear description
+```
+
+The positional description **saturates at four or five slots**: widening a geometric window out to
+lag 64 buys 2.03 points and the last three doublings buy 0.82 between them. So the residue is not
+long-range structure a wider window would catch — it is content-dependent routing. This prices
+§843's previous-token finding at whole-stack scale: not one head's quirk, the largest single
+component of what all eighteen attention modules write.
+
+**Only attention's routing survives compression.** Four matched rank budgets, same fit, same
+compilation, same currency, identity check on every arm:
+
+```
+at rank 64 of 1152 (5.6% of the input dimension):
+  attention ROUTING  (c_q, c_k, c_q2, c_k2)   +62.82%
+  attention VALUES   (c_v)                     +2.37%
+  MLP readout        (Down)                   -15.16%
+  MLP features       (Left, Right)            -52.88%
+```
+
+`Left/Right` is still at −37.10% with a quarter of its dimensions. **A compact program can afford
+to approximate WHERE the model looks, but not WHAT it computes.** This ordering replicates
+held-out with no path moving more than 0.74 points. It also closes a loop with the feature-basis
+result: the MLP's 4608 bilinear features are neither sparse-**selectable** (keeping the top 512 and
+pinning the rest is worse than constant ablation, because the readout sums cancelling
+contributions) nor low-rank **compressible**. Two different compressions, two failures, one object.
+For this model the interpretable decomposition is a subspace, not a feature list.
+
+**Half-level results do not transfer, and the reason is attenuation rather than overlap.**
+Upgrading each half to its best family is worth +11.79 (attention) and ≤+3.5 (MLP) alone, but only
+**+4.10** jointly. Upgrading one half at a time inside the joint condition gives +2.66 and +1.31,
+summing to +3.97 against a joint +4.10 — additive. With intervals, the interaction is
+`[-0.002%, +0.245%]` on the reference set and `[+0.011%, +0.188%]` held out: **redundancy is
+excluded** (it would require a negative interaction) and the held-out interaction is marginally
+*positive*. So gains from independent work on the two halves can be summed and then discounted —
+roughly 4× for attention-side work, 3× for MLP-side.
+
+**Where the missing 45% sits — and why the totals mislead.** Exempting one band and recompiling
+the whole program:
+
+```
+band          sites   gain      95% CI              per site
+mlp_mid         12   +12.52%  [+12.12, +12.89]       1.043
+attn_mid        12   +12.14%  [+11.38, +12.98]       1.012
+mlp_front        4    +7.53%  [ +7.23,  +7.83]       1.883
+attn_late        2    +3.22%  [ +3.01,  +3.44]       1.610
+mlp_late         2    +1.99%  [ +1.86,  +2.13]       0.995
+attn_front       4    +0.60%  [ +0.48,  +0.71]       0.150
+```
+
+The middle bands dominate the totals — and entry 15's MLP-middle bilinearity and the
+attention-middle lag-1 failure both transfer into the joint condition, landing within 0.4 points of
+each other. But they dominate **because they are twelve sites each**. Per site the worst-modelled
+sites in the model are the FRONT MLPs at 1.883 and the best are the front attention writes at
+0.150 — a 12× spread the totals hide. The six gains total 38.00 against a 44.96 shortfall; each arm
+is a separate compilation, so they are six independent counterfactuals, not a decomposition.
+
+**Four methodological results, each of which cost a wrong answer.**
+
+1. **A passing prediction set does not mean the code ran.** A rank sweep returned an identical
+   ceiling at every rank because a string-patch matched nothing; all three predictions passed —
+   monotone (constant), 100% of full rank, identity reproduced. Every one was a claim about
+   *relationships between arms*, which a no-op makes trivially true, and the known-answer identity
+   arm is precisely the arm a no-op gets right.
+2. **A ceiling is a ratio of three numbers, and pinning one is not pinning the others.** Every
+   identity arm in this arc constrains the SUBSTITUTION; none constrained the BASELINE. Measuring
+   `ce_live` through constant-ablation hooks returned 8.86042 against the arc's 3.29205 — every
+   stake negative, every ceiling NaN, and the identity arms would all have passed.
+3. **Never a fixed absolute tolerance on a quantity computed in float32.** A 1e-9 reconstruction
+   bar fired on a correct run at 1.41e-08 — 0.0006 of the achievable floor, since the two paths sum
+   float32 in different orders. The same error had been flagged in a peer's 1e-12 gate hours
+   earlier.
+4. **Spread was missing for forty sections.** Every ceiling from §1659–§1699 is a point estimate,
+   against a standing convention to quote it. It cost precision twice: one prediction failed
+   *exactly* at a grid boundary, and a 95% crossing turned on 94.97% against a 95.01% bar. Closed
+   from §1701 with row-level cluster bootstraps — and the intervals immediately changed a reading,
+   showing the interaction term to be positive rather than merely small.
+
+**Corrections applied rather than left standing.** "Attention's value path is high-rank" (read off a
+single point sitting on a cliff edge — the curve has a sharp knee at 384 and saturates fast);
+"attention's payload is unusually expensive" (it is the second *cheapest* of four paths);
+"`v1` is essentially eight-dimensional" (the whole `v1` path is 0.35 points [0.30, 0.40] and rank 8
+captures about a sixth of it — the small number was evidence the *quantity* was small, not that a
+small rank sufficed); and "`skip11000` is held out" (it was exposed to component-level experiments,
+so this is prospective conditional composition replication, not fresh OOD evidence). The last two
+came from a peer's independent audit; three of its four points were catchable by me.
+
+**One prediction pattern worth naming.** Five times in this arc a registered prediction passed
+while the generalisation motivating it failed — depth-ordered tableability, bilinearity growing
+with depth, early attention being best described, contiguity mattering beyond lag 1, and the middle
+bands being where the per-site difficulty lives. The flags are never written up on their own for
+this reason.
