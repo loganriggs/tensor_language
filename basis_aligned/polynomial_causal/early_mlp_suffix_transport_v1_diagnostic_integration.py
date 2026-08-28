@@ -127,6 +127,25 @@ def bind_consumer_capture_context(
     )
 
 
+def bind_completed_consumer_capture(
+    *, batch: observational_role.FinalObservationalBatch,
+    capture: consumer._CapturedConsumerMagnitudes,
+    final_context_sha256: str, program_payload_sha256: str,
+) -> CapturedObservationalBatch:
+    """Bind a capture closed inside the source-reviewed physical adapter.
+
+    The adapter must use its ``*_captured`` entry points, which install the context
+    around only the action/student forward.  This CPU join cannot mint or inspect a
+    model and merely binds that private capability to the typed batch reduction.
+    """
+
+    return CapturedObservationalBatch(
+        _token=_MINT_TOKEN, batch=batch, capture=capture,
+        final_context_sha256=final_context_sha256,
+        program_payload_sha256=program_payload_sha256,
+    )
+
+
 @dataclass(frozen=True, slots=True)
 class NativeDenominatorCacheReceipt:
     common_support_sha256: str

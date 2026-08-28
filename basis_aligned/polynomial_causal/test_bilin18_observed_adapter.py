@@ -9,6 +9,7 @@ import torch
 
 import bilin18_observed_adapter as observed
 import bilin18_observed_model_facade as facade
+import early_mlp_suffix_transport_v1_consumer_norms as consumer_norms
 import early_mlp_suffix_transport_v1_runtime as runtime
 
 
@@ -974,6 +975,79 @@ def test_final_baseline_batch_rejects_target_substitution_before_forward(monkeyp
             ordered_row_indices=(0, 1, 2, 3),
             frequency_bins=torch.zeros(4, 192, dtype=torch.long),
         )
+
+
+class _ConsumerProjection(torch.nn.Module):
+    def forward(self, value):
+        return value.expand(-1, -1, consumer_norms.MODEL_WIDTH)
+
+
+class _ConsumerModel(torch.nn.Module):
+    def __init__(self):
+        super().__init__()
+        self.anchor = torch.nn.Parameter(torch.zeros(()), requires_grad=False)
+        blocks = []
+        for _layer in range(consumer_norms.MODEL_LAYER_COUNT):
+            block = torch.nn.Module()
+            block.mlp = torch.nn.Identity()
+            block.attn = torch.nn.Module()
+            block.attn.c_proj = _ConsumerProjection()
+            blocks.append(block)
+        self.transformer = torch.nn.Module()
+        self.transformer.h = torch.nn.ModuleList(blocks)
+
+    def emit_consumers(self, magnitude: float) -> None:
+        value = torch.full((4, 256, 1), magnitude, dtype=torch.float32)
+        for block in self.transformer.h:
+            block.attn.c_proj(value)
+
+
+def test_captured_baseline_wraps_action_but_not_separate_teacher_forward(monkeypatch) -> None:
+    model = _ConsumerModel()
+    adapter = observed.ObservedBilin18Adapter(model, FakeShip(), production=False)
+    rows = (torch.arange(4 * 513, dtype=torch.long).view(4, 513) % 11).contiguous()
+    materialized = _materialized_baseline("n_n", "N")
+    identity = _final_baseline_identity(materialized, rows)
+    calls = []
+
+    def fake_forward(*, tokens, execution_kind, background, _consumer_capture=None):
+        calls.append((execution_kind, background, _consumer_capture is not None))
+        magnitude = 2.0 if _consumer_capture is not None else 9.0
+        if _consumer_capture is None:
+            model.emit_consumers(magnitude)
+        else:
+            with _consumer_capture:
+                model.emit_consumers(magnitude)
+        logits = torch.randn(
+            4, 256, 11, generator=torch.Generator().manual_seed(int(magnitude)),
+        )
+        closure = observed.ObservedClosure(
+            scope=f"final_{execution_kind}_{background}",
+            outer_forward_count=1, outer_returned=True,
+            attention_dispatch_calls=tuple((site, 1) for site in range(18)),
+            mlp_dispatch_calls=tuple((site, 1) for site in range(18)),
+            deployed_n_calls=((0, 1), (1, 1), (2, 1)),
+            correction_calls=((0, 0), (1, 0), (2, 0)),
+            literal_early_mlp_calls=((0, 0), (1, 0), (2, 0)),
+            native_guard_restored=True, native_guard_inert=True,
+            logit_shape=tuple(logits.shape), logit_dtype=str(logits.dtype),
+        )
+        return logits, closure
+
+    monkeypatch.setattr(adapter, "_run_final_baseline_forward", fake_forward)
+    _reductions, _receipt, capture = adapter.run_final_baseline_batch_captured(
+        materialized=materialized, identity=identity, role_rows=rows,
+        ordered_row_indices=(0, 1, 2, 3),
+        frequency_bins=torch.zeros(4, 192, dtype=torch.long),
+    )
+    assert calls == [
+        ("deployed_baseline", "N", True),
+        ("native_baseline", "N", False),
+    ]
+    magnitudes = capture._take_for_pair(consumer_norms._PAIR_TOKEN)
+    expected = 2.0 * (consumer_norms.MODEL_WIDTH ** 0.5)
+    assert torch.allclose(magnitudes, torch.full_like(magnitudes, expected), atol=2e-5)
+    assert all(not block.attn.c_proj._forward_hooks for block in model.transformer.h)
 
 
 def test_materialized_final_wrapper_binds_hybrid_action_to_runtime_receipt(

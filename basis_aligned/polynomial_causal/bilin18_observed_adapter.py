@@ -14,7 +14,9 @@ from typing import Any, Iterator
 
 import torch
 
+import bilin18_frozen_ship_program as frozen_ship_program
 import bilin18_observed_model_facade as facade
+import early_mlp_suffix_transport_v1_consumer_norms as consumer_norms
 import early_mlp_suffix_transport_v1 as contract
 import early_mlp_suffix_transport_v1_final_actions as final_actions
 import early_mlp_suffix_transport_v1_response_execution as response_execution
@@ -344,6 +346,8 @@ class ObservedBilin18Adapter:
             facade.validate_production_model(model)
             if not bool(getattr(frozen_ship, "production", False)):
                 raise RuntimeError("production adapter requires the validated frozen ship")
+            if type(frozen_ship) is not frozen_ship_program.FrozenShipProgram:
+                raise RuntimeError("production adapter requires the exact frozen ship type")
         if not callable(getattr(frozen_ship, "attention", None)) or not callable(
             getattr(frozen_ship, "mlp", None)
         ):
@@ -351,6 +355,69 @@ class ObservedBilin18Adapter:
         self._model = model
         self._ship = frozen_ship
         self._production = bool(production)
+        self._consumer_model_ref = model
+        self._consumer_ship_ref = frozen_ship
+        self._consumer_model_identity_sha256 = runtime.logical_identity_sha256({
+            "kind": "bilin18_consumer_model_authority",
+            "production": self._production,
+            "checkpoint_revision": facade.MODEL_REVISION,
+            "config_sha256": facade.CONFIG_SHA256,
+            "weights_sha256": facade.WEIGHTS_SHA256,
+            "frozen_ship_realization_sha256": (
+                frozen_ship_program.REALIZATION_SHA256 if self._production else None
+            ),
+            "model_runtime_identity": (
+                None if self._production else id(model)
+            ),
+            "ship_runtime_identity": (
+                None if self._production else id(frozen_ship)
+            ),
+            "model_type": f"{type(model).__module__}.{type(model).__qualname__}",
+            "ship_type": (
+                f"{type(frozen_ship).__module__}.{type(frozen_ship).__qualname__}"
+            ),
+        })
+
+    def _read_consumer_model_identity(self) -> str:
+        """Revalidate the pinned physical owner without hashing 2 GB per batch."""
+
+        if self._model is not self._consumer_model_ref or self._ship is not (
+            self._consumer_ship_ref
+        ):
+            raise RuntimeError("observed consumer model/ship owner was rebound")
+        if self._production:
+            facade.validate_production_model(self._model)
+            if type(self._ship) is not frozen_ship_program.FrozenShipProgram or not (
+                self._ship.production
+            ):
+                raise RuntimeError("observed consumer production authority changed")
+        return self._consumer_model_identity_sha256
+
+    def make_final_consumer_capture(
+        self, *, identity: final_actions.FinalActionBatchIdentity,
+        common_support_sha256: str,
+    ) -> consumer_norms.AttentionConsumerOutputCapture:
+        """Mint the only capture context for one sealed final action identity."""
+
+        import early_mlp_suffix_transport_v1_final_capability as final_capability
+
+        if not isinstance(identity, final_actions.FinalActionBatchIdentity) or (
+            identity.common_support_sha256 != common_support_sha256
+        ):
+            raise RuntimeError("consumer capture lacks the sealed final action support")
+        arm, background = identity.action_key.split("/")
+        action = final_capability.FinalAction(arm=arm, background=background)
+        expected_action_identity = identity.sha256
+        model_identity = self._read_consumer_model_identity()
+        return consumer_norms.AttentionConsumerOutputCapture(
+            model=self._model, action=action,
+            batch_ordinal=identity.batch_ordinal,
+            common_support_sha256=common_support_sha256,
+            expected_action_identity_sha256=expected_action_identity,
+            action_identity_reader=lambda: identity.sha256,
+            expected_model_identity_sha256=model_identity,
+            model_identity_reader=self._read_consumer_model_identity,
+        )
 
     def make_capability_broker(
         self, *, issuer_id: str, coordinator: runtime.ScopeCoordinator,
@@ -759,7 +826,8 @@ class ObservedBilin18Adapter:
         program: runtime.JointAffineProgram, identity: runtime.TraceIdentity,
         role_rows: torch.Tensor, ordered_row_indices: Any,
         denominators: Any = None, frequency_bins: torch.Tensor | None = None,
-    ) -> tuple[Any, ObservedFinalProgramBatchReceipt]:
+        _consumer_capture: consumer_norms.AttentionConsumerOutputCapture | None = None,
+    ) -> Any:
         """Run one true final P/P/N or P/P/E program and return typed reductions.
 
         This is the observed backend for the fitted L/R/S/T families under deployed
@@ -769,6 +837,11 @@ class ObservedBilin18Adapter:
         """
 
         import early_mlp_suffix_transport_v1_capabilities as capabilities
+
+        if _consumer_capture is not None and not isinstance(
+            _consumer_capture, consumer_norms.AttentionConsumerOutputCapture
+        ):
+            raise TypeError("final program consumer capture is not typed")
 
         if not isinstance(identity, runtime.TraceIdentity) or identity.phase != (
             "final"
@@ -815,9 +888,18 @@ class ObservedBilin18Adapter:
             raise
 
         with torch.no_grad():
-            step, student_closure, observed = self.run_student(
-                session=session, hook=hook, identity=identity, tokens=model_inputs,
-            )
+            if _consumer_capture is None:
+                step, student_closure, observed = self.run_student(
+                    session=session, hook=hook, identity=identity, tokens=model_inputs,
+                )
+                captured_magnitudes = None
+            else:
+                with _consumer_capture:
+                    step, student_closure, observed = self.run_student(
+                        session=session, hook=hook, identity=identity,
+                        tokens=model_inputs,
+                    )
+                captured_magnitudes = _consumer_capture.finish()
             if mlp2_background == "E":
                 reductions, teacher_closure = broker.consume_final_ce(
                     identity, step, role_rows, frequency_bins,
@@ -881,7 +963,9 @@ class ObservedBilin18Adapter:
             teacher_ledger_sha256=teacher_closure.ledger_sha256,
             observed_closure_sha256=runtime.logical_identity_sha256(asdict(observed)),
         )
-        return reductions, receipt
+        if _consumer_capture is None:
+            return reductions, receipt
+        return reductions, receipt, captured_magnitudes
 
     def run_materialized_final_program_batch(
         self, *, broker: Any, hook: runtime.StudentCorrectionHook,
@@ -890,7 +974,8 @@ class ObservedBilin18Adapter:
         final_context: Any, role_rows: torch.Tensor,
         ordered_row_indices: Any, denominators: Any = None,
         frequency_bins: torch.Tensor | None = None,
-    ) -> tuple[Any, ObservedMaterializedFinalProgramBatchReceipt]:
+        _consumer_capture: consumer_norms.AttentionConsumerOutputCapture | None = None,
+    ) -> Any:
         """Execute one named program action without accepting a caller-made trace.
 
         This is the source-closed outer entry point for QQ/LL/RR, hybrids, transport,
@@ -920,11 +1005,23 @@ class ObservedBilin18Adapter:
             trace, role_rows[:, :runtime.SEQUENCE_LENGTH].contiguous(), indices,
         )
         program = materialized.make_program()
-        reductions, runtime_receipt = self.run_final_program_batch(
-            broker=broker, hook=hook, program=program, identity=trace,
-            role_rows=role_rows, ordered_row_indices=indices,
-            denominators=denominators, frequency_bins=frequency_bins,
-        )
+        backend_kwargs = {
+            "broker": broker, "hook": hook, "program": program,
+            "identity": trace, "role_rows": role_rows,
+            "ordered_row_indices": indices, "denominators": denominators,
+            "frequency_bins": frequency_bins,
+        }
+        if _consumer_capture is None:
+            backend_result = self.run_final_program_batch(**backend_kwargs)
+        else:
+            backend_result = self.run_final_program_batch(
+                **backend_kwargs, _consumer_capture=_consumer_capture,
+            )
+        if _consumer_capture is None:
+            reductions, runtime_receipt = backend_result
+            captured_magnitudes = None
+        else:
+            reductions, runtime_receipt, captured_magnitudes = backend_result
         if not isinstance(runtime_receipt, ObservedFinalProgramBatchReceipt) or (
             runtime_receipt.identity_sha256 != trace.sha256
         ) or runtime_receipt.route != trace.route or runtime_receipt.control != (
@@ -945,10 +1042,41 @@ class ObservedBilin18Adapter:
             batch_ordinal=identity.batch_ordinal,
         )
         program = None
-        return reductions, outer_receipt
+        if _consumer_capture is None:
+            return reductions, outer_receipt
+        return reductions, outer_receipt, captured_magnitudes
+
+    def run_materialized_final_program_batch_captured(
+        self, *, broker: Any, hook: runtime.StudentCorrectionHook,
+        materialized: final_actions.MaterializedFinalAction,
+        identity: final_actions.FinalActionBatchIdentity,
+        final_context: Any, role_rows: torch.Tensor,
+        ordered_row_indices: Any, denominators: Any = None,
+        frequency_bins: torch.Tensor | None = None,
+    ) -> tuple[
+        Any, ObservedMaterializedFinalProgramBatchReceipt,
+        consumer_norms._CapturedConsumerMagnitudes,
+    ]:
+        """Instrument the existing authorized student forward, never replay it."""
+
+        capture = self.make_final_consumer_capture(
+            identity=identity, common_support_sha256=identity.common_support_sha256,
+        )
+        result = self.run_materialized_final_program_batch(
+            broker=broker, hook=hook, materialized=materialized,
+            identity=identity, final_context=final_context, role_rows=role_rows,
+            ordered_row_indices=ordered_row_indices, denominators=denominators,
+            frequency_bins=frequency_bins, _consumer_capture=capture,
+        )
+        if not isinstance(result, tuple) or len(result) != 3 or not isinstance(
+            result[2], consumer_norms._CapturedConsumerMagnitudes
+        ):
+            raise RuntimeError("captured final program transaction did not close")
+        return result
 
     def _run_final_baseline_forward(
         self, *, tokens: torch.Tensor, execution_kind: str, background: str,
+        _consumer_capture: consumer_norms.AttentionConsumerOutputCapture | None = None,
     ) -> tuple[torch.Tensor, ObservedClosure]:
         """Execute exactly one N/N or O/O baseline without exposing dispatch handles."""
 
@@ -956,6 +1084,10 @@ class ObservedBilin18Adapter:
             final_actions.BACKGROUNDS
         ):
             raise ValueError("final baseline physical path is malformed")
+        if _consumer_capture is not None and not isinstance(
+            _consumer_capture, consumer_norms.AttentionConsumerOutputCapture
+        ):
+            raise TypeError("final baseline consumer capture is not typed")
         exact_sites = set()
         if execution_kind == "native_baseline":
             exact_sites.update((0, 1))
@@ -987,11 +1119,19 @@ class ObservedBilin18Adapter:
             return self._ship.mlp(event)
 
         with poison.scope():
-            logits = facade.forward_with_dispatch(
-                self._model, tokens, attention, mlp,
-                require_production=self._production,
-            )
-            outer_returned = True
+            if _consumer_capture is None:
+                logits = facade.forward_with_dispatch(
+                    self._model, tokens, attention, mlp,
+                    require_production=self._production,
+                )
+                outer_returned = True
+            else:
+                with _consumer_capture:
+                    logits = facade.forward_with_dispatch(
+                        self._model, tokens, attention, mlp,
+                        require_production=self._production,
+                    )
+                    outer_returned = True
         expected_all = tuple((site, 1) for site in range(len(self._model.transformer.h)))
         semantic_arm = "n_n" if execution_kind == "deployed_baseline" else "o_o"
         expected_pattern = final_actions.expected_early_call_pattern(
@@ -1027,7 +1167,8 @@ class ObservedBilin18Adapter:
         identity: final_actions.FinalActionBatchIdentity,
         role_rows: torch.Tensor, ordered_row_indices: Any,
         frequency_bins: torch.Tensor,
-    ) -> tuple[ObservedFinalBaselineBatchReductions, ObservedFinalBaselineBatchReceipt]:
+        _consumer_capture: consumer_norms.AttentionConsumerOutputCapture | None = None,
+    ) -> Any:
         """Run one N/N or O/O action and release only bound per-row reductions."""
 
         import early_mlp_suffix_transport_v1_programs as programs
@@ -1056,8 +1197,18 @@ class ObservedBilin18Adapter:
         teacher_observed: ObservedClosure | None = None
         teacher_reused_student = False
         with torch.no_grad():
-            student_logits, student_observed = self._run_final_baseline_forward(
-                tokens=tokens, execution_kind=execution_kind, background=background,
+            if _consumer_capture is None:
+                student_logits, student_observed = self._run_final_baseline_forward(
+                    tokens=tokens, execution_kind=execution_kind,
+                    background=background,
+                )
+            else:
+                student_logits, student_observed = self._run_final_baseline_forward(
+                    tokens=tokens, execution_kind=execution_kind,
+                    background=background, _consumer_capture=_consumer_capture,
+                )
+            captured_magnitudes = (
+                None if _consumer_capture is None else _consumer_capture.finish()
             )
             if background == "N":
                 if execution_kind == "native_baseline":
@@ -1117,7 +1268,34 @@ class ObservedBilin18Adapter:
         )
         student_logits = None
         teacher_logits = None
-        return reductions, receipt
+        if _consumer_capture is None:
+            return reductions, receipt
+        return reductions, receipt, captured_magnitudes
+
+    def run_final_baseline_batch_captured(
+        self, *, materialized: final_actions.MaterializedFinalAction,
+        identity: final_actions.FinalActionBatchIdentity,
+        role_rows: torch.Tensor, ordered_row_indices: Any,
+        frequency_bins: torch.Tensor,
+    ) -> tuple[
+        ObservedFinalBaselineBatchReductions, ObservedFinalBaselineBatchReceipt,
+        consumer_norms._CapturedConsumerMagnitudes,
+    ]:
+        """Capture only the scored action forward, never its N teacher forward."""
+
+        capture = self.make_final_consumer_capture(
+            identity=identity, common_support_sha256=identity.common_support_sha256,
+        )
+        result = self.run_final_baseline_batch(
+            materialized=materialized, identity=identity, role_rows=role_rows,
+            ordered_row_indices=ordered_row_indices, frequency_bins=frequency_bins,
+            _consumer_capture=capture,
+        )
+        if not isinstance(result, tuple) or len(result) != 3 or not isinstance(
+            result[2], consumer_norms._CapturedConsumerMagnitudes
+        ):
+            raise RuntimeError("captured final baseline transaction did not close")
+        return result
 
     def run_mapped_oon_teacher(
         self, *, broker: Any, identity: runtime.TraceIdentity, step: Any,

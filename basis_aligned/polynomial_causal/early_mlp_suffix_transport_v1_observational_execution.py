@@ -16,6 +16,7 @@ import torch
 
 import bilin18_observed_adapter as observed
 import early_mlp_suffix_transport_v1_capabilities as capabilities
+import early_mlp_suffix_transport_v1_diagnostic_integration as diagnostic_integration
 import early_mlp_suffix_transport_v1_final_actions as final_actions
 import early_mlp_suffix_transport_v1_final_capability as final_capability
 import early_mlp_suffix_transport_v1_fit as fit
@@ -186,6 +187,96 @@ class FinalObservationalExecutionReceipt:
         return runtime.logical_identity_sha256(asdict(self))
 
 
+class FinalNativeDenominatorBatchExecutor:
+    """Independent exact O/O/N then O/O/E consumer-denominator prepass."""
+
+    def __init__(
+        self, *, adapter: observed.ObservedBilin18Adapter,
+        final_context: capabilities.FinalRunContext, final_rows: torch.Tensor,
+        frequency_plan: FinalFrequencyPlan,
+        sources: final_actions.FinalProgramSourceBank,
+        program_payload_sha256: str, common_support_sha256: str,
+    ) -> None:
+        if not isinstance(adapter, observed.ObservedBilin18Adapter) or not isinstance(
+            final_context, capabilities.FinalRunContext
+        ) or not isinstance(frequency_plan, FinalFrequencyPlan) or not isinstance(
+            sources, final_actions.FinalProgramSourceBank
+        ):
+            raise TypeError("native denominator prepass requires typed authorities")
+        if not torch.is_tensor(final_rows) or final_rows.dtype != torch.long or tuple(
+            final_rows.shape
+        ) != (FINAL_ROW_COUNT, FINAL_ROW_WIDTH) or final_rows.device.type != "cpu" or (
+            not final_rows.is_contiguous()
+        ) or runtime.tensor_identity_sha256(final_rows) != final_context.final_role_tensor_sha256:
+            raise RuntimeError("native denominator prepass rows changed authority")
+        self._payload = _sha256("native denominator program payload", program_payload_sha256)
+        self._support = _sha256("native denominator support", common_support_sha256)
+        self._adapter = adapter
+        self._context = final_context
+        self._rows = final_rows.detach().clone().contiguous()
+        self._frequency = frequency_plan
+        self._sources = sources
+        self._next = 0
+        self._failed = False
+        self._closed = False
+
+    def _poison(self) -> None:
+        self._failed = True
+        self._adapter = self._context = self._rows = None
+        self._frequency = self._sources = None
+
+    def __call__(
+        self, action: final_capability.FinalAction, batch_ordinal: int,
+    ) -> diagnostic_integration.CapturedObservationalBatch:
+        if self._failed or self._closed or self._next >= len(
+            diagnostic_integration.NATIVE_SCHEDULE
+        ) or (action, batch_ordinal) != diagnostic_integration.NATIVE_SCHEDULE[self._next]:
+            self._poison()
+            raise RuntimeError("native denominator prepass order changed")
+        try:
+            materialized = final_actions.materialize(
+                final_actions.plan_for(action.arm, action.background), self._sources,
+            )
+            start = batch_ordinal * runtime.BATCH_SIZE
+            indices = tuple(range(start, start + runtime.BATCH_SIZE))
+            rows = self._rows[start:start + runtime.BATCH_SIZE].contiguous()
+            frequency = self._frequency.batch(batch_ordinal)
+            identity = final_actions.FinalActionBatchIdentity.from_role_rows(
+                materialized=materialized, role_rows=rows,
+                ordered_batch_indices=indices, batch_ordinal=batch_ordinal,
+                source_commit=self._context.source_commit,
+                inherited_snapshot_sha256=self._context.inherited_snapshot_sha256,
+                rows_receipt_sha256=self._context.rows_receipt_sha256,
+                final_role_tensor_sha256=self._context.final_role_tensor_sha256,
+                program_payload_sha256=self._payload,
+                common_support_sha256=self._support,
+            )
+            reductions, backend_receipt, consumer_capture = (
+                self._adapter.run_final_baseline_batch_captured(
+                    materialized=materialized, identity=identity, role_rows=rows,
+                    ordered_row_indices=indices, frequency_bins=frequency,
+                )
+            )
+            result = observational_role.observational_batch_from_backend(
+                action=action, common_support_sha256=self._support,
+                reductions=reductions, receipt=backend_receipt,
+            )
+            captured = diagnostic_integration.bind_completed_consumer_capture(
+                batch=result, capture=consumer_capture,
+                final_context_sha256=self._context.sha256,
+                program_payload_sha256=self._payload,
+            )
+        except BaseException:
+            self._poison()
+            raise
+        self._next += 1
+        if self._next == len(diagnostic_integration.NATIVE_SCHEDULE):
+            self._closed = True
+            self._adapter = self._context = self._rows = None
+            self._frequency = self._sources = None
+        return captured
+
+
 class FinalObservationalBatchExecutor:
     """One-shot real adapter join consumed by ``FinalObservationalRoleOwner``."""
 
@@ -285,6 +376,7 @@ class FinalObservationalBatchExecutor:
         self._batch_sha256s: list[str] = []
         self._failed = False
         self._receipt: FinalObservationalExecutionReceipt | None = None
+        self._native_executor_minted = False
 
     @property
     def issuer_id(self) -> str:
@@ -300,6 +392,52 @@ class FinalObservationalBatchExecutor:
             raise RuntimeError("observational execution receipt is unavailable")
         return self._receipt
 
+    def make_native_denominator_executor(self) -> FinalNativeDenominatorBatchExecutor:
+        """Mint one prepass owner before any canonical action has executed."""
+
+        if self._failed or self._receipt is not None or self._native_executor_minted or (
+            self._next_action != 0 or self._next_batch != 0
+        ):
+            self._poison()
+            raise RuntimeError("native denominator prepass was minted late or twice")
+        self._native_executor_minted = True
+        return FinalNativeDenominatorBatchExecutor(
+            adapter=self._adapter, final_context=self._context,
+            final_rows=self._rows, frequency_plan=self._frequency,
+            sources=self._sources, program_payload_sha256=self._payload_sha256,
+            common_support_sha256=self._support_sha256,
+        )
+
+    def make_integrated_diagnostic_owner(
+        self, response_run: Any,
+    ) -> diagnostic_integration.IntegratedDiagnosticOwner:
+        """Join physical callbacks without loading or authorizing the final role."""
+
+        import early_mlp_suffix_transport_v1_response_execution as response_execution
+
+        if type(response_run) is not response_execution.ObservedResponseRunResult or (
+            response_run.receipt.final_context_sha256 != self._context.sha256
+        ) or response_run.receipt.program_payload_sha256 != self._payload_sha256 or (
+            response_run.receipt.common_support_sha256 != self._support_sha256
+        ):
+            self._poison()
+            raise RuntimeError("integrated response run differs from observational authority")
+        native = self.make_native_denominator_executor()
+
+        def native_callback(action, batch_ordinal):
+            try:
+                return native(action, batch_ordinal)
+            except BaseException:
+                self._poison()
+                raise
+
+        return diagnostic_integration.IntegratedDiagnosticOwner(
+            issuer_id=self._issuer_id,
+            common_support_sha256=self._support_sha256,
+            native_executor=native_callback, action_executor=self.run_captured,
+            response_run=response_run,
+        )
+
     def _poison(self) -> None:
         self._failed = True
         self._adapter = self._rows = self._frequency = self._denominators = None
@@ -309,6 +447,18 @@ class FinalObservationalBatchExecutor:
     def __call__(
         self, action: final_capability.FinalAction, batch_ordinal: int,
     ) -> observational_role.FinalObservationalBatch:
+        return self._execute(action, batch_ordinal, captured=False)
+
+    def run_captured(
+        self, action: final_capability.FinalAction, batch_ordinal: int,
+    ) -> diagnostic_integration.CapturedObservationalBatch:
+        """Run the canonical action once with the live-consumer output hooks."""
+
+        return self._execute(action, batch_ordinal, captured=True)
+
+    def _execute(
+        self, action: final_capability.FinalAction, batch_ordinal: int, *, captured: bool,
+    ) -> Any:
         if self._failed or self._receipt is not None or self._next_action >= len(
             final_capability.CANONICAL_ACTIONS
         ) or action != final_capability.CANONICAL_ACTIONS[self._next_action] or (
@@ -342,13 +492,22 @@ class FinalObservationalBatchExecutor:
                 local_denominators = self._denominators if (
                     action.background == "N" and program.route == "L"
                 ) else None
-                reductions, backend_receipt = self._adapter.run_materialized_final_program_batch(
+                backend = (
+                    self._adapter.run_materialized_final_program_batch_captured
+                    if captured else self._adapter.run_materialized_final_program_batch
+                )
+                backend_value = backend(
                     broker=self._broker, hook=self._hook,
                     materialized=self._materialized, identity=identity,
                     final_context=self._context, role_rows=rows,
                     ordered_row_indices=indices, denominators=local_denominators,
                     frequency_bins=frequency,
                 )
+                if captured:
+                    reductions, backend_receipt, consumer_capture = backend_value
+                else:
+                    reductions, backend_receipt = backend_value
+                    consumer_capture = None
                 after = self._broker.ledger_snapshot
                 if any(getattr(after, name) != getattr(before, name) + 1 for name in (
                     "student_identity_count", "teacher_identity_count",
@@ -358,11 +517,20 @@ class FinalObservationalBatchExecutor:
                 ):
                     raise RuntimeError("observational program broker transaction did not close")
             else:
-                reductions, backend_receipt = self._adapter.run_final_baseline_batch(
+                backend = (
+                    self._adapter.run_final_baseline_batch_captured
+                    if captured else self._adapter.run_final_baseline_batch
+                )
+                backend_value = backend(
                     materialized=self._materialized, identity=identity,
                     role_rows=rows, ordered_row_indices=indices,
                     frequency_bins=frequency,
                 )
+                if captured:
+                    reductions, backend_receipt, consumer_capture = backend_value
+                else:
+                    reductions, backend_receipt = backend_value
+                    consumer_capture = None
                 after = self._broker.ledger_snapshot
                 if asdict(after) != asdict(before):
                     raise RuntimeError("observational baseline spent the program broker")
@@ -371,6 +539,13 @@ class FinalObservationalBatchExecutor:
                 reductions=reductions, receipt=backend_receipt,
             )
             self._batch_sha256s.append(result.sha256)
+            captured_result = (
+                diagnostic_integration.bind_completed_consumer_capture(
+                    batch=result, capture=consumer_capture,
+                    final_context_sha256=self._context.sha256,
+                    program_payload_sha256=self._payload_sha256,
+                ) if captured else None
+            )
         except BaseException:
             self._poison()
             raise
@@ -405,4 +580,4 @@ class FinalObservationalBatchExecutor:
             self._adapter = self._rows = self._frequency = self._denominators = None
             self._sources = self._hook = self._broker = self._materialized = None
             self._batch_sha256s.clear()
-        return result
+        return captured_result if captured else result
