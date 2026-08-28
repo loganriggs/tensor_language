@@ -33,6 +33,9 @@ IMPLEMENTATION_AMENDMENT = (
 FINAL_CAPABILITY_AMENDMENT = (
     HERE / "EARLY_MLP_SUFFIX_TRANSPORT_V1_FINAL_CAPABILITY_AMENDMENT.md"
 )
+CONSUMER_NORM_AMENDMENT = (
+    HERE / "EARLY_MLP_SUFFIX_TRANSPORT_V1_CONSUMER_NORM_AMENDMENT.md"
+)
 PURE_CONTRACT = HERE / "early_mlp_suffix_transport_v1.py"
 PURE_TEST = HERE / "test_early_mlp_suffix_transport_v1.py"
 OBSERVED_EXECUTION_CLOSURE = (
@@ -75,6 +78,8 @@ NUMERICAL_STAGE_CLOSURE = (
     HERE / "test_early_mlp_suffix_transport_v1_observational_authority.py",
     HERE / "early_mlp_suffix_transport_v1_final_actions.py",
     HERE / "test_early_mlp_suffix_transport_v1_final_actions.py",
+    HERE / "early_mlp_suffix_transport_v1_consumer_norms.py",
+    HERE / "test_early_mlp_suffix_transport_v1_consumer_norms.py",
 )
 FROZEN_SHA256 = {
     PREREGISTRATION: "11577380d65c813cf9e80e92002de9569928d293747c278c065939b3f3b24193",
@@ -87,6 +92,7 @@ SOURCE_CLOSURE = (
     PREREGISTRATION,
     IMPLEMENTATION_AMENDMENT,
     FINAL_CAPABILITY_AMENDMENT,
+    CONSUMER_NORM_AMENDMENT,
     HERE / "EARLY_MLP_SUFFIX_TRANSPORT_V1_N_WRITE_SEMANTICS.md",
     HERE / "EARLY_MLP_SUFFIX_TRANSPORT_V1_GRAPH_IDENTITY.md",
     PURE_CONTRACT,
