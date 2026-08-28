@@ -1379,3 +1379,100 @@ class ObservedBilin18Adapter:
             unit_identity_sha256=edit.unit_identity_sha256,
             observed_closure=observed,
         )
+
+    def _run_final_response_student_forward(
+        self, *, broker: Any, hook: runtime.StudentCorrectionHook,
+        materialized: final_actions.MaterializedFinalAction,
+        final_action_identity: final_actions.FinalActionBatchIdentity,
+        binding: response_execution.ResponseProgramBatchBinding,
+        edit: response_execution.FinalResponseEdit, final_context: Any,
+        role_rows: torch.Tensor, ordered_batch_indices: Any,
+        basis0: torch.Tensor,
+    ) -> _ObservedResponseStudentForward:
+        """Execute and consume one perturbation-bound P/P/N student forward."""
+
+        import early_mlp_suffix_transport_v1_capabilities as capabilities
+
+        if not isinstance(broker, capabilities.CapabilityBroker) or not isinstance(
+            hook, runtime.StudentCorrectionHook
+        ) or not isinstance(materialized, final_actions.MaterializedFinalAction) or not isinstance(
+            final_action_identity, final_actions.FinalActionBatchIdentity
+        ) or not isinstance(binding, response_execution.ResponseProgramBatchBinding) or not isinstance(
+            edit, response_execution.FinalResponseEdit
+        ) or not isinstance(final_context, capabilities.FinalRunContext):
+            raise TypeError("response student requires typed execution authorities")
+        indices = tuple(ordered_batch_indices)
+        trace = binding.runtime_identity
+        execution_identity = binding.execution_identity
+        final_action_identity.require_role_rows(
+            materialized=materialized, role_rows=role_rows,
+            ordered_batch_indices=indices,
+        )
+        edit.require_pristine(
+            role_rows=role_rows, ordered_batch_indices=indices, basis0=basis0,
+        )
+        final_context.require_identity(
+            trace, role_rows[:, :runtime.SEQUENCE_LENGTH].contiguous(), indices,
+        )
+        if broker.ledger_snapshot.run_context_sha256 != final_context.sha256 or (
+            execution_identity.final_action_identity_sha256 != final_action_identity.sha256
+        ) or execution_identity.materialization_sha256 != materialized.sha256 or (
+            execution_identity.edit_sha256 != edit.sha256
+        ) or execution_identity.runtime_identity_sha256 != trace.sha256 or (
+            execution_identity.unit_identity_sha256 != edit.unit_identity_sha256
+        ):
+            raise RuntimeError("response student authorities do not share one identity")
+        program = materialized.make_program()
+        try:
+            hook.configure(
+                program=program, states={0: "P", 1: "P"},
+                site0_edit=edit.code_edit,
+            )
+            try:
+                model_device = next(self._model.parameters()).device
+            except StopIteration as error:
+                raise RuntimeError("observed model has no device-bearing parameters") from error
+            model_inputs = role_rows[:, :runtime.SEQUENCE_LENGTH].contiguous().to(
+                model_device
+            )
+            session = broker.begin_student(trace, hook, model_inputs, indices)
+        except BaseException:
+            try:
+                hook.clear_configuration()
+            except BaseException:
+                pass
+            raise
+        with torch.no_grad():
+            step, student_closure, observed = self.run_student(
+                session=session, hook=hook, identity=trace, tokens=model_inputs,
+            )
+            private_tensors, consumer_closure = broker._consume_final_response_student(
+                trace, step,
+            )
+            private_sha256 = private_tensors.sha256
+            code1, logits = private_tensors._take_for_observed_adapter(trace)
+        if student_closure.scope != "student" or student_closure.original_calls != (
+            capabilities.EXACT_ZERO_CALLS
+        ) or not student_closure.hook_restored or not student_closure.hook_inert or (
+            consumer_closure.scope != "final_response_student"
+        ) or consumer_closure.original_calls != capabilities.EXACT_ZERO_CALLS or not (
+            consumer_closure.consumed
+        ) or observed.deployed_n_calls != ((0, 1), (1, 1), (2, 1)) or (
+            observed.correction_calls != ((0, 1), (1, 1), (2, 0))
+        ) or observed.literal_early_mlp_calls != ((0, 0), (1, 0), (2, 0)) or not (
+            observed.native_guard_restored and observed.native_guard_inert
+        ) or consumer_closure.output_sha256 != private_sha256:
+            raise RuntimeError("response student forward did not close exactly")
+        broker_snapshot = broker.ledger_snapshot
+        if broker_snapshot.outstanding_identity_sha256 is not None:
+            raise RuntimeError("response student broker retained an outstanding identity")
+        return _ObservedResponseStudentForward(
+            code1=code1, logits=logits,
+            response_execution_identity_sha256=execution_identity.sha256,
+            edit_sha256=edit.sha256,
+            unit_identity_sha256=edit.unit_identity_sha256,
+            student_step_ledger_sha256=student_closure.ledger_sha256,
+            consumer_ledger_sha256=consumer_closure.ledger_sha256,
+            broker_ledger_sha256=runtime.logical_identity_sha256(asdict(broker_snapshot)),
+            observed_closure=observed,
+        )

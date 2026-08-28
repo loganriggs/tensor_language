@@ -1,0 +1,359 @@
+from types import SimpleNamespace
+import hashlib
+from pathlib import Path
+
+import pytest
+import torch
+
+import bilin18_observed_adapter as observed
+import early_mlp_suffix_transport_v1_capabilities as capabilities
+import early_mlp_suffix_transport_v1_final_actions as final_actions
+import early_mlp_suffix_transport_v1_programs as programs
+import early_mlp_suffix_transport_v1_response_execution as execution
+import early_mlp_suffix_transport_v1_response_plan as response_plan
+import early_mlp_suffix_transport_v1_runtime as runtime
+
+
+def _geometry() -> programs.TransportInterventionGeometry:
+    identity = torch.eye(runtime.CODE_DIM, dtype=torch.float64)
+    signs = torch.ones(32, runtime.CODE_DIM, dtype=torch.long)
+    signs[1::2].neg_()
+    return programs.TransportInterventionGeometry(
+        selected_l_program_sha256="1" * 64,
+        fit_role_tensor_sha256="2" * 64,
+        code_trajectory_sha256="3" * 64,
+        code_count=capabilities.FIT_ROW_COUNT * (
+            runtime.SCORE_STOP - runtime.SCORE_START
+        ),
+        mean=torch.zeros(runtime.CODE_DIM, dtype=torch.float64),
+        covariance=identity.clone(),
+        eigenvalues=torch.ones(runtime.CODE_DIM, dtype=torch.float64),
+        eigenvectors=identity.clone(),
+        clipped_eigenvalues=torch.ones(runtime.CODE_DIM, dtype=torch.float64),
+        clip_floor=1e-12,
+        natural_rms=2.0,
+        raw_rademacher_signs=signs,
+        normalized_directions=signs.double(),
+    )
+
+
+def _program_bank():
+    calibration = programs.select_teacher_calibration({
+        0.01: 0.011, 0.03: 0.04, 0.1: 0.11, 0.3: 0.30, 1.0: 1.0,
+    })
+    return {
+        "transport_geometry": _geometry(),
+        "teacher_calibration": calibration,
+        "payload_sha256": "4" * 64,
+    }
+
+
+def _rows():
+    return torch.arange(4 * 513, dtype=torch.long).reshape(4, 513).contiguous()
+
+
+def _basis():
+    return torch.eye(runtime.D_MODEL, dtype=torch.float32)[:, :runtime.CODE_DIM].contiguous()
+
+
+def _materialized_ll():
+    def site():
+        return runtime.AffineCodeProgram(
+            mean=torch.zeros(runtime.D_MODEL), scale=torch.ones(runtime.D_MODEL),
+            weight=torch.zeros(runtime.D_MODEL, runtime.CODE_DIM),
+            bias=torch.zeros(runtime.CODE_DIM),
+        )
+    program = runtime.JointAffineProgram(site(), site(), route="L")
+    return final_actions.MaterializedFinalAction(
+        plan=final_actions.plan_for("ll", "N"), source_bank_sha256="5" * 64,
+        component_sha256s={"test": "6" * 64}, program=program,
+    )
+
+
+def test_authority_derives_antithetic_code_and_matching_physical_edits():
+    rows = _rows()
+    basis = _basis()
+    edits = {
+        sign: execution.build_final_response_edit(
+            validated_program_bank=_program_bank(), role_rows=rows,
+            ordered_batch_indices=(0, 1, 2, 3), batch_ordinal=0,
+            basis0=basis, edit_sign=sign,
+        ) for sign in execution.EDIT_SIGNS
+    }
+    assert len({value.unit_identity_sha256 for value in edits.values()}) == 1
+    assert torch.equal(edits[-1].code_edit, -edits[1].code_edit)
+    assert torch.equal(edits[-1].physical_edit, -edits[1].physical_edit)
+    assert edits[1].semantic_delta.dtype == torch.float64
+    assert torch.equal(edits[-1].semantic_delta, -edits[1].semantic_delta)
+    assert not bool(edits[0].code_edit.any())
+    assert not bool(edits[0].physical_edit.any())
+    assert torch.equal(edits[1].physical_edit, edits[1].code_edit @ basis.T)
+    assignments = programs.intervention_assignments("final")
+    assert torch.equal(edits[1].positions, assignments["positions"][:4])
+    assert torch.equal(
+        edits[1].direction_indices, assignments["direction_indices"][:4],
+    )
+    # The selected multiplier is .03 and natural RMS is 2.
+    magnitude = edits[1].code_edit[
+        torch.arange(4), edits[1].positions,
+    ].abs().mean(dim=1)
+    torch.testing.assert_close(magnitude, torch.full((4,), 0.06))
+
+
+def test_response_execution_amendment_hash_is_pinned():
+    path = Path(__file__).with_name(
+        "EARLY_MLP_SUFFIX_TRANSPORT_V1_RESPONSE_EXECUTION_AMENDMENT.md"
+    )
+    assert hashlib.sha256(path.read_bytes()).hexdigest() == (
+        execution.RESPONSE_EXECUTION_AMENDMENT_SHA256
+    )
+
+
+def test_edit_rejects_wrong_rows_basis_schedule_and_post_mint_mutation():
+    rows = _rows()
+    basis = _basis()
+    edit = execution.build_final_response_edit(
+        validated_program_bank=_program_bank(), role_rows=rows,
+        ordered_batch_indices=(0, 1, 2, 3), batch_ordinal=0,
+        basis0=basis, edit_sign=1,
+    )
+    changed_rows = rows.clone()
+    changed_rows[0, -1] += 1
+    with pytest.raises(RuntimeError, match="rows or schedule"):
+        edit.require_pristine(
+            role_rows=changed_rows, ordered_batch_indices=(0, 1, 2, 3),
+            basis0=basis,
+        )
+    changed_basis = basis.roll(1, dims=0)
+    with pytest.raises(RuntimeError, match="basis changed"):
+        edit.require_pristine(
+            role_rows=rows, ordered_batch_indices=(0, 1, 2, 3),
+            basis0=changed_basis,
+        )
+    edit.code_edit[0, edit.positions[0], 0] += 1
+    with pytest.raises(RuntimeError, match="mutated"):
+        edit.require_pristine(
+            role_rows=rows, ordered_batch_indices=(0, 1, 2, 3),
+            basis0=basis,
+        )
+    with pytest.raises(ValueError, match="canonical"):
+        execution.build_final_response_edit(
+            validated_program_bank=_program_bank(), role_rows=rows,
+            ordered_batch_indices=(4, 5, 6, 7), batch_ordinal=0,
+            basis0=basis, edit_sign=1,
+        )
+
+
+def test_response_runtime_nonce_binds_perturbation_and_actual_edit():
+    rows = _rows()
+    basis = _basis()
+    materialized = _materialized_ll()
+    identity = final_actions.FinalActionBatchIdentity.from_role_rows(
+        materialized=materialized, role_rows=rows,
+        ordered_batch_indices=(0, 1, 2, 3), batch_ordinal=0,
+        source_commit="7" * 40, inherited_snapshot_sha256="8" * 64,
+        rows_receipt_sha256="9" * 64, final_role_tensor_sha256="a" * 64,
+        program_payload_sha256="4" * 64, common_support_sha256="b" * 64,
+    )
+    edits = {
+        sign: execution.build_final_response_edit(
+            validated_program_bank=_program_bank(), role_rows=rows,
+            ordered_batch_indices=(0, 1, 2, 3), batch_ordinal=0,
+            basis0=basis, edit_sign=sign,
+        ) for sign in execution.EDIT_SIGNS
+    }
+    plan = response_plan.build_response_batch_plan(
+        batch_ordinal=0,
+        ordered_role_rows_sha256=runtime.tensor_identity_sha256(rows),
+        intervention_unit_sha256=edits[0].unit_identity_sha256,
+    )
+    ll = {
+        forward.perturbation: forward for forward in plan.forwards
+        if forward.subject_key == "ll/N"
+    }
+    bindings = {
+        perturbation: execution.bind_runtime_response_program_batch(
+            materialized=materialized, final_action_identity=identity,
+            forward_plan=ll[perturbation],
+            edit=edits[{"baseline": 0, "positive": 1, "negative": -1}[perturbation]],
+            role_rows=rows, ordered_batch_indices=(0, 1, 2, 3),
+            teacher_mapping_sha256="c" * 64,
+        ) for perturbation in response_plan.PERTURBATIONS
+    }
+    assert [bindings[name].runtime_identity.trial for name in response_plan.PERTURBATIONS] == [
+        0, 1, 2,
+    ]
+    assert len({value.runtime_identity.sha256 for value in bindings.values()}) == 3
+    assert len({value.execution_identity.sha256 for value in bindings.values()}) == 3
+    assert all(
+        value.execution_identity.response_execution_amendment_sha256
+        == execution.RESPONSE_EXECUTION_AMENDMENT_SHA256
+        for value in bindings.values()
+    )
+    with pytest.raises(RuntimeError, match="bindings disagree"):
+        execution.bind_runtime_response_program_batch(
+            materialized=materialized, final_action_identity=identity,
+            forward_plan=ll["positive"], edit=edits[-1], role_rows=rows,
+            ordered_batch_indices=(0, 1, 2, 3), teacher_mapping_sha256="c" * 64,
+        )
+
+
+class _Native(torch.nn.Module):
+    def __init__(self, scale: float):
+        super().__init__()
+        self.scale = scale
+
+    def forward(self, state):
+        return state * self.scale
+
+
+class _TeacherModel(torch.nn.Module):
+    def __init__(self):
+        super().__init__()
+        self.anchor = torch.nn.Parameter(torch.zeros(()), requires_grad=False)
+        self.transformer = SimpleNamespace(h=[
+            SimpleNamespace(mlp=_Native(0.0 if site == 0 else 2.0))
+            for site in range(18)
+        ])
+
+
+class _Ship:
+    production = False
+
+    def attention(self, event):
+        return torch.zeros_like(event.state)
+
+    def mlp(self, event):
+        return torch.zeros_like(event.state)
+
+
+def test_exact_teacher_applies_physical_edit_and_captures_raw_mlp1_write(monkeypatch):
+    model = _TeacherModel()
+    adapter = observed.ObservedBilin18Adapter(model, _Ship(), production=False)
+    rows = _rows()
+    basis = _basis()
+    edit = execution.build_final_response_edit(
+        validated_program_bank=_program_bank(), role_rows=rows,
+        ordered_batch_indices=(0, 1, 2, 3), batch_ordinal=0,
+        basis0=basis, edit_sign=1,
+    )
+
+    def fake_forward(model, tokens, attention, mlp, *, require_production):
+        assert tuple(tokens.shape) == (runtime.BATCH_SIZE, runtime.SEQUENCE_LENGTH)
+        state = torch.zeros(
+            runtime.BATCH_SIZE, runtime.SEQUENCE_LENGTH, runtime.D_MODEL,
+        )
+        writes = []
+        for site, block in enumerate(model.transformer.h):
+            event = SimpleNamespace(
+                site=site, block=block, state=state,
+                first_value=None, prior_writes=tuple(writes), tokens=tokens,
+            )
+            state = state + attention(event)
+            event.state = state
+            write = mlp(event)
+            writes.append(write)
+            state = state + write
+        return state[..., :3].contiguous()
+
+    monkeypatch.setattr(observed.facade, "forward_with_dispatch", fake_forward)
+    result = adapter._run_final_response_teacher_forward(
+        edit=edit, role_rows=rows, ordered_batch_indices=(0, 1, 2, 3),
+        basis0=basis, basis1=basis,
+    )
+    expected_code = 2 * edit.code_edit[:, runtime.SCORE_START:]
+    expected_logits = 3 * edit.code_edit[:, runtime.SCORE_START:, :3]
+    torch.testing.assert_close(result.code1, expected_code)
+    torch.testing.assert_close(result.logits, expected_logits)
+    assert result.edit_sha256 == edit.sha256
+    assert result.unit_identity_sha256 == edit.unit_identity_sha256
+    assert result.observed_closure.deployed_n_calls == ((0, 0), (1, 0), (2, 1))
+    assert result.observed_closure.literal_early_mlp_calls == (
+        (0, 1), (1, 1), (2, 0),
+    )
+    assert result.observed_closure.native_guard_restored
+    assert result.observed_closure.native_guard_inert
+
+
+def test_response_student_uses_distinct_bound_trace_and_consumes_outputs(monkeypatch):
+    model = _TeacherModel()
+    adapter = observed.ObservedBilin18Adapter(model, _Ship(), production=False)
+    rows = _rows()
+    basis = _basis()
+    materialized = _materialized_ll()
+    final_context = capabilities.FinalRunContext(
+        source_commit="7" * 40, inherited_snapshot_sha256="8" * 64,
+        rows_receipt_sha256="9" * 64, final_role_tensor_sha256="a" * 64,
+        identity_teacher_mapping_sha256="c" * 64,
+    )
+    identity = final_actions.FinalActionBatchIdentity.from_role_rows(
+        materialized=materialized, role_rows=rows,
+        ordered_batch_indices=(0, 1, 2, 3), batch_ordinal=0,
+        source_commit=final_context.source_commit,
+        inherited_snapshot_sha256=final_context.inherited_snapshot_sha256,
+        rows_receipt_sha256=final_context.rows_receipt_sha256,
+        final_role_tensor_sha256=final_context.final_role_tensor_sha256,
+        program_payload_sha256="4" * 64, common_support_sha256="b" * 64,
+    )
+    edit = execution.build_final_response_edit(
+        validated_program_bank=_program_bank(), role_rows=rows,
+        ordered_batch_indices=(0, 1, 2, 3), batch_ordinal=0,
+        basis0=basis, edit_sign=1,
+    )
+    plan = response_plan.build_response_batch_plan(
+        batch_ordinal=0,
+        ordered_role_rows_sha256=runtime.tensor_identity_sha256(rows),
+        intervention_unit_sha256=edit.unit_identity_sha256,
+    )
+    positive = next(
+        item for item in plan.forwards
+        if item.subject_key == "ll/N" and item.perturbation == "positive"
+    )
+    binding = execution.bind_runtime_response_program_batch(
+        materialized=materialized, final_action_identity=identity,
+        forward_plan=positive, edit=edit, role_rows=rows,
+        ordered_batch_indices=(0, 1, 2, 3),
+        teacher_mapping_sha256=final_context.identity_teacher_mapping_sha256,
+    )
+    coordinator = runtime.ScopeCoordinator()
+    hook = runtime.StudentCorrectionHook(
+        {0: basis, 1: basis}, issuer_id="d" * 64, coordinator=coordinator,
+    )
+    broker = adapter.make_capability_broker(
+        issuer_id="d" * 64, coordinator=coordinator,
+        run_context=final_context, bases={0: basis, 1: basis},
+    )
+
+    def fake_forward(model, tokens, attention, mlp, *, require_production):
+        state = torch.zeros(
+            runtime.BATCH_SIZE, runtime.SEQUENCE_LENGTH, runtime.D_MODEL,
+        )
+        writes = []
+        for site, block in enumerate(model.transformer.h):
+            event = SimpleNamespace(
+                site=site, block=block, state=state,
+                first_value=None, prior_writes=tuple(writes), tokens=tokens,
+            )
+            state = state + attention(event)
+            event.state = state
+            write = mlp(event)
+            writes.append(write)
+            state = state + write
+        return state[..., :3].contiguous()
+
+    monkeypatch.setattr(observed.facade, "forward_with_dispatch", fake_forward)
+    result = adapter._run_final_response_student_forward(
+        broker=broker, hook=hook, materialized=materialized,
+        final_action_identity=identity, binding=binding, edit=edit,
+        final_context=final_context, role_rows=rows,
+        ordered_batch_indices=(0, 1, 2, 3), basis0=basis,
+    )
+    assert result.response_execution_identity_sha256 == binding.execution_identity.sha256
+    assert result.edit_sha256 == edit.sha256
+    assert result.unit_identity_sha256 == edit.unit_identity_sha256
+    assert tuple(result.code1.shape) == (4, 192, 64)
+    assert tuple(result.logits.shape) == (4, 192, 3)
+    assert result.observed_closure.deployed_n_calls == ((0, 1), (1, 1), (2, 1))
+    assert broker.ledger_snapshot.completed_identity_count == 1
+    assert broker.ledger_snapshot.outstanding_identity_sha256 is None
+    assert coordinator.idle

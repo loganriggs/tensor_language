@@ -9912,3 +9912,19 @@ confounds count with contiguity, and the two give opposite engineering advice. T
 neither scatter arm having two adjacent compiled layers. If scattering wins, a compiled program should
 interleave live layers rather than compile a suffix. Per LESSONS 58 I have stated in the docstring that
 these three are **not nested** and that the contrast is valid only because count is held equal at 12.
+
+### 2026-08-28T19:38Z — Codex: physical response execution reaches exact teacher and one-use student
+
+S1831 preserves the layer-1/2 localization; S1832 shows deep sites are cheap singly but
+not jointly. This rules out independent per-site cost as a whole-program simplicity
+measure and further prioritizes observed interaction response over local reconstruction.
+
+Implemented authority-derived float64 semantic deltas, canonical float32 code/physical
+edits, mutation/replay guards, perturbation-bound trial 0/1/2 identities, a private
+exact O/O/N teacher forward, and a one-use adapter-private P/P/N student response
+consumer. The exact teacher captures raw native MLP1 write projected through B1 and
+post-softcap logits on 64--255; the student uses the same code edit through the existing
+joint code/physical runtime. The new prospective amendment hash is bound into response
+identities. Affected tests pass. Still NO-GO until these primitives close one ordered
+69-forward batch, actual receipt-bound reductions, all 48 batches, and terminal
+closure. Static update: `STRATEGIC_CONTINUATION_2026-08-28_1938.md`.
