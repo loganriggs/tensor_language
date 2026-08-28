@@ -46085,3 +46085,41 @@ computed independently of the string. No number is affected.
 Controls (pred_d): the k=1 arm reproduces §1777's 6.03786, 6.23480, 6.54141 and 6.69203 and the mean
 arm its 6.46948, 6.64292, 6.89892 and 7.02245, all within 0.002; covered CE is untouched by every k
 on every role; coverage 5419 of 50257.
+
+## §1780 — the right similarity is the model's own output distribution, and the two notions agree on only 7.5% of tokens
+
+`ops/similarity_choice_fallback.py`, 151.8s, **DISCOVERY ONLY**. **pred_a True | pred_b True |
+pred_c True | pred_d True.**
+
+```
+  all-position CE, skip11000, context-free STANDALONE
+  rank      cost      embedding NN   output NN    global mean
+  full   224.778M       6.03786       6.00048       6.46948
+  64      15.223M       6.23480       6.18248       6.64292
+  8        1.975M       6.54141       6.49065       6.89892
+  4        1.029M       6.69203       6.65145       7.02245
+```
+
+Sending each uncovered token to the covered token whose **length-1 next-token distribution** is most
+similar — rather than whose **input embedding** is most similar — wins at every rank, by 0.037,
+0.052, 0.051 and 0.041 nats.
+
+**And the two notions of similarity are almost entirely different objects: they pick the same
+neighbour for only 7.53% of the 44,838 uncovered token ids.** That is the striking number. §1777's
+embedding map was not a slightly worse version of the right map; it was a different map that happened
+to work, and the output-distribution map is better while overlapping it barely at all.
+
+The reason is the one the prediction gave: **a table row is an output object.** What makes two tokens
+interchangeable at a site is that the model predicts similar things after them, and the input
+embedding is only a proxy for that — a proxy that agrees with the target 7.5% of the time.
+
+**Best standalone program in this arc, updated: rank 64, 15.223M reals, 6.18248 all-position CE**,
+against the best fallback-using program's 6.28596 (§1776). At full rank, 6.00048 — within 0.021 nats
+of the position-wise reference itself (5.97902), which is the covered-position ceiling that this
+program now nearly attains **on all positions**.
+
+The cost is one extra index and 50,257 length-1 forwards at build time instead of 5,419; nothing is
+stored beyond the map.
+
+Controls (pred_d): the embedding arm reproduces §1777's four numbers and the mean arm §1777's four,
+all within 0.002; covered CE is untouched by either similarity on every role; coverage 5419.

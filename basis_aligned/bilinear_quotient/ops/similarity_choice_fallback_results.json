@@ -1,0 +1,235 @@
+{
+ "config": {
+  "ranks": [
+   "None",
+   "64",
+   "8",
+   "4"
+  ],
+  "third_role": "fineweb_n96_skip1200 -- a pinned role, half the row count, never scored for a program-frontier quantity. It WAS the confirmation role for the token-class family in S1734, a different hypothesis, so this is a SECOND-CLASS confirmation and not a virgin role.",
+  "baseline": "each role's own fit-mean all-tabled CE, computed in-run because skip1200 has no published baseline",
+  "ROLE_NOTE": "DISCOVERY plus SECOND-CLASS CONFIRMATION."
+ },
+ "baseline": {
+  "skip7000": {
+   "live": 3.29205,
+   "live_all": 3.13704,
+   "all_tabled_fitmean": 7.35114,
+   "all_all": 6.42601
+  },
+  "skip11000": {
+   "live": 3.09711,
+   "live_all": 2.9345,
+   "all_tabled_fitmean": 7.35825,
+   "all_all": 6.34771
+  },
+  "skip1200": {
+   "live": 3.40277,
+   "live_all": 3.23027,
+   "all_tabled_fitmean": 7.19655,
+   "all_all": 6.29358
+  }
+ },
+ "by_table_rank": {
+  "full": {
+   "cost_M": 224.7782,
+   "embedding_skip7000": {
+    "cov_ce": 6.03465,
+    "all_ce": 6.05666,
+    "gain_over_live": 2.91962
+   },
+   "embedding_skip11000": {
+    "cov_ce": 5.979,
+    "all_ce": 6.03786,
+    "gain_over_live": 3.10336
+   },
+   "embedding_skip1200": {
+    "cov_ce": 5.96423,
+    "all_ce": 6.0474,
+    "gain_over_live": 2.81712
+   },
+   "output_skip7000": {
+    "cov_ce": 6.03465,
+    "all_ce": 6.01807,
+    "gain_over_live": 2.88103
+   },
+   "output_skip11000": {
+    "cov_ce": 5.979,
+    "all_ce": 6.00048,
+    "gain_over_live": 3.06598
+   },
+   "output_skip1200": {
+    "cov_ce": 5.96423,
+    "all_ce": 6.00834,
+    "gain_over_live": 2.77807
+   },
+   "mean_skip7000": {
+    "cov_ce": 6.03465,
+    "all_ce": 6.42143,
+    "gain_over_live": 3.28439
+   },
+   "mean_skip11000": {
+    "cov_ce": 5.979,
+    "all_ce": 6.46948,
+    "gain_over_live": 3.53498
+   },
+   "mean_skip1200": {
+    "cov_ce": 5.96423,
+    "all_ce": 6.44227,
+    "gain_over_live": 3.212
+   }
+  },
+  "64": {
+   "cost_M": 15.2225,
+   "embedding_skip7000": {
+    "cov_ce": 6.25792,
+    "all_ce": 6.24543,
+    "gain_over_live": 3.10839
+   },
+   "embedding_skip11000": {
+    "cov_ce": 6.21152,
+    "all_ce": 6.2348,
+    "gain_over_live": 3.3003
+   },
+   "embedding_skip1200": {
+    "cov_ce": 6.16197,
+    "all_ce": 6.21155,
+    "gain_over_live": 2.98128
+   },
+   "output_skip7000": {
+    "cov_ce": 6.25792,
+    "all_ce": 6.19146,
+    "gain_over_live": 3.05442
+   },
+   "output_skip11000": {
+    "cov_ce": 6.21152,
+    "all_ce": 6.18248,
+    "gain_over_live": 3.24798
+   },
+   "output_skip1200": {
+    "cov_ce": 6.16197,
+    "all_ce": 6.15152,
+    "gain_over_live": 2.92125
+   },
+   "mean_skip7000": {
+    "cov_ce": 6.25792,
+    "all_ce": 6.59085,
+    "gain_over_live": 3.45381
+   },
+   "mean_skip11000": {
+    "cov_ce": 6.21152,
+    "all_ce": 6.64292,
+    "gain_over_live": 3.70842
+   },
+   "mean_skip1200": {
+    "cov_ce": 6.16197,
+    "all_ce": 6.59218,
+    "gain_over_live": 3.3619
+   }
+  },
+  "8": {
+   "cost_M": 1.9754,
+   "embedding_skip7000": {
+    "cov_ce": 6.58011,
+    "all_ce": 6.53214,
+    "gain_over_live": 3.3951
+   },
+   "embedding_skip11000": {
+    "cov_ce": 6.55472,
+    "all_ce": 6.54141,
+    "gain_over_live": 3.60691
+   },
+   "embedding_skip1200": {
+    "cov_ce": 6.46758,
+    "all_ce": 6.48844,
+    "gain_over_live": 3.25817
+   },
+   "output_skip7000": {
+    "cov_ce": 6.58011,
+    "all_ce": 6.48269,
+    "gain_over_live": 3.34565
+   },
+   "output_skip11000": {
+    "cov_ce": 6.55472,
+    "all_ce": 6.49065,
+    "gain_over_live": 3.55615
+   },
+   "output_skip1200": {
+    "cov_ce": 6.46758,
+    "all_ce": 6.4328,
+    "gain_over_live": 3.20253
+   },
+   "mean_skip7000": {
+    "cov_ce": 6.58011,
+    "all_ce": 6.83535,
+    "gain_over_live": 3.6983
+   },
+   "mean_skip11000": {
+    "cov_ce": 6.55472,
+    "all_ce": 6.89892,
+    "gain_over_live": 3.96442
+   },
+   "mean_skip1200": {
+    "cov_ce": 6.46758,
+    "all_ce": 6.82385,
+    "gain_over_live": 3.59358
+   }
+  },
+  "4": {
+   "cost_M": 1.0292,
+   "embedding_skip7000": {
+    "cov_ce": 6.73858,
+    "all_ce": 6.67601,
+    "gain_over_live": 3.53897
+   },
+   "embedding_skip11000": {
+    "cov_ce": 6.72034,
+    "all_ce": 6.69203,
+    "gain_over_live": 3.75754
+   },
+   "embedding_skip1200": {
+    "cov_ce": 6.6412,
+    "all_ce": 6.63885,
+    "gain_over_live": 3.40858
+   },
+   "output_skip7000": {
+    "cov_ce": 6.73858,
+    "all_ce": 6.63452,
+    "gain_over_live": 3.49748
+   },
+   "output_skip11000": {
+    "cov_ce": 6.72034,
+    "all_ce": 6.65145,
+    "gain_over_live": 3.71695
+   },
+   "output_skip1200": {
+    "cov_ce": 6.6412,
+    "all_ce": 6.59226,
+    "gain_over_live": 3.36199
+   },
+   "mean_skip7000": {
+    "cov_ce": 6.73858,
+    "all_ce": 6.9556,
+    "gain_over_live": 3.81856
+   },
+   "mean_skip11000": {
+    "cov_ce": 6.72034,
+    "all_ce": 7.02245,
+    "gain_over_live": 4.08795
+   },
+   "mean_skip1200": {
+    "cov_ce": 6.6412,
+    "all_ce": 6.95547,
+    "gain_over_live": 3.72519
+   }
+  }
+ },
+ "neighbour_map_agreement": 0.07533787935972214,
+ "predictions": {
+  "pred_a_output_similarity_wins": true,
+  "pred_b_by_at_least_0p02_at_rank64": true,
+  "pred_c_change_is_confined_to_uncovered": true,
+  "pred_d_controls": true
+ },
+ "runtime_s": 151.8
+}
