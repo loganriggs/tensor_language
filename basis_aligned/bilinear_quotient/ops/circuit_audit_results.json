@@ -1,0 +1,315 @@
+{
+ "config": {
+  "registry": "/workspace/theseus-bench/registry/circuits.json",
+  "eval_sets": [
+   "skip7000",
+   "skip11000"
+  ],
+  "fit_rows": "fineweb_n96_skip80.pt",
+  "removal": "components replaced by their optimal constants; CE cost in nats",
+  "extraction": "components replaced by a per-token table; fraction of removal cost recovered",
+  "ood": "both scored on skip7000 (reference) and skip11000 (held out)",
+  "BOOTSTRAP_LIMITATION": "every circuit scored on the same standard rows. Per-circuit evaluation data is an OPEN PROBLEM; a circuit with a narrow trigger reads WEAKER than it is because most rows do not trigger it. Fill `data_note` per entry as this becomes definable.",
+  "coverage": "16 of 55 certified entries have a component list"
+ },
+ "circuits": {
+  "_mlp0_dossier_resolved": {
+   "skip7000": {
+    "n_sites": 1,
+    "ce_live": 3.29205,
+    "removal_nats": 0.85135,
+    "extraction": 0.91011
+   },
+   "skip11000": {
+    "n_sites": 1,
+    "ce_live": 3.09711,
+    "removal_nats": 0.9602,
+    "extraction": 0.9086
+   },
+   "ood": {
+    "removal_rel_change": 0.1279,
+    "extraction_delta": -0.00151
+   }
+  },
+  "_mlp1_dossier": {
+   "skip7000": {
+    "n_sites": 1,
+    "ce_live": 3.29205,
+    "removal_nats": 7.0213,
+    "extraction": 0.96056
+   },
+   "skip11000": {
+    "n_sites": 1,
+    "ce_live": 3.09711,
+    "removal_nats": 7.20518,
+    "extraction": 0.95675
+   },
+   "ood": {
+    "removal_rel_change": 0.0262,
+    "extraction_delta": -0.00381
+   }
+  },
+  "_front_band_tableability_ladder": {
+   "skip7000": {
+    "n_sites": 4,
+    "ce_live": 3.29205,
+    "removal_nats": 4.3928,
+    "extraction": 0.76455
+   },
+   "skip11000": {
+    "n_sites": 4,
+    "ce_live": 3.09711,
+    "removal_nats": 4.63823,
+    "extraction": 0.76196
+   },
+   "ood": {
+    "removal_rel_change": 0.0559,
+    "extraction_delta": -0.00259
+   }
+  },
+  "_front_is_tabular_middle_is_not": {
+   "skip7000": {
+    "n_sites": 4,
+    "ce_live": 3.29205,
+    "removal_nats": 4.3928,
+    "extraction": 0.76455
+   },
+   "skip11000": {
+    "n_sites": 4,
+    "ce_live": 3.09711,
+    "removal_nats": 4.63823,
+    "extraction": 0.76196
+   },
+   "ood": {
+    "removal_rel_change": 0.0559,
+    "extraction_delta": -0.00259
+   }
+  },
+  "_middle_band_is_redundant_not_small": {
+   "skip7000": {
+    "n_sites": 12,
+    "ce_live": 3.29205,
+    "removal_nats": 2.64962,
+    "extraction": 0.20921
+   },
+   "skip11000": {
+    "n_sites": 12,
+    "ce_live": 3.09711,
+    "removal_nats": 2.81991,
+    "extraction": 0.21082
+   },
+   "ood": {
+    "removal_rel_change": 0.0643,
+    "extraction_delta": 0.00161
+   }
+  },
+  "_middle_band_program_family_prices": {
+   "skip7000": {
+    "n_sites": 12,
+    "ce_live": 3.29205,
+    "removal_nats": 2.64962,
+    "extraction": 0.20921
+   },
+   "skip11000": {
+    "n_sites": 12,
+    "ce_live": 3.09711,
+    "removal_nats": 2.81991,
+    "extraction": 0.21082
+   },
+   "ood": {
+    "removal_rel_change": 0.0643,
+    "extraction_delta": 0.00161
+   }
+  },
+  "_mid_band_feature_price_curve": {
+   "skip7000": {
+    "n_sites": 12,
+    "ce_live": 3.29205,
+    "removal_nats": 2.64962,
+    "extraction": 0.20921
+   },
+   "skip11000": {
+    "n_sites": 12,
+    "ce_live": 3.09711,
+    "removal_nats": 2.81991,
+    "extraction": 0.21082
+   },
+   "ood": {
+    "removal_rel_change": 0.0643,
+    "extraction_delta": 0.00161
+   }
+  },
+  "_front_mlps_are_synergistic": {
+   "skip7000": {
+    "n_sites": 4,
+    "ce_live": 3.29205,
+    "removal_nats": 4.3928,
+    "extraction": 0.76455
+   },
+   "skip11000": {
+    "n_sites": 4,
+    "ce_live": 3.09711,
+    "removal_nats": 4.63823,
+    "extraction": 0.76196
+   },
+   "ood": {
+    "removal_rel_change": 0.0559,
+    "extraction_delta": -0.00259
+   }
+  },
+  "_band_synergy_sign_depends_on_band": {
+   "skip7000": {
+    "n_sites": 2,
+    "ce_live": 3.29205,
+    "removal_nats": 0.71117,
+    "extraction": 0.5002
+   },
+   "skip11000": {
+    "n_sites": 2,
+    "ce_live": 3.09711,
+    "removal_nats": 0.66113,
+    "extraction": 0.48111
+   },
+   "ood": {
+    "removal_rel_change": -0.0704,
+    "extraction_delta": -0.01909
+   }
+  },
+  "_attention_output_write_is_nonlocal": {
+   "skip7000": {
+    "n_sites": 18,
+    "ce_live": 3.29205,
+    "removal_nats": 3.55704,
+    "extraction": -0.01875
+   },
+   "skip11000": {
+    "n_sites": 18,
+    "ce_live": 3.09711,
+    "removal_nats": 3.75522,
+    "extraction": -0.02356
+   },
+   "ood": {
+    "removal_rel_change": 0.0557,
+    "extraction_delta": -0.00481
+   }
+  },
+  "_attention_write_is_mostly_two_position": {
+   "skip7000": {
+    "n_sites": 18,
+    "ce_live": 3.29205,
+    "removal_nats": 3.55704,
+    "extraction": -0.01875
+   },
+   "skip11000": {
+    "n_sites": 18,
+    "ce_live": 3.09711,
+    "removal_nats": 3.75522,
+    "extraction": -0.02356
+   },
+   "ood": {
+    "removal_rel_change": 0.0557,
+    "extraction_delta": -0.00481
+   }
+  },
+  "_lag1_failure_is_middle_band": {
+   "skip7000": {
+    "n_sites": 12,
+    "ce_live": 3.29205,
+    "removal_nats": 2.11373,
+    "extraction": -0.19335
+   },
+   "skip11000": {
+    "n_sites": 12,
+    "ce_live": 3.09711,
+    "removal_nats": 2.26983,
+    "extraction": -0.18848
+   },
+   "ood": {
+    "removal_rel_change": 0.0739,
+    "extraction_delta": 0.00487
+   }
+  },
+  "_whole_model_program": {
+   "skip7000": {
+    "n_sites": 36,
+    "ce_live": 3.29205,
+    "removal_nats": 5.56837,
+    "extraction": 0.27105
+   },
+   "skip11000": {
+    "n_sites": 36,
+    "ce_live": 3.09711,
+    "removal_nats": 5.77495,
+    "extraction": 0.26213
+   },
+   "ood": {
+    "removal_rel_change": 0.0371,
+    "extraction_delta": -0.00892
+   }
+  },
+  "_program_price_curve": {
+   "skip7000": {
+    "n_sites": 18,
+    "ce_live": 3.29205,
+    "removal_nats": 4.33011,
+    "extraction": 0.34541
+   },
+   "skip11000": {
+    "n_sites": 18,
+    "ce_live": 3.09711,
+    "removal_nats": 4.51729,
+    "extraction": 0.33934
+   },
+   "ood": {
+    "removal_rel_change": 0.0432,
+    "extraction_delta": -0.00607
+   }
+  },
+  "_best_compiled_program_for_mlp_stack": {
+   "skip7000": {
+    "n_sites": 18,
+    "ce_live": 3.29205,
+    "removal_nats": 4.33011,
+    "extraction": 0.34541
+   },
+   "skip11000": {
+    "n_sites": 18,
+    "ce_live": 3.09711,
+    "removal_nats": 4.51729,
+    "extraction": 0.33934
+   },
+   "ood": {
+    "removal_rel_change": 0.0432,
+    "extraction_delta": -0.00607
+   }
+  },
+  "_only_attention_routing_is_compressible": {
+   "skip7000": {
+    "n_sites": 18,
+    "ce_live": 3.29205,
+    "removal_nats": 3.55704,
+    "extraction": -0.01875
+   },
+   "skip11000": {
+    "n_sites": 18,
+    "ce_live": 3.09711,
+    "removal_nats": 3.75522,
+    "extraction": -0.02356
+   },
+   "ood": {
+    "removal_rel_change": 0.0557,
+    "extraction_delta": -0.00481
+   }
+  }
+ },
+ "registry_entries": 81,
+ "certified": 55,
+ "auditable": 16,
+ "predictions": {
+  "pred_a_discriminating": true,
+  "pred_b_ood_mild_for_removal": true,
+  "pred_c_controls_hold": true,
+  "pred_d_enough_circuits": true
+ },
+ "runtime_s": 144.7
+}

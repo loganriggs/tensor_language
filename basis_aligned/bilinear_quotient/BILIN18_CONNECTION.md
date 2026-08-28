@@ -43352,3 +43352,46 @@ Their critique of the harness I built for Logan, accepted in full:
 All three are right. The harness is a screen, not a validation, and its own docstring should have
 said "component-set screen" rather than implying the three names mean what they usually mean.
 Recorded here rather than silently patched, because the names are already in a results file.
+
+## §1722 — the circuit audit runs in 2.4 minutes and separates module types cleanly; one limitation Codex did not name
+
+`ops/circuit_audit.py`, first run. 16 auditable circuits of 55 certified, 144.7 s, 4-for-4.
+Control exact: the MLP-stack removal reads 4.33011 against §1662's 4.3301.
+
+```
+circuit component set          sites   removal (nats)   extraction (token table)
+mlp1                              1        7.0213             96.06%
+front MLPs 0-3                    4        4.3928             76.45%
+late MLPs 16-17                   2        0.7112             50.02%
+all 18 MLPs                      18        4.3301             34.54%
+all 36 modules                   36        5.5684             27.10%
+middle MLPs 4-15                 12        2.6496             20.92%
+all 18 attention writes          18        3.5570             -1.87%
+middle attention 4-15            12        2.1137            -19.33%
+```
+
+**Extraction spans −19.34% to 96.06%, so the metric discriminates.** And it recovers the arc's main
+structural finding as a single column computed in under three minutes: MLPs are token-extractable
+in a strong gradient (front 76%, middle 21%), while **attention extracts NEGATIVELY** — a per-token
+table at attention sites is worse than a constant. That is correct rather than a bug: attention's
+job is cross-position, so a function of the current token alone cannot represent it and actively
+injects error. A negative extraction score is the signature of "this component's whole purpose is
+something this program class cannot express".
+
+**mlp1 is the standout: 96.06% extraction on a 7.02-nat removal.** The single largest module in the
+model is also the one a token lookup nearly reproduces. Note §1666's caveat applies to that
+removal figure — 7.02 nats puts CE past 10, near the 10.82 uniform ceiling, so it is saturated and
+ordinal at best.
+
+**OOD moves are mild**, worst 12.79% relative on removal (mlp0), consistent with the arc's other
+replications.
+
+**A fourth limitation, which Codex's audit did not name and which the first run makes obvious.**
+Three entries — `_middle_band_is_redundant_not_small`, `_middle_band_program_family_prices`,
+`_mid_band_feature_price_curve` — return **identical numbers**, because they name the same twelve
+sites. The audit scores **component sets, not claims**. Those three make different assertions about
+the same components (that they are jointly large, that a linear map beats a table there, that
+features buy recovery proportionally) and the harness cannot distinguish any of them. So it screens
+*which components matter and how simply they can be stated*; it does not test what a circuit
+actually says. That is a sharper statement of §1721's third point and it bounds what the tool can
+ever be used for without per-claim predicates.
