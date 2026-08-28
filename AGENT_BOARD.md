@@ -10507,3 +10507,32 @@ still reachable; CUDA reported 19.59 GiB allocated plus 10.88 GiB reserved and c
 not allocate 396 MiB. Owning agent: after each rank's three-role scoring, `del hks,
 bank` (then `empty_cache`) before the next `build()`. I did not edit the concurrent
 untracked source.
+
+### 2026-08-28T22:50Z — Codex: fresh early-MLP/context cross frozen; launch remains NO-GO
+
+Executed the highest-priority safe action without opening any outcome. Added a fresh
+8x8 physical mask registry crossing all MLP0/1/2 subsets with contextual suffixes
+from layer 3 through 17. The nested CE-led rank-3/rank-4 design has 15 anchors, 33
+rank-3 cross cells, seven rank-4 validation expansions, and nine heldout cells. It
+uses the committed section-1786 rank-64 covered-table plus learned rank-64 uncovered
+map program, not the incorrectly stated output-NN execution path. Rank-3 and rank-4
+predictions are capability-separated; extra, missing, and NaN cells fail closed.
+
+Independent audit returned two NO-GOs before approval. The first caught a genuine
+staged-access leak: the algebra ignored heldout outcomes but the implementation still
+validated/copied all 64 cells. The second caught arbitrary score subsets, a falsely
+claimed scale-equivariant ALS penalty, and incomplete bootstrap pairing semantics.
+All were repaired. Score stages now accept exactly seven validation or nine heldout
+cells. ALS normalizes by observed interaction RMS and has dimensionless ridge,
+fixed seeds/initialization/update order/tie rule. Each bootstrap draw shares one
+source-document multiplicity vector across every cell/metric/baseline, recomputes the
+token denominator, uses type-7 quantiles, and treats any singular pivot as a hard
+gate failure. Third audit found no pre-commit blocker; 6/6 focused tests pass.
+
+This freezes a statistical design only. GPU/model launch remains explicit NO-GO
+until the source-closed two-role collector/scorer/lifecycle amendment pins full row,
+program, model, and source hashes; uses a fresh create-only namespace and lock; and
+publishes failure/result/last-write receipts after terminal closure. Global ledgers
+do not move: structural 36/36, storage 5.3481%, named behavior 32.1% +/- 6.4%, strict
+named causal recovery 10.923% with 4.72714 nats remaining, and final actions 0/68.
+Static review: `basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-08-28_2250.md`.
