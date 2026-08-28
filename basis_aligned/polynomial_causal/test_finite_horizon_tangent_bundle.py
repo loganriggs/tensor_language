@@ -164,3 +164,108 @@ def test_repeated_probe_audit_validates_physical_map_and_context_count() -> None
             responses, responses, collapsed, probes_per_half=2,
             fixed_ranks=(1,), bootstrap_repetitions=100,
         )
+
+
+def test_physical_frames_are_invariant_to_nonorthogonal_direction_reparameterization() -> None:
+    torch.manual_seed(19)
+    directions = torch.randn(4, 9, dtype=torch.float64)
+    physical_covectors = torch.randn(7, 9, dtype=torch.float64)
+    responses = physical_covectors @ directions.T
+    change = torch.tensor([
+        [2.0, 0.7, 0.0, 0.0],
+        [0.0, 0.5, -0.4, 0.0],
+        [0.3, 0.0, 1.5, 0.2],
+        [0.0, 0.0, 0.0, 0.8],
+    ], dtype=torch.float64)
+    changed_directions = change @ directions
+    changed_responses = responses @ change.T
+    for rank in (1, 2, 3):
+        original = bundle._physical_frame(responses, directions, rank)
+        changed = bundle._physical_frame(
+            changed_responses, changed_directions, rank,
+        )
+        assert bundle._frame_distance(original, changed) == pytest.approx(
+            0.0, abs=2e-7,
+        )
+
+
+def test_unstable_fixed_rank_tails_cannot_promote_a_low_rank_bundle() -> None:
+    identity = torch.eye(12, dtype=torch.float64)
+    first_contexts = []
+    second_contexts = []
+    for start in (0, 2, 4, 6):
+        first = torch.zeros(6, 12, dtype=torch.float64)
+        second = torch.zeros(6, 12, dtype=torch.float64)
+        first[0, start] = second[0, start] = 10.0
+        first[1, start + 1] = second[1, start + 1] = 10.0
+        first[2, 8] = first[3, 9] = 0.1
+        second[2, 10] = second[3, 11] = 0.1
+        first_contexts.append(first)
+        second_contexts.append(second)
+    report = bundle.analyze_repeated_probe_physical_bundle(
+        torch.cat(first_contexts), torch.cat(second_contexts), identity,
+        probes_per_half=6, fixed_ranks=(2, 4), local_rank_limit=4,
+        bootstrap_repetitions=200,
+    )
+    assert report["bundle_promotion_fixed_rank"] == 4
+    assert report["stable_local_low_rank_fraction"] == 0.0
+    assert report["response_bundle_gate"] is False
+    assert report["status"] == "no_admitted_local_bundle"
+
+
+def test_fixed_rank_above_support_is_not_an_identified_projector() -> None:
+    basis = torch.eye(8, dtype=torch.float64)[:2]
+    first = _responses([basis] * 4, probes=4)
+    second = _responses([basis] * 4, probes=4, scales=[2, 3, 4, 5])
+    report = bundle.analyze_repeated_probe_physical_bundle(
+        first, second, torch.eye(8, dtype=torch.float64),
+        probes_per_half=4, fixed_ranks=(2, 4), local_rank_limit=4,
+        bootstrap_repetitions=200,
+    )
+    assert report["fixed_rank_physical_projectors"]["4"][
+        "evaluable_contexts"
+    ] == 0
+    assert report["fixed_rank_physical_projectors"]["4"][
+        "cross_minus_same_bootstrap_lcb_95"
+    ] is None
+    assert report["stable_local_low_rank_fraction"] == 0.0
+    assert report["response_bundle_gate"] is False
+
+
+def test_excluded_contexts_cannot_supply_stable_subset_bundle_signal() -> None:
+    identity = torch.eye(10, dtype=torch.float64)
+    stable = identity[:2].repeat(2, 1)
+    contexts = [stable.clone() for _ in range(12)]
+    for start in (2, 3, 4, 5):
+        contexts.append(identity[start:start + 4])
+    responses = torch.cat(contexts)
+    report = bundle.analyze_repeated_probe_physical_bundle(
+        responses, responses.clone(), identity, probes_per_half=4,
+        fixed_ranks=(2,), local_rank_limit=2, bootstrap_repetitions=200,
+    )
+    assert report["stable_local_low_rank_fraction"] == 0.75
+    assert report["fixed_rank_physical_projectors"]["2"][
+        "cross_minus_same_mean"
+    ] > 0
+    assert report["promotion_stable_fraction"] == 0.75
+    assert report["response_bundle_gate"] is False
+    assert report["status"] == "no_admitted_local_bundle"
+
+
+def test_fixed_promotion_cohort_cannot_borrow_signal_from_diagnostics() -> None:
+    identity = torch.eye(10, dtype=torch.float64)
+    stable = identity[:2].repeat(2, 1)
+    contexts = [stable.clone() for _ in range(12)]
+    for start in (2, 3, 4, 5):
+        contexts.append(identity[start:start + 4])
+    responses = torch.cat(contexts)
+    report = bundle.analyze_repeated_probe_physical_bundle(
+        responses, responses.clone(), identity, probes_per_half=4,
+        fixed_ranks=(2,), local_rank_limit=2, bootstrap_repetitions=200,
+        promotion_contexts=tuple(range(12)),
+    )
+    assert report["promotion_stable_fraction"] == 1.0
+    assert report["fixed_promotion_cohort_contrast"][
+        "cross_minus_same_mean"
+    ] == pytest.approx(0.0, abs=1e-12)
+    assert report["response_bundle_gate"] is False

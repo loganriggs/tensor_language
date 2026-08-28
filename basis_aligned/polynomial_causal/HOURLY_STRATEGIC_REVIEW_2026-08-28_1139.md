@@ -154,13 +154,21 @@ also implements the registered paired-probe discriminator: it maps right frames 
 physical 1,152-dimensional write space as
 
 \[
-U_{c,r}=\operatorname{orth}(D_1^\top V_{c,r}),
+D_1^\top=QR,\qquad \widetilde H_c=H_cR^{-1},\qquad
+U_{c,r}=QV_{c,r}(\widetilde H_c),
 \]
 
 compares within-context independent-probe distance against cross-context distance at
 fixed ranks, and supplies a deterministic document-paired bootstrap lower bound while
 returning no frames or projectors. The focused test is 12/12; the full protected tangent
 suite is 53/53.
+
+**Pre-measurement correction at 11:52 UTC.** The original implementation in commit
+`c358ae61` instead took the ordinary coefficient-space SVD and mapped its frame through
+the nonorthogonal direction matrix. Independent audit showed that this changes under
+an invertible nonorthogonal reparameterization. No paired-probe outcome had been
+collected. The corrected QR-whitened construction above and an adversarial invariant
+test supersede that analyzer; the failure remains in git history and `AGENT_BOARD.md`.
 
 This implementation is a sufficient-statistic primitive, not yet a positive result.
 The red-team correction is incorporated into the next collection design: document

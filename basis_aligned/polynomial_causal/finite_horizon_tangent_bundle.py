@@ -232,15 +232,39 @@ def analyze_site_bundles(
     }
 
 
+def _physical_coordinates(
+    responses: torch.Tensor, directions: torch.Tensor,
+) -> tuple[torch.Tensor, torch.Tensor]:
+    """Whiten direction coefficients into an orthonormal physical-write basis.
+
+    If ``directions.T = Q R`` and a physical covector ``g`` produces registered
+    responses ``H = g directions.T``, then ``H R^-1 = g Q``.  Taking an ordinary SVD
+    before this change of coordinates is not invariant to a nonorthogonal change of
+    direction basis.
+    """
+    q, r = torch.linalg.qr(directions.double().T, mode="reduced")
+    scale = max(1.0, float(torch.abs(torch.diagonal(r)).max()))
+    if bool((torch.abs(torch.diagonal(r)) <= 1e-12 * scale).any()):
+        raise ValueError("physical direction map is rank deficient")
+    flat = responses.double().reshape(-1, responses.shape[-1])
+    coordinates = torch.linalg.solve_triangular(
+        r.T, flat.T, upper=False,
+    ).T.reshape(responses.shape)
+    return coordinates, q
+
+
+def _frame_from_physical_coordinates(
+    responses: torch.Tensor, physical_basis: torch.Tensor, rank: int,
+) -> torch.Tensor:
+    _, _, vh = torch.linalg.svd(responses.double(), full_matrices=False)
+    return physical_basis @ vh[:rank].T
+
+
 def _physical_frame(
     responses: torch.Tensor, directions: torch.Tensor, rank: int,
 ) -> torch.Tensor:
-    _, _, vh = torch.linalg.svd(responses.double(), full_matrices=False)
-    frame = directions.double().T @ vh[:rank].T
-    q, r = torch.linalg.qr(frame, mode="reduced")
-    if int((torch.abs(torch.diagonal(r)) > 1e-12).sum()) != rank:
-        raise ValueError("direction map collapses a registered response frame")
-    return q
+    coordinates, physical_basis = _physical_coordinates(responses, directions)
+    return _frame_from_physical_coordinates(coordinates, physical_basis, rank)
 
 
 def _frame_distance(left: torch.Tensor, right: torch.Tensor) -> float:
@@ -249,6 +273,74 @@ def _frame_distance(left: torch.Tensor, right: torch.Tensor) -> float:
     rank = left.shape[1]
     overlap = float((left.T @ right).square().sum())
     return math.sqrt(max(0.0, rank - overlap) / rank)
+
+
+def _bootstrap_frame_contrast(
+    frame_cache: dict[tuple[int, int, int], torch.Tensor],
+    selected_contexts: list[int], *, rank: int, repetitions: int, seed: int,
+) -> dict[str, float | int | None]:
+    if len(selected_contexts) < 3:
+        return {
+            "evaluable_contexts": len(selected_contexts),
+            "same_context_mean_distance": None,
+            "same_context_median_distance": None,
+            "cross_context_mean_distance": None,
+            "cross_minus_same_mean": None,
+            "cross_minus_same_bootstrap_lcb_95": None,
+            "bootstrap_repetitions": 0,
+        }
+    same = torch.tensor([
+        _frame_distance(
+            frame_cache[(0, context, rank)], frame_cache[(1, context, rank)],
+        ) for context in selected_contexts
+    ], dtype=torch.float64)
+    cross = torch.full(
+        (len(selected_contexts), len(selected_contexts)),
+        float("nan"), dtype=torch.float64,
+    )
+    for left_slot, left in enumerate(selected_contexts):
+        for right_slot in range(left_slot + 1, len(selected_contexts)):
+            right = selected_contexts[right_slot]
+            value = 0.5 * (
+                _frame_distance(
+                    frame_cache[(0, left, rank)], frame_cache[(1, right, rank)],
+                ) + _frame_distance(
+                    frame_cache[(1, left, rank)], frame_cache[(0, right, rank)],
+                )
+            )
+            cross[left_slot, right_slot] = cross[right_slot, left_slot] = value
+    generator = torch.Generator(device="cpu").manual_seed(seed)
+    differences = []
+    attempts = 0
+    while len(differences) < repetitions and attempts < 10 * repetitions:
+        attempts += 1
+        sample = torch.randint(
+            len(selected_contexts), (len(selected_contexts),), generator=generator,
+        )
+        same_mean = float(same[sample].mean())
+        pairs = [
+            float(cross[int(sample[i]), int(sample[j])])
+            for i in range(len(selected_contexts))
+            for j in range(i + 1, len(selected_contexts))
+            if int(sample[i]) != int(sample[j])
+        ]
+        if pairs:
+            differences.append(sum(pairs) / len(pairs) - same_mean)
+    if len(differences) != repetitions:
+        raise RuntimeError("document bootstrap produced incomplete contrasts")
+    difference_tensor = torch.tensor(differences, dtype=torch.float64)
+    finite_cross = cross[torch.isfinite(cross)]
+    return {
+        "evaluable_contexts": len(selected_contexts),
+        "same_context_mean_distance": float(same.mean()),
+        "same_context_median_distance": float(torch.median(same)),
+        "cross_context_mean_distance": float(finite_cross.mean()),
+        "cross_minus_same_mean": float(finite_cross.mean() - same.mean()),
+        "cross_minus_same_bootstrap_lcb_95": float(torch.quantile(
+            difference_tensor, 0.025,
+        )),
+        "bootstrap_repetitions": repetitions,
+    }
 
 
 def analyze_repeated_probe_physical_bundle(
@@ -267,6 +359,7 @@ def analyze_repeated_probe_physical_bundle(
     minimum_bundle_distance_lcb: float = 0.05,
     bootstrap_repetitions: int = 1000,
     bootstrap_seed: int = 20260828,
+    promotion_contexts: tuple[int, ...] | None = None,
 ) -> dict[str, Any]:
     """Separate same-context probe noise from cross-context physical variation.
 
@@ -316,14 +409,27 @@ def analyze_repeated_probe_physical_bundle(
         raise ValueError("physical direction map must have full row rank")
 
     contexts = first_responses.shape[0] // probes_per_half
-    first = first_responses.double().reshape(
+    promotion = tuple(range(contexts)) if promotion_contexts is None else promotion_contexts
+    if (
+        not promotion or len(promotion) < 3 or len(set(promotion)) != len(promotion)
+        or any(type(context) is not int or not 0 <= context < contexts
+               for context in promotion)
+    ):
+        raise ValueError("promotion contexts must be a fixed valid context subset")
+    first_coefficients = first_responses.double().reshape(
         contexts, probes_per_half, first_responses.shape[1],
     )
-    second = second_responses.double().reshape_as(first)
-    if not bool((first.square().sum(dim=(1, 2)) > 0).all()) or not bool(
-        (second.square().sum(dim=(1, 2)) > 0).all()
+    second_coefficients = second_responses.double().reshape_as(first_coefficients)
+    if not bool((first_coefficients.square().sum(dim=(1, 2)) > 0).all()) or not bool(
+        (second_coefficients.square().sum(dim=(1, 2)) > 0).all()
     ):
         raise ValueError("every probe half must have positive tangent energy")
+    first, physical_basis = _physical_coordinates(first_coefficients, directions)
+    second, second_physical_basis = _physical_coordinates(
+        second_coefficients, directions,
+    )
+    if not torch.equal(physical_basis, second_physical_basis):
+        raise RuntimeError("identical direction maps produced different physical bases")
 
     spectra_first = torch.linalg.svdvals(first)
     spectra_second = torch.linalg.svdvals(second)
@@ -353,23 +459,44 @@ def analyze_repeated_probe_physical_bundle(
     ]
 
     fixed: dict[str, Any] = {}
+    same_distances: dict[int, dict[int, float]] = {}
     frame_cache: dict[tuple[int, int, int], torch.Tensor] = {}
     for rank in fixed_ranks:
-        for context in range(contexts):
-            frame_cache[(0, context, rank)] = _physical_frame(
-                first[context], directions, rank,
+        evaluable = [
+            context for context, (a, b) in enumerate(spectrum_rows)
+            if a[0] >= rank and b[0] >= rank
+        ]
+        for context in evaluable:
+            frame_cache[(0, context, rank)] = _frame_from_physical_coordinates(
+                first[context], physical_basis, rank,
             )
-            frame_cache[(1, context, rank)] = _physical_frame(
-                second[context], directions, rank,
+            frame_cache[(1, context, rank)] = _frame_from_physical_coordinates(
+                second[context], physical_basis, rank,
             )
-        same = torch.tensor([
-            _frame_distance(
+        same_by_context = {
+            context: _frame_distance(
                 frame_cache[(0, context, rank)], frame_cache[(1, context, rank)],
-            ) for context in range(contexts)
+            ) for context in evaluable
+        }
+        same_distances[rank] = same_by_context
+        if len(evaluable) < 3:
+            fixed[str(rank)] = {
+                "evaluable_contexts": len(evaluable),
+                "same_context_mean_distance": None,
+                "same_context_median_distance": None,
+                "cross_context_mean_distance": None,
+                "cross_minus_same_mean": None,
+                "cross_minus_same_bootstrap_lcb_95": None,
+                "bootstrap_repetitions": 0,
+            }
+            continue
+        same = torch.tensor([
+            same_by_context[context] for context in evaluable
         ], dtype=torch.float64)
-        cross = torch.full((contexts, contexts), float("nan"), dtype=torch.float64)
-        for left in range(contexts):
-            for right in range(left + 1, contexts):
+        cross = torch.full((len(evaluable), len(evaluable)), float("nan"), dtype=torch.float64)
+        for left_slot, left in enumerate(evaluable):
+            for right_slot in range(left_slot + 1, len(evaluable)):
+                right = evaluable[right_slot]
                 value = 0.5 * (
                     _frame_distance(
                         frame_cache[(0, left, rank)], frame_cache[(1, right, rank)],
@@ -377,7 +504,7 @@ def analyze_repeated_probe_physical_bundle(
                         frame_cache[(1, left, rank)], frame_cache[(0, right, rank)],
                     )
                 )
-                cross[left, right] = cross[right, left] = value
+                cross[left_slot, right_slot] = cross[right_slot, left_slot] = value
         generator = torch.Generator(device="cpu").manual_seed(
             bootstrap_seed + 1000003 * rank,
         )
@@ -387,11 +514,11 @@ def analyze_repeated_probe_physical_bundle(
             10 * bootstrap_repetitions
         ):
             attempts += 1
-            sample = torch.randint(contexts, (contexts,), generator=generator)
+            sample = torch.randint(len(evaluable), (len(evaluable),), generator=generator)
             same_mean = float(same[sample].mean())
             pairs = [
                 float(cross[int(sample[i]), int(sample[j])])
-                for i in range(contexts) for j in range(i + 1, contexts)
+                for i in range(len(evaluable)) for j in range(i + 1, len(evaluable))
                 if int(sample[i]) != int(sample[j])
             ]
             if pairs:
@@ -400,6 +527,7 @@ def analyze_repeated_probe_physical_bundle(
             raise RuntimeError("document bootstrap produced incomplete contrasts")
         difference_tensor = torch.tensor(differences, dtype=torch.float64)
         fixed[str(rank)] = {
+            "evaluable_contexts": len(evaluable),
             "same_context_mean_distance": float(same.mean()),
             "same_context_median_distance": float(torch.median(same)),
             "cross_context_mean_distance": float(cross[torch.isfinite(cross)].mean()),
@@ -410,29 +538,52 @@ def analyze_repeated_probe_physical_bundle(
             "bootstrap_repetitions": bootstrap_repetitions,
         }
 
+    promotion_rank = max(rank for rank in fixed_ranks if rank <= local_rank_limit)
     local_stable = []
     for context, (a, b) in enumerate(spectrum_rows):
         selected_a, selected_b = int(a[2]), int(b[2])
         if not selected_a or not selected_b:
             local_stable.append(False)
             continue
-        comparison_rank = max(selected_a, selected_b)
-        same_distance = _frame_distance(
-            _physical_frame(first[context], directions, comparison_rank),
-            _physical_frame(second[context], directions, comparison_rank),
-        )
         local_stable.append(bool(
-            selected_a <= local_rank_limit and selected_b <= local_rank_limit
+            a[0] >= promotion_rank and b[0] >= promotion_rank
+            and selected_a <= local_rank_limit and selected_b <= local_rank_limit
             and abs(selected_a - selected_b) <= maximum_local_rank_difference
-            and same_distance <= maximum_same_context_distance
+            and same_distances[promotion_rank].get(context, math.inf)
+            <= maximum_same_context_distance
         ))
 
     probe_limited_fraction = sum(probe_limited) / contexts
     local_stable_fraction = sum(local_stable) / contexts
-    comparison_rank = str(max(rank for rank in fixed_ranks if rank <= local_rank_limit))
+    promotion_stable_fraction = sum(local_stable[context] for context in promotion) / len(
+        promotion
+    )
+    promotion_evaluable = [
+        context for context in promotion
+        if (0, context, promotion_rank) in frame_cache
+        and (1, context, promotion_rank) in frame_cache
+    ]
+    promotion_contrast = (
+        _bootstrap_frame_contrast(
+            frame_cache, list(promotion), rank=promotion_rank,
+            repetitions=bootstrap_repetitions,
+            seed=bootstrap_seed + 2_000_003 * promotion_rank,
+        )
+        if len(promotion_evaluable) == len(promotion)
+        else {
+            "evaluable_contexts": len(promotion_evaluable),
+            "same_context_mean_distance": None,
+            "same_context_median_distance": None,
+            "cross_context_mean_distance": None,
+            "cross_minus_same_mean": None,
+            "cross_minus_same_bootstrap_lcb_95": None,
+            "bootstrap_repetitions": 0,
+        }
+    )
     response_bundle = bool(
-        local_stable_fraction >= minimum_context_fraction
-        and fixed[comparison_rank]["cross_minus_same_bootstrap_lcb_95"]
+        promotion_stable_fraction == 1.0
+        and promotion_contrast["cross_minus_same_bootstrap_lcb_95"] is not None
+        and float(promotion_contrast["cross_minus_same_bootstrap_lcb_95"])
         >= minimum_bundle_distance_lcb
     )
     return {
@@ -448,6 +599,10 @@ def analyze_repeated_probe_physical_bundle(
         "fixed_rank_physical_projectors": fixed,
         "probe_limited_high_rank_fraction": probe_limited_fraction,
         "stable_local_low_rank_fraction": local_stable_fraction,
+        "bundle_promotion_fixed_rank": promotion_rank,
+        "fixed_promotion_contexts": list(promotion),
+        "promotion_stable_fraction": promotion_stable_fraction,
+        "fixed_promotion_cohort_contrast": promotion_contrast,
         "response_bundle_gate": response_bundle,
         "thresholds": {
             "energy_fraction": energy_fraction,
@@ -458,13 +613,16 @@ def analyze_repeated_probe_physical_bundle(
             "minimum_context_fraction": minimum_context_fraction,
             "minimum_bundle_distance_lcb": minimum_bundle_distance_lcb,
         },
-        "physical_mapping": "U_cr = orth(direction_matrix^T V_cr)",
+        "physical_mapping": (
+            "direction_matrix^T=Q R; H_physical=H R^-1; U_cr=Q V_cr(H_physical)"
+        ),
         "one_context_per_document_required": True,
         "raw_responses_returned": False,
         "physical_frames_returned": False,
         "projectors_returned": False,
         "interpretation": (
             "identifies response geometry only; H_c = D_c E_c does not identify an "
-            "encoder gauge without an intermediate-state or composition experiment"
+            "encoder gauge without an intermediate-state or composition experiment; "
+            "bundle promotion uses a fixed context cohort rather than outcome selection"
         ),
     }
