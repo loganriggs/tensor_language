@@ -10345,3 +10345,31 @@ pipeline already streams for coverage) costs the same storage, uses no new data,
 out from all three eval roles. pred_a asks whether it reaches at least half the 47.3pp. **That is the
 difference between a diagnosis and an improvement to the compiler**, and if it lands, the right response
 to §1834 is to change the table rather than to explain the site.
+
+### 2026-08-28T21:48Z — Codex: deployable table, causal metric, and cut-rank contract audit
+
+No explained-fraction ledger moved: structural surrogates 36/36, certified storage
+5.3481%, strict named causal CE 10.923% with 4.72714 nats remaining, final 0/68.
+
+S1845 passes 4/4. With identical 5,419-row storage and inference calls, the fit-context
+MLP5 table recovers 47.14% of the live gap versus 3.57% for length-1 and 50.99% for the
+eval-fitted upper bound. It replicates at 45.66% and 45.21% on the other roles. MLP4
+inverts: length-1 20.25%, eval mean -2.06%, fit mean -3.11%. Euclidean reconstruction
+is therefore not a sufficient simplicity metric. A quadratic CE expansion instead
+gives the token representative
+`q* = E[H|t]^dagger E[H z - g|t]`; scalar/shared-bias and then low-rank Fisher
+corrections are the cheapest principled next models. The active per-site-choice assay
+is cleanly fit/selection/heldout split but selects on top-1, so it cannot by itself
+establish CE faithfulness.
+
+The 18-consumer physical contract closed at `4b0a4fed` with 49 CPU tests; integration
+of 96 same-background native denominator batches and the response join is active. The
+fixed-program cut-rank launch exposed three pre-outcome contract failures, all
+preserved and with pristine result namespace: scalar hashing (`a252411b`, 31 tests),
+50,304 padded embedding versus 50,257 tokenizer rows (`6e255d01`, 34 tests), and
+script/canonical duplicate `PreparedProgramBank` identities (`43cd3fa5`, 35 tests).
+The fourth launch is waiting for the per-site table-choice GPU process. No mask result,
+final row, or OOD role was inferred from these failures.
+
+Static review:
+`basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-08-28_2121.md`.

@@ -64,9 +64,16 @@ rebuilds and hashes the exact 5,419-token context-free/output-nearest-neighbour/
 program, freezes all 64 mask descriptors, enforces 36 native/substitution calls, and
 rehashes model/program state after hook cleanup.
 
-The assay is now running its third exact launch under session 21508. It must materialize
-and hash approximately 8.34 GB of dense rows plus the 2.07 GB checkpoint because no
-reusable shared-program artifact exists. No mask outcome has yet been emitted.
+The third exact launch under session 21508 also failed before any mask outcome. It
+materialized the shared program, but the transaction rejected the backend return as
+not being its exact typed `PreparedProgramBank`. The cause was a Python module-identity
+mismatch: executing the adapter as `__main__` while the backend imported it by canonical
+module name created two distinct class objects with identical schemas. The repair
+closed at `43cd3fa5` with an exact subprocess path-CLI regression and 35 passing tests;
+the namespace remains pristine. A fourth launch is waiting for the active per-site
+table-choice GPU assay. Launch cost remains high because every attempt rebuilds and
+hashes approximately 8.34 GB of dense rows plus the 2.07 GB checkpoint; a certified
+reusable artifact is an engineering priority after the prospective assay is obtained.
 
 The first real launch failed before any row/program outcome while hashing a
 zero-dimensional model tensor: direct `view(torch.uint8)` is invalid for a scalar.
@@ -125,6 +132,29 @@ causally worse downstream. Site reconstruction error is therefore empirically
 disqualified as a sufficient simplicity/success metric. The useful object is a
 fixed-cost table judged by downstream transport and then confirmed without selection
 on fresh data.
+
+There is an exact local explanation for why the Euclidean mean can fail. Let
+(z_{s,t,c}) be a site's native output for token (t) in context (c), let (q_{s,t})
+be a context-free replacement, and expand downstream negative log likelihood around
+the native output. With gradient (g) and Hessian (H), the conditional quadratic
+objective has minimizer
+
+\[
+q^*_{s,t}=
+\left(\mathbb E[H\mid t]\right)^\dagger
+\left(\mathbb E[H z-g\mid t]\right),
+\]
+
+up to null-space freedom. The ordinary token mean (\mathbb E[z\mid t]) follows only
+under restrictive conditions such as a context-independent isotropic Hessian and
+vanishing conditional gradient. MLP4 falsifies using the ordinary mean as a universal
+rule; MLP5 shows it can nevertheless be an excellent approximation at a specific
+site. The cheapest next model is not a larger table but a low-description correction
+(q'_{s,t}=a_s q_{s,t}+b_s), or a low-rank Fisher/Gauss--Newton metric, fit only on the
+fit role and judged by fresh CE plus composition. A scalar and one shared bias cost
+almost nothing at inference, directly implementing the user's proposed “costless”
+correction. This test must report CE; a current queued per-site table-choice run selects
+on top-1 and therefore addresses practical prediction/extraction, not CE faithfulness.
 
 ### 4. OOD, extraction, and selective removal remain downstream of admission
 
@@ -191,11 +221,9 @@ length-1 response surface should retain at least 98% rank-one energy, and one fr
 1. Production completion of the 68-action final role: direct causal and edit evidence.
 2. Fixed-program cut rank: predictive interaction-state certificate on untouched masks.
 3. Fresh confirmation and composition of the fixed-cost fit-context MLP5 table.
-4. Heldout length-1 response-rank test: tensor-factorization claim with a falsifiable
+4. Downstream-weighted scalar/bias or low-rank correction of token representatives.
+5. Heldout length-1 response-rank test: tensor-factorization claim with a falsifiable
    unmeasured-amplitude prediction.
-5. Causal bisimulation after final rows: merge program states only when their complete
-   response signatures agree within registered uncertainty, then price the quotient by
-   bytes, calls, and consumer sparsity.
 
 ### Pruned or deferred
 
@@ -226,13 +254,18 @@ length-1 response surface should retain at least 98% rank-one energy, and one fr
    size and calls. Freeze the MLP5 choice, confirm on fresh rows, and test whether its
    gain survives simultaneous early/deep replacements. Do not use site MSE to select
    MLP4: it gives the wrong causal ordering there.
-4. **Preregister and run the heldout length-1 response-rank assay.** It tests whether
+4. **Test a downstream-weighted, nearly costless table correction.** Fit only a
+   per-site scalar/shared bias first, then a low-rank Fisher metric only if needed;
+   require fresh CE and composition improvement over both length-1 and Euclidean-mean
+   rows. This directly tests the quadratic optimum above at very low added complexity.
+5. **Preregister and run the heldout length-1 response-rank assay.** It tests whether
    the new rank-one nonlinear law transfers to the actual compiler object and predicts
    unmeasured amplitudes.
-5. **Construct the causal-response quotient, then test admitted programs on genuine
-   OOD, extraction, and selective removal.** This turns simplicity into a capability:
-   fewer states/components should preserve intervention behavior with bounded
-   collateral, lower bytes, and fewer native calls.
+
+After the final response tensor exists, construct the causal-response quotient and
+test admitted programs on genuine OOD, extraction, and selective removal. It is not
+ranked above the five executable precursors because its state-equivalence relation does
+not yet have measured response signatures.
 
 ## Actions executed in this review
 
@@ -254,7 +287,9 @@ The scalar-safe repair then closed at `a252411b` with 31 tests. The second launc
 before outcomes because a padded 50,304-row embedding entered a 50,257-token program.
 The validated tokenizer-slice repair closed at `6e255d01` with 34 tests and a pristine
 namespace. After the deployable-table run released the GPU, the third exact 64-mask
-launch began under session 21508.
+launch began under session 21508, then failed before outcomes on a typed-bank identity
+mismatch. The CLI identity repair closed at `43cd3fa5` with 35 tests; relaunch is queued
+behind the active per-site table-choice GPU assay.
 - The first table dispatch failure was repaired and safely rerun. Its target result was
   then rejected because the 5,419-row coverage control exposed 7,822 changed rows; a
   second support-mask run then failed before targets on an unset coverage binding.
