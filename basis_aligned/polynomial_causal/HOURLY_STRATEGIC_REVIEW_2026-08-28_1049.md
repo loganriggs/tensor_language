@@ -28,7 +28,7 @@ The protocol fingerprint is now
 `b9caa7ce2ecbd63a197262098931541c32dce27ed31b35454753b773f8cf4e20`.
 It binds the direction construction, categorical sampling, future-only scoring,
 Monte-Carlo-sum units, exposure-normalized split trace, and restricted shared-linear
-claim. Thirty-nine focused tests
+claim. Forty focused tests
 pass from repository root.
 
 ## What fraction is explained?
@@ -105,7 +105,8 @@ the tangent operator is the cheaper local realization test.
    simultaneous tensor factorization/shared dictionaries.** This attacks the 52.51%
    dense-MLP storage term while respecting producer/consumer interfaces.
 
-The final lifecycle bytes passed independent implementation audit with 39/39 tests.
+The final lifecycle bytes passed independent implementation audit; the last fail-closed
+program-authority schema repair brings the focused suite to 40/40 tests.
 Only operational authority remains: commit and push these exact bytes, verify all
 canonical outputs and the lock are absent, then run and inspect the program-authority,
 geometry-authority, and outcome stages separately. No GPU outcome has been opened.

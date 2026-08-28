@@ -187,6 +187,33 @@ def freeze_program_authority(
     return result
 
 
+def validate_frozen_program_authority(
+    value: Any, *, protected_snapshot: Mapping[str, Any],
+    runtime_environment: Mapping[str, Any],
+) -> None:
+    required = {
+        "status", "rank", "protected_snapshot", "program_receipt", "program_buffers",
+        "outcomes_computed", "geometry_computed", "runtime_environment",
+    }
+    if not isinstance(value, dict) or set(value) != required or value["status"] != (
+        "rank640_program_authority_frozen_no_outcomes"
+    ) or value["rank"] != RANK or value["outcomes_computed"] is not False or (
+        value["geometry_computed"] is not False
+    ) or value["protected_snapshot"] != dict(protected_snapshot) or (
+        value["runtime_environment"] != dict(runtime_environment)
+    ):
+        raise RuntimeError("frozen tangent program authority schema is invalid")
+    tangent_authority.validate_program_receipt(value["program_receipt"])
+    manifest = value["program_buffers"]
+    if not isinstance(manifest, dict) or set(manifest) != {
+        "entries", "buffers", "total_values", "total_bytes", "tree_sha256",
+        "manifest_sha256",
+    } or manifest["manifest_sha256"] != tangent_authority.canonical_sha256({
+        key: manifest[key] for key in manifest if key != "manifest_sha256"
+    }):
+        raise RuntimeError("frozen tangent program buffer manifest is invalid")
+
+
 def geometry_payload(bank: WriteGeometryBank) -> dict[str, Any]:
     return {
         "geometries": {
@@ -315,10 +342,10 @@ def freeze_geometry_authority(
     protected = tangent_authority.protected_snapshot(SOURCES)
     program_authority_sha256 = tangent_authority.sha256_file(AUTHORITY_RECEIPT)
     program_authority = json.loads(AUTHORITY_RECEIPT.read_text())
-    if program_authority.get("protected_snapshot") != protected or (
-        program_authority.get("runtime_environment") != dict(runtime_environment)
-    ):
-        raise RuntimeError("program authority and geometry source closure disagree")
+    validate_frozen_program_authority(
+        program_authority, protected_snapshot=protected,
+        runtime_environment=runtime_environment,
+    )
     plan, rows, _ = load_plan_and_rows()
     tangent_authority.validate_loaded_rows(rows)
     program, program_receipt = build_rank640_program(device)
@@ -375,12 +402,10 @@ def run(
     geometry_authority_sha256 = tangent_authority.sha256_file(GEOMETRY_RECEIPT)
     geometry_artifact_sha256 = tangent_authority.sha256_file(GEOMETRY_ARTIFACT)
     frozen_authority = json.loads(AUTHORITY_RECEIPT.read_text())
-    if frozen_authority.get("status") != "rank640_program_authority_frozen_no_outcomes" or (
-        frozen_authority.get("protected_snapshot") != protected_before
-    ) or frozen_authority.get("rank") != RANK or frozen_authority.get("outcomes_computed") or (
-        frozen_authority.get("runtime_environment") != dict(runtime_environment)
-    ):
-        raise RuntimeError("frozen tangent program authority does not match current inputs")
+    validate_frozen_program_authority(
+        frozen_authority, protected_snapshot=protected_before,
+        runtime_environment=runtime_environment,
+    )
     plan, rows, row_authority = load_plan_and_rows()
     tangent_authority.validate_loaded_rows(rows)
     rank640_parent = json.loads(RANK640_PARENT.read_text())

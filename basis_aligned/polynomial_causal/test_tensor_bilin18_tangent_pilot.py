@@ -75,6 +75,37 @@ def test_program_receipt_must_equal_admitted_parent() -> None:
         authority.validate_program_receipt(receipt)
 
 
+def test_program_authority_schema_rejects_missing_null_true_and_extra_flags() -> None:
+    parent = json.loads(authority.RANK640_PARENT.read_text())
+    program = tiny_program()
+    protected = {"fingerprint": "f" * 64}
+    runtime = {"device": "test"}
+    valid = {
+        "status": "rank640_program_authority_frozen_no_outcomes", "rank": 640,
+        "protected_snapshot": protected,
+        "program_receipt": {
+            "checkpoint": parent["checkpoint"], "attention_fit": parent["fit"],
+            "cost": parent["cost"],
+        },
+        "program_buffers": authority.program_buffer_manifest(program),
+        "outcomes_computed": False, "geometry_computed": False,
+        "runtime_environment": runtime,
+    }
+    pilot.validate_frozen_program_authority(
+        valid, protected_snapshot=protected, runtime_environment=runtime,
+    )
+    invalid = []
+    invalid.append({key: value for key, value in valid.items() if key != "geometry_computed"})
+    invalid.append({**valid, "outcomes_computed": None})
+    invalid.append({**valid, "geometry_computed": True})
+    invalid.append({**valid, "extra": False})
+    for value in invalid:
+        with pytest.raises(RuntimeError, match="schema"):
+            pilot.validate_frozen_program_authority(
+                value, protected_snapshot=protected, runtime_environment=runtime,
+            )
+
+
 def test_atomic_create_only_publication_and_lock(tmp_path: Path) -> None:
     output = tmp_path / "receipt.json"
     authority.publish_json_create_only(output, {"status": "complete"})

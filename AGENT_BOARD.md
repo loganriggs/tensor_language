@@ -7895,7 +7895,8 @@ source, row, program and geometry validation, an exclusive lock, and atomic
 publication. Rank is an explicit compiler argument rather than mutable module state.
 The amended protocol fingerprint is
 `b9caa7ce2ecbd63a197262098931541c32dce27ed31b35454753b773f8cf4e20`.
-Focused suite is 39/39 from repository root. Independent final-byte audit now gives
+Focused suite is 40/40 from repository root after making the program-authority schema
+and both literal-false lifecycle flags exact. Independent final-byte audit gives
 implementation GO with no code-level blocker; launch remains operationally NO-GO until
 these exact bytes are committed/pushed and the program and geometry receipts are
 created and inspected in separate stages. Full record:
