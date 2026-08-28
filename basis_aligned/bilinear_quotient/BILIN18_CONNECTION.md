@@ -50235,3 +50235,68 @@ dominated point sits exactly in that interval. **Ranks 384, 512 and 1024 at 16,1
 whether the frontier bends smoothly there or whether full rank is an isolated expensive endpoint** — and
 since §1848 established full rank attains the ceiling exactly, that interval is the last unpriced stretch
 of a curve whose both ends are now known.
+
+## §1854 — the frontier is complete: 14 points, 1,960x in marginal cost, and full rank survives only at the top coverage
+
+`ops/frontier_knee.py`, 597.9s, **DISCOVERY ONLY**, §1853's open question. **4/4 —
+pred_a True | pred_b True | pred_c True | pred_d True.**
+
+The unpriced stretch, at 16,110 covered types:
+
+```
+  rank  256   164.48M   +0.09252 above the ceiling   allpos 5.98851
+  rank  384   243.97M   +0.05107                     allpos 5.95112
+  rank  512   323.46M   +0.02896                     allpos 5.93129
+  rank 1024   641.74M   +0.00157                     allpos 5.90669
+  rank full   673.46M   +0.00000                     allpos 5.90522
+```
+
+**pred_a PASSED: the curve bends early.** Rank 512 sits **+0.02896** above the ceiling against the
++0.04626 the prediction allowed — it captures **69%** of the rank-256-to-full gap for **31%** of the
+extra cost. **pred_b PASSED**: nothing in 384..1024 dominates full rank; rank 1024 is 5% cheaper and
+0.00147 nats worse, so full rank is rank 1024 plus rounding.
+
+**The completed frontier over all 18 measured points** (all-position CE, skip7000; cost from §1754):
+
+```
+    6.34M  6.62422   5,419  r4                              marginal cost of reaching each point
+    9.18M  6.35916   5,419  r16          11 M/nat
+   11.27M  6.35875   9,054  r16        5130
+   15.33M  6.35395  16,110  r16         847
+   20.53M  6.17330   5,419  r64          29
+   28.91M  6.16268   9,054  r64         788
+   45.16M  6.15459  16,110  r64        2011
+   65.95M  6.06004   5,419  r256        220
+   99.45M  6.02349   9,054  r256        916
+  164.48M  5.98851  16,110  r256       1859
+  244.02M  5.95112  16,110  r384       2127
+  323.56M  5.93129  16,110  r512       4012
+  641.74M  5.90669  16,110  r1024     12935
+  673.46M  5.90522  16,110  rFULL     21560
+  DOMINATED: r4@9,054 · r4@16,110 · FULL@5,419 (230.1M) · FULL@9,054 (380.8M)
+```
+
+> **Both full-rank builds below the top coverage are dominated.** §1853 showed full@5,419 was; §1854 adds
+> **full@9,054 (380.8M, 5.95796)**, beaten by **rank-384 at 16,110 (244.0M, 5.95112)** — 36% cheaper and
+> better. **Attaining the per-token ceiling is only worth buying at the largest covered set measured**,
+> and even there the marginal cost of the last step is **21,560 M reals per nat**, against **11 M/nat**
+> at the cheap end — a **1,960x** range across one frontier.
+
+**What the whole §1829-§1854 arc amounts to.** Inside the position-wise class the compiled program's
+fidelity is governed by two interacting axes and nothing else: **rank** and **coverage**. §1848 fixed the
+optimum (full rank attains the model's own per-token function exactly, confirmed at three coverages);
+§1852 and §1853 showed that optimum is not the right purchase; §1854 prices the whole curve. Every other
+lever this arc tested moved nothing — table choice (§1845-§1847), fallback (§1848), per-site or per-depth
+table selection (§1846/§1847), and all eight instruments §1824-§1840 aimed at the compiled stream itself.
+The 2.74 nats to live is §1765's attention-deletion boundary and is untouched by any of it.
+
+**Controls (pred_d), all same-population.** Rank 256 reproduces §1852's published +0.09252 / +0.09844 /
++0.08049 exactly at the same 16,110-type covered set; coverage is 16,110; full-rank attainment is exact
+on all three roles; the ceiling is finite and above live. No anchor crosses covered populations — the
+defect §1851 and §1852 both hit.
+
+**Where this leaves the lane.** The class is closed, its optimum is identified and shown not to be worth
+buying, and its cost/fidelity curve is measured end to end at three coverages and eight ranks. The
+remaining in-class questions are interpolation. **The next substantive step is outside the class, which
+is a different program and is flagged for Logan** (board, 23:05) rather than taken, both because the wake
+prompt reserves that call and because it is adjacent to Codex's attention-shaped work.
