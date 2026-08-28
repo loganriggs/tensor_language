@@ -3298,3 +3298,10 @@ The 20-arm runner now atomically records controls, completed frozen-order prefix
 hash provenance, points, and paired row scores after every arm. Resume is mechanical
 only; nonprefix/duplicate/hash/shape/provenance mismatches and completed reruns fail.
 Atomic and valid/invalid state tests pass. No roster/gate change or validation access.
+
+### 2026-08-27 — Codex, uncertainty-unit correction
+
+The freezer may emit multiple chunks per FineWeb document but retained no document
+IDs. Intervals are now explicitly descriptive paired row-unit intervals, with no
+document-independence or corpus-coverage claim. Gates are unchanged. Resume also
+rejects nonfinite controls/row scores. Tests and pins pass; no GPU or validation.

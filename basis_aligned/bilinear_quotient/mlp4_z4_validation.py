@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import math
 import subprocess
 import sys
 import time
@@ -62,6 +63,12 @@ def validate_resume(payload, protocol, inventory_rows):
     if len(payload.get("live_rows", [])) != 960 \
             or len(payload.get("anchor_rows", [])) != 960:
         raise ValueError("partial control row-score state mismatch")
+    numeric = [payload.get("live_ce"), payload.get("mean_ce"),
+               *payload["live_rows"], *payload["anchor_rows"],
+               *(value for values in row_scores.values() for value in values)]
+    if any(not isinstance(value, (int, float)) or not math.isfinite(value)
+           for value in numeric):
+        raise ValueError("partial result contains nonfinite numeric state")
     return points, row_scores
 
 
@@ -115,7 +122,11 @@ def execute(program, z):
 
 
 def paired_row_ci95(differences):
-    """Normal-approximation CI over independent row clusters, never token IID."""
+    """Descriptive normal interval over frozen row units, never token IID.
+
+    Source-document IDs were not retained by the freezer, so this is not claimed as
+    a document-clustered corpus-confidence interval.
+    """
     values = torch.as_tensor(differences, dtype=torch.float64)
     if values.ndim != 1 or values.numel() < 2 or not torch.isfinite(values).all():
         raise ValueError("paired row differences must be a finite vector")
@@ -123,7 +134,10 @@ def paired_row_ci95(differences):
     half_width = 1.959963984540054 * float(values.std(unbiased=True)) \
         / values.numel()**0.5
     return {"mean": mean, "low": mean-half_width, "high": mean+half_width,
-            "clusters": values.numel(), "method": "paired_row_normal_95"}
+            "row_units": values.numel(),
+            "method": "descriptive_paired_row_unit_normal_95",
+            "source_document_independence_verified": False,
+            "inferential_corpus_coverage_claim": False}
 
 
 @torch.no_grad()

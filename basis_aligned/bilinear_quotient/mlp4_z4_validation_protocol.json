@@ -28,7 +28,7 @@
     "mlp4_z4_validation_controls.pt": "b7397504fed19f0bb10a80d57bf7c2fee8e16f8902307a4fb11e24979d685640"
   },
   "pinned_sources": {
-    "mlp4_z4_validation.py": "700b011b25dcb79ac1008feb4368427b772ec34e7a9626ad32aa90bfb2bb6a32",
+    "mlp4_z4_validation.py": "eac2659dd87f0446de2ec8b8d23b5d6ef41373b8b12a176b05560feb5d685209",
     "bilin18_clean_runtime.py": "45f6d975477298eda15f23e0a68c976cfa2c8f64c3c947d786d8fe62483540a7",
     "affine_codec.py": "f8b475542365e9c175578508b17d05f5516890e3a24db5d16dfa96fecaf14238",
     "mlp4_bilinear_residual_codec.py": "521933802fd552ef97f953814c63e49d4d1fae7a445ac49b11c3fa7d40c97a30",
@@ -46,8 +46,11 @@
   "metrics": {
     "primary": "next-token cross entropy",
     "fidelity": "1-(candidate_ce-live_ce)/(mean_ce-live_ce)",
-    "uncertainty_unit": "paired row clusters; tokens within a row are not treated as independent",
-    "confidence_intervals": "two-sided 95% normal approximation over 960 paired row means",
+    "uncertainty_unit": "paired frozen row units; tokens within a row are not treated as independent",
+    "confidence_intervals": "descriptive two-sided normal intervals over 960 paired row means",
+    "source_document_ids_retained_by_freezer": false,
+    "source_document_independence_verified": false,
+    "inferential_corpus_coverage_claim": false,
     "confidence_intervals_are_descriptive_not_gates": true,
     "all_candidates_evaluated_once": true,
     "no_early_stopping": true,

@@ -1,6 +1,7 @@
 import ast
 import hashlib
 import json
+import math
 
 import torch
 
@@ -20,7 +21,9 @@ def test_paired_row_ci_has_expected_center_and_width_without_loading_model():
     namespace = {"torch": torch}
     exec(compile(module, "<paired_row_ci95>", "exec"), namespace)
     result = namespace["paired_row_ci95"]([1.0, 2.0, 3.0, 4.0])
-    assert result["mean"] == 2.5 and result["clusters"] == 4
+    assert result["mean"] == 2.5 and result["row_units"] == 4
+    assert not result["source_document_independence_verified"]
+    assert not result["inferential_corpus_coverage_claim"]
     assert result["low"] < result["mean"] < result["high"]
     assert abs((result["high"]-result["mean"])
                - (result["mean"]-result["low"])) < 1e-12
@@ -96,7 +99,7 @@ def test_resume_validator_is_pure_and_rejects_nonprefix_or_completed_state(tmp_p
     selected = [node for node in tree.body if isinstance(node, ast.FunctionDef)
                 and node.name in {"sha", "atomic_json", "validate_resume"}]
     namespace = {"PROTOCOL": tmp_path/"protocol.json", "hashlib": hashlib,
-                 "json": json}
+                 "json": json, "math": math}
     namespace["PROTOCOL"].write_text("{}")
     exec(compile(ast.Module(body=selected, type_ignores=[]), "<resume>", "exec"), namespace)
     p = {"protocol_id": "p", "candidate_order": ["a", "b"],
@@ -104,7 +107,8 @@ def test_resume_validator_is_pure_and_rejects_nonprefix_or_completed_state(tmp_p
     inventory = {key: {"canonical_bytes_hash": "sha256:"+key} for key in ("a", "b")}
     base = {"partial": True, "protocol_id": "p",
             "protocol_sha256": namespace["sha"](namespace["PROTOCOL"]),
-            "pinned_artifacts": {"x": "y"}, "live_rows": [0.]*960,
+            "pinned_artifacts": {"x": "y"}, "live_ce": 1.0, "mean_ce": 2.0,
+            "live_rows": [0.]*960,
             "anchor_rows": [0.]*960, "points": [], "row_scores_by_id": {}}
     assert namespace["validate_resume"](base, p, inventory) == ([], {})
     good_point = {"candidate_id": "a", "program_hash": "sha256:a"}
@@ -132,3 +136,10 @@ def test_resume_validator_is_pure_and_rejects_nonprefix_or_completed_state(tmp_p
         assert "prefix" in str(error)
     else:
         raise AssertionError("nonprefix partial state accepted")
+    nonfinite = {**base, "live_ce": float("nan"), "mean_ce": 1.0}
+    try:
+        namespace["validate_resume"](nonfinite, p, inventory)
+    except ValueError as error:
+        assert "nonfinite" in str(error)
+    else:
+        raise AssertionError("nonfinite partial state accepted")
