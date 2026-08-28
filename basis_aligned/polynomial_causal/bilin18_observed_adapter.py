@@ -112,6 +112,49 @@ class ObservedBilin18Adapter:
         self._ship = frozen_ship
         self._production = bool(production)
 
+    def make_capability_broker(
+        self, *, issuer_id: str, coordinator: runtime.ScopeCoordinator,
+        run_context: Any, bases: dict[int, torch.Tensor],
+    ) -> Any:
+        """Construct the only production broker binding for native MLP0/1.
+
+        Student traces deliberately own detached CPU copies of the current states.
+        Coordinate teachers, however, execute the pinned native modules on the model
+        device.  Keeping this bridge here prevents runners from passing raw CUDA
+        modules to a CPU-state capability or inventing a second native-call path.
+        """
+
+        import early_mlp_suffix_transport_v1_capabilities as capabilities
+
+        try:
+            model_parameter = next(self._model.parameters())
+        except StopIteration as error:
+            raise RuntimeError("observed model has no device-bearing parameters") from error
+        model_device = model_parameter.device
+
+        def native(site: int):
+            module = self._model.transformer.h[site].mlp
+
+            def call(state: torch.Tensor) -> torch.Tensor:
+                if not torch.is_tensor(state) or tuple(state.shape) != (
+                    runtime.BATCH_SIZE, runtime.SEQUENCE_LENGTH, runtime.D_MODEL,
+                ) or state.requires_grad or state.grad_fn is not None or not bool(
+                    torch.isfinite(state).all()
+                ):
+                    raise RuntimeError(f"coordinate native MLP{site} state is malformed")
+                moved = state.to(device=model_device, dtype=model_parameter.dtype)
+                return module(moved)
+
+            return call
+
+        return capabilities.CapabilityBroker(
+            issuer_id=issuer_id,
+            coordinator=coordinator,
+            run_context=run_context,
+            bases=bases,
+            native_calls={site: native(site) for site in CORRECTION_SITES},
+        )
+
     def run_student(
         self, *, session: Any, hook: runtime.StudentCorrectionHook,
         identity: runtime.TraceIdentity, tokens: torch.Tensor,

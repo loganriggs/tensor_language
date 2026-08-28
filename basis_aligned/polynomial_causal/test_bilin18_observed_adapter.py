@@ -9,6 +9,7 @@ import torch
 import bilin18_observed_adapter as observed
 import bilin18_observed_model_facade as facade
 import early_mlp_suffix_transport_v1_runtime as runtime
+import early_mlp_suffix_transport_v1_capabilities as capabilities
 from test_bilin18_observed_model_facade import tiny_model
 
 
@@ -158,3 +159,40 @@ def test_oon_forward_uses_gateway_for_zero_and_one_only() -> None:
     assert logits.shape == (1, 2, facade.LOGIT_VOCAB)
     assert gateway.calls == [0, 1]
     assert closure["hook_calls"] == {0: 1, 1: 1, 2: 0}
+
+
+def test_adapter_factory_owns_native_broker_binding() -> None:
+    class WideNative(torch.nn.Module):
+        def __init__(self):
+            super().__init__()
+            self.weight = torch.nn.Parameter(torch.eye(runtime.D_MODEL))
+
+        def forward(self, state):
+            return state @ self.weight
+
+    class MinimalModel(torch.nn.Module):
+        def __init__(self):
+            super().__init__()
+            self.anchor = torch.nn.Parameter(torch.zeros(()))
+            self.transformer = SimpleNamespace(h=[
+                SimpleNamespace(mlp=WideNative()) for _ in range(3)
+            ])
+
+    model = MinimalModel()
+    adapter = observed.ObservedBilin18Adapter(model, FakeShip(), production=False)
+    hashes = {
+        "inherited_snapshot_sha256": "1" * 64,
+        "rows_receipt_sha256": "2" * 64,
+        "fit_role_tensor_sha256": "3" * 64,
+        "identity_teacher_mapping_sha256": "4" * 64,
+    }
+    context = capabilities.RunContext(source_commit="5" * 40, **hashes)
+    bases = {site: torch.eye(runtime.D_MODEL)[:, :runtime.CODE_DIM] for site in (0, 1)}
+    broker = adapter.make_capability_broker(
+        issuer_id="6" * 64,
+        coordinator=runtime.ScopeCoordinator(),
+        run_context=context,
+        bases=bases,
+    )
+    assert isinstance(broker, capabilities.CapabilityBroker)
+    assert broker.issuer_id == "6" * 64
