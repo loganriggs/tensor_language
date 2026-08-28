@@ -279,6 +279,98 @@ class _EphemeralOriginalGateway:
         self.__native.clear()
 
 
+class _MappedCoordinateGateway:
+    """One-use target-trajectory P/P/N correction and native-label capability."""
+
+    __slots__ = (
+        "__bases", "__calls", "__coordinator", "__labels", "__lease",
+        "__native", "__program", "__program_sha256", "__replace_calls",
+        "__revoked",
+    )
+
+    def __init__(
+        self, *, native: Mapping[int, Callable[[torch.Tensor], torch.Tensor]],
+        bases: Mapping[int, torch.Tensor], program: runtime.JointAffineProgram,
+        program_sha256: str, calls: _CallCounter,
+        coordinator: runtime.ScopeCoordinator, lease: runtime.ScopeLease,
+    ) -> None:
+        self.__native = dict(native)
+        self.__bases = dict(bases)
+        self.__program = program
+        self.__program_sha256 = program_sha256
+        self.__calls = calls
+        self.__coordinator = coordinator
+        self.__lease = lease
+        self.__labels: dict[int, torch.Tensor] = {}
+        self.__replace_calls = {0: 0, 1: 0}
+        self.__revoked = False
+
+    def correct_and_label(
+        self, site: int, state: torch.Tensor, deployed_output: torch.Tensor,
+    ) -> torch.Tensor:
+        if self.__revoked:
+            raise RuntimeError("mapped coordinate gateway was revoked")
+        self.__coordinator.require_active(self.__lease)
+        if site not in (0, 1):
+            raise ValueError("mapped coordinate gateway permits only MLP0/1")
+        if self.__replace_calls[site] != 0:
+            raise RuntimeError(f"mapped target MLP{site} was called more than once")
+        if site == 1 and self.__replace_calls[0] != 1:
+            raise RuntimeError("mapped target MLP1 executed before MLP0")
+        if not torch.is_tensor(state) or not torch.is_tensor(deployed_output) or (
+            tuple(state.shape) != (
+                runtime.BATCH_SIZE, runtime.SEQUENCE_LENGTH, runtime.D_MODEL,
+            )
+        ) or deployed_output.shape != state.shape or state.requires_grad or (
+            state.grad_fn is not None
+        ) or deployed_output.requires_grad or deployed_output.grad_fn is not None or not bool(
+            torch.isfinite(state).all()
+        ) or not bool(torch.isfinite(deployed_output).all()):
+            raise RuntimeError("mapped target state or deployed write is malformed")
+        self.__replace_calls[site] += 1
+        self.__calls.record(site)
+        native = self.__native[site](state)
+        if not torch.is_tensor(native) or native.shape != state.shape or native.requires_grad or (
+            native.grad_fn is not None
+        ) or not bool(torch.isfinite(native).all()):
+            raise RuntimeError(f"mapped native MLP{site} label output is malformed")
+        basis = self.__bases[site].to(device=native.device, dtype=torch.float32)
+        label = runtime.scored_positions(native.float() @ basis)
+        predicted = self.__program.site0_code(state) if site == 0 else (
+            self.__program.site1_code(state)
+        )
+        self.__labels[site] = label.detach().contiguous()
+        return runtime.JointAffineProgram.projected_replacement(
+            deployed_output, predicted, basis,
+        )
+
+    def take_labels(self) -> tuple[torch.Tensor, torch.Tensor]:
+        if self.__revoked:
+            raise RuntimeError("mapped coordinate gateway was revoked")
+        self.__coordinator.require_active(self.__lease)
+        if self.__replace_calls != {0: 1, 1: 1} or set(self.__labels) != {0, 1}:
+            raise RuntimeError("mapped target trajectory did not label MLP0/1 exactly once")
+        if runtime.program_snapshot_sha256(self.__program) != self.__program_sha256:
+            raise RuntimeError("mapped target program changed during label construction")
+        labels = (self.__labels.pop(0), self.__labels.pop(1))
+        if any(tuple(value.shape) != (
+            runtime.BATCH_SIZE, runtime.SCORE_STOP - runtime.SCORE_START,
+            runtime.CODE_DIM,
+        ) or value.requires_grad or value.grad_fn is not None or not bool(
+            torch.isfinite(value).all()
+        ) for value in labels):
+            raise RuntimeError("mapped coordinate labels are malformed")
+        return labels
+
+    def revoke(self) -> None:
+        self.__revoked = True
+        self.__calls.revoke()
+        self.__native.clear()
+        self.__bases.clear()
+        self.__labels.clear()
+        self.__program = None
+
+
 class _TensorWitness:
     """Cheap one-process ownership witness for a tensor and its graph/storage.
 
@@ -864,11 +956,16 @@ class CapabilityBroker:
         if self.__mapped_authority is None:
             self.__run_context.require_identity(identity, inputs, ordered_batch_indices)
         else:
-            if identity.teacher_kind != "oon_logits" or identity.control != (
-                "document_shuffle"
-            ) or identity.route not in {"R", "S0", "S1"}:
+            legal_mapped = identity.control == "document_shuffle" and (
+                (identity.route == "L" and identity.teacher_kind == "coordinate_labels")
+                or (
+                    identity.route in {"R", "S0", "S1"}
+                    and identity.teacher_kind == "oon_logits"
+                )
+            )
+            if not legal_mapped:
                 raise RuntimeError(
-                    "mapped broker currently licenses only document-shuffled R/S OON"
+                    "mapped broker currently licenses only document-shuffled L/R/S"
                 )
             self.__mapped_authority.require_source_identity(
                 identity, inputs, ordered_batch_indices,
@@ -963,6 +1060,91 @@ class CapabilityBroker:
             "output_shapes": tuple(tuple(value.shape) for value in labels),
             "output_dtypes": tuple(str(value.dtype) for value in labels),
             "support": "64:256", "requires_grad": False, "grad_fn_absent": True,
+        }
+        try:
+            return CoordinateTeacherResult(
+                broker=self, identity=identity, tensors=labels,
+                student_outputs=outputs, metadata=metadata,
+            )
+        except BaseException:
+            outputs.force_discard(identity)
+            self._abort_identity(identity)
+            raise
+
+    def run_mapped_coordinate_teacher(
+        self, identity: runtime.TraceIdentity, step: StudentStep, *,
+        fit_rows: torch.Tensor, student_inputs: torch.Tensor,
+        student_indices: Sequence[int], teacher_inputs: torch.Tensor,
+        teacher_indices: Sequence[int], program: runtime.JointAffineProgram,
+        autonomous_forward: Callable[[Any, torch.Tensor], Mapping[str, Any]],
+    ) -> CoordinateTeacherResult:
+        """Label a mapped P/P/N target trajectory against source predictions."""
+
+        if self.__mapped_authority is None:
+            raise RuntimeError("ordinary broker cannot execute a mapped coordinate teacher")
+        if identity.control != "document_shuffle" or identity.route != "L" or (
+            identity.teacher_kind != "coordinate_labels"
+        ):
+            raise RuntimeError("mapped coordinate capability requires document-shuffled L")
+        self.__mapped_authority.require_identity(
+            identity, fit_rows=fit_rows, student_inputs=student_inputs,
+            student_indices=student_indices, teacher_inputs=teacher_inputs,
+            teacher_indices=teacher_indices,
+        )
+        if not isinstance(program, runtime.JointAffineProgram) or program.route != "L":
+            raise RuntimeError("mapped coordinate target requires the fitted L program")
+        program.require_exact_trainability()
+        program_sha256 = runtime.program_snapshot_sha256(program)
+        if identity.program_snapshot_sha256 != program_sha256:
+            raise RuntimeError("mapped target program differs from the student identity")
+        step._require_available(issuer_id=self.issuer_id, identity=identity)
+        self._spend_teacher_identity(identity)
+        trace, outputs = step._take(issuer_id=self.issuer_id, identity=identity)
+        gateway: _MappedCoordinateGateway | None = None
+        try:
+            with self.__coordinator.enter("coordinate") as lease:
+                states = trace._consume(issuer_id=self.issuer_id, identity=identity)
+                states.clear()
+                counter = _CallCounter(EXACT_EARLY_ORIGINAL_CALLS)
+                gateway = _MappedCoordinateGateway(
+                    native=self.__native_calls, bases=self.__bases, program=program,
+                    program_sha256=program_sha256, calls=counter,
+                    coordinator=self.__coordinator, lease=lease,
+                )
+                try:
+                    with torch.no_grad():
+                        closure = autonomous_forward(
+                            gateway, teacher_inputs.detach().clone(),
+                        )
+                    required_closure = {
+                        "outer_forward_count": 1,
+                        "hook_calls": {0: 1, 1: 1, 2: 0},
+                        "outer_returned": True, "hook_restored": True,
+                        "hook_inert": True,
+                    }
+                    if not isinstance(closure, Mapping) or dict(closure) != required_closure:
+                        raise RuntimeError("mapped coordinate execution closure changed")
+                    calls = counter.close()
+                    labels = gateway.take_labels()
+                finally:
+                    gateway.revoke()
+        except BaseException:
+            try:
+                if not trace.consumed:
+                    trace._discard(issuer_id=self.issuer_id, identity=identity)
+            finally:
+                outputs.force_discard(identity)
+                self._abort_identity(identity)
+            raise
+        metadata = {
+            "scope": "mapped_coordinate", "producer_invocations": 1,
+            "outer_forward_count": 1, "hook_calls": ((0, 1), (1, 1), (2, 0)),
+            "original_calls": calls, "outer_returned": True,
+            "hook_restored": True, "hook_inert": True,
+            "output_shapes": tuple(tuple(value.shape) for value in labels),
+            "output_dtypes": tuple(str(value.dtype) for value in labels),
+            "support": "64:256", "requires_grad": False,
+            "grad_fn_absent": True,
         }
         try:
             return CoordinateTeacherResult(

@@ -1,7 +1,7 @@
 """Deterministic numerical fit orchestration for suffix-transport v1.
 
 This module is the sole owner of the initial Q denominator pass, the true-row
-L/R/S0/S1 optimization loops, and document-shuffled R/S negative controls.  It
+L/R/S0/S1 optimization loops, and document-shuffled L/R/S negative controls.  It
 deliberately performs no row loading, model
 loading, validation selection, artifact publication, or final scoring.  Callers
 must supply the already validated fit role, inherited program, observed adapter,
@@ -32,7 +32,7 @@ TRUE_FIT_ROUTES = ("L", "R", "S0", "S1")
 # true-row schedule and OON loss surface, but is deliberately excluded from the
 # pre-selection objective-route bank above.
 ALL_TRUE_FIT_ROUTES = (*TRUE_FIT_ROUTES, "T")
-DOCUMENT_SHUFFLE_ROUTES = ("R", "S0", "S1")
+DOCUMENT_SHUFFLE_ROUTES = ("L", "R", "S0", "S1")
 STUDENT_STATES = ((0, "P"), (1, "P"), (2, "N"))
 
 
@@ -131,7 +131,9 @@ def make_document_shuffle_identity(
         fit_role_tensor_sha256=context.base.fit_role_tensor_sha256,
         program_snapshot_sha256=runtime.program_snapshot_sha256(program),
         teacher_mapping_sha256=context.plan.sha256, phase="fit", route=route,
-        control="document_shuffle", teacher_kind="oon_logits", trial=trial,
+        control="document_shuffle",
+        teacher_kind="coordinate_labels" if route == "L" else "oon_logits",
+        trial=trial,
         epoch=epoch,
         optimizer_step=epoch * capabilities.FIT_BATCHES_PER_EPOCH + batch_ordinal,
         batch_ordinal=batch_ordinal, student_states=STUDENT_STATES,
@@ -369,8 +371,9 @@ def run_document_shuffle_fit_trial(
     adapter: Any, broker: capabilities.CapabilityBroker,
     hook: runtime.StudentCorrectionHook,
     device: torch.device | str | None = None,
+    denominators: Sequence[torch.Tensor | float] | None = None,
 ) -> MappedFitCandidate:
-    """Fit one document-shuffled R/S control through the sealed mapped teacher."""
+    """Fit one document-shuffled L/R/S control through the sealed mapped teacher."""
 
     if not isinstance(context, mapped.MappedRunContext) or context.plan.control != (
         "document_shuffle"
@@ -381,6 +384,11 @@ def run_document_shuffle_fit_trial(
         len(runtime.LEARNING_RATES)
     ):
         raise ValueError("document-shuffle route/trial/program is malformed")
+    if route == "L":
+        if denominators is None or len(tuple(denominators)) != 2:
+            raise ValueError("document-shuffled L requires both frozen Q denominators")
+    elif denominators is not None:
+        raise ValueError("document-shuffled suffix routes must not receive denominators")
     parameters = program.set_route_trainability()
     program.require_exact_trainability()
     learning_rate = runtime.LEARNING_RATES[trial]
@@ -404,12 +412,21 @@ def run_document_shuffle_fit_trial(
                 adapter=adapter, broker=broker, hook=hook, program=program,
                 identity=identity, inputs=source_inputs, indices=source_indices,
             )
-            result = adapter.run_mapped_oon_teacher(
-                broker=broker, identity=identity, step=step, fit_rows=rows,
-                student_tokens=source_inputs, student_indices=source_indices,
-                teacher_tokens=target_inputs, teacher_indices=target_indices,
-            )
-            loss, teacher_closure = result.consume_loss()
+            if route == "L":
+                result = adapter.run_mapped_coordinate_teacher(
+                    broker=broker, identity=identity, step=step, fit_rows=rows,
+                    student_tokens=source_inputs, student_indices=source_indices,
+                    teacher_tokens=target_inputs, teacher_indices=target_indices,
+                    program=program,
+                )
+                loss, teacher_closure = result.consume_loss(denominators)
+            else:
+                result = adapter.run_mapped_oon_teacher(
+                    broker=broker, identity=identity, step=step, fit_rows=rows,
+                    student_tokens=source_inputs, student_indices=source_indices,
+                    teacher_tokens=target_inputs, teacher_indices=target_indices,
+                )
+                loss, teacher_closure = result.consume_loss()
             loss_value = float(loss.detach().double().cpu())
             gradient_norm = runtime.optimizer_step(loss, optimizer)
             losses.append(loss_value)

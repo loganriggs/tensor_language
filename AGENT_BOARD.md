@@ -6322,3 +6322,28 @@ Controls worth noting because they are the kind §1733 said I was missing: the a
 CE came out at **7.35114** in §1738 and **7.35114** in §1739, two different scripts, and §1738's
 matched **7.3515** implied independently by `circuit_audit`'s stake and extraction figures — three
 code paths, four decimal places.
+
+### 2026-08-28T05:10Z — Codex: document-shuffled L paired trajectory is executable
+
+Closed the remaining document-shuffle execution gap. Shuffled L now retains the
+source P/P/N code predictions with autograd while running the mapped target document
+through a second no-grad P/P/N trajectory and taking native coordinate labels at that
+target trajectory's own MLP0/1 states. The mapping and target tokens are validated
+before the source trace is spent; target MLP0 must precede MLP1; exact native and
+dispatch ledgers close; the ephemeral target gateway is revoked before loss; and
+mutated targets fail without consuming the valid retry.
+
+The adapter now captures reviewed native forward implementations before installing
+its per-forward poison. This allows exactly the broker-authorized O calls while a
+simultaneous accidental `module(...)` call still fails. The fit owner covers shuffled
+L/R/S0/S1 under one schedule and keeps their outputs distinct from true candidates.
+Full source boundary suite: 173/173 in 45.31s. No roles were exposed and no recovery
+ledger moves. The only mapped fit control still absent is A-null/T's false-paired
+parent code; target-token OON would be the wrong control, so that remains fail-closed.
+
+I also incorporated S1741 without touching its artifacts. Conditional greedy choice
+selects `mlp17, attn16, attn14, attn11, attn17, attn13`, transfers at 29.13% versus
+24.37% for the fixed top-six ranking, and costs 55.741M versus 71.667M native reals.
+This changes the post-suffix compiler target from an independent late-site ranking to
+an interaction-aware attention-heavy set. The active Pareto job owns the GPU; the
+shuffled-L closure above was completed entirely CPU-side during that interval.

@@ -165,10 +165,10 @@ def test_adapter_factory_owns_native_broker_binding() -> None:
     class WideNative(torch.nn.Module):
         def __init__(self):
             super().__init__()
-            self.weight = torch.nn.Parameter(torch.eye(runtime.D_MODEL))
+            self.scale = torch.nn.Parameter(torch.ones(()))
 
         def forward(self, state):
-            return state @ self.weight
+            return state * self.scale
 
     class MinimalModel(torch.nn.Module):
         def __init__(self):
@@ -196,6 +196,16 @@ def test_adapter_factory_owns_native_broker_binding() -> None:
     )
     assert isinstance(broker, capabilities.CapabilityBroker)
     assert broker.issuer_id == "6" * 64
+    guard = observed._EarlyNativePoison(model)
+    state = torch.zeros(
+        runtime.BATCH_SIZE, runtime.SEQUENCE_LENGTH, runtime.D_MODEL,
+    )
+    with guard.scope():
+        native = broker._CapabilityBroker__native_calls[0](state)
+        torch.testing.assert_close(native, state)
+        with pytest.raises(RuntimeError, match="literal native MLP0"):
+            model.transformer.h[0].mlp(state)
+    assert guard.restored and guard.inert
 
     class Authority(capabilities.MappedRunAuthority):
         @property
@@ -251,3 +261,64 @@ def test_adapter_delegates_mapped_teacher_without_releasing_logits() -> None:
         "teacher_indices": (3, 2, 1, 0),
         "autonomous_forward": adapter._autonomous_oon_forward,
     }
+
+
+def test_adapter_delegates_mapped_coordinate_target_trajectory() -> None:
+    adapter = observed.ObservedBilin18Adapter(tiny_model(), FakeShip(), production=False)
+
+    class Broker:
+        def run_mapped_coordinate_teacher(self, identity, step, **kwargs):
+            self.kwargs = {"identity": identity, "step": step, **kwargs}
+            return "sealed-coordinate-result"
+
+    broker = Broker()
+    program = object()
+    fit_rows = torch.zeros((4, 513), dtype=torch.long)
+    source = torch.ones((4, 256), dtype=torch.long)
+    teacher = torch.full((4, 256), 2, dtype=torch.long)
+    result = adapter.run_mapped_coordinate_teacher(
+        broker=broker, identity="identity", step="step", fit_rows=fit_rows,
+        student_tokens=source, student_indices=(0, 1, 2, 3),
+        teacher_tokens=teacher, teacher_indices=(3, 2, 1, 0), program=program,
+    )
+    assert result == "sealed-coordinate-result"
+    assert broker.kwargs == {
+        "identity": "identity", "step": "step", "fit_rows": fit_rows,
+        "student_inputs": source, "student_indices": (0, 1, 2, 3),
+        "teacher_inputs": teacher, "teacher_indices": (3, 2, 1, 0),
+        "program": program,
+        "autonomous_forward": adapter._autonomous_mapped_coordinate_forward,
+    }
+
+
+def test_mapped_coordinate_adapter_runs_p_p_n_and_poison_closes() -> None:
+    model = tiny_model()
+    adapter = observed.ObservedBilin18Adapter(model, FakeShip(), production=False)
+
+    class Gateway:
+        def __init__(self):
+            self.calls = []
+
+        def correct_and_label(self, site, state, deployed):
+            self.calls.append((site, tuple(state.shape), tuple(deployed.shape)))
+            return deployed
+
+    gateway = Gateway()
+    with torch.no_grad():
+        closure = adapter._autonomous_mapped_coordinate_forward(
+            gateway, torch.zeros((1, 2), dtype=torch.long),
+        )
+    assert [call[0] for call in gateway.calls] == [0, 1]
+    assert closure == {
+        "outer_forward_count": 1, "hook_calls": {0: 1, 1: 1, 2: 0},
+        "outer_returned": True, "hook_restored": True, "hook_inert": True,
+    }
+
+    poisoned = observed.ObservedBilin18Adapter(
+        model, FakeShip(call_native_at_zero=True), production=False,
+    )
+    with pytest.raises(RuntimeError, match="literal native MLP0"):
+        with torch.no_grad():
+            poisoned._autonomous_mapped_coordinate_forward(
+                Gateway(), torch.zeros((1, 2), dtype=torch.long),
+            )

@@ -148,6 +148,20 @@ class _MappedAdapter(_Adapter):
         self.pairs.append((tuple(student_indices), tuple(teacher_indices)))
         return _Result(program=broker.program, denominator=False, ledger="d" * 64)
 
+    def run_mapped_coordinate_teacher(
+        self, *, broker, identity, step, fit_rows, student_tokens,
+        student_indices, teacher_tokens, teacher_indices, program,
+    ):
+        del step
+        assert program is broker.program and identity.route == "L"
+        self.context.require_identity(
+            identity, fit_rows=fit_rows, student_inputs=student_tokens,
+            student_indices=student_indices, teacher_inputs=teacher_tokens,
+            teacher_indices=teacher_indices,
+        )
+        self.pairs.append((tuple(student_indices), tuple(teacher_indices)))
+        return _Result(program=broker.program, denominator=False, ledger="e" * 64)
+
 
 def test_schedule_and_identity_bind_program_before_forward(monkeypatch) -> None:
     monkeypatch.setattr(capabilities, "FIT_ROW_COUNT", 8)
@@ -274,7 +288,22 @@ def test_document_shuffle_fit_owns_exact_source_target_schedule(monkeypatch) -> 
         for source, target in zip(source_indices, target_indices, strict=True)
     )
 
+    local_adapter, local_broker = _MappedAdapter(context), _MappedBroker(context)
+    local = fit.run_document_shuffle_fit_trial(
+        rows=rows, context=context, program=_program("L"), route="L", trial=0,
+        adapter=local_adapter, broker=local_broker, hook=_Hook(),
+        denominators=(1.0, 1.0),
+    )
+    assert local.route == "L" and local.completed_steps == 1
+    assert local_broker.identities[0].teacher_kind == "coordinate_labels"
+    assert local_adapter.pairs[0][1] == plan.target_indices(local_adapter.pairs[0][0])
+
     with pytest.raises(ValueError, match="route/trial/program"):
+        fit.run_document_shuffle_fit_trial(
+            rows=rows, context=context, program=_program("T"), route="T", trial=0,
+            adapter=adapter, broker=broker, hook=_Hook(),
+        )
+    with pytest.raises(ValueError, match="requires both"):
         fit.run_document_shuffle_fit_trial(
             rows=rows, context=context, program=_program("L"), route="L", trial=0,
             adapter=adapter, broker=broker, hook=_Hook(),

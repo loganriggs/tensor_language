@@ -155,6 +155,11 @@ class ObservedBilin18Adapter:
 
         def native(site: int):
             module = self._model.transformer.h[site].mlp
+            # Capture the reviewed native implementation before any per-forward
+            # instance poison is installed. Calling this bound method directly is
+            # the broker's sole authorized O path; accidental ``module(...)`` calls
+            # made by the frozen ship still encounter the poison.
+            native_forward = module.forward
 
             def call(state: torch.Tensor) -> torch.Tensor:
                 if not torch.is_tensor(state) or tuple(state.shape) != (
@@ -164,7 +169,7 @@ class ObservedBilin18Adapter:
                 ):
                     raise RuntimeError(f"coordinate native MLP{site} state is malformed")
                 moved = state.to(device=model_device, dtype=model_parameter.dtype)
-                return module(moved)
+                return native_forward(moved)
 
             return call
 
@@ -308,6 +313,73 @@ class ObservedBilin18Adapter:
             teacher_indices=teacher_indices,
             autonomous_forward=self._autonomous_oon_forward,
         )
+
+    def run_mapped_coordinate_teacher(
+        self, *, broker: Any, identity: runtime.TraceIdentity, step: Any,
+        fit_rows: torch.Tensor, student_tokens: torch.Tensor,
+        student_indices: Any, teacher_tokens: torch.Tensor,
+        teacher_indices: Any, program: runtime.JointAffineProgram,
+    ) -> Any:
+        """Run mapped P/P/N label construction without releasing target states."""
+
+        return broker.run_mapped_coordinate_teacher(
+            identity, step, fit_rows=fit_rows, student_inputs=student_tokens,
+            student_indices=student_indices, teacher_inputs=teacher_tokens,
+            teacher_indices=teacher_indices, program=program,
+            autonomous_forward=self._autonomous_mapped_coordinate_forward,
+        )
+
+    def _autonomous_mapped_coordinate_forward(
+        self, gateway: Any, tokens: torch.Tensor,
+    ) -> dict[str, Any]:
+        """Run the mapped document through the same P/P/N target trajectory."""
+
+        poison = _EarlyNativePoison(self._model)
+        attention_calls = {site: 0 for site in range(len(self._model.transformer.h))}
+        mlp_calls = {site: 0 for site in range(len(self._model.transformer.h))}
+        deployed_n_calls = {site: 0 for site in EARLY_SITES}
+        correction_calls = {site: 0 for site in EARLY_SITES}
+        outer_returned = False
+
+        def attention(event: facade.AttentionEvent):
+            attention_calls[event.site] += 1
+            return self._ship.attention(event)
+
+        def mlp(event: facade.EarlyMLPEvent):
+            mlp_calls[event.site] += 1
+            deployed = self._ship.mlp(event)
+            if event.site not in EARLY_SITES:
+                return deployed
+            deployed_n_calls[event.site] += 1
+            if event.site == 2:
+                return deployed
+            correction_calls[event.site] += 1
+            return gateway.correct_and_label(event.site, event.state, deployed)
+
+        with poison.scope():
+            facade.forward_with_dispatch(
+                self._model, tokens, attention, mlp,
+                require_production=self._production,
+            )
+            outer_returned = True
+        expected_all = tuple((site, 1) for site in range(len(self._model.transformer.h)))
+        if _counts(attention_calls) != expected_all or _counts(mlp_calls) != expected_all:
+            raise RuntimeError("mapped coordinate forward did not dispatch every site once")
+        if _counts(deployed_n_calls) != ((0, 1), (1, 1), (2, 1)) or _counts(
+            correction_calls
+        ) != ((0, 1), (1, 1), (2, 0)):
+            raise RuntimeError("mapped coordinate P/P/N call ledger did not close exactly")
+        if not outer_returned or not poison.restored or not poison.inert or any(
+            poison.calls.values()
+        ):
+            raise RuntimeError("mapped coordinate native guard did not close cleanly")
+        return {
+            "outer_forward_count": 1,
+            "hook_calls": {0: 1, 1: 1, 2: 0},
+            "outer_returned": True,
+            "hook_restored": True,
+            "hook_inert": True,
+        }
 
     def _autonomous_oon_forward(self, gateway: Any, tokens: torch.Tensor):
         calls = {site: 0 for site in EARLY_SITES}

@@ -1,7 +1,6 @@
 # Current strategic update: bilin18 reverse engineering
 
-Last updated: 2026-08-28 04:59 UTC after mapped suffix execution and the
-program-context importance result.
+Last updated: 2026-08-28 05:10 UTC after closing document-shuffled L execution.
 
 ## Bottom line
 
@@ -370,6 +369,98 @@ Repeated hard token clustering, more SNR-derived semantic rankings, unconditione
 local reconstruction sweeps, and additional one-at-a-time ablation rankings are
 pruned. They are now empirically redundant with weaker definitions and do not close
 the causal or compositional interfaces.
+
+## 05:10 UTC continuation: shuffled-L now uses a paired target trajectory
+
+The model-wide explanatory balances remain unchanged: 36/36 structural sites,
+$32.1\%\pm6.4\%$ named behavior, $10.923\%$ named causal recovery, and zero strict
+current-ship executable recovery of the $+0.8976$ CE residual. This implementation
+loaded no role and earns no scientific numerator.
+
+The last document-shuffle execution gap is now closed. Shuffled-L uses two different
+P/P/N trajectories under the same current L program:
+
+$$
+\text{source trajectory}\longrightarrow
+(\widehat p_0(z_0^s),\widehat p_1(z_1^s)),
+$$
+
+with the exact autograd graph retained, and
+
+$$
+\text{mapped target trajectory}\longrightarrow
+(m_0^O(z_0^t)B_0,m_1^O(z_1^t)B_1),
+$$
+
+under `torch.no_grad`. The target trajectory installs P0 before constructing its
+MLP1 state, so the second label is taken at the mapped document's actual current
+autoregressive state, not at a source state or an independent native trajectory.
+The complete role, source schedule, document map, target indices, target tokens, and
+program snapshot are validated before the one-use source trace is spent.
+
+The mapped coordinate gateway permits MLP0 then MLP1 exactly once, checks detached
+finite native outputs, records exact O-call and dispatch ledgers, and is revoked
+before the local loss can be consumed. The observed adapter poisons all accidental
+literal early-native calls during the target forward; the broker's two authorized
+native calls use bound reviewed implementations captured before the poison. A test
+proves the authorized calls work while a simultaneous ordinary module call fails.
+Mutated target tokens fail before consumption. The deterministic fit owner now runs
+same-budget shuffled L/R/S0/S1 trajectories and keeps all of them in the separate
+negative-control candidate type. Full boundary verification passes 173/173 in 45.31
+seconds.
+
+### Updated gaps and priorities
+
+1. **Implement A-null/T as false-paired parent-code transport.** This is now the only
+   unimplemented mapped fit control. It must physically write the true source L0 code
+   while feeding a sealed mapped-document L0 code only to the trainable cross map;
+   reusing the target-token OON path would test the wrong hypothesis.
+2. **Finish artifact publication, validation/calibration ownership, and the one-shot
+   final evaluator.** Once A-null/T is source-closed, these are the remaining gates
+   before rows may legally be materialized and the L/R/S/T question answered.
+3. **Confirm the frozen conditional-greedy allocator on a clean role.** Greedy choice
+   transfers within the discovery family and dominates a fixed program-context
+   ranking, but both large roles remain spent for certification.
+4. **Compile the conditional greedy residual set—MLP17 and attention16/14/11/17/13—
+   using their actual program inputs.** This set captures cooperation missed by all
+   per-site rankings; more front-layer local fitting is redundant.
+5. **Run a common-denominator factorial composition test.** Only an interaction-aware
+   attention × early × late lattice can earn strict recovery given confirmed MLP
+   redundancy and attention cooperation.
+
+Possible alternatives were pruned as follows. A direct target-token A-null is cheap
+but causally wrong; another document-shuffle implementation is redundant; a new OAT,
+LOO, SNR, or rank sweep has lower information gain than completing the admitted
+lifecycle; and starting the late-site compiler before freezing the suffix source
+boundary would leave two unfinished executable families rather than one testable
+program.
+
+### New program-level simplicity evidence during this implementation
+
+S1741 replaces independent site ranking with conditional greedy selection: starting
+from all 36 token tables, add the native site with the largest marginal recovery
+given the sites already native. Selection used only `skip7000`; `skip11000` selected
+nothing and served as a transfer check. The selected set is MLP17 plus attention
+16/14/11/17/13. It recovers 29.65% on selection and 29.13% on transfer, versus
+25.04%/24.37% for the fixed top-six program-context ranking.
+
+This is an unusually direct validation of a simplicity definition. With published
+module prices, the greedy program retains 55.741M native reals versus 71.667M for the
+fixed ranking—22% less native structure—while recovering 4.8 percentage points more
+held-out fidelity. The improvement arises because conditional marginal utility sees
+attention cooperation that independent scores miss, and attention modules cost half
+as much as MLP modules. It is discovery-only, not strict executable recovery, but it
+supports a program-level Pareto objective
+
+$$
+\max_{S}\;\Delta\mathrm{CE}(S)\quad\text{subject to}\quad
+\mathrm{DL}(S)\le C,
+$$
+
+with marginal gains evaluated after composing the current set, rather than “simple”
+meaning low rank or low parameter count in isolation. The owning agent's fourteen-
+budget Pareto run is currently using the GPU; this review used that interval for the
+CPU-side shuffled-L implementation and tests.
 
 ## 04:24 UTC hourly checkpoint: from adapter closure to a numerical consumer
 

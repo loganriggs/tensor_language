@@ -258,6 +258,130 @@ def test_mapped_oon_broker_executes_only_exact_plan_target_before_spending(monke
     assert native0.scale.grad is None and native1.scale.grad is None
 
 
+def test_mapped_coordinate_broker_labels_target_p_trajectory_only(monkeypatch) -> None:
+    monkeypatch.setattr(capabilities, "FIT_ROW_COUNT", runtime.BATCH_SIZE)
+    monkeypatch.setattr(capabilities, "FIT_BATCHES_PER_EPOCH", 1)
+    rows = torch.arange(
+        runtime.BATCH_SIZE * 513, dtype=torch.long,
+    ).view(runtime.BATCH_SIZE, 513)
+    plan = mapped.build_document_block_plan(
+        _records((1, 1, 1, 1)), control="document_shuffle",
+    )
+    base = capabilities.RunContext(
+        source_commit="1" * 40, inherited_snapshot_sha256="2" * 64,
+        rows_receipt_sha256="3" * 64,
+        fit_role_tensor_sha256=runtime.tensor_identity_sha256(rows),
+        identity_teacher_mapping_sha256="4" * 64,
+        fit_row_count=runtime.BATCH_SIZE,
+    )
+    context = mapped.MappedRunContext(base=base, plan=plan)
+    source_indices = tuple(int(value) for value in runtime.fit_permutations(4, 0)[0])
+    target_indices = plan.target_indices(source_indices)
+    source = rows[torch.tensor(source_indices), :runtime.SEQUENCE_LENGTH]
+    teacher = rows[torch.tensor(target_indices), :runtime.SEQUENCE_LENGTH]
+    program = _program("L")
+    issuer = "7" * 64
+    coordinator = runtime.ScopeCoordinator()
+    projection = torch.eye(runtime.D_MODEL)[:, :runtime.CODE_DIM]
+    native0, native1 = _Native(2.0, 0.25), _Native(-0.5, 1.0)
+    broker = capabilities.CapabilityBroker(
+        issuer_id=issuer, coordinator=coordinator, run_context=base,
+        bases={0: projection, 1: projection},
+        native_calls={0: native0, 1: native1}, mapped_authority=context,
+    )
+    hook = runtime.StudentCorrectionHook(
+        {0: projection, 1: projection}, issuer_id=issuer, coordinator=coordinator,
+    )
+    hook.configure(program=program, states={0: "P", 1: "P"})
+    identity = runtime.TraceIdentity.from_inputs(
+        inputs=source, ordered_batch_indices=source_indices,
+        source_commit=base.source_commit,
+        inherited_snapshot_sha256=base.inherited_snapshot_sha256,
+        rows_receipt_sha256=base.rows_receipt_sha256,
+        fit_role_tensor_sha256=base.fit_role_tensor_sha256,
+        program_snapshot_sha256=runtime.program_snapshot_sha256(program),
+        teacher_mapping_sha256=plan.sha256, phase="fit", route="L",
+        control="document_shuffle", teacher_kind="coordinate_labels", trial=0,
+        epoch=0, optimizer_step=0, batch_ordinal=0,
+        student_states=((0, "P"), (1, "P"), (2, "N")),
+    )
+    source_state0 = source.float().unsqueeze(-1).expand(
+        -1, -1, runtime.D_MODEL,
+    ) / 1000
+    session = broker.begin_student(identity, hook, source, source_indices)
+    with session.forward_scope() as capability:
+        source_out0 = _call_hook(
+            hook, 0, source_state0, torch.zeros_like(source_state0), identity.nonce,
+        )
+        source_state1 = source_state0 + source_out0
+        source_out1 = _call_hook(
+            hook, 1, source_state1, torch.zeros_like(source_state1), identity.nonce,
+        )
+        capability.bind_outer_logits(source_out1[..., :11])
+    step, _ = session.close(
+        outer_forward_count=1, outer_returned=True,
+        hook_restored=True, hook_inert=True,
+    )
+
+    saved_gateways = []
+
+    def mapped_target_forward(gateway, inputs):
+        saved_gateways.append(gateway)
+        target_state0 = inputs.float().unsqueeze(-1).expand(
+            -1, -1, runtime.D_MODEL,
+        ) / 1000
+        target_out0 = gateway.correct_and_label(
+            0, target_state0, torch.zeros_like(target_state0),
+        )
+        target_state1 = target_state0 + target_out0
+        gateway.correct_and_label(1, target_state1, torch.zeros_like(target_state1))
+        return {
+            "outer_forward_count": 1, "hook_calls": {0: 1, 1: 1, 2: 0},
+            "outer_returned": True, "hook_restored": True, "hook_inert": True,
+        }
+
+    changed = teacher.clone()
+    changed[0, 0] += 1
+    with pytest.raises(RuntimeError, match="teacher tokens"):
+        broker.run_mapped_coordinate_teacher(
+            identity, step, fit_rows=rows, student_inputs=source,
+            student_indices=source_indices, teacher_inputs=changed,
+            teacher_indices=target_indices, program=program,
+            autonomous_forward=mapped_target_forward,
+        )
+    result = broker.run_mapped_coordinate_teacher(
+        identity, step, fit_rows=rows, student_inputs=source,
+        student_indices=source_indices, teacher_inputs=teacher,
+        teacher_indices=target_indices, program=program,
+        autonomous_forward=mapped_target_forward,
+    )
+    loss, closure = result.consume_loss((1.0, 1.0))
+    target_state0 = teacher.float().unsqueeze(-1).expand(
+        -1, -1, runtime.D_MODEL,
+    ) / 1000
+    target_state1 = target_state0 + runtime.JointAffineProgram.projected_replacement(
+        torch.zeros_like(target_state0), program.site0_code(target_state0), projection,
+    )
+    labels = (
+        runtime.scored_positions(native0(target_state0).detach() @ projection),
+        runtime.scored_positions(native1(target_state1).detach() @ projection),
+    )
+    predictions = (
+        program.site0_code(source_state0), program.site1_code(source_state1),
+    )
+    expected = runtime.normalized_local_loss(predictions, labels, (1.0, 1.0))
+    torch.testing.assert_close(loss, expected)
+    assert closure.scope == "mapped_coordinate" and closure.outer_forward_count == 1
+    assert closure.original_calls == capabilities.EXACT_EARLY_ORIGINAL_CALLS
+    with pytest.raises(RuntimeError, match="revoked"):
+        saved_gateways[0].correct_and_label(
+            0, target_state0, torch.zeros_like(target_state0),
+        )
+    loss.backward()
+    assert program.site0.weight.grad is not None and program.site1.weight.grad is not None
+    assert native0.scale.grad is None and native1.scale.grad is None
+
+
 def test_ordinary_broker_cannot_be_repurposed_for_mapped_execution() -> None:
     base = capabilities.RunContext(
         source_commit="1" * 40, inherited_snapshot_sha256="2" * 64,
