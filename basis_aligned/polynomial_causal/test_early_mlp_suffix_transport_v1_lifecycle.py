@@ -273,6 +273,9 @@ def test_source_closure_rejects_incomplete_set_and_current_drift(
 def test_numerical_source_gate_includes_the_observed_final_executor() -> None:
     closure = set(lifecycle.source_closure_paths())
     assert lifecycle.FINAL_CAPABILITY_AMENDMENT.resolve() in closure
+    assert (
+        lifecycle.HERE / "early_mlp_suffix_transport_v1_final_actions.py"
+    ).resolve() in closure
     assert set(path.resolve() for path in lifecycle.OBSERVED_EXECUTION_CLOSURE) <= closure
     assert set(path.resolve() for path in lifecycle.MAPPED_CONTROL_CLOSURE) <= closure
     assert set(path.resolve() for path in lifecycle.NUMERICAL_STAGE_CLOSURE) <= closure

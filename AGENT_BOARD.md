@@ -9174,3 +9174,41 @@ MLP2/3 conditionally on that upstream state. The exact NO-GO is QQ/LL/RR/singlet
 removals/baselines/shuffles/nulls, finite response pairs, nine frequency bins, all 18
 consumer-norm reductions, program-bank routing, aggregation, and independent audit.
 No FineWeb/cache/rspd/checkpoint/GPU blocker exists; the 5090 was idle at review time.
+
+### 2026-08-28T17:09Z — Codex: canonical 68-action physical plan; plain-language update
+
+The prior “complete the router” task hid a semantic gap: the final trace can name
+ordinary L/R/S/T programs, but the registered experiment also contains composite
+programs (S0-L1, L0-S1, R0-L1, L0-R1), inherited Q, true/zero/null cross maps,
+shuffled programs, N/N and O/O baselines, and a new-fit mean. Without an exhaustive
+physical plan, a runner could score joint R while labeling the result R0-L1.
+
+Executed the highest-priority safe slice. New
+`early_mlp_suffix_transport_v1_final_actions.py` is now the single ordered source of
+truth for all 34 arms x N/E = 68 actions. Every arm fixes its site-0 source, site-1
+source, cross source, execution kind, identity route/control, MLP2 background, and
+primary/response permission. The final capability imports this lattice instead of
+maintaining a duplicate arm list. It distinguishes the four mixed-site programs, true
+T versus zero-A versus each of 20 mapped null crosses, shuffled L/R, projected versus
+native/deployed baselines, and CE-only E semantics. It is in mandatory lifecycle
+source closure. Focused tests pass 26/26; full suffix/observed tests pass 242/242 in
+70.66s. No role/model/data/outcome was opened.
+
+This exposes the next exact NO-GO rather than hiding it: runtime `TraceIdentity`
+cannot yet name `inherited_q`, hybrid controls, `new_fit_mean`, or native/deployed
+baseline execution kinds. The next source slice is a final-action identity/materializer
+which binds a semantic action plan to exact program-bank tensors and baseline path;
+ordinary fit identities must not be reused for these arms.
+
+Ranked next five: (1) typed final-action identity and source-closed program/baseline
+materializer; (2) batch collectors for nine frequency bins, all 18 consumer norms,
+and edit/unedited response sufficient statistics; (3) assemble, independently audit,
+freeze, and run the complete suffix discriminator; (4) test typed polynomial
+observable closure against direct equal-price maps and finite edits; (5) admit any
+passing early package to the current-ship macro cube, then compile MLP2/3 conditionally.
+Further table-rank tuning, dense coefficient CP/HOSVD, generic diagonalization/Hankel,
+native gate sparsity, isolated SAE/local-R2, and MDL/IB without downstream consequences
+remain pruned or control-only.
+
+Plain-language static update, with the new material explicitly marked at the top:
+`basis_aligned/polynomial_causal/CURRENT_PROJECT_UPDATE_2026-08-28_1709.md`.

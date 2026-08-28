@@ -18,6 +18,7 @@ from typing import Any
 
 import torch
 
+import early_mlp_suffix_transport_v1_final_actions as final_actions
 import early_mlp_suffix_transport_v1_runtime as runtime
 import early_mlp_suffix_transport_v1_statistics as statistics
 
@@ -27,17 +28,11 @@ SCORED_TOKENS_PER_ROW = 192
 FREQUENCY_BIN_COUNT = 9
 MODEL_LAYER_COUNT = 18
 
-BASE_ARMS = (
-    "qq", "ll", "s0_l1", "l0_s1", "rr", "r0_l1", "l0_r1", "lt",
-    "zero_a", *(f"a_null_{index:02d}" for index in range(20)),
-    "shuffled_l", "shuffled_r", "n_n", "o_o", "new_fit_mean",
-)
-BACKGROUNDS = ("N", "E")
-CANONICAL_ACTION_KEYS = tuple(
-    f"{arm}/{background}" for arm in BASE_ARMS for background in BACKGROUNDS
-)
-_RESPONSE_ARMS = {"ll", "lt", *(f"a_null_{index:02d}" for index in range(20))}
-_CODE_RESPONSE_ARMS = {"ll", "lt"}
+BASE_ARMS = final_actions.BASE_ARMS
+BACKGROUNDS = final_actions.BACKGROUNDS
+CANONICAL_ACTION_KEYS = final_actions.CANONICAL_ACTION_KEYS
+_RESPONSE_ARMS = final_actions.RESPONSE_ARMS
+_CODE_RESPONSE_ARMS = final_actions.CODE_RESPONSE_ARMS
 _MINT_TOKEN = object()
 
 
@@ -86,8 +81,8 @@ class FinalAction:
 
 
 CANONICAL_ACTIONS = tuple(
-    FinalAction(arm=arm, background=background)
-    for arm in BASE_ARMS for background in BACKGROUNDS
+    FinalAction(arm=plan.arm_plan.arm, background=plan.background)
+    for plan in final_actions.CANONICAL_ACTION_PLANS
 )
 
 
