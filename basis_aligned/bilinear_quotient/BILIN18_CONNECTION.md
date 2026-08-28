@@ -46584,11 +46584,26 @@ exactly what context buys. That is the same boundary §1788 priced at ~25 accura
 where a bigram would. §1767's LOO bigram is worse than the program in CE; is it worse *on the top
 bucket* in accuracy, or is the program's remaining strength entirely bigram-reachable?
 
-## §1790 — an eval-fitted bigram matches the program on the head and beats it overall
+## §1790 — ~~an eval-fitted bigram matches the program on the head and beats it overall~~ **RETRACTED**
+
+> ## RETRACTED 2026-08-28 by §1794/§1795 — DO NOT QUOTE THIS SECTION'S CENTRAL CLAIM.
+> Its leave-one-out bigram was **held on the target by a `>=` tie-break**: 30.4 / 30.6 / 41.1% of
+> that arm's correct predictions were positions where the target was its own top-1 and, after the
+> decrement, merely TIED the runner-up. The arm was inflated by +3.52 / +3.75 / +5.75 pp.
+> **Leak-free the PROGRAM WINS**: on the head by +6.19 / +5.13 / +5.69 pp and overall by +1.11 /
+> +1.37 / +1.39 pp (§1795). This section's headline is wrong in BOTH halves, and its central
+> caution — that the program's edge "cannot be attributed to the architecture" because the
+> bigram's estimation gap was larger — **reverses**: that gap is +3.54 / +3.81 / +2.65 pp, smaller
+> than the program's +4.65 / +5.18 / +4.04 pp advantage over the fair fit-row bigram, at every role.
+> **What survives:** pred_a (the FIT-row bigram comparison) — that arm is fitted on fit rows and
+> scored on eval rows, so it needs no leave-one-out and is untouched. The bucket structure and the
+> live/program columns are untouched. Replacement numbers: §1795. Mechanism: §1794. LESSON 43.
+> Retracted under delegated authority — Logan declined to arbitrate and told me to decide.
 
 > **Heading corrected in §1791.** This section originally read "on the head, the program is a
 > bigram". The accuracy parity below is right; the identity is not — §1791 measured only ~50%
 > top-1 agreement between the two on the head. Read "bigram-CLASS", never "a bigram".
+
 
 `ops/bigram_reachable_accuracy.py`, 48.3s, **DISCOVERY ONLY**, rung 3 (the question §1789 ended on).
 **pred_a True | pred_b FALSE | pred_c True | pred_d True.** The failure is the finding.
