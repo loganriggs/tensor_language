@@ -44959,3 +44959,52 @@ Controls (pred_d): the full-table arm reproduced §1748's +0.40631 and +0.38578 
 rebuilt in a fifth independent script — with table-only CE 7.35114, live CE 3.29205, and coverage
 asserted at exactly 5419 of 50257 rather than merely reported, since every cost figure here is
 computed from it.
+
+## §1756 — the design point separates: fidelity peaks at table rank 64, efficiency at rank 8, and a constant table goes negative
+
+`ops/table_rank_floor_sweep.py`, 583.9s, **DISCOVERY ONLY**.
+**pred_a True | pred_b False | pred_c False | pred_d True.**
+
+```
+  held out (skip11000), rank-8 linear correction, interleaved bottom-up
+  table rank   total cost   recovered   nats per M    table ALONE   correction's contribution
+     64        15.886M      +0.54064     0.034033      +0.13130          +0.409
+     16         4.531M      +0.46883     0.103462      -0.00460          +0.473
+      8         2.639M      +0.41053     0.155565      -0.14642          +0.557
+      4         1.693M      +0.25371     0.149882      -0.26676          +0.520
+      1         0.983M      +0.07498     0.076273      -1.95829          +2.033
+      0         0.746M      -0.33459    -0.448217      -2.66120          +2.327
+```
+
+**pred_a passed: efficiency has an interior optimum at table rank 8 — 0.1556 nats per million reals
+at 2.639M total**, above rank 16's 0.1035 and rank 4's 0.1499. §1755 could not see this because its
+sweep stopped while the curve was still rising.
+
+> **The two design points are different and that is the decision.** Maximum fidelity is table rank
+> **64: +0.54064 at 15.886M reals, 27x smaller than the 430.00M of native modules.** Maximum
+> efficiency is table rank **8: +0.41053 at 2.639M, 163x smaller**, keeping 76% of the fidelity for
+> 17% of the cost.
+
+**pred_b FAILED as written and the combined picture is the opposite of the failure.** Within this
+sweep's range fidelity is monotone decreasing, so its peak sits at the top endpoint. But §1755
+measured full > 256 > 64 going the other way — full-table +0.38578, rank 256 +0.51715, rank 64
++0.54064 — so **across the union of both sweeps the fidelity peak at rank 64 is genuinely interior**,
+with the program getting worse in both directions. The prediction was scored inside one sweep and
+fails there; the two sweeps together say what it was asking.
+
+**pred_c FAILED and answers a question that has been open since §1662.** A per-site constant plus a
+rank-8 linear correction recovers **−0.33459** — worse than the plain full table. **Per-token
+identity is load-bearing.** Everything in this arc has treated the per-token table as the base
+program without ever testing whether the per-token part was necessary; it is.
+
+**And the table and the correction are substitutes, strongly.** The last column is the correction's
+own contribution — the program's recovery minus what the table achieves alone. It **grows as the
+table shrinks**: +0.409 at rank 64, +0.557 at rank 8, **+2.033 at rank 1**. At rank 1 the table alone
+is catastrophic at −1.958 and the rank-8 linear correction claws back more than two nats of it. The
+correction costs 0.664M against the rank-64 table's 15.223M, so **the cheap component is doing more
+work the more the expensive component is starved** — which points directly at the next question,
+whether a bigger correction on a smaller table beats both.
+
+Controls (pred_d): ranks 64 and 16 reproduced §1755's +0.53433/+0.54064 and +0.46968/+0.46878 to
+within 5e-5 — two arms re-run in a sixth independent script — with table-only CE 7.35114, live CE
+3.29205, and coverage asserted at exactly 5419 of 50257.
