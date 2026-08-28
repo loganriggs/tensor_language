@@ -543,7 +543,7 @@ def test_atomic_batch_routes_69_forwards_and_binds_actual_receipt_triplets(monke
     }) == 66
 
 
-def _synthetic_batch_result(batch_ordinal):
+def _synthetic_batch_result(batch_ordinal, *, final_context_sha256="3" * 64):
     unit = runtime.logical_identity_sha256({"unit": batch_ordinal})
     batch_plan = runtime.logical_identity_sha256({"plan": batch_ordinal})
     forwards = tuple(
@@ -576,7 +576,8 @@ def _synthetic_batch_result(batch_ordinal):
     receipt = execution.ObservedResponseBatchReceipt(
         batch_ordinal=batch_ordinal, batch_plan_sha256=batch_plan,
         source_bank_sha256="1" * 64, program_payload_sha256="2" * 64,
-        final_context_sha256="3" * 64, common_support_sha256="4" * 64,
+        final_context_sha256=final_context_sha256,
+        common_support_sha256="4" * 64,
         basis0_sha256="5" * 64, basis1_sha256="6" * 64,
         forward_receipt_sha256s=forwards,
         arm_reduction_sha256s=tuple(
@@ -626,3 +627,50 @@ def test_run_accumulator_requires_48_canonical_batches_and_emits_exact_ledger():
         accumulator.add(_synthetic_batch_result(0))
     with pytest.raises(RuntimeError, match="already closed"):
         accumulator.finish()
+
+
+def test_role_runner_owns_all_48_batches_and_rejects_changed_role(monkeypatch):
+    model = _TeacherModel()
+    adapter = observed.ObservedBilin18Adapter(model, _Ship(), production=False)
+    final_rows = torch.arange(192 * 513, dtype=torch.long).reshape(
+        192, 513,
+    ).contiguous()
+    final_context = capabilities.FinalRunContext(
+        source_commit="7" * 40, inherited_snapshot_sha256="8" * 64,
+        rows_receipt_sha256="9" * 64,
+        final_role_tensor_sha256=runtime.tensor_identity_sha256(final_rows),
+        identity_teacher_mapping_sha256="c" * 64,
+    )
+    calls = []
+
+    def fake_batch(self, *, role_rows, ordered_batch_indices, batch_ordinal, **kwargs):
+        start = batch_ordinal * 4
+        assert ordered_batch_indices == tuple(range(start, start + 4))
+        assert torch.equal(role_rows, final_rows[start:start + 4])
+        calls.append(batch_ordinal)
+        return _synthetic_batch_result(
+            batch_ordinal, final_context_sha256=final_context.sha256,
+        )
+
+    monkeypatch.setattr(
+        observed.ObservedBilin18Adapter, "run_final_response_batch", fake_batch,
+    )
+    before = final_rows.clone()
+    result = adapter.run_final_response_role(
+        validated_program_bank=object(), inherited_initialization=object(),
+        final_context=final_context, final_rows=final_rows,
+    )
+    assert calls == list(range(48))
+    assert result.receipt.teacher_forward_count == 144
+    assert result.receipt.student_forward_count == 3168
+    assert torch.equal(final_rows, before)
+    changed_context = capabilities.FinalRunContext(
+        source_commit="7" * 40, inherited_snapshot_sha256="8" * 64,
+        rows_receipt_sha256="9" * 64, final_role_tensor_sha256="d" * 64,
+        identity_teacher_mapping_sha256="c" * 64,
+    )
+    with pytest.raises(RuntimeError, match="role authority"):
+        adapter.run_final_response_role(
+            validated_program_bank=object(), inherited_initialization=object(),
+            final_context=changed_context, final_rows=final_rows,
+        )

@@ -1760,3 +1760,40 @@ class ObservedBilin18Adapter:
         return response_execution.ObservedResponseBatchResult(
             arm_reductions=tuple(arm_reductions), receipt=batch_receipt,
         )
+
+    def run_final_response_role(
+        self, *, validated_program_bank: Any, inherited_initialization: Any,
+        final_context: Any, final_rows: torch.Tensor,
+    ) -> response_execution.ObservedResponseRunResult:
+        """Execute all 48 canonical response batches without exposing a partial run."""
+
+        import early_mlp_suffix_transport_v1_capabilities as capabilities
+
+        if not isinstance(final_context, capabilities.FinalRunContext) or not torch.is_tensor(
+            final_rows
+        ) or final_rows.dtype != torch.long or tuple(final_rows.shape) != (
+            response_execution.FINAL_ROW_COUNT, response_execution.FINAL_ROW_WIDTH,
+        ) or final_rows.device.type != "cpu" or not final_rows.is_contiguous() or (
+            runtime.tensor_identity_sha256(final_rows)
+            != final_context.final_role_tensor_sha256
+        ):
+            raise RuntimeError("final response role authority or tensor changed")
+        before_sha256 = runtime.tensor_identity_sha256(final_rows)
+        before_version = final_rows._version
+        accumulator = response_execution.ObservedResponseRunAccumulator()
+        for batch_ordinal in range(response_execution.FINAL_BATCH_COUNT):
+            start = batch_ordinal * runtime.BATCH_SIZE
+            indices = tuple(range(start, start + runtime.BATCH_SIZE))
+            batch_rows = final_rows[start:start + runtime.BATCH_SIZE].contiguous()
+            accumulator.add(self.run_final_response_batch(
+                validated_program_bank=validated_program_bank,
+                inherited_initialization=inherited_initialization,
+                final_context=final_context, role_rows=batch_rows,
+                ordered_batch_indices=indices, batch_ordinal=batch_ordinal,
+            ))
+        result = accumulator.finish()
+        if result.receipt.final_context_sha256 != final_context.sha256 or (
+            final_rows._version != before_version
+        ) or runtime.tensor_identity_sha256(final_rows) != before_sha256:
+            raise RuntimeError("final response role mutated or changed authority")
+        return result

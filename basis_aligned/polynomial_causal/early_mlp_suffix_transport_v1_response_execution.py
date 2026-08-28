@@ -934,6 +934,16 @@ class ObservedResponseRunAccumulator:
                     value.output_kl_response for value in batches
                 ]),
             ))
+        ordered_units = {
+            value.logit_response.unit_identity_sha256s for value in arm_reductions
+        } | {
+            value.output_kl_response.unit_identity_sha256s for value in arm_reductions
+        } | {
+            value.code_response.unit_identity_sha256s for value in arm_reductions
+            if value.code_response is not None
+        }
+        if len(ordered_units) != 1:
+            raise RuntimeError("response run arms do not share ordered units")
         first = self._batches[0].receipt
         receipt = ObservedResponseRunReceipt(
             final_context_sha256=first.final_context_sha256,
