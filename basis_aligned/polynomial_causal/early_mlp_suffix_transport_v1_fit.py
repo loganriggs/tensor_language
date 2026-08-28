@@ -25,6 +25,10 @@ import early_mlp_suffix_transport_v1_runtime as runtime
 
 
 TRUE_FIT_ROUTES = ("L", "R", "S0", "S1")
+# T is fitted only after validation has selected and frozen L.  It uses the same
+# true-row schedule and OON loss surface, but is deliberately excluded from the
+# pre-selection objective-route bank above.
+ALL_TRUE_FIT_ROUTES = (*TRUE_FIT_ROUTES, "T")
 STUDENT_STATES = ((0, "P"), (1, "P"), (2, "N"))
 
 
@@ -76,7 +80,7 @@ def make_identity(
         teacher_kind = "coordinate_labels"
         optimizer_step = 0
     else:
-        if phase != "fit" or route not in TRUE_FIT_ROUTES or program.route != route:
+        if phase != "fit" or route not in ALL_TRUE_FIT_ROUTES or program.route != route:
             raise ValueError("fit identity route differs from its program")
         teacher_kind = "coordinate_labels" if route == "L" else "oon_logits"
         optimizer_step = epoch * capabilities.FIT_BATCHES_PER_EPOCH + batch_ordinal
@@ -241,7 +245,7 @@ def run_true_fit_trial(
     """Fit one preregistered L/R/S trial without selection or artifact writes."""
 
     rows = validate_fit_rows(rows, context)
-    if route not in TRUE_FIT_ROUTES or program.route != route or trial not in range(
+    if route not in ALL_TRUE_FIT_ROUTES or program.route != route or trial not in range(
         len(runtime.LEARNING_RATES)
     ):
         raise ValueError("true fit route/trial/program is malformed")

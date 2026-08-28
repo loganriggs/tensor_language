@@ -171,6 +171,20 @@ def test_denominator_and_true_fit_share_exact_transaction_surface(monkeypatch) -
         "site1.bias", "site1.mean", "site1.scale", "site1.weight",
     }
 
+    t_broker = _Broker(context)
+    transport = _program("L").independent_clone(route="T")
+    transport_candidate = fit.run_true_fit_trial(
+        rows=rows, context=context, program=transport, route="T", trial=1,
+        denominators=None, adapter=adapter, broker=t_broker, hook=hook,
+    )
+    assert transport_candidate.completed_steps == 1
+    assert t_broker.identities[0].route == "T"
+    assert t_broker.identities[0].teacher_kind == "oon_logits"
+    assert set(transport_candidate.state_dict) == {
+        "cross", "site0.bias", "site0.mean", "site0.scale", "site0.weight",
+        "site1.bias", "site1.mean", "site1.scale", "site1.weight",
+    }
+
 
 def test_fit_rows_and_loss_families_fail_closed(monkeypatch) -> None:
     monkeypatch.setattr(capabilities, "FIT_ROW_COUNT", runtime.BATCH_SIZE)

@@ -277,8 +277,6 @@ def test_numerical_source_gate_binds_observed_stack_and_refuses_missing_stages()
     assert all(path.is_file() for path in lifecycle.OBSERVED_EXECUTION_CLOSURE)
     missing = [path.name for path in lifecycle.NUMERICAL_STAGE_CLOSURE if not path.is_file()]
     assert missing == [
-        "early_mlp_suffix_transport_v1_programs.py",
-        "test_early_mlp_suffix_transport_v1_programs.py",
         "early_mlp_suffix_transport_v1_final.py",
         "test_early_mlp_suffix_transport_v1_final.py",
     ]

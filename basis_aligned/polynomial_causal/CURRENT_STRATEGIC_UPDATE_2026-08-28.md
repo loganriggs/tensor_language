@@ -331,3 +331,40 @@ composition, falsifiability, GPU cost, and nonredundancy.
 Additional clustering, fixed-lag scans, Euclidean MLP0 regressors, unpriced rank
 sweeps, and corrected descriptive class replays are pruned for now: they cannot close
 the missing executable interface or common-denominator composition gap.
+
+## 04:34 UTC continuation: deterministic selection and lossless T freezing
+
+The validation selector and program freezer now exist as the second numerical
+source/test pair. They do not load rows or models. A candidate is admissible only if
+its validation receipt binds the exact route-specific metric, one of each of the three
+registered learning-rate trials, all $192\times192$ scored tokens, common support and
+sufficient-statistic identities, zero student-native calls, inert restoration, and
+copy worsening at most $0.01$. Selection is by the unrounded primary metric, then
+smaller learning rate, then lexical tensor hash.
+
+Selected dense $1152\times64$ maps are serialized by CPU float64 SVD with the
+registered sign convention and a $2\cdot10^{-6}$ maximum replay bound. The freezer
+round-trips fixed means, scales, biases, both affine weights, trainability, and route.
+Selected L can now initialize T as an exact zero $64\times64$ cross map with only
+$A$ trainable, and the fit owner accepts this post-selection T route on the identical
+three-trial schedule and OON loss.
+
+Inspection caught and repaired a consequential pre-test error: the first T freezer
+shape omitted the trained `cross` tensor, which would have reconstructed every T
+candidate as zero-$A$. A dedicated nonzero-$A$ test now proves exact fit restoration,
+SVD freezing of the affine maps, and deployment round-trip without changing the cross
+map. The expanded facade/ship/adapter/suffix suite passes 156/156 in 44.09 seconds.
+
+This remains implementation progress, not a numerical result. The row gate is still
+closed because the final source/test pair is absent, and it must remain closed until
+the validation collector, document-shuffled and A-null mapped-row capabilities,
+program artifact publisher, calibration bank, and one-shot final evaluator are all
+complete. The next immediate implementation target is the validation collector and
+mapped-control transaction boundary, not creation of a placeholder final file.
+
+Separately, the corrected past-facing target-class hypothesis has now confirmed on
+the previously untouched `skip1200` role: the joint attention-minus-MLP class-ratio
+interval is $[0.0498,0.2193]$. This supports a stack-level induction/novel division of
+labor and the negative novel damage of attention sites 14 and 16; attention 15 changed
+sign and was correctly dropped. This is causal-specialization evidence, but it does
+not change any executable, whole-model, OOD, or suffix-transport recovery balance.
