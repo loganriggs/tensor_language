@@ -48389,3 +48389,60 @@ placement control is exact, L5's gain applied to the fully substituted program m
 **Open question this ends on.** One scalar per layer repairs the interface at L5 and L6. Does a single
 vector of eighteen such scalars repair the whole bottom-up curve of §1806 — where compiling layers 0-3
 beneath live layers was *worse than compiling all eighteen*?
+
+## §1822 — the gains do NOT transfer to partial configurations: §1821's remedy is scoped to the single-live-layer case
+
+`ops/bottom_up_gain_rescue.py`, 226.7s, **DISCOVERY ONLY**, rung 3 (the question §1821 ended on).
+**pred_a False | pred_b False | pred_c False | pred_d True.** All three scientific bars failed and the
+control passed exactly, which is the configuration in which a negative is worth most.
+
+```
+  gap fraction recovered, bottom-up (0..L compiled, L+1..17 live), full-rank build
+             raw      first-live-layer    all-live-layers
+    B0     +37.4%         +62.7%              -4.1%
+    B3     -44.8%         -48.7%             +10.3%
+    B5     -43.9%         +13.0%             +11.5%
+```
+
+**pred_d passed and it is worth stating first: the raw arms reproduce §1806's published full-rank gap
+fractions exactly** — 37.4 / −44.8 / −43.9% against the published 0.3742 / −0.4484 / −0.4391, with the
+endpoints reproducing §1789's full-rank figures and the placement control at +0.000pp. The object is
+the one §1806 measured, so the failures below are about the remedy and not about the setup.
+
+**pred_a FAILED, in the wrong direction. At B3, correcting only the interface layer makes things
+WORSE** — from −44.8% to −48.7%, a recovery of **−8.7 / −8.3 / −7.2%**. Its registered failure branch
+said this would mean "§1821's L5 result was a single-interface special case", and that is the reading
+the rest of the run confirms.
+
+**pred_b FAILED by 13x its bar**: correcting all live layers adds **131 points** of gap over correcting
+the first, not the <10 I registered. At B3 it converts a catastrophe into a modest positive:
+**−44.8% → +10.3%**, better than compiling all eighteen.
+
+**pred_c FAILED, and the corrected curve is not merely non-monotone — one arm is actively harmed.**
+B0 with all live layers corrected scores **−4.1 / −3.1 / −2.7%**, worse than compiling everything,
+against a raw B0 of +37.4%. Correcting the whole stack when only layer 0 is compiled **destroys a
+program that was working**.
+
+**The explanation is the one thing all three failures share, and it bounds §1821.** The gains were
+measured in the FULLY COMPILED stream. They are correct only for a layer that actually sees that
+stream. In §1820/§1821's arms — one layer live, everything else compiled — the live layer sees exactly
+the measured stream, which is why one scalar worked there to 99%. In a bottom-up arm with many live
+layers, only the FIRST live layer sees it; the ones above see a progressively more live stream, are not
+inflated, and dividing them by ratios of 60-130x annihilates them. At B0 that is fifteen healthy layers
+being crushed, hence the negative.
+
+> **§1821's one-scalar remedy is therefore SCOPED, and I am recording the bound explicitly.** It repairs
+> the single-live-layer configuration, where the live layer's input is the fully compiled stream the
+> gain was measured in. It does **not** generalise to arbitrary compiled/live splits, and §1821's
+> closing sentence — which asked whether "a single vector of eighteen such scalars repairs the whole
+> bottom-up curve" — is answered **no** by these gains.
+
+**What survives, and it is not small.** At B3 and B5 the all-layer correction still turns
+**−44.8% and −43.9% into +10.3% and +11.5%** — from far worse than compiling everything to better than
+it. §1806's bottom-up direction is **not structurally blocked**; it is blocked by a magnitude error
+whose correction must be measured in the configuration it will be used in, rather than transferred from
+the fully compiled one.
+
+**Open question this ends on.** Measure the gains per bottom-up depth — each layer's live/compiled norm
+ratio *in the arm where it will be applied* — instead of importing them from the fully compiled stream.
+That is the same experiment with the one defect this run identified removed.
