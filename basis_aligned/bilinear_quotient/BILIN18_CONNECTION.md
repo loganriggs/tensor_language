@@ -45379,3 +45379,61 @@ installed. If the poke still reaches covered positions there, the contradiction 
 to the arm comparison. If it does not, then something about the installed program suppresses
 propagation that the live model permits, and that is a finding about the program rather than a bug in
 the measurement. Either outcome resolves it; guessing between them now would not.
+
+## §1765 — RESOLVED, and it reframes the whole compilation thread: the installed program is a pure function of the current token
+
+`ops/poke_in_program_context.py`, 93.1s, **DIAGNOSTIC**.
+**pred_a False | pred_b False | pred_c True | pred_d True.**
+
+The identical poke, applied on the live model and with the 36-site program installed:
+
+```
+  live_model        / attn0 @ UNCOVERED   own 2.185e-02   max later COVERED  1.184e-01
+  live_model        / attn0 @ covered     own 7.558e-03   max later COVERED  7.237e-02
+  program_installed / attn0 @ UNCOVERED   own 3.192e-02   max later COVERED  0.000e+00
+  program_installed / attn0 @ covered     own 3.100e-02   max later COVERED  0.000e+00
+```
+
+**With the program installed, a perturbation at ANY position reaches NO later covered position** —
+not the uncovered one, not the covered control, exactly zero in both. On the live model the same poke
+reaches 0.118 nats. §1763 and §1764 were both right; the variable between them was the program.
+
+**The mechanism is derivable and I should have seen it before running anything.** Every site's
+substitute is `table[token_j] + f(x_j) W` — a function of **position j's own token and position j's
+own residual**, and nothing else. At layer 0 the residual is `rmsnorm(wte(token_j))`, a function of
+token j alone. If every site at position j is substituted, then by induction over layers **the entire
+forward at position j is a function of token j alone.** Attention is the only cross-position path in
+the model, and replacing its output with a position-wise expression removes it. The program does not
+approximate attention badly — **it deletes attention.**
+
+> **Every "program" figure in §1747–§1758 is the recovery of a pure per-token function.** The
+> best of them, table rank 64 with a rank-128 correction at **+0.78536 nats of a 4.2611 stake**, is
+> what a map from the current token alone achieves after being compiled through 36 layers. Not a
+> compressed transformer: a lookup on the current token, with 36 layers of position-wise arithmetic
+> wrapped around it.
+
+**This reframes the thread rather than invalidating it.** Every number stands — they were measured
+correctly and reproduce across up to seven scripts. What changes is what they are numbers *about*:
+
+- **§1747's composition failure is not mysterious.** Installing all 36 corrections deletes attention;
+  installing one leaves it. The −0.5462 was never a subtle interaction, it was the model losing its
+  only cross-position mechanism.
+- **§1751's capacity saturation follows.** Rank 32 and rank 128 tie because no amount of rank helps a
+  position-wise map represent something non-local.
+- **§1752's negative result was measuring something better than I said.** Adding lag-1 and a prefix
+  mean gives the program back a *little* cross-position access — and it got worse, which is a much
+  stronger statement now: a partial restoration of context is worse than none.
+- **§1764's exact partition is now derived, not anomalous.** A covered position's forward depends on
+  its own token only, so the two arms must agree there bit-for-bit. The uncovered positions differ
+  because the hybrid runs native attention at them.
+- **And the hybrid/standalone gap in §1762 has a cleaner reading**: the hybrid's uncovered quarter is
+  the *only* place any context enters the program at all. That is why removing it costs 178% and 988%.
+
+**What this does NOT touch**: §1736–§1746, which are ablation and importance results on the live
+model, and Codex's attention work, which replaces attention with an actual attention-shaped program
+rather than a position-wise one.
+
+**The obvious next question, stated and not yet run:** how much of +0.78536 is the current token doing
+and how much is the 36 layers of position-wise arithmetic? A single per-token lookup at the OUTPUT —
+one table from token to logits, no layers — is the null model this thread never had, and it is cheap
+to measure.

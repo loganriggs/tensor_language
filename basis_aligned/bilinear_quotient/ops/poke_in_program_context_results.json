@@ -1,0 +1,42 @@
+{
+ "config": {
+  "table_rank": 64,
+  "corr_rank": 128,
+  "magnitude": 10.0,
+  "WHY": "\u00a71763 (live model) says an uncovered position reaches later covered ones by 0.118 nats; \u00a71764 (program installed, two arms) says the arms differ at every uncovered position and at NO covered one. This applies the same poke in both contexts so the contradiction resolves to one of them.",
+  "ROLE_NOTE": "DIAGNOSTIC. Opens no role."
+ },
+ "pokes": {
+  "live_model/attn0_uncovered": {
+   "position": 65,
+   "own_delta": 0.02185302972793579,
+   "max_delta_later_covered": 0.11838293075561523,
+   "n_later_covered": 1190
+  },
+  "live_model/attn0_covered_control": {
+   "position": 64,
+   "own_delta": 0.007557868957519531,
+   "max_delta_later_covered": 0.0723733901977539,
+   "n_later_covered": 1196
+  },
+  "program_installed/attn0_uncovered": {
+   "position": 65,
+   "own_delta": 0.0319209098815918,
+   "max_delta_later_covered": 0.0,
+   "n_later_covered": 1190
+  },
+  "program_installed/attn0_covered_control": {
+   "position": 64,
+   "own_delta": 0.030996322631835938,
+   "max_delta_later_covered": 0.0,
+   "n_later_covered": 1196
+  }
+ },
+ "predictions": {
+  "pred_a_propagates_in_program_context": false,
+  "pred_b_covered_poke_propagates_in_program_context": false,
+  "pred_c_live_model_reproduces_S1763": true,
+  "pred_d_controls": true
+ },
+ "runtime_s": 93.1
+}
