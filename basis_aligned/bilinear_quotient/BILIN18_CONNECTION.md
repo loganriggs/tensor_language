@@ -47049,3 +47049,55 @@ were measured at; they should not be read as a property of the map at other cove
 **Open question this ends on.** Is the dip the conditioning of the ridge solve, as the `n/D` alignment
 suggests? That is directly testable: sample the curve around `n = D` and raise the ridge. If the ridge
 removes the dip it was conditioning; if it does not, something else is wrong with the fallback.
+
+## §1799 — the dip is exactly at n=D and it is a collapse, not a dent; but my ridge sweep never moved the ridge
+
+`ops/coverage_dip_conditioning.py`, 619.1s, **DISCOVERY ONLY**, rung 3.
+**pred_a True | pred_b FALSE | pred_c True | pred_d True** — and pred_b's registered interpretation is
+**not licensed**, for reasons the run's own diagnostic makes plain.
+
+```
+  n      n/D    skip7000 overall     cond(A) @ridge 0.01   cond(A) @ridge 1
+   677  0.588   9.92%   ->  9.92%          9.63e+08            9.63e+06
+   880  0.764   9.11%   ->  9.11%          9.50e+08            9.50e+06
+  1152  1.000   2.35%   ->  2.53%          6.48e+07            8.23e+06
+  1355  1.176   6.94%   ->  6.94%          1.41e+04            1.41e+04
+  1620  1.406  10.14%   -> 10.14%          3.22e+03            3.22e+03
+  2710  2.352  12.54%   -> 12.54%          7.12e+02            7.12e+02
+```
+
+**pred_a passed and sharpens §1798 considerably.** The minimum is not the 6.94% dent at n=1355 — it is a
+**collapse to 2.35 / 2.44 / 2.22%** at **n = 1152 = D exactly**, below every other coverage including
+677 types. Every n in 0.9 <= n/D <= 1.25 scores below both n=677 and n=2710, at every role. The program
+loses roughly four fifths of its accuracy at the single coverage where the map's normal system is
+square.
+
+**pred_c, the known-answer control, passed exactly**: the kept-token slice is 15.4576 / 17.6908 /
+14.1635% in **all twelve cells**, both ridges included. §1765's position-wise property is untouched and
+the collapse is entirely in the uncovered-token path.
+
+**pred_b FAILED, and I am not entitled to its registered conclusion.** I wrote that if raising the ridge
+did not remove the non-monotonicity, "the pathology is not the conditioning of this solve". But look at
+the cond column: **at n >= 1355 the two ridges give byte-identical condition numbers** (1.41e+04,
+3.22e+03, 7.12e+02), and accuracy is identical at five of the six n. A 100x change in the ridge moved
+the accuracy at exactly **one** point, by **0.18pp**. **The sweep did not move the quantity it was
+sweeping.** The ridge enters as `ridge * I * (n/D)`, so ridge=1 against a data term `Ecov^T Ecov` whose
+eigenvalues are orders of magnitude larger is still no regularisation at all. Where it did bite -- at
+n <= 880, where the matrix is rank-deficient and the ridge alone sets the smallest eigenvalue -- cond
+fell by exactly 100x and accuracy **did not change at all**.
+
+So the run establishes **where** (n = D, sharply) and rules nothing out about **why**. Scored FALSE as
+written; the conditioning hypothesis is neither confirmed nor refuted and remains the leading one.
+
+**LESSON 45**, and PRE-FLIGHT E said it before I ran: *never a fixed absolute tolerance on a spectrum --
+scale by max|eig|*. I picked "100x the settled ridge" as an absolute multiplier without ever asking what
+it was 100x of relative to the data's own scale. The correct sweep is relative: ridge as a fraction of
+`lambda_max(Ecov^T Ecov)`.
+
+**Controls (pred_d)**: at the settled ridge, n=677 and n=1355 reproduce §1798's published 0.0992 /
+0.1059 / 0.0993 and 0.0694 / 0.0710 / 0.0679 within 0.001 — this script rebuilds the same objects before
+being allowed to explain them; coverage 5419.
+
+**Open question this ends on.** Sweep the ridge as a FRACTION of lambda_max so the knob actually turns.
+If a relatively-scaled ridge fills in the n=D collapse, it is conditioning; if it does not, the
+output-NN fallback is the remaining suspect.

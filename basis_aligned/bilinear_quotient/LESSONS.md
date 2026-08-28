@@ -1128,3 +1128,26 @@ alongside the boolean. A bar tells you whether you passed; only the curve tells 
 Related: [[lesson-39]] (write the predicate, then read it back against its own sentence) — this is the
 same discipline applied to the FAILURE branch, which I had been checking far less carefully than the
 pass branch.
+
+## LESSON 45 — a sweep that does not move the quantity it sweeps is not a test
+
+§1799 varied a ridge by 100x to test whether an accuracy collapse was a conditioning artifact. The
+answer came back "no", and I nearly wrote that down. The run's own diagnostic said otherwise: at
+n >= 1355 the two ridges produced **identical condition numbers to three significant figures** (1.41e+04,
+3.22e+03, 7.12e+02) and identical accuracy at five of six points. The ridge enters as
+`ridge * I * (n/D)` against a data term whose eigenvalues are orders of magnitude larger, so "100x the
+settled value" was still numerically zero. Where the ridge DID bite -- below n = D, where the matrix is
+rank-deficient and the ridge alone sets the smallest eigenvalue -- the condition number fell by exactly
+100x and the accuracy did not move at all, which is a second, independent sign that the sweep was not
+probing what I thought.
+
+PRE-FLIGHT E already says this: never a fixed absolute tolerance on a spectrum, scale by max|eig|. I
+applied it to eigenvalue comparisons and not to a regularisation parameter, which is the same object
+wearing a different name.
+
+**How to apply.** Before reading a negative from a sweep, check that the swept parameter actually
+changed the intermediate quantity it acts through -- and emit that quantity, not just the outcome
+(LESSON 44 again; recording cond(A) per cell is the only reason this was caught). Express any
+regularisation as a FRACTION of the relevant spectral scale, never as an absolute number, and prefer a
+sweep whose endpoints are known to bracket the behaviour (here: a ridge small enough to be inert and one
+large enough to dominate). Related: [[lesson-44]], [[lesson-35]].
