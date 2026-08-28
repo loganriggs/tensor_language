@@ -45821,3 +45821,52 @@ sections ago**, though it remains an upper bound and not the optimum, exactly as
 
 Controls (pred_d): the k=0 arm reproduces §1768's 6.03465 and 5.97900 — it is the length-1 model by
 construction — and coverage is 5419 of 50257.
+
+## §1774 — the context-free frontier confirms on a third role: design point, floor and shape all replicate, and normalised by each role's own stake the top four ranks agree to 0.4 points
+
+`ops/context_free_third_role.py`, 188.4s, **SECOND-CLASS CONFIRMATION** (house pattern S1595/S1598/S1603).
+**pred_a True | pred_b True | pred_c False | pred_d True.**
+
+`fineweb_n96_skip1200` — a pinned role, half the row count, never scored for a program-frontier
+quantity, though it was the confirmation role for the token-class family in §1734, so this is a
+second-class confirmation and not a virgin role. Its fit-mean all-tabled baseline had never been
+published and is computed in-run.
+
+```
+  role       live CE   fit-mean all-tabled   stake
+  skip7000   3.29205        7.35114         4.05909
+  skip11000  3.09711        7.35825         4.26114
+  skip1200   3.40277        7.19655         3.79378   <- a harder role
+
+  recovery in nats                                     recovery as % of THAT role's stake
+  rank    cost    skip7000  skip11000  skip1200        s7000   s11000   s1200    spread
+  full  224.778M  +1.31649   +1.37925   +1.23232       32.4%   32.4%   32.5%    0.11 pp
+  64     15.223M  +1.09322   +1.14673   +1.03458       26.9%   26.9%   27.3%    0.36 pp
+  8       1.975M  +0.77103   +0.80352   +0.72897       19.0%   18.9%   19.2%    0.36 pp
+  4       1.029M  +0.61256   +0.63791   +0.55535       15.1%   15.0%   14.6%    0.33 pp
+  2       0.556M  +0.24349   +0.23992   +0.14561        6.0%    5.6%    3.8%    1.79 pp
+  1       0.320M  -0.40304   -0.34772   -0.54245       -9.9%   -8.2%  -14.3%    6.14 pp
+```
+
+**pred_a and pred_b passed: the design point and the floor both replicate.** Rank 4 is the
+cost-efficiency optimum on skip1200 as on skip11000, and rank 1 is negative on all three roles.
+
+**pred_c failed as written and the right statistic says the opposite.** The bar was that raw-nat
+recoveries transfer within 15% relative; they do at ranks full, 64, 8 and 4 (10.7%, 9.8%, 9.3%,
+12.9%) and blow out at ranks 2 and 1 (39.3%, 56.0%). But **skip1200 is a harder role** — live CE
+3.40277 against 3.09711, and a smaller 3.79378-nat stake — so raw nats were never the transferable
+quantity. **As a fraction of each role's own stake the top four ranks agree to 0.36 percentage
+points**, and the full-rank point lands on 32.4% / 32.4% / 32.5% across three roles.
+
+Ranks 2 and 1 genuinely differ, and not only as a ratio artifact: the absolute gaps are 0.094 and
+0.195 nats. At those ranks the program is weak or harmful and skip1200 is harder still, so **the
+frontier's cheap end is role-sensitive while its useful range is not.** Recorded as a scope note on
+the registry entry rather than smoothed over.
+
+**pred_c is scored as failed**, and the fraction-of-stake reading is reported alongside rather than
+substituted for it — I chose the wrong normalisation when writing the bar, and swapping it after
+seeing the numbers would be exactly the move a registered prediction exists to prevent.
+
+Controls (pred_d): skip11000 reproduces §1770/§1771's six recoveries — +1.37925, +1.14673, +0.80353,
++0.63791, +0.23992, −0.34772 — within 0.002 in a script that also rebuilds the fit-mean tables from
+scratch, and coverage is 5419 of 50257.
