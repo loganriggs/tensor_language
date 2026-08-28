@@ -1,0 +1,39 @@
+{
+  "status": "pass",
+  "question": "corrected exact middle-MLP hooks equal leaving MLP4-15 live",
+  "source_commit": "a15d0d88a8cbede4a4a628476167d7501d6faae2",
+  "source_sha256": "75b5437fb5d77d398275cacb4ac7f1b3d2c38994f629d82c8ee4d96bdec8887e",
+  "ksweep_source_sha256": "5de4672c4bd14f1325af92a17cd1d5cb7afb9b4b02f7d2215d8183713dde6d70",
+  "rows": {
+    "fit": "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache/fineweb_n480_skip80.pt",
+    "mask": "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache/fineweb_n96_skip80.pt",
+    "evaluation": "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache/fineweb_n192_skip7000.pt",
+    "coverage": "same frozen seen-token mask and covered positions as ksweep2"
+  },
+  "construction": "Down(Left(z)*Right(z)) + Down_bias",
+  "comparison": {
+    "exact_ce": 5.098802047929132,
+    "exempt_ce": 5.098802047929132,
+    "exact_replay_ce": 5.098802047929132,
+    "pooled_ce_abs_difference": 0.0,
+    "max_row_sum_abs_difference": 0.0,
+    "shared_nonmiddle_object_count": 24,
+    "shared_nonmiddle_object_ids_sha256": "f3b10d164771d8ea077eb583cc05df58aecaf9dfc0b2eb8d9ce4898ed115d16d"
+  },
+  "gates": {
+    "pooled_ce_abs_difference_le_1e-7": true,
+    "max_row_sum_abs_difference_le_1e-5": true,
+    "counts_bit_identical": true,
+    "exact_replay_row_sums_bit_identical": true,
+    "exact_replay_counts_bit_identical": true,
+    "exact_replay_ce_bit_identical": true
+  },
+  "legacy_ksweep2_exact_arm": {
+    "status": "invalid_identity_omitted_Down_bias",
+    "artifact": "/workspace/tensor_language/basis_aligned/bilinear_quotient/mid_band_feature_ksweep2_results.json",
+    "observed_ceiling": 0.68059,
+    "legacy_target_ceiling": 0.67553,
+    "use": "failure provenance only; never an identity or promoted ceiling"
+  },
+  "runtime_s": 194.8
+}

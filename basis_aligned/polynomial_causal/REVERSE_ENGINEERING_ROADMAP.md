@@ -786,3 +786,12 @@ validate the construction. A prospective identity-only repair now adds the bias 
 directly with leaving MLP4-15 live under the same shared non-middle program objects. The legacy
 67.553% cross-run point is descriptive only. This known-answer repair precedes any promotion or
 fresh-document replication of the ridge family.
+
+## 2026-08-28: corrected middle-feature identity closes exactly
+
+The bias-inclusive identity-only repair has completed. Corrected MLP4--15 hooks and leaving those
+modules live give the same pooled CE, `5.098802047929132`, with zero maximum per-row loss-sum
+difference, identical counts, and bit-identical corrected-arm replay. This corresponds to the old
+descriptive `67.5533%` ceiling. The `68.059%` arm in ksweep2 remains an invalid zero-bias ablation;
+it is not reinterpreted or promoted. The repair validates hook algebra but changes no scientific
+ledger and does not alter the negative price-curve interpretation.

@@ -43018,6 +43018,26 @@ against leaving MLP4-15 live **in the same run with the same shared non-middle p
 The identity gate is now same-run pooled CE, per-row sums, counts, and exact replay; the legacy
 67.553% is descriptive only. It runs no new k sweep and selects no candidate.
 
+## §1716 — corrected identity passes exactly; 68.059% remains the invalid zero-bias arm
+
+The prospective repair completed from source commit `a15d0d88`. The corrected hooks compute
+`Down(Left(z)*Right(z)) + Down_bias` at every MLP4--15 site. In the same run, using the same 24
+non-middle program objects, both the corrected-hook arm and the arm leaving MLP4--15 live give
+pooled CE `5.098802047929132`. The pooled difference and maximum per-row covered loss-sum
+difference are exactly zero. Counts are identical, and replaying the corrected arm is bit-identical
+in row sums, counts, and pooled CE. Every registered gate passes.
+
+Under the old descriptive denominator, that CE corresponds to `67.5533%`, agreeing with §1703.
+The earlier `68.059%` row is **not** this repaired identity; it remains the retained zero-Down-bias
+ablation from §1715. Its apparent `+0.506`-point improvement was the effect of omitting the bias,
+not identity tolerance.
+
+This result validates only the algebra and hook machinery used to form the middle-MLP arms. It
+does not turn ridge k=4608 into an identity, does not make the feature bank compact, and earns no
+held-out, causal, executable, OOD, edit, or current-ship credit. The valid scientific evidence is
+still the empirical price curve: increasing recovery requires increasing fractions of the native
+feature bank, with no registered low-rank knee.
+
 ## §1714 — RETRACTED: the construction was not validated because `Down_bias` was omitted
 
 **Retained verbatim as failure provenance. Every identity/construction conclusion in this section

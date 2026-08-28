@@ -1,8 +1,9 @@
 # What We Currently Understand About MLP0
 
-*Last updated: 2026-08-27. Compiler-v2.1 has frozen its MLP0 and MLP1 programs;
-the one-shot sealed final evaluation is running. The local site results below are
-available, but no final composition claim is made before that evaluation closes.*
+*Last updated: 2026-08-28. Compiler-v2.1's sealed final evaluation is complete and
+negative at the registered joint-composition gate. The dossier below incorporates
+that result and motivates the matched local-loss versus suffix-loss transport test;
+no whole-model executable claim is made.*
 
 ## Short version
 

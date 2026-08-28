@@ -1,6 +1,6 @@
 # Current strategic update: bilin18 reverse engineering
 
-Last updated: 2026-08-28 03:36 UTC.
+Last updated: 2026-08-28 after the corrected middle-MLP identity control.
 
 ## Bottom line
 
@@ -125,12 +125,15 @@ The respective discovery-row gains over k=0 are 3.675, 5.581, 8.340, and 12.506
 percentage points. Ridge k=4608 closes 99.925% of the separately measured middle-band
 headroom, but it uses the complete original 4608-feature bank and is not compression.
 
-The run's separately labeled exact arm is invalid as an identity: source audit found
-that it recomputed `Down(Left(x)*Right(x))` but omitted `Down_bias`. Its reported
-68.059% is a joint zero-bias ablation, and its +0.506-point disagreement with the
-legacy target is substantive rather than numerical noise. A prospective narrow repair
-now compares the corrected bias-inclusive map directly with leaving MLP4–15 live in
-the same run; the legacy cross-run ceiling is no longer the identity denominator.
+The run's separately labeled exact arm remains invalid as an identity: source audit
+found that it omitted `Down_bias`, so its reported 68.059% is a joint zero-bias
+ablation. The prospective repair has now completed. In one shared-object run, the
+corrected bias-inclusive hooks and leaving MLP4–15 live both give
+$5.098802047929132$ CE. Their pooled CE difference and maximum per-row loss-sum
+difference are exactly zero; counts and an exact-arm replay are bit-identical. Under
+the legacy descriptive denominator this is 67.5533%, not the invalid 68.059%. This
+validates the hook identity only. It does not promote the empirical ridge family or
+move any held-out, causal, executable, OOD, edit, or current-ship ledger.
 
 Even the valid curve is not certified compression. Factor-complete feature-specific
 standalone prices across the twelve sites are 21.234M reals at k=512, 42.467M at
