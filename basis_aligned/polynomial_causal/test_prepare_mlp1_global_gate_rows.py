@@ -17,6 +17,19 @@ def test_prospective_constants_are_one_row_per_new_document() -> None:
     assert rows.TOKEN_LENGTH == 513
 
 
+def test_local_summary_validates_the_registered_16_by_16_waves() -> None:
+    records = [
+        {"document_id": f"doc-{index}", "wave": "A" if index < 16 else "B"}
+        for index in range(32)
+    ]
+    summary = rows.summarize_records(records)
+    assert summary["n_source_documents"] == summary["n_chunks"] == 32
+    assert summary["waves"]["A"]["n_source_documents"] == 16
+    assert summary["waves"]["B"]["n_source_documents"] == 16
+    with pytest.raises(RuntimeError, match="balanced-document"):
+        rows.summarize_records(records[:-1])
+
+
 def test_registry_discovery_includes_old_receipts_and_excludes_new_namespace(
     tmp_path, monkeypatch,
 ) -> None:

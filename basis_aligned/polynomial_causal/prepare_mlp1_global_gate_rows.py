@@ -45,6 +45,48 @@ def discover_prior_registry_files() -> tuple[Path, ...]:
     return tuple(sorted(paths))
 
 
+def summarize_records(records: list[dict[str, Any]]) -> dict[str, Any]:
+    by_document: dict[str, int] = {}
+    by_wave = {"A": set(), "B": set()}
+    chunks_by_wave = {"A": 0, "B": 0}
+    for record in records:
+        document, wave = record.get("document_id"), record.get("wave")
+        if not isinstance(document, str) or not document or wave not in by_wave:
+            raise RuntimeError("MLP1 row record identity or wave is malformed")
+        by_document[document] = by_document.get(document, 0) + 1
+        by_wave[wave].add(document)
+        chunks_by_wave[wave] += 1
+    counts = list(by_document.values())
+    summary = {
+        "n_source_documents": len(by_document),
+        "n_chunks": len(records),
+        "raw_prediction_positions": len(records) * (TOKEN_LENGTH - 1),
+        "min_chunks_per_document": min(counts) if counts else 0,
+        "max_chunks_per_document": max(counts) if counts else 0,
+        "chunks_per_document_histogram": {
+            str(value): counts.count(value) for value in sorted(set(counts))
+        },
+        "waves": {
+            wave: {
+                "n_source_documents": len(by_wave[wave]),
+                "n_chunks": chunks_by_wave[wave],
+                "raw_prediction_positions": chunks_by_wave[wave] * (TOKEN_LENGTH - 1),
+            }
+            for wave in ("A", "B")
+        },
+    }
+    if (
+        summary["n_source_documents"] != N_SOURCE_DOCUMENTS
+        or summary["n_chunks"] != N_SOURCE_DOCUMENTS
+        or summary["min_chunks_per_document"] != 1
+        or summary["max_chunks_per_document"] != MAX_CHUNKS_PER_DOCUMENT
+        or any(summary["waves"][wave]["n_source_documents"] != WAVE_DOCUMENTS
+               for wave in ("A", "B"))
+    ):
+        raise RuntimeError(f"MLP1 balanced-document receipt invariant failed: {summary}")
+    return summary
+
+
 def verify_frozen_snapshot(
     *, source_commit: str, source_closure: tuple[Path, ...],
     implementation_hashes: Mapping[str, str], registry_files: tuple[Path, ...],
@@ -118,7 +160,7 @@ def freeze_locked() -> dict[str, Any]:
         max_chunks_per_document=MAX_CHUNKS_PER_DOCUMENT,
         token_length=TOKEN_LENGTH,
     )
-    summary = registry.BASE.summarize_records(records)
+    summary = summarize_records(records)
     disjointness = registry.BASE.validate_eval_disjointness(rows, records, prior)
     if tuple(rows.shape) != (N_SOURCE_DOCUMENTS, TOKEN_LENGTH) or len(records) != (
         N_SOURCE_DOCUMENTS
