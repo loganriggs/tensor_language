@@ -1,0 +1,61 @@
+{
+ "run": "ceiling_gap_decomposition",
+ "by_role": {
+  "skip7000": {
+   "program": {
+    "cov": 6.0346503954442605,
+    "unc": 5.93935849990065
+   },
+   "live": {
+    "cov": 3.2920516960274653,
+    "unc": 2.649270395476034
+   },
+   "ceiling_covered": 6.034650400146417,
+   "n_covered": 27974,
+   "n_uncovered": 8890,
+   "allpos_program": 6.011670117900242
+  },
+  "skip11000": {
+   "program": {
+    "cov": 5.978998133661841,
+    "unc": 6.0017220902527
+   },
+   "live": {
+    "cov": 3.097110649601694,
+    "unc": 2.4571457461044712
+   },
+   "ceiling_covered": 5.978998177294357,
+   "n_covered": 27497,
+   "n_uncovered": 9367,
+   "allpos_program": 5.984772203252406
+  },
+  "skip1200": {
+   "program": {
+    "cov": 5.964231215357265,
+    "unc": 6.118906751042388
+   },
+   "live": {
+    "cov": 3.402772271309643,
+    "unc": 2.6897170886737047
+   },
+   "ceiling_covered": 5.964231226551266,
+   "n_covered": 13973,
+   "n_uncovered": 4459,
+   "allpos_program": 6.001649738231612
+  }
+ },
+ "covered_program_minus_ceiling": {
+  "skip7000": -4.702156886082776e-09,
+  "skip11000": -4.36325153785333e-08
+ },
+ "uncovered_minus_covered": {
+  "skip7000": -0.0952918955436104,
+  "skip11000": 0.022723956590859018
+ },
+ "predictions": {
+  "pred_a_covered_parity": true,
+  "pred_b_uncovered_much_worse": false,
+  "pred_c_reproduces_across_roles": true,
+  "pred_d_controls": false
+ }
+}

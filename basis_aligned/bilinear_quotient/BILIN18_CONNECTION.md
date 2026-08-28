@@ -49903,3 +49903,61 @@ sequence. That table is constructible by iteration — fit, run, re-average, ref
 (the fit rows suffice), and §1846's derivation predicts it should beat *both* tables at intermediate
 depths, where §1847 has just shown neither is reliable. It is the one remaining construction in this
 line with a principled reason to work rather than a hope.
+
+## §1848 — the FULL-RANK program IS the model's per-token ceiling on covered positions, exactly. §1768's 0.54 nats was table rank.
+
+`ops/ceiling_gap_decomposition.py`, 207.3s, **DISCOVERY ONLY**, rung 3 (§1847's open question).
+**pred_a True (exactly) | pred_b False | pred_c True | pred_d False — anchored the wrong object.**
+
+```
+  covered / uncovered scored positions, CE
+    skip7000   (27974 / 9124)   live 3.29205 / 2.64927   ceiling 6.03465 / --   program 6.03465 / 5.93936
+    skip11000  (27497 / 9367)   live 3.09711 / 2.45715   ceiling 5.97900 / --   program 5.97900 / 6.00172
+    skip1200   (13973 / 4459)   live 3.40277 / 2.68972   ceiling 5.96423 / --   program 5.96423 / 6.11891
+                                       program − ceiling on covered:  −0.00000  −0.00000  −0.00000
+```
+
+**pred_a PASSED at exactly zero on all three roles.** The settled full-rank 36-site program and the
+model's own per-token lookup are the **same function** on covered positions — not close, identical. This
+is §1765's induction confirmed at the CE level and §1764's bit-for-bit agreement measured again on a
+different object, so it is a control passing rather than a discovery.
+
+> **pred_d FAILED and it is the finding.** I anchored the all-position figure against §1768's PUBLISHED
+> "best 36-site program", **6.57512**. This run measured **6.01167** — and that is not an error, it is
+> **§1811's published settled full-rank figure reproduced exactly on all three roles** (6.01167 /
+> 5.98477 / 6.00165). **§1768's program was the rank-64 table with rank-128 corrections; this one is
+> full rank.** They are different objects and I compared across them, which is LESSON 53 for the third
+> time — and a wrong *published anchor* is something the gate cannot catch, because the constant is
+> syntactically fine.
+>
+> **So §1768's 0.54-nat gap to the ceiling is a TABLE-RANK limitation, not a limit of the position-wise
+> class.** At full rank the composition does not approach the ceiling, it **attains** it. Where that
+> 0.54 nats lives is §1813/§1816's rank sweep, which already priced it.
+
+**This amends my own §1846 correction, which cited that gap as live headroom.** Two hours ago I corrected
+§1846's claim that the length-1 table "wins by construction", citing §1768's ~0.55 nats as proof a better
+per-token function exists. **That citation is wrong for the full-rank object** and I am withdrawing it.
+The precise position now:
+
+- The length-1 table for the fully compiled program **is** the model's own per-token function, and §1848
+  measures it attaining that ceiling exactly. Within *functions this model computes on a length-1 input*
+  it is optimal, and attained.
+- It is **not proven optimal over all per-token functions**. §1766's bigram is worse held out (7.91
+  against 6.57), which is evidence but not a proof, and §1847's B1/B5 positives show a non-self-consistent
+  table beating the fixed point at *partial* compilation.
+- So my original §1846 wording was closer to right than my correction of it, and the correction's
+  *conclusion* survives only for partial compilation, on §1847's evidence. Recorded rather than quietly
+  re-edited, since both statements are already in the ledger.
+
+**pred_b FAILED and removes the other candidate.** Uncovered positions are not worse than covered — they
+are **−0.095 nats better** on skip7000, +0.023 on skip11000, +0.155 on skip1200. The map fallback is not
+where anything is lost either; those positions simply carry easier targets, as their live CE shows
+(2.65 / 2.46 / 2.69 against 3.29 / 3.10 / 3.40).
+
+**pred_c PASSED**: the covered difference is −0.00000 on every role, so it reproduces trivially.
+
+**What this closes.** The position-wise class has no internal headroom left at full rank: the program
+equals the best per-token function the model itself defines, on the positions where a table applies, and
+the fallback positions are not a deficit either. The remaining **2.74 nats to live** (6.03465 against
+3.29205) is the class boundary §1768 already named — the price of deleting attention (§1765) — and no
+choice of table, rank or fallback moves it.
