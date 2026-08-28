@@ -50014,3 +50014,39 @@ makes pred_a's failure attributable to §1768's construction rather than to this
 reported byte counts **not at all** — 19.59 GiB allocated, 10.88 GiB reserved, identically — which was
 the diagnostic I should have read immediately: the row-bank tensors were pinned by `row_hook` closures
 held in a live list, so clearing the bank dict freed nothing. LESSONS 62.
+
+## §1850 — the frontier restated against an ATTAINABLE ceiling: the last 0.066 nats cost 164M reals
+
+**DERIVED, not a run.** Arithmetic on §1754's published cost model and §1849's measured rank ladder. No
+GPU time; recorded because the two have never been put side by side and the ceiling only became a
+*reachable* reference at §1848.
+
+```
+  rank    reals (M)   CE above ceiling      marginal cost of the next step
+  4          6.338      +0.70393
+  16         9.176      +0.42066            4  -> 16    +2.839M  buys 0.283 nats  =    10.0 M/nat
+  64        20.531      +0.22327            16 -> 64   +11.355M  buys 0.197 nats  =    57.5 M/nat
+  256       65.950      +0.06580            64 -> 256  +45.419M  buys 0.157 nats  =   288.4 M/nat
+  full     230.087      +0.00000            256-> full +164.137M buys 0.066 nats  = 2494.5 M/nat
+```
+
+The cost column reproduces §1811's published settled totals exactly (6.338 / 9.176 / 20.531 / 65.950 /
+230.087M), which is the check that the model and the ladder describe the same object.
+
+> **Marginal cost per nat rises 250x across the ladder.** The last step — rank 256 to full — spends
+> **164.137M reals, 71% of the entire full-rank program**, to buy the final **0.066 nats**, 9% of the
+> distance the rank-4 table starts from. Rank 256 is at **29% of the cost and 91% of the way to the
+> ceiling**; rank 64 is at **9% of the cost and 68% of the way**.
+
+**What changed at §1848 to make this worth stating.** Every earlier frontier in this record (§1811,
+§1812, §1813) priced fidelity against the all-substituted baseline — a floor. §1848 established that the
+full-rank composition **attains** the model's own per-token ceiling exactly, so the ladder above is
+distance to an **optimum that is actually reached**, not to an unreachable ideal. "Reals per nat above
+the attainable optimum" is a well-posed quantity for the first time, and the answer is that the optimum
+itself is the worst buy on the curve.
+
+**Caveat, stated rather than buried.** These are covered-position CEs (§1849) against a covered-position
+ceiling, while §1754's cost model prices the whole table including the uncovered fallback. The two
+populations differ, and §1849 measured uncovered positions as −0.095 / +0.023 / +0.155 nats relative to
+covered, so the mismatch is small but real. Any use of this table for a deployment decision should
+re-derive it on the all-position CE the fallback actually serves.
