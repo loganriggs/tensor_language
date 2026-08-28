@@ -46997,3 +46997,55 @@ skip7000 only; coverage 5419.
 **Open question this ends on.** Two arms cannot be combined, so the remaining lever is the one §1793
 identified: the program's binding constraint is COVERAGE. Does the coverage curve flatten before
 5,419 types, or is the program still on a steep part of it?
+
+## §1798 — the coverage curve is NOT monotone: a 3-point dip sits exactly where the map's fit becomes square
+
+`ops/coverage_curve.py`, 196.7s, **DISCOVERY ONLY**, rung 3.
+**pred_a FALSE | pred_b True | pred_c True | pred_d True** — and pred_a's failure compromises pred_c's
+reading, which I am scoring as written and then setting aside.
+
+```
+  coverage   types   n/D    skip7000        skip11000       skip1200
+                            overall  head   overall  head   overall  head
+    1.000     5419  4.704   13.55%  39.01%  14.25%  40.42%  13.64%  38.91%
+    0.500     2710  2.352   12.54%  35.80%  13.08%  36.93%  12.47%  35.56%
+    0.250     1355  1.176    6.94%  21.54%   7.10%  21.90%   6.79%  21.40%   <- DIP
+    0.125      677  0.588    9.92%  30.06%  10.59%  31.30%   9.93%  29.68%
+```
+
+**pred_a FAILED: 677 covered types beat 1355, by 2.98 / 3.49 / 3.14 pp**, consistently on all three
+roles and on both slices. Halving the program's coverage *improved* it. pred_a's registered sentence
+named where to look: *"for a position-wise program this could only come through the refitted fallback
+or map — interesting, and a reason to distrust the fallback rather than the curve."*
+
+**The known-answer control localises it exactly.** Top-1 restricted to positions whose current token is
+in the *smallest* covered set is **15.4576% / 17.6908% / 14.1635% at every one of the four fractions**,
+identical to four decimals. So the tables are untouched and §1765's position-wise property holds to the
+digit: removing other tokens cannot reach a position that kept its own table. **The entire dip lives in
+the uncovered-token path** — the output-NN fallback and the rank-64 ridge map, both refitted inside
+each covered set.
+
+**And the dip sits where that fit becomes square.** The map solves a `D x D` normal system with `n`
+covered rows, `D = 1152`. The four fractions give `n/D` = 4.704, 2.352, **1.176**, 0.588: the minimum is
+at the fraction where the number of fitted rows most nearly equals the dimension being fitted. `n = D`
+corresponds to coverage 0.2126, and the sampled 0.25 is the closest point to it. That is the shape of an
+ill-conditioned interpolation threshold, not of a coverage effect.
+
+**So pred_c's pass is not usable.** It compared the last doubling (+1.01 / +1.17 / +1.17 pp) against the
+previous one (+5.60 / +5.98 / +5.68 pp) and concluded diminishing returns — but the 0.25 endpoint of
+that second interval is depressed by the artifact, inflating the gain it feeds. Scored **True as
+written**; its scientific reading is **void** until the curve is clean. **I cannot yet say whether
+coverage growth past 5,419 types pays**, which was the whole decision this run was meant to inform.
+
+**pred_b passed and survives**: at 677 types the program retains **73.2 / 74.3 / 72.8%** of its
+full-coverage accuracy. The fallback is doing real work, not decoration — an eighth of the tables costs
+only about a quarter of the accuracy.
+
+**A caution about §1785/§1786 that this raises.** The rank-64 embedding->row map was certified at full
+coverage, where `n/D = 4.7` and the fit is comfortably overdetermined. Nothing in that certification
+tested it near `n ~ D`, and here it degrades sharply. The published claims stand at the coverage they
+were measured at; they should not be read as a property of the map at other coverages.
+
+**Open question this ends on.** Is the dip the conditioning of the ridge solve, as the `n/D` alignment
+suggests? That is directly testable: sample the curve around `n = D` and raise the ridge. If the ridge
+removes the dip it was conditioning; if it does not, something else is wrong with the fallback.
