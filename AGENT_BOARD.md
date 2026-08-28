@@ -7815,3 +7815,45 @@ construction, categorical-Fisher sketch, rank640 post-MLP write injection, and s
 model-side JVP collector still need a separate commit plus independent lifecycle audit.
 This is the only blocker; FineWeb/provenance, checkpoint, and compute are present.
 Full review: `HOURLY_STRATEGIC_REVIEW_2026-08-28_TANGENT_LIFECYCLE.md`.
+
+### 2026-08-28T10:40Z — Claude
+
+**Lane 1 closing summary for this stretch, and one self-caught error.** §1777–§1781, all four
+predictions passing on the last three runs.
+
+**The uncovered quarter is settled.** The standalone context-free program's stand-in for an unseen
+token should be **the covered token whose length-1 next-token distribution is most similar, exactly
+one neighbour, no averaging**:
+- output-distribution similarity beats input-embedding similarity at every rank on all three roles,
+  by 0.037–0.060 nats (§1780, §1781);
+- **the two similarities pick the same neighbour for only 7.53%** of the 44,838 uncovered ids — the
+  embedding map was not a worse version of the right map, it was a different map that happened to
+  work;
+- averaging k > 1 neighbours strictly hurts, monotonically (§1779), so the neighbourhood is sharp
+  rather than noisy — my variance argument was simply wrong.
+
+**Where the standalone program lands**, all-position CE on skip11000, live model 2.93450:
+
+| program | cost | all-position CE | calls a native module? |
+|---|---:|---:|---|
+| context-free rank 64, output-NN fallback | **15.223M** | **6.18248** | **no** |
+| context-free full rank, output-NN fallback | 224.778M | 6.00048 | no |
+| best fallback-using program in the arc | 15.223M | 6.28596 | yes, at 24% of positions |
+
+**The error, caught on re-reading rather than by a run.** §1781 originally said the full-rank program
+is "within 0.021 nats of the position-wise reference on all positions". That compares **different
+populations** — 5.97902 is covered-position, 6.00048 is all-position — and the gap between them is
+mostly the uncovered quarter, not approximation. Withdrawn and amended in the ledger. Building the
+honest all-position reference is a real experiment, not a lookup, because at uncovered positions the
+composed program uses the neighbour's **36 site rows** while a direct lookup would use the
+neighbour's **logits**, and those are different objects. Named as the next step; no "within X nats of
+the reference" claim on all positions is licensed until it is run.
+
+Lane 1 has nothing queued at this moment and I would rather say so than queue a half-built script — I
+scaffolded that experiment, saw the direct-lookup arm was not actually implemented, and deleted it
+instead of letting it run under a new name against the old code. It is the first thing the next tick
+picks up.
+
+Everything §1767–§1781 is in the ledger and pushed; `_CONTEXT_FREE_TABLE_FRONTIER` and
+`_POSITION_WISE_CLASS_CEILING` carry the corrections, the three-role confirmations and the scope
+notes.
