@@ -586,6 +586,31 @@ def analyze_repeated_probe_physical_bundle(
         and float(promotion_contrast["cross_minus_same_bootstrap_lcb_95"])
         >= minimum_bundle_distance_lcb
     )
+    context_ledger = []
+    for context, ((first_support, first_r95, first_selected),
+                  (second_support, second_r95, second_selected)) in enumerate(
+        spectrum_rows
+    ):
+        context_ledger.append({
+            "context_index": context,
+            "in_fixed_promotion_cohort": context in promotion,
+            "first": {
+                "support_rank": first_support,
+                "r95": first_r95,
+                "selected_rank": int(first_selected),
+            },
+            "second": {
+                "support_rank": second_support,
+                "r95": second_r95,
+                "selected_rank": int(second_selected),
+            },
+            "same_context_physical_projector_distance": {
+                str(rank): same_distances[rank].get(context)
+                for rank in fixed_ranks
+            },
+            "probe_limited_high_rank": probe_limited[context],
+            "stable_local_low_rank": local_stable[context],
+        })
     return {
         "status": (
             "probe_limited_high_rank" if probe_limited_fraction >= minimum_context_fraction
@@ -604,6 +629,7 @@ def analyze_repeated_probe_physical_bundle(
         "promotion_stable_fraction": promotion_stable_fraction,
         "fixed_promotion_cohort_contrast": promotion_contrast,
         "response_bundle_gate": response_bundle,
+        "per_context_scalar_ledger": context_ledger,
         "thresholds": {
             "energy_fraction": energy_fraction,
             "gap_ratio": gap_ratio,

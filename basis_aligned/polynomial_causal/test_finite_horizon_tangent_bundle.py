@@ -269,3 +269,12 @@ def test_fixed_promotion_cohort_cannot_borrow_signal_from_diagnostics() -> None:
         "cross_minus_same_mean"
     ] == pytest.approx(0.0, abs=1e-12)
     assert report["response_bundle_gate"] is False
+    ledger = report["per_context_scalar_ledger"]
+    assert len(ledger) == 16
+    assert all(row["in_fixed_promotion_cohort"] == (index < 12)
+               for index, row in enumerate(ledger))
+    assert all(set(row) == {
+        "context_index", "in_fixed_promotion_cohort", "first", "second",
+        "same_context_physical_projector_distance", "probe_limited_high_rank",
+        "stable_local_low_rank",
+    } for row in ledger)
