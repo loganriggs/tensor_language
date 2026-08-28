@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "audit_id": "bilin18.mlp4.native-signed-square-codec.v1",
+  "source_candidate_bytes_sha256": "d8387e3e65c7921dff815f35ba2a5501eb41291a96b788f9e48c3098ab235543",
+  "source_inventory_sha256": "aed0af8ae35fa5142847a08e3ddd821f794cd2b09a73ef1abd7edd8562fd2543",
+  "signed_square_candidate_bytes": "mlp4_signed_square_candidate_bytes.pt",
+  "signed_square_candidate_bytes_sha256": "14370d99f934c9c4b4fe80ef296bee0d1220404377b7af718e67d006833572c5",
+  "same_quantization_step_as_frozen_product_codec": true,
+  "distortion_metric": "exact relative Frobenius error of quadratic coefficient tensor",
+  "behavioral_roster_changed": false,
+  "validation_opened": false,
+  "global_cp_nonuniqueness_quotiented": false,
+  "rows": [
+    {
+      "candidate_id": "native_k32",
+      "components": 32,
+      "product_codec_bits": 2764432,
+      "signed_square_codec_bits": 2729672,
+      "signed_square_minus_product_bits": -34760,
+      "signed_square_ratio": 0.9874259884128096,
+      "relative_coefficient_tensor_frobenius_error": 2.1515608783503175e-05,
+      "product_hash": "sha256:64a4e61f42a40b00582240cb3d1234e7517e58f328716237e3e5c523f65f2d67",
+      "signed_square_hash": "sha256:108cb8ad02329b0412cbe23706e18796fe4f30e68c580a63a47bf285f9f57faf"
+    },
+    {
+      "candidate_id": "native_k64",
+      "components": 64,
+      "product_codec_bits": 5482192,
+      "signed_square_codec_bits": 5407976,
+      "signed_square_minus_product_bits": -74216,
+      "signed_square_ratio": 0.9864623493668226,
+      "relative_coefficient_tensor_frobenius_error": 2.1538894757137332e-05,
+      "product_hash": "sha256:f9f3983f0f25ffa41bfb767b858961a3e24dd3545f5f8a1dd469cd214af6af92",
+      "signed_square_hash": "sha256:9e0b177edae59ca764430d1606d1e87a92e40e2a72c1982157406ce68654a914"
+    },
+    {
+      "candidate_id": "native_k128",
+      "components": 128,
+      "product_codec_bits": 10913760,
+      "signed_square_codec_bits": 10767672,
+      "signed_square_minus_product_bits": -146088,
+      "signed_square_ratio": 0.9866143290671593,
+      "relative_coefficient_tensor_frobenius_error": 2.175361744446149e-05,
+      "product_hash": "sha256:ae605c557b2a7165c731f4f51ed8b25cb83a78e15b0e6bb5954f81c073ead044",
+      "signed_square_hash": "sha256:7961b07deddeba113e7d16b39ad9d876c07cdfce1b32316d0146204dd1a10dc2"
+    },
+    {
+      "candidate_id": "native_k256",
+      "components": 256,
+      "product_codec_bits": 21761312,
+      "signed_square_codec_bits": 21465744,
+      "signed_square_minus_product_bits": -295568,
+      "signed_square_ratio": 0.9864177306956492,
+      "relative_coefficient_tensor_frobenius_error": 2.179886314717547e-05,
+      "product_hash": "sha256:4a04e424da25ec887622d6a624e275f529953e55bdfe3a37f758075304debac1",
+      "signed_square_hash": "sha256:d27f9eb07d61ac115d2f76fb97b165df35cb67172425e7970da4b384531dcf5f"
+    },
+    {
+      "candidate_id": "native_k512",
+      "components": 512,
+      "product_codec_bits": 43443432,
+      "signed_square_codec_bits": 42842560,
+      "signed_square_minus_product_bits": -600872,
+      "signed_square_ratio": 0.9861688643751718,
+      "relative_coefficient_tensor_frobenius_error": 2.1801251180278224e-05,
+      "product_hash": "sha256:30a17b62d19a92fa051549d4f828d6517af160d8376544158e0d2d77d32045cc",
+      "signed_square_hash": "sha256:3c26c3310d5baffa8ce4aa2dd8aed3f0024b794938665b1eedc0da29e1abef09"
+    }
+  ]
+}

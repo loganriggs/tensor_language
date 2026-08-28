@@ -11,6 +11,7 @@ INVENTORY = HERE / "mlp4_z4_candidate_inventory.json"
 PROTOCOL = HERE / "mlp4_z4_validation_protocol.json"
 RESULTS = HERE / "mlp4_z4_validation_results.json"
 INVARIANTS = HERE / "mlp4_candidate_tensor_invariants.json"
+SIGNED_SQUARE = HERE / "mlp4_signed_square_audit.json"
 OUTPUT = HERE / "mlp4_theseus_evidence.json"
 LANES = ("held_out", "composite", "extraction", "removal", "ood")
 
@@ -45,6 +46,14 @@ def build(results_path=RESULTS):
             raise ValueError("tensor invariant inventory mismatch")
         invariant_rows = {row["candidate_id"]: row
                           for row in invariant_artifact["rows"]}
+    signed_artifact = json.loads(SIGNED_SQUARE.read_text()) \
+        if SIGNED_SQUARE.exists() else None
+    signed_rows = {}
+    if signed_artifact is not None:
+        if signed_artifact["source_candidate_bytes_sha256"] != \
+                inventory["candidate_bytes_artifact_sha256"]:
+            raise ValueError("signed-square source candidate mismatch")
+        signed_rows = {row["candidate_id"]: row for row in signed_artifact["rows"]}
     results = json.loads(results_path.read_text()) if results_path.exists() else None
     points = {}
     if results is not None:
@@ -86,6 +95,18 @@ def build(results_path=RESULTS):
                               "top32_mode_energy_fraction"],
                           "not_behavioral_evidence": True,
                           "not_description_length": True}
+        alternatives = []
+        if candidate_id in signed_rows:
+            signed = signed_rows[candidate_id]
+            alternatives.append({
+                "codec": "mlp4-signed-square-known-gauge-v1",
+                "program_hash": signed["signed_square_hash"],
+                "conditional_known_gauge_bits": signed["signed_square_codec_bits"],
+                "relative_coefficient_tensor_frobenius_error":
+                    signed["relative_coefficient_tensor_frobenius_error"],
+                "behavioral_score_inherited": False,
+                "frontier_eligible": False,
+            })
         candidates.append({
             "candidate_id": candidate_id,
             "family": row["family"],
@@ -94,6 +115,7 @@ def build(results_path=RESULTS):
             "declared_inputs": ["blocks.4.mlp.rmsnorm_input"],
             "price": price(row),
             "structural_tensor": structural,
+            "alternative_serializations": alternatives,
             "operational_lanes": lanes,
             "frontier_eligible": results is not None and all(
                 lanes[lane]["status"] != "unmeasured" for lane in LANES),
@@ -112,6 +134,8 @@ def build(results_path=RESULTS):
         "tensor_invariants_sha256": sha(INVARIANTS) if invariant_artifact is not None else None,
         "tensor_pair_comparisons": (
             invariant_artifact["pair_comparisons"] if invariant_artifact is not None else []),
+        "signed_square_audit_sha256": sha(SIGNED_SQUARE)
+            if signed_artifact is not None else None,
         "controls": {"identity": "retained_live_mlp4",
                      "zero_fidelity": "fit_mean_mlp4_output"},
         "score_definition": "1-(candidate_ce-live_ce)/(fit_mean_ce-live_ce)",

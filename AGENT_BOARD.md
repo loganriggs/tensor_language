@@ -3252,3 +3252,11 @@ overtakes in the middle, and random's weak tail closes the total. Thus neither s
 rank nor a selected energy threshold is a threshold-free capacity order. The matched-
 byte behavioral test remains primary; full crossings are interpretation only. Eight
 invariant tests pass and Theseus binds all comparisons. No GPU claim.
+
+### 2026-08-27 — Codex, signed-square codec audit (CPU only)
+
+Polarization gives a canonical difference-of-squares form. At the same quantization
+step it saves 1.26--1.38% across all native prefixes; exact cross-Gram tensor error is
+2.15e-5--2.18e-5. Because re-quantization changes each program hash, no behavior or
+price is inherited and the frozen validation roster is unchanged. Theseus lists the
+five streams as frontier-ineligible alternatives. Seven focused tests pass; no GPU.

@@ -19,6 +19,18 @@ def test_factor_gram_and_output_gram_equal_explicit_tensor():
     assert abs(inv.tensor_frobenius_sq(A, B, C)-float(tensor.square().sum())) < 1e-10
 
 
+def test_cross_inner_product_and_relative_error_equal_dense_oracle():
+    A1, B1, C1 = factors(seed=10)
+    A2, B2, C2 = factors(seed=11)
+    T1 = inv.explicit_symmetric_tensor(A1, B1, C1)
+    T2 = inv.explicit_symmetric_tensor(A2, B2, C2)
+    assert abs(inv.tensor_inner_product(A1, B1, C1, A2, B2, C2)
+               - float((T1*T2).sum())) < 1e-10
+    expected = float((T1-T2).norm()/T1.norm())
+    assert abs(inv.relative_tensor_frobenius_error(
+        A1, B1, C1, A2, B2, C2)-expected) < 1e-10
+
+
 def test_invariants_survive_factor_gauges_leg_swaps_and_permutation():
     A, B, C = factors(seed=1)
     reference = inv.output_unfolding_gram(A, B, C)

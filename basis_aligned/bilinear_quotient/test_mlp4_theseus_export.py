@@ -32,6 +32,13 @@ def test_unscored_export_preserves_price_claims_and_closed_lanes(tmp_path):
     assert all(row["structural_tensor"]["not_behavioral_evidence"]
                and row["structural_tensor"]["not_description_length"]
                for row in audited)
+    alternatives = [alternative for row in by_family["native_product"]
+                    for alternative in row["alternative_serializations"]]
+    assert len(alternatives) == 5
+    assert all(not alternative["behavioral_score_inherited"]
+               and not alternative["frontier_eligible"]
+               and alternative["relative_coefficient_tensor_frobenius_error"] < 1e-3
+               for alternative in alternatives)
 
 
 def test_complete_fake_results_open_only_heldout(tmp_path):

@@ -102,6 +102,7 @@
       }
     }
   ],
+  "signed_square_audit_sha256": "1eb9d1d3345c4341ae0a6b2387063006d08e50d5b625d4c8849e8bb6228169c8",
   "controls": {
     "identity": "retained_live_mlp4",
     "zero_fidelity": "fit_mean_mlp4_output"
@@ -125,6 +126,7 @@
       "structural_tensor": {
         "status": "not_applicable_affine"
       },
+      "alternative_serializations": [],
       "operational_lanes": {
         "held_out": {
           "status": "unmeasured",
@@ -166,6 +168,7 @@
       "structural_tensor": {
         "status": "not_applicable_affine"
       },
+      "alternative_serializations": [],
       "operational_lanes": {
         "held_out": {
           "status": "unmeasured",
@@ -207,6 +210,7 @@
       "structural_tensor": {
         "status": "not_applicable_affine"
       },
+      "alternative_serializations": [],
       "operational_lanes": {
         "held_out": {
           "status": "unmeasured",
@@ -248,6 +252,7 @@
       "structural_tensor": {
         "status": "not_applicable_affine"
       },
+      "alternative_serializations": [],
       "operational_lanes": {
         "held_out": {
           "status": "unmeasured",
@@ -289,6 +294,7 @@
       "structural_tensor": {
         "status": "not_applicable_affine"
       },
+      "alternative_serializations": [],
       "operational_lanes": {
         "held_out": {
           "status": "unmeasured",
@@ -330,6 +336,7 @@
       "structural_tensor": {
         "status": "not_applicable_affine"
       },
+      "alternative_serializations": [],
       "operational_lanes": {
         "held_out": {
           "status": "unmeasured",
@@ -380,6 +387,16 @@
         "not_behavioral_evidence": true,
         "not_description_length": true
       },
+      "alternative_serializations": [
+        {
+          "codec": "mlp4-signed-square-known-gauge-v1",
+          "program_hash": "sha256:108cb8ad02329b0412cbe23706e18796fe4f30e68c580a63a47bf285f9f57faf",
+          "conditional_known_gauge_bits": 2729672,
+          "relative_coefficient_tensor_frobenius_error": 2.1515608783503175e-05,
+          "behavioral_score_inherited": false,
+          "frontier_eligible": false
+        }
+      ],
       "operational_lanes": {
         "held_out": {
           "status": "unmeasured",
@@ -430,6 +447,16 @@
         "not_behavioral_evidence": true,
         "not_description_length": true
       },
+      "alternative_serializations": [
+        {
+          "codec": "mlp4-signed-square-known-gauge-v1",
+          "program_hash": "sha256:9e0b177edae59ca764430d1606d1e87a92e40e2a72c1982157406ce68654a914",
+          "conditional_known_gauge_bits": 5407976,
+          "relative_coefficient_tensor_frobenius_error": 2.1538894757137332e-05,
+          "behavioral_score_inherited": false,
+          "frontier_eligible": false
+        }
+      ],
       "operational_lanes": {
         "held_out": {
           "status": "unmeasured",
@@ -480,6 +507,16 @@
         "not_behavioral_evidence": true,
         "not_description_length": true
       },
+      "alternative_serializations": [
+        {
+          "codec": "mlp4-signed-square-known-gauge-v1",
+          "program_hash": "sha256:7961b07deddeba113e7d16b39ad9d876c07cdfce1b32316d0146204dd1a10dc2",
+          "conditional_known_gauge_bits": 10767672,
+          "relative_coefficient_tensor_frobenius_error": 2.175361744446149e-05,
+          "behavioral_score_inherited": false,
+          "frontier_eligible": false
+        }
+      ],
       "operational_lanes": {
         "held_out": {
           "status": "unmeasured",
@@ -530,6 +567,16 @@
         "not_behavioral_evidence": true,
         "not_description_length": true
       },
+      "alternative_serializations": [
+        {
+          "codec": "mlp4-signed-square-known-gauge-v1",
+          "program_hash": "sha256:d27f9eb07d61ac115d2f76fb97b165df35cb67172425e7970da4b384531dcf5f",
+          "conditional_known_gauge_bits": 21465744,
+          "relative_coefficient_tensor_frobenius_error": 2.179886314717547e-05,
+          "behavioral_score_inherited": false,
+          "frontier_eligible": false
+        }
+      ],
       "operational_lanes": {
         "held_out": {
           "status": "unmeasured",
@@ -580,6 +627,16 @@
         "not_behavioral_evidence": true,
         "not_description_length": true
       },
+      "alternative_serializations": [
+        {
+          "codec": "mlp4-signed-square-known-gauge-v1",
+          "program_hash": "sha256:3c26c3310d5baffa8ce4aa2dd8aed3f0024b794938665b1eedc0da29e1abef09",
+          "conditional_known_gauge_bits": 42842560,
+          "relative_coefficient_tensor_frobenius_error": 2.1801251180278224e-05,
+          "behavioral_score_inherited": false,
+          "frontier_eligible": false
+        }
+      ],
       "operational_lanes": {
         "held_out": {
           "status": "unmeasured",
@@ -621,6 +678,7 @@
       "structural_tensor": {
         "status": "not_audited"
       },
+      "alternative_serializations": [],
       "operational_lanes": {
         "held_out": {
           "status": "unmeasured",
@@ -671,6 +729,7 @@
         "not_behavioral_evidence": true,
         "not_description_length": true
       },
+      "alternative_serializations": [],
       "operational_lanes": {
         "held_out": {
           "status": "unmeasured",
@@ -721,6 +780,7 @@
         "not_behavioral_evidence": true,
         "not_description_length": true
       },
+      "alternative_serializations": [],
       "operational_lanes": {
         "held_out": {
           "status": "unmeasured",
@@ -771,6 +831,7 @@
         "not_behavioral_evidence": true,
         "not_description_length": true
       },
+      "alternative_serializations": [],
       "operational_lanes": {
         "held_out": {
           "status": "unmeasured",
@@ -821,6 +882,7 @@
         "not_behavioral_evidence": true,
         "not_description_length": true
       },
+      "alternative_serializations": [],
       "operational_lanes": {
         "held_out": {
           "status": "unmeasured",
@@ -871,6 +933,7 @@
         "not_behavioral_evidence": true,
         "not_description_length": true
       },
+      "alternative_serializations": [],
       "operational_lanes": {
         "held_out": {
           "status": "unmeasured",
@@ -912,6 +975,7 @@
       "structural_tensor": {
         "status": "not_audited"
       },
+      "alternative_serializations": [],
       "operational_lanes": {
         "held_out": {
           "status": "unmeasured",

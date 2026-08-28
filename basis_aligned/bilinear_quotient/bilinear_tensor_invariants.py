@@ -45,6 +45,26 @@ def tensor_frobenius_sq(A, B, C):
     return float(value.clamp_min(0))
 
 
+def tensor_inner_product(A1, B1, C1, A2, B2, C2):
+    """Frobenius inner product between two factored symmetric-input tensors."""
+    A1, B1, C1 = _validate(A1, B1, C1)
+    A2, B2, C2 = _validate(A2, B2, C2)
+    if A1.shape[0] != A2.shape[0] or C1.shape[1] != C2.shape[1]:
+        raise ValueError("tensor input/output dimensions differ")
+    cross = .5*((A1.T@A2)*(B1.T@B2) + (A1.T@B2)*(B1.T@A2))
+    return float(torch.sum(cross*(C1@C2.T)))
+
+
+def relative_tensor_frobenius_error(A1, B1, C1, A2, B2, C2):
+    """Exact relative coefficient-tensor error between two factor programs."""
+    norm1 = tensor_frobenius_sq(A1, B1, C1)
+    norm2 = tensor_frobenius_sq(A2, B2, C2)
+    if norm1 == 0:
+        raise ValueError("reference tensor is zero")
+    error_sq = norm1+norm2-2*tensor_inner_product(A1, B1, C1, A2, B2, C2)
+    return (max(0.0, error_sq)/norm1)**.5
+
+
 def output_unfolding_gram(A, B, C):
     """Return the HOSVD output-mode Gram ``T_(out) T_(out)^T``."""
     A, B, C = _validate(A, B, C)
