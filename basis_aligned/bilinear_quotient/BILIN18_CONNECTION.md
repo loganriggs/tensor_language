@@ -47382,7 +47382,14 @@ deltas within 0.5pp — the cliff was rebuilt before it was explained; coverage 
 most informative thing in this section. Run it for all eighteen: where does compiling from the top down
 stop being cheap?
 
-## §1805 — the compile-depth curve: the bottom four layers are nearly free, layers 7-8 are the expensive ones, and §1804's shape was wrong
+## §1805 — the compile-depth curve: the bottom four layers are nearly free, and §1804's shape was wrong
+
+> **CORRECTED by §1806.** This section originally read "...layers 7-8 are the expensive ones"
+> and reported per-layer marginals as layer properties. The mirror curve (compiling bottom-up)
+> puts its maximum at L0 (+62.6 points of gap) where the top-down marginal is +0.0. The two
+> orderings disagree by two orders of magnitude, so **the marginals below are increments along
+> the top-down ordering and are NOT attributions to layers**. The curve over prefixes stands and
+> its arms reproduce; "layer L costs X" does not follow from it. LESSON 48.
 
 `ops/compile_depth_curve.py`, 107.0s, **DISCOVERY ONLY**, rung 3 (the question §1804 ended on).
 **pred_a FALSE | pred_b FALSE | pred_c True | pred_d True.**
@@ -47435,3 +47442,66 @@ under half the gap, and the bottom four for almost nothing.
 **Open question this ends on.** This curve compiles a suffix — top-down. The mirror, compiling
 bottom-up, is a second instrument on the same claim and would confirm or break the "middle layers are
 expensive" reading. And it makes the actionable version testable: compile everything except L6-L9.
+
+## §1806 — compilation must proceed TOP-DOWN, and §1805's per-layer marginals are not layer properties
+
+`ops/compile_bottom_up.py`, 172.3s, **DISCOVERY ONLY**, rung 3.
+**pred_a False | pred_b FALSE | pred_c False | pred_d True.** All three scientific bars failed, and
+pred_b's failure retracts a reading I published one section ago.
+
+Both curves from one build, fraction of the gap recovered (skip7000):
+
+```
+     L    TOP-DOWN (0..L live)    BOTTOM-UP (0..L compiled)
+     0            0.0%                    37.4%
+     3            2.2%                   -44.8%
+     5            9.3%                   -43.9%
+     6           14.8%                   +13.0%
+    10           53.8%                    +8.2%
+    13           74.9%                    +5.8%
+    17          100.0%                     0.0%
+```
+
+**The asymmetry is enormous and it is the finding.** Compiling **only layer 0**, leaving all seventeen
+above it live, loses **62.6 / 60.4 / 61.9%** of the gap. Compiling **only layer 17**, leaving all
+seventeen below it live, loses **4.8 / 4.4 / 3.7%**. One layer at the bottom is worth thirteen times one
+layer at the top. And several bottom-up arms are **negative** — compiling layers 0-3 and leaving 4-17
+live is **worse than compiling all eighteen**, by 44.8 / 43.2 / 46.9% of the gap.
+
+That is §1804's mechanism at stack scale. A compiled layer *beneath* live layers feeds them a
+context-free stream they were never trained on and they explode (live L5's output norm was 152x its
+row). A compiled layer *above* live layers receives a normal stream and simply approximates. **So
+compilation is directional: it must proceed top-down, and a partially compiled stack is not an
+interpolation between the two endpoints.**
+
+**pred_b FAILED and I am withdrawing §1805's per-layer language.** §1805 wrote that "L7 (+10.5) and L8
+(+12.0) are the two most expensive layers to compile". The bottom-up curve puts its maximum at **L0
+(+62.6 / +60.4 / +61.9)**, nowhere near L6-L9. The two directions do not agree about which layers
+matter, and pred_b's registered sentence said what follows: *"neither supports a per-layer reading — the
+honest conclusion would then be that only whole-prefix and whole-suffix figures are meaningful."*
+**§1805's marginals are increments along one ordering, not attributions to layers.** The top-down curve
+itself stands — it is measured, and pred_d confirms its L3, L10 and L13 arms reproduce within 0.5pp —
+but "layer L costs X" does not follow from it. §1805 is corrected in place.
+
+**pred_c FAILED, and it kills the actionable arm.** Compiling all fourteen layers outside L6-L9 gives
+**−43.2 / −42.5 / −46.0%** — far worse than compiling everything. The marginals do not compose. A
+targeted partial compile chosen by per-layer cost is not a real object, for the same reason: the moment
+compiled layers sit below live ones, the mismatch dominates whatever the layers individually contribute.
+
+**What survives.** The top-down curve of §1805: half the gap needs eleven live layers; keeping the
+bottom four live buys 2.2 / 2.2 / 1.7%; compiling the top seven costs under half the gap. Those are
+statements about **prefixes**, which is what was actually measured. Everything §1800 and §1802
+concluded about the all-sites program is untouched.
+
+Controls (pred_d): the endpoints reproduce §1789's published figures within 0.001; the L3, L10, L13
+top-down arms reproduce §1805's published deltas within 0.5pp; and the bottom-up arm at L17 — every
+layer compiled — lands within 2 points of gap-fraction of zero, reaching the same object as
+`all_substituted` by a different code path.
+
+**LESSON 48.**
+
+**Open question this ends on.** If a compiled layer poisons live layers above it, the settled program's
+tables were fitted against *live* upstream context (§1669's interleaved compilation fitted each site
+against everything already substituted below). The top-down direction is the one that construction
+already respects. Does the poisoning survive if the live layers above are given tables fitted in their
+presence — that is, is this a fixable calibration problem or a structural one?

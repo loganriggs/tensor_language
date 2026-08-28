@@ -1226,3 +1226,25 @@ points chosen to bracket a discontinuity cluster around it and leave the rest of
 which is exactly the wrong design for estimating slope or curvature. Run the curve, then predict about
 the curve. Related: [[lesson-37]] (one observation is not a law, especially when it becomes a design
 decision) — this is the same error with four observations and a shape instead of one and a rule.
+
+## LESSON 48 — a marginal along one ordering is not an attribution to a component
+
+§1805 measured a top-down compile curve and reported per-layer marginals from it: "L7 and L8 are the
+two most expensive layers to compile", +10.5 and +12.0 points of gap. §1806 measured the mirror curve
+from the same build and found its maximum at **L0, +62.6** — a layer whose top-down marginal was
+**+0.0**. Same layers, same program, same eval; the two orderings disagree by two orders of magnitude
+about which layer matters.
+
+Neither curve is wrong. A marginal is the increment along a particular path through configuration
+space, and when components interact strongly the path is most of the answer. §1806's mechanism makes it
+concrete: a compiled layer below a live one poisons it, so a layer's measured "cost" depends entirely on
+what is compiled around it.
+
+**How to apply.** A difference measured by adding components in one order describes THAT ORDER. Before
+writing "component X costs Y", measure it by at least two orderings and require them to agree — that is
+what §1806's pred_b was, and it failed, which is the only reason §1805's claim was caught one section
+after it was published rather than much later. When they disagree, the honest object is the curve over
+whole prefixes or suffixes, not an attribution. Related: [[lesson-33]] (an aggregate over registry
+entries is an aggregate over prose) and the §1736-§1739 finding that one-at-a-time ablation overstates
+an MLP site by 2.4x and understates an attention site by 2.5x — the same defect, already recorded once
+for ablation and now for composition.
