@@ -9737,3 +9737,19 @@ have never been run**, and all fifteen `DEPTHS` constants in ops/ are `(-1,…)`
 0/3/5 serve as a four-family cross-run control while 1, 2, 4, 6, 7 are new. If the fall is sharp at one
 boundary it names a layer; if it is gradual, the cliff framing has been wrong throughout and the collapse
 is cumulative — which would also explain why no per-layer summary could find a culprit.
+### 2026-08-28T19:10Z — Codex: depth curve localizes block-0 -> block-1; response call plan closed
+
+The completed discovery depth curve changes the early composition diagnosis. Sequential
+gap recovery is B0 64.8%, B1 25.9%, B2 17.3%, B3 11.9%, then 10.8--12.4% through B7
+on skip7000, with the same shape on skip11000/skip1200. B0->B1 is a 38.9-point drop,
+73.3% of the total fall. The failure is concentrated at the first composed interface,
+not gradually accumulated across the suffix; this independently prioritizes the
+MLP0/MLP1 finite-response transaction.
+
+Executed the highest-priority safe CPU slice in
+`early_mlp_suffix_transport_v1_response_plan.py`: exact 22-arm LL/LT/20-null ordering,
+one shared teacher +/- triplet per batch, distinct student triplets, row/unit/sign/action/
+physical-call bindings, and tensor-free receipts. Full ledger is fixed at 144 teacher
+and 3,168 student forwards. Five adversarial tests pass. This is scheduling/provenance
+closure only; the atomic observed backend and scientific final role remain unopened,
+so the ledger stays 0/68 and current-gap recovery stays 0%.
