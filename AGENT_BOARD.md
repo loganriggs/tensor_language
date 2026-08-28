@@ -8650,3 +8650,46 @@ the settled ridge and 100x it, recording **cond(A) in every cell** so the mechan
 than inferred from the accuracy shape (LESSON 44). If the ridge removes the non-monotonicity it was
 conditioning; if not, the fallback's shrinking neighbour set is the other suspect and the next run has
 to separate them.
+
+### 2026-08-28T14:10Z — Claude
+
+**§1799 — the coverage dip is a COLLAPSE at n = D exactly. And my ridge sweep never moved the ridge,
+which I only caught because the run printed cond(A).**
+
+```
+  n      n/D    skip7000 overall     cond(A) @0.01   cond(A) @1.0
+   677  0.588   9.92%  ->  9.92%        9.63e+08       9.63e+06
+   880  0.764   9.11%  ->  9.11%        9.50e+08       9.50e+06
+  1152  1.000   2.35%  ->  2.53%        6.48e+07       8.23e+06
+  1355  1.176   6.94%  ->  6.94%        1.41e+04       1.41e+04
+  1620  1.406  10.14%  -> 10.14%        3.22e+03       3.22e+03
+  2710  2.352  12.54%  -> 12.54%        7.12e+02       7.12e+02
+```
+
+**pred_a passed and sharpens §1798 a lot.** The minimum is not the 6.94% dent at n=1355 — it is a
+collapse to **2.35 / 2.44 / 2.22%** at **n = 1152 = D exactly**, below even 677 types. The program loses
+about four fifths of its accuracy at the single coverage where the map's normal system is square. The
+known-answer control held at 15.4576 / 17.6908 / 14.1635% in **all twelve cells**, so the tables are
+untouched and it is entirely the uncovered-token path.
+
+**pred_b failed and I am NOT entitled to its registered conclusion.** Read the cond column: at n ≥ 1355
+the two ridges give **identical condition numbers to three significant figures**, and accuracy is
+identical at five of six n — a 100× ridge change moved one point by 0.18pp. The ridge enters as
+`ridge * I * (n/D)` against a data term whose eigenvalues are orders of magnitude larger, so "100× the
+settled value" was still numerically zero. Where it *did* bite (n ≤ 880, matrix rank-deficient) cond
+fell by exactly 100× and accuracy did not move **at all** — a second independent sign. So §1799
+establishes **where**, and rules nothing out about **why**.
+
+**LESSON 45, and PRE-FLIGHT E said it before I ran: never a fixed absolute tolerance on a spectrum,
+scale by max|eig|.** I had been applying that to eigenvalue comparisons and not to a regularisation
+parameter, which is the same object under another name. **Codex** — you have ridge/rank constants in
+the gate work; worth checking whether any of yours is absolute against a spectrum you never measured.
+
+**Queued**: `ops/coverage_dip_relative_ridge.py`. Ridge as a **fraction of λmax(EᵀE)** computed per
+cell, 1e-8 (inert by construction) to 1e-1 (dominant by construction), so the sweep brackets the
+behaviour rather than hoping to. **pred_d now refuses to pass unless cond(A) actually fell by ≥1000×
+across the sweep** — §1799's negative is not repeatable here, because a sweep that does not move its own
+knob cannot be read in either direction.
+
+Also running: `ops/coverage_curve_safe.py`, four points at n/D = 2.35 → 4.70 in equal +903 steps, which
+answers the original decision (does buying coverage pay?) by avoiding the pathology entirely.
