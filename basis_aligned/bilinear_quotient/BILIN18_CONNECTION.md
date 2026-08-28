@@ -43994,3 +43994,58 @@ of total loss, and float32 accumulation across 18 sites left ~3e-5 of noise agai
 tolerance. Same shape as the 1e-9 tolerance that fired at 1.41e-08 earlier in this arc. **The fix is
 the accumulator, not the tolerance** — the tolerance was right and the arithmetic was too coarse to
 meet it.
+
+## §1737 — one-at-a-time and leave-one-out site importance are UNCORRELATED (Spearman 0.026), and a control I wrote assumed a monotonicity the model does not have
+
+`ops/loo_vs_oat_importance.py`, 208.3s, **DISCOVERY ONLY** — same family as §1736, whose confirmation
+role was skip11000, so both large roles are spent. Confirms nothing, certifies nothing.
+**pred_a True | pred_b False | pred_c False | pred_d True.**
+
+```
+                sum OAT              sum LOO             median |OAT-LOO|
+  mlp        10.2983 (2.378x joint)   2.0541 (0.474x)        0.2541
+  attn        1.4206 (0.399x joint)   3.5663 (1.003x)        0.0988      (skip7000)
+  Spearman(OAT, LOO) over 36 sites: 0.0257     [skip11000: 0.0108]
+
+  top 5 by OAT:  mlp1, mlp0, mlp2, mlp3, mlp17
+  top 5 by LOO:  mlp17, mlp16, attn2, attn4, attn1        (identical on both roles)
+```
+
+**pred_a passed and the bar was set so that passing means my existing tables are wrong.** The
+correlation is **0.026 and 0.011** — not weak, *absent*. Only `mlp17` appears in both top-fives. So
+§1736's factor is not a scale problem: **the two measures do not rank the sites at all alike**, and
+every ranking in this arc built on one-at-a-time removal — including `ops/circuit_audit`'s `removal`
+column and the specificity work of §1722/§1724/§1725 — is a ranking under one specific and
+contestable definition of importance, not under "importance".
+
+**pred_b FAILED and the failure is informative.** I predicted attention's LOO sum would exceed the
+joint, mirroring §1736. It does not: **1.003x and 0.928x — attention is near-additive under LOO**
+while being strongly sub-additive under OAT (0.399x). The two stacks are not mirror images of one
+redundancy structure, which is what I asserted; MLPs are redundant under both readings (2.38x / 0.47x)
+and attention changes character depending on which question is asked.
+
+**pred_c FAILED because my sanity bound encoded a monotonicity the model does not obey, and that is
+the most interesting thing in the run.** The bound said `removal(stack minus site i)` must not exceed
+`removal(stack) + 0.5`. For **mlp2 it is 6.05 nats against the joint 4.33**:
+
+> **Leaving mlp2 LIVE while the other seventeen MLPs are constants is 1.72 nats WORSE than ablating
+> mlp2 as well.** Three sites have negative LOO on skip7000 (mlp2 −1.722, mlp3 −0.244, mlp5 −0.015)
+> and five on skip11000 (adding mlp0 −0.006, attn6 −0.006), with mlp2 and mlp3 reproducing at similar
+> magnitude on both roles.
+
+The mechanism is not mysterious: mlp2 reads a residual stream in which mlp0 and mlp1 have been
+replaced by constants, so its input is off-distribution and what it writes is worse than nothing.
+This is **LESSONS 28 measured rather than asserted** — joint substitution compounds off-distribution
+— and it is a quantitative bound on it at a single named site.
+
+**The honest conclusion is that neither measure is the right one.** OAT ignores redundancy and
+inflates every MLP site. LOO-in-a-fully-ablated-context puts the surviving site off-distribution, so
+its number is partly about how badly the site copes with inputs it never sees. **A site's importance
+is not defined without naming the context it is measured in**, and this arc has been quoting one
+context as though it were the quantity. The frozen list for the next clean role —
+`mlp17, mlp16, attn2, attn4, attn1, mlp15`, identical top-five on both roles — is a LOO ranking and
+carries that caveat with it.
+
+The OAT column reproduced §1736's per-site removals to **0.0** deviation at every one of the 36 sites,
+and the joint stakes reproduced 4.3301 and 3.5570. The controls that could pass, passed; the one that
+failed, failed on my assumption rather than on the arithmetic.
