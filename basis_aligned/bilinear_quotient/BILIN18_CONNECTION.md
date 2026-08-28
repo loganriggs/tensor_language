@@ -47975,3 +47975,59 @@ coverage 5419.
 **Open question this ends on.** Every figure since §1788 is top-1. The corrected cheap end — 0.485M
 reals, 886x compression — has never been placed on the CE frontier that §1754-§1787 built, and that
 recomputation needs no GPU for the costs but does need a CE pass for the arms.
+
+## §1815 — CE punishes rank truncation four times harder than top-1 does, and I repeated §1787's mis-baselining
+
+`ops/cheap_end_ce.py`, 433.6s, **DISCOVERY ONLY**, rung 3 (§1814's closing question).
+**pred_a True | pred_b True | pred_c FALSE | pred_d True.**
+
+```
+    t1     0.485M   CE 7.51892 / 7.51560 / 7.53754    top-1  9.90% / 10.65% / 10.07%
+    t2     0.805M   CE 6.96082 / 6.99527 / 6.95063    top-1 10.15% / 10.92% / 10.16%
+    t4     1.444M   CE 6.62422 / 6.63689 / 6.59044    top-1 10.75% / 11.56% / 10.95%
+    t8     2.722M   CE 6.47177 / 6.47693 / 6.43090    top-1 11.36% / 12.08% / 11.74%
+    t64   20.531M   CE 6.17330 / 6.15261 / 6.14463    top-1 12.88% / 13.49% / 12.89%
+    live 430.000M   CE 3.13704 / 2.93450 / 3.23027    top-1 39.32% / 42.35% / 38.88%
+```
+
+**pred_a passed by more than four times its bar.** I asked whether the rank-1 program costs at least
+0.30 nats against rank 64; it costs **+1.34562 / +1.36299 / +1.39291**. **pred_b passed**: CE is
+monotone in table rank on every role, so the two axes agree on the ordering.
+
+**They disagree sharply on the magnitude, and that is the finding.** Measuring each program's remaining
+distance to the live model on both axes:
+
+```
+                  CE gap to live      top-1 gap to live
+    t64            3.036 nats            26.44 pp
+    t1             4.382 nats            29.42 pp
+    change          +44%                  +11%          ->  CE penalises truncation 3.9x more
+    (skip11000 +42% vs +10%, 4.3x;  skip1200 +48% vs +11%, 4.4x)
+```
+
+**Rank-1 keeps 77% of the settled program's top-1 while giving up 44% more of its CE gap.** §1788 found
+CE flattering the program where accuracy did not; here the sign is reversed — **CE is the harsher judge
+of rank truncation**. The two axes are not merely offset, they weight this design choice differently by
+a factor of four, and any "rank r is nearly free" statement must name its axis.
+
+**pred_c FAILED, and it failed because I rebuilt an error I had already recorded.** Its metric was
+"CE nats bought per million reals against the fully-tabled program". Every arm here is a *truncation*
+of that program, so every numerator is **negative** — −3.1053, −1.1792, −0.4242, −0.1690, −0.0079 on
+skip7000 — and the argmax simply picks the least-negative, i.e. **the most expensive arm, by
+construction**. That is exactly §1787's defect: *"measured improvement over the best arm, so every
+cheaper arm had a negative numerator and the optimum landed on `full` by default."* I wrote that
+sentence, and then wrote the same metric again eight sections later. **The pred_c result carries no
+information and I am recording it as void, not as a finding.** **LESSON 51.**
+
+The fix is not a better baseline but no ratio at all: **a Pareto frontier over (cost, CE) needs no
+reference point**, and the arms above give it directly — t1 through t64 are all on it, since CE is
+monotone in rank and cost is monotone in rank.
+
+Controls (pred_d): **the first CE cross-check of this sub-thread passed** — t64's all-position CE
+reproduces §1786's published 6.17330 / 6.15261 / 6.14463 to five decimals, so the CE path here is the
+same measurement §1754-§1787 used. t1 and t64 top-1 reproduce §1813's and §1786's published values
+within 0.01; live CE reproduces 3.13704 / 2.93450 / 3.23027; coverage 5419.
+
+**Open question this ends on.** §1811's dominance result — full-rank tables off the Pareto frontier,
+four of five arms dominated — was established on **top-1 only**. If CE punishes truncation four times
+harder, that dominance may not survive on the CE axis, and it is currently a certified registry entry.

@@ -1306,3 +1306,24 @@ for: **arms that come out bit-identical across a parameter sweep.** That is not 
 means the parameter is not reaching the object, either because of a bug or, as here, because it cannot.
 Related: [[lesson-44]] (emit the discriminating quantity) -- the identity of the t1 arms across four map
 ranks WAS the discriminating quantity, and it was visible in the log before the run finished.
+
+## LESSON 51 — I rebuilt a metric whose defect I had already written down
+
+§1815's pred_c scored "CE nats bought per million reals against the fully-tabled program". Every arm in
+that run is a truncation of the fully-tabled program, so every numerator was negative and the argmax
+selected the least-negative arm -- the most expensive one -- by construction. The result is void.
+
+§1787 had the identical defect and I described it in the ledger at the time: *"measured improvement over
+the best arm, so every cheaper arm had a negative numerator and the optimum landed on `full` by
+default."* Writing the sentence did not stop me writing the metric again eight sections later, because
+the check I run before a run is "does this predicate have a margin and a two-sided reading" (LESSONS 40,
+31, 39) and this one had both. What it lacked was a numerator that could be positive for the arms it was
+ranking.
+
+**How to apply.** Before registering any RATIO, evaluate its sign for the arms you expect to see. If the
+numerator is negative for all of them, the ratio ranks by denominator alone and the prediction is about
+cost, not about what you meant. Then ask whether the ratio is needed at all: for a two-axis trade-off a
+**Pareto frontier requires no baseline** and cannot be broken this way, which is why §1811's dominance
+result survived while its efficiency reading did not. Related: [[lesson-35]] (a guard on a denominator
+manufactures a number) -- same family, opposite end of the fraction. The deeper point is that a lesson
+recorded in a ledger section is not a check; only something that runs is a check.
