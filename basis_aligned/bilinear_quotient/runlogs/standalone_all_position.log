@@ -1,0 +1,17 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+STANDALONE, SCORED WHERE IT DIFFERS | cells ((64, 128), (8, 8)) x arms ('hybrid', 'standalone') | §1761 scored only COVERED positions, where the two arms are identical by construction | DISCOVERY ONLY
+  fit coverage 5419 of 50257 token ids
+  skip7000: live cov 3.29205 all 3.13704 | hybrid table-only cov 7.35114 all 6.42601
+  skip11000: live cov 3.09711 all 2.93450 | hybrid table-only cov 7.35825 all 6.34771
+  table  64 corr 128 hybrid     : cost  25.8394M | skip7000 cov +0.775919 all +0.508972  skip11000 cov +0.785310 all +0.502208   [101s]
+  table  64 corr 128 standalone : cost  25.8394M | skip7000 cov +0.775919 all -0.255016  skip11000 cov +0.785310 all -0.392205   [163s]
+  table   8 corr   8 hybrid     : cost   2.6389M | skip7000 cov +0.402112 all +0.095191  skip11000 cov +0.410527 all +0.078800   [257s]
+  table   8 corr   8 standalone : cost   2.6389M | skip7000 cov +0.402112 all -0.601279  skip11000 cov +0.410527 all -0.699946   [318s]
+
+  ALL-position: standalone loses 178.10% at the fidelity point (+0.502208 -> -0.392205) -> >=10% True
+  COVERED-position difference 0.00e+00 nats -> §1761's null holds at full precision, damage is local True
+  loss larger at the starved table (988.26% vs 178.10%) -> True
+  §1758 covered arms + table-only CE + ALL-position live CE 3.13704 vs §1728 3.13704 + coverage 5419 -> control True
+
+pred_a True | pred_b True | pred_c True | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/standalone_all_position_results.json (318.1s)

@@ -1,0 +1,47 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+SETTLED RIDGE SCAN | FULL coverage n=5419 x ridge ('settled', 1e-06, 0.0001, 0.001, 0.01, 0.1) | settled program (context-free tables + output-NN fallback + rank-64 map) | DISCOVERY ONLY
+
+  ridge settled  (absolute 4.704e-02 = 1.07e-09*lmax)  n 5419  cond(A) 3.243e+02  (43s)
+    skip7000: overall 13.55%  head 39.01%  kept 14.0023%
+    skip11000: overall 14.25%  head 40.42%  kept 14.8016%
+    skip1200: overall 13.64%  head 38.91%  kept 14.3491%
+
+  ridge 1e-06    (absolute 4.396e+01 = 1.00e-06*lmax)  n 5419  cond(A) 3.241e+02  (87s)
+    skip7000: overall 13.55%  head 39.01%  kept 14.0023%
+    skip11000: overall 14.25%  head 40.42%  kept 14.8016%
+    skip1200: overall 13.64%  head 38.91%  kept 14.3491%
+
+  ridge 0.0001   (absolute 4.396e+03 = 1.00e-04*lmax)  n 5419  cond(A) 3.141e+02  (132s)
+    skip7000: overall 13.54%  head 38.97%  kept 14.0023%
+    skip11000: overall 14.24%  head 40.38%  kept 14.8016%
+    skip1200: overall 13.64%  head 38.93%  kept 14.3491%
+
+  ridge 0.001    (absolute 4.396e+04 = 1.00e-03*lmax)  n 5419  cond(A) 2.451e+02  (177s)
+    skip7000: overall 13.57%  head 38.99%  kept 14.0023%
+    skip11000: overall 14.25%  head 40.41%  kept 14.8016%
+    skip1200: overall 13.61%  head 38.80%  kept 14.3491%
+
+  ridge 0.01     (absolute 4.396e+05 = 1.00e-02*lmax)  n 5419  cond(A) 7.719e+01  (222s)
+    skip7000: overall 13.70%  head 39.35%  kept 14.0023%
+    skip11000: overall 14.33%  head 40.79%  kept 14.8016%
+    skip1200: overall 13.57%  head 38.68%  kept 14.3491%
+
+  ridge 0.1      (absolute 4.396e+06 = 1.00e-01*lmax)  n 5419  cond(A) 1.067e+01  (269s)
+    skip7000: overall 13.82%  head 39.61%  kept 14.0023%
+    skip11000: overall 14.36%  head 41.07%  kept 14.8016%
+    skip1200: overall 13.83%  head 38.72%  kept 14.3491%
+
+  cond(A): settled  3.24e+02  1e-06    3.24e+02  0.0001   3.14e+02  0.001    2.45e+02  0.01     7.72e+01  0.1      1.07e+01
+  skip7000   settled  13.55%  1e-06    13.55%  0.0001   13.54%  0.001    13.57%  0.01     13.70%  0.1      13.82%
+  skip11000  settled  14.25%  1e-06    14.25%  0.0001   14.24%  0.001    14.25%  0.01     14.33%  0.1      14.36%
+  skip1200   settled  13.64%  1e-06    13.64%  0.0001   13.64%  0.001    13.61%  0.01     13.57%  0.1      13.83%
+
+  THE KNOB TURNED (cond spans >=1000x) -> False  3.0e+01x
+  a SCALED ridge beats the settled one by >=1pp -> False  skip7000 best 0.1 13.82% vs settled 13.55% (+0.26pp)  skip11000 best 0.1 14.36% vs settled 14.25% (+0.11pp)  skip1200 best 0.1 13.83% vs settled 13.64% (+0.18pp)
+  the best fraction is the SAME on all three roles -> True  skip7000 0.1  skip11000 0.1  skip1200 0.1
+  ... but does not close a quarter of the gap -> True  skip7000 1.0% of 25.77pp  skip11000 0.4% of 28.10pp  skip1200 0.7% of 25.24pp
+  KNOWN-ANSWER: kept-token slice identical everywhere -> True  skip7000 14.0023%  skip11000 14.8016%  skip1200 14.3491%
+  the settled arm reproduces §1789, knob turned, coverage 5419 -> control False
+
+pred_a False | pred_b True | pred_c True | pred_d False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/settled_ridge_scan_results.json (272.0s)

@@ -1,0 +1,12 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+L0: lower=1152/1152 spread=0 upper=4608
+L1: lower=1152/1152 spread=0 upper=4608
+L2: lower=1152/1152 spread=0 upper=4608
+L11: lower=1152/1152 spread=0 upper=4608
+L17: lower=1152/1152 spread=0 upper=4608
+{
+  "A_all_layers_at_least_95pct_output_rank": true,
+  "B_two_sketches_within_5_ranks": true,
+  "C_rules_out_more_than_4.21x_exact_products": true
+}
+wrote /workspace/tensor_language/basis_aligned/polynomial_causal/mlp_product_rank_audit_results.json

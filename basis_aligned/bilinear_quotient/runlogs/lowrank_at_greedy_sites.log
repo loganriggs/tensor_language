@@ -1,0 +1,40 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+TABLE + LOW-RANK AT THE §1744 SITES | ranks (8, 32, 128) | ['mlp17', 'attn16', 'attn14', 'attn11', 'attn17', 'attn13'] | DISCOVERY ONLY
+  fit coverage 5419 of 50257 token ids
+  fitted on 24576 (position, site) samples
+    mlp17 singular values: top 17320.4564  r8 1832.2636  r32 665.1628  r128 356.5872  tail 1.47e-04
+    attn16 singular values: top 686.0210  r8 455.6199  r32 304.8825  r128 117.2706  tail 5.35e-07
+    attn14 singular values: top 761.3313  r8 450.1248  r32 286.8537  r128 130.8510  tail 2.23e-06
+    attn11 singular values: top 1162.1280  r8 418.2568  r32 247.9741  r128 110.6859  tail 5.67e-07
+    attn17 singular values: top 2197.2895  r8 634.1500  r32 296.4730  r128 106.0327  tail 7.86e-06
+    attn13 singular values: top 816.5638  r8 419.1027  r32 221.8414  r128 96.6458  tail 5.04e-07
+
+  skip7000: live 3.29205 | table-only 7.35114 | native-6 6.14748 | gap 1.2037 nats (native-6 costs 55.741M)
+    rank   8: recovers  0.1038 nats =  8.62% of the gap, for 0.1106M reals
+    rank  32: recovers  0.0887 nats =  7.37% of the gap, for 0.4424M reals
+    rank 128: recovers  0.0735 nats =  6.11% of the gap, for 1.7695M reals
+      mlp17   own gap  0.5128  rank128 closes 20.62%
+      attn16  own gap  0.3130  rank128 closes -1.21%
+      attn14  own gap  0.2156  rank128 closes -1.89%
+      attn11  own gap  0.0486  rank128 closes -22.98%
+      attn17  own gap  0.2001  rank128 closes 0.63%
+      attn13  own gap  0.1731  rank128 closes -5.52%
+
+  skip11000: live 3.09711 | table-only 7.35825 | native-6 6.11685 | gap 1.2414 nats (native-6 costs 55.741M)
+    rank   8: recovers  0.1029 nats =  8.29% of the gap, for 0.1106M reals
+    rank  32: recovers  0.0870 nats =  7.01% of the gap, for 0.4424M reals
+    rank 128: recovers  0.0706 nats =  5.69% of the gap, for 1.7695M reals
+      mlp17   own gap  0.5141  rank128 closes 20.71%
+      attn16  own gap  0.3105  rank128 closes -1.32%
+      attn14  own gap  0.2426  rank128 closes -1.92%
+      attn11  own gap  0.0575  rank128 closes -19.64%
+      attn17  own gap  0.2056  rank128 closes 0.31%
+      attn13  own gap  0.1828  rank128 closes -5.98%
+
+  rank 128 closes >=50% of the gap held out (5.69%) -> False
+  recovery monotone in rank on both roles -> False
+  attention mean -5.71% vs mlp17 20.71% -> attention benefits more False
+  table-only CE + §1741 native-6 + coverage 5419 -> control True
+
+pred_a False | pred_b False | pred_c False | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/lowrank_at_greedy_sites_results.json (55.2s)

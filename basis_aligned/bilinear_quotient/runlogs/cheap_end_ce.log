@@ -1,0 +1,45 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+CHEAP END ON THE CE FRONTIER | table ranks (1, 2, 4, 8, 64), map at carryable rank | settled program (context-free tables + output-NN fallback + rank-64 map) | DISCOVERY ONLY
+
+  per-site norm calibration (live mean / row mean), measured on the LIVE model:
+    attn L0:  2.71 L1:  2.49 L2:  2.26 L3:  2.13 L4:  4.37 L5:  1.00 L6:  1.02 L7:  3.61 L8:  3.59 L9:  4.83 L10:  3.80 L11:  4.49 L12:  6.72 L13:  6.39 L14:  7.07 L15:  6.33 L16:  5.70 L17:  5.59
+    mlp  L0:  0.88 L1:  0.42 L2:  0.61 L3:  0.49 L4:  0.10 L5:  0.39 L6:  0.52 L7:  1.66 L8:  2.04 L9:  1.32 L10:  2.33 L11:  1.05 L12:  1.91 L13:  1.26 L14:  1.66 L15:  1.19 L16:  1.13 L17:  1.21
+
+  arms  (45s)
+  all_substituted      skip7000 13.55%  skip11000 14.25%  skip1200 13.64%
+  all_sub_scaled       skip7000 12.16%  skip11000 12.81%  skip1200 12.10%
+  live_model           skip7000 39.32%  skip11000 42.35%  skip1200 38.88%
+  t1                   skip7000  9.90%  skip11000 10.65%  skip1200 10.07%
+  t2                   skip7000 10.15%  skip11000 10.92%  skip1200 10.16%
+  t4                   skip7000 10.75%  skip11000 11.56%  skip1200 10.95%
+  t8                   skip7000 11.36%  skip11000 12.08%  skip1200 11.74%
+  t64                  skip7000 12.88%  skip11000 13.49%  skip1200 12.89%
+
+  cost / fidelity  (reals, top-1 per role)
+    *t1             0.485M  skip7000  9.90%  skip11000 10.65%  skip1200 10.07%
+    *t2             0.805M  skip7000 10.15%  skip11000 10.92%  skip1200 10.16%
+    *t4             1.444M  skip7000 10.75%  skip11000 11.56%  skip1200 10.95%
+    *t8             2.722M  skip7000 11.36%  skip11000 12.08%  skip1200 11.74%
+    *t64           20.531M  skip7000 12.88%  skip11000 13.49%  skip1200 12.89%
+   (* = on the Pareto frontier at every role)
+
+  all-position CE and top-1, with the map at its carryable rank:
+    t1       0.485M  skip7000 CE 7.51892 top1  9.90%  skip11000 CE 7.51560 top1 10.65%  skip1200 CE 7.53754 top1 10.07%
+    t2       0.805M  skip7000 CE 6.96082 top1 10.15%  skip11000 CE 6.99527 top1 10.92%  skip1200 CE 6.95063 top1 10.16%
+    t4       1.444M  skip7000 CE 6.62422 top1 10.75%  skip11000 CE 6.63689 top1 11.56%  skip1200 CE 6.59044 top1 10.95%
+    t8       2.722M  skip7000 CE 6.47177 top1 11.36%  skip11000 CE 6.47693 top1 12.08%  skip1200 CE 6.43090 top1 11.74%
+    t64     20.531M  skip7000 CE 6.17330 top1 12.88%  skip11000 CE 6.15261 top1 13.49%  skip1200 CE 6.14463 top1 12.89%
+    live         430.000M  skip7000 CE 3.13704  skip11000 CE 2.93450  skip1200 CE 3.23027
+
+  CE nats bought per million reals, against the fully-tabled program:
+    skip7000   t1:-3.1053  t2:-1.1792  t4:-0.4242  t8:-0.1690  t64:-0.0079
+    skip11000  t1:-3.1538  t2:-1.2554  t4:-0.4516  t8:-0.1808  t64:-0.0082
+    skip1200   t1:-3.1642  t2:-1.1790  t4:-0.4078  t8:-0.1577  t64:-0.0070
+
+  the rank-1 program costs >=0.30 nats against rank 64 -> True  skip7000 7.51892 vs 6.17330 (+1.34562)  skip11000 7.51560 vs 6.15261 (+1.36299)  skip1200 7.53754 vs 6.14463 (+1.39291)
+  CE is monotone in table rank -> True  skip7000 7.5189/6.9608/6.6242/6.4718/6.1733  skip11000 7.5156/6.9953/6.6369/6.4769/6.1526  skip1200 7.5375/6.9506/6.5904/6.4309/6.1446
+  the CE-per-real optimum is at table rank <=4 -> False  skip7000 t64 (-0.0079)  skip11000 t64 (-0.0082)  skip1200 t64 (-0.0070)
+  all-substituted and live reproduce §1789, coverage 5419 -> control True
+
+pred_a True | pred_b True | pred_c False | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/cheap_end_ce_results.json (433.6s)

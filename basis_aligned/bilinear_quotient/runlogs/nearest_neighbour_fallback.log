@@ -1,0 +1,18 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+CONTEXT-FREE FRONTIER, THIRD ROLE | ranks (None, 64, 8, 4) | skip1200 confirms | SECOND-CLASS CONFIRMATION
+  skip7000: live cov 3.29205 all 3.13704 | fit-mean all-tabled cov 7.35114 all 6.42601
+  skip11000: live cov 3.09711 all 2.93450 | fit-mean all-tabled cov 7.35825 all 6.34771
+  built the nearest-covered map for 44838 uncovered token ids (6s)
+  built the contextfree family (7s)
+  rank full   224.778M | mean all 6.46948 cov 5.97900  nearest all 6.03786 cov 5.97900   [9s]
+  rank 64      15.223M | mean all 6.64292 cov 6.21152  nearest all 6.23480 cov 6.21152   [44s]
+  rank 8        1.975M | mean all 6.89892 cov 6.55472  nearest all 6.54141 cov 6.55472   [79s]
+  rank 4        1.029M | mean all 7.02245 cov 6.72034  nearest all 6.69203 cov 6.72034   [113s]
+
+  the nearest-covered fallback beats the mean row at every rank -> True
+  best standalone all-position CE 6.03786 at rank full beats §1776's best program 6.28596 -> True
+  covered CE is untouched (the change is only at uncovered tokens) -> True
+  the mean-fallback arms reproduce §1776 + coverage 5419 -> control True
+
+pred_a True | pred_b True | pred_c True | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/nearest_neighbour_fallback_results.json (113.4s)

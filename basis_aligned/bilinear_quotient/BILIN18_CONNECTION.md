@@ -48732,3 +48732,67 @@ cross-position Jacobians are **exactly zero**, and §1765 measured that directly
 0.000e+00 for the program against 0.118 nats live. Applying the same poke to the live layers *above* a
 compiled prefix asks whether they still propagate across positions at all, and whether what they
 propagate resembles the live model. That is a joint-structure instrument, not another per-layer summary.
+
+## §1828 — cross-position ROUTING survives; cross-position MASS does not, and neither explains the collapse. Five accounts closed.
+
+`ops/cross_position_influence.py`, 237.4s, **DISCOVERY ONLY**, rung 3 (the instrument §1827's pred_a
+failure branch named). **pred_a False | pred_b True | pred_c True | pred_d True.**
+
+§1765 measured cross-position propagation with a single poke — 0.118 nats live, exactly 0.000e+00 with
+the program installed. This generalises it to a matrix: poke source position *k* at the top of the
+compiled prefix, read the loss change at every later position *q*. `M[k,q]` is the finite-difference
+cross-position Jacobian, compared per-source against a **depth-matched live control** — same poke, same
+site, no prefix — so an arm and its control differ only in the prefix.
+
+```
+                     mean SHAPE cosine     mean MASS ratio      gap recovered
+  B0 (depths 0)          +0.849                1.53x               64.8%
+  B3 (depths 0-3)        +0.767                0.30x               11.9%
+  B5 (depths 0-5)        +0.785                0.85x               12.3%
+```
+
+**pred_a FAILED: routing survives.** The mean shape cosine at B3 is **+0.767** against a ≤0.70 bar. The
+live layers above a compiled prefix send influence to substantially the same later positions the live
+model does — and they do so in the arm that recovers 12% almost as well as in the arm that recovers 65%.
+pred_a's registered branch names the consequence: *"the damage is not in WHERE information goes but in
+WHAT is carried there: content, not routing."*
+
+**pred_c PASSED, and it is the first badly-wrong quantity this arc has found.** At B3 the cross-position
+influence mass is **0.30x** the depth-matched live control — attenuated by 3.3x, well outside [0.33, 3.0].
+**But the third arm closes it as an explanation, by exactly §1827's logic.** B5 carries **0.85x** — within
+15% of live, five times better than B3 — and recovers **12.3%** against B3's **11.9%**, a difference of
+0.4 points. A near-correct cross-position mass buys nothing. Attenuation is neither necessary nor
+sufficient for the collapse.
+
+**pred_b PASSED — the first instrument since §1824 to track recovery at all — but quote the spread, not
+the boolean.** B0 +0.849 > B3 +0.767, margin **0.082**; and the ordering is monotone across all three
+arms (B0 +0.849 > B5 +0.785 > B3 +0.767 against recovery 64.8% > 12.3% > 11.9%). It is an *ordering*,
+not a scale: a **5.4x** difference in recovery corresponds to an **0.082** difference in cosine, and the
+B5–B3 margin of **0.018** on 8 rows is not something I can distinguish from noise. Reported as directional
+only.
+
+> **Five accounts are now closed for the deep-prefix residual.** Magnitude (§1824, ~12%); mean direction
+> (§1825, ~77% aligned); single-layer localisation (§1826, 1-2 points of 88); second moment (§1827,
+> anti-correlated with recovery); and now cross-position routing shape and cross-position influence mass
+> (§1828, one flat across arms, the other closed by B5). **Every summary of the corrected stream — first
+> order, second order, within position and across positions — sits in a narrow band across arms whose
+> recovery differs 5.4x. The difference between a working compiled prefix and a broken one is not visible
+> in any summary statistic of the stream. It is visible only in the loss.**
+
+**Controls (pred_d), including a known-answer check that the instrument can TURN.** With every site
+substituted the influence matrix is **exactly 0.000e+00**, reproducing §1765 — zero, not small — while
+the poke's own position moves by 3.070e-06, so the instrument registers the perturbation and reports
+nothing downstream. The depth-matched live control propagates 6.222e-04. **That figure is not comparable
+to §1765's published 0.118** and I am not claiming it reproduces it: §1765 poked `attn0` and took a
+per-row max over covered positions, this pokes `mlp0` and takes a row-mean first. The registered bar was
+>1e-6, which it clears by 620x. All four published gap-fraction families reproduce (§1806 raw, §1822
+global, §1823 matched, §1824 sequential), endpoints reproduce §1789's full-rank figures to 4 decimals,
+and the placement control moves top-1 by under 0.05pp. Coverage 5419 of 50257.
+
+**Open question this ends on — and it is a gap in the record, not a new instrument.** Every section from
+§1806 onward has compared B0 against B3 and B5. **Depths 1 and 2 have never been run.** Fifteen scripts
+carry a `DEPTHS` constant and every one of them is `(-1, …)`, `(0, 3, 5)` or `(3, 5)`. So the fall from
+**64.8% to 11.9%** is a two-point bracket that six sections have been calling a cliff, which is precisely
+LESSON 47: points sampled to bracket a feature do not estimate a curve. Running the bottom-up recovery at
+every depth 0..7 asks where the recovery is actually lost — a sharp fall at one depth names a layer, a
+smooth decline says the "cliff" framing has been wrong throughout.

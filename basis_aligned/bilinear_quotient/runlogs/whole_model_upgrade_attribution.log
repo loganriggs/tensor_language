@@ -1,0 +1,15 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+WHOLE MODEL UPGRADE ATTRIBUTION | compounding or redundancy? | CE live 3.29205 | joint stake 5.5684 nats
+  controls: simple must reproduce §1694 50.94%, both must reproduce §1696 55.04%
+  simple         lags [1]          tables []         CEILING   50.94%
+  attn_upgraded  lags [1, 2, 4, 8] tables []         CEILING   53.60%
+  mlp_upgraded   lags [1]          tables [0, 1, 2]  CEILING   52.25%
+  both           lags [1, 2, 4, 8] tables [0, 1, 2]  CEILING   55.04%
+
+  gains over the simple program: attention +2.66% | MLP +1.31% | both +4.10%
+  sum of singles +3.97% vs joint +4.10% -> sub-additive (redundancy) False
+  attention is the bigger contributor True
+  CONTROLS simple 50.94% vs 50.94% | both 55.04% vs 55.04% -> True
+
+pred_a False | pred_b True | pred_c True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/whole_model_upgrade_attribution_results.json (791.6s)

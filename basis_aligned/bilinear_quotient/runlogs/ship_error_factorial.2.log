@@ -1,0 +1,29 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+whiteners built
+attn maps built
+context capture done
+planks 0/1 context-fit
+planks 2/3 fit
+unit planks built
+discovery arm=clean done
+discovery arm=attention done
+discovery arm=mlp012 done
+discovery arm=deep done
+discovery arm=attention+mlp012 done
+discovery arm=attention+deep done
+discovery arm=mlp012+deep done
+discovery arm=attention+mlp012+deep done
+heldout arm=clean done
+heldout arm=attention done
+heldout arm=mlp012 done
+heldout arm=deep done
+heldout arm=attention+mlp012 done
+heldout arm=attention+deep done
+heldout arm=mlp012+deep done
+heldout arm=attention+mlp012+deep done
+{
+  "early_mlp012_novel_rare_license": true,
+  "dominant_group_stable": true,
+  "shapley_closure": true
+}
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ship_error_factorial_results.json (638.4s)

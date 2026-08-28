@@ -1,0 +1,17 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+ATTN VALUE RANK CURVE | real routing, rank-r values at c_v | ranks [256, 384, 512, 768, 1024, 1152] | stake 3.5570 nats
+  controls: rank 256 must reproduce §1689 67.05%; rank 1152 is the identity and must return ~100%
+    values rank   256 (22.2% of dims): CEILING   67.05%
+    values rank   384 (33.3% of dims): CEILING   94.97%
+    values rank   512 (44.4% of dims): CEILING   98.32%
+    values rank   768 (66.7% of dims): CEILING   99.71%
+    values rank  1024 (88.9% of dims): CEILING  100.00%
+    values rank  1152 (100.0% of dims): CEILING  100.01%
+
+  rank 512 (44.4% of dims) at 98.32% -> nearly full-rank False
+  ranks reaching 95% of full (95.00%): [512, 768] -> no early knee False
+  CONTROLS rank256 67.05% vs §1689 67.05% | identity 100.01% | monotone True -> True
+  dims needed for 90% of full: 384
+
+pred_a False | pred_b False | pred_c True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/attn_value_rank_curve_results.json (512.3s)

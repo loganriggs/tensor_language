@@ -1,0 +1,22 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+FRONT MLP SITE SHORTFALL | exempt-one at SITE grain over mlp0-3, RECOMPILED | CE live 3.29205 | stake 5.5684 | 192 eval rows
+  exempt none        ( 0 sites live) CEILING   55.04%
+  exempt mlp0        ( 1 sites live) CEILING   55.40%
+  exempt mlp1        ( 1 sites live) CEILING   56.04%
+  exempt mlp2        ( 1 sites live) CEILING   57.02%
+  exempt mlp3        ( 1 sites live) CEILING   56.66%
+  bootstrapping band gains (2000 draws, ROW-level clusters)...
+
+  band gains (exempting the band, i.e. what leaving it REAL buys back):
+    mlp2         +1.98%  95% CI [+1.88%, +2.08%]
+    mlp3         +1.62%  95% CI [+1.52%, +1.72%]
+    mlp1         +1.00%  95% CI [+0.94%, +1.06%]
+    mlp0         +0.36%  95% CI [+0.32%, +0.40%]
+  mlp1 +1.00% vs mlp0+mlp2+mlp3 +3.96% -> mlp1 dominates False
+  four site gains sum +4.97% vs the band's own +7.53% -> roughly additive False
+  (§1662 MLP-only table ceilings: mlp0 90%  mlp1 96%  mlp2 77%  mlp3 68%)
+  ordering resolved: mlp2 CI excludes mlp0 CI -> True
+  CONTROLS base 55.04% vs §1696 55.04%, all gains positive -> True
+
+pred_a False | pred_b False | pred_c True | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/front_mlp_site_shortfall_results.json (1126.6s)

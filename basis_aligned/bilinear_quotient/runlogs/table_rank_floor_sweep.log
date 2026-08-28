@@ -1,0 +1,29 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+TABLE RANK COMPRESSION | the dominant cost term (§1754) | table ranks (64, 16, 8, 4, 1, 0) | linear correction rank 8, interleaved bottom-up | DISCOVERY ONLY
+  fit coverage 5419 of 50257 token ids
+
+  table rank 64   : cost   15.8861M (15.223 tables + 0.664 factors) | recovered skip7000 +0.53434  skip11000 +0.54064 | 0.034033 nats/M   [103s]
+    (table alone, before the correction: skip7000 +0.11847  skip11000 +0.13130)
+
+  table rank 16   : cost    4.5314M (3.868 tables + 0.664 factors) | recovered skip7000 +0.46973  skip11000 +0.46883 | 0.103462 nats/M   [200s]
+    (table alone, before the correction: skip7000 -0.00948  skip11000 -0.00460)
+
+  table rank 8    : cost    2.6389M (1.975 tables + 0.664 factors) | recovered skip7000 +0.40211  skip11000 +0.41053 | 0.155565 nats/M   [296s]
+    (table alone, before the correction: skip7000 -0.15187  skip11000 -0.14642)
+
+  table rank 4    : cost    1.6927M (1.029 tables + 0.664 factors) | recovered skip7000 +0.20417  skip11000 +0.25371 | 0.149882 nats/M   [392s]
+    (table alone, before the correction: skip7000 -0.27670  skip11000 -0.26676)
+
+  table rank 1    : cost    0.9831M (0.320 tables + 0.664 factors) | recovered skip7000 +0.05311  skip11000 +0.07498 | 0.076273 nats/M   [488s]
+    (table alone, before the correction: skip7000 -1.92770  skip11000 -1.95829)
+
+  table rank 0    : cost    0.7465M (0.083 tables + 0.664 factors) | recovered skip7000 -0.30646  skip11000 -0.33459 | -0.448217 nats/M   [584s]
+    (table alone, before the correction: skip7000 -2.63695  skip11000 -2.66120)
+
+  efficiency [0.034, 0.1035, 0.1556, 0.1499, 0.0763, -0.4482] is NOT monotone to rank 0 -> interior optimum True
+  fidelity [0.5406, 0.4688, 0.4105, 0.2537, 0.075, -0.3346] peaks in the interior at rank 64 -> False
+  rank 0 -- a per-site CONSTANT, no token dependence -- still recovers -0.33459 > 0 -> False
+  ranks 64 and 16 reproduce §1755 + table-only CE + live CE + coverage 5419 -> control True
+
+pred_a True | pred_b False | pred_c False | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/table_rank_floor_sweep_results.json (583.9s)

@@ -1,0 +1,17 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+STANDALONE FALLBACK COST | cells ((64, 128), (8, 8)) x arms ('hybrid', 'standalone') | the 24% of positions the hybrid hook sends to the LIVE module | DISCOVERY ONLY
+  fit coverage 5419 of 50257 token ids
+  skip7000: live 3.29205 | hybrid table-only 7.35114 | 27974/36864 positions covered, 24.12% fall through to the live module
+  skip11000: live 3.09711 | hybrid table-only 7.35825 | 27497/36864 positions covered, 25.41% fall through to the live module
+  table  64 corr 128 hybrid     : cost  25.8394M | skip7000 +0.77615  skip11000 +0.78542   [101s]
+  table  64 corr 128 standalone : cost  25.8394M | skip7000 +0.77615  skip11000 +0.78542   [163s]
+  table   8 corr   8 hybrid     : cost   2.6389M | skip7000 +0.40210  skip11000 +0.41052   [257s]
+  table   8 corr   8 standalone : cost   2.6389M | skip7000 +0.40210  skip11000 +0.41052   [319s]
+
+  standalone loses <30% at the fidelity point (0.00%) -> True
+  the loss is larger at the starved-table efficiency point (0.00%) -> False
+  both standalone programs stay positive -> True
+  both hybrid arms reproduce §1758 + table-only CE + live CE + coverage 5419 -> control True
+
+pred_a True | pred_b False | pred_c True | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/standalone_fallback_cost_results.json (318.7s)

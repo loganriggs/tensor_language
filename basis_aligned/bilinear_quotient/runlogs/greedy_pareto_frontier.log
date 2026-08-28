@@ -1,0 +1,42 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+GREEDY PARETO FRONTIER | greedy to K=14 of 36 native sites, nested prefixes | selection on skip7000, TRANSFER on the other | DISCOVERY ONLY
+  fit coverage 5419 of 50257 token ids
+    greedy step  1: + mlp17   ->  0.5128 nats  (native cost  15.926M)
+    greedy step  2: + attn16  ->  0.7538 nats  (native cost  23.889M)
+    greedy step  3: + attn14  ->  0.9017 nats  (native cost  31.852M)
+    greedy step  4: + attn11  ->  1.0306 nats  (native cost  39.815M)
+    greedy step  5: + attn17  ->  1.1250 nats  (native cost  47.778M)
+    greedy step  6: + attn13  ->  1.2037 nats  (native cost  55.741M)
+    greedy step  7: + attn10  ->  1.2774 nats  (native cost  63.704M)
+    greedy step  8: + attn9   ->  1.3487 nats  (native cost  71.667M)
+    greedy step  9: + attn7   ->  1.4210 nats  (native cost  79.630M)
+    greedy step 10: + mlp11   ->  1.4862 nats  (native cost  95.556M)
+    greedy step 11: + mlp12   ->  1.5514 nats  (native cost 111.482M)
+    greedy step 12: + attn8   ->  1.6182 nats  (native cost 119.445M)
+    greedy step 13: + mlp9    ->  1.6874 nats  (native cost 135.371M)
+    greedy step 14: + mlp10   ->  1.7679 nats  (native cost 151.297M)
+  greedy order: ['mlp17', 'attn16', 'attn14', 'attn11', 'attn17', 'attn13', 'attn10', 'attn9', 'attn7', 'mlp11', 'mlp12', 'attn8', 'mlp9', 'mlp10']   (413 candidate evaluations)
+
+    K native cost greedy sel greedy TRF  rank sel rank cost   nats per M
+    1      15.926     0.5128     0.5141    0.5128    15.926     0.03220
+    2      23.889     0.7538     0.7529    0.3085    31.852     0.03027
+    3      31.852     0.9017     0.9281    0.6438    39.815     0.01858
+    4      39.815     1.0306     1.0596    0.6723    55.741     0.01618
+    5      47.778     1.1250     1.1610    0.8538    63.704     0.01186
+    6      55.741     1.2037     1.2414    1.0165    71.667     0.00987
+    7      63.704     1.2774     1.3115    1.1089    79.630     0.00926
+    8      71.667     1.3487     1.3814    1.1801    87.593     0.00895
+    9      79.630     1.4210     1.4614    1.1976   103.519     0.00909
+   10      95.556     1.4862     1.5280    1.2216   119.445     0.00409
+   11     111.482     1.5514     1.5940    1.2405   135.371     0.00409
+   12     119.445     1.6182     1.6693    1.2589   151.297     0.00839
+   13     135.371     1.6874     1.7405    1.2705   167.223     0.00435
+   14     151.297     1.7679     1.8231    1.3684   175.186     0.00506
+
+  greedy dominates the ranking on BOTH axes at every K (transfer role) -> False
+  attention is the majority of the K=14 greedy set (9/14) -> True
+  nats per M real strictly decreasing [0.0322, 0.0303, 0.0186, 0.0162, 0.0119, 0.0099, 0.0093, 0.0089, 0.0091, 0.0041, 0.0041, 0.0084, 0.0043, 0.0051] -> no knee False
+  K=6 prefix reproduces §1741 set and values + coverage 5419 -> control True
+
+pred_a False | pred_b True | pred_c False | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/greedy_pareto_frontier_results.json (642.6s)

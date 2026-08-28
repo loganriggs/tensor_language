@@ -1,0 +1,99 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+COVERAGE DIP, RELATIVE RIDGE | n in (880, 1152, 1355, 1620) (D=1152) x ridge (1e-08, 1e-05, 0.001, 0.1) * lmax | settled program (context-free tables + output-NN fallback + rank-64 map) | DISCOVERY ONLY
+
+  ridge 1e-08*lmax (7.255e-02)  n 880 (n/D 0.764)  cond(A) 1.000e+08  (60s)
+    skip7000: overall 9.11%  head 27.72%  kept 15.2958%
+    skip11000: overall 9.45%  head 28.10%  kept 16.8350%
+    skip1200: overall 9.15%  head 27.54%  kept 14.2029%
+
+  ridge 1e-08*lmax (9.338e-02)  n 1152 (n/D 1.000)  cond(A) 4.105e+07  (107s)
+    skip7000: overall 2.40%  head 7.37%  kept 15.2958%
+    skip11000: overall 2.51%  head 7.48%  kept 16.8350%
+    skip1200: overall 2.28%  head 7.09%  kept 14.2029%
+
+  ridge 1e-08*lmax (1.097e-01)  n 1355 (n/D 1.176)  cond(A) 1.409e+04  (152s)
+    skip7000: overall 6.94%  head 21.54%  kept 15.2958%
+    skip11000: overall 7.10%  head 21.90%  kept 16.8350%
+    skip1200: overall 6.79%  head 21.40%  kept 14.2029%
+
+  ridge 1e-08*lmax (1.292e-01)  n 1620 (n/D 1.406)  cond(A) 3.224e+03  (197s)
+    skip7000: overall 10.14%  head 30.62%  kept 15.2958%
+    skip11000: overall 10.83%  head 31.53%  kept 16.8350%
+    skip1200: overall 10.26%  head 30.65%  kept 14.2029%
+
+  ridge 1e-05*lmax (7.255e+01)  n 880 (n/D 0.764)  cond(A) 1.000e+05  (262s)
+    skip7000: overall 9.14%  head 27.83%  kept 15.2958%
+    skip11000: overall 9.54%  head 28.33%  kept 16.8350%
+    skip1200: overall 9.23%  head 27.79%  kept 14.2029%
+
+  ridge 1e-05*lmax (9.338e+01)  n 1152 (n/D 1.000)  cond(A) 9.986e+04  (310s)
+    skip7000: overall 4.14%  head 13.00%  kept 15.2958%
+    skip11000: overall 4.14%  head 12.74%  kept 16.8350%
+    skip1200: overall 4.25%  head 13.46%  kept 14.2029%
+
+  ridge 1e-05*lmax (1.097e+02)  n 1355 (n/D 1.176)  cond(A) 1.235e+04  (355s)
+    skip7000: overall 7.08%  head 22.02%  kept 15.2958%
+    skip11000: overall 7.19%  head 22.22%  kept 16.8350%
+    skip1200: overall 6.88%  head 21.65%  kept 14.2029%
+
+  ridge 1e-05*lmax (1.292e+02)  n 1620 (n/D 1.406)  cond(A) 3.124e+03  (402s)
+    skip7000: overall 10.17%  head 30.65%  kept 15.2958%
+    skip11000: overall 10.88%  head 31.70%  kept 16.8350%
+    skip1200: overall 10.31%  head 30.74%  kept 14.2029%
+
+  ridge 0.001*lmax (7.255e+03)  n 880 (n/D 0.764)  cond(A) 1.001e+03  (505s)
+    skip7000: overall 10.72%  head 32.29%  kept 15.2958%
+    skip11000: overall 11.36%  head 33.22%  kept 16.8350%
+    skip1200: overall 10.86%  head 32.28%  kept 14.2029%
+
+  ridge 0.001*lmax (9.338e+03)  n 1152 (n/D 1.000)  cond(A) 1.001e+03  (550s)
+    skip7000: overall 10.96%  head 32.74%  kept 15.2958%
+    skip11000: overall 11.67%  head 33.83%  kept 16.8350%
+    skip1200: overall 10.90%  head 31.90%  kept 14.2029%
+
+  ridge 0.001*lmax (1.097e+04)  n 1355 (n/D 1.176)  cond(A) 9.347e+02  (595s)
+    skip7000: overall 10.97%  head 32.81%  kept 15.2958%
+    skip11000: overall 11.69%  head 34.02%  kept 16.8350%
+    skip1200: overall 10.93%  head 32.37%  kept 14.2029%
+
+  ridge 0.001*lmax (1.292e+04)  n 1620 (n/D 1.406)  cond(A) 7.640e+02  (641s)
+    skip7000: overall 11.10%  head 33.23%  kept 15.2958%
+    skip11000: overall 11.96%  head 34.77%  kept 16.8350%
+    skip1200: overall 11.23%  head 33.13%  kept 14.2029%
+
+  ridge 0.1*lmax (7.255e+05)  n 880 (n/D 0.764)  cond(A) 1.100e+01  (749s)
+    skip7000: overall 11.80%  head 36.12%  kept 15.2958%
+    skip11000: overall 12.30%  head 36.92%  kept 16.8350%
+    skip1200: overall 11.61%  head 35.25%  kept 14.2029%
+
+  ridge 0.1*lmax (9.338e+05)  n 1152 (n/D 1.000)  cond(A) 1.100e+01  (799s)
+    skip7000: overall 11.84%  head 35.94%  kept 15.2958%
+    skip11000: overall 12.39%  head 36.90%  kept 16.8350%
+    skip1200: overall 11.72%  head 34.87%  kept 14.2029%
+
+  ridge 0.1*lmax (1.097e+06)  n 1355 (n/D 1.176)  cond(A) 1.099e+01  (846s)
+    skip7000: overall 11.88%  head 36.36%  kept 15.2958%
+    skip11000: overall 12.33%  head 36.89%  kept 16.8350%
+    skip1200: overall 11.84%  head 35.42%  kept 14.2029%
+
+  ridge 0.1*lmax (1.292e+06)  n 1620 (n/D 1.406)  cond(A) 1.097e+01  (893s)
+    skip7000: overall 11.90%  head 36.28%  kept 15.2958%
+    skip11000: overall 12.36%  head 36.88%  kept 16.8350%
+    skip1200: overall 11.80%  head 35.05%  kept 14.2029%
+
+  cond(A) at ridge 1e-08*lmax: n 880 1.00e+08  n 1152 4.11e+07  n 1355 1.41e+04  n 1620 3.22e+03
+
+  cond(A) at ridge 1e-05*lmax: n 880 1.00e+05  n 1152 9.99e+04  n 1355 1.23e+04  n 1620 3.12e+03
+
+  cond(A) at ridge 0.001*lmax: n 880 1.00e+03  n 1152 1.00e+03  n 1355 9.35e+02  n 1620 7.64e+02
+
+  cond(A) at ridge 0.1*lmax: n 880 1.10e+01  n 1152 1.10e+01  n 1355 1.10e+01  n 1620 1.10e+01
+
+  THE KNOB TURNED (cond drops >=1000x from 1e-08 to 0.1) -> False  n 880 9.1e+06x  n 1152 3.7e+06x  n 1355 1.3e+03x  n 1620 2.9e+02x
+  a RELATIVE ridge fills in the n=D collapse by >=3pp -> True  skip7000 11.84% vs 2.40% (+9.45pp)  skip11000 12.39% vs 2.51% (+9.87pp)  skip1200 11.72% vs 2.28% (+9.44pp)
+  ... and the whole curve becomes monotone -> False  skip7000 11.80%/11.84%/11.88%/11.90%  skip11000 12.30%/12.39%/12.33%/12.36%  skip1200 11.61%/11.72%/11.84%/11.80%
+  KNOWN-ANSWER: kept-token slice identical everywhere -> True  skip7000 15.2958%  skip11000 16.8350%  skip1200 14.2029%
+  inert-ridge n=1152 and n=1355 reproduce §1799, knob turned, coverage 5419 -> control False
+
+pred_a True | pred_b False | pred_c True | pred_d False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/coverage_dip_relative_ridge_results.json (896.1s)

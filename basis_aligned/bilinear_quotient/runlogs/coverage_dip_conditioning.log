@@ -1,0 +1,73 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+COVERAGE DIP CONDITIONING | n in (677, 880, 1152, 1355, 1620, 2710) (D=1152) x ridge (0.01, 1.0) | settled program (context-free tables + output-NN fallback + rank-64 map) | DISCOVERY ONLY
+
+  ridge 0.01  n 677 (n/D 0.588)  cond(A) 9.633e+08  (61s)
+    skip7000: overall 9.92%  head 30.06%  kept 15.4576%
+    skip11000: overall 10.59%  head 31.30%  kept 17.6908%
+    skip1200: overall 9.93%  head 29.68%  kept 14.1635%
+
+  ridge 0.01  n 880 (n/D 0.764)  cond(A) 9.498e+08  (122s)
+    skip7000: overall 9.11%  head 27.72%  kept 15.4576%
+    skip11000: overall 9.45%  head 28.10%  kept 17.6908%
+    skip1200: overall 9.15%  head 27.54%  kept 14.1635%
+
+  ridge 0.01  n 1152 (n/D 1.000)  cond(A) 6.480e+07  (169s)
+    skip7000: overall 2.35%  head 7.22%  kept 15.4576%
+    skip11000: overall 2.44%  head 7.23%  kept 17.6908%
+    skip1200: overall 2.22%  head 6.90%  kept 14.1635%
+
+  ridge 0.01  n 1355 (n/D 1.176)  cond(A) 1.409e+04  (215s)
+    skip7000: overall 6.94%  head 21.54%  kept 15.4576%
+    skip11000: overall 7.10%  head 21.90%  kept 17.6908%
+    skip1200: overall 6.79%  head 21.40%  kept 14.1635%
+
+  ridge 0.01  n 1620 (n/D 1.406)  cond(A) 3.224e+03  (260s)
+    skip7000: overall 10.14%  head 30.62%  kept 15.4576%
+    skip11000: overall 10.83%  head 31.53%  kept 17.6908%
+    skip1200: overall 10.26%  head 30.65%  kept 14.1635%
+
+  ridge 0.01  n 2710 (n/D 2.352)  cond(A) 7.123e+02  (304s)
+    skip7000: overall 12.54%  head 35.80%  kept 15.4576%
+    skip11000: overall 13.08%  head 36.93%  kept 17.6908%
+    skip1200: overall 12.47%  head 35.56%  kept 14.1635%
+
+  ridge 1  n 677 (n/D 0.588)  cond(A) 9.633e+06  (368s)
+    skip7000: overall 9.92%  head 30.06%  kept 15.4576%
+    skip11000: overall 10.59%  head 31.30%  kept 17.6908%
+    skip1200: overall 9.93%  head 29.68%  kept 14.1635%
+
+  ridge 1  n 880 (n/D 0.764)  cond(A) 9.498e+06  (432s)
+    skip7000: overall 9.11%  head 27.72%  kept 15.4576%
+    skip11000: overall 9.45%  head 28.10%  kept 17.6908%
+    skip1200: overall 9.15%  head 27.54%  kept 14.1635%
+
+  ridge 1  n 1152 (n/D 1.000)  cond(A) 8.234e+06  (479s)
+    skip7000: overall 2.53%  head 7.75%  kept 15.4576%
+    skip11000: overall 2.45%  head 7.24%  kept 17.6908%
+    skip1200: overall 2.39%  head 7.45%  kept 14.1635%
+
+  ridge 1  n 1355 (n/D 1.176)  cond(A) 1.407e+04  (525s)
+    skip7000: overall 6.94%  head 21.54%  kept 15.4576%
+    skip11000: overall 7.10%  head 21.90%  kept 17.6908%
+    skip1200: overall 6.79%  head 21.40%  kept 14.1635%
+
+  ridge 1  n 1620 (n/D 1.406)  cond(A) 3.223e+03  (570s)
+    skip7000: overall 10.14%  head 30.62%  kept 15.4576%
+    skip11000: overall 10.83%  head 31.53%  kept 17.6908%
+    skip1200: overall 10.26%  head 30.65%  kept 14.1635%
+
+  ridge 1  n 2710 (n/D 2.352)  cond(A) 7.123e+02  (616s)
+    skip7000: overall 12.54%  head 35.80%  kept 15.4576%
+    skip11000: overall 13.08%  head 36.93%  kept 17.6908%
+    skip1200: overall 12.47%  head 35.56%  kept 14.1635%
+
+  cond(A) by n at ridge 0.01: n 677 9.63e+08  n 880 9.50e+08  n 1152 6.48e+07  n 1355 1.41e+04  n 1620 3.22e+03  n 2710 7.12e+02
+  cond(A) by n at ridge 1: n 677 9.63e+06  n 880 9.50e+06  n 1152 8.23e+06  n 1355 1.41e+04  n 1620 3.22e+03  n 2710 7.12e+02
+
+  at the LOW ridge the dip sits at n~D -> True  skip7000 near 2.35%/6.94% vs far 9.92%/12.54%  skip11000 near 2.44%/7.10% vs far 10.59%/13.08%  skip1200 near 2.22%/6.79% vs far 9.93%/12.47%
+  RAISING THE RIDGE removes the non-monotonicity -> False  skip7000 9.92%/9.11%/2.53%/6.94%/10.14%/12.54%  skip11000 10.59%/9.45%/2.45%/7.10%/10.83%/13.08%  skip1200 9.93%/9.15%/2.39%/6.79%/10.26%/12.47%
+  KNOWN-ANSWER: kept-token slice identical everywhere -> True  skip7000 15.4576%  skip11000 17.6908%  skip1200 14.1635%
+  low-ridge n=677 and n=1355 reproduce §1798, coverage 5419 -> control True
+
+pred_a True | pred_b False | pred_c True | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/coverage_dip_conditioning_results.json (619.1s)

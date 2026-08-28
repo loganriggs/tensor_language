@@ -1,0 +1,22 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+SITE ADDITIVITY | sum of 36 individual removals vs the two joint stack removals | 2000 row-level draws | covered and all-position scoring in one pass
+
+  skip7000 [discovery]: baseline CE 3.29205 (ref 3.29205) | covered 27974 of 36864 positions
+    [cov] mlp   sum of 18 individual  10.2983  joint   4.3301  ratio  2.378  95% CI (2.3277, 2.43)
+    [cov] attn  sum of 18 individual   1.4206  joint   3.5570  ratio  0.399  95% CI (0.38, 0.4185)
+    [all] mlp   sum of 18 individual  10.3110  joint   4.3839  ratio  2.352  95% CI (2.3028, 2.4011)
+    [all] attn  sum of 18 individual   1.3969  joint   4.0081  ratio  0.349  95% CI (0.3306, 0.3653)
+
+  skip11000 [CONFIRMATION]: baseline CE 3.09711 (ref 3.09711) | covered 27497 of 36864 positions
+    [cov] mlp   sum of 18 individual  10.6655  joint   4.5173  ratio  2.361  95% CI (2.3176, 2.4047)
+    [cov] attn  sum of 18 individual   1.4974  joint   3.7552  ratio  0.399  95% CI (0.3826, 0.4158)
+    [all] mlp   sum of 18 individual  10.7658  joint   4.6296  ratio  2.325  95% CI (2.285, 2.3659)
+    [all] attn  sum of 18 individual   1.4839  joint   4.2818  ratio  0.347  95% CI (0.3341, 0.36)
+
+  CONFIRMATION skip11000: mlp ratio CI (2.3176, 2.4047) vs bar >1.5, attn CI (0.3826, 0.4158) vs bar <0.7 -> True
+  sign of the asymmetry stable across both roles -> True
+  JOINT stakes reproduce §1662/§1682 (the control §1735 got wrong) -> True
+  asymmetry survives all-position scoring -> not a coverage artifact True
+
+pred_a True | pred_b True | pred_c True | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/site_additivity_results.json (102.4s)

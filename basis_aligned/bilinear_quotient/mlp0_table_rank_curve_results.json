@@ -1,0 +1,88 @@
+{
+ "config": {
+  "site": 0,
+  "ranks": [
+   1,
+   2,
+   4,
+   8,
+   16,
+   23,
+   32,
+   64,
+   128
+  ],
+  "fit_rows": "fineweb_n96_skip1200.pt",
+  "eval_rows": "fineweb_n192_skip7000.pt",
+  "protocol": "recovery = (CE_meanablate - CE_table_r) / (CE_meanablate - CE_full), measured on the running model. This is \u00a71324-style, NOT Codex's exact-restoration-on-a-frozen-ship denominator; numbers are not importable into their accounting.",
+  "s780_effective_rank": 22.7,
+  "s1324_ceiling": 0.863
+ },
+ "ce_full": 3.13704,
+ "ce_meanablated": 5.68582,
+ "stake_nats": 2.54878,
+ "full_table_recovery": 0.71944,
+ "tokens_seen": 6009,
+ "by_rank": {
+  "1": {
+   "ce": 4.68266,
+   "recovery": 0.39358,
+   "frac_of_full_table": 0.54707,
+   "reals": 7161
+  },
+  "2": {
+   "ce": 4.76077,
+   "recovery": 0.36294,
+   "frac_of_full_table": 0.50447,
+   "reals": 14322
+  },
+  "4": {
+   "ce": 4.39083,
+   "recovery": 0.50808,
+   "frac_of_full_table": 0.70621,
+   "reals": 28644
+  },
+  "8": {
+   "ce": 4.22701,
+   "recovery": 0.57236,
+   "frac_of_full_table": 0.79555,
+   "reals": 57288
+  },
+  "16": {
+   "ce": 4.16872,
+   "recovery": 0.59523,
+   "frac_of_full_table": 0.82734,
+   "reals": 114576
+  },
+  "23": {
+   "ce": 4.11008,
+   "recovery": 0.61823,
+   "frac_of_full_table": 0.85932,
+   "reals": 164703
+  },
+  "32": {
+   "ce": 4.05809,
+   "recovery": 0.63863,
+   "frac_of_full_table": 0.88767,
+   "reals": 229152
+  },
+  "64": {
+   "ce": 3.96391,
+   "recovery": 0.67558,
+   "frac_of_full_table": 0.93903,
+   "reals": 458304
+  },
+  "128": {
+   "ce": 3.89945,
+   "recovery": 0.70087,
+   "frac_of_full_table": 0.97419,
+   "reals": 916608
+  }
+ },
+ "predictions": {
+  "pred_a_rank23_ge_80pct_of_full": true,
+  "pred_b_rank64_adds_le_5_points": false,
+  "pred_c_rank8_ge_40pct_of_full": true
+ },
+ "runtime_s": 16.7
+}

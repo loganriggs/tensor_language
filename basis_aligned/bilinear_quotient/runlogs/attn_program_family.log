@@ -1,0 +1,17 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+ATTN PROGRAM FAMILY | 18 attention OUTPUT WRITES, position-wise linear maps, compiled bottom-up | fit n480_skip80, mask n96_skip80 | stake 3.5570 nats
+  (v1 is passed through unchanged -- this prices the output path only)
+  MLP comparator: linear program 60.81% of a 4.3301-nat stake
+    rank     8: CEILING    9.41%
+    rank    32: CEILING   14.66%
+    rank   128: CEILING   17.07%
+    rank   512: CEILING   16.38%
+    rank  1152: CEILING   16.38%
+
+  ATTENTION output write, position-wise linear: 16.38%
+  vs the MLP stack 60.81% (-44.43%) -> much less position-local True
+  not purely non-local (>10%) True | stake 3.5570 >= 1 nat True | monotone False
+  NON-LOCAL SHARE of the attention output write: 83.62%
+
+pred_a True | pred_b True | pred_c True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/attn_program_family_results.json (375.5s)

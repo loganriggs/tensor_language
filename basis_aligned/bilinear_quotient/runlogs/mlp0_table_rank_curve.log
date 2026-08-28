@@ -1,0 +1,21 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+mlp0 TABLE RANK CURVE | fit (96, 257) (skip1200) | eval (192, 257) (skip7000) | receipt 815b21618c2e477e
+  table fitted: 6009 distinct tokens seen, 24576 positions
+  CE full 3.13704 | CE mean-ablated 5.68582 | STAKE 2.54878 nats  (§1324 reported .7994 on its own rows/protocol)
+  FULL table: CE 3.85211  recovery 71.94%  (§1324 ceiling 86.3% on its own protocol)
+  rank    1: CE 4.68266  recovery 39.36%  = 54.71% of full table  | 7,161 reals
+  rank    2: CE 4.76077  recovery 36.29%  = 50.45% of full table  | 14,322 reals
+  rank    4: CE 4.39083  recovery 50.81%  = 70.62% of full table  | 28,644 reals
+  rank    8: CE 4.22701  recovery 57.24%  = 79.56% of full table  | 57,288 reals
+  rank   16: CE 4.16872  recovery 59.52%  = 82.73% of full table  | 114,576 reals
+  rank   23: CE 4.11008  recovery 61.82%  = 85.93% of full table  | 164,703 reals
+  rank   32: CE 4.05809  recovery 63.86%  = 88.77% of full table  | 229,152 reals
+  rank   64: CE 3.96391  recovery 67.56%  = 93.90% of full table  | 458,304 reals
+  rank  128: CE 3.89945  recovery 70.09%  = 97.42% of full table  | 916,608 reals
+
+  rank-23 (§780 effective rank 22.7) reaches 85.9% of the full table
+  rank-64 minus rank-23 = +5.74 recovery points
+  rank-8 reaches 79.6% of the full table
+
+pred_a True | pred_b False | pred_c True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/mlp0_table_rank_curve_results.json (16.7s)

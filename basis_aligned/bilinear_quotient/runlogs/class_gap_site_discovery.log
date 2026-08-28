@@ -1,0 +1,39 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+  classifier known-answer check PASSED: past-facing induction, labels invariant to the future suffix (§1733/LESSONS 34)
+CLASS-GAP SITE DISCOVERY | all 36 sites | induction MINUS novel per-token damage | 2000 row-level draws | DISCOVERY ONLY, confirms nothing
+
+  skip7000 [discovery]: baseline CE 3.29205 | scored 27974 | classes {'induction': 3394, 'repeat': 9127, 'novel': 15453}
+    top 6 by gap (site matters MORE for copyable targets):
+      attn14  gap  +0.1101 CI (0.09687, 0.12424)  induction  +0.0973 novel  -0.0128
+      attn8   gap  +0.1046 CI (0.0797, 0.13442)  induction  +0.1335 novel  +0.0289
+      attn16  gap  +0.0599 CI (0.05031, 0.07066)  induction  +0.0461 novel  -0.0138
+      attn6   gap  +0.0284 CI (0.01163, 0.0472)  induction  +0.0905 novel  +0.0621
+      attn13  gap  +0.0259 CI (0.01691, 0.03595)  induction  +0.0333 novel  +0.0074
+      attn10  gap  +0.0165 CI (0.00867, 0.02529)  induction  +0.0332 novel  +0.0166
+    bottom 3 by gap (site matters MORE for weight-resident targets):
+      mlp17   gap  -0.6838 CI (-0.71775, -0.6476)
+      mlp2    gap  -0.8907 CI (-0.94462, -0.83711)
+      mlp0    gap  -0.9057 CI (-0.96088, -0.8485)
+
+  skip11000 [discovery]: baseline CE 3.09711 | scored 27497 | classes {'induction': 3534, 'repeat': 8804, 'novel': 15159}
+    top 6 by gap (site matters MORE for copyable targets):
+      attn8   gap  +0.0896 CI (0.06851, 0.11309)  induction  +0.1190 novel  +0.0294
+      attn14  gap  +0.0875 CI (0.07264, 0.10322)  induction  +0.0779 novel  -0.0096
+      attn16  gap  +0.0520 CI (0.04253, 0.06214)  induction  +0.0376 novel  -0.0145
+      attn13  gap  +0.0162 CI (0.00858, 0.02351)  induction  +0.0244 novel  +0.0083
+      attn15  gap  +0.0157 CI (0.01063, 0.02099)  induction  +0.0136 novel  -0.0022
+      attn6   gap  +0.0116 CI (-0.00543, 0.02978)  induction  +0.0869 novel  +0.0754
+    bottom 3 by gap (site matters MORE for weight-resident targets):
+      mlp17   gap  -0.6057 CI (-0.64484, -0.56955)
+      mlp0    gap  -0.9376 CI (-1.0086, -0.86089)
+      mlp2    gap  -0.9465 CI (-0.99152, -0.89857)
+
+  all 36 gap CIs finite and narrower than 0.5 nats -> well-conditioned False
+  top 3 attention sites hold 0.2746 of 0.3738 positive attention gap -> concentrated True
+  §1662 stakes {'mlp': 10.29833, 'attn': 1.42058} + §1734 class counts -> control False
+  gap sign agrees across the two roles at 35/36 sites -> stable True
+
+  FROZEN HYPOTHESIS for the next clean role (5 sites with both CIs entirely positive): ['attn14', 'attn8', 'attn16', 'attn13', 'attn15']
+
+pred_a False | pred_b True | pred_c False | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/class_gap_site_discovery_results.json (106.1s)

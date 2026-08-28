@@ -1,0 +1,20 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+CONTEXT-FREE FRONTIER, THIRD ROLE | ranks (None, 64, 8, 4, 2, 1) | skip1200 confirms | SECOND-CLASS CONFIRMATION
+  skip7000: live 3.29205 | fit-mean all-tabled 7.35114 | stake 4.05909
+  skip11000: live 3.09711 | fit-mean all-tabled 7.35825 | stake 4.26114
+  skip1200: live 3.40277 | fit-mean all-tabled 7.19655 | stake 3.79378
+  built context-free tables (8s)
+  rank full   224.778M | skip7000 +1.31649 (0.0059/M)  skip11000 +1.37925 (0.0061/M)  skip1200 +1.23232 (0.0055/M)   [11s]
+  rank 64      15.223M | skip7000 +1.09322 (0.0718/M)  skip11000 +1.14673 (0.0753/M)  skip1200 +1.03458 (0.0680/M)   [47s]
+  rank 8        1.975M | skip7000 +0.77103 (0.3903/M)  skip11000 +0.80352 (0.4068/M)  skip1200 +0.72897 (0.3690/M)   [82s]
+  rank 4        1.029M | skip7000 +0.61256 (0.5952/M)  skip11000 +0.63791 (0.6198/M)  skip1200 +0.55535 (0.5396/M)   [117s]
+  rank 2        0.556M | skip7000 +0.24349 (0.4379/M)  skip11000 +0.23992 (0.4315/M)  skip1200 +0.14561 (0.2619/M)   [153s]
+  rank 1        0.320M | skip7000 -0.40304 (-1.2615/M)  skip11000 -0.34772 (-1.0883/M)  skip1200 -0.54245 (-1.6978/M)   [188s]
+
+  efficiency optimum on skip1200 is rank 4 (skip11000: 4) -> design point replicates True
+  rank 1 negative on skip1200 (-0.54245) -> True
+  relative level gaps vs skip11000 ['full:10.7%', '64:9.8%', '8:9.3%', '4:12.9%', '2:39.3%', '1:56.0%'] -> all within 15% False
+  skip11000 reproduces §1770/§1771 + coverage 5419 -> control True
+
+pred_a True | pred_b True | pred_c False | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/context_free_third_role_results.json (188.4s)

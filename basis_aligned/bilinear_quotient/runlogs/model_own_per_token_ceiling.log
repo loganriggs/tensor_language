@@ -1,0 +1,27 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+MODEL-OWN PER-TOKEN CEILING | 5419 covered tokens as length-1 sequences | DISCOVERY ONLY
+  built the per-token lookup (1s)
+
+  skip7000: 27974 scored, 0 lookup misses
+    live model                3.29205
+    MODEL-OWN per-token       6.03465   <- the ceiling
+    best 36-site program      6.57512
+    all-tabled baseline       7.35114
+    LOO bigram (§1767)        7.29459
+    program is +0.54047 from the ceiling; the ceiling is +2.74260 above live
+
+  skip11000: 27497 scored, 0 lookup misses
+    live model                3.09711
+    MODEL-OWN per-token       5.97902   <- the ceiling
+    best 36-site program      6.57289
+    all-tabled baseline       7.35825
+    LOO bigram (§1767)        7.33406
+    program is +0.59387 from the ceiling; the ceiling is +2.88191 above live
+
+  the ceiling is WORSE than the program, so it is a ceiling (5.97902 vs 6.57289) -> False
+  the program is within 0.5 nats of it (+0.59387) -> class nearly exhausted False
+  the ceiling is >=2.0 above live (+2.88191) -> context dominates True
+  coverage 5419, zero lookup misses, live CEs reproduce -> control True
+
+pred_a False | pred_b False | pred_c True | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/model_own_per_token_ceiling_results.json (3.6s)

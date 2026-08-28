@@ -1,0 +1,38 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+  classifier known-answer check PASSED: past-facing induction, labels invariant to the future suffix (§1733/LESSONS 34)
+JOINT CLASS-RATIO CI | 18-MLP vs 18-attention stacks | 2000 row-level bootstrap draws | plus a sign decomposition of attn14/15/16
+
+  skip7000 [discovery]: baseline CE 3.29205 (ref 3.29205) | scored 27974 | classes {'induction': 3394, 'repeat': 9127, 'novel': 15453} | total removal {'mlp': 4.33011, 'attn': 3.55704}
+    mlp  stack ratio  0.8814  95% CI (0.8325, 0.9322)
+    attn stack ratio  1.1654  95% CI (1.091, 1.241)
+    attn minus mlp (0.2326, 0.3366) -> excludes zero True
+    late attention, per-token damage by class (negative = ablation IMPROVES CE):
+      attn14  induction  +0.0973  repeat  +0.0762  novel  -0.0128  |  total removal  +0.0296
+      attn15  induction  +0.0120  repeat  +0.0185  novel  -0.0014  |  total removal  +0.0067
+      attn16  induction  +0.0461  repeat  +0.0483  novel  -0.0138  |  total removal  +0.0137
+
+  skip11000 [discovery]: baseline CE 3.09711 (ref 3.09711) | scored 27497 | classes {'induction': 3534, 'repeat': 8804, 'novel': 15159} | total removal {'mlp': 4.51729, 'attn': 3.75522}
+    mlp  stack ratio  0.8900  95% CI (0.8421, 0.938)
+    attn stack ratio  1.1269  95% CI (1.0498, 1.2054)
+    attn minus mlp (0.1778, 0.2967) -> excludes zero True
+    late attention, per-token damage by class (negative = ablation IMPROVES CE):
+      attn14  induction  +0.0779  repeat  +0.0793  novel  -0.0096  |  total removal  +0.0301
+      attn15  induction  +0.0136  repeat  +0.0206  novel  -0.0022  |  total removal  +0.0071
+      attn16  induction  +0.0376  repeat  +0.0593  novel  -0.0145  |  total removal  +0.0159
+
+  skip1200 [CONFIRMATION]: baseline CE 3.40277 (ref None) | scored 13973 | classes {'induction': 1430, 'repeat': 4583, 'novel': 7960} | total removal {'mlp': 4.27178, 'attn': 3.30484}
+    mlp  stack ratio  0.9197  95% CI (0.8464, 1.0047)
+    attn stack ratio  1.0521  95% CI (0.9413, 1.1681)
+    attn minus mlp (0.0498, 0.2193) -> excludes zero True
+    late attention, per-token damage by class (negative = ablation IMPROVES CE):
+      attn14  induction  +0.0805  repeat  +0.0577  novel  -0.0102  |  total removal  +0.0213
+      attn15  induction  +0.0110  repeat  +0.0219  novel  +0.0015  |  total removal  +0.0092
+      attn16  induction  +0.0386  repeat  +0.0592  novel  -0.0120  |  total removal  +0.0165
+
+  CONFIRMATION skip1200: mlp 0.9197 attn 1.0521 | diff CI (0.0498, 0.2193) -> positive and excludes zero True
+  sign of (attn - mlp) agrees across all three roles -> True [True, True, True]
+  classifier known-answer + §1662 stakes {'mlp': 4.33011, 'attn': 3.55704} vs {'mlp': 4.3301, 'attn': 3.557} -> control True
+  corrected skip7000 mlp ratio 0.8814 vs void 0.8382 -> the bug was material True
+
+pred_a True | pred_b True | pred_c True | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/class_ratio_confirm_skip1200_results.json (20.2s)

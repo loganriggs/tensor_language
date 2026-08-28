@@ -1,0 +1,14 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+COMPILED PROGRAM FAMILIES | all 18 MLPs, bottom-up compilation | ridge 0.001 | fit skip1200, eval skip7000
+  CE live 3.27946 | all-MLP constant 7.59906 | stake 4.3196 nats
+  all_table          CE 5.44120 | CEILING  49.96%
+  all_linear         CE 5.25430 | CEILING  54.28%
+  mixed_front_table  CE 5.16755 | CEILING  56.29%
+
+  compiled all-table 49.95% vs §1668 NAIVE all-table 34.27% -> compilation helps tables too True
+  MIXED (table at mlp0-3, linear at mlp4-17) 56.29%  vs all-table 49.95% vs all-linear 54.28% -> mixing wins True
+  CONTROL all-linear 54.28% vs §1669 54.28% -> stable True
+  (band ceilings that motivated the mix, §1668: front token 76.45% > front linear 68.68%)
+
+pred_a True | pred_b True | pred_c True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/compiled_program_families_results.json (39.9s)

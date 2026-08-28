@@ -1,0 +1,25 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+GREEDY BUDGET SELECTION | 6 of 36 sites stay NATIVE | selection on skip7000, TRANSFER measured on the other role | DISCOVERY ONLY
+  PROG top-6 (§1739, ranked by individual score): ['mlp17', 'mlp16', 'attn16', 'mlp15', 'attn14', 'attn17']
+  fit coverage 5419 of 50257 token ids
+  skip7000: live CE 3.29205 | all-36-tabled CE 7.35114 (stake 4.0591)
+  skip11000: live CE 3.09711 | all-36-tabled CE 7.35825 (stake 4.2611)
+    greedy step 1: + mlp17   ->  0.5128 nats
+    greedy step 2: + attn16  ->  0.7538 nats
+    greedy step 3: + attn14  ->  0.9017 nats
+    greedy step 4: + attn11  ->  1.0306 nats
+    greedy step 5: + attn17  ->  1.1250 nats
+    greedy step 6: + attn13  ->  1.2037 nats
+  greedy set: ['mlp17', 'attn16', 'attn14', 'attn11', 'attn17', 'attn13']   (201 candidate evaluations)
+
+  skip7000 [SELECTION]: greedy 1.2037 (29.65%)  PROG top-6 1.0165 (25.04%)  random best 0.6692  median 0.6020
+
+  skip11000 [TRANSFER]: greedy 1.2414 (29.13%)  PROG top-6 1.0383 (24.37%)  random best 0.6809  median 0.6177
+
+  greedy beats the individual-score top-6 on the SELECTION role -> True
+  and on the TRANSFER role skip11000 -> the gain is not selection overfit True
+  greedy set differs from top-6 by 2 sites -> interactions matter True
+  all-tabled CE + §1739 top-6 reproduction + coverage 5419 -> control True
+
+pred_a True | pred_b True | pred_c True | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/greedy_budget_selection_results.json (304.0s)

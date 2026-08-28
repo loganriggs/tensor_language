@@ -1,0 +1,37 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+ONE LIVE ATTENTION SITE | 18 arms, each holding one attn layer live in an otherwise fully substituted program | settled program (context-free tables + output-NN fallback + rank-64 map) | DISCOVERY ONLY
+
+  ALL 36 SITES SUBSTITUTED (the settled program) and LIVE, then one attention site held live at a time  [overall/head]  (42s)
+  all_substituted skip7000 13.55%/39.01%  skip11000 14.25%/40.42%  skip1200 13.64%/38.91%
+  live_model     skip7000 39.32%/61.46%  skip11000 42.35%/64.31%  skip1200 38.88%/61.37%
+  attn0_live     skip7000 13.55%/39.01%  skip11000 14.25%/40.42%  skip1200 13.64%/38.91%
+  attn1_live     skip7000 13.57%/39.07%  skip11000 14.23%/40.39%  skip1200 13.60%/38.84%
+  attn2_live     skip7000 13.67%/39.30%  skip11000 14.22%/40.32%  skip1200 13.59%/38.78%
+  attn3_live     skip7000 13.73%/39.20%  skip11000 14.30%/40.32%  skip1200 13.62%/38.65%
+  attn4_live     skip7000 13.52%/39.39%  skip11000 14.19%/40.84%  skip1200 13.62%/39.46%
+  attn5_live     skip7000  1.02%/ 3.52%  skip11000  1.14%/ 3.98%  skip1200  0.98%/ 3.41%
+  attn6_live     skip7000  2.40%/ 8.31%  skip11000  2.27%/ 7.89%  skip1200  2.04%/ 7.05%
+  attn7_live     skip7000 12.67%/38.12%  skip11000 13.23%/39.39%  skip1200 12.85%/38.19%
+  attn8_live     skip7000 13.80%/39.33%  skip11000 14.61%/41.28%  skip1200 13.93%/39.59%
+  attn9_live     skip7000 13.23%/39.37%  skip11000 14.15%/41.63%  skip1200 13.50%/39.69%
+  attn10_live    skip7000 13.01%/38.98%  skip11000 13.83%/40.93%  skip1200 13.12%/39.40%
+  attn11_live    skip7000 13.41%/39.61%  skip11000 14.44%/41.86%  skip1200 13.68%/40.20%
+  attn12_live    skip7000 13.61%/39.38%  skip11000 14.41%/41.60%  skip1200 13.69%/40.07%
+  attn13_live    skip7000 11.80%/30.48%  skip11000 12.52%/31.98%  skip1200 11.61%/30.78%
+  attn14_live    skip7000 13.77%/36.58%  skip11000 14.40%/38.04%  skip1200 13.55%/36.85%
+  attn15_live    skip7000 13.85%/39.92%  skip11000 14.72%/41.60%  skip1200 13.86%/39.78%
+  attn16_live    skip7000 13.94%/37.96%  skip11000 14.65%/39.21%  skip1200 13.99%/38.50%
+  attn17_live    skip7000 13.55%/38.11%  skip11000 14.31%/39.55%  skip1200 13.64%/38.15%
+
+  gain in overall top-1 from holding ONE attention site live (pp):
+    skip7000   L0:+0.00 L1:+0.02 L2:+0.11 L3:+0.18 L4:-0.03 L5:-12.54 L6:-11.15 L7:-0.88 L8:+0.25 L9:-0.32 L10:-0.55 L11:-0.14 L12:+0.06 L13:-1.75 L14:+0.22 L15:+0.30 L16:+0.38 L17:-0.01
+    skip11000  L0:+0.00 L1:-0.02 L2:-0.03 L3:+0.05 L4:-0.06 L5:-13.11 L6:-11.98 L7:-1.02 L8:+0.36 L9:-0.09 L10:-0.42 L11:+0.20 L12:+0.16 L13:-1.73 L14:+0.15 L15:+0.47 L16:+0.40 L17:+0.06
+    skip1200   L0:+0.00 L1:-0.05 L2:-0.05 L3:-0.03 L4:-0.03 L5:-12.67 L6:-11.60 L7:-0.80 L8:+0.28 L9:-0.15 L10:-0.53 L11:+0.03 L12:+0.04 L13:-2.03 L14:-0.09 L15:+0.21 L16:+0.35 L17:+0.00
+
+  some single attention site recovers >=2pp -> False  skip7000 best L16 +0.38pp  skip11000 best L15 +0.47pp  skip1200 best L16 +0.35pp
+  the best site is in the FIRST half (L<9) -> False  skip7000 L16  skip11000 L15  skip1200 L16
+  no single site recovers >=25% of the gap -> True  skip7000 1.5% of 25.77pp  skip11000 1.7% of 28.10pp  skip1200 1.4% of 25.24pp
+  all-substituted and live reproduce §1789, coverage 5419 -> control True
+
+pred_a False | pred_b False | pred_c True | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/one_live_attention_site_results.json (106.7s)

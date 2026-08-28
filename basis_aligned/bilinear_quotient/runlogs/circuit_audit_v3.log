@@ -1,0 +1,54 @@
+[tier2_model] hub unreachable for Elriggs/gpt2-bilinear-sqrd-attn-18l-9h-1152embd/pytorch_model.bin (RemoteProtocolError); using local cache
+CIRCUIT AUDIT v3 (randomised control + claim direction) | registry 85 entries, 59 certified | 16 auditable (have a component list)
+  BOOTSTRAP: every circuit scored on the same standard rows. Circuits with a narrow trigger will read WEAKER than they are.
+    _mlp0_dossier_resolved                    1s  removal  0.8513  extract  91.01%  spec 14.81  pct 1.00  (12 draws)
+    _mlp1_dossier                             1s  removal  7.0213  extract  96.06%  spec 151.56  pct 1.00  (12 draws)
+    _front_band_tableability_ladder           4s  removal  4.3928  extract  76.45%  spec  7.88  pct 1.00  (12 draws)
+    _front_is_tabular_middle_is_not           4s  removal  4.3928  extract  76.45%  spec  7.88  pct 1.00  (12 draws)
+    _middle_band_is_redundant_not_small      12s  removal  2.6496  extract  20.92%  spec  0.84  pct 0.33  (12 draws)
+    _middle_band_program_family_prices       12s  removal  2.6496  extract  20.92%  spec  0.84  pct 0.33  (12 draws)
+    _mid_band_feature_price_curve            12s  removal  2.6496  extract  20.92%  spec  0.84  pct 0.33  (12 draws)
+    _front_mlps_are_synergistic               4s  removal  4.3928  extract  76.45%  spec  7.88  pct 1.00  (12 draws)
+    _band_synergy_sign_depends_on_band        2s  removal  0.7112  extract  50.02%  spec  1.04  pct 0.58  (12 draws)
+    _attention_output_write_is_nonlocal      18s  removal  3.5570  extract  -1.87%  spec  0.82  pct  n/a  (1 draws)
+    _attention_write_is_mostly_two_position  18s  removal  3.5570  extract  -1.87%  spec  0.82  pct  n/a  (1 draws)
+    _lag1_failure_is_middle_band             12s  removal  2.1137  extract -19.33%  spec  0.68  pct 0.00  (12 draws)
+    _whole_model_program                     36s  removal  5.5684  extract  27.10%  spec  n/a   pct  n/a  (0 draws)
+    _program_price_curve                     18s  removal  4.3301  extract  34.54%  spec  1.22  pct  n/a  (1 draws)
+    _best_compiled_program_for_mlp_stack     18s  removal  4.3301  extract  34.54%  spec  1.22  pct  n/a  (1 draws)
+    _only_attention_routing_is_compressible  18s  removal  3.5570  extract  -1.87%  spec  0.82  pct  n/a  (1 draws)
+
+  OOD (relative change in removal cost, skip7000 -> skip11000):
+    _mlp0_dossier_resolved                         removal +12.79%  extraction  -0.15%
+    _lag1_failure_is_middle_band                   removal  +7.39%  extraction  +0.49%
+    _band_synergy_sign_depends_on_band             removal  -7.04%  extraction  -1.91%
+    _middle_band_is_redundant_not_small            removal  +6.43%  extraction  +0.16%
+    _middle_band_program_family_prices             removal  +6.43%  extraction  +0.16%
+
+  SPECIFICITY vs the MEDIAN of 12 random matched-size control sets, and the named set's PERCENTILE among them:
+    circuit                                    spec   pct  draws  claim        consistent
+    _mlp1_dossier                            151.56  1.00     12  important    YES
+    _mlp0_dossier_resolved                    14.81  1.00     12  important    YES
+    _front_band_tableability_ladder            7.88  1.00     12  important    YES
+    _front_is_tabular_middle_is_not            7.88  1.00     12  important    YES
+    _front_mlps_are_synergistic                7.88  1.00     12  important    YES
+    _program_price_curve                       1.22   n/a      1  important    -
+    _best_compiled_program_for_mlp_stack       1.22   n/a      1  important    -
+    _band_synergy_sign_depends_on_band         1.04  0.58     12  ambiguous    -
+    _middle_band_is_redundant_not_small        0.84  0.33     12  redundant    no
+    _middle_band_program_family_prices         0.84  0.33     12  ambiguous    -
+    _mid_band_feature_price_curve              0.84  0.33     12  ambiguous    -
+    _attention_output_write_is_nonlocal        0.82   n/a      1  important    -
+    _attention_write_is_mostly_two_position    0.82   n/a      1  important    -
+    _only_attention_routing_is_compressible    0.82   n/a      1  important    -
+    _lag1_failure_is_middle_band               0.68  0.00     12  important    no
+    _whole_model_program                        no control exists (names every site)
+
+  extraction spread -19.34% .. 96.06%
+  percentile spread 0.00 .. 1.00 -> discriminating True
+  v2 single draw moved >=2x for 2 circuits {'_mlp0_dossier_resolved': (0.12, 14.81), '_mlp1_dossier': (8.25, 151.56)} -> S1724 diagnosis True
+  worst OOD removal move 12.79% | v1/v2 rows reproduce -> control True
+  claim-consistent 5/7 of direction-annotated -> direction rescues True
+
+pred_a True | pred_b True | pred_c True | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/circuit_audit_v3_results.json (239.5s)

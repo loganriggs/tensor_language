@@ -1,0 +1,27 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+whiteners built
+attn maps built
+context capture done
+planks 0/1 context-fit
+planks 2/3 fit
+unit planks built
+Traceback (most recent call last):
+  File "/workspace/tensor_language/basis_aligned/polynomial_causal/joint_early_mlp_oracle_factorial_authoritative.py", line 949, in <module>
+    main()
+  File "/workspace/tensor_language/basis_aligned/polynomial_causal/joint_early_mlp_oracle_factorial_authoritative.py", line 938, in main
+    raise run_error
+  File "/workspace/tensor_language/basis_aligned/polynomial_causal/joint_early_mlp_oracle_factorial_authoritative.py", line 925, in main
+    run_claimed(protected_before)
+  File "/workspace/tensor_language/basis_aligned/polynomial_causal/joint_early_mlp_oracle_factorial_authoritative.py", line 842, in run_claimed
+    sa.main(oracle_content_screen=True)
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ship_error_attrib.py", line 1061, in main
+    run_oracle_content_screen(TWALL, ALLL, t0)
+  File "/workspace/tensor_language/basis_aligned/polynomial_causal/joint_early_mlp_oracle_factorial_authoritative.py", line 678, in factorial_callback
+    patch_canary = exact_patch_canary(sa)
+                   ^^^^^^^^^^^^^^^^^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tensor_language/basis_aligned/polynomial_causal/joint_early_mlp_oracle_factorial_authoritative.py", line 276, in exact_patch_canary
+    raise RuntimeError(f"exact patch canary failed at MLP{site}: {error}")
+RuntimeError: exact patch canary failed at MLP0: 3.0517578125e-05

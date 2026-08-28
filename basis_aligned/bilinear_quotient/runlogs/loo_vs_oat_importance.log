@@ -1,0 +1,26 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+LOO vs OAT SITE IMPORTANCE | DISCOVERY ONLY -- both large roles are spent for this family (§1736). Confirms nothing.
+
+  skip7000 [discovery]: baseline CE 3.29205 | joint mlp 4.3301 attn 3.5570
+    mlp   sum OAT  10.2983 (2.378x joint)  sum LOO   2.0541 (0.474x joint)  median |OAT-LOO| 0.2541
+    attn  sum OAT   1.4206 (0.399x joint)  sum LOO   3.5663 (1.003x joint)  median |OAT-LOO| 0.0988
+    Spearman(OAT, LOO) over 36 sites: 0.0257
+    top 5 by OAT: ['mlp1', 'mlp0', 'mlp2', 'mlp3', 'mlp17']
+    top 5 by LOO: ['mlp17', 'mlp16', 'attn2', 'attn4', 'attn1']
+
+  skip11000 [discovery]: baseline CE 3.09711 | joint mlp 4.5173 attn 3.7552
+    mlp   sum OAT  10.6655 (2.361x joint)  sum LOO   2.1146 (0.468x joint)  median |OAT-LOO| 0.2516
+    attn  sum OAT   1.4974 (0.399x joint)  sum LOO   3.4835 (0.928x joint)  median |OAT-LOO| 0.0915
+    Spearman(OAT, LOO) over 36 sites: 0.0108
+    top 5 by OAT: ['mlp1', 'mlp0', 'mlp2', 'mlp3', 'mlp17']
+    top 5 by LOO: ['mlp17', 'mlp16', 'attn2', 'attn4', 'attn1']
+
+  Spearman below 0.8 on both roles -> the two measures rank differently True
+  sum LOO below joint for MLPs and above for attention -> mirrors §1736 False
+  §1662 joints + §1736 OAT column + sanity bounds -> control False
+  median |OAT-LOO| larger for MLPs -> tracks redundancy True
+
+  FROZEN: top 6 sites by the WORSE of the two roles' LOO, for the next clean role: ['mlp17', 'mlp16', 'attn2', 'attn4', 'attn1', 'mlp15']
+
+pred_a True | pred_b False | pred_c False | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/loo_vs_oat_importance_results.json (208.3s)

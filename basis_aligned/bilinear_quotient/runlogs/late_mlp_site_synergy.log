@@ -1,0 +1,17 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+LATE MLP SITE SYNERGY | exempt-one over mlp16-17, RECOMPILED | CE live 3.29205 | stake 5.5684 | 192 eval rows
+  exempt none        ( 0 sites live) CEILING   55.04%
+  exempt mlp16       ( 1 sites live) CEILING   56.17%
+  exempt mlp17       ( 1 sites live) CEILING   56.29%
+  bootstrapping band gains (2000 draws, ROW-level clusters)...
+
+  band gains (exempting the band, i.e. what leaving it REAL buys back):
+    mlp17        +1.25%  95% CI [+1.15%, +1.35%]
+    mlp16        +1.13%  95% CI [+1.06%, +1.22%]
+  two site gains sum +2.39% vs §1703 band +1.99% -> late band super-additive too False
+  excess -0.40% = -20.1% of the band, vs the front band's 34.0% -> smaller, as a cascade predicts True
+  ordering resolved: mlp17 CI excludes mlp16 CI -> False
+  CONTROLS base 55.04% vs §1696 55.04%, all gains positive -> True
+
+pred_a False | pred_b True | pred_c True | pred_d False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/late_mlp_site_synergy_results.json (676.2s)

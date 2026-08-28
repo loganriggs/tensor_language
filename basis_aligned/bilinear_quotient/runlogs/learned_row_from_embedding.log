@@ -1,0 +1,25 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+LEARNED ROW FROM EMBEDDING | map rank 64 | table ranks (None, 64) | DISCOVERY ONLY
+  built the output-NN map and 36 tables (4s)
+  fitted 36 rank-64 embedding->row maps (5.308M reals, 39s)
+
+  skip7000: live cov 3.29205 all 3.13704
+    rank full   neighbour cov 6.03465 all 6.01897 (224.778M) | learned cov 6.03465 all 6.01167 (230.087M)
+    rank 64     neighbour cov 6.25792 all 6.19187 (15.223M) | learned cov 6.25792 all 6.18109 (20.531M)
+
+  skip11000: live cov 3.09711 all 2.93450
+    rank full   neighbour cov 5.97900 all 6.00091 (224.778M) | learned cov 5.97900 all 5.98477 (230.087M)
+    rank 64     neighbour cov 6.21152 all 6.18267 (15.223M) | learned cov 6.21152 all 6.15821 (20.531M)
+
+  skip1200: live cov 3.40277 all 3.23027
+    rank full   neighbour cov 5.96423 all 6.00733 (224.778M) | learned cov 5.96423 all 6.00165 (230.087M)
+    rank 64     neighbour cov 6.16197 all 6.15065 (15.223M) | learned cov 6.16197 all 6.15156 (20.531M)
+
+  the learned map beats the neighbour by >0.005 everywhere -> False
+    margins skip7000/full +0.00730  skip7000/64 +0.01078  skip11000/full +0.01614  skip11000/64 +0.02446  skip1200/full +0.00568  skip1200/64 -0.00091
+  all-position stays above covered -> the fallback is not solved False
+  covered CE untouched by the fallback choice -> True
+  the neighbour arm reproduces §1782/§1783 + coverage 5419 -> control True
+
+pred_a False | pred_b False | pred_c True | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/learned_row_from_embedding_results.json (173.5s)

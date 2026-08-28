@@ -1,0 +1,27 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+PROGRAM BUDGET CURVE | budgets (2, 3, 6, 9, 12) of 36 native sites | DISCOVERY ONLY, certifies nothing
+  fit coverage 5419 of 50257 token ids
+
+  skip7000: live CE 3.29205 | all-36-tabled CE 7.35114 (stake 4.0591 nats)
+      K      PROG       OAT  rand med rand best   PROG/OAT   PROG marginal/site
+      2    0.3085   -0.0008    0.2695    0.6410   308477470.98x    0.15424
+      3    0.6438   -0.0032    0.2356    0.3584   643778967.49x    0.33530
+      6    1.0165    0.5191    0.5391    0.7490     1.96x    0.12424
+      9    1.1976    0.5637    0.6510    0.9883     2.12x    0.06037
+     12    1.2589    0.6671    0.9432    1.0942     1.89x    0.02042
+
+  skip11000: live CE 3.09711 | all-36-tabled CE 7.35825 (stake 4.2611 nats)
+      K      PROG       OAT  rand med rand best   PROG/OAT   PROG marginal/site
+      2    0.2997   -0.0008    0.2631    0.6323   299658589.48x    0.14983
+      3    0.6356   -0.0031    0.2167    0.3842   635578767.94x    0.33592
+      6    1.0383    0.5208    0.5552    0.7399     1.99x    0.13425
+      9    1.2177    0.5685    0.6511    0.9987     2.14x    0.05981
+     12    1.2814    0.6763    0.9517    1.1246     1.89x    0.02121
+
+  PROG beats OAT at EVERY budget on both roles -> True
+  PROG/OAT ratio non-increasing in K {'skip7000': [308477470.9839, 643778967.4862, 1.9583, 2.1244, 1.8871], 'skip11000': [299658589.4828, 635578767.9406, 1.9936, 2.142, 1.8947]} -> advantage converges False
+  PROG marginal per added site strictly decreasing {'skip7000': [0.15424, 0.3353, 0.12424, 0.06037, 0.02042], 'skip11000': [0.14983, 0.33592, 0.13425, 0.05981, 0.02121]} -> no knee False
+  all-tabled CE + §1739 K=6 reproduction + coverage 5419 -> control True
+
+pred_a True | pred_b False | pred_c False | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/program_budget_curve_results.json (115.9s)

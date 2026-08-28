@@ -1,0 +1,24 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+MID BAND JOINT | sites mlp4..mlp15 | hybrid substitution, covered-position scoring (§1661) | fit skip1200, eval skip7000
+  CE live (covered positions) 3.27946 | 6009 tokens seen
+    mlp4  individual stake  0.1062
+    mlp5  individual stake  0.0803
+    mlp6  individual stake  0.0777
+    mlp7  individual stake  0.0578
+    mlp8  individual stake  0.0469
+    mlp9  individual stake  0.0473
+    mlp10 individual stake  0.0363
+    mlp11 individual stake  0.0398
+    mlp12 individual stake  0.0373
+    mlp13 individual stake  0.0331
+    mlp14 individual stake  0.0261
+    mlp15 individual stake  0.0320
+
+  JOINT stake mlp4-15: 2.6453 nats
+  sum of twelve individual stakes: 0.6208 nats   -> joint/sum 4.261
+  front band for scale: mlp0 0.855  mlp1 7.005  mlp2 0.772  mlp3 0.620
+  JOINT table ceiling (live model): 21.73%
+  INSTRUMENT CHECK -- attn0..attn15 frozen, known answer 1.0: 100.00% (that arm: CE live 6.4280, stake 0.5599)
+
+pred_a True | pred_b True | pred_c True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/mid_band_joint_results.json (24.6s)

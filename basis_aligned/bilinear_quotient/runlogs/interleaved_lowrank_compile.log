@@ -1,0 +1,23 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+INTERLEAVED BOTTOM-UP COMPILE | table + x W_r, ranks (8, 32) | 36 sites in forward order, each fitted against the compiled prefix | DISCOVERY ONLY
+  fit coverage 5419 of 50257 token ids
+  rank 8: compiled all 36 sites (60s elapsed)
+  rank 32: compiled all 36 sites (118s elapsed)
+
+  skip7000: live 3.29205 | table-only 7.35114 | stake 4.0591 nats
+    INTERLEAVED rank   8: recovers  +0.4063 = +10.01% of the stake, for 0.664M reals
+    INTERLEAVED rank  32: recovers  +0.5662 = +13.95% of the stake, for 2.654M reals
+    (§1747 SIMULTANEOUS rank 8: -0.5235 | sum of the 36 solo recoveries: +1.8057)
+
+  skip11000: live 3.09711 | table-only 7.35825 | stake 4.2611 nats
+    INTERLEAVED rank   8: recovers  +0.3858 =  +9.05% of the stake, for 0.664M reals
+    INTERLEAVED rank  32: recovers  +0.5457 = +12.81% of the stake, for 2.654M reals
+    (§1747 SIMULTANEOUS rank 8: -0.5462 | sum of the 36 solo recoveries: +1.7460)
+
+  interleaved rank 8 is POSITIVE held out (+0.3858) -> True
+  it beats the simultaneous fit by >=1.0 nat (+0.9320) -> False
+  it stays below the sum of the parts (+1.7460) -> True
+  table-only + live CE + coverage 5419 + all 36 fits full-size -> control True
+
+pred_a True | pred_b False | pred_c True | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/interleaved_lowrank_compile_results.json (129.2s)

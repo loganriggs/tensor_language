@@ -1,0 +1,14 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+BAND JOINT COMPARE | one protocol for every band: §1661 hybrid substitution, covered-position scoring, optimal-constant ablation | fit skip1200, eval skip7000
+  front   mlp0-3  joint stake  4.3922 | JOINT CEILING  76.45% | instrument 100.00% | joint/sum 0.475
+  middle  mlp4-15 joint stake  2.6453 | JOINT CEILING  21.73% | instrument 100.00% | joint/sum 4.261
+  late    mlp16-17 joint stake  0.7174 | JOINT CEILING  51.02% | instrument 100.00% | joint/sum 1.708
+  all18   mlp0-17 joint stake  4.3196 | JOINT CEILING  34.27% | instrument 100.00%
+
+  FRONT vs MIDDLE, same protocol: 76.45% vs 21.73%  gap +54.72%  -> contrast survives True
+  (§1665 middle joint ceiling 21.73%; per-SITE front ceilings were ['90%', '96%', '77%', '68%'] -- not the comparator)
+  all-18 joint stake 4.3196 vs sum of band joints 7.7549  -> compounds False
+  instrument checks: ['100.00%', '100.00%', '100.00%', '100.00%']  -> True
+
+pred_a True | pred_b False | pred_c True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/band_joint_compare_results.json (59.0s)

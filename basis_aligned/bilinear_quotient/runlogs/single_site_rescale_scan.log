@@ -1,0 +1,83 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+SINGLE-SITE RESCALE SCAN | fully compiled program, one of 36 sites rescaled at a time | settled program (context-free tables + output-NN fallback + rank-64 map) | DISCOVERY ONLY
+
+  per-site norm calibration (live mean / row mean), measured on the LIVE model:
+    attn L0:  2.71 L1:  2.49 L2:  2.26 L3:  2.13 L4:  4.37 L5:  1.00 L6:  1.02 L7:  3.61 L8:  3.59 L9:  4.83 L10:  3.80 L11:  4.49 L12:  6.72 L13:  6.39 L14:  7.07 L15:  6.33 L16:  5.70 L17:  5.59
+    mlp  L0:  0.88 L1:  0.42 L2:  0.61 L3:  0.49 L4:  0.10 L5:  0.39 L6:  0.52 L7:  1.66 L8:  2.04 L9:  1.32 L10:  2.33 L11:  1.05 L12:  1.91 L13:  1.26 L14:  1.66 L15:  1.19 L16:  1.13 L17:  1.21
+
+  arms  (45s)
+  all_substituted      skip7000 13.55%  skip11000 14.25%  skip1200 13.64%
+  all_sub_scaled       skip7000 12.16%  skip11000 12.81%  skip1200 12.10%
+  live_model           skip7000 39.32%  skip11000 42.35%  skip1200 38.88%
+  only_mlp0            skip7000 13.55%  skip11000 14.25%  skip1200 13.65%
+  only_mlp1            skip7000 13.56%  skip11000 14.23%  skip1200 13.61%
+  only_mlp2            skip7000 13.53%  skip11000 14.24%  skip1200 13.62%
+  only_mlp3            skip7000 13.57%  skip11000 14.23%  skip1200 13.64%
+  only_mlp4            skip7000 13.18%  skip11000 13.91%  skip1200 13.11%
+  only_mlp5            skip7000 13.45%  skip11000 13.86%  skip1200 13.31%
+  only_mlp6            skip7000 13.42%  skip11000 13.90%  skip1200 13.43%
+  only_mlp7            skip7000 13.50%  skip11000 14.27%  skip1200 13.67%
+  only_mlp8            skip7000 13.61%  skip11000 14.33%  skip1200 13.59%
+  only_mlp9            skip7000 13.55%  skip11000 14.26%  skip1200 13.64%
+  only_mlp10           skip7000 13.52%  skip11000 14.25%  skip1200 13.55%
+  only_mlp11           skip7000 13.56%  skip11000 14.24%  skip1200 13.59%
+  only_mlp12           skip7000 13.54%  skip11000 14.22%  skip1200 13.55%
+  only_mlp13           skip7000 13.53%  skip11000 14.26%  skip1200 13.53%
+  only_mlp14           skip7000 13.49%  skip11000 14.14%  skip1200 13.55%
+  only_mlp15           skip7000 13.51%  skip11000 14.11%  skip1200 13.67%
+  only_mlp16           skip7000 13.50%  skip11000 14.13%  skip1200 13.54%
+  only_mlp17           skip7000 13.48%  skip11000 14.07%  skip1200 13.46%
+  only_attn0           skip7000 13.55%  skip11000 14.25%  skip1200 13.64%
+  only_attn1           skip7000 13.56%  skip11000 14.24%  skip1200 13.63%
+  only_attn2           skip7000 13.57%  skip11000 14.24%  skip1200 13.62%
+  only_attn3           skip7000 13.54%  skip11000 14.25%  skip1200 13.62%
+  only_attn4           skip7000 13.58%  skip11000 14.22%  skip1200 13.61%
+  only_attn5           skip7000 13.56%  skip11000 14.24%  skip1200 13.64%
+  only_attn6           skip7000 13.57%  skip11000 14.24%  skip1200 13.62%
+  only_attn7           skip7000 13.51%  skip11000 14.27%  skip1200 13.55%
+  only_attn8           skip7000 13.60%  skip11000 14.19%  skip1200 13.59%
+  only_attn9           skip7000 13.38%  skip11000 14.18%  skip1200 13.51%
+  only_attn10          skip7000 13.50%  skip11000 14.24%  skip1200 13.42%
+  only_attn11          skip7000 13.49%  skip11000 14.17%  skip1200 13.42%
+  only_attn12          skip7000 13.51%  skip11000 14.24%  skip1200 13.50%
+  only_attn13          skip7000 13.14%  skip11000 13.70%  skip1200 13.03%
+  only_attn14          skip7000 13.42%  skip11000 14.01%  skip1200 13.24%
+  only_attn15          skip7000 13.06%  skip11000 13.68%  skip1200 12.90%
+  only_attn16          skip7000 13.54%  skip11000 14.03%  skip1200 13.36%
+  only_attn17          skip7000 13.56%  skip11000 14.14%  skip1200 13.44%
+
+  mean ||live attn output|| vs ||substituted row||, in the compiled stream:
+    L0  live      410.357  row   151.212  ratio    2.714
+    L1  live     4863.873  row   662.058  ratio    7.347
+    L2  live    31614.327  row  2833.251  ratio   11.158
+    L3  live    45979.709  row  3212.556  ratio   14.313
+    L4  live    60285.798  row  2339.302  ratio   25.771
+    L5  live  1202366.288  row  7878.181  ratio  152.620
+    L6  live   206335.324  row  2789.274  ratio   73.975
+    L7  live     6604.041  row   537.703  ratio   12.282
+    L8  live     3085.213  row   324.687  ratio    9.502
+    L9  live     3442.169  row   632.839  ratio    5.439
+    L10 live     5385.568  row   601.801  ratio    8.949
+    L11 live     4052.647  row   587.006  ratio    6.904
+    L12 live     3973.829  row   275.877  ratio   14.404
+    L13 live     4800.807  row   354.158  ratio   13.556
+    L14 live     3206.836  row   382.982  ratio    8.373
+    L15 live     3426.645  row   357.494  ratio    9.585
+    L16 live     6829.482  row   538.138  ratio   12.691
+    L17 live     9854.947  row  1233.815  ratio    7.987
+
+  change in overall top-1 from rescaling ONE site, fully compiled program (pp):
+    attn skip7000   L0:+0.00 L1:+0.00 L2:+0.02 L3:-0.01 L4:+0.03 L5:+0.01 L6:+0.02 L7:-0.04 L8:+0.04 L9:-0.18 L10:-0.05 L11:-0.07 L12:-0.04 L13:-0.41 L14:-0.14 L15:-0.49 L16:-0.01 L17:+0.01
+    attn skip11000  L0:+0.00 L1:-0.01 L2:-0.01 L3:+0.00 L4:-0.03 L5:-0.01 L6:-0.01 L7:+0.02 L8:-0.06 L9:-0.07 L10:-0.01 L11:-0.08 L12:-0.01 L13:-0.55 L14:-0.24 L15:-0.57 L16:-0.22 L17:-0.11
+    attn skip1200   L0:+0.00 L1:-0.01 L2:-0.03 L3:-0.02 L4:-0.04 L5:-0.01 L6:-0.03 L7:-0.10 L8:-0.06 L9:-0.13 L10:-0.23 L11:-0.22 L12:-0.15 L13:-0.61 L14:-0.41 L15:-0.74 L16:-0.28 L17:-0.21
+    mlp  skip7000   L0:-0.00 L1:+0.00 L2:-0.02 L3:+0.02 L4:-0.37 L5:-0.11 L6:-0.14 L7:-0.05 L8:+0.06 L9:+0.00 L10:-0.03 L11:+0.01 L12:-0.01 L13:-0.03 L14:-0.06 L15:-0.04 L16:-0.05 L17:-0.07
+    mlp  skip11000  L0:+0.00 L1:-0.02 L2:-0.01 L3:-0.02 L4:-0.34 L5:-0.39 L6:-0.35 L7:+0.02 L8:+0.08 L9:+0.01 L10:+0.00 L11:-0.01 L12:-0.03 L13:+0.01 L14:-0.11 L15:-0.14 L16:-0.12 L17:-0.18
+    mlp  skip1200   L0:+0.01 L1:-0.04 L2:-0.03 L3:-0.01 L4:-0.53 L5:-0.34 L6:-0.22 L7:+0.03 L8:-0.05 L9:+0.00 L10:-0.10 L11:-0.06 L12:-0.10 L13:-0.12 L14:-0.09 L15:+0.02 L16:-0.11 L17:-0.18
+
+  some single-site rescale gains >=0.5pp -> False  skip7000 best mlp8 +0.06pp  skip11000 best mlp8 +0.08pp  skip1200 best mlp7 +0.03pp
+  and the best site is mlp4 -> False  skip7000 mlp8  skip11000 mlp8  skip1200 mlp7
+  the 36 singles do NOT compose to the all-sites change -> False  skip7000 sum -2.20pp vs all -1.39pp  skip11000 sum -3.54pp vs all -1.44pp  skip1200 sum -5.18pp vs all -1.54pp
+  all-substituted and live reproduce §1789, coverage 5419 -> control True
+
+pred_a False | pred_b False | pred_c False | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/single_site_rescale_scan_results.json (172.5s)

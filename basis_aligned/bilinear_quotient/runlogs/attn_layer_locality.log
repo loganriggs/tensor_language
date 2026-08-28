@@ -1,0 +1,30 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+ATTN LAYER LOCALITY | lag-1 program, RECOMPILED per exemption (§1671) | stake 3.5570 nats | control must reproduce §1685 56.26%
+  full lag-1 program: CEILING  56.26% | shortfall 43.74%
+    exempt attn0  ceiling  59.26%  gain  +2.99%  =  6.84% of the shortfall
+    exempt attn1  ceiling  61.67%  gain  +5.40%  = 12.35% of the shortfall
+    exempt attn2  ceiling  62.93%  gain  +6.67%  = 15.25% of the shortfall
+    exempt attn3  ceiling  61.67%  gain  +5.40%  = 12.36% of the shortfall
+    exempt attn4  ceiling  62.19%  gain  +5.93%  = 13.56% of the shortfall
+    exempt attn5  ceiling  67.87%  gain +11.60%  = 26.53% of the shortfall
+    exempt attn6  ceiling  66.13%  gain  +9.87%  = 22.57% of the shortfall
+    exempt attn7  ceiling  66.12%  gain  +9.85%  = 22.53% of the shortfall
+    exempt attn8  ceiling  64.02%  gain  +7.75%  = 17.73% of the shortfall
+    exempt attn9  ceiling  61.64%  gain  +5.38%  = 12.29% of the shortfall
+    exempt attn10 ceiling  62.55%  gain  +6.29%  = 14.38% of the shortfall
+    exempt attn11 ceiling  61.93%  gain  +5.66%  = 12.95% of the shortfall
+    exempt attn12 ceiling  60.95%  gain  +4.68%  = 10.71% of the shortfall
+    exempt attn13 ceiling  63.78%  gain  +7.51%  = 17.18% of the shortfall
+    exempt attn14 ceiling  64.10%  gain  +7.84%  = 17.92% of the shortfall
+    exempt attn15 ceiling  59.17%  gain  +2.91%  =  6.65% of the shortfall
+    exempt attn16 ceiling  62.07%  gain  +5.81%  = 13.28% of the shortfall
+    exempt attn17 ceiling  57.54%  gain  +1.27%  =  2.91% of the shortfall
+
+  mean exemption gain: attn0-3 +5.12% | attn4-17 +6.60% -> early best described True
+  worst layer attn5 at +11.60% = 26.53% of the shortfall (uniform would be 5.56%) -> concentrated True
+  top three: attn5 +11.60%,  attn6 +9.87%,  attn7 +9.86%
+  best three: attn0 +2.99%,  attn15 +2.91%,  attn17 +1.27%
+  CONTROL 56.26% vs §1685 56.26% -> True
+
+pred_a True | pred_b True | pred_c True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/attn_layer_locality_results.json (1426.9s)

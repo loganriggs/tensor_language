@@ -1,0 +1,17 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+MID BAND FEATURE AUGMENT | linear + k of the module OWN bilinear features at mlp4-15 | k in [0, 8, 64] | CE live 3.29205 | stake 5.5684
+  §1703: exempting this band entirely buys +12.52%
+  k    0: CEILING   55.04%
+  k    8: CEILING   54.87%
+  k   64: CEILING   55.80%
+  bootstrapping gains (2000 draws, ROW-level clusters)...
+
+  k=64 gain +0.77%  95% CI [+0.65%, +0.89%] -> helps, CI excludes zero True
+  k=8 gain -0.16%  95% CI [-0.25%, -0.07%]
+  vs the whole band's +12.52% -> does not close it True
+  k64 beats k8 -> feature count matters True
+  CONTROL k0 55.04% vs §1696 55.04% | baseline 3.29205 -> True
+  price: 0.07M extra reals per augmented site, 12 sites
+
+pred_a True | pred_b True | pred_c True | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/mid_band_feature_augment_results.json (793.9s)

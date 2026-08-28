@@ -1,0 +1,16 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+CONTEXT-FREE TABLE RANK SWEEP | ranks (None, 256, 64, 16, 8) | no linear correction | DISCOVERY ONLY
+  built 36 context-free tables (1s)
+  rank full : cost   224.778M | skip7000 CE 6.03465 rec +1.31649  skip11000 CE 5.97900 rec +1.37925 | 0.006136 nats/M   [6s]
+  rank 256  : cost    60.641M | skip7000 CE 6.10045 rec +1.25069  skip11000 CE 6.04503 rec +1.31322 | 0.021656 nats/M   [41s]
+  rank 64   : cost    15.223M | skip7000 CE 6.25792 rec +1.09322  skip11000 CE 6.21152 rec +1.14673 | 0.075331 nats/M   [76s]
+  rank 16   : cost     3.868M | skip7000 CE 6.45531 rec +0.89583  skip11000 CE 6.42299 rec +0.93526 | 0.241804 nats/M   [110s]
+  rank 8    : cost     1.975M | skip7000 CE 6.58011 rec +0.77103  skip11000 CE 6.55472 rec +0.80353 | 0.406770 nats/M   [145s]
+
+  CE degrades monotonically as rank falls [5.979, 6.04503, 6.21152, 6.42299, 6.55472] -> compression is pure loss True
+  efficiency [0.0061, 0.0217, 0.0753, 0.2418, 0.4068] peaks at rank 8 -> interior optimum False
+  at <= 25.839M the best context-free arm is 64 recovering +1.14673 vs §1758 +0.78536 -> True
+  full rank reproduces §1769 + live CEs + coverage 5419 -> control True
+
+pred_a True | pred_b False | pred_c True | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/context_free_rank_sweep_results.json (144.9s)

@@ -1,0 +1,28 @@
+FREQUENCY VS COVERAGE | cells on (held-out rank < 1000) x (fit-row count) | leave-one-role-out frequency source | DISCOVERY ONLY
+  built the settled fallback and 36 tables (4s)
+
+  skip7000: frequency source ['skip11000', 'skip1200'] (10483 target types seen)
+    all              n  36864  live 39.32%  prog 13.55%  kept  34.5%
+    freq_uncovered   n    447  live 30.65%  prog  0.45%  kept   1.5%
+    freq_covered     n  10589  live 61.46%  prog 39.01%  kept  63.5%
+    rare_any         n  13470  live 25.49%  prog  0.85%  kept   3.3%
+
+  skip11000: frequency source ['skip7000', 'skip1200'] (10291 target types seen)
+    all              n  36864  live 42.35%  prog 14.25%  kept  33.6%
+    freq_uncovered   n    443  live 32.96%  prog  0.45%  kept   1.4%
+    freq_covered     n  10532  live 64.31%  prog 40.42%  kept  62.9%
+    rare_any         n  13840  live 30.07%  prog  1.82%  kept   6.1%
+
+  skip1200: frequency source ['skip7000', 'skip11000'] (12356 target types seen)
+    all              n  18432  live 38.88%  prog 13.64%  kept  35.1%
+    freq_uncovered   n    234  live 27.35%  prog  0.00%  kept   0.0%
+    freq_covered     n   5276  live 61.37%  prog 38.91%  kept  63.4%
+    rare_any         n   6612  live 25.85%  prog  1.10%  kept   4.3%
+
+  on FREQUENT-but-UNCOVERED targets the program is below 5% -> True  skip7000 0.45% (n 447)  skip11000 0.45% (n 443)  skip1200 0.00% (n 234)
+  ... while the live model exceeds 25% there -> True  skip7000 30.65%  skip11000 32.96%  skip1200 27.35%
+  ... and on FREQUENT-and-COVERED it exceeds 30% and 6x the uncovered cell -> True  skip7000 39.01% vs 0.45%  skip11000 40.42% vs 0.45%  skip1200 38.91% vs 0.00%
+  overall reproduces §1789, frequency source excludes the scored role, coverage 5419 -> control True
+
+pred_a True | pred_b True | pred_c True | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/frequency_vs_coverage_results.json (48.2s)

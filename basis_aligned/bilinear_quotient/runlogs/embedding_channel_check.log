@@ -1,0 +1,28 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+DIRECT LOOKUP vs COMPOSED PROGRAM | ranks (None, 64) | output-NN fallback (§1780/§1781) | DISCOVERY ONLY
+  built the length-1 lookup and the output-NN map for 44838 uncovered ids (3s)
+  built 36 context-free tables (4s)
+
+  skip7000: live cov 3.29205 all 3.13704
+    DIRECT lookup      cov 6.03465  all 6.14589  (272.6M reals)
+    COMPOSED rank full  cov 6.03465  all 6.01897   | EMBEDDING SWAPPED cov 6.03465  all 6.14589
+    COMPOSED rank 64    cov 6.25792  all 6.19187   | EMBEDDING SWAPPED cov 6.25792  all 6.31608
+
+  skip11000: live cov 3.09711 all 2.93450
+    DIRECT lookup      cov 5.97900  all 6.15184  (272.6M reals)
+    COMPOSED rank full  cov 5.97900  all 6.00091   | EMBEDDING SWAPPED cov 5.97900  all 6.15184
+    COMPOSED rank 64    cov 6.21152  all 6.18267   | EMBEDDING SWAPPED cov 6.21152  all 6.32960
+
+  skip1200: live cov 3.40277 all 3.23027
+    DIRECT lookup      cov 5.96423  all 6.15373  (272.6M reals)
+    COMPOSED rank full  cov 5.96423  all 6.00733   | EMBEDDING SWAPPED cov 5.96423  all 6.15373
+    COMPOSED rank 64    cov 6.16197  all 6.15065   | EMBEDDING SWAPPED cov 6.16197  all 6.29216
+
+  swapping the embedding lands within 0.02 of the direct lookup -> the embedding channel explains the gap True
+    skip7000 swapped 6.14589 vs direct 6.14589  skip11000 swapped 6.15184 vs direct 6.15184  skip1200 swapped 6.15373 vs direct 6.15373
+  swapping costs >=0.10 against the true-embedding program -> True  skip7000 +0.12692  skip11000 +0.15093  skip1200 +0.14640
+  covered CE untouched by the swap -> True
+  composed and direct arms reproduce §1782 + coverage 5419 -> control True
+
+pred_a True | pred_b True | pred_c True | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/embedding_channel_check_results.json (116.6s)

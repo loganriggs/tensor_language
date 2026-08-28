@@ -1,0 +1,57 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+NORM-MATCHED ROWS | bottom-up arms with rows rescaled to the live output norm | settled program (context-free tables + output-NN fallback + rank-64 map) | DISCOVERY ONLY
+
+  per-site norm calibration (live mean / row mean), measured on the LIVE model:
+    attn L0:  2.71 L1:  2.49 L2:  2.26 L3:  2.13 L4:  4.37 L5:  1.00 L6:  1.02 L7:  3.61 L8:  3.59 L9:  4.83 L10:  3.80 L11:  4.49 L12:  6.72 L13:  6.39 L14:  7.07 L15:  6.33 L16:  5.70 L17:  5.59
+    mlp  L0:  0.88 L1:  0.42 L2:  0.61 L3:  0.49 L4:  0.10 L5:  0.39 L6:  0.52 L7:  1.66 L8:  2.04 L9:  1.32 L10:  2.33 L11:  1.05 L12:  1.91 L13:  1.26 L14:  1.66 L15:  1.19 L16:  1.13 L17:  1.21
+
+  arms  (45s)
+  all_substituted      skip7000 13.55%  skip11000 14.25%  skip1200 13.64%
+  all_sub_scaled       skip7000 12.16%  skip11000 12.81%  skip1200 12.10%
+  live_model           skip7000 39.32%  skip11000 42.35%  skip1200 38.88%
+  L0_botup             skip7000 23.20%  skip11000 25.38%  skip1200 23.26%
+  L0_botup_scaled      skip7000 22.92%  skip11000 25.27%  skip1200 23.11%
+  L1_botup             skip7000 14.05%  skip11000 15.42%  skip1200 14.27%
+  L1_botup_scaled      skip7000 10.96%  skip11000 12.27%  skip1200 12.38%
+  L3_botup             skip7000  2.00%  skip11000  2.12%  skip1200  1.81%
+  L3_botup_scaled      skip7000  1.97%  skip11000  2.16%  skip1200  1.78%
+  L5_botup             skip7000  2.24%  skip11000  2.11%  skip1200  1.93%
+  L5_botup_scaled      skip7000 18.41%  skip11000 19.22%  skip1200 18.25%
+  L9_botup             skip7000 15.47%  skip11000 16.42%  skip1200 15.60%
+  L9_botup_scaled      skip7000 15.39%  skip11000 16.13%  skip1200 15.56%
+
+  mean ||live attn output|| vs ||substituted row||, in the compiled stream:
+    L0  live      410.357  row   151.212  ratio    2.714
+    L1  live     4863.873  row   662.058  ratio    7.347
+    L2  live    31614.327  row  2833.251  ratio   11.158
+    L3  live    45979.709  row  3212.556  ratio   14.313
+    L4  live    60285.798  row  2339.302  ratio   25.771
+    L5  live  1202366.288  row  7878.181  ratio  152.620
+    L6  live   206335.324  row  2789.274  ratio   73.975
+    L7  live     6604.041  row   537.703  ratio   12.282
+    L8  live     3085.213  row   324.687  ratio    9.502
+    L9  live     3442.169  row   632.839  ratio    5.439
+    L10 live     5385.568  row   601.801  ratio    8.949
+    L11 live     4052.647  row   587.006  ratio    6.904
+    L12 live     3973.829  row   275.877  ratio   14.404
+    L13 live     4800.807  row   354.158  ratio   13.556
+    L14 live     3206.836  row   382.982  ratio    8.373
+    L15 live     3426.645  row   357.494  ratio    9.585
+    L16 live     6829.482  row   538.138  ratio   12.691
+    L17 live     9854.947  row  1233.815  ratio    7.987
+
+  gap recovered, bottom-up: RAW rows vs NORM-MATCHED rows
+    L0   skip7000 raw   37.4% scaled   36.4%  skip11000 raw   39.6% scaled   39.2%  skip1200 raw   38.1% scaled   37.5%
+    L1   skip7000 raw    1.9% scaled  -10.1%  skip11000 raw    4.2% scaled   -7.1%  skip1200 raw    2.5% scaled   -5.0%
+    L3   skip7000 raw  -44.8% scaled  -45.0%  skip11000 raw  -43.2% scaled  -43.0%  skip1200 raw  -46.9% scaled  -47.0%
+    L5   skip7000 raw  -43.9% scaled   18.9%  skip11000 raw  -43.2% scaled   17.7%  skip1200 raw  -46.4% scaled   18.3%
+    L9   skip7000 raw    7.5% scaled    7.1%  skip11000 raw    7.7% scaled    6.7%  skip1200 raw    7.7% scaled    7.6%
+    all-compiled  skip7000 raw 0.0% scaled -5.4%  skip11000 raw 0.0% scaled -5.1%  skip1200 raw 0.0% scaled -6.1%
+
+  norm-matching REPAIRS the bottom-up poisoning (L3 above zero) -> False  skip7000 -45.0% vs raw -44.8%  skip11000 -43.0% vs raw -43.2%  skip1200 -47.0% vs raw -46.9%
+  ... but does NOT reach the top-down value at the same depth (2.2%) -> True  skip7000 -45.0%  skip11000 -43.0%  skip1200 -47.0%
+  the calibration factors are large (mean >=3x) -> False  mean 2.62x  min 0.10x  max 7.07x
+  all-substituted and live reproduce §1789, coverage 5419 -> control True
+
+pred_a False | pred_b True | pred_c False | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/norm_matched_rows_results.json (87.9s)

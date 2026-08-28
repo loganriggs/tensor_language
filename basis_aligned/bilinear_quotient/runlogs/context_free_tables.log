@@ -1,0 +1,25 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+CONTEXT-FREE TABLES | 5419 covered tokens as length-1 sequences, capturing all 36 site outputs | DISCOVERY ONLY
+  built 36 context-free tables and the logit lookup (1s)
+
+  skip7000: live 3.29205
+    context-free TABLE program    6.03465
+    ceiling (lookup, recomputed)  6.03465  (§1768 6.03465)
+    best FIT-MEAN program         6.57512
+    all-tabled (fit-mean) base    7.35114
+    context-free is -0.00000 from the ceiling and beats the fit-mean program by +0.54047
+
+  skip11000: live 3.09711
+    context-free TABLE program    5.97900
+    ceiling (lookup, recomputed)  5.97902  (§1768 5.97902)
+    best FIT-MEAN program         6.57289
+    all-tabled (fit-mean) base    7.35825
+    context-free is -0.00002 from the ceiling and beats the fit-mean program by +0.59389
+
+  the 36 context-free tables compose to the ceiling within 0.02 (-0.00002) -> induction holds True
+  they beat the fit-mean program by >=0.4 (+0.59389) -> True
+  the context-free table alone, no correction, beats the corrected fit-mean program (5.97900 < 6.57289) -> True
+  §1768 ceilings reproduce + live CEs + coverage 5419 -> control True
+
+pred_a True | pred_b True | pred_c True | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/context_free_tables_results.json (6.2s)

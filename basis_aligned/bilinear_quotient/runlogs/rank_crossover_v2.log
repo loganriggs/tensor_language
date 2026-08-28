@@ -1,0 +1,59 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+  fit-row bigram: 24576 observations over 5419 covered current types; 5419 types observed
+ACCURACY BY TARGET FREQUENCY | buckets ((0, 0), (1, 4), (5, 24), (25, 124), (125, 1000000000)) on the fit-row count of the TRUE target | full-rank settled program | DISCOVERY ONLY
+  built the settled fallback and 36 tables (4s)
+  eval-row LOO bigram for skip7000: 36864 observations, score bank 1.01 GiB
+
+  skip7000:
+    overall      n  36864
+      §1790 raw-count argmax top1 12.23%
+      live           top1 39.32%  top5 63.20%  top10 71.40%  top50 85.32%  top100 89.53%  MRR 0.50306
+      prog           top1 13.55%  top5 29.71%  top10 37.77%  top50 55.08%  top100 61.82%  MRR 0.21530
+      loobg          top1 12.48%  top5 26.49%  top10 33.69%  top50 49.02%  top100 54.48%  MRR 0.19460
+      loobg_smoothed top1 10.31%  top5 24.25%  top10 31.37%  top50 48.75%  top100 54.33%  MRR 0.17273
+    125-1000000000 n  10589
+      §1790 raw-count argmax top1 31.85%
+      live           top1 61.46%  top5 90.51%  top10 95.66%  top50 99.39%  top100 99.67%  MRR 0.74013
+      prog           top1 39.01%  top5 75.64%  top10 86.99%  top50 97.71%  top100 98.85%  MRR 0.54738
+      loobg          top1 32.83%  top5 66.18%  top10 82.23%  top50 98.60%  top100 99.55%  MRR 0.48216
+      loobg_smoothed top1 30.66%  top5 69.22%  top10 85.78%  top50 99.49%  top100 99.91%  MRR 0.47635
+  eval-row LOO bigram for skip11000: 36864 observations, score bank 1.01 GiB
+
+  skip11000:
+    overall      n  36864
+      §1790 raw-count argmax top1 12.73%
+      live           top1 42.35%  top5 65.90%  top10 73.81%  top50 86.83%  top100 90.80%  MRR 0.53159
+      prog           top1 14.25%  top5 30.37%  top10 37.87%  top50 55.01%  top100 62.10%  MRR 0.22199
+      loobg          top1 12.93%  top5 26.99%  top10 33.44%  top50 47.86%  top100 52.81%  MRR 0.19784
+      loobg_smoothed top1 10.84%  top5 24.26%  top10 30.98%  top50 47.69%  top100 52.74%  MRR 0.17595
+    125-1000000000 n  10532
+      §1790 raw-count argmax top1 34.58%
+      live           top1 64.31%  top5 91.95%  top10 96.29%  top50 99.43%  top100 99.70%  MRR 0.76151
+      prog           top1 40.42%  top5 77.22%  top10 87.60%  top50 97.64%  top100 98.59%  MRR 0.56312
+      loobg          top1 35.29%  top5 68.42%  top10 83.26%  top50 98.64%  top100 99.41%  MRR 0.50355
+      loobg_smoothed top1 33.18%  top5 71.21%  top10 86.60%  top50 99.62%  top100 99.89%  MRR 0.49996
+  eval-row LOO bigram for skip1200: 18432 observations, score bank 1.01 GiB
+
+  skip1200:
+    overall      n  18432
+      §1790 raw-count argmax top1 11.88%
+      live           top1 38.88%  top5 61.90%  top10 69.97%  top50 84.04%  top100 88.57%  MRR 0.49634
+      prog           top1 13.64%  top5 30.01%  top10 37.57%  top50 55.74%  top100 62.33%  MRR 0.21739
+      loobg          top1 12.32%  top5 25.93%  top10 32.39%  top50 47.56%  top100 53.13%  MRR 0.19163
+      loobg_smoothed top1 10.04%  top5 23.15%  top10 29.65%  top50 47.34%  top100 52.99%  MRR 0.16715
+    125-1000000000 n   5276
+      §1790 raw-count argmax top1 31.77%
+      live           top1 61.37%  top5 89.63%  top10 95.19%  top50 99.41%  top100 99.73%  MRR 0.73854
+      prog           top1 38.91%  top5 76.06%  top10 86.85%  top50 97.01%  top100 98.50%  MRR 0.54794
+      loobg          top1 33.23%  top5 66.43%  top10 81.18%  top50 98.69%  top100 99.39%  MRR 0.48534
+      loobg_smoothed top1 31.48%  top5 68.86%  top10 84.31%  top50 99.66%  top100 99.91%  MRR 0.48157
+
+  the program beats the LOO bigram on TOP-5 overall by >=2pp -> True  skip7000 29.72% vs 26.49% (+3.23pp)  skip11000 30.37% vs 26.99% (+3.38pp)  skip1200 30.01% vs 25.93% (+4.08pp)
+  ... and on MRR overall by >=0.005 -> True  skip7000 0.21530 vs 0.19460 (+0.02070)  skip11000 0.22199 vs 0.19784 (+0.02415)  skip1200 0.21739 vs 0.19163 (+0.02576)
+  ... and on TOP-5 on the head by >=2pp -> True  skip7000 75.64% vs 66.18% (+9.46pp)  skip11000 77.22% vs 68.42% (+8.80pp)  skip1200 76.06% vs 66.43% (+9.63pp)
+  CROSSOVER: smallest k in (1, 5, 10, 50, 100) where the program overtakes the bigram -> skip7000 1  skip11000 1  skip1200 1
+  §1792 smoothing check: alpha=0.01 arm top1 skip7000 10.31%  skip11000 10.84%  skip1200 10.04% vs raw-count 12.23%  12.73%  11.88%
+  top-1 reproduces §1789/§1790, top-k monotone, fit-bigram CE reproduces §1767 skip7000 7.88804  skip11000 7.90729, coverage 5419 -> control False
+
+pred_a True | pred_b True | pred_c True | pred_d False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/rank_crossover_v2_results.json (59.0s)

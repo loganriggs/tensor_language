@@ -1,0 +1,23 @@
+COMPRESSIBILITY HELD-OUT | four matched paths at rank 64, compiled ONCE, scored on ['skip7000', 'skip11000'] | §1692 reference: routing 62.82%  values 2.37%  Down -15.16%  LeftRight -52.88%
+  compiled routing
+  compiled values
+  compiled Down
+  compiled LeftRight
+  skip7000   CE live 3.29205 | MLP stake 4.3301 | attn stake 3.5570
+      routing    rank64   62.82% | identity  100.00%
+      values     rank64    2.37% | identity  100.01%
+      Down       rank64  -15.16% | identity  100.00%
+      LeftRight  rank64  -52.88% | identity  100.00%
+  skip11000  CE live 3.09711 | MLP stake 4.5173 | attn stake 3.7552
+      routing    rank64   63.00% | identity  100.00%
+      values     rank64    2.29% | identity  100.00%
+      Down       rank64  -14.42% | identity  100.00%
+      LeftRight  rank64  -53.39% | identity   99.99%
+
+  ORDERING held out: ['routing', 'values', 'Down', 'LeftRight'] -> preserved True
+  rank-64 deltas: routing +0.18%  values -0.09%  Down +0.74%  LeftRight -0.51%  -> stable True
+  identity checks travel to both eval sets True
+  vs §1692 on skip7000: routing +0.00%  values +0.00%  Down -0.00%  LeftRight -0.00%
+
+pred_a True | pred_b True | pred_c True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/compressibility_heldout_results.json (880.9s)

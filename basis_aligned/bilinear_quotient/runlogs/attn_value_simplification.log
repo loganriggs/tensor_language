@@ -1,0 +1,14 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+ATTN VALUE SIMPLIFICATION | real routing, rank-r values at c_v | ranks [8, 64, 256, 1152] | stake 3.5570 nats
+  fixed-position comparators: lag0 16.38% | lag1 56.26% | best positional (7 slots) 70.08%
+    values rank     8: CEILING  -26.10%
+    values rank    64: CEILING    2.37%
+    values rank   256: CEILING   67.05%
+    values rank  1152: CEILING  100.01%
+
+  rank-64 values with REAL routing 2.37% vs best fixed-position 70.08% (-67.71%) -> routing is what was missing False
+  rank-8 values -26.10% -> routing dominates values False
+  IDENTITY CHECK full rank 100.01% (c_v is linear in x, so this must be ~100%) | monotone True -> True
+
+pred_a False | pred_b False | pred_c True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/attn_value_simplification_results.json (286.4s)

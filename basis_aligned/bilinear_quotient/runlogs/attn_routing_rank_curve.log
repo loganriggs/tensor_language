@@ -1,0 +1,16 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+ATTN ROUTING RANK CURVE | rank-r maps at ('c_q', 'c_k', 'c_q2', 'c_k2'), values and c_proj exact | ranks [64, 128, 256, 384, 512, 1152] | stake 3.5570 nats
+  §1690 VALUE path for comparison: r64 2.37%  r256 67.05%  r384 94.97%  r512 98.32%  r1152 100.01%
+    routing rank    64 ( 5.6%): CEILING   62.82%   (value path at this rank: 2.37%)
+    routing rank   128 (11.1%): CEILING   74.00%
+    routing rank   256 (22.2%): CEILING   91.93%   (value path at this rank: 67.05%)
+    routing rank   384 (33.3%): CEILING   97.07%   (value path at this rank: 94.97%)
+    routing rank   512 (44.4%): CEILING   98.78%   (value path at this rank: 98.32%)
+    routing rank  1152 (100.0%): CEILING  100.00%   (value path at this rank: 100.01%)
+
+  routing reaches 95% of full at rank 384 (value path: 384) -> routing is lower-rank False
+  rank-64 routing 62.82% vs rank-64 values 2.37% -> routing cheap in absolute terms True
+  IDENTITY full rank 100.00% | monotone True -> True
+
+pred_a False | pred_b True | pred_c True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/attn_routing_rank_curve_results.json (818.7s)

@@ -1,0 +1,37 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+  fit-row bigram: 24576 observations over 5419 covered current types; 5419 types observed
+ACCURACY BY TARGET FREQUENCY | buckets ((0, 0), (1, 4), (5, 24), (25, 124), (125, 1000000000)) on the fit-row count of the TRUE target | full-rank settled program | DISCOVERY ONLY
+  built the settled fallback and 36 tables (4s)
+  eval-row LOO bigram for skip7000: 36864 observations
+
+  skip7000: overall prog 13.55% LOO-bigram 12.44% | prog<->bigram agree 46.95%  prog<->live 23.56%  bigram<->live 20.43%
+    fit-count 0-0          n   8904  P<->B 40.00%  P<->L 13.22%  B<->L 13.59%  | decided   276  prog wins 21.74%
+    fit-count 1-4          n   6585  P<->B 41.59%  P<->L 13.74%  B<->L 13.35%  | decided   190  prog wins 35.79%
+    fit-count 5-24         n   4783  P<->B 46.39%  P<->L 17.35%  B<->L 16.60%  | decided   281  prog wins 37.37%
+    fit-count 25-124       n   6003  P<->B 55.89%  P<->L 25.17%  B<->L 21.67%  | decided   341  prog wins 55.13%
+    fit-count 125-1000000000 n  10589  P<->B 51.30%  P<->L 40.27%  B<->L 31.60%  | decided  2129  prog wins 65.38%
+  eval-row LOO bigram for skip11000: 36864 observations
+
+  skip11000: overall prog 14.25% LOO-bigram 12.88% | prog<->bigram agree 46.79%  prog<->live 22.71%  bigram<->live 19.94%
+    fit-count 0-0          n   9385  P<->B 40.45%  P<->L 12.62%  B<->L 11.78%  | decided   336  prog wins 47.02%
+    fit-count 1-4          n   6638  P<->B 40.71%  P<->L 12.47%  B<->L 12.28%  | decided   217  prog wins 43.78%
+    fit-count 5-24         n   4763  P<->B 45.03%  P<->L 15.98%  B<->L 14.61%  | decided   213  prog wins 45.07%
+    fit-count 25-124       n   5546  P<->B 54.15%  P<->L 23.82%  B<->L 20.65%  | decided   356  prog wins 54.78%
+    fit-count 125-1000000000 n  10532  P<->B 53.21%  P<->L 40.62%  B<->L 34.09%  | decided  2184  prog wins 62.36%
+  eval-row LOO bigram for skip1200: 18432 observations
+
+  skip1200: overall prog 13.64% LOO-bigram 12.25% | prog<->bigram agree 51.17%  prog<->live 24.21%  bigram<->live 20.41%
+    fit-count 0-0          n   4470  P<->B 50.02%  P<->L 14.70%  B<->L 13.51%  | decided   140  prog wins 30.00%
+    fit-count 1-4          n   3209  P<->B 50.61%  P<->L 15.46%  B<->L 14.18%  | decided   105  prog wins 32.38%
+    fit-count 5-24         n   2440  P<->B 51.76%  P<->L 19.22%  B<->L 16.56%  | decided   130  prog wins 55.38%
+    fit-count 25-124       n   3037  P<->B 55.88%  P<->L 24.43%  B<->L 19.46%  | decided   150  prog wins 62.00%
+    fit-count 125-1000000000 n   5276  P<->B 49.51%  P<->L 39.76%  B<->L 32.37%  | decided  1208  prog wins 62.42%
+
+  LEAK-FREE, the program beats the bigram OVERALL by >=1pp -> True  skip7000 13.55% vs 12.44% (+1.11pp)  skip11000 14.25% vs 12.88% (+1.37pp)  skip1200 13.64% vs 12.25% (+1.39pp)
+  ... and on the HEAD by >=3pp -> True  skip7000 39.01% vs 32.83% (+6.19pp)  skip11000 40.42% vs 35.29% (+5.13pp)  skip1200 38.91% vs 33.23% (+5.69pp)
+  ... and it WINS the decided disagreements on the head -> True  skip7000 prog wins 65.38% of 2129 decided  skip11000 prog wins 62.36% of 2184 decided  skip1200 prog wins 62.42% of 1208 decided
+  AGREEMENT, for the §1791 table: skip7000 P<->B 51.30% P<->L 40.27%  skip11000 P<->B 53.21% P<->L 40.62%  skip1200 P<->B 49.51% P<->L 39.77%
+  accuracies reproduce §1789/§1790, fit-bigram CE reproduces §1767 skip7000 7.88804  skip11000 7.90729, coverage 5419 -> control True
+
+pred_a True | pred_b True | pred_c True | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/bigram_comparison_leakfree_results.json (49.4s)

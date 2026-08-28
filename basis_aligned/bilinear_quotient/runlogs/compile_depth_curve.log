@@ -1,0 +1,73 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+COMPILE-DEPTH CURVE | depths 0..L live and L+1..17 compiled, all 18 L, plus the live-vs-row norm diagnostic | settled program (context-free tables + output-NN fallback + rank-64 map) | DISCOVERY ONLY
+
+  arms [overall/head]  (42s)
+  all_substituted  skip7000 13.55%/39.01%  skip11000 14.25%/40.42%  skip1200 13.64%/38.91%
+  live_model       skip7000 39.32%/61.46%  skip11000 42.35%/64.31%  skip1200 38.88%/61.37%
+  L0_prefix        skip7000 13.56%/39.01%  skip11000 14.24%/40.41%  skip1200 13.64%/38.91%
+  L1_prefix        skip7000 13.58%/39.08%  skip11000 14.28%/40.49%  skip1200 13.61%/38.72%
+  L2_prefix        skip7000 13.73%/39.35%  skip11000 14.44%/40.77%  skip1200 13.72%/38.97%
+  L3_prefix        skip7000 14.12%/40.28%  skip11000 14.85%/41.83%  skip1200 14.07%/40.07%
+  L4_prefix        skip7000 13.89%/37.92%  skip11000 14.72%/39.82%  skip1200 14.04%/38.19%
+  L5_prefix        skip7000 15.94%/43.37%  skip11000 16.54%/44.91%  skip1200 15.76%/42.85%
+  L6_prefix        skip7000 17.36%/45.66%  skip11000 17.87%/47.19%  skip1200 16.94%/44.11%
+  L7_prefix        skip7000 20.06%/51.85%  skip11000 20.68%/53.33%  skip1200 19.44%/50.02%
+  L8_prefix        skip7000 23.16%/54.83%  skip11000 24.41%/56.51%  skip1200 22.69%/53.17%
+  L9_prefix        skip7000 25.46%/56.51%  skip11000 26.60%/58.55%  skip1200 24.98%/55.40%
+  L10_prefix       skip7000 27.41%/58.02%  skip11000 28.81%/60.34%  skip1200 26.92%/56.92%
+  L11_prefix       skip7000 29.60%/58.20%  skip11000 31.40%/60.78%  skip1200 29.30%/58.28%
+  L12_prefix       skip7000 31.12%/59.20%  skip11000 32.91%/61.39%  skip1200 30.64%/58.89%
+  L13_prefix       skip7000 32.85%/58.63%  skip11000 34.98%/60.74%  skip1200 32.37%/58.89%
+  L14_prefix       skip7000 34.70%/59.45%  skip11000 37.20%/61.77%  skip1200 34.03%/59.23%
+  L15_prefix       skip7000 36.20%/60.29%  skip11000 39.01%/62.54%  skip1200 35.70%/60.44%
+  L16_prefix       skip7000 38.09%/59.98%  skip11000 41.11%/62.74%  skip1200 37.94%/60.25%
+  L17_prefix       skip7000 39.32%/61.46%  skip11000 42.35%/64.31%  skip1200 38.88%/61.37%
+
+  mean ||live attn output|| vs ||substituted row||, in the compiled stream:
+    L0  live      410.357  row   151.212  ratio    2.714
+    L1  live     4863.873  row   662.058  ratio    7.347
+    L2  live    31614.327  row  2833.251  ratio   11.158
+    L3  live    45979.709  row  3212.556  ratio   14.313
+    L4  live    60285.798  row  2339.302  ratio   25.771
+    L5  live  1202366.288  row  7878.181  ratio  152.620
+    L6  live   206335.324  row  2789.274  ratio   73.975
+    L7  live     6604.041  row   537.703  ratio   12.282
+    L8  live     3085.213  row   324.687  ratio    9.502
+    L9  live     3442.169  row   632.839  ratio    5.439
+    L10 live     5385.568  row   601.801  ratio    8.949
+    L11 live     4052.647  row   587.006  ratio    6.904
+    L12 live     3973.829  row   275.877  ratio   14.404
+    L13 live     4800.807  row   354.158  ratio   13.556
+    L14 live     3206.836  row   382.982  ratio    8.373
+    L15 live     3426.645  row   357.494  ratio    9.585
+    L16 live     6829.482  row   538.138  ratio   12.691
+    L17 live     9854.947  row  1233.815  ratio    7.987
+
+  compile-from-the-top curve: depths 0..L live, L+1..17 compiled
+     L                 skip7000               skip11000                skip1200
+     0     +0.00pp (  0.0%)    -0.01pp ( -0.0%)    -0.01pp ( -0.0%)
+     1     +0.03pp (  0.1%)    +0.03pp (  0.1%)    -0.03pp ( -0.1%)
+     2     +0.17pp (  0.7%)    +0.19pp (  0.7%)    +0.07pp (  0.3%)
+     3     +0.56pp (  2.2%)    +0.60pp (  2.2%)    +0.43pp (  1.7%)
+     4     +0.34pp (  1.3%)    +0.47pp (  1.7%)    +0.40pp (  1.6%)
+     5     +2.39pp (  9.3%)    +2.29pp (  8.1%)    +2.11pp (  8.4%)
+     6     +3.81pp ( 14.8%)    +3.62pp ( 12.9%)    +3.29pp ( 13.0%)
+     7     +6.51pp ( 25.3%)    +6.43pp ( 22.9%)    +5.79pp ( 23.0%)
+     8     +9.60pp ( 37.3%)   +10.16pp ( 36.2%)    +9.04pp ( 35.8%)
+     9    +11.91pp ( 46.2%)   +12.35pp ( 43.9%)   +11.34pp ( 44.9%)
+    10    +13.86pp ( 53.8%)   +14.56pp ( 51.8%)   +13.28pp ( 52.6%)
+    11    +16.05pp ( 62.3%)   +17.15pp ( 61.0%)   +15.65pp ( 62.0%)
+    12    +17.56pp ( 68.2%)   +18.66pp ( 66.4%)   +16.99pp ( 67.3%)
+    13    +19.29pp ( 74.9%)   +20.73pp ( 73.8%)   +18.72pp ( 74.2%)
+    14    +21.15pp ( 82.1%)   +22.95pp ( 81.7%)   +20.38pp ( 80.8%)
+    15    +22.65pp ( 87.9%)   +24.76pp ( 88.1%)   +22.06pp ( 87.4%)
+    16    +24.53pp ( 95.2%)   +26.86pp ( 95.6%)   +24.30pp ( 96.3%)
+    17    +25.77pp (100.0%)   +28.10pp (100.0%)   +25.24pp (100.0%)
+
+  half the gap needs at least 12 live layers -> False  skip7000 L10  skip11000 L10  skip1200 L10
+  the curve ACCELERATES with depth (L9->L13 gains more than L5->L9) -> False  skip7000 +28.7 vs +36.9 points of gap  skip11000 +29.8 vs +35.8 points of gap  skip1200 +29.3 vs +36.6 points of gap
+  L5 live beats L4 live despite L5 being the cliff layer -> True  skip7000 +2.39 vs +0.34pp  skip11000 +2.29 vs +0.47pp  skip1200 +2.11 vs +0.40pp
+  all-substituted and live reproduce §1789, coverage 5419 -> control True
+
+pred_a False | pred_b False | pred_c True | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/compile_depth_curve_results.json (107.0s)

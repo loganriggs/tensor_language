@@ -1,0 +1,28 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+DIRECT LOOKUP vs COMPOSED PROGRAM | ranks (None, 64) | output-NN fallback (§1780/§1781) | DISCOVERY ONLY
+  built the length-1 lookup and the output-NN map for 44838 uncovered ids (3s)
+  built 36 context-free tables (4s)
+
+  skip7000: live cov 3.29205 all 3.13704
+    DIRECT lookup      cov 6.03465  all 6.14589  (272.6M reals)
+    COMPOSED rank full  cov 6.03465  all 6.01897  (224.778M reals)
+    COMPOSED rank 64    cov 6.25792  all 6.19187  (15.223M reals)
+
+  skip11000: live cov 3.09711 all 2.93450
+    DIRECT lookup      cov 5.97900  all 6.15184  (272.6M reals)
+    COMPOSED rank full  cov 5.97900  all 6.00091  (224.778M reals)
+    COMPOSED rank 64    cov 6.21152  all 6.18267  (15.223M reals)
+
+  skip1200: live cov 3.40277 all 3.23027
+    DIRECT lookup      cov 5.96423  all 6.15373  (272.6M reals)
+    COMPOSED rank full  cov 5.96423  all 6.00733  (224.778M reals)
+    COMPOSED rank 64    cov 6.16197  all 6.15065  (15.223M reals)
+
+  DIRECT beats COMPOSED on all positions by >0.005 at every role -> False
+    margins skip7000 -0.12692  skip11000 -0.15093  skip1200 -0.14640
+  they agree on COVERED positions within 0.001 -> True  skip7000 0.00e+00  skip11000 0.00e+00  skip1200 0.00e+00
+  the honest all-position reference 6.15184 is below §1780's composed 6.00048 -> False
+  composed full-rank reproduces §1780 + coverage 5419 -> control True
+
+pred_a False | pred_b True | pred_c False | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/direct_lookup_vs_composed_results.json (109.7s)

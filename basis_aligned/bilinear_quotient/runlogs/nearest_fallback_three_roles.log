@@ -1,0 +1,19 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+CONTEXT-FREE FRONTIER, THIRD ROLE | ranks (None, 64, 8, 4) | skip1200 confirms | SECOND-CLASS CONFIRMATION
+  skip7000: live cov 3.29205 all 3.13704 | fit-mean all-tabled cov 7.35114 all 6.42601
+  skip11000: live cov 3.09711 all 2.93450 | fit-mean all-tabled cov 7.35825 all 6.34771
+  skip1200: live cov 3.40277 all 3.23027 | fit-mean all-tabled cov 7.19655 all 6.29358
+  built the nearest-covered map for 44838 uncovered token ids (8s)
+  built the contextfree family (8s)
+  rank full   224.778M | skip7000 mean 6.42143 near 6.05666  skip11000 mean 6.46948 near 6.03786  skip1200 mean 6.44227 near 6.04740   [15s]
+  rank 64      15.223M | skip7000 mean 6.59085 near 6.24543  skip11000 mean 6.64292 near 6.23480  skip1200 mean 6.59218 near 6.21155   [53s]
+  rank 8        1.975M | skip7000 mean 6.83535 near 6.53214  skip11000 mean 6.89892 near 6.54141  skip1200 mean 6.82385 near 6.48844   [92s]
+  rank 4        1.029M | skip7000 mean 6.95560 near 6.67601  skip11000 mean 7.02245 near 6.69203  skip1200 mean 6.95547 near 6.63885   [130s]
+
+  nearest beats mean at every rank on ALL THREE roles -> True
+  the gain transfers: skip7000 [0.365, 0.345, 0.303, 0.28] | skip11000 [0.432, 0.408, 0.358, 0.33] | skip1200 [0.395, 0.381, 0.335, 0.317] -> within 0.10 True
+  covered CE untouched on every role -> True
+  skip11000 reproduces §1777 + coverage 5419 -> control True
+
+pred_a True | pred_b True | pred_c True | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/nearest_fallback_three_roles_results.json (130.2s)

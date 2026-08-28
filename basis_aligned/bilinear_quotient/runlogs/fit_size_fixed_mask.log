@@ -1,0 +1,20 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+FIT SIZE, MASK HELD FIXED | coverage mask from n96_skip80 for EVERY arm (5419 tokens) | stake 4.3301 | eval n192_skip7000
+  fit n96_skip80   (  96 rows)
+      linear         CEILING  58.17%
+      table_mlp0_2   CEILING  56.95%
+      additive       CEILING  53.79%
+  fit n480_skip80  ( 480 rows)
+      linear         CEILING  60.81%
+      table_mlp0_2   CEILING  57.16%
+      additive       CEILING  59.08%
+
+  SIZE EFFECT with the mask FIXED (96 -> 480 rows):
+    linear          58.17% ->  60.81%   +2.64%   (§1675, mask growing: -3.29%)
+    table_mlp0_2    56.95% ->  57.16%   +0.21%   (§1675, mask growing: -0.45%)
+    additive        53.79% ->  59.08%   +5.29%   (§1675, mask growing: +1.23%)
+  additive estimation-limited True | §1675 linear drop was the mask True | control True
+  ordering at 480 rows: linear 60.81%  additive 59.08%  table_mlp0_2 57.16%
+
+pred_a True | pred_b True | pred_c True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/fit_size_fixed_mask_results.json (322.1s)

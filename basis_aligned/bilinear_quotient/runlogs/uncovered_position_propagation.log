@@ -1,0 +1,15 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+UNCOVERED-POSITION PROPAGATION | one batch, one poke of 10.0 per channel | coverage 5419 of 50257 | INSTRUMENT CHECK
+  live CE: covered 3.29205 (ref 3.29205)  all 3.13704 (ref 3.13704)
+  row 0: 200/256 positions covered; poking uncovered p=65 and covered p=64
+    attn0_uncovered          own 2.185e-02 | max later COVERED 1.184e-01 over 1190 positions | max later uncovered 5.116e-02
+    mlp0_uncovered           own 3.394e-04 | max later COVERED 2.460e-03 over 1190 positions | max later uncovered 1.732e-03
+    attn0_covered_control    own 7.558e-03 | max later COVERED 7.237e-02 over 1196 positions | max later uncovered 2.193e-02
+
+  an UNCOVERED position reaches a later covered one via attn0 -> True
+  and via mlp0 -> True
+  positive control: a COVERED position reaches later ones -> True
+  injection landed at every poked position + live CEs + coverage -> control True
+
+pred_a True | pred_b True | pred_c True | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/uncovered_position_propagation_results.json (1.9s)

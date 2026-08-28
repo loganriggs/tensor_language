@@ -1,0 +1,20 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+CORRECTION RANK AT A STARVED TABLE | table ranks (64, 16, 8) x correction ranks (8, 32, 128) | interleaved bottom-up | DISCOVERY ONLY
+  fit coverage 5419 of 50257 token ids
+  table  64 corr   8: cost  15.8861M | recovered skip7000 +0.53434  skip11000 +0.54065 | 0.034033 nats/M   [101s]
+  table  64 corr  32: cost  17.8767M | recovered skip7000 +0.68235  skip11000 +0.68733 | 0.038449 nats/M   [163s]
+  table  64 corr 128: cost  25.8394M | recovered skip7000 +0.77602  skip11000 +0.78536 | 0.030394 nats/M   [226s]
+  table  16 corr   8: cost   4.5314M | recovered skip7000 +0.46964  skip11000 +0.46873 | 0.103441 nats/M   [320s]
+  table  16 corr  32: cost   6.5220M | recovered skip7000 -0.38714  skip11000 -0.31693 | -0.048594 nats/M   [382s]
+  table  16 corr 128: cost  14.4847M | recovered skip7000 +0.38846  skip11000 +0.40534 | 0.027984 nats/M   [445s]
+  table   8 corr   8: cost   2.6389M | recovered skip7000 +0.40210  skip11000 +0.41052 | 0.155563 nats/M   [539s]
+  table   8 corr  32: cost   4.6296M | recovered skip7000 +0.24895  skip11000 +0.30593 | 0.066080 nats/M   [601s]
+  table   8 corr 128: cost  12.5922M | recovered skip7000 -0.12625  skip11000 -0.09198 | -0.007305 nats/M   [663s]
+
+  fidelity monotone in correction rank at every table rank -> False
+  best fidelity +0.78536 (t64_c128) beats §1757's +0.78535 -> True
+  best efficiency 0.155563 (t8_c8) beats §1756's 0.155565 -> False
+  both corr-8 cells reproduce §1756 + table-only CE + live CE + coverage 5419 -> control True
+
+pred_a False | pred_b True | pred_c False | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/table_correction_grid_results.json (663.5s)

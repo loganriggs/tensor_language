@@ -1,0 +1,26 @@
+PREFIX-PADDED POSITION-WISE | k in (0, 1, 2, 4, 8, 16, 32, 64) | pads {'token0': 0, 'most_common': 13} | selected on skip7000, bound on skip11000 | DISCOVERY ONLY
+  token0       k   0: skip7000 6.03465  skip11000 5.97900   [1s]
+  token0       k   1: skip7000 6.44643  skip11000 6.40567   [2s]
+  token0       k   2: skip7000 6.47017  skip11000 6.44792   [2s]
+  token0       k   4: skip7000 6.47737  skip11000 6.47267   [3s]
+  token0       k   8: skip7000 6.60449  skip11000 6.60346   [4s]
+  token0       k  16: skip7000 6.53730  skip11000 6.53631   [6s]
+  token0       k  32: skip7000 6.53486  skip11000 6.53198   [11s]
+  token0       k  64: skip7000 6.57989  skip11000 6.57279   [20s]
+  most_common  k   0: skip7000 6.03465  skip11000 5.97900   [20s]
+  most_common  k   1: skip7000 6.46565  skip11000 6.43154   [21s]
+  most_common  k   2: skip7000 6.55807  skip11000 6.52130   [21s]
+  most_common  k   4: skip7000 6.33436  skip11000 6.30709   [22s]
+  most_common  k   8: skip7000 6.46678  skip11000 6.45964   [23s]
+  most_common  k  16: skip7000 6.49850  skip11000 6.49422   [26s]
+  most_common  k  32: skip7000 6.53156  skip11000 6.53073   [30s]
+  most_common  k  64: skip7000 6.61478  skip11000 6.60530   [39s]
+
+  selected on skip7000: token0_k0 -> skip11000 5.97900
+  tightens 5.97902 by at least 0.01 -> False (by +0.00002)
+  best k=0 is interior in (0, 1, 2, 4, 8, 16, 32, 64) -> False
+  the two pads differ at k=0 by 0.00000 (>= 0.01) -> False
+  k=0 reproduces §1768 (6.03465 / 5.97900) + coverage 5419 -> control True
+
+pred_a False | pred_b False | pred_c False | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/prefix_padded_position_wise_results.json (38.9s)

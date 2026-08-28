@@ -1,0 +1,34 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+  fit-row bigram: 24576 observations over 5419 covered current types; 5419 types observed
+ACCURACY BY TARGET FREQUENCY | buckets ((0, 0), (1, 4), (5, 24), (25, 124), (125, 1000000000)) on the fit-row count of the TRUE target | full-rank settled program | DISCOVERY ONLY
+  built the settled fallback and 36 tables (4s)
+  eval-row LOO bigram for skip7000: 36864 observations
+
+  skip7000 overall: n 36864  prog 13.55%  bigram 12.44%  ORACLE UNION 17.36%  live 39.32%
+    selector by program margin: tau 0.0 13.55% (defer 0%)  tau 0.25 13.45% (defer 32%)  tau 0.5 13.44% (defer 52%)  tau 1.0 13.17% (defer 76%)  tau 2.0 12.76% (defer 97%)  tau 4.0 12.48% (defer 100%)  tau 8.0 12.45% (defer 100%)  tau 16.0 12.44% (defer 100%)
+
+  skip7000 head: n 10589  prog 39.01%  bigram 32.83%  ORACLE UNION 45.97%  live 61.46%
+    selector by program margin: tau 0.0 39.01% (defer 0%)  tau 0.25 37.69% (defer 29%)  tau 0.5 36.61% (defer 50%)  tau 1.0 35.39% (defer 73%)  tau 2.0 33.61% (defer 95%)  tau 4.0 32.88% (defer 100%)  tau 8.0 32.83% (defer 100%)  tau 16.0 32.83% (defer 100%)
+  eval-row LOO bigram for skip11000: 36864 observations
+
+  skip11000 overall: n 36864  prog 14.25%  bigram 12.88%  ORACLE UNION 18.05%  live 42.35%
+    selector by program margin: tau 0.0 14.25% (defer 0%)  tau 0.25 14.40% (defer 32%)  tau 0.5 14.21% (defer 52%)  tau 1.0 13.89% (defer 76%)  tau 2.0 13.28% (defer 97%)  tau 4.0 12.94% (defer 100%)  tau 8.0 12.88% (defer 100%)  tau 16.0 12.88% (defer 100%)
+
+  skip11000 head: n 10532  prog 40.42%  bigram 35.29%  ORACLE UNION 48.22%  live 64.31%
+    selector by program margin: tau 0.0 40.42% (defer 0%)  tau 0.25 39.77% (defer 29%)  tau 0.5 38.77% (defer 49%)  tau 1.0 37.69% (defer 72%)  tau 2.0 36.09% (defer 95%)  tau 4.0 35.33% (defer 99%)  tau 8.0 35.29% (defer 100%)  tau 16.0 35.29% (defer 100%)
+  eval-row LOO bigram for skip1200: 18432 observations
+
+  skip1200 overall: n 18432  prog 13.64%  bigram 12.25%  ORACLE UNION 17.65%  live 38.88%
+    selector by program margin: tau 0.0 13.64% (defer 0%)  tau 0.25 13.36% (defer 31%)  tau 0.5 13.53% (defer 51%)  tau 1.0 13.17% (defer 75%)  tau 2.0 12.62% (defer 97%)  tau 4.0 12.30% (defer 100%)  tau 8.0 12.25% (defer 100%)  tau 16.0 12.25% (defer 100%)
+
+  skip1200 head: n 5276  prog 38.91%  bigram 33.23%  ORACLE UNION 47.52%  live 61.37%
+    selector by program margin: tau 0.0 38.91% (defer 0%)  tau 0.25 37.72% (defer 28%)  tau 0.5 37.17% (defer 50%)  tau 1.0 35.84% (defer 72%)  tau 2.0 34.21% (defer 95%)  tau 4.0 33.32% (defer 100%)  tau 8.0 33.23% (defer 100%)  tau 16.0 33.23% (defer 100%)
+
+  the ORACLE union beats the better arm on the head by >=8pp -> False  skip7000 45.97% vs 39.01% (+6.96pp)  skip11000 48.22% vs 40.42% (+7.80pp)  skip1200 47.52% vs 38.91% (+8.61pp)
+  tau chosen on skip7000 = 0.0 (defer share 0%); applied unchanged to ['skip11000', 'skip1200']
+  the SELECTOR beats the program alone on held-out roles by >=1pp -> False  skip11000 14.25% vs 14.25% (+0.00pp)  skip1200 13.64% vs 13.64% (+0.00pp)
+  ... and the bigram alone by >=3pp -> False  skip11000 14.25% vs 12.88% (+1.37pp)  skip1200 13.64% vs 12.25% (+1.39pp)
+  accuracies reproduce §1789/§1790, fit-bigram CE reproduces §1767 skip7000 7.88804  skip11000 7.90729, coverage 5419 -> control True
+
+pred_a False | pred_b False | pred_c False | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/program_bigram_selector_results.json (49.5s)

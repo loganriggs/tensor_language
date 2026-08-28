@@ -1,0 +1,25 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+WHOLE MODEL SHORTFALL BANDS | exempt-one at band grain, RECOMPILED per exemption | CE live 3.29205 | stake 5.5684 | 192 eval rows
+  exempt none        ( 0 sites live) CEILING   55.04%
+  exempt mlp_front   ( 4 sites live) CEILING   62.57%
+  exempt mlp_mid     (12 sites live) CEILING   67.55%
+  exempt mlp_late    ( 2 sites live) CEILING   57.03%
+  exempt attn_front  ( 4 sites live) CEILING   55.64%
+  exempt attn_mid    (12 sites live) CEILING   67.17%
+  exempt attn_late   ( 2 sites live) CEILING   58.26%
+  bootstrapping band gains (2000 draws, ROW-level clusters)...
+
+  band gains (exempting the band, i.e. what leaving it REAL buys back):
+    mlp_mid     +12.52%  95% CI [+12.12%, +12.89%]
+    attn_mid    +12.14%  95% CI [+11.38%, +12.98%]
+    mlp_front    +7.53%  95% CI [+7.23%, +7.83%]
+    attn_late    +3.22%  95% CI [+3.01%, +3.44%]
+    mlp_late     +1.99%  95% CI [+1.86%, +2.13%]
+    attn_front   +0.60%  95% CI [+0.48%, +0.71%]
+  middle bands +24.65% vs four outer bands +13.33% -> middle dominates True
+  attention side +15.95% vs MLP side +22.03% -> attention has more headroom False
+  ordering resolved: mlp_mid CI excludes attn_front CI -> True
+  CONTROLS base 55.04% vs §1696 55.04%, all gains positive -> True
+
+pred_a True | pred_b False | pred_c True | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/whole_model_shortfall_bands_results.json (1353.0s)

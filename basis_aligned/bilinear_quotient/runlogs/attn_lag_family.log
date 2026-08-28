@@ -1,0 +1,13 @@
+ATTN LAG FAMILY | y = [x_t, x_(t-lag)] W on 18 attention output writes, compiled bottom-up | lags [0, 1, 8] | stake 3.5570 nats
+  §1682 position-wise (lag 0) reference: 16.38%
+    lag  0: CEILING   16.38%
+    lag  1: CEILING   56.26%
+    lag  8: CEILING   23.67%
+
+  lag1 56.26% vs lag0 16.38% (+39.88%) -> previous token carries real weight True
+  lag1 vs lag8 23.67% (+32.59%) -> lag 1 specifically, not just a second slot True
+  lag1 below 50% -> not merely previous-token copying False
+  remaining non-local share after lag 1: 43.74%
+
+pred_a True | pred_b False | pred_c True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/attn_lag_family_results.json (209.5s)

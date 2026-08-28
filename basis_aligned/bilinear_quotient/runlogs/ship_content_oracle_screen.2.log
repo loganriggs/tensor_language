@@ -1,0 +1,37 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+whiteners built
+attn maps built
+context capture done
+planks 0/1 context-fit
+planks 2/3 fit
+'peer closed connection without sending complete message body (received 20328545 bytes, expected 38345731)' thrown while requesting GET https://huggingface.co/datasets/HuggingFaceFW/fineweb/resolve/9bb295ddab0e05d785b879661af7260fed5140fc/data/CC-MAIN-2013-20/000_00000.parquet
+Retrying in 1s [Retry 1/5].
+unit planks built
+'peer closed connection without sending complete message body (received 37605481 bytes, expected 38345731)' thrown while requesting GET https://huggingface.co/datasets/HuggingFaceFW/fineweb/resolve/9bb295ddab0e05d785b879661af7260fed5140fc/data/CC-MAIN-2013-20/000_00000.parquet
+Retrying in 1s [Retry 1/5].
+'peer closed connection without sending complete message body (received 29970616 bytes, expected 38345731)' thrown while requesting GET https://huggingface.co/datasets/HuggingFaceFW/fineweb/resolve/9bb295ddab0e05d785b879661af7260fed5140fc/data/CC-MAIN-2013-20/000_00000.parquet
+Retrying in 2s [Retry 2/5].
+'The read operation timed out' thrown while requesting GET https://huggingface.co/datasets/HuggingFaceFW/fineweb/resolve/9bb295ddab0e05d785b879661af7260fed5140fc/data/CC-MAIN-2013-20/000_00000.parquet
+Retrying in 4s [Retry 3/5].
+oracle basis rows loaded
+oracle discovery rows loaded
+oracle heldout rows loaded
+Traceback (most recent call last):
+  File "/workspace/tensor_language/basis_aligned/polynomial_causal/ship_content_oracle_screen.py", line 16, in <module>
+    ship_error_attrib.main(oracle_content_screen=True)
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ship_error_attrib.py", line 994, in main
+    run_oracle_content_screen(TWALL, ALLL, t0)
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ship_error_attrib.py", line 530, in run_oracle_content_screen
+    content_rms = correction_rms(content_basis)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ship_error_attrib.py", line 527, in correction_rms
+    return math.sqrt(float(coefficients.double().square().sum()) /
+           ^^^^
+NameError: name 'math' is not defined. Did you forget to import 'math'?
+Fatal Python error: PyGILState_Release: thread state 0x7f55008a8620 must be current when releasing
+Python runtime state: finalizing (tstate=0x000055d6bf0f45d0)
+
+Thread 0x00007f598e831600 (most recent call first):
+  <no Python frame>
+
+Extension modules: numpy._core._multiarray_umath, numpy.linalg._umath_linalg, torch._C, torch._C._dynamo.autograd_compiler, torch._C._dynamo.eval_frame, torch._C._dynamo.guards, torch._C._dynamo.utils, torch._C._fft, torch._C._linalg, torch._C._nested, torch._C._nn, torch._C._sparse, torch._C._special, yaml._yaml, pyarrow.lib, numpy.random._common, numpy.random.bit_generator, numpy.random._bounded_integers, numpy.random._pcg64, numpy.random._generator, numpy.random._mt19937, numpy.random._philox, numpy.random._sfc64, numpy.random.mtrand, _cyutility, pandas._libs._cyutility, pandas._libs.tslibs.ccalendar, pandas._libs.tslibs.np_datetime, pandas._libs.tslibs.dtypes, pandas._libs.tslibs.base, pandas._libs.tslibs.nattype, pandas._libs.tslibs.timezones, pandas._libs.properties, pandas._libs.tslibs.fields, pandas._libs.tslibs.timedeltas, pandas._libs.tslibs.tzconversion, pandas._libs.tslibs.timestamps, pandas._libs.tslibs.offsets, pandas._libs.tslibs.strptime, pandas._libs.tslibs.parsing, pandas._libs.tslibs.conversion, pandas._libs.tslibs.period, pandas._libs.tslibs.vectorized, pandas._libs.ops_dispatch, pandas._libs.missing, pandas._libs.hashtable, pandas._libs.algos, pandas._libs.interval, pandas._libs.lib, pyarrow._compute, pandas._libs.ops, pandas._libs.hashing, pandas._libs.arrays, pandas._libs.tslib, pandas._libs.sparse, pandas._libs.internals, pandas._libs.indexing, pandas._libs.index, pandas._libs.writers, pandas._libs.join, pandas._libs.window.aggregations, pandas._libs.window.indexers, pandas._libs.reshape, pandas._libs.groupby, pandas._libs.json, pandas._libs.parsers, pandas._libs.testing, pyarrow._acero, pyarrow._fs, pyarrow._csv, pyarrow._json, pyarrow._substrait, pyarrow._dataset, pyarrow._dataset_orc, pyarrow._parquet, pyarrow._azurefs, pyarrow._hdfs, pyarrow._gcsfs, pyarrow._s3fs, pyarrow._parquet_encryption, pyarrow._dataset_parquet_encryption, pyarrow._dataset_parquet, charset_normalizer.md, charset_normalizer.cd, requests.packages.charset_normalizer.md, requests.packages.chardet.md, requests.packages.charset_normalizer.cd, requests.packages.chardet.cd, multidict._multidict, yarl._quoting_c, propcache._helpers_c, aiohttp._http_writer, aiohttp._http_parser, aiohttp._websocket.mask, aiohttp._websocket.reader_c, frozenlist._frozenlist, xxhash._xxhash, scipy._cyutility, scipy._lib._ccallback_c, scipy.sparse._sparsetools, _csparsetools, scipy.sparse._csparsetools, scipy.io.matlab._mio_utils, scipy.io.matlab._streams, scipy.io.matlab._mio5_utils (total: 105)

@@ -1,0 +1,24 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+DOWNSTREAM OBJECTIVE COMPILE | rank 8 at all 36 sites | init at §1748 interleaved, then 300 Adam steps on final CE | DISCOVERY ONLY
+  fit coverage 5419 of 50257 token ids
+  interleaved init built (61s)
+  step 0 (= §1748): skip7000 +0.40631  skip11000 +0.38578
+/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/downstream_objective_compile.py:256: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:836.)
+  print(f'    step {step + 1:4d}  train CE {float(loss):.4f}  ' + '  '.join(
+    step   60  train CE 4.8870  skip7000 +0.56282  skip11000 +0.54673   [79s]
+    step  120  train CE 4.6231  skip7000 +0.59388  skip11000 +0.57418   [93s]
+    step  180  train CE 4.6878  skip7000 +0.59098  skip11000 +0.57491   [101s]
+    step  240  train CE 5.0640  skip7000 +0.58504  skip11000 +0.56663   [109s]
+    step  300  train CE 4.6266  skip7000 +0.57457  skip11000 +0.55074   [117s]
+
+  final: skip7000 +0.57457 (+14.16%)  skip11000 +0.55074 (+12.92%)
+  gain over the interleaved init: skip7000 +0.16826  skip11000 +0.16496
+
+  beats the local objective held out -> True
+  reaches the sum of the parts +1.7460 -> False
+  gain ratio between roles 1.020 in [0.75, 1.33] -> not a fit-row artifact True
+  step 0 reproduces §1748 + table-only + live CE + coverage 5419 -> control True
+
+pred_a True | pred_b False | pred_c True | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/downstream_objective_compile_results.json (119.7s)

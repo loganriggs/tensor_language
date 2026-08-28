@@ -1,0 +1,22 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+CONTEXT-FREE FRONTIER, THIRD ROLE | ranks (None, 64, 8, 4) | skip1200 confirms | SECOND-CLASS CONFIRMATION
+  skip7000: live cov 3.29205 all 3.13704 | fit-mean all-tabled cov 7.35114 all 6.42601
+  skip11000: live cov 3.09711 all 2.93450 | fit-mean all-tabled cov 7.35825 all 6.34771
+  built the fitmean family (7s)
+  fitmean      rank full   224.778M | hybrid all 6.34771  standalone all 8.00215   [9s]
+  fitmean      rank 64      15.223M | hybrid all 6.28596  standalone all 7.90421   [44s]
+  fitmean      rank 8        1.975M | hybrid all 6.55565  standalone all 8.11137   [79s]
+  fitmean      rank 4        1.029M | hybrid all 6.67253  standalone all 8.20113   [113s]
+  built the contextfree family (114s)
+  contextfree  rank full   224.778M | hybrid all 7.70737  standalone all 6.46948   [116s]
+  contextfree  rank 64      15.223M | hybrid all 7.87443  standalone all 6.64292   [151s]
+  contextfree  rank 8        1.975M | hybrid all 8.11918  standalone all 6.89892   [185s]
+  contextfree  rank 4        1.029M | hybrid all 8.22337  standalone all 7.02245   [220s]
+
+  matched STANDALONE: context-free beats fit-mean on all positions at every rank -> True
+  within the context-free family the fallback HURTS at every rank -> True
+  within the fit-mean family the fallback HELPS at every rank -> True
+  §1775 context-free all-position CEs reproduce + coverage 5419 -> control True
+
+pred_a True | pred_b True | pred_c True | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/matched_family_allposition_results.json (220.0s)

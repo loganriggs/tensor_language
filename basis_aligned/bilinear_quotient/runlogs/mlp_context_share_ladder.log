@@ -1,0 +1,22 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+MLP CONTEXT SHARE LADDER | sites [0, 1, 2, 3] | covered-position scoring with HYBRID substitution (§1661 fix) | fit skip1200, eval skip7000
+  mlp0 live   stake  0.8552 | CE live 3.27946 const 4.13467 table 3.36272 | CEILING  90.27%
+  mlp0 frozen stake  0.6276 | CE live 3.50924 const 4.13684 table 3.50924 | CEILING 100.00%
+    -> context share 9.74%
+  mlp1 live   stake  7.0050 | CE live 3.27946 const 10.28442 table 3.55898 | CEILING  96.01%
+  mlp1 frozen stake  6.0666 | CE live 4.51864 const 10.58521 table 4.51864 | CEILING 100.00%
+    -> context share 3.99%
+  mlp2 live   stake  0.7719 | CE live 3.27946 const 4.05136 table 3.45714 | CEILING  76.98%
+  mlp2 frozen stake  0.5512 | CE live 5.36489 const 5.91614 table 5.36489 | CEILING 100.00%
+    -> context share 23.02%
+  mlp3 live   stake  0.6201 | CE live 3.27946 const 3.89959 table 3.48072 | CEILING  67.55%
+  mlp3 frozen stake  2.0667 | CE live 5.67114 const 7.73782 table 5.67114 | CEILING 100.00%
+    -> context share 32.45%
+
+  INSTRUMENT CHECK (all frozen ceilings ~1.0): ['100.00%', '100.00%', '100.00%', '100.00%']  -> True
+  CONTEXT SHARE LADDER: mlp0 9.74%  mlp1 3.99%  mlp2 23.02%  mlp3 32.45%
+  mlp0 replicates §1661 (live 90.27%): 90.27%
+  min stake across all arms: 0.5513 nats
+
+pred_a True | pred_b True | pred_c True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/mlp_context_share_ladder_results.json (68.1s)

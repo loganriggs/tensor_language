@@ -1,0 +1,27 @@
+WHOLE MODEL HELD-OUT | compile ONCE, score on ['skip7000', 'skip11000'] | v1 tabled (§1698) | §1696 headline 55.04%
+  compiled simple
+  compiled attn_upgraded
+  compiled mlp_upgraded
+  compiled both
+  skip7000   CE live 3.29205 | joint stake 5.5684 nats
+      simple         CEILING   50.94%
+      attn_upgraded  CEILING   53.60%
+      mlp_upgraded   CEILING   52.25%
+      both           CEILING   55.04%
+  skip11000  CE live 3.09711 | joint stake 5.7750 nats
+      simple         CEILING   49.71%
+      attn_upgraded  CEILING   52.35%
+      mlp_upgraded   CEILING   50.96%
+      both           CEILING   53.69%
+
+  ARM-BY-ARM reference -> held out:
+    simple          50.94% ->  49.71%   -1.23%
+    attn_upgraded   53.60% ->  52.35%   -1.26%
+    mlp_upgraded    52.25% ->  50.96%   -1.29%
+    both            55.04% ->  53.69%   -1.34%
+  gains held out: attn +2.63% | mlp +1.25% | both +3.98% | singles sum +3.88%
+  (§1697 on skip7000: attn +2.66% | mlp +1.31% | both +4.10%)
+  headline holds True | gain structure holds True | controls True | cluster precision holds True | overall True
+
+pred_a True | pred_b True | pred_c True | pred_d True | overall True
+publishing create-only /workspace/tensor_language/basis_aligned/bilinear_quotient/whole_model_heldout_results.json (766.3s)

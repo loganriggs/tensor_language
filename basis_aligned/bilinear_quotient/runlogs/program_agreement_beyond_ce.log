@@ -1,0 +1,29 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+PROGRAM AGREEMENT BEYOND CE | top-1 agreement, top-1 accuracy, KL(live||prog) | table ranks (None, 64) | DISCOVERY ONLY
+  built the settled fallback and 36 tables (4s)
+
+  skip7000:
+    table full  cov  CE live 3.29205 prog 6.03465  KL 2.74540  agree 25.35%  acc live 37.38% prog 14.00%
+    table full  all  CE live 3.13704 prog 6.01167  KL 2.88031  agree 23.57%  acc live 39.32% prog 13.55%
+    table 64    cov  CE live 3.29205 prog 6.25792  KL 2.96443  agree 23.63%  acc live 37.38% prog 13.01%
+    table 64    all  CE live 3.13704 prog 6.17330  KL 3.03866  agree 22.37%  acc live 39.32% prog 12.88%
+
+  skip11000:
+    table full  cov  CE live 3.09711 prog 5.97900  KL 2.88412  agree 24.42%  acc live 39.99% prog 14.80%
+    table full  all  CE live 2.93450 prog 5.98477  KL 3.04866  agree 22.71%  acc live 42.35% prog 14.25%
+    table 64    cov  CE live 3.09711 prog 6.21152  KL 3.12250  agree 23.34%  acc live 39.99% prog 13.78%
+    table 64    all  CE live 2.93450 prog 6.15261  KL 3.22077  agree 21.88%  acc live 42.35% prog 13.49%
+
+  skip1200:
+    table full  cov  CE live 3.40277 prog 5.96423  KL 2.53891  agree 26.28%  acc live 36.58% prog 14.35%
+    table full  all  CE live 3.23027 prog 6.00165  KL 2.75451  agree 24.21%  acc live 38.88% prog 13.64%
+    table 64    cov  CE live 3.40277 prog 6.16197  KL 2.74262  agree 25.03%  acc live 36.58% prog 13.43%
+    table 64    all  CE live 3.23027 prog 6.14463  KL 2.90231  agree 23.22%  acc live 38.88% prog 12.88%
+
+  top-1 agreement with the live model is below 50% -> True  skip7000 23.57%  skip11000 22.71%  skip1200 24.21%
+  the program keeps >=half the live top-1 accuracy -> False  skip7000 13.55% vs 39.32%  skip11000 14.25% vs 42.35%  skip1200 13.64% vs 38.88%
+  KL exceeds the covered CE gap by >=2x -> False  skip7000 KL 2.7454 vs gap 2.7426  skip11000 KL 2.8841 vs gap 2.8819  skip1200 KL 2.5389 vs gap 2.5615
+  CE reproduces §1787 + live CE + coverage 5419 -> control True
+
+pred_a True | pred_b False | pred_c False | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/program_agreement_beyond_ce_results.json (368.0s)

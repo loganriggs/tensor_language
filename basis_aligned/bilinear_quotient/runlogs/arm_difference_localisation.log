@@ -1,0 +1,23 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+ARM DIFFERENCE LOCALISATION | table 64 corr 128 | coverage 5419 | DIAGNOSTIC
+  compiled hybrid (92s)
+  compiled standalone (151s)
+    n_scored                 1536
+    n_nonzero                335
+    n_covered                1201
+    n_uncovered              335
+    n_nonzero_covered        0
+    n_nonzero_uncovered      335
+    max_delta                14.540353924036026
+    max_delta_covered        0.0
+    max_delta_uncovered      14.540353924036026
+    sum_abs_covered          0.0
+    sum_abs_uncovered        1071.3517012111843
+
+  the arms differ somewhere -> True
+  the difference reaches COVERED positions (0.000e+00) -> False
+  uncovered positions carry more absolute difference (1071.3517 vs 0.0000) -> True
+  coverage 5419 and both categories non-empty -> control True
+
+pred_a True | pred_b False | pred_c True | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/arm_difference_localisation_results.json (151.7s)

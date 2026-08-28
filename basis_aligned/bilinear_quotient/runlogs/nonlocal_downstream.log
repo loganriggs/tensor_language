@@ -1,0 +1,18 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+  feature causality known-answer check PASSED (LESSONS 34)
+NON-LOCAL CLASS UNDER A DOWNSTREAM OBJECTIVE | rank 8 | ['A_current', 'C_lag1_prefixmean'] | 240 Adam steps on final CE, checkpoint on skip7000 | DISCOVERY ONLY
+  fit coverage 5419 of 50257 token ids
+
+  A_current            1 block(s), 0.664M: start +0.38578 -> best +0.58315 (+13.69%) at step 120 | trained gain +0.19737 | 0.879 nats/M   [107s]
+    trajectory (skip11000): 0:+0.3858 40:+0.5317 80:+0.5685 120:+0.5831 160:+0.5655 200:+0.5736 240:+0.5625
+
+  C_lag1_prefixmean    3 block(s), 1.327M: start -0.80166 -> best +0.31212 (+7.32%) at step 240 | trained gain +1.11377 | 0.235 nats/M   [222s]
+    trajectory (skip11000): 0:-0.8017 40:+0.2414 80:+0.2494 120:+0.0896 160:+0.2172 200:+0.0834 240:+0.3121
+
+  trained C beats trained A held out (+0.31212 vs +0.58315) -> False
+  training rescues C from negative (-0.80166 -> +0.31212) -> True
+  the richer class gains more from a global objective (+1.11377 vs +0.19737) -> True
+  both starts reproduce §1748 and §1752 + table-only + live CE + coverage 5419 -> control True
+
+pred_a False | pred_b True | pred_c True | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/nonlocal_downstream_results.json (222.3s)

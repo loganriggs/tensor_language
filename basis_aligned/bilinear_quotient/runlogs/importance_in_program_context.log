@@ -1,0 +1,23 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+SITE IMPORTANCE IN PROGRAM CONTEXT | 36 per-token tables | DISCOVERY ONLY -- both large roles are spent for this family (§1736/§1737). Confirms nothing.
+  fit coverage 5419 of 50257 token ids
+
+  skip7000: live CE 3.29205 | 36-table program CE 7.35114 (+4.0591 over live)
+    Spearman(PROG, LOO) +0.3488   Spearman(PROG, OAT) -0.6636
+    top 6 by PROG: [('mlp17', 0.51279), ('mlp16', 0.37224), ('attn16', 0.313), ('mlp15', 0.23347), ('attn14', 0.21559), ('attn17', 0.20006)]
+    negative-PROG sites: 5 [('attn5', -0.05237), ('attn6', -0.01665), ('mlp2', -0.0007), ('mlp0', -0.0003), ('mlp3', -0.00017)]
+
+  skip11000: live CE 3.09711 | 36-table program CE 7.35825 (+4.2611 over live)
+    Spearman(PROG, LOO) +0.3704   Spearman(PROG, OAT) -0.6873
+    top 6 by PROG: [('mlp17', 0.5141), ('mlp16', 0.35994), ('attn16', 0.31049), ('attn14', 0.2426), ('mlp15', 0.2259), ('attn17', 0.20562)]
+    negative-PROG sites: 5 [('attn5', -0.08425), ('attn6', -0.01262), ('mlp2', -0.00059), ('mlp0', -0.0003), ('mlp3', -7e-05)]
+
+  PROG closer to LOO than to OAT on both roles -> True
+  no negative-importance site in table context -> pathology removed False
+  live CE + 36-table program CE 7.35114 vs 7.3515 + coverage 5419 -> control True
+  front band holds >=2 of the top six on both roles -> False
+
+  FROZEN: top 6 by the WORSE of the two roles' PROG: ['mlp17', 'mlp16', 'attn16', 'mlp15', 'attn14', 'attn17']
+
+pred_a True | pred_b False | pred_c True | pred_d False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/importance_in_program_context_results.json (111.1s)

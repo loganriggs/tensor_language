@@ -1,0 +1,54 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+FRONT TABLE RANK STRUCTURE | sites [0, 1, 2, 3] | ranks [1, 2, 4, 8, 16, 23, 32, 64, 128] | position-weighted SVD, §1661 hybrid substitution | fit skip1200, eval skip7000
+
+  mlp0: 6009 tokens seen | stake 0.8552 | FULL table ceiling 90.26%  (§1662 90.27%)
+    rank    1: ceiling  58.70%  = 65.03% of full table
+    rank    2: ceiling  62.80%  = 69.57% of full table
+    rank    4: ceiling  63.75%  = 70.63% of full table
+    rank    8: ceiling  69.66%  = 77.18% of full table
+    rank   16: ceiling  77.22%  = 85.55% of full table
+    rank   23: ceiling  80.55%  = 89.24% of full table
+    rank   32: ceiling  83.05%  = 92.01% of full table
+    rank   64: ceiling  87.12%  = 96.52% of full table
+    rank  128: ceiling  89.30%  = 98.93% of full table
+
+  mlp1: 6009 tokens seen | stake 7.0050 | FULL table ceiling 96.01%  (§1662 96.01%)
+    rank    1: ceiling  22.47%  = 23.41% of full table
+    rank    2: ceiling  36.42%  = 37.93% of full table
+    rank    4: ceiling  41.00%  = 42.70% of full table
+    rank    8: ceiling  63.90%  = 66.55% of full table
+    rank   16: ceiling  84.95%  = 88.48% of full table
+    rank   23: ceiling  88.32%  = 92.00% of full table
+    rank   32: ceiling  89.90%  = 93.64% of full table
+    rank   64: ceiling  93.15%  = 97.02% of full table
+    rank  128: ceiling  95.18%  = 99.14% of full table
+
+  mlp2: 6009 tokens seen | stake 0.7719 | FULL table ceiling 76.98%  (§1662 76.98%)
+    rank    1: ceiling  40.83%  = 53.03% of full table
+    rank    2: ceiling  41.49%  = 53.90% of full table
+    rank    4: ceiling  40.89%  = 53.11% of full table
+    rank    8: ceiling  50.77%  = 65.95% of full table
+    rank   16: ceiling  58.22%  = 75.63% of full table
+    rank   23: ceiling  61.66%  = 80.10% of full table
+    rank   32: ceiling  64.97%  = 84.39% of full table
+    rank   64: ceiling  70.57%  = 91.67% of full table
+    rank  128: ceiling  74.85%  = 97.22% of full table
+
+  mlp3: 6009 tokens seen | stake 0.6201 | FULL table ceiling 67.55%  (§1662 67.55%)
+    rank    1: ceiling  40.35%  = 59.74% of full table
+    rank    2: ceiling  44.86%  = 66.41% of full table
+    rank    4: ceiling  51.41%  = 76.11% of full table
+    rank    8: ceiling  56.34%  = 83.41% of full table
+    rank   16: ceiling  61.23%  = 90.66% of full table
+    rank   23: ceiling  62.33%  = 92.27% of full table
+    rank   32: ceiling  63.09%  = 93.40% of full table
+    rank   64: ceiling  65.87%  = 97.51% of full table
+    rank  128: ceiling  68.06%  = 100.75% of full table
+
+  rank-64 fraction of full table, by site: ['96.5%', '97.0%', '91.7%', '97.5%']  -> low rank True
+  mlp0 at rank 23 (§780 effective rank 22.7): 89.24% of its full table
+  rank-1 fraction by site: ['65.0%', '23.4%', '53.0%', '59.7%']  -> curve informative True
+  ceiling replication vs §1662: mlp0 90.27%  mlp1 96.01%  mlp2 76.98%  mlp3 67.55%
+
+pred_a True | pred_b True | pred_c True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/front_table_rank_structure_results.json (66.8s)

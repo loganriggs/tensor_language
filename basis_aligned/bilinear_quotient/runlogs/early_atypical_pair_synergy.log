@@ -1,0 +1,18 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+EARLY ATYPICAL PAIR | exempt mlp2+mlp3 TOGETHER, RECOMPILED | CE live 3.29205 | stake 5.5684 | 192 eval rows
+  exempt none        ( 0 sites live) CEILING   55.04%
+  exempt mlp2_mlp3_pair ( 2 sites live) CEILING   58.70%
+  bootstrapping band gains (2000 draws, ROW-level clusters)...
+
+  band gains (exempting the band, i.e. what leaving it REAL buys back):
+    mlp2_mlp3_pair  +3.66%  95% CI [+3.49%, +3.83%]
+  PAIR gain +3.66%  95% CI [+3.49%, +3.83%]
+  §1704 singles sum +3.60% (mlp2 +1.98, mlp3 +1.62)
+  excess +0.05% = +1.5% of the pair  95% CI [-0.11%, +0.23%] -> sign resolved False
+  vs tabular early pair +41.8% (matched depth) and middle -4.2% (matched function)
+  within 15 points of the early pair -> DEPTH wins at matched depth False
+  interaction non-vacuous True
+  CONTROLS base 55.04% vs §1696 55.04%, all gains positive -> True
+
+pred_a False | pred_b False | pred_c True | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/early_atypical_pair_synergy_results.json (453.6s)

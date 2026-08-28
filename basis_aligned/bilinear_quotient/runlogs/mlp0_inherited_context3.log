@@ -1,0 +1,13 @@
+mlp0 INHERITED CONTEXT v3 (hybrid hook: table where covered, LIVE where not) | optimal constants from opt_ablation_consts_all.pt (attn0, mlp0) | fit skip1200, eval skip7000
+  normal        all_positions  stake  0.8520 | CEILING  74.42%
+  normal        covered_only   stake  0.8552 | CEILING  90.26%
+  attn0_frozen  all_positions  stake  0.6325 | CEILING  49.37%
+  attn0_frozen  covered_only   stake  0.6276 | CEILING 100.00%
+
+  INSTRUMENT CHECK -- frozen/covered ceiling (known answer ~1.0): 100.00%
+  vs v2 (masked-score, contaminated forward) 55.83%: +44.17%
+  THE REAL COMPARISON (covered only): normal 90.27% vs frozen 100.00%   delta +9.74%
+  (v1 §1659 reported 74.42% -> 49.37% on all positions; that delta was the artifact)
+
+pred_a True | pred_b True | pred_c True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/mlp0_inherited_context3_results.json (16.7s)

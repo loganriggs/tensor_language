@@ -1,0 +1,36 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+  fit-row bigram: 24576 observations over 5419 covered current types; 5419 types observed
+ACCURACY BY TARGET FREQUENCY | buckets ((0, 0), (1, 4), (5, 24), (25, 124), (125, 1000000000)) on the fit-row count of the TRUE target | full-rank settled program | DISCOVERY ONLY
+  built the settled fallback and 36 tables (5s)
+  eval-row LOO bigram for skip7000: 36864 observations, score bank 1.01 GiB
+
+  skip7000: n 36864
+    §1790 loo_argmax          15.97%   <- the published arm
+    leak-free argmax          12.44%
+    program                   13.55%
+    live                      39.32%
+    §1790 hits held by a TIE: 1789 of 5886 (30.4%)
+  eval-row LOO bigram for skip11000: 36864 observations, score bank 1.01 GiB
+
+  skip11000: n 36864
+    §1790 loo_argmax          16.63%   <- the published arm
+    leak-free argmax          12.88%
+    program                   14.25%
+    live                      42.35%
+    §1790 hits held by a TIE: 1874 of 6131 (30.6%)
+  eval-row LOO bigram for skip1200: 18432 observations, score bank 1.01 GiB
+
+  skip1200: n 18432
+    §1790 loo_argmax          18.00%   <- the published arm
+    leak-free argmax          12.25%
+    program                   13.64%
+    live                      38.88%
+    §1790 hits held by a TIE: 1364 of 3317 (41.1%)
+
+  §1790's arm is inflated by >=2pp over a leak-free one -> True  skip7000 15.97% vs 12.44% (+3.52pp)  skip11000 16.63% vs 12.88% (+3.75pp)  skip1200 18.00% vs 12.25% (+5.75pp)
+  >=20% of its hits are held by a TIE -> True  skip7000 1789/5886 (30.4%)  skip11000 1874/6131 (30.6%)  skip1200 1364/3317 (41.1%)
+  leak-free, the PROGRAM beats the bigram -> True  skip7000 prog 13.55% vs bigram 12.44% (+1.11pp)  skip11000 prog 14.25% vs bigram 12.88% (+1.37pp)  skip1200 prog 13.64% vs bigram 12.25% (+1.39pp)
+  §1790 arm reproduces its PUBLISHED figure, program/live reproduce §1789, fit-bigram CE reproduces §1767 skip7000 7.88804  skip11000 7.90729, coverage 5419 -> control True
+
+pred_a True | pred_b True | pred_c True | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/loo_tiebreak_audit_results.json (50.7s)

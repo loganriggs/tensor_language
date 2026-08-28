@@ -1,0 +1,32 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+ACCURACY BY TARGET FREQUENCY | buckets ((0, 0), (1, 4), (5, 24), (25, 124), (125, 1000000000)) on the fit-row count of the TRUE target | full-rank settled program | DISCOVERY ONLY
+  built the settled fallback and 36 tables (4s)
+
+  skip7000: overall live 39.32% prog 13.55%
+    target fit-count 0-0          n   8904  live 25.29%  prog  0.67%  kept   2.7%
+    target fit-count 1-4          n   6585  live 26.65%  prog  1.11%  kept   4.2%
+    target fit-count 5-24         n   4783  live 30.52%  prog  2.89%  kept   9.5%
+    target fit-count 25-124       n   6003  live 41.98%  prog  9.90%  kept  23.6%
+    target fit-count 125-1000000000 n  10589  live 61.46%  prog 39.01%  kept  63.5%
+
+  skip11000: overall live 42.35% prog 14.25%
+    target fit-count 0-0          n   9385  live 29.90%  prog  1.86%  kept   6.2%
+    target fit-count 1-4          n   6638  live 30.11%  prog  1.61%  kept   5.4%
+    target fit-count 5-24         n   4763  live 35.00%  prog  2.81%  kept   8.0%
+    target fit-count 25-124       n   5546  live 42.66%  prog 10.46%  kept  24.5%
+    target fit-count 125-1000000000 n  10532  live 64.31%  prog 40.42%  kept  62.9%
+
+  skip1200: overall live 38.88% prog 13.64%
+    target fit-count 0-0          n   4470  live 26.15%  prog  0.94%  kept   3.6%
+    target fit-count 1-4          n   3209  live 25.40%  prog  1.18%  kept   4.7%
+    target fit-count 5-24         n   2440  live 28.32%  prog  3.52%  kept  12.4%
+    target fit-count 25-124       n   3037  live 41.29%  prog  9.75%  kept  23.6%
+    target fit-count 125-1000000000 n   5276  live 61.37%  prog 38.91%  kept  63.4%
+
+  the program is >=3x more accurate on the top bucket than the bottom -> True  skip7000 57.88x  skip11000 21.67x  skip1200 41.40x
+  it is MORE concentrated than the live model -> True  skip7000 prog 57.88x live 2.43x  skip11000 prog 21.67x live 2.15x  skip1200 prog 41.40x live 2.35x
+  on the top bucket it keeps >=60% of live accuracy -> True  skip7000 63.5%  skip11000 62.9%  skip1200 63.4%
+  overall accuracies reproduce §1788 + coverage 5419 -> control True
+
+pred_a True | pred_b True | pred_c True | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/accuracy_by_target_frequency_results.json (49.1s)

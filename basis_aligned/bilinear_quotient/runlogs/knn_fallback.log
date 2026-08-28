@@ -1,0 +1,19 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+CONTEXT-FREE FRONTIER, THIRD ROLE | ranks (None, 64, 8, 4) | skip1200 confirms | SECOND-CLASS CONFIRMATION
+  skip7000: live cov 3.29205 all 3.13704 | fit-mean all-tabled cov 7.35114 all 6.42601
+  skip11000: live cov 3.09711 all 2.93450 | fit-mean all-tabled cov 7.35825 all 6.34771
+  skip1200: live cov 3.40277 all 3.23027 | fit-mean all-tabled cov 7.19655 all 6.29358
+  built the top-16 covered neighbours for 44838 uncovered ids (8s)
+  built the contextfree family (8s)
+  rank full   224.778M | skip11000 knn1 6.03786 knn2 6.04996 knn4 6.05129 knn8 6.05895 knn16 6.07957 mean 6.46948   [28s]
+  rank 64      15.223M | skip11000 knn1 6.23480 knn2 6.26865 knn4 6.27731 knn8 6.28331 knn16 6.29707 mean 6.64292   [80s]
+  rank 8        1.975M | skip11000 knn1 6.54141 knn2 6.57959 knn4 6.59176 knn8 6.59666 knn16 6.60613 mean 6.89892   [133s]
+  rank 4        1.029M | skip11000 knn1 6.69203 knn2 6.73924 knn4 6.75831 knn8 6.76658 knn16 6.77754 mean 7.02245   [185s]
+
+  averaging k>1 neighbours beats k=1 by >0.005 everywhere -> False
+  the best k is interior at every rank and role { [bestk(kk, e) for kk in keys] for e in roles} -> False
+  covered CE untouched by every k -> True
+  knn1 reproduces §1777 + coverage 5419 -> control True
+
+pred_a False | pred_b False | pred_c True | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/knn_fallback_results.json (184.9s)

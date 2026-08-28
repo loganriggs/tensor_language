@@ -1,0 +1,12 @@
+ADDITIVE PROGRAM FAMILY | y_hat = b(token) + xW at every site, compiled bottom-up | ridge 0.001 | fit skip1200, eval skip7000
+  CE live 3.27946 | all-MLP constant 7.59906 | stake 4.3196 nats
+  pure_table_mlp0_2   CE 5.12432 | CEILING  57.29%
+  all_linear          CE 5.25430 | CEILING  54.28%
+  all_additive        CE 5.55423 | CEILING  47.34%
+
+  ADDITIVE 47.34%  vs best pure assignment 57.29%  (-9.95%) -> sum beats both families False
+  additive over all-linear -6.94%  vs  pure-mixed over all-linear +3.01% -> token term helps everywhere False
+  CONTROL pure mlp0-2 57.29% vs §1672 57.29% -> True
+
+pred_a False | pred_b False | pred_c True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/additive_program_family_results.json (52.2s)

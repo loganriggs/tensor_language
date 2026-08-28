@@ -1,0 +1,34 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+CIRCUIT AUDIT | registry 81 entries, 55 certified | 16 auditable (have a component list)
+  BOOTSTRAP: every circuit scored on the same standard rows. Circuits with a narrow trigger will read WEAKER than they are.
+    _mlp0_dossier_resolved                          1 sites  removal  0.8513  extraction  91.01%
+    _mlp1_dossier                                   1 sites  removal  7.0213  extraction  96.06%
+    _front_band_tableability_ladder                 4 sites  removal  4.3928  extraction  76.45%
+    _front_is_tabular_middle_is_not                 4 sites  removal  4.3928  extraction  76.45%
+    _middle_band_is_redundant_not_small            12 sites  removal  2.6496  extraction  20.92%
+    _middle_band_program_family_prices             12 sites  removal  2.6496  extraction  20.92%
+    _mid_band_feature_price_curve                  12 sites  removal  2.6496  extraction  20.92%
+    _front_mlps_are_synergistic                     4 sites  removal  4.3928  extraction  76.45%
+    _band_synergy_sign_depends_on_band              2 sites  removal  0.7112  extraction  50.02%
+    _attention_output_write_is_nonlocal            18 sites  removal  3.5570  extraction  -1.87%
+    _attention_write_is_mostly_two_position        18 sites  removal  3.5570  extraction  -1.87%
+    _lag1_failure_is_middle_band                   12 sites  removal  2.1137  extraction -19.33%
+    _whole_model_program                           36 sites  removal  5.5684  extraction  27.10%
+    _program_price_curve                           18 sites  removal  4.3301  extraction  34.54%
+    _best_compiled_program_for_mlp_stack           18 sites  removal  4.3301  extraction  34.54%
+    _only_attention_routing_is_compressible        18 sites  removal  3.5570  extraction  -1.87%
+
+  OOD (relative change in removal cost, skip7000 -> skip11000):
+    _mlp0_dossier_resolved                         removal +12.79%  extraction  -0.15%
+    _lag1_failure_is_middle_band                   removal  +7.39%  extraction  +0.49%
+    _band_synergy_sign_depends_on_band             removal  -7.04%  extraction  -1.91%
+    _middle_band_is_redundant_not_small            removal  +6.43%  extraction  +0.16%
+    _middle_band_program_family_prices             removal  +6.43%  extraction  +0.16%
+
+  extraction spread -19.34% .. 96.06% -> discriminating True
+  worst OOD removal move 12.79% -> mild True
+  MLP-stack removal 4.33011 vs §1662 4.3301 -> control True
+  16 circuits auditable of 55 certified -> True
+
+pred_a True | pred_b True | pred_c True | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/circuit_audit_results.json (144.7s)

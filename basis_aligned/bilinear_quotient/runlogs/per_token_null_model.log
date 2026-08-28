@@ -1,0 +1,17 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+PER-TOKEN NULL MODEL | bigram on the SAME 96x256 fit rows | coverage 5419 of 50257 | DISCOVERY ONLY
+  24576 bigram observations over 5419 covered current-token types; 5419 types actually observed
+  live CE covered: skip7000 3.29205  skip11000 3.09711
+  unigram: skip7000 8.38461  skip11000 8.40929
+  bigram alpha=0.01: skip7000 7.88804  skip11000 7.90729
+  bigram alpha=0.1: skip7000 8.10836  skip11000 8.12803
+  bigram alpha=1.0: skip7000 8.31501  skip11000 8.33797
+
+  best bigram bigram_alpha0.01 at 7.90729
+  beats the best 36-site program (6.57289) -> False
+  beats the all-tabled baseline (7.35825) -> False
+  does NOT beat the live model (3.09711) -> True
+  live CEs + coverage 5419 + bigram beats unigram (8.40929) -> control True
+
+pred_a False | pred_b False | pred_c True | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/per_token_null_model_results.json (3.2s)

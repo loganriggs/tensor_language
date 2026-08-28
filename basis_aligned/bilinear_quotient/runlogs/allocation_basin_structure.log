@@ -1,0 +1,44 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+ALLOCATION BASIN STRUCTURE | K=6 | 3 random starts run to CONVERGENCE (cap 8 sweeps) | selection on skip7000 | DISCOVERY ONLY
+  §1743 left this unanswered: its random arm was still improving by +0.21 nats when a 2-sweep cap hit, so it could not say whether starts converge to one basin.
+  fit coverage 5419 of 50257 token ids
+
+  [start 1] ['attn13', 'attn7', 'mlp10', 'mlp4', 'mlp6', 'mlp7']  ->  0.4261 nats
+    sweep 1: out mlp6    in mlp17   -> 0.7510 (+0.3249)
+    sweep 2: out mlp4    in attn16  -> 0.9679 (+0.2169)
+    sweep 3: out mlp10   in attn11  -> 1.0873 (+0.1194)
+    sweep 4: out mlp7    in attn14  -> 1.1800 (+0.0927)
+    sweep 5: out attn7   in attn17  -> 1.2037 (+0.0237)
+    sweep 6: no improving swap -- CONVERGED at 1.2037
+
+  [start 2] ['attn15', 'attn4', 'attn7', 'mlp1', 'mlp10', 'mlp15']  ->  0.4893 nats
+    sweep 1: out mlp1    in attn16  -> 0.7413 (+0.2521)
+    sweep 2: out mlp15   in mlp17   -> 0.9512 (+0.2099)
+    sweep 3: out mlp10   in attn11  -> 1.0683 (+0.1171)
+    sweep 4: out attn4   in attn14  -> 1.1720 (+0.1037)
+    sweep 5: out attn7   in attn17  -> 1.1958 (+0.0238)
+    sweep 6: out attn15  in attn13  -> 1.2037 (+0.0078)
+    sweep 7: no improving swap -- CONVERGED at 1.2037
+
+  [start 3] ['attn10', 'attn12', 'attn5', 'mlp13', 'mlp3', 'mlp9']  ->  0.3238 nats
+    sweep 1: out mlp9    in mlp17   -> 0.7473 (+0.4235)
+    sweep 2: out mlp3    in attn16  -> 0.9659 (+0.2187)
+    sweep 3: out attn5   in attn11  -> 1.0890 (+0.1230)
+    sweep 4: out mlp13   in attn14  -> 1.1779 (+0.0889)
+    sweep 5: out attn12  in attn17  -> 1.2030 (+0.0251)
+    sweep 6: out attn10  in attn13  -> 1.2037 (+0.0006)
+    sweep 7: no improving swap -- CONVERGED at 1.2037
+
+  greedy reference 1.2037 nats  (['mlp17', 'attn16', 'attn14', 'attn11', 'attn17', 'attn13'])
+    start  0.4261 -> final  1.2037 (transfer  1.2414, cost  55.741M, 6 sweeps, converged True) ['attn11', 'attn13', 'attn14', 'attn16', 'attn17', 'mlp17']
+    start  0.4893 -> final  1.2037 (transfer  1.2414, cost  55.741M, 7 sweeps, converged True) ['attn11', 'attn13', 'attn14', 'attn16', 'attn17', 'mlp17']
+    start  0.3238 -> final  1.2037 (transfer  1.2414, cost  55.741M, 7 sweeps, converged True) ['attn11', 'attn13', 'attn14', 'attn16', 'attn17', 'mlp17']
+
+  all 3 starts converged within 8 sweeps -> True
+  every converged optimum is strictly worse than greedy -> True
+  at least two DISTINCT converged optima -> multiple basins False
+  greedy reference + all-tabled CE + coverage 5419 -> control True
+  (2585 evaluations, 1025 cache hits)
+
+pred_a True | pred_b True | pred_c False | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/allocation_basin_structure_results.json (3653.5s)

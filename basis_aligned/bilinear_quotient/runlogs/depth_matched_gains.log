@@ -1,0 +1,44 @@
+DEPTH-MATCHED GAINS | gains measured IN each arm, depths (0, 3, 5), FULL RANK | settled program (context-free tables + output-NN fallback + rank-64 map) | DISCOVERY ONLY
+
+  per-site norm calibration (live mean / row mean), measured on the LIVE model:
+    attn L0:  2.71 L1:  2.49 L2:  2.26 L3:  2.13 L4:  4.37 L5:  1.00 L6:  1.02 L7:  3.61 L8:  3.59 L9:  4.83 L10:  3.80 L11:  4.49 L12:  6.72 L13:  6.39 L14:  7.07 L15:  6.33 L16:  5.70 L17:  5.59
+    mlp  L0:  0.88 L1:  0.42 L2:  0.61 L3:  0.49 L4:  0.10 L5:  0.39 L6:  0.52 L7:  1.66 L8:  2.04 L9:  1.32 L10:  2.33 L11:  1.05 L12:  1.91 L13:  1.26 L14:  1.66 L15:  1.19 L16:  1.13 L17:  1.21
+
+  arms  (48s)
+  all_substituted      skip7000 13.55%  skip11000 14.25%  skip1200 13.64%
+  all_sub_scaled       skip7000 12.16%  skip11000 12.81%  skip1200 12.10%
+  live_model           skip7000 39.32%  skip11000 42.35%  skip1200 38.88%
+
+  arms  (111s)
+  all_substituted        skip7000 13.55%  skip11000 14.25%  skip1200 13.64%
+  live_model             skip7000 39.32%  skip11000 42.35%  skip1200 38.88%
+    B0 depth-matched gains vs global: L1 0.3389/0.3389  L2 0.9426/0.2028  L3 0.6687/0.1486  L4 0.6925/0.1696
+  B0_raw                 skip7000 23.20%  skip11000 25.38%  skip1200 23.26%
+  B0_global              skip7000 12.49%  skip11000 13.37%  skip1200 12.96%
+  B0_matched             skip7000 27.91%  skip11000 30.20%  skip1200 27.07%
+    B3 depth-matched gains vs global: L4 0.1696/0.1696  L5 0.0270/0.0065  L6 1.7061/0.0138  L7 1.3191/0.2938
+  B3_raw                 skip7000  2.00%  skip11000  2.12%  skip1200  1.81%
+  B3_global              skip7000 16.20%  skip11000 17.05%  skip1200 16.67%
+  B3_matched             skip7000  7.68%  skip11000  7.80%  skip1200  7.56%
+    B5 depth-matched gains vs global: L6 0.0138/0.0138  L7 1.0268/0.2938  L8 2.3864/0.3779  L9 4.5610/0.8884
+  B5_raw                 skip7000  2.24%  skip11000  2.11%  skip1200  1.93%
+  B5_global              skip7000 16.53%  skip11000 17.38%  skip1200 16.66%
+  B5_matched             skip7000  9.78%  skip11000 10.37%  skip1200 10.02%
+  allsub_gain5           skip7000 13.55%  skip11000 14.25%  skip1200 13.64%
+
+  gap fraction recovered (0..L compiled, L+1..17 live):
+    B0 skip7000   raw    37.4%  global-gains    -4.1%  depth-matched    55.7%
+    B0 skip11000  raw    39.6%  global-gains    -3.1%  depth-matched    56.8%
+    B0 skip1200   raw    38.1%  global-gains    -2.7%  depth-matched    53.2%
+    B3 skip7000   raw   -44.8%  global-gains    10.3%  depth-matched   -22.8%
+    B3 skip11000  raw   -43.2%  global-gains    10.0%  depth-matched   -23.0%
+    B3 skip1200   raw   -46.9%  global-gains    12.0%  depth-matched   -24.1%
+    B5 skip7000   raw   -43.9%  global-gains    11.5%  depth-matched   -14.7%
+    B5 skip11000  raw   -43.2%  global-gains    11.2%  depth-matched   -13.8%
+    B5 skip1200   raw   -46.4%  global-gains    11.9%  depth-matched   -14.4%
+
+  depth-matched beats global by >=10 points at B3 -> False  skip7000 -22.8% vs 10.3%  skip11000 -23.0% vs 10.0%  skip1200 -24.1% vs 12.0%
+  and does NOT harm B0, where global was actively harmful -> True  skip7000 55.7% vs raw 37.4% (global -4.1%)  skip11000 56.8% vs raw 39.6% (global -3.1%)  skip1200 53.2% vs raw 38.1% (global -2.7%)
+  and the corrected curve is MONOTONE in depth -> False  skip7000 55.7%/-22.8%/-14.7%  skip11000 56.8%/-23.0%/-13.8%  skip1200 53.2%/-24.1%/-14.4%
+  raw arms reproduce §1806, global arms reproduce §1822, endpoints §1789, placement control exact -> True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/depth_matched_gains_results.json (195.3s)

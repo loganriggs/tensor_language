@@ -1,0 +1,20 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+MLP PATH RANK CURVE | y = Down((Left x)*(Right x)) + b | arms ['Down', 'LeftRight'] | ranks [8, 32, 64, 256, 1152] | stake 4.3301 nats
+  §1691 attention at rank 64: routing 62.82% | values 2.37%
+    Down       rank     8: CEILING  -89.40%
+    Down       rank    32: CEILING  -38.03%
+    Down       rank    64: CEILING  -15.16%
+    Down       rank   256: CEILING   43.97%
+    Down       rank  1152: CEILING  100.00%
+    LeftRight  rank     8: CEILING -105.16%
+    LeftRight  rank    32: CEILING  -61.38%
+    LeftRight  rank    64: CEILING  -52.88%
+    LeftRight  rank   256: CEILING  -37.10%
+    LeftRight  rank  1152: CEILING  100.00%
+
+  rank 64: Down -15.16% | Left+Right -52.88% (+37.72%) -> readout is the compressible side True
+  both MLP arms at rank 64 vs attention values 2.37% -> MLP cheaper than attention payload False
+  IDENTITY Down 100.00% | LeftRight 100.00% | monotone True -> True
+
+pred_a True | pred_b False | pred_c True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/mlp_path_rank_curve_results.json (1329.4s)

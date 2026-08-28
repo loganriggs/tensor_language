@@ -1,0 +1,26 @@
+PROGRAM BUDGET ALLOCATION | 6 of 36 sites stay NATIVE, the rest are tabled | DISCOVERY ONLY, certifies nothing
+  ALLOC-PROG ['mlp17', 'mlp16', 'attn16', 'mlp15', 'attn14', 'attn17']
+  ALLOC-OAT  ['mlp1', 'mlp0', 'mlp2', 'mlp3', 'mlp17', 'attn0']
+  fit coverage 5419 of 50257 token ids
+
+  skip7000: live CE 3.29205 | all-36-tabled CE 7.35114 (stake 4.0591 nats)
+    PROG           recovers  1.0165 nats  (25.04% of the stake)
+    OAT            recovers  0.5191 nats  (12.79% of the stake)
+    RANDOM_best    recovers  0.8154 nats  (20.09% of the stake)
+    RANDOM_median  recovers  0.5066 nats  (12.48% of the stake)
+    RANDOM_worst   recovers  0.3427 nats  ( 8.44% of the stake)
+
+  skip11000: live CE 3.09711 | all-36-tabled CE 7.35825 (stake 4.2611 nats)
+    PROG           recovers  1.0383 nats  (24.37% of the stake)
+    OAT            recovers  0.5208 nats  (12.22% of the stake)
+    RANDOM_best    recovers  0.8403 nats  (19.72% of the stake)
+    RANDOM_median  recovers  0.5154 nats  (12.10% of the stake)
+    RANDOM_worst   recovers  0.3163 nats  ( 7.42% of the stake)
+
+  PROG beats OAT at matched budget on both roles -> True
+  PROG beats the BEST of 8 random allocations -> True
+  OAT is worse than the MEDIAN random allocation -> actively misleading False
+  all-tabled CE 7.35114 vs §1738 7.35114 + coverage 5419 -> control True
+
+pred_a True | pred_b True | pred_c False | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/program_budget_allocation_results.json (41.4s)

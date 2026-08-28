@@ -1,0 +1,30 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+COMPILED RESIDUAL ATTRIBUTION | mixed program (table mlp0-3, linear mlp4-17), RECOMPILED per exemption | ridge 0.001 | fit skip1200, eval skip7000
+  CE live 3.27946 | all-MLP constant 7.59906 | stake 4.3196 nats
+  full mixed program: CEILING  56.29%  (§1670 56.29%) | shortfall 43.71%
+    exempt mlp0  (table ) ceiling  56.52%  gain  +0.23%  =  0.52% of the shortfall
+    exempt mlp1  (table ) ceiling  57.95%  gain  +1.66%  =  3.79% of the shortfall
+    exempt mlp2  (table ) ceiling  59.46%  gain  +3.17%  =  7.26% of the shortfall
+    exempt mlp3  (table ) ceiling  60.62%  gain  +4.33%  =  9.91% of the shortfall
+    exempt mlp4  (linear) ceiling  58.23%  gain  +1.94%  =  4.45% of the shortfall
+    exempt mlp5  (linear) ceiling  57.77%  gain  +1.48%  =  3.39% of the shortfall
+    exempt mlp6  (linear) ceiling  58.17%  gain  +1.88%  =  4.31% of the shortfall
+    exempt mlp7  (linear) ceiling  58.16%  gain  +1.87%  =  4.28% of the shortfall
+    exempt mlp8  (linear) ceiling  57.86%  gain  +1.57%  =  3.59% of the shortfall
+    exempt mlp9  (linear) ceiling  58.14%  gain  +1.85%  =  4.23% of the shortfall
+    exempt mlp10 (linear) ceiling  57.87%  gain  +1.58%  =  3.61% of the shortfall
+    exempt mlp11 (linear) ceiling  57.95%  gain  +1.66%  =  3.79% of the shortfall
+    exempt mlp12 (linear) ceiling  57.76%  gain  +1.47%  =  3.37% of the shortfall
+    exempt mlp13 (linear) ceiling  57.67%  gain  +1.38%  =  3.16% of the shortfall
+    exempt mlp14 (linear) ceiling  57.47%  gain  +1.18%  =  2.70% of the shortfall
+    exempt mlp15 (linear) ceiling  57.56%  gain  +1.27%  =  2.91% of the shortfall
+    exempt mlp16 (linear) ceiling  57.82%  gain  +1.53%  =  3.50% of the shortfall
+    exempt mlp17 (linear) ceiling  58.08%  gain  +1.79%  =  4.09% of the shortfall
+
+  WORST-MODELLED SITE: mlp3 (table), gain +4.33% = 9.91% of the 43.7-point shortfall -> concentrated False
+  top three: mlp3 +4.33%,  mlp2 +3.17%,  mlp4 +1.94%
+  in the middle band False | sum of eighteen single-site gains +31.86% (not constrained to the shortfall -- each arm is a different compilation)
+  CONTROL no-exemption 56.29% vs §1670 56.29% -> reproducible True
+
+pred_a False | pred_b False | pred_c True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/compiled_residual_attribution_results.json (232.9s)

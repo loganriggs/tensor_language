@@ -1,0 +1,36 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+PARTIAL COMPILE, FOUR INSTRUMENTS | rank-64 tables x depths (-1, 7, 10, 13) | settled program (context-free tables + output-NN fallback + rank-64 map) | DISCOVERY ONLY
+
+  per-site norm calibration (live mean / row mean), measured on the LIVE model:
+    attn L0:  2.71 L1:  2.49 L2:  2.26 L3:  2.13 L4:  4.37 L5:  1.00 L6:  1.02 L7:  3.61 L8:  3.59 L9:  4.83 L10:  3.80 L11:  4.49 L12:  6.72 L13:  6.39 L14:  7.07 L15:  6.33 L16:  5.70 L17:  5.59
+    mlp  L0:  0.88 L1:  0.42 L2:  0.61 L3:  0.49 L4:  0.10 L5:  0.39 L6:  0.52 L7:  1.66 L8:  2.04 L9:  1.32 L10:  2.33 L11:  1.05 L12:  1.91 L13:  1.26 L14:  1.66 L15:  1.19 L16:  1.13 L17:  1.21
+
+  arms  (56s)
+  all_substituted      skip7000 13.55%  skip11000 14.25%  skip1200 13.64%
+  all_sub_scaled       skip7000 12.16%  skip11000 12.81%  skip1200 12.10%
+  live_model           skip7000 39.32%  skip11000 42.35%  skip1200 38.88%
+  r64_L-1              skip7000 12.88%  skip11000 13.49%  skip1200 12.89%
+  r64_L7               skip7000 19.31%  skip11000 19.82%  skip1200 18.85%
+  r64_L10              skip7000 26.93%  skip11000 28.33%  skip1200 26.76%
+  r64_L13              skip7000 32.80%  skip11000 34.74%  skip1200 32.26%
+
+  cost / fidelity  (reals, top-1 per role)
+    *r64_L-1       20.531M  skip7000 12.88%  skip11000 13.49%  skip1200 12.89%
+    *r64_L7       202.518M  skip7000 19.31%  skip11000 19.82%  skip1200 18.85%
+    *r64_L10      270.763M  skip7000 26.93%  skip11000 28.33%  skip1200 26.76%
+    *r64_L13      339.008M  skip7000 32.80%  skip11000 34.74%  skip1200 32.26%
+   (* = on the Pareto frontier at every role)
+
+  four instruments across compile depth (rank-64 tables):
+    r64_L-1         20.531M  skip7000 CE 6.1733 top1 12.88% agree 22.37% KL 3.0387  skip11000 CE 6.1526 top1 13.49% agree 21.88% KL 3.2208  skip1200 CE 6.1446 top1 12.89% agree 23.22% KL 2.9023
+    r64_L7         202.518M  skip7000 CE 5.5174 top1 19.31% agree 33.78% KL 2.3845  skip11000 CE 5.4647 top1 19.82% agree 32.65% KL 2.5314  skip1200 CE 5.5122 top1 18.85% agree 34.51% KL 2.2777
+    r64_L10        270.763M  skip7000 CE 4.7976 top1 26.93% agree 49.54% KL 1.6558  skip11000 CE 4.6478 top1 28.33% agree 48.57% KL 1.7142  skip1200 CE 4.8268 top1 26.76% agree 50.30% KL 1.5949
+    r64_L13        339.008M  skip7000 CE 4.1815 top1 32.80% agree 64.17% KL 1.0374  skip11000 CE 3.9736 top1 34.74% agree 63.53% KL 1.0403  skip1200 CE 4.2836 top1 32.26% agree 64.51% KL 1.0583
+
+  at L13 the program agrees with live on >=50% of positions -> True  skip7000 64.17%  skip11000 63.53%  skip1200 64.51%
+  and KL(live||program) at L13 is below 1.0 nat -> False  skip7000 1.0374  skip11000 1.0403  skip1200 1.0583
+  agreement rises monotonically with depth -> True  skip7000 22.4%/33.8%/49.5%/64.2%  skip11000 21.9%/32.7%/48.6%/63.5%  skip1200 23.2%/34.5%/50.3%/64.5%
+  all-substituted and live reproduce §1789, coverage 5419 -> control True
+
+pred_a True | pred_b False | pred_c True | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/partial_agreement_kl_results.json (183.4s)

@@ -1,0 +1,30 @@
+COVERAGE CURVE, SAFE REGION | n in (2710, 3613, 4516, 5419) of 5419 (D=1152) | settled program (context-free tables + output-NN fallback + rank-64 map) | DISCOVERY ONLY
+
+  n 2710 types (n/D 2.35)  (41s)
+    skip7000: overall 12.54%  head 35.80%  kept 13.1310%
+    skip11000: overall 13.08%  head 36.93%  kept 13.6912%
+    skip1200: overall 12.47%  head 35.56%  kept 13.1562%
+
+  n 3613 types (n/D 3.14)  (85s)
+    skip7000: overall 13.27%  head 38.61%  kept 13.1310%
+    skip11000: overall 13.85%  head 40.08%  kept 13.6912%
+    skip1200: overall 13.22%  head 38.23%  kept 13.1562%
+
+  n 4516 types (n/D 3.92)  (131s)
+    skip7000: overall 13.39%  head 38.77%  kept 13.1310%
+    skip11000: overall 14.04%  head 40.06%  kept 13.6912%
+    skip1200: overall 13.51%  head 38.67%  kept 13.1562%
+
+  n 5419 types (n/D 4.70)  (176s)
+    skip7000: overall 13.55%  head 39.01%  kept 13.1310%
+    skip11000: overall 14.25%  head 40.42%  kept 13.6912%
+    skip1200: overall 13.64%  head 38.91%  kept 13.1562%
+
+  overall top-1 rises with coverage in the SAFE region -> True  skip7000 12.54%/13.27%/13.39%/13.55%  skip11000 13.08%/13.85%/14.04%/14.25%  skip1200 12.47%/13.22%/13.51%/13.64%
+  DIMINISHING RETURNS overall (last +903 < first +903) -> True  skip7000 +0.73/+0.12/+0.16pp  skip11000 +0.76/+0.20/+0.21pp  skip1200 +0.74/+0.30/+0.13pp
+  ... and on the HEAD -> True  skip7000 +2.80/+0.16/+0.25pp  skip11000 +3.15/-0.02/+0.36pp  skip1200 +2.67/+0.44/+0.25pp
+  KNOWN-ANSWER: kept-token slice identical across n -> True  skip7000 13.1310%  skip11000 13.6912%  skip1200 13.1562%
+  n=5419 reproduces §1789 and n=2710 reproduces §1798, coverage 5419 -> control True
+
+pred_a True | pred_b True | pred_c True | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/coverage_curve_safe_results.json (178.8s)

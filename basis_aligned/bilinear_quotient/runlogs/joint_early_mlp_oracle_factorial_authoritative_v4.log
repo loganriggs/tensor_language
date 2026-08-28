@@ -1,0 +1,503 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+whiteners built
+attn maps built
+context capture done
+planks 0/1 context-fit
+planks 2/3 fit
+unit planks built
+authoritative joint oracle discovery arm=baseline done
+authoritative joint oracle discovery arm=mlp0 done
+authoritative joint oracle discovery arm=mlp1 done
+authoritative joint oracle discovery arm=mlp2 done
+authoritative joint oracle discovery arm=mlp0+mlp1 done
+authoritative joint oracle discovery arm=mlp0+mlp2 done
+authoritative joint oracle discovery arm=mlp1+mlp2 done
+authoritative joint oracle discovery arm=mlp0+mlp1+mlp2 done
+authoritative joint oracle heldout arm=baseline done
+authoritative joint oracle heldout arm=mlp0 done
+authoritative joint oracle heldout arm=mlp1 done
+authoritative joint oracle heldout arm=mlp2 done
+authoritative joint oracle heldout arm=mlp0+mlp1 done
+authoritative joint oracle heldout arm=mlp0+mlp2 done
+authoritative joint oracle heldout arm=mlp1+mlp2 done
+authoritative joint oracle heldout arm=mlp0+mlp1+mlp2 done
+{
+  "split_analyses": {
+    "discovery": {
+      "groups": [
+        "mlp0",
+        "mlp1",
+        "mlp2"
+      ],
+      "row_count": 192,
+      "currency": "paired mean CE gain; positive lowers CE versus deployed ship",
+      "gain_by_arm": {
+        "baseline": 0.0,
+        "mlp0": 0.1211273620525996,
+        "mlp1": 0.15602309380968413,
+        "mlp2": -0.21585717548926672,
+        "mlp0+mlp1": 0.37836814547578496,
+        "mlp0+mlp2": 0.07152282694975536,
+        "mlp1+mlp2": 0.3158375695347786,
+        "mlp0+mlp1+mlp2": 0.4993657035132249
+      },
+      "joint_gain": 0.4993657035132249,
+      "singleton_gain_sum": 0.061293280373017,
+      "joint_minus_singleton_sum": 0.4380724231402079,
+      "joint_gain_fraction_of_mlp012_residual": null,
+      "mlp012_residual_nats": null,
+      "pairwise_mobius": {
+        "mlp0+mlp1": 0.10121768961350125,
+        "mlp0+mlp2": 0.16625264038642248,
+        "mlp1+mlp2": 0.3756716512143612
+      },
+      "triple_mobius": -0.20506955807407706,
+      "mlp2_conditional_marginal_after_mlp0_mlp1": 0.12099755803743995,
+      "shapley": {
+        "mlp0": 0.1865060076945358,
+        "mlp1": 0.3261112448655897,
+        "mlp2": -0.013251549046900568
+      },
+      "shapley_closure_error": 0.0,
+      "interaction_l1": 0.848211539288362,
+      "interaction_l1_fraction_of_joint_gain": 1.6985778825435465
+    },
+    "heldout": {
+      "groups": [
+        "mlp0",
+        "mlp1",
+        "mlp2"
+      ],
+      "row_count": 192,
+      "currency": "paired mean CE gain; positive lowers CE versus deployed ship",
+      "gain_by_arm": {
+        "baseline": 0.0,
+        "mlp0": 0.11907455325126648,
+        "mlp1": 0.16671866551041603,
+        "mlp2": -0.23005194713672003,
+        "mlp0+mlp1": 0.4003129303455353,
+        "mlp0+mlp2": 0.061454535772403084,
+        "mlp1+mlp2": 0.31666206071774167,
+        "mlp0+mlp1+mlp2": 0.5143441880742708
+      },
+      "joint_gain": 0.5143441880742708,
+      "singleton_gain_sum": 0.05574127162496248,
+      "joint_minus_singleton_sum": 0.4586029164493084,
+      "joint_gain_fraction_of_mlp012_residual": null,
+      "mlp012_residual_nats": null,
+      "pairwise_mobius": {
+        "mlp0+mlp1": 0.11451971158385277,
+        "mlp0+mlp2": 0.17243192965785664,
+        "mlp1+mlp2": 0.37999534234404564
+      },
+      "triple_mobius": -0.2083440671364467,
+      "mlp2_conditional_marginal_after_mlp0_mlp1": 0.11403125772873557,
+      "shapley": {
+        "mlp0": 0.19310235149330562,
+        "mlp1": 0.34452817009554965,
+        "mlp2": -0.023286333514584465
+      },
+      "shapley_closure_error": 0.0,
+      "interaction_l1": 0.8752910507222018,
+      "interaction_l1_fraction_of_joint_gain": 1.7017613322303362
+    }
+  },
+  "paired_bootstraps": {
+    "discovery": {
+      "draws": 2000,
+      "seed": 27182819,
+      "resampling": "sample unique documents with replacement; retain all chunks and use the sampled total row count as denominator; shared multiplicities across arms",
+      "row_count": 192,
+      "unique_document_count": 79,
+      "cluster_size_range": [
+        1,
+        18
+      ],
+      "arm_gain": {
+        "baseline": {
+          "point_estimate": 0.0,
+          "bootstrap_mean": 0.0,
+          "ci95": [
+            0.0,
+            0.0
+          ]
+        },
+        "mlp0": {
+          "point_estimate": 0.1211273620525996,
+          "bootstrap_mean": 0.12112673335646552,
+          "ci95": [
+            0.11193428365386357,
+            0.13183204240426985
+          ]
+        },
+        "mlp1": {
+          "point_estimate": 0.15602309380968413,
+          "bootstrap_mean": 0.15609821106249486,
+          "ci95": [
+            0.13829140203659523,
+            0.17573358858832563
+          ]
+        },
+        "mlp2": {
+          "point_estimate": -0.21585717548926672,
+          "bootstrap_mean": -0.21608096728920556,
+          "ci95": [
+            -0.2398883952283818,
+            -0.1915672985907869
+          ]
+        },
+        "mlp0+mlp1": {
+          "point_estimate": 0.37836814547578496,
+          "bootstrap_mean": 0.37835197661435355,
+          "ci95": [
+            0.3463273744642249,
+            0.41390941981085344
+          ]
+        },
+        "mlp0+mlp2": {
+          "point_estimate": 0.07152282694975536,
+          "bootstrap_mean": 0.07155510187195945,
+          "ci95": [
+            0.051629991897091776,
+            0.09234076545255947
+          ]
+        },
+        "mlp1+mlp2": {
+          "point_estimate": 0.3158375695347786,
+          "bootstrap_mean": 0.3156757185879541,
+          "ci95": [
+            0.28985714313665867,
+            0.34482601023017945
+          ]
+        },
+        "mlp0+mlp1+mlp2": {
+          "point_estimate": 0.4993657035132249,
+          "bootstrap_mean": 0.49941972216144215,
+          "ci95": [
+            0.4660168387841483,
+            0.5357022616934092
+          ]
+        }
+      },
+      "joint_gain": {
+        "point_estimate": 0.4993657035132249,
+        "bootstrap_mean": 0.49941972216144215,
+        "ci95": [
+          0.4660168387841483,
+          0.5357022616934092
+        ]
+      },
+      "joint_minus_best_singleton": {
+        "point_estimate": 0.3433426097035408,
+        "bootstrap_mean": 0.34332151109894726,
+        "ci95": [
+          0.31484255316776116,
+          0.37286694082168603
+        ]
+      },
+      "joint_minus_singleton_sum": {
+        "point_estimate": 0.4380724231402079,
+        "bootstrap_mean": 0.43827574503168726,
+        "ci95": [
+          0.4050551167058411,
+          0.47375138098920627
+        ]
+      },
+      "mlp2_singleton_gain": {
+        "point_estimate": -0.21585717548926672,
+        "bootstrap_mean": -0.21608096728920556,
+        "ci95": [
+          -0.2398883952283818,
+          -0.1915672985907869
+        ]
+      },
+      "mlp2_conditional_marginal_after_mlp0_mlp1": {
+        "point_estimate": 0.12099755803743995,
+        "bootstrap_mean": 0.1210677455470886,
+        "ci95": [
+          0.10812573923576682,
+          0.13326431593415455
+        ]
+      },
+      "mlp2_sign_flip_contrast": {
+        "point_estimate": 0.3368547335267067,
+        "bootstrap_mean": 0.3371487128362942,
+        "ci95": [
+          0.31570739832905326,
+          0.36059560857311124
+        ]
+      },
+      "mobius": {
+        "baseline": {
+          "point_estimate": 0.0,
+          "bootstrap_mean": 0.0,
+          "ci95": [
+            0.0,
+            0.0
+          ]
+        },
+        "mlp0": {
+          "point_estimate": 0.1211273620525996,
+          "bootstrap_mean": 0.12112673335646552,
+          "ci95": [
+            0.11193428365386357,
+            0.13183204240426985
+          ]
+        },
+        "mlp1": {
+          "point_estimate": 0.15602309380968413,
+          "bootstrap_mean": 0.15609821106249486,
+          "ci95": [
+            0.13829140203659523,
+            0.17573358858832563
+          ]
+        },
+        "mlp2": {
+          "point_estimate": -0.21585717548926672,
+          "bootstrap_mean": -0.21608096728920556,
+          "ci95": [
+            -0.2398883952283818,
+            -0.1915672985907869
+          ]
+        },
+        "mlp0+mlp1": {
+          "point_estimate": 0.10121768961350125,
+          "bootstrap_mean": 0.10112703219539312,
+          "ci95": [
+            0.0813728916757892,
+            0.12078415913503207
+          ]
+        },
+        "mlp0+mlp2": {
+          "point_estimate": 0.16625264038642248,
+          "bootstrap_mean": 0.1665093358046995,
+          "ci95": [
+            0.1465132549143674,
+            0.18488759610315422
+          ]
+        },
+        "mlp1+mlp2": {
+          "point_estimate": 0.3756716512143612,
+          "bootstrap_mean": 0.37565847481466486,
+          "ci95": [
+            0.34412869691612763,
+            0.40774376184775907
+          ]
+        },
+        "mlp0+mlp1+mlp2": {
+          "point_estimate": -0.20506955807407706,
+          "bootstrap_mean": -0.20501909778307015,
+          "ci95": [
+            -0.24007864408088816,
+            -0.17124567881420058
+          ]
+        }
+      }
+    },
+    "heldout": {
+      "draws": 2000,
+      "seed": 27182819,
+      "resampling": "sample unique documents with replacement; retain all chunks and use the sampled total row count as denominator; shared multiplicities across arms",
+      "row_count": 192,
+      "unique_document_count": 105,
+      "cluster_size_range": [
+        1,
+        10
+      ],
+      "arm_gain": {
+        "baseline": {
+          "point_estimate": 0.0,
+          "bootstrap_mean": 0.0,
+          "ci95": [
+            0.0,
+            0.0
+          ]
+        },
+        "mlp0": {
+          "point_estimate": 0.11907455325126648,
+          "bootstrap_mean": 0.11900804342911933,
+          "ci95": [
+            0.1091793993738417,
+            0.12920843437754648
+          ]
+        },
+        "mlp1": {
+          "point_estimate": 0.16671866551041603,
+          "bootstrap_mean": 0.16670339198199194,
+          "ci95": [
+            0.1501777405196754,
+            0.18180394045960588
+          ]
+        },
+        "mlp2": {
+          "point_estimate": -0.23005194713672003,
+          "bootstrap_mean": -0.23005329035553704,
+          "ci95": [
+            -0.2521544615110659,
+            -0.2087078226485444
+          ]
+        },
+        "mlp0+mlp1": {
+          "point_estimate": 0.4003129303455353,
+          "bootstrap_mean": 0.4002295898831839,
+          "ci95": [
+            0.37443933967398957,
+            0.42500255756048677
+          ]
+        },
+        "mlp0+mlp2": {
+          "point_estimate": 0.061454535772403084,
+          "bootstrap_mean": 0.061424831123314344,
+          "ci95": [
+            0.03805977501692909,
+            0.0839733540880811
+          ]
+        },
+        "mlp1+mlp2": {
+          "point_estimate": 0.31666206071774167,
+          "bootstrap_mean": 0.31657914248031177,
+          "ci95": [
+            0.289925010818066,
+            0.34196416762471976
+          ]
+        },
+        "mlp0+mlp1+mlp2": {
+          "point_estimate": 0.5143441880742708,
+          "bootstrap_mean": 0.5141993714860684,
+          "ci95": [
+            0.4884235884241405,
+            0.5398935866030729
+          ]
+        }
+      },
+      "joint_gain": {
+        "point_estimate": 0.5143441880742708,
+        "bootstrap_mean": 0.5141993714860684,
+        "ci95": [
+          0.4884235884241405,
+          0.5398935866030729
+        ]
+      },
+      "joint_minus_best_singleton": {
+        "point_estimate": 0.3476255225638548,
+        "bootstrap_mean": 0.3474959795040767,
+        "ci95": [
+          0.32491576222979823,
+          0.36988952739308323
+        ]
+      },
+      "joint_minus_singleton_sum": {
+        "point_estimate": 0.4586029164493084,
+        "bootstrap_mean": 0.4585412264304944,
+        "ci95": [
+          0.43254162561393383,
+          0.48335887505706665
+        ]
+      },
+      "mlp2_singleton_gain": {
+        "point_estimate": -0.23005194713672003,
+        "bootstrap_mean": -0.23005329035553704,
+        "ci95": [
+          -0.2521544615110659,
+          -0.2087078226485444
+        ]
+      },
+      "mlp2_conditional_marginal_after_mlp0_mlp1": {
+        "point_estimate": 0.11403125772873557,
+        "bootstrap_mean": 0.11396978160288466,
+        "ci95": [
+          0.09876429816388192,
+          0.129555341390828
+        ]
+      },
+      "mlp2_sign_flip_contrast": {
+        "point_estimate": 0.3440832048654556,
+        "bootstrap_mean": 0.3440230719584217,
+        "ci95": [
+          0.32172041172500304,
+          0.36640018896715154
+        ]
+      },
+      "mobius": {
+        "baseline": {
+          "point_estimate": 0.0,
+          "bootstrap_mean": 0.0,
+          "ci95": [
+            0.0,
+            0.0
+          ]
+        },
+        "mlp0": {
+          "point_estimate": 0.11907455325126648,
+          "bootstrap_mean": 0.11900804342911933,
+          "ci95": [
+            0.1091793993738417,
+            0.12920843437754648
+          ]
+        },
+        "mlp1": {
+          "point_estimate": 0.16671866551041603,
+          "bootstrap_mean": 0.16670339198199194,
+          "ci95": [
+            0.1501777405196754,
+            0.18180394045960588
+          ]
+        },
+        "mlp2": {
+          "point_estimate": -0.23005194713672003,
+          "bootstrap_mean": -0.23005329035553704,
+          "ci95": [
+            -0.2521544615110659,
+            -0.2087078226485444
+          ]
+        },
+        "mlp0+mlp1": {
+          "point_estimate": 0.11451971158385277,
+          "bootstrap_mean": 0.11451815447207264,
+          "ci95": [
+            0.09832936637220213,
+            0.13080241751456168
+          ]
+        },
+        "mlp0+mlp2": {
+          "point_estimate": 0.17243192965785664,
+          "bootstrap_mean": 0.17247007804973205,
+          "ci95": [
+            0.15406253143988666,
+            0.19092235817339104
+          ]
+        },
+        "mlp1+mlp2": {
+          "point_estimate": 0.37999534234404564,
+          "bootstrap_mean": 0.37992904085385687,
+          "ci95": [
+            0.3545298062375848,
+            0.4044987340423154
+          ]
+        },
+        "mlp0+mlp1+mlp2": {
+          "point_estimate": -0.2083440671364467,
+          "bootstrap_mean": -0.20837604694516726,
+          "ci95": [
+            -0.2364993500414984,
+            -0.17682733182235183
+          ]
+        }
+      }
+    }
+  },
+  "registered_predictions": {
+    "pred_a_joint_positive_both_splits": true,
+    "pred_a_joint_heldout_ci95_lower_gt_zero": true,
+    "pred_a_joint_exceeds_best_singleton_heldout": true,
+    "pred_a_joint_minus_best_singleton_heldout_ci95_lower_gt_zero": true,
+    "pred_b_mlp2_singleton_negative_both_splits": true,
+    "pred_b_mlp2_conditional_after_mlp0_mlp1_positive_both_splits": true,
+    "pred_b_mlp2_singleton_heldout_ci95_upper_lt_zero": true,
+    "pred_b_mlp2_conditional_heldout_ci95_lower_gt_zero": true,
+    "pred_b_sign_flip_contrast_heldout_ci95_lower_gt_zero": true,
+    "pred_c_joint_minus_singleton_sum_positive_both_splits": true,
+    "pred_c_joint_minus_singleton_sum_heldout_ci95_lower_gt_zero": true
+  },
+  "training_license_sites": []
+}

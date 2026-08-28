@@ -1,0 +1,122 @@
+{
+ "config": {
+  "eval_sets": [
+   "skip7000",
+   "skip11000"
+  ],
+  "bootstrap_draws": 2000,
+  "bootstrap": "ROW-level clusters over the 192 eval rows; NOT document-clustered (the rowcache carries no document ids) -- \u00a71701",
+  "ratio": "per-token constant-ablation damage on `induction` targets over the same on `novel` targets, JOINT over a whole stack. The PER-SITE version of this contrast FAILED its held-out predictions in \u00a71728 and is not carried forward."
+ },
+ "results": {
+  "skip7000": {
+   "baseline_ce": 3.29205,
+   "scored_tokens": 27974,
+   "joint_ratio": {
+    "mlp": 0.83816,
+    "attn": 1.00151
+   },
+   "joint_ratio_ci95": {
+    "mlp": [
+     0.7835,
+     0.8955
+    ],
+    "attn": [
+     0.9258,
+     1.0828
+    ],
+    "diff": [
+     0.1048,
+     0.2235
+    ]
+   },
+   "late_attention": {
+    "attn14": {
+     "per_token_damage": {
+      "induction": 0.04662,
+      "repeat": 0.08358,
+      "novel": -0.01289
+     },
+     "total_removal_nats": 0.02963,
+     "ratio": -3.6166
+    },
+    "attn15": {
+     "per_token_damage": {
+      "induction": 0.00749,
+      "repeat": 0.0176,
+      "novel": -0.00145
+     },
+     "total_removal_nats": 0.00671,
+     "ratio": -5.18
+    },
+    "attn16": {
+     "per_token_damage": {
+      "induction": 0.02803,
+      "repeat": 0.04836,
+      "novel": -0.0141
+     },
+     "total_removal_nats": 0.01373,
+     "ratio": -1.9882
+    }
+   }
+  },
+  "skip11000": {
+   "baseline_ce": 3.09711,
+   "scored_tokens": 27497,
+   "joint_ratio": {
+    "mlp": 0.84296,
+    "attn": 0.97426
+   },
+   "joint_ratio_ci95": {
+    "mlp": [
+     0.7936,
+     0.8924
+    ],
+    "attn": [
+     0.8913,
+     1.059
+    ],
+    "diff": [
+     0.0608,
+     0.2057
+    ]
+   },
+   "late_attention": {
+    "attn14": {
+     "per_token_damage": {
+      "induction": 0.03526,
+      "repeat": 0.08329,
+      "novel": -0.00996
+     },
+     "total_removal_nats": 0.03013,
+     "ratio": -3.5397
+    },
+    "attn15": {
+     "per_token_damage": {
+      "induction": 0.00752,
+      "repeat": 0.01973,
+      "novel": -0.00222
+     },
+     "total_removal_nats": 0.00713,
+     "ratio": -3.3935
+    },
+    "attn16": {
+     "per_token_damage": {
+      "induction": 0.01907,
+      "repeat": 0.05673,
+      "novel": -0.01484
+     },
+     "total_removal_nats": 0.01585,
+     "ratio": -1.2852
+    }
+   }
+  }
+ },
+ "predictions": {
+  "pred_a_joint_contrast_resolved": true,
+  "pred_b_negative_denominator": true,
+  "pred_c_late_attn_negative_removal": false,
+  "pred_d_controls": true
+ },
+ "runtime_s": 16.3
+}

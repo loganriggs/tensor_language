@@ -1,0 +1,26 @@
+PROGRAM HELD-OUT REPLICATION | compile once on n480_skip80 (mask n96_skip80), score on ['skip7000', 'skip11000'] | ridge 0.001
+  compiled all_linear
+  compiled table_mlp0_2
+  compiled additive
+  compiled linear_rank128
+  skip7000   CE live 3.29205 | stake 4.3301 nats
+      all_linear      CEILING  60.81%
+      table_mlp0_2    CEILING  57.16%
+      additive        CEILING  59.08%
+      linear_rank128  CEILING  54.12%
+  skip11000  CE live 3.09711 | stake 4.5173 nats
+      all_linear      CEILING  60.50%
+      table_mlp0_2    CEILING  56.25%
+      additive        CEILING  58.62%
+      linear_rank128  CEILING  53.98%
+
+  ARM-BY-ARM, reference -> held out:
+    all_linear       60.81% ->  60.50%   -0.31%
+    table_mlp0_2     57.16% ->  56.25%   -0.91%
+    additive         59.08% ->  58.62%   -0.46%
+    linear_rank128   54.12% ->  53.98%   -0.14%
+  stakes: skip7000 4.3301 | skip11000 4.5173 (+0.1872 nats -- document difficulty, not a ceiling)
+  headline replicates within 3 points True | ordering replicates True (['all_linear', 'additive', 'table_mlp0_2']) | control True
+
+pred_a True | pred_b True | pred_c True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/program_heldout_replication_results.json (466.7s)

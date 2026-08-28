@@ -1,0 +1,18 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+ATTN MULTILAG | how many recent positions does the write need? | sets [(), (1,), (1, 2), (1, 2, 3, 4), (1, 2, 4, 8)] | stake 3.5570 nats
+  controls: () must reproduce 16.38%, (1,) must reproduce 56.26%
+    lags none       ( 1152-dim input): CEILING   16.38%
+    lags 1          ( 2304-dim input): CEILING   56.26%
+    lags 1,2        ( 3456-dim input): CEILING   62.59%
+    lags 1,2,3,4    ( 5760-dim input): CEILING   66.71%
+    lags 1,2,4,8    ( 5760-dim input): CEILING   68.05%
+
+  first step (none -> 1): +39.88%
+  three more recent (1 -> 1,2,3,4): +10.45% -> diminishing returns True
+  four recent positions reach 66.71% -> above 70% False
+  contiguous (1,2,3,4) 66.71% vs spread (1,2,4,8) 68.05% (-1.34%) -> recency not just history False
+  CONTROLS reproduce §1682 and §1685: True
+  remaining after four recent positions: 33.29%
+
+pred_a True | pred_b False | pred_c False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/attn_multilag_results.json (639.3s)

@@ -1,0 +1,22 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+MID PAIR SYNERGY | mlp8, mlp9 and the pair, RECOMPILED | CE live 3.29205 | stake 5.5684 | 192 eval rows
+  exempt none        ( 0 sites live) CEILING   55.04%
+  exempt mlp8        ( 1 sites live) CEILING   56.15%
+  exempt mlp9        ( 1 sites live) CEILING   56.51%
+  exempt mlp8_mlp9_pair ( 2 sites live) CEILING   57.51%
+  bootstrapping band gains (2000 draws, ROW-level clusters)...
+
+  band gains (exempting the band, i.e. what leaving it REAL buys back):
+    mlp8_mlp9_pair  +2.47%  95% CI [+2.38%, +2.56%]
+    mlp9         +1.47%  95% CI [+1.40%, +1.54%]
+    mlp8         +1.11%  95% CI [+1.05%, +1.16%]
+  PAIR gain +2.47%  95% CI [+2.38%, +2.56%]
+  singles: mlp8 +1.11%  mlp9 +1.47%  sum +2.58%
+  excess -0.10% = -4.2% of the pair  95% CI [-0.19%, -0.01%]
+  late -20.1% < middle -4.2% < early +41.8% -> INTERMEDIATE, as depth predicts True
+  excess CI excludes zero -> sign resolved True
+  singles distinguishable -> two interacting sites True
+  CONTROLS base 55.04% vs §1696 55.04%, all gains positive -> True
+
+pred_a True | pred_b True | pred_c True | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/mid_pair_synergy_results.json (904.4s)

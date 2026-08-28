@@ -1,0 +1,14 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+WHOLE MODEL WITH v1 | closing the scope caveat | CE live 3.29205 | joint stake 5.5684 nats (§1696 5.5684) | control target 55.04%
+  v1_real   mode None    rank  1152: CEILING   55.04%
+  v1_table  mode table   rank  1152: CEILING   55.04%
+  v1_full   mode linear  rank  1152: CEILING   55.04%
+  v1_rank8  mode linear  rank     8: CEILING   54.75%
+
+  v1 as a TOKEN TABLE 55.04% vs v1 real 55.04% (+0.00%) -> caveat closes for free True
+  v1 full-rank linear 55.04% (exact by construction)
+  v1 rank-8 54.75% (-0.29%) -> arm not vacuous False
+  CONTROL v1_real 55.04% vs §1696 55.04% | baseline 3.29205 -> True
+
+pred_a True | pred_b True | pred_c False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/whole_model_with_v1_results.json (246.2s)

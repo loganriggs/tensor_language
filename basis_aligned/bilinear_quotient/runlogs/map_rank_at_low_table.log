@@ -1,0 +1,51 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+MAP RANK AT LOW TABLE RANK | table ranks (1, 8, 64) x map ranks (8, 16, 64, 256) | settled program (context-free tables + output-NN fallback + rank-64 map) | DISCOVERY ONLY
+
+  per-site norm calibration (live mean / row mean), measured on the LIVE model:
+    attn L0:  2.71 L1:  2.49 L2:  2.26 L3:  2.13 L4:  4.37 L5:  1.00 L6:  1.02 L7:  3.61 L8:  3.59 L9:  4.83 L10:  3.80 L11:  4.49 L12:  6.72 L13:  6.39 L14:  7.07 L15:  6.33 L16:  5.70 L17:  5.59
+    mlp  L0:  0.88 L1:  0.42 L2:  0.61 L3:  0.49 L4:  0.10 L5:  0.39 L6:  0.52 L7:  1.66 L8:  2.04 L9:  1.32 L10:  2.33 L11:  1.05 L12:  1.91 L13:  1.26 L14:  1.66 L15:  1.19 L16:  1.13 L17:  1.21
+
+  arms  (45s)
+  all_substituted      skip7000 13.55%  skip11000 14.25%  skip1200 13.64%
+  all_sub_scaled       skip7000 12.16%  skip11000 12.81%  skip1200 12.10%
+  live_model           skip7000 39.32%  skip11000 42.35%  skip1200 38.88%
+  t1_m8                skip7000  9.90%  skip11000 10.65%  skip1200 10.07%
+  t1_m16               skip7000  9.90%  skip11000 10.65%  skip1200 10.07%
+  t1_m64               skip7000  9.90%  skip11000 10.65%  skip1200 10.07%
+  t1_m256              skip7000  9.90%  skip11000 10.65%  skip1200 10.07%
+  t8_m8                skip7000 11.37%  skip11000 12.06%  skip1200 11.76%
+  t8_m16               skip7000 11.36%  skip11000 12.08%  skip1200 11.74%
+  t8_m64               skip7000 11.36%  skip11000 12.08%  skip1200 11.74%
+  t8_m256              skip7000 11.36%  skip11000 12.08%  skip1200 11.74%
+  t64_m8               skip7000 12.48%  skip11000 13.07%  skip1200 12.57%
+  t64_m16              skip7000 12.59%  skip11000 13.26%  skip1200 12.82%
+  t64_m64              skip7000 12.88%  skip11000 13.49%  skip1200 12.89%
+  t64_m256             skip7000 12.89%  skip11000 13.48%  skip1200 12.91%
+
+  cost / fidelity  (reals, top-1 per role)
+    *t1_m8          0.983M  skip7000  9.90%  skip11000 10.65%  skip1200 10.07%
+    *t1_m16         1.647M  skip7000  9.90%  skip11000 10.65%  skip1200 10.07%
+    *t8_m8          2.639M  skip7000 11.37%  skip11000 12.06%  skip1200 11.76%
+     t8_m16         3.302M  skip7000 11.36%  skip11000 12.08%  skip1200 11.74%
+     t1_m64         5.628M  skip7000  9.90%  skip11000 10.65%  skip1200 10.07%
+     t8_m64         7.284M  skip7000 11.36%  skip11000 12.08%  skip1200 11.74%
+    *t64_m8        15.886M  skip7000 12.48%  skip11000 13.07%  skip1200 12.57%
+    *t64_m16       16.550M  skip7000 12.59%  skip11000 13.26%  skip1200 12.82%
+    *t64_m64       20.531M  skip7000 12.88%  skip11000 13.49%  skip1200 12.89%
+     t1_m256       21.553M  skip7000  9.90%  skip11000 10.65%  skip1200 10.07%
+     t8_m256       23.209M  skip7000 11.36%  skip11000 12.08%  skip1200 11.74%
+     t64_m256      36.456M  skip7000 12.89%  skip11000 13.48%  skip1200 12.91%
+   (* = on the Pareto frontier at every role)
+
+  absolute accuracy per million reals:
+    skip7000   t1m8:0.1007  t1m16:0.0601  t1m64:0.0176  t1m256:0.0046  t8m8:0.0431  t8m16:0.0344  t8m64:0.0156  t8m256:0.0049  t64m8:0.0079  t64m16:0.0076  t64m64:0.0063  t64m256:0.0035
+    skip11000  t1m8:0.1083  t1m16:0.0647  t1m64:0.0189  t1m256:0.0049  t8m8:0.0457  t8m16:0.0366  t8m64:0.0166  t8m256:0.0052  t64m8:0.0082  t64m16:0.0080  t64m64:0.0066  t64m256:0.0037
+    skip1200   t1m8:0.1024  t1m16:0.0612  t1m64:0.0179  t1m256:0.0047  t8m8:0.0446  t8m16:0.0356  t8m64:0.0161  t8m256:0.0051  t64m8:0.0079  t64m16:0.0077  t64m64:0.0063  t64m256:0.0035
+
+  at table rank 1, map 64 -> 16 costs <1pp -> True  skip7000 9.90% -> 9.90% (-0.00pp)  skip11000 10.65% -> 10.65% (-0.00pp)  skip1200 10.07% -> 10.07% (-0.00pp)
+  the accuracy-per-real optimum has map rank <=16 -> True  skip7000 t1_m8 (0.1007)  skip11000 t1_m8 (0.1083)  skip1200 t1_m8 (0.1024)
+  §1786's map floor reproduces on accuracy (m8 loses >=1pp at t64) -> False  skip7000 12.48% vs 12.88% (-0.40pp)  skip11000 13.07% vs 13.49% (-0.42pp)  skip1200 12.57% vs 12.89% (-0.31pp)
+  all-substituted and live reproduce §1789, coverage 5419 -> control True
+
+pred_a True | pred_b True | pred_c False | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/map_rank_at_low_table_results.json (994.1s)

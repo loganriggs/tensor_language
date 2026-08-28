@@ -1,0 +1,13 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+ATTN v1 PATH | decomposing attention into its residual write and its threaded v1 | position-weighted MEAN ablation, matched across arms | 18/18 modules return a v1 tensor
+  ablate write_only  CE 6.87610 | stake  3.5840 nats
+  ablate v1_only     CE 3.99861 | stake  0.7066 nats
+  ablate both        CE 6.87610 | stake  3.5840 nats
+
+  write 3.5840 + v1 0.7066 = 4.2906  |  joint 3.5840  -> joint/sum 0.835
+  v1 path carries >= .5 nats True | non-additive by >= 10% True | manipulation True
+  v1 share of the joint: 19.7% | write share: 100.0%
+  (§1682 priced the write at 3.5570 nats under OPTIMAL-constant ablation -- cross-reference, not a comparator: a mean constant is weaker so every stake here is larger)
+
+pred_a True | pred_b True | pred_c True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/attn_v1_path_results.json (6.0s)

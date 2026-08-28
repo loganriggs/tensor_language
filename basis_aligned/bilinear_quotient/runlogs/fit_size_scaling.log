@@ -1,0 +1,23 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+FIT SIZE SCALING | testing §1673's estimation hypothesis | ridge 0.001 | eval fineweb_n192_skip7000 (disjoint from every fit set)
+  n96_skip1200     96 rows | 6009 tokens covered | stake 4.3196
+      linear         CEILING  57.99%
+      table_mlp0_2   CEILING  57.29%
+      additive       CEILING  54.35%
+  n96_skip80       96 rows | 5419 tokens covered | stake 4.3301
+      linear         CEILING  58.17%
+      table_mlp0_2   CEILING  56.95%
+      additive       CEILING  53.79%
+  n480_skip80     480 rows | 16110 tokens covered | stake 4.3280
+      linear         CEILING  54.88%
+      table_mlp0_2   CEILING  56.50%
+      additive       CEILING  55.02%
+
+  SIZE EFFECT (n96 -> n480, same offset): additive +1.23% | linear -3.29% | table -0.45%
+  additive estimation-limited False | more than linear True
+  OFFSET CONTROL (n96 skip1200 vs skip80): linear 0.18%  table_mlp0_2 0.35%  additive 0.56%  -> True
+  at n480 the ordering is: table_mlp0_2 56.50%  additive 55.02%  linear 54.88%
+  (§1673 at n96_skip1200: linear 57.99%  table_mlp0_2 57.29%  additive 54.35%)
+
+pred_a False | pred_b True | pred_c True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/fit_size_scaling_results.json (337.7s)

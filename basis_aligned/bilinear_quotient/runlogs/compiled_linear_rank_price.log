@@ -1,0 +1,14 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+COMPILED LINEAR RANK PRICE | 18 maps, bottom-up, fit n480_skip80, mask fixed at n96_skip80 | ranks [8, 32, 128, 512, 1152] | stake 4.3301
+    rank     8: CEILING  41.59% |   0.33M reals
+    rank    32: CEILING  46.08% |   1.33M reals
+    rank   128: CEILING  54.12% |   5.31M reals
+    rank   512: CEILING  60.45% |  21.23M reals
+    rank  1152: CEILING  60.81% |  23.89M reals
+
+  monotone True  (§1668 same family fitted NAIVELY: ['30.1%', '-9.0%', '9.8%', '12.3%', '52.6%', '68.7%']) -> compilation makes it readable True
+  rank 128 = 54.12% = 89.0% of full rank, at 5.31M reals vs 23.89M (22.2%) -> cheap False
+  IDENTITY rank 1152: 60.81% vs §1676 60.81% -> True
+
+pred_a True | pred_b False | pred_c True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/compiled_linear_rank_price_results.json (362.1s)

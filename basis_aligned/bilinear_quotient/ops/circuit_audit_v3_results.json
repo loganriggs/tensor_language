@@ -1,0 +1,686 @@
+{
+ "config": {
+  "registry": "/workspace/theseus-bench/registry/circuits.json",
+  "eval_sets": [
+   "skip7000",
+   "skip11000"
+  ],
+  "fit_rows": "fineweb_n96_skip80.pt",
+  "removal": "components replaced by their optimal constants; CE cost in nats",
+  "specificity": "named-set removal / MEDIAN removal of up to 12 random matched-size control sets drawn from components the circuit does NOT name; percentile is the named set's rank among them. Where only one control set is possible (a circuit naming all 18 sites of one kind) the percentile is null, not 0 or 1.",
+  "claim_direction": "HAND-ANNOTATED reading of what each entry asserts, so specificity is scored against the bar its own claim implies. A `redundant` claim is CONFIRMED by a low specificity. This is the only place the harness reads a claim rather than a component set; it is disputable per line.",
+  "extraction": "components replaced by a per-token table; fraction of removal cost recovered",
+  "ood": "both scored on skip7000 (reference) and skip11000 (held out)",
+  "BOOTSTRAP_LIMITATION": "every circuit scored on the same standard rows. Per-circuit evaluation data is an OPEN PROBLEM; a circuit with a narrow trigger reads WEAKER than it is because most rows do not trigger it. Fill `data_note` per entry as this becomes definable.",
+  "coverage": "16 of 59 certified entries have a component list"
+ },
+ "circuits": {
+  "_mlp0_dossier_resolved": {
+   "skip7000": {
+    "n_sites": 1,
+    "ce_live": 3.29205,
+    "removal_nats": 0.85135,
+    "extraction": 0.91011,
+    "n_control_draws": 12,
+    "control_removal_median_nats": 0.05747,
+    "control_removal_nats_all": [
+     0.03727,
+     0.0313,
+     0.62127,
+     0.05747,
+     0.04633,
+     0.10513,
+     0.02599,
+     0.03307,
+     0.08022,
+     0.07732,
+     0.03942,
+     0.33267
+    ],
+    "specificity_vs_median": 14.8139,
+    "percentile": 1.0,
+    "claim_direction": "important"
+   },
+   "skip11000": {
+    "n_sites": 1,
+    "ce_live": 3.09711,
+    "removal_nats": 0.9602,
+    "extraction": 0.9086,
+    "n_control_draws": 0,
+    "control_removal_median_nats": null,
+    "control_removal_nats_all": null,
+    "specificity_vs_median": null,
+    "percentile": null,
+    "claim_direction": "important"
+   },
+   "ood": {
+    "removal_rel_change": 0.1279,
+    "extraction_delta": -0.00151
+   }
+  },
+  "_mlp1_dossier": {
+   "skip7000": {
+    "n_sites": 1,
+    "ce_live": 3.29205,
+    "removal_nats": 7.0213,
+    "extraction": 0.96056,
+    "n_control_draws": 12,
+    "control_removal_median_nats": 0.04633,
+    "control_removal_nats_all": [
+     0.03679,
+     0.08348,
+     0.03942,
+     0.03307,
+     0.0313,
+     0.03727,
+     0.04633,
+     0.02599,
+     0.77058,
+     0.85135,
+     0.07732,
+     0.62127
+    ],
+    "specificity_vs_median": 151.5646,
+    "percentile": 1.0,
+    "claim_direction": "important"
+   },
+   "skip11000": {
+    "n_sites": 1,
+    "ce_live": 3.09711,
+    "removal_nats": 7.20518,
+    "extraction": 0.95675,
+    "n_control_draws": 0,
+    "control_removal_median_nats": null,
+    "control_removal_nats_all": null,
+    "specificity_vs_median": null,
+    "percentile": null,
+    "claim_direction": "important"
+   },
+   "ood": {
+    "removal_rel_change": 0.0262,
+    "extraction_delta": -0.00381
+   }
+  },
+  "_front_band_tableability_ladder": {
+   "skip7000": {
+    "n_sites": 4,
+    "ce_live": 3.29205,
+    "removal_nats": 4.3928,
+    "extraction": 0.76455,
+    "n_control_draws": 12,
+    "control_removal_median_nats": 0.55779,
+    "control_removal_nats_all": [
+     0.4532,
+     0.55779,
+     0.44705,
+     0.62067,
+     0.68558,
+     0.57765,
+     0.41983,
+     0.4063,
+     0.43417,
+     0.59542,
+     0.90738,
+     0.47424
+    ],
+    "specificity_vs_median": 7.8754,
+    "percentile": 1.0,
+    "claim_direction": "important"
+   },
+   "skip11000": {
+    "n_sites": 4,
+    "ce_live": 3.09711,
+    "removal_nats": 4.63823,
+    "extraction": 0.76196,
+    "n_control_draws": 0,
+    "control_removal_median_nats": null,
+    "control_removal_nats_all": null,
+    "specificity_vs_median": null,
+    "percentile": null,
+    "claim_direction": "important"
+   },
+   "ood": {
+    "removal_rel_change": 0.0559,
+    "extraction_delta": -0.00259
+   }
+  },
+  "_front_is_tabular_middle_is_not": {
+   "skip7000": {
+    "n_sites": 4,
+    "ce_live": 3.29205,
+    "removal_nats": 4.3928,
+    "extraction": 0.76455,
+    "n_control_draws": 12,
+    "control_removal_median_nats": 0.55779,
+    "control_removal_nats_all": [
+     0.4532,
+     0.55779,
+     0.44705,
+     0.62067,
+     0.68558,
+     0.57765,
+     0.41983,
+     0.4063,
+     0.43417,
+     0.59542,
+     0.90738,
+     0.47424
+    ],
+    "specificity_vs_median": 7.8754,
+    "percentile": 1.0,
+    "claim_direction": "important"
+   },
+   "skip11000": {
+    "n_sites": 4,
+    "ce_live": 3.09711,
+    "removal_nats": 4.63823,
+    "extraction": 0.76196,
+    "n_control_draws": 0,
+    "control_removal_median_nats": null,
+    "control_removal_nats_all": null,
+    "specificity_vs_median": null,
+    "percentile": null,
+    "claim_direction": "important"
+   },
+   "ood": {
+    "removal_rel_change": 0.0559,
+    "extraction_delta": -0.00259
+   }
+  },
+  "_middle_band_is_redundant_not_small": {
+   "skip7000": {
+    "n_sites": 12,
+    "ce_live": 3.29205,
+    "removal_nats": 2.64962,
+    "extraction": 0.20921,
+    "n_control_draws": 12,
+    "control_removal_median_nats": 3.17248,
+    "control_removal_nats_all": [
+     2.92882,
+     2.13632,
+     5.32801,
+     5.99437,
+     6.01346,
+     3.17248,
+     2.82944,
+     2.32477,
+     2.62529,
+     4.09262,
+     2.51868,
+     5.09351
+    ],
+    "specificity_vs_median": 0.8352,
+    "percentile": 0.3333,
+    "claim_direction": "redundant"
+   },
+   "skip11000": {
+    "n_sites": 12,
+    "ce_live": 3.09711,
+    "removal_nats": 2.81991,
+    "extraction": 0.21082,
+    "n_control_draws": 0,
+    "control_removal_median_nats": null,
+    "control_removal_nats_all": null,
+    "specificity_vs_median": null,
+    "percentile": null,
+    "claim_direction": "redundant"
+   },
+   "ood": {
+    "removal_rel_change": 0.0643,
+    "extraction_delta": 0.00161
+   }
+  },
+  "_middle_band_program_family_prices": {
+   "skip7000": {
+    "n_sites": 12,
+    "ce_live": 3.29205,
+    "removal_nats": 2.64962,
+    "extraction": 0.20921,
+    "n_control_draws": 12,
+    "control_removal_median_nats": 3.17248,
+    "control_removal_nats_all": [
+     2.92882,
+     2.13632,
+     5.32801,
+     5.99437,
+     6.01346,
+     3.17248,
+     2.82944,
+     2.32477,
+     2.62529,
+     4.09262,
+     2.51868,
+     5.09351
+    ],
+    "specificity_vs_median": 0.8352,
+    "percentile": 0.3333,
+    "claim_direction": "ambiguous"
+   },
+   "skip11000": {
+    "n_sites": 12,
+    "ce_live": 3.09711,
+    "removal_nats": 2.81991,
+    "extraction": 0.21082,
+    "n_control_draws": 0,
+    "control_removal_median_nats": null,
+    "control_removal_nats_all": null,
+    "specificity_vs_median": null,
+    "percentile": null,
+    "claim_direction": "ambiguous"
+   },
+   "ood": {
+    "removal_rel_change": 0.0643,
+    "extraction_delta": 0.00161
+   }
+  },
+  "_mid_band_feature_price_curve": {
+   "skip7000": {
+    "n_sites": 12,
+    "ce_live": 3.29205,
+    "removal_nats": 2.64962,
+    "extraction": 0.20921,
+    "n_control_draws": 12,
+    "control_removal_median_nats": 3.17248,
+    "control_removal_nats_all": [
+     2.92882,
+     2.13632,
+     5.32801,
+     5.99437,
+     6.01346,
+     3.17248,
+     2.82944,
+     2.32477,
+     2.62529,
+     4.09262,
+     2.51868,
+     5.09351
+    ],
+    "specificity_vs_median": 0.8352,
+    "percentile": 0.3333,
+    "claim_direction": "ambiguous"
+   },
+   "skip11000": {
+    "n_sites": 12,
+    "ce_live": 3.09711,
+    "removal_nats": 2.81991,
+    "extraction": 0.21082,
+    "n_control_draws": 0,
+    "control_removal_median_nats": null,
+    "control_removal_nats_all": null,
+    "specificity_vs_median": null,
+    "percentile": null,
+    "claim_direction": "ambiguous"
+   },
+   "ood": {
+    "removal_rel_change": 0.0643,
+    "extraction_delta": 0.00161
+   }
+  },
+  "_front_mlps_are_synergistic": {
+   "skip7000": {
+    "n_sites": 4,
+    "ce_live": 3.29205,
+    "removal_nats": 4.3928,
+    "extraction": 0.76455,
+    "n_control_draws": 12,
+    "control_removal_median_nats": 0.55779,
+    "control_removal_nats_all": [
+     0.4532,
+     0.55779,
+     0.44705,
+     0.62067,
+     0.68558,
+     0.57765,
+     0.41983,
+     0.4063,
+     0.43417,
+     0.59542,
+     0.90738,
+     0.47424
+    ],
+    "specificity_vs_median": 7.8754,
+    "percentile": 1.0,
+    "claim_direction": "important"
+   },
+   "skip11000": {
+    "n_sites": 4,
+    "ce_live": 3.09711,
+    "removal_nats": 4.63823,
+    "extraction": 0.76196,
+    "n_control_draws": 0,
+    "control_removal_median_nats": null,
+    "control_removal_nats_all": null,
+    "specificity_vs_median": null,
+    "percentile": null,
+    "claim_direction": "important"
+   },
+   "ood": {
+    "removal_rel_change": 0.0559,
+    "extraction_delta": -0.00259
+   }
+  },
+  "_band_synergy_sign_depends_on_band": {
+   "skip7000": {
+    "n_sites": 2,
+    "ce_live": 3.29205,
+    "removal_nats": 0.71117,
+    "extraction": 0.5002,
+    "n_control_draws": 12,
+    "control_removal_median_nats": 0.68303,
+    "control_removal_nats_all": [
+     0.68303,
+     0.16565,
+     0.09172,
+     0.15313,
+     0.87735,
+     0.09843,
+     0.99131,
+     1.02826,
+     0.85761,
+     0.14281,
+     0.21145,
+     0.83394
+    ],
+    "specificity_vs_median": 1.0412,
+    "percentile": 0.5833,
+    "claim_direction": "ambiguous"
+   },
+   "skip11000": {
+    "n_sites": 2,
+    "ce_live": 3.09711,
+    "removal_nats": 0.66113,
+    "extraction": 0.48111,
+    "n_control_draws": 0,
+    "control_removal_median_nats": null,
+    "control_removal_nats_all": null,
+    "specificity_vs_median": null,
+    "percentile": null,
+    "claim_direction": "ambiguous"
+   },
+   "ood": {
+    "removal_rel_change": -0.0704,
+    "extraction_delta": -0.01909
+   }
+  },
+  "_attention_output_write_is_nonlocal": {
+   "skip7000": {
+    "n_sites": 18,
+    "ce_live": 3.29205,
+    "removal_nats": 3.55704,
+    "extraction": -0.01875,
+    "n_control_draws": 1,
+    "control_removal_median_nats": 4.33011,
+    "control_removal_nats_all": [
+     4.33011
+    ],
+    "specificity_vs_median": 0.8215,
+    "percentile": null,
+    "claim_direction": "important"
+   },
+   "skip11000": {
+    "n_sites": 18,
+    "ce_live": 3.09711,
+    "removal_nats": 3.75522,
+    "extraction": -0.02356,
+    "n_control_draws": 0,
+    "control_removal_median_nats": null,
+    "control_removal_nats_all": null,
+    "specificity_vs_median": null,
+    "percentile": null,
+    "claim_direction": "important"
+   },
+   "ood": {
+    "removal_rel_change": 0.0557,
+    "extraction_delta": -0.00481
+   }
+  },
+  "_attention_write_is_mostly_two_position": {
+   "skip7000": {
+    "n_sites": 18,
+    "ce_live": 3.29205,
+    "removal_nats": 3.55704,
+    "extraction": -0.01875,
+    "n_control_draws": 1,
+    "control_removal_median_nats": 4.33011,
+    "control_removal_nats_all": [
+     4.33011
+    ],
+    "specificity_vs_median": 0.8215,
+    "percentile": null,
+    "claim_direction": "important"
+   },
+   "skip11000": {
+    "n_sites": 18,
+    "ce_live": 3.09711,
+    "removal_nats": 3.75522,
+    "extraction": -0.02356,
+    "n_control_draws": 0,
+    "control_removal_median_nats": null,
+    "control_removal_nats_all": null,
+    "specificity_vs_median": null,
+    "percentile": null,
+    "claim_direction": "important"
+   },
+   "ood": {
+    "removal_rel_change": 0.0557,
+    "extraction_delta": -0.00481
+   }
+  },
+  "_lag1_failure_is_middle_band": {
+   "skip7000": {
+    "n_sites": 12,
+    "ce_live": 3.29205,
+    "removal_nats": 2.11373,
+    "extraction": -0.19335,
+    "n_control_draws": 12,
+    "control_removal_median_nats": 3.11098,
+    "control_removal_nats_all": [
+     2.71767,
+     2.86608,
+     4.57403,
+     2.74166,
+     4.03937,
+     3.36203,
+     3.11098,
+     2.85029,
+     3.72094,
+     2.81171,
+     2.29198,
+     3.98734
+    ],
+    "specificity_vs_median": 0.6794,
+    "percentile": 0.0,
+    "claim_direction": "important"
+   },
+   "skip11000": {
+    "n_sites": 12,
+    "ce_live": 3.09711,
+    "removal_nats": 2.26983,
+    "extraction": -0.18848,
+    "n_control_draws": 0,
+    "control_removal_median_nats": null,
+    "control_removal_nats_all": null,
+    "specificity_vs_median": null,
+    "percentile": null,
+    "claim_direction": "important"
+   },
+   "ood": {
+    "removal_rel_change": 0.0739,
+    "extraction_delta": 0.00487
+   }
+  },
+  "_whole_model_program": {
+   "skip7000": {
+    "n_sites": 36,
+    "ce_live": 3.29205,
+    "removal_nats": 5.56837,
+    "extraction": 0.27105,
+    "n_control_draws": 0,
+    "control_removal_median_nats": null,
+    "control_removal_nats_all": [],
+    "specificity_vs_median": null,
+    "percentile": null,
+    "claim_direction": "important"
+   },
+   "skip11000": {
+    "n_sites": 36,
+    "ce_live": 3.09711,
+    "removal_nats": 5.77495,
+    "extraction": 0.26213,
+    "n_control_draws": 0,
+    "control_removal_median_nats": null,
+    "control_removal_nats_all": null,
+    "specificity_vs_median": null,
+    "percentile": null,
+    "claim_direction": "important"
+   },
+   "ood": {
+    "removal_rel_change": 0.0371,
+    "extraction_delta": -0.00892
+   }
+  },
+  "_program_price_curve": {
+   "skip7000": {
+    "n_sites": 18,
+    "ce_live": 3.29205,
+    "removal_nats": 4.33011,
+    "extraction": 0.34541,
+    "n_control_draws": 1,
+    "control_removal_median_nats": 3.55704,
+    "control_removal_nats_all": [
+     3.55704
+    ],
+    "specificity_vs_median": 1.2173,
+    "percentile": null,
+    "claim_direction": "important"
+   },
+   "skip11000": {
+    "n_sites": 18,
+    "ce_live": 3.09711,
+    "removal_nats": 4.51729,
+    "extraction": 0.33934,
+    "n_control_draws": 0,
+    "control_removal_median_nats": null,
+    "control_removal_nats_all": null,
+    "specificity_vs_median": null,
+    "percentile": null,
+    "claim_direction": "important"
+   },
+   "ood": {
+    "removal_rel_change": 0.0432,
+    "extraction_delta": -0.00607
+   }
+  },
+  "_best_compiled_program_for_mlp_stack": {
+   "skip7000": {
+    "n_sites": 18,
+    "ce_live": 3.29205,
+    "removal_nats": 4.33011,
+    "extraction": 0.34541,
+    "n_control_draws": 1,
+    "control_removal_median_nats": 3.55704,
+    "control_removal_nats_all": [
+     3.55704
+    ],
+    "specificity_vs_median": 1.2173,
+    "percentile": null,
+    "claim_direction": "important"
+   },
+   "skip11000": {
+    "n_sites": 18,
+    "ce_live": 3.09711,
+    "removal_nats": 4.51729,
+    "extraction": 0.33934,
+    "n_control_draws": 0,
+    "control_removal_median_nats": null,
+    "control_removal_nats_all": null,
+    "specificity_vs_median": null,
+    "percentile": null,
+    "claim_direction": "important"
+   },
+   "ood": {
+    "removal_rel_change": 0.0432,
+    "extraction_delta": -0.00607
+   }
+  },
+  "_only_attention_routing_is_compressible": {
+   "skip7000": {
+    "n_sites": 18,
+    "ce_live": 3.29205,
+    "removal_nats": 3.55704,
+    "extraction": -0.01875,
+    "n_control_draws": 1,
+    "control_removal_median_nats": 4.33011,
+    "control_removal_nats_all": [
+     4.33011
+    ],
+    "specificity_vs_median": 0.8215,
+    "percentile": null,
+    "claim_direction": "important"
+   },
+   "skip11000": {
+    "n_sites": 18,
+    "ce_live": 3.09711,
+    "removal_nats": 3.75522,
+    "extraction": -0.02356,
+    "n_control_draws": 0,
+    "control_removal_median_nats": null,
+    "control_removal_nats_all": null,
+    "specificity_vs_median": null,
+    "percentile": null,
+    "claim_direction": "important"
+   },
+   "ood": {
+    "removal_rel_change": 0.0557,
+    "extraction_delta": -0.00481
+   }
+  }
+ },
+ "registry_entries": 85,
+ "certified": 59,
+ "auditable": 16,
+ "direction_annotations": {
+  "_mlp0_dossier_resolved": "important",
+  "_mlp1_dossier": "important",
+  "_front_band_tableability_ladder": "important",
+  "_front_is_tabular_middle_is_not": "important",
+  "_middle_band_is_redundant_not_small": "redundant",
+  "_middle_band_program_family_prices": "ambiguous",
+  "_mid_band_feature_price_curve": "ambiguous",
+  "_front_mlps_are_synergistic": "important",
+  "_band_synergy_sign_depends_on_band": "ambiguous",
+  "_attention_output_write_is_nonlocal": "important",
+  "_attention_write_is_mostly_two_position": "important",
+  "_lag1_failure_is_middle_band": "important",
+  "_whole_model_program": "important",
+  "_program_price_curve": "important",
+  "_best_compiled_program_for_mlp_stack": "important",
+  "_only_attention_routing_is_compressible": "important"
+ },
+ "claim_consistent": {
+  "_mlp0_dossier_resolved": true,
+  "_mlp1_dossier": true,
+  "_front_band_tableability_ladder": true,
+  "_front_is_tabular_middle_is_not": true,
+  "_middle_band_is_redundant_not_small": false,
+  "_front_mlps_are_synergistic": true,
+  "_lag1_failure_is_middle_band": false
+ },
+ "v2_single_draw_moved_2x": {
+  "_mlp0_dossier_resolved": [
+   0.12,
+   14.814
+  ],
+  "_mlp1_dossier": [
+   8.25,
+   151.565
+  ]
+ },
+ "predictions": {
+  "pred_a_percentile_discriminates": true,
+  "pred_b_S1724_single_draw_diagnosis": true,
+  "pred_c_v1v2_rows_reproduce": true,
+  "pred_d_direction_rescues_specificity": true
+ },
+ "runtime_s": 239.5
+}

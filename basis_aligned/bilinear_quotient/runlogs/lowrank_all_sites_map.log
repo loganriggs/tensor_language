@@ -1,0 +1,48 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+LINEAR-CORRECTABILITY MAP | all 36 sites | ranks (8, 32, 128) | deployed (all-tabled) fit context | DISCOVERY ONLY
+  fit coverage 5419 of 50257 token ids
+  fitted on 24576 positions per site, all 36 sites in one sweep
+
+  skip7000: live 3.29205 | table-only 7.35114 | stake 4.0591 nats
+    ALL-36 rank   8: recovers -0.5235 = -12.90% of the stake, for 0.664M reals
+    ALL-36 rank  32: recovers -0.5684 = -14.00% of the stake, for 2.654M reals
+    ALL-36 rank 128: recovers -0.5317 = -13.10% of the stake, for 10.617M reals
+    most linearly correctable (fraction of own gap, rank 128):
+      attn6   gap -0.0167  closes 142.60%
+      mlp4    gap  0.0032  closes 110.58%
+      mlp17   gap  0.5128  closes 100.95%
+      mlp1    gap  0.0009  closes  98.44%
+      mlp16   gap  0.3722  closes  98.36%
+      attn5   gap -0.0524  closes  97.72%
+    least:
+      attn11  gap  0.0486  closes -81.09%
+      mlp3    gap -0.0002  closes -269.80%
+      attn9   gap  0.0102  closes -384.09%
+      attn1   gap  0.0000  closes -4139.95%
+    median fraction closed: MLP  92.05%   attention  -2.45%
+
+  skip11000: live 3.09711 | table-only 7.35825 | stake 4.2611 nats
+    ALL-36 rank   8: recovers -0.5462 = -12.82% of the stake, for 0.664M reals
+    ALL-36 rank  32: recovers -0.5896 = -13.84% of the stake, for 2.654M reals
+    ALL-36 rank 128: recovers -0.5534 = -12.99% of the stake, for 10.617M reals
+    most linearly correctable (fraction of own gap, rank 128):
+      attn6   gap -0.0126  closes 178.00%
+      mlp4    gap  0.0032  closes 106.99%
+      mlp17   gap  0.5141  closes  99.63%
+      mlp1    gap  0.0009  closes  97.65%
+      mlp16   gap  0.3599  closes  96.55%
+      mlp15   gap  0.2259  closes  94.10%
+    least:
+      attn11  gap  0.0575  closes -64.32%
+      attn1   gap  0.0001  closes -303.85%
+      attn9   gap  0.0087  closes -449.09%
+      mlp3    gap -0.0001  closes -833.56%
+    median fraction closed: MLP  91.23%   attention  -1.45%
+
+  all-36 rank 8 recovers >=1.0 nat held out (-0.5462) -> False
+  median fraction closed higher for MLPs (91.23%) than attention (-1.45%) -> True
+  >=2 of mlp15/16/17 in the top five -> late MLPs lead True
+  table-only CE + six §1746 site gaps + coverage 5419 -> control True
+
+pred_a False | pred_b True | pred_c True | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/lowrank_all_sites_map_results.json (243.0s)

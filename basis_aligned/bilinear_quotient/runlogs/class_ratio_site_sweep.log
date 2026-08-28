@@ -1,0 +1,57 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+  coverage: 5419 of 50257 token ids appear in the fit rows; only positions with a covered input token are scored, matching circuit_audit v1-v4
+CLASS RATIO SITE SWEEP | all 36 sites individually | induction/novel per-token removal | 2000 row-level bootstrap draws
+
+  skip7000: baseline CE 3.29205 (ref 3.29205) | scored 27974 tokens | induction 2341 repeat 10885 novel 14748
+    layer  mlp ratio  attn ratio   mlp<attn
+        0      0.386       0.425   yes
+        1      0.830       0.553   no
+        2      0.424       0.606   yes
+        3      0.468       0.582   yes
+        4      0.546       0.551   yes
+        5      0.548       0.606   yes
+        6      0.661       1.184   yes
+        7      0.616       0.895   yes
+        8      0.438       2.285   yes
+        9      0.342       0.500   yes
+       10      0.365       1.705   yes
+       11      0.275       0.415   yes
+       12      0.230       1.040   yes
+       13      0.304       3.383   yes
+       14      0.168      -3.617   no
+       15      0.258      -5.180   no
+       16      0.554      -1.988   no
+       17      0.040       1.003   yes
+    stack medians: mlp 0.405 95% CI (0.3394, 0.4771) | attn 0.594 95% CI (0.5005, 0.7075)
+    joint-stack ratios (§1727 control): mlp 0.838 attn 1.002
+
+  skip11000: baseline CE 3.09711 (ref 3.09711) | scored 27497 tokens | induction 2588 repeat 10566 novel 14343
+    layer  mlp ratio  attn ratio   mlp<attn
+        0      0.416       0.439   yes
+        1      0.824       0.588   no
+        2      0.394       0.578   yes
+        3      0.482       0.576   yes
+        4      0.653       0.536   no
+        5      0.679       0.611   no
+        6      0.814       1.252   yes
+        7      0.670       0.844   yes
+        8      0.575       2.281   yes
+        9      0.627       0.713   yes
+       10      0.637       1.244   yes
+       11      0.530       0.404   no
+       12      0.451       1.239   yes
+       13      0.434       2.824   yes
+       14      0.359      -3.540   no
+       15      0.341      -3.394   no
+       16      0.572      -1.285   no
+       17      0.078       0.247   yes
+    stack medians: mlp 0.551 95% CI (0.4339, 0.6588) | attn 0.583 95% CI (0.5041, 0.6785)
+    joint-stack ratios (§1727 control): mlp 0.843 attn 0.974
+
+  HELD OUT (skip11000): mlp median 0.551 vs attn 0.583 -> contrast replicates True
+  matched depth: mlp below attn at 11/18 layers -> kind not depth False
+  CIs (0.4339, 0.6588) vs (0.5041, 0.6785) -> resolved False
+  skip7000 joint ratios {'mlp': 0.83816, 'attn': 1.00151} vs §1727 {'mlp': 0.838, 'attn': 1.002} -> control True
+
+pred_a True | pred_b False | pred_c False | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/class_ratio_site_sweep_results.json (109.1s)

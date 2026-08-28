@@ -1,0 +1,23 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+FEATURE BASIS vs ROTATED | is the model own feature basis sparse-selectable? | k in [8, 32, 128, 512] | fit n96_skip80 | stake 4.3301
+    topk     k     8: CEILING  -34.68%
+    topk     k    32: CEILING  -29.95%
+    topk     k   128: CEILING  -49.62%
+    topk     k   512: CEILING  -49.93%
+    random   k     8: CEILING -121.25%
+    random   k    32: CEILING -124.37%
+    random   k   128: CEILING -129.84%
+    random   k   512: CEILING -131.72%
+    rotated  k     8: CEILING  -91.75%
+    rotated  k    32: CEILING   39.69%
+    rotated  k   128: CEILING   63.61%
+    rotated  k   512: CEILING   94.87%
+    IDENTITY topk     k  4608:  100.00%  (known answer 1.0)
+    IDENTITY rotated  k  1152:  100.00%  (known answer 1.0)
+
+  at k=128: rotated 63.61% | topk -49.62% | random -129.84%  -> rotated basis works, feature basis does not True
+  monotone: topk False  random False  rotated True  -> True
+  identity checks {'topk': 1.0, 'rotated': 1.0} | topk k=128 vs §1678 -49.62% -> True
+
+pred_a True | pred_b True | pred_c True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/feature_basis_vs_rotated_results.json (235.3s)

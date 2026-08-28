@@ -1,0 +1,36 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+  fit-row bigram: 24576 observations over 5419 covered current types; 5419 types observed
+ACCURACY BY TARGET FREQUENCY | buckets ((0, 0), (1, 4), (5, 24), (25, 124), (125, 1000000000)) on the fit-row count of the TRUE target | full-rank settled program | DISCOVERY ONLY
+  built the settled fallback and 36 tables (4s)
+  eval-row LOO bigram for skip7000: 36864 observations
+
+  skip7000: overall live 39.32% prog 13.55% fit-bigram 8.90% LOO-bigram 15.97%
+    target fit-count 0-0          n   8904  live 25.29%  prog  0.67%  fitbg  0.00%  loobg  5.66%
+    target fit-count 1-4          n   6585  live 26.65%  prog  1.11%  fitbg  0.00%  loobg  4.45%
+    target fit-count 5-24         n   4783  live 30.52%  prog  2.89%  fitbg  0.10%  loobg  7.57%
+    target fit-count 25-124       n   6003  live 41.98%  prog  9.90%  fitbg  3.85%  loobg 12.99%
+    target fit-count 125-1000000000 n  10589  live 61.46%  prog 39.01%  fitbg 28.77%  loobg 37.27%
+  eval-row LOO bigram for skip11000: 36864 observations
+
+  skip11000: overall live 42.35% prog 14.25% fit-bigram 9.07% LOO-bigram 16.63%
+    target fit-count 0-0          n   9385  live 29.90%  prog  1.86%  fitbg  0.00%  loobg  5.32%
+    target fit-count 1-4          n   6638  live 30.11%  prog  1.61%  fitbg  0.00%  loobg  5.54%
+    target fit-count 5-24         n   4763  live 35.00%  prog  2.81%  fitbg  0.15%  loobg  6.59%
+    target fit-count 25-124       n   5546  live 42.66%  prog 10.46%  fitbg  4.20%  loobg 14.28%
+    target fit-count 125-1000000000 n  10532  live 64.31%  prog 40.42%  fitbg 29.46%  loobg 39.48%
+  eval-row LOO bigram for skip1200: 18432 observations
+
+  skip1200: overall live 38.88% prog 13.64% fit-bigram 9.60% LOO-bigram 18.00%
+    target fit-count 0-0          n   4470  live 26.15%  prog  0.94%  fitbg  0.00%  loobg  7.56%
+    target fit-count 1-4          n   3209  live 25.40%  prog  1.18%  fitbg  0.00%  loobg  7.39%
+    target fit-count 5-24         n   2440  live 28.32%  prog  3.52%  fitbg  0.29%  loobg  7.30%
+    target fit-count 25-124       n   3037  live 41.29%  prog  9.75%  fitbg  4.54%  loobg 15.21%
+    target fit-count 125-1000000000 n   5276  live 61.37%  prog 38.91%  fitbg 30.78%  loobg 39.84%
+
+  on frequent targets the program beats the FIT bigram by >=3pp -> True  skip7000 39.01% vs 28.77% (+10.25pp)  skip11000 40.42% vs 29.46% (+10.96pp)  skip1200 38.91% vs 30.78% (+8.13pp)
+  ... and beats the EVAL-ROW LOO bigram by >=1pp -> False  skip7000 39.01% vs 37.28% (+1.74pp)  skip11000 40.42% vs 39.48% (+0.94pp)  skip1200 38.91% vs 39.84% (+-0.93pp)
+  on UNSEEN targets the LOO bigram beats the program -> True  skip7000 5.66% vs 0.67%  skip11000 5.32% vs 1.86%  skip1200 7.56% vs 0.94%
+  accuracies reproduce §1789, fit-bigram CE reproduces §1767 skip7000 7.88804  skip11000 7.90729, coverage 5419 -> control True
+
+pred_a True | pred_b False | pred_c True | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/bigram_reachable_accuracy_results.json (48.3s)

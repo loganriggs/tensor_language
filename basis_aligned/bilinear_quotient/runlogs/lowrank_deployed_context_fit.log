@@ -1,0 +1,40 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+TABLE + LOW-RANK, DEPLOYED-CONTEXT FIT | ranks (8, 32, 128) | ['mlp17', 'attn16', 'attn14', 'attn11', 'attn17', 'attn13'] | DISCOVERY ONLY
+  fit coverage 5419 of 50257 token ids
+  fitted on 24576 (position, site) samples
+    mlp17 singular values: top 12855.9444  r8 1173.7361  r32 451.2624  r128 228.8616  tail 1.11e-02
+    attn16 singular values: top 1871.7635  r8 1243.5466  r32 762.2498  r128 233.3879  tail 2.50e-05
+    attn14 singular values: top 1295.5309  r8 930.7895  r32 534.4578  r128 172.1707  tail 5.53e-05
+    attn11 singular values: top 1107.2300  r8 369.5366  r32 249.1540  r128 112.0889  tail 2.01e-04
+    attn17 singular values: top 3178.7717  r8 1292.8103  r32 516.1642  r128 139.4872  tail 8.15e-05
+    attn13 singular values: top 2035.4054  r8 789.0240  r32 272.2405  r128 96.9157  tail 3.14e-05
+
+  skip7000: live 3.29205 | table-only 7.35114 | native-6 6.14748 | gap 1.2037 nats (native-6 costs 55.741M)
+    rank   8: recovers  0.4714 nats = 39.16% of the gap, for 0.1106M reals
+    rank  32: recovers  0.4768 nats = 39.61% of the gap, for 0.4424M reals
+    rank 128: recovers  0.4794 nats = 39.83% of the gap, for 1.7695M reals
+      mlp17   own gap  0.5128  rank128 closes 92.73%
+      attn16  own gap  0.3130  rank128 closes 0.79%
+      attn14  own gap  0.2156  rank128 closes 0.90%
+      attn11  own gap  0.0486  rank128 closes -81.09%
+      attn17  own gap  0.2001  rank128 closes 32.40%
+      attn13  own gap  0.1731  rank128 closes 5.04%
+
+  skip11000: live 3.09711 | table-only 7.35825 | native-6 6.11685 | gap 1.2414 nats (native-6 costs 55.741M)
+    rank   8: recovers  0.4709 nats = 37.94% of the gap, for 0.1106M reals
+    rank  32: recovers  0.4737 nats = 38.16% of the gap, for 0.4424M reals
+    rank 128: recovers  0.4734 nats = 38.14% of the gap, for 1.7695M reals
+      mlp17   own gap  0.5141  rank128 closes 92.06%
+      attn16  own gap  0.3105  rank128 closes -0.06%
+      attn14  own gap  0.2426  rank128 closes 0.57%
+      attn11  own gap  0.0575  rank128 closes -64.32%
+      attn17  own gap  0.2056  rank128 closes 32.01%
+      attn13  own gap  0.1828  rank128 closes 4.06%
+
+  recovery INCREASES with rank on both roles -> inversion fixed False
+  rank 128 held out 38.14% vs §1745 live 5.69% (bar 2x) -> deployed fit helps True
+  attention mean -5.55% (§1745 live -5.71%) still below mlp17 92.06% (§1745 live 20.71%) -> attention still unreachable True
+  table-only CE + §1741 native-6 + coverage 5419 -> control True
+
+pred_a False | pred_b True | pred_c True | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/lowrank_deployed_context_fit_results.json (55.1s)

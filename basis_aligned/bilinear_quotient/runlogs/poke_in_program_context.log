@@ -1,0 +1,15 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+POKE IN PROGRAM CONTEXT | table 64 corr 128 | poke 10.0 | DIAGNOSTIC
+  hybrid program compiled (93s)
+    live_model/attn0_uncovered               own 2.185e-02 | max later COVERED 1.184e-01
+    live_model/attn0_covered_control         own 7.558e-03 | max later COVERED 7.237e-02
+    program_installed/attn0_uncovered        own 3.192e-02 | max later COVERED 0.000e+00
+    program_installed/attn0_covered_control  own 3.100e-02 | max later COVERED 0.000e+00
+
+  IN PROGRAM CONTEXT, an uncovered position reaches a later covered one (0.000e+00) -> False
+  in program context, a COVERED position does (0.000e+00) -> False
+  on the LIVE model it does, reproducing §1763 (1.184e-01) -> True
+  every poke landed + coverage 5419 -> control True
+
+pred_a False | pred_b False | pred_c True | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/poke_in_program_context_results.json (93.1s)

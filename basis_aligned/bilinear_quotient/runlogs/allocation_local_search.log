@@ -1,0 +1,23 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+ALLOCATION LOCAL SEARCH | K=6 | steepest-improvement swaps from two starts | selection on skip7000, TRANSFER on the other | DISCOVERY ONLY
+  fit coverage 5419 of 50257 token ids
+  starts: greedy ['mlp17', 'attn16', 'attn14', 'attn11', 'attn17', 'attn13']
+          random ['attn1', 'attn12', 'attn2', 'attn4', 'mlp2', 'mlp3']
+
+  [greedy] start 1.2037 nats
+    sweep 1: no improving swap -- locally optimal
+    final ['mlp17', 'attn16', 'attn14', 'attn11', 'attn17', 'attn13']  sel 1.2037  transfer 1.2414  cost 55.741M
+
+  [random] start 0.0860 nats
+    sweep 1: swap out attn1   in mlp17   -> 0.6450 nats (+0.5590)
+    sweep 2: swap out mlp3    in attn16  -> 0.8597 nats (+0.2148)
+    final ['attn12', 'attn16', 'attn2', 'attn4', 'mlp17', 'mlp2']  sel 0.8598  transfer 0.8591  cost 63.704M
+
+  local search improves on greedy (selection role) -> False
+  the improvement TRANSFERS to skip11000 -> not selection overfit False
+  both starts converge to the same set -> single basin False
+  greedy start reproduces §1741 + coverage 5419 -> control True
+  (540 swap evaluations)
+
+pred_a False | pred_b False | pred_c False | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/allocation_local_search_results.json (763.6s)

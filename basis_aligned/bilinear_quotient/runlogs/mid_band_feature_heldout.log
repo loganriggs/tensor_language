@@ -1,0 +1,14 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+MID BAND FEATURE HELD-OUT | k in [0, 512] at mlp4-15 | compile ONCE, score on ['skip7000', 'skip11000']
+  §1714 reference on skip7000: k0 55.038%  k512 58.713%  gain +3.675%
+  compiled k=0 (selection on 0 sites)
+  compiled k=512 (selection on 12 sites)
+  skip7000   CE live 3.29205 | stake 5.5684 | k0 55.038% | k512 58.713% | gain +3.675% 95% CI [+3.514%, +3.841%]
+  skip11000  CE live 3.09711 | stake 5.7750 | k0 53.694% | k512 57.505% | gain +3.811% 95% CI [+3.671%, +3.957%]
+
+  GAIN  skip7000 +3.675% -> skip11000 +3.811%  delta +0.136% -> replicates True
+  LEVEL skip7000 58.713% -> skip11000 57.505%  drop +1.208% -> moves like §1701 True
+  held-out gain CI excludes zero True | controls True
+
+pred_a True | pred_b True | pred_c True | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/mid_band_feature_heldout_results.json (537.5s)

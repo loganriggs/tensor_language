@@ -1,0 +1,37 @@
+{
+ "config": {
+  "site": 0,
+  "fit_rows": "fineweb_n96_skip1200.pt",
+  "eval_rows": "fineweb_n192_skip7000.pt",
+  "ablation_constants": "opt_ablation_consts_all.pt (\u00a71655 fix)",
+  "unseen_token_fallback": "position-weighted mean (\u00a71655 fix)",
+  "table_refitted_per_condition": true,
+  "s1326_normal_ceiling_other_rows": 0.863
+ },
+ "conditions": {
+  "normal": {
+   "ce_live": 3.13704,
+   "ce_const_ablated": 3.989,
+   "ce_table": 3.35495,
+   "stake": 0.85196,
+   "table_ceiling": 0.74423,
+   "mlp0_output_rms": 49864.0237
+  },
+  "attn0_frozen": {
+   "ce_live": 3.35865,
+   "ce_const_ablated": 3.99113,
+   "ce_table": 3.67886,
+   "stake": 0.63247,
+   "table_ceiling": 0.49372,
+   "mlp0_output_rms": 58188.1399
+  }
+ },
+ "ceiling_delta": -0.25051,
+ "mlp0_output_rms_relative_change": 0.16694,
+ "predictions": {
+  "pred_a_ceiling_rises_ge_5pts": false,
+  "pred_b_ablated_ceiling_ge_95": false,
+  "pred_c_manipulation_reaches_mlp0": true
+ },
+ "runtime_s": 9.1
+}

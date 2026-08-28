@@ -1,0 +1,16 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+ATTN WIDE SPREAD | is the remaining third long-range, or out of positional reach? | stake 3.5570 nats | control (1,2,4,8) must reproduce 68.05%
+    lags 1,2,4,8                ( 5760-dim): CEILING   68.05%
+    lags 1,2,4,8,16             ( 6912-dim): CEILING   69.27%
+    lags 1,2,4,8,16,32          ( 8064-dim): CEILING   69.89%
+    lags 1,2,4,8,16,32,64       ( 9216-dim): CEILING   70.08%
+    lags 2,4,8,16,32,64         ( 8064-dim): CEILING   41.99%
+
+  widest (7 slots) 70.08% vs §1686 four-slot 68.05% (+2.03%) -> partly long-range False
+  width 5 -> width 7: +0.82% vs the §1686 step +11.79% -> plateauing True
+  DROP LAG 1 from the six-slot spread: 69.89% -> 41.99% (-27.90%) -> lag 1 not recoverable from neighbours True
+  CONTROL (1,2,4,8) reproduces §1686: True
+  remaining outside the widest positional description: 29.92%
+
+pred_a False | pred_b True | pred_c True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/attn_wide_spread_results.json (1193.8s)

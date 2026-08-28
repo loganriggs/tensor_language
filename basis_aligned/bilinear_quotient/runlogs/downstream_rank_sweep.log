@@ -1,0 +1,22 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+DOWNSTREAM RANK SWEEP | ranks (8, 32, 128) at all 36 sites | init at the §1748 interleaved solution, 360 Adam steps on final CE, checkpoint selected on skip7000 | DISCOVERY ONLY
+  fit coverage 5419 of 50257 token ids
+  interleaved init built for all ranks (66s)
+  table-only 7.35114 | stakes skip7000 4.0591  skip11000 4.2611
+
+  rank   8: start +0.46905 -> best +0.60060 (+14.09%) at step 60 | 0.664M reals | 0.905 nats/M   [124s]
+    trajectory (skip11000): 0:+0.4691 60:+0.6006 120:+0.5914 180:+0.5965 240:+0.5869 300:+0.5616 360:+0.5296
+
+  rank  32: start +0.56560 -> best +0.63897 (+14.99%) at step 120 | 2.654M reals | 0.241 nats/M   [175s]
+    trajectory (skip11000): 0:+0.5656 60:+0.6119 120:+0.6390 180:+0.5933 240:+0.5417 300:+0.5157 360:+0.4856
+
+  rank 128: start +0.61367 -> best +0.63865 (+14.99%) at step 60 | 10.617M reals | 0.060 nats/M   [227s]
+    trajectory (skip11000): 0:+0.6137 60:+0.6387 120:+0.5804 180:+0.3488 240:+0.3837 300:+0.1556 360:-0.0914
+
+  recovery increases with rank under the downstream objective [0.6006, 0.63897, 0.63865] -> False
+  rank 128 exceeds the sum of the parts +1.7460 -> False
+  gains per rank step [0.0384, -0.0003] diminishing -> True
+  rank-8 start and peak reproduce §1748/§1750 + table-only + live CE + coverage 5419 -> control False
+
+pred_a False | pred_b False | pred_c True | pred_d False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/downstream_rank_sweep_results.json (226.8s)

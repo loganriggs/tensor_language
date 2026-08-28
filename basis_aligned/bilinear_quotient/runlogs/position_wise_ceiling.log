@@ -1,0 +1,27 @@
+POSITION-WISE CEILING | no model loaded, CPU only | coverage 5419 of 50257 | DISCOVERY ONLY
+
+  skip7000: 27974 scored positions, 27114 (96.9%) have a leave-one-out conditional
+    live model            3.29205
+    in-sample MLE         3.36274  (degenerate, not a bound)
+    LOO ceiling           7.29459
+    2-fold ceiling        8.13338
+    best 36-site program  6.57512
+    all-tabled baseline   7.35114
+    fit-row bigram        7.88804  (§1766 7.88804)
+
+  skip11000: 27497 scored positions, 26625 (96.8%) have a leave-one-out conditional
+    live model            3.09711
+    in-sample MLE         3.32386  (degenerate, not a bound)
+    LOO ceiling           7.33406
+    2-fold ceiling        8.08517
+    best 36-site program  6.57289
+    all-tabled baseline   7.35825
+    fit-row bigram        7.90729  (§1766 7.90729)
+
+  best program is -0.7612 from the LOO position-wise ceiling -> class nearly exhausted (<=1.0) True
+  the ceiling is +4.2370 above the live model -> context is the dominant term (>=2.0) True
+  the eval-fitted oracle beats the out-of-sample program -> scales agree False
+  §1766 fit-row bigram reproduced with no model in the process + coverage 5419 -> control True
+
+pred_a True | pred_b True | pred_c False | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/position_wise_ceiling_results.json (1.4s)

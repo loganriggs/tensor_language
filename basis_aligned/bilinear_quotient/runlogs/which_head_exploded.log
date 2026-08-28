@@ -1,0 +1,63 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+PARTIAL COMPILE, FOUR INSTRUMENTS | rank-64 tables x depths (-1, 7, 10, 13) | settled program (context-free tables + output-NN fallback + rank-64 map) | DISCOVERY ONLY
+
+  per-site norm calibration (live mean / row mean), measured on the LIVE model:
+    attn L0:  2.71 L1:  2.49 L2:  2.26 L3:  2.13 L4:  4.37 L5:  1.00 L6:  1.02 L7:  3.61 L8:  3.59 L9:  4.83 L10:  3.80 L11:  4.49 L12:  6.72 L13:  6.39 L14:  7.07 L15:  6.33 L16:  5.70 L17:  5.59
+    mlp  L0:  0.88 L1:  0.42 L2:  0.61 L3:  0.49 L4:  0.10 L5:  0.39 L6:  0.52 L7:  1.66 L8:  2.04 L9:  1.32 L10:  2.33 L11:  1.05 L12:  1.91 L13:  1.26 L14:  1.66 L15:  1.19 L16:  1.13 L17:  1.21
+
+  arms  (47s)
+  all_substituted      skip7000 13.55%  skip11000 14.25%  skip1200 13.64%
+  all_sub_scaled       skip7000 12.16%  skip11000 12.81%  skip1200 12.10%
+  live_model           skip7000 39.32%  skip11000 42.35%  skip1200 38.88%
+  [live] reconstruction residual (must be ~0): L4 4.08e-07  L5 2.96e-07  L6 3.69e-07  L13 4.53e-07
+  [compiled] reconstruction residual (must be ~0): L4 3.61e-07  L5 2.81e-07  L6 4.33e-07  L13 4.64e-07
+
+  per-head mean output norm, live -> compiled (ratio):
+    L4:
+      h0   3143.805 ->    14302.694        4.55x
+      h1   3138.158 ->     3947.505        1.26x
+      h2   1822.994 ->    48333.957       26.51x
+      h3   1845.028 ->     1488.243        0.81x
+      h4   1399.638 ->    10045.104        7.18x
+      h5   3111.256 ->     4376.711        1.41x
+      h6   1984.249 ->     1758.974        0.89x
+      h7   3247.251 ->     3711.856        1.14x
+      h8   2305.886 ->    17930.275        7.78x
+    L5:
+      h0    242.306 ->      113.487        0.47x
+      h1    247.224 ->     2145.884        8.68x
+      h2    505.668 ->   121745.939      240.76x
+      h3    331.857 ->      321.102        0.97x
+      h4    273.753 ->     9313.150       34.02x
+      h5    247.749 ->     9132.505       36.86x
+      h6    518.346 ->    43507.314       83.93x
+      h7   6657.833 ->  1057986.774      158.91x
+      h8    358.004 ->     2365.200        6.61x
+    L6:
+      h0    113.665 ->      336.731        2.96x
+      h1   1786.015 ->   190732.256      106.79x
+      h2     61.154 ->      174.562        2.85x
+      h3    761.311 ->     7266.956        9.55x
+      h4     88.864 ->     2070.395       23.30x
+      h5    115.322 ->      246.833        2.14x
+      h6    190.754 ->     3887.329       20.38x
+      h7    205.051 ->     8313.118       40.54x
+      h8     87.538 ->     1904.199       21.75x
+    L13:
+      h0   1222.953 ->     3448.404        2.82x
+      h1    276.089 ->      222.109        0.80x
+      h2    507.482 ->      831.241        1.64x
+      h3    778.274 ->     2064.231        2.65x
+      h4    238.830 ->      149.637        0.63x
+      h5    573.666 ->      490.999        0.86x
+      h6    405.201 ->      389.834        0.96x
+      h7    354.438 ->      366.668        1.03x
+      h8    564.893 ->      334.176        0.59x
+
+  ONE head carries >=50% of L5 excess norm -> True  top h7 at 85.0%  (h0:0% h1:0% h2:10% h3:0% h4:1% h5:1% h6:3% h7:85% h8:0%)
+  and it is head 5.7, the §1089 constant-bias head -> True  observed h7
+  the explosion is CONCENTRATED (max >=10x median) -> False  max 240.8x median 34.0x
+  decomposition exact, and L5/L6 inflate more than L4 -> control True  L4 4.81x  L5 132.86x  L6 63.04x  L13 1.69x
+
+pred_a True | pred_b True | pred_c False | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/which_head_exploded_results.json (163.7s)

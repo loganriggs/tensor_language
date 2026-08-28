@@ -1,0 +1,92 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+COMPILE BOTTOM-UP | both curves from one build, plus the all-but-(6, 7, 8, 9) arm | settled program (context-free tables + output-NN fallback + rank-64 map) | DISCOVERY ONLY
+
+  arms [overall/head]  (42s)
+  all_substituted  skip7000 13.55%/39.01%  skip11000 14.25%/40.42%  skip1200 13.64%/38.91%
+  live_model       skip7000 39.32%/61.46%  skip11000 42.35%/64.31%  skip1200 38.88%/61.37%
+  L0_botup         skip7000 23.20%/43.84%  skip11000 25.38%/46.49%  skip1200 23.26%/44.31%
+  L0_topdown       skip7000 13.56%/39.01%  skip11000 14.24%/40.41%  skip1200 13.64%/38.91%
+  L1_botup         skip7000 14.05%/32.70%  skip11000 15.42%/35.24%  skip1200 14.27%/32.83%
+  L1_topdown       skip7000 13.58%/39.08%  skip11000 14.28%/40.49%  skip1200 13.61%/38.72%
+  L2_botup         skip7000  4.53%/15.29%  skip11000  4.70%/15.88%  skip1200  4.70%/15.71%
+  L2_topdown       skip7000 13.73%/39.35%  skip11000 14.44%/40.77%  skip1200 13.72%/38.97%
+  L3_botup         skip7000  2.00%/ 6.96%  skip11000  2.12%/ 7.42%  skip1200  1.81%/ 6.33%
+  L3_topdown       skip7000 14.12%/40.28%  skip11000 14.85%/41.83%  skip1200 14.07%/40.07%
+  L4_botup         skip7000  1.00%/ 3.47%  skip11000  1.12%/ 3.90%  skip1200  0.97%/ 3.37%
+  L4_topdown       skip7000 13.89%/37.92%  skip11000 14.72%/39.82%  skip1200 14.04%/38.19%
+  L5_botup         skip7000  2.24%/ 7.77%  skip11000  2.11%/ 7.35%  skip1200  1.93%/ 6.73%
+  L5_topdown       skip7000 15.94%/43.37%  skip11000 16.54%/44.91%  skip1200 15.76%/42.85%
+  L6_botup         skip7000 16.89%/44.11%  skip11000 17.62%/45.43%  skip1200 16.54%/43.82%
+  L6_topdown       skip7000 17.36%/45.66%  skip11000 17.87%/47.19%  skip1200 16.94%/44.11%
+  L7_botup         skip7000 15.99%/42.43%  skip11000 17.15%/44.26%  skip1200 16.06%/42.53%
+  L7_topdown       skip7000 20.06%/51.85%  skip11000 20.68%/53.33%  skip1200 19.44%/50.02%
+  L8_botup         skip7000 15.93%/43.00%  skip11000 16.67%/44.79%  skip1200 16.01%/43.69%
+  L8_topdown       skip7000 23.16%/54.83%  skip11000 24.41%/56.51%  skip1200 22.69%/53.17%
+  L9_botup         skip7000 15.47%/41.67%  skip11000 16.42%/43.80%  skip1200 15.60%/42.74%
+  L9_topdown       skip7000 25.46%/56.51%  skip11000 26.60%/58.55%  skip1200 24.98%/55.40%
+  L10_botup        skip7000 15.66%/42.32%  skip11000 16.46%/44.31%  skip1200 15.78%/43.01%
+  L10_topdown      skip7000 27.41%/58.02%  skip11000 28.81%/60.34%  skip1200 26.92%/56.92%
+  L11_botup        skip7000 15.37%/41.69%  skip11000 16.07%/43.52%  skip1200 15.64%/42.46%
+  L11_topdown      skip7000 29.60%/58.20%  skip11000 31.40%/60.78%  skip1200 29.30%/58.28%
+  L12_botup        skip7000 15.29%/41.04%  skip11000 15.90%/42.76%  skip1200 14.89%/40.75%
+  L12_topdown      skip7000 31.12%/59.20%  skip11000 32.91%/61.39%  skip1200 30.64%/58.89%
+  L13_botup        skip7000 15.04%/41.02%  skip11000 15.75%/42.55%  skip1200 15.02%/41.34%
+  L13_topdown      skip7000 32.85%/58.63%  skip11000 34.98%/60.74%  skip1200 32.37%/58.89%
+  L14_botup        skip7000 14.50%/40.68%  skip11000 15.28%/42.34%  skip1200 14.70%/41.00%
+  L14_topdown      skip7000 34.70%/59.45%  skip11000 37.20%/61.77%  skip1200 34.03%/59.23%
+  L15_botup        skip7000 14.17%/39.32%  skip11000 14.76%/40.49%  skip1200 14.19%/39.16%
+  L15_topdown      skip7000 36.20%/60.29%  skip11000 39.01%/62.54%  skip1200 35.70%/60.44%
+  L16_botup        skip7000 13.66%/39.50%  skip11000 14.22%/41.00%  skip1200 13.56%/39.08%
+  L16_topdown      skip7000 38.09%/59.98%  skip11000 41.11%/62.74%  skip1200 37.94%/60.25%
+  L17_botup        skip7000 13.55%/39.01%  skip11000 14.25%/40.42%  skip1200 13.64%/38.91%
+  L17_topdown      skip7000 39.32%/61.46%  skip11000 42.35%/64.31%  skip1200 38.88%/61.37%
+  band_live        skip7000  2.41%/ 8.38%  skip11000  2.30%/ 8.01%  skip1200  2.04%/ 7.11%
+  band_compiled    skip7000 23.22%/52.89%  skip11000 24.91%/55.55%  skip1200 23.46%/54.47%
+
+  mean ||live attn output|| vs ||substituted row||, in the compiled stream:
+    L0  live      410.357  row   151.212  ratio    2.714
+    L1  live     4863.873  row   662.058  ratio    7.347
+    L2  live    31614.327  row  2833.251  ratio   11.158
+    L3  live    45979.709  row  3212.556  ratio   14.313
+    L4  live    60285.798  row  2339.302  ratio   25.771
+    L5  live  1202366.288  row  7878.181  ratio  152.620
+    L6  live   206335.324  row  2789.274  ratio   73.975
+    L7  live     6604.041  row   537.703  ratio   12.282
+    L8  live     3085.213  row   324.687  ratio    9.502
+    L9  live     3442.169  row   632.839  ratio    5.439
+    L10 live     5385.568  row   601.801  ratio    8.949
+    L11 live     4052.647  row   587.006  ratio    6.904
+    L12 live     3973.829  row   275.877  ratio   14.404
+    L13 live     4800.807  row   354.158  ratio   13.556
+    L14 live     3206.836  row   382.982  ratio    8.373
+    L15 live     3426.645  row   357.494  ratio    9.585
+    L16 live     6829.482  row   538.138  ratio   12.691
+    L17 live     9854.947  row  1233.815  ratio    7.987
+
+  gap recovered: TOP-DOWN (0..L live) vs BOTTOM-UP (L+1..17 live), skip7000
+    L0   topdown   0.0%  bottomup  37.4%   marginal cost of compiling L: topdown  +0.0  bottomup +62.6
+    L1   topdown   0.1%  bottomup   1.9%   marginal cost of compiling L: topdown  +0.1  bottomup +35.5
+    L2   topdown   0.7%  bottomup -35.0%   marginal cost of compiling L: topdown  +0.6  bottomup +36.9
+    L3   topdown   2.2%  bottomup -44.8%   marginal cost of compiling L: topdown  +1.5  bottomup  +9.8
+    L4   topdown   1.3%  bottomup -48.7%   marginal cost of compiling L: topdown  -0.9  bottomup  +3.9
+    L5   topdown   9.3%  bottomup -43.9%   marginal cost of compiling L: topdown  +8.0  bottomup  -4.8
+    L6   topdown  14.8%  bottomup  13.0%   marginal cost of compiling L: topdown  +5.5  bottomup -56.9
+    L7   topdown  25.3%  bottomup   9.4%   marginal cost of compiling L: topdown +10.5  bottomup  +3.5
+    L8   topdown  37.3%  bottomup   9.2%   marginal cost of compiling L: topdown +12.0  bottomup  +0.2
+    L9   topdown  46.2%  bottomup   7.5%   marginal cost of compiling L: topdown  +8.9  bottomup  +1.8
+    L10  topdown  53.8%  bottomup   8.2%   marginal cost of compiling L: topdown  +7.6  bottomup  -0.7
+    L11  topdown  62.3%  bottomup   7.1%   marginal cost of compiling L: topdown  +8.5  bottomup  +1.1
+    L12  topdown  68.2%  bottomup   6.8%   marginal cost of compiling L: topdown  +5.9  bottomup  +0.3
+    L13  topdown  74.9%  bottomup   5.8%   marginal cost of compiling L: topdown  +6.7  bottomup  +1.0
+    L14  topdown  82.1%  bottomup   3.7%   marginal cost of compiling L: topdown  +7.2  bottomup  +2.1
+    L15  topdown  87.9%  bottomup   2.4%   marginal cost of compiling L: topdown  +5.8  bottomup  +1.3
+    L16  topdown  95.2%  bottomup   0.4%   marginal cost of compiling L: topdown  +7.3  bottomup  +2.0
+    L17  topdown 100.0%  bottomup   0.0%   marginal cost of compiling L: topdown  +4.8  bottomup  +0.4
+
+  compiling the BOTTOM FOUR layers costs <=5% of the gap -> False  skip7000 144.8%  skip11000 143.2%  skip1200 146.9%
+  the bottom-up curve's most expensive layer is in (6, 7, 8, 9) -> False  skip7000 L0 (+62.6)  skip11000 L0 (+60.4)  skip1200 L0 (+61.9)
+  compiling ALL BUT (6, 7, 8, 9) still recovers >=40% of the gap -> False  skip7000 -43.2% (band compiled alone: 37.5%)  skip11000 -42.5% (band compiled alone: 37.9%)  skip1200 -46.0% (band compiled alone: 38.9%)
+  all-substituted and live reproduce §1789, coverage 5419 -> control True
+
+pred_a False | pred_b False | pred_c False | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/compile_bottom_up_results.json (172.3s)

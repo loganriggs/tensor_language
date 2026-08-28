@@ -1,0 +1,20 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+BAND LINEAR COMPARE | ranks [1, 8, 32, 64, 256, 1152] | ridge 0.001 | joint substitution per band, covered-position scoring | fit skip1200, eval skip7000
+  front   stake  4.3922 | table 76.45% | linear r1=30.1%  r8=-9.0%  r32=9.8%  r64=12.3%  r256=52.6%  r1152=68.7% | QUADRATIC REMAINDER 31.32%
+  middle  stake  2.6453 | table 21.73% | linear r1=20.5%  r8=36.3%  r32=41.4%  r64=44.9%  r256=55.4%  r1152=62.3% | QUADRATIC REMAINDER 37.67%
+  late    stake  0.7174 | table 51.02% | linear r1=-13.5%  r8=72.6%  r32=78.8%  r64=80.4%  r256=82.5%  r1152=83.6% | QUADRATIC REMAINDER 16.40%
+  all18   stake  4.3196 | table 34.27% | linear r1=-134.1%  r8=-228.9%  r32=-192.8%  r64=-147.2%  r256=-46.1%  r1152=-43.0% | QUADRATIC REMAINDER 142.99%
+
+  PROGRAM-FAMILY TABLE (joint ceiling of the best member of each family)
+  band        token  linear r64  linear full  quadratic
+  front      76.45%      12.30%       68.68%     31.32%
+  middle     21.73%      44.93%       62.33%     37.67%
+  late       51.02%      80.35%       83.60%     16.40%
+  all18      34.27%    -147.19%      -42.99%    142.99%
+
+  front linear beats its token table by -7.77% -> False
+  quadratic remainder front 31.32% vs middle 37.67% -> bilinearity grows with depth True
+  CONTROL middle full-rank linear 62.33% vs §1667 62.33% -> replicates True
+
+pred_a False | pred_b True | pred_c True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/band_linear_compare_results.json (203.1s)

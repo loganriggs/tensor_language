@@ -1,0 +1,19 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+ITERATIVE RECOMPILE | rank 8 | 3 passes of coordinate descent over the 36 sites | DISCOVERY ONLY
+  fit coverage 5419 of 50257 token ids
+  skip7000: live 3.29205 | table-only 7.35114 | stake 4.0591
+  skip11000: live 3.09711 | table-only 7.35825 | stake 4.2611
+
+  pass 1: skip7000 +0.4063 (+10.01%)  skip11000 +0.3858 (+9.05%)   [67s]
+
+  pass 2: skip7000 +0.4063 (+10.01%)  skip11000 +0.3858 (+9.05%)   [130s]
+
+  pass 3: skip7000 +0.4063 (+10.01%)  skip11000 +0.3858 (+9.05%)   [192s]
+
+  pass 2 improves on pass 1 held out (+0.0000) -> False
+  pass 3 gain +0.0000 smaller than pass 2 gain +0.0000 -> diminishing False
+  final +0.3858 still below the sum of the parts +1.7460 -> True
+  pass 1 reproduces §1748 + table-only + live CE + coverage 5419 + all fits full-size -> control True
+
+pred_a False | pred_b False | pred_c True | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/iterative_recompile_passes_results.json (192.3s)

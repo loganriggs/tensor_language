@@ -1,0 +1,18 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+  feature causality known-answer check PASSED (LESSONS 34)
+NON-LOCAL PROGRAM CLASS | rank 8 | variants ['A_current', 'B_lag1', 'C_lag1_prefixmean'] | interleaved bottom-up | DISCOVERY ONLY
+  fit coverage 5419 of 50257 token ids
+
+  A_current            1 block(s), 0.664M reals: skip7000 +0.40631 (+10.01%)  skip11000 +0.38578 (+9.05%)  | median frac closed  MLP  32.50%  attention -23.69%   [162s]
+
+  B_lag1               2 block(s), 0.995M reals: skip7000 +0.36896 (+9.09%)  skip11000 +0.35004 (+8.21%)  | median frac closed  MLP  40.22%  attention   1.82%   [326s]
+
+  C_lag1_prefixmean    3 block(s), 1.327M reals: skip7000 -0.78273 (-19.28%)  skip11000 -0.80171 (-18.81%)  | median frac closed  MLP  55.16%  attention   8.18%   [498s]
+
+  C beats A held out (-0.80171 vs +0.38578) -> False
+  median attention site closes >20% under C (8.19%, A was -23.69%) -> False
+  lag-1 alone carries >=60% of the gain (-0.03574 of -1.18749) -> False
+  variant A reproduces §1748 + table-only + live CE + coverage 5419 -> control True
+
+pred_a False | pred_b False | pred_c False | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/nonlocal_program_class_results.json (498.1s)

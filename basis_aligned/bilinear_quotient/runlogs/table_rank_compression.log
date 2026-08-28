@@ -1,0 +1,23 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+TABLE RANK COMPRESSION | the dominant cost term (§1754) | table ranks (None, 256, 64, 16) | linear correction rank 8, interleaved bottom-up | DISCOVERY ONLY
+  fit coverage 5419 of 50257 token ids
+
+  table rank None : cost  225.4418M (224.778 tables + 0.664 factors) | recovered skip7000 +0.40631  skip11000 +0.38578 | 0.001711 nats/M   [70s]
+    (table alone, before the correction: skip7000 +0.00000  skip11000 +0.00000)
+
+  table rank 256  : cost   61.3048M (60.641 tables + 0.664 factors) | recovered skip7000 +0.50857  skip11000 +0.51715 | 0.008436 nats/M   [167s]
+    (table alone, before the correction: skip7000 +0.12658  skip11000 +0.14197)
+
+  table rank 64   : cost   15.8861M (15.223 tables + 0.664 factors) | recovered skip7000 +0.53433  skip11000 +0.54064 | 0.034033 nats/M   [264s]
+    (table alone, before the correction: skip7000 +0.11847  skip11000 +0.13130)
+
+  table rank 16   : cost    4.5314M (3.868 tables + 0.664 factors) | recovered skip7000 +0.46968  skip11000 +0.46878 | 0.103451 nats/M   [361s]
+    (table alone, before the correction: skip7000 -0.00948  skip11000 -0.00460)
+
+  rank 64 keeps >=80% of full fidelity (+0.54064 vs +0.38578) AND costs <=10% of it (15.886M vs 225.442M) -> True
+  cost-efficiency improves monotonically as the table shrinks [0.001711, 0.008436, 0.034033, 0.103451] -> True
+  rank 16 falls below half of full fidelity (+0.46878) -> False
+  full-table arm reproduces §1748 + table-only CE + live CE + coverage 5419 -> control True
+
+pred_a True | pred_b True | pred_c False | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/table_rank_compression_results.json (360.9s)

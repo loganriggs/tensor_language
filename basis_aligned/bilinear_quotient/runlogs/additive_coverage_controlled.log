@@ -1,0 +1,18 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+ADDITIVE, COVERAGE CONTROLLED | family x coverage policy varied separately | ridge 0.001 | fit skip1200, eval skip7000
+  CE live 3.27946 | all-MLP constant 7.59906 | stake 4.3196 nats
+  table_mlp0_2_hybrid    CE 5.12432 | CEILING  57.29%
+  linear_everywhere      CE 5.25430 | CEILING  54.28%
+  linear_hybrid          CE 5.09423 | CEILING  57.99%
+  additive_everywhere    CE 5.55423 | CEILING  47.34%
+  additive_hybrid        CE 5.25121 | CEILING  54.35%
+
+  COVERAGE POLICY, holding family fixed:
+    linear   everywhere  54.28% -> hybrid  57.99%  (+3.71%)
+    additive everywhere  47.34% -> hybrid  54.35%  (+7.01%)
+  FAMILY, holding coverage fixed (hybrid):
+    linear  57.99% | table@mlp0-2  57.29% | additive  54.35%
+  coverage explains the §1673 additive failure False | richer family wins False | controls hold True
+
+pred_a False | pred_b False | pred_c True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/additive_coverage_controlled_results.json (88.9s)

@@ -1,0 +1,10 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+slice eigs 144.8641, -73.8464; square fit relRMSE=0.3179
+discovery: pair=6.30e-07 bf16=0.0056 square=0.3576; qKL square=0.000102
+heldout: pair=5.87e-07 bf16=0.0053 square=0.3537; qKL square=0.000069
+{
+  "A_pair_fp32_exact": true,
+  "B_pair_bf16_stable": true,
+  "C_pair_geometry_beats_best_square": false
+}
+wrote /workspace/tensor_language/basis_aligned/polynomial_causal/question_one_product_results.json (363.5s)

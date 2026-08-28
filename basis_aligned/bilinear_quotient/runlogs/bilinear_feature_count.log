@@ -1,0 +1,16 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+BILINEAR FEATURE COUNT | y = Down((Left x)*(Right x)) + b, 4608 features per MLP | k in [8, 32, 128, 512, 2048, 4608] | fit n96_skip80 (5419 tokens) | stake 4.3301
+  outside-description comparators at this fit set: linear 58.17% | table@mlp0-2 56.95% | low-rank additive 57.26%
+    k     8 ( 0.2% of features): CEILING -34.68%
+    k    32 ( 0.7% of features): CEILING -29.95%
+    k   128 ( 2.8% of features): CEILING -49.62%
+    k   512 (11.1% of features): CEILING -49.93%
+    k  2048 (44.4% of features): CEILING  61.57%
+    k  4608 (100.0% of features): CEILING 100.00%
+
+  k=512 (11.1% of features): -49.93% -> small fraction carries the stack False
+    vs linear 58.17% (-108.10%) -> beats outside descriptions False
+  INSTRUMENT CHECK k=4608 (identity substitution, known answer 1.0): 100.00% | monotone False -> False
+
+pred_a False | pred_b False | pred_c False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/bilinear_feature_count_results.json (91.8s)

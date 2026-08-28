@@ -1,0 +1,36 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+FRONTIER RESTATED UNDER THE SETTLED FALLBACK | table ranks (None, 256, 64, 16, 8, 4) | map rank 64 | DISCOVERY ONLY
+  built the output-NN map and 36 tables (4s)
+
+  skip7000: live cov 3.29205 all 3.13704
+    table full   neighbour all 6.01897 (224.778M) | SETTLED all 6.01167 (230.087M)  gain +0.00730
+    table 256    neighbour all 6.06074 (60.641M) | SETTLED all 6.06004 (65.950M)  gain +0.00070
+    table 64     neighbour all 6.19187 (15.223M) | SETTLED all 6.17330 (20.531M)  gain +0.01857
+    table 16     neighbour all 6.36342 (3.868M) | SETTLED all 6.35916 (9.176M)  gain +0.00426
+    table 8      neighbour all 6.48314 (1.975M) | SETTLED all 6.47177 (7.284M)  gain +0.01137
+    table 4      neighbour all 6.63509 (1.029M) | SETTLED all 6.62422 (6.338M)  gain +0.01087
+
+  skip11000: live cov 3.09711 all 2.93450
+    table full   neighbour all 6.00091 (224.778M) | SETTLED all 5.98477 (230.087M)  gain +0.01614
+    table 256    neighbour all 6.04283 (60.641M) | SETTLED all 6.03311 (65.950M)  gain +0.00972
+    table 64     neighbour all 6.18267 (15.223M) | SETTLED all 6.15261 (20.531M)  gain +0.03006
+    table 16     neighbour all 6.36326 (3.868M) | SETTLED all 6.35149 (9.176M)  gain +0.01177
+    table 8      neighbour all 6.49080 (1.975M) | SETTLED all 6.47693 (7.284M)  gain +0.01387
+    table 4      neighbour all 6.65175 (1.029M) | SETTLED all 6.63689 (6.338M)  gain +0.01486
+
+  skip1200: live cov 3.40277 all 3.23027
+    table full   neighbour all 6.00733 (224.778M) | SETTLED all 6.00165 (230.087M)  gain +0.00568
+    table 256    neighbour all 6.03390 (60.641M) | SETTLED all 6.04238 (65.950M)  gain -0.00848
+    table 64     neighbour all 6.15065 (15.223M) | SETTLED all 6.14463 (20.531M)  gain +0.00602
+    table 16     neighbour all 6.31829 (3.868M) | SETTLED all 6.32237 (9.176M)  gain -0.00408
+    table 8      neighbour all 6.43212 (1.975M) | SETTLED all 6.43090 (7.284M)  gain +0.00122
+    table 4      neighbour all 6.59213 (1.029M) | SETTLED all 6.59044 (6.338M)  gain +0.00169
+
+  the table-rank efficiency optimum under the settled fallback is rank 4 {'skip7000': 'full', 'skip11000': 'full', 'skip1200': 'full'} -> False
+  the settled fallback beats the neighbour at every table rank -> False
+    gains skip7000 full:+0.0073 256:+0.0007 64:+0.0186 16:+0.0043 8:+0.0114 4:+0.0109 | skip11000 full:+0.0161 256:+0.0097 64:+0.0301 16:+0.0118 8:+0.0139 4:+0.0149 | skip1200 full:+0.0057 256:-0.0085 64:+0.0060 16:-0.0041 8:+0.0012 4:+0.0017
+  the gain is larger at table rank 4 than at full rank -> False
+  table rank 64 reproduces §1786 + coverage 5419 -> control True
+
+pred_a False | pred_b False | pred_c False | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/settled_frontier_restated_results.json (1424.8s)

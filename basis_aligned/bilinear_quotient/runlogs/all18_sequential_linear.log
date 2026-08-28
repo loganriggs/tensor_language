@@ -1,0 +1,12 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+ALL18 SEQUENTIAL LINEAR | bottom-up compilation: each site fitted with every site below it ALREADY substituted | ridge 0.001 | fit skip1200, eval skip7000
+  all18   stake  4.3196 | SEQUENTIAL   54.28% | naive §1668  -42.99% | gain  +97.27%
+  middle  stake  2.6453 | SEQUENTIAL   63.09% | naive §1668   62.33% | gain   +0.76%
+
+  all-18 rescued from -42.99% to 54.28% -> True
+  still short of the middle band alone (62.33%) -> True
+  CONTROL middle sequential 63.09% vs naive 62.33% -> procedure is not the variable True
+  (§546 found sequential refitting made a 2-block TABLE substitution worse; this is linear maps at 18 sites)
+
+pred_a True | pred_b True | pred_c True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/all18_sequential_linear_results.json (27.4s)

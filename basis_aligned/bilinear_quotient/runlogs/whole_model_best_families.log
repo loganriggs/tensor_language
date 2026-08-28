@@ -1,0 +1,13 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+WHOLE MODEL, BEST FAMILIES | interleaved bottom-up over 36 sites | CE live 3.29205 | joint stake 5.5684 nats (§1694 5.5684)
+  §1694 simple families: 50.94% | §1687 attention half-ceiling at lags (1,2,4,8): 68.05%
+  simple  lags [1]          tables []         (36 sites) CEILING   50.94%
+  best    lags [1, 2, 4, 8] tables [0, 1, 2]  (36 sites) CEILING   55.04%
+
+  BEST families 55.04% vs §1694 simple 50.94% (+4.10%) -> upgrade survives compounding False
+  still below the attention half-ceiling 68.05% -> compounding persists True
+  CONTROLS baseline 3.29205 | simple arm 50.94% vs 50.94% | stake 5.5684 vs 5.5684 -> True
+  nats recovered: 3.0647 of 5.5684
+
+pred_a False | pred_b True | pred_c True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/whole_model_best_families_results.json (365.0s)

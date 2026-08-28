@@ -1,0 +1,23 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+MLP1 RESIDUE ATTRIBUTION | hybrid substitution, covered-position scoring (§1661) | fit skip1200, eval skip7000
+  live: ceiling 96.01%  stake 7.0050 nats  -> residue 3.99% = 0.2795 nats  (§1662 ladder: 96.01%)
+  freeze attn0        ceiling  95.94%  stake  7.8186 | attribution  -1.70%
+  freeze attn1        ceiling  96.76%  stake  6.8262 | attribution  18.73%
+  freeze attn0+attn1  ceiling 100.00%  stake  6.0666 | attribution 100.00%
+
+  PER-HEAD (top 6 by attribution):
+    head0.3   ceiling  96.52%  attribution  12.68%
+    head1.1   ceiling  96.30%  attribution   7.38%
+    head1.5   ceiling  96.24%  attribution   5.78%
+    head0.8   ceiling  96.17%  attribution   4.03%
+    head1.7   ceiling  96.14%  attribution   3.22%
+    head1.3   ceiling  96.12%  attribution   2.81%
+    ... worst: head1.4 attribution -3.43%
+
+  INSTRUMENT CHECK (attn0+attn1 frozen, known answer 1.0): 100.00% -> True
+  best single head head0.3 accounts for 12.68% of the residue (uniform over 18 heads would be 5.56%)
+  sum of 18 head attributions: 38.27%  (not constrained to 100% -- each freeze is a different model)
+  largest single-head ceiling shift: 0.51%
+
+pred_a True | pred_b False | pred_c True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/mlp1_residue_attribution_results.json (98.6s)

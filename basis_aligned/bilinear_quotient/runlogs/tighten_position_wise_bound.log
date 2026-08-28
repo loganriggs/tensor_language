@@ -1,0 +1,28 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+TIGHTEN THE POSITION-WISE BOUND | length-1 model, fit-row bigram, unigram | parameters selected on skip7000, bound read on skip11000 | DISCOVERY ONLY
+  built the three position-wise components (1s)
+  skip7000: 27974 covered scored positions
+  skip11000: 27497 covered scored positions
+
+  temperature (selected on skip7000):
+    tau 0.6   skip7000 7.23905  skip11000 7.13929
+    tau 0.7   skip7000 6.62372  skip11000 6.53958
+    tau 0.8   skip7000 6.26560  skip11000 6.19339
+    tau 0.9   skip7000 6.08696  skip11000 6.02403
+    tau 1.0   skip7000 6.03465  skip11000 5.97900  <-
+    tau 1.1   skip7000 6.06876  skip11000 6.01889
+    tau 1.25  skip7000 6.21853  skip11000 6.17528
+    tau 1.5   skip7000 6.58035  skip11000 6.54464
+    tau 2.0   skip7000 7.30412  skip11000 7.27684
+
+  best blend on skip7000: w_model 1.0 w_bigram 0.0 w_unigram 0.0 at tau 1.0 -> skip7000 6.03465  skip11000 5.97900
+  pure length-1 model: {'skip7000': 6.03465, 'skip11000': 5.979}   (§1768 {'skip7000': 6.03465, 'skip11000': 5.97902})
+  pure fit-row bigram: {'skip7000': 7.88854, 'skip11000': 7.90779}   (§1766 {'skip7000': 7.88804, 'skip11000': 7.90729})
+
+  the bound tightens: 5.97900 < 5.97902 -> True  (by +0.00002)
+  by at least 0.05 -> False
+  temperature alone moves it (5.97900 at tau 1.0) -> True
+  pure arms reproduce §1768 and §1766 + coverage 5419 -> control True
+
+pred_a True | pred_b False | pred_c True | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/tighten_position_wise_bound_results.json (12.0s)

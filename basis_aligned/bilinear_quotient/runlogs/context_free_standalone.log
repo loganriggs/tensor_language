@@ -1,0 +1,17 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+CONTEXT-FREE FRONTIER, THIRD ROLE | ranks (None, 64, 8, 4) | skip1200 confirms | SECOND-CLASS CONFIRMATION
+  skip7000: live cov 3.29205 all 3.13704 | fit-mean all-tabled cov 7.35114 all 6.42601
+  skip11000: live cov 3.09711 all 2.93450 | fit-mean all-tabled cov 7.35825 all 6.34771
+  built context-free tables (7s)
+  rank full   224.778M | hybrid all -1.35966 standalone all -0.12177 | loss 91.04%   [12s]
+  rank 64      15.223M | hybrid all -1.52671 standalone all -0.29521 | loss 80.66%   [50s]
+  rank 8        1.975M | hybrid all -1.77147 standalone all -0.55120 | loss 68.88%   [87s]
+  rank 4        1.029M | hybrid all -1.87566 standalone all -0.67473 | loss 64.03%   [124s]
+
+  standalone loss fractions ['full:91.0%', '64:80.7%', '8:68.9%', '4:64.0%'] all below §1762's fit-mean 178.1% -> context-free survives better True
+  every standalone arm stays positive on all-position scoring -> False
+  the loss is larger at the starved rank 4 than at full -> False
+  hybrid covered recoveries reproduce §1770/§1771 + coverage 5419 -> control True
+
+pred_a True | pred_b False | pred_c False | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/context_free_standalone_results.json (124.1s)

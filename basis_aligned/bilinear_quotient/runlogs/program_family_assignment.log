@@ -1,0 +1,19 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+PROGRAM FAMILY ASSIGNMENT | moving the table/linear boundary | ridge 0.001 | fit skip1200, eval skip7000
+  §1671 front-band exemption gains, which motivate this: mlp0 +0.23%  mlp1 +1.66%  mlp2 +3.17%  mlp3 +4.33%
+  CE live 3.27946 | all-MLP constant 7.59906 | stake 4.3196 nats
+  all_linear        0 table sites | CE 5.25430 | CEILING  54.28%
+  table_mlp0_0      1 table sites | CE 5.17973 | CEILING  56.01%
+  table_mlp0_1      2 table sites | CE 5.12610 | CEILING  57.25%
+  table_mlp0_2      3 table sites | CE 5.12432 | CEILING  57.29%
+  table_mlp0_3      4 table sites | CE 5.16755 | CEILING  56.29%
+  greedy_local_l2  14 table sites | CE 5.27597 | CEILING  53.78%
+      greedy picked tables at: [0, 1, 2, 3, 4, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+
+  BEST FIXED SPLIT: table_mlp0_2 at 57.29%  vs §1670 mlp0-3 56.29%  -> boundary was wrong True
+  it uses 3 table sites (was 4) -> moves forward True
+  GREEDY (local L2, no access to CE): 53.78% with 14 table sites  -> vs best fixed -3.51%
+  CONTROL mlp0-3 56.29% vs §1670 56.29% -> True
+
+pred_a True | pred_b True | pred_c True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/program_family_assignment_results.json (100.8s)

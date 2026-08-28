@@ -1,0 +1,63 @@
+SECOND MOMENT | across-position dispersion of corrected writes, depths (0, 3, 5) | settled program (context-free tables + output-NN fallback + rank-64 map) | DISCOVERY ONLY
+
+  per-site norm calibration (live mean / row mean), measured on the LIVE model:
+    attn L0:  2.71 L1:  2.49 L2:  2.26 L3:  2.13 L4:  4.37 L5:  1.00 L6:  1.02 L7:  3.61 L8:  3.59 L9:  4.83 L10:  3.80 L11:  4.49 L12:  6.72 L13:  6.39 L14:  7.07 L15:  6.33 L16:  5.70 L17:  5.59
+    mlp  L0:  0.88 L1:  0.42 L2:  0.61 L3:  0.49 L4:  0.10 L5:  0.39 L6:  0.52 L7:  1.66 L8:  2.04 L9:  1.32 L10:  2.33 L11:  1.05 L12:  1.91 L13:  1.26 L14:  1.66 L15:  1.19 L16:  1.13 L17:  1.21
+
+  arms  (47s)
+  all_substituted      skip7000 13.55%  skip11000 14.25%  skip1200 13.64%
+  all_sub_scaled       skip7000 12.16%  skip11000 12.81%  skip1200 12.10%
+  live_model           skip7000 39.32%  skip11000 42.35%  skip1200 38.88%
+
+  arms  (110s)
+  all_substituted        skip7000 13.55%  skip11000 14.25%  skip1200 13.64%
+  live_model             skip7000 39.32%  skip11000 42.35%  skip1200 38.88%
+    B0 gains  seq/matched/global: L1 0.3401/0.3401/0.3389  L2 0.5641/0.9406/0.2028  L3 0.7734/0.6777/0.1486
+  B0_raw                 skip7000 23.20%  skip11000 25.38%  skip1200 23.26%
+  B0_global              skip7000 12.49%  skip11000 13.37%  skip1200 12.96%
+  B0_matched             skip7000 27.91%  skip11000 30.18%  skip1200 27.06%
+  B0_seq                 skip7000 30.25%  skip11000 32.59%  skip1200 29.11%
+  allsub_gain5           skip7000 13.55%  skip11000 14.25%  skip1200 13.64%
+    B3 gains  seq/matched/global: L4 0.1693/0.1693/0.1696  L5 0.0068/0.0271/0.0065  L6 0.0210/1.6886/0.0138
+  B3_raw                 skip7000  2.00%  skip11000  2.12%  skip1200  1.81%
+  B3_global              skip7000 16.20%  skip11000 17.05%  skip1200 16.67%
+  B3_matched             skip7000  7.73%  skip11000  7.90%  skip1200  7.62%
+  B3_seq                 skip7000 16.62%  skip11000 17.51%  skip1200 16.67%
+  allsub_gain5           skip7000 13.55%  skip11000 14.25%  skip1200 13.64%
+    B5 gains  seq/matched/global: L6 0.0139/0.0139/0.0138  L7 0.3515/1.0148/0.2938  L8 0.6345/2.3847/0.3779
+  B5_raw                 skip7000  2.24%  skip11000  2.11%  skip1200  1.93%
+  B5_global              skip7000 16.53%  skip11000 17.38%  skip1200 16.66%
+  B5_matched             skip7000  9.69%  skip11000 10.25%  skip1200  9.84%
+  B5_seq                 skip7000 16.73%  skip11000 17.65%  skip1200 16.88%
+  allsub_gain5           skip7000 13.55%  skip11000 14.25%  skip1200 13.64%
+
+  known-answer: all-substituted matrix max 0.000e+00 (§1765 says 0.000e+00), own-position 3.070e-06; depth-matched live reach 6.222e-04 (§1765 live was 0.118)
+
+  gap fraction recovered (0..L compiled, L+1..17 live):
+    B0 skip7000   raw    37.4%  global    -4.1%  matched    55.7%  SEQUENTIAL    64.8%
+    B0 skip11000  raw    39.6%  global    -3.1%  matched    56.7%  SEQUENTIAL    65.3%
+    B0 skip1200   raw    38.1%  global    -2.7%  matched    53.1%  SEQUENTIAL    61.3%
+    B3 skip7000   raw   -44.8%  global    10.3%  matched   -22.6%  SEQUENTIAL    11.9%
+    B3 skip11000  raw   -43.2%  global    10.0%  matched   -22.6%  SEQUENTIAL    11.6%
+    B3 skip1200   raw   -46.9%  global    12.0%  matched   -23.9%  SEQUENTIAL    12.0%
+    B5 skip7000   raw   -43.9%  global    11.5%  matched   -15.0%  SEQUENTIAL    12.3%
+    B5 skip11000  raw   -43.2%  global    11.2%  matched   -14.2%  SEQUENTIAL    12.1%
+    B5 skip1200   raw   -46.4%  global    11.9%  matched   -15.1%  SEQUENTIAL    12.8%
+
+  influence SHAPE cosine (corrected arm vs DEPTH-MATCHED live), by source position:
+    B0:  k64 +0.812   k88 +0.837   k112 +0.866   k136 +0.892   k160 +0.877  *k184 +0.811
+    B3:  k64 +0.855  *k88 +0.680   k112 +0.744   k136 +0.756   k160 +0.788   k184 +0.780
+    B5:  k64 +0.763  *k88 +0.720   k112 +0.744   k136 +0.807   k160 +0.833   k184 +0.842
+
+  influence MASS ratio (corrected arm / depth-matched live), by source position:
+    B0: k64   1.88x  k88   1.48x  k112   1.23x  k136   1.45x  k160   1.42x  k184   1.73x
+    B3: k64   0.22x  k88   0.26x  k112   0.27x  k136   0.38x  k160   0.31x  k184   0.38x
+    B5: k64   0.63x  k88   0.60x  k112   0.82x  k136   0.97x  k160   0.87x  k184   1.20x
+
+  mean shape cosine: B0 +0.849  B3 +0.767  B5 +0.785   |   mean mass ratio: B0 1.53x  B3 0.30x  B5 0.85x
+
+  the JOINT ROUTING is damaged at B3 (mean cosine <=0.70) -> False  +0.767
+  and it TRACKS RECOVERY, B0 (65%) above B3 (12%) -> True  B0 +0.849 vs B3 +0.767
+  the influence is not merely RESCALED (mass ratio outside [0.33, 3.0]) -> True  0.30x
+  all-substituted matrix exactly zero (§1765), live control fires, seq arms reproduce §1824 -> control True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/cross_position_influence_results.json (237.4s)

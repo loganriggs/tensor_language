@@ -1,0 +1,17 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+WHOLE MODEL v1 FLOOR | the rank-0 arm §1699 owes, with row-level spread (§1700) | CE live 3.29205 | stake 5.5684 | 192 eval rows
+  v1_real   mode None   : CEILING   55.04%
+  v1_rank8  mode linear : CEILING   54.75%
+  v1_const  mode const  : CEILING   54.68%
+  bootstrapping (2000 draws, ROW-level clusters -- not document-level)...
+
+  cost of removing v1 entirely (constant): 0.35%  95% CI [0.30%, 0.40%]
+  cost at rank 8: 0.29%  95% CI [0.23%, 0.34%]
+    v1_real   ceiling 55.04%  95% CI [54.33%, 55.71%]
+    v1_rank8  ceiling 54.75%  95% CI [54.05%, 55.43%]
+    v1_const  ceiling 54.68%  95% CI [53.98%, 55.36%]
+  whole path under 1 point -> no dimensionality claim licensed True
+  not literally free True | CONTROLS True | path CI excludes zero True
+
+pred_a True | pred_b True | pred_c True | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/whole_model_v1_floor_results.json (241.7s)

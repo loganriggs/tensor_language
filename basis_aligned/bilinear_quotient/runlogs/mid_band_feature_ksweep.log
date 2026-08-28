@@ -1,0 +1,19 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+MID BAND FEATURE K-SWEEP | linear + k own bilinear features at mlp4-15 | k in [0, 64, 256, 512] | CE live 3.29205 | stake 5.5684
+  §1703: exempting this band entirely buys +12.52%
+  k    0: CEILING   55.04%
+  k   64: CEILING   55.80%
+  k  256: CEILING   57.38%
+  k  512: CEILING   58.71%
+  bootstrapping gains (2000 draws, ROW-level clusters)...
+  k=  64 gain +0.77%  95% CI [+0.65%, +0.89%]  ceiling 55.80%  0.88M extra reals total
+  k= 256 gain +2.34%  95% CI [+2.21%, +2.48%]  ceiling 57.38%  3.54M extra reals total
+  k= 512 gain +3.67%  95% CI [+3.51%, +3.84%]  ceiling 58.71%  7.08M extra reals total
+  k=64 replicates §1709 (+0.77%) -> True
+  k=512 over k=64: +2.91% -> PATH rather than plateau True
+  vs the k8->k64 step of +0.93% -> diminishing False
+  fraction of the band gain +12.52% recovered at k=512: 29.4%
+  CONTROL k0 55.04% vs §1696 55.04% -> True
+
+pred_a True | pred_b True | pred_c False | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/mid_band_feature_ksweep_results.json (1095.3s)

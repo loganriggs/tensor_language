@@ -1,0 +1,50 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+SEQUENTIAL CALIBRATION | gains measured bottom-up in an already-corrected stream | settled program (context-free tables + output-NN fallback + rank-64 map) | DISCOVERY ONLY
+
+  per-site norm calibration (live mean / row mean), measured on the LIVE model:
+    attn L0:  2.71 L1:  2.49 L2:  2.26 L3:  2.13 L4:  4.37 L5:  1.00 L6:  1.02 L7:  3.61 L8:  3.59 L9:  4.83 L10:  3.80 L11:  4.49 L12:  6.72 L13:  6.39 L14:  7.07 L15:  6.33 L16:  5.70 L17:  5.59
+    mlp  L0:  0.88 L1:  0.42 L2:  0.61 L3:  0.49 L4:  0.10 L5:  0.39 L6:  0.52 L7:  1.66 L8:  2.04 L9:  1.32 L10:  2.33 L11:  1.05 L12:  1.91 L13:  1.26 L14:  1.66 L15:  1.19 L16:  1.13 L17:  1.21
+
+  arms  (48s)
+  all_substituted      skip7000 13.55%  skip11000 14.25%  skip1200 13.64%
+  all_sub_scaled       skip7000 12.16%  skip11000 12.81%  skip1200 12.10%
+  live_model           skip7000 39.32%  skip11000 42.35%  skip1200 38.88%
+
+  arms  (121s)
+  all_substituted        skip7000 13.55%  skip11000 14.25%  skip1200 13.64%
+  live_model             skip7000 39.32%  skip11000 42.35%  skip1200 38.88%
+    B0 gains  seq/matched/global: L1 0.3401/0.3401/0.3389  L2 0.5641/0.9406/0.2028  L3 0.7734/0.6777/0.1486
+  B0_raw                 skip7000 23.20%  skip11000 25.38%  skip1200 23.26%
+  B0_global              skip7000 12.49%  skip11000 13.37%  skip1200 12.96%
+  B0_matched             skip7000 27.91%  skip11000 30.18%  skip1200 27.06%
+  B0_seq                 skip7000 30.25%  skip11000 32.59%  skip1200 29.11%
+  allsub_gain5           skip7000 13.55%  skip11000 14.25%  skip1200 13.64%
+    B3 gains  seq/matched/global: L4 0.1693/0.1693/0.1696  L5 0.0068/0.0271/0.0065  L6 0.0210/1.6886/0.0138
+  B3_raw                 skip7000  2.00%  skip11000  2.12%  skip1200  1.81%
+  B3_global              skip7000 16.20%  skip11000 17.05%  skip1200 16.67%
+  B3_matched             skip7000  7.73%  skip11000  7.90%  skip1200  7.62%
+  B3_seq                 skip7000 16.62%  skip11000 17.51%  skip1200 16.67%
+  allsub_gain5           skip7000 13.55%  skip11000 14.25%  skip1200 13.64%
+    B5 gains  seq/matched/global: L6 0.0139/0.0139/0.0138  L7 0.3515/1.0148/0.2938  L8 0.6345/2.3847/0.3779
+  B5_raw                 skip7000  2.24%  skip11000  2.11%  skip1200  1.93%
+  B5_global              skip7000 16.53%  skip11000 17.38%  skip1200 16.66%
+  B5_matched             skip7000  9.69%  skip11000 10.25%  skip1200  9.84%
+  B5_seq                 skip7000 16.73%  skip11000 17.65%  skip1200 16.88%
+  allsub_gain5           skip7000 13.55%  skip11000 14.25%  skip1200 13.64%
+
+  gap fraction recovered (0..L compiled, L+1..17 live):
+    B0 skip7000   raw    37.4%  global    -4.1%  matched    55.7%  SEQUENTIAL    64.8%
+    B0 skip11000  raw    39.6%  global    -3.1%  matched    56.7%  SEQUENTIAL    65.3%
+    B0 skip1200   raw    38.1%  global    -2.7%  matched    53.1%  SEQUENTIAL    61.3%
+    B3 skip7000   raw   -44.8%  global    10.3%  matched   -22.6%  SEQUENTIAL    11.9%
+    B3 skip11000  raw   -43.2%  global    10.0%  matched   -22.6%  SEQUENTIAL    11.6%
+    B3 skip1200   raw   -46.9%  global    12.0%  matched   -23.9%  SEQUENTIAL    12.0%
+    B5 skip7000   raw   -43.9%  global    11.5%  matched   -15.0%  SEQUENTIAL    12.3%
+    B5 skip11000  raw   -43.2%  global    11.2%  matched   -14.2%  SEQUENTIAL    12.1%
+    B5 skip1200   raw   -46.4%  global    11.9%  matched   -15.1%  SEQUENTIAL    12.8%
+
+  sequential beats the better prior gain by >=5 points at B3 -> False  skip7000 11.9% vs best-prior 10.3%  skip11000 11.6% vs best-prior 10.0%  skip1200 12.0% vs best-prior 12.0%
+  and does NOT harm B0 -> True  skip7000 64.8% vs raw 37.4%  skip11000 65.3% vs raw 39.6%  skip1200 61.3% vs raw 38.1%
+  and the sequential curve is MONOTONE in depth -> False  skip7000 64.8%/11.9%/12.3%  skip11000 65.3%/11.6%/12.1%  skip1200 61.3%/12.0%/12.8%
+  raw/global/matched reproduce §1806/§1822/§1823, the first sequential gain equals the global one at every depth, endpoints §1789, placement exact -> True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/sequential_calibration_results.json (270.8s)

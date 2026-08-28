@@ -1,0 +1,33 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+MAP RANK SWEEP | table rank 64 | map ranks (8, 16, 64, 256) | DISCOVERY ONLY
+  built the output-NN map and 36 tables (4s)
+
+  skip7000: live cov 3.29205 all 3.13704
+    neighbour            all 6.19187  (15.223M)
+    learned map rank   8  all 6.24449  (15.886M, map 0.664M)  gain -0.05262  -0.07929 nats/M
+    learned map rank  16  all 6.21698  (16.550M, map 1.327M)  gain -0.02511  -0.01892 nats/M
+    learned map rank  64  all 6.17330  (20.531M, map 5.308M)  gain +0.01857  0.00350 nats/M
+    learned map rank 256  all 6.17310  (36.456M, map 21.234M)  gain +0.01877  0.00088 nats/M
+
+  skip11000: live cov 3.09711 all 2.93450
+    neighbour            all 6.18267  (15.223M)
+    learned map rank   8  all 6.23746  (15.886M, map 0.664M)  gain -0.05479  -0.08256 nats/M
+    learned map rank  16  all 6.20111  (16.550M, map 1.327M)  gain -0.01844  -0.01389 nats/M
+    learned map rank  64  all 6.15261  (20.531M, map 5.308M)  gain +0.03006  0.00566 nats/M
+    learned map rank 256  all 6.15217  (36.456M, map 21.234M)  gain +0.03050  0.00144 nats/M
+
+  skip1200: live cov 3.40277 all 3.23027
+    neighbour            all 6.15065  (15.223M)
+    learned map rank   8  all 6.21001  (15.886M, map 0.664M)  gain -0.05936  -0.08945 nats/M
+    learned map rank  16  all 6.18422  (16.550M, map 1.327M)  gain -0.03357  -0.02530 nats/M
+    learned map rank  64  all 6.14463  (20.531M, map 5.308M)  gain +0.00602  0.00113 nats/M
+    learned map rank 256  all 6.14435  (36.456M, map 21.234M)  gain +0.00630  0.00030 nats/M
+
+  map-rank efficiency optimum is interior on every role {'skip7000': 64, 'skip11000': 64, 'skip1200': 64} -> True
+    nats per M of MAP: skip7000 8:-0.07929 16:-0.01892 64:0.00350 256:0.00088 | skip11000 8:-0.08256 16:-0.01389 64:0.00566 256:0.00144 | skip1200 8:-0.08945 16:-0.02530 64:0.00113 256:0.00030
+  every map rank beats the neighbour -> False
+  fidelity monotone increasing in map rank -> True
+  map rank 64 and the neighbour reproduce §1785 + coverage 5419 -> control True
+
+pred_a True | pred_b False | pred_c True | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/map_rank_sweep_results.json (757.1s)
