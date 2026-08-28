@@ -346,6 +346,8 @@ class FinalBatchReductions:
     row_ce_count: torch.Tensor
     row_copy_ce_sum: torch.Tensor
     row_copy_count: torch.Tensor
+    row_frequency_ce_sum: torch.Tensor
+    row_frequency_count: torch.Tensor
 
     def __post_init__(self) -> None:
         if not runtime._sha256_text(self.identity_sha256) or self.route not in {
@@ -364,6 +366,20 @@ class FinalBatchReductions:
             ) or not bool(torch.isfinite(value).all()) or bool((value < 0).any()):
                 raise ValueError(f"final reduction {name} is malformed")
             object.__setattr__(self, name, value.detach().cpu().contiguous().clone())
+        for name in ("row_frequency_ce_sum", "row_frequency_count"):
+            value = getattr(self, name)
+            expected_dtype = torch.float64 if name.endswith("ce_sum") else torch.long
+            if not torch.is_tensor(value) or tuple(value.shape) != (
+                runtime.BATCH_SIZE, 9
+            ) or value.dtype != expected_dtype or value.device.type != "cpu" or (
+                value.requires_grad
+            ) or not bool(torch.isfinite(value).all()) or bool((value < 0).any()):
+                raise ValueError(f"final reduction {name} is malformed")
+            object.__setattr__(self, name, value.detach().cpu().contiguous().clone())
+        if not torch.equal(self.row_frequency_count.sum(dim=1), self.row_ce_count) or not (
+            torch.allclose(self.row_frequency_ce_sum.sum(dim=1), self.row_ce_sum, atol=1e-10)
+        ):
+            raise ValueError("final frequency reduction does not partition CE")
 
 
 @dataclass(frozen=True)
@@ -377,6 +393,8 @@ class FinalCEBatchReductions:
     row_ce_count: torch.Tensor
     row_copy_ce_sum: torch.Tensor
     row_copy_count: torch.Tensor
+    row_frequency_ce_sum: torch.Tensor
+    row_frequency_count: torch.Tensor
 
     def __post_init__(self) -> None:
         if not runtime._sha256_text(self.identity_sha256) or self.route not in {
@@ -393,6 +411,20 @@ class FinalCEBatchReductions:
             ) or not bool(torch.isfinite(value).all()) or bool((value < 0).any()):
                 raise ValueError(f"final CE reduction {name} is malformed")
             object.__setattr__(self, name, value.detach().cpu().contiguous().clone())
+        for name in ("row_frequency_ce_sum", "row_frequency_count"):
+            value = getattr(self, name)
+            expected_dtype = torch.float64 if name.endswith("ce_sum") else torch.long
+            if not torch.is_tensor(value) or tuple(value.shape) != (
+                runtime.BATCH_SIZE, 9
+            ) or value.dtype != expected_dtype or value.device.type != "cpu" or (
+                value.requires_grad
+            ) or not bool(torch.isfinite(value).all()) or bool((value < 0).any()):
+                raise ValueError(f"final CE reduction {name} is malformed")
+            object.__setattr__(self, name, value.detach().cpu().contiguous().clone())
+        if not torch.equal(self.row_frequency_count.sum(dim=1), self.row_ce_count) or not (
+            torch.allclose(self.row_frequency_ce_sum.sum(dim=1), self.row_ce_sum, atol=1e-10)
+        ):
+            raise ValueError("final CE frequency reduction does not partition CE")
 
 
 @dataclass(frozen=True)
@@ -1162,6 +1194,7 @@ class CoordinateTeacherResult(_TeacherResult):
 
     def consume_final(
         self, role_rows: torch.Tensor, denominators: Sequence[torch.Tensor | float],
+        frequency_bins: torch.Tensor,
     ) -> tuple[FinalBatchReductions, StepClosure]:
         identity = self._TeacherResult__identity
         if identity.phase != "final" or identity.route != "L":
@@ -1176,8 +1209,8 @@ class CoordinateTeacherResult(_TeacherResult):
             primary_sum, primary_count = programs.local_primary_rows(
                 predictions, labels, denominators,
             )
-            ce_sum, ce_count, copy_sum, copy_count = programs.ce_and_copy_rows(
-                logits, role_rows,
+            ce_sum, ce_count, copy_sum, copy_count, frequency_sum, frequency_count = (
+                programs.final_ce_copy_frequency_rows(logits, role_rows, frequency_bins)
             )
             reductions = FinalBatchReductions(
                 identity_sha256=identity.sha256, route="L",
@@ -1185,6 +1218,8 @@ class CoordinateTeacherResult(_TeacherResult):
                 row_primary_sum=primary_sum, row_primary_count=primary_count,
                 row_ce_sum=ce_sum, row_ce_count=ce_count,
                 row_copy_ce_sum=copy_sum, row_copy_count=copy_count,
+                row_frequency_ce_sum=frequency_sum,
+                row_frequency_count=frequency_count,
             )
             closure = self._finish_consume()
             complete = True
@@ -1250,7 +1285,7 @@ class OONTeacherResult(_TeacherResult):
                 self._abort_consume()
 
     def consume_final(
-        self, role_rows: torch.Tensor,
+        self, role_rows: torch.Tensor, frequency_bins: torch.Tensor,
     ) -> tuple[FinalBatchReductions, StepClosure]:
         identity = self._TeacherResult__identity
         if identity.phase != "final" or identity.route not in {"R", "S0", "S1", "T"}:
@@ -1265,8 +1300,10 @@ class OONTeacherResult(_TeacherResult):
             primary_sum, primary_count = programs.suffix_kl_rows(
                 teacher_logits, student_logits,
             )
-            ce_sum, ce_count, copy_sum, copy_count = programs.ce_and_copy_rows(
-                student_logits, role_rows,
+            ce_sum, ce_count, copy_sum, copy_count, frequency_sum, frequency_count = (
+                programs.final_ce_copy_frequency_rows(
+                    student_logits, role_rows, frequency_bins,
+                )
             )
             reductions = FinalBatchReductions(
                 identity_sha256=identity.sha256, route=identity.route,
@@ -1274,6 +1311,8 @@ class OONTeacherResult(_TeacherResult):
                 row_primary_sum=primary_sum, row_primary_count=primary_count,
                 row_ce_sum=ce_sum, row_ce_count=ce_count,
                 row_copy_ce_sum=copy_sum, row_copy_count=copy_count,
+                row_frequency_ce_sum=frequency_sum,
+                row_frequency_count=frequency_count,
             )
             closure = self._finish_consume()
             complete = True
@@ -1705,7 +1744,7 @@ class CapabilityBroker:
 
     def consume_final_ce(
         self, identity: runtime.TraceIdentity, step: StudentStep,
-        role_rows: torch.Tensor,
+        role_rows: torch.Tensor, frequency_bins: torch.Tensor,
     ) -> tuple[FinalCEBatchReductions, StepClosure]:
         """Consume one P/P/E student without constructing an inapplicable teacher.
 
@@ -1727,14 +1766,16 @@ class CapabilityBroker:
             rows = _final_role_batch(identity, role_rows)
             import early_mlp_suffix_transport_v1_programs as programs
 
-            ce_sum, ce_count, copy_sum, copy_count = programs.ce_and_copy_rows(
-                logits, rows,
+            ce_sum, ce_count, copy_sum, copy_count, frequency_sum, frequency_count = (
+                programs.final_ce_copy_frequency_rows(logits, rows, frequency_bins)
             )
             reductions = FinalCEBatchReductions(
                 identity_sha256=identity.sha256, route=identity.route,
                 program_sha256=identity.program_snapshot_sha256,
                 row_ce_sum=ce_sum, row_ce_count=ce_count,
                 row_copy_ce_sum=copy_sum, row_copy_count=copy_count,
+                row_frequency_ce_sum=frequency_sum,
+                row_frequency_count=frequency_count,
             )
             closure = self._mint_closure(
                 identity=identity, scope="final_ce", producer_invocations=0,

@@ -95,6 +95,7 @@ class ObservedFinalProgramBatchReceipt:
     batch_ordinal: int
     ordered_row_indices_sha256: str
     reduction_sha256: str
+    frequency_assignment_sha256: str
     student_ledger_sha256: str
     teacher_ledger_sha256: str
     observed_closure_sha256: str
@@ -110,6 +111,8 @@ class ObservedMaterializedFinalProgramBatchReceipt:
     binding_sha256: str
     runtime_identity_sha256: str
     runtime_receipt_sha256: str
+    reduction_sha256: str
+    frequency_assignment_sha256: str
     batch_ordinal: int
 
     def __post_init__(self) -> None:
@@ -117,7 +120,8 @@ class ObservedMaterializedFinalProgramBatchReceipt:
             not runtime._sha256_text(value) for value in (
                 self.final_action_identity_sha256, self.materialization_sha256,
                 self.binding_sha256, self.runtime_identity_sha256,
-                self.runtime_receipt_sha256,
+                self.runtime_receipt_sha256, self.reduction_sha256,
+                self.frequency_assignment_sha256,
             )
         ) or type(self.batch_ordinal) is not int or not 0 <= self.batch_ordinal < (
             final_actions.OBSERVATIONAL_BATCH_COUNT
@@ -137,6 +141,8 @@ class ObservedFinalBaselineBatchReductions:
     row_ce_count: torch.Tensor
     row_copy_ce_sum: torch.Tensor
     row_copy_count: torch.Tensor
+    row_frequency_ce_sum: torch.Tensor
+    row_frequency_count: torch.Tensor
 
     def __post_init__(self) -> None:
         if not runtime._sha256_text(self.identity_sha256) or self.action_key not in {
@@ -164,6 +170,20 @@ class ObservedFinalBaselineBatchReductions:
                 self, name,
                 _final_batch_vector(name, getattr(self, name), count=name.endswith("count")),
             )
+        for name in ("row_frequency_ce_sum", "row_frequency_count"):
+            value = getattr(self, name)
+            expected = torch.float64 if name.endswith("ce_sum") else torch.long
+            if not torch.is_tensor(value) or tuple(value.shape) != (
+                runtime.BATCH_SIZE, 9
+            ) or value.dtype != expected or value.device.type != "cpu" or (
+                value.requires_grad
+            ) or not bool(torch.isfinite(value).all()) or bool((value < 0).any()):
+                raise ValueError(f"final baseline reduction {name} is malformed")
+            object.__setattr__(self, name, value.detach().clone().contiguous())
+        if not torch.equal(self.row_frequency_count.sum(dim=1), self.row_ce_count) or not (
+            torch.allclose(self.row_frequency_ce_sum.sum(dim=1), self.row_ce_sum, atol=1e-10)
+        ):
+            raise ValueError("final baseline frequency reduction does not partition CE")
 
 
 @dataclass(frozen=True)
@@ -175,6 +195,7 @@ class ObservedFinalBaselineBatchReceipt:
     batch_ordinal: int
     ordered_row_indices_sha256: str
     reduction_sha256: str
+    frequency_assignment_sha256: str
     observed_student_closure_sha256: str
     observed_teacher_closure_sha256: str | None
     teacher_reused_student: bool
@@ -737,7 +758,7 @@ class ObservedBilin18Adapter:
         self, *, broker: Any, hook: runtime.StudentCorrectionHook,
         program: runtime.JointAffineProgram, identity: runtime.TraceIdentity,
         role_rows: torch.Tensor, ordered_row_indices: Any,
-        denominators: Any = None,
+        denominators: Any = None, frequency_bins: torch.Tensor | None = None,
     ) -> tuple[Any, ObservedFinalProgramBatchReceipt]:
         """Run one true final P/P/N or P/P/E program and return typed reductions.
 
@@ -765,6 +786,12 @@ class ObservedBilin18Adapter:
         inputs = role_rows[:, :runtime.SEQUENCE_LENGTH].contiguous()
         identity.require_inputs(inputs)
         identity.require_batch_indices(indices)
+        if not torch.is_tensor(frequency_bins) or frequency_bins.dtype != torch.long or tuple(
+            frequency_bins.shape
+        ) != (runtime.BATCH_SIZE, runtime.SCORE_STOP - runtime.SCORE_START) or (
+            frequency_bins.device.type != "cpu"
+        ):
+            raise RuntimeError("observed final frequency assignment is malformed")
         mlp2_background = dict(identity.student_states)[2]
         if mlp2_background == "N" and identity.route == "L":
             if denominators is None or len(denominators) != 2:
@@ -793,18 +820,20 @@ class ObservedBilin18Adapter:
             )
             if mlp2_background == "E":
                 reductions, teacher_closure = broker.consume_final_ce(
-                    identity, step, role_rows,
+                    identity, step, role_rows, frequency_bins,
                 )
             elif identity.route == "L":
                 result = broker.run_coordinate_teacher(identity, step)
                 reductions, teacher_closure = result.consume_final(
-                    role_rows, denominators,
+                    role_rows, denominators, frequency_bins,
                 )
             else:
                 result = self.run_oon_teacher(
                     broker=broker, identity=identity, step=step, tokens=model_inputs,
                 )
-                reductions, teacher_closure = result.consume_final(role_rows)
+                reductions, teacher_closure = result.consume_final(
+                    role_rows, frequency_bins,
+                )
 
         expected_reduction_type = (
             capabilities.FinalCEBatchReductions
@@ -832,9 +861,11 @@ class ObservedBilin18Adapter:
             raise RuntimeError("observed final program transaction did not close exactly")
         reduction_fields = (
             "row_ce_sum", "row_ce_count", "row_copy_ce_sum", "row_copy_count",
+            "row_frequency_ce_sum", "row_frequency_count",
         ) if mlp2_background == "E" else (
             "row_primary_sum", "row_primary_count", "row_ce_sum", "row_ce_count",
             "row_copy_ce_sum", "row_copy_count",
+            "row_frequency_ce_sum", "row_frequency_count",
         )
         reduction_sha256 = runtime.logical_identity_sha256({
             name: runtime.tensor_identity_sha256(getattr(reductions, name))
@@ -845,6 +876,7 @@ class ObservedBilin18Adapter:
             control=identity.control, batch_ordinal=identity.batch_ordinal,
             ordered_row_indices_sha256=runtime.logical_identity_sha256(list(indices)),
             reduction_sha256=reduction_sha256,
+            frequency_assignment_sha256=runtime.tensor_identity_sha256(frequency_bins),
             student_ledger_sha256=student_closure.ledger_sha256,
             teacher_ledger_sha256=teacher_closure.ledger_sha256,
             observed_closure_sha256=runtime.logical_identity_sha256(asdict(observed)),
@@ -857,6 +889,7 @@ class ObservedBilin18Adapter:
         identity: final_actions.FinalActionBatchIdentity,
         final_context: Any, role_rows: torch.Tensor,
         ordered_row_indices: Any, denominators: Any = None,
+        frequency_bins: torch.Tensor | None = None,
     ) -> tuple[Any, ObservedMaterializedFinalProgramBatchReceipt]:
         """Execute one named program action without accepting a caller-made trace.
 
@@ -890,7 +923,7 @@ class ObservedBilin18Adapter:
         reductions, runtime_receipt = self.run_final_program_batch(
             broker=broker, hook=hook, program=program, identity=trace,
             role_rows=role_rows, ordered_row_indices=indices,
-            denominators=denominators,
+            denominators=denominators, frequency_bins=frequency_bins,
         )
         if not isinstance(runtime_receipt, ObservedFinalProgramBatchReceipt) or (
             runtime_receipt.identity_sha256 != trace.sha256
@@ -907,6 +940,8 @@ class ObservedBilin18Adapter:
             runtime_receipt_sha256=runtime.logical_identity_sha256(
                 asdict(runtime_receipt)
             ),
+            reduction_sha256=runtime_receipt.reduction_sha256,
+            frequency_assignment_sha256=runtime_receipt.frequency_assignment_sha256,
             batch_ordinal=identity.batch_ordinal,
         )
         program = None
@@ -991,6 +1026,7 @@ class ObservedBilin18Adapter:
         self, *, materialized: final_actions.MaterializedFinalAction,
         identity: final_actions.FinalActionBatchIdentity,
         role_rows: torch.Tensor, ordered_row_indices: Any,
+        frequency_bins: torch.Tensor,
     ) -> tuple[ObservedFinalBaselineBatchReductions, ObservedFinalBaselineBatchReceipt]:
         """Run one N/N or O/O action and release only bound per-row reductions."""
 
@@ -1037,20 +1073,26 @@ class ObservedBilin18Adapter:
                 )
             else:
                 primary_sum = primary_count = None
-            ce_sum, ce_count, copy_sum, copy_count = programs.ce_and_copy_rows(
-                student_logits, role_rows,
+            ce_sum, ce_count, copy_sum, copy_count, frequency_sum, frequency_count = (
+                programs.final_ce_copy_frequency_rows(
+                    student_logits, role_rows, frequency_bins,
+                )
             )
         reductions = ObservedFinalBaselineBatchReductions(
             identity_sha256=identity.sha256, action_key=identity.action_key,
             row_primary_sum=primary_sum, row_primary_count=primary_count,
             row_ce_sum=ce_sum, row_ce_count=ce_count,
             row_copy_ce_sum=copy_sum, row_copy_count=copy_count,
+            row_frequency_ce_sum=frequency_sum,
+            row_frequency_count=frequency_count,
         )
         reduction_fields = (
             "row_ce_sum", "row_ce_count", "row_copy_ce_sum", "row_copy_count",
+            "row_frequency_ce_sum", "row_frequency_count",
         ) if background == "E" else (
             "row_primary_sum", "row_primary_count", "row_ce_sum", "row_ce_count",
             "row_copy_ce_sum", "row_copy_count",
+            "row_frequency_ce_sum", "row_frequency_count",
         )
         reduction_sha256 = runtime.logical_identity_sha256({
             "action_key": identity.action_key,
@@ -1068,6 +1110,7 @@ class ObservedBilin18Adapter:
             batch_ordinal=identity.batch_ordinal,
             ordered_row_indices_sha256=runtime.logical_identity_sha256(list(indices)),
             reduction_sha256=reduction_sha256,
+            frequency_assignment_sha256=runtime.tensor_identity_sha256(frequency_bins),
             observed_student_closure_sha256=student_closure_sha256,
             observed_teacher_closure_sha256=teacher_closure_sha256,
             teacher_reused_student=teacher_reused_student,

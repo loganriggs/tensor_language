@@ -358,14 +358,15 @@ def test_coordinate_final_emits_typed_final_reductions() -> None:
     broker, hook, prog, native0, native1, rows, inputs, _, ident = final_system("L")
     step, _, z0, z1, student_logits = run_student(broker, hook, inputs, ident)
     result = broker.run_coordinate_teacher(ident, step)
-    reductions, closure = result.consume_final(rows, (2.0, 4.0))
+    frequency = torch.zeros(4, 192, dtype=torch.long)
+    reductions, closure = result.consume_final(rows, (2.0, 4.0), frequency)
     predictions = (prog.site0_code(z0), prog.site1_code(z1))
     labels = (native0(z0).detach() @ basis(), native1(z1).detach() @ basis())
     primary_sum, primary_count = programs.local_primary_rows(
         predictions, labels, (2.0, 4.0),
     )
-    ce_sum, ce_count, copy_sum, copy_count = programs.ce_and_copy_rows(
-        student_logits, rows,
+    ce_sum, ce_count, copy_sum, copy_count, frequency_sum, frequency_count = (
+        programs.final_ce_copy_frequency_rows(student_logits, rows, frequency)
     )
     assert type(reductions) is capabilities.FinalBatchReductions
     for observed_value, expected in (
@@ -374,6 +375,8 @@ def test_coordinate_final_emits_typed_final_reductions() -> None:
         (reductions.row_ce_sum, ce_sum), (reductions.row_ce_count, ce_count),
         (reductions.row_copy_ce_sum, copy_sum),
         (reductions.row_copy_count, copy_count),
+        (reductions.row_frequency_ce_sum, frequency_sum),
+        (reductions.row_frequency_count, frequency_count),
     ):
         torch.testing.assert_close(observed_value, expected)
     assert closure.original_calls == capabilities.EXACT_EARLY_ORIGINAL_CALLS
@@ -383,7 +386,8 @@ def test_oon_final_emits_typed_final_reductions() -> None:
     broker, hook, _, native0, native1, rows, inputs, _, ident = final_system("R")
     step, _, _, _, student_logits = run_student(broker, hook, inputs, ident)
     result = broker.run_oon_teacher(ident, step, inputs, autonomous_forward)
-    reductions, closure = result.consume_final(rows)
+    frequency = torch.zeros(4, 192, dtype=torch.long)
+    reductions, closure = result.consume_final(rows, frequency)
     z0 = inputs.float().unsqueeze(-1).expand(-1, -1, runtime.D_MODEL) / 1000
     teacher_logits = native1(z0 + native0(z0))[..., :11].detach()
     primary_sum, primary_count = programs.suffix_kl_rows(
@@ -400,15 +404,18 @@ def test_exact_mlp2_final_background_emits_ce_only_reductions() -> None:
         "R", background="E",
     )
     step, _, _, _, student_logits = run_student(broker, hook, inputs, ident)
-    reductions, closure = broker.consume_final_ce(ident, step, rows)
-    ce_sum, ce_count, copy_sum, copy_count = programs.ce_and_copy_rows(
-        student_logits, rows,
+    frequency = torch.zeros(4, 192, dtype=torch.long)
+    reductions, closure = broker.consume_final_ce(ident, step, rows, frequency)
+    ce_sum, ce_count, copy_sum, copy_count, frequency_sum, frequency_count = (
+        programs.final_ce_copy_frequency_rows(student_logits, rows, frequency)
     )
     assert type(reductions) is capabilities.FinalCEBatchReductions
     for observed_value, expected in (
         (reductions.row_ce_sum, ce_sum), (reductions.row_ce_count, ce_count),
         (reductions.row_copy_ce_sum, copy_sum),
         (reductions.row_copy_count, copy_count),
+        (reductions.row_frequency_ce_sum, frequency_sum),
+        (reductions.row_frequency_count, frequency_count),
     ):
         torch.testing.assert_close(observed_value, expected)
     assert not hasattr(reductions, "row_primary_sum")

@@ -115,6 +115,32 @@ class RowReduction:
 
 
 @dataclass(frozen=True, slots=True)
+class FrequencyRowReduction:
+    """One frequency bin; individual rows and an entire bin may be empty."""
+
+    row_sum: torch.Tensor
+    row_count: torch.Tensor
+
+    def __post_init__(self) -> None:
+        object.__setattr__(
+            self, "row_sum", _row_vector("frequency row sum", self.row_sum, count=False),
+        )
+        object.__setattr__(
+            self, "row_count",
+            _row_vector("frequency row count", self.row_count, count=True),
+        )
+        if bool((self.row_sum[self.row_count == 0] != 0).any()):
+            raise ValueError("empty frequency cells have nonzero CE")
+
+    @property
+    def sha256(self) -> str:
+        return runtime.logical_identity_sha256({
+            "row_sum": runtime.tensor_identity_sha256(self.row_sum),
+            "row_count": runtime.tensor_identity_sha256(self.row_count),
+        })
+
+
+@dataclass(frozen=True, slots=True)
 class ResponseReduction:
     """Per-row vector-response inner products; never the response vectors."""
 
@@ -185,7 +211,7 @@ class FinalArmObservation:
     ce: RowReduction
     teacher_kl: RowReduction | None
     copy_ce: RowReduction
-    frequency_ce: tuple[RowReduction, ...]
+    frequency_ce: tuple[FrequencyRowReduction, ...]
     code_response: ResponseReduction | None
     logit_response: ResponseReduction | None
     output_kl_response: OutputKLReduction | None
@@ -206,8 +232,18 @@ class FinalArmObservation:
             raise ValueError("exact-MLP2 background is CE-only")
         if not isinstance(self.frequency_ce, tuple) or len(self.frequency_ce) != (
             FREQUENCY_BIN_COUNT
-        ) or any(type(value) is not RowReduction for value in self.frequency_ce):
+        ) or any(type(value) is not FrequencyRowReduction for value in self.frequency_ce):
             raise ValueError("final observation requires all nine frequency bins")
+        if not torch.equal(
+            sum((value.row_count for value in self.frequency_ce), torch.zeros_like(
+                self.ce.row_count
+            )), self.ce.row_count,
+        ) or not torch.allclose(
+            sum((value.row_sum for value in self.frequency_ce), torch.zeros_like(
+                self.ce.row_sum
+            )), self.ce.row_sum, atol=1e-10,
+        ):
+            raise ValueError("final frequency bins do not partition CE")
         if not isinstance(self.consumer_norm_ratio, tuple) or len(
             self.consumer_norm_ratio
         ) != MODEL_LAYER_COUNT or any(

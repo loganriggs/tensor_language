@@ -35,6 +35,17 @@ def _output_kl() -> capability.OutputKLReduction:
     )
 
 
+def _frequency(index: int) -> capability.FrequencyRowReduction:
+    return capability.FrequencyRowReduction(
+        row_sum=torch.ones(192, dtype=torch.float64) if index == 0 else (
+            torch.zeros(192, dtype=torch.float64)
+        ),
+        row_count=torch.ones(192, dtype=torch.long) if index == 0 else (
+            torch.zeros(192, dtype=torch.long)
+        ),
+    )
+
+
 def _observation(action: capability.FinalAction, **changes):
     response = action.background == "N" and (
         action.arm == "ll" or action.arm == "lt" or action.arm.startswith("a_null_")
@@ -46,7 +57,7 @@ def _observation(action: capability.FinalAction, **changes):
         "ce": _row(),
         "teacher_kl": _row() if action.background == "N" else None,
         "copy_ce": _row(),
-        "frequency_ce": tuple(_row() for _ in range(9)),
+        "frequency_ce": tuple(_frequency(index) for index in range(9)),
         "code_response": _response() if code else None,
         "logit_response": _response() if response else None,
         "output_kl_response": _output_kl() if response else None,

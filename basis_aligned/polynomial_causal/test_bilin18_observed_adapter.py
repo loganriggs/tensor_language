@@ -10,6 +10,16 @@ import torch
 import bilin18_observed_adapter as observed
 import bilin18_observed_model_facade as facade
 import early_mlp_suffix_transport_v1_runtime as runtime
+
+
+def _final_frequency(ce_sum=None):
+    counts = torch.zeros(4, 9, dtype=torch.long)
+    counts[:, 0] = 192
+    sums = torch.zeros(4, 9, dtype=torch.float64)
+    sums[:, 0] = (
+        torch.full((4,), 2.0, dtype=torch.float64) if ce_sum is None else ce_sum
+    )
+    return torch.zeros(4, 192, dtype=torch.long), sums, counts
 import early_mlp_suffix_transport_v1_capabilities as capabilities
 import early_mlp_suffix_transport_v1_final_actions as final_actions
 import early_mlp_suffix_transport_v1_programs as programs
@@ -587,6 +597,7 @@ def test_final_program_adapter_returns_only_typed_batch_reductions(monkeypatch) 
         native_guard_restored=True, native_guard_inert=True,
         logit_shape=(4, 256, 11), logit_dtype="torch.float32",
     )
+    frequency, frequency_sum, frequency_count = _final_frequency()
     reductions = capabilities.FinalBatchReductions(
         identity_sha256=identity.sha256, route="R",
         program_sha256=identity.program_snapshot_sha256,
@@ -596,11 +607,14 @@ def test_final_program_adapter_returns_only_typed_batch_reductions(monkeypatch) 
         row_ce_count=torch.full((4,), 192, dtype=torch.long),
         row_copy_ce_sum=torch.full((4,), 0.5, dtype=torch.float64),
         row_copy_count=torch.ones(4, dtype=torch.long),
+        row_frequency_ce_sum=frequency_sum,
+        row_frequency_count=frequency_count,
     )
 
     class Result:
-        def consume_final(self, supplied_rows):
+        def consume_final(self, supplied_rows, supplied_frequency):
             assert supplied_rows is rows
+            assert torch.equal(supplied_frequency, frequency)
             return reductions, teacher_closure
 
     class Broker:
@@ -619,6 +633,7 @@ def test_final_program_adapter_returns_only_typed_batch_reductions(monkeypatch) 
     returned, receipt = adapter.run_final_program_batch(
         broker=Broker(), hook=hook, program=program, identity=identity,
         role_rows=rows, ordered_row_indices=(0, 1, 2, 3),
+        frequency_bins=frequency,
     )
     assert returned is reductions
     assert receipt.control == "true" and receipt.route == "R"
@@ -670,6 +685,7 @@ def test_final_exact_mlp2_program_batch_is_ce_only_and_has_no_oon_teacher(
         native_guard_restored=True, native_guard_inert=True,
         logit_shape=(4, 256, 11), logit_dtype="torch.float32",
     )
+    frequency, frequency_sum, frequency_count = _final_frequency()
     reductions = capabilities.FinalCEBatchReductions(
         identity_sha256=identity.sha256, route="R",
         program_sha256=identity.program_snapshot_sha256,
@@ -677,13 +693,18 @@ def test_final_exact_mlp2_program_batch_is_ce_only_and_has_no_oon_teacher(
         row_ce_count=torch.full((4,), 192, dtype=torch.long),
         row_copy_ce_sum=torch.full((4,), 0.5, dtype=torch.float64),
         row_copy_count=torch.ones(4, dtype=torch.long),
+        row_frequency_ce_sum=frequency_sum,
+        row_frequency_count=frequency_count,
     )
 
     class Broker:
         def begin_student(self, supplied_identity, supplied_hook, inputs, indices):
             return "session"
-        def consume_final_ce(self, supplied_identity, step, supplied_rows):
+        def consume_final_ce(
+            self, supplied_identity, step, supplied_rows, supplied_frequency,
+        ):
             assert supplied_identity is identity and step == "step" and supplied_rows is rows
+            assert torch.equal(supplied_frequency, frequency)
             return reductions, ce_closure
         def run_oon_teacher(self, *args, **kwargs):
             raise AssertionError("exact-MLP2 E is CE-only and cannot construct OON")
@@ -695,6 +716,7 @@ def test_final_exact_mlp2_program_batch_is_ce_only_and_has_no_oon_teacher(
     returned, receipt = adapter.run_final_program_batch(
         broker=Broker(), hook=hook, program=program, identity=identity,
         role_rows=rows, ordered_row_indices=(0, 1, 2, 3),
+        frequency_bins=frequency,
     )
     assert returned is reductions and receipt.control == "true"
     assert not hasattr(returned, "row_primary_sum")
@@ -731,7 +753,7 @@ def test_final_exact_mlp2_local_program_is_ce_only_and_rejects_denominators(
         adapter.run_final_program_batch(
             broker=object(), hook=Hook(), program=program, identity=identity,
             role_rows=rows, ordered_row_indices=(0, 1, 2, 3),
-            denominators=(2.0, 4.0),
+            denominators=(2.0, 4.0), frequency_bins=torch.zeros(4, 192, dtype=torch.long),
         )
 
 
@@ -916,6 +938,7 @@ def test_final_baseline_batch_reduces_all_four_paths_without_tensor_escape(
     reductions, receipt = adapter.run_final_baseline_batch(
         materialized=materialized, identity=identity, role_rows=rows,
         ordered_row_indices=(0, 1, 2, 3),
+        frequency_bins=torch.zeros(4, 192, dtype=torch.long),
     )
     assert tuple(calls) == expected_calls
     assert reductions.action_key == f"{arm}/{background}"
@@ -949,6 +972,7 @@ def test_final_baseline_batch_rejects_target_substitution_before_forward(monkeyp
         adapter.run_final_baseline_batch(
             materialized=materialized, identity=identity, role_rows=changed,
             ordered_row_indices=(0, 1, 2, 3),
+            frequency_bins=torch.zeros(4, 192, dtype=torch.long),
         )
 
 
@@ -989,6 +1013,7 @@ def test_materialized_final_wrapper_binds_hybrid_action_to_runtime_receipt(
             ordered_row_indices_sha256=runtime.logical_identity_sha256([0, 1, 2, 3]),
             reduction_sha256="9" * 64, student_ledger_sha256="b" * 64,
             teacher_ledger_sha256="c" * 64, observed_closure_sha256="d" * 64,
+            frequency_assignment_sha256="e" * 64,
         )
 
     monkeypatch.setattr(adapter, "run_final_program_batch", lower)
@@ -996,6 +1021,7 @@ def test_materialized_final_wrapper_binds_hybrid_action_to_runtime_receipt(
         broker=broker, hook=object(), materialized=materialized, identity=identity,
         final_context=context, role_rows=rows,
         ordered_row_indices=(0, 1, 2, 3),
+        frequency_bins=torch.zeros(4, 192, dtype=torch.long),
     )
     trace = captured["identity"]
     assert reductions is returned

@@ -963,6 +963,60 @@ def ce_and_copy_rows(
     )
 
 
+def final_ce_copy_frequency_rows(
+    logits: torch.Tensor, role_rows: torch.Tensor, frequency_bins: torch.Tensor,
+) -> tuple[torch.Tensor, ...]:
+    """Return CE/copy plus the nine frozen target-frequency partitions.
+
+    ``frequency_bins`` is an already authority-derived integer assignment on the
+    exact 64:256 support.  This scorer neither loads nor derives token frequencies.
+    """
+
+    if not torch.is_tensor(frequency_bins) or frequency_bins.dtype != torch.long or tuple(
+        frequency_bins.shape
+    ) != (len(role_rows), runtime.SCORE_STOP - runtime.SCORE_START) or (
+        frequency_bins.device.type != "cpu"
+    ) or bool((frequency_bins < 0).any()) or bool((frequency_bins >= 9).any()):
+        raise ValueError("final frequency assignment is malformed")
+    if not torch.is_tensor(logits) or logits.ndim != 3 or logits.shape[0] != len(
+        role_rows
+    ) or logits.shape[-1] <= 1 or not bool(torch.isfinite(logits).all()):
+        raise ValueError("final CE logits are malformed")
+    scored = runtime.scored_positions(logits) if logits.shape[1] == (
+        runtime.SEQUENCE_LENGTH
+    ) else logits
+    if scored.shape[1] != runtime.SCORE_STOP - runtime.SCORE_START:
+        raise ValueError("final CE logits use the wrong positional support")
+    targets = role_rows[:, 1:runtime.SEQUENCE_LENGTH + 1][
+        :, runtime.SCORE_START:runtime.SCORE_STOP
+    ].to(scored.device)
+    if bool((targets < 0).any()) or bool((targets >= scored.shape[-1]).any()):
+        raise ValueError("final targets exceed the supplied logit vocabulary")
+    losses = F.cross_entropy(
+        scored.float().reshape(-1, scored.shape[-1]), targets.reshape(-1),
+        reduction="none",
+    ).view(len(role_rows), -1).double()
+    copy = copy_mask(role_rows).to(scored.device)
+    bins = frequency_bins.to(scored.device)
+    frequency_sum = torch.zeros(len(role_rows), 9, dtype=torch.float64, device=scored.device)
+    frequency_count = torch.zeros(len(role_rows), 9, dtype=torch.long, device=scored.device)
+    frequency_sum.scatter_add_(1, bins, losses)
+    frequency_count.scatter_add_(1, bins, torch.ones_like(bins))
+    if not torch.equal(
+        frequency_count.sum(dim=1),
+        torch.full((len(role_rows),), losses.shape[1], dtype=torch.long, device=scored.device),
+    ) or not torch.allclose(frequency_sum.sum(dim=1), losses.sum(dim=1), atol=1e-10):
+        raise RuntimeError("final frequency partition does not close to total CE")
+    return (
+        losses.sum(dim=1).detach().cpu().contiguous(),
+        torch.full((len(role_rows),), losses.shape[1], dtype=torch.long),
+        (losses * copy).sum(dim=1).detach().cpu().contiguous(),
+        copy.sum(dim=1).detach().cpu().long().contiguous(),
+        frequency_sum.detach().cpu().contiguous(),
+        frequency_count.detach().cpu().contiguous(),
+    )
+
+
 def validation_common_support_sha256(role_rows: torch.Tensor) -> str:
     """Bind exact validation rows, shifted targets, copy mask, and score positions."""
 
