@@ -45918,3 +45918,56 @@ is negative, so none of these programs beats the fit-mean baseline on all positi
 
 Controls (pred_d): the hybrid covered recoveries reproduce §1770/§1771's +1.37925, +1.14673, +0.80353
 and +0.63791 within 0.002, in a script that rebuilds both table families from scratch; coverage 5419.
+
+## §1776 — matched, context-free wins on all positions too; and the two table families respond to the fallback in OPPOSITE directions at every rank
+
+`ops/matched_family_allposition.py`, 220.0s, **DISCOVERY ONLY**.
+**pred_a True | pred_b True | pred_c True | pred_d True.**
+
+Both table families, both fallback rules, all-position CE on skip11000, every comparison in absolute
+nats after §1775's ratio turned out to have a negative denominator.
+
+```
+  rank      cost      fit-mean            context-free
+                    hybrid  standalone   hybrid  standalone
+  full   224.778M   6.34771   8.00215    7.70737   6.46948
+  64      15.223M   6.28596   7.90421    7.87443   6.64292
+  8        1.975M   6.55565   8.11137    8.11918   6.89892
+  4        1.029M   6.67253   8.20113    8.22337   7.02245
+                                          (live 2.93450)
+```
+
+**pred_a: matched standalone against standalone, context-free wins at every rank** — by 1.533, 1.261,
+1.212 and 1.179 nats. **§1770's dominance is not a covered-position artifact**, and §1775's scope note
+— which I added when the comparison was unmatched — is resolved rather than standing.
+
+**pred_b and pred_c together are the structural finding, and it is clean at every rank:**
+
+> **The two table families respond to the hybrid fallback in opposite directions.** For **fit-mean**
+> tables the fallback HELPS by 1.53–1.65 nats at every rank; for **context-free** tables it HURTS by
+> 1.20–1.24 nats at every rank. §1762 and §1775 each saw one half of this at two ranks; here both
+> halves hold across four.
+
+The mechanism is §1737's mlp2 at scale, now with a sharper edge: **the better the covered-token
+program, the further off-distribution its residual is for any native module still in the loop.** A
+fit-mean program leaves a residual the live module can still work with; a context-free program does
+not, and the module then produces something worse than the site's own mean row.
+
+**The full ordering at rank 64, which is the one to quote:**
+
+| program | all-position CE | needs live modules? |
+|---|---:|---|
+| fit-mean + fallback | **6.28596** | yes, at 24% of positions |
+| context-free, standalone | 6.64292 | **no** |
+| context-free + fallback | 7.87443 | yes |
+| fit-mean, standalone | 7.90421 | no |
+
+**If the fallback is allowed, fit-mean plus fallback is the best program here. If it is not — and a
+program that calls the module it is replacing is not a replacement — context-free is best by 1.26
+nats.** Those are different questions and this arc has been sliding between them; they are now
+separated with numbers on both.
+
+Controls (pred_d): the context-free arms reproduce §1775's 7.70737 / 6.46948 and 8.22337 / 7.02244
+within 0.002, and coverage is 5419 of 50257. The first attempt OOMed at 31.2 GiB holding two families
+in the full [50257, D] form; the tables are now stored compactly as [ncov+1, D] through an idmap,
+9.3x smaller, since only 5419 rows are ever looked up.
