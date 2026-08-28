@@ -6,6 +6,7 @@ from types import MappingProxyType
 import pytest
 import torch
 
+import early_mlp_suffix_transport_v1 as contract
 import early_mlp_suffix_transport_v1_fit as fit
 import early_mlp_suffix_transport_v1_programs as programs
 import early_mlp_suffix_transport_v1_runtime as runtime
@@ -58,6 +59,41 @@ def _score(candidate: fit.FitCandidate, metric: float, *, copy: float = 0.0):
             hook_restored=True, hook_inert=True,
         ),
     )
+
+
+def _mapped_fit(
+    control: str, route: str, trial: int, seed: int, *, mapping: str = "9" * 64,
+) -> fit.MappedFitCandidate:
+    candidate = _fit(route, trial, seed)
+    return fit.MappedFitCandidate(
+        control=control, mapping_sha256=mapping,
+        route=route, trial=trial, learning_rate=candidate.learning_rate,
+        completed_steps=candidate.completed_steps, loss_sum=candidate.loss_sum,
+        loss_min=candidate.loss_min, loss_max=candidate.loss_max,
+        final_program_sha256=candidate.final_program_sha256,
+        transaction_history_sha256=candidate.transaction_history_sha256,
+        state_dict=candidate.state_dict,
+    )
+
+
+def _mapped_score(candidate: fit.MappedFitCandidate, metric: float, *, copy: float = 0.0):
+    base = programs.ValidationScore(
+        route=candidate.route, trial=candidate.trial,
+        learning_rate=candidate.learning_rate,
+        program_sha256=candidate.final_program_sha256,
+        metric_name=programs.METRIC_BY_ROUTE[candidate.route],
+        primary_metric=metric, copy_worsening=copy,
+        scored_token_count=programs.VALIDATION_SCORED_TOKENS,
+        common_support_sha256="7" * 64,
+        sufficient_statistics_sha256="8" * 64,
+        student_original_calls=programs.ZERO_NATIVE_CALLS,
+        hook_restored=True, hook_inert=True,
+    )
+    validation = programs.MappedValidationScore(
+        control=candidate.control, mapping_sha256=candidate.mapping_sha256,
+        base=base, mapped_sufficient_statistics_sha256="a" * 64,
+    )
+    return programs.MappedScoredCandidate(candidate, validation)
 
 
 def test_selector_applies_metric_lr_hash_order_and_copy_gate() -> None:
@@ -170,6 +206,172 @@ def test_four_route_freezer_requires_complete_nonmixed_banks() -> None:
     assert set(frozen) == set(fit.TRUE_FIT_ROUTES)
     with pytest.raises(ValueError, match="exactly"):
         programs.select_and_freeze_routes({"L": banks["L"]})
+
+
+def test_mapped_selector_and_freezer_preserve_control_plan_and_separate_type() -> None:
+    candidates = [
+        _mapped_score(_mapped_fit("A_null_00", "T", trial, 60 + trial), 0.3 - trial / 20)
+        for trial in range(3)
+    ]
+    selected = programs.select_mapped_candidate(
+        candidates, control="A_null_00", route="T",
+    )
+    assert selected.validation.trial == 2
+    frozen = programs.freeze_mapped_selected(selected)
+    assert isinstance(frozen, programs.FrozenMappedProgram)
+    assert not isinstance(frozen, programs.FrozenProgram)
+    assert frozen.key == "A_null_00/T" and frozen.mapping_sha256 == "9" * 64
+    torch.testing.assert_close(
+        frozen.make_program().cross,
+        programs.restore_mapped_fit_candidate(selected.fit_candidate).cross,
+        rtol=0, atol=0,
+    )
+    mixed = list(candidates)
+    mixed[0] = _mapped_score(
+        _mapped_fit("A_null_01", "T", 0, 70, mapping="b" * 64), 0.1,
+    )
+    with pytest.raises(ValueError, match="mixes"):
+        programs.select_mapped_candidate(mixed, control="A_null_00", route="T")
+    with pytest.raises(ValueError, match="registered"):
+        programs.mapped_control_key("A_null_20", "T")
+
+
+def test_all_24_mapped_families_are_required_and_plan_distinct(monkeypatch) -> None:
+    banks = {}
+    document_mapping = "1" * 64
+    for key in programs.required_mapped_control_keys():
+        control, route = key.split("/", 1)
+        mapping = document_mapping if control == "document_shuffle" else (
+            f"{int(control[-2:]) + 2:064x}"
+        )
+        banks[key] = [
+            _mapped_score(
+                _mapped_fit(control, route, trial, 80 + trial, mapping=mapping),
+                0.5 + trial,
+            )
+            for trial in range(3)
+        ]
+
+    templates = {
+        route: programs.freeze_selected(_score(_fit(route, 0, 120 + index), 0.1))
+        for index, route in enumerate(programs.SELECTABLE_ROUTES)
+    }
+    monkeypatch.setattr(
+        programs, "freeze_mapped_selected",
+        lambda candidate: programs.FrozenMappedProgram(
+            control=candidate.fit_candidate.control,
+            mapping_sha256=candidate.fit_candidate.mapping_sha256,
+            mapped_sufficient_statistics_sha256=(
+                candidate.validation.mapped_sufficient_statistics_sha256
+            ),
+            program=templates[candidate.fit_candidate.route],
+        ),
+    )
+    frozen = programs.select_and_freeze_mapped_controls(banks)
+    assert tuple(frozen) == programs.required_mapped_control_keys()
+    assert len(frozen) == 24
+    missing = dict(banks); missing.pop("A_null_19/T")
+    with pytest.raises(ValueError, match="exactly 24"):
+        programs.select_and_freeze_mapped_controls(missing)
+
+    duplicated = dict(banks)
+    duplicate_bank = []
+    for item in duplicated["A_null_19/T"]:
+        duplicate_bank.append(programs.MappedScoredCandidate(
+            replace(item.fit_candidate, mapping_sha256=f"{2:064x}"),
+            replace(item.validation, mapping_sha256=f"{2:064x}"),
+        ))
+    duplicated["A_null_19/T"] = duplicate_bank
+    with pytest.raises(RuntimeError, match="duplicated"):
+        programs.select_and_freeze_mapped_controls(duplicated)
+
+
+def test_mapped_raw_statistics_bind_control_and_plan_before_selection(monkeypatch) -> None:
+    monkeypatch.setattr(programs, "VALIDATION_ROWS", 2)
+    monkeypatch.setattr(programs, "VALIDATION_SCORED_TOKENS", 384)
+    candidate = _mapped_fit("A_null_03", "T", 0, 140, mapping="c" * 64)
+    count = torch.full((2,), 192, dtype=torch.long)
+    copy_count = torch.tensor([2, 3], dtype=torch.long)
+    base = programs.ValidationSufficientStatistics(
+        route="T", program_sha256=candidate.final_program_sha256,
+        common_support_sha256="d" * 64,
+        row_primary_sum=torch.tensor([1.0, 2.0], dtype=torch.float64),
+        row_primary_count=count,
+        row_ce_sum=torch.tensor([3.0, 4.0], dtype=torch.float64),
+        row_ce_count=count,
+        row_copy_ce_sum=torch.tensor([0.2, 0.3], dtype=torch.float64),
+        row_copy_count=copy_count,
+        baseline_row_copy_ce_sum=torch.tensor([0.19, 0.285], dtype=torch.float64),
+        baseline_row_copy_count=copy_count,
+        student_original_calls=programs.ZERO_NATIVE_CALLS,
+        hook_restored=True, hook_inert=True,
+    )
+    statistics = programs.MappedValidationSufficientStatistics(
+        control="A_null_03", mapping_sha256="c" * 64, base=base,
+    )
+    score = programs.mapped_validation_score_from_statistics(candidate, statistics)
+    assert score.control == "A_null_03" and score.mapping_sha256 == "c" * 64
+    assert score.primary_metric == pytest.approx(3 / 384)
+    assert score.mapped_sufficient_statistics_sha256 == statistics.sha256
+    with pytest.raises(ValueError, match="differ"):
+        programs.mapped_validation_score_from_statistics(
+            candidate, replace(statistics, mapping_sha256="e" * 64),
+        )
+
+
+def test_preflight_gauge_bank_is_exact_reproducible_and_orthogonal() -> None:
+    first = programs.orthogonal_gauge_bank()
+    second = programs.orthogonal_gauge_bank()
+    assert tuple(first) == (
+        "signed_permutation_0", "signed_permutation_1",
+        "signed_permutation_2", "signed_permutation_3",
+        "haar_0", "haar_1", "haar_2", "haar_3",
+    )
+    for name, gauge in first.items():
+        assert gauge.dtype == torch.float64 and tuple(gauge.shape) == (64, 64)
+        assert torch.equal(gauge, second[name])
+        contract.validate_orthogonal_gauge(name, gauge)
+        if name.startswith("signed"):
+            assert torch.equal(
+                torch.count_nonzero(gauge, dim=0), torch.ones(64, dtype=torch.long),
+            )
+            assert torch.equal(
+                torch.count_nonzero(gauge, dim=1), torch.ones(64, dtype=torch.long),
+            )
+
+
+def test_intervention_assignments_are_role_specific_reproducible_and_balanced() -> None:
+    validation = programs.intervention_assignments("validation")
+    replay = programs.intervention_assignments("validation")
+    final = programs.intervention_assignments("final")
+    assert all(torch.equal(value, replay[name]) for name, value in validation.items())
+    assert not torch.equal(validation["positions"], final["positions"])
+    assert not torch.equal(validation["row_permutation"], final["row_permutation"])
+    for assignment in (validation, final):
+        assert bool(((assignment["positions"] >= 64) & (
+            assignment["positions"] <= 255
+        )).all())
+        assert torch.equal(
+            torch.bincount(assignment["direction_indices"], minlength=32),
+            torch.full((32,), 6, dtype=torch.long),
+        )
+    with pytest.raises(ValueError, match="validation or final"):
+        programs.intervention_assignments("fit")
+
+
+def test_teacher_only_calibration_selects_in_band_or_fails_closed() -> None:
+    values = {0.01: 0.005, 0.03: 0.02, 0.1: 0.05, 0.3: 0.19, 1.0: 0.4}
+    selected = programs.select_teacher_calibration(values)
+    assert selected["calibration_passed"] is True
+    assert selected["selected_amplitude_multiplier"] == 0.1
+    assert selected["selected_teacher_median_kl"] == 0.05
+
+    outside = {0.01: 0.001, 0.03: 0.002, 0.1: 0.003, 0.3: 0.4, 1.0: 0.8}
+    failed = programs.select_teacher_calibration(outside)
+    assert failed["calibration_passed"] is False
+    assert failed["selected_amplitude_multiplier"] == 0.1
+    with pytest.raises(ValueError, match="five"):
+        programs.select_teacher_calibration({0.01: 0.1})
 
 
 def test_validation_score_is_recomputed_from_raw_row_statistics(monkeypatch) -> None:

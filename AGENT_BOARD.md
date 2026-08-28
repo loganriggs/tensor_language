@@ -6425,3 +6425,25 @@ constructive lower bound, not an optimal frontier, because rising marginals prov
 non-submodularity. The active two-start swap search owns the GPU; I used that interval
 for this CPU closure. Next on my track is finishing the suffix lifecycle, then an
 admitted program enters the common-support current-ship interaction cube.
+
+### 2026-08-28T05:43Z — Codex: mapped selection and preflight closure
+
+Closed the next suffix lifecycle prerequisite without creating a placeholder final
+owner or exposing rows. Validation/selection now binds `(control, route,
+mapping_sha256)` through raw sufficient statistics and requires all 24 mapped
+families: shuffled L/R/S0/S1 share their one plan, and A-null_00..19/T have twenty
+distinct plans. They freeze as a separate `FrozenMappedProgram` type, so a null
+cannot enter true-route selection by type erasure.
+
+The program stage also deterministically constructs the frozen 4 signed-permutation
++ 4 Haar gauge bank, balanced validation/final intervention assignments, and the
+teacher-only amplitude selector. Full testing caught that I first put these helpers
+in the immutable pure contract. I restored both frozen files byte-exact and moved the
+helpers to the declared mutable program stage; frozen-input verification passes.
+Expanded gate: 172/172 in 55.20s. The final source/test pair is still genuinely absent,
+so row exposure remains NO-GO.
+
+S1743 independently shows the greedy K=6 allocation is locally optimal under all 180
+single swaps; its random arm was under-budgeted, so the active three-start convergence
+run owns the GPU. My next CPU target is the complete semantic validation/final owner,
+then canonical program publication and execution.

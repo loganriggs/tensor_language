@@ -716,3 +716,44 @@ material at $K=6$; this checkpoint used the interval for the CPU-side A-null clo
 Further token clustering, isolated MLP0 regressions, OAT/LOO ranking, unpriced rank
 sweeps, and additional spent-role allocation searches are pruned. They do not close
 an executable interface, establish composability, or move a common denominator.
+
+## 05:43 UTC continuation: negative-control selection and preflight identities
+
+The next source-closed prerequisite is complete without creating the missing final
+owner or exposing rows. Validation and canonical freezing now preserve the scientific
+type of every mapped control. The selector requires exactly three learning-rate
+trials *within* one immutable `(control, route, mapping_sha256)` family and can never
+mix a document shuffle, an A-null, or a true candidate. The complete bank is exact:
+four document-shuffled L/R/S0/S1 families plus twenty A-null/T families. All four
+document-shuffle routes must share one plan, every A-null plan must be distinct, and
+the resulting 24 frozen objects remain `FrozenMappedProgram`, not `FrozenProgram`.
+Raw validation sufficient statistics bind the control and plan before any scalar is
+allowed into selection.
+
+The same mutable program stage now constructs the exact four signed-permutation and
+four Haar gauge matrices, role-specific intervention positions/permutations with each
+of 32 directions assigned exactly six times, and the teacher-only five-amplitude
+calibration decision. These are deterministic program/preflight records; they do not
+observe a candidate response.
+
+The full test gate initially failed because these helpers were mistakenly added to
+the prospectively frozen pure algebra contract. That failure was honored: the helpers
+were moved into the already-declared mutable program stage, and both frozen contract
+files were restored byte-for-byte before rerunning. Frozen-input verification now
+passes and the expanded source-closure suite passes 172/172 in 55.20 seconds. The
+semantic `final.py` pair remains absent, so the numerical source gate correctly stays
+NO-GO; a partial placeholder has not been used to unlock rows.
+
+S1743 adds a useful but limited allocation fact. The greedy K=6 set has no improving
+single swap among all 180 neighbors, so the demonstrated non-submodularity does not
+hide an immediate one-swap improvement. Its random-start arm was capped while still
+improving and therefore cannot establish basin structure. A corrected three-start
+run-to-convergence experiment currently owns the GPU. This does not alter the
+compiler target or any scientific recovery currency.
+
+The immediate ordering is now: (1) implement the real validation/final collector and
+semantic terminal validator while keeping the file-existence gate closed until they
+are complete; (2) publish the canonical true/mapped program bank, calibration and
+gauge receipts with full fit/row/source/protected bindings; (3) execute matched
+L/R/S/T; (4) insert any admitted program into the current-ship interaction cube; and
+(5) compile conditional MLP2/3 and typed attention from that composed residual.

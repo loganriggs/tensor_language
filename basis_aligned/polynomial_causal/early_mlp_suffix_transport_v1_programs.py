@@ -18,6 +18,7 @@ from typing import Any, Mapping, Sequence
 import torch
 import torch.nn.functional as F
 
+import early_mlp_suffix_transport_v1 as contract
 import early_mlp_suffix_transport_v1_fit as fit
 import early_mlp_suffix_transport_v1_runtime as runtime
 
@@ -37,6 +38,10 @@ METRIC_BY_ROUTE = {
     "S1": "oon_teacher_kl",
     "T": "oon_teacher_kl",
 }
+GAUGE_SIGNED_SEEDS = tuple(2026082801 + index for index in range(4))
+GAUGE_HAAR_SEEDS = tuple(2026082810 + index for index in range(4))
+INTERVENTION_AMPLITUDES = (0.01, 0.03, 0.1, 0.3, 1.0)
+CALIBRATION_BAND = (0.01, 0.20)
 
 
 def _sha256(value: str) -> bool:
@@ -93,6 +98,163 @@ def restore_fit_candidate(candidate: fit.FitCandidate) -> runtime.JointAffinePro
     if runtime.program_snapshot_sha256(program) != candidate.final_program_sha256:
         raise RuntimeError("fit candidate state differs from its terminal snapshot")
     return program
+
+
+def restore_mapped_fit_candidate(
+    candidate: fit.MappedFitCandidate,
+) -> runtime.JointAffineProgram:
+    """Rebuild a negative-control fit without erasing its separate scientific type."""
+
+    if not isinstance(candidate, fit.MappedFitCandidate) or not valid_mapped_control(
+        candidate.control, candidate.route
+    ):
+        raise TypeError("mapped selection requires a registered negative-control candidate")
+    proxy = fit.FitCandidate(
+        route=candidate.route, trial=candidate.trial,
+        learning_rate=candidate.learning_rate,
+        completed_steps=candidate.completed_steps, loss_sum=candidate.loss_sum,
+        loss_min=candidate.loss_min, loss_max=candidate.loss_max,
+        final_program_sha256=candidate.final_program_sha256,
+        transaction_history_sha256=candidate.transaction_history_sha256,
+        state_dict=candidate.state_dict,
+    )
+    return restore_fit_candidate(proxy)
+
+
+def valid_mapped_control(control: str, route: str) -> bool:
+    """Recognize only the prospectively registered mapped control/route pairs."""
+
+    if control == "document_shuffle":
+        return route in fit.DOCUMENT_SHUFFLE_ROUTES
+    if not isinstance(control, str) or not control.startswith("A_null_") or route != "T":
+        return False
+    suffix = control.removeprefix("A_null_")
+    return len(suffix) == 2 and suffix.isdigit() and 0 <= int(suffix) < 20 and (
+        control == f"A_null_{int(suffix):02d}"
+    )
+
+
+def mapped_control_key(control: str, route: str) -> str:
+    if not valid_mapped_control(control, route):
+        raise ValueError("mapped control/route pair is not registered")
+    return f"{control}/{route}"
+
+
+def required_mapped_control_keys() -> tuple[str, ...]:
+    return tuple(
+        mapped_control_key("document_shuffle", route)
+        for route in fit.DOCUMENT_SHUFFLE_ROUTES
+    ) + tuple(mapped_control_key(f"A_null_{index:02d}", "T") for index in range(20))
+
+
+def orthogonal_gauge_bank() -> Mapping[str, torch.Tensor]:
+    """Construct the four signed-permutation and four Haar replay gauges."""
+
+    gauges: dict[str, torch.Tensor] = {}
+    identity = torch.eye(runtime.CODE_DIM, dtype=torch.float64)
+    for index, seed in enumerate(GAUGE_SIGNED_SEEDS):
+        generator = torch.Generator(device="cpu").manual_seed(seed)
+        permutation = torch.randperm(runtime.CODE_DIM, generator=generator)
+        signs = 2 * torch.randint(
+            0, 2, (runtime.CODE_DIM,), generator=generator, dtype=torch.long,
+        ) - 1
+        gauge = identity[:, permutation] * signs.double().unsqueeze(0)
+        contract.validate_orthogonal_gauge(f"signed_permutation_{index}", gauge)
+        gauges[f"signed_permutation_{index}"] = gauge.contiguous()
+    for index, seed in enumerate(GAUGE_HAAR_SEEDS):
+        generator = torch.Generator(device="cpu").manual_seed(seed)
+        normal = torch.randn(
+            runtime.CODE_DIM, runtime.CODE_DIM, generator=generator,
+            dtype=torch.float64,
+        )
+        gauge, upper = torch.linalg.qr(normal, mode="reduced")
+        signs = torch.where(
+            torch.diagonal(upper) < 0,
+            torch.tensor(-1.0, dtype=torch.float64),
+            torch.tensor(1.0, dtype=torch.float64),
+        )
+        gauge = (gauge * signs.unsqueeze(0)).contiguous()
+        if bool((torch.diagonal(upper) * signs < 0).any()):
+            raise RuntimeError("Haar gauge R-diagonal convention failed")
+        contract.validate_orthogonal_gauge(f"haar_{index}", gauge)
+        gauges[f"haar_{index}"] = gauge
+    expected = tuple(
+        [f"signed_permutation_{index}" for index in range(4)]
+        + [f"haar_{index}" for index in range(4)]
+    )
+    if tuple(gauges) != expected:
+        raise RuntimeError("orthogonal gauge bank order changed")
+    return MappingProxyType(gauges)
+
+
+def intervention_assignments(role: str) -> Mapping[str, torch.Tensor]:
+    """Freeze one position and balanced base-direction assignment for a fresh role."""
+
+    seeds = {
+        "validation": (2026083240, 2026083241),
+        "final": (2026083250, 2026083251),
+    }
+    if role not in seeds:
+        raise ValueError("intervention role must be validation or final")
+    position_seed, permutation_seed = seeds[role]
+    positions = torch.randint(
+        runtime.SCORE_START, runtime.SCORE_STOP, (VALIDATION_ROWS,),
+        generator=torch.Generator(device="cpu").manual_seed(position_seed),
+        dtype=torch.long,
+    )
+    permutation = torch.randperm(
+        VALIDATION_ROWS,
+        generator=torch.Generator(device="cpu").manual_seed(permutation_seed),
+    )
+    direction_indices = torch.empty(VALIDATION_ROWS, dtype=torch.long)
+    direction_indices[permutation] = torch.arange(VALIDATION_ROWS) % 32
+    if not torch.equal(
+        torch.bincount(direction_indices, minlength=32),
+        torch.full((32,), VALIDATION_ROWS // 32, dtype=torch.long),
+    ) or VALIDATION_ROWS != 192:
+        raise RuntimeError("intervention directions are not exactly balanced")
+    return MappingProxyType({
+        "positions": positions.contiguous(),
+        "row_permutation": permutation.contiguous(),
+        "direction_indices": direction_indices.contiguous(),
+    })
+
+
+def select_teacher_calibration(
+    teacher_median_kls: Mapping[float, float],
+) -> Mapping[str, Any]:
+    """Choose amplitude from teacher-only validation KL under the frozen rule."""
+
+    if set(teacher_median_kls) != set(INTERVENTION_AMPLITUDES) or any(
+        not isinstance(value, (int, float)) or not math.isfinite(float(value))
+        or float(value) < 0
+        for value in teacher_median_kls.values()
+    ):
+        raise ValueError("teacher calibration must contain five finite nonnegative KLs")
+    center = math.sqrt(CALIBRATION_BAND[0] * CALIBRATION_BAND[1])
+    eligible = [
+        amplitude for amplitude in INTERVENTION_AMPLITUDES
+        if CALIBRATION_BAND[0] <= float(teacher_median_kls[amplitude]) <= (
+            CALIBRATION_BAND[1]
+        )
+    ]
+    pool = eligible if eligible else list(INTERVENTION_AMPLITUDES)
+    selected = min(
+        pool,
+        key=lambda amplitude: (
+            abs(float(teacher_median_kls[amplitude]) - center), amplitude,
+        ),
+    )
+    return MappingProxyType({
+        "selected_amplitude_multiplier": selected,
+        "selected_teacher_median_kl": float(teacher_median_kls[selected]),
+        "geometric_center": center,
+        "calibration_passed": bool(eligible),
+        "teacher_median_kls": MappingProxyType({
+            amplitude: float(teacher_median_kls[amplitude])
+            for amplitude in INTERVENTION_AMPLITUDES
+        }),
+    })
 
 
 @dataclass(frozen=True)
@@ -226,6 +388,29 @@ class ValidationSufficientStatistics:
         })
 
 
+@dataclass(frozen=True)
+class MappedValidationSufficientStatistics:
+    """Raw validation statistics additionally bound to one immutable row map."""
+
+    control: str
+    mapping_sha256: str
+    base: ValidationSufficientStatistics
+
+    def __post_init__(self) -> None:
+        if not isinstance(self.base, ValidationSufficientStatistics) or not (
+            valid_mapped_control(self.control, self.base.route)
+        ) or not _sha256(self.mapping_sha256):
+            raise ValueError("mapped validation sufficient-statistic identity changed")
+
+    @property
+    def sha256(self) -> str:
+        return runtime.logical_identity_sha256({
+            "control": self.control,
+            "mapping_sha256": self.mapping_sha256,
+            "base_sha256": self.base.sha256,
+        })
+
+
 def validation_score_from_statistics(
     candidate: fit.FitCandidate, statistics: ValidationSufficientStatistics,
 ) -> ValidationScore:
@@ -255,6 +440,88 @@ def validation_score_from_statistics(
         sufficient_statistics_sha256=statistics.sha256,
         student_original_calls=statistics.student_original_calls,
         hook_restored=statistics.hook_restored, hook_inert=statistics.hook_inert,
+    )
+
+
+@dataclass(frozen=True)
+class MappedValidationScore:
+    """Selector receipt whose map identity cannot be dropped or exchanged."""
+
+    control: str
+    mapping_sha256: str
+    base: ValidationScore
+    mapped_sufficient_statistics_sha256: str
+
+    def __post_init__(self) -> None:
+        if not isinstance(self.base, ValidationScore) or not valid_mapped_control(
+            self.control, self.base.route
+        ) or not _sha256(self.mapping_sha256) or not _sha256(
+            self.mapped_sufficient_statistics_sha256
+        ):
+            raise ValueError("mapped validation score identity changed")
+
+    @property
+    def route(self) -> str:
+        return self.base.route
+
+    @property
+    def trial(self) -> int:
+        return self.base.trial
+
+    @property
+    def primary_metric(self) -> float:
+        return self.base.primary_metric
+
+    @property
+    def learning_rate(self) -> float:
+        return self.base.learning_rate
+
+    @property
+    def program_sha256(self) -> str:
+        return self.base.program_sha256
+
+    @property
+    def admissible(self) -> bool:
+        return self.base.admissible
+
+
+def mapped_validation_score_from_statistics(
+    candidate: fit.MappedFitCandidate,
+    statistics: MappedValidationSufficientStatistics,
+) -> MappedValidationScore:
+    """Recompute a mapped selector score while retaining control provenance."""
+
+    if not isinstance(candidate, fit.MappedFitCandidate) or not isinstance(
+        statistics, MappedValidationSufficientStatistics
+    ) or candidate.control != statistics.control or candidate.mapping_sha256 != (
+        statistics.mapping_sha256
+    ) or candidate.route != statistics.base.route or candidate.final_program_sha256 != (
+        statistics.base.program_sha256
+    ):
+        raise ValueError("mapped validation statistics differ from their fit candidate")
+    # Prove the candidate state before allowing any scalar to enter selection.
+    restore_mapped_fit_candidate(candidate)
+    base = statistics.base
+    primary = float(base.row_primary_sum.sum() / base.row_primary_count.sum())
+    candidate_copy = base.row_copy_ce_sum.sum() / base.row_copy_count.sum()
+    baseline_copy = base.baseline_row_copy_ce_sum.sum() / (
+        base.baseline_row_copy_count.sum()
+    )
+    score = ValidationScore(
+        route=candidate.route, trial=candidate.trial,
+        learning_rate=candidate.learning_rate,
+        program_sha256=candidate.final_program_sha256,
+        metric_name=METRIC_BY_ROUTE[candidate.route], primary_metric=primary,
+        copy_worsening=float(candidate_copy - baseline_copy),
+        scored_token_count=int(base.row_primary_count.sum()),
+        common_support_sha256=base.common_support_sha256,
+        sufficient_statistics_sha256=base.sha256,
+        student_original_calls=base.student_original_calls,
+        hook_restored=base.hook_restored, hook_inert=base.hook_inert,
+    )
+    return MappedValidationScore(
+        control=candidate.control, mapping_sha256=candidate.mapping_sha256,
+        base=score, mapped_sufficient_statistics_sha256=statistics.sha256,
     )
 
 
@@ -388,6 +655,30 @@ class ScoredCandidate:
         return tensor_tree_sha256(self.fit_candidate.state_dict)
 
 
+@dataclass(frozen=True)
+class MappedScoredCandidate:
+    """A negative-control candidate kept ineligible for true-route selection."""
+
+    fit_candidate: fit.MappedFitCandidate
+    validation: MappedValidationScore
+
+    def __post_init__(self) -> None:
+        candidate, score = self.fit_candidate, self.validation
+        if not isinstance(candidate, fit.MappedFitCandidate) or not isinstance(
+            score, MappedValidationScore
+        ) or candidate.control != score.control or candidate.mapping_sha256 != (
+            score.mapping_sha256
+        ) or candidate.route != score.route or candidate.trial != score.trial or (
+            candidate.learning_rate != score.learning_rate
+        ) or candidate.final_program_sha256 != score.program_sha256:
+            raise ValueError("mapped validation receipt differs from its fit candidate")
+        restore_mapped_fit_candidate(candidate)
+
+    @property
+    def tensor_sha256(self) -> str:
+        return tensor_tree_sha256(self.fit_candidate.state_dict)
+
+
 def select_candidate(
     candidates: Sequence[ScoredCandidate], *, route: str,
 ) -> ScoredCandidate:
@@ -403,6 +694,33 @@ def select_candidate(
     eligible = [candidate for candidate in candidates if candidate.validation.admissible]
     if not eligible:
         raise RuntimeError("no validation candidate satisfies the copy bound")
+    return min(eligible, key=lambda candidate: (
+        candidate.validation.primary_metric,
+        candidate.validation.learning_rate,
+        candidate.tensor_sha256,
+    ))
+
+
+def select_mapped_candidate(
+    candidates: Sequence[MappedScoredCandidate], *, control: str, route: str,
+) -> MappedScoredCandidate:
+    """Apply the registered selector within, never across, one negative-control map."""
+
+    if not valid_mapped_control(control, route) or not candidates or any(
+        candidate.validation.control != control
+        or candidate.validation.route != route
+        for candidate in candidates
+    ):
+        raise ValueError("mapped selection bank mixes controls, mappings, or routes")
+    mappings = {candidate.validation.mapping_sha256 for candidate in candidates}
+    if len(mappings) != 1:
+        raise ValueError("mapped selection bank mixes controls, mappings, or routes")
+    trials = [candidate.validation.trial for candidate in candidates]
+    if sorted(trials) != list(range(len(runtime.LEARNING_RATES))):
+        raise ValueError("mapped selection bank must contain each trial exactly once")
+    eligible = [candidate for candidate in candidates if candidate.validation.admissible]
+    if not eligible:
+        raise RuntimeError("no mapped validation candidate satisfies the copy bound")
     return min(eligible, key=lambda candidate: (
         candidate.validation.primary_metric,
         candidate.validation.learning_rate,
@@ -486,6 +804,31 @@ class FrozenProgram:
         return program
 
 
+@dataclass(frozen=True)
+class FrozenMappedProgram:
+    """Canonical deployable negative control with its row-map identity intact."""
+
+    control: str
+    mapping_sha256: str
+    mapped_sufficient_statistics_sha256: str
+    program: FrozenProgram
+
+    def __post_init__(self) -> None:
+        if not isinstance(self.program, FrozenProgram) or not valid_mapped_control(
+            self.control, self.program.route
+        ) or not _sha256(self.mapping_sha256) or not _sha256(
+            self.mapped_sufficient_statistics_sha256
+        ):
+            raise ValueError("frozen mapped program identity changed")
+
+    @property
+    def key(self) -> str:
+        return mapped_control_key(self.control, self.program.route)
+
+    def make_program(self) -> runtime.JointAffineProgram:
+        return self.program.make_program()
+
+
 def freeze_selected(candidate: ScoredCandidate) -> FrozenProgram:
     if not candidate.validation.admissible:
         raise RuntimeError("copy-inadmissible candidate cannot be frozen")
@@ -523,6 +866,34 @@ def freeze_selected(candidate: ScoredCandidate) -> FrozenProgram:
     )
 
 
+def freeze_mapped_selected(candidate: MappedScoredCandidate) -> FrozenMappedProgram:
+    """Canonicalize a selected mapped control without converting it to a true arm."""
+
+    if not isinstance(candidate, MappedScoredCandidate) or not candidate.validation.admissible:
+        raise RuntimeError("mapped copy-inadmissible candidate cannot be frozen")
+    mapped_candidate = candidate.fit_candidate
+    proxy = fit.FitCandidate(
+        route=mapped_candidate.route, trial=mapped_candidate.trial,
+        learning_rate=mapped_candidate.learning_rate,
+        completed_steps=mapped_candidate.completed_steps,
+        loss_sum=mapped_candidate.loss_sum, loss_min=mapped_candidate.loss_min,
+        loss_max=mapped_candidate.loss_max,
+        final_program_sha256=mapped_candidate.final_program_sha256,
+        transaction_history_sha256=mapped_candidate.transaction_history_sha256,
+        state_dict=mapped_candidate.state_dict,
+    )
+    true_score = candidate.validation.base
+    frozen = freeze_selected(ScoredCandidate(proxy, true_score))
+    return FrozenMappedProgram(
+        control=mapped_candidate.control,
+        mapping_sha256=mapped_candidate.mapping_sha256,
+        mapped_sufficient_statistics_sha256=(
+            candidate.validation.mapped_sufficient_statistics_sha256
+        ),
+        program=frozen,
+    )
+
+
 def select_and_freeze_routes(
     candidates: Mapping[str, Sequence[ScoredCandidate]],
 ) -> Mapping[str, FrozenProgram]:
@@ -535,6 +906,34 @@ def select_and_freeze_routes(
         route: freeze_selected(select_candidate(candidates[route], route=route))
         for route in fit.TRUE_FIT_ROUTES
     })
+
+
+def select_and_freeze_mapped_controls(
+    candidates: Mapping[str, Sequence[MappedScoredCandidate]],
+) -> Mapping[str, FrozenMappedProgram]:
+    """Require and freeze all four shuffled routes and all twenty A-null/T maps."""
+
+    required = required_mapped_control_keys()
+    if set(candidates) != set(required):
+        raise ValueError("mapped control bank must contain exactly 24 registered families")
+    frozen = {}
+    document_mappings = set()
+    all_mappings = set()
+    for key in required:
+        control, route = key.split("/", 1)
+        selected = select_mapped_candidate(
+            candidates[key], control=control, route=route,
+        )
+        value = freeze_mapped_selected(selected)
+        if value.key != key:
+            raise RuntimeError("frozen mapped control key changed")
+        frozen[key] = value
+        all_mappings.add(value.mapping_sha256)
+        if control == "document_shuffle":
+            document_mappings.add(value.mapping_sha256)
+    if len(document_mappings) != 1 or len(all_mappings) != 21:
+        raise RuntimeError("mapped control plans are duplicated or inconsistent")
+    return MappingProxyType(frozen)
 
 
 def make_transport_initialization(selected_l: FrozenProgram) -> runtime.JointAffineProgram:
