@@ -12,6 +12,12 @@ from typing import Any, Sequence
 import torch
 
 
+SVD_RELATIVE_CUTOFF = 1e-10
+TIKHONOV_RELATIVE_RIDGE = 1e-6
+MAXIMUM_RETAINED_CONDITION = 1e6
+MAXIMUM_NORMALIZED_COEFFICIENT_NORM = 10.0
+
+
 def trajectory_complete_response(
     products: torch.Tensor, write_gradients: torch.Tensor, down: torch.Tensor,
 ) -> torch.Tensor:
@@ -46,6 +52,74 @@ def context_balance(response: torch.Tensor) -> torch.Tensor:
     if bool((norms <= 0).any()):
         raise ValueError("every context must have positive response energy")
     return (response.double() / norms).contiguous()
+
+
+def canonicalize_factor_product_gates(
+    products: torch.Tensor, down: torch.Tensor,
+) -> tuple[torch.Tensor, torch.Tensor, dict[str, Any]]:
+    """Fix the scalar/sign gauge of native product and Down factors.
+
+    For each gate, its product trace is normalized to unit RMS on the fit rows and the
+    inverse scale is absorbed into its Down column.  The joint sign is oriented so the
+    first maximum-magnitude Down entry is positive.  Consequently the returned pair is
+    unchanged under ``h_n -> a_n h_n, d_n -> d_n/a_n`` for every nonzero ``a_n``.
+    """
+    if (
+        not torch.is_tensor(products) or not torch.is_tensor(down)
+        or products.ndim != 3 or down.ndim != 2
+        or products.shape[2] != down.shape[1] or min(products.shape) <= 0
+        or min(down.shape) <= 0 or not products.is_floating_point()
+        or not down.is_floating_point() or not bool(torch.isfinite(products).all())
+        or not bool(torch.isfinite(down).all())
+    ):
+        raise ValueError("factor-product canonicalization inputs are malformed")
+    product64, down64 = products.double(), down.double()
+    rms = product64.square().mean(dim=(0, 1)).sqrt()
+    if bool((rms <= 0).any()):
+        raise ValueError("every factor-product gate must have positive fit-row RMS")
+    scaled_down = down64 * rms[None, :]
+    pivots = scaled_down.abs().argmax(dim=0)
+    pivot_values = scaled_down.gather(0, pivots[None, :]).squeeze(0)
+    if bool((pivot_values == 0).any()):
+        raise ValueError("every factor-product Down column must be nonzero")
+    orientation = torch.where(
+        pivot_values < 0, -torch.ones_like(pivot_values), torch.ones_like(pivot_values),
+    )
+    canonical_products = product64 / rms[None, None, :] * orientation[None, None, :]
+    canonical_down = scaled_down * orientation[None, :]
+    return canonical_products.contiguous(), canonical_down.contiguous(), {
+        "scale_rule": "fit-row product RMS absorbed into Down",
+        "sign_rule": "first maximum-absolute Down coordinate is positive",
+        "pivot_indices": pivots.detach().cpu().tolist(),
+    }
+
+
+def canonical_factor_product_derangement(
+    products: torch.Tensor, down: torch.Tensor, seed: int,
+) -> tuple[int, ...]:
+    """Return the frozen +1 content-order derangement of canonical physical gates."""
+    if type(seed) is not int or seed < 0:
+        raise ValueError("factor-product derangement seed is malformed")
+    canonical_h, canonical_d, _ = canonicalize_factor_product_gates(products, down)
+    gates = canonical_h.shape[2]
+    if gates <= 1:
+        raise ValueError("factor-product derangement requires at least two gates")
+    records: list[tuple[bytes, bytes, bytes, int]] = []
+    prefix = f"{seed}:".encode()
+    for index in range(gates):
+        h_bytes = canonical_h[:, :, index].contiguous().numpy().tobytes(order="C")
+        d_bytes = canonical_d[:, index].contiguous().numpy().tobytes(order="C")
+        digest = hashlib.sha256(prefix + h_bytes + d_bytes).digest()
+        records.append((digest, h_bytes, d_bytes, index))
+    order = tuple(record[3] for record in sorted(records))
+    permutation = [-1] * gates
+    for location, source in enumerate(order):
+        permutation[source] = order[(location + 1) % gates]
+    if sorted(permutation) != list(range(gates)) or any(
+        source == target for source, target in enumerate(permutation)
+    ):
+        raise RuntimeError("canonical factor-product pairing is not a derangement")
+    return tuple(permutation)
 
 
 def _validate_response(response: torch.Tensor) -> None:
@@ -143,9 +217,52 @@ def cross_fit_css_relative_error(
     denominator = torch.linalg.matrix_norm(evaluate)
     if float(denominator) <= 0:
         raise ValueError("evaluation response must have positive energy")
-    interpolant = torch.linalg.lstsq(fit[:, list(indices)], fit).solution
+    interpolant, _ = regularized_svd_solution(fit[:, list(indices)], fit)
+    normalized = torch.linalg.matrix_norm(interpolant) / fit.shape[1] ** 0.5
+    if float(normalized) > MAXIMUM_NORMALIZED_COEFFICIENT_NORM:
+        raise ValueError("CSS interpolant coefficient norm exceeds the frozen gate")
     residual = evaluate[:, list(indices)] @ interpolant - evaluate
     return float(torch.linalg.matrix_norm(residual) / denominator)
+
+
+def regularized_svd_solution(
+    design: torch.Tensor, target: torch.Tensor,
+) -> tuple[torch.Tensor, dict[str, float | int]]:
+    """Frozen float64 Tikhonov/SVD solver used by every candidate and control."""
+    if (
+        not torch.is_tensor(design) or not torch.is_tensor(target)
+        or design.ndim != 2 or target.ndim not in (1, 2)
+        or design.shape[0] != target.shape[0] or min(design.shape) <= 0
+        or not design.is_floating_point() or not target.is_floating_point()
+        or not bool(torch.isfinite(design).all()) or not bool(torch.isfinite(target).all())
+    ):
+        raise ValueError("regularized solver inputs are malformed")
+    matrix, outcome = design.double(), target.double()
+    u, singular, vh = torch.linalg.svd(matrix, full_matrices=False)
+    if singular.numel() == 0 or float(singular[0]) <= 0:
+        raise ValueError("regularized solver design has zero support")
+    cutoff = SVD_RELATIVE_CUTOFF * singular[0]
+    retained = singular > cutoff
+    support = int(retained.sum())
+    if support == 0:
+        raise ValueError("regularized solver retained no singular directions")
+    condition = float(singular[0] / singular[retained][-1])
+    if condition > MAXIMUM_RETAINED_CONDITION:
+        raise ValueError("regularized solver condition number exceeds the frozen gate")
+    ridge = TIKHONOV_RELATIVE_RIDGE * singular[0].square()
+    weights = torch.where(
+        retained, singular / (singular.square() + ridge), torch.zeros_like(singular),
+    )
+    solution = (vh.T * weights) @ (u.T @ outcome)
+    if not bool(torch.isfinite(solution).all()):
+        raise ValueError("regularized solver produced nonfinite coefficients")
+    return solution.contiguous(), {
+        "numerical_rank": support,
+        "retained_condition_number": condition,
+        "largest_singular_value": float(singular[0]),
+        "relative_singular_cutoff": SVD_RELATIVE_CUTOFF,
+        "relative_tikhonov_ridge": TIKHONOV_RELATIVE_RIDGE,
+    }
 
 
 def fit_all_on_coefficients(
@@ -159,9 +276,13 @@ def fit_all_on_coefficients(
         or any(type(index) is not int or not 0 <= index < matrix.shape[1] for index in indices)
     ):
         raise ValueError("selected gate indices are malformed")
-    return torch.linalg.lstsq(
+    solution, _ = regularized_svd_solution(
         matrix[:, list(indices)], matrix.sum(dim=1),
-    ).solution.contiguous()
+    )
+    normalized = torch.linalg.vector_norm(solution) / len(indices) ** 0.5
+    if float(normalized) > MAXIMUM_NORMALIZED_COEFFICIENT_NORM:
+        raise ValueError("all-on coefficient norm exceeds the frozen gate")
+    return solution.contiguous()
 
 
 def candidate_path_scale(

@@ -1,0 +1,30 @@
+{
+  "authority_fingerprint": "2248f1daafe506ee131661ccf2c9b63aee38302d96bd0abc8892e81e0ff4c778",
+  "bundle_computed": false,
+  "finite_gate_scaling_forbidden": true,
+  "interpretation": "support selection and regularized linear analysis-coefficient fitting are registered scored-analysis operations, not optimization of model weights",
+  "model_training_forbidden": true,
+  "parent_rows_receipt_sha256": "63d35040a22c5da69a889cd94ece37cf7c6d353c41ebda3fdbaa12114303b3cd",
+  "parent_scored_experiments_authorized": true,
+  "parent_training_authorized": false,
+  "probe_half_first_fit_only": true,
+  "probe_half_second_replication_only": true,
+  "result_computed": false,
+  "status": "mlp1_global_gate_row_use_frozen_no_model_outcomes",
+  "wave_A_fit_authorized": {
+    "choose_unregistered_hyperparameters": false,
+    "compute_model_responses": true,
+    "fit_regularized_all_on_coefficients": true,
+    "fit_regularized_css_interpolant": true,
+    "optimize_any_model_parameter_or_buffer": false,
+    "select_physical_gate_support": true
+  },
+  "wave_B_evaluation_only": {
+    "choose_or_modify_thresholds": false,
+    "compute_model_responses": true,
+    "evaluate_frozen_support_and_coefficients": true,
+    "fit_or_modify_coefficients": false,
+    "optimize_any_model_parameter_or_buffer": false,
+    "select_or_modify_support": false
+  }
+}

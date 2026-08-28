@@ -113,3 +113,31 @@ Any candidate surviving the response pilot must subsequently pass, on untouched 
 
 No response result alone licenses an arithmetic-rank, semantic, finite-removal,
 bisimulation, or complete-program compression claim.
+
+## Prospective launch closure (13:31 UTC)
+
+Before any global-gate model response was computed, the previously open numerical
+choices were frozen in `mlp1_global_gate_plan.json` (file SHA-256
+`4eefcc28ec3ed9fda09b047bb122aa47bc314e29f6a3857bc1da541bf7f5f8b1`). The plan
+binds 32 registry-fresh one-row documents, split 16/16 by source document, and two new
+32-probe halves in a $2\times2$ fit/validation design. Only fit-wave/first-half data
+may choose support or coefficients. Every other cell is evaluation-only.
+
+The promotive metrics are fit-frozen CSS and fit-frozen all-on approximation at
+$K\in\{32,128,512\}$. Every candidate and control uses the same CPU float64
+SVD/Tikhonov solver, cutoff, ridge, condition gate, and coefficient-norm gate. A
+candidate must beat each of four controls separately on both fresh validation probe
+halves and on both metrics, with a 20,000-draw shared-document max-error bootstrap
+lower band over the frozen 48-comparison family, no excessive per-document harm, and
+support Jaccard at least $0.5$. The factor-product control is a true fixed-point-free
+permutation of gauge-canonicalized product/Down pairs, measured through an auxiliary
+zero leaf at the unchanged native baseline, not a relabeling of already computed
+scores. Its $+1$ cyclic pairing order and scale/sign replay check are frozen.
+
+The parent row receipt's training prohibition remains in force. The separate
+`mlp1_global_gate_row_use_authority.json` permits support selection and regularized
+linear analysis-coefficient fitting on wave A as scored analysis, while forbidding
+optimization of model parameters or buffers and forbidding all wave-B adaptation.
+Neither artifact grants GPU execution or finite gate scaling; a committed,
+source-closed, create-only collector and no-outcome execution authority are still
+required.

@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import torch
+import pytest
 
 import mlp_global_gate_response as gate
 
@@ -147,3 +148,58 @@ def test_categorical_fisher_quadratic_predicts_small_kl() -> None:
     kl = torch.dot(probability, torch.log(probability / changed))
     predicted = 0.5 * epsilon**2 * fisher
     assert abs(float(kl - predicted)) / float(predicted) < 2e-4
+
+
+def test_regularized_solver_is_fixed_float64_and_rejects_ill_conditioning() -> None:
+    design = torch.tensor([[1.0, 0.0], [0.0, 2.0], [1.0, 1.0]])
+    target = torch.tensor([1.0, -1.0, 0.5])
+    solution, receipt = gate.regularized_svd_solution(design, target)
+    assert solution.dtype == torch.float64
+    assert receipt["relative_singular_cutoff"] == gate.SVD_RELATIVE_CUTOFF
+    assert receipt["relative_tikhonov_ridge"] == gate.TIKHONOV_RELATIVE_RIDGE
+    with pytest.raises(ValueError, match="condition number"):
+        gate.regularized_svd_solution(
+            torch.tensor([[1.0, 1.0], [0.0, 1e-8]], dtype=torch.float64),
+            torch.ones(2, dtype=torch.float64),
+        )
+
+
+def test_factor_product_canonicalization_is_scale_sign_gauge_invariant() -> None:
+    generator = torch.Generator().manual_seed(913)
+    products = torch.randn(3, 5, 7, generator=generator, dtype=torch.float64)
+    down = torch.randn(11, 7, generator=generator, dtype=torch.float64)
+    first_h, first_d, first_receipt = gate.canonicalize_factor_product_gates(
+        products, down,
+    )
+    gauge = torch.tensor([2.0, -4.0, 0.5, -0.25, 8.0, -2.0, 0.125])
+    second_h, second_d, second_receipt = gate.canonicalize_factor_product_gates(
+        products * gauge, down / gauge,
+    )
+    assert torch.equal(first_h, second_h)
+    assert torch.equal(first_d, second_d)
+    assert first_receipt == second_receipt
+    pivots = torch.tensor(first_receipt["pivot_indices"])
+    assert bool((first_d.gather(0, pivots[None, :]).squeeze(0) > 0).all())
+
+
+def test_canonical_factor_derangement_is_gauge_invariant_and_permutation_equivariant() -> None:
+    generator = torch.Generator().manual_seed(8128)
+    products = torch.randn(2, 4, 7, generator=generator, dtype=torch.float64)
+    down = torch.randn(5, 7, generator=generator, dtype=torch.float64)
+    gauge = torch.tensor([-4.0, 0.5, 2.0, -0.25, 8.0, 0.125, -2.0])
+    baseline = gate.canonical_factor_product_derangement(products, down, 2026082806)
+    replay = gate.canonical_factor_product_derangement(
+        products * gauge, down / gauge, 2026082806,
+    )
+    assert baseline == replay
+    assert sorted(baseline) == list(range(7))
+    assert all(source != target for source, target in enumerate(baseline))
+
+    relabel = torch.tensor([3, 0, 6, 1, 5, 2, 4])
+    relabeled = gate.canonical_factor_product_derangement(
+        products[:, :, relabel], down[:, relabel], 2026082806,
+    )
+    inverse = torch.empty_like(relabel)
+    inverse[relabel] = torch.arange(len(relabel))
+    expected = tuple(int(inverse[baseline[int(relabel[index])]]) for index in range(7))
+    assert relabeled == expected

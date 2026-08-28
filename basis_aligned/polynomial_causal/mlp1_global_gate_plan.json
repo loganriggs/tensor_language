@@ -1,0 +1,370 @@
+{
+  "claim": "checkpoint-relative MLP1 physical-gate tangent response in the admitted rank640 shell; registry-fresh FineWeb fit/validation, not cross-corpus OOD, finite deletion, intrinsic tensor rank, or autoregressive-rollout Fisher",
+  "cohorts": {
+    "document_disjoint": true,
+    "fit": {
+      "contexts": 16,
+      "document_ids": [
+        "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:50000",
+        "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:50001",
+        "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:50002",
+        "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:50005",
+        "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:50009",
+        "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:50017",
+        "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:50019",
+        "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:50023",
+        "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:50027",
+        "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:50029",
+        "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:50037",
+        "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:50038",
+        "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:50039",
+        "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:50040",
+        "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:50041",
+        "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:50042"
+      ],
+      "model_input_256_raw_sha256": "0a9baa6d31353226f094ea9c39cdc882a42ef5535adaf3ed601f9f5b298c4816",
+      "model_input_shape": [
+        16,
+        256
+      ],
+      "name": "registry_fresh_fit_wave_A",
+      "one_context_per_document": true,
+      "row_ids": [
+        "mlp1_global_gate_v1:0",
+        "mlp1_global_gate_v1:1",
+        "mlp1_global_gate_v1:2",
+        "mlp1_global_gate_v1:3",
+        "mlp1_global_gate_v1:4",
+        "mlp1_global_gate_v1:5",
+        "mlp1_global_gate_v1:6",
+        "mlp1_global_gate_v1:7",
+        "mlp1_global_gate_v1:8",
+        "mlp1_global_gate_v1:9",
+        "mlp1_global_gate_v1:10",
+        "mlp1_global_gate_v1:11",
+        "mlp1_global_gate_v1:12",
+        "mlp1_global_gate_v1:13",
+        "mlp1_global_gate_v1:14",
+        "mlp1_global_gate_v1:15"
+      ],
+      "row_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "subset_shape": [
+        16,
+        513
+      ],
+      "subset_tensor_raw_sha256": "ab0ce1584fe05362680b8e1bf1705a305e834af214cb970a6c6efee311743ce9"
+    },
+    "registry_wide_disjoint_from_every_prior_role": true,
+    "selection_rule": "the outcome-blind row freezer orders 32 one-row source documents; indices 0:16 are fit wave A and indices 16:32 are validation wave B",
+    "validation": {
+      "contexts": 16,
+      "document_ids": [
+        "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:50049",
+        "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:50050",
+        "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:50051",
+        "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:50059",
+        "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:50060",
+        "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:50064",
+        "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:50065",
+        "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:50067",
+        "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:50069",
+        "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:50070",
+        "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:50071",
+        "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:50076",
+        "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:50078",
+        "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:50079",
+        "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:50087",
+        "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:50090"
+      ],
+      "model_input_256_raw_sha256": "ccffb95d30c89ab05b0f05292ff80e1b386accda4819744ab73e3be25a6dbd33",
+      "model_input_shape": [
+        16,
+        256
+      ],
+      "name": "registry_fresh_validation_wave_B",
+      "one_context_per_document": true,
+      "row_ids": [
+        "mlp1_global_gate_v1:16",
+        "mlp1_global_gate_v1:17",
+        "mlp1_global_gate_v1:18",
+        "mlp1_global_gate_v1:19",
+        "mlp1_global_gate_v1:20",
+        "mlp1_global_gate_v1:21",
+        "mlp1_global_gate_v1:22",
+        "mlp1_global_gate_v1:23",
+        "mlp1_global_gate_v1:24",
+        "mlp1_global_gate_v1:25",
+        "mlp1_global_gate_v1:26",
+        "mlp1_global_gate_v1:27",
+        "mlp1_global_gate_v1:28",
+        "mlp1_global_gate_v1:29",
+        "mlp1_global_gate_v1:30",
+        "mlp1_global_gate_v1:31"
+      ],
+      "row_indices": [
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31
+      ],
+      "subset_shape": [
+        16,
+        513
+      ],
+      "subset_tensor_raw_sha256": "aa4b7242ecddc0365689ee8adff7fd4ab5035c574ab9ad7c82d5aaef07b5e98b"
+    },
+    "validation_is_fresh_fineweb_not_cross_corpus_ood": true
+  },
+  "decision": {
+    "all_three_budgets_observed_improvement_must_be_positive_for_every_comparison": true,
+    "best_control_selection": "none; primary is compared separately with every control",
+    "bootstrap_unit": "validation document",
+    "both_validation_probe_halves_must_pass": true,
+    "consequence_stage_authorized": false,
+    "css_and_all_on_must_both_pass": true,
+    "failure": "no stable physical-gate support at registered budgets; do not run finite gate scaling and advance to the native quadratic-form Gram audit",
+    "full_numeric_pass_required_at_least_one_budget": true,
+    "maximum_per_document_primary_minus_each_control_loss": 0.02,
+    "multiplicity": "one shared 95% max-error bootstrap band across all 48 promotive comparisons; within a budget every control, metric, and validation half must pass, so no best-arm selection",
+    "promoted_budget": "smallest budget with a full numeric pass",
+    "relative_improvement_lcb_over_every_control_minimum": 0.05,
+    "support_jaccard_minimum": 0.5
+  },
+  "finite_followup_if_promoted": {
+    "authorized_by_this_plan": false,
+    "candidate_path": "alpha(epsilon)=1+epsilon*(beta_tilde-1)",
+    "epsilon": 0.1,
+    "fisher_to_kl_normalization": "0.5*epsilon^2",
+    "selected_only_alpha_0_9_is_sensitivity_control": true
+  },
+  "linear_solver": {
+    "algorithm": "torch.linalg.svd with full_matrices=False",
+    "failure_rule": "a solver diagnostic breach rejects that budget for the primary or control independently; no fallback solver, ridge, or cutoff",
+    "intercept": false,
+    "maximum_all_on_l2_norm_divided_by_sqrt_budget": 10.0,
+    "maximum_css_frobenius_norm_divided_by_sqrt_number_of_gates": 10.0,
+    "maximum_unregularized_retained_condition_number": 1000000.0,
+    "precision": "CPU torch.float64",
+    "relative_singular_cutoff": 1e-10,
+    "relative_tikhonov_ridge_to_largest_squared_singular_value": 1e-06,
+    "same_solver_for_primary_and_every_control": true,
+    "serialization": "support indices in score order and float64 coefficients with dtype, shape, raw-byte SHA-256, solver diagnostics, and plan fingerprint",
+    "solution": "V*diag(s/(s^2+lambda))*U^T*target after zeroing singular values below relative_singular_cutoff*s_max"
+  },
+  "metrics": {
+    "bootstrap": {
+      "critical_value": "ascending max-error order statistic at one-indexed rank ceil(0.95*20000)=19000; no interpolation",
+      "family": "3 budgets x 4 controls x 2 metrics x 2 validation probe halves",
+      "method": "shared-document nonstudentized basic max-error bootstrap",
+      "paired_recompute_selectors": false,
+      "repetitions": 20000,
+      "rule": "for each replicate resample 16 validation document indices with replacement and use that same index vector for every primary, control, metric, half, and budget; recompute all 48 pooled-loss improvements with supports and coefficients fixed; take the maximum over j of observed_improvement_j-bootstrap_improvement_j",
+      "seed": 2026082808,
+      "simultaneous_confidence": 0.95,
+      "simultaneous_family_size": 48,
+      "simultaneous_lcb": "observed_improvement_j minus the shared critical value"
+    },
+    "document_unit": "one document/context; never a token or probe",
+    "nonpromotive_span": "support span recomputed inside each cell",
+    "per_document_all_on_loss": "||E_eval[d,S] beta_fit - E_eval[d] 1||_2^2 / max(||E_eval[d] 1||_2^2,1e-30)",
+    "per_document_css_loss": "||E_eval[d,S] X_fit - E_eval[d]||_F^2 / max(||E_eval[d]||_F^2,1e-30)",
+    "pooled_loss": "sum document loss numerators divided by sum matching denominators; never mean of per-document ratios",
+    "promotive_all_on": "fit coefficients for E@1 on fit/first and transfer identical support and coefficients to all three evaluation cells",
+    "promotive_css": "fit column interpolant on fit/first and transfer identical matrix to fit/second, validation/first, and validation/second",
+    "relative_improvement": "(pooled_control_loss-pooled_primary_loss)/max(pooled_control_loss,1e-30); positive favors primary",
+    "score_rank_stability": "nonpromotive Spearman correlation of all 4608 fit/first versus fit/second selector scores, using average ranks for exact ties",
+    "support_stability": "Jaccard of fit/first versus fit/second selections"
+  },
+  "operator": {
+    "backward_passes_at_batch4": 512,
+    "each_gate_scale_shared_across_all_input_positions": [
+      0,
+      256
+    ],
+    "gates": 4608,
+    "one_independent_gate_scale_per_context": true,
+    "probes_per_half": 32,
+    "response_layout": [
+      "context",
+      "probe",
+      "gate"
+    ],
+    "score": "sum of sampled categorical log probabilities over positions 128:256",
+    "score_positions": [
+      128,
+      256
+    ],
+    "source_site": 1
+  },
+  "parents": {
+    "hashes": {
+      "program_authority": "1dc6fa711803e6d7ac1c7958e8507fec66c8dab983c7562c605331ee46adaadd",
+      "rank640_causal": "73bd18ee81067775680b7d579036e6ec8c04b41116cd3e516b8460a7e7c7ab20",
+      "rank640_predictive": "639fb8480efee790403113079333100bd63bb61426f6fd6e4dcebd89b21c337d",
+      "row_use_authority": "9177ca13727e268d4d7ea492d832296b4853ead5b6b4764c4a11444ef3f3b40f",
+      "rows_file": "bdb34db40fffcfcbb22c88cf958ad7d6894cdce770399f48d7669acec684bd04",
+      "rows_receipt": "63d35040a22c5da69a889cd94ece37cf7c6d353c41ebda3fdbaa12114303b3cd"
+    },
+    "rows_raw_sha256": "a9b79378e7660cac7965870563d4ef1c49e2a6dc148b037d9f063c6b0efec132"
+  },
+  "plan_fingerprint": "404f4ca0ee4362c343eab4fd8ea43866a6edf02eb6a80a996d8c23101a726b07",
+  "prices": {
+    "bilinear_multiplies_per_token": "K",
+    "response_rank_is_not_a_storage_price": true,
+    "standalone_native_support_values_per_site": "3456*K+1152",
+    "support_precision_and_metadata_required": true
+  },
+  "probe_halves": {
+    "disjoint": true,
+    "first": {
+      "base_seed": 2026083101,
+      "probe_seeds": [
+        2026083101,
+        2026083102,
+        2026083103,
+        2026083104,
+        2026083105,
+        2026083106,
+        2026083107,
+        2026083108,
+        2026083109,
+        2026083110,
+        2026083111,
+        2026083112,
+        2026083113,
+        2026083114,
+        2026083115,
+        2026083116,
+        2026083117,
+        2026083118,
+        2026083119,
+        2026083120,
+        2026083121,
+        2026083122,
+        2026083123,
+        2026083124,
+        2026083125,
+        2026083126,
+        2026083127,
+        2026083128,
+        2026083129,
+        2026083130,
+        2026083131,
+        2026083132
+      ]
+    },
+    "new_relative_to_historical_probe_halves": true,
+    "second": {
+      "base_seed": 2026090101,
+      "probe_seeds": [
+        2026090101,
+        2026090102,
+        2026090103,
+        2026090104,
+        2026090105,
+        2026090106,
+        2026090107,
+        2026090108,
+        2026090109,
+        2026090110,
+        2026090111,
+        2026090112,
+        2026090113,
+        2026090114,
+        2026090115,
+        2026090116,
+        2026090117,
+        2026090118,
+        2026090119,
+        2026090120,
+        2026090121,
+        2026090122,
+        2026090123,
+        2026090124,
+        2026090125,
+        2026090126,
+        2026090127,
+        2026090128,
+        2026090129,
+        2026090130,
+        2026090131,
+        2026090132
+      ]
+    },
+    "stateless_uniform": "(uint64_be(sha256(f'{seed}:{row_id}:{absolute_position}')[:8])+0.5)/2**64"
+  },
+  "publication": {
+    "aggregate_selector_ledgers_published": true,
+    "create_only_result_and_bundle_namespaces_required": true,
+    "fit_bundle_support_and_coefficients_are_outcomes": true,
+    "raw_logits_published": false,
+    "raw_residual_vjps_published": false,
+    "raw_targets_published": false,
+    "response_tensor_published": false
+  },
+  "remaining_authority": "A committed create-only collector must bind this exact plan, complete scientific source closure, row bytes, rank640 program buffers, result and bundle namespaces, run lock, and final-write snapshot before GPU execution.",
+  "selectors": {
+    "activation_down_support_is_fit_wave_A_only": true,
+    "all_control_transfer_metrics_use_the_same_balanced_evaluation_responses": true,
+    "budgets": [
+      32,
+      128,
+      512
+    ],
+    "candidate_bundle": "support and all-on coefficients fit on fit documents/probe-half first only; every other cell is evaluation-only and cannot alter the bundle",
+    "context_balanced_currency_reported": true,
+    "controls": {
+      "activation_down": "top sqrt(mean h_n(z_q)^2 over fit documents and q=0:256) times Euclidean norm of Down column n",
+      "factor_product_derangement": "on fit-wave A, normalize each h_n trace to unit RMS and absorb its inverse scale into d_n; orient the joint sign so the first maximum-absolute d_n coordinate is positive; order gates by sha256(derangement_seed || canonical float64 h_n trace || canonical d_n bytes); bytes; define pi(order[i])=order[(i+1) mod 4608], with exact content then smaller native index as collision tie-breaks; at the unchanged native baseline measure auxiliary zero-leaf columns sum_q hcanon_n(z_q)*dcanon_pi(n)^T*g_q, then apply the identical balanced ridge selector and target-rank rule",
+      "hash_random": "smallest sha256(random_control_seed:gate_id)",
+      "response_energy": "top column squared norm on the same fit response"
+    },
+    "derangement_seed": 2026082806,
+    "factor_product_derangement_fixed_point_free": true,
+    "factor_product_derangement_gauge_replay_required": true,
+    "factor_product_derangement_scale_sign_gauge_invariant": true,
+    "factor_product_derangement_shift": "+1 in ascending canonical-content hash order",
+    "identical_context_balancing_for_response_energy_and_deranged_response": true,
+    "only_context_balanced_primary_can_promote": true,
+    "primary": "context-balanced deterministic top ridge-leverage score",
+    "random_control_seed": 2026082807,
+    "raw_weighted_currency_reported": true,
+    "ridge_lambda": "squared rank-r tail Frobenius norm divided by r",
+    "target_rank_by_budget": {
+      "128": 64,
+      "32": 16,
+      "512": 256
+    },
+    "tie_rule": "higher score first, then smaller physical gate index"
+  },
+  "status": "frozen_cpu_plan_no_gpu_authority"
+}
