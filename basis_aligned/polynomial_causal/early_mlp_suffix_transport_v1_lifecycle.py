@@ -55,6 +55,11 @@ NUMERICAL_STAGE_CLOSURE = (
     HERE / "test_early_mlp_suffix_transport_v1_programs.py",
     HERE / "early_mlp_suffix_transport_v1_final.py",
     HERE / "test_early_mlp_suffix_transport_v1_final.py",
+    # The semantic owner above deliberately has no row/model capability.  Keep the
+    # row gate closed until a separate observed final executor and its adversarial
+    # tests exist, are tracked, and enter the same source closure.
+    HERE / "early_mlp_suffix_transport_v1_final_execution.py",
+    HERE / "test_early_mlp_suffix_transport_v1_final_execution.py",
 )
 FROZEN_SHA256 = {
     PREREGISTRATION: "11577380d65c813cf9e80e92002de9569928d293747c278c065939b3f3b24193",

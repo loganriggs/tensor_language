@@ -270,7 +270,7 @@ def test_source_closure_rejects_incomplete_set_and_current_drift(
         lifecycle.verify_source_closure(commit, hashes)
 
 
-def test_numerical_source_gate_binds_observed_stack_and_refuses_missing_stages() -> None:
+def test_numerical_source_gate_keeps_the_observed_final_executor_fail_closed() -> None:
     closure = set(lifecycle.source_closure_paths())
     assert set(path.resolve() for path in lifecycle.OBSERVED_EXECUTION_CLOSURE) <= closure
     assert set(path.resolve() for path in lifecycle.MAPPED_CONTROL_CLOSURE) <= closure
@@ -279,8 +279,8 @@ def test_numerical_source_gate_binds_observed_stack_and_refuses_missing_stages()
     assert all(path.is_file() for path in lifecycle.MAPPED_CONTROL_CLOSURE)
     missing = [path.name for path in lifecycle.NUMERICAL_STAGE_CLOSURE if not path.is_file()]
     assert missing == [
-        "early_mlp_suffix_transport_v1_final.py",
-        "test_early_mlp_suffix_transport_v1_final.py",
+        "early_mlp_suffix_transport_v1_final_execution.py",
+        "test_early_mlp_suffix_transport_v1_final_execution.py",
     ]
     with pytest.raises(RuntimeError, match="numerical source closure is incomplete") as error:
         lifecycle.require_numerical_source_closure()
