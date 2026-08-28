@@ -154,10 +154,11 @@ The current blockers are implementation and cost integrity:
 1. The sealed capability still needs a source-closed bilin18 adapter around the real
    frozen-ship forward. It must distinguish literal dispatcher calls at all three
    early sites from effective rank-64 correction calls at MLP0/1.
-2. The student-output guard currently copies and hashes the full
-   `[4,256,50257]` logits twice, about 393 MiB of CPU transfer per training batch.
-   Across the registered route/null grid this is prohibitive and must be replaced by
-   a source-bound one-use graph identity without weakening mutation detection.
+2. The prohibitive full-logit content hashes have now been replaced prospectively by
+   a source-bound one-use graph/storage identity. Ordinary mutation, replacement,
+   detach, graph drift, and nonfinite values fail closed without transferring logits
+   to CPU. Independent review gives GO-to-commit, but execution remains NO-GO until
+   the observed adapter closes before aliases escape and enforces vocabulary 50,257.
 3. The graph-connectivity check currently performs an extra full suffix backward per
    fit batch. It needs a measured benchmark or a cheaper structural proof.
 4. Document-shuffle and A-null controls remain intentionally unauthorized until a
@@ -192,8 +193,9 @@ interface.
 
 ## Verification state
 
-The focused typed-write and capability suite passes 46/46, and the complete CPU
-suffix suite passes 132/132 after this source change. No fresh row, model, teacher, or
-scientific outcome was loaded by the semantic repair, so suffix-transport execution
-remains explicitly NO-GO until the observed adapter and performance corrections are
-source-closed and independently audited.
+The focused runtime/capability suite passes 48/48, and the complete CPU suffix suite
+passes 134/134 after the typed-write and graph-identity changes. Independent review
+gives exact-byte GO-to-commit for the graph identity under the declared source-closed
+adapter boundary. No fresh row, model, teacher, or scientific outcome was loaded by
+these repairs, so suffix-transport execution remains explicitly NO-GO until the
+observed adapter is source-closed and independently audited.

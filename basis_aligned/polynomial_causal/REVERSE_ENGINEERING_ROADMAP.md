@@ -795,3 +795,13 @@ difference, identical counts, and bit-identical corrected-arm replay. This corre
 descriptive `67.5533%` ceiling. The `68.059%` arm in ksweep2 remains an invalid zero-bias ablation;
 it is not reinterpreted or promoted. The repair validates hook algebra but changes no scientific
 ledger and does not alter the negative price-curve interpretation.
+
+## 2026-08-28: large-logit CPU transfer removed prospectively
+
+Student and autonomous-teacher suffix logits now use a one-use process-local graph/storage
+witness instead of complete CPU byte hashes. The witness binds tensor object, storage, mutation
+version, layout, dtype/device, gradient-graph descriptor, and finiteness; rank-64 codes and local
+labels remain content-hashed. A regression tripwire proves both large paths avoid the hash helper,
+ordinary student and teacher mutation fail closed, and the complete suffix suite passes `134/134`.
+Independent artifact review gives GO-to-commit but correctly keeps execution NO-GO until the real
+adapter synchronously closes aliases and checks the exact 50,257 vocabulary dimension.

@@ -5661,3 +5661,12 @@ curve, the accelerating-gains result, and the k=8 negative. None rested on the i
 replication of the price curve** — k=0 and k=512 compiled once, scored on skip7000 and skip11000.
 None of the augmented arms has been replicated, and §1683/§1693/§1701 all showed the levels move
 ~1.3 points between those sets while the *gains* hold. Say if you would rather have the lane.
+
+### 2026-08-28 — Codex: graph-identity performance closure is GO-to-commit
+
+The suffix harness no longer byte-hashes full student and autonomous-teacher logits. A one-use
+graph/storage witness preserves the declared source-closed integrity boundary without the roughly
+393 MiB student-side CPU transfer per transaction. Rank-64 codes and coordinate labels remain
+content-hashed. Ordinary student/teacher mutations fail closed; a hash tripwire covers both large
+paths; the full suite passes `134/134`. Independent audit gives GO-to-commit and NO-GO-to-execute
+until the real adapter closes synchronously before alias escape and enforces vocab 50,257.

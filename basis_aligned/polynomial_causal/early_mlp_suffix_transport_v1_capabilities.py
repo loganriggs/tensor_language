@@ -233,10 +233,64 @@ class _EphemeralOriginalGateway:
         self.__native.clear()
 
 
+class _TensorWitness:
+    """Cheap one-process ownership witness for a tensor and its graph/storage.
+
+    Full suffix logits are intentionally not copied to CPU for byte hashing.  This
+    witness is paired with sealed one-use ownership and a source-closed adapter that
+    closes the student/teacher transaction before releasing caller aliases.
+    """
+
+    __slots__ = (
+        "content_sha256", "data_ptr", "descriptor", "object_id", "version",
+    )
+
+    def __init__(self, value: torch.Tensor, *, hash_content: bool) -> None:
+        if not torch.is_tensor(value):
+            raise TypeError("tensor witness requires a tensor")
+        self.object_id = id(value)
+        self.data_ptr = value.data_ptr()
+        self.version = value._version
+        self.descriptor = {
+            "shape": list(value.shape), "dtype": str(value.dtype),
+            "device_type": value.device.type, "device_index": value.device.index,
+            "stride": list(value.stride()), "storage_offset": value.storage_offset(),
+            "requires_grad": bool(value.requires_grad),
+            "grad_fn_type": None if value.grad_fn is None else type(value.grad_fn).__name__,
+        }
+        self.content_sha256 = runtime.tensor_identity_sha256(value) if hash_content else None
+
+    @property
+    def logical_descriptor(self) -> Mapping[str, Any]:
+        return {**self.descriptor, "content_sha256": self.content_sha256}
+
+    def require(self, value: torch.Tensor) -> None:
+        descriptor = {
+            "shape": list(value.shape), "dtype": str(value.dtype),
+            "device_type": value.device.type, "device_index": value.device.index,
+            "stride": list(value.stride()), "storage_offset": value.storage_offset(),
+            "requires_grad": bool(value.requires_grad),
+            "grad_fn_type": None if value.grad_fn is None else type(value.grad_fn).__name__,
+        }
+        if id(value) != self.object_id or value.data_ptr() != self.data_ptr or (
+            value._version != self.version
+        ) or descriptor != self.descriptor:
+            raise RuntimeError("owned tensor graph/storage identity changed")
+        if not bool(torch.isfinite(value.detach()).all()):
+            raise RuntimeError("owned tensor became nonfinite")
+        if self.content_sha256 is not None and runtime.tensor_identity_sha256(value) != (
+            self.content_sha256
+        ):
+            raise RuntimeError("owned tensor content changed")
+
+
 class _StudentOutputs:
     """One-use owner of exact student tensors and their autograd graphs."""
 
-    __slots__ = ("__consumed", "__identity_sha256", "__metadata", "__sealed", "__values")
+    __slots__ = (
+        "__consumed", "__identity_sha256", "__metadata", "__sealed", "__values",
+        "__witnesses",
+    )
 
     def __init__(
         self, identity: runtime.TraceIdentity, codes: Sequence[torch.Tensor], logits: torch.Tensor,
@@ -254,9 +308,15 @@ class _StudentOutputs:
             raise RuntimeError("student suffix logits are malformed")
         self.__identity_sha256 = identity.sha256
         self.__values = {"codes": tuple(codes), "logits": logits}
+        self.__witnesses = {
+            "codes": tuple(_TensorWitness(value, hash_content=True) for value in codes),
+            "logits": _TensorWitness(logits, hash_content=False),
+        }
         self.__metadata = {
-            "codes": tuple(runtime.tensor_identity_sha256(value) for value in codes),
-            "logits": runtime.tensor_identity_sha256(logits),
+            "codes": tuple(
+                witness.logical_descriptor for witness in self.__witnesses["codes"]
+            ),
+            "logits_graph": self.__witnesses["logits"].logical_descriptor,
             "shapes": tuple(tuple(value.shape) for value in (*codes, logits)),
             "dtypes": tuple(str(value.dtype) for value in (*codes, logits)),
         }
@@ -326,10 +386,12 @@ class _StudentOutputs:
     def _require_integrity(self) -> None:
         codes = self.__values["codes"]
         logits = self.__values["logits"]
-        if tuple(runtime.tensor_identity_sha256(value) for value in codes) != self.__metadata[
-            "codes"
-        ] or runtime.tensor_identity_sha256(logits) != self.__metadata["logits"]:
-            raise RuntimeError("student output mutated after its outer return")
+        try:
+            for witness, value in zip(self.__witnesses["codes"], codes, strict=True):
+                witness.require(value)
+            self.__witnesses["logits"].require(logits)
+        except RuntimeError as error:
+            raise RuntimeError("student output mutated after its outer return") from error
 
     def consume(self, kind: str, identity: runtime.TraceIdentity):
         if self.__consumed:
@@ -345,6 +407,7 @@ class _StudentOutputs:
         else:
             output = None
         self.__values.clear()
+        self.__witnesses.clear()
         return output
 
     def force_discard(self, identity: runtime.TraceIdentity) -> None:
@@ -354,6 +417,7 @@ class _StudentOutputs:
             raise RuntimeError("student output cleanup identity changed")
         object.__setattr__(self, "_StudentOutputs__consumed", True)
         self.__values.clear()
+        self.__witnesses.clear()
 
 
 class StudentStep:
@@ -414,6 +478,7 @@ class _TeacherResult:
     __slots__ = (
         "__broker", "__consumed", "__identity", "__metadata", "__metadata_sha256",
         "__output_sha256", "__sealed", "__student_outputs", "__tensors",
+        "__witnesses",
     )
 
     def __init__(
@@ -429,11 +494,15 @@ class _TeacherResult:
         self.__identity = identity
         self.__student_outputs = student_outputs
         self.__tensors = list(detached)
+        hash_content = identity.teacher_kind == "coordinate_labels"
+        self.__witnesses = tuple(
+            _TensorWitness(value, hash_content=hash_content) for value in detached
+        )
         self.__consumed = False
         self.__metadata = dict(metadata)
         self.__metadata_sha256 = runtime.logical_identity_sha256(self.__metadata)
         self.__output_sha256 = runtime.logical_identity_sha256([
-            runtime.tensor_identity_sha256(value) for value in detached
+            witness.logical_descriptor for witness in self.__witnesses
         ])
         object.__setattr__(self, "_TeacherResult__sealed", True)
 
@@ -454,11 +523,12 @@ class _TeacherResult:
     def _begin_consume(self, kind: str):
         if self.__consumed:
             raise RuntimeError("teacher result was already consumed")
-        if runtime.logical_identity_sha256([
-            runtime.tensor_identity_sha256(value) for value in self.__tensors
-        ]) != self.__output_sha256 or runtime.logical_identity_sha256(
-            self.__metadata
-        ) != self.__metadata_sha256:
+        try:
+            for witness, value in zip(self.__witnesses, self.__tensors, strict=True):
+                witness.require(value)
+        except RuntimeError as error:
+            raise RuntimeError("teacher result tensor mutated before consumption") from error
+        if runtime.logical_identity_sha256(self.__metadata) != self.__metadata_sha256:
             raise RuntimeError("teacher result tensor mutated before consumption")
         object.__setattr__(self, "_TeacherResult__consumed", True)
         student = self.__student_outputs.consume(kind, self.__identity)
@@ -474,6 +544,7 @@ class _TeacherResult:
 
     def _clear(self) -> None:
         self.__tensors.clear()
+        object.__setattr__(self, "_TeacherResult__witnesses", ())
 
     def _abort_consume(self) -> None:
         self.__student_outputs.force_discard(self.__identity)

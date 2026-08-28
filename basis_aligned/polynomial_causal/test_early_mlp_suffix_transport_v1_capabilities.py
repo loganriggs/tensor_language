@@ -575,3 +575,69 @@ def test_stale_step_rejection_preserves_fresh_teacher_transaction() -> None:
     loss, _ = valid.consume_loss((1.0, 1.0))
     assert torch.isfinite(loss)
     assert broker.ledger_snapshot.outstanding_identity_sha256 is None
+
+
+def test_oon_teacher_structural_witness_rejects_in_place_mutation() -> None:
+    broker, hook, _, _, _, inputs, ident = system("R", step=27)
+    step, *_ = run_student(broker, hook, inputs, ident)
+    result = broker.run_oon_teacher(ident, step, inputs, autonomous_forward)
+    with torch.no_grad():
+        result._TeacherResult__tensors[0].add_(1)
+    with pytest.raises(RuntimeError, match="teacher result tensor mutated"):
+        result.consume_loss()
+    assert broker.ledger_snapshot.outstanding_identity_sha256 is None
+    assert broker._CapabilityBroker__coordinator.idle
+
+
+def test_large_student_and_oon_logits_never_use_full_content_hash(monkeypatch) -> None:
+    """The large-logit integrity path must stay on device and graph-bound.
+
+    Rank-64 codes may still use the byte-hash helper.  A 1025-way vocabulary is
+    deliberately large enough to identify both student and OON-teacher logits in
+    this CPU test without allocating the production 50257-way tensors.
+    """
+    original_hash = runtime.tensor_identity_sha256
+    hashed_shapes = []
+
+    def reject_large_logit_hash(value):
+        hashed_shapes.append(tuple(value.shape))
+        if value.ndim == 3 and value.shape[-1] == 1025:
+            raise AssertionError("large logits reached the full content hash")
+        return original_hash(value)
+
+    monkeypatch.setattr(runtime, "tensor_identity_sha256", reject_large_logit_hash)
+    broker, hook, _, _, _, inputs, ident = system("R", step=28)
+    generator = torch.Generator().manual_seed(127)
+    z0 = torch.randn(4, 256, runtime.D_MODEL, generator=generator)
+    mo0 = torch.randn(4, 256, runtime.D_MODEL, generator=generator)
+    session = broker.begin_student(ident, hook, inputs, scheduled_indices(ident))
+    with session.forward_scope() as capability:
+        out0 = call_hook(hook, 0, z0, mo0, ident.nonce)
+        z1 = z0 + out0
+        mo1 = torch.randn(4, 256, runtime.D_MODEL, generator=generator)
+        out1 = call_hook(hook, 1, z1, mo1, ident.nonce)
+        student_logits = out1[..., :1].expand(-1, -1, 1025)
+        capability.bind_outer_logits(student_logits)
+    step, _ = session.close(
+        outer_forward_count=1, outer_returned=True,
+        hook_restored=True, hook_inert=True,
+    )
+
+    def autonomous_large_forward(gateway, tokens):
+        teacher_z0 = tokens.float().unsqueeze(-1).expand(
+            -1, -1, runtime.D_MODEL,
+        ) / 1000
+        exact0 = gateway.call(0, teacher_z0)
+        exact1 = gateway.call(1, teacher_z0 + exact0)
+        return exact1[..., :1].expand(-1, -1, 1025), {
+            "outer_forward_count": 1, "hook_calls": {0: 1, 1: 1, 2: 0},
+            "outer_returned": True, "hook_restored": True, "hook_inert": True,
+        }
+
+    result = broker.run_oon_teacher(ident, step, inputs, autonomous_large_forward)
+    loss, closure = result.consume_loss()
+    assert torch.isfinite(loss)
+    assert closure.consumed is True
+    assert hashed_shapes
+    assert all(shape[-1] != 1025 for shape in hashed_shapes)
+    loss.backward()
