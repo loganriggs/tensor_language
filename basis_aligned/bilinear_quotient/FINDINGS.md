@@ -584,3 +584,61 @@ while the generalisation motivating it failed — depth-ordered tableability, bi
 with depth, early attention being best described, contiguity mattering beyond lag 1, and the middle
 bands being where the per-site difficulty lives. The flags are never written up on their own for
 this reason.
+
+## 17. Composition excess is site-specific — a five-run negative, and three of my own readings it killed (§1704–§1708)
+
+**The question.** When a compiled program replaces several modules, does restoring a group of them
+buy more or less than restoring each alone? §1703 had located the whole-model program's shortfall
+by band; this asked whether the pieces compose.
+
+**The answer is that there is no law.** Exempting sites from the 36-site program and recompiling,
+with 95% row-level cluster intervals throughout:
+
+```
+pair               depth (blocks below)   function            excess     excess CI (points)
+mlp0+mlp1                 16              tabular            +41.8%      [+0.86, +1.09]
+mlp2+mlp3                 15/14           NOT tabular         +1.5%      [-0.11, +0.23]
+mlp8+mlp9                  9              least tabular       -4.2%      [-0.19, -0.01]
+mlp16+mlp17                1              linear readout     -20.1%
+front band mlp0-3         16-13           mixed              +34.0%
+```
+
+**The excess belongs to mlp0 and mlp1 specifically** — the two modules §1672 found genuinely want
+token tables (§1662 ceilings 90.27% and 96.01%, against 76.98% and 67.55% for mlp2/mlp3, with mlp3
+actively hostile to one). Every other pair measured, *including one at matched depth*, is at or
+slightly below additive, and mlp2+mlp3's interval includes zero.
+
+**Three readings died in sequence, each on the run built to test it:**
+
+1. **Cascade by interaction count** (§1704) — four front MLPs were 52% super-additive, explained as
+   an error cascade with six pairwise interactions. It predicted a smaller *positive* excess for a
+   two-site band. The late band came back **−20.1%**: sign flipped.
+2. **Band size** (§1705) — killed immediately after, because a *two-site* early pair is **+41.8%**,
+   more than the *four-site* band's +34.0%. Not monotone in site count.
+3. **Downstream depth** (§1706, §1707) — tested prospectively and passed; extended to a monotone
+   ordering over three pairs and passed again. Killed by a fourth pair at matched depth differing
+   by **40.3 points**.
+
+**The epistemic result is the durable one.** The depth story was post hoc, fitted to two points in
+§1705. It then survived two prospective tests before the first genuinely *discriminating* test
+destroyed it. Both confirmations were real; neither was informative, because both were tests the
+story had been built to survive. **Confirmations of a post-hoc hypothesis should not accumulate
+into confidence** — only a test whose failure mode the story does not already accommodate counts.
+The caution was attached to §1706 when it was written, and it was the load-bearing sentence.
+
+Related and recorded as LESSONS 31: three predictions in this arc passed without testing anything
+— a no-op made every relationship-between-arms claim true (§1681), arms nested by construction made
+a non-additivity claim a structural identity (§1684), and a one-sided bar was cleared by the very
+sign it was meant to test (§1705). Different mechanisms, one consequence: **a prediction that
+cannot fail is not a prediction.** The guard costs a sentence — name the observable result that
+would make the bar false, and confirm it is reachable under the run's own design.
+
+**Practical upshot.** A composition excess measured at one group of sites must not be transported
+to another. It is not a constant, not monotone in group size, and not governed by position in the
+stack. Any accounting that sums or extrapolates single-site contributions needs the interaction
+measured for the specific group it is claiming about.
+
+**The line was stopped deliberately after five runs.** The negative is established and further
+probing would characterise one pair's quirk. The lane returned to the program itself: §1703 puts
+the largest remaining shortfall in the middle band and §1668 puts 37.7% of it beyond any linear
+map, so the next attempt uses the model's own bilinear features as an augmentation there.
