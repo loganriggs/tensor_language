@@ -149,8 +149,18 @@ D_c=\frac{H_c^\top H_c}{\lVert H_c\rVert_F^2},
 learns a primary-split intervention dictionary, measures held-out replication energy
 capture, reports local-versus-pooled rank as a descriptive rotation gap, and returns
 only scalars/eigenvalues. It rejects incomplete/zero/nonfinite inputs and is invariant
-to orthogonal coefficient gauge and arbitrary per-context scale. The focused test is
-9/9; the realization/bank/bundle group is 28/28.
+to orthogonal coefficient gauge and arbitrary per-context scale. The same module now
+also implements the registered paired-probe discriminator: it maps right frames into
+physical 1,152-dimensional write space as
+
+\[
+U_{c,r}=\operatorname{orth}(D_1^\top V_{c,r}),
+\]
+
+compares within-context independent-probe distance against cross-context distance at
+fixed ranks, and supplies a deterministic document-paired bootstrap lower bound while
+returning no frames or projectors. The focused test is 12/12; the full protected tangent
+suite is 53/53.
 
 This implementation is a sufficient-statistic primitive, not yet a positive result.
 The red-team correction is incorporated into the next collection design: document

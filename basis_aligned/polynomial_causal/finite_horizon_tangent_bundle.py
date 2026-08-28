@@ -230,3 +230,241 @@ def analyze_site_bundles(
         )
         for site in source_sites
     }
+
+
+def _physical_frame(
+    responses: torch.Tensor, directions: torch.Tensor, rank: int,
+) -> torch.Tensor:
+    _, _, vh = torch.linalg.svd(responses.double(), full_matrices=False)
+    frame = directions.double().T @ vh[:rank].T
+    q, r = torch.linalg.qr(frame, mode="reduced")
+    if int((torch.abs(torch.diagonal(r)) > 1e-12).sum()) != rank:
+        raise ValueError("direction map collapses a registered response frame")
+    return q
+
+
+def _frame_distance(left: torch.Tensor, right: torch.Tensor) -> float:
+    if left.shape != right.shape:
+        raise ValueError("physical frames must have equal shape")
+    rank = left.shape[1]
+    overlap = float((left.T @ right).square().sum())
+    return math.sqrt(max(0.0, rank - overlap) / rank)
+
+
+def analyze_repeated_probe_physical_bundle(
+    first_responses: torch.Tensor,
+    second_responses: torch.Tensor,
+    directions: torch.Tensor,
+    *,
+    probes_per_half: int,
+    fixed_ranks: tuple[int, ...] = (8, 16, 24),
+    energy_fraction: float = 0.95,
+    gap_ratio: float = 2.0,
+    local_rank_limit: int = 16,
+    maximum_local_rank_difference: int = 2,
+    maximum_same_context_distance: float = 0.15,
+    minimum_context_fraction: float = 0.75,
+    minimum_bundle_distance_lcb: float = 0.05,
+    bootstrap_repetitions: int = 1000,
+    bootstrap_seed: int = 20260828,
+) -> dict[str, Any]:
+    """Separate same-context probe noise from cross-context physical variation.
+
+    Both response matrices must contain the same ordered contexts but independent
+    Fisher-probe halves.  Right response frames are mapped through ``directions`` into
+    physical residual-write space before distances are computed.  The document-level
+    paired bootstrap compares cross-context and same-context distances at each fixed
+    rank.  One context per document is an external preregistration requirement.
+    """
+    if (
+        not torch.is_tensor(first_responses) or not torch.is_tensor(second_responses)
+        or first_responses.ndim != 2 or second_responses.ndim != 2
+        or first_responses.shape != second_responses.shape
+        or not first_responses.is_floating_point()
+        or not second_responses.is_floating_point()
+        or not bool(torch.isfinite(first_responses).all())
+        or not bool(torch.isfinite(second_responses).all())
+    ):
+        raise ValueError("probe halves must be equal finite floating matrices")
+    if (
+        not torch.is_tensor(directions) or directions.ndim != 2
+        or directions.shape[0] != first_responses.shape[1]
+        or directions.shape[1] < directions.shape[0]
+        or not directions.is_floating_point() or not bool(torch.isfinite(directions).all())
+    ):
+        raise ValueError("physical direction map is malformed")
+    if (
+        type(probes_per_half) is not int or probes_per_half <= 0
+        or first_responses.shape[0] % probes_per_half
+        or first_responses.shape[0] // probes_per_half < 3
+        or not fixed_ranks or len(set(fixed_ranks)) != len(fixed_ranks)
+        or any(type(rank) is not int or rank <= 0 or rank > min(
+            probes_per_half, first_responses.shape[1],
+        ) for rank in fixed_ranks)
+        or not 0 < energy_fraction <= 1 or gap_ratio <= 1
+        or type(local_rank_limit) is not int or local_rank_limit <= 0
+        or type(maximum_local_rank_difference) is not int
+        or maximum_local_rank_difference < 0
+        or not 0 <= maximum_same_context_distance <= 1
+        or not 0 < minimum_context_fraction <= 1
+        or not 0 <= minimum_bundle_distance_lcb <= 1
+        or type(bootstrap_repetitions) is not int or bootstrap_repetitions < 100
+        or type(bootstrap_seed) is not int or bootstrap_seed < 0
+    ):
+        raise ValueError("repeated-probe analysis constants are malformed")
+    if int(torch.linalg.matrix_rank(directions.double())) != directions.shape[0]:
+        raise ValueError("physical direction map must have full row rank")
+
+    contexts = first_responses.shape[0] // probes_per_half
+    first = first_responses.double().reshape(
+        contexts, probes_per_half, first_responses.shape[1],
+    )
+    second = second_responses.double().reshape_as(first)
+    if not bool((first.square().sum(dim=(1, 2)) > 0).all()) or not bool(
+        (second.square().sum(dim=(1, 2)) > 0).all()
+    ):
+        raise ValueError("every probe half must have positive tangent energy")
+
+    spectra_first = torch.linalg.svdvals(first)
+    spectra_second = torch.linalg.svdvals(second)
+
+    def spectrum_report(values: torch.Tensor) -> tuple[int, int, float | None]:
+        support = int((values > 1e-12 * values[0]).sum())
+        energy = values.square()
+        rank95 = _rank_for_energy(energy, energy_fraction)
+        gap = (
+            float(values[rank95 - 1] / values[rank95])
+            if rank95 < support and values[rank95] > 0 else None
+        )
+        selected = rank95 if rank95 == support or (
+            gap is not None and gap >= gap_ratio
+        ) else 0
+        return support, rank95, float(selected)
+
+    spectrum_rows = [
+        (spectrum_report(a), spectrum_report(b))
+        for a, b in zip(spectra_first, spectra_second, strict=True)
+    ]
+    probe_limited = [
+        a[0] >= min(24, probes_per_half, first.shape[2])
+        and b[0] >= min(24, probes_per_half, first.shape[2])
+        and a[1] > local_rank_limit and b[1] > local_rank_limit
+        for a, b in spectrum_rows
+    ]
+
+    fixed: dict[str, Any] = {}
+    frame_cache: dict[tuple[int, int, int], torch.Tensor] = {}
+    for rank in fixed_ranks:
+        for context in range(contexts):
+            frame_cache[(0, context, rank)] = _physical_frame(
+                first[context], directions, rank,
+            )
+            frame_cache[(1, context, rank)] = _physical_frame(
+                second[context], directions, rank,
+            )
+        same = torch.tensor([
+            _frame_distance(
+                frame_cache[(0, context, rank)], frame_cache[(1, context, rank)],
+            ) for context in range(contexts)
+        ], dtype=torch.float64)
+        cross = torch.full((contexts, contexts), float("nan"), dtype=torch.float64)
+        for left in range(contexts):
+            for right in range(left + 1, contexts):
+                value = 0.5 * (
+                    _frame_distance(
+                        frame_cache[(0, left, rank)], frame_cache[(1, right, rank)],
+                    ) + _frame_distance(
+                        frame_cache[(1, left, rank)], frame_cache[(0, right, rank)],
+                    )
+                )
+                cross[left, right] = cross[right, left] = value
+        generator = torch.Generator(device="cpu").manual_seed(
+            bootstrap_seed + 1000003 * rank,
+        )
+        differences = []
+        attempts = 0
+        while len(differences) < bootstrap_repetitions and attempts < (
+            10 * bootstrap_repetitions
+        ):
+            attempts += 1
+            sample = torch.randint(contexts, (contexts,), generator=generator)
+            same_mean = float(same[sample].mean())
+            pairs = [
+                float(cross[int(sample[i]), int(sample[j])])
+                for i in range(contexts) for j in range(i + 1, contexts)
+                if int(sample[i]) != int(sample[j])
+            ]
+            if pairs:
+                differences.append(sum(pairs) / len(pairs) - same_mean)
+        if len(differences) != bootstrap_repetitions:
+            raise RuntimeError("document bootstrap produced incomplete contrasts")
+        difference_tensor = torch.tensor(differences, dtype=torch.float64)
+        fixed[str(rank)] = {
+            "same_context_mean_distance": float(same.mean()),
+            "same_context_median_distance": float(torch.median(same)),
+            "cross_context_mean_distance": float(cross[torch.isfinite(cross)].mean()),
+            "cross_minus_same_mean": float(cross[torch.isfinite(cross)].mean() - same.mean()),
+            "cross_minus_same_bootstrap_lcb_95": float(torch.quantile(
+                difference_tensor, 0.025,
+            )),
+            "bootstrap_repetitions": bootstrap_repetitions,
+        }
+
+    local_stable = []
+    for context, (a, b) in enumerate(spectrum_rows):
+        selected_a, selected_b = int(a[2]), int(b[2])
+        if not selected_a or not selected_b:
+            local_stable.append(False)
+            continue
+        comparison_rank = max(selected_a, selected_b)
+        same_distance = _frame_distance(
+            _physical_frame(first[context], directions, comparison_rank),
+            _physical_frame(second[context], directions, comparison_rank),
+        )
+        local_stable.append(bool(
+            selected_a <= local_rank_limit and selected_b <= local_rank_limit
+            and abs(selected_a - selected_b) <= maximum_local_rank_difference
+            and same_distance <= maximum_same_context_distance
+        ))
+
+    probe_limited_fraction = sum(probe_limited) / contexts
+    local_stable_fraction = sum(local_stable) / contexts
+    comparison_rank = str(max(rank for rank in fixed_ranks if rank <= local_rank_limit))
+    response_bundle = bool(
+        local_stable_fraction >= minimum_context_fraction
+        and fixed[comparison_rank]["cross_minus_same_bootstrap_lcb_95"]
+        >= minimum_bundle_distance_lcb
+    )
+    return {
+        "status": (
+            "probe_limited_high_rank" if probe_limited_fraction >= minimum_context_fraction
+            else "stable_context_varying_response_bundle" if response_bundle
+            else "no_admitted_local_bundle"
+        ),
+        "contexts": contexts,
+        "probes_per_half": probes_per_half,
+        "physical_write_width": directions.shape[1],
+        "coefficient_width": directions.shape[0],
+        "fixed_rank_physical_projectors": fixed,
+        "probe_limited_high_rank_fraction": probe_limited_fraction,
+        "stable_local_low_rank_fraction": local_stable_fraction,
+        "response_bundle_gate": response_bundle,
+        "thresholds": {
+            "energy_fraction": energy_fraction,
+            "gap_ratio": gap_ratio,
+            "local_rank_limit": local_rank_limit,
+            "maximum_local_rank_difference": maximum_local_rank_difference,
+            "maximum_same_context_distance": maximum_same_context_distance,
+            "minimum_context_fraction": minimum_context_fraction,
+            "minimum_bundle_distance_lcb": minimum_bundle_distance_lcb,
+        },
+        "physical_mapping": "U_cr = orth(direction_matrix^T V_cr)",
+        "one_context_per_document_required": True,
+        "raw_responses_returned": False,
+        "physical_frames_returned": False,
+        "projectors_returned": False,
+        "interpretation": (
+            "identifies response geometry only; H_c = D_c E_c does not identify an "
+            "encoder gauge without an intermediate-state or composition experiment"
+        ),
+    }

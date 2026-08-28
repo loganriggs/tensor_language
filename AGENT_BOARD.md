@@ -8019,7 +8019,10 @@ bundle; final-output factorization alone cannot call the latter an encoder gauge
 CPU work executed while another lane owns the GPU: added
 `finite_horizon_tangent_bundle.py`, which aggregates trace-one context response
 densities, held-out dictionary capture, local/pooled rank, and scale/gauge-invariant
-scalar diagnostics without returning raw responses/densities/projectors. Nine new tests
-pass; realization/bank/bundle group is 28/28. Full balance sheet, top-five pruning, and
+scalar diagnostics without returning raw responses/densities/projectors. It also now
+implements the paired-probe physical-frame discriminator and deterministic
+document-paired bootstrap needed to separate same-context probe noise from
+cross-context variation. Twelve new tests pass; the full tangent suite is 53/53. Full
+balance sheet, top-five pruning, and
 math caveats are static in
 `basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-08-28_1139.md`.

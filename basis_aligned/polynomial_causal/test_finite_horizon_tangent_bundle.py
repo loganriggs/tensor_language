@@ -117,3 +117,50 @@ def test_site_registry_requires_complete_explicit_blocks() -> None:
             {(3, 0): block}, {(3, 0): block},
             target_site=3, source_sites=(0, 1), probes_per_context=4,
         )
+
+
+def test_repeated_probe_audit_detects_stable_rotating_physical_bundle() -> None:
+    directions = torch.eye(8, dtype=torch.float64)
+    identity = torch.eye(8, dtype=torch.float64)
+    bases = [identity[start:start + 2] for start in (0, 2, 4, 6)]
+    first = _responses(bases, probes=4)
+    second = _responses(bases, probes=4, scales=[2, 3, 4, 5])
+    report = bundle.analyze_repeated_probe_physical_bundle(
+        first, second, directions, probes_per_half=4, fixed_ranks=(2,),
+        local_rank_limit=2, bootstrap_repetitions=200,
+    )
+    assert report["status"] == "stable_context_varying_response_bundle"
+    assert report["stable_local_low_rank_fraction"] == 1.0
+    assert report["response_bundle_gate"] is True
+    assert report["fixed_rank_physical_projectors"]["2"][
+        "same_context_mean_distance"
+    ] == pytest.approx(0.0, abs=1e-12)
+    assert report["physical_frames_returned"] is False
+
+
+def test_repeated_probe_audit_does_not_call_one_shared_frame_a_bundle() -> None:
+    directions = torch.eye(8, dtype=torch.float64)
+    basis = torch.eye(8, dtype=torch.float64)[:2]
+    first = _responses([basis] * 4, probes=4)
+    second = _responses([basis] * 4, probes=4, scales=[2, 3, 4, 5])
+    report = bundle.analyze_repeated_probe_physical_bundle(
+        first, second, directions, probes_per_half=4, fixed_ranks=(2,),
+        local_rank_limit=2, bootstrap_repetitions=200,
+    )
+    assert report["status"] == "no_admitted_local_bundle"
+    assert report["response_bundle_gate"] is False
+
+
+def test_repeated_probe_audit_validates_physical_map_and_context_count() -> None:
+    responses = torch.eye(4, dtype=torch.float64).repeat(2, 1)
+    with pytest.raises(ValueError, match="at least 3|constants"):
+        bundle.analyze_repeated_probe_physical_bundle(
+            responses[:4], responses[:4], torch.eye(4, dtype=torch.float64),
+            probes_per_half=2, fixed_ranks=(1,), bootstrap_repetitions=100,
+        )
+    collapsed = torch.zeros(4, 5, dtype=torch.float64)
+    with pytest.raises(ValueError, match="full row rank"):
+        bundle.analyze_repeated_probe_physical_bundle(
+            responses, responses, collapsed, probes_per_half=2,
+            fixed_ranks=(1,), bootstrap_repetitions=100,
+        )
