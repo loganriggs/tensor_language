@@ -3351,3 +3351,16 @@ integration note maps this to captured prefix states and distinguishes intrinsic
 replacement sensitivity from upstream distribution shift and downstream amplification.
 Literature mapping cites HOSVD and TT unfolding/SVD error control without importing
 TT quasi-optimality assumptions that do not apply to this order-three tensor.
+
+### 2026-08-28 — Codex, paired-state inventory and missing capture contract (CPU only)
+
+Screened 54 tensor-artifact filenames and inspected the five provenance-bearing
+candidates plausibly containing composed/live MLP inputs. The attention L3 artifact
+stores maps, MLP1 captures store aggregated single-world moments, and MLP4 split
+artifacts store token IDs only; no qualifying aligned typed state pair was found.
+The inventory explicitly does not claim exhaustive semantic inspection of opaque
+legacy files. Froze `bilin18.mlp-composition-state-pair.v1`: future authorized runs
+must bind checkpoint, rows, target interface, upstream program, source, artifact,
+unique `(row,position)` IDs, and aligned finite float32 states. CPU tests reject hash,
+metadata, shape, ordering, and nonfinite failures. This authorizes no GPU or validation
+access and prevents a diagnostic-only cache run from displacing the actual ship work.

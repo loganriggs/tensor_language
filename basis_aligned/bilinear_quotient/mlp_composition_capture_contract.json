@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "contract_id": "bilin18.mlp-composition-state-pair.v1",
+  "status": "capture_not_authorized_template",
+  "purpose": "capture aligned live and upstream-composed RMS-normalized MLP inputs for exact quadratic residual-drift attribution",
+  "required_interface_pattern": "blocks.<layer>.mlp.rmsnorm_input",
+  "worlds": {
+    "live": "all modules upstream of the target MLP execute the pinned native checkpoint",
+    "composed": "the declared frozen upstream replacement prefix executes recursively on the same tokens"
+  },
+  "required_manifest_fields": [
+    "model_id",
+    "checkpoint_revision",
+    "checkpoint_sha256",
+    "object_id",
+    "interface",
+    "state_width",
+    "rows_artifact_sha256",
+    "row_member",
+    "upstream_program_id",
+    "upstream_program_sha256",
+    "capture_source_sha256",
+    "artifact_sha256"
+  ],
+  "artifact_fields": {
+    "observation_ids": "int64 [observations,2] containing source-row index and token position",
+    "z_live": "float32 [observations,state_width]",
+    "z_composed": "float32 [observations,state_width]"
+  },
+  "alignment_invariants": [
+    "one observation ID per state row",
+    "observation IDs unique and lexicographically increasing",
+    "identical rows, token positions, checkpoint, and target interface across worlds",
+    "only the declared upstream program differs between worlds",
+    "all state values finite",
+    "capture is immutable before diagnostic aggregation"
+  ],
+  "operational_semantics": "diagnostic attribution only; does not populate held-out, composite, extraction, removal, or OOD lanes",
+  "gpu_authorized": false,
+  "validation_data_authorized": false
+}

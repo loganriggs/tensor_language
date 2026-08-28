@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "inventory_id": "bilin18.existing-mlp-composition-state-pairs.2026-08-28",
+  "screening_scope": {
+    "tensor_artifact_filenames_screened": 54,
+    "selection_rule": "inspect provenance-bearing artifacts whose names, manifests, or documentation plausibly indicate composed streams, captured MLP states, or the active MLP4 row split",
+    "content_inspection_exhaustive_over_all_54": false
+  },
+  "qualification_requirements": [
+    "same observation IDs in both worlds",
+    "live and recursively upstream-composed states",
+    "exact blocks.<layer>.mlp.rmsnorm_input boundary",
+    "row, checkpoint, upstream-program, and artifact hashes",
+    "unaggregated finite state rows"
+  ],
+  "inspected_artifacts": [
+    {
+      "path": "attention_l3_whitener_frozen_maps.pt",
+      "sha256": "ac8e9586d4b80ff2718a48aa3a067d890c023fcc6b404b2ee5fe1f31d33d34e8",
+      "contents": "original and adapted Q/K maps plus manifests",
+      "qualification": "rejected_no_state_rows"
+    },
+    {
+      "path": "mlp1_loss_weighted_tucker_capture.pt",
+      "sha256": "00513fb8c92db6e8c4c661ed59cb50bc5038f0e104c04cf8199eaeb202bb97c9",
+      "contents": "split-level state/gradient sufficient statistics",
+      "qualification": "rejected_aggregated_single_world_statistics"
+    },
+    {
+      "path": "mlp1_loss_weighted_tucker_third_capture.pt",
+      "sha256": "b8392f14fa12c089ffce1db954637957c0854dc3e6b85c6aefaf2ad7a4d2a7c7",
+      "contents": "third-split state/gradient sufficient statistics",
+      "qualification": "rejected_aggregated_single_world_statistics"
+    },
+    {
+      "path": "mlp4_frontier_fit_rows.pt",
+      "sha256": "ae207d69be652511623cb4bb146b227247037183f34a6fcd7e401fb54af713c5",
+      "contents": "fit token IDs only",
+      "qualification": "rejected_no_state_rows"
+    },
+    {
+      "path": "mlp4_frontier_validation_rows.pt",
+      "sha256": "77129dcd93548eebea091bd283be246b56bb57bbba1840454e173edeea8d1403",
+      "contents": "unopened validation token IDs only",
+      "qualification": "rejected_no_state_rows_validation_remains_unopened"
+    }
+  ],
+  "qualifying_artifacts": [],
+  "conclusion": "no qualifying pair found in the targeted provenance-bearing inspection; this is not a proof that no opaque legacy file contains arrays resembling states",
+  "next_action": "use mlp_composition_capture_contract.json on a future authorized composed evaluation; do not create a new capture merely for this diagnostic"
+}
