@@ -44250,3 +44250,75 @@ optimised fidelity alone and the cost fell out.
 
 Controls: all-36-tabled CE 7.35114 matching §1738/§1739/§1740 across four scripts; the top-6 column
 reproduces §1739's 1.0165 and 1.0383 within 0.001; coverage 5419 of 50257.
+
+## §1742 — the greedy frontier: attention first for nine of the first ten sites, and the greedy marginal RISES four times, which means the objective is not submodular
+
+`ops/greedy_pareto_frontier.py`, 642.6s, 413 candidate evaluations, **DISCOVERY ONLY**.
+**pred_a False | pred_b True | pred_c False | pred_d True.**
+
+```
+   K  native cost  greedy sel  greedy TRF   rank sel  rank cost   marginal nats/M
+   1      15.926M     0.5128     0.5141      0.5128    15.926M      0.03220
+   2      23.889      0.7538     0.7529      0.3085    31.852       0.03027
+   3      31.852      0.9017     0.9281      0.6438    39.815       0.01858
+   4      39.815      1.0306     1.0596      0.6723    55.741       0.01618
+   5      47.778      1.1250     1.1610      0.8538    63.704       0.01186
+   6      55.741      1.2037     1.2414      1.0165    71.667       0.00987
+   7      63.704      1.2774     1.3115      1.1089    79.630       0.00926
+   8      71.667      1.3487     1.3814      1.1801    87.593       0.00895
+   9      79.630      1.4210     1.4614      1.1976   103.519       0.00909
+  10      95.556      1.4862     1.5280      1.2216   119.445       0.00409
+  11     111.482      1.5514     1.5940      1.2405   135.371       0.00409
+  12     119.445      1.6182     1.6693      1.2589   151.297       0.00839
+  13     135.371      1.6874     1.7405      1.2705   167.223       0.00435
+  14     151.297      1.7679     1.8231      1.3684   175.186       0.00506
+
+  greedy order: mlp17, attn16, attn14, attn11, attn17, attn13, attn10, attn9, attn7,
+                mlp11, mlp12, attn8, mlp9, mlp10
+```
+
+**pred_b passed: attention is 9 of the 14**, and nine of the first ten picks are attention. §1741's
+five-of-six was not a small-budget effect. **At K=14 greedy recovers 1.8231 nats on the transfer
+role — 42.8% of that role's stake — for 151.3M reals of native module**, against the ranking's 1.3684
+at 175.2M.
+
+**pred_a FAILED at exactly one budget, K=1, and for a structural reason.** Both procedures pick
+`mlp17` first, so the allocations are identical and a strict inequality cannot hold. **At every K
+from 2 to 14 greedy strictly dominates the ranking on both axes** — more recovered, no more cost.
+The prediction as written asked for strict domination at every K including one where the two
+procedures must agree; that is a bar-writing error, and it is scored as a fail.
+
+**pred_c FAILED, and the failure separates into two causes that should not be conflated.**
+
+*First, the price axis alternates.* An attention site costs 7.963M and an MLP 15.926M, so a step
+that adds attention has roughly double the nats-per-real of one that adds an MLP whatever the
+fidelity gain. K=10 and K=11 add mlp11 and mlp12 at 0.0041 each; K=12 adds attn8 at 0.0084. That
+part of the non-monotonicity is arithmetic on module prices, not structure.
+
+*Second, and this one is real: the greedy MARGINAL FIDELITY GAIN rises four times.*
+
+```
+  step   1      2      3      4      5      6      7      8      9     10     11     12     13     14
+  gain .5128  .2410  .1479  .1289  .0944  .0787  .0737  .0713  .0723  .0652  .0652  .0668  .0692  .0805
+                                                                ^rise                ^rise  ^rise  ^rise
+```
+
+Greedy picks the best remaining site at every step. At step 8 it chose `attn9` for 0.0713, so
+`attn7` — available and not chosen — was worth **at most** 0.0713 at that point. At step 9 `attn7`
+delivered **0.0723**. **Its value went UP because attn9 had become native.** That is a direct
+demonstration from the greedy trace alone that the objective is **not submodular**: these sites help
+each other, so what a site is worth depends on what is already there. It is §1736's attention
+cooperativity — the attention stack's joint removal being 2.5x the sum of its individual removals —
+showing up in the selection procedure rather than in an ablation table, and it happens four separate
+times, ending with the largest rise of all at step 14.
+
+**A consequence worth stating plainly: greedy has no optimality guarantee here.** The standard
+`1 − 1/e` bound needs submodularity, and this objective demonstrably lacks it. Greedy is still much
+better than the ranking (§1741, and every K ≥ 2 above), but **the frontier above is a lower bound on
+what a good allocation achieves, not the best allocation at each budget.** Nothing in §1739–§1742
+should be read as "these are the K sites to keep".
+
+Controls (pred_d): the K=6 prefix reproduced §1741's greedy set **exactly** —
+`mlp17, attn16, attn14, attn11, attn17, attn13` — with 1.2037 and 1.2414 to four decimals, which is
+available as a control only because greedy is deterministic; all-36-tabled CE 7.35114 across five
+scripts; coverage 5419 of 50257.

@@ -1,0 +1,570 @@
+{
+ "config": {
+  "budget_max": 14,
+  "select_role": "skip7000",
+  "transfer_role": "skip11000",
+  "prices_M_reals": {
+   "mlp": 15.926,
+   "attn": 7.963
+  },
+  "frontier": "each K is a point in (native module cost, recovered nats). Greedy prefixes are NESTED, so one greedy run to K gives the whole curve.",
+  "ROLE_NOTE": "DISCOVERY ONLY. Both large roles remain spent for certification (\u00a71736-\u00a71741); the selection/transfer split guards selection overfit, which is a different failure from role burn."
+ },
+ "greedy_order": [
+  "mlp17",
+  "attn16",
+  "attn14",
+  "attn11",
+  "attn17",
+  "attn13",
+  "attn10",
+  "attn9",
+  "attn7",
+  "mlp11",
+  "mlp12",
+  "attn8",
+  "mlp9",
+  "mlp10"
+ ],
+ "frontier": [
+  {
+   "K": 1,
+   "greedy_set": [
+    "mlp17"
+   ],
+   "native_cost_M": 15.926,
+   "greedy": {
+    "skip7000": 0.51279,
+    "skip11000": 0.5141
+   },
+   "greedy_frac": {
+    "skip7000": 0.12633,
+    "skip11000": 0.12065
+   },
+   "rank_set": [
+    "mlp17"
+   ],
+   "rank_native_cost_M": 15.926,
+   "rank": {
+    "skip7000": 0.51279,
+    "skip11000": 0.5141
+   },
+   "greedy_marginal_nats_per_Mreal": 0.032198,
+   "n_attn": 0
+  },
+  {
+   "K": 2,
+   "greedy_set": [
+    "mlp17",
+    "attn16"
+   ],
+   "native_cost_M": 23.889,
+   "greedy": {
+    "skip7000": 0.75382,
+    "skip11000": 0.75291
+   },
+   "greedy_frac": {
+    "skip7000": 0.18571,
+    "skip11000": 0.17669
+   },
+   "rank_set": [
+    "mlp17",
+    "mlp16"
+   ],
+   "rank_native_cost_M": 31.852,
+   "rank": {
+    "skip7000": 0.30848,
+    "skip11000": 0.29966
+   },
+   "greedy_marginal_nats_per_Mreal": 0.030268,
+   "n_attn": 1
+  },
+  {
+   "K": 3,
+   "greedy_set": [
+    "mlp17",
+    "attn16",
+    "attn14"
+   ],
+   "native_cost_M": 31.852,
+   "greedy": {
+    "skip7000": 0.90175,
+    "skip11000": 0.92813
+   },
+   "greedy_frac": {
+    "skip7000": 0.22216,
+    "skip11000": 0.21781
+   },
+   "rank_set": [
+    "mlp17",
+    "mlp16",
+    "attn16"
+   ],
+   "rank_native_cost_M": 39.815,
+   "rank": {
+    "skip7000": 0.64378,
+    "skip11000": 0.63558
+   },
+   "greedy_marginal_nats_per_Mreal": 0.018578,
+   "n_attn": 2
+  },
+  {
+   "K": 4,
+   "greedy_set": [
+    "mlp17",
+    "attn16",
+    "attn14",
+    "attn11"
+   ],
+   "native_cost_M": 39.815,
+   "greedy": {
+    "skip7000": 1.0306,
+    "skip11000": 1.05959
+   },
+   "greedy_frac": {
+    "skip7000": 0.2539,
+    "skip11000": 0.24866
+   },
+   "rank_set": [
+    "mlp17",
+    "mlp16",
+    "attn16",
+    "mlp15"
+   ],
+   "rank_native_cost_M": 55.741,
+   "rank": {
+    "skip7000": 0.67227,
+    "skip11000": 0.66527
+   },
+   "greedy_marginal_nats_per_Mreal": 0.016181,
+   "n_attn": 3
+  },
+  {
+   "K": 5,
+   "greedy_set": [
+    "mlp17",
+    "attn16",
+    "attn14",
+    "attn11",
+    "attn17"
+   ],
+   "native_cost_M": 47.778,
+   "greedy": {
+    "skip7000": 1.12505,
+    "skip11000": 1.16098
+   },
+   "greedy_frac": {
+    "skip7000": 0.27717,
+    "skip11000": 0.27246
+   },
+   "rank_set": [
+    "mlp17",
+    "mlp16",
+    "attn16",
+    "mlp15",
+    "attn14"
+   ],
+   "rank_native_cost_M": 63.704,
+   "rank": {
+    "skip7000": 0.85383,
+    "skip11000": 0.87526
+   },
+   "greedy_marginal_nats_per_Mreal": 0.011861,
+   "n_attn": 4
+  },
+  {
+   "K": 6,
+   "greedy_set": [
+    "mlp17",
+    "attn16",
+    "attn14",
+    "attn11",
+    "attn17",
+    "attn13"
+   ],
+   "native_cost_M": 55.741,
+   "greedy": {
+    "skip7000": 1.20366,
+    "skip11000": 1.2414
+   },
+   "greedy_frac": {
+    "skip7000": 0.29654,
+    "skip11000": 0.29133
+   },
+   "rank_set": [
+    "mlp17",
+    "mlp16",
+    "attn16",
+    "mlp15",
+    "attn14",
+    "attn17"
+   ],
+   "rank_native_cost_M": 71.667,
+   "rank": {
+    "skip7000": 1.01649,
+    "skip11000": 1.03832
+   },
+   "greedy_marginal_nats_per_Mreal": 0.009873,
+   "n_attn": 5
+  },
+  {
+   "K": 7,
+   "greedy_set": [
+    "mlp17",
+    "attn16",
+    "attn14",
+    "attn11",
+    "attn17",
+    "attn13",
+    "attn10"
+   ],
+   "native_cost_M": 63.704,
+   "greedy": {
+    "skip7000": 1.27742,
+    "skip11000": 1.31147
+   },
+   "greedy_frac": {
+    "skip7000": 0.31471,
+    "skip11000": 0.30778
+   },
+   "rank_set": [
+    "mlp17",
+    "mlp16",
+    "attn16",
+    "mlp15",
+    "attn14",
+    "attn17",
+    "attn13"
+   ],
+   "rank_native_cost_M": 79.63,
+   "rank": {
+    "skip7000": 1.10891,
+    "skip11000": 1.13321
+   },
+   "greedy_marginal_nats_per_Mreal": 0.009262,
+   "n_attn": 6
+  },
+  {
+   "K": 8,
+   "greedy_set": [
+    "mlp17",
+    "attn16",
+    "attn14",
+    "attn11",
+    "attn17",
+    "attn13",
+    "attn10",
+    "attn9"
+   ],
+   "native_cost_M": 71.667,
+   "greedy": {
+    "skip7000": 1.34866,
+    "skip11000": 1.38137
+   },
+   "greedy_frac": {
+    "skip7000": 0.33226,
+    "skip11000": 0.32418
+   },
+   "rank_set": [
+    "mlp17",
+    "mlp16",
+    "attn16",
+    "mlp15",
+    "attn14",
+    "attn17",
+    "attn13",
+    "attn15"
+   ],
+   "rank_native_cost_M": 87.593,
+   "rank": {
+    "skip7000": 1.18012,
+    "skip11000": 1.19868
+   },
+   "greedy_marginal_nats_per_Mreal": 0.008947,
+   "n_attn": 7
+  },
+  {
+   "K": 9,
+   "greedy_set": [
+    "mlp17",
+    "attn16",
+    "attn14",
+    "attn11",
+    "attn17",
+    "attn13",
+    "attn10",
+    "attn9",
+    "attn7"
+   ],
+   "native_cost_M": 79.63,
+   "greedy": {
+    "skip7000": 1.42104,
+    "skip11000": 1.46144
+   },
+   "greedy_frac": {
+    "skip7000": 0.35009,
+    "skip11000": 0.34297
+   },
+   "rank_set": [
+    "mlp17",
+    "mlp16",
+    "attn16",
+    "mlp15",
+    "attn14",
+    "attn17",
+    "attn13",
+    "attn15",
+    "mlp12"
+   ],
+   "rank_native_cost_M": 103.519,
+   "rank": {
+    "skip7000": 1.19761,
+    "skip11000": 1.21774
+   },
+   "greedy_marginal_nats_per_Mreal": 0.009088,
+   "n_attn": 8
+  },
+  {
+   "K": 10,
+   "greedy_set": [
+    "mlp17",
+    "attn16",
+    "attn14",
+    "attn11",
+    "attn17",
+    "attn13",
+    "attn10",
+    "attn9",
+    "attn7",
+    "mlp11"
+   ],
+   "native_cost_M": 95.556,
+   "greedy": {
+    "skip7000": 1.48624,
+    "skip11000": 1.52796
+   },
+   "greedy_frac": {
+    "skip7000": 0.36615,
+    "skip11000": 0.35858
+   },
+   "rank_set": [
+    "mlp17",
+    "mlp16",
+    "attn16",
+    "mlp15",
+    "attn14",
+    "attn17",
+    "attn13",
+    "attn15",
+    "mlp12",
+    "mlp14"
+   ],
+   "rank_native_cost_M": 119.445,
+   "rank": {
+    "skip7000": 1.22162,
+    "skip11000": 1.24054
+   },
+   "greedy_marginal_nats_per_Mreal": 0.004094,
+   "n_attn": 8
+  },
+  {
+   "K": 11,
+   "greedy_set": [
+    "mlp17",
+    "attn16",
+    "attn14",
+    "attn11",
+    "attn17",
+    "attn13",
+    "attn10",
+    "attn9",
+    "attn7",
+    "mlp11",
+    "mlp12"
+   ],
+   "native_cost_M": 111.482,
+   "greedy": {
+    "skip7000": 1.55139,
+    "skip11000": 1.59395
+   },
+   "greedy_frac": {
+    "skip7000": 0.3822,
+    "skip11000": 0.37407
+   },
+   "rank_set": [
+    "mlp17",
+    "mlp16",
+    "attn16",
+    "mlp15",
+    "attn14",
+    "attn17",
+    "attn13",
+    "attn15",
+    "mlp12",
+    "mlp14",
+    "mlp13"
+   ],
+   "rank_native_cost_M": 135.371,
+   "rank": {
+    "skip7000": 1.2405,
+    "skip11000": 1.25989
+   },
+   "greedy_marginal_nats_per_Mreal": 0.004091,
+   "n_attn": 8
+  },
+  {
+   "K": 12,
+   "greedy_set": [
+    "mlp17",
+    "attn16",
+    "attn14",
+    "attn11",
+    "attn17",
+    "attn13",
+    "attn10",
+    "attn9",
+    "attn7",
+    "mlp11",
+    "mlp12",
+    "attn8"
+   ],
+   "native_cost_M": 119.445,
+   "greedy": {
+    "skip7000": 1.61816,
+    "skip11000": 1.66925
+   },
+   "greedy_frac": {
+    "skip7000": 0.39865,
+    "skip11000": 0.39174
+   },
+   "rank_set": [
+    "mlp17",
+    "mlp16",
+    "attn16",
+    "mlp15",
+    "attn14",
+    "attn17",
+    "attn13",
+    "attn15",
+    "mlp12",
+    "mlp14",
+    "mlp13",
+    "mlp11"
+   ],
+   "rank_native_cost_M": 151.297,
+   "rank": {
+    "skip7000": 1.25888,
+    "skip11000": 1.28138
+   },
+   "greedy_marginal_nats_per_Mreal": 0.008385,
+   "n_attn": 9
+  },
+  {
+   "K": 13,
+   "greedy_set": [
+    "mlp17",
+    "attn16",
+    "attn14",
+    "attn11",
+    "attn17",
+    "attn13",
+    "attn10",
+    "attn9",
+    "attn7",
+    "mlp11",
+    "mlp12",
+    "attn8",
+    "mlp9"
+   ],
+   "native_cost_M": 135.371,
+   "greedy": {
+    "skip7000": 1.68742,
+    "skip11000": 1.74055
+   },
+   "greedy_frac": {
+    "skip7000": 0.41572,
+    "skip11000": 0.40847
+   },
+   "rank_set": [
+    "mlp17",
+    "mlp16",
+    "attn16",
+    "mlp15",
+    "attn14",
+    "attn17",
+    "attn13",
+    "attn15",
+    "mlp12",
+    "mlp14",
+    "mlp13",
+    "mlp11",
+    "mlp9"
+   ],
+   "rank_native_cost_M": 167.223,
+   "rank": {
+    "skip7000": 1.27052,
+    "skip11000": 1.29486
+   },
+   "greedy_marginal_nats_per_Mreal": 0.004349,
+   "n_attn": 9
+  },
+  {
+   "K": 14,
+   "greedy_set": [
+    "mlp17",
+    "attn16",
+    "attn14",
+    "attn11",
+    "attn17",
+    "attn13",
+    "attn10",
+    "attn9",
+    "attn7",
+    "mlp11",
+    "mlp12",
+    "attn8",
+    "mlp9",
+    "mlp10"
+   ],
+   "native_cost_M": 151.297,
+   "greedy": {
+    "skip7000": 1.76794,
+    "skip11000": 1.82306
+   },
+   "greedy_frac": {
+    "skip7000": 0.43555,
+    "skip11000": 0.42783
+   },
+   "rank_set": [
+    "mlp17",
+    "mlp16",
+    "attn16",
+    "mlp15",
+    "attn14",
+    "attn17",
+    "attn13",
+    "attn15",
+    "mlp12",
+    "mlp14",
+    "mlp13",
+    "mlp11",
+    "mlp9",
+    "attn8"
+   ],
+   "rank_native_cost_M": 175.186,
+   "rank": {
+    "skip7000": 1.36843,
+    "skip11000": 1.39851
+   },
+   "greedy_marginal_nats_per_Mreal": 0.005056,
+   "n_attn": 9
+  }
+ ],
+ "predictions": {
+  "pred_a_greedy_dominates_ranking_both_axes": false,
+  "pred_b_attention_majority": true,
+  "pred_c_no_knee_in_nats_per_Mreal": false,
+  "pred_d_controls": true
+ },
+ "runtime_s": 642.6
+}
