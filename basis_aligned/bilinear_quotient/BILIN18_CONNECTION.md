@@ -48152,3 +48152,61 @@ this arm is rank-64); L-1 and L13 CE reproduce §1816's published values within 
 **Open question this ends on.** Every result in §1788-§1817 stands on three roles drawn from the same
 FineWeb stream. The frontier, the dominance, the axis-invariance and now the KL identity are all
 role-consistent — but role-consistent within one corpus is not the same as general.
+
+## §1818 — it IS head 5.7: the constant-bias head carries 85% of the L5 explosion
+
+`ops/which_head_exploded.py`, 163.7s, **DISCOVERY ONLY**, rung 3 — the question **Logan raised**, asking
+whether the bias-equivalent, outlier-dimension head at layer 5 was the one that blew up.
+**pred_a True | pred_b True | pred_c FALSE | pred_d True.**
+
+Per-head mean output norm at scored positions, live stream -> fully compiled stream (skip7000):
+
+```
+    L5   h0   242.3 ->      113.5    0.47x     h5   247.7 ->     9132.5    36.86x
+         h1   247.2 ->     2145.9    8.68x     h6   518.3 ->    43507.3    83.93x
+         h2   505.7 ->   121745.9  240.76x     h7  6657.8 ->  1057986.8   158.91x
+         h3   331.9 ->      321.1    0.97x     h8   358.0 ->     2365.2     6.61x
+         h4   273.8 ->     9313.2   34.02x
+```
+
+**pred_a and pred_b both passed: head 7 carries 85.0% of L5's excess output norm**, against
+h2:10%, h6:3%, and everything else at or below 1%. That is **L5H7 — the head §1089 certified as a
+CONSTANT-BIAS head whose "whole 0.88-nat function is one fixed vector, and that vector sits on the
+massive-activation/gain dims"**, and whose bias value §1089 measured at 86% of the entire stack's.
+
+**It was already the dominant head at L5 before anything was compiled**: 6657.8 against a mean of 341.6
+for the other eight — **19.5x** — i.e. **71.0% of the layer's live output norm**, rising to **84.9%** in
+the compiled stream. So the layer-level 152x of §1804 is, to first order, this one head going from
+large to enormous.
+
+**pred_c FAILED, and its failure corrects the picture I had.** I predicted the explosion would be
+*concentrated by ratio* — max at least 10x the median head. The max ratio is **240.76x (h2)** against a
+median of **34.02x**, a factor of only 7.1. **Seven of nine heads inflate by more than 6x and four by
+more than 34x: the whole layer destabilises.** h7 dominates the *absolute* excess not because it
+inflates hardest but because it starts 19.5x larger than anything else. Both facts are true and I would
+have reported only the first had pred_c not failed.
+
+**The mechanism remains a hypothesis, and I am labelling it as one.** The story that fits — a
+constant-bias head whose constancy is a property of its attention PATTERN (mass parked on the sink)
+rather than of its output map, so that a context-free stream disperses the softmax and turns one small
+fixed write into an average over everything — **is not tested by this run.** I measured norms, not
+patterns. It does explain the otherwise strange pairing that §1807 recorded and §1804 did not resolve:
+attn L5 and L6 have the two **best** live/row matches in the stack (1.00 and 1.02) precisely because a
+per-token table models a near-constant head almost perfectly, and are the two worst exploders. But that
+is a story fitted to existing observations, which is exactly what §1706 and LESSON 37 warn about.
+
+**L6's top head is h1 (106.79x from a base of 1786.0), not h7** — so the two cliff layers do not share a
+head, and any account had better explain both. L13, whose restoration cost only ~2pp, barely moves at
+all (layer ratio 1.69x).
+
+Controls (pred_d): the per-head decomposition is **exact** — heads plus bias reconstruct each layer's
+write to a relative residual below 1e-3 in both streams, which is what makes the 85% share meaningful
+(LESSON 34); and the layer-level live-referenced ratios are L4 **4.81x**, L5 **132.86x**, L6 **63.04x**,
+L13 **1.69x**, reproducing §1804's ordering. I deliberately barred on the ordering and not on §1804's
+absolute 152.62, because that figure is referenced to the ROW norm and this one to the LIVE norm —
+bounding the wrong quantity is LESSON 49's error.
+
+**Open question this ends on.** Test the mechanism instead of fitting it: capture head 5.7's attention
+pattern in both streams and measure the mass on position 0. If the sink mass collapses when the stream
+goes context-free, the account holds; if it does not, a constant head is exploding for some other
+reason and the story is wrong.
