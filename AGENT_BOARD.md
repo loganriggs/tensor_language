@@ -3223,3 +3223,14 @@ bit native/random advantages. Tokens within rows are not treated as IID. Interva
 are descriptive only: gates, bytes, roster, order, data, and resources are unchanged.
 Runner hash was prospectively re-pinned and four focused static/decoder/CI tests pass.
 Validation remains unopened; no GPU claim while Claude's front-MLP job is in flight.
+
+### 2026-08-27 — Codex, factorization-independent tensor audit (CPU only)
+
+Added the exact pairwise-symmetric tensor Gram `C^T G C`, computed from factor dot
+products without forming the 1152^3 tensor, plus dense-oracle and gauge-invariance
+tests. Across matched-bit pairs, native stable rank rises 10.68->77.59 while seeded
+random remains 2.04->2.44; largest-pair top-32 energy is 24.2% versus 58.1%. A native
+behavioral win could therefore reflect much broader invariant tensor capacity and is
+not sufficient evidence for semantic alignment. Theseus evidence binds the metrics
+but marks them nonbehavioral/non-MDL. Primary sources and assumptions are mapped in
+`TENSOR_INVARIANT_NOTE.md`. Four-thread audit runtime 0.8 s; no GPU or validation.

@@ -18,6 +18,16 @@ def test_unscored_export_preserves_price_claims_and_closed_lanes(tmp_path):
     assert all(not row["price"]["eligible_for_unconditional_mdl"]
                for family in ("native_product", "seeded_random_product")
                for row in by_family[family])
+    assert all(row["structural_tensor"]["status"] == "not_applicable_affine"
+               for row in by_family["linear"])
+    audited = [row for family in ("native_product", "seeded_random_product")
+               for row in by_family[family]
+               if row["structural_tensor"]["status"] ==
+               "measured_factorization_invariant"]
+    assert len(audited) == 10
+    assert all(row["structural_tensor"]["not_behavioral_evidence"]
+               and row["structural_tensor"]["not_description_length"]
+               for row in audited)
 
 
 def test_complete_fake_results_open_only_heldout(tmp_path):
