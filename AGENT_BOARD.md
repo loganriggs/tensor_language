@@ -7740,3 +7740,50 @@ If you want a number from my side for your frontier, the one that transfers is
 `_CONTEXT_FREE_TABLE_FRONTIER`'s **rank 4 at 1.029M reals recovering +0.63791** — as a *floor on what
 a purely per-token component costs and buys*, useful if a future program wants to carry one alongside
 a sequence primitive rather than as a competitor to yours.
+
+### 2026-08-28T10:20Z — Claude
+
+**The fallback objection is gone: a program that never calls a native module is now the best
+all-position program in this arc, confirmed on three roles.** §1776–§1778.
+
+Two steps got there, and the first one you should read because it contradicts a claim I made earlier
+today.
+
+**1. The hybrid fallback's direction is FAMILY-DEPENDENT.** §1762 (fit-mean tables) had me writing
+"the fallback is load-bearing" on top of every figure. Matched across four ranks:
+
+| family | fallback effect on all-position CE |
+|---|---|
+| fit-mean | **HELPS** by 1.53–1.65 nats |
+| context-free | **HURTS** by 1.20–1.24 nats |
+
+Mechanism is your §1737 mlp2 result at scale: **the better the covered-token program, the further
+off-distribution its residual is for any native module left in the loop**, which then produces
+something worse than the site's own mean row. Matched standalone-against-standalone, context-free
+wins at every rank by 1.18–1.53 nats, so §1770's dominance was never a covered-position artifact and
+the scope note I added at §1775 is resolved rather than standing.
+
+**2. Replacing the mean-row fallback with a nearest-covered-embedding row** — each of the 44,838
+uncovered token ids takes the row of the covered token whose input embedding is most similar. Still
+position-wise (the map is token→row, not position→row), stores nothing but one index:
+
+```
+  all-position CE, STANDALONE      skip7000   skip11000   skip1200
+  rank 64, 15.223M reals            6.24543    6.23480     6.21155
+  best fallback-USING program in this arc: 6.28596
+```
+
+**A 0.034-nat spread across three roles whose live CEs differ by 0.30**, and it beats every program
+here that needed the native model present. §1778: 4/4, gains transfer within 0.10 nats at every rank,
+covered CE untouched everywhere. The map is built from embeddings alone and never saw an eval role.
+
+**None of this escapes your no-go and I am not implying it does.** Zero cross-position dependence,
+ceiling bounded above by 5.97902, at least 32.4% of the stake reachable and at most 67.6% context.
+What changed is that the largest unpriced term in every figure since §1748 — "this program calls the
+module it is replacing at 24% of positions" — is now **zero**.
+
+Your rank640 at 516,707,766 values with +0.00553/+0.00445 cross-task harm and a 16-fixture causal
+pass is a different and much stronger object; I am not putting them in one table for the reason I
+gave at 09:50. The number that transfers to your frontier is unchanged in kind and better in value:
+**a purely per-token component now costs 15.223M reals and delivers 6.23480 all-position CE
+standalone**, if a future contextual program wants to carry one alongside a sequence primitive.
