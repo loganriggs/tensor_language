@@ -33,6 +33,50 @@ def sha(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
+def atomic_json(path, payload):
+    temporary = path.with_suffix(path.suffix+".tmp")
+    temporary.write_text(json.dumps(payload, indent=2)+"\n")
+    temporary.replace(path)
+
+
+def validate_resume(payload, protocol, inventory_rows):
+    if payload.get("partial") is not True:
+        raise RuntimeError("completed validation result refuses rerun")
+    if payload.get("protocol_id") != protocol["protocol_id"] \
+            or payload.get("protocol_sha256") != sha(PROTOCOL) \
+            or payload.get("pinned_artifacts") != protocol["pinned_artifacts"]:
+        raise ValueError("partial result provenance mismatch")
+    points = payload.get("points", [])
+    completed = [point["candidate_id"] for point in points]
+    if completed != protocol["candidate_order"][:len(completed)]:
+        raise ValueError("partial result is not an exact candidate-order prefix")
+    if len(set(completed)) != len(completed):
+        raise ValueError("partial result repeats a candidate")
+    for point in points:
+        expected = inventory_rows[point["candidate_id"]]["canonical_bytes_hash"]
+        if point["program_hash"] != expected:
+            raise ValueError("partial candidate hash mismatch")
+    row_scores = payload.get("row_scores_by_id", {})
+    if set(row_scores) != set(completed) or any(len(x) != 960 for x in row_scores.values()):
+        raise ValueError("partial candidate row-score state mismatch")
+    if len(payload.get("live_rows", [])) != 960 \
+            or len(payload.get("anchor_rows", [])) != 960:
+        raise ValueError("partial control row-score state mismatch")
+    return points, row_scores
+
+
+def partial_payload(protocol, live, anchor, live_rows, anchor_rows,
+                    points, row_scores_by_id):
+    return {"schema_version": 1, "partial": True,
+            "protocol_id": protocol["protocol_id"],
+            "protocol_sha256": sha(PROTOCOL),
+            "pinned_artifacts": protocol["pinned_artifacts"],
+            "live_ce": live, "mean_ce": anchor,
+            "live_rows": live_rows, "anchor_rows": anchor_rows,
+            "points": points, "row_scores_by_id": row_scores_by_id,
+            "resume_policy": "mechanical exact-prefix only; no selection or promotion"}
+
+
 def resource_guard(protocol):
     peak = torch.cuda.max_memory_allocated(ship.DEV)/2**30
     if peak > protocol["resources"]["hard_abort_peak_gib"]:
@@ -137,12 +181,25 @@ def main():
     inventory = json.loads(INVENTORY.read_text())
     controls = torch.load(CONTROLS, map_location="cpu", weights_only=False)
     mean = controls["mean_output"]
-    live, live_rows, peak, temp = evaluate(rows, protocol)
-    anchor, anchor_rows, p, t = evaluate(rows, protocol, "mean", mean=mean)
-    peak, temp = max(peak, p), max(temp, t)
-    points = []; row_scores_by_id = {}
     inventory_rows = {row["candidate_id"]: row for row in inventory["candidates"]}
+    if OUTPUT.exists():
+        partial = json.loads(OUTPUT.read_text())
+        points, row_scores_by_id = validate_resume(partial, protocol, inventory_rows)
+        live, anchor = partial["live_ce"], partial["mean_ce"]
+        live_rows, anchor_rows = partial["live_rows"], partial["anchor_rows"]
+        peak = 0.0; temp = 0
+        print(f"mechanical resume after {len(points)} candidates", flush=True)
+    else:
+        live, live_rows, peak, temp = evaluate(rows, protocol)
+        anchor, anchor_rows, p, t = evaluate(rows, protocol, "mean", mean=mean)
+        peak, temp = max(peak, p), max(temp, t)
+        points = []; row_scores_by_id = {}
+        atomic_json(OUTPUT, partial_payload(
+            protocol, live, anchor, live_rows, anchor_rows, points, row_scores_by_id))
+    completed = {point["candidate_id"] for point in points}
     for candidate_id in protocol["candidate_order"]:
+        if candidate_id in completed:
+            continue
         encoded = frozen[candidate_id]
         expected_hash = inventory_rows[candidate_id]["canonical_bytes_hash"].split(":")[-1]
         if hashlib.sha256(encoded).hexdigest() != expected_hash:
@@ -160,6 +217,9 @@ def main():
                  "fidelity": 1-(ce-live)/(anchor-live)}
         points.append(point); peak, temp = max(peak, p), max(temp, t)
         row_scores_by_id[candidate_id] = candidate_rows
+        atomic_json(OUTPUT, partial_payload(
+            protocol, live, anchor, live_rows, anchor_rows,
+            points, row_scores_by_id))
         print(f"{candidate_id}: CE {ce:.6f}, fidelity {point['fidelity']:.4f}", flush=True)
         del program
         torch.cuda.empty_cache()
@@ -195,7 +255,7 @@ def main():
                             "runtime_s": time.time()-started},
               "interpretation": {"held_out_lane_only": True, "promotion": False,
                                  "validation_refit": False}}
-    OUTPUT.write_text(json.dumps(result, indent=2)+"\n")
+    atomic_json(OUTPUT, result)
     print(f"wrote {OUTPUT.name} in {result['resources']['runtime_s']:.1f}s", flush=True)
 
 

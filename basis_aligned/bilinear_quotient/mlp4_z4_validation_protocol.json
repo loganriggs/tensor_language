@@ -28,7 +28,7 @@
     "mlp4_z4_validation_controls.pt": "b7397504fed19f0bb10a80d57bf7c2fee8e16f8902307a4fb11e24979d685640"
   },
   "pinned_sources": {
-    "mlp4_z4_validation.py": "522056b7456b8cc1adf05bd764b86692798b9c885dfde00dac8c3c45b0ea98a5",
+    "mlp4_z4_validation.py": "700b011b25dcb79ac1008feb4368427b772ec34e7a9626ad32aa90bfb2bb6a32",
     "bilin18_clean_runtime.py": "45f6d975477298eda15f23e0a68c976cfa2c8f64c3c947d786d8fe62483540a7",
     "affine_codec.py": "f8b475542365e9c175578508b17d05f5516890e3a24db5d16dfa96fecaf14238",
     "mlp4_bilinear_residual_codec.py": "521933802fd552ef97f953814c63e49d4d1fae7a445ac49b11c3fa7d40c97a30",
@@ -51,7 +51,10 @@
     "confidence_intervals_are_descriptive_not_gates": true,
     "all_candidates_evaluated_once": true,
     "no_early_stopping": true,
-    "no_validation_refit_or_selection": true
+    "no_validation_refit_or_selection": true,
+    "failure_recovery": "atomic partial ledger; exact candidate-order prefix resumes mechanically",
+    "partial_results_may_not_promote_or_change_roster": true,
+    "completed_result_refuses_rerun": true
   },
   "gates": {
     "native_beats_matched_random_pairs": "at least 4 of 5 lower-or-equal actual-bit pairs",

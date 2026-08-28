@@ -88,3 +88,47 @@ def test_every_frozen_stream_decodes_to_the_promised_z4_interface():
             assert decoded["components"] == row["capacity"]
             assert decoded["C"].shape == (row["capacity"], 1152)
             assert decoded["bias"].shape == (1152,)
+
+
+def test_resume_validator_is_pure_and_rejects_nonprefix_or_completed_state(tmp_path):
+    source = (protocol.HERE/"mlp4_z4_validation.py").read_text()
+    tree = ast.parse(source)
+    selected = [node for node in tree.body if isinstance(node, ast.FunctionDef)
+                and node.name in {"sha", "atomic_json", "validate_resume"}]
+    namespace = {"PROTOCOL": tmp_path/"protocol.json", "hashlib": hashlib,
+                 "json": json}
+    namespace["PROTOCOL"].write_text("{}")
+    exec(compile(ast.Module(body=selected, type_ignores=[]), "<resume>", "exec"), namespace)
+    p = {"protocol_id": "p", "candidate_order": ["a", "b"],
+         "pinned_artifacts": {"x": "y"}}
+    inventory = {key: {"canonical_bytes_hash": "sha256:"+key} for key in ("a", "b")}
+    base = {"partial": True, "protocol_id": "p",
+            "protocol_sha256": namespace["sha"](namespace["PROTOCOL"]),
+            "pinned_artifacts": {"x": "y"}, "live_rows": [0.]*960,
+            "anchor_rows": [0.]*960, "points": [], "row_scores_by_id": {}}
+    assert namespace["validate_resume"](base, p, inventory) == ([], {})
+    good_point = {"candidate_id": "a", "program_hash": "sha256:a"}
+    good = {**base, "points": [good_point],
+            "row_scores_by_id": {"a": [0.]*960}}
+    assert namespace["validate_resume"](good, p, inventory) == (
+        [good_point], {"a": [0.]*960})
+    ledger = tmp_path/"ledger.json"
+    namespace["atomic_json"](ledger, good)
+    assert json.loads(ledger.read_text()) == good
+    assert not (tmp_path/"ledger.json.tmp").exists()
+    completed = {**base, "partial": False}
+    try:
+        namespace["validate_resume"](completed, p, inventory)
+    except RuntimeError:
+        pass
+    else:
+        raise AssertionError("completed result accepted for rerun")
+    bad = {**base, "points": [
+        {"candidate_id": "b", "program_hash": "sha256:b"}],
+        "row_scores_by_id": {"b": [0.]*960}}
+    try:
+        namespace["validate_resume"](bad, p, inventory)
+    except ValueError as error:
+        assert "prefix" in str(error)
+    else:
+        raise AssertionError("nonprefix partial state accepted")

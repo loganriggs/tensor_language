@@ -26,6 +26,8 @@ def load_and_validate(path=PATH):
     assert p["controls"] == ["retained_live_mlp4", "fit_mean_mlp4_output"]
     assert p["metrics"]["all_candidates_evaluated_once"]
     assert p["metrics"]["no_early_stopping"] and p["metrics"]["no_validation_refit_or_selection"]
+    assert p["metrics"]["partial_results_may_not_promote_or_change_roster"]
+    assert p["metrics"]["completed_result_refuses_rerun"]
     assert "paired row" in p["metrics"]["uncertainty_unit"]
     assert p["metrics"]["confidence_intervals_are_descriptive_not_gates"]
     assert not p["data"]["fit_rows_may_be_opened"]
@@ -43,6 +45,8 @@ def load_and_validate(path=PATH):
     assert "block.mlp(z)" in runner
     assert 'layer == 4 and mode == "program"' in runner
     assert "execute(program, z)" in runner
+    assert "validate_resume" in runner and "atomic_json" in runner
+    assert "exact candidate-order prefix" in runner
     assert "resource_guard(protocol)" in runner and "nvidia-smi" in runner
     assert "bilin18_clean_runtime as ship" in runner
     assert "ship.initialize()" in runner

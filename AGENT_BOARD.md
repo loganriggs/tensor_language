@@ -3291,3 +3291,10 @@ protocol and telemetry gates. Synthetic preflight guards before load and after l
 candidate forward, and reference forward; validation guards before/after load before
 opening its validation-only rows. Five focused tests prove no top-level model/artifact
 construction and all source pins. No GPU claim; lane remains occupied.
+
+### 2026-08-27 — Codex, atomic exact-prefix validation resume
+
+The 20-arm runner now atomically records controls, completed frozen-order prefix,
+hash provenance, points, and paired row scores after every arm. Resume is mechanical
+only; nonprefix/duplicate/hash/shape/provenance mismatches and completed reruns fail.
+Atomic and valid/invalid state tests pass. No roster/gate change or validation access.
