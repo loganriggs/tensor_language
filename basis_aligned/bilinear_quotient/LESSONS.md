@@ -1565,3 +1565,30 @@ count of something it must contain, not the absence of a traceback. The rebuild 
 `open(p, 'w').write(HDR + t)`. After any programmatic assembly, print a length or a content count and
 look at it. And keep the source pieces on disk (the body went to the scratchpad before assembly), so a
 destroyed intermediate is a one-command rebuild instead of a retype.
+
+## LESSONS 61 — separate shell commands do not inherit each other's failure, so a failed build still queues
+
+Twice today I ran, as one tool call:
+
+```bash
+python3 - <<'PY'   ... assemble ops/foo.py ...   PY
+bash ops/gpu_free.sh && echo /abs/path/ops/foo.py >> queue.txt
+```
+
+The assembly raised an `AssertionError` and wrote nothing. The **next** command is independent, so
+`gpu_free.sh` succeeded and the path went into the queue anyway. The runner then popped a path to a file
+that did not exist and dropped it silently. No GPU was wasted either time, but the lane sat empty when I
+believed it was fed — which is the one thing the wake prompt asks me not to let happen.
+
+The `&&` I did write only chained the GPU check to the append. **The build was never in the chain at
+all**, and it is the step most likely to fail, because it is the one I am actively editing.
+
+**Fix: `ops/enqueue.sh`**, which puts all four preconditions behind a single exit code — the file exists,
+it parses, `ops/gate.py` passes, and the GPU is free — and refuses with a reason otherwise. Tested in
+both directions: it refuses a nonexistent path with `REFUSED: no such file` and exit 1, and queues a real
+gated script with exit 0. It replaces the `gpu_free.sh && echo >> queue.txt` idiom everywhere.
+
+This is the same family as LESSONS 41 (a pipeline's exit status is the last command's, so a failed push
+printed OK) and LESSONS 60 (`open(p,'w')` truncating before the read evaluates): **the shell and Python
+both let a failed step be followed by a successful-looking one.** The general habit is that any check
+worth doing belongs in the same expression as the action it guards, not next to it.
