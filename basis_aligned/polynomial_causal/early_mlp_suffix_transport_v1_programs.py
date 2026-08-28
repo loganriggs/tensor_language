@@ -43,6 +43,9 @@ GAUGE_SIGNED_SEEDS = tuple(2026082801 + index for index in range(4))
 GAUGE_HAAR_SEEDS = tuple(2026082810 + index for index in range(4))
 INTERVENTION_AMPLITUDES = (0.01, 0.03, 0.1, 0.3, 1.0)
 CALIBRATION_BAND = (0.01, 0.20)
+FIT_INTERVENTION_CODE_COUNT = capabilities.FIT_ROW_COUNT * (
+    runtime.SCORE_STOP - runtime.SCORE_START
+)
 
 
 def _sha256(value: str) -> bool:
@@ -342,6 +345,152 @@ def intervention_assignments(role: str) -> Mapping[str, torch.Tensor]:
         "row_permutation": permutation.contiguous(),
         "direction_indices": direction_indices.contiguous(),
     })
+
+
+@dataclass(frozen=True)
+class TransportInterventionGeometry:
+    """Frozen selected-L0 fit covariance and its 32 normalized edit directions."""
+
+    selected_l_program_sha256: str
+    fit_role_tensor_sha256: str
+    code_trajectory_sha256: str
+    code_count: int
+    mean: torch.Tensor
+    covariance: torch.Tensor
+    eigenvalues: torch.Tensor
+    eigenvectors: torch.Tensor
+    clipped_eigenvalues: torch.Tensor
+    clip_floor: float
+    natural_rms: float
+    raw_rademacher_signs: torch.Tensor
+    normalized_directions: torch.Tensor
+
+    def __post_init__(self) -> None:
+        if any(not _sha256(value) for value in (
+            self.selected_l_program_sha256, self.fit_role_tensor_sha256,
+            self.code_trajectory_sha256,
+        )) or type(self.code_count) is not int or self.code_count != (
+            FIT_INTERVENTION_CODE_COUNT
+        ) or not math.isfinite(self.clip_floor) or self.clip_floor <= 0 or not math.isfinite(
+            self.natural_rms
+        ) or self.natural_rms <= 0:
+            raise ValueError("transport intervention geometry identity/scalars changed")
+        shapes = {
+            "mean": (runtime.CODE_DIM,),
+            "covariance": (runtime.CODE_DIM, runtime.CODE_DIM),
+            "eigenvalues": (runtime.CODE_DIM,),
+            "eigenvectors": (runtime.CODE_DIM, runtime.CODE_DIM),
+            "clipped_eigenvalues": (runtime.CODE_DIM,),
+            "raw_rademacher_signs": (32, runtime.CODE_DIM),
+            "normalized_directions": (32, runtime.CODE_DIM),
+        }
+        for name, shape in shapes.items():
+            value = getattr(self, name)
+            expected_dtype = torch.long if name == "raw_rademacher_signs" else torch.float64
+            if not torch.is_tensor(value) or tuple(value.shape) != shape or value.dtype != (
+                expected_dtype
+            ) or not bool(torch.isfinite(value).all()):
+                raise ValueError(f"transport intervention geometry {name} is malformed")
+            object.__setattr__(self, name, value.detach().cpu().contiguous().clone())
+        if not bool(((self.raw_rademacher_signs == -1) | (
+            self.raw_rademacher_signs == 1
+        )).all()) or bool((self.clipped_eigenvalues < self.clip_floor).any()) or bool((
+            self.eigenvalues[1:] < self.eigenvalues[:-1]
+        ).any()):
+            raise ValueError("transport intervention signs or spectrum changed")
+        identity = torch.eye(runtime.CODE_DIM, dtype=torch.float64)
+        if float(torch.max(torch.abs(self.eigenvectors.T @ self.eigenvectors - identity))) > (
+            2e-12
+        ) or float(torch.max(torch.abs(self.covariance - self.covariance.T))) > 2e-12:
+            raise ValueError("transport intervention eigensystem is not orthogonal/symmetric")
+        replay = self.eigenvectors @ torch.diag(self.eigenvalues) @ self.eigenvectors.T
+        if not torch.allclose(replay, self.covariance, rtol=2e-11, atol=2e-12):
+            raise ValueError("transport intervention eigensystem does not replay covariance")
+        direction_rms = torch.sqrt(torch.mean(self.normalized_directions.square(), dim=1))
+        if not torch.allclose(
+            direction_rms, torch.ones(32, dtype=torch.float64), rtol=2e-12, atol=2e-12,
+        ):
+            raise ValueError("transport intervention directions are not RMS normalized")
+
+    @property
+    def sha256(self) -> str:
+        return runtime.logical_identity_sha256({
+            "selected_l_program_sha256": self.selected_l_program_sha256,
+            "fit_role_tensor_sha256": self.fit_role_tensor_sha256,
+            "code_trajectory_sha256": self.code_trajectory_sha256,
+            "code_count": self.code_count, "clip_floor": self.clip_floor,
+            "natural_rms": self.natural_rms,
+            **{
+                name: runtime.tensor_identity_sha256(getattr(self, name))
+                for name in (
+                    "mean", "covariance", "eigenvalues", "eigenvectors",
+                    "clipped_eigenvalues", "raw_rademacher_signs",
+                    "normalized_directions",
+                )
+            },
+        })
+
+
+def build_transport_intervention_geometry(
+    selected_l0_codes: torch.Tensor, *, selected_l_program_sha256: str,
+    fit_role_tensor_sha256: str,
+) -> TransportInterventionGeometry:
+    """Compute the preregistered covariance-shaped edit bank from selected-L0 codes."""
+
+    if not _sha256(selected_l_program_sha256) or not _sha256(fit_role_tensor_sha256) or (
+        not torch.is_tensor(selected_l0_codes)
+    ) or selected_l0_codes.ndim != 3 or selected_l0_codes.shape[0] != (
+        capabilities.FIT_ROW_COUNT
+    ) or selected_l0_codes.shape[-1] != runtime.CODE_DIM or selected_l0_codes.shape[1] not in {
+        runtime.SEQUENCE_LENGTH, runtime.SCORE_STOP - runtime.SCORE_START,
+    } or not bool(torch.isfinite(selected_l0_codes).all()):
+        raise ValueError("selected-L0 fit code trajectory is malformed")
+    codes = runtime._canonical_code_support(selected_l0_codes).detach().cpu().double().contiguous()
+    flat = codes.reshape(-1, runtime.CODE_DIM)
+    if len(flat) != FIT_INTERVENTION_CODE_COUNT:
+        raise RuntimeError("selected-L0 fit code support count changed")
+    mean = flat.mean(dim=0)
+    centered = flat - mean
+    covariance = (centered.T @ centered / (len(flat) - 1)).contiguous()
+    natural_rms = float(torch.sqrt(torch.mean(centered.square())))
+    eigenvalues, eigenvectors = torch.linalg.eigh(covariance)
+    for column in range(runtime.CODE_DIM):
+        pivot = int(torch.argmax(torch.abs(eigenvectors[:, column])))
+        if float(eigenvectors[pivot, column]) < 0:
+            eigenvectors[:, column].neg_()
+    trace = float(torch.trace(covariance))
+    clip_floor = 1e-12 * trace / runtime.CODE_DIM
+    if not math.isfinite(natural_rms) or natural_rms <= 0 or not math.isfinite(
+        clip_floor
+    ) or clip_floor <= 0:
+        raise RuntimeError("selected-L0 fit covariance is degenerate")
+    clipped = torch.clamp(eigenvalues, min=clip_floor)
+    covariance_sqrt = (
+        eigenvectors @ torch.diag(torch.sqrt(clipped)) @ eigenvectors.T
+    ).contiguous()
+    signs = []
+    for index in range(32):
+        draw = torch.randint(
+            0, 2, (runtime.CODE_DIM,), dtype=torch.long,
+            generator=torch.Generator(device="cpu").manual_seed(2026083200 + index),
+        )
+        signs.append(2 * draw - 1)
+    raw_signs = torch.stack(signs).contiguous()
+    directions = raw_signs.double() @ covariance_sqrt
+    rms = torch.sqrt(torch.mean(directions.square(), dim=1, keepdim=True))
+    if bool((rms <= 0).any()) or not bool(torch.isfinite(rms).all()):
+        raise RuntimeError("covariance-shaped intervention direction is degenerate")
+    directions = (directions / rms).contiguous()
+    return TransportInterventionGeometry(
+        selected_l_program_sha256=selected_l_program_sha256,
+        fit_role_tensor_sha256=fit_role_tensor_sha256,
+        code_trajectory_sha256=runtime.tensor_identity_sha256(codes),
+        code_count=len(flat), mean=mean.contiguous(), covariance=covariance,
+        eigenvalues=eigenvalues.contiguous(), eigenvectors=eigenvectors.contiguous(),
+        clipped_eigenvalues=clipped.contiguous(), clip_floor=clip_floor,
+        natural_rms=natural_rms, raw_rademacher_signs=raw_signs,
+        normalized_directions=directions,
+    )
 
 
 def select_teacher_calibration(
@@ -1257,6 +1406,8 @@ class FrozenProgram:
     learning_rate: float
     validation_metric_name: str
     validation_metric: float
+    validation_copy_worsening: float
+    validation_common_support_sha256: str
     validation_sufficient_statistics_sha256: str
     source_program_sha256: str
     source_tensor_sha256: str
@@ -1332,6 +1483,8 @@ def freeze_selected(candidate: ScoredCandidate) -> FrozenProgram:
         learning_rate=candidate.validation.learning_rate,
         validation_metric_name=candidate.validation.metric_name,
         validation_metric=candidate.validation.primary_metric,
+        validation_copy_worsening=candidate.validation.copy_worsening,
+        validation_common_support_sha256=candidate.validation.common_support_sha256,
         validation_sufficient_statistics_sha256=(
             candidate.validation.sufficient_statistics_sha256
         ),
@@ -1430,3 +1583,275 @@ def make_transport_initialization(selected_l: FrozenProgram) -> runtime.JointAff
         if name == "cross" or not torch.equal(value, transport.state_dict()[name]):
             raise RuntimeError("transport initialization changed selected L tensors")
     return transport
+
+
+def required_validation_candidate_keys() -> tuple[str, ...]:
+    true = tuple(
+        f"true/{route}/trial{trial}"
+        for route in SELECTABLE_ROUTES for trial in range(len(runtime.LEARNING_RATES))
+    )
+    mapped = tuple(
+        f"{key}/trial{trial}"
+        for key in required_mapped_control_keys()
+        for trial in range(len(runtime.LEARNING_RATES))
+    )
+    return (*true, *mapped)
+
+
+@dataclass(frozen=True)
+class ValidationExecutionManifest:
+    """Completeness commitment for all 87 candidate and 48 baseline evaluations."""
+
+    validation_role_tensor_sha256: str
+    common_support_sha256: str
+    baseline_statistics_sha256: str
+    baseline_batch_receipt_sha256s: tuple[str, ...]
+    candidate_batch_receipt_sha256s: Mapping[str, tuple[str, ...]]
+    candidate_statistics_sha256s: Mapping[str, str]
+    broker_ledger_sha256s: Mapping[str, str]
+
+    def __post_init__(self) -> None:
+        if any(not _sha256(value) for value in (
+            self.validation_role_tensor_sha256, self.common_support_sha256,
+            self.baseline_statistics_sha256,
+        )) or len(self.baseline_batch_receipt_sha256s) != (
+            capabilities.VALIDATION_BATCH_COUNT
+        ) or any(not _sha256(value) for value in self.baseline_batch_receipt_sha256s):
+            raise ValueError("validation execution manifest role/baseline changed")
+        required = required_validation_candidate_keys()
+        required_set = set(required)
+        if set(self.candidate_batch_receipt_sha256s) != required_set or set(
+            self.candidate_statistics_sha256s
+        ) != required_set or set(self.broker_ledger_sha256s) != required_set:
+            raise ValueError("validation execution manifest candidate bank is incomplete")
+        receipts = {}
+        statistics = {}
+        ledgers = {}
+        for key in required:
+            values = tuple(self.candidate_batch_receipt_sha256s[key])
+            if len(values) != capabilities.VALIDATION_BATCH_COUNT or any(
+                not _sha256(value) for value in values
+            ) or not _sha256(self.candidate_statistics_sha256s[key]) or not _sha256(
+                self.broker_ledger_sha256s[key]
+            ):
+                raise ValueError("validation execution manifest hash/count changed")
+            receipts[key] = values
+            statistics[key] = self.candidate_statistics_sha256s[key]
+            ledgers[key] = self.broker_ledger_sha256s[key]
+        object.__setattr__(
+            self, "candidate_batch_receipt_sha256s", MappingProxyType(receipts),
+        )
+        object.__setattr__(
+            self, "candidate_statistics_sha256s", MappingProxyType(statistics),
+        )
+        object.__setattr__(self, "broker_ledger_sha256s", MappingProxyType(ledgers))
+
+    @property
+    def sha256(self) -> str:
+        return runtime.logical_identity_sha256({
+            "validation_role_tensor_sha256": self.validation_role_tensor_sha256,
+            "common_support_sha256": self.common_support_sha256,
+            "baseline_statistics_sha256": self.baseline_statistics_sha256,
+            "baseline_batch_receipt_sha256s": list(self.baseline_batch_receipt_sha256s),
+            "candidate_batch_receipt_sha256s": {
+                key: list(self.candidate_batch_receipt_sha256s[key])
+                for key in required_validation_candidate_keys()
+            },
+            "candidate_statistics_sha256s": dict(self.candidate_statistics_sha256s),
+            "broker_ledger_sha256s": dict(self.broker_ledger_sha256s),
+        })
+
+
+def _frozen_program_payload(value: FrozenProgram) -> dict[str, Any]:
+    if not isinstance(value, FrozenProgram):
+        raise TypeError("canonical bank requires frozen programs")
+    value.make_program()
+    return {
+        "route": value.route, "trial": value.trial,
+        "learning_rate": value.learning_rate,
+        "validation_metric_name": value.validation_metric_name,
+        "validation_metric": value.validation_metric,
+        "validation_copy_worsening": value.validation_copy_worsening,
+        "validation_common_support_sha256": value.validation_common_support_sha256,
+        "validation_sufficient_statistics_sha256": (
+            value.validation_sufficient_statistics_sha256
+        ),
+        "source_program_sha256": value.source_program_sha256,
+        "source_tensor_sha256": value.source_tensor_sha256,
+        "canonical_tensor_sha256": value.canonical_tensor_sha256,
+        "site_states": {
+            str(site): {
+                name: item.detach().cpu().contiguous().clone() if torch.is_tensor(item) else item
+                for name, item in state.items()
+            }
+            for site, state in value.site_states.items()
+        },
+        "cross": None if value.cross is None else value.cross.detach().cpu().contiguous().clone(),
+        "svd_max_errors": list(value.svd_max_errors),
+    }
+
+
+def _geometry_payload(value: TransportInterventionGeometry) -> dict[str, Any]:
+    if not isinstance(value, TransportInterventionGeometry):
+        raise TypeError("canonical bank requires transport intervention geometry")
+    return {
+        "selected_l_program_sha256": value.selected_l_program_sha256,
+        "fit_role_tensor_sha256": value.fit_role_tensor_sha256,
+        "code_trajectory_sha256": value.code_trajectory_sha256,
+        "code_count": value.code_count, "clip_floor": value.clip_floor,
+        "natural_rms": value.natural_rms, "geometry_sha256": value.sha256,
+        **{
+            name: getattr(value, name).detach().cpu().contiguous().clone()
+            for name in (
+                "mean", "covariance", "eigenvalues", "eigenvectors",
+                "clipped_eigenvalues", "raw_rademacher_signs", "normalized_directions",
+            )
+        },
+    }
+
+
+def _payload_identity(value: Any) -> Any:
+    if torch.is_tensor(value):
+        return {"tensor_sha256": runtime.tensor_identity_sha256(value)}
+    if isinstance(value, Mapping):
+        if any(not isinstance(key, str) for key in value):
+            raise ValueError("canonical program payload mappings require string keys")
+        return {key: _payload_identity(value[key]) for key in sorted(value)}
+    if isinstance(value, (tuple, list)):
+        return [_payload_identity(item) for item in value]
+    if value is None or isinstance(value, (str, int, float, bool)):
+        return value
+    raise TypeError(f"canonical program payload contains unsupported {type(value).__name__}")
+
+
+def build_canonical_program_bank(
+    *, true_programs: Mapping[str, FrozenProgram],
+    mapped_programs: Mapping[str, FrozenMappedProgram],
+    validation_baseline: ValidationBaselineSufficientStatistics,
+    validation_execution: ValidationExecutionManifest,
+    transport_geometry: TransportInterventionGeometry,
+    teacher_calibration: Mapping[str, Any],
+) -> dict[str, Any]:
+    """Build the complete tensor payload which must be frozen before final loading."""
+
+    if set(true_programs) != set(SELECTABLE_ROUTES) or tuple(mapped_programs) != (
+        required_mapped_control_keys()
+    ) or not isinstance(validation_baseline, ValidationBaselineSufficientStatistics) or (
+        not isinstance(validation_execution, ValidationExecutionManifest)
+    ) or validation_baseline.sha256 != validation_execution.baseline_statistics_sha256 or (
+        validation_baseline.common_support_sha256 != validation_execution.common_support_sha256
+    ):
+        raise ValueError("canonical program bank is incomplete or support-mixed")
+    common_support = validation_execution.common_support_sha256
+    for route in SELECTABLE_ROUTES:
+        value = true_programs[route]
+        if not isinstance(value, FrozenProgram) or value.route != route or (
+            value.validation_common_support_sha256 != common_support
+        ):
+            raise ValueError("canonical true program route/support changed")
+        key = f"true/{route}/trial{value.trial}"
+        if validation_execution.candidate_statistics_sha256s[key] != (
+            value.validation_sufficient_statistics_sha256
+        ):
+            raise RuntimeError("selected true program is absent from validation manifest")
+    for key in required_mapped_control_keys():
+        value = mapped_programs[key]
+        if not isinstance(value, FrozenMappedProgram) or value.key != key or (
+            value.program.validation_common_support_sha256 != common_support
+        ):
+            raise ValueError("canonical mapped program route/support changed")
+        manifest_key = f"{key}/trial{value.program.trial}"
+        if validation_execution.candidate_statistics_sha256s[manifest_key] != (
+            value.mapped_sufficient_statistics_sha256
+        ):
+            raise RuntimeError("selected mapped program is absent from validation manifest")
+    document_mappings = {
+        mapped_programs[f"document_shuffle/{route}"].mapping_sha256
+        for route in fit.DOCUMENT_SHUFFLE_ROUTES
+    }
+    all_mappings = {value.mapping_sha256 for value in mapped_programs.values()}
+    if len(document_mappings) != 1 or len(all_mappings) != 21:
+        raise RuntimeError("canonical mapped control plans are duplicated or inconsistent")
+    if transport_geometry.selected_l_program_sha256 != true_programs[
+        "L"
+    ].canonical_tensor_sha256:
+        raise RuntimeError("transport geometry was not built from selected L")
+    if not isinstance(teacher_calibration, Mapping) or set(teacher_calibration) != {
+        "selected_amplitude_multiplier", "selected_teacher_median_kl",
+        "geometric_center", "calibration_passed", "teacher_median_kls",
+    } or not isinstance(teacher_calibration["teacher_median_kls"], Mapping):
+        raise RuntimeError("teacher calibration schema differs from the frozen selection rule")
+    calibration = select_teacher_calibration(teacher_calibration["teacher_median_kls"])
+    if any(
+        teacher_calibration[key] != calibration[key]
+        for key in calibration if key != "teacher_median_kls"
+    ) or dict(teacher_calibration["teacher_median_kls"]) != dict(
+        calibration["teacher_median_kls"]
+    ):
+        raise RuntimeError("teacher calibration differs from the frozen selection rule")
+    gauges = orthogonal_gauge_bank()
+    assignments = {
+        role: intervention_assignments(role) for role in ("validation", "final")
+    }
+    body = {
+        "schema_version": 1,
+        "kind": "early_mlp_suffix_transport_v1_canonical_program_bank",
+        "true_programs": {
+            route: _frozen_program_payload(true_programs[route]) for route in SELECTABLE_ROUTES
+        },
+        "mapped_programs": {
+            key: {
+                "control": mapped_programs[key].control,
+                "mapping_sha256": mapped_programs[key].mapping_sha256,
+                "mapped_sufficient_statistics_sha256": (
+                    mapped_programs[key].mapped_sufficient_statistics_sha256
+                ),
+                "program": _frozen_program_payload(mapped_programs[key].program),
+            }
+            for key in required_mapped_control_keys()
+        },
+        "validation_baseline": {
+            "common_support_sha256": validation_baseline.common_support_sha256,
+            "baseline_sha256": validation_baseline.sha256,
+            **{
+                name: getattr(validation_baseline, name).clone()
+                for name in (
+                    "row_ce_sum", "row_ce_count", "row_copy_ce_sum", "row_copy_count",
+                )
+            },
+        },
+        "validation_execution": {
+            "manifest_sha256": validation_execution.sha256,
+            "validation_role_tensor_sha256": (
+                validation_execution.validation_role_tensor_sha256
+            ),
+            "common_support_sha256": common_support,
+            "baseline_statistics_sha256": validation_execution.baseline_statistics_sha256,
+            "baseline_batch_receipt_sha256s": list(
+                validation_execution.baseline_batch_receipt_sha256s
+            ),
+            "candidate_batch_receipt_sha256s": {
+                key: list(validation_execution.candidate_batch_receipt_sha256s[key])
+                for key in required_validation_candidate_keys()
+            },
+            "candidate_statistics_sha256s": dict(
+                validation_execution.candidate_statistics_sha256s
+            ),
+            "broker_ledger_sha256s": dict(validation_execution.broker_ledger_sha256s),
+        },
+        "transport_geometry": _geometry_payload(transport_geometry),
+        "gauge_bank": {name: value.clone() for name, value in gauges.items()},
+        "intervention_assignments": {
+            role: {name: value.clone() for name, value in assignments[role].items()}
+            for role in ("validation", "final")
+        },
+        "teacher_calibration": {
+            key: value for key, value in calibration.items() if key != "teacher_median_kls"
+        } | {
+            "teacher_median_kls": {
+                str(amplitude): calibration["teacher_median_kls"][amplitude]
+                for amplitude in INTERVENTION_AMPLITUDES
+            },
+        },
+    }
+    return {**body, "payload_sha256": runtime.logical_identity_sha256(_payload_identity(body))}

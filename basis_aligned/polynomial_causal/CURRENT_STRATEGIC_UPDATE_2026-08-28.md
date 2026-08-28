@@ -867,3 +867,69 @@ file-existence gate can open. After publication code is frozen and re-audited, m
 L/R/S/T execution remains the first numerical action. On the independent allocation
 run, random start 1 converged after six sweeps to the same 1.2037 K=6 value as greedy;
 start 2 is still running, so a common-basin statement remains premature.
+
+## 06:24 UTC continuation: canonical program bank is now a complete object
+
+The balance sheet is unchanged and its denominators remain separate: structural
+inventory is $36/36$ (scope, not explanation), named behavior is
+$32.1\%\pm6.4\%$, named causal recovery is $10.923\%$, and strict executable
+recovery is still $0\%$ of the paired $+0.8976$ current-ship CE gap. The separate
+constant-ablation ceiling is $55.038\%$ on discovery and $53.694\%$ on held-out
+rows. Thus the largest gaps remain an admitted producer/consumer program for the
+early stack, its interaction with the ship stack, conditional MLP2/3 behavior, and a
+typed routing-plus-value account of attention.
+
+This interval completed the pure canonical assembly which the eventual publisher
+will freeze before final scoring. It now requires all 87 validation candidates—five
+true routes and 24 mapped families, each at three learning rates—plus exactly 48
+batch receipts and one broker-ledger hash for every candidate, and exactly 48
+receipts for the deployed N/N baseline. A selected program cannot enter the bank
+unless its sufficient-statistics hash occurs in that complete common-support
+manifest. The four shuffled programs must retain one shared map, the twenty A-null
+transport controls must retain twenty distinct maps, and a mapped object cannot be
+silently converted into a true arm.
+
+The bank also freezes a tensor-native edit geometry from the entire selected-L0 fit
+trajectory: the exact $73{,}728\times64$ code support, float64 mean and covariance,
+a sign-canonical eigensystem, a trace-relative clipped spectrum, natural code RMS,
+and 32 reproducible covariance-shaped Rademacher directions normalized to unit RMS.
+It binds this geometry to the selected L tensor hash, and includes eight exact
+orthogonal gauge transformations, balanced role-specific intervention assignments,
+teacher-only amplitude calibration, the native validation baseline, all selected
+true/mapped tensor programs, and one recursive payload hash. This turns “try an edit
+in the 64-D code” into a replayable tensor intervention rather than a basis-dependent
+probe.
+
+The added adversarial tests reject an 86-of-87 manifest, a 47-of-48 candidate
+execution, mixed support, duplicated null maps, changed calibration, and geometry
+from a different L program. Focused tests pass 4/4; the repository-discovered suffix
+suite passes 183/183 in 59.50 seconds, and frozen-input verification remains intact.
+No role was loaded and the final source/test pair remains absent, so the lifecycle is
+still correctly NO-GO.
+
+The pruned next-action ranking is now:
+
+1. **Implement the semantic final owner and create-only program publisher.** This is
+   the only remaining source/interface closure before legal execution. It must
+   validate fit, row, source, protected-file, complete-validation, payload, and
+   one-shot final bindings on deserialization—not merely trust the in-memory builder.
+2. **Execute matched L/R/S0/S1/T with all mapped controls.** This has the highest
+   immediate scientific information gain: it distinguishes a local 64-D coordinate
+   code, suffix-demanded refinements, and learned parent-to-child transport using
+   causal negative controls on one support.
+3. **Run the admitted early program in the current-ship interaction cube.** Mobius
+   terms across early MLP, interaction-selected attention, and deep restoration are
+   required before any local reconstruction earns whole-model causal credit.
+4. **Compile MLP2/3 conditionally on the admitted early state.** Use tensor/polynomial
+   low-rank factorizations only where they preserve the producer/consumer interface;
+   independent fits are already known not to compose reliably.
+5. **Compile attention as typed routing and value/content, then validate practical
+   simplicity.** Compare equal-fidelity alternatives by OOD prediction, extraction,
+   selective removal, non-descendant collateral, gauge stability, and composition;
+   parameter count or rank alone is not a validated simplicity notion.
+
+Further token clustering, isolated semantic probes, rank-only sweeps, and spent-role
+allocation scans remain pruned because they cannot presently change a common-support
+causal or executable decision. The independent GPU allocation audit has now shown
+starts 1 and 2 both converge to 1.2037, but start 3 has only initialized; a shared
+basin claim remains withheld.

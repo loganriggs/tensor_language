@@ -368,6 +368,188 @@ def test_intervention_assignments_are_role_specific_reproducible_and_balanced() 
         programs.intervention_assignments("fit")
 
 
+def test_transport_intervention_geometry_matches_frozen_fit_covariance() -> None:
+    generator = torch.Generator().manual_seed(611)
+    codes = torch.randn(
+        capabilities.FIT_ROW_COUNT, 192, runtime.CODE_DIM, generator=generator,
+    )
+    geometry = programs.build_transport_intervention_geometry(
+        codes, selected_l_program_sha256="a" * 64,
+        fit_role_tensor_sha256="b" * 64,
+    )
+    flat = codes.double().reshape(-1, runtime.CODE_DIM)
+    centered = flat - flat.mean(dim=0)
+    expected_covariance = centered.T @ centered / (len(flat) - 1)
+    torch.testing.assert_close(geometry.mean, flat.mean(dim=0), rtol=0, atol=0)
+    torch.testing.assert_close(
+        geometry.covariance, expected_covariance, rtol=2e-13, atol=2e-13,
+    )
+    assert geometry.code_count == capabilities.FIT_ROW_COUNT * 192
+    assert geometry.natural_rms == float(torch.sqrt(torch.mean(centered.square())))
+    assert torch.allclose(
+        torch.sqrt(torch.mean(geometry.normalized_directions.square(), dim=1)),
+        torch.ones(32, dtype=torch.float64), rtol=2e-12, atol=2e-12,
+    )
+    first_draw = 2 * torch.randint(
+        0, 2, (64,), dtype=torch.long,
+        generator=torch.Generator().manual_seed(2026083200),
+    ) - 1
+    assert torch.equal(geometry.raw_rademacher_signs[0], first_draw)
+    before = geometry.sha256
+    codes.zero_()
+    assert geometry.sha256 == before
+
+
+def test_transport_intervention_geometry_rejects_degenerate_or_partial_fit_codes() -> None:
+    with pytest.raises(ValueError, match="trajectory is malformed"):
+        programs.build_transport_intervention_geometry(
+            torch.zeros(4, 192, 64), selected_l_program_sha256="a" * 64,
+            fit_role_tensor_sha256="b" * 64,
+        )
+    with pytest.raises(RuntimeError, match="covariance is degenerate"):
+        programs.build_transport_intervention_geometry(
+            torch.zeros(capabilities.FIT_ROW_COUNT, 192, 64),
+            selected_l_program_sha256="a" * 64,
+            fit_role_tensor_sha256="b" * 64,
+        )
+
+
+def _canonical_bank_inputs():
+    support = "7" * 64
+    true_programs = {
+        route: programs.freeze_selected(_score(_fit(route, 0, 700 + index), 0.1))
+        for index, route in enumerate(programs.SELECTABLE_ROUTES)
+    }
+    document_mapping = "1" * 64
+    mapped_programs = {}
+    for key in programs.required_mapped_control_keys():
+        control, route = key.split("/", 1)
+        mapping = document_mapping if control == "document_shuffle" else (
+            f"{int(control[-2:]) + 2:064x}"
+        )
+        mapped_programs[key] = programs.FrozenMappedProgram(
+            control=control, mapping_sha256=mapping,
+            mapped_sufficient_statistics_sha256="a" * 64,
+            program=true_programs[route],
+        )
+    count = torch.full((programs.VALIDATION_ROWS,), 192, dtype=torch.long)
+    copy_count = torch.ones(programs.VALIDATION_ROWS, dtype=torch.long)
+    baseline = programs.ValidationBaselineSufficientStatistics(
+        common_support_sha256=support,
+        row_ce_sum=torch.ones(programs.VALIDATION_ROWS, dtype=torch.float64),
+        row_ce_count=count,
+        row_copy_ce_sum=torch.ones(programs.VALIDATION_ROWS, dtype=torch.float64),
+        row_copy_count=copy_count,
+        literal_early_mlp_calls=programs.ZERO_NATIVE_CALLS,
+        native_guard_restored=True, native_guard_inert=True,
+    )
+    keys = programs.required_validation_candidate_keys()
+    statistics = {key: "b" * 64 for key in keys}
+    for route, frozen in true_programs.items():
+        statistics[f"true/{route}/trial{frozen.trial}"] = (
+            frozen.validation_sufficient_statistics_sha256
+        )
+    for key, frozen in mapped_programs.items():
+        statistics[f"{key}/trial{frozen.program.trial}"] = (
+            frozen.mapped_sufficient_statistics_sha256
+        )
+    receipts = tuple("c" * 64 for _ in range(capabilities.VALIDATION_BATCH_COUNT))
+    execution = programs.ValidationExecutionManifest(
+        validation_role_tensor_sha256="4" * 64,
+        common_support_sha256=support,
+        baseline_statistics_sha256=baseline.sha256,
+        baseline_batch_receipt_sha256s=receipts,
+        candidate_batch_receipt_sha256s={key: receipts for key in keys},
+        candidate_statistics_sha256s=statistics,
+        broker_ledger_sha256s={key: "d" * 64 for key in keys},
+    )
+    codes = torch.randn(
+        capabilities.FIT_ROW_COUNT, 192, runtime.CODE_DIM,
+        generator=torch.Generator().manual_seed(811),
+    )
+    geometry = programs.build_transport_intervention_geometry(
+        codes,
+        selected_l_program_sha256=true_programs["L"].canonical_tensor_sha256,
+        fit_role_tensor_sha256="5" * 64,
+    )
+    calibration = programs.select_teacher_calibration({
+        0.01: 0.005, 0.03: 0.02, 0.1: 0.05, 0.3: 0.19, 1.0: 0.4,
+    })
+    return true_programs, mapped_programs, baseline, execution, geometry, calibration
+
+
+def test_validation_execution_manifest_requires_all_87_complete_candidates() -> None:
+    assert len(programs.required_validation_candidate_keys()) == 87
+    *_, execution, _, _ = _canonical_bank_inputs()
+    assert len(execution.candidate_statistics_sha256s) == 87
+    incomplete = dict(execution.candidate_statistics_sha256s)
+    incomplete.pop(next(iter(incomplete)))
+    with pytest.raises(ValueError, match="incomplete"):
+        replace(execution, candidate_statistics_sha256s=incomplete)
+    bad_receipts = dict(execution.candidate_batch_receipt_sha256s)
+    bad_receipts[next(iter(bad_receipts))] = bad_receipts[
+        next(iter(bad_receipts))
+    ][:-1]
+    with pytest.raises(ValueError, match="hash/count"):
+        replace(execution, candidate_batch_receipt_sha256s=bad_receipts)
+
+
+def test_canonical_program_bank_binds_selection_controls_geometry_and_payload() -> None:
+    true, mapped, baseline, execution, geometry, calibration = _canonical_bank_inputs()
+    bank = programs.build_canonical_program_bank(
+        true_programs=true, mapped_programs=mapped,
+        validation_baseline=baseline, validation_execution=execution,
+        transport_geometry=geometry, teacher_calibration=calibration,
+    )
+    assert set(bank["true_programs"]) == set(programs.SELECTABLE_ROUTES)
+    assert tuple(bank["mapped_programs"]) == programs.required_mapped_control_keys()
+    assert len(bank["validation_execution"]["candidate_statistics_sha256s"]) == 87
+    assert bank["transport_geometry"]["geometry_sha256"] == geometry.sha256
+    assert bank["payload_sha256"] == runtime.logical_identity_sha256(
+        programs._payload_identity({
+            key: value for key, value in bank.items() if key != "payload_sha256"
+        })
+    )
+    for gauge in bank["gauge_bank"].values():
+        contract.validate_orthogonal_gauge("stored", gauge)
+
+    with pytest.raises(ValueError, match="support-mixed"):
+        programs.build_canonical_program_bank(
+            true_programs=true, mapped_programs=mapped,
+            validation_baseline=replace(baseline, common_support_sha256="e" * 64),
+            validation_execution=execution, transport_geometry=geometry,
+            teacher_calibration=calibration,
+        )
+    bad_mapped = dict(mapped)
+    bad_mapped["A_null_19/T"] = replace(
+        bad_mapped["A_null_19/T"],
+        mapping_sha256=bad_mapped["A_null_18/T"].mapping_sha256,
+    )
+    with pytest.raises(RuntimeError, match="duplicated"):
+        programs.build_canonical_program_bank(
+            true_programs=true, mapped_programs=bad_mapped,
+            validation_baseline=baseline, validation_execution=execution,
+            transport_geometry=geometry, teacher_calibration=calibration,
+        )
+    with pytest.raises(RuntimeError, match="selected L"):
+        programs.build_canonical_program_bank(
+            true_programs=true, mapped_programs=mapped,
+            validation_baseline=baseline, validation_execution=execution,
+            transport_geometry=replace(
+                geometry, selected_l_program_sha256="e" * 64,
+            ),
+            teacher_calibration=calibration,
+        )
+    changed_calibration = dict(calibration)
+    changed_calibration["selected_amplitude_multiplier"] = 1.0
+    with pytest.raises(RuntimeError, match="selection rule"):
+        programs.build_canonical_program_bank(
+            true_programs=true, mapped_programs=mapped,
+            validation_baseline=baseline, validation_execution=execution,
+            transport_geometry=geometry, teacher_calibration=changed_calibration,
+        )
+
+
 def test_teacher_only_calibration_selects_in_band_or_fails_closed() -> None:
     values = {0.01: 0.005, 0.03: 0.02, 0.1: 0.05, 0.3: 0.19, 1.0: 0.4}
     selected = programs.select_teacher_calibration(values)

@@ -6487,3 +6487,29 @@ Full suffix gate: 198/198 in 55.18s; frozen-input verification passes. `final.py
 its test remain absent, so the row gate is still NO-GO and no metric has moved. Next is
 the semantic final owner plus canonical program/preflight publication. Allocation
 basin start 1 converged to the greedy 1.2037 K=6 value; starts 2/3 remain unresolved.
+
+### 2026-08-28T06:24Z — Codex: complete canonical program-bank assembly
+
+Closed the pure canonical assembly needed before the programs artifact can be
+published. A `ValidationExecutionManifest` now requires all 87 candidate evaluations
+(five true routes plus 24 mapped families, each at three trials), 48 exact batch
+receipts per candidate, all broker ledgers, and the 48-batch deployed baseline. Every
+selected true or mapped sufficient-statistics hash must occur in that manifest on one
+common support. The four shuffled routes retain one shared mapping; all twenty A-null
+T mappings remain distinct.
+
+The payload binds all selected tensors and validation evidence to selected-L0's full
+73,728-code float64 mean/covariance/eigensystem, 32 seeded covariance-shaped unit-RMS
+edit directions, eight exact gauge matrices, balanced validation/final assignments,
+teacher-only amplitude calibration, and a recursive tensor-aware payload hash. Tests
+reject incomplete execution, support mixing, duplicated maps, changed calibration,
+and geometry from another L program. Focused 4/4; full repository-discovered suffix
+suite 183/183 in 59.50s; frozen inputs exact. No rows were loaded and the absent final
+pair keeps the gate NO-GO.
+
+Accounting does not move: 36/36 inventory, 32.1%±6.4% named behavior, 10.923% named
+causal recovery, and 0% strict recovery of the +0.8976 ship CE gap; the distinct
+constant-ablation ceiling remains 55.038% discovery / 53.694% heldout. Next is the
+semantic final owner plus create-only publisher/deserialization validator, then the
+matched L/R/S/T run and current-ship interaction cube. Allocation starts 1 and 2 now
+both converge to 1.2037; start 3 is unresolved, so no common-basin claim yet.
