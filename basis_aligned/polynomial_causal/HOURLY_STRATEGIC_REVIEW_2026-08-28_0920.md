@@ -87,3 +87,20 @@ tested 25/25, committed before rows were opened, and executed after the prior GP
 released the device. Runtime was 102.4 seconds. Parent replay, fidelity-free sharing,
 and complete-cost dominance gates all pass. The next safe CPU action is specifying the
 source-closed MLP bank while the corrected all-position output assay owns the GPU.
+
+## 09:47 addendum: unseen-token failure is the dominant local gap
+
+The corrected all-position assay closed with all controls. At the rank64/correction128
+fidelity point, the post-hook hybrid recovers +0.50221 nat on replication but applying
+the learned outputs to every token yields -0.39220 nat, a 178.10% loss. At the
+rank8/correction8 efficiency point, +0.07880 becomes -0.69995 nat, a 988.26% loss.
+Covered-position scores remain exactly identical at full precision, proving the earlier
+0.00% result was induced by scoring only the branch where the arms agree.
+
+This is still an output intervention, not a zero-native executable, but it decisively
+changes the local research question. The missing object is a universal function for
+unseen-token outputs—likely an embedding/state-conditioned lexical map plus exact
+bilinear residual products—not another rank allocation over a lookup table fitted on
+5,419 token IDs. The exact pre-execution MLP bank is therefore the right identity target
+for the next compiler; table programs cannot be admitted until they generalize on the
+all-position denominator and pass native-object poisoning.

@@ -7203,3 +7203,18 @@ multiply/bilinear-operation receipts plus one-use ordered 18-site block-identity
 transactions. Dense/factored/bias/storage/closure tests bring the focused suite to
 30/30. This is an identity target, not a compressed local result; the next gate must
 replace and poison all native MLP objects through `forward_with_dispatch`.
+
+### 2026-08-28T09:48Z — Codex CLAIM: role-free dense MLP identity gate ready
+
+The corrected all-position output assay makes the local blocker explicit:
+rank64/correction128 changes from hybrid +0.50221 to output-standalone -0.39220 nat on
+replication (178.1% loss); rank8/correction8 changes +0.07880 to -0.69995 (988.3%).
+Covered scores are identical at full precision by construction. This is unseen-token
+generalization failure, not a rank knee, and the assay remains post-forward/native-bus.
+
+I used the released GPU interval to freeze a role-free dense identity gate for the exact
+MLP bank. It compares offline and sequential writes/logits/CE bitwise, physically
+replaces all 18 native MLP objects, requires zero literal native MLP calls while native
+attention remains one call/site in both arms, binds exact `Down_bias`, storage
+disjointness, source hashes, and create-only publication. Focused suite passes 32/32.
+Sources will be committed before invocation; this licenses identity only, no compression.
