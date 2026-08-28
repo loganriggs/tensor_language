@@ -39,14 +39,12 @@ These ledgers use different denominators and cannot be added.
 
 The canonical 68-action owner and real batch executor now exist. They own all 48
 batches, typed CE/copy/frequency rows, source/broker/program joins, denominators, and
-runtime ledgers. The remaining path is narrow: validate/load the fit token-count
-authority and one-shot final rows, then complete the 18 consumer-norm and response
-objects. The first part closed during this review at `80a8cd7c`: the full cache/receipt/
-file/tensor chain is validated, fit rows are immediately reduced to a private
-50,257-token count vector, and a one-use factory requires the single licensed final
-load plus exact context-bound tensor. Seventy-five focused tests pass; no rows escape
-and no final data was opened. Remaining work is protected `DenominatorPass` and
-`FinalRunContext` reconstruction, then the 18-consumer response envelope and gates.
+runtime ledgers. The fit token-count authority, one-shot final-row loader, protected
+`DenominatorPass`, terminal `FinalRunContext`, and transactional fit-artifact publisher
+have now closed at `80a8cd7c`, `1c3a2978`, and `500f8e86`. Their focused suites pass
+75, 59, and 38 tests. Fit rows are reduced privately to a 50,257-token count vector;
+no rows escape and no final data was opened. The remaining path is the physical
+18-consumer collector, its adversarial lifecycle tests, and the response objects/gates.
 
 The previously vague consumer diagnostic is now specified from its historical
 instrument: for each layer 0–17, capture the live `attn.c_proj` output over scored
@@ -66,17 +64,21 @@ rebuilds and hashes the exact 5,419-token context-free/output-nearest-neighbour/
 program, freezes all 64 mask descriptors, enforces 36 native/substitution calls, and
 rehashes model/program state after hook cleanup.
 
-The assay is now run-ready. Its only current blocker is the active table-versus-site
-GPU process. The first launch must materialize and hash approximately 8.34 GB of dense
-rows plus the 2.07 GB checkpoint because no reusable shared-program artifact exists.
+The assay is now running its third exact launch under session 21508. It must materialize
+and hash approximately 8.34 GB of dense rows plus the 2.07 GB checkpoint because no
+reusable shared-program artifact exists. No mask outcome has yet been emitted.
 
-After the table process exited, the first real launch was attempted. It failed before
-any row/program outcome while hashing a zero-dimensional model tensor: direct
-`view(torch.uint8)` is invalid for a scalar. The output namespace must remain pristine;
-a scalar-safe byte-hash repair and adversarial scalar buffer/parameter test are now
-required before relaunch. This is an implementation failure, not a mask result.
+The first real launch failed before any row/program outcome while hashing a
+zero-dimensional model tensor: direct `view(torch.uint8)` is invalid for a scalar.
+That repair closed at `a252411b` with 31 tests. The second exact launch also failed
+before outcomes: the model embedding has 50,304 padded rows, while the tokenizer and
+program contract has 50,257 valid rows; all padded rows were passed to the dense-row
+constructor. The repair is an explicit validated tokenizer-support slice plus
+production-shaped 50,304-to-50,257 regression. That repair closed at `6e255d01` with
+34 focused tests. Both failures left the output namespace pristine. These are
+implementation failures, not mask results.
 
-### 3. MLP5's cost remains an attribution, not a computation
+### 3. MLP5's large apparent cost was mostly a table defect
 
 MLP5 is expensive under the deployed length-1 compiler, but it is not singled out by
 the ideal empirical-token-mean intervention. Its fixed-coordinate discrepancy,
@@ -101,9 +103,28 @@ and the provisional bytes remain preserved.
 The subsequent support-restricted run changed only the 2,699 covered token types that
 appeared in the evaluation rows, so its exact-5,419 control also failed. Descriptively,
 it rescues 47.3 points or 77.3% of MLP5's stake and leaves a 13.9-point site cost; MLP4
-again moves oppositely. These numbers remain provisional. The correct S1840-compatible
-object uses per-token means for observed covered types, the per-site global empirical
-mean for unseen covered types, and byte-identical rows for all uncovered types.
+again moves oppositely. These numbers remain provisional. The exact S1840-compatible
+repair closed at `697f6a5f`: observed covered types receive their per-token means,
+unseen covered types receive the per-site global mean, and uncovered rows remain
+byte-identical. Focused tests pass.
+
+A separate deployable-table experiment then estimated those token means only from fit
+rows and evaluated three heldout roles. It completed in 262 seconds with every
+registered check true. On the primary role, the sequential gap fractions are 3.57%
+for the old length-1 MLP5 row, 50.99% for the evaluation-fitted empirical row, and
+**47.14% for the fit-context row**. Thus the deployable row captures 43.57 percentage
+points, or about 92% of the empirical row's 47.43-point advantage, without adding
+rows, bytes, or calls. It replicates across the three roles at 47.14%, 45.66%, and
+45.21% (1.93-point spread). Endpoint, prior-arm, placement, and exact-5,419-row
+controls all pass.
+
+MLP4 supplies the counterexample: length-1 recovers 20.25% of the gap, while the
+evaluation-context and fit-context rows recover -2.06% and -3.11%. Although the
+context mean is much closer to the site's native output in squared distance, it is
+causally worse downstream. Site reconstruction error is therefore empirically
+disqualified as a sufficient simplicity/success metric. The useful object is a
+fixed-cost table judged by downstream transport and then confirmed without selection
+on fresh data.
 
 ### 4. OOD, extraction, and selective removal remain downstream of admission
 
@@ -169,7 +190,7 @@ length-1 response surface should retain at least 98% rank-one energy, and one fr
 
 1. Production completion of the 68-action final role: direct causal and edit evidence.
 2. Fixed-program cut rank: predictive interaction-state certificate on untouched masks.
-3. Repaired table-versus-site arm: cheapest clean attribution of MLP4/MLP5 cost.
+3. Fresh confirmation and composition of the fixed-cost fit-context MLP5 table.
 4. Heldout length-1 response-rank test: tensor-factorization claim with a falsifiable
    unmeasured-amplitude prediction.
 5. Causal bisimulation after final rows: merge program states only when their complete
@@ -200,10 +221,11 @@ length-1 response surface should retain at least 98% rank-one energy, and one fr
    mathematical information gain: rank 1/2 must predict untouched early/late
    compositions, not just fit observed cells. Launch immediately after the active GPU
    attribution run releases the lane.
-3. **Repair and rerun table-versus-site.** Very low GPU cost relative to the ambiguity
-   it resolves: whether MLP5 is inherently expensive or harmed primarily by the
-   one-token table. The second run exposed a support-mask bug; require exactly 5,419
-   changed rows and byte-identical uncovered rows before accepting any rescue.
+3. **Confirm and compose the fixed-cost fit-context MLP5 table.** The discovery run
+   passed all controls and three exposed heldout roles while keeping identical table
+   size and calls. Freeze the MLP5 choice, confirm on fresh rows, and test whether its
+   gain survives simultaneous early/deep replacements. Do not use site MSE to select
+   MLP4: it gives the wrong causal ordering there.
 4. **Preregister and run the heldout length-1 response-rank assay.** It tests whether
    the new rank-one nonlinear law transfers to the actual compiler object and predicts
    unmeasured amplitudes.
@@ -221,17 +243,25 @@ length-1 response surface should retain at least 98% rank-one energy, and one fr
 - The fit-frequency/final-row authority loader closed at `80a8cd7c` with 75 tests.
 - Protected denominator and terminal-context reconstruction then closed at `1c3a2978`
   with 59 tests. The fit-stage denominator-child publisher and physical 18-consumer
-  definition remain.
+  definition then closed at `500f8e86` and `4b0a4fed`; the latter passes 49 focused
+  tests. Remaining final-role work is integration of capture contexts, 96 native
+  denominator forwards, and the explicit consumer/response join.
 - The real cut-rank backend closed at `ef0f1584` with 29 tests; all inputs and the
   pristine output namespace are present. When the table rerun exited, the exact
 64-mask command was launched under session 71743. It failed before outcomes on a
 scalar-tensor byte-hash bug, which is now assigned for repair and full-suite retest.
-The scalar-safe repair then closed at `a252411b` with 31 tests, and the pristine
-namespace was verified. A second exact launch began under session 78970 after the GPU
-lane cleared.
+The scalar-safe repair then closed at `a252411b` with 31 tests. The second launch failed
+before outcomes because a padded 50,304-row embedding entered a 50,257-token program.
+The validated tokenizer-slice repair closed at `6e255d01` with 34 tests and a pristine
+namespace. After the deployable-table run released the GPU, the third exact 64-mask
+launch began under session 21508.
 - The first table dispatch failure was repaired and safely rerun. Its target result was
   then rejected because the 5,419-row coverage control exposed 7,822 changed rows; a
   second support-mask run then failed before targets on an unset coverage binding.
+- The exact support repair closed at `697f6a5f`. The deployable fit-context run then
+  passed all four predictions: MLP5 gap recovery 47.14% versus 3.57% length-1 and
+  50.99% evaluation-fitted, heldout-role spread 1.93 points, persistent MLP4 inversion,
+  and all controls true. This is discovery evidence, not new ledger credit.
 - No final data, OOD role, mask outcome, or failed table-versus-site target was inferred
   from infrastructure or partial logs.
 
