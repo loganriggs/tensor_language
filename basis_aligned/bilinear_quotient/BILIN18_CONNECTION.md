@@ -49250,3 +49250,58 @@ variance captured by its per-token mean — is computable from a single pass, ne
 it correlates with §1834's 34-number cost table then the cost table is explained rather than merely
 tabulated. mlp5 should be the site whose output is least a function of its token. The control that
 matters is depth, which is a confound: the statistic has to beat depth alone, or it adds nothing.
+
+## §1837 — the cost is NOT about how well a table can represent the site: the correlation has the wrong SIGN
+
+`ops/token_explained_variance.py`, 5.9s, **DISCOVERY ONLY**, rung 3 (§1836's open question).
+**pred_a False | pred_b False | pred_c False | pred_d True.** 0 of 3, and instructively.
+
+Fraction of each site's output variance explained by the CURRENT TOKEN, exact single-pass on the live
+model over covered positions (skip7000):
+
+```
+  attn  L1 .544  L2 .252  L3 .228  L4 .190  L5 .185  L6 .290  L7 .255  L8 .164  L9 .230
+        L10 .238  L11 .177  L12 .164  L13 .131  L14 .104  L15 .152  L16 .124  L17 .459
+  mlp   L1 .560  L2 .407  L3 .363  L4 .255  L5 .290  L6 .241  L7 .224  L8 .233  L9 .221
+        L10 .218  L11 .213  L12 .224  L13 .230  L14 .213  L15 .320  L16 .661  L17 .604
+```
+
+**pred_a FAILED with the sign reversed: Spearman is +0.466, not ≤ −0.70.** Sites whose output is *more*
+a function of their own token are *more* expensive to compile, not less. **pred_b FAILED**: mlp5, which
+costs +61.2pp, sits mid-range at **0.290**; the least token-determined site is **attn14 at 0.104**, and
+compiling attn14 costs **+0.3pp**. **pred_c FAILED**: depth alone correlates with cost at **+0.853**,
+nearly twice as strongly as the explained fraction, so the +0.466 is a *worse proxy for depth* and is
+evidence for nothing on its own.
+
+> **The single clearest pair in the table settles it.** `mlp1` has the **highest** token-explained
+> variance of any site at **0.560** — its context-free table is the most accurate substitute in the whole
+> network — and compiling it costs **+38.7pp**. `attn14` has the **lowest** at **0.104** — its table is
+> the worst substitute available — and compiling it costs **+0.3pp**. **The site with the smallest
+> substitution error does the most damage, and the site with the largest does almost none.**
+
+**pred_a's registered failure branch is now the standing account of the whole §1829-§1837 arc:** *"the
+cost is about DOWNSTREAM SENSITIVITY to the substitution error rather than about the size of that error
+-- which is a different object and would need a different instrument."* Every instrument since §1824 has
+measured the substituted stream: its norm, its mean direction, its second moment, its cross-position
+routing, its channel structure, and now the representability of the site it replaces. **All of them
+measure the error. None measures what the error does.** That is why depth predicts the cost table at
++0.853 while nothing about the substitution predicts it at all: what varies with depth is not how wrong
+the substitution is, it is how many layers remain above it to be disturbed.
+
+**Controls (pred_d).** Every explained fraction lies in [0, 1]; recomputing the whole statistic on
+skip11000 agrees with skip7000 to a maximum drift of **0.0174** across all 34 sites; live top-1
+reproduces §1789's published 39.32% and 42.35% exactly; coverage 5419 of 50257.
+
+**Note on the run.** A first execution died in 30 seconds on an `IndexError` — `COV['rid']` was already
+flattened by the covered-position mask where it was built, and the hook masked it a second time. Fixed
+and re-run; nothing was consumed but half a minute.
+
+**Open question this ends on, and it is the instrument the arc has been missing.** Measure **downstream
+sensitivity** directly and independently of any table: inject a random perturbation of *fixed relative
+size* into each site's output on the live model and read the loss change. That is the site's
+amplification factor, with the substitution taken out of the picture entirely. If sensitivity predicts
+§1834's cost table where every property of the substitution has failed to, the account above is
+confirmed and the cost table is explained by what sits *above* each site rather than by anything about
+the site itself. The controls that matter are depth again — sensitivity must beat **+0.853** to be worth
+anything — and the product of sensitivity with the substitution error, which is what a first-order
+account would actually predict.

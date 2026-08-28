@@ -1,0 +1,18 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+TOKEN-EXPLAINED VARIANCE | 34 sites, covered positions, exact single-pass | DISCOVERY ONLY
+  skip7000: statistic computed, live top-1 39.32% (3s)
+  skip11000: statistic computed, live top-1 42.35% (6s)
+
+  TOKEN-EXPLAINED VARIANCE by site (skip7000, covered positions):
+    attn L1:0.544 L2:0.252 L3:0.228 L4:0.190 L5:0.185 L6:0.290 L7:0.255 L8:0.164 L9:0.230 L10:0.238 L11:0.177 L12:0.164 L13:0.131 L14:0.104 L15:0.152 L16:0.124 L17:0.459
+    mlp  L1:0.560 L2:0.407 L3:0.363 L4:0.255 L5:0.290 L6:0.241 L7:0.224 L8:0.233 L9:0.221 L10:0.218 L11:0.213 L12:0.224 L13:0.230 L14:0.213 L15:0.320 L16:0.661 L17:0.604
+
+  cheapest-to-compile 6 by §1834 cost: attn15 cost -1.1% expl 0.152  attn10 cost -0.6% expl 0.238  attn17 cost -0.5% expl 0.459  attn12 cost -0.3% expl 0.164  attn16 cost -0.1% expl 0.124  attn14 cost +0.3% expl 0.104
+  dearest 6:                          mlp5 cost +61.2% expl 0.290  mlp3 cost +48.5% expl 0.363  mlp4 cost +44.5% expl 0.255  attn2 cost +42.9% expl 0.252  mlp1 cost +38.7% expl 0.560  mlp2 cost +37.9% expl 0.407
+
+  explained variance PREDICTS §1834 cost (Spearman <=-0.70) -> False  rho +0.4659
+  and mlp5 is the EXTREME (lowest explained of 34) -> False  lowest is attn14 at 0.104; mlp5 at 0.290
+  and it BEATS DEPTH alone by >=0.10 -> False  |+0.4659| vs depth |+0.8527|, margin -0.3869
+  in [0,1], skip11000 agrees within 0.05 (max drift 0.0174), coverage 5419 -> control True
+
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/token_explained_variance_results.json (5.9s)
