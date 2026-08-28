@@ -10176,6 +10176,14 @@ pass; strict monotonicity fails due to tiny beneficial initial steps, so the reg
 control is false. This prunes a first-order scalar site price, not finite-amplitude,
 subspace-valued, or interaction-state models.
 
+Post-hoc qualification: conditioning on depth and attention/MLP type changes the
+picture. In leave-one-layer-out regression, the local response lowers MSE from
+0.01448 to 0.01032 and improves 14/17 layers (exploratory paired sign-flip
+\(p=0.0064\)). This was selected after seeing the result and the CE deltas are tiny,
+so it earns no credit. The standalone registered claim remains false; the conditional
+claim is now a frozen-heldout-replication candidate with separate token-mean fitting
+and document-level uncertainty.
+
 Two non-promotive infrastructure advances are closed. Commit `8219f6d2` owns the
 canonical 68-action by 48-batch observational role, typed CE/copy/frequency receipts,
 and backend/call ledgers; focused suite 109 passed. Commit `99f6c077` owns the

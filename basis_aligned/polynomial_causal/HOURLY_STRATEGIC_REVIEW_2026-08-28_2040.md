@@ -105,9 +105,19 @@ GPU adapter that mints authority from the actual committed closure and executes 
 
 An existing exploratory runner compares exact MLP0/1/2 factorial effects with PCA0,
 PCA1, and exact MLP2 on discovery and heldout documents. Its pure contract tests pass,
-but the runner is uncommitted and oracle-scoped. It can answer whether independent
-MLP0/1 restrictions retain CE gain and whether exact MLP2 compensates; it cannot prove
-that the executable compressed MLP2 or the complete deployed compiler composes.
+but the runner is uncommitted and oracle-scoped. A conceptual audit at commit
+`04d52992` gives it a **no-go** for GPU execution. The intervention order, same-row CE
+currency, and document-disjoint PCA basis are coherent, and exact MLP2 restoration is
+interpretable. However, every PCA correction still calls the full native MLP, so a
+pass would show a coupled oracle output-subspace interface—not executable independent
+MLP0/1/2 compression.
+
+Launch also requires committed/pushed transitive source closure, exact parent/row
+receipt replay before model access, deserialization TOCTOU closure, create-only
+publication and lock ownership, finalization after outer return and inertness, runtime
+arm/native-call ledgers, and a corrected confidence-interval validator. Its heldout
+documents are disjoint but previously exposed by related results, so they are reused
+evaluation support rather than pristine confirmation.
 
 ### 5. Current-token representability fails as an explanation
 
@@ -152,9 +162,19 @@ The scientific predictions are all negative:
 - MLP1, not MLP5, has the largest full CE rise: +0.1935 versus +0.0512 nats.
 
 Thus the actual direction matters more than random noise, but one first-order scalar
-per site still does not explain compilation cost. The response is finite-amplitude
-and curved. Because the means were estimated and scored on the same discovery rows,
-this was an optimistic mechanism test; it cannot establish heldout compiler quality.
+per site does not explain compilation cost **by the registered standalone rank test**.
+The response is finite-amplitude and curved. Because the means were estimated and
+scored on the same discovery rows, this was an optimistic mechanism test; it cannot
+establish heldout compiler quality.
+
+A post-hoc conditional check prevents over-pruning. In leave-one-layer-out regression,
+adding the local response to depth plus attention/MLP type reduces cost-prediction MSE
+from 0.01448 to 0.01032 and improves 14 of 17 heldout layers; an exploratory paired
+sign-flip test gives \(p=0.0064\). The full response gives only a small, nonsignificant
+improvement by the same check. The local CE differences are tiny and this model was
+chosen after seeing the outcome, so it is a new hypothesis, not a result. A frozen
+heldout-document replication with separately estimated token means and document-level
+uncertainty is required.
 
 ## Candidate actions and pruning
 
@@ -165,8 +185,9 @@ this was an optimistic mechanism test; it cannot establish heldout compiler qual
    response preservation, frequency failure, and closure for the frozen lattice.
 2. The 8-by-8 cut-rank GPU measurement. It makes simplicity predictive: a low-dimensional
    state must forecast unmeasured replacement compositions.
-3. The exact-versus-PCA early-MLP factorial. It cheaply tests whether independently
-   reduced MLP0/1 and exact MLP2 compose before fitting another joint compressor.
+3. Repair the audited exact-versus-PCA early-MLP factorial. It can cheaply test an
+   oracle coupled output-subspace interface and exact MLP2 compensation, but cannot
+   establish executable independent compression until native MLP calls are removed.
 4. A finite-amplitude, downstream-weighted MLP5 subspace. Instead of selecting
    residual axes or using an infinitesimal site scalar, find a
    rank-\(k\) subspace minimizing heldout downstream logit/CE distortion, with matched
@@ -220,9 +241,10 @@ itself.
   wrong sign and loses to depth.
 - Uncalibrated 10% isotropic-noise top-1 sensitivity is pruned as an instrument: the
   registered perturbation-landing control failed.
-- A one-sided 10% derivative along the ideal token-mean error is pruned as a scalar
-  cost predictor: it correlates only +0.168 with published cost and does not predict
-  the full response. This does not prune finite-amplitude or subspace-valued response.
+- A one-sided 10% derivative along the ideal token-mean error is pruned as a
+  **standalone rank** predictor: it correlates only +0.168 with published cost and
+  does not predict the full response. A post-hoc depth-and-type-conditioned model is
+  promising enough to replicate, but cannot be credited on the discovery sample.
 - OOD transport, selective removal, and MDL pricing remain mandatory validation, but
   applying them to candidates that already fail in-domain composition has low value.
 
@@ -235,13 +257,17 @@ itself.
 2. **Implement the cut-rank GPU adapter and run the 64-cell assay.** The measurement
    contract is complete. This is the highest genuinely new mathematical information:
    it can certify or falsify a two-channel interaction state on untouched combinations.
-3. **Audit and run the exact-versus-PCA early composition cube.** It directly
-   tests the user's question about whether independent MLP0/MLP1 reductions compose
-   and whether MLP2 compensates, at moderate GPU cost.
-4. **Learn a finite-amplitude downstream-weighted MLP5 subspace.** The directional
-   curve rules out an infinitesimal scalar predictor but not a low-dimensional error
-   covariance or nonlinear response surface. Fit on discovery CE/logits and require
-   heldout improvement over PCA and random subspaces.
+3. **Repair, then run, the audited exact-versus-PCA early composition cube.** The
+   current runner is no-go: it needs provenance/lifecycle/call-ledger repairs, and a
+   pass would only establish an oracle output-subspace interface because it still
+   calls the native MLPs. It remains useful for asking whether exact MLP2 compensates,
+   but not yet for claiming executable independent compression.
+4. **Freeze and replicate the conditional small-step model, then learn a
+   finite-amplitude downstream-weighted MLP5 subspace if needed.** Use separately fit
+   token means, heldout documents, and a document bootstrap to test whether the
+   discovery-frozen depth+type+local model beats depth+type. The curve rules out the
+   standalone scalar but not this conditional metric, a low-dimensional error
+   covariance, or a nonlinear response surface.
 5. **Validate survivors on OOD, extraction, and selective removal.** Use paired
    CE/logit response rather than local MSE. Operational tests decide whether the
    simplification is useful rather than merely compact.
@@ -264,6 +290,12 @@ canonical request and publish the sealed payload atomically.
 The uncommitted early-PCA composition contract's pure tests pass 3/3. It remains
 oracle/exploratory and was not promoted or silently added with these changes.
 
+A separate conceptual audit closed at commit `04d52992` with 12 tests passing and a
+no-go verdict for GPU execution. It did not edit or stage the concurrent runner. The
+audit confirms coherent intervention math but identifies incomplete source/lifecycle
+closure, previously exposed heldout support, and the decisive semantic limitation
+that every projected correction still executes the full native MLP.
+
 During the review, the repaired token-explained-variance run closed and falsified the
 local-fidelity explanation. A registered downstream-sensitivity sweep then entered the
 GPU lane while the higher-priority role-owner and cut-rank interfaces continued on
@@ -281,8 +313,10 @@ That directional run then closed in 271 seconds. Its small-step response does no
 predict either the full response or published replacement cost, the full response
 only ties the depth baseline, and MLP1 rather than MLP5 is worst. Exact-live and drift
 controls pass, but strict monotonicity fails at tiny amplitudes, so the registered
-control is false. This prunes the **first-order scalar** account and moves priority to
-finite-amplitude interaction state and subspace-valued response.
+control is false. This prunes the **standalone first-order scalar** account. A post-hoc
+leave-one-layer-out check suggests that the local response may still add information
+conditional on depth and component type; that unregistered finding is queued only as
+a frozen heldout replication, not as scientific credit.
 
 No final rows were opened, no scientific outcome was inferred from infrastructure,
 and concurrent GPU/job artifacts were left untouched.
