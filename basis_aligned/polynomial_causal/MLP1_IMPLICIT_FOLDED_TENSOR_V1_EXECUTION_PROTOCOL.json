@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "experiment_id": "bilin18_mlp1_implicit_folded_tensor_v1",
+  "status": "prospective_no_checkpoint_tensor_loaded",
+  "site": 1,
+  "object": "bias-separated partially symmetric folded tensor T[o,i,j]",
+  "device": "cpu",
+  "arithmetic": "torch.float64",
+  "thread_count": 8,
+  "hidden_block": 64,
+  "negative_gram_eigenvalue_relative_tolerance": 1e-10,
+  "mode_trace_relative_tolerance": 1e-10,
+  "numerical_rank_rule": "singular_value > eps_float64 * max(unfolding_rows, unfolding_columns) * largest_singular_value",
+  "energy_thresholds": [
+    0.9,
+    0.95,
+    0.99,
+    0.999
+  ],
+  "down_price_ranks": [
+    16,
+    32,
+    64,
+    128,
+    256,
+    512,
+    1024,
+    1152
+  ],
+  "cp_price_ranks": [
+    16,
+    32,
+    64,
+    128,
+    256,
+    512,
+    1024,
+    2048,
+    4096,
+    4608
+  ],
+  "projected_core_plan": {
+    "16": [
+      64,
+      256,
+      1024,
+      2176
+    ],
+    "32": [
+      128,
+      512,
+      2048,
+      8192,
+      16896
+    ],
+    "64": [
+      256,
+      1024,
+      4096,
+      16384,
+      65536,
+      133120
+    ]
+  },
+  "core_rule": "For each registered r use the top-r output Gram eigenvectors and the shared top-r input Gram eigenvectors; project G[r,r,r], symmetrize input modes, rank unique COO entries by folded Frobenius mass, and use deterministic (output,b,c) ties.",
+  "checkpoint_load_rule": "Only after exact source/checkpoint authority: local torch.load(weights_only=True,mmap=True,map_location=cpu), exact full state-tree schema replay against a meta TT.GPT, clone only MLP1 Left/Right/Down/Down_bias, then delete the state tree.",
+  "publication_order": [
+    "source_weight_authority",
+    "nonauthoritative_result",
+    "last_written_outcome_authority"
+  ],
+  "failure_rule": "A failure is create-only and may bind a partial result; it can never delete, overwrite, or authorize a result.",
+  "claim_boundary": "Weight-space coefficient-Frobenius spectrum and fixed-grammar prices only; no CE, causal, semantic, CP-rank, product-minimality, OOD, edit, removal, or composition credit."
+}

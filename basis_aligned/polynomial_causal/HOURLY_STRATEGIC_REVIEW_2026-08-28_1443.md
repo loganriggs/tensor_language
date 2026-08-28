@@ -96,3 +96,41 @@ There is no GPU, FineWeb, cache, or `rspd` blocker for this branch. No scientifi
 is currently consuming a GPU. The remaining temporary gate is procedural: the new
 MLP1 tensor runner must pass source-closure tests and freeze its no-outcome authority
 before it may read and publish checkpoint-derived spectra.
+
+## Late-arriving result: partial compilation is directional
+
+The bottom-up mirror curve finished after the initial review and materially changes
+the interface story. The earlier top-down curve remains numerically valid, but its
+per-layer increments cannot be read as independent layer importance.
+
+Compiling only layer 0 while leaving layers 1--17 live loses
+$62.6\%/60.4\%/61.9\%$ of the full live-to-compiled gap. Compiling only layer 17
+loses only $4.8\%/4.4\%/3.7\%$. Worse, compiling layers 0--3 beneath live upper
+layers performs below the fully compiled program by roughly 43--47% of the gap.
+Keeping only the apparently expensive layers 6--9 live also fails catastrophically.
+
+The correct interpretation is typed and directional:
+
+$$
+\text{compiled lower state}\longrightarrow\text{native upper module}
+$$
+
+is an out-of-distribution interface, whereas a compiled upper module can consume a
+native lower state much more safely. This agrees with the attention-5 norm explosion.
+Individual layer effects therefore do not compose by addition, and subset selection
+from singleton or ordered-prefix marginals is invalid.
+
+This raises the composition action in priority. The early-MLP cube must compare both
+independently fitted replacements and **top-down conditional refits**. That separates
+a fixable calibration/type error from a structural need for a joint program. The
+folded-tensor diagnostic remains first because its source closure is almost complete
+and it is a cheap branch selector, but no favorable local spectrum may be promoted
+without this directional interface test.
+
+The contemporaneous mathematical red-team also fixes the tensor decision boundary.
+The existing MLP1 output-rank screen gives a numerical exact-product lower bound of
+1,152, not incompressibility. A full-output dense Tucker program can beat native on
+both storage and products only in the certificate-compatible input-rank window
+$48\le r_i\le95$. Ranks 96--157 can win storage only; above 157, dense Tucker loses
+even on storage. CP can still be useful between the lower bound of 1,152 products
+and the native 4,608, but HOSVD cannot certify that rank.
