@@ -5,6 +5,8 @@ import torch
 
 import bilin18_observed_adapter as observed
 import early_mlp_suffix_transport_v1_capabilities as capabilities
+import early_mlp_suffix_transport_v1_fit as fit
+import early_mlp_suffix_transport_v1_inherited as inherited
 import early_mlp_suffix_transport_v1_lifecycle as lifecycle
 import early_mlp_suffix_transport_v1_observational_authority as authority
 import early_mlp_suffix_transport_v1_observational_execution as execution
@@ -39,6 +41,51 @@ def _frozen_rows(tmp_path, monkeypatch):
     )
     monkeypatch.setattr(lifecycle, "_FINAL_ROLE_LOADS", 0)
     return paths, fit_rows, fit_cache, validations
+
+
+def _denominator_pass() -> fit.DenominatorPass:
+    count = capabilities.FIT_ROW_COUNT * (
+        runtime.SCORE_STOP - runtime.SCORE_START
+    )
+    records = tuple({
+        "count": count,
+        "coordinate_sum": torch.zeros(runtime.CODE_DIM, dtype=torch.float64),
+        "coordinate_square_sum": torch.ones(runtime.CODE_DIM, dtype=torch.float64),
+        "mean": torch.zeros(runtime.CODE_DIM, dtype=torch.float64),
+        "centered_sum_of_squares": torch.tensor(3.0 + site, dtype=torch.float64),
+        "raw_sum_square_replay": torch.tensor(3.0 + site, dtype=torch.float64),
+        "denominator": torch.tensor(2.0 + site, dtype=torch.float64),
+        "ordered_support_sha256": "e" * 64,
+    } for site in (0, 1))
+    return fit.DenominatorPass(
+        site_records=records, transaction_history_sha256="f" * 64,
+        completed_steps=capabilities.FIT_BATCHES_PER_EPOCH,
+    )
+
+
+def _protected_denominator(tmp_path, monkeypatch):
+    paths = lifecycle.ArtifactPaths(root=tmp_path)
+    tmp_path.mkdir(parents=True, exist_ok=True)
+    denominator = _denominator_pass()
+    torch.save({
+        authority.DENOMINATOR_LEDGER_KEY: authority.denominator_pass_payload(denominator),
+        "unrelated_fit_state": torch.tensor([1.0]),
+    }, paths.fit_ledger)
+    paths.fit_manifest.write_text(json.dumps({"kind": "synthetic fit manifest"}))
+    child = authority.denominator_pass_authority_payload(denominator, paths=paths)
+    paths.fit_receipt.write_text(json.dumps({
+        "kind": "synthetic fit receipt",
+        authority.DENOMINATOR_AUTHORITY_KEY: child,
+    }))
+    protected = lifecycle.protected_snapshot((
+        paths.fit_ledger, paths.fit_manifest, paths.fit_receipt,
+    ))
+    monkeypatch.setattr(
+        lifecycle, "load_programs_unlock",
+        lambda supplied_paths: {"protected_before": protected},
+    )
+    monkeypatch.setattr(lifecycle, "_FINAL_ROLE_LOADS", 0)
+    return paths, denominator, protected
 
 
 def test_reduced_loader_hash_validates_and_exposes_no_fit_rows(tmp_path, monkeypatch) -> None:
@@ -165,4 +212,82 @@ def test_executor_factory_poison_closes_on_substituted_final_rows(
         factory.build(
             adapter=object.__new__(observed.ObservedBilin18Adapter),
             final_rows=final_rows, validated_program_bank={},
+        )
+
+
+def test_protected_denominator_round_trip_and_no_final_load(tmp_path, monkeypatch) -> None:
+    paths, expected, _protected = _protected_denominator(tmp_path, monkeypatch)
+    observed_pass = authority.load_protected_denominator_pass(paths=paths)
+    assert observed_pass.sha256 == expected.sha256
+    assert all(
+        torch.equal(left, right) for left, right in zip(
+            observed_pass.denominators, expected.denominators, strict=True,
+        )
+    )
+    assert lifecycle._FINAL_ROLE_LOADS == 0
+
+
+def test_protected_denominator_rejects_semantic_and_snapshot_drift(
+    tmp_path, monkeypatch,
+) -> None:
+    paths, denominator, _protected = _protected_denominator(tmp_path, monkeypatch)
+    ledger = torch.load(paths.fit_ledger, map_location="cpu", weights_only=True)
+    ledger[authority.DENOMINATOR_LEDGER_KEY]["denominator_pass_sha256"] = "0" * 64
+    torch.save(ledger, paths.fit_ledger)
+    # Rebind the mocked protected snapshot to isolate semantic replay from byte drift.
+    current = lifecycle.protected_snapshot((
+        paths.fit_ledger, paths.fit_manifest, paths.fit_receipt,
+    ))
+    monkeypatch.setattr(
+        lifecycle, "load_programs_unlock",
+        lambda supplied_paths: {"protected_before": current},
+    )
+    with pytest.raises(RuntimeError, match="authority changed|identity changed"):
+        authority.load_protected_denominator_pass(paths=paths)
+
+    paths, denominator, protected = _protected_denominator(tmp_path / "drift", monkeypatch)
+    paths.fit_manifest.write_text("drift")
+    monkeypatch.setattr(
+        lifecycle, "load_programs_unlock",
+        lambda supplied_paths: {"protected_before": protected},
+    )
+    with pytest.raises(RuntimeError, match="omitted or changed|inputs drifted"):
+        authority.load_protected_denominator_pass(paths=paths)
+
+
+def test_final_context_reconstruction_binds_terminal_and_inherited_authorities() -> None:
+    initialization = object.__new__(inherited.LoadedInitialization)
+    inherited_authority = inherited.ValidatedInherited(
+        bindings={}, ship_realization_sha256="1" * 64,
+        compiler_source_commit="2" * 40, basis_source_commit="3" * 40,
+        snapshot_sha256="4" * 64, full_product_sha256={0: "5" * 64, 1: "6" * 64},
+    )
+    object.__setattr__(
+        initialization, "_LoadedInitialization__authority", inherited_authority,
+    )
+    rows_binding = {"path": "/tmp/rows.json", "sha256": "7" * 64, "bytes": 99}
+    bindings = {"rows_receipt": rows_binding, "source_commit": "8" * 40}
+    attempt = {
+        "rows_receipt": dict(rows_binding), "source_commit": "8" * 40,
+        "final_cache": {
+            "shape_full": [192, 513], "tensor_full_raw_sha256": "9" * 64,
+        },
+    }
+    context = authority.reconstruct_final_run_context(
+        bindings=bindings, attempt=attempt,
+        inherited_initialization=initialization,
+    )
+    assert context.source_commit == bindings["source_commit"]
+    assert context.rows_receipt_sha256 == rows_binding["sha256"]
+    assert context.final_role_tensor_sha256 == "9" * 64
+    assert context.inherited_snapshot_sha256 == inherited_authority.snapshot_sha256
+    assert context.identity_teacher_mapping_sha256 == (
+        authority.identity_teacher_mapping_sha256(rows_binding["sha256"])
+    )
+    changed = dict(attempt)
+    changed["rows_receipt"] = {**rows_binding, "bytes": 100}
+    with pytest.raises(RuntimeError, match="authorities disagree"):
+        authority.reconstruct_final_run_context(
+            bindings=bindings, attempt=changed,
+            inherited_initialization=initialization,
         )

@@ -28,6 +28,8 @@ import early_mlp_suffix_transport_v1_runtime as runtime
 FIT_ROLE = lifecycle.ROLE_NAMES[0]
 FIT_ROW_COUNT = capabilities.FIT_ROW_COUNT
 FIT_ROW_WIDTH = 513
+DENOMINATOR_LEDGER_KEY = "initial_denominator_pass"
+DENOMINATOR_AUTHORITY_KEY = "initial_denominator_pass_authority"
 _MINT_TOKEN = object()
 
 
@@ -192,6 +194,172 @@ def load_fit_token_count_authority(
     )
     return LoadedFitTokenCountAuthority(
         _token=_MINT_TOKEN, counts=counts, receipt=reduced_receipt,
+    )
+
+
+def denominator_pass_payload(value: fit.DenominatorPass) -> dict[str, Any]:
+    """Canonical weights-only representation for the protected fit ledger.
+
+    This owns only the denominator namespace.  The fit-stage owner may add other
+    ledger entries, but the protected receipt must bind this exact child payload.
+    """
+
+    if not isinstance(value, fit.DenominatorPass):
+        raise TypeError("denominator payload requires a typed pass")
+    identity = value.sha256
+    return {
+        "schema_version": 1,
+        "kind": "early_mlp_suffix_transport_v1_denominator_pass",
+        "site_records": tuple({
+            key: (
+                item.detach().cpu().contiguous().clone()
+                if torch.is_tensor(item) else item
+            ) for key, item in record.items()
+        } for record in value.site_records),
+        "transaction_history_sha256": value.transaction_history_sha256,
+        "completed_steps": value.completed_steps,
+        "denominator_pass_sha256": identity,
+    }
+
+
+def _restore_denominator_pass(value: Any) -> fit.DenominatorPass:
+    keys = {
+        "schema_version", "kind", "site_records", "transaction_history_sha256",
+        "completed_steps", "denominator_pass_sha256",
+    }
+    if not isinstance(value, Mapping) or set(value) != keys or value.get(
+        "schema_version"
+    ) != 1 or value.get("kind") != (
+        "early_mlp_suffix_transport_v1_denominator_pass"
+    ) or not runtime._sha256_text(value.get("denominator_pass_sha256")) or not isinstance(
+        value.get("site_records"), (tuple, list)
+    ) or len(value["site_records"]) != 2:
+        raise RuntimeError("protected denominator payload schema changed")
+    result = fit.DenominatorPass(
+        site_records=tuple(dict(record) for record in value["site_records"]),
+        transaction_history_sha256=value["transaction_history_sha256"],
+        completed_steps=value["completed_steps"],
+    )
+    if result.sha256 != value["denominator_pass_sha256"]:
+        raise RuntimeError("protected denominator pass identity changed")
+    return result
+
+
+def denominator_pass_authority_payload(
+    value: fit.DenominatorPass, *, paths: lifecycle.ArtifactPaths,
+) -> dict[str, Any]:
+    """Fit-owner child receipt to publish after its ledger and manifest exist."""
+
+    if not paths.fit_ledger.is_file() or not paths.fit_manifest.is_file():
+        raise RuntimeError("denominator authority binding targets are absent")
+    return {
+        "schema_version": 1,
+        "kind": "early_mlp_suffix_transport_v1_denominator_pass_authority",
+        "ledger_key": DENOMINATOR_LEDGER_KEY,
+        "fit_ledger": lifecycle.artifact_binding(paths.fit_ledger),
+        "fit_manifest": lifecycle.artifact_binding(paths.fit_manifest),
+        "denominator_pass_sha256": value.sha256,
+    }
+
+
+def _protected_binding(
+    protected: Mapping[str, Any], path: Path,
+) -> Mapping[str, Any]:
+    key = str(path.resolve())
+    binding = protected.get(key)
+    expected = lifecycle.artifact_binding(path)
+    if not isinstance(binding, Mapping) or dict(binding) != expected:
+        raise RuntimeError(f"protected fit authority omitted or changed {path.name}")
+    return binding
+
+
+def load_protected_denominator_pass(
+    *, paths: lifecycle.ArtifactPaths = lifecycle.PATHS,
+) -> fit.DenominatorPass:
+    """Reconstruct the denominator pass from the program-unlock snapshot."""
+
+    if lifecycle._FINAL_ROLE_LOADS != 0:
+        raise RuntimeError("protected denominators must load before the final role")
+    unlock = lifecycle.load_programs_unlock(paths)
+    protected = unlock.get("protected_before")
+    if not isinstance(protected, Mapping):
+        raise RuntimeError("program unlock lacks its protected fit snapshot")
+    for path in (paths.fit_ledger, paths.fit_manifest, paths.fit_receipt):
+        _protected_binding(protected, path)
+    lifecycle.require_protected_snapshot(
+        tuple(Path(key) for key in protected), protected,
+    )
+    receipt = json.loads(paths.fit_receipt.read_text())
+    child = receipt.get(DENOMINATOR_AUTHORITY_KEY) if isinstance(receipt, Mapping) else None
+    required = {
+        "schema_version": 1,
+        "kind": "early_mlp_suffix_transport_v1_denominator_pass_authority",
+        "ledger_key": DENOMINATOR_LEDGER_KEY,
+        "fit_ledger": lifecycle.artifact_binding(paths.fit_ledger),
+        "fit_manifest": lifecycle.artifact_binding(paths.fit_manifest),
+    }
+    if not isinstance(child, Mapping) or set(child) != set(required) | {
+        "denominator_pass_sha256"
+    } or any(child.get(key) != expected for key, expected in required.items()) or not (
+        runtime._sha256_text(child.get("denominator_pass_sha256"))
+    ):
+        raise RuntimeError("fit receipt denominator authority changed")
+    ledger = torch.load(paths.fit_ledger, map_location="cpu", weights_only=True)
+    if not isinstance(ledger, Mapping) or DENOMINATOR_LEDGER_KEY not in ledger:
+        raise RuntimeError("fit ledger omits the protected denominator pass")
+    result = _restore_denominator_pass(ledger[DENOMINATOR_LEDGER_KEY])
+    if result.sha256 != child["denominator_pass_sha256"]:
+        raise RuntimeError("fit ledger and receipt denominator identities differ")
+    return result
+
+
+def identity_teacher_mapping_sha256(rows_receipt_sha256: str) -> str:
+    """Identity-map semantic nonce shared by fit/validation/final contexts."""
+
+    _sha256("rows receipt", rows_receipt_sha256)
+    return runtime.logical_identity_sha256({
+        "kind": "early_mlp_suffix_transport_v1_identity_teacher_mapping",
+        "rows_receipt_sha256": rows_receipt_sha256,
+        "mapping": "same ordered source rows and targets",
+    })
+
+
+def reconstruct_final_run_context(
+    *, bindings: Mapping[str, Any], attempt: Mapping[str, Any],
+    inherited_initialization: inherited.LoadedInitialization,
+) -> capabilities.FinalRunContext:
+    """Derive the final broker context from terminal and inherited authorities."""
+
+    if not isinstance(bindings, Mapping) or not isinstance(attempt, Mapping) or not isinstance(
+        inherited_initialization, inherited.LoadedInitialization
+    ):
+        raise TypeError("final context reconstruction requires typed authorities")
+    rows_binding = bindings.get("rows_receipt")
+    attempt_rows = attempt.get("rows_receipt")
+    final_cache = attempt.get("final_cache")
+    source_commit = bindings.get("source_commit")
+    if not isinstance(rows_binding, Mapping) or dict(rows_binding) != attempt_rows or not isinstance(
+        final_cache, Mapping
+    ) or final_cache.get("shape_full") != [capabilities.FINAL_ROW_COUNT, FIT_ROW_WIDTH] or (
+        attempt.get("source_commit") != source_commit
+    ) or not isinstance(source_commit, str) or len(source_commit) != 40 or any(
+        char not in "0123456789abcdef" for char in source_commit
+    ):
+        raise RuntimeError("terminal final-context authorities disagree")
+    rows_receipt_sha256 = rows_binding.get("sha256")
+    final_role_sha256 = final_cache.get("tensor_full_raw_sha256")
+    _sha256("terminal rows receipt", rows_receipt_sha256)
+    _sha256("terminal final role", final_role_sha256)
+    snapshot_sha256 = inherited_initialization.authority.snapshot_sha256
+    _sha256("inherited snapshot", snapshot_sha256)
+    return capabilities.FinalRunContext(
+        source_commit=source_commit,
+        inherited_snapshot_sha256=snapshot_sha256,
+        rows_receipt_sha256=rows_receipt_sha256,
+        final_role_tensor_sha256=final_role_sha256,
+        identity_teacher_mapping_sha256=identity_teacher_mapping_sha256(
+            rows_receipt_sha256
+        ),
     )
 
 
