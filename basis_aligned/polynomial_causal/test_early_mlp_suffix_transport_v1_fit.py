@@ -1,0 +1,191 @@
+from __future__ import annotations
+
+from dataclasses import dataclass
+from types import SimpleNamespace
+
+import pytest
+import torch
+
+import early_mlp_suffix_transport_v1_capabilities as capabilities
+import early_mlp_suffix_transport_v1_fit as fit
+import early_mlp_suffix_transport_v1_runtime as runtime
+
+
+def _basis() -> torch.Tensor:
+    return torch.eye(runtime.D_MODEL)[:, :runtime.CODE_DIM]
+
+
+def _state(seed: int) -> dict:
+    generator = torch.Generator().manual_seed(seed)
+    return {
+        "grammar": "affine", "interface": "state_complete_p",
+        "mean": torch.zeros(runtime.D_MODEL), "scale": torch.ones(runtime.D_MODEL),
+        "left": torch.randn(runtime.D_MODEL, runtime.CODE_DIM, generator=generator) / 100,
+        "right": torch.randn(runtime.CODE_DIM, runtime.CODE_DIM, generator=generator) / 100,
+        "bias": torch.zeros(runtime.CODE_DIM),
+    }
+
+
+def _program(route: str) -> runtime.JointAffineProgram:
+    return runtime.JointAffineProgram.from_v21_states(
+        {0: _state(1), 1: _state(2)}, route=route,
+    )
+
+
+def _context(rows: torch.Tensor) -> capabilities.RunContext:
+    return capabilities.RunContext(
+        source_commit="1" * 40, inherited_snapshot_sha256="2" * 64,
+        rows_receipt_sha256="3" * 64,
+        fit_role_tensor_sha256=runtime.tensor_identity_sha256(rows),
+        identity_teacher_mapping_sha256="5" * 64,
+        fit_row_count=capabilities.FIT_ROW_COUNT,
+    )
+
+
+@dataclass(frozen=True)
+class _Observed:
+    scope: str = "student"
+    outer_forward_count: int = 1
+
+
+class _Hook:
+    def __init__(self) -> None:
+        self.program = None
+        self.states = {}
+
+    def configure(self, *, program, states) -> None:
+        self.program = program
+        self.states = dict(states)
+
+
+class _Result:
+    def __init__(self, *, program, denominator: bool, ledger: str) -> None:
+        self.program = program
+        self.denominator = denominator
+        self.closure = SimpleNamespace(ledger_sha256=ledger)
+
+    def consume_moments(self):
+        assert self.denominator
+        coordinates = torch.arange(runtime.CODE_DIM, dtype=torch.float32).view(1, 1, -1)
+        row = torch.arange(runtime.BATCH_SIZE, dtype=torch.float32).view(-1, 1, 1)
+        labels = (coordinates + row).expand(-1, runtime.SCORE_STOP - runtime.SCORE_START, -1)
+        moments = runtime.MomentSufficientStatistics.from_labels(labels)
+        return (moments, moments), self.closure
+
+    def consume_loss(self, denominators=None):
+        assert not self.denominator
+        if self.program.route == "L":
+            assert denominators is not None and len(denominators) == 2
+        else:
+            assert denominators is None
+        loss = sum(
+            parameter.square().mean()
+            for parameter in self.program.parameters() if parameter.requires_grad
+        )
+        return loss, self.closure
+
+
+class _Broker:
+    def __init__(self, context) -> None:
+        self.context = context
+        self.program = None
+        self.identities = []
+
+    def begin_student(self, identity, hook, inputs, indices):
+        self.context.require_identity(identity, inputs, indices)
+        self.program = hook.program
+        self.identities.append(identity)
+        return object()
+
+    def run_coordinate_teacher(self, identity, step):
+        return _Result(
+            program=self.program,
+            denominator=identity.phase == "initial_denominator",
+            ledger="b" * 64,
+        )
+
+
+class _Adapter:
+    def run_student(self, *, session, hook, identity, tokens):
+        del session, tokens
+        assert hook.states == {0: "P", 1: "P"}
+        return object(), SimpleNamespace(ledger_sha256="a" * 64), _Observed()
+
+    def run_oon_teacher(self, *, broker, identity, step, tokens):
+        del step, tokens
+        return _Result(program=broker.program, denominator=False, ledger="c" * 64)
+
+
+def test_schedule_and_identity_bind_program_before_forward(monkeypatch) -> None:
+    monkeypatch.setattr(capabilities, "FIT_ROW_COUNT", 8)
+    monkeypatch.setattr(capabilities, "FIT_BATCHES_PER_EPOCH", 2)
+    rows = torch.arange(8 * runtime.SEQUENCE_LENGTH, dtype=torch.long).view(8, -1)
+    context = _context(rows)
+    program = _program("R")
+    indices = fit.scheduled_indices(phase="fit", trial=2, epoch=1, batch_ordinal=1)
+    inputs = rows[torch.tensor(indices)]
+    identity = fit.make_identity(
+        context=context, program=program, inputs=inputs, indices=indices,
+        phase="fit", route="R", trial=2, epoch=1, batch_ordinal=1,
+    )
+    assert identity.optimizer_step == 3
+    assert identity.program_snapshot_sha256 == runtime.program_snapshot_sha256(program)
+    with pytest.raises(RuntimeError, match="preregistered schedule"):
+        fit.make_identity(
+            context=context, program=program, inputs=inputs,
+            indices=tuple(reversed(indices)), phase="fit", route="R", trial=2,
+            epoch=1, batch_ordinal=1,
+        )
+
+
+def test_denominator_and_true_fit_share_exact_transaction_surface(monkeypatch) -> None:
+    monkeypatch.setattr(capabilities, "FIT_ROW_COUNT", runtime.BATCH_SIZE)
+    monkeypatch.setattr(capabilities, "FIT_BATCHES_PER_EPOCH", 1)
+    monkeypatch.setattr(runtime, "EPOCHS", 1)
+    rows = torch.arange(
+        runtime.BATCH_SIZE * runtime.SEQUENCE_LENGTH, dtype=torch.long,
+    ).view(runtime.BATCH_SIZE, runtime.SEQUENCE_LENGTH)
+    context = _context(rows)
+    adapter, hook = _Adapter(), _Hook()
+
+    q_broker = _Broker(context)
+    denominator = fit.run_initial_denominator_pass(
+        rows=rows, context=context, program=_program("L"), adapter=adapter,
+        broker=q_broker, hook=hook,
+    )
+    assert denominator.completed_steps == 1
+    assert all(float(value) > 0 for value in denominator.denominators)
+    assert q_broker.identities[0].route == "Q"
+
+    r_broker = _Broker(context)
+    candidate = fit.run_true_fit_trial(
+        rows=rows, context=context, program=_program("R"), route="R", trial=0,
+        denominators=None, adapter=adapter, broker=r_broker, hook=hook,
+    )
+    assert candidate.completed_steps == 1
+    assert candidate.learning_rate == runtime.LEARNING_RATES[0]
+    assert candidate.loss_min == candidate.loss_max == candidate.loss_sum
+    assert r_broker.identities[0].teacher_kind == "oon_logits"
+    assert set(candidate.state_dict) == {
+        "site0.bias", "site0.mean", "site0.scale", "site0.weight",
+        "site1.bias", "site1.mean", "site1.scale", "site1.weight",
+    }
+
+
+def test_fit_rows_and_loss_families_fail_closed(monkeypatch) -> None:
+    monkeypatch.setattr(capabilities, "FIT_ROW_COUNT", runtime.BATCH_SIZE)
+    monkeypatch.setattr(capabilities, "FIT_BATCHES_PER_EPOCH", 1)
+    rows = torch.zeros((runtime.BATCH_SIZE, runtime.SEQUENCE_LENGTH), dtype=torch.long)
+    context = _context(rows)
+    with pytest.raises(RuntimeError, match="sealed run context"):
+        fit.validate_fit_rows(rows.clone().add_(1), context)
+    with pytest.raises(ValueError, match="requires both"):
+        fit.run_true_fit_trial(
+            rows=rows, context=context, program=_program("L"), route="L", trial=0,
+            denominators=None, adapter=_Adapter(), broker=_Broker(context), hook=_Hook(),
+        )
+    with pytest.raises(ValueError, match="must not receive"):
+        fit.run_true_fit_trial(
+            rows=rows, context=context, program=_program("S0"), route="S0", trial=0,
+            denominators=(1.0, 1.0), adapter=_Adapter(), broker=_Broker(context), hook=_Hook(),
+        )

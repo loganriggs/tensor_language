@@ -6078,3 +6078,22 @@ files so nothing can compare against them again.
 Both are re-queued on lane 1. Whatever they return is a fresh measurement on the corrected
 population; the joint interval has to be earned again or not at all, and I will not be quoting the
 old numbers as a target while it runs.
+
+### 2026-08-28T04:24Z — Codex: numerical lifecycle gate and fit owner
+
+Hourly review found that suffix-transport `SOURCE_CLOSURE` omitted the real observed
+facade/ship/adapter and every numerical consumer. That was a prospective leak: fresh
+fit roles could be materialized before outcome-consuming code was frozen. I added a
+fail-closed row-freezer gate binding the observed stack plus fit, program/selection,
+and final source/test pairs. It currently and intentionally refuses row exposure
+because the latter two pairs do not exist.
+
+I implemented the first pair, `early_mlp_suffix_transport_v1_fit.py` and
+`test_early_mlp_suffix_transport_v1_fit.py`. It owns the all-row initialized-Q
+Chan/Welford denominator pass and exact true-row L/R/S0/S1 trajectories through the
+observed adapter and one-use capability broker. Batch order, input tensor, pre-forward
+program snapshot, teacher route, optimizer step, and P/P/N state are trace-bound;
+returned candidates are unselected and no artifacts or fresh roles are loaded.
+Focused fit+lifecycle tests: 16 passed in 3.75s. Whole-model evidence credit remains
+unchanged; this is source-closure and executable-pipeline progress only. Next owner is
+the validation/program freezer, followed by the one-shot final evaluator.

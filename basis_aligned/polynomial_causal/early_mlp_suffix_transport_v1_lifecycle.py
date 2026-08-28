@@ -32,6 +32,26 @@ IMPLEMENTATION_AMENDMENT = (
 )
 PURE_CONTRACT = HERE / "early_mlp_suffix_transport_v1.py"
 PURE_TEST = HERE / "test_early_mlp_suffix_transport_v1.py"
+OBSERVED_EXECUTION_CLOSURE = (
+    HERE / "bilin18_observed_model_facade.py",
+    HERE / "test_bilin18_observed_model_facade.py",
+    HERE / "bilin18_frozen_ship_program.py",
+    HERE / "test_bilin18_frozen_ship_program.py",
+    HERE / "bilin18_observed_adapter.py",
+    HERE / "test_bilin18_observed_adapter.py",
+)
+# These stage owners must exist, be tested, be tracked, and be part of the frozen
+# source closure before a fresh row role may be materialized.  Naming them here is
+# intentionally a fail-closed implementation gate: fit data must not be exposed and
+# then used to finish the programs or final evaluator outcome-adaptively.
+NUMERICAL_STAGE_CLOSURE = (
+    HERE / "early_mlp_suffix_transport_v1_fit.py",
+    HERE / "test_early_mlp_suffix_transport_v1_fit.py",
+    HERE / "early_mlp_suffix_transport_v1_programs.py",
+    HERE / "test_early_mlp_suffix_transport_v1_programs.py",
+    HERE / "early_mlp_suffix_transport_v1_final.py",
+    HERE / "test_early_mlp_suffix_transport_v1_final.py",
+)
 FROZEN_SHA256 = {
     PREREGISTRATION: "11577380d65c813cf9e80e92002de9569928d293747c278c065939b3f3b24193",
     IMPLEMENTATION_AMENDMENT:
@@ -60,6 +80,8 @@ SOURCE_CLOSURE = (
     HERE / "test_early_mlp_suffix_transport_v1_inherited.py",
     HERE / "early_mlp_suffix_transport_v1_capabilities.py",
     HERE / "test_early_mlp_suffix_transport_v1_capabilities.py",
+    *OBSERVED_EXECUTION_CLOSURE,
+    *NUMERICAL_STAGE_CLOSURE,
 )
 
 ROLE_NAMES = (
@@ -335,6 +357,37 @@ def _git(*arguments: str, check: bool = True) -> subprocess.CompletedProcess[str
 
 def source_closure_paths() -> tuple[Path, ...]:
     return tuple(dict.fromkeys(path.resolve() for path in SOURCE_CLOSURE))
+
+
+def require_numerical_source_closure() -> tuple[Path, ...]:
+    """Refuse row exposure until the complete real numerical pipeline is frozen.
+
+    Checking both filesystem and git membership catches two distinct mistakes:
+    implementing a stage without binding it into the experiment, and declaring a
+    future stage name without actually implementing and committing it.
+    """
+
+    required = tuple(
+        dict.fromkeys(path.resolve() for path in (
+            *OBSERVED_EXECUTION_CLOSURE, *NUMERICAL_STAGE_CLOSURE,
+        ))
+    )
+    closure = set(source_closure_paths())
+    omitted = [str(path.relative_to(ROOT.resolve())) for path in required if path not in closure]
+    absent = [str(path.relative_to(ROOT.resolve())) for path in required if not path.is_file()]
+    untracked = [
+        str(path.relative_to(ROOT.resolve())) for path in required
+        if path.is_file() and _git(
+            "ls-files", "--error-unmatch", "--",
+            str(path.relative_to(ROOT.resolve())), check=False,
+        ).returncode
+    ]
+    if omitted or absent or untracked:
+        raise RuntimeError(
+            "suffix-transport numerical source closure is incomplete; "
+            f"omitted={omitted}; absent={absent}; untracked={untracked}"
+        )
+    return required
 
 
 def _source_relative_paths() -> tuple[str, ...]:

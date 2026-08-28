@@ -495,6 +495,11 @@ def freeze_rows_locked(
 ) -> dict[str, Any]:
     """Execute the complete CPU row transaction under an owned experiment lock."""
     life.require_run_claim(lock_nonce, lock_path)
+    # No role—not even fit—may be exposed until the actual observed-model fit,
+    # selection/freezer, and final-stage sources plus their tests are committed in
+    # the same closure.  Otherwise numerical implementation could adapt to fit or
+    # validation outcomes after row materialization.
+    life.require_numerical_source_closure()
     paths.assert_stage_preconditions("rows")
     selection_snapshot = canonical_snapshot()
     source = selection_snapshot["source"]

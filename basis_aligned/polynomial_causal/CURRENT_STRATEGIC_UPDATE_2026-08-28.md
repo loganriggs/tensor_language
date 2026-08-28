@@ -256,3 +256,78 @@ for the graph identity under the declared source-closed adapter boundary. No fre
 teacher or suffix scientific outcome was loaded by these repairs, so suffix-transport
 execution remains explicitly NO-GO until the observed adapter is source-closed and
 independently audited.
+
+## 04:24 UTC hourly checkpoint: from adapter closure to a numerical consumer
+
+The model-wide explanatory balances remain unchanged. Structural inventory is
+$36/36$, named behavior is $32.1\%\pm6.4\%$, named causal recovery is $10.923\%$
+against its registered denominator, and strict current-ship executable recovery is
+still $0\%$ of the $+0.8976$ CE gap. The best discovery and held-out ceilings remain
+$55.038\%$ and $53.694\%$, respectively, on their separate denominators. None of
+these currencies may be added.
+
+One earlier blocker is now obsolete. The complete production-shape P/P/N student plus
+coordinate-teacher transaction has run source-closed in 14.637 seconds: all 18
+attention and MLP dispatches occurred once, N0/N1/N2 were each produced once, native
+student MLP0/1/2 calls were zero, teacher MLP0/1 calls were one each, both 768-vector
+moment batches were consumed, the broker ledger closed 1/1/1 with no outstanding
+identity, and the hook/coordinator were inert. The immutable implementation-smoke
+receipt is `bilin18_observed_adapter_transaction_smoke_receipt.json`. It uses synthetic
+tokens and earns no scientific recovery, but real adapter provenance is no longer the
+critical-path blocker.
+
+The strategic review instead found a prospective source-closure hole: the row freezer
+bound the protocol, runtime, and capability layers but not the real facade/ship/adapter
+or any numerical fit, validation/program, or final consumer. Fresh fit rows could
+therefore have been materialized before those consumers were frozen, allowing their
+implementation to adapt to outcomes. The freezer now fails closed until the observed
+stack and six named numerical source/test files exist, are tracked, and belong to the
+same source closure. Fit data remain unexposed.
+
+The first numerical pair now exists:
+`early_mlp_suffix_transport_v1_fit.py` and its tests. It owns the sequential initialized-Q
+denominator pass and exact true-row L/R/S0/S1 optimizer trajectories. Every batch is
+bound before its forward to the full frozen fit tensor, registered permutation,
+program snapshot, teacher kind, optimizer step, and P/P/N state; all outputs pass
+through the observed adapter and one-use broker; Q moments use the registered float64
+Chan/Welford merge; returned candidates are unselected CPU states with deterministic
+transaction commitments. It has no row/model loader, selection, artifact publication,
+or final scorer. Focused fit+lifecycle verification passes 16/16. The gate remains
+closed on the still-absent program/selection and final pairs.
+
+### Largest remaining gaps
+
+1. No executable MLP0-to-MLP1 suffix-objective program has yet produced a held-out
+   numerator; the rank-64 code therefore has operational but not semantic closure.
+2. MLP2's dependence on the transported upstream state is not compiled.
+3. Attention's relatively compact routing structure is not connected to an adequate
+   value/content program; routing rank alone recovers little value behavior.
+4. There is no current-ship, common-denominator cross-half composition result.
+5. There is no genuine second-corpus/code OOD result or circuit-specific selective
+   edit/collateral result for an admitted executable program.
+
+### Pruned and ranked actions
+
+The ordering jointly favors expected information gain, causal relevance, whole-model
+composition, falsifiability, GPU cost, and nonredundancy.
+
+1. **Complete the source-closed suffix transport numerical lifecycle.** Finish the
+   validation/program freezer and final evaluator, then execute matched L/R/S/T. This
+   is the nearest route to a legal held-out executable numerator and directly tests
+   whether local geometry or suffix use defines the useful rank-64 code.
+2. **Insert any admitted early package into a current-ship attention × early-MLP ×
+   deep factorial cube on identical rows.** This prices interactions against the real
+   $+0.8976$ residual rather than a legacy denominator.
+3. **Compile conditional MLP2 after the admitted upstream interface.** Existing
+   factorial evidence says its contribution is state-dependent, so an independent
+   MLP2 fit is not a composable answer.
+4. **Build a typed routing/value attention compiler.** Preserve the rank-compressible
+   routing interface while giving values a richer, suffix-weighted content grammar.
+5. **Run consequence validation only after an admitted executable candidate exists.**
+   Compare simplicity definitions by matched fidelity, genuine OOD prediction,
+   extraction, selective removal, and non-descendant collateral—not by token-class
+   ablation aliases.
+
+Additional clustering, fixed-lag scans, Euclidean MLP0 regressors, unpriced rank
+sweeps, and corrected descriptive class replays are pruned for now: they cannot close
+the missing executable interface or common-denominator composition gap.
