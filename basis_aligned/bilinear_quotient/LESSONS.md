@@ -962,3 +962,27 @@ superseded figures (§1759).
   it moved, which a silent overwrite denies them.
 
 Sibling of LESSON 33: both are cases where the number was right somewhere and wrong where it counted.
+
+## LESSON 39 — write the predicate, then read it back against its own sentence
+
+§1768's `pred_a` said: "the model's own per-token CE is WORSE than the best program's 6.57289. If
+FALSE the compiled program beats the model at its own per-token game." The code was
+`ceiling > program`. In CE, lower is better — so that expression is False exactly when the ceiling is
+**better**, which is the outcome the sentence calls a pass. **The predicate returns False in the case
+its own prose describes as success.**
+
+The check was not wrong, the direction was. And nothing caught it: the gate parses prediction keys,
+the two-sidedness rule (LESSON 31) is about whether an arm *can* fail, and neither looks at whether
+the comparison points the way the sentence says.
+
+- **After writing a predicate, substitute the two outcomes back into the sentence.** "If the ceiling
+  is 5.98 and the program 6.57, does my expression return what the sentence calls a pass?" It takes
+  ten seconds and it is the only step that catches a flipped inequality.
+- **In a lower-is-better metric, name the direction in the variable.** `gap_program_to_ceiling` reads
+  unambiguously; `ceiling > program` does not, and it was sitting two lines from a correctly-written
+  `gap_program_to_ceiling` in the same run.
+- **Report the coded result, not the intended one.** The arm as written failed. Saying "it passed if
+  you read it the way I meant" is how a bar stops being a bar.
+
+Sibling of LESSON 36 (rounded vs unrounded) and LESSON 35 (a floored denominator): all three are the
+comparison itself being wrong while the measurement is fine.

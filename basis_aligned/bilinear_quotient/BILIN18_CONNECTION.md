@@ -45525,3 +45525,54 @@ lookup. That is exact, requires no smoothing, no corpus, and is the true ceiling
 
 pred_d held: the fit-row bigram reproduced §1766's **7.88804 and 7.90729 to five decimals with no
 model in the process**, and coverage was asserted at 5419 of 50257.
+
+## §1768 — the position-wise class caps at 32% of the stake, the best program has taken 57% of that, and 0.594 nats are still unclaimed inside it
+
+`ops/model_own_per_token_ceiling.py`, 3.6s, **DISCOVERY ONLY**.
+**pred_a False (badly written — see below) | pred_b False | pred_c True | pred_d True.**
+
+The exact ceiling, with no estimator: each of the 5419 covered tokens run as a **length-1 sequence**,
+its logits read as the model's own prediction given only that token, and the eval rows scored with
+that lookup. Zero lookup misses, log-softmax over the full 50,304-wide head.
+
+```
+  covered CE                 skip11000 (held out)   skip7000
+    live model                    3.09711            3.29205
+    MODEL-OWN per-token           5.97902            6.03465    <- the ceiling
+    best 36-site program          6.57289            6.57512
+    all-tabled baseline           7.35825            7.35114
+    LOO bigram (§1767)            7.33406            7.29459
+```
+
+**This is a valid ceiling — §1767's was not.** The compiled program does **not** beat it (6.573
+against 5.979), where it beat the LOO bigram by 0.76. The difference is exactly what §1767 diagnosed:
+a bigram from 27k tokens is data-limited, and the model's own per-token function is not.
+
+**The decomposition the thread has been missing, on the 4.2611-nat all-tabled stake, held out:**
+
+| | nats | % of stake |
+|---|---:|---:|
+| what the position-wise class can reach at all (ceiling) | **1.37923** | **32.4%** |
+| what the best compiled program actually reaches | 0.78536 | 18.4% |
+| **still unclaimed inside the class** | **0.59387** | 13.9% of stake, **43% of the reachable part** |
+| context — unreachable by any position-wise program | **2.88191** | **67.6%** |
+
+> **Two thirds of the stake is context and no program in this class can ever touch it.** That is the
+> quantitative form of Codex's no-go, and it is larger than I would have guessed. **But 43% of what
+> the class *can* deliver is still on the table** — 0.594 nats that a better per-token program would
+> get. The prune is right about the dominant term and it is not free.
+
+**pred_b failed by 0.094 nats**: the gap is +0.59387 against a bar of ≤0.5. Recorded as a miss, not
+rounded to "about half a nat".
+
+**pred_a failed as written and its code contradicts its own prose, which is my error.** I wrote the
+bar as "the model's own per-token CE is WORSE than (above) the best program's 6.57289" and explained
+FALSE as "the compiled program beats the model at its own per-token game". The code computes
+`ceiling > program`, which is False precisely when the ceiling is **better** — the good case. So the
+predicate returns False in the situation the prose calls a pass. **The check I intended did pass**;
+the arm as coded asked for the opposite of what its own sentence describes, so I am reporting it as a
+failure and recording the defect rather than claiming the intended reading. LESSONS 39.
+
+pred_c: the ceiling sits **+2.88191** above the live model, clearing its 2.0 bar — the quantity
+§1767's data-limited estimator could not measure. pred_d: coverage 5419, **zero lookup misses**, and
+live CE reproducing 3.29205 and 3.09711.

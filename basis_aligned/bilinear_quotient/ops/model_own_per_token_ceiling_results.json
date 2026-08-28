@@ -1,0 +1,41 @@
+{
+ "config": {
+  "construction": "each covered token run as a LENGTH-1 sequence; its logits are the model's own prediction given only that token",
+  "position_caveat": "no additive positional embedding, and rotary cancels for a position attending only to itself, so a self-only forward is position-independent. RMSNorm/length-dependent statistics are NOT ruled out by a length-1 batch, so this is the model's per-token function evaluated at position 0.",
+  "scoring": "covered positions from 64, matching every published figure",
+  "logit_width": "log_softmax over the full 50304-wide head; slicing to 50257 would change the normalisation and the CE",
+  "WHY": "\u00a71767 tried to bound the position-wise class with bigrams estimated on the eval rows and the program BEAT them, because 27k tokens cannot estimate P(next|current) as well as the model already knows it. This construction needs no estimator.",
+  "ROLE_NOTE": "DISCOVERY ONLY."
+ },
+ "results": {
+  "skip7000": {
+   "live_ce": 3.29205,
+   "model_own_per_token_ce": 6.03465,
+   "best_program_ce": 6.57512,
+   "all_tabled_ce": 7.35114,
+   "loo_bigram_S1767": 7.29459,
+   "scored": 27974,
+   "lookup_misses": 0,
+   "gap_program_to_ceiling": 0.54047,
+   "gap_ceiling_to_live": 2.7426
+  },
+  "skip11000": {
+   "live_ce": 3.09711,
+   "model_own_per_token_ce": 5.97902,
+   "best_program_ce": 6.57289,
+   "all_tabled_ce": 7.35825,
+   "loo_bigram_S1767": 7.33406,
+   "scored": 27497,
+   "lookup_misses": 0,
+   "gap_program_to_ceiling": 0.59387,
+   "gap_ceiling_to_live": 2.88191
+  }
+ },
+ "predictions": {
+  "pred_a_it_is_a_ceiling": false,
+  "pred_b_class_nearly_exhausted": false,
+  "pred_c_context_dominates": true,
+  "pred_d_controls": true
+ },
+ "runtime_s": 3.6
+}
