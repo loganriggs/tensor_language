@@ -1,0 +1,152 @@
+{
+  "bootstrap_bounds": {
+    "ce_full_grid_rank2_spectral_tail_nre": {
+      "lower_95": 0.3236974178693563,
+      "lower_order_statistic_one_indexed": 100,
+      "repetitions": 2000,
+      "seed": 2026082851,
+      "upper_95": 0.3551876884101754,
+      "upper_order_statistic_one_indexed": 1900
+    },
+    "ce_heldout_r2": {
+      "lower_95": 0.7669551094877487,
+      "lower_order_statistic_one_indexed": 100,
+      "repetitions": 2000,
+      "seed": 2026082851,
+      "upper_95": 0.8380143272546038,
+      "upper_order_statistic_one_indexed": 1900
+    },
+    "ce_interaction_nre": {
+      "lower_95": 1.330853614684657,
+      "lower_order_statistic_one_indexed": 100,
+      "repetitions": 2000,
+      "seed": 2026082851,
+      "upper_95": 1.5915370651294083,
+      "upper_order_statistic_one_indexed": 1900
+    },
+    "ce_rmse_ratio": {
+      "lower_95": 1.3308536146846568,
+      "lower_order_statistic_one_indexed": 100,
+      "repetitions": 2000,
+      "seed": 2026082851,
+      "upper_95": 1.5915370651294085,
+      "upper_order_statistic_one_indexed": 1900
+    },
+    "top1_full_grid_rank2_spectral_tail_nre": {
+      "lower_95": 0.15213784219146226,
+      "lower_order_statistic_one_indexed": 100,
+      "repetitions": 2000,
+      "seed": 2026082851,
+      "upper_95": 0.22611099656016675,
+      "upper_order_statistic_one_indexed": 1900
+    },
+    "top1_heldout_r2": {
+      "lower_95": 0.840373529587676,
+      "lower_order_statistic_one_indexed": 100,
+      "repetitions": 2000,
+      "seed": 2026082851,
+      "upper_95": 0.9269911221420729,
+      "upper_order_statistic_one_indexed": 1900
+    },
+    "top1_interaction_nre": {
+      "lower_95": 0.6938515286700884,
+      "lower_order_statistic_one_indexed": 100,
+      "repetitions": 2000,
+      "seed": 2026082851,
+      "upper_95": 1.3824411162844668,
+      "upper_order_statistic_one_indexed": 1900
+    },
+    "top1_rmse_ratio": {
+      "lower_95": 0.6938515286700884,
+      "lower_order_statistic_one_indexed": 100,
+      "repetitions": 2000,
+      "seed": 2026082851,
+      "upper_95": 1.3824411162844672,
+      "upper_order_statistic_one_indexed": 1900
+    }
+  },
+  "bootstrap_contract": {
+    "lower_order_statistic_one_indexed": 100,
+    "repetitions": 2000,
+    "seed": 2026082851,
+    "selection": "original development once; fixed pipeline refit per draw",
+    "upper_order_statistic_one_indexed": 1900
+  },
+  "development_sha256": "820ef3aa7b8c88fe344a6f17aaefe6bfc1095c27a7c82f4231e19e24d84d2888",
+  "historical_top1_singleton": {
+    "content_sha256": "722287260e1903a7abe80a76d605739a6f53b7919ea371112be582fb492b90bb",
+    "historical_full_top1": 0.1355,
+    "historical_live_top1": 0.3932,
+    "source_path": "basis_aligned/bilinear_quotient/ops/site_cost_table_results.json",
+    "source_sha256": "af605e22beca10ea914db21101352511d12cbbce1cb522d21ee82dda5a950dd8",
+    "stake_pp": 25.77
+  },
+  "interpretation": "The original useful-pass conjunction is unevaluable because no sealed source provides the registered CE singleton-cost baseline family.",
+  "measurement_payload_file_sha256": "04fc912cbce96d0a07564c1984565996b35a86dd1279bc00b45f5e842d8f9d75",
+  "measurement_receipt_sha256": "51a13dc1267bd5e76d58775fff06227f6a44ccf8c66872463b0ce9d8388ac10c",
+  "numerical_eight_gate_conjunction": false,
+  "point": {
+    "ce": {
+      "baseline_rmse": 0.25038374760353904,
+      "dense_deep_group_baseline_rmse": 0.24800030291096076,
+      "dense_deep_group_rmse": 0.1962810932118271,
+      "full_grid_rank2_spectral_tail_nre": 0.3412995348356679,
+      "heldout_r2": 0.8070713961203247,
+      "interaction_nre": 1.458151478632237,
+      "maximum_absolute_error": 0.9177054632724286,
+      "mlp5_group_baseline_rmse": 0.12993675443393313,
+      "mlp5_group_rmse": 0.3104878296096875,
+      "non_mlp5_group_baseline_rmse": 0.34301920377348405,
+      "non_mlp5_group_rmse": 0.4213884971639711,
+      "rank_signal_present": true,
+      "rmse_ratio": 1.458151478632237,
+      "selected_baseline": "additive_anchors",
+      "selected_rank": 2,
+      "selected_ridge": 0.015625,
+      "sparse_deep_group_baseline_rmse": 0.2512717107465879,
+      "sparse_deep_group_rmse": 0.4108951628864208,
+      "target": "ce_nats",
+      "total_rmse": 0.3650974317935813
+    },
+    "top1": {
+      "baseline_rmse": 0.7593138581072463,
+      "dense_deep_group_baseline_rmse": 0.8336033207140494,
+      "dense_deep_group_rmse": 0.0659365714184025,
+      "full_grid_rank2_spectral_tail_nre": 0.18081495724272065,
+      "heldout_r2": 0.8963021877274708,
+      "interaction_nre": 0.9595366389362489,
+      "maximum_absolute_error": 2.3180620125492304,
+      "mlp5_group_baseline_rmse": 0.5385881212391537,
+      "mlp5_group_rmse": 0.2565250414726995,
+      "non_mlp5_group_baseline_rmse": 0.9593403879970128,
+      "non_mlp5_group_rmse": 1.0434977862118648,
+      "rank_signal_present": true,
+      "rmse_ratio": 0.959536638936249,
+      "selected_baseline": "additive_anchors",
+      "selected_rank": 1,
+      "selected_ridge": 0.015625,
+      "sparse_deep_group_baseline_rmse": 0.7295074877386757,
+      "sparse_deep_group_rmse": 0.8533921897499336,
+      "target": "top1_pp",
+      "total_rmse": 0.728589467305943
+    }
+  },
+  "promotive": false,
+  "registered_ce_baseline_family_complete": false,
+  "registered_predicates": {
+    "gate1_selected_rank_at_most_2_with_signal": true,
+    "gate2_top1_total_rmse_and_max_error": true,
+    "gate3_top1_interaction_nre": false,
+    "gate4_top1_heldout_r2": true,
+    "gate5_top1_paired_baseline_ratio": false,
+    "gate6_top1_no_group_free_rider": false,
+    "gate7_top1_full_grid_spectral_tail": true,
+    "gate8_ce_positive_r2_and_beats_available_baseline": false
+  },
+  "result_sha256": "75f8f9cff81aae16977374dee847ecab2839df98625595c1a8ee9caffd30f983",
+  "scientific_scope": "single_layer5_cut_discovery_only",
+  "scoring_authority_sha256": "16c1f362afca9a0bb8d7def0572f32d0c1b33c954ee955fcdb8c368e867422ee",
+  "source_closure_sha256": "a244d2128ae7e2af95d2f2bed493ddf4b785d0666dbb53630f563312c3482ee5",
+  "status": "complete_nonpromotive_registered_ce_baseline_family_incomplete",
+  "useful_pass": null
+}

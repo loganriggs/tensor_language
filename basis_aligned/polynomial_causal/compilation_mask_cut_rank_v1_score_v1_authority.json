@@ -1,0 +1,48 @@
+{
+  "authority_sha256": "16c1f362afca9a0bb8d7def0572f32d0c1b33c954ee955fcdb8c368e867422ee",
+  "authorized_for_final_role": false,
+  "bootstrap_repetitions": 2000,
+  "bootstrap_seed": 2026082851,
+  "ce_singleton_family_available": false,
+  "lower_order_statistic_one_indexed": 100,
+  "measurement_payload_file_sha256": "04fc912cbce96d0a07564c1984565996b35a86dd1279bc00b45f5e842d8f9d75",
+  "measurement_receipt_file_sha256": "a7c479bc45df5b9db06c76c0b83c59ef36b342d3342eba8bf8655c00e7c5e9f5",
+  "measurement_receipt_path": "/workspace/tensor_language/basis_aligned/polynomial_causal/compilation_mask_cut_rank_v1_measurement_wave_v1_receipt.json",
+  "measurement_receipt_sha256": "51a13dc1267bd5e76d58775fff06227f6a44ccf8c66872463b0ce9d8388ac10c",
+  "nonce": "d8c4c060415fee66ebb015970a8b7a84671a17e21f687a0b9b416ab1291e4619",
+  "schema_version": 1,
+  "scoring_amendment_sha256": "819012887f246bb4befbf6babc1ae0e660de8c8908f6f0e9c4a1944ea7284cad",
+  "source_closure": {
+    "path_sha256s": [
+      [
+        "basis_aligned/bilinear_quotient/ops/site_cost_table_results.json",
+        "af605e22beca10ea914db21101352511d12cbbce1cb522d21ee82dda5a950dd8"
+      ],
+      [
+        "basis_aligned/polynomial_causal/COMPILATION_MASK_CUT_RANK_V1_PREREGISTRATION.md",
+        "85e0cb8a66f0a1db3ab146d3ae9f147b9b685d6fc55441c41c4d3ec0e46c54e0"
+      ],
+      [
+        "basis_aligned/polynomial_causal/COMPILATION_MASK_CUT_RANK_V1_SCORING_AMENDMENT.md",
+        "819012887f246bb4befbf6babc1ae0e660de8c8908f6f0e9c4a1944ea7284cad"
+      ],
+      [
+        "basis_aligned/polynomial_causal/compilation_mask_cut_rank_v1.py",
+        "5323d27f8b7f2a6455c330028cb19a00debaf31c201e37ad9ea18f8e0a4e6a3e"
+      ],
+      [
+        "basis_aligned/polynomial_causal/compilation_mask_cut_rank_v1_measurements.py",
+        "abb15eb5699a284a9540db7aca36d884e4df3bf5d03eb2b79c3d1d0aa6128f1b"
+      ],
+      [
+        "basis_aligned/polynomial_causal/score_compilation_mask_cut_rank_v1.py",
+        "04172a1872d2de9e99d5127e586224c8c4c8c6d3c7fdb926b326dffe2287e9bd"
+      ]
+    ],
+    "source_commit": "f0e5a9c10210b7f5810c22d85aa1e1c8da969062"
+  },
+  "source_closure_sha256": "a244d2128ae7e2af95d2f2bed493ddf4b785d0666dbb53630f563312c3482ee5",
+  "status": "frozen_before_score_payload_load",
+  "upper_order_statistic_one_indexed": 1900,
+  "useful_pass_can_be_true": false
+}
