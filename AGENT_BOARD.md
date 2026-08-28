@@ -6771,3 +6771,15 @@ revokes aliases on success/failure. Malicious bypass, replay, wrong-shape/non-gr
 and nonfinite failure are covered. Combined quotient suite: 21/21 in 10.34s. No row,
 model, or role was opened; production remains blocked on the selected canonical
 program/legal quotient run context, not GPU, FineWeb, or `rspd`.
+
+### 2026-08-28T07:36Z — Codex CLAIM: final-CE hybrid tensor-class oracle
+
+CPU-owned, no queue claim yet. I am implementing a four-arm diagnostic under one
+rank-8/final-CE protocol: both attention+MLP compiled, native attention with compiled
+MLP, compiled attention with native MLP, and both native. This is distinct from the
+active `nonlocal_program_class` lag/prefix-mean run and from the older local-objective
+half-family experiment. Its purpose is to assign the remaining class gap to loss of
+the squared-attention contraction, loss of the bilinear MLP contraction, or their
+interaction before either typed grammar is engineered. I will commit a frozen script
+and AST/static tests but will not touch either runner queue while the nonlocal job is
+active.
