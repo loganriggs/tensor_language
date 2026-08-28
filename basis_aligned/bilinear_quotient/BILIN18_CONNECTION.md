@@ -49011,3 +49011,54 @@ recovers substantially more, contiguity is the cost driver — a run of compiled
 spaced set leaves intact — and a practical compiled program should interleave live layers rather than
 compile a suffix. If the two are the same, the cost is purely a function of how many sites are compiled
 and where they sit within the deep half is irrelevant.
+
+## §1833 — it is COUNT, not arrangement: three count-matched 12-site sets span 3.9pp, and contiguity buys 1.5
+
+`ops/count_or_contiguity.py`, 250.3s, **DISCOVERY ONLY**, rung 3 (§1832's open question).
+**pred_a False | pred_b True | pred_c True | pred_d True.**
+
+```
+  COUNT-MATCHED at 12/36 sites (skip7000, sequential; B0 64.8% at 2/36, B1 25.9% at 4/36)
+    TOP13         layers 13,14,15,16,17   contiguous block      40.6%
+    SCATTER_ODD   layers  9,11,13,15,17   none adjacent         44.0%
+    SCATTER_EVEN  layers  8,10,12,14,16   none adjacent         40.1%
+```
+
+**pred_a FAILED and the engineering advice it would have licensed is withdrawn before it was given.**
+Scattering the same twelve sites through the deep half instead of packing them into a contiguous suffix
+buys **+1.5pp** against a 10pp bar. A run of compiled layers severs nothing that a spaced set preserves.
+§1832's dose-response reading stands unqualified: **within the deep half, what a compiled set costs is
+how many sites are in it, not how they are arranged.**
+
+**pred_b PASSED at 3.9pp against a 5pp bar, and the margin is the interesting part.** The two scattered
+arms differ by **3.9pp** — *more than the 1.5pp that contiguity itself buys*. Which particular layers a
+set touches matters more than whether they are adjacent. And the difference is exactly what §1831's depth
+profile predicts: SCATTER_EVEN reaches down to **layer 8** while SCATTER_ODD stops at **layer 9**, and
+§1831 put the turn-on of single-site cost right there. The residual variation among count-matched sets is
+depth, not pattern.
+
+**pred_c PASSED.** All three 12-site deep arms (40.1-44.0%) beat B1's four layer-1 sites (25.9%), so
+§1832's "ten deep sites are cheaper than two layer-1 sites" generalises beyond the contiguous case it was
+measured on.
+
+> **What §1829-§1833 add up to is a pricing shape, not a mechanism.** The cost of a compiled set looks
+> approximately **separable**: a per-site weight that falls steeply with depth (§1831: 37.4pp at layer 1,
+> 21.9 at layer 2, 0.7 at layer 9, −0.5 at layer 17), summed over the set, with a **super-additive**
+> multiplier (§1832: ten deep sites cost 1.8x their single-site rate) and **no adjacency term at all**
+> (§1833: 1.5pp). The one clear exception is layer 1, where the two sites are **sub**-additive to the
+> point of redundancy (§1830: 1.96x of an exact-redundancy 2.00x).
+
+**Controls (pred_d).** TOP13 reproduces §1832's published 40.6% exactly; B0 and B1 reproduce §1829's
+published sequential figures; B0+attn9 reproduces §1831's published 64.1%; B0 reproduces §1806's published
+raw 37.4%; endpoints reproduce §1789's full-rank top-1; the placement control moves top-1 under 0.05pp.
+Coverage 5419 of 50257. All three roles agree in shape and in ordering.
+
+**Open question this ends on.** The separable-plus-multiplier shape above is an *impression* drawn from
+arms that were each chosen for a different purpose. It has never been fitted or tested out of sample, and
+every per-site weight in it comes from **ten** measured single sites out of thirty-six. Measuring the
+single-site cost of **all 36 sites** turns it into a testable model: does one multiplier on the sum of
+single-site costs predict the seven multi-site arms already published (B1, TOP13, TOP11, TOP9, TOP7,
+SCATTER_ODD, SCATTER_EVEN)? If it does, a compiled set of any shape can be priced from a 36-number table
+without running it — which is the first thing in this arc that would be *useful* rather than merely true.
+If it does not, the sites interact in a way no per-site table captures, and the impression above should
+be struck from the record rather than repeated.
