@@ -45060,3 +45060,56 @@ question this run was built for and did not answer.
 
 Controls that did hold: table-only CE 7.35114, live CE 3.29205, coverage asserted at 5419 of 50257,
 all per-site fits on the full 24576 positions.
+
+## §1758 — the corrected grid: correction rank pays only when the table is rich, and two of my predictions could only be won by reproduction
+
+`ops/table_correction_grid.py`, 663.5s, nine cells, one interleaved compile each, **DISCOVERY ONLY**.
+**pred_a False | pred_b True (weak) | pred_c False | pred_d True.**
+
+```
+  held out (skip11000), full program cost, one compile per cell
+                 corr 8              corr 32             corr 128
+  table 64   +0.54065  15.886M   +0.68733  17.877M   +0.78536  25.839M
+  table 16   +0.46873   4.531M   -0.31693   6.522M   +0.40534  14.485M
+  table  8   +0.41052   2.639M   +0.30593   4.630M   -0.09198  12.592M
+```
+
+**pred_d passed and is the point of the run.** All three correction-rank-8 cells reproduce §1756 —
++0.54065 / +0.46873 / +0.41052 against +0.54064 / +0.46883 / +0.41053 — so the per-cell compile is
+the same program §1756 ran, and §1757's four mismatched cells were the shortcut and not the physics.
+§1757's one clean cell also reproduces exactly: **+0.78536 against +0.78535**.
+
+**pred_a FAILED and the grid's structure is the finding.**
+
+> **Correction rank pays only when the table is rich.** At table rank 64 fidelity rises monotonically
+> with correction rank, +0.541 → +0.687 → +0.785. At table rank 8 it falls monotonically,
+> +0.411 → +0.306 → **−0.092**. The two components are not substitutes that can be traded off; a
+> bigger correction on a starved table is worse than a small one.
+
+**That contradicts the reading I offered in §1756 and I am withdrawing it.** There I observed that the
+correction's contribution *relative to the table alone* grows as the table shrinks — +0.409 at rank
+64, +2.033 at rank 1 — and wrote that this "points directly at whether a bigger correction on a
+smaller table beats both". The grid answers: **no, decisively.** The large relative contribution at
+low table rank is the correction repairing damage, not the correction having more to give.
+
+**An anomaly I am reporting rather than explaining: `table 16, corr 32` sits at −0.31693**, between
++0.46873 at corr 8 and +0.40534 at corr 128. A single cell falling 0.79 nats below both its neighbours
+is not a smooth surface, and I have no mechanism for it. It is one interleaved compile among nine
+built identically, so it is either a real instability in the compile at that configuration or a
+genuine feature of the loss surface. Named, not resolved.
+
+**pred_b and pred_c were badly written and I only see it now that they are scored.** Their bars were
+"beat §1757's best fidelity" and "beat §1756's best efficiency" — and **both of those records are held
+by cells that are inside this grid**. pred_b "passed" by **1e-5**, reproducing the same t64_c128
+program; pred_c "failed" by **2e-6** on the same t8_c8 program. Neither arm tested anything: a
+prediction whose bar is a number a reproduction can hit is not measuring the new thing. The right
+bars would have excluded the incumbent cells or asked for a margin. This is the third
+prediction-design defect in this thread after two nested arms (LESSON 31 addenda 1 and 2).
+
+**The design points are unchanged by the wider grid**, which is itself worth knowing:
+**fidelity — table 64, correction 128: +0.78536 at 25.839M reals, 16.6x smaller than 430.00M of
+native modules, 18.4% of the table-program stake. Efficiency — table 8, correction 8: +0.41052 at
+2.639M, 163x smaller, 0.1556 nats per million.**
+
+Controls: table-only CE 7.35114, live CE 3.29205, coverage asserted at exactly 5419 of 50257, all 324
+per-site fits on the full 24576 positions.

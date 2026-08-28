@@ -705,3 +705,57 @@ the same signature §1679 reported for replacement, with the crossing shifted ra
 **Generalising from one point on an unturned curve, twice.** §1709 concluded from k=64 alone that
 this family "barely touches" the band; at k=4608 it recovers 99.9%. That is the same error §1690
 recorded when "high-rank" was read off a single point sitting on a cliff edge.
+
+## 19. The whole-model compilation frontier: what a cheap program can and cannot buy (§1736–§1758)
+
+**Consolidates §1736–§1758.** Everything below is **DISCOVERY ONLY** except §1736, which was
+confirmed on a clean role. Both large eval roles are spent for this family; nothing here is
+registry-certified except the §1736 entry.
+
+**The measurement that started it.** One-at-a-time constant ablation — the importance measure this
+arc had used since §1662 — sums to **2.36x** the joint MLP-stack removal and **0.40x** the joint
+attention removal (§1736, confirmed on skip11000, CI 2.318–2.405 and 0.383–0.416). The two stacks
+compose in opposite directions.
+
+**It is not merely mis-scaled, it is uninformative.** One-at-a-time and leave-one-out rank the 36
+sites at Spearman **0.026** (§1737). In program context — what a site adds over its own per-token
+table — the one-at-a-time ranking is **near-inverted, Spearman −0.66** (§1738). At a matched budget
+of six native sites it recovers **12.79%** of the table-program stake against a random allocation's
+**12.48% median** (§1739): **an OAT importance column allocates like a coin flip.** The
+program-context ranking gets 25.04%, and greedy selection 29.65% (§1741), which is locally optimal
+under all 180 single swaps and is the unique attractor of swap search from three random starts
+(§1743, §1744).
+
+**The composition failure and what fixes it.** The 36 per-site corrections are worth **+1.746 nats**
+measured one at a time, **−0.546** installed together after a simultaneous fit, **+0.386** after
+interleaved bottom-up compilation (§1747, §1748). Three passes of coordinate descent change that by
+**exactly zero to five decimals** — a proof that one bottom-up pass is a fixed point, because a
+transformer is causal in depth (§1749). Training on final CE instead of local output error is worth
+**+43%** and transfers between roles at ratio **1.020** (§1750). Capacity is not the constraint: rank
+32 and rank 128 tie and rank 128 collapses to −0.091 under training (§1751). Richer local features
+make every site individually better and the joint program monotonically worse (§1752), and even
+correctly steered they still lose (§1753).
+
+**The cost axis, which had never been measured properly.** Every figure in §1748–§1753 counted only
+the factors and omitted the tables, which are **339x larger** — caught by Codex, recorded as §1754,
+reversing two published efficiency claims. Following it produced the best result in the thread:
+**the full per-token table is overfitted**, and rank-64 truncation of each site's covered block
+improves fidelity **and** cuts cost 14x (§1755). A per-site constant goes negative, so **per-token
+identity is load-bearing** (§1756).
+
+**The frontier, on honest full costing (tables + factors), held out:**
+
+| program | cost | recovered | vs 430.00M native | nats per M |
+|---|---:|---:|---:|---:|
+| table 64 + correction 128 | 25.839M | **+0.78536** | 16.6x smaller | 0.0304 |
+| table 64 + correction 32 | 17.877M | +0.68733 | 24.1x | 0.0384 |
+| table 8 + correction 8 | **2.639M** | +0.41052 | **163x smaller** | **0.1556** |
+| greedy 6 native + 30 tables | 243.022M | +1.2414 | 1.8x | 0.0051 |
+
+**Correction rank pays only when the table is rich** — monotone up at table 64, monotone down at
+table 8 (§1758).
+
+**The standing caveat, larger than any number above.** The hybrid hook (§1661) runs the LIVE module
+wherever the token was uncovered at fit time — **24% of scored positions**. None of these programs
+stands alone; all require the original 430.00M of modules for that quarter, and no figure here
+prices it.
