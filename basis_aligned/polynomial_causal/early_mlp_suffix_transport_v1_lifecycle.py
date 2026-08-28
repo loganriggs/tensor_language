@@ -54,6 +54,8 @@ MAPPED_CONTROL_CLOSURE = (
 NUMERICAL_STAGE_CLOSURE = (
     HERE / "early_mlp_suffix_transport_v1_fit.py",
     HERE / "test_early_mlp_suffix_transport_v1_fit.py",
+    HERE / "early_mlp_suffix_transport_v1_fit_publication.py",
+    HERE / "test_early_mlp_suffix_transport_v1_fit_publication.py",
     HERE / "early_mlp_suffix_transport_v1_programs.py",
     HERE / "test_early_mlp_suffix_transport_v1_programs.py",
     HERE / "early_mlp_suffix_transport_v1_final.py",
