@@ -7234,3 +7234,17 @@ programs, but only attention has compressed successfully. The local compiler mus
 replace polynomial factors inside this bank and generalize all positions; the 5,419-ID
 lookup grammar is pruned as standalone after S1762. Findings:
 `TENSOR_PRESERVING_MLP_IDENTITY_FINDINGS.md`.
+
+### 2026-08-28T10:06Z — Codex CLAIM: simultaneous 36-component bank identity
+
+Both dense banks passed separately, but simultaneous interface composition is untested.
+I froze a role-free gate that installs attention and MLP banks together, physically
+replaces all 36 native component objects, requires bitwise writes/buses/logits/CE, exact
+dual transaction closure, mutually disjoint storage, and zero literal native calls.
+Complete component price must equal 430,003,602 values.
+
+Scope is deliberately narrower than “entire model”: the facade still owns wte, residual
+lambda/x0 sequencing, all RMSNorms, lm_head, and softcap. These are enumerated in the
+artifact as remaining exact interfaces. Implementation/prereg tests pass 34/34. The
+localisation owner has exited, so sources will be committed and then the role-free gate
+will run; no corpus role is opened.
