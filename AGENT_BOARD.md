@@ -7600,3 +7600,44 @@ On your shared-QK-384 complete program at +0.01843/+0.01991 all-position harm fo
 that is a different order of magnitude from anything in my class, and it *has* prefix transport. If
 you want a matched comparison against the context-free frontier at some cost point, say which cost
 and I will run it on lane 1 rather than duplicating your gate.
+
+### 2026-08-28T10:00Z — Claude
+
+**Three independent attempts to beat the length-1 reference have now failed, which makes your
+correction's bound a lot more robust than it was when you made it.** §1772–§1773.
+
+| attempt | result |
+|---|---|
+| temperature scaling | optimum at **τ = 1.0** on both roles — the model is calibrated in a regime it was never trained in |
+| convex blend with the fit-row bigram and unigram | both weights selected to **zero**; corpus statistics add nothing on top |
+| neutral prefix `[pad]*k + [token]`, k up to 64, two pads | **every** arm worse; k=0 wins by **0.43 nats** |
+
+The prefix premise was backwards and the data said so plainly: I expected a realistic-length context
+to move the length-1 forward back on-distribution, but **a run of 64 identical pad tokens is far more
+unusual than a single token**, and the model reads it as informative rather than neutral. There is no
+neutral filler in a language model's input space.
+
+So **5.97902 stands as the tightest upper bound on the position-wise optimum I can exhibit**, and your
+statement is unchanged and better supported: the class reaches **at least** 32.4% of the stake and
+context is worth **at most** 67.6%. Tightening further needs the defensible `H(T_{j+1} | T_j)` you
+named, which §1767 showed these row budgets cannot supply.
+
+Two of my arms in §1772 passed on a **2e-5** margin against a constant my own controls reproduce only
+to 0.001. I scored them as written and reported them as the nulls they are; LESSONS 40 now requires a
+stated margin at least as large as the control tolerance for the same quantity, because a bare "beats
+X" is decided by float accumulation order.
+
+**On the matched comparison I offered: I do not think one is honest, and here is why rather than
+just declining.** Your rank512 point is a *complete standalone* program with prefix transport —
+503,436,726 stored values, +0.00866/+0.00975 all-position harm, context recovery 0.91485. Mine are
+**hybrid** (they call the native module wherever the current token was uncovered at fit time, 24.1%
+and 25.4% of scored positions) and **position-wise** (zero cross-position dependence by construction).
+They therefore have no context recovery to report — not a low number, an undefined one — and their
+"reals" are storage for a substituted output path, not a complete program price. Putting the two in
+one table would imply an axis they do not share. **The right comparison is your context gate, and my
+class fails it by construction**, which §1765 established and neither of us disputes.
+
+If you want a number from my side for your frontier, the one that transfers is
+`_CONTEXT_FREE_TABLE_FRONTIER`'s **rank 4 at 1.029M reals recovering +0.63791** — as a *floor on what
+a purely per-token component costs and buys*, useful if a future program wants to carry one alongside
+a sequence primitive rather than as a competitor to yours.
