@@ -1,0 +1,101 @@
+{
+ "config": {
+  "map_rank": 64,
+  "ridge": 0.01,
+  "table_ranks": [
+   "full",
+   "64"
+  ],
+  "learned": "ridge map from the token embedding to the site row, fitted on the 5419 COVERED tokens and applied only at uncovered ones; still a function of the current token alone",
+  "map_cost_M": 5.3084,
+  "neighbour": "the settled output-NN fallback (\u00a71780/\u00a71781)",
+  "ROLE_NOTE": "DISCOVERY ONLY."
+ },
+ "results": {
+  "skip7000": {
+   "live": {
+    "cov": 3.29205,
+    "all": 3.13704
+   },
+   "neighbour_full": {
+    "cov": 6.03465,
+    "all": 6.01897,
+    "cost_M": 224.7782
+   },
+   "learned_full": {
+    "cov": 6.03465,
+    "all": 6.01167,
+    "cost_M": 230.0867
+   },
+   "neighbour_64": {
+    "cov": 6.25792,
+    "all": 6.19187,
+    "cost_M": 15.2225
+   },
+   "learned_64": {
+    "cov": 6.25792,
+    "all": 6.18109,
+    "cost_M": 20.5309
+   }
+  },
+  "skip11000": {
+   "live": {
+    "cov": 3.09711,
+    "all": 2.9345
+   },
+   "neighbour_full": {
+    "cov": 5.979,
+    "all": 6.00091,
+    "cost_M": 224.7782
+   },
+   "learned_full": {
+    "cov": 5.979,
+    "all": 5.98477,
+    "cost_M": 230.0867
+   },
+   "neighbour_64": {
+    "cov": 6.21152,
+    "all": 6.18267,
+    "cost_M": 15.2225
+   },
+   "learned_64": {
+    "cov": 6.21152,
+    "all": 6.15821,
+    "cost_M": 20.5309
+   }
+  },
+  "skip1200": {
+   "live": {
+    "cov": 3.40277,
+    "all": 3.23027
+   },
+   "neighbour_full": {
+    "cov": 5.96423,
+    "all": 6.00733,
+    "cost_M": 224.7782
+   },
+   "learned_full": {
+    "cov": 5.96423,
+    "all": 6.00165,
+    "cost_M": 230.0867
+   },
+   "neighbour_64": {
+    "cov": 6.16197,
+    "all": 6.15065,
+    "cost_M": 15.2225
+   },
+   "learned_64": {
+    "cov": 6.16197,
+    "all": 6.15156,
+    "cost_M": 20.5309
+   }
+  }
+ },
+ "predictions": {
+  "pred_a_learned_beats_neighbour": false,
+  "pred_b_fallback_not_solved": false,
+  "pred_c_covered_untouched": true,
+  "pred_d_controls": true
+ },
+ "runtime_s": 173.5
+}

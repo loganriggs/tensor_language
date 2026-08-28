@@ -46262,3 +46262,60 @@ token's **embedding channel** costs 0.15 (here).
 
 Controls (pred_d): the composed arms reproduce §1782's three pairs and the direct arm its three
 all-position numbers, all within 0.002; covered CE is untouched by the swap to 1e-9; coverage 5419.
+
+## §1784 — predicting the row beats copying a neighbour, but only just; the bar fails on one cell of six, and my rank-64 arm is not a coherent program
+
+`ops/learned_row_from_embedding.py`, 173.5s, **DISCOVERY ONLY**.
+**pred_a False | pred_b False | pred_c True | pred_d True.**
+
+A rank-64 ridge map from token embedding to site row, fitted on the 5,419 covered tokens and applied
+only at uncovered ones — using the token's own embedding instead of copying its neighbour's row.
+5.308M reals on top of the tables.
+
+```
+  all-position CE          neighbour    learned    margin
+  skip7000  full            6.01897     6.01167    +0.00730
+  skip7000  rank 64         6.19187     6.18109    +0.01078
+  skip11000 full            6.00091     5.98477    +0.01614
+  skip11000 rank 64         6.18267     6.15821    +0.02446
+  skip1200  full            6.00733     6.00165    +0.00568
+  skip1200  rank 64         6.15065     6.15156    -0.00091   <- the neighbour wins
+```
+
+**pred_a FAILED on one cell of six.** The bar was "> 0.005 nats everywhere"; skip1200 at rank 64 comes
+out at **−0.00091**, the neighbour ahead. Five cells clear it, one by only 0.00068 above the bar. So
+predicting the row from the embedding is better than copying a neighbour's, and the margin is **small
+and not uniform** — nothing like the 0.43 nats that switching from a global mean to a neighbour bought
+(§1777).
+
+**Backing the uncovered positions out of the two measured populations** gives the quantity the arm was
+really about:
+
+```
+  UNCOVERED-only CE, full rank      neighbour   learned   covered CE (same arm)
+  skip7000  (8890 positions)         5.96963    5.93936      6.03465
+  skip11000 (9367)                   6.06523    6.00171      5.97900
+  skip1200  (4459)                   6.14239    6.11891      5.96423
+```
+
+**pred_b FAILED, and its prose was wrong about why.** I predicted all-position CE stays above covered
+CE, reasoning "an uncovered token is still a token the tables never saw", and wrote that a failure
+would mean "the fallback is fully solved". Neither holds. **On skip7000 the uncovered positions are
+EASIER than the covered ones** — 5.939 against 6.035 — while on skip1200 they are harder by 0.155 and
+on skip11000 they are within 0.023. The covered/uncovered split is not a difficulty ordering at all;
+it varies by role, and a rare current token is often followed by a nearly determined continuation.
+The sentence I wrote was an assumption dressed as a prediction.
+
+**A defect in my own construction, which limits what the rank-64 rows above are worth.** The
+embedding→row maps are fitted against the **full-rank** tables and then applied unchanged when the
+covered rows are truncated to rank 64. So the rank-64 learned arm has truncated covered rows and
+untruncated predicted rows — **not a coherent rank-64 program**, and its cost figure does not describe
+one either. The tell was visible in the output and I nearly missed it: the learned arm's uncovered-only
+CE is identical between table ranks to five decimals (5.93936 / 5.93933, 6.00171 / 6.00172, 6.11891 /
+6.11894), because that half never saw the truncation. **The full-rank comparison is clean; the rank-64
+one is not, and pred_a's failing cell is in the arm that is not clean.** Refitting the map inside each
+truncated basis is the repair, and it is the next thing to run rather than a note.
+
+Controls (pred_c, pred_d): covered CE is identical between the two fallbacks to 1e-9 at every rank and
+role, as it must be; the neighbour arm reproduces §1782/§1783's three all-position and three covered
+numbers within 0.002; coverage 5419 of 50257.
