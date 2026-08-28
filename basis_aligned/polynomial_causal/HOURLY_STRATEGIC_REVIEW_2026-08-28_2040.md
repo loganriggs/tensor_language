@@ -59,11 +59,16 @@ their receipts, and checks that every action used identical frequency support. I
 focused adversarial/backend suite passes 109 tests. This is a closure advance, not
 causal credit.
 
-What remains is the adapter that obtains the frozen 192-by-192 frequency assignment
-from authority, executes the real final rows and program sources, supplies the exact
-denominators, and completes all 18 consumer norms. Only then can the registered
-objective/transport gates and gauge/SVD/difference-in-differences/component closure
-run. Until then the final role remains 0/68.
+A source-closed real batch executor now also exists in `dcc1fa8f`. It deterministically
+derives the hash-bound nine-bin frequency plan and joins final context, inherited
+programs/bases, one broker/hook, frozen denominators, canonical rows, and the real
+program/baseline backends. Its 70-test focused suite passes and it fixed a real bug
+that conflated runtime trace identity with semantic action identity.
+
+What remains is production loading/validation of the fit token-count authority and
+one-shot final rows, followed by completion of all 18 consumer norms and responses.
+Only then can registered objective/transport gates and gauge/SVD/difference-in-
+differences/component closure run. Until then the final role remains 0/68.
 
 ### 2. MLP5 is localized as a site, not understood as a computation
 
@@ -97,9 +102,19 @@ rank 1 or 2 must predict untouched early/late combinations. Its CPU fitter, held
 boundary, and provenance-safe measurement contract now exist. The latter fixes
 row-major ordering of all 64 cells, masks, model/component/program hashes, exact
 integer top-1 counts, float64 CE row statistics, one-use call ledgers, and the
-terminal per-document bootstrap payload; 8/8 tests pass. What is missing is the thin
-GPU adapter that mints authority from the actual committed closure and executes the
-64 canonical requests. No mask outcome has yet been observed.
+terminal per-document bootstrap payload; 8/8 tests pass. The GPU transaction adapter
+now also exists at `ad7fbb22`; its 19/19 tests pass. It fixes one shared program family,
+identity gains, no mask-specific refitting, exact 36-native-call/substitution/empty-
+gain ledgers, component-tree replay, float64 CE statistics, and receipt-last atomic
+publication.
+
+What is missing is the actual bilin18 backend that lazily loads the pinned checkpoint,
+constructs the shared context-free/output-nearest-neighbor/rank-64 program from bound
+fit rows, hashes its tensors and mask materializations, and executes the hooks. No mask
+outcome has yet been observed. Per-mask scalar-gain fitting is excluded from v1 because
+it would turn the 64 cells into separate optimization value functions; a separately
+named v2 may test that operationally cheap correction without weakening v1's
+compositional rank interpretation.
 
 ### 4. Independent early-MLP compression has not yet earned composition credit
 
@@ -273,8 +288,9 @@ itself.
    owner is complete; the remaining authority-derived frequency assignment, actual
    batch executor, and 18-consumer norm completer are now the shortest route to final
    causal observations.
-2. **Implement the cut-rank GPU adapter and run the 64-cell assay.** The measurement
-   contract is complete. This is the highest genuinely new mathematical information:
+2. **Implement the fixed-program bilin18 backend and run the 64-cell assay.** The
+   measurement contract and GPU transaction adapter are complete. This is the highest
+   genuinely new mathematical information:
    it can certify or falsify a two-channel interaction state on untouched combinations.
 3. **Run a heldout actual-length-1 directional curve.** S1840 used the wrong compiler
    object for this purpose. Separate table fitting from scoring, retain per-document
@@ -302,6 +318,12 @@ It freezes all 64 same-wave requests and their provenance through the terminal
 per-document bootstrap payload; 8/8 tests pass. It deliberately contains no fitter
 and no mask results. The remaining adapter must call the real model exactly once per
 canonical request and publish the sealed payload atomically.
+
+That transaction adapter subsequently closed at commit `ad7fbb22`, with 19/19 tests
+passing. It enforces identity gains and no mask-specific refit so the measured cut rank
+continues to mean composition of one fixed program family. The remaining component is
+`compilation_mask_cut_rank_v1_bilin18_backend.py`; historical S1834 code cannot be
+imported because it interleaves outcome analysis and per-mask sequential gain fitting.
 
 The uncommitted early-PCA composition contract's pure tests pass 3/3. It remains
 oracle/exploratory and was not promoted or silently added with these changes.

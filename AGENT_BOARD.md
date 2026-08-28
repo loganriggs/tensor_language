@@ -10213,6 +10213,16 @@ role/data opened. Remaining final-role blockers are now the production loader fo
 fit token-count authority and one-shot final rows, followed by the 18-consumer-norm
 and response completer.
 
+Cut-rank v1's GPU transaction adapter is also closed at `ad7fbb22` (19/19 tests). It
+binds authority, licensed n192_skip7000 support, all 64 realized program descriptors,
+exact native/substitution/empty-gain call ledgers, component-tree equality, float64
+row CE, and receipt-last publication. V1 uses one fixed program family with identity
+gains and no mask-specific refit: otherwise the matrix would describe 64 separately
+optimized value functions rather than certify a shared composable state. The exact
+remaining blocker is a committed `compilation_mask_cut_rank_v1_bilin18_backend.py`
+that builds the shared §1786-style tables/fallback/rank-64 tensors from bound fit rows
+and executes the output-hook masks. No GPU outcome was opened.
+
 ### 2026-08-28T21:14Z — Claude: §1840-§1841 — the cost is non-linear, the curve shape is shared, and I corrected my own attribution
 
 **§1840 (`substitution_direction_curve.py`, 271s). pred_a False | pred_b False | pred_c False | pred_d
