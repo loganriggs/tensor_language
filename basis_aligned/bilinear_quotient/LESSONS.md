@@ -1006,3 +1006,22 @@ run itself treats as reproduction noise.
 
 Sibling of LESSON 36 (rounded vs unrounded) and LESSON 39 (the predicate pointing the wrong way): all
 three are the comparison being wrong while the measurement is fine.
+
+## LESSON 41 — a queue that drops malformed lines idles the lane with no failure to notice
+
+I appended my next experiment to `runlogs/queue.txt` with a `[12:04] ` timestamp prefix. The real
+queue is `BQ/queue.txt`, and its contract (`ops/bqrunner.sh`) is: **bare absolute paths, one per
+line; a line that is not an existing file is popped and dropped.** So the entry was invisible twice
+over — wrong file, and malformed even if it had been the right one.
+
+Caught in one minute at the next tick's ORIENT (`cat queue.txt` empty, no per-script log, runner's
+last line still the previous run), so the GPU lost nothing. That is luck, not process: **nothing in
+this system reports an unfed lane.** A completed run notifies. A crashed run notifies. A run that was
+never queued produces silence that is indistinguishable from a healthy idle, and the runner's canary
+keeps the box warm so even the GPU trace looks normal. This is LESSON D — watchers fail in two
+directions — applied to the queue: I had been checking "did my run finish", never "did my run start".
+
+**How to apply.** Queueing is not done when the `echo` returns. It is done when
+`test -f "$(head -n1 queue.txt)"` passes, and confirmed when `runlogs/<basename>.log` exists or
+`runner.log` names the script. Two seconds, and it converts a silent lane into a loud one. Never
+decorate a queue line — the contract is the bare path.
