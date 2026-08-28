@@ -43,6 +43,9 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from bilin18_joint_removal import m, DEV
 
 D = 1152; T = 256; V = 50257
+# the checkpoint's head is 50,304 wide; the log-softmax MUST be taken over all of it, because
+# slicing to the tokenizer's 50,257 would change the normalisation and therefore the CE.
+W = 50304
 PT = '/workspace/tensor_language/basis_aligned/bilinear_quotient/'
 OUT = PT + 'ops/model_own_per_token_ceiling_results.json'
 EVAL_SETS = [('skip7000', PT + '.rowcache/fineweb_n192_skip7000.pt', 3.29205),
@@ -103,7 +106,8 @@ def main():
     idmap = torch.full((V,), -1, dtype=torch.long)
     idmap[toks] = torch.arange(ncov)
     idmap = idmap.to(DEV)
-    lp = torch.zeros(ncov, V, dtype=torch.float16, device=DEV)
+    lp = torch.zeros(ncov, W, dtype=torch.float16, device=DEV)
+    assert m.lm_head.weight.shape[0] == W, f'head width {m.lm_head.weight.shape[0]} != {W}'
     for i in range(0, ncov, 256):
         t = toks[i:i + 256].to(DEV).unsqueeze(1)          # [b, 1]
         lg = forward_logits(t)[:, 0].float()              # [b, V]
@@ -170,6 +174,8 @@ def main():
                                        'NOT ruled out by a length-1 batch, so this is the model\'s '
                                        'per-token function evaluated at position 0.',
                     'scoring': 'covered positions from 64, matching every published figure',
+                    'logit_width': f'log_softmax over the full {W}-wide head; slicing to 50257 '
+                                   'would change the normalisation and the CE',
                     'WHY': '§1767 tried to bound the position-wise class with bigrams estimated on '
                            'the eval rows and the program BEAT them, because 27k tokens cannot '
                            'estimate P(next|current) as well as the model already knows it. This '
