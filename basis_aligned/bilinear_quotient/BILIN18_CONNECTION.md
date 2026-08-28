@@ -46699,6 +46699,12 @@ is where it loses arguments, decisively: on fit-count 0 it wins only **10.07 / 2
      38.91%   39.84%   52.03%   61.37%      +12.19pp
 ```
 
+> **CORRECTED by §1796.** These union figures used the leaked bigram of §1794, whose extra hits were
+> positions where the target was its own top-1 — so the union was inflated along with the arm. With a
+> leak-free bigram the union is **45.97 / 48.22 / 47.52%**, a headroom of **+6.96 / +7.80 / +8.61 pp**
+> over the better arm rather than +10.05 / +10.49 / +12.19, sitting 15.5 / 16.1 / 13.9 pp below live.
+> The qualitative claim — the two are substantially complementary — survives; the magnitude does not.
+
 The two are **substantially complementary**: ~10-12 points of head accuracy are reachable by exactly
 one of them, and the union still sits 9-12 points below live. Whatever the program has on the head is
 not what counting pairs has, and neither is what context has.
@@ -46889,3 +46895,55 @@ is unaffected — that arm is fitted on fit rows and scored on eval rows, so it 
 
 **The ledger and registry still carry §1790's wrong claim.** Retraction is Logan's call and I have put
 the question to him with these numbers.
+
+## §1796 — the complementarity is real and the program's own confidence cannot reach any of it
+
+`ops/program_bigram_selector.py`, 49.5s, **DISCOVERY ONLY**, rung 3.
+**pred_a False | pred_b False | pred_c False | pred_d True.** Three failures, all interpretable, and
+the middle one is the finding.
+
+```
+  head (fit-count 125+)      prog    bigram   ORACLE UNION   live
+    skip7000                39.01%   32.83%      45.97%     61.46%   union +6.96pp over better arm
+    skip11000               40.42%   35.29%      48.22%     64.31%   +7.80pp
+    skip1200                38.91%   33.23%      47.52%     61.37%   +8.61pp
+
+  selector by the program's own top-1 logit margin, skip11000 overall (prog alone = 14.25%):
+    tau  0.0   0.25   0.5    1.0    2.0    4.0    8.0
+        14.25% 14.40% 14.21% 13.89% 13.28% 12.94% 12.88%
+    defer  0%    32%    52%    76%    97%   100%   100%
+```
+
+**pred_a MISSED, by 1.04pp on one role.** I asked the oracle union to clear the better arm by 8pp on
+the head; it gives **+6.96 / +7.80 / +8.61 pp** — skip1200 clears, the other two do not. Scored as a
+FAIL as written. **This also corrects §1791**, whose union figures (+10.05 / +10.49 / +12.19 pp) were
+computed with the leaked bigram of §1794: the leak's extra hits were positions where the target was
+the bigram's own top-1, which inflated the union as well as the arm. Corrected headroom is
+**+6.96 / +7.80 / +8.61 pp** and the union sits **15.5 / 16.1 / 13.9 pp** below live, not 9-12.
+
+**pred_b FAILED and this is the result.** The threshold-selection procedure, run on skip7000 alone,
+chose **tau = 0.0 — never defer**. Every positive threshold is flat or worse on that role, so the
+selector reduces to the program and gains exactly **+0.00pp** on both held-out roles. Look at the
+curve: deferring on the program's least-confident **32%** of positions already costs accuracy on two
+roles of three, and it falls monotonically thereafter. **Where the program is unconfident, the bigram
+is not more likely to be right.** pred_b's registered sentence named this outcome: *"the
+complementarity is real but unusable from inside the program — its margin does not know where it is
+wrong — which is the more interesting negative and would say the union is an upper bound no
+self-assessment can approach."*
+
+**pred_c FAILED trivially**, following from pred_b: at tau=0 the selector is the program, which beats
+the bigram by +1.37 / +1.39 pp, below the 3pp bar. Registered separately so it could not be read as
+independent evidence, and it is not.
+
+**The shape of the negative.** ~7-9 points of head accuracy are decided by exactly one of the two arms,
+and none of it is recoverable by asking the program how sure it is. The program is better than the
+bigram *even on its own least-confident third* — its margin is not merely uninformative about the
+disagreements, it ranks them the wrong way for this purpose.
+
+Controls (pred_d): program, live and the leak-free bigram reproduce §1789's and §1795's published
+figures within 0.001; the fit-bigram CE reproduces §1767; tau was selected on skip7000 only and
+applied unchanged; coverage 5419.
+
+**Open question this ends on.** The deferral signal was taken from the arm doing the deferring. The
+arm being deferred TO has its own confidence — the leave-one-out count behind its argmax — and that is
+equally realizable. Does the bigram know when it is right?
