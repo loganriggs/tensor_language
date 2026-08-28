@@ -44202,3 +44202,51 @@ would predict.
 
 Controls: all-36-tabled CE 7.35114, matching §1738 and §1739 to five decimals across three scripts;
 K=6 reproduces §1739's 1.0165 / 1.0383 and 0.5191 / 0.5208 within 0.001; coverage 5419 of 50257.
+
+## §1741 — greedy selection beats the ranking, transfers to a role that chose nothing, and picks five attention sites out of six
+
+`ops/greedy_budget_selection.py`, 304.0s, 201 candidate evaluations, **DISCOVERY ONLY**.
+**pred_a True | pred_b True | pred_c True | pred_d True.**
+
+Greedy: start with all 36 sites tabled, and at each step keep native whichever remaining site buys
+the most **given what is already native**. Selection ran on skip7000 alone; **skip11000 chose
+nothing** and measures transfer, because greedy can overfit its selection rows in a way a ranking
+cannot.
+
+```
+  step 1  + mlp17    0.5128        greedy set   mlp17, attn16, attn14, attn11, attn17, attn13
+  step 2  + attn16   0.7538        §1739 top-6  mlp17, mlp16, attn16, mlp15, attn14, attn17
+  step 3  + attn14   0.9017
+  step 4  + attn11   1.0306                    skip7000 [SELECTION]   skip11000 [TRANSFER]
+  step 5  + attn17   1.1250        greedy          1.2037  29.65%       1.2414  29.13%
+  step 6  + attn13   1.2037        PROG top-6      1.0165  25.04%       1.0383  24.37%
+                                   random best     0.6692  16.5%        0.6809  16.0%
+```
+
+**The gain transfers**: 29.13% on the role that selected nothing, against the ranking's 24.37%. So it
+is not selection overfit, which is what pred_b was there to catch and what would have made the
+ranking the better recommendation despite losing on its own rows.
+
+**Greedy drops mlp16 and mlp15 and takes attn11 and attn13 instead — five of its six sites are
+attention.** That follows from §1736 rather than contradicting it: the attention stack's joint
+contribution is 2.5x the sum of its individual sites, so attention is exactly where a procedure that
+scores *given what is already native* finds value that a per-site ranking cannot see. The MLPs, being
+the tabular half of the model (§1738, §1662), mostly do not need to be native at all — only mlp17
+survives.
+
+**And greedy is cheaper as well as better, which makes it a Pareto improvement on the arc's stated
+metric.** This is arithmetic on the per-module prices already published (§1718 corrected: 15.926M
+reals per MLP, 7.963M per attention site), not a new measurement:
+
+| allocation | native modules | native cost | recovered, held out |
+|---|---|---:|---:|
+| §1739 PROG top-6 | 3 MLP + 3 attn | **71.667M** | 24.37% |
+| greedy | 1 MLP + 5 attn | **55.741M** | **29.13%** |
+
+**22% cheaper and 4.8 points better**, dominating on both axes at the same site count. The reason is
+structural: greedy's preference for attention is simultaneously a preference for the cheaper module
+type, since an attention site costs half an MLP. Nothing in the greedy objective knew that — it
+optimised fidelity alone and the cost fell out.
+
+Controls: all-36-tabled CE 7.35114 matching §1738/§1739/§1740 across four scripts; the top-6 column
+reproduces §1739's 1.0165 and 1.0383 within 0.001; coverage 5419 of 50257.

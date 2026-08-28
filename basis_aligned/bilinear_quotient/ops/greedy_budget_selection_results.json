@@ -1,0 +1,141 @@
+{
+ "config": {
+  "budget_native_sites": 6,
+  "select_role": "skip7000",
+  "transfer_role": "skip11000",
+  "seed": 1740,
+  "greedy": "at each step add the site that buys the most GIVEN what is already native. Selection uses ONE role; the other role is never used to choose anything and measures transfer.",
+  "ROLE_NOTE": "DISCOVERY ONLY. Same family as \u00a71736-\u00a71740; both large roles are spent for certification purposes. The selection/transfer split here guards against selection overfit, not against role burn."
+ },
+ "greedy_set": [
+  "mlp17",
+  "attn16",
+  "attn14",
+  "attn11",
+  "attn17",
+  "attn13"
+ ],
+ "greedy_trace": [
+  {
+   "step": 1,
+   "added": "mlp17",
+   "recovered": 0.51279
+  },
+  {
+   "step": 2,
+   "added": "attn16",
+   "recovered": 0.75382
+  },
+  {
+   "step": 3,
+   "added": "attn14",
+   "recovered": 0.90175
+  },
+  {
+   "step": 4,
+   "added": "attn11",
+   "recovered": 1.0306
+  },
+  {
+   "step": 5,
+   "added": "attn17",
+   "recovered": 1.12505
+  },
+  {
+   "step": 6,
+   "added": "attn13",
+   "recovered": 1.20366
+  }
+ ],
+ "prog_top6": [
+  "mlp17",
+  "mlp16",
+  "attn16",
+  "mlp15",
+  "attn14",
+  "attn17"
+ ],
+ "random_sets": [
+  [
+   "attn0",
+   "attn14",
+   "attn15",
+   "mlp11",
+   "mlp15",
+   "mlp3"
+  ],
+  [
+   "attn0",
+   "attn14",
+   "mlp11",
+   "mlp12",
+   "mlp6",
+   "mlp8"
+  ],
+  [
+   "attn14",
+   "attn4",
+   "attn7",
+   "mlp11",
+   "mlp12",
+   "mlp5"
+  ],
+  [
+   "attn11",
+   "attn12",
+   "attn14",
+   "attn16",
+   "attn4",
+   "mlp4"
+  ],
+  [
+   "attn1",
+   "attn15",
+   "attn17",
+   "mlp16",
+   "mlp2",
+   "mlp8"
+  ],
+  [
+   "attn1",
+   "attn11",
+   "attn15",
+   "attn16",
+   "mlp10",
+   "mlp14"
+  ]
+ ],
+ "results": {
+  "skip7000": {
+   "live_ce": 3.29205,
+   "all_tabled_ce": 7.35114,
+   "stake_nats": 4.05909,
+   "greedy": 1.20366,
+   "prog_top6": 1.01649,
+   "random_best": 0.66925,
+   "random_median": 0.60205,
+   "greedy_frac": 0.29654,
+   "prog_top6_frac": 0.25042,
+   "role": "SELECTION"
+  },
+  "skip11000": {
+   "live_ce": 3.09711,
+   "all_tabled_ce": 7.35825,
+   "stake_nats": 4.26114,
+   "greedy": 1.2414,
+   "prog_top6": 1.03832,
+   "random_best": 0.68094,
+   "random_median": 0.61768,
+   "greedy_frac": 0.29133,
+   "prog_top6_frac": 0.24367,
+   "role": "TRANSFER"
+  }
+ },
+ "predictions": {
+  "pred_a_greedy_beats_topk_on_selection": true,
+  "pred_b_gain_transfers": true,
+  "pred_c_sets_differ": true,
+  "pred_d_controls": true
+ },
+ "runtime_s": 304.0
+}
