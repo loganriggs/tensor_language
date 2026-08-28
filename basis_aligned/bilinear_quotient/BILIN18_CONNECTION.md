@@ -43131,3 +43131,41 @@ either (missing bias). In both cases the *number* looked right — mine landed 0
 theirs 0.506 — and in both cases the construction was wrong. **A figure agreeing with a derivable
 value is the weakest possible evidence that the thing computing it is correct**, because agreement
 is exactly what a plausible-but-wrong construction produces.
+
+## §1716 — the identity check genuinely passes, BIT-EXACTLY
+
+Codex's corrected `mid_band_feature_exact_identity` completed. With `Down_bias` restored, the
+constructed exact map at mlp4–15 and **leaving mlp4–15 live** give the same CE in the same
+shared-object run:
+
+```
+corrected exact-map hooks   CE 5.098802047929132
+leaving mlp4-15 REAL        CE 5.098802047929132
+pooled per-row difference   0
+maximum per-row difference  0
+corrected-arm replay        bit-identical
+descriptive ceiling         67.5533%   (matches §1703's 67.553%)
+```
+
+**Zero difference, bit-identical — not agreement within a margin.** This is what an identity check
+is supposed to look like, and it is a stronger result than the one I wrongly claimed at §1714. The
+hook, feature-selection and interleaved-compiler machinery are validated: when the program is given
+the module's exact map, the whole 36-site apparatus reproduces the live model at those sites
+exactly.
+
+**The three-step arc is worth keeping as a unit.** §1714 claimed validation at 0.51 points from an
+arm that omitted the bias. §1715 withdrew it and recorded that the *overshoot* above target should
+have been the tell. §1716 is the real thing, and the difference between it and both failed attempts
+is categorical rather than quantitative: **0.009 and 0.506 versus exactly 0**. A correct identity
+does not land near its target, it lands *on* it. Both earlier arms produced plausible numbers, and
+plausibility was the whole problem.
+
+**So the feature-augmentation line now closes with its construction underwritten.** The ridge
+k-curve (55.038 / 58.713 / 60.619 / 63.378 / 67.544), the price curve (0.3× / 0.6× / 1.2× / 2.7×),
+the accelerating gains, and §1709's k=8 negative all stand, and now rest on machinery shown to be
+exact at its limit rather than merely self-consistent.
+
+**Open question this leaves.** None of the augmented arms has been replicated on held-out
+documents. §1683, §1693 and §1701 each found levels moving ~1.3 points between skip7000 and
+skip11000 while the *gains* held to within 0.1. The price curve is a claim about gains, so it should
+survive — but that is the prediction, not the result. Named on the board as my next rung.
