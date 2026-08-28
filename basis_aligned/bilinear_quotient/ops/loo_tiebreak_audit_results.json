@@ -1,0 +1,54 @@
+{
+ "config": {
+  "table_ranks": [
+   "full"
+  ],
+  "map_rank": 64,
+  "program": "context-free tables, output-NN fallback with a rank-64 embedding->row map -- the settled design of \u00a71780-\u00a71786",
+  "instruments": "top-1 agreement with the live model, top-1 accuracy against the true next token, and KL(live || program). All three are NEW to this thread, which has been CE-only since \u00a71747.",
+  "ROLE_NOTE": "DISCOVERY ONLY; a second-class confirmation with a DIFFERENT instrument, not a replication of the same one."
+ },
+ "results": {
+  "skip7000": {
+   "acc_s1790": 0.15967,
+   "acc_clean": 0.12443,
+   "acc_prog": 0.13553,
+   "acc_live": 0.3932,
+   "tie_share_of_s1790_hits": 0.30394,
+   "s1790_hits": 5886,
+   "tie_hits": 1789,
+   "n": 36864
+  },
+  "skip11000": {
+   "acc_s1790": 0.16631,
+   "acc_clean": 0.12877,
+   "acc_prog": 0.1425,
+   "acc_live": 0.42348,
+   "tie_share_of_s1790_hits": 0.30566,
+   "s1790_hits": 6131,
+   "tie_hits": 1874,
+   "n": 36864
+  },
+  "skip1200": {
+   "acc_s1790": 0.17996,
+   "acc_clean": 0.1225,
+   "acc_prog": 0.13645,
+   "acc_live": 0.38883,
+   "tie_share_of_s1790_hits": 0.41121,
+   "s1790_hits": 3317,
+   "tie_hits": 1364,
+   "n": 18432
+  }
+ },
+ "fit_bigram_covered_ce": {
+  "skip7000": 7.88804,
+  "skip11000": 7.90729
+ },
+ "predictions": {
+  "pred_a_s1790_arm_inflated_by_2pp": true,
+  "pred_b_ties_hold_a_fifth_of_its_hits": true,
+  "pred_c_leakfree_program_beats_bigram": true,
+  "pred_d_controls": true
+ },
+ "runtime_s": 50.7
+}

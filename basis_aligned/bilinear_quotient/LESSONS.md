@@ -1087,3 +1087,23 @@ not against a value recomputed inside the new script, which would move with the 
 only checks itself can be perfectly consistent and perfectly wrong. Related: [[lesson-34]] (a
 partition needs a known-answer check, not a sum check) is the same defect one level down — there the
 controls could not fail; here they could fail but not for this reason.
+
+## LESSON 43 — a leave-one-out that decrements the count but not the decision is still a leak
+
+§1790's leave-one-out bigram removed the scored observation from the *count* and then chose with
+`torch.where(c1 >= v1, k0, k1)`. Whenever the target was the arm's own top-1 and its decremented count
+merely TIED the runner-up, `>=` kept the target — so the observation that had just been withdrawn
+still decided the prediction. **30.4 / 30.6 / 41.1% of that arm's correct predictions were held by
+such a tie** (§1794), inflating it by 3.52 / 3.75 / 5.75 pp and reversing the published comparison.
+
+The defect is invisible to every check the original run had, because the arm behaved correctly on
+every position where the counts were not tied — and with ~6.8 observations per covered type, ties are
+the common case, not the edge case.
+
+**How to apply.** A leave-one-out is not done when the count is decremented. It is done when **no
+downstream comparison can still resolve in the held-out item's favour**. Concretely: after removing
+the observation, take the decision over the whole row rather than patching the top-1 slot, and break
+remaining ties by something that cannot see the answer (here, the unigram). More generally, **every
+`>=` in a tie-break is an unstated policy**, and when one side of that comparison is the target, the
+policy is a leak. Related: [[lesson-42]] — this was found only because a figure from a different
+script disagreed; the original's internal controls all passed.

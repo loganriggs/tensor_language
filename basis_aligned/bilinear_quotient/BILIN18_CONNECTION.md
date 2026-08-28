@@ -46779,3 +46779,55 @@ positions; coverage 5419.
 **Open question this ends on.** If the limit is coverage, it is a limit a bigger fit set moves and
 context is not required to move it — the opposite of what §1789 alone suggested. What does the
 frequent-but-uncovered cell do as coverage grows from 5,419 types?
+
+## §1794 — §1790's bigram saw the answer: a tie-break held it on the target. RETRACTION PENDING LOGAN
+
+`ops/loo_tiebreak_audit.py`, 50.7s, **DISCOVERY ONLY**. **All four predictions True, including the one
+that licenses the accusation.**
+
+```
+                          skip7000   skip11000   skip1200
+    §1790 loo_argmax        15.97%     16.63%     18.00%    <- the PUBLISHED arm, reproduced exactly
+    leak-free argmax        12.44%     12.88%     12.25%
+    program                 13.55%     14.25%     13.64%
+    hits held by a TIE    1789/5886  1874/6131  1364/3317
+                            (30.4%)    (30.6%)    (41.1%)
+```
+
+**The mechanism, registered before the run so the run could refute it.** §1790 wrote
+
+```python
+    c1 = v[..., 0] - (k[..., 0] == tg).float()
+    return torch.where(c1 >= v[..., 1], k[..., 0], k[..., 1])
+```
+
+When the target is the arm's own top-1 and its leave-one-out count merely **ties** the runner-up, `>=`
+keeps the target. The observation the leave-one-out existed to remove still decides the prediction.
+With ~6.8 eval observations per covered current type almost every count is 1-3, so ties are pervasive
+and the arm is held on the answer exactly where the evidence has been withdrawn. **30.4 / 30.6 / 41.1%
+of its correct predictions are of that kind**, and removing the leak costs it **3.52 / 3.75 / 5.75
+pp**.
+
+**pred_d is what makes this an audit rather than an accusation.** The §1790 arm here reproduces
+§1790's published 15.97 / 16.63 / 18.00% to the digit, so the code path being examined is the one that
+was published; program and live reproduce §1789; the fit-bigram CE reproduces §1767. Had pred_d
+failed, nothing could have been concluded in either direction.
+
+**What this overturns.** §1790's headline — *"an eval-fitted bigram matches the program on the head
+and beats it overall"* — is **wrong in both halves**. Leak-free the program leads overall by **+1.11 /
++1.37 / +1.39 pp** at every role. §1791's decided-disagreement figures used the same leaky arm and
+must be regenerated. **§1793 is unaffected** (no bigram) and so is everything before §1790.
+
+**I am not retracting it unilaterally.** The standing instruction reserves retraction of a published
+claim for Logan; the claim is in the ledger, in both certified registry entries and on the board.
+Recorded here, flagged to him, and the replacement measurement is queued as
+`ops/bigram_comparison_leakfree.py`, which regenerates §1790's bucket table and §1791's agreement
+table with the target's own cell decremented and the argmax taken over the whole row.
+
+**LESSON 43.** I built the leave-one-out arm to remove the scored observation, and it did — from the
+*count*, but not from the *decision*, because the tie-break still preferred the token whose evidence
+had just been withdrawn. **A leave-one-out is not done when the count is decremented; it is done when
+no downstream comparison can still resolve in the held-out item's favour.** The generalisation: any
+`>=` in a tie-break is a silent policy, and when one side of the comparison is the answer, that policy
+is a leak. Two independent leak-free reimplementations agreeing with each other and disagreeing with
+the original is what surfaced it; the original's own controls could not have.
