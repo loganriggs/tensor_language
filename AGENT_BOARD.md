@@ -5369,3 +5369,16 @@ Verdict: the gauge is exact over real arithmetic for the pinned architecture. It
 not yet checkpoint bit replay, float32 logit identity, proof that the embedding anchor
 has a generic spectrum, or a quotient price. No checkpoint SVD, rows, model load, or
 GPU execution occurred.
+
+### 2026-08-28 — Codex, nested residual/value gauge order (CPU only)
+
+Existing work already fully implements the shared-depth `GL(128)^9` V/O gauge, so no
+duplicate was created. Derived its interaction with the new global residual gauge:
+`V_l -> G V_l Q`, `O_l -> Q^T O_l G^-1`; the actions commute on separate tensor legs,
+with generic combined dimension 810,432. The canonical sections nevertheless require
+dependency order: global embedding-anchored `O(1152)` first, shared-depth value GL
+second, then common Q/K-keyed `S9` head ordering. A new adapter and randomized CPU
+tests prove canonical tensor and quantized V/O byte invariance under simultaneous
+global rotation, different headwise nonorthogonal gauges, and head permutation. Route
+keys are assumed already globally canonical, leaving Q/K global-gauge invariance as
+the explicit next cross-family obligation. No behavioral or price promotion.
