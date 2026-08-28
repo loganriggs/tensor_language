@@ -23,9 +23,13 @@
 # failure branches enumerated per LESSON 44:
 #   pred_a THE SETTLED DESIGN POINT SURVIVES: no arm is both cheaper than the settled rank-64
 #          all-sites program AND more accurate, at every role. If FALSE, §1786's certified design point
-#          is Pareto-dominated by a partial compile and the certified object should change -- which
-#          would be the most consequential outcome available here and is the reason this is worth
-#          running rather than assuming retained native modules must dominate.
+#          is Pareto-dominated and the certified object should change -- the most consequential outcome
+#          available here.
+#          NOTE ON FALSIFIABILITY: with ranks (None, 64) alone this predicate COULD NOT FAIL, because
+#          the settled rank-64 all-sites arm is the minimum-cost arm in that set and nothing can be
+#          cheaper than it. Rank 16 is included precisely so cheaper arms exist -- all-sites rank 16
+#          costs 9.2M against the settled 20.5M. A bar that cannot fail is not a bar (LESSON 40), and
+#          this one was caught before the run rather than after.
 #   pred_b AND FIDELITY IS EXPENSIVE: the cheapest arm that beats the settled point on top-1 costs at
 #          least 5x its reals, at every role. If FALSE, a modest extra budget buys a real accuracy
 #          gain, and the thread should characterise that arm rather than the all-sites one. Scored
@@ -54,7 +58,8 @@ OUT = PT + 'ops/partial_compile_frontier_results.json'
 PROBE_LS = ()
 KIND_LS = ()
 DEPTHS = (-1, 3, 7, 10, 13)      # -1 = every site compiled
-RANKS = (None, 64)
+RANKS = (None, 64, 16)   # rank 16 is included so pred_a CAN fail: without an arm cheaper than
+                         # the settled rank-64 point, 'is it Pareto-dominated' is unfalsifiable
 NATIVE_PER_LAYER = 15.926e6 + 7.963e6   # one MLP + one attn, from the §1754 accounting
 S1805_L10 = {'skip7000': 0.1386, 'skip11000': 0.1456, 'skip1200': 0.1328}
 S1807_SCALED_L5 = {'skip7000': 0.189, 'skip11000': 0.177, 'skip1200': 0.183}
@@ -335,9 +340,14 @@ def main():
     run('all_substituted', sites)
     run('all_sub_scaled', sites, scaledhooks)
     run('live_model', [])
+    # Free the full-rank bank and every hook closure over it BEFORE building another one. The
+    # first attempt held `fr` (36 x 50257 x 1152 floats = 8.3 GiB) while build() allocated a second
+    # bank of the same size and OOMed at 31.25/31.36 GiB. Each rank is now built, used and released.
+    del allhooks, scaledhooks, attnhooks, mlphooks, only4, not4, fr
+    torch.cuda.empty_cache()
     cost = {}
     for r in RANKS:
-        frr = fr if r is None else build(NFULL, r)[0]
+        frr = build(NFULL, r)[0]
         hks = {st: row_hook(frr[st]) for st in sites}
         for L in DEPTHS:
             comp = [st for st in sites if st[1] > L]
@@ -347,9 +357,8 @@ def main():
             native = (L + 1) * NATIVE_PER_LAYER
             cost[f'r{r}_L{L}'] = tab + mp + native
             run(f'r{r}_L{L}', comp, hks)
-        if r is not None:
-            del frr, hks
-            torch.cuda.empty_cache()
+        del frr, hks
+        torch.cuda.empty_cache()
 
     # ---- mechanism diagnostic: in the FULLY COMPILED stream, how big is what each live attention
     # module would have emitted, against the row that replaces it?  (LESSON 44: emit the quantity.)
