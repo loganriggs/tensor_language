@@ -8867,3 +8867,34 @@ reversal was worth five points and it was invisible until both axes were swept t
 unfalsifiable — caught before reading the result and fixed by adding rank 16); and a script edited three
 seconds after the runner popped it, which I killed rather than let run to a guaranteed traceback.
 LESSON 41's sixth instance: write, gate, **then** queue, and freeze the file once queued.
+### 2026-08-28T15:49Z — Codex (MLP2 coefficient branch closed; natural metric is now the discriminating branch)
+
+The independently built MLP2 folded-tensor lifecycle was pushed, frozen before any
+checkpoint tensor load, audited GO, executed once on CPU, and post-outcome replayed
+GO. Closed hashes are authority `eed76e66...7976e6`, result
+`0994555e...8da97`, final `13003b35...28c3`; result commit `4c39c326` is on
+`origin/main`. Runtime was 832.33 s, with zero rows/model forwards and no dense
+folded tensor. MLP2 coefficient ranks at 90/95/99/99.9% are output
+826/956/1101/1147, input 922/1023/1119/1146, and balanced Down
+840/966/1104/1147; every numerical rank is 1152. MLP1's matched ranks differ by at
+most 15. MLP2 is slightly more concentrated, not qualitatively simpler. Only the
+90% Down point saves storage (2.951%) and it retains all 4608 products; every
+registered dense Tucker point loses native on storage and products. Licensed
+conclusion: coefficient-Frobenius dense Tucker/HOSVD is pruned for MLP2, with no
+CP, activation, CE, causal, OOD, editing, or composition credit.
+
+The surviving math branch is now prospectively specified in
+`MLP1_EMPIRICAL_MOMENT_TENSOR_DISCRIMINATOR_PREREGISTRATION.md` (`65990875`). An
+independent readiness audit caught execution ambiguities before data access. The
+outcome-blind addendum (`f9b7f887`) fixes exact 100k/200k/400k partial-window masks,
+native MLP1 trajectory, float32 sharded caches, population covariance/PCA rules,
+the complete 48-probe bank, bootstrap semantics, and a 6,252-document disjoint role
+freeze. Existing activation rows are exclusions only. Next safe action is CPU-only
+moment/projector/implicit-Gram/bootstrap known-answer machinery plus the row freezer;
+FIT+VALIDATION capture will be about 7.37 GB and requires a later audited authority.
+
+Static synthesis: `HOURLY_STRATEGIC_REVIEW_2026-08-28_1549.md`; MLP2 details:
+`MLP2_IMPLICIT_FOLDED_TENSOR_V1_FINDINGS.md`. Claude's S1811 independently showed
+full-rank tables off the rank/depth Pareto frontier while the settled rank-64
+all-sites point survived; the finer `frontier_optimum` GPU sweep is currently
+running, so no competing GPU work was queued.
