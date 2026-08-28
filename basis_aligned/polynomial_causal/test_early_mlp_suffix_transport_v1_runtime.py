@@ -379,7 +379,7 @@ def test_student_hook_rejects_missing_stale_native_or_overwritten_parent():
             call_hook(hook, 0, z, mo, three.nonce)
 
 
-def test_student_hook_applies_edit_to_executable_parent_only():
+def test_student_hook_applies_edit_to_executable_parent_and_captured_code():
     program = joint("T")
     hook = student_hook()
     z = torch.randn(4, 256, runtime.D_MODEL)
@@ -388,12 +388,17 @@ def test_student_hook_applies_edit_to_executable_parent_only():
     edit = edit.expand(4, -1, -1).clone()
     hook.configure(program=program, states={0: "P", 1: "P"}, site0_edit=edit)
     identity = trace_identity(hook, 6, route="T")
-    with hook.forward_scope(identity):
+    with hook.forward_scope(identity, capture_sites={0, 1}):
         returned = call_hook(hook, 0, z, mo, identity.nonce)
         parent = hook.parent_code.detach().clone()
+        call_hook(hook, 1, z, mo, identity.nonce)
     expected = program.site0_code(z) + edit
     assert torch.allclose(parent, expected, atol=1e-6, rtol=0)
     assert torch.allclose(returned.float() @ basis(), expected, atol=2e-5, rtol=0)
+    trace = hook.pop_trace(identity)
+    captured_codes = hook.pop_student_codes(identity)
+    assert torch.allclose(captured_codes[0], expected, atol=1e-6, rtol=0)
+    trace._consume(issuer_id="a" * 64, identity=identity)
 
 
 def test_student_hook_rejects_silently_ignored_edit():

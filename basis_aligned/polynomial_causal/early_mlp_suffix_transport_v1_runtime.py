@@ -1219,12 +1219,11 @@ class StudentCorrectionHook:
             else:
                 predicted = self.program.site1_code(z)
 
-        self.captured_codes[site] = predicted
-
         if site == 0 and self.site0_edit is not None:
             if self.site0_edit.shape != predicted.shape:
                 raise RuntimeError("site0 edit shape differs from executable code")
             predicted = predicted + self.site0_edit.to(predicted.device, torch.float32)
+        self.captured_codes[site] = predicted
         if site == 0:
             if self.parent_code is not None:
                 raise RuntimeError("student parent code would be overwritten")

@@ -112,6 +112,8 @@ def paired_pooled_mean_difference(
 
 RESPONSE_KEYS = ("error_sum", "teacher_sum", "student_sum", "dot_sum")
 RESPONSE_SCHEMA = (*RESPONSE_KEYS, "unit_identity")
+OUTPUT_KL_KEYS = ("numerator_sum", "denominator_sum")
+OUTPUT_KL_SCHEMA = (*OUTPUT_KL_KEYS, "unit_identity")
 
 
 def _unit_identity(statistics: Mapping[str, Any]) -> str:
@@ -203,6 +205,49 @@ def pooled_ratio_draws(
     return (pooled_numerator / pooled_denominator).contiguous()
 
 
+def validate_output_kl_sufficient_statistics(
+    statistics: Mapping[str, Any], *, length: int | None = None,
+) -> dict[str, torch.Tensor]:
+    """Validate per-row sums for the preregistered output-KL response ratio."""
+
+    if set(statistics) != set(OUTPUT_KL_SCHEMA):
+        raise ValueError("output-KL sufficient-statistic schema changed")
+    _unit_identity(statistics)
+    output: dict[str, torch.Tensor] = {}
+    for key in OUTPUT_KL_KEYS:
+        output[key] = _vector(key, statistics[key], length)
+        length = len(output[key]) if length is None else length
+    if any(bool((output[key] < 0).any()) for key in OUTPUT_KL_KEYS):
+        raise ValueError("output-KL sums must be nonnegative")
+    return output
+
+
+def pooled_output_kl_draws(
+    statistics: Mapping[str, Any], weights: torch.Tensor,
+) -> torch.Tensor:
+    values = validate_output_kl_sufficient_statistics(statistics)
+    return pooled_ratio_draws(
+        values["numerator_sum"], values["denominator_sum"], weights,
+    )
+
+
+def output_kl_summary(
+    statistics: Mapping[str, Any], weights: torch.Tensor,
+) -> dict[str, Any]:
+    """Report one arm's pooled KL ratio without turning it into a gate."""
+
+    values = validate_output_kl_sufficient_statistics(statistics)
+    draws = pooled_output_kl_draws(statistics, weights)
+    point = float(pooled_output_kl_draws(
+        statistics, torch.ones(1, len(values["numerator_sum"]), dtype=torch.float64),
+    )[0])
+    return {
+        "unit_identity": _unit_identity(statistics),
+        "point": point,
+        "interval95": linear_interval(draws),
+    }
+
+
 def response_family_summary(
     baseline: Mapping[str, Any],
     candidate: Mapping[str, Any],
@@ -249,6 +294,9 @@ def transport_route_decision(
     logit_baseline: Mapping[str, Any],
     logit_candidate: Mapping[str, Any],
     logit_nulls: Sequence[Mapping[str, Any]],
+    output_kl_baseline: Mapping[str, Any],
+    output_kl_candidate: Mapping[str, Any],
+    output_kl_nulls: Sequence[Mapping[str, Any]],
     weights: torch.Tensor,
     calibration_passed: bool,
     observational_gates: Mapping[str, bool],
@@ -257,18 +305,26 @@ def transport_route_decision(
 
     if type(calibration_passed) is not bool:
         raise ValueError("calibration_passed must be a literal boolean")
-    if len(logit_nulls) != 20:
+    if len(logit_nulls) != 20 or len(output_kl_nulls) != 20:
         raise ValueError("transport requires exactly 20 null response records")
     if set(observational_gates) != set(TRANSPORT_OBSERVATIONAL_GATES) or any(
         type(value) is not bool for value in observational_gates.values()
     ):
         raise ValueError("transport observational gate schema changed")
-    identities = {
+    response_identities = {
         _unit_identity(record)
         for record in (
             code_baseline, code_candidate, logit_baseline, logit_candidate,
             *logit_nulls,
         )
+    }
+    output_kl_records = (
+        output_kl_baseline, output_kl_candidate, *output_kl_nulls,
+    )
+    for record in output_kl_records:
+        validate_output_kl_sufficient_statistics(record)
+    identities = response_identities | {
+        _unit_identity(record) for record in output_kl_records
     }
     if len(identities) != 1:
         raise ValueError("transport arms do not share ordered intervention units")
@@ -278,6 +334,11 @@ def transport_route_decision(
     null_summaries = [
         response_family_summary(logit_baseline, null, weights) for null in logit_nulls
     ]
+    output_kl = {
+        "baseline": output_kl_summary(output_kl_baseline, weights),
+        "candidate": output_kl_summary(output_kl_candidate, weights),
+        "nulls": tuple(output_kl_summary(null, weights) for null in output_kl_nulls),
+    }
     null_improvements = torch.tensor(
         [summary["nre_improvement_point"] for summary in null_summaries],
         dtype=torch.float64,
@@ -302,6 +363,7 @@ def transport_route_decision(
         "unit_identity": identities.pop(),
         "code_response": code,
         "logit_response": logit,
+        "output_kl_response": output_kl,
         "null_logit_nre_improvements": null_improvements,
         "finite_null_rank": finite_null_rank,
         "gates": gates,

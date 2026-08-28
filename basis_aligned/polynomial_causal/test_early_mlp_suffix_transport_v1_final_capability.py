@@ -26,6 +26,14 @@ def _response() -> capability.ResponseReduction:
     )
 
 
+def _output_kl() -> capability.OutputKLReduction:
+    return capability.OutputKLReduction(
+        numerator_sum=torch.ones(192, dtype=torch.float64),
+        denominator_sum=torch.full((192,), 2.0, dtype=torch.float64),
+        unit_identity="b" * 64,
+    )
+
+
 def _observation(action: capability.FinalAction, **changes):
     response = action.background == "N" and (
         action.arm == "ll" or action.arm == "lt" or action.arm.startswith("a_null_")
@@ -40,6 +48,7 @@ def _observation(action: capability.FinalAction, **changes):
         "frequency_ce": tuple(_row() for _ in range(9)),
         "code_response": _response() if code else None,
         "logit_response": _response() if response else None,
+        "output_kl_response": _output_kl() if response else None,
         "consumer_norm_ratio": tuple(_row() for _ in range(18)),
         "execution_closure_sha256": "c" * 64,
     }
@@ -98,6 +107,8 @@ def test_response_and_background_types_follow_registered_semantics():
         _observation(capability.FinalAction("lt", "N"), logit_response=None)
     with pytest.raises(ValueError, match="response reductions"):
         _observation(capability.FinalAction("qq", "N"), logit_response=_response())
+    with pytest.raises(ValueError, match="response reductions"):
+        _observation(capability.FinalAction("lt", "N"), output_kl_response=None)
 
 
 def test_raw_or_graph_bearing_reductions_fail_closed():
@@ -131,6 +142,22 @@ def test_response_inner_products_are_consistency_checked_and_cloned():
             teacher_sum=4 * torch.ones(192, dtype=torch.float64),
             student_sum=torch.ones(192, dtype=torch.float64),
             dot_sum=2 * torch.ones(192, dtype=torch.float64),
+            unit_identity="b" * 64,
+        )
+
+
+def test_output_kl_reductions_are_nonnegative_and_cloned():
+    source = torch.ones(192, dtype=torch.float64)
+    reduction = capability.OutputKLReduction(
+        numerator_sum=source, denominator_sum=2 * source,
+        unit_identity="b" * 64,
+    )
+    source.fill_(9)
+    assert torch.equal(reduction.numerator_sum, torch.ones(192, dtype=torch.float64))
+    with pytest.raises(ValueError, match="nonnegative"):
+        capability.OutputKLReduction(
+            numerator_sum=-torch.ones(192, dtype=torch.float64),
+            denominator_sum=torch.ones(192, dtype=torch.float64),
             unit_identity="b" * 64,
         )
 

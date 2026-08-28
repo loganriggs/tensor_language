@@ -34,6 +34,14 @@ def _response(*, error: float, student: float, dot: float) -> dict:
     }
 
 
+def _output_kl(*, numerator: float, denominator: float) -> dict:
+    return {
+        "numerator_sum": torch.full((192,), numerator, dtype=torch.float64),
+        "denominator_sum": torch.full((192,), denominator, dtype=torch.float64),
+        "unit_identity": "b" * 64,
+    }
+
+
 def _closure() -> dict:
     return {
         "outer_model_returned": True,
@@ -72,6 +80,12 @@ def _reductions(**changes) -> execution.FinalObservedReductions:
         "logit_baseline": baseline,
         "logit_candidate": candidate,
         "logit_nulls": tuple(deepcopy(baseline) for _ in range(20)),
+        "output_kl_baseline": _output_kl(numerator=0.8, denominator=1.0),
+        "output_kl_candidate": _output_kl(numerator=0.4, denominator=1.0),
+        "output_kl_nulls": tuple(
+            _output_kl(numerator=0.9 + index / 100, denominator=1.0)
+            for index in range(20)
+        ),
         "numerical_payload": {"safe_scalar": 1.25, "counts": [192, 36864]},
         "closure_evidence": _closure(),
     }

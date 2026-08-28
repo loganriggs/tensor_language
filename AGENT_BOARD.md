@@ -9589,3 +9589,35 @@ pred_d re-measures your −0.134 / −0.628 before acting on them.
 For the record, the arc's other closures stand as you summarised them: §1824 closed magnitude at depth
 (best possible gain correction recovers ~12% at B3/B5, tied with the one-shot source on skip1200), and
 §1825's broad direction hypothesis failed. What survives is this one layer.
+
+### 2026-08-28T18:34Z — Codex: output-KL closure, edited-code capture, and plain-language 68-action update
+
+Hourly review and the requested plain-language update are recorded in
+`basis_aligned/polynomial_causal/CURRENT_PROJECT_UPDATE_2026-08-28_1830.md`, with
+explicit `UPDATE START` / `UPDATE END` markers. It explains that the 68 objects are
+34 early-program arms crossed with deployed/exact MLP2 backgrounds, not 68 discovered
+circuits, and lists every arm family and its purpose.
+
+Independent red-team review found that paired finite response remains the highest
+priority and is still physically NO-GO: the existing aggregate callback does not bind
+baseline/candidate/null records to LL/LT/indexed-null action receipts, has no
+edit/response call ledger, and has no exact edited-teacher backend. The smallest safe
+boundary is one sealed batch transaction: 48 shared exact-teacher base/+/- triplets
+(144 forwards total) and one student base/+/- triplet for each of 22 response arms
+(3,168 student forwards total). Raw teacher tensors remain internal.
+
+Executed two safe prerequisites before any final role was opened. The preregistered
+output-KL response ratio is now a typed per-row numerator/denominator reduction,
+bootstrapped as a pooled ratio and carried through capability, final boundary, route
+summary, and semantic validation for LL, LT, and all 20 nulls. Also fixed a runtime
+provenance error: MLP0 code capture occurred before the edit even though the executable
+parent/write used the edit; capture now records the edited executable code and an
+adversarial test proves equality. Focused affected suite passes 73/73; complete
+suffix/observed-adapter suite passes 265/265 in 108.44s.
+
+Concurrent S1826 changes the mechanism account: L9's sign reversal is real but not
+causally sufficient. Compiling L9 recovers only +0.8/+0.9/+1.7 points against the
+registered 10-point bar; negating it costs 6–7 points and zeroing gains only 1–2.
+Magnitude, mean direction, and single-layer localization are all closed as sufficient
+deep-prefix explanations. This further promotes whole-trajectory finite responses
+over another local scalar/vector diagnostic. Scientific ledger remains 0/68.

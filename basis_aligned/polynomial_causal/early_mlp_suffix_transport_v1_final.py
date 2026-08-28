@@ -82,6 +82,7 @@ RESPONSE_POINT_KEYS = {
     "error_sum", "teacher_sum", "student_sum", "dot_sum", "nre", "r2",
     "cosine",
 }
+OUTPUT_KL_SUMMARY_KEYS = {"unit_identity", "point", "interval95"}
 
 
 def _sha256(value: Any) -> bool:
@@ -336,12 +337,24 @@ def _validate_response_summary(value: Any, name: str) -> Mapping[str, Any]:
     return summary
 
 
+def _validate_output_kl_summary(value: Any, name: str) -> Mapping[str, Any]:
+    summary = _exact_mapping(value, OUTPUT_KL_SUMMARY_KEYS, f"{name} output-KL summary")
+    if not _sha256(summary["unit_identity"]):
+        raise RuntimeError(f"{name} output-KL unit identity changed")
+    point = _finite_number(summary["point"], f"{name} output-KL point")
+    interval = _interval(summary["interval95"], f"{name} output-KL")
+    if point < 0 or interval[0] < 0:
+        raise RuntimeError(f"{name} output-KL ratio is negative")
+    return summary
+
+
 def _validate_transport_route(
     value: Any, *, expected_calibration: bool,
 ) -> Mapping[str, Any]:
     decision = _exact_mapping(value, {
         "unit_identity", "code_response", "logit_response",
-        "null_logit_nre_improvements", "finite_null_rank", "gates", "passes",
+        "output_kl_response", "null_logit_nre_improvements",
+        "finite_null_rank", "gates", "passes",
     }, "transport route")
     code = _validate_response_summary(decision["code_response"], "code")
     logit = _validate_response_summary(decision["logit_response"], "logit")
@@ -349,6 +362,27 @@ def _validate_transport_route(
         decision["unit_identity"] != logit["unit_identity"]
     ):
         raise RuntimeError("transport response unit identities differ")
+    output_kl = _exact_mapping(
+        decision["output_kl_response"], {"baseline", "candidate", "nulls"},
+        "transport output-KL response",
+    )
+    output_kl_summaries = (
+        _validate_output_kl_summary(output_kl["baseline"], "baseline"),
+        _validate_output_kl_summary(output_kl["candidate"], "candidate"),
+    )
+    if not isinstance(output_kl["nulls"], (tuple, list)) or len(
+        output_kl["nulls"]
+    ) != 20:
+        raise RuntimeError("transport output-KL null bank changed")
+    output_kl_summaries += tuple(
+        _validate_output_kl_summary(value, f"null {index}")
+        for index, value in enumerate(output_kl["nulls"])
+    )
+    if any(
+        summary["unit_identity"] != decision["unit_identity"]
+        for summary in output_kl_summaries
+    ):
+        raise RuntimeError("output-KL and vector response unit identities differ")
     nulls = decision["null_logit_nre_improvements"]
     if not torch.is_tensor(nulls) or tuple(nulls.shape) != (20,) or not bool(
         torch.isfinite(nulls).all()

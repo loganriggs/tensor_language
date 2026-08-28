@@ -59,6 +59,14 @@ def _response(scale: float, n_rows: int = 4) -> dict[str, torch.Tensor]:
     }
 
 
+def _output_kl(ratio: float, n_rows: int = 4) -> dict[str, torch.Tensor]:
+    return {
+        "unit_identity": "a" * 64,
+        "numerator_sum": torch.full((n_rows,), ratio, dtype=torch.float64),
+        "denominator_sum": torch.ones(n_rows, dtype=torch.float64),
+    }
+
+
 def test_response_metrics_pool_sums_before_nonlinearity() -> None:
     response = _response(0.5)
     point = statistics.pooled_response_point(response)
@@ -104,6 +112,9 @@ def test_transport_decision_conjoins_both_modalities_nulls_and_observational_gat
         logit_baseline=baseline,
         logit_candidate=candidate,
         logit_nulls=nulls,
+        output_kl_baseline=_output_kl(0.8),
+        output_kl_candidate=_output_kl(0.4),
+        output_kl_nulls=[_output_kl(0.9 + index / 100) for index in range(20)],
         weights=weights,
         calibration_passed=True,
         observational_gates=observational,
@@ -111,6 +122,7 @@ def test_transport_decision_conjoins_both_modalities_nulls_and_observational_gat
     assert summary["logit_response"]["candidate_point"]["nre"] == 0.25
     assert summary["logit_response"]["candidate_point"]["r2"] == 0.9375
     assert summary["finite_null_rank"] == 1
+    assert summary["output_kl_response"]["candidate"]["point"] == 0.4
     assert summary["passes"]
 
     failed = statistics.transport_route_decision(
@@ -119,6 +131,9 @@ def test_transport_decision_conjoins_both_modalities_nulls_and_observational_gat
         logit_baseline=baseline,
         logit_candidate=candidate,
         logit_nulls=nulls,
+        output_kl_baseline=_output_kl(0.8),
+        output_kl_candidate=_output_kl(0.4),
+        output_kl_nulls=[_output_kl(0.9 + index / 100) for index in range(20)],
         weights=weights,
         calibration_passed=False,
         observational_gates=observational,
@@ -132,6 +147,9 @@ def test_transport_decision_conjoins_both_modalities_nulls_and_observational_gat
             logit_baseline=baseline,
             logit_candidate=candidate,
             logit_nulls=nulls[:19],
+            output_kl_baseline=_output_kl(0.8),
+            output_kl_candidate=_output_kl(0.4),
+            output_kl_nulls=[_output_kl(0.9 + index / 100) for index in range(19)],
             weights=weights,
             calibration_passed=True,
             observational_gates=observational,
@@ -143,6 +161,9 @@ def test_transport_decision_conjoins_both_modalities_nulls_and_observational_gat
             logit_baseline=baseline,
             logit_candidate=candidate,
             logit_nulls=nulls,
+            output_kl_baseline=_output_kl(0.8),
+            output_kl_candidate=_output_kl(0.4),
+            output_kl_nulls=[_output_kl(0.9 + index / 100) for index in range(20)],
             weights=weights,
             calibration_passed="false",  # type: ignore[arg-type]
             observational_gates=observational,
@@ -173,3 +194,15 @@ def test_response_statistics_enforce_error_identity_and_cauchy_bound() -> None:
     )
     with pytest.raises(ValueError):
         statistics.pooled_response_point(response)
+
+
+def test_output_kl_statistics_fail_closed_and_pool_before_ratio() -> None:
+    output_kl = _output_kl(0.5)
+    output_kl["numerator_sum"] = torch.tensor([1.0, 3.0, 5.0, 7.0])
+    output_kl["denominator_sum"] = torch.tensor([2.0, 9.0, 10.0, 14.0])
+    weights = torch.tensor([[1.0, 1.0, 0.0, 0.0], [0.0, 0.0, 2.0, 1.0]])
+    draws = statistics.pooled_output_kl_draws(output_kl, weights)
+    assert torch.allclose(draws, torch.tensor([4 / 11, 17 / 34], dtype=torch.float64))
+    output_kl["denominator_sum"].zero_()
+    with pytest.raises(ValueError, match="pooled ratio denominator"):
+        statistics.output_kl_summary(output_kl, torch.ones(2, 4))

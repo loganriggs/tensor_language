@@ -145,6 +145,35 @@ class ResponseReduction:
 
 
 @dataclass(frozen=True, slots=True)
+class OutputKLReduction:
+    """Per-row sums for output KL relative to the exact teacher edit size."""
+
+    numerator_sum: torch.Tensor
+    denominator_sum: torch.Tensor
+    unit_identity: str
+
+    def __post_init__(self) -> None:
+        payload = {
+            "numerator_sum": self.numerator_sum,
+            "denominator_sum": self.denominator_sum,
+            "unit_identity": self.unit_identity,
+        }
+        checked = statistics.validate_output_kl_sufficient_statistics(
+            payload, length=FINAL_ROW_COUNT,
+        )
+        _sha256("output-KL unit identity", self.unit_identity)
+        for name, value in checked.items():
+            object.__setattr__(self, name, value.detach().clone().contiguous())
+
+    @property
+    def sha256(self) -> str:
+        return runtime.logical_identity_sha256({
+            name: runtime.tensor_identity_sha256(getattr(self, name))
+            for name in statistics.OUTPUT_KL_KEYS
+        } | {"unit_identity": self.unit_identity})
+
+
+@dataclass(frozen=True, slots=True)
 class FinalArmObservation:
     """The complete permitted output of one final action."""
 
@@ -156,6 +185,7 @@ class FinalArmObservation:
     frequency_ce: tuple[RowReduction, ...]
     code_response: ResponseReduction | None
     logit_response: ResponseReduction | None
+    output_kl_response: OutputKLReduction | None
     consumer_norm_ratio: tuple[RowReduction, ...]
     execution_closure_sha256: str
 
@@ -190,7 +220,7 @@ class FinalArmObservation:
         )
         if (self.logit_response is not None) != response_expected or (
             self.code_response is not None
-        ) != code_expected:
+        ) != code_expected or (self.output_kl_response is not None) != response_expected:
             raise ValueError("response reductions do not match the registered action")
         if self.logit_response is not None and type(
             self.logit_response
@@ -200,10 +230,18 @@ class FinalArmObservation:
             self.code_response
         ) is not ResponseReduction:
             raise ValueError("code response is not typed")
+        if self.output_kl_response is not None and type(
+            self.output_kl_response
+        ) is not OutputKLReduction:
+            raise ValueError("output-KL response is not typed")
         if self.code_response is not None and self.logit_response is not None and (
             self.code_response.unit_identity != self.logit_response.unit_identity
         ):
             raise ValueError("code and logit responses use different intervention units")
+        if self.output_kl_response is not None and self.logit_response is not None and (
+            self.output_kl_response.unit_identity != self.logit_response.unit_identity
+        ):
+            raise ValueError("output-KL and vector responses use different intervention units")
 
     @property
     def sha256(self) -> str:
@@ -221,6 +259,10 @@ class FinalArmObservation:
             ),
             "logit_response_sha256": (
                 None if self.logit_response is None else self.logit_response.sha256
+            ),
+            "output_kl_response_sha256": (
+                None if self.output_kl_response is None
+                else self.output_kl_response.sha256
             ),
             "consumer_norm_ratio_sha256s": [
                 value.sha256 for value in self.consumer_norm_ratio

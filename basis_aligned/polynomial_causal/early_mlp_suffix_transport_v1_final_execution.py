@@ -91,6 +91,20 @@ def _response(value: Any, name: str) -> dict[str, Any]:
     }
 
 
+def _output_kl(value: Any, name: str) -> dict[str, Any]:
+    checked = statistics.validate_output_kl_sufficient_statistics(
+        value, length=FINAL_ROW_COUNT,
+    )
+    identity = value.get("unit_identity")
+    if not _sha256(identity):
+        raise RuntimeError(f"{name} output-KL unit identity is malformed")
+    return {
+        **{key: tensor.detach().cpu().double().contiguous().clone()
+           for key, tensor in checked.items()},
+        "unit_identity": identity,
+    }
+
+
 def _difference_vector(value: Any, name: str) -> torch.Tensor:
     if not torch.is_tensor(value) or value.ndim != 1 or value.numel() == 0 or (
         value.numel() > 4096
@@ -151,6 +165,9 @@ class FinalObservedReductions:
     logit_baseline: Mapping[str, Any]
     logit_candidate: Mapping[str, Any]
     logit_nulls: Sequence[Mapping[str, Any]]
+    output_kl_baseline: Mapping[str, Any]
+    output_kl_candidate: Mapping[str, Any]
+    output_kl_nulls: Sequence[Mapping[str, Any]]
     numerical_payload: Mapping[str, Any]
     closure_evidence: Mapping[str, Any]
 
@@ -169,6 +186,10 @@ class FinalObservedReductions:
             raise RuntimeError("transport observational gate is not a literal boolean")
         if not isinstance(self.logit_nulls, (tuple, list)) or len(self.logit_nulls) != 20:
             raise RuntimeError("transport requires exactly twenty final null responses")
+        if not isinstance(self.output_kl_nulls, (tuple, list)) or len(
+            self.output_kl_nulls
+        ) != 20:
+            raise RuntimeError("transport requires exactly twenty final output-KL nulls")
         responses = {
             "code_baseline": _response(self.code_baseline, "code baseline"),
             "code_candidate": _response(self.code_candidate, "code candidate"),
@@ -179,8 +200,22 @@ class FinalObservedReductions:
             _response(value, f"logit null {index}")
             for index, value in enumerate(self.logit_nulls)
         )
+        output_kl = {
+            "output_kl_baseline": _output_kl(
+                self.output_kl_baseline, "output-KL baseline",
+            ),
+            "output_kl_candidate": _output_kl(
+                self.output_kl_candidate, "output-KL candidate",
+            ),
+        }
+        output_kl_nulls = tuple(
+            _output_kl(value, f"output-KL null {index}")
+            for index, value in enumerate(self.output_kl_nulls)
+        )
         identities = {
-            value["unit_identity"] for value in (*responses.values(), *nulls)
+            value["unit_identity"] for value in (
+                *responses.values(), *nulls, *output_kl.values(), *output_kl_nulls,
+            )
         }
         if len(identities) != 1:
             raise RuntimeError("final transport responses do not share ordered units")
@@ -214,6 +249,9 @@ class FinalObservedReductions:
         for name, value in responses.items():
             object.__setattr__(self, name, value)
         object.__setattr__(self, "logit_nulls", nulls)
+        for name, value in output_kl.items():
+            object.__setattr__(self, name, value)
+        object.__setattr__(self, "output_kl_nulls", output_kl_nulls)
         object.__setattr__(self, "numerical_payload", _scalar_tree(self.numerical_payload))
         object.__setattr__(self, "closure_evidence", clean_closure)
 
@@ -371,6 +409,9 @@ def evaluate_loaded_final(
         logit_baseline=reductions.logit_baseline,
         logit_candidate=reductions.logit_candidate,
         logit_nulls=reductions.logit_nulls,
+        output_kl_baseline=reductions.output_kl_baseline,
+        output_kl_candidate=reductions.output_kl_candidate,
+        output_kl_nulls=reductions.output_kl_nulls,
         weights=weights,
         calibration_passed=calibration,
         observational_gates=reductions.transport_observational_gates,

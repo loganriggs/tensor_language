@@ -158,6 +158,14 @@ def _response(student: float, identity: str) -> dict:
     }
 
 
+def _output_kl(ratio: float, identity: str) -> dict:
+    return {
+        "numerator_sum": torch.full((4,), ratio, dtype=torch.float64),
+        "denominator_sum": torch.ones(4, dtype=torch.float64),
+        "unit_identity": identity,
+    }
+
+
 def _transport(*, observational: bool = True) -> dict:
     identity = "e" * 64
     weights = torch.ones(32, 4, dtype=torch.float64)
@@ -167,6 +175,9 @@ def _transport(*, observational: bool = True) -> dict:
         logit_baseline=_response(0.2, identity),
         logit_candidate=_response(0.8, identity),
         logit_nulls=[_response(0.3, identity) for _ in range(20)],
+        output_kl_baseline=_output_kl(0.8, identity),
+        output_kl_candidate=_output_kl(0.4, identity),
+        output_kl_nulls=[_output_kl(0.9, identity) for _ in range(20)],
         weights=weights, calibration_passed=True,
         observational_gates={
             name: observational for name in statistics.TRANSPORT_OBSERVATIONAL_GATES
