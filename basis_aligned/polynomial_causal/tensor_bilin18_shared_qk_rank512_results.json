@@ -1,0 +1,981 @@
+{
+  "checkpoint": {
+    "config_sha256": "428042bfd807ba36f8b4326395440fbbebe52cd3d040212e6fef14a4fdf2d83c",
+    "logit_vocab": 50304,
+    "revision": "ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240",
+    "snapshot": "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240",
+    "tokenizer_vocab": 50257,
+    "weights_bytes": 2067738635,
+    "weights_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3"
+  },
+  "comparisons": {
+    "heldout_skip7000": {
+      "all_ce_harm": 0.008659572369784652,
+      "all_harm_minus_rank384": -0.009773667837962297,
+      "covered_ce_harm": 0.009243258232945806,
+      "covered_harm_minus_rank384": -0.009840138898772555,
+      "unseen_ce_harm": 0.006822898766176699
+    },
+    "replication_skip11000": {
+      "all_ce_harm": 0.009745260850321902,
+      "all_harm_minus_rank384": -0.010161165337163158,
+      "covered_ce_harm": 0.010412159264500342,
+      "covered_harm_minus_rank384": -0.010835511364797767,
+      "unseen_ce_harm": 0.007787568345283269
+    }
+  },
+  "context_gate": {
+    "context_delta_cosine": 0.9565118340512075,
+    "context_delta_norm_ratio": 0.9642524313350891,
+    "context_delta_recovery": 0.9148549718336931,
+    "cosine_gain_vs_rank384": 0.03540407249079014,
+    "downstream_current_tokens_fixed": true,
+    "native_max_abs": 3.497422933578491,
+    "program_max_abs": 3.522475004196167,
+    "recovery_gain_vs_rank384": 0.06803122134095807
+  },
+  "cost": {
+    "attention": {
+      "layers": [
+        {
+          "native_calls_per_forward": 0,
+          "projection_values": {
+            "proj": 1327104,
+            "qk_shared": 2949120,
+            "v": 1327104
+          },
+          "rotary_values": 64,
+          "scalar_values": 1,
+          "token_table_values": 0,
+          "total_input_support": true,
+          "total_stored_values": 5603393
+        },
+        {
+          "native_calls_per_forward": 0,
+          "projection_values": {
+            "proj": 1327104,
+            "qk_shared": 2949120,
+            "v": 1327104
+          },
+          "rotary_values": 64,
+          "scalar_values": 1,
+          "token_table_values": 0,
+          "total_input_support": true,
+          "total_stored_values": 5603393
+        },
+        {
+          "native_calls_per_forward": 0,
+          "projection_values": {
+            "proj": 1327104,
+            "qk_shared": 2949120,
+            "v": 1327104
+          },
+          "rotary_values": 64,
+          "scalar_values": 1,
+          "token_table_values": 0,
+          "total_input_support": true,
+          "total_stored_values": 5603393
+        },
+        {
+          "native_calls_per_forward": 0,
+          "projection_values": {
+            "proj": 1327104,
+            "qk_shared": 2949120,
+            "v": 1327104
+          },
+          "rotary_values": 64,
+          "scalar_values": 1,
+          "token_table_values": 0,
+          "total_input_support": true,
+          "total_stored_values": 5603393
+        },
+        {
+          "native_calls_per_forward": 0,
+          "projection_values": {
+            "proj": 1327104,
+            "qk_shared": 2949120,
+            "v": 1327104
+          },
+          "rotary_values": 64,
+          "scalar_values": 1,
+          "token_table_values": 0,
+          "total_input_support": true,
+          "total_stored_values": 5603393
+        },
+        {
+          "native_calls_per_forward": 0,
+          "projection_values": {
+            "proj": 1327104,
+            "qk_shared": 2949120,
+            "v": 1327104
+          },
+          "rotary_values": 64,
+          "scalar_values": 1,
+          "token_table_values": 0,
+          "total_input_support": true,
+          "total_stored_values": 5603393
+        },
+        {
+          "native_calls_per_forward": 0,
+          "projection_values": {
+            "proj": 1327104,
+            "qk_shared": 2949120,
+            "v": 1327104
+          },
+          "rotary_values": 64,
+          "scalar_values": 1,
+          "token_table_values": 0,
+          "total_input_support": true,
+          "total_stored_values": 5603393
+        },
+        {
+          "native_calls_per_forward": 0,
+          "projection_values": {
+            "proj": 1327104,
+            "qk_shared": 2949120,
+            "v": 1327104
+          },
+          "rotary_values": 64,
+          "scalar_values": 1,
+          "token_table_values": 0,
+          "total_input_support": true,
+          "total_stored_values": 5603393
+        },
+        {
+          "native_calls_per_forward": 0,
+          "projection_values": {
+            "proj": 1327104,
+            "qk_shared": 2949120,
+            "v": 1327104
+          },
+          "rotary_values": 64,
+          "scalar_values": 1,
+          "token_table_values": 0,
+          "total_input_support": true,
+          "total_stored_values": 5603393
+        },
+        {
+          "native_calls_per_forward": 0,
+          "projection_values": {
+            "proj": 1327104,
+            "qk_shared": 2949120,
+            "v": 1327104
+          },
+          "rotary_values": 64,
+          "scalar_values": 1,
+          "token_table_values": 0,
+          "total_input_support": true,
+          "total_stored_values": 5603393
+        },
+        {
+          "native_calls_per_forward": 0,
+          "projection_values": {
+            "proj": 1327104,
+            "qk_shared": 2949120,
+            "v": 1327104
+          },
+          "rotary_values": 64,
+          "scalar_values": 1,
+          "token_table_values": 0,
+          "total_input_support": true,
+          "total_stored_values": 5603393
+        },
+        {
+          "native_calls_per_forward": 0,
+          "projection_values": {
+            "proj": 1327104,
+            "qk_shared": 2949120,
+            "v": 1327104
+          },
+          "rotary_values": 64,
+          "scalar_values": 1,
+          "token_table_values": 0,
+          "total_input_support": true,
+          "total_stored_values": 5603393
+        },
+        {
+          "native_calls_per_forward": 0,
+          "projection_values": {
+            "proj": 1327104,
+            "qk_shared": 2949120,
+            "v": 1327104
+          },
+          "rotary_values": 64,
+          "scalar_values": 1,
+          "token_table_values": 0,
+          "total_input_support": true,
+          "total_stored_values": 5603393
+        },
+        {
+          "native_calls_per_forward": 0,
+          "projection_values": {
+            "proj": 1327104,
+            "qk_shared": 2949120,
+            "v": 1327104
+          },
+          "rotary_values": 64,
+          "scalar_values": 1,
+          "token_table_values": 0,
+          "total_input_support": true,
+          "total_stored_values": 5603393
+        },
+        {
+          "native_calls_per_forward": 0,
+          "projection_values": {
+            "proj": 1327104,
+            "qk_shared": 2949120,
+            "v": 1327104
+          },
+          "rotary_values": 64,
+          "scalar_values": 1,
+          "token_table_values": 0,
+          "total_input_support": true,
+          "total_stored_values": 5603393
+        },
+        {
+          "native_calls_per_forward": 0,
+          "projection_values": {
+            "proj": 1327104,
+            "qk_shared": 2949120,
+            "v": 1327104
+          },
+          "rotary_values": 64,
+          "scalar_values": 1,
+          "token_table_values": 0,
+          "total_input_support": true,
+          "total_stored_values": 5603393
+        },
+        {
+          "native_calls_per_forward": 0,
+          "projection_values": {
+            "proj": 1327104,
+            "qk_shared": 2949120,
+            "v": 1327104
+          },
+          "rotary_values": 64,
+          "scalar_values": 1,
+          "token_table_values": 0,
+          "total_input_support": true,
+          "total_stored_values": 5603393
+        },
+        {
+          "native_calls_per_forward": 0,
+          "projection_values": {
+            "proj": 1327104,
+            "qk_shared": 2949120,
+            "v": 1327104
+          },
+          "rotary_values": 64,
+          "scalar_values": 1,
+          "token_table_values": 0,
+          "total_input_support": true,
+          "total_stored_values": 5603393
+        }
+      ],
+      "native_calls_per_forward": 0,
+      "token_table_values": 0,
+      "total_input_support": true,
+      "total_stored_values": 100861074
+    },
+    "dense_reference_stored_values": 545904054,
+    "fitted_lookup_table_values": 0,
+    "mlp": {
+      "layers": [
+        {
+          "bias_values": 1152,
+          "native_calls_per_forward": 0,
+          "projection_values": {
+            "down": 5308416,
+            "left": 5308416,
+            "right": 5308416
+          },
+          "token_table_values": 0,
+          "total_input_support": true,
+          "total_stored_values": 15926400
+        },
+        {
+          "bias_values": 1152,
+          "native_calls_per_forward": 0,
+          "projection_values": {
+            "down": 5308416,
+            "left": 5308416,
+            "right": 5308416
+          },
+          "token_table_values": 0,
+          "total_input_support": true,
+          "total_stored_values": 15926400
+        },
+        {
+          "bias_values": 1152,
+          "native_calls_per_forward": 0,
+          "projection_values": {
+            "down": 5308416,
+            "left": 5308416,
+            "right": 5308416
+          },
+          "token_table_values": 0,
+          "total_input_support": true,
+          "total_stored_values": 15926400
+        },
+        {
+          "bias_values": 1152,
+          "native_calls_per_forward": 0,
+          "projection_values": {
+            "down": 5308416,
+            "left": 5308416,
+            "right": 5308416
+          },
+          "token_table_values": 0,
+          "total_input_support": true,
+          "total_stored_values": 15926400
+        },
+        {
+          "bias_values": 1152,
+          "native_calls_per_forward": 0,
+          "projection_values": {
+            "down": 5308416,
+            "left": 5308416,
+            "right": 5308416
+          },
+          "token_table_values": 0,
+          "total_input_support": true,
+          "total_stored_values": 15926400
+        },
+        {
+          "bias_values": 1152,
+          "native_calls_per_forward": 0,
+          "projection_values": {
+            "down": 5308416,
+            "left": 5308416,
+            "right": 5308416
+          },
+          "token_table_values": 0,
+          "total_input_support": true,
+          "total_stored_values": 15926400
+        },
+        {
+          "bias_values": 1152,
+          "native_calls_per_forward": 0,
+          "projection_values": {
+            "down": 5308416,
+            "left": 5308416,
+            "right": 5308416
+          },
+          "token_table_values": 0,
+          "total_input_support": true,
+          "total_stored_values": 15926400
+        },
+        {
+          "bias_values": 1152,
+          "native_calls_per_forward": 0,
+          "projection_values": {
+            "down": 5308416,
+            "left": 5308416,
+            "right": 5308416
+          },
+          "token_table_values": 0,
+          "total_input_support": true,
+          "total_stored_values": 15926400
+        },
+        {
+          "bias_values": 1152,
+          "native_calls_per_forward": 0,
+          "projection_values": {
+            "down": 5308416,
+            "left": 5308416,
+            "right": 5308416
+          },
+          "token_table_values": 0,
+          "total_input_support": true,
+          "total_stored_values": 15926400
+        },
+        {
+          "bias_values": 1152,
+          "native_calls_per_forward": 0,
+          "projection_values": {
+            "down": 5308416,
+            "left": 5308416,
+            "right": 5308416
+          },
+          "token_table_values": 0,
+          "total_input_support": true,
+          "total_stored_values": 15926400
+        },
+        {
+          "bias_values": 1152,
+          "native_calls_per_forward": 0,
+          "projection_values": {
+            "down": 5308416,
+            "left": 5308416,
+            "right": 5308416
+          },
+          "token_table_values": 0,
+          "total_input_support": true,
+          "total_stored_values": 15926400
+        },
+        {
+          "bias_values": 1152,
+          "native_calls_per_forward": 0,
+          "projection_values": {
+            "down": 5308416,
+            "left": 5308416,
+            "right": 5308416
+          },
+          "token_table_values": 0,
+          "total_input_support": true,
+          "total_stored_values": 15926400
+        },
+        {
+          "bias_values": 1152,
+          "native_calls_per_forward": 0,
+          "projection_values": {
+            "down": 5308416,
+            "left": 5308416,
+            "right": 5308416
+          },
+          "token_table_values": 0,
+          "total_input_support": true,
+          "total_stored_values": 15926400
+        },
+        {
+          "bias_values": 1152,
+          "native_calls_per_forward": 0,
+          "projection_values": {
+            "down": 5308416,
+            "left": 5308416,
+            "right": 5308416
+          },
+          "token_table_values": 0,
+          "total_input_support": true,
+          "total_stored_values": 15926400
+        },
+        {
+          "bias_values": 1152,
+          "native_calls_per_forward": 0,
+          "projection_values": {
+            "down": 5308416,
+            "left": 5308416,
+            "right": 5308416
+          },
+          "token_table_values": 0,
+          "total_input_support": true,
+          "total_stored_values": 15926400
+        },
+        {
+          "bias_values": 1152,
+          "native_calls_per_forward": 0,
+          "projection_values": {
+            "down": 5308416,
+            "left": 5308416,
+            "right": 5308416
+          },
+          "token_table_values": 0,
+          "total_input_support": true,
+          "total_stored_values": 15926400
+        },
+        {
+          "bias_values": 1152,
+          "native_calls_per_forward": 0,
+          "projection_values": {
+            "down": 5308416,
+            "left": 5308416,
+            "right": 5308416
+          },
+          "token_table_values": 0,
+          "total_input_support": true,
+          "total_stored_values": 15926400
+        },
+        {
+          "bias_values": 1152,
+          "native_calls_per_forward": 0,
+          "projection_values": {
+            "down": 5308416,
+            "left": 5308416,
+            "right": 5308416
+          },
+          "token_table_values": 0,
+          "total_input_support": true,
+          "total_stored_values": 15926400
+        }
+      ],
+      "native_calls_per_forward": 0,
+      "token_table_values": 0,
+      "total_input_support": true,
+      "total_stored_values": 286675200
+    },
+    "native_calls_per_forward": 0,
+    "sequence_primitive": "causal squared-bilinear tensor attention",
+    "shell": {
+      "parameter_free_rmsnorm_calls": 38,
+      "parameter_free_softcap_calls": 1,
+      "residual_lambda_values": 36,
+      "token_embedding_values": 57950208,
+      "total_shell_stored_values": 115900452,
+      "unembedding_values": 57950208
+    },
+    "stored_fraction_of_dense": 0.9222073408526107,
+    "stored_values_saved": 42467328,
+    "total_input_support": true,
+    "total_stored_values": 503436726
+  },
+  "execution": {
+    "checkpoint_model_collected_before_scoring": true,
+    "native_module_references": [],
+    "native_program_storage_disjoint": true,
+    "program_native_calls": 0
+  },
+  "fit": {
+    "0": {
+      "cost": {
+        "native_calls_per_forward": 0,
+        "projection_values": {
+          "proj": 1327104,
+          "qk_shared": 2949120,
+          "v": 1327104
+        },
+        "rotary_values": 64,
+        "scalar_values": 1,
+        "token_table_values": 0,
+        "total_input_support": true,
+        "total_stored_values": 5603393
+      },
+      "covariance_trace": 1152.0000964810872,
+      "positions": 122880
+    },
+    "1": {
+      "cost": {
+        "native_calls_per_forward": 0,
+        "projection_values": {
+          "proj": 1327104,
+          "qk_shared": 2949120,
+          "v": 1327104
+        },
+        "rotary_values": 64,
+        "scalar_values": 1,
+        "token_table_values": 0,
+        "total_input_support": true,
+        "total_stored_values": 5603393
+      },
+      "covariance_trace": 1151.999985110294,
+      "positions": 122880
+    },
+    "10": {
+      "cost": {
+        "native_calls_per_forward": 0,
+        "projection_values": {
+          "proj": 1327104,
+          "qk_shared": 2949120,
+          "v": 1327104
+        },
+        "rotary_values": 64,
+        "scalar_values": 1,
+        "token_table_values": 0,
+        "total_input_support": true,
+        "total_stored_values": 5603393
+      },
+      "covariance_trace": 1151.9999912367252,
+      "positions": 122880
+    },
+    "11": {
+      "cost": {
+        "native_calls_per_forward": 0,
+        "projection_values": {
+          "proj": 1327104,
+          "qk_shared": 2949120,
+          "v": 1327104
+        },
+        "rotary_values": 64,
+        "scalar_values": 1,
+        "token_table_values": 0,
+        "total_input_support": true,
+        "total_stored_values": 5603393
+      },
+      "covariance_trace": 1151.9999844919778,
+      "positions": 122880
+    },
+    "12": {
+      "cost": {
+        "native_calls_per_forward": 0,
+        "projection_values": {
+          "proj": 1327104,
+          "qk_shared": 2949120,
+          "v": 1327104
+        },
+        "rotary_values": 64,
+        "scalar_values": 1,
+        "token_table_values": 0,
+        "total_input_support": true,
+        "total_stored_values": 5603393
+      },
+      "covariance_trace": 1151.9999905571494,
+      "positions": 122880
+    },
+    "13": {
+      "cost": {
+        "native_calls_per_forward": 0,
+        "projection_values": {
+          "proj": 1327104,
+          "qk_shared": 2949120,
+          "v": 1327104
+        },
+        "rotary_values": 64,
+        "scalar_values": 1,
+        "token_table_values": 0,
+        "total_input_support": true,
+        "total_stored_values": 5603393
+      },
+      "covariance_trace": 1151.9999905990776,
+      "positions": 122880
+    },
+    "14": {
+      "cost": {
+        "native_calls_per_forward": 0,
+        "projection_values": {
+          "proj": 1327104,
+          "qk_shared": 2949120,
+          "v": 1327104
+        },
+        "rotary_values": 64,
+        "scalar_values": 1,
+        "token_table_values": 0,
+        "total_input_support": true,
+        "total_stored_values": 5603393
+      },
+      "covariance_trace": 1151.9999879623042,
+      "positions": 122880
+    },
+    "15": {
+      "cost": {
+        "native_calls_per_forward": 0,
+        "projection_values": {
+          "proj": 1327104,
+          "qk_shared": 2949120,
+          "v": 1327104
+        },
+        "rotary_values": 64,
+        "scalar_values": 1,
+        "token_table_values": 0,
+        "total_input_support": true,
+        "total_stored_values": 5603393
+      },
+      "covariance_trace": 1151.9999853036643,
+      "positions": 122880
+    },
+    "16": {
+      "cost": {
+        "native_calls_per_forward": 0,
+        "projection_values": {
+          "proj": 1327104,
+          "qk_shared": 2949120,
+          "v": 1327104
+        },
+        "rotary_values": 64,
+        "scalar_values": 1,
+        "token_table_values": 0,
+        "total_input_support": true,
+        "total_stored_values": 5603393
+      },
+      "covariance_trace": 1151.9999873387487,
+      "positions": 122880
+    },
+    "17": {
+      "cost": {
+        "native_calls_per_forward": 0,
+        "projection_values": {
+          "proj": 1327104,
+          "qk_shared": 2949120,
+          "v": 1327104
+        },
+        "rotary_values": 64,
+        "scalar_values": 1,
+        "token_table_values": 0,
+        "total_input_support": true,
+        "total_stored_values": 5603393
+      },
+      "covariance_trace": 1151.9999894815364,
+      "positions": 122880
+    },
+    "2": {
+      "cost": {
+        "native_calls_per_forward": 0,
+        "projection_values": {
+          "proj": 1327104,
+          "qk_shared": 2949120,
+          "v": 1327104
+        },
+        "rotary_values": 64,
+        "scalar_values": 1,
+        "token_table_values": 0,
+        "total_input_support": true,
+        "total_stored_values": 5603393
+      },
+      "covariance_trace": 1151.9999857895286,
+      "positions": 122880
+    },
+    "3": {
+      "cost": {
+        "native_calls_per_forward": 0,
+        "projection_values": {
+          "proj": 1327104,
+          "qk_shared": 2949120,
+          "v": 1327104
+        },
+        "rotary_values": 64,
+        "scalar_values": 1,
+        "token_table_values": 0,
+        "total_input_support": true,
+        "total_stored_values": 5603393
+      },
+      "covariance_trace": 1151.999987690464,
+      "positions": 122880
+    },
+    "4": {
+      "cost": {
+        "native_calls_per_forward": 0,
+        "projection_values": {
+          "proj": 1327104,
+          "qk_shared": 2949120,
+          "v": 1327104
+        },
+        "rotary_values": 64,
+        "scalar_values": 1,
+        "token_table_values": 0,
+        "total_input_support": true,
+        "total_stored_values": 5603393
+      },
+      "covariance_trace": 1151.9999894535213,
+      "positions": 122880
+    },
+    "5": {
+      "cost": {
+        "native_calls_per_forward": 0,
+        "projection_values": {
+          "proj": 1327104,
+          "qk_shared": 2949120,
+          "v": 1327104
+        },
+        "rotary_values": 64,
+        "scalar_values": 1,
+        "token_table_values": 0,
+        "total_input_support": true,
+        "total_stored_values": 5603393
+      },
+      "covariance_trace": 1151.9999907278043,
+      "positions": 122880
+    },
+    "6": {
+      "cost": {
+        "native_calls_per_forward": 0,
+        "projection_values": {
+          "proj": 1327104,
+          "qk_shared": 2949120,
+          "v": 1327104
+        },
+        "rotary_values": 64,
+        "scalar_values": 1,
+        "token_table_values": 0,
+        "total_input_support": true,
+        "total_stored_values": 5603393
+      },
+      "covariance_trace": 1151.9999864406418,
+      "positions": 122880
+    },
+    "7": {
+      "cost": {
+        "native_calls_per_forward": 0,
+        "projection_values": {
+          "proj": 1327104,
+          "qk_shared": 2949120,
+          "v": 1327104
+        },
+        "rotary_values": 64,
+        "scalar_values": 1,
+        "token_table_values": 0,
+        "total_input_support": true,
+        "total_stored_values": 5603393
+      },
+      "covariance_trace": 1151.999993524034,
+      "positions": 122880
+    },
+    "8": {
+      "cost": {
+        "native_calls_per_forward": 0,
+        "projection_values": {
+          "proj": 1327104,
+          "qk_shared": 2949120,
+          "v": 1327104
+        },
+        "rotary_values": 64,
+        "scalar_values": 1,
+        "token_table_values": 0,
+        "total_input_support": true,
+        "total_stored_values": 5603393
+      },
+      "covariance_trace": 1151.999989277702,
+      "positions": 122880
+    },
+    "9": {
+      "cost": {
+        "native_calls_per_forward": 0,
+        "projection_values": {
+          "proj": 1327104,
+          "qk_shared": 2949120,
+          "v": 1327104
+        },
+        "rotary_values": 64,
+        "scalar_values": 1,
+        "token_table_values": 0,
+        "total_input_support": true,
+        "total_stored_values": 5603393
+      },
+      "covariance_trace": 1151.9999869823985,
+      "positions": 122880
+    }
+  },
+  "operations_production_forward": {
+    "attention_multiply_adds": 119587995648,
+    "embedding_lookups": 1024,
+    "mlp_bilinear_multiplies": 84934656,
+    "mlp_linear_multiply_adds": 293534171136,
+    "residual_additions": 63700992,
+    "residual_scalar_multiplies": 42467328,
+    "softcap_elements": 51511296,
+    "unembedding_multiply_adds": 59341012992,
+    "whole_state_rmsnorm_elements": 44826624
+  },
+  "predictions": {
+    "A_complete_price_and_ownership": true,
+    "B_predictive_harm_and_rank384_dominance": true,
+    "C_context_gate": true,
+    "D_rank_was_limiting": true,
+    "E_role_harm_replication_within_0.01": true
+  },
+  "provenance": {
+    "parents": {
+      "exact_complete_program": "041dc4bab0e452ce3a8b5bd17a41a7199f776c4158d61ed9c39982c5695a824d",
+      "rank384": "723d8c2e0c3b1e94c36b2a7b39cf592ec94bc44dab19bb5e0c6292ad00a42b83"
+    },
+    "roles": {
+      "fit": "2acf75382486988a1e124a1a575ef3230af43aa1b1507d80dee02eefc7bba496",
+      "heldout_skip7000": "d66c1ee7807bc6b9bd7d0ddba5cdd7e3bc64926b00320a10675a2f817d67128c",
+      "mask": "94bc1fb3e3a6a061541e555295e0af8c50ae6068fdff84e95a69c25844091eda",
+      "replication_skip11000": "b1564bfd071418f401a816cb01e3d26b082a3e73ba858838f1c83c250db4d868"
+    },
+    "sources": {
+      "/workspace/tensor_language/basis_aligned/polynomial_causal/TENSOR_BILIN18_SHARED_QK_RANK512_PREREGISTRATION.md": "bf823359bbdafa33ff2afa0211777230426208e0a8fd5febcf278c21e9265733",
+      "/workspace/tensor_language/basis_aligned/polynomial_causal/tensor_attention_projection_frontier.py": "252c859f2344a22614133ef65cdb23cfdc48351237ec9ae6e3382c12166b9155",
+      "/workspace/tensor_language/basis_aligned/polynomial_causal/tensor_bilin18_program.py": "7d9443aa7f6f2285613b393efece932f05c9dc71fded02fffb3db60f328a89c9",
+      "/workspace/tensor_language/basis_aligned/polynomial_causal/tensor_bilin18_shared_qk_rank512.py": "3a5a2687126df8e2a7ff374b49162324d8f1a94033e840cc868e99a35dd1ee0a",
+      "/workspace/tensor_language/basis_aligned/polynomial_causal/tensor_bilin18_shared_qk_whole_program.py": "6024dcd2a8edb4378f08c63b9e17206888029c97b99c0983554b376c3890ace4",
+      "/workspace/tensor_language/basis_aligned/polynomial_causal/tensor_preserving_attention.py": "aba1576267614c29e1b17983e4716bdd4cf9eeb5b7fb2971edc17c7b4f61dd8d",
+      "/workspace/tensor_language/basis_aligned/polynomial_causal/tensor_preserving_mlp.py": "658727e66e82f160dd7d88e0d3559af8bd7c851b27a590fa45dc64cfa595ee27",
+      "/workspace/tensor_language/basis_aligned/polynomial_causal/test_tensor_bilin18_shared_qk_rank512.py": "bad6d531e640d9d1c68ca12d839c964b3dbf0a07ccde11decd99d23da9b5c015"
+    }
+  },
+  "rank": 512,
+  "roles": {
+    "heldout_skip7000": {
+      "native": {
+        "all": {
+          "ce": 3.137040693277566,
+          "positions": 36864
+        },
+        "native_attention_calls": {
+          "0": 48,
+          "1": 48,
+          "2": 48,
+          "3": 48,
+          "4": 48,
+          "5": 48,
+          "6": 48,
+          "7": 48,
+          "8": 48,
+          "9": 48,
+          "10": 48,
+          "11": 48,
+          "12": 48,
+          "13": 48,
+          "14": 48,
+          "15": 48,
+          "16": 48,
+          "17": 48
+        },
+        "seen_current": {
+          "ce": 3.292051721181084,
+          "positions": 27974
+        },
+        "unseen_current": {
+          "ce": 2.6492703339330186,
+          "positions": 8890
+        }
+      },
+      "program": {
+        "all": {
+          "ce": 3.1457002656473505,
+          "positions": 36864
+        },
+        "seen_current": {
+          "ce": 3.30129497941403,
+          "positions": 27974
+        },
+        "unseen_current": {
+          "ce": 2.6560932326991953,
+          "positions": 8890
+        }
+      }
+    },
+    "replication_skip11000": {
+      "native": {
+        "all": {
+          "ce": 2.934498031388946,
+          "positions": 36864
+        },
+        "native_attention_calls": {
+          "0": 48,
+          "1": 48,
+          "2": 48,
+          "3": 48,
+          "4": 48,
+          "5": 48,
+          "6": 48,
+          "7": 48,
+          "8": 48,
+          "9": 48,
+          "10": 48,
+          "11": 48,
+          "12": 48,
+          "13": 48,
+          "14": 48,
+          "15": 48,
+          "16": 48,
+          "17": 48
+        },
+        "seen_current": {
+          "ce": 3.097110659884942,
+          "positions": 27497
+        },
+        "unseen_current": {
+          "ce": 2.4571456831713325,
+          "positions": 9367
+        }
+      },
+      "program": {
+        "all": {
+          "ce": 2.944243292239268,
+          "positions": 36864
+        },
+        "seen_current": {
+          "ce": 3.1075228191494424,
+          "positions": 27497
+        },
+        "unseen_current": {
+          "ce": 2.464933251516616,
+          "positions": 9367
+        }
+      }
+    }
+  },
+  "runtime_s": 54.399240016937256,
+  "scope": "shared-QK-512 attention plus exact MLPs in complete standalone program",
+  "status": "pass"
+}

@@ -78,3 +78,18 @@ not deletion. The candidate is recorded on the multidimensional frontier but is 
 promoted as an admitted simplified whole model. The next priority is the identical
 rank-512 gate; its result distinguishes insufficient rank from a causally misweighted
 basis at the cost of one run.
+
+## Continuation: rank512 crosses the complete causal frontier
+
+The preregistered rank512 discriminator passes all five gate families. It stores
+503,436,726 values (7.7793% saving), has only +0.00866/+0.00975 nat all-position CE harm,
+and crosses the causal thresholds with 0.91485 context recovery and 0.95651 cosine.
+Recovery improves by 0.06803 and cosine by 0.03540 over rank384, establishing that
+ordinary shared-routing capacity was immediately limiting for this fixture.
+
+This creates the first admitted compressed complete-program point on the opened roles,
+but not fresh OOD promotion. The revised next priorities are: (1) untouched FineWeb plus
+new-prefix intervention replication of rank512; (2) contextual MLP compression, still
+52.51% of dense storage; (3) refine the routing knee only if it does not delay those two;
+(4) consequence tests for extraction/editing/removal; (5) causally weighted routing as a
+price-improvement path if lower ranks remain attractive.

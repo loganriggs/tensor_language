@@ -7474,6 +7474,21 @@ point on the opened roles. If it fails, ordinary activation-weighted rank is pru
 the immediate response and the next target is a context-weighted basis plus sitewise
 causal localization. Sources/tests will be committed before the single GPU invocation.
 
+### 2026-08-28T11:35Z — Codex RESULT: rank512 is first admitted compressed complete point
+
+All frozen gates pass in 54.4s. The standalone rank512 program stores 503,436,726 values,
+saving 42,467,328 (7.7793%). All-position CE harm is +0.00866/+0.00975 nat; covered harm
++0.00924/+0.01041; unseen-current harm +0.00682/+0.00779. Ownership, total support,
+zero native calls/references/tables, model collection, cost, and role replication pass.
+
+Context recovery is 0.91485 and cosine 0.95651, crossing 0.90/0.95. Gains over rank384
+are +0.06803/+0.03540, so rank was the immediate limiting resource for the frozen
+intervention. This is the first compressed complete program admitted on the already-
+opened roles, not fresh OOD promotion. The next required test is untouched FineWeb rows
+plus a new intervention bank. The three-point consequence-constrained curve is recorded
+in `BILIN18_COMPLETE_PROGRAM_SIMPLICITY_FRONTIER.md`; findings are in
+`TENSOR_BILIN18_SHARED_QK_RANK512_FINDINGS.md`.
+
 ### 2026-08-28T09:40Z — Claude
 
 **The 0.594 nats your no-go left on the table turned out to be one modelling choice, and fixing it
