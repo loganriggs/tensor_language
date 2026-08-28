@@ -133,6 +133,8 @@ def test_rank_one_known_answer_recovers_heldout_interactions():
     assert result.top1.interaction_nre is not None
     assert result.top1.interaction_nre < 0.10
     assert result.top1.full_grid_rank2_spectral_tail_nre < 1e-12
+    with pytest.raises(RuntimeError, match="already attempted"):
+        _finalize(development, observations)
 
 
 def test_rank_two_known_answer_beats_additive_baseline_without_promotion():
@@ -190,6 +192,9 @@ def test_singleton_baseline_requires_exact_source_bound_currency():
         singleton_top1_pp=frozen,
     )
     assert development.top1_summary.singleton_baseline_source_sha256 == "a" * 64
+    assert development.top1_summary.singleton_baseline_content_sha256 == (
+        frozen.content_sha256
+    )
     assert {
         value.name for value in development.top1_summary.baselines
     } >= {

@@ -8,7 +8,9 @@ matrix rank is a necessary condition for a low tensor-train rank across this cut
 from __future__ import annotations
 
 from collections import deque
-from dataclasses import dataclass
+from dataclasses import dataclass, field
+import hashlib
+import json
 import math
 from types import MappingProxyType
 from typing import Any, Mapping, Sequence
@@ -287,6 +289,7 @@ class FrozenSingletonCosts:
     target: str
     costs: Mapping[Site, float]
     source_sha256: str
+    content_sha256: str = field(init=False)
 
     def __post_init__(self) -> None:
         expected = {
@@ -300,6 +303,13 @@ class FrozenSingletonCosts:
         for site, value in values.items():
             values[site] = _finite_number(f"singleton baseline {site}", value)
         object.__setattr__(self, "costs", MappingProxyType(values))
+        payload = [
+            [kind, layer, values[(kind, layer)]]
+            for layer in range(1, 18) for kind in ("attn", "mlp")
+        ]
+        object.__setattr__(self, "content_sha256", hashlib.sha256(
+            json.dumps(payload, separators=(",", ":"), allow_nan=False).encode("utf-8")
+        ).hexdigest())
 
 
 def anchored_interaction_cells(
@@ -680,6 +690,7 @@ class TargetDevelopmentSummary:
     baselines: tuple[BaselineSummary, ...]
     selected_baseline: str
     singleton_baseline_source_sha256: str | None
+    singleton_baseline_content_sha256: str | None
 
 
 class _TargetDevelopment:
@@ -700,7 +711,7 @@ class _TargetDevelopment:
 class CutRankDevelopment:
     """Selection-complete object which contains no heldout observations or metrics."""
 
-    __slots__ = ("_ce", "_observations", "_top1")
+    __slots__ = ("_ce", "_finalized", "_observations", "_top1")
 
     def __init__(
         self, *, observations: Mapping[Cell, ObservedCell],
@@ -709,6 +720,7 @@ class CutRankDevelopment:
         self._observations = MappingProxyType(dict(observations))
         self._top1 = top1
         self._ce = ce
+        self._finalized = False
 
     @property
     def top1_summary(self) -> TargetDevelopmentSummary:
@@ -717,6 +729,11 @@ class CutRankDevelopment:
     @property
     def ce_summary(self) -> TargetDevelopmentSummary:
         return self._ce.summary
+
+    def _begin_finalization(self) -> None:
+        if self._finalized:
+            raise RuntimeError("cut-rank heldout finalization was already attempted")
+        self._finalized = True
 
 
 def _prepare_target(
@@ -755,6 +772,9 @@ def _prepare_target(
         selected_baseline=selected_baseline,
         singleton_baseline_source_sha256=(
             None if singleton_costs is None else singleton_costs.source_sha256
+        ),
+        singleton_baseline_content_sha256=(
+            None if singleton_costs is None else singleton_costs.content_sha256
         ),
     )
     return _TargetDevelopment(
@@ -917,6 +937,7 @@ def finalize_heldout(
     )
     if any(type(value) is not ObservedCell for value in heldout.values()):
         raise TypeError("cut-rank heldout observations must be typed")
+    development._begin_finalization()
     combined = {**development._observations, **heldout}
     if set(combined) != set(ALL_CELLS):
         raise RuntimeError("cut-rank final grid did not close exactly")
