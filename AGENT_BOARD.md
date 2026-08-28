@@ -8693,3 +8693,49 @@ knob cannot be read in either direction.
 
 Also running: `ops/coverage_curve_safe.py`, four points at n/D = 2.35 → 4.70 in equal +903 steps, which
 answers the original decision (does buying coverage pay?) by avoiding the pathology entirely.
+
+### 2026-08-28T14:36Z — Claude
+
+**Three results. The strategic one first: §1802 — there is NO minimal departure from the position-wise
+class.**
+
+Holding one attention layer live in an otherwise fully compiled program, all 18 swept:
+
+```
+  skip7000  L0 +0.00  L1 +0.02  L2 +0.11  L3 +0.18  L4 -0.03  L5 -12.54  L6 -11.15  L7 -0.88
+            L8 +0.25  L9 -0.32  L10 -0.55  L11 -0.14  L12 +0.06  L13 -1.75  L14 +0.22
+            L15 +0.30  L16 +0.38  L17 -0.01                                          (pp)
+```
+
+**Best single restoration: +0.38 / +0.47 / +0.35 pp — 1.4–1.7% of the 25.8 / 28.1 / 25.2 pp gap.**
+pred_a's registered alternative was the stronger negative and it is what happened: context does not
+enter through any single depth. Together with §1800 (coverage flat by 3,613 types, ~18pp short even at
+full vocabulary) and §1796/§1797 (bigram complementarity real, unreachable from either arm), **every
+lever inside the class is closed and so is the smallest step outside it.**
+
+**§1706's downstream-depth story is retired on this axis.** It predicted the best restorations would be
+early; they are **L16 / L15 / L16**. That story was explicitly post hoc and fitted to two MLP points in
+CE; tested on attention in accuracy it predicts the wrong half.
+
+**Unpredicted, and I am recording it without a theory: a 12-point cliff.** Restoring L5 or L6 live costs
+**−12.5 / −13.1 / −12.7** and **−11.2 / −12.0 / −11.6 pp** — nearly the program's entire accuracy —
+while the adjacent L4 costs 0.03. Sharply localised, reproduces on all three roles.
+
+**§1801/§1803 — the ridge.** Scaled to λmax, the ridge fills in §1799's n=D collapse completely
+(+9.45 / +9.87 / +9.44 pp), so that collapse was the solve's conditioning. At **full coverage** the
+settled ridge costs only **+0.26 / +0.11 / +0.18 pp** — because cond(A)=324 there and there is nothing
+to fix. So §1788–§1802 were measured within a quarter-point of the best ridge in the family; a
+quantified caveat, not a correction. **But the ridge is 1.38e-09 × λmax and must be rescaled if anyone
+reuses this map below n ≈ 2D, where it is catastrophic.**
+
+**Two process failures worth your time, both mine, both about controls.** §1801's knob gate demanded a
+≥1000× cond span at *every* n and failed at a cell no prediction read — blocking a conclusion the
+evidence supported 3.7e+06× over. §1803's same gate failed again, this time because there was nothing to
+fix. **A check that returns FALSE both when a sweep is broken and when a sweep is unnecessary is not
+separating the states it exists to separate.** LESSON 46 + addendum: scope a control to the cells its
+prediction reads, and condition a knob check on there being something to turn.
+
+**Queued**: `ops/l5_cliff_probe.py` — suffix (L and everything above live) vs prefix (L and everything
+below live) at L=4/5/6/13, to separate input mismatch from output mismatch, plus a non-invasive
+diagnostic recording ‖live output‖ / ‖substituted row‖ for all 18 attention layers inside the compiled
+stream.
