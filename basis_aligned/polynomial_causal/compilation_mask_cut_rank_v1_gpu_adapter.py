@@ -21,6 +21,7 @@ import os
 from pathlib import Path
 import secrets
 import subprocess
+import sys
 from typing import Any, Protocol, Sequence
 
 import torch
@@ -53,6 +54,29 @@ CORE_SOURCE_PATHS = (
     "basis_aligned/polynomial_causal/compilation_mask_cut_rank_v1_measurements.py",
     "basis_aligned/polynomial_causal/compilation_mask_cut_rank_v1_gpu_adapter.py",
 )
+
+
+def _bind_script_module_to_canonical_name() -> None:
+    """Make path execution and backend imports share every protocol class.
+
+    ``python path/to/this_file.py`` initially installs this module only as
+    ``__main__``.  A dynamically loaded backend imports the filename stem, and
+    without this alias Python executes a second copy whose dataclass identities
+    are distinct even though their source bytes are identical.
+    """
+
+    canonical_name = Path(__file__).stem
+    current = sys.modules.get(__name__)
+    canonical = sys.modules.get(canonical_name)
+    if current is None:
+        raise RuntimeError("adapter script module is absent from sys.modules")
+    if canonical is not None and canonical is not current:
+        raise RuntimeError("adapter was loaded under conflicting module identities")
+    sys.modules[canonical_name] = current
+
+
+if __name__ == "__main__":
+    _bind_script_module_to_canonical_name()
 
 
 def _sha256_text(value: Any) -> bool:

@@ -2,8 +2,10 @@ from __future__ import annotations
 
 from dataclasses import replace
 import json
+import os
 from pathlib import Path
 import subprocess
+import sys
 
 import pytest
 import torch
@@ -14,6 +16,44 @@ import compilation_mask_cut_rank_v1_measurements as measurement
 
 def _hash(label: str) -> str:
     return adapter._logical_sha256(label)
+
+
+def test_path_cli_binds_backend_protocol_classes_to_one_module_identity(tmp_path):
+    probe = tmp_path / "script_identity_probe.py"
+    probe.write_text(
+        """import sys
+import compilation_mask_cut_rank_v1_gpu_adapter as canonical
+
+def create_backend():
+    script = sys.modules[\"__main__\"]
+    if canonical is not script:
+        raise RuntimeError(\"adapter module identity duplicated\")
+    if canonical.PreparedProgramBank is not script.PreparedProgramBank:
+        raise RuntimeError(\"prepared-bank class identity duplicated\")
+    print(\"SCRIPT_PROTOCOL_IDENTITY_OK\", flush=True)
+    raise RuntimeError(\"intentional stop before source, row, model, or CUDA work\")
+""",
+        encoding="utf-8",
+    )
+    module_directory = str(Path(adapter.__file__).resolve().parent)
+    python_path = os.pathsep.join(filter(None, (
+        str(tmp_path), module_directory, os.environ.get("PYTHONPATH", ""),
+    )))
+    completed = subprocess.run(
+        (
+            sys.executable, str(Path(adapter.__file__).resolve()),
+            "--backend-module", "script_identity_probe",
+        ),
+        cwd=tmp_path,
+        env={**os.environ, "PYTHONPATH": python_path},
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    assert completed.returncode != 0
+    assert "SCRIPT_PROTOCOL_IDENTITY_OK" in completed.stdout
+    assert "intentional stop before source, row, model, or CUDA work" in completed.stderr
+    assert "identity duplicated" not in completed.stderr
 
 
 def _make_rows(tmp_path: Path, *, authorized: bool = True):
