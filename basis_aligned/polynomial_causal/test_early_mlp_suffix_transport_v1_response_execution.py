@@ -70,6 +70,52 @@ def _materialized_ll():
     )
 
 
+def _route_program(route):
+    def site():
+        return runtime.AffineCodeProgram(
+            mean=torch.zeros(runtime.D_MODEL), scale=torch.ones(runtime.D_MODEL),
+            weight=torch.zeros(runtime.D_MODEL, runtime.CODE_DIM),
+            bias=torch.zeros(runtime.CODE_DIM),
+        )
+    return runtime.JointAffineProgram(site(), site(), route=route)
+
+
+def _source_bank():
+    routes = {
+        "inherited_q": "L", "true/L": "L", "true/R": "R",
+        "true/S0": "S0", "true/S1": "S1", "true/T": "T",
+        "mapped/document_shuffle/L": "L",
+        "mapped/document_shuffle/R": "R",
+        **{f"mapped/A_null_{index:02d}/T": "T" for index in range(20)},
+        "new_fit_mean": "L",
+    }
+    return final_actions.FinalProgramSourceBank({
+        key: _route_program(routes[key]) for key in final_actions.SOURCE_PROGRAM_KEYS
+    })
+
+
+def _closure(scope, *, teacher):
+    return observed.ObservedClosure(
+        scope=scope, outer_forward_count=1, outer_returned=True,
+        attention_dispatch_calls=tuple((site, 1) for site in range(18)),
+        mlp_dispatch_calls=tuple((site, 1) for site in range(18)),
+        deployed_n_calls=(
+            ((0, 0), (1, 0), (2, 1)) if teacher
+            else ((0, 1), (1, 1), (2, 1))
+        ),
+        correction_calls=(
+            ((0, 0), (1, 0), (2, 0)) if teacher
+            else ((0, 1), (1, 1), (2, 0))
+        ),
+        literal_early_mlp_calls=(
+            ((0, 1), (1, 1), (2, 0)) if teacher
+            else ((0, 0), (1, 0), (2, 0))
+        ),
+        native_guard_restored=True, native_guard_inert=True,
+        logit_shape=(4, 192, 3), logit_dtype="torch.float32",
+    )
+
+
 def test_authority_derives_antithetic_code_and_matching_physical_edits():
     rows = _rows()
     basis = _basis()
@@ -357,3 +403,140 @@ def test_response_student_uses_distinct_bound_trace_and_consumes_outputs(monkeyp
     assert broker.ledger_snapshot.completed_identity_count == 1
     assert broker.ledger_snapshot.outstanding_identity_sha256 is None
     assert coordinator.idle
+
+
+def test_atomic_batch_routes_69_forwards_and_binds_actual_receipt_triplets(monkeypatch):
+    model = _TeacherModel()
+    adapter = observed.ObservedBilin18Adapter(model, _Ship(), production=False)
+    rows = _rows()
+    basis = _basis()
+    sources = _source_bank()
+    final_context = capabilities.FinalRunContext(
+        source_commit="7" * 40, inherited_snapshot_sha256="8" * 64,
+        rows_receipt_sha256="9" * 64, final_role_tensor_sha256="a" * 64,
+        identity_teacher_mapping_sha256="c" * 64,
+    )
+
+    class Inherited:
+        authority = SimpleNamespace(snapshot_sha256=final_context.inherited_snapshot_sha256)
+
+        def clone_bases(self):
+            return {0: basis.clone(), 1: basis.clone()}
+
+        def make_program(self, route):
+            assert route == "L"
+            return sources.clone("inherited_q")
+
+    monkeypatch.setattr(
+        observed.final_actions, "source_bank_from_validated",
+        lambda validated, *, inherited_q: sources,
+    )
+
+    class FakeBroker:
+        def __init__(self):
+            self.count = 0
+
+        @property
+        def ledger_snapshot(self):
+            count = self.count
+            digest = runtime.logical_identity_sha256(list(range(count)))
+            return capabilities.LedgerSnapshot(
+                run_context_sha256=final_context.sha256,
+                student_identity_count=count, teacher_identity_count=count,
+                completed_identity_count=count,
+                student_identities_sha256=digest,
+                teacher_identities_sha256=digest,
+                completed_identities_sha256=digest,
+                prepared_parent_identity_count=0,
+                prepared_parent_identities_sha256="0" * 64,
+                consumed_parent_identity_count=0,
+                consumed_parent_identities_sha256="0" * 64,
+                outstanding_parent_identity_sha256=None,
+                outstanding_identity_sha256=None,
+                rolling_ledger_sha256=digest,
+            )
+
+    fake_broker = FakeBroker()
+    monkeypatch.setattr(
+        observed.ObservedBilin18Adapter, "make_capability_broker",
+        lambda self, **kwargs: fake_broker,
+    )
+    teacher_plans = []
+    student_plans = []
+
+    def fake_teacher(self, *, edit, **kwargs):
+        teacher_plans.append(edit.edit_sign)
+        code = edit.code_edit[:, runtime.SCORE_START:].clone()
+        logits = code[..., :3].clone()
+        return observed._ObservedResponseTeacherForward(
+            code1=code, logits=logits, edit_sha256=edit.sha256,
+            unit_identity_sha256=edit.unit_identity_sha256,
+            observed_closure=_closure("teacher", teacher=True),
+        )
+
+    def fake_student(self, *, broker, binding, edit, **kwargs):
+        broker.count += 1
+        student_plans.append((
+            binding.execution_identity.action_key,
+            binding.execution_identity.perturbation,
+        ))
+        code = 0.5 * edit.code_edit[:, runtime.SCORE_START:]
+        logits = code[..., :3].clone()
+        return observed._ObservedResponseStudentForward(
+            code1=code, logits=logits,
+            response_execution_identity_sha256=binding.execution_identity.sha256,
+            edit_sha256=edit.sha256,
+            unit_identity_sha256=edit.unit_identity_sha256,
+            student_step_ledger_sha256=runtime.logical_identity_sha256({
+                "student": broker.count,
+            }),
+            consumer_ledger_sha256=runtime.logical_identity_sha256({
+                "consumer": broker.count,
+            }),
+            broker_ledger_sha256=runtime.logical_identity_sha256({
+                "broker": broker.count,
+            }),
+            observed_closure=_closure("student", teacher=False),
+        )
+
+    monkeypatch.setattr(
+        observed.ObservedBilin18Adapter,
+        "_run_final_response_teacher_forward", fake_teacher,
+    )
+    monkeypatch.setattr(
+        observed.ObservedBilin18Adapter,
+        "_run_final_response_student_forward", fake_student,
+    )
+    result = adapter.run_final_response_batch(
+        validated_program_bank=_program_bank(),
+        inherited_initialization=Inherited(), final_context=final_context,
+        role_rows=rows, ordered_batch_indices=(0, 1, 2, 3), batch_ordinal=0,
+    )
+    assert teacher_plans == [0, 1, -1]
+    assert student_plans == [
+        (action, perturbation)
+        for action in response_plan.RESPONSE_ACTION_KEYS
+        for perturbation in response_plan.PERTURBATIONS
+    ]
+    assert len(result.receipt.forward_receipt_sha256s) == 69
+    assert result.receipt.teacher_forward_count == 3
+    assert result.receipt.student_forward_count == 66
+    assert result.receipt.atomic_complete
+    assert len(result.arm_reductions) == 22
+    assert result.arm_reductions[0].action_key == "ll/N"
+    assert result.arm_reductions[1].action_key == "lt/N"
+    assert result.arm_reductions[2].code_response is None
+    # A half-sized student response gives NRE=.5 and therefore R2=.75.
+    first = result.arm_reductions[0].code_response
+    assert first is not None
+    pooled_error = first.error_sum.sum() / first.teacher_sum.sum()
+    assert float(pooled_error) == pytest.approx(0.25)
+    teacher_receipts = result.receipt.forward_receipt_sha256s[:3]
+    assert all(
+        reduction.teacher_forward_receipt_sha256s == teacher_receipts
+        for reduction in result.arm_reductions
+    )
+    assert len({
+        receipt for reduction in result.arm_reductions
+        for receipt in reduction.student_forward_receipt_sha256s
+    }) == 66

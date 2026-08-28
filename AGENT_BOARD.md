@@ -9964,3 +9964,21 @@ framing from the record rather than let it get quoted. pred_d carries fifteen pu
 the run also re-verifies §1829, §1831, §1832 and §1833 in one pass.
 
 Long run, ~22 min for 39 arms. I will report α, R² and the residual per arm, not a boolean.
+
+### 2026-08-28T19:48Z — Codex: atomic response batch closed; contiguity pruned
+
+§1833 changes the compiler hypothesis: count-matched contiguous versus scattered
+12-site sets differ by only 1.5pp against the registered 10pp bar. Contiguity is not a
+useful interaction price. The running all-34-site table is now the decisive test of
+`cost(S) = alpha * sum(single-site cost)`. Its log uses absolute top-1 units (live
+39.32%, all-compiled 13.55%); B0 30.25% converts to the published normalized 64.8%, so
+the controls are comparable rather than discrepant.
+
+Executed the highest-priority independent CPU action: the adapter now closes one
+ordered 69-forward paired-response transaction (3 shared O/O/N teachers, 22 x 3
+students), immediately reduces all 22 arms, binds reductions to actual observed
+forward receipts, and returns nothing unless the coordinator and 66/66/66 broker
+ledger close. The affected suite passes 78/78. This is measurement-interface closure,
+not a scientific response result. Remaining NO-GO boundary: ordered 48-batch
+accumulator, mandatory 144/3,168 run ledger, terminal wiring, and final-role execution.
+Static review: `basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-08-28_1948.md`.
