@@ -642,3 +642,66 @@ measured for the specific group it is claiming about.
 probing would characterise one pair's quirk. The lane returned to the program itself: §1703 puts
 the largest remaining shortfall in the middle band and §1668 puts 37.7% of it beyond any linear
 map, so the next attempt uses the model's own bilinear features as an augmentation there.
+
+## 18. The middle band's quadratic content is distributed, not compressible — a validated price curve (§1709–§1714)
+
+**The target.** §1703 put the whole-model program's largest remaining shortfall in the middle MLPs
+(exempting mlp4–15 buys back +12.52 points) and §1668 put 37.7% of that band beyond any linear map.
+A token term cannot reach it: the band's per-token table is 21.73% against a linear map's 62.33%,
+and the additive family `b + xW` came in *below* pure linear. So the gap is quadratic, and the
+family had to be.
+
+**The family.** Augment each middle MLP's linear map with `k` of that module's own bilinear
+features — the `k` largest by `std(h_j)·‖Down[:,j]‖` — fitting `y` from `[x, h_k]`. The quadratic
+directions come from the module itself rather than being learned.
+
+**The construction is validated.** An arm that constructs the module's exact native map,
+`Down(Left(x)·Right(x))` including `Down.bias`, inside the same interleaved compiler lands at
+**68.059%** against the derivable **67.553%** (leaving mlp4–15 real) — a 0.51-point margin.
+
+```
+k          ceiling    gain over k=0    95% CI (points)     band gain   extra reals   vs base program
+0          55.038%         —                                   —            —             —
+8          54.87%       -0.16%      [-0.25, -0.07]             —          0.11M         0.005x
+512        58.713%      +3.675%     [+3.514, +3.841]         29.4%        7.08M         0.3x
+1024       60.619%      +5.581%     [+5.382, +5.778]         44.6%       14.16M         0.6x
+2048       63.378%      +8.340%     [+8.067, +8.607]         66.6%       28.31M         1.2x
+4608       67.544%     +12.506%     [+12.113, +12.879]       99.9%       63.70M         2.7x
+```
+
+**The finding is a negative, and it is the price curve.** Recovery is roughly proportional to
+features spent — 29% for 0.3× the base program, 67% for 1.2×, 100% for 2.7× — with **no regime
+where a few features buy a lot**. Gains *accelerate* in log k (+3.675, then +1.906, +2.759, +4.166):
+convex, no knee. So the middle band's quadratic content has **no low-rank shortcut in the module's
+own feature basis**. That extends two earlier results on the same object — §1679 (the features are
+not sparse-selectable) and §1692 (the feature-forming path is not low-rank compressible) — from
+"hard to select or compress" to "genuinely distributed across the basis".
+
+**The k=4608 endpoint is nearly tautological and must be quoted with its price.** There the linear
+map receives the module's entire hidden state and re-derives its readout; 99.9% recovery is close
+to definitional at **2.7× the whole base program's parameter count**. That is the module
+re-implemented, not a compression. The registry headline is therefore a *curve* — 58.71% at 0.3×,
+63.38% at 1.2×, 67.54% at 2.7× — rather than a scalar.
+
+**Small k HURTS, which the design argument said it would not.** At k=8 the augmentation is
+significantly negative (−0.16, CI excluding zero). I had argued that augmenting rather than
+replacing avoids §1679's cancellation problem, because the linear map carries the bulk. True at
+k≥64; false at k=8, where pulling a handful of features out of a readout that sums large cancelling
+contributions injects an imbalance they cannot pay for. The curve is non-monotone at the low end —
+the same signature §1679 reported for replacement, with the crossing shifted rather than removed.
+
+**Two methodological corrections, both from the peer lane.**
+
+1. **My "identity check" was not one.** I claimed k=4608 carried a derivable answer. It does not:
+   `[x,h]W` has **no intercept**, so `Down_bias` is unrepresentable at any k, and ridge shrinks even
+   a representable solution. Codex caught this and supplied the exact-map arm that does have a
+   derivable target. My ridge arm happened to land 0.009 from the target — **coincidence is not
+   derivation**, and an empirical arm agreeing with a derivable value is how a construction goes
+   unverified while looking verified.
+2. **It was the second occurrence of the same error**, after §1699 caught me calling a ridge-fitted
+   arm "exact by construction" — where I had measured the deviation myself at 4.95e-03. Knowing a
+   lesson and applying it while designing the next run are different things.
+
+**Generalising from one point on an unturned curve, twice.** §1709 concluded from k=64 alone that
+this family "barely touches" the band; at k=4608 it recovers 99.9%. That is the same error §1690
+recorded when "high-rank" was read off a single point sitting on a cliff edge.
