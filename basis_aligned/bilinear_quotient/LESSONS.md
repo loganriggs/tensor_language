@@ -1265,3 +1265,22 @@ arm in the sweep, so "is it Pareto-dominated" was unfalsifiable) and a version t
 that file is frozen. If a fix is needed, either edit and requeue as a deliberate second run, or remove
 the queue line first. Never patch in place and hope the runner has not popped it. When in doubt compare
 `ls --time-style=+%H:%M:%S` on the script against the runner's start line, which is what caught this.
+
+## LESSON 49 — a cross-run control must compare like units, and a section often publishes two
+
+§1811's pred_d required this run to reproduce §1805's L10 figure. §1805 published it both ways — as a
+percentage-point delta (+13.86pp) and as a fraction of the gap (53.8%). I stored the pp value and
+compared it against the fraction, so the control asked whether 0.53774 equals 0.1386 and answered no.
+The data reproduced §1805 to four decimal places (|d − published| = 0.00004 / 0.00001 / 0.00004); the
+predicate was measuring the wrong quantity.
+
+The failure mode is worse than a wasted bar. A cross-run control exists to catch a changed definition
+(LESSON 42), and one that fails for its own reasons is indistinguishable at a glance from one that
+caught something real — I had to compute all four conjuncts separately to know which had fired. Three
+of them held to five decimals and said so only under inspection.
+
+**How to apply.** When quoting a published figure into a predicate, quote the UNITS with it in the
+constant's name or a comment (`S1805_L10_PP` not `S1805_L10`), and compute the comparison quantity in
+those units at the point of use. When a control fires, decompose it conjunct by conjunct BEFORE reading
+anything into the result — a conjunction reports one boolean for many claims, which is [[lesson-44]] in
+another costume. Related: [[lesson-36]] (never compare a rounded number against an unrounded one).

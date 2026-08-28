@@ -47727,3 +47727,63 @@ at full compile and nothing in this line improves it.**
 while §1805's top-down curve quietly showed a *better* object exists: eleven live layers recover half
 the gap, and the compiled part uses fewer tables. That partial compile has never been priced on the
 axes this thread actually cares about — CE, parameter cost, and the cost/fidelity frontier of §1754.
+
+## §1811 — full-rank tables are off the Pareto frontier: the all-sites program is dominated by a cheaper, 5pp better partial compile
+
+`ops/partial_compile_frontier.py`, 311.5s, **DISCOVERY ONLY**, rung 3 (§1810's closing question).
+**pred_a True | pred_b True | pred_c True | pred_d FALSE** — and pred_d failed on a unit error in my own
+predicate, not on the data.
+
+Cost in reals against overall top-1 (skip7000; the other two roles order identically):
+
+```
+    r16_L-1       9.176M  11.68%   |   r16_L7      196.210M  18.71%
+    r64_L-1      20.531M  12.88%   |   r64_L7      202.518M  19.31%
+    r16_L3      102.693M  12.19%   |   rNone_L-1   230.087M  13.55%
+    r64_L3      111.525M  13.36%   |   r16_L10     266.348M  26.59%
+    rNone_L3    274.512M  14.12%   |   r64_L10     270.763M  26.93%
+    rNone_L7    318.938M  20.06%   |   r16_L13     336.485M  32.62%
+    rNone_L10   352.257M  27.41%   |   r64_L13     339.008M  32.80%
+    live        430.000M  39.32%   |   rNone_L13   385.576M  32.85%
+```
+
+**The headline is a dominance, not a bar.** Of the five full-rank arms, **four are Pareto-dominated**,
+and the all-sites full-rank program — the object of §1748-§1758 — is dominated hardest:
+
+```
+    rNone_L-1  230.087M  13.55%   beaten by r16_L7 at 196.210M / 18.71%
+                                  -- 34M CHEAPER and +5.16pp BETTER
+    rNone_L3   274.512M  14.12%   beaten by r16_L7   (78M cheaper, +4.59pp)
+    rNone_L7   318.938M  20.06%   beaten by r16_L10  (53M cheaper, +6.53pp)
+    rNone_L10  352.257M  27.41%   beaten by r16_L13  (16M cheaper, +5.21pp)
+```
+
+**Only rNone_L13 survives, and only because nothing more expensive was measured.** Rank truncation is
+not a compromise on this frontier — **spending reals on full-rank tables instead of on depth is
+strictly the wrong trade at every budget tested.**
+
+**pred_a passed, and this time it could have failed.** Nothing is both cheaper than the settled rank-64
+all-sites point (20.531M, 12.88 / 13.49 / 12.89%) and more accurate. r16_L−1 at 9.176M is genuinely
+cheaper — it scores 11.68 / 12.45 / 12.10%, worse. §1786's design point is **not** Pareto-dominated.
+(With the ranks I first registered it was the minimum-cost arm and the predicate was unfalsifiable;
+rank 16 was added for exactly this reason before the run.)
+
+**pred_b passed at 5.4x on all three roles**: the cheapest arm that beats the settled point is r64_L3 at
+111.525M. Fidelity above the design point is available but not cheap.
+
+**pred_c passed at 97 / 97 / 99%**: at L10 the rank-64 partial compile keeps essentially all of the
+full-rank partial compile's gap recovery for a quarter of the reals. §1787's all-sites rank-64 optimum
+transfers to partial compiles unchanged.
+
+**pred_d FAILED, and the fault is mine and precise.** Three of its four conjuncts hold to five decimals:
+the endpoints reproduce §1789 (|d| ≤ 0.00005), the cost formula reproduces §1754's 224.737M, and the
+rank-64 accounting reproduces §1786's 20.531M exactly. The fourth compared **§1805's published
+percentage-point delta (+0.1386) against a gap FRACTION (0.53774)** — different units, so it was never
+going to pass. Compared correctly the reproduction is exact: **|d − §1805| = 0.00004 / 0.00001 /
+0.00004**. Scored FALSE as written; the control's *purpose* — confirming this script rebuilds §1805's
+object — is met, and the arithmetic showing it is above. **LESSON 49.**
+
+**What this changes.** §1810 closed the last repair route for the all-sites program. §1811 says that
+program was never the right object to repair: at its own cost it is beaten by a rank-16 compile of the
+top eleven layers by more than five points. The thread's cost/fidelity story from §1748 onward was
+measured on a point that a cheaper design dominates.
