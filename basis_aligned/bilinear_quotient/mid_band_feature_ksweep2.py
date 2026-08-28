@@ -8,7 +8,7 @@
 # CORRECTION BEFORE THE VALID ATTEMPT. The first committed draft incorrectly called the ridge-fitted
 # k=4608 arm an identity: [x,h]W has no intercept and RIDGE shrinks even a representable solution,
 # so that arm is empirical. The actual known-answer arm below is separate: at every middle MLP it
-# constructs the exact native map Down(Left(x)*Right(x)), including Down.bias, inside the SAME
+# constructs the exact native map Down(Left(x)*Right(x)) + Down_bias inside the SAME
 # interleaved compiler. It must equal leaving mlp4-15 real (§1703's 67.55%) up to run-to-run bars.
 # A miss invalidates hook/feature/compiler construction; it does not retroactively make a ridge
 # approximation at lower k algebraically false.
@@ -122,7 +122,7 @@ def exact_mlp_hook(L):
     def hook(mod, args, out):
         xin = args[0].reshape(-1, D)
         hidden = mod.Left(xin) * mod.Right(xin)
-        exact = mod.Down(hidden).reshape(out.shape).to(out.dtype)
+        exact = (mod.Down(hidden) + mod.Down_bias).reshape(out.shape).to(out.dtype)
         return torch.where(SEENREF['m'][STATE['idx']].unsqueeze(-1), exact, out)
     return hook
 
@@ -455,7 +455,7 @@ def main():
         'k': DH, 'ce': round(exact_ce, 5),
         'ceiling': round((cc - exact_ce) / st, 5),
         'ceiling_exact': (cc - exact_ce) / st,
-        'construction': 'exact Down(Left(x)*Right(x)) including Down.bias',
+        'construction': 'exact Down(Left(x)*Right(x)) + Down_bias',
     }
     print(f'  exact constructed: CEILING {arms["exact4608"]["ceiling"]:8.2%}', flush=True)
     del exact_prog

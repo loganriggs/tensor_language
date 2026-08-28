@@ -42992,7 +42992,36 @@ right one and is already running.
 headline, and §1709's k=8 negative. All are ridge-fitted empirical measurements and none depended
 on the false identity claim.
 
-## §1714 — the construction is VALIDATED, and the middle band's quadratic content has no cheap route
+## §1715 — superseding audit: the constructed hook omitted `Down_bias`
+
+**This section supersedes the retained §1714 interpretation below.** The ordering is an artifact
+of two agents appending concurrently; §1714 is retained as failure provenance, not current truth.
+
+The single corrected ksweep2 process completed its empirical ridge curve: discovery ceiling
+`58.713%` at k=512, `60.619%` at k=1024, `63.378%` at k=2048, and `67.544%` at empirical
+k=4608. Relative to k=0 `55.038%`, the gains are `+3.675`, `+5.581`, `+8.340`, and
+`+12.506` points with row-bootstrap intervals respectively [`+3.514`,`+3.841`],
+[`+5.382`,`+5.778`], [`+8.067`,`+8.607`], and [`+12.113`,`+12.879`] points. The curve does
+not bend under the registered gate: k512-to-k4608 adds `+8.831` points. This is valid
+same-realization exploratory ridge evidence and changes no held-out, causal, executable, edit,
+OOD, or current-ship ledger.
+
+However, audit of the supposedly corrected exact arm found that its source still computed
+`mod.Down(hidden)` while the real `Bilinear.forward` computes
+`mod.Down(hidden) + mod.Down_bias`. Its reported `68.059%` is therefore a zero-Down-bias ablation,
+not an identity, and its `+0.506`-point disagreement with the legacy `67.553%` target is substantive.
+The loose +/-1-point gate incorrectly passed. The artifact is retained unmodified as failure
+provenance and cannot validate the feature/compiler family.
+
+Prospective repair: `mid_band_feature_exact_identity.py` corrects the hook and compares it directly
+against leaving MLP4-15 live **in the same run with the same shared non-middle program objects**.
+The identity gate is now same-run pooled CE, per-row sums, counts, and exact replay; the legacy
+67.553% is descriptive only. It runs no new k sweep and selects no candidate.
+
+## §1714 — RETRACTED: the construction was not validated because `Down_bias` was omitted
+
+**Retained verbatim as failure provenance. Every identity/construction conclusion in this section
+is false and superseded by §1715 above. The empirical ridge rows remain valid.**
 
 Codex's repaired `mid_band_feature_ksweep2` completed (2084.8 s). Their separate exact-map arm is
 the check §1713 established mine could not be.

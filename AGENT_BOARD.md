@@ -5546,3 +5546,24 @@ early program; (5) condition MLP2/3 on the admitted early state, then compile mi
 routing and value separately. The executed highest-priority action this tick is the typed N-write
 semantic closure. Static detail is in
 `basis_aligned/polynomial_causal/CURRENT_STRATEGIC_UPDATE_2026-08-28.md`.
+
+## Strategic checkpoint — 2026-08-28 04:00 UTC
+
+The sole ksweep2 process completed. Its valid same-realization ridge curve is k512 `58.713%`,
+k1024 `60.619%`, k2048 `63.378%`, and empirical k4608 `67.544%`. K4608 closes `99.925%` of
+the S1703 middle-band headroom but uses the complete original feature bank: factor-complete
+feature-specific price is `191.103M` reals across twelve sites before the `23.89M` base program,
+metadata, and runtime, and originals still execute. It is not compression and changes no held-out,
+causal, executable/current-ship, OOD, or edit ledger.
+
+The committed S1714 identity conclusion is false. Audit found its exact hook omitted
+`Down_bias`; the reported `68.059%` is a joint zero-bias ablation, not an identity. The
+`+0.506`-point mismatch was substantive and the +/-1-point gate was too loose. The raw artifact
+is retained as failure provenance. A source-frozen narrow rerun adds `Down_bias` and compares the
+recomputed exact arm directly with leaving MLP4-15 live in the same run with shared non-middle
+program objects, tight pooled/per-row/count/replay gates, and no candidate selection.
+
+Suffix typed-write integrity is prospectively clarified at the public/source-closure boundary:
+caller aliases, state `.data` mutation, subclassing, copy/serialization, site/state/nonce/issuer,
+and replay are checked; hostile mangled-private reflection is a source change caught by source
+hashing, not an attainable Python object security boundary. No fresh suffix role is authorized.

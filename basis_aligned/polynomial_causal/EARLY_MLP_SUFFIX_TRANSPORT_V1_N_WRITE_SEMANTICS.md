@@ -50,3 +50,12 @@ The pure runtime's typed handle is deliberately nonauthorizing by itself. Only a
 source-closed observed bilin18 adapter can prove that the handle was minted by the
 frozen ship's live N producer, that N2 also executed, and that the original-call,
 outer-forward, return, restoration, and inertness ledgers closed exactly.
+
+The integrity boundary is the reviewed source closure, not hostile reflection inside
+the same Python process. Public/caller aliases, ordinary and `.data` mutations of the
+public live state, subclassing, copying, serialization, cross-site use, cross-forward
+use, and replay are in scope and fail closed. Code that deliberately reaches mangled
+private fields with `object.__getattribute__` or rewrites them with
+`object.__setattr__` is a source change and is rejected by source hashing; no Python
+object can provide a security boundary against such code. Tests therefore exercise
+only the public/caller surface.

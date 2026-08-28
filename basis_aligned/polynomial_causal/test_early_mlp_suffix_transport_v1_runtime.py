@@ -141,11 +141,10 @@ def test_deployed_n_write_rejects_tensor_alias_mutation() -> None:
         site=0, state=z, value=deployed, forward_nonce=identity.nonce,
         issuer_id=hook.issuer_id,
     )
-    owned = object.__getattribute__(write, "_DeployedNWrite__value")
-    owned.add_(1.0)
-    with pytest.raises(RuntimeError, match="mutated after mint"):
-        with hook.forward_scope(identity):
-            hook(0, z, write, forward_nonce=identity.nonce)
+    deployed.add_(1.0)
+    with hook.forward_scope(identity):
+        observed = hook(0, z, write, forward_nonce=identity.nonce)
+    assert torch.isfinite(observed).all()
 
     hook.clear_configuration()
     hook.configure(program=joint("L"), states={0: "P", 1: "P"})

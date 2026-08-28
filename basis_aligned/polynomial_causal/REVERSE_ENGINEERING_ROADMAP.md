@@ -772,3 +772,17 @@ replace two full-logit CPU hashes (about 393 MiB transferred per batch) with a s
 one-use graph identity; benchmark or remove the extra full suffix backward; then mapped controls,
 collector/trainer/freezer/validator, and matched L/R/T execution. Only an admitted program then
 enters the common-support current-ship interaction cube.
+
+## 2026-08-28 04:00 UTC: complete middle-feature price curve, failed identity, narrow repair
+
+The valid discovery-only ridge curve is now k512 `58.713%`, k1024 `60.619%`, k2048
+`63.378%`, and k4608 `67.544%`. The full bank closes `99.925%` of the S1703 middle-band
+headroom but costs `191.103M` factor-complete feature-specific reals across twelve sites before
+the base program and still executes originals. It is a price/fidelity upper bound, not compact
+reverse engineering. No held-out, causal, current-ship, executable, OOD, or edit ledger moves.
+
+The run's claimed exact arm omitted `Down_bias`; its `68.059%` is a zero-bias ablation and cannot
+validate the construction. A prospective identity-only repair now adds the bias and compares it
+directly with leaving MLP4-15 live under the same shared non-middle program objects. The legacy
+67.553% cross-run point is descriptive only. This known-answer repair precedes any promotion or
+fresh-document replication of the ridge family.

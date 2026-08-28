@@ -114,22 +114,30 @@ forward and restoration ledgers closed.
 
 ## Active numerical result
 
-The corrected middle-band native-feature sweep is the only GPU job. It has replayed:
+The corrected middle-band native-feature sweep has completed its empirical ridge curve:
 
 $$
-k=0:\ 55.04\%,\qquad k=512:\ 58.71\%.
+k=0:\ 55.038\%,\quad k=512:\ 58.713\%,\quad k=1024:\ 60.619\%,
+\quad k=2048:\ 63.378\%,\quad k=4608:\ 67.544\%.
 $$
 
-The k=512 discovery-row gain over k=0 is 3.6749 percentage points with a
-row-clustered interval [3.514, 3.841]. Larger-k arms and a separately constructed
-exact-native identity arm are still running. The exact arm, not ridge k=4608, is the
-known-answer construction check.
+The respective discovery-row gains over k=0 are 3.675, 5.581, 8.340, and 12.506
+percentage points. Ridge k=4608 closes 99.925% of the separately measured middle-band
+headroom, but it uses the complete original 4608-feature bank and is not compression.
 
-Even a successful curve is not certified compression. At k=512 the decoder-only
-price omits the selected `Left` and `Right` factor rows; those add 21.234 million
-reals across the twelve sites before the existing base program. The original factors
-also still execute. Promotion therefore requires fresh-document replication and a
-factor-complete, original-call-poisoned price.
+The run's separately labeled exact arm is invalid as an identity: source audit found
+that it recomputed `Down(Left(x)*Right(x))` but omitted `Down_bias`. Its reported
+68.059% is a joint zero-bias ablation, and its +0.506-point disagreement with the
+legacy target is substantive rather than numerical noise. A prospective narrow repair
+now compares the corrected bias-inclusive map directly with leaving MLP4–15 live in
+the same run; the legacy cross-run ceiling is no longer the identity denominator.
+
+Even the valid curve is not certified compression. Factor-complete feature-specific
+standalone prices across the twelve sites are 21.234M reals at k=512, 42.467M at
+k=1024, 84.935M at k=2048, and 191.103M at k=4608, before the existing 23.89M-reals
+base program, indices, metadata, and runtime. The original factors also still execute.
+Promotion therefore requires fresh-document replication and a factor-complete,
+original-call-poisoned price.
 
 ## Genuine blockers
 
