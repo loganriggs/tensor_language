@@ -1,0 +1,108 @@
+{
+  "cuts": {
+    "1": {
+      "certified_compression_knee": false,
+      "column_dimension": 2,
+      "cut": 1,
+      "downstream_output_sites": [
+        1,
+        2,
+        3
+      ],
+      "energy_fraction_rule": 0.95,
+      "exact_cut_rank": 2,
+      "explicit_blocks": 3,
+      "gap_ratio_rule": 2.0,
+      "optimal_squared_frobenius_tail_by_rank": [
+        3.4448932000000005,
+        1.1277902921300784,
+        0.0
+      ],
+      "row_dimension": 6,
+      "selected_gap_ratio": null,
+      "selected_rank": null,
+      "singular_values": [
+        1.5222033070092582,
+        1.0619747135078492
+      ],
+      "squared_frobenius_energy": 3.4448932000000005,
+      "upstream_input_sites": [
+        0
+      ]
+    },
+    "2": {
+      "certified_compression_knee": false,
+      "column_dimension": 4,
+      "cut": 2,
+      "downstream_output_sites": [
+        2,
+        3
+      ],
+      "energy_fraction_rule": 0.95,
+      "exact_cut_rank": 2,
+      "explicit_blocks": 4,
+      "gap_ratio_rule": 2.0,
+      "optimal_squared_frobenius_tail_by_rank": [
+        3.854059199999999,
+        1.212720298550266,
+        4.612097642502074e-32,
+        2.7308502707956886e-33,
+        0.0
+      ],
+      "row_dimension": 4,
+      "selected_gap_ratio": null,
+      "selected_rank": null,
+      "singular_values": [
+        1.6252196471399591,
+        1.1012358051526776,
+        2.0830296722376533e-16,
+        5.225753793277759e-17
+      ],
+      "squared_frobenius_energy": 3.854059199999999,
+      "upstream_input_sites": [
+        0,
+        1
+      ]
+    },
+    "3": {
+      "certified_compression_knee": false,
+      "column_dimension": 6,
+      "cut": 3,
+      "downstream_output_sites": [
+        3
+      ],
+      "energy_fraction_rule": 0.95,
+      "exact_cut_rank": 2,
+      "explicit_blocks": 3,
+      "gap_ratio_rule": 2.0,
+      "optimal_squared_frobenius_tail_by_rank": [
+        2.0733252,
+        0.7328224853108987,
+        0.0
+      ],
+      "row_dimension": 2,
+      "selected_gap_ratio": null,
+      "selected_rank": null,
+      "singular_values": [
+        1.1578008095907955,
+        0.8560505156302978
+      ],
+      "squared_frobenius_energy": 2.0733252,
+      "upstream_input_sites": [
+        0,
+        1,
+        2
+      ]
+    }
+  },
+  "gauge_max_singular_error": 4.441237264426632e-17,
+  "predictions": {
+    "A_all_cut_ranks_equal_reachable_observable_dimension_2": true,
+    "B_unreachable_unobservable_third_state_removed": true,
+    "C_orthogonal_gauge_spectra_invariant": true,
+    "D_rank2_cut_factorizations_exact": true
+  },
+  "rank2_factorization_max_error": 3.3306690738754696e-16,
+  "scope": "pure CPU finite-horizon time-varying realization proof fixture",
+  "status": "pass"
+}
