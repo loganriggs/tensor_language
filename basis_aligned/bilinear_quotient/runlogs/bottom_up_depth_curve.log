@@ -23,3 +23,76 @@ SECOND MOMENT | across-position dispersion of corrected writes, depths (0, 1, 2,
   B1_raw                 skip7000 14.05%  skip11000 15.42%  skip1200 14.27%
   B1_global              skip7000 17.23%  skip11000 18.12%  skip1200 17.58%
   B1_matched             skip7000  3.77%  skip11000  4.04%  skip1200  3.56%
+  B1_seq                 skip7000 20.22%  skip11000 21.67%  skip1200 20.17%
+  allsub_gain5           skip7000 13.55%  skip11000 14.25%  skip1200 13.64%
+    B2 gains  seq/matched/global: L3 0.1497/0.1497/0.1486  L4 0.5397/0.5054/0.1696  L5 0.0099/0.0689/0.0065
+  B2_raw                 skip7000  4.53%  skip11000  4.70%  skip1200  4.70%
+  B2_global              skip7000 16.89%  skip11000 17.76%  skip1200 17.34%
+  B2_matched             skip7000  8.61%  skip11000  9.10%  skip1200  8.77%
+  B2_seq                 skip7000 18.02%  skip11000 19.41%  skip1200 18.17%
+  allsub_gain5           skip7000 13.55%  skip11000 14.25%  skip1200 13.64%
+    B3 gains  seq/matched/global: L4 0.1693/0.1693/0.1696  L5 0.0068/0.0271/0.0065  L6 0.0210/1.6886/0.0138
+  B3_raw                 skip7000  2.00%  skip11000  2.12%  skip1200  1.81%
+  B3_global              skip7000 16.20%  skip11000 17.05%  skip1200 16.67%
+  B3_matched             skip7000  7.73%  skip11000  7.90%  skip1200  7.62%
+  B3_seq                 skip7000 16.62%  skip11000 17.51%  skip1200 16.67%
+  allsub_gain5           skip7000 13.55%  skip11000 14.25%  skip1200 13.64%
+    B4 gains  seq/matched/global: L5 0.0065/0.0065/0.0065  L6 0.0153/3.0747/0.0138  L7 0.3070/1.2232/0.2938
+  B4_raw                 skip7000  1.00%  skip11000  1.12%  skip1200  0.97%
+  B4_global              skip7000 16.10%  skip11000 16.76%  skip1200 16.43%
+  B4_matched             skip7000  2.24%  skip11000  2.10%  skip1200  1.94%
+  B4_seq                 skip7000 16.34%  skip11000 17.16%  skip1200 16.41%
+  allsub_gain5           skip7000 13.55%  skip11000 14.25%  skip1200 13.64%
+    B5 gains  seq/matched/global: L6 0.0139/0.0139/0.0138  L7 0.3515/1.0148/0.2938  L8 0.6345/2.3847/0.3779
+  B5_raw                 skip7000  2.24%  skip11000  2.11%  skip1200  1.93%
+  B5_global              skip7000 16.53%  skip11000 17.38%  skip1200 16.66%
+  B5_matched             skip7000  9.69%  skip11000 10.25%  skip1200  9.84%
+  B5_seq                 skip7000 16.73%  skip11000 17.65%  skip1200 16.88%
+  allsub_gain5           skip7000 13.55%  skip11000 14.25%  skip1200 13.64%
+    B6 gains  seq/matched/global: L7 0.2881/0.2881/0.2938  L8 0.5983/1.2788/0.3779  L9 2.4810/1.9059/0.8884
+  B6_raw                 skip7000 16.89%  skip11000 17.62%  skip1200 16.54%
+  B6_global              skip7000 16.52%  skip11000 17.40%  skip1200 16.72%
+  B6_matched             skip7000 16.65%  skip11000 17.70%  skip1200 16.50%
+  B6_seq                 skip7000 16.75%  skip11000 17.61%  skip1200 16.82%
+  allsub_gain5           skip7000 13.55%  skip11000 14.25%  skip1200 13.64%
+    B7 gains  seq/matched/global: L8 0.3710/0.3710/0.3779  L9 1.5257/2.1254/0.8884  L10 0.6416/0.4417/0.4248
+  B7_raw                 skip7000 15.99%  skip11000 17.15%  skip1200 16.06%
+  B7_global              skip7000 15.91%  skip11000 16.76%  skip1200 15.89%
+  B7_matched             skip7000 16.26%  skip11000 17.09%  skip1200 16.00%
+  B7_seq                 skip7000 16.57%  skip11000 17.58%  skip1200 16.42%
+  allsub_gain5           skip7000 13.55%  skip11000 14.25%  skip1200 13.64%
+
+  gap fraction recovered (0..L compiled, L+1..17 live):
+    B0 skip7000   raw    37.4%  global    -4.1%  matched    55.7%  SEQUENTIAL    64.8%
+    B0 skip11000  raw    39.6%  global    -3.1%  matched    56.7%  SEQUENTIAL    65.3%
+    B0 skip1200   raw    38.1%  global    -2.7%  matched    53.1%  SEQUENTIAL    61.3%
+    B1 skip7000   raw     1.9%  global    14.3%  matched   -38.0%  SEQUENTIAL    25.9%  <- NEW
+    B1 skip11000  raw     4.2%  global    13.8%  matched   -36.3%  SEQUENTIAL    26.4%  <- NEW
+    B1 skip1200   raw     2.5%  global    15.6%  matched   -39.9%  SEQUENTIAL    25.8%  <- NEW
+    B2 skip7000   raw   -35.0%  global    13.0%  matched   -19.2%  SEQUENTIAL    17.3%  <- NEW
+    B2 skip11000  raw   -34.0%  global    12.5%  matched   -18.3%  SEQUENTIAL    18.4%  <- NEW
+    B2 skip1200   raw   -35.4%  global    14.7%  matched   -19.3%  SEQUENTIAL    17.9%  <- NEW
+    B3 skip7000   raw   -44.8%  global    10.3%  matched   -22.6%  SEQUENTIAL    11.9%
+    B3 skip11000  raw   -43.2%  global    10.0%  matched   -22.6%  SEQUENTIAL    11.6%
+    B3 skip1200   raw   -46.9%  global    12.0%  matched   -23.9%  SEQUENTIAL    12.0%
+    B4 skip7000   raw   -48.7%  global     9.9%  matched   -43.9%  SEQUENTIAL    10.8%  <- NEW
+    B4 skip11000  raw   -46.7%  global     8.9%  matched   -43.2%  SEQUENTIAL    10.4%  <- NEW
+    B4 skip1200   raw   -50.2%  global    11.0%  matched   -46.4%  SEQUENTIAL    10.9%  <- NEW
+    B5 skip7000   raw   -43.9%  global    11.5%  matched   -15.0%  SEQUENTIAL    12.3%
+    B5 skip11000  raw   -43.2%  global    11.2%  matched   -14.2%  SEQUENTIAL    12.1%
+    B5 skip1200   raw   -46.4%  global    11.9%  matched   -15.1%  SEQUENTIAL    12.8%
+    B6 skip7000   raw    13.0%  global    11.5%  matched    12.0%  SEQUENTIAL    12.4%  <- NEW
+    B6 skip11000  raw    12.0%  global    11.2%  matched    12.3%  SEQUENTIAL    12.0%  <- NEW
+    B6 skip1200   raw    11.5%  global    12.2%  matched    11.3%  SEQUENTIAL    12.6%  <- NEW
+    B7 skip7000   raw     9.4%  global     9.2%  matched    10.5%  SEQUENTIAL    11.7%  <- NEW
+    B7 skip11000  raw    10.3%  global     8.9%  matched    10.1%  SEQUENTIAL    11.8%  <- NEW
+    B7 skip1200   raw     9.6%  global     8.9%  matched     9.4%  SEQUENTIAL    11.0%  <- NEW
+
+  THE CURVE (skip7000, sequential arm): B0 64.8%  B1 25.9%  B2 17.3%  B3 11.9%  B4 10.8%  B5 12.3%  B6 12.4%  B7 11.7%
+  consecutive drops:            B0->B1 +38.9%  B1->B2 +8.5%  B2->B3 +5.4%  B3->B4 +1.1%  B4->B5 -1.5%  B5->B6 -0.0%  B6->B7 +0.7%
+
+  the fall is SHARP -- one depth holds >=50% of it -> True  biggest is B0->B1 at +38.9%, 73.3% of the 53.1% total fall
+  and it has already fallen by B2 (<30%) -> True  B2 17.3%
+  and it SATURATES -- depths 3..7 inside a 10pp band -> True  band 1.6% (min 10.8%, max 12.4%)
+  four PUBLISHED gap-fraction families reproduce at depths 0/3/5 -> control True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/bottom_up_depth_curve_results.json (428.4s)

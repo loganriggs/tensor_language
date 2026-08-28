@@ -48796,3 +48796,55 @@ carry a `DEPTHS` constant and every one of them is `(-1, …)`, `(0, 3, 5)` or `
 LESSON 47: points sampled to bracket a feature do not estimate a curve. Running the bottom-up recovery at
 every depth 0..7 asks where the recovery is actually lost — a sharp fall at one depth names a layer, a
 smooth decline says the "cliff" framing has been wrong throughout.
+
+## §1829 — the fall is at LAYER 1, not layer 5: 73% of it lands in one step and everything after depth 3 is flat
+
+`ops/bottom_up_depth_curve.py`, 428.4s, **DISCOVERY ONLY**, rung 3 (the gap §1828 named).
+**pred_a True | pred_b True | pred_c True | pred_d True.** First 4/4 of this arc.
+
+```
+  THE CURVE (skip7000, sequential arm; 0..L compiled, L+1..17 live)
+    B0 64.8%   B1 25.9%   B2 17.3%   B3 11.9%   B4 10.8%   B5 12.3%   B6 12.4%   B7 11.7%
+                 ^NEW       ^NEW                  ^NEW                  ^NEW       ^NEW
+  consecutive drops
+    B0->B1 +38.9pp   B1->B2 +8.5   B2->B3 +5.4   B3->B4 +1.1   B4->B5 -1.5   B5->B6 -0.0   B6->B7 +0.7
+```
+
+**pred_a PASSED and it names a layer.** The B0→B1 step is **+38.9pp of a 53.1pp total fall — 73.3%**.
+Compiling layer 1 costs more than compiling layers 2 through 7 combined. **pred_b PASSED**: by B2 the
+curve is at 17.3%, already nearer the floor than the top. **pred_c PASSED and the margin is the story**:
+depths 3 through 7 sit inside a **1.6pp** band (10.8% to 12.4%) against a 10pp bar. Five extra compiled
+layers cost nothing measurable once layers 0-3 are compiled.
+
+> **The location was wrong, and I should have measured it six sections ago.** §1804 found layer 5's
+> attention output exploding **152x** on a fully compiled stream and §1818 pinned 85% of that excess on
+> head 5.7 — both real measurements, both reproduced, and neither retracted. But those are statements
+> about the **fully compiled stream**, and the bottom-up recovery curve is a **different object**. I
+> chose depths 0, 3 and 5 for §1824-§1828 because of the L5 story and never ran 1 or 2. **The recoverable
+> gap is destroyed at depth 1.** Every instrument from §1824 to §1828 — magnitude, mean direction,
+> single-layer localisation, second moment, cross-position routing and mass — was measuring a stream
+> that had already lost 73% of what was recoverable, two layers above where anyone was looking.
+
+**This also explains the five closed accounts rather than adding a sixth.** §1824-§1828 kept finding
+that no per-layer summary separated B0 from B3/B5, and kept finding the residual "distributed". It is
+distributed across those summaries because by B3 the damage was already done and complete: B3, B4, B5,
+B6 and B7 are the same arm to within 1.6pp. Comparing summaries **across a flat region** cannot separate
+anything. The one comparison that was always going to be informative — B0 against B1 — is the one no
+script ran.
+
+**A second structure worth recording.** The uncorrected (`raw`) arm is strongly **non-monotone** with a
+trough at B4: +37.4% at B0, +1.9% at B1, then **−35.0%, −44.8%, −48.7%, −43.9%** at B2-B5, recovering to
++13.0% at B6 and +9.4% at B7. So raw bottom-up compilation is actively *worse than substituting
+everything* through the middle depths, and stops being so by depth 6. The sequential gain correction
+(§1824) removes almost all of that structure — its curve is monotone to B4 and then flat.
+
+**Controls (pred_d).** All four published gap-fraction families reproduce at the three overlapping
+depths on all three roles: §1806's raw, §1822's global-gain, §1823's depth-matched and §1824's
+sequential. Endpoints reproduce §1789's full-rank top-1 to 4 decimals (all-substituted 13.55/14.25/13.64%,
+live 39.32/42.35/38.88%); the placement control moves top-1 by under 0.05pp. Coverage 5419 of 50257.
+
+**Open question this ends on.** The B0→B1 step is one layer and that layer has exactly two sites. Is the
+38.9pp bought by **attn1** or by **mlp1**? Compiling depth 0 plus one of the two, against depth 0 plus
+both, splits it in a single cheap run — and unlike every instrument since §1824 it is measured on the
+loss, in the region where the curve actually moves, rather than as a summary of a stream in the flat
+region below it.
