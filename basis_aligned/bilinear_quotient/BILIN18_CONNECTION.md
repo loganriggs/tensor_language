@@ -47221,3 +47221,61 @@ coverage is untested and is queued as `ops/settled_ridge_scan.py`.
 restoring one attention layer *relative to the settled program*. If the ridge scan moves that baseline,
 those gains are measured against a shifted reference and will need restating — the sweep across layers
 remains valid, the absolute pp figures may not.
+
+## §1802 — no minimal departure exists: the best single live attention layer buys 1.5% of the gap, and two of them are catastrophic
+
+`ops/one_live_attention_site.py`, 106.7s, **DISCOVERY ONLY**, rung 3 (the question §1800 ended on).
+**pred_a FALSE | pred_b FALSE | pred_c True | pred_d True.**
+
+Each arm holds exactly one attention layer **live** in an otherwise fully compiled program. Gain in
+overall top-1 against the all-substituted settled program, in percentage points:
+
+```
+  skip7000   L0 +0.00  L1 +0.02  L2 +0.11  L3 +0.18  L4 -0.03  L5 -12.54  L6 -11.15  L7 -0.88
+             L8 +0.25  L9 -0.32  L10 -0.55  L11 -0.14  L12 +0.06  L13 -1.75  L14 +0.22
+             L15 +0.30  L16 +0.38  L17 -0.01
+  skip11000  same shape: L5 -13.11  L6 -11.98  L13 -1.73  best L15 +0.47
+  skip1200   same shape: L5 -12.67  L6 -11.60  L13 -2.03  best L16 +0.35
+```
+
+**pred_a FAILED and it is the answer.** The best single restoration is **+0.38 / +0.47 / +0.35 pp** —
+against a 2pp bar, and against gaps to live of 25.77 / 28.10 / 25.24 pp. One live attention layer buys
+**1.5 / 1.7 / 1.4%** of what context is worth. pred_a's registered sentence: *"If FALSE, context does
+not enter through any single depth in a way one restoration can capture — the program's deficit would
+then be irreducibly distributed and no minimal departure exists, which is the stronger negative and
+would end this line rather than open it."* **That is what happened. There is no minimal departure from
+the position-wise class.**
+
+**pred_b FAILED, and it retires §1706's refinement on this axis.** The best sites are **L16 / L15 /
+L16** — the late half, not the early one. §1706 explained restoration value by DOWNSTREAM DEPTH (an
+early site has seventeen blocks to propagate through, a late one has none) and explicitly labelled that
+story post hoc and untested. Tested here on a different module kind and a different axis, it predicts
+the wrong half. **It does not generalise beyond the two MLP data points it was fitted to**, and §1706
+should be read that way.
+
+**The finding I did not predict: restoring the real module can be far worse than substituting it.**
+Layers 5 and 6 cost **−12.54 / −13.11 / −12.67** and **−11.15 / −11.98 / −11.60 pp** — nearly the
+program's entire accuracy (13.55 / 14.25 / 13.64%). L13 costs about 2pp. The effect is large, sharply
+localised to two adjacent layers, and reproduces on all three roles. A live module placed in a compiled
+stream receives inputs it was never trained to see and emits outputs the substituted layers above were
+never fitted against; that this should be catastrophic at exactly L5-L6 and negligible at L0-L4 is
+**not something these data explain**. I am recording it and not theorising — §1706 is precisely the
+lesson about fitting a story to a handful of points.
+
+**pred_c passed** (trivially, given pred_a): no site reaches 25% of the gap; the maxima are 1.5 / 1.7 /
+1.4%. **pred_d passed**: the all-substituted arm reproduces §1789's published 0.1355 / 0.1425 / 0.1364
+and the no-hook arm the live 0.3932 / 0.4235 / 0.3888, both within 0.001, so the 18 sweep arms differ
+from those endpoints only in which sites are hooked.
+
+**Scope caveat (§1801).** This baseline is the settled program at the inert ridge. If
+`ops/settled_ridge_scan.py` moves the full-coverage operating point, the absolute pp figures here shift
+with it. The **ordering across layers**, and the L5/L6 catastrophe, are differences within one build and
+would not.
+
+**Where this leaves the thread.** §1800 closed every lever inside the class; §1802 closes the smallest
+step outside it. The 25.8pp gap is context, it is distributed across depth rather than concentrated,
+and it is not reachable by restoring any one site.
+
+**Open question this ends on.** Why L5-L6? A live module there is worth −12.5pp while the same
+restoration at L4 is worth −0.03. That is a 12-point cliff between adjacent layers and it is the
+sharpest structure this thread has found in a while.
