@@ -43545,3 +43545,36 @@ established. Reported as null rather than as a 0 or a 1.
 
 pred_b was aimed at my own §1724 reasoning and passed: two circuits moved by more than 2x. Had it
 failed, the record would have said §1724 overstated the artifact.
+
+## §1726 — pred_d of §1725 is withdrawn: it passed only by counting three duplicate registry rows
+
+Codex checked §1725's `pred_d` against distinct measurements rather than registry rows and it does
+not survive. **They are right and I am taking it.**
+
+The predicate was "at least two thirds of the direction-annotated circuits are claim-consistent",
+and the run printed **5/7**. But `_front_band_tableability_ladder`, `_front_is_tabular_middle_is_not`
+and `_front_mlps_are_synergistic` are three prose entries over the **same four sites** — one
+measurement counted three times, all three as `important` successes. Collapsed to distinct component
+sets the tally is mlp0 pass, mlp1 pass, front band pass, middle band fail, lag-1 fail: **3/5 = 0.60
+against a 0.667 bar. FAIL.**
+
+Scored literally as written it passes, because I wrote "circuits" and the registry has sixteen rows.
+That is not a defence, it is the defect: **the only reading of the statistic that means anything is
+the deduplicated one, and I wrote the bar over the reading that does not.** §1722 is where I named
+duplicate-component-set entries as a limitation of this harness. Four sections later a predicate of
+mine was inflated by exactly that duplication and I did not check. Naming a bias does not immunise
+the next number against it.
+
+**Consequence: the claim that the DIRECTION annotation rescues v2's specificity failure is NOT
+supported.** §1725's other three predicates stand — pred_a (percentile discriminates, 0.00 to 1.00),
+pred_b (§1724's single-draw diagnosis, two circuits moved >2x), pred_c (controls reproduce) — and
+so do the individual rows, which are per-circuit and unaffected. What falls is the aggregate
+conclusion drawn from them.
+
+**Fix, shipped in the same commit as the next run rather than promised:** `ops/circuit_audit_v4.py`
+collapses the sixteen registry rows to distinct component sets before computing any aggregate, prints
+the collapse ratio so the denominator is visible, and records `DEDUPLICATION_NOTE` in its results.
+
+The general rule, added to the harness and to LESSONS 33: **an aggregate over registry entries is an
+aggregate over prose, not over evidence.** Two entries that name the same components contribute one
+measurement no matter how differently they are worded.

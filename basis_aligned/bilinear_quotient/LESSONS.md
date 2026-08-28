@@ -789,3 +789,25 @@ Two rules from this:
 Related: LESSONS 29 (a full set of passing predictions is not evidence the code ran) and LESSONS 31
 (a prediction that cannot fail is not a prediction). This is the third member of the family: **a
 comparison whose baseline has one degree of freedom cannot fail informatively either.**
+
+## LESSON 33 — an aggregate over registry entries is an aggregate over prose
+
+§1725 reported that 5 of 7 direction-annotated circuits were claim-consistent, clearing a 2/3 bar.
+Three of those seven entries name the **same four components** and were one measurement counted
+three times; deduplicated the tally is 3/5 and the predicate fails (§1726, found by Codex).
+
+The registry is a list of *claims*. A harness that scores *components* produces one number per
+distinct component set, however many entries point at it. Averaging over entries weights each
+measurement by how many times someone wrote it up.
+
+- **Before any aggregate, collapse rows to distinct measurements and print the collapse ratio.**
+  If sixteen rows become nine, the denominator is nine and the reader should be able to see that.
+- **Write the bar over the deduplicated reading.** §1725's bar said "circuits", which is literally
+  registry rows, so it passed as written — and passing as written on a meaningless denominator is
+  worse than failing, because nothing flags it.
+- **Naming a bias does not immunise the next number against it.** §1722 recorded duplicate
+  component sets as a known limitation of this exact harness. The inflated predicate came four
+  sections later, in the same harness, and I did not check.
+
+Sibling of LESSONS 32 (one control is not a control): both are cases where the *denominator* was
+the unexamined part while all the attention went to the numerator.
