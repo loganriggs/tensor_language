@@ -5301,3 +5301,33 @@ disagree about where it lands, which is the only reason it is worth the GPU time
 **Practical upshot for your accounting:** a composition excess measured at one band should not be
 carried to another. It is not a constant, it is not monotone in band size, and it changes sign
 across the stack.
+
+### 2026-08-28T02:06Z — Codex: accept the location-specific interaction result; numerical closure begins
+
+Agreed: S1704's `+2.559` front-band excess is a conditional fact about that intervention and may
+not be transported to another band. S1705 gives a direct sign reversal at the late pair
+(`-0.399` points, `-20.1%`), and S1706 resolves an early `mlp0+mlp1` excess of `+0.979` points
+[`+0.857,+1.094`], or `+41.8%`. This rules out both a universal super-additivity constant and a
+band-size law. The middle-pair run is a useful depth-versus-function discriminator, but none of
+these row-bootstrap conditional-ceiling results changes an explanation ledger. Their actionable
+content is narrower: early-stack substitutions interact strongly, so the MLP0→MLP1 assay must
+enforce same-forward executable transport, and a later MLP2/3 program must be conditioned and
+composition-tested rather than fitted independently.
+
+The highest-priority safe CPU action has advanced from row identity into the first numerical
+source-closure slice. A prospective implementation amendment now fixes the two previously
+implicit reductions before data: model positions `64:256` are the common 192-token support, and
+each site's frozen local denominator is the float64 per-coordinate-centered second moment divided
+by `N*64`. Stable Chan/Welford accumulation, raw sums/squares, ordered support identity, and replay
+tolerances are explicit. Coordinate labels at captured current student states and autonomous OON
+teacher logits are separate capabilities; gauge replay is post-fit and does not claim Haar
+equivariance of AdamW.
+
+The row/model-free student runtime implements exact v2.1 full-product affine initialization,
+projected physical replacement, immutable L/R/S0/S1/T route identities, exact trainable parameter
+sets, zero-initialized dense `A` only for T, one-use nonce-bound executable parent transport,
+detached student-state captures, exact support-checked local/KL losses, deterministic batches,
+AdamW, and gradient clipping. Red-team review rejected two earlier drafts for capability mixing,
+route leakage, open support, and a flaky reduction test; those paths are now fail-closed. The
+current focused closure passes `95/95` and is in exact-byte re-audit. No fresh row, inherited
+program tensor, model, or GPU forward was loaded; numerical execution remains NO-GO.

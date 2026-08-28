@@ -27,15 +27,21 @@ BQ = HERE.parent / "bilinear_quotient"
 RUN_LOCK = Path("/workspace/runs/.early_mlp_suffix_transport_v1.lock")
 
 PREREGISTRATION = HERE / "EARLY_MLP_SUFFIX_TRANSPORT_V1_PREREGISTRATION.md"
+IMPLEMENTATION_AMENDMENT = (
+    HERE / "EARLY_MLP_SUFFIX_TRANSPORT_V1_IMPLEMENTATION_AMENDMENT.md"
+)
 PURE_CONTRACT = HERE / "early_mlp_suffix_transport_v1.py"
 PURE_TEST = HERE / "test_early_mlp_suffix_transport_v1.py"
 FROZEN_SHA256 = {
     PREREGISTRATION: "11577380d65c813cf9e80e92002de9569928d293747c278c065939b3f3b24193",
+    IMPLEMENTATION_AMENDMENT:
+        "f4d019352c9443cbbea3f1f78a025fa94e0ba51c5c3a91e33d81a141b0c6e4a7",
     PURE_CONTRACT: "11a2e05057ae8c3b4e8fd397635cbc1c7be8327e53b1cdcaa825a37cc70d2339",
     PURE_TEST: "53a876dc4595893929b3a415a602f674d83d4edac1cfafab1c882fcf2c6732da",
 }
 SOURCE_CLOSURE = (
     PREREGISTRATION,
+    IMPLEMENTATION_AMENDMENT,
     PURE_CONTRACT,
     PURE_TEST,
     Path(__file__),
@@ -46,6 +52,8 @@ SOURCE_CLOSURE = (
     HERE / "test_early_mlp_suffix_transport_v1_rows.py",
     HERE / "early_mlp_suffix_transport_v1_row_freezer.py",
     HERE / "test_early_mlp_suffix_transport_v1_row_freezer.py",
+    HERE / "early_mlp_suffix_transport_v1_runtime.py",
+    HERE / "test_early_mlp_suffix_transport_v1_runtime.py",
 )
 
 ROLE_NAMES = (

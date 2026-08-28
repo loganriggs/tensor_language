@@ -631,3 +631,43 @@ exact-byte commit GO. No real candidate rows or model forwards were loaded. Beca
 mathematical review disagree on whether CPU-only freezing may precede complete numerical source
 closure, the stricter lifecycle embargo governs: execution waits until every numerical and
 transitive model-forward source exists inside the frozen closure and receives re-audit.
+
+## Strategic checkpoint — 2026-08-28 02:06 UTC
+
+No accounting currency moves: inventory remains `36/36`, named behavior `32.1% +/- 6.4%`, named
+causal recovery `10.92%`, current-ship executable recovery zero against `+0.8976` CE, and the
+separate 36-site ceiling `55.038%` with `44.962%` unexplained. The new interaction evidence changes
+localization, not those numerators. Front-four restoration is `+34.0%` super-additive, the matched
+early pair is `+41.8%` super-additive with excess CI [`+0.857,+1.094`] points, and the late pair is
+`-20.1%` sub-additive. Therefore interaction cannot be carried across bands, inferred from band
+size, or treated as an additive allocation. The running middle-pair arm tests a depth-versus-
+functional-role explanation; it is informative but remains row-clustered conditional-ceiling
+evidence.
+
+After pruning again, the top five are:
+
+1. Complete and audit the entire suffix-transport numerical source closure: pure student runtime,
+   separate teacher/model capability, offline loader, collector, trainer, program transaction,
+   final semantic validator, and thin orchestrator. This is the only route that can legally expose
+   fresh rows and directly tests the largest identified early interface failure.
+2. Freeze the disjoint roles and execute the matched L-versus-R and physical T assay. Success
+   identifies a causally read transported code; joint failure prospectively branches to the oracle
+   residual-rank and suffix-Fisher basis test, not another ridge or clustering sweep.
+3. Insert any admitted early program into the one-support current-ship
+   `attention x early-MLP x deep` cube. This is required to earn recovery against the actual
+   `+0.8976` residual and to measure cross-family interactions rather than extrapolate them.
+4. Condition MLP2/3 on the admitted transported state and test joint versus singleton deployment.
+   Their large front-band conditional gains and location-specific interaction make an independent
+   MLP2/3 fit scientifically inadequate.
+5. Compile middle attention with distinct routing and value grammars, then require second-corpus,
+   code-OOD, intervention, and selective-edit certification for the composed program.
+
+Executed this tick: a prospective amendment froze exact local support and moment semantics before
+data. The first row/model-free differentiable runtime slice now binds normalized affine Q
+initialization, physical projected replacement, immutable L/R/S/T execution and trainability,
+zero-only T initialization, nonce-bound one-use executable parent transport, stable float64 moment
+statistics, detached losses, and the exact optimizer schedule. Mathematical review found and
+closed original-call capability mixing, cross-route leakage, open local support, and parent reuse;
+artifact review found and closed a nondeterministic over-tight test. The superseding focused suite
+passes `95/95` and exact-byte re-audit is pending. No row or model was loaded, so execution remains
+NO-GO.
