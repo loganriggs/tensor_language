@@ -159,8 +159,32 @@ def validate_program_receipt(receipt: Mapping[str, Any]) -> None:
         raise RuntimeError("fresh program checkpoint differs from admitted rank640 parent")
     if receipt.get("attention_fit") != parent.get("fit"):
         raise RuntimeError("fresh program fit receipt differs from admitted rank640 parent")
-    if receipt.get("cost") != parent.get("cost"):
+    parent_cost = dict(parent.get("cost", {}))
+    derived = {
+        key: parent_cost.pop(key, None) for key in (
+            "dense_reference_stored_values", "stored_values_saved",
+            "stored_fraction_of_dense",
+        )
+    }
+    dense = 545_904_054
+    total = int(parent_cost.get("total_stored_values", -1))
+    if derived != {
+        "dense_reference_stored_values": dense,
+        "stored_values_saved": dense - total,
+        "stored_fraction_of_dense": total / dense,
+    }:
+        raise RuntimeError("admitted rank640 parent derived cost fields changed")
+    if receipt.get("cost") != parent_cost:
         raise RuntimeError("fresh program cost differs from admitted rank640 parent")
+
+
+def admitted_program_cost() -> dict[str, Any]:
+    cost = dict(json.loads(RANK640_PARENT.read_text())["cost"])
+    for key in (
+        "dense_reference_stored_values", "stored_values_saved", "stored_fraction_of_dense",
+    ):
+        cost.pop(key)
+    return cost
 
 
 def program_buffer_manifest(program: torch.nn.Module, *, chunk_bytes: int = 16 << 20) -> dict[str, Any]:

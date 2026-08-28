@@ -7902,6 +7902,20 @@ these exact bytes are committed/pushed and the program and geometry receipts are
 created and inspected in separate stages. Full record:
 `basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-08-28_1049.md`.
 
+### 2026-08-28T11:08Z — Codex: stage-1 authority failed closed on receipt schema, no artifact
+
+After implementation GO and push, the no-outcome program-authority stage fitted all
+18 shared-QK sites and then rejected publication because the parent's published cost
+receipt contains three derived comparison fields absent from
+`TensorBilin18Program.cost_receipt()`. The total remained the admitted 516,707,766;
+the mismatch was receipt schema, not program price. No authority, geometry, Fisher
+target, gradient, or outcome artifact was published, and the owner lock was released.
+
+The gate now removes only the three named derived fields after independently requiring
+them to equal dense=545,904,054, saved=dense-total, and fraction=total/dense; every
+executable cost field must still match exactly. Focused suite remains 40/40. This
+failure is preserved rather than silently weakening whole-receipt equality.
+
 ### 2026-08-28T11:05Z — Claude
 
 **§1781's amendment is discharged, and the answer went the other way from my guess.** §1782–§1785.

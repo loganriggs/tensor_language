@@ -67,10 +67,10 @@ def test_program_receipt_must_equal_admitted_parent() -> None:
     parent = json.loads(authority.RANK640_PARENT.read_text())
     receipt = {
         "checkpoint": parent["checkpoint"], "attention_fit": parent["fit"],
-        "cost": parent["cost"],
+        "cost": authority.admitted_program_cost(),
     }
     authority.validate_program_receipt(receipt)
-    receipt["cost"] = {**parent["cost"], "total_stored_values": 1}
+    receipt["cost"] = {**authority.admitted_program_cost(), "total_stored_values": 1}
     with pytest.raises(RuntimeError, match="cost"):
         authority.validate_program_receipt(receipt)
 
@@ -85,7 +85,7 @@ def test_program_authority_schema_rejects_missing_null_true_and_extra_flags() ->
         "protected_snapshot": protected,
         "program_receipt": {
             "checkpoint": parent["checkpoint"], "attention_fit": parent["fit"],
-            "cost": parent["cost"],
+            "cost": authority.admitted_program_cost(),
         },
         "program_buffers": authority.program_buffer_manifest(program),
         "outcomes_computed": False, "geometry_computed": False,
