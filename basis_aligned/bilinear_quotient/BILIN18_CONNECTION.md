@@ -46216,3 +46216,49 @@ uncovered positions should erase it and land the composed program near 6.152. Th
 
 Controls (pred_d): the composed full-rank arm reproduces §1780's all-position 6.00048 (measured
 6.00091, within the 0.002 bar) and covered 5.97900 exactly; coverage 5419 of 50257.
+
+## §1783 — the mechanism is confirmed to five decimals: swapping the embedding lands EXACTLY on the direct lookup
+
+`ops/embedding_channel_check.py`, 116.6s, **DISCOVERY ONLY**.
+**pred_a True | pred_b True | pred_c True | pred_d True.**
+
+One flag: at uncovered positions, present the **neighbour's token id to the embedding** as well as
+using the neighbour's site rows. Exactly one channel moves.
+
+```
+  all-position CE, full rank        composed    embedding-swapped    direct lookup
+    skip7000                        6.01897        6.14589             6.14589
+    skip11000                       6.00091        6.15184             6.15184
+    skip1200                        6.00733        6.15373             6.15373
+  covered CE, all three arms         identical at every role (pred_c, to 1e-9)
+```
+
+**The swapped arm equals the direct lookup to five decimals on all three roles**, where pred_a only
+asked for 0.02. That is not a near-miss confirmation — it is an identity, and in hindsight it must
+be: with the neighbour's embedding *and* the neighbour's 36 site rows, the composed forward **is** the
+neighbour's length-1 forward. Nothing else remained to differ.
+
+> **§1782's mechanism is confirmed exactly. The composed program's 0.127 / 0.151 / 0.146-nat advantage
+> over a direct neighbour lookup is entirely the TRUE TOKEN'S EMBEDDING CHANNEL** — the one part of
+> the real token that survives when every site output has been replaced. A position-wise program built
+> from site tables is not "the neighbour's prediction"; it is the real token's embedding pushed
+> through the neighbour's writes, and that blend is worth 0.15 nats.
+
+The same holds at rank 64 (swap costs 0.124, 0.147, 0.142), so it is not an artifact of the exact
+tables.
+
+**What the arc's best standalone program now decomposes into**, cleanly and with every piece measured:
+
+| population | share of scored positions | what the program is there | CE |
+|---|---:|---|---:|
+| covered | 75.9% / 74.6% | the length-1 model, **bit-identical** (§1769, §1782) | 5.97900 |
+| uncovered | 24.1% / 25.4% | the true token's embedding + the output-NN neighbour's 36 site writes | — |
+| **all** | 100% | | **6.00091** |
+
+and the counterfactuals that price each choice: a **global mean row** instead of a neighbour costs
+0.43 nats (§1777), **averaging** neighbours costs up to 0.09 (§1779), the **input-embedding**
+neighbour instead of the output-distribution one costs 0.05 (§1780/§1781), and dropping the true
+token's **embedding channel** costs 0.15 (here).
+
+Controls (pred_d): the composed arms reproduce §1782's three pairs and the direct arm its three
+all-position numbers, all within 0.002; covered CE is untouched by the swap to 1e-9; coverage 5419.
