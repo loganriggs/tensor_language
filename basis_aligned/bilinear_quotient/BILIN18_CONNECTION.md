@@ -43278,3 +43278,77 @@ independently admitted and paid for.
 The durable lesson is therefore operational: fidelity alone selects the original model, while
 complexity alone selects a constant. We must retain the complete frontier and validate each proposed
 simplicity measure by the downstream capability it prospectively predicts.
+
+## §1719 — the price-curve GAIN replicates held out: +3.675% → +3.811%
+
+`mid_band_feature_heldout.py`, rung 2. Two arms compiled once on n480_skip80 with the mask pinned,
+scored on both eval sets. 4-for-4, controls exact.
+
+```
+                CE live    stake     k=0       k=512     gain      gain 95% CI
+skip7000        3.29205    5.5684   55.038%   58.713%   +3.675%  [+3.514, +3.841]
+skip11000       3.09711    5.7750   53.694%   57.505%   +3.811%  [+3.671, +3.957]
+```
+
+**The gain moves +0.136 points and its interval excludes zero on the held-out set.** The level
+drops 1.208 points, squarely inside the 0.3–3.0 band predicted from §1701's four arms (which moved
+1.23–1.34). So the augmentation's effect is a property of bilin18, not of the 192 documents it was
+measured on, and §1714's structural reading — recovery proportional to features spent — survives.
+
+This is the fourth replication in the arc to show the same shape: levels move about a point,
+**gains hold to within ~0.14**. The pattern is consistent enough now to be the expectation rather
+than a finding.
+
+## §1720 — Codex: my parameter counts were 3× too low. The frontier shape survives; the compression claim does not.
+
+Codex's audit of §1717: my ledger charged only the selected `Down` decoder columns. **Computing
+those features with zero native calls also requires the selected `Left` and `Right` rows**, so the
+true cost is 3×. Their numbers, which I reproduce exactly:
+
+```
+program      extra (M)   total (M)    nats    M/nat   marginal   % of the 430M modules
+base             0.000      23.888   3.065     7.79        —              5.6%
+k=512           21.234      45.122   3.269    13.80     103.8             10.5%
+k=1024          42.467      66.355   3.376    19.66     200.1             15.4%
+k=2048          84.935     108.823   3.529    30.84     276.4             25.3%
+k=4608         191.103     214.991   3.761    57.16     457.7             50.0%
+```
+
+**§1718's surviving claim is unaffected**, because a constant 3× cannot change curvature: marginal
+cost still rises monotonically (103.8 → 200.1 → 276.4 → 457.7 M per nat) with no knee. "No
+compressible chunk exists in the middle band" stands, and stands more strongly.
+
+**§1718's compression claim does NOT survive.** I said k=4608 was "a ~5× compression of the
+modules, not a re-implementation", correcting §1714 in the other direction. At the true cost it is
+**214.991M against 430.00M — 50.0%, a 2× compression**, recovering 67.5% of the modules' effect.
+Calling that a compression is defensible; calling it a *5×* one was arithmetic built on an
+undercount. So §1714 was wrong, §1718's correction of it was also wrong, and this is the third
+pass over the same denominator.
+
+**The pattern in my three errors here is one thing, not three.** §1714 divided by the base program
+instead of the modules. §1718 divided by the modules but with a 3×-undercounted numerator. §1717
+ranked a frontier by a scalarization. Every one is a *denominator or normalisation* mistake on a
+cost axis, and none was caught by any registered prediction, because all of my predictions were
+about fidelity. **The cost axis has had no instrument checks at all** — no identity arm, no
+known-answer, nothing that would fail if the accounting were wrong. That is the actual gap, and it
+is why Codex found all three rather than my own bars.
+
+## §1721 — Codex's audit of `ops/circuit_audit.py`: three fair limits, recorded not defended
+
+Their critique of the harness I built for Logan, accepted in full:
+
+1. **"OOD" is a second FineWeb split**, not out-of-distribution. Same corpus, same preprocessing.
+   §1700 already recorded this for skip11000; the harness inherited the overclaim in its field
+   name. It measures *document resampling*, and the field should say so.
+2. **"Removal" is global constant-ablation importance with no collateral control.** Ablating a
+   component damages everything downstream, not only what the circuit claims to explain. Without a
+   matched control — a same-size ablation elsewhere, or damage measured on contexts the circuit
+   claims *not* to touch — the number shows the component matters, not that it matters *for the
+   claimed reason*.
+3. **"Extraction" is a single candidate, not a frontier.** One per-token table at one price is not
+   a comparison among complexity measures at matched causal fidelity, which is what
+   `BENCHMARK.md`'s fidelity-vs-simplicity framing actually asks for.
+
+All three are right. The harness is a screen, not a validation, and its own docstring should have
+said "component-set screen" rather than implying the three names mean what they usually mean.
+Recorded here rather than silently patched, because the names are already in a results file.
