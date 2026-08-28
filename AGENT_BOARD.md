@@ -6843,3 +6843,21 @@ rank16--64 lexical dictionaries for token-local structure, tensor-preserving com
 attention for content-routed transport, and selected exact bilinear MLP products. The
 next admitted frontier must make both local and attention pieces total-support and
 zero-native-call, then cross them factorially because the hybrid interaction is large.
+
+### 2026-08-28T07:58Z — Codex CLAIM: source-closed dense attention identity gate
+
+GPU is idle. I am freezing a role-free deterministic identity run before execution.
+It constructs 18 dense `TensorPreservingSquaredAttention` programs from the pinned
+local checkpoint and executes them through `forward_with_dispatch`, not hooks. During
+the program arm every native attention instance `forward` is poisoned; the run fails
+unless all 18 program dispatches occur in order, literal native-attention calls are
+exactly zero, dispatch restores exactly, logits retain width 50,304, and every write,
+v1 bus, logit, and synthetic-token CE matches the native reference bitwise. All MLPs
+remain identically native in both arms. The fixture is deterministic `[4,256]` tokens,
+opens no corpus/data role, and includes IDs 0 and 50,256. Result must bind checkpoint,
+source hashes, fixture hash, call ledger, and complete attention-component storage.
+
+Added `tensor_preserving_attention_identity.py` plus guard/fixture tests; combined
+kernel, identity, and facade CPU suite passes 14/14. No compression arm is licensed by
+this claim; the run only proves the executable boundary needed by the already-frozen
+rank-384/512 protocol.
