@@ -144,6 +144,25 @@ def protected_snapshot() -> dict[str, Any]:
     return snapshot
 
 
+def require_authority_namespace_empty() -> None:
+    """Authority can only precede every outcome in this dedicated namespace."""
+    if AUTHORITY_RECEIPT.exists() or OUTPUT.exists():
+        raise RuntimeError(
+            "MLP1 paired-probe authority requires absent authority and result artifacts"
+        )
+
+
+def authority_publication_guard(
+    run_lock: authority_helpers.RunLock, expected_snapshot: Mapping[str, Any],
+) -> None:
+    """Repeat every mutable precondition at the final create-only write boundary."""
+    run_lock.assert_owned()
+    if AUTHORITY_RECEIPT.exists() or OUTPUT.exists():
+        raise RuntimeError("MLP1 paired-probe authority namespace changed before publication")
+    if protected_snapshot() != dict(expected_snapshot):
+        raise RuntimeError("MLP1 paired-probe protected state changed before publication")
+
+
 def load_plan_rows_geometry() -> tuple[dict[str, Any], torch.Tensor, torch.Tensor]:
     """Validate exact plan semantics and return only selected inputs and MLP1 directions."""
     if file_sha256(PLAN) != EXPECTED_PLAN_SHA256:
@@ -396,8 +415,7 @@ class MLP1PairedProbeTransaction:
 def freeze_authority(
     run_lock: authority_helpers.RunLock, runtime_environment: Mapping[str, Any],
 ) -> dict[str, Any]:
-    if AUTHORITY_RECEIPT.exists():
-        raise RuntimeError("MLP1 paired-probe authority is create-only and already exists")
+    require_authority_namespace_empty()
     run_lock.assert_owned()
     before = protected_snapshot()
     plan, _, directions = load_plan_rows_geometry()
@@ -430,7 +448,8 @@ def freeze_authority(
         "result_computed": False,
     }
     authority_helpers.publish_json_create_only(
-        AUTHORITY_RECEIPT, result, ownership_check=run_lock.assert_owned,
+        AUTHORITY_RECEIPT, result,
+        ownership_check=lambda: authority_publication_guard(run_lock, before),
     )
     return result
 
@@ -469,6 +488,9 @@ def validate_authority(
     if any(value[key] != expected for key, expected in exact.items()):
         raise RuntimeError("MLP1 paired-probe authority parent identity changed")
     authority_helpers.validate_program_receipt(value["program_receipt"])
+    parent_authority = json.loads(PARENT_PROGRAM_AUTHORITY.read_text())
+    if value["program_buffers"] != parent_authority.get("program_buffers"):
+        raise RuntimeError("MLP1 paired-probe authority program buffers differ from parent")
 
 
 def run(

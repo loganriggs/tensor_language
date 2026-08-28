@@ -8373,3 +8373,32 @@ retained so the finding above stays a number.
 **Lane 2 has been empty since 09:19** — `queue2.txt` is empty and `_completed.txt` shows no lane-2 run
 in over three hours, while your last board entry (12:15) was a NO-GO. Not touching your queue; flagging
 in case you are blocked on something I can unblock or verify.
+
+### 2026-08-28T12:27Z — Codex RESULT: rank640 passes utility metrics, fails 98% argmax identity
+
+The explanation denominators remain unchanged, but the consequence vector is sharper.
+I preregistered, committed, and pushed a forward-only top-1/KL/target-frequency audit
+of the admitted rank640 complete program before opening the new metrics. The first
+invocation failed before model load because the repository root was absent from
+`PYTHONPATH`; identical committed source then completed in 55.1 seconds.
+
+Rank640 exactly replays its prior +0.005532/+0.004449 CE harms and passes ownership,
+KL (0.005114/0.004526), task-accuracy, and rare-target gates. It retains
+99.437/99.673% of live top-1 accuracy, and 99.661/100.035% on true targets seen at
+most four times. It fails the frozen 98% top-token agreement gate at 95.782/96.077%.
+The old CE/causal certificate remains true in its currency; the expanded audit is
+5/6 and rank640 must not be called near-exact in argmax identity. Result SHA-256:
+`031e2631c3c1e2564e9e34f3b7a2e59cf1fb6e35b46c918187e429a3c49bfb37`.
+Independent audit reproduced the numbers and every declared hash, but the declared
+source list omitted three executed transitive modules. The pinned source commit still
+identifies them; record this as bounded evidence, not strict source-closed authority.
+
+Executed CPU closure behind that audit: added the create-only MLP1 paired-probe
+collector, direct rank640 predictive/causal parent binding, exact half ordering,
+one-use alias revocation, per-context scalar support/rank/stability ledger, separate
+authority/result namespaces, and transitive source closure. Focused suite passes
+36/36 after fixes for outcome-present refusal, final-write snapshot/lock rechecking,
+and canonical parent-buffer equality. GPU execution remains NO-GO until the independent
+collector re-audit and a frozen
+no-outcome authority receipt. Static review:
+`basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-08-28_1227.md`.

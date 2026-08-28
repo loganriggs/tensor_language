@@ -110,3 +110,73 @@ def test_authority_paths_are_separate_create_only_namespaces() -> None:
     assert not paired.RUN_LOCK.name.endswith(".json")
     assert paired.EXPECTED_RANK640_SHA256 == "639fb8480efee790403113079333100bd63bb61426f6fd6e4dcebd89b21c337d"
     assert paired.EXPECTED_CAUSAL_SHA256 == "73bd18ee81067775680b7d579036e6ec8c04b41116cd3e516b8460a7e7c7ab20"
+
+
+class FakeLock:
+    def __init__(self):
+        self.assertions = 0
+
+    def assert_owned(self):
+        self.assertions += 1
+
+
+def test_authority_freeze_refuses_if_result_already_exists(tmp_path, monkeypatch) -> None:
+    result = tmp_path / "result.json"
+    result.write_text("spent\n")
+    monkeypatch.setattr(paired, "OUTPUT", result)
+    monkeypatch.setattr(paired, "AUTHORITY_RECEIPT", tmp_path / "authority.json")
+    with pytest.raises(RuntimeError, match="absent authority and result"):
+        paired.freeze_authority(FakeLock(), {})
+
+
+def test_result_run_refuses_before_graph_if_authority_is_absent(tmp_path, monkeypatch) -> None:
+    monkeypatch.setattr(paired, "OUTPUT", tmp_path / "result.json")
+    monkeypatch.setattr(paired, "AUTHORITY_RECEIPT", tmp_path / "authority.json")
+    with pytest.raises(RuntimeError, match="freeze MLP1 paired-probe authority"):
+        paired.run(FakeLock(), {})
+
+
+def test_final_authority_guard_rechecks_lock_namespace_and_snapshot(
+    tmp_path, monkeypatch,
+) -> None:
+    monkeypatch.setattr(paired, "OUTPUT", tmp_path / "result.json")
+    monkeypatch.setattr(paired, "AUTHORITY_RECEIPT", tmp_path / "authority.json")
+    expected = {"fingerprint": "fixed"}
+    monkeypatch.setattr(paired, "protected_snapshot", lambda: dict(expected))
+    lock = FakeLock()
+    paired.authority_publication_guard(lock, expected)
+    assert lock.assertions == 1
+    paired.OUTPUT.write_text("late result\n")
+    with pytest.raises(RuntimeError, match="namespace changed"):
+        paired.authority_publication_guard(lock, expected)
+    paired.OUTPUT.unlink()
+    monkeypatch.setattr(paired, "protected_snapshot", lambda: {"fingerprint": "changed"})
+    with pytest.raises(RuntimeError, match="protected state changed"):
+        paired.authority_publication_guard(lock, expected)
+
+
+def test_authority_validation_rejects_parent_program_buffer_mismatch(monkeypatch) -> None:
+    parent = __import__("json").loads(paired.PARENT_PROGRAM_AUTHORITY.read_text())
+    runtime = parent["runtime_environment"]
+    snapshot = {"fingerprint": "snapshot"}
+    value = {
+        "status": "mlp1_split_probe_authority_frozen_no_outcomes",
+        "protected_snapshot": snapshot,
+        "plan_fingerprint": paired.EXPECTED_PLAN_FINGERPRINT,
+        "plan_sha256": paired.EXPECTED_PLAN_SHA256,
+        "rank640_predictive_sha256": paired.EXPECTED_RANK640_SHA256,
+        "rank640_causal_sha256": paired.EXPECTED_CAUSAL_SHA256,
+        "parent_tangent_result_sha256": paired.EXPECTED_PARENT_RESULT_SHA256,
+        "parent_program_authority_sha256": paired.EXPECTED_PARENT_PROGRAM_AUTHORITY_SHA256,
+        "parent_geometry_sha256": paired.EXPECTED_PARENT_GEOMETRY_SHA256,
+        "parent_geometry_authority_sha256": paired.EXPECTED_PARENT_GEOMETRY_AUTHORITY_SHA256,
+        "mlp1_directions_sha256": paired.EXPECTED_MLP1_DIRECTIONS_SHA256,
+        "program_receipt": parent["program_receipt"],
+        "program_buffers": {"wrong": True},
+        "runtime_environment": runtime,
+        "score_targets_sampled": False,
+        "score_gradients_computed": False,
+        "result_computed": False,
+    }
+    with pytest.raises(RuntimeError, match="program buffers differ"):
+        paired.validate_authority(value, snapshot=snapshot, runtime_environment=runtime)
