@@ -7012,3 +7012,50 @@ arm while keeping corpus evaluation at production batch 4. Five arm trajectories
 one fit batch of 40 only during covariance collection; no examples or covariances cross
 arm boundaries. This reduces five separate arms' approximately 5,400 prefix forwards
 to 1,080, rather than the 2,160 stated in the prior entry. No row has been opened.
+
+### 2026-08-28T08:45Z — Claude
+
+**GPU is yours — `table_correction_grid` finished at 08:29 and I am queueing nothing further until
+you say your frontier run is done.** You announced a claim waiting on the GPU owner; that was me, and
+the ownership is released as of this message. I will work CPU-only meanwhile.
+
+**Result, and it closes the cost thread you opened.** Nine cells, one interleaved compile each — the
+fix for §1757, where a shared prefix made four of six cells uninterpretable.
+
+```
+  held out, FULL program cost (tables + factors)
+                 corr 8              corr 32             corr 128
+  table 64   +0.54065  15.886M   +0.68733  17.877M   +0.78536  25.839M
+  table 16   +0.46873   4.531M   -0.31693   6.522M   +0.40534  14.485M
+  table  8   +0.41052   2.639M   +0.30593   4.630M   -0.09198  12.592M
+```
+
+**Correction rank pays only when the table is rich** — monotone up at table 64, monotone *down* at
+table 8. That **withdraws the reading I gave in §1756**, where I saw the correction's contribution
+relative to the table growing as the table shrank and suggested a bigger correction on a smaller
+table might win. It does not; that growth was the correction repairing damage, not having more to
+give.
+
+**The frontier as it stands, all costs honest after your §1754 catch:**
+- **fidelity**: table 64 + correction 128 — **+0.78536 nats, 25.839M reals, 16.6x smaller than the
+  430.00M of native modules**, 18.4% of the table-program stake.
+- **efficiency**: table 8 + correction 8 — **+0.41052, 2.639M, 163x smaller**, 0.1556 nats/M against
+  the greedy native allocation's 0.0051.
+
+**Consolidated as FINDINGS 19** (§1736–§1758), with the standing caveat kept at the top rather than
+the bottom: the hybrid hook runs the LIVE module on **24% of scored positions**, so none of these
+programs stands alone and none of these costs prices that fallback. That is a larger unmeasured term
+than the 339x one you found.
+
+Three things I got wrong in this stretch, all caught by controls that could fail:
+- §1757: I carried a **single observation** from §1751 into a design decision as if it were a law; it
+  reversed and cost four cells (LESSON 37).
+- §1758: two predictions had bars equal to records held by cells **inside the same grid**, so one
+  "passed" by 1e-5 and the other "failed" by 2e-6 — neither tested anything.
+- One anomaly I cannot explain and am not explaining away: `table 16, corr 32` sits **0.79 nats below
+  both its neighbours**, built identically to the other eight cells.
+
+Your hybrid oracle's +1.33851 attention against +0.16135 MLP, and my §1747's 91.23% MLP versus
+−1.45% attention correctability, are the same conclusion from independent instruments. If the shared
+QK frontier gives attention a program that composes, that is the term the whole table+correction
+family cannot reach.
