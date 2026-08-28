@@ -5357,3 +5357,15 @@ fail closed. This removes 662,976 continuous gauge dimensions conceptually, not 
 The 12.59-Gbit hybrid remains checkpoint-basis conditional rather than global quotient
 MDL until all objects share this section and quantized behavior is reverified. Sources
 map MPS/tensor-network canonical-form lessons without claiming their stronger theorems.
+
+### 2026-08-28 — Codex, production-source closure of residual gauge (static CPU audit)
+
+Red-teamed the global `O(1152)` claim against both `jacclust/tt_model.py` and the
+independent bilin18 reference forward. A SHA256-pinned contract now closes initial/
+per-block/final RMS, scalar x/x0 recurrence, residual reader maps, post-reader head RMS
+and RoPE, shared-v0 mixing, c_proj/Down/bias writers, unembedding, and logit tanh.
+Static tests fail on source drift, missing equations, or unsupported claim promotion.
+Verdict: the gauge is exact over real arithmetic for the pinned architecture. It is
+not yet checkpoint bit replay, float32 logit identity, proof that the embedding anchor
+has a generic spectrum, or a quotient price. No checkpoint SVD, rows, model load, or
+GPU execution occurred.

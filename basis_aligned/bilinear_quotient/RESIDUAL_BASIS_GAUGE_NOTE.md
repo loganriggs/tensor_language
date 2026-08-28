@@ -71,6 +71,26 @@ bit-replay the checkpoint. Any production canonical codec must measure that dist
 and jointly reverify behavior; algebraic equivalence alone cannot inherit operational
 scores.
 
+## Audit against the actual forward
+
+`residual_basis_architecture_contract.json` pins both the production model source and
+the independent reference forward by SHA256. Its static audit closes the concrete
+operations rather than extrapolating from the tiny model:
+
+- the token embedding is RMS-normalized before becoming `x0`;
+- every block performs only scalar affine residual recurrence before residual RMS;
+- Q/K/Q2/K2 and V are linear residual readers;
+- head RMS and RoPE occur after those readers in unchanged head coordinates;
+- the block-0 V tensor is shared and mixed only in unchanged head coordinates;
+- `c_proj` writes routed values back to the residual space;
+- Left/Right read the RMS-normalized post-attention residual and Down/bias write it;
+- final RMS precedes the unembedding, and the tanh cap acts only on invariant logits.
+
+The source audit fails on hash drift, missing equations, or promotion of any unsupported
+claim. It certifies exact covariance over real arithmetic. It deliberately does not
+certify transformed checkpoint bit replay, float32 logit identity, applicability of
+the embedding-SVD generic stratum to the checkpoint, or a global quotient price.
+
 ## Literature mapping
 
 [Pérez-García, Verstraete, Wolf, and Cirac](https://arxiv.org/abs/quant-ph/0608197)
