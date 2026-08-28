@@ -25,6 +25,7 @@ import tensor_bilin18_tangent_authority as lifecycle  # noqa: E402
 PROTOCOL = HERE / "MLP1_IMPLICIT_FOLDED_TENSOR_V1_EXECUTION_PROTOCOL.json"
 PREREG = HERE / "MLP1_IMPLICIT_FOLDED_TENSOR_V1_PREREGISTRATION.md"
 COMMON_CONTRACT = HERE / "COMMON_EARLY_MLP_DECOMPOSITION_COMPARISON_CONTRACT.md"
+DECISION_ADDENDUM = HERE / "MLP1_IMPLICIT_FOLDED_TENSOR_DECISION_ADDENDUM.md"
 MATH_SOURCE = HERE / "mlp1_implicit_folded_tensor_v1.py"
 MATH_TEST = HERE / "test_mlp1_implicit_folded_tensor_v1.py"
 COLLECTOR = HERE / "collect_mlp1_implicit_folded_tensor_v1.py"
@@ -50,6 +51,7 @@ def _deduplicate(paths: Sequence[Path]) -> tuple[Path, ...]:
 
 SOURCES = _deduplicate((
     Path(__file__), COLLECTOR, TEST, PROTOCOL, PREREG, COMMON_CONTRACT,
+    DECISION_ADDENDUM,
     MATH_SOURCE, MATH_TEST,
     HERE / "bilin18_observed_model_facade.py",
     HERE / "test_bilin18_observed_model_facade.py",
@@ -194,6 +196,7 @@ def protected_snapshot() -> dict[str, Any]:
         "protocol_sha256": file_sha256(PROTOCOL),
         "preregistration_sha256": file_sha256(PREREG),
         "common_contract_sha256": file_sha256(COMMON_CONTRACT),
+        "decision_addendum_sha256": file_sha256(DECISION_ADDENDUM),
     }
     result["fingerprint"] = canonical_sha256(result)
     return result

@@ -71,6 +71,7 @@ def test_source_closure_is_unique_and_contains_model_loader_math_and_tests() -> 
         "MLP1_IMPLICIT_FOLDED_TENSOR_V1_EXECUTION_PROTOCOL.json",
         "MLP1_IMPLICIT_FOLDED_TENSOR_V1_PREREGISTRATION.md",
         "COMMON_EARLY_MLP_DECOMPOSITION_COMPARISON_CONTRACT.md",
+        "MLP1_IMPLICIT_FOLDED_TENSOR_DECISION_ADDENDUM.md",
         "mlp1_implicit_folded_tensor_v1.py",
         "test_mlp1_implicit_folded_tensor_v1.py",
         "bilin18_observed_model_facade.py",
