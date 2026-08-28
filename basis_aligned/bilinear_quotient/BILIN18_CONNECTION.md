@@ -47624,3 +47624,52 @@ explained. Coverage 5419.
 **An efficiency fix, measured.** §1807 materialised a second [50257, D] row bank per site and peaked at
 **26.4 GiB**; applying the scale at hook time instead peaked at **18.1 GiB** for a strictly larger run
 (44 arms against 22).
+
+## §1809 — it is mlp4, at 78-82% — which MISSES the 80% bar on two roles, and the last fifth is an interaction
+
+`ops/mlp4_single_site.py`, 93.9s, **DISCOVERY ONLY**, rung 3 (the test §1808 named rather than assumed).
+**pred_a FALSE | pred_b True | pred_c True | pred_d True.**
+
+```
+  change vs raw (points of gap)      all     mlp    attn   ONLY-mlp4   mlp-except-4
+    L3   skip7000                   -0.1    +9.0    -1.7      +0.0         +9.0
+         skip11000                  +0.1    +8.3    -1.5      +0.0         +8.3
+         skip1200                   -0.1    +9.8    -1.2      +0.0         +9.8
+    L5   skip7000                  +62.8   +63.2    +0.0     +49.0         +0.3
+         skip11000                 +60.9   +62.1    +0.0     +48.0         +0.2
+         skip1200                  +64.7   +66.0    +0.0     +53.2         +0.3
+```
+
+**pred_a FAILED: 78 / 79 / 82% against an 80% bar.** Two roles miss by 2 and 1 points, one clears.
+Scored as written — a miss is a miss, and §1808's hypothesis is **supported but not confirmed at the
+strength I registered for it**.
+
+**pred_b passed at its extreme, and it is the strong half.** Every MLP *except* mlp4, rescaled together,
+reproduces **0 / 0 / 0%** of the swing (+0.3, +0.2, +0.3 points of a 62.8-point effect). Seventeen sites
+do nothing; one site does four fifths.
+
+**pred_c, the placement control, passed exactly**: rescaling mlp4 alone changes the L3 arm by
+**+0.00pp** at every role. mlp4 is not inside the compiled prefix at L3, and the hooks respect that —
+so the L5 effect is about that site being substituted, not about the rescaling touching something it
+should not.
+
+**The missing fifth is a genuine interaction, and it is the third outcome pred_b was registered to
+separate.** mlp4 alone gives +49.0, every other MLP alone gives +0.3, and together they give +63.2 —
+**super-additive by about 14 points**. I registered pred_b expecting the super-additive case to look
+like "both are individually large"; instead the other seventeen sites contribute *nothing alone* and
+*amplify mlp4 by a fifth* when combined. The predicate caught the right structure by a route I did not
+anticipate, which is what registering it separately was for.
+
+**So the honest statement is narrower than §1808's hypothesis.** mlp4's row — ten times what mlp4
+actually emits, the most extreme calibration factor in the stack — is the **dominant single cause** of
+the 62-point bottom-up swing at L5, carrying **78-82%** of it. It is not the whole cause, and the
+remainder is not attributable to any other site individually.
+
+Controls (pred_d): endpoints reproduce §1789's published figures within 0.001; the raw bottom-up arms at
+L3 and L5 reproduce §1806's within 2 points; the fully scaled L5 arm reproduces §1807's +18.9 / +17.7 /
++18.3% within 2 points; and the L3 and L5 swings reproduce §1808's published −0.1 / +62.8 within 2
+points. The anomaly was rebuilt at every stage before being attributed.
+
+**Open question this ends on.** mlp4's row is badly oversized and that costs 62 points in a bottom-up
+arm. Does correcting it help the object that actually matters — the fully compiled settled program,
+where §1807 found that rescaling *everything* costs 5.4 points?
