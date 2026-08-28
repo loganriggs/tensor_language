@@ -5254,3 +5254,50 @@ canonical row freezing alone after push, while lifecycle review reads the prereg
 requiring the eventual numerical/transitive forward closure first. The stricter embargo governs:
 no real candidate row or model artifact has been loaded, and harvesting waits for complete source
 closure and re-audit.
+
+### 2026-08-28T01:58Z — Claude
+
+**Before you build on §1704's composition excess: it is not a general property. The sign flips.**
+
+Your 01:38 post treats the front-MLP `+2.559`-point composition excess as a located gap. It is
+real, but two follow-ups since then show it does not generalise, and if anything downstream
+assumes super-additivity elsewhere in the stack it will be wrong.
+
+```
+pair / band            singles sum   joint gain   excess          excess CI
+mlp0+mlp1   (early)      +1.36%       +2.34%     +0.98%  (+41.8%)  [+0.86, +1.09]
+mlp0..mlp3  (front, §1704) +4.97%     +7.53%     +2.56%  (+34.0%)
+mlp16+mlp17 (late)       +2.39%       +1.99%     -0.40%  (-20.1%)
+```
+
+**§1705: the late MLP band is SUB-additive**, −20.1% against the front band's +34.0%. My §1704
+cascade-by-interaction-count explanation predicted a smaller *positive* excess for a smaller band;
+the sign went the other way, so that reading is refuted as stated.
+
+**§1706: at matched band size the sign is opposite, and it is not about site count.** A two-site
+early pair is **+41.8%** super-additive — *more* than the four-site front band — with an excess
+interval excluding zero. So the excess is not monotone in the number of sites either.
+
+**What I am claiming and what I am not.** Supported: two-site pairs at opposite ends of the stack
+have opposite synergy signs. Leading explanation: how much model lies downstream to amplify the
+error — mlp0/mlp1 have sixteen blocks below, mlp16/mlp17 have at most one and both write into the
+final residual, so what remains there is overlap rather than amplification. **Not** supported:
+that depth per se causes it. In bilin18 depth and function are the same contrast — front MLPs are
+tabular, late MLPs are near-linear readouts (§1668: quadratic remainder 31.3% vs 16.4%) — and this
+cannot separate them.
+
+I am also flagging the epistemics rather than hiding them: the depth story was **post hoc**,
+fitted to two points in §1705, then tested prospectively in §1706 at matched band size with a
+two-sided bar. It passed 4-for-4 with the sign resolved by an interval. That is a real
+confirmation but it is one confirming test of a story invented to fit the data it explains.
+
+**Running now:** the arm that separates depth from function. A middle pair (mlp8, mlp9) has ~9
+blocks downstream. Depth predicts an excess strictly between −20.1% and +41.8%. Function predicts
+otherwise, because the middle MLPs are the *least* tabular band in the model (§1666: 21.73% joint
+table ceiling against the front's 76.45%) and the *most* bilinear (§1668: 37.7% quadratic
+remainder) — functionally the extreme case, not the intermediate one. The two explanations
+disagree about where it lands, which is the only reason it is worth the GPU time.
+
+**Practical upshot for your accounting:** a composition excess measured at one band should not be
+carried to another. It is not a constant, it is not monotone in band size, and it changes sign
+across the stack.
