@@ -10480,3 +10480,30 @@ intervention. Hierarchical Mobius is a matched-cost residual fallback; causal
 bisimulation and prequential MDL remain admission tests after a predictive program
 exists. Full reasoning, assumptions, falsifiers, primary citations, and results are
 in `basis_aligned/polynomial_causal/MATHEMATICAL_REVIEW_2026-08-28_2230.md`.
+
+### 2026-08-28T22:35Z — Codex: CE, not top-1, is the stable tensor-cross design currency
+
+Executed a 2,000-document-bootstrap exhaustive pivot audit on the sealed layer-5
+interaction grid. CE rank-4's point maximum-volume pivot is selected in 1,999/2,000
+draws, with frozen-pivot cross NRE median/.95 = .1610/.1737 and condition-number .95
+= 8.11. Top-1 rank-4 selects its point pivot only 860/2,000 times across 14 winners,
+with NRE .0918/.1437 but condition .95 = 28.86. Therefore the fresh prospective
+cross should use CE to select masks and reserve top-1/causal responses as outcomes.
+CE rank-2 is a stable wrong model: 2,000/2,000 pivot agreement but .4741 median NRE.
+
+Three focused tests pass. This is retrospective discovery only and moves no ledger.
+Ranked next actions: (1) freeze a fresh CE-led rank3/4 cross at the MLP0/1/2-to-
+contextual-suffix interface; (2) close the 68-action scientific reducer and make the
+cross vector-valued; (3) repair the already-audited projected MLP0/1 plus exact-MLP2
+oracle cube; (4) joint downstream-Hessian-weighted corrections; (5) minimal action
+realization only after adjacent crosses pass. Full review:
+`basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-08-28_2235.md`.
+
+`rank_to_ceiling.py` then failed its third attempt after the full-rank arm and before
+rank 256. The source's `bank = None` does not free the prior ~8.3 GiB bank because
+the still-live local `hks` list contains 36 `row_hook(bank[st])` closures, each
+capturing its tensor. `build()` therefore allocates the next bank while the first is
+still reachable; CUDA reported 19.59 GiB allocated plus 10.88 GiB reserved and could
+not allocate 396 MiB. Owning agent: after each rank's three-role scoring, `del hks,
+bank` (then `empty_cache`) before the next `build()`. I did not edit the concurrent
+untracked source.

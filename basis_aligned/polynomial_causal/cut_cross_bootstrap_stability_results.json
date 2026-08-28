@@ -1,0 +1,292 @@
+{
+  "bootstrap_repetitions": 2000,
+  "bootstrap_seed": 2026082851,
+  "document_count": 79,
+  "payload_path": "/workspace/tensor_language/basis_aligned/polynomial_causal/compilation_mask_cut_rank_v1_measurement_wave_v1_payload.pt",
+  "payload_sha256": "04fc912cbce96d0a07564c1984565996b35a86dd1279bc00b45f5e842d8f9d75",
+  "role": "retrospective_discovery_only_no_heldout_claim",
+  "schema_version": 1,
+  "target_results": {
+    "ce_cost_nats": {
+      "2": {
+        "bootstrap_repetitions": 2000,
+        "frozen_point_pivot_condition_number": {
+          "median": 1.55227279955328,
+          "q05": 1.4577163017161665,
+          "q95": 1.6519815391109482
+        },
+        "frozen_point_pivot_cross_nre": {
+          "median": 0.4741029093431216,
+          "q05": 0.45881402772645397,
+          "q95": 0.4903908118560455
+        },
+        "modal_pivot": {
+          "columns_one_indexed": [
+            4,
+            7
+          ],
+          "rows_one_indexed": [
+            6,
+            7
+          ]
+        },
+        "modal_pivot_selection_frequency": 1.0,
+        "point_pivot": {
+          "columns_one_indexed": [
+            4,
+            7
+          ],
+          "rows_one_indexed": [
+            6,
+            7
+          ]
+        },
+        "point_pivot_selection_frequency": 1.0,
+        "rank": 2,
+        "unique_winning_pivots": 1,
+        "winner_margin_top_over_runner_up": {
+          "median": 1.11190337695847,
+          "q05": 1.0922222520511191,
+          "q95": 1.133512323549917
+        }
+      },
+      "3": {
+        "bootstrap_repetitions": 2000,
+        "frozen_point_pivot_condition_number": {
+          "median": 3.3245624284819257,
+          "q05": 3.09029699514158,
+          "q95": 3.6644730127444958
+        },
+        "frozen_point_pivot_cross_nre": {
+          "median": 0.30740438094017897,
+          "q05": 0.28909472280487597,
+          "q95": 0.3291485352147417
+        },
+        "modal_pivot": {
+          "columns_one_indexed": [
+            2,
+            4,
+            7
+          ],
+          "rows_one_indexed": [
+            3,
+            6,
+            7
+          ]
+        },
+        "modal_pivot_selection_frequency": 0.8205000162124634,
+        "point_pivot": {
+          "columns_one_indexed": [
+            2,
+            4,
+            7
+          ],
+          "rows_one_indexed": [
+            3,
+            6,
+            7
+          ]
+        },
+        "point_pivot_selection_frequency": 0.8205,
+        "rank": 3,
+        "unique_winning_pivots": 2,
+        "winner_margin_top_over_runner_up": {
+          "median": 1.1601516846653968,
+          "q05": 1.0189900944407206,
+          "q95": 1.2941432028972162
+        }
+      },
+      "4": {
+        "bootstrap_repetitions": 2000,
+        "frozen_point_pivot_condition_number": {
+          "median": 7.315374998253399,
+          "q05": 6.778598606714504,
+          "q95": 8.107731724351916
+        },
+        "frozen_point_pivot_cross_nre": {
+          "median": 0.16098827639025437,
+          "q05": 0.14918233141009435,
+          "q95": 0.17370609899191586
+        },
+        "modal_pivot": {
+          "columns_one_indexed": [
+            2,
+            4,
+            6,
+            7
+          ],
+          "rows_one_indexed": [
+            3,
+            5,
+            6,
+            7
+          ]
+        },
+        "modal_pivot_selection_frequency": 0.9994999766349792,
+        "point_pivot": {
+          "columns_one_indexed": [
+            2,
+            4,
+            6,
+            7
+          ],
+          "rows_one_indexed": [
+            3,
+            5,
+            6,
+            7
+          ]
+        },
+        "point_pivot_selection_frequency": 0.9995,
+        "rank": 4,
+        "unique_winning_pivots": 2,
+        "winner_margin_top_over_runner_up": {
+          "median": 1.0826690900608336,
+          "q05": 1.0485967212513136,
+          "q95": 1.1173663827061233
+        }
+      }
+    },
+    "top1_cost_pp": {
+      "2": {
+        "bootstrap_repetitions": 2000,
+        "frozen_point_pivot_condition_number": {
+          "median": 2.5691932473911283,
+          "q05": 2.020838347741628,
+          "q95": 3.177892741899595
+        },
+        "frozen_point_pivot_cross_nre": {
+          "median": 0.29131069111188107,
+          "q05": 0.23963818114258167,
+          "q95": 0.3620854031850121
+        },
+        "modal_pivot": {
+          "columns_one_indexed": [
+            4,
+            7
+          ],
+          "rows_one_indexed": [
+            6,
+            7
+          ]
+        },
+        "modal_pivot_selection_frequency": 0.4334999918937683,
+        "point_pivot": {
+          "columns_one_indexed": [
+            4,
+            7
+          ],
+          "rows_one_indexed": [
+            6,
+            7
+          ]
+        },
+        "point_pivot_selection_frequency": 0.4335,
+        "rank": 2,
+        "unique_winning_pivots": 5,
+        "winner_margin_top_over_runner_up": {
+          "median": 1.0578490231396391,
+          "q05": 1.004458997306161,
+          "q95": 1.2084541687561203
+        }
+      },
+      "3": {
+        "bootstrap_repetitions": 2000,
+        "frozen_point_pivot_condition_number": {
+          "median": 7.736316879806195,
+          "q05": 6.131945436717587,
+          "q95": 9.5697877179667
+        },
+        "frozen_point_pivot_cross_nre": {
+          "median": 0.14356966498931556,
+          "q05": 0.11114200977196884,
+          "q95": 0.1836609827287276
+        },
+        "modal_pivot": {
+          "columns_one_indexed": [
+            4,
+            6,
+            7
+          ],
+          "rows_one_indexed": [
+            3,
+            4,
+            6
+          ]
+        },
+        "modal_pivot_selection_frequency": 0.559499979019165,
+        "point_pivot": {
+          "columns_one_indexed": [
+            4,
+            6,
+            7
+          ],
+          "rows_one_indexed": [
+            3,
+            4,
+            6
+          ]
+        },
+        "point_pivot_selection_frequency": 0.5595,
+        "rank": 3,
+        "unique_winning_pivots": 7,
+        "winner_margin_top_over_runner_up": {
+          "median": 1.0753436377771004,
+          "q05": 1.0057360705133116,
+          "q95": 1.257374326355257
+        }
+      },
+      "4": {
+        "bootstrap_repetitions": 2000,
+        "frozen_point_pivot_condition_number": {
+          "median": 19.312003012954193,
+          "q05": 13.964342536717801,
+          "q95": 28.85819558029044
+        },
+        "frozen_point_pivot_cross_nre": {
+          "median": 0.09175973494054974,
+          "q05": 0.051114830147518546,
+          "q95": 0.14366030417795958
+        },
+        "modal_pivot": {
+          "columns_one_indexed": [
+            4,
+            5,
+            6,
+            7
+          ],
+          "rows_one_indexed": [
+            3,
+            4,
+            6,
+            7
+          ]
+        },
+        "modal_pivot_selection_frequency": 0.4300000071525574,
+        "point_pivot": {
+          "columns_one_indexed": [
+            4,
+            5,
+            6,
+            7
+          ],
+          "rows_one_indexed": [
+            3,
+            4,
+            6,
+            7
+          ]
+        },
+        "point_pivot_selection_frequency": 0.43,
+        "rank": 4,
+        "unique_winning_pivots": 14,
+        "winner_margin_top_over_runner_up": {
+          "median": 1.086438863553916,
+          "q05": 1.0062282693995064,
+          "q95": 1.3567979450079712
+        }
+      }
+    }
+  },
+  "token_count": 36864
+}
