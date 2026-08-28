@@ -1,0 +1,636 @@
+{
+  "checkpoint": {
+    "config_sha256": "428042bfd807ba36f8b4326395440fbbebe52cd3d040212e6fef14a4fdf2d83c",
+    "logit_vocab": 50304,
+    "revision": "ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240",
+    "snapshot": "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240",
+    "tokenizer_vocab": 50257,
+    "weights_bytes": 2067738635,
+    "weights_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3"
+  },
+  "context_gate": {
+    "bitwise_context_transport_identity": true,
+    "downstream_current_tokens_fixed": true,
+    "native_context_max_abs": 3.497422933578491,
+    "program_context_max_abs": 3.497422933578491
+  },
+  "cost": {
+    "attention": {
+      "layers": [
+        {
+          "native_calls_per_forward": 0,
+          "projection_values": {
+            "k": 1327104,
+            "k2": 1327104,
+            "proj": 1327104,
+            "q": 1327104,
+            "q2": 1327104,
+            "v": 1327104
+          },
+          "rotary_values": 64,
+          "scalar_values": 1,
+          "token_table_values": 0,
+          "total_input_support": true,
+          "total_stored_values": 7962689
+        },
+        {
+          "native_calls_per_forward": 0,
+          "projection_values": {
+            "k": 1327104,
+            "k2": 1327104,
+            "proj": 1327104,
+            "q": 1327104,
+            "q2": 1327104,
+            "v": 1327104
+          },
+          "rotary_values": 64,
+          "scalar_values": 1,
+          "token_table_values": 0,
+          "total_input_support": true,
+          "total_stored_values": 7962689
+        },
+        {
+          "native_calls_per_forward": 0,
+          "projection_values": {
+            "k": 1327104,
+            "k2": 1327104,
+            "proj": 1327104,
+            "q": 1327104,
+            "q2": 1327104,
+            "v": 1327104
+          },
+          "rotary_values": 64,
+          "scalar_values": 1,
+          "token_table_values": 0,
+          "total_input_support": true,
+          "total_stored_values": 7962689
+        },
+        {
+          "native_calls_per_forward": 0,
+          "projection_values": {
+            "k": 1327104,
+            "k2": 1327104,
+            "proj": 1327104,
+            "q": 1327104,
+            "q2": 1327104,
+            "v": 1327104
+          },
+          "rotary_values": 64,
+          "scalar_values": 1,
+          "token_table_values": 0,
+          "total_input_support": true,
+          "total_stored_values": 7962689
+        },
+        {
+          "native_calls_per_forward": 0,
+          "projection_values": {
+            "k": 1327104,
+            "k2": 1327104,
+            "proj": 1327104,
+            "q": 1327104,
+            "q2": 1327104,
+            "v": 1327104
+          },
+          "rotary_values": 64,
+          "scalar_values": 1,
+          "token_table_values": 0,
+          "total_input_support": true,
+          "total_stored_values": 7962689
+        },
+        {
+          "native_calls_per_forward": 0,
+          "projection_values": {
+            "k": 1327104,
+            "k2": 1327104,
+            "proj": 1327104,
+            "q": 1327104,
+            "q2": 1327104,
+            "v": 1327104
+          },
+          "rotary_values": 64,
+          "scalar_values": 1,
+          "token_table_values": 0,
+          "total_input_support": true,
+          "total_stored_values": 7962689
+        },
+        {
+          "native_calls_per_forward": 0,
+          "projection_values": {
+            "k": 1327104,
+            "k2": 1327104,
+            "proj": 1327104,
+            "q": 1327104,
+            "q2": 1327104,
+            "v": 1327104
+          },
+          "rotary_values": 64,
+          "scalar_values": 1,
+          "token_table_values": 0,
+          "total_input_support": true,
+          "total_stored_values": 7962689
+        },
+        {
+          "native_calls_per_forward": 0,
+          "projection_values": {
+            "k": 1327104,
+            "k2": 1327104,
+            "proj": 1327104,
+            "q": 1327104,
+            "q2": 1327104,
+            "v": 1327104
+          },
+          "rotary_values": 64,
+          "scalar_values": 1,
+          "token_table_values": 0,
+          "total_input_support": true,
+          "total_stored_values": 7962689
+        },
+        {
+          "native_calls_per_forward": 0,
+          "projection_values": {
+            "k": 1327104,
+            "k2": 1327104,
+            "proj": 1327104,
+            "q": 1327104,
+            "q2": 1327104,
+            "v": 1327104
+          },
+          "rotary_values": 64,
+          "scalar_values": 1,
+          "token_table_values": 0,
+          "total_input_support": true,
+          "total_stored_values": 7962689
+        },
+        {
+          "native_calls_per_forward": 0,
+          "projection_values": {
+            "k": 1327104,
+            "k2": 1327104,
+            "proj": 1327104,
+            "q": 1327104,
+            "q2": 1327104,
+            "v": 1327104
+          },
+          "rotary_values": 64,
+          "scalar_values": 1,
+          "token_table_values": 0,
+          "total_input_support": true,
+          "total_stored_values": 7962689
+        },
+        {
+          "native_calls_per_forward": 0,
+          "projection_values": {
+            "k": 1327104,
+            "k2": 1327104,
+            "proj": 1327104,
+            "q": 1327104,
+            "q2": 1327104,
+            "v": 1327104
+          },
+          "rotary_values": 64,
+          "scalar_values": 1,
+          "token_table_values": 0,
+          "total_input_support": true,
+          "total_stored_values": 7962689
+        },
+        {
+          "native_calls_per_forward": 0,
+          "projection_values": {
+            "k": 1327104,
+            "k2": 1327104,
+            "proj": 1327104,
+            "q": 1327104,
+            "q2": 1327104,
+            "v": 1327104
+          },
+          "rotary_values": 64,
+          "scalar_values": 1,
+          "token_table_values": 0,
+          "total_input_support": true,
+          "total_stored_values": 7962689
+        },
+        {
+          "native_calls_per_forward": 0,
+          "projection_values": {
+            "k": 1327104,
+            "k2": 1327104,
+            "proj": 1327104,
+            "q": 1327104,
+            "q2": 1327104,
+            "v": 1327104
+          },
+          "rotary_values": 64,
+          "scalar_values": 1,
+          "token_table_values": 0,
+          "total_input_support": true,
+          "total_stored_values": 7962689
+        },
+        {
+          "native_calls_per_forward": 0,
+          "projection_values": {
+            "k": 1327104,
+            "k2": 1327104,
+            "proj": 1327104,
+            "q": 1327104,
+            "q2": 1327104,
+            "v": 1327104
+          },
+          "rotary_values": 64,
+          "scalar_values": 1,
+          "token_table_values": 0,
+          "total_input_support": true,
+          "total_stored_values": 7962689
+        },
+        {
+          "native_calls_per_forward": 0,
+          "projection_values": {
+            "k": 1327104,
+            "k2": 1327104,
+            "proj": 1327104,
+            "q": 1327104,
+            "q2": 1327104,
+            "v": 1327104
+          },
+          "rotary_values": 64,
+          "scalar_values": 1,
+          "token_table_values": 0,
+          "total_input_support": true,
+          "total_stored_values": 7962689
+        },
+        {
+          "native_calls_per_forward": 0,
+          "projection_values": {
+            "k": 1327104,
+            "k2": 1327104,
+            "proj": 1327104,
+            "q": 1327104,
+            "q2": 1327104,
+            "v": 1327104
+          },
+          "rotary_values": 64,
+          "scalar_values": 1,
+          "token_table_values": 0,
+          "total_input_support": true,
+          "total_stored_values": 7962689
+        },
+        {
+          "native_calls_per_forward": 0,
+          "projection_values": {
+            "k": 1327104,
+            "k2": 1327104,
+            "proj": 1327104,
+            "q": 1327104,
+            "q2": 1327104,
+            "v": 1327104
+          },
+          "rotary_values": 64,
+          "scalar_values": 1,
+          "token_table_values": 0,
+          "total_input_support": true,
+          "total_stored_values": 7962689
+        },
+        {
+          "native_calls_per_forward": 0,
+          "projection_values": {
+            "k": 1327104,
+            "k2": 1327104,
+            "proj": 1327104,
+            "q": 1327104,
+            "q2": 1327104,
+            "v": 1327104
+          },
+          "rotary_values": 64,
+          "scalar_values": 1,
+          "token_table_values": 0,
+          "total_input_support": true,
+          "total_stored_values": 7962689
+        }
+      ],
+      "native_calls_per_forward": 0,
+      "token_table_values": 0,
+      "total_input_support": true,
+      "total_stored_values": 143328402
+    },
+    "fitted_lookup_table_values": 0,
+    "mlp": {
+      "layers": [
+        {
+          "bias_values": 1152,
+          "native_calls_per_forward": 0,
+          "projection_values": {
+            "down": 5308416,
+            "left": 5308416,
+            "right": 5308416
+          },
+          "token_table_values": 0,
+          "total_input_support": true,
+          "total_stored_values": 15926400
+        },
+        {
+          "bias_values": 1152,
+          "native_calls_per_forward": 0,
+          "projection_values": {
+            "down": 5308416,
+            "left": 5308416,
+            "right": 5308416
+          },
+          "token_table_values": 0,
+          "total_input_support": true,
+          "total_stored_values": 15926400
+        },
+        {
+          "bias_values": 1152,
+          "native_calls_per_forward": 0,
+          "projection_values": {
+            "down": 5308416,
+            "left": 5308416,
+            "right": 5308416
+          },
+          "token_table_values": 0,
+          "total_input_support": true,
+          "total_stored_values": 15926400
+        },
+        {
+          "bias_values": 1152,
+          "native_calls_per_forward": 0,
+          "projection_values": {
+            "down": 5308416,
+            "left": 5308416,
+            "right": 5308416
+          },
+          "token_table_values": 0,
+          "total_input_support": true,
+          "total_stored_values": 15926400
+        },
+        {
+          "bias_values": 1152,
+          "native_calls_per_forward": 0,
+          "projection_values": {
+            "down": 5308416,
+            "left": 5308416,
+            "right": 5308416
+          },
+          "token_table_values": 0,
+          "total_input_support": true,
+          "total_stored_values": 15926400
+        },
+        {
+          "bias_values": 1152,
+          "native_calls_per_forward": 0,
+          "projection_values": {
+            "down": 5308416,
+            "left": 5308416,
+            "right": 5308416
+          },
+          "token_table_values": 0,
+          "total_input_support": true,
+          "total_stored_values": 15926400
+        },
+        {
+          "bias_values": 1152,
+          "native_calls_per_forward": 0,
+          "projection_values": {
+            "down": 5308416,
+            "left": 5308416,
+            "right": 5308416
+          },
+          "token_table_values": 0,
+          "total_input_support": true,
+          "total_stored_values": 15926400
+        },
+        {
+          "bias_values": 1152,
+          "native_calls_per_forward": 0,
+          "projection_values": {
+            "down": 5308416,
+            "left": 5308416,
+            "right": 5308416
+          },
+          "token_table_values": 0,
+          "total_input_support": true,
+          "total_stored_values": 15926400
+        },
+        {
+          "bias_values": 1152,
+          "native_calls_per_forward": 0,
+          "projection_values": {
+            "down": 5308416,
+            "left": 5308416,
+            "right": 5308416
+          },
+          "token_table_values": 0,
+          "total_input_support": true,
+          "total_stored_values": 15926400
+        },
+        {
+          "bias_values": 1152,
+          "native_calls_per_forward": 0,
+          "projection_values": {
+            "down": 5308416,
+            "left": 5308416,
+            "right": 5308416
+          },
+          "token_table_values": 0,
+          "total_input_support": true,
+          "total_stored_values": 15926400
+        },
+        {
+          "bias_values": 1152,
+          "native_calls_per_forward": 0,
+          "projection_values": {
+            "down": 5308416,
+            "left": 5308416,
+            "right": 5308416
+          },
+          "token_table_values": 0,
+          "total_input_support": true,
+          "total_stored_values": 15926400
+        },
+        {
+          "bias_values": 1152,
+          "native_calls_per_forward": 0,
+          "projection_values": {
+            "down": 5308416,
+            "left": 5308416,
+            "right": 5308416
+          },
+          "token_table_values": 0,
+          "total_input_support": true,
+          "total_stored_values": 15926400
+        },
+        {
+          "bias_values": 1152,
+          "native_calls_per_forward": 0,
+          "projection_values": {
+            "down": 5308416,
+            "left": 5308416,
+            "right": 5308416
+          },
+          "token_table_values": 0,
+          "total_input_support": true,
+          "total_stored_values": 15926400
+        },
+        {
+          "bias_values": 1152,
+          "native_calls_per_forward": 0,
+          "projection_values": {
+            "down": 5308416,
+            "left": 5308416,
+            "right": 5308416
+          },
+          "token_table_values": 0,
+          "total_input_support": true,
+          "total_stored_values": 15926400
+        },
+        {
+          "bias_values": 1152,
+          "native_calls_per_forward": 0,
+          "projection_values": {
+            "down": 5308416,
+            "left": 5308416,
+            "right": 5308416
+          },
+          "token_table_values": 0,
+          "total_input_support": true,
+          "total_stored_values": 15926400
+        },
+        {
+          "bias_values": 1152,
+          "native_calls_per_forward": 0,
+          "projection_values": {
+            "down": 5308416,
+            "left": 5308416,
+            "right": 5308416
+          },
+          "token_table_values": 0,
+          "total_input_support": true,
+          "total_stored_values": 15926400
+        },
+        {
+          "bias_values": 1152,
+          "native_calls_per_forward": 0,
+          "projection_values": {
+            "down": 5308416,
+            "left": 5308416,
+            "right": 5308416
+          },
+          "token_table_values": 0,
+          "total_input_support": true,
+          "total_stored_values": 15926400
+        },
+        {
+          "bias_values": 1152,
+          "native_calls_per_forward": 0,
+          "projection_values": {
+            "down": 5308416,
+            "left": 5308416,
+            "right": 5308416
+          },
+          "token_table_values": 0,
+          "total_input_support": true,
+          "total_stored_values": 15926400
+        }
+      ],
+      "native_calls_per_forward": 0,
+      "token_table_values": 0,
+      "total_input_support": true,
+      "total_stored_values": 286675200
+    },
+    "native_calls_per_forward": 0,
+    "sequence_primitive": "causal squared-bilinear tensor attention",
+    "shell": {
+      "parameter_free_rmsnorm_calls": 38,
+      "parameter_free_softcap_calls": 1,
+      "residual_lambda_values": 36,
+      "token_embedding_values": 57950208,
+      "total_shell_stored_values": 115900452,
+      "unembedding_values": 57950208
+    },
+    "total_input_support": true,
+    "total_stored_values": 545904054
+  },
+  "execution": {
+    "checkpoint_model_collected_before_program_execution": true,
+    "native_module_references": [],
+    "native_program_storage_disjoint": true,
+    "native_reference_calls": {
+      "attention": {
+        "0": 2,
+        "1": 2,
+        "2": 2,
+        "3": 2,
+        "4": 2,
+        "5": 2,
+        "6": 2,
+        "7": 2,
+        "8": 2,
+        "9": 2,
+        "10": 2,
+        "11": 2,
+        "12": 2,
+        "13": 2,
+        "14": 2,
+        "15": 2,
+        "16": 2,
+        "17": 2
+      },
+      "mlp": {
+        "0": 2,
+        "1": 2,
+        "2": 2,
+        "3": 2,
+        "4": 2,
+        "5": 2,
+        "6": 2,
+        "7": 2,
+        "8": 2,
+        "9": 2,
+        "10": 2,
+        "11": 2,
+        "12": 2,
+        "13": 2,
+        "14": 2,
+        "15": 2,
+        "16": 2,
+        "17": 2
+      }
+    },
+    "program_native_calls": 0
+  },
+  "fixture": {
+    "base_sha256": "f071c797a76cfd6d84b5ad78ffdb868bffa32894ef12676a8edba5917e2338b4",
+    "changed_sha256": "af92f1d4150a9c05af0779a6681d162a9ad46ddba8d3a275c7f968ee56c2bcb4",
+    "downstream_start_position": 33,
+    "prefix_changed_position": 32,
+    "shape": [
+      4,
+      256
+    ]
+  },
+  "numerical": {
+    "base_logit_max_abs": 0.0,
+    "base_native_logit_sha256": "ecd96381a8d062a09b7d6387224fb6bf1c9dde9924952d4dec05ffbca50d09c9",
+    "base_program_logit_sha256": "ecd96381a8d062a09b7d6387224fb6bf1c9dde9924952d4dec05ffbca50d09c9",
+    "changed_logit_max_abs": 0.0,
+    "changed_native_logit_sha256": "4d39ca11902f438d08d2e6e748fa181a6caddb953639dfb98efbd02c56b1e449",
+    "changed_program_logit_sha256": "4d39ca11902f438d08d2e6e748fa181a6caddb953639dfb98efbd02c56b1e449",
+    "native_ce": 12.686808586120605,
+    "program_ce": 12.686808586120605
+  },
+  "provenance": {
+    "parent_component_identity_sha256": "3a1836fd8b1c571dc35557d373719053bdcad635f1d1e105207055f78e043ad5",
+    "sources": {
+      "/workspace/tensor_language/basis_aligned/polynomial_causal/TENSOR_BILIN18_STANDALONE_IDENTITY_PREREGISTRATION.md": "69a46b546cd17ac9b0f08812cd413dc85851deab15d45f2ee07fb537903338ee",
+      "/workspace/tensor_language/basis_aligned/polynomial_causal/bilin18_observed_model_facade.py": "b62947f772c807259890a9d09dfcbe5e91ad339a0bffa867ab99177fde4c728c",
+      "/workspace/tensor_language/basis_aligned/polynomial_causal/tensor_bilin18_program.py": "7d9443aa7f6f2285613b393efece932f05c9dc71fded02fffb3db60f328a89c9",
+      "/workspace/tensor_language/basis_aligned/polynomial_causal/tensor_bilin18_standalone_identity.py": "06e038d7db5461e42dcf04eceee19f2b2d4cc5d53c72e37198beeb003b8868d8",
+      "/workspace/tensor_language/basis_aligned/polynomial_causal/tensor_preserving_attention.py": "aba1576267614c29e1b17983e4716bdd4cf9eeb5b7fb2971edc17c7b4f61dd8d",
+      "/workspace/tensor_language/basis_aligned/polynomial_causal/tensor_preserving_mlp.py": "658727e66e82f160dd7d88e0d3559af8bd7c851b27a590fa45dc64cfa595ee27",
+      "/workspace/tensor_language/basis_aligned/polynomial_causal/test_tensor_bilin18_program.py": "4b7c9a69721b60cdd68d34eea0afb89aa54b9eb4de9f6adc46cda96626f6c788",
+      "/workspace/tensor_language/basis_aligned/polynomial_causal/test_tensor_bilin18_standalone_identity.py": "4d69d4f6729b698478aaf2cc333862aac35fb584163bce7337f176ec9b2f4521"
+    }
+  },
+  "runtime_s": 10.09520173072815,
+  "scope": "complete exact standalone bilin18 tensor program",
+  "status": "pass"
+}
