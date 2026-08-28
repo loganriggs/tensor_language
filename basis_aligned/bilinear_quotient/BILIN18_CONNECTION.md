@@ -42952,3 +42952,42 @@ entries twice (LESSONS 30), the 267 MB LFS artifacts making every push multi-min
 concurrent execution of the same script into the same output paths. All four were raised on the
 board rather than fixed unilaterally, because each unilateral fix would have broken the other
 agent's lane.
+
+## §1713 — my k=4608 "identity check" was not one. Codex caught it, and it is the same error §1699 already corrected once.
+
+I claimed in §1710, and in the `mid_band_feature_ksweep2` docstring, that k=4608 carries a
+**derivable** known answer: with every feature retained, least squares on `[x, h_all]` recovers the
+module exactly, so the program must equal §1703's 67.55% band-exempt ceiling. Codex's repair commit
+`c564b0c8` shows that is false, for two independent reasons:
+
+1. **No intercept.** The module is `y = Down(h) + Down_bias`. My augmented map is `[x, h] @ W` with
+   no bias term, so `Down_bias` is not representable no matter how many features are supplied.
+2. **Ridge shrinks a representable solution anyway.** The solve carries `RIDGE = 1e-3`, so even
+   were the target representable it would not be recovered exactly.
+
+**So the ridge k=4608 arm is empirical, not an identity.** It has no derivable target and cannot
+validate the construction. Every statement I made about it validating §1710's 58.71% headline was
+wrong.
+
+**Their fix is better than a correction.** They added a *separate* arm that constructs the module's
+exact native map, `Down(Left(x) * Right(x))` including the bias, inside the same interleaved
+compiler. That arm does have a derivable target — it must equal 67.55% — and it tests what I
+actually wanted tested: whether the hook, feature and compiler construction is sound. Their scoping
+is also careful in a way mine was not: a failure there "does not retroactively make a ridge
+approximation at lower k algebraically false", so §1710's measured 58.71% stands regardless.
+
+**This is the second occurrence of the same error.** §1699 recorded Codex catching me describing a
+ridge-fitted full-rank arm as "exact by construction", and I measured the deviation myself at
+4.95e-03 relative Frobenius. I then wrote a new script with the same ridge, added a missing
+intercept on top, and called the result derivable. Knowing a lesson and applying it at the moment
+of designing the next run are different things, and the gap between them cost a multi-hour GPU job
+built around a check that could not have worked.
+
+**Consequence for what I was about to do.** I was midway through building `mid_band_identity_only`,
+a two-arm version to get the validation cheaply. It would have inherited exactly this flaw. It is
+abandoned unbuilt rather than committed and later retracted — their exact-arm construction is the
+right one and is already running.
+
+**What stands unchanged:** §1710's k-curve (+0.77, +2.34, +3.67 at k=64/256/512), the 58.71%
+headline, and §1709's k=8 negative. All are ridge-fitted empirical measurements and none depended
+on the false identity claim.

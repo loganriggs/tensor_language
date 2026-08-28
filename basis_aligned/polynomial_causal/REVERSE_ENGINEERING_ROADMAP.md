@@ -751,3 +751,24 @@ non-overlapping and one-use; Q/L/R/S/T consumers are phase-typed; mutation, inco
 stale-step, and producer-failure paths revoke cleanly. The complete suffix suite passes `129/129`
 and final exact-byte review is pending. This remains nonauthorizing until a sealed model adapter
 observes real calls, outer return, restoration, and teacher execution.
+
+## 2026-08-28 03:36 UTC: deployed-N type closure and executable-cost audit
+
+Whole-model credit is unchanged: structural `36/36` is scope; named behavior is
+`32.1% +/- 6.4%`; named causal recovery is `10.923%`; current-ship executable recovery remains
+zero against `+0.8976` CE. The active corrected feature sweep has so far replayed k=0 `55.04%`
+and k=512 `58.71%`; it changes no global ledger while larger-k and the constructed exact-native
+control are unfinished.
+
+Suffix student state P is now explicitly typed as `P_B[N]`, where N is the live frozen-ship
+surrogate write. Algebraically it preserves `N(I-BB^T)` and installs the predicted B code; it
+does not preserve the native-original complement. Raw tensors and native-O handles now fail, and
+one-use deployed-N handles bind site, live state object, nonce, and issuer. The complete CPU suite
+passes `132/132`. This closes semantic ambiguity but remains nonauthorizing until a real adapter
+observes N0/N1/N2 production and native-call poison.
+
+The next implementation order is: observed adapter plus literal/effective dispatcher ledgers;
+replace two full-logit CPU hashes (about 393 MiB transferred per batch) with a source-bound
+one-use graph identity; benchmark or remove the extra full suffix backward; then mapped controls,
+collector/trainer/freezer/validator, and matched L/R/T execution. Only an admitted program then
+enters the common-support current-ship interaction cube.

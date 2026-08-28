@@ -637,6 +637,122 @@ class JointAffineProgram(nn.Module):
         return deployed_output + replacement.view_as(deployed_output).to(deployed_output.dtype)
 
 
+class DeployedNWrite:
+    """One-use typed handle for a live frozen-ship ``N`` write.
+
+    This type prevents the physical ``P_B[N]`` operation from silently accepting an
+    arbitrary tensor or a native-original ``O`` write.  Construction alone is not a
+    model-provenance authority: the observed model adapter must mint it exactly once
+    from each live frozen-surrogate site and separately prove zero native calls.
+    """
+
+    __slots__ = (
+        "__consumed", "__forward_nonce", "__issuer_id", "__sealed", "__site",
+        "__state", "__state_snapshot", "__state_version", "__value",
+        "__value_version",
+    )
+
+    def __init_subclass__(cls, **kwargs: Any) -> None:
+        raise TypeError("deployed N write type cannot be subclassed")
+
+    def __init__(
+        self, *, site: int, state: torch.Tensor, value: torch.Tensor,
+        forward_nonce: str, issuer_id: str,
+    ) -> None:
+        object.__setattr__(self, "_DeployedNWrite__sealed", False)
+        if site not in (0, 1) or not isinstance(state, torch.Tensor) or not isinstance(
+            value, torch.Tensor,
+        ) or state.shape != value.shape or state.shape[-1] != D_MODEL:
+            raise ValueError("deployed N write site/state/value is malformed")
+        if not _sha256_text(forward_nonce) or not _sha256_text(issuer_id):
+            raise ValueError("deployed N write identity is malformed")
+        if not bool(torch.isfinite(state.detach()).all()) or not bool(
+            torch.isfinite(value.detach()).all()
+        ):
+            raise ValueError("deployed N write contains nonfinite values")
+        # Own the write tensor so a caller cannot mutate the handle indirectly
+        # through the tensor object it passed to mint. ``clone`` deliberately
+        # preserves autograd connectivity; ``detach`` would sever the live suffix.
+        owned_value = value.clone()
+        self.__site = site
+        self.__state = state
+        self.__state_snapshot = state.detach().clone()
+        self.__state_version = state._version
+        self.__value = owned_value
+        self.__value_version = owned_value._version
+        self.__forward_nonce = forward_nonce
+        self.__issuer_id = issuer_id
+        self.__consumed = False
+        object.__setattr__(self, "_DeployedNWrite__sealed", True)
+
+    def __setattr__(self, name: str, value: Any) -> None:
+        if getattr(self, "_DeployedNWrite__sealed", False):
+            raise AttributeError("deployed N writes are sealed")
+        object.__setattr__(self, name, value)
+
+    def __copy__(self):
+        raise RuntimeError("deployed N writes cannot be copied")
+
+    def __deepcopy__(self, memo):
+        raise RuntimeError("deployed N writes cannot be copied")
+
+    def __reduce__(self):
+        raise RuntimeError("deployed N writes cannot be serialized")
+
+    def _consume(
+        self, *, site: int, state: torch.Tensor, forward_nonce: str, issuer_id: str,
+    ) -> torch.Tensor:
+        if self.__consumed:
+            raise RuntimeError("deployed N write was already consumed")
+        if site != self.__site or state is not self.__state or (
+            forward_nonce != self.__forward_nonce or issuer_id != self.__issuer_id
+        ):
+            raise RuntimeError("deployed N write site/state/forward identity changed")
+        if state._version != self.__state_version or self.__value._version != (
+            self.__value_version
+        ):
+            raise RuntimeError("deployed N write tensor mutated after mint")
+        if state.shape != self.__state_snapshot.shape or state.dtype != (
+            self.__state_snapshot.dtype
+        ) or state.device != self.__state_snapshot.device or not torch.equal(
+            state.detach(), self.__state_snapshot,
+        ):
+            raise RuntimeError("deployed N write state content mutated after mint")
+        if self.__value.shape != state.shape or not bool(
+            torch.isfinite(state.detach()).all()
+        ) or not bool(torch.isfinite(self.__value.detach()).all()):
+            raise RuntimeError("deployed N write tensor became malformed after mint")
+        object.__setattr__(self, "_DeployedNWrite__consumed", True)
+        value = self.__value
+        object.__setattr__(self, "_DeployedNWrite__state", None)
+        object.__setattr__(self, "_DeployedNWrite__state_snapshot", None)
+        object.__setattr__(self, "_DeployedNWrite__value", None)
+        return value
+
+
+class NativeOWrite:
+    """Marker type for native-original writes; never legal on the student P path."""
+
+    __slots__ = ("value",)
+
+    def __init__(self, value: torch.Tensor) -> None:
+        if not isinstance(value, torch.Tensor):
+            raise TypeError("native O write requires a tensor")
+        self.value = value
+
+
+def mint_deployed_n_write(
+    *, site: int, state: torch.Tensor, value: torch.Tensor,
+    forward_nonce: str, issuer_id: str,
+) -> DeployedNWrite:
+    """Mint a typed N write; only the future observed adapter may authorize provenance."""
+
+    return DeployedNWrite(
+        site=site, state=state, value=value, forward_nonce=forward_nonce,
+        issuer_id=issuer_id,
+    )
+
+
 def program_snapshot_sha256(program: JointAffineProgram | None) -> str:
     if program is None:
         return logical_identity_sha256({"program": None})
@@ -888,12 +1004,18 @@ class StudentCorrectionHook:
         self._pending_codes = None
 
     def __call__(
-        self, site: int, z: torch.Tensor, mo: torch.Tensor, *, forward_nonce: str,
+        self, site: int, z: torch.Tensor, deployed_n: DeployedNWrite, *,
+        forward_nonce: str,
     ) -> torch.Tensor:
         if not self.active or forward_nonce != self.forward_nonce:
             raise RuntimeError("runtime call occurred outside a forward scope")
         if site not in (0, 1):
             raise ValueError("student runtime is restricted to MLP0/1")
+        if type(deployed_n) is not DeployedNWrite:
+            raise TypeError("student P_B[N] requires a typed deployed N write")
+        mo = deployed_n._consume(
+            site=site, state=z, forward_nonce=forward_nonce, issuer_id=self._issuer_id,
+        )
         if self.scope_calls[site] != 0:
             raise RuntimeError(f"student MLP{site} was called more than once in one forward")
         self.scope_calls[site] += 1

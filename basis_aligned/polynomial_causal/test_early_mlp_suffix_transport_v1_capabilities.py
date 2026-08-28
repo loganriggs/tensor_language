@@ -108,18 +108,26 @@ def scheduled_indices(ident):
     return tuple(int(value) for value in permutation[start:start + runtime.BATCH_SIZE])
 
 
+def call_hook(hook, site, z, mo, nonce):
+    deployed_n = runtime.mint_deployed_n_write(
+        site=site, state=z, value=mo, forward_nonce=nonce,
+        issuer_id=hook.issuer_id,
+    )
+    return hook(site, z, deployed_n, forward_nonce=nonce)
+
+
 def run_student(broker, hook, inputs, ident, *, z1_shift: float = 0.0):
     generator = torch.Generator().manual_seed(10 + ident.optimizer_step)
     z0 = torch.randn(4, 256, runtime.D_MODEL, generator=generator)
     mo0 = torch.randn(4, 256, runtime.D_MODEL, generator=generator)
     session = broker.begin_student(ident, hook, inputs, scheduled_indices(ident))
     with session.forward_scope() as capability:
-        out0 = hook(0, z0, mo0, forward_nonce=ident.nonce)
+        out0 = call_hook(hook, 0, z0, mo0, ident.nonce)
         z1 = 0.3 * out0 + torch.randn(
             4, 256, runtime.D_MODEL, generator=generator,
         ) + z1_shift
         mo1 = torch.randn(4, 256, runtime.D_MODEL, generator=generator)
-        out1 = hook(1, z1, mo1, forward_nonce=ident.nonce)
+        out1 = call_hook(hook, 1, z1, mo1, ident.nonce)
         student_logits = out1[..., :11]
         student_logits.retain_grad()
         capability.bind_outer_logits(student_logits)
@@ -234,8 +242,8 @@ def test_forbidden_mlp2_and_scope_overlap_restore_idle() -> None:
                 pass
         z = torch.zeros(4, 256, runtime.D_MODEL)
         mo = torch.zeros_like(z)
-        out0 = hook(0, z, mo, forward_nonce=ident.nonce)
-        out1 = hook(1, out0, mo, forward_nonce=ident.nonce)
+        out0 = call_hook(hook, 0, z, mo, ident.nonce)
+        out1 = call_hook(hook, 1, out0, mo, ident.nonce)
         capability.bind_outer_logits(out1[..., :11])
     step, _ = session.close(
         outer_forward_count=1, outer_returned=True,
@@ -267,8 +275,8 @@ def test_student_original_call_and_bad_closure_mint_no_usable_trace() -> None:
     trace_session = broker2.begin_student(ident2, hook2, inputs2, scheduled_indices(ident2))
     with trace_session.forward_scope() as capability:
         z = torch.zeros(4, 256, runtime.D_MODEL)
-        hook2(0, z, z, forward_nonce=ident2.nonce)
-        hook2(1, z, z, forward_nonce=ident2.nonce)
+        call_hook(hook2, 0, z, z, ident2.nonce)
+        call_hook(hook2, 1, z, z, ident2.nonce)
         capability.bind_outer_logits(z[..., :11])
     with pytest.raises(RuntimeError, match="closure failed"):
         trace_session.close(
@@ -466,8 +474,8 @@ def test_detached_or_mutated_preclose_outputs_fail_closed() -> None:
     z = torch.randn(4, 256, runtime.D_MODEL, generator=generator)
     session = broker.begin_student(ident, hook, inputs, scheduled_indices(ident))
     with session.forward_scope() as capability:
-        out0 = hook(0, z, z, forward_nonce=ident.nonce)
-        out1 = hook(1, out0, z, forward_nonce=ident.nonce)
+        out0 = call_hook(hook, 0, z, z, ident.nonce)
+        out1 = call_hook(hook, 1, out0, z, ident.nonce)
         capability.bind_outer_logits(out1[..., :11].detach())
     with pytest.raises(RuntimeError, match="detached from their graph"):
         session.close(
@@ -480,8 +488,8 @@ def test_detached_or_mutated_preclose_outputs_fail_closed() -> None:
     broker2, hook2, _, _, _, inputs2, ident2 = system("R", step=18)
     session2 = broker2.begin_student(ident2, hook2, inputs2, scheduled_indices(ident2))
     with session2.forward_scope() as capability:
-        out0 = hook2(0, z, z, forward_nonce=ident2.nonce)
-        out1 = hook2(1, out0, z, forward_nonce=ident2.nonce)
+        out0 = call_hook(hook2, 0, z, z, ident2.nonce)
+        out1 = call_hook(hook2, 1, out0, z, ident2.nonce)
         logits = out1[..., :11]
         capability.bind_outer_logits(logits)
     with torch.no_grad():
@@ -519,8 +527,8 @@ def test_suffix_loss_graph_must_reach_exact_route_parameters(route, step_index) 
     z = torch.randn(4, 256, runtime.D_MODEL)
     session = broker.begin_student(ident, hook, inputs, scheduled_indices(ident))
     with session.forward_scope() as capability:
-        out0 = hook(0, z, z, forward_nonce=ident.nonce)
-        hook(1, out0, z, forward_nonce=ident.nonce)
+        out0 = call_hook(hook, 0, z, z, ident.nonce)
+        call_hook(hook, 1, out0, z, ident.nonce)
         fake = torch.zeros(4, 256, 11, requires_grad=True) * 1.0
         capability.bind_outer_logits(fake)
     with pytest.raises(RuntimeError, match="disconnected from route parameters"):

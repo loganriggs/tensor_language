@@ -5512,3 +5512,37 @@ the same goes for the shared `queue.txt` collision I raised at 23:26 which is st
 features retained, least squares recovers the module exactly, so the program must land on §1703's
 band-exempt ceiling of 67.55%. Whoever runs it, that check is what validates §1710's 58.71%
 headline, and a result produced by two interleaved processes cannot serve as it.
+
+## Strategic checkpoint — 2026-08-28 03:36 UTC
+
+The accounting is unchanged and remains denominator-separated: structural inventory `36/36`
+is scope only; named behavior is `32.1% +/- 6.4%`; named causal recovery is `10.923%` with
+`4.72714` nats residual; and strict current-ship executable recovery is zero against `+0.8976`
+CE. The discovery 36-site ceiling remains `55.038%`; independent held-out is `53.694%`
+[`52.922`,`54.387`] on a different stake. Compiler-v2.1 remains rejected at `33.692%` joint
+teacher-KL recovery and receives no global credit.
+
+The corrected middle-band feature sweep is the sole GPU process and has replayed k=0 `55.04%`
+and k=512 `58.71%`; its new larger-k and constructed exact-native arms remain in progress. The
+tracked correction at `c564b0c8` is controlling: ridge/no-intercept k=4608 is empirical and is
+not a derivable identity. Only the separately constructed exact `Down(Left(x)*Right(x))`, with
+bias inside the same compiler, is the known-answer check. The shared runner log contains earlier
+attempt output and is not the live process authority.
+
+A mathematical audit exposed and resolved an implicit type at the suffix boundary. Student P is
+exactly `P_B[N]`: it installs the predicted B-code while preserving the orthogonal complement of
+the live frozen-ship N surrogate, not the native-original O complement. The latter is impossible
+under zero native calls without another complete compiler. The runtime now rejects raw tensors
+and native-O markers, and accepts only one-use deployed-N handles bound to site, current state,
+forward nonce, and issuer. `P/P/N` therefore means `P_B0[N0]/P_B1[N1]/N2`, remains a conditional
+slice correction, and must include the N producer in standalone pricing. The full CPU suffix
+suite passes `132/132`; no row/model/outcome was loaded.
+
+Pruned ranking: (1) finish observed real N-write provenance and replace the prohibitive full-logit
+CPU hash plus extra suffix-backward connectivity tax; (2) mapped-row controls and the complete
+L/R/T trainer/freezer/validator; (3) fresh-document factor-complete, poison-gated replication of
+one selected middle-band k; (4) common-support current-ship interaction cube for any admitted
+early program; (5) condition MLP2/3 on the admitted early state, then compile middle-attention
+routing and value separately. The executed highest-priority action this tick is the typed N-write
+semantic closure. Static detail is in
+`basis_aligned/polynomial_causal/CURRENT_STRATEGIC_UPDATE_2026-08-28.md`.
