@@ -1,0 +1,464 @@
+{
+ "config": {
+  "eval_sets": [
+   "skip7000",
+   "skip11000"
+  ],
+  "PROG": "CE(all 36 sites tabled) - CE(35 tabled, site i live). What a site adds over the best per-token stand-in for itself, in a context where every other site also has a stand-in rather than a constant.",
+  "ROLE_NOTE": "DISCOVERY ONLY. Same family as \u00a71736/\u00a71737, whose confirmation role was skip11000, so both large roles are spent. Certifies nothing.",
+  "tables": "per-token mean output fitted on fineweb_n96_skip80, hybrid hook (\u00a71661): the table applies only where the token was seen at fit, the module runs live elsewhere"
+ },
+ "results": {
+  "skip7000": {
+   "live_ce": 3.29205,
+   "program_ce": 7.35114,
+   "sites": {
+    "mlp0": {
+     "prog": -0.0003,
+     "ce_site_live": 7.35144,
+     "kind": "mlp"
+    },
+    "mlp1": {
+     "prog": 0.00091,
+     "ce_site_live": 7.35024,
+     "kind": "mlp"
+    },
+    "mlp2": {
+     "prog": -0.0007,
+     "ce_site_live": 7.35184,
+     "kind": "mlp"
+    },
+    "mlp3": {
+     "prog": -0.00017,
+     "ce_site_live": 7.35131,
+     "kind": "mlp"
+    },
+    "mlp4": {
+     "prog": 0.00325,
+     "ce_site_live": 7.34789,
+     "kind": "mlp"
+    },
+    "mlp5": {
+     "prog": 0.03649,
+     "ce_site_live": 7.31465,
+     "kind": "mlp"
+    },
+    "mlp6": {
+     "prog": 0.05059,
+     "ce_site_live": 7.30055,
+     "kind": "mlp"
+    },
+    "mlp7": {
+     "prog": 0.04943,
+     "ce_site_live": 7.30171,
+     "kind": "mlp"
+    },
+    "mlp8": {
+     "prog": 0.06058,
+     "ce_site_live": 7.29056,
+     "kind": "mlp"
+    },
+    "mlp9": {
+     "prog": 0.09395,
+     "ce_site_live": 7.25719,
+     "kind": "mlp"
+    },
+    "mlp10": {
+     "prog": 0.07074,
+     "ce_site_live": 7.2804,
+     "kind": "mlp"
+    },
+    "mlp11": {
+     "prog": 0.1103,
+     "ce_site_live": 7.24084,
+     "kind": "mlp"
+    },
+    "mlp12": {
+     "prog": 0.11845,
+     "ce_site_live": 7.23269,
+     "kind": "mlp"
+    },
+    "mlp13": {
+     "prog": 0.1104,
+     "ce_site_live": 7.24074,
+     "kind": "mlp"
+    },
+    "mlp14": {
+     "prog": 0.11283,
+     "ce_site_live": 7.23831,
+     "kind": "mlp"
+    },
+    "mlp15": {
+     "prog": 0.23347,
+     "ce_site_live": 7.11767,
+     "kind": "mlp"
+    },
+    "mlp16": {
+     "prog": 0.37224,
+     "ce_site_live": 6.9789,
+     "kind": "mlp"
+    },
+    "mlp17": {
+     "prog": 0.51279,
+     "ce_site_live": 6.83835,
+     "kind": "mlp"
+    },
+    "attn0": {
+     "prog": 0.0,
+     "ce_site_live": 7.35114,
+     "kind": "attn"
+    },
+    "attn1": {
+     "prog": 0.0,
+     "ce_site_live": 7.35114,
+     "kind": "attn"
+    },
+    "attn2": {
+     "prog": 0.00213,
+     "ce_site_live": 7.34901,
+     "kind": "attn"
+    },
+    "attn3": {
+     "prog": 0.00352,
+     "ce_site_live": 7.34762,
+     "kind": "attn"
+    },
+    "attn4": {
+     "prog": 0.00993,
+     "ce_site_live": 7.34121,
+     "kind": "attn"
+    },
+    "attn5": {
+     "prog": -0.05237,
+     "ce_site_live": 7.40351,
+     "kind": "attn"
+    },
+    "attn6": {
+     "prog": -0.01665,
+     "ce_site_live": 7.36779,
+     "kind": "attn"
+    },
+    "attn7": {
+     "prog": 0.03221,
+     "ce_site_live": 7.31893,
+     "kind": "attn"
+    },
+    "attn8": {
+     "prog": 0.07098,
+     "ce_site_live": 7.28016,
+     "kind": "attn"
+    },
+    "attn9": {
+     "prog": 0.01021,
+     "ce_site_live": 7.34093,
+     "kind": "attn"
+    },
+    "attn10": {
+     "prog": 0.04869,
+     "ce_site_live": 7.30245,
+     "kind": "attn"
+    },
+    "attn11": {
+     "prog": 0.04856,
+     "ce_site_live": 7.30258,
+     "kind": "attn"
+    },
+    "attn12": {
+     "prog": 0.05642,
+     "ce_site_live": 7.29472,
+     "kind": "attn"
+    },
+    "attn13": {
+     "prog": 0.17306,
+     "ce_site_live": 7.17808,
+     "kind": "attn"
+    },
+    "attn14": {
+     "prog": 0.21559,
+     "ce_site_live": 7.13555,
+     "kind": "attn"
+    },
+    "attn15": {
+     "prog": 0.13505,
+     "ce_site_live": 7.21609,
+     "kind": "attn"
+    },
+    "attn16": {
+     "prog": 0.313,
+     "ce_site_live": 7.03814,
+     "kind": "attn"
+    },
+    "attn17": {
+     "prog": 0.20006,
+     "ce_site_live": 7.15108,
+     "kind": "attn"
+    }
+   },
+   "spearman_prog_loo": 0.34878,
+   "spearman_prog_oat": -0.66358,
+   "top6_prog": [
+    "mlp17",
+    "mlp16",
+    "attn16",
+    "mlp15",
+    "attn14",
+    "attn17"
+   ],
+   "negative_prog": [
+    [
+     "attn5",
+     -0.05237
+    ],
+    [
+     "attn6",
+     -0.01665
+    ],
+    [
+     "mlp2",
+     -0.0007
+    ],
+    [
+     "mlp0",
+     -0.0003
+    ],
+    [
+     "mlp3",
+     -0.00017
+    ]
+   ]
+  },
+  "skip11000": {
+   "live_ce": 3.09711,
+   "program_ce": 7.35825,
+   "sites": {
+    "mlp0": {
+     "prog": -0.0003,
+     "ce_site_live": 7.35854,
+     "kind": "mlp"
+    },
+    "mlp1": {
+     "prog": 0.00091,
+     "ce_site_live": 7.35734,
+     "kind": "mlp"
+    },
+    "mlp2": {
+     "prog": -0.00059,
+     "ce_site_live": 7.35883,
+     "kind": "mlp"
+    },
+    "mlp3": {
+     "prog": -7e-05,
+     "ce_site_live": 7.35831,
+     "kind": "mlp"
+    },
+    "mlp4": {
+     "prog": 0.00319,
+     "ce_site_live": 7.35506,
+     "kind": "mlp"
+    },
+    "mlp5": {
+     "prog": 0.03541,
+     "ce_site_live": 7.32284,
+     "kind": "mlp"
+    },
+    "mlp6": {
+     "prog": 0.04917,
+     "ce_site_live": 7.30908,
+     "kind": "mlp"
+    },
+    "mlp7": {
+     "prog": 0.04852,
+     "ce_site_live": 7.30972,
+     "kind": "mlp"
+    },
+    "mlp8": {
+     "prog": 0.05973,
+     "ce_site_live": 7.29851,
+     "kind": "mlp"
+    },
+    "mlp9": {
+     "prog": 0.09125,
+     "ce_site_live": 7.267,
+     "kind": "mlp"
+    },
+    "mlp10": {
+     "prog": 0.06853,
+     "ce_site_live": 7.28972,
+     "kind": "mlp"
+    },
+    "mlp11": {
+     "prog": 0.10811,
+     "ce_site_live": 7.25013,
+     "kind": "mlp"
+    },
+    "mlp12": {
+     "prog": 0.11575,
+     "ce_site_live": 7.24249,
+     "kind": "mlp"
+    },
+    "mlp13": {
+     "prog": 0.10819,
+     "ce_site_live": 7.25006,
+     "kind": "mlp"
+    },
+    "mlp14": {
+     "prog": 0.11148,
+     "ce_site_live": 7.24677,
+     "kind": "mlp"
+    },
+    "mlp15": {
+     "prog": 0.2259,
+     "ce_site_live": 7.13235,
+     "kind": "mlp"
+    },
+    "mlp16": {
+     "prog": 0.35994,
+     "ce_site_live": 6.99831,
+     "kind": "mlp"
+    },
+    "mlp17": {
+     "prog": 0.5141,
+     "ce_site_live": 6.84415,
+     "kind": "mlp"
+    },
+    "attn0": {
+     "prog": 0.0,
+     "ce_site_live": 7.35824,
+     "kind": "attn"
+    },
+    "attn1": {
+     "prog": 7e-05,
+     "ce_site_live": 7.35818,
+     "kind": "attn"
+    },
+    "attn2": {
+     "prog": 0.00228,
+     "ce_site_live": 7.35597,
+     "kind": "attn"
+    },
+    "attn3": {
+     "prog": 0.00371,
+     "ce_site_live": 7.35454,
+     "kind": "attn"
+    },
+    "attn4": {
+     "prog": 0.01129,
+     "ce_site_live": 7.34696,
+     "kind": "attn"
+    },
+    "attn5": {
+     "prog": -0.08425,
+     "ce_site_live": 7.44249,
+     "kind": "attn"
+    },
+    "attn6": {
+     "prog": -0.01262,
+     "ce_site_live": 7.37086,
+     "kind": "attn"
+    },
+    "attn7": {
+     "prog": 0.03993,
+     "ce_site_live": 7.31832,
+     "kind": "attn"
+    },
+    "attn8": {
+     "prog": 0.07866,
+     "ce_site_live": 7.27959,
+     "kind": "attn"
+    },
+    "attn9": {
+     "prog": 0.00866,
+     "ce_site_live": 7.34959,
+     "kind": "attn"
+    },
+    "attn10": {
+     "prog": 0.04977,
+     "ce_site_live": 7.30848,
+     "kind": "attn"
+    },
+    "attn11": {
+     "prog": 0.05746,
+     "ce_site_live": 7.30079,
+     "kind": "attn"
+    },
+    "attn12": {
+     "prog": 0.05216,
+     "ce_site_live": 7.30609,
+     "kind": "attn"
+    },
+    "attn13": {
+     "prog": 0.18277,
+     "ce_site_live": 7.17547,
+     "kind": "attn"
+    },
+    "attn14": {
+     "prog": 0.2426,
+     "ce_site_live": 7.11565,
+     "kind": "attn"
+    },
+    "attn15": {
+     "prog": 0.145,
+     "ce_site_live": 7.21324,
+     "kind": "attn"
+    },
+    "attn16": {
+     "prog": 0.31049,
+     "ce_site_live": 7.04776,
+     "kind": "attn"
+    },
+    "attn17": {
+     "prog": 0.20562,
+     "ce_site_live": 7.15263,
+     "kind": "attn"
+    }
+   },
+   "spearman_prog_loo": 0.3704,
+   "spearman_prog_oat": -0.68726,
+   "top6_prog": [
+    "mlp17",
+    "mlp16",
+    "attn16",
+    "attn14",
+    "mlp15",
+    "attn17"
+   ],
+   "negative_prog": [
+    [
+     "attn5",
+     -0.08425
+    ],
+    [
+     "attn6",
+     -0.01262
+    ],
+    [
+     "mlp2",
+     -0.00059
+    ],
+    [
+     "mlp0",
+     -0.0003
+    ],
+    [
+     "mlp3",
+     -7e-05
+    ]
+   ]
+  }
+ },
+ "frozen_for_next_clean_role": [
+  "mlp17",
+  "mlp16",
+  "attn16",
+  "mlp15",
+  "attn14",
+  "attn17"
+ ],
+ "predictions": {
+  "pred_a_prog_tracks_loo_not_oat": true,
+  "pred_b_no_negative_importance": false,
+  "pred_c_controls": true,
+  "pred_d_front_band_dominates": false
+ },
+ "runtime_s": 111.1
+}

@@ -44049,3 +44049,53 @@ carries that caveat with it.
 The OAT column reproduced §1736's per-site removals to **0.0** deviation at every one of the 36 sites,
 and the joint stakes reproduced 4.3301 and 3.5570. The controls that could pass, passed; the one that
 failed, failed on my assumption rather than on the arithmetic.
+
+## §1738 — in program context the one-at-a-time importance ranking is INVERTED (Spearman −0.66), and the front band adds essentially nothing over its own tables
+
+`ops/importance_in_program_context.py`, 111.1s, **DISCOVERY ONLY** — same family as §1736/§1737,
+both large roles spent. Certifies nothing. **pred_a True | pred_b False | pred_c True | pred_d False.**
+
+Third importance definition, chosen because the first two disagree and both have a known defect:
+`PROG_i = CE(all 36 sites tabled) − CE(35 tabled, site i live)` — what a site adds over the best
+per-token stand-in for itself, in a context where every other site also has a stand-in rather than a
+constant, so the surviving site is not thrown off-distribution the way §1737's LOO throws it.
+
+```
+                     Spearman vs LOO    Spearman vs OAT
+  skip7000               +0.3488            -0.6636
+  skip11000              +0.3704            -0.6873
+
+  top 6 by PROG:   mlp17 .513  mlp16 .372  attn16 .313  mlp15 .233  attn14 .216  attn17 .200
+  top 5 by OAT (§1737):  mlp1, mlp0, mlp2, mlp3, mlp17
+```
+
+**pred_a passed far harder than its bar.** I predicted PROG would sit closer to LOO than to OAT. It
+does — but the number against OAT is **−0.66 and −0.69**. The one-at-a-time ranking is not merely
+uninformative about program context, it is **close to inverted**: the sites that look most important
+when ablated alone are among the least important once they and their neighbours have tables.
+
+**pred_d FAILED, and I wrote it so that failing was the informative outcome.** No two of mlp0–mlp3
+reach the top six; **mlp0, mlp2 and mlp3 are instead among the negative-PROG sites at ≈ −0.0003 to
+−0.0007 nats** — indistinguishable from zero. §1662 measured the front MLPs as the most tabular sites
+in the model (mlp0 90%, mlp1 96%), and that is exactly what this says from the other side: **a site
+whose own table reproduces it adds nothing over that table.** Tabularity and program-context
+importance are the same fact seen twice, which is the reading pred_d was written to test.
+
+The picture the three measures make together is coherent, and it matters for the compiler:
+
+> **The front MLPs dominate one-at-a-time ablation because removing them wrecks everything downstream
+> — not because they are hard to replace. They are the easiest sites in the model to replace. The
+> sites a program actually has to work for are LATE: mlp17, mlp16, attn16, mlp15, attn14, attn17.
+> An importance column built on one-at-a-time removal points a compiler at precisely the wrong band.**
+
+**pred_b FAILED, honestly reported.** The table context does not eliminate negative importance: five
+sites are negative on both roles. But the magnitudes collapse — worst is **attn5 at −0.052** against
+§1737's LOO worst of **mlp2 at −1.722**, roughly a 30x reduction, and three of the five are within
+0.0007 of zero. So a table neighbour removes most of the off-distribution penalty a constant
+neighbour creates, and does not remove all of it.
+
+**pred_c is the strongest control in this thread so far.** The 36-table program CE came out at
+**7.35114** against **7.3515** implied independently by `ops/circuit_audit`'s 5.5684-nat stake and
+27.10% table extraction for `_whole_model_program` — computed by different code, on a different run,
+from different intermediate quantities, agreeing to 4e-4. Fit coverage 5419 of 50257 exactly, as in
+every run in this thread.
