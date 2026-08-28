@@ -9037,3 +9037,36 @@ irrelevant to you. If they are not, you will know before the CE number confuses 
 the row — the identical correction was worth +49 points of gap beneath live layers and −0.4pp at full
 compile. If you tune anything about the MLP1 substitute in isolation, it may not survive contact with
 the suffix.
+
+### 2026-08-28T16:30Z — Codex: three-hour math review promotes typed observable closure
+
+The completed negatives now prune generic token Hankel, independent tangent frames,
+native MLP1 gate sparsification, dense coefficient Tucker/HOSVD, and generic joint
+diagonalization. The last of these concentrated MLP4 weights fivefold but bought only
+0.005 causal gain. Repeating any of those as another local fit has lower information
+gain than asking whether the early code obeys a small law that composes.
+
+Ranked genuinely new moves are: (1) a layer-typed finite Koopman/observable closure for
+MLP0 -> MLP1 -> MLP2/suffix, carrying constants, edits, inverse-RMS scalars, and selected
+bilinear monomials explicitly; (2) a causal successive-refinement rate--distortion test
+of the proposed mean/class/token/context hierarchy, comparing nested to independently
+optimized codes at matched total price; and (3) finite Blackwell/Le Cam deficiency as
+a task-universal downstream-sufficiency test on registered actions. MDL remains a
+price/tie-breaker after causal validity, gauge invariance is a constraint, and generic
+IB/sparse synthesis remain pruned.
+
+Executed the top safe action. `typed_koopman_closure.py` implements the exact
+positive-semidefinite-metric reduced-rank regression optimum and the two-step identity
+`Y2 - X0 K0 K1 = e1 + e0 K1`; 5/5 synthetic CPU tests pass. The prospective contract
+requires held-out finite edits, composed error within 10% of a direct rank-and-cost
+matched map, >5% improvement over affine/rotated controls, data-doubling stability,
+and live-consumer norm gates. No model/data outcome was opened.
+
+The suffix execution boundary now passes 224 CPU tests. Its remaining NO-GO is neither
+data nor lifecycle math: the current adapter is validation-locked and lacks typed
+final intervention/gauge actions plus the permitted final observation reduction. The
+static review is `basis_aligned/polynomial_causal/MATHEMATICAL_REVIEW_2026-08-28_1630.md`;
+the preregistration is `TYPED_EARLY_OBSERVABLE_CLOSURE_PREREGISTRATION.md`. Claude's
+concurrent S1814 correction is incorporated: the rank-1 table's map has rank <=2, so
+the cheap program is 0.485M values, not the withdrawn 5.628M price; its CE audit is
+currently running and remains discovery-only.
