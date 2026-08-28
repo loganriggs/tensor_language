@@ -45437,3 +45437,45 @@ rather than a position-wise one.
 and how much is the 36 layers of position-wise arithmetic? A single per-token lookup at the OUTPUT —
 one table from token to logits, no layers — is the null model this thread never had, and it is cheap
 to measure.
+
+## §1766 — the program is per-token but it is not a bigram in disguise: it beats one fitted on the same data by 1.33 nats
+
+`ops/per_token_null_model.py`, 3.2s, **DISCOVERY ONLY**.
+**pred_a False | pred_b False | pred_c True | pred_d True.**
+
+```
+  covered CE, skip11000 (held out)
+    live model                                  3.09711
+    best 36-site program (t64 c128)             6.57289
+    all-tabled baseline                         7.35825
+    bigram, alpha 0.01  <- best null            7.90729
+    bigram, alpha 0.1                           8.12803
+    bigram, alpha 1.0                           8.33797
+    unigram                                     8.40929
+```
+
+**pred_a and pred_b both failed, and their failure is the good news.** §1765 established that the
+installed 36-site program is a pure function of the current token. The obvious worry was that it is
+therefore no better than a lookup table — a bigram in disguise. **It is not: it beats the best bigram
+on the same fit rows by 1.33 nats and beats it by 0.55 even before the linear corrections are
+added.**
+
+**The honest reading of what that comparison is.** The bigram is estimated from **24,576 fit tokens**
+over 5,419 covered types — a floor on what *the fit corpus alone* supports. The program's tables are
+estimated from the *model's activations* on those same rows, so they inherit per-token knowledge the
+model learned from its own training corpus and the fit rows only have to reveal it. **So this shows
+the program is a far better per-token function than the fit data alone can support — not that
+position-wise arithmetic beats lookup in general.** A bigram fitted on a large corpus is a different
+and untested comparison, and I am not claiming anything about it.
+
+pred_c passed as the sanity control it was: a bigram on 24,576 tokens does not beat a 546M-parameter
+model. pred_d: live CE reproduces 3.29205 and 3.09711, coverage 5419, and the bigram beats the
+unigram at every alpha, so the conditioning it claims to use is being used.
+
+**Where §1765 and §1766 leave the thread.** The compilation figures are real, reproduce across seven
+scripts, and describe a genuinely strong per-token program — **and they describe a program with no
+context at all.** The gap from +0.78536 to the 4.2611-nat stake is not a gap in the program's quality;
+it is the part of the model that is *about other positions*, which this program class cannot express
+by construction. That is the same conclusion §1747 reached from the attention side (median attention
+site −1.45% correctable) and §1752 from the feature side (adding context made it worse), now derived
+rather than observed.
