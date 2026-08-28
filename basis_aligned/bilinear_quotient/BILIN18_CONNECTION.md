@@ -46734,3 +46734,48 @@ partitioned, the fit-bigram CE reproduced §1767 exactly, coverage was 5419. A r
 consistent in every respect and still be measuring the wrong object. **Cross-run reproduction of a
 previously published number is the only control that can catch a changed definition** — and it works
 only if the number comes from the earlier code path, not from a re-derivation inside the new one.
+
+## §1793 — it is coverage, not frequency: the program fails on common tokens absent from its fit set
+
+`ops/frequency_vs_coverage.py`, 48.2s, **DISCOVERY ONLY**, rung 3. **All four predictions True.**
+
+§1789 bucketed by the target's count in the FIT rows, and §1790/§1791 both rest on that split. The
+variable is confounded: a token absent from the fit rows is usually also rare in the world, so "the
+program cannot produce UNSEEN targets" and "the program cannot produce RARE targets" had never been
+distinguished. The cell that separates them is **frequent in a held-out corpus but absent from the fit
+rows**. Target frequency is estimated **leave-one-role-out** — scoring skip7000 ranks by skip11000 and
+skip1200, and so on — and the run asserts the scored role never appears in its own source.
+
+```
+                          n      live     prog    kept
+  skip7000   all      36864   39.32%   13.55%   34.5%
+    freq_uncovered      447   30.65%    0.45%    1.5%   <- rank<1000, fit-count 0
+    freq_covered      10589   61.46%   39.01%   63.5%   <- rank<1000, fit-count >=125
+    rare_any          13470   25.49%    0.85%    3.3%
+  skip11000  freq_uncovered  443   32.96%   0.45%    1.4%
+  skip1200   freq_uncovered  234   27.35%    0.00%    0.0%
+```
+
+**The two cells are matched on held-out frequency and differ only in fit coverage.** Across that
+single change the program moves from **0.45 / 0.45 / 0.00%** to **39.01 / 40.42 / 38.91%**, while the
+live model moves from **30.65 / 32.96 / 27.35%** to **61.46 / 64.31 / 61.37%** — a factor of two for
+the model against a factor of ~87 for the program. On skip7000's uncovered cell the program is right
+**2 times out of 447** where the model is right 137 times.
+
+**So §1789's tail is not "rare targets are hard".** It is "targets absent from the fit set are
+unreachable", and the two look identical only because the fit set is small. The program's limit on
+that quarter of positions is a **coverage** limit.
+
+**Honest scope.** The uncovered cells are small — 447 / 443 / 234 positions — because a token that is
+top-1000 in two eval roles is usually also present in 24,576 fit tokens. The contrast is nonetheless
+not marginal: 2 vs 137 hits on skip7000, 2 vs 146 on skip11000, 0 vs 64 on skip1200. pred_b existed
+precisely to rule out "the cell is simply unpredictable" and the live model clears 25% on all three.
+
+Controls (pred_d): overall top-1 reproduces §1789's published 0.1355 / 0.1425 / 0.1364 and 0.3932 /
+0.4235 / 0.3888 within 0.001 — the cross-run check LESSON 42 demands; the scored role is absent from
+its own frequency source; the three cells are pairwise disjoint and do not exceed the scored
+positions; coverage 5419.
+
+**Open question this ends on.** If the limit is coverage, it is a limit a bigger fit set moves and
+context is not required to move it — the opposite of what §1789 alone suggested. What does the
+frequent-but-uncovered cell do as coverage grows from 5,419 types?

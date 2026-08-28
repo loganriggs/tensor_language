@@ -1,0 +1,112 @@
+{
+ "config": {
+  "table_ranks": [
+   "full"
+  ],
+  "map_rank": 64,
+  "program": "context-free tables, output-NN fallback with a rank-64 embedding->row map -- the settled design of \u00a71780-\u00a71786",
+  "instruments": "top-1 agreement with the live model, top-1 accuracy against the true next token, and KL(live || program). All three are NEW to this thread, which has been CE-only since \u00a71747.",
+  "ROLE_NOTE": "DISCOVERY ONLY; a second-class confirmation with a DIFFERENT instrument, not a replication of the same one."
+ },
+ "results": {
+  "skip7000": {
+   "freq_uncovered": {
+    "acc_live": 0.30649,
+    "acc_prog": 0.00447,
+    "kept": 0.0146,
+    "n": 447
+   },
+   "freq_covered": {
+    "acc_live": 0.6146,
+    "acc_prog": 0.39012,
+    "kept": 0.63476,
+    "n": 10589
+   },
+   "rare_any": {
+    "acc_live": 0.25486,
+    "acc_prog": 0.00846,
+    "kept": 0.03321,
+    "n": 13470
+   },
+   "all": {
+    "acc_live": 0.3932,
+    "acc_prog": 0.13553,
+    "kept": 0.34467,
+    "n": 36864
+   }
+  },
+  "skip11000": {
+   "freq_uncovered": {
+    "acc_live": 0.32957,
+    "acc_prog": 0.00451,
+    "kept": 0.0137,
+    "n": 443
+   },
+   "freq_covered": {
+    "acc_live": 0.64309,
+    "acc_prog": 0.4042,
+    "kept": 0.62853,
+    "n": 10532
+   },
+   "rare_any": {
+    "acc_live": 0.30065,
+    "acc_prog": 0.01821,
+    "kept": 0.06056,
+    "n": 13840
+   },
+   "all": {
+    "acc_live": 0.42348,
+    "acc_prog": 0.1425,
+    "kept": 0.33649,
+    "n": 36864
+   }
+  },
+  "skip1200": {
+   "freq_uncovered": {
+    "acc_live": 0.2735,
+    "acc_prog": 0.0,
+    "kept": 0.0,
+    "n": 234
+   },
+   "freq_covered": {
+    "acc_live": 0.61372,
+    "acc_prog": 0.38912,
+    "kept": 0.63403,
+    "n": 5276
+   },
+   "rare_any": {
+    "acc_live": 0.25847,
+    "acc_prog": 0.01104,
+    "kept": 0.04272,
+    "n": 6612
+   },
+   "all": {
+    "acc_live": 0.38883,
+    "acc_prog": 0.13645,
+    "kept": 0.35091,
+    "n": 18432
+   }
+  }
+ },
+ "frequency_source": {
+  "skip7000": [
+   "skip11000",
+   "skip1200"
+  ],
+  "skip11000": [
+   "skip7000",
+   "skip1200"
+  ],
+  "skip1200": [
+   "skip7000",
+   "skip11000"
+  ]
+ },
+ "predictions": {
+  "pred_a_program_fails_on_frequent_uncovered": true,
+  "pred_b_live_succeeds_on_frequent_uncovered": true,
+  "pred_c_program_succeeds_on_frequent_covered": true,
+  "pred_d_controls": true
+ },
+ "runtime_s": 48.2
+}
