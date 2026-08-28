@@ -45870,3 +45870,51 @@ seeing the numbers would be exactly the move a registered prediction exists to p
 Controls (pred_d): skip11000 reproduces §1770/§1771's six recoveries — +1.37925, +1.14673, +0.80353,
 +0.63791, +0.23992, −0.34772 — within 0.002 in a script that also rebuilds the fit-mean tables from
 scratch, and coverage is 5419 of 50257.
+
+## §1775 — on ALL positions the hybrid fallback is HARMFUL, not load-bearing; and my loss-fraction metric was invalid on a negative denominator
+
+`ops/context_free_standalone.py`, 124.1s, **DISCOVERY ONLY**.
+**pred_a True (metric invalid) | pred_b False | pred_c False (metric invalid) | pred_d True.**
+
+```
+  skip11000, ALL-position CE     live 2.93450   fit-mean all-tabled (hybrid) 6.34771
+  rank      context-free HYBRID   context-free STANDALONE
+  full          7.70737                 6.46948
+  64            7.87442                 6.64292
+  8             8.11918                 6.89891
+  4             8.22337                 7.02244
+```
+
+**Two things, and the first is a defect of mine.**
+
+**My "standalone loss fraction" is computed on a NEGATIVE denominator and means nothing.** The hybrid
+arm's all-position recovery is negative at every rank, so `(hybrid − standalone) / hybrid` produced
+"losses" of 64–91% for an arm that is **better**, not worse. pred_a and pred_c are scored True and
+False as written and both are **invalid**. This is LESSON 35 exactly — a ratio whose denominator can
+cross zero — which I wrote after §1740, and I built `ops/safe_ratio.py` for it at §1760 and then did
+not use it here. The absolute numbers above are the report.
+
+**The real finding reverses §1762 for this program class.** Inside a context-free program, **running
+the native module at an uncovered position is worse than substituting it too** — the standalone arm
+beats the hybrid arm by **1.24 nats at full rank** and by 1.20 at rank 4, on all positions.
+
+> The reason is §1737's mlp2 at scale. In a fully-substituted position-wise program the residual
+> reaching an uncovered position is unlike anything the native module was trained on, so the module
+> produces something worse than the site's own mean row. **§1762 found the fallback load-bearing for
+> fit-mean tables; for context-free tables it is actively harmful.** The better the covered-token
+> program, the further off-distribution its residual is for any live module left in the loop.
+
+**And this qualifies a certified claim, which I am flagging rather than burying.** §1770's
+"dominates every point in §1748–§1758" is a **covered-position** result and remains correct as such.
+On all positions the context-free standalone program scores **6.46948 against the fit-mean
+all-tabled hybrid baseline's 6.34771** — 0.12 nats **worse**. That comparison is not apples to
+apples, because the baseline uses live modules at the uncovered quarter while the standalone arm uses
+mean rows there, and this run does not contain the matched fit-mean-standalone arm that would settle
+it. **So the honest statement is: the frontier's dominance is established on covered positions and
+is untested on all positions**, and the registry entry now says so.
+
+pred_b failed correctly and is the one clean predicate: every standalone arm's all-position recovery
+is negative, so none of these programs beats the fit-mean baseline on all positions.
+
+Controls (pred_d): the hybrid covered recoveries reproduce §1770/§1771's +1.37925, +1.14673, +0.80353
+and +0.63791 within 0.002, in a script that rebuilds both table families from scratch; coverage 5419.

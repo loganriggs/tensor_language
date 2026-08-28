@@ -1,0 +1,154 @@
+{
+ "config": {
+  "ranks": [
+   "None",
+   "64",
+   "8",
+   "4"
+  ],
+  "third_role": "fineweb_n96_skip1200 -- a pinned role, half the row count, never scored for a program-frontier quantity. It WAS the confirmation role for the token-class family in S1734, a different hypothesis, so this is a SECOND-CLASS confirmation and not a virgin role.",
+  "baseline": "each role's own fit-mean all-tabled CE, computed in-run because skip1200 has no published baseline",
+  "ROLE_NOTE": "DISCOVERY plus SECOND-CLASS CONFIRMATION."
+ },
+ "baseline": {
+  "skip7000": {
+   "live": 3.29205,
+   "live_all": 3.13704,
+   "all_tabled_fitmean": 7.35114,
+   "all_all": 6.42601
+  },
+  "skip11000": {
+   "live": 3.09711,
+   "live_all": 2.9345,
+   "all_tabled_fitmean": 7.35825,
+   "all_all": 6.34771
+  }
+ },
+ "by_table_rank": {
+  "full": {
+   "cost_M": 224.7782,
+   "hybrid_skip7000": {
+    "cov_ce": 6.03465,
+    "all_ce": 7.56827,
+    "cov_rec": 1.31649,
+    "all_rec": -1.14226
+   },
+   "hybrid_skip11000": {
+    "cov_ce": 5.979,
+    "all_ce": 7.70737,
+    "cov_rec": 1.37925,
+    "all_rec": -1.35966
+   },
+   "standalone_skip7000": {
+    "cov_ce": 6.03465,
+    "all_ce": 6.42143,
+    "cov_rec": 1.31649,
+    "all_rec": 0.00458
+   },
+   "standalone_skip11000": {
+    "cov_ce": 5.979,
+    "all_ce": 6.46948,
+    "cov_rec": 1.37925,
+    "all_rec": -0.12177
+   },
+   "standalone_all_loss_fraction": 0.91044
+  },
+  "64": {
+   "cost_M": 15.2225,
+   "hybrid_skip7000": {
+    "cov_ce": 6.25792,
+    "all_ce": 7.72864,
+    "cov_rec": 1.09322,
+    "all_rec": -1.30263
+   },
+   "hybrid_skip11000": {
+    "cov_ce": 6.21152,
+    "all_ce": 7.87443,
+    "cov_rec": 1.14673,
+    "all_rec": -1.52671
+   },
+   "standalone_skip7000": {
+    "cov_ce": 6.25792,
+    "all_ce": 6.59085,
+    "cov_rec": 1.09322,
+    "all_rec": -0.16484
+   },
+   "standalone_skip11000": {
+    "cov_ce": 6.21152,
+    "all_ce": 6.64292,
+    "cov_rec": 1.14673,
+    "all_rec": -0.29521
+   },
+   "standalone_all_loss_fraction": 0.80664
+  },
+  "8": {
+   "cost_M": 1.9754,
+   "hybrid_skip7000": {
+    "cov_ce": 6.58011,
+    "all_ce": 7.96489,
+    "cov_rec": 0.77103,
+    "all_rec": -1.53888
+   },
+   "hybrid_skip11000": {
+    "cov_ce": 6.55472,
+    "all_ce": 8.11918,
+    "cov_rec": 0.80352,
+    "all_rec": -1.77147
+   },
+   "standalone_skip7000": {
+    "cov_ce": 6.58011,
+    "all_ce": 6.83535,
+    "cov_rec": 0.77103,
+    "all_rec": -0.40934
+   },
+   "standalone_skip11000": {
+    "cov_ce": 6.55472,
+    "all_ce": 6.89892,
+    "cov_rec": 0.80352,
+    "all_rec": -0.5512
+   },
+   "standalone_all_loss_fraction": 0.68885
+  },
+  "4": {
+   "cost_M": 1.0292,
+   "hybrid_skip7000": {
+    "cov_ce": 6.73858,
+    "all_ce": 8.06688,
+    "cov_rec": 0.61256,
+    "all_rec": -1.64088
+   },
+   "hybrid_skip11000": {
+    "cov_ce": 6.72034,
+    "all_ce": 8.22337,
+    "cov_rec": 0.63791,
+    "all_rec": -1.87566
+   },
+   "standalone_skip7000": {
+    "cov_ce": 6.73858,
+    "all_ce": 6.9556,
+    "cov_rec": 0.61256,
+    "all_rec": -0.5296
+   },
+   "standalone_skip11000": {
+    "cov_ce": 6.72034,
+    "all_ce": 7.02245,
+    "cov_rec": 0.63791,
+    "all_rec": -0.67473
+   },
+   "standalone_all_loss_fraction": 0.64027
+  }
+ },
+ "standalone_loss_fraction": {
+  "full": 0.91044,
+  "64": 0.80664,
+  "8": 0.68885,
+  "4": 0.64027
+ },
+ "predictions": {
+  "pred_a_context_free_survives_standalone": true,
+  "pred_b_standalone_stays_positive": false,
+  "pred_c_loss_larger_at_starved_rank": false,
+  "pred_d_controls": true
+ },
+ "runtime_s": 124.1
+}
