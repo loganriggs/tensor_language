@@ -1,9 +1,9 @@
 """Document-block mappings for suffix-transport shuffled and A-null controls.
 
 This module constructs and validates the only legal relation between a student fit
-batch and a false-pairing teacher batch.  It does not execute a model or expose a
-teacher capability.  A later mapped broker must consume :class:`MappedRunContext`
-instead of accepting a control name or arbitrary target tensor from a runner.
+batch and a false-pairing teacher batch.  :class:`MappedRunContext` is the authority
+consumed by the mapped broker; model execution remains inside that sealed broker and
+the observed adapter rather than exposing a teacher tensor to a runner.
 """
 
 from __future__ import annotations
@@ -166,7 +166,7 @@ def build_document_block_plan(
 
 
 @dataclass(frozen=True)
-class MappedRunContext:
+class MappedRunContext(capabilities.MappedRunAuthority):
     """Bind one control plan to the sealed fit role and exact target token batches."""
 
     base: capabilities.RunContext
@@ -178,10 +178,20 @@ class MappedRunContext:
         ) or self.plan.row_count != self.base.fit_row_count:
             raise ValueError("mapped run context differs from the sealed fit role")
 
-    def require_identity(
-        self, identity: runtime.TraceIdentity, *, fit_rows: torch.Tensor,
-        student_inputs: torch.Tensor, student_indices: Sequence[int],
-        teacher_inputs: torch.Tensor, teacher_indices: Sequence[int],
+    @property
+    def base_context(self) -> capabilities.RunContext:
+        return self.base
+
+    @property
+    def sha256(self) -> str:
+        return runtime.logical_identity_sha256({
+            "base_context_sha256": self.base.sha256,
+            "document_block_plan_sha256": self.plan.sha256,
+        })
+
+    def require_source_identity(
+        self, identity: runtime.TraceIdentity, student_inputs: torch.Tensor,
+        student_indices: Sequence[int],
     ) -> None:
         self.base.require_common_identity(identity, student_inputs, student_indices)
         if identity.phase != "fit" or identity.control != self.plan.control or (
@@ -193,6 +203,13 @@ class MappedRunContext:
                 raise RuntimeError("document shuffle is not licensed for this route")
         elif identity.route != "T":
             raise RuntimeError("A-null mapping is licensed only for T")
+
+    def require_identity(
+        self, identity: runtime.TraceIdentity, *, fit_rows: torch.Tensor,
+        student_inputs: torch.Tensor, student_indices: Sequence[int],
+        teacher_inputs: torch.Tensor, teacher_indices: Sequence[int],
+    ) -> None:
+        self.require_source_identity(identity, student_inputs, student_indices)
         if not torch.is_tensor(fit_rows) or fit_rows.device.type != "cpu" or (
             fit_rows.dtype != torch.long
         ) or tuple(fit_rows.shape) != (

@@ -8,6 +8,7 @@ import torch
 
 import early_mlp_suffix_transport_v1_capabilities as capabilities
 import early_mlp_suffix_transport_v1_fit as fit
+import early_mlp_suffix_transport_v1_mapped as mapped
 import early_mlp_suffix_transport_v1_runtime as runtime
 
 
@@ -116,6 +117,38 @@ class _Adapter:
         return _Result(program=broker.program, denominator=False, ledger="c" * 64)
 
 
+class _MappedBroker:
+    def __init__(self, context) -> None:
+        self.context = context
+        self.program = None
+        self.identities = []
+
+    def begin_student(self, identity, hook, inputs, indices):
+        self.context.require_source_identity(identity, inputs, indices)
+        self.program = hook.program
+        self.identities.append(identity)
+        return object()
+
+
+class _MappedAdapter(_Adapter):
+    def __init__(self, context) -> None:
+        self.context = context
+        self.pairs = []
+
+    def run_mapped_oon_teacher(
+        self, *, broker, identity, step, fit_rows, student_tokens,
+        student_indices, teacher_tokens, teacher_indices,
+    ):
+        del step
+        self.context.require_identity(
+            identity, fit_rows=fit_rows, student_inputs=student_tokens,
+            student_indices=student_indices, teacher_inputs=teacher_tokens,
+            teacher_indices=teacher_indices,
+        )
+        self.pairs.append((tuple(student_indices), tuple(teacher_indices)))
+        return _Result(program=broker.program, denominator=False, ledger="d" * 64)
+
+
 def test_schedule_and_identity_bind_program_before_forward(monkeypatch) -> None:
     monkeypatch.setattr(capabilities, "FIT_ROW_COUNT", 8)
     monkeypatch.setattr(capabilities, "FIT_BATCHES_PER_EPOCH", 2)
@@ -202,4 +235,47 @@ def test_fit_rows_and_loss_families_fail_closed(monkeypatch) -> None:
         fit.run_true_fit_trial(
             rows=rows, context=context, program=_program("S0"), route="S0", trial=0,
             denominators=(1.0, 1.0), adapter=_Adapter(), broker=_Broker(context), hook=_Hook(),
+        )
+
+
+def test_document_shuffle_fit_owns_exact_source_target_schedule(monkeypatch) -> None:
+    monkeypatch.setattr(capabilities, "FIT_ROW_COUNT", runtime.BATCH_SIZE)
+    monkeypatch.setattr(capabilities, "FIT_BATCHES_PER_EPOCH", 1)
+    monkeypatch.setattr(runtime, "EPOCHS", 1)
+    rows = torch.arange(
+        runtime.BATCH_SIZE * 513, dtype=torch.long,
+    ).view(runtime.BATCH_SIZE, 513)
+    base = _context(rows)
+    records = [{
+        "document_id": f"doc-{index}", "dataset_document_index": index,
+        "chunk_id": 0, "token_start": 0,
+    } for index in range(runtime.BATCH_SIZE)]
+    plan = mapped.build_document_block_plan(records, control="document_shuffle")
+    context = mapped.MappedRunContext(base=base, plan=plan)
+    adapter, broker = _MappedAdapter(context), _MappedBroker(context)
+
+    candidate = fit.run_document_shuffle_fit_trial(
+        rows=rows, context=context, program=_program("S1"), route="S1", trial=1,
+        adapter=adapter, broker=broker, hook=_Hook(),
+    )
+
+    assert isinstance(candidate, fit.MappedFitCandidate)
+    assert not isinstance(candidate, fit.FitCandidate)
+    assert candidate.control == "document_shuffle"
+    assert candidate.mapping_sha256 == plan.sha256
+    assert candidate.completed_steps == 1
+    identity = broker.identities[0]
+    assert identity.control == "document_shuffle" and identity.route == "S1"
+    assert identity.teacher_mapping_sha256 == plan.sha256
+    source_indices, target_indices = adapter.pairs[0]
+    assert target_indices == plan.target_indices(source_indices)
+    assert all(
+        plan.source_documents[source] != plan.source_documents[target]
+        for source, target in zip(source_indices, target_indices, strict=True)
+    )
+
+    with pytest.raises(ValueError, match="route/trial/program"):
+        fit.run_document_shuffle_fit_trial(
+            rows=rows, context=context, program=_program("L"), route="L", trial=0,
+            adapter=adapter, broker=broker, hook=_Hook(),
         )

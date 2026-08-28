@@ -196,3 +196,58 @@ def test_adapter_factory_owns_native_broker_binding() -> None:
     )
     assert isinstance(broker, capabilities.CapabilityBroker)
     assert broker.issuer_id == "6" * 64
+
+    class Authority(capabilities.MappedRunAuthority):
+        @property
+        def base_context(self):
+            return context
+
+        @property
+        def sha256(self):
+            return "7" * 64
+
+        def require_source_identity(self, identity, student_inputs, student_indices):
+            raise AssertionError("construction must not execute mapping authority")
+
+        def require_identity(self, identity, **kwargs):
+            raise AssertionError("construction must not execute mapping authority")
+
+    mapped_broker = adapter.make_mapped_capability_broker(
+        issuer_id="8" * 64, coordinator=runtime.ScopeCoordinator(),
+        mapped_context=Authority(), bases=bases,
+    )
+    assert isinstance(mapped_broker, capabilities.CapabilityBroker)
+    assert mapped_broker.ledger_snapshot.run_context_sha256 == "7" * 64
+
+
+def test_adapter_delegates_mapped_teacher_without_releasing_logits() -> None:
+    adapter = observed.ObservedBilin18Adapter(tiny_model(), FakeShip(), production=False)
+
+    class Broker:
+        def __init__(self):
+            self.kwargs = None
+
+        def run_mapped_oon_teacher(self, identity, step, **kwargs):
+            self.kwargs = {"identity": identity, "step": step, **kwargs}
+            return "sealed-result"
+
+    broker = Broker()
+    tensors = {
+        "fit_rows": torch.zeros((4, 513), dtype=torch.long),
+        "student_tokens": torch.ones((4, 256), dtype=torch.long),
+        "teacher_tokens": torch.full((4, 256), 2, dtype=torch.long),
+    }
+    result = adapter.run_mapped_oon_teacher(
+        broker=broker, identity="identity", step="step",
+        student_indices=(0, 1, 2, 3), teacher_indices=(3, 2, 1, 0), **tensors,
+    )
+    assert result == "sealed-result"
+    assert broker.kwargs == {
+        "identity": "identity", "step": "step",
+        "fit_rows": tensors["fit_rows"],
+        "student_inputs": tensors["student_tokens"],
+        "student_indices": (0, 1, 2, 3),
+        "teacher_inputs": tensors["teacher_tokens"],
+        "teacher_indices": (3, 2, 1, 0),
+        "autonomous_forward": adapter._autonomous_oon_forward,
+    }

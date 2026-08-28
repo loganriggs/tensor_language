@@ -1,6 +1,7 @@
 # Current strategic update: bilin18 reverse engineering
 
-Last updated: 2026-08-28 after the held-out feature replication and circuit-screen audit.
+Last updated: 2026-08-28 04:59 UTC after mapped suffix execution and the
+program-context importance result.
 
 ## Bottom line
 
@@ -256,6 +257,119 @@ for the graph identity under the declared source-closed adapter boundary. No fre
 teacher or suffix scientific outcome was loaded by these repairs, so suffix-transport
 execution remains explicitly NO-GO until the observed adapter is source-closed and
 independently audited.
+
+## 04:59 UTC hourly checkpoint: a real mapped teacher and a better global target
+
+The explanatory balances have not moved: structural inventory remains 36/36, named
+behavior remains $32.1\%\pm6.4\%$, named causal recovery remains $10.923\%$, and
+strict current-ship executable recovery remains $0\%$ of the $+0.8976$ CE gap. No
+scientific suffix row has been exposed. What changed is the executable boundary and
+the evidence about which sites deserve the next compiler budget.
+
+### Highest-priority action executed
+
+Document-shuffled R/S training now has a source-closed execution path. A separately
+constructed mapped broker:
+
+1. binds its ledger to both the base run context and the exact document-block plan;
+2. authorizes the source tokens and registered optimizer schedule before the P/P/N
+   student forward;
+3. validates the complete frozen fit tensor, exact mapped target indices, and exact
+   target tokens before spending the one-use student trace;
+4. runs the autonomous O/O/N teacher only on those target tokens; and
+5. returns only a sealed loss capability, with teacher parameters detached and the
+   native MLP0/1 call ledger closed exactly.
+
+The ordinary broker cannot be repurposed for mapped execution, and a mapped broker
+cannot enter the ordinary OON route. A mutated target batch is rejected before trace
+consumption and can be followed by the valid target transaction. The fit owner now
+runs the complete deterministic document-shuffled R/S optimizer schedule and returns
+a distinct `MappedFitCandidate`; this type is deliberately ineligible for true-row
+candidate selection. A-null/T remains closed because its false-paired object is an
+upstream parent code, not a target-token O/O/N teacher. Shuffled-L remains closed
+because it needs native coordinate labels at the mapped target trajectory states.
+
+The full suffix/facade/ship boundary suite passes 170/170 in 46.27 seconds. This is
+execution capability, not a numerical result; publication, calibration, the final
+evaluator, mapped-L, and A-null/T still keep the scientific lifecycle NO-GO.
+
+### New compositional evidence
+
+The site-ranking problem is more severe than the earlier stack-level scale correction
+showed. One-at-a-time ablation importance and leave-one-out importance have Spearman
+correlation only 0.026/0.011 on the two large FineWeb roles. More importantly, a
+program-context estimand—how much a live site improves over its own token table while
+all other sites also use their tables—is strongly *anti-correlated* with one-at-a-time
+importance: $-0.664/-0.687$. The stable top six are MLP17, MLP16, attention16, MLP15,
+attention14, and attention17. Front MLP0--3 add approximately zero over their tables
+in this particular all-tabled context, even though their one-at-a-time ablations are
+large; the latter mainly measure how badly an isolated upstream removal corrupts the
+live downstream stack.
+
+This alternative complexity/importance definition has now passed a direct consequence
+test. At a matched budget of six native sites, the program-context ranking recovers
+1.016/1.038 nats from the all-tabled program on `skip7000`/`skip11000`, versus
+0.519/0.521 for the one-at-a-time ranking and 0.815/0.840 for the best of eight frozen
+random draws. The committed S1739 artifact is not strict current-ship recovery, but
+it is concrete evidence that the definition supports a better constrained program
+rather than merely producing a nicer description.
+
+The subsequent discovery-only budget curve has also completed at
+$K\in\{2,3,6,9,12\}$. Program-context allocation beats one-at-a-time allocation at
+every budget on both roles. At K=2 and K=3 the conventional ranking is slightly
+harmful while the program ranking recovers about 0.30 and 0.64 nats; at K=12 the
+program ranking recovers 1.259/1.281 nats, about 31.0%/30.1% of the all-tabled stake,
+versus 0.667/0.676 for one-at-a-time. There is no preregistered clean knee: the
+largest marginal jump is from K=2 to K=3, then marginal return declines through
+K=12. Because both large roles are spent for this family, the curve freezes a useful
+allocation policy but does not confirm it on a new role.
+
+A separate provisional SNR replication does *not* support SNR as a semantic-share
+ranking: Spearman rho is 0.079 with $p=0.836$. It does reproduce the predicted
+$1/\sqrt n$ shuffled noise-floor law (rho 0.988) and places all ten class deviations
+above shuffled controls. The right interpretation is therefore “the deviations are
+real but SNR does not order their semantic importance,” not “the semantic classes
+vanished.”
+
+### Largest remaining gaps
+
+1. The suffix family still has no published true-row fit, validation numerator,
+   calibrated final test, or strict current-ship contribution.
+2. Shuffled-L target-state coordinate labels and A-null/T false-paired parent codes
+   are not executable, so the strongest causal controls for the early interface are
+   absent.
+3. The all-tabled program loses roughly four nats, and the newly identified late
+   residual sites do not yet have tensor programs adequate in program context.
+4. Attention routing and attention value/content remain insufficiently separated;
+   no typed late-attention compiler composes with the MLP programs.
+5. There is no admitted cross-stack factorial result, genuine second-distribution
+   OOD result, or selective extraction/removal result with collateral bounds.
+
+### Pruned top five
+
+1. **Finish the suffix lifecycle through mapped-L, A-null/T, publication,
+   calibration, and final evaluation.** It is closest to a preregistered executable
+   answer and directly tests whether a suffix-relative rank-64 gauge is more useful
+   than local reconstruction. The remaining work is bounded and falsifiable.
+2. **Confirm the frozen program-context allocation on a clean role, then use it for
+   the next fixed compiler budget.** The advantage holds at every tested budget from
+   2 to 12 on both spent roles, with diminishing returns after the K=3 jump; a new
+   role is now more informative than another discovery-budget sweep.
+3. **Compile MLP17/16/15 conditional on their actual upstream program interfaces.**
+   They are the largest stable residuals under the consequence-validated ranking and
+   are more relevant to whole-program fidelity than another front-MLP local sweep.
+4. **Build typed routing/value programs for attention16/14/17.** These are the
+   attention sites that remain valuable in program context; routing-only rank curves
+   and one-at-a-time site scans are pruned as insufficient.
+5. **Run an attention × early-MLP × late-program factorial cube on one common
+   current-ship denominator.** The confirmed MLP redundancy and attention cooperation
+   make additive accounting invalid; this is the first composition test capable of
+   earning strict whole-model recovery.
+
+Repeated hard token clustering, more SNR-derived semantic rankings, unconditioned
+local reconstruction sweeps, and additional one-at-a-time ablation rankings are
+pruned. They are now empirically redundant with weaker definitions and do not close
+the causal or compositional interfaces.
 
 ## 04:24 UTC hourly checkpoint: from adapter closure to a numerical consumer
 

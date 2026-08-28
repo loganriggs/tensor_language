@@ -7,9 +7,11 @@ states may reach only the coordinate teacher; an autonomous O/O/N teacher receiv
 only tokens and a scope-revoked original-call gateway. A sealed model adapter must
 later replace synthetic call/restoration assertions before any real run is legal.
 
-This slice intentionally licenses only ``control=true``. Document-shuffled labels
-and A-null parent pairings need a separate source-closed mapped-row capability; their
-hashes must not be decorative metadata on this interface.
+An ordinary broker intentionally licenses only ``control=true``.  A broker may
+instead be constructed with a separately implemented :class:`MappedRunAuthority`;
+that mode is source-closed, uses a mapping-bound ledger identity, and exposes only
+the mapped OON entry point implemented in this slice.  Mapping hashes therefore
+cannot be decorative metadata on the ordinary interface.
 """
 
 from __future__ import annotations
@@ -123,6 +125,37 @@ class RunContext:
             expected = tuple(int(value) for value in permutation[start:start + runtime.BATCH_SIZE])
         if indices != expected:
             raise RuntimeError("ordered fit batch differs from the preregistered schedule")
+
+
+class MappedRunAuthority:
+    """Narrow interface a separate mapped-row module must implement.
+
+    The capability module deliberately knows nothing about how document blocks are
+    constructed.  It does insist that a mapped authority bind the same base role,
+    authorize the source before the student forward, and authorize the exact target
+    tokens before a teacher trace can be spent.
+    """
+
+    @property
+    def base_context(self) -> RunContext:
+        raise NotImplementedError
+
+    @property
+    def sha256(self) -> str:
+        raise NotImplementedError
+
+    def require_source_identity(
+        self, identity: runtime.TraceIdentity, student_inputs: torch.Tensor,
+        student_indices: Sequence[int],
+    ) -> None:
+        raise NotImplementedError
+
+    def require_identity(
+        self, identity: runtime.TraceIdentity, *, fit_rows: torch.Tensor,
+        student_inputs: torch.Tensor, student_indices: Sequence[int],
+        teacher_inputs: torch.Tensor, teacher_indices: Sequence[int],
+    ) -> None:
+        raise NotImplementedError
 
 
 @dataclass(frozen=True)
@@ -742,8 +775,9 @@ class CapabilityBroker:
 
     __slots__ = (
         "__bases", "__basis_sha256", "__completed_identities", "__coordinator",
-        "__issuer_id", "__native_calls", "__outstanding_identity_sha256",
-        "__rolling_ledger_sha256", "__run_context", "__sealed",
+        "__issuer_id", "__mapped_authority", "__native_calls",
+        "__outstanding_identity_sha256", "__rolling_ledger_sha256",
+        "__run_context", "__run_context_sha256", "__sealed",
         "__student_identities", "__teacher_identities",
     )
 
@@ -751,6 +785,7 @@ class CapabilityBroker:
         self, *, issuer_id: str, coordinator: runtime.ScopeCoordinator,
         run_context: RunContext, bases: Mapping[int, torch.Tensor],
         native_calls: Mapping[int, Callable[[torch.Tensor], torch.Tensor]],
+        mapped_authority: MappedRunAuthority | None = None,
     ) -> None:
         object.__setattr__(self, "_CapabilityBroker__sealed", False)
         if not runtime._sha256_text(issuer_id) or not isinstance(
@@ -759,9 +794,19 @@ class CapabilityBroker:
             native_calls
         ) != {0, 1}:
             raise ValueError("capability broker construction is malformed")
+        if mapped_authority is not None and (
+            not isinstance(mapped_authority, MappedRunAuthority)
+            or mapped_authority.base_context != run_context
+            or not runtime._sha256_text(mapped_authority.sha256)
+        ):
+            raise ValueError("mapped authority differs from the sealed run context")
         self.__issuer_id = issuer_id
         self.__coordinator = coordinator
         self.__run_context = run_context
+        self.__mapped_authority = mapped_authority
+        self.__run_context_sha256 = (
+            run_context.sha256 if mapped_authority is None else mapped_authority.sha256
+        )
         self.__bases = {}
         for site in (0, 1):
             basis = bases[site].detach().cpu().float().contiguous().clone()
@@ -801,7 +846,7 @@ class CapabilityBroker:
         def digest(values: set[str]) -> str:
             return runtime.logical_identity_sha256(sorted(values))
         return LedgerSnapshot(
-            run_context_sha256=self.__run_context.sha256,
+            run_context_sha256=self.__run_context_sha256,
             student_identity_count=len(self.__student_identities),
             teacher_identity_count=len(self.__teacher_identities),
             completed_identity_count=len(self.__completed_identities),
@@ -816,7 +861,18 @@ class CapabilityBroker:
         self, identity: runtime.TraceIdentity, hook: runtime.StudentCorrectionHook,
         inputs: torch.Tensor, ordered_batch_indices: Sequence[int],
     ) -> StudentSession:
-        self.__run_context.require_identity(identity, inputs, ordered_batch_indices)
+        if self.__mapped_authority is None:
+            self.__run_context.require_identity(identity, inputs, ordered_batch_indices)
+        else:
+            if identity.teacher_kind != "oon_logits" or identity.control != (
+                "document_shuffle"
+            ) or identity.route not in {"R", "S0", "S1"}:
+                raise RuntimeError(
+                    "mapped broker currently licenses only document-shuffled R/S OON"
+                )
+            self.__mapped_authority.require_source_identity(
+                identity, inputs, ordered_batch_indices,
+            )
         if identity.sha256 in self.__student_identities:
             raise RuntimeError("student logical identity is duplicated")
         if self.__outstanding_identity_sha256 is not None:
@@ -859,6 +915,8 @@ class CapabilityBroker:
     def run_coordinate_teacher(
         self, identity: runtime.TraceIdentity, step: StudentStep,
     ) -> CoordinateTeacherResult:
+        if self.__mapped_authority is not None:
+            raise RuntimeError("mapped coordinate execution is not implemented")
         if identity.teacher_kind != "coordinate_labels":
             raise RuntimeError("coordinate capability received a non-coordinate identity")
         step._require_available(issuer_id=self.issuer_id, identity=identity)
@@ -920,9 +978,45 @@ class CapabilityBroker:
         self, identity: runtime.TraceIdentity, step: StudentStep, inputs: torch.Tensor,
         autonomous_forward: Callable[[Any, torch.Tensor], tuple[torch.Tensor, Mapping[str, Any]]],
     ) -> OONTeacherResult:
+        if self.__mapped_authority is not None:
+            raise RuntimeError("mapped broker requires the mapped OON entry point")
         if identity.teacher_kind != "oon_logits":
             raise RuntimeError("OON capability received a non-OON identity")
         identity.require_inputs(inputs)
+        return self._run_oon_teacher_after_authority(
+            identity, step, inputs, autonomous_forward,
+        )
+
+    def run_mapped_oon_teacher(
+        self, identity: runtime.TraceIdentity, step: StudentStep, *,
+        fit_rows: torch.Tensor, student_inputs: torch.Tensor,
+        student_indices: Sequence[int], teacher_inputs: torch.Tensor,
+        teacher_indices: Sequence[int],
+        autonomous_forward: Callable[[Any, torch.Tensor], tuple[torch.Tensor, Mapping[str, Any]]],
+    ) -> OONTeacherResult:
+        """Execute an O/O/N teacher on the one plan-authorized target batch."""
+
+        if self.__mapped_authority is None:
+            raise RuntimeError("ordinary broker cannot execute a mapped OON teacher")
+        if identity.teacher_kind != "oon_logits" or identity.control != (
+            "document_shuffle"
+        ) or identity.route not in {"R", "S0", "S1"}:
+            raise RuntimeError(
+                "mapped broker currently licenses only document-shuffled R/S OON"
+            )
+        self.__mapped_authority.require_identity(
+            identity, fit_rows=fit_rows, student_inputs=student_inputs,
+            student_indices=student_indices, teacher_inputs=teacher_inputs,
+            teacher_indices=teacher_indices,
+        )
+        return self._run_oon_teacher_after_authority(
+            identity, step, teacher_inputs, autonomous_forward,
+        )
+
+    def _run_oon_teacher_after_authority(
+        self, identity: runtime.TraceIdentity, step: StudentStep, inputs: torch.Tensor,
+        autonomous_forward: Callable[[Any, torch.Tensor], tuple[torch.Tensor, Mapping[str, Any]]],
+    ) -> OONTeacherResult:
         step._require_available(issuer_id=self.issuer_id, identity=identity)
         self._spend_teacher_identity(identity)
         trace, outputs = step._take(issuer_id=self.issuer_id, identity=identity)

@@ -124,6 +124,27 @@ class ObservedBilin18Adapter:
         modules to a CPU-state capability or inventing a second native-call path.
         """
 
+        return self._make_capability_broker(
+            issuer_id=issuer_id, coordinator=coordinator,
+            run_context=run_context, bases=bases, mapped_authority=None,
+        )
+
+    def make_mapped_capability_broker(
+        self, *, issuer_id: str, coordinator: runtime.ScopeCoordinator,
+        mapped_context: Any, bases: dict[int, torch.Tensor],
+    ) -> Any:
+        """Construct a mapping-bound broker without exposing native model calls."""
+
+        return self._make_capability_broker(
+            issuer_id=issuer_id, coordinator=coordinator,
+            run_context=mapped_context.base_context, bases=bases,
+            mapped_authority=mapped_context,
+        )
+
+    def _make_capability_broker(
+        self, *, issuer_id: str, coordinator: runtime.ScopeCoordinator,
+        run_context: Any, bases: dict[int, torch.Tensor], mapped_authority: Any,
+    ) -> Any:
         import early_mlp_suffix_transport_v1_capabilities as capabilities
 
         try:
@@ -153,6 +174,7 @@ class ObservedBilin18Adapter:
             run_context=run_context,
             bases=bases,
             native_calls={site: native(site) for site in CORRECTION_SITES},
+            mapped_authority=mapped_authority,
         )
 
     def run_student(
@@ -270,6 +292,21 @@ class ObservedBilin18Adapter:
 
         return broker.run_oon_teacher(
             identity, step, tokens, self._autonomous_oon_forward,
+        )
+
+    def run_mapped_oon_teacher(
+        self, *, broker: Any, identity: runtime.TraceIdentity, step: Any,
+        fit_rows: torch.Tensor, student_tokens: torch.Tensor,
+        student_indices: Any, teacher_tokens: torch.Tensor,
+        teacher_indices: Any,
+    ) -> Any:
+        """Run a plan-authorized target-token teacher without releasing its logits."""
+
+        return broker.run_mapped_oon_teacher(
+            identity, step, fit_rows=fit_rows, student_inputs=student_tokens,
+            student_indices=student_indices, teacher_inputs=teacher_tokens,
+            teacher_indices=teacher_indices,
+            autonomous_forward=self._autonomous_oon_forward,
         )
 
     def _autonomous_oon_forward(self, gateway: Any, tokens: torch.Tensor):

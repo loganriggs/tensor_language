@@ -1,7 +1,8 @@
 """Deterministic numerical fit orchestration for suffix-transport v1.
 
-This module is the sole owner of the initial Q denominator pass and the true-row
-L/R/S0/S1 optimization loops.  It deliberately performs no row loading, model
+This module is the sole owner of the initial Q denominator pass, the true-row
+L/R/S0/S1 optimization loops, and document-shuffled R/S negative controls.  It
+deliberately performs no row loading, model
 loading, validation selection, artifact publication, or final scoring.  Callers
 must supply the already validated fit role, inherited program, observed adapter,
 sealed capability broker, and student hook.
@@ -21,6 +22,7 @@ from typing import Any, Mapping, Sequence
 import torch
 
 import early_mlp_suffix_transport_v1_capabilities as capabilities
+import early_mlp_suffix_transport_v1_mapped as mapped
 import early_mlp_suffix_transport_v1_runtime as runtime
 import early_mlp_suffix_transport_v1_rows as row_contract
 
@@ -30,6 +32,7 @@ TRUE_FIT_ROUTES = ("L", "R", "S0", "S1")
 # true-row schedule and OON loss surface, but is deliberately excluded from the
 # pre-selection objective-route bank above.
 ALL_TRUE_FIT_ROUTES = (*TRUE_FIT_ROUTES, "T")
+DOCUMENT_SHUFFLE_ROUTES = ("R", "S0", "S1")
 STUDENT_STATES = ((0, "P"), (1, "P"), (2, "N"))
 
 
@@ -100,6 +103,37 @@ def make_identity(
         teacher_mapping_sha256=context.identity_teacher_mapping_sha256,
         phase=phase, route=route, control="true", teacher_kind=teacher_kind,
         trial=trial, epoch=epoch, optimizer_step=optimizer_step,
+        batch_ordinal=batch_ordinal, student_states=STUDENT_STATES,
+    )
+
+
+def make_document_shuffle_identity(
+    *, context: mapped.MappedRunContext, program: runtime.JointAffineProgram,
+    inputs: torch.Tensor, indices: Sequence[int], route: str, trial: int,
+    epoch: int, batch_ordinal: int,
+) -> runtime.TraceIdentity:
+    """Bind one source batch to the frozen document-shuffle plan before execution."""
+
+    if not isinstance(context, mapped.MappedRunContext) or context.plan.control != (
+        "document_shuffle"
+    ) or route not in DOCUMENT_SHUFFLE_ROUTES or program.route != route:
+        raise ValueError("document-shuffle fit identity is malformed")
+    expected = scheduled_indices(
+        phase="fit", trial=trial, epoch=epoch, batch_ordinal=batch_ordinal,
+    )
+    if tuple(indices) != expected:
+        raise RuntimeError("caller batch differs from the preregistered schedule")
+    return runtime.TraceIdentity.from_inputs(
+        inputs=inputs, ordered_batch_indices=indices,
+        source_commit=context.base.source_commit,
+        inherited_snapshot_sha256=context.base.inherited_snapshot_sha256,
+        rows_receipt_sha256=context.base.rows_receipt_sha256,
+        fit_role_tensor_sha256=context.base.fit_role_tensor_sha256,
+        program_snapshot_sha256=runtime.program_snapshot_sha256(program),
+        teacher_mapping_sha256=context.plan.sha256, phase="fit", route=route,
+        control="document_shuffle", teacher_kind="oon_logits", trial=trial,
+        epoch=epoch,
+        optimizer_step=epoch * capabilities.FIT_BATCHES_PER_EPOCH + batch_ordinal,
         batch_ordinal=batch_ordinal, student_states=STUDENT_STATES,
     )
 
@@ -238,6 +272,24 @@ class FitCandidate:
     state_dict: Mapping[str, torch.Tensor]
 
 
+@dataclass(frozen=True)
+class MappedFitCandidate:
+    """One negative-control trajectory, ineligible for true-row selection."""
+
+    control: str
+    mapping_sha256: str
+    route: str
+    trial: int
+    learning_rate: float
+    completed_steps: int
+    loss_sum: float
+    loss_min: float
+    loss_max: float
+    final_program_sha256: str
+    transaction_history_sha256: str
+    state_dict: Mapping[str, torch.Tensor]
+
+
 def run_true_fit_trial(
     *, rows: torch.Tensor, context: capabilities.RunContext,
     program: runtime.JointAffineProgram, route: str, trial: int,
@@ -302,6 +354,81 @@ def run_true_fit_trial(
         for name, value in sorted(program.state_dict().items())
     })
     return FitCandidate(
+        route=route, trial=trial, learning_rate=learning_rate,
+        completed_steps=len(losses), loss_sum=float(sum(losses)),
+        loss_min=float(min(losses)), loss_max=float(max(losses)),
+        final_program_sha256=runtime.program_snapshot_sha256(program),
+        transaction_history_sha256=runtime.logical_identity_sha256(history),
+        state_dict=state,
+    )
+
+
+def run_document_shuffle_fit_trial(
+    *, rows: torch.Tensor, context: mapped.MappedRunContext,
+    program: runtime.JointAffineProgram, route: str, trial: int,
+    adapter: Any, broker: capabilities.CapabilityBroker,
+    hook: runtime.StudentCorrectionHook,
+    device: torch.device | str | None = None,
+) -> MappedFitCandidate:
+    """Fit one document-shuffled R/S control through the sealed mapped teacher."""
+
+    if not isinstance(context, mapped.MappedRunContext) or context.plan.control != (
+        "document_shuffle"
+    ):
+        raise ValueError("mapped fit requires the document-shuffle run context")
+    rows = validate_fit_rows(rows, context.base)
+    if route not in DOCUMENT_SHUFFLE_ROUTES or program.route != route or trial not in range(
+        len(runtime.LEARNING_RATES)
+    ):
+        raise ValueError("document-shuffle route/trial/program is malformed")
+    parameters = program.set_route_trainability()
+    program.require_exact_trainability()
+    learning_rate = runtime.LEARNING_RATES[trial]
+    optimizer = runtime.make_optimizer(parameters, learning_rate)
+    history: list[Mapping[str, Any]] = []
+    losses: list[float] = []
+    for epoch in range(runtime.EPOCHS):
+        for ordinal in range(capabilities.FIT_BATCHES_PER_EPOCH):
+            source_indices = scheduled_indices(
+                phase="fit", trial=trial, epoch=epoch, batch_ordinal=ordinal,
+            )
+            target_indices = context.plan.target_indices(source_indices)
+            source_inputs = _batch_tokens(rows, source_indices, device)
+            target_inputs = _batch_tokens(rows, target_indices, device)
+            identity = make_document_shuffle_identity(
+                context=context, program=program, inputs=source_inputs,
+                indices=source_indices, route=route, trial=trial, epoch=epoch,
+                batch_ordinal=ordinal,
+            )
+            step, student_closure, observed = _student_step(
+                adapter=adapter, broker=broker, hook=hook, program=program,
+                identity=identity, inputs=source_inputs, indices=source_indices,
+            )
+            result = adapter.run_mapped_oon_teacher(
+                broker=broker, identity=identity, step=step, fit_rows=rows,
+                student_tokens=source_inputs, student_indices=source_indices,
+                teacher_tokens=target_inputs, teacher_indices=target_indices,
+            )
+            loss, teacher_closure = result.consume_loss()
+            loss_value = float(loss.detach().double().cpu())
+            gradient_norm = runtime.optimizer_step(loss, optimizer)
+            losses.append(loss_value)
+            history.append({
+                "identity_sha256": identity.sha256,
+                "mapping_sha256": context.plan.sha256,
+                "source_indices": list(source_indices),
+                "target_indices": list(target_indices),
+                "loss": loss_value, "gradient_norm": gradient_norm,
+                "student_ledger_sha256": student_closure.ledger_sha256,
+                "teacher_ledger_sha256": teacher_closure.ledger_sha256,
+                "observed": _closure_payload(observed),
+            })
+    state = MappingProxyType({
+        name: value.detach().cpu().contiguous().clone()
+        for name, value in sorted(program.state_dict().items())
+    })
+    return MappedFitCandidate(
+        control="document_shuffle", mapping_sha256=context.plan.sha256,
         route=route, trial=trial, learning_rate=learning_rate,
         completed_steps=len(losses), loss_sum=float(sum(losses)),
         loss_min=float(min(losses)), loss_max=float(max(losses)),

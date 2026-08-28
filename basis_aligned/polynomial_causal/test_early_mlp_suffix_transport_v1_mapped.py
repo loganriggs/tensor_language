@@ -129,3 +129,150 @@ def test_mapped_context_binds_source_schedule_plan_and_target_tokens(monkeypatch
             student_indices=source_indices, teacher_inputs=changed,
             teacher_indices=targets,
         )
+
+
+class _Native(torch.nn.Module):
+    def __init__(self, scale: float, offset: float) -> None:
+        super().__init__()
+        self.scale = torch.nn.Parameter(torch.tensor(scale))
+        self.offset = torch.nn.Parameter(torch.tensor(offset))
+
+    def forward(self, state: torch.Tensor) -> torch.Tensor:
+        return state * self.scale + self.offset
+
+
+def _call_hook(
+    hook: runtime.StudentCorrectionHook, site: int, state: torch.Tensor,
+    deployed: torch.Tensor, nonce: str,
+) -> torch.Tensor:
+    handle = runtime.mint_deployed_n_write(
+        site=site, state=state, value=deployed, forward_nonce=nonce,
+        issuer_id=hook.issuer_id,
+    )
+    return hook(site, state, handle, forward_nonce=nonce)
+
+
+def _autonomous_forward(gateway, inputs):
+    state0 = inputs.float().unsqueeze(-1).expand(-1, -1, runtime.D_MODEL) / 1000
+    exact0 = gateway.call(0, state0)
+    state1 = state0 + exact0
+    exact1 = gateway.call(1, state1)
+    return exact1[..., :11], {
+        "outer_forward_count": 1, "hook_calls": {0: 1, 1: 1, 2: 0},
+        "outer_returned": True, "hook_restored": True, "hook_inert": True,
+    }
+
+
+def test_mapped_oon_broker_executes_only_exact_plan_target_before_spending(monkeypatch) -> None:
+    monkeypatch.setattr(capabilities, "FIT_ROW_COUNT", runtime.BATCH_SIZE)
+    monkeypatch.setattr(capabilities, "FIT_BATCHES_PER_EPOCH", 1)
+    rows = torch.arange(
+        runtime.BATCH_SIZE * 513, dtype=torch.long,
+    ).view(runtime.BATCH_SIZE, 513)
+    plan = mapped.build_document_block_plan(
+        _records((1, 1, 1, 1)), control="document_shuffle",
+    )
+    base = capabilities.RunContext(
+        source_commit="1" * 40, inherited_snapshot_sha256="2" * 64,
+        rows_receipt_sha256="3" * 64,
+        fit_role_tensor_sha256=runtime.tensor_identity_sha256(rows),
+        identity_teacher_mapping_sha256="4" * 64,
+        fit_row_count=runtime.BATCH_SIZE,
+    )
+    context = mapped.MappedRunContext(base=base, plan=plan)
+    source_indices = tuple(int(value) for value in runtime.fit_permutations(4, 0)[0])
+    target_indices = plan.target_indices(source_indices)
+    source = rows[torch.tensor(source_indices), :runtime.SEQUENCE_LENGTH]
+    teacher = rows[torch.tensor(target_indices), :runtime.SEQUENCE_LENGTH]
+    program = _program("R")
+    issuer = "5" * 64
+    coordinator = runtime.ScopeCoordinator()
+    projection = torch.eye(runtime.D_MODEL)[:, :runtime.CODE_DIM]
+    native0, native1 = _Native(2.0, 0.25), _Native(-0.5, 1.0)
+    broker = capabilities.CapabilityBroker(
+        issuer_id=issuer, coordinator=coordinator, run_context=base,
+        bases={0: projection, 1: projection},
+        native_calls={0: native0, 1: native1}, mapped_authority=context,
+    )
+    hook = runtime.StudentCorrectionHook(
+        {0: projection, 1: projection}, issuer_id=issuer, coordinator=coordinator,
+    )
+    hook.configure(program=program, states={0: "P", 1: "P"})
+    identity = runtime.TraceIdentity.from_inputs(
+        inputs=source, ordered_batch_indices=source_indices,
+        source_commit=base.source_commit,
+        inherited_snapshot_sha256=base.inherited_snapshot_sha256,
+        rows_receipt_sha256=base.rows_receipt_sha256,
+        fit_role_tensor_sha256=base.fit_role_tensor_sha256,
+        program_snapshot_sha256=runtime.program_snapshot_sha256(program),
+        teacher_mapping_sha256=plan.sha256, phase="fit", route="R",
+        control="document_shuffle", teacher_kind="oon_logits", trial=0,
+        epoch=0, optimizer_step=0, batch_ordinal=0,
+        student_states=((0, "P"), (1, "P"), (2, "N")),
+    )
+
+    session = broker.begin_student(identity, hook, source, source_indices)
+    with session.forward_scope() as capability:
+        state0 = source.float().unsqueeze(-1).expand(
+            -1, -1, runtime.D_MODEL,
+        ) / 1000
+        out0 = _call_hook(hook, 0, state0, torch.zeros_like(state0), identity.nonce)
+        state1 = state0 + out0
+        out1 = _call_hook(hook, 1, state1, torch.zeros_like(state1), identity.nonce)
+        student_logits = out1[..., :11]
+        student_logits.retain_grad()
+        capability.bind_outer_logits(student_logits)
+    step, _ = session.close(
+        outer_forward_count=1, outer_returned=True,
+        hook_restored=True, hook_inert=True,
+    )
+
+    assert broker.ledger_snapshot.run_context_sha256 == context.sha256
+    with pytest.raises(RuntimeError, match="mapped OON entry point"):
+        broker.run_oon_teacher(identity, step, source, _autonomous_forward)
+    changed = teacher.clone()
+    changed[0, 0] += 1
+    with pytest.raises(RuntimeError, match="teacher tokens"):
+        broker.run_mapped_oon_teacher(
+            identity, step, fit_rows=rows, student_inputs=source,
+            student_indices=source_indices, teacher_inputs=changed,
+            teacher_indices=target_indices, autonomous_forward=_autonomous_forward,
+        )
+
+    result = broker.run_mapped_oon_teacher(
+        identity, step, fit_rows=rows, student_inputs=source,
+        student_indices=source_indices, teacher_inputs=teacher,
+        teacher_indices=target_indices, autonomous_forward=_autonomous_forward,
+    )
+    loss, closure = result.consume_loss()
+    target_state0 = teacher.float().unsqueeze(-1).expand(
+        -1, -1, runtime.D_MODEL,
+    ) / 1000
+    expected_teacher = native1(target_state0 + native0(target_state0))[..., :11]
+    expected_loss = runtime.teacher_student_kl(expected_teacher.detach(), student_logits)
+    torch.testing.assert_close(loss, expected_loss)
+    assert closure.original_calls == capabilities.EXACT_EARLY_ORIGINAL_CALLS
+    assert broker.ledger_snapshot.completed_identity_count == 1
+    loss.backward()
+    assert student_logits.grad is not None
+    assert native0.scale.grad is None and native1.scale.grad is None
+
+
+def test_ordinary_broker_cannot_be_repurposed_for_mapped_execution() -> None:
+    base = capabilities.RunContext(
+        source_commit="1" * 40, inherited_snapshot_sha256="2" * 64,
+        rows_receipt_sha256="3" * 64, fit_role_tensor_sha256="4" * 64,
+        identity_teacher_mapping_sha256="5" * 64,
+    )
+    projection = torch.eye(runtime.D_MODEL)[:, :runtime.CODE_DIM]
+    broker = capabilities.CapabilityBroker(
+        issuer_id="6" * 64, coordinator=runtime.ScopeCoordinator(),
+        run_context=base, bases={0: projection, 1: projection},
+        native_calls={0: _Native(1.0, 0.0), 1: _Native(1.0, 0.0)},
+    )
+    with pytest.raises(RuntimeError, match="ordinary broker"):
+        broker.run_mapped_oon_teacher(
+            None, None, fit_rows=None, student_inputs=None,
+            student_indices=(), teacher_inputs=None, teacher_indices=(),
+            autonomous_forward=_autonomous_forward,
+        )
