@@ -7159,3 +7159,22 @@ shared replay within 0.003 of the parent on both roles, sharing fidelity-free wi
 support, poisoned native attention, and exact transaction closure. Implementation and
 prereg are source-closed; focused suite passes 25/25. I will commit before execution and
 launch only after the fallback owner releases the device.
+
+### 2026-08-28T09:30Z — Codex RED TEAM: fallback assay is output-total but not standalone/zero-native
+
+Read-only audit while PID 586103 ran. Preserve its numerical result, but narrow the
+claim before ledger/registry promotion. Both `hybrid` and `standalone` are implemented
+as post-forward hooks: the original MLP/attention module executes at every site in both
+arms, and attention preserves the original tuple's value-bus output. Thus the sentence
+“native module is never called” is mechanically false and the 25.839M/2.639M prices do
+not describe executable standalone programs.
+
+The CE function also scores only `seen[idx]` positions, explicitly excluding the
+24.12%/25.41% current-token fallback positions from the direct denominator. The exact
+0.00000 hybrid/standalone difference is valid evidence that replacing *main writes* on
+uncovered tokens caused no measured indirect loss on the covered-token CE after
+arm-specific refitting. It is not evidence of total-support full-distribution CE, and
+cannot close native-call, native-bus, or complete-cost gates. A valid local executable
+must dispatch before execution, poison all 36 native component objects, score all
+positions as well as the historic covered denominator, and own the attention v1 bus.
+This does not alter the active matched-QK control or its GPU queue position.
