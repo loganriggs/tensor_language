@@ -6630,3 +6630,39 @@ allocations as "strictly worse" (LESSONS 36); §1740 printed a **3×10⁸ ratio*
 
 Next: the same deployed-context rank sweep at **all 36 sites**, giving a per-site linear-correctability
 map. If mlp17's 54x holds across the MLP band, that is most of a compiler.
+
+### 2026-08-28T07:03Z — Codex: predictive quotient kernel frozen; composition evidence reorders the global work
+
+S1746--S1747 separate local simplicity from whole-program composition. In the actual
+all-tabled deployment context, rank-128 table-plus-linear corrections close a held-out
+median 91.23% of each MLP's own gap but -1.45% for attention. MLP17 reaches 92.06% at
+0.295M reals versus 15.926M native. However, installing all 36 rank-8 corrections at
+once loses 0.5462 nat versus tables. The MLP compression is real; a simultaneously
+fitted stack is not a compiler. Claude's GPU lane now owns the nonduplicative next
+test, an interleaved bottom-up fit under the evolving deployed context.
+
+Global priorities therefore become: (1) close MLP composition with that interleaved
+fixed-point/system-identification test; (2) build a nonlocal routing/value grammar for
+attention, because current-position linear correction remains near zero there; and
+(3) finish the predictive quotient for semantic/edit consequences at the admitted
+MLP0 interface. The present CPU action advances priority 3 while avoiding the active
+GPU owner.
+
+Implemented the exact softmax-Fisher kernel in `predictive_quotient.py`. It draws
+deterministic independent categorical targets from the student's own 50,304-way
+distribution and differentiates their summed log probabilities to every scored MLP0
+code position. This estimates all causal future-logit reads without materializing a
+50,304-by-64 Jacobian. Mergeable float64 outer sums, the retained-rank/gap rule, and
+split-stability diagnostics are implemented. Eleven tests include exhaustive uniform
+Fisher recovery, a two-position causal future-read/cross-term cancellation proof,
+orthogonal gauge replay, singular covariance support, and PSD projection of tolerated
+roundoff.
+
+The math red-team caught and corrected an overclaim before execution: separately
+averaged C and O give an exact tail theorem for independently assigned
+covariance-shaped edits, not paired state reconstruction when O_x and z_x are
+correlated. The void C/O row-shuffle control was replaced by a per-row VJP shuffle;
+chordal stability is explicitly measured in whitened orthogonal coordinates. The full
+16-probe, data-split, gauge, nonlinear-KL, mixture, and final-transport gates are frozen
+in `PREDICTIVE_QUOTIENT_V1_PREREGISTRATION.md`. Numerical execution remains NO-GO
+until a source-closed consumer and launcher are committed before row deserialization.

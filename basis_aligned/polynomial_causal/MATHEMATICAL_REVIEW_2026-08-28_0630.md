@@ -41,6 +41,16 @@ The most relevant local facts are:
   and deployed with other sites tabled, so these are lower bounds under a known context
   mismatch. Even so, failure of rank monotonicity shows that Euclidean residual SVD is
   not itself the downstream simplicity ordering we need.
+- The declared context-mismatch control then separated MLP and attention behavior.
+  Fitting in the actual all-tabled deployment context raised held-out six-site recovery
+  to $38.14\%$ and MLP17 to $92.06\%$ of its own gap at rank 128, while the five
+  attention sites remained negative on average. The all-site map strengthened this:
+  median rank-128 own-gap recovery was $91.23\%$ for MLPs and $-1.45\%$ for attention.
+  Yet installing all 36 corrections jointly *lost* $0.5462$ nat versus tables at rank
+  8. Thus simple local MLP maps exist, but simultaneous fits are not a composable
+  compiler; attention still lacks a nonlocal routing state. The GPU lane now owns the
+  prospectively interleaved bottom-up composition test, so this CPU lane does not
+  duplicate it.
 
 ## Ranked genuinely new moves
 
@@ -61,11 +71,13 @@ This is estimable without materializing a $50{,}304\times64$ Jacobian: draw
 $y\sim p_x$, backpropagate $e_y-p_x$, and average the outer products of the resulting
 64-D VJPs. Multiple deterministic registered probes reduce variance.
 
-**Operational theorem.** On the support of $C$, whiten $z=C^{1/2}u$ and set
+**Operational theorem.** Draw a covariance-shaped code edit $\delta$ independently of
+the evaluation context, with $\mathbb E[\delta\delta^\top]=C$, and use the mean local
+response metric $O$. On the support of $C$, whiten $\delta=C^{1/2}u$ and set
 $H=C^{1/2}OC^{1/2}$. If $\lambda_1\geq\cdots\geq\lambda_r\geq0$ are the eigenvalues
-of $H$, then the best rank-$d$ linear reconstruction for expected local downstream
-quadratic distortion retains the top $d$ eigenvectors, and its minimum discarded
-distortion is
+of $H$, then the best rank-$d$ linear reconstruction of this edit ensemble for expected
+downstream quadratic distortion retains the top $d$ eigenvectors, and its minimum
+discarded distortion is
 
 $$
 \min_{\operatorname{rank}(A)\leq d}
@@ -91,6 +103,14 @@ latent generative label
 ([Littman, Sutton, and Singh 2001](https://proceedings.neurips.cc/paper/2001/file/1e4d36177d71bbb3558e43af9577d70e-Paper.pdf)).
 The exact nonlinear equivalence is a causal/bisimulation quotient; $\ker O$ is only
 its local linearization.
+
+This theorem does **not** say that independently averaged $C$ and $O$ solve paired
+natural-state reconstruction when a context-specific $O_x$ is correlated with $z_x$.
+That objective contains the joint moment $\mathbb E[O_x z_xz_x^\top]$. The current
+quotient deliberately prices an ideal independently assigned edit ensemble with raw
+covariance $C$; the finite clipped-and-RMS-normalized 32-direction bank is an external
+consequence test, not an exact draw from that prior. Per-row nonlinear prediction
+separately tests whether the mean quotient hides important context dependence.
 
 **Gauge statement.** Under the current orthogonal code gauge $z'=Q^\top z$,
 $C'=Q^\top CQ$ and $O'=Q^\top OQ$. Therefore $H'$ is orthogonally similar to $H$,
