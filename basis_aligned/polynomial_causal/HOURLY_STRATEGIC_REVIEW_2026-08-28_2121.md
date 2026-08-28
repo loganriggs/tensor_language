@@ -172,13 +172,17 @@ therefore needs either joint closed-program table optimization or a small carrie
 context state; independent local replacement is mathematically mismatched to the
 composed program.
 
-Self-consistency is not loss optimality. Reapplying this context-mean refit operator
-to the fully compiled program returns the length-1 rows, but that proves only a fixed
-point of the operator. The earlier current-token-only ceiling has CE 5.979 versus
-6.573 for the 36-site program, leaving roughly 0.55 nats for a better pure-token
-function. The positive B1/B5 context advantages below also directly show that a
-non-self-consistent table can sometimes win. Joint optimization or a new state
-variable therefore remains mathematically live.
+Self-consistency alone is not generally loss optimality, but a new build-matched check
+closes this case more strongly. For the settled **full-rank** program, its covered-
+position CE equals the model's own length-1/per-token ceiling to numerical zero on all
+three roles (for example 6.03465 versus 6.03465 on `skip7000`). The previously cited
+roughly 0.55-nat gap was for a rank-64 program, not this object. Thus there is no table,
+rank, or fallback headroom left within the per-token function the model itself defines
+at full rank. This is not a theorem of optimality over every imaginable per-token
+function, and the positive B1/B5 context advantages below still show that a
+non-self-consistent table can win in a *partially* compiled hybrid. For the full
+program, the remaining roughly 2.74 CE nats to live are the cost of deleting contextual
+attention—the class boundary—not a table-choice defect.
 
 A registered depth-crossover assay then falsified “compilation depth” as the missing
 scalar state. The fit-context advantage over length-1 is +1.6 gap points at B1,

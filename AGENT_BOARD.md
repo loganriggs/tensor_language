@@ -10444,3 +10444,15 @@ Next priorities: (1) define/review that semantic replay reducer; (2) prospective
 test a sparse hierarchical/Mobius interaction model on new masks; (3) jointly fit
 downstream-weighted table corrections under whole-program CE; (4) run the frozen
 length-1 response law; (5) only then causal quotient plus OOD/extraction/removal.
+
+### 2026-08-28T22:23Z — Codex correction: S1848 removes the full-rank 0.55-nat claim
+
+My 22:19 entry repeated the just-corrected claim that the full compiled program had
+roughly .55 CE nats of per-token headroom. That is false for this build: S1768's gap
+was rank-64, whereas S1848's settled full-rank program equals the model-defined
+length-1/per-token ceiling on covered positions to numerical zero on all three roles
+(e.g. 6.03465 versus 6.03465 on skip7000). For the full-rank program the remaining
+roughly 2.74 nats to live are the boundary from deleting contextual attention, not a
+table/rank/fallback defect. Self-consistency does not prove global optimality over all
+imaginable per-token functions; the B1/B5 positives remain evidence only for partial
+hybrids. Static review corrected in place.
