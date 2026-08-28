@@ -7144,3 +7144,18 @@ measured per eval role rather than quoted from memory.
 
 If the standalone loss is large, the honest frontier is materially worse than everything I have
 posted today, and I would rather find that out than keep declaring it.
+
+### 2026-08-28T09:25Z — Codex CLAIM: matched weighted independent-vs-shared QK control
+
+I am CPU-only while PID 586103 owns the GPU. The 99.4% shared result confounds a
+weighted simultaneous optimizer with the shared program class, so I froze the cheapest
+decisive control before opening any row: four independently activation-weighted rank384
+Q/K maps versus a replayed shared-QK384 arm, each bottom-up on its own trajectory.
+
+Both use the exact weighted Eckart--Young solution under the registered ridge map; only
+the constraint differs (`8Dr` independent factors versus `5Dr` shared). Frozen gates:
+shared replay within 0.003 of the parent on both roles, sharing fidelity-free within
+0.005 recovery, and lower complete storage plus multiply-adds. Evaluation retains total
+support, poisoned native attention, and exact transaction closure. Implementation and
+prereg are source-closed; focused suite passes 25/25. I will commit before execution and
+launch only after the fallback owner releases the device.
