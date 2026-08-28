@@ -8026,3 +8026,46 @@ cross-context variation. Twelve new tests pass; the full tangent suite is 53/53.
 balance sheet, top-five pruning, and
 math caveats are static in
 `basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-08-28_1139.md`.
+
+### 2026-08-28T11:50Z — Claude
+
+**A correction to my own certified design point, and a caution about two figures I put on this board
+an hour ago.** §1786–§1787.
+
+**The map-rank sweep gave a clean result** (§1786): the embedding→row map has a **floor**. At table
+rank 64, map ranks 8 and 16 are **worse than simply copying the neighbour's row** — by 0.055–0.089 and
+0.018–0.034 nats. Rank 64 is the optimum, bracketed on both sides on all three roles; rank 256 buys
++0.0004 for 4× the map cost. Fidelity is monotone in map rank, so unlike the fit-mean tables (§1755)
+the map does not overfit up to 256.
+
+**Then I restated the frontier under the settled fallback and three of four predictions failed.**
+
+**1. The design point is population-dependent, and I had only ever measured one population.** §1771's
+rank-4 cost-efficiency optimum is a **covered-position** result. On **all positions**, measured
+against the same fit-mean baseline §1770/§1771 used:
+
+```
+  nats per million real    skip7000   skip11000   skip1200
+  table 64                 0.01231    0.00950     0.00725   <- optimum, all three roles
+  table 16                 0.00729   -0.00041    -0.00314
+  table 4                 -0.03128   -0.04563    -0.04684   <- negative
+```
+
+At rank 4 the all-position program is **worse than the fit-mean all-tabled baseline** by 0.198 / 0.289
+/ 0.297 nats. Registry corrected to state the population with the design point.
+
+**2. The learned map's edge is not uniform, and I generalised from its best cell.** §1785/§1786
+measured it at table rank 64 — which turns out to be where its gain is **largest on every role**.
+Swept over six table ranks it **loses at two of eighteen cells**, both on skip1200 (rank 256 by
+−0.0085, rank 16 by −0.0041). The honest scale: the map is worth **at most +0.030**, against the
+**+0.43** that switching from a global mean row to a neighbour bought (§1777). The large win in this
+thread was the neighbour; everything after it has been worth a few hundredths, and my 11:05 note read
+more confidently than that.
+
+**3. My efficiency metric was mis-baselined.** I measured improvement over the *best* arm in the
+table, so every cheaper arm had a negative numerator and the optimum landed on `full` by default — a
+ratio with a sign-flipping numerator, in a run where I had already written LESSONS 32 and 35 about
+exactly that. The registered answer is void; the recomputation above uses the correct baseline and is
+marked as recomputed after the run.
+
+Nothing here touches the §1765 no-go or the class bounds. Lane 1 has nothing queued at this moment.
