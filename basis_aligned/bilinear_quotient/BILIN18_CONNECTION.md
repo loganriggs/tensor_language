@@ -47101,3 +47101,62 @@ being allowed to explain them; coverage 5419.
 **Open question this ends on.** Sweep the ridge as a FRACTION of lambda_max so the knob actually turns.
 If a relatively-scaled ridge fills in the n=D collapse, it is conditioning; if it does not, the
 output-NN fallback is the remaining suspect.
+
+## §1800 — coverage cannot close the gap: the curve is flat by 3,613 types and the whole vocabulary would not be enough
+
+`ops/coverage_curve_safe.py`, 178.8s, **DISCOVERY ONLY**, rung 3. **All four predictions True**, both
+cross-run controls pass, and this answers the decision §1798 and §1799 could not.
+
+Four nested points at `n/D` = 2.35, 3.14, 3.92, 4.70 — far above the `n ~ D` collapse of §1799 — in
+**equal steps of +903 types**, so the gains compare directly:
+
+```
+                2710     3613     4516     5419      gains per +903 types
+  skip7000     12.54%   13.27%   13.39%   13.55%    +0.73 / +0.12 / +0.16 pp
+  skip11000    13.08%   13.85%   14.04%   14.25%    +0.76 / +0.20 / +0.21 pp
+  skip1200     12.47%   13.22%   13.51%   13.64%    +0.74 / +0.30 / +0.13 pp
+
+  head bucket                                       +2.80 / +0.16 / +0.25 pp
+                                                    +3.15 / -0.02 / +0.36 pp
+                                                    +2.67 / +0.44 / +0.25 pp
+```
+
+**pred_a passed**: the safe region is monotone, so §1799's pathology does not extend past `n/D` = 2.35
+and §1786's design point sits on well-behaved ground.
+
+**pred_b and pred_c passed, and together they are the answer.** The first +903 types buy **+0.73 / +0.76
+/ +0.74 pp** overall; the last +903 buy **+0.16 / +0.21 / +0.13 pp** — a **4-5x** reduction. On the head
+the collapse in marginal value is starker: **+2.80 / +3.15 / +2.67 pp** for the first step against
+**+0.25 / +0.36 / +0.25 pp** for the last, roughly **10x**, and one step is even slightly negative
+(-0.02). **The coverage curve is essentially flat by 3,613 types.**
+
+**And extrapolation kills the lever outright.** There are 44,838 vocabulary types left uncovered, which
+is 49.7 further steps of +903. Even at the LAST observed marginal rate, with no further decay — an
+upper bound, since the rate is decaying — covering the **entire vocabulary** would reach at most
+
+```
+    skip7000   21.5%  vs live 39.3%   still short by 17.8pp
+    skip11000  24.7%  vs live 42.4%   short by 17.7pp
+    skip1200   20.1%  vs live 38.9%   short by 18.8pp
+```
+
+**So §1793's tail is a coverage limit that coverage cannot fix.** The program fails on frequent tokens
+absent from its fit set (§1793: 0.45 / 0.45 / 0.00% against the model's 30.65 / 32.96 / 27.35%), and
+adding those tokens to the fit set closes less than half the remaining gap even in the limit of a
+complete vocabulary. What is missing is not more per-token rows. **It is context**, which the
+position-wise class deletes by construction (§1765).
+
+**This closes the lever hunt begun at §1793.** Three candidates have now been priced: combining with a
+bigram (§1796/§1797 — ~7-9pp of oracle headroom on the head, none of it reachable from either arm's
+self-assessment); growing coverage (this section — flat by 3,613 types, bounded far short of live even
+at full vocabulary); and the tail itself (§1793 — coverage-bound, hence covered by this). None of them
+reaches the model. The 25.8pp accuracy gap and the 2.88-nat CE gap are both context.
+
+Controls (pred_d): n=5419 reproduces §1789's published 0.1355 / 0.1425 / 0.1364 and n=2710 reproduces
+§1798's published 0.1254 / 0.1308 / 0.1247, both within 0.001; the known-answer slice is 13.1310 /
+13.6912 / 13.1562% identically at all four n, so §1765's position-wise property holds throughout;
+subsets nested at exactly the requested sizes; coverage 5419.
+
+**Open question this ends on.** Every lever inside the position-wise class is now priced and none
+closes the gap. The next question is not how to improve the class but what the smallest departure from
+it buys — one site restored to live attention, and what that single re-admission of context is worth.
