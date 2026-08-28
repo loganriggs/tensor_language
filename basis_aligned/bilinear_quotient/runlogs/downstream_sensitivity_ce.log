@@ -1,0 +1,22 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+DOWNSTREAM SENSITIVITY, CE READOUT | 50% relative noise, 3 seeds | DISCOVERY ONLY
+  live top-1 39.32% / 42.35%; decomposition done (4s)
+  sensitivity swept (157s)
+
+  SENSITIVITY (CE NATS gained from 50% noise, mean of 3 seeds; live CE 3.13704):
+    attn L1:+0.1980 L2:+0.0045 L3:+0.0027 L4:+0.0061 L5:+0.8646 L6:+0.0953 L7:+0.0252 L8:+0.0030 L9:+0.0128 L10:+0.0063 L11:+0.0047 L12:+0.0016 L13:+0.0023 L14:+0.0025 L15:+0.0009 L16:+0.0012 L17:+0.0054
+    mlp  L1:+0.0104 L2:+0.0071 L3:+0.0081 L4:+0.0099 L5:+0.0162 L6:+0.0154 L7:+0.0071 L8:+0.0054 L9:+0.0073 L10:+0.0054 L11:+0.0089 L12:+0.0068 L13:+0.0080 L14:+0.0064 L15:+0.0242 L16:+0.1135 L17:+0.4057
+
+  RMS table error / RMS output:
+    attn L1:0.248 L2:0.744 L3:0.818 L4:0.752 L5:0.147 L6:0.259 L7:0.371 L8:0.858 L9:0.501 L10:0.521 L11:0.719 L12:0.771 L13:0.881 L14:0.934 L15:0.866 L16:0.914 L17:0.596
+    mlp  L1:0.617 L2:0.732 L3:0.727 L4:0.773 L5:0.571 L6:0.605 L7:0.780 L8:0.824 L9:0.745 L10:0.845 L11:0.686 L12:0.740 L13:0.705 L14:0.781 L15:0.414 L16:0.335 L17:0.427
+
+  dearest 6 by §1834 cost: mlp5 cost +61.2% sens +0.0162  mlp3 cost +48.5% sens +0.0081  mlp4 cost +44.5% sens +0.0099  attn2 cost +42.9% sens +0.0045  mlp1 cost +38.7% sens +0.0104  mlp2 cost +37.9% sens +0.0071
+  cheapest 6:              attn15 cost -1.1% sens +0.0009  attn10 cost -0.6% sens +0.0063  attn17 cost -0.5% sens +0.0054  attn12 cost -0.3% sens +0.0016  attn16 cost -0.1% sens +0.0012  attn14 cost +0.3% sens +0.0025
+
+  SENSITIVITY predicts §1834 cost (Spearman >=+0.70) -> False  rho +0.4643
+  and it BEATS DEPTH (§1837 published +0.8527) by >=0.05 -> False  margin -0.3884
+  and the FIRST-ORDER PRODUCT beats sensitivity alone -> True  sens x err +0.5120 vs sens +0.4643
+  noise LANDED everywhere (min +0.0009 nats vs floor 0.005), §1837 explained reproduces (max drift 0.0005) -> control False
+
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/downstream_sensitivity_ce_results.json (156.9s)

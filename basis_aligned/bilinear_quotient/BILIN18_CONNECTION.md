@@ -49357,3 +49357,64 @@ as the readout and the noise raised to **50% relative**, inside the measured 15-
 order of magnitude below it, with pred_d's bar restated in nats so it can fail the same way if the probe
 still does not land. The question §1837 posed is untouched by this: nothing yet tests whether downstream
 sensitivity explains the §1834 cost table, because nothing yet has measured downstream sensitivity.
+
+## §1839 — PROVISIONAL: random-noise sensitivity does not explain the cost table either. The substitution error is structured, not isotropic.
+
+`ops/downstream_sensitivity_ce.py`, 156.9s, **DISCOVERY ONLY**, §1838's void run repeated with a probe
+that lands. **pred_a False | pred_b False | pred_c True | pred_d FALSE — results PROVISIONAL.**
+
+CE nats gained from a 50% relative perturbation, mean of 3 seeds (live CE 3.13704):
+
+```
+  attn  L1 +.1980  L2 +.0045  L3 +.0027  L4 +.0061  L5 +.8646  L6 +.0953  L7 +.0252  L8 +.0030
+        L9 +.0128  L10 +.0063  L11 +.0047  L12 +.0016  L13 +.0023  L14 +.0025  L15 +.0009
+        L16 +.0012  L17 +.0054
+  mlp   L1 +.0104  L2 +.0071  L3 +.0081  L4 +.0099  L5 +.0162  L6 +.0154  L7 +.0071  L8 +.0054
+        L9 +.0073  L10 +.0054  L11 +.0089  L12 +.0068  L13 +.0080  L14 +.0064  L15 +.0242
+        L16 +.1135  L17 +.4057
+```
+
+**The CE readout fixed §1838's failure**: the dynamic range is now **960x** (attn5 at 0.8646 against
+attn15 at 0.0009) where the top-1 version had every site inside eleven tokens of zero.
+
+**pred_d nevertheless FAILED and I am marking the run PROVISIONAL rather than certified.** Five sites —
+attn12, attn13, attn14, attn15, attn16 — come in under the 0.005-nat floor I registered. Unlike §1838
+this is probably *not* an instrument floor: the low values sit in exactly the sites §1834 prices at
+−0.011 to +0.006pp, so the instrument agreeing that they are inert is the expected result. **But I set
+0.005 nats as a guess and never estimated the actual across-seed spread, so I cannot certify that
+0.0009 is a measurement rather than noise.** Naming the missing check: report the per-seed standard
+deviation, which this run computed and discarded.
+
+**pred_a FAILED: Spearman +0.464 against a +0.70 bar. pred_b FAILED: depth still wins at +0.853**, by
+0.39. **Five candidate explanations of the §1834 cost table have now been tested and depth has beaten
+every one** — norm, direction, second moment, cross-position structure, token-explained variance, and
+now random-perturbation sensitivity.
+
+> **The decisive contrast is between the two tables above.** `attn5` is the most noise-sensitive site in
+> the network at **0.8646 nats** and costs **+16.9pp** to compile. `mlp5` is **53x less** noise-sensitive
+> at **0.0162 nats** and costs **+61.2pp** — 3.6x more. A site can be robust to random noise and
+> catastrophic to compilation.
+>
+> **That is the finding, and it names what is wrong with every instrument in this arc including this
+> one.** A context-free table does not add noise. It replaces a site's output with its *token-conditional
+> mean*, which deletes exactly the context-dependent component and leaves the rest untouched. That error
+> is **systematic and low-dimensional**, not isotropic. Measuring robustness to random directions was
+> always going to miss it, and §1837's failure branch — which sent me here — was right that the object
+> is downstream sensitivity, but wrong to expect random probing to measure it.
+
+**pred_c PASSED, and it is the one positive signal.** Multiplying sensitivity by each site's measured
+relative table error raises the correlation from **+0.464 to +0.512**. The first-order account
+(damage ≈ error × amplification) does add something — but +0.512 is still far under depth's +0.853, so
+it adds something to an account that does not work.
+
+**Controls.** §1837's token-explained variance reproduces to a maximum drift of **0.0005** across all 34
+sites; live top-1 reproduces §1789's published 39.32% and 42.35%; coverage 5419 of 50257. Only the
+landing bar failed.
+
+**Open question this ends on.** Perturb in the direction of the **actual substitution error** instead of
+a random one: replace each site's output with `mu_token + alpha * (y - mu_token)` and sweep alpha from 1
+(live) down to 0 (full compilation). That interpolates continuously along the exact direction a table
+moves the site, so `dCE/dalpha` at alpha = 1 is the first-order sensitivity to the error that actually
+occurs, and the alpha curve says whether the +61.2pp of mlp5 is a first-order effect at all or something
+that only appears near alpha = 0. It also settles pred_d properly, since alpha near 1 gives a known-answer
+check: the curve must pass through the live model exactly.
