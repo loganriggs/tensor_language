@@ -1,0 +1,16 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+LENGTH-1 TABLE vs EMPIRICAL MEAN | 34 sites, 5419 covered tokens | DISCOVERY ONLY
+  both tables built; live top-1 39.32% (6s)
+
+  LENGTH-1 minus EMPIRICAL MEAN, frequency-weighted RMS / site output RMS:
+    attn L1:0.631 L2:0.571 L3:0.652 L4:0.579 L5:0.148 L6:0.232 L7:0.696 L8:0.484 L9:0.703 L10:0.656 L11:0.557 L12:0.576 L13:0.451 L14:0.349 L15:0.459 L16:0.382 L17:0.662
+    mlp  L1:2.161 L2:1.550 L3:2.104 L4:9.920 L5:2.781 L6:1.508 L7:0.600 L8:0.541 L9:0.546 L10:0.488 L11:0.508 L12:0.402 L13:0.421 L14:0.424 L15:0.244 L16:0.241 L17:0.330
+
+  largest 6: mlp4 9.920 (cost +44.5%)  mlp5 2.781 (cost +61.2%)  mlp1 2.161 (cost +38.7%)  mlp3 2.104 (cost +48.5%)  mlp2 1.550 (cost +37.9%)  mlp6 1.508 (cost +6.5%)
+
+  the LENGTH-1 table is worst at mlp5 -> False  largest is mlp4 at 9.920; mlp5 at 2.781
+  and the LENGTH-1 error predicts §1834 cost better than the IDEAL error -> True  length-1 +0.4139 vs ideal -0.4659 (gap alone +0.4723)
+  and the two tables differ substantially (median gap >0.50) -> True  median 0.557
+  §1837 explained reproduces (drift 0.0005), live top-1 39.32%, coverage 5419 -> control True
+
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/length1_vs_empirical_results.json (6.1s)

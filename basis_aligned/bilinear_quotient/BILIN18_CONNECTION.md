@@ -49547,3 +49547,55 @@ length-1 table is far worse than the empirical mean specifically at mlp5, that i
 for §1834's ranking and a concrete statement about what layer 5's MLP does that a single-token forward
 cannot see. Measuring `||length-1 row − empirical mean||` against each site's output scale, for all 36
 sites, is one pass and settles it.
+
+## §1842 — a single-token forward tells you almost nothing about the EARLY MLPs, and that is the first predictor with the right sign
+
+`ops/length1_vs_empirical.py`, 6.1s, **DISCOVERY ONLY**, rung 3 (§1841's open question).
+**pred_a False | pred_b True | pred_c True | pred_d True.**
+
+Frequency-weighted RMS difference between §1834's **length-1 context-free** table and the **empirical
+per-token mean over real contexts**, relative to each site's output RMS:
+
+```
+  attn  L1 .631  L2 .571  L3 .652  L4 .579  L5 .148  L6 .232  L7 .696  L8 .484  L9 .703
+        L10 .656  L11 .557  L12 .576  L13 .451  L14 .349  L15 .459  L16 .382  L17 .662
+  mlp   L1 2.161  L2 1.550  L3 2.104  L4 9.920  L5 2.781  L6 1.508  L7 .600  L8 .541  L9 .546
+        L10 .488  L11 .508  L12 .402  L13 .421  L14 .424  L15 .244  L16 .241  L17 .330
+```
+
+> **The early MLPs are a different regime and it is not subtle.** Every attention site in the network
+> sits between **0.15 and 0.70**. Every MLP from layer 7 up sits between **0.24 and 0.60**. The MLPs at
+> layers 1-6 sit at **1.51, 1.55, 2.10, 9.92, 2.78, 1.51** — up to **9.9x the site's own output RMS at
+> mlp4**. What those layers emit for a token *on its own* is not merely inaccurate about what they emit
+> for that token *in text*; at mlp4 it is an order of magnitude larger than the signal.
+
+**pred_b PASSED and it is the first predictor of §1834's cost table with the RIGHT SIGN.** The length-1
+relative error correlates with cost at **+0.414**, where §1837's ideal-table error correlated at
+**−0.466** — the same statistic, computed for a different table, flips from wrong-signed to
+right-signed. **The predictor was never the problem; the table was.** Nine instruments have now been
+tried against this cost table and this is the first that points the right way, though depth still leads
+at +0.853.
+
+**pred_a FAILED and I am NOT taking its failure branch, because pred_b's pass contradicts it.** The
+largest gap is **mlp4 at 9.920**, not mlp5 (**2.781**, second of 34). pred_a's branch said that would
+mean "every mechanism-bearing candidate is exhausted and mlp5's primacy is a scoring artefact." That
+reading is too strong: mlp5 is second on this statistic, the statistic predicts cost with the right
+sign, and the four dearest sites in §1834 (mlp5, mlp3, mlp4, attn2) include three of the top four here.
+**What this explains is the early-MLP band, not mlp5 specifically** — and §1834's ordering *within* that
+band remains unexplained, since mlp4 has 3.6x the table gap of mlp5 and 27% less cost.
+
+**pred_c PASSED**: the median site's gap is **0.557** of its output RMS, so the two tables are
+substantially different objects nearly everywhere. §1840's and §1841's alpha curves, which all use the
+empirical mean, therefore do **not** transfer to §1834's arms directly, and any figure quoted across
+those sections must name which table it used.
+
+**Controls (pred_d).** §1837's published token-explained variance reproduces to a drift of 0.0005; live
+top-1 reproduces §1789's published 39.32%; every gap is strictly positive; coverage 5419 of 50257.
+
+**Open question this ends on, and it closes the loop rather than opening a new line.** The obvious test
+is now direct: rerun §1834's own arm for mlp5 — same B0 stream, same top-1 gap fraction, same
+population — but substitute the **empirical per-token mean** instead of the length-1 row. §1834 says
++61.2pp with the length-1 table; §1841 says +0.0668 nats with the empirical mean on a different readout.
+Running one arm with the good table in §1834's units says **how much of the most expensive site in the
+network is the site and how much is the table**, which is the question the last four sections have been
+circling and the only one left with a number attached.
