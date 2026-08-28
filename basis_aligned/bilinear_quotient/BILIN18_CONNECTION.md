@@ -47673,3 +47673,57 @@ points. The anomaly was rebuilt at every stage before being attributed.
 **Open question this ends on.** mlp4's row is badly oversized and that costs 62 points in a bottom-up
 arm. Does correcting it help the object that actually matters — the fully compiled settled program,
 where §1807 found that rescaling *everything* costs 5.4 points?
+
+## §1810 — "mis-scaled" is a property of POSITION, not of the row: mlp4's correction is worth +49 points below live layers and −0.4pp at full compile
+
+`ops/single_site_rescale_scan.py`, 172.5s, **DISCOVERY ONLY**, rung 3 (§1809's closing question).
+**pred_a False | pred_b False | pred_c False | pred_d True.** All three scientific bars failed and the
+result is clean.
+
+Change in overall top-1 from rescaling **one** site in the fully compiled program (pp):
+
+```
+  attn skip7000  L0 +0.00 ... L9 -0.18  L13 -0.41  L14 -0.14  L15 -0.49  L16 -0.01  L17 +0.01
+  mlp  skip7000  L0 -0.00  L3 +0.02  L4 -0.37  L5 -0.11  L6 -0.14  L8 +0.06 ... L17 -0.07
+  mlp  skip11000 L4 -0.34  L5 -0.39  L6 -0.35  L8 +0.08
+  mlp  skip1200  L4 -0.53  L5 -0.34  L6 -0.22  L7 +0.03
+```
+
+**pred_a FAILED: the best single-site rescale gains +0.06 / +0.08 / +0.03 pp** against a 0.5pp bar.
+Nothing helps. Its registered alternative is the conclusion: *"the row magnitudes should be treated as
+locally optimal at full compile — which closes the magnitude line that began at §1804."* **That line is
+now closed.**
+
+**pred_b FAILED, and this is the finding.** The best sites are **mlp8 / mlp8 / mlp7**, not mlp4. And
+mlp4 is among the **worst**: rescaling it costs **−0.37 / −0.34 / −0.53 pp**. The identical correction —
+the same factor of 0.10 on the same row — is worth **+49 points of gap** in the L5 bottom-up arm
+(§1809) and **negative** in the fully compiled program. pred_b's registered sentence: *"'this row is
+mis-scaled' is a property of where the row SITS rather than of the row — and no site-level correction
+generalises across compile configurations."*
+
+**So mlp4's row is not wrong. It is wrong only beneath live layers.** Ten-times-oversized is harmless
+when everything downstream is also a table, and catastrophic when a live module has to consume it. That
+is the cleanest statement of §1804-§1809's mechanism, and it is a statement about the *interface*
+between compiled and live regions rather than about any component.
+
+**pred_c FAILED, and it went the more convenient way.** I predicted the singles would not compose,
+requiring a ≥3pp discrepancy at every role; the sums are **−2.20 / −3.54 / −5.18 pp** against all-sites
+**−1.39 / −1.44 / −1.54 pp**, differing by **0.81 / 2.10 / 3.64** — the bar is met only on skip1200. At
+full compile the corrections are roughly additive, unlike the bottom-up setting where §1808 found
+cancellation and §1809 super-additivity. **Caveat I am recording rather than glossing**: every single
+effect here is within ±0.6pp, so "roughly additive" is a claim about small numbers and the relative
+discrepancy is 60% on skip7000.
+
+Controls (pred_d): endpoints reproduce §1789's published figures within 0.001, and the all-sites scaled
+arm reproduces §1807's published −5.4 / −5.1 / −6.1% of gap (here −1.39pp / 25.77pp = −5.4%); coverage
+5419.
+
+**Where the magnitude line ends.** §1804 observed a norm mismatch, §1807 showed correcting it globally
+hurts, §1808/§1809 traced a large bottom-up effect to one site, and §1810 shows that site's correction
+does not transfer to the object of interest. **The settled program's row magnitudes are locally optimal
+at full compile and nothing in this line improves it.**
+
+**Open question this ends on.** Four sections have now closed repair routes for the all-sites program,
+while §1805's top-down curve quietly showed a *better* object exists: eleven live layers recover half
+the gap, and the compiled part uses fewer tables. That partial compile has never been priced on the
+axes this thread actually cares about — CE, parameter cost, and the cost/fidelity frontier of §1754.
