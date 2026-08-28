@@ -50165,3 +50165,73 @@ populations *of*.
 **Controls that hold.** The all-position CEs at 5,419 reproduce §1811's published settled figures exactly
 across the whole ladder — 6.01167 / 6.06004 / 6.17330 / 6.35916 / 6.62422 — which is a five-point
 cross-run check on the object, and full-rank attainment is exact at both coverages on all three roles.
+
+## §1853 — the measured Pareto frontier over coverage × rank: 3 of 15 points are dominated, including the deployed one
+
+`ops/grid_middle_coverage.py`, 494.8s, **DISCOVERY ONLY**, §1852's open question. **4/4 —
+pred_a True | pred_b True | pred_c True | pred_d True.**
+
+The middle row lands where §1852's two-row reading predicted, on **all twelve cells**:
+
+```
+  coverage 9,054 types (1.67x §1834's 5,419, from the same n480 stream as §1852's 16,110)
+    rank 256   §1849 +0.06580 < HERE +0.07936 < §1852 +0.09252     (and likewise on both other roles)
+    rank 64    §1849 +0.22327 < HERE +0.25074 < §1852 +0.27839
+    rank 16    §1849 +0.42066 < HERE +0.45375 < §1852 +0.48135
+    rank 4     §1849 +0.70393 < HERE +0.75903 < §1852 +0.82377
+  full rank: -0.000000 on all three roles -- attainment holds at a THIRD independent coverage
+```
+
+**pred_c PASSED on every cell**, so the ladder shift is monotone in coverage and §1852's two-row reading
+was not an accident of which two. §1852's coverage contrast came from two different *files*; this row
+shares a stream with it and differs only in how much was used, so the confound is removed.
+
+**The frontier, now measurable.** Fifteen points — three coverages × five ranks — on all-position CE
+(skip7000), against §1754's cost model:
+
+```
+  ON THE FRONTIER                                     DOMINATED
+    6.34M   6.62422   5,419  rank 4                     6.86M  6.64951   9,054  rank 4
+    9.18M   6.35916   5,419  rank 16                    7.88M  6.68494  16,110  rank 4
+   11.27M   6.35875   9,054  rank 16                  230.09M  6.01167   5,419  rank FULL
+   15.33M   6.35395  16,110  rank 16
+   20.53M   6.17330   5,419  rank 64
+   28.91M   6.16268   9,054  rank 64
+   45.16M   6.15459  16,110  rank 64
+   65.95M   6.06004   5,419  rank 256
+   99.45M   6.02349   9,054  rank 256
+  164.48M   5.98851  16,110  rank 256
+  380.84M   5.95796   9,054  rank FULL
+  673.46M   5.90522  16,110  rank FULL
+```
+
+> **Three of fifteen points are dominated, and one of them is the object this record has been treating as
+> the program.** Full rank at 5,419 types — §1789's build, §1848's attained ceiling, the arm every
+> section from §1829 onward used as its baseline — is beaten by **rank-256 at 16,110 types**: 164.5M
+> reals against 230.1M, CE 5.98851 against 6.01167. **Cheaper and better.**
+
+**Rank is the stronger lever, and the ranking is consistent.** At every cost level a rank tier beats a
+coverage tier: rank-64 at 5,419 (20.5M, 6.173) beats rank-16 at 16,110 (15.3M, 6.354) for 34% more
+money, and rank-256 at 5,419 (66.0M, 6.060) beats rank-64 at 16,110 (45.2M, 6.155). Within a rank tier,
+more coverage is monotonically better — **except at rank 4, where it is monotonically worse** (6.624 →
+6.650 → 6.685), which is why both larger-coverage rank-4 points are dominated.
+
+**That localises §1852's interaction.** Coverage helps at rank ≥ 16 and hurts at rank 4, so the sign
+flips between those two tiers. A rank-4 basis cannot span 16,110 token types well enough for the extra
+types to pay for the capacity they consume; a rank-16 basis can. §1800 priced coverage at fixed rank and
+§1849 priced rank at fixed coverage; neither could see this, and it is the reason neither is a standalone
+lever.
+
+**Controls (pred_d), and this time none of them anchors across populations.** Coverage lies strictly
+between the two published values (9,054 in 5,419…16,110); the ceiling is finite and above live on every
+role; the ladder is monotone in rank at this coverage as at both others. Deliberately **no** anchor to a
+figure measured on a different covered set — the defect §1851's and §1852's pred_d both hit, the second
+time by copying the first script without re-reading its controls.
+
+**Open question this ends on.** The frontier above is measured at three coverages and five ranks, and its
+knee is between rank 256 and full: 164.5M buys 5.98851, and 673.5M — **4.1x the cost** — buys 5.90522, a
+further 0.083 nats. Nothing between rank 256 and full rank has been measured at any coverage, and the
+dominated point sits exactly in that interval. **Ranks 384, 512 and 1024 at 16,110 types would say
+whether the frontier bends smoothly there or whether full rank is an isolated expensive endpoint** — and
+since §1848 established full rank attains the ceiling exactly, that interval is the last unpriced stretch
+of a curve whose both ends are now known.
