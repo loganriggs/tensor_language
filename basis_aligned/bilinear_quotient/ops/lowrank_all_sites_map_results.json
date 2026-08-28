@@ -1,0 +1,593 @@
+{
+ "config": {
+  "sites": "all 36",
+  "ranks": [
+   8,
+   32,
+   128
+  ],
+  "ridge": 0.01,
+  "program": "table[token] + x W_r at every site, hybrid coverage rule (\u00a71661)",
+  "FIT_CONTEXT": "ALL-TABLED. One sweep: each hook records (input, native output) and installs the table, so every site sees the context it is deployed into and its recorded target is what it would produce there. \u00a71746 measured this context as worth 6.7x.",
+  "ROLE_NOTE": "DISCOVERY ONLY. Both eval roles reported; neither is clean for site-set questions after \u00a71739-\u00a71746."
+ },
+ "results": {
+  "skip7000": {
+   "live_ce": 3.29205,
+   "table_only_ce": 7.35114,
+   "stake_nats": 4.05909,
+   "joint": {
+    "8": {
+     "ce": 7.87461,
+     "recovered": -0.52347,
+     "frac_of_stake": -0.12896,
+     "cost_M": 0.6636
+    },
+    "32": {
+     "ce": 7.9195,
+     "recovered": -0.56836,
+     "frac_of_stake": -0.14002,
+     "cost_M": 2.6542
+    },
+    "128": {
+     "ce": 7.88284,
+     "recovered": -0.53169,
+     "frac_of_stake": -0.13099,
+     "cost_M": 10.6168
+    }
+   },
+   "per_site": {
+    "mlp0": {
+     "site_gap": -0.0003,
+     "recovered": -0.00027,
+     "frac_of_site_gap": 0.91356,
+     "kind": "mlp"
+    },
+    "mlp1": {
+     "site_gap": 0.00091,
+     "recovered": 0.00089,
+     "frac_of_site_gap": 0.98441,
+     "kind": "mlp"
+    },
+    "mlp2": {
+     "site_gap": -0.0007,
+     "recovered": -0.00056,
+     "frac_of_site_gap": 0.7975,
+     "kind": "mlp"
+    },
+    "mlp3": {
+     "site_gap": -0.00017,
+     "recovered": 0.00045,
+     "frac_of_site_gap": -2.69795,
+     "kind": "mlp"
+    },
+    "mlp4": {
+     "site_gap": 0.00325,
+     "recovered": 0.00359,
+     "frac_of_site_gap": 1.10585,
+     "kind": "mlp"
+    },
+    "mlp5": {
+     "site_gap": 0.03649,
+     "recovered": 0.03423,
+     "frac_of_site_gap": 0.93787,
+     "kind": "mlp"
+    },
+    "mlp6": {
+     "site_gap": 0.05059,
+     "recovered": 0.04772,
+     "frac_of_site_gap": 0.94337,
+     "kind": "mlp"
+    },
+    "mlp7": {
+     "site_gap": 0.04943,
+     "recovered": 0.04422,
+     "frac_of_site_gap": 0.89467,
+     "kind": "mlp"
+    },
+    "mlp8": {
+     "site_gap": 0.06058,
+     "recovered": 0.05494,
+     "frac_of_site_gap": 0.90691,
+     "kind": "mlp"
+    },
+    "mlp9": {
+     "site_gap": 0.09395,
+     "recovered": 0.08726,
+     "frac_of_site_gap": 0.92887,
+     "kind": "mlp"
+    },
+    "mlp10": {
+     "site_gap": 0.07074,
+     "recovered": 0.06394,
+     "frac_of_site_gap": 0.90383,
+     "kind": "mlp"
+    },
+    "mlp11": {
+     "site_gap": 0.1103,
+     "recovered": 0.1018,
+     "frac_of_site_gap": 0.92289,
+     "kind": "mlp"
+    },
+    "mlp12": {
+     "site_gap": 0.11845,
+     "recovered": 0.10804,
+     "frac_of_site_gap": 0.91209,
+     "kind": "mlp"
+    },
+    "mlp13": {
+     "site_gap": 0.1104,
+     "recovered": 0.10099,
+     "frac_of_site_gap": 0.91484,
+     "kind": "mlp"
+    },
+    "mlp14": {
+     "site_gap": 0.11283,
+     "recovered": 0.1036,
+     "frac_of_site_gap": 0.91816,
+     "kind": "mlp"
+    },
+    "mlp15": {
+     "site_gap": 0.23347,
+     "recovered": 0.22291,
+     "frac_of_site_gap": 0.95476,
+     "kind": "mlp"
+    },
+    "mlp16": {
+     "site_gap": 0.37224,
+     "recovered": 0.36612,
+     "frac_of_site_gap": 0.98357,
+     "kind": "mlp"
+    },
+    "mlp17": {
+     "site_gap": 0.51279,
+     "recovered": 0.51767,
+     "frac_of_site_gap": 1.00951,
+     "kind": "mlp"
+    },
+    "attn0": {
+     "site_gap": 0.0,
+     "recovered": 0.0,
+     "frac_of_site_gap": 0.0,
+     "kind": "attn"
+    },
+    "attn1": {
+     "site_gap": 0.0,
+     "recovered": -0.00021,
+     "frac_of_site_gap": -41.39949,
+     "kind": "attn"
+    },
+    "attn2": {
+     "site_gap": 0.00213,
+     "recovered": -0.00018,
+     "frac_of_site_gap": -0.08642,
+     "kind": "attn"
+    },
+    "attn3": {
+     "site_gap": 0.00352,
+     "recovered": -0.00017,
+     "frac_of_site_gap": -0.04904,
+     "kind": "attn"
+    },
+    "attn4": {
+     "site_gap": 0.00993,
+     "recovered": -0.00345,
+     "frac_of_site_gap": -0.34687,
+     "kind": "attn"
+    },
+    "attn5": {
+     "site_gap": -0.05237,
+     "recovered": -0.05117,
+     "frac_of_site_gap": 0.97721,
+     "kind": "attn"
+    },
+    "attn6": {
+     "site_gap": -0.01665,
+     "recovered": -0.02374,
+     "frac_of_site_gap": 1.42604,
+     "kind": "attn"
+    },
+    "attn7": {
+     "site_gap": 0.03221,
+     "recovered": -0.02109,
+     "frac_of_site_gap": -0.65495,
+     "kind": "attn"
+    },
+    "attn8": {
+     "site_gap": 0.07098,
+     "recovered": 0.02004,
+     "frac_of_site_gap": 0.28234,
+     "kind": "attn"
+    },
+    "attn9": {
+     "site_gap": 0.01021,
+     "recovered": -0.03921,
+     "frac_of_site_gap": -3.8409,
+     "kind": "attn"
+    },
+    "attn10": {
+     "site_gap": 0.04869,
+     "recovered": -0.03004,
+     "frac_of_site_gap": -0.61688,
+     "kind": "attn"
+    },
+    "attn11": {
+     "site_gap": 0.04856,
+     "recovered": -0.03938,
+     "frac_of_site_gap": -0.81093,
+     "kind": "attn"
+    },
+    "attn12": {
+     "site_gap": 0.05642,
+     "recovered": -0.01848,
+     "frac_of_site_gap": -0.32759,
+     "kind": "attn"
+    },
+    "attn13": {
+     "site_gap": 0.17306,
+     "recovered": 0.00745,
+     "frac_of_site_gap": 0.04305,
+     "kind": "attn"
+    },
+    "attn14": {
+     "site_gap": 0.21559,
+     "recovered": 0.00876,
+     "frac_of_site_gap": 0.04063,
+     "kind": "attn"
+    },
+    "attn15": {
+     "site_gap": 0.13505,
+     "recovered": 0.01502,
+     "frac_of_site_gap": 0.11122,
+     "kind": "attn"
+    },
+    "attn16": {
+     "site_gap": 0.313,
+     "recovered": 0.02203,
+     "frac_of_site_gap": 0.07039,
+     "kind": "attn"
+    },
+    "attn17": {
+     "site_gap": 0.20006,
+     "recovered": 0.10197,
+     "frac_of_site_gap": 0.50971,
+     "kind": "attn"
+    }
+   },
+   "median_frac": {
+    "mlp": 0.92053,
+    "attn": -0.02452
+   },
+   "ranked": [
+    "attn6",
+    "mlp4",
+    "mlp17",
+    "mlp1",
+    "mlp16",
+    "attn5",
+    "mlp15",
+    "mlp6",
+    "mlp5",
+    "mlp9",
+    "mlp11",
+    "mlp14",
+    "mlp13",
+    "mlp0",
+    "mlp12",
+    "mlp8",
+    "mlp10",
+    "mlp7",
+    "mlp2",
+    "attn17",
+    "attn8",
+    "attn15",
+    "attn16",
+    "attn13",
+    "attn14",
+    "attn0",
+    "attn3",
+    "attn2",
+    "attn12",
+    "attn4",
+    "attn10",
+    "attn7",
+    "attn11",
+    "mlp3",
+    "attn9",
+    "attn1"
+   ]
+  },
+  "skip11000": {
+   "live_ce": 3.09711,
+   "table_only_ce": 7.35825,
+   "stake_nats": 4.26114,
+   "joint": {
+    "8": {
+     "ce": 7.90447,
+     "recovered": -0.54622,
+     "frac_of_stake": -0.12819,
+     "cost_M": 0.6636
+    },
+    "32": {
+     "ce": 7.94784,
+     "recovered": -0.58959,
+     "frac_of_stake": -0.13836,
+     "cost_M": 2.6542
+    },
+    "128": {
+     "ce": 7.9116,
+     "recovered": -0.55335,
+     "frac_of_stake": -0.12986,
+     "cost_M": 10.6168
+    }
+   },
+   "per_site": {
+    "mlp0": {
+     "site_gap": -0.0003,
+     "recovered": -0.00027,
+     "frac_of_site_gap": 0.91709,
+     "kind": "mlp"
+    },
+    "mlp1": {
+     "site_gap": 0.00091,
+     "recovered": 0.00089,
+     "frac_of_site_gap": 0.97654,
+     "kind": "mlp"
+    },
+    "mlp2": {
+     "site_gap": -0.00059,
+     "recovered": -0.00048,
+     "frac_of_site_gap": 0.82139,
+     "kind": "mlp"
+    },
+    "mlp3": {
+     "site_gap": -7e-05,
+     "recovered": 0.00056,
+     "frac_of_site_gap": -8.33557,
+     "kind": "mlp"
+    },
+    "mlp4": {
+     "site_gap": 0.00319,
+     "recovered": 0.00341,
+     "frac_of_site_gap": 1.0699,
+     "kind": "mlp"
+    },
+    "mlp5": {
+     "site_gap": 0.03541,
+     "recovered": 0.03274,
+     "frac_of_site_gap": 0.92454,
+     "kind": "mlp"
+    },
+    "mlp6": {
+     "site_gap": 0.04917,
+     "recovered": 0.04568,
+     "frac_of_site_gap": 0.92898,
+     "kind": "mlp"
+    },
+    "mlp7": {
+     "site_gap": 0.04852,
+     "recovered": 0.04291,
+     "frac_of_site_gap": 0.88428,
+     "kind": "mlp"
+    },
+    "mlp8": {
+     "site_gap": 0.05973,
+     "recovered": 0.05375,
+     "frac_of_site_gap": 0.89978,
+     "kind": "mlp"
+    },
+    "mlp9": {
+     "site_gap": 0.09125,
+     "recovered": 0.08371,
+     "frac_of_site_gap": 0.91733,
+     "kind": "mlp"
+    },
+    "mlp10": {
+     "site_gap": 0.06853,
+     "recovered": 0.06064,
+     "frac_of_site_gap": 0.88484,
+     "kind": "mlp"
+    },
+    "mlp11": {
+     "site_gap": 0.10811,
+     "recovered": 0.09787,
+     "frac_of_site_gap": 0.90526,
+     "kind": "mlp"
+    },
+    "mlp12": {
+     "site_gap": 0.11575,
+     "recovered": 0.10379,
+     "frac_of_site_gap": 0.89662,
+     "kind": "mlp"
+    },
+    "mlp13": {
+     "site_gap": 0.10819,
+     "recovered": 0.09817,
+     "frac_of_site_gap": 0.90742,
+     "kind": "mlp"
+    },
+    "mlp14": {
+     "site_gap": 0.11148,
+     "recovered": 0.10094,
+     "frac_of_site_gap": 0.90545,
+     "kind": "mlp"
+    },
+    "mlp15": {
+     "site_gap": 0.2259,
+     "recovered": 0.21258,
+     "frac_of_site_gap": 0.94104,
+     "kind": "mlp"
+    },
+    "mlp16": {
+     "site_gap": 0.35994,
+     "recovered": 0.34751,
+     "frac_of_site_gap": 0.96547,
+     "kind": "mlp"
+    },
+    "mlp17": {
+     "site_gap": 0.5141,
+     "recovered": 0.5122,
+     "frac_of_site_gap": 0.99631,
+     "kind": "mlp"
+    },
+    "attn0": {
+     "site_gap": 0.0,
+     "recovered": 0.0,
+     "frac_of_site_gap": 0.0,
+     "kind": "attn"
+    },
+    "attn1": {
+     "site_gap": 7e-05,
+     "recovered": -0.0002,
+     "frac_of_site_gap": -3.03853,
+     "kind": "attn"
+    },
+    "attn2": {
+     "site_gap": 0.00228,
+     "recovered": -0.00019,
+     "frac_of_site_gap": -0.08555,
+     "kind": "attn"
+    },
+    "attn3": {
+     "site_gap": 0.00371,
+     "recovered": -0.00011,
+     "frac_of_site_gap": -0.02894,
+     "kind": "attn"
+    },
+    "attn4": {
+     "site_gap": 0.01129,
+     "recovered": -0.00328,
+     "frac_of_site_gap": -0.29074,
+     "kind": "attn"
+    },
+    "attn5": {
+     "site_gap": -0.08425,
+     "recovered": -0.05049,
+     "frac_of_site_gap": 0.59925,
+     "kind": "attn"
+    },
+    "attn6": {
+     "site_gap": -0.01262,
+     "recovered": -0.02246,
+     "frac_of_site_gap": 1.77999,
+     "kind": "attn"
+    },
+    "attn7": {
+     "site_gap": 0.03993,
+     "recovered": -0.02003,
+     "frac_of_site_gap": -0.50155,
+     "kind": "attn"
+    },
+    "attn8": {
+     "site_gap": 0.07866,
+     "recovered": 0.01968,
+     "frac_of_site_gap": 0.2502,
+     "kind": "attn"
+    },
+    "attn9": {
+     "site_gap": 0.00866,
+     "recovered": -0.0389,
+     "frac_of_site_gap": -4.49095,
+     "kind": "attn"
+    },
+    "attn10": {
+     "site_gap": 0.04977,
+     "recovered": -0.03011,
+     "frac_of_site_gap": -0.60495,
+     "kind": "attn"
+    },
+    "attn11": {
+     "site_gap": 0.05746,
+     "recovered": -0.03696,
+     "frac_of_site_gap": -0.64324,
+     "kind": "attn"
+    },
+    "attn12": {
+     "site_gap": 0.05216,
+     "recovered": -0.01615,
+     "frac_of_site_gap": -0.30964,
+     "kind": "attn"
+    },
+    "attn13": {
+     "site_gap": 0.18277,
+     "recovered": 0.0071,
+     "frac_of_site_gap": 0.03886,
+     "kind": "attn"
+    },
+    "attn14": {
+     "site_gap": 0.2426,
+     "recovered": 0.00813,
+     "frac_of_site_gap": 0.03351,
+     "kind": "attn"
+    },
+    "attn15": {
+     "site_gap": 0.145,
+     "recovered": 0.01349,
+     "frac_of_site_gap": 0.09301,
+     "kind": "attn"
+    },
+    "attn16": {
+     "site_gap": 0.31049,
+     "recovered": 0.01871,
+     "frac_of_site_gap": 0.06025,
+     "kind": "attn"
+    },
+    "attn17": {
+     "site_gap": 0.20562,
+     "recovered": 0.10115,
+     "frac_of_site_gap": 0.49195,
+     "kind": "attn"
+    }
+   },
+   "median_frac": {
+    "mlp": 0.91226,
+    "attn": -0.01447
+   },
+   "ranked": [
+    "attn6",
+    "mlp4",
+    "mlp17",
+    "mlp1",
+    "mlp16",
+    "mlp15",
+    "mlp6",
+    "mlp5",
+    "mlp9",
+    "mlp0",
+    "mlp13",
+    "mlp14",
+    "mlp11",
+    "mlp8",
+    "mlp12",
+    "mlp10",
+    "mlp7",
+    "mlp2",
+    "attn5",
+    "attn17",
+    "attn8",
+    "attn15",
+    "attn16",
+    "attn13",
+    "attn14",
+    "attn0",
+    "attn3",
+    "attn2",
+    "attn4",
+    "attn12",
+    "attn7",
+    "attn10",
+    "attn11",
+    "attn1",
+    "attn9",
+    "mlp3"
+   ]
+  }
+ },
+ "predictions": {
+  "pred_a_all36_rank8_recovers_a_nat": false,
+  "pred_b_mlps_more_correctable": true,
+  "pred_c_late_mlps_lead": true,
+  "pred_d_controls": true
+ },
+ "runtime_s": 243.0
+}

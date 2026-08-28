@@ -44526,3 +44526,66 @@ rather than headlined, per the denominator lessons (32, 35).
 
 Controls (pred_d): table-only CE 7.35114 across seven scripts now; native-6 reproducing §1741's
 1.2037 and 1.2414 within 0.001; coverage 5419 of 50257.
+
+## §1747 — every MLP is ~90% linearly correctable over its table and no attention site is; and installing all 36 corrections together makes the program WORSE than tables alone
+
+`ops/lowrank_all_sites_map.py`, 243.0s, **DISCOVERY ONLY**.
+**pred_a False | pred_b True | pred_c True | pred_d True.**
+
+One fit sweep in the all-tabled context — each hook records the module's input and native output and
+installs the table, so every site sees exactly the inputs it is deployed into — then `table + x W_r`
+at every site.
+
+**pred_a FAILED and it is the headline. The joint all-36 program is NEGATIVE.**
+
+```
+  skip11000, table-program stake 4.2611 nats
+    ALL-36 rank   8:  -0.5462 nats  = -12.82% of the stake   for 0.664M reals
+    ALL-36 rank  32:  -0.5896        = -13.84%               for 2.654M
+    ALL-36 rank 128:  -0.5534        = -12.99%               for 10.617M
+```
+
+Every one of these corrections helps when it is the only one installed. **Installed together they
+cost half a nat more than plain tables.** That is §1669 and LESSONS 28 arriving one level up — each
+W was fitted against an all-tabled context, and once thirty-six of them are live, that context no
+longer exists. The prediction was written to catch exactly this and it did.
+
+**pred_b and pred_c passed decisively, and the per-site map is the useful artifact.** Restricted to
+the nineteen sites whose own gap exceeds 0.05 nats, so that no ratio is taken on a near-zero
+denominator (LESSONS 32, 35):
+
+```
+  held out, fraction of that site's own gap closed by table + x W_128
+    mlp17   gap +0.5141   99.63%     attn17  gap +0.2056   49.20%
+    mlp16   gap +0.3599   96.55%     attn8   gap +0.0787   25.02%
+    mlp15   gap +0.2259   94.10%     attn15  gap +0.1450    9.30%
+    mlp9    gap +0.0912   91.73%     attn16  gap +0.3105    6.02%
+    mlp13   gap +0.1082   90.74%     attn13  gap +0.1828    3.89%
+    mlp14   gap +0.1115   90.55%     attn14  gap +0.2426    3.35%
+    mlp11   gap +0.1081   90.53%     attn12  gap +0.0522  -30.96%
+    mlp12   gap +0.1158   89.66%     attn11  gap +0.0575  -64.32%
+    mlp8    gap +0.0597   89.98%
+    mlp10   gap +0.0685   88.48%
+  median over all 18 of each kind:  MLP 91.23%   attention -1.45%
+```
+
+> **Every MLP with a gap worth measuring is 88–100% linearly correctable over its per-token table.
+> No attention site exceeds 50%, and the median attention site is at zero.** mlp17's 54x compression
+> (§1746) is not a property of that site: it is a property of the MLP band, and it holds from mlp8 to
+> mlp17 without exception.
+
+**Seventeen of the 36 sites have |gap| < 0.05 nats and their ratios are excluded from every statement
+above.** The raw output's extremes — `attn1` at −4139.95% on a gap of 0.0001, `attn6` at +178.00% on
+a *negative* gap of −0.0126 — are denominators crossing zero, not findings. The medians are over all
+18 of each kind and are robust to them; the ranked lists are not, so the ranked lists are restricted.
+
+**What this leaves for the compiler, stated as a problem and not a win.** Per site, the MLP band is
+nearly free: rank 8 over a table, 0.018M reals against 15.926M native. Jointly, that program is worse
+than doing nothing. **The compression is real and the composition is not**, and §1669's interleaved
+bottom-up procedure — fit site L against everything already substituted below it, then install, then
+fit L+1 — is the known answer to exactly this failure and has not been applied to this program class.
+That is the next experiment, and it is the one that decides whether the MLP band's 90% is a compiler
+or an illusion.
+
+Controls (pred_d): table-only CE 7.35114; the six site gaps §1746 published reproduced within 0.001
+by a third script; coverage 5419 of 50257.
