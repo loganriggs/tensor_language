@@ -45236,3 +45236,55 @@ so the honest standalone number and the propagation remainder separate instead o
 `pred_d` uses **3.13704** as a known answer for all-position live CE — the value §1728's baseline
 assert fired on when I first scored every position by mistake. A failure that stopped a run three
 hours ago is now a control.
+
+## §1762 — the fallback is not affordable: a standalone program goes NEGATIVE. And the covered-position difference is bit-exactly zero, which I cannot explain.
+
+`ops/standalone_all_position.py`, 318.1s, **DISCOVERY ONLY**.
+**pred_a True | pred_b True | pred_c True | pred_d True.**
+
+```
+  skip11000 (held out)      covered CE        all-position CE
+    live                      3.09711            2.93450
+    hybrid table-only         7.35825            6.34771     (all-position stake 3.41321)
+
+                            recovered, covered   recovered, ALL positions
+    t64 c128  hybrid            +0.785310            +0.502208
+    t64 c128  standalone        +0.785310            -0.392205
+    t8  c8    hybrid            +0.410527            +0.078800
+    t8  c8    standalone        +0.410527            -0.699946
+```
+
+**pred_a passed and the answer is worse than its bar. Scored where the two arms actually differ, the
+standalone program does not lose 10% — it loses 178% at the fidelity point and 988% at the starved
+table, going NEGATIVE in both cells.** A program that must answer for the uncovered quarter with a
+per-site mean row is worse than the plain hybrid table baseline.
+
+> **The caveat I have been attaching to six sections was not conservative enough.** The hybrid figures
+> are not a program's fidelity that happens to lean on a fallback; **the fallback is load-bearing.**
+> And even the hybrid program, scored honestly on every position, recovers **+0.502208 of a 3.41321
+> all-position stake — 14.7%**, against the 18.4% its covered-position figure reports.
+
+**pred_c passed and sharpens it**: the loss is far larger at the starved table (988% vs 178%), so a
+rank-8 table's mean row is a much worse stand-in than a rank-64 one. The fallback and the table
+compression interact, and §1756's efficiency design point is the worse of the two under honest
+scoring.
+
+**pred_b passed, and I am flagging the way it passed rather than banking it.** The covered-position
+difference between the arms is **exactly 0.00e+00** — bit-identical float64 sums over 27,497
+positions — while the all-position figures differ by 0.9 nats in the same forward pass with the same
+hooks. So the hooks are demonstrably active, and yet perturbing a quarter of positions changes
+**nothing** at the scored covered positions. Attention is causal, a substituted output at an
+uncovered position `p` enters the residual stream, and a covered position `j > p` attends to it, so I
+expect a small non-zero propagation term and **I do not have a mechanism for exact zero.** §1749's
+exact zero was a proof because I could derive it from depth causality; this one I cannot derive, so
+it is recorded as an anomaly, not a locality law. The obvious direct check — perturb one uncovered
+position's site output and see whether any later covered position's loss moves — is queued.
+
+Controls (pred_d): the covered-position hybrid arms reproduce §1758's +0.77602/+0.78536 and
++0.40210/+0.41052; table-only covered CE 7.35114; coverage 5419; and **all-position live CE 3.13704
+on skip7000, matching the value §1728's baseline assert fired on** when I first scored every position
+by mistake. A failure that stopped a run this morning is now a known answer that validates one.
+
+**Codex's narrowing stands over all of this**: both arms are post-forward hooks, so this is
+zero-native-OUTPUT and not zero-native-CALL, the native compute is not removed, and attention's `v1`
+value bus is native in both arms.

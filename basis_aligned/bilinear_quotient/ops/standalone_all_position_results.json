@@ -1,0 +1,170 @@
+{
+ "config": {
+  "cells": [
+   [
+    64,
+    128
+   ],
+   [
+    8,
+    8
+   ]
+  ],
+  "arms": [
+   "hybrid",
+   "standalone"
+  ],
+  "populations": "cov = positions whose token was covered at fit (every published figure uses this); all = every scored position from 64 on, which is where the two arms actually differ",
+  "WHY": "\u00a71761 scored only COVERED positions, where the hybrid and standalone hooks are identical by construction, and reported a 0.00% difference computed from values already rounded to five decimals.",
+  "ZERO_NATIVE_OUTPUT_NOT_ZERO_NATIVE_CALL": "both arms are post-forward hooks, so the native module still executes at every site; only its OUTPUT is replaced. Attention `v1` is passed through unchanged in both arms (\u00a71682). Compute is not removed and the v1 dependency is not removed.",
+  "ROLE_NOTE": "DISCOVERY ONLY."
+ },
+ "baseline": {
+  "skip7000": {
+   "live": {
+    "cov": 3.292052,
+    "all": 3.137041
+   },
+   "table_only_hybrid": {
+    "cov": 7.35114,
+    "all": 6.426008
+   },
+   "stake": {
+    "cov": 4.059088,
+    "all": 3.288968
+   }
+  },
+  "skip11000": {
+   "live": {
+    "cov": 3.097111,
+    "all": 2.934498
+   },
+   "table_only_hybrid": {
+    "cov": 7.358247,
+    "all": 6.347713
+   },
+   "stake": {
+    "cov": 4.261137,
+    "all": 3.413215
+   }
+  }
+ },
+ "cells": {
+  "t64_c128_hybrid": {
+   "table_rank": 64,
+   "corr_rank": 128,
+   "arm": "hybrid",
+   "total_cost_M": 25.8394,
+   "recovered_full_precision": {
+    "skip7000": {
+     "cov": 0.7759187511900638,
+     "all": 0.5089724367621828
+    },
+    "skip11000": {
+     "cov": 0.7853099073189389,
+     "all": 0.502207579155276
+    }
+   },
+   "frac_of_stake": {
+    "skip7000": {
+     "cov": 0.19115591112438618,
+     "all": 0.15475142815054227
+    },
+    "skip11000": {
+     "cov": 0.1842958664340652,
+     "all": 0.14713622700031526
+    }
+   }
+  },
+  "t64_c128_standalone": {
+   "table_rank": 64,
+   "corr_rank": 128,
+   "arm": "standalone",
+   "total_cost_M": 25.8394,
+   "recovered_full_precision": {
+    "skip7000": {
+     "cov": 0.7759187511900638,
+     "all": -0.255016319527436
+    },
+    "skip11000": {
+     "cov": 0.7853099073189389,
+     "all": -0.3922045757457955
+    }
+   },
+   "frac_of_stake": {
+    "skip7000": {
+     "cov": 0.19115591112438618,
+     "all": -0.07753688961943796
+    },
+    "skip11000": {
+     "cov": 0.1842958664340652,
+     "all": -0.11490766743218205
+    }
+   }
+  },
+  "t8_c8_hybrid": {
+   "table_rank": 8,
+   "corr_rank": 8,
+   "arm": "hybrid",
+   "total_cost_M": 2.6389,
+   "recovered_full_precision": {
+    "skip7000": {
+     "cov": 0.40211213793293243,
+     "all": 0.09519148766869012
+    },
+    "skip11000": {
+     "cov": 0.4105270855545502,
+     "all": 0.0787995404700057
+    }
+   },
+   "frac_of_stake": {
+    "skip7000": {
+     "cov": 0.09906464044444255,
+     "all": 0.028942664868485977
+    },
+    "skip11000": {
+     "cov": 0.09634215005032425,
+     "all": 0.023086603140512325
+    }
+   }
+  },
+  "t8_c8_standalone": {
+   "table_rank": 8,
+   "corr_rank": 8,
+   "arm": "standalone",
+   "total_cost_M": 2.6389,
+   "recovered_full_precision": {
+    "skip7000": {
+     "cov": 0.40211213793293243,
+     "all": -0.6012789735975472
+    },
+    "skip11000": {
+     "cov": 0.4105270855545502,
+     "all": -0.6999463662282421
+    }
+   },
+   "frac_of_stake": {
+    "skip7000": {
+     "cov": 0.09906464044444255,
+     "all": -0.1828169330210501
+    },
+    "skip11000": {
+     "cov": 0.09634215005032425,
+     "all": -0.2050695204613032
+    }
+   }
+  }
+ },
+ "standalone_loss_fraction_all_positions": {
+  "fidelity_point": 1.7809610846683994,
+  "efficiency_point": 9.882619899219717
+ },
+ "covered_position_difference_nats": 0.0,
+ "predictions": {
+  "pred_a_allpos_loss_at_least_10pc": true,
+  "pred_b_covered_null_holds": true,
+  "pred_c_loss_larger_at_starved_table": true,
+  "pred_d_controls": true
+ },
+ "runtime_s": 318.1
+}
