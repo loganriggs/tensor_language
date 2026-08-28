@@ -1248,3 +1248,20 @@ whole prefixes or suffixes, not an attribution. Related: [[lesson-33]] (an aggre
 entries is an aggregate over prose) and the §1736-§1739 finding that one-at-a-time ablation overstates
 an MLP site by 2.4x and understates an attention site by 2.5x — the same defect, already recorded once
 for ablation and now for composition.
+
+### LESSON 41, sixth instance — editing a script after queueing it races the runner
+
+I queued `partial_compile_frontier.py`, then patched it twice more. The runner popped it at 15:35:20;
+my final fix landed at 15:35:23. Python snapshots the source at process start, so the run was executing
+a version I had already superseded and was guaranteed to die at its last line -- after six minutes of
+correct GPU work. I killed it rather than let it finish, but the waste was already committed the moment
+I edited a file that was sitting in the queue.
+
+The same tick also ran a version whose `pred_a` could not fail (the settled arm was the minimum-cost
+arm in the sweep, so "is it Pareto-dominated" was unfalsifiable) and a version that OOMed holding two
+8.3 GiB row banks. Three defects, three runs, one experiment.
+
+**How to apply.** The order is: write, gate, THEN queue -- and once a path is in `queue.txt` or running,
+that file is frozen. If a fix is needed, either edit and requeue as a deliberate second run, or remove
+the queue line first. Never patch in place and hope the runner has not popped it. When in doubt compare
+`ls --time-style=+%H:%M:%S` on the script against the runner's start line, which is what caught this.

@@ -360,18 +360,9 @@ def main():
         del frr, hks
         torch.cuda.empty_cache()
 
-    # ---- mechanism diagnostic: in the FULLY COMPILED stream, how big is what each live attention
-    # module would have emitted, against the row that replaces it?  (LESSON 44: emit the quantity.)
-    store = {}
-    phooks = [(st, (probe_hook(fr[st], store, st[1]) if st[0] == 'attn' else allhooks[st]))
-              for st in sites]
-    evaluate(evs['skip7000'], phooks, keep_mask)
-    norm = {L: (store[L][0] / max(store[L][2], 1), store[L][1] / max(store[L][2], 1))
-            for L in sorted(store)}
-    print('\n  mean ||live attn output|| vs ||substituted row||, in the compiled stream:', flush=True)
-    for L in sorted(norm):
-        print(f'    L{L:<2d} live {norm[L][0]:12.3f}  row {norm[L][1]:9.3f}  '
-              f'ratio {norm[L][0] / max(norm[L][1], 1e-9):8.3f}', flush=True)
+    # (The compiled-stream norm diagnostic of §1804 is NOT rerun here: it needs the full-rank bank
+    # and its hooks, which are released above so the rank sweep can build its own. Its figures are
+    # already published in §1804 and corrected in §1807; nothing in this run depends on them.)
     del evs
     torch.cuda.empty_cache()
 
@@ -380,7 +371,6 @@ def main():
 
     def d(e, label):
         return res[e][label]['top1'] - base[e]
-    ratio = {L: norm[L][0] / max(norm[L][1], 1e-9) for L in norm}
     gap = {e: res[e]['live_model']['top1'] - base[e] for e in roles}
     keys = [f'r{r}_L{L}' for r in RANKS for L in DEPTHS]
     acc = {e: {k: res[e][k]['top1'] for k in keys} for e in roles}
@@ -421,7 +411,8 @@ def main():
     print(f'\npred_a {pa} | pred_b {pb} | pred_c {pc} | pred_d {pd}', flush=True)
 
     json.dump({'run': 'l5_cliff_probe',
-               'norm_live_vs_row': {str(L): list(norm[L]) for L in norm},
+               'calibration_scale': {f'{k}{L}': scale[(k, L)]
+                                    for k in ('attn', 'mlp') for L in range(18)},
                'ratio': {str(L): ratio[L] for L in ratio},
                'results': {e: {f: {k: (round(v, 6) if isinstance(v, float) else v)
                                    for k, v in c.items()} for f, c in d.items()}
