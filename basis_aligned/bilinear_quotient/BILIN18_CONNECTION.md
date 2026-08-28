@@ -49062,3 +49062,67 @@ SCATTER_ODD, SCATTER_EVEN)? If it does, a compiled set of any shape can be price
 without running it — which is the first thing in this arc that would be *useful* rather than merely true.
 If it does not, the sites interact in a way no per-site table captures, and the impression above should
 be struck from the record rather than repeated.
+
+## §1834 — the pricing model FAILS (R² = −1.284), and the full table names mlp5 as the most destructive site in the network
+
+`ops/site_cost_table.py`, 885.1s, **DISCOVERY ONLY**, rung 3 (§1833's open question).
+**pred_a False | pred_b False | pred_c True | pred_d True.**
+
+The single-site cost of **all 34 sites** at layers 1-17 — B0 plus one site, percentage points of gap
+lost against B0's 64.8% (skip7000, sequential arm):
+
+```
+  attn  L1 +37.4  L2 +42.9  L3 +19.9  L4 +28.8  L5 +16.9  L6  +4.7  L7  +7.4  L8  +1.1  L9  +0.7
+        L10 -0.6  L11 +2.3  L12 -0.3  L13 +0.6  L14 +0.3  L15 -1.1  L16 -0.1  L17 -0.5
+  mlp   L1 +38.7  L2 +37.9  L3 +48.5  L4 +44.5  L5 +61.2  L6  +6.5  L7  +5.1  L8  +4.1  L9  +4.1
+        L10 +2.5  L11 +2.9  L12 +2.3  L13 +2.1  L14 +2.2  L15 +1.7  L16 +1.9  L17 +4.0
+```
+
+**pred_a FAILED and it failed hard: R² = −1.284.** One multiplier on the sum of single-site costs is
+*worse than predicting the mean*. **§1833's separable-plus-multiplier impression is struck from the
+record**, as that section's own open question said it must be if this came out negative. **pred_b FAILED
+too** — the fitted α is **0.879**, sub-additive, not the 1.2-3.0 super-additive range §1832 implied.
+
+**The residuals say exactly where the model breaks, and it is the arm §1830 already flagged.** B1 is
+over-predicted by **−28.0pp** while all six deep arms are under-predicted by **+6.0 to +20.7pp**. One
+point is pulling α down from the other six. *Post hoc and not a registered test:* refitting on the six
+deep arms alone gives **α = 1.520, R² = +0.803** — super-additive, as §1832 said, and still **below the
+0.90 bar I set**. I am recording that as an observation needing its own registered test, not as a rescue:
+dropping the worst point and refitting inflates R² by construction, and the only reason it is worth
+writing down at all is that §1830 established layer 1 as a *sub*-additive regime (1.96x of an
+exact-redundancy 2.00x) **before** this fit existed. Two regimes with different α is a hypothesis; it is
+not something this run tested.
+
+> **The table's headline is a single number: `mlp5` costs +61.2pp.** Compiling that one site on top of a
+> compiled layer 0 leaves **3.6%** of the gap recovered, out of 64.8%. It is 95% of everything B0 has, in
+> one site, and it is the most expensive site in the network by 12.7pp over the runner-up (`mlp3`, +48.5).
+
+**Layer 5 returns, but as the MLP.** §1804 measured attention at layer 5 exploding **152x** on a compiled
+stream and §1818 pinned 85% of that excess on head 5.7. Those are measurements on the fully compiled
+stream and stand. But the destructive *site* at layer 5 is `mlp5` at +61.2pp, against `attn5` at only
++16.9pp — the attention site at layer 5 is one of the *cheaper* early sites. Whatever makes layer 5
+special, the single-site cost instrument puts it in the MLP.
+
+**Two more structures in the table.** First, **attention is cheaper than the MLP at every layer from 6
+up**, without exception, and five attention sites have *negative* cost — compiling attn10, attn12,
+attn15, attn16 or attn17 slightly *improves* recovery (−0.6, −0.3, −1.1, −0.1, −0.5pp). Small, but five
+of five in the same direction. Second, the expensive band is layers 1-5 and **within it the MLP dominates
+at layers 3, 4 and 5** (48.5 vs 19.9, 44.5 vs 28.8, 61.2 vs 16.9) while the two sites are comparable at
+layers 1 and 2 — which is where §1830 found them redundant.
+
+**pred_c PASSED.** All twelve of the cheapest single sites sit at layer 8 or deeper (shallowest is
+attn8), so "compile the deepest sites" is the right greedy rule as far as single-site cost goes — even
+though §1832 and this section together show that rule does not compose.
+
+**Controls (pred_d), fifteen published reproductions in one pass.** The ten single sites §1831 published
+(attn at 1,2,3,5,9,13,17 and mlp at 1,9,17) reproduce within 0.03; B1 reproduces §1829's 25.9%; TOP13
+§1832's 40.6%; TOP9 §1832's 22.3%; SCATTER_ODD §1833's 44.0%; B0 §1806's raw 37.4%. Endpoints reproduce
+§1789's full-rank top-1; the placement control moves top-1 under 0.05pp. Coverage 5419 of 50257.
+
+**Open question this ends on.** `mlp5` is now the most concrete object this arc has produced: one site,
++61.2pp, in the layer Logan independently flagged for its constant-bias head and outlier dimensions
+(§1089), and in the layer §1804 found exploding. **Is its cost concentrated in a few channels?** Compiling
+mlp5 while keeping the top-k residual channels live — k in 1, 4, 16, 64, 256 of 1152 — asks directly
+whether a handful of dimensions carry the 61.2pp. If sixteen channels buy back most of it, the object is
+nameable at last; if the cost is spread evenly over all 1152, then mlp5 is expensive for reasons that are
+not about outlier dimensions and Logan's hypothesis does not apply here.
