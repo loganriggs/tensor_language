@@ -48504,3 +48504,57 @@ figures, placement control exact.
 **Open question this ends on.** Sequential calibration: correct the interface layer, re-measure the
 stream, correct the next, and so on upward. That is the only construction left that measures each gain
 in a stream already corrected below it — the fixed point the first-order attempt jumped over.
+
+## §1824 — the fixed point is the best gain correction there is, and it recovers 12%: the magnitude account for bottom-up compilation is CLOSED
+
+`ops/sequential_calibration.py`, 270.8s, **DISCOVERY ONLY**, rung 3 (the construction §1823 named).
+**pred_a False | pred_b True | pred_c False | pred_d True.**
+
+```
+  gap fraction recovered (0..L compiled, L+1..17 live), full-rank build
+             raw      global     matched    SEQUENTIAL
+    B0     +37.4%     -4.1%      +55.7%      +64.8%
+    B3     -44.8%    +10.3%      -22.6%      +11.9%
+    B5     -43.9%    +11.5%      -15.0%      +12.3%
+```
+
+**Sequential calibration is the best construction at every depth and every role.** Correcting the
+interface layer, re-measuring, correcting the next, and so on upward beats both one-shot gain sources
+everywhere. **pred_b passed**: at B0 it reaches **64.8 / 65.3 / 61.3%**, the best figure this arc has
+produced, +9 points over §1823's matched gains and +27 over the raw arm.
+
+**pred_a FAILED, and its failure is the closure.** At B3 the fixed point beats the better one-shot
+source by **+1.6 / +1.6 / +0.0 points** against a 5-point bar — **exactly tied on skip1200**. Iterating
+to the fixed point, which is the best gain correction that exists for this program, buys essentially
+nothing over a single well-chosen measurement. pred_a's registered branch named the consequence: *"the
+residual damage at B3 is not a gain error at all — which would close the magnitude account for the
+bottom-up direction and send the question back to content."*
+
+> **So the magnitude account for bottom-up compilation is CLOSED.** Where the compiled prefix is deep
+> (B3, B5), the best possible gain correction recovers **~12% of the gap** and no more. The remaining
+> ~88% is not a scale error, and no per-layer scalar — measured globally, in place, or at the fixed
+> point — will reach it.
+
+**pred_c FAILED, but the violation has almost vanished**: the sequential curve is 64.8 / 11.9 / 12.3%,
+inverted only between B3 and B5 and by **0.4 points**, against §1806's raw inversion of −44.8 vs −43.9
+in a curve that ran the wrong way throughout. The ordering pathology is essentially repaired; what
+remains is the cliff between B0 and B3.
+
+**What the whole §1818-§1824 arc establishes, since it is now finished.** Holding live layers above a
+compiled stream costs up to −12.4pp at a single site and −45% of the gap across a prefix. The damage
+at a *single* interface is almost entirely a magnitude error: one scalar per layer repairs 99% of it
+(§1821), and the exploding head is the §1089 constant-bias head writing the same fixed vector 159x too
+large (§1818/§1819) — though its 85% share of the excess NORM is only 15% of the DAMAGE (§1820).
+Across a *prefix*, magnitude is only ~12% of the story (§1822-§1824). **The single-interface case and
+the deep-prefix case are different problems, and only the first is a gain problem.**
+
+Controls (pred_d): raw, global and matched arms reproduce §1806, §1822 and §1823's published figures;
+endpoints reproduce §1789's full-rank values; the placement control is exact; and the **known-answer
+check passed** — the first sequential gain equals the global gain at every depth (B3: 0.1693 vs 0.1696;
+B5: 0.0139 vs 0.0138; B0: 0.3401 vs 0.3389), which is forced because the interface layer sees the fully
+compiled stream under both constructions and is what licenses reading the rest.
+
+**Open question this ends on.** If the deep-prefix residual is not magnitude, it is content: the live
+layers above are receiving a stream whose *directions* are wrong, not just its scale. §1819 measured
+direction at one site and found it preserved (cosine +0.9990) — but that was the single-interface case,
+which is now known to be the easy one.
