@@ -1,0 +1,107 @@
+{
+ "config": {
+  "K": 6,
+  "n_starts": 3,
+  "max_sweeps": 8,
+  "seed": 1743,
+  "select_role": "skip7000",
+  "transfer_role": "skip11000",
+  "search": "steepest-improvement swap to convergence; a set value is cached by frozenset since it cannot depend on the path that reached it",
+  "WHY": "S1743 found greedy locally optimal but left the basin question open -- its random arm was still improving when a 2-sweep cap hit. An under-budgeted arm cannot answer its own question (LESSONS 31 addendum).",
+  "ROLE_NOTE": "DISCOVERY ONLY. Both large roles spent for this family."
+ },
+ "greedy_reference": {
+  "set": [
+   "mlp17",
+   "attn16",
+   "attn14",
+   "attn11",
+   "attn17",
+   "attn13"
+  ],
+  "value": 1.20366
+ },
+ "results": [
+  {
+   "start": [
+    "attn13",
+    "attn7",
+    "mlp10",
+    "mlp4",
+    "mlp6",
+    "mlp7"
+   ],
+   "start_value": 0.4261,
+   "final": [
+    "attn11",
+    "attn13",
+    "attn14",
+    "attn16",
+    "attn17",
+    "mlp17"
+   ],
+   "final_value": 1.20366,
+   "final_transfer": 1.2414,
+   "final_cost_M": 55.741,
+   "converged": true,
+   "sweeps": 6
+  },
+  {
+   "start": [
+    "attn15",
+    "attn4",
+    "attn7",
+    "mlp1",
+    "mlp10",
+    "mlp15"
+   ],
+   "start_value": 0.48926,
+   "final": [
+    "attn11",
+    "attn13",
+    "attn14",
+    "attn16",
+    "attn17",
+    "mlp17"
+   ],
+   "final_value": 1.20366,
+   "final_transfer": 1.2414,
+   "final_cost_M": 55.741,
+   "converged": true,
+   "sweeps": 7
+  },
+  {
+   "start": [
+    "attn10",
+    "attn12",
+    "attn5",
+    "mlp13",
+    "mlp3",
+    "mlp9"
+   ],
+   "start_value": 0.3238,
+   "final": [
+    "attn11",
+    "attn13",
+    "attn14",
+    "attn16",
+    "attn17",
+    "mlp17"
+   ],
+   "final_value": 1.20366,
+   "final_transfer": 1.2414,
+   "final_cost_M": 55.741,
+   "converged": true,
+   "sweeps": 7
+  }
+ ],
+ "evaluations": 2585,
+ "cache_hits": 1025,
+ "predictions": {
+  "pred_a_all_starts_converge": true,
+  "pred_b_all_optima_worse_than_greedy": true,
+  "pred_c_multiple_basins": false,
+  "pred_d_controls": true
+ },
+ "runtime_s": 3653.5
+}

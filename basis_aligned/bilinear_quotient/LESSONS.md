@@ -885,3 +885,24 @@ Two rules from it:
 Naming a defect in LESSONS does not stop you committing it. What stops it is checking the arms
 against each other at registration time, which takes about a minute and is now part of writing the
 prediction block.
+
+## LESSON 36 — never compare a rounded number against an unrounded one
+
+§1744's `pred_b` asked whether three converged local optima were strictly worse than a reference. It
+printed **True**. They were not worse — they were the **same six sites**, byte-for-byte the same
+allocation. The comparison was `round(curv, 5) < gv - 1e-9`: a value rounded to five places against a
+reference carrying full precision. Both are 1.20366; the rounded one sits about 5e-6 below the other,
+and a strict inequality with a 1e-9 tolerance sailed through.
+
+- **Round for display, never for comparison.** Keep full precision in the variable the predicate
+  reads, and round only inside the f-string. Storing `round(x, 5)` into the results dict and then
+  scoring off that dict is how the two got mixed.
+- **When two things may be identical by construction, compare the THINGS, not their scores.** The
+  right predicate here was `set(final) != set(greedy)`, which is exact, cheap, and could not have
+  been fooled. A float comparison was answering "are these the same allocation?" the hard way.
+- **A tolerance smaller than your rounding step is decorative.** `1e-9` next to `round(x, 5)` looks
+  careful and is meaningless: the rounding introduces error four orders of magnitude larger than the
+  tolerance is guarding against.
+
+Sibling of LESSON 35 (a guard on a denominator manufactures a number): both are cases where a routine
+numerical convenience — a floor, a rounding — silently changed what a registered predicate tested.

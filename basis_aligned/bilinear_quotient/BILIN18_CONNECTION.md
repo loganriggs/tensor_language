@@ -44371,3 +44371,44 @@ exactly; all-36-tabled CE 7.35114; coverage 5419 of 50257.
 failure is a real result about the search landscape. pred_b's and pred_c's failures are a nested arm
 and an under-budgeted arm — both mine, both avoidable, and both recorded as such rather than
 presented as findings.
+
+## §1744 — the K=6 allocation landscape has a single basin: three random starts all converge to greedy's exact set. And pred_b's "pass" is an artifact of rounding, withdrawn.
+
+`ops/allocation_basin_structure.py`, 3653.5s, 2585 evaluations (1025 cache hits), **DISCOVERY ONLY**.
+**pred_a True | pred_b reported True and is WITHDRAWN as False | pred_c False | pred_d True.**
+
+This is §1743's under-budgeted arm re-run with enough budget: three random starts, steepest-
+improvement swaps, run to actual convergence.
+
+```
+  start 0.4261 -> 1.20366 in 6 sweeps, converged   attn11, attn13, attn14, attn16, attn17, mlp17
+  start 0.4893 -> 1.20366 in 7 sweeps, converged   attn11, attn13, attn14, attn16, attn17, mlp17
+  start 0.3238 -> 1.20366 in 7 sweeps, converged   attn11, attn13, attn14, attn16, attn17, mlp17
+  greedy reference 1.20366                          attn11, attn13, attn14, attn16, attn17, mlp17
+```
+
+**All three random starts converge to greedy's set exactly** — same six sites, same 1.20366 selection
+value, same 1.2414 transfer value, same 55.741M cost. pred_c asked for at least two distinct optima
+and it fails: **the landscape at K=6 has a single basin**, and greedy finds it.
+
+That upgrades §1743 substantially. §1743 could say only that greedy's set survives all 180 single
+swaps. This says that swap search **arrives** at that set from starts as poor as 0.3238 nats, three
+times out of three, in six or seven sweeps. Paired with §1742 — the objective is provably not
+submodular, so greedy has no approximation guarantee — the picture is: **no guarantee in theory,
+benign in practice at this budget.** Both halves matter and neither replaces the other.
+
+**pred_b's pass is withdrawn.** It asked whether every converged optimum is *strictly worse* than
+greedy, and the run printed True. It is False: the optima are not worse, they are **identical** — the
+same six sites. The pass came from `round(curv, 5) < gv - 1e-9`, comparing a **rounded** final value
+against an **unrounded** reference. Both are 1.20366 to five places; the reference carries a few more
+digits, and the rounded value fell below it by about 5e-6. **A comparison between a rounded number
+and an unrounded one is not a comparison of the quantities**, and it decided a registered prediction.
+Recorded as LESSONS 36.
+
+The corrected reading of pred_b is the stronger result anyway: random-start local search does not
+find something *worse* than greedy, it finds *greedy*.
+
+Controls (pred_d): the greedy reference reproduces §1741's value, all-36-tabled CE 7.35114 across six
+scripts now, coverage 5419 of 50257. The value cache keyed by `frozenset` — a set's value cannot
+depend on the path that reached it — saved 1025 of 3610 evaluations, and its correctness is implied
+by the three starts reaching identical values through different swap sequences.
