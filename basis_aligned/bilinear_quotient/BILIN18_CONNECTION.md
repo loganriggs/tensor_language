@@ -50770,3 +50770,51 @@ reals*, any rank-maximising table at ≥9,054 covered types beats it by 0.042-0.
 ~12,000 types (§1861-§1863, replicated §1859-§1860). **That statement does not transfer to a 3.5x smaller
 budget, where the same coverage choice is a 0.044-nat loss.** Any future use of the rule must carry the
 budget it was measured at.
+
+## §1865 — the ridge crossing is between rank 97 and rank 200: coverage helps once the budget affords ~200
+
+`ops/mid_budget_cov_16110.py` and `ops/mid_budget_cov_5419.py`, 246.4 / 236.8s, **DISCOVERY ONLY**,
+rung 3 — §1864's open question. **Both runs 4/4.**
+
+The 5,419 → 16,110 coverage step, now measured on three iso-cost lines:
+
+```
+  budget      rank at 16,110    all-position CE change (skip7000 / skip11000 / skip1200)
+   65.950M          97          -0.04437   -0.03059   -0.02214    coverage HURTS
+  129.678M         200          +0.01013   +0.02715   +0.02975    coverage HELPS
+  230.087M         361          +0.05568   +0.07911   +0.07395    coverage HELPS more
+```
+
+At ~129.7M the two ends of the line are **16,110@rank-200 = 6.01476 / 5.97013 / 5.98155** against
+**5,419@rank-525 = 6.02489 / 5.99728 / 6.01130**, so the larger covered set wins by **+0.01013 / +0.02715
+/ +0.02975**.
+
+> **§1864's 97-to-361 bracket narrows to 97-to-200.** The coverage term is negative when the budget
+> affords only rank 97 at 16,110 types and positive by rank 200, and the benefit then grows monotonically
+> with budget. **Coverage is worth buying once you can afford roughly rank 200 to use it** — and the
+> trend across the three budgets is monotone in both sign and magnitude, which is what makes the bracket
+> readable rather than merely two points around a crossing.
+
+**Stated as a bracket, deliberately.** LESSON 47 says points chosen to bracket a feature do not locate
+it, and I have now invoked that lesson twice in this session against my own work. **97 < r\* < 200 is a
+bracket, not a location**, and one further bisection (rank ~145 at 16,110, a budget near 95M) would halve
+it. I am not running it because the decision-relevant fact is the *sign at each budget*, which is now
+measured at three, and no claim in the record needs r\* to better than a factor of two. Recorded so that
+anyone who does need it knows exactly what is missing and what it would cost.
+
+**Both runs 4/4 on their own bars.** Each is within 0.1% of the 129.7M line (129.678M and 129.583M); each
+beats the 65.950M line's best build (§1849's rank-256@5,419) by +0.035 to +0.063; each sits strictly
+between the two published lines' skip7000 figures (5.95599 < · < 6.06004), so fidelity is monotone in
+budget along this axis; ceilings are finite and above live; every CE above ceiling is positive.
+
+**A small structural note.** At 5,419 types the rank-525 build sits only **+0.01799 / +0.01730 / +0.01323**
+above its own ceiling — near-attainment at less than half the rank of the full table, which is consistent
+with §1849's ladder (rank 512 at 5,419 was +0.01895 on skip7000) and reproduces it to 0.001 at a
+neighbouring rank on an independently rebuilt bank.
+
+**Where the two-axis picture now stands.** The (coverage, rank) surface has a ridge, and every result in
+§1852-§1865 is a traverse of it: §1853 crossed it holding coverage steps fixed and letting rank vary
+(sign change between rank 4 and 16); §1864 and §1865 cross it holding *budget* fixed and letting rank
+fall as coverage rises (sign change between rank 97 and 200). **The practical rule — spend the budget on
+rank at any coverage above ~12,000 types — is measured at 230.087M and holds wherever the budget affords
+rank ≥ 200 at the coverage in question.**

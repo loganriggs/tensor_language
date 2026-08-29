@@ -1,0 +1,32 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+MID BUDGET COV | 16110 types, rank 200, 129.7M line | settled program (context-free tables + output-NN fallback + rank-64 map) | DISCOVERY ONLY
+
+  per-site norm calibration (live mean / row mean), measured on the LIVE model:
+    attn L0:  2.66 L1:  2.47 L2:  2.19 L3:  2.07 L4:  4.30 L5:  0.99 L6:  1.01 L7:  3.55 L8:  3.30 L9:  4.77 L10:  3.73 L11:  4.40 L12:  6.40 L13:  5.89 L14:  6.59 L15:  6.04 L16:  5.32 L17:  5.55
+    mlp  L0:  0.87 L1:  0.41 L2:  0.60 L3:  0.48 L4:  0.10 L5:  0.39 L6:  0.51 L7:  1.63 L8:  1.98 L9:  1.30 L10:  2.22 L11:  1.03 L12:  1.87 L13:  1.24 L14:  1.62 L15:  1.18 L16:  1.12 L17:  1.21
+
+  arms  (48s)
+  all_substituted      skip7000 13.93%  skip11000 14.71%  skip1200 14.01%
+  all_sub_scaled       skip7000 12.20%  skip11000 12.96%  skip1200 12.11%
+  live_model           skip7000 39.32%  skip11000 42.35%  skip1200 38.88%
+
+  arms  (114s)
+  all_substituted        skip7000 13.93%  skip11000 14.71%  skip1200 14.01%
+  live_model             skip7000 39.32%  skip11000 42.35%  skip1200 38.88%
+
+  arms  (128s)
+  B0_raw                 skip7000 25.87%  skip11000 28.57%  skip1200 26.20%
+  B0_seq                 skip7000 31.32%  skip11000 33.99%  skip1200 30.05%
+
+  coverage 16110 types (2.97x §1834); ceiling CE skip7000 5.90775  skip11000 5.84750  skip1200 5.87767 (149s)
+    rank 200   covered skip7000  6.02956 (+0.12182)  skip11000  5.97841 (+0.13090)  skip1200  5.98454 (+0.10687)   (246s)
+\n  MID-BUDGET point: 16110 covered types, rank 200, 129.678M (line 129.7M)
+    skip7000   ceiling 5.90775  covered 6.02956 (+0.12182)  ALLPOS 6.01476
+    skip11000  ceiling 5.84750  covered 5.97841 (+0.13090)  ALLPOS 5.97013
+    skip1200   ceiling 5.87767  covered 5.98454 (+0.10687)  ALLPOS 5.98155
+\n  on budget and sound -> True  cost 129.678M vs 129.7M
+  beats the 65.950M line best (§1849 r256@5419) -> True  skip7000 +0.04528  skip11000 +0.06298  skip1200 +0.06083
+  and sits BETWEEN the two published lines -> True  5.95599 < 6.01476 < 6.06004
+  coverage 16110, ceiling above live -> control True
+
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/mid_budget_cov_16110_results.json (246.4s)
