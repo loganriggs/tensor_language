@@ -52609,8 +52609,13 @@ compiled, versus that site left live, counting positions whose argmax changes.
   self-comparison  0               0              0
 ```
 
-> **RETRACTION. §1891's "all eighteen MLP restorations are a provable no-op" is withdrawn, and it was
-> stated as a derivation rather than a measurement.** **[§1899 CORRECTS THE DIAGNOSIS BELOW, NOT THE
+> **~~RETRACTION. §1891's "all eighteen MLP restorations are a provable no-op" is withdrawn.~~**
+> **[THIS RETRACTION IS ITSELF RETRACTED AT §1901.** The comparison none of §1898-§1900 made — mlp16's
+> live output against its own table row, inside the restored configuration — gives **3.232e-07**, the
+> same order as mlp0's 4.524e-07 and as §1899's stream agreement. The restoration IS a no-op at the
+> tensor level and a 3e-07 perturbation cannot move §1900's 0.197 logit margin. **§1891 was right.**
+> The 1,321 changed predictions below are a reproducible artifact of THIS run's prediction comparison,
+> not a property of the program, and finding that bug is §1902.]** **[§1899 CORRECTS THE DIAGNOSIS BELOW, NOT THE
 > MEASUREMENT: the compiled stream equals the model's length-1 stream to 1.2e-07 at every one of the
 > eighteen depths, so §1765's premise is EXACT and the `v1`/`x0` hypothesis offered below is refuted.
 > In exact arithmetic the derivation goes through. The 3.5% of changed predictions is real and stands
@@ -52787,3 +52792,53 @@ strength of the MLP claim: **provable no-op (§1891) → not a no-op (§1898) �
 (§1899) → changes are not numerical at depth (§1900).** The current honest statement is that **MLP
 restorations carry no model-agreement but do change ~3.5% of predictions at real margins, by a mechanism
 that is not yet identified.**
+
+## §1901 — the outputs AGREE to 3.2e-07. §1898's retraction is itself retracted; §1891 was right.
+
+`ops/live_vs_table_output.py`, 56.9s, **DISCOVERY ONLY**, rung 3 — resolving the §1898-§1900 inconsistency.
+**pred_a False | pred_b True | pred_c False | pred_d True.**
+
+The comparison none of the three earlier runs made: inside the **restored** configuration — 35 sites
+compiled, mlp16 live — mlp16's actual output tensor against the table row the all-compiled arm substitutes
+there. No predictions, no CE, no null.
+
+```
+  relative output difference, covered current tokens, n 82,985
+    mlp16   3.232e-07
+    mlp0    4.524e-07
+```
+
+> **pred_a FAILED, and its failure closes the question in the direction I did not expect.** I predicted
+> the outputs would differ by more than 1e-4, because §1898's 1,321 changed predictions at §1900's 0.2
+> margins seemed to require it. **They differ by 3.2e-07 — the same order as §1899's stream agreement,
+> and the same order as mlp0's, where the restoration is uncontroversially a no-op.**
+>
+> **So the chain is closed and consistent: identical stream (§1899, 1.2e-07), identical output (§1901,
+> 3.2e-07). Restoring mlp16 IS a no-op at the tensor level.** A 3e-07 relative perturbation cannot move a
+> 0.197 logit margin. **§1898's prediction-change measurement is the one that is wrong, and §1898's
+> retraction of §1891 is therefore itself retracted.**
+
+> **Recording the full arc against myself, because this claim has now moved five times and four of the
+> moves were mine.** §1891: provable no-op, stated as a derivation. §1898: not a no-op — 3.5% of
+> predictions change — derivation withdrawn, and I told Codex on the board it no longer constrained their
+> work. §1899: §1765's premise verified exactly, my `v1`/`x0` explanation refuted. §1900: the float32
+> near-tie account refuted too, and I killed my own bfloat16 follow-up by measuring the dtype before
+> publishing it. §1901: the outputs agree, so the no-op holds and §1898 was measuring something else.
+> **§1891's conclusion was right; my confidence in §1898's refutation was not; and the only reason this
+> resolved is that §1900 named the one comparison none of them had made instead of offering a fifth
+> story.**
+
+**pred_b PASSED** at 4.5e-07 for mlp0, the known-answer check that makes mlp16's number readable — the
+two depths agree here, having behaved oppositely in §1898 and §1900, which is itself evidence that the
+disagreement lived in those instruments. **pred_c FAILED** at 39.3% (the difference is diffuse, not
+concentrated), consistent with arithmetic noise rather than specific tokens being handled differently.
+**pred_d PASSED**: coverage 16,110, 82,985 covered positions, self-check 0.
+
+**What is now settled, and what is open.** Settled: **MLP leave-one-out restoration is a no-op**, as
+§1891 derived and §1765 implies, verified at both the stream (1.2e-07) and the output (3.2e-07). The
+behavioural localisation — the tracking is late attention, attention restorations change up to 96.6% of
+positions — was never in doubt and is unaffected. **Open: what §1898 and §1900 actually measured.** Their
+1,321 / 1,350 / 650 figure reproduced exactly across two independent runs, so it is a real property of
+that comparison, and its self-check returned 0. **A reproducible measurement of a quantity that cannot
+exist is a bug worth finding**, and it sits in code that also produced §1891's attention numbers — which
+is reason enough to find it rather than move on. §1902.

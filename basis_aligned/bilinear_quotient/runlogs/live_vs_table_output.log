@@ -1,0 +1,13 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+LIVE OUTPUT vs TABLE ROW | buckets ((0, 0), (1, 4), (5, 24), (25, 124), (125, 1000000000)) on the fit-row count of the TRUE target | full-rank settled program | DISCOVERY ONLY
+  built the settled fallback and 36 tables (5s)
+    mlp16  relative output difference 3.232e-07  (n 82985)  top-20% of positions hold 39.3% of the squared difference
+    mlp0   relative output difference 4.524e-07  (n 82985)  top-20% of positions hold 31.4% of the squared difference
+
+  THE OUTPUTS DIFFER at mlp16 (> 1e-4) -> False  3.232e-07 (n 82985)
+  and mlp0 AGREES (< 1e-6) -> True  4.524e-07 (n 82985)
+  and the difference is CONCENTRATED (top 20% hold > 50%) -> False  39.3%
+  coverage 16110, self-check 0 -> control True
+
+pred_a False | pred_b True | pred_c False | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/live_vs_table_output_results.json (56.9s)
