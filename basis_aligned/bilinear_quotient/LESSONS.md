@@ -2430,3 +2430,22 @@ the worse failure.
 **And the control caught the adjacent bug for free.** `meanrow` replaces *every* row, covered ones
 included, so it is not a fallback variant, and `inertness_pairs` had no business pairing it with one as
 "same spec". The derived control failed loudly, which is what it is for. See [[control-polarity]].
+
+## LESSON 95 — a headline is a claim about REACH, and reach is measured, not assumed
+
+§1980 measured a real thing: within a family where all 18 MLPs and attention 0–5 are already compiled,
+compiling attention 6 recovers 6.46–6.64 nats, 98% of the fall. Its headline said something larger — "live
+attention at layer 6 reading context-free rows is the whole of the penalty" — and **that** turned out to be
+false. §1984 ran the same fix with only mlp4 compiled and got **−0.003 nats: 0.0% of the penalty.**
+
+**The numbers were never wrong. The quantifier was.** Every arm in §1980 shared a prefix I never varied,
+so the sweep could not distinguish "attention 6 is the site" from "attention 6 is the site *given this
+prefix*", and I wrote the headline as though it could.
+
+**The cheap check I skipped:** one arm outside the family. §1984's `tab_mlp4_attn6` cost 1.3 seconds. Any
+sweep that holds something fixed in every arm is silent about that thing, and the headline must either say
+so or buy the arm that tests it.
+
+**Scope, don't retract, when the measurement stands.** §1980's ledger section and registry entry now carry
+the condition in place, pointing forward to §1984. Deleting it would have thrown away a true result; leaving
+it unqualified would have left a false one in the registry. See [[control-polarity]] and [[LESSON 94]].

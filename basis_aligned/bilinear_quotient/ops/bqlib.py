@@ -263,28 +263,36 @@ class Program:
         U, S, Vh = usv
         return (self.Eunc @ ((U[:, :rank] * S[:rank]) @ Vh[:rank])).float()
 
-    def arm(self, name, table_rank=None):
-        """Full (V, D) substitution rows per site for one arm. `name` as documented on the class."""
+    def arm(self, name, table_rank=None, sites=None):
+        """(V, D) substitution rows per site for one arm. `name` as documented on the class.
+
+        `sites` restricts which sites are BUILT. One row set is 36 x V x D floats -- 8.3 GB -- and
+        S1977-S1983 each built all 36 to hook one or two. The first composite arm asked for three of them
+        at once and hit CUDA OOM, which is how this got noticed rather than merely being slow."""
+        use = SITES if sites is None else [st for st in SITES if st in set(map(tuple, sites))]
         if AT in name:
             # S1983 asked whether S1980's fix (compiling attention 6) still applies when mlp4 carries a
             # MEAN row rather than its compiled table, and could not say it: run() applies ONE arm to the
             # whole substituted set, so the attn6 arm got the mean row too and the predicate measured a
-            # different intervention. `A@mlp4+B@attn6` gives each named site its own arm. Sites named by
-            # no part take the FIRST part's rows -- run() requires a composite's `sites` to be exactly the
-            # named union, so that default is never what gets hooked.
+            # different intervention. `A@mlp4+B@attn6` gives each named site its own arm, and returns
+            # ONLY the named sites -- run() requires a composite's `sites` to be exactly that union, so
+            # nothing else is ever hooked.
             parts = [q.split(AT, 1) for q in name.split(COMPOSE)]
             if any(len(q) != 2 for q in parts):
                 raise ValueError(f'composite arm {name!r}: each part must be <arm>@<site>[,<site>]')
-            out = self.arm(parts[0][0], table_rank)
+            out = {}
             for sub, sitestr in parts:
-                rows = self.arm(sub, table_rank)
-                for st in _parse_sites(sitestr):
+                own = _parse_sites(sitestr)
+                rows = self.arm(sub, table_rank, sites=own)
+                for st in own:
                     out[st] = rows[st]
+                del rows
+                torch.cuda.empty_cache()
             return out
         tc = self._tables_at(table_rank)
         out = {}
         if name == 'nn':
-            for st in SITES:
+            for st in use:
                 fr = torch.zeros(V, D, device=DEV)
                 fr[self.tk] = tc[st]
                 fr[self.unc] = tc[st][self.nnrow[self.unc]]
@@ -303,7 +311,7 @@ class Program:
             tau = torch.quantile(su.double(), 1.0 - frac).float()
             usenn = (su >= tau)
             self.routefrac[name] = float(usenn.float().mean())
-            for st in SITES:
+            for st in use:
                 fr = torch.zeros(V, D, device=DEV)
                 fr[self.tk] = tc[st]
                 fr[self.unc] = torch.where(usenn.unsqueeze(1), tc[st][self.nnrow[self.unc]],
@@ -315,7 +323,7 @@ class Program:
             # covered table. S1982 named a pair (compiled mlp4 -> live attn6); this is the null that
             # separates "the compiled row is wrong" from "this site is simply fragile", because it keeps
             # nothing of the table's content and only its context-freeness.
-            for st in SITES:
+            for st in use:
                 fr = torch.zeros(V, D, device=DEV)
                 fr[:] = tc[st].mean(0, keepdim=True)
                 out[st] = fr
@@ -335,7 +343,7 @@ class Program:
             q = (um.argsort().argsort().float() / max(um.numel() - 1, 1))
             al = (hi + (lo - hi) * q).unsqueeze(1)          # HI at q=0, LO at q=1
             self.routefrac[name] = float(al.mean())
-            for st in SITES:
+            for st in use:
                 fr = torch.zeros(V, D, device=DEV)
                 fr[self.tk] = tc[st]
                 fr[self.unc] = (al * tc[st][self.nnrow[self.unc]]
@@ -352,7 +360,7 @@ class Program:
             tau = torch.quantile(um.double(), 1.0 - frac).float()
             usemap = (um >= tau)
             self.routefrac[name] = float(usemap.float().mean())
-            for st in SITES:
+            for st in use:
                 fr = torch.zeros(V, D, device=DEV)
                 fr[self.tk] = tc[st]
                 fr[self.unc] = torch.where(usemap.unsqueeze(1), self._map(tc, st, mrank, table_rank),
@@ -368,7 +376,7 @@ class Program:
             if not (astr.isdigit() and mrank.isdigit()):
                 raise ValueError(f'unknown arm {name!r}')
             al, mrank = int(astr) / 100.0, int(mrank)
-            for st in SITES:
+            for st in use:
                 fr = torch.zeros(V, D, device=DEV)
                 fr[self.tk] = tc[st]
                 fr[self.unc] = (al * tc[st][self.nnrow[self.unc]]
@@ -377,7 +385,7 @@ class Program:
             return out
         if name.startswith('map'):
             rank = int(name[3:])
-            for st in SITES:
+            for st in use:
                 fr = torch.zeros(V, D, device=DEV)
                 fr[self.tk] = tc[st]
                 fr[self.unc] = self._map(tc, st, rank, table_rank)
@@ -565,7 +573,7 @@ def score(prog, armname, role, table_rank=None, use_cache=True, prerows=None, si
     STATS['miss'] += 1
     t0 = time.time()
     rows = prerows if prerows is not None else (None if armname is None
-                                                else prog.arm(armname, table_rank))
+                                                else prog.arm(armname, table_rank, sites=sites))
     use = SITES if sites is None else [st for st in SITES if st in set(sites)]
     hooks = () if rows is None else [(st, row_hook(rows[st])) for st in use]
     am, nl = _run(None, hooks, role)
@@ -591,7 +599,7 @@ def score_roles(prog, armname, roles=ROLES, table_rank=None, use_cache=True, sit
             out[r] = score(prog, armname, r, table_rank, use_cache, sites=sites)
             continue
         if rows is None and armname is not None:
-            rows = prog.arm(armname, table_rank)
+            rows = prog.arm(armname, table_rank, sites=sites)
         out[r] = score(prog, armname, r, table_rank, use_cache, prerows=rows, sites=sites)
     del rows
     torch.cuda.empty_cache()

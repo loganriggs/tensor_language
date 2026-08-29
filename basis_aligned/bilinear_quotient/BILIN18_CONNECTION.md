@@ -57060,6 +57060,11 @@ arm:
   skip1200        9.141         2.681    2.684    2.533    +6.460 / -0.003 / +0.150
 ```
 
+**SCOPED BY §1984 (2026-08-29).** Every arm below has **all 18 MLPs and attention 0–5 already
+substituted**. The step is real inside that family. Stated generally it is **false**: with only mlp4
+compiled, live attention 6 reads context-free rows and compiling it is worth **−0.003 nats**, 0.0% of the
+penalty. The measurements stand; the reach does not. Read the headline as *within a compiled prefix*.
+
 > **pred_a PASSED and the answer is a single site. Compiling attention at layer 6 alone recovers
 > 6.46–6.64 nats — 98% of the entire fall — on 3 of 3 roles.** §1979 said the requirement was local;
 > it is *one layer*. **Live attention at layer 6 reading context-free rows is the whole of §1978's 3.6×
@@ -57233,3 +57238,48 @@ compiling attention 6 — has been shown only for the compiled-table version. **
 null needs an arm that substitutes different sites by different means, which `run()`'s one-arm-per-entry
 shape forbids.** That is a genuine library limit rather than an oversight, and it is the first thing this
 line has wanted that the declarative form cannot say.
+
+## §1984 — §1980's "one site" was an artefact of its baseline: compiling attention 6 buys 0.1%, not 98%
+
+`ops/does_the_layer6_fix_generalise.py`, **128.8s**, **DISCOVERY ONLY**, 5,419, rung 3 — §1983's open
+question, asked with the composite arm §1983's limit forced into the library.
+**pred_a False | pred_b False | pred_c True | derived controls True.**
+
+`meanrow@mlp4+mix30m640@attn6` gives mlp4 a mean row while attention 6 takes its **compiled table** — the
+intervention §1983's pred_c named and could not express.
+
+```
+  cost against the live model, nats, 5,419
+             tab_mlp4  mean_mlp4   tab_mlp4_attn6  mean_mlp4_tab_attn6   full_program (36 sites)
+  skip7000    10.669    10.675        10.666            10.672                2.808
+  skip11000   10.937    10.942        10.934            10.939                2.979
+  skip1200    10.580    10.586        10.577            10.582                2.702
+```
+
+> **pred_a FAILED, and not narrowly: compiling attention 6 removes 0.0% of the penalty, against a bar of
+> 80% and §1980's reported 98%.** pred_b failed with it — attention 6's compiled table beats a mean row
+> there by **0.003 nats**, not the 5 the predicate asked for. **Neither reading of §1980 survives.**
+> The rescue is not attention 6 ceasing to mix, and it is not attention 6's table content.
+
+> **§1980's numbers stand; its headline does not, and I am scoping it.** Every arm in §1980's sweep had
+> **all 18 MLPs and attention 0–5 already substituted** — its baseline was 9.266, and compiling attention
+> 6 took it to 2.733. That step is real *inside that family*. Stated generally — "live attention at layer
+> 6 reading context-free rows is the whole of §1978's penalty" — it is **false**: with only mlp4 compiled,
+> live attention 6 reads context-free rows and the same fix is worth **−0.003 nats**. §1980's
+> registry entry now carries this scope. **Not a retraction of a measurement; a retraction of its reach.**
+
+> **pred_c PASSED and repeats §1983's asymmetry exactly.** With attention 6 compiled, mean row and
+> compiled table at mlp4 differ by **0.006 nats** (10.672 vs 10.666) — the same 0.006 §1983 found without
+> it. **What mlp4 carries has now been shown irrelevant in two different surrounds.**
+
+**What this leaves.** A single compiled MLP in an otherwise live model costs **10.67 nats — 3.8× the fully
+compiled 36-site program's 2.81** — and no local repair at the site three layers above touches it. §1981
+found the cost non-additive; §1984 says the direction is the surprising one: **the full program is
+internally consistent in a way that partial compilation is not, and that consistency is not assembled one
+site at a time.** Compiling *more* is what fixes it.
+
+**Open.** If neither attention 6 alone nor mlp4's content explains 10.67 → 2.81, then the variable is how
+much of the *prefix* is compiled. §1980's own baseline is the datum: 18 MLPs + attention 0–5 compiled
+already sits at 9.266, so the fall happens somewhere between that and 36 sites. **The next question is
+which sites, added to a lone compiled mlp4, first bring it down — and whether the curve is a cliff or a
+slope.**
