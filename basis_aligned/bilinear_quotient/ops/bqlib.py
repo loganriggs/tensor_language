@@ -526,7 +526,8 @@ def axes(prog, role):
     return torch.cat(tg), torch.cat(ic)
 
 
-def ref(results_json, arm, field='ce_prog', cls='pooled', bucket='overall', roles=ROLES):
+def ref(results_json, arm, field='ce_prog', cls='pooled', bucket='overall', roles=ROLES,
+        coverage=None):
     """Read a published per-role reference triple from the artifact that produced it.
 
     Twice on 2026-08-29 I typed a three-role reference triple by hand and got one entry wrong -- once
@@ -538,8 +539,17 @@ def ref(results_json, arm, field='ce_prog', cls='pooled', bucket='overall', role
     with open(results_json) as fh:
         d = json.load(fh)
     r = d['results']
-    if roles[0] not in r:                       # single-coverage runs nest under a coverage key
-        r = r[next(iter(r))]
+    if roles[0] not in r:                       # runs nest under a coverage key
+        if coverage is not None:
+            r = r[coverage]
+        elif len(r) == 1:
+            r = r[next(iter(r))]
+        else:
+            # S1963: this silently returned the FIRST coverage of a two-coverage artifact and the
+            # control failed by 0.086 nats, which reads as a data discrepancy. A helper written to stop
+            # a reference being wrong must not itself pick one arbitrarily.
+            raise ValueError(
+                f'{os.path.basename(results_json)} holds {sorted(r)} -- pass coverage= to say which')
     return tuple(r[role][arm][cls][bucket][field] for role in roles)
 
 

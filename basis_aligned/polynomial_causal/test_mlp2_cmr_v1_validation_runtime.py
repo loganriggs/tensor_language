@@ -7,6 +7,7 @@ import torch
 
 import mlp2_cmr_v1_validation_runtime as runtime
 import mlp2_cmr_v1_validation_statistics as statistics
+from mlp2_cmr_v1_physical_program import PhysicalRetainedBilinearMLP
 
 
 def _cell(document: int, cell: int, arm: int) -> statistics.CellSums:
@@ -66,9 +67,53 @@ def test_call_ledger_requires_exact_arm_site_and_physical_counts() -> None:
             runtime.CALLS if arm in runtime.PHYSICAL_ARMS or arm in runtime.SIGNED_T else 0
         )
         ledger[arm]["zero_mlp2_calls"] = runtime.CALLS if arm == "ZERO" else 0
+        ledger[arm]["diagnostic_full_product_evaluations"] = (
+            runtime.CALLS if arm == "NATIVE" else 0
+        )
     assert runtime.call_ledger_passes(ledger)
     ledger["SUFFIX"]["native_mlp_calls_by_site"][2] = 1
     assert not runtime.call_ledger_passes(ledger)
+
+
+def test_physical_gauge_and_permutation_replay_uses_owned_programs() -> None:
+    generator = torch.Generator().manual_seed(7)
+    left = torch.randn(512, 4, generator=generator, dtype=torch.float64)
+    right = torch.randn(512, 4, generator=generator, dtype=torch.float64)
+    down = torch.randn(3, 512, generator=generator, dtype=torch.float64)
+    bias = torch.randn(3, generator=generator, dtype=torch.float64)
+    support = torch.arange(512, dtype=torch.long)
+    program = PhysicalRetainedBilinearMLP(
+        left, right, down, bias, support, native_products=600,
+    )
+    replay = runtime.physical_gauge_permutation_replay({
+        arm: program for arm in runtime.PHYSICAL_ARMS
+    })
+    assert replay["passed"]
+    assert set(replay["per_arm"]) == set(runtime.PHYSICAL_ARMS)
+    assert all(
+        row["permutation_max_absolute_error"] == 0.0
+        for row in replay["per_arm"].values()
+    )
+
+
+def test_selector_gauge_replay_is_fresh_and_permutation_equivariant() -> None:
+    generator = torch.Generator().manual_seed(11)
+    mean = torch.randn(4608, generator=generator, dtype=torch.float64)
+    variance = torch.rand(4608, generator=generator, dtype=torch.float64) + 0.1
+    down = torch.randn(1152, 4608, generator=generator, dtype=torch.float64)
+    score = torch.randn(4608, generator=generator, dtype=torch.float64)
+    support = torch.tensor(runtime._select_top(score, 512), dtype=torch.long)
+    replay = runtime.selector_gauge_permutation_replay(
+        mean, variance, down, score, support,
+    )
+    assert replay["dyadic_reciprocal"]["derangement_exact"]
+    assert replay["dyadic_reciprocal"]["hash_random_exact"]
+    assert replay["channel_permutation"]["derangement_equivariant"]
+    assert replay["channel_permutation"]["hash_random_equivariant"]
+    assert replay["channel_permutation"]["suffix_support_equivariant"]
+    assert replay["general_reciprocal_functional"][
+        "canonical_down_max_relative_error"
+    ] <= 5e-15
 
 
 def test_geometry_pack_unpack_is_lossless() -> None:

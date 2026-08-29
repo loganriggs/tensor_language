@@ -146,10 +146,6 @@ def ce(r, a):
     return res[C][r][a]['pooled']['overall']['ce_prog']
 
 
-# pred_a: validate the signal itself against the eval data before anything is built on it.
-# Among UNCOVERED-input positions, split by the INPUT token's unc_mass quartile and compare how often
-# the true target is genuinely unseen (fit-row count 0). If unc_mass means what it was constructed to
-# mean, the top quartile must be higher.
 sep = {}
 for r in B.ROLES:
     tgt, icov = AX[r]
@@ -164,7 +160,6 @@ for r in B.ROLES:
     sep[r] = float(unseen[hi].float().mean()) - float(unseen[lo].float().mean())
 
 pa_n = sum(1 for r in B.ROLES if sep[r] > 0)
-pa = pa_n >= 2
 
 BK = [f'{x}-{y}' for x, y in B.BUCKETS]
 BOT, TOP = BK[0], BK[-1]
@@ -199,7 +194,6 @@ partition = all(res[C][r][a][cl][b]['n'] for r in B.ROLES for a in ARMS
 livesame = max(abs(res[C][r][a][cl][b]['ce_live'] - res[C][r][REF][cl][b]['ce_live'])
                for r in B.ROLES for a in ARMS
                for cl in ('covered_input', 'uncovered_input', 'pooled') for b in BK)
-repro = max(abs(ce(r, KNEE_LAB) - S1949_CE[i]) for i, r in enumerate(B.ROLES))
 fracok = 0.0
 pd = (ncov['c5419'] == 5419 and ncov['c16110'] == 16110 and moves and bool(partition)
       and livesame <= 1e-9

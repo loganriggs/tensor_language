@@ -87,6 +87,26 @@ def test_ref_reads_published_triples():
     check('ref: matches the artifact exactly', got == want, f'{got} != {want}')
 
 
+def test_ref_refuses_to_guess_a_coverage():
+    """S1963: ref() silently returned the first coverage of a two-coverage artifact, and the control
+    failed by 0.086 nats -- which reads as a data discrepancy and was a helper picking arbitrarily."""
+    p = B.PT + 'ops/alpha_reoptimised_results.json'
+    if not os.path.exists(p):
+        check('ref: two-coverage artifact present', False, p)
+        return
+    raised = False
+    try:
+        B.ref(p, 'a25')
+    except ValueError:
+        raised = True
+    check('ref: refuses to guess when an artifact holds two coverages', raised)
+    got = B.ref(p, 'a25', coverage='c5419')
+    with open(p) as fh:
+        d = json.load(fh)
+    want = tuple(d['results']['c5419'][role]['a25']['pooled']['overall']['ce_prog'] for role in B.ROLES)
+    check('ref: an explicit coverage returns that coverage', got == want, f'{got} != {want}')
+
+
 def test_paired_t_arithmetic():
     """The instrument S1939 lacked and S1940 used to retract its headline."""
     a = torch.tensor([1.0, 2.0, 3.0, 4.0])
@@ -211,7 +231,7 @@ def test_gate_accepts_the_library_itself():
           out.stdout.strip()[-120:])
 
 
-for fn in (test_rk_key_is_order_independent, test_inertness_pairs_splits_by_table_rank,
+for fn in (test_ref_refuses_to_guess_a_coverage, test_rk_key_is_order_independent, test_inertness_pairs_splits_by_table_rank,
            test_inertness_pairs_warns_when_a_side_is_vacuous, test_ref_reads_published_triples,
            test_paired_t_arithmetic, test_cost_matches_the_published_closed_form,
            test_arm_names_parse_the_way_the_grammar_says, test_gate_fixtures,

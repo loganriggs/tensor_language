@@ -1,0 +1,67 @@
+PER-TOKEN ALPHA | ('pat10_40m576', 'pat15_35m576', 'pat20_30m576') vs flat | both coverages | DISCOVERY ONLY
+
+########## COVERAGE 5419 ##########
+  [bqlib] coverage 5419 from fineweb_n96_skip80.pt: 36 tables, neighbour index and map solver built (4s)
+  [bqlib] cache HIT  live     skip7000
+  [bqlib] cache HIT  live     skip11000
+  [bqlib] cache HIT  live     skip1200
+  [bqlib] cache HIT  mix30m576 skip7000
+  [bqlib] cache HIT  mix30m576 skip11000
+  [bqlib] cache HIT  mix30m576 skip1200
+  [bqlib] cache HIT  mix25m576 skip7000
+  [bqlib] cache HIT  mix25m576 skip11000
+  [bqlib] cache HIT  mix25m576 skip1200
+  [bqlib] cache HIT  mix25m512 skip7000
+  [bqlib] cache HIT  mix25m512 skip11000
+  [bqlib] cache HIT  mix25m512 skip1200
+  [bqlib] cache HIT  pat10_40m576 skip7000
+  [bqlib] cache HIT  pat10_40m576 skip11000
+  [bqlib] cache HIT  pat10_40m576 skip1200
+  [bqlib] cache HIT  pat15_35m576 skip7000
+  [bqlib] cache HIT  pat15_35m576 skip11000
+  [bqlib] cache HIT  pat15_35m576 skip1200
+  [bqlib] cache HIT  pat20_30m576 skip7000
+  [bqlib] cache HIT  pat20_30m576 skip11000
+  [bqlib] cache HIT  pat20_30m576 skip1200
+
+########## COVERAGE 16110 ##########
+  [bqlib] coverage 16110 from fineweb_n480_skip80.pt: 36 tables, neighbour index and map solver built (5s)
+  [bqlib] cache HIT  live     skip7000
+  [bqlib] cache HIT  live     skip11000
+  [bqlib] cache HIT  live     skip1200
+  [bqlib] cache HIT  mix30m576 skip7000
+  [bqlib] cache HIT  mix30m576 skip11000
+  [bqlib] cache HIT  mix30m576 skip1200
+  [bqlib] cache HIT  mix25m576 skip7000
+  [bqlib] cache HIT  mix25m576 skip11000
+  [bqlib] cache HIT  mix25m576 skip1200
+  [bqlib] cache HIT  mix25m512 skip7000
+  [bqlib] cache HIT  mix25m512 skip11000
+  [bqlib] cache HIT  mix25m512 skip1200
+  [bqlib] cache HIT  pat10_40m576 skip7000
+  [bqlib] cache HIT  pat10_40m576 skip11000
+  [bqlib] cache HIT  pat10_40m576 skip1200
+  [bqlib] cache HIT  pat15_35m576 skip7000
+  [bqlib] cache HIT  pat15_35m576 skip11000
+  [bqlib] cache HIT  pat15_35m576 skip1200
+  [bqlib] cache HIT  pat20_30m576 skip7000
+  [bqlib] cache HIT  pat20_30m576 skip11000
+  [bqlib] cache HIT  pat20_30m576 skip1200
+
+  === c5419 ===
+    skip7000   flat30    0-0 3.42% dCE +0.00m  flat25    0-0 3.55% dCE +0.55m  pat10_40  0-0 3.82% dCE +2.35m  pat15_35  0-0 3.64% dCE +1.28m  pat20_30  0-0 3.64% dCE +0.68m
+    skip11000  flat30    0-0 5.88% dCE +0.00m  flat25    0-0 5.92% dCE +0.08m  pat10_40  0-0 6.20% dCE +1.50m  pat15_35  0-0 6.13% dCE +0.53m  pat20_30  0-0 6.02% dCE +0.06m
+    skip1200   flat30    0-0 3.25% dCE +0.00m  flat25    0-0 3.42% dCE +1.19m  pat10_40  0-0 3.34% dCE +3.04m  pat15_35  0-0 3.34% dCE +1.96m  pat20_30  0-0 3.25% dCE +1.35m
+
+  === c16110 ===
+    skip7000   flat30    0-0 2.47% dCE +0.00m  flat25    0-0 2.47% dCE +0.37m  pat10_40  0-0 2.59% dCE +1.30m  pat15_35  0-0 2.36% dCE +0.80m  pat20_30  0-0 2.47% dCE +0.49m
+    skip11000  flat30    0-0 4.34% dCE +0.00m  flat25    0-0 4.25% dCE +0.26m  pat10_40  0-0 4.25% dCE +1.33m  pat15_35  0-0 4.34% dCE +0.77m  pat20_30  0-0 4.15% dCE +0.41m
+    skip1200   flat30    0-0 1.98% dCE +0.00m  flat25    0-0 2.64% dCE -0.51m  pat10_40  0-0 2.42% dCE +0.34m  pat15_35  0-0 2.64% dCE -0.16m  pat20_30  0-0 2.64% dCE -0.44m
+
+  a per-token tilt raises the unseen bucket (>=2 roles each) -> True  {'c5419': 3, 'c16110': 2}
+  and costs <=0.002 nats of pooled CE (>=2 roles each) -> False  {'c5419': 1, 'c16110': 3}
+  and the WIDEST tilt is the best at 5,419 (>=2 roles) -> True  3/3
+  coverage {'c5419': 5419, 'c16110': 16110}, 10 same-spec pairs inert and 5 differing-spec pairs not, at covered inputs: True; buckets partition, live identical 0.0e+00, §1961 CE reproduced within 0.086249, route fracs within 0.0000 -> control False
+
+pred_a True | pred_b False | pred_c True | pred_d False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/per_token_alpha_results.json (9.5s)

@@ -55,7 +55,7 @@ PROFILE AFTER FIVE PURCHASES | deployed vs converged vs current | both coverages
   the profile did NOT drift, <=0.5pp in every bucket (>=2 roles each) -> False  {'c5419': 0, 'c16110': 1}
   and §1954's unseen-bucket loss still holds at 16,110 (>=2 roles) -> True  3/3
   and the 125+ cost is still within 1.0pp of deployed (>=2 roles each) -> True  {'c5419': 3, 'c16110': 3}
-  coverage {'c5419': 5419, 'c16110': 16110}, 1 same-spec pairs inert and 5 differing-spec pairs not, at covered inputs: True; buckets partition, live identical 0.0e+00, §1949 CE reproduced within 0.000000, route fracs within 0.0000 -> control True
+  coverage {'c5419': 5419, 'c16110': 16110}, 1 same-spec pairs inert and 5 differing-spec pairs not, at covered inputs: True; buckets partition, live identical 0.0e+00, §1949 CE reproduced within 0.000047, route fracs within 0.0000 -> control True
 
 pred_a False | pred_b True | pred_c True | pred_d True
-wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/profile_after_five_purchases_results.json (9.3s)
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/profile_after_five_purchases_results.json (9.4s)

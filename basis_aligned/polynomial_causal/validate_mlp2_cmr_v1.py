@@ -45,6 +45,9 @@ CORRECTION_RECEIPT = HERE / "mlp2_cmr_v1_suffix_v2_overlap_correction_receipt.js
 CALIBRATION_BUNDLE = HERE / "mlp2_cmr_v1_fit_selector_calibration_bundle.pt"
 CALIBRATION_RESULT = HERE / "mlp2_cmr_v1_fit_selector_calibration_result.json"
 CALIBRATION_RECEIPT = HERE / "mlp2_cmr_v1_fit_selector_calibration_receipt.json"
+CALIBRATION_ROLE_ROWS = HERE / "mlp2_cmr_v1_fit_selector_rows.pt"
+CALIBRATION_ROLE_MANIFEST = HERE / "mlp2_cmr_v1_fit_selector_rows_manifest.json"
+CALIBRATION_ROLE_RECEIPT = HERE / "mlp2_cmr_v1_fit_selector_rows_receipt.json"
 AUTHORITY = HERE / "mlp2_cmr_v1_validation_authority.json"
 LEDGER = HERE / "mlp2_cmr_v1_validation_ledger.pt"
 RESULT = HERE / "mlp2_cmr_v1_validation_result.json"
@@ -67,6 +70,9 @@ PARENT_PATHS = {
     "calibration_bundle": CALIBRATION_BUNDLE,
     "calibration_result": CALIBRATION_RESULT,
     "calibration_receipt": CALIBRATION_RECEIPT,
+    "calibration_role_rows": CALIBRATION_ROLE_ROWS,
+    "calibration_role_manifest": CALIBRATION_ROLE_MANIFEST,
+    "calibration_role_receipt": CALIBRATION_ROLE_RECEIPT,
 }
 EXPECTED_PARENTS = {
     "role_rows": "f0436268b6a17f1c4c47621ff16d542fe7c20a6579a3fee6e10bce241cee90db",
@@ -83,6 +89,9 @@ EXPECTED_PARENTS = {
     "calibration_bundle": "3f9aa5ff69530a099c7859b454298eca48cd0789413b412f599746793fd6c1fa",
     "calibration_result": "e30ae749d59dedad4c17159d5b29af1c4c0c79e3f620e794e3a590f3b049c08c",
     "calibration_receipt": "08267122572157203ccf87f9d901d9c4efdfb41c9bb3b4f0d34f1f1f4e669b52",
+    "calibration_role_rows": "08a508d6e1526800347d94c6637c84a662c220d84ef30bc674bf6b905ab67798",
+    "calibration_role_manifest": "6073c2fd38ad3287c6b7349f2d99aae41c0e98655961255fc18ba4c7c4b745a2",
+    "calibration_role_receipt": "6a0dad2f7df3dd17d20fc16df15c03b47c3ef0da30fd65c1cc2149d762709a21",
 }
 
 SOURCE_CLOSURE = tuple(dict.fromkeys((
@@ -103,6 +112,177 @@ def file_sha256(path: Path) -> str:
 
 def canonical_json_bytes(value: Any) -> bytes:
     return projection.base.canonical_json_bytes(value)
+
+
+def validate_parent_dag(captured: dict[str, bytes]) -> None:
+    """Replay the exact license path from fit artifacts to VALIDATION execution."""
+
+    if set(captured) != set(PARENT_PATHS):
+        raise RuntimeError("MLP2 validation parent family changed")
+    parsed = {
+        name: json.loads(captured[name]) for name in (
+            "role_manifest", "role_receipt", "fit_result", "fit_receipt",
+            "suffix_result", "suffix_receipt", "correction",
+            "correction_receipt", "calibration_result", "calibration_receipt",
+            "calibration_role_manifest", "calibration_role_receipt",
+        )
+    }
+    role_manifest, role_receipt = parsed["role_manifest"], parsed["role_receipt"]
+    if (
+        role_manifest.get("status") != "validation_role_only_published_pending_receipt"
+        or role_receipt.get("status")
+            != "validation_role_only_projection_complete_receipt_last"
+        or role_manifest.get("contains_roles") != ["VALIDATION"]
+        or role_manifest.get("model_loaded") is not False
+        or role_manifest.get("candidate_constructed") is not False
+        or role_manifest.get("scientific_outcome_computed") is not False
+        or role_receipt.get("projection_loaded_model") is not False
+        or role_receipt.get("authorized_for_validation_model_forward_input") is not True
+        or role_receipt.get("authorized_for_replication") is not False
+        or role_manifest.get("output_sha256") != EXPECTED_PARENTS["role_rows"]
+        or role_receipt.get("output_sha256") != EXPECTED_PARENTS["role_rows"]
+        or role_receipt.get("manifest_sha256") != EXPECTED_PARENTS["role_manifest"]
+        or role_manifest.get("parents") != role_receipt.get("parents")
+        or role_manifest.get("source_commit") != role_receipt.get("source_commit")
+        or role_manifest.get("source_hashes") != role_receipt.get("source_hashes")
+        or role_manifest.get("summary") != role_receipt.get("summary")
+    ):
+        raise RuntimeError("VALIDATION role parent/license DAG changed")
+
+    fit_result, fit_receipt = parsed["fit_result"], parsed["fit_receipt"]
+    if (
+        fit_result.get("status") != "fit_mean_and_local_controls_complete_no_suffix_or_validation"
+        or fit_receipt.get("status") != "fit_mean_complete_receipt_last"
+        or fit_receipt.get("bundle_sha256") != EXPECTED_PARENTS["fit_bundle"]
+        or fit_receipt.get("result_sha256") != EXPECTED_PARENTS["fit_result"]
+        or fit_result.get("bundle_sha256") != EXPECTED_PARENTS["fit_bundle"]
+        or fit_result.get("authority_sha256") != fit_receipt.get("authority_sha256")
+        or fit_result.get("parents") != fit_receipt.get("parents")
+        or fit_result.get("source_commit") != fit_receipt.get("source_commit")
+        or fit_result.get("source_hashes") != fit_receipt.get("source_hashes")
+        or fit_receipt.get("authorized_for_suffix_selector") is not True
+        or fit_receipt.get("authorized_for_validation") is not False
+        or fit_receipt.get("authorized_for_replication") is not False
+        or any(fit_result.get("outcome_access", {}).values())
+    ):
+        raise RuntimeError("FIT_MEAN parent/license DAG changed")
+
+    suffix_result, suffix_receipt = parsed["suffix_result"], parsed["suffix_receipt"]
+    expected_suffix_fit = {
+        "fit_bundle": EXPECTED_PARENTS["fit_bundle"],
+        "fit_result": EXPECTED_PARENTS["fit_result"],
+        "fit_receipt": EXPECTED_PARENTS["fit_receipt"],
+    }
+    if (
+        suffix_result.get("status") != "fit_selector_complete_no_validation_or_replication"
+        or suffix_receipt.get("status") != "fit_selector_complete_receipt_last"
+        or suffix_receipt.get("bundle_sha256") != EXPECTED_PARENTS["suffix_bundle"]
+        or suffix_receipt.get("result_sha256") != EXPECTED_PARENTS["suffix_result"]
+        or suffix_result.get("bundle_sha256") != EXPECTED_PARENTS["suffix_bundle"]
+        or suffix_result.get("authority_sha256") != suffix_receipt.get("authority_sha256")
+        or suffix_result.get("parents") != suffix_receipt.get("parents")
+        or any(suffix_result.get("parents", {}).get(key) != value
+               for key, value in expected_suffix_fit.items())
+        or suffix_result.get("source_commit") != suffix_receipt.get("source_commit")
+        or suffix_result.get("source_hashes") != suffix_receipt.get("source_hashes")
+        or suffix_receipt.get("authorized_for_validation") is not True
+        or suffix_receipt.get("authorized_for_replication") is not False
+        or any(suffix_result.get("outcome_access", {}).values())
+    ):
+        raise RuntimeError("FIT_SELECTOR suffix parent/license DAG changed")
+
+    correction, correction_receipt = parsed["correction"], parsed["correction_receipt"]
+    expected_correction_parents = {
+        "bundle": EXPECTED_PARENTS["suffix_bundle"],
+        "result": EXPECTED_PARENTS["suffix_result"],
+        "receipt": EXPECTED_PARENTS["suffix_receipt"],
+    }
+    if (
+        correction.get("status") != "corrected_support_overlap_summary_no_model_access"
+        or correction_receipt.get("status") != "overlap_correction_complete_receipt_last"
+        or correction.get("parents") != expected_correction_parents
+        or correction_receipt.get("parents") != expected_correction_parents
+        or correction_receipt.get("result_sha256") != EXPECTED_PARENTS["correction"]
+        or correction.get("support_hashes")
+            != suffix_result.get("tensor_hashes", {}).get("supports")
+        or correction.get("selector_scores_or_supports_changed") is not False
+        or correction.get("validation_opened") is not False
+        or correction.get("replication_opened") is not False
+        or correction_receipt.get(
+            "authorized_for_validation_with_original_selector_receipt"
+        ) is not True
+        or correction_receipt.get("authorized_for_replication") is not False
+        or correction_receipt.get("supersedes_only")
+            != "mlp2_cmr_v1_suffix_v2_result.json:support_overlaps"
+    ):
+        raise RuntimeError("selector correction parent/license DAG changed")
+
+    calibration_role_manifest = parsed["calibration_role_manifest"]
+    calibration_role_receipt = parsed["calibration_role_receipt"]
+    if (
+        calibration_role_manifest.get("contains_roles") != ["FIT_SELECTOR"]
+        or calibration_role_receipt.get(
+            "authorized_for_fit_selector_calibration_input"
+        ) is not True
+        or calibration_role_receipt.get("authorized_for_model_forward") is not False
+        or calibration_role_receipt.get("authorized_for_validation") is not False
+        or calibration_role_receipt.get("authorized_for_replication") is not False
+        or calibration_role_manifest.get("output_sha256")
+            != EXPECTED_PARENTS["calibration_role_rows"]
+        or calibration_role_receipt.get("output_sha256")
+            != EXPECTED_PARENTS["calibration_role_rows"]
+        or calibration_role_receipt.get("manifest_sha256")
+            != EXPECTED_PARENTS["calibration_role_manifest"]
+        or calibration_role_manifest.get("parents")
+            != calibration_role_receipt.get("parents")
+        or calibration_role_manifest.get("source_commit")
+            != calibration_role_receipt.get("source_commit")
+        or calibration_role_manifest.get("source_hashes")
+            != calibration_role_receipt.get("source_hashes")
+        or calibration_role_manifest.get("summary")
+            != calibration_role_receipt.get("summary")
+    ):
+        raise RuntimeError("calibration role parent/license DAG changed")
+
+    calibration_result = parsed["calibration_result"]
+    calibration_receipt = parsed["calibration_receipt"]
+    expected_calibration_parents = {
+        "suffix_bundle": EXPECTED_PARENTS["suffix_bundle"],
+        "suffix_result": EXPECTED_PARENTS["suffix_result"],
+        "suffix_receipt": EXPECTED_PARENTS["suffix_receipt"],
+        "correction": EXPECTED_PARENTS["correction"],
+        "correction_receipt": EXPECTED_PARENTS["correction_receipt"],
+        "role_rows": EXPECTED_PARENTS["calibration_role_rows"],
+        "role_manifest": EXPECTED_PARENTS["calibration_role_manifest"],
+        "role_receipt": EXPECTED_PARENTS["calibration_role_receipt"],
+    }
+    if (
+        calibration_result.get("status")
+            != "fit_selector_calibration_complete_no_validation_or_replication"
+        or calibration_receipt.get("status")
+            != "fit_selector_calibration_complete_receipt_last"
+        or calibration_receipt.get("bundle_sha256")
+            != EXPECTED_PARENTS["calibration_bundle"]
+        or calibration_receipt.get("result_sha256")
+            != EXPECTED_PARENTS["calibration_result"]
+        or calibration_result.get("bundle_sha256")
+            != EXPECTED_PARENTS["calibration_bundle"]
+        or calibration_result.get("authority_sha256")
+            != calibration_receipt.get("authority_sha256")
+        or calibration_receipt.get("parents") != expected_calibration_parents
+        or calibration_result.get("source_commit")
+            != calibration_receipt.get("source_commit")
+        or calibration_result.get("checkpoint")
+            != calibration_result.get("checkpoint_after_load")
+        or calibration_result.get("validation_opened") is not False
+        or calibration_result.get("replication_opened") is not False
+        or calibration_result.get("finite_candidate_constructed") is not False
+        or calibration_result.get("raw_logits_published") is not False
+        or calibration_receipt.get("authorized_for_validation_implementation") is not True
+        or calibration_receipt.get("authorized_for_validation_execution") is not False
+        or calibration_receipt.get("authorized_for_replication") is not False
+    ):
+        raise RuntimeError("calibration parent/license DAG changed")
 
 
 def committed_source() -> tuple[str, dict[str, str]]:
@@ -129,6 +309,7 @@ def protected_inputs() -> tuple[dict[str, str], dict[str, bytes]]:
     hashes = {name: hashlib.sha256(value).hexdigest() for name, value in captured.items()}
     if hashes != EXPECTED_PARENTS:
         raise RuntimeError("MLP2 validation protected parent changed")
+    validate_parent_dag(captured)
     role_manifest = json.loads(captured["role_manifest"])
     role_receipt = json.loads(captured["role_receipt"])
     fit_receipt = json.loads(captured["fit_receipt"])

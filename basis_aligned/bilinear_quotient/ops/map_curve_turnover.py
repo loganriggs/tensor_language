@@ -138,25 +138,6 @@ def ce(r, a):
     return res[C][r][a]['pooled']['overall']['ce_prog']
 
 
-# pred_a: validate the signal itself against the eval data before anything is built on it.
-# Among UNCOVERED-input positions, split by the INPUT token's unc_mass quartile and compare how often
-# the true target is genuinely unseen (fit-row count 0). If unc_mass means what it was constructed to
-# mean, the top quartile must be higher.
-sep = {}
-for r in B.ROLES:
-    tgt, icov = AX[r]
-    iid = B.input_ids(PROG, r)
-    freq = PROG.freq.cpu()[tgt.long()]
-    unseen = (freq == 0)
-    um = PROG.unc_mass.cpu()[iid.long()]
-    u = ~icov
-    q = torch.quantile(um[u].double(), torch.tensor([0.25, 0.75], dtype=torch.float64))
-    lo = u & (um <= q[0].float())
-    hi = u & (um >= q[1].float())
-    sep[r] = float(unseen[hi].float().mean()) - float(unseen[lo].float().mean())
-
-pa_n = sum(1 for r in B.ROLES if sep[r] > 0)
-pa = pa_n >= 2
 
 def step(r, i):
     """nats per 100M for the step from MR[i-1] up to MR[i]."""
@@ -199,7 +180,6 @@ pd = (ncov[C] == 5419 and moves and bool(partition) and livesame <= 1e-9
       and repro <= 0.0005 and fracok <= 0.01)
 
 for r in B.ROLES:
-    print(f'\n  {r}   unseen-rate top vs bottom unc_mass quartile: {sep[r]:+.3f}', flush=True)
     for a in ARMS:
         print(f'    {a:16s} 0-0 {kf(r, a, "pooled", BOT):5.2%}  125+ {kf(r, a, "pooled", TOP):5.1%}  '
               f'CE {ce(r, a):7.5f}', flush=True)

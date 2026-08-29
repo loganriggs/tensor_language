@@ -1,8 +1,12 @@
 from __future__ import annotations
 
 import inspect
+import json
+from pathlib import Path
+from types import SimpleNamespace
 
 import pytest
+import torch
 
 import validate_mlp2_cmr_v1 as validation
 
@@ -110,3 +114,109 @@ def test_capability_is_closed_one_use_and_noncopyable(monkeypatch, tmp_path) -> 
     validation._consume_capability(capability)
     with pytest.raises(RuntimeError, match="fresh"):
         validation._consume_capability(capability)
+
+
+def _transaction_fixture(monkeypatch, tmp_path: Path) -> dict[str, Path]:
+    paths = {
+        name: tmp_path / name for name in (
+            "authority.json", "ledger.pt", "result.json", "receipt.json",
+            "failure.json", "lock",
+        )
+    }
+    for attribute, name in (
+        ("AUTHORITY", "authority.json"), ("LEDGER", "ledger.pt"),
+        ("RESULT", "result.json"), ("RECEIPT", "receipt.json"),
+        ("FAILURE", "failure.json"), ("LOCK", "lock"),
+    ):
+        monkeypatch.setattr(validation, attribute, paths[name])
+    parent_hashes = {"role_rows": "parent"}
+    parent_bytes = {"role_rows": b"rows"}
+    monkeypatch.setattr(validation, "committed_source", lambda: ("commit", {}))
+    monkeypatch.setattr(
+        validation, "protected_inputs", lambda: (parent_hashes, parent_bytes),
+    )
+    capability = SimpleNamespace(consumed=True)
+    monkeypatch.setattr(validation, "_mint_capability", lambda *_: capability)
+    ledger = {"marker": torch.tensor([1], dtype=torch.long)}
+    result = {
+        "schema": "mlp2_cmr_v1_validation_result",
+        "score": {"validation_passed": False, "replication_authorized": False},
+        "protocol_audits": {},
+    }
+    monkeypatch.setattr(validation, "collect", lambda *_: (ledger, result.copy()))
+    monkeypatch.setattr(validation, "guard_inputs", lambda *_: None)
+    monkeypatch.setattr(validation, "final_guard", lambda *_: None)
+    monkeypatch.setattr(validation, "validate_output_semantics", lambda *_: None)
+    return paths
+
+
+def test_transaction_success_is_receipt_last(monkeypatch, tmp_path: Path) -> None:
+    paths = _transaction_fixture(monkeypatch, tmp_path)
+    validation.main()
+    assert paths["authority.json"].exists()
+    assert paths["ledger.pt"].exists()
+    assert paths["result.json"].exists()
+    assert paths["receipt.json"].exists()
+    assert not paths["failure.json"].exists()
+    receipt = json.loads(paths["receipt.json"].read_text())
+    assert receipt["authorized_for_replication_implementation"] is False
+    assert receipt["authorized_for_replication_execution"] is False
+
+
+def test_semantic_replay_failure_publishes_failure_not_receipt(
+    monkeypatch, tmp_path: Path,
+) -> None:
+    paths = _transaction_fixture(monkeypatch, tmp_path)
+    monkeypatch.setattr(
+        validation, "validate_output_semantics",
+        lambda *_: (_ for _ in ()).throw(RuntimeError("semantic replay failed")),
+    )
+    with pytest.raises(RuntimeError, match="semantic replay failed"):
+        validation.main()
+    assert paths["failure.json"].exists()
+    assert not paths["receipt.json"].exists()
+    failure = json.loads(paths["failure.json"].read_text())
+    assert failure["status"].endswith("no_scientific_decision")
+    assert failure["replication_opened"] is False
+
+
+def test_bidirectional_terminal_races_leave_only_one_terminal(
+    monkeypatch, tmp_path: Path,
+) -> None:
+    paths = _transaction_fixture(monkeypatch, tmp_path)
+    original_guarded = validation.projection.write_create_only_guarded
+
+    def failure_wins(path, data, *, before_link):
+        if path == paths["receipt.json"]:
+            validation.projection.base.write_create_only(paths["failure.json"], b"{}")
+        return original_guarded(path, data, before_link=before_link)
+
+    monkeypatch.setattr(
+        validation.projection, "write_create_only_guarded", failure_wins,
+    )
+    with pytest.raises(RuntimeError, match="terminal namespace"):
+        validation.main()
+    assert paths["failure.json"].exists()
+    assert not paths["receipt.json"].exists()
+
+    second = tmp_path / "receipt_wins"
+    second.mkdir()
+    paths = _transaction_fixture(monkeypatch, second)
+    monkeypatch.setattr(
+        validation, "validate_output_semantics",
+        lambda *_: (_ for _ in ()).throw(RuntimeError("semantic replay failed")),
+    )
+    original_guarded = validation.projection.write_create_only_guarded
+
+    def receipt_wins(path, data, *, before_link):
+        if path == paths["failure.json"]:
+            validation.projection.base.write_create_only(paths["receipt.json"], b"{}")
+        return original_guarded(path, data, before_link=before_link)
+
+    monkeypatch.setattr(
+        validation.projection, "write_create_only_guarded", receipt_wins,
+    )
+    with pytest.raises(RuntimeError, match="semantic replay failed"):
+        validation.main()
+    assert paths["receipt.json"].exists()
+    assert not paths["failure.json"].exists()

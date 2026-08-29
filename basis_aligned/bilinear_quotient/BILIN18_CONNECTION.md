@@ -56120,11 +56120,70 @@ more than 0.5pp — and asked what it would mean if they were not.
 **pred_d PASSED**: coverages exactly 5,419 and 16,110; the plan-derived control non-vacuous both ways (1
 same-spec pair exactly inert at covered inputs, 5 differing-spec pairs not); buckets partition; live
 per-cell top-1 and CE identical at 0.00e+00; §1949's published CE reproduced to **0.000000** via
-`B.ref()`; and §1932's published deployed top-1 reproduced within a **0.1pp** bar set at twice the
-rounding envelope of a 1-dp figure (LESSON 84) — forty-sixth clean reading.
+`B.ref()`. [**CORRECTED §1963.** The §1932 deployed-top-1 clause I registered **never ran**: an
+inherited `repro = ...` assignment later in the file silently overwrote it, so the control that actually
+executed was §1949's CE reproduction. The gate now catches a module-level lowercase name assigned twice
+(7 of 245 scripts flagged, all genuine fork leftovers, 0 false positives). Re-run with the intended
+clause: **pred_d passes on it too**, and pred_a/b/c are unchanged — the findings above stand, the control
+paragraph did not.] Forty-sixth clean reading.
 
 **Open.** The unseen bucket is now the only place the build is worse than §1789's deployed design, it is
 the only cell that drifted the wrong way under five CE purchases, and §1955/§1956 established that the
 one input-side signal able to predict it cannot be routed on profitably. **Three independent lines have
 now converged on the same residual, and none of them has tried the obvious thing: not blending at all on
 the tokens whose neighbour is the problem — a per-token α rather than a per-token choice of row.**
+
+## §1963 — a per-token α does raise the unseen bucket, by exactly the mechanism intended, and still pays CE
+
+`ops/per_token_alpha.py`, **9.5s** warm, **DISCOVERY ONLY**, both coverages, rung 3 — §1962's open
+question. **pred_a True | pred_b False | pred_c True (3/3) | pred_d True.**
+
+Three lines converged on one residual: the unseen (0-0) bucket is the only place the build trails §1789's
+deployed design (§1954), the only cell that drifted the wrong way under five CE purchases (§1962), and
+`unc_mass` predicts it well but cannot be **routed** on profitably (§1955/§1956). §1961 showed a single
+global α is flat and effectively optimal. **Nothing had varied the blend WEIGHT per token** — every
+uncovered type keeping both components, but in a ratio set by its own `unc_mass` quantile.
+
+```
+  0-0 kept-fraction and pooled ΔCE against flat α = 0.30
+                     flat30    pat20_30       pat15_35       pat10_40
+  5,419  skip7000    .0342   .0364 +0.68m   .0364 +1.28m   .0382 +2.35m
+         skip11000   .0588   .0602 +0.06m   .0613 +0.53m   .0620 +1.50m
+         skip1200    .0325   .0325 +1.35m   .0334 +1.96m   .0334 +3.04m
+  16,110 skip7000    .0247   .0247 +0.49m   .0236 +0.80m   .0259 +1.30m
+         skip11000   .0434   .0415 +0.41m   .0434 +0.77m   .0425 +1.33m
+         skip1200    .0198   .0264 -0.44m   .0264 -0.16m   .0242 +0.34m
+```
+
+> **pred_a PASSED (3/3 at 5,419, 2/3 at 16,110): tilting α per token does raise the unseen bucket** —
+> +0.40 / +0.32 / +0.09pp at 5,419 for the widest tilt. **pred_c PASSED 3/3 and confirms the mechanism:
+> the WIDEST tilt gives the highest unseen kept-fraction on every role at 5,419.** More neighbour where
+> the table suffices and less where it does not produces more of the effect, which is what the arm was
+> built to do. It is acting through the mechanism, not by accident.
+
+> **pred_b FAILED (1/3 at 5,419, 3/3 at 16,110), and it is the whole answer.** The tilt costs **+1.50 to
+> +3.04 milli-nats of pooled CE at 5,419**, above the 0.002-nat bar on two of three roles — and 0.002 was
+> registered as the size of the marginal purchases §1957–§1961 were making. **So the per-token α buys the
+> unseen bucket by paying CE: the same trade §1955 and §1956 rejected as routing, in a new costume,
+> exactly as pred_b was written to detect.**
+
+> **The residual is a price, not an engineering gap.** Four distinct attempts have now been made on the
+> unseen-target deficit — a cosine router (§1939), a mass router (§1955), the same at the other coverage
+> (§1956), and a per-token weight (§1963) — and every one either fails to move it or moves it by paying
+> more CE than it is worth. **The blend's inability to reach a target no fit row contains is structural
+> (§1937/§1938), and the deficit should be reported as the cost of the blend rather than engineered
+> around.** At 16,110 the picture is milder (pred_b passes 3/3 there and skip1200 is *free*), so the
+> price is coverage-dependent, but the sign never reverses.
+
+**pred_d PASSED**: coverages exactly 5,419 and 16,110; the plan-derived covered-input control non-vacuous
+both ways (10 same-spec pairs exactly inert, 5 differing-spec pairs not); buckets partition; live per-cell
+top-1 and CE identical at 0.00e+00; and §1961's pooled CE reproduced to **0.000000** via `B.ref()` — with
+an **explicit coverage**, after that helper was found to pick one arbitrarily from a two-coverage
+artifact (below). Forty-seventh clean reading.
+
+> **Two infrastructure defects surfaced by this section's own controls, both now fixed and both locked by
+> a test.** `B.ref()` silently returned the **first** coverage of a two-coverage artifact — a helper
+> written to stop a reference being wrong, picking one arbitrarily; it now raises unless told which, and
+> `ops/test_fast.py` checks both the raise and the explicit path. And the gate learned that a
+> **module-level lowercase name assigned twice** is a fork leftover: 7 of 245 scripts flagged, every one
+> genuine, 0 false positives — which is what exposed §1962's overwritten control.

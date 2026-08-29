@@ -213,6 +213,23 @@ def gate(path):
         if not {'a', 'b', 'c'} <= letters:
             fails.append(f'pred keys must include a, b and c: {sorted(letters)}')
 
+    # A MODULE-LEVEL NAME ASSIGNED TWICE, lowercase. The existing check covers UPPERCASE constants;
+    # S1963 lost a control to `repro` being assigned twice, the second (inherited) assignment silently
+    # winning and computing something else entirely. Measured across 245 scripts: 7 flagged, every one a
+    # genuine leftover from a fork (`pa = pa_n >= 2` shadowed by the section's real predicate), 0 false
+    # positives. Accumulators reassign inside loops and functions, which this does not look at -- only
+    # bare module-level Assign statements.
+    _modasg = {}
+    for n in tree.body:
+        if isinstance(n, ast.Assign):
+            for x in n.targets:
+                if isinstance(x, ast.Name) and not x.id.isupper() and not x.id.startswith('_'):
+                    _modasg.setdefault(x.id, []).append(n.lineno)
+    for nm, lines in sorted(_modasg.items()):
+        if len(lines) > 1:
+            fails.append(f'module-level `{nm}` is assigned {len(lines)} times at lines '
+                         f'{lines} -- the last one silently wins; a fork usually left the earlier one')
+
     # site consistency (LESSONS 20: forward extent must match the component set)
     st = re.search(r'SITE_STOP = (\d+)', s)
     up = re.search(r'SITE_UP = (\d+)', s)
