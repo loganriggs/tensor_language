@@ -17,10 +17,22 @@ from typing import Any, Mapping, Sequence
 import torch
 
 import prepare_block3_native_down_behavioral_port_v1_rows as natural
+import freeze_gauge_transport_triangle_unique_rows_v1 as failed_transaction
 
 
 ROOT = Path(__file__).resolve().parents[2]
 REGISTRY = natural.REGISTRY
+EXPECTED_AUTHORITY = (
+    ROOT / "basis_aligned/polynomial_causal/"
+    "gauge_transport_triangle_unique_rows_v1_authority.json"
+).resolve()
+EXPECTED_AUTHORITY_SHA256 = "5f7435150561ef385c9a4ee51e2040c4a029e98faefbfe1bc0f92612d820498e"
+EXPECTED_INTERNAL_AUTHORITY_SHA256 = "8901a7446f70358e7e058013bb81c72f477c8636f5a1f76088307eda437025b5"
+EXPECTED_FAILURE_SHA256 = "91859b52b55b8be8ac05dc61f26b95fd43cdb92db7b8c39dfa72d226df41eb58"
+EXPECTED_V1_FAILURE = (
+    ROOT / "basis_aligned/bilinear_quotient/terminal_copy_induction_v1_rows_failure.json"
+).resolve()
+EXPECTED_V1_FAILURE_SHA256 = "0f3908b43678c4acd0f4d24d6188d1ac6047085a50065e3632aa44f6f568938f"
 
 
 def file_sha256(path: Path) -> str:
@@ -84,10 +96,21 @@ def _replace_path(value: Any, target: Path) -> Any:
 
 def validate_failed_unmaterialized_authority(
     authority_path: Path, payload: Mapping[str, Any], missing_row: Path,
+    *, expected_identity: Mapping[str, Any] | None = None,
 ) -> dict[str, Any]:
     """Return an exact waiver ledger or reject the missing row reference."""
 
     authority_path = authority_path.resolve()
+    expected = dict(expected_identity or {
+        "authority_path": str(EXPECTED_AUTHORITY),
+        "authority_sha256": EXPECTED_AUTHORITY_SHA256,
+        "internal_authority_sha256": EXPECTED_INTERNAL_AUTHORITY_SHA256,
+        "failure_sha256": EXPECTED_FAILURE_SHA256,
+    })
+    if str(authority_path) != expected.get("authority_path") or (
+        file_sha256(authority_path) != expected.get("authority_sha256")
+    ) or payload.get("authority_sha256") != expected.get("internal_authority_sha256"):
+        raise RuntimeError("missing row authority is not the preregistered exact authority")
     if not authority_path.name.endswith("_authority.json"):
         raise RuntimeError("missing row reference is not owned by its own authority")
     outputs = payload.get("outputs")
@@ -96,8 +119,8 @@ def validate_failed_unmaterialized_authority(
         "_authority"
     ):
         raise RuntimeError("missing row authority schema is malformed")
-    required = {"authority", "failure", "manifest", "receipt", "rows"}
-    if not required.issubset(outputs):
+    required = {"authority", "failure", "lock", "manifest", "receipt", "rows"}
+    if set(outputs) != required:
         raise RuntimeError("missing row authority has incomplete output closure")
     resolved = {name: _resolve(outputs[name]) for name in required}
     if resolved["authority"] != authority_path or resolved["rows"] != missing_row.resolve():
@@ -107,7 +130,10 @@ def validate_failed_unmaterialized_authority(
         raise RuntimeError("missing row authority has no terminal failure artifact")
     failure, failure_sha = _stable_json(failure_path)
     expected_failure_schema = schema.removesuffix("_authority") + "_failure"
-    if (
+    if failure_sha != expected.get("failure_sha256") or set(failure) != {
+        "schema", "status", "exception_type", "exception_message",
+        "rows_exists", "manifest_exists", "receipt_exists",
+    } or (
         failure.get("schema") != expected_failure_schema
         or failure.get("status") != "terminal_failure_no_receipt"
         or failure.get("rows_exists") is not False
@@ -118,6 +144,15 @@ def validate_failed_unmaterialized_authority(
     for kind in ("rows", "manifest", "receipt"):
         if resolved[kind].exists():
             raise RuntimeError(f"failed authority unexpectedly materialized {kind}")
+    if resolved["lock"].exists():
+        raise RuntimeError("failed authority still has an owner lock")
+    staging = sorted({
+        str(candidate.resolve())
+        for kind in ("rows", "manifest", "receipt", "failure")
+        for candidate in resolved[kind].parent.glob(f".{resolved[kind].name}.tmp-*")
+    })
+    if staging:
+        raise RuntimeError("failed authority still has staging artifacts")
     if resolved["failure"] == resolved["rows"] or resolved["failure"] == authority_path:
         raise RuntimeError("failed authority output paths alias one another")
     return {
@@ -126,6 +161,12 @@ def validate_failed_unmaterialized_authority(
         "authority_sha256": file_sha256(authority_path),
         "failure_path": str(failure_path),
         "failure_sha256": failure_sha,
+        "internal_authority_sha256": payload["authority_sha256"],
+        "authority_schema": schema,
+        "authority_status": payload.get("status"),
+        "source_closure": payload.get("source_closure"),
+        "json_pointer": "$.outputs.rows",
+        "declared_outputs": {key: str(resolved[key]) for key in sorted(resolved)},
         "omitted_missing_row_path": str(missing_row.resolve()),
         "absent_manifest_path": str(resolved["manifest"]),
         "absent_receipt_path": str(resolved["receipt"]),
@@ -134,7 +175,10 @@ def validate_failed_unmaterialized_authority(
             "rows_exists": False,
             "manifest_exists": False,
             "receipt_exists": False,
+            "lock_exists": False,
+            "staging_artifacts": [],
         },
+        "exclusion_scope": "one_reference_only",
     }
 
 
@@ -158,7 +202,12 @@ def load_registry_exclusions(
         registry_hashes[str(path)] = digest
         sanitized: Any = copy.deepcopy(payload)
         missing = _missing_row_paths(payload)
+        if missing and (path != EXPECTED_AUTHORITY or missing != {_resolve(payload.get(
+            "outputs", {}
+        ).get("rows"))}):
+            raise RuntimeError("registry has an unregistered missing row-like reference")
         for missing_row in sorted(missing):
+            failed_transaction.validate_authority(payload)
             waiver = validate_failed_unmaterialized_authority(path, payload, missing_row)
             waivers.append(waiver)
             sanitized = _replace_path(sanitized, missing_row)
@@ -184,6 +233,14 @@ def load_registry_exclusions(
                 full_rows.add(values)
                 prefixes.add(values[: natural.PREFIX_LENGTH])
     waivers.sort(key=lambda item: (item["authority_path"], item["omitted_missing_row_path"]))
+    if len(waivers) != 1:
+        raise RuntimeError("v2 expected exactly one preregistered failed-authority exclusion")
+    if not EXPECTED_V1_FAILURE.is_file() or file_sha256(
+        EXPECTED_V1_FAILURE
+    ) != EXPECTED_V1_FAILURE_SHA256:
+        raise RuntimeError("terminal-copy v1 failure lineage changed")
+    waivers[0]["terminal_copy_v1_failure_path"] = str(EXPECTED_V1_FAILURE)
+    waivers[0]["terminal_copy_v1_failure_sha256"] = EXPECTED_V1_FAILURE_SHA256
     return (documents, indices, full_rows, prefixes), registry_hashes, tensor_hashes, waivers
 
 
