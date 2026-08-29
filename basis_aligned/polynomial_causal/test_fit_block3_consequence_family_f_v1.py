@@ -306,9 +306,9 @@ def _valid_result():
         "products_per_token": 1, "linear_multiplies_per_token": 1,
     }
     transition = {
-        "continuous_F1_document_kl": 0.1, "binary_native_down_document_kl": 0.2,
-        "post_refit_document_kl": 0.15, "binary_minus_continuous_document_kl": 0.1,
-        "refit_minus_binary_document_kl": -0.05,
+        "continuous_F1_document_kl": 0.1, "binary_native_down_document_kl": 0.1,
+        "post_refit_document_kl": 0.1, "binary_minus_continuous_document_kl": 0.0,
+        "refit_minus_binary_document_kl": 0.0,
     }
     return {
         "schema": "block3_consequence_family_f_v1_fit_results",
@@ -372,6 +372,15 @@ def test_result_semantic_replay_rejects_missing_arm_and_bad_join():
             broken, expected_authority_sha256="a" * 64,
             expected_programs_file_sha256="c" * 64,
         )
+    impossible = _valid_result()
+    impossible["postfit_report"]["continuous_teacher_F1"][
+        "document_balanced_teacher_kl"
+    ] = -7.0
+    with pytest.raises(RuntimeError, match="impossible metrics"):
+        runner.semantic_validate_result(
+            impossible, expected_authority_sha256="a" * 64,
+            expected_programs_file_sha256="c" * 64,
+        )
     result["postfit_report"] = dict(result["postfit_report"])
     result["postfit_report"].pop("continuous_teacher_F1")
     with pytest.raises(RuntimeError, match="postfit report"):
@@ -379,6 +388,74 @@ def test_result_semantic_replay_rejects_missing_arm_and_bad_join():
             result, expected_authority_sha256="a" * 64,
             expected_programs_file_sha256="c" * 64,
         )
+
+
+def test_result_reconstruction_rejects_self_consistent_schema_with_fake_nrmse(monkeypatch):
+    artifact = _valid_program_artifact(monkeypatch)
+    programs = {
+        name: runner._materialize_program(payload, device="cpu")
+        for name, payload in artifact["programs"].items()
+    }
+    parent = {
+        "prefilter_indices": torch.arange(1024),
+        "prefilter_gram": torch.eye(1024, dtype=torch.float64),
+        "prefilter_cross": torch.zeros(1024, 2, dtype=torch.float64),
+        "native_typed_write_energy": torch.tensor(1_000_000.0, dtype=torch.float64),
+    }
+    family_a = {256: torch.arange(256), 512: torch.arange(512)}
+    result = _valid_result()
+    result["program_prices"] = {
+        name: runner.core.program_price(program) for name, program in programs.items()
+    }
+    result["stacked_typed_fit_nrmse"] = {
+        name: runner._stacked_fit_nrmse(
+            program, parent["prefilter_indices"], parent["prefilter_gram"],
+            parent["prefilter_cross"], parent["native_typed_write_energy"],
+        )
+        for name, program in programs.items() if not name.startswith("affine_")
+    }
+    result["score_projection_replay_max_abs"] = {
+        arm: float((
+            runner.core.project_capped_simplex(score, 512) - score
+        ).abs().max())
+        for arm, score in artifact["scores"].items()
+    }
+    result["direct_polarization_replay"] = {
+        name: runner.deployed_polarization_replay(program)
+        for name, program in programs.items()
+    }
+    overlaps = {}
+    for budget in runner.BUDGETS:
+        real = set(artifact["supports"][f"teacher_k{budget}"].tolist())
+        comparisons = {
+            "teacher_row_reversal": artifact["supports"][
+                f"teacher_row_reversal_k{budget}"
+            ],
+            "teacher_document_derangement": artifact["supports"][
+                f"teacher_document_derangement_k{budget}"
+            ],
+            "random": artifact["supports"][f"random_k{budget}"],
+            "family_A": family_a[budget],
+        }
+        for name, support in comparisons.items():
+            other = set(support.tolist())
+            overlaps[f"teacher_vs_{name}_k{budget}"] = {
+                "intersection": len(real & other),
+                "jaccard": len(real & other) / len(real | other),
+            }
+    result["support_overlaps"] = overlaps
+    kwargs = {
+        "expected_authority_sha256": "a" * 64,
+        "expected_programs_file_sha256": "c" * 64,
+        "program_artifact": artifact,
+        "parent_payload": parent,
+        "family_a_supports": family_a,
+    }
+    runner.semantic_validate_result(result, **kwargs)
+    first = next(iter(result["stacked_typed_fit_nrmse"]))
+    result["stacked_typed_fit_nrmse"][first] = 999.0
+    with pytest.raises(RuntimeError, match="does not reconstruct"):
+        runner.semantic_validate_result(result, **kwargs)
 
 
 def test_receipt_semantic_replay_binds_all_terminal_artifacts():

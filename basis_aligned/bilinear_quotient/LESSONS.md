@@ -1769,3 +1769,28 @@ the loop target rebinds every iteration — both flagged scripts had **exit=0** 
 is how I knew they were false positives rather than a backlog. **A flood is a failed check, not a
 finding**: I only trusted the third draft because it fires on the reintroduced bug AND is silent on all
 156 scripts that actually ran.
+
+## LESSON 67 — a gate refinement that reaches FORWARD for a variable goes silent on every script at once
+
+Refining the empty-literal check to spare live accumulators (`ITER_DELTA = []` filled by `.append()`), I
+wrote the rescue clause at line 171 against `_code` — which `gate()` does not define until line **281**.
+`UnboundLocalError` on **145 of 157 scripts**, and because my two-direction test greps stdout for the
+finding, the crash read as **"silent"** in BOTH directions. Two drafts in a row (`code`, then `_code`)
+failed the same way and printed the same reassuring word.
+
+**LESSON 65 said a refinement can go silent. This says the silence can be a CRASH wearing a passing
+test's clothes.** A check that greps for the presence of a finding cannot tell "correctly quiet" from
+"the tool died". The fix is one line in the harness — assert the tool didn't traceback and count it:
+
+```
+  crash = 'Traceback' in r.stderr
+  print(f'-> {"CRASH" if crash else ("FIRES" if TOKEN in r.stdout else "silent")}')
+```
+
+That third state is what turned two silent failures into two visible ones. **The flood test needs it
+too**: "0 of 157 flagged" looked like a clean result and was really 145 crashes.
+
+The substantive fix was to hoist the comment-stripper into a module-level `_nocomment(src)` instead of
+reaching forward for a local. **Reaching forward for a variable inside a long function is the same class
+of error as LESSON 66's indentation splice** — both are edits that assume a context the edit site does
+not have. When patching into the middle of a function, check what is actually bound *there*.

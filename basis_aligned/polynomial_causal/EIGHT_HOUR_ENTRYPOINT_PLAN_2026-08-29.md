@@ -46,10 +46,20 @@ only support selection and the refitted Down map.
 Question: does the strong rank-512 stream map still work when its input is produced by
 the compressed program rather than by a native one-token forward?
 
-- [ ] **E1.1 Recursive closure (already running).** Feed each site map the site-entry
+- [x] **E1.1 Recursive closure.** Feed each site map the site-entry
   stream recursively produced by the settled compressed prefix.  Report uncovered CE
   deficit on all three document roles and compare with embedding-r512, native-stream-
   r512, and the shared ceiling.
+
+  **Outcome, 04:13 UTC:** failed both preregistered substantive bars while the controls
+  passed.  Closed-stream rank-512 deficits were
+  `1.08978 / 1.27276 / 1.26133` nat, versus
+  `0.59560 / 0.67209 / 0.67172` for the rank-512 embedding map and
+  `0.17427 / 0.21358 / 0.21419` for the native length-one stream.  Covered CE remained
+  bit-identical and both prior controls reproduced.  Thus the native-stream result is
+  not a standalone replacement: recursively accumulated state drift costs
+  `0.916 / 1.059 / 1.047` nat.  E1.2 must localize that drift; E1.3 tests whether
+  fitting and deploying on the same closed-stream distribution repairs it.
 - [ ] **E1.2 Drift localization.** At every one of the 36 sites, compare native and
   recursively generated map inputs by centered NRMSE, principal-angle/canonical-
   correlation summaries, and the downstream CE change when only that site's input is
@@ -150,4 +160,3 @@ prompt explicitly points to this file.  A separate one-shot deadline script queu
 install entries live in `codex_session.crontab`.  The deadline script refuses to fire
 outside 2026-08-29 11:55–12:20 UTC, so a stale annual cron entry cannot create a false
 future alarm.
-

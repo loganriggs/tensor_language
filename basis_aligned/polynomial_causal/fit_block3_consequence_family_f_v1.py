@@ -1197,6 +1197,9 @@ def _require_finite_tree(value: Any, *, path: str = "root") -> None:
 def semantic_validate_result(
     value: Mapping[str, Any], *, expected_authority_sha256: str,
     expected_programs_file_sha256: str,
+    program_artifact: Mapping[str, Any] | None = None,
+    parent_payload: Mapping[str, Any] | None = None,
+    family_a_supports: Mapping[int, torch.Tensor] | None = None,
 ) -> None:
     required = {
         "schema", "status", "authority_sha256", "score_traces", "affine_traces",
@@ -1254,7 +1257,9 @@ def semantic_validate_result(
     if not isinstance(known, Mapping) or set(known) != {
         "raw_max_absolute", "raw_max_relative", "max_absolute", "max_relative",
         "teacher_self_kl_max",
-    } or known["raw_max_relative"] > core.REPLAY_RELATIVE_LIMIT or known[
+    } or any(number < 0 for number in known.values()) or known[
+        "raw_max_relative"
+    ] > core.REPLAY_RELATIVE_LIMIT or known[
         "max_relative"
     ] > core.REPLAY_RELATIVE_LIMIT or known["teacher_self_kl_max"] > 2e-7:
         raise RuntimeError("family-F known-answer replay changed")
@@ -1267,6 +1272,13 @@ def semantic_validate_result(
         for metrics in value["postfit_report"].values()
     ):
         raise RuntimeError("family-F postfit report schema changed")
+    if any(
+        metrics["document_balanced_teacher_kl"] < -1e-7
+        or metrics["row_mean_teacher_kl"] < -1e-7
+        or metrics["summed_write_nrmse"] < 0
+        for metrics in value["postfit_report"].values()
+    ):
+        raise RuntimeError("family-F postfit report contains impossible metrics")
     program_names = report_names - {"continuous_teacher_F1"}
     if set(value["direct_polarization_replay"]) != program_names or set(
         value["program_prices"]
@@ -1285,6 +1297,8 @@ def semantic_validate_result(
         replay > 2e-10 for replay in value["score_projection_replay_max_abs"].values()
     ):
         raise RuntimeError("family-F program or projection replay changed")
+    if any(number < 0 for number in value["stacked_typed_fit_nrmse"].values()):
+        raise RuntimeError("family-F stacked NRMSE is negative")
     expected_overlap_keys = {
         f"teacher_vs_{comparison}_k{budget}"
         for comparison in (
@@ -1310,12 +1324,107 @@ def semantic_validate_result(
         for metrics in value["postfit_stage_transitions"].values()
     ):
         raise RuntimeError("family-F postfit transition registry changed")
+    for budget in BUDGETS:
+        report = value["postfit_report"]
+        expected_transition = {
+            "continuous_F1_document_kl": report[
+                "continuous_teacher_F1"
+            ]["document_balanced_teacher_kl"],
+            "binary_native_down_document_kl": report[
+                f"real_F_binary_native_down_k{budget}"
+            ]["document_balanced_teacher_kl"],
+            "post_refit_document_kl": report[
+                f"real_F_post_refit_k{budget}"
+            ]["document_balanced_teacher_kl"],
+            "binary_minus_continuous_document_kl": report[
+                f"real_F_binary_native_down_k{budget}"
+            ]["document_balanced_teacher_kl"] - report[
+                "continuous_teacher_F1"
+            ]["document_balanced_teacher_kl"],
+            "refit_minus_binary_document_kl": report[
+                f"real_F_post_refit_k{budget}"
+            ]["document_balanced_teacher_kl"] - report[
+                f"real_F_binary_native_down_k{budget}"
+            ]["document_balanced_teacher_kl"],
+        }
+        if value["postfit_stage_transitions"][str(budget)] != expected_transition:
+            raise RuntimeError("family-F postfit transition arithmetic changed")
     for price in value["program_prices"].values():
         if set(price) != {
             "float_values", "float_bytes", "index_bytes", "total_bytes",
             "products_per_token", "linear_multiplies_per_token",
         } or any(type(number) is not int or number <= 0 for number in price.values()):
             raise RuntimeError("family-F executable price changed")
+    contexts = (program_artifact, parent_payload, family_a_supports)
+    if any(context is not None for context in contexts):
+        if any(context is None for context in contexts):
+            raise RuntimeError("family-F result reconstruction context is incomplete")
+        assert program_artifact is not None
+        assert parent_payload is not None
+        assert family_a_supports is not None
+        programs = {
+            name: _materialize_program(payload, device="cpu")
+            for name, payload in program_artifact["programs"].items()
+        }
+        expected_prices = {
+            name: core.program_price(program) for name, program in programs.items()
+        }
+        if value["program_prices"] != expected_prices:
+            raise RuntimeError("family-F program prices do not reconstruct")
+        prefilter = parent_payload["prefilter_indices"].long().contiguous()
+        expected_stacked = {
+            name: _stacked_fit_nrmse(
+                program, prefilter, parent_payload["prefilter_gram"].double(),
+                parent_payload["prefilter_cross"].double(),
+                parent_payload["native_typed_write_energy"].double(),
+            )
+            for name, program in programs.items() if not name.startswith("affine_")
+        }
+        if any(
+            not math.isclose(
+                value["stacked_typed_fit_nrmse"][name], expected,
+                rel_tol=1e-12, abs_tol=1e-12,
+            )
+            for name, expected in expected_stacked.items()
+        ):
+            raise RuntimeError("family-F stacked NRMSE does not reconstruct")
+        expected_projection = {
+            arm: float((
+                core.project_capped_simplex(scores, 512) - scores
+            ).abs().max())
+            for arm, scores in program_artifact["scores"].items()
+        }
+        if value["score_projection_replay_max_abs"] != expected_projection:
+            raise RuntimeError("family-F score projection diagnostic does not reconstruct")
+        expected_overlaps: dict[str, Any] = {}
+        for budget in BUDGETS:
+            real = set(program_artifact["supports"][f"teacher_k{budget}"].tolist())
+            comparisons = {
+                "teacher_row_reversal": program_artifact["supports"][
+                    f"teacher_row_reversal_k{budget}"
+                ],
+                "teacher_document_derangement": program_artifact["supports"][
+                    f"teacher_document_derangement_k{budget}"
+                ],
+                "random": program_artifact["supports"][f"random_k{budget}"],
+                "family_A": family_a_supports[budget],
+            }
+            for name, support in comparisons.items():
+                other = set(support.tolist())
+                expected_overlaps[f"teacher_vs_{name}_k{budget}"] = {
+                    "intersection": len(real & other),
+                    "jaccard": len(real & other) / len(real | other),
+                }
+        if value["support_overlaps"] != expected_overlaps:
+            raise RuntimeError("family-F support overlaps do not reconstruct")
+        for name, program in programs.items():
+            expected_replay = deployed_polarization_replay(program)
+            observed_replay = value["direct_polarization_replay"][name]
+            if any(
+                abs(observed_replay[key] - expected_replay[key]) > 2e-5
+                for key in ("max_absolute", "max_relative")
+            ):
+                raise RuntimeError("family-F polarization diagnostic does not reconstruct")
     call_contract.FamilyFCallLedger.replay_complete_receipt(value["call_ledger"])
     before = value["model_state_before_sha256"]
     after = value["model_state_after_sha256"]
@@ -1437,6 +1546,8 @@ def run() -> dict[str, Any]:
         semantic_validate_result(
             result, expected_authority_sha256=frozen_authority["authority_sha256"],
             expected_programs_file_sha256=program_hash,
+            program_artifact=program_artifact, parent_payload=validation_parent,
+            family_a_supports=family_a_supports,
         )
         collector.create_json(RESULTS, result)
         reloaded_result = json.loads(RESULTS.read_text())
@@ -1446,6 +1557,8 @@ def run() -> dict[str, Any]:
             reloaded_result,
             expected_authority_sha256=frozen_authority["authority_sha256"],
             expected_programs_file_sha256=program_hash,
+            program_artifact=reloaded_programs, parent_payload=validation_parent,
+            family_a_supports=family_a_supports,
         )
         result_hash = file_sha256(RESULTS)
 

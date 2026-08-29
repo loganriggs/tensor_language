@@ -256,7 +256,9 @@ def consequence_score_write(
     features = left * right * scores.to(value).reshape(
         *((1,) * (value.ndim - 1)), -1,
     )
-    return F.linear(features, native_down[:, prefilter_indices], native_bias)
+    output = F.linear(features, native_down[:, prefilter_indices])
+    shape = (1,) * (output.ndim - 1) + (value.shape[-1],)
+    return output + native_bias.reshape(shape)
 
 
 def refit_joint_program(

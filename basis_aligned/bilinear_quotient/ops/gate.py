@@ -52,6 +52,12 @@ def _bound(scope, fn=None):
     return loc
 
 
+def _nocomment(src):
+    """source with whole-line comments dropped -- three checks fired on their own
+    explanatory comments before this existed."""
+    return '\n'.join(l for l in src.split('\n') if not l.lstrip().startswith('#'))
+
+
 def gate(path):
     s = open(path).read()
     fails = []
@@ -164,6 +170,11 @@ def gate(path):
                 vals = getattr(n.value, 'keys', [])
             if not vals:
                 empty |= _targets(n)
+    # ...unless the code MUTATES it. `ITER_DELTA = []` filled by ITER_DELTA.append() inside a nested
+    # build() is a live accumulator, not a dead literal. Only these four verbs rescue it; a name that
+    # is merely READ stays flagged, which is the case the check was written for.
+    empty -= {m2 for m2 in empty
+              if re.search(rf'\b{re.escape(m2)}\.(append|extend|update|add)\(', _nocomment(s))}
     for fn in [f for f in tree.body if isinstance(f, ast.FunctionDef)]:
         for n in ast.walk(fn):
             if isinstance(n, ast.comprehension) and isinstance(n.iter, ast.Name) \
@@ -273,7 +284,7 @@ def gate(path):
     _tr = re.search(r'^TRANKS\s*=\s*\(([^)]*)\)', s, re.M)
     # strip comment lines first: a docstring that merely MENTIONS the pattern is not a lookup, and
     # this check fired on its own explanatory comment the first time it was used.
-    _code = '\n'.join(l for l in s.split('\n') if not l.lstrip().startswith('#'))
+    _code = _nocomment(s)
     if _tr and 'None' not in _tr.group(1) and re.search(r"curve\['full'\]", _code):
         fails.append("TRANKS contains no None (so the results dict has no 'full' key) but the code "
                      "indexes curve['full'] -- this KeyErrors in the reporting block, after every "

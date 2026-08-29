@@ -1,0 +1,955 @@
+# ITERATED SELF-CONSISTENT STREAM MAP -- is §1878 a fitting error or an expressibility limit?
+#
+# §1878 killed §1876's deployability. A covered-fit map from the length-1 residual stream reaches
+# +0.17427 / +0.21358 / +0.21419 when the stream comes from a NATIVE forward pass, but +1.08978 /
+# +1.27276 / +1.26133 when the program regenerates it from its own compressed prefix -- worse than
+# §1870's rank-512 EMBEDDING map (+0.59560 / +0.67209 / +0.67172) and worse than the deployed rank-64
+# build (+0.78075 / +0.86225 / +0.83997). I retracted §1876's headline on that.
+#
+# But §1878 confounds two things. The map was FITTED on native covered streams and APPLIED to
+# program-generated uncovered streams. That is a train/test distribution shift, and a distribution shift
+# is a FITTING error, not a statement about what a linear map on this input can express. The fix is to
+# fit where you apply: generate the COVERED tokens' streams the same way the uncovered ones will be
+# generated -- every site replaced by the map -- refit on those, and iterate map -> streams -> map.
+#
+# This is the last rescue for the stream-input line. Storage is still unchanged (36 x rank x 2 x D), and
+# the procedure is deployable: the iteration happens once, offline, at build time.
+#
+# ROLES. All three, deployed 5,419-type covered set. DISCOVERY ONLY. Rung 3: §1878's open question.
+#
+# Registered predictions, TWO-SIDED per LESSONS 31, margins per LESSON 40, read back per LESSON 39.
+# Units per LESSONS 49: fallback loss is a DEFICIT on the uncovered population against its ceiling.
+# ANCHORS name the build AND the rank they came from, per LESSONS 53's addendum and §1875.
+#   pred_a REFITTING HELPS AT ALL: the iterated self-consistent map beats §1878's PUBLISHED closed
+#          figures (+1.08978 / +1.27276 / +1.26133) on all three roles. This is the weakest possible
+#          bar and it only asks whether the distribution shift was ANY of the problem. If FALSE the
+#          shift explains none of §1878 and the collapse is intrinsic to running the recursion.
+#   pred_b AND THE LINE LIVES: it beats §1870's PUBLISHED rank-512 covered-fit EMBEDDING map
+#          (+0.59560 / +0.67209 / +0.67172) on all three roles. This is the bar that matters. The
+#          embedding map needs no input the program does not already own, so a stream map that cannot
+#          beat it is not worth its extra machinery at equal storage. If TRUE, part of §1876 is
+#          recoverable in a genuinely source-closed form and I will say so as loudly as I retracted it.
+#          If FALSE the stream-input line is CLOSED and §1870 is the deployable answer.
+#   pred_c AND THE COVERED ARM IS UNTOUCHED: covered CE identical to the MAP arm within 1e-6. TENTH
+#          KNOWN-ANSWER check; the previous nine each returned exactly 0.00e+00.
+#   pred_d CONTROLS: coverage is exactly 5,419; the covered arm attains its ceiling (a twentieth
+#          confirmation); the MAP arm reproduces §1870 and the STREAMCOV arm reproduces §1876, both
+#          within 0.005 and both in THIS build; the STREAMCLOSED arm reproduces §1878 within 0.005 via
+#          an independently written code path; and the iteration CONVERGES -- the last relative map
+#          change is smaller than the first. A diverging iteration invalidates pred_a and pred_b
+#          whatever they read.
+import json, time, sys, os, torch
+import torch.nn.functional as F
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from bilin18_joint_removal import m, DEV
+
+D = 1152; T = 256; V = 50257; W = 50304
+NH = 9; HD = D // NH        # bilin18: nine heads of 128
+MAP_RANK = 64
+RIDGE = 1e-2
+PT = '/workspace/tensor_language/basis_aligned/bilinear_quotient/'
+OUT = PT + 'ops/iterated_stream_map_results.json'
+CALROWS = 32   # rows used for the per-layer calibration passes; the eval uses the full role
+PROBE_LS = ()
+KIND_LS = ()
+RANKS = (64,)                # the settled table rank; only the STREAM matters here
+B0_SITES = [('attn', 0), ('mlp', 0)]
+EARLY = [(k2, L2) for L2 in range(1, 7) for k2 in ('attn', 'mlp')]   # the twelve sites offered a choice
+PROBES = EARLY
+ARMS = {'B0': list(B0_SITES)}
+MAPRANKS = (512,)
+ARMS2 = ('MAP', 'STREAMCOV', 'STREAMCLOSED', 'STREAMITER')
+NITER = 3
+ITER_DELTA = []          # None = full rank; §1786/§1813 use this ladder
+# §1768's PUBLISHED figures -- BUILD NAMED per LESSONS 53 addendum
+S1768_PROG_RANK64_CORR128 = {'skip7000': 6.57512, 'skip11000': 6.57289}
+S1768_CEIL_LENGTH1_LOOKUP = {'skip7000': 6.03465, 'skip11000': 5.97902}
+S1768_LIVE_COVERED = {'skip7000': 3.29205, 'skip11000': 3.09711}
+# §1811's PUBLISHED settled FULL-RANK all-position CE -- the second anchor
+S1811_SETTLED_FULLRANK_ALLPOS = {'skip7000': 6.01167, 'skip11000': 5.98477, 'skip1200': 6.00165}
+# §1849's PUBLISHED rank-64 CE above the ceiling, SETTLED build with n96 fit rows
+# §1849's PUBLISHED ladder, SETTLED build, n96 fit rows, 5419 covered types
+# §1852's PUBLISHED rank-256 build at 16,110 covered types -- the arm being replicated
+S1852_R256_COST_M = 164.478
+S1852_R256_ALLPOS = {'skip7000': 5.98851, 'skip11000': 5.94106, 'skip1200': 5.95781}
+S1852_R256_ABOVE = {'skip7000': 0.09252, 'skip11000': 0.09844, 'skip1200': 0.08049}
+# the DEPLOYED build (§1789/§1853): full rank at 5,419 covered types
+DEPLOYED_COST_M = 230.087
+DEPLOYED_ALLPOS = {'skip7000': 6.01167, 'skip11000': 5.98477, 'skip1200': 6.00165}
+LADDER = list(ARMS2)
+# §1849's PUBLISHED rank-256 build at 5,419 types -- the reference point of the 65.950M line
+# §1866's PUBLISHED deficit gaps and value at 5,419 covered types
+# §1867's PUBLISHED per-position deficit gap at 16,110 covered types
+S1848_UNC_FRAC_5419 = 0.246
+# §1869's PUBLISHED map-rank recovery (64 -> 512) at 16,110 covered types
+# §1870's PUBLISHED map-alone fallback loss at map rank 64, 5,419 covered types
+S1872_MAP_M64 = {'skip7000': 0.78075, 'skip11000': 0.86225, 'skip1200': 0.83997}
+# §1873's PUBLISHED embedding-input oracle loss -- the bound this run's input change is measured against
+S1873_ORACLE_EMB = {'skip7000': 0.65138, 'skip11000': 0.72189, 'skip1200': 0.70037}
+# §1874's PUBLISHED stream-input oracle at map rank 64 -- the point this run changes rank from
+S1875_ORACLE_STREAM_R512 = {'skip7000': 0.11388, 'skip11000': 0.14094, 'skip1200': 0.14196}
+# §1870's PUBLISHED covered-fit EMBEDDING map at rank 512 -- the input-isolating comparison
+S1870_MAP_R512 = {'skip7000': 0.59560, 'skip11000': 0.67209, 'skip1200': 0.67172}
+S1849_R256_5419 = {'skip7000': 6.06004, 'skip11000': 6.03311, 'skip1200': 6.04238}
+S1852_R256_ABOVE_7000 = 0.09252
+# §1845's PUBLISHED fit-context single-site sequential gap fraction, skip7000
+S1829_B0_GAPFRAC = 0.6479
+S1842_TABLE_GAP = {'mlp5': 2.781, 'mlp4': 9.920}
+# §1829's PUBLISHED sequential gap fractions at the two arms this run overlaps
+S1829_SEQ_GAPFRAC = {'B0': {'skip7000': 0.648, 'skip11000': 0.653, 'skip1200': 0.613},
+                     'B1': {'skip7000': 0.259, 'skip11000': 0.264, 'skip1200': 0.258}}
+# §1806's PUBLISHED raw gap fraction at B0
+S1806_B0_RAW = {'skip7000': 0.3742, 'skip11000': 0.3960, 'skip1200': 0.3809}
+POKE_MAG = 10.0              # §1765's magnitude, kept so the live side is comparable across runs
+POKE_ROWS = 8                # one batch; the matrix is a per-position mean over these rows
+KSRC = (64, 88, 112, 136, 160, 184)   # source positions, all >=64 so every reader is scored
+S1765_LIVE_REACH_NATS = 0.118         # §1765's PUBLISHED live-model figure, the positive control
+# §1825's PUBLISHED L9 cosines in the corrected arms -- the anti-aligned layer Codex surfaced
+S1825_L9_COSINE = {3: -0.134, 5: -0.628}
+# §1806's PUBLISHED gap fractions, FULL-RANK build, bottom-up (0..L compiled, L+1..17 live).
+S1806_FULLRANK_GAPFRAC = {0: {'skip7000': 0.3742, 'skip11000': 0.3960, 'skip1200': 0.3809},
+                          3: {'skip7000': -0.4484, 'skip11000': -0.4316, 'skip1200': -0.4688},
+                          5: {'skip7000': -0.4391, 'skip11000': -0.4321, 'skip1200': -0.4643}}
+# FULL-RANK all-sites constants (§1789) -- the object THIS build produces. LESSON 53.
+S1789_FULLRANK_TOP1_PP = {'skip7000': 0.1355, 'skip11000': 0.1425, 'skip1200': 0.1364}
+S1789_LIVE_TOP1_PP = {'skip7000': 0.3932, 'skip11000': 0.4235, 'skip1200': 0.3888}
+# §1822's PUBLISHED gap fractions using FULLY-COMPILED-measured gains on all live layers
+S1822_GLOBALGAIN_GAPFRAC = {0: {'skip7000': -0.041, 'skip11000': -0.031, 'skip1200': -0.027},
+                            3: {'skip7000': 0.103, 'skip11000': 0.100, 'skip1200': 0.120},
+                            5: {'skip7000': 0.115, 'skip11000': 0.112, 'skip1200': 0.119}}
+# §1823's PUBLISHED depth-matched (first-order) gap fractions
+S1823_MATCHED_GAPFRAC = {0: {'skip7000': 0.557, 'skip11000': 0.567, 'skip1200': 0.531},
+                         3: {'skip7000': -0.226, 'skip11000': -0.226, 'skip1200': -0.239},
+                         5: {'skip7000': -0.150, 'skip11000': -0.142, 'skip1200': -0.151}}
+# §1824's PUBLISHED sequentially-calibrated gap fractions
+S1824_SEQ_GAPFRAC = {0: {'skip7000': 0.648, 'skip11000': 0.653, 'skip1200': 0.613},
+                     3: {'skip7000': 0.119, 'skip11000': 0.116, 'skip1200': 0.120},
+                     5: {'skip7000': 0.123, 'skip11000': 0.121, 'skip1200': 0.128}}
+# §1819's PUBLISHED single-interface cosine for head 5.7 -- the cross-run anchor
+S1819_L5H7_COSINE = 0.9990
+NATIVE_PER_LAYER = 15.926e6 + 7.963e6   # §1754 accounting, one MLP + one attn
+# the map is built at the CARRYABLE rank min(64, r+1) -- §1814: rank(Ws) <= r+1, so anything
+# higher is the same matrix at a higher price
+# UNITS IN THE NAME (LESSON 49): these are PERCENTAGE-POINT deltas over the all-compiled arm,
+# not gap fractions. §1811's pred_d failed by comparing the first against the second.
+# PERCENTAGE-POINT top-1 accuracies (units in the name, LESSON 49)
+S1813_T1_PP = {'skip7000': 0.0990, 'skip11000': 0.1065, 'skip1200': 0.1007}
+S1786_T64_PP = {'skip7000': 0.1288, 'skip11000': 0.1349, 'skip1200': 0.1289}
+# ALL-POSITION CE nats for the settled rank-64 program (§1786)
+S1786_T64_CE = {'skip7000': 6.17330, 'skip11000': 6.15261, 'skip1200': 6.14463}
+# §1811's PERCENTAGE-POINT top-1, the arms whose dominance is being re-tested on CE
+# §1788 measured these THREE INSTRUMENTS on the all-sites program only.
+S1788_AGREE = {'skip7000': 0.2357, 'skip11000': 0.2271, 'skip1200': 0.2421}
+S1788_KL = {'skip7000': 2.88031, 'skip11000': 3.04866, 'skip1200': 2.75451}
+S1816_CE_R64 = {-1: {'skip7000': 6.1733, 'skip11000': 6.1526, 'skip1200': 6.1446},
+                13: {'skip7000': 4.1815, 'skip11000': 3.9736, 'skip1200': 4.2836}}
+LIVE_CE_ALL = {'skip7000': 3.13704, 'skip11000': 2.93450, 'skip1200': 3.23027}
+S1807_SCALED_L5 = {'skip7000': 0.189, 'skip11000': 0.177, 'skip1200': 0.183}
+S1808_SWING = {'skip7000': {3: -0.001, 5: 0.628}, 'skip11000': {3: 0.001, 5: 0.609},
+               'skip1200': {3: -0.001, 5: 0.647}}
+S1806_BOTUP = {'skip7000': {0: 0.374, 3: -0.448, 5: -0.439},
+               'skip11000': {0: 0.396, 3: -0.432, 5: -0.423},
+               'skip1200': {0: 0.381, 3: -0.469, 5: -0.455}}
+S1802_ONLY = {'skip7000': {4: -0.0003, 5: -0.1254, 6: -0.1115, 13: -0.0175},
+              'skip11000': {4: -0.0006, 5: -0.1311, 6: -0.1198, 13: -0.0173},
+              'skip1200': {4: -0.0003, 5: -0.1267, 6: -0.1160, 13: -0.0203}}
+S1789_GAP = {'skip7000': 0.3932 - 0.1355, 'skip11000': 0.4235 - 0.1425,
+             'skip1200': 0.3888 - 0.1364}
+S1795_BG = {'skip7000': 0.12440, 'skip11000': 0.12880, 'skip1200': 0.12250}
+TAUS = (10 ** 9, 20.0, 12.0, 8.0, 5.0, 3.0, 2.0, 1.0)  # DEFER when the bigram's LOO count >= tau
+S1796_UNION = {'skip7000': 0.45966, 'skip11000': 0.48224, 'skip1200': 0.47517}
+PICK_ROLE = 'skip7000'
+ALPHA = 0.01
+S1767_FITBIGRAM_CE = {'skip7000': 7.88804, 'skip11000': 7.90729}
+BUCKETS = ((0, 0), (1, 4), (5, 24), (25, 124), (125, 10 ** 9))
+EVAL_SETS = [('skip7000', PT + '.rowcache/fineweb_n192_skip7000.pt', 3.29205),
+             ('skip11000', PT + '.rowcache/fineweb_n192_skip11000.pt', 3.09711),
+             ('skip1200', PT + '.rowcache/fineweb_n96_skip1200.pt', 3.40277)]
+FIT_ROWS = PT + '.rowcache/fineweb_n480_skip80.pt'
+FITLO, FITHI = 0, 96       # §1834's covered set: 5,419 types, the DEPLOYED build   # 5x the fit rows -> a larger covered set
+H = m.transformer.h
+NCOV = 5419
+S1789_PROG = {'skip7000': 0.1355, 'skip11000': 0.1425, 'skip1200': 0.1364}
+S1789_LIVE = {'skip7000': 0.3932, 'skip11000': 0.4235, 'skip1200': 0.3888}
+S1790_LOOBG = {'skip7000': 0.1597, 'skip11000': 0.1663, 'skip1200': 0.1800}
+STATE = {}
+BASE = {'mode': 'MAP'}
+# §1876 PUBLISHED, rank 512, covered-fit, NATIVE stream input -- the claim this run qualifies.
+S1876_STREAM_R512 = {'skip7000': 0.17427, 'skip11000': 0.21358, 'skip1200': 0.21419}
+# half of §1876's advantage over §1870's rank-512 embedding map: the pred_b bar.
+S1878_CLOSED = {'skip7000': 1.08978, 'skip11000': 1.27276, 'skip1200': 1.26133}   # §1878 PUBLISHED
+ORC = {}
+COV = {}
+
+
+def load(p):
+    r = torch.load(p, map_location='cpu')
+    r = r['rows'] if isinstance(r, dict) else r
+    return r[:, :T + 1].contiguous()
+
+
+def mod_of(kind, L):
+    return H[L].mlp if kind == 'mlp' else H[L].attn
+
+
+def row_hook(full_rows, s=1.0):
+    """Substitute the per-token row, optionally rescaled.
+
+    The scale is applied AT HOOK TIME rather than by materialising a second [50257, D] bank per site:
+    §1807 held a raw and a scaled bank and peaked at 26.4 GiB for no reason. One multiply on the
+    gathered rows is identical arithmetic at a thirty-sixth of the memory."""
+    def hook(mod, args, out):
+        y = out[0] if isinstance(out, tuple) else out
+        sub = full_rows[STATE['idx'].reshape(-1)].reshape(y.shape).to(y.dtype)
+        if s != 1.0:
+            sub = sub * s
+        return (sub,) + tuple(out[1:]) if isinstance(out, tuple) else sub
+    return hook
+
+
+@torch.no_grad()
+def forward_logits(idx, hooks=()):
+    hs = [mod_of(*st).register_forward_hook(h) for st, h in hooks]
+    STATE['idx'] = idx
+    try:
+        x = F.rms_norm(m.transformer.wte(idx), (D,)); x0 = x; v1 = None
+        for blk in H:
+            x, v1 = blk(x, v1, x0)
+        return 30.0 * torch.tanh(m.lm_head(F.rms_norm(x, (D,))) / 30.0)
+    finally:
+        for h in hs:
+            h.remove()
+
+
+@torch.no_grad()
+def bigram_ce(rows, lp_table):
+    """Covered-position CE of the fit-row bigram, to control that it is §1767's object."""
+    tot, cnt = 0.0, 0
+    for i in range(0, rows.shape[0], 8):
+        bb = rows[i:i + 8]
+        idx = bb[:, :-1].to(DEV)[:, 64:]
+        tg = bb[:, 1:].to(DEV)[:, 64:]
+        cov = COV['seen'][idx]
+        r = COV['idmap'][idx].clamp(min=0)
+        lp = lp_table[r].gather(-1, tg.unsqueeze(-1)).squeeze(-1)
+        tot += float((-lp.double())[cov].sum()); cnt += int(cov.sum())
+    return tot / cnt
+
+
+def gain_hook(g):
+    """Scale a whole attention layer's write by g, via c_proj's input.
+
+    §1821 established ONE scalar per layer suffices -- a per-head vector recovered no more than the
+    live-norm-weighted layer mean -- so all nine heads scale uniformly, which is exactly scaling the
+    layer's attention output."""
+    def pre(mod, args):
+        return (args[0] * g,) + tuple(args[1:])
+    return pre
+
+
+@torch.no_grad()
+def layer_dirs(rows, hooks, gains=()):
+    """Mean attention-write VECTOR per layer, so directions can be compared across streams.
+
+    Hooks c_proj's OUTPUT, the live module's write, exactly as layer_norms does -- but accumulates the
+    vector, not just its norm. A gain applied via a pre-hook is INSIDE this measurement, so what is
+    captured is the corrected write."""
+    acc = {L: torch.zeros(D, device=DEV, dtype=torch.float64) for L in range(18)}
+    cnt = {L: 0 for L in range(18)}
+    sq = {L: 0.0 for L in range(18)}      # SECOND moment, exact and single-pass
+
+    def mk(L):
+        def hook(mod, args, out):
+            y = (out[0] if isinstance(out, tuple) else out).detach().double()[:, 64:]
+            yf = y.reshape(-1, D)
+            acc[L] += yf.sum(0)
+            sq[L] += float((yf * yf).sum())
+            cnt[L] += y.shape[0] * y.shape[1]
+            return None
+        return hook
+
+    handles = [H[L].attn.c_proj.register_forward_hook(mk(L)) for L in range(18)]
+    handles += [H[L].attn.c_proj.register_forward_pre_hook(gain_hook(g)) for L, g in gains]
+    try:
+        for j2 in range(0, rows.shape[0], 8):
+            forward_logits(rows[j2:j2 + 8, :-1].to(DEV).contiguous(), hooks)
+    finally:
+        for hd in handles:
+            hd.remove()
+    mu = {L: acc[L] / max(cnt[L], 1) for L in range(18)}
+    # across-position dispersion, the §1819 statistic: sqrt(E||y||^2 - ||E y||^2) / ||E y||
+    disp = {L: ((max(sq[L] / max(cnt[L], 1) - float(mu[L] @ mu[L]), 0.0)) ** 0.5)
+               / max(float(mu[L].norm()), 1e-9) for L in range(18)}
+    return mu, disp
+
+
+@torch.no_grad()
+def layer_norms(rows, hooks):
+    """Mean attention-write norm per layer at scored positions, in whatever stream `hooks` gives.
+
+    Hooks c_proj's OUTPUT -- what the LIVE module emits. An outer row_hook replaces attn's return
+    value only afterwards, so this reads the same quantity in both streams, as §1804 did."""
+    acc = {L: [0.0, 0] for L in range(18)}
+
+    def mk(L):
+        def hook(mod, args, out):
+            y = (out[0] if isinstance(out, tuple) else out).detach().float()[:, 64:]
+            acc[L][0] += float(y.norm(dim=-1).sum())
+            acc[L][1] += y.shape[0] * y.shape[1]
+            return None
+        return hook
+
+    handles = [H[L].attn.c_proj.register_forward_hook(mk(L)) for L in range(18)]
+    try:
+        for j2 in range(0, rows.shape[0], 8):
+            forward_logits(rows[j2:j2 + 8, :-1].to(DEV).contiguous(), hooks)
+    finally:
+        for hd in handles:
+            hd.remove()
+    return {L: acc[L][0] / max(acc[L][1], 1) for L in range(18)}
+
+
+def poke_hook(pos, mag):
+    """Add a constant `mag` to every channel of this site's output at ONE position.
+
+    Registered AFTER any substituting hook in the same list, so PyTorch hands it the substituted
+    output and the poke lands on whatever the arm actually emits -- §1765's construction exactly."""
+    def hook(mod, args, out):
+        y = out[0] if isinstance(out, tuple) else out
+        y2 = y.clone()
+        y2[:, pos, :] = y2[:, pos, :] + mag
+        return (y2,) + tuple(out[1:]) if isinstance(out, tuple) else y2
+    return hook
+
+
+@torch.no_grad()
+def per_pos_losses(idx, tg, hooks=()):
+    """Per-position CE, undivided -- the object a poke's effect is read off."""
+    lg = forward_logits(idx, hooks).float()
+    return F.cross_entropy(lg.reshape(-1, lg.shape[-1]), tg.reshape(-1),
+                           reduction='none').reshape(tg.shape).double()
+
+
+@torch.no_grad()
+def influence(idx, tg, hooks, site):
+    """One row of the finite-difference cross-position Jacobian per source position in KSRC.
+
+    Returns {k: (vector of |dloss| at every q > k, scalar |dloss| at k itself)}. The own-position
+    scalar is the control that the poke landed at all; the vector is the measurement."""
+    b = per_pos_losses(idx, tg, hooks)
+    out = {}
+    for k in KSRC:
+        d = (per_pos_losses(idx, tg, list(hooks) + [(site, poke_hook(k, POKE_MAG))]) - b).abs()
+        out[k] = (d[:, k + 1:].mean(0), float(d[:, k].mean()))
+    return out
+
+
+@torch.no_grad()
+def empirical_rows(rows, probes, base_bank, covered):
+    """Per-token mean output over REAL contexts, written into a COPY of the length-1 row bank.
+
+    Only the covered rows change; uncovered rows keep the same fallback the length-1 bank uses, so the
+    two banks differ on exactly the 5419 rows §1842 measured and nowhere else."""
+    s = {st: torch.zeros(V, D, device=DEV, dtype=torch.float64) for st in probes}
+    g = {st: torch.zeros(D, device=DEV, dtype=torch.float64) for st in probes}
+    c = torch.zeros(V, device=DEV, dtype=torch.float64)
+    n = {'k': 0}
+
+    def mk(st, first):
+        def hook(mod, args, out):
+            y = (out[0] if isinstance(out, tuple) else out).detach().double()[:, 64:]
+            t = STATE['idx'][:, 64:].reshape(-1)
+            s[st].index_add_(0, t, y.reshape(-1, D))
+            g[st] += y.sum((0, 1))
+            if first:
+                c.index_add_(0, t, torch.ones_like(t, dtype=torch.float64))
+                n['k'] += int(t.numel())
+            return None
+        return hook
+
+    hs = [mod_of(*st).register_forward_hook(mk(st, j == 0)) for j, st in enumerate(probes)]
+    try:
+        for i in range(0, rows.shape[0], 8):
+            forward_logits(rows[i:i + 8, :-1].to(DEV).contiguous())
+    finally:
+        for hd in hs:
+            hd.remove()
+    assert n['k'] > 0, 'empirical pass never fired'
+    assert covered.dtype == torch.bool and tuple(covered.shape) == (V,), \
+        'frozen coverage mask has wrong dtype or shape'
+    assert int(covered.sum()) == NCOV, \
+        f'frozen coverage has {int(covered.sum())} rows, expected {NCOV}'
+    # §1843: restrict to the FIT-COVERED set. Accumulating over every token seen in the eval
+    # rows gave 2403 UNCOVERED tokens an eval-derived mean instead of the output-NN fallback,
+    # so the two banks differed on 7822 rows rather than 5419 and the arms differed twice over.
+    # Only 2699/5419 covered types occur in this role. Match §1840: observed covered types get
+    # their token mean and unseen covered types get the site's global scored-position mean.
+    observed = c > 0
+    hit = observed & covered
+    miss = (~observed) & covered
+    assert int(hit.sum() + miss.sum()) == NCOV, 'empirical targets do not equal frozen coverage'
+    out, changed = {}, {}
+    for st in probes:
+        bank = base_bank[st].clone()
+        bank[hit] = (s[st][hit] / c[hit].unsqueeze(1)).float()
+        bank[miss] = (g[st] / n['k']).float()
+        assert torch.equal(bank[~covered], base_bank[st][~covered]), \
+            f'{st} empirical bank changed an uncovered fallback row'
+        changed[st] = int((bank != base_bank[st]).any(1).sum())
+        assert changed[st] == NCOV, \
+            f'{st} empirical bank changed {changed[st]} rows, expected {NCOV}'
+        out[st] = bank
+        s[st] = None
+    torch.cuda.empty_cache()
+    return out, changed
+
+
+@torch.no_grad()
+def split_ce(rows, hooks, seen, ceil_lp=None, idmap=None):
+    """CE on covered and uncovered scored positions separately.
+
+    With ceil_lp given, scores the CEILING lookup instead of a forward: each covered token's row is the
+    model's own length-1 log-probability vector, §1768's object exactly. Uncovered positions have no
+    ceiling row, so the ceiling is reported on covered positions only."""
+    a = {'cov': [0.0, 0, 0], 'unc': [0.0, 0, 0]}
+    for i in range(0, rows.shape[0], 8):
+        bb = rows[i:i + 8]
+        idx = bb[:, :-1].to(DEV).contiguous()
+        tg = bb[:, 1:].to(DEV)[:, 64:]
+        sub = idx[:, 64:]
+        c = seen[sub]
+        if ceil_lp is None:
+            lg = forward_logits(idx, hooks)[:, 64:].float()
+            e = F.cross_entropy(lg.reshape(-1, lg.shape[-1]), tg.reshape(-1),
+                                reduction='none').reshape(tg.shape).double()
+            hit = (lg.argmax(-1) == tg)
+        else:
+            STATE['idx'] = idx
+            r = idmap[sub].clamp(min=0)
+            e = (-ceil_lp[r].gather(-1, tg.unsqueeze(-1)).squeeze(-1)).double()
+            hit = (ceil_lp[r].argmax(-1) == tg)
+        a['cov'][0] += float(e[c].sum()); a['cov'][1] += int(c.sum())
+        a['cov'][2] += int(hit[c].sum())
+        a['unc'][0] += float(e[~c].sum()); a['unc'][1] += int((~c).sum())
+        a['unc'][2] += int(hit[~c].sum())
+    return {k: (a[k][0] / max(a[k][1], 1), a[k][1], a[k][2] / max(a[k][1], 1)) for k in a}
+
+
+@torch.no_grad()
+def evaluate(rows, hooks, keep_mask):
+    """Top-1 overall, on the head, and restricted to positions whose CURRENT token is still covered.
+
+    That last slice is a KNOWN-ANSWER control (LESSON 34). A covered token's table is built from its
+    own length-1 forward and the program is position-wise (§1765), so removing OTHER tokens from the
+    covered set cannot change what happens at a position that kept its own table. Those numbers must
+    be identical across every coverage fraction, not merely close."""
+    a = {'n': 0, 'hit': 0, 'head_n': 0, 'head_hit': 0, 'kept_n': 0, 'kept_hit': 0, 'ce': 0.0,
+         'kl': 0.0, 'agree': 0}
+    for i in range(0, rows.shape[0], 8):
+        bb = rows[i:i + 8]
+        idx = bb[:, :-1].to(DEV).contiguous()
+        tg = bb[:, 1:].to(DEV)[:, 64:]
+        lg = forward_logits(idx, hooks)[:, 64:].float()
+        a['ce'] += float(F.cross_entropy(lg.reshape(-1, lg.shape[-1]), tg.reshape(-1),
+                                         reduction='sum').double())
+        ll = forward_logits(idx)[:, 64:].float()
+        L = torch.log_softmax(ll, -1)
+        P = torch.log_softmax(lg, -1)
+        a['kl'] += float((L.exp() * (L - P)).sum(-1).double().sum())
+        ap = lg.argmax(-1)
+        a['agree'] += int((ap == ll.argmax(-1)).sum())
+        h = ap == tg
+        del lg, ll, L, P
+        hd = COV['freq'][tg] >= 125
+        kp = keep_mask[idx[:, 64:]]
+        a['n'] += int(tg.numel()); a['hit'] += int(h.sum())
+        a['head_n'] += int(hd.sum()); a['head_hit'] += int(h[hd].sum())
+        a['kept_n'] += int(kp.sum()); a['kept_hit'] += int(h[kp].sum())
+    return {'n': a['n'], 'top1': a['hit'] / max(a['n'], 1),
+            'ce_all': a['ce'] / max(a['n'], 1),
+            'kl': a['kl'] / max(a['n'], 1), 'agree': a['agree'] / max(a['n'], 1),
+            'head_n': a['head_n'], 'top1_head': a['head_hit'] / max(a['head_n'], 1),
+            'kept_n': a['kept_n'], 'top1_kept': a['kept_hit'] / max(a['kept_n'], 1)}
+
+
+def probe_hook(full_rows, store, key):
+    """Substitute the row as usual, but record ||live module output|| and ||row|| first.
+
+    This runs inside the FULLY COMPILED stream, so the recorded live output is what the real module
+    would emit given compiled inputs -- exactly the quantity the L5/L6 cliff is about."""
+    inner = row_hook(full_rows)
+
+    def hook(mod, args, out):
+        o = (out[0] if isinstance(out, tuple) else out).detach().float()
+        r = inner(mod, args, out)
+        rr = (r[0] if isinstance(r, tuple) else r).detach().float()
+        s = store.setdefault(key, [0.0, 0.0, 0])
+        s[0] += float(o[:, 64:].norm(dim=-1).sum())
+        s[1] += float(rr[:, 64:].norm(dim=-1).sum())
+        s[2] += int(o[:, 64:].shape[0] * o[:, 64:].shape[1])
+        return r
+    return hook
+
+
+def main():
+    t0 = time.time()
+    fit = load(FIT_ROWS)[FITLO:FITHI]
+    T = fit.shape[1] - 1
+    full_seen = torch.zeros(V, dtype=torch.bool)
+    full_seen[fit[:, :T].reshape(-1).long()] = True
+    NFULL = int(full_seen.sum())
+    assert NFULL == NCOV, f'coverage {NFULL} != §1834 published {NCOV}'
+    COV['freq'] = torch.bincount(fit[:, 1:T + 1].reshape(-1).long(), minlength=V).to(DEV)
+    all_toks = full_seen.nonzero(as_tuple=True)[0]
+    # NESTED subsets: one fixed permutation, prefixes of it. 0.125 subset of 0.25 subset of 0.5 ...
+    g = torch.Generator().manual_seed(0)
+    perm = all_toks[torch.randperm(NFULL, generator=g)]
+    sites = [(k, L) for k in ('mlp', 'attn') for L in range(18)]
+    print(f'ITERATED SELF-CONSISTENT STREAM MAP | 5419 types, fit where applied, rank 512 | '
+          f'settled program (context-free tables + output-NN fallback + rank-{MAP_RANK} map) | '
+          f'DISCOVERY ONLY', flush=True)
+
+    def build(n, rank=None, map_rank=MAP_RANK):
+        tk = perm[:n].sort().values.to(DEV)
+        seen = torch.zeros(V, dtype=torch.bool, device=DEV)
+        seen[tk] = True
+        unc = (~seen).nonzero(as_tuple=True)[0]
+        # the settled fallback: output-NN neighbour (§1780/§1781), rebuilt over THIS covered set
+        lpc = torch.zeros(n, W, device=DEV)
+        for i in range(0, n, 256):
+            t = tk[i:i + 256].unsqueeze(1)
+            lpc[i:i + t.shape[0]] = torch.log_softmax(forward_logits(t)[:, 0].float(), -1)
+        pcn = torch.softmax(lpc, -1)
+        pcn = (pcn / pcn.norm(dim=-1, keepdim=True).clamp_min(1e-9)).half()
+        del lpc
+        nnrow = torch.zeros(V, dtype=torch.long, device=DEV)
+        nnrow[tk] = torch.arange(n, device=DEV)
+        for s0 in range(0, unc.numel(), 512):
+            u = unc[s0:s0 + 512]
+            p = torch.softmax(forward_logits(u.unsqueeze(1))[:, 0].float(), -1)
+            p = p / p.norm(dim=-1, keepdim=True).clamp_min(1e-9)
+            nnrow[u] = (p.half() @ pcn.T).float().argmax(-1)
+        del pcn
+        torch.cuda.empty_cache()
+        tables = {st: torch.zeros(n, D, device=DEV) for st in sites}
+        covstream = {st: torch.zeros(n, D, device=DEV) for st in sites}
+        cap, capin = {}, {}
+
+        def mk(st):
+            def hook(mod, args, out):
+                cap[st] = (out[0] if isinstance(out, tuple) else out)[:, 0].float()
+                capin[st] = args[0][:, 0].float()      # the stream ENTERING this site, covered tokens
+                return None
+            return hook
+        for i in range(0, n, 256):
+            t = tk[i:i + 256].unsqueeze(1)
+            forward_logits(t, [(st, mk(st)) for st in sites])
+            for st in sites:
+                tables[st][i:i + t.shape[0]] = cap[st]
+                covstream[st][i:i + t.shape[0]] = capin[st]
+        if rank is not None:
+            # rank-r truncate the COVERED block, then fit the map INSIDE that basis (§1785 -- a map
+            # fitted on full-rank tables and reused on truncated ones is not a coherent program)
+            for st in sites:
+                b = tables[st].double()
+                mu = b.mean(0, keepdim=True)
+                U, S, Vh = torch.linalg.svd(b - mu, full_matrices=False)
+                tables[st] = (mu + (U[:, :rank] * S[:rank]) @ Vh[:rank]).float()
+        # the learned embedding->row map, REFITTED inside this covered set (§1785)
+        Ecov = m.transformer.wte.weight.detach()[tk].float().double()
+        A = Ecov.T @ Ecov + RIDGE * torch.eye(D, device=DEV, dtype=torch.float64) * (n / D)
+        Eunc = m.transformer.wte.weight.detach()[unc].float().double()
+        out = {}
+        for st in sites:
+            Ws = torch.linalg.solve(A, Ecov.T @ tables[st].double())
+            U, S, Vh = torch.linalg.svd(Ws, full_matrices=False)
+            mp = (U[:, :map_rank] * S[:map_rank]) @ Vh[:map_rank]
+            fr = torch.zeros(V, D, device=DEV)
+            fr[tk] = tables[st]
+            fr[unc] = (Eunc @ mp).float()          # the embedding-map base, written for EVERY arm
+            out[st] = fr
+
+        def fit_maps(X):
+            """rank-`map_rank` map from a per-site input matrix to that site's covered table rows."""
+            mm = {}
+            for st in sites:
+                Xo = X[st].double()
+                Ao = (Xo.T @ Xo + RIDGE * torch.eye(D, device=DEV, dtype=torch.float64)
+                      * (Xo.shape[0] / D))
+                Wo = torch.linalg.solve(Ao, Xo.T @ tables[st].double())
+                Uu, So, Vo = torch.linalg.svd(Wo, full_matrices=False)
+                mm[st] = (Uu[:, :map_rank] * So[:map_rank]) @ Vo[:map_rank]
+            return mm
+
+        def prog_streams(toks, mm, want_rows=True):
+            """The site-entry vectors the PROGRAM produces for `toks`: one length-1 pass in which every
+            site is REPLACED by mm applied to the stream that site receives, so site st's input is built
+            from the program's own rows at all 36 sites beneath it and the model is never consulted."""
+            nt = toks.shape[0]
+            X = {st: torch.zeros(nt, D, device=DEV) for st in sites}
+            R = {st: torch.zeros(nt, D, device=DEV) for st in sites} if want_rows else None
+            cin, crw = {}, {}
+
+            def _mk2(st):
+                def hook(mod, args, out_):
+                    cin[st] = args[0][:, 0].float()
+                    crw[st] = (cin[st].double() @ mm[st]).float()
+                    y = out_[0] if isinstance(out_, tuple) else out_
+                    sub = crw[st].reshape(y.shape).to(y.dtype)
+                    return (sub,) + tuple(out_[1:]) if isinstance(out_, tuple) else sub
+                return hook
+            for i6 in range(0, nt, 256):
+                tt6 = toks[i6:i6 + 256].unsqueeze(1)
+                forward_logits(tt6, [(st, _mk2(st)) for st in sites])
+                for st in sites:
+                    X[st][i6:i6 + tt6.shape[0]] = cin[st]
+                    if want_rows:
+                        R[st][i6:i6 + tt6.shape[0]] = crw[st]
+            return X, R
+
+        if BASE['mode'] in ('STREAMCOV', 'STREAMCLOSED', 'STREAMITER'):
+            mpos = fit_maps({st: covstream[st] for st in sites})   # iteration 0 == §1876's map
+        if BASE['mode'] == 'STREAMCOV':
+            # §1876: the NATIVE site-entry vector. Reproduced as pred_d's anchor.
+            for st in sites:
+                out[st][utoks] = (ORC['stream'][st].double() @ mpos[st]).float()
+        elif BASE['mode'] == 'STREAMCLOSED':
+            # §1878, re-derived through prog_streams -- an independently written path to the same claim.
+            _, Ru = prog_streams(utoks, mpos)
+            for st in sites:
+                out[st][utoks] = Ru[st]
+            del Ru
+        elif BASE['mode'] == 'STREAMITER':
+            # fit where you apply: regenerate the COVERED streams the same way the uncovered ones will
+            # be, refit on those, repeat. The iteration is offline and happens once, at build time.
+            for it in range(NITER):
+                Xc, _ = prog_streams(tk, mpos, want_rows=False)
+                nm = fit_maps(Xc)
+                dlt = max(float((nm[st] - mpos[st]).norm() / mpos[st].norm().clamp_min(1e-12))
+                          for st in sites)
+                ITER_DELTA.append(dlt)
+                print(f'      iter {it + 1}/{NITER}: max relative map change {dlt:.5f}', flush=True)
+                mpos = nm
+                Xc, nm = None, None
+                torch.cuda.empty_cache()
+            _, Ru = prog_streams(utoks, mpos)
+            for st in sites:
+                out[st][utoks] = Ru[st]
+            del Ru
+        mpos = None
+        torch.cuda.empty_cache()
+        del tables, Ecov, Eunc, A
+        torch.cuda.empty_cache()
+        return out, seen, n
+
+    # the KEPT slice is defined by the SMALLEST coverage set, so it is the same positions at every
+    # fraction -- that is what makes the known-answer control meaningful.
+    # coverage is fixed at full here, so the 'kept' column is simply accuracy on COVERED
+    # positions -- reported for context, not used as a control (there is no coverage variation
+    # for a known-answer check to bite on).
+    small = perm[:NFULL].to(DEV)
+    keep_mask = torch.zeros(V, dtype=torch.bool, device=DEV)
+    keep_mask[small] = True
+
+    fr, seen, _ = build(NFULL)
+
+    # ---- per-site NORM CALIBRATION, measured in the FULLY LIVE model.
+    # §1804 found the substituted rows are systematically far smaller than what the live modules emit
+    # (ratio 2.71 to 152.62 across the attention layers). §1806 showed a compiled layer beneath live
+    # layers is catastrophic. If that poisoning is a SCALE mismatch, matching the mean output norm
+    # should repair most of it; if it is a direction/content mismatch, scaling will not help.
+    live_norm, row_norm = {}, {}
+
+    def measure(st, store):
+        def hook(mod, args, out):
+            o = (out[0] if isinstance(out, tuple) else out).detach().float()
+            s = store.setdefault(st, [0.0, 0])
+            s[0] += float(o[:, 64:].norm(dim=-1).sum())
+            s[1] += int(o[:, 64:].shape[0] * o[:, 64:].shape[1])
+            return None
+        return hook
+    evs0 = load(EVAL_SETS[0][1])
+    lstore = {}
+    evaluate(evs0, [(st, measure(st, lstore)) for st in sites], keep_mask)
+    for st in sites:
+        live_norm[st] = lstore[st][0] / max(lstore[st][1], 1)
+    # The row norms must be averaged over THE SAME POSITIONS, not over the 50,257 vocabulary rows:
+    # eval positions are frequency-weighted and the vocabulary is not, so a flat row mean would
+    # calibrate against a distribution the model never sees. Measured with the substituting hook in
+    # place, exactly as §1804's probe did.
+    rstore = {}
+    evaluate(evs0, [(st, probe_hook(fr[st], rstore, st)) for st in sites], keep_mask)
+    del evs0
+    scale = {}
+    for st in sites:
+        rn = rstore[st][1] / max(rstore[st][2], 1)
+        row_norm[st] = rn
+        scale[st] = live_norm[st] / max(rn, 1e-9)
+    print('\n  per-site norm calibration (live mean / row mean), measured on the LIVE model:',
+          flush=True)
+    for k in ('attn', 'mlp'):
+        print(f'    {k:4s} ' + ' '.join(f'L{L}:{scale[(k, L)]:6.2f}' for L in range(18)), flush=True)
+    allhooks = {st: row_hook(fr[st]) for st in sites}
+    scaledhooks = {st: row_hook(fr[st], scale[st]) for st in sites}
+    attnhooks = {st: row_hook(fr[st], scale[st] if st[0] == 'attn' else 1.0) for st in sites}
+    mlphooks = {st: row_hook(fr[st], scale[st] if st[0] == 'mlp' else 1.0) for st in sites}
+    # the single-site test: mlp4 ALONE rescaled, every other row untouched
+    only4 = {st: row_hook(fr[st], scale[st] if st == ('mlp', 4) else 1.0) for st in sites}
+    # and its complement: every MLP EXCEPT mlp4
+    not4 = {st: row_hook(fr[st], scale[st] if (st[0] == 'mlp' and st[1] != 4) else 1.0)
+            for st in sites}
+    evs = {e: load(p) for e, p, _ in EVAL_SETS}
+    res = {}
+
+    def run(label, hooked, hooks_src=None):
+        src = hooks_src if hooks_src is not None else allhooks
+        hs = [(st, src[st]) for st in hooked]
+        for ename in evs:
+            c = evaluate(evs[ename], hs, keep_mask)
+            res.setdefault(ename, {})[label] = c
+        print(f'  {label:20s} ' + '  '.join(
+            f'{e} {res[e][label]["top1"]:6.2%}' for e in evs), flush=True)
+
+
+    print(f'\n  arms  ({time.time() - t0:.0f}s)', flush=True)
+    run('all_substituted', sites)
+    run('all_sub_scaled', sites, scaledhooks)
+    run('live_model', [])
+    # Free the full-rank bank and every hook closure over it BEFORE building another one. The
+    # first attempt held `fr` (36 x 50257 x 1152 floats = 8.3 GiB) while build() allocated a second
+    # bank of the same size and OOMed at 31.25/31.36 GiB. Each rank is now built, used and released.
+    del allhooks, scaledhooks, attnhooks, mlphooks, only4, not4, fr
+    torch.cuda.empty_cache()
+    frr = build(NFULL)[0]        # FULL RANK, matching §1806 (LESSON 53)
+    allh = {st: row_hook(frr[st]) for st in sites}
+    evs = {e: load(p) for e, p, _ in EVAL_SETS}
+    res = {}
+
+    def run(label, hooked, gains=None):
+        hs = [(st, allh[st]) for st in hooked]
+        handle = None
+        if gains is not None:
+            handle = H[gains[0]].attn.c_proj.register_forward_pre_hook(gain_hook(gains[1]))
+        try:
+            for ename in evs:
+                c = evaluate(evs[ename], hs, keep_mask)
+                res.setdefault(ename, {})[label] = c
+        finally:
+            if handle is not None:
+                handle.remove()
+        print(f'  {label:22s} ' + '  '.join(
+            f'{e} {res[e][label]["top1"]:6.2%}' for e in evs), flush=True)
+
+    ev0 = load(EVAL_SETS[0][1])
+    ln_live = layer_norms(ev0, [])
+    ln_comp = layer_norms(ev0, [(st, allh[st]) for st in sites])
+    gain_global = {L: ln_live[L] / max(ln_comp[L], 1e-9) for L in range(18)}
+
+    def run_g(label, hooked, gains, override=None):
+        hs = [(st, (override or {}).get(st, allh[st])) for st in hooked]
+        handles = [H[L].attn.c_proj.register_forward_pre_hook(gain_hook(g))
+                   for L, g in gains.items()]
+        try:
+            for ename in evs:
+                c = evaluate(evs[ename], hs, keep_mask)
+                res.setdefault(ename, {})[label] = c
+        finally:
+            for hd in handles:
+                hd.remove()
+        print(f'  {label:22s} ' + '  '.join(
+            f'{e} {res[e][label]["top1"]:6.2%}' for e in evs), flush=True)
+
+    print(f'\n  arms  ({time.time() - t0:.0f}s)', flush=True)
+    run_g('all_substituted', sites, {})
+    run_g('live_model', [], {})
+    cal = ev0[:CALROWS]
+    gseq = {}
+
+    def seq_gains(botup):
+        """§1824's sequential calibration over the layers whose ATTENTION is still LIVE in this arm."""
+        hs0 = [(st, allh[st]) for st in botup]
+        live_attn = [j for j in range(18) if ('attn', j) not in set(botup)]
+        g = {}
+        for j3 in live_attn:
+            handles = [H[q].attn.c_proj.register_forward_pre_hook(gain_hook(gv))
+                       for q, gv in g.items()]
+            try:
+                ln_now = layer_norms(cal, hs0)
+            finally:
+                for hd in handles:
+                    hd.remove()
+            g[j3] = ln_live[j3] / max(ln_now[j3], 1e-9)
+        return g
+
+    # NO fit-context bank in this run: ARMS is B0 only and no arm takes the _FIT branch. The first
+    # attempt OOMed with three row banks resident (frr 8.3 GiB + fitbank + the rank bank building).
+    fith, ndiff = {}, {}
+
+    print(f'\n  arms  ({time.time() - t0:.0f}s)', flush=True)
+    for name, botup in ARMS.items():
+        gseq[name] = seq_gains(botup)
+        ov = {}
+        if name.endswith('_FIT'):
+            ov = {st2: fith[st2] for st2 in EARLY if st2 in botup}
+        run_g(f'{name}_raw', botup, {}, ov)
+        run_g(f'{name}_seq', botup, gseq[name], ov)
+    seen2 = full_seen.to(DEV)
+    toks2 = seen2.nonzero(as_tuple=True)[0]
+    idmap2 = torch.full((V,), -1, dtype=torch.long, device=DEV)
+    idmap2[toks2] = torch.arange(NFULL, device=DEV)
+    # NCOV is §1834's 5419 and is now a PUBLISHED CONSTANT, not this run's coverage: the n480 fit
+    # rows cover 16,110 types. Everything sized to the covered set must use NFULL.
+    ceil_lp = torch.zeros(NFULL, W, device=DEV)
+    for i2 in range(0, NFULL, 256):
+        tt = toks2[i2:i2 + 256].unsqueeze(1)
+        ceil_lp[i2:i2 + tt.shape[0]] = torch.log_softmax(forward_logits(tt)[:, 0].float(), -1)
+    # the UNCOVERED half: the same object for every token that actually occurs at an uncovered scored
+    # position. A few thousand rows, not the 50,257 vocabulary (which would need ~10 GiB).
+    useen = torch.zeros(V, dtype=torch.bool, device=DEV)
+    for ename in evs:
+        rr = evs[ename]
+        for i3 in range(0, rr.shape[0], 8):
+            idx3 = rr[i3:i3 + 8, :-1].to(DEV)[:, 64:]
+            useen[idx3[~seen2[idx3]]] = True
+    utoks = useen.nonzero(as_tuple=True)[0]
+    NU = int(utoks.numel())
+    uidmap = torch.full((V,), -1, dtype=torch.long, device=DEV)
+    uidmap[utoks] = torch.arange(NU, device=DEV)
+    uceil_lp = torch.zeros(NU, W, device=DEV)
+    for i2 in range(0, NU, 256):
+        tt = utoks[i2:i2 + 256].unsqueeze(1)
+        uceil_lp[i2:i2 + tt.shape[0]] = torch.log_softmax(forward_logits(tt)[:, 0].float(), -1)
+    print(f'  uncovered-token ceiling built for {NU} token types', flush=True)
+
+    ceilv, livev, liveu, nfrac, uceilv = {}, {}, {}, {}, {}
+    for ename in evs:
+        ceilv[ename] = split_ce(evs[ename], [], seen2, ceil_lp, idmap2)['cov'][0]
+        _lv = split_ce(evs[ename], [], seen2)
+        livev[ename] = _lv['cov'][0]
+        liveu[ename] = _lv['unc'][0]
+        nfrac[ename] = _lv['unc'][1] / (_lv['cov'][1] + _lv['unc'][1])
+        uceilv[ename] = split_ce(evs[ename], [], ~seen2, uceil_lp, uidmap)['cov'][0]
+    print(f'\n  coverage {NFULL} types ({NFULL / NCOV:.2f}x §1834); ceiling CE ' + '  '.join(
+        f'{e} {ceilv[e]:.5f}' for e in evs) + f' ({time.time() - t0:.0f}s)', flush=True)
+
+    curve = {}
+    # the ORACLE targets: each uncovered scored token's own length-1 site output, and its embedding.
+    ORC['emb'] = m.transformer.wte.weight.detach()[utoks].float().double()
+    ORC['rows'] = {st: torch.zeros(NU, D, device=DEV) for st in sites}
+    _cap, _capin = {}, {}
+
+    ORC['stream'] = {st: torch.zeros(NU, D, device=DEV) for st in sites}
+
+    def _mk(st):
+        def hook(mod, args, out):
+            _cap[st] = (out[0] if isinstance(out, tuple) else out)[:, 0].float()
+            _capin[st] = args[0][:, 0].float()      # the stream ENTERING this site
+            return None
+        return hook
+    for i4 in range(0, NU, 256):
+        tt4 = utoks[i4:i4 + 256].unsqueeze(1)
+        forward_logits(tt4, [(st, _mk(st)) for st in sites])
+        for st in sites:
+            ORC['rows'][st][i4:i4 + tt4.shape[0]] = _cap[st]
+            ORC['stream'][st][i4:i4 + tt4.shape[0]] = _capin[st]
+    print(f'  oracle target rows built for {NU} uncovered token types '
+          f'({time.time() - t0:.0f}s)', flush=True)
+
+    for lbl in ARMS2:
+        BASE['mode'] = lbl
+        rk = 512
+        # `hks` holds row_hook CLOSURES over the previous bank's tensors, so clearing `bank` alone
+        # leaves every tensor pinned -- which is why three successive frees changed the OOM byte
+        # counts not at all. Both names have to go.
+        bank, hks = None, None
+        torch.cuda.empty_cache()
+        if False:
+            bank = frr
+        else:
+            # frr is 36 x 50257 x 1152 float32 = 8.3 GiB. Holding it while build() allocates a
+            # SECOND bank of the same size is what OOMed twice at 31.36 GiB. The full-rank arm is
+            # measured first, so nothing below needs frr and it is released here.
+            frr, allh = None, None
+            torch.cuda.empty_cache()
+            bank = build(NFULL, rank=None, map_rank=rk)[0]
+        hks = [(st, row_hook(bank[st])) for st in sites]
+        curve[lbl] = {}
+        for ename in evs:
+            sc = split_ce(evs[ename], hks, seen2)
+            n_c, n_u = sc['cov'][1], sc['unc'][1]
+            curve[lbl][ename] = {'cov': sc['cov'][0], 'unc': sc['unc'][0],
+                                 'allpos': (sc['cov'][0] * n_c + sc['unc'][0] * n_u) / (n_c + n_u),
+                                 'top1_allpos': (sc['cov'][2] * n_c + sc['unc'][2] * n_u)
+                                                / (n_c + n_u)}
+        print(f'    rank {lbl:5s} covered ' + '  '.join(
+            f'{e} {curve[lbl][e]["cov"]:8.5f} (+{curve[lbl][e]["cov"] - ceilv[e]:.5f})'
+            for e in evs) + f'   ({time.time() - t0:.0f}s)', flush=True)
+        if rk is not None:
+            del bank
+            torch.cuda.empty_cache()
+    del ev0, evs, frr, allh
+    torch.cuda.empty_cache()
+
+    roles = [e for e, _, _ in EVAL_SETS]
+    base = {e: res[e]['all_substituted']['top1'] for e in roles}
+
+    def d(e, k2):
+        return res[e][k2]['top1'] - base[e]
+    gapv = {e: res[e]['live_model']['top1'] - res[e]['all_substituted']['top1'] for e in roles}
+    frac = {e: {k2: d(e, k2) / gapv[e] for k2 in res[e]} for e in roles}
+    roles2 = [e for e in curve[LADDER[0]]]   # no 'full' key: TRANKS has no None here
+    r64 = [e for e in roles2 if e in S1768_PROG_RANK64_CORR128]
+    # no cost column here: LADDER holds ARM NAMES, not ranks, and nothing in this run
+    # prices storage. rcost() does int(r) -- the sixth tail-inheritance failure.
+    R = LADDER[0]
+    allpos = {e: curve[R][e]['allpos'] for e in roles2}
+    above = {e: curve[R][e]['cov'] - ceilv[e] for e in roles2}
+    vs_dep = {e: DEPLOYED_ALLPOS[e] - allpos[e] for e in roles2}
+    fbloss = {l2: {e: curve[l2][e]['unc'] - uceilv[e] for e in roles2} for l2 in LADDER}
+    covce = {l2: {e: curve[l2][e]['cov'] for e in roles2} for l2 in LADDER}
+    genshare = {e: (fbloss['MAP'][e] - fbloss['STREAMCOV'][e]) / max(fbloss['MAP'][e], 1e-9)
+                for e in roles2}
+    covspread = max(abs(covce[l2][e] - covce['MAP'][e]) for l2 in LADDER for e in roles2)
+    attain = all(abs(covce['MAP'][e] - ceilv[e]) < 0.001 for e in roles2)
+    conv = len(ITER_DELTA) >= 2 and ITER_DELTA[-1] < ITER_DELTA[0]
+    pa = all(fbloss['STREAMITER'][e] < S1878_CLOSED[e] for e in roles2)
+    pb = all(fbloss['STREAMITER'][e] < S1870_MAP_R512[e] for e in roles2)
+    pc = covspread <= 1e-6
+    pd = (all(abs(fbloss['MAP'][e] - S1870_MAP_R512[e]) <= 0.005 for e in roles2)
+          and all(abs(fbloss['STREAMCOV'][e] - S1876_STREAM_R512[e]) <= 0.005 for e in roles2)
+          and all(abs(fbloss['STREAMCLOSED'][e] - S1878_CLOSED[e]) <= 0.005 for e in roles2)
+          and conv and NFULL == NCOV and attain)
+
+    print(f'\n  FALLBACK LOSS: fitted on COVERED (deployed) vs on UNCOVERED (oracle), '
+          f'{NFULL} covered types:', flush=True)
+    for l2 in LADDER:
+        print(f'    {l2:8s} ' + '  '.join(
+            f'{e} {fbloss[l2][e]:+.5f}' for e in roles2), flush=True)
+    print(f'    generalisation share of the deployed loss: ' + '  '.join(
+        f'{e} {genshare[e]:.1%}' for e in roles2), flush=True)
+    print(f'\n  REFITTING HELPS AT ALL -- beats §1878 closed -> {pa}  ' + '  '.join(
+        f'{e} {fbloss["STREAMITER"][e]:+.5f} vs {S1878_CLOSED[e]:+.5f}' for e in roles2), flush=True)
+    print(f'  and THE LINE LIVES -- beats §1870 rank-512 embedding -> {pb}  ' + '  '.join(
+        f'{e} {fbloss["STREAMITER"][e]:+.5f} vs {S1870_MAP_R512[e]:+.5f}' for e in roles2), flush=True)
+    print(f'  and the COVERED arm is untouched (<1e-6) -> {pc}  max spread {covspread:.2e}', flush=True)
+    print(f'  anchors §1870/§1876/§1878 reproduce, coverage {NFULL}, attainment {attain}, '
+          f'iteration converges {conv} (deltas ' + ' '.join(f'{x:.5f}' for x in ITER_DELTA)
+          + f') -> control {pd}', flush=True)
+    print(f'  RESIDUAL GAP to the NATIVE-stream §1876: ' + '  '.join(
+        f'{e} {fbloss["STREAMITER"][e] - fbloss["STREAMCOV"][e]:+.5f}' for e in roles2), flush=True)
+
+    json.dump({'run': 'iterated_stream_map', 'n_covered': NFULL, 'arms': list(ARMS2),
+               'fallback_loss': fbloss, 'covered_ce': covce, 'generalisation_share': genshare,
+               'covered_spread': covspread, 'iter_delta': ITER_DELTA, 'ceiling_uncovered': uceilv,
+               'uncovered_fraction': nfrac, 'attainment_exact': bool(attain),
+               'predictions': {'pred_a_refit_beats_closed': bool(pa),
+                               'pred_b_beats_embedding_map': bool(pb),
+                               'pred_c_covered_untouched': bool(pc),
+                               'pred_d_controls': bool(pd)}},
+              open(OUT, 'w'), indent=1)
+    print(f'\nwrote {OUT} ({time.time() - t0:.1f}s)', flush=True)
+
+
+if __name__ == '__main__':
+    main()

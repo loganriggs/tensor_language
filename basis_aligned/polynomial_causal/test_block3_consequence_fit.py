@@ -204,6 +204,29 @@ def test_score_write_is_invariant_to_reciprocal_factor_gauge():
     torch.testing.assert_close(first, second, rtol=2e-6, atol=2e-6)
 
 
+@pytest.mark.parametrize(
+    "device", ["cpu"] + (["cuda"] if torch.cuda.is_available() else []),
+)
+def test_all_one_score_write_exactly_replays_deployed_program_at_production_width(device):
+    generator = torch.Generator(device="cpu").manual_seed(23)
+    width, gates = 1152, 32
+    left = torch.randn(gates, width, generator=generator).to(device)
+    right = torch.randn(gates, width, generator=generator).to(device)
+    down = torch.randn(width, gates, generator=generator).to(device)
+    bias = torch.randn(width, generator=generator).to(device)
+    value = torch.randn(2, 3, width, generator=generator).to(device)
+    indices = torch.arange(gates, device=device)
+    scores = torch.ones(gates, dtype=torch.float64, device=device)
+    from grouped_block_coefficient_screen import balance_product_gauge
+
+    balanced_left, balanced_right, _ = balance_product_gauge(left, right)
+    observed = fit.consequence_score_write(
+        value, balanced_left, balanced_right, down, bias, indices, scores,
+    )
+    deployed = subset.build_program(left, right, bias, indices, down)
+    torch.testing.assert_close(observed, deployed.write(value), rtol=0, atol=0)
+
+
 @pytest.mark.parametrize("bad,budget", (
     (torch.tensor([float("nan")]), 0),
     (torch.tensor([0.0, 1.0]), 3),
