@@ -43,7 +43,7 @@ one for all MLP sites.  The independent arm has one basis per site.
 Use float64 sufficient statistics
 
 $$
-G=X^\top X,qquad C_j=X^\top Y_j,
+G=X^\top X,\qquad C_j=X^\top Y_j,
 $$
 
 and the scale-relative ridge

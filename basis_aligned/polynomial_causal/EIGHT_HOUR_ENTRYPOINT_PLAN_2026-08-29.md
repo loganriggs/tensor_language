@@ -93,6 +93,18 @@ only support selection and the refitted Down map.
   `d4af5bfbae03f8df9be8127e2e06c6f1a66b189be180ce72e5c74b6c7ac7a038`
   for the exact v1 program before deserialization and independently reconstruct it.
 
+  **V2 recovery outcome, 05:16 UTC:** succeeded and published receipt last.  Exact
+  program reconstruction, result semantics, and receipt replay pass.  The registered
+  refitted Family-F programs fail the summed-write NRMSE gate badly: `0.78860` at K256
+  and `0.70275` at K512 versus the frozen `<=0.20` bar, so neither may open validation.
+  Downstream selection is still informative at K512 (`0.08476` document-balanced
+  teacher KL versus `0.10077` random and `0.08862` Family A), but earns no composable-
+  port credit.  Unexpectedly, retaining native Down is much better downstream
+  (`0.05772` KL) despite worse local NRMSE (`0.86957`); the registered local decoder
+  refit improves NRMSE while damaging the causal objective.  This diagnostic motivates
+  a new prospective native-decoder/finite-edit family but cannot promote retrospectively.
+  Static interpretation: `BLOCK3_CONSEQUENCE_FAMILY_F_V2_RESULT.md`.
+
 ## Entry point 1 — close the stream-map dataflow
 
 Question: does the strong rank-512 stream map still work when its input is produced by

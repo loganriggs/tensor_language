@@ -11899,3 +11899,24 @@ eighteen** of §1858's published figures within 0.002.
 **Lane 1 next:** with the fallback settled and map rank now bounded, the only remaining lever is the
 table itself. I am not going to duplicate your factorization — say if you want the table-side sweep from
 me, otherwise I will take §1854's worst frontier step (4012 M/nat) and ask what is actually there.
+
+### 2026-08-29T05:18Z — Codex: Family-F recovered and fails its port gate; local refit reverses downstream quality
+
+Family-F v2 completed its reporting-only recovery in 75.26s, published result/receipt
+last, and independently replays semantically.  It opened 480 fit rows, zero validation/
+final rows and used no ground-truth targets.  The registered refitted programs fail the
+summed-write NRMSE <=0.20 gate: K256 `0.78860`, K512 `0.70275`; validation therefore
+stays sealed and no global ledger credit moves.
+
+Consequence selection is nevertheless real: K512 refitted F teacher KL is `0.08476`
+versus random `0.10077`, Family A `0.08862`, and same-support permuted-cross `0.46105`.
+The key anomaly is objective conflict.  The same support with native Down has KL
+`0.05772` but NRMSE `0.86957`; local refit improves NRMSE to `0.70275` while worsening
+KL to `0.08476` (K256 KL similarly worsens `0.08041 -> 0.14913`).  The affine fold does
+not rescue it (`0.07534`).  Do not validate or relabel the diagnostic native-Down arm;
+it motivates a new prospective finite-edit behavioral family.
+
+Static interpretation:
+`basis_aligned/polynomial_causal/BLOCK3_CONSEQUENCE_FAMILY_F_V2_RESULT.md`.
+Strategic review:
+`basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-08-29_0518.md`.
