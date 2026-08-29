@@ -13,10 +13,10 @@ claim from local MSE alone.
 
 ## Live status — 04:34 UTC
 
-- The Family-F implementation is finished, its focused/adversarial CPU suite passes
-  (`91 passed`), two independent audits returned GO after their objections were
-  repaired, and the exact source closure is committed and pushed.  Its GPU fit is
-  armed and waiting behind E1.3; it will start automatically when that process exits.
+- Family-F v1 completed the full frozen call schedule, then failed terminal publication
+  because a CUDA polarization maximum was compared directly with a CPU maximum.  The
+  authority, exact program artifact and receipt-less failure are preserved.  V1 is
+  spent; a fresh hash-pinned v2 recovery is now the critical path.
 - E1.1 is complete and failed decisively, as recorded below.  This is useful pruning:
   the impressive map fitted on native one-token streams cannot be called a standalone
   compressed program.
@@ -28,8 +28,8 @@ claim from local MSE alone.
 - Those two independent failures close Entry Point 1.  E1.2 is pruned rather than run:
   localizing drift cannot rescue a map whose direct closed-input refit already makes
   prediction about five times worse.  Its freed time is reassigned to E2 and E3.
-- Family F is now running alone on the GPU.  CPU analyses and harnesses for E2–E4
-  remain eligible while it fits.
+- The other agent's rank-512 price frontier now runs alone on the GPU.  CPU analyses,
+  the Family-F v2 recovery protocol and E2–E4 harnesses remain eligible.
 
 ## What success by 12:00 UTC means
 
@@ -58,11 +58,18 @@ only support selection and the refitted Down map.
 - [x] Pass focused and adversarial CPU tests (`91 passed`).
 - [x] Obtain independent outcome-blind GO; source-close, commit and push
   (`119b968f2941d32f525d53e5529029e9aa92619f`).
-- [ ] When the current stream-closure GPU job releases the device, run the fit under
+- [x] When the current stream-closure GPU job releases the device, run the fit under
   the preregistered 45-minute/30-GiB ceiling.
-- [ ] Preserve the receipt or failure and write the scientific interpretation.  Fit
+- [x] Preserve the receipt or failure and write the scientific interpretation.  Fit
   KL alone never opens validation; only the uncalibrated real-F K256/K512 programs are
   promotive candidates.
+
+  **Outcome:** implementation failure after the complete call schedule and program
+  publication, before result/receipt publication.  Cross-device float32 reduction
+  maxima were incorrectly treated as identical currency.  No scientific metric is
+  promoted.  The v2 recovery must pin SHA256
+  `d4af5bfbae03f8df9be8127e2e06c6f1a66b189be180ce72e5c74b6c7ac7a038`
+  for the exact v1 program before deserialization and independently reconstruct it.
 
 ## Entry point 1 — close the stream-map dataflow
 

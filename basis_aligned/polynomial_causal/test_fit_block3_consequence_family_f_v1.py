@@ -469,6 +469,76 @@ def test_result_reconstruction_rejects_self_consistent_schema_with_fake_nrmse(mo
         runner.semantic_validate_result(result, **kwargs)
 
 
+def test_result_reconstruction_allows_backend_local_polarization_maxima(monkeypatch):
+    """CUDA and CPU GEMMs need not attain their largest float32 residual identically."""
+    artifact = _valid_program_artifact(monkeypatch)
+    programs = {
+        name: runner._materialize_program(payload, device="cpu")
+        for name, payload in artifact["programs"].items()
+    }
+    parent = {
+        "prefilter_indices": torch.arange(1024),
+        "prefilter_gram": torch.eye(1024, dtype=torch.float64),
+        "prefilter_cross": torch.zeros(1024, 2, dtype=torch.float64),
+        "native_typed_write_energy": torch.tensor(1_000_000.0, dtype=torch.float64),
+    }
+    family_a = {256: torch.arange(256), 512: torch.arange(512)}
+    result = _valid_result()
+    result["program_prices"] = {
+        name: runner.core.program_price(program) for name, program in programs.items()
+    }
+    result["stacked_typed_fit_nrmse"] = {
+        name: runner._stacked_fit_nrmse(
+            program, parent["prefilter_indices"], parent["prefilter_gram"],
+            parent["prefilter_cross"], parent["native_typed_write_energy"],
+        )
+        for name, program in programs.items() if not name.startswith("affine_")
+    }
+    result["score_projection_replay_max_abs"] = {
+        arm: float((
+            runner.core.project_capped_simplex(score, 512) - score
+        ).abs().max())
+        for arm, score in artifact["scores"].items()
+    }
+    # These mimic a valid CUDA-side maximum that differs from the CPU replay.  The
+    # exact program bytes and a fresh CPU identity check are still validated below.
+    result["direct_polarization_replay"] = {
+        name: {
+            "max_absolute": 1e-3 + index * 1e-5,
+            "max_relative": runner.core.REPLAY_RELATIVE_LIMIT / 2,
+        }
+        for index, name in enumerate(programs)
+    }
+    overlaps = {}
+    for budget in runner.BUDGETS:
+        real = set(artifact["supports"][f"teacher_k{budget}"].tolist())
+        comparisons = {
+            "teacher_row_reversal": artifact["supports"][
+                f"teacher_row_reversal_k{budget}"
+            ],
+            "teacher_document_derangement": artifact["supports"][
+                f"teacher_document_derangement_k{budget}"
+            ],
+            "random": artifact["supports"][f"random_k{budget}"],
+            "family_A": family_a[budget],
+        }
+        for name, support in comparisons.items():
+            other = set(support.tolist())
+            overlaps[f"teacher_vs_{name}_k{budget}"] = {
+                "intersection": len(real & other),
+                "jaccard": len(real & other) / len(real | other),
+            }
+    result["support_overlaps"] = overlaps
+    runner.semantic_validate_result(
+        result,
+        expected_authority_sha256="a" * 64,
+        expected_programs_file_sha256="c" * 64,
+        program_artifact=artifact,
+        parent_payload=parent,
+        family_a_supports=family_a,
+    )
+
+
 def test_receipt_semantic_replay_binds_all_terminal_artifacts():
     result = _valid_result()
     receipt = {

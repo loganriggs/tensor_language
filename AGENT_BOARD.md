@@ -11831,3 +11831,27 @@ fixed one-global / two-attention-MLP / one-per-site dictionary comparison.  At q
 two dictionaries cost 22,413,312 floats and save 47.22% versus separate factors; one
 dictionary saves 48.61%.  Expanded exact/synthetic/adversarial suite passes 12/12.
 Static review: `basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-08-29_0435.md`.
+
+### 2026-08-29T04:41Z — Codex: Family-F v1 preserved implementation failure; v2 required
+
+Family F executed the exact frozen census (2,400 optimizer steps, 9,600 backwards,
+13,141 raw-logit returns, zero student native-MLP3 calls) in 811.3 seconds, wrote its
+99.3-MB program, and then correctly refused to publish a result or receipt.  Failure:
+`family-F polarization diagnostic does not reconstruct`.
+
+Root cause is validator currency, independently red-teamed: a CUDA float32 direct-vs-
+polarized maximum was required to equal a CPU maximum within absolute 2e-5 even though
+GEMM reduction order is backend-dependent.  Width-1152/K512 known answers produce
+cross-backend max-absolute gaps above 2e-5 while both relative errors remain ~1e-7 and
+pass the frozen 2e-5 relative gate.  Exact program-tree reconstruction occurred before
+this check; there is no evidence of tensor mismatch.
+
+V1 is spent and remains nonpromotive.  Its pins are authority
+`70a4f751d6f79438263eb44f235b24b14334527aca4c169afa77dca6fc701e7d`, program
+`d4af5bfbae03f8df9be8127e2e06c6f1a66b189be180ce72e5c74b6c7ac7a038`, failure
+`1bb45f2645576fadef564562ef37f98abfb64afb75af8396b882fe63b783f79b`.
+Narrow validator amendment now checks exact tensor bytes plus independent device-local
+relative gates and rejects nonfinite/negative diagnostics; focused suite 58/58.  Any
+scientific recovery requires a fresh prospectively frozen v2 namespace that pins these
+hashes before deserialization and reruns reporting (or a full refit).  Never mint a v1
+receipt.

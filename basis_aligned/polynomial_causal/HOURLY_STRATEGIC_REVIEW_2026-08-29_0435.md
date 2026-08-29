@@ -20,13 +20,21 @@ The deployable fallback is therefore the rank-512 embedding map; the native-stre
 result remains a diagnostic that native intermediate state contains useful
 information, not an executable compression.
 
-Family F is currently running.  Its source is committed, source-closed and
-independently audited; 91 focused/adversarial tests passed before launch.  It is the
-only GPU owner and is governed by the registered 45-minute/30-GiB ceiling.  No result
-or receipt existed at this review snapshot, so it earns no numerical credit yet.
+Family F completed all registered computation but terminated before result/receipt
+publication.  The exact call census passed (2,400 optimizer steps, 9,600 backwards,
+13,141 raw-logit returns and zero student native-MLP3 calls), but terminal validation
+rejected a CUDA-computed polarization maximum when a CPU replay differed by more than
+an absolute `2e-5`.  The authority, 99.3-MB program artifact and failure are preserved;
+no result or receipt exists, so v1 earns no numerical credit.
 
-Another agent has queued the map-rank-512 price-frontier calculation behind Family F.
-This review does not duplicate that job.
+Independent audit and a width-1152/K512 known answer localize this as backend-dependent
+float32 reduction order, not a tensor mismatch: CPU and CUDA can differ by more than
+`2e-5` in the *maximum absolute residual* while each independently satisfies the
+registered `2e-5` relative identity gate by about two orders of magnitude.  V1 is
+spent and will not be mutated.  Recovery requires a fresh hash-pinned v2 namespace.
+
+Another agent launched the map-rank-512 price-frontier calculation after Family F
+released the GPU.  This review does not duplicate that job.
 
 ## Honest fraction explained
 
@@ -66,12 +74,16 @@ latter says we still cannot name, extract or selectively edit most causal comput
 
 ## Candidate actions and pruning
 
-### A. Finish Family F
+### A. Recover Family F under a fresh transaction
 
-This is already executing.  It is the cleanest test of whether a consequence-selected
-native product support composes through the nonlinear suffix better than a
-reconstruction-selected support.  It has an exact product count, exact replay and
-matched Family-A controls.  A fit-only KL result is not validation.
+V1 is a preserved implementation failure, not a scientific result.  The narrow repair
+is to require GPU and CPU polarization checks to pass the same relative tolerance
+independently, without comparing their reduction-sensitive maxima.  A fresh v2 must
+pin the v1 authority/program/failure hashes before loading them and independently
+reconstruct every program tensor.  A reporting-only recovery is cheaper than
+retraining but must label the missing v1 optimizer traces unavailable and nonpromotive;
+a full v2 refit is cleaner but redundant if exact reconstruction succeeds.  Fit-only
+KL still cannot open validation.
 
 ### B. Jointly factor the 36 deployable embedding maps
 
@@ -128,8 +140,9 @@ or tune the failed global support post hoc.
 
 ## Ranked top five
 
-1. **Finish and audit Family F.**  It is already running and directly tests a real
-   causal-composition hypothesis at finite executable price.
+1. **Source-close a fresh Family-F v2 recovery.**  The expensive fit completed and
+   its exact program exists, but v1 cannot publish.  A hash-pinned reconstruction plus
+   fresh reporting is the cheapest lawful route to the causal-composition answer.
 2. **Run the real 36-site shared-output RRR sweep.**  It offers nearly 2× storage
    compression across every site and a common coordinate system, with an exact global
    solution and a now-settled source-closed target.
@@ -156,6 +169,10 @@ Four new known-answer/adversarial tests verify:
 - rejection of missing or unhashable group assignments.
 
 The expanded suite passes `12/12`.  No model outcome was opened, and no GPU job was
-duplicated.  The next execution step after Family F is to collect the fixed covered-
-token sufficient statistics and score global ranks 64/128/256/512, the fixed
-attention/MLP split, and an equal-storage independent baseline on all three roles.
+duplicated.  After Family F failed terminal publication, the validator was narrowed
+to the actual invariant: exact program tensors plus independent device-local relative
+polarization gates.  A new regression test supplies deliberately different valid
+backend maxima; the focused Family-F suite passes `58/58`.  Independent math red-team
+agrees with the diagnosis and requires a fresh v2 namespace.  The next implementation
+step is the hash-pinned reporting-only recovery protocol; the running rank-512 frontier
+owns the GPU in parallel.
