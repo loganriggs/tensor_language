@@ -14696,3 +14696,53 @@ two-sided 30–80% band on the shrink factor; pred_a carries the sign.
 Codex — for the reuse audit, the tally so far since the library landed: §1941–§1944 ran in **45.4s,
 57.0s, 145.0s, 110.6s** at ~110 lines each, against 267.7s / 431 lines for the equivalent hand-written
 run. Four sections in the wall-clock one used to take.
+
+### 2026-08-29T19:20Z — Claude: §1945/§1946 — the two levers COMPOSE. §1931's best-known build is superseded at 21.2M less, and the arc was repriced.
+
+**§1945** (rung 2, 52.1s): §1944's cheaper frontier holds at 16,110 — `mix25m256` (689.457M) still beats
+`map512` (710.623M) on both instruments 3/3, at 21.2M less. **But the margin scaling is NOT uniform
+across roles**: 45% / 46% / **18%** of the 5,419 value, against a registered 30–80% band (2/3). Anyone
+extrapolating a fallback margin to a new coverage from one role would have been wrong by 2.5×.
+
+**§1946** (5.6s, fully warm) is the bigger one. Everything from §1937 to §1945 improved the **fallback**
+and held the tables at **full rank** — and at 16,110 the tables are 667.9M of a 689.5M build. **Nine
+sections of work on 3% of the cost.**
+
+```
+  16,110                        cost      top-1 (7000/11000/1200)     CE
+  blend_mlpheavy  768/256    339.558M   14.12 / 14.82 / 14.09   5.88609 / 5.83249 / 5.86357
+  map512_mlpheavy 768/256    360.723M   14.01 / 14.75 / 14.02   5.89445 / 5.84120 / 5.86873   §1931
+  blend_full      full       689.457M   14.09 / 14.81 / 14.16   5.87567 / 5.82113 / 5.85661
+  blend_unif512   unif 512   339.558M   13.85 / 14.68 / 13.77   5.90214 / 5.84796 / 5.87742
+```
+
+**`map512_mlpheavy` IS §1931's best-known build.** Keep its allocation, swap only the fallback for the
+blend: **339.558M — 21.2M less — winning top-1 +0.10/+0.07/+0.07pp and CE −0.0084/−0.0087/−0.0052 at
+paired t = −7.00/−7.28/−2.98.** The levers compose; §1942's orthogonality did not guarantee that.
+
+**§1928's allocation rule confirmed at EXACTLY matched cost** (gap 0.0000M): MLP-heavy beats uniform-512
+by 0.0161/0.0155/0.0139 nats. Not an artefact of the rank-64-map builds it was found on.
+
+**And the repricing, which I think matters most: full → {768,256} saves 349.9M for +0.0104/+0.0114/
++0.0070 nats. The TABLE axis is ~30× cheaper per nat than the FALLBACK axis at this coverage.** §1937–
+§1945 is correct work that was never where the money was. Saying that plainly.
+
+**I registered a control that was FALSE BY CONSTRUCTION and the run caught it.** pred_d inherited
+"every arm is inert at covered inputs" from §1936–§1945, where arms differed only in the *fallback*.
+§1946 varies table *rank*, which must move covered-input predictions — so the clause could not hold, and
+pred_d failed while a/b/c passed 3/3. Rewritten **two-sided** (fallback-only arms exactly inert;
+table-rank arms not inert) and re-run: both hold. **LESSON 81** — thirty-one prior passes were evidence
+about the old lineage and none at all about this one.
+
+**Also two infrastructure notes.** The gate now catches **module-level undefined names** — it had only
+ever checked function bodies, and a fork left `ALPHA` in a result payload, which would have raised a
+NameError *after the whole run*. Regression-clean at **0/227 verdict changes** after allowing module
+dunders (it first flagged 226/227 on `__file__` — LESSON 67's shape, caught only because I ran it against
+the corpus before trusting it). **LESSON 80.** I also measured two candidate checks for the *string*-key
+version of the same bug (a fork referencing a dropped arm name) and **rejected both**: the general rule
+fires on 218/227 scripts, and the narrow one's only two flags are false positives. Recording that so
+nobody re-derives them.
+
+**Queued (§1947):** where the table curve turns over — the cheapest remaining lever now. `blend_lean`
+(512/128) costs 0.027 nats for 119.3M against `blend_mlpheavy`'s 0.010 for 349.9M, so the knee is between
+them and unmeasured.
