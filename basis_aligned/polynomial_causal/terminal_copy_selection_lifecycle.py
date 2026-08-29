@@ -72,18 +72,39 @@ PREREGISTRATION = HERE / "TERMINAL_COPY_INDUCTION_V1_PREREGISTRATION.md"
 AMENDMENT = HERE / "TERMINAL_COPY_INDUCTION_V1_SCREENING_AMENDMENT.md"
 RULING = HERE / "TERMINAL_COPY_SELECTION_V1_EXECUTION_RULING.md"
 EXPOSURE_ERRATUM = HERE / "TERMINAL_COPY_SELECTION_INPUT_EXPOSURE_ERRATUM.md"
+RECOVERY_RULING = HERE / "TERMINAL_COPY_SELECTION_V1_ATTEMPT2_RECOVERY_RULING.md"
 ADAPTER_RECEIPT = HERE / "terminal_copy_attention_checkpoint_check_v3_receipt.json"
 ADAPTER_RESULT = HERE / "terminal_copy_attention_checkpoint_check_v3_result.json"
 
-AUTHORITY = HERE / "terminal_copy_selection_v1_authority.json"
-LEDGER = HERE / "terminal_copy_selection_v1_ledger.json"
-RESULT = HERE / "terminal_copy_selection_v1_result.json"
-MANIFEST = HERE / "terminal_copy_selection_v1_manifest.json"
-PASSER_RECEIPT = HERE / "terminal_copy_selection_v1_passer_receipt.json"
-NEGATIVE_RECEIPT = HERE / "terminal_copy_selection_v1_negative_receipt.json"
-FAILURE = HERE / "terminal_copy_selection_v1_failure.json"
-LOCK = Path("/workspace/runs/.terminal_copy_selection_v1.lock")
-AUDIT = HERE / "terminal_copy_selection_lifecycle_v1_independent_audit.json"
+PRIOR_AUTHORITY = HERE / "terminal_copy_selection_v1_authority.json"
+PRIOR_FAILURE = HERE / "terminal_copy_selection_v1_failure.json"
+PRIOR_AUTHORITY_FILE_SHA256 = "df00365e5d0db18b9ab7b60a16580e461aeadbc78b643d16e670af701eae1458"
+PRIOR_AUTHORITY_SHA256 = "531daab1eff1ef5e168ef8bc35a1453e47b25cf5605e01058bf7817e08dc3d96"
+PRIOR_FAILURE_SHA256 = "421b51beba693868b471d45f55129584bc078be0bdd29b97b63478b7582696aa"
+
+EXECUTION_ATTEMPT = 2
+AUTHORITY_STATUS = (
+    "frozen_after_authorized_full_selection_input_parent_checkpoint_exposure_"
+    "before_any_selection_model_forward_or_outcome"
+)
+AUTHORITY = HERE / "terminal_copy_selection_v1_attempt2_authority.json"
+LEDGER = HERE / "terminal_copy_selection_v1_attempt2_ledger.json"
+RESULT = HERE / "terminal_copy_selection_v1_attempt2_result.json"
+MANIFEST = HERE / "terminal_copy_selection_v1_attempt2_manifest.json"
+PASSER_RECEIPT = HERE / "terminal_copy_selection_v1_attempt2_passer_receipt.json"
+NEGATIVE_RECEIPT = HERE / "terminal_copy_selection_v1_attempt2_negative_receipt.json"
+FAILURE = HERE / "terminal_copy_selection_v1_attempt2_failure.json"
+LOCK = Path("/workspace/runs/.terminal_copy_selection_v1_attempt2.lock")
+AUDIT = HERE / "terminal_copy_selection_lifecycle_v1_attempt2_independent_audit.json"
+
+PRIOR_ABSENT_PATHS = (
+    HERE / "terminal_copy_selection_v1_ledger.json",
+    HERE / "terminal_copy_selection_v1_result.json",
+    HERE / "terminal_copy_selection_v1_manifest.json",
+    HERE / "terminal_copy_selection_v1_passer_receipt.json",
+    HERE / "terminal_copy_selection_v1_negative_receipt.json",
+    Path("/workspace/runs/.terminal_copy_selection_v1.lock"),
+)
 
 NATURAL_DOCUMENTS = 192
 NATURAL_BATCH_SIZE = 4
@@ -101,6 +122,7 @@ SOURCE_PATHS = (
     "basis_aligned/polynomial_causal/TERMINAL_COPY_INDUCTION_V1_SCREENING_AMENDMENT.md",
     "basis_aligned/polynomial_causal/TERMINAL_COPY_SELECTION_V1_EXECUTION_RULING.md",
     "basis_aligned/polynomial_causal/TERMINAL_COPY_SELECTION_INPUT_EXPOSURE_ERRATUM.md",
+    "basis_aligned/polynomial_causal/TERMINAL_COPY_SELECTION_V1_ATTEMPT2_RECOVERY_RULING.md",
     "basis_aligned/polynomial_causal/bilin18_observed_model_facade.py",
     "basis_aligned/polynomial_causal/terminal_copy_attention_adapter.py",
     "basis_aligned/polynomial_causal/terminal_copy_attention_dispatcher.py",
@@ -135,6 +157,7 @@ PROTECTED_PATHS = (
     Path("/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_terminal_copy_induction_v2/ood_code.pt"),
     fit_v3.AUTHORITY, fit_v3.BANK, fit_v3.RESULT, fit_v3.MANIFEST, fit_v3.RECEIPT,
     ADAPTER_RECEIPT, ADAPTER_RESULT,
+    PRIOR_AUTHORITY, PRIOR_FAILURE, *PRIOR_ABSENT_PATHS,
     facade.DEFAULT_SNAPSHOT / "config.json",
     facade.DEFAULT_SNAPSHOT / "pytorch_model.bin",
 )
@@ -311,6 +334,29 @@ def verify_source_closure(binding: Mapping[str, Any]) -> None:
     )
 
 
+def verify_historical_source_closure(binding: Mapping[str, Any]) -> None:
+    """Verify a spent authority's committed bytes without requiring stale live bytes."""
+
+    body = {"commit": binding.get("commit"), "paths": binding.get("paths")}
+    if (
+        set(binding) != {"commit", "paths", "sha256"}
+        or not isinstance(body["paths"], Mapping)
+        or logical_sha256(body) != binding.get("sha256")
+    ):
+        raise RuntimeError("historical selection source closure is malformed")
+    for relative, digest in body["paths"].items():
+        completed = subprocess.run(
+            ["git", "show", f"{body['commit']}:{relative}"], cwd=ROOT,
+            stdout=subprocess.PIPE, stderr=subprocess.DEVNULL,
+        )
+        if completed.returncode != 0 or hashlib.sha256(completed.stdout).hexdigest() != digest:
+            raise RuntimeError(f"historical selection source drift: {relative}")
+    subprocess.run(
+        ["git", "merge-base", "--is-ancestor", str(body["commit"]), "origin/main"],
+        cwd=ROOT, check=True,
+    )
+
+
 def row_binding() -> dict[str, Any]:
     receipt = stable_json(ROW_RECEIPT, ROW_RECEIPT_SHA256)
     entry = receipt.get("entries", {}).get("selection_natural", {})
@@ -427,6 +473,69 @@ def adapter_binding() -> dict[str, Any]:
     return binding
 
 
+def recovery_binding() -> dict[str, Any]:
+    """Bind the spent pre-forward attempt without treating it as a retry."""
+
+    prior_authority = stable_json(PRIOR_AUTHORITY, PRIOR_AUTHORITY_FILE_SHA256)
+    prior_failure = stable_json(PRIOR_FAILURE, PRIOR_FAILURE_SHA256)
+    prior_absent = {str(path): path.exists() for path in PRIOR_ABSENT_PATHS}
+    if (
+        prior_authority.get("authority_sha256") != PRIOR_AUTHORITY_SHA256
+        or prior_failure.get("schema") != "terminal_copy_selection_v1_failure"
+        or prior_failure.get("status")
+            != "terminal_integrity_or_execution_failure_no_decision_receipt"
+        or prior_failure.get("authority_sha256") != PRIOR_AUTHORITY_SHA256
+        or prior_failure.get("authority_file_sha256") != PRIOR_AUTHORITY_FILE_SHA256
+        or prior_failure.get("exception_type") != "RuntimeError"
+        or prior_failure.get("exception_message")
+            != "self.dim() cannot be 0 to view BFloat16 as Byte (different element sizes)"
+        or prior_failure.get("partial_artifacts") != {
+            str(HERE / "terminal_copy_selection_v1_ledger.json"): None,
+            str(HERE / "terminal_copy_selection_v1_manifest.json"): None,
+            str(HERE / "terminal_copy_selection_v1_result.json"): None,
+        }
+        or prior_failure.get("passer_receipt_exists") is not False
+        or prior_failure.get("negative_receipt_exists") is not False
+        or prior_failure.get("decision_receipts_mutually_absent") is not True
+        or prior_failure.get("same_authority_retry_authorized") is not False
+        or prior_failure.get("protected_at_failure")
+            != prior_authority.get("protected_snapshot")
+        or prior_authority.get("protocol") != protocol()
+        or any(prior_absent.values())
+    ):
+        raise RuntimeError("selection attempt-1 recovery evidence changed")
+    verify_historical_source_closure(prior_authority.get("source_closure", {}))
+    body = {
+        "execution_attempt": EXECUTION_ATTEMPT,
+        "prior_authority_path": str(PRIOR_AUTHORITY),
+        "prior_authority_file_sha256": PRIOR_AUTHORITY_FILE_SHA256,
+        "prior_authority_sha256": PRIOR_AUTHORITY_SHA256,
+        "prior_failure_path": str(PRIOR_FAILURE),
+        "prior_failure_sha256": PRIOR_FAILURE_SHA256,
+        "prior_attempt_status": "spent_pre_forward_execution_failure",
+        "prior_attempt_full_selection_input_parent_checkpoint_exposed": True,
+        "prior_attempt_model_outcome_observed": False,
+        "prior_attempt_absent_outcome_paths": prior_absent,
+        "same_authority_retry": False,
+        "scientific_protocol_changed": False,
+        "repair": "flatten_before_dtype_byte_view_only",
+        "recovery_ruling_path": str(RECOVERY_RULING),
+        "recovery_ruling_sha256": file_sha256(RECOVERY_RULING),
+    }
+    return {**body, "sha256": logical_sha256(body)}
+
+
+def licensed_fit_parent_binding() -> dict[str, Any]:
+    """Reuse attempt 1's frozen semantic binding without pre-authority tensor load."""
+
+    recovery_binding()
+    prior_authority = stable_json(PRIOR_AUTHORITY, PRIOR_AUTHORITY_FILE_SHA256)
+    binding = prior_authority.get("fit_parent_binding")
+    if not isinstance(binding, dict):
+        raise RuntimeError("selection attempt-1 fit-parent binding is absent")
+    return dict(binding)
+
+
 def verified_draft_authority() -> dict[str, Any]:
     require_pristine_namespace()
     body = {
@@ -434,8 +543,10 @@ def verified_draft_authority() -> dict[str, Any]:
         "status": "nonauthoritative_until_source_commit_and_independent_audit",
         "source_closure": source_closure(),
         "row_binding": row_binding(),
-        "fit_parent_binding": fit_parent.replay_fit_parent(),
+        "fit_parent_binding": licensed_fit_parent_binding(),
         "adapter_binding": adapter_binding(),
+        "execution_attempt": EXECUTION_ATTEMPT,
+        "recovery_binding": recovery_binding(),
         "checkpoint": asdict(facade.validate_snapshot(verify_weights_sha256=True)),
         "protocol": protocol(),
         "outputs": expected_outputs(),
@@ -482,6 +593,8 @@ def validate_canonical_audit(path: Path = AUDIT) -> dict[str, Any]:
             file_sha256(RULING),
         "basis_aligned/polynomial_causal/TERMINAL_COPY_SELECTION_INPUT_EXPOSURE_ERRATUM.md":
             file_sha256(EXPOSURE_ERRATUM),
+        "basis_aligned/polynomial_causal/TERMINAL_COPY_SELECTION_V1_ATTEMPT2_RECOVERY_RULING.md":
+            file_sha256(RECOVERY_RULING),
     }
     if (
         set(audit) != {
@@ -512,11 +625,13 @@ def freeze_execution_authority(independent_audit_path: Path = AUDIT) -> dict[str
     frozen_protected = protected_snapshot()
     body = {
         "schema": "terminal_copy_selection_v1_authority",
-        "status": "frozen_before_selection_value_or_model_outcome_access_after_disclosed_schema_exposure",
+        "status": AUTHORITY_STATUS,
         "source_closure": source_closure(),
         "row_binding": row_binding(),
-        "fit_parent_binding": fit_parent.replay_fit_parent(),
+        "fit_parent_binding": licensed_fit_parent_binding(),
         "adapter_binding": adapter_binding(),
+        "execution_attempt": EXECUTION_ATTEMPT,
+        "recovery_binding": recovery_binding(),
         "checkpoint": asdict(facade.validate_snapshot(verify_weights_sha256=True)),
         "protocol": protocol(),
         "outputs": expected_outputs(),
@@ -545,7 +660,7 @@ def validate_execution_authority(authority: Mapping[str, Any]) -> None:
     expected_keys = {
         "schema", "status", "source_closure", "row_binding", "fit_parent_binding",
         "adapter_binding", "checkpoint", "protocol", "outputs", "protected_paths",
-        "protected_snapshot",
+        "protected_snapshot", "execution_attempt", "recovery_binding",
         "independent_audit", "authorized_for_selection_execution",
         "authorized_for_final_ood", "fit_receipt_self_authorizes_selection",
         "selection_authority_independently_licenses_exact_fit_bank",
@@ -556,8 +671,9 @@ def validate_execution_authority(authority: Mapping[str, Any]) -> None:
     if (
         set(authority) != expected_keys
         or authority.get("schema") != "terminal_copy_selection_v1_authority"
-        or authority.get("status")
-            != "frozen_before_selection_value_or_model_outcome_access_after_disclosed_schema_exposure"
+        or authority.get("status") != AUTHORITY_STATUS
+        or authority.get("execution_attempt") != EXECUTION_ATTEMPT
+        or authority.get("recovery_binding") != recovery_binding()
         or authority.get("authorized_for_selection_execution") is not True
         or authority.get("authorized_for_final_ood") is not False
         or authority.get("fit_receipt_self_authorizes_selection") is not False
@@ -566,7 +682,7 @@ def validate_execution_authority(authority: Mapping[str, Any]) -> None:
         or authority.get("pristine_selection_container_secrecy_claimed") is not False
         or logical_sha256(body) != authority.get("authority_sha256")
         or authority.get("row_binding") != row_binding()
-        or authority.get("fit_parent_binding") != fit_parent.replay_fit_parent()
+        or authority.get("fit_parent_binding") != licensed_fit_parent_binding()
         or authority.get("adapter_binding") != adapter_binding()
         or authority.get("checkpoint")
             != asdict(facade.validate_snapshot(verify_weights_sha256=True))
@@ -1575,7 +1691,7 @@ def _publish_failure(claim: RunClaim, authority_sha256: str, error: BaseExceptio
         raise RuntimeError("cannot publish selection failure after a decision receipt")
     frozen_inputs = _failure_input_snapshot(authority_sha256)
     failure = {
-        "schema": "terminal_copy_selection_v1_failure",
+        "schema": "terminal_copy_selection_v1_attempt2_failure",
         "status": "terminal_integrity_or_execution_failure_no_decision_receipt",
         "authority_sha256": authority_sha256,
         "authority_file_sha256": frozen_inputs["authority_file_sha256"],

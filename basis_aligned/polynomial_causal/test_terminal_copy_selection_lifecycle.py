@@ -544,6 +544,37 @@ def test_tensor_hash_handles_scalar_bfloat16_and_encodes_shape():
     assert life.tensor_sha256(scalar) != life.tensor_sha256(vector)
 
 
+def test_model_state_hash_preserves_legacy_nonscalar_bytes():
+    model = torch.nn.Linear(4, 3, bias=True).to(dtype=torch.bfloat16)
+    digest = hashlib.sha256()
+    for name, value in tuple(model.named_parameters()) + tuple(model.named_buffers()):
+        tensor = value.detach().to("cpu").contiguous()
+        encoded = name.encode()
+        digest.update(len(encoded).to_bytes(8, "little"))
+        digest.update(encoded)
+        digest.update(str(tensor.dtype).encode())
+        digest.update(life.json.dumps(list(tensor.shape), separators=(",", ":")).encode())
+        digest.update(tensor.view(torch.uint8).numpy().tobytes(order="C"))
+    assert life.model_state_sha256(model) == digest.hexdigest()
+
+
+@pytest.mark.skipif(not torch.cuda.is_available(), reason="CUDA unavailable")
+def test_model_state_hash_scalar_bfloat16_cpu_cuda_equal_and_detects_mutation():
+    class ScalarState(torch.nn.Module):
+        def __init__(self, device: str):
+            super().__init__()
+            self.register_buffer(
+                "scalar_bfloat16", torch.tensor(1.25, dtype=torch.bfloat16, device=device),
+            )
+
+    cpu_model = ScalarState("cpu")
+    cuda_model = ScalarState("cuda")
+    assert life.model_state_sha256(cpu_model) == life.model_state_sha256(cuda_model)
+    before = life.model_state_sha256(cuda_model)
+    cuda_model.scalar_bfloat16.add_(1)
+    assert life.model_state_sha256(cuda_model) != before
+
+
 def test_create_only_json_never_overwrites(tmp_path):
     path = tmp_path / "artifact.json"
     life.create_only_json(path, {"a": 1})
@@ -569,8 +600,9 @@ def test_mocked_authority_freeze_is_create_only_and_validates(tmp_path, monkeypa
     monkeypatch.setattr(life, "source_closure", lambda: source)
     monkeypatch.setattr(life, "verify_source_closure", lambda binding: binding == source or None)
     monkeypatch.setattr(life, "row_binding", lambda: row)
-    monkeypatch.setattr(life.fit_parent, "replay_fit_parent", lambda: fit)
+    monkeypatch.setattr(life, "licensed_fit_parent_binding", lambda: fit)
     monkeypatch.setattr(life, "adapter_binding", lambda: adapter)
+    monkeypatch.setattr(life, "recovery_binding", lambda: {"recovery": "bound"})
     monkeypatch.setattr(life.facade, "validate_snapshot", lambda **kwargs: checkpoint)
     protected = tmp_path / "protected.bin"
     protected.write_bytes(b"frozen")
@@ -580,6 +612,8 @@ def test_mocked_authority_freeze_is_create_only_and_validates(tmp_path, monkeypa
     assert authority["authorized_for_final_ood"] is False
     assert authority["fit_receipt_self_authorizes_selection"] is False
     assert authority["amendment_governs_conflicts"] is True
+    assert authority["execution_attempt"] == 2
+    assert authority["recovery_binding"] == {"recovery": "bound"}
     assert authority["protected_snapshot"] == {str(protected): life.file_sha256(protected)}
     assert life.stable_json(paths["AUTHORITY"]) == authority
     with pytest.raises(RuntimeError, match="spent"):
@@ -607,8 +641,9 @@ def test_authority_rejects_protected_mutation_between_freeze_and_execute(
     monkeypatch.setattr(life, "source_closure", lambda: source)
     monkeypatch.setattr(life, "verify_source_closure", lambda binding: binding == source or None)
     monkeypatch.setattr(life, "row_binding", lambda: {"row": "bound"})
-    monkeypatch.setattr(life.fit_parent, "replay_fit_parent", lambda: {"fit": "bound"})
+    monkeypatch.setattr(life, "licensed_fit_parent_binding", lambda: {"fit": "bound"})
     monkeypatch.setattr(life, "adapter_binding", lambda: {"adapter": "bound"})
+    monkeypatch.setattr(life, "recovery_binding", lambda: {"recovery": "bound"})
     monkeypatch.setattr(life.facade, "validate_snapshot", lambda **kwargs: checkpoint)
     authority = life.freeze_execution_authority(paths["AUDIT"])
     protected.write_bytes(b"after")
