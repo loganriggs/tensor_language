@@ -1,0 +1,71 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+ROUTE OR BLEND | row-space mixes vs §1941 routing | 5,419 | DISCOVERY ONLY
+  [bqlib] coverage 5419 from fineweb_n96_skip80.pt: 36 tables, neighbour index and map solver built (4s)
+  [bqlib] cache HIT  live     skip7000
+  [bqlib] cache HIT  live     skip11000
+  [bqlib] cache HIT  live     skip1200
+  [bqlib] computed   mix25m512 skip7000 (1.4s)
+  [bqlib] computed   mix25m512 skip11000 (1.3s)
+  [bqlib] computed   mix25m512 skip1200 (0.6s)
+  [bqlib] computed   mix50m512 skip7000 (3.8s)
+  [bqlib] computed   mix50m512 skip11000 (1.3s)
+  [bqlib] computed   mix50m512 skip1200 (0.6s)
+  [bqlib] computed   mix75m512 skip7000 (3.8s)
+  [bqlib] computed   mix75m512 skip11000 (1.3s)
+  [bqlib] computed   mix75m512 skip1200 (0.7s)
+  [bqlib] cache HIT  nn       skip7000
+  [bqlib] cache HIT  nn       skip11000
+  [bqlib] cache HIT  nn       skip1200
+  [bqlib] cache HIT  nn75m512 skip7000
+  [bqlib] cache HIT  nn75m512 skip11000
+  [bqlib] cache HIT  nn75m512 skip1200
+  [bqlib] cache HIT  map64    skip7000
+  [bqlib] cache HIT  map64    skip11000
+  [bqlib] cache HIT  map64    skip1200
+  [bqlib] cache HIT  map512   skip7000
+  [bqlib] cache HIT  map512   skip11000
+  [bqlib] cache HIT  map512   skip1200
+
+  skip7000
+    mix25m512  top1 14.02%  CE 5.94165  cost  267.335M
+    mix50m512  top1 14.07%  CE 5.94962  cost  267.335M
+    mix75m512  top1 14.12%  CE 5.97602  cost  267.335M
+    nn         top1 14.17%  CE 6.01897  cost  224.868M
+    nn75m512   top1 14.12%  CE 5.99132  cost  267.335M
+    map64      top1 13.55%  CE 6.01167  cost  230.087M
+    map512     top1 13.77%  CE 5.96702  cost  267.246M
+    mix25m512 - map512: top1 +0.24pp  CE -0.02537 (paired t -15.03; nn75m512 was +5.93) | vs linear interp -0.03836
+    mix50m512 - map512: top1 +0.30pp  CE -0.01740 (paired t -5.69; nn75m512 was +5.93) | vs linear interp -0.04337
+    mix75m512 - map512: top1 +0.35pp  CE +0.00900 (paired t +2.16; nn75m512 was +5.93) | vs linear interp -0.02997
+
+  skip11000
+    mix25m512  top1 14.53%  CE 5.91021  cost  267.335M
+    mix50m512  top1 14.69%  CE 5.92175  cost  267.335M
+    mix75m512  top1 14.62%  CE 5.95255  cost  267.335M
+    nn         top1 14.66%  CE 6.00091  cost  224.868M
+    nn75m512   top1 14.74%  CE 5.96390  cost  267.335M
+    map64      top1 14.25%  CE 5.98477  cost  230.087M
+    map512     top1 14.37%  CE 5.93645  cost  267.246M
+    mix25m512 - map512: top1 +0.16pp  CE -0.02624 (paired t -14.13; nn75m512 was +6.30) | vs linear interp -0.04235
+    mix50m512 - map512: top1 +0.33pp  CE -0.01470 (paired t -4.34; nn75m512 was +6.30) | vs linear interp -0.04693
+    mix75m512 - map512: top1 +0.25pp  CE +0.01610 (paired t +3.52; nn75m512 was +6.30) | vs linear interp -0.03224
+
+  skip1200
+    mix25m512  top1 13.99%  CE 5.93277  cost  267.335M
+    mix50m512  top1 14.13%  CE 5.93841  cost  267.335M
+    mix75m512  top1 14.20%  CE 5.96351  cost  267.335M
+    nn         top1 14.24%  CE 6.00733  cost  224.868M
+    nn75m512   top1 14.13%  CE 5.97729  cost  267.335M
+    map64      top1 13.64%  CE 6.00165  cost  230.087M
+    map512     top1 13.72%  CE 5.96095  cost  267.246M
+    mix25m512 - map512: top1 +0.27pp  CE -0.02818 (paired t -10.46; nn75m512 was +2.67) | vs linear interp -0.03978
+    mix50m512 - map512: top1 +0.41pp  CE -0.02254 (paired t -4.64; nn75m512 was +2.67) | vs linear interp -0.04573
+    mix75m512 - map512: top1 +0.48pp  CE +0.00256 (paired t +0.39; nn75m512 was +2.67) | vs linear interp -0.03223
+
+  a BLEND beats map512 on top-1 (>=2 roles) -> True  best mix25m512 3/3
+  and gives up LESS CE than routing did (>=2 roles) -> True  3/3
+  and beats linear interpolation (>=2 roles) -> True  best mix25m512 3/3
+  coverage 5419, arms inert True, live identical 0.0e+00, anchors reproduce §1940 within 0.005pp -> control True
+
+pred_a True | pred_b True | pred_c True | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/route_or_blend_results.json (57.0s)

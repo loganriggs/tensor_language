@@ -54989,3 +54989,58 @@ linear interpolation) but **not** the unseen-target signal (recovery proportiona
 `nn75m512` inherits that limitation: it gives up CE in proportion to what it routes away. **A router that
 identified the unseen-target case specifically would take map512's CE and the neighbour's top-1 at once,
 and nothing has yet been tried beyond the cosine.**
+
+## §1942 — BLENDING closes the fork that routing could not: the two forms live in different directions in row space
+
+`ops/route_or_blend.py`, **57.0s** (15 of 21 scoring passes from cache), **DISCOVERY ONLY**, 5,419
+coverage, rung 3 — §1941's open question. **All four predictions TRUE.**
+
+§1941 left the frontier at ~267M as two points: `nn75m512` for top-1, `map512` for CE, with routing
+giving up CE in proportion to what it routes away. Routing gives each uncovered type **one** form;
+blending gives every type **some of both** — `mix<A>m512` fills each uncovered row with A% neighbour +
+(100−A)% rank-512 map. Same two ingredients, different mechanism, identical cost.
+
+```
+              top-1 (7000/11000/1200)        CE                          cost
+  mix25m512   14.02 / 14.53 / 13.99   5.94165 / 5.91021 / 5.93277   267.335M
+  mix50m512   14.07 / 14.69 / 14.13   5.94962 / 5.92175 / 5.93841   267.335M
+  nn75m512    14.12 / 14.74 / 14.13   5.99132 / 5.96390 / 5.97729   267.335M   §1941 top-1 champion
+  map512      13.77 / 14.37 / 13.72   5.96702 / 5.93645 / 5.96095   267.246M   §1938 CE champion
+  map64       13.55 / 14.25 / 13.64   6.01167 / 5.98477 / 6.00165   230.087M   DEPLOYED
+```
+
+> **pred_a and pred_b PASSED 3/3 each, and together they close the §1938 fork.** `mix50m512` beats
+> `map512` — the build the CE objective has preferred since §1938 — on **top-1 by +0.30 / +0.33 /
+> +0.41pp AND on CE by −0.0174 / −0.0147 / −0.0225 nats at paired t = −5.69 / −4.34 / −4.64.**
+> Strictly better on both instruments, significantly, at 0.03% higher cost. `mix25m512` is stronger
+> still on CE (−0.0254 / −0.0262 / −0.0282 at **t = −15.03 / −14.13 / −10.46**) for less top-1.
+> **Every routed arm in §1939–§1941 gave up CE to buy top-1; every blended arm takes both.**
+
+> **Against the other champion it is a tie on top-1 and four centi-nats of CE for free.** `mix50m512`
+> versus `nn75m512`: top-1 **−0.04 / −0.04 / +0.01pp** — at most ~15 tokens out of 36,864, which I am
+> calling a tie rather than a loss, and I have not registered a significance test on a top-1 difference
+> — while CE improves by **−0.0417 / −0.0422 / −0.0389 nats.** So the blend is not *strictly* better than
+> §1941's build on top-1; it is level on it and decisively better on CE.
+
+> **pred_c PASSED 3/3 and it is the mechanism: the mix is strongly SUPERADDITIVE.** Every blended arm
+> beats the linear interpolation of the `nn` and `map512` endpoint CEs at its own α — **9 of 9 cells, by
+> −0.030 to −0.047 nats.** A convex combination can only beat the interpolation of its endpoints if the
+> two ingredients contribute along **different directions in row space**, so averaging keeps part of both
+> rather than trading one against the other. §1939 found the same shape for routing (12/12 arms beat
+> interpolation) but an order of magnitude weaker. **The neighbour's top-1 contribution and the map's CE
+> contribution are largely orthogonal, and that is why no router could take both: routing forces a
+> per-token choice between two things that were never competing.**
+
+**pred_d PASSED**: coverage exactly 5,419; every arm inert at covered inputs; buckets partition; live
+per-cell top-1 and CE identical across all seven arms at 0.00e+00; the `nn75m512` / `map512` / `map64`
+anchors reproduced §1940/§1941's **published** pooled top-1 to **0.005pp** — twenty-eighth clean reading.
+
+**Where the frontier stands at 5,419.** `mix50m512` (267.335M) dominates `map512` outright and levels
+`nn75m512` while taking 0.04 nats; `mix25m512` is the CE-optimal point. The 230.087M deployed design is
+dominated by all of them. **The objective fork §1937 opened, §1939 wrongly claimed to close, §1940
+retracted and §1941 confirmed still open, is closed — by a mechanism none of those four sections tried.**
+
+**Open.** α was swept at three points and 50% is a corner of the grid, not a measured optimum; the map
+rank is fixed at 512 throughout; and every figure is at 5,419. §1940 is the precedent for what happens at
+16,110 — the fallback arm falls from ~24% to ~10% of positions and margins roughly halve. **The α sweep
+at both coverages, with the paired t on every CE margin, is the next run and it is cheap now.**

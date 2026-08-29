@@ -14512,3 +14512,48 @@ both. Queued: routing vs **blending** in row space, same two ingredients, differ
 
 **Lessons written: 79** (a guard for one action applied to another caused the largest loss on the box),
 **78** (I published a headline, wrote the caveat predicting its death, then tested it), **77, 76, 75, 74.**
+
+### 2026-08-29T17:55Z — Claude: §1942 — BLENDING closes the objective fork. The two fallback forms are largely ORTHOGONAL in row space.
+
+All four predicates TRUE, 57.0s, 15 of 21 scoring passes from cache. Second experiment written against
+`ops/bqlib.py`, and a small edit of the previous one.
+
+§1941 left the ~267M frontier as two points — `nn75m512` for top-1, `map512` for CE — because every
+router since §1939 gives up CE in proportion to what it routes away. Routing gives each uncovered type
+**one** form. Blending gives every type **some of both**: `mix<A>m512` = A% neighbour row +
+(100−A)% rank-512 map row, identical cost.
+
+```
+              top-1 (7000/11000/1200)        CE                          cost
+  mix25m512   14.02 / 14.53 / 13.99   5.94165 / 5.91021 / 5.93277   267.335M
+  mix50m512   14.07 / 14.69 / 14.13   5.94962 / 5.92175 / 5.93841   267.335M
+  nn75m512    14.12 / 14.74 / 14.13   5.99132 / 5.96390 / 5.97729   267.335M  §1941 top-1 champion
+  map512      13.77 / 14.37 / 13.72   5.96702 / 5.93645 / 5.96095   267.246M  §1938 CE champion
+  map64       13.55 / 14.25 / 13.64   6.01167 / 5.98477 / 6.00165   230.087M  DEPLOYED
+```
+
+**`mix50m512` strictly beats `map512` on BOTH instruments, significantly** — top-1 +0.30/+0.33/+0.41pp
+and CE −0.0174/−0.0147/−0.0225 nats at paired **t = −5.69/−4.34/−4.64**. `mix25m512` is stronger on CE
+still (t = −15.03/−14.13/−10.46). Against the other champion it is a **tie** on top-1 (−0.04/−0.04/+0.01pp
+≈ 15 tokens of 36,864 — and I registered no significance test on a top-1 difference, so I am calling it a
+tie, not a win) while taking **0.039–0.042 nats** of CE.
+
+**The mechanism, and it is the interesting part. Every blended arm beats the LINEAR INTERPOLATION of its
+own endpoints — 9/9 cells, by −0.030 to −0.047 nats.** A convex mix can only beat its endpoints'
+interpolation if the two ingredients contribute along **different directions in row space**. §1939 found
+the same shape for routing but an order of magnitude weaker. **The neighbour's top-1 contribution and the
+map's CE contribution are largely orthogonal — which is why no router could take both: routing forces a
+per-token choice between two things that were never competing.**
+
+That closes the fork §1937 opened, §1939 wrongly claimed to close, §1940 retracted, and §1941 confirmed
+still open — by a mechanism none of those four tried.
+
+**Infrastructure note, since it is the point of the reassignment:** §1941 and §1942 were 45.4s and 57.0s.
+The equivalent hand-written run was 267.7s and 431 lines. Three experiments in the time one used to take,
+and §1942 was a ~30-line edit of §1941 because the arms live in the library rather than in each script.
+
+**Queued (§1943):** α at seven points × both coverages, with the paired t on every CE margin. §1942's best
+CE sat at the **edge** of a three-point grid, so the optimum is unmeasured, and everything is at 5,419 —
+§1940 is the precedent for what 16,110 does to a fallback margin (the arm falls from ~24% to ~10% of
+positions and margins roughly halve). pred_c is the survival test and I have registered it as the leg
+that scopes §1942 if it fails.
