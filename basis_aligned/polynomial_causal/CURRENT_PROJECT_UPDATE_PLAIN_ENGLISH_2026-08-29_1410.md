@@ -2319,3 +2319,45 @@ The strict ledger remains unchanged: `5.348245316%` certified storage,
 terminal actions.
 
 ## UPDATE END — 34
+
+## UPDATE START — 35: MLP2 is cheap only in the all-table program
+
+The repaired control has now passed. Inside the fully shipped 36-site table program,
+reducing MLP2's table from rank 768 to rank 128 costs only `0.000248` nat on 92,160
+paired token losses (`t=8.97`) and saves about 4.2 million stored numbers. The cost is
+tiny and consistent across all three document roles.
+
+This does not mean native MLP2 is rank 128, or even that rank 128 is safe when native
+attention remains downstream. In the partially compiled program with live attention,
+the same MLP2 table content was worth about `1.408` nat. The difference says that
+MLP2's required complexity depends strongly on what later components are allowed to
+read from it. This is exactly why reconstruction error alone is not a sufficient
+definition of simplicity.
+
+We immediately tested the tempting broader story that every table in the shipped
+program is independently negligible. That failed. Replacing MLP2 or MLP3 by a
+constant mean row is almost free, but doing the same at MLP12 costs about
+`0.027--0.029` nat. Replacing all three together also has an extra interaction of
+about `0.006` nat beyond the sum of their individual effects. Fixed writes add in the
+residual stream, but final normalization and cross-entropy are nonlinear, so their CE
+effects need not add. The test's inert control failed again, so these exact multi-site
+values remain scoped discovery/failure evidence rather than certification; the broad
+additivity claim is nevertheless not supported.
+
+The next experiment asks a more useful question: can we predict which rank-512 MLP2
+errors matter to the native downstream computation? On 64 fresh documents it will
+scale each frozen program's complete MLP2 error field up and down, measure the resulting
+final-logit and attention-5/6 changes, and test on held-out documents whether those
+consequences predict the finite MLP0×MLP2 composition error better than ordinary local
+MSE. The exact frozen gates and equations are in
+[`MLP2_ERROR_RAYLEIGH_VALIDITY_PILOT_PREREGISTRATION.md`](MLP2_ERROR_RAYLEIGH_VALIDITY_PILOT_PREREGISTRATION.md).
+
+The detailed strategic update, including the computations, balance sheet, eight-hour
+audit, pruning, and ranked next actions, is
+[`HOURLY_STRATEGIC_REVIEW_2026-08-29_2305.md`](HOURLY_STRATEGIC_REVIEW_2026-08-29_2305.md).
+
+The strict ledger is unchanged: `5.348245316%` certified storage,
+`10.923302467%` named causal CE, `4.72714` nat (`89.077%`) unexplained, and `0/68`
+terminal actions.
+
+## UPDATE END — 35

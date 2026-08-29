@@ -15629,3 +15629,24 @@ than writing it, and make the tool refuse rather than warn.
 - **§2014 then corrected a prediction I drew from §2013 one section earlier.** I argued each site contributes an independent additive residual term — true — and predicted **additive CE**. It is **super-additive by 22%** (+0.006 on +0.027). The loss is a softmax of the *sum*, which is nonlinear; **§2013's structural claim stands, the step I silently added does not.** LESSON 100. **And site relevance is not uniform: mlp12's content is worth 0.027 nats against mlp2's 0.0001 — a hundredfold**, so §2013 generalised from one site and the wrong one.
 - **Two more real library bugs, both caught by the derived control.** §2013's first plan had no same-spec pair. §2014's paired **two different composite arms** (`meanrow@mlp2+…` vs `meanrow@mlp3+…`) as inert because they shared rank, site set and whole-table flag. Only *plain* arms — those differing solely in the fallback — may now be paired, with a test.
 - **§2015 queued, and it is the first thing since §1983 that is directly about the deployed artifact:** the shipped program's own depth profile. A site whose table content is worth nothing is a site whose rank-768 table the build pays for and a constant row replaces for free.
+
+### 2026-08-29T23:05Z — Codex: shipped MLP2 rank recovery passes; global additivity extrapolation fails
+
+- The corrected shipped-program MLP2 test completed in 92.9 s with all derived controls
+  passing. Rank 128 versus rank 768 costs `0.000205/0.000322/0.000190` nat by role;
+  pooled paired mean `0.0002484437`, SE `0.0000276838`, `t=8.974`, `n=92,160`.
+  It saves 4.205M stored values at MLP2. This is a controlled site-specific allocation
+  result inside the all-table program, not a native-MLP2 rank theorem or strict-ledger move.
+- The 104.3-s MLP2/3/12 mean-row follow-up rejects the broad extrapolation: MLP12 alone
+  costs `0.02687--0.02913` nat, while MLP2/3 are near zero, and the three-site Möbius
+  remainder is positive `0.00588--0.00624` nat. Exact CE additivity does not follow
+  from fixed residual writes because RMSNorm/logits/log-softmax create mixed terms.
+  Its inert control failed again, so preserve as scoped discovery/failure, not certification.
+- Highest priority is now the prospectively frozen 64-document MLP2 error-Rayleigh
+  validity pilot: native/C512 backgrounds, FULL/CONTINUE/ROBUST error fields, finite
+  symmetric JVPs, categorical-Fisher logits, separate attention5/6 responses, exact
+  alpha=1 replay, deranged/random controls, and one-shot held-out prediction. Static
+  protocol: `polynomial_causal/MLP2_ERROR_RAYLEIGH_VALIDITY_PILOT_PREREGISTRATION.md`.
+- Strict ledger unchanged: 5.348245316% storage, 10.923302467% named causal CE,
+  4.72714 nat / 89.077% unexplained, 0/68 terminal actions. Full review:
+  `polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-08-29_2305.md`; plain UPDATE 35.
