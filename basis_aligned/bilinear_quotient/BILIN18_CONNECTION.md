@@ -58184,3 +58184,36 @@ four distinct things:
 **Open.** Point 3 is the one not yet tested for content. §1998 showed attention 5's content is worthless
 when attention 6 is *compiled*. **Whether its 2.65-nat lever action with attention 6 still LIVE is also
 presence-only has never been measured**, and it is the same `meanrow` instrument one configuration over.
+
+## §2007 — attention 5 is a pure presence site in every role it plays
+
+`ops/is_the_lever_also_presence_only.py`, **79.2s**, **DISCOVERY ONLY**, 5,419, rung 3 — §2006's open
+question. **pred_a True | pred_b True | pred_c True | derived controls True.** All three reference
+deviations 0.000000.
+
+```
+  nats, 5,419, attention 6 LIVE          mlp4    +attn5 table   +attn5 mean row   +attn5 rank 16
+  skip7000                              10.669      8.021           7.845             8.022
+  skip11000                             10.937      8.300           8.107             8.301
+  skip1200                              10.580      7.962           7.721             7.962
+```
+
+> **pred_b PASSED 3/3 in the same direction §1998 found, and more strongly. A mean row at attention 5 —
+> zero information — is BETTER than its compiled table by 0.176 / 0.192 / 0.241 nats**, against a bar of
+> "within 0.20". In the repaired configuration §1998 measured that advantage at 0.044; **as a lever it is
+> four to five times larger.**
+
+> **pred_c PASSED 3/3, and rank 16 is exact. Truncating attention 5's table to rank 16 costs +0.001 /
+> +0.001 / +0.000 nats** — the lever is entirely intact at 1/24th of the capacity.
+
+**Attention 5, closed.** Six sections have put it in four roles and it is a **pure presence site in every
+one**: required for the fix (§1992), content worthless when repairing (§1998, −0.044), the only lever on
+the ceiling (§2006, −2.65), and content worthless *there too* (§2007, −0.19). **Nothing about what
+attention 5 writes has ever mattered in any configuration measured. Only that it stops varying with
+context.** The one site whose content *does* matter is attention 6, worth 0.08 to 0.22 nats depending on
+the compiled MLP (§2000), and low-dimensional — rank 16 recovers 72% of it (§1996).
+
+**Open.** Everything from §2004 to §2007 — the ceiling, the lever, and attention 5's presence-only
+character — is measured at 5,419 types. §1993 replicated the *threshold* at 16,110 and found it unmoved;
+**the ceiling has never been checked there**, and §1963 and §1965 are the standing reminders that this
+instrument has reversed 5,419 claims twice.
