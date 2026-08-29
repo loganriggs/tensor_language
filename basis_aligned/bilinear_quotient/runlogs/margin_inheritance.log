@@ -1,21 +1,24 @@
 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
 MARGIN INHERITANCE: does the program inherit the model's decidedness? | buckets ((0, 0), (1, 4), (5, 24), (25, 124), (125, 1000000000)) on the fit-row count of the TRUE target | full-rank settled program | DISCOVERY ONLY
-  built the settled fallback and 36 tables (5s)
+  built the settled fallback and 36 tables (6s)
 
   === all-compiled baseline ===
+    skip7000   covered enrichment  7.16x  (n 33192)
+    skip11000  covered enrichment  7.29x  (n 33196)
+    skip1200   covered enrichment  7.49x  (n 16597)
+    per-site live/table ratios: min 1.2x max 144.0x across 36 sites
+    g1.00    skip7000 CE 5.90522 ( 7.16x)  skip11000 CE 5.85230 ( 7.29x)  skip1200 CE 5.88575 ( 7.49x)   [1/2]
+    PERSITE  skip7000 CE 12.86842 ( 1.80x)  skip11000 CE 12.91618 ( 1.71x)  skip1200 CE 12.79523 ( 1.71x)   [2/2]
 Traceback (most recent call last):
   File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/margin_inheritance.py", line 459, in <module>
     main()
   File "/venv/main/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
     return func(*args, **kwargs)
            ^^^^^^^^^^^^^^^^^^^^^
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/margin_inheritance.py", line 350, in main
-    c = compare_by_bucket(evs[ename], allh, seen)
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/venv/main/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/margin_inheritance.py", line 168, in compare_by_bucket
-    hiq_m = iscov & (qidx == 3)
-                     ^^^^
-UnboundLocalError: cannot access local variable 'qidx' where it is not associated with a value
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/margin_inheritance.py", line 409, in main
+    rho = {e: top(e, 'margin_spearman') for e in roles}
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/margin_inheritance.py", line 408, in top
+    return res['sites'][A1][e][f]
+           ~~~~~~~~~~~~~~~~~~~^^^
+KeyError: 'margin_spearman'

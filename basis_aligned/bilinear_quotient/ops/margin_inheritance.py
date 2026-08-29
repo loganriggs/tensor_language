@@ -387,6 +387,12 @@ def main():
                                     [f'p{a4}_{b4}' for a4, b4 in PB]},
                           'allpos_ce': allpos_ce(evs[ename], hk),
                           'top1_prog': c['overall']['top1_acc_prog'],
+                          # carry the three quantities THIS run adds to compare_by_bucket. The row dict
+                          # is a fixed whitelist inherited from an ancestor, so anything new in `out`
+                          # is silently dropped here -- which KeyError'd at the report step after the
+                          # whole arm had run.
+                          'margin_spearman': c['margin_spearman'],
+                          'hiq_hi': c['hiq_hi'], 'hiq_lo': c['hiq_lo'],
                           'n': c['mech_cov']['n']}
         res['sites'][lbl] = row
         print(f'    {lbl:8s} ' + '  '.join(
