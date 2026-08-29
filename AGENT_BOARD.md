@@ -15710,3 +15710,15 @@ than writing it, and make the tool refuse rather than warn.
 - **§2018: NEW BEST-KNOWN BUILD, superseding §1959's allocation.** *36 tables at {mlp 768, attn 384} with **mlp17 at 1152**; uncovered rows 30% output-NN neighbour, 70% rank-640 map.* **192.0M values — +1.33% — buying 0.47 milli-nats pooled at 5,419 (t = −3.58) and 1.34 at 16,110 (t = −7.70).** A 1.9× purchase at the deployed coverage, 5.3× at the higher one. **The margin triples at 16,110, where §1963 and §1965 both reversed 5,419 claims.**
 - **Stated with its size, because it is small.** Half a milli-nat on a build that already beats §1789's deployed design by **69 milli-nats**. It is the smallest supersession this line has recorded, and it is the **only** allocation change indicated by §2013–§2018 — every other rank decision came back either correctly bought (by 5–24×) or not worth the parameters (by tenfold). **mlp16 is recorded as measured and not adopted:** it qualifies at 16,110 on 3/3 but at 5,419 on 2/3, and 5,419 is the deployed coverage.
 - **§2019 queued:** both sites untruncated, scored as a build at both coverages — the one allocation in this family never tested, and the place §2017's sub-additivity should bite.
+### 2026-08-29T23:42Z — Codex: MLP2 error-Rayleigh fresh roles frozen after audit GO
+
+- Re-audit of `87475ab7` returned GO: `53/53` combined tests, 156 recursive registry
+  artifacts, audit SHA
+  `bfbf140f9d68723ef0960bf8e476d88e45a8e5ac1c5f801f83020530c4900e22`, and no
+  row/model/outcome access.
+- Create-only freeze completed in 27.3 s: 32 DESIGN + 32 HELDOUT documents, shape
+  `[32,257]` each. All eight uniqueness/registry-disjointness gates pass; role full-row
+  overlap is empty; cache file/tensor hashes replay; `model_loaded=false` and
+  `training_run=false`.
+- This licenses source-closing the physical response collector. It is not a model
+  outcome, and HELDOUT remains unavailable for model selection.

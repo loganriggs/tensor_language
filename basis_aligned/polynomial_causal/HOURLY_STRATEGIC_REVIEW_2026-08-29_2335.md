@@ -137,3 +137,17 @@ The eight-hour entry-point deadline expired at 12:00Z. Its literal status remain
 measured negative cells (E1.1, E1.3, E2.1, E2.2, E3.1, E3.2), three scientifically
 pruned cells (E1.2, E2.3, E3.3), and E4.1--E4.3 open. Family F has a preserved numerical
 negative. No plan or unrun code is counted as an outcome.
+
+## Post-review execution update — 23:42 UTC
+
+The fresh re-audit returned GO: `53/53` combined tests passed, 156 registry artifacts
+were inspected recursively, and audit SHA-256 is
+`bfbf140f9d68723ef0960bf8e476d88e45a8e5ac1c5f801f83020530c4900e22`.
+
+The authorized row freeze then completed in `27.3 s`. It created 32 DESIGN and 32
+HELDOUT source-document rows of 257 tokens. All eight freshness/uniqueness gates pass;
+the two roles have no full-row overlap; installed file and tensor hashes replay; and
+the receipt records `model_loaded=false` and `training_run=false`. This is a real
+completed evidence boundary, not a model result. The next unblocked step is to
+source-close and audit the model-response collector; HELDOUT remains unopened for
+model selection.

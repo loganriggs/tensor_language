@@ -2436,3 +2436,19 @@ The strict ledger remains unchanged: `5.348245316%` certified storage,
 terminal actions.
 
 ## UPDATE END — 37
+
+## UPDATE START — 38: the fresh split is now validly frozen
+
+The repaired MLP2 error-consequence row transaction passed its fresh independent
+audit (`53/53` combined tests). We then froze 64 new FineWeb documents in 27.3 seconds:
+32 DESIGN documents for fitting the predictor and 32 HELDOUT documents for the
+one-shot test. Every document identity, dataset index, full token row, and 32-token
+prefix is unique and disjoint from all previously registered data. File and tensor
+hashes replay exactly.
+
+No model was loaded and no scientific response was measured during this step. The
+important accomplishment is that the next computation can no longer choose its held-
+out examples after seeing results. The next code boundary is the physical error-
+injection collector; it must be source-closed and audited before opening the model.
+
+## UPDATE END — 38
