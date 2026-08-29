@@ -111,6 +111,15 @@ failure and performs a terminal five-file rehash.
    inverted on all six arm-role comparisons. Treat the signal as a threshold/bucket,
    not a monotone rank; calibrate covered and uncovered regimes separately.
 
+### Reliability update received during final reconciliation
+
+S1926 tested whether token frequency caused S1925's inverted middle quartiles. It did
+not: the inversion remains in all three arms after restricting to the same target-token
+frequency bucket. The extreme-quartile CE gap remains 0.9961, 0.9703, and 0.9769 nat,
+about 80% of the unconditioned gap. This strengthens the case for using the margin as
+a binary or bucketed abstention signal, while closing the line against treating it as
+a smooth rank. It does not change any strict explanation ledger.
+
 ## Pruned
 
 - Further generic fallback-rank expansion: the rank-512 reliability gain does not
