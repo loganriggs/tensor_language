@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import hashlib
+import io
 import json
 import os
 from pathlib import Path
@@ -24,6 +25,7 @@ for source_root in (ROOT, HERE):
 
 import bilin18_observed_model_facade as facade
 import mlp2_cmr_v1_validation_runtime as runtime
+import validate_mlp2_cmr_v1 as v1
 
 
 AMENDMENT = HERE / "MLP2_CMR_V1R_FINALIZATION_AMENDMENT.md"
@@ -89,14 +91,9 @@ EXPECTED_PARENTS = {
     "calibration_role_manifest": "6073c2fd38ad3287c6b7349f2d99aae41c0e98655961255fc18ba4c7c4b745a2",
     "calibration_role_receipt": "6a0dad2f7df3dd17d20fc16df15c03b47c3ef0da30fd65c1cc2149d762709a21",
 }
-SOURCE_CLOSURE = (
+SOURCE_CLOSURE = tuple(dict.fromkeys((
     AMENDMENT, Path(__file__).resolve(), HERE / "test_finalize_mlp2_cmr_v1r.py",
-    HERE / "validate_mlp2_cmr_v1.py",
-    HERE / "test_validate_mlp2_cmr_v1.py",
-    HERE / "mlp2_cmr_v1_validation_runtime.py",
-    HERE / "mlp2_cmr_v1_validation_statistics.py",
-    HERE / "bilin18_observed_model_facade.py",
-)
+) + tuple(v1.SOURCE_CLOSURE)))
 FORBIDDEN_KEYS = {
     "raw_logits", "native_logits", "candidate_logits", "per_token_losses",
     "validation_targets", "rows", "tokens", "targets", "products", "states",
@@ -129,6 +126,11 @@ def write_create_only_guarded(
             os.fsync(target.fileno())
         before_link()
         os.link(temporary, path)
+        directory = os.open(path.parent, os.O_RDONLY | os.O_DIRECTORY)
+        try:
+            os.fsync(directory)
+        finally:
+            os.close(directory)
     finally:
         temporary.unlink(missing_ok=True)
 
@@ -169,6 +171,16 @@ def reject_forbidden_payloads(value: Any, path: tuple[str, ...] = ()) -> None:
             reject_forbidden_payloads(child, path)
 
 
+def stable_read(path: Path, expected_sha256: str) -> bytes:
+    before = file_sha256(path)
+    data = path.read_bytes()
+    captured = hashlib.sha256(data).hexdigest()
+    after = file_sha256(path)
+    if not (before == captured == after == expected_sha256):
+        raise RuntimeError(f"unstable or unexpected protected bytes: {path.name}")
+    return data
+
+
 def current_protected() -> tuple[dict[str, str], dict[str, str], bool]:
     v1 = {name: file_sha256(path) for name, path in V1_PATHS.items()}
     parents = {name: file_sha256(path) for name, path in PARENT_PATHS.items()}
@@ -202,17 +214,70 @@ def guard_all(
     validate_claim(nonce, inode)
 
 
-def _json_parent(name: str) -> Any:
-    return json.loads(PARENT_PATHS[name].read_bytes())
+_CAPABILITY_KEY = object()
 
 
-def replay_v1() -> tuple[dict[str, Any], dict[str, Any]]:
-    if not AUTHORITY.exists():
-        raise RuntimeError("v1R authority must exist before v1 parsing")
-    old_authority = json.loads(V1_AUTHORITY.read_bytes())
-    old_failure = json.loads(V1_FAILURE.read_bytes())
-    old_result = json.loads(V1_RESULT.read_bytes())
-    ledger = torch.load(V1_LEDGER, map_location="cpu", weights_only=True)
+class ReplayCapability:
+    __slots__ = (
+        "_authority", "_authority_hash", "_consumed", "_inode", "_nonce",
+        "_source_hashes",
+    )
+
+    def __init__(
+        self, key: object, authority: dict[str, Any], authority_hash: str,
+        source_hashes: dict[str, str], nonce: str, inode: tuple[int, int],
+    ) -> None:
+        if key is not _CAPABILITY_KEY:
+            raise RuntimeError("ReplayCapability cannot be constructed directly")
+        self._authority = authority
+        self._authority_hash = authority_hash
+        self._source_hashes = source_hashes
+        self._nonce = nonce
+        self._inode = inode
+        self._consumed = False
+
+    def consume(self) -> None:
+        if self._consumed:
+            raise RuntimeError("v1R replay capability was already consumed")
+        guard_all(
+            self._source_hashes, self._nonce, self._inode, self._authority_hash,
+        )
+        captured = stable_read(AUTHORITY, self._authority_hash)
+        if json.loads(captured) != self._authority:
+            raise RuntimeError("v1R authority semantics changed")
+        self._consumed = True
+
+
+def mint_replay_capability(
+    authority: dict[str, Any], authority_hash: str, source_hashes: dict[str, str],
+    nonce: str, inode: tuple[int, int],
+) -> ReplayCapability:
+    guard_all(source_hashes, nonce, inode, authority_hash)
+    captured = stable_read(AUTHORITY, authority_hash)
+    if json.loads(captured) != authority:
+        raise RuntimeError("v1R authority semantics changed before capability mint")
+    validate_claim(nonce, inode)
+    return ReplayCapability(
+        _CAPABILITY_KEY, authority, authority_hash, source_hashes, nonce, inode,
+    )
+
+
+def replay_v1(capability: ReplayCapability) -> tuple[dict[str, Any], dict[str, Any]]:
+    if not isinstance(capability, ReplayCapability):
+        raise RuntimeError("v1R replay requires a sealed capability")
+    capability.consume()
+    v1_bytes = {
+        name: stable_read(path, EXPECTED_V1[name]) for name, path in V1_PATHS.items()
+    }
+    parent_bytes = {
+        name: stable_read(path, EXPECTED_PARENTS[name])
+        for name, path in PARENT_PATHS.items()
+    }
+    old_authority = json.loads(v1_bytes["authority"])
+    old_failure = json.loads(v1_bytes["failure"])
+    old_result = json.loads(v1_bytes["result"])
+    ledger = torch.load(io.BytesIO(v1_bytes["ledger"]), map_location="cpu", weights_only=True)
+    v1.validate_parent_dag(parent_bytes)
     if old_authority.get("parents") != EXPECTED_PARENTS or old_result.get(
         "parents"
     ) != EXPECTED_PARENTS or old_failure.get("parents") != EXPECTED_PARENTS:
@@ -256,12 +321,11 @@ def replay_v1() -> tuple[dict[str, Any], dict[str, Any]]:
     )):
         raise RuntimeError("v1 result schema changed")
     reject_forbidden_payloads(old_result)
-    role_receipt = _json_parent("role_receipt")
+    role_receipt = json.loads(parent_bytes["role_receipt"])
     if old_result.get("role_summary") != role_receipt.get("summary"):
         raise RuntimeError("v1 role summary does not replay published role receipt")
-    correction = _json_parent("correction")
-    suffix_result = _json_parent("suffix_result")
-    import validate_mlp2_cmr_v1 as v1
+    correction = json.loads(parent_bytes["correction"])
+    suffix_result = json.loads(parent_bytes["suffix_result"])
     protocol = v1.derive_protocol_audits(
         old_result, expected_support_hashes=correction["support_hashes"],
         expected_selector_audit=suffix_result["gauge_and_permutation_audit"],
@@ -290,8 +354,8 @@ def replay_v1() -> tuple[dict[str, Any], dict[str, Any]]:
         old_result.get("call_ledger", {})
     ) or old_result.get("precision_audit", {}).get("passed") is not True:
         raise RuntimeError("v1 runtime evidence does not replay")
-    fit_result = _json_parent("fit_result")
-    calibration_result = _json_parent("calibration_result")
+    fit_result = json.loads(parent_bytes["fit_result"])
+    calibration_result = json.loads(parent_bytes["calibration_result"])
     if old_result.get("support_hashes") != correction["support_hashes"] or old_result.get(
         "fit_reference"
     ) != {
@@ -339,7 +403,10 @@ def main() -> None:
         )
         authority_hash = file_sha256(AUTHORITY)
         guard_all(source_hashes, nonce, inode, authority_hash)
-        old_result, score = replay_v1()
+        capability = mint_replay_capability(
+            authority, authority_hash, source_hashes, nonce, inode,
+        )
+        old_result, score = replay_v1(capability)
         decision = {
             "schema_version": 1, "experiment_id": experiment_id,
             "status": "v1r_semantic_replay_complete",
@@ -380,6 +447,7 @@ def main() -> None:
             guard_all(source_hashes, nonce, inode, authority_hash, include_result=result_hash)
             if RECEIPT.exists() or FAILURE.exists():
                 raise RuntimeError("v1R terminal namespace changed")
+            validate_claim(nonce, inode)
         write_create_only_guarded(RECEIPT, canonical_json_bytes(receipt), before_link=receipt_guard)
     except BaseException as error:
         if inode is not None and authority_hash is not None and AUTHORITY.exists() and not (
@@ -407,6 +475,7 @@ def main() -> None:
                 }
                 if current != snapshot or RECEIPT.exists() or FAILURE.exists():
                     raise RuntimeError("v1R failure snapshot changed")
+                validate_claim(nonce, inode)
             try:
                 write_create_only_guarded(FAILURE, canonical_json_bytes(failure), before_link=failure_guard)
             except BaseException:

@@ -40,9 +40,13 @@ def test_binary_and_tensor_payloads_are_forbidden(value: object) -> None:
 
 
 def test_v1_replay_refuses_to_parse_before_v1r_authority(monkeypatch, tmp_path) -> None:
-    monkeypatch.setattr(finalizer, "AUTHORITY", tmp_path / "absent.json")
-    with pytest.raises(RuntimeError, match="authority must exist"):
-        finalizer.replay_v1()
+    with pytest.raises(RuntimeError, match="sealed capability"):
+        finalizer.replay_v1(object())
+
+
+def test_capability_cannot_be_constructed_directly() -> None:
+    with pytest.raises(RuntimeError, match="cannot be constructed"):
+        finalizer.ReplayCapability(object(), {}, HASH, {}, "n", (1, 2))
 
 
 def test_frozen_v1_snapshot_and_receipt_absence_match() -> None:
@@ -59,4 +63,3 @@ def test_source_declares_distinct_create_only_namespace_and_no_model_path() -> N
     assert "replication_access_authorized\": False" in source
     assert "write_create_only_guarded(RECEIPT" in source
     assert "RECEIPT.exists() or FAILURE.exists()" in source
-
