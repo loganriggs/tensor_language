@@ -52225,8 +52225,13 @@ change in covered-arm agreement enrichment against the all-compiled baseline (7.
   restore attn17   7.65  7.88  7.93   (+0.45 +0.59 +0.28)      restore mlp0..17 7.19  7.29  7.64   (+0.00 x 18 sites)
 ```
 
-> **All eighteen MLP restorations are +0.00 to two decimal places, and this is derivable rather than
-> measured.** **[CORRECTED at §1897: I wrote "EXACTLY +0.00". That was a two-decimal display. Measured
+> **~~All eighteen MLP restorations are +0.00 to two decimal places, and this is derivable rather than
+> measured.~~ [RETRACTED at §1898 — the DERIVATION is wrong. Restoring an MLP changes up to 1,321 /
+> 1,350 / 650 predicted tokens, ~3.5% of scored positions, measured directly rather than through the
+> permutation-null ratio. The +0.00 AGREEMENT reading is real and survives — MLP restorations move
+> predictions in ways nearly neutral to model-agreement — but they are not no-ops and §1765 does not
+> imply they are. The behavioural conclusion that the tracking is carried by ATTENTION stands and is
+> sharpened: attention restorations change up to 96.6% of positions, 27x the MLP maximum.]** **[CORRECTED at §1897: I wrote "EXACTLY +0.00". That was a two-decimal display. Measured
 > to four decimals at 16,110 coverage the largest MLP |gain| is 0.0023 / 0.0042 / 0.0000 — inside any
 > reasonable bar, but not exactly zero. The derivation predicts the raw AGREEMENT is bit-identical; what
 > is measured here is the enrichment, whose permutation-null denominator carries sampling variance. I
@@ -52585,3 +52590,57 @@ different eval composition).
 it must beat. Mine: **the raw-agreement numerator for the MLP restorations**, which would turn §1891's
 derivation from "consistent with, to four decimals" into "exact, as derived" — one line, and it closes the
 only loose end in the mechanism line.
+
+## §1898 — RETRACTION: the MLP no-op is not a derivation. Restoring an MLP changes ~3.5% of predictions.
+
+`ops/mlp_noop_exact.py`, 171.8s, **DISCOVERY ONLY**, rung 2 — closing the loose end §1897 named.
+**pred_a False | pred_b True | pred_c True | pred_d True.**
+
+Instead of the permutation-null ratio, this compares the **predicted tokens themselves**: all 36 sites
+compiled, versus that site left live, counting positions whose argmax changes.
+
+```
+  MLP restorations, positions whose predicted token CHANGES (of 36864 / 36864 / 18432)
+    largest         1321 (3.58%)   1350 (3.66%)    650 (3.53%)
+  attention, for contrast
+    largest        96.56%          96.19%         96.89%
+    attn5          35596           35458          17858
+    attn13         15181           15462           8097
+  self-comparison  0               0              0
+```
+
+> **RETRACTION. §1891's "all eighteen MLP restorations are a provable no-op" is withdrawn, and it was
+> stated as a derivation rather than a measurement.** I wrote: with the other 35 sites compiled the
+> residual stream is a function of the current token alone (§1765), an MLP is position-wise, therefore a
+> live MLP on a context-free stream returns precisely its own table value. **Restoring an MLP changes up
+> to 1,321 / 1,350 / 650 predicted tokens — about 3.5% of scored positions. The argument is wrong.**
+>
+> I also told Codex on the board (07:19Z) that this "is a hard constraint on any per-site story, yours
+> included." **It is not a constraint. That message needs the correction and gets it below.** To their
+> credit their 08:00Z summary already wrote it as *"at most 0.0042 rather than proven exactly zero"* —
+> more careful than my own wording, before this run existed.
+
+**Where the argument fails, offered as a hypothesis and labelled as one.** §1888 and §1890 both taught me
+not to publish an explanation for a residual without measuring it, so: the substitution replaces each
+site's **output**, but bilin18's blocks thread a **value residual `v1` and the initial embedding `x0`**
+through `blk(x, v1, x0)`, and `v1` is computed from the live attention internals rather than from the
+substituted output. The compiled program's `v1` therefore need not equal the length-1 model's, so the
+stream entering a restored MLP need not be the length-1 stream, and the MLP's output need not equal its
+table row. **That is a candidate, not a finding. It is one run to check and I have not run it.**
+
+**The size of the effect is worth recording alongside the retraction.** An MLP restoration changes ~3.5%
+of predictions while moving the agreement enrichment by at most **0.0042** (§1897). So MLP restorations
+change predictions in ways that are **nearly neutral to model-agreement** — they neither help nor hurt
+fidelity, they just move. §1891's *behavioural* conclusion — that the tracking is carried by attention,
+not by MLPs — survives this retraction and is if anything sharpened: attention restorations change up to
+**96.6%** of positions, twenty-seven times the MLP maximum.
+
+**pred_b PASSED** (attention changes up to 96.56 / 96.19 / 96.89%), the known-answer check that the
+comparison can detect change at all — registered because §1889 taught me a degenerate test can read as a
+result. **pred_c PASSED**: attn5 changes **35,596** positions against attn13's **15,181**, so "how much a
+site changes" and "how much it harms" order the same way, and §1892's norm account is consistent with
+both. **pred_d PASSED**: the all-compiled arm compared against itself differs at **0** positions.
+
+**Open.** The `v1` / `x0` hypothesis above, which is one run. And §1891's per-site *behavioural*
+localisation stands — it was measured, not derived — so the cost question handed to Codex is unaffected:
+the 18 MLP sites still carry no agreement, they simply are not inert in the stronger sense I claimed.

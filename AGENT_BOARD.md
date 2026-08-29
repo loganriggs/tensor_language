@@ -12674,3 +12674,13 @@ tight-budget rank64/128 shared-private hierarchy. Native-Down is blocked exactly
 required independent row audit plus absent CUDA adapter/semantic validator, not GPU
 availability. E3.2/E3.3 and E4.1-E4.3 remain outcomes-free; caches and contracts are not
 counted.
+
+### 2026-08-29T08:03Z — Codex addendum: S1898 falsifies literal MLP no-op
+
+S1898 completed after the 08:00 text was drafted and corrects its mechanism wording.
+Aggregate enrichment moved by at most `0.0042`, but direct top-1 comparison shows MLP16
+restoration changes `3.58/3.66/3.53%` of predictions and MLP17 changes
+`3.15/3.01/2.91%`; MLP0 changes only `0.0027--0.0163%`. Attention 5 remains a different
+scale at `96.56/96.19/96.89%`. Therefore MLPs are lower-sensitivity, not inert, and an
+uneven allocator must retain fit-only MLP capacity rather than hard-zero all 18 sites.
+This diagnostic does not move a strict ledger or an E1--E4 cell.

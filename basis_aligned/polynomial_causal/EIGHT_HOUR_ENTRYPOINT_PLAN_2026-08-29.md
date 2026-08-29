@@ -323,11 +323,13 @@ strict ledger.
   prunes direct-sum/HOSVD canonicalization with these projectors and redirects the
   native-Down successor toward reachable/observable balancing. Static result:
   `FIXED_PROJECTOR_QUADRATIC_CLOSURE_RESULT_2026-08-29.md`.
-- S1897 is a measured whole-program mechanism replication, not an E cell. At 16,110
+- S1897/S1898 are measured whole-program mechanism diagnostics, not E cells. At 16,110
   covered types, attention 13 is still the best restoration on all roles and attention
-  5 still collapses the program. MLP gains are at most 0.0042 enrichment—not proven
-  exactly zero. The result motivates a fit-only uneven rank allocation but cannot be
-  used as its sealed evaluation evidence.
+  5 still collapses the program. MLP gains are at most 0.0042 enrichment, but direct
+  comparison shows that late MLP restorations change up to 3.66% of predicted tokens;
+  attention 5 changes about 96%. Thus MLPs are lower-sensitivity rather than inert.
+  The results motivate a fit-only uneven rank allocation but cannot be used as its
+  sealed evaluation evidence.
 
 ## Eight-hour ordering and resource allocation
 

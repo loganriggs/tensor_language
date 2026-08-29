@@ -1,0 +1,50 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+THE MLP NO-OP, TESTED DIRECTLY | buckets ((0, 0), (1, 4), (5, 24), (25, 124), (125, 1000000000)) on the fit-row count of the TRUE target | full-rank settled program | DISCOVERY ONLY
+  built the settled fallback and 36 tables (5s)
+
+  === all-compiled baseline: skip7000 36864 scored positions  skip11000 36864 scored positions  skip1200 18432 scored positions ===
+    self-comparison differs at 0 positions (must be 0)
+    restore mlp0   skip7000      1 (0.0027%)  skip11000      2 (0.0054%)  skip1200      3 (0.0163%)   [1/36]
+    restore mlp1   skip7000     48 (0.1302%)  skip11000     56 (0.1519%)  skip1200     22 (0.1194%)   [2/36]
+    restore mlp2   skip7000     49 (0.1329%)  skip11000     46 (0.1248%)  skip1200     23 (0.1248%)   [3/36]
+    restore mlp3   skip7000    100 (0.2713%)  skip11000     70 (0.1899%)  skip1200     37 (0.2007%)   [4/36]
+    restore mlp4   skip7000    445 (1.2071%)  skip11000    403 (1.0932%)  skip1200    212 (1.1502%)   [5/36]
+    restore mlp5   skip7000    592 (1.6059%)  skip11000    564 (1.5299%)  skip1200    272 (1.4757%)   [6/36]
+    restore mlp6   skip7000    589 (1.5978%)  skip11000    596 (1.6168%)  skip1200    288 (1.5625%)   [7/36]
+    restore mlp7   skip7000    308 (0.8355%)  skip11000    306 (0.8301%)  skip1200    136 (0.7378%)   [8/36]
+    restore mlp8   skip7000    300 (0.8138%)  skip11000    283 (0.7677%)  skip1200    125 (0.6782%)   [9/36]
+    restore mlp9   skip7000    467 (1.2668%)  skip11000    436 (1.1827%)  skip1200    233 (1.2641%)   [10/36]
+    restore mlp10  skip7000    395 (1.0715%)  skip11000    415 (1.1258%)  skip1200    150 (0.8138%)   [11/36]
+    restore mlp11  skip7000    563 (1.5272%)  skip11000    601 (1.6303%)  skip1200    257 (1.3943%)   [12/36]
+    restore mlp12  skip7000    492 (1.3346%)  skip11000    444 (1.2044%)  skip1200    224 (1.2153%)   [13/36]
+    restore mlp13  skip7000    517 (1.4025%)  skip11000    504 (1.3672%)  skip1200    246 (1.3346%)   [14/36]
+    restore mlp14  skip7000    494 (1.3401%)  skip11000    496 (1.3455%)  skip1200    235 (1.2750%)   [15/36]
+    restore mlp15  skip7000    855 (2.3193%)  skip11000    796 (2.1593%)  skip1200    377 (2.0454%)   [16/36]
+    restore mlp16  skip7000   1321 (3.5834%)  skip11000   1350 (3.6621%)  skip1200    650 (3.5265%)   [17/36]
+    restore mlp17  skip7000   1163 (3.1548%)  skip11000   1109 (3.0084%)  skip1200    537 (2.9134%)   [18/36]
+    restore attn0   skip7000      3 (0.0081%)  skip11000      8 (0.0217%)  skip1200      0 (0.0000%)   [19/36]
+    restore attn1   skip7000    316 (0.8572%)  skip11000    331 (0.8979%)  skip1200    142 (0.7704%)   [20/36]
+    restore attn2   skip7000    882 (2.3926%)  skip11000    935 (2.5363%)  skip1200    416 (2.2569%)   [21/36]
+    restore attn3   skip7000   1835 (4.9778%)  skip11000   1903 (5.1622%)  skip1200    901 (4.8882%)   [22/36]
+    restore attn4   skip7000   6237 (16.9189%)  skip11000   6271 (17.0112%)  skip1200   3058 (16.5907%)   [23/36]
+    restore attn5   skip7000  35596 (96.5603%)  skip11000  35458 (96.1860%)  skip1200  17858 (96.8859%)   [24/36]
+    restore attn6   skip7000  34227 (92.8467%)  skip11000  33998 (92.2255%)  skip1200  17135 (92.9633%)   [25/36]
+    restore attn7   skip7000  14158 (38.4060%)  skip11000  14508 (39.3555%)  skip1200   6929 (37.5922%)   [26/36]
+    restore attn8   skip7000   7845 (21.2809%)  skip11000   7972 (21.6254%)  skip1200   3748 (20.3342%)   [27/36]
+    restore attn9   skip7000   8382 (22.7376%)  skip11000   8581 (23.2775%)  skip1200   4171 (22.6291%)   [28/36]
+    restore attn10  skip7000  11273 (30.5800%)  skip11000  11214 (30.4199%)  skip1200   5515 (29.9208%)   [29/36]
+    restore attn11  skip7000   8200 (22.2439%)  skip11000   8112 (22.0052%)  skip1200   3889 (21.0992%)   [30/36]
+    restore attn12  skip7000   9089 (24.6555%)  skip11000   9107 (24.7043%)  skip1200   4377 (23.7467%)   [31/36]
+    restore attn13  skip7000  15181 (41.1811%)  skip11000  15462 (41.9434%)  skip1200   8097 (43.9290%)   [32/36]
+    restore attn14  skip7000   8236 (22.3416%)  skip11000   8496 (23.0469%)  skip1200   4465 (24.2242%)   [33/36]
+    restore attn15  skip7000   4997 (13.5552%)  skip11000   5522 (14.9794%)  skip1200   2446 (13.2704%)   [34/36]
+    restore attn16  skip7000   7016 (19.0321%)  skip11000   6723 (18.2373%)  skip1200   2945 (15.9776%)   [35/36]
+    restore attn17  skip7000   5877 (15.9424%)  skip11000   6070 (16.4659%)  skip1200   2876 (15.6033%)   [36/36]
+
+  THE MLP NO-OP IS EXACT (zero positions change, 18 sites) -> False  skip7000 max changed 1321  skip11000 max changed 1350  skip1200 max changed 650
+  and ATTENTION is not a no-op (>=1% somewhere) -> True  skip7000 max 96.56%  skip11000 max 96.19%  skip1200 max 96.89%
+  and attn5 changes MORE than attn13 -> True  skip7000 attn5 35596 vs attn13 15181  skip11000 attn5 35458 vs attn13 15462  skip1200 attn5 17858 vs attn13 8097
+  coverage 16110, 36 sites, self-check 0 -> control True
+
+pred_a False | pred_b True | pred_c True | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/mlp_noop_exact_results.json (171.8s)

@@ -13,6 +13,14 @@ is `0.0042`. Because the compiled one-token construction makes MLP restorations 
 tautological, this is evidence about the simplified program's interaction geometry,
 not proof that native MLPs are causally irrelevant.
 
+S1898 then tested literal top-1 changes rather than the aggregate enrichment ratio and
+falsified the no-op claim directly. Restoring MLP0 changes only `0.0027--0.0163%` of
+predictions, but late MLPs change substantially more: MLP16 changes
+`3.58 / 3.66 / 3.53%` and MLP17 changes `3.15 / 3.01 / 2.91%`. These are still far
+below attention 5's `96.56 / 96.19 / 96.89%`, but they are not zero. The lesson is
+that enrichment can hide offsetting token changes; uneven allocation must price MLPs
+as lower-sensitivity sites, not inert sites.
+
 Second, the new fixed-projector quadratic test is a completed negative result. The
 frozen early-MLP rank-64 bases have more mixed quadratic energy in MLP1/MLP2 than
 matched random subspaces; their rank-128 union is worse again. Doubling contraction
@@ -55,9 +63,10 @@ state through all nonlinear RMSNorm/residual interfaces without native calls.
    subset and a late pair, but fresh four-role rows, attention adapters, scorer/bootstrap
    authority and result lifecycle are missing. E4.1--E4.3 remain outcomes-free.
 4. **Uneven whole-program cost.** S1897 shows a stable late-attention interaction
-   profile, while current table rank is spent uniformly. No fit-only allocation has yet
-   beaten the frozen CE frontier at exact price. Restoration gain cannot itself be used
-   to select and evaluate on the same roles.
+   profile, and S1898 shows a smaller but nonzero late-MLP profile, while current table
+   rank is spent uniformly. No fit-only allocation has yet beaten the frozen CE frontier
+   at exact price. Restoration gain cannot itself be used to select and evaluate on the
+   same roles.
 5. **OOD/selective editing.** Existing prose content coordinates transport poorly to
    code, and no current simplified coordinate has passed removal plus OOD collateral
    checks.
@@ -72,10 +81,12 @@ falsifiability, GPU cost, and redundancy.
    local reconstruction. It is the highest-return experiment, but is blocked by the
    independent row audit and CUDA adapter.
 2. **Fit-only uneven table-rank allocation.** S1897 supplies replicated evidence that
-   uniform price is mismatched to the compiled program's interaction structure. Use
-   fit-only predictive eigenvalues/causal sensitivities to allocate ranks, then score
-   sealed CE and KL at the exact frozen prices. This is cheaper than a new semantic
-   circuit and directly improves the executable whole-program frontier.
+   uniform price is mismatched to the compiled program's interaction structure. S1898
+   forbids setting all MLP ranks to zero: direct prediction changes reach 3.66% at late
+   MLPs even where enrichment barely moves. Use fit-only predictive eigenvalues/causal
+   sensitivities to allocate ranks, then score sealed CE and KL at the exact frozen
+   prices. This is cheaper than a new semantic circuit and directly improves the
+   executable whole-program frontier.
 3. **One terminal copy/induction extraction-removal-OOD cell.** This would be the first
    direct validation of whether a simplicity measure supports practical interpretation,
    but it has more row/adapter/lifecycle blockers than rank allocation.
@@ -87,7 +98,7 @@ falsifiability, GPU cost, and redundancy.
    rank-512 hierarchy, typed dictionaries, and SAE rotations remain pruned.
 
 Pruned this hour: direct-sum/HOSVD based on the v3 correction bases; their union;
-declaring MLP restoration effects exactly zero; using restoration gain as an additive
+declaring MLP restoration effects zero; using restoration gain as an additive
 circuit score; more global scaling; rank-512 shared dictionaries; norm matching; and
 exact same-depth Family-F gate merging, which already meets its arithmetic-rank lower
 bound.
@@ -105,4 +116,3 @@ This is a real CPU evidence outcome, not an unrun runner. It does not count as E
 E4 evidence and does not move the strict ledgers. The higher-priority native-Down run
 was not executed because its own frozen protocol explicitly requires an independent
 row audit and a measurement adapter that do not yet exist.
-
