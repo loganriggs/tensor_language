@@ -1145,3 +1145,47 @@ model behavior, rather than whether they reconstruct all 1152 residual coordinat
 
 Full curves, equations, price accounting, canonicalization comparison, and caveats
 are in `COPY_EDGE_SHARED_HOSVD_FINDINGS.md`.
+
+## 21. **NEW UPDATE: the MLP0 compression and copy-gate compression compose**
+
+The new 256-dimensional copy state gave us a concrete test of the older C512 MLP0
+program.  C512 keeps MLP0's exact input normalization, Left/Right maps, and
+coordinatewise products, but replaces its large `Down` matrix by a rank-512 program
+that is 72% smaller.
+
+We crossed native/C512 MLP0 with native/shared-HOSVD L8 copy gates on 96 disjoint
+cached documents.  All six preregistered gates pass.
+
+C512 preserves the L8 copy state $z$ extremely well:
+
+- $R^2=0.9955$ on all scored positions;
+- cosine `0.9985`;
+- it removes **99.63%** of the $z$ error caused by deleting MLP0.
+
+This last comparison shows the score is not vacuous: deleting MLP0 raises aggregate
+CE by `2.591` nat and copy CE by `2.801` nat.  MLP0 matters enormously, and C512
+preserves almost all of what this downstream copy consumer needs.
+
+Behaviorally:
+
+- C512 alone changes aggregate CE by `+0.00220` nat and actually improves copy CE by
+  `0.00208` nat;
+- the HOSVD gate alone changes aggregate CE by `-0.00020` and copy CE by `+0.01054`;
+- both together change aggregate CE by only `+0.00264` and copy CE by `+0.00906`;
+- the joint copy top-1 loss is 0.48 percentage point;
+- the non-additive interaction is just `+0.00064` nat aggregate and `+0.00061` on
+  copy positions.
+
+So these are not merely two individually good approximations.  They work on the same
+changed forward trajectory and remain good together.  This is the composability test
+we wanted from a simplicity definition.
+
+The next upstream target is MLP1/MLP2.  Prior work found that C512 changes the induced
+MLP1 write and that deployed MLP2 attenuates much of the discrepancy.  We should now
+judge MLP1/MLP2 candidates by whether they preserve the validated $z$ state, the copy
+edge, and whole-model CE under the already composed C512+HOSVD background.  There is
+no reason to return to more MLP0 token clustering unless that telescope identifies a
+specific missing producer coordinate.
+
+Full computations, definitions, factorial, state metrics, CE/KL/top-1 tables, and
+caveats are in `C512_COPY_GATE_COMPOSITION_FINDINGS.md`.

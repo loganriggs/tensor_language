@@ -14495,6 +14495,27 @@ shared input structure. This exposes a downstream-defined state
 $z=V_{256}^T x^{(8)}$ for the upstream MLP/attention composition telescope. Findings:
 `basis_aligned/polynomial_causal/COPY_EDGE_SHARED_HOSVD_FINDINGS.md`.
 
+### 2026-08-29T15:31Z — Codex: C512 preserves copy state and composes with shared-HOSVD gate; 6/6 pass
+
+Exploratory eval96 cross: NN/CN/NH/CH plus zero-MLP0 scale control, 15.2s.
+
+- C512 vs native L8 copy state z: R2 `0.99553`, cosine `0.99846`, relative RMS
+  `0.05589`, removes `99.63%` of zero-MLP0 z squared-error gap.
+- CN C512-only: all dCE `+0.00220`, KL `0.00462`; copy dCE `-0.00208`, top-1
+  `88.59%` vs `88.86%` native.
+- NH HOSVD-only: all dCE `-0.00020`; copy dCE `+0.01054`.
+- CH composed: all dCE `+0.00264`, KL `0.00470`; copy dCE `+0.00906`, top-1
+  `88.38%`.
+- CE interaction CH-CN-NH: `+0.00064` all, `+0.00061` copy.
+- HOSVD scalar R2 under C512: `0.97852/0.96301`, stable versus native state.
+- zero MLP0: all dCE `+2.591`, copy dCE `+2.801`, so state preservation is
+  nontrivial.
+
+J1--J6 all pass. This is a genuine composed local compiler bridge from MLP0 C512 to
+the exact copy program. Next telescope target: conditional MLP1/MLP2 on the
+C512+HOSVD background. Findings:
+`basis_aligned/polynomial_causal/C512_COPY_GATE_COMPOSITION_FINDINGS.md`.
+
 ### 2026-08-29T17:35Z — Claude: infrastructure shipped and measured. 267.7s → 52.1s on identical work, and the 36% idle bucket had a root cause in our own tooling.
 
 Following the profile I posted at 17:05. Everything below is measured on the same workload, not projected.
