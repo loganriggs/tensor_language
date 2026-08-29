@@ -1,0 +1,28 @@
+S1965 REPOOLED | 4 arms x 1 coverage(s) | DISCOVERY ONLY
+
+########## COVERAGE 16110 ##########
+  [bqlib] coverage 16110 from fineweb_n480_skip80.pt: 36 tables, neighbour index and map solver built (6s)
+  [bqlib] cache HIT  live     skip7000
+  [bqlib] cache HIT  live     skip11000
+  [bqlib] cache HIT  live     skip1200
+  [bqlib] cache HIT  mix30m640 skip7000
+  [bqlib] cache HIT  mix30m640 skip11000
+  [bqlib] cache HIT  mix30m640 skip1200
+  [bqlib] cache HIT  pat20_30m640 skip7000
+  [bqlib] cache HIT  pat20_30m640 skip11000
+  [bqlib] cache HIT  pat20_30m640 skip1200
+  [bqlib] cache HIT  pat25_35m640 skip7000
+  [bqlib] cache HIT  pat25_35m640 skip11000
+  [bqlib] cache HIT  pat25_35m640 skip1200
+  [bqlib] cache HIT  mix25m512 skip7000
+  [bqlib] cache HIT  mix25m512 skip11000
+  [bqlib] cache HIT  mix25m512 skip1200
+
+  §1965 arm is not an improvement once pooled (pooled t >= 0)  -> True
+  but §1967 settled optimum is better pooled at |t| >= 2  -> False
+  and the cheapness vote passes while pooling says the arm is worse  -> True
+  derived controls -> True   coverage_exact=True  inert_pairs_are_inert=True  differing_pairs_do_move=True  buckets_partition=True  live_identical=True  ref_flat30=True
+  reference deviations: flat30 0.000000
+
+pred_a True | pred_b False | pred_c True | pred_z True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/s1965_repooled_results.json (6.0s)

@@ -56276,6 +56276,12 @@ it had never been checked, and I registered pred_c as the boundary test either w
           pat10_40    411.3M    .0259 / .0425 / .0242    +1.29 / +1.30 / +0.30 m
 ```
 
+> [**OVERTURNED §1973.** Pooled across all three roles this arm is **+0.243 milli-nats WORSE** than flat
+> at pooled t = +1.26. The cheapness vote below passes because the arm costs under 0.002 nats on each
+> role *separately*; the evidence says it is not an improvement. The role that made the vote look best,
+> skip1200 at −0.493 m, is the half-sized one (§1971). §1966 corrected this on per-role magnitudes; this
+> is the same correction on the instrument that weights by evidence.]
+>
 > **pred_c PASSED, and it is the boundary I registered it as. At 16,110 the narrow tilt clears the
 > 0.002-nat bar on 3 of 3 roles** — costing **+0.47 / +0.39 / −0.49 milli-nats**, *negative* on skip1200 —
 > while raising the unseen bucket by **+0.12 / +0.09 / +0.22pp**, for **+0.1M** on a 411.2M build.
@@ -56681,3 +56687,45 @@ pairs not, buckets partition, live identical, §1970's published `a30` CE reprod
 §1946–§1971 could be restated with it from cached data, and §1965's boundary claim is the one that most
 needs it** — it rested on 16,110/skip1200, now known to be the half-sized role, and §1966 corrected it on
 other grounds without ever pooling.
+
+## §1973 — §1965's arm is worse pooled while its vote still passes, and the whole tilt axis is worth nothing at 16,110
+
+`ops/s1965_repooled.py`, **6.0s**, **DISCOVERY ONLY**, 16,110, **rung 2** — §1972's open question.
+**pred_a True | pred_b False | pred_c True | derived controls True.**
+
+```
+                          per-role paired t                POOLED t    mean
+  §1965 arm vs flat       +1.54 / +1.26 / -1.16             +1.26    +0.243 m   (worse)
+  §1967 optimum vs flat   +0.11 / -0.23 / -0.39             -0.26    -0.021 m   (nothing)
+  per-role ΔCE, milli-nats:  §1965 arm  +0.469 / +0.386 / -0.493
+                             §1967 opt  +0.014 / -0.029 / -0.073
+```
+
+> **pred_c PASSED and it is the demonstration §1972 asked for. A per-role cheapness vote passes 2 of 3 —
+> the arm costs under 0.002 nats on every role, which is exactly what §1965 checked — while the pooled
+> test says the arm is 0.243 milli-nats WORSE.** §1965 concluded the tilt "IS worth shipping at 16,110"
+> from that vote. **The vote and the evidence point opposite ways, and the role that made the vote look
+> best (skip1200, −0.493 m) is the half-sized one (§1971).** §1966 corrected §1965 on per-role magnitudes
+> without pooling; this is the same correction on the instrument that weights by evidence.
+
+> **pred_b FAILED, and I registered its consequence: "the tilt axis gains nothing at this coverage under
+> any instrument and §1967's optimum is a 5,419-only result." That is now the finding. §1967's settled
+> optimum is worth −0.021 milli-nats at 16,110 at pooled t = −0.26** — indistinguishable from zero on
+> 92,160 positions. §1967's *location* claim survives (the optimum sits at the same place within one
+> grid step at both coverages, which §1970 confirmed for α too); its *value* at high coverage does not.
+
+> **So the tilt line closes with a number.** Eight sections — §1963 through §1970 — established a real
+> effect worth **−0.266 milli-nats at 5,419 (§1972, pooled t = −2.23)** and **−0.021 milli-nats at
+> 16,110 (here, t = −0.26)**, against the converged build's **69.238-milli-nat** margin over the deployed
+> design. **0.4% of the margin at one coverage and nothing at the other.** §1967's stopping rule was
+> right to fire and, on this evidence, could have fired three sections earlier.
+
+**Derived controls TRUE** — coverage exact, same-spec pairs inert at covered inputs and differing-spec
+pairs not, buckets partition, live identical, §1967's published `flat` CE reproduced to **0.000000** via
+`B.ref()`. Fifty-fourth clean reading.
+
+**Open.** Two claims in this arc have now been overturned by changing the *instrument* rather than the
+data — §1965 by pooling, §1961's "flat" by the one-step-error rule — and in both cases the artifacts
+needed were already on disk. **The remaining 2-of-3 conclusions in §1946–§1972 have not been re-read
+under pooling, and doing so costs no GPU.** The ones where skip1200 was a *supporting* vote are the ones
+at risk, and §1946–§1972 does not currently record which those are.
