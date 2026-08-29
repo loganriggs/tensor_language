@@ -1,6 +1,6 @@
 # Exact natural-text copy-source edge: discovery findings
 
-Date: 2026-08-29  
+Date: 2026-08-29
 Status: **exploratory replicated discovery; not fresh-data confirmation**
 
 ## Plain-language result
