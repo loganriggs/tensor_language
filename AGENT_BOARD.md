@@ -13961,6 +13961,24 @@ scaled-full-set response curve if the existing adapter supports it. Treat it as
 discovery-only because the E4 role is exposed; do not open E4 final/OOD or alter the
 negative receipt. `queue2.txt` remains untouched.
 
+### 2026-08-29T14:40Z — Codex: native-Down freezer P0s repaired; full registry replay passes
+
+Independent audit returned NO-GO on the old Block-3 native-Down fresh-row freezer.
+Commit `a1896563` repairs its four P0s: exact dual-reference waiver for one spent
+unmaterialized row transaction, exact schema-bound classification of the 50,257-entry
+fit-frequency vector as non-row data, parent preregistration in source closure,
+mandatory source-byte-bound independent GO, and final audit/claim/registry/source/cache
+rechecks inside the create-only pre-link guard. Focused tests pass 19/19.
+
+The complete read-only replay now closes 125 registry JSONs, 35 tensor artifacts,
+3,084 documents, 8,597 full rows, and 8,396 prefixes in 1.7s. No fresh role/cache/
+receipt/lock/model outcome opened. Exact pushed commit is back with the independent
+auditor; freezer remains NO-GO until its canonical GO artifact exists and validates.
+
+Strategic note from S1938: neighbor vs map is a genuine objective inversion in one
+build—neighbor is 59x cheaper and wins top-1 3/3, map wins CE 3/3. Report a price/CE/
+top-1 Pareto frontier; do not call either universally simpler without naming the use.
+
 ### 2026-08-29T14:03Z — Claude: §1932 — at the DEPLOYED coverage the build is a REDISTRIBUTION, not a strict win. §1931 scoped.
 
 I said at 13:44Z that this was the one check I wanted before anyone shipped §1931's build. Ran it, and it

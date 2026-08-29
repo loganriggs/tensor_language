@@ -173,3 +173,92 @@ whether the blocker is code, data/cache, or lifecycle approval.
 Nothing is blocked by a need for user authority. The next safe work is to finish the
 row-freezer audit and freeze the full-cube contract with displacement controls; the
 next model execution must wait for its own prospective authority.
+
+## 14:40 UTC addendum — execution and strategy moved again
+
+### Opposing simplicity objectives were confirmed in one build
+
+The S1938 discovery run scored the nearest-neighbor, rank-64 map, and rank-512 map
+fallbacks on identical positions with both top-1 and CE. The earlier cross-run
+inversion is real:
+
+| Fallback | Approximate fallback price | Pooled top-1 relative to map64 | Pooled CE relative to map64 |
+|---|---:|---:|---:|
+| nearest covered output row | 0.09M | **+0.61 / +0.41 / +0.60 pp** | **+0.00730 / +0.01614 / +0.00568 nat worse** |
+| rank-64 map | 5.308M | baseline | baseline |
+| rank-512 map | 42.467M | +0.22 / +0.12 / +0.08 pp | -0.04465 / -0.04832 / -0.04070 nat better |
+
+All arms are exactly identical at covered inputs. The inversion occurs only on the
+24--25% of positions whose current input token lacks a stored row. The neighbor wins
+top-1 in four target-frequency buckets but is structurally poor when the correct target
+was unseen in fit: its unseen-bucket CE is about `1.06--1.16` nat worse than the
+rank-512 map.
+
+This is direct evidence about the usefulness of simplicity definitions:
+
+- literal price alone favors the neighbor;
+- top-1 extraction also favors the neighbor;
+- probabilistic faithfulness and the model's training objective favor the map;
+- no scalar simplicity score can choose between them without first naming the intended
+  use.
+
+The correct object is a Pareto frontier: price, CE, top-1, and behavior-specific
+consequences remain separate coordinates. A future executable hybrid cannot gate on
+the unknown target-frequency bucket; it must predict which fallback to trust from
+available input/context state, then beat both arms on untouched data at its charged
+gate price.
+
+### The four-head interaction experiment is now an executable mathematical contract
+
+`TERMINAL_COPY_INTERACTION_CUBE_V1_PREREGISTRATION.md` freezes all 16 subsets, the ten
+missing pair/triple arms, a scaled-full-set curve, per-layer displacement norm and
+alignment statistics, the complete signed Möbius reduction, and strict claim
+boundaries. `terminal_copy_interaction_cube_v1.py` passes four known-answer tests.
+This is infrastructure, not a new model outcome; launch remains NO-GO pending rows,
+dispatcher, scorer, lifecycle, audit, and authority.
+
+### The native-Down row blocker was audited, repaired, and replayed
+
+The independent audit correctly returned NO-GO on the old freezer despite its 12
+passing tests. It found four P0 defects: one intentionally unmaterialized historical
+row reference aborted the census, the parent preregistration was missing from source
+closure, no independent-audit artifact was enforced, and the final protected-state
+checks were not inside the create-only writer immediately before `os.link`.
+
+The repair at pushed commit `a1896563` now:
+
+- allows only the two exact registry JSON references to the same hash-bound spent
+  authority/failure pair;
+- schema-validates and hash-binds one 50,257-entry fit-frequency vector that the
+  generic filename heuristic had incorrectly classified as row data;
+- includes the parent preregistration in source closure;
+- requires an independent outcome-blind GO binding every source byte;
+- reruns claim, audit, source, registry, parquet, installed-cache, and namespace checks
+  immediately before the receipt hard link;
+- passes 19 focused tests and `py_compile`.
+
+The complete read-only census now passes over 125 registry files, 35 tensor artifacts,
+3,084 prior source documents, 8,597 full rows, and 8,396 prefixes. No cache, receipt,
+lock, fresh role, checkpoint, or scientific outcome was opened. A second independent
+audit of exact commit `a1896563` is running. Until it produces and validates a canonical
+GO artifact, the freezer remains NO-GO.
+
+### Updated top five
+
+1. **Finish the native-Down row re-audit and, only after GO, freeze the fresh role.**
+   This is now closest to a full executable experiment and tests the strongest
+   one-ninth-size polynomial program.
+2. **Finish the 16-subset copy-cube physical scorer/lifecycle.** The mathematical
+   contract is frozen; the remaining work is exact tensor instrumentation and a new
+   role. It remains the best behavior-specific causal route.
+3. **Build a conditional copy macrostate only if the cube localizes a sparse term.**
+   This prevents another broad unconditional replacement and gives a falsifiable
+   selective-removal target.
+4. **Run the MLP0/MLP1/MLP2/attention composition telescope.** This measures
+   compensation and is required before independent simplifications can form a whole
+   program.
+5. **Estimate the downstream-Fisher basis if subset effects are diffuse.** It is the
+   principled behavior-weighted fallback when head identity is not the right basis.
+
+The neighbor/map hybrid is useful compiler engineering but remains below these five:
+it improves a frontier rather than identifying the missing causal program.
