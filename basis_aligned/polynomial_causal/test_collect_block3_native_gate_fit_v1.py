@@ -57,8 +57,11 @@ def test_collector_contract_prices_two_pass_fit_without_native_mlp3():
     assert collector.PREFILTER == 1024
     assert collector.POSITION_STOP - collector.POSITION_START == 192
     assert collector.ROW_COUNT * collector.TOKENS_PER_ROW == 92_160
-    assert not collector.PAYLOAD.exists()
-    assert not collector.RECEIPT.exists()
+    # Before execution both were absent; after the authoritative transaction the
+    # payload is valid only under its terminal receipt and without a failure file.
+    assert collector.PAYLOAD.exists() == collector.RECEIPT.exists()
+    if collector.PAYLOAD.exists():
+        assert not collector.FAILURE.exists()
 
 
 def test_create_json_is_exclusive_and_never_overwrites(tmp_path):
