@@ -55407,3 +55407,49 @@ table axis moved the fallback's map rank (§1949), and the operating point moved
 (§1948). **Neither has been re-opened a second time**, so it is not established that this is a fixed
 point rather than one step of an alternation. One more pass over the table axis with the rank-512
 fallback would settle it, and it costs about six seconds.
+
+## §1950 — it is a fixed point: the alternation converged in one step and the cost arc is closed at 16,110
+
+`ops/fixed_point_check.py`, **5.8s**, **DISCOVERY ONLY**, 16,110, **rung 2** — a convergence check.
+**All four predictions TRUE.**
+
+§1948 moved the attention tradeoff when the operating point moved; §1949 moved the fallback's map rank
+when the tables were truncated. Each axis had been re-opened **once** against the other and each moved
+once, which does not distinguish a fixed point from one step of an alternation that would keep walking.
+This re-opens the **table** axis a second time, with §1949's rank-512 fallback in place.
+
+```
+  16,110, fallback fixed at mix25m512, marginal nats per 100M   (7000 / 11000 / 1200)
+    1024/256 -> 768/256     0.0073 / 0.0079 / 0.0073     <- still under §1947's 0.010 threshold
+    768/256  -> 640/160     0.0130 / 0.0141 / 0.0130     <- still crosses it
+    attn 384 -> 256         0.0034 / 0.0038 / 0.0034     <- attention still not worth buying
+```
+
+> **pred_a PASSED 3/3: the table knee did not move.** With a rank-512 fallback rather than rank-256, the
+> 0.010 nats/100M threshold is still crossed **between {768,256} and {640,160}** — the same crossing
+> §1947 found. **pred_b PASSED 3/3: the attention share did not move either** — going from attn 384 down
+> to 256 still costs only 0.0034–0.0038 nats/100M, so the extra capacity is still not worth buying, as
+> §1948 found under the weaker fallback.
+>
+> **pred_c PASSED: `(tables {mlp 768, attn 256}, fallback mix25m512)` is a FIXED POINT of the
+> alternation.** Neither axis wants to move again after the other has moved. **The cost arc is closed at
+> 16,110.**
+
+**pred_d PASSED** with the polarity checked for this lineage: a rank-differing arm **does** move
+covered-input predictions, an identical-spec arm does **not**, buckets partition, live per-cell top-1 and
+CE identical at 0.00e+00, and the {768,256} arm reproduced §1949's **published** CE to **0.000004 nats**
+— thirty-sixth clean reading.
+
+**The converged build at 16,110 — `fb_mix25m512`, 360.792M:** 36 context-free tables at **mlp rank 768 /
+attention rank 256**, uncovered rows filled with **25% output-NN neighbour + 75% rank-512
+embedding→row map**. Against §1931's superseded best-known at the same 360.723M budget it is **~0.011
+nats better on all three roles**; against the full-rank 689.457M build it is **46% cheaper** for ~0.007
+nats; and no cheaper build in the sweep beats §1931's on either instrument (§1947).
+
+**How the arc got here, and what each step was worth.** §1937 found the fallback's form had been chosen
+on one instrument; §1938 showed the instruments disagreed; §1942 found the two forms are orthogonal in
+row space and closed that fork by blending; §1944–§1945 made the blend cheaper than the map it replaced;
+§1946 composed it with §1928's allocation and superseded the best-known build; §1947–§1950 located both
+knees and proved them stable. **The single largest gain in the whole arc was §1946's repricing —
+truncating the tables, which was never a fallback question at all — and the fallback work that occupied
+§1937–§1945 bought roughly a tenth as much.** Both are in the final build.

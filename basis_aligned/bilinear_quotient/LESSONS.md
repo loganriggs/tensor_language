@@ -2154,3 +2154,32 @@ morning. Sometimes the right fix for a failure mode is to make failing cheap rat
 **The rule that did generalise** is LESSON 80's: a new gate check is not done when it catches its
 motivating case — run it against every script and require a zero verdict delta on the ones you have not
 changed. All three variants above died on that test, and each took about two minutes to kill.
+
+## LESSON 83 — reference labels must be NAMES, never string literals. This is the fix; the checker was not.
+
+**Five times on 2026-08-29** a fork renamed or dropped an arm and left a string literal behind pointing at
+it — `res[c][r]['map64']`, `armR['blend_full']`, `armR['blend_mlpheavy_anchor']`,
+`armR['map512_mlpheavy']` twice, the last inside an f-string with **double** quotes so my own sweep of
+the single-quoted form missed it. Every one was a `KeyError` **after** the run finished its GPU work.
+
+I spent real time trying to detect them. **Four static gate checks, all measured against the corpus, all
+rejected** (LESSON 82): 218/227 false positives, then 2/82 that skipped the very population at risk, then
+35/178, then 43 verdict changes. The check is not the answer.
+
+**The answer is one line of convention.** Bind the reference labels next to the plan that defines them:
+
+```python
+PLAN = (('mix25m256', MLPHEAVY, 'blend_mlpheavy'), ...)
+REF = 'blend_mlpheavy'        # paired-t and inertness reference
+KNEE_LAB = 'blend_768_256'
+```
+
+and index with `armR[REF]`, never `armR['blend_mlpheavy']`. A rename then breaks the **definition**, and
+an undefined name is exactly what the gate has caught since LESSON 80. **The same mistake changes from
+undetectable to detected, with no new checker and no false positives.**
+
+**The general rule.** When a bug class resists detection, check whether it resists because the code is
+written in a form the tools cannot see. Moving the information from a string into a binding is usually
+cheaper than teaching a checker to read strings — and it is the reason the fifth instance was the last
+one. The corollary that cost me a run: when you *do* sweep literals, sweep both quote styles and inside
+f-strings.

@@ -1,0 +1,111 @@
+{
+  "authority_sha256": "606362f7f79a50ac00101c7dfde5f0e7cca87ba8b5b49bf45c917c3b22a36441",
+  "bundle_sha256": "043bb52b9580d9c9c342460e5bb80ff579db01486b3b6c6672bf5fba77e46f8e",
+  "captured_mlp2_calls": 48,
+  "checkpoint": {
+    "config_sha256": "428042bfd807ba36f8b4326395440fbbebe52cd3d040212e6fef14a4fdf2d83c",
+    "logit_vocab": 50304,
+    "revision": "ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240",
+    "snapshot": "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240",
+    "tokenizer_vocab": 50257,
+    "weights_bytes": 2067738635,
+    "weights_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3"
+  },
+  "fit_observations": 30801,
+  "forward_calls": 48,
+  "gauge_audit": {
+    "LOCAL": {
+      "maximum_relative_score_error": 3.296384984893207e-16,
+      "top512_jaccard": 1.0
+    },
+    "MASS": {
+      "maximum_relative_score_error": 4.3208897943015767e-16,
+      "top512_jaccard": 1.0
+    },
+    "RMS": {
+      "maximum_relative_score_error": 3.1593636606021375e-16,
+      "top512_jaccard": 1.0
+    }
+  },
+  "outcome_access": {
+    "finite_candidate_evaluated": false,
+    "logits_constructed": false,
+    "loss_or_accuracy_computed": false,
+    "raw_logits_published": false,
+    "raw_products_published": false,
+    "suffix_selector_fitted": false,
+    "targets_accessed": false
+  },
+  "parents": {
+    "token_manifest": "8b8f3155a21b73af8b89278b9f09c60bf82fd965a7723e046e191415c5d57bb4",
+    "token_receipt": "47113c255bf47f9d1c7369639fab39664c71f93134099babadcce9d89a011e85",
+    "token_rows": "3ed0192993095f7de70ab7f1350d091b6c1d8c4c7d0583fd5f0f6441556e4aa6"
+  },
+  "program_price": {
+    "fraction_native_mlp2_values": 0.1111754068716094,
+    "retained_products": 512,
+    "stored_scalar_values": 1770624
+  },
+  "role_use": {
+    "FIT_MEAN": "opened_for_product_moments",
+    "FIT_SELECTOR": "not_used_in_model",
+    "REPLICATION": "not_used_in_model",
+    "VALIDATION": "not_used_in_model"
+  },
+  "runtime_seconds": 10.536710500717163,
+  "schema": "mlp2_cmr_v1_fit_mean_result",
+  "score_summaries": {
+    "LOCAL": {
+      "maximum": 245427.92605031707,
+      "median": 22237.06911377208,
+      "minimum": 8509.958572642203,
+      "sum": 115520908.03314762
+    },
+    "MASS": {
+      "maximum": 279711.99032965704,
+      "median": 45564.27082279174,
+      "minimum": 10876.982669375107,
+      "sum": 221271303.3889019
+    },
+    "RMS": {
+      "maximum": 350931.98681042285,
+      "median": 22756.75445781264,
+      "minimum": 9259.765827758865,
+      "sum": 119294643.16724616
+    }
+  },
+  "source_commit": "27afa8a19f0d2d5268dfbc5d1b85b733b8266276",
+  "source_hashes": {
+    "basis_aligned/polynomial_causal/MLP2_CMR_V1_FIT_MEAN_ADDENDUM.md": "c90a6d2a59c9d913d37e598cdad65d11104835c85a18cc08a46cc35acac6569d",
+    "basis_aligned/polynomial_causal/MLP2_CMR_V1_PREREGISTRATION.md": "d456e75053de10b378303721a59a03d8a132cf0a0c5226f025bb3b2aa31c340b",
+    "basis_aligned/polynomial_causal/bilin18_observed_model_facade.py": "b62947f772c807259890a9d09dfcbe5e91ad339a0bffa867ab99177fde4c728c",
+    "basis_aligned/polynomial_causal/collect_mlp2_cmr_v1_fit_mean.py": "878fad36f5ba13b8bda5d9ddaab130ca2524d17f7e916d115ebd2cac4974d753",
+    "basis_aligned/polynomial_causal/test_collect_mlp2_cmr_v1_fit_mean.py": "1e8401c9d4b4d8ca58033621f890981b38a909d9650f8c7dc570703c49944618",
+    "jacclust/tt_model.py": "49ecdbd6c060ff5b3e57f3134d87ba32841390c891c42e6ae23b71d8627612b2"
+  },
+  "status": "fit_mean_and_local_controls_complete_no_suffix_or_validation",
+  "tensor_hashes": {
+    "mean": "b2cef41fdd6c0d72d26e783299403403738eb7a79a4143f810b0444aa2a5a14f",
+    "scores": {
+      "LOCAL": "a45e5599ed86542fb00edfcc6dd142bd40d49b8ee3e4ed202242d383e91cef9d",
+      "MASS": "c9d6e3cea561686ab6d37135f81e148c504cef8c13fe7bace3e97add4f555398",
+      "RMS": "cf8bd67f3c903887a9e287b6d8b2de642989bfe1c68cebc3291bcf7883022949"
+    },
+    "second_moment": "8156f1f17c7132d6e3d5faacd59caf87d31d5696d3d5bd1e5f69a31039b4d5ef",
+    "supports": {
+      "LOCAL": "02087087ac6684e4c2beb982e48b2734a26cabde170ff8e7cf247797a601b8ff",
+      "MASS": "a418e3d54020a6b9ecb47d5f67f79b6406fe25f82e44516f27da6287e7be52e1",
+      "RANDOM": "dd6b1b9a8a81626546031993529dd0f98cb789a0bcfd255fac7a2e5021d8fe10",
+      "RMS": "9e7576c7f66da71ad6a99b6ec7d29ba3ba51926d5a1f77d8e367b7f7fc06c2e4"
+    },
+    "variance": "810fe71f1b3af1fb5619ff8829e7706bc3d7d0b4ee3721682099475bd10c109f"
+  },
+  "top512_support_overlaps": {
+    "LOCAL_MASS": 0.3473684210526316,
+    "LOCAL_RANDOM": 0.04703476482617587,
+    "LOCAL_RMS": 0.9033457249070632,
+    "MASS_RANDOM": 0.05458290422245108,
+    "RMS_MASS": 0.3368146214099217,
+    "RMS_RANDOM": 0.04703476482617587
+  }
+}

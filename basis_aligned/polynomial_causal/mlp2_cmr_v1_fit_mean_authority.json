@@ -1,0 +1,33 @@
+{
+  "authorized_capture": "masked MLP2 product sums and squared sums only",
+  "authorized_forward_calls": 48,
+  "authorized_role": "FIT_MEAN",
+  "experiment_id": "bilin18_mlp2_cmr_v1_fit_mean",
+  "forbidden": [
+    "targets",
+    "loss",
+    "KL",
+    "accuracy",
+    "logits",
+    "raw products",
+    "FIT_SELECTOR",
+    "VALIDATION",
+    "REPLICATION"
+  ],
+  "parents": {
+    "token_manifest": "8b8f3155a21b73af8b89278b9f09c60bf82fd965a7723e046e191415c5d57bb4",
+    "token_receipt": "47113c255bf47f9d1c7369639fab39664c71f93134099babadcce9d89a011e85",
+    "token_rows": "3ed0192993095f7de70ab7f1350d091b6c1d8c4c7d0583fd5f0f6441556e4aa6"
+  },
+  "schema_version": 1,
+  "source_commit": "27afa8a19f0d2d5268dfbc5d1b85b733b8266276",
+  "source_hashes": {
+    "basis_aligned/polynomial_causal/MLP2_CMR_V1_FIT_MEAN_ADDENDUM.md": "c90a6d2a59c9d913d37e598cdad65d11104835c85a18cc08a46cc35acac6569d",
+    "basis_aligned/polynomial_causal/MLP2_CMR_V1_PREREGISTRATION.md": "d456e75053de10b378303721a59a03d8a132cf0a0c5226f025bb3b2aa31c340b",
+    "basis_aligned/polynomial_causal/bilin18_observed_model_facade.py": "b62947f772c807259890a9d09dfcbe5e91ad339a0bffa867ab99177fde4c728c",
+    "basis_aligned/polynomial_causal/collect_mlp2_cmr_v1_fit_mean.py": "878fad36f5ba13b8bda5d9ddaab130ca2524d17f7e916d115ebd2cac4974d753",
+    "basis_aligned/polynomial_causal/test_collect_mlp2_cmr_v1_fit_mean.py": "1e8401c9d4b4d8ca58033621f890981b38a909d9650f8c7dc570703c49944618",
+    "jacclust/tt_model.py": "49ecdbd6c060ff5b3e57f3134d87ba32841390c891c42e6ae23b71d8627612b2"
+  },
+  "status": "authority_frozen_before_checkpoint_or_model_access"
+}

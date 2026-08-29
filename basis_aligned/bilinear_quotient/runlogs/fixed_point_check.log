@@ -1,0 +1,67 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+FIXED POINT CHECK at 16,110 | table axis re-opened with the §1949 fallback mix25m512 | DISCOVERY ONLY
+
+########## COVERAGE 16110 ##########
+  [bqlib] coverage 16110 from fineweb_n480_skip80.pt: 36 tables, neighbour index and map solver built (5s)
+  [bqlib] cache HIT  live     skip7000
+  [bqlib] cache HIT  live     skip11000
+  [bqlib] cache HIT  live     skip1200
+  [bqlib] cache HIT  mix25m256 skip7000
+  [bqlib] cache HIT  mix25m256 skip11000
+  [bqlib] cache HIT  mix25m256 skip1200
+  [bqlib] cache HIT  mix25m512 skip7000
+  [bqlib] cache HIT  mix25m512 skip11000
+  [bqlib] cache HIT  mix25m512 skip1200
+  [bqlib] cache HIT  mix25m512 skip7000
+  [bqlib] cache HIT  mix25m512 skip11000
+  [bqlib] cache HIT  mix25m512 skip1200
+  [bqlib] cache HIT  mix25m512 skip7000
+  [bqlib] cache HIT  mix25m512 skip11000
+  [bqlib] cache HIT  mix25m512 skip1200
+  [bqlib] cache HIT  mix25m512 skip7000
+  [bqlib] cache HIT  mix25m512 skip11000
+  [bqlib] cache HIT  mix25m512 skip1200
+  [bqlib] cache HIT  mix25m512 skip7000
+  [bqlib] cache HIT  mix25m512 skip11000
+  [bqlib] cache HIT  mix25m512 skip1200
+  [bqlib] cache HIT  mix25m512 skip7000
+  [bqlib] cache HIT  mix25m512 skip11000
+  [bqlib] cache HIT  mix25m512 skip1200
+
+  skip7000
+    blend_mlpheavy     [ 339.558M]  top1 14.12% (+0.00pp)  CE 5.88609 (+0.00000, t +0.00)
+    blend_full         [ 710.691M]  top1 14.08% (-0.04pp)  CE 5.87265 (-0.01344, t -15.37)
+    blend_1024_256     [ 440.335M]  top1 14.11% (-0.01pp)  CE 5.87600 (-0.01009, t -16.96)
+    blend_768_384      [ 400.563M]  top1 14.16% (+0.05pp)  CE 5.88154 (-0.00455, t -13.25)
+    blend_768_256      [ 360.792M]  top1 14.11% (-0.01pp)  CE 5.88341 (-0.00268, t -10.54)
+    blend_640_160      [ 291.191M]  top1 13.83% (-0.29pp)  CE 5.89518 (+0.00908, t +15.70)
+    blend_512_128      [ 241.477M]  top1 13.76% (-0.36pp)  CE 5.91043 (+0.02434, t +25.72)
+    1024->768 0.0093 | 768->640 0.0169 | attn 384->256 0.0047  nats/100M
+
+  skip11000
+    blend_mlpheavy     [ 339.558M]  top1 14.82% (+0.00pp)  CE 5.83249 (+0.00000, t +0.00)
+    blend_full         [ 710.691M]  top1 14.82% (+0.00pp)  CE 5.81812 (-0.01437, t -16.31)
+    blend_1024_256     [ 440.335M]  top1 14.93% (+0.11pp)  CE 5.82267 (-0.00981, t -16.09)
+    blend_768_384      [ 400.563M]  top1 14.84% (+0.02pp)  CE 5.82779 (-0.00469, t -12.91)
+    blend_768_256      [ 360.792M]  top1 14.84% (+0.02pp)  CE 5.82982 (-0.00267, t -9.56)
+    blend_640_160      [ 291.191M]  top1 14.71% (-0.11pp)  CE 5.84198 (+0.00949, t +16.04)
+    blend_512_128      [ 241.477M]  top1 14.63% (-0.19pp)  CE 5.85808 (+0.02560, t +26.84)
+    1024->768 0.0090 | 768->640 0.0175 | attn 384->256 0.0051  nats/100M
+
+  skip1200
+    blend_mlpheavy     [ 339.558M]  top1 14.09% (+0.00pp)  CE 5.86357 (+0.00000, t +0.00)
+    blend_full         [ 710.691M]  top1 14.20% (+0.11pp)  CE 5.85260 (-0.01098, t -8.99)
+    blend_1024_256     [ 440.335M]  top1 14.20% (+0.11pp)  CE 5.85451 (-0.00907, t -10.68)
+    blend_768_384      [ 400.563M]  top1 14.13% (+0.04pp)  CE 5.85894 (-0.00463, t -9.03)
+    blend_768_256      [ 360.792M]  top1 14.13% (+0.04pp)  CE 5.86029 (-0.00328, t -8.41)
+    blend_640_160      [ 291.191M]  top1 13.81% (-0.28pp)  CE 5.86933 (+0.00576, t +7.03)
+    blend_512_128      [ 241.477M]  top1 13.73% (-0.36pp)  CE 5.88273 (+0.01916, t +14.61)
+    1024->768 0.0073 | 768->640 0.0130 | attn 384->256 0.0034  nats/100M
+
+  the TABLE knee held between 768 and 640 (>=2 roles) -> True  3/3
+  and the ATTENTION share held at 256 (>=2 roles) -> True  3/3
+  so (tables 768/256, fallback mix25m512) is a FIXED POINT -> True
+  coverage {'c16110': 16110}, rank-differing arm DOES move covered inputs True, identical-spec arm does NOT True, live identical 0.0e+00, §1946 CE reproduced within 0.000004 nats -> control True
+
+pred_a True | pred_b True | pred_c True | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/fixed_point_check_results.json (5.8s)
