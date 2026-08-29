@@ -54,9 +54,12 @@ class CandidateForwardOwner:
         self._max_relative = 0.0
         self._active = False
         self._closed = False
+        self._failed = False
         self._closure: CandidateOwnerClosure | None = None
 
     def _require_open(self) -> PhysicalCandidateDispatcher:
+        if self._failed:
+            raise RuntimeError("candidate forward owner is failed and cannot be reused")
         if self._closed or self._dispatcher is None:
             raise RuntimeError("candidate forward owner is closed")
         return self._dispatcher
@@ -106,13 +109,17 @@ class CandidateForwardOwner:
             self._native_mlp[event.site] += 1
             return event.block.mlp(event.state)
 
+        success = False
         try:
             logits = facade.forward_with_dispatch(
                 model, tokens, attention, mlp,
                 require_production=require_production,
             )
+            success = True
         finally:
             self._active = False
+            if not success:
+                self._failed = True
         self._batch_calls += 1
         self._document_calls += int(tokens.shape[0])
         return logits

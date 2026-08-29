@@ -200,6 +200,17 @@ class PhysicalCandidateDispatcher(nn.Module):
             or self.width != 1152
             or self.n_head != 9
             or first_value is None
+            or state.dtype != torch.bfloat16
+            or first_value.dtype != torch.bfloat16
+            or any(
+                getattr(self, f"position_mean_{registered_layer}").dtype
+                != torch.float32
+                for registered_layer in NAMED_LAYERS
+            )
+            or any(
+                self.adapters[str(registered_layer)].q.dtype != torch.bfloat16
+                for registered_layer in NAMED_LAYERS
+            )
         ):
             raise ValueError("production candidate state or first-value bus is malformed")
         adapter = self.adapters[str(layer)]

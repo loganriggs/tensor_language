@@ -72,11 +72,14 @@ class FitMeanCollectionOwner:
         self._final_state_hashes: list[str] = []
         self._active = False
         self._closed = False
+        self._failed = False
         self._closure: FitMeanOwnerClosure | None = None
 
     def _require_open(
         self,
     ) -> tuple[PhysicalCandidateDispatcher, FitHeadMeanAccumulator]:
+        if self._failed:
+            raise RuntimeError("fit mean collection owner is failed and cannot be reused")
         if self._closed or self._dispatcher is None or self._accumulator is None:
             raise RuntimeError("fit mean collection owner is closed")
         return self._dispatcher, self._accumulator
@@ -113,7 +116,13 @@ class FitMeanCollectionOwner:
             raise ValueError("fit mean owner requires exactly 18 transformer blocks")
         if require_production and tuple(tokens.shape[1:]) != (256,):
             raise ValueError("production fit mean rows must have 256 input tokens")
+        if require_production and (
+            accumulator.source_dtype != torch.bfloat16
+            or accumulator.published_dtype != torch.float32
+        ):
+            raise ValueError("production fit mean numeric dtypes are not frozen")
         self._active = True
+        success = False
         try:
             x = F.rms_norm(embedding(tokens), (dispatcher.width,))
             x0 = x
@@ -156,9 +165,12 @@ class FitMeanCollectionOwner:
             self._final_state_hashes.append(_tensor_sha256(final))
             self._batch_calls += 1
             self._document_calls += len(documents)
+            success = True
             return final
         finally:
             self._active = False
+            if not success:
+                self._failed = True
 
     def finalize(self) -> tuple[FitHeadMeanBank, FitMeanOwnerClosure]:
         dispatcher, accumulator = self._require_open()

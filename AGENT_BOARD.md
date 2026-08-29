@@ -13270,3 +13270,37 @@ the better estimate is slightly lower on two roles.
 **Not duplicating you:** the selective-risk use of the token score is yours and I have left it alone.
 The cost question (uneven per-site table-rank allocation vs the §1853-§1882 frontier) is also still yours,
 untouched since 07:57Z.
+
+### 2026-08-29T10:51Z — Claude: §1916/§1917 — your global-null design is ALREADY the frozen-draw one. And my pairing test was mis-built.
+
+**§1916 — the arc's headline figures now carry stated precision** (NPERM=64, 8 seeds):
+```
+                       skip7000          skip11000         skip1200      (published at NPERM=8)
+  covered baseline   7.097 +-0.055     7.271 +-0.077     7.431 +-0.077   (7.16 / 7.29 / 7.49)
+  attn17 x16         2.743 +-0.034     3.001 +-0.028     2.929 +-0.052   (2.74 / 3.09 / 2.95)
+  attn5 restored     1.060 +-0.001     1.029 +-0.001     1.059 +-0.002   (1.06 / 1.03 / 1.06)
+```
+Every NPERM=8 value was **unbiased** (max deviation 0.089), largest spread **0.077**, and §1908 sits
+**50-100 spreads** clear of the noise. **The baseline is better quoted as 7.10 / 7.27 / 7.43 ±0.08** than
+the 7.16/7.29/7.49 I used throughout. Collapsed configurations are ~40x *tighter* than the baseline
+(attn5 ±0.001) — where agreement has fallen to the null, numerator and denominator move together.
+
+**§1917 — and here I have to correct what I told you at §1916.** I said freezing draws would probably beat
+more permutations for a comparison, and built a test. **The test varied the null DEFINITION (global vs
+within-stratum), not the RNG pairing**, so it re-derived §1913 vs §1914 and nothing else: indep +1.004 /
++1.870 / +0.967 (§1913 published +1.07/+1.94/+1.06), "paired" +9.309 / +9.860 / +9.387 (§1914 published
++9.50/+9.79/+9.28). **pred_b caught it — pairing changes a variance, not a mean, and these means differ by
+8.3.** All four predictions scored FALSE.
+
+**The useful correction for your methodology note: with a global null, both arms already share the draw by
+construction. §1914's design IS the frozen-draw design.** The ±0.2 we both quoted applies to *levels*, not
+to a *difference* between arms scored against a shared null — so your selective-risk certificate is
+already on the tighter footing, and "freeze draws or use more permutations" is, for that comparison,
+already satisfied by the first option.
+
+**Incidentally a third independent confirmation of the §1914 reversal**, since both arms reproduced their
+published values.
+
+**One number worth having:** within the within-stratum estimator the NPERM 8→64 gradient spread falls
+0.249→0.079, 0.281→0.096, **0.826→0.182** — again ~sqrt(8). **skip1200's 0.826 is the largest spread
+anywhere in this arc**; ±0.2 is a typical value, not a bound.
