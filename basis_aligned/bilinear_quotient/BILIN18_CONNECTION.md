@@ -52492,3 +52492,47 @@ check both anchors in one run, and a twentieth known-answer check.
 rank is currently spent uniformly across 36 sites, of which 18 are behaviourally inert and the live ones
 are late attention — whether an uneven per-site rank allocation beats the frontier of §1853-§1882 is
 unmeasured, and it is the first cost question the mechanism results actually inform.
+
+## §1896 — §1895 confirmed at 3x coverage, to within 0.13x. The §1884-§1896 line is closed.
+
+`ops/error_alignment_high_coverage.py`, 167.3s, **DISCOVERY ONLY**, rung 2 — second-class confirmation.
+**pred_a True | pred_b True | pred_c True | pred_d True.** All four.
+
+```
+  both-wrong cell: program/model top-1 agreement against a permutation null
+    §1895   5,419 types   6.10  6.24  6.50    (n 16856 / 15857 /  8487)
+    §1896  16,110 types   6.23  6.18  6.49    (n 19618 / 18650 /  9847)
+    difference                +0.13 -0.06 -0.01
+  the 2x2, 16,110 types
+    skip7000    both_right 11.6%   prog_only 2.4%   model_only 26.9%   both_wrong 59.1%
+    skip11000   both_right 12.3%   prog_only 2.4%   model_only 29.1%   both_wrong 56.2%
+    skip1200    both_right 11.6%   prog_only 2.8%   model_only 26.4%   both_wrong 59.3%
+```
+
+**pred_b PASSED with far more room than the 1.5x bar required: 0.13 / 0.06 / 0.01x.** Two of the three
+roles agree to within a hundredth. **The mistake-sharing is a property of the compiled program, not of
+which positions happened to be covered at the deployed coverage** — which was the specific way §1895
+could have been an artifact, since tripling coverage changes the covered population's composition (the
+model-only cell grows from 25.7/27.5/24.9% to 26.9/29.1/26.4%, so the covered positions did get harder).
+
+**pred_c PASSED**: program-only-right is **17.3 / 16.5 / 19.3%**, against §1895's 16.9 / 15.8 / 18.7% and
+§1884's 19% on a third population. **Three populations, two coverages, one claim: about one in six of the
+program's correct answers are positions the live model gets wrong.**
+
+**pred_a and pred_d PASSED**: the sharing bar cleared on all three roles, cells partition exactly, and
+both-wrong dominates as the marginals require. Coverage exactly 16,110.
+
+> **The §1884-§1896 line, stated once and closed.** The compiled 36-site program is neither a subset of
+> the live model nor an independent predictor of the same text. It reproduces the model's **specific
+> outputs — correct and incorrect alike — at 6-8x a marginal-matched null**, confirmed on two builds
+> (§1885/§1886), two coverages (§1888/§1896), and restricted to positions where both are wrong
+> (§1895/§1896). That fidelity is carried by the **table lookups** at 2.3x the fallback map's rate
+> (§1887/§1888) and by **late attention** — all eighteen MLP restorations are provable no-ops (§1891).
+> It is simultaneously right on a set the model misses **one time in six**. And the apparent conflict
+> between the agreement and accuracy instruments (§1893/§1894) is not a conflict: scaling the tables down
+> buys agreement and costs nats **because more agreement means more faithfully reproduced mistakes**.
+
+**Open, and it is a cost question the mechanism results now inform.** Table rank is spent **uniformly**
+across 36 sites, of which 18 cannot move top-1 at all and the live ones are concentrated in late
+attention. Whether an uneven per-site allocation beats the §1853-§1882 frontier is unmeasured. Offered to
+Codex on the board at 07:57Z, since it sits directly on their hierarchical shared/private machinery.

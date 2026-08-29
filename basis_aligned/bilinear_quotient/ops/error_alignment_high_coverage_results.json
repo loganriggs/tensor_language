@@ -1,0 +1,264 @@
+{
+ "config": {
+  "table_ranks": [
+   "full"
+  ],
+  "map_rank_of_table_rank": {
+   "None": 64,
+   "512": 512
+  },
+  "program": "context-free tables, output-NN fallback with a rank-64 embedding->row map -- the settled design of \u00a71780-\u00a71786",
+  "instruments": "top-1 agreement with the live model, top-1 accuracy against the true next token, and KL(live || program). All three are NEW to this thread, which has been CE-only since \u00a71747.",
+  "ROLE_NOTE": "DISCOVERY ONLY; a second-class confirmation with a DIFFERENT instrument, not a replication of the same one."
+ },
+ "results": {
+  "baseline": {
+   "skip7000": 7.159873237897497,
+   "skip11000": 7.293872350283794,
+   "skip1200": 7.488382385483515
+  },
+  "norms": {
+   "mlp0": 0.663410028718902,
+   "mlp1": 0.6705281030769371,
+   "mlp2": 0.7821601545014241,
+   "mlp3": 0.7236681064989947,
+   "mlp4": 0.7100466068968796,
+   "mlp5": 0.7533966928246202,
+   "mlp6": 0.8175107457092852,
+   "mlp7": 0.676118814763302,
+   "mlp8": 0.6708139913353871,
+   "mlp9": 0.6282410537496423,
+   "mlp10": 0.5872326971076759,
+   "mlp11": 0.6534941356128817,
+   "mlp12": 0.511208909978194,
+   "mlp13": 0.582632949918662,
+   "mlp14": 0.7450118915012531,
+   "mlp15": 0.7585037049223103,
+   "mlp16": 0.6881116271038058,
+   "mlp17": 0.6221009889308309,
+   "attn0": 0.16137350650657675,
+   "attn1": 0.12707372989032,
+   "attn2": 0.1341679068426302,
+   "attn3": 0.07693336439377474,
+   "attn4": 0.028283257073027993,
+   "attn5": 0.006946609437872195,
+   "attn6": 0.012963881234043033,
+   "attn7": 0.08057169365723399,
+   "attn8": 0.14102289679708174,
+   "attn9": 0.17371074574113393,
+   "attn10": 0.10313840166365443,
+   "attn11": 0.10628664999516915,
+   "attn12": 0.06623204982284589,
+   "attn13": 0.08708434430263053,
+   "attn14": 0.09413070951083208,
+   "attn15": 0.10465308634953217,
+   "attn16": 0.0802542022885942,
+   "attn17": 0.1071509261531769
+  },
+  "sites": {
+   "g1.00": {
+    "skip7000": {
+     "enrichment": 7.159873237897497,
+     "cells": {
+      "both_right": {
+       "agreement": 1.0,
+       "permutation_null": 0.08601661905998442,
+       "enrichment": 11.625660377358491,
+       "n": 3851
+      },
+      "prog_only": {
+       "agreement": 0.0,
+       "permutation_null": 0.0329192546583851,
+       "enrichment": 0.0,
+       "n": 805
+      },
+      "model_only": {
+       "agreement": 0.0,
+       "permutation_null": 0.02206212155191747,
+       "enrichment": 0.0,
+       "n": 8918
+      },
+      "both_wrong": {
+       "agreement": 0.2211744316444082,
+       "permutation_null": 0.03549036599041697,
+       "enrichment": 6.231956912028725,
+       "n": 19618
+      }
+     },
+     "allpos_ce": 5.905220920866416,
+     "top1_prog": 0.13932291666666666,
+     "n": 33192
+    },
+    "skip11000": {
+     "enrichment": 7.293872350283794,
+     "cells": {
+      "both_right": {
+       "agreement": 1.0,
+       "permutation_null": 0.08005755571883419,
+       "enrichment": 12.491013384321224,
+       "n": 4083
+      },
+      "prog_only": {
+       "agreement": 0.0,
+       "permutation_null": 0.03035935563816605,
+       "enrichment": 0.0,
+       "n": 807
+      },
+      "model_only": {
+       "agreement": 0.0,
+       "permutation_null": 0.02143744821872411,
+       "enrichment": 0.0,
+       "n": 9656
+      },
+      "both_wrong": {
+       "agreement": 0.20310991957104557,
+       "permutation_null": 0.032888739946380696,
+       "enrichment": 6.175667413898513,
+       "n": 18650
+      }
+     },
+     "allpos_ce": 5.852301163901251,
+     "top1_prog": 0.14710828993055555,
+     "n": 33196
+    },
+    "skip1200": {
+     "enrichment": 7.488382385483515,
+     "cells": {
+      "both_right": {
+       "agreement": 1.0,
+       "permutation_null": 0.08307250912884716,
+       "enrichment": 12.03767660910518,
+       "n": 1917
+      },
+      "prog_only": {
+       "agreement": 0.0,
+       "permutation_null": 0.02729257641921397,
+       "enrichment": 0.0,
+       "n": 458
+      },
+      "model_only": {
+       "agreement": 0.0,
+       "permutation_null": 0.021085714285714284,
+       "enrichment": 0.0,
+       "n": 4375
+      },
+      "both_wrong": {
+       "agreement": 0.23489387630750483,
+       "permutation_null": 0.0361658373108561,
+       "enrichment": 6.494910494910496,
+       "n": 9847
+      }
+     },
+     "allpos_ce": 5.8857485228477096,
+     "top1_prog": 0.14013671875,
+     "n": 16597
+    }
+   },
+   "PERSITE": {
+    "skip7000": {
+     "enrichment": 1.800436999271668,
+     "cells": {
+      "both_right": {
+       "agreement": 1.0,
+       "permutation_null": 0.5239637305699483,
+       "enrichment": 1.9085290482076636,
+       "n": 386
+      },
+      "prog_only": {
+       "agreement": 0.0,
+       "permutation_null": 0.00429553264604811,
+       "enrichment": 0.0,
+       "n": 291
+      },
+      "model_only": {
+       "agreement": 0.0,
+       "permutation_null": 0.0027557942340305256,
+       "enrichment": 0.0,
+       "n": 12383
+      },
+      "both_wrong": {
+       "agreement": 0.026872640572223327,
+       "permutation_null": 0.014349046294456587,
+       "enrichment": 1.872782345305063,
+       "n": 20132
+      }
+     },
+     "allpos_ce": 12.868416617634162,
+     "top1_prog": 0.020236545138888888,
+     "n": 33192
+    },
+    "skip11000": {
+     "enrichment": 1.7069258809234509,
+     "cells": {
+      "both_right": {
+       "agreement": 1.0,
+       "permutation_null": 0.5080445544554455,
+       "enrichment": 1.9683313032886725,
+       "n": 404
+      },
+      "prog_only": {
+       "agreement": 0.0,
+       "permutation_null": 0.002074688796680498,
+       "enrichment": 0.0,
+       "n": 241
+      },
+      "model_only": {
+       "agreement": 0.0,
+       "permutation_null": 0.002821522309711286,
+       "enrichment": 0.0,
+       "n": 13335
+      },
+      "both_wrong": {
+       "agreement": 0.024666944213155705,
+       "permutation_null": 0.013680006244796004,
+       "enrichment": 1.803138373751783,
+       "n": 19216
+      }
+     },
+     "allpos_ce": 12.916176637597447,
+     "top1_prog": 0.020263671875,
+     "n": 33196
+    },
+    "skip1200": {
+     "enrichment": 1.7053795877325288,
+     "cells": {
+      "both_right": {
+       "agreement": 1.0,
+       "permutation_null": 0.5334302325581396,
+       "enrichment": 1.8746594005449588,
+       "n": 172
+      },
+      "prog_only": {
+       "agreement": 0.0,
+       "permutation_null": 0.0,
+       "enrichment": 0.0,
+       "n": 127
+      },
+      "model_only": {
+       "agreement": 0.0,
+       "permutation_null": 0.0021241830065359475,
+       "enrichment": 0.0,
+       "n": 6120
+      },
+      "both_wrong": {
+       "agreement": 0.02475928473177442,
+       "permutation_null": 0.014049911573983102,
+       "enrichment": 1.7622377622377623,
+       "n": 10178
+      }
+     },
+     "allpos_ce": 12.795231920550577,
+     "top1_prog": 0.017903645833333332,
+     "n": 16597
+    }
+   }
+  }
+ },
+ "predictions": {
+  "pred_a_mistake_sharing_survives_program_concentrated_on_frequent_targets": true,
+  "pred_b_matches_S1895_more_concentrated_than_live": true,
+  "pred_c_prog_only_right_stays_real_keeps_60pc_on_the_top_bucket": true,
+  "pred_d_controls": true
+ },
+ "runtime_s": 167.3
+}

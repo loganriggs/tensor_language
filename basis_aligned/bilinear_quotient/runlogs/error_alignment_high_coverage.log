@@ -1,0 +1,24 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+ERROR ALIGNMENT AT HIGH COVERAGE | buckets ((0, 0), (1, 4), (5, 24), (25, 124), (125, 1000000000)) on the fit-row count of the TRUE target | full-rank settled program | DISCOVERY ONLY
+  built the settled fallback and 36 tables (5s)
+
+  === all-compiled baseline ===
+    skip7000   covered enrichment  7.16x  (n 33192)
+    skip11000  covered enrichment  7.29x  (n 33196)
+    skip1200   covered enrichment  7.49x  (n 16597)
+    per-site live/table ratios: min 1.2x max 144.0x across 36 sites
+    g1.00    skip7000 CE 5.90522 ( 7.16x)  skip11000 CE 5.85230 ( 7.29x)  skip1200 CE 5.88575 ( 7.49x)   [1/2]
+    PERSITE  skip7000 CE 12.86842 ( 1.80x)  skip11000 CE 12.91618 ( 1.71x)  skip1200 CE 12.79523 ( 1.71x)   [2/2]
+
+  THE 2x2 on covered scored positions, deployed build:
+    skip7000   both_right   3851 (11.6%)  prog_only    805 ( 2.4%)  model_only   8918 (26.9%)  both_wrong  19618 (59.1%)
+    skip11000  both_right   4083 (12.3%)  prog_only    807 ( 2.4%)  model_only   9656 (29.1%)  both_wrong  18650 (56.2%)
+    skip1200   both_right   1917 (11.6%)  prog_only    458 ( 2.8%)  model_only   4375 (26.4%)  both_wrong   9847 (59.3%)
+
+  THEY SHARE THEIR MISTAKES (both-wrong agreement >= 3.0x null) -> True  skip7000 agree 22.12% null 3.55% = 6.23x (n 19618)  skip11000 agree 20.31% null 3.29% = 6.18x (n 18650)  skip1200 agree 23.49% null 3.62% = 6.49x (n 9847)
+  and it MATCHES §1895 within 1.5x -> True  skip7000 6.23x vs §1895 6.10x  skip11000 6.18x vs §1895 6.24x  skip1200 6.49x vs §1895 6.50x
+  and PROGRAM-ONLY-RIGHT is >=10% of its correct predictions -> True  skip7000 805/4656 = 17.3%  skip11000 807/4890 = 16.5%  skip1200 458/2375 = 19.3%
+  coverage 16110, cells partition, both-wrong largest -> control True  skip7000 both_wrong  skip11000 both_wrong  skip1200 both_wrong
+
+pred_a True | pred_b True | pred_c True | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/error_alignment_high_coverage_results.json (167.3s)
