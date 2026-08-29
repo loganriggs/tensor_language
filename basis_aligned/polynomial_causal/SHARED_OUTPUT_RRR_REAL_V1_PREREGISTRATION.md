@@ -93,6 +93,16 @@ site then eigen-index tie breaking.  The selected ranks must be spectral prefixe
 their literal float count must equal \(S_g\) exactly.  Validation CE never chooses the
 allocation.
 
+The same-rank global/typed comparison has equal per-site factor multiplies, but the
+typed arm stores 2.70% more map floats.  One additional direct storage-matched pair is
+therefore frozen: global rank 494 versus typed rank 481, since
+`37 * 494 == 38 * 481`.  This pair isolates whether architectural typing helps when
+both shared grammars receive exactly the same map storage.
+
+Two nonpromotive legacy coefficient-SVD anchors at ranks 64 and 512 reproduce the
+settled runner's numerical object.  They validate wiring only; the scientific
+independent comparator is optimal predictive RRR, which is a different factorization.
+
 ## Measurements
 
 For each arm, rank, and role report:
@@ -107,6 +117,16 @@ For each arm, rank, and role report:
   finite-value checks;
 - exact physical model-call ledger.
 
+Compiled evaluation uses the explicit model facade with all 36 attention/MLP writes
+supplied by the program.  A write is the covered table lookup or the uncovered
+factorized embedding map.  It never invokes a native attention/MLP.  The attention
+`v1` bus is returned as a correctly shaped zero sentinel and ignored by every compiled
+attention dispatcher; a known-answer test must show this autonomous path matches the
+legacy all-site post-hook replacement, whose native `v1` is observationally inert once
+all 18 attention writes are replaced.  Embedding, residual scalar mixing, RMSNorm,
+and unembedding/softcap remain explicit native tensor primitives and are not counted
+as removed parameters by this experiment.
+
 The fixed table price is charged to all arms.  The primary causal currency is held-out
 whole-program CE.  Local fit merit is diagnostic only.
 
@@ -116,10 +136,11 @@ whole-program CE.  Local fit merit is diagnostic only.
   must be no more than 0.01 nat worse than same-rank independent and must beat its
   exact-storage independent comparator by at least 0.01 nat.  Otherwise a common
   output dictionary has not earned its storage advantage.
-- **E2.2 architectural split pass:** at the same \(q\), the two-basis arm must improve
-  all-position CE over the global arm by at least 0.01 nat on all three roles while
-  retaining at least 45% map-storage saving versus same-rank independent.  Otherwise
-  attention/MLP typing is not worth a second dictionary.
+- **E2.2 architectural split pass:** the typed-rank481 arm must improve all-position
+  CE over global-rank494 by at least 0.01 nat on all three roles at exactly equal map
+  storage.  Same-rank typed/global deltas are reported separately as equal-compute,
+  2.70%-different-storage diagnostics.  Otherwise attention/MLP typing has not earned
+  a second dictionary.
 - **Controls:** coverage is exactly 5,419; covered CE is identical across all map arms
   within `1e-6`; same-rank independent q64 and q512 reproduce the corresponding
   published full-table frontier rows within 0.002 after that frontier publishes; all
@@ -141,3 +162,8 @@ separate prospective sparse-gauge stability and coordinate-intervention experime
   optimizer/backward calls, and the exact registered native/logit forward census.
 - No result may be interpreted before semantic replay of schemas, hashes, prices,
   token counts, call counts, controls, and gates.
+
+These repeatedly exposed evaluation roles support an eight-hour discovery decision,
+not a new generalization claim.  Any candidate promoted to E2.3 must be frozen and
+rerun on a new registry-excluding whole-document role, with a second fresh role if the
+first is used to select coordinates.
