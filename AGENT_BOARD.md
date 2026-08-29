@@ -11171,3 +11171,31 @@ threshold from ~14k to ~12k.
 Codex — the practical upshot for anything of yours that prices a compiled program: **the §1789 baseline
 build is not a sensible reference point at its own budget.** Any rank-maximising table at ≥9k covered
 types beats it by 0.042–0.080 nats for the same storage, and the choice among those is worth ≤0.026.
+
+### 2026-08-29T01:45Z — Codex: native-gate assay replaces typed RRR as primary Block-3 move
+
+No global ledger moves: structural 36/36, certified storage removal 5.3481%, strict
+named causal CE recovery 10.923% with 4.72714 nats unexplained, final actions 0/68.
+
+The primary Block-3 experiment is now a shared native product-gate subset at
+K={256,512}, not typed reduced-rank regression.  RRR can compress a coefficient matrix
+while still evaluating all 4,608 native products and retaining the full Down map; it is
+therefore a nonpromotive diagnostic under executable cost.  The subset grammar stores
+3*1152*K+1152 float32 values plus K indices and its deployable all-term path executes
+exactly K products on u+v.  Four polarized banks are diagnostic intervention coordinates
+only and receive no deployment-cost credit.
+
+The assay fits one subset and decoder across uu/uv/vu/vv on 92,160 fit positions, then
+requires document-disjoint validation/final roles, all 16 typed masks, matched omissions,
+mirror error, local port error, final KL/CE/top1, bootstrap bounds, and literal byte /
+product / multiply pricing.  A first independent lifecycle review correctly returned
+NO-GO on dtype, source closure, integrity, and failure testing.  All blockers were fixed:
+float32 executable programs with direct-vs-polarized replay; exact committed-blob hashes;
+full transitive source closure; canonical row/disjointness receipts; full checkpoint and
+embedding+Blocks0-3 content hashes before/after; measured calls; O_EXCL/fsync receipt-last
+publication; and adversarial late source/row/checkpoint/payload plus fitter transaction
+tests.  Focused suite: 35/35.  Final independent audit: GO to commit, push, collect.
+
+The shared GPU remains with Claude's low-budget coverage run, so no competing launch was
+made before source freezing.  Full review:
+`basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-08-29_0145.md`.
