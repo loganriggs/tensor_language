@@ -15,6 +15,11 @@ CELL_NAMES = ("positive", "matched_negative", "off_target")
 COLLATERAL_LIMIT = 0.01
 BOOTSTRAP_REPETITIONS = 10_000
 BOOTSTRAP_SEED = "terminal-copy-v1-document-bootstrap:0"
+FROZEN_CANDIDATES = (
+    "L5H5", "L7H3", "L8H3", "L8H4", "L13H0", "L14H7",
+    "registered_four_head_set", "registered_late_pair",
+)
+REPLICATION_ROLES = ("final_natural", "ood_code")
 
 
 @dataclass(frozen=True)
@@ -45,6 +50,16 @@ class SelectionResult:
     simultaneous_lower_bounds: torch.Tensor
     critical_value: float
     selected_candidate: str | None
+
+
+@dataclass(frozen=True)
+class ReplicationResult:
+    roles: tuple[str, ...]
+    coordinate_names: tuple[str, ...]
+    point_estimates: torch.Tensor
+    simultaneous_lower_bounds: torch.Tensor
+    critical_value: float
+    passed: bool
 
 
 def _support_digest(row: torch.Tensor, mask: torch.Tensor) -> str:
@@ -197,10 +212,15 @@ def pooled_effects(
 def simultaneous_selection_bootstrap(
     ledgers: Mapping[str, Mapping[str, Mapping[str, DocumentCellSums]]],
     *, repetitions: int = BOOTSTRAP_REPETITIONS, seed: str = BOOTSTRAP_SEED,
+    expected_candidates: Sequence[str] = FROZEN_CANDIDATES,
 ) -> SelectionResult:
     """Apply the frozen 24-coordinate one-sided document-cluster selection band."""
 
     candidates, documents = _validate_ledger(ledgers)
+    if candidates != tuple(sorted(expected_candidates)) or len(set(expected_candidates)) != len(
+        expected_candidates
+    ):
+        raise ValueError("selection candidate family differs from the frozen bank")
     if type(repetitions) is not int or repetitions <= 0 or not isinstance(seed, str) or not seed:
         raise ValueError("bootstrap repetitions or seed are malformed")
     point_values = []
@@ -261,3 +281,70 @@ def simultaneous_selection_bootstrap(
         selected_candidate=selected,
     )
 
+
+def _bootstrap_effect_columns(
+    ledger: Mapping[str, Mapping[str, DocumentCellSums]],
+    documents: tuple[str, ...], multiplicities: torch.Tensor,
+) -> tuple[torch.Tensor, torch.Tensor, torch.Tensor]:
+    cells = []
+    for cell in CELL_NAMES:
+        delta = torch.tensor([
+            ledger[document][cell].ablated_nll_sum
+            - ledger[document][cell].native_nll_sum
+            for document in documents
+        ], dtype=torch.float64)
+        count = torch.tensor([
+            ledger[document][cell].n for document in documents
+        ], dtype=torch.float64)
+        denominator = multiplicities @ count
+        if bool((denominator <= 0).any()):
+            raise ZeroDivisionError("bootstrap replicate has zero cell denominator")
+        cells.append((multiplicities @ delta) / denominator)
+    tau_positive, tau_negative, tau_off = cells
+    return tau_positive, tau_positive - tau_negative, COLLATERAL_LIMIT - tau_off
+
+
+def simultaneous_final_ood_bootstrap(
+    role_ledgers: Mapping[str, Mapping[str, Mapping[str, DocumentCellSums]]],
+    *, repetitions: int = BOOTSTRAP_REPETITIONS, seed: str = BOOTSTRAP_SEED,
+) -> ReplicationResult:
+    """Apply the frozen six-coordinate joint final/OOD replication gate."""
+
+    if tuple(sorted(role_ledgers)) != tuple(sorted(REPLICATION_ROLES)):
+        raise ValueError("replication role family differs from the frozen bank")
+    if type(repetitions) is not int or repetitions <= 0 or not isinstance(seed, str) or not seed:
+        raise ValueError("bootstrap repetitions or seed are malformed")
+    point_values = []
+    replicate_columns = []
+    for role in REPLICATION_ROLES:
+        candidates, documents = _validate_ledger({"selected": role_ledgers[role]})
+        assert candidates == ("selected",)
+        effect = pooled_effects(role_ledgers[role])
+        point_values.extend((effect.tau_positive, effect.specificity, effect.collateral_margin))
+        generator = torch.Generator().manual_seed(
+            int.from_bytes(hashlib.sha256(f"{seed}\0{role}".encode()).digest()[:8], "little")
+        )
+        draws = torch.randint(len(documents), (repetitions, len(documents)), generator=generator)
+        multiplicities = torch.zeros(repetitions, len(documents), dtype=torch.float64)
+        multiplicities.scatter_add_(1, draws, torch.ones_like(draws, dtype=torch.float64))
+        replicate_columns.extend(
+            _bootstrap_effect_columns(role_ledgers[role], documents, multiplicities)
+        )
+    point = torch.tensor(point_values, dtype=torch.float64)
+    replicates = torch.stack(replicate_columns, dim=1)
+    maxima = (replicates - point).max(dim=1).values.sort().values
+    critical = float(maxima[math.ceil(0.95 * repetitions) - 1])
+    lower = point - critical
+    names = tuple(
+        f"{role}:{name}"
+        for role in REPLICATION_ROLES
+        for name in ("tau_positive", "specificity", "collateral_margin")
+    )
+    return ReplicationResult(
+        roles=REPLICATION_ROLES,
+        coordinate_names=names,
+        point_estimates=point,
+        simultaneous_lower_bounds=lower,
+        critical_value=critical,
+        passed=bool((lower > 0).all()),
+    )

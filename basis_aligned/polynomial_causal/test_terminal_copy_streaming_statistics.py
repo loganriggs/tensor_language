@@ -65,14 +65,18 @@ def test_candidate_support_mismatch_is_rejected_even_at_equal_counts():
     )
     with pytest.raises(ValueError, match="exact input support"):
         stats.simultaneous_selection_bootstrap(
-            {"a": first, "b": second}, repetitions=20,
+            {"a": first, "b": second}, repetitions=20, expected_candidates=("a", "b"),
         )
 
 
 def test_bootstrap_is_deterministic_shared_and_uses_three_coordinates_per_candidate():
     ledgers = {"b": _ledger(), "a": _ledger(positive=(2.0, 18.0))}
-    first = stats.simultaneous_selection_bootstrap(ledgers, repetitions=200, seed="fixed")
-    second = stats.simultaneous_selection_bootstrap(ledgers, repetitions=200, seed="fixed")
+    first = stats.simultaneous_selection_bootstrap(
+        ledgers, repetitions=200, seed="fixed", expected_candidates=("a", "b"),
+    )
+    second = stats.simultaneous_selection_bootstrap(
+        ledgers, repetitions=200, seed="fixed", expected_candidates=("a", "b"),
+    )
     assert first.coordinate_names == (
         "a:tau_positive", "a:specificity", "a:collateral_margin",
         "b:tau_positive", "b:specificity", "b:collateral_margin",
@@ -86,7 +90,7 @@ def test_bootstrap_zero_denominator_draw_fails_without_redraw():
     ledger = _ledger(counts=(0, 1))
     with pytest.raises(ZeroDivisionError, match="zero cell denominator"):
         stats.simultaneous_selection_bootstrap(
-            {"a": ledger}, repetitions=100, seed="find-zero",
+            {"a": ledger}, repetitions=100, seed="find-zero", expected_candidates=("a",),
         )
 
 
@@ -94,5 +98,25 @@ def test_selection_boundaries_and_lexicographic_tie_are_frozen():
     passing = _ledger(positive=(1.0, 9.0), negative=(-1.0, -9.0), off=(-1.0, -9.0))
     result = stats.simultaneous_selection_bootstrap(
         {"z": passing, "a": passing}, repetitions=200, seed="tie",
+        expected_candidates=("a", "z"),
     )
     assert result.selected_candidate == "a"
+
+
+def test_default_selection_rejects_any_nonfrozen_candidate_family():
+    with pytest.raises(ValueError, match="frozen bank"):
+        stats.simultaneous_selection_bootstrap({"a": _ledger()}, repetitions=20)
+
+
+def test_final_and_ood_use_one_six_coordinate_gate_with_independent_role_draws():
+    passing = _ledger(positive=(1.0, 9.0), negative=(-1.0, -9.0), off=(-1.0, -9.0))
+    result = stats.simultaneous_final_ood_bootstrap(
+        {"final_natural": passing, "ood_code": passing},
+        repetitions=200, seed="replicate",
+    )
+    assert result.coordinate_names == (
+        "final_natural:tau_positive", "final_natural:specificity",
+        "final_natural:collateral_margin", "ood_code:tau_positive",
+        "ood_code:specificity", "ood_code:collateral_margin",
+    )
+    assert result.passed
