@@ -58661,3 +58661,47 @@ end-to-end, at both coverages, against the deployed one, and that is what §2018
 **Open.** Every number here is at 5,419. §1993 and §2008 both found this family stable at 16,110, but
 §1963 and §1965 reversed 5,419 claims twice, and **a 0.0005-nat margin is exactly the size that a coverage
 change could erase.**
+
+## §2018 — NEW BEST-KNOWN BUILD: mlp17 untruncated, 192.0M, and the margin triples at the higher coverage
+
+`ops/candidate_build_mlp17_untruncated.py`, **199.8s**, **DISCOVERY ONLY**, both coverages, rung 3 —
+§2017's open question. **pred_a True | pred_b True | pred_c True | pred_d True | derived controls True.**
+Reference deviation 0.000000.
+
+```
+  nats bought over the shipped build by untruncating mlp17 to rank 1152   (§1947's price: 0.00025)
+                     skip7000   skip11000   skip1200    pooled t
+  5,419              +0.00063    +0.00030   +0.00051      −3.58
+  16,110             +0.00164    +0.00082   +0.00178      −7.70
+
+  mlp16 for comparison  5,419:  +0.00053  +0.00102  −0.00008     (fails: one role negative)
+                       16,110:  +0.00139  +0.00155  +0.00043
+```
+
+> **pred_b and pred_c both PASSED 3/3 at 16,110, and the margin does not merely survive the coverage
+> change — it triples.** The gain rises from 0.30–0.63 milli-nats to **0.82–1.78**, and pooled t from
+> −3.58 to **−7.70** on 92,160 positions. **§1963 and §1965 each reversed a 5,419 claim at this coverage;
+> this one strengthens.**
+
+> **pred_d PASSED: mlp16 clears the price on 2 of 3 roles at 5,419 against mlp17's 3 of 3.** It does clear
+> on 3/3 at 16,110, so **mlp16 is a coverage-dependent purchase and mlp17 is not.** The deployed coverage
+> is 5,419, so **I am recommending mlp17 only** and recording mlp16 as measured but not adopted.
+
+**The new best-known build, superseding §1959's.**
+
+> **36 tables at {mlp 768, attn 384} with mlp17 at its untruncated rank 1152; uncovered rows 30%
+> output-NN neighbour, 70% rank-640 map. 192.0M values at 5,419 coverage** — 189.5M plus 2.52M, a **1.33%
+> price rise** — buying **0.47 milli-nats pooled at 5,419 (t = −3.58) and 1.34 at 16,110 (t = −7.70)**,
+> against a price rule that values those parameters at 0.25 milli-nats. **A 1.9× purchase at the deployed
+> coverage and 5.3× at the higher one.**
+
+**Stated with its size.** This is half a milli-nat on a build whose §1789 predecessor it already beats by
+**69 milli-nats** (§1970). It is the smallest supersession this line has recorded, it is real at
+t = −3.58 and −7.70, and it is the *only* allocation change indicated by §2013–§2018 — every other rank
+decision tested came back either correctly bought (mlp16/17 below 768, by 5–24×) or not worth the
+parameters (the shallow sites, by tenfold).
+
+**Open.** §2017 showed improvements are sub-additive (10–28%) where degradations are super-additive
+(22–24%), so **stacking mlp16's coverage-dependent gain on mlp17's would not add** — and at 16,110, where
+both qualify, the pair has never been scored as a build. That is the only remaining untested allocation in
+this family.
