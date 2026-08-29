@@ -51139,3 +51139,52 @@ binding constraint above rank ~128; this asks whether the *base point* is.
 sections running, without reading `build()` — PRE-FLIGHT A says consult the record before building, and
 the record here is the code. LESSONS 56 already covers stale banners; this is the first case where a
 stale banner propagated into the ledger's prose rather than only into a log header.
+
+## §1872 — two unrelated fallbacks lose nearly the same amount: the residual is common to both, not a choice between them
+
+`ops/neighbour_vs_map_base.py`, 231.6s, **DISCOVERY ONLY**, rung 3 — §1871's open question. **4/4.**
+
+Fallback loss against the uncovered-token ceiling, at the deployed 5,419-type covered set:
+
+```
+  uncovered rows from       skip7000    skip11000    skip1200
+    MAP        Eunc @ mp    +0.78075     +0.86225     +0.83997
+    NEIGHBOUR  output-NN    +0.81101     +0.92575     +0.86346
+    neighbour behind by     +0.03026     +0.06350     +0.02349
+```
+
+**pred_a PASSED: §1785's ordering reproduces on a completely different instrument.** §1785 preferred the
+map over the neighbour by **+0.03** in all-position CE; measured as fallback loss against the ceiling,
+restricted to the uncovered positions where the choice actually applies, the map wins by **+0.030 /
++0.064 / +0.023**. That a number computed on 24% of positions against a per-token ceiling lands on
+§1785's all-position +0.03 is a stronger cross-check of that section than anything it carried itself.
+
+**pred_b PASSED, and it is the finding.** The neighbour is behind by at most **0.064** against a 0.15 bar.
+
+> **Two fallbacks with nothing in common lose almost exactly the same amount.** One is a least-squares
+> **linear map from the token embedding**; the other is a **nearest-neighbour lookup keyed on output
+> distribution similarity** (§1780/§1781). They share no parameters, no fitting procedure and no input
+> representation — and they sit **0.781 and 0.811** nats above a ceiling that both could in principle
+> reach. **The residual is not a property of either construction; it is common to both.**
+
+**What that does to §1871's proposed experiment.** §1871 named "neighbour as a base with the map fitted on
+the residual" as the obvious next form. pred_b's pass says it is *worth one run* — the neighbour is
+competitive enough to be a real base. But two independent constructions landing within 0.06 of each other
+is evidence they are **missing the same thing**, and combining two estimators that fail together is the
+case where combination helps least. I am recording that as the prior the run would be testing against,
+not as a reason to skip it.
+
+**pred_c PASSED at 0.00e+00 for a third time**, now across two constructions rather than two ranks: the
+covered CE is bit-identical between the MAP and NEIGHBOUR arms. Both touch uncovered rows only, and three
+exact zeros across three different manipulations is as strong as this control gets.
+
+**Controls (pred_d).** The MAP arm reproduces §1870's published +0.78075 / +0.86225 / +0.83997 exactly;
+coverage is 5,419; the covered arm attains its ceiling — a twelfth independent confirmation; every
+uncovered scored token has a ceiling row.
+
+**Where the fallback line stands.** §1868 measured the loss (0.78-0.88), §1869/§1870 showed map rank
+recovers a fifth to a quarter of it cheaply and most cheaply on the deployed build (276 M/nat), §1871
+found the neighbour is discarded and the fallback is the map alone, and §1872 finds the neighbour would
+have lost nearly the same. **The remaining ~0.6 nats is what any per-token function built from the token
+embedding or from output-similarity fails to capture about a site's row** — and nothing in the record
+says what that is.

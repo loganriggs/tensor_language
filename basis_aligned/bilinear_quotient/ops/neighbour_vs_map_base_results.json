@@ -1,0 +1,55 @@
+{
+ "run": "neighbour_vs_map_base",
+ "n_covered": 5419,
+ "arms": [
+  "MAP",
+  "NEIGHBOUR"
+ ],
+ "fallback_loss": {
+  "MAP": {
+   "skip7000": 0.7807522945669634,
+   "skip11000": 0.8622487102418157,
+   "skip1200": 0.839971769322065
+  },
+  "NEIGHBOUR": {
+   "skip7000": 0.8110128066269935,
+   "skip11000": 0.9257508567163031,
+   "skip1200": 0.8634623082993373
+  }
+ },
+ "covered_ce": {
+  "MAP": {
+   "skip7000": 6.0346503954442605,
+   "skip11000": 5.978998133661841,
+   "skip1200": 5.964231215357265
+  },
+  "NEIGHBOUR": {
+   "skip7000": 6.0346503954442605,
+   "skip11000": 5.978998133661841,
+   "skip1200": 5.964231215357265
+  }
+ },
+ "neighbour_behind_map": {
+  "skip7000": 0.03026051206003011,
+  "skip11000": 0.06350214647448738,
+  "skip1200": 0.02349053897727238
+ },
+ "covered_spread": 0.0,
+ "ceiling_uncovered": {
+  "skip7000": 5.158606205333687,
+  "skip11000": 5.139473380010885,
+  "skip1200": 5.278934981720323
+ },
+ "uncovered_fraction": {
+  "skip7000": 0.2411566840277778,
+  "skip11000": 0.2540961371527778,
+  "skip1200": 0.2419162326388889
+ },
+ "attainment_exact": true,
+ "predictions": {
+  "pred_a_map_still_wins": true,
+  "pred_b_neighbour_competitive": true,
+  "pred_c_covered_untouched": true,
+  "pred_d_controls": true
+ }
+}

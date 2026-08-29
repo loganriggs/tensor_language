@@ -279,6 +279,29 @@ def gate(path):
                      "indexes curve['full'] -- this KeyErrors in the reporting block, after every "
                      "build has already run")
 
+
+    # LESSONS 64 (generalised): int() applied to a LADDER element when LADDER holds non-numeric names.
+    # The rank-sweep lineage prices storage with int(r); a successor whose ladder holds ARM NAMES or
+    # 'full' dies in the TAIL after every build. Sixth tail-inheritance failure here, and the second
+    # time this exact line did it, so the check is widened from the 'full' special case.
+    # search CODE only: this check fired on its own explanatory comment the first time, exactly as the
+    # curve['full'] one did. `_code` is defined above.
+    _ld = re.search(r'^LADDER\s*=\s*(.+)$', _code, re.M)
+    if _ld and re.search(r'\bint\(\s*[rR]\s*\)', _code):
+        _src = _ld.group(1)
+        # LADDER is often built from another constant (LADDER = list(ARMS2)); resolve one hop, or the
+        # check reads no literals and goes SILENT -- which is exactly how it missed the sixth instance.
+        for _nm in re.findall(r'\b([A-Z][A-Z0-9_]{2,})\b', _src):
+            _o = re.search(rf'^{_nm}\s*=\s*(.+)$', s, re.M)
+            if _o:
+                _src += ' ' + _o.group(1)
+        _lits = re.findall(r"'([^']*)'", _src)
+        _bad = [x for x in _lits if not x.isdigit()]
+        if _bad:
+            fails.append(f'LADDER holds non-numeric entries {_bad} but the code calls int(r) on a '
+                         f'ladder element -- this ValueErrors in the reporting block, after every '
+                         f'build has already run')
+
     # call-arity consistency for the helpers whose return shape varies
     for helper in ('abs_mass',):
         n_ret = [len(n.value.elts) for f in ast.walk(tree)

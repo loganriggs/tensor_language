@@ -1707,3 +1707,32 @@ looked fine. The pattern is now twice-observed and worth stating as a rule:
 (`assert "curve['full']" in broken`), not with a text substitution you assume worked. A fixture that
 silently fails to introduce the bug makes a broken check indistinguishable from a working one, and the
 whole point of the must-fail test is that it can only be trusted if the fixture is verified first.
+
+## LESSONS 65 — I refined one gate check four times and it went SILENT twice; both silences were the fixture or the comments
+
+Adding the generalised LESSONS 64 check (`int(r)` on a LADDER holding non-numeric entries) took four
+attempts, and the failure modes are worth more than the check:
+
+1. **Fired on its own explanatory comment.** The check searched the whole file, and my comment said
+   "rcost() does int(r)". Fixed by searching `_code` with comment lines stripped — **the identical fix I
+   had already applied to the `curve['full']` check an hour earlier and did not carry over.**
+2. **Went silent because LADDER was built from a variable.** `LADDER = list(ARMS2)` has no string
+   literals, so the check read nothing and passed a genuinely broken file. Fixed by resolving one hop to
+   the referenced constant.
+3. **Went silent again on a "guarded" heuristic.** I added a skip for files containing `== 'full'`,
+   reasoning that a guard makes it safe; the broken fixture also contained that string in inherited code,
+   so the check stopped firing on the very file it was written for. Removed the heuristic.
+4. **A fixture that did not contain the defect** — the same LESSONS 52 error as earlier the same night,
+   caught only because I printed whether the pattern was present rather than trusting the edit.
+
+**Two of four failures were the check going silent, and PRE-FLIGHT D exists precisely because that is the
+direction you do not notice.** A check that fires wrongly annoys you into fixing it; a check that stops
+firing looks like success.
+
+**How to apply:** (a) any pattern check over source must read code with comments stripped — make that the
+default, not a per-check fix; (b) resolve one level of indirection before concluding a literal list is
+empty, or the check silently describes nothing; (c) do not add "safe case" skips to a check without
+re-running the must-fail fixture, because a skip is the easiest way to silence it; (d) assert the fixture
+contains the defect before trusting either outcome. The gate ended at 2 of 150 flags, both explained —
+guarded, unreachable `int(r)` in scripts that already ran — which is the state to record rather than
+tune away.
