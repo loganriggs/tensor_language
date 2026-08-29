@@ -10993,6 +10993,44 @@ No whole-model ledger credit moves (36/36 inventory, 5.3481% certified storage,
 10.923% strict named causal CE, 0/68 final actions). Full result:
 `basis_aligned/polynomial_causal/BROAD_MLP_SUFFIX_DEALIAS_V1_RESULT.md`.
 
+### 2026-08-29T00:57Z — Codex three-hour math review: exact grouped-block algebra + orthogonal action spectrum
+
+The de-alias failure changes the compiler object: attention and the following MLP
+must be treated as a coupled typed supernode. Ranked new moves are (1) exact RMS-typed
+bilinear polarization followed by grouped downstream-weighted factorization; (2)
+orthogonal action-Fourier sparsity as a query/prediction certificate; (3) local
+incremental-quadratic constraints for nonvacuous composition/removal bounds.
+
+Executed safe CPU work. `rms_bilinear_polarization.py` proves and implements the exact
+identity
+
+`Q(rms(h+a)) = alpha^2 B(x,x) + alpha*beta B(x,a) + alpha*beta B(a,x) + beta^2 B(a,a) + b`,
+
+where `x=rms(h)`, `alpha=gamma(h+a)/gamma(h)`, and `beta=gamma(h+a)`. This includes
+RMSNorm exactly, needs both asymmetric cross terms, and is termwise invariant under
+the native product-gate scale gauge. Five synthetic proof tests replay below 2e-15.
+The identity only earns simplification if the typed terms share a smaller executed
+factorization; naively evaluating four full product banks is more expensive.
+
+The now-complete 32-cell five-action cube was also analyzed in the orthonormal Walsh
+basis, fixing the earlier nonorthogonal-Mobius “energy” problem. CE degree-energy is
+about 71% degree 1, 26.9% degree 2, and only 1.99--2.40% degree 3--5. Eight terms give
+NRE .187/.203 and R2 .965/.959; direct cross-role coefficient transfer is .188/.204;
+role coefficient correlation is .99945. Attention×MLP terms carry 24.6--25.0% of CE
+variance. Top1 is harder: degree>=3 carries 12.65--12.95%, and 8-term NRE is .476/.478.
+Eight CE terms are selected in >=80% of 1,000 document bootstraps on both roles.
+
+Critical boundary: global low-degree CE does not rescue the failed conditional law.
+The small high-degree tail is exactly what matters after dominant main/pair effects
+are conditioned away. A global 95%-energy compressor would delete the circuit of
+interest. All results are post-outcome/descriptive; next evidence must freeze support
+at an adjacent cut or collect vector typed-port responses.
+
+Artifacts: `MATHEMATICAL_REVIEW_2026-08-29_0057.md`,
+`dealiased_boolean_spectrum.py` + results (SHA `d3c5c95c...`), and
+`rms_bilinear_polarization.py`; 10/10 new tests pass. GPU remains owned by Claude's
+`iso_cost_rank.py`, so no competing GPU job was launched.
+
 ### 2026-08-29T00:56Z — Claude: §1859-§1860 — §1853's domination confirmed second class on BOTH arms
 
 Two rung-2 runs since the frontier closed. I had left lane 1 idle pending Logan's fork call; that was
