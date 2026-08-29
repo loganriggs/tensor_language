@@ -117,6 +117,18 @@ def test_paired_t_arithmetic():
     check('paired_t: counts every position and every nonzero', p['n'] == 4 and p['n_nonzero'] == 4)
 
 
+def test_per_site_table_ranks():
+    """S1996: a table-rank spec may name an individual site, which wins over its kind."""
+    spec = {'mlp': 768, 'attn': 384, ('attn', 6): 32}
+    check('per-site: the named site wins', B.Program._rank_of(spec, ('attn', 6)) == 32)
+    check('per-site: others fall back to kind', B.Program._rank_of(spec, ('attn', 5)) == 384)
+    check('per-site: mlp unaffected', B.Program._rank_of(spec, ('mlp', 4)) == 768)
+    check('per-site: key is order-independent',
+          B._rk_key({('attn', 6): 32, 'attn': 384}) == B._rk_key({'attn': 384, ('attn', 6): 32}))
+    check('per-site: key differs from the kind-only spec',
+          B._rk_key(spec) != B._rk_key({'mlp': 768, 'attn': 384}))
+
+
 def test_penalty_accessor():
     """Ctx.penalty is ce_prog - ce_live -- the number S1977-S1983 all published and all re-implemented."""
     res = {'c': {'r': {'a': {'pooled': {'overall': {'ce_prog': 12.5, 'ce_live': 1.5}}}}}}
@@ -375,7 +387,7 @@ def test_gate_accepts_the_library_itself():
           out.stdout.strip()[-120:])
 
 
-for fn in (test_penalty_accessor, test_composite_arm_grammar, test_whole_table_arms_are_not_fallback_variants, test_inert_side_of_the_control_is_still_strict, test_site_subsets_change_the_cache_key, test_no_build_level_comparison_is_vote_dependent, test_pooled_t_weights_by_evidence, test_every_ref_path_exists, test_ref_refuses_to_guess_a_coverage, test_rk_key_is_order_independent, test_inertness_pairs_splits_by_table_rank,
+for fn in (test_per_site_table_ranks, test_penalty_accessor, test_composite_arm_grammar, test_whole_table_arms_are_not_fallback_variants, test_inert_side_of_the_control_is_still_strict, test_site_subsets_change_the_cache_key, test_no_build_level_comparison_is_vote_dependent, test_pooled_t_weights_by_evidence, test_every_ref_path_exists, test_ref_refuses_to_guess_a_coverage, test_rk_key_is_order_independent, test_inertness_pairs_splits_by_table_rank,
            test_inertness_pairs_warns_when_a_side_is_vacuous, test_ref_reads_published_triples,
            test_paired_t_arithmetic, test_cost_matches_the_published_closed_form,
            test_arm_names_parse_the_way_the_grammar_says, test_gate_fixtures,

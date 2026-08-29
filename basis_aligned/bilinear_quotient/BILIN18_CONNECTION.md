@@ -57707,3 +57707,36 @@ by exactly one attention layer, one on each side of the threshold.
 §1990 and §1992 that is exactly when I should suspect it is generic. **The full 36-site program's own
 damage, and a lone compiled mlp2's, can be given the same bucket decomposition from artifacts already on
 disk. If all compilation damage has this shape, the gradient says nothing about attention 6.**
+
+## §1995 — the frequency gradient is generic to compilation, and §1994's 3:1 says nothing about attention 6
+
+`ops/is_the_frequency_gradient_generic.py`, **4.5s** warm, **DISCOVERY ONLY**, 5,419, rung 3 — §1994's own
+deflationary control, run before anything was built on it. **pred_a True | pred_b True | pred_c True |
+derived controls True.** All three reference deviations 0.000000.
+
+```
+  damage in the most frequent bucket / damage in the unseen bucket, 5,419
+             mlp2+a5,6   mlp2+a5   mlp2 alone   mlp4 alone   full 36 sites   (§1994's threshold gap: 0.29)
+  skip7000     0.413      0.389      0.297        0.211         0.269
+  skip11000    0.424      0.389      0.287        0.216         0.270
+  skip1200     0.445      0.395      0.296        0.225         0.273
+```
+
+> **All three predicates PASSED, and the finding is negative.** Every arm measured has the same frequency
+> shape as the threshold gap: **0.21 to 0.45, clustered around 0.29.** The full 36-site program, a lone
+> compiled mlp2, and a lone compiled mlp4 — **whose total damage differs by a factor of 2.2** — are
+> indistinguishable on this axis.
+
+> **So §1994's 3:1 gradient is a property of compiling anything, not of attention 6.** Compilation damage
+> is always about three times steeper on unseen targets than on frequent ones, because that is where a
+> context-free row has least to offer. The observation stands; the lead does not.
+
+**This is the control §1986, §1990 and §1992 did not get.** Each of those was a shape that fit every number
+available, published as a rule, and falsified within the hour by an arm that deleted a member. §1994's
+gradient was registered as an *observation* and its control was queued in the same commit. **Four and a
+half seconds, and a mechanism story died before it reached the board.**
+
+**Open.** The gradient is closed. What remains unexplained is the threshold itself — attention 5 and 6
+together — and the cheapest unasked question about it is one of degree rather than of membership: **how
+much of attention 6 does it take?** The table-rank machinery already sweeps capacity per kind; extending
+it to name an individual site makes "attention 6 at rank 32, everything else at 384" expressible.

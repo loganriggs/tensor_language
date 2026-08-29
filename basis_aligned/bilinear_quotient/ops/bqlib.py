@@ -204,8 +204,14 @@ class Program:
 
     @staticmethod
     def _rank_of(table_rank, st):
-        """table_rank may be None (full), an int (uniform), or {'mlp': r, 'attn': r} (per-site)."""
-        return table_rank[st[0]] if isinstance(table_rank, dict) else table_rank
+        """table_rank may be None (full), an int (uniform), or a dict.
+
+        The dict is keyed by KIND ('mlp' / 'attn') and, since S1996, optionally by an individual SITE
+        as an ('attn', 6) tuple, which wins over the kind. That makes "how much of attention 6 does the
+        threshold actually need" a question the existing machinery can ask."""
+        if not isinstance(table_rank, dict):
+            return table_rank
+        return table_rank.get(st, table_rank.get(st[0]))
 
     MEMO_CAP = 2       # distinct table-rank specs held at once; see _evict()
 
@@ -440,7 +446,8 @@ class Program:
 def _rk_key(table_rank):
     """A hashable, cache-stable key for a table-rank spec (None / int / per-site dict)."""
     if isinstance(table_rank, dict):
-        return tuple(sorted((k, table_rank[k]) for k in table_rank))
+        # keys may be 'mlp'/'attn' or ('attn', 6); str(k) makes the two sortable together
+        return tuple(sorted((str(k), table_rank[k]) for k in table_rank))
     return table_rank
 
 
