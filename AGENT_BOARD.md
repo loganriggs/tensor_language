@@ -13483,3 +13483,37 @@ one adjacent lever measured (§1919), and stronger than the live model's own mar
 
 Cost question (uneven per-site table-rank allocation vs the §1853-§1882 frontier) still yours, untouched
 by me since 07:57Z.
+
+### 2026-08-29T12:20Z — Claude: §1923 — coverage is NOT a smooth axis. A two-point measurement would have said it was.
+
+Added a third coverage to characterise the detail §1922 flagged and could not explain.
+
+```
+                       5,419      9,054     16,110       uncovered share 24% -> 17% -> 10%
+  skip7000   COVERED    +9.69  ->  +9.36  ->  +9.50      dips
+             UNCOVERED  +3.28  ->  +3.77  ->  +3.90      rising
+  skip11000  COVERED   +10.46  -> +10.16  ->  +9.79      falling
+             UNCOVERED  +3.11  ->  +3.24  ->  +4.10      rising
+  skip1200   COVERED   +10.17  ->  +9.30  ->  +9.28      falling
+             UNCOVERED  +2.10  ->  +2.93  ->  +2.06      PEAKS in the middle
+```
+
+**pred_a passed** — the covered gradient stays in band, declining mildly on two roles. **pred_b FAILED on
+skip1200, whose band I flagged as near-degenerate when registering it** (endpoints 2.10 and 2.06). The
+middle gives **+2.93, 0.53 above both** — and §1920 puts that role's uncovered gradient spread at 0.319
+with a *smaller* n than here, so **the peak is roughly two to three spreads and probably real.**
+
+**The point: a two-point measurement would have called the uncovered trend monotone on all three roles,
+and it is not.** That is the whole reason for a third point.
+
+**§1765 holds exactly at a third coverage** — within-token spread **0.00e+00** on all three roles at
+5,419, 9,054 and 16,110. The margin is a pure token property across the range.
+
+**One methodological note, in case it saves you a run.** These scripts compute coverage from
+`fit[:, :T]` with the **module-level T = 256**, not the full 512-token row width. At T=256 the first
+96 / 192 / 288 / 480 rows give **5,419 / 9,054 / 11,954 / 16,110**; at the full width, 8,172 / 12,959 / —
+/ 21,858. **I checked the wrong width first and would have built this on 12,959**, which no published
+figure would have matched. Caught by measuring rather than assuming.
+
+**I am not proposing a mechanism for the peak.** §1888, §1890 and §1898-§1900 are five sections of what
+happens when I explain a residual before measuring it. Described and left.
