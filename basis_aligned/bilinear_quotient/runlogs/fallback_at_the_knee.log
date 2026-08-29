@@ -1,0 +1,91 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+FALLBACK RE-OPENED AT THE KNEE | ('mix10m128', 'mix25m128', 'mix40m128', 'mix10m256', 'mix25m256', 'mix40m256', 'mix10m512', 'mix25m512', 'mix40m512') at {'mlp': 768, 'attn': 256} | 16,110 | DISCOVERY ONLY
+
+########## COVERAGE 16110 ##########
+  [bqlib] coverage 16110 from fineweb_n480_skip80.pt: 36 tables, neighbour index and map solver built (5s)
+  [bqlib] cache HIT  live     skip7000
+  [bqlib] cache HIT  live     skip11000
+  [bqlib] cache HIT  live     skip1200
+  [bqlib] cache HIT  mix25m256 skip7000
+  [bqlib] cache HIT  mix25m256 skip11000
+  [bqlib] cache HIT  mix25m256 skip1200
+  [bqlib] cache HIT  map512   skip7000
+  [bqlib] cache HIT  map512   skip11000
+  [bqlib] cache HIT  map512   skip1200
+  [bqlib] cache HIT  mix10m128 skip7000
+  [bqlib] cache HIT  mix10m128 skip11000
+  [bqlib] cache HIT  mix10m128 skip1200
+  [bqlib] cache HIT  mix25m128 skip7000
+  [bqlib] cache HIT  mix25m128 skip11000
+  [bqlib] cache HIT  mix25m128 skip1200
+  [bqlib] cache HIT  mix40m128 skip7000
+  [bqlib] cache HIT  mix40m128 skip11000
+  [bqlib] cache HIT  mix40m128 skip1200
+  [bqlib] cache HIT  mix10m256 skip7000
+  [bqlib] cache HIT  mix10m256 skip11000
+  [bqlib] cache HIT  mix10m256 skip1200
+  [bqlib] cache HIT  mix25m256 skip7000
+  [bqlib] cache HIT  mix25m256 skip11000
+  [bqlib] cache HIT  mix25m256 skip1200
+  [bqlib] cache HIT  mix40m256 skip7000
+  [bqlib] cache HIT  mix40m256 skip11000
+  [bqlib] cache HIT  mix40m256 skip1200
+  [bqlib] cache HIT  mix10m512 skip7000
+  [bqlib] cache HIT  mix10m512 skip11000
+  [bqlib] cache HIT  mix10m512 skip1200
+  [bqlib] cache HIT  mix25m512 skip7000
+  [bqlib] cache HIT  mix25m512 skip11000
+  [bqlib] cache HIT  mix25m512 skip1200
+  [bqlib] cache HIT  mix40m512 skip7000
+  [bqlib] cache HIT  mix40m512 skip11000
+  [bqlib] cache HIT  mix40m512 skip1200
+
+  skip7000
+    blend_768_256      [ 339.558M]  top1 14.12% (+0.10pp)  CE 5.88609 (-0.00836, t -7.00)
+    map512_mlpheavy    [ 360.723M]  top1 14.01% (+0.00pp)  CE 5.89445 (+0.00000, t +0.00)
+    fb_mix10m128       [ 328.941M]  top1 14.06% (+0.05pp)  CE 5.89806 (+0.00360, t +4.05)
+    fb_mix25m128       [ 328.941M]  top1 14.12% (+0.11pp)  CE 5.89137 (-0.00308, t -2.30)
+    fb_mix40m128       [ 328.941M]  top1 14.15% (+0.14pp)  CE 5.88962 (-0.00484, t -2.65)
+    fb_mix10m256       [ 339.558M]  top1 14.06% (+0.05pp)  CE 5.89137 (-0.00308, t -5.17)
+    fb_mix25m256       [ 339.558M]  top1 14.12% (+0.10pp)  CE 5.88609 (-0.00836, t -7.00)
+    fb_mix40m256       [ 339.558M]  top1 14.15% (+0.14pp)  CE 5.88557 (-0.00888, t -5.10)
+    fb_mix10m512       [ 360.792M]  top1 14.05% (+0.04pp)  CE 5.88795 (-0.00650, t -13.01)
+    fb_mix25m512       [ 360.792M]  top1 14.11% (+0.09pp)  CE 5.88341 (-0.01105, t -9.58)
+    fb_mix40m512       [ 360.792M]  top1 14.17% (+0.15pp)  CE 5.88350 (-0.01096, t -6.41)
+    CE argmin fallback: fb_mix25m512 = alpha 25%, map rank 512 | best rate above the anchor: fb_mix25m512 at 0.0126 nats/100M
+
+  skip11000
+    blend_768_256      [ 339.558M]  top1 14.82% (+0.07pp)  CE 5.83249 (-0.00872, t -7.28)
+    map512_mlpheavy    [ 360.723M]  top1 14.75% (+0.00pp)  CE 5.84120 (+0.00000, t +0.00)
+    fb_mix10m128       [ 328.941M]  top1 14.75% (+0.01pp)  CE 5.84479 (+0.00358, t +3.86)
+    fb_mix25m128       [ 328.941M]  top1 14.81% (+0.06pp)  CE 5.83828 (-0.00293, t -2.13)
+    fb_mix40m128       [ 328.941M]  top1 14.87% (+0.12pp)  CE 5.83733 (-0.00387, t -2.04)
+    fb_mix10m256       [ 339.558M]  top1 14.79% (+0.04pp)  CE 5.83778 (-0.00342, t -5.72)
+    fb_mix25m256       [ 339.558M]  top1 14.82% (+0.07pp)  CE 5.83249 (-0.00872, t -7.28)
+    fb_mix40m256       [ 339.558M]  top1 14.88% (+0.13pp)  CE 5.83271 (-0.00849, t -4.76)
+    fb_mix10m512       [ 360.792M]  top1 14.81% (+0.06pp)  CE 5.83447 (-0.00673, t -13.97)
+    fb_mix25m512       [ 360.792M]  top1 14.84% (+0.09pp)  CE 5.82982 (-0.01139, t -10.03)
+    fb_mix40m512       [ 360.792M]  top1 14.89% (+0.15pp)  CE 5.83057 (-0.01063, t -6.13)
+    CE argmin fallback: fb_mix25m512 = alpha 25%, map rank 512 | best rate above the anchor: fb_mix25m512 at 0.0126 nats/100M
+
+  skip1200
+    blend_768_256      [ 339.558M]  top1 14.09% (+0.07pp)  CE 5.86357 (-0.00515, t -2.98)
+    map512_mlpheavy    [ 360.723M]  top1 14.02% (+0.00pp)  CE 5.86873 (+0.00000, t +0.00)
+    fb_mix10m128       [ 328.941M]  top1 13.98% (-0.04pp)  CE 5.87435 (+0.00563, t +4.17)
+    fb_mix25m128       [ 328.941M]  top1 13.99% (-0.03pp)  CE 5.86929 (+0.00056, t +0.28)
+    fb_mix40m128       [ 328.941M]  top1 14.13% (+0.11pp)  CE 5.87013 (+0.00140, t +0.52)
+    fb_mix10m256       [ 339.558M]  top1 14.01% (-0.01pp)  CE 5.86709 (-0.00164, t -1.85)
+    fb_mix25m256       [ 339.558M]  top1 14.09% (+0.07pp)  CE 5.86357 (-0.00515, t -2.98)
+    fb_mix40m256       [ 339.558M]  top1 14.15% (+0.13pp)  CE 5.86584 (-0.00289, t -1.13)
+    fb_mix10m512       [ 360.792M]  top1 14.08% (+0.06pp)  CE 5.86299 (-0.00574, t -8.14)
+    fb_mix25m512       [ 360.792M]  top1 14.13% (+0.11pp)  CE 5.86029 (-0.00843, t -5.17)
+    fb_mix40m512       [ 360.792M]  top1 14.16% (+0.14pp)  CE 5.86332 (-0.00541, t -2.18)
+    CE argmin fallback: fb_mix25m512 = alpha 25%, map rank 512 | best rate above the anchor: fb_mix25m512 at 0.0154 nats/100M
+
+  the fallback optimum MOVED off (25, 256) (>=2 roles) -> True  3/3  (argmins [(25, 512), (25, 512), (25, 512)])
+  and it wants map rank >= 256 (>=2 roles) -> True  3/3
+  and the move beats §1947's 0.010 nats/100M threshold (>=2 roles) -> True  3/3
+  coverage {'c16110': 16110}, fallback-differing arms inert at COVERED and differing at UNCOVERED True, identical-spec arms are bit-identical True, live identical 0.0e+00, §1948 CE reproduced within 0.000005 nats -> control True
+
+pred_a True | pred_b True | pred_c True | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/fallback_at_the_knee_results.json (6.0s)

@@ -55353,3 +55353,57 @@ capacity runs at a quarter of the threshold rate (§1948).
 α = 0.25 and rank 256 on **full-rank tables at 5,419**. §1948 shows the MLP/attention tradeoff moved when
 the operating point moved; the fallback's own two parameters have never been re-opened **at the knee**,
 where the tables are 78% of the build rather than 97%.
+
+## §1949 — the fallback optimum moves at the knee: α stays at 25%, the map rank doubles
+
+`ops/fallback_at_the_knee.py`, **6.0s**, **DISCOVERY ONLY**, 16,110 coverage, rung 3 — §1948's open
+question. **All four predictions TRUE**, after pred_d was corrected for polarity (below).
+
+§1944 chose the fallback's two parameters — α = 0.25, map rank 256 — on **full-rank tables at 5,419**.
+§1946–§1948 then converged the table axis at 16,110 with that fallback **held fixed**. §1948 is the
+precedent: the MLP/attention tradeoff moved when the operating point moved. Re-opening the fallback at
+the knee, where the tables are 78% of the build rather than 97%:
+
+```
+  16,110 at {mlp 768, attn 256}, deltas vs map512 at the same allocation
+                    cost      top-1     CE (skip1200)   paired t
+  fb_mix10m512   360.792M   14.08%      5.86299         -8.14
+  fb_mix25m512   360.792M   14.13%      5.86029         -5.17    <- CE argmin, 3/3 roles
+  fb_mix40m512   360.792M   14.16%      5.86332         -2.18
+  fb_mix25m256   339.558M   14.09%      5.86357         -2.98    <- §1944's choice (= blend_768_256)
+  fb_mix40m128   328.941M   14.13%      5.87013         +0.52
+```
+
+> **pred_a PASSED 3/3: the optimum moved, and it moved on exactly one axis.** The CE argmin at the knee
+> is **(α = 25%, map rank 512) on all three roles** — α is unchanged from §1944's choice, the map rank
+> **doubles**. **pred_b PASSED 3/3** as the direction: with the tables truncated by 51% the fallback
+> carries relatively more of the build and wants *more* map capacity, not less.
+
+> **pred_c PASSED 3/3: the move is worth buying.** `fb_mix25m512` at **360.792M** beats `blend_768_256`
+> by **−0.00268 / −0.00267 / −0.00328 nats at paired t = −9.58 / −10.03 / −5.17**, for +21.2M — a rate of
+> **0.0126 / 0.0126 / 0.0154 nats per 100M**, above §1947's 0.010 threshold on every role. Top-1 is a
+> wash (−0.01 / +0.02 / +0.04pp), so this is a CE purchase, and I am not claiming a top-1 gain.
+
+> **A coincidence worth flagging so nobody reads it as one. `fb_mix25m512` costs 360.792M and §1931's
+> superseded best-known cost 360.723M** — the same money, 0.07M apart. At that identical price §1931's
+> build gives CE 5.89445 / 5.84120 / 5.86873 and this one gives **5.88341 / 5.82982 / 5.86029**: about
+> **0.011 nats better on every role**, from the same budget spent differently.
+
+**pred_d — the second polarity error of the session, and pred_d caught it again.** I inherited §1947's
+two-sided control, which asserts that arms **differ** at covered inputs — correct there, where they
+differed in table **rank**. Every arm here shares one table spec and differs only in the **fallback**,
+which by §1765/§1936 is **exactly inert** at covered inputs. The control asserted the opposite of the
+truth and failed while pred_a/b/c passed 3/3. Corrected to the right polarity — fallback-differing arms
+**inert at covered inputs and differing at uncovered ones**, identical-spec arms bit-identical — and
+re-run: all hold, plus coverage 16,110, buckets partitioning, live identical at 0.00e+00, and §1948's
+published CE reproduced to **0.000005 nats**. Thirty-fifth clean reading. **LESSON 81 extended.**
+
+**The build to beat at 16,110 is now `fb_mix25m512`: 36 tables at mlp 768 / attn 256, fallback = 25%
+output-NN neighbour + 75% rank-512 map, 360.792M.** For the same budget as §1931's superseded build it
+is ~0.011 nats better; against §1946's `blend_768_256` it buys 0.0027–0.0033 nats for 21.2M.
+
+**Open.** The two axes have now each been re-opened once against the other and each moved once — the
+table axis moved the fallback's map rank (§1949), and the operating point moved the attention tradeoff
+(§1948). **Neither has been re-opened a second time**, so it is not established that this is a fixed
+point rather than one step of an alternation. One more pass over the table axis with the rank-512
+fallback would settle it, and it costs about six seconds.

@@ -2120,6 +2120,15 @@ ask *what would have to be true for this to fail?* If the answer is "nothing, it
 is dead weight; if it is "the thing I just changed", it is false by construction. Prefer controls that
 assert both a positive and a negative, because those cannot be satisfied by an arm that does nothing.
 
+**Extended §1949 — it happened again, three sections later, and the two-sided form is what caught it.**
+§1949's arms all share ONE table spec and differ only in the fallback, so by §1765/§1936 they are
+**exactly inert** at covered inputs. I inherited §1947's control, which asserts arms **differ** there —
+correct in §1947, where they differed in table *rank*. **The polarity was backwards and pred_d failed
+while pred_a/b/c passed 3/3.** So the failure mode is not just "an inherited control that cannot fail";
+it is **an inherited control whose polarity is tied to a variable the fork changed**. Two-sided controls
+are what make this survivable: a one-sided "arms must differ" would have passed §1947 and §1949 alike by
+accident in half the cases, and told me nothing either time.
+
 ## LESSON 82 — three variants of a gate check, all measured, all rejected; recording the negative
 
 A fork replacing its arm block leaves behind string literals naming arms that no longer exist:
