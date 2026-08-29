@@ -1,0 +1,29 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+IS THE q1/q2 INVERSION A FREQUENCY CONFOUND | buckets ((0, 0), (1, 4), (5, 24), (25, 124), (125, 1000000000)) on the fit-row count of the TRUE target | full-rank settled program | DISCOVERY ONLY
+  built the settled fallback and 36 tables (4s)
+  precomputed per-token program margin for 50257 covered types (covered-token quartile bounds [0.1639, 0.3699, 0.7742])
+  uncovered-token quartile bounds [0.1929, 0.4463, 0.8941] over 44838 types
+
+  === all-compiled baseline ===
+    skip7000   covered enrichment  7.19x  (n 27974)
+    skip11000  covered enrichment  7.29x  (n 27497)
+    skip1200   covered enrichment  7.64x  (n 13973)
+    per-site live/table ratios: min 1.3x max 156.4x across 36 sites
+    g1.00    skip7000 CE 6.01167 ( 7.19x)  skip11000 CE 5.98477 ( 7.29x)  skip1200 CE 6.00165 ( 7.64x)   [1/2]
+    PERSITE  skip7000 CE 12.88014 ( 1.89x)  skip11000 CE 12.93864 ( 1.84x)  skip1200 CE 12.80992 ( 1.76x)   [2/2]
+
+  mean CURRENT-token fit frequency, and CE within §1789's 125+ target bucket:
+    skip7000   freq  q0     242.4  q1      93.6  q2     265.8  q3     281.5
+               CE125+q0 3.1066 (n 1248)  q1 2.9758 (n 1275)  q2 3.1529 (n 1952)  q3 2.1106 (n 2867)   q0-q3 +0.9961   monotone False
+    skip11000  freq  q0     234.1  q1      99.0  q2     279.3  q3     275.1
+               CE125+q0 2.9989 (n 1221)  q1 2.9065 (n 1325)  q2 3.1035 (n 1849)  q3 2.0285 (n 2944)   q0-q3 +0.9703   monotone False
+    skip1200   freq  q0     235.5  q1      87.1  q2     270.2  q3     277.6
+               CE125+q0 3.0307 (n  618)  q1 2.9302 (n  739)  q2 3.1622 (n  960)  q3 2.0537 (n 1446)   q0-q3 +0.9769   monotone False
+
+  the FREQUENCY mixture is inverted the same way (q1 > q2) -> False  skip7000 93.6 vs 265.8  skip11000 99.0 vs 279.3  skip1200 87.1 vs 270.2
+  and controlling for frequency REMOVES the inversion (>=2 roles monotone) -> False  skip7000 False  skip11000 False  skip1200 False
+  and the extreme gap SURVIVES the control (>= 0.3 nats) -> True  skip7000 +0.9961  skip11000 +0.9703  skip1200 +0.9769
+  coverage 5419, §1858 CE and §1925 counts reproduce -> control True  skip7000 6.01167  skip11000 5.98477  skip1200 6.00165
+
+pred_a False | pred_b False | pred_c True | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/frequency_confound_results.json (359.2s)

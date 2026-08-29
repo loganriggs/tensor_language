@@ -224,6 +224,8 @@ def merge_selection_batches(
                 )
                 or not math.isfinite(item.maximum_head_recomposition_abs_error)
                 or not math.isfinite(item.maximum_head_recomposition_relative_error)
+                or item.maximum_head_recomposition_abs_error < 0
+                or item.maximum_head_recomposition_relative_error < 0
                 or item.maximum_head_recomposition_relative_error
                     > MAX_HEAD_RECOMPOSITION_RELATIVE_ERROR
                 for item in candidate_closures

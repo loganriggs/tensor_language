@@ -514,3 +514,21 @@ outcome were accessed.
 This is still not an E4 evidence cell. The critical path has moved from fit collection
 to the source-closed eight-candidate selection scorer and its authority. E4.1--E4.3
 remain unchecked; strict ledgers remain unchanged.
+
+## 11:45 UTC selection-interface update
+
+No E4 cell is complete. The fit bank is now usable as a semantically replayed
+prerequisite, but its receipt correctly does not self-authorize selection. A synthetic-
+tested batch owner now executes one shared native arm plus all eight live sequential
+candidates and returns only document-cell sufficient statistics. It retains exact
+closures and verifies shared native baselines, exact head plans/site calls, document
+order, finite recomposition bounds, and logit nonescape.
+
+A schema-only engineering inspection deserialized `selection_natural.pt` before
+authority. No values or model/model-outcome were observed; the exposure is preserved
+and does not silently receive a pristine-container claim. A prospective execution
+ruling also resolves original-preregistration versus screening-amendment conflicts.
+
+Current suite: 25/25. This is CPU implementation evidence, not E4.1. The remaining
+NO-GO is the independently audited source-closed selection loader, mask reconstruction,
+48-batch authority/lifecycle, bootstrap replay, and receipt-last publisher.

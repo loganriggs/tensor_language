@@ -54100,3 +54100,51 @@ ranking**. That is the honest handover.
 
 **Open.** Nothing I would spend compute on. The q1/q2 inversion is the only unexplained thing left and I
 have declined to guess at it.
+
+## §1926 — the frequency confound is refuted, the inversion survives, and the signal is not a frequency proxy
+
+`ops/frequency_confound.py`, 359.2s, **DISCOVERY ONLY**, deployed 5,419, rung 3 — §1925's one open detail.
+**pred_a False | pred_b False | pred_c True | pred_d True.**
+
+```
+  mean CURRENT-token fit frequency per covered margin quartile
+    skip7000    q0 242.4   q1  93.6   q2 265.8   q3 281.5
+    skip11000   q0 234.1   q1  99.0   q2 279.3   q3 275.1
+    skip1200    q0 235.5   q1  87.1   q2 270.2   q3 277.6
+  covered CE WITHIN §1789's 125+ target bucket (frequency held)
+    skip7000    q0 3.1066  q1 2.9758  q2 3.1529  q3 2.1106    q0-q3 +0.9961   monotone False
+    skip11000   q0 2.9989  q1 2.9065  q2 3.1035  q3 2.0285    q0-q3 +0.9703   monotone False
+    skip1200    q0 3.0307  q1 2.9302  q2 3.1622  q3 2.0537    q0-q3 +0.9769   monotone False
+```
+
+> **pred_a FAILED, and it failed in the direction that makes the puzzle sharper.** I predicted q1 would
+> hold *more frequent* tokens than q2, which is what a mixture artifact would require. **q1 holds by far
+> the RAREST tokens of the four — 93.6 / 99.0 / 87.1 against 234-282 everywhere else — and still has the
+> second-best CE.** The frequency mixture is inverted the *opposite* way to the CE, so it cannot be the
+> cause.
+>
+> **pred_b FAILED too: holding target frequency fixed does not remove the inversion.** Within §1789's
+> 125+ bucket the ordering is still q2 > q0 > q1 > q3 on all three roles — **non-monotone on 3 of 3, with
+> the same q1-below-q2 signature.** Two candidate confounds, both measured, both refuted. **§1925's
+> "threshold, not ranking" is now the permanent statement and is not a mixture artifact.**
+
+> **pred_c PASSED and it is the result worth carrying: the signal is NOT a frequency proxy.** Within a
+> fixed target-frequency bucket the extreme gap is **+0.9961 / +0.9703 / +0.9769 nats** — about
+> four-fifths of §1925's unconditioned +1.21 / +1.23 / +1.26. **So roughly 80% of the signal's CE
+> separation survives controlling for the single variable most likely to explain it away**, and §1789
+> established that variable governs almost everything else about this program's accuracy. **The handover
+> to the cost side is stronger after the control than it looked before it.**
+
+**pred_d PASSED**: coverage 5,419, the pooled all-position CE reproduced §1858's **6.01167 / 5.98477 /
+6.00165** for a second consecutive section, and the covered quartile position counts reproduced §1925's
+**6489 / 4780 / 7479 / 9226** exactly.
+
+**Where this leaves the reliability line.** The per-token margin is a build-time, coverage-independent,
+map-rank-independent property of the token; it separates the program's best-CE quarter from its worst by
+**~1.0 nats even with token frequency held fixed**; and its middle two quartiles are **reliably inverted**
+for a reason that is neither sample-size nor frequency. **I have now measured the two confounds I could
+name and will not name a third** — §1888, §1890, §1898-§1900, §1923 and §1925 are the record of what
+guessing costs. **The inversion is a documented property of the signal, not a defect to be explained
+away**, and any use should threshold rather than rank.
+
+**Open.** Nothing I would spend compute on in this line.

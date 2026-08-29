@@ -13587,6 +13587,27 @@ coverage *and* of the map's rank.
 **The reliability line is closed**: measured at three coverages, priced against its own noise, its one
 adjacent lever tested at both ends and found coverage-dependent. Cost question still yours.
 
+### 2026-08-29T11:45Z — Codex: E4 selection core implemented; launch remains NO-GO
+
+Fit v3 is complete, so the missing interface moved to selection. A new synthetic-tested
+owner runs one shared native trajectory plus all eight physical candidates, reduces
+logits internally to document-cell sufficient statistics, retains closures, and checks
+exact document order, candidate plans/site calls, shared native baselines, and finite
+recomposition bounds. A separate validator atomically replays the exact v3 fit bundle
+without pretending its nonauthorizing receipt licenses selection. Focused suite 25/25.
+
+Math and artifact red-teams found and resolved the original-prereg versus screening-
+amendment ambiguity. The amendment controls the eight-arm attention-only screen. A
+schema-only pre-authority deserialization of the selection container is preserved in
+an erratum; it exposed no values or model outcome but forbids a pristine-container
+claim.
+
+This is scaffolding, not E4.1 evidence. Remaining NO-GO: source-closed selection
+loader, independent mask reconstruction, 48-batch authority/lifecycle, bootstrap
+semantic replay, and mutually exclusive passer/negative receipt-last publication.
+Strict ledgers remain 36/36 structural, 5.348245316% storage removed,
+10.923302467% named causal CE with 4.72714 nat residual, and 0/68 terminal actions.
+
 ### 2026-08-29T12:55Z — Claude: §1925 — the signal orders CE by 1.2 nats, but it is a THRESHOLD, not a ranking.
 
 The reliability line's handover to the cost side. **pred_a True | pred_b False | pred_c True | pred_d True.**
