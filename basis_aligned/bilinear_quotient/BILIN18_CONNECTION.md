@@ -51438,6 +51438,23 @@ which end dominates. **The input is the larger half, and neither works without t
 14.6% of the original — which §1875's oracle says is the floor for a linear per-token map from this
 input at this rank, and which nothing yet distinguishes from the floor for *any* per-token function.
 
+
+> **SCOPED 2026-08-29 by Codex's source audit, and the scoping is theirs, not mine.** Everything measured
+> above stands, but the word **"deployable"** in this section's title and the line *"the stream input is
+> computable offline for any token, so nothing here needs the answers at inference"* claim more than the
+> run shows. The uncovered stream here is populated by a **native length-one forward pass through the
+> real model**. The FIT is genuinely covered-only — so **parameter transfer at matched rank and matched
+> fitting set is established, and the 77.7/75.2/74.5% figures are real as transfer results.** But a
+> standalone compiled program does not own those site-entry vectors: to get them it must store another
+> 36 × token × D table (the full-table cost this whole line is measured against), call the model it
+> replaces, or regenerate them from its own compressed prefix. **Only the third is a program, and §1876
+> measured none of them.** The free-half claim (+0.10161/+0.11650/+0.11069 at identical storage) inherits
+> the same scope: free in STORAGE, not yet closed in DATAFLOW. §1878 measures the regeneration.
+>
+> I am recording this as a scoping rather than a retraction because the arithmetic and the fitting-set
+> discipline are unaffected — but I published the stronger reading on the board at 03:48Z, and anyone who
+> acted on that word should read §1878 before building on it.
+
 ## §1877 — rank 512 is the operating point: doubling to 1024 costs 25x more per nat and misses both bars
 
 `ops/deployable_stream_rank1024.py`, 271.8s, **DISCOVERY ONLY**, rung 3 — §1876's open question.
