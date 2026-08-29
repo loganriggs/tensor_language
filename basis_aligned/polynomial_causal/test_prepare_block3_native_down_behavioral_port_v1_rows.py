@@ -148,6 +148,23 @@ def test_create_only_writer_never_replaces(tmp_path):
     assert path.read_text() == '{\n  "a": 1\n}\n'
 
 
+def test_create_only_writer_rechecks_guard_immediately_before_link(tmp_path):
+    path = tmp_path / "receipt.json"
+    protected = tmp_path / "protected.json"
+    protected.write_text("original")
+
+    def guard():
+        if protected.read_text() != "original":
+            raise RuntimeError("protected registry drift")
+
+    ROWS.write_json_create_only({"a": 1}, path, pre_link_check=guard)
+    second = tmp_path / "second.json"
+    protected.write_text("changed")
+    with pytest.raises(RuntimeError, match="registry drift"):
+        ROWS.write_json_create_only({"a": 2}, second, pre_link_check=guard)
+    assert not second.exists()
+
+
 def test_lock_claim_rejects_replacement(tmp_path):
     path = tmp_path / "claim.lock"
     claim = ROWS.acquire_claim(path)
@@ -186,6 +203,53 @@ def test_source_is_outcome_blind_and_closes_transitive_registry_helpers():
     assert ROWS.BASE_PATH in ROWS.SOURCE_PATHS
     assert ROWS.LOCAL_HARVESTER in ROWS.SOURCE_PATHS
     assert ROWS.TEST in ROWS.SOURCE_PATHS
+    assert ROWS.PREREGISTRATION in ROWS.SOURCE_PATHS
+
+
+def test_exact_failed_unmaterialized_lineage_is_waived_twice_and_only_twice():
+    registry = (ROWS.FAILED_ROW_AUTHORITY, ROWS.TERMINAL_COPY_V2_RECEIPT)
+    _prior, hashes, tensor_hashes, waivers, nonrows = ROWS.load_registry_exclusions(registry)
+    assert set(hashes) == {str(path) for path in registry}
+    assert {item["registry_json"] for item in waivers} == {str(path) for path in registry}
+    assert all(item["omitted_missing_row_path"] == str(ROWS.FAILED_ROW) for item in waivers)
+    assert nonrows == [{
+        "kind": "exact_nonrow_frequency_vector",
+        "path": str(ROWS.TERMINAL_COPY_FIT_FREQUENCIES),
+        "file_sha256": ROWS.TERMINAL_COPY_FIT_FREQUENCIES_SHA256,
+        "keys": ["query", "target"],
+        "shape": [50_257],
+        "reason": "contains no document rows; filename-only row heuristic overmatch",
+    }]
+    assert tensor_hashes[str(ROWS.TERMINAL_COPY_FIT_FREQUENCIES)] == (
+        ROWS.TERMINAL_COPY_FIT_FREQUENCIES_SHA256
+    )
+
+
+def test_independent_audit_binds_exact_source_bytes(tmp_path, monkeypatch):
+    source = tmp_path / "source.py"
+    source.write_text("x = 1\n")
+    digest = ROWS.file_sha256(source)
+    commit = "a" * 40
+    audit = tmp_path / "audit.json"
+    audit.write_text(__import__("json").dumps({
+        "schema": "block3_native_down_behavioral_port_v1_rows_independent_audit",
+        "status": "GO",
+        "outcome_access": False,
+        "audited_source_commit": commit,
+        "audited_source_hashes": {source.name: digest},
+        "tests_passed": 17,
+        "reviewer": "independent-test",
+    }))
+    monkeypatch.setattr(ROWS, "SOURCE_PATHS", (source,))
+    monkeypatch.setattr(ROWS, "ROOT", tmp_path)
+    monkeypatch.setattr(ROWS, "_committed_blob", lambda _path, _commit: source.read_bytes())
+    monkeypatch.setattr(ROWS.subprocess, "run", lambda *args, **kwargs: None)
+    payload, observed = ROWS.validate_independent_audit(audit)
+    assert observed == ROWS.file_sha256(audit)
+    assert payload["tests_passed"] == 17
+    source.write_text("x = 2\n")
+    with pytest.raises(RuntimeError, match="changed after"):
+        ROWS.validate_independent_audit(audit)
 
 
 def test_canonical_constants_are_exactly_frozen():

@@ -75,6 +75,9 @@ FAILED_ROW_FAILURE = (
 TERMINAL_COPY_V2_RECEIPT = (
     BQ / "terminal_copy_induction_v2_rows_receipt.json"
 ).resolve()
+TERMINAL_COPY_FIT_FREQUENCIES = (
+    BQ / ".rowcache_terminal_copy_induction_v2/fit_token_frequencies.pt"
+).resolve()
 FAILED_ROW_AUTHORITY_SHA256 = (
     "5f7435150561ef385c9a4ee51e2040c4a029e98faefbfe1bc0f92612d820498e"
 )
@@ -83,6 +86,9 @@ FAILED_ROW_FAILURE_SHA256 = (
 )
 TERMINAL_COPY_V2_RECEIPT_SHA256 = (
     "aea52a94c643906ef822a7c6ddb37a371b4315507a1a0a79acd539a19ae7f5c8"
+)
+TERMINAL_COPY_FIT_FREQUENCIES_SHA256 = (
+    "7ba995e6bcfa2704cc4c2220dfdc8bd5caea53b976359c6b86cb5e14ba7e4c9a"
 )
 
 SOURCE_PATHS = (
@@ -311,11 +317,39 @@ def _failed_row_waiver(path: Path, payload: Mapping[str, Any]) -> dict[str, Any]
     }
 
 
+def _validate_exact_nonrow_frequency_artifact(path: Path) -> tuple[dict[str, Any], str]:
+    """Bind the one frequency-vector artifact overmatched by the filename census."""
+
+    if path.resolve() != TERMINAL_COPY_FIT_FREQUENCIES or not path.is_file():
+        raise RuntimeError("unexpected non-row registry artifact")
+    before = file_sha256(path)
+    if before != TERMINAL_COPY_FIT_FREQUENCIES_SHA256:
+        raise RuntimeError("terminal-copy fit-frequency artifact changed")
+    payload = torch.load(path, map_location="cpu", weights_only=True)
+    after = file_sha256(path)
+    if before != after or not isinstance(payload, dict) or set(payload) != {
+        "query", "target"
+    } or any(
+        not isinstance(value, torch.Tensor) or value.dtype != torch.long
+        or tuple(value.shape) != (50_257,)
+        for value in payload.values()
+    ):
+        raise RuntimeError("terminal-copy fit-frequency artifact schema changed")
+    return ({
+        "kind": "exact_nonrow_frequency_vector",
+        "path": str(path.resolve()),
+        "file_sha256": before,
+        "keys": ["query", "target"],
+        "shape": [50_257],
+        "reason": "contains no document rows; filename-only row heuristic overmatch",
+    }, before)
+
+
 def load_registry_exclusions(
     registry_files: tuple[Path, ...],
 ) -> tuple[
     tuple[set[str], set[int], set[tuple[int, ...]], set[tuple[int, ...]]],
-    dict[str, str], dict[str, str], list[dict[str, Any]],
+    dict[str, str], dict[str, str], list[dict[str, Any]], list[dict[str, Any]],
 ]:
     """Parse the full registry with each JSON and tensor bound to exact bytes."""
     documents: set[str] = set()
@@ -325,6 +359,7 @@ def load_registry_exclusions(
     registry_hashes: dict[str, str] = {}
     tensor_specs: dict[Path, list[dict[str, str]]] = {REFERENCE_ROWS.resolve(): []}
     waiver_proofs: list[dict[str, Any]] = []
+    nonrow_proofs: list[dict[str, Any]] = []
 
     for path in registry_files:
         before = file_sha256(path)
@@ -353,6 +388,13 @@ def load_registry_exclusions(
                 indices.add(index)
 
     tensor_hashes: dict[str, str] = {}
+    if TERMINAL_COPY_FIT_FREQUENCIES in tensor_specs:
+        proof, digest = _validate_exact_nonrow_frequency_artifact(
+            TERMINAL_COPY_FIT_FREQUENCIES
+        )
+        nonrow_proofs.append(proof)
+        tensor_hashes[str(TERMINAL_COPY_FIT_FREQUENCIES)] = digest
+        del tensor_specs[TERMINAL_COPY_FIT_FREQUENCIES]
     for path in sorted(tensor_specs):
         tensors, digest = REGISTRY.load_verified_row_tensor(path, tensor_specs[path])
         tensor_hashes[str(path)] = digest
@@ -367,7 +409,7 @@ def load_registry_exclusions(
         raise RuntimeError("registry did not reproduce both exact failed-row waiver records")
     return (
         (documents, indices, full_rows, prefixes), registry_hashes, tensor_hashes,
-        waiver_proofs,
+        waiver_proofs, nonrow_proofs,
     )
 
 
@@ -498,6 +540,8 @@ def verify_snapshot(
     registry_hashes: Mapping[str, str],
     tensor_hashes: Mapping[str, str],
     prior: tuple[set[str], set[int], set[tuple[int, ...]], set[tuple[int, ...]]],
+    waiver_proofs: list[dict[str, Any]],
+    nonrow_proofs: list[dict[str, Any]],
     parquet: Path,
 ) -> None:
     if source_closure(commit) != dict(sources):
@@ -505,19 +549,65 @@ def verify_snapshot(
     current_registry = discover_registry_files()
     if current_registry != registry_files:
         raise RuntimeError("fresh-row registry membership changed")
-    current_prior, current_registry_hashes, current_tensor_hashes = load_registry_exclusions(
-        current_registry
-    )
+    (
+        current_prior, current_registry_hashes, current_tensor_hashes,
+        current_waiver_proofs, current_nonrow_proofs,
+    ) = load_registry_exclusions(current_registry)
     if discover_registry_files() != current_registry:
         raise RuntimeError("fresh-row registry membership changed during replay")
     if current_registry_hashes != dict(registry_hashes):
         raise RuntimeError("fresh-row registry files changed")
     if current_tensor_hashes != dict(tensor_hashes) or current_prior != prior:
         raise RuntimeError("fresh-row exclusion tensors changed")
+    if current_waiver_proofs != waiver_proofs:
+        raise RuntimeError("failed-unmaterialized registry waiver changed")
+    if current_nonrow_proofs != nonrow_proofs:
+        raise RuntimeError("exact non-row registry classification changed")
     if parquet.stat().st_size != BASE.local.PINNED_SIZE or (
         file_sha256(parquet) != BASE.local.PINNED_SHA256
     ):
         raise RuntimeError("pinned ordered FineWeb parquet changed")
+
+
+def validate_independent_audit(path: Path = AUDIT) -> tuple[dict[str, Any], str]:
+    """Require an outcome-blind GO that binds every freezer source byte."""
+
+    if not path.is_file():
+        raise RuntimeError("independent fresh-row freezer audit is absent")
+    before = file_sha256(path)
+    raw = path.read_bytes()
+    after = file_sha256(path)
+    if before != after or hashlib.sha256(raw).hexdigest() != before:
+        raise RuntimeError("independent fresh-row freezer audit changed while reading")
+    audit = json.loads(raw)
+    required = {
+        "schema", "status", "outcome_access", "audited_source_commit",
+        "audited_source_hashes", "tests_passed", "reviewer",
+    }
+    if set(audit) != required or audit.get("schema") != (
+        "block3_native_down_behavioral_port_v1_rows_independent_audit"
+    ) or audit.get("status") != "GO" or audit.get("outcome_access") is not False or (
+        not isinstance(audit.get("tests_passed"), int) or audit["tests_passed"] < 1
+    ) or not isinstance(audit.get("reviewer"), str) or not audit["reviewer"]:
+        raise RuntimeError("independent fresh-row freezer audit is not an exact GO")
+    commit = audit.get("audited_source_commit")
+    hashes = audit.get("audited_source_hashes")
+    if not isinstance(commit, str) or len(commit) != 40 or not isinstance(hashes, dict):
+        raise RuntimeError("independent fresh-row freezer audit binding is malformed")
+    subprocess.run(
+        ["git", "merge-base", "--is-ancestor", commit, "origin/main"],
+        cwd=ROOT, check=True,
+    )
+    expected_paths = {str(source.relative_to(ROOT)) for source in SOURCE_PATHS}
+    if set(hashes) != expected_paths:
+        raise RuntimeError("independent audit source closure is incomplete")
+    for source in SOURCE_PATHS:
+        relative = str(source.relative_to(ROOT))
+        committed = _committed_blob(source, commit)
+        digest = hashlib.sha256(committed).hexdigest()
+        if hashes[relative] != digest or file_sha256(source) != digest:
+            raise RuntimeError("source changed after independent freezer audit")
+    return audit, before
 
 
 def verify_installed_cache(path: Path, entry: Mapping[str, Any]) -> torch.Tensor:
@@ -545,11 +635,14 @@ def freeze_locked(claim: RunClaim) -> dict[str, Any]:
     require_claim(claim)
     if CACHE.exists() or RECEIPT.exists():
         raise RuntimeError("refusing to overwrite native-Down fresh-row namespace")
+    audit, audit_sha256 = validate_independent_audit()
     commit = _git("rev-parse", "HEAD")
     sources = source_closure(commit)
     canonical, parquet = BASE.validate_ordered_source()
     registry_files = discover_registry_files()
-    prior, registry_hashes, prior_tensor_hashes = load_registry_exclusions(registry_files)
+    (
+        prior, registry_hashes, prior_tensor_hashes, waiver_proofs, nonrow_proofs,
+    ) = load_registry_exclusions(registry_files)
 
     import tiktoken
     encoding = tiktoken.get_encoding("gpt2")
@@ -574,7 +667,8 @@ def freeze_locked(claim: RunClaim) -> dict[str, Any]:
         verify_snapshot(
             commit=commit, sources=sources, registry_files=registry_files,
             registry_hashes=registry_hashes, tensor_hashes=prior_tensor_hashes,
-            prior=prior, parquet=parquet,
+            prior=prior, waiver_proofs=waiver_proofs,
+            nonrow_proofs=nonrow_proofs, parquet=parquet,
         )
         require_claim(claim)
         CACHE.mkdir(parents=False, exist_ok=False)
@@ -602,6 +696,13 @@ def freeze_locked(claim: RunClaim) -> dict[str, Any]:
         "authorized_for_training": False,
         "source_commit": commit,
         "source_hashes": sources,
+        "independent_audit": {
+            "path": str(AUDIT.resolve()),
+            "file_sha256": audit_sha256,
+            "audited_source_commit": audit["audited_source_commit"],
+            "reviewer": audit["reviewer"],
+            "tests_passed": audit["tests_passed"],
+        },
         "selection": {
             "start_dataset_document_index": START_DOCUMENT_INDEX,
             "n_source_documents": N_SOURCE_DOCUMENTS,
@@ -618,6 +719,8 @@ def freeze_locked(claim: RunClaim) -> dict[str, Any]:
         "source_receipt_sha256": registry_hashes[str(BASE.CANONICAL_RECEIPT.resolve())],
         "prior_registry_files": registry_hashes,
         "prior_row_tensors": prior_tensor_hashes,
+        "failed_unmaterialized_registry_waivers": waiver_proofs,
+        "exact_nonrow_registry_artifacts": nonrow_proofs,
         "exclusion_counts": {
             "source_documents": len(prior[0]),
             "dataset_document_indices": len(prior[1]),
@@ -636,13 +739,28 @@ def freeze_locked(claim: RunClaim) -> dict[str, Any]:
     verify_snapshot(
         commit=commit, sources=sources, registry_files=registry_files,
         registry_hashes=registry_hashes, tensor_hashes=prior_tensor_hashes,
-        prior=prior, parquet=parquet,
+        prior=prior, waiver_proofs=waiver_proofs,
+        nonrow_proofs=nonrow_proofs, parquet=parquet,
     )
     verify_installed_cache(installed, entry)
     require_claim(claim)
     if RECEIPT.exists():
         raise RuntimeError("fresh-row receipt appeared before publication")
-    write_json_create_only(receipt, RECEIPT)
+
+    def final_publication_guard() -> None:
+        require_claim(claim)
+        if RECEIPT.exists():
+            raise RuntimeError("fresh-row receipt appeared before final publication")
+        validate_independent_audit()
+        verify_snapshot(
+            commit=commit, sources=sources, registry_files=registry_files,
+            registry_hashes=registry_hashes, tensor_hashes=prior_tensor_hashes,
+            prior=prior, waiver_proofs=waiver_proofs,
+            nonrow_proofs=nonrow_proofs, parquet=parquet,
+        )
+        verify_installed_cache(installed, entry)
+
+    write_json_create_only(receipt, RECEIPT, pre_link_check=final_publication_guard)
     return receipt
 
 
