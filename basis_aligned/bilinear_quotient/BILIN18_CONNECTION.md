@@ -53488,3 +53488,57 @@ recorded.
 **Open.** A common-null comparison of the two confidence signals — the honest version of "which matters
 more" — and whether the per-token margin predicts the *fallback* rows' quality at uncovered tokens, where
 §1909 showed the MLP story lives.
+
+## §1914 — under a COMMON null the ranking REVERSES: the token signal is the stronger one. And my enrichments carry ±0.2 of RNG noise.
+
+`ops/common_null_comparison.py`, 286.3s, **DISCOVERY ONLY**, rung 3 — §1913's open question.
+**pred_a True | pred_b False | pred_c False | pred_d False.** Three failures, and two of them matter.
+
+```
+  quartile enrichment under BOTH nulls, covered arm, 16,110 types (global null 0.0343/0.0327/0.0346)
+    skip7000  TOKEN margin  q0  3.07x (local 4.25)  q3 12.57x (local 5.30)   gradient +9.50x
+              LIVE  margin  q0  4.32x (local 5.16)  q3 10.35x (local 10.13)  gradient +6.03x
+    skip11000 TOKEN  3.24 -> 13.03  (+9.79x)        LIVE  4.31 -> 10.68  (+6.36x)
+    skip1200  TOKEN  3.52 -> 12.79  (+9.28x)        LIVE  4.60 -> 10.61  (+6.02x)
+```
+
+> **pred_a PASSED and the artifact was enormous.** The token-margin top quartile moves from **5.29x under
+> the within-stratum null to 12.57x under the global one**. §1913's caveat was right, and understated:
+> grouping positions that share tokens raises the local null so far that it more than halved the figure.
+>
+> **pred_c FAILED, and it reverses a ranking I have published. Under a common null the TOKEN signal is
+> the STRONGER of the two: +9.50 / +9.79 / +9.28x against the live signal's +6.03 / +6.36 / +6.02x.** I
+> registered the opposite and wrote in the docstring that if it failed I would say plainly that §1911 and
+> §1913 had been compared unfairly in every board note about them. **They had.** §1911's +4.75 and
+> §1913's +1.07 are not two measurements of the same thing, and the direction of the comparison was
+> backwards, not merely the magnitude. **The program's own per-token confidence orders its agreement with
+> the model better than the model's confidence does** — and it is precomputable at build time (§1913).
+>
+> **pred_b FAILED too**: the live signal was *not* barely affected, moving +1.28 / +1.09 / +0.95 from
+> §1911's figures against a 1.0x bar. Both splits pay some stratum-null cost; the token split just pays
+> vastly more.
+
+> **pred_d FAILED, and its failure is a caveat on this whole arc that I had not measured.** The
+> within-stratum arm was supposed to reproduce §1913's token quartiles exactly — same data, same split,
+> same code path. It gives **4.25 / 5.19 / 5.25 / 5.30 against 4.22 / 5.02 / 5.29 / 5.29**, missing the
+> 0.05 bar at q1 by **0.17**. Nothing about the data changed; what changed is that this run draws
+> additional permutations for the global null, so the shared `torch.Generator` is at a different state
+> when each local null is estimated. **At NPERM = 8 the permutation-null estimate carries roughly ±0.2 of
+> enrichment.**
+>
+> **That bounds the precision of every enrichment figure quoted since §1885.** Differences of the size I
+> have been reporting as reproductions — 7.16 vs 7.19, 7.29 vs 7.29, 7.49 vs 7.64 — are at or inside that
+> band, so they are consistent rather than exact, and I have called several of them "exact" or "to three
+> digits". **The large effects are unaffected** (§1908's 7.53 → 2.74, §1911's 5.36 → 10.11, this
+> section's 5.29 → 12.57 are all an order above the noise), **but the anchor reproductions were tighter
+> claims than the estimator supports.** Raising NPERM would fix it and no result here needs it; the
+> claims need softening, and I have not gone back to soften each one — this section is the record.
+
+**What now stands, stated once.** Two confidence signals, near-independent (§1912, Spearman +0.11), each
+ordering the program's agreement with the model. **Under a common null the program's own per-token margin
+is the stronger** (+9.5 vs +6.0), and it is a build-time property of the token (§1913, within-token spread
+≤ 2.86e-05). The live model's margin is the weaker of the two and needs the model to compute.
+
+**Open.** Whether the per-token signal, now that it is both stronger and precomputable, predicts anything
+the deployed program should act on — refusing to answer on its own low-confidence tokens, for instance,
+is a concrete use and nothing has priced it.

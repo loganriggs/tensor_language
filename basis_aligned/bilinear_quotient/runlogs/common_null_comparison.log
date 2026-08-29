@@ -1,0 +1,31 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+COMMON-NULL COMPARISON: which confidence signal matters more? | buckets ((0, 0), (1, 4), (5, 24), (25, 124), (125, 1000000000)) on the fit-row count of the TRUE target | full-rank settled program | DISCOVERY ONLY
+  built the settled fallback and 36 tables (6s)
+  precomputed per-token program margin for 16110 covered types (quartile bounds [0.1608, 0.367, 0.7641])
+
+  === all-compiled baseline ===
+    skip7000   covered enrichment  7.16x  (n 33192)
+    skip11000  covered enrichment  7.29x  (n 33196)
+    skip1200   covered enrichment  7.49x  (n 16597)
+    per-site live/table ratios: min 1.2x max 144.0x across 36 sites
+    g1.00    skip7000 CE 5.90522 ( 7.16x)  skip11000 CE 5.85230 ( 7.29x)  skip1200 CE 5.88575 ( 7.49x)   [1/2]
+    PERSITE  skip7000 CE 12.86842 ( 1.80x)  skip11000 CE 12.91618 ( 1.71x)  skip1200 CE 12.79523 ( 1.71x)   [2/2]
+
+  quartile enrichment under BOTH nulls (global null = shuffle over the whole covered arm):
+    skip7000   global null 0.0343
+      TOKEN margin  q0  3.07x (local  4.25x)  q1  4.49x (local  5.19x)  q2  6.36x (local  5.25x)  q3 12.57x (local  5.30x)
+      LIVE  margin  q0  4.32x (local  5.16x)  q1  5.93x (local  5.73x)  q2  8.19x (local  6.38x)  q3 10.35x (local 10.13x)
+    skip11000  global null 0.0327
+      TOKEN margin  q0  3.24x (local  4.10x)  q1  4.51x (local  4.62x)  q2  5.99x (local  5.09x)  q3 13.03x (local  5.94x)
+      LIVE  margin  q0  4.31x (local  5.28x)  q1  5.99x (local  5.73x)  q2  7.98x (local  6.27x)  q3 10.68x (local 10.86x)
+    skip1200   global null 0.0346
+      TOKEN margin  q0  3.52x (local  4.77x)  q1  4.66x (local  4.48x)  q2  6.27x (local  5.40x)  q3 12.79x (local  5.60x)
+      LIVE  margin  q0  4.60x (local  5.67x)  q1  5.92x (local  5.98x)  q2  8.36x (local  6.45x)  q3 10.61x (local 11.10x)
+
+  THE ARTIFACT IS REAL (token q3 > 7.0x under the global null) -> True  skip7000 12.57x vs §1913 local 5.29x  skip11000 13.03x vs §1913 local 5.29x  skip1200 12.79x vs §1913 local 5.29x
+  and the LIVE signal is barely affected (within 1.0x of §1911) -> False  skip7000 +6.03x vs §1911 +4.75x  skip11000 +6.36x vs §1911 +5.27x  skip1200 +6.02x vs §1911 +5.07x
+  and the RANKING survives the fix (live > token) -> False  skip7000 live +6.03x vs token +9.50x  skip11000 live +6.36x vs token +9.79x  skip1200 live +6.02x vs token +9.28x
+  coverage 16110, §1913 local quartiles reproduce -> control False; baseline skip7000 7.16x  skip11000 7.29x  skip1200 7.49x
+
+pred_a True | pred_b False | pred_c False | pred_d False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/common_null_comparison_results.json (286.3s)
