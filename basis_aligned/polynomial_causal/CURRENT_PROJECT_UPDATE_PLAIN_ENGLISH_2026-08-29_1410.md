@@ -526,6 +526,9 @@ ledger by SHA256 and is explicitly marked post-hoc/descriptive.
 
 ## 14. Retrospective: how did the eight-hour exploration go?
 
+> **Correction:** section 15 at the bottom supersedes this section's novelty claim and
+> proposed four-head power-set priority after comparison with the older induction work.
+
 At 04:00 UTC we deliberately stepped away from a single MLP0 fit and committed to four
 alternative entry points. The goal was not to make all four work. It was to run cheap,
 falsifiable experiments that could tell us which route deserved a larger investment.
@@ -712,3 +715,206 @@ were sharply pruned, one produced a promising polynomial successor, and one prod
 promising causal interaction successor. The project should now concentrate full runs
 on those two successors—the 512-gate native-Down behavioral port and the four-head
 interaction/conditional-copy program—rather than reopening all four broad ideas.
+
+## 15. **UPDATE AND CORRECTION: what was actually new, why progress was slow, and what changes now**
+
+This section answers the follow-up about the eight-hour window. It also corrects the
+conclusion immediately above. After rereading the older induction ledger, I agree that
+the preceding account made the recent attention result sound substantially newer than
+it was.
+
+### 15.1 Where was the answer to the eight-hour question?
+
+It was section 14, beginning with “Retrospective: how did the eight-hour exploration
+go?” That section was appended to this file, but it was not visually marked as the new
+answer and the most important qualification was missing. This section is the corrected
+answer and deliberately appears at the very bottom.
+
+### 15.2 The user's summary is substantially right
+
+The recent E4 experiment did **not** discover the model's copy or induction heads.
+It started from an already registered four-head set. Older work had already established
+all of the following:
+
+- Induction is distributed and cooperative: single-head or single-layer ablations
+  seriously understate the damage caused by ablating a group.
+- A few identifiable heads carry much of the *singleton* induction signal, while a
+  distributed tail carries much of the total behavior.
+- The named four-head copy front end had already been reduced to a computation using
+  the embedding table, the heads' own query/key/value/output weights, one affine
+  verdict map, and two signed payload scalars. That stand-in recovered approximately
+  `0.78` of its held-out intervention stake and transferred to an unseen repeat period.
+- A later route-grain extraction retained a cheap architectural broadcast route through
+  otherwise removed heads and recovered `79%` of the induction gap. It also exposed a
+  real limitation: the same route serves non-copy computation, so extraction and
+  selective removal do not coincide automatically.
+
+Those results are recorded in the older bilinear-quotient ledger, especially
+sections 953--955, 1257--1261, 1290--1294, and 1314--1316. Therefore “we found a
+non-additive four-head copy bundle” is not an adequate account of progress. The broad
+mechanistic fact was already known.
+
+The exact recent four-head set, `L5H5, L7H3, L8H3, L8H4`, is also not identical to
+every earlier set called a “copy circuit.” The older ledger contains (i) a ranked
+collection of identifiable induction heads, (ii) the four-head matcher/fetcher front
+end `L2H5, L3H8, L8H3, L8H4`, and (iii) broader closure and transport sets. The recent
+experiment used the prior-minimal set frozen in its own preregistration. This is
+another reason not to describe it as a fresh localization.
+
+### 15.3 What the recent E4 work genuinely added
+
+Its incremental contribution was a stricter measurement, not a new circuit:
+
+1. It evaluated an already chosen set on document-disjoint natural-text copy-positive
+   positions, matched negative positions, and a broad off-target population.
+2. It used an exact checkpoint-level intervention that replaces each selected head's
+   live output by a mean learned only from fit data.
+3. It measured a copy-position CE effect of `0.44870` nat and matched-negative
+   specificity of `0.46352` nat.
+4. It showed that this **particular mean-replacement bank fails selective removal**:
+   off-target damage was `0.02441` nat, above the registered `0.01` limit.
+5. A post-hoc calculation quantified the already expected cooperation under this new
+   interface: the joint copy CE effect was `4.19x` the singleton sum. For full-output
+   KL, the ratio was `6.49x` on copy positions and `1.68x` off target.
+
+This is useful calibration of a new intervention and data contract. It is not a new
+explanation of induction.
+
+The terminology matters here. This experiment is **necessity-like**: removing a set
+of live writes damages a behavior. It is not a sufficiency test, because it did not run
+those components as a standalone program or transplant their computation into a
+disabled model. The older `0.78` stand-in and `79%` route-grain extraction are much
+closer to sufficiency/extraction evidence. “More sufficient than necessary” was
+therefore not the right description of the new result.
+
+### 15.4 The proposed 16-subset power set is not the main next step
+
+For four heads there are $2^4=16$ subsets. Measuring all of them permits a Möbius or
+inclusion--exclusion decomposition: singleton, pair, triple, and four-way contrasts.
+That can tell us which *ablation combinations* account for the non-additivity.
+
+But it does not automatically decompose a head into an executable copy component. A
+Mobius interaction is a contrast between interventions, not a tensor that can be
+removed, transplanted, or evaluated on a new input. Because earlier work already
+established distributed cooperation, a complete subset cube is now a modest diagnostic,
+not a high-return research direction. It should either be skipped or capped at less
+than one hour and run only if it selects between two concrete replacement designs.
+
+### 15.5 What was done during the eight hours besides Family F and E4?
+
+Four lines of inquiry did receive numerical tests:
+
+| Line | Actual scientific result | Decision |
+|---|---|---|
+| Family F | Refitted 256/512-gate local programs failed activation fidelity; the 512-gate **native-Down** version nevertheless reached KL `0.05772` | Preserve the native-Down lead; stop local-MSE decoder tuning |
+| E1 | A rank-512 reader that works on native streams failed when recursively supplied compressed streams; refitting made it worse | Closed: it reads state that the small program does not construct |
+| E2 | Shared dictionaries helped only at tight equal-storage budgets; one global language and a shared-trunk hierarchy lost to site-private allocation | Keep as economical compression, not a universal semantic basis |
+| E3 | A universal rank-64 downstream-response state failed held-out finite transport and destination sufficiency | Reject this state; do not infer that all system-identification approaches fail |
+| E4 | The stricter four-head mean replacement was behavior-specific but had excessive off-target damage; its joint effect was non-additive | Exact replacement bank rejected; broad mechanism mostly old knowledge |
+
+Thus it is not literally true that only two computations ran. But it **is** fair to
+say that the return per wall-clock hour was poor: three negative interfaces, one
+promising but unconfirmed native-Down lead, and one mostly confirmatory attention
+result did not justify the amount of process wrapped around them.
+
+### 15.6 What consumed the time?
+
+The model computations were not eight-hour computations. Recorded examples are:
+
+- Family F: `75.26` seconds;
+- the main shared-map sweep: about `320` seconds;
+- the corrected hierarchy sweep: `421.75` seconds;
+- the response-panel calculation: `199.87` seconds;
+- the finite transport calculation: `244.1` seconds;
+- the final E4 transaction: roughly twenty minutes from authority opening to ledger
+  publication, including checks rather than twenty minutes of pure GPU arithmetic.
+
+Data loading was also not the bottleneck: one measured collection path took `0.38`
+seconds after checkpoint load.
+
+Most wall time instead went into building fresh data roles, sealing manifests and
+hashes, writing receipt-last publication logic, source-closure audits, testing, fixing
+device/publication/hash failures, independent review, and waiting behind other GPU
+jobs. Some assurance suites alone took about two minutes per invocation, and they were
+run repeatedly while their infrastructure changed.
+
+Those controls are appropriate for a final confirmatory result. Applying nearly the
+same ceremony to every exploratory branch was an efficiency mistake. In addition, the
+older mechanistic ledger was not consulted aggressively enough before E4, so we paid
+confirmatory costs to re-establish a result whose qualitative content was already
+known. The concern that progress was roughly four times slower than it should have been
+is reasonable.
+
+### 15.7 Revised operating rule: discovery first, confirmation second
+
+From now on there should be two visibly separate lanes:
+
+1. **Discovery lane.** Reuse already exposed/cached roles and existing intervention
+   adapters. Time-box a probe to `20--45` minutes. Start with 32 documents and double
+   to 128 only when the effect is large and stable. Mark the result exploratory; do
+   not build a new receipt system for it.
+2. **Confirmation lane.** Only a candidate that is both new and actionable earns fresh
+   document roles, preregistered gates, OOD data, receipt-last publication, and
+   independent audit.
+
+A result is actionable only if it changes an executable program: it selects a tensor
+term to keep/remove, improves a composition, predicts a held-out intervention, or
+strictly improves the price--behavior frontier. A new plot of a familiar phenomenon
+does not qualify.
+
+### 15.8 Revised high-return plan
+
+The earlier recommendation to concentrate on a four-head power set is superseded.
+The ranked plan is now:
+
+1. **Resume from the existing copy program rather than rediscovering it.** Reproduce
+   the prior `0.78` weights-and-embedding stand-in and `79%` route-grain extraction
+   from their preserved scripts/artifacts. This is a baseline audit, not a new claim.
+   Then ask exactly which part of the remaining `21--22%` is missing.
+2. **Decompose the known heads by exact source-position contributions.** Define the
+   value vector of head $h$ at source position $s$ by
+
+   $$
+   v_h(s)=W_V^h x_s+b_V^h.
+   $$
+
+   Then the complete attention write at destination position $t$ is
+
+   $$
+   o(t)=b_O+\sum_h\sum_s o_{h,s}(t),
+   \qquad
+   o_{h,s}(t)=a_h(t,s)\,W_O^h v_h(s).
+   $$
+
+   Here $s$ is a source position, $a_h(t,s)$ is the attention weight from $t$ to $s$,
+   $x_s$ is the source residual vector, $W_V^h$ and $W_O^h$ are the head's value and
+   output maps, and $b_V^h,b_O$ are the biases. The shared output bias $b_O$ stays
+   untouched. This sum is exact for a completed forward pass, including the value and
+   output biases that must not be silently dropped. It lets us remove only the
+   contribution from the matched source or successor-payload route, while keeping the
+   same head's unrelated traffic. That is a direct candidate for selective removal,
+   unlike a whole-head mean or a Möbius contrast. We should combine it with the older
+   split between the cheap $\lambda v_1$ broadcast route and the fresh-value route.
+3. **Run the MLP0/MLP1/MLP2/attention composition telescope already motivated by the
+   user's question.** Independently compress each component, then test every prefix
+   composition on the same cached rows. The first composition whose CE jumps identifies
+   a missing interface. This directly tests whether MLP2 really compensates for an
+   MLP0 simplification and whether independently good reductions compose.
+4. **Give native-Down K512 one cheap behavioral test, without another infrastructure
+   project.** Its KL `0.05772` is the strongest new polynomial lead from the eight-hour
+   window. Use existing exposed data for discovery. Only if it beats its controls and
+   supports a finite edit should the fresh-role confirmation lifecycle be repaired and
+   run. The current fresh-row freezer is paused at a precise NO-GO because its auditor
+   still found three time-of-check/time-of-use integrity gaps; that is a publication
+   blocker, not a mathematical or exploratory-data blocker.
+5. **Return to joint semantic factorization only after the composition telescope says
+   which interface needs it.** A shared dictionary, sparse code, tensor factorization,
+   or hierarchy should be optimized jointly with the downstream reader at that
+   interface and judged by CE, transfer, and selective edits—not merely local MSE.
+
+The immediate scientific priority is item 2. It uses the tensor/linear structure to
+turn a known circuit into finer exact additive pieces, and it has a cheap falsifier:
+if removing the matched-source terms does not selectively damage copying, or if the
+complement causes comparable copy damage, then source-position decomposition is not
+the needed grain. That experiment can teach us something new without another day of
+infrastructure work.
