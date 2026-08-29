@@ -331,6 +331,27 @@ strict ledger.
   The results motivate a fit-only uneven rank allocation but cannot be used as its
   sealed evaluation evidence.
 
+## Live status update — 08:15 UTC
+
+- S1899 directly measured the premise behind the context-free derivation. The compiled
+  and native length-one streams agree at every MLP entry to relative error
+  `1.15e-7--4.13e-7`. Thus S1898's late top-1 changes do not reveal a hidden state-
+  interface failure; near-tie argmax sensitivity is the leading hypothesis. This is a
+  measured mechanism diagnostic, not an E1--E4 cell.
+- The source-closed exact-budget uneven table-rank experiment completed in 244.1 seconds.
+  The preregistered normalized-energy allocation loses to uniform rank 512 by
+  `0.01944/0.02053/0.02309` nat and to its shifted null on every role. A diagnostic raw-
+  energy allocation improves over uniform by `0.00772/0.00675/0.00447` nat, missing
+  the 0.005 bar on the third role. This prunes normalized local compressibility as a
+  rank allocator and leaves a prospective raw/causal-weighted successor. It is a real
+  whole-program outcome but, as preregistered, does not complete an E cell because the
+  three evaluation roles were already spent.
+- Strict cell status is unchanged: E1 is closed negative; E2.1/E2.2 and the large-budget
+  hierarchy are closed negative; E3.2/E3.3 and E4.1--E4.3 have no model outcome. Family
+  F remains receipt-complete and negative under its registered NRMSE gate, with the
+  native-Down successor blocked by independent audit plus missing measurement and
+  semantic-validation code.
+
 ## Eight-hour ordering and resource allocation
 
 | UTC window | Main action | Parallel CPU action |
