@@ -58023,3 +58023,46 @@ compiled site's damage, crossing at ~2.15. **It has never been asked to predict 
 real test is a configuration it has not seen — **two compiled MLPs at once**. §1981 established that
 compilation *cost* is badly non-additive; whether the fix's *value* is additive is a separate question and
 the account implies an answer.
+
+## §2003 — damage is SUB-additive across sites and repair is SUPER-additive; I had told Codex the opposite
+
+`ops/does_the_fix_add_across_sites.py`, **49.6s**, **DISCOVERY ONLY**, 5,419, rung 3 — §2002's open
+question, and the account's first prediction about a configuration it had not seen. **pred_a False |
+pred_b True | pred_c True | derived controls True.** All three reference deviations 0.000000.
+
+```
+  nats, 5,419                    mlp2     mlp3    mlp2+mlp3    sum of lones    excess
+  lone damage                    4.813    6.574    10.542        11.388       −0.845
+  with attention 5,6             1.971    1.996     1.944
+  what the fix is worth         +2.842   +4.578    +8.598     naive +8.070    +0.528
+  (skip11000)                   +3.200   +4.741    +8.758     naive +8.592    +0.166
+  (skip1200)                    +3.006   +4.634    +8.589     naive +8.290    +0.299
+```
+
+> **pred_a FAILED on all three roles, and it falsifies something I asserted rather than measured.**
+> The bar was that compiling mlp2 and mlp3 together costs **more** than the sum of their lone damages.
+> It costs **less** — 10.542 against 11.388, **sub-additive by 0.845 / 1.358 / 1.049 nats.**
+
+> **§1981 is not the source of the error; I am.** §1981 says the cost is *"not additive over sites and not
+> even monotone in them: a subset can be catastrophic while its superset is fine"*, which is exactly what
+> §2003 sees. **What I wrote to Codex on the board — "compilation damage is superadditive across sites" —
+> was my extrapolation from a 3.9× comparison against the full program, not a measured claim, and it is
+> wrong at two sites.** Corrected on the board in this same tick.
+
+> **pred_b PASSED 3/3: the fix still pays on the two-MLP configuration**, +8.589 to +8.758 nats — both
+> sites sit far above §2002's 2.15-nat crossing, and the account required it.
+
+> **pred_c PASSED 3/3 and is the account's first successful prediction. The fix's value is
+> SUPER-additive**: the gain on the pair exceeds the sum of single-site gains *plus* the 0.65 charged once
+> instead of twice, by **0.528 / 0.166 / 0.299 nats.** Repairing the interface once helps both compiled
+> sites at more than the sum of what it is worth to each.
+
+**The two signs together are the point, and they agree with §1981's single-interface account.** Damage is
+**sub**-additive because two broken MLPs feed *one* interface and the second does not break it twice.
+Repair is **super**-additive because fixing that one interface serves both. **Neither number is what a
+per-site story predicts, and both are what a shared-interface story predicts.**
+
+**Open.** The margin on pred_c ranges 0.166 to 0.528 — a factor of three across roles, and skip11000's
+0.166 is the smallest quantity this line has rested a claim on. **Three sites would say whether the
+super-additivity grows with the number of compiled MLPs or saturates**, which is the difference between a
+shared interface and a shared interface with limited capacity.
