@@ -51562,3 +51562,59 @@ and it is fixable in principle by fitting on program-generated streams instead, 
 map to a fixed point. Whether that recovers anything decides between "the stream input is unusable in a
 standalone program" and "§1876 was fit wrong". §1879 measures it. If it fails too, the stream-input line
 is closed and §1870's embedding map is the answer.
+
+## §1879 — the self-consistent refit DESTROYS it. The stream-input line is CLOSED.
+
+`ops/iterated_stream_map.py`, 558.5s, **DISCOVERY ONLY**, rung 3 — §1878's open question, the last rescue.
+**pred_a False | pred_b False | pred_c True | pred_d True (but see the convergence clause below).**
+
+```
+  fallback loss vs the uncovered ceiling 5.15861, 5,419 types, ALL at map rank 512
+    MAP           embedding,                  covered-fit      +0.59560  +0.67209  +0.67172
+    STREAMCOV     NATIVE stream,              covered-fit      +0.17427  +0.21358  +0.21419
+    STREAMCLOSED  program stream, NATIVE-fit  (§1878)          +1.08978  +1.27276  +1.26133
+    STREAMITER    program stream, SELF-fit, 3 iterations       +5.49867  +5.61939  +5.59476
+```
+
+**Fitting where you apply makes it five times worse, not better.** pred_a — the weakest bar I could
+write, merely that refitting helps *at all* — failed by **4.409**. The deficit of +5.5 nats on a ceiling
+of 5.16 puts the program's uncovered CE near **10.66**, against `ln(50257) = 10.82`: the uncovered
+positions are essentially destroyed.
+
+> **THE STREAM-INPUT LINE IS CLOSED, and the closing result is a statement about the program class, not
+> about engineering.** The length-1 residual stream is a far better predictor of a site's output than the
+> token embedding — §1876 measured that at +0.17427 against +0.59560, and §1878's pred_d reproduced both
+> to the digit. **The information is there. The program cannot reach it, because it cannot reproduce the
+> stream.** Substituting all 36 sites destroys exactly the quantity the good map needs as input. That is
+> §1765's fixed point seen from the other side: a fully compiled program is a pure function of the
+> current token, so any input richer than the token is precisely what compilation removes.
+
+**The deployable answer is §1870's rank-512 covered-fit EMBEDDING map**, unchanged from §1878, and now
+confirmed by the failure of both rescues: 23.7 / 22.1 / 20.0% of the deployed fallback loss for
++37.159M reals (833 / 811 / 916 M/nat).
+
+**Why the refit amplifies.** Each site's row is a rank-512 linear image of its input stream, and 36 of
+them compose through the residual adds. Fitting on program-generated streams fits the amplified
+off-distribution directions, which amplifies them further on the next pass — positive feedback, visible
+in the deltas.
+
+> **My pred_d convergence clause was too weak and it passed vacuously. I am saying so rather than
+> banking it.** I registered *"the last relative map change is smaller than the first"*, and got
+> **22.63370 → 5.43549 → 1.85551**: monotonically falling, so the clause is TRUE as written, while a
+> relative change of **1.86** means the map is still turning over completely every iteration. **That is
+> not a converged fixed point and I should have registered a bar against 1.0, not against the first
+> iterate.** The consequence is bounded — pred_a and pred_b are direct measurements and stand — but the
+> STREAMITER row is *iterate 3 of a non-converging sequence*, not a fixed point, and nothing should cite
+> it as one. LESSON 68.
+
+**pred_c PASSED at 0.00e+00 for a tenth time.** Even with the uncovered rows driven to near-uniform, the
+covered arm did not move a single digit — the strongest form this control has taken, because the
+manipulation this time was catastrophic and still perfectly confined. **The anchors §1870, §1876 and
+§1878 all reproduced within 0.005**, §1878 through an independently written code path.
+
+**What this closes and what it opens.** Closed: the fallback input question. The program's fallback map
+takes the token embedding, and the only remaining lever on it is rank, which §1877 saturated at 512.
+Open: **the measured Pareto frontier of §1853-§1865 was built with a rank-64 map**, and §1870 has since
+moved the fallback by 0.185 nats for 37.159M reals. Whether the table-rank frontier *shifts* under the
+better fallback — the map's 42.467M is a large fixed charge against the low-rank builds, which cost as
+little as 6.338M in total — is unmeasured and is the last open cost question in this arc. §1880.
