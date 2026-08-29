@@ -293,6 +293,28 @@ class Program:
                                            self._map(tc, st, mrank, table_rank))
                 out[st] = fr
             return out
+        if name.startswith('pat'):
+            # pat<LO>_<HI>m<R>: a PER-TOKEN alpha. Every uncovered type gets its own blend weight,
+            # linear in its unc_mass quantile -- HI% neighbour for the token whose next-token
+            # distribution stays inside the table, falling to LO% for the one that leaves it. S1961
+            # showed a single alpha is flat and effectively optimal; S1955/S1956 showed the unseen case
+            # is predictable from unc_mass but not profitably ROUTABLE. This varies the WEIGHT instead
+            # of choosing a row, which is the combination S1962 found untried.
+            spec = name[3:]
+            body, mrank = (spec.split('m', 1) if 'm' in spec else (spec, '512'))
+            lo_s, hi_s = body.split('_')
+            lo, hi, mrank = int(lo_s) / 100.0, int(hi_s) / 100.0, int(mrank)
+            um = self.unc_mass[self.unc]
+            q = (um.argsort().argsort().float() / max(um.numel() - 1, 1))
+            al = (hi + (lo - hi) * q).unsqueeze(1)          # HI at q=0, LO at q=1
+            self.routefrac[name] = float(al.mean())
+            for st in SITES:
+                fr = torch.zeros(V, D, device=DEV)
+                fr[self.tk] = tc[st]
+                fr[self.unc] = (al * tc[st][self.nnrow[self.unc]]
+                                + (1.0 - al) * self._map(tc, st, mrank, table_rank))
+                out[st] = fr
+            return out
         if name.startswith('msk'):
             spec = name[3:]
             pstr, mrank = (spec.split('m', 1) if 'm' in spec else (spec, '512'))
@@ -366,6 +388,9 @@ class Program:
             fb = int(self.unc.numel()) * 2                 # one index per uncovered type
         elif name.startswith('map'):
             fb = 36 * int(name[3:]) * 2 * D
+        elif name.startswith('pat'):
+            mr = int(name[3:].split('m', 1)[1])
+            fb = 36 * mr * 2 * D + int(self.unc.numel()) * 6   # index + one float32 alpha per type
         else:
             spec = name[3:] if name.startswith(('mix', 'msk')) else name[2:]
             mr = int(spec.split('m', 1)[1]) if 'm' in spec else 64

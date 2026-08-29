@@ -85,17 +85,16 @@ EXPECTED_PARENTS = {
     "calibration_receipt": "08267122572157203ccf87f9d901d9c4efdfb41c9bb3b4f0d34f1f1f4e669b52",
 }
 
-SOURCE_CLOSURE = (
+SOURCE_CLOSURE = tuple(dict.fromkeys((
     PREREG, ADDENDUM, Path(__file__).resolve(),
     HERE / "test_validate_mlp2_cmr_v1.py",
     Path(runtime.__file__).resolve(), HERE / "test_mlp2_cmr_v1_validation_runtime.py",
     Path(statistics.__file__).resolve(), HERE / "test_mlp2_cmr_v1_validation_statistics.py",
     HERE / "mlp2_cmr_v1_physical_program.py",
     HERE / "test_mlp2_cmr_v1_physical_program.py",
-    Path(projection.__file__).resolve(),
-    HERE / "test_project_mlp2_cmr_v1_validation_rows.py",
+    *tuple(Path(path).resolve() for path in projection.SOURCE_CLOSURE),
     Path(facade.__file__).resolve(), ROOT / "jacclust/tt_model.py",
-)
+)))
 
 
 def file_sha256(path: Path) -> str:
@@ -262,12 +261,27 @@ def _load_torch(value: bytes) -> Any:
 
 def _selector_gauge_passes(result: dict[str, Any]) -> bool:
     audit = result.get("gauge_and_permutation_audit", {})
+    channel = audit.get("channel_permutation", {})
+    dyadic = audit.get("dyadic_reciprocal", {})
+    general = audit.get("general_reciprocal_functional", {})
     return (
-        all(audit.get("channel_permutation", {}).values())
-        and all(audit.get("dyadic_reciprocal", {}).values())
-        and audit.get("general_reciprocal_functional", {}).get(
-            "canonical_down_max_relative_error", 1
-        ) <= 5e-15
+        channel == {
+            "derangement_equivariant": True,
+            "hash_random_equivariant": True,
+            "suffix_support_equivariant": True,
+        }
+        and dyadic == {
+            "canonical_down_max_abs_error": 0.0,
+            "derangement_exact": True,
+            "hash_random_exact": True,
+        }
+        and general == {
+            "canonical_down_max_relative_error":
+                general.get("canonical_down_max_relative_error"),
+            "hash_byte_replay_required": False,
+        }
+        and isinstance(general["canonical_down_max_relative_error"], float)
+        and 0.0 <= general["canonical_down_max_relative_error"] <= 5e-15
     )
 
 

@@ -23,9 +23,46 @@ def test_source_closure_is_exact_once_and_contains_runtime_contracts() -> None:
         "test_mlp2_cmr_v1_physical_program.py",
         "project_mlp2_cmr_v1_validation_rows.py",
         "test_project_mlp2_cmr_v1_validation_rows.py",
+        "MLP2_CMR_V1_MARGIN_FREQUENCY_ADDENDUM.md",
+        "materialize_mlp2_cmr_v1_token_rows.py",
+        "test_materialize_mlp2_cmr_v1_token_rows.py",
+        "project_mlp2_cmr_v1_fit_selector_rows.py",
+        "test_project_mlp2_cmr_v1_fit_selector_rows.py",
         "bilin18_observed_model_facade.py",
         "tt_model.py",
     }
+
+
+def test_selector_gauge_replay_checks_zero_error_as_a_number_not_false() -> None:
+    valid = {
+        "gauge_and_permutation_audit": {
+            "channel_permutation": {
+                "derangement_equivariant": True,
+                "hash_random_equivariant": True,
+                "suffix_support_equivariant": True,
+            },
+            "dyadic_reciprocal": {
+                "canonical_down_max_abs_error": 0.0,
+                "derangement_exact": True,
+                "hash_random_exact": True,
+            },
+            "general_reciprocal_functional": {
+                "canonical_down_max_relative_error": 4.8e-16,
+                "hash_byte_replay_required": False,
+            },
+        },
+    }
+    assert validation._selector_gauge_passes(valid)
+    invalid = {
+        "gauge_and_permutation_audit": {
+            **valid["gauge_and_permutation_audit"],
+            "dyadic_reciprocal": {
+                **valid["gauge_and_permutation_audit"]["dyadic_reciprocal"],
+                "derangement_exact": False,
+            },
+        },
+    }
+    assert not validation._selector_gauge_passes(invalid)
 
 
 def test_runner_is_role_only_and_never_names_combined_or_replication_rows() -> None:
