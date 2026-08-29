@@ -143,3 +143,4 @@ def test_audit_hash_constants_are_full_sha256_when_authority_is_created():
     # The real audit is deliberately absent until an independent reviewer approves
     # the committed source; this test prevents a placeholder from being mistaken for it.
     assert not rows.AUDIT.exists() or len(hashlib.sha256(rows.AUDIT.read_bytes()).hexdigest()) == 64
+    assert rows.AUDIT not in rows.SOURCE_PATHS

@@ -32,6 +32,7 @@ TEST = HERE / "test_prepare_terminal_copy_induction_v1_rows.py"
 PREREG = HERE / "TERMINAL_COPY_INDUCTION_V1_PREREGISTRATION.md"
 CONTRACT = HERE / "terminal_copy_induction_v1.py"
 ADAPTER_ADDENDUM = HERE / "TERMINAL_COPY_ATTENTION_ADAPTER_V1_ADDENDUM.md"
+SCREENING_AMENDMENT = HERE / "TERMINAL_COPY_INDUCTION_V1_SCREENING_AMENDMENT.md"
 AUDIT = HERE / "terminal_copy_induction_v1_rows_audit.json"
 
 START_DOCUMENT_INDEX = 70_000
@@ -55,7 +56,7 @@ RECEIPT = BQ / "terminal_copy_induction_v1_rows_receipt.json"
 LOCK = Path("/workspace/runs/.terminal_copy_induction_v1_rows.lock")
 
 SOURCE_PATHS = (
-    FREEZER, TEST, PREREG, CONTRACT, ADAPTER_ADDENDUM, AUDIT,
+    FREEZER, TEST, PREREG, CONTRACT, ADAPTER_ADDENDUM, SCREENING_AMENDMENT,
     HERE / "prepare_block3_native_down_behavioral_port_v1_rows.py",
     HERE / "test_prepare_block3_native_down_behavioral_port_v1_rows.py",
     HERE / "prepare_mlp0_native_down_hierarchy_v1_rows.py",
@@ -92,13 +93,22 @@ def source_closure(commit: str) -> dict[str, str]:
     return hashes
 
 
-def validate_audit(commit: str) -> dict[str, Any]:
+def validate_audit(commit: str, source_hashes: Mapping[str, str]) -> dict[str, Any]:
     before = file_sha256(AUDIT)
     payload = json.loads(AUDIT.read_bytes())
-    if file_sha256(AUDIT) != before or payload.get("approved") is not True or (
-        payload.get("source_commit") != commit
-    ) or payload.get("outcome_access") is not False:
-        raise RuntimeError("terminal-copy row audit does not authorize this source commit")
+    audited_commit = payload.get("source_commit")
+    if (
+        file_sha256(AUDIT) != before
+        or payload.get("approved") is not True
+        or not isinstance(audited_commit, str)
+        or payload.get("outcome_access") is not False
+        or payload.get("source_hashes") != dict(source_hashes)
+    ):
+        raise RuntimeError("terminal-copy row audit does not authorize these source bytes")
+    subprocess.run(
+        ["git", "merge-base", "--is-ancestor", audited_commit, commit],
+        cwd=ROOT, check=True,
+    )
     return payload
 
 
@@ -362,7 +372,7 @@ def freeze() -> dict[str, Any]:
             raise RuntimeError("terminal-copy row namespace is spent")
         commit = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip()
         sources = source_closure(commit)
-        audit = validate_audit(commit)
+        audit = validate_audit(commit, sources)
         canonical, parquet = natural.BASE.validate_ordered_source()
         registry_files = natural.discover_registry_files()
         prior, registry_hashes, prior_tensor_hashes = natural.load_registry_exclusions(registry_files)

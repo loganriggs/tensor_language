@@ -54,6 +54,9 @@ EVAL_SETS = [('skip7000', PT + '.rowcache/fineweb_n192_skip7000.pt', 3.29205),
              ('skip1200', PT + '.rowcache/fineweb_n96_skip1200.pt', 3.40277)]
 FIT_ROWS = PT + '.rowcache/fineweb_n480_skip80.pt'    # 5,419 types, the DEPLOYED coverage
 H = m.transformer.h
+# scored-position buckets, module scope: three separate blocks read this and a local binding
+# in two of them left the third unbound (LESSON 67's family, caught by the run).
+PB = ((64, 95), (96, 127), (128, 159), (160, 10 ** 6))
 NCOV = 16110       # the DEPLOYED coverage (§1834). §1834's 5419 is S1789_COV; §1788/§1789's accuracy figures
 S1789_COV = 5419
 S1883_TOP = {'skip7000': 0.536, 'skip11000': 0.541, 'skip1200': 0.539}   # §1883 DEPLOYED column
@@ -135,7 +138,6 @@ def compare_by_bucket(rows, hooks, seenmask=None):
     a = {b: {'acc_l': 0, 'acc_p': 0, 'n': 0, 'agree': 0, 'both': 0} for b in BUCKETS}
     keep = {b: {'l': [], 'p': []} for b in BUCKETS}   # per-bucket predictions, for the permutation null
     # the MECHANISM split: covered current token -> table lookup; uncovered -> §1870's fallback map.
-    PB = ((64, 95), (96, 127), (128, 159), (160, 10 ** 6))   # scored-position buckets
     cell = {f'p{a4}_{b4}': {'l': [], 'p': [], 'n': 0, 'al': 0} for a4, b4 in PB}
     mech = {'cov': {'l': [], 'p': [], 'al': 0, 'ap': 0, 'n': 0},
             'unc': {'l': [], 'p': [], 'al': 0, 'ap': 0, 'n': 0}}
@@ -366,7 +368,6 @@ def main():
     torch.cuda.empty_cache()
 
     roles = [e for e, _, _ in EVAL_SETS]
-    PB = ((64, 95), (96, 127), (128, 159), (160, 10 ** 6))
     BK = [f'p{a4}_{b4}' for a4, b4 in PB]
     A1 = 'g1.00'
 

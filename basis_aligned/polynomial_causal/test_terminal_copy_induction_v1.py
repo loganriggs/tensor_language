@@ -267,6 +267,25 @@ def test_causal_contrast_uses_within_input_effect_then_specificity_subtraction()
         contract.causal_copy_contrast(native, wrong_support)
 
 
+def test_reduction_support_digest_binds_ordered_row_bytes_not_only_coordinates():
+    rows, frequencies = _rows_for_matching()
+    document_ids = tuple(f"support-{i}" for i in range(len(rows)))
+    cells = contract.build_copy_cells(rows, frequencies, document_ids)
+    vocab = int(rows.max()) + 3
+    logits = torch.zeros(len(rows), contract.MODEL_WIDTH, vocab)
+    native_reduction = contract.reduce_behavior(logits, rows, cells)
+    changed_rows = rows.clone()
+    changed_rows[0, 0] += 1
+    changed_reduction = contract.reduce_behavior(logits, changed_rows, cells)
+    assert native_reduction["positive"].count == changed_reduction["positive"].count
+    assert (
+        native_reduction["positive"].support_sha256
+        != changed_reduction["positive"].support_sha256
+    )
+    with pytest.raises(ValueError, match="unequal cell support"):
+        contract.causal_copy_contrast(native_reduction, changed_reduction)
+
+
 def test_extraction_recovery_has_exact_denominator_and_no_zero_stake_fallback():
     assert contract.extraction_recovery(
         native_positive_ce=2.0, ablated_positive_ce=3.0, extracted_positive_ce=2.25,

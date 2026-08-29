@@ -445,7 +445,7 @@ def synthetic_association_did(
 
 
 def _reduce_cell(
-    logits: torch.Tensor, targets: torch.Tensor, mask: torch.Tensor,
+    logits: torch.Tensor, rows: torch.Tensor, targets: torch.Tensor, mask: torch.Tensor,
     native_logits: torch.Tensor | None,
 ) -> CellReduction:
     count = int(mask.sum())
@@ -453,6 +453,9 @@ def _reduce_cell(
         raise ValueError("every reported confirmatory cell must have positive support")
     support = torch.nonzero(mask, as_tuple=False).to(torch.int64).contiguous()
     support_digest = hashlib.sha256()
+    support_digest.update(str(rows.dtype).encode())
+    support_digest.update(str(tuple(rows.shape)).encode())
+    support_digest.update(rows.contiguous().numpy().tobytes(order="C"))
     support_digest.update(str(tuple(mask.shape)).encode())
     support_digest.update(support.numpy().tobytes(order="C"))
     selected = logits[mask].double()
@@ -497,11 +500,11 @@ def reduce_behavior(
         raise ValueError("native logits are malformed or misaligned")
     targets = rows[:, 1:]
     return {
-        "positive": _reduce_cell(logits, targets, cells.positive, native_logits),
+        "positive": _reduce_cell(logits, rows, targets, cells.positive, native_logits),
         "matched_negative": _reduce_cell(
-            logits, targets, cells.matched_negative, native_logits,
+            logits, rows, targets, cells.matched_negative, native_logits,
         ),
-        "off_target": _reduce_cell(logits, targets, cells.off_target, native_logits),
+        "off_target": _reduce_cell(logits, rows, targets, cells.off_target, native_logits),
     }
 
 
