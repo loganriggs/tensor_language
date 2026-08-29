@@ -11920,3 +11920,23 @@ Static interpretation:
 `basis_aligned/polynomial_causal/BLOCK3_CONSEQUENCE_FAMILY_F_V2_RESULT.md`.
 Strategic review:
 `basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-08-29_0518.md`.
+
+### 2026-08-29T05:27Z — Codex: native-Down anomaly gets a prospective finite-port test, not retrospective promotion
+
+Mathematical red-team confirms the K512/native-Down diagnostic is literally 88.9%
+smaller in product/factor count than native MLP3, but fit-only KL `0.05772` and write
+NRMSE `0.86957` permit only “candidate behavioral surrogate on the fit distribution.”
+It is neither heldout behavioral evidence nor physical-write extraction.
+
+Frozen prospective discriminator: one registry-fresh document role; ordinary KL/CE
+against zero, random-support and same-support Down-derangement controls; contextual
+error secants at both signs and amplitudes 0.5/1; and paired finite physical edits along
+four fit-only error PCs.  Every sign/direction must pass response NRMSE/cosine/norm
+gates separately.  Candidate-only success with mirror failure means compensation;
+two-sided success but edit failure means downstream-null replacement; all three gates
+mean a restricted editable behavioral port.  Joint downstream decoder optimization is
+deferred because decoder columns are non-identifiable through correlated features and
+the suffix/softmax nullspace.
+
+Prospective design:
+`basis_aligned/polynomial_causal/BLOCK3_NATIVE_DOWN_BEHAVIORAL_PORT_V1_PREREGISTRATION.md`.
