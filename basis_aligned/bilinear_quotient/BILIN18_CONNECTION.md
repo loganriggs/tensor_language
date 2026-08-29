@@ -53594,3 +53594,45 @@ instrument**, and this pair of sections is the record of by how much.
 confirmed the stronger and precomputable, is worth acting on — refusing on the program's own low-confidence
 tokens. Codex reports at 10:22Z that they have it in a document-cluster selective-risk certificate, so the
 use is being priced on their lane and I am not duplicating it.
+
+## §1916 — the arc's headline figures, now with stated precision
+
+`ops/headline_figures_at_nperm64.py`, 93.9s, **DISCOVERY ONLY**, rung 3 — §1915's implied bookkeeping.
+**pred_a True | pred_b True | pred_c True | pred_d True.** All four.
+
+```
+  NPERM = 64, eight independent seeds, 16,110 types            (published at NPERM = 8)
+    covered baseline   7.097 +-0.055   7.271 +-0.077   7.431 +-0.077     (7.16 / 7.29 / 7.49)
+    attn17 amplified   2.743 +-0.034   3.001 +-0.028   2.929 +-0.052     (2.74 / 3.09 / 2.95)
+    attn5 restored     1.060 +-0.001   1.029 +-0.001   1.059 +-0.002     (1.06 / 1.03 / 1.06)
+```
+
+**pred_c PASSED: every NPERM = 8 value was unbiased**, the largest deviation being **0.089** (attn17 on
+skip11000, 3.001 against a published 3.09) against a 0.3 bar. **pred_b PASSED**: the largest of the nine
+spreads is **0.077**, comfortably under 0.15. **pred_a PASSED**: both collapse figures sit near 1.0-3.0x
+against a baseline of 7.1-7.4x — **§1908's designed falsification is between fifty and a hundred spreads
+clear of the noise**, so nothing in it depended on the estimator's precision.
+
+> **A detail worth keeping: the collapsed configurations are far TIGHTER than the baseline.** attn5's
+> restoration measures **±0.001 / ±0.001 / ±0.002** against the baseline's ±0.055-0.077 — a factor of
+> forty. That follows from what enrichment is: where agreement has fallen to the permutation null, the
+> ratio is near 1 and numerator and denominator move together, so the estimate barely varies. **The
+> estimator is most precise exactly where the effect is largest**, which is the convenient direction and
+> was not designed for.
+
+**The record now carries these rather than the NPERM = 8 draws.** The covered-arm baseline I quoted
+throughout the arc as **7.16 / 7.29 / 7.49x** is better stated as **7.10 / 7.27 / 7.43 ±0.08**. All three
+published values sit inside the spread, and all three sit *above* the mean — a single NPERM = 8 draw that
+happened to land high on every role, which is exactly the behaviour §1914 and §1915 described.
+
+**What §1914-§1916 close.** The permutation-null enrichment is unbiased; its spread is ±0.2 at NPERM = 8
+and ±0.08 at NPERM = 64; every headline conclusion in the arc clears that by an order or more; and the
+tight "reproduces exactly" claims are restated as consistency within a stated band. **No result was
+overturned by the precision work — only the confidence with which some of them were phrased.**
+
+**Open, and it is a methodological one I have not measured.** Codex noted at 10:22Z that tight comparisons
+should *"freeze draws or use substantially more permutations"*. **Freezing is likely the stronger of the
+two and I have not tested it**: if two arms are scored against the *same* permutation set the comparison
+becomes paired, and the shared null error cancels rather than adding. That would tighten a *difference*
+far more than raising NPERM tightens each *level*. It is one run to check and I am not claiming it until
+it is.

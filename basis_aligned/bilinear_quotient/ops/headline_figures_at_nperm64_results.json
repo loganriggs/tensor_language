@@ -1,0 +1,140 @@
+{
+ "config": {
+  "table_ranks": [
+   "full"
+  ],
+  "map_rank_of_table_rank": {
+   "None": 64,
+   "512": 512
+  },
+  "program": "context-free tables, output-NN fallback with a rank-64 embedding->row map -- the settled design of \u00a71780-\u00a71786",
+  "instruments": "top-1 agreement with the live model, top-1 accuracy against the true next token, and KL(live || program). All three are NEW to this thread, which has been CE-only since \u00a71747.",
+  "ROLE_NOTE": "DISCOVERY ONLY; a second-class confirmation with a DIFFERENT instrument, not a replication of the same one."
+ },
+ "results": {
+  "baseline": {
+   "skip7000": 7.114103068717002,
+   "skip11000": 7.304766462203274,
+   "skip1200": 7.4173927338484305
+  },
+  "baseline_stat": {
+   "skip7000": {
+    "mean": 7.097230664419777,
+    "spread": 0.05482915435765445
+   },
+   "skip11000": {
+    "mean": 7.271027801271149,
+    "spread": 0.07734123336519705
+   },
+   "skip1200": {
+    "mean": 7.431350864283787,
+    "spread": 0.07658744013841368
+   }
+  },
+  "norms": {
+   "attn17": {
+    "live_mean_norm": 9186.112630208334,
+    "table_mean_norm": 984.3004760742188,
+    "ratio": 0.1071509261531769
+   },
+   "attn5": {
+    "live_mean_norm": 967176.5364583334,
+    "table_mean_norm": 6718.59765625,
+    "ratio": 0.006946609437872195
+   }
+  },
+  "sites": {
+   "attn17": {
+    "m16": {
+     "skip7000": {
+      "enrichment": 2.737749401436553,
+      "n": 33192,
+      "mean": 2.7430209352290618,
+      "spread": 0.03391829560830395
+     },
+     "skip11000": {
+      "enrichment": 2.9682755982691433,
+      "n": 33196,
+      "mean": 3.0009030566582946,
+      "spread": 0.028211969086345157
+     },
+     "skip1200": {
+      "enrichment": 2.903122863004331,
+      "n": 16597,
+      "mean": 2.929300758160858,
+      "spread": 0.05169037269070431
+     }
+    },
+    "m1": {
+     "skip7000": {
+      "enrichment": 7.438830614379824,
+      "n": 33192,
+      "mean": 7.426665047744553,
+      "spread": 0.04570548672910846
+     },
+     "skip11000": {
+      "enrichment": 7.753945426045139,
+      "n": 33196,
+      "mean": 7.719728212075706,
+      "spread": 0.0878186180089946
+     },
+     "skip1200": {
+      "enrichment": 7.686118303126867,
+      "n": 16597,
+      "mean": 7.69933584570935,
+      "spread": 0.07126847864778973
+     }
+    }
+   },
+   "attn5": {
+    "m16": {
+     "skip7000": {
+      "enrichment": 1.0,
+      "n": 33192,
+      "mean": 1.0,
+      "spread": 0.0
+     },
+     "skip11000": {
+      "enrichment": 1.0,
+      "n": 33196,
+      "mean": 1.0,
+      "spread": 0.0
+     },
+     "skip1200": {
+      "enrichment": 1.0,
+      "n": 16597,
+      "mean": 1.0,
+      "spread": 0.0
+     }
+    },
+    "m1": {
+     "skip7000": {
+      "enrichment": 1.059611355326404,
+      "n": 33192,
+      "mean": 1.0604611398823036,
+      "spread": 0.0013952004835600107
+     },
+     "skip11000": {
+      "enrichment": 1.028861970988485,
+      "n": 33196,
+      "mean": 1.0291698950126684,
+      "spread": 0.0009623087900476612
+     },
+     "skip1200": {
+      "enrichment": 1.0581751377832211,
+      "n": 16597,
+      "mean": 1.0590324156679363,
+      "spread": 0.0020394098292271234
+     }
+    }
+   }
+  }
+ },
+ "predictions": {
+  "pred_a_collapses_above_noise": true,
+  "pred_b_precision_achieved": true,
+  "pred_c_nperm8_unbiased": true,
+  "pred_d_controls": true
+ },
+ "runtime_s": 93.9
+}

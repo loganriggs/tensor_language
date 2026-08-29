@@ -1,0 +1,27 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+HEADLINE FIGURES AT NPERM=64 | buckets ((0, 0), (1, 4), (5, 24), (25, 124), (125, 1000000000)) on the fit-row count of the TRUE target | full-rank settled program | DISCOVERY ONLY
+  built the settled fallback and 36 tables (5s)
+
+  === all-compiled baseline ===
+    skip7000   covered enrichment  7.11x  (n 33192)
+    skip11000  covered enrichment  7.30x  (n 33196)
+    skip1200   covered enrichment  7.42x  (n 16597)
+    norm attn17  live 9186.113  table  984.300  rescale x0.1072
+    norm attn5   live 967176.536  table 6718.598  rescale x0.0069
+    attn17  x16    eff-ratio   149.3x  skip7000  2.74x  skip11000  2.97x  skip1200  2.90x
+    attn17  x1     eff-ratio     9.3x  skip7000  7.44x  skip11000  7.75x  skip1200  7.69x
+    attn5   x16    eff-ratio  2303.3x  skip7000  1.00x  skip11000  1.00x  skip1200  1.00x
+    attn5   x1     eff-ratio   144.0x  skip7000  1.06x  skip11000  1.03x  skip1200  1.06x
+
+  headline figures at NPERM=64, 8 seeds (mean +- spread):
+    skip7000   baseline 7.097 +-0.055 (§1908 pub 7.16)  attn17_m16 2.743 +-0.034 (pub 2.74)  attn5_m1 1.060 +-0.001 (pub 1.06)
+    skip11000  baseline 7.271 +-0.077 (§1908 pub 7.29)  attn17_m16 3.001 +-0.028 (pub 3.09)  attn5_m1 1.029 +-0.001 (pub 1.03)
+    skip1200   baseline 7.431 +-0.077 (§1908 pub 7.49)  attn17_m16 2.929 +-0.052 (pub 2.95)  attn5_m1 1.059 +-0.002 (pub 1.06)
+
+  THE COLLAPSES ARE FAR ABOVE THE NOISE (< 3.5x) -> True
+  and the PRECISION is achieved (all 9 spreads < 0.15) -> True  max 0.077
+  and the NPERM=8 values were UNBIASED (within 0.3) -> True
+  coverage 16110, 9 quantities -> control True
+
+pred_a True | pred_b True | pred_c True | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/headline_figures_at_nperm64_results.json (93.9s)
