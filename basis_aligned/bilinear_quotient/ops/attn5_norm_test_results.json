@@ -1,0 +1,242 @@
+{
+ "config": {
+  "table_ranks": [
+   "full"
+  ],
+  "map_rank_of_table_rank": {
+   "None": 64,
+   "512": 512
+  },
+  "program": "context-free tables, output-NN fallback with a rank-64 embedding->row map -- the settled design of \u00a71780-\u00a71786",
+  "instruments": "top-1 agreement with the live model, top-1 accuracy against the true next token, and KL(live || program). All three are NEW to this thread, which has been CE-only since \u00a71747.",
+  "ROLE_NOTE": "DISCOVERY ONLY; a second-class confirmation with a DIFFERENT instrument, not a replication of the same one."
+ },
+ "results": {
+  "baseline": {
+   "skip7000": 7.193609737542792,
+   "skip11000": 7.289105955772622,
+   "skip1200": 7.644028103044496
+  },
+  "norms": {
+   "attn5": {
+    "live_mean_norm": 965224.0989583334,
+    "table_mean_norm": 6169.68798828125,
+    "ratio": 0.006391974666753095
+   },
+   "attn6": {
+    "live_mean_norm": 169683.61653645834,
+    "table_mean_norm": 2045.591552734375,
+    "ratio": 0.012055327405724275
+   },
+   "attn10": {
+    "live_mean_norm": 4846.019226074219,
+    "table_mean_norm": 456.13714599609375,
+    "ratio": 0.09412615276923125
+   },
+   "attn13": {
+    "live_mean_norm": 4084.901194254557,
+    "table_mean_norm": 291.28662109375,
+    "ratio": 0.07130811915437434
+   },
+   "attn3": {
+    "live_mean_norm": 41863.10400390625,
+    "table_mean_norm": 2819.368896484375,
+    "ratio": 0.06734734472200865
+   },
+   "attn7": {
+    "live_mean_norm": 5927.499613444011,
+    "table_mean_norm": 437.6725158691406,
+    "ratio": 0.07383762874930717
+   }
+  },
+  "sites": {
+   "attn5": {
+    "unscaled": {
+     "skip7000": {
+      "enrichment": 1.0731313131313132,
+      "n": 27974
+     },
+     "skip11000": {
+      "enrichment": 1.040727560300514,
+      "n": 27497
+     },
+     "skip1200": {
+      "enrichment": 1.0761061946902655,
+      "n": 13973
+     }
+    },
+    "rescaled": {
+     "skip7000": {
+      "enrichment": 7.255435473617292,
+      "n": 27974
+     },
+     "skip11000": {
+      "enrichment": 7.37479541734861,
+      "n": 27497
+     },
+     "skip1200": {
+      "enrichment": 7.744725738396624,
+      "n": 13973
+     }
+    }
+   },
+   "attn6": {
+    "unscaled": {
+     "skip7000": {
+      "enrichment": 1.367505290383259,
+      "n": 27974
+     },
+     "skip11000": {
+      "enrichment": 1.4397743300423131,
+      "n": 27497
+     },
+     "skip1200": {
+      "enrichment": 1.3832512315270935,
+      "n": 13973
+     }
+    },
+    "rescaled": {
+     "skip7000": {
+      "enrichment": 7.159366030200924,
+      "n": 27974
+     },
+     "skip11000": {
+      "enrichment": 7.293392306661306,
+      "n": 27497
+     },
+     "skip1200": {
+      "enrichment": 7.688659793814432,
+      "n": 13973
+     }
+    }
+   },
+   "attn10": {
+    "unscaled": {
+     "skip7000": {
+      "enrichment": 6.148223350253807,
+      "n": 27974
+     },
+     "skip11000": {
+      "enrichment": 6.295239237318623,
+      "n": 27497
+     },
+     "skip1200": {
+      "enrichment": 6.642322097378276,
+      "n": 13973
+     }
+    },
+    "rescaled": {
+     "skip7000": {
+      "enrichment": 7.2285859097820575,
+      "n": 27974
+     },
+     "skip11000": {
+      "enrichment": 7.325537122654337,
+      "n": 27497
+     },
+     "skip1200": {
+      "enrichment": 7.746994249869316,
+      "n": 13973
+     }
+    }
+   },
+   "attn13": {
+    "unscaled": {
+     "skip7000": {
+      "enrichment": 8.098748957464554,
+      "n": 27974
+     },
+     "skip11000": {
+      "enrichment": 8.25022214323796,
+      "n": 27497
+     },
+     "skip1200": {
+      "enrichment": 8.30250945342042,
+      "n": 13973
+     }
+    },
+    "rescaled": {
+     "skip7000": {
+      "enrichment": 7.260419297802476,
+      "n": 27974
+     },
+     "skip11000": {
+      "enrichment": 7.356284595652761,
+      "n": 27497
+     },
+     "skip1200": {
+      "enrichment": 7.712735727202274,
+      "n": 13973
+     }
+    }
+   },
+   "attn3": {
+    "unscaled": {
+     "skip7000": {
+      "enrichment": 7.277571410272832,
+      "n": 27974
+     },
+     "skip11000": {
+      "enrichment": 7.427152317880795,
+      "n": 27497
+     },
+     "skip1200": {
+      "enrichment": 7.823591923485654,
+      "n": 13973
+     }
+    },
+    "rescaled": {
+     "skip7000": {
+      "enrichment": 7.192902408111533,
+      "n": 27974
+     },
+     "skip11000": {
+      "enrichment": 7.2870320130222455,
+      "n": 27497
+     },
+     "skip1200": {
+      "enrichment": 7.6459255402238995,
+      "n": 13973
+     }
+    }
+   },
+   "attn7": {
+    "unscaled": {
+     "skip7000": {
+      "enrichment": 7.098002413192116,
+      "n": 27974
+     },
+     "skip11000": {
+      "enrichment": 7.125528913963328,
+      "n": 27497
+     },
+     "skip1200": {
+      "enrichment": 7.643478260869565,
+      "n": 13973
+     }
+    },
+    "rescaled": {
+     "skip7000": {
+      "enrichment": 7.159697732997481,
+      "n": 27974
+     },
+     "skip11000": {
+      "enrichment": 7.2639827073763845,
+      "n": 27497
+     },
+     "skip1200": {
+      "enrichment": 7.631088082901554,
+      "n": 13973
+     }
+    }
+   }
+  }
+ },
+ "predictions": {
+  "pred_a_norm_explains_collapse_program_concentrated_on_frequent_targets": true,
+  "pred_b_rescale_not_clamping_more_concentrated_than_live": false,
+  "pred_c_unscaled_reproduces_S1891_keeps_60pc_on_the_top_bucket": true,
+  "pred_d_controls": true
+ },
+ "runtime_s": 144.1
+}

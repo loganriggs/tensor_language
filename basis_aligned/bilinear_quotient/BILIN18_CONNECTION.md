@@ -52267,3 +52267,53 @@ layers 5-6 destroys the program and its neighbours do not. **(2)** The late-atte
 tracking are the ones whose tables would be cheapest to spend rank on — §1880's law says map rank tracks
 table rank, but nothing has asked whether TABLE rank should be spent unevenly ACROSS sites, and §1891 says
 exactly which eighteen sites are the only ones that can matter behaviourally.
+
+## §1892 — the collapse IS a norm mismatch, but rescaling is a mute button, not a repair
+
+`ops/attn5_norm_test.py`, 144.1s, **DISCOVERY ONLY**, rung 3 — §1891's first open question.
+**pred_a True | pred_b False | pred_c True | pred_d True.**
+
+```
+  covered-arm enrichment, all-compiled baseline 7.19 / 7.29 / 7.64x
+    site     unscaled (§1891)         rescaled to table norm     rescale factor
+    attn5    1.07  1.04  1.08         7.26  7.37  7.74           x0.0673-0.0738 range
+    attn6    1.37  1.44  1.38         7.16  7.29  7.69
+    attn10   6.15  6.30  6.64         7.23  7.33  7.75
+    attn13   8.10  8.25  8.30         7.26  7.36  7.71
+    attn3    7.28  7.43  7.82         7.19  7.29  7.65
+    attn7    7.10  7.13  7.64         7.16  7.26  7.63
+```
+
+**pred_a PASSED and §1891's explanation is confirmed: the collapse is scale.** Rescaling attn5's live
+output to its table's mean row norm takes the enrichment from **1.07 / 1.04 / 1.08x** back to **7.26 /
+7.37 / 7.74x**. §1804/§1806's norm mismatch — the live modules emit 13-15x what the tables store, e.g.
+attn3 live 41863 against table 2819 — is the mechanism, and it is now demonstrated behaviourally rather
+than inferred.
+
+> **pred_b FAILED, and it is the reason the run is worth more than its headline.** I registered that a
+> rescaling which merely *clamps every site back to compiled behaviour* would "fix" attn5 while
+> destroying attn13's +0.91 gain, and would explain nothing. **That is exactly what happened.** Rescaled
+> attn13 gives 7.26 / 7.36 / 7.71x against the 7.19 / 7.29 / 7.64x baseline — its entire advantage is
+> gone. **Every one of the six rescaled arms lands within 0.11x of the baseline**, whether it collapsed,
+> helped, or did nothing when unscaled.
+>
+> So the rescaling is not a repair. At a factor of ~0.07 the restored site contributes at the table's
+> magnitude, and the program then behaves as though the site were still compiled. **What §1892 actually
+> shows is stronger and stranger than a fix: at the compiled scale, the restored site's DIRECTION barely
+> matters. Magnitude alone decides whether restoring a live site helps (attn13, +0.91), does nothing
+> (attn3, attn7), or destroys the program (attn5, −6.12).** Six sites, three roles, all converging on the
+> baseline once magnitude is equalised.
+
+**pred_c PASSED exactly**: the unscaled arm reproduced §1891's published 1.07 / 1.37 / 6.15 / 8.10x **to
+two decimals on all four sites**. **pred_d PASSED**: coverage 5,419, six probe sites, and the all-compiled
+baseline reproduced §1888's 7.19 / 7.29 / 7.64x for a **fourth consecutive run** — a nineteenth
+known-answer check.
+
+**What this settles and what it opens.** Settled: §1891's attn5 collapse is a magnitude effect, not a
+statement about what attn5 attends to — the alternative I named and would have had to correct in place.
+Open, and now sharper: **the compiled program's behaviour is governed by per-site output magnitude to a
+degree no section anticipated.** §1806 introduced norm calibration as an engineering fix for compiled
+layers beneath live ones; §1892 says magnitude is doing nearly all the work in the other direction too.
+Whether the deployed program's *own* per-site magnitudes are correct — the tables store length-1 norms,
+and §1804 measured live norms 2.71x to 152.62x larger — is a question about the deployed build that the
+whole cost arc (§1866-§1883) assumed away.

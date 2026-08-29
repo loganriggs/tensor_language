@@ -1,0 +1,34 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+IS THE attn5 COLLAPSE A NORM MISMATCH? | buckets ((0, 0), (1, 4), (5, 24), (25, 124), (125, 1000000000)) on the fit-row count of the TRUE target | full-rank settled program | DISCOVERY ONLY
+  built the settled fallback and 36 tables (4s)
+
+  === all-compiled baseline ===
+    skip7000   covered enrichment  7.19x  (n 27974)
+    skip11000  covered enrichment  7.29x  (n 27497)
+    skip1200   covered enrichment  7.64x  (n 13973)
+    norm attn5   live 965224.099  table 6169.688  rescale x0.0064
+    norm attn6   live 169683.617  table 2045.592  rescale x0.0121
+    norm attn10  live 4846.019  table  456.137  rescale x0.0941
+    norm attn13  live 4084.901  table  291.287  rescale x0.0713
+    norm attn3   live 41863.104  table 2819.369  rescale x0.0673
+    norm attn7   live 5927.500  table  437.673  rescale x0.0738
+    attn5   unscaled  skip7000  1.07x  skip11000  1.04x  skip1200  1.08x   [1/6]
+    attn5   rescaled  skip7000  7.26x  skip11000  7.37x  skip1200  7.74x   [1/6]
+    attn6   unscaled  skip7000  1.37x  skip11000  1.44x  skip1200  1.38x   [2/6]
+    attn6   rescaled  skip7000  7.16x  skip11000  7.29x  skip1200  7.69x   [2/6]
+    attn10  unscaled  skip7000  6.15x  skip11000  6.30x  skip1200  6.64x   [3/6]
+    attn10  rescaled  skip7000  7.23x  skip11000  7.33x  skip1200  7.75x   [3/6]
+    attn13  unscaled  skip7000  8.10x  skip11000  8.25x  skip1200  8.30x   [4/6]
+    attn13  rescaled  skip7000  7.26x  skip11000  7.36x  skip1200  7.71x   [4/6]
+    attn3   unscaled  skip7000  7.28x  skip11000  7.43x  skip1200  7.82x   [5/6]
+    attn3   rescaled  skip7000  7.19x  skip11000  7.29x  skip1200  7.65x   [5/6]
+    attn7   unscaled  skip7000  7.10x  skip11000  7.13x  skip1200  7.64x   [6/6]
+    attn7   rescaled  skip7000  7.16x  skip11000  7.26x  skip1200  7.63x   [6/6]
+
+  NORM EXPLAINS THE COLLAPSE (rescaled attn5 >= 5.0x) -> True  skip7000 7.26x vs unscaled 1.07x (baseline 7.19x)  skip11000 7.37x vs unscaled 1.04x (baseline 7.29x)  skip1200 7.74x vs unscaled 1.08x (baseline 7.64x)
+  and rescaling is NOT just clamping (rescaled attn13 >= 7.5x) -> False  skip7000 7.26x vs unscaled 8.10x  skip11000 7.36x vs unscaled 8.25x  skip1200 7.71x vs unscaled 8.30x
+  and the UNSCALED arm reproduces §1891 -> True  attn5 1.07x vs 1.07x  attn6 1.37x vs 1.37x  attn10 6.15x vs 6.15x  attn13 8.10x vs 8.10x
+  coverage 5419, baseline reproduces §1888, 6 probe sites -> control True  skip7000 7.19x  skip11000 7.29x  skip1200 7.64x
+
+pred_a True | pred_b False | pred_c True | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/attn5_norm_test_results.json (144.1s)
