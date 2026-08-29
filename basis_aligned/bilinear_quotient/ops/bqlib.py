@@ -115,6 +115,7 @@ class Program:
       'nn<P>'                cosine-routed: the top P% of uncovered types by neighbour cosine take the
                              neighbour row, the rest take the rank-64 map row (S1939)
       'nn<P>m<R>'            the same, with the routed-out remainder on a rank-R map instead
+      'meanrow'              every token gets the MEAN covered row -- the maximally context-free null
       'mix<A>m<R>'           BLEND in row space: A% neighbour + (100-A)% rank-R map, every type
       'msk<P>m<R>'           route the top P% of uncovered types by UNC_MASS to the rank-R map,
                              the rest to the neighbour -- S1954's unseen-target router
@@ -293,6 +294,16 @@ class Program:
                                            self._map(tc, st, mrank, table_rank))
                 out[st] = fr
             return out
+        if name == 'meanrow':
+            # The maximally context-free substitution: EVERY token gets the same row, the mean of the
+            # covered table. S1982 named a pair (compiled mlp4 -> live attn6); this is the null that
+            # separates "the compiled row is wrong" from "this site is simply fragile", because it keeps
+            # nothing of the table's content and only its context-freeness.
+            for st in SITES:
+                fr = torch.zeros(V, D, device=DEV)
+                fr[:] = tc[st].mean(0, keepdim=True)
+                out[st] = fr
+            return out
         if name.startswith('pat'):
             # pat<LO>_<HI>m<R>: a PER-TOKEN alpha. Every uncovered type gets its own blend weight,
             # linear in its unc_mass quantile -- HI% neighbour for the token whose next-token
@@ -388,6 +399,8 @@ class Program:
             fb = int(self.unc.numel()) * 2                 # one index per uncovered type
         elif name.startswith('map'):
             fb = 36 * int(name[3:]) * 2 * D
+        elif name == 'meanrow':
+            fb = D                                  # one shared row; the tables are not stored for it
         elif name.startswith('pat'):
             mr = int(name[3:].split('m', 1)[1])
             fb = 36 * mr * 2 * D + int(self.unc.numel()) * 6   # index + one float32 alpha per type
