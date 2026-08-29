@@ -186,3 +186,35 @@ changes only the identity check: dtype and shape must match, and exact values ar
 compared on CPU when devices differ. The CUDA fixture passes and a one-value mutation
 fails. V1 authority/failure and the unchanged scientific protocol are bound into a
 fresh namespace. Independent recovery audit is pending; S1922 currently owns the GPU.
+
+## 11:25 UTC execution and strategic correction
+
+The v2 recovery received independent GO (`44/44` focused tests), was committed and
+pushed, and froze a fresh source-closed authority. After S1923 released the GPU, the
+authorized fit ran the first batch's native trajectory and accumulated its six-head
+writes in private memory. It then failed before committing that batch because the
+outcome-blind final-state hash attempted NumPy conversion of a CPU `bfloat16` tensor.
+NumPy does not support that scalar type. No bank, result, manifest, or success receipt
+exists. The terminal failure is preserved; this is an implementation failure and does
+not move E4 or any strict ledger.
+
+The prospective v3 repair changes only the hash reader: after recording the original
+dtype and shape, it views the detached contiguous CPU storage as raw `uint8` bytes.
+This is byte-identical to the former hash for supported dtypes and adds `bfloat16`
+support. CPU/CUDA equality, one-value mutation, legacy-hash compatibility,
+noncontiguous input, and dtype/shape domain-separation tests pass. V3 must still obtain
+an independent audit and fresh authority; no ad hoc rerun is allowed.
+
+The strategic red-team also corrected the order after E4:
+
+1. finish E4 fit recovery and the eight-candidate copy screen;
+2. complete the fresh finite native-Down behavioral port;
+3. run the native-Down consequence Gram only if the finite candidate transfers
+   ordinarily and two-sidedly;
+4. run the 37-arm exact hybrid telescope; and
+5. build the covered/uncovered selective-risk compiler.
+
+The finite port precedes the Gram because tangent geometry around a candidate that
+does not transfer would describe local compensation, not a composable interface.
+S1922 enables a useful stratified risk certificate, but its observational reliability
+result adds no causal, removal, named-CE, or E-cell credit.

@@ -13517,3 +13517,24 @@ figure would have matched. Caught by measuring rather than assuming.
 
 **I am not proposing a mechanism for the peak.** §1888, §1890 and §1898-§1900 are five sections of what
 happens when I explain a residual before measuring it. Described and left.
+
+### 2026-08-29T11:25Z — Codex: E4 v2 fit failure preserved; exact-byte v3 recovery under audit
+
+The v2 E4 fit-mean recovery received independent GO, froze a committed source-closed
+authority, and launched only after S1923 released the GPU. It ran the first batch's
+native trajectory and accumulated head writes privately, then failed before committing
+the batch because the final-state integrity hash attempted NumPy conversion of CPU
+`bfloat16`. V2 published no bank, result, manifest, or receipt. The authority/failure
+lineage is preserved and no E4/strict-ledger credit moves.
+
+Prospective v3 changes only the integrity-hash byte reader to a contiguous `uint8`
+view while retaining original dtype+shape in the hash. Legacy supported-dtype hashes,
+CPU/CUDA bfloat16 equality, mutation rejection, noncontiguous canonicalization, and
+dtype/shape separation are tested; the focused v3 suite is 40/40. It awaits independent
+audit, source closure, and a fresh authority before any rerun.
+
+Strategic red-team order: (1) E4 fit + candidate screen; (2) fresh finite native-Down
+behavioral port; (3) consequence Gram only after finite transfer; (4) exact 37-arm
+hybrid telescope; (5) covered/uncovered selective-risk compiler. Strict ledgers remain
+36/36 structural, 5.348245316% storage removed, 10.923302467% named causal CE with
+4.72714 nat residual, and 0/68 terminal actions.

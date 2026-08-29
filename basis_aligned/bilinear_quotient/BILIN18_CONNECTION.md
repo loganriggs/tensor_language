@@ -53991,3 +53991,50 @@ PRE-FLIGHT B.
 uncovered trend on two roles, and one genuine mid-coverage peak. **It is a description, not a mechanism,
 and I am not going to reach for one** — §1888, §1890, §1898-§1900 are five sections of what happens when
 I explain a residual before measuring it.
+
+## §1924 — §1919's rank lever does NOT transfer to the deployed build
+
+`ops/rank_lever_at_deployed.py`, 286.6s, **DISCOVERY ONLY**, rung 2 — second-class confirmation of §1919.
+**pred_a False | pred_b True | pred_c True | pred_d True.**
+
+```
+  uncovered reliability gradient, map rank 64 -> 512
+                       at 5,419 (deployed)                      at 16,110 (§1919)
+    skip7000    3.28 -> 3.76    gain +0.48   n 8890                 gain +0.78
+    skip11000   3.11 -> 4.25    gain +1.14   n 9367                 gain +0.63
+    skip1200    2.10 -> 2.19    gain +0.09   n 4459                 gain +0.70
+```
+
+> **pred_a FAILED and the failure is the result. At the deployed coverage the lever is not reliable.**
+> §1919 measured a consistent **+0.78 / +0.63 / +0.70** at 16,110 types. At 5,419 the gains are
+> **+0.48 / +1.14 / +0.09** — one role better than §1919, one comparable, and **skip1200 essentially
+> nothing.** §1920 put this gradient's seed spread at 0.202-0.319 on a *smaller* sample than this run
+> uses, so **+0.09 is inside the noise and +0.48 and +1.14 are outside it.** The lever works on two of
+> three roles here and did on three of three there.
+>
+> **So §1919's recommendation needs scoping to high coverage, and this is exactly what §1923 predicted
+> would happen.** §1923 found coverage is not a smooth axis for the uncovered gradient — it peaks
+> mid-coverage on skip1200, the same role that shows no rank gain here. **A lever measured at one
+> coverage and applied at another is not safe for this quantity**, and the deployed build is the one
+> anyone would ship.
+
+**pred_b PASSED to the digit**: the covered gradients are **+9.69 / +10.46 / +10.17**, identical to
+§1922's. §1870's map writes only uncovered rows and the run confirms it exactly — the sixteenth clean
+reading of that control.
+
+**pred_c PASSED: §1765 holds a fourth time**, within-token spread **0.00e+00** on all three roles. The
+margin is a pure token property at 5,419 (§1922), 9,054 (§1923), 16,110 (§1913/§1918) and now again here
+with a rank-512 fallback, so it does not depend on the map's rank either.
+
+**pred_d PASSED**: coverage exactly 5,419, zero lookup misses, uncovered share 24.1 / 25.4 / 24.2%
+matching §1922.
+
+> **What this costs §1919, stated plainly.** §1919 reported the rank purchase as buying reliability "on
+> the ~24% of positions using the fallback" and called it a second reason to spend the +37.159M. **At the
+> coverage where that 24% figure actually applies — the deployed build — the purchase buys nothing
+> measurable on one of three roles.** The CE case for map rank (§1870, 833/811/916 M/nat) is untouched;
+> the *reliability* case is weaker than §1919 made it sound and is not established at the deployed
+> coverage. §1919 is corrected in place.
+
+**Open.** Nothing. The reliability line is measured at three coverages, priced against its own noise, its
+one adjacent lever tested at both ends and found coverage-dependent.

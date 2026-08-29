@@ -1,0 +1,28 @@
+RANK LEVER AT DEPLOYED COVERAGE 5419 | buckets ((0, 0), (1, 4), (5, 24), (25, 124), (125, 1000000000)) on the fit-row count of the TRUE target | full-rank settled program | DISCOVERY ONLY
+  built the settled fallback and 36 tables (4s)
+  precomputed per-token program margin for 50257 covered types (covered-token quartile bounds [0.1639, 0.3699, 0.7742])
+  uncovered-token quartile bounds [0.2153, 0.513, 1.0549] over 44838 types
+
+  === all-compiled baseline ===
+    skip7000   covered enrichment  7.19x  (n 27974)
+    skip11000  covered enrichment  7.29x  (n 27497)
+    skip1200   covered enrichment  7.64x  (n 13973)
+    per-site live/table ratios: min 1.4x max 156.2x across 36 sites
+    g1.00    skip7000 CE 5.96702 ( 7.19x)  skip11000 CE 5.93645 ( 7.29x)  skip1200 CE 5.96095 ( 7.64x)   [1/2]
+    PERSITE  skip7000 CE 12.86442 ( 2.29x)  skip11000 CE 12.91290 ( 2.37x)  skip1200 CE 12.78680 ( 2.38x)   [2/2]
+
+  rank-512 fallback at DEPLOYED coverage 5419:
+    skip7000   COVERED   grad +9.69   (§1922 rank-64 +9.69)
+               UNCOVERED grad +3.76   (§1922 rank-64 +3.28)  gain +0.48   (§1919 gain at 16,110 +0.78)   n 8890
+    skip11000  COVERED   grad +10.46   (§1922 rank-64 +10.46)
+               UNCOVERED grad +4.25   (§1922 rank-64 +3.11)  gain +1.14   (§1919 gain at 16,110 +0.63)   n 9367
+    skip1200   COVERED   grad +10.17   (§1922 rank-64 +10.17)
+               UNCOVERED grad +2.19   (§1922 rank-64 +2.10)  gain +0.09   (§1919 gain at 16,110 +0.70)   n 4459
+
+  THE LEVER still works (uncovered gain >= 0.3) -> False  skip7000 +0.48  skip11000 +1.14  skip1200 +0.09
+  and the COVERED arm is untouched (within 0.5) -> True  skip7000 +9.69 vs +9.69  skip11000 +10.46 vs +10.46  skip1200 +10.17 vs +10.17
+  and §1765 holds a FOURTH time (< 1e-3) -> True  skip7000 <= 0.00e+00  skip11000 <= 0.00e+00  skip1200 <= 0.00e+00
+  coverage 5419, zero misses -> control True; uncovered share skip7000 24.1%  skip11000 25.4%  skip1200 24.2%  (§1922 ~24%)
+
+pred_a False | pred_b True | pred_c True | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/rank_lever_at_deployed_results.json (286.6s)

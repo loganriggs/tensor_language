@@ -484,3 +484,21 @@ identity was compared across CPU/CUDA with device-sensitive `torch.equal`; no ba
 result, manifest, or receipt escaped. V2 is preregistered and pushed, changes only the
 cross-device exact-value comparison, and binds v1 authority/failure. It awaits audit
 and the GPU used by S1922. E4.1--E4.3 and strict ledgers remain unchanged.
+
+## 11:25 UTC E4 recovery outcome
+
+V2 passed independent audit, froze a committed authority, and launched after S1923
+released the GPU. It completed the first batch's native computation and private
+accumulation, then failed before accepting the batch because the final-state integrity
+hash called NumPy on `bfloat16`. No bank/result/manifest/receipt was published. The
+failure is preserved and E4.1--E4.3 remain unchecked.
+
+V3 is a one-change engineering recovery: hash exact raw bytes through a `uint8` view,
+with dtype and shape still in the hash domain. Its current focused suite passes
+`40/40`; independent audit, source closure, fresh authority, and a clean run remain
+required. This is not an evidence outcome.
+
+Current literal cell tally is six measured negatives (E1.1, E1.3, E2.1, E2.2, E3.1,
+E3.2), three scientifically pruned cells (E1.2, E2.3, E3.3), and three open E4 cells.
+The older 08:00/08:15 statements that E3.2 lacked an outcome are superseded by its
+08:39 receipt-backed negative.
