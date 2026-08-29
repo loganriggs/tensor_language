@@ -622,8 +622,12 @@ def validate_receipt(value: Mapping[str, Any]) -> None:
         raise RuntimeError("unique-row receipt hash changed")
     authority = json.loads(AUTHORITY.read_text())
     payload, manifest, replay = replay_terminal_state(authority)
+    if FAILURE.exists():
+        raise RuntimeError("unique-row failure appeared during receipt validation")
     if dict(value) != build_receipt(authority, payload, manifest, replay):
         raise RuntimeError("unique-row receipt differs from exact terminal replay")
+    if FAILURE.exists():
+        raise RuntimeError("unique-row failure appeared during receipt validation")
 
 
 def freeze_authority() -> dict[str, Any]:

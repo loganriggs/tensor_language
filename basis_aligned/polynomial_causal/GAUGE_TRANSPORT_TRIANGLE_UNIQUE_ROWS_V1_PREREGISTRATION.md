@@ -81,11 +81,16 @@ selection.  There is no fallback pool, retry, or post-load reselection.
    committed, and pushed sources; parent receipt; rebuilt authority; all four cache
    byte and tensor hashes; selected cache rows; rows bytes and tensors; and the exact
    rebuilt manifest.  It then publishes the receipt last and reloads the receipt
-   through the same strict terminal replay validator.
+   through the same strict terminal replay validator.  The receipt binds
+   `failure_absent=true`; its validator requires both that field and the actual
+   absence of the failure path.
 6. Any ordinary materialization exception publishes a create-only failure while the
    process still proves lock ownership.  It never deletes, overwrites, or retries an
    authority, row artifact, manifest, receipt, or failure.  An owner-lock violation
-   publishes nothing further and leaves the foreign lock untouched.
+   publishes nothing further and leaves the foreign lock untouched.  Once the
+   receipt hard link exists, any later validation, directory-fsync, temporary-cleanup,
+   or lock-release exception publishes no failure: receipt-last success and terminal
+   failure are mutually exclusive.
 
 The row tensors retain all 513 cached tokens.  A later audited triangle runner may
 consume only its registered prefix, but it may not change document allocation.

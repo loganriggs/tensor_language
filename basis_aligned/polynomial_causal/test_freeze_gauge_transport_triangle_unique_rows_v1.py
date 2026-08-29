@@ -100,6 +100,18 @@ def test_current_parent_metadata_has_the_frozen_known_answer_without_tensor_load
     )
 
 
+def test_parent_receipt_hash_is_checked_before_and_after_read(monkeypatch, tmp_path: Path):
+    parent = tmp_path / "parent.json"
+    parent.write_text("{}")
+    expected = freezer.file_sha256(parent)
+    observed = iter((expected, "0" * 64))
+    monkeypatch.setattr(freezer, "PARENT_RECEIPT", parent)
+    monkeypatch.setattr(freezer, "PARENT_RECEIPT_SHA256", expected)
+    monkeypatch.setattr(freezer, "file_sha256", lambda _path: next(observed))
+    with pytest.raises(RuntimeError, match="parent receipt changed"):
+        freezer.load_parent_metadata()
+
+
 def test_metadata_shortfall_fails_instead_of_reusing_a_document():
     parent = _synthetic_parent()
     parent["document_provenance"]["sets"]["n96_skip1200"] = []
@@ -305,8 +317,10 @@ def test_strict_receipt_reload_rejects_self_consistent_mutation(monkeypatch, tmp
         "source_closure": {"sha256": "s" * 64},
     }
     authority_path = tmp_path / "authority.json"
+    failure_path = tmp_path / "failure.json"
     authority_path.write_text(json.dumps(authority))
     monkeypatch.setattr(freezer, "AUTHORITY", authority_path)
+    monkeypatch.setattr(freezer, "FAILURE", failure_path)
     payload = {
         "selection_plan_sha256": "p" * 64,
         "roles": {"basis": torch.tensor([[1, 2]], dtype=torch.long)},
@@ -323,6 +337,24 @@ def test_strict_receipt_reload_rejects_self_consistent_mutation(monkeypatch, tmp
     )
     receipt = freezer.build_receipt(authority, payload, manifest, replay)
     freezer.validate_receipt(receipt)
+    assert receipt["failure_absent"] is True
+
+    failure_path.write_text("{}")
+    with pytest.raises(RuntimeError, match="receipt/failure exclusivity"):
+        freezer.validate_receipt(receipt)
+    failure_path.unlink()
+
+    def replay_with_late_failure(_expected):
+        failure_path.write_text("{}")
+        return payload, manifest, replay
+
+    monkeypatch.setattr(freezer, "replay_terminal_state", replay_with_late_failure)
+    with pytest.raises(RuntimeError, match="appeared during receipt validation"):
+        freezer.validate_receipt(receipt)
+    failure_path.unlink()
+    monkeypatch.setattr(
+        freezer, "replay_terminal_state", lambda expected: (payload, manifest, replay),
+    )
 
     changed = copy.deepcopy(receipt)
     changed["triangle_runner_authorized_by_this_receipt"] = True
@@ -330,3 +362,70 @@ def test_strict_receipt_reload_rejects_self_consistent_mutation(monkeypatch, tmp
     changed["receipt_sha256"] = freezer.canonical_sha256(changed_body)
     with pytest.raises(RuntimeError, match="exact terminal replay"):
         freezer.validate_receipt(changed)
+
+
+@pytest.mark.parametrize("failure_point", ["post_link_fsync", "post_link_validation"])
+def test_receipt_linked_then_exception_never_publishes_failure(
+    monkeypatch, tmp_path: Path, failure_point: str,
+):
+    paths = {
+        "AUTHORITY": tmp_path / "authority.json",
+        "ROWS": tmp_path / "rows.pt",
+        "MANIFEST": tmp_path / "manifest.json",
+        "RECEIPT": tmp_path / "receipt.json",
+        "FAILURE": tmp_path / "failure.json",
+        "LOCK": tmp_path / "owner.lock",
+    }
+    for name, path in paths.items():
+        monkeypatch.setattr(freezer, name, path)
+    monkeypatch.setattr(freezer, "ROLE_SIZES", {"basis": 1})
+    authority = {
+        "authority_sha256": "a" * 64,
+        "source_closure": {"sha256": "s" * 64},
+    }
+    paths["AUTHORITY"].write_text(json.dumps(authority))
+    payload = {
+        "selection_plan_sha256": "p" * 64,
+        "roles": {"basis": torch.tensor([[1, 2]], dtype=torch.long)},
+    }
+    manifest = {"manifest_sha256": "m" * 64}
+    replay = {
+        "authority_file_sha256": freezer.file_sha256(paths["AUTHORITY"]),
+        "rows_file_sha256": "r" * 64,
+        "manifest_file_sha256": "m" * 64,
+        "cache_file_sha256s": {"cache": "c" * 64},
+    }
+    monkeypatch.setattr(freezer, "validate_authority", lambda _value: None)
+    monkeypatch.setattr(freezer, "load_cache_tensors", lambda _authority: {})
+    monkeypatch.setattr(freezer, "build_rows_payload", lambda _authority, _caches: payload)
+    monkeypatch.setattr(freezer, "build_manifest", lambda _payload, _authority: manifest)
+    monkeypatch.setattr(
+        freezer, "replay_terminal_state", lambda _authority: (payload, manifest, replay),
+    )
+
+    if failure_point == "post_link_validation":
+        monkeypatch.setattr(
+            freezer, "validate_receipt",
+            lambda _receipt: (_ for _ in ()).throw(RuntimeError("synthetic validation failure")),
+        )
+    else:
+        original_fsync = freezer._fsync_directory
+        raised = False
+
+        def fail_first_fsync_after_receipt_link(path: Path) -> None:
+            nonlocal raised
+            if paths["RECEIPT"].exists() and not raised:
+                raised = True
+                raise OSError("synthetic post-link fsync failure")
+            original_fsync(path)
+
+        monkeypatch.setattr(freezer, "_fsync_directory", fail_first_fsync_after_receipt_link)
+
+    with pytest.raises((OSError, RuntimeError), match="synthetic"):
+        freezer.materialize()
+    assert paths["ROWS"].exists()
+    assert paths["MANIFEST"].exists()
+    assert paths["RECEIPT"].exists()
+    assert json.loads(paths["RECEIPT"].read_text())["failure_absent"] is True
+    assert not paths["FAILURE"].exists()
+    assert not paths["LOCK"].exists()

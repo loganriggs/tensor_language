@@ -51812,3 +51812,52 @@ the rare end first. §1883 applies §1789's instrument to both builds at this co
 *(Phrasing corrected: I first called this "the §1789 checks the deployed build passed". §1789 is a
 DISCOVERY run that characterised the deployed build, not a certification gate it cleared. The question
 is whether the new build reproduces that characterisation, which is a comparison, not a pass/fail.)*
+
+## §1883 — the 46% saving is not free: it is paid entirely at the rare end, where the mean CE cannot see it
+
+`ops/structure_of_half_cost_build.py`, 149.4s, **DISCOVERY ONLY**, rung 3 — §1882's open question.
+**pred_a True | pred_b False | pred_c True | pred_d True.**
+
+§1789's instrument, both builds, 16,110 covered types. Kept-fraction = program top-1 / live top-1.
+
+```
+  bucket (fit-count of the TRUE target)   deployed design        §1882 half-cost build
+    125+     (the bucket that carries)     53.6 / 54.1 / 53.9     52.7 / 53.7 / 53.1    d 0.89 / 0.36 / 0.83 pp
+    0        (never seen)                   2.6 /  4.9 /  3.5      2.4 /  4.6 /  2.4    d 0.23 / 0.28 / 1.10 pp
+  overall top-1                            13.93 / 14.71 / 14.01  13.74 / 14.58 / 13.75 d 0.20 / 0.13 / 0.26 pp
+```
+
+**pred_a and pred_c PASSED with room.** The common end and the aggregate are essentially untouched: 0.89pp
+at worst on the bucket supplying most of the program's correct predictions, and 0.26pp overall — entirely
+consistent with §1882's 0.005-nat CE gap.
+
+> **pred_b FAILED, by 0.10pp on one role, and I am scoring it FAIL and taking the direction seriously.**
+> I registered the rare-end kept-fraction within **1.00pp** and got **1.10pp** on skip1200. In relative
+> terms the rare bucket loses **8.8% / 6.1% / 31.4%** of what it had. **The half-cost build is worse at
+> the rare end on all three roles and better on none** — a systematic sign, not a coin flip, and exactly
+> the failure mode I registered as the risk: rare tokens contribute least to the covered block's
+> variance, so an SVD truncation from full rank to 512 drops them first.
+
+**This is the caveat §1882's headline needs, and it is a small one honestly stated.** The 46% cost cut is
+real and the aggregate is real; what it costs is a third of the accuracy in the *smallest and weakest*
+bucket — a bucket where the program was already keeping only 2-5% of the live model. **A mean CE moving
+by five thousandths genuinely was hiding a redistribution**, just a redistribution among positions the
+program had already effectively given up on. Whether that matters is a question about the deployment, not
+about the measurement: if rare-target behaviour is what the program is for, the full-rank table is worth
+its 312.740M; if it is not, §1882 stands unqualified.
+
+**pred_d PASSED**, including a **fourteenth known-answer check** in a new form: the LIVE model's per-bucket
+accuracy was identical between arms to **0.00e+00** across all five buckets, all three roles — no arm
+touches the live model, and this confirms the two arms scored the same positions.
+
+**§1789's figures are not comparable and were not used as bars.** At 5,419 types the top bucket kept 63.5
+/ 62.9 / 63.4%; here at 16,110 it keeps 53.6 / 54.1 / 53.9%. That is the coverage change moving the bucket
+populations, not a regression — the same population-dependence that cost §1882 a launch. Printed for
+context only, as registered.
+
+**Open.** Every result from §1866 onward has been about the fallback and the cost model, and both are now
+closed: the input question at §1879, the map rank at §1880/§1881, the coverage interaction at §1882, and
+the accuracy structure here. The deployed build is dominated on all three axes and the replacement's one
+real cost is now measured and named. **The open question is no longer about this program's price but about
+what its remaining 46% buys** — the 125+ bucket keeps ~54% of the live model and everything else keeps
+under 10%, and no section has asked what the program is *doing* on the bucket it does keep.

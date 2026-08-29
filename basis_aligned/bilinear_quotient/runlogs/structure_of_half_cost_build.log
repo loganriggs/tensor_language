@@ -1,0 +1,51 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+STRUCTURE OF THE HALF-COST BUILD | buckets ((0, 0), (1, 4), (5, 24), (25, 124), (125, 1000000000)) on the fit-row count of the TRUE target | full-rank settled program | DISCOVERY ONLY
+  built the settled fallback and 36 tables (5s)
+
+  === table rank full, map rank 64 ===
+  skip7000: overall live 39.32% prog 13.93%
+    target fit-count 0-0          n   3679  live 24.16%  prog  0.63%  kept   2.6%
+    target fit-count 1-4          n   5258  live 24.80%  prog  0.99%  kept   4.0%
+    target fit-count 5-24         n   6571  live 27.45%  prog  1.48%  kept   5.4%
+    target fit-count 25-124       n   4999  live 29.55%  prog  2.54%  kept   8.6%
+    target fit-count 125-1000000000 n  16357  live 55.15%  prog 29.57%  kept  53.6%
+  skip11000: overall live 42.35% prog 14.71%
+    target fit-count 0-0          n   3662  live 28.95%  prog  1.42%  kept   4.9%
+    target fit-count 1-4          n   5467  live 30.67%  prog  2.30%  kept   7.5%
+    target fit-count 5-24         n   6759  live 30.60%  prog  2.43%  kept   7.9%
+    target fit-count 25-124       n   5030  live 32.39%  prog  2.33%  kept   7.2%
+    target fit-count 125-1000000000 n  15946  live 57.55%  prog 31.13%  kept  54.1%
+  skip1200: overall live 38.88% prog 14.01%
+    target fit-count 0-0          n   1837  live 24.71%  prog  0.87%  kept   3.5%
+    target fit-count 1-4          n   2557  live 25.30%  prog  1.17%  kept   4.6%
+    target fit-count 5-24         n   3193  live 26.28%  prog  1.66%  kept   6.3%
+    target fit-count 25-124       n   2664  live 28.42%  prog  2.74%  kept   9.6%
+    target fit-count 125-1000000000 n   8181  live 54.64%  prog 29.47%  kept  53.9%
+
+  === table rank 512, map rank 512 ===
+  skip7000: overall live 39.32% prog 13.74%
+    target fit-count 0-0          n   3679  live 24.16%  prog  0.57%  kept   2.4%
+    target fit-count 1-4          n   5258  live 24.80%  prog  1.18%  kept   4.8%
+    target fit-count 5-24         n   6571  live 27.45%  prog  1.48%  kept   5.4%
+    target fit-count 25-124       n   4999  live 29.55%  prog  2.54%  kept   8.6%
+    target fit-count 125-1000000000 n  16357  live 55.15%  prog 29.08%  kept  52.7%
+  skip11000: overall live 42.35% prog 14.58%
+    target fit-count 0-0          n   3662  live 28.95%  prog  1.34%  kept   4.6%
+    target fit-count 1-4          n   5467  live 30.67%  prog  2.23%  kept   7.3%
+    target fit-count 5-24         n   6759  live 30.60%  prog  2.20%  kept   7.2%
+    target fit-count 25-124       n   5030  live 32.39%  prog  2.45%  kept   7.6%
+    target fit-count 125-1000000000 n  15946  live 57.55%  prog 30.92%  kept  53.7%
+  skip1200: overall live 38.88% prog 13.75%
+    target fit-count 0-0          n   1837  live 24.71%  prog  0.60%  kept   2.4%
+    target fit-count 1-4          n   2557  live 25.30%  prog  1.21%  kept   4.8%
+    target fit-count 5-24         n   3193  live 26.28%  prog  1.57%  kept   6.0%
+    target fit-count 25-124       n   2664  live 28.42%  prog  2.59%  kept   9.1%
+    target fit-count 125-1000000000 n   8181  live 54.64%  prog 29.02%  kept  53.1%
+
+  STRUCTURE AT THE COMMON END (125+ bucket, kept-fraction) -> True  skip7000 deployed 53.6% vs half-cost 52.7% (d 0.89pp)  skip11000 deployed 54.1% vs half-cost 53.7% (d 0.36pp)  skip1200 deployed 53.9% vs half-cost 53.1% (d 0.83pp)
+  AT THE RARE END (fit-count 0 bucket) -> False  skip7000 deployed 2.6% vs half-cost 2.4% (d 0.23pp)  skip11000 deployed 4.9% vs half-cost 4.6% (d 0.28pp)  skip1200 deployed 3.5% vs half-cost 2.4% (d 1.10pp)
+  OVERALL top-1 gap under 1pp -> True  skip7000 deployed 13.93% vs half-cost 13.74% (d 0.20pp)  skip11000 deployed 14.71% vs half-cost 14.58% (d 0.13pp)  skip1200 deployed 14.01% vs half-cost 13.75% (d 0.26pp)
+  coverage 16110, buckets partition True, LIVE identical between arms (spread 0.00e+00) -> control True
+
+pred_a True | pred_b False | pred_c True | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/structure_of_half_cost_build_results.json (149.4s)
