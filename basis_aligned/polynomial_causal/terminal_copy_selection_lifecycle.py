@@ -195,8 +195,11 @@ def expected_outputs() -> dict[str, str]:
     }
 
 
-def protected_snapshot(paths: Sequence[Path] = PROTECTED_PATHS) -> dict[str, str | None]:
-    return {str(path): file_sha256(path) if path.is_file() else None for path in paths}
+def protected_snapshot(
+    paths: Sequence[Path] | None = None,
+) -> dict[str, str | None]:
+    selected = PROTECTED_PATHS if paths is None else paths
+    return {str(path): file_sha256(path) if path.is_file() else None for path in selected}
 
 
 class RunClaim(NamedTuple):
@@ -502,6 +505,7 @@ def freeze_execution_authority(independent_audit_path: Path = AUDIT) -> dict[str
 
     require_pristine_namespace()
     audit = validate_canonical_audit(independent_audit_path)
+    frozen_protected = protected_snapshot()
     body = {
         "schema": "terminal_copy_selection_v1_authority",
         "status": "frozen_before_selection_value_or_model_outcome_access_after_disclosed_schema_exposure",
@@ -513,6 +517,7 @@ def freeze_execution_authority(independent_audit_path: Path = AUDIT) -> dict[str
         "protocol": protocol(),
         "outputs": expected_outputs(),
         "protected_paths": [str(path) for path in PROTECTED_PATHS],
+        "protected_snapshot": frozen_protected,
         "independent_audit": {
             "approved": audit["approved"],
             "outcome_access": audit["outcome_access"],
@@ -536,6 +541,7 @@ def validate_execution_authority(authority: Mapping[str, Any]) -> None:
     expected_keys = {
         "schema", "status", "source_closure", "row_binding", "fit_parent_binding",
         "adapter_binding", "checkpoint", "protocol", "outputs", "protected_paths",
+        "protected_snapshot",
         "independent_audit", "authorized_for_selection_execution",
         "authorized_for_final_ood", "fit_receipt_self_authorizes_selection",
         "selection_authority_independently_licenses_exact_fit_bank",
@@ -563,6 +569,7 @@ def validate_execution_authority(authority: Mapping[str, Any]) -> None:
         or authority.get("protocol") != protocol()
         or authority.get("outputs") != expected_outputs()
         or authority.get("protected_paths") != [str(path) for path in PROTECTED_PATHS]
+        or authority.get("protected_snapshot") != protected_snapshot()
     ):
         raise RuntimeError("selection execution authority identity changed")
     audit = authority.get("independent_audit")
@@ -1352,7 +1359,8 @@ def _publish_selection_bundle(
     live_protected = protected_snapshot()
     authority_sha = authority["authority_sha256"]
     if (
-        dict(protected_before) != live_protected
+        authority.get("protected_snapshot") != live_protected
+        or dict(protected_before) != live_protected
         or dict(protected_after) != live_protected
         or not isinstance(collected, _CollectedSelectionTransaction)
         or collected.claim_nonce != claim.nonce
@@ -1523,10 +1531,7 @@ def _publish_selection_bundle(
     return receipt
 
 
-def _publish_failure(claim: RunClaim, authority_sha256: str, error: BaseException) -> None:
-    require_claim(claim)
-    if PASSER_RECEIPT.exists() or NEGATIVE_RECEIPT.exists():
-        raise RuntimeError("cannot publish selection failure after a decision receipt")
+def _failure_input_snapshot(authority_sha256: str) -> dict[str, Any]:
     partial_artifacts: dict[str, Any] = {}
     for path in (LEDGER, RESULT, MANIFEST):
         if not path.is_file():
@@ -1553,20 +1558,43 @@ def _publish_failure(claim: RunClaim, authority_sha256: str, error: BaseExceptio
                 and parsed.get("authority_sha256") == authority_sha256
             ),
         }
-    create_only_json(FAILURE, {
+    return {
+        "authority_file_sha256": file_sha256(AUTHORITY) if AUTHORITY.is_file() else None,
+        "partial_artifacts": partial_artifacts,
+        "protected_at_failure": protected_snapshot(),
+    }
+
+
+def _publish_failure(claim: RunClaim, authority_sha256: str, error: BaseException) -> None:
+    require_claim(claim)
+    if PASSER_RECEIPT.exists() or NEGATIVE_RECEIPT.exists():
+        raise RuntimeError("cannot publish selection failure after a decision receipt")
+    frozen_inputs = _failure_input_snapshot(authority_sha256)
+    failure = {
         "schema": "terminal_copy_selection_v1_failure",
         "status": "terminal_integrity_or_execution_failure_no_decision_receipt",
         "authority_sha256": authority_sha256,
-        "authority_file_sha256": file_sha256(AUTHORITY) if AUTHORITY.is_file() else None,
+        "authority_file_sha256": frozen_inputs["authority_file_sha256"],
         "exception_type": type(error).__name__,
         "exception_message": str(error),
-        "partial_artifacts": partial_artifacts,
-        "protected_at_failure": protected_snapshot(),
+        "partial_artifacts": frozen_inputs["partial_artifacts"],
+        "protected_at_failure": frozen_inputs["protected_at_failure"],
         "passer_receipt_exists": False,
         "negative_receipt_exists": False,
         "decision_receipts_mutually_absent": True,
         "same_authority_retry_authorized": False,
-    })
+    }
+
+    # Terminal failure gate.  Recompute the complete joined input aggregate, then make
+    # lock ownership and receipt exclusivity adjacent to the create-only publication.
+    terminal_inputs = _failure_input_snapshot(authority_sha256)
+    require_claim(claim)
+    if (
+        terminal_inputs != frozen_inputs
+        or PASSER_RECEIPT.exists() or NEGATIVE_RECEIPT.exists() or FAILURE.exists()
+    ):
+        raise RuntimeError("selection failure terminal inputs or exclusivity changed")
+    create_only_json(FAILURE, failure)
 
 
 def execute_selection() -> dict[str, Any]:

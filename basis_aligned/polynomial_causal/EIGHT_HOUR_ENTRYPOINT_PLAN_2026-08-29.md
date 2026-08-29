@@ -532,3 +532,27 @@ ruling also resolves original-preregistration versus screening-amendment conflic
 Current suite: 25/25. This is CPU implementation evidence, not E4.1. The remaining
 NO-GO is the independently audited source-closed selection loader, mask reconstruction,
 48-batch authority/lifecycle, bootstrap replay, and receipt-last publisher.
+
+## 12:35 UTC deadline audit and E4 lifecycle update
+
+The eight-hour window is over. Its literal tally remains six measured negatives, three
+scientifically pruned cells, and E4.1--E4.3 open. Family F completed receipt-last and
+failed its registered NRMSE gate; it is not being counted as a successful composable
+port. Plans, cached rows, fit means, and unrun selection code do not count as outcomes.
+
+The E4 selection NO-GO has narrowed substantially. The source-closed lifecycle now
+binds 28 exact files and independently reconstructs natural masks plus all 32 reciprocal
+synthetic crossover pairs. It freezes 48 natural and 16 synthetic batches, one native
+plus eight candidates per batch, exactly 576 outer forwards, and a literal 10,000-draw
+shared-document bootstrap over 24 coordinates. It has mutually exclusive passer,
+scientific-negative, and failure terminal states; only a passer can open final/OOD.
+
+The previous audit findings have been repaired: synthetic banks must be cross-item
+unique and base-row absent, assurance tests are source-closed, mocked full state-machine
+paths are exercised, and failure artifacts hash-join partial outputs plus the protected
+snapshot. The lifecycle suite passes 17/17 and the full assurance suite 60/60. The
+current draft is explicitly nonauthorizing. Independent outcome-blind re-audit is in
+progress while S1929 owns the GPU; no E4 selection value or model outcome has been read.
+
+Static strategic interpretation and ranked next actions:
+`HOURLY_STRATEGIC_REVIEW_2026-08-29_1235.md`.

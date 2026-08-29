@@ -277,6 +277,7 @@ def _run_mocked_execute(
         "authority_sha256": "a" * 64,
         "checkpoint": life.asdict(checkpoint),
         "source_closure": {},
+        "protected_snapshot": {"protected": "fixed"},
     }
     life.create_only_json(paths["AUTHORITY"], authority)
     natural, synthetic, selection = _materialized_transaction(selected_candidate)
@@ -564,14 +565,48 @@ def test_mocked_authority_freeze_is_create_only_and_validates(tmp_path, monkeypa
     monkeypatch.setattr(life.fit_parent, "replay_fit_parent", lambda: fit)
     monkeypatch.setattr(life, "adapter_binding", lambda: adapter)
     monkeypatch.setattr(life.facade, "validate_snapshot", lambda **kwargs: checkpoint)
+    protected = tmp_path / "protected.bin"
+    protected.write_bytes(b"frozen")
+    monkeypatch.setattr(life, "PROTECTED_PATHS", (protected,))
     authority = life.freeze_execution_authority(paths["AUDIT"])
     assert authority["authorized_for_selection_execution"] is True
     assert authority["authorized_for_final_ood"] is False
     assert authority["fit_receipt_self_authorizes_selection"] is False
     assert authority["amendment_governs_conflicts"] is True
+    assert authority["protected_snapshot"] == {str(protected): life.file_sha256(protected)}
     assert life.stable_json(paths["AUTHORITY"]) == authority
     with pytest.raises(RuntimeError, match="spent"):
         life.freeze_execution_authority(paths["AUDIT"])
+
+
+def test_authority_rejects_protected_mutation_between_freeze_and_execute(
+    tmp_path, monkeypatch,
+):
+    paths = _patch_output_namespace(monkeypatch, tmp_path)
+    paths["AUDIT"].write_text("{}\n")
+    protected = tmp_path / "final_ood_payload.pt"
+    protected.write_bytes(b"before")
+    source = {"commit": "c" * 40, "paths": {}, "sha256": "s" * 64}
+    checkpoint = life.facade.CheckpointReceipt(
+        revision="mock", snapshot="/mock", config_sha256="c" * 64,
+        weights_sha256="w" * 64, weights_bytes=1,
+        tokenizer_vocab=50_257, logit_vocab=50_304,
+    )
+    monkeypatch.setattr(life, "PROTECTED_PATHS", (protected,))
+    monkeypatch.setattr(
+        life, "validate_canonical_audit",
+        lambda _path=paths["AUDIT"]: {"approved": True, "outcome_access": False},
+    )
+    monkeypatch.setattr(life, "source_closure", lambda: source)
+    monkeypatch.setattr(life, "verify_source_closure", lambda binding: binding == source or None)
+    monkeypatch.setattr(life, "row_binding", lambda: {"row": "bound"})
+    monkeypatch.setattr(life.fit_parent, "replay_fit_parent", lambda: {"fit": "bound"})
+    monkeypatch.setattr(life, "adapter_binding", lambda: {"adapter": "bound"})
+    monkeypatch.setattr(life.facade, "validate_snapshot", lambda **kwargs: checkpoint)
+    authority = life.freeze_execution_authority(paths["AUDIT"])
+    protected.write_bytes(b"after")
+    with pytest.raises(RuntimeError, match="authority identity changed"):
+        life.validate_execution_authority(authority)
 
 
 @pytest.mark.parametrize(
@@ -671,6 +706,56 @@ def test_failure_cannot_coexist_with_a_decision_receipt(tmp_path, monkeypatch):
     claim = life.acquire_claim()
     try:
         with pytest.raises(RuntimeError, match="after a decision receipt"):
+            life._publish_failure(claim, "a" * 64, RuntimeError("late"))
+        assert not paths["FAILURE"].exists()
+    finally:
+        life.release_claim(claim)
+
+
+def test_failure_rejects_receipt_race_after_initial_gate(tmp_path, monkeypatch):
+    paths = _patch_output_namespace(monkeypatch, tmp_path)
+    life.create_only_json(paths["AUTHORITY"], {"authority_sha256": "a" * 64})
+    claim = life.acquire_claim()
+    original = life._failure_input_snapshot
+    calls = {"count": 0}
+
+    def racing_snapshot(authority_sha256):
+        value = original(authority_sha256)
+        calls["count"] += 1
+        if calls["count"] == 2:
+            life.create_only_json(paths["NEGATIVE_RECEIPT"], {"status": "late race"})
+        return value
+
+    monkeypatch.setattr(life, "_failure_input_snapshot", racing_snapshot)
+    try:
+        with pytest.raises(RuntimeError, match="exclusivity changed"):
+            life._publish_failure(claim, "a" * 64, RuntimeError("late"))
+        assert not paths["FAILURE"].exists()
+    finally:
+        life.release_claim(claim)
+
+
+def test_failure_rejects_partial_artifact_race_during_terminal_rehash(
+    tmp_path, monkeypatch,
+):
+    paths = _patch_output_namespace(monkeypatch, tmp_path)
+    life.create_only_json(paths["AUTHORITY"], {"authority_sha256": "a" * 64})
+    life.create_only_json(paths["LEDGER"], {
+        "schema": "terminal_copy_selection_v1_ledger", "authority_sha256": "a" * 64,
+    })
+    claim = life.acquire_claim()
+    original = life._failure_input_snapshot
+    calls = {"count": 0}
+
+    def racing_snapshot(authority_sha256):
+        calls["count"] += 1
+        if calls["count"] == 2:
+            paths["LEDGER"].write_text('{"mutated":true}\n')
+        return original(authority_sha256)
+
+    monkeypatch.setattr(life, "_failure_input_snapshot", racing_snapshot)
+    try:
+        with pytest.raises(RuntimeError, match="terminal inputs"):
             life._publish_failure(claim, "a" * 64, RuntimeError("late"))
         assert not paths["FAILURE"].exists()
     finally:

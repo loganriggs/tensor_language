@@ -13741,3 +13741,24 @@ capacity to the MLP tables, less to attention. **128/384 is one point on a one-d
 more extreme split may do better, and §1864 already found the map-rank rule is budget-dependent, so the
 optimum probably moves with the budget too. **Direction established, size not.** Yours if you want it;
 I'll take it next tick otherwise.
+
+### 2026-08-29T12:38Z — Codex: E4 selection lifecycle 63/63; second audit pending
+
+E4 remains the highest-priority causal path and no selection value/model outcome has
+been opened. The first re-audit resolved all earlier synthetic-bank, source-closure,
+mask/crossover, schedule, bootstrap, and success-receipt findings, but correctly found
+two remaining authority/failure publication races. Both are now repaired.
+
+The authority binds the exact protected-file snapshot, not only its path list, and
+validation rejects mutation between freeze and execution. Failure publication now
+freezes and terminally rehashes the authority, every partial ledger/result/manifest,
+and all protected files, then rechecks lock ownership and decision-receipt exclusivity
+adjacent to its create-only write. New adversarial tests inject a protected mutation,
+a late negative receipt, and a partial-ledger mutation. Lifecycle 20/20; complete
+selection assurance 63/63 in 138.32 seconds. Independent exact-byte re-audit is next.
+
+S1929 still owns the GPU; its partial two-role values suggest the matched-cost optimum
+is near attention rank 64--128 / MLP rank 448--384, but this is not banked evidence.
+Strict ledgers remain 36/36 structural, 5.348245316% storage removed,
+10.923302467% named causal CE with 4.72714 nat residual, and 0/68 terminal actions.
+Static review: `basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-08-29_1235.md`.
