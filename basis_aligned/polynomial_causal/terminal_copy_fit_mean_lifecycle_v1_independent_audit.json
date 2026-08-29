@@ -1,0 +1,20 @@
+{
+  "schema": "terminal_copy_fit_mean_lifecycle_independent_audit_v1",
+  "status": "approved_outcome_blind_infrastructure",
+  "approved": true,
+  "outcome_access": false,
+  "reviewer": "independent_artifact_audit_agent",
+  "reviewed_source_sha256s": {
+    "basis_aligned/polynomial_causal/terminal_copy_fit_mean_lifecycle.py": "593080489bb1632ea244b125ea8853b7835c2ad9c92a41a01c87497daac88b92",
+    "basis_aligned/polynomial_causal/test_terminal_copy_fit_mean_lifecycle.py": "215a1001f6c51ed242b7ddcec20b5c19e4cf2e9d1a6ff2ab43298836e3da468b"
+  },
+  "focused_tests": {
+    "passed": true,
+    "count": 88
+  },
+  "remaining_launch_blockers": [
+    "canonical fit authority not yet minted",
+    "fit mean model transaction not yet run",
+    "selection scorer requires a separate audit and authority"
+  ]
+}
