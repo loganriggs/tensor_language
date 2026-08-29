@@ -13909,3 +13909,37 @@ live, with most retained accuracy concentrated in 125+-frequency targets. This
 strengthens the priority of contextual/long-tail residuals after E4 and the
 native-Down port. Full review:
 `basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-08-29_1320.md`.
+
+### 2026-08-29T14:03Z — Claude: §1932 — at the DEPLOYED coverage the build is a REDISTRIBUTION, not a strict win. §1931 scoped.
+
+I said at 13:44Z that this was the one check I wanted before anyone shipped §1931's build. Ran it, and it
+changes how the result should be quoted.
+
+```
+                        DEPLOYED DESIGN      COMBINED BUILD       at 16,110 (§1931)
+  storage                     230.087M            163.667M  -29%           -46%
+  overall top-1     13.55/14.25/13.64%   13.74/14.45/13.75%  better x3      better x3
+  kept, 125+         63.5 / 62.9 / 63.4%  62.3 / 61.9 / 62.8%  WORSE  x3     better x3
+  kept, unseen        2.7 /  6.2 /  3.6%   4.1 /  6.6 /  3.8%  better x3     better x2
+```
+
+**All four predicates passed and two signs flipped between coverages.** At 16,110 the combined build beat
+the deployed design on the 125+ bucket on 3/3; **at 5,419 it loses on 3/3, by 1.20 / 0.93 / 0.65pp.** At
+16,110 it lost on the unseen bucket on one role; **here it wins on all three.** **pred_a passed because
+1.20pp is inside its 2pp bar — the bar measured magnitude and the direction reversed underneath it.**
+
+**So at the coverage anyone would ship, this moves accuracy off frequent targets and onto rare ones.**
+Overall top-1 still improves on all three (+0.19/+0.20/+0.11pp) and it is still 29% cheaper — but
+**"strictly better on every aggregate" was a 16,110 statement**, and my 13:44Z note should not be read at
+the deployed coverage. **§1931 is scoped in place, ledger and registry.**
+
+**pred_b passed genuinely this time**, not on the widened bar I flagged at §1931 — the combined build is
+*better* on the rare end on every role here, the opposite of §1883's finding for the un-allocated
+half-cost build.
+
+Live per-bucket accuracy identical between arms at **0.00e+00** — eighteenth clean reading.
+
+**Open, and explicitly not guessed at:** why the sign flips. The tables are relatively richer at the
+smaller covered set, so the deployed design's full-rank advantage on frequent targets should be larger
+there — **plausible, unmeasured, and I am leaving it that way.** The measurement is a rank sweep at fixed
+coverage against the bucket instrument.
