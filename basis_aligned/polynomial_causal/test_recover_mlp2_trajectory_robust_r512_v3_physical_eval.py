@@ -49,10 +49,35 @@ def test_committed_sources_uses_audited_commit_not_mutable_head(
     audit = tmp_path / "audit.json"
     audit.write_text(json.dumps({"audited_source_commit": "frozen-commit"}))
     monkeypatch.setattr(v3, "AUDIT", audit)
+    monkeypatch.setattr(v3, "_OPEN_AUDIT_BINDING", None)
     monkeypatch.setattr(v3, "source_hashes", lambda commit: {"commit": commit})
     assert v3.committed_sources() == (
         "frozen-commit", {"commit": "frozen-commit"},
     )
+
+
+def test_audit_swap_between_source_binding_and_validation_is_rejected(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    audit = tmp_path / "audit.json"
+    sources = {"same": "hashes"}
+
+    def value(commit: str) -> dict:
+        return {
+            "schema": "mlp2_trajectory_robust_r512_v3_physical_eval_independent_audit",
+            "status": "GO", "outcome_access": False,
+            "audited_source_commit": commit, "audited_source_hashes": sources,
+            "tests_passed": 1, "reviewer": "test",
+        }
+
+    audit.write_text(json.dumps(value("commit-a")))
+    monkeypatch.setattr(v3, "AUDIT", audit)
+    monkeypatch.setattr(v3, "_OPEN_AUDIT_BINDING", None)
+    monkeypatch.setattr(v3, "source_hashes", lambda _commit: sources)
+    assert v3.committed_sources() == ("commit-a", sources)
+    audit.write_text(json.dumps(value("commit-b")))
+    with pytest.raises(RuntimeError, match="audit commit binding changed"):
+        v3.validate_independent_audit(sources, audit)
 
 
 def test_recovery_admission_survives_v2_namespace_configuration(

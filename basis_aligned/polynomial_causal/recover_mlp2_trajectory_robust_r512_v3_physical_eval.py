@@ -46,6 +46,7 @@ _V2_RESULT = v2.RESULT
 _V2_RECEIPT = v2.RECEIPT
 _V2_LOCK = v2.LOCK
 _V2_FAILURE_SCHEMA = v2.FAILURE_SCHEMA
+_OPEN_AUDIT_BINDING: tuple[str, str] | None = None
 
 
 def file_sha256(path: Path) -> str:
@@ -122,8 +123,12 @@ def source_hashes(commit: str) -> dict[str, str]:
 def validate_independent_audit(
     sources: Mapping[str, str], path: Path = AUDIT,
 ) -> tuple[dict[str, Any], str]:
+    global _OPEN_AUDIT_BINDING
     recovery_admission()
-    raw = path.read_bytes(); digest = hashlib.sha256(raw).hexdigest(); value = json.loads(raw)
+    before = file_sha256(path); raw = path.read_bytes(); digest = hashlib.sha256(raw).hexdigest()
+    if digest != before or file_sha256(path) != before:
+        raise RuntimeError("v3 audit raced stable read")
+    value = json.loads(raw)
     required = {"schema", "status", "outcome_access", "audited_source_commit",
                 "audited_source_hashes", "tests_passed", "reviewer"}
     if file_sha256(path) != digest or set(value) != required \
@@ -133,18 +138,36 @@ def validate_independent_audit(
             or not isinstance(value.get("tests_passed"), int) or value["tests_passed"] < 1:
         raise RuntimeError("v3 audit is not an exact source-bound GO")
     commit = value.get("audited_source_commit")
-    if not isinstance(commit, str) or source_hashes(commit) != dict(sources):
+    if not isinstance(commit, str):
         raise RuntimeError("v3 audit commit binding changed")
+    if _OPEN_AUDIT_BINDING is None:
+        _OPEN_AUDIT_BINDING = (commit, digest)
+    if _OPEN_AUDIT_BINDING != (commit, digest) \
+            or source_hashes(commit) != dict(sources):
+        raise RuntimeError("v3 audit commit binding changed")
+    if file_sha256(path) != digest:
+        raise RuntimeError("v3 audit changed after source binding")
     recovery_admission()
     return value, digest
 
 
 def committed_sources() -> tuple[str, dict[str, str]]:
-    value = json.loads(AUDIT.read_text())
+    global _OPEN_AUDIT_BINDING
+    before = file_sha256(AUDIT); raw = AUDIT.read_bytes(); digest = hashlib.sha256(raw).hexdigest()
+    if digest != before or file_sha256(AUDIT) != before:
+        raise RuntimeError("v3 audit raced source-commit read")
+    value = json.loads(raw)
     commit = value.get("audited_source_commit")
     if not isinstance(commit, str):
         raise RuntimeError("v3 audit lacks source commit")
-    return commit, source_hashes(commit)
+    sources = source_hashes(commit)
+    if file_sha256(AUDIT) != digest:
+        raise RuntimeError("v3 audit changed during source replay")
+    binding = (commit, digest)
+    if _OPEN_AUDIT_BINDING is not None and _OPEN_AUDIT_BINDING != binding:
+        raise RuntimeError("v3 audit source binding was already different")
+    _OPEN_AUDIT_BINDING = binding
+    return commit, sources
 
 
 def validate_row_receipt(value: Any, _sources: dict[str, str]) -> dict[str, Any]:
