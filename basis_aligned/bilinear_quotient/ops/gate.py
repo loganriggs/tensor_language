@@ -102,6 +102,26 @@ def gate(path):
         u = sorted(used - _bound(fn, fn) - mod - set(dir(builtins)))
         if u:
             fails.append(f'{fn.name}(): possibly undefined {u}')
+    # MODULE-LEVEL undefined names. The undefined-name check above walks FUNCTION bodies only, so a
+    # name used at module scope and never bound was invisible. 2026-08-29: a fork left `ALPHA` in the
+    # result payload after the block defining it had been replaced -- legal syntax, gate PASS, and a
+    # NameError that would have fired AFTER the whole run, while building the argument to report().
+    # Discovered by hand-auditing a script the gate had just passed, which is not a strategy.
+    # module dunders are injected by the interpreter, not bound by any statement. Without them
+    # this check flagged 226 of 227 scripts on `__file__` alone -- LESSON 67's shape exactly,
+    # caught because the first thing it was run against was the whole corpus and not one file.
+    MODDUNDERS = {'__file__', '__name__', '__doc__', '__package__', '__spec__', '__loader__',
+                  '__builtins__', '__debug__', '__path__'}
+    modnames = _bound(tree) | MODDUNDERS
+    for n in tree.body:
+        if isinstance(n, (ast.FunctionDef, ast.AsyncFunctionDef, ast.ClassDef)):
+            continue
+        for u in ast.walk(n):
+            if isinstance(u, ast.Name) and isinstance(u.ctx, ast.Load) \
+                    and u.id not in modnames and u.id not in dir(builtins):
+                fails.append(f'line {u.lineno}: module-level `{u.id}` is used but never bound '
+                             f'-- a NameError at run time, usually a fork that dropped its definition')
+
     for nm, ln in _except_name_escapes(tree):
         fails.append(f'line {ln}: `{nm}` is an except-handler name used OUTSIDE its handler -- Python deletes it there (NameError)')
 

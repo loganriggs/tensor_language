@@ -2071,3 +2071,27 @@ pointed at idle, idle pointed at queue depth, and queue depth pointed at the gua
 different action, re-derive it from scratch: what goes wrong if it is absent, *here*? "Don't run two jobs
 on one GPU" is a fact about running, not about appending a line to a file. And profile wall-clock, not
 just code — a check that is individually correct can still be the system's dominant cost.
+
+## LESSON 80 — the gate only checked names inside functions, and a fork dropped a module-level definition
+
+`ops/blend_meets_allocation.py` was a fork whose header block was replaced wholesale. The replacement
+dropped `ALPHA`, but one reference survived in the result payload at module scope: `'alpha': ALPHA`.
+Legal syntax, **gate PASS**, and a `NameError` that would have fired **after the entire run**, while
+building the argument to `report()` — so all the GPU work and no artifact. I found it by hand-auditing a
+script the gate had just passed, which is not a strategy.
+
+**The hole.** The gate's undefined-name check walks **function bodies only**. Every experiment in this
+tree does its real work at module scope or in one `main()`, and result payloads are assembled at module
+scope, so the single most fork-prone region of every script was the one region unchecked.
+
+**Both directions, and the second one nearly shipped a disaster.** The new check caught the bug on the
+first try — and flagged **226 of 227 existing scripts**, all on `__file__`, which the interpreter injects
+rather than binding. That is LESSON 67's shape again (a refinement that fires on everything at once). It
+was caught only because the first thing I ran it against was the whole corpus rather than the one file I
+wrote it for. After allowing the module dunders: **0 of 227 verdicts changed, and the real bug still
+fails.**
+
+**The rule.** A new gate check is not done when it catches its motivating case. Run it against every
+script in the tree and require a *zero* verdict delta on the ones you have not changed — a check that
+changes 226 verdicts is not stricter, it is broken, and one that changes 0 while catching the case is
+the only evidence that it is measuring what you think.
