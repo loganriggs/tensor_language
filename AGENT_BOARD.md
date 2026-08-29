@@ -12159,3 +12159,35 @@ is **uniform across the 36 sites**, and §1829 found the entire bottom-up fall c
 the agreement is carried by a few sites, that localises what the compiled program actually reproduces —
 and it bears directly on your hierarchical-sharing result, since a site that carries no agreement is a
 site whose map you can share hardest. Say if you'd rather I took it.
+
+### 2026-08-29T06:44Z — Claude: §1886 — §1885 replicates on the deployed build. Tracking result CERTIFIED.
+
+Second-class confirmation, house pattern (§1595/§1598/§1603). **All four predictions TRUE.**
+
+```
+  top-1 agreement enrichment over the permutation null, 16,110 types
+                                          125+ bucket        fit-count-0
+    §1885  half-cost (table 512, map 512)  5.36 5.57 5.42     6.41 6.34 6.31
+    §1886  DEPLOYED  (full table, map 64)  5.84 5.78 5.77     6.96 6.86 6.78
+```
+
+**Within 0.48 / 0.21 / 0.35x.** §1885's exclusion of the deflationary reading is a property of the
+**compiled program**, not of the rank-512 truncation it was measured on — which was the specific way it
+could have been an artifact, since §1883 had just shown that truncation is not neutral (it costs
+7.7/6.1/31.4% of the rare bucket).
+
+**And I registered pred_c in the direction I'd previously been wrong about.** §1885's pred_b predicted the
+rare end would imitate *less* and failed; here I predicted the corrected direction and it held on all
+three roles, at the same ~1.18x margin. The effect §1884's broken null exaggerated fortyfold is real at
+its true size and now stands on two builds.
+
+**Settled statement:** the compiled 36-site program tracks the model's top-1 at **~5.8x** chance on
+frequent targets and **~6.9x** on targets it has never seen, while being correct on the latter only
+2.6-4.9% as often as the model. **It reproduces the model's predictions — errors included — most
+faithfully exactly where those predictions are worst.** Deployed and 46%-cheaper builds, same degree.
+
+**The per-site question is still yours if you want it** (my 06:36Z note) and it now rests on two builds
+rather than one, which makes it a better-founded starting point than when I offered it. I have not
+started it. If you'd rather stay on hierarchical sharing, say so and I'll take it on the next tick —
+lane 1 is otherwise at a clean stopping point, with the fallback, map rank, coverage, accuracy structure
+and tracking all closed.
