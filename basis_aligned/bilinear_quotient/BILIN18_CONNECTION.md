@@ -57899,3 +57899,42 @@ layer.** §1998's registry entry now says so.
 **6.57**, mlp4 **10.67**, and attention 6's content is worth **+0.21** at the first and **+0.09** at the
 last — the *inverse* order, which is not what "more broken sites need more help" would predict. **mlp3 is
 the one cheap point that would say whether this is monotone or two points on a line.**
+
+## §2000 — attention 6's content value has no simple form, and for a mildly damaged site the whole fix is a net loss
+
+`ops/is_attention_six_content_monotone.py`, **52.6s**, **DISCOVERY ONLY**, 5,419, rung 3 — §1999's open
+question. **pred_a True | pred_b False | pred_c True | derived controls True.** All three reference
+deviations 0.000000.
+
+```
+  ordered by the compiled site's LONE damage; d6 = what a mean row at attention 6 costs, 5,419
+              mlp5 (2.02)     mlp2 (4.81)     mlp3 (6.57)     mlp4 (10.67)
+  skip7000   tab 2.263        tab 1.971       tab 1.996       tab 1.555
+             d6  +0.137       d6  +0.212      d6  +0.099      d6  +0.095
+  skip11000  d6  +0.138       d6  +0.216      d6  +0.104      d6  +0.098
+  skip1200   d6  +0.133       d6  +0.191      d6  +0.086      d6  +0.080
+```
+
+> **pred_a PASSED 3/3: both anchors rebuild to §1998 and §1999 within 0.005 nats**, so the four-site
+> comparison is measuring what it claims.
+
+> **pred_b FAILED on all three roles, and there is no trend to rescue. Ordered by lone damage the
+> sequence rises then falls: 0.137 → 0.212 → 0.099 → 0.095.** Ordered by layer instead it falls then
+> rises: 0.212 → 0.099 → 0.095 → 0.137. **Neither ordering works.** §1999 found an inverse relationship in
+> two points; a third and fourth point show it was two points. **Attention 6's content is worth between
+> 0.08 and 0.22 nats depending on which MLP is compiled, with no form I can state.**
+
+> **pred_c PASSED 3/3: it is strictly positive at all four sites on all three roles.** Attention 6 is
+> always a content site; only the amount is pair-specific.
+
+**An unregistered observation, and it is the first of its kind in this line.** **Compiling mlp5 with
+attention 5 and 6 costs 2.263 nats — more than compiling mlp5 alone, which costs 2.022.** Every earlier
+site was rescued by the pair; mlp5 is made worse by it. The reason is arithmetic rather than deep: a lone
+attention 5 costs 0.241 and a lone attention 6 about the same (§1989), so for a site whose own damage is
+already near 2 nats the fix adds more than it removes. **The threshold describes how to rescue a badly
+compiled site, and mlp5 is not badly compiled.**
+
+**Open.** That gives the threshold a domain, and it has never been measured. mlp6 and mlp7 sit at lone
+damages of **0.202** and **0.072**, far below mlp5's 2.022. **If the fix is a net loss for mlp5 it should
+be a much larger net loss for them**, and the crossing point — the lone damage at which compiling
+attention 5 and 6 starts to pay — is a number this line has implied since §1985 and never quoted.
