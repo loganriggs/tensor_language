@@ -104,13 +104,26 @@ def publish_bytes(path: Path, value: bytes, owner: Mapping[str, Any]) -> None:
         v1._publish_create_only(path, value, owner=owner)
 
 
+def load_pinned_json_bytes(path: Path, expected_sha256: str, label: str) -> dict[str, Any]:
+    before = v1.file_sha256(path)
+    serialized = path.read_bytes()
+    read_sha256 = hashlib.sha256(serialized).hexdigest()
+    after = v1.file_sha256(path)
+    if before != expected_sha256 or read_sha256 != before or after != before:
+        raise RuntimeError(f"{label} changed during pinned byte read")
+    value = json.loads(serialized)
+    if not isinstance(value, dict):
+        raise RuntimeError(f"{label} is not a JSON object")
+    return value
+
+
 def load_v1_parents() -> tuple[dict[str, Any], dict[str, Any]]:
-    if v1.file_sha256(V1_AUTHORITY) != V1_AUTHORITY_FILE_SHA256 or v1.file_sha256(
-        V1_FAILURE
-    ) != V1_FAILURE_FILE_SHA256:
-        raise RuntimeError("spent v1 parent bytes changed")
-    authority = json.loads(V1_AUTHORITY.read_text())
-    failure = json.loads(V1_FAILURE.read_text())
+    authority = load_pinned_json_bytes(
+        V1_AUTHORITY, V1_AUTHORITY_FILE_SHA256, "spent v1 authority",
+    )
+    failure = load_pinned_json_bytes(
+        V1_FAILURE, V1_FAILURE_FILE_SHA256, "spent v1 failure",
+    )
     v1.validate_authority(authority)
     if authority.get("authority_sha256") != V1_AUTHORITY_SHA256 or authority.get(
         "selection_plan", {}

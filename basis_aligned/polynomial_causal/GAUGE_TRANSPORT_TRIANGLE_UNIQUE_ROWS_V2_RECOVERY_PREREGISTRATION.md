@@ -21,6 +21,9 @@ V2 preserves these immutable parents:
   `0d66f060a43959c94afc14691b4a19730147c942da94807f919513fb8c421629`.
 
 V2 never deletes, edits, retries, or reinterprets a v1 artifact.
+Each v1 JSON parent is loaded as bytes under a hash-before/read/hash-of-read-bytes/
+hash-after gate; all three identities must equal its pinned file SHA256 before JSON
+parsing or semantic validation.
 
 ## Sole protocol change
 

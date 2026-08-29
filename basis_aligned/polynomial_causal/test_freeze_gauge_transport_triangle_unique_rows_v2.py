@@ -124,3 +124,36 @@ def test_v2_parent_files_are_exact_and_v1_terminal_outputs_remain_absent():
     assert all(not Path(authority["outputs"][key]).exists() for key in (
         "rows", "manifest", "receipt",
     ))
+
+
+@pytest.mark.parametrize("mutated_parent", ["authority", "failure"])
+def test_each_spent_v1_parent_rejects_mutation_during_byte_read(
+    monkeypatch, tmp_path: Path, mutated_parent: str,
+):
+    authority_path = tmp_path / "v1_authority.json"
+    failure_path = tmp_path / "v1_failure.json"
+    authority_path.write_bytes(v2.V1_AUTHORITY.read_bytes())
+    failure_path.write_bytes(v2.V1_FAILURE.read_bytes())
+    authority_sha256 = v1.file_sha256(authority_path)
+    failure_sha256 = v1.file_sha256(failure_path)
+    monkeypatch.setattr(v2, "V1_AUTHORITY", authority_path)
+    monkeypatch.setattr(v2, "V1_FAILURE", failure_path)
+    monkeypatch.setattr(v2, "V1_AUTHORITY_FILE_SHA256", authority_sha256)
+    monkeypatch.setattr(v2, "V1_FAILURE_FILE_SHA256", failure_sha256)
+
+    target = authority_path if mutated_parent == "authority" else failure_path
+    expected = authority_sha256 if mutated_parent == "authority" else failure_sha256
+    original_file_sha256 = v1.file_sha256
+    target_calls = 0
+
+    def hash_with_mutation(path: Path) -> str:
+        nonlocal target_calls
+        if Path(path) == target:
+            target_calls += 1
+            return expected if target_calls == 1 else "0" * 64
+        return original_file_sha256(path)
+
+    monkeypatch.setattr(v1, "file_sha256", hash_with_mutation)
+    with pytest.raises(RuntimeError, match=f"spent v1 {mutated_parent} changed during"):
+        v2.load_v1_parents()
+    assert target_calls == 2

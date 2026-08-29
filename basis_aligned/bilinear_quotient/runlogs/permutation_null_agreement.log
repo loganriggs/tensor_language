@@ -1,0 +1,31 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+PERMUTATION-NULL AGREEMENT | buckets ((0, 0), (1, 4), (5, 24), (25, 124), (125, 1000000000)) on the fit-row count of the TRUE target | full-rank settled program | DISCOVERY ONLY
+  built the settled fallback and 36 tables (5s)
+
+  === table rank 512, map rank 512 ===
+  skip7000: overall live 39.32% prog 13.74%
+    target fit-count 0-0          n   3679  live 24.16%  prog  0.57%  kept   2.4%  agree 13.73% (null  2.14% =  6.41x)  prog-right-also-live  90.5%
+    target fit-count 1-4          n   5258  live 24.80%  prog  1.18%  kept   4.8%  agree 14.24% (null  1.97% =  7.23x)  prog-right-also-live  87.1%
+    target fit-count 5-24         n   6571  live 27.45%  prog  1.48%  kept   5.4%  agree 14.26% (null  1.89% =  7.56x)  prog-right-also-live  91.8%
+    target fit-count 25-124       n   4999  live 29.55%  prog  2.54%  kept   8.6%  agree 18.04% (null  2.59% =  6.97x)  prog-right-also-live  77.2%
+    target fit-count 125-1000000000 n  16357  live 55.15%  prog 29.08%  kept  52.7%  agree 34.64% (null  6.46% =  5.36x)  prog-right-also-live  81.4%
+  skip11000: overall live 42.35% prog 14.58%
+    target fit-count 0-0          n   3662  live 28.95%  prog  1.34%  kept   4.6%  agree 13.27% (null  2.09% =  6.34x)  prog-right-also-live  87.8%
+    target fit-count 1-4          n   5467  live 30.67%  prog  2.23%  kept   7.3%  agree 13.28% (null  1.61% =  8.23x)  prog-right-also-live  95.9%
+    target fit-count 5-24         n   6759  live 30.60%  prog  2.20%  kept   7.2%  agree 13.43% (null  1.72% =  7.80x)  prog-right-also-live  88.6%
+    target fit-count 25-124       n   5030  live 32.39%  prog  2.45%  kept   7.6%  agree 17.30% (null  2.16% =  8.00x)  prog-right-also-live  77.2%
+    target fit-count 125-1000000000 n  15946  live 57.55%  prog 30.92%  kept  53.7%  agree 35.11% (null  6.30% =  5.57x)  prog-right-also-live  82.5%
+  skip1200: overall live 38.88% prog 13.75%
+    target fit-count 0-0          n   1837  live 24.71%  prog  0.60%  kept   2.4%  agree 14.43% (null  2.29% =  6.31x)  prog-right-also-live 100.0%
+    target fit-count 1-4          n   2557  live 25.30%  prog  1.21%  kept   4.8%  agree 14.98% (null  2.00% =  7.49x)  prog-right-also-live  80.6%
+    target fit-count 5-24         n   3193  live 26.28%  prog  1.57%  kept   6.0%  agree 16.91% (null  2.17% =  7.80x)  prog-right-also-live  88.0%
+    target fit-count 25-124       n   2664  live 28.42%  prog  2.59%  kept   9.1%  agree 18.99% (null  2.33% =  8.16x)  prog-right-also-live  68.1%
+    target fit-count 125-1000000000 n   8181  live 54.64%  prog 29.02%  kept  53.1%  agree 34.73% (null  6.41% =  5.42x)  prog-right-also-live  80.7%
+
+  THE PAIRING IS REAL (125+ enrichment >= 1.5x) -> True  skip7000 agree 34.64% null 6.46% = 5.36x  skip11000 agree 35.11% null 6.30% = 5.57x  skip1200 agree 34.73% null 6.41% = 5.42x
+  and the RARE end imitates LESS -> False  skip7000 rare 6.41x vs common 5.36x  skip11000 rare 6.34x vs common 5.57x  skip1200 rare 6.31x vs common 5.42x
+  and §1884's STRIKE was correct (perm null >= 10x the broken one, rare bucket) -> False  skip7000 0.0214 vs 0.001380 = 16x  skip11000 0.0209 vs 0.003870 = 5x  skip1200 0.0229 vs 0.001480 = 15x
+  §1884 agreement and §1883 kept-fractions reproduce, coverage 16110, partition True -> control True
+
+pred_a True | pred_b False | pred_c False | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/permutation_null_agreement_results.json (104.8s)

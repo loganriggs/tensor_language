@@ -51913,3 +51913,60 @@ unfalsifiable, and this one's null was mis-specified. Both passed the gate, beca
 predicates *run*, not that they *mean* what the docstring claims. The shared tell is that **neither bar
 was calibrated against a case where I knew the answer.** A 97x enrichment should have been implausible on
 its face and prompted the arithmetic before the run, not after.
+
+## §1885 — the pairing is real at 5.4x, and §1884's inversion was directionally right but 40x overstated
+
+`ops/permutation_null_agreement.py`, 104.8s, **DISCOVERY ONLY**, rung 3 — §1884's open question, with an
+instrument calibrated before use per LESSON 69.
+**pred_a True | pred_b False | pred_c False | pred_d True.**
+
+**The calibration, run before the bar was registered.** On 16,000 synthetic draws from Zipf-ish marginals:
+two independent predictors give observed 0.02738 against a permutation null of 0.02802 — **0.977x**; a
+predictor copying the other 40% of the time gives **15.6x**. The estimator returns the known answer in
+both directions.
+
+```
+  §1882's half-cost build, 16,110 types, permutation null over 8 shuffles within each bucket
+    bucket      agreement    perm null    enrichment    prog-right-ALSO-live-right
+      0          14.4-15.6%   2.1-2.3%    6.41 / 6.34 / 6.31x     100.0 / 92.0 / 100.0%
+      1-4        15.0-16.3%   2.0-2.2%    ~7.5x                    80.6 / 79.5 /  80.6%
+      5-24       16.9-17.9%   2.2%        ~7.8x                    88.0 / 85.2 /  88.0%
+      25-124     17.3-19.0%   2.3%        ~8.2x                    68.1 / 77.2 /  68.1%
+      125+       34.6-35.1%   6.3-6.5%    5.36 / 5.57 / 5.42x      81.4 / 82.5 /  80.7%
+```
+
+> **pred_a PASSED at 5.36 / 5.57 / 5.42x against a 1.5x bar. The program genuinely tracks the model, and
+> not merely through shared token marginals.** This is the claim §1884 could not make and the reason that
+> section's instrument was worth rebuilding rather than abandoning: the deflationary reading — that
+> "keeps 54% of the model" means no more than any two predictors with these output distributions would
+> agree — is **excluded**. A permutation-matched pair would sit at 1.0x.
+
+**pred_b FAILED, and §1884's struck result turns out to have been directionally right.** I registered
+that the rare end would imitate LESS; it imitates slightly **more** — 6.41 / 6.34 / 6.31x against the
+common bucket's 5.36 / 5.57 / 5.42x. **But the magnitude matters more than the sign: a 1.17x difference,
+not §1884's 45x.** So the honest account of §1884 is that its broken null pointed the right way for the
+wrong reason and exaggerated the effect roughly fortyfold. Striking it was still correct — a ratio that
+inflates by 40x cannot be cited — and I would strike it again.
+
+**The substantive reading.** On rare targets the program is right **0.6-1.3%** of the time while tracking
+the model's top-1 **6.3x above chance**. It is reproducing the model's *mistakes* there. On frequent
+targets the enrichment is lower (5.4x) precisely because both are more often independently correct. So
+the program is a degraded copy in a specific sense — **it copies the model's errors most faithfully where
+the model errs most** — while §1884's 81% shows it is also right on a set that only partly overlaps.
+
+> **pred_c FAILED and it was a check on my own correction, so I am stating the result against myself.**
+> I registered that the permutation null would exceed §1884's broken `acc_live * acc_prog` baseline by at
+> least **10x** on the rare bucket, all three roles. Measured **16x / 5x / 15x** — skip11000 misses by
+> half. The strike stands on substance: a null that is 5 to 16 times too low is not usable, and the
+> enrichment it produced (97x) is 15x the true value (6.3x). **But my bar as written asserted my
+> correction was large on every role, and it is not. FAIL, scored as written.**
+
+**pred_d PASSED**: raw agreement reproduced §1884's published 34.6 / 35.1 / 34.7% and the kept-fractions
+reproduced §1883's, within 0.2pp, on the same build with the extra instrument; coverage 16,110; buckets
+partitioning.
+
+**Open.** The program tracks the model at 5-8x chance across every frequency bucket, most tightly where
+the model is wrong. What has never been asked is whether that tracking is *uniform across sites* — the
+36-site program was built site-by-site, and §1829 found the whole bottom-up fall concentrated at layer 1.
+Whether the agreement is carried by a few sites or spread across all 36 is the natural next question and
+the first one in this arc that is about mechanism rather than price.
