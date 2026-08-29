@@ -18,8 +18,9 @@ import torch
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
-if str(HERE) not in sys.path:
-    sys.path.insert(0, str(HERE))
+for source_root in (ROOT, HERE):
+    if str(source_root) not in sys.path:
+        sys.path.insert(0, str(source_root))
 
 import bilin18_observed_model_facade as facade
 

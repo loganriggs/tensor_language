@@ -1,9 +1,32 @@
 from __future__ import annotations
 
+from pathlib import Path
+import subprocess
+import sys
+
 import pytest
 import torch
 
 import collect_mlp2_cmr_v1_fit_mean as fit
+
+
+def test_runner_imports_from_outside_repository() -> None:
+    script = Path(fit.__file__).resolve()
+    completed = subprocess.run(
+        [
+            sys.executable,
+            "-c",
+            (
+                "import runpy; "
+                f"runpy.run_path({str(script)!r}, run_name='fit_import_smoke')"
+            ),
+        ],
+        cwd="/tmp",
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    assert completed.returncode == 0, completed.stderr
 
 
 def test_moment_finalization_matches_direct_population_statistics() -> None:

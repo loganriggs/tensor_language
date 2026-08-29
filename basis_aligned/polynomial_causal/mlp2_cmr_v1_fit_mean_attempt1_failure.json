@@ -1,0 +1,16 @@
+{
+  "experiment_id": "bilin18_mlp2_cmr_v1_fit_mean",
+  "status": "failed_before_authority_or_model_access",
+  "attempt": 1,
+  "source_commit": "1ff97b850995cc643ea57b7c586f1b237b8c907c",
+  "command": "/venv/main/bin/python basis_aligned/polynomial_causal/collect_mlp2_cmr_v1_fit_mean.py",
+  "error_type": "ModuleNotFoundError",
+  "error": "No module named 'jacclust'",
+  "cause": "Direct nested-script execution placed the script directory but not the repository root on sys.path.",
+  "repair_scope": "Add the exact repository root to sys.path before importing the observed-model facade and add an outside-repository import regression test.",
+  "authority_exists": false,
+  "model_accessed": false,
+  "fit_bundle_exists": false,
+  "result_exists": false,
+  "receipt_exists": false
+}
