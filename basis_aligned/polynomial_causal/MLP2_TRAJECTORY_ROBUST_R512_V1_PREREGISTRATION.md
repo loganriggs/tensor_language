@@ -93,3 +93,10 @@ a retrospective rescue in this experiment.
 This experiment cannot move the strict ledger without replication, OOD transport,
 and a terminal extraction/removal use.
 
+The fit-only implementation is
+`train_mlp2_trajectory_robust_r512_v1.py`. It is licensed to open only the previously
+unopened `TRAIN` role from the MLP0-C512 × MLP2-FULL512 composition transaction. It
+must freeze the candidate bundle and publish a receipt with
+`evaluation_opened=false`. A separate source-closed physical evaluator must freeze
+new registry-fresh evaluation rows; neither the earlier composition evaluation nor
+the parent FULL512 evaluation may be reused for scientific decisions.
