@@ -218,3 +218,24 @@ The finite port precedes the Gram because tangent geometry around a candidate th
 does not transfer would describe local compensation, not a composable interface.
 S1922 enables a useful stratified risk certificate, but its observational reliability
 result adds no causal, removal, named-CE, or E-cell credit.
+
+## 11:31 UTC final execution update
+
+V3 received independent GO, froze a committed authority, and completed receipt-last.
+Postvalidation passed. The bank contains per-position means from all 192 fit documents;
+the owner recorded 48 batches, 192 documents, 48 native calls at every attention and
+MLP layer, 48 decompositions at each of layers 5/7/8/13/14, and zero unembedding,
+logit, loss, label, copy-cell, or selection access. The exact master/runtime tensor
+digests are `3e494ad2...` and `d8b90d58...`; receipt-file SHA256 is `663d1f85...`.
+
+This closes the fit-mean prerequisite only. It does not check E4.1 because no
+candidate has been scored. The highest-priority next executable object is now the
+source-closed selection lifecycle that runs the native model plus eight physical
+candidate interventions on the already frozen selection role and immediately reduces
+logits to document-level sufficient statistics.
+
+S1924 also showed that the rank-64-to-512 fallback reliability gain does not transfer
+uniformly to deployed coverage (`+0.48/+1.14/+0.09`, with the last inside measured
+noise). This further prunes generic rank expansion and makes coverage-stratified
+calibration mandatory for the selective-risk compiler; it grants no strict ledger
+credit.

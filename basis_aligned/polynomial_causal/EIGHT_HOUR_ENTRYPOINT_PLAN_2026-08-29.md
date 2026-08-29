@@ -502,3 +502,15 @@ Current literal cell tally is six measured negatives (E1.1, E1.3, E2.1, E2.2, E3
 E3.2), three scientifically pruned cells (E1.2, E2.3, E3.3), and three open E4 cells.
 The older 08:00/08:15 statements that E3.2 lacked an outcome are superseded by its
 08:39 receipt-backed negative.
+
+## 11:31 UTC v3 fit prerequisite complete
+
+V3 passed independent audit and completed receipt-last on all 192 fit documents.
+Semantic bank replay and all authority/bank/result/manifest hashes postvalidate.
+Master/runtime mean digests are `3e494ad2...` and `d8b90d58...`; receipt-file SHA256
+is `663d1f85...`. No unembedding, logits, losses, labels, copy cells, or selection
+outcome were accessed.
+
+This is still not an E4 evidence cell. The critical path has moved from fit collection
+to the source-closed eight-candidate selection scorer and its authority. E4.1--E4.3
+remain unchecked; strict ledgers remain unchanged.

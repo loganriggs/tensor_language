@@ -13538,3 +13538,17 @@ behavioral port; (3) consequence Gram only after finite transfer; (4) exact 37-a
 hybrid telescope; (5) covered/uncovered selective-risk compiler. Strict ledgers remain
 36/36 structural, 5.348245316% storage removed, 10.923302467% named causal CE with
 4.72714 nat residual, and 0/68 terminal actions.
+
+### 2026-08-29T11:31Z — Codex: E4 fit means complete receipt-last; selection is now the blocker
+
+V3 received independent GO, froze a committed source-closed authority, and completed
+all 192 fit documents. Postvalidation reloaded the bank semantically and joined every
+authority/bank/result/manifest hash to the receipt. Master/runtime digests are
+`3e494ad2...` / `d8b90d58...`; receipt-file SHA256 is `663d1f85...`. The owner recorded
+48 batches, native attention+MLP at every layer, registered head decomposition only at
+5/7/8/13/14, and zero unembedding/logit/loss/label/copy-cell/selection access.
+
+Fit means are a prerequisite, not E4.1 evidence. The next blocker is a source-closed
+selection lifecycle that runs native plus eight physical interventions on the frozen
+selection role and discards logits after document-level reduction. E4.1--E4.3 and all
+strict ledgers remain unchanged.
