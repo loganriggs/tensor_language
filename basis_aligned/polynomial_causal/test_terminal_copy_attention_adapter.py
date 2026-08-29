@@ -155,6 +155,48 @@ def test_source_write_splits_mixed_route_into_fresh_and_broadcast_terms():
             transaction.source_write((0,), sources, route="unknown")
 
 
+def test_source_pattern_masks_and_native_override_reconstructs_source_write():
+    program = OwnedPerHeadTensorAttention.from_native(FakeNative())
+    state = torch.randn(2, 4, 8)
+    sources = torch.tensor([[0, 0, 1, 2], [0, 1, 2, 2]], dtype=torch.long)
+    mask = torch.tensor(
+        [[False, True, True, False], [True, False, True, True]], dtype=torch.bool,
+    )
+    with program.begin(state) as transaction:
+        pattern = transaction.source_pattern((0, 1), sources, mask)
+        native = transaction.source_write((0, 1), sources, mask)
+        overridden = transaction.source_write(
+            (0, 1), sources, mask, pattern_override=pattern,
+        )
+        assert pattern.shape == (2, 4, 2)
+        assert torch.equal(pattern[~mask], torch.zeros_like(pattern[~mask]))
+        assert torch.allclose(overridden, native, rtol=1e-6, atol=1e-7)
+
+
+def test_source_write_accepts_per_head_constant_pattern_and_rejects_bad_shapes():
+    program = OwnedPerHeadTensorAttention.from_native(FakeNative())
+    state = torch.randn(2, 4, 8)
+    sources = torch.tensor([[0, 0, 1, 2], [0, 1, 2, 2]], dtype=torch.long)
+    constants = torch.tensor([-0.12, 0.19])
+    expanded = constants.view(1, 1, 2).expand(2, 4, 2)
+    with program.begin(state) as transaction:
+        compact = transaction.source_write(
+            (0, 1), sources, route="broadcast", pattern_override=constants,
+        )
+        explicit = transaction.source_write(
+            (0, 1), sources, route="broadcast", pattern_override=expanded,
+        )
+        assert torch.equal(compact, explicit)
+        with pytest.raises(ValueError, match="override"):
+            transaction.source_write(
+                (0, 1), sources, pattern_override=torch.ones(2, 4),
+            )
+        with pytest.raises(ValueError, match="override"):
+            transaction.source_write(
+                (0, 1), sources, pattern_override=torch.tensor([float("nan"), 0.0]),
+            )
+
+
 def test_source_write_rejects_malformed_indices_and_masks():
     program = OwnedPerHeadTensorAttention.from_native(FakeNative())
     state = torch.randn(1, 3, 8)

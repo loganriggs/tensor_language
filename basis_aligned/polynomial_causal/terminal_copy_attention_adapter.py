@@ -242,25 +242,13 @@ class HeadWriteTransaction(AbstractContextManager):
     def all_heads(self) -> torch.Tensor:
         return self.select(range(self._n_head))
 
-    def source_write(
+    def _source_selection(
         self,
         heads: Iterable[int],
         source_indices: torch.Tensor,
-        destination_mask: torch.Tensor | None = None,
-        *,
-        route: str = "mixed",
-    ) -> torch.Tensor:
-        """Return selected heads' exact write from one source per destination.
-
-        ``source_indices[b, t]`` chooses the source position whose additive
-        contribution to destination ``t`` is returned.  The method gathers the
-        already-computed attention pattern and selected value route, so it never
-        materializes the prohibitively large ``[B,T,H,T,D_model]`` tensor.
-        ``destination_mask`` can restrict the returned write to chosen destination
-        positions; the attention calculation itself is unchanged.  ``route`` may
-        select the complete mixed value, the ``(1-lambda)`` fresh-value term, or the
-        ``lambda*v1`` broadcast term.
-        """
+        destination_mask: torch.Tensor | None,
+    ) -> tuple[tuple[int, ...], torch.Tensor, torch.Tensor, torch.Tensor]:
+        """Validate and gather one native pattern scalar per destination/head."""
 
         selected = tuple(heads)
         if not selected or len(set(selected)) != len(selected) or any(
@@ -269,16 +257,7 @@ class HeadWriteTransaction(AbstractContextManager):
         ):
             raise ValueError("selected attention heads are malformed")
         self._require_open()
-        routes = {
-            "mixed": self._mixed,
-            "fresh": self._fresh,
-            "broadcast": self._broadcast,
-        }
-        if route not in routes:
-            raise ValueError("source route is unknown")
-        selected_route = routes[route]
-        assert self._pattern is not None and selected_route is not None
-        assert self._projection is not None
+        assert self._pattern is not None
         batch, _, destination_count, source_count = self._pattern.shape
         if (
             not torch.is_tensor(source_indices)
@@ -300,21 +279,97 @@ class HeadWriteTransaction(AbstractContextManager):
             ):
                 raise ValueError("destination mask is malformed")
             mask = destination_mask
-
         head_index = torch.tensor(
             selected, device=self._pattern.device, dtype=torch.long,
         )
-        head_count = len(selected)
-        head_dim = selected_route.shape[-1]
-        # [B,H,T,S] -> one pattern scalar for each [B,T,H].
         selected_pattern = self._pattern.index_select(1, head_index)
         pattern_at_source = torch.gather(
             selected_pattern,
             3,
             source_indices[:, None, :, None].expand(
-                batch, head_count, destination_count, 1,
+                batch, len(selected), destination_count, 1,
             ),
         ).squeeze(3).transpose(1, 2)
+        return selected, head_index, mask, pattern_at_source
+
+    def source_pattern(
+        self,
+        heads: Iterable[int],
+        source_indices: torch.Tensor,
+        destination_mask: torch.Tensor | None = None,
+    ) -> torch.Tensor:
+        """Return the native scalar weight on one source edge per head.
+
+        The result has shape ``[batch, destination, selected_head]``.  Masked
+        destinations are returned as exact zeros.  This exposes the last unknown
+        scalar in a localized source-edge write without exposing the full
+        ``[batch, head, destination, source]`` attention tensor.
+        """
+
+        selected, _, mask, pattern_at_source = self._source_selection(
+            heads, source_indices, destination_mask,
+        )
+        self._selected.append(selected)
+        return (
+            pattern_at_source * mask[..., None].to(pattern_at_source.dtype)
+        ).clone()
+
+    def source_write(
+        self,
+        heads: Iterable[int],
+        source_indices: torch.Tensor,
+        destination_mask: torch.Tensor | None = None,
+        *,
+        route: str = "mixed",
+        pattern_override: torch.Tensor | None = None,
+    ) -> torch.Tensor:
+        """Return selected heads' exact write from one source per destination.
+
+        ``source_indices[b, t]`` chooses the source position whose additive
+        contribution to destination ``t`` is returned.  The method gathers the
+        already-computed attention pattern and selected value route, so it never
+        materializes the prohibitively large ``[B,T,H,T,D_model]`` tensor.
+        ``destination_mask`` can restrict the returned write to chosen destination
+        positions; the attention calculation itself is unchanged.  ``route`` may
+        select the complete mixed value, the ``(1-lambda)`` fresh-value term, or the
+        ``lambda*v1`` broadcast term.  ``pattern_override`` may replace the
+        native edge scalar with either one constant per selected head (shape
+        ``[H]``) or one scalar per batch/destination/head (shape ``[B,T,H]``).
+        """
+
+        selected, head_index, mask, pattern_at_source = self._source_selection(
+            heads, source_indices, destination_mask,
+        )
+        routes = {
+            "mixed": self._mixed,
+            "fresh": self._fresh,
+            "broadcast": self._broadcast,
+        }
+        if route not in routes:
+            raise ValueError("source route is unknown")
+        selected_route = routes[route]
+        assert self._pattern is not None and selected_route is not None
+        assert self._projection is not None
+        batch, destination_count = source_indices.shape
+        head_count = len(selected)
+        head_dim = selected_route.shape[-1]
+        if pattern_override is not None:
+            if (
+                not torch.is_tensor(pattern_override)
+                or not pattern_override.is_floating_point()
+                or pattern_override.device != self._pattern.device
+                or not bool(torch.isfinite(pattern_override).all())
+                or tuple(pattern_override.shape) not in (
+                    (head_count,), (batch, destination_count, head_count),
+                )
+            ):
+                raise ValueError("source pattern override is malformed")
+            if pattern_override.ndim == 1:
+                pattern_at_source = pattern_override.view(1, 1, head_count).expand(
+                    batch, destination_count, head_count,
+                )
+            else:
+                pattern_at_source = pattern_override
         # [B,S,H,Dh] -> one mixed value vector for each [B,T,H].
         selected_mixed = selected_route.index_select(2, head_index)
         mixed_at_source = torch.gather(
