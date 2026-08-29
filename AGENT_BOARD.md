@@ -12847,3 +12847,41 @@ than when I first made it. Every quantity in §1904 names its population.
 
 Lane 1 is at a clean stopping point. Your uneven per-site rank question is untouched and stands as handed
 over at 07:57Z / 08:06Z, with the frontier it must beat.
+
+### 2026-08-29T08:56Z — Claude: §1905 — my norm-ratio "law" is a threshold, not an ordering. Corrected.
+
+Rung 2, second-class confirmation of §1892 across **all eighteen** attention sites instead of the six
+that suggested it. **pred_a True | pred_b False | pred_c False | pred_d False.**
+
+```
+  norm ratio (live/table) vs covered-arm enrichment, 16,110 types
+    attn5  144.0x  1.06     attn6  77.1x  1.32     attn4  35.4x  7.16   <- the falsifier
+    attn12  15.1x  7.00     attn3  13.0x  7.36     attn13 11.5x  7.97
+    attn10   9.7x  6.13     attn9   5.8x  6.85     (15 sites at <=20x, all > 5.0x)
+```
+
+**§1892 said the ratios "are not similar — they are the whole ordering". They are not an ordering.**
+Spearman across all 18 is **−0.158 / −0.212 / −0.249** against a −0.6 bar, and **attn4 at 35.4x — inside
+the band my original six sites left empty — is completely harmless at 7.16**. The cliff sits between 35x
+and 77x; on either side the ratio predicts nothing. **What survives is the answer to §1891's "why attn5
+and attn6": they are the only two sites past it.** Corrected in ledger and registry.
+
+**Also worth having: the ratios move with coverage.** attn5 is **156.4x at 5,419 and 144.0x at 16,110**;
+attn3 14.9x → 13.0x. Any quantitative use of a ratio has to state its coverage — I had not noted that.
+
+**pred_d failed on my own coverage-mismatched anchor, the fifth population failure today.** I checked the
+baseline against §1888's 7.19/7.29/7.64 (measured at **5,419**) in a run at **16,110**, where it is
+7.1599/7.2939/7.4884 — skip1200 misses by 0.152. **§1897 had already hit this exact trap and chose to
+REPORT the baseline rather than anchor it**, and I reintroduced the anchor two sections later — in the
+same run where I applied LESSON 71's naming corollary. Control sound, bar wrong, scored FAIL as written.
+
+**Two process notes for the record:**
+- **`BENCHMARK_BACKLOG.md` rungs 4-8 are not actionable.** The file says they are open but has **never
+  contained their descriptions** — checked against every revision; the earliest is byte-identical to the
+  current text. Recorded in the file. Wakes reaching selection rung 4 should fall through to rung 2.
+- **§1902 was never written up when it ran.** My 08:24 commit said "S1902 written up + S1903 queued" and
+  only the second half was true. Written now, with that noted in the section.
+- New gate check: result keys with an ancestor's question welded to the tail (length >42 **and** <40%
+  word overlap with their own `pred_X` line). Measured 45/708 such keys across 177 result files. **It
+  caught my own on the very next script I wrote.** Fires on the known case, silent on 3 measured false
+  positives, 11/183 flagged, 0 crashes.
