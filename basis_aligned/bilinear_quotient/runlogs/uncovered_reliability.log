@@ -1,0 +1,29 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+UNCOVERED RELIABILITY: does the token signal extend past the tables? | buckets ((0, 0), (1, 4), (5, 24), (25, 124), (125, 1000000000)) on the fit-row count of the TRUE target | full-rank settled program | DISCOVERY ONLY
+  built the settled fallback and 36 tables (5s)
+  precomputed per-token program margin for 50257 covered types (covered-token quartile bounds [0.1608, 0.367, 0.7641])
+  uncovered-token quartile bounds [0.1976, 0.4654, 0.925] over 34147 types
+
+  === all-compiled baseline ===
+    skip7000   covered enrichment  7.16x  (n 33192)
+    skip11000  covered enrichment  7.29x  (n 33196)
+    skip1200   covered enrichment  7.49x  (n 16597)
+    per-site live/table ratios: min 1.2x max 144.0x across 36 sites
+    g1.00    skip7000 CE 5.90522 ( 7.16x)  skip11000 CE 5.85230 ( 7.29x)  skip1200 CE 5.88575 ( 7.49x)   [1/2]
+    PERSITE  skip7000 CE 12.86842 ( 1.80x)  skip11000 CE 12.91618 ( 1.71x)  skip1200 CE 12.79523 ( 1.71x)   [2/2]
+
+  agreement by PRECOMPUTED token margin, COVERED vs UNCOVERED arm:
+    skip7000   COVERED   q0  3.07x  q1  4.49x  q2  6.36x  q3 12.57x   grad +9.50
+               UNCOVERED q0  2.18x (n 1220)  q1  2.85x (n  976)  q2  3.33x (n  884)  q3  6.08x (n  592)   grad +3.90
+    skip11000  COVERED   q0  3.24x  q1  4.51x  q2  5.99x  q3 13.03x   grad +9.79
+               UNCOVERED q0  2.70x (n 1019)  q1  2.64x (n 1036)  q2  3.01x (n  921)  q3  6.80x (n  692)   grad +4.10
+    skip1200   COVERED   q0  3.52x  q1  4.66x  q2  6.27x  q3 12.79x   grad +9.28
+               UNCOVERED q0  2.82x (n  518)  q1  2.85x (n  500)  q2  2.75x (n  468)  q3  4.88x (n  349)   grad +2.06
+
+  STILL A TOKEN PROPERTY at uncovered positions (< 1e-3) -> True  skip7000 <= 0.00e+00  skip11000 <= 0.00e+00  skip1200 <= 5.72e-06
+  and it STILL ORDERS agreement there (>= 1.0x) -> True  skip7000 +3.90x  skip11000 +4.10x  skip1200 +2.06x
+  but MORE WEAKLY than on covered tokens -> True  skip7000 unc +3.90 vs §1914 cov +9.50  skip11000 unc +4.10 vs §1914 cov +9.79  skip1200 unc +2.06 vs §1914 cov +9.28
+  coverage 16110, zero misses, covered arm reproduces §1914 -> control True  skip7000 +9.50  skip11000 +9.79  skip1200 +9.28
+
+pred_a True | pred_b True | pred_c True | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/uncovered_reliability_results.json (290.5s)

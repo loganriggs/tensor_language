@@ -53687,3 +53687,46 @@ bound.
 **Open.** The pairing question, correctly posed: score one comparison against two *independent global*
 nulls versus one shared global null, holding the estimator definition fixed. That is one run and it is
 what §1916 should have asked for.
+
+## §1918 — the reliability signal extends past the tables: weaker at uncovered tokens, but real
+
+`ops/uncovered_reliability.py`, 290.5s, **DISCOVERY ONLY**, rung 3 — §1913's second open question, and a
+return to the object after four sections on estimator precision. **All four predictions TRUE.**
+
+```
+  agreement by PRECOMPUTED per-token margin, global null per arm, 16,110 types
+    skip7000   COVERED    q0  3.07  q1  4.49  q2  6.36  q3 12.57      grad +9.50
+               UNCOVERED  q0  2.18  q1  2.85  q2  3.33  q3  6.08      grad +3.90   (n 1220/976/884/592)
+    skip11000  COVERED    +9.79        UNCOVERED  2.70 / 2.64 / 3.01 / 6.80        grad +4.10
+    skip1200   COVERED    +9.28        UNCOVERED  2.82 / 2.85 / 2.75 / 4.88        grad +2.06
+```
+
+> **pred_a PASSED and more cleanly than on the covered side: the within-token spread at uncovered
+> positions is 0.00e+00 / 0.00e+00 / 5.72e-06**, against §1913's 2.86e-05 on covered tokens. **§1765
+> holds for the FALLBACK rows too.** That was not automatic — a covered token's row is a stored lookup,
+> while an uncovered token's is produced by §1870's rank-64 map from the embedding, and the argument had
+> never been checked across that substitution. It survives, so **the margin is precomputable for the
+> whole 50,257-token vocabulary, not just the 16,110 covered types.**
+>
+> **pred_b PASSED: the signal still orders agreement there**, at **+3.90 / +4.10 / +2.06x**. **pred_c
+> PASSED: it is weaker than on covered tokens** — 41% / 42% / 22% of the covered gradient — which is what
+> a rank-64 linear map of the embedding should give against the model's own stored output, and matches
+> §1887's finding that the fallback tracks the model at 2.3x less than the tables do.
+
+**So a compiled program can score its own answer for any token at build time.** The covered signal reaches
+~76% of scored positions; this extends it to the rest, at roughly 40% of the strength on two roles.
+
+> **Two honest caveats on the uncovered numbers.** First, the quartiles hold **349 to 1,220 positions**
+> against the covered arm's ~8,300, so by §1915's scaling these carry visibly more null noise than the
+> ±0.08 §1916 established for the baseline — I have not measured the spread at these n and am not quoting
+> these to three digits. Second, **skip1200's gradient is not really a gradient**: its first three
+> quartiles are **2.82 / 2.85 / 2.75** — flat — with only q3 rising to 4.88. On that role the signal is
+> effectively binary, top-quartile versus the rest, rather than graded. The other two roles are monotone.
+
+**pred_d PASSED**: zero lookup misses across the whole vocabulary, coverage 16,110, and the covered arm
+reproduced §1914's **+9.50 / +9.79 / +9.28 exactly**, so the two arms are compared inside one build rather
+than across the §1913/§1914 boundary.
+
+**Open.** Whether the *weakness* at uncovered tokens is the map's rank or its being a map at all — §1877
+showed table rank saturates at 512 while §1870's map is rank 64, so a rank-512 fallback might carry a
+stronger signal. That is one run and it connects this line to the cost arc for the first time since §1883.
