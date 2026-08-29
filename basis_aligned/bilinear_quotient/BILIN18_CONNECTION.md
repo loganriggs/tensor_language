@@ -58144,3 +58144,43 @@ different roles: it must be present for the fix to work (§1992), its content is
 **Open.** Attention 4 has never been tested on its own beneath a compiled mlp4. **If `mlp4 + attention 4`
 sits at the ceiling like attention 0–3 did, then attention 5 is uniquely the lever** and every remaining
 number in this line is a statement about two adjacent attention layers.
+
+## §2006 — attention 5 is uniquely the lever: attention 4 beneath a compiled mlp4 is worth 0.000 nats
+
+`ops/is_attention_five_uniquely_the_lever.py`, **47.8s**, **DISCOVERY ONLY**, 5,419, rung 3 — §2005's open
+question. **pred_a True | pred_b True | pred_c True | derived controls True.** All three reference
+deviations 0.000000.
+
+```
+  nats, 5,419, attention 6 LIVE throughout
+              mlp4     +attn4    +attn5    +attn4,5   +attn0-3
+  skip7000   10.669    10.669     8.021     8.199      10.651
+  skip11000  10.937    10.938     8.300     8.479      10.922
+  skip1200   10.580    10.579     7.962     8.141      10.563
+```
+
+> **pred_b PASSED 3/3, and "at the ceiling" understates it. Compiling attention 4 beneath a compiled mlp4
+> costs 10.669 / 10.938 / 10.579 against mlp4 alone's 10.669 / 10.937 / 10.580** — **identical to three
+> decimals**, ±0.001. The layer immediately beneath the compiled site does **nothing at all**.
+
+> **pred_a PASSED 3/3: §1990's `mlp4 + attention 5` rebuilds to 8.021 / 8.300 / 7.962** within 0.005.
+
+> **pred_c PASSED 3/3: adding attention 4 on top of attention 5 makes it worse**, 8.199 against 8.021 —
+> **+0.178 nats for a site that on its own is worth nothing.** §1986 and §1990 both measured sites below
+> the compiled MLP as costing rather than helping; this is the cleanest instance, because attention 4's
+> standalone contribution here is exactly zero and its marginal contribution is still negative.
+
+**Attention 5, from six sections.** It is the only layer below attention 6 that moves anything, and it does
+four distinct things:
+
+> **1.** It is **required** for the threshold's fix to work at all (§1992: without it, mlp2 sits at 4.876).
+> **2.** Its **content is worthless or harmful** — a mean row beats its compiled table by 0.044 nats
+> (§1998), and rank 16 costs 0.010 against rank 384 (§1997).
+> **3.** It is the **only site that reduces damage without repairing it** — 2.65 nats off the ceiling with
+> attention 6 still live (§1990, confirmed here), where attention 4 gives 0.000 and attention 0–3 give
+> 0.018 (§2005).
+> **4.** It explains §1981's `below_all` = 9.266 entirely, which §2005 showed attention 0–3 cannot.
+
+**Open.** Point 3 is the one not yet tested for content. §1998 showed attention 5's content is worthless
+when attention 6 is *compiled*. **Whether its 2.65-nat lever action with attention 6 still LIVE is also
+presence-only has never been measured**, and it is the same `meanrow` instrument one configuration over.
