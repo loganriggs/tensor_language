@@ -1,0 +1,29 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+DOES THE SIGNAL ORDER CE at 5419 | buckets ((0, 0), (1, 4), (5, 24), (25, 124), (125, 1000000000)) on the fit-row count of the TRUE target | full-rank settled program | DISCOVERY ONLY
+  built the settled fallback and 36 tables (4s)
+  precomputed per-token program margin for 50257 covered types (covered-token quartile bounds [0.1639, 0.3699, 0.7742])
+  uncovered-token quartile bounds [0.1929, 0.4463, 0.8941] over 44838 types
+
+  === all-compiled baseline ===
+    skip7000   covered enrichment  7.19x  (n 27974)
+    skip11000  covered enrichment  7.29x  (n 27497)
+    skip1200   covered enrichment  7.64x  (n 13973)
+    per-site live/table ratios: min 1.3x max 156.4x across 36 sites
+    g1.00    skip7000 CE 6.01167 ( 7.19x)  skip11000 CE 5.98477 ( 7.29x)  skip1200 CE 6.00165 ( 7.64x)   [1/2]
+    PERSITE  skip7000 CE 12.88014 ( 1.89x)  skip11000 CE 12.93864 ( 1.84x)  skip1200 CE 12.80992 ( 1.76x)   [2/2]
+
+  CE by PRECOMPUTED token-margin quartile (q0 = least reliable), coverage 5419:
+    skip7000   COVERED   q0 6.6939 (n  6489)  q1 5.8689 (n  4780)  q2 6.2490 (n  7479)  q3 5.4832 (n  9226)   q0-q3 +1.2107
+               UNCOVERED q0 5.9923 (n  2791)  q1 5.8583 (n  2523)  q2 6.1723 (n  2124)  q3 5.6378 (n  1452)   q0-q3 +0.3546
+    skip11000  COVERED   q0 6.6294 (n  6465)  q1 5.8115 (n  4732)  q2 6.2237 (n  7353)  q3 5.3965 (n  8947)   q0-q3 +1.2329
+               UNCOVERED q0 6.1461 (n  2987)  q1 5.8724 (n  2412)  q2 6.0931 (n  2265)  q3 5.8101 (n  1703)   q0-q3 +0.3360
+    skip1200   COVERED   q0 6.6859 (n  3138)  q1 5.6316 (n  2476)  q2 6.2324 (n  3766)  q3 5.4306 (n  4593)   q0-q3 +1.2553
+               UNCOVERED q0 6.1486 (n  1285)  q1 6.0906 (n  1292)  q2 6.2788 (n  1061)  q3 5.9104 (n   821)   q0-q3 +0.2382
+
+  THE SIGNAL ORDERS CE on covered positions (>= 0.5 nats) -> True  skip7000 +1.2107  skip11000 +1.2329  skip1200 +1.2553
+  and on the UNCOVERED arm too (>= 0.3) -> False  skip7000 +0.3546  skip11000 +0.3360  skip1200 +0.2382
+  and the pooled CE reproduces §1858 -> True  skip7000 6.01167 vs 6.01167  skip11000 5.98477 vs 5.98477  skip1200 6.00165 vs 6.00165
+  coverage 5419, quartiles partition both arms -> control True
+
+pred_a True | pred_b False | pred_c True | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/signal_orders_ce_results.json (351.0s)

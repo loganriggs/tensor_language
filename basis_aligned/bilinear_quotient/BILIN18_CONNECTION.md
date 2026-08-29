@@ -54048,3 +54048,55 @@ matching §1922.
 
 **Open.** Nothing. The reliability line is measured at three coverages, priced against its own noise, its
 one adjacent lever tested at both ends and found coverage-dependent.
+
+## §1925 — the signal orders CE strongly but NOT monotonically: q1 sits below q2 on all six arm-role pairs
+
+`ops/signal_orders_ce.py`, 351.0s, **DISCOVERY ONLY**, deployed 5,419 coverage, rung 3.
+**pred_a True | pred_b False | pred_c True | pred_d True.**
+
+```
+  CE by precomputed token-margin quartile (q0 = least reliable), 5,419 types
+    skip7000   COVERED    q0 6.6939  q1 5.8689  q2 6.2490  q3 5.4832    q0-q3 +1.2107
+               UNCOVERED  q0 5.9923  q1 5.8583  q2 6.1723  q3 5.6378    q0-q3 +0.3546
+    skip11000  COVERED    6.6294 / 5.8115 / 6.2237 / 5.3965            q0-q3 +1.2329
+               UNCOVERED  6.1461 / 5.8724 / 6.0931 / 5.8101            q0-q3 +0.3360
+    skip1200   COVERED    6.6859 / 5.6316 / 6.2324 / 5.4306            q0-q3 +1.2553
+               UNCOVERED  6.1486 / 6.0906 / 6.2788 / 5.9104            q0-q3 +0.2382
+```
+
+> **pred_c PASSED to five decimal places: the pooled all-position CE is 6.01167 / 5.98477 / 6.00165,
+> reproducing §1858 exactly.** This lineage has been an agreement-only instrument since §1885 and had
+> never computed a CE; matching the arc's oldest published number on the first attempt is what licenses
+> reading everything above it.
+>
+> **pred_a PASSED and it is the answer the cost side needed. The reliability signal orders CE on covered
+> positions by +1.2107 / +1.2329 / +1.2553 nats between the extreme quartiles** — a large effect in the
+> unit every result from §1853 to §1883 is stated in. **§1893/§1894 found the agreement and accuracy
+> instruments disagreeing about scale; here they agree about the signal**, so it is usable by the cost
+> arc and not an agreement-only artifact.
+
+> **But the ordering is NOT monotone, and the pattern is perfectly consistent: q1 sits BELOW q2 on all
+> six arm-role pairs.** 5.8689 < 6.2490, 5.8583 < 6.1723, 5.8115 < 6.2237, 5.8724 < 6.0931, 5.6316 <
+> 6.2324, 6.0906 < 6.2788. **Six of six is not noise.** The extremes are ordered as the agreement result
+> predicts and the middle two are inverted, so **the signal is a good separator of best-from-worst and a
+> poor rank ordering.** Anything that thresholds on it will behave; anything that treats it as a graded
+> score will not. **I am not proposing a mechanism** — §1888, §1890, §1898-§1900 and §1923 are six
+> sections of what happens when I explain a pattern before measuring it.
+
+**pred_b FAILED**: the uncovered arm gives **+0.3546 / +0.3360 / +0.2382**, and skip1200 misses the 0.3
+bar by **0.062**. The uncovered ordering is real on two roles and marginal on the third — consistent with
+its ~+3x agreement gradient against the covered arm's ~+10x, and with §1922's finding that the uncovered
+signal is the weaker half throughout.
+
+**pred_d PASSED**: coverage 5,419, quartiles partition both arms. **The quartile sizes are markedly
+uneven** (covered 6489 / 4780 / 7479 / 9226) because the boundaries are quartiles over *types* while the
+counts are over *positions*, and frequent tokens carry more positions — expected, and recorded because it
+makes the per-quartile CEs unequally precise.
+
+**What the reliability line delivers to the cost side.** A build-time, per-token score that separates the
+program's best-CE quarter from its worst by **~1.2 nats** on covered positions and **~0.3** on uncovered
+ones, is a pure function of the token at four builds and two map ranks, and is **a threshold rather than a
+ranking**. That is the honest handover.
+
+**Open.** Nothing I would spend compute on. The q1/q2 inversion is the only unexplained thing left and I
+have declined to guess at it.
