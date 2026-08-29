@@ -8,13 +8,19 @@ contradiction in the compiled-program story.
 The contradiction was S1898: restoring a late native MLP changes about 3.5% of top-1
 predictions, even though the context-free derivation said the native and compiled MLP
 receive the same length-one stream. S1899 measured that stream directly at all 18 MLP
-entries. The relative difference is only $1.15\times10^{-7}$ at MLP0 and remains below
-$4.14\times10^{-7}$ everywhere. Thus the context-free premise survives. The changed
-top-1 tokens are downstream effects of extremely small numerical differences, with
-small logit margins the leading hypothesis now being checked independently. This does
-not make the late MLPs behaviorally irrelevant: a tiny perturbation can still flip a
-near tie. It does mean that the previously proposed hidden-state/dataflow failure is
-not real.
+entries. The reported relative difference is only $1.15\times10^{-7}$ at MLP0 and
+remains below $4.14\times10^{-7}$ everywhere. S1900 then tested the obvious explanation
+that these tiny differences only flip close logit ties. It failed: MLP16's changed
+positions have median top-two margins `0.197 / 0.267 / 0.283`, only about twice smaller
+than unchanged positions and far above the registered `0.01` near-tie threshold.
+
+The honest conclusion is that S1898, S1899, and S1900 are not yet mutually explained.
+If MLP16 receives exactly its length-one stream and computes in float32, its live output
+should equal its stored table row; nevertheless S1898 and S1900 exactly reproduce 1,321
+/ 1,350 / 650 changed predictions. None of the three runs directly compared MLP16's
+live restored output tensor against that table row element by element. That comparison,
+not another verbal mechanism, is now the decisive audit. MLP0 behaves differently: its
+one to three flips really are near ties.
 
 The completed experiment redistributed the **same storage budget** across all 36
 compiled sites. A site rank $r$ is the number of singular directions retained from
@@ -87,6 +93,11 @@ addition and RMSNorm.
 5. **A simplicity proxy can optimize the wrong thing.** Normalized spectral energy now
    has a direct falsification at equal executable price. Raw energy has a small lead,
    but needs a prospective causal/OOD confirmation.
+6. **The late-MLP restoration measurements are internally unresolved.** Exact stream
+   agreement, a position-wise float32 MLP, and thousands of non-near-tie downstream
+   changes cannot all be true under the current interpretation. The missing direct
+   live-output-versus-table-row comparison is cheaper and more decisive than building
+   strategy on any one of those proxies.
 
 ## Candidate actions considered and pruned
 
@@ -143,3 +154,4 @@ Static evidence:
 - `uneven_table_rank_allocation_results.json`
 - `UNEVEN_TABLE_RANK_ALLOCATION_PREREG_2026-08-29.md`
 - `basis_aligned/bilinear_quotient/ops/context_free_premise_results.json`
+- `basis_aligned/bilinear_quotient/ops/argmax_margin_at_changes_results.json`

@@ -333,11 +333,13 @@ strict ledger.
 
 ## Live status update — 08:15 UTC
 
-- S1899 directly measured the premise behind the context-free derivation. The compiled
-  and native length-one streams agree at every MLP entry to relative error
-  `1.15e-7--4.13e-7`. Thus S1898's late top-1 changes do not reveal a hidden state-
-  interface failure; near-tie argmax sensitivity is the leading hypothesis. This is a
-  measured mechanism diagnostic, not an E1--E4 cell.
+- S1899 reports that compiled and native length-one streams agree at every MLP entry to
+  relative error `1.15e-7--4.13e-7`. S1900 then falsified the near-tie explanation for
+  MLP16: changed positions have median margins `0.197/0.267/0.283`, not `<0.01`, while
+  reproducing S1898's change counts exactly. The three measurements are not yet mutually
+  explained. The decisive missing audit directly compares the restored live MLP16
+  output tensor with its stored table row element-wise. These are mechanism diagnostics,
+  not E1--E4 cells.
 - The source-closed exact-budget uneven table-rank experiment completed in 244.1 seconds.
   The preregistered normalized-energy allocation loses to uniform rank 512 by
   `0.01944/0.02053/0.02309` nat and to its shifted null on every role. A diagnostic raw-

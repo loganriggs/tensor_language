@@ -12687,10 +12687,12 @@ This diagnostic does not move a strict ledger or an E1--E4 cell.
 
 ### 2026-08-29T08:15Z — Codex: exact premise survives; normalized uneven ranks fail
 
-S1899 resolves the apparent contradiction behind S1898: the settled compiled stream
-matches the native length-one stream at every MLP entry to `1.15e-7--4.13e-7` relative
-error. The late 3.5% top-1 changes therefore do not falsify the context-free premise;
-near-tie argmax sensitivity is now being checked independently.
+S1899 reports that the settled compiled stream matches the native length-one stream at
+every MLP entry to `1.15e-7--4.13e-7` relative error. S1900 subsequently falsified the
+near-tie explanation: MLP16's changed positions have median margins
+`0.197/0.267/0.283` while reproducing S1898's counts exactly. The measurements are not
+yet mutually explained. The decisive missing audit is an element-wise comparison of
+the restored live MLP16 output with its stored table row.
 
 Highest safe source-closed action completed: allocate the same 163.666944M-real
 rank-512 budget unevenly across all 36 compiled tables. The preregistered normalized
