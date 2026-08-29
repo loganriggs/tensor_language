@@ -325,6 +325,20 @@ This closes the per-head formula/checkpoint binding only. Fresh four-role rows, 
 bootstrap authority, explicit late-MLP omission or adapter, and complete create-only
 behavioral lifecycle remain, so E4.1--E4.3 stay unchecked.
 
+**09:15 UTC scientific-contract update — still not an evidence cell:** two independent
+reviewers now give GO to the corrected pure copy contract after three adversarial
+review rounds. The label uses the nearest prior query occurrence; query and target
+fit frequencies are distinct and preserve a zero-count sentinel; retained matched
+cells remain document-balanced; causal effects are native-to-ablation changes on the
+exact same row/position support; and the synthetic test is a reciprocal association
+difference-in-differences with fixed length and multiset. Exact ordered row bytes are
+bound into every reduction's support digest. The focused contract/freezer suite passes
+`24/24`. The prospective screening amendment narrows this first run to attention-only,
+copy-only localization and explicitly defers late MLP, the other two behaviors, and
+E4.3 extraction/removal/transplant. No rows or model outcomes were opened. The next
+blocker is the independently reviewed create-only row authority plus streaming
+scorer/dispatcher; a separate GPU job is active, so current work remains CPU-side.
+
 **07:40 UTC whole-program diagnostic — actual run, not an E1--E4 completion:** the
 deployed-scale sweep measured top-1 and permutation-normalized teacher agreement on all
 three discovery roles. Scale 0.8 was best for top-1, scale 0.5 best for agreement, and
