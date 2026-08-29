@@ -1,0 +1,53 @@
+{
+ "run": "second_class_dom_96_192",
+ "fit_slice": [
+  96,
+  192
+ ],
+ "n_covered": 5932,
+ "full_cost_M": 251.361792,
+ "worse_than_r256": {
+  "skip7000": 0.016531056801322386,
+  "skip11000": 0.034376594365443935,
+  "skip1200": 0.033598215889047545
+ },
+ "ceiling": {
+  "skip7000": 6.01145584957216,
+  "skip11000": 5.955688108922561,
+  "skip1200": 5.949834494125543
+ },
+ "live": {
+  "skip7000": 3.276089836612157,
+  "skip11000": 3.078663795950029,
+  "skip1200": 3.3945040100645723
+ },
+ "curve": {
+  "full": {
+   "skip7000": {
+    "cov": 6.011455837550329,
+    "unc": 5.9825893241797985,
+    "allpos": 6.005041056801322,
+    "top1_allpos": 0.13509114583333334
+   },
+   "skip11000": {
+    "cov": 5.955688061075671,
+    "unc": 6.0417310738630725,
+    "allpos": 5.975436594365444,
+    "top1_allpos": 0.14396158854166666
+   },
+   "skip1200": {
+    "cov": 5.949834482099345,
+    "unc": 6.13969748041743,
+    "allpos": 5.991408215889048,
+    "top1_allpos": 0.13671875
+   }
+  }
+ },
+ "attainment_exact": true,
+ "predictions": {
+  "pred_a_domination_survives": true,
+  "pred_b_coverage_comparable": true,
+  "pred_c_attainment_holds": true,
+  "pred_d_controls": true
+ }
+}

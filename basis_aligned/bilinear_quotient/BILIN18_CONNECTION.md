@@ -50493,3 +50493,44 @@ wrong (rank 384, 512 and 1024, by 0.5 to 3.2M reals). The run had started before
 predicate outcome changes** — every wrong value preserves its side of the `< COSTM['full']` comparison
 that pred_b uses — and the corrected figures are quoted above, computed from §1754's model. The script on
 disk now computes the column instead of carrying a typed one, which is what it should have done first.
+
+## §1859 — §1853's domination replicated across BUILDS: three disjoint covered sets, twelve cells, all positive
+
+`ops/second_class_dom_{96_192,192_288,288_384}.py`, 162.9 / 150.7 / 162.4s, **DISCOVERY ONLY**,
+**rung 2** of the autonomy order — second-class confirmation of a just-certified result.
+**All three runs 4/4: pred_a True | pred_b True | pred_c True | pred_d True.**
+
+§1855 confirmed §1853's domination on all three eval roles, but all three roles read the **same two
+builds** — replication across eval sets, not across builds. The covered set was the unreplicated thing.
+`fineweb_n480_skip80`'s first 96 rows are byte-identical to `fineweb_n96_skip80` (verified), so its four
+further disjoint 96-row slices give genuinely independent covered sets of comparable size.
+
+```
+  full-rank build            cost      all-position CE minus §1852's rank-256@16,110 (164.478M reals,
+  covered types                        5.98851 / 5.94106 / 5.95781)
+    5,419  [  0: 96] §1853  230.087M   +0.02316  +0.04371  +0.04384
+    5,914  [288:384]        250.585M   +0.02567  +0.02665  +0.01842
+    5,932  [ 96:192]        251.362M   +0.01653  +0.03438  +0.03360
+    6,142  [192:288]        260.076M   +0.01000  +0.01616  +0.02393
+```
+
+**Twelve cells, every one positive, minimum margin +0.01000 nats.** And every build costs more than the
+dominating one — 230.1M to 260.1M against 164.478M — with cost rising as the slice covers more types, so
+the larger covered sets are worse buys, not better. **§1853's domination is a property of the
+rank-versus-coverage trade, not of §1834's particular 5,419 types.**
+
+> **Full-rank attainment of the model's own per-token ceiling is now exact on SIX independent covered
+> sets** — 5,419 (§1848), 9,054 (§1853), 16,110 (§1851), and 5,914 / 5,932 / 6,142 here — at
+> −0.000000 nats on every role of every one. §1765 derives that coverage cannot matter; six builds
+> spanning 5,419 to 16,110 types say so too.
+
+**What this does and does not add.** It replicates the *dominated* side across builds. The *dominating*
+side — rank-256 at 16,110 types — is still one build, because the stream has only 480 rows and a second
+16,110-type covered set would need a second corpus draw. So the honest statement is: **the claim is
+confirmed second class against variation in the covered set of the losing arm, and remains single-build
+on the winning arm.** That asymmetry is the next thing a third-class confirmation would remove.
+
+**Controls (pred_d).** In all three runs the ceiling is finite and above live on every role; coverage
+lies within 15% of §1834's 5,419 as required for a like-for-like replacement (5,914 / 5,932 / 6,142);
+each build's covered CE equals its own ceiling exactly. Costs are computed from §1754's model rather than
+typed, following §1858's defect.
