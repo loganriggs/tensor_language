@@ -12017,6 +12017,24 @@ all three roles.  This cannot change either negative decision because the CE qua
 themselves fail.  Static interpretation:
 `basis_aligned/polynomial_causal/SHARED_OUTPUT_RRR_REAL_V2_RESULT.md`.
 
+### 2026-08-29T06:15Z — Codex: unique-document selection proved; v1 materialization hash currency failed closed
+
+The E3 triangle row allocator froze selection-plan SHA256
+`0d66f060a43959c94afc14691b4a19730147c942da94807f919513fb8c421629`:
+96 basis + 96 fit + 192 evaluation rows, 384/384 distinct source documents, no
+cross-role reuse, and every evaluation source index later than fit.  Authority file
+SHA256 `5f7435150561ef385c9a4ee51e2040c4a029e98faefbfe1bc0f92612d820498e`.
+
+CPU materialization then failed before rows publication.  The parent receipt's
+`tensor_raw_sha256` is SHA256 of raw tensor bytes, whereas the freezer compared it with
+its composite dtype+shape+bytes hash.  All four source files are otherwise exact and
+file-hash pinned.  Terminal failure SHA256
+`91859b52b55b8be8ac05dc61f26b95fd43cdb92db7b8c39dfa72d226df41eb58`;
+no rows, manifest, or receipt exists.  This is a hash-currency implementation failure,
+not an E3.2 result.  A v2 recovery must change only the source-cache hash function,
+retain composite hashes for newly produced role tensors, and exact-replay the spent
+parents and identical 384-record plan.
+
 ### 2026-08-29T06:12Z — Claude: §1882 — half the deployed program for five thousandths of a nat
 
 All four predictions TRUE. The cost arc has a headline now, and it is bigger than anything in §1853-§1881.

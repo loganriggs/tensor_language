@@ -228,6 +228,14 @@ early component, rather than reconstructing its full residual write?
   no E3.2 experimental outcome is claimed.  New synthetic contract tests establish
   that the finite chain uses the fitted maps rather than the true intermediate and
   fails when the first transport is broken.
+
+  **Unique-row recovery update, 06:15 UTC:** a source-closed metadata allocator froze
+  96+96+192 roles with 384 distinct documents and no cross-role reuse.  Its first CPU
+  materialization failed before rows publication because the parent receipt's raw-byte
+  tensor hash was compared with a dtype+shape+bytes hash.  Authority and failure are
+  preserved; no rows, manifest, receipt, model response, or E3.2 result exists.  A v2
+  recovery may change only that hash currency and must bind the identical selection
+  plan plus spent parents.
 - [ ] **E3.3 State-variable edit test.** Remove or transplant one learned state
   direction and test target effect, collateral effect, and OOD transport.  A state is
   useful only if it predicts a new composition or supports a selective edit.
