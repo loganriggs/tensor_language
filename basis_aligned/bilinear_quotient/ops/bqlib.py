@@ -422,17 +422,25 @@ def _tables_digest(prog):
     return h.hexdigest()[:32]
 
 
-def _fingerprint(prog, armname, table_rank):
+def _fingerprint(prog, armname, table_rank, sites=None):
     """What a cached entry must match: the program it came from, plus the arm spec."""
     if armname is None:
         return 'live|' + prog.digest[:16]
-    return f'{armname}|{_rk_key(table_rank)}|' + prog.digest[:16]
+    return f'{armname}|{_rk_key(table_rank)}|{_sites_key(sites)}|' + prog.digest[:16]
 
 
-def _key(prog, armname, table_rank, role):
+def _sites_key(sites):
+    """S1977: an arm may substitute only SOME of the 36 sites, leaving the rest live. The subset is
+    part of what the rows mean, so it is part of the cache key and the fingerprint."""
+    if sites is None:
+        return 'all36'
+    return ','.join(f'{k}{L}' for k, L in sorted(sites))
+
+
+def _key(prog, armname, table_rank, role, sites=None):
     return hashlib.sha256(
         f'{LIB_VERSION}|{os.path.basename(prog.fit_path)}|{prog.ncov}|{armname}|'
-        f'{_rk_key(table_rank)}|{role}|{SKIP}'.encode()).hexdigest()[:24]
+        f'{_rk_key(table_rank)}|{role}|{SKIP}|{_sites_key(sites)}'.encode()).hexdigest()[:24]
 
 
 @torch.no_grad()
@@ -452,20 +460,21 @@ def _run(rows_path_or_none, hooks, role):
     return torch.cat(am), torch.cat(nl)
 
 
-def cache_path(prog, armname, role, table_rank=None):
+def cache_path(prog, armname, role, table_rank=None, sites=None):
     """Where score() would cache this arm-role. Exposed so a validator can corrupt it."""
-    return CACHE + _key(prog, 'live' if armname is None else armname, table_rank, role) + '.pt'
+    return CACHE + _key(prog, 'live' if armname is None else armname, table_rank, role,
+                        sites) + '.pt'
 
 
-def score(prog, armname, role, table_rank=None, use_cache=True, prerows=None):
+def score(prog, armname, role, table_rank=None, use_cache=True, prerows=None, sites=None):
     """(top1, ce) per scored position for one arm on one role. armname None == the LIVE model.
 
     Cached on disk under (LIB_VERSION, fit file, coverage, arm, table rank, role). A cached entry
     carries the fingerprint of the rows it was built from and is REJECTED, loudly, on mismatch."""
     name = 'live' if armname is None else armname
-    k = _key(prog, name, table_rank, role)
+    k = _key(prog, name, table_rank, role, sites)
     path = CACHE + k + '.pt'
-    fp = _fingerprint(prog, armname, table_rank)
+    fp = _fingerprint(prog, armname, table_rank, sites)
     if use_cache and os.path.exists(path):
         try:
             c = torch.load(path, map_location='cpu')
@@ -483,7 +492,8 @@ def score(prog, armname, role, table_rank=None, use_cache=True, prerows=None):
     t0 = time.time()
     rows = prerows if prerows is not None else (None if armname is None
                                                 else prog.arm(armname, table_rank))
-    hooks = () if rows is None else [(st, row_hook(rows[st])) for st in SITES]
+    use = SITES if sites is None else [st for st in SITES if st in set(sites)]
+    hooks = () if rows is None else [(st, row_hook(rows[st])) for st in use]
     am, nl = _run(None, hooks, role)
     del rows, hooks
     torch.cuda.empty_cache()
@@ -496,19 +506,19 @@ def score(prog, armname, role, table_rank=None, use_cache=True, prerows=None):
     return am, nl
 
 
-def score_roles(prog, armname, roles=ROLES, table_rank=None, use_cache=True):
+def score_roles(prog, armname, roles=ROLES, table_rank=None, use_cache=True, sites=None):
     """{role: (top1, ce)} for one arm, constructing its rows AT MOST ONCE across all roles.
 
     The per-role score() loop in the first validator built the same arm three times and made a run
     3x SLOWER than the hand-written script it replaced. Prefer this."""
     out, rows = {}, None
     for r in roles:
-        if use_cache and os.path.exists(cache_path(prog, armname, r, table_rank)):
-            out[r] = score(prog, armname, r, table_rank, use_cache)
+        if use_cache and os.path.exists(cache_path(prog, armname, r, table_rank, sites)):
+            out[r] = score(prog, armname, r, table_rank, use_cache, sites=sites)
             continue
         if rows is None and armname is not None:
             rows = prog.arm(armname, table_rank)
-        out[r] = score(prog, armname, r, table_rank, use_cache, prerows=rows)
+        out[r] = score(prog, armname, r, table_rank, use_cache, prerows=rows, sites=sites)
     del rows
     torch.cuda.empty_cache()
     return out
@@ -566,8 +576,11 @@ def inertness_pairs(plan):
     plan: iterable of (arm, table_rank, label). Returns (must_be_inert, must_differ), each a list of
     (label, label) pairs.
     """
-    spec = {lab: _rk_key(tr) for _a, tr, lab in plan}
-    labs = [lab for _a, _tr, lab in plan]
+    plan = [tuple(p) + (None,) * (4 - len(p)) for p in plan]
+    # two arms are covered-input-inert relative to each other only if they share BOTH the table rank
+    # and the substituted site set (S1977) -- a different site set changes covered positions too.
+    spec = {lab: (_rk_key(tr), _sites_key(si)) for _a, tr, lab, si in plan}
+    labs = [lab for _a, _tr, lab, _si in plan]
     inert, differ = [], []
     for i, a in enumerate(labs):
         for b in labs[i + 1:]:
@@ -726,8 +739,10 @@ def run(name, plan, predicates, coverages=(('c5419', FIT_5419, 5419),), refs=(),
     """
     t0 = time.time()
     out = out or (PT + f'ops/{name}_results.json')
-    spec = {lab: (a, tr) for a, tr, lab in plan}
-    labels = [lab for _a, _tr, lab in plan]
+    # a plan entry is (arm, table_rank, label) or (arm, table_rank, label, sites)
+    plan = [tuple(p) + (None,) * (4 - len(p)) for p in plan]
+    spec = {lab: (a, tr, si) for a, tr, lab, si in plan}
+    labels = [lab for _a, _tr, lab, _si in plan]
     inert, differ = inertness_pairs(plan)
     want_t = set(paired_pairs) | set(inert) | set(differ)
     print(f'{name.upper().replace("_", " ")} | {len(labels)} arms x {len(coverages)} coverage(s) | '
@@ -738,7 +753,8 @@ def run(name, plan, predicates, coverages=(('c5419', FIT_5419, 5419),), refs=(),
         print(f'\n########## COVERAGE {nc} ##########', flush=True)
         P = Program(fit, expect_ncov=nc)
         live = score_roles(P, None)
-        arms = {lab: score_roles(P, spec[lab][0], table_rank=spec[lab][1]) for lab in labels}
+        arms = {lab: score_roles(P, spec[lab][0], table_rank=spec[lab][1],
+                                 sites=spec[lab][2]) for lab in labels}
         res[tag], paired[tag], chg[tag] = {}, {}, {}
         for role in roles:
             tgt, icov = axes(P, role)
@@ -799,7 +815,7 @@ def run(name, plan, predicates, coverages=(('c5419', FIT_5419, 5419),), refs=(),
         print('  reference deviations: ' + '  '.join(f'{k} {v:.6f}' for k, v in refdev.items()),
               flush=True)
 
-    payload = {'config': {'name': name, 'plan': [[a, str(tr), lab] for a, tr, lab in plan],
+    payload = {'config': {'name': name, 'plan': [[a, str(tr), lab, _sites_key(si)] for a, tr, lab, si in plan],
                           'coverages': [c[2] for c in coverages], 'costs_M': {
                               f'{c}|{lab}': v for (c, lab), v in cost.items()},
                           'inert_pairs': [list(p) for p in inert],

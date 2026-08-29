@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import copy
 import hashlib
+import io
 import json
 import math
 import os
@@ -27,12 +28,13 @@ for source_root in (ROOT, HERE):
 
 import bilin18_observed_model_facade as facade
 from mlp2_cmr_v1_physical_program import PhysicalRetainedBilinearMLP, zero_mlp_write
+import prepare_mlp2_rank512_refit_v1_rows as row_life
 
 PREREG = HERE / "MLP2_RANK512_REFIT_V1_PREREGISTRATION.md"
 FREEZER = HERE / "prepare_mlp2_rank512_refit_v1_rows.py"
 TEST = HERE / "test_mlp2_rank512_refit_v1.py"
 RUNNER = Path(__file__).resolve()
-SOURCE_PATHS = (PREREG, FREEZER, RUNNER, TEST)
+SOURCE_PATHS = row_life.SOURCE_PATHS
 
 BQ = HERE.parent / "bilinear_quotient"
 ROWS_RECEIPT = BQ / "mlp2_rank512_refit_v1_rows_receipt.json"
@@ -42,6 +44,8 @@ BUNDLE = HERE / "mlp2_rank512_refit_v1_bundle.pt"
 LEDGER = HERE / "mlp2_rank512_refit_v1_ledger.pt"
 RESULT = HERE / "mlp2_rank512_refit_v1_result.json"
 FAILURE = HERE / "mlp2_rank512_refit_v1_failure.json"
+AUTHORITY = HERE / "mlp2_rank512_refit_v1_execution_authority.json"
+RECEIPT = HERE / "mlp2_rank512_refit_v1_receipt.json"
 LOCK = Path("/workspace/runs/.mlp2_rank512_refit_v1.lock")
 
 SITE = 2
@@ -83,15 +87,48 @@ def committed_sources() -> tuple[str, dict[str, str]]:
     return commit, hashes
 
 
-def atomic_json(path: Path, value: Any) -> None:
+def stable_bytes(path: Path, expected: str | None = None) -> tuple[bytes, str]:
+    before = file_sha256(path)
+    raw = path.read_bytes()
+    digest = hashlib.sha256(raw).hexdigest()
+    after = file_sha256(path)
+    if before != digest or after != before or (expected is not None and digest != expected):
+        raise RuntimeError(f"artifact changed during stable read: {path}")
+    return raw, digest
+
+
+def stable_json(path: Path, expected: str | None = None) -> tuple[dict[str, Any], str]:
+    raw, digest = stable_bytes(path, expected)
+    value = json.loads(raw)
+    if not isinstance(value, dict):
+        raise RuntimeError(f"JSON parent has wrong schema: {path}")
+    return value, digest
+
+
+def stable_torch(path: Path, expected: str | None = None) -> tuple[Any, str]:
+    raw, digest = stable_bytes(path, expected)
+    return torch.load(io.BytesIO(raw), map_location="cpu", weights_only=True), digest
+
+
+def fsync_directory(path: Path) -> None:
+    descriptor = os.open(path, os.O_RDONLY | getattr(os, "O_DIRECTORY", 0))
+    try:
+        os.fsync(descriptor)
+    finally:
+        os.close(descriptor)
+
+
+def atomic_json(path: Path, value: Any, *, pre_link_check=None) -> None:
     temporary = path.with_name(f".{path.name}.tmp.{os.getpid()}.{secrets.token_hex(8)}")
     try:
         with temporary.open("x") as handle:
-            json.dump(value, handle, sort_keys=True, indent=2)
+            json.dump(value, handle, sort_keys=True, indent=2, allow_nan=False)
             handle.write("\n")
             handle.flush()
             os.fsync(handle.fileno())
-        os.link(temporary, path)
+        if pre_link_check is not None:
+            pre_link_check()
+        os.link(temporary, path); fsync_directory(path.parent)
     finally:
         temporary.unlink(missing_ok=True)
 
@@ -102,7 +139,7 @@ def atomic_torch(path: Path, value: Any) -> None:
         torch.save(value, temporary)
         with temporary.open("rb") as handle:
             os.fsync(handle.fileno())
-        os.link(temporary, path)
+        os.link(temporary, path); fsync_directory(path.parent)
     finally:
         temporary.unlink(missing_ok=True)
 
@@ -133,7 +170,13 @@ class RankBilinear(nn.Module):
     def price(self) -> dict[str, int]:
         return {
             "input_width": WIDTH, "output_width": WIDTH, "products": RANK,
+            "coefficient_count": sum(p.numel() for p in self.parameters()),
             "stored_scalar_values": sum(p.numel() for p in self.parameters()),
+            "stored_bytes_float32": 4 * sum(p.numel() for p in self.parameters()),
+            "support_metadata_values": 0,
+            "dense_matrix_multiplies_per_token": 3,
+            "stored_dtype": "torch.float32",
+            "execution_dtype": "state_dtype_bfloat16_in_deployment",
             "native_mlp_calls_per_forward": 0,
         }
 
@@ -168,11 +211,21 @@ def canonicalize_minimum_norm(model: RankBilinear) -> dict[str, float]:
 
 @torch.no_grad()
 def cancellation_ratio(model: RankBilinear, state: torch.Tensor) -> float:
+    # Center each scalar product across the whole dev distribution.  Bias and the
+    # mean product write are therefore absent from both numerator and denominator.
+    product_sum = torch.zeros(RANK, device=model.left.device)
+    count = 0
+    for start in range(0, state.shape[0], 1024):
+        x = state[start:start + 1024].to(model.left.device).float()
+        product = F.linear(x, model.left) * F.linear(x, model.right)
+        product_sum += product.sum(0)
+        count += product.shape[0]
+    product_mean = product_sum / count
     total_singleton = 0.0
     total_write = 0.0
     for start in range(0, state.shape[0], 1024):
         x = state[start:start + 1024].to(model.left.device).float()
-        product = F.linear(x, model.left) * F.linear(x, model.right)
+        product = F.linear(x, model.left) * F.linear(x, model.right) - product_mean
         down_norm2 = model.down.square().sum(0)
         total_singleton += float((product.square() * down_norm2).sum())
         variable = F.linear(product, model.down)
@@ -235,6 +288,7 @@ def train_candidate(
     optimizer = torch.optim.Adam(parameters, lr=learning_rate)
     generator = torch.Generator(device="cpu").manual_seed(seed)
     best_loss = dev_loss(model, dev_x, dev_y)
+    significant_best = best_loss
     best = {k: v.detach().cpu().clone() for k, v in model.state_dict().items()}
     curve = [{"step": 0, "dev_mse": best_loss}]
     stale = 0
@@ -252,9 +306,11 @@ def train_candidate(
         if step % 25 == 0:
             observed = dev_loss(model, dev_x, dev_y)
             curve.append({"step": step, "dev_mse": observed, "train_batch_mse": float(loss)})
-            if observed < best_loss * 0.999:
+            if observed < best_loss:
                 best_loss = observed
                 best = {k: v.detach().cpu().clone() for k, v in model.state_dict().items()}
+            if observed < significant_best * 0.999:
+                significant_best = observed
                 stale = 0
             else:
                 stale += 1
@@ -266,7 +322,8 @@ def train_candidate(
     denominator = float((dev_y - target_mean).square().sum())
     nrmse = math.sqrt(best_loss * dev_y.numel() / max(denominator, 1e-30))
     return model, curve, {
-        "steps_completed": completed, "best_dev_mse": best_loss,
+        "steps_completed": completed, "optimizer_steps": completed,
+        "dev_evaluations": len(curve), "best_dev_mse": best_loss,
         "best_dev_nrmse": nrmse, "stopped_early": completed < steps,
     }
 
@@ -279,6 +336,40 @@ def build_from_state(value: dict[str, torch.Tensor], device: torch.device) -> Ra
     model = RankBilinear(value["left"], value["right"], value["down"], value["bias"])
     model.load_state_dict(value)
     return model.to(device).eval()
+
+
+def validate_bundle(value: Any, expected_parents: dict[str, str],
+                    expected_sources: dict[str, str]) -> dict[str, Any]:
+    if not isinstance(value, dict) or set(value) != {
+        "schema", "programs", "price", "training", "gauges", "parents",
+        "source_commit", "source_hashes", "evaluation_opened",
+    } or value["schema"] != "mlp2_rank512_refit_v1_bundle" or (
+        value["evaluation_opened"] is not False
+    ) or value["parents"] != expected_parents or value["source_hashes"] != expected_sources:
+        raise RuntimeError("serialized candidate bundle schema or bindings changed")
+    if set(value["programs"]) != {"DOWN512", "FULL512", "RANDOM512"}:
+        raise RuntimeError("serialized candidate program set changed")
+    expected_shapes = {
+        "left": (RANK, WIDTH), "right": (RANK, WIDTH),
+        "down": (WIDTH, RANK), "bias": (WIDTH,),
+    }
+    for arm, state in value["programs"].items():
+        if not isinstance(state, dict) or set(state) != set(expected_shapes):
+            raise RuntimeError(f"serialized {arm} state schema changed")
+        for key, shape in expected_shapes.items():
+            tensor = state[key]
+            if not isinstance(tensor, torch.Tensor) or tensor.dtype != torch.float32 \
+                    or tuple(tensor.shape) != shape or not torch.isfinite(tensor).all():
+                raise RuntimeError(f"serialized {arm}.{key} changed")
+    reference = RankBilinear(*(value["programs"]["FULL512"][key]
+                              for key in ("left", "right", "down", "bias")))
+    if value["price"] != reference.price():
+        raise RuntimeError("serialized literal price changed")
+    if set(value["training"]) != set(value["programs"]) or (
+        set(value["gauges"]) != set(value["programs"])
+    ):
+        raise RuntimeError("serialized training/gauge metadata changed")
+    return value
 
 
 def reduce_document(native: torch.Tensor, candidate: torch.Tensor,
@@ -337,9 +428,11 @@ def bootstrap_improvements(ledgers: dict[str, torch.Tensor]) -> dict[str, Any]:
         )
         output[control] = {
             "kl_reduction_point": float(control_kl.mean() - full_doc_kl.mean()),
-            "kl_reduction_bonferroni_lcb": float(torch.quantile(kl_reduction, 0.0125)),
+            "kl_reduction_bonferroni_lcb": float(torch.quantile(
+                kl_reduction, 0.0125, interpolation="linear")),
             "abs_dce_reduction_point": float(control_dce.mean().abs() - full_doc_dce.mean().abs()),
-            "abs_dce_reduction_bonferroni_lcb": float(torch.quantile(dce_reduction, 0.0125)),
+            "abs_dce_reduction_bonferroni_lcb": float(torch.quantile(
+                dce_reduction, 0.0125, interpolation="linear")),
         }
     return output
 
@@ -347,7 +440,12 @@ def bootstrap_improvements(ledgers: dict[str, torch.Tensor]) -> dict[str, Any]:
 def evaluate(model: nn.Module, rows: torch.Tensor, programs: dict[str, nn.Module],
              device: torch.device):
     ledgers = {arm: [] for arm in ARMS}
-    calls = {arm: {"forward": 0, "native_mlp2": 0, "candidate_mlp2": 0} for arm in ARMS}
+    calls = {arm: {
+        "outer_calls": 0, "outer_returns": 0,
+        "attention_sites": {str(site): 0 for site in range(18)},
+        "native_mlp_sites": {str(site): 0 for site in range(18)},
+        "candidate_mlp2": 0,
+    } for arm in ARMS}
     with torch.inference_mode():
         for start in range(0, rows.shape[0], 4):
             batch = rows[start:start + 4]
@@ -355,19 +453,23 @@ def evaluate(model: nn.Module, rows: torch.Tensor, programs: dict[str, nn.Module
 
             def forward(arm: str):
                 def attention(event: facade.AttentionEvent):
+                    calls[arm]["attention_sites"][str(event.site)] += 1
                     return event.block.attn(event.state, event.first_value)
                 def mlp(event: facade.EarlyMLPEvent):
                     if event.site != SITE:
+                        calls[arm]["native_mlp_sites"][str(event.site)] += 1
                         return event.block.mlp(event.state)
                     if arm == "NATIVE":
-                        calls[arm]["native_mlp2"] += 1
+                        calls[arm]["native_mlp_sites"][str(SITE)] += 1
                         return event.block.mlp(event.state)
                     calls[arm]["candidate_mlp2"] += 1
                     if arm == "ZERO":
                         return zero_mlp_write(event.state)
                     return programs[arm](event.state)
-                calls[arm]["forward"] += 1
-                return facade.forward_with_dispatch(model, tokens, attention, mlp)
+                calls[arm]["outer_calls"] += 1
+                output = facade.forward_with_dispatch(model, tokens, attention, mlp)
+                calls[arm]["outer_returns"] += 1
+                return output
 
             native = forward("NATIVE")
             ledgers["NATIVE"].append(reduce_document(native, native, targets))
@@ -377,20 +479,75 @@ def evaluate(model: nn.Module, rows: torch.Tensor, programs: dict[str, nn.Module
                 del candidate
             del native, tokens, targets
     packed = {arm: torch.cat(values) for arm, values in ledgers.items()}
-    expected = {
-        "NATIVE": {"forward": 48, "native_mlp2": 48, "candidate_mlp2": 0},
-        **{arm: {"forward": 48, "native_mlp2": 0, "candidate_mlp2": 48}
-           for arm in ARMS[1:]},
-    }
+    expected = {}
+    for arm in ARMS:
+        native_sites = {str(site): 48 for site in range(18)}
+        if arm != "NATIVE":
+            native_sites[str(SITE)] = 0
+        expected[arm] = {
+            "outer_calls": 48, "outer_returns": 48,
+            "attention_sites": {str(site): 48 for site in range(18)},
+            "native_mlp_sites": native_sites,
+            "candidate_mlp2": 0 if arm == "NATIVE" else 48,
+        }
     if calls != expected or any(value.shape != (192, 9) for value in packed.values()):
         raise RuntimeError("evaluation call or sufficient-statistic census changed")
     return packed, calls
 
 
+def prepare_execution_authority() -> dict[str, Any]:
+    """Bind code and parents before TRAIN bytes or the checkpoint may be opened."""
+    commit, sources = committed_sources()
+    audit, audit_hash = row_life.validate_independent_audit(sources)
+    rows_receipt, rows_hash = stable_json(ROWS_RECEIPT)
+    mean_receipt, mean_receipt_hash = stable_json(MEAN_RECEIPT)
+    if rows_receipt.get("schema") != "mlp2_rank512_refit_v1_rows" or (
+        rows_receipt.get("status") != "fresh_roles_frozen_before_any_model_or_training_access"
+    ) or rows_receipt.get("source_hashes") != sources or (
+        not all(rows_receipt.get("disjointness", {}).values())
+    ) or mean_receipt.get("status") != "fit_mean_complete_receipt_last":
+        raise RuntimeError("row or mean parent does not authorize execution")
+    mean_hash = mean_receipt.get("bundle_sha256")
+    if not isinstance(mean_hash, str) or file_sha256(MEAN_BUNDLE) != mean_hash:
+        raise RuntimeError("mean bundle binding changed")
+    entries = rows_receipt.get("entries", {})
+    if set(entries) != {"TRAIN", "EVALUATION"} or any(
+        not isinstance(entries[role].get("file_sha256"), str)
+        for role in entries
+    ):
+        raise RuntimeError("row role entries changed")
+    authority = {
+        "schema": "mlp2_rank512_refit_v1_execution_authority",
+        "status": "spent_before_train_or_model_access",
+        "source_commit": commit, "source_hashes": sources,
+        "independent_audit_sha256": audit_hash,
+        "independent_audit_reviewer": audit["reviewer"],
+        "parents": {
+            "rows_receipt": rows_hash,
+            "train_rows": entries["TRAIN"]["file_sha256"],
+            "evaluation_rows": entries["EVALUATION"]["file_sha256"],
+            "mean_receipt": mean_receipt_hash, "mean_bundle": mean_hash,
+        },
+        "outcome_access_before_authority": {
+            "train_rows_opened": False, "evaluation_rows_opened": False,
+            "mean_bundle_opened": False, "checkpoint_loaded": False,
+            "model_forward_calls": 0,
+        },
+    }
+    atomic_json(AUTHORITY, authority)
+    return authority
+
+
 def run() -> tuple[dict[str, Any], dict[str, Any]]:
     started = time.time()
     commit, sources = committed_sources()
-    receipt = json.loads(ROWS_RECEIPT.read_text())
+    authority, authority_hash = stable_json(AUTHORITY)
+    if authority.get("status") != "spent_before_train_or_model_access" or (
+        authority.get("source_hashes") != sources
+    ):
+        raise RuntimeError("execution authority changed")
+    receipt, rows_receipt_hash = stable_json(
+        ROWS_RECEIPT, authority["parents"]["rows_receipt"])
     if receipt.get("status") != "fresh_roles_frozen_before_any_model_or_training_access" or (
         receipt.get("roles", {}).get("TRAIN", {}).get("authorized_for_training") is not True
         or receipt.get("roles", {}).get("EVALUATION", {}).get("authorized_for_training") is not False
@@ -400,18 +557,34 @@ def run() -> tuple[dict[str, Any], dict[str, Any]]:
     train_entry = receipt["entries"]["TRAIN"]
     eval_entry = receipt["entries"]["EVALUATION"]
     train_path = Path(train_entry["path"])
-    if file_sha256(train_path) != train_entry["file_sha256"]:
-        raise RuntimeError("TRAIN rows changed")
-    train_rows = torch.load(train_path, map_location="cpu", weights_only=True)
-    if train_rows.shape != (192, 257):
+    train_rows, train_hash = stable_torch(train_path, train_entry["file_sha256"])
+    if train_hash != authority["parents"]["train_rows"] or not isinstance(
+        train_rows, torch.Tensor
+    ) or train_rows.dtype != torch.long or tuple(train_rows.shape) != (192, 257) or (
+        row_life.tensor_sha256(train_rows) != train_entry["tensor_sha256"]
+    ):
         raise RuntimeError("TRAIN row shape changed")
+
+    mean_receipt, mean_receipt_hash = stable_json(
+        MEAN_RECEIPT, authority["parents"]["mean_receipt"])
+    mean_bundle, mean_bundle_hash = stable_torch(
+        MEAN_BUNDLE, authority["parents"]["mean_bundle"])
+    if mean_receipt.get("bundle_sha256") != mean_bundle_hash or (
+        mean_receipt.get("status") != "fit_mean_complete_receipt_last"
+    ) or not isinstance(mean_bundle, dict) or mean_bundle.get("schema") != (
+        "mlp2_cmr_v1_fit_mean_bundle"
+    ) or not isinstance(mean_bundle.get("mean"), torch.Tensor) or (
+        tuple(mean_bundle["mean"].shape) != (4608,)
+    ) or not isinstance(mean_bundle.get("supports", {}).get("LOCAL"), torch.Tensor) or (
+        tuple(mean_bundle["supports"]["LOCAL"].shape) != (RANK,)
+    ):
+        raise RuntimeError("mean parent semantics changed")
 
     device = torch.device("cuda")
     torch.manual_seed(SEED)
     torch.cuda.manual_seed_all(SEED)
     torch.set_float32_matmul_precision("high")
     model, checkpoint = facade.load_bilin18(device=device, dtype=torch.bfloat16)
-    mean_bundle = torch.load(MEAN_BUNDLE, map_location="cpu", weights_only=True)
     mean = mean_bundle["mean"].to(device)
     local_support = mean_bundle["supports"]["LOCAL"].to(device)
     native_mlp = model.transformer.h[SITE].mlp
@@ -463,26 +636,31 @@ def run() -> tuple[dict[str, Any], dict[str, Any]]:
             "RANDOM512": {"fit": random_fit, "curve": random_curve},
         },
         "gauges": gauges,
-        "parents": {"rows_receipt": file_sha256(ROWS_RECEIPT),
-                    "mean_bundle": file_sha256(MEAN_BUNDLE),
-                    "mean_receipt": file_sha256(MEAN_RECEIPT)},
+        "parents": {"execution_authority": authority_hash,
+                    "rows_receipt": rows_receipt_hash,
+                    "mean_bundle": mean_bundle_hash,
+                    "mean_receipt": mean_receipt_hash},
         "source_commit": commit, "source_hashes": sources,
         "evaluation_opened": False,
     }
     atomic_torch(BUNDLE, bundle)
-    bundle_hash = file_sha256(BUNDLE)
+    reloaded_bundle, bundle_hash = stable_torch(BUNDLE)
+    reloaded_bundle = validate_bundle(reloaded_bundle, bundle["parents"], sources)
 
     # Evaluation token bytes are first opened only after the immutable candidate exists.
-    if file_sha256(Path(eval_entry["path"])) != eval_entry["file_sha256"]:
-        raise RuntimeError("EVALUATION rows changed")
-    eval_rows = torch.load(eval_entry["path"], map_location="cpu", weights_only=True)
-    if eval_rows.shape != (192, 257):
+    eval_rows, eval_hash = stable_torch(
+        Path(eval_entry["path"]), eval_entry["file_sha256"])
+    if eval_hash != authority["parents"]["evaluation_rows"] or not isinstance(
+        eval_rows, torch.Tensor
+    ) or eval_rows.dtype != torch.long or tuple(eval_rows.shape) != (192, 257) or (
+        row_life.tensor_sha256(eval_rows) != eval_entry["tensor_sha256"]
+    ):
         raise RuntimeError("EVALUATION row shape changed")
     programs = {
         "LOCAL512": local_program,
-        "DOWN512": build_from_state(bundle["programs"]["DOWN512"], device),
-        "FULL512": build_from_state(bundle["programs"]["FULL512"], device),
-        "RANDOM512": build_from_state(bundle["programs"]["RANDOM512"], device),
+        "DOWN512": build_from_state(reloaded_bundle["programs"]["DOWN512"], device),
+        "FULL512": build_from_state(reloaded_bundle["programs"]["FULL512"], device),
+        "RANDOM512": build_from_state(reloaded_bundle["programs"]["RANDOM512"], device),
     }
     ledgers, calls = evaluate(model, eval_rows, programs, device)
     ledger = {
@@ -492,7 +670,7 @@ def run() -> tuple[dict[str, Any], dict[str, Any]]:
                    "candidate_correct", "count"),
         "arms": ledgers,
         "bundle_sha256": bundle_hash,
-        "evaluation_rows_sha256": eval_entry["file_sha256"],
+        "evaluation_rows_sha256": eval_hash,
     }
     atomic_torch(LEDGER, ledger)
     summaries = {
@@ -537,40 +715,93 @@ def run() -> tuple[dict[str, Any], dict[str, Any]]:
         "claim_boundary": "native_trajectory_in_distribution_only_no_strict_ledger_move",
         "checkpoint": checkpoint.__dict__, "documents": 192,
         "training_capture_calls": capture_calls,
-        "price": full.price(), "training": bundle["training"], "gauges": gauges,
+        "execution_counts": {
+            "training_capture_outer_calls": capture_calls,
+            "training_capture_attention_calls": 18 * capture_calls,
+            "training_capture_native_mlp_calls": 18 * capture_calls,
+            "optimizer_steps": {arm: bundle["training"][arm]["fit"]["optimizer_steps"]
+                                for arm in ("DOWN512", "FULL512", "RANDOM512")},
+            "dev_evaluations": {arm: bundle["training"][arm]["fit"]["dev_evaluations"]
+                                for arm in ("DOWN512", "FULL512", "RANDOM512")},
+            "canonicalization_canary_calls": 3,
+        },
+        "price": full.price(), "physical_program_types": {
+            "LOCAL512": type(local_program).__name__,
+            "DOWN512": type(programs["DOWN512"]).__name__,
+            "FULL512": type(programs["FULL512"]).__name__,
+            "RANDOM512": type(programs["RANDOM512"]).__name__,
+        }, "training": bundle["training"], "gauges": gauges,
         "summaries": summaries, "bootstrap_improvements": improvements,
         "absolute_gates": absolute_gates, "relative_gates": relative_gates,
         "call_census": calls,
         "artifacts": {"bundle_sha256": bundle_hash, "ledger_sha256": file_sha256(LEDGER)},
         "parents": bundle["parents"], "source_commit": commit, "source_hashes": sources,
-        "evaluation_opened_after_bundle": True,
+        "bootstrap": {"seed": BOOTSTRAP_SEED, "draws": BOOTSTRAPS,
+                      "rng": "torch.Generator_cpu", "quantile": "linear",
+                      "bonferroni_tail_probability": 0.0125},
+        "evaluation_opened_after_semantic_bundle_reload": True,
         "runtime_seconds": time.time() - started,
     }
     return result, bundle
 
 
 def main() -> None:
-    namespace = (BUNDLE, LEDGER, RESULT, FAILURE, LOCK)
+    namespace = (AUTHORITY, BUNDLE, LEDGER, RESULT, RECEIPT, FAILURE, LOCK)
     if any(path.exists() for path in namespace):
         raise RuntimeError("MLP2 rank512 refit namespace already exists")
-    LOCK.parent.mkdir(parents=True, exist_ok=True)
-    fd = os.open(LOCK, os.O_WRONLY | os.O_CREAT | os.O_EXCL, 0o600)
+    claim = row_life.acquire_claim(LOCK)
     try:
+        authority = prepare_execution_authority()
+        row_life.require_claim(claim, LOCK)
         result, _ = run()
         atomic_json(RESULT, result)
+        result_hash = file_sha256(RESULT)
+        receipt = {
+            "schema": "mlp2_rank512_refit_v1_receipt",
+            "status": "result_complete_receipt_last",
+            "authority_sha256": file_sha256(AUTHORITY),
+            "bundle_sha256": file_sha256(BUNDLE),
+            "ledger_sha256": file_sha256(LEDGER),
+            "result_sha256": result_hash,
+            "source_commit": authority["source_commit"],
+            "source_hashes": authority["source_hashes"],
+            "evaluation_opened": True,
+        }
+
+        def success_guard() -> None:
+            row_life.require_claim(claim, LOCK)
+            if RECEIPT.exists() or FAILURE.exists():
+                raise RuntimeError("competing MLP2 refit terminal artifact appeared")
+            for path, expected in (
+                (AUTHORITY, receipt["authority_sha256"]),
+                (BUNDLE, receipt["bundle_sha256"]),
+                (LEDGER, receipt["ledger_sha256"]),
+                (RESULT, receipt["result_sha256"]),
+            ):
+                stable_bytes(path, expected)
+        atomic_json(RECEIPT, receipt, pre_link_check=success_guard)
         print(json.dumps(result, sort_keys=True, indent=2))
     except BaseException as exc:
         failure = {
-            "schema": "mlp2_rank512_refit_v1_failure", "error": repr(exc),
+            "schema": "mlp2_rank512_refit_v1_failure",
+            "status": "terminal_failure_no_receipt", "error": repr(exc),
+            "authority_sha256": file_sha256(AUTHORITY) if AUTHORITY.is_file() else None,
+            "parent_hashes": authority.get("parents", {}) if "authority" in locals() else {},
+            "artifact_hashes": {path.name: file_sha256(path) for path in (
+                BUNDLE, LEDGER, RESULT,
+            ) if path.is_file()},
             "bundle_exists": BUNDLE.exists(), "ledger_exists": LEDGER.exists(),
-            "result_exists": RESULT.exists(), "replication_opened": False,
+            "result_exists": RESULT.exists(), "receipt_exists": RECEIPT.exists(),
+            "evaluation_may_have_opened": BUNDLE.exists(),
+            "lock_inode": claim.inode,
+            "lock_nonce_sha256": hashlib.sha256(claim.nonce.encode()).hexdigest(),
         }
-        if not FAILURE.exists():
-            atomic_json(FAILURE, failure)
+        if not RECEIPT.exists() and not FAILURE.exists():
+            atomic_json(FAILURE, failure,
+                        pre_link_check=lambda: row_life.require_claim(claim, LOCK))
         raise
     finally:
-        os.close(fd)
-        LOCK.unlink(missing_ok=True)
+        row_life.release_claim(claim, LOCK)
 
 
 if __name__ == "__main__":

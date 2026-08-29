@@ -117,6 +117,26 @@ def test_paired_t_arithmetic():
     check('paired_t: counts every position and every nonzero', p['n'] == 4 and p['n_nonzero'] == 4)
 
 
+def test_site_subsets_change_the_cache_key():
+    """S1977: an arm may substitute only SOME of the 36 sites. The subset is part of what the rows mean,
+    so two arms differing only in it must not collide in the cache -- and must not be treated as
+    covered-input-inert relative to each other."""
+    prog = object.__new__(B.Program)
+    prog.fit_path, prog.ncov = B.FIT_5419, 5419
+    prog.digest = 'x' * 32
+    all36 = B._key(prog, 'map512', None, 'skip7000', None)
+    mlps = B._key(prog, 'map512', None, 'skip7000', [('mlp', i) for i in range(18)])
+    check('site subset: a different subset gives a different cache key', all36 != mlps)
+    check('site subset: None means all 36 and is stable', all36 == B._key(prog, 'map512', None,
+                                                                         'skip7000', None))
+    fa = B._fingerprint(prog, 'map512', None, None)
+    fm = B._fingerprint(prog, 'map512', None, [('mlp', i) for i in range(18)])
+    check('site subset: it is in the fingerprint too', fa != fm)
+    inert, differ = B.inertness_pairs([('map512', None, 'a'), ('map512', None, 'b', [('mlp', 0)])])
+    check('site subset: arms differing only in the subset are NOT treated as inert',
+          ('a', 'b') in differ, f'inert={inert} differ={differ}')
+
+
 def test_pooled_t_weights_by_evidence():
     """S1971: pooling three roles must weight a half-sized role by its positions, not by a vote. A
     concatenation of two agreeing halves and one dissenting half-sized one must come out agreeing."""
@@ -303,7 +323,7 @@ def test_gate_accepts_the_library_itself():
           out.stdout.strip()[-120:])
 
 
-for fn in (test_no_build_level_comparison_is_vote_dependent, test_pooled_t_weights_by_evidence, test_every_ref_path_exists, test_ref_refuses_to_guess_a_coverage, test_rk_key_is_order_independent, test_inertness_pairs_splits_by_table_rank,
+for fn in (test_site_subsets_change_the_cache_key, test_no_build_level_comparison_is_vote_dependent, test_pooled_t_weights_by_evidence, test_every_ref_path_exists, test_ref_refuses_to_guess_a_coverage, test_rk_key_is_order_independent, test_inertness_pairs_splits_by_table_rank,
            test_inertness_pairs_warns_when_a_side_is_vacuous, test_ref_reads_published_triples,
            test_paired_t_arithmetic, test_cost_matches_the_published_closed_form,
            test_arm_names_parse_the_way_the_grammar_says, test_gate_fixtures,
