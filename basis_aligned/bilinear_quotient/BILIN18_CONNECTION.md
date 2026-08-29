@@ -51437,3 +51437,54 @@ which end dominates. **The input is the larger half, and neither works without t
 **three-quarters fixed by a deployable build**. What remains is 0.114 nats per uncovered position —
 14.6% of the original — which §1875's oracle says is the floor for a linear per-token map from this
 input at this rank, and which nothing yet distinguishes from the floor for *any* per-token function.
+
+## §1877 — rank 512 is the operating point: doubling to 1024 costs 25x more per nat and misses both bars
+
+`ops/deployable_stream_rank1024.py`, 271.8s, **DISCOVERY ONLY**, rung 3 — §1876's open question.
+**pred_a False | pred_b False | pred_c True | pred_d True.**
+
+```
+  covered-fit STREAM map, 5,419-type deployed build
+    rank  512  (§1876)   +0.17427   +0.21358   +0.21419      42.467M of map
+    rank 1024  (here)    +0.14661   +0.17681   +0.19030      84.934M
+  covered-fit EMBEDDING map, same run's MAP arm
+    rank  512  (§1870)   +0.59560   +0.67209   +0.67172
+    rank 1024  (here)    +0.58745   +0.66452   +0.66394
+```
+
+**Both substantive predictions FAILED, and narrowly — I am scoring them as written.** pred_a required
+under **0.14** and got **0.14661**, a miss of **0.0066**. pred_b required within **0.03** of §1875's
+rank-512 oracle (0.11388) and got **0.0327**, a miss of **0.0027**. Neither is a rounding artifact of the
+bar; both are real misses, and the prompt's standard is that a miss by 0.001 is a FAIL.
+
+> **The substance is that the stream input's rank curve has saturated by 512.** Doubling to 1024 recovers
+> **0.0277 / 0.0368 / 0.0239** nats per uncovered position for **+42.467M** reals:
+>
+> ```
+>   512 -> 1024   +42.467M   0.00668 all-pos nats   =  6357 M/nat
+>    64 ->  512   +37.159M   0.14616                =   254 M/nat   (§1876)
+>   §1854's worst frontier step, for comparison                4012 M/nat
+> ```
+>
+> **A 25x worse rate than the step below it, and worse than any point on §1854's table-rank frontier.**
+> §1876's recommendation stands unchanged: **rank 512 is the operating point.**
+
+**And the embedding map confirms it saturated far earlier.** Its rank-1024 arm moves only 0.008 from
+rank 512 (0.59560 → 0.58745), against the stream map's 0.028. §1869's diminishing-returns curve was
+measured on the embedding and §1875 showed it does not transfer — but both curves are flat by 1024, at
+very different heights.
+
+**pred_c PASSED at 0.00e+00 for an eighth time.** **pred_d PASSED**: coverage 5,419, the covered arm
+attains its ceiling — an eighteenth confirmation.
+
+**What the fallback line now says, complete.** The deployed fallback loses 0.78075 nats per uncovered
+position (§1868). A covered-fit map from the length-1 stream at rank 512 recovers **77.7%** of that
+(§1876), of which the **input change is free** (+0.102 all-position nats at identical storage) and the
+rank change costs 37.16M at 254 M/nat. Going further costs 25x more per nat (§1877), and the remaining
+**0.114** is §1875's oracle floor for a linear per-token map on this input.
+
+**Open question this ends on.** Every fallback figure since §1866 is at the **deployed 5,419-type**
+covered set. §1867 established the fallback *penalty* is constant in coverage but §1870 found the map-rank
+*recovery* is not — it was smaller at 16,110 types than at 5,419. **Whether the stream input's much larger
+recovery also shrinks with coverage is unmeasured**, and it decides whether §1876's fix is specific to the
+deployed build or general to the frontier §1853-§1865 mapped. That is one run at 16,110 types.
