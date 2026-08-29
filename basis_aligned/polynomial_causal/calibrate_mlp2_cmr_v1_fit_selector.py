@@ -182,6 +182,20 @@ def protected_inputs() -> tuple[dict[str, str], dict[str, bytes]]:
     role_receipt = json.loads(captured["role_receipt"])
     suffix_receipt = json.loads(captured["suffix_receipt"])
     correction_receipt = json.loads(captured["correction_receipt"])
+    role_parents = {
+        "combined": "3ed0192993095f7de70ab7f1350d091b6c1d8c4c7d0583fd5f0f6441556e4aa6",
+        "combined_manifest": "8b8f3155a21b73af8b89278b9f09c60bf82fd965a7723e046e191415c5d57bb4",
+        "combined_receipt": "47113c255bf47f9d1c7369639fab39664c71f93134099babadcce9d89a011e85",
+    }
+    suffix_parents = {
+        "fit_bundle": "043bb52b9580d9c9c342460e5bb80ff579db01486b3b6c6672bf5fba77e46f8e",
+        "fit_receipt": "9dc14d909a1b4aafd33c67dc7a3d066db4ccc9cb83c7059fe7aaf499ca9e5efa",
+        "fit_result": "65c1ee33f0399d6489cae0227442d479a9d59b9be98f619d92423cfd39fc7833",
+        "previous_authority": "d204e9adeef3d65a1d6f38ed76071aa38c921bd2884ed136ac6e37f4696c7296",
+        "previous_failure": "eea77b4e7fa9fd6ed35dce31ea43a72f8cf2d21d8c2e76a94396a81547f6d8a2",
+        "token_receipt": role_parents["combined_receipt"],
+        "token_rows": role_parents["combined"],
+    }
     correction_parents = {
         "bundle": SUFFIX_BUNDLE_SHA256,
         "receipt": SUFFIX_RECEIPT_SHA256,
@@ -190,11 +204,17 @@ def protected_inputs() -> tuple[dict[str, str], dict[str, bytes]]:
     if (
         role_manifest.get("output_sha256") != ROLE_ROWS_SHA256
         or role_manifest.get("contains_roles") != ["FIT_SELECTOR"]
+        or role_manifest.get("parents") != role_parents
         or role_receipt.get("output_sha256") != ROLE_ROWS_SHA256
         or role_receipt.get("manifest_sha256") != ROLE_MANIFEST_SHA256
+        or role_receipt.get("parents") != role_parents
+        or role_receipt.get("summary") != role_manifest.get("summary")
         or role_receipt.get("authorized_for_fit_selector_calibration_input") is not True
         or role_receipt.get("authorized_for_validation") is not False
         or role_receipt.get("authorized_for_replication") is not False
+        or suffix_receipt.get("bundle_sha256") != SUFFIX_BUNDLE_SHA256
+        or suffix_receipt.get("result_sha256") != SUFFIX_RESULT_SHA256
+        or suffix_receipt.get("parents") != suffix_parents
         or suffix_receipt.get("authorized_for_validation") is not True
         or suffix_receipt.get("authorized_for_replication") is not False
         or correction_receipt.get(
@@ -345,49 +365,71 @@ def epsilon_grid(margins: torch.Tensor) -> tuple[torch.Tensor, torch.Tensor]:
     return quantiles.contiguous(), grid.contiguous()
 
 
-def collect(token_rows_bytes: bytes) -> tuple[dict[str, Any], dict[str, torch.Tensor]]:
+def _collect(
+    role_rows_bytes: bytes, capability: _CalibrationCapability,
+) -> tuple[dict[str, Any], dict[str, Any]]:
     started = time.time()
-    if hashlib.sha256(token_rows_bytes).hexdigest() != TOKEN_ROWS_SHA256:
-        raise RuntimeError("captured FIT_SELECTOR token bytes changed")
-    token_bundle = torch.load(
-        io.BytesIO(token_rows_bytes), map_location="cpu", weights_only=True,
+    if type(capability) is not _CalibrationCapability or capability.consumed:
+        raise RuntimeError("fresh MLP2 calibration capability required")
+    validate_claim(capability.nonce, capability.inode)
+    if not AUTHORITY.is_file() or file_sha256(AUTHORITY) != capability.authority_sha256:
+        raise RuntimeError("MLP2 calibration capability authority changed")
+    capability.consumed = True
+    if hashlib.sha256(role_rows_bytes).hexdigest() != ROLE_ROWS_SHA256:
+        raise RuntimeError("captured FIT_SELECTOR role-only bytes changed")
+    role = torch.load(
+        io.BytesIO(role_rows_bytes), map_location="cpu", weights_only=True,
     )
-    role = token_bundle["FIT_SELECTOR"]
+    role_summary = projection.validate_role(role)
     rows = role["rows"].contiguous()
     eligible = role["eligible_mask"].contiguous()
-    if int(eligible.sum()) != ELIGIBLE_POSITIONS:
-        raise RuntimeError("FIT_SELECTOR eligible-position count changed")
     frequency, frequency_bin_counts = target_frequency_reference(rows, eligible)
     cells = nearest_repeat_cells(rows, eligible)
 
-    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    if not torch.cuda.is_available():
+        raise RuntimeError("MLP2 calibration requires CUDA; CPU fallback is forbidden")
+    if torch.cuda.get_device_name(0) != "NVIDIA GeForce RTX 5090":
+        raise RuntimeError("MLP2 calibration requires the registered RTX 5090")
+    device = torch.device("cuda:0")
     model, checkpoint = facade.load_bilin18(device=device, dtype=torch.bfloat16)
+    checkpoint_after_load = facade.validate_snapshot()
+    if checkpoint_after_load != checkpoint:
+        raise RuntimeError("bilin18 checkpoint changed across strict model load")
+    facade.validate_production_model(model)
     margin_parts: list[torch.Tensor] = []
-    attention_calls = mlp_calls = forward_calls = 0
+    attention_calls_by_site = [0] * 18
+    mlp_calls_by_site = [0] * 18
+    forward_calls = forward_returns = 0
     with torch.inference_mode():
         for start in range(0, DOCUMENTS, BATCH):
             tokens = rows[start:start + BATCH, :-1].to(device)
 
             def attention(event: facade.AttentionEvent):
-                nonlocal attention_calls
-                attention_calls += 1
+                if event.site < 0 or event.site >= 18:
+                    raise RuntimeError("attention site outside registered ledger")
+                attention_calls_by_site[event.site] += 1
                 return event.block.attn(event.state, event.first_value)
 
             def mlp(event: facade.EarlyMLPEvent):
-                nonlocal mlp_calls
-                mlp_calls += 1
+                if event.site < 0 or event.site >= 18:
+                    raise RuntimeError("MLP site outside registered ledger")
+                mlp_calls_by_site[event.site] += 1
                 return event.block.mlp(event.state)
 
+            forward_calls += 1
             logits = facade.forward_with_dispatch(model, tokens, attention, mlp)
+            forward_returns += 1
             mask = eligible[start:start + BATCH].to(device)
             top2 = torch.topk(logits, 2, dim=-1).values
             margin_parts.append((top2[..., 0] - top2[..., 1])[mask].cpu().double())
-            forward_calls += 1
             del logits, top2
             print(f"MLP2 calibration batch {forward_calls}/{CALLS}", flush=True)
+    torch.cuda.synchronize(device)
     margins = torch.cat(margin_parts).contiguous()
     quantiles, grid = epsilon_grid(margins)
-    if forward_calls != CALLS or attention_calls != 18 * CALLS or mlp_calls != 18 * CALLS:
+    if forward_calls != CALLS or forward_returns != CALLS or attention_calls_by_site != (
+        [CALLS] * 18
+    ) or mlp_calls_by_site != ([CALLS] * 18):
         raise RuntimeError("MLP2 calibration call ledger changed")
     cell_counts = {name: int(mask.sum()) for name, mask in cells.items()}
     if sum(cell_counts.values()) != ELIGIBLE_POSITIONS or int(frequency.sum()) != (
@@ -398,12 +440,21 @@ def collect(token_rows_bytes: bytes) -> tuple[dict[str, Any], dict[str, torch.Te
         "schema": "mlp2_cmr_v1_fit_selector_calibration_result",
         "status": "fit_selector_calibration_complete_no_validation_or_replication",
         "checkpoint": checkpoint.__dict__,
+        "checkpoint_after_load": checkpoint_after_load.__dict__,
+        "device": str(device),
+        "device_name": torch.cuda.get_device_name(0),
+        "model_dtype": str(torch.bfloat16),
+        "strict_state_dict_load": True,
+        "role_summary": role_summary,
         "documents": DOCUMENTS,
         "eligible_positions": ELIGIBLE_POSITIONS,
         "forward_calls": forward_calls,
+        "forward_returns": forward_returns,
         "backward_calls": 0,
-        "attention_calls": attention_calls,
-        "mlp_calls": mlp_calls,
+        "attention_calls": sum(attention_calls_by_site),
+        "mlp_calls": sum(mlp_calls_by_site),
+        "attention_calls_by_site": attention_calls_by_site,
+        "mlp_calls_by_site": mlp_calls_by_site,
         "margin_quantiles": {
             format(q, ".6g"): float(value)
             for q, value in zip(MARGIN_QUANTILES, quantiles.tolist())
@@ -420,6 +471,10 @@ def collect(token_rows_bytes: bytes) -> tuple[dict[str, Any], dict[str, torch.Te
             "fit_token_counts": tensor_sha256(frequency),
             "margin_quantiles": tensor_sha256(quantiles),
             "epsilon_grid": tensor_sha256(grid),
+            **{
+                f"fit_{name}_mask": tensor_sha256(mask)
+                for name, mask in cells.items()
+            },
         },
         "runtime_seconds": time.time() - started,
         "validation_opened": False,
@@ -433,11 +488,50 @@ def collect(token_rows_bytes: bytes) -> tuple[dict[str, Any], dict[str, torch.Te
         "frequency_boundaries": torch.tensor(FREQUENCY_BOUNDARIES, dtype=torch.long),
         "margin_quantiles": quantiles,
         "epsilon_grid": grid,
+        "fit_copy_cells": cells,
     }
-    del model, margins
-    if torch.cuda.is_available():
-        torch.cuda.empty_cache()
+    del model, margins, role
+    torch.cuda.empty_cache()
     return summary, bundle
+
+
+def validate_bundle_replay(
+    replay: Any, original: dict[str, Any], role_rows_bytes: bytes,
+) -> None:
+    expected_keys = {
+        "schema", "fit_token_counts", "frequency_boundaries",
+        "margin_quantiles", "epsilon_grid", "fit_copy_cells",
+    }
+    if not isinstance(replay, dict) or set(replay) != expected_keys or set(
+        original
+    ) != expected_keys or replay.get("schema") != (
+        "mlp2_cmr_v1_fit_selector_calibration_bundle"
+    ):
+        raise RuntimeError("MLP2 calibration bundle schema replay failed")
+    for name in (
+        "fit_token_counts", "frequency_boundaries", "margin_quantiles", "epsilon_grid",
+    ):
+        if not torch.is_tensor(replay[name]) or not torch.equal(
+            replay[name], original[name]
+        ):
+            raise RuntimeError(f"MLP2 calibration bundle tensor replay failed: {name}")
+    if set(replay["fit_copy_cells"]) != {
+        "copy_positive", "repeat_negative", "nonrepeat",
+    }:
+        raise RuntimeError("MLP2 calibration copy-cell names changed")
+    for name, value in original["fit_copy_cells"].items():
+        if not torch.equal(replay["fit_copy_cells"][name], value):
+            raise RuntimeError(f"MLP2 calibration copy-cell replay failed: {name}")
+    role = torch.load(io.BytesIO(role_rows_bytes), map_location="cpu", weights_only=True)
+    projection.validate_role(role)
+    frequency, _ = target_frequency_reference(role["rows"], role["eligible_mask"])
+    cells = nearest_repeat_cells(role["rows"], role["eligible_mask"])
+    if not torch.equal(replay["fit_token_counts"], frequency) or not torch.equal(
+        replay["frequency_boundaries"], torch.tensor(FREQUENCY_BOUNDARIES, dtype=torch.long)
+    ) or any(
+        not torch.equal(replay["fit_copy_cells"][name], cells[name]) for name in cells
+    ):
+        raise RuntimeError("MLP2 calibration token-only semantic replay failed")
 
 
 def main() -> None:
@@ -446,43 +540,61 @@ def main() -> None:
         raise RuntimeError("MLP2 calibration output already exists")
     source_commit, source_hashes = committed_source()
     parents, parent_bytes = protected_inputs()
-    write_create_only(LOCK, canonical_json_bytes({
-        "experiment_id": "bilin18_mlp2_cmr_v1_fit_selector_calibration",
-        "nonce": secrets.token_hex(32),
-    }))
-    authority = {
-        "schema_version": 1,
-        "experiment_id": "bilin18_mlp2_cmr_v1_fit_selector_calibration",
-        "status": "authority_frozen_before_calibration_model_access",
-        "source_commit": source_commit,
-        "source_hashes": source_hashes,
-        "parents": parents,
-        "authorized_role": "FIT_SELECTOR",
-        "authorized_forward_calls": CALLS,
-        "authorized_backward_calls": 0,
-        "authorized_outputs": [BUNDLE.name, RESULT.name, RECEIPT.name],
-        "forbidden": [
-            "VALIDATION", "REPLICATION", "finite MLP2 candidate",
-            "next-token loss", "accuracy", "raw logit publication",
-        ],
-    }
-    write_create_only(AUTHORITY, canonical_json_bytes(authority))
+    experiment_id = "bilin18_mlp2_cmr_v1_fit_selector_calibration"
+    nonce = secrets.token_hex(32)
+    authority: dict[str, Any] | None = None
     try:
-        summary, bundle = collect(parent_bytes["token_rows"])
-        final_guard(source_hashes, parents)
+        write_create_only(LOCK, canonical_json_bytes({
+            "experiment_id": experiment_id,
+            "nonce": nonce,
+        }))
+        stat = LOCK.stat(follow_symlinks=False)
+        inode = (stat.st_dev, stat.st_ino)
+        validate_claim(nonce, inode)
+        authority = {
+            "schema_version": 1,
+            "experiment_id": experiment_id,
+            "status": "authority_frozen_before_calibration_model_access",
+            "source_commit": source_commit,
+            "source_hashes": source_hashes,
+            "parents": parents,
+            "authorized_role": "FIT_SELECTOR",
+            "authorized_forward_calls": CALLS,
+            "authorized_backward_calls": 0,
+            "authorized_outputs": [BUNDLE.name, RESULT.name, RECEIPT.name],
+            "forbidden": [
+                "VALIDATION", "REPLICATION", "finite MLP2 candidate",
+                "next-token loss", "accuracy", "raw logit publication",
+            ],
+        }
+        write_create_only(AUTHORITY, canonical_json_bytes(authority))
+        authority_hash = file_sha256(AUTHORITY)
+        capability = mint_capability(nonce, inode, authority_hash)
+        summary, bundle = _collect(parent_bytes["role_rows"], capability)
+        if not capability.consumed:
+            raise RuntimeError("MLP2 calibration capability was not consumed")
+        guard_inputs(source_hashes, parents, nonce, inode, authority_hash)
         publish_torch_create_only(BUNDLE, bundle)
         bundle_hash = file_sha256(BUNDLE)
-        summary["authority_sha256"] = file_sha256(AUTHORITY)
+        replay_bundle = torch.load(BUNDLE, map_location="cpu", weights_only=True)
+        validate_bundle_replay(replay_bundle, bundle, parent_bytes["role_rows"])
+        summary["authority_sha256"] = authority_hash
         summary["bundle_sha256"] = bundle_hash
         write_create_only(RESULT, canonical_json_bytes(summary))
-        final_guard(source_hashes, parents)
+        if json.loads(RESULT.read_bytes()) != summary:
+            raise RuntimeError("MLP2 calibration result semantic replay failed")
+        result_hash = file_sha256(RESULT)
+        final_guard(
+            source_hashes, parents, nonce, inode, authority_hash, bundle_hash,
+            result_hash,
+        )
         receipt = {
             "schema_version": 1,
-            "experiment_id": authority["experiment_id"],
+            "experiment_id": experiment_id,
             "status": "fit_selector_calibration_complete_receipt_last",
-            "authority_sha256": file_sha256(AUTHORITY),
+            "authority_sha256": authority_hash,
             "bundle_sha256": bundle_hash,
-            "result_sha256": file_sha256(RESULT),
+            "result_sha256": result_hash,
             "lock_sha256": file_sha256(LOCK),
             "source_commit": source_commit,
             "source_hashes": source_hashes,
@@ -491,19 +603,30 @@ def main() -> None:
             "authorized_for_validation_execution": False,
             "authorized_for_replication": False,
         }
+        final_guard(
+            source_hashes, parents, nonce, inode, authority_hash, bundle_hash,
+            result_hash,
+        )
+        validate_claim(nonce, inode)
         write_create_only(RECEIPT, canonical_json_bytes(receipt))
     except BaseException as error:
-        failure = {
-            "schema_version": 1,
-            "experiment_id": authority["experiment_id"],
-            "status": "failed_after_authority",
-            "authority_sha256": file_sha256(AUTHORITY),
-            "error_type": type(error).__name__,
-            "error": str(error),
-            "validation_opened": False,
-            "replication_opened": False,
-        }
-        write_create_only(FAILURE, canonical_json_bytes(failure))
+        if not RECEIPT.exists() and not FAILURE.exists():
+            failure = {
+                "schema_version": 1,
+                "experiment_id": experiment_id,
+                "status": (
+                    "failed_after_authority" if AUTHORITY.is_file()
+                    else "failed_before_authority"
+                ),
+                "authority_sha256": (
+                    file_sha256(AUTHORITY) if AUTHORITY.is_file() else None
+                ),
+                "error_type": type(error).__name__,
+                "error": str(error),
+                "validation_opened": False,
+                "replication_opened": False,
+            }
+            write_create_only(FAILURE, canonical_json_bytes(failure))
         raise
 
 

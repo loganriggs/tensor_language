@@ -532,6 +532,15 @@ def inertness_pairs(plan):
     for i, a in enumerate(labs):
         for b in labs[i + 1:]:
             (inert if spec[a] == spec[b] else differ).append((a, b))
+    # A two-sided control with an empty side is one-sided and says so. S1957's plan had three arms at
+    # three different table ranks, so there were no same-spec pairs and the inertness half had nothing
+    # to check -- it reported True vacuously. PRE-FLIGHT D: a watcher that goes quiet looks like a
+    # watcher that passed.
+    if not inert or not differ:
+        which = 'same-spec (inert)' if not inert else 'differing-spec (must move)'
+        print(f'  [bqlib] WARNING: no {which} pairs in this plan -- that half of the covered-input '
+              f'control is VACUOUS. Add an arm that shares (or differs in) table_rank to restore it.',
+              flush=True)
     return inert, differ
 
 

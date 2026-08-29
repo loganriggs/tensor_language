@@ -55796,3 +55796,51 @@ artifact that produced it, so a reference is never retyped. Otherwise: coverage 
 plan-derived control satisfied (15 same-spec pairs inert, 6 differing-spec pairs not), buckets
 partitioning, live per-cell top-1 and CE identical at 0.00e+00, §1951 reproduced to **0.000003 nats**,
 routed fractions exact — fortieth clean reading.
+
+## §1957 — the deployed-coverage build wants {768, 384}: a real but small upgrade, and half my control was vacuous
+
+`ops/coverage_specific_build.py`, **4.3s** warm, **DISCOVERY ONLY**, 5,419, rung 3 — §1952's open
+consequence. **All four predictions TRUE.** Every reference triple read via `B.ref()` from the artifact
+that published it, after mistyping one by hand in §1953 and again in §1956 (LESSONS 85, 87).
+
+§1947 put the table knee at {mlp 768, attn 256} and §1950 proved it a fixed point — both at **16,110**.
+§1952 measured the efficient attention rank at **5,419** as 384 on two roles, because §1951 found
+attention capacity worth 2–3× more at the deployed coverage. Nothing had scored {768, 384} end to end.
+
+```
+  5,419, pooled                cost       0-0     125+    top-1        CE
+    deployed                230.087M    .0266   .6350   .1355    6.01167
+    blend_768_256           163.757M    .0342   .6315   .1396    5.94788
+    blend_768_384           178.896M    .0351   .6306   .1400    5.94617
+```
+
+> **pred_a PASSED 3/3: the extra attention lowers CE significantly** — paired **t = −9.94 / −11.86 /
+> −5.53** against {768,256}. §1952 established the *rate*; a rate crossing a threshold is not evidence
+> the difference is real, and this is.
+>
+> **pred_b PASSED 2/3 at the registered bar: 0.0113 / 0.0135 / 0.0091 nats per 100M**, clearing §1947's
+> 0.010 threshold on skip7000 and skip11000 and missing on skip1200 by 0.0009 — reproducing §1952's rates
+> to the digit on an end-to-end build rather than inside an allocation sweep.
+>
+> **pred_c PASSED 3/3: it does not deepen the unseen-bucket deficit** — 0-0 goes .0342 → .0351,
+> .0588 → .0595, .0334 → .0334. The extra capacity is bought without making §1953's known loss worse.
+
+> **The size, stated plainly: this is a 0.0017 / 0.0021 / 0.0014 nat improvement for +15.1M**, on a build
+> whose margin over the deployed design is 0.064 nats for −66.3M. **It is real, significant, marginally
+> above the spending threshold on two roles of three, and small.** The deployed-coverage build is
+> {768, 384} at 178.896M — still 22% cheaper than §1789's deployed design and better on both instruments.
+
+**pred_d PASSED, and one half of it was vacuous.** `B.inertness_pairs` derives the covered-input control
+from the plan (LESSON 86, after four hand-written polarity errors). This plan has three arms at **three
+different table ranks**, so there were **no same-spec pairs at all** — it reported "0 same-spec pairs
+inert and 3 differing-spec pairs not" and passed. The differing half is real and checked; **the inertness
+half had nothing to check and said True anyway.** That is PRE-FLIGHT D's second direction inside the very
+helper written to prevent a control error. `B.inertness_pairs` now **prints a warning when either side is
+empty**, so a vacuous half announces itself instead of reading as a pass. Otherwise: coverage exactly
+5,419, buckets partitioning, live per-cell top-1 and CE identical at 0.00e+00, §1951's CE reproduced to
+**0.000000** via `B.ref()` — forty-first clean reading, with one half of one control honestly downgraded.
+
+**Open.** The build now differs by coverage — {768, 384} at 5,419, {768, 256} at 16,110 — and both were
+found by the same 0.010 nats/100M rule. **That threshold is inherited from §1947 and has never been
+justified**; it was chosen as a round number when the table curve was first swept. Every allocation
+conclusion in §1947–§1957 is conditional on it, and a different threshold would move both knees.
