@@ -87,10 +87,18 @@ def mod_of(kind, L):
     return H[L].mlp if kind == 'mlp' else H[L].attn
 
 
-def row_hook(full_rows):
+def row_hook(full_rows, s=1.0):
+    """Substitute the per-token row, optionally rescaled.
+
+    The scale is applied AT HOOK TIME rather than by materialising a second [50257, D] bank per site:
+    §1807 held a raw and a scaled bank and peaked at 26.4 GiB for no reason. This script's ancestor had
+    no scale parameter and I assumed one from a different lineage -- PRE-FLIGHT C, verify before you
+    assert -- which cost one launch."""
     def hook(mod, args, out):
         y = out[0] if isinstance(out, tuple) else out
         sub = full_rows[STATE['idx'].reshape(-1)].reshape(y.shape).to(y.dtype)
+        if s != 1.0:
+            sub = sub * s
         return (sub,) + tuple(out[1:]) if isinstance(out, tuple) else sub
     return hook
 
