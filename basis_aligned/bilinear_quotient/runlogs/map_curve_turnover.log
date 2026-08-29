@@ -1,0 +1,73 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+MAP CURVE TURNOVER | ranks (256, 384, 512, 640, 768, 1024) at {'mlp': 768, 'attn': 384} | 5,419 | DISCOVERY ONLY
+
+########## COVERAGE 5419 ##########
+  [bqlib] coverage 5419 from fineweb_n96_skip80.pt: 36 tables, neighbour index and map solver built (4s)
+  [bqlib] cache HIT  live     skip7000
+  [bqlib] cache HIT  live     skip11000
+  [bqlib] cache HIT  live     skip1200
+  [bqlib] cache HIT  mix25m256 skip7000
+  [bqlib] cache HIT  mix25m256 skip11000
+  [bqlib] cache HIT  mix25m256 skip1200
+  [bqlib] computed   mix25m384 skip7000 (1.4s)
+  [bqlib] computed   mix25m384 skip11000 (1.3s)
+  [bqlib] computed   mix25m384 skip1200 (0.6s)
+  [bqlib] cache HIT  mix25m512 skip7000
+  [bqlib] cache HIT  mix25m512 skip11000
+  [bqlib] cache HIT  mix25m512 skip1200
+  [bqlib] computed   mix25m640 skip7000 (3.8s)
+  [bqlib] computed   mix25m640 skip11000 (1.3s)
+  [bqlib] computed   mix25m640 skip1200 (0.6s)
+  [bqlib] computed   mix25m768 skip7000 (3.9s)
+  [bqlib] computed   mix25m768 skip11000 (1.3s)
+  [bqlib] computed   mix25m768 skip1200 (0.7s)
+  [bqlib] cache HIT  mix25m1024 skip7000
+  [bqlib] cache HIT  mix25m1024 skip11000
+  [bqlib] cache HIT  mix25m1024 skip1200
+  [bqlib] cache HIT  mix25m512 skip7000
+  [bqlib] cache HIT  mix25m512 skip11000
+  [bqlib] cache HIT  mix25m512 skip1200
+
+  skip7000   unseen-rate top vs bottom unc_mass quartile: +0.402
+    map256           0-0 3.29%  125+ 63.3%  CE 5.95397
+    map384           0-0 3.29%  125+ 63.3%  CE 5.94816
+    map512           0-0 3.51%  125+ 63.1%  CE 5.94617
+    map640           0-0 3.60%  125+ 63.2%  CE 5.94506
+    map768           0-0 3.60%  125+ 63.3%  CE 5.94472
+    map1024          0-0 3.60%  125+ 63.3%  CE 5.94471
+    spec_control     0-0 3.42%  125+ 63.2%  CE 5.94788
+
+  skip11000   unseen-rate top vs bottom unc_mass quartile: +0.410
+    map256           0-0 5.88%  125+ 62.7%  CE 5.92270
+    map384           0-0 5.95%  125+ 62.5%  CE 5.91646
+    map512           0-0 5.95%  125+ 62.5%  CE 5.91443
+    map640           0-0 5.95%  125+ 62.4%  CE 5.91346
+    map768           0-0 5.92%  125+ 62.4%  CE 5.91321
+    map1024          0-0 5.88%  125+ 62.4%  CE 5.91320
+    spec_control     0-0 5.88%  125+ 62.5%  CE 5.91648
+
+  skip1200   unseen-rate top vs bottom unc_mass quartile: +0.448
+    map256           0-0 3.17%  125+ 63.5%  CE 5.94111
+    map384           0-0 3.34%  125+ 63.4%  CE 5.93643
+    map512           0-0 3.34%  125+ 63.3%  CE 5.93468
+    map640           0-0 3.34%  125+ 63.6%  CE 5.93358
+    map768           0-0 3.42%  125+ 63.5%  CE 5.93308
+    map1024          0-0 3.51%  125+ 63.5%  CE 5.93305
+    spec_control     0-0 3.34%  125+ 63.4%  CE 5.93606
+
+  skip7000  CE by map rank: 256 5.95397  384 5.94816  512 5.94617  640 5.94506  768 5.94472  1024 5.94471
+    marginal nats/100M: 384<-256 0.0547  512<-384 0.0187  640<-512 0.0105  768<-640 0.0032  1024<-768 0.0000   | crossing at rank 640
+
+  skip11000  CE by map rank: 256 5.92270  384 5.91646  512 5.91443  640 5.91346  768 5.91321  1024 5.91320
+    marginal nats/100M: 384<-256 0.0588  512<-384 0.0191  640<-512 0.0092  768<-640 0.0024  1024<-768 0.0000   | crossing at rank 512
+
+  skip1200  CE by map rank: 256 5.94111  384 5.93643  512 5.93468  640 5.93358  768 5.93308  1024 5.93305
+    marginal nats/100M: 384<-256 0.0441  512<-384 0.0165  640<-512 0.0104  768<-640 0.0047  1024<-768 0.0001   | crossing at rank 640
+
+  the map curve is convex (>=2 roles) -> True  3/3
+  and the 0.010 crossing lies strictly between 512 and 1024 (>=2 roles) -> True  2/3  (crossings [640, 512, 640])
+  and that rank beats 512 significantly (>=2 roles) -> True  2/3
+  coverage {'c5419': 5419}, 15 same-spec pairs inert and 6 differing-spec pairs not, at covered inputs: True; buckets partition, live identical 0.0e+00, §1957 CE reproduced within 0.000000, route fracs within 0.0000 -> control True
+
+pred_a True | pred_b True | pred_c True | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/map_curve_turnover_results.json (104.6s)

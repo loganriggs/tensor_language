@@ -55902,3 +55902,54 @@ it even though the map is the richest lever. **The two findings pull in opposite
 from this run**: the map is where marginal money should go, and the specific next map purchase available
 is not worth its price. Which means the map's own curve turns over between 512 and 1024, and where has
 not been measured.
+
+## §1959 — the map curve turns over at rank 640, so §1949's 512 was one step short at 5,419
+
+`ops/map_curve_turnover.py`, 104.6s, **DISCOVERY ONLY**, 5,419, rung 3 — §1958's open question.
+**All four predictions TRUE.**
+
+§1958 produced two findings that pointed opposite ways: the map rank is the **richest** lever on 3/3
+roles, and the next available map purchase (512 → 1024, +42.5M) returns only 0.003–0.004 nats per 100M,
+well below the threshold §1958 itself vindicated. The reconciliation had to be a turnover between them.
+
+```
+  5,419 at {mlp 768, attn 384}, pooled CE by map rank
+    rank      256      384      512      640      768     1024
+    cost   157.7M   168.3M   178.9M   189.5M   200.1M   221.4M
+    7000  5.95397  5.94816  5.94617  5.94506  5.94472  5.94471
+    11000 5.92270  5.91646  5.91443  5.91346  5.91321  5.91320
+    1200  5.94111  5.93643  5.93468  5.93358  5.93308  5.93305
+
+  marginal nats per 100M (skip1200): 384<-256 .0441  512<-384 .0165  640<-512 .0104
+                                     768<-640 .0047  1024<-768 .0001
+```
+
+> **pred_a PASSED 3/3: the curve is convex**, the rate falling monotonically across all five steps on
+> every role — the same shape §1947 found for the table axis, and it collapses to essentially **zero**
+> beyond 768 (0.0000 / 0.0001 nats per 100M for the last step).
+>
+> **pred_b PASSED 2/3: the 0.010 crossing sits strictly between 512 and 1024 — at rank 640** on
+> skip7000 and skip1200, and at 512 on skip11000. **pred_c PASSED 2/3: rank 640 beats rank 512
+> significantly**, paired **t = −7.67 / −6.24 / −4.81**.
+
+> **So §1949's map rank of 512 was one step short at this coverage.** The efficient map rank at 5,419 is
+> **640**, and it costs +10.6M for 0.0011 / 0.0010 / 0.0011 nats — a genuine but very small purchase,
+> the same character as §1957's attention step. **§1958's two findings are reconciled exactly as it
+> implied: the map is the richest lever, and it stops being so between 640 and 768.**
+
+**pred_d PASSED**: coverage exactly 5,419; the plan-derived control non-vacuous in both directions (15
+same-spec pairs exactly inert at covered inputs, 6 differing-spec pairs not); buckets partition; live
+per-cell top-1 and CE identical at 0.00e+00; §1957's CE reproduced to **0.000000** via `B.ref()` —
+forty-third clean reading.
+
+**Where the deployed-coverage build now stands: {mlp 768, attn 384}, fallback = 25% neighbour + 75%
+rank-640 map, 189.5M** — still 18% cheaper than §1789's 230.087M deployed design and better on both
+instruments. Three consecutive sections have each added ~0.001–0.002 nats for ~+15M, all significant and
+all marginal; **§1958's exchange rates say there is now nothing left above the threshold on any of the
+four levers at this point**, which is what convergence looks like when it is real rather than assumed.
+
+**Open.** Every one of §1957–§1959's marginal purchases was found at 5,419 and none has been checked at
+16,110, where §1948/§1950 put the same levers below threshold. **The two coverages now disagree about
+attention rank (384 vs 256) and, if the same turnover applies, about map rank (640 vs 512) — so "the
+build" is now two builds, and no section has yet asked whether one compromise build beats running the
+coverage-specific pair.**
