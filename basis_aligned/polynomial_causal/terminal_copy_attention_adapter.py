@@ -143,9 +143,14 @@ class OwnedPerHeadTensorAttention(nn.Module):
                 raise ValueError("first-value bus is malformed")
             bus = first_value
         mixed = (1 - self.lamb) * value + self.lamb * bus
+        # Preserve the checkpoint's physical contraction and layout order: its
+        # native module first forms [batch,head,query,d_head], then transposes and
+        # materializes [batch,query,head,d_head] before c_proj.  Asking einsum for
+        # the latter layout directly is algebraically equal but measurably changes
+        # bfloat16 accumulation on the production CUDA kernel.
         head_outputs = torch.einsum(
-            "bhqk,bkhd->bqhd", pattern.to(mixed.dtype), mixed,
-        )
+            "bhqk,bkhd->bhqd", pattern.to(mixed.dtype), mixed,
+        ).transpose(1, 2).contiguous()
         projection = self.proj.to(head_outputs.dtype).view(
             self.width, self.n_head, self.head_dim,
         )
@@ -248,4 +253,3 @@ class HeadWriteTransaction(AbstractContextManager):
             self._bus = None
             self._closed = True
         return False
-

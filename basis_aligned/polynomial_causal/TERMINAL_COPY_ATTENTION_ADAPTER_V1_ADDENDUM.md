@@ -24,6 +24,12 @@ per-head RMS normalization. There is deliberately no softmax or row normalizatio
 The value at later layers is the native learned mixture of the current site's value
 and the shared block-0 value bus.
 
+The implementation also preserves the native contraction layout: it first forms a
+`[batch, head, query, d_head]` value result, then transposes and materializes the
+contiguous `[batch, query, head, d_head]` tensor consumed by `c_proj`. The spent v1
+checkpoint check showed that requesting the transposed layout directly from einsum is
+real-number equivalent but not bfloat16-kernel equivalent.
+
 Before the output projection, each head occupies a disjoint 128-column slice. If
 $z_h$ is head $h$'s mixed value result and $W_O^{(h)}$ is the matching column block of
 `c_proj`, the physical residual-stream write attributed to that head is

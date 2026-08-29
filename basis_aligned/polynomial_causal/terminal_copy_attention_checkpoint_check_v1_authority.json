@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "status": "frozen_before_checkpoint_weight_load",
+  "commit": "37bf010ad827ae00485529830875ce7f6124ab42",
+  "source_hashes": {
+    "basis_aligned/polynomial_causal/TERMINAL_COPY_ATTENTION_CHECKPOINT_CHECK_V1_PREREGISTRATION.md": "554791f480336572ec048bd53a6c8386ef665d542516bb239b1e37d46187c18f",
+    "basis_aligned/polynomial_causal/TERMINAL_COPY_ATTENTION_ADAPTER_V1_ADDENDUM.md": "0209c31f6ed8a9d6f62159b6f2d5e8229ead5b01b63637bb13df88935ee74cbd",
+    "basis_aligned/polynomial_causal/terminal_copy_attention_adapter.py": "58eb044f7af3896772817eba0a04273704e86f700e302eee8b8674b8660cb125",
+    "basis_aligned/polynomial_causal/test_terminal_copy_attention_adapter.py": "f5b6c65a00cc3517d6adc4ed3143b61be374cff6d693a6fa00102ccec9feafc8",
+    "basis_aligned/polynomial_causal/terminal_copy_attention_checkpoint_check_v1.py": "ebb2988c029c5710fe9299890e396b57b2caadfc20bd96de44a0eead05ef398f",
+    "basis_aligned/polynomial_causal/bilin18_observed_model_facade.py": "b62947f772c807259890a9d09dfcbe5e91ad339a0bffa867ab99177fde4c728c",
+    "jacclust/tt_model.py": "49ecdbd6c060ff5b3e57f3134d87ba32841390c891c42e6ae23b71d8627612b2",
+    "jacclust/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "checkpoint": {
+    "revision": "ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240",
+    "snapshot": "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240",
+    "config_sha256": "428042bfd807ba36f8b4326395440fbbebe52cd3d040212e6fef14a4fdf2d83c",
+    "weights_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+    "weights_bytes": 2067738635,
+    "tokenizer_vocab": 50257,
+    "logit_vocab": 50304
+  },
+  "seed": 2026082917,
+  "layers": [
+    5,
+    7,
+    8,
+    13,
+    14
+  ],
+  "shape": [
+    2,
+    32,
+    1152
+  ],
+  "dtype": "torch.bfloat16",
+  "relative_tolerance": 0.002,
+  "max_abs_tolerance": 0.02,
+  "scientific_claim_authorized": false
+}
