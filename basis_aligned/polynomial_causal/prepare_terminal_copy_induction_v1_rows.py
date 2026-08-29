@@ -39,6 +39,8 @@ CONTRACT = HERE / "terminal_copy_induction_v1.py"
 ADAPTER_ADDENDUM = HERE / "TERMINAL_COPY_ATTENTION_ADAPTER_V1_ADDENDUM.md"
 SCREENING_AMENDMENT = HERE / "TERMINAL_COPY_INDUCTION_V1_SCREENING_AMENDMENT.md"
 AUDIT = HERE / "terminal_copy_induction_v1_rows_audit.json"
+RECEIPT_KIND = "terminal_copy_induction_v1_rows"
+FAILURE_KIND = "terminal_copy_induction_v1_rows_failure"
 
 START_DOCUMENT_INDEX = 70_000
 N_PER_ROLE = 192
@@ -671,6 +673,31 @@ def validate_cached_payload(
     return dict(loaded)
 
 
+def load_prior_registry(
+    registry_files: tuple[Path, ...],
+) -> tuple[Any, dict[str, str], dict[str, str], list[dict[str, Any]]]:
+    """Load the strict v1 registry; v2 may replace this source-closed hook."""
+
+    prior, registry_hashes, tensor_hashes = natural.load_registry_exclusions(registry_files)
+    return prior, registry_hashes, tensor_hashes, []
+
+
+def verify_prior_snapshot(
+    *, commit: str, sources: Mapping[str, str], registry_files: tuple[Path, ...],
+    registry_hashes: Mapping[str, str], tensor_hashes: Mapping[str, str],
+    prior: Any, parquet: Path, registry_waivers: Sequence[Mapping[str, Any]],
+) -> None:
+    """Replay the strict v1 registry; v2 may replace this source-closed hook."""
+
+    if registry_waivers:
+        raise RuntimeError("strict terminal-copy v1 does not permit registry waivers")
+    natural.verify_snapshot(
+        commit=commit, sources=sources, registry_files=registry_files,
+        registry_hashes=registry_hashes, tensor_hashes=tensor_hashes,
+        prior=prior, parquet=parquet,
+    )
+
+
 def freeze() -> dict[str, Any]:
     claim = natural.acquire_claim(LOCK)
     try:
@@ -682,7 +709,9 @@ def freeze() -> dict[str, Any]:
         audit = validate_audit(commit, sources, code_tree["entries_sha256"])
         canonical, parquet = natural.BASE.validate_ordered_source()
         registry_files = natural.discover_registry_files()
-        prior, registry_hashes, prior_tensor_hashes = natural.load_registry_exclusions(registry_files)
+        prior, registry_hashes, prior_tensor_hashes, registry_waivers = load_prior_registry(
+            registry_files
+        )
 
         import tiktoken
         encoding = tiktoken.get_encoding("gpt2")
@@ -733,7 +762,7 @@ def freeze() -> dict[str, Any]:
         frozen_support_census = support_census(copy_cells)
         summary = summarize_roles(role_rows, role_records, synthetic, banks)
 
-        natural.verify_snapshot(
+        verify_prior_snapshot(
             commit=commit,
             sources=natural.source_closure(commit),
             registry_files=registry_files,
@@ -741,6 +770,7 @@ def freeze() -> dict[str, Any]:
             tensor_hashes=prior_tensor_hashes,
             prior=prior,
             parquet=parquet,
+            registry_waivers=registry_waivers,
         )
         if source_closure(commit) != sources or eligible_code_tree_manifest(commit) != code_tree or (
             validate_audit(commit, sources, code_tree["entries_sha256"]) != audit
@@ -874,7 +904,7 @@ def freeze() -> dict[str, Any]:
 
         receipt = json_normalize({
             "schema_version": 1,
-            "receipt_kind": "terminal_copy_induction_v1_rows",
+            "receipt_kind": RECEIPT_KIND,
             "status": "frozen_before_any_terminal_copy_model_forward",
             "authorized_for_scored_experiments": False,
             "authorized_for_candidate_or_threshold_selection": False,
@@ -901,6 +931,7 @@ def freeze() -> dict[str, Any]:
             "fit_token_frequencies": frequencies_entry,
             "prior_registry_files": registry_hashes,
             "prior_row_tensors": prior_tensor_hashes,
+            "failed_unmaterialized_registry_exclusions": registry_waivers,
             "prior_code_manifests": code_manifest_hashes,
             "eligible_code_tree": code_tree,
             "role_licenses": {
@@ -930,7 +961,7 @@ def freeze() -> dict[str, Any]:
                 "scientific_outcomes_read": False,
             },
         })
-        natural.verify_snapshot(
+        verify_prior_snapshot(
             commit=commit,
             sources=natural.source_closure(commit),
             registry_files=registry_files,
@@ -938,6 +969,7 @@ def freeze() -> dict[str, Any]:
             tensor_hashes=prior_tensor_hashes,
             prior=prior,
             parquet=parquet,
+            registry_waivers=registry_waivers,
         )
         if source_closure(commit) != sources or eligible_code_tree_manifest(commit) != code_tree or (
             validate_audit(commit, sources, code_tree["entries_sha256"]) != audit
@@ -960,7 +992,7 @@ def freeze() -> dict[str, Any]:
                 natural.require_claim(claim, LOCK)
                 _publish_json_terminal({
                     "schema_version": 1,
-                    "receipt_kind": "terminal_copy_induction_v1_rows_failure",
+                    "receipt_kind": FAILURE_KIND,
                     "status": "terminal_failure_no_receipt",
                     "exception_type": type(error).__name__,
                     "exception_message": str(error),

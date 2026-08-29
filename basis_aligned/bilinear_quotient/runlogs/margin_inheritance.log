@@ -9,16 +9,16 @@ MARGIN INHERITANCE: does the program inherit the model's decidedness? | buckets 
     per-site live/table ratios: min 1.2x max 144.0x across 36 sites
     g1.00    skip7000 CE 5.90522 ( 7.16x)  skip11000 CE 5.85230 ( 7.29x)  skip1200 CE 5.88575 ( 7.49x)   [1/2]
     PERSITE  skip7000 CE 12.86842 ( 1.80x)  skip11000 CE 12.91618 ( 1.71x)  skip1200 CE 12.79523 ( 1.71x)   [2/2]
-Traceback (most recent call last):
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/margin_inheritance.py", line 459, in <module>
-    main()
-  File "/venv/main/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/margin_inheritance.py", line 409, in main
-    rho = {e: top(e, 'margin_spearman') for e in roles}
-              ^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/margin_inheritance.py", line 408, in top
-    return res['sites'][A1][e][f]
-           ~~~~~~~~~~~~~~~~~~~^^^
-KeyError: 'margin_spearman'
+
+  live-margin quartiles (control, vs §1911):
+    skip7000   q0  5.36x  q1  5.74x  q2  6.23x  q3 10.11x
+    skip11000  q0  5.06x  q1  5.60x  q2  6.24x  q3 10.34x
+    skip1200   q0  5.80x  q1  5.71x  q2  6.45x  q3 10.87x
+
+  THE MARGINS ARE CORRELATED (Spearman >= +0.4) -> False  skip7000 +0.109  skip11000 +0.111  skip1200 +0.120
+  and the gradient SURVIVES conditioning (>= 1.0x within q3) -> True  skip7000 prog-hi 9.84x (n4207) vs prog-lo 5.77x (n4094) = +4.07x  skip11000 prog-hi 10.69x (n4190) vs prog-lo 4.95x (n4113) = +5.74x  skip1200 prog-hi 10.66x (n2119) vs prog-lo 5.82x (n2031) = +4.84x
+  and the PROGRAM margin predicts its own accuracy (>= 20pp) -> True  skip7000 14.2% -> 40.9% (+26.7pp)  skip11000 13.8% -> 44.2% (+30.3pp)  skip1200 13.7% -> 41.2% (+27.5pp)
+  coverage 16110, §1911 quartiles reproduce -> control True; baseline skip7000 7.16x  skip11000 7.29x  skip1200 7.49x
+
+pred_a False | pred_b True | pred_c True | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/margin_inheritance_results.json (284.0s)

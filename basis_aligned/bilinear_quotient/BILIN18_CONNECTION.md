@@ -53378,3 +53378,60 @@ gate's key check flagged the same lineage three times in this session and each c
 **Open.** Whether the confidence gradient is what §1908's alignment result looks like from the output
 side, or an independent fact. Both say the program follows the model where the model's computation is
 already concentrated — one in the residual stream, one in the logits — but nothing connects them.
+
+## §1912 — the program does NOT inherit the model's decidedness. Two near-independent signals, each doubling the tracking.
+
+`ops/margin_inheritance.py`, 284.0s, **DISCOVERY ONLY**, rung 3 — §1911's open question.
+**pred_a False | pred_b True | pred_c True | pred_d True.**
+
+```
+  Spearman(live top-2 margin, PROGRAM top-2 margin), covered arm, 16,110 types
+    +0.109   +0.111   +0.120                                      <- near-independent
+
+  within the HIGHEST live-margin quartile, split by the PROGRAM's own margin
+    program-confident half   9.84x (n4207)   10.69x (n4190)   10.66x (n2119)
+    program-unsure half      5.77x (n4094)    4.95x (n4113)    5.82x (n2031)
+    gap                     +4.07x           +5.74x           +4.84x
+```
+
+> **pred_a FAILED and it answers the question in the harder direction. The two decidedness signals are
+> nearly uncorrelated — Spearman +0.11 — so §1911's gradient is NOT inheritance.** The program is not
+> simply decided where the model is decided. Whatever makes a token-keyed table confident and whatever
+> makes an 18-layer model confident are close to independent quantities.
+>
+> **pred_b PASSED, and together with pred_a that is the result.** Holding the model's confidence at its
+> highest quartile, splitting on the *program's own* margin still moves agreement from **5.77 to 9.84x**
+> — a gap of **+4.07 / +5.74 / +4.84x**, as large as §1911's entire effect. **Each signal roughly doubles
+> the tracking, and they do so nearly independently of each other.**
+>
+> **The sharpest reading is the corner:** within the model's most-decided quartile, positions where the
+> *program* is unsure track at **5.77 / 4.95 / 5.82x** — indistinguishable from §1911's least-decided
+> quartile overall (5.36 / 5.06 / 5.80x). **The model being sure buys nothing where the program is not.**
+> Agreement needs both, and neither substitutes for the other.
+
+**pred_c PASSED**: the program's margin predicts its own accuracy by **+26.7 / +30.3 / +27.5 percentage
+points** (14.2 → 40.9%, 13.8 → 44.2%, 13.7 → 41.2%), the known-answer check that licenses reading the
+program-margin axis at all. **pred_d PASSED**: §1911's four quartile enrichments reproduced **exactly**
+(5.36 / 5.74 / 6.23 / 10.11 on skip7000) and coverage is 16,110.
+
+**Where the modulator search stands after four axes:**
+```
+  §1895  correctness         NOT a modulator   both-wrong still tracks at 6.10/6.24/6.50x
+  §1910  sequence position   NOT a modulator   flat, inconsistent in sign
+  §1911  model confidence    MODULATOR         5.36 -> 10.11x
+  §1912  program confidence  MODULATOR         5.77 -> 9.84x within the model's top quartile,
+                                               and only +0.11 correlated with the model's
+```
+
+**Three launches lost to my own errors on this one script**, all recorded: the q3 sub-split inserted above
+its own `qidx` dependency (LESSON 67's family, fourth instance today); then the arm-loop `row` dict, a
+whitelist inherited from an ancestor, silently dropping the three keys this run added to
+`compare_by_bucket` — which KeyError'd at the report step *after* the whole arm had run. **Before the
+third attempt I checked every key the report reads against what the run produces** rather than patching
+the one symptom; that pass is what made the third launch the last.
+
+**Open.** Whether the program's confidence is predictable from the token alone — it must be, since the
+program is a pure function of the current token (§1765), so the program-margin axis is a *token* property
+and could in principle be precomputed. That would make §1912's gradient a statement about which tokens
+the compiled program can speak for, which is a different and more useful object than a per-position
+measurement.
