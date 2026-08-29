@@ -53778,3 +53778,59 @@ caveat still stands and I still have not measured the spread at those n** — th
 
 **Open.** Measuring the null spread at n ≈ 350-1,200 would say how much of §1918's and §1919's uncovered
 figures are signal. That is the one loose end left in this line, and it is cheap.
+
+## §1920 — the uncovered gains are real, the small-n noise is priced, and the pairing effect shows up by accident
+
+`ops/uncovered_noise_floor.py`, 291.6s, **DISCOVERY ONLY**, rung 3 — the loose end §1918 and §1919 both
+flagged. **pred_a False | pred_b True | pred_c True | pred_d True.**
+
+```
+  uncovered quartile enrichment +- seed spread (8 seeds), and the gradient's own spread
+    skip7000   q0 n1056 2.35 +-0.101   q3 n 669 7.03 +-0.304   grad +4.736 +-0.202
+    skip11000  q0 n 943 3.15 +-0.206   q3 n 695 7.88 +-0.515   grad +4.707 +-0.309
+    skip1200   q0 n 529 3.02 +-0.349   q3 n 348 5.78 +-0.668   grad +2.659 +-0.319
+```
+
+> **pred_b PASSED and it is the question this run existed to answer: §1919's effect is real.** The rank
+> 64 → 512 gains of **+0.78 / +0.63 / +0.70** exceed the gradient's own seed spread of **0.202 / 0.309 /
+> 0.319** by **3.9x / 2.0x / 2.2x** on all three roles. §1918 and §1919 both declined to quote their
+> uncovered figures to two decimals pending this; that caution was right, and the *direction and rough
+> size* of §1919 survive it.
+
+**pred_c PASSED**: the ratio of the small-n spread to §1916's covered baseline spread, divided by the
+`sqrt(8300 / n)` that sampling predicts, is **0.66 / 1.02 / 1.49** — within a factor of 3 on all roles and
+within 1.5x on two. **The extra noise at small n is sampling, not some other source.**
+
+**pred_a FAILED by 0.008 on one role.** I required the median quartile spread to be at least **2x**
+§1916's covered 0.077. Measured **0.146 / 0.234 / 0.455**, i.e. **1.90x / 3.04x / 5.91x** — skip7000 falls
+just under. The direction is right on all three and the bar was a round number rather than a derived one;
+it is scored FAIL as written.
+
+> **And the run delivers, incidentally, the measurement §1917 set out to make and mis-built.** Each seed
+> scores every quartile against the *same* global null, so the gradient is a **paired** difference. If the
+> two quartiles' errors were independent the difference would carry `sqrt(q0^2 + q3^2)`:
+>
+> ```
+>   skip7000   independent would be 0.320   measured 0.202   ratio 0.63
+>   skip11000  independent would be 0.555   measured 0.309   ratio 0.56
+>   skip1200   independent would be 0.754   measured 0.319   ratio 0.42
+> ```
+>
+> **The paired difference is 0.42-0.63 of what independence would give**, so a substantial part of the
+> null error does cancel — which is what §1916 speculated and §1917 failed to test because it varied the
+> null *definition* instead. **This is not the clean experiment** (the quartile spreads are not identically
+> distributed, so `sqrt(a^2+b^2)` is an approximation), **and I am reporting it as consistent evidence
+> rather than as the measurement.** But it points the way §1916 guessed, from data collected for another
+> purpose.
+
+**pred_d PASSED**: the gradient reproduced §1919's +4.68 / +4.73 / +2.76 at **+4.74 / +4.71 / +2.66**,
+coverage 16,110.
+
+**What the uncovered arm's figures should now carry.** Quartile enrichments **±0.10 to ±0.67** depending
+on n, gradients **±0.20 to ±0.32** — against the covered arm's ±0.077. §1918's and §1919's uncovered
+numbers are good to about one decimal, and the conclusions drawn from them (the signal extends; rank
+closes ~12% of the gap) clear that by 2x or more.
+
+**Open.** Nothing in the reliability line. The pairing question is now answered well enough to act on and
+not well enough to publish as a result; a clean version would hold the null definition fixed and vary only
+whether the two arms share the draw, which is what §1917 should have been.

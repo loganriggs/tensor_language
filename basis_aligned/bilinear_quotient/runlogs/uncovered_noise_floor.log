@@ -1,0 +1,25 @@
+UNCOVERED NOISE FLOOR: are the small-n gains above their own error bar? | buckets ((0, 0), (1, 4), (5, 24), (25, 124), (125, 1000000000)) on the fit-row count of the TRUE target | full-rank settled program | DISCOVERY ONLY
+  built the settled fallback and 36 tables (5s)
+  precomputed per-token program margin for 50257 covered types (covered-token quartile bounds [0.1608, 0.367, 0.7641])
+  uncovered-token quartile bounds [0.219, 0.5238, 1.0668] over 34147 types
+
+  === all-compiled baseline ===
+    skip7000   covered enrichment  7.16x  (n 33192)
+    skip11000  covered enrichment  7.29x  (n 33196)
+    skip1200   covered enrichment  7.49x  (n 16597)
+    per-site live/table ratios: min 1.2x max 143.9x across 36 sites
+    g1.00    skip7000 CE 5.88338 ( 7.16x)  skip11000 CE 5.82928 ( 7.29x)  skip1200 CE 5.86044 ( 7.49x)   [1/2]
+    PERSITE  skip7000 CE 12.86506 ( 2.10x)  skip11000 CE 12.90924 ( 2.10x)  skip1200 CE 12.78907 ( 2.22x)   [2/2]
+
+  uncovered quartile spreads over 8 seeds, and the gradient's own spread:
+    skip7000   q0 n 1056  2.35x +-0.101  q1 n 1019  2.77x +-0.119  q2 n  928  4.00x +-0.173  q3 n  669  7.03x +-0.304   grad +4.736 +-0.202
+    skip11000  q0 n  943  3.15x +-0.206  q1 n 1143  3.06x +-0.200  q2 n  887  4.00x +-0.261  q3 n  695  7.88x +-0.515   grad +4.707 +-0.309
+    skip1200   q0 n  529  3.02x +-0.349  q1 n  538  3.78x +-0.436  q2 n  420  4.10x +-0.473  q3 n  348  5.78x +-0.668   grad +2.659 +-0.319
+
+  SMALL n IS NOISIER (median quartile spread >= 2x §1916's 0.077) -> False  skip7000 0.146  skip11000 0.234  skip1200 0.455
+  and §1919's GAIN clears its own noise -> True  skip7000 gain +0.78 vs spread 0.202  skip11000 gain +0.63 vs spread 0.309  skip1200 gain +0.70 vs spread 0.319
+  and it SCALES as sampling predicts (within 3x) -> True  skip7000 0.66x  skip11000 1.02x  skip1200 1.49x
+  coverage 16110, gradient reproduces §1919 -> control True  skip7000 +4.74 vs +4.68  skip11000 +4.71 vs +4.73  skip1200 +2.66 vs +2.76
+
+pred_a False | pred_b True | pred_c True | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/uncovered_noise_floor_results.json (291.6s)

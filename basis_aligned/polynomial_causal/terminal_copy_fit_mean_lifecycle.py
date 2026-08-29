@@ -41,6 +41,10 @@ BQ = ROOT / "basis_aligned" / "bilinear_quotient"
 
 ROW_RECEIPT = BQ / "terminal_copy_induction_v2_rows_receipt.json"
 ROW_RECEIPT_SHA256 = "aea52a94c643906ef822a7c6ddb37a371b4315507a1a0a79acd539a19ae7f5c8"
+FIT_INPUT_AUTHORITY = BQ / "terminal_copy_fit_inputs_v1_authority.json"
+FIT_INPUT_RECEIPT = BQ / "terminal_copy_fit_inputs_v1_receipt.json"
+FIT_INPUTS = BQ / ".rowcache_terminal_copy_fit_inputs_v1" / "fit_inputs.pt"
+FIT_INPUT_ERRATUM = HERE / "TERMINAL_COPY_FIT_INPUT_EXPOSURE_ERRATUM.md"
 ADAPTER_RECEIPT = HERE / "terminal_copy_attention_checkpoint_check_v3_receipt.json"
 ADAPTER_RECEIPT_SHA256 = "c5ef51670b6e23bb3cddbbef6c5cd451dff55eea8b8f7ddfdf20aca7374bb324"
 ADAPTER_RESULT = HERE / "terminal_copy_attention_checkpoint_check_v3_result.json"
@@ -57,8 +61,9 @@ AUDIT = HERE / "terminal_copy_fit_mean_lifecycle_v1_independent_audit.json"
 
 PROTECTED_PATHS = (
     ROW_RECEIPT,
-    Path("/workspace/tensor_language/basis_aligned/bilinear_quotient/"
-         ".rowcache_terminal_copy_induction_v2/fit_natural.pt"),
+    FIT_INPUT_AUTHORITY,
+    FIT_INPUT_RECEIPT,
+    FIT_INPUTS,
     ADAPTER_RECEIPT,
     ADAPTER_RESULT,
     facade.DEFAULT_SNAPSHOT / "config.json",
@@ -67,6 +72,7 @@ PROTECTED_PATHS = (
 
 SOURCE_PATHS = (
     "basis_aligned/polynomial_causal/TERMINAL_COPY_FIT_HEAD_MEANS_V1_PREREGISTRATION.md",
+    "basis_aligned/polynomial_causal/TERMINAL_COPY_FIT_INPUT_EXPOSURE_ERRATUM.md",
     "basis_aligned/polynomial_causal/TERMINAL_COPY_INDUCTION_V1_SCREENING_AMENDMENT.md",
     "basis_aligned/polynomial_causal/bilin18_observed_model_facade.py",
     "basis_aligned/polynomial_causal/terminal_copy_attention_adapter.py",
@@ -243,39 +249,64 @@ def verify_source_closure(binding: Mapping[str, Any]) -> None:
 
 
 def row_binding() -> dict[str, Any]:
-    """Bind only fit-role receipt metadata; do not open the row tensor."""
+    """Bind the sanitized fit-input projection without opening its tensor."""
 
-    if file_sha256(ROW_RECEIPT) != ROW_RECEIPT_SHA256:
-        raise RuntimeError("terminal-copy row receipt bytes changed")
-    receipt = _stable_json(ROW_RECEIPT)
-    entry = receipt.get("entries", {}).get("fit_natural", {})
-    license_ = receipt.get("role_licenses", {}).get("fit_natural", {})
-    if (
-        receipt.get("status") != "frozen_before_any_terminal_copy_model_forward"
-        or receipt.get("authorized_for_scored_experiments") is not False
-        or receipt.get("authorized_for_candidate_or_threshold_selection") is not False
-        or receipt.get("summary", {}).get("roles", {}).get("fit_natural") != 192
-        or license_ != {
-            "authorized_use": "fit_per_position_head_write_means_only",
-            "requires_receipt": None,
-        }
-        or not isinstance(entry.get("path"), str)
-        or not isinstance(entry.get("file_sha256"), str)
-        or not isinstance(entry.get("rows_tensor_sha256"), str)
+    if file_sha256(ROW_RECEIPT) != ROW_RECEIPT_SHA256 or not (
+        FIT_INPUT_AUTHORITY.is_file() and FIT_INPUT_RECEIPT.is_file()
     ):
-        raise RuntimeError("fit-role row receipt semantics changed")
+        raise RuntimeError("terminal-copy row receipt bytes changed")
+    receipt = _stable_json(FIT_INPUT_RECEIPT)
+    projection_authority = _stable_json(FIT_INPUT_AUTHORITY)
+    projection_body = {
+        key: value for key, value in projection_authority.items()
+        if key != "authority_sha256"
+    }
+    payload_fields = {
+        "schema", "authority_sha256", "tokens", "ordered_document_ids",
+        "tokens_sha256", "ordered_document_ids_sha256",
+    }
+    if (
+        receipt.get("status") != "complete_receipt_last_input_only_no_model_access"
+        or receipt.get("parent_row_receipt_sha256") != ROW_RECEIPT_SHA256
+        or receipt.get("erratum_sha256") != file_sha256(FIT_INPUT_ERRATUM)
+        or receipt.get("authority_file_sha256") != file_sha256(FIT_INPUT_AUTHORITY)
+        or receipt.get("authority_sha256") != projection_authority.get("authority_sha256")
+        or logical_sha256(projection_body) != projection_authority.get("authority_sha256")
+        or receipt.get("tokens_shape") != [192, 256]
+        or set(receipt.get("payload_fields", ())) != payload_fields
+        or receipt.get("label_copy_cell_synthetic_fields_absent") is not True
+        or receipt.get("model_forward_calls") != 0
+        or receipt.get("scientific_outcomes_read") is not False
+        or receipt.get("authorized_for_fit_mean_input_only") is not True
+        or receipt.get("authorized_for_candidate_selection") is not False
+        or projection_authority.get("status")
+        != "frozen_before_any_E4_fit_model_forward_after_disclosed_parent_container_access"
+        or projection_authority.get("parent_binding", {}).get("receipt_sha256")
+        != ROW_RECEIPT_SHA256
+        or not isinstance(receipt.get("inputs_path"), str)
+        or not Path(receipt["inputs_path"]).is_file()
+        or file_sha256(Path(receipt["inputs_path"])) != receipt.get("inputs_file_sha256")
+    ):
+        raise RuntimeError("sanitized fit-input receipt semantics changed")
     body = {
-        "receipt_path": str(ROW_RECEIPT),
-        "receipt_sha256": ROW_RECEIPT_SHA256,
+        "parent_receipt_path": str(ROW_RECEIPT),
+        "parent_receipt_sha256": ROW_RECEIPT_SHA256,
+        "projection_authority_path": str(FIT_INPUT_AUTHORITY),
+        "projection_authority_file_sha256": file_sha256(FIT_INPUT_AUTHORITY),
+        "projection_authority_sha256": projection_authority["authority_sha256"],
+        "projection_receipt_path": str(FIT_INPUT_RECEIPT),
+        "projection_receipt_sha256": file_sha256(FIT_INPUT_RECEIPT),
         "role": "fit_natural",
         "row_count": 192,
-        "row_width": 257,
         "model_input_width": 256,
-        "row_path": entry["path"],
-        "row_file_sha256": entry["file_sha256"],
-        "rows_tensor_sha256": entry["rows_tensor_sha256"],
-        "authorized_use": license_["authorized_use"],
-        "labels_or_copy_cells_authorized": False,
+        "input_path": receipt["inputs_path"],
+        "input_file_sha256": receipt["inputs_file_sha256"],
+        "tokens_sha256": receipt["tokens_sha256"],
+        "ordered_document_ids_sha256": receipt["ordered_document_ids_sha256"],
+        "payload_fields": sorted(payload_fields),
+        "labels_copy_cells_synthetic_present": False,
+        "authorized_use": "fit_per_position_head_write_means_only",
+        "disclosed_parent_container_engineering_access": True,
     }
     return {**body, "sha256": logical_sha256(body)}
 
@@ -326,7 +357,7 @@ def protocol() -> dict[str, Any]:
     return {
         "role": "fit_natural",
         "documents": 192,
-        "row_width": 257,
+        "input_width": 256,
         "model_tokens": 256,
         "layers": list(NAMED_LAYERS),
         "heads_by_layer": {str(k): list(v) for k, v in NAMED_HEADS_BY_LAYER.items()},
@@ -412,7 +443,7 @@ def freeze_execution_authority(independent_audit_path: Path) -> dict[str, Any]:
     checkpoint = facade.validate_snapshot(verify_weights_sha256=True)
     body = {
         "schema": "terminal_copy_fit_means_v1_authority",
-        "status": "frozen_before_any_fit_row_tensor_or_model_load",
+        "status": "frozen_before_any_fit_model_forward_after_disclosed_parent_container_access",
         "source_closure": source_closure(),
         "row_binding": row_binding(),
         "adapter_binding": adapter_binding(),
@@ -454,7 +485,8 @@ def validate_execution_authority(authority: Mapping[str, Any]) -> None:
     if (
         set(authority) != expected_keys
         or authority.get("schema") != "terminal_copy_fit_means_v1_authority"
-        or authority.get("status") != "frozen_before_any_fit_row_tensor_or_model_load"
+        or authority.get("status")
+        != "frozen_before_any_fit_model_forward_after_disclosed_parent_container_access"
         or authority.get("authorized_for_fit_execution") is not True
         or authority.get("authorized_for_candidate_selection") is not False
         or authority.get("authorized_for_scored_experiments") is not False
@@ -619,12 +651,15 @@ class _CollectedFitTransaction:
 
     __slots__ = (
         "bank", "closure", "ordered_document_ids_sha256", "row_file_sha256",
+        "checkpoint_weights_sha256_before", "checkpoint_weights_sha256_after",
         "claim_nonce", "authority_sha256",
     )
 
     def __init__(
         self, seal: object, *, bank: FitHeadMeanBank, closure: FitMeanOwnerClosure,
         ordered_document_ids_sha256: str, row_file_sha256: str,
+        checkpoint_weights_sha256_before: str,
+        checkpoint_weights_sha256_after: str,
         claim: RunClaim, authority_sha256: str,
     ) -> None:
         if seal is not _COLLECTION_SEAL:
@@ -633,6 +668,8 @@ class _CollectedFitTransaction:
         self.closure = closure
         self.ordered_document_ids_sha256 = ordered_document_ids_sha256
         self.row_file_sha256 = row_file_sha256
+        self.checkpoint_weights_sha256_before = checkpoint_weights_sha256_before
+        self.checkpoint_weights_sha256_after = checkpoint_weights_sha256_after
         self.claim_nonce = claim.nonce
         self.authority_sha256 = authority_sha256
 
@@ -645,47 +682,37 @@ def _load_fit_role_inputs(
     require_claim(claim)
     validate_execution_authority(authority)
     binding = authority["row_binding"]
-    path = Path(binding["row_path"])
+    path = Path(binding["input_path"])
     before = file_sha256(path)
-    if before != binding["row_file_sha256"]:
-        raise RuntimeError("fit-role row file differs from authority before load")
+    if before != binding["input_file_sha256"]:
+        raise RuntimeError("fit-input projection differs from authority before load")
     payload = torch.load(path, map_location="cpu", weights_only=True)
     after = file_sha256(path)
     if before != after:
-        raise RuntimeError("fit-role row file changed during load")
-    if not isinstance(payload, dict):
-        raise RuntimeError("fit-role row payload is not an object")
-    # Deliberately access only these two fit-authorized fields.  Copy labels, masks,
-    # synthetic rows, and token-frequency fields may coexist in the container but are
-    # neither indexed nor returned by this transaction.
-    rows = payload.get("rows")
-    records = payload.get("records")
+        raise RuntimeError("fit-input projection changed during load")
+    if not isinstance(payload, dict) or set(payload) != set(binding["payload_fields"]):
+        raise RuntimeError("fit-input projection is not an input-only object")
+    tokens = payload.get("tokens")
+    document_ids = payload.get("ordered_document_ids")
     if (
-        not torch.is_tensor(rows)
-        or rows.device.type != "cpu"
-        or rows.dtype != torch.long
-        or tuple(rows.shape) != (192, 257)
-        or tensor_sha256(rows) != binding["rows_tensor_sha256"]
-        or not isinstance(records, list)
-        or len(records) != 192
+        payload.get("schema") != "terminal_copy_fit_inputs_v1_payload"
+        or payload.get("authority_sha256") != binding["projection_authority_sha256"]
+        or not torch.is_tensor(tokens)
+        or tokens.device.type != "cpu"
+        or tokens.dtype != torch.long
+        or tuple(tokens.shape) != (192, 256)
+        or tensor_sha256(tokens) != binding["tokens_sha256"]
+        or not isinstance(document_ids, tuple)
+        or len(document_ids) != 192
     ):
-        raise RuntimeError("fit-role row tensor or record topology changed")
-    document_ids: list[str] = []
-    for index, record in enumerate(records):
-        if (
-            not isinstance(record, Mapping)
-            or record.get("role") != "fit_natural"
-            or record.get("role_row_index") != index
-            or not isinstance(record.get("document_id"), str)
-            or not record["document_id"]
-        ):
-            raise RuntimeError("fit-role ordered document provenance changed")
-        document_ids.append(record["document_id"])
-    if len(set(document_ids)) != 192:
+        raise RuntimeError("fit-input tensor or document topology changed")
+    if len(set(document_ids)) != 192 or any(not isinstance(x, str) or not x for x in document_ids):
         raise RuntimeError("fit-role documents are not unique")
-    documents = tuple(document_ids)
-    tokens = rows[:, :256].clone()
-    del payload, rows, records
+    documents = document_ids
+    if _document_digest(documents) != binding["ordered_document_ids_sha256"]:
+        raise RuntimeError("fit-input ordered document digest changed")
+    tokens = tokens.clone()
+    del payload
     return FitRoleInputs(
         tokens=tokens,
         ordered_document_ids=documents,
@@ -766,9 +793,13 @@ def _publish_fit_mean_bundle(
     closure_payload = validate_closure(collected.closure)
     ordered_document_ids_sha256 = collected.ordered_document_ids_sha256
     row_file_sha256 = collected.row_file_sha256
+    weights_before = collected.checkpoint_weights_sha256_before
+    weights_after = collected.checkpoint_weights_sha256_after
     if (
         bank.ordered_document_ids_sha256 != ordered_document_ids_sha256
-        or row_file_sha256 != authority["row_binding"]["row_file_sha256"]
+        or row_file_sha256 != authority["row_binding"]["input_file_sha256"]
+        or weights_before != facade.WEIGHTS_SHA256
+        or weights_after != facade.WEIGHTS_SHA256
     ):
         raise RuntimeError("fit-mean bank is not joined to authorized ordered documents")
     payload = _bank_payload(bank, authority_sha)
@@ -783,6 +814,8 @@ def _publish_fit_mean_bundle(
         "runtime_means_sha256": replay.runtime_means_sha256,
         "ordered_document_ids_sha256": ordered_document_ids_sha256,
         "row_file_sha256": row_file_sha256,
+        "checkpoint_weights_sha256_before_load": weights_before,
+        "checkpoint_weights_sha256_after_load": weights_after,
         "owner_closure": closure_payload,
         "outcome_access": {
             "unembedding_calls": 0, "loss_or_logit_reads": 0,
@@ -831,6 +864,8 @@ def _publish_fit_mean_bundle(
         "runtime_means_sha256": replay.runtime_means_sha256,
         "ordered_document_ids_sha256": ordered_document_ids_sha256,
         "row_file_sha256": row_file_sha256,
+        "checkpoint_weights_sha256_before_load": weights_before,
+        "checkpoint_weights_sha256_after_load": weights_after,
         "document_count": replay.document_count,
         "selection_or_outcome_access": False,
         "fit_means_prerequisite_complete": True,
@@ -883,10 +918,19 @@ def execute_fit_mean_collection(
         require_claim(claim)
         protected_before = protected_snapshot()
         inputs = _load_fit_role_inputs(authority, claim)
+        weights_path = facade.DEFAULT_SNAPSHOT / "pytorch_model.bin"
+        weights_before = file_sha256(weights_path)
+        if weights_before != facade.WEIGHTS_SHA256:
+            raise RuntimeError("checkpoint weights changed immediately before load")
         model, loaded = facade.load_bilin18(
             device=device, dtype=torch.bfloat16, verify_weights_sha256=False,
         )
-        if asdict(loaded) != authority["checkpoint"]:
+        weights_after = file_sha256(weights_path)
+        if (
+            weights_after != weights_before
+            or weights_after != facade.WEIGHTS_SHA256
+            or asdict(loaded) != authority["checkpoint"]
+        ):
             raise RuntimeError("loaded checkpoint differs from fit-mean authority")
         means = {
             layer: torch.zeros(
@@ -927,6 +971,8 @@ def execute_fit_mean_collection(
             closure=closure,
             ordered_document_ids_sha256=inputs.ordered_document_ids_sha256,
             row_file_sha256=inputs.row_file_sha256,
+            checkpoint_weights_sha256_before=weights_before,
+            checkpoint_weights_sha256_after=weights_after,
             claim=claim,
             authority_sha256=authority["authority_sha256"],
         )

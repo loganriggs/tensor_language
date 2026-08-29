@@ -27,6 +27,54 @@ def _write_audit(path):
     }))
 
 
+def _install_synthetic_fit_input(monkeypatch, tmp_path):
+    tokens = torch.arange(192 * 256, dtype=torch.long).reshape(192, 256)
+    documents = tuple(f"doc-{index}" for index in range(192))
+    authority_body = {
+        "status": "frozen_before_any_E4_fit_model_forward_after_disclosed_parent_container_access",
+        "parent_binding": {"receipt_sha256": life.ROW_RECEIPT_SHA256},
+    }
+    projection_authority = {
+        **authority_body,
+        "authority_sha256": life.logical_sha256(authority_body),
+    }
+    projection_authority_path = tmp_path / "fit_input_authority.json"
+    projection_authority_path.write_text(json.dumps(projection_authority))
+    input_path = tmp_path / "fit_inputs.pt"
+    payload = {
+        "schema": "terminal_copy_fit_inputs_v1_payload",
+        "authority_sha256": projection_authority["authority_sha256"],
+        "tokens": tokens,
+        "ordered_document_ids": documents,
+        "tokens_sha256": life.tensor_sha256(tokens),
+        "ordered_document_ids_sha256": life._document_digest(documents),
+    }
+    torch.save(payload, input_path)
+    projection_receipt = {
+        "status": "complete_receipt_last_input_only_no_model_access",
+        "parent_row_receipt_sha256": life.ROW_RECEIPT_SHA256,
+        "erratum_sha256": life.file_sha256(life.FIT_INPUT_ERRATUM),
+        "authority_file_sha256": life.file_sha256(projection_authority_path),
+        "authority_sha256": projection_authority["authority_sha256"],
+        "tokens_shape": [192, 256],
+        "payload_fields": sorted(payload),
+        "label_copy_cell_synthetic_fields_absent": True,
+        "model_forward_calls": 0,
+        "scientific_outcomes_read": False,
+        "authorized_for_fit_mean_input_only": True,
+        "authorized_for_candidate_selection": False,
+        "inputs_path": str(input_path),
+        "inputs_file_sha256": life.file_sha256(input_path),
+        "tokens_sha256": payload["tokens_sha256"],
+        "ordered_document_ids_sha256": payload["ordered_document_ids_sha256"],
+    }
+    projection_receipt_path = tmp_path / "fit_input_receipt.json"
+    projection_receipt_path.write_text(json.dumps(projection_receipt))
+    monkeypatch.setattr(life, "FIT_INPUT_AUTHORITY", projection_authority_path)
+    monkeypatch.setattr(life, "FIT_INPUT_RECEIPT", projection_receipt_path)
+    return payload
+
+
 def _bank(sequence_length=3, width=4):
     master = {
         layer: torch.arange(
@@ -68,14 +116,15 @@ def _closure(batches=2):
     )
 
 
-def test_row_binding_is_fit_only_and_never_loads_tensor(monkeypatch):
+def test_row_binding_is_fit_only_and_never_loads_tensor(monkeypatch, tmp_path):
+    _install_synthetic_fit_input(monkeypatch, tmp_path)
     monkeypatch.setattr(life.torch, "load", lambda *args, **kwargs: (_ for _ in ()).throw(
         AssertionError("row tensor opened while binding fit authority")
     ))
     binding = life.row_binding()
     assert binding["row_count"] == 192
     assert binding["authorized_use"] == "fit_per_position_head_write_means_only"
-    assert binding["labels_or_copy_cells_authorized"] is False
+    assert binding["labels_copy_cells_synthetic_present"] is False
 
 
 def test_adapter_binding_is_engineering_only_and_exact_checkpoint():
@@ -151,7 +200,7 @@ def test_execution_authority_replays_every_parent(monkeypatch, tmp_path):
     }.items()}
     body = {
         "schema": "terminal_copy_fit_means_v1_authority",
-        "status": "frozen_before_any_fit_row_tensor_or_model_load",
+        "status": "frozen_before_any_fit_model_forward_after_disclosed_parent_container_access",
         "source_closure": {"closed": True},
         "row_binding": life.row_binding(),
         "adapter_binding": life.adapter_binding(),
@@ -228,7 +277,8 @@ def test_execution_lock_is_exclusive_and_detects_replacement(tmp_path):
         life.release_claim(claim, lock)
 
 
-def test_fit_input_loader_joins_real_row_bytes_to_document_order(monkeypatch, tmp_path):
+def test_fit_input_loader_joins_synthetic_input_only_bytes_to_document_order(monkeypatch, tmp_path):
+    _install_synthetic_fit_input(monkeypatch, tmp_path)
     lock = tmp_path / "lock"
     monkeypatch.setattr(life, "LOCK", lock)
     monkeypatch.setattr(life, "validate_execution_authority", lambda value: None)
@@ -244,7 +294,7 @@ def test_fit_input_loader_joins_real_row_bytes_to_document_order(monkeypatch, tm
     assert loaded.ordered_document_ids_sha256 == life._document_digest(
         loaded.ordered_document_ids
     )
-    assert loaded.row_file_sha256 == binding["row_file_sha256"]
+    assert loaded.row_file_sha256 == binding["input_file_sha256"]
 
 
 def test_collection_capability_requires_private_seal():
@@ -253,6 +303,8 @@ def test_collection_capability_requires_private_seal():
             object(), bank=_bank(), closure=_closure(),
             ordered_document_ids_sha256="d" * 64,
             row_file_sha256="f" * 64,
+            checkpoint_weights_sha256_before="w" * 64,
+            checkpoint_weights_sha256_after="w" * 64,
             claim=life.RunClaim(-1, -1, "n"), authority_sha256="a" * 64,
         )
 
