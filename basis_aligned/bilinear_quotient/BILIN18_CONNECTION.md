@@ -50366,9 +50366,15 @@ is LESSONS 59's family — the reporting block is the part you do not re-read �
 orders `full > 1024`; top-1 orders `1024 > full`. Every other rung agrees; the swap is the last one.
 
 > **Rank 1024 dominates full rank on top-1: 641.4M reals against 673.5M — cheaper — and higher top-1 on
-> all three roles (+0.024, +0.049, +0.027pp).** So on the top-1 frontier, full@16,110 is dominated too —
-> and since §1853 already dominated full@5,419 and §1854 full@9,054, **no full-rank build is on the top-1
-> Pareto frontier at any coverage measured.** Attaining the CE ceiling exactly *costs* top-1.
+> all three roles (+0.024, +0.049, +0.027pp).** So on the top-1 frontier, full@16,110 is dominated.
+>
+> **THE SENTENCE THAT FOLLOWED IS WITHDRAWN BY §1858.** I wrote that "no full-rank build is on the top-1
+> Pareto frontier at any coverage measured", carrying §1853's and §1854's CE dominations across to
+> top-1 without checking them there. §1858 checked: **rank-256@16,110 does NOT dominate full@5,419 in
+> top-1** — better on skip11000, *worse* on skip7000 and skip1200 — and at 5,419 types nothing cheaper
+> than full rank beats it on all three roles. **Full rank at 5,419 is on the top-1 frontier.** The
+> claim above holds only at 16,110, where it was measured. It was also repeated on the board at
+> 2026-08-29T00:20Z and is corrected there.
 >
 > §1853-§1855's dominations are unaffected — they are CE claims and CE is where they were measured — but
 > **their headline needs the metric named**, and the registry entry needs the top-1 result beside it.
@@ -50441,3 +50447,49 @@ flagged 35 of 341 pairs, most of them fine.
 the run; the audit is about where those bars were written down, not what they were. The scripts carrying
 stale docstrings are listed above so anyone re-reading them knows to trust the `print` lines and the
 ledger section over the header comment.
+
+## §1858 — the CE/top-1 swap does NOT reproduce at the original coverage, and §1856's generalisation is withdrawn
+
+`ops/frontier_top1_5419.py`, 741.5s, **DISCOVERY ONLY**, §1856's open question.
+**pred_a False | pred_b False | pred_c False | pred_d True.**
+
+```
+  5,419 covered types (§1834's set), cost / CE / top-1 on the three roles
+    rank  256    65.95M   6.06004   13.2270%  13.9703%  13.3572%
+    rank  384    96.23M   6.03750   13.3328%  14.1005%  13.4115%
+    rank  512   126.51M   6.02560   13.5444%  14.3175%  13.5905%
+    rank 1024   247.63M   6.01237   13.5824%  14.2605%  13.5796%
+    rank full   230.09M   6.01167   13.5525%  14.2497%  13.6447%
+```
+
+**pred_a FAILED: the swap is 2 of 3 roles here, not 3 of 3.** Rank 1024 beats full rank on top-1 at
+skip7000 (+11 tokens) and skip11000 (+4), and **loses** at skip1200 (−24). At 16,110 the sign was
+consistent (+9, +18, +10); at 5,419 it is not. **pred_b FAILED**: nothing cheaper than full rank beats it
+on all three roles — and rank 1024 is not even cheaper here, because at this coverage
+1024 × 6,571 exceeds 5,419 × 1,152, so the rank-1024 table costs **247.6M against the full table's
+230.1M**. **pred_c FAILED**: top-1 is non-monotone before the last step on two roles.
+
+> **§1856's generalisation is withdrawn, and I have corrected it in place and on the board.** I wrote
+> that "no full-rank build is on the top-1 Pareto frontier at any coverage measured", carrying §1853's
+> and §1854's **CE** dominations across to **top-1** without measuring them there. Checked directly:
+> rank-256@16,110 versus full@5,419 in top-1 is **13.5064 / 14.3283 / 13.6176** against **13.5525 /
+> 14.2497 / 13.6447** — better on one role, worse on two. **Full rank at 5,419 is on the top-1
+> frontier.** §1856's domination holds at 16,110, where it was measured, and nowhere else.
+
+**The honest reading of the whole top-1 exercise.** Every difference at the top of the ladder is **4 to
+24 tokens of ~36,800 scored positions**. At 16,110 the sign was consistent across three roles, which is
+why §1856 reported it; at 5,419 it is not. **The top end of the top-1 frontier is not resolved at this
+eval size**, and the right conclusion is about the instrument rather than the model: 192 rows cannot
+separate builds whose top-1 differs by a tenth of a percentage point. The **CE** frontier is unaffected —
+its differences at the same points are 0.0007 to 0.083 nats on the same positions, far above the same
+noise — and §1852-§1855 stand as measured.
+
+**Controls (pred_d).** Rank 64 reproduces §1849's published CE above the ceiling at this covered set
+(+0.22327 / +0.23252 / +0.19774) exactly; full-rank attainment is exact on all three roles for a fourth
+independent time; coverage is 5,419; the ceiling is finite and above live.
+
+**A cost-table defect, caught and bounded.** I hand-typed the cost column and three of eight entries were
+wrong (rank 384, 512 and 1024, by 0.5 to 3.2M reals). The run had started before I noticed. **No
+predicate outcome changes** — every wrong value preserves its side of the `< COSTM['full']` comparison
+that pred_b uses — and the corrected figures are quoted above, computed from §1754's model. The script on
+disk now computes the column instead of carrying a typed one, which is what it should have done first.

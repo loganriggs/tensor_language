@@ -1,0 +1,46 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+FRONTIER IN TOP-1, ORIGINAL COVERAGE | 5,419 covered types, eight ranks | settled program (context-free tables + output-NN fallback + rank-64 map) | DISCOVERY ONLY
+
+  per-site norm calibration (live mean / row mean), measured on the LIVE model:
+    attn L0:  2.71 L1:  2.49 L2:  2.26 L3:  2.13 L4:  4.37 L5:  1.00 L6:  1.02 L7:  3.61 L8:  3.59 L9:  4.83 L10:  3.80 L11:  4.49 L12:  6.72 L13:  6.39 L14:  7.07 L15:  6.33 L16:  5.70 L17:  5.59
+    mlp  L0:  0.88 L1:  0.42 L2:  0.61 L3:  0.49 L4:  0.10 L5:  0.39 L6:  0.52 L7:  1.66 L8:  2.04 L9:  1.32 L10:  2.33 L11:  1.05 L12:  1.91 L13:  1.26 L14:  1.66 L15:  1.19 L16:  1.13 L17:  1.21
+
+  arms  (47s)
+  all_substituted      skip7000 13.55%  skip11000 14.25%  skip1200 13.64%
+  all_sub_scaled       skip7000 12.16%  skip11000 12.81%  skip1200 12.10%
+  live_model           skip7000 39.32%  skip11000 42.35%  skip1200 38.88%
+
+  arms  (110s)
+  all_substituted        skip7000 13.55%  skip11000 14.25%  skip1200 13.64%
+  live_model             skip7000 39.32%  skip11000 42.35%  skip1200 38.88%
+
+  arms  (124s)
+  B0_raw                 skip7000 23.20%  skip11000 25.38%  skip1200 23.26%
+  B0_seq                 skip7000 30.25%  skip11000 32.59%  skip1200 29.11%
+
+  coverage 5419 types (1.00x §1834); ceiling CE skip7000 6.03465  skip11000 5.97900  skip1200 5.96423 (145s)
+    rank full  covered skip7000  6.03465 (+-0.00000)  skip11000  5.97900 (+-0.00000)  skip1200  5.96423 (+-0.00000)   (148s)
+    rank 1024  covered skip7000  6.03534 (+0.00069)  skip11000  5.97999 (+0.00099)  skip1200  5.96447 (+0.00024)   (238s)
+    rank 512   covered skip7000  6.05361 (+0.01895)  skip11000  5.99729 (+0.01829)  skip1200  5.97795 (+0.01372)   (330s)
+    rank 384   covered skip7000  6.06994 (+0.03529)  skip11000  6.01348 (+0.03448)  skip1200  5.99087 (+0.02664)   (421s)
+    rank 256   covered skip7000  6.10045 (+0.06580)  skip11000  6.04503 (+0.06603)  skip1200  6.02022 (+0.05599)   (510s)
+    rank 64    covered skip7000  6.25792 (+0.22327)  skip11000  6.21152 (+0.23252)  skip1200  6.16197 (+0.19774)   (592s)
+    rank 16    covered skip7000  6.45531 (+0.42066)  skip11000  6.42299 (+0.44399)  skip1200  6.35086 (+0.38663)   (668s)
+    rank 4     covered skip7000  6.73858 (+0.70393)  skip11000  6.72034 (+0.74134)  skip1200  6.64120 (+0.67697)   (742s)
+
+  LADDER at 5419 types -- cost, CE, top-1:
+    rank 4         6.34M  skip7000 CE 6.62422 top1 10.7530%  skip11000 CE 6.63689 top1 11.5641%  skip1200 CE 6.59044 top1 10.9484%
+    rank 16        9.18M  skip7000 CE 6.35916 top1 11.6808%  skip11000 CE 6.35149 top1 12.4485%  skip1200 CE 6.32237 top1 12.0985%
+    rank 64       20.53M  skip7000 CE 6.17330 top1 12.8798%  skip11000 CE 6.15261 top1 13.4874%  skip1200 CE 6.14463 top1 12.8852%
+    rank 256      65.95M  skip7000 CE 6.06004 top1 13.2270%  skip11000 CE 6.03311 top1 13.9703%  skip1200 CE 6.04238 top1 13.3572%
+    rank 384      96.77M  skip7000 CE 6.03750 top1 13.3328%  skip11000 CE 6.00977 top1 14.1005%  skip1200 CE 6.02071 top1 13.4115%
+    rank 512     127.58M  skip7000 CE 6.02560 top1 13.5444%  skip11000 CE 5.99807 top1 14.3175%  skip1200 CE 6.01146 top1 13.5905%
+    rank 1024    250.85M  skip7000 CE 6.01237 top1 13.5824%  skip11000 CE 5.98570 top1 14.2605%  skip1200 CE 6.00206 top1 13.5796%
+    rank full    230.09M  skip7000 CE 6.01167 top1 13.5525%  skip11000 CE 5.98477 top1 14.2497%  skip1200 CE 6.00165 top1 13.6447%
+
+  the CE/top-1 SWAP reproduces at 5,419 types -> False  skip7000 1024 13.5824% vs full 13.5525%  skip11000 1024 14.2605% vs full 14.2497%  skip1200 1024 13.5796% vs full 13.6447%
+  and FULL RANK is dominated in top-1 here too -> False
+  and top-1 is MONOTONE up to rank 1024 -> False
+  rank 64 reproduces §1849, coverage 5419, attainment True -> control True
+
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/frontier_top1_5419_results.json (741.5s)
