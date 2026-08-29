@@ -7,13 +7,18 @@ ERROR ALIGNMENT 2x2 | buckets ((0, 0), (1, 4), (5, 24), (25, 124), (125, 1000000
     skip11000  covered enrichment  7.29x  (n 27497)
     skip1200   covered enrichment  7.64x  (n 13973)
     per-site live/table ratios: min 1.3x max 156.4x across 36 sites
-Traceback (most recent call last):
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/error_alignment_2x2.py", line 413, in <module>
-    main()
-  File "/venv/main/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/error_alignment_2x2.py", line 343, in main
-    'cells': {k4: c[f'cell_{k4}'] for k4 in
-                  ~^^^^^^^^^^^^^^
-KeyError: 'cell_both_right'
+    g1.00    skip7000 CE 6.01167 ( 7.19x)  skip11000 CE 5.98477 ( 7.29x)  skip1200 CE 6.00165 ( 7.64x)   [1/2]
+    PERSITE  skip7000 CE 12.88014 ( 1.89x)  skip11000 CE 12.93864 ( 1.84x)  skip1200 CE 12.80992 ( 1.76x)   [2/2]
+
+  THE 2x2 on covered scored positions, deployed build:
+    skip7000   both_right   3255 (11.6%)  prog_only    662 ( 2.4%)  model_only   7201 (25.7%)  both_wrong  16856 (60.3%)
+    skip11000  both_right   3425 (12.5%)  prog_only    645 ( 2.3%)  model_only   7570 (27.5%)  both_wrong  15857 (57.7%)
+    skip1200   both_right   1630 (11.7%)  prog_only    375 ( 2.7%)  model_only   3481 (24.9%)  both_wrong   8487 (60.7%)
+
+  THEY SHARE THEIR MISTAKES (both-wrong agreement >= 3.0x null) -> True  skip7000 agree 22.76% null 3.73% = 6.10x (n 16856)  skip11000 agree 20.75% null 3.33% = 6.24x (n 15857)  skip1200 agree 24.06% null 3.70% = 6.50x (n 8487)
+  and PROGRAM-ONLY-RIGHT is >=10% of its correct predictions -> True  skip7000 662/3917 = 16.9%  skip11000 645/4070 = 15.8%  skip1200 375/2005 = 18.7%
+  and BOTH-WRONG is the largest cell -> True  skip7000 both_wrong  skip11000 both_wrong  skip1200 both_wrong
+  cells partition, coverage 5419, §1888 and §1858 reproduce -> control True  skip7000 7.19x / 6.01167  skip11000 7.29x / 5.98477  skip1200 7.64x / 6.00165
+
+pred_a True | pred_b True | pred_c True | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/error_alignment_2x2_results.json (165.2s)

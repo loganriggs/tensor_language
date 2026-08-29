@@ -52443,3 +52443,52 @@ the model is fifth of six by CE.** The program's errors and the model's are not 
 81% overlap reads, and the disagreement is worth 0.17 nats between x0.50 and x0.80. What the program is
 doing when it agrees with the model but is wrong — the ~19% of its correct predictions the model misses,
 and whatever the reverse case is — has never been looked at directly.
+
+## §1895 — they are wrong IDENTICALLY at 6.1-6.5x chance: the program reproduces the model's mistakes
+
+`ops/error_alignment_2x2.py`, 165.2s, **DISCOVERY ONLY**, rung 3 — the thread §1893 and §1894 both ended
+on. **pred_a True | pred_b True | pred_c True | pred_d True.** All four.
+
+```
+  covered scored positions, deployed build
+                  both right     program only    model only      both wrong
+    skip7000     3255 (11.6%)     662 (2.4%)    7201 (25.7%)   16856 (60.3%)
+    skip11000    3425 (12.5%)     645 (2.3%)    7570 (27.5%)   15857 (57.7%)
+    skip1200     1630 (11.7%)     375 (2.7%)    3481 (24.9%)    8487 (60.7%)
+```
+
+> **pred_a PASSED and it is the sharpest form of the claim this thread can make. Restricted to the
+> ~60% of positions where BOTH are wrong, the program's top-1 matches the model's at 22.76 / 20.75 /
+> 24.06% against a permutation null of 3.73 / 3.33 / 3.70% — 6.10 / 6.24 / 6.50x.** Being wrong in the
+> same places is cheap; being wrong on the **same specific token**, six times above a marginal-matched
+> null, on 8,487-16,856 positions per role, is not. **The program does not merely fail where the model
+> fails — it makes the model's mistakes.**
+>
+> This closes the alternative §1885 could not exclude and §1893/§1894 revived: that the 5-8x aggregate
+> tracking is carried by the easy positions where any two competent predictors agree. **It is not.** The
+> both-wrong cell alone, which contains no "easy" positions by construction, reproduces the aggregate
+> enrichment almost exactly (6.1-6.5x against the covered arm's 7.19 / 7.29 / 7.64x).
+
+**pred_b PASSED**: program-only-right is **16.9 / 15.8 / 18.7%** of the program's correct predictions —
+close to §1884's 19% on a different population, and confirming that reading on the whole covered arm.
+**One in six of the program's correct answers are positions the model gets wrong.**
+
+**pred_c PASSED**: both-wrong dominates at 57.7-60.7%, as the marginals require. **pred_d PASSED**: the
+cells partition every covered scored position exactly, and the build reproduced **both** §1888's
+enrichment (7.19 / 7.29 / 7.64x) and §1858's CE (6.01167 / 5.98477 / 6.00165) — the first section to
+check both anchors in one run, and a twentieth known-answer check.
+
+> **What the whole §1884-§1895 line now says.** The compiled program is **not a subset of the model and
+> not an independent predictor**. It reproduces the model's specific outputs — right ones and wrong ones
+> alike — at 6-8x chance, carried by the table lookups (§1887, 2.3x the fallback's rate) and by late
+> attention (§1891, all 18 MLP restorations being provable no-ops). It is simultaneously right on a set
+> the model misses one time in six. And §1893/§1894's finding sits inside this rather than against it:
+> **scaling the tables down to x0.50 buys more agreement (8.27x) while costing accuracy (CE 6.18 against
+> 6.01), because more agreement means more faithfully reproduced mistakes.** The two instruments were
+> never in conflict; agreement measures fidelity to the model, and the model is wrong 62-75% of the time
+> at these positions.
+
+**Open.** Nothing in this line is now unexplained. The natural continuation is the one §1891 left: table
+rank is currently spent uniformly across 36 sites, of which 18 are behaviourally inert and the live ones
+are late attention — whether an uneven per-site rank allocation beats the frontier of §1853-§1882 is
+unmeasured, and it is the first cost question the mechanism results actually inform.
