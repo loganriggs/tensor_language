@@ -1,0 +1,38 @@
+{
+  "schema": "block3_native_gate_subset_v1_fit_authority",
+  "status": "frozen_before_any_gate_selection_or_decoder_fit",
+  "source_closure": {
+    "commit": "3c1f8be82cb36f43fa6ec1af055b1b7831e205f1",
+    "sha256s": {
+      "basis_aligned/polynomial_causal/fit_block3_native_gate_subset_v1.py": "000ea57967d73e2f64856bc00cf0794ded6e8b2495ffc4516083a8c8fb96bd9d",
+      "basis_aligned/polynomial_causal/test_fit_block3_native_gate_subset_v1.py": "a636014fa7292428a119a5f8f25f2228931f5261551675f3d076c96da5014943",
+      "basis_aligned/polynomial_causal/collect_block3_native_gate_fit_v1.py": "25af32eb9cc57c34a7cf7aff7da43aa30d69a3d00941f10d6d2f7a94027ccafc",
+      "basis_aligned/polynomial_causal/test_collect_block3_native_gate_fit_v1.py": "a050ef7c71d5cbd40d0e1299995ea04c876a69da44e47acc104e19d5befec155",
+      "basis_aligned/polynomial_causal/native_gate_subset.py": "c8a11aaeb8cf71387ff874a5879290632a3a530e50b37233de883272db1b5be0",
+      "basis_aligned/polynomial_causal/test_native_gate_subset.py": "e419182da03b619ab5dd99b676a698e79fe1dba40c7811399675d7a7bc657c15",
+      "basis_aligned/polynomial_causal/grouped_block_coefficient_screen.py": "3851dadd90c5d99aee95d41d18777921cda64c7405ddeb9375660b03688fe109",
+      "basis_aligned/polynomial_causal/BLOCK3_NATIVE_GATE_SUBSET_V1_PREREGISTRATION.md": "2db871d7f9bc0df6379c36ac888734f975719054a14d3faa9039b003ee963336",
+      "basis_aligned/polynomial_causal/bilin18_observed_model_facade.py": "b62947f772c807259890a9d09dfcbe5e91ad339a0bffa867ab99177fde4c728c",
+      "jacclust/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "jacclust/tt_model.py": "49ecdbd6c060ff5b3e57f3134d87ba32841390c891c42e6ae23b71d8627612b2"
+    },
+    "sha256": "a5cc0d6774f11a70a6d313d53b9342f743bf999fcf9a3eb64c048fe56b4c3bd7"
+  },
+  "collector_authority_sha256": "426d53e1cc4cc3d83dca394f855013ab778453ac457a3601e5ac8168708875af",
+  "collector_input_file_sha256s": {
+    "basis_aligned/polynomial_causal/block3_native_gate_fit_v1_authority.json": "cd83bbcd5dbf466a7ab57617a2b28ef2f62943c2ef011e1d71821a4547f8351a",
+    "basis_aligned/polynomial_causal/block3_native_gate_fit_v1_payload.pt": "8b25774257dd66f34ff6fb0c21fb0613efb12ce2773a0f3dcc8082343ceebdd9",
+    "basis_aligned/polynomial_causal/block3_native_gate_fit_v1_receipt.json": "3facf67a90beea923a666f29a0770080d2277721e4443df444b6a416b186435e"
+  },
+  "checkpoint_weights_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+  "budgets": [
+    256,
+    512
+  ],
+  "omp_batch": 16,
+  "ridge": 1e-06,
+  "random_seed": 2026082907,
+  "authorized_for_evaluation": false,
+  "authorized_for_global_ledger_credit": false,
+  "fit_authority_sha256": "3b7ab6162f29898b3fb14842f28889c7434eef4893d1214c2b03a51a895dd737"
+}

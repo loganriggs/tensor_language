@@ -1,0 +1,82 @@
+{
+  "schema": "block3_native_gate_fit_v1_authority",
+  "status": "frozen_before_any_block3_fit_tensor_outcome",
+  "authorized_for_evaluation": false,
+  "authorized_for_global_ledger_credit": false,
+  "source_closure": {
+    "commit": "3c1f8be82cb36f43fa6ec1af055b1b7831e205f1",
+    "paths": {
+      "basis_aligned/polynomial_causal/BLOCK3_NATIVE_GATE_SUBSET_V1_PREREGISTRATION.md": "2db871d7f9bc0df6379c36ac888734f975719054a14d3faa9039b003ee963336",
+      "basis_aligned/polynomial_causal/collect_block3_native_gate_fit_v1.py": "25af32eb9cc57c34a7cf7aff7da43aa30d69a3d00941f10d6d2f7a94027ccafc",
+      "basis_aligned/polynomial_causal/test_collect_block3_native_gate_fit_v1.py": "a050ef7c71d5cbd40d0e1299995ea04c876a69da44e47acc104e19d5befec155",
+      "basis_aligned/polynomial_causal/fit_block3_native_gate_subset_v1.py": "000ea57967d73e2f64856bc00cf0794ded6e8b2495ffc4516083a8c8fb96bd9d",
+      "basis_aligned/polynomial_causal/test_fit_block3_native_gate_subset_v1.py": "a636014fa7292428a119a5f8f25f2228931f5261551675f3d076c96da5014943",
+      "basis_aligned/polynomial_causal/native_gate_subset.py": "c8a11aaeb8cf71387ff874a5879290632a3a530e50b37233de883272db1b5be0",
+      "basis_aligned/polynomial_causal/test_native_gate_subset.py": "e419182da03b619ab5dd99b676a698e79fe1dba40c7811399675d7a7bc657c15",
+      "basis_aligned/polynomial_causal/grouped_block_coefficient_screen.py": "3851dadd90c5d99aee95d41d18777921cda64c7405ddeb9375660b03688fe109",
+      "basis_aligned/polynomial_causal/test_grouped_block_coefficient_screen.py": "89bcd7de944d89350d8767181b0d370d165a7ca738dbb601742422bc8541dc53",
+      "basis_aligned/polynomial_causal/bilin18_observed_model_facade.py": "b62947f772c807259890a9d09dfcbe5e91ad339a0bffa867ab99177fde4c728c",
+      "jacclust/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "jacclust/tt_model.py": "49ecdbd6c060ff5b3e57f3134d87ba32841390c891c42e6ae23b71d8627612b2"
+    },
+    "sha256": "43b6912cdf73615728e0ec83bf80f9e2c0b733b775421fe12ba23a03b0a59f3a"
+  },
+  "preregistration_sha256": "2db871d7f9bc0df6379c36ac888734f975719054a14d3faa9039b003ee963336",
+  "fit_rows": {
+    "path": "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache/fineweb_n480_skip80.pt",
+    "file_sha256": "2acf75382486988a1e124a1a575ef3230af43aa1b1507d80dee02eefc7bba496",
+    "raw_sha256": "343d92ce07f78572e3233120d3361814c63f69fa76e97e58b62d1d6c8f24497f",
+    "shape": [
+      480,
+      513
+    ],
+    "provenance": {
+      "receipt_path": "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache/fineweb_oracle_v2_receipt.json",
+      "receipt_sha256": "815b21618c2e477e8cbda17ce94bf01862017a9936e4ee03acaa6cd7256cba16",
+      "authority": "pinned_local_ordered_manifest",
+      "ordered_manifest_sha256": "ba5e92b0d157f47cc6f8656eb1c37e46b7aac6957be8be68c1596736b98e6f90",
+      "entry_provenance_sha256s": {
+        "n480_skip80": "c146e3d5974ecdf7c321ca7887af00b6321a8005a0b7e86bf2f94616cfa76793",
+        "n192_skip7000": "d280d42c9829313750e22bf88606ce7741146cb82f2be3bf472649a8a3e5445e",
+        "n192_skip11000": "642631c3166f5ae8a50eea9ea0cd0781685cf35dc38d6a4301e35308e47639d5"
+      },
+      "document_counts": {
+        "n480_skip80": 209,
+        "n192_skip7000": 79,
+        "n192_skip11000": 105
+      },
+      "pairwise_document_intersections": {
+        "fit_validation": 0,
+        "fit_replication": 0,
+        "validation_replication": 0
+      },
+      "disjointness_sha256": "5ba53ea51bde72ca9dbeb670b023c402c7fc98fceb8ea5046f831bfed9951ae2"
+    }
+  },
+  "checkpoint": {
+    "revision": "ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240",
+    "snapshot": "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240",
+    "config_sha256": "428042bfd807ba36f8b4326395440fbbebe52cd3d040212e6fef14a4fdf2d83c",
+    "weights_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+    "weights_bytes": 2067738635,
+    "tokenizer_vocab": 50257,
+    "logit_vocab": 50304
+  },
+  "layer": 3,
+  "width": 1152,
+  "gates": 4608,
+  "positions_half_open": [
+    64,
+    256
+  ],
+  "fit_token_count": 92160,
+  "passes": 2,
+  "prefilter": 1024,
+  "batch_size": 8,
+  "device": "cuda",
+  "selection_after_first_pass": "stable_descending_contribution_energy_gate_index_tiebreak",
+  "fit_label_permutation": "reverse_stacked_typed_write_rows_within_each_fixed_physical_batch",
+  "retained_full_gate_matrix": false,
+  "retained_logits": false,
+  "authority_sha256": "426d53e1cc4cc3d83dca394f855013ab778453ac457a3601e5ac8168708875af"
+}
