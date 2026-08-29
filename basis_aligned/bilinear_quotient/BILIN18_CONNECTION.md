@@ -54509,7 +54509,11 @@ question. **All four predictions TRUE, and every one of them signed** (LESSON 72
 > what a fallback lever should do, since the uncovered arm is ~10% of scored positions here against ~24%
 > at 5,419.
 >
-> **pred_c PASSED and it is the sharper half: the benefit is confined to the rare end.** The 125+ bucket
+> **pred_c PASSED and it is the sharper half: the benefit is confined to the rare end.** [**CORRECTED
+> §1935**: right about where the *cost* falls, wrong about where the *benefit* is. §1935 swept all five
+> buckets at 5,419 and found **all four rarer buckets gain on 3/3 roles, 12 of 12 cells positive**, with
+> the largest gains in the 1-4 and 25-124 buckets rather than the unseen one. Only the 125+ bucket loses.
+> This section measured the two extreme buckets only and generalised from them.] The 125+ bucket
 > moves **−0.41 / −0.27 / +0.07pp** — down on two roles, flat on the third, and nowhere up by more than
 > 0.2pp. **The map is not simply a better fallback; it buys rare-target accuracy specifically, and costs a
 > little on common targets.** That is the same shape §1933 found at 5,419 (63.5 → 63.1 etc.).
@@ -54534,3 +54538,73 @@ section built after it.
 **Open.** Nothing in this line. The map-rank lever now has a CE price (§1870), a rank ceiling (§1877), a
 table-rank interaction (§1880/§1881), a withdrawn reliability claim (§1919/§1924) and a confirmed
 rare-target benefit at two coverages (§1933/§1934).
+
+## §1935 — there is no map-rank sweet spot: the rare gain is buyable and diminishing, the common cost is a toll
+
+`ops/map_rank_bucket_sweep.py`, 180.4s, **DISCOVERY ONLY**, 5,419 coverage, rung 3 — §1934's open
+question, and a practical one the cost arc had never asked. **pred_a False (1/3) | pred_b False (1/3) |
+pred_c False (1/3) | pred_d True.** Three registered predicates fail and the negative is the result.
+
+§1933 and §1934 priced §1870's fallback map on buckets at two coverages, but both were **two-point**
+comparisons — rank 64 against rank 512, nothing in between. If the tradeoff were monotone in map rank
+there could be an intermediate rank taking most of the rare-target gain for almost none of the
+common-target loss. This sweeps 64 / 128 / 256 / 512 at **full table rank** so only the map varies; the
+rank-64 arm is §1789's deployed design.
+
+```
+  kept-fraction by MAP rank, full table rank, 5,419 types      total build cost
+    map  64  230.087M    map 128  235.395M    map 256  246.012M    map 512  267.246M
+    skip7000   125+   63.5  63.1  63.4  63.1        unseen  2.7  3.2  3.9  4.0   (+0.58 +1.20 +1.33pp)
+    skip11000  125+   62.9  62.8  62.6  62.1        unseen  6.2  6.5  6.5  6.7   (+0.28 +0.25 +0.46pp)
+    skip1200   125+   63.4  62.7  63.2  62.8        unseen  3.6  3.8  3.8  4.0   (+0.26 +0.26 +0.43pp)
+```
+
+> **pred_c FAILED 1/3, and it is the question the run was launched to answer: there is no sweet spot.** I
+> registered it as *unseen ≥ +0.3pp above the deployed rank-64 arm AND 125+ no more than 0.2pp below it,
+> at rank 128 or 256, on ≥2 of 3 roles.* Only **skip7000 at rank 256** clears both (+1.20pp unseen,
+> −0.1pp on 125+). On skip11000 and skip1200 no interior rank reaches +0.3pp of unseen gain at all.
+> **The tradeoff §1933 found is unavoidable at every rank in 64–512; the choice is a genuine deployment
+> call, not a free lunch.** The docstring registered this as the more likely outcome and said so before
+> the run — that is the honest place to have written it, and it is why the predicate was a signed,
+> one-sided existence search rather than a tolerance (LESSON 72).
+
+> **pred_a FAILED 1/3: the rare gain is not monotone in map rank.** skip7000 orders cleanly (2.7 → 3.2 →
+> 3.9 → 4.0), but skip11000 **inverts** at 256 (unseen top-1 1.95% at rank 128 against 1.94% at rank 256 —
+> a real inversion, not a rounding tie) and skip1200 **ties** (1.01% at both 128 and 256, four significant
+> figures). **The endpoints reproduce §1933 on 3/3 — 64 → 512 is +1.33 / +0.46 / +0.43pp, up on every
+> role — but the interior cannot be interpolated from them.** That is worth knowing before anyone reasons
+> about an unmeasured rank from the two published points, which is exactly what motivated the sweep.
+
+> **pred_b FAILED 1/3, and this is the sharper half: the common-bucket cost is a toll, not a slope.** Only
+> skip11000 orders (62.9 → 62.8 → 62.6 → 62.1). On skip7000 and skip1200 the 125+ figure wanders — 63.1 /
+> 63.4 / 63.1 and 62.7 / 63.2 / 62.8 — and **the spread among the three non-deployed ranks (0.3 / 0.7 /
+> 0.5pp) is as large as or larger than the drop from rank 64 itself (0.1 / 0.1 / 0.2pp against the best of
+> them).** You cannot buy a smaller common-target cost by choosing a smaller map. §1933's reading of the
+> 125+ move as a rank-driven cost is **not supported on 2 of 3 roles** and is scoped accordingly.
+
+**pred_d PASSED**: coverage exactly 5,419; the rank-64 arm reproduced §1932's **published** deployed
+figures — 125+ 63.5 / 62.9 / 63.4% and unseen 2.7 / 6.2 / 3.6% — exactly, not merely within the 0.5pp
+bar; buckets partition; and the **live per-bucket accuracy identical across all four arms** —
+twenty-first clean reading.
+
+> **Post-hoc, and the strongest thing in the run: the map's gain is broad, not confined to the unseen
+> bucket.** §1934 called the benefit "confined to the rare end" on evidence from the two extreme buckets
+> only. Across the full 64 → 512 step, **all four of the rarer buckets gain on all three roles — 12 of 12
+> cells positive** (0-0: +1.3 / +0.5 / +0.4; 1-4: +1.4 / +1.6 / +1.3; 5-24: +0.9 / +1.3 / +0.3; 25-124:
+> +1.3 / +1.1 / +1.1pp) — while **only the 125+ bucket loses, on 3 of 3** (−0.4 / −0.8 / −0.6pp). One-sided
+> sign test on the 12 rare cells, p = 2.4e-4. **The largest gains are in the 1-4 and 25-124 buckets, not
+> the unseen one**, so "confined to the rare end" is right about where the cost falls and wrong about
+> where the benefit is. §1934's sentence is corrected in place. This is post-hoc — flagged as discovery,
+> not banked as a registered pass.
+
+**What to spend, if anyone asks.** The **64 → 128 step costs +5.308M (2.3% of the build) and delivers
++0.58 / +0.28 / +0.26pp of unseen kept-fraction — 44% / 61% / 60% of the entire 64 → 512 gain for 14% of
+its marginal cost.** Everything above 128 is the diminishing tail: 256 → 512 costs +21.233M for
++0.13 / +0.21 / +0.17pp. Overall program top-1 rises on 3/3 across the full step (13.55 → 13.77,
+14.25 → 14.37, 13.64 → 13.72%), so the 125+ loss is outweighed by the four rarer buckets — **but the 125+
+toll is paid in full at the first doubling and never recovered.**
+
+**Open.** Every map measurement so far — §1870, §1919/§1924, §1933, §1934, §1935 — holds the map's *form*
+fixed at §1870's ridge-regressed embedding→row map and varies only its rank. The 12-of-12 breadth above
+says the map is doing more than serving the uncovered arm, since the 1-4 through 25-124 buckets are
+mostly **covered** targets. What the map is contributing on covered targets is unmeasured.

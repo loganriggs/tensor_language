@@ -1,0 +1,47 @@
+{
+  "analysis": {
+    "bootstrap_draws": 10000,
+    "bootstrap_seed": 2026082914,
+    "coordinates": [
+      "positive",
+      "matched_negative",
+      "off_target",
+      "specificity"
+    ],
+    "documents": 192,
+    "joint_positive_tau": 0.4486999315503941,
+    "joint_to_singleton_sum_ratio": 4.191595275767241,
+    "lower_radius": 0.1335493578046917,
+    "point": [
+      0.3416523990406475,
+      0.02372014716657278,
+      0.016384593389300844,
+      0.3179322518740747
+    ],
+    "simultaneous_q05_lower": [
+      0.20810304123595577,
+      -0.10982921063811893,
+      -0.11716476441539087,
+      0.184382894069383
+    ],
+    "simultaneous_q95_upper": [
+      0.4953435367481394,
+      0.1774112848740647,
+      0.17007573109679278,
+      0.47162338958156663
+    ],
+    "singleton_positive_tau_sum": 0.10704753250974665,
+    "upper_radius": 0.15369113770749193
+  },
+  "claim_boundary": "Observable joint-minus-singleton-sum excess only; pairs/triples are absent, so no unique interaction order or head attribution is identified.",
+  "joint": "registered_four_head_set",
+  "ledger_file_sha256": "ca180ec981bfdc68d554740597afb0ae94db8469022f8f090257fe6b9f6f6935",
+  "schema": "e4_four_head_nonadditivity_descriptive_v1",
+  "singletons": [
+    "L5H5",
+    "L7H3",
+    "L8H3",
+    "L8H4"
+  ],
+  "status": "posthoc_descriptive_not_confirmatory_not_mobius_identified"
+}

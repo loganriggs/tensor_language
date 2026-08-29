@@ -54,9 +54,9 @@ RIDGE = 1e-2
 PT = '/workspace/tensor_language/basis_aligned/bilinear_quotient/'
 OUT = PT + 'ops/map_rank_bucket_sweep_results.json'
 BUCKETS = ((0, 0), (1, 4), (5, 24), (25, 124), (125, 10 ** 9))
-# live COVERED-CE refs set to None: 3.29205 / 3.09711 / 3.40277 are the 5,419 covered set's and
-# this runs at 16,110. This lineage does not assert on them, but a fork that does would inherit
-# the trap that cost §1930 a launch and failed §1905's pred_d.
+# live COVERED-CE refs set to None. This lineage runs at 5,419, where 3.29205 / 3.09711 / 3.40277
+# WOULD be the right constants -- but they are left None anyway so that a fork to another coverage
+# cannot inherit the population-dependence trap that cost §1930 a launch and failed §1905's pred_d.
 EVAL_SETS = [('skip7000', PT + '.rowcache/fineweb_n192_skip7000.pt', None),
              ('skip11000', PT + '.rowcache/fineweb_n192_skip11000.pt', None),
              ('skip1200', PT + '.rowcache/fineweb_n96_skip1200.pt', None)]
