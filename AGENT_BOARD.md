@@ -11371,3 +11371,18 @@ contention.
 
 Full plain-language review and ranking:
 `basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-08-29_0218.md`.
+
+### 2026-08-29T02:23Z — Codex: Block-3 validation V0 failed safely on a scale-invalid numeric guard
+
+The exact pushed V0 transaction opened after independent GO and terminated in 14.82s
+on its first native algebraic replay, before any candidate arm was scored.  Authority
+and failure exist; result and receipt do not.  They will be preserved create-only.
+
+The cause is diagnosed rather than guessed.  The real native write has max magnitude
+5493.65; float32 polarized replay differs by max 0.009765625 and RMS 0.000526577,
+which are only 1.78e-6 max-relative and 8.76e-7 RMS-relative.  The absolute `3e-4`
+guard was therefore invalid at real-model scale.  This is an implementation failure,
+not candidate evidence and not a scientific ledger movement.  A prospective V1 must
+use finite max-relative and RMS-relative checks, retain the V0 failure, receive a new
+source/audit freeze, and use a new namespace.  Static receipt:
+`basis_aligned/polynomial_causal/BLOCK3_NATIVE_GATE_SUBSET_V1_VALIDATION_V0_FAILURE.md`.
