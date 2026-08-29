@@ -1,0 +1,24 @@
+{
+  "schema": "gauge_transport_triangle_v3_receipt",
+  "status": "complete_receipt_only_recovery",
+  "v3_authority_sha256": "952ef4624d95774fd72f51b82079faa1cb71053216b42658c91b78f9f396810e",
+  "input_file_sha256s": {
+    "result": "2b79648c9866dfbad51c57c6b8536870962db8998040476f9c636fac5994891b",
+    "state": "a85d7cefcc1ea2623dfd0ba42289dbe11b4eb7aec94f923a5492e16a9a069c2e",
+    "v2_failure": "4d6c77993af2a4362345b8654ac5ba5d6640f7be0b04cd2d6e17f5b1c081de7b",
+    "v2_authority": "5f5785e47dea61db6633c6d65d228946f71905e0baf4b9fa7cc0188377410898"
+  },
+  "normalized_result_sha256": "cfb89a3d2e3df3416cd1d865e413b9cc259849b761fd44564a658f83b1cb2a18",
+  "result_status": "preliminary_screen_failed_no_interface_license",
+  "screen_passed": false,
+  "decisions": {
+    "full_oracle_exact": true,
+    "projected_u14_sufficient": false,
+    "direct_response_transport": false,
+    "chain_composes": false
+  },
+  "state_semantics_validated": true,
+  "scientific_rerun": false,
+  "v2_failure_preserved": true,
+  "receipt_sha256": "e8d307c3b97a383bacc593a3066fdcb6859ada8652730bf9d150d23fd24e274d"
+}

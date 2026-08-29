@@ -360,7 +360,36 @@ def gate(path):
                             fails.append(f'line {n2.lineno}: `del {tgt.id}` sits inside a loop that '
                                          f'never assigns {tgt.id} -- UnboundLocalError on the second '
                                          f'iteration (an indentation splice, per stream_input_closure)')
+
+    # a result key whose words do not appear in ITS OWN registered pred_X line. §1902 shipped
+    # `pred_a_restored_not_self_consistent_program_concentrated_on_frequent_targets` -- a correct prefix
+    # with an ancestor's question welded to the tail, because a rename substituted the front and left the
+    # rest. Measured 45 of 708 keys across 177 result files. The LESSON 63 check does not see it: that one
+    # compares the DOCSTRING against the key it found, and the front matched.
+    _dl = {}
+    for _m in re.finditer(r'^#\s+pred_([a-d])\s+(.*?)(?=^#\s+pred_[a-d]\s|^[^#])',
+                          s, re.M | re.S):
+        _dl[_m.group(1)] = _m.group(2).lower()
+    _STOP = {'the', 'and', 'not', 'for', 'its', 'his', 'her', 'that', 'this', 'with', 'from',
+             'than', 'more', 'less', 'all', 'any', 'per', 'via', 'pct', 'vs'}
+    for _m in re.finditer(r"'pred_([a-d])_([a-z0-9_]+)'", _nocomment(s)):
+        _p, _body = _m.group(1), _m.group(2)
+        if _p not in _dl:
+            continue
+        # the WELDING signature is length AND low overlap together. Low overlap alone fires on short
+        # coherent names that merely use different vocabulary from the docstring -- measured 3 such
+        # (settled_ridge_scan 'pred_c_known_answer_kept_slice' and two others), all true names of their
+        # own question. Every genuine welded key measured was over 42 chars after the prefix.
+        _w = [w for w in _body.split('_') if len(w) > 3 and w not in _STOP]
+        if len(_w) < 4 or len(_body) <= 42:
+            continue
+        _hit = sum(1 for w in _w if w in _dl[_p])
+        if _hit / len(_w) < 0.4:
+            fails.append(f"result key 'pred_{_p}_{_body}' shares only {_hit}/{len(_w)} content words "
+                         f"with its own registered pred_{_p} line, and is {len(_body)} chars -- a rename "
+                         f"likely left an ancestor's question welded to the tail (§1902)")
     return fails
+
 
 
 if __name__ == '__main__':
