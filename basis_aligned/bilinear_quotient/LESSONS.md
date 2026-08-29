@@ -1638,3 +1638,28 @@ Clearing both names fixed it on the first try.
 still holds a reference — closures, lists of hooks, and captured loop variables are the usual culprits,
 because none of them look like a tensor. And in this codebase specifically, **a `row_hook` is a handle on
 an 8.3 GiB bank**: clearing the dict it came from is not clearing the bank.
+
+## LESSONS 63 — I changed the ladder and the docstring, and left the predicate block scoring the old run
+
+`ops/frontier_top1_16110.py` was built by editing `frontier_knee.py`. I changed `TRANKS`, the rank list,
+the cost table and — carefully — wrote four **new** registered predictions into the docstring, about
+whether CE and top-1 rank the builds the same way.
+
+The code still computed `frontier_knee`'s predicates. The log printed "the curve BENDS EARLY", "NOTHING
+in 384..1024 dominates full rank" and "the ladder stays MONOTONE in rank": the *previous* script's
+questions, answered correctly, under a docstring registering three different ones. **The printed booleans
+had nothing to do with the registered predictions.**
+
+Nothing was lost — the registered predictions were all computable from the recorded curve and I scored
+them by hand — but the failure mode is bad: a reader comparing the docstring to the log sees four
+`pred_*` lines and four booleans and has no reason to suspect they are about different things. **It is
+worse than a crash, because it produces a plausible answer to the wrong question.**
+
+This is the same family as LESSONS 56 (stale banner), 59 (stale label suffix) and 61 (the failed build
+that still queued): **editing a predecessor propagates whatever you did not think to look at, and the
+reporting block is the part you do not look at.** It is the third time this evening.
+
+**How to apply:** the docstring and the predicate block are one edit, never two. When the registered
+questions change, rewrite `pa`/`pb`/`pc` in the same pass — and before queueing, read the `print` lines
+that report them against the docstring lines that register them. They should say the same thing in the
+same words; if they do not, one of them is from the last script.

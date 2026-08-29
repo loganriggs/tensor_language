@@ -50333,3 +50333,65 @@ arithmetic on data already in hand, and had it come out the other way §1853 and
 needed qualification after being written into the registry and the board. **The habit to keep: when a
 claim is a comparison between two builds, check it on every role the runs already measured before it
 leaves the ledger** — the runs almost always measured them.
+
+## §1856 — CE and top-1 rank the top of the ladder DIFFERENTLY: rank 1024 beats full rank on top-1, cheaper
+
+`ops/frontier_top1_16110.py`, 954.3s, **DISCOVERY ONLY**, §1855's open question.
+
+**First, a defect in the run, stated before its results.** I built this script by editing
+`frontier_knee.py`, changed `TRANKS`, the rank list and the cost table, wrote **new** predictions into
+the docstring — and **left the predicate block computing the previous script's `pa`/`pb`/`pc`.** The
+three pass/fail lines in the log ("the curve BENDS EARLY", "NOTHING dominates full rank", "monotone in
+rank") are `frontier_knee`'s predicates, not this run's registered ones. **The printed booleans do not
+correspond to the docstring.** The registered predictions are all computable from the recorded curve and
+I score them by hand below; the *data* is unaffected, and `pred_d`'s controls did run and did pass. This
+is LESSONS 59's family — the reporting block is the part you do not re-read — and LESSONS 63 records it.
+
+**Scored as registered: pred_a False | pred_b True | pred_c False | pred_d True.**
+
+```
+  16,110 covered types, all-position, all three roles
+  rank      cost      CE          top-1 (7000 / 11000 / 1200)
+    4       7.88M   6.68494   10.1752%  11.0297%  10.2810%
+   16      15.33M   6.35395   11.5017%  12.2314%  11.7513%
+   64      45.16M   6.15459   12.8825%  13.3898%  12.9829%
+  256     164.48M   5.98851   13.5064%  14.3283%  13.6176%
+  384     243.97M   5.95112   13.6230%  14.4368%  13.6230%
+  512     323.45M   5.93129   13.6990%  14.5671%  13.6339%
+ 1024     641.41M   5.90669   13.9567%  14.7597%  14.0408%   <- BEST top-1
+ full     673.46M   5.90522   13.9323%  14.7108%  14.0137%   <- best CE
+```
+
+**pred_a FAILED: the two metrics disagree, at exactly the top of the ladder, on all three roles.** CE
+orders `full > 1024`; top-1 orders `1024 > full`. Every other rung agrees; the swap is the last one.
+
+> **Rank 1024 dominates full rank on top-1: 641.4M reals against 673.5M — cheaper — and higher top-1 on
+> all three roles (+0.024, +0.049, +0.027pp).** So on the top-1 frontier, full@16,110 is dominated too —
+> and since §1853 already dominated full@5,419 and §1854 full@9,054, **no full-rank build is on the top-1
+> Pareto frontier at any coverage measured.** Attaining the CE ceiling exactly *costs* top-1.
+>
+> §1853-§1855's dominations are unaffected — they are CE claims and CE is where they were measured — but
+> **their headline needs the metric named**, and the registry entry needs the top-1 result beside it.
+> This is precisely pred_a's registered failure branch, and it matters because every cost figure in
+> §1829-§1846 is scored in top-1.
+
+**pred_b PASSED but tells us nothing.** The top-1 gain from rank 256 to full rank is **12.8% / 11.6% /
+11.9%** of the gain from rank 4 to rank 256, under the 25% bar. But CE's own tail/head ratio is **12.0% /
+11.8% / 10.4%** — statistically the same. §1788's divergence led me to expect top-1 to saturate earlier;
+**it saturates at the same rate.** The metrics differ in their *ordering* at the top, not in their
+*shape*.
+
+**pred_c FAILED on top-1 only.** CE is monotone through the whole ladder; top-1 is monotone through rank
+1024 and then **falls** at full rank, on all three roles. The reversal is small (0.024–0.049pp on ~36,800
+scored positions, i.e. 9–18 tokens) but it is consistent in sign across three independent roles, which is
+what distinguishes it from noise. I am reporting it as a consistent small effect and not as a large one.
+
+**pred_d PASSED** — and these controls did execute: rank 256 reproduces §1852's published CE above the
+ceiling at the same 16,110-type covered set, full-rank attainment is exact, coverage is 16,110, the
+ceiling is finite and above live on every role.
+
+**Open question this ends on.** Top-1 is measured here at **one coverage**. §1853's and §1854's
+dominations of full@5,419 and full@9,054 are CE-only, and whether they also hold in top-1 needs the same
+run at those two coverages — two scripts, already written bar the constant. Until then the honest
+statement is: **the CE frontier is fully measured at three coverages; the top-1 frontier is measured at
+one, and where they overlap they disagree about the most expensive point.**
