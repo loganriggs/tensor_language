@@ -153,7 +153,7 @@ only as an oracle diagnostic, and the deployable target is the rank-512 embeddin
 Question: do the independently successful site maps speak a shared continuous output
 language that is cheaper and easier to name?
 
-- [ ] **E2.1 Exact joint-RRR sweep.** Run the implemented simultaneous reduced-rank
+- [x] **E2.1 Exact joint-RRR sweep.** Run the implemented simultaneous reduced-rank
   regression at shared output ranks 64/128/256/512.  Compare residual energy and
   held-out CE with 36 independent maps at both matched rank and matched stored floats.
 
@@ -162,13 +162,28 @@ language that is cheaper and easier to name?
   no scientific result or receipt, so this checkbox remains open.  A fresh v2 recovery
   changes only that device placement, binds the exact v1 authority/failure, and must
   pass a new source closure and independent audit before launch.
-- [ ] **E2.2 One dictionary versus two.** Compare one global output basis with separate
+
+  **V2 outcome, 06:09 UTC:** completed with receipt and exact semantic replay.  No
+  global rank passes both registered CE conditions.  Global ranks 64/128 beat the
+  strongest equal-storage independent allocations by `0.022--0.036` nat on every
+  role, proving useful low-rank sharing, but lose to same-rank independent maps by
+  `0.038--0.070` nat.  At rank 512 the global arm loses both comparisons.  E2.1 is a
+  measured negative for one universal output dictionary, with positive evidence for a
+  shared trunk plus private residuals.
+- [x] **E2.2 One dictionary versus two.** Compare one global output basis with separate
   attention and MLP output bases at equal total rank/storage.  This tests whether the
   apparent sharing is architectural or merely caused by the common residual space.
-- [ ] **E2.3 Stable sparse coordinates.** Rotate the best shared subspace with a frozen
+
+  **Outcome:** typed rank 481 improves over global rank 494 by only
+  `0.00250 / 0.00237 / 0.00004` nat at exactly equal storage, below the frozen 0.01
+  margin.  Attention/MLP typing helps at rank 64 but is not a sufficient canonical split.
+- [x] **E2.3 Stable sparse coordinates — pruned after E2.1, not run.** Rotate the best shared subspace with a frozen
   sparse/dictionary objective on fit data, then measure support/direction stability on
   two disjoint roles and whether single-coordinate interventions have concentrated
   downstream effects.  Reconstruction alone is insufficient.
+
+  No shared projector passed E2.1, so rotating one cannot restore missing private
+  directions.  The freed branch moves to a hierarchical shared-plus-private factorization.
 
 Pass criterion: shared factors reduce literal storage or improve held-out prediction
 at matched price, and their coordinates show cross-role stability or selective causal

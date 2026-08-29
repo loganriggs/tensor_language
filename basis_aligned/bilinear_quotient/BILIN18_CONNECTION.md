@@ -51833,7 +51833,7 @@ consistent with §1882's 0.005-nat CE gap.
 
 > **pred_b FAILED, by 0.10pp on one role, and I am scoring it FAIL and taking the direction seriously.**
 > I registered the rare-end kept-fraction within **1.00pp** and got **1.10pp** on skip1200. In relative
-> terms the rare bucket loses **8.8% / 6.1% / 31.4%** of what it had. **The half-cost build is worse at
+> terms the rare bucket loses **7.7% / 6.1% / 31.4%** of what it had. **The half-cost build is worse at
 > the rare end on all three roles and better on none** — a systematic sign, not a coin flip, and exactly
 > the failure mode I registered as the risk: rare tokens contribute least to the covered block's
 > variance, so an SVD truncation from full rank to 512 drops them first.
