@@ -1,0 +1,187 @@
+{
+ "config": {
+  "sweep": {
+   "full": [
+    64,
+    512
+   ],
+   "768": [
+    512
+   ],
+   "512": [
+    512
+   ]
+  },
+  "ridge": 0.01,
+  "table_ranks": [
+   "full",
+   "768",
+   "512"
+  ],
+  "learned": "ridge map from the token embedding to the site row, fitted on the 5419 COVERED tokens and applied only at uncovered ones; still a function of the current token alone",
+  "map_cost_formula": "36 * map_rank * 2 * 1152 reals",
+  "neighbour": "the settled output-NN fallback (\u00a71780/\u00a71781)",
+  "ROLE_NOTE": "DISCOVERY ONLY."
+ },
+ "results": {
+  "skip7000": {
+   "live": {
+    "cov": 3.19438,
+    "all": 3.13704
+   },
+   "m64_full": {
+    "cov": 5.90775,
+    "all": 5.90522,
+    "cost_M": 673.4638
+   },
+   "m512_full": {
+    "cov": 5.90775,
+    "all": 5.88338,
+    "cost_M": 710.6227
+   },
+   "m512_768": {
+    "cov": 5.91616,
+    "all": 5.89111,
+    "cost_M": 519.81
+   },
+   "m512_512": {
+    "cov": 5.93671,
+    "all": 5.91024,
+    "cost_M": 360.7235
+   }
+  },
+  "skip11000": {
+   "live": {
+    "cov": 2.99387,
+    "all": 2.9345
+   },
+   "m64_full": {
+    "cov": 5.8475,
+    "all": 5.8523,
+    "cost_M": 673.4638
+   },
+   "m512_full": {
+    "cov": 5.8475,
+    "all": 5.82928,
+    "cost_M": 710.6227
+   },
+   "m512_768": {
+    "cov": 5.85672,
+    "all": 5.83775,
+    "cost_M": 519.81
+   },
+   "m512_512": {
+    "cov": 5.87703,
+    "all": 5.85638,
+    "cost_M": 360.7235
+   }
+  },
+  "skip1200": {
+   "live": {
+    "cov": 3.29715,
+    "all": 3.23027
+   },
+   "m64_full": {
+    "cov": 5.87767,
+    "all": 5.88575,
+    "cost_M": 673.4638
+   },
+   "m512_full": {
+    "cov": 5.87767,
+    "all": 5.86044,
+    "cost_M": 710.6227
+   },
+   "m512_768": {
+    "cov": 5.88387,
+    "all": 5.86626,
+    "cost_M": 519.81
+   },
+   "m512_512": {
+    "cov": 5.90114,
+    "all": 5.88223,
+    "cost_M": 360.7235
+   }
+  }
+ },
+ "pareto_frontier": {
+  "skip7000": [
+   "m512_512",
+   "m512_768",
+   "m512_full"
+  ],
+  "skip11000": [
+   "m512_512",
+   "m512_768",
+   "m512_full"
+  ],
+  "skip1200": [
+   "m512_512",
+   "m512_768",
+   "m512_full"
+  ]
+ },
+ "points_cost_M_and_allpos_CE": {
+  "skip7000": {
+   "m64_full": [
+    673.4638,
+    5.90522
+   ],
+   "m512_full": [
+    710.6227,
+    5.88338
+   ],
+   "m512_768": [
+    519.81,
+    5.89111
+   ],
+   "m512_512": [
+    360.7235,
+    5.91024
+   ]
+  },
+  "skip11000": {
+   "m64_full": [
+    673.4638,
+    5.8523
+   ],
+   "m512_full": [
+    710.6227,
+    5.82928
+   ],
+   "m512_768": [
+    519.81,
+    5.83775
+   ],
+   "m512_512": [
+    360.7235,
+    5.85638
+   ]
+  },
+  "skip1200": {
+   "m64_full": [
+    673.4638,
+    5.88575
+   ],
+   "m512_full": [
+    710.6227,
+    5.86044
+   ],
+   "m512_768": [
+    519.81,
+    5.86626
+   ],
+   "m512_512": [
+    360.7235,
+    5.88223
+   ]
+  }
+ },
+ "covered_spread": 0.0,
+ "predictions": {
+  "pred_a_domination_survives": true,
+  "pred_b_margin_shrinks": true,
+  "pred_c_covered_blind": true,
+  "pred_d_controls": true
+ },
+ "runtime_s": 900.3
+}

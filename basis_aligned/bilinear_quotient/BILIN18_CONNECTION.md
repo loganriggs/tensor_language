@@ -51749,3 +51749,60 @@ now. Two runs' logs carry it; the data are unaffected.
 law. The remaining lever is **coverage**, which §1880 and §1881 both held at 5,419 while §1853-§1865
 mapped it only at map rank 64. Whether the m512_768 build that dominates the deployed one keeps its
 margin at higher coverage is the last unmeasured cell of the cost model.
+
+## §1882 — the domination survives at 3x coverage, the margin shrinks to a third, and the cost gap grows 26x
+
+`ops/domination_at_high_coverage.py`, 900.3s, **DISCOVERY ONLY**, rung 3 — §1881's open question.
+**pred_a True | pred_b True | pred_c True | pred_d True.** All four.
+
+```
+  16,110 covered types (2.97x the deployed 5,419), all-position CE
+    m64_full    5.90522  5.85230  5.88575   @ 673.464M    <- the DEPLOYED DESIGN, scaled up
+    m512_768    5.89111  5.83775  5.86626   @ 519.810M
+    margin      +0.01411 +0.01455 +0.01949  AND 153.654M CHEAPER
+```
+
+**pred_a PASSED: the deployed design loses at its own coverage and loses again at three times it.** The
+rank-768 / map-512 build is better on every role and **153.654M cheaper** — a gap 26x larger than the
+5.862M at 5,419 types, because the table cost scales with coverage (`36*(r*(NCOV+D)+2D)`) while the map
+cost does not move at all.
+
+**pred_b PASSED and this is the part worth keeping.** The CE margin fell from §1881's **0.04106 /
+0.04521 / 0.03878** to **0.01411 / 0.01455 / 0.01949** — to roughly a third, on a 2.97x coverage
+increase. That confirms the margin is a **fallback** advantage rather than an intrinsic table-rank one:
+the rank-512 map's whole benefit is on uncovered positions, and higher coverage leaves it fewer to act
+on. The two levers behave exactly as the cost model says they should, in opposite directions.
+
+> **The sharper build is the one I did not predict.** At 16,110 types, table rank **512** with a rank-512
+> map costs **360.724M** — **312.740M less than the deployed design's 673.464M, a 46% cut** — for
+> +0.00502 / +0.00408 nats on two roles and **−0.00352 (better)** on the third:
+>
+> ```
+>   m64_full   5.90522  5.85230  5.88575   @ 673.464M
+>   m512_512   5.91024  5.85638  5.88223   @ 360.724M     -312.740M
+> ```
+>
+> Half the program, for five thousandths of a nat, and it is *ahead* on skip1200. That is the largest
+> cost result in this arc by a wide margin, and it is a direct consequence of the §1880/§1881 law: once
+> the map rank is chosen correctly, the table can be truncated far harder than the deployed build assumed.
+
+**The frontier at 16,110 is three points wide** — `m512_512@360.72M/5.9102`, `m512_768@519.81M/5.8911`,
+`m512_full@710.62M/5.8834` — identical ordering on all three roles. **Neither map-64 build survives it.**
+
+**pred_c returned 0.00e+00 for a thirteenth time.** **pred_d PASSED**: coverage exactly 16,110, and both
+costs recomputed from §1754's formula at this coverage rather than carried from §1881.
+
+**Two failed launches before this one, both guards working.** The run first died on a banner expression
+(doubled braces inside an f-string built a set containing a set comprehension), then on
+`assert abs(live['cov'] - ref) <= 1e-3` — **the live COVERED-CE anchor 3.29205 was measured on the 5,419
+covered set, and at 16,110 "covered" is a different, larger population** (measured 3.19438). That assert
+is not a nuisance; it is LESSON 53's addendum in a variant I had not met, an anchor that is
+**population-dependent** rather than build-dependent. Carried over silently it would have compared two
+different populations' CEs — the exact error §1866 corrected. The anchors are now `None` here with the
+reason recorded in the source.
+
+**Open.** The cost model is now dense on all three axes and the deployed build is dominated on every one
+of them. What is NOT measured is whether `m512_512 @ 16,110` — half the deployed cost for five
+thousandths of a nat — holds up as a *program* under the §1789 checks the deployed build passed, rather
+than only as a point on a CE/cost curve. That is the natural next rung and it is a certification, not a
+sweep.

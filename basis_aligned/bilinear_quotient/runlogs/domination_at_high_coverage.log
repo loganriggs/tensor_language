@@ -1,13 +1,32 @@
 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
-DOMINATION AT HIGH COVERAGE | table ranks (None, 768, 512) | map rank map ranks [64, 512] | DISCOVERY ONLY
-  built the output-NN map and 36 tables (5s)
-Traceback (most recent call last):
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/domination_at_high_coverage.py", line 317, in <module>
-    main()
-  File "/venv/main/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/domination_at_high_coverage.py", line 229, in main
-    assert abs(live['cov'] - ref) <= 1e-3, f'{ename} live cov {live["cov"]:.5f} != {ref}'
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-AssertionError: skip7000 live cov 3.19438 != 3.29205
+DOMINATION AT HIGH COVERAGE | table ranks (None, 768, 512) | map ranks [64, 512] | DISCOVERY ONLY
+  built the output-NN map and 36 tables (26s)
+
+  skip7000: live cov 3.19438 all 3.13704
+    table full   map64 all 5.90522 (673.464M) | map512 all 5.88338 (710.623M)
+    table 768    map512 all 5.89111 (519.810M)
+    table 512    map512 all 5.91024 (360.724M)
+
+  skip11000: live cov 2.99387 all 2.93450
+    table full   map64 all 5.85230 (673.464M) | map512 all 5.82928 (710.623M)
+    table 768    map512 all 5.83775 (519.810M)
+    table 512    map512 all 5.85638 (360.724M)
+
+  skip1200: live cov 3.29715 all 3.23027
+    table full   map64 all 5.88575 (673.464M) | map512 all 5.86044 (710.623M)
+    table 768    map512 all 5.86626 (519.810M)
+    table 512    map512 all 5.88223 (360.724M)
+
+  THE DOMINATION SURVIVES at 16110 types -> True   (m512_768 is 153.654M cheaper than m64_full)
+    skip7000 m64_full 5.90522 vs m512_768 5.89111 margin +0.01411  skip11000 m64_full 5.85230 vs m512_768 5.83775 margin +0.01455  skip1200 m64_full 5.88575 vs m512_768 5.86626 margin +0.01949
+  and the CE margin SHRINKS vs §1881 at 5,419 -> True  skip7000 +0.01411 vs +0.04106  skip11000 +0.01455 vs +0.04521  skip1200 +0.01949 vs +0.03878
+
+  PARETO FRONTIER over table rank x map rank (cost_M, all-position CE):
+    skip7000   m512_512@360.72M/5.9102  m512_768@519.81M/5.8911  m512_full@710.62M/5.8834
+    skip11000  m512_512@360.72M/5.8564  m512_768@519.81M/5.8377  m512_full@710.62M/5.8293
+    skip1200   m512_512@360.72M/5.8822  m512_768@519.81M/5.8663  m512_full@710.62M/5.8604
+  and the COVERED arm is blind to the map (<1e-6) -> True  max spread 0.00e+00
+  coverage is exactly 16110 and both costs recompute from §1754 -> control True
+
+pred_a True | pred_b True | pred_c True | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/domination_at_high_coverage_results.json (900.3s)
