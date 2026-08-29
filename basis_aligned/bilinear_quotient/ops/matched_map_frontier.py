@@ -143,7 +143,7 @@ def main():
     unc = (~seen).nonzero(as_tuple=True)[0]
     sites = [(k, L) for k in ('mlp', 'attn') for L in range(18)]
     print(f'MATCHED-MAP FRONTIER | table ranks {RANKS} | map rank '
-          f'{sorted({{r for v in SWEEP.values() for r in v}})} | DISCOVERY ONLY', flush=True)
+          f'map ranks {sorted(set(r for v in SWEEP.values() for r in v))} | DISCOVERY ONLY', flush=True)
 
     # the settled output-NN map (§1780/§1781), for the baseline arm
     lp = torch.zeros(ncov, W, device=DEV)

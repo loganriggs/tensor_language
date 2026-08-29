@@ -308,6 +308,19 @@ def test_metric_replay_rejects_nonfinite_and_wrong_denominator():
         run.semantic_validate_metric_ledger(metric, 5)
 
 
+def test_metric_replay_rejects_negative_and_nonweighted_all_ce():
+    metric = {"covered": {"ce": 1.0, "tokens": 2},
+              "uncovered": {"ce": 2.0, "tokens": 3},
+              "all": {"ce": 1.6, "tokens": 5}}
+    metric["all"]["ce"] = 1.5
+    with pytest.raises(RuntimeError, match="weighted partition"):
+        run.semantic_validate_metric_ledger(metric, 5)
+    metric["all"]["ce"] = 1.6
+    metric["covered"]["ce"] = -0.1
+    with pytest.raises(RuntimeError, match="malformed"):
+        run.semantic_validate_metric_ledger(metric, 5)
+
+
 def test_authority_builder_is_outcome_free_and_binds_exact_arm_bank():
     source = {"commit": "c" * 40, "paths": {name: "a" * 64 for name in run.SOURCE_PATHS},
               "sha256": "b" * 64}
@@ -387,6 +400,30 @@ def test_gate_replay_rejects_corruption(monkeypatch):
     assert run._result_gates(arms, 1)["covered_identity_control"] is False
 
 
+def test_promotive_gates_fail_closed_when_any_common_control_fails(monkeypatch):
+    arms = _minimal_result(monkeypatch)
+    monkeypatch.setattr(
+        run.core, "grouped_map_price",
+        lambda *_args, **_kwargs: SimpleNamespace(grouped_float_count=8),
+    )
+    arms["global_q64"]["roles"]["r"]["covered"]["ce"] = 0.9
+    arms["global_q64"]["roles"]["r"]["uncovered"]["ce"] = 0.9
+    arms["global_q64"]["roles"]["r"]["all"]["ce"] = 0.9
+    arms["typed_q481"]["roles"]["r"]["covered"]["ce"] = 0.9
+    arms["typed_q481"]["roles"]["r"]["uncovered"]["ce"] = 0.9
+    arms["typed_q481"]["roles"]["r"]["all"]["ce"] = 0.9
+    good = run._result_gates(arms, 1)
+    assert good["promotive_controls_all_pass"] is True
+    assert good["e2_1_pass"] is True
+    assert good["e2_2_pass"] is True
+    bad = run._result_gates(arms, 0)
+    assert bad["e2_1_ce_qualifying_ranks"] == [64]
+    assert bad["e2_2_ce_qualifies"] is True
+    assert bad["promotive_controls_all_pass"] is False
+    assert bad["e2_1_pass"] is False
+    assert bad["e2_2_pass"] is False
+
+
 def test_failure_after_result_preserves_result_and_never_writes_receipt(tmp_path, monkeypatch):
     authority, results, failure, receipt, lock = (
         tmp_path / "authority.json", tmp_path / "results.json", tmp_path / "failure.json",
@@ -455,6 +492,26 @@ def test_receipt_replay_rejects_result_join_corruption(tmp_path, monkeypatch):
     receipt = run.receipt_payload(frozen, result)
     receipt["results_logical_sha256"] = "0" * 64
     with pytest.raises(RuntimeError, match="joins"):
+        run.semantic_validate_receipt(receipt, frozen, result)
+
+
+def test_receipt_replay_rejects_mutated_published_inputs(tmp_path, monkeypatch):
+    authority, results, failure = tmp_path / "a.json", tmp_path / "r.json", tmp_path / "f.json"
+    monkeypatch.setattr(run, "AUTHORITY", authority)
+    monkeypatch.setattr(run, "RESULTS", results)
+    monkeypatch.setattr(run, "FAILURE", failure)
+    frozen = {"authority_sha256": "a" * 64, "source_closure": {"sha256": "b" * 64},
+              "input_file_sha256s": {"x": "c" * 64}}
+    result = {"x": 1}
+    run.atomic_create_json(frozen, authority)
+    run.atomic_create_json(result, results)
+    receipt = run.receipt_payload(frozen, result)
+    results.write_text(json.dumps({"x": 2}))
+    with pytest.raises(RuntimeError, match="inputs changed"):
+        run.semantic_validate_receipt(receipt, frozen, result)
+    results.write_text(json.dumps(result))
+    authority.write_text(json.dumps({**frozen, "authority_sha256": "d" * 64}))
+    with pytest.raises(RuntimeError, match="inputs changed"):
         run.semantic_validate_receipt(receipt, frozen, result)
 
 
