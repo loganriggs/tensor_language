@@ -411,6 +411,49 @@ def serialize_copy_cells(cells: contract.CopyCells) -> dict[str, Any]:
     }
 
 
+def support_census(copy_cells: Mapping[str, contract.CopyCells]) -> dict[str, Any]:
+    """Apply the prospective pre-model support gate to every scored role."""
+
+    scored_roles = ("selection_natural", "final_natural", OOD_ROLE)
+    census: dict[str, Any] = {}
+    for role in scored_roles:
+        cells = copy_cells[role]
+        positive_indices = torch.nonzero(cells.positive, as_tuple=False)
+        negative_indices = torch.nonzero(cells.matched_negative, as_tuple=False)
+        positive_documents = len(set(int(value) for value in positive_indices[:, 0]))
+        negative_documents = len(set(int(value) for value in negative_indices[:, 0]))
+        entry = {
+            "positive_positions": len(positive_indices),
+            "matched_negative_positions": len(negative_indices),
+            "positive_documents": positive_documents,
+            "matched_negative_documents": negative_documents,
+            "passed": (
+                len(positive_indices) >= 48
+                and len(negative_indices) >= 48
+                and positive_documents >= 24
+                and negative_documents >= 24
+            ),
+        }
+        census[role] = entry
+    if not all(entry["passed"] for entry in census.values()):
+        raise RuntimeError(f"terminal-copy pre-model support gate failed: {census}")
+    return census
+
+
+def verify_code_snapshot(commit: str, records: Sequence[Mapping[str, Any]]) -> None:
+    """Re-read every selected code blob from the bound commit before publication."""
+
+    for record in records:
+        path = record.get("path")
+        if not isinstance(path, str) or not code_path_is_eligible(path):
+            raise RuntimeError("terminal-copy OOD code path is no longer eligible")
+        blob = subprocess.check_output(["git", "show", f"{commit}:{path}"], cwd=ROOT)
+        if hashlib.sha256(blob).hexdigest() != record.get("blob_sha256") or (
+            normalized_python_sha256(blob) != record.get("normalized_python_sha256")
+        ):
+            raise RuntimeError("terminal-copy OOD code blob changed")
+
+
 def summarize_roles(
     rows: Mapping[str, torch.Tensor], records: Mapping[str, Sequence[Mapping[str, Any]]],
     synthetic: Mapping[str, Mapping[str, torch.Tensor]], banks: Mapping[str, Sequence[Sequence[int]]],
@@ -479,6 +522,9 @@ def freeze() -> dict[str, Any]:
 
         import tiktoken
         encoding = tiktoken.get_encoding("gpt2")
+        frozen_source_identity = source_identity(
+            canonical, parquet, registry_hashes, encoding,
+        )
         combined, combined_records = natural.harvest_fresh_documents(
             natural.BASE.local.parquet_texts([parquet]), encoding.encode_ordinary, prior,
             start_document_index=START_DOCUMENT_INDEX,
@@ -505,6 +551,7 @@ def freeze() -> dict[str, Any]:
             copy_cells[role] = contract.build_copy_cells(
                 role_rows[role], frequencies, document_ids,
             )
+        frozen_support_census = support_census(copy_cells)
         summary = summarize_roles(role_rows, role_records, synthetic, banks)
 
         natural.verify_snapshot(
@@ -516,6 +563,11 @@ def freeze() -> dict[str, Any]:
             prior=prior,
             parquet=parquet,
         )
+        if source_closure(commit) != sources or validate_audit(commit, sources) != audit:
+            raise RuntimeError("terminal-copy source/audit closure changed")
+        if source_identity(canonical, parquet, registry_hashes, encoding) != frozen_source_identity:
+            raise RuntimeError("terminal-copy source identity changed before publication")
+        verify_code_snapshot(commit, role_records[OOD_ROLE])
         natural.require_claim(claim, LOCK)
         CACHE.mkdir(parents=False, exist_ok=False)
         entries: dict[str, Any] = {}
@@ -577,12 +629,14 @@ def freeze() -> dict[str, Any]:
                 ),
             },
             "summary": summary,
+            "support_census": frozen_support_census,
             "entries": entries,
             "fit_token_frequencies": frequencies_entry,
             "prior_registry_files": registry_hashes,
             "prior_row_tensors": prior_tensor_hashes,
             "prior_code_manifests": code_manifest_hashes,
             "ordered_manifest_gate": canonical["ordered_manifest_local_parquet_identity_gate"],
+            "source_identity": frozen_source_identity,
             "outcome_access": {
                 "checkpoint_loaded": False,
                 "model_imported": False,

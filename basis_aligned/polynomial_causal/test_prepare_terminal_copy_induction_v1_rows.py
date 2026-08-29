@@ -145,6 +145,36 @@ def test_copy_cell_serialization_preserves_support_diagnostics():
     assert payload["positive"].shape == (rows.N_PER_ROLE, rows.contract.MODEL_WIDTH)
 
 
+def test_support_census_fails_closed_below_frozen_document_or_position_minima():
+    shape = (rows.N_PER_ROLE, rows.contract.MODEL_WIDTH)
+    all_positive = torch.zeros(shape, dtype=torch.bool)
+    positive = torch.zeros(shape, dtype=torch.bool)
+    matched_negative = torch.zeros(shape, dtype=torch.bool)
+    positive[:23, 64:67] = True
+    matched_negative[:24, 80:82] = True
+    all_positive |= positive
+    valid = torch.zeros(shape, dtype=torch.bool)
+    valid[:, rows.contract.SCORE_START:rows.contract.SCORE_STOP] = True
+    cells = rows.contract.CopyCells(
+        all_positive=all_positive,
+        positive=positive,
+        matched_negative=matched_negative,
+        off_target=valid & ~all_positive & ~matched_negative,
+        pair_indices=tuple(
+            (index % 23, 64 + index // 23, index % 24, 80 + index // 24)
+            for index in range(48)
+        ),
+        unmatched_positive_count=0,
+        negative_candidate_count=48,
+        eligible_stratum_count=1,
+        excluded_low_document_stratum_count=0,
+    )
+    with pytest.raises(RuntimeError, match="pre-model support gate failed"):
+        rows.support_census({
+            "selection_natural": cells, "final_natural": cells, rows.OOD_ROLE: cells,
+        })
+
+
 def test_summary_requires_all_roles_and_closes_every_gate():
     role_rows = _role_sources()
     synthetic, banks = rows.build_synthetic_roles(role_rows)

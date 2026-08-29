@@ -105,15 +105,39 @@ The eight frozen candidates are the six individual heads
 `L5H5`, `L7H3`, `L8H3`, `L8H4`, `L13H0`, `L14H7`, plus the registered four-head set
 and the registered late pair. All other attention heads and all MLPs remain native.
 
+Define the collateral margin
+
+\[
+C=0.01-\tau_{\mathrm{off}}.
+\]
+
 On `selection_natural`, a candidate passes only if simultaneous 95% document-bootstrap
-lower bounds for both \(\tau_+\) and \(S\) are positive and its off-target CE increase
-is at most 0.01 nat. Among passers choose the largest lower bound for \(S\); ties use the
+lower bounds for \(\tau_+\), \(S\), and \(C\) are all positive. Thus the 0.01-nat
+off-target rule is a population-level collateral gate, not merely an observed-support
+point estimate. Among passers choose the largest lower bound for \(S\); ties use the
 lexicographic candidate name. If none passes, E4 copy localization is negative and no
 final role is opened.
 
-The bootstrap resamples source documents, not positions or matched pairs. It uses
-10,000 shared resamples, seed `terminal-copy-v1-document-bootstrap:0`, and a simultaneous
-max-statistic over all eight candidates and the two lower-bound gates.
+The bootstrap resamples source documents, not positions or matched pairs. Point
+estimates pool token losses across documents rather than averaging document means.
+It uses 10,000 shared resamples, seed
+`terminal-copy-v1-document-bootstrap:0`, and a one-sided simultaneous basic band over
+the 24 positively oriented coordinates
+\((\tau_+,S,C)\times 8\) candidates. For replicate \(b\),
+
+\[
+T_b=\max_j(\hat\theta^*_{bj}-\hat\theta_j).
+\]
+
+Sort all 10,000 values, take the 9,500th value (zero-based index 9,499) without
+interpolation, and set \(\operatorname{LCB}_j=\hat\theta_j-T_{(9500)}\). A replicate
+with a zero denominator fails the run; it is never dropped or redrawn.
+
+After selection is sealed, `final_natural` and `ood_code` use independent
+document-cluster draws within each role but one replicatewise maximum over the six
+coordinates \((\tau_+,S,C)\times\{\text{final},\text{OOD}\}\). All six simultaneous
+lower bounds must be positive for joint ID/OOD replication. Synthetic crossover scores
+are descriptive in v1 and do not enter selection or the replication gate.
 
 ## 6. Reciprocal synthetic challenge
 
@@ -157,4 +181,3 @@ The immutable order is:
 
 Any support, identity, hook-cleanup, source-closure, namespace, or all-head integrity
 failure stops the transaction. It cannot be repaired inside the same authority.
-
