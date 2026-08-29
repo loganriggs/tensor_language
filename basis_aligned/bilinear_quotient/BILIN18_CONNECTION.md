@@ -53327,3 +53327,54 @@ family: an edit that assumes a binding the edit site does not have**, third inst
 
 **Open.** Nothing named in my lane. The cost question — uneven per-site table-rank allocation against the
 §1853-§1882 frontier — has been with Codex since 07:57Z and is untouched by me.
+
+## §1911 — the model's own CONFIDENCE modulates the tracking, and it doubles it
+
+`ops/tracking_by_confidence.py`, 224.7s, **DISCOVERY ONLY**, rung 3 — §1910's open question.
+**pred_a True | pred_b True | pred_c True | pred_d True.** All four.
+
+```
+  covered arm, 16,110 types, by LIVE-MARGIN quartile (q0 = least confident)
+    skip7000    q0  5.36x live 17.2%   q1  5.74x 24.4%   q2  6.23x 37.4%   q3 10.11x live 74.8%
+    skip11000   q0  5.06x live 17.8%   q1  5.60x 26.0%   q2  6.24x 42.2%   q3 10.34x live 79.6%
+    skip1200    q0  5.80x live 15.9%   q1  5.71x 24.0%   q2  6.45x 37.6%   q3 10.87x live 74.2%
+```
+
+> **After two nulls, a modulator — and a large one.** Agreement rises from **5.36 / 5.06 / 5.80x** on the
+> model's least-decided quartile to **10.11 / 10.34 / 10.87x** on its most-decided, a gain of **+4.75 /
+> +5.27 / +5.07x** against a 1.0x bar. **The tracking roughly DOUBLES with the model's own confidence**,
+> monotonically across all four quartiles on two roles and on three of four steps on the third.
+
+**pred_c PASSED enormously** — the live model's top-1 climbs **17.2 → 74.8%**, **17.8 → 79.6%**, **15.9 →
+74.2%** across the quartiles, gaps of **+57.6 / +61.8 / +58.3 percentage points**. The margin axis is
+real, which is what licenses reading the enrichment gradient on it. Registered for exactly the reason
+§1910's pred_c was, after §1889 taught me a null on a broken split is worthless.
+
+> **Three axes tried, one modulator found, and the pattern across them is the result.**
+>
+> ```
+>   §1895  correctness       both-wrong positions still track at 6.10 / 6.24 / 6.50x   NOT a modulator
+>   §1910  sequence position flat: -0.36 / -0.25 / +0.59x, inconsistent in sign        NOT a modulator
+>   §1911  model confidence  5.36 -> 10.11x, +4.75 / +5.27 / +5.07x                    MODULATOR
+>   ```
+>
+> **The program follows the model where the model is decided, not where the model is right, and not where
+> the model has little context.** §1895 already showed it reproduces confident mistakes; §1911 shows that
+> confidence, not correctness, is the variable. A token-keyed table can reach a prediction the model holds
+> firmly; it cannot reach one the model is still weighing — and how much context the model had while
+> weighing it makes no difference (§1910).
+
+**pred_d PASSED**: coverage 16,110, all four quartiles populated at 8,307 / 8,295 / 8,289 / 8,301 on
+skip7000 (equal by construction), and the covered-arm baseline (7.16 / 7.29 / 7.49x) computed in-run and
+reported as an enrichment. **The pooled 7.2x is a mixture of a 5.4x regime and a 10.1x one** — the same
+lesson §1789 taught about accuracy, on a different instrument.
+
+**A predicate error caught before the run rather than after.** This script inherited §1910's position
+predicates, whose `drop = first − last` encodes "falls with position". My registered pred_a here is
+"highest quartile exceeds lowest" — the opposite direction. **Had I not read the copied block against the
+docstring, pred_a would have scored True for a rise while testing for a fall.** LESSON 63's family; the
+gate's key check flagged the same lineage three times in this session and each catch sent me to the block.
+
+**Open.** Whether the confidence gradient is what §1908's alignment result looks like from the output
+side, or an independent fact. Both say the program follows the model where the model's computation is
+already concentrated — one in the residual stream, one in the logits — but nothing connects them.

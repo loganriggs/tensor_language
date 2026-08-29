@@ -35,6 +35,22 @@ be excluded; rows must be file-clustered and exact/normalized-near duplicates ex
 If the repository cannot supply 192 eligible source files, the role freezes as a design
 failure rather than silently weakening the population.
 
+The exact eligible-path predicate keeps tracked `.py` files except paths under
+`archive/`, `basis_aligned/bilinear_quotient/`, `basis_aligned/polynomial_causal/`,
+`data_*`, `figures/`, `logs/`, `runs/`, `runs_*`, and `tests/`; any path component named
+`__pycache__`, `generated`, `vendor`, `third_party`, `runlogs`, or `results`; and files
+named `test_*.py` or `*_test.py`. File order is SHA256 order under the frozen code seed.
+The audit binds a manifest hash over every eligible path, exact blob hash, and
+normalized-Python hash.
+
+For normalized-Python identity, tokenization drops comments, indentation, line breaks,
+and encoding/end markers; every string literal becomes `STRING`, every numeric literal
+becomes `NUMBER`, and other token text is retained. Tokenization failures fall back to
+collapsed Unicode-replacement text. Equal normalized hashes are duplicates. Prior code
+paths are found recursively in every registered JSON; their tracked blobs seed the
+normalized exclusion set. New code rows are additionally exact-row and prefix32
+disjoint from all prior rows and all three new natural roles.
+
 Fit frequencies count query tokens over columns 0--255 and target tokens over columns
 1--256 separately. Count zero has its own bin. All natural roles use those immutable
 fit-only histograms.

@@ -1,0 +1,24 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+TRACKING BY MODEL CONFIDENCE | buckets ((0, 0), (1, 4), (5, 24), (25, 124), (125, 1000000000)) on the fit-row count of the TRUE target | full-rank settled program | DISCOVERY ONLY
+  built the settled fallback and 36 tables (5s)
+
+  === all-compiled baseline ===
+    skip7000   covered enrichment  7.16x  (n 33192)
+    skip11000  covered enrichment  7.29x  (n 33196)
+    skip1200   covered enrichment  7.49x  (n 16597)
+    per-site live/table ratios: min 1.2x max 144.0x across 36 sites
+    g1.00    skip7000 CE 5.90522 ( 7.16x)  skip11000 CE 5.85230 ( 7.29x)  skip1200 CE 5.88575 ( 7.49x)   [1/2]
+    PERSITE  skip7000 CE 12.86842 ( 1.80x)  skip11000 CE 12.91618 ( 1.71x)  skip1200 CE 12.79523 ( 1.71x)   [2/2]
+
+  enrichment and live accuracy by LIVE-MARGIN quartile (0 = least confident):
+    skip7000   q0 n  8307  5.36x live 17.2%  q1 n  8295  5.74x live 24.4%  q2 n  8289  6.23x live 37.4%  q3 n  8301 10.11x live 74.8%
+    skip11000  q0 n  8310  5.06x live 17.8%  q1 n  8294  5.60x live 26.0%  q2 n  8289  6.24x live 42.2%  q3 n  8303 10.34x live 79.6%
+    skip1200   q0 n  4154  5.80x live 15.9%  q1 n  4148  5.71x live 24.0%  q2 n  4145  6.45x live 37.6%  q3 n  4150 10.87x live 74.2%
+
+  CONFIDENCE MODULATES THE TRACKING (q3 > q0) -> True  skip7000 5.36 -> 10.11  skip11000 5.06 -> 10.34  skip1200 5.80 -> 10.87
+  and MATERIALLY (>= 1.0x) -> True  skip7000 +4.75x  skip11000 +5.27x  skip1200 +5.07x
+  and the SPLIT is sound (live acc gap >= 20pp) -> True  skip7000 17.2% -> 74.8% (+57.6pp)  skip11000 17.8% -> 79.6% (+61.8pp)  skip1200 15.9% -> 74.2% (+58.3pp)
+  coverage 16110, quartiles populated -> control True; baseline skip7000 7.16x  skip11000 7.29x  skip1200 7.49x
+
+pred_a True | pred_b True | pred_c True | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/tracking_by_confidence_results.json (224.7s)

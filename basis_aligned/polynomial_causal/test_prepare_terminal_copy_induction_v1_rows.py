@@ -79,6 +79,18 @@ def test_code_register_excludes_experiments_generated_tests_and_normalized_dupli
     assert len({record["normalized_python_sha256"] for record in records}) == 2
 
 
+def test_prior_code_paths_recurses_generic_registries_and_normalizes_workspace_paths(tmp_path):
+    manifest = tmp_path / "registry.json"
+    inside = rows.ROOT / "jacclust" / "model.py"
+    manifest.write_text(__import__("json").dumps({
+        "nested": [{"source_path": str(inside)}, {"file_path": "pkg/module.py"}],
+        "ignore": {"path": "not-code.txt"},
+    }))
+    paths, hashes = rows.prior_code_paths((manifest,))
+    assert paths == {"jacclust/model.py", "pkg/module.py"}
+    assert hashes[str(manifest.resolve())] == rows.file_sha256(manifest)
+
+
 def _role_sources():
     generator = torch.Generator().manual_seed(5)
     return {
@@ -150,8 +162,18 @@ def test_support_census_fails_closed_below_frozen_document_or_position_minima():
     all_positive = torch.zeros(shape, dtype=torch.bool)
     positive = torch.zeros(shape, dtype=torch.bool)
     matched_negative = torch.zeros(shape, dtype=torch.bool)
-    positive[:23, 64:67] = True
-    matched_negative[:24, 80:82] = True
+    positive_coordinates = [
+        (document, position)
+        for document in range(23) for position in (64, 65)
+    ] + [(0, 66), (1, 66)]
+    negative_coordinates = [
+        (document, position)
+        for document in range(24) for position in (80, 81)
+    ]
+    for document, position in positive_coordinates:
+        positive[document, position] = True
+    for document, position in negative_coordinates:
+        matched_negative[document, position] = True
     all_positive |= positive
     valid = torch.zeros(shape, dtype=torch.bool)
     valid[:, rows.contract.SCORE_START:rows.contract.SCORE_STOP] = True
@@ -161,7 +183,7 @@ def test_support_census_fails_closed_below_frozen_document_or_position_minima():
         matched_negative=matched_negative,
         off_target=valid & ~all_positive & ~matched_negative,
         pair_indices=tuple(
-            (index % 23, 64 + index // 23, index % 24, 80 + index // 24)
+            (*positive_coordinates[index], *negative_coordinates[index])
             for index in range(48)
         ),
         unmatched_positive_count=0,
@@ -193,3 +215,67 @@ def test_audit_hash_constants_are_full_sha256_when_authority_is_created():
     # the committed source; this test prevents a placeholder from being mistaken for it.
     assert not rows.AUDIT.exists() or len(hashlib.sha256(rows.AUDIT.read_bytes()).hexdigest()) == 64
     assert rows.AUDIT not in rows.SOURCE_PATHS
+    assert rows.CONTRACT_TEST in rows.SOURCE_PATHS
+
+
+def test_terminal_json_post_link_fsync_error_is_success_not_contradictory_failure(
+    tmp_path, monkeypatch,
+):
+    lock = tmp_path / "owner.lock"
+    claim = rows.natural.acquire_claim(lock)
+    try:
+        monkeypatch.setattr(
+            rows, "_fsync_directory",
+            lambda path: (_ for _ in ()).throw(OSError("synthetic post-link fsync")),
+        )
+        target = tmp_path / "receipt.json"
+        rows._publish_json_terminal({"status": "complete"}, target, claim, lock_path=lock)
+        assert __import__("json").loads(target.read_bytes()) == {"status": "complete"}
+        with pytest.raises(FileExistsError):
+            rows._publish_json_terminal({"status": "again"}, target, claim, lock_path=lock)
+    finally:
+        rows.natural.release_claim(claim, lock)
+
+
+def test_cached_payload_validator_binds_every_tensor_and_semantic_field(tmp_path):
+    role = rows.ALL_ROLES[0]
+    source = torch.zeros(rows.N_PER_ROLE, rows.contract.ROW_WIDTH, dtype=torch.long)
+    role_sources = {name: source.clone() for name in rows.ALL_ROLES}
+    synthetic, banks = rows.build_synthetic_roles(role_sources, pairs_per_role=2)
+    cells_shape = (rows.N_PER_ROLE, rows.contract.MODEL_WIDTH)
+    positive = torch.zeros(cells_shape, dtype=torch.bool)
+    negative = torch.zeros(cells_shape, dtype=torch.bool)
+    all_positive = positive.clone()
+    valid = torch.zeros(cells_shape, dtype=torch.bool)
+    valid[:, rows.contract.SCORE_START:rows.contract.SCORE_STOP] = True
+    payload = {
+        "rows": source,
+        "records": [{"document_id": f"d{i}"} for i in range(rows.N_PER_ROLE)],
+        "synthetic": synthetic[role],
+        "synthetic_token_banks": banks[role],
+        "synthetic_position_templates": rows.SYNTHETIC_POSITION_TEMPLATES,
+        "copy_cells": {
+            "all_positive": all_positive, "positive": positive,
+            "matched_negative": negative, "off_target": valid,
+            "pair_indices": (), "unmatched_positive_count": 0,
+            "negative_candidate_count": 0, "eligible_stratum_count": 0,
+            "excluded_low_document_stratum_count": 0,
+        },
+    }
+    path = tmp_path / "role.pt"
+    rows._save_staged(payload, path)
+    entry = {
+        "file_sha256": rows.file_sha256(path),
+        "rows_tensor_sha256": rows.tensor_sha256(source),
+        "query_to_y_tensor_sha256": rows.tensor_sha256(synthetic[role]["query_to_y"]),
+        "query_to_z_tensor_sha256": rows.tensor_sha256(synthetic[role]["query_to_z"]),
+        "copy_positive_mask_sha256": rows.tensor_sha256(positive),
+        "copy_matched_negative_mask_sha256": rows.tensor_sha256(negative),
+    }
+    loaded = rows.validate_cached_payload(path, payload, entry, role)
+    assert rows._semantic_equal(loaded, payload)
+    bad = dict(payload)
+    bad["records"] = list(payload["records"])
+    bad["records"][0] = {"document_id": "changed"}
+    with pytest.raises(RuntimeError, match="exact replay"):
+        rows.validate_cached_payload(path, bad, entry, role)

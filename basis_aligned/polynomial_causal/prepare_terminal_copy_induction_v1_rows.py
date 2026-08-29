@@ -31,6 +31,7 @@ ROOT = HERE.parents[1]
 BQ = ROOT / "basis_aligned" / "bilinear_quotient"
 FREEZER = Path(__file__).resolve()
 TEST = HERE / "test_prepare_terminal_copy_induction_v1_rows.py"
+CONTRACT_TEST = HERE / "test_terminal_copy_induction_v1.py"
 PREREG = HERE / "TERMINAL_COPY_INDUCTION_V1_PREREGISTRATION.md"
 CONTRACT = HERE / "terminal_copy_induction_v1.py"
 ADAPTER_ADDENDUM = HERE / "TERMINAL_COPY_ATTENTION_ADAPTER_V1_ADDENDUM.md"
@@ -70,7 +71,7 @@ FAILURE = BQ / "terminal_copy_induction_v1_rows_failure.json"
 LOCK = Path("/workspace/runs/.terminal_copy_induction_v1_rows.lock")
 
 SOURCE_PATHS = (
-    FREEZER, TEST, PREREG, CONTRACT, ADAPTER_ADDENDUM, SCREENING_AMENDMENT,
+    FREEZER, TEST, CONTRACT_TEST, PREREG, CONTRACT, ADAPTER_ADDENDUM, SCREENING_AMENDMENT,
     HERE / "prepare_block3_native_down_behavioral_port_v1_rows.py",
     HERE / "test_prepare_block3_native_down_behavioral_port_v1_rows.py",
     HERE / "prepare_mlp0_native_down_hierarchy_v1_rows.py",
@@ -107,7 +108,9 @@ def source_closure(commit: str) -> dict[str, str]:
     return hashes
 
 
-def validate_audit(commit: str, source_hashes: Mapping[str, str]) -> dict[str, Any]:
+def validate_audit(
+    commit: str, source_hashes: Mapping[str, str], eligible_code_tree_sha256: str,
+) -> dict[str, Any]:
     before = file_sha256(AUDIT)
     payload = json.loads(AUDIT.read_bytes())
     audited_commit = payload.get("source_commit")
@@ -117,6 +120,7 @@ def validate_audit(commit: str, source_hashes: Mapping[str, str]) -> dict[str, A
         or not isinstance(audited_commit, str)
         or payload.get("outcome_access") is not False
         or payload.get("source_hashes") != dict(source_hashes)
+        or payload.get("eligible_code_tree_sha256") != eligible_code_tree_sha256
     ):
         raise RuntimeError("terminal-copy row audit does not authorize these source bytes")
     subprocess.run(
@@ -198,6 +202,16 @@ def split_natural_rows(
     return role_rows, role_records
 
 
+def _walk_json(value: Any) -> Iterable[Any]:
+    yield value
+    if isinstance(value, Mapping):
+        for item in value.values():
+            yield from _walk_json(item)
+    elif isinstance(value, Sequence) and not isinstance(value, (str, bytes)):
+        for item in value:
+            yield from _walk_json(item)
+
+
 def prior_code_paths(manifests: Sequence[Path] = CODE_PRIOR_MANIFESTS) -> tuple[set[str], dict[str, str]]:
     paths: set[str] = set()
     hashes: dict[str, str] = {}
@@ -207,16 +221,20 @@ def prior_code_paths(manifests: Sequence[Path] = CODE_PRIOR_MANIFESTS) -> tuple[
         if file_sha256(manifest) != before:
             raise RuntimeError("prior code manifest changed while reading")
         hashes[str(manifest.resolve())] = before
-        for split_rows in payload.get("files", {}).values():
-            for row in split_rows:
-                path = row.get("path")
-                if isinstance(path, str) and path:
-                    paths.add(path)
-        for split_rows in payload.get("row_provenance", {}).values():
-            for row in split_rows:
-                path = row.get("path")
-                if isinstance(path, str) and path:
-                    paths.add(path)
+        for value in _walk_json(payload):
+            if not isinstance(value, Mapping):
+                continue
+            for key in ("path", "source_path", "file_path"):
+                path = value.get(key)
+                if not isinstance(path, str) or not path.endswith(".py"):
+                    continue
+                candidate = Path(path)
+                if candidate.is_absolute():
+                    try:
+                        path = str(candidate.resolve().relative_to(ROOT))
+                    except ValueError:
+                        continue
+                paths.add(path)
     return paths, hashes
 
 
@@ -255,6 +273,27 @@ def normalized_python_sha256(blob: bytes) -> str:
     return hashlib.sha256("\0".join(normalized).encode()).hexdigest()
 
 
+def eligible_code_tree_manifest(commit: str) -> dict[str, Any]:
+    """Hash every eligible path and blob so a later commit cannot change OOD sampling."""
+
+    paths = subprocess.check_output(
+        ["git", "ls-tree", "-r", "--name-only", commit], cwd=ROOT, text=True,
+    ).splitlines()
+    entries = []
+    for path in sorted(path for path in paths if code_path_is_eligible(path)):
+        blob = subprocess.check_output(["git", "show", f"{commit}:{path}"], cwd=ROOT)
+        entries.append({
+            "path": path,
+            "blob_sha256": hashlib.sha256(blob).hexdigest(),
+            "normalized_python_sha256": normalized_python_sha256(blob),
+        })
+    encoded = json.dumps(entries, sort_keys=True, separators=(",", ":")).encode()
+    return {
+        "eligible_file_count": len(entries),
+        "entries_sha256": hashlib.sha256(encoded).hexdigest(),
+    }
+
+
 def ordered_code_blobs(commit: str) -> Iterable[tuple[str, bytes]]:
     paths = subprocess.check_output(
         ["git", "ls-tree", "-r", "--name-only", commit], cwd=ROOT, text=True,
@@ -270,7 +309,8 @@ def ordered_code_blobs(commit: str) -> Iterable[tuple[str, bytes]]:
 def allocate_code_rows(
     blobs: Iterable[tuple[str, bytes]], encode: Callable[[str], list[int]],
     prior: tuple[set[str], set[int], set[tuple[int, ...]], set[tuple[int, ...]]],
-    excluded_paths: set[str], *, n_rows: int = N_PER_ROLE,
+    excluded_paths: set[str], *, excluded_normalized: set[str] | None = None,
+    n_rows: int = N_PER_ROLE,
 ) -> tuple[torch.Tensor, list[dict[str, Any]]]:
     if type(n_rows) is not int or n_rows <= 0:
         raise ValueError("code row count must be positive")
@@ -279,7 +319,7 @@ def allocate_code_rows(
     selected: list[list[int]] = []
     records: list[dict[str, Any]] = []
     seen_paths: set[str] = set()
-    seen_normalized: set[str] = set()
+    seen_normalized: set[str] = set() if excluded_normalized is None else set(excluded_normalized)
     for path, blob in blobs:
         if len(selected) == n_rows:
             break
@@ -454,6 +494,18 @@ def verify_code_snapshot(commit: str, records: Sequence[Mapping[str, Any]]) -> N
             raise RuntimeError("terminal-copy OOD code blob changed")
 
 
+def prior_normalized_code_hashes(commit: str, paths: Iterable[str]) -> set[str]:
+    hashes: set[str] = set()
+    for path in sorted(set(paths)):
+        completed = subprocess.run(
+            ["git", "show", f"{commit}:{path}"], cwd=ROOT,
+            stdout=subprocess.PIPE, stderr=subprocess.DEVNULL,
+        )
+        if completed.returncode == 0:
+            hashes.add(normalized_python_sha256(completed.stdout))
+    return hashes
+
+
 def summarize_roles(
     rows: Mapping[str, torch.Tensor], records: Mapping[str, Sequence[Mapping[str, Any]]],
     synthetic: Mapping[str, Mapping[str, torch.Tensor]], banks: Mapping[str, Sequence[Sequence[int]]],
@@ -508,14 +560,117 @@ def _save_create_only(value: Any, path: Path) -> None:
         temporary.unlink(missing_ok=True)
 
 
+def _fsync_directory(path: Path) -> None:
+    descriptor = os.open(path, os.O_RDONLY | getattr(os, "O_DIRECTORY", 0))
+    try:
+        os.fsync(descriptor)
+    finally:
+        os.close(descriptor)
+
+
+def _save_staged(value: Any, path: Path) -> None:
+    if path.exists():
+        raise RuntimeError(f"terminal-copy staging path already exists: {path}")
+    torch.save(value, path)
+    descriptor = os.open(path, os.O_RDONLY)
+    try:
+        os.fsync(descriptor)
+    finally:
+        os.close(descriptor)
+
+
+def _publish_json_terminal(
+    payload: Mapping[str, Any], path: Path, claim: Any, *, lock_path: Path = LOCK,
+) -> None:
+    """Create a terminal JSON once, checking lock ownership at the actual link."""
+
+    encoded = (json.dumps(payload, indent=2, sort_keys=True, allow_nan=False) + "\n").encode()
+    temporary = path.with_name(f".{path.name}.tmp.{os.getpid()}.{secrets.token_hex(8)}")
+    descriptor = os.open(temporary, os.O_WRONLY | os.O_CREAT | os.O_EXCL, 0o600)
+    linked = False
+    try:
+        offset = 0
+        while offset < len(encoded):
+            written = os.write(descriptor, encoded[offset:])
+            if written <= 0:
+                raise OSError("terminal-copy publication made no progress")
+            offset += written
+        os.fsync(descriptor)
+        os.close(descriptor)
+        descriptor = -1
+        natural.require_claim(claim, lock_path)
+        os.link(temporary, path, follow_symlinks=False)
+        linked = True
+        try:
+            _fsync_directory(path.parent)
+        except OSError:
+            # Once the terminal hard link exists, raising would report failure while
+            # leaving an authoritative marker. Exact byte reload makes that state a
+            # success; a later receipt validator still rejects any corruption.
+            pass
+    finally:
+        if descriptor >= 0:
+            os.close(descriptor)
+        temporary.unlink(missing_ok=True)
+    if not linked or path.read_bytes() != encoded:
+        raise RuntimeError("terminal-copy terminal JSON failed exact publication")
+
+
+def _semantic_equal(left: Any, right: Any) -> bool:
+    if torch.is_tensor(left) or torch.is_tensor(right):
+        return torch.is_tensor(left) and torch.is_tensor(right) and torch.equal(left, right)
+    if isinstance(left, Mapping) or isinstance(right, Mapping):
+        return (
+            isinstance(left, Mapping) and isinstance(right, Mapping)
+            and set(left) == set(right)
+            and all(_semantic_equal(left[key], right[key]) for key in left)
+        )
+    if isinstance(left, (list, tuple)) or isinstance(right, (list, tuple)):
+        return (
+            isinstance(left, (list, tuple)) and isinstance(right, (list, tuple))
+            and len(left) == len(right)
+            and all(_semantic_equal(a, b) for a, b in zip(left, right, strict=True))
+        )
+    return left == right
+
+
+def validate_cached_payload(
+    path: Path, expected: Mapping[str, Any], entry: Mapping[str, Any], role: str,
+) -> dict[str, Any]:
+    before = file_sha256(path)
+    loaded = torch.load(path, map_location="cpu", weights_only=True)
+    if (
+        file_sha256(path) != before
+        or before != entry.get("file_sha256")
+        or not isinstance(loaded, Mapping)
+        or not _semantic_equal(loaded, expected)
+        or tensor_sha256(loaded["rows"]) != entry.get("rows_tensor_sha256")
+        or tensor_sha256(loaded["synthetic"]["query_to_y"]) != entry.get(
+            "query_to_y_tensor_sha256"
+        )
+        or tensor_sha256(loaded["synthetic"]["query_to_z"]) != entry.get(
+            "query_to_z_tensor_sha256"
+        )
+        or tensor_sha256(loaded["copy_cells"]["positive"]) != entry.get(
+            "copy_positive_mask_sha256"
+        )
+        or tensor_sha256(loaded["copy_cells"]["matched_negative"]) != entry.get(
+            "copy_matched_negative_mask_sha256"
+        )
+    ):
+        raise RuntimeError(f"terminal-copy cached role failed exact replay: {role}")
+    return dict(loaded)
+
+
 def freeze() -> dict[str, Any]:
     claim = natural.acquire_claim(LOCK)
     try:
-        if CACHE.exists() or RECEIPT.exists():
+        if CACHE.exists() or RECEIPT.exists() or FAILURE.exists():
             raise RuntimeError("terminal-copy row namespace is spent")
         commit = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip()
         sources = source_closure(commit)
-        audit = validate_audit(commit, sources)
+        code_tree = eligible_code_tree_manifest(commit)
+        audit = validate_audit(commit, sources, code_tree["entries_sha256"])
         canonical, parquet = natural.BASE.validate_ordered_source()
         registry_files = natural.discover_registry_files()
         prior, registry_hashes, prior_tensor_hashes = natural.load_registry_exclusions(registry_files)
@@ -532,9 +687,24 @@ def freeze() -> dict[str, Any]:
             token_length=contract.ROW_WIDTH,
         )
         role_rows, role_records = split_natural_rows(combined, combined_records)
-        excluded_code_paths, code_manifest_hashes = prior_code_paths()
+        excluded_code_paths, code_manifest_hashes = prior_code_paths(
+            tuple(sorted(set(CODE_PRIOR_MANIFESTS) | set(registry_files)))
+        )
+        natural_full_rows = {
+            tuple(int(value) for value in row.tolist())
+            for role in NATURAL_ROLES for row in role_rows[role]
+        }
+        natural_prefixes = {
+            values[: natural.PREFIX_LENGTH] for values in natural_full_rows
+        }
+        code_prior = (
+            set(prior[0]), set(prior[1]), set(prior[2]) | natural_full_rows,
+            set(prior[3]) | natural_prefixes,
+        )
         code_rows, code_records = allocate_code_rows(
-            ordered_code_blobs(commit), encoding.encode_ordinary, prior, excluded_code_paths,
+            ordered_code_blobs(commit), encoding.encode_ordinary, code_prior,
+            excluded_code_paths,
+            excluded_normalized=prior_normalized_code_hashes(commit, excluded_code_paths),
         )
         role_rows[OOD_ROLE] = code_rows
         role_records[OOD_ROLE] = code_records
@@ -563,53 +733,141 @@ def freeze() -> dict[str, Any]:
             prior=prior,
             parquet=parquet,
         )
-        if source_closure(commit) != sources or validate_audit(commit, sources) != audit:
+        if source_closure(commit) != sources or eligible_code_tree_manifest(commit) != code_tree or (
+            validate_audit(commit, sources, code_tree["entries_sha256"]) != audit
+        ):
             raise RuntimeError("terminal-copy source/audit closure changed")
         if source_identity(canonical, parquet, registry_hashes, encoding) != frozen_source_identity:
             raise RuntimeError("terminal-copy source identity changed before publication")
         verify_code_snapshot(commit, role_records[OOD_ROLE])
-        natural.require_claim(claim, LOCK)
-        CACHE.mkdir(parents=False, exist_ok=False)
-        entries: dict[str, Any] = {}
-        for role in ALL_ROLES:
-            payload = {
-                "rows": role_rows[role],
-                "records": role_records[role],
-                "synthetic": synthetic[role],
-                "synthetic_token_banks": banks[role],
-                "synthetic_position_templates": SYNTHETIC_POSITION_TEMPLATES,
-                "copy_cells": serialize_copy_cells(copy_cells[role]),
-            }
-            path = CACHE / f"{role}.pt"
-            _save_create_only(payload, path)
-            entries[role] = {
-                "path": str(path.resolve()),
-                "file_sha256": file_sha256(path),
-                "rows_tensor_sha256": tensor_sha256(role_rows[role]),
-                "query_to_y_tensor_sha256": tensor_sha256(synthetic[role]["query_to_y"]),
-                "query_to_z_tensor_sha256": tensor_sha256(synthetic[role]["query_to_z"]),
-                "copy_positive_mask_sha256": tensor_sha256(copy_cells[role].positive),
-                "copy_matched_negative_mask_sha256": tensor_sha256(
-                    copy_cells[role].matched_negative
-                ),
-            }
-        frequencies_path = CACHE / "fit_token_frequencies.pt"
-        _save_create_only(
-            {"query": frequencies.query, "target": frequencies.target},
-            frequencies_path,
+
+        # Exact outcome-blind semantic replay before any cache becomes visible.
+        replay_combined, replay_combined_records = natural.harvest_fresh_documents(
+            natural.BASE.local.parquet_texts([parquet]), encoding.encode_ordinary, prior,
+            start_document_index=START_DOCUMENT_INDEX,
+            n_source_documents=len(NATURAL_ROLES) * N_PER_ROLE,
+            token_length=contract.ROW_WIDTH,
         )
-        frequencies_entry = {
-            "path": str(frequencies_path.resolve()),
-            "file_sha256": file_sha256(frequencies_path),
-            "query_tensor_sha256": tensor_sha256(frequencies.query),
-            "target_tensor_sha256": tensor_sha256(frequencies.target),
-        }
+        replay_role_rows, replay_role_records = split_natural_rows(
+            replay_combined, replay_combined_records,
+        )
+        replay_code_rows, replay_code_records = allocate_code_rows(
+            ordered_code_blobs(commit), encoding.encode_ordinary, code_prior,
+            excluded_code_paths,
+            excluded_normalized=prior_normalized_code_hashes(commit, excluded_code_paths),
+        )
+        replay_role_rows[OOD_ROLE] = replay_code_rows
+        replay_role_records[OOD_ROLE] = replay_code_records
+        replay_synthetic, replay_banks = build_synthetic_roles(replay_role_rows)
+        replay_frequencies = fit_token_frequencies(replay_role_rows["fit_natural"])
+        replay_cells: dict[str, contract.CopyCells] = {}
+        for role in ALL_ROLES:
+            replay_document_ids = tuple(
+                str(record.get("document_id") or (
+                    f"code:{record['path']}:{record['blob_sha256']}"
+                ))
+                for record in replay_role_records[role]
+            )
+            replay_cells[role] = contract.build_copy_cells(
+                replay_role_rows[role], replay_frequencies, replay_document_ids,
+            )
+        if not (
+            _semantic_equal(replay_role_rows, role_rows)
+            and _semantic_equal(replay_role_records, role_records)
+            and _semantic_equal(replay_synthetic, synthetic)
+            and _semantic_equal(replay_banks, banks)
+            and _semantic_equal(replay_frequencies.query, frequencies.query)
+            and _semantic_equal(replay_frequencies.target, frequencies.target)
+            and _semantic_equal(
+                {role: serialize_copy_cells(replay_cells[role]) for role in ALL_ROLES},
+                {role: serialize_copy_cells(copy_cells[role]) for role in ALL_ROLES},
+            )
+            and support_census(replay_cells) == frozen_support_census
+        ):
+            raise RuntimeError("terminal-copy exact pre-publication semantic replay changed")
+        natural.require_claim(claim, LOCK)
+        staging = CACHE.with_name(
+            f".{CACHE.name}.tmp.{os.getpid()}.{secrets.token_hex(8)}"
+        )
+        staging.mkdir(parents=False, exist_ok=False)
+        entries: dict[str, Any] = {}
+        payloads: dict[str, dict[str, Any]] = {}
+        try:
+            for role in ALL_ROLES:
+                payload = {
+                    "rows": role_rows[role],
+                    "records": role_records[role],
+                    "synthetic": synthetic[role],
+                    "synthetic_token_banks": banks[role],
+                    "synthetic_position_templates": SYNTHETIC_POSITION_TEMPLATES,
+                    "copy_cells": serialize_copy_cells(copy_cells[role]),
+                }
+                payloads[role] = payload
+                staged_path = staging / f"{role}.pt"
+                _save_staged(payload, staged_path)
+                entries[role] = {
+                    "path": str((CACHE / staged_path.name).resolve()),
+                    "file_sha256": file_sha256(staged_path),
+                    "rows_tensor_sha256": tensor_sha256(role_rows[role]),
+                    "query_to_y_tensor_sha256": tensor_sha256(
+                        synthetic[role]["query_to_y"]
+                    ),
+                    "query_to_z_tensor_sha256": tensor_sha256(
+                        synthetic[role]["query_to_z"]
+                    ),
+                    "copy_positive_mask_sha256": tensor_sha256(copy_cells[role].positive),
+                    "copy_matched_negative_mask_sha256": tensor_sha256(
+                        copy_cells[role].matched_negative
+                    ),
+                }
+                validate_cached_payload(staged_path, payload, entries[role], role)
+            frequencies_payload = {
+                "query": frequencies.query, "target": frequencies.target,
+            }
+            staged_frequencies = staging / "fit_token_frequencies.pt"
+            _save_staged(frequencies_payload, staged_frequencies)
+            frequencies_entry = {
+                "path": str((CACHE / staged_frequencies.name).resolve()),
+                "file_sha256": file_sha256(staged_frequencies),
+                "query_tensor_sha256": tensor_sha256(frequencies.query),
+                "target_tensor_sha256": tensor_sha256(frequencies.target),
+            }
+            loaded_frequencies = torch.load(
+                staged_frequencies, map_location="cpu", weights_only=True,
+            )
+            if not _semantic_equal(loaded_frequencies, frequencies_payload):
+                raise RuntimeError("terminal-copy staged frequencies failed exact replay")
+            _fsync_directory(staging)
+            natural.require_claim(claim, LOCK)
+            if CACHE.exists():
+                raise RuntimeError("terminal-copy cache appeared before install")
+            os.replace(staging, CACHE)
+            _fsync_directory(CACHE.parent)
+        finally:
+            if staging.exists():
+                shutil.rmtree(staging)
+
+        for role in ALL_ROLES:
+            validate_cached_payload(
+                Path(entries[role]["path"]), payloads[role], entries[role], role,
+            )
+        installed_frequencies = Path(frequencies_entry["path"])
+        before_frequencies = file_sha256(installed_frequencies)
+        loaded_frequencies = torch.load(
+            installed_frequencies, map_location="cpu", weights_only=True,
+        )
+        if (
+            before_frequencies != frequencies_entry["file_sha256"]
+            or file_sha256(installed_frequencies) != before_frequencies
+            or not _semantic_equal(loaded_frequencies, frequencies_payload)
+        ):
+            raise RuntimeError("terminal-copy installed frequencies failed exact replay")
 
         receipt = {
             "schema_version": 1,
             "receipt_kind": "terminal_copy_induction_v1_rows",
             "status": "frozen_before_any_terminal_copy_model_forward",
-            "authorized_for_scored_experiments": True,
+            "authorized_for_scored_experiments": False,
             "authorized_for_candidate_or_threshold_selection": False,
             "source_commit": commit,
             "source_hashes": sources,
@@ -635,6 +893,25 @@ def freeze() -> dict[str, Any]:
             "prior_registry_files": registry_hashes,
             "prior_row_tensors": prior_tensor_hashes,
             "prior_code_manifests": code_manifest_hashes,
+            "eligible_code_tree": code_tree,
+            "role_licenses": {
+                "fit_natural": {
+                    "authorized_use": "fit_per_position_head_write_means_only",
+                    "requires_receipt": None,
+                },
+                "selection_natural": {
+                    "authorized_use": "candidate_selection_only",
+                    "requires_receipt": "terminal_copy_induction_v1_fit_means_receipt",
+                },
+                "final_natural": {
+                    "authorized_use": "one_shot_final_replication_only",
+                    "requires_receipt": "terminal_copy_induction_v1_selection_passer_receipt",
+                },
+                OOD_ROLE: {
+                    "authorized_use": "one_shot_single_repository_ood_replication_only",
+                    "requires_receipt": "terminal_copy_induction_v1_selection_passer_receipt",
+                },
+            },
             "ordered_manifest_gate": canonical["ordered_manifest_local_parquet_identity_gate"],
             "source_identity": frozen_source_identity,
             "outcome_access": {
@@ -644,13 +921,50 @@ def freeze() -> dict[str, Any]:
                 "scientific_outcomes_read": False,
             },
         }
+        natural.verify_snapshot(
+            commit=commit,
+            sources=natural.source_closure(commit),
+            registry_files=registry_files,
+            registry_hashes=registry_hashes,
+            tensor_hashes=prior_tensor_hashes,
+            prior=prior,
+            parquet=parquet,
+        )
+        if source_closure(commit) != sources or eligible_code_tree_manifest(commit) != code_tree or (
+            validate_audit(commit, sources, code_tree["entries_sha256"]) != audit
+        ) or source_identity(canonical, parquet, registry_hashes, encoding) != frozen_source_identity:
+            raise RuntimeError("terminal-copy terminal snapshot changed")
+        verify_code_snapshot(commit, role_records[OOD_ROLE])
+        for role in ALL_ROLES:
+            validate_cached_payload(
+                Path(entries[role]["path"]), payloads[role], entries[role], role,
+            )
         natural.require_claim(claim, LOCK)
-        natural.write_json_create_only(receipt, RECEIPT)
+        _publish_json_terminal(receipt, RECEIPT, claim)
+        reloaded_receipt = json.loads(RECEIPT.read_bytes())
+        if reloaded_receipt != receipt or FAILURE.exists():
+            raise RuntimeError("terminal-copy terminal receipt failed exact reload")
         return receipt
-    except BaseException:
-        if CACHE.exists() and not RECEIPT.exists():
-            # Preserve partial cache for forensic audit; v1 is spent and cannot rerun.
-            pass
+    except BaseException as error:
+        if not RECEIPT.exists() and not FAILURE.exists():
+            try:
+                natural.require_claim(claim, LOCK)
+                _publish_json_terminal({
+                    "schema_version": 1,
+                    "receipt_kind": "terminal_copy_induction_v1_rows_failure",
+                    "status": "terminal_failure_no_receipt",
+                    "exception_type": type(error).__name__,
+                    "exception_message": str(error),
+                    "cache_exists": CACHE.exists(),
+                    "receipt_exists": RECEIPT.exists(),
+                    "outcome_access": {
+                        "checkpoint_loaded": False,
+                        "model_imported": False,
+                        "model_forward_calls": 0,
+                    },
+                }, FAILURE, claim)
+            except BaseException:
+                pass
         raise
     finally:
         natural.release_claim(claim, LOCK)
