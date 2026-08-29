@@ -2400,3 +2400,39 @@ The strict ledger remains unchanged: `5.348245316%` certified storage,
 terminal actions.
 
 ## UPDATE END — 36
+
+## UPDATE START — 37: rank 768 is near the late-table knee; native consequence test repaired
+
+The newest shipped-program experiment asked whether MLP16 or MLP17 should have more
+than rank 768. Increasing MLP17 to rank 1,152 improves CE on all three document roles
+at both tested table coverages. At the larger coverage the improvements are about
+`0.00082--0.00178` nat, enough to repay the frozen price assigned to its extra stored
+numbers. MLP16 is less reliable: at the smaller coverage it makes one role slightly
+worse. Increasing both sites also gives less benefit than adding their separate gains,
+so late-table improvements partly overlap.
+
+This is a small executable improvement to the fully compiled table program, not a new
+semantic explanation of native MLP17. The compiled program is still very lossy: its CE
+is about `5.86--5.94` versus native CE near `3.14`.
+
+The more important native-model experiment is still the MLP2 error-consequence test.
+It asks whether an MLP2 approximation error matters according to the directions that
+final logits and downstream attention actually read, and whether that score predicts
+the known MLP0×MLP2 composition penalty better than ordinary local squared error.
+
+An independent audit stopped this test before any data or model access because the
+fresh-row wrapper omitted one test from its source list and leaked temporary settings
+into a shared parent module. We fixed both issues and added configured lifecycle tests:
+the combined outcome-blind suite now passes `32/32`, and commit `87475ab7` is pushed
+for re-audit. The GPU is free; the only current launch blocker is the new independent
+source-bound GO. No rows, responses, or outcomes have been opened.
+
+The complete update, including equations, terms, runtimes, gaps, eight-hour status,
+pruning, and ranked next actions, is
+[`HOURLY_STRATEGIC_REVIEW_2026-08-29_2335.md`](HOURLY_STRATEGIC_REVIEW_2026-08-29_2335.md).
+
+The strict ledger remains unchanged: `5.348245316%` certified storage,
+`10.923302467%` named causal CE, `4.72714` nat (`89.077%`) unexplained, and `0/68`
+terminal actions.
+
+## UPDATE END — 37
