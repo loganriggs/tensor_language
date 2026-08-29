@@ -1,0 +1,46 @@
+ATTENTION SIXS CONTENT BY RANK | 10 arms x 1 coverage(s) | DISCOVERY ONLY
+
+########## COVERAGE 5419 ##########
+  [bqlib] coverage 5419 from fineweb_n96_skip80.pt: 36 tables, neighbour index and map solver built (4s)
+  [bqlib] cache HIT  live     skip7000
+  [bqlib] cache HIT  live     skip11000
+  [bqlib] cache HIT  live     skip1200
+  [bqlib] cache HIT  mix30m640 skip7000
+  [bqlib] cache HIT  mix30m640 skip11000
+  [bqlib] cache HIT  mix30m640 skip1200
+  [bqlib] cache HIT  mix30m640 skip7000
+  [bqlib] cache HIT  mix30m640 skip11000
+  [bqlib] cache HIT  mix30m640 skip1200
+  [bqlib] cache HIT  mix30m640 skip7000
+  [bqlib] cache HIT  mix30m640 skip11000
+  [bqlib] cache HIT  mix30m640 skip1200
+  [bqlib] cache HIT  mix30m640 skip7000
+  [bqlib] cache HIT  mix30m640 skip11000
+  [bqlib] cache HIT  mix30m640 skip1200
+  [bqlib] cache HIT  mix30m640 skip7000
+  [bqlib] cache HIT  mix30m640 skip11000
+  [bqlib] cache HIT  mix30m640 skip1200
+  [bqlib] cache HIT  mix30m640 skip7000
+  [bqlib] cache HIT  mix30m640 skip11000
+  [bqlib] cache HIT  mix30m640 skip1200
+  [bqlib] cache HIT  meanrow@attn6+mix30m640@mlp2,attn5 skip7000
+  [bqlib] cache HIT  meanrow@attn6+mix30m640@mlp2,attn5 skip11000
+  [bqlib] cache HIT  meanrow@attn6+mix30m640@mlp2,attn5 skip1200
+  [bqlib] cache HIT  mix30m640 skip7000
+  [bqlib] cache HIT  mix30m640 skip11000
+  [bqlib] cache HIT  mix30m640 skip1200
+  [bqlib] cache HIT  map512   skip7000
+  [bqlib] cache HIT  map512   skip11000
+  [bqlib] cache HIT  map512   skip1200
+  [bqlib] cache HIT  mix30m640 skip7000
+  [bqlib] cache HIT  mix30m640 skip11000
+  [bqlib] cache HIT  mix30m640 skip1200
+
+  §1998's mean row at attention 6 rebuilds to 2.183/2.306/2.142 within 0.005 nats on 3/3 roles  -> True
+  and rank 1 recovers under 10% of the CONTENT, measured from the mean row, on 3/3 roles  -> True
+  and even rank 64 recovers under half the content (>=2 roles)  -> False
+  derived controls -> True   coverage_exact=True  inert_pairs_are_inert=True  some_differing_pair_moves=True  buckets_partition=True  live_identical=True  ref_a6_mean=True  ref_full_program=True
+  reference deviations: a6_mean 0.000000  full_program 0.000000
+
+pred_a True | pred_b True | pred_c False | pred_z True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/attention_sixs_content_by_rank_results.json (4.9s)
