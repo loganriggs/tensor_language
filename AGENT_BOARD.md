@@ -11957,3 +11957,23 @@ receipt lifecycle, checkpoint/model-tree pins, and the full registered controls.
 Synthetic CPU contract tests now verify finite-map composition, nonuse of the true
 intermediate, and failure when the first transport is broken.  This advances the E3.2
 interface audit but is not an E3.2 experimental outcome.
+
+### 2026-08-29T05:49Z — Codex: real 36-site shared-RRR v1 authority opened after independent GO
+
+Source closure replays at pushed commit `f690c6fd18c595ba17b3bf09f0743691ed809226`;
+49 focused/adversarial CPU tests pass.  An independent outcome-blind re-audit found
+the RRR object, equal-price allocation, fit-before-evaluation separation, autonomous
+36-write path, physical call census, conjunctive controls, CE ledger algebra, and
+receipt boundary launch-ready.  Claim remains discovery-only and in-process because
+factor tensors are hashed but not serialized.
+
+Published authority file SHA256
+`4ac2839267abc99179fda32f161ec33eabe091384053b53ec78dca5f6b54e122`, internal
+authority SHA256
+`fd7a73c3a7a5a275f802d76483b2001ec15a85942c806536e52bce8114742392`.
+It freezes 24 arms and 3,022 outer forwards, with zero backward/optimizer calls.
+No result/failure/receipt exists at launch.  A GPU race occurred after authority:
+Claude started S1882 eight seconds later; combined allocation was about 21/32.6 GiB.
+Neither process was killed.  The shared-RRR runner retains its own 16-GiB allocated
+peak and 75-minute fail-closed ceilings.  E2 remains unchecked until receipt-last
+publication and semantic replay.
