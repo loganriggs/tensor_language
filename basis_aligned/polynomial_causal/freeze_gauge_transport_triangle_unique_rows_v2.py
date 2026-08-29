@@ -8,7 +8,6 @@ import contextlib
 import hashlib
 import io
 import json
-import os
 from pathlib import Path
 from typing import Any, Iterator, Mapping
 
@@ -260,6 +259,9 @@ def build_manifest(payload: Mapping[str, Any], authority: Mapping[str, Any]) -> 
         "unique_document_count": sum(v1.ROLE_SIZES.values()),
         "hash_protocols": authority["hash_protocols"],
         "triangle_runner_authorized_by_this_manifest": False,
+        "conditional_future_row_eligibility": authority["permissions"][
+            "conditional_future_row_eligibility"
+        ],
         "authorized_for_training": False,
         "authorized_for_global_ledger_credit": False,
     }
@@ -297,6 +299,21 @@ def replay_terminal_state(expected_authority: Mapping[str, Any]) -> tuple[dict, 
             for key, binding in authority["cache_bindings"].items()
         },
     }
+    if replay["source_cache_file_sha256s"] != {
+        key: binding["file_sha256"] for key, binding in authority["cache_bindings"].items()
+    }:
+        raise RuntimeError("v2 source-cache bytes changed after tensor replay")
+    validate_authority(authority)
+    if json.loads(AUTHORITY.read_text()) != authority or {
+        "authority_file_sha256": v1.file_sha256(AUTHORITY),
+        "rows_file_sha256": v1.file_sha256(ROWS),
+        "manifest_file_sha256": v1.file_sha256(MANIFEST),
+        "source_cache_file_sha256s": {
+            key: v1.file_sha256(Path(binding["path"]))
+            for key, binding in authority["cache_bindings"].items()
+        },
+    } != replay:
+        raise RuntimeError("v2 terminal bytes changed after semantic replay")
     return payload, manifest, replay
 
 
@@ -335,6 +352,8 @@ def freeze_authority() -> dict:
         raise RuntimeError("v2 authority namespace is not pristine")
     owner = acquire_owner_lock()
     try:
+        if any(path.exists() for path in (AUTHORITY, ROWS, MANIFEST, RECEIPT, FAILURE)):
+            raise RuntimeError("v2 authority namespace changed after lock acquisition")
         v1_authority, _ = load_v1_parents()
         value = build_authority(source_closure(), load_parent_metadata(), v1_authority)
         publish_json(AUTHORITY, value, owner)
@@ -349,6 +368,8 @@ def materialize() -> dict:
         raise RuntimeError("v2 materialization namespace is unavailable")
     owner = acquire_owner_lock()
     try:
+        if any(path.exists() for path in (ROWS, MANIFEST, RECEIPT, FAILURE)):
+            raise RuntimeError("v2 materialization namespace changed after lock acquisition")
         authority = json.loads(AUTHORITY.read_text())
         validate_authority(authority)
         payload = build_rows_payload(authority, load_cache_tensors(authority))
