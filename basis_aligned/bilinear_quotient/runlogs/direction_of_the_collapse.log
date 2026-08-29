@@ -1,0 +1,49 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+DIRECTION OF THE COLLAPSE | buckets ((0, 0), (1, 4), (5, 24), (25, 124), (125, 1000000000)) on the fit-row count of the TRUE target | full-rank settled program | DISCOVERY ONLY
+  built the settled fallback and 36 tables (5s)
+    attn0   median cos +0.4282  mean cos +0.4215  frac<0  0.88%  relL2 2.278e+00  (n 82985)
+    attn1   median cos +0.9266  mean cos +0.9188  frac<0  0.00%  relL2 6.063e+00  (n 82985)
+    attn2   median cos +0.5234  mean cos +0.5214  frac<0  0.01%  relL2 9.789e+00  (n 82985)
+    attn3   median cos +0.7001  mean cos +0.6906  frac<0  0.00%  relL2 1.275e+01  (n 82985)
+    attn4   median cos +0.7943  mean cos +0.7750  frac<0  0.00%  relL2 2.372e+01  (n 82985)
+    attn5   median cos +0.9992  mean cos +0.9967  frac<0  0.00%  relL2 1.486e+02  (n 82985)
+    attn6   median cos +0.9866  mean cos +0.9866  frac<0  0.00%  relL2 7.176e+01  (n 82985)
+    attn7   median cos +0.8914  mean cos +0.8876  frac<0  0.00%  relL2 1.104e+01  (n 82985)
+    attn8   median cos +0.3754  mean cos +0.3773  frac<0  1.31%  relL2 8.682e+00  (n 82985)
+    attn9   median cos +0.9196  mean cos +0.8972  frac<0  0.19%  relL2 4.341e+00  (n 82985)
+    attn10  median cos +0.9035  mean cos +0.8965  frac<0  0.00%  relL2 7.636e+00  (n 82985)
+    attn11  median cos +0.7986  mean cos +0.7831  frac<0  0.01%  relL2 5.554e+00  (n 82985)
+    attn12  median cos +0.5903  mean cos +0.5806  frac<0  0.00%  relL2 1.268e+01  (n 82985)
+    attn13  median cos +0.1455  mean cos +0.1807  frac<0  8.63%  relL2 1.208e+01  (n 82985)
+    attn14  median cos +0.1635  mean cos +0.1805  frac<0  2.04%  relL2 7.192e+00  (n 82985)
+    attn15  median cos +0.4471  mean cos +0.4441  frac<0  0.00%  relL2 8.432e+00  (n 82985)
+    attn16  median cos +0.1312  mean cos +0.1552  frac<0  0.45%  relL2 1.063e+01  (n 82985)
+    attn17  median cos +0.9472  mean cos +0.9329  frac<0  0.03%  relL2 6.903e+00  (n 82985)
+
+  live-vs-table cosine, all 18 attention sites (covered positions), ascending:
+    attn16  median cos +0.1312   §1905 enrichment  7.85x
+    attn13  median cos +0.1455   §1905 enrichment  7.97x
+    attn14  median cos +0.1635   §1905 enrichment  7.85x
+    attn8   median cos +0.3754   §1905 enrichment  7.31x
+    attn0   median cos +0.4282   §1905 enrichment  7.16x
+    attn15  median cos +0.4471   §1905 enrichment  7.32x
+    attn2   median cos +0.5234   §1905 enrichment  7.19x
+    attn12  median cos +0.5903   §1905 enrichment  7.00x
+    attn3   median cos +0.7001   §1905 enrichment  7.36x
+    attn4   median cos +0.7943   §1905 enrichment  7.16x
+    attn11  median cos +0.7986   §1905 enrichment  6.88x
+    attn7   median cos +0.8914   §1905 enrichment  6.93x
+    attn10  median cos +0.9035   §1905 enrichment  6.13x
+    attn9   median cos +0.9196   §1905 enrichment  6.85x
+    attn1   median cos +0.9266   §1905 enrichment  7.15x
+    attn17  median cos +0.9472   §1905 enrichment  7.53x
+    attn6   median cos +0.9866   §1905 enrichment  1.32x
+    attn5   median cos +0.9992   §1905 enrichment  1.06x
+
+  attn5 AND attn6 ARE THE DIRECTIONAL OUTLIERS -> False  two lowest: ['attn16', 'attn13']
+  and DIRECTION predicts behaviour (Spearman >= +0.6) -> False  rho -0.742  (norm ratio gave -0.158/-0.212/-0.249 at §1905)
+  and attn4 is ALIGNED despite its 35.4x norm -> False  cos +0.7943 vs median +0.7943
+  coverage 16110, 18 sites -> control True; baseline REPORTED skip7000 36864.00x  skip11000 36864.00x  skip1200 18432.00x
+
+pred_a False | pred_b False | pred_c False | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/direction_of_the_collapse_results.json (115.9s)

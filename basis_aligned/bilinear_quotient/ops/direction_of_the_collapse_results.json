@@ -1,0 +1,158 @@
+{
+ "config": {
+  "table_ranks": [
+   "full"
+  ],
+  "map_rank_of_table_rank": {
+   "None": 64,
+   "512": 512
+  },
+  "program": "context-free tables, output-NN fallback with a rank-64 embedding->row map -- the settled design of \u00a71780-\u00a71786",
+  "instruments": "top-1 agreement with the live model, top-1 accuracy against the true next token, and KL(live || program). All three are NEW to this thread, which has been CE-only since \u00a71747.",
+  "ROLE_NOTE": "DISCOVERY ONLY; a second-class confirmation with a DIFFERENT instrument, not a replication of the same one."
+ },
+ "results": {
+  "stream_divergence": {
+   "attn0": {
+    "rel_diff": 2.277795475820817,
+    "n": 82985,
+    "median_cosine": 0.4282071590423584,
+    "mean_cosine": 0.42153775691986084,
+    "frac_cos_below_0": 0.008820871241790686
+   },
+   "attn1": {
+    "rel_diff": 6.0632017741574415,
+    "n": 82985,
+    "median_cosine": 0.9265973567962646,
+    "mean_cosine": 0.9188376069068909,
+    "frac_cos_below_0": 0.0
+   },
+   "attn2": {
+    "rel_diff": 9.78866572988358,
+    "n": 82985,
+    "median_cosine": 0.5233598947525024,
+    "mean_cosine": 0.5214272737503052,
+    "frac_cos_below_0": 7.230222329336627e-05
+   },
+   "attn3": {
+    "rel_diff": 12.754961636388945,
+    "n": 82985,
+    "median_cosine": 0.7001466155052185,
+    "mean_cosine": 0.6905615329742432,
+    "frac_cos_below_0": 0.0
+   },
+   "attn4": {
+    "rel_diff": 23.721917465879468,
+    "n": 82985,
+    "median_cosine": 0.7942923307418823,
+    "mean_cosine": 0.774986207485199,
+    "frac_cos_below_0": 1.2050370548894379e-05
+   },
+   "attn5": {
+    "rel_diff": 148.5923699112363,
+    "n": 82985,
+    "median_cosine": 0.9991515278816223,
+    "mean_cosine": 0.9966705441474915,
+    "frac_cos_below_0": 0.0
+   },
+   "attn6": {
+    "rel_diff": 71.75815959035637,
+    "n": 82985,
+    "median_cosine": 0.9866249561309814,
+    "mean_cosine": 0.9866214990615845,
+    "frac_cos_below_0": 0.0
+   },
+   "attn7": {
+    "rel_diff": 11.039347198580328,
+    "n": 82985,
+    "median_cosine": 0.8914062976837158,
+    "mean_cosine": 0.8876433372497559,
+    "frac_cos_below_0": 0.0
+   },
+   "attn8": {
+    "rel_diff": 8.682275386265905,
+    "n": 82985,
+    "median_cosine": 0.37542229890823364,
+    "mean_cosine": 0.3773224651813507,
+    "frac_cos_below_0": 0.013074652045550401
+   },
+   "attn9": {
+    "rel_diff": 4.341390216882801,
+    "n": 82985,
+    "median_cosine": 0.9196279048919678,
+    "mean_cosine": 0.8971899151802063,
+    "frac_cos_below_0": 0.0018678074350786287
+   },
+   "attn10": {
+    "rel_diff": 7.635995724841836,
+    "n": 82985,
+    "median_cosine": 0.9034935832023621,
+    "mean_cosine": 0.8964839577674866,
+    "frac_cos_below_0": 0.0
+   },
+   "attn11": {
+    "rel_diff": 5.55373100533565,
+    "n": 82985,
+    "median_cosine": 0.7985619902610779,
+    "mean_cosine": 0.783064067363739,
+    "frac_cos_below_0": 6.0251852744471894e-05
+   },
+   "attn12": {
+    "rel_diff": 12.68067437437405,
+    "n": 82985,
+    "median_cosine": 0.5903044939041138,
+    "mean_cosine": 0.5805884003639221,
+    "frac_cos_below_0": 2.4100741097788758e-05
+   },
+   "attn13": {
+    "rel_diff": 12.077485152489619,
+    "n": 82985,
+    "median_cosine": 0.1455082893371582,
+    "mean_cosine": 0.1806674748659134,
+    "frac_cos_below_0": 0.08625655238898597
+   },
+   "attn14": {
+    "rel_diff": 7.191813141770845,
+    "n": 82985,
+    "median_cosine": 0.1635260134935379,
+    "mean_cosine": 0.18047437071800232,
+    "frac_cos_below_0": 0.020437428450924867
+   },
+   "attn15": {
+    "rel_diff": 8.431624922904062,
+    "n": 82985,
+    "median_cosine": 0.4471084773540497,
+    "mean_cosine": 0.44405823945999146,
+    "frac_cos_below_0": 0.0
+   },
+   "attn16": {
+    "rel_diff": 10.625705764228602,
+    "n": 82985,
+    "median_cosine": 0.1312474012374878,
+    "mean_cosine": 0.1551840603351593,
+    "frac_cos_below_0": 0.004482737844188709
+   },
+   "attn17": {
+    "rel_diff": 6.902696097922985,
+    "n": 82985,
+    "median_cosine": 0.947243332862854,
+    "mean_cosine": 0.9328598976135254,
+    "frac_cos_below_0": 0.000253057781526782
+   }
+  },
+  "baseline": {
+   "skip7000": 36864,
+   "skip11000": 36864,
+   "skip1200": 18432
+  },
+  "self_check": 0,
+  "sites": {}
+ },
+ "predictions": {
+  "pred_a_directional_outliers": false,
+  "pred_b_direction_predicts": false,
+  "pred_c_attn4_aligned": false,
+  "pred_d_controls": true
+ },
+ "runtime_s": 115.9
+}

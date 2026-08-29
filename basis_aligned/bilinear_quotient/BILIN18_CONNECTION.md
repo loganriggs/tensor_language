@@ -53112,3 +53112,61 @@ applied deliberately after §1905's pred_d failed on exactly that.
 absorb? It is not magnitude (§1906) and it is not depth (attn4 and attn7 flank them harmlessly). The next
 instrument is directional: compare attn5's live output direction against its table row's, and against the
 same comparison at a harmless site.
+
+## §1907 — attn5 and attn6 are the most ALIGNED sites, not the least. Direction separates; my sign was backwards.
+
+`ops/direction_of_the_collapse.py`, 115.9s, **DISCOVERY ONLY**, rung 3 — §1906's open question.
+**pred_a False | pred_b False | pred_c False | pred_d True.** All three substantive bars missed, and the
+first of them missed by pointing the other way.
+
+```
+  live-vs-table median cosine, all 18 attention sites, covered positions, 16,110 types
+    attn16 +0.1312  7.85x      attn12 +0.5903  7.00x      attn10 +0.9035  6.13x
+    attn13 +0.1455  7.97x      attn3  +0.7001  7.36x      attn9  +0.9196  6.85x
+    attn14 +0.1635  7.85x      attn4  +0.7943  7.16x      attn1  +0.9266  7.15x
+    attn8  +0.3754  7.31x      attn11 +0.7986  6.88x      attn17 +0.9472  7.53x
+    attn0  +0.4282  7.16x      attn7  +0.8914  6.93x      attn6  +0.9866  1.32x
+    attn15 +0.4471  7.32x                                 attn5  +0.9992  1.06x
+```
+
+> **pred_a FAILED and its failure is the finding. attn5 and attn6 are not directional outliers — they are
+> the two MOST aligned sites in the model, at +0.9992 and +0.9866.** attn5's live output is, to four
+> decimals, **parallel to its own table row**. Combined with §1892's measured 144x norm ratio, that says
+> something much sharper than either measurement alone: **restoring attn5 injects exactly the right
+> direction at 144 times the magnitude the compiled program expects.**
+>
+> **And that reconciles §1906, which is what makes it worth trusting.** §1906 amplified attn3 by 12x to an
+> effective 156x ratio and it did no harm — but attn3 sits at cosine **+0.70**, so its live output is not
+> parallel to its table and amplifying it does not reproduce attn5's condition. **The two experiments were
+> never testing the same thing.** Magnitude alone is not the cause (§1906) and alignment alone is not the
+> cause (attn17 at +0.9472 is perfectly healthy at 7.53x); the collapse sits where a site is both nearly
+> parallel to its table row and enormously larger than it.
+
+> **pred_b FAILED ON SIGN, not on strength, and I am scoring it FAIL as written.** I registered Spearman
+> **at least +0.6** — higher cosine, higher enrichment. Measured **−0.742**: higher cosine, *lower*
+> enrichment. **In magnitude that is 3 to 4.6 times stronger than the norm ratio's −0.158 / −0.212 /
+> −0.249 (§1905), so direction is by a wide margin the better single predictor** — I simply had the
+> direction of the relationship backwards, having assumed the collapsing sites would look unusual rather
+> than unusually ordinary. The bar was two-sided in form and I still wrote the wrong sign into it.
+
+**pred_c FAILED on a bar I mis-constructed.** I required attn4's cosine to exceed the median of the
+eighteen; attn4 **is** the median (+0.7943 = +0.7943), so the strict inequality cannot pass. **The
+predicate was ill-posed, not informative**, and I am recording that rather than reading anything into it.
+The substantive point it was reaching for does hold: attn4 carries a 35.4x ratio and an entirely ordinary
+cosine, which is why it is harmless.
+
+> **A reporting defect I caught in my own output.** The run's last line prints
+> `baseline REPORTED skip7000 36864.00x` — those are **position counts**, not enrichments. This lineage
+> descends from §1901, where `res['baseline']` was set to `basep[ename].numel()`, and I carried the print
+> without carrying the meaning. **No predicate used it** (pred_d checks only coverage, site count and
+> non-empty populations, and passed on those), so nothing is scored wrong — but the printed line is false
+> and the log now carries it. Recorded, not silently edited.
+
+**Where this leaves the line, stated carefully after three corrections to it.** §1892 said magnitude
+caused the collapse; §1905 downgraded the ratio to a threshold; §1906 removed the causation; §1907 finds
+the variable that actually separates, with |rho| = 0.742 against the ratio's 0.16-0.25. **I am not
+claiming direction is the cause either.** The measured statement is: *the two collapsing sites are the two
+whose live output is most nearly parallel to their table row, while also being 144x and 77x larger than
+it, and no healthy site combines those two properties.* Whether that conjunction is the mechanism is one
+experiment away — amplify a HIGH-cosine harmless site (attn17, +0.9472, currently 7.53x) and see whether
+it collapses. §1906 amplified a mid-cosine site and learned nothing about attn5.
