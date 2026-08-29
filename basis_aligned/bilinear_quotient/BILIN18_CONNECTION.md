@@ -56474,3 +56474,52 @@ stopping rule** — so the axis either settles or says what it costs.
 settled axes — table rank (§1947/§1950) and attention share (§1948/§1952) — were closed before the rule
 existed**, on the 0.010 nats/100M threshold, which asks about *cost-efficiency* and not about the penalty
 for a one-step error. Both artifacts are on disk and the same arithmetic applies to them.
+[**CORRECTED §1969.** It does not apply to them. Both axes are **monotone in capacity** (§1947, §1948),
+so their argmin sits at a grid end and "the three points around the optimum" is two points at a boundary.
+A monotone axis has no optimum to be flat around and its stopping criterion has to be a **price**, which
+is what it was given. The question above was mis-posed.]
+
+## §1969 — §1967's rule does not apply to two of the four axes, and §1968's open question was mis-posed
+
+**No GPU.** Arithmetic on `ops/attention_share_at_knee_results.json` and
+`ops/table_curve_knee_results.json` — §1968's open question, answered from disk, and the answer is that
+the question was wrong. Rung 3.
+
+§1968 closed by observing that the table-rank and attention axes were settled *before* §1967's stopping
+rule existed, and proposed applying it to them retroactively. Doing so:
+
+```
+  three-point span around the argmin, at 16,110, in MILLI-nats   (rule: < 0.50)
+    attention share   0.73 / 0.89 / 0.41    argmin = attn 576   -- the WIDEST point on the grid
+    table rank        7.44 / 7.20 / 5.75    argmin = 1024/256   -- the RICHEST point on the grid
+```
+
+> **Both argmins sit at a grid END, and that is not a coincidence — it is what §1947 and §1948 already
+> established.** CE is **monotone in capacity** on both axes: §1948 found the attention share strictly
+> monotone decreasing in CE across every point (18 of 18), and §1947 found the table curve strictly
+> convex with the rate rising at every step but the CE still improving. **Neither axis has an interior
+> optimum, so "the three points around the optimum" is really two points at a boundary, and the number
+> it produces is about the edge of the grid rather than about flatness.**
+
+> **So §1967's rule is inapplicable to them, and §1968's open question was mis-posed by me.** These two
+> axes were never closed on an *optimum*; they were closed on a **price** — §1947's 0.010 nats per 100M —
+> and §1958 measured the exchange rate and vindicated that threshold at 0.0143 / 0.0147 / 0.0090. A
+> monotone axis has no optimum to be flat around; its stopping criterion has to be "what does the next
+> unit of capacity cost", which is exactly what it was given.
+
+> **The taxonomy, which is the useful part.** The build has four parameters and they come in two kinds:
+>
+> | axis | shape | correct stopping criterion | status |
+> |---|---|---|---|
+> | table rank | monotone in capacity | price (0.010 nats/100M) | settled §1947/§1950, threshold vindicated §1958 |
+> | attention share | monotone in capacity | price (0.010 nats/100M) | settled §1948/§1952 |
+> | per-token tilt | interior optimum | one-step-error span | settled §1967 |
+> | α | interior optimum | one-step-error span | **fails** §1968, being pinned in §1970 |
+>
+> **Applying a price rule to an axis with an interior optimum would stop too early; applying a flatness
+> rule to a monotone axis is meaningless.** I had one rule and tried to use it on everything.
+
+**Open.** Both rules are now attached to the right axes, but only one of the four parameters has actually
+been re-measured under its correct criterion since the criterion was written — the tilt, in §1967. **α is
+in flight (§1970). The two monotone axes were priced at a single operating point (§1958's exchange
+rates), and the operating point has since moved twice — §1959's map rank and §1967's tilt.**
