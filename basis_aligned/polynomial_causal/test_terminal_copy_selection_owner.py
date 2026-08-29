@@ -5,7 +5,12 @@ import torch
 
 from terminal_copy_attention_dispatcher import NAMED_LAYERS, PhysicalCandidateDispatcher
 import terminal_copy_selection_owner as selection_owner
-from terminal_copy_selection_owner import SelectionBatchOwner, merge_selection_batches
+from terminal_copy_selection_owner import (
+    SelectionBatchOwner,
+    SyntheticSelectionBatchOwner,
+    merge_selection_batches,
+    merge_synthetic_batches,
+)
 from terminal_copy_streaming_statistics import CELL_NAMES, FROZEN_CANDIDATES
 from test_terminal_copy_attention_owner import TinyModel
 
@@ -115,3 +120,72 @@ def test_selection_owner_poisoned_after_reducer_failure(monkeypatch):
         owner.run(model, tokens, rows, masks, ("a", "b"), require_production=False)
     with pytest.raises(RuntimeError, match="failed"):
         owner.run(model, tokens, rows, masks, ("a", "b"), require_production=False)
+
+
+def make_synthetic_case():
+    model, _, _, _, dispatcher = make_case()
+    rows = torch.randint(0, 23, (4, 257))
+    tokens = rows[:, :256].clone()
+    return model, rows, tokens, dispatcher
+
+
+def test_synthetic_owner_returns_only_descriptive_dids_and_exact_calls():
+    model, rows, tokens, dispatcher = make_synthetic_case()
+    result = SyntheticSelectionBatchOwner(dispatcher).run(
+        model, tokens, rows, ("s0", "s1"), (64, 80), (3, 5), (4, 6),
+        require_production=False,
+    )
+    assert tuple(result.effects) == FROZEN_CANDIDATES
+    assert result.closure.raw_logits_returned is False
+    assert result.closure.native_unembedding_calls == 1
+    assert result.closure.native_attention_calls == (1,) * 18
+    assert result.closure.native_mlp_calls == (1,) * 18
+    assert all(
+        tuple(effect.item_id for effect in result.effects[candidate]) == ("s0", "s1")
+        for candidate in FROZEN_CANDIDATES
+    )
+    reference = result.effects[FROZEN_CANDIDATES[0]]
+    assert all(
+        tuple(effect.native_did for effect in result.effects[candidate])
+        == tuple(effect.native_did for effect in reference)
+        for candidate in FROZEN_CANDIDATES
+    )
+
+
+def test_synthetic_merge_enforces_order_native_baseline_and_call_census():
+    model1, rows1, tokens1, dispatcher1 = make_synthetic_case()
+    first = SyntheticSelectionBatchOwner(dispatcher1).run(
+        model1, tokens1, rows1, ("s0", "s1"), (64, 80), (3, 5), (4, 6),
+        require_production=False,
+    )
+    model2, rows2, tokens2, dispatcher2 = make_synthetic_case()
+    second = SyntheticSelectionBatchOwner(dispatcher2).run(
+        model2, tokens2, rows2, ("s2", "s3"), (96, 128), (7, 9), (8, 10),
+        require_production=False,
+    )
+    merged = merge_synthetic_batches((first, second), ("s0", "s1", "s2", "s3"))
+    assert merged.ordered_item_ids == ("s0", "s1", "s2", "s3")
+    assert len(merged.batch_closures) == 2
+    assert all(len(merged.effects[candidate]) == 4 for candidate in FROZEN_CANDIDATES)
+    with pytest.raises(RuntimeError, match="ordered"):
+        merge_synthetic_batches((first, second), ("s0", "s1", "s3", "s2"))
+
+
+def test_synthetic_owner_is_poisoned_after_partial_forward():
+    model, rows, tokens, dispatcher = make_synthetic_case()
+    owner = SyntheticSelectionBatchOwner(dispatcher)
+    original = model.transformer.h[0].mlp.forward
+    model.transformer.h[0].mlp.forward = lambda *_args, **_kwargs: (_ for _ in ()).throw(
+        RuntimeError("partial synthetic")
+    )
+    with pytest.raises(RuntimeError, match="partial synthetic"):
+        owner.run(
+            model, tokens, rows, ("s0", "s1"), (64, 80), (3, 5), (4, 6),
+            require_production=False,
+        )
+    model.transformer.h[0].mlp.forward = original
+    with pytest.raises(RuntimeError, match="failed"):
+        owner.run(
+            model, tokens, rows, ("s0", "s1"), (64, 80), (3, 5), (4, 6),
+            require_production=False,
+        )

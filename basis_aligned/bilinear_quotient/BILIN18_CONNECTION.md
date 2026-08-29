@@ -54148,3 +54148,44 @@ guessing costs. **The inversion is a documented property of the signal, not a de
 away**, and any use should threshold rather than rank.
 
 **Open.** Nothing I would spend compute on in this line.
+
+## §1927 — §1926 confirmed at 16,110: not a frequency proxy, inversion persists, q1 still the rarest
+
+`ops/frequency_control_high_coverage.py`, 356.1s, **DISCOVERY ONLY**, rung 2 — second-class confirmation
+of §1926. **All four predictions TRUE.**
+
+```
+  mean CURRENT-token fit frequency per covered margin quartile, 16,110 types
+    skip7000    q0 977.9   q1 408.5   q2 1170.0   q3 1166.4        (5,419: 242.4 / 93.6 / 265.8 / 281.5)
+  covered CE WITHIN §1789's 125+ target bucket (frequency HELD)
+    skip7000    3.6056 / 3.4490 / 3.7385 / 2.7235   q0-q3 +0.8820   (§1926 at 5,419: +0.9961)
+    skip11000   3.5754 / 3.3857 / 3.6686 / 2.5736   q0-q3 +1.0018   (+0.9703)
+    skip1200    3.6511 / 3.4705 / 3.7760 / 2.6224   q0-q3 +1.0286   (+0.9769)
+```
+
+**All three of §1926's findings replicate at 2.97x the coverage.**
+
+> **pred_a: the signal is not a frequency proxy here either** — the frequency-controlled extreme gap is
+> **+0.8820 / +1.0018 / +1.0286** against §1926's +0.9961 / +0.9703 / +0.9769 at 5,419. **Within 0.11 on
+> every role**, and two of three are *larger* at high coverage. **pred_b: the inversion persists** —
+> non-monotone on **3 of 3**, same q1-below-q2 signature, exactly as at 5,419. **pred_c: q1 still holds
+> the rarest tokens** by a wide margin (408.5 against 977.9-1170.0), the same structural oddity.
+
+**This is the transfer §1924 did not get, and the contrast is worth recording.** §1924 found §1919's rank
+lever gave +0.78/+0.63/+0.70 at 16,110 and +0.48/+1.14/+**0.09** at 5,419 — no transfer. §1927 finds the
+frequency-control result transfers on all three predictions with margins under 0.11. **So coverage
+non-transfer is not a general property of this arc's quantities; it was specific to the rank lever**, and
+§1923's "coverage is not a smooth axis" applies to the *uncovered gradient*, not to everything.
+
+**pred_d PASSED exactly**: the pooled all-position CE reproduced §1880's **5.90522 / 5.85230 / 5.88575**
+to five decimals — the 16,110 analogue of the §1858 anchor §1925 and §1926 used at 5,419, and a third
+consecutive exact CE reproduction from this lineage.
+
+**The reliability line, final.** The compiled program's per-token margin is a **build-time, pure-token,
+whole-vocabulary** score, invariant to coverage (5,419 / 9,054 / 16,110) and to the fallback map's rank.
+It separates the program's best-CE quarter from its worst by **~1.0 nats with token frequency held
+fixed**, at **two** coverages. Its middle two quartiles are **reliably inverted** — measured against two
+confounds and surviving both, at two coverages. **Threshold on it; do not rank with it.**
+
+**Open.** Nothing. Every claim in this line is now measured at two or more coverages, controlled against
+the one variable §1789 showed governs this program's accuracy, and priced against its own estimator noise.

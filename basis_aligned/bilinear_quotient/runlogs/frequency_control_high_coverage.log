@@ -1,0 +1,29 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+FREQUENCY CONTROL AT HIGH COVERAGE 16110 | buckets ((0, 0), (1, 4), (5, 24), (25, 124), (125, 1000000000)) on the fit-row count of the TRUE target | full-rank settled program | DISCOVERY ONLY
+  built the settled fallback and 36 tables (5s)
+  precomputed per-token program margin for 50257 covered types (covered-token quartile bounds [0.1608, 0.367, 0.7641])
+  uncovered-token quartile bounds [0.1976, 0.4654, 0.925] over 34147 types
+
+  === all-compiled baseline ===
+    skip7000   covered enrichment  7.16x  (n 33192)
+    skip11000  covered enrichment  7.29x  (n 33196)
+    skip1200   covered enrichment  7.49x  (n 16597)
+    per-site live/table ratios: min 1.2x max 144.0x across 36 sites
+    g1.00    skip7000 CE 5.90522 ( 7.16x)  skip11000 CE 5.85230 ( 7.29x)  skip1200 CE 5.88575 ( 7.49x)   [1/2]
+    PERSITE  skip7000 CE 12.86842 ( 1.80x)  skip11000 CE 12.91618 ( 1.71x)  skip1200 CE 12.79523 ( 1.71x)   [2/2]
+
+  mean CURRENT-token fit frequency, and CE within §1789's 125+ target bucket:
+    skip7000   freq  q0     977.9  q1     408.5  q2    1170.0  q3    1166.4
+               CE125+q0 3.6056 (n 2726)  q1 3.4490 (n 2864)  q2 3.7385 (n 3848)  q3 2.7235 (n 5197)   q0-q3 +0.8820   monotone False
+    skip11000  freq  q0     914.1  q1     434.4  q2    1222.1  q3    1119.1
+               CE125+q0 3.5754 (n 2747)  q1 3.3857 (n 2853)  q2 3.6686 (n 3708)  q3 2.5736 (n 5093)   q0-q3 +1.0018   monotone False
+    skip1200   freq  q0     948.7  q1     374.6  q2    1190.3  q3    1153.8
+               CE125+q0 3.6511 (n 1321)  q1 3.4705 (n 1559)  q2 3.7760 (n 1981)  q3 2.6224 (n 2523)   q0-q3 +1.0286   monotone False
+
+  NOT a frequency proxy (controlled gap >= 0.5 nats) -> True  skip7000 +0.8820 (§1926 at 5,419 +0.9961)  skip11000 +1.0018 (§1926 at 5,419 +0.9703)  skip1200 +1.0286 (§1926 at 5,419 +0.9769)
+  and the INVERSION persists (non-monotone on >= 2 roles) -> True  skip7000 monotone False  skip11000 monotone False  skip1200 monotone False
+  and q1 STILL holds the rarest tokens -> True  skip7000 q1 408.5 vs min-of-others 977.9  skip11000 q1 434.4 vs min-of-others 914.1  skip1200 q1 374.6 vs min-of-others 948.7
+  coverage 16110, pooled CE reproduces §1880 -> control True  skip7000 5.90522 vs 5.90522  skip11000 5.85230 vs 5.85230  skip1200 5.88575 vs 5.88575
+
+pred_a True | pred_b True | pred_c True | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/frequency_control_high_coverage_results.json (356.1s)
