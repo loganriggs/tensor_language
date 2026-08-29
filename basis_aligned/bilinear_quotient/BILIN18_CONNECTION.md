@@ -58712,7 +58712,12 @@ parameters (the shallow sites, by tenfold).
 both qualify, the pair has never been scored as a build. That is the only remaining untested allocation in
 this family.
 
-## §2019 — I excluded mlp16 on a vote and the pooled instrument says include it; the build is superseded again
+## §2019 — ~~I excluded mlp16 on a vote~~ **BUILD SUPERSEDED BY §2020 — layers 10–17, not just 16–17**
+
+**SUPERSESSION NOTE (§2020).** Everything below is correct and reproduced within 0.0002. **The build is no
+longer the best known:** untruncating layers **10–17** buys 3.30 milli-nats pooled at 5,419 (t = −11.18)
+against this build's 0.96, for 20.2M values instead of 5.05M — 1.63× its price against this one's 1.9×,
+but **3.4× the absolute gain.** The correction to §2018 recorded here stands unchanged.
 
 `ops/the_pair_as_a_build.py`, **106.0s**, **DISCOVERY ONLY**, both coverages, rung 3 — §2018's open
 question. **pred_a True | pred_b True | pred_c True | pred_d False | derived controls True.** Reference
@@ -58757,3 +58762,45 @@ vote to make a build decision in a section that quoted a pooled t in its own hea
 carry the program. **The eighteen MLP sites below them have never been tested above 768 either** — §2015
 showed their content is small, but "small" was measured at rank 768, and §2017's sub-additivity means a
 sixteen-site sweep is not a sixteen-fold extrapolation of one.
+
+## §2020 — the rank axis has a knee at layer 10: untruncate MLPs 10–17, and the build supersedes again
+
+`ops/do_the_shallow_sites_want_rank_too.py`, **351.5s**, **DISCOVERY ONLY**, both coverages, rung 3 —
+§2019's open question. **pred_a True | pred_b True | pred_c True | pred_d False | derived controls True.**
+Reference deviation 0.000000. All gains are **pooled over 92,160 positions** (LESSON 101).
+
+```
+  nats bought over the shipped build, pooled          increment over §2019's build   its price
+                    5,419              16,110            5,419      16,110
+  §2019 (16,17)   0.000962 (t −5.48)  0.002340 (t −9.97)     —          —          0.00050
+  layers 10–17    0.003300 (t −11.18) 0.007621 (t −18.79) +0.002338  +0.005282     0.00150
+  all eighteen    0.003424 (t −10.89) 0.007981 (t −18.22) +0.002462  +0.005641     0.00404
+```
+
+> **pred_d FAILED, and it found a knee I registered against. I predicted the six-site middle option would
+> not clear its 0.00150 price. It buys 0.002338 at the deployed coverage — 1.56× — and 0.005282 at 16,110,
+> 3.5×.** §2015 measured the shallow sites' *content at rank 768* as small and I read that as "more rank
+> there buys little". **It says what those tables carry, not what fuller ones would.**
+
+> **pred_c PASSED and locates the knee. Going from layers 10–17 to all eighteen adds ten sites and
+> 25.2M values — worth 2.52 milli-nats — and buys 0.124 milli-nats. A 0.05× purchase.** Layers 0–9 want
+> no more rank at all; layers 10–17 want all of it. **The knee is at layer 10, and it is sharp.**
+
+**NEW BEST-KNOWN BUILD, superseding §2019's — the third supersession in an hour, and the largest.**
+
+> **36 tables at {attn 384; mlp 768 at layers 0–9, mlp 1152 at layers 10–17}; uncovered rows 30%
+> output-NN neighbour, 70% rank-640 map. 209.7M values at 5,419** — 189.5M plus 20.2M, **+10.7%** —
+> buying **3.30 milli-nats pooled at 5,419 (t = −11.18) and 7.62 at 16,110 (t = −18.79)** against a
+> 2.02 milli-nat price. **1.63× at the deployed coverage, 3.8× at the higher one**, and **3.4× the gain of
+> §2019's build.**
+
+**Why three supersessions in an hour, stated plainly.** §1947 and §1959 set the MLP rank by sweeping it
+**uniformly across all eighteen sites**, where the marginal buyer is the average site — and §2015 showed
+the average site carries almost nothing while the late ones carry nearly everything. **A uniform sweep
+cannot find a knee it averages over.** The axis above 768 was never explored per-site because no instrument
+in this line could express a per-site rank until §1996 added one for a different purpose.
+
+**Open.** The knee is bracketed between layers 9 and 10 by a single arm, and §2015's content profile rises
+smoothly from mlp8 (0.0014) through mlp10 (0.0107) to mlp12 (0.0269) — **no sharp feature there to explain
+a sharp knee here.** Layers 8–17 and 12–17 would locate it, and if the knee is genuinely sharp where the
+content profile is smooth, that is worth more than the 0.3 milli-nats it would buy.
