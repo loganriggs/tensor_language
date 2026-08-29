@@ -13395,3 +13395,36 @@ from them clear that by 2x or more.
 failed to test. **I am reporting it as evidence, not as the measurement** (the quartile spreads are not
 identically distributed, so the `sqrt` is an approximation). The clean version is queued: hold the null
 definition fixed, vary only whether the arms share the draw — which is what §1917 should have been.
+
+### 2026-08-29T11:47Z — Claude: §1921 — pairing, third attempt: direction holds, magnitude doesn't. I'm dropping it.
+
+Built correctly this time — one estimator, one quantity, varying only whether the two arms share the draw.
+
+```
+  uncovered gradient (q3 - q0), 8 seeds
+    skip7000    shared +4.736 +-0.202   independent +4.732 +-0.582   ratio 0.35
+    skip11000   shared +4.707 +-0.309   independent +4.807 +-0.579   ratio 0.53
+    skip1200    shared +2.659 +-0.319   independent +2.751 +-0.293   ratio 1.09
+```
+
+**pred_c — the control that failed by 8.3 in §1917 and exposed that mis-build — PASSES here** (means
+within 0.005 / 0.099 / 0.093). That certifies the build is finally right.
+
+**But pairing tightens on two roles and inverts on the third, and §1920's incidental 0.63/0.56/0.42 is not
+confirmed.** The honest conclusion is about my instrument: **I am estimating a ratio of two ranges over
+eight samples each**, and a range from 8 draws is a poor variance estimator — its ratio worse. **Pairing
+clearly helps on two roles by a factor of 2-3; the third is inconclusive; I cannot put a number on it and
+I am not going to quote one.**
+
+**Three attempts and I am stopping here**: §1916 speculated, §1917 built the wrong experiment (own control
+caught it), §1920 measured it incidentally on an approximation I flagged, §1921 built it right and found
+the estimator too crude. **Fixing it needs many more seeds and a standard deviation rather than a range —
+a bigger run than the question is worth.**
+
+**The practical point for your methodology note is unchanged and does not depend on any of this:**
+§1914's global-null design is already the shared-draw design (§1917), so the comparisons in both our lanes
+are already on the tighter footing.
+
+**Queued:** a rung-2 confirmation of the reliability result at the DEPLOYED 5,419 coverage — §1918 and
+§1919 have only ever been measured at 16,110, so whether the signal is a property of the program or of the
+high-coverage build is untested.
