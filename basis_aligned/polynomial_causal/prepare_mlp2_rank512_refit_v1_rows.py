@@ -33,7 +33,15 @@ RUNNER = HERE / "run_mlp2_rank512_refit_v1.py"
 TEST = HERE / "test_mlp2_rank512_refit_v1.py"
 FREEZER = Path(__file__).resolve()
 AUDIT = HERE / "mlp2_rank512_refit_v1_independent_audit.json"
-SOURCE_PATHS = tuple(dict.fromkeys((PREREG, FREEZER, RUNNER, TEST, *BASE.SOURCE_PATHS)))
+SOURCE_PATHS = tuple(dict.fromkeys((
+    PREREG, FREEZER, RUNNER, TEST, *BASE.SOURCE_PATHS,
+    HERE / "bilin18_observed_model_facade.py",
+    HERE / "test_bilin18_observed_model_facade.py",
+    HERE / "mlp2_cmr_v1_physical_program.py",
+    HERE / "test_mlp2_cmr_v1_physical_program.py",
+    ROOT / "jacclust/__init__.py",
+    ROOT / "jacclust/tt_model.py",
+)))
 
 START_DOCUMENT_INDEX = 100_000
 DOCUMENTS_PER_ROLE = 192
@@ -283,6 +291,11 @@ def freeze_locked(claim: RunClaim) -> dict[str, Any]:
         verify_snapshot(snapshot)
         for role, entry in entries.items():
             verify_cache(Path(entry["path"]), entry)
+        # The registry/cache replay above is intentionally expensive.  Recheck the
+        # claim and opposite terminal after it, immediately before the hard link.
+        require_claim(claim, LOCK)
+        if RECEIPT.exists() or FAILURE.exists():
+            raise RuntimeError("MLP2 refit row terminal artifact raced publication")
 
     write_json_create_only(RECEIPT, receipt, pre_link_check=final_guard)
     return receipt
@@ -302,8 +315,11 @@ def freeze() -> dict[str, Any]:
                 claim.nonce.encode()).hexdigest(),
         }
         if not RECEIPT.exists() and not FAILURE.exists():
-            write_json_create_only(FAILURE, failure,
-                pre_link_check=lambda: require_claim(claim, LOCK))
+            def failure_guard() -> None:
+                require_claim(claim, LOCK)
+                if RECEIPT.exists() or FAILURE.exists():
+                    raise RuntimeError("MLP2 refit row terminal artifact raced failure")
+            write_json_create_only(FAILURE, failure, pre_link_check=failure_guard)
         raise
     finally:
         release_claim(claim, LOCK)

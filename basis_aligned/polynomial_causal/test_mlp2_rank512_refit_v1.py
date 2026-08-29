@@ -115,3 +115,14 @@ def test_bootstrap_reducer_rejects_nonfinite_or_wrong_shape() -> None:
     ledgers["FULL512"][0, 1] = float("nan")
     with pytest.raises(RuntimeError, match="finiteness"):
         assay.bootstrap_improvements(ledgers)
+
+
+def test_source_closure_contains_direct_numerical_contract_and_tests() -> None:
+    names = {path.name for path in rows.SOURCE_PATHS}
+    assert {
+        "bilin18_observed_model_facade.py",
+        "test_bilin18_observed_model_facade.py",
+        "mlp2_cmr_v1_physical_program.py",
+        "test_mlp2_cmr_v1_physical_program.py",
+        "tt_model.py",
+    } <= names

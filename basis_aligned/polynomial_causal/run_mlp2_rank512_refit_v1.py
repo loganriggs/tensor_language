@@ -529,7 +529,7 @@ def evaluate(model: nn.Module, rows: torch.Tensor, programs: dict[str, nn.Module
     return packed, calls
 
 
-def prepare_execution_authority() -> dict[str, Any]:
+def prepare_execution_authority(claim: row_life.RunClaim) -> dict[str, Any]:
     """Bind code and parents before TRAIN bytes or the checkpoint may be opened."""
     commit, sources = committed_sources()
     audit, audit_hash = row_life.validate_independent_audit(sources)
@@ -568,7 +568,18 @@ def prepare_execution_authority() -> dict[str, Any]:
             "model_forward_calls": 0,
         },
     }
-    atomic_json(AUTHORITY, authority)
+    def authority_guard() -> None:
+        row_life.require_claim(claim, LOCK)
+        if any(path.exists() for path in (AUTHORITY, BUNDLE, LEDGER, RESULT, RECEIPT, FAILURE)):
+            raise RuntimeError("MLP2 refit namespace raced execution authority")
+        # Re-bind the small parent manifests at the actual publication boundary.
+        stable_json(ROWS_RECEIPT, rows_hash)
+        stable_json(MEAN_RECEIPT, mean_receipt_hash)
+        stable_bytes(MEAN_BUNDLE, mean_hash)
+        row_life.require_claim(claim, LOCK)
+        if AUTHORITY.exists() or RECEIPT.exists() or FAILURE.exists():
+            raise RuntimeError("MLP2 refit terminal raced execution authority")
+    atomic_json(AUTHORITY, authority, pre_link_check=authority_guard)
     return authority
 
 
@@ -791,7 +802,7 @@ def main() -> None:
         raise RuntimeError("MLP2 rank512 refit namespace already exists")
     claim = row_life.acquire_claim(LOCK)
     try:
-        authority = prepare_execution_authority()
+        authority = prepare_execution_authority(claim)
         row_life.require_claim(claim, LOCK)
         result, _ = run()
         atomic_json(RESULT, result)
@@ -819,6 +830,9 @@ def main() -> None:
                 (RESULT, receipt["result_sha256"]),
             ):
                 stable_bytes(path, expected)
+            row_life.require_claim(claim, LOCK)
+            if RECEIPT.exists() or FAILURE.exists():
+                raise RuntimeError("competing MLP2 refit terminal raced success")
         atomic_json(RECEIPT, receipt, pre_link_check=success_guard)
         print(json.dumps(result, sort_keys=True, indent=2))
     except BaseException as exc:
@@ -837,8 +851,11 @@ def main() -> None:
             "lock_nonce_sha256": hashlib.sha256(claim.nonce.encode()).hexdigest(),
         }
         if not RECEIPT.exists() and not FAILURE.exists():
-            atomic_json(FAILURE, failure,
-                        pre_link_check=lambda: row_life.require_claim(claim, LOCK))
+            def failure_guard() -> None:
+                row_life.require_claim(claim, LOCK)
+                if RECEIPT.exists() or FAILURE.exists():
+                    raise RuntimeError("competing MLP2 refit terminal raced failure")
+            atomic_json(FAILURE, failure, pre_link_check=failure_guard)
         raise
     finally:
         row_life.release_claim(claim, LOCK)
