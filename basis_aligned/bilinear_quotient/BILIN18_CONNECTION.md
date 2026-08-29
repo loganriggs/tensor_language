@@ -56019,3 +56019,58 @@ allocation work existed, and §1958 showed α is **cost-neutral** — so it is a
 never been re-optimised at any of the operating points §1946–§1960 established. **A free parameter left
 at a stale value is the cheapest remaining thing to check, and it is the only one of the four levers
 that costs nothing to move.**
+
+## §1961 — α = 0.25 is stale: the optimum is 0.30, coverage-independent, free, and almost too small to buy
+
+`ops/alpha_reoptimised.py`, 238.1s, **DISCOVERY ONLY**, 5,419 **and** 16,110, rung 3 — §1960's open
+question. **pred_a True (3/3) | pred_b True (3/3) | pred_c False (1/3) | pred_d True.**
+
+§1943 set α = 0.25 at 5,419 on **full-rank** tables with a **rank-512** map, before any allocation work
+existed. The build has since changed on three axes and α was carried along unchanged. §1958 established
+it is **cost-neutral**, so it is the only free lever.
+
+```
+  pooled CE relative to α = 0.25, in MILLI-nats, at {mlp 768, attn 320} with a rank-576 map
+              a10      a20      a25     a30      a40      a50
+  5,419
+    skip7000  +10.055  +1.823   0.000  -0.549   +1.549   +7.091
+    skip11000  +9.891  +1.566   0.000  -0.078   +3.406  +10.608
+    skip1200  +12.065  +2.474   0.000  -1.187   -0.417   +3.760
+  16,110
+    skip7000   +4.435  +0.866   0.000  -0.366   +0.204   +2.276
+    skip11000  +4.610  +0.861   0.000  -0.260   +0.820   +3.689
+    skip1200   +2.594  +0.125   0.000  +0.509   +3.160   +7.588
+```
+
+> **pred_a PASSED 3/3: α = 0.25 is stale — the optimum at this operating point is 0.30 on every role at
+> 5,419.** **pred_b PASSED 3/3: it does not depend on coverage** — the 16,110 argmins are 30 / 30 / 25,
+> within one grid step. α trades the neighbour against the map and both act only on uncovered inputs, so
+> the optimum should not care that the uncovered arm is ~24% of positions rather than ~10%, and it does
+> not. **α is a property of the two fallback components, not of the build.**
+
+> **pred_c FAILED 1/3, and that is the useful part. The move is free but almost too small to be worth
+> making: −0.549 / −0.078 / −1.187 milli-nats at 5,419**, significant on one role only. **A lever that
+> costs nothing and returns half a milli-nat is not a finding about the build; it is a finding about the
+> curve.** What the table actually shows is how **flat** α is near its optimum and how sharply it falls
+> away — a10 costs **+10 to +12 milli-nats**, ten to twenty times what the 0.25 → 0.30 move recovers.
+> **§1943 chose well and the value has survived three changes of operating point; the correct action is
+> to leave α at 0.25 or move it to 0.30 indifferently, and to stop treating it as an open lever.**
+
+**pred_d PASSED**, including the clause that makes the section meaningful: **every α arm costs exactly
+the same at each coverage — a spread of 0.00e+00M.** §1958 asserted α is cost-neutral; this checks it
+rather than assuming it. Plus coverages exactly 5,419 and 16,110, the plan-derived control non-vacuous
+both ways (15 same-spec pairs exactly inert at covered inputs, 6 differing-spec pairs not), buckets
+partitioning, live per-cell top-1 and CE identical at 0.00e+00, and §1949's published CE reproduced to
+**0.000000** via `B.ref()` — forty-fifth clean reading.
+
+**Where this leaves the arc.** All four levers are now priced at the operating point: the tables and the
+map are at their knees (§1947, §1959), attention is below threshold at 16,110 and marginally above at
+5,419 (§1948, §1957), and α is free, flat and effectively already optimal (§1961). **§1958's exchange
+rates said nothing remained above threshold; §1961 closes the one lever that was free and therefore
+exempt from that argument.** The cost arc is closed on both the priced and the unpriced axes.
+
+**Open.** Every section from §1946 has optimised **pooled CE**. §1953 showed the build is a
+redistribution, §1954 that the shape inverts with coverage, and §1957–§1961 have been buying milli-nats
+without once checking what they do to the bucket structure. **No section since §1954 has looked at where
+the last five purchases landed**, and a sequence of CE-optimal steps can drift the accuracy profile
+somewhere nobody chose.

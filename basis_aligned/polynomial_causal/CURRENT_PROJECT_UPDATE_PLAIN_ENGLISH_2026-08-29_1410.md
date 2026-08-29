@@ -1696,3 +1696,85 @@ Technical details and hashes are in `MLP2_CMR_V1_CALIBRATION_FINDINGS.md`; the
 strategic ranking is in `HOURLY_STRATEGIC_REVIEW_2026-08-29_1735.md`.
 
 ## UPDATE END — 24
+
+## UPDATE START — 25. Validation is unblocked, and why more late circuits help
+
+### 25.1 The data-size default
+
+The recent `10.54`-second FIT_MEAN run and `16.13`-second calibration run both used
+192 source-document-disjoint examples.  The extra time was calibration work, not a
+32-versus-192 document comparison.  Nevertheless, the practical conclusion is
+correct: a few extra seconds is too small a price for making 32 documents the
+scientific default.
+
+From here, 32 or fewer documents are for code debugging only.  Consequence tests
+default to 192 documents and report the nested 48/96/192 prefixes, so we directly see
+whether a conclusion survives two data doublings.  A passing or boundary-close result
+must then use the separately sealed 192-document replication role.  This does not
+make 192 magically sufficient for every rare cell; cell counts and document-level
+uncertainty still determine whether a narrow claim is supported.
+
+### 25.2 The validation input and executable are now ready
+
+The model-free VALIDATION projection passed independent audit and completed in 2.46
+seconds.  It published only the VALIDATION role: 192 documents, 29,904 scored
+positions, 191 documents with nonempty scored support, and one short all-false row.
+No model, logits, targets-as-outcomes, candidate result, or REPLICATION data was
+opened.
+
+The physical MLP2 program is also implemented.  For a retained set $K$, it stores
+only `Left[K]`, `Right[K]`, `Down[:,K]`, and the folded bias
+
+$$
+b_K=b+D_{:S}\mu_S.
+$$
+
+Its forward pass constructs exactly 512 products rather than constructing all 4,608
+and masking them afterward.  The production price test gives exactly 1,770,624
+stored scalars and zero calls to the native MLP2 implementation.  The remaining work
+before opening finite outcomes is the audited streaming measurement wrapper.
+
+### 25.3 Would more downstream circuits help explain earlier MLPs?
+
+Yes.  The final-logit distribution is the broadest downstream test, but by itself it
+does not name the information carried by an early component.  A collection of
+causally verified late circuits can serve as a bank of interpretable consumers of
+MLP0/1/2.
+
+Mathematically, let $z$ be an early residual state and let
+
+$$
+\Phi(z)=\big(f_{\rm copy}(z),f_{\rm capitalization}(z),
+f_{\rm numeric}(z),f_{\rm syntax}(z),\ldots\big)
+$$
+
+collect the responses of several downstream circuits.  Two early states are
+equivalent for this consumer bank when they give the same $\Phi(z)$.  A useful early
+MLP decomposition should then make the response tensor
+
+$$
+E_{c,j}=\text{effect of early component }j\text{ on consumer }c
+$$
+
+sparse or low-complexity across consumers.  Simultaneously factoring this response
+tensor can expose:
+
+- components shared by many circuits;
+- components specific to copy, capitalization, numbers, or syntax;
+- directions no verified consumer reads, which become candidates for removal;
+- circuit-specific components that can be extracted or edited with less collateral
+  damage.
+
+Capitalization alone is probably too narrow and may reduce mostly to a direct
+unembedding/logit direction.  The high-value experiment is a complementary bank:
+copy/induction, capitalization, punctuation or syntactic closure, numeric succession,
+and entity continuation are plausible starting points.  Each circuit must first have
+a localized causal effect and a selective-removal test; otherwise its label is merely
+correlational.
+
+This is a semantic follow-on to the current MLP2 finite validation, not a reason to
+interrupt it.  The MLP2 test asks whether downstream-aware selection yields a faithful
+small executable at all.  Once that is answered, the named-consumer bank is the
+highest-return way to attach meaning and editability to retained early components.
+
+## UPDATE END — 25

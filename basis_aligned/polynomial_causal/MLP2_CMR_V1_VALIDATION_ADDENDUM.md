@@ -106,8 +106,19 @@ Cells are `all_scored`, nine FIT_SELECTOR target-frequency bins, `copy_positive`
 used to pass a gate. Copy masks are recomputed from validation role-only rows by the
 frozen nearest-repeat rule; they are not loaded from calibration.
 
-Raw logits, losses per token, or validation targets are not published. GPU logits
-are consumed batchwise into CPU float64 document sufficient statistics and deleted.
+Raw logits, losses per token, or validation targets are not published.  Post-softcap
+logits are float32.  CE, KL, and per-position vocabulary reductions are computed on
+the GPU in float32; only the resulting per-position scalars are transferred and
+summed on the CPU in float64 into document sufficient statistics, after which the
+logits are deleted.  On the first validation batch, the complete native/SUFFIX
+calculation is independently recomputed from CPU-float64 logits.  The run fails if
+the maximum per-position NLL or KL discrepancy exceeds $10^{-4}$, or if the maximum
+relative discrepancy of centered or raw squared-logit error exceeds $10^{-4}$.
+This precision audit is fixed before outcomes and is not a selectable arm.
+
+The signed-direction inner products are stricter: candidate and native logits are
+copied to CPU float64 *before* subtraction, vocabulary centering, secant formation,
+inner products, or norm accumulation.
 
 ## Margin certificate
 
@@ -156,7 +167,9 @@ $$
 Use 10,000 shared document bootstrap draws from the 192 document indices with
 replacement, seeded by the UTF-8 string
 `mlp2-cmr-v1-validation-document-bootstrap:0` through SHA-256 into a 64-bit PyTorch
-CPU generator seed. Every draw recomputes each pooled ratio from per-document KL
+CPU generator seed.  Concretely, interpret the first eight digest bytes as one
+unsigned little-endian integer and pass it to `torch.Generator().manual_seed`.
+Every draw recomputes each pooled ratio from per-document KL
 sums and counts, then takes $r_{min}=\min_c r_c$. The simultaneous lower confidence
 bound is `torch.quantile(r_min, 0.025, interpolation="lower")`. A zero control KL
 fails. Gate 1 requires this lower bound to be at least 0.05.
