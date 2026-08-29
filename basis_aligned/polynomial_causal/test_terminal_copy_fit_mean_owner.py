@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import copy
+import hashlib
 
 import pytest
 import torch
@@ -24,6 +25,23 @@ def test_tensor_sha256_hashes_exact_bfloat16_bytes_across_devices():
     assert tensor_sha256(changed) != expected
     if torch.cuda.is_available():
         assert tensor_sha256(value.cuda()) == expected
+
+
+def test_tensor_sha256_preserves_legacy_hash_and_domains():
+    value = torch.tensor([[1.0, -2.5], [0.0, 3.25]], dtype=torch.float32)
+    digest = hashlib.sha256()
+    digest.update(str(value.dtype).encode())
+    digest.update(str(tuple(value.shape)).encode())
+    digest.update(value.numpy().tobytes(order="C"))
+    assert tensor_sha256(value) == digest.hexdigest()
+    assert tensor_sha256(value.double()) != tensor_sha256(value)
+    assert tensor_sha256(value.reshape(4)) != tensor_sha256(value)
+
+
+def test_tensor_sha256_canonicalizes_noncontiguous_storage():
+    noncontiguous = torch.arange(24, dtype=torch.bfloat16).reshape(4, 6)[:, ::2]
+    assert not noncontiguous.is_contiguous()
+    assert tensor_sha256(noncontiguous) == tensor_sha256(noncontiguous.contiguous())
 
 
 def native_final_state(model: TinyModel, tokens: torch.Tensor) -> torch.Tensor:

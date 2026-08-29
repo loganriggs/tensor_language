@@ -3,10 +3,12 @@
 Status: **prospective engineering recovery; scientific protocol unchanged**.
 
 V2 passed its independent audit, froze a source-closed authority, and began the
-authorized collection only after the GPU was free. It failed before accepting the
-first batch because the outcome-blind final-state integrity hash called NumPy on a
-CPU `bfloat16` tensor. NumPy does not expose that scalar type. V2 published no bank,
-result, manifest, or success receipt; its authority and terminal failure are bound.
+authorized collection only after the GPU was free. It ran the first batch's native
+trajectory and accumulated its head writes in private memory, then failed before the
+owner committed that batch because the outcome-blind final-state integrity hash
+called NumPy on a CPU `bfloat16` tensor. NumPy does not expose that scalar type. V2
+published no bank, result, manifest, or success receipt; its authority and terminal
+failure are bound.
 
 V3 changes only how `tensor_sha256` reads the already detached, CPU-contiguous tensor
 payload. It views the same storage as `uint8` before converting to NumPy bytes. The
