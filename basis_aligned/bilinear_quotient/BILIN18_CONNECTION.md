@@ -56743,13 +56743,22 @@ disk without re-running anything:
   where the 2-of-3 SIGN VOTE and the pooled sign DISAGREE           6   all |t| <= 0.51
   "at risk" -- skip1200 supported the majority AND pooled |t| < 2  41
   unambiguous at pooled |t| >= 10                                  40
-  of the 47 disagreeing-or-at-risk, involving a BUILD-level arm     0
+  of the 47 disagreeing-or-at-risk, involving a BUILD-level arm     6   [CORRECTED -- see below]
 ```
 
 > **The risk §1971 identified was real in principle and small in practice, and it is now measured rather
-> than assumed. Every one of the 47 problematic comparisons lives inside the α sweep (14), the tilt sweep
-> (3+3) or the tilt-compromise run (1) — the axes §1972 and §1973 already priced at 0.4% of the build's
-> margin and nothing, respectively. Not one involves a build-level arm.** The comparisons that decide the
+> than assumed.** Most of the 47 problematic comparisons live inside the α sweep, the tilt sweep or the
+> tilt-compromise run — the axes §1972 and §1973 already priced at 0.4% of the build's margin and nothing.
+>
+> [**CORRECTED, same session.** The originally published line read *"Not one involves a build-level
+> arm."* **Six do**, all from §1966's `one_build_with_tilt`: `spec_5419` against `spec_16110` at 5,419
+> (pooled −0.522 m, t = −1.77) and the `mid_*` arms against `spec_5419` at 16,110 (−0.021 to −0.031 m,
+> |t| ≤ 0.97). **None is a sign disagreement** — the vote and the pooled evidence agree in direction and
+> the differences are simply sub-2σ, which is precisely what §1966's own pred_b concluded ("the two
+> coverage-specific builds do not genuinely differ"). So no conclusion moves, but the count was wrong.
+> **The cause: I read the audit's printed at-risk list, which was truncated to twelve entries, instead of
+> the data — LESSON 85's shape for the third time.** The audit no longer truncates, and the gate now
+> fires only on the §1965 shape (a build-level *sign* disagreement) rather than on non-significance.] The comparisons that decide the
 > build — deployed against converged, the map ranks, the allocations — are among the 40 at pooled
 > |t| ≥ 10, where a half-sized role cannot change the answer.
 

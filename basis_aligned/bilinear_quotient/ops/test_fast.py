@@ -267,6 +267,17 @@ def test_every_ref_path_exists():
           str(missing[:3]))
 
 
+def test_no_build_level_comparison_is_vote_dependent():
+    """S1974's mechanism. S1965 published a claim whose per-role vote passed while the pooled evidence
+    said the opposite; the audit re-reads every artifact and exits non-zero if any BUILD-level
+    comparison has that shape. Wired here so it gates enqueue instead of relying on anyone re-running
+    the audit."""
+    out = subprocess.run([sys.executable, os.path.join(HERE, 'pooling_audit.py')],
+                         capture_output=True, text=True, timeout=120)
+    check('pooling audit: no build-level comparison depends on the vote', out.returncode == 0,
+          out.stdout.strip()[-200:])
+
+
 def test_gate_fixtures():
     """The gate protects every run; these are the shapes that have actually reached the GPU."""
     for name, want_pass, src in GATE_FIXTURES:
@@ -292,7 +303,7 @@ def test_gate_accepts_the_library_itself():
           out.stdout.strip()[-120:])
 
 
-for fn in (test_pooled_t_weights_by_evidence, test_every_ref_path_exists, test_ref_refuses_to_guess_a_coverage, test_rk_key_is_order_independent, test_inertness_pairs_splits_by_table_rank,
+for fn in (test_no_build_level_comparison_is_vote_dependent, test_pooled_t_weights_by_evidence, test_every_ref_path_exists, test_ref_refuses_to_guess_a_coverage, test_rk_key_is_order_independent, test_inertness_pairs_splits_by_table_rank,
            test_inertness_pairs_warns_when_a_side_is_vacuous, test_ref_reads_published_triples,
            test_paired_t_arithmetic, test_cost_matches_the_published_closed_form,
            test_arm_names_parse_the_way_the_grammar_says, test_gate_fixtures,

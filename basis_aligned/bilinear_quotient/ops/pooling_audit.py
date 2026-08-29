@@ -78,10 +78,26 @@ def main():
         print(f'    {r[0]:34s} {r[1]:7s} {r[2]:26s} votes {r[3]}/3  pooled {r[4]:+.3f}m t {r[5]:+.2f}')
     risk = [r for r in rows if r[8] and abs(r[5]) < 2.0]
     print(f'\n  AT RISK -- {HALF} supported the majority AND the pooled |t| < 2: {len(risk)}')
-    for r in risk[:12]:
+    for r in risk:                       # never truncate: S1974 read risk[:12] and published 'not one'
         print(f'    {r[0]:34s} {r[1]:7s} {r[2]:26s} votes {r[3]}/3  pooled {r[4]:+.3f}m t {r[5]:+.2f}')
     strong = [r for r in rows if abs(r[5]) >= 10]
     print(f'\n  unambiguous (pooled |t| >= 10): {len(strong)} of {len(rows)}')
+    # The mechanism S1974 asked for: a BUILD-level comparison where the vote and the pooled evidence
+    # disagree is the S1965 failure recurring, and it must not pass silently. Exit non-zero so
+    # ops/test_fast.py -- and therefore ops/enqueue.sh -- can gate on it.
+    # Gate on the S1965 SHAPE ONLY: a build-level comparison where the VOTE and the POOLED SIGN
+    # disagree. Merely being sub-2-sigma is not that failure -- S1966's spec-vs-spec pairs are
+    # sign-consistent and simply small, which S1966 itself concluded.
+    BUILD = ('deployed', 'converged', 'map64', 'map512', 'spec_', 'blend_768', 'pure_map')
+    bad = [r for r in dis if any(b in r[2] for b in BUILD)]
+    if bad:
+        print(f'\n  BUILD-LEVEL COMPARISON AT RISK ({len(bad)}) -- this is the S1965 shape:')
+        for r in bad:
+            print(f'    {r[0]} {r[1]} {r[2]} votes {r[3]}/3 pooled {r[4]:+.3f}m t {r[5]:+.2f}')
+    return 1 if bad else 0
 
 
-main()
+import sys                                                                  # noqa: E402
+
+
+sys.exit(main())
