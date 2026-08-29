@@ -50718,3 +50718,55 @@ depends on how much rank is affordable — and at a smaller budget the whole lin
 16,110**. §1849 already published the first at all-position CE **6.06004**. If the second is worse, then
 **coverage hurts at low budget and the §1862/§1863 recommendation is budget-dependent** — which would
 matter, because it is currently stated without one.
+
+## §1864 — the coverage term CHANGES SIGN with budget: §1862/§1863's rule holds at 230M and fails at 66M
+
+`ops/low_budget_cov_16110.py` and `ops/low_budget_cov_9054.py`, 241.8 / 237.3s, **DISCOVERY ONLY**,
+rung 3 — the open question §1863 ends on.
+**cov 16,110: pred_a FALSE | pred_b FALSE | pred_c True | pred_d True.**
+**cov 9,054: pred_a FALSE | pred_b True | pred_c True | pred_d True.**
+
+Two iso-cost lines, all-position CE, relative to each line's 5,419-type reference:
+
+```
+                              230.087M line                     65.950M line
+  coverage   rank   CE(7000)   vs 5,419      rank   CE(7000)   vs 5,419
+     5,419   full   6.01167       ---         256   6.06004       ---
+     9,054    611   5.97012    +0.04155       164   6.06486    -0.00482
+    11,954    476   5.95819    +0.05348        --        --         --
+    14,405    401   5.95604    +0.05563        --        --         --
+    16,110    361   5.95599    +0.05568        97   6.10441    -0.04437
+```
+
+> **pred_a FAILED at both coverages, and the failure is the result.** At the 65.950M budget, moving from
+> 5,419 to 16,110 covered types **costs 0.044 / 0.031 / 0.022 nats** — where the same move at 230.087M
+> **gained 0.056 / 0.079 / 0.071**. **The coverage term changes sign with the budget.** At 9,054 the
+> low-budget line is a tie (−0.005 / +0.005 / +0.004), so the crossover sits between 5,419 and 16,110
+> types at this budget and the whole line is flat to within 0.005 nats up to 9,054.
+
+**§1862's and §1863's recommendation is corrected, not withdrawn.** "Spend the budget on rank at any
+coverage above ~12,000 types" is measured at **230.087M** and holds there — §1863's five points and
+§1859-§1860's replications stand. At **65.950M** it is **wrong**: the affordable rank at 16,110 types is
+only **97**, and a rank-97 table sits **+0.222** above its ceiling against the rank-256@5,419 build's
++0.066. **Coverage is worth buying only while the budget still affords enough rank to use it.**
+
+**This is §1853's sign change, seen along a different axis.** §1853 found coverage helps at rank ≥ 16 and
+hurts at rank 4, holding coverage steps fixed. §1864 finds the same reversal holding *budget* fixed and
+letting rank fall as coverage rises. The two are the same 2-D structure: **the (coverage, rank) surface
+has a ridge, and moving along an iso-cost line crosses it.** At 230.087M the 16,110-type point is on the
+good side of the ridge (rank 361); at 65.950M it is on the bad side (rank 97). The threshold rank for the
+5,419 → 16,110 step lies between **97 and 361**.
+
+**pred_b PASSED at 9,054 and FAILED at 16,110**: the low-budget effect is smaller than the large-budget
+one at the near coverage (−0.005 against +0.042) and comparable in magnitude at the far one (−0.044
+against +0.056). **pred_c PASSED at both**: rank 97 and rank 164 sit +0.222 and +0.130 above their
+ceilings, far above §1852's +0.093 for rank 256, so the builds are sound and the ladder is behaving.
+
+**Controls (pred_d).** Both costs are within 1% of the 65.950M line (65.670M and 65.648M); coverages are
+exactly 16,110 and 9,054 from the stated draws; the ceiling is finite and above live on every role.
+
+**What the practical claim is, stated with its scope.** *At the deployed build's own budget of 230.087M
+reals*, any rank-maximising table at ≥9,054 covered types beats it by 0.042-0.080 nats, saturating above
+~12,000 types (§1861-§1863, replicated §1859-§1860). **That statement does not transfer to a 3.5x smaller
+budget, where the same coverage choice is a 0.044-nat loss.** Any future use of the rule must carry the
+budget it was measured at.

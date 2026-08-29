@@ -1,0 +1,32 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+LOW BUDGET COV | 16110 types, rank 97, 65.950M line | settled program (context-free tables + output-NN fallback + rank-64 map) | DISCOVERY ONLY
+
+  per-site norm calibration (live mean / row mean), measured on the LIVE model:
+    attn L0:  2.66 L1:  2.47 L2:  2.19 L3:  2.07 L4:  4.30 L5:  0.99 L6:  1.01 L7:  3.55 L8:  3.30 L9:  4.77 L10:  3.73 L11:  4.40 L12:  6.40 L13:  5.89 L14:  6.59 L15:  6.04 L16:  5.32 L17:  5.55
+    mlp  L0:  0.87 L1:  0.41 L2:  0.60 L3:  0.48 L4:  0.10 L5:  0.39 L6:  0.51 L7:  1.63 L8:  1.98 L9:  1.30 L10:  2.22 L11:  1.03 L12:  1.87 L13:  1.24 L14:  1.62 L15:  1.18 L16:  1.12 L17:  1.21
+
+  arms  (49s)
+  all_substituted      skip7000 13.93%  skip11000 14.71%  skip1200 14.01%
+  all_sub_scaled       skip7000 12.20%  skip11000 12.96%  skip1200 12.11%
+  live_model           skip7000 39.32%  skip11000 42.35%  skip1200 38.88%
+
+  arms  (114s)
+  all_substituted        skip7000 13.93%  skip11000 14.71%  skip1200 14.01%
+  live_model             skip7000 39.32%  skip11000 42.35%  skip1200 38.88%
+
+  arms  (127s)
+  B0_raw                 skip7000 25.87%  skip11000 28.57%  skip1200 26.20%
+  B0_seq                 skip7000 31.32%  skip11000 33.99%  skip1200 30.05%
+
+  coverage 16110 types (2.97x §1834); ceiling CE skip7000 5.90775  skip11000 5.84750  skip1200 5.87767 (149s)
+    rank 97    covered skip7000  6.12973 (+0.22198)  skip11000  6.08310 (+0.23559)  skip1200  6.07675 (+0.19909)   (242s)
+\n  LOW-BUDGET point: 16110 covered types, rank 97, 65.670M (line budget 65.95M)
+    skip7000   ceiling 5.90775  covered 6.12973 (+0.22198)  ALLPOS 6.10441  vs §1849 r256@5419 6.06004
+    skip11000  ceiling 5.84750  covered 6.08310 (+0.23559)  ALLPOS 6.06370  vs §1849 r256@5419 6.03311
+    skip1200   ceiling 5.87767  covered 6.07675 (+0.19909)  ALLPOS 6.06452  vs §1849 r256@5419 6.04238
+\n  at LOW budget coverage still HELPS -> False  skip7000 -0.04437  skip11000 -0.03059  skip1200 -0.02214
+  and the effect is SMALLER than the 230M line's +0.042 -> False  skip7000 -0.04437
+  and rank 97 is well above the ceiling (> §1852 +0.09252) -> True  +0.22198
+  cost 65.670M ~ 65.95M, coverage 16110 -> control True
+
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/low_budget_cov_16110_results.json (241.8s)
