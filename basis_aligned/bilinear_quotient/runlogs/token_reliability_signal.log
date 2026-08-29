@@ -1,0 +1,25 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+TOKEN RELIABILITY SIGNAL: is program confidence a token property? | buckets ((0, 0), (1, 4), (5, 24), (25, 124), (125, 1000000000)) on the fit-row count of the TRUE target | full-rank settled program | DISCOVERY ONLY
+  built the settled fallback and 36 tables (5s)
+  precomputed per-token program margin for 16110 covered types (quartile bounds [0.1608, 0.367, 0.7641])
+
+  === all-compiled baseline ===
+    skip7000   covered enrichment  7.16x  (n 33192)
+    skip11000  covered enrichment  7.29x  (n 33196)
+    skip1200   covered enrichment  7.49x  (n 16597)
+    per-site live/table ratios: min 1.2x max 144.0x across 36 sites
+    g1.00    skip7000 CE 5.90522 ( 7.16x)  skip11000 CE 5.85230 ( 7.29x)  skip1200 CE 5.88575 ( 7.49x)   [1/2]
+    PERSITE  skip7000 CE 12.86842 ( 1.80x)  skip11000 CE 12.91618 ( 1.71x)  skip1200 CE 12.79523 ( 1.71x)   [2/2]
+
+  agreement by PRECOMPUTED per-token program margin (q0 = least reliable):
+    skip7000   q0 n  8307  5.36x  q1 n  8295  5.74x  q2 n  8289  6.23x  q3 n  8301 10.11x
+    skip11000  q0 n  8310  5.06x  q1 n  8294  5.60x  q2 n  8289  6.24x  q3 n  8303 10.34x
+    skip1200   q0 n  4154  5.80x  q1 n  4148  5.71x  q2 n  4145  6.45x  q3 n  4150 10.87x
+
+  §1765 HOLDS AT THE LOGITS (spread < 1e-3) -> True  skip7000 <= 2.86e-05  skip11000 <= 3.81e-05  skip1200 <= 1.91e-05
+  and it is PRECOMPUTABLE (length-1 match < 1e-3) -> True  skip7000 max dev 1.43e-05  skip11000 max dev 1.91e-05  skip1200 max dev 9.54e-06
+  and the SIGNAL is useful (q3 - q0 >= 1.0x) -> True  skip7000 5.36 -> 10.11 = +4.75x  skip11000 5.06 -> 10.34 = +5.27x  skip1200 5.80 -> 10.87 = +5.07x
+  coverage 16110, zero lookup misses -> control True; baseline skip7000 7.16x  skip11000 7.29x  skip1200 7.49x
+
+pred_a True | pred_b True | pred_c True | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/token_reliability_signal_results.json (284.1s)

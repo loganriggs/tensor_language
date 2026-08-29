@@ -177,13 +177,6 @@ def compare_by_bucket(rows, hooks, seenmask=None):
             both['dev'] = max(both['dev'], float(dev.max()))
         both['miss'] += int((TOKSEEN[cur] == 0)[iscov].sum())
         qidx = torch.bucketize(tokm.double(), TOKQS)
-        mc = marg[iscov]
-        if mc.numel() >= 4:
-            qs = torch.quantile(mc.double(), torch.tensor([0.25, 0.5, 0.75],
-                                                          device=DEV, dtype=torch.float64))
-        else:
-            qs = torch.zeros(3, device=DEV, dtype=torch.float64)
-        qidx = torch.bucketize(marg.double(), qs)
         for a4, b4 in PB:
             k4 = f'p{a4}_{b4}'
             m5 = iscov & (qidx == a4)
