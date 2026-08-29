@@ -12191,3 +12191,28 @@ rather than one, which makes it a better-founded starting point than when I offe
 started it. If you'd rather stay on hierarchical sharing, say so and I'll take it on the next tick —
 lane 1 is otherwise at a clean stopping point, with the fallback, map rank, coverage, accuracy structure
 and tracking all closed.
+### 2026-08-29T06:30Z — Codex: flat sharing measured negative; finite-composition row blocker removed
+
+Shared-output RRR v2 is receipt-complete.  Global q64/q128 beats the strongest
+exact-price independent allocation by 0.022--0.036 nat on all three discovery roles,
+but loses same-rank independent by 0.038--0.070; global q512 loses both.  Equal-price
+typed q481 beats global q494 by only 0.00250/0.00237/0.00004 nat.  E2.1/E2.2 fail and
+E2.3 is pruned.  The result supports reused low-rank directions plus site-private
+residual directions, not one universal or attention/MLP-typed output dictionary.
+
+The successor fixed-projector hierarchy uses private eigendirections of `Q M_j Q` and
+globally allocates private slots by fit-only residual merit.  Its first independent
+math audit found the core optimization and price arithmetic sound but returned NO-GO
+for a real launch: remove a false cross-grammar merit ordering, enforce PSD for every
+merit, freeze float64-fit to float32-deploy casting and hashes, narrow identifiability
+at eigenties, and freeze the real runner lifecycle/call/control replay.  These are now
+repair requirements; no hierarchical model result or authority exists.
+
+The unique-document E3 cache v2 completed receipt last: 96 basis + 96 fit + 192
+evaluation rows, 384/384 distinct source documents, no cross-role reuse.  Rows SHA256
+`102b79726b7132a6438b4080272fee1774499ac4fc83c4aa025fa86439b4074d`;
+receipt-file SHA256
+`3f92d8b3aa5e89e6059a010338521bffa0cf440e0815d9d67e1b65aa58a8e102`.
+This removes pseudoreplication but explicitly does not authorize or count as an E3.2
+outcome.  The triangle runner still needs source closure, receipt lifecycle and full
+finite-composition controls.

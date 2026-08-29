@@ -236,6 +236,17 @@ early component, rather than reconstructing its full residual write?
   preserved; no rows, manifest, receipt, model response, or E3.2 result exists.  A v2
   recovery may change only that hash currency and must bind the identical selection
   plan plus spent parents.
+
+  **V2 unique-row outcome, 06:27 UTC:** the one-change recovery completed receipt
+  last.  It materialized 96 basis + 96 fit + 192 evaluation rows from 384/384 distinct
+  source documents, with no cross-role reuse and every evaluation source after fit.
+  Rows SHA256 is
+  `102b79726b7132a6438b4080272fee1774499ac4fc83c4aa025fa86439b4074d`;
+  receipt-file SHA256 is
+  `3f92d8b3aa5e89e6059a010338521bffa0cf440e0815d9d67e1b65aa58a8e102`.
+  This removes the pseudoreplication blocker but is not an E3.2 result and explicitly
+  does not authorize the triangle runner.  Source closure, create-only lifecycle, and
+  the full finite-composition controls remain required before launch.
 - [ ] **E3.3 State-variable edit test.** Remove or transplant one learned state
   direction and test target effect, collateral effect, and OOD transport.  A state is
   useful only if it predicts a new composition or supports a selective edit.
