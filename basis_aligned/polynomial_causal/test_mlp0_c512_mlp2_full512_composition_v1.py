@@ -1,5 +1,9 @@
 from __future__ import annotations
 
+import hashlib
+from pathlib import Path
+
+import pytest
 import torch
 import torch.nn as nn
 from types import SimpleNamespace
@@ -77,3 +81,32 @@ def test_full_call_census_tracks_all_sites_and_returns() -> None:
     assert census["BOTH"]["native_mlp_sites"]["1"] == 48
     assert census["BOTH"]["candidate_c512"] == 48
     assert census["BOTH"]["candidate_full512"] == 48
+
+
+def test_failure_guard_rejects_receipt_created_during_artifact_replay(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    lock = tmp_path / "lock"
+    receipt = tmp_path / "receipt.json"
+    failure = tmp_path / "failure.json"
+    artifact = tmp_path / "ledger.pt"
+    artifact.write_bytes(b"bound-ledger")
+    digest = hashlib.sha256(artifact.read_bytes()).hexdigest()
+    monkeypatch.setattr(assay, "LOCK", lock)
+    monkeypatch.setattr(assay, "RECEIPT", receipt)
+    monkeypatch.setattr(assay, "FAILURE", failure)
+    original = assay.file_sha256
+
+    def racing_hash(path: Path) -> str:
+        observed = original(path)
+        if path == artifact:
+            receipt.write_text("{}")
+        return observed
+
+    monkeypatch.setattr(assay, "file_sha256", racing_hash)
+    claim = assay.row_life.base.acquire_claim(lock)
+    try:
+        with pytest.raises(RuntimeError, match="during artifact replay"):
+            assay.failure_terminal_guard(claim, {artifact: digest})
+    finally:
+        assay.row_life.base.release_claim(claim, lock)

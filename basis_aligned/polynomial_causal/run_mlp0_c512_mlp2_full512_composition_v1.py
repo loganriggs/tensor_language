@@ -265,6 +265,18 @@ def validate_ledger(value: Any, authority_sha: str) -> dict[str, torch.Tensor]:
     return arms
 
 
+def failure_terminal_guard(claim, artifact_hashes: dict[Path, str]) -> None:
+    row_life.base.require_claim(claim, LOCK)
+    if RECEIPT.exists() or FAILURE.exists():
+        raise RuntimeError("composition terminal raced failure")
+    for path, digest in artifact_hashes.items():
+        if file_sha256(path) != digest:
+            raise RuntimeError("composition failure artifact changed")
+    if RECEIPT.exists() or FAILURE.exists():
+        raise RuntimeError("composition terminal raced failure during artifact replay")
+    row_life.base.require_claim(claim, LOCK)
+
+
 def summarize(ledger: torch.Tensor, prefix: int) -> dict[str, float]:
     return refit.summarize(ledger, prefix)
 
@@ -443,15 +455,10 @@ def main() -> None:
                    "artifact_hashes": {p.name: file_sha256(p) for p in (LEDGER, RESULT)
                                        if p.is_file()}}
         if not RECEIPT.exists() and not FAILURE.exists():
+            frozen_artifacts = {HERE / name: digest
+                                for name, digest in failure["artifact_hashes"].items()}
             def failure_guard() -> None:
-                row_life.base.require_claim(claim, LOCK)
-                if RECEIPT.exists() or FAILURE.exists():
-                    raise RuntimeError("composition terminal raced failure")
-                for name, digest in failure["artifact_hashes"].items():
-                    path = HERE / name
-                    if file_sha256(path) != digest:
-                        raise RuntimeError("composition failure artifact changed")
-                row_life.base.require_claim(claim, LOCK)
+                failure_terminal_guard(claim, frozen_artifacts)
             atomic_json(FAILURE, failure, pre_link_check=failure_guard)
         raise
     finally:
