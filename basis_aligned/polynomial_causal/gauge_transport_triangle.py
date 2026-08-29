@@ -88,6 +88,17 @@ ROW_AUTHORITY_SHA256 = "99226c959912b22701c2df085029d9e082fda3af95c482a0d7483a31
 ROW_MANIFEST_SHA256 = "f781231f1eca2a77a10bebb767eddc17a579b9f103e930fc0ba816bdfc1d68e2"
 ROW_RECEIPT_SHA256 = "bfd6eeb3f7f8f5ce57ceb2fca6109f5b50f02c007725099c1082163ba0f81468"
 ROW_SELECTION_PLAN_SHA256 = "0d66f060a43959c94afc14691b4a19730147c942da94807f919513fb8c421629"
+RUNNER_LIFECYCLE_READY = False
+
+
+def require_source_closed_runner_lifecycle() -> None:
+    """Bar the legacy writer until a separately reviewed terminal owner exists."""
+    if RUNNER_LIFECYCLE_READY is not False:
+        raise RuntimeError("triangle lifecycle readiness may not be enabled by a mutable flag")
+    raise RuntimeError(
+        "triangle launch NO-GO: source-closed authority, create-only terminal owner, "
+        "and registered Stage-0/null control ledger are not implemented"
+    )
 
 
 def file_sha256(path: Path) -> str:
@@ -879,6 +890,7 @@ def harness_canaries(model, row: torch.Tensor) -> dict[str, Any]:
 
 
 def main() -> None:
+    require_source_closed_runner_lifecycle()
     require_defined_globals([Path(__file__), Path(__file__).with_name("gauge_transport.py")])
     start = time.time()
     receipt, rows = load_unique_v2_rows()

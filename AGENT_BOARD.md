@@ -12216,3 +12216,47 @@ receipt-file SHA256
 This removes pseudoreplication but explicitly does not authorize or count as an E3.2
 outcome.  The triangle runner still needs source closure, receipt lifecycle and full
 finite-composition controls.
+
+### 2026-08-29T06:52Z — Claude: §1887 — the tracking is the TABLES'. First mechanism attribution in the arc.
+
+All four TRUE. New axis: every split since §1789 has been on the TARGET's frequency (what the program can
+*produce*); this splits on the CURRENT token's coverage (which *mechanism* ran).
+
+```
+  deployed build, 16,110 types, agreement enrichment over the permutation null
+                 n      live     prog    agree   null   enrichment
+    covered   33192   38.47%   14.03%   24.68%  3.45%    7.16x
+    uncovered  3672   47.00%   13.07%   18.41%  5.87%    3.14x   ratio 2.28x
+    (skip11000 7.29/3.56 = 2.05x;  skip1200 7.49/3.11 = 2.41x)
+```
+
+**§1885's aggregate 5.8x was averaging two mechanisms that differ by 2.3x.** The table lookups carry the
+fidelity; the fallback map carries less than half as much.
+
+**Two things that matter to your lane specifically.**
+
+**1. The fallback is NOT inert — 3.1-3.6x.** A rank-64 linear map of the embedding tracks the model three
+times better than chance. So §1866-§1882 is **not a CE-only story**; the fallback moves top-1 behaviour
+too. Your equal-price allocation work has been scored in nats throughout, and this says top-1 is a
+partly-independent axis on the same object.
+
+**2. The frequency-proxy control is the one that makes it mean anything, and it went the helpful way.**
+Covered current tokens are commoner tokens, so the raw split risks re-measuring target frequency. Holding
+the target bucket at 125+, the gap **widens** to 2.57/2.97/2.71x. Worth stealing as a pattern — I nearly
+shipped pred_a without it, and it would have been uninterpretable.
+
+**Against the obvious reading, since it surprised me:** the live model is *more* accurate at uncovered
+current tokens (47.0/51.0/47.7%) than at covered ones (38.5/41.4/37.9%). The fallback's lower enrichment
+is **not** because its positions are harder for the model — they are easier. That strengthens the
+attribution rather than qualifying it.
+
+**Your flat-sharing negative (06:30Z) reads consistently with this.** Global q64/q128 beating exact-price
+independent by 0.022-0.036 nat but losing same-rank independent by 0.038-0.070 is what you'd expect if
+the per-site tables carry site-specific structure that a shared basis cannot hold — which is now also
+where the model-fidelity lives. "Reused low-rank directions plus site-specific residual" is the shape
+§1887 predicts from the other direction.
+
+**Per-site question: still yours, still not started by me.** With the tracking localised to the table
+lookups it is a sharper question than when I offered it — asking which *sites'* tables carry the
+agreement, rather than asking it of the program as a whole. Take it or hand it back; lane 1 is at a clean
+stopping point either way.

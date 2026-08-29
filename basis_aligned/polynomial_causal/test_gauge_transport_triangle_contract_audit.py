@@ -169,6 +169,15 @@ def test_completed_v2_row_metadata_is_exact_and_non_authorizing_without_tensor_l
     assert receipt["triangle_runner_authorized_by_this_receipt"] is False
 
 
+def test_legacy_main_is_fail_closed_before_rows_or_model(monkeypatch):
+    monkeypatch.setattr(
+        triangle, "load_unique_v2_rows",
+        lambda: (_ for _ in ()).throw(AssertionError("row loader must remain unopened")),
+    )
+    with pytest.raises(RuntimeError, match="launch NO-GO"):
+        triangle.main()
+
+
 def _synthetic_v2_payload_contract(monkeypatch):
     monkeypatch.setattr(triangle, "ROLE_SIZES", {"basis": 1, "fit": 1, "evaluation": 1})
     monkeypatch.setattr(triangle, "ROW_TOKEN_LENGTH", 3)
