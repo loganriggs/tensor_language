@@ -159,7 +159,11 @@ def tensor_sha256(value: torch.Tensor) -> str:
     digest = hashlib.sha256()
     digest.update(str(tensor.dtype).encode())
     digest.update(json.dumps(list(tensor.shape), separators=(",", ":")).encode())
-    digest.update(tensor.view(torch.uint8).numpy().tobytes(order="C"))
+    # ``Tensor.view(dtype)`` rejects zero-dimensional tensors when the target
+    # element size differs (notably scalar bfloat16 buffers).  Flattening is a
+    # byte-preserving shape operation and makes the serializer total over the
+    # scalar and non-scalar state tensors used by the checkpoint.
+    digest.update(tensor.reshape(-1).view(torch.uint8).numpy().tobytes(order="C"))
     return digest.hexdigest()
 
 
@@ -888,7 +892,7 @@ def model_state_sha256(model: torch.nn.Module) -> str:
         digest.update(encoded)
         digest.update(str(tensor.dtype).encode())
         digest.update(json.dumps(list(tensor.shape), separators=(",", ":")).encode())
-        digest.update(tensor.view(torch.uint8).numpy().tobytes(order="C"))
+        digest.update(tensor.reshape(-1).view(torch.uint8).numpy().tobytes(order="C"))
     return digest.hexdigest()
 
 

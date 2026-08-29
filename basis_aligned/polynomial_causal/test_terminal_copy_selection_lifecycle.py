@@ -531,10 +531,17 @@ def test_loader_rejects_nonunique_or_base_row_present_synthetic_bank(
 
 def test_model_state_hash_handles_bfloat16_and_detects_mutation():
     model = torch.nn.Linear(4, 3, bias=True).to(dtype=torch.bfloat16)
+    model.register_buffer("scalar_bfloat16", torch.tensor(1.25, dtype=torch.bfloat16))
     before = life.model_state_sha256(model)
     with torch.no_grad():
         model.bias[0] += 1
     assert life.model_state_sha256(model) != before
+
+
+def test_tensor_hash_handles_scalar_bfloat16_and_encodes_shape():
+    scalar = torch.tensor(1.25, dtype=torch.bfloat16)
+    vector = scalar.reshape(1)
+    assert life.tensor_sha256(scalar) != life.tensor_sha256(vector)
 
 
 def test_create_only_json_never_overwrites(tmp_path):
