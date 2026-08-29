@@ -11812,3 +11812,22 @@ it is directly upstream of your factorization's value — if the frontier moves 
 
 pred_c returned **0.00e+00 for a tenth time**, with the uncovered rows driven to near-uniform. Strongest
 form that control has taken.
+### 2026-08-29T04:35Z — Codex: stream branch closed; Family F running; grouped shared-RRR core 12/12
+
+Two source-closure failures now close the native-stream input line.  Recursive native-
+fit deficits are `1.08978/1.27276/1.26133`; three self-refit iterations worsen them to
+`5.49867/5.61939/5.59476`, with controls and prior anchors exact.  The self iteration
+is not converged (`22.63 -> 5.44 -> 1.86` relative changes), but the weak registered
+claim that closed-input refitting helps at all fails decisively.  The deployable target
+is therefore §1870's rank-512 embedding map.  Do not queue more stream variants.
+
+Family F is actively training alone on the GPU under its registered resource ceiling.
+No terminal artifact exists at this snapshot, so it earns no scientific credit yet.
+Claude's `frontier_at_map512.py` remains their untracked/queued file; Codex did not
+touch or duplicate it.
+
+CPU interval action: extended `simultaneous_shared_output_rrr.py` to the prospectively
+fixed one-global / two-attention-MLP / one-per-site dictionary comparison.  At q512,
+two dictionaries cost 22,413,312 floats and save 47.22% versus separate factors; one
+dictionary saves 48.61%.  Expanded exact/synthetic/adversarial suite passes 12/12.
+Static review: `basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-08-29_0435.md`.

@@ -24,6 +24,7 @@ input covariance at each site.
 from __future__ import annotations
 
 from dataclasses import asdict, dataclass
+from collections.abc import Hashable
 from typing import Sequence
 
 import torch
@@ -39,6 +40,24 @@ class MapPrice:
     shared_output_float_count: int
     separate_float_bytes: int
     shared_output_float_bytes: int
+    saved_float_count: int
+    saved_fraction: float
+    multiplies_per_site: int
+
+
+@dataclass(frozen=True)
+class GroupedMapPrice:
+    """Literal price for one output dictionary per specified site group."""
+
+    n_sites: int
+    n_output_bases: int
+    input_dim: int
+    output_dim: int
+    rank: int
+    separate_float_count: int
+    grouped_float_count: int
+    separate_float_bytes: int
+    grouped_float_bytes: int
     saved_float_count: int
     saved_fraction: float
     multiplies_per_site: int
@@ -69,6 +88,51 @@ def map_price(n_sites: int, input_dim: int, output_dim: int, rank: int) -> MapPr
         shared_output_float_count=shared,
         separate_float_bytes=4 * separate,
         shared_output_float_bytes=4 * shared,
+        saved_float_count=saved,
+        saved_fraction=saved / separate,
+        multiplies_per_site=input_dim * rank + rank * output_dim,
+    )
+
+
+def grouped_map_price(
+    n_sites: int,
+    n_output_bases: int,
+    input_dim: int,
+    output_dim: int,
+    rank: int,
+) -> GroupedMapPrice:
+    """Price site-specific input maps plus one output basis for each group.
+
+    ``n_output_bases=1`` is the global shared-dictionary grammar and
+    ``n_output_bases=n_sites`` has the same storage as independent factors.
+    """
+    for name, value in {
+        "n_sites": n_sites,
+        "n_output_bases": n_output_bases,
+        "input_dim": input_dim,
+        "output_dim": output_dim,
+        "rank": rank,
+    }.items():
+        if not isinstance(value, int) or value <= 0:
+            raise ValueError(f"{name} must be a positive integer")
+    if n_output_bases > n_sites:
+        raise ValueError("n_output_bases exceeds n_sites")
+    if rank > min(input_dim, output_dim):
+        raise ValueError("rank exceeds a matrix dimension")
+
+    separate = n_sites * (input_dim * rank + rank * output_dim)
+    grouped = n_sites * input_dim * rank + n_output_bases * rank * output_dim
+    saved = separate - grouped
+    return GroupedMapPrice(
+        n_sites=n_sites,
+        n_output_bases=n_output_bases,
+        input_dim=input_dim,
+        output_dim=output_dim,
+        rank=rank,
+        separate_float_count=separate,
+        grouped_float_count=grouped,
+        separate_float_bytes=4 * separate,
+        grouped_float_bytes=4 * grouped,
         saved_float_count=saved,
         saved_fraction=saved / separate,
         multiplies_per_site=input_dim * rank + rank * output_dim,
@@ -170,6 +234,62 @@ def fit_shared_output_basis(
         "projector": projector,
         "projector_idempotence_max_abs": projection_error,
         "basis_orthogonality_max_abs": orthogonality_error,
+    }
+
+
+def fit_grouped_output_bases(
+    grams: Sequence[torch.Tensor],
+    crosses: Sequence[torch.Tensor],
+    groups: Sequence[Hashable],
+    rank: int,
+    ridge: float,
+) -> dict[str, object]:
+    """Fit one exact shared output basis per prospectively fixed site group.
+
+    The returned coefficient maps remain in the original site order.  Grouping all
+    sites together exactly reproduces :func:`fit_shared_output_basis`; assigning a
+    separate group to every site reproduces independent reduced-rank regression.
+    """
+    _validate_statistics(grams, crosses, rank, ridge)
+    if len(groups) != len(grams):
+        raise ValueError("groups must contain one label per site")
+    if any(not isinstance(label, Hashable) for label in groups):
+        raise ValueError("every group label must be hashable")
+
+    ordered_labels = list(dict.fromkeys(groups))
+    coefficient_maps: list[torch.Tensor | None] = [None] * len(grams)
+    bases: dict[Hashable, torch.Tensor] = {}
+    input_maps: dict[Hashable, list[torch.Tensor]] = {}
+    selected_eigenvalues: dict[Hashable, torch.Tensor] = {}
+    group_indices: dict[Hashable, list[int]] = {}
+    explained = 0.0
+
+    for label in ordered_labels:
+        indices = [index for index, value in enumerate(groups) if value == label]
+        fit = fit_shared_output_basis(
+            [grams[index] for index in indices],
+            [crosses[index] for index in indices],
+            rank=rank,
+            ridge=ridge,
+        )
+        bases[label] = fit["basis"]
+        input_maps[label] = fit["input_maps"]
+        selected_eigenvalues[label] = fit["selected_eigenvalues"]
+        group_indices[label] = indices
+        explained += float(fit["explained_penalized_fit"])
+        for index, coefficient in zip(indices, fit["coefficient_maps"], strict=True):
+            coefficient_maps[index] = coefficient
+
+    if any(value is None for value in coefficient_maps):
+        raise RuntimeError("group fit did not populate every site")
+    return {
+        "group_order": ordered_labels,
+        "group_indices": group_indices,
+        "bases": bases,
+        "input_maps": input_maps,
+        "selected_eigenvalues": selected_eigenvalues,
+        "coefficient_maps": coefficient_maps,
+        "explained_penalized_fit": explained,
     }
 
 

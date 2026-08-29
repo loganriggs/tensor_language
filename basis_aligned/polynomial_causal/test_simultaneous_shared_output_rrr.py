@@ -5,7 +5,9 @@ import torch
 
 from simultaneous_shared_output_rrr import (
     canonical_price_receipt,
+    fit_grouped_output_bases,
     fit_shared_output_basis,
+    grouped_map_price,
     map_price,
     penalized_objective_from_statistics,
 )
@@ -99,6 +101,58 @@ def test_current_price_implication_is_exact():
     assert receipt["shared_output_float_bytes"] == 87_293_952
     assert math.isclose(receipt["saved_fraction"], 0.4861111111111111)
     assert receipt["multiplies_per_site"] == 1_179_648
+
+
+def test_grouped_prices_interpolate_between_one_shared_and_independent():
+    global_shared = grouped_map_price(36, 1, 1152, 1152, 512)
+    attention_mlp = grouped_map_price(36, 2, 1152, 1152, 512)
+    independent = grouped_map_price(36, 36, 1152, 1152, 512)
+    assert global_shared.grouped_float_count == 21_823_488
+    assert attention_mlp.grouped_float_count == 22_413_312
+    assert math.isclose(attention_mlp.saved_fraction, 0.4722222222222222)
+    assert independent.grouped_float_count == independent.separate_float_count
+    assert independent.saved_float_count == 0
+
+
+def test_one_group_exactly_replays_global_shared_fit():
+    _, _, grams, crosses, _, _ = _synthetic()
+    shared = fit_shared_output_basis(grams, crosses, rank=2, ridge=1e-3)
+    grouped = fit_grouped_output_bases(
+        grams, crosses, groups=["all"] * len(grams), rank=2, ridge=1e-3
+    )
+    assert math.isclose(
+        grouped["explained_penalized_fit"],
+        shared["explained_penalized_fit"],
+        rel_tol=1e-12,
+    )
+    for expected, observed in zip(
+        shared["coefficient_maps"], grouped["coefficient_maps"], strict=True
+    ):
+        assert torch.allclose(expected, observed, atol=2e-12, rtol=2e-12)
+
+
+def test_one_group_per_site_replays_independent_reduced_rank_fits():
+    _, _, grams, crosses, _, _ = _synthetic()
+    grouped = fit_grouped_output_bases(
+        grams, crosses, groups=list(range(len(grams))), rank=2, ridge=1e-3
+    )
+    for index, observed in enumerate(grouped["coefficient_maps"]):
+        independent = fit_shared_output_basis(
+            [grams[index]], [crosses[index]], rank=2, ridge=1e-3
+        )
+        assert torch.allclose(
+            observed, independent["coefficient_maps"][0], atol=2e-12, rtol=2e-12
+        )
+
+
+def test_grouped_fit_rejects_missing_and_unhashable_labels():
+    _, _, grams, crosses, _, _ = _synthetic()
+    with pytest.raises(ValueError, match="one label per site"):
+        fit_grouped_output_bases(grams, crosses, groups=["short"], rank=2, ridge=1e-3)
+    with pytest.raises(ValueError, match="hashable"):
+        fit_grouped_output_bases(
+            grams, crosses, groups=[[0]] * len(grams), rank=2, ridge=1e-3
+        )
 
 
 @pytest.mark.parametrize(
