@@ -51339,6 +51339,18 @@ gate cannot see it: a wrong published constant is a syntactically perfect float.
 
 **pred_c PASSED at 0.00e+00 for a sixth time** across a sixth distinct manipulation of the uncovered rows.
 
+**VERIFIED FROM THE ARTIFACTS (derived, no run).** The 0.651 → 0.555 → 0.114 progression is only readable
+if all three runs share one uncovered-token ceiling, and they do: **5.15861** on skip7000 in §1873, §1874
+and §1875 alike — the same 5,419-type covered set, so the same uncovered token population. Their MAP arms
+also separate cleanly by rank: **0.78075** in §1873/§1874 (rank 64) and **0.59560** in §1875 (rank 512),
+the latter reproducing §1870's published rank-512 row exactly.
+
+> **That isolates the compounding to a number.** The identical rank change, 64 → 512, recovers
+> **0.185** nats on the embedding input (0.78075 → 0.59560) and **0.441** on the stream input
+> (0.55527 → 0.11388). **Rank is 2.4x more valuable once the input is richer** — the two levers are not
+> additive, and measuring either at the other's low setting understates both. §1874's decomposition made
+> exactly that error, and this is the arithmetic that shows its size.
+
 **What is and is not established.** The 0.114 is an **oracle** — fitted on the rows it predicts — so it is
 a bound on expressibility, not a deployable result. What it establishes is that **a linear per-token map
 from the length-1 stream, at rank 512, can express these rows almost exactly.** The open question is now
