@@ -120,6 +120,17 @@ def test_program_owns_weights_and_never_calls_native_projection_after_clone():
     }
 
 
+def test_clone_preserves_float_rotary_when_projection_weights_are_bfloat16():
+    native = FakeNative().to(dtype=torch.bfloat16)
+    # FakeNative.rotary is intentionally not an nn.Module, matching the production
+    # checkpoint's unregistered float32 inv_freq attribute.
+    assert native.c_q.weight.dtype == torch.bfloat16
+    assert native.rotary.inv_freq.dtype == torch.float32
+    program = OwnedPerHeadTensorAttention.from_native(native)
+    assert program.q.dtype == torch.bfloat16
+    assert program.inv_freq.dtype == torch.float32
+
+
 def test_adapter_refuses_projection_bias_and_invalid_head_selection():
     native = FakeNative()
     native.c_q = nn.Linear(8, 8, bias=True)

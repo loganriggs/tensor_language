@@ -30,6 +30,13 @@ contiguous `[batch, query, head, d_head]` tensor consumed by `c_proj`. The spent
 checkpoint check showed that requesting the transposed layout directly from einsum is
 real-number equivalent but not bfloat16-kernel equivalent.
 
+The checkpoint's `Rotary.inv_freq` is a plain float32 attribute, not a registered
+module buffer. Consequently `model.to(bfloat16)` leaves it float32 while converting
+the projection weights. The adapter moves copied tensors to the native device but
+does not apply a blanket dtype conversion; weights retain their native bfloat16 and
+rotary frequencies retain float32. The spent v2 recovery localized the previous
+blanket cast to a roughly 0.62% rotated-query and 0.81% final-write discrepancy.
+
 Before the output projection, each head occupies a disjoint 128-column slice. If
 $z_h$ is head $h$'s mixed value result and $W_O^{(h)}$ is the matching column block of
 `c_proj`, the physical residual-stream write attributed to that head is

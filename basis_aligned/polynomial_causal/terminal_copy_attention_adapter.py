@@ -90,7 +90,11 @@ class OwnedPerHeadTensorAttention(nn.Module):
             parameter = next(attention.parameters())
         except StopIteration as error:
             raise ValueError("native attention has no device-bearing parameter") from error
-        return program.to(device=parameter.device, dtype=parameter.dtype)
+        # The checkpoint's Rotary.inv_freq is a plain float32 attribute rather than
+        # a registered buffer, so model.to(bfloat16) does not cast it.  Preserve each
+        # copied tensor's source dtype and move only the device; casting the owned
+        # inv_freq to the projection dtype measurably changes production RoPE.
+        return program.to(device=parameter.device)
 
     def _project(self, name: str, state: torch.Tensor) -> torch.Tensor:
         return F.linear(state, getattr(self, name).to(state.dtype)).view(

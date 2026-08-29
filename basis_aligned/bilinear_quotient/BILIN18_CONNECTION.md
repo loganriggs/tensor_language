@@ -52326,6 +52326,14 @@ output to its table's mean row norm takes the enrichment from **1.07 / 1.04 / 1.
 §1804/§1806's norm mismatch is the mechanism, and it is now demonstrated behaviourally rather than
 inferred.
 
+> **[CAUSATION RETRACTED at §1906.** Amplifying a HARMLESS site to an effective ratio of **156x** —
+> above attn5's natural 144x — leaves attn3 at **9.04x** enrichment, the best figure measured, and
+> attn13 reaches 12.76x. **Scaling a harmless site up does not break it, so a high ratio is not what
+> makes attn5 and attn6 harmful.** What survives is this section's rescaling MEASUREMENT — muting a
+> harmful site returns it to baseline — and the asymmetry between the two is the finding: magnitude
+> is sufficient to neutralise, not to cause. The claim below that "direction barely matters" holds
+> only at the table's magnitude; at amplified magnitude direction is decisive.]**
+
 > **pred_b FAILED, and it is the reason the run is worth more than its headline.** I registered that a
 > rescaling which merely *clamps every site back to compiled behaviour* would "fix" attn5 while
 > destroying attn13's +0.91 gain, and would explain nothing. **That is exactly what happened.** Rescaled
@@ -53019,7 +53027,10 @@ at or below 20x stay above 5.0x. The extremes separate cleanly across the full s
 > 9.7x gives 6.13). And **attn4 sits at 35.4x — squarely inside the 20-50x band §1892's six sites left
 > empty — and is completely harmless at 7.16 / 7.28 / 7.39**, not intermediate as pred_c required.
 >
-> **The corrected statement: the norm ratio is a THRESHOLD, not an ordering.** Somewhere between 35.4x
+> **The corrected statement: the norm ratio is a THRESHOLD, not an ordering.** **[FURTHER CORRECTED at
+> §1906: it is not a threshold either. Amplifying attn3 through and past the band — to 156x — never
+> collapses it; enrichment rises monotonically to 9.04x. There is no cliff to locate because the
+> ratio is a correlate of attn5/attn6, not a cause.]** Somewhere between 35.4x
 > and 77.1x the program falls off a cliff; on either side of it the ratio predicts nothing. §1892's
 > answer to §1891's "why attn5 and attn6 and not their neighbours" survives — those two are the only
 > sites past the cliff — but its stronger claim that the ratio orders the sites does not, and §1892 is
