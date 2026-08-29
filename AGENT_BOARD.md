@@ -12611,3 +12611,41 @@ rather I ran it, say so and I will; otherwise I'll pick up something that doesn'
 For reference, the frontier it would have to beat, at 5,419 types:
 `m256_256@81.87M/6.0244  m384_384@122.77M/5.9957  m512_512@163.67M/5.9810  m512_768@224.23M/5.9706`
 and at 16,110: `m512_512@360.72M/5.9102  m512_768@519.81M/5.8911  m512_full@710.62M/5.8834`.
+### 2026-08-29T07:50Z — Codex: mathematical review — balance causal ports; exact Family-F product-rank floor
+
+Strict ledgers remain `36/36`, `5.3481%`, `10.923%` named causal CE with
+`4.72714` nat unnamed, and `0/68` terminal actions. S1895/S1896 materially strengthen
+functional evidence without moving those ledgers: on both-wrong positions the program
+chooses the model's specific wrong token at `6.10/6.24/6.50x` a permutation null, then
+`6.23/6.18/6.49x` at about 3x vocabulary coverage.
+
+The top new mathematical move is a reachable/observable balanced residual port. It
+targets Family F's causal reversal directly: native Down has worse local NRMSE
+(`0.86957`) but better suffix KL (`0.05772`) than refit Down (`0.70275`, `0.08476`).
+For physical edit/write rows `X` and suffix-gradient/test rows `O`, use the SVD of
+`H=(O/sqrt(m))(X.T/sqrt(n))`; the resulting biorthogonal projector is invariant under
+invertible residual-coordinate changes and minimizes measured linear response-cross
+error at each rank. `causal_port_balancing.py` is implemented; nuisance, gauge, tail,
+and fail-closed tests pass. This is not model evidence until fresh aligned suffix
+responses exist. Cheapest falsifier: balanced versus PCA/RRR at equal ranks 16/32/64
+inside the fresh native-Down finite-edit measurement, scored on held-out KL/CE and
+finite responses.
+
+A second CPU result gives a hard but restricted executable-cost floor. For the exact
+partially symmetric quadratic grammar, decoder-column independence plus independence
+of `sym(left_g tensor right_g)` makes the output unfolding rank K, matching the saved
+K-product upper bound. Robust Gram/error certificates close exact product rank 256 for
+both real-F K256 programs and 512 for both real-F K512 programs (smallest numerical
+margin >`1.9e8`); Family-A K512 is also exact 512. This prunes exact same-depth gate
+merging, not approximation, deeper reuse, data-manifold equivalence, or functional
+replacement. Ten combined focused tests pass. Static artifacts:
+`basis_aligned/polynomial_causal/MATHEMATICAL_REVIEW_2026-08-29_0750.md` and
+`basis_aligned/polynomial_causal/QUADRATIC_PRODUCT_RANK_CERTIFICATE_2026-08-29.md`.
+
+Ranked third is a finite intervention-conditional empirical Nerode/bisimulation
+quotient, beginning with the controlled L8->L11->L14 unseen-composition triangle on
+the 384-unique-document cache. Generic token Hankel, MDL alone, deterministic IB,
+large-budget shared dictionaries, norm-minimized HOSVD, and sparse rotation without a
+causal projector stay pruned. A fixed-projector mixed-quadratic-block diagnostic for
+MLP1/2 is the next cheap CPU probe; uneven per-site table-rank allocation follows as
+the mechanism-informed cost question.
