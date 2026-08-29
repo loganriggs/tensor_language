@@ -38,6 +38,7 @@ REQUIRED_LAUNCH_BINDINGS = (
     "fresh_row_authority",
     "checkpoint_authority",
     "per_head_attention_adapter",
+    "physical_candidate_dispatcher",
     "late_product_gate_adapter_or_omission_authority",
     "scorer_bootstrap_authority",
     "empty_create_only_result_namespace",

@@ -350,6 +350,21 @@ it records no model import, checkpoint load, forward call, or outcome access. Th
 closes the fresh-row/token-label blocker only. E4.1--E4.3 remain unchecked; the next
 critical path is the physical candidate dispatcher plus receipt-last streaming scorer.
 
+**10:15 UTC dispatcher-core update — implementation complete, still not an evidence
+cell:** `terminal_copy_attention_dispatcher.py` now binds the exact eight frozen
+candidates to physical `(layer, head)` sets and computes
+`full_native - selected_heads + fit_position_mean` from owned attention adapters. The
+L8H3+L8H4 pair is one same-layer transaction; multi-layer candidates preserve the
+first-value bus; returned tensors are non-aliasing; invalid candidates, layers,
+sequence lengths, and mean-bank topologies fail closed; and the scorer's owned adapter
+and fit-mean values are priced. The combined dispatcher/adapter/contract/statistics
+suite passes `35/35`. This is not a runner and opened no row, checkpoint, model, or
+outcome. Remaining launch blockers are a fit-role per-position head-mean authority and
+receipt, production call/support ledgers and source closure, explicit attention-only/
+native-MLP omission authority, and the create-only selection/result lifecycle. The
+launch gate now requires `physical_candidate_dispatcher` separately from the adapter.
+E4.1--E4.3 remain unchecked.
+
 **07:40 UTC whole-program diagnostic — actual run, not an E1--E4 completion:** the
 deployed-scale sweep measured top-1 and permutation-normalized teacher agreement on all
 three discovery roles. Scale 0.8 was best for top-1, scale 0.5 best for agreement, and

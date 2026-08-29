@@ -143,6 +143,7 @@ named-behavior coverage, or current-ship executable recovery.
 
 The pure contract deliberately fails closed until all six flags are bound and replayed:
 fresh row authority; checkpoint authority; source-closed per-head attention adapter;
+source-closed physical eight-candidate dispatcher;
 source-closed late product-gate adapter (or an explicit authority omitting that
 secondary screen); frozen scorer/bootstrap authority; and an empty create-only result
 namespace.  `terminal_copy_induction_v1.assert_launch_ready` is the executable NO-GO
