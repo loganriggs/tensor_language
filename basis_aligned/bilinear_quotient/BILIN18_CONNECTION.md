@@ -57740,3 +57740,47 @@ half seconds, and a mechanism story died before it reached the board.**
 together — and the cheapest unasked question about it is one of degree rather than of membership: **how
 much of attention 6 does it take?** The table-rank machinery already sweeps capacity per kind; extending
 it to name an individual site makes "attention 6 at rank 32, everything else at 384" expressible.
+
+## §1996 — attention 6 needs almost no capacity: rank 16 buys 72% of what rank 384 does
+
+`ops/how_much_of_attention_six.py`, **4.8s** warm (289.2s cold), **DISCOVERY ONLY**, 5,419, rung 3 —
+§1995's open question. **pred_a True | pred_b True | pred_c True | derived controls True**, on the third
+plan. Reference deviation 0.000000.
+
+```
+  cost against the live model, nats, 5,419 -- attention 6's table rank, everything else at {mlp 768, attn 384}
+             r16     r32     r64     r128    r384   |  no attention 6   full 36 sites
+  skip7000   2.137   2.109   2.060   2.011   1.971  |     2.556            2.808
+  skip11000  2.261   2.234   2.184   2.133   2.090  |     2.730            2.979
+  skip1200   2.110   2.085   2.040   1.992   1.952  |     2.558            2.702
+```
+
+> **pred_a PASSED 3/3: naming attention 6 explicitly at rank 384 reproduces §1992's `mlp2_a56` to
+> 0.005 nats**, so the per-site rank plumbing is a no-op when it should be one.
+
+> **pred_b PASSED 3/3 and it is the result. Rank 16 lands at 2.137** — comfortably on the good side of the
+> threshold, against the no-attention-6 arm's 2.556. **A 24-fold cut in attention 6's table capacity costs
+> 0.166 nats**, where removing the site entirely costs 0.611. **Rank 16 captures 72% of attention 6's
+> whole contribution; rank 128 captures 93%.**
+
+> **pred_c PASSED 3/3, so the axis is real and not degenerate.** Rank 16 is worse than rank 384 by
+> **0.166 at pooled t = +184.8**, and every step is monotone. **It is a smooth, shallow curve — roughly
+> linear in log-rank — not a cliff.**
+
+**What this says about the threshold.** It is not enough that attention 6 merely *stop varying with
+context* — capacity buys real CE, monotonically, at every rank tested. But the amount needed is tiny:
+**twenty-four times less capacity than the deployed allocation loses under a third of the benefit.**
+Whatever attention 6 must supply to the layers above it is low-dimensional.
+
+**Three plans before a clean control, and the third failure was a library bug.** Run 1 had every arm
+differing in rank or sites, so there was no same-spec pair at all and `control_is_two_sided` failed. Run 2
+added a fallback partner *at the same three sites* — and it was **not inert**, correctly: the §1765/§1936
+covered-input guarantee rests on attention being **deleted**, which only holds at all 36 sites. Substitute
+three and attention stays live, mixing earlier positions whose tokens may be uncovered. **`bqlib` now
+refuses to call a partial-site pair inert**, with a test, so every partial-substitution run since §1977 that
+happened to carry an all-36 pair was right by luck and is now right by construction.
+
+**Open.** Attention 6 needs almost no capacity. **Attention 5 has never been swept**, and the threshold
+names both. If attention 5 is equally shallow the requirement is about presence, not capacity, at either
+site; if it is steep, the two layers are doing different jobs and the asymmetry is the first mechanical
+handle this line has offered.

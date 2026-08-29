@@ -37,6 +37,17 @@ def _spec(r):
 
 PLAN = [(ARM, _spec(r), f'r{r}', SITES2) for r in RANKS] + [
     (ARM, {'mlp': 768, 'attn': 384}, BAD, [('mlp', 2), ('attn', 5)]),   # §1992: 2.556 / 2.730 / 2.558
+    (ARM, {'mlp': 768, 'attn': 384}, 'full_program', None),             # §1985: 2.808 / 2.979 / 2.702
+    ('map512', {'mlp': 768, 'attn': 384}, 'full_fb_control', None),     # the INERT pair: same rank, ALL
+    #                                                                     36 sites, different fallback.
+    #                                                                     Run 1 of this script had no
+    #                                                                     same-spec pair at all; run 2
+    #                                                                     put the fallback partner at
+    #                                                                     THREE sites, where attention is
+    #                                                                     still live and inertness does
+    #                                                                     not hold -- and it failed,
+    #                                                                     correctly. bqlib now refuses to
+    #                                                                     call a partial-site pair inert.
     (ARM, A256, 'rank_control', None)]                                  # differing rank, all 36 sites
 
 

@@ -2483,3 +2483,24 @@ prefix (LESSON 95), one rung up: there I held something constant, here I only ev
 **Withdraw the sentence, keep the table.** §1990's measurements reproduced to 0.000000 inside §1991. What
 failed was one sentence, and it is now struck in the ledger, marked in the registry, and corrected on the
 board — with no rule in force until §1992 measures the narrow form. See [[LESSON 95]] and [[LESSON 96]].
+
+## LESSON 98 — a guarantee inherited from a different regime is not a control, it is an assumption
+
+The covered-input inertness control has protected every run since §1936: two arms differing only in their
+*fallback* cannot differ at a covered input, because §1765's program is a pure function of the current
+token. **That reasoning requires attention to be deleted, which is only true when all 36 sites are
+substituted.**
+
+Every partial-substitution run since §1977 substituted three to seven sites, leaving attention live —
+where a covered-input position's logits *can* move, because attention mixes in earlier positions whose
+tokens may be uncovered. Those runs all passed the control **because each happened to include an all-36
+fallback pair**, and the helper had no idea that was the reason.
+
+§1996 removed that pair and the control failed. **It was right to fail.** `inertness_pairs` now refuses to
+treat a partial-site pair as same-spec, so the guarantee is only ever asserted where it holds.
+
+**The general shape:** a control carried forward across a change of regime silently becomes an assumption.
+When the setup changes — attention deleted → attention live — re-derive what the control actually rests on
+rather than checking whether it still passes. **Passing is not evidence that it applies.** Compare
+LESSON 86, where four control-polarity errors were inherited the same way and fixed by deriving polarity
+from the plan instead of copying it.

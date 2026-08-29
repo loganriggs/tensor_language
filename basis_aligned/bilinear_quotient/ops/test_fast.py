@@ -153,6 +153,19 @@ def test_composite_arm_grammar():
             check(f'composite: rejects {bad}', True)
 
 
+def test_inertness_requires_all36():
+    """S1996: the covered-input inertness guarantee rests on attention being DELETED. Substitute only some
+    sites and attention stays live, mixing earlier positions whose tokens may be uncovered -- so a
+    fallback pair at a partial site set is NOT inert, and pairing it as same-spec asserts something false."""
+    part = [('mix30m640', None, 'a', [('mlp', 2)]), ('map512', None, 'b', [('mlp', 2)])]
+    inert, differ = B.inertness_pairs(part)
+    check('all36: a partial-site fallback pair is NOT inert', ('a', 'b') in differ,
+          f'inert={inert} differ={differ}')
+    full = [('mix30m640', None, 'a'), ('map512', None, 'b')]
+    i2, _d2 = B.inertness_pairs(full)
+    check('all36: a full-site fallback pair still IS inert', ('a', 'b') in i2, str(i2))
+
+
 def test_whole_table_arms_are_not_fallback_variants():
     """S1983: `meanrow` replaces EVERY row, covered ones included, so it is not a fallback variant and
     the covered-input inertness guarantee does not hold between it and one. Pairing them as same-spec
@@ -387,7 +400,7 @@ def test_gate_accepts_the_library_itself():
           out.stdout.strip()[-120:])
 
 
-for fn in (test_per_site_table_ranks, test_penalty_accessor, test_composite_arm_grammar, test_whole_table_arms_are_not_fallback_variants, test_inert_side_of_the_control_is_still_strict, test_site_subsets_change_the_cache_key, test_no_build_level_comparison_is_vote_dependent, test_pooled_t_weights_by_evidence, test_every_ref_path_exists, test_ref_refuses_to_guess_a_coverage, test_rk_key_is_order_independent, test_inertness_pairs_splits_by_table_rank,
+for fn in (test_inertness_requires_all36, test_per_site_table_ranks, test_penalty_accessor, test_composite_arm_grammar, test_whole_table_arms_are_not_fallback_variants, test_inert_side_of_the_control_is_still_strict, test_site_subsets_change_the_cache_key, test_no_build_level_comparison_is_vote_dependent, test_pooled_t_weights_by_evidence, test_every_ref_path_exists, test_ref_refuses_to_guess_a_coverage, test_rk_key_is_order_independent, test_inertness_pairs_splits_by_table_rank,
            test_inertness_pairs_warns_when_a_side_is_vacuous, test_ref_reads_published_triples,
            test_paired_t_arithmetic, test_cost_matches_the_published_closed_form,
            test_arm_names_parse_the_way_the_grammar_says, test_gate_fixtures,

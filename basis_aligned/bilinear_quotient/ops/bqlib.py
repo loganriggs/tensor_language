@@ -672,13 +672,21 @@ def inertness_pairs(plan):
     # UNCOVERED rows -- are inert at covered inputs. It does not hold for arms that also change the
     # COVERED rows. `meanrow` replaces every row including covered ones, so it is not a fallback variant
     # and must not be paired as same-spec with one. S1983's control failed on exactly that, correctly.
+    # The covered-input inertness guarantee (S1765/S1936) rests on ATTENTION BEING DELETED: with all 36
+    # sites substituted the program is a pure function of the current token, so two arms differing only in
+    # their fallback cannot differ at a covered input. Substitute only SOME sites and attention stays live,
+    # mixing in earlier positions whose tokens may be uncovered -- and a covered-input position's logits
+    # can then move. S1996 hit exactly that: a fallback pair at three sites was NOT inert, correctly.
+    # So only all-36 pairs are eligible for the inert side; everything else is a differing pair.
     spec = {lab: (_rk_key(tr), _sites_key(si), is_whole_table(a))
             for a, tr, lab, si in plan}
+    partial = {lab for _a, _tr, lab, si in plan if _sites_key(si) != 'all36'}
     labs = [lab for _a, _tr, lab, _si in plan]
     inert, differ = [], []
     for i, a in enumerate(labs):
         for b in labs[i + 1:]:
-            (inert if spec[a] == spec[b] else differ).append((a, b))
+            same = spec[a] == spec[b] and a not in partial and b not in partial
+            (inert if same else differ).append((a, b))
     # A two-sided control with an empty side is one-sided and says so. S1957's plan had three arms at
     # three different table ranks, so there were no same-spec pairs and the inertness half had nothing
     # to check -- it reported True vacuously. PRE-FLIGHT D: a watcher that goes quiet looks like a
