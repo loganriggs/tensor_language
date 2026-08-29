@@ -57632,3 +57632,43 @@ written.** The threshold above is the largest claim the fifteen arms carry.
 **Open.** Everything above is at 5,419 types. The threshold is the one statement worth replicating before
 it is built on, and the second coverage (16,110) is the standing instrument for exactly that — it halves
 the uncovered arm and has broken claims before (§1963, §1965).
+
+## §1993 — the threshold replicates at 16,110, and the ordering inside it is coverage-independent
+
+`ops/the_threshold_at_both_coverages.py`, **137.9s**, **DISCOVERY ONLY**, both coverages, rung 2 —
+§1992's open question. **pred_a True | pred_b True | pred_c True | derived controls True.** All three
+reference deviations 0.000000.
+
+```
+  cost against the live model, nats -- the four arms compiling BOTH attention 5 and 6, and the gap to the
+  cheapest arm omitting either
+                 mlp4+a5,6  mlp2+a4,5,6  mlp2+a5,6  mlp3+a5,6  |  best BAD arm   gap    full 36 sites
+  5,419  s7000     1.555      1.845       1.971      1.996     |    2.556      +0.560      2.808
+         s11000    1.640      1.959       2.090      2.152     |    2.730      +0.578      2.979
+         s1200     1.498      1.807       1.952      1.933     |    2.558      +0.606      2.702
+  16,110 s7000     1.547      1.820       1.924      1.990     |    2.530      +0.540      2.744
+         s11000    1.631      1.933       2.033      2.145     |    2.689      +0.544      2.893
+         s1200     1.492      1.783       1.903      1.929     |    2.518      +0.590      2.629
+```
+
+> **pred_a PASSED 3/3 at 16,110: the threshold has no exceptions at the second coverage either.** Every
+> arm compiling both attention 5 and attention 6 beats every arm omitting either, on every role.
+
+> **pred_b PASSED 3/3. The separation is 0.540–0.590 nats at 16,110** — against 0.560–0.606 at 5,419.
+> **The gap is not marginal and barely moves with coverage**, which is what distinguishes a fact about the
+> model from a coincidence of ordering.
+
+> **pred_c PASSED 3/3, on all three roles rather than the two required.** The four good arms rank
+> identically at both coverages: **mlp4+{5,6} < mlp2+{4,5,6} < mlp2+{5,6} ≈ mlp3+{5,6}.** §1963 and §1965
+> each found a claim that held at 5,419 and reversed at 16,110; **this one does not.**
+
+**Where this leaves the line.** Three proposed rules are withdrawn (§1986, §1990, §1992) and one measured
+statement stands at both coverages: **compiling attention 5 and attention 6 together is what makes a
+compiled MLP below them affordable, and omitting either is what makes it expensive.** Everything finer —
+which additional layer helps which site by 0.04 to 0.20 nats — remains real, small, and unexplained, and I
+have stopped proposing rules for it.
+
+**Open.** The threshold is now solid enough to ask *where* its 0.55 nats live. Every artifact since §1789
+carries the target-frequency buckets and the §1936 covered/uncovered input axis, so the gap can be
+decomposed without new plumbing: **is the penalty for omitting attention 5 or 6 spread across the
+distribution, or concentrated in the rare-target and uncovered-input cells where the program is weakest?**

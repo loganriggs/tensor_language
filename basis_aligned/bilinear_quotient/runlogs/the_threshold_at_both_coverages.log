@@ -38,3 +38,39 @@ THE THRESHOLD AT BOTH COVERAGES | 9 arms x 2 coverage(s) | DISCOVERY ONLY
   [bqlib] computed   live     skip7000 (1.3s)
   [bqlib] computed   live     skip11000 (1.3s)
   [bqlib] computed   live     skip1200 (0.6s)
+  [bqlib] computed   mix30m640 skip7000 (1.3s)
+  [bqlib] computed   mix30m640 skip11000 (1.3s)
+  [bqlib] computed   mix30m640 skip1200 (0.6s)
+  [bqlib] computed   mix30m640 skip7000 (1.4s)
+  [bqlib] computed   mix30m640 skip11000 (1.3s)
+  [bqlib] computed   mix30m640 skip1200 (0.6s)
+  [bqlib] computed   mix30m640 skip7000 (1.4s)
+  [bqlib] computed   mix30m640 skip11000 (1.3s)
+  [bqlib] computed   mix30m640 skip1200 (0.6s)
+  [bqlib] computed   mix30m640 skip7000 (1.4s)
+  [bqlib] computed   mix30m640 skip11000 (1.3s)
+  [bqlib] computed   mix30m640 skip1200 (0.6s)
+  [bqlib] computed   mix30m640 skip7000 (1.4s)
+  [bqlib] computed   mix30m640 skip11000 (1.3s)
+  [bqlib] computed   mix30m640 skip1200 (0.6s)
+  [bqlib] computed   mix30m640 skip7000 (1.4s)
+  [bqlib] computed   mix30m640 skip11000 (1.3s)
+  [bqlib] computed   mix30m640 skip1200 (0.6s)
+  [bqlib] computed   mix30m640 skip7000 (1.3s)
+  [bqlib] computed   mix30m640 skip11000 (1.3s)
+  [bqlib] computed   mix30m640 skip1200 (0.6s)
+  [bqlib] computed   mix30m640 skip7000 (1.3s)
+  [bqlib] computed   mix30m640 skip11000 (1.3s)
+  [bqlib] computed   mix30m640 skip1200 (0.7s)
+  [bqlib] computed   map512   skip7000 (3.2s)
+  [bqlib] computed   map512   skip11000 (1.3s)
+  [bqlib] computed   map512   skip1200 (0.7s)
+
+  every arm compiling both attention 5 and 6 beats every arm omitting either, at 16,110, 3/3 roles  -> True
+  and the two groups are separated by more than 0.3 nats at 16,110 on all three roles  -> True
+  and the four good arms rank the same at both coverages (>=2 roles)  -> True
+  derived controls -> True   coverage_exact=True  inert_pairs_are_inert=True  some_differing_pair_moves=True  buckets_partition=True  live_identical=True  ref_mlp4_a56=True  ref_mlp2_a56=True  ref_full_program=True
+  reference deviations: mlp4_a56 0.000000  mlp2_a56 0.000000  full_program 0.000000
+
+pred_a True | pred_b True | pred_c True | pred_z True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/the_threshold_at_both_coverages_results.json (137.9s)
