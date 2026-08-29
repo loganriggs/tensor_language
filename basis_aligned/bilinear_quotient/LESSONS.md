@@ -2206,3 +2206,26 @@ tighter than 0.005pp.
 code disagreed with the words, one because the arithmetic disagreed with the source. Neither is caught by
 "does it run" or "does it return a bool". The check that catches both is **re-deriving what the bar can
 possibly measure, before the run, from the numbers it will be compared against.**
+
+## LESSON 85 — I quoted three-role triples after seeing two rows, and filled the third from the second
+
+§1953's write-up stated the converged build "loses the unseen (0-0) bucket pooled on **3/3** — −0.36 /
+−0.26 / −0.36pp". The real values are **+0.75 / −0.36 / −0.26pp**: it loses on two roles and **gains**
++0.75pp on the third. Two further triples in the same paragraph (5-24 and 25-124) were also wrong — I had
+listed skip11000's and skip1200's values and manufactured a skip7000 entry by repeating skip11000's.
+
+**How.** `tail -22` on the run log showed skip11000 and skip1200; skip7000 had scrolled off. Every
+section in this ledger quotes per-role triples, so the shape of the sentence demanded three numbers, and
+I produced three. The predicate itself was computed by the script from the full data and was right
+(pred_a FALSE 0/3), which is why nothing downstream broke and why I did not notice until §1954 made me
+re-derive a claim built on it.
+
+**What caught it.** §1954 asserted "the unseen bucket loses on 6 of 6 role-coverage cells" and I went to
+verify that one number before publishing it. It was 5 of 6, and chasing why exposed the fabricated
+triple behind it.
+
+**The rule.** A per-role triple is three measurements. **Read all three, from the result JSON, not from
+whatever the log tail happened to show.** If the tail shows two, that is not a licence to write three —
+`tail` is a display width, not a dataset. And when a section quotes a triple that a *later* section
+depends on, re-derive it from the artifact rather than from the prose: the ledger is the record, but the
+JSON is the data.

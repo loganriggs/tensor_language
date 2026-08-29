@@ -1,0 +1,40 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+LEVER SPLIT AT 16,110 | buckets x input coverage | vs the deployed design | DISCOVERY ONLY
+
+########## COVERAGE 16110 ##########
+  [bqlib] coverage 16110 from fineweb_n480_skip80.pt: 36 tables, neighbour index and map solver built (6s)
+  [bqlib] cache HIT  live     skip7000
+  [bqlib] cache HIT  live     skip11000
+  [bqlib] cache HIT  live     skip1200
+  [bqlib] computed   map64    skip7000 (1.3s)
+  [bqlib] computed   map64    skip11000 (1.3s)
+  [bqlib] computed   map64    skip1200 (0.6s)
+  [bqlib] cache HIT  mix25m512 skip7000
+  [bqlib] cache HIT  mix25m512 skip11000
+  [bqlib] cache HIT  mix25m512 skip1200
+
+  skip7000
+    pooled               0-0  2.6%-> 2.5% (-0.11)      1-4  4.0%-> 5.3% (+1.30)     5-24  5.4%-> 6.7% (+1.33)   25-124  8.6%-> 8.5% (-0.07)  125-1000000000 53.6%->53.9% (+0.29)
+    uncovered_input      0-0  6.9%-> 8.0% (+1.15)      1-4 10.5%->18.0% (+7.53)     5-24  8.8%->20.8% (+11.92)   25-124 16.0%->22.7% (+6.75)  125-1000000000 44.3%->43.4% (-0.90)
+    covered_input        0-0  1.5%-> 1.1% (-0.42)      1-4  2.5%-> 2.4% (-0.09)     5-24  4.8%-> 4.3% (-0.45)   25-124  7.7%-> 6.8% (-0.91)  125-1000000000 54.6%->55.1% (+0.42)
+    overall top-1 gain: uncovered +1.47pp  covered +0.03pp  ratio 44.37x
+
+  skip11000
+    pooled               0-0  4.9%-> 4.2% (-0.66)      1-4  7.5%-> 6.9% (-0.66)     5-24  7.9%-> 8.2% (+0.24)   25-124  7.2%-> 7.3% (+0.12)  125-1000000000 54.1%->54.7% (+0.64)
+    uncovered_input      0-0 15.9%->14.5% (-1.45)      1-4 25.0%->25.0% (+0.00)     5-24 15.5%->19.6% (+4.05)   25-124 11.6%->19.1% (+7.54)  125-1000000000 40.9%->42.6% (+1.72)
+    covered_input        0-0  2.2%-> 1.8% (-0.47)      1-4  3.7%-> 2.9% (-0.80)     5-24  6.7%-> 6.3% (-0.40)   25-124  6.6%-> 5.7% (-0.91)  125-1000000000 55.5%->56.0% (+0.53)
+    overall top-1 gain: uncovered +1.06pp  covered +0.03pp  ratio 39.22x
+
+  skip1200
+    pooled               0-0  3.5%-> 2.6% (-0.88)      1-4  4.6%-> 5.1% (+0.46)     5-24  6.3%-> 7.3% (+0.95)   25-124  9.6%-> 7.9% (-1.72)  125-1000000000 53.9%->54.5% (+0.60)
+    uncovered_input      0-0  9.3%->10.5% (+1.16)      1-4 10.6%->13.2% (+2.65)     5-24  9.2%->17.6% (+8.45)   25-124 16.9%->27.3% (+10.39)  125-1000000000 37.7%->40.1% (+2.39)
+    covered_input        0-0  2.2%-> 0.8% (-1.36)      1-4  2.8%-> 2.6% (-0.20)     5-24  5.7%-> 5.2% (-0.57)   25-124  8.8%-> 5.7% (-3.09)  125-1000000000 55.6%->56.0% (+0.42)
+    overall top-1 gain: uncovered +1.91pp  covered -0.08pp  ratio -22.61x
+
+  the redistribution SHAPE persists at 16,110 (>=2 roles) -> False  1/3
+  and the uncovered/covered concentration FALLS vs §1953 (>=2 roles) -> False  1/3  (ratios 44.4x 39.2x -22.6x vs (44.37, 12.89, 29.25))
+  and the COVERED-input gain EXCEEDS §1953's (>=2 roles) -> False  0/3  (covered +0.033pp +0.027pp -0.084pp)
+  coverage {'c16110': 16110}, rank-differing arms move covered inputs True, buckets partition, live identical 0.0e+00, §1934 reproduced within 0.037pp -> control True
+
+pred_a False | pred_b False | pred_c False | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/lever_split_at_16110_results.json (46.8s)

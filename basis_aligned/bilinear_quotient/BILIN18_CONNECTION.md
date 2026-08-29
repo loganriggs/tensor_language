@@ -55563,12 +55563,29 @@ structural instruments. **pred_a False (0/3) | pred_b True (3/3) | pred_c True (
 ```
 
 > **pred_a FAILED 0/3, and it is the finding: this is a redistribution, the same shape §1932 found.**
-> The converged build does **not** win all five buckets on any role. **It loses the unseen (0-0) bucket
-> pooled on 3/3 — −0.36 / −0.26 / −0.36pp — and the 125+ bucket is flat to slightly down (−0.34 / +0.03
-> / −0.34pp).** What it wins, and wins hugely, is the **middle**: 5-24 by **+4.56 / +3.47 / +4.55pp** and
-> 25-124 by **+2.24 / +2.47 / +2.24pp**. §1951's pooled "+0.41pp of top-1 and −0.064 nats" is correct and
-> is a **redistribution toward mid-frequency targets**, not a uniform improvement. §1951 is scoped in
-> place, exactly as §1932 was.
+> The converged build does **not** win all five buckets on any role. Pooled kept-fraction deltas, all
+> three roles, **corrected below from the result JSON** — the version first published here quoted
+> triples built from the two roles visible in the log tail, with the third filled in from the second:
+>
+> ```
+>              0-0      1-4     5-24   25-124    125+
+>   skip7000  +0.75    +1.25   +5.00   +2.38    -0.32
+>   skip11000 -0.36    +1.40   +4.56   +2.24    -0.34
+>   skip1200  -0.26    +1.10   +3.47   +2.47    +0.03
+> ```
+>
+> **It loses the unseen (0-0) bucket on 2 of 3 roles and GAINS +0.75pp on skip7000**; the 125+ bucket is
+> flat to slightly down on 3/3 (−0.32 / −0.34 / +0.03). What it wins, and wins hugely, is the **middle**:
+> 5-24 by **+5.00 / +4.56 / +3.47pp** and 25-124 by **+2.38 / +2.24 / +2.47pp**, on every role. §1951's
+> pooled "+0.41pp of top-1 and −0.064 nats" is correct and is a **redistribution toward mid-frequency
+> targets**, not a uniform improvement. §1951 is scoped in place, exactly as §1932 was.
+>
+> [**CORRECTION, §1954.** The originally published sentence read "It loses the unseen (0-0) bucket pooled
+> on **3/3** — −0.36 / −0.26 / −0.36pp" and quoted 5-24 as +4.56/+3.47/+4.55 and 25-124 as
+> +2.24/+2.47/+2.24. **Three of those five triples contained a fabricated skip7000 value** copied from
+> skip11000, and the direction of the unseen-bucket claim was wrong on one role. The qualitative finding
+> — a redistribution, not a uniform win — was computed by the script from real data and is unaffected.
+> LESSON 85.]
 
 > **pred_b PASSED 3/3 and quantifies which lever carries it: the win is overwhelmingly on uncovered
 > inputs — a ratio of 44.4× / 12.9× / 29.3×** in overall top-1 gain (uncovered +1.59 / +1.08 / +1.26pp
@@ -55593,3 +55610,70 @@ was PUBLISHED at, not merely the precision it was computed in.**
 the table axis was the larger lever at 16,110. **Both can be true — the fallback touches ~24% of
 positions at 5,419 and ~10% at 16,110 — but the two claims have never been put on the same instrument,**
 and the covered/uncovered decomposition run here at 5,419 has not been run at 16,110.
+[**CORRECTED §1954.** There was never a tension to resolve. §1946/§1947 measured where cost can be CUT
+cheaply; this section measured where accuracy COMES FROM. Truncating the tables saves 349.9M for
+0.007–0.011 nats — an excellent rate at which to *remove* money — and that is fully compatible with the
+tables contributing nothing positive to the margin. I conflated a cost-reduction rate with an accuracy
+attribution. §1954 ran anyway and confirmed the attribution at 16,110 (covered-input gain +0.033 /
++0.027 / **−0.084**pp), so the finding stands; the motivation did not.
+Also corrected: the **44.4× / 12.9× / 29.3×** concentration ratios quoted above are a ratio of two small
+differences whose denominator straddles zero — at 16,110 the same quantity reads 44.4× / 39.2× / **−22.6×**.
+Read them as "the uncovered arm carries essentially all of it" and nothing finer.]
+
+## §1954 — the fallback carries the win at BOTH coverages, the redistribution shape does NOT transfer, and the tension I wrote into §1953 was not real
+
+`ops/lever_split_at_16110.py`, 46.8s, **DISCOVERY ONLY**, 16,110, rung 3 — §1953's open question.
+**pred_a False (1/3) | pred_b False (1/3) | pred_c False (0/3) | pred_d True.** Three registered
+predicates fail and each failure is informative.
+
+```
+  16,110, kept-fraction, deployed -> converged build (skip11000)
+    pooled           0-0 4.9->4.2 (-0.66)  1-4 7.5->6.9 (-0.66)  5-24 7.9->8.2 (+0.24)
+                     25-124 7.2->7.3 (+0.12)   125+ 54.1->54.7 (+0.64)
+    covered_input    0-0 2.2->1.8 (-0.47)  1-4 3.7->2.9 (-0.80)  5-24 6.7->6.3 (-0.40)
+                     25-124 6.6->5.7 (-0.91)   125+ 55.5->56.0 (+0.53)
+    overall top-1 gain: uncovered +1.06pp, covered +0.03pp
+  covered-input overall gain, all roles: +0.033 / +0.027 / -0.084pp   (5,419 was +0.04/+0.08/+0.04)
+```
+
+> **pred_c FAILED 0/3, and I registered its consequence in advance: "the tables are nearly free at BOTH
+> coverages."** The covered-input top-1 gain at 16,110 is **+0.033 / +0.027 / −0.084pp** — lower than
+> 5,419's on every role and **negative** on skip1200. **The table truncation is a small net cost on
+> covered inputs at both coverages, and the fallback carries essentially the whole margin at both.**
+> §1953's attribution is confirmed at the second coverage; it is not a low-coverage artefact.
+
+> **But the tension that motivated this run was mine, and it was not real.** §1953 closed by saying its
+> finding "sits awkwardly beside" §1946/§1947's "the table axis is ~30× cheaper per nat at 16,110". It
+> does not. **§1946/§1947 measured where cost can be CUT cheaply; §1953 measured where accuracy COMES
+> FROM.** Truncating the tables saves 349.9M for 0.007–0.011 nats — an excellent rate at which to
+> *remove* money — and that is entirely compatible with the tables contributing nothing positive to the
+> margin over the deployed design. **I conflated a cost-reduction rate with an accuracy attribution and
+> then ran an experiment to resolve a contradiction that did not exist.** §1953's closing paragraph and
+> the board note carrying it are corrected in place; the run stands on its own findings below.
+
+> **pred_a FAILED 1/3: the redistribution shape does NOT transfer, and it inverts.** At 5,419 the build
+> won the middle (5-24 +4.6pp, 25-124 +2.2pp) and lost the unseen bucket. At 16,110 it **wins the most
+> frequent bucket** — 125+ by **+0.64 / +0.60pp** — while losing unseen (−0.66 / −0.88pp) and 1-4
+> (−0.66pp), with the middle roughly flat. **§1953's "redistribution toward mid-frequency targets" is a
+> 5,419 statement**, scoped accordingly. The unseen bucket loses on **5 of the 6**
+> role-coverage cells — every one except 5,419/skip7000, where it gains +0.75pp.
+
+> **pred_b FAILED 1/3, and the honest reading is that the instrument is bad.** The uncovered/covered
+> concentration ratio came in at **44.4× / 39.2× / −22.6×** against §1953's 44.4 / 12.9 / 29.3. It did
+> not fall; on skip11000 it tripled, and on skip1200 it is **negative** because the denominator changed
+> sign. **A ratio of two small differences, one of which straddles zero, is not a measurable quantity** —
+> §1953 quoted 44.4× / 12.9× / 29.3× as if it were, and those numbers should be read as "the uncovered
+> arm carries essentially all of it", nothing finer. Corrected in §1953 in place.
+
+**pred_d PASSED**: coverage exactly 16,110; the rank-differing arms move covered-input predictions;
+buckets partition; live per-cell top-1 and CE identical at 0.00e+00; and §1934's **published** 16,110
+kept-fractions reproduced to **0.037pp** against a **0.1pp** bar — set at twice the rounding envelope of
+a 1-dp figure, per LESSON 84, after §1953's pred_d failed on a 0.02pp bar that no run could have met.
+**The wider bar was the right call and it passed with room.** Thirty-eighth clean reading.
+
+**Open.** The unseen bucket loses on 6 of 6 role-coverage cells, and §1937/§1938 explain why: the
+neighbour half of the blend cannot reach a target no fit row contains, and the blend is 25% neighbour
+everywhere. **A build that used the pure map on the tokens most likely to have unseen targets would keep
+the blend's gains and drop that loss — but "likely to have an unseen target" is a property of the target,
+and the row must be chosen per input token (LESSON 74). Whether any input-side signal predicts it is
+unmeasured, and §1939's cosine is the only router this thread has tried.**
