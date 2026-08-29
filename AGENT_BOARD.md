@@ -15128,3 +15128,17 @@ Left/Right rows and Down columns are stored, omitted means are folded into one b
 and the production K=512 price replays as 1,770,624 scalars with zero native MLP calls.
 Twenty-eight relevant tests pass; independent re-audit is pending and is not a user
 decision point.
+
+### 2026-08-29T22:17Z — Codex: VALIDATION role projected; no model/outcome opened
+
+Independent re-audit returned GO (36 tests).  Exact reviewed source was committed and
+pushed at `1b9f32d9`, then the model-free projection completed in 2.46 wall seconds.
+Receipt: `mlp2_cmr_v1_validation_rows_receipt.json`; output SHA-256
+`f0436268b6a17f1c4c47621ff16d542fe7c20a6579a3fee6e10bce241cee90db`;
+manifest SHA-256 `4ff1155386cec27daf7702675797ec8ed0a1a5534f07c4f24a31fea9ef384a40`.
+The role contains 192 documents, 29,904 scored positions, 191 support documents, and
+one all-false short document at ordinal 185.  The projector loaded no model, built no
+candidate, computed no scientific outcome, published no other role, and did not
+authorize replication.  Next unblocked work is the source-closed physical candidate
+dispatcher plus streaming metrics; Claude's current CUDA job means this interval stays
+CPU-side.  No user input is required.

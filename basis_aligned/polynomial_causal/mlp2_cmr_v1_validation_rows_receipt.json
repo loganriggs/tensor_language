@@ -1,0 +1,42 @@
+{
+  "authorized_for_replication": false,
+  "authorized_for_validation_model_forward_input": true,
+  "experiment_id": "bilin18_mlp2_cmr_v1_validation_projection",
+  "manifest_sha256": "4ff1155386cec27daf7702675797ec8ed0a1a5534f07c4f24a31fea9ef384a40",
+  "output_sha256": "f0436268b6a17f1c4c47621ff16d542fe7c20a6579a3fee6e10bce241cee90db",
+  "parents": {
+    "combined": "3ed0192993095f7de70ab7f1350d091b6c1d8c4c7d0583fd5f0f6441556e4aa6",
+    "combined_manifest": "8b8f3155a21b73af8b89278b9f09c60bf82fd965a7723e046e191415c5d57bb4",
+    "combined_receipt": "47113c255bf47f9d1c7369639fab39664c71f93134099babadcce9d89a011e85"
+  },
+  "projection_loaded_model": false,
+  "schema_version": 1,
+  "source_commit": "1b9f32d93ff87229d48ddacaaaac0624d5f747ae",
+  "source_hashes": {
+    "basis_aligned/polynomial_causal/MLP2_CMR_V1_MARGIN_FREQUENCY_ADDENDUM.md": "5e73385cecfeea3b35138a5fc6fbf2873a5354fb15a494a5c6b639d7d0b128b2",
+    "basis_aligned/polynomial_causal/MLP2_CMR_V1_PREREGISTRATION.md": "d456e75053de10b378303721a59a03d8a132cf0a0c5226f025bb3b2aa31c340b",
+    "basis_aligned/polynomial_causal/MLP2_CMR_V1_VALIDATION_ADDENDUM.md": "31b6d9e00c295fa9e61a038c519683bd777a5b896fa6ba25f001ccc80eb2a29b",
+    "basis_aligned/polynomial_causal/materialize_mlp2_cmr_v1_token_rows.py": "de057725a4329159db918abd2050566fe4e78cd6e225999c086b6741f8385301",
+    "basis_aligned/polynomial_causal/project_mlp2_cmr_v1_fit_selector_rows.py": "014c5ac280813d06e9944ef544a87be6b57a7e7ac105e17517e42c1c35638283",
+    "basis_aligned/polynomial_causal/project_mlp2_cmr_v1_validation_rows.py": "3fb361006adb8864733809364f2bc0f9ae91a59b07207ca4a66e977bdf6ecef1",
+    "basis_aligned/polynomial_causal/test_materialize_mlp2_cmr_v1_token_rows.py": "53be1eae6ffc6d64258a8ede3c2f7f00aa523aed66c084475088001937798733",
+    "basis_aligned/polynomial_causal/test_project_mlp2_cmr_v1_fit_selector_rows.py": "3b7605599c4ebb120dd688ebf3875401c9ba3597b144a4a79055b4ed28436ce5",
+    "basis_aligned/polynomial_causal/test_project_mlp2_cmr_v1_validation_rows.py": "f53ebca4eb74cf5d1e9c30f9b3fb46d3240e3756cdcfb04cd06e606969e37484"
+  },
+  "status": "validation_role_only_projection_complete_receipt_last",
+  "summary": {
+    "all_false_ordinals": [
+      185
+    ],
+    "documents": 192,
+    "eligible_positions": 29904,
+    "support_documents": 191,
+    "tensor_hashes": {
+      "clipped_token_counts": "5119f41ab72fb5bab25394bae9027263dde22b6d4a641d06b7445510899f249d",
+      "document_indices": "9eace2bab6f1a63932cc768db5c78a6909f8eb1f3cef38f499f47e7799375680",
+      "eligible_mask": "51a06f0382910e318a372896bf0c0501f64a9b6ff0307742cd13b9152bc2d152",
+      "original_token_counts": "48e718663ae6178253fe66136468a4bb027bd7773c75617409b5c44fbaccd7a8",
+      "rows": "9a8085af575a9c1c41164b4a7daf25e7e7ff9f54d27cc035ce3986f9a0a0f7b8"
+    }
+  }
+}
