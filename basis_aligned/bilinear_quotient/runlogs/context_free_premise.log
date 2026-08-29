@@ -1,0 +1,32 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+IS THE COMPILED STREAM CONTEXT-FREE? | buckets ((0, 0), (1, 4), (5, 24), (25, 124), (125, 1000000000)) on the fit-row count of the TRUE target | full-rank settled program | DISCOVERY ONLY
+  built the settled fallback and 36 tables (5s)
+    mlp0   relative stream difference 0.000000  (n 33192)
+    mlp1   relative stream difference 0.000000  (n 33192)
+    mlp2   relative stream difference 0.000000  (n 33192)
+    mlp3   relative stream difference 0.000000  (n 33192)
+    mlp4   relative stream difference 0.000000  (n 33192)
+    mlp5   relative stream difference 0.000000  (n 33192)
+    mlp6   relative stream difference 0.000000  (n 33192)
+    mlp7   relative stream difference 0.000000  (n 33192)
+    mlp8   relative stream difference 0.000000  (n 33192)
+    mlp9   relative stream difference 0.000000  (n 33192)
+    mlp10  relative stream difference 0.000000  (n 33192)
+    mlp11  relative stream difference 0.000000  (n 33192)
+    mlp12  relative stream difference 0.000000  (n 33192)
+    mlp13  relative stream difference 0.000000  (n 33192)
+    mlp14  relative stream difference 0.000000  (n 33192)
+    mlp15  relative stream difference 0.000000  (n 33192)
+    mlp16  relative stream difference 0.000000  (n 33192)
+    mlp17  relative stream difference 0.000000  (n 33192)
+
+  relative stream difference by depth (compiled program vs the model at length 1):
+    mlp0:0.0000  mlp1:0.0000  mlp2:0.0000  mlp3:0.0000  mlp4:0.0000  mlp5:0.0000  mlp6:0.0000  mlp7:0.0000  mlp8:0.0000  mlp9:0.0000  mlp10:0.0000  mlp11:0.0000  mlp12:0.0000  mlp13:0.0000  mlp14:0.0000  mlp15:0.0000  mlp16:0.0000  mlp17:0.0000
+
+  THE PREMISE FAILS BY DEPTH (mlp16 > 1%) -> False  mlp16 0.0000%
+  and it HOLDS at depth 0 (mlp0 < 1e-4) -> True  mlp0 1.154e-07
+  and the SHAPE matches §1898 (Spearman >= 0.5) -> False  rho 0.228
+  coverage 16110, 18 sites, self-check 0 -> control True
+
+pred_a False | pred_b True | pred_c False | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/context_free_premise_results.json (132.7s)

@@ -52610,7 +52610,13 @@ compiled, versus that site left live, counting positions whose argmax changes.
 ```
 
 > **RETRACTION. §1891's "all eighteen MLP restorations are a provable no-op" is withdrawn, and it was
-> stated as a derivation rather than a measurement.** I wrote: with the other 35 sites compiled the
+> stated as a derivation rather than a measurement.** **[§1899 CORRECTS THE DIAGNOSIS BELOW, NOT THE
+> MEASUREMENT: the compiled stream equals the model's length-1 stream to 1.2e-07 at every one of the
+> eighteen depths, so §1765's premise is EXACT and the `v1`/`x0` hypothesis offered below is refuted.
+> In exact arithmetic the derivation goes through. The 3.5% of changed predictions is real and stands
+> as measured, but arises downstream of the premise — float-precision argmax flips on near-tied logits
+> being the leading and still-unverified candidate. "The argument is wrong" and "does not survive
+> composition", both below, are too strong.]** I wrote: with the other 35 sites compiled the
 > residual stream is a function of the current token alone (§1765), an MLP is position-wise, therefore a
 > live MLP on a context-free stream returns precisely its own table value. **Restoring an MLP changes up
 > to 1,321 / 1,350 / 650 predicted tokens — about 3.5% of scored positions. The argument is wrong.**
@@ -52669,3 +52675,55 @@ both. **pred_d PASSED**: the all-compiled arm compared against itself differs at
 **Open.** The `v1` / `x0` hypothesis above, which is one run. And §1891's per-site *behavioural*
 localisation stands — it was measured, not derived — so the cost question handed to Codex is unaffected:
 the 18 MLP sites still carry no agreement, they simply are not inert in the stronger sense I claimed.
+
+## §1899 — §1765's premise holds EXACTLY. §1898's diagnosis was too strong; the failure is downstream.
+
+`ops/context_free_premise.py`, 132.7s, **DISCOVERY ONLY**, rung 3 — §1898's named open question.
+**pred_a False | pred_b True | pred_c False | pred_d True.**
+
+The measurement: on full-length eval sequences, the stream the **compiled program** feeds each MLP at
+position t, against the stream the **model** feeds it on a length-1 sequence holding only the token at t.
+§1765 asserts these are equal. Covered current tokens only, 16,110 types.
+
+```
+  relative stream difference, mlp0 .. mlp17
+    0.0000  0.0000  0.0000  0.0000  0.0000  0.0000  0.0000  0.0000  0.0000
+    0.0000  0.0000  0.0000  0.0000  0.0000  0.0000  0.0000  0.0000  0.0000
+  mlp0 measured at 1.154e-07; mlp16 at 0.0000%
+```
+
+> **pred_a FAILED and the failure is the result: the premise is EXACT at every depth, not approximate and
+> not decaying.** I predicted the compiled stream would have drifted more than 1% from the length-1
+> stream by mlp16, since that is what §1898's 3.5% prediction changes seemed to require. It has drifted
+> by **nothing measurable at any of the eighteen depths** — 1.2e-07 at mlp0, and zero to four places
+> everywhere else. **§1765's premise is verified, and my §1898 hypothesis about `v1` and `x0` breaking it
+> is refuted.** I labelled that hypothesis untested and said it was one run to check; this is the run,
+> and it says no.
+
+> **So §1898's diagnosis is corrected in place, and the correction runs back toward §1891.** §1898 said
+> *"the argument is wrong"* and *"§1765 holds where it is checkable at depth 0 and does not survive
+> composition."* **Both are now too strong.** The premise survives composition perfectly. In exact
+> arithmetic the derivation therefore goes through: identical stream, position-wise MLP, identical
+> output. **What §1898 measured — up to 3.58% of predicted tokens changing — must arise downstream of the
+> premise, and float-precision argmax flips on near-tied logits are the leading candidate**, because the
+> program is only ~14% accurate and near-ties are consequently common. The depth profile fits: a
+> perturbation injected at mlp16 reaches the logits through one remaining block, while one at mlp0 passes
+> through seventeen and is renormalised away. **§1898's measurement stands exactly as reported; its
+> explanation does not.**
+>
+> **I am not asserting the float-precision reading either.** It predicts something specific and testable
+> — that the logit margin at changed positions is near zero — and §1888/§1890/§1898 are three consecutive
+> lessons in what happens when I publish the explanation I prefer for a residual. §1900 measures it.
+
+**pred_b PASSED as the instrument's known-answer check** (mlp0 at 1.154e-07), which is what makes the
+eighteen zeros readable as a result rather than as a broken comparison. **pred_c FAILED at rho 0.228**,
+which is exactly what a rank correlation against an all-zero vector should give — it is noise ordering
+noise, and it carries no information now that pred_a has failed.
+
+**pred_d PASSED**: coverage 16,110, eighteen sites on identical positions, self-check 0.
+
+**Where this leaves §1891's claim.** Three states, in order: §1891 said *provable no-op*; §1898 measured
+3.5% of predictions changing and called the derivation wrong; §1899 verifies the derivation's premise
+exactly. **The honest current statement is that MLP restorations are no-ops in exact arithmetic and are
+not no-ops in float, by an amount that grows with depth — and whether that amount is entirely numerical
+is one measurement away.**
