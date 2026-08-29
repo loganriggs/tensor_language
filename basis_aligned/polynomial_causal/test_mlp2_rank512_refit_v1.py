@@ -126,3 +126,43 @@ def test_source_closure_contains_direct_numerical_contract_and_tests() -> None:
         "test_mlp2_cmr_v1_physical_program.py",
         "tt_model.py",
     } <= names
+
+
+def test_reloaded_ledger_is_the_only_input_to_result_reducer(monkeypatch) -> None:
+    monkeypatch.setattr(assay, "BOOTSTRAPS", 20)
+    arms = {}
+    for arm in assay.ARMS:
+        value = torch.ones(192, 9, dtype=torch.float64)
+        value[:, 2] = 0.1
+        value[:, 3] = 0.04
+        value[:, 4] = 1.0
+        value[:, 8] = 192.0
+        arms[arm] = value
+    ledger = {
+        "arms": arms, "checkpoint": {"revision": "pinned"},
+        "call_census": assay.expected_evaluation_census(),
+        "deployment_replay_max_abs_error": {
+            "DOWN512": 0.0, "FULL512": 0.0, "RANDOM512": 0.0,
+        },
+    }
+    fit = {"optimizer_steps": 1, "dev_evaluations": 1, "best_dev_nrmse": 0.1}
+    bundle = {
+        "training": {arm: {"fit": dict(fit), "curve": []}
+                     for arm in ("DOWN512", "FULL512", "RANDOM512")},
+        "gauges": {arm: {"pathology_pass": True}
+                   for arm in ("DOWN512", "FULL512", "RANDOM512")},
+        "price": {"products": 512}, "parents": {"authority": "a"},
+        "source_commit": "b" * 40, "source_hashes": {"runner": "c" * 64},
+    }
+    first = assay.derive_result(
+        ledger, bundle, bundle_hash="d" * 64, ledger_hash="e" * 64,
+        runtime_seconds=1.0,
+    )
+    ledger["arms"]["FULL512"][:, 1] += 1.0
+    second = assay.derive_result(
+        ledger, bundle, bundle_hash="d" * 64, ledger_hash="f" * 64,
+        runtime_seconds=1.0,
+    )
+    assert first["summaries"]["FULL512"]["192"]["dce"] == 0.0
+    assert second["summaries"]["FULL512"]["192"]["dce"] > 0.0
+    assert first != second
