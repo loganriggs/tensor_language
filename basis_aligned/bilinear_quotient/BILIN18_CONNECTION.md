@@ -55677,3 +55677,67 @@ everywhere. **A build that used the pure map on the tokens most likely to have u
 the blend's gains and drop that loss — but "likely to have an unseen target" is a property of the target,
 and the row must be chosen per input token (LESSON 74). Whether any input-side signal predicts it is
 unmeasured, and §1939's cosine is the only router this thread has tried.**
+
+## §1955 — the unseen-target signal is real and beats the cosine, and the build should not change anyway
+
+`ops/unseen_target_router.py`, **6.0s**, **DISCOVERY ONLY**, 16,110, rung 3 — §1954's open question.
+**All four predictions TRUE**, and the deployable conclusion is a negative. Every figure below read from
+the result JSON (LESSON 85).
+
+§1954 left the blend losing the unseen (0-0) bucket on 5 of 6 role-coverage cells because its neighbour
+half cannot reach a target no fit row contains, and §1939 showed the neighbour cosine does not find that
+case. LESSON 74 forbids routing on the bucket. **`unc_mass`** is the obvious input-side predictor nobody
+had tried: how much probability the live model puts on **out-of-table vocabulary** from that token alone,
+on a length-1 sequence. It falls out of the loop that already builds the neighbour index.
+
+```
+  16,110, pooled                 0-0      125+     top-1      CE     ΔCE vs the converged build
+    deployed                   .0259    .5362    .1393   5.90522    +0.0218
+    blend_768_256 (converged)  .0247    .5391    .1411   5.88341     0.0000
+    cosine_router (§1939)      .0270    .5418    .1423   5.90141    +0.0180
+    pure_map                   .0292    .5367    .1401   5.89445    +0.0111
+    msk10m512                  .0281    .5417    .1427   5.90771    +0.0243
+    msk25m512                  .0281    .5416    .1423   5.90263    +0.0192
+    msk50m512                  .0281    .5413    .1417   5.89932    +0.0159      (skip7000)
+```
+
+> **pred_a PASSED 3/3 and the signal is strong. Among uncovered-input positions, those whose input token
+> is in the TOP quartile of `unc_mass` have a genuinely-unseen target +23.3 / +24.3 / +19.8 percentage
+> points more often than those in the bottom quartile.** A token whose own next-token distribution
+> mostly leaves the table really is the token whose targets the neighbour cannot reach. This is the
+> first input-side signal in the thread that predicts a *target* property.
+
+> **pred_b PASSED 2/3: routing on it beats §1939's cosine on the 0-0 bucket** — .0281 vs .0270 and
+> .0500 vs .0481, with skip1200 a tie at .0242. **pred_c PASSED 2/3: it closes the deficit against the
+> deployed design** on skip7000 (.0281 ≥ .0259) and skip11000 (.0500 ≥ .0491), failing on skip1200
+> (.0242 < .0352). So the router does what a router should.
+
+> **And it should not be built, which the three passes do not show and the table does. Every `msk` arm is
+> WORSE on CE than the unrouted converged build — +0.016 to +0.036 nats — which is two to five times the
+> entire margin that build has over §1931's superseded best-known (0.011 nats).** Worse, **`pure_map`
+> matches or beats the best `msk` arm on the 0-0 bucket at every role** (.0292 / .0500 / .0242 against
+> .0281 / .0500 / .0242) while costing less CE than any of them. **Nothing the router buys on the unseen
+> bucket is unavailable more cheaply by just using the map, and the blend without any routing has the
+> best CE by a wide margin.** The unseen-bucket deficit is a real price of the blend and it is worth
+> paying. **§1954's open question is answered: an input-side signal for the unseen case exists, and using
+> it does not produce a better build.**
+
+**pred_d PASSED**, and the control had to be rebuilt twice before it meant anything:
+- the covered-input inertness clause was inherited with the **wrong polarity for the fourth time** — the
+  reference here is the deployed design at FULL table rank while every other arm is at {768,256}, so
+  they must *differ* there, not be inert. It is now **derived from the plan** by `B.inertness_pairs`,
+  which reads the specs and emits the pairs that must be inert and those that must not: **15 same-spec
+  pairs inert, 6 differing-spec pairs not**, all satisfied.
+- the routed-fraction clause read `Program.routefrac`, a **side effect of building the arm** — and on a
+  fully warm run every role is served from cache, `arm()` is never called, and the control silently read
+  its default, reporting a deviation of exactly 0.5000. It now computes the fraction from the signal
+  directly (`B.route_fraction`), and reads **0.0000**.
+
+Plus coverage exactly 16,110, buckets partitioning, live per-cell top-1 and CE identical at 0.00e+00,
+and §1949's published CE reproduced to **0.000004 nats** — thirty-ninth clean reading.
+
+**Open.** `unc_mass` predicts the unseen case well enough to beat the only other router tried, and the
+build still should not use it — because the *cost* of routing away from the blend exceeds what the
+unseen bucket is worth. **That is a statement about this operating point, not about the signal.** At
+5,419 the unseen bucket is a larger share of scored positions and the blend's CE margin is six times
+larger (§1951), so the same trade could come out differently, and it has not been run there.

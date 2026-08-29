@@ -111,6 +111,8 @@ class Program:
                              neighbour row, the rest take the rank-64 map row (S1939)
       'nn<P>m<R>'            the same, with the routed-out remainder on a rank-R map instead
       'mix<A>m<R>'           BLEND in row space: A% neighbour + (100-A)% rank-R map, every type
+      'msk<P>m<R>'           route the top P% of uncovered types by UNC_MASS to the rank-R map,
+                             the rest to the neighbour -- S1954's unseen-target router
 
     table_rank is None (full), an int (uniform), or {'mlp': r, 'attn': r} -- S1928-S1935 found
     MLP-heavy allocation beats uniform for free, with attention wanting 12.5-25% of the
@@ -158,13 +160,23 @@ class Program:
         self.nnrow = torch.zeros(V, dtype=torch.long, device=DEV)
         self.nnrow[self.tk] = torch.arange(self.ncov, device=DEV)
         self.nnsim = torch.zeros(V, device=DEV)
+        # S1954's open question: the blend loses the unseen-target bucket on 5 of 6 role-coverage
+        # cells because its neighbour half cannot reach a token no fit row contains. unc_mass is the
+        # obvious INPUT-side predictor of that case -- how much probability the live model puts on
+        # out-of-table vocabulary from this token alone, on a length-1 sequence. It falls out of the
+        # loop that already builds the neighbour index, so it costs nothing.
+        self.unc_mass = torch.zeros(V, device=DEV)
+        uncmask = torch.zeros(W, dtype=torch.bool, device=DEV)
+        uncmask[self.unc] = True
         for s0 in range(0, self.unc.numel(), 512):
             u = self.unc[s0:s0 + 512]
-            p = torch.softmax(forward_logits(u.unsqueeze(1))[:, 0].float(), -1)
-            p = p / p.norm(dim=-1, keepdim=True).clamp_min(1e-9)
+            praw = torch.softmax(forward_logits(u.unsqueeze(1))[:, 0].float(), -1)
+            self.unc_mass[u] = praw[:, uncmask].sum(-1)
+            p = praw / praw.norm(dim=-1, keepdim=True).clamp_min(1e-9)
             sim, arg = (p.half() @ pcn.T).float().max(-1)
             self.nnrow[u] = arg
             self.nnsim[u] = sim
+            del praw
         del pcn
         torch.cuda.empty_cache()
 
@@ -276,6 +288,23 @@ class Program:
                                            self._map(tc, st, mrank, table_rank))
                 out[st] = fr
             return out
+        if name.startswith('msk'):
+            spec = name[3:]
+            pstr, mrank = (spec.split('m', 1) if 'm' in spec else (spec, '512'))
+            if not (pstr.isdigit() and mrank.isdigit()):
+                raise ValueError(f'unknown arm {name!r}')
+            frac, mrank = int(pstr) / 100.0, int(mrank)
+            um = self.unc_mass[self.unc]
+            tau = torch.quantile(um.double(), 1.0 - frac).float()
+            usemap = (um >= tau)
+            self.routefrac[name] = float(usemap.float().mean())
+            for st in SITES:
+                fr = torch.zeros(V, D, device=DEV)
+                fr[self.tk] = tc[st]
+                fr[self.unc] = torch.where(usemap.unsqueeze(1), self._map(tc, st, mrank, table_rank),
+                                           tc[st][self.nnrow[self.unc]])
+                out[st] = fr
+            return out
         if name.startswith('mix'):
             # mix<A>m<R>: BLEND the two forms in row space, A% neighbour + (100-A)% rank-R map, for
             # every uncovered type. Routing (nn<P>m<R>) gives each token one form or the other;
@@ -302,6 +331,26 @@ class Program:
             return out
         raise ValueError(f'unknown arm {name!r}')
 
+    def route_fraction(self, name):
+        """The fraction of uncovered types a routed arm sends to its first branch.
+
+        Computed directly from the signal, NOT as a side effect of arm(). `routefrac` is populated when
+        the rows are built -- so on a warm run, where score() serves every role from cache and arm() is
+        never called, a control reading `routefrac` silently reads its default instead of failing. That
+        is PRE-FLIGHT D's second direction: the watcher went quiet rather than loud. Found 2026-08-29
+        when a fully-cached re-run reported a routed-fraction deviation of exactly 0.5000.
+        """
+        if name.startswith('msk'):
+            frac = int(name[3:].split('m')[0]) / 100.0
+            sig = self.unc_mass[self.unc]
+        elif name.startswith('nn') and name != 'nn':
+            frac = int(name[2:].split('m')[0]) / 100.0
+            sig = self.nnsim[self.unc]
+        else:
+            return None
+        tau = torch.quantile(sig.double(), 1.0 - frac).float()
+        return float((sig >= tau).float().mean())
+
     def cost(self, name, table_rank=None):
         """Parameter count of a build, in the S1754 accounting."""
         tab = 0
@@ -313,7 +362,7 @@ class Program:
         elif name.startswith('map'):
             fb = 36 * int(name[3:]) * 2 * D
         else:
-            spec = name[3:] if name.startswith('mix') else name[2:]
+            spec = name[3:] if name.startswith(('mix', 'msk')) else name[2:]
             mr = int(spec.split('m', 1)[1]) if 'm' in spec else 64
             fb = 36 * mr * 2 * D + int(self.unc.numel()) * 2
         return tab + fb
@@ -445,6 +494,41 @@ def axes(prog, role):
         tg.append(bb[:, 1:].to(DEV)[:, SKIP:].reshape(-1).cpu())
         ic.append(prog.seen[idx[:, SKIP:]].reshape(-1).cpu())
     return torch.cat(tg), torch.cat(ic)
+
+
+def inertness_pairs(plan):
+    """Derive the two-sided covered-input control from the PLAN, instead of by hand.
+
+    S1765/S1936: the fallback is consulted only where the current token has no table entry, so two arms
+    with the SAME table_rank must be EXACTLY inert at covered inputs, and two with DIFFERENT table_rank
+    must move them. Four times on 2026-08-29 I inherited this control across a fork that changed which
+    arms differed how, and asserted the wrong polarity -- S1946, S1949, S1951 and again here. Every time
+    pred_a/b/c passed 3/3 while pred_d failed on a clause that could not hold. The polarity is a fact
+    about the plan, so read it off the plan.
+
+    plan: iterable of (arm, table_rank, label). Returns (must_be_inert, must_differ), each a list of
+    (label, label) pairs.
+    """
+    spec = {lab: _rk_key(tr) for _a, tr, lab in plan}
+    labs = [lab for _a, _tr, lab in plan]
+    inert, differ = [], []
+    for i, a in enumerate(labs):
+        for b in labs[i + 1:]:
+            (inert if spec[a] == spec[b] else differ).append((a, b))
+    return inert, differ
+
+
+def input_ids(prog, role):
+    """The INPUT token id at each scored position, in score()'s order.
+
+    axes() returns the target and the input's coverage flag but not the id itself, which is what any
+    per-input-token signal (S1954's unc_mass, S1939's cosine) has to be looked up by."""
+    ev = load(EVAL_SETS[role])
+    out = []
+    for i in range(0, ev.shape[0], 8):
+        bb = ev[i:i + 8]
+        out.append(bb[:, :-1][:, SKIP:].reshape(-1).cpu())
+    return torch.cat(out)
 
 
 def cells(prog, tgt, icov, live, arm):

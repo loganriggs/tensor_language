@@ -1,0 +1,41 @@
+{
+  "combined_container_unavoidably_deserialized_without_model": true,
+  "contains_roles": [
+    "FIT_SELECTOR"
+  ],
+  "experiment_id": "bilin18_mlp2_cmr_v1_fit_selector_projection",
+  "model_loaded": false,
+  "output_path": "basis_aligned/polynomial_causal/mlp2_cmr_v1_fit_selector_rows.pt",
+  "output_sha256": "08a508d6e1526800347d94c6637c84a662c220d84ef30bc674bf6b905ab67798",
+  "parents": {
+    "combined": "3ed0192993095f7de70ab7f1350d091b6c1d8c4c7d0583fd5f0f6441556e4aa6",
+    "combined_manifest": "8b8f3155a21b73af8b89278b9f09c60bf82fd965a7723e046e191415c5d57bb4",
+    "combined_receipt": "47113c255bf47f9d1c7369639fab39664c71f93134099babadcce9d89a011e85"
+  },
+  "schema_version": 1,
+  "scientific_outcome_computed": false,
+  "source_commit": "ba275afffe05c3300cdaa3ed7b7492d33c0d591a",
+  "source_hashes": {
+    "basis_aligned/polynomial_causal/MLP2_CMR_V1_MARGIN_FREQUENCY_ADDENDUM.md": "5e73385cecfeea3b35138a5fc6fbf2873a5354fb15a494a5c6b639d7d0b128b2",
+    "basis_aligned/polynomial_causal/materialize_mlp2_cmr_v1_token_rows.py": "de057725a4329159db918abd2050566fe4e78cd6e225999c086b6741f8385301",
+    "basis_aligned/polynomial_causal/project_mlp2_cmr_v1_fit_selector_rows.py": "014c5ac280813d06e9944ef544a87be6b57a7e7ac105e17517e42c1c35638283",
+    "basis_aligned/polynomial_causal/test_materialize_mlp2_cmr_v1_token_rows.py": "53be1eae6ffc6d64258a8ede3c2f7f00aa523aed66c084475088001937798733",
+    "basis_aligned/polynomial_causal/test_project_mlp2_cmr_v1_fit_selector_rows.py": "3b7605599c4ebb120dd688ebf3875401c9ba3597b144a4a79055b4ed28436ce5"
+  },
+  "status": "fit_selector_role_only_published_pending_receipt",
+  "summary": {
+    "all_false_ordinals": [
+      82
+    ],
+    "documents": 192,
+    "eligible_positions": 31505,
+    "support_documents": 191,
+    "tensor_hashes": {
+      "clipped_token_counts": "eb9af2130ad2ee795d1a46ec585259bf949289b09e7764004bdb169b6caaa363",
+      "document_indices": "c5216431ed3351a5532bc7316f5660019385a9c05a92a4d98ed9fa762c30fd05",
+      "eligible_mask": "fa21dfe87d37bf61bf2fcb8d3f60d6187208c0197d87a351b9571ac56136a3f3",
+      "original_token_counts": "70ec29170505ab0de9d7291c3b46871a02dabedbd21795b4feff8c7a2f8f4925",
+      "rows": "cfb5403c5e5cf5aabba97ecad0ad5c7915e2f239884152ef3a2a5d44a7a9e465"
+    }
+  }
+}

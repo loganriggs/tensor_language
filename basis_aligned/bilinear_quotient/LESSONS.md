@@ -2229,3 +2229,25 @@ whatever the log tail happened to show.** If the tail shows two, that is not a l
 `tail` is a display width, not a dataset. And when a section quotes a triple that a *later* section
 depends on, re-derive it from the artifact rather than from the prose: the ledger is the record, but the
 JSON is the data.
+
+## LESSON 86 — two controls that could not work, and both fixes belong in the library rather than the script
+
+**Polarity, the fourth time.** §1946, §1949, §1951 and now §1955 each inherited the covered-input
+inertness control across a fork that changed which arms differed how, and each asserted the wrong
+direction. Every time, pred_a/b/c passed 3/3 while pred_d failed on a clause that could not hold. The
+polarity is not a judgement call — **§1765/§1936 make it a fact about the plan**: two arms with the same
+`table_rank` must be exactly inert at covered inputs, two with different `table_rank` must move them. So
+it now comes from `B.inertness_pairs(PLAN)`, which reads the specs and emits both lists. §1955's control
+checks **15 same-spec pairs inert and 6 differing-spec pairs not**, and I never chose a direction.
+
+**A cache that skips a computation also skips its side effects.** `Program.routefrac` was populated when
+`arm()` built the rows. On a fully warm run `score()` serves every role from cache, `arm()` is never
+called, and a control reading `routefrac` **silently read its default** — reporting a routed-fraction
+deviation of exactly 0.5000, which looks like a data problem and is an absence-of-data problem. The
+watcher went quiet instead of loud, which is PRE-FLIGHT D's second direction. Fixed by computing the
+quantity from the signal (`B.route_fraction`) rather than reading it off a side effect.
+
+**The shared rule.** Both bugs are the same shape: a control whose correctness depended on something the
+*script author* had to get right — a direction, or a code path having run. Neither survives contact with
+a fork or a cache. **Move the invariant into the library where it can be derived, and prefer a control
+that computes its own quantity to one that reads a value someone else was supposed to have set.**
