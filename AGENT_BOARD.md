@@ -13202,3 +13202,14 @@ orders reliability. It does not earn removal credit, explain rejected tokens, or
 replace E4/native-Down causal work. NPERM=8 introduces about `+/-0.2` enrichment noise;
 future tight comparisons must freeze draws or use substantially more permutations.
 The static mathematical review has been updated accordingly.
+
+### 2026-08-29T10:28Z — Codex: proof check corrects the native-Down Gram design before execution
+
+Sixteen random secants yield only the range sketch $J\Omega$; they cannot alone form
+the 512-product Gram or select physical products. The corrected registered design is
+JVP range sketch $Y=J\Omega$, QR, then VJPs for $B=Q^\top J$; only $B^\top B$ is the
+low-rank physical Gram approximation, and pivoted QR on $B$ nominates executable
+products. Two-amplitude central secants validate tangent-to-removal transport rather
+than pretending to recover all columns. Frozen preregistration:
+`basis_aligned/polynomial_causal/NATIVE_DOWN_CONSEQUENCE_GRAM_V1_PREREGISTRATION.md`.
+No model outcome was opened and no strict credit moved.

@@ -93,17 +93,28 @@ $$
 Q_d(v;\epsilon)=\frac{R_d(+\epsilon v)+R_d(-\epsilon v)-2R_d(0)}{\epsilon^2}.
 $$
 
-Stack signed responses into a finite consequence operator $J$ and form
-$G=J^\top J$. This changes the factorization target from coefficient energy to suffix
-effect.
+Let $J$ denote the Jacobian of the stacked registered responses with respect to the
+physical product coefficients. The random secants give the range sketch $Y=J\Omega$;
+they do **not** identify the full product Gram by themselves. Orthonormalize
+$Y=QR$, then use vector-Jacobian products to obtain
+
+$$
+B=Q^\top J.
+$$
+
+Now $B^\top B$ is the randomized low-rank approximation to $G=J^\top J$ on the
+observed consequence range, and pivoted QR on $B$ can select physical product
+columns. This changes the factorization target from coefficient energy to suffix
+effect without requiring 512 separate finite-difference forwards.
 
 **The theorem/operational definition.** Truncated SVD is the best rank-$r$ Frobenius
-approximation to the measured linear consequence operator. A pivoted column-subset or
-Nyström approximation of the positive-semidefinite Gram selects physical products;
-its residual spectral norm bounds missed linear response over the probed span. Because
-the object uses the physical write $d_j h_j$, it is invariant to legitimate per-gate
-scale/sign/permutation gauges. It is not invariant to arbitrary refactorization and is
-not a global CP-rank theorem.
+approximation to the measured linear consequence operator. A randomized range finder
+approximates that subspace using $J\Omega$; the projected matrix $Q^\top J$ still has
+one column per physical product, so a pivoted column subset can select executable
+products. The residual norm of $J-QB$ bounds missed infinitesimal response over the
+probed consequence coordinates. Because the object uses the physical write $d_jh_j$,
+it is invariant to legitimate per-gate scale/sign/permutation gauges. It is not
+invariant to arbitrary refactorization and is not a global CP-rank theorem.
 
 **Assumptions that may fail.** Central secants must agree at $\epsilon$ and
 $\epsilon/2$; the even response must be small enough at removal-sized amplitudes;
@@ -116,10 +127,14 @@ unseen signed edits and selective-removal damage. It directly tests whether nati
 Down's `0.05772` suffix KL versus refitted Down's `0.08476` reflects real downstream
 alignment or observational compensation.
 
-**Cheapest falsifier.** Use 16 frozen Rademacher directions at both amplitudes on fresh
-selection rows. Compare native Down, refitted Down, a same-support permuted cross, and
-matched random columns. Reject if amplitude transfer fails, effective rank is not below
-matched price, or held-out direction/worst-coordinate error does not beat controls.
+**Cheapest falsifier.** Use 16 frozen Rademacher directions to construct $J\Omega$ by
+JVP, recover $Q^\top J$ by one VJP per retained consequence direction, and check the
+same directions by central secants at $\epsilon$ and $\epsilon/2$ on fresh selection
+rows. Compare native Down, refitted Down, a same-support permuted cross, and matched
+random columns. Reject if JVP/secant or amplitude transfer fails, effective rank is not
+below matched price, or held-out direction/worst-coordinate error does not beat
+controls. A run that has only random secants may test rank, but must not claim a
+physical column subset.
 
 ### 3. Exact nonlinear hybrid telescoping certificate for whole-program drift
 
@@ -195,7 +210,10 @@ cluster-level specialization of the broader risk-control framework in
 certificate and fail-closed threshold choice;
 `SELECTIVE_COMPILATION_RISK_V1_PREREGISTRATION.md` freezes its interpretation.
 `hybrid_telescoping_certificate.py` implements the exact telescope, CE bound, margin
-certificate, and cancellation diagnostic. Fifteen new CPU tests pass; the combined
+certificate, and cancellation diagnostic.
+`NATIVE_DOWN_CONSEQUENCE_GRAM_V1_PREREGISTRATION.md` freezes the corrected
+JVP/range/VJP design and prevents a random directional sketch from being mislabeled as
+a physical-product Gram. Fifteen new CPU tests pass; the combined
 new plus E4 pure-statistics/contract suite passes 38/38. No model outcome was opened.
 
 This selective compiler ranks below the three causal moves because deferring to native
