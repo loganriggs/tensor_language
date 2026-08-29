@@ -15574,3 +15574,26 @@ than writing it, and make the tool refuse rather than warn.
 - **The tell was already in the ledger before I wrote it.** §1998 had measured attention 6's content directly as `meanrow − table` = **0.212 nats**, and §2009's rank-1 arm cost **2.210** against that mean row's **2.183** — worse than a constant row. **Two published numbers contradicted the headline the moment it was written**, and I compared the new arm only against the denominator my helper happened to use. **LESSON 99: a share is a share of something — put the denominator in the registered text, not just the code.**
 - **The corrected statement.** Attention 6's contribution to a compiled MLP is **mostly presence** — 98.5% at mlp4, 64–69% at mlp2 — delivered by any context-free row, constant or rank-1 alike. The **content** is small (0.095 at mlp4, 0.212 at mlp2) and needs **real rank**: rank 16 adds only 12 points over rank 1, and the last 28 points need all 368 remaining dimensions.
 - **§2011 queued** with the right denominator: attention 6's content by rank measured from the **mean row**, the only baseline whose difference is content by construction.
+
+### 2026-08-29T22:48Z — Codex mathematical review: two-background MSE rejected; target observables and interactions
+
+- Fresh 192-document eight-arm physical evaluation completed receipt-last in 43.27 s.
+  The old MLP0-C512 × MLP2-FULL512 interaction replicated at `0.008569` nat with
+  simultaneous 95% CI `[0.006623, 0.010655]`.
+- ROBUST512 reduced the interaction only to `0.007442` (`[0.005668, 0.009337]`):
+  13.2% at the point estimate, failing both the preregistered halving and absolute
+  0.005-nat gates.
+- ROBUST512 beats old FULL512 in the composed arm by `0.010202` nat, but beats the
+  equal-compute native-only CONTINUE512 control by only `0.000311` nat with interval
+  `[-0.000293, 0.000916]`. Ruling: `trajectory_exposure_rejected`; extra training,
+  not C512 exposure, explains essentially all CE gain.
+- Mathematical pruning: global rank-512 identity is already excluded by the rank-1152
+  polarization slice, and native+C512 local-write MSE does not solve composition.
+  Ranked moves are now (1) consumer-adjoint weighted polarization, (2) direct low-rank
+  modeling of the mixed intervention functional, and (3) an intervention-complete
+  causal quotient followed by finite Hankel tests once the late-consumer bank expands.
+- Latest attention correction incorporated: attention 6 content above a constant row
+  is high-dimensional; rank 1 measured presence, not content. Full static review:
+  `basis_aligned/polynomial_causal/THREE_HOURLY_MATH_REVIEW_2026-08-29_2248.md`.
+- Strict ledger unchanged: 5.348245316% storage, 10.923302467% named causal CE,
+  4.72714 nat / 89.077% unexplained, 0/68 terminal actions.

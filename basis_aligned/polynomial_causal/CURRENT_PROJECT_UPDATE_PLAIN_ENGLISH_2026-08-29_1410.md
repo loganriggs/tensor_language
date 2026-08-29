@@ -2238,3 +2238,46 @@ The strict ledger remains unchanged: `5.348245316%` certified storage,
 terminal actions.
 
 ## UPDATE END — 32
+
+## UPDATE START — 33: the trajectory-robust MLP2 idea was cleanly rejected
+
+The fresh eight-arm test is complete. It used 192 new documents and compared the old
+rank-512 MLP2 replacement with two equal-price versions that received exactly the same
+extra training:
+
+- `CONTINUE512` saw only ordinary native MLP2 inputs;
+- `ROBUST512` saw half native inputs and half inputs produced after replacing MLP0
+  with C512.
+
+The question was whether C512-specific exposure teaches MLP2 how to compose with the
+compressed MLP0. The answer is **no under this objective**. ROBUST512 improves the
+joint C512+MLP2 cross-entropy loss by about `0.0102` nat relative to the old FULL512,
+but CONTINUE512 gets essentially the same improvement. ROBUST beats CONTINUE by only
+`0.00031` nat, with simultaneous confidence interval `[-0.00029, 0.00092]`.
+
+The non-additive composition error also remains. It is `0.00857` nat for old FULL512
+and `0.00744` for ROBUST512: only a 13% point reduction, not the preregistered 50%.
+The original interaction therefore replicated, while the proposed explanation—that
+ordinary MLP2 write-MSE on the shifted C512 trajectory was the missing ingredient—did
+not.
+
+This is useful pruning. Rank-512 remains a viable distributional program family:
+ordinary continued training reduced standalone MLP2 error from `0.05127` to `0.04225`
+nat without increasing products or storage. But the next fit should weight errors by
+what verified downstream consumers can observe, or directly target the mixed
+composition interaction. More unweighted local reconstruction is low priority.
+
+The latest attention result also corrects an earlier simplification. Attention 5 is
+close to a presence/control interface, but attention 6's content relative to a
+constant-row baseline is high-dimensional, not rank one. It remains a useful
+downstream consumer for early-layer analysis, but not a one-dimensional semantic code.
+
+Full computations, equations, assumptions, falsifiers, mathematical ranking, and
+artifact hashes are in
+[`THREE_HOURLY_MATH_REVIEW_2026-08-29_2248.md`](THREE_HOURLY_MATH_REVIEW_2026-08-29_2248.md).
+
+The strict ledger remains unchanged: `5.348245316%` certified storage,
+`10.923302467%` named causal CE, `4.72714` nat (`89.077%`) unexplained, and `0/68`
+terminal actions.
+
+## UPDATE END — 33
