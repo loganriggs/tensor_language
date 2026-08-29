@@ -51,6 +51,24 @@ def test_validation_contract_preserves_bias_and_intervenes_all_positions():
     assert "all positions 0--255" in text
     assert "smallest validation-eligible" in text
     assert "complete 16/15" in text
+    v1 = validation.V1_AMENDMENT.read_text()
+    assert "before any candidate" in v1
+    assert "validation_v1" in v1
+    assert "e_\\infty" in v1
+
+
+def test_v1_namespace_is_distinct_and_binds_terminal_v0_failure():
+    assert all("validation_v1" in path.name for path in (
+        validation.AUTHORITY, validation.RESULTS, validation.RECEIPT, validation.FAILURE,
+    ))
+    assert validation.V0_AUTHORITY.exists()
+    assert validation.V0_FAILURE.exists()
+    assert not validation.V0_RESULTS.exists()
+    assert not validation.V0_RECEIPT.exists()
+    lineage = validation.v0_failure_lineage()
+    assert lineage["candidate_arms_scored"] == 0
+    assert lineage["result_exists"] is False
+    assert lineage["receipt_exists"] is False
 
 
 def test_real_row_binding_clusters_rows_by_source_document():
@@ -109,7 +127,10 @@ def test_arm_writes_replay_native_and_bias_only_is_registered_omission(monkeypat
         prefix, model.transformer.h[3], program, program, program,
         balanced_left, balanced_right, gates, calls,
     )
-    assert replay < 1e-5
+    assert replay["native"]["relative_max"] < 2e-5
+    assert replay["native"]["relative_rms"] < 2e-5
+    assert replay["candidate"]["relative_max"] < 2e-5
+    assert replay["candidate"]["relative_rms"] < 2e-5
     assert torch.allclose(writes["activation_k6"], prefix.native_write, atol=2e-5)
     assert torch.allclose(
         writes["bias_only"], mlp.Down_bias.reshape(1, 1, -1).expand_as(prefix.native_write),
@@ -132,6 +153,45 @@ def test_summed_local_nrmse_uses_bias_free_native_energy(monkeypatch):
     arm = bias.reshape(1, 1, -1).expand_as(native)
     validation.accumulate_local(ledger, native, arm, bias, torch.tensor([0]))
     assert torch.equal(ledger["local_sse"], ledger["local_energy"])
+
+
+def test_replay_guard_is_scale_relative_and_checks_both_norms():
+    reference = torch.tensor([5493.6538, -600.0, 1.0], dtype=torch.float32)
+    numerically_equivalent = reference + torch.tensor(
+        [0.009765625, 0.0005, 0.0], dtype=torch.float32,
+    )
+    diagnostics = validation.replay_diagnostics(reference, numerically_equivalent)
+    assert diagnostics["absolute_max"] > 3e-4
+    validation.require_replay(diagnostics, label="known float32 reorder")
+
+    wrong = validation.replay_diagnostics(reference, reference * 1.001)
+    with pytest.raises(RuntimeError, match="relative replay failed"):
+        validation.require_replay(wrong, label="algebraic mismatch")
+
+
+def test_replay_guard_rejects_nonfinite_and_independent_max_or_rms_failure():
+    with pytest.raises(RuntimeError, match="nonfinite tensor"):
+        validation.replay_diagnostics(
+            torch.tensor([1.0]), torch.tensor([float("inf")]),
+        )
+
+    reference = torch.full((10_000,), 1_000.0)
+    max_only = reference.clone()
+    max_only[0] += 0.1
+    max_diagnostics = validation.replay_diagnostics(reference, max_only)
+    assert max_diagnostics["relative_max"] > 2e-5
+    assert max_diagnostics["relative_rms"] < 2e-5
+    with pytest.raises(RuntimeError, match="relative replay failed"):
+        validation.require_replay(max_diagnostics, label="max-only failure")
+
+    sparse_reference = torch.zeros(10_000)
+    sparse_reference[0] = 1_000.0
+    rms_only = sparse_reference + 0.01
+    rms_diagnostics = validation.replay_diagnostics(sparse_reference, rms_only)
+    assert rms_diagnostics["relative_max"] < 2e-5
+    assert rms_diagnostics["relative_rms"] > 2e-5
+    with pytest.raises(RuntimeError, match="relative replay failed"):
+        validation.require_replay(rms_diagnostics, label="rms-only failure")
 
 
 def _filled_ledger(documents, *, local=0.1, kl=1.0):
@@ -283,7 +343,7 @@ def test_validation_transaction_is_authority_first_and_receipt_last(monkeypatch,
     assert validation.RECEIPT.exists() and not validation.FAILURE.exists()
     assert not validation.LOCK.exists()
     receipt = json.loads(validation.RECEIPT.read_text())
-    assert receipt["status"] == "validation_v0_complete_receipt_last"
+    assert receipt["status"] == "validation_v1_complete_receipt_last"
 
 
 def test_validation_terminal_drift_publishes_failure_without_receipt(monkeypatch, tmp_path):

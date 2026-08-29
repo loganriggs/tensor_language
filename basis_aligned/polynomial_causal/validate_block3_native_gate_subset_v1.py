@@ -46,6 +46,8 @@ FIT_FILES = {
 FIT_AUTHORITY, PROGRAMS, FIT_RESULTS, FIT_RECEIPT = tuple(FIT_FILES)[3:]
 V0_AUTHORITY = HERE / "block3_native_gate_subset_v1_validation_v0_authority.json"
 V0_FAILURE = HERE / "block3_native_gate_subset_v1_validation_v0_failure.json"
+V0_RESULTS = HERE / "block3_native_gate_subset_v1_validation_v0_results.json"
+V0_RECEIPT = HERE / "block3_native_gate_subset_v1_validation_v0_receipt.json"
 V0_AUTHORITY_SHA256 = "24d61b89f162d84e4aee17f9a714e99b348776ae21049b6287c6163be82c61cb"
 V0_FAILURE_SHA256 = "9932117237c44c863872ffbdb400d8988503837b9f5b296447f37807d8a78bf2"
 AUTHORITY = HERE / "block3_native_gate_subset_v1_validation_v1_authority.json"
@@ -179,7 +181,7 @@ def validate_fit_artifacts() -> tuple[dict[str, Any], dict[str, Any]]:
 def v0_failure_lineage() -> dict[str, Any]:
     if file_sha256(V0_AUTHORITY) != V0_AUTHORITY_SHA256 or (
         file_sha256(V0_FAILURE) != V0_FAILURE_SHA256
-    ):
+    ) or V0_RESULTS.exists() or V0_RECEIPT.exists():
         raise RuntimeError("preserved validation V0 failure lineage changed")
     authority = json.loads(V0_AUTHORITY.read_text())
     failure = json.loads(V0_FAILURE.read_text())
@@ -195,6 +197,8 @@ def v0_failure_lineage() -> dict[str, Any]:
         "authority_sha256": authority["authority_sha256"],
         "source_commit": authority["source_closure"]["commit"],
         "candidate_arms_scored": 0,
+        "result_exists": False,
+        "receipt_exists": False,
         "terminal_error": failure["error"],
     }
 
@@ -873,7 +877,10 @@ def _authority(
 ) -> dict[str, Any]:
     core = {
         "schema": "block3_native_gate_subset_v1_validation_v1_authority",
-        "status": "frozen_before_validation_rows_or_outcomes_loaded",
+        "status": (
+            "frozen_after_bound_v0_native_only_failure_before_any_v1_candidate_"
+            "write_suffix_metric_or_outcome_loaded"
+        ),
         "authorized_for_final_role": False,
         "authorized_for_global_ledger_credit": False,
         "source_closure": dict(source), "fit_binding": dict(fit),
