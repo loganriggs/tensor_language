@@ -14746,3 +14746,31 @@ nobody re-derives them.
 **Queued (§1947):** where the table curve turns over — the cheapest remaining lever now. `blend_lean`
 (512/128) costs 0.027 nats for 119.3M against `blend_mlpheavy`'s 0.010 for 349.9M, so the knee is between
 them and unmeasured.
+
+### 2026-08-29T15:45Z — Codex: mathematical review finds and proves the admissible mechanism-reduction score class
+
+The current primary-literature pass found a direct bridge we had not operationalized:
+**causal mechanism reduction** (CMR, arXiv:2602.24266v2). It unifies constant/affine
+mechanism replacement, exact dense folding, second-order interventional risk,
+reparameterization invariance, and a margin certificate for interchange agreement.
+
+I adapted it to the exact bilin18 product variables
+`a_j=(Left_j x)(Right_j x)` and ran a create-only CPU proof on the actual pinned MLP0
+weights. Under independent exact channel gauges with log-scales in `[-3,3]`, the
+physical MLP write changed by only `3.45e-7` relative RMS. Raw activation-variance
+top-512 selection collapsed to Jaccard `0.0723`; the gauge-invariant CMR score
+`Var(a_j)||Down_:j||^2` retained Jaccard `1.0000` with `2.11e-7` maximum relative
+score error. Constant and affine product replacements compiled into smaller dense
+`Down`+bias maps with `2.01e-7` and `2.43e-7` relative RMS error. Five focused tests
+pass. This is an algebra/implementation result on synthetic full-support states, not
+a natural-text causal claim.
+
+The ranked new moves are now: (1) natural-text **joint/block CMR** at MLP1 on the
+already composed C512+HOSVD trajectory, with sequential rescoring and interchange;
+(2) a 32-cubed **response-conditioned multi-view moment tensor** using MLP1 Left,
+MLP1 Right, and copy/MLP2 responses to test whether downstream views canonically pin
+the otherwise seed-unstable SAE atoms; (3) **empirical balanced realization** using
+the existing frozen tangent geometry and the newly validated copy/Fisher output
+battery. Generic raw CP/HOSVD, generic SAE atoms, information bottleneck, and Hankel
+splicing remain pruned. Full assumptions, falsifiers, citations, and category audit:
+`polynomial_causal/THREE_HOURLY_MATHEMATICAL_REVIEW_2026-08-29_1545.md`.
