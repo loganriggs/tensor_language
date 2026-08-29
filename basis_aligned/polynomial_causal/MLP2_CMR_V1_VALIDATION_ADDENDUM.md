@@ -158,6 +158,31 @@ diagnostic. A ratio outside `[0.90,1.10]` is the preregistered “material
 disagreement”: singleton additivity is rejected, but constant folding is not thereby
 rejected.
 
+The call receipt separately counts the 48 complete 4,608-product diagnostic
+evaluations used here.  They are not native MLP2 candidate calls and receive no
+physical price credit, but they must not disappear from the computational census.
+
+## Outcome-blind implementation of physical gauge replay
+
+Before VALIDATION outcomes are opened, replay reciprocal product/Down rescaling and
+retained-channel permutation on CPU float64 copies of the six actually materialized
+owned programs.  Use fixed seed `2026082917`, one fixed random state of shape
+`[2,3,1152]`, the dyadic signed scale cycle
+`[2,-4,1/2,-1/4,8,-2,1/8]`, an independent signed log-normal scale vector, and a
+fixed random permutation of the 512 retained channels.  Compare each transformed
+program to the untransformed owned program.  The permutation statistic is maximum
+absolute error.  Each rescaling statistic is maximum absolute error divided by the
+maximum absolute untransformed output (with denominator floor `1e-30`).  All three
+must be at most `5e-12` in this CPU float64 currency.
+
+Independently reconstruct every physical arm from the live native Left/Right/Down
+coefficients, the frozen omitted-product mean, and the frozen support, and require
+bit-exact bfloat16 agreement with the owned program on fixed seed `2026082908`.
+This is distinct from evaluating the owned buffers twice with the same expression.
+The selector-rank gauge/permutation audit is also recomputed from the live Down
+matrix and frozen mean/variance/score/support, rather than accepted as a historical
+Boolean.  The fresh audit must equal the hash-pinned FIT_SELECTOR audit.
+
 ## Shared-document inference
 
 For each equal-price control $c$, define the pooled relative teacher-KL improvement

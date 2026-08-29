@@ -6,6 +6,7 @@ from __future__ import annotations
 import hashlib
 import io
 import json
+import math
 import os
 from pathlib import Path
 import secrets
@@ -101,6 +102,8 @@ SOURCE_CLOSURE = tuple(dict.fromkeys((
     Path(statistics.__file__).resolve(), HERE / "test_mlp2_cmr_v1_validation_statistics.py",
     HERE / "mlp2_cmr_v1_physical_program.py",
     HERE / "test_mlp2_cmr_v1_physical_program.py",
+    HERE / "mlp2_cmr_v1_suffix_math.py",
+    HERE / "test_mlp2_cmr_v1_suffix_math.py",
     *tuple(Path(path).resolve() for path in projection.SOURCE_CLOSURE),
     Path(facade.__file__).resolve(), ROOT / "jacclust/tt_model.py",
 )))
@@ -270,8 +273,8 @@ def validate_parent_dag(captured: dict[str, bytes]) -> None:
         or calibration_result.get("authority_sha256")
             != calibration_receipt.get("authority_sha256")
         or calibration_receipt.get("parents") != expected_calibration_parents
-        or calibration_result.get("source_commit")
-            != calibration_receipt.get("source_commit")
+        or not isinstance(calibration_receipt.get("source_commit"), str)
+        or not isinstance(calibration_receipt.get("source_hashes"), dict)
         or calibration_result.get("checkpoint")
             != calibration_result.get("checkpoint_after_load")
         or calibration_result.get("validation_opened") is not False
@@ -466,6 +469,123 @@ def _selector_gauge_passes(result: dict[str, Any]) -> bool:
     )
 
 
+EXPECTED_PROGRAM_RECEIPT = {
+    "input_width": 1152,
+    "output_width": 1152,
+    "native_products": 4608,
+    "retained_products": 512,
+    "stored_scalar_values": 1_770_624,
+    "support_index_values": 512,
+    "bilinear_products_per_token": 512,
+    "native_mlp_calls_per_forward": 0,
+}
+
+
+def _materialization_passes(value: Any) -> bool:
+    return isinstance(value, dict) and set(value) == {
+        "maximum_absolute_error", "bit_exact", "per_arm_maximum_absolute_error",
+    } and type(value["maximum_absolute_error"]) is float and (
+        value["maximum_absolute_error"] == 0.0
+    ) and value["bit_exact"] is True and isinstance(
+        value["per_arm_maximum_absolute_error"], dict
+    ) and set(value["per_arm_maximum_absolute_error"]) == set(
+        runtime.PHYSICAL_ARMS
+    ) and all(
+        type(error) is float and error == 0.0
+        for error in value["per_arm_maximum_absolute_error"].values()
+    ) and (
+        value["per_arm_maximum_absolute_error"]
+        == {arm: 0.0 for arm in runtime.PHYSICAL_ARMS}
+    )
+
+
+def _physical_gauge_passes(value: Any) -> bool:
+    if not isinstance(value, dict) or set(value) != {
+        "currency", "tolerance", "per_arm", "passed",
+    } or value["currency"] != "CPU float64 copies of materialized owned buffers" or (
+        value["tolerance"] != 5e-12 or value["passed"] is not True
+    ) or not isinstance(value["per_arm"], dict) or set(value["per_arm"]) != set(
+        runtime.PHYSICAL_ARMS
+    ):
+        return False
+    for row in value["per_arm"].values():
+        if not isinstance(row, dict) or set(row) != {
+            "permutation_max_absolute_error", "dyadic_max_relative_error",
+            "general_max_relative_error", "passed",
+        } or row["passed"] is not True or type(
+            row["permutation_max_absolute_error"]
+        ) is not float or not math.isfinite(
+            row["permutation_max_absolute_error"]
+        ) or not 0 <= row["permutation_max_absolute_error"] <= 5e-12 or (
+            type(row["dyadic_max_relative_error"]) is not float
+            or not math.isfinite(row["dyadic_max_relative_error"])
+            or not 0 <= row["dyadic_max_relative_error"] <= 5e-12
+            or type(row["general_max_relative_error"]) is not float
+            or not math.isfinite(row["general_max_relative_error"])
+            or not 0 <= row["general_max_relative_error"] <= 5e-12
+        ):
+            return False
+    return True
+
+
+def derive_protocol_audits(
+    evidence: dict[str, Any], *, expected_support_hashes: dict[str, str],
+    expected_selector_audit: dict[str, Any],
+) -> dict[str, bool]:
+    """Derive every protocol gate from underlying evidence, never stored booleans."""
+
+    receipts = evidence.get("program_receipts")
+    supports = evidence.get("support_hashes")
+    selector = evidence.get("selector_gauge_permutation_replay")
+    historical = evidence.get("selector_gauge_and_permutation_audit")
+    precision = evidence.get("precision_audit")
+    exact_price = (
+        isinstance(receipts, dict) and set(receipts) == set(runtime.PHYSICAL_ARMS)
+        and all(receipt == EXPECTED_PROGRAM_RECEIPT for receipt in receipts.values())
+        and supports == expected_support_hashes
+    )
+    precision_fields = (
+        "maximum_native_nll_absolute_error",
+        "maximum_candidate_nll_absolute_error",
+        "maximum_teacher_kl_absolute_error",
+        "maximum_raw_sse_relative_error",
+        "maximum_centered_sse_relative_error",
+        "maximum_native_centered_energy_relative_error",
+    )
+    precision_pass = isinstance(precision, dict) and set(precision) == {
+        "maximum_native_nll_absolute_error",
+        "maximum_candidate_nll_absolute_error",
+        "maximum_teacher_kl_absolute_error",
+        "maximum_raw_sse_relative_error",
+        "maximum_centered_sse_relative_error",
+        "maximum_native_centered_energy_relative_error",
+        "passed",
+    } and precision["passed"] is True and all(
+        type(precision[field]) is float and math.isfinite(precision[field])
+        and 0.0 <= precision[field] <= 1e-4
+        for field in precision_fields
+    )
+    return {
+        "exact_price_and_support_replay": exact_price,
+        "gauge_and_permutation_replay": (
+            historical == expected_selector_audit
+            and selector == expected_selector_audit
+            and _selector_gauge_passes({
+                "gauge_and_permutation_audit": selector,
+            }) and _physical_gauge_passes(
+                evidence.get("physical_gauge_permutation_replay")
+            )
+        ),
+        "physical_materialization_replay": _materialization_passes(
+            evidence.get("physical_materialization")
+        ),
+        "physical_call_ledger_replay": runtime.call_ledger_passes(
+            evidence.get("call_ledger", {})
+        ),
+        "float32_cpu_float64_precision_audit": precision_pass,
+    }
+
+
 def collect(
     parent_bytes: dict[str, bytes], capability: _ValidationCapability,
 ) -> tuple[dict[str, Any], dict[str, Any]]:
@@ -509,9 +629,22 @@ def collect(
     programs, program_receipts = runtime.build_physical_programs(
         model.transformer.h[runtime.SITE].mlp, mean, supports,
     )
-    materialization = runtime.physical_materialization_replay(programs, device=device)
+    materialization = runtime.physical_materialization_replay(
+        programs, model.transformer.h[runtime.SITE].mlp, mean, supports,
+        device=device,
+    )
     if materialization["bit_exact"] is not True:
         raise RuntimeError("physical MLP2 materialization replay failed")
+    selector_replay = runtime.selector_gauge_permutation_replay(
+        mean, fit["variance"],
+        model.transformer.h[runtime.SITE].mlp.Down.weight.detach().cpu().double(),
+        suffix["scores"]["SUFFIX"], supports["SUFFIX"],
+    )
+    if selector_replay != suffix_result.get("gauge_and_permutation_audit"):
+        raise RuntimeError("fresh selector gauge/permutation replay changed")
+    physical_gauge = runtime.physical_gauge_permutation_replay(programs)
+    if physical_gauge["passed"] is not True:
+        raise RuntimeError("physical compiled-function gauge/permutation replay failed")
 
     ledgers: dict[str, dict[int, dict[str, statistics.CellSums]]] = {
         arm: {} for arm in runtime.ALL_ARMS
@@ -591,18 +724,23 @@ def collect(
         runtime.call_ledger_passes(call_ledger)
     ) or not torch.equal(additivity[:, 0].long(), eligible.sum(1).long()):
         raise RuntimeError("MLP2 validation precision/call/additivity ledger failed")
-    gauge_pass = _selector_gauge_passes(suffix_result)
-    protocol_audits = {
-        "exact_price_and_support_replay": (
-            all(receipt["stored_scalar_values"] == 1_770_624
-                for receipt in program_receipts.values())
-            and support_hashes == suffix_result["tensor_hashes"]["supports"]
-        ),
-        "gauge_and_permutation_replay": gauge_pass,
-        "physical_materialization_replay": materialization["bit_exact"],
-        "physical_call_ledger_replay": runtime.call_ledger_passes(call_ledger),
-        "float32_cpu_float64_precision_audit": precision_audit["passed"],
+    protocol_evidence = {
+        "program_receipts": program_receipts,
+        "support_hashes": support_hashes,
+        "selector_gauge_and_permutation_audit": suffix_result[
+            "gauge_and_permutation_audit"
+        ],
+        "selector_gauge_permutation_replay": selector_replay,
+        "physical_materialization": materialization,
+        "physical_gauge_permutation_replay": physical_gauge,
+        "call_ledger": call_ledger,
+        "precision_audit": precision_audit,
     }
+    protocol_audits = derive_protocol_audits(
+        protocol_evidence,
+        expected_support_hashes=suffix_result["tensor_hashes"]["supports"],
+        expected_selector_audit=suffix_result["gauge_and_permutation_audit"],
+    )
     if not all(protocol_audits.values()):
         raise RuntimeError("MLP2 validation protocol audit failed")
     ledger_bundle = {
@@ -636,6 +774,8 @@ def collect(
         "selector_gauge_and_permutation_audit": suffix_result[
             "gauge_and_permutation_audit"
         ],
+        "selector_gauge_permutation_replay": selector_replay,
+        "physical_gauge_permutation_replay": physical_gauge,
         "call_ledger": call_ledger,
         "precision_audit": precision_audit,
         "protocol_audits": protocol_audits,
@@ -660,16 +800,67 @@ def collect(
 def validate_output_semantics(
     bundle: Any, result: Any, parent_bytes: dict[str, bytes],
 ) -> None:
-    if not isinstance(result, dict) or result.get("schema") != (
-        "mlp2_cmr_v1_validation_result"
-    ) or result.get("replication_opened") is not False or result.get(
+    expected_result_keys = {
+        "schema", "status", "checkpoint", "checkpoint_after_load", "device",
+        "device_name", "model_dtype", "role_summary", "support_hashes",
+        "program_receipts", "physical_materialization",
+        "selector_gauge_and_permutation_audit",
+        "selector_gauge_permutation_replay", "physical_gauge_permutation_replay",
+        "call_ledger", "precision_audit", "protocol_audits", "score",
+        "fit_reference", "runtime_seconds", "validation_opened",
+        "replication_opened", "raw_logits_published",
+        "per_token_losses_published", "validation_targets_published",
+        "authority_sha256", "ledger_sha256", "source_commit", "source_hashes",
+        "parents",
+    }
+    if not isinstance(result, dict) or set(result) != expected_result_keys or result.get(
+        "schema"
+    ) != "mlp2_cmr_v1_validation_result" or result.get(
+        "validation_opened"
+    ) is not True or result.get("replication_opened") is not False or result.get(
         "raw_logits_published"
-    ) is not False or result.get("per_token_losses_published") is not False or (
-        result.get("validation_targets_published") is not False
-    ):
+    ) is not False or result.get("per_token_losses_published") is not False or result.get(
+        "validation_targets_published"
+    ) is not False:
         raise RuntimeError("MLP2 validation result schema/forbidden output changed")
+
+    forbidden_keys = {
+        "raw_logits", "native_logits", "candidate_logits", "per_token_losses",
+        "validation_targets", "rows", "tokens", "targets", "products", "states",
+        "responses",
+    }
+
+    def reject_forbidden(value: Any) -> None:
+        if torch.is_tensor(value):
+            raise RuntimeError("MLP2 validation JSON contains a tensor payload")
+        if isinstance(value, dict):
+            if set(value) & forbidden_keys:
+                raise RuntimeError("MLP2 validation contains a forbidden raw payload")
+            for child in value.values():
+                reject_forbidden(child)
+        elif isinstance(value, (list, tuple)):
+            for child in value:
+                reject_forbidden(child)
+
+    reject_forbidden(result)
+    validate_parent_dag(parent_bytes)
+    parent_hashes = {
+        name: hashlib.sha256(value).hexdigest() for name, value in parent_bytes.items()
+    }
+    correction = json.loads(parent_bytes["correction"])
+    suffix_parent_result = json.loads(parent_bytes["suffix_result"])
+    derived_protocol = derive_protocol_audits(
+        result, expected_support_hashes=correction["support_hashes"],
+        expected_selector_audit=suffix_parent_result[
+            "gauge_and_permutation_audit"
+        ],
+    )
+    if derived_protocol != result.get("protocol_audits") or not all(
+        derived_protocol.values()
+    ):
+        raise RuntimeError("MLP2 validation protocol evidence replay failed")
     replay_score = runtime.score_validation_bundle(
-        bundle, protocol_audits=result["protocol_audits"],
+        bundle, protocol_audits=derived_protocol,
     )
     if replay_score != result.get("score") or result.get("status") != (
         "validation_passed_replication_implementation_authorized"
@@ -680,6 +871,17 @@ def validate_output_semantics(
     role = _load_torch(parent_bytes["role_rows"])
     if projection.validate_role(role) != result.get("role_summary"):
         raise RuntimeError("MLP2 validation role replay failed")
+    authority = json.loads(AUTHORITY.read_bytes())
+    if result.get("parents") != parent_hashes or result.get(
+        "authority_sha256"
+    ) != file_sha256(AUTHORITY) or result.get("ledger_sha256") != file_sha256(
+        LEDGER
+    ) or authority.get("source_commit") != result.get("source_commit") or authority.get(
+        "source_hashes"
+    ) != result.get("source_hashes") or authority.get("parents") != parent_hashes or (
+        authority.get("authorized_role") != "VALIDATION"
+    ) or authority.get("replication_authorized") is not False:
+        raise RuntimeError("MLP2 validation authority/parent/output joins changed")
     if result.get("checkpoint") != result.get("checkpoint_after_load") or result.get(
         "checkpoint", {}
     ).get("weights_sha256") != facade.WEIGHTS_SHA256 or result.get("device_name") != (
@@ -688,6 +890,19 @@ def validate_output_semantics(
         result.get("call_ledger", {})
     ) or result.get("precision_audit", {}).get("passed") is not True:
         raise RuntimeError("MLP2 validation runtime replay failed")
+    fit_result = json.loads(parent_bytes["fit_result"])
+    suffix_result = json.loads(parent_bytes["suffix_result"])
+    calibration_result = json.loads(parent_bytes["calibration_result"])
+    if result.get("support_hashes") != correction["support_hashes"] or result.get(
+        "fit_reference"
+    ) != {
+        "fit_observations": fit_result["fit_observations"],
+        "selector_documents": suffix_result["documents"],
+        "calibration_documents": calibration_result["documents"],
+    } or not isinstance(result.get("runtime_seconds"), float) or result[
+        "runtime_seconds"
+    ] <= 0:
+        raise RuntimeError("MLP2 validation support/fit/runtime joins changed")
 
 
 def main() -> None:
@@ -794,6 +1009,12 @@ def main() -> None:
                 "schema_version": 1,
                 "experiment_id": experiment_id,
                 "status": "mlp2_cmr_v1_validation_failed_invalid_no_scientific_decision",
+                "source_commit": source_commit,
+                "source_hashes": source_hashes,
+                "parents": parents,
+                "authority_sha256": (
+                    file_sha256(AUTHORITY) if AUTHORITY.exists() else None
+                ),
                 "error_type": type(error).__name__,
                 "error": str(error),
                 "partial_outputs": partial,

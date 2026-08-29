@@ -25,6 +25,8 @@ def test_source_closure_is_exact_once_and_contains_runtime_contracts() -> None:
         "test_mlp2_cmr_v1_validation_statistics.py",
         "mlp2_cmr_v1_physical_program.py",
         "test_mlp2_cmr_v1_physical_program.py",
+        "mlp2_cmr_v1_suffix_math.py",
+        "test_mlp2_cmr_v1_suffix_math.py",
         "project_mlp2_cmr_v1_validation_rows.py",
         "test_project_mlp2_cmr_v1_validation_rows.py",
         "MLP2_CMR_V1_MARGIN_FREQUENCY_ADDENDUM.md",
@@ -87,6 +89,161 @@ def test_expected_parent_hashes_are_complete_exact_and_files_exist() -> None:
         name: validation.file_sha256(path)
         for name, path in validation.PARENT_PATHS.items()
     } == validation.EXPECTED_PARENTS
+
+
+def test_parent_dag_replays_transitive_validation_license() -> None:
+    hashes, captured = validation.protected_inputs()
+    assert hashes == validation.EXPECTED_PARENTS
+    changed = dict(captured)
+    suffix_receipt = json.loads(changed["suffix_receipt"])
+    suffix_receipt["authorized_for_validation"] = False
+    changed["suffix_receipt"] = validation.canonical_json_bytes(suffix_receipt)
+    with pytest.raises(RuntimeError, match="suffix parent/license"):
+        validation.validate_parent_dag(changed)
+
+
+def _passing_call_ledger() -> dict:
+    ledger = validation.runtime.new_call_ledger()
+    for arm in validation.runtime.ALL_ARMS:
+        ledger[arm]["forward_calls"] = validation.runtime.CALLS
+        ledger[arm]["forward_returns"] = validation.runtime.CALLS
+        ledger[arm]["attention_calls_by_site"] = [validation.runtime.CALLS] * 18
+        ledger[arm]["native_mlp_calls_by_site"] = [validation.runtime.CALLS] * 18
+        if arm == "ZERO" or arm in validation.runtime.PHYSICAL_ARMS:
+            ledger[arm]["native_mlp_calls_by_site"][validation.runtime.SITE] = 0
+        ledger[arm]["physical_mlp2_calls"] = (
+            validation.runtime.CALLS
+            if arm in validation.runtime.PHYSICAL_ARMS
+            or arm in validation.runtime.SIGNED_T else 0
+        )
+        ledger[arm]["zero_mlp2_calls"] = (
+            validation.runtime.CALLS if arm == "ZERO" else 0
+        )
+        ledger[arm]["diagnostic_full_product_evaluations"] = (
+            validation.runtime.CALLS if arm == "NATIVE" else 0
+        )
+    return ledger
+
+
+def test_protocol_audits_are_derived_from_evidence_not_stored_booleans() -> None:
+    suffix_result = json.loads(validation.SUFFIX_RESULT.read_text())
+    correction = json.loads(validation.CORRECTION.read_text())
+    historical = suffix_result["gauge_and_permutation_audit"]
+    evidence = {
+        "program_receipts": {
+            arm: dict(validation.EXPECTED_PROGRAM_RECEIPT)
+            for arm in validation.runtime.PHYSICAL_ARMS
+        },
+        "support_hashes": correction["support_hashes"],
+        "selector_gauge_and_permutation_audit": historical,
+        "selector_gauge_permutation_replay": historical,
+        "physical_gauge_permutation_replay": {
+            "currency": "CPU float64 copies of materialized owned buffers",
+            "tolerance": 5e-12,
+            "per_arm": {
+                arm: {
+                    "permutation_max_absolute_error": 0.0,
+                    "dyadic_max_relative_error": 0.0,
+                    "general_max_relative_error": 0.0,
+                    "passed": True,
+                } for arm in validation.runtime.PHYSICAL_ARMS
+            },
+            "passed": True,
+        },
+        "physical_materialization": {
+            "maximum_absolute_error": 0.0,
+            "bit_exact": True,
+            "per_arm_maximum_absolute_error": {
+                arm: 0.0 for arm in validation.runtime.PHYSICAL_ARMS
+            },
+        },
+        "call_ledger": _passing_call_ledger(),
+        "precision_audit": {
+            "maximum_native_nll_absolute_error": 0.0,
+            "maximum_candidate_nll_absolute_error": 0.0,
+            "maximum_teacher_kl_absolute_error": 0.0,
+            "maximum_raw_sse_relative_error": 0.0,
+            "maximum_centered_sse_relative_error": 0.0,
+            "maximum_native_centered_energy_relative_error": 0.0,
+            "passed": True,
+        },
+    }
+    audits = validation.derive_protocol_audits(
+        evidence, expected_support_hashes=correction["support_hashes"],
+        expected_selector_audit=historical,
+    )
+    assert all(audits.values())
+    evidence["program_receipts"]["SUFFIX"]["stored_scalar_values"] += 1
+    audits = validation.derive_protocol_audits(
+        evidence, expected_support_hashes=correction["support_hashes"],
+        expected_selector_audit=historical,
+    )
+    assert audits["exact_price_and_support_replay"] is False
+
+
+@pytest.mark.parametrize("bad", [1e99, float("nan"), -1.0, "0.0"])
+def test_precision_protocol_rejects_bad_numeric_evidence(bad) -> None:
+    suffix_result = json.loads(validation.SUFFIX_RESULT.read_text())
+    correction = json.loads(validation.CORRECTION.read_text())
+    historical = suffix_result["gauge_and_permutation_audit"]
+    # Reuse the fully passing evidence construction above without depending on a
+    # stored protocol Boolean.
+    precision = {
+        "maximum_native_nll_absolute_error": 0.0,
+        "maximum_candidate_nll_absolute_error": 0.0,
+        "maximum_teacher_kl_absolute_error": 0.0,
+        "maximum_raw_sse_relative_error": 0.0,
+        "maximum_centered_sse_relative_error": 0.0,
+        "maximum_native_centered_energy_relative_error": 0.0,
+        "passed": True,
+    }
+    evidence = {
+        "program_receipts": {
+            arm: dict(validation.EXPECTED_PROGRAM_RECEIPT)
+            for arm in validation.runtime.PHYSICAL_ARMS
+        },
+        "support_hashes": correction["support_hashes"],
+        "selector_gauge_and_permutation_audit": historical,
+        "selector_gauge_permutation_replay": historical,
+        "physical_gauge_permutation_replay": {
+            "currency": "CPU float64 copies of materialized owned buffers",
+            "tolerance": 5e-12,
+            "per_arm": {
+                arm: {
+                    "permutation_max_absolute_error": 0.0,
+                    "dyadic_max_relative_error": 0.0,
+                    "general_max_relative_error": 0.0,
+                    "passed": True,
+                } for arm in validation.runtime.PHYSICAL_ARMS
+            },
+            "passed": True,
+        },
+        "physical_materialization": {
+            "maximum_absolute_error": 0.0,
+            "bit_exact": True,
+            "per_arm_maximum_absolute_error": {
+                arm: 0.0 for arm in validation.runtime.PHYSICAL_ARMS
+            },
+        },
+        "call_ledger": _passing_call_ledger(),
+        "precision_audit": precision,
+    }
+    precision["maximum_native_nll_absolute_error"] = bad
+    audits = validation.derive_protocol_audits(
+        evidence, expected_support_hashes=correction["support_hashes"],
+        expected_selector_audit=historical,
+    )
+    assert audits["float32_cpu_float64_precision_audit"] is False
+
+
+def test_materialization_protocol_rejects_boolean_zero() -> None:
+    assert not validation._materialization_passes({
+        "maximum_absolute_error": False,
+        "bit_exact": True,
+        "per_arm_maximum_absolute_error": {
+            arm: 0.0 for arm in validation.runtime.PHYSICAL_ARMS
+        },
+    })
 
 
 def test_capability_is_closed_one_use_and_noncopyable(monkeypatch, tmp_path) -> None:

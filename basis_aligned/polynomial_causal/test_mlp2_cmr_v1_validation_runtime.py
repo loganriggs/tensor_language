@@ -91,7 +91,7 @@ def test_physical_gauge_and_permutation_replay_uses_owned_programs() -> None:
     assert replay["passed"]
     assert set(replay["per_arm"]) == set(runtime.PHYSICAL_ARMS)
     assert all(
-        row["permutation_max_absolute_error"] == 0.0
+        row["permutation_max_absolute_error"] <= 5e-12
         for row in replay["per_arm"].values()
     )
 

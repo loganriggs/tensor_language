@@ -117,8 +117,14 @@ def build_physical_programs(
 
 
 def physical_materialization_replay(
-    programs: Mapping[str, PhysicalRetainedBilinearMLP], *, device: torch.device,
+    programs: Mapping[str, PhysicalRetainedBilinearMLP], native: torch.nn.Module,
+    mean: torch.Tensor, supports: Mapping[str, torch.Tensor], *, device: torch.device,
 ) -> dict[str, float | bool]:
+    validate_supports(supports)
+    if set(programs) != set(PHYSICAL_ARMS) or mean.shape != (4608,) or (
+        mean.dtype != torch.float64
+    ):
+        raise ValueError("physical materialization replay inputs changed")
     generator = torch.Generator(device="cpu").manual_seed(2026082908)
     state = torch.randn(2, 3, 1152, generator=generator).to(
         device=device, dtype=torch.bfloat16,
@@ -128,9 +134,19 @@ def physical_materialization_replay(
         for arm in PHYSICAL_ARMS:
             program = programs[arm]
             actual = program(state)
+            support = supports[arm].to(device)
+            omitted_mask = torch.ones(4608, dtype=torch.bool, device=device)
+            omitted_mask[support] = False
+            omitted = torch.nonzero(omitted_mask, as_tuple=False).flatten()
+            folded_bias = (
+                native.Down_bias.detach().double()
+                + native.Down.weight.detach().double()[:, omitted]
+                    @ mean.to(device)[omitted]
+            ).to(dtype=state.dtype)
             reference = F.linear(
-                F.linear(state, program.left) * F.linear(state, program.right),
-                program.down, program.folded_bias,
+                F.linear(state, native.Left.weight.detach()[support])
+                    * F.linear(state, native.Right.weight.detach()[support]),
+                native.Down.weight.detach()[:, support], folded_bias,
             )
             errors[arm] = float((actual - reference).abs().max())
     return {
@@ -304,20 +320,20 @@ def physical_gauge_permutation_replay(
             permuted_write = permuted(state)
             dyadic_write = dyadic_program(state)
             general_write = general_program(state)
-        denominator = reference.abs().clamp_min(1e-30)
+        denominator = float(reference.abs().max().clamp_min(1e-30))
         rows[arm] = {
             "permutation_max_absolute_error": float(
                 (permuted_write - reference).abs().max()
             ),
             "dyadic_max_relative_error": float(
-                ((dyadic_write - reference).abs() / denominator).max()
+                (dyadic_write - reference).abs().max() / denominator
             ),
             "general_max_relative_error": float(
-                ((general_write - reference).abs() / denominator).max()
+                (general_write - reference).abs().max() / denominator
             ),
         }
         rows[arm]["passed"] = (
-            rows[arm]["permutation_max_absolute_error"] == 0.0
+            rows[arm]["permutation_max_absolute_error"] <= 5e-12
             and rows[arm]["dyadic_max_relative_error"] <= 5e-12
             and rows[arm]["general_max_relative_error"] <= 5e-12
         )
