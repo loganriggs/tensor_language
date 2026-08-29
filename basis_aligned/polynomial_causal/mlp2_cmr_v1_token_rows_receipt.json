@@ -1,0 +1,57 @@
+{
+  "authority": "token_input_bytes_only",
+  "authorized_for_fit_or_evaluation": false,
+  "authorized_for_model_forward": false,
+  "authorized_for_scientific_outcomes": false,
+  "authorized_for_token_inputs": true,
+  "experiment_id": "bilin18_mlp2_cmr_v1",
+  "manifest_path": "basis_aligned/polynomial_causal/mlp2_cmr_v1_token_rows_manifest.json",
+  "manifest_sha256": "8b8f3155a21b73af8b89278b9f09c60bf82fd965a7723e046e191415c5d57bb4",
+  "next_required_authority": "source-closed MLP2 product/response collector binding checkpoint, role use, selectors, calls, outputs, and three-terminal lifecycle",
+  "output_file_sha256": "3ed0192993095f7de70ab7f1350d091b6c1d8c4c7d0583fd5f0f6441556e4aa6",
+  "output_path": "basis_aligned/polynomial_causal/mlp2_cmr_v1_token_rows.pt",
+  "role_manifest_sha256": "70946691916f3d9de9409087cf8311029c0d9ea9ec26a118d5cacdbf5397d96e",
+  "role_receipt_sha256": "0cda2fb909c9e62f8db46f1fc717a2a86fad712346a98d81c307d3b79fde63e1",
+  "role_summaries": {
+    "FIT_MEAN": {
+      "documents": 192,
+      "eligible_positions": 30801,
+      "shorter_than_257": 69,
+      "shorter_than_65": 0,
+      "support_documents": 192
+    },
+    "FIT_SELECTOR": {
+      "documents": 192,
+      "eligible_positions": 31505,
+      "shorter_than_257": 50,
+      "shorter_than_65": 1,
+      "support_documents": 191
+    },
+    "REPLICATION": {
+      "documents": 192,
+      "eligible_positions": 30155,
+      "shorter_than_257": 72,
+      "shorter_than_65": 0,
+      "support_documents": 192
+    },
+    "VALIDATION": {
+      "documents": 192,
+      "eligible_positions": 29904,
+      "shorter_than_257": 74,
+      "shorter_than_65": 1,
+      "support_documents": 191
+    }
+  },
+  "schema_version": 1,
+  "source_commit": "7e1ea62176745d75d1cd8ee29cc050c3483bcdc5",
+  "source_hashes": {
+    "basis_aligned/polynomial_causal/MLP2_CMR_V1_PREREGISTRATION.md": "d456e75053de10b378303721a59a03d8a132cf0a0c5226f025bb3b2aa31c340b",
+    "basis_aligned/polynomial_causal/MLP2_CMR_V1_ROW_PROTOCOL.json": "31ccc8c2af344628c53664b5833d4c8ed54112bb4cf1cbff121a7a42ba987114",
+    "basis_aligned/polynomial_causal/MLP2_CMR_V1_TOKEN_MATERIALIZATION_ADDENDUM.md": "6f60d0977676b548923050ac78cb3602b9191effca619ec8b89834f16bf37b3b",
+    "basis_aligned/polynomial_causal/materialize_mlp2_cmr_v1_token_rows.py": "de057725a4329159db918abd2050566fe4e78cd6e225999c086b6741f8385301",
+    "basis_aligned/polynomial_causal/mlp2_cmr_v1_document_roles_manifest.json": "70946691916f3d9de9409087cf8311029c0d9ea9ec26a118d5cacdbf5397d96e",
+    "basis_aligned/polynomial_causal/mlp2_cmr_v1_document_roles_receipt.json": "0cda2fb909c9e62f8db46f1fc717a2a86fad712346a98d81c307d3b79fde63e1",
+    "basis_aligned/polynomial_causal/test_materialize_mlp2_cmr_v1_token_rows.py": "53be1eae6ffc6d64258a8ede3c2f7f00aa523aed66c084475088001937798733"
+  },
+  "status": "token_materialization_complete_receipt_last"
+}

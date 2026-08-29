@@ -1,0 +1,83 @@
+{
+  "authorized_for_model_forward": false,
+  "authorized_for_scientific_outcomes": false,
+  "encoding_sha256": "0be287937901b1baae837369293dd6f63da1bece9609006e6485b57a3de37335",
+  "experiment_id": "bilin18_mlp2_cmr_v1",
+  "output_file_sha256": "3ed0192993095f7de70ab7f1350d091b6c1d8c4c7d0583fd5f0f6441556e4aa6",
+  "output_path": "basis_aligned/polynomial_causal/mlp2_cmr_v1_token_rows.pt",
+  "parquet_sha256": "c84e6941d787b50959521df6d6894a91397c8b2db13f8a9c8fe0f8782872e930",
+  "role_manifest_sha256": "70946691916f3d9de9409087cf8311029c0d9ea9ec26a118d5cacdbf5397d96e",
+  "role_receipt_sha256": "0cda2fb909c9e62f8db46f1fc717a2a86fad712346a98d81c307d3b79fde63e1",
+  "role_summaries": {
+    "FIT_MEAN": {
+      "documents": 192,
+      "eligible_positions": 30801,
+      "shorter_than_257": 69,
+      "shorter_than_65": 0,
+      "support_documents": 192
+    },
+    "FIT_SELECTOR": {
+      "documents": 192,
+      "eligible_positions": 31505,
+      "shorter_than_257": 50,
+      "shorter_than_65": 1,
+      "support_documents": 191
+    },
+    "REPLICATION": {
+      "documents": 192,
+      "eligible_positions": 30155,
+      "shorter_than_257": 72,
+      "shorter_than_65": 0,
+      "support_documents": 192
+    },
+    "VALIDATION": {
+      "documents": 192,
+      "eligible_positions": 29904,
+      "shorter_than_257": 74,
+      "shorter_than_65": 1,
+      "support_documents": 191
+    }
+  },
+  "schema_version": 1,
+  "source_commit": "7e1ea62176745d75d1cd8ee29cc050c3483bcdc5",
+  "source_hashes": {
+    "basis_aligned/polynomial_causal/MLP2_CMR_V1_PREREGISTRATION.md": "d456e75053de10b378303721a59a03d8a132cf0a0c5226f025bb3b2aa31c340b",
+    "basis_aligned/polynomial_causal/MLP2_CMR_V1_ROW_PROTOCOL.json": "31ccc8c2af344628c53664b5833d4c8ed54112bb4cf1cbff121a7a42ba987114",
+    "basis_aligned/polynomial_causal/MLP2_CMR_V1_TOKEN_MATERIALIZATION_ADDENDUM.md": "6f60d0977676b548923050ac78cb3602b9191effca619ec8b89834f16bf37b3b",
+    "basis_aligned/polynomial_causal/materialize_mlp2_cmr_v1_token_rows.py": "de057725a4329159db918abd2050566fe4e78cd6e225999c086b6741f8385301",
+    "basis_aligned/polynomial_causal/mlp2_cmr_v1_document_roles_manifest.json": "70946691916f3d9de9409087cf8311029c0d9ea9ec26a118d5cacdbf5397d96e",
+    "basis_aligned/polynomial_causal/mlp2_cmr_v1_document_roles_receipt.json": "0cda2fb909c9e62f8db46f1fc717a2a86fad712346a98d81c307d3b79fde63e1",
+    "basis_aligned/polynomial_causal/test_materialize_mlp2_cmr_v1_token_rows.py": "53be1eae6ffc6d64258a8ede3c2f7f00aa523aed66c084475088001937798733"
+  },
+  "status": "token_rows_published_pending_receipt",
+  "tensor_hashes": {
+    "FIT_MEAN": {
+      "clipped_token_counts": "c483a1a335cf08248e71c3d21c48e64062333811b72fa5684b650968bd98fd84",
+      "document_indices": "30af66538dba54c94ef17c973356756bdbf4acab377fc57d8133d7c4465a68c6",
+      "eligible_mask": "dafb506df7569b6f088d059c7ff6e2bc7fd9b84384d5d6dcc25d834220bdcd13",
+      "original_token_counts": "f85f7ba0ab63c7c4a9d5944c1f8ab9d5d59f832d532d4309ef7fecbc08509891",
+      "rows": "b654882ff4c0f7e906f16f4aff5de5a2fc3b9048db367ff126dc13ed6436565b"
+    },
+    "FIT_SELECTOR": {
+      "clipped_token_counts": "eb9af2130ad2ee795d1a46ec585259bf949289b09e7764004bdb169b6caaa363",
+      "document_indices": "c5216431ed3351a5532bc7316f5660019385a9c05a92a4d98ed9fa762c30fd05",
+      "eligible_mask": "fa21dfe87d37bf61bf2fcb8d3f60d6187208c0197d87a351b9571ac56136a3f3",
+      "original_token_counts": "70ec29170505ab0de9d7291c3b46871a02dabedbd21795b4feff8c7a2f8f4925",
+      "rows": "cfb5403c5e5cf5aabba97ecad0ad5c7915e2f239884152ef3a2a5d44a7a9e465"
+    },
+    "REPLICATION": {
+      "clipped_token_counts": "9292156917ed0e4180073dacc77369e46b3af9f50f55e51e5bd2ca82cf9aa4f1",
+      "document_indices": "af03f650fc9aac52462ffc91b73d510154234cd920b2bcff764edd0445a35bf9",
+      "eligible_mask": "dde0a303a8934f2954efd7cc856de838582b0a6181f534171735f6f6092e66a6",
+      "original_token_counts": "a436cc41e82e76a69cc01f779b2e27c4436ed419ad774576699b73b8a5d3c768",
+      "rows": "6b9856d364d002e3b3bef0e47062b90ae2f0459b757efe7e22f23128db645506"
+    },
+    "VALIDATION": {
+      "clipped_token_counts": "5119f41ab72fb5bab25394bae9027263dde22b6d4a641d06b7445510899f249d",
+      "document_indices": "9eace2bab6f1a63932cc768db5c78a6909f8eb1f3cef38f499f47e7799375680",
+      "eligible_mask": "51a06f0382910e318a372896bf0c0501f64a9b6ff0307742cd13b9152bc2d152",
+      "original_token_counts": "48e718663ae6178253fe66136468a4bb027bd7773c75617409b5c44fbaccd7a8",
+      "rows": "9a8085af575a9c1c41164b4a7daf25e7e7ff9f54d27cc035ce3986f9a0a0f7b8"
+    }
+  }
+}

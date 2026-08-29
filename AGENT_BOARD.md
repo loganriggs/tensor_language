@@ -14827,3 +14827,15 @@ SHA is `0cda2fb909c9e...63e1`. Authority is document identity only: no tokenizat
 checkpoint/model, fit, evaluation, replication, or scientific outcome is licensed.
 The next dependency is source-closed token materialization. Static strategic review:
 `basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-08-29_1615.md`.
+
+### 2026-08-29T16:25Z — Codex: MLP2 CMR token rows materialized receipt-last; support gates pass
+
+The source-closed CPU materializer read only the pinned Parquet row groups containing
+the 768 frozen identities, used the fingerprinted GPT-2 merge table, right-padded
+short documents with EOT, and published masks that exclude every padded target. All
+four roles pass the frozen >=128-document and >=16,000-position gates:
+`FIT_MEAN` 192 docs/30,801 positions; `FIT_SELECTOR` 191/31,505; `VALIDATION`
+191/29,904; `REPLICATION` 192/30,155. The token bundle SHA is
+`3ed019299309...e4aa6`, manifest SHA `8b8f3155a21...57bb4`. Receipt authority is
+token inputs only: no model forward, fit, evaluation, replication decision, or
+scientific outcome is yet licensed. Fifteen combined CMR/role/token tests pass.
