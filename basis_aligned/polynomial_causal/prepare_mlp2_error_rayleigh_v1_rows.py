@@ -7,6 +7,7 @@ import hashlib
 import json
 from pathlib import Path
 import subprocess
+from contextlib import contextmanager
 from typing import Any, Mapping
 
 import prepare_mlp2_rank512_refit_v1_rows as base
@@ -17,11 +18,12 @@ ROOT = HERE.parents[1]
 BQ = HERE.parent / "bilinear_quotient"
 PREREG = HERE / "MLP2_ERROR_RAYLEIGH_VALIDITY_PILOT_PREREGISTRATION.md"
 METRICS = HERE / "mlp2_error_rayleigh_metrics.py"
+METRICS_TEST = HERE / "test_mlp2_error_rayleigh_metrics.py"
 FREEZER = Path(__file__).resolve()
 TEST = HERE / "test_prepare_mlp2_error_rayleigh_v1_rows.py"
 AUDIT = HERE / "mlp2_error_rayleigh_v1_rows_independent_audit.json"
 DIRECT_SOURCES = (
-    PREREG, METRICS, FREEZER, TEST,
+    PREREG, METRICS, METRICS_TEST, FREEZER, TEST,
     HERE / "prepare_mlp2_rank512_refit_v1_rows.py",
 )
 SOURCE_PATHS = tuple(dict.fromkeys((*DIRECT_SOURCES, *base.BASE.SOURCE_PATHS)))
@@ -94,21 +96,56 @@ def validate_independent_audit(
     return value, digest
 
 
-def configure() -> None:
-    base.PREREG, base.FREEZER, base.TEST = PREREG, FREEZER, TEST
-    base.AUDIT, base.SOURCE_PATHS = AUDIT, SOURCE_PATHS
-    base.START_DOCUMENT_INDEX = START_DOCUMENT_INDEX
-    base.DOCUMENTS_PER_ROLE, base.TOTAL_DOCUMENTS = DOCUMENTS_PER_ROLE, TOTAL_DOCUMENTS
-    base.ROLE_NAMES, base.ROLE_AUTHORIZATIONS = ROLE_NAMES, ROLE_AUTHORIZATIONS
-    base.CACHE, base.RECEIPT, base.FAILURE, base.LOCK = CACHE, RECEIPT, FAILURE, LOCK
-    base.RECEIPT_SCHEMA, base.FAILURE_SCHEMA = RECEIPT_SCHEMA, FAILURE_SCHEMA
-    base.source_hashes = source_hashes
-    base.validate_independent_audit = validate_independent_audit
+_CONFIGURED_NAMES = (
+    "PREREG", "FREEZER", "TEST", "AUDIT", "SOURCE_PATHS",
+    "START_DOCUMENT_INDEX", "DOCUMENTS_PER_ROLE", "TOTAL_DOCUMENTS",
+    "ROLE_NAMES", "ROLE_AUTHORIZATIONS", "CACHE", "RECEIPT", "FAILURE",
+    "LOCK", "RECEIPT_SCHEMA", "FAILURE_SCHEMA", "source_hashes",
+    "validate_independent_audit",
+)
+
+
+@contextmanager
+def configured_base():
+    """Temporarily install this namespace in the inherited transaction module.
+
+    The parent module is shared process state.  Restoring it in ``finally`` keeps a
+    Rayleigh freeze or test from changing the behavior of later parent transactions.
+    """
+    original = {name: getattr(base, name) for name in _CONFIGURED_NAMES}
+    configured = {
+        "PREREG": PREREG, "FREEZER": FREEZER, "TEST": TEST, "AUDIT": AUDIT,
+        "SOURCE_PATHS": SOURCE_PATHS,
+        "START_DOCUMENT_INDEX": START_DOCUMENT_INDEX,
+        "DOCUMENTS_PER_ROLE": DOCUMENTS_PER_ROLE, "TOTAL_DOCUMENTS": TOTAL_DOCUMENTS,
+        "ROLE_NAMES": ROLE_NAMES, "ROLE_AUTHORIZATIONS": ROLE_AUTHORIZATIONS,
+        "CACHE": CACHE, "RECEIPT": RECEIPT, "FAILURE": FAILURE, "LOCK": LOCK,
+        "RECEIPT_SCHEMA": RECEIPT_SCHEMA, "FAILURE_SCHEMA": FAILURE_SCHEMA,
+        "source_hashes": source_hashes,
+        "validate_independent_audit": validate_independent_audit,
+    }
+    try:
+        for name, value in configured.items():
+            setattr(base, name, value)
+        yield base
+    finally:
+        for name, value in original.items():
+            setattr(base, name, value)
+
+
+def split_rows(rows, records):
+    with configured_base() as configured:
+        return configured.split_rows(rows, records)
+
+
+def validate_selected(rows, records, prior):
+    with configured_base() as configured:
+        return configured.validate_selected(rows, records, prior)
 
 
 def freeze():
-    configure()
-    return base.freeze()
+    with configured_base() as configured:
+        return configured.freeze()
 
 
 if __name__ == "__main__":
