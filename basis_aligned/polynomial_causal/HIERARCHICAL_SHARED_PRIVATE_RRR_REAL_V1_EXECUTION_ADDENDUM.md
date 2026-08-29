@@ -37,6 +37,12 @@ The global-budget q0=512 arm has zero private ranks and must be byte-identical t
 global rank-512 construction. These are literal execution controls, not approximate
 scientific comparisons.
 
+The independent-budget q0=0 arm is the newly realized fit-optimal nonuniform allocation
+of 18,432 private slots. The parent's `independent_q512` instead assigns rank 512
+uniformly to every site. Their storage is identical, but their factors and CE need not
+be. Report q0=0 minus parent-uniform CE as a same-storage comparator; it is explicitly
+not a known-answer identity gate.
+
 Fit uses CPU float64. Each factor is independently cast with contiguous `.float()`.
 The autonomous callback computes `(embedding @ shared_input) @ shared_basis.T` first,
 then computes and adds the private product exactly once. Covered tokens replace that
@@ -60,10 +66,19 @@ prices, dense multiplies, role CE partitions, model/callback ledgers, model-stat
 resource ceilings, and the three endpoint controls. Raw factor tensors and their
 column-wise hashes are forbidden from result serialization.
 
+Projector/direction identification is licensed only when every relevant reported
+shared, private-boundary, and global-allocation cutoff eigengap is strictly positive.
+A zero, missing, or unresolved relevant gap permits a literal compression/CE claim but
+no scientific identification or naming of the selected directions.
+
 Covered CE identity is evaluated within each fixed role across all seven arms at
-`1e-6`; roles are never pooled. Known-answer endpoint CE must reproduce the pinned
-parent within 0.002 nat. Integrity controls are reported separately and cannot convert
-a failed CE prediction into a pass.
+`1e-6`; roles are never pooled. The three actual known-answer endpoints (global-budget
+q0=0, global-budget q0=512, and typed-budget q0=0) must reproduce their pinned parent
+arms within 0.002 nat. The independent-budget q0=0 comparator is excluded for the
+nonuniform-versus-uniform reason above. Raw numerical predicates are named
+`*_ce_qualifies`; every published `*_pass` is the conjunction of that predicate with
+the complete integrity control. Thus neither a failed CE predicate nor a failed
+integrity control can be laundered into a pass.
 
 ## Lifecycle
 
@@ -75,3 +90,9 @@ scores -> hook removal/model equality/resource checks -> semantic replay -> crea
 result -> complete frozen-input replay -> last-written receipt. A post-authority error
 writes one create-only failure only when neither receipt nor failure exists. No partial
 result is authoritative; no program bundle or factor tensor is published.
+
+Both terminal frozen-input replays (immediately before result publication and again
+before receipt publication) must re-read/hash/re-read all three parent JSON artifacts,
+run the exact inherited v2 result and receipt semantic validators, and require the
+parent failure path to remain absent. A late parent failure therefore prevents result
+or receipt authority rather than being omitted from the inherited input hash map.

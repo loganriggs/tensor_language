@@ -62,6 +62,9 @@ def test_parent_receipt_and_source_input_closure_are_exact():
     for path in (run.RUNNER, run.TEST, run.ADDENDUM, run.MATH_PREREG,
                  run.MATH_CORE, run.MATH_TEST):
         assert str(path.relative_to(run.ROOT)) in run.SOURCE_PATHS
+    for path in (run.parent_recovery.RUNNER, run.parent_recovery.TEST,
+                 run.parent_recovery.PREREG):
+        assert str(path.relative_to(run.ROOT)) in run.SOURCE_PATHS
 
 
 def test_pinned_parent_read_rejects_between_hash_drift(tmp_path, monkeypatch):
@@ -72,6 +75,31 @@ def test_pinned_parent_read_rejects_between_hash_drift(tmp_path, monkeypatch):
     monkeypatch.setattr(run.base, "file_sha256", lambda _path: next(observed))
     with pytest.raises(RuntimeError, match="changed while reading"):
         run._read_pinned_json(path, expected)
+
+
+def test_parent_exact_semantic_validator_is_invoked(monkeypatch):
+    def reject(*_args, **_kwargs):
+        raise RuntimeError("semantic sentinel")
+
+    monkeypatch.setitem(run._BASE_DEFAULTS, "semantic_validate_result", reject)
+    with pytest.raises(RuntimeError, match="semantic sentinel"):
+        run.verify_parent()
+
+
+def test_terminal_frozen_hook_rejects_late_parent_failure(tmp_path, monkeypatch):
+    failure = tmp_path / "late_parent_failure.json"
+    failure.write_text("{}")
+    monkeypatch.setattr(run, "PARENT_FAILURE", failure)
+    monkeypatch.setattr(run, "_INHERITED_VERIFY_FROZEN_INPUTS", lambda *_args, **_kwargs: None)
+    with pytest.raises(RuntimeError, match="parent byte closure"):
+        run.verify_frozen_inputs({}, verify_checkpoint_hash=False)
+
+
+def test_inherited_transaction_calls_frozen_hook_at_both_terminal_boundaries():
+    import inspect
+
+    source = inspect.getsource(run.base.run)
+    assert source.count("verify_frozen_inputs(frozen, verify_checkpoint_hash=True)") == 2
 
 
 def test_configuration_is_isolated_and_restorable():
@@ -251,6 +279,53 @@ def test_registered_gates_use_rolewise_covered_control_and_literal_endpoints():
     assert gates["covered_identity_control"] is True
     assert gates["literal_endpoint_controls"] is True
     assert gates["integrity_conjunction"] is True
+    assert gates["primary_global_budget_ce_qualifies"] is True
+    assert gates["primary_global_budget_pass"] is True
+
+    # A raw CE predicate remains reportable, but can never be laundered into pass
+    # when a control fails.
+    broken = deepcopy(arms)
+    first = next(iter(broken.values()))
+    first["roles"]["skip7000"]["covered"]["ce"] = 0.6
+    failed = run._result_gates(broken, run.base.COVERAGE)
+    assert failed["primary_global_budget_ce_qualifies"] is True
+    assert failed["primary_global_budget_pass"] is False
+    assert failed["typed_budget_pass"] is False
+    assert failed["integrity_conjunction"] is False
+
+
+def test_independent_parent_is_exact_same_storage_comparator_not_identity_gate():
+    arms = {}
+    for descriptor in run.arm_descriptors():
+        controls = {
+            "q0_zero_exact_price_independent": True if descriptor["shared_rank"] == 0 else None,
+            "zero_private_exact_global": True if descriptor["shared_rank"] == 512 else None,
+        }
+        arms[descriptor["name"]] = {
+            "roles": {role: _metric(2.0) for role in run.base.ROLE_PATHS},
+            "diagnostics": {"endpoint_controls": controls},
+        }
+    ledger = run.comparison_ledger(arms)
+    key = "q0_minus_parent_uniform_q512_ce"
+    assert all(key in ledger["independent_q512"][role] for role in run.base.ROLE_PATHS)
+    corrupt = deepcopy(ledger)
+    corrupt["independent_q512"]["skip7000"][key] += 1e-6
+    assert corrupt != run.comparison_ledger(arms)
+    assert run.arm_name("independent_q512", 0) not in {
+        run.arm_name("global_q512", 0), run.arm_name("global_q512", 512),
+        run.arm_name("typed_q512", 0),
+    }
+
+
+def test_zero_gap_downgrades_identification_to_compression_only(monkeypatch):
+    monkeypatch.setattr(run, "D", 4)
+    spectra = (torch.tensor([3., 2., 1.], dtype=torch.float64),)
+    identified, scope = run._identification_scope(1, spectra, (1,), 0.5, 0.0)
+    assert identified is False
+    assert scope == "compression_only_zero_or_unresolved_eigengap"
+    identified, scope = run._identification_scope(1, spectra, (1,), 0.5, 0.25)
+    assert identified is True
+    assert scope == "conditional_projector_identification"
 
 
 def test_authority_payload_is_nonauthoritative_discovery_and_binds_parent():

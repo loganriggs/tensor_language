@@ -28,6 +28,8 @@ import hierarchical_shared_private_rrr as hybrid
 import run_shared_output_rrr_real_v1 as base
 import run_shared_output_rrr_real_v2_recovery as parent_recovery
 
+_INHERITED_VERIFY_FROZEN_INPUTS = base.verify_frozen_inputs
+
 
 RUNNER = HERE / "run_hierarchical_shared_private_rrr_real_v1.py"
 TEST = HERE / "test_run_hierarchical_shared_private_rrr_real_v1.py"
@@ -534,6 +536,7 @@ def semantic_validate_diagnostics(value: Mapping[str, Any], descriptor: Mapping[
         "private_ranks_by_site",
         "residual_eigenvalues", "shared_boundary_eigengap",
         "private_boundary_eigengaps", "allocation_cutoff_eigengap",
+        "strictly_positive_gap_identification", "scientific_identification_scope",
         "combined_orthogonality_max_abs_float64", "map_float_count", "map_float_bytes",
         "common_table_float_count", "full_program_float_count", "full_program_float_bytes",
         "dense_multiplies_per_uncovered_token", "deployed_hash_receipt",
@@ -636,6 +639,14 @@ def semantic_validate_diagnostics(value: Mapping[str, Any], descriptor: Mapping[
         rel_tol=1e-12, abs_tol=1e-12,
     ):
         raise RuntimeError("hierarchical RRR residual fraction replay changed")
+    expected_identified, expected_scope = _identification_scope(
+        q0, spectra, private_ranks, expected_shared_gap,
+        _allocation_cutoff_gap(spectra, allocation.private_rank_slots),
+    )
+    if value["strictly_positive_gap_identification"] is not expected_identified or (
+        value["scientific_identification_scope"] != expected_scope
+    ):
+        raise RuntimeError("hierarchical RRR identification scope changed")
     for gap in (value["shared_boundary_eigengap"], *value["private_boundary_eigengaps"],
                 value["allocation_cutoff_eigengap"]):
         if gap is not None and (isinstance(gap, bool) or not isinstance(gap, (int, float))
@@ -670,6 +681,14 @@ def comparison_ledger(arms: Mapping[str, Any]) -> dict[str, Any]:
             for role in base.ROLE_PATHS:
                 comparison[role]["q128_minus_parent_typed_q512_ce"] = (
                     middle[role]["all"]["ce"] - other[role]["all"]["ce"]
+                )
+        elif budget == "independent_q512":
+            # Same literal storage, but not an identity: q0 uses the fit-optimal
+            # nonuniform allocation while the parent is uniform rank 512.
+            other = parent["independent_q512"]["roles"]
+            for role in base.ROLE_PATHS:
+                comparison[role]["q0_minus_parent_uniform_q512_ce"] = (
+                    endpoint[role]["all"]["ce"] - other[role]["all"]["ce"]
                 )
         output[budget] = comparison
     return output
@@ -721,9 +740,12 @@ def _result_gates(arms: Mapping[str, Any], coverage: int) -> dict[str, Any]:
         all(all(values.values()) for values in endpoint_replay.values()) and literal_endpoints
     )
     return {
-        "primary_global_budget_pass": primary,
-        "typed_budget_pass": typed,
-        "large_budget_diagnostic_pass": large,
+        "primary_global_budget_ce_qualifies": primary,
+        "typed_budget_ce_qualifies": typed,
+        "large_budget_diagnostic_ce_qualifies": large,
+        "primary_global_budget_pass": primary and integrity,
+        "typed_budget_pass": typed and integrity,
+        "large_budget_diagnostic_pass": large and integrity,
         "covered_identity_spread_by_role": covered_spread,
         "covered_identity_control": all(value <= 1e-6 for value in covered_spread.values()),
         "parent_endpoint_replay": endpoint_replay,
@@ -736,6 +758,16 @@ def _result_gates(arms: Mapping[str, Any], coverage: int) -> dict[str, Any]:
     }
 
 
+def verify_frozen_inputs(
+    value: Mapping[str, Any], *, verify_checkpoint_hash: bool,
+) -> None:
+    """Inherited frozen-input replay plus exact parent semantics and failure absence."""
+    _INHERITED_VERIFY_FROZEN_INPUTS(
+        value, verify_checkpoint_hash=verify_checkpoint_hash,
+    )
+    verify_parent()
+
+
 _BASE_DEFAULTS = {
     name: getattr(base, name) for name in (
         "PROTOCOL_VERSION", "AUTHORITY", "RESULTS", "FAILURE", "RECEIPT", "LOCK",
@@ -743,6 +775,7 @@ _BASE_DEFAULTS = {
         "expected_call_schedule", "authority_payload", "build_spectral_state",
         "fit_program", "AutonomousProgram", "expected_program_price",
         "semantic_validate_diagnostics", "comparison_ledger", "_result_gates",
+        "verify_frozen_inputs",
     )
 }
 
@@ -763,6 +796,7 @@ def configure_base() -> None:
         "semantic_validate_diagnostics": semantic_validate_diagnostics,
         "comparison_ledger": comparison_ledger,
         "_result_gates": _result_gates,
+        "verify_frozen_inputs": verify_frozen_inputs,
     }
     for name, value in assignments.items():
         setattr(base, name, value)
