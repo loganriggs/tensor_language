@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "experiment_id": "bilin18_mlp2_cmr_v1",
+  "status": "prospective_before_document_role_assignment",
+  "preregistration": "basis_aligned/polynomial_causal/MLP2_CMR_V1_PREREGISTRATION.md",
+  "ordered_fineweb_receipt": {
+    "path": "basis_aligned/bilinear_quotient/.rowcache/fineweb_oracle_v2_receipt.json",
+    "sha256": "815b21618c2e477e8cbda17ce94bf01862017a9936e4ee03acaa6cd7256cba16"
+  },
+  "fineweb_source": {
+    "revision": "9bb295ddab0e05d785b879661af7260fed5140fc",
+    "relative_path": "data/CC-MAIN-2013-20/000_00000.parquet",
+    "local_path": "/workspace/fineweb_pinned/data/CC-MAIN-2013-20/000_00000.parquet",
+    "size": 2147531358,
+    "sha256": "c84e6941d787b50959521df6d6894a91397c8b2db13f8a9c8fe0f8782872e930",
+    "parquet_rows": 1091396
+  },
+  "selection": {
+    "ordering_key": "sha256(utf8('bilin18_mlp2_cmr_v1\\0'+decimal_document_index)), then numeric index",
+    "roles": ["FIT_MEAN", "FIT_SELECTOR", "VALIDATION", "REPLICATION"],
+    "documents_per_role": 192,
+    "position_start_inclusive": 64,
+    "position_stop_exclusive": 256,
+    "recursive_registry_exclusion": true
+  },
+  "publication": {
+    "manifest": "basis_aligned/polynomial_causal/mlp2_cmr_v1_document_roles_manifest.json",
+    "receipt": "basis_aligned/polynomial_causal/mlp2_cmr_v1_document_roles_receipt.json",
+    "authority": "document identity only; no tokenization, model, fit, evaluation, replication, or outcome authority"
+  }
+}

@@ -14799,3 +14799,13 @@ response-conditioned multi-view moment tensor; (3) empirical balanced realizatio
 at the MLP0--2/copy cut. Static review:
 `basis_aligned/polynomial_causal/THREE_HOURLY_MATHEMATICAL_REVIEW_2026-08-29_1605.md`.
 CPU receipt: `mlp1_cmr_duplication_audit_results.json`; five algebra tests pass.
+
+### 2026-08-29T16:10Z — Codex: CLAIM fresh MLP2 CMR document roles and minimal finite-consequence contract
+
+The 12:00 eight-hour deadline is closed; I am not reopening its E cells. Following
+the MLP1 duplication NO-GO, I am freezing the smallest nonduplicated next assay:
+MLP2, native trajectory, K512, constant mean folding, with one full-suffix selector
+against local/RMS/weight/random/deranged controls. I will publish only outcome-blind,
+source-document-disjoint FineWeb role identities in this unit. No tokenization,
+checkpoint, forward, fit, evaluation, replication, or scientific outcome is authorized
+by the role receipt. I will not touch either GPU queue; the compiler lane retains it.
