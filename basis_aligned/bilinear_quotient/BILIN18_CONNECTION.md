@@ -57283,3 +57283,53 @@ much of the *prefix* is compiled. §1980's own baseline is the datum: 18 MLPs + 
 already sits at 9.266, so the fall happens somewhere between that and 36 sites. **The next question is
 which sites, added to a lone compiled mlp4, first bring it down — and whether the curve is a cliff or a
 slope.**
+
+## §1985 — the requirement is a CONTIGUOUS compiled prefix through attention 6, and seven sites beat thirty-six
+
+`ops/where_the_cliff_is.py`, **55.3s**, **DISCOVERY ONLY**, 5,419, rung 3 for §1984's open question and
+rung 2 for §1980's two published triples. **pred_a True | pred_b True | pred_c True | derived controls
+True.** Both reference deviations 0.000000.
+
+§1984 left two candidates for what §1980's fix needed beneath it — the attention layers below 6, or the
+other 17 MLPs. They separate cleanly:
+
+```
+  cost against the live model, nats, 5,419        % of the mlp4-alone penalty removed, down to full_program
+             mlp4    +attn6   +attn0-5  +attn0-6      attn6   attn0-5   attn0-6
+  skip7000   10.669  10.666    8.560     2.105         0.0%    26.8%    108.9%
+  skip11000  10.937  10.934    8.845     2.250         0.0%    26.3%    109.2%
+  skip1200   10.580  10.577    8.490     2.026         0.0%    26.5%    108.6%
+
+  §1980 rebuilt from scratch: baseline 9.266 / 9.531 / 9.141   fix 2.733 / 2.889 / 2.681
+  the full 36-site program:            2.808 / 2.979 / 2.702
+```
+
+> **pred_c PASSED 3/3 on both triples: §1980's numbers reproduce to the digit.** 9.266 / 9.531 / 9.141 and
+> 2.733 / 2.889 / 2.681, rebuilt from scratch under different labels with a 0.05-nat bar. §1980 was
+> measured correctly; §1984 was right that its *reach* was overstated, and §1985 shows why.
+
+> **pred_a PASSED and the answer is the attention prefix, not the MLPs.** Compiling attention 0–5 beneath
+> a compiled mlp4 — leaving attention 6 live — removes **26.5%**. Adding attention 6 on top of that
+> removes **108.9%**. **Seventeen MLPs stayed live throughout and it did not matter.**
+
+> **pred_b PASSED, and attention 6 remains a distinguished site.** The prefix alone buys 2.10 nats; the
+> prefix *plus* attention 6 buys 8.61. The step from `mlp4_a05` to `mlp4_a06` is **6.51 nats at pooled
+> t = −334.2** — the same cliff §1980 found, now shown to require the layers beneath it.
+
+**The rule, stated once.** A compiled site is safe when **every attention layer between it and attention 6
+inclusive is also compiled**. A compiled mlp4 with live attention below is catastrophic (10.67); close the
+prefix and it is cheap (2.11). This subsumes §1980, §1981's non-additivity, §1983's context-freeness and
+§1984's failed fix: the program does not need consistency everywhere, it needs an **unbroken context-free
+path to attention 6**.
+
+**And it is now the cheapest configuration on record — which is the fork, not a recommendation.**
+`mlp4_a06` compiles **seven sites** and costs **2.105 / 2.250 / 2.026**, beating the full 36-site program
+by **0.703 nats at pooled t = −151.3** and §1980's fix by **0.637 at t = −130.4**. **I am not taking it.**
+With attention 7–17 live it is not a pure function of the current token, so every §1765-derived result
+stops holding — the identical architectural fork raised at §1979/§1981 and still with Logan, now worth
+**0.70 nats rather than 0.30**. The shipped frame remains full compilation until that is ruled on.
+
+**Open.** The rule names attention 6 as the endpoint but does not say why layer 6 and not another. The
+cheap test is whether the same contiguity rule holds for a compiled site *above* 6 — a lone compiled
+mlp12, which has no attention 6 between it and the interface — and whether its own prefix requirement
+points at layer 6 or at nothing at all.
