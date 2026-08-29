@@ -41,6 +41,10 @@ def _bound(scope, fn=None):
             loc |= {a.asname or a.name.split('.')[0] for a in n.names}
         if isinstance(n, ast.FunctionDef) and n is not scope:  # LESSONS 21 fix 3a
             loc.add(n.name); loc |= _args(n)
+        # ClassDef was never registered, so any function referring to a module-level class read as
+        # undefined. Surfaced 2026-08-29 by bqlib's Ctx/Program; no script had defined a class before.
+        if isinstance(n, ast.ClassDef) and n is not scope:
+            loc.add(n.name)
         if isinstance(n, ast.Lambda):                          # LESSONS 21 fix 3b
             loc |= _args(n)
         if isinstance(n, (ast.For, ast.comprehension)):
@@ -89,7 +93,9 @@ def gate(path):
     except SyntaxError as e:
         return [f'SYNTAX ERROR: {e}']
 
-    mod = {n.name for n in tree.body if isinstance(n, ast.FunctionDef)}
+    # ClassDef too: a function referring to a module-level class read as undefined, because this
+    # set only ever collected functions. No script defined a class until bqlib's Ctx.
+    mod = {n.name for n in tree.body if isinstance(n, (ast.FunctionDef, ast.ClassDef))}
     for n in tree.body:
         if isinstance(n, ast.Assign):
             mod |= _targets(n)
@@ -187,7 +193,9 @@ def gate(path):
     # intervals, and my own amended whole_model_v1_floor does the same. Three was a floor
     # against under-registering, never a ceiling; enforcing it as a ceiling penalised adding
     # MORE falsifiable content. Distinctness and the a/b/c core are still required.
-    keys = re.findall(r"'(pred_[A-Za-z0-9_]+)':", s)
+    # A predicate key appears either as a dict key ('pred_a_x': bool) in a hand-written script, or as
+    # the first element of a (key, registered text, fn) triple in a B.run() declaration. Both count.
+    keys = re.findall(r"'(pred_[A-Za-z0-9_]+)'\s*[,:]", s)
     letters = {k.split("_")[1] for k in keys}
     # 2026-08-29: ops/bqlib.py introduced a THIRD file class -- a shared library that no experiment
     # result comes out of. The predicate rules exist to stop an EXPERIMENT shipping unregistered; they
@@ -229,6 +237,18 @@ def gate(path):
         if len(lines) > 1:
             fails.append(f'module-level `{nm}` is assigned {len(lines)} times at lines '
                          f'{lines} -- the last one silently wins; a fork usually left the earlier one')
+
+    # In a B.run() declaration a predicate is (key, registered text, fn). Three of this session's
+    # failures were code that did not implement its own docstring (S1952's eff_rank inverted a result;
+    # S1962's registered clause never ran), which is only possible when the words and the code are
+    # separate objects. Here they are one tuple, so the gate can require the text to be real.
+    for m in re.finditer(r"\(\s*'(pred_[A-Za-z0-9_]+)'\s*,\s*(.{0,40})", s, re.S):
+        tail = m.group(2).lstrip()
+        if not tail.startswith(("'", '"')):
+            fails.append(f"{m.group(1)} is declared as a tuple but its second element is not a "
+                         f"registered text string -- the words and the code must travel together")
+        elif len(tail.strip("'\"").strip()) < 12:
+            fails.append(f'{m.group(1)} has a registered text under 12 characters -- write the claim')
 
     # site consistency (LESSONS 20: forward extent must match the component set)
     st = re.search(r'SITE_STOP = (\d+)', s)

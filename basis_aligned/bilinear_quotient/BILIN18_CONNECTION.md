@@ -56187,3 +56187,60 @@ artifact (below). Forty-seventh clean reading.
 > `ops/test_fast.py` checks both the raise and the explicit path. And the gate learned that a
 > **module-level lowercase name assigned twice** is a fork leftover: 7 of 245 scripts flagged, every one
 > genuine, 0 false positives — which is what exposed §1962's overwritten control.
+
+## §1964 — §1963 confirmed on the build we would actually ship, and the first experiment written as a declaration
+
+`ops/tilt_shipped_declarative.py`, **4.6s**, **DISCOVERY ONLY**, 5,419, **rung 2** — §1963 at the
+operating point that matters. **All three predicates TRUE, derived controls TRUE.** Figures from the
+result JSON (LESSON 85).
+
+§1963 tested the per-token α at §1960's **compromise** allocation. The deployed-coverage build
+§1957/§1959 arrived at is {mlp 768, attn 384} with a rank-640 map, and the conclusion had never been
+checked there — a claim measured on a build nobody ships is weaker than it reads.
+
+```
+  5,419, {mlp 768, attn 384}, rank-640 map      0-0 kept    ΔCE vs flat α=0.30
+    flat30            189.5M                      .0360 / .0588 / .0317        —
+    pat20_30m640      189.7M                      .0360 / .0606 / .0317   +0.64 / +0.02 / +1.29m
+    pat10_40m640      189.7M                      .0386 / .0617 / .0342   +2.30 / +1.45 / +2.94m
+```
+
+> **All three reproduce §1963 on the shipped build.** The tilt raises the unseen bucket (+0.26 / +0.29 /
+> +0.25pp for the widest), the widest tilt beats the narrowest on 3/3, and it **still costs +1.45 to
+> +2.94 milli-nats** — above the 0.002-nat bar on 2 of 3 roles. **§1963's negative was not an artefact of
+> the compromise allocation.** The unseen-target deficit stands as the structural price of the blend
+> across five attempts, two coverages and two allocations.
+
+**And this is the first experiment written as a declaration rather than a fork.** `ops/bqlib.py` gained
+`run()`: an experiment supplies a `PLAN`, a list of `(key, registered text, fn)` predicates and its
+reference anchors, and nothing else. **66 lines against the hand-forked version's 225.**
+
+> **The fork it replaces died, and died of exactly the thing the runner removes.**
+> `ops/tilt_on_the_shipped_build.py` — the same experiment, hand-forked — crashed on
+> `ncov['c16110']`: a two-coverage control clause inherited into a single-coverage fork. That is the
+> **eighth** distinct fork-residue failure of the session, after five dropped string keys, four inherited
+> control polarities, three doubled assignments, a stale coverage clause and two fabricated reference
+> triples. **In the declarative form the covered-input control is derived from the plan and the coverage
+> check is generated, so neither clause exists to be left behind.**
+
+> **What the runner makes structurally impossible, rather than merely checked.** The control polarity is
+> read off the plan (`inertness_pairs`), so it cannot be inherited backwards. The coverage assertion is
+> generated from the declared coverages. The reference anchor is read from the artifact that published
+> it. A predicate's registered text and its code are **one tuple**, so they cannot drift — three of this
+> session's failures were code that did not implement its own docstring. And an empty side of the
+> two-sided control is a **FAIL**, not a silent pass (§1957).
+
+**Measured cost of the problem this addresses.** The GPU is now **6% of wall-clock and authoring 94%**
+(15.1× GPU time, median 618s between runs); **90% of the 1,773 scripts ever run were run exactly once**;
+a hand-forked experiment is ~224 lines of which ~150 get edited. **Every failure this session came out of
+those edits, and none of them was a thinking error.**
+
+**Three gate gaps surfaced while building it, all fixed and locked by fixtures in `ops/test_fast.py`:**
+a module-level **class** name read as undefined (`mod` collected only `FunctionDef` — no script had ever
+defined a class); tuple-form predicate keys were invisible to the key regex; and a predicate declared as
+a tuple whose second element is not a real registered text is now a FAIL. **Corpus regression on each:
+exactly one verdict changed, the intended file.**
+
+**Open.** `run()` has been exercised on one experiment. The 1,601 single-use scripts remain, and until a
+second and third experiment are written against it the claim that it removes the fork is a claim about
+one data point.

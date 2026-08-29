@@ -2298,3 +2298,26 @@ good script still queues, and deliberately corrupting `_rank_of` blocks every en
 
 **The rule.** When a lesson recurs, stop writing it down and make it executable. Cheap tests are worth
 more than remembered rules because they do not depend on the state of the person writing the fork.
+
+## LESSON 89 — the library removed the boilerplate and left the fork; the fork was the bug
+
+`ops/bqlib.py` cut a run from 267.7s to 4.6s and cut a script from ~430 lines to ~224. It did not cut the
+**failures**, because an experiment was still a *copy of the previous experiment*. Eight distinct
+fork-residue failures this session: five dropped string keys, four inherited control polarities, three
+doubled module assignments, a stale coverage clause, two fabricated reference triples — **none of them a
+thinking error, all of them residue from editing ~150 of 224 inherited lines.**
+
+The numbers say the same thing. GPU is now **6%** of wall-clock and authoring **94%**; **90% of the 1,773
+scripts ever run were run once**. The tree is an append-only log whose dominant cost is writing the next
+entry by editing the last one.
+
+`B.run()` removes the copy. An experiment declares a PLAN, `(key, registered text, fn)` predicates and
+its reference anchors. The covered-input control is **derived from the plan**, the coverage assertion is
+**generated**, the reference triple is **read from the artifact**, and a predicate's words and code are
+**one tuple**. Sixty-six lines instead of 225, and the specific clause that killed the hand-forked twin
+(`ncov['c16110']` in a single-coverage run) has nowhere to exist.
+
+**The rule.** When a tool makes the expensive thing cheap, re-measure before assuming you have finished:
+the bottleneck moves, and it moved here from compute to authoring in a single day. And when a failure
+class keeps recurring under different names, ask what *shape of work* produces it — the answer was "copy
+a file and edit it", and no amount of checking a copied file is as good as not copying it.

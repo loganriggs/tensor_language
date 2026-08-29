@@ -1,0 +1,27 @@
+TILT ON THE SHIPPED BUILD | ('pat10_40m640', 'pat20_30m640') at {'mlp': 768, 'attn': 384} | 5,419 | DISCOVERY ONLY
+
+########## COVERAGE 5419 ##########
+  [bqlib] coverage 5419 from fineweb_n96_skip80.pt: 36 tables, neighbour index and map solver built (4s)
+  [bqlib] cache HIT  live     skip7000
+  [bqlib] cache HIT  live     skip11000
+  [bqlib] cache HIT  live     skip1200
+  [bqlib] computed   mix30m640 skip7000 (2.5s)
+  [bqlib] computed   mix30m640 skip11000 (1.3s)
+  [bqlib] computed   mix30m640 skip1200 (0.6s)
+  [bqlib] cache HIT  mix25m640 skip7000
+  [bqlib] cache HIT  mix25m640 skip11000
+  [bqlib] cache HIT  mix25m640 skip1200
+  [bqlib] cache HIT  mix25m512 skip7000
+  [bqlib] cache HIT  mix25m512 skip11000
+  [bqlib] cache HIT  mix25m512 skip1200
+  [bqlib] computed   pat10_40m640 skip7000 (3.8s)
+  [bqlib] computed   pat10_40m640 skip11000 (1.3s)
+  [bqlib] computed   pat10_40m640 skip1200 (0.6s)
+  [bqlib] computed   pat20_30m640 skip7000 (3.8s)
+  [bqlib] computed   pat20_30m640 skip11000 (1.3s)
+  [bqlib] computed   pat20_30m640 skip1200 (0.7s)
+Traceback (most recent call last):
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/tilt_on_the_shipped_build.py", line 193, in <module>
+    pd = (ncov['c5419'] == 5419 and ncov['c16110'] == 16110 and moves and bool(partition)
+                                    ~~~~^^^^^^^^^^
+KeyError: 'c16110'

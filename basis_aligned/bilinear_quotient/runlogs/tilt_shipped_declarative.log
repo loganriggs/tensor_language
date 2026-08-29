@@ -1,0 +1,31 @@
+TILT SHIPPED DECLARATIVE | 5 arms x 1 coverage(s) | DISCOVERY ONLY
+
+########## COVERAGE 5419 ##########
+  [bqlib] coverage 5419 from fineweb_n96_skip80.pt: 36 tables, neighbour index and map solver built (4s)
+  [bqlib] cache HIT  live     skip7000
+  [bqlib] cache HIT  live     skip11000
+  [bqlib] cache HIT  live     skip1200
+  [bqlib] cache HIT  mix30m640 skip7000
+  [bqlib] cache HIT  mix30m640 skip11000
+  [bqlib] cache HIT  mix30m640 skip1200
+  [bqlib] cache HIT  mix25m640 skip7000
+  [bqlib] cache HIT  mix25m640 skip11000
+  [bqlib] cache HIT  mix25m640 skip1200
+  [bqlib] cache HIT  pat10_40m640 skip7000
+  [bqlib] cache HIT  pat10_40m640 skip11000
+  [bqlib] cache HIT  pat10_40m640 skip1200
+  [bqlib] cache HIT  pat20_30m640 skip7000
+  [bqlib] cache HIT  pat20_30m640 skip11000
+  [bqlib] cache HIT  pat20_30m640 skip1200
+  [bqlib] cache HIT  mix25m512 skip7000
+  [bqlib] cache HIT  mix25m512 skip11000
+  [bqlib] cache HIT  mix25m512 skip1200
+
+  the tilt still raises the unseen bucket on the shipped build (>=2 roles)  -> True
+  and it STILL costs >0.002 nats of pooled CE (>=2 roles) -- §1963 reproduced  -> True
+  and the widest tilt still beats the narrowest (>=2 roles)  -> True
+  derived controls -> True   coverage_exact=True  inert_pairs_are_inert=True  differing_pairs_do_move=True  buckets_partition=True  live_identical=True  ref_flat25=True
+  reference deviations: flat25 0.000000
+
+pred_a True | pred_b True | pred_c True | pred_z True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/tilt_shipped_declarative_results.json (4.6s)

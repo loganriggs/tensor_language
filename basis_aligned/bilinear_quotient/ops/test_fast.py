@@ -196,6 +196,35 @@ def main():
     json.dump({'pred_a_x': True, 'pred_b_y': True}, open('/dev/null', 'w'))
 main()
 '''),
+    ('a function referring to a module-level class', True, '''
+import json
+class Thing:
+    pass
+def make():
+    return Thing()
+def main():
+    json.dump({'pred_a_x': True, 'pred_b_y': True, 'pred_c_z': bool(make())}, open('/dev/null', 'w'))
+main()
+'''),
+    ('a B.run() declaration with real registered text', True, '''
+import json
+PREDS = [('pred_a_thing', 'the thing happens on at least two roles', lambda x: True),
+         ('pred_b_other', 'and the other thing does not', lambda x: True),
+         ('pred_c_third', 'and the third thing is bounded', lambda x: True)]
+def main():
+    json.dump({k: v(None) for k, _t, v in PREDS}, open('/dev/null', 'w'))
+main()
+'''),
+    ('a B.run() predicate whose registered text is missing', False, '''
+import json
+PREDS = [('pred_a_thing', lambda x: True),
+         ('pred_b_other', 'and the other thing does not', lambda x: True),
+         ('pred_c_third', 'and the third thing is bounded', lambda x: True)]
+def main():
+    json.dump({k: True for k in ('pred_a_thing', 'pred_b_other', 'pred_c_third')},
+              open('/dev/null', 'w'))
+main()
+'''),
     ('a clean minimal experiment', True, '''
 import json
 def main():

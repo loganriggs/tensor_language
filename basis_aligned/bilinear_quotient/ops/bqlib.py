@@ -652,3 +652,151 @@ def report(preds, payload, out_path, t0):
     print('\n' + ' | '.join(f'{k.split("_")[0]}_{k.split("_")[1]} {bool(v)}'
                             for k, v in preds.items()), flush=True)
     print(f'wrote {out_path} ({time.time() - t0:.1f}s)', flush=True)
+
+
+# ---------------------------------------------------------------- the declarative runner
+#
+# WHY THIS EXISTS. Measured 2026-08-29: the GPU is now 6% of wall-clock and agent authoring is 94%
+# (15.1x GPU time, median 618s between runs), because bqlib made compute nearly free and left the FORK
+# in place. 90% of the 1,773 scripts ever run were run exactly once, and a new one is ~224 lines of which
+# ~150 get edited. Every failure this session came out of those edits: five dropped string keys, four
+# inherited control polarities, three doubled assignments, a stale coverage clause, two fabricated
+# reference triples. None of them is a thinking error; all of them are fork residue.
+#
+# run() removes the fork. An experiment declares a PLAN, a list of (key, registered text, fn) predicates
+# and its reference anchors, and nothing else -- so there are no inherited lines to leave behind, the
+# covered-input control is DERIVED rather than written, and a predicate's text and its code are one
+# object and cannot drift apart.
+
+class Ctx:
+    """What a predicate gets. Every accessor here is something experiments were re-implementing."""
+
+    def __init__(self, res, paired, cost, coverages, roles):
+        self.res, self._paired, self._cost = res, paired, cost
+        self.coverages = [c[0] for c in coverages]
+        self.roles = list(roles)
+        self.buckets = [f'{x}-{y}' for x, y in BUCKETS]
+        self.bot, self.top = self.buckets[0], self.buckets[-1]
+
+    def ce(self, cov, role, arm, cls='pooled', bucket='overall'):
+        return self.res[cov][role][arm][cls][bucket]['ce_prog']
+
+    def ov(self, cov, role, arm, cls='pooled'):
+        return self.res[cov][role][arm][cls]['overall']['top1_acc_prog']
+
+    def kf(self, cov, role, arm, bucket, cls='pooled'):
+        return self.res[cov][role][arm][cls][bucket]['kept_fraction']
+
+    def t(self, cov, role, a, b):
+        """paired t of arm a against arm b, per position."""
+        return self._paired[cov][role][(a, b)]['t']
+
+    def cost(self, cov, arm):
+        return self._cost[(cov, arm)]
+
+    def count(self, fn, cov=None):
+        """How many roles satisfy fn(role) -- the '>=2 of 3' idiom, written once."""
+        covs = self.coverages if cov is None else [cov]
+        return {c: sum(1 for r in self.roles if fn(c, r)) for c in covs}
+
+
+def run(name, plan, predicates, coverages=(('c5419', FIT_5419, 5419),), refs=(), roles=ROLES,
+        paired_pairs=(), out=None):
+    """Score a PLAN and evaluate registered predicates. The controls are derived, not written.
+
+    plan        : [(arm, table_rank, label), ...]
+    predicates  : [(key, registered_text, fn(ctx) -> bool), ...]   key must be pred_<letter>_<slug>
+    coverages   : [(tag, fit_path, expected_ncov), ...]
+    refs        : [(label, results_json, arm, coverage_or_None, tol), ...] reproduction anchors, read
+                  with ref() so a published triple is never retyped
+    paired_pairs: [(a, b), ...] extra arm pairs to compute a paired t for; the refs and the control
+                  pairs are added automatically
+    """
+    t0 = time.time()
+    out = out or (PT + f'ops/{name}_results.json')
+    spec = {lab: (a, tr) for a, tr, lab in plan}
+    labels = [lab for _a, _tr, lab in plan]
+    inert, differ = inertness_pairs(plan)
+    want_t = set(paired_pairs) | set(inert) | set(differ)
+    print(f'{name.upper().replace("_", " ")} | {len(labels)} arms x {len(coverages)} coverage(s) | '
+          f'DISCOVERY ONLY', flush=True)
+
+    res, paired, cost, ncov, chg = {}, {}, {}, {}, {}
+    for tag, fit, nc in coverages:
+        print(f'\n########## COVERAGE {nc} ##########', flush=True)
+        P = Program(fit, expect_ncov=nc)
+        live = score_roles(P, None)
+        arms = {lab: score_roles(P, spec[lab][0], table_rank=spec[lab][1]) for lab in labels}
+        res[tag], paired[tag], chg[tag] = {}, {}, {}
+        for role in roles:
+            tgt, icov = axes(P, role)
+            res[tag][role] = {lab: cells(P, tgt, icov, live[role], arms[lab][role]) for lab in labels}
+            paired[tag][role] = {(a, b): paired_t(arms[a][role][1], arms[b][role][1])
+                                 for a, b in want_t}
+            chg[tag][role] = {(a, b): int(((arms[a][role][0] != arms[b][role][0]) & icov).sum())
+                              for a, b in inert + differ}
+        ncov[tag] = P.ncov
+        cost.update({(tag, lab): P.cost(spec[lab][0], spec[lab][1]) / 1e6 for lab in labels})
+        del P, live, arms
+        torch.cuda.empty_cache()
+
+    ctx = Ctx(res, paired, cost, coverages, roles)
+
+    # ---- derived controls. Nobody writes these, so nobody writes them backwards.
+    ctl = {'coverage_exact': all(ncov[t] == n for t, _f, n in coverages),
+           'inert_pairs_are_inert': all(chg[c][r][p] == 0 for c in chg for r in chg[c] for p in inert),
+           'differing_pairs_do_move': all(chg[c][r][p] > 0 for c in chg for r in chg[c] for p in differ),
+           'buckets_partition': all(
+               sum(res[c][r][lab]['pooled'][b]['n'] for b in ctx.buckets)
+               == res[c][r][lab]['pooled']['overall']['n']
+               for c in res for r in roles for lab in labels),
+           'live_identical': max(
+               abs(res[c][r][lab][cl][b]['ce_live'] - res[c][r][labels[0]][cl][b]['ce_live'])
+               for c in res for r in roles for lab in labels
+               for cl in ('covered_input', 'uncovered_input', 'pooled')
+               for b in ctx.buckets + ['overall']) <= 1e-9}
+    refdev = {}
+    for lab, path, arm, cov, tol in refs:
+        want = ref(path, arm, coverage=cov)
+        got = tuple(ctx.ce(coverages[0][0], r, lab) for r in roles)
+        refdev[lab] = max(abs(a - b) for a, b in zip(got, want))
+        ctl[f'ref_{lab}'] = refdev[lab] <= tol
+    if not inert or not differ:
+        ctl['control_is_two_sided'] = False          # inertness_pairs already warned; make it a FAIL
+
+    verdict = {}
+    for key, text, fn in predicates:
+        try:
+            verdict[key] = bool(fn(ctx))
+        except Exception as exc:
+            print(f'  PREDICATE {key} CRASHED: {type(exc).__name__}: {exc}', flush=True)
+            verdict[key] = False
+    verdict['pred_z_controls'] = all(ctl.values())
+
+    print('', flush=True)
+    for key, text, _fn in predicates:
+        print(f'  {text}  -> {verdict[key]}', flush=True)
+    print(f'  derived controls -> {verdict["pred_z_controls"]}   ' +
+          '  '.join(f'{k}={v}' for k, v in ctl.items()), flush=True)
+    if refdev:
+        print('  reference deviations: ' + '  '.join(f'{k} {v:.6f}' for k, v in refdev.items()),
+              flush=True)
+
+    payload = {'config': {'name': name, 'plan': [[a, str(tr), lab] for a, tr, lab in plan],
+                          'coverages': [c[2] for c in coverages], 'costs_M': {
+                              f'{c}|{lab}': v for (c, lab), v in cost.items()},
+                          'inert_pairs': [list(p) for p in inert],
+                          'differing_pairs': [list(p) for p in differ],
+                          'ROLE_NOTE': 'DISCOVERY ONLY'},
+               'registered_predicates': {k: t for k, t, _ in predicates},
+               'results': {c: {r: {lab: {cl: {b: {k: (round(v, 6) if isinstance(v, float) else v)
+                                                  for k, v in res[c][r][lab][cl][b].items()}
+                                              for b in res[c][r][lab][cl]}
+                                         for cl in res[c][r][lab]} for lab in labels}
+                               for r in roles} for c in res},
+               'paired': {c: {r: {f'{a}|{b}': paired[c][r][(a, b)] for a, b in want_t}
+                              for r in roles} for c in paired},
+               'controls': {k: (bool(v) if not isinstance(v, float) else v) for k, v in ctl.items()},
+               'reference_deviation': refdev}
+    report(verdict, payload, out, t0)
+    return verdict
