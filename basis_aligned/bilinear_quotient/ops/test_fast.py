@@ -117,6 +117,30 @@ def test_paired_t_arithmetic():
     check('paired_t: counts every position and every nonzero', p['n'] == 4 and p['n_nonzero'] == 4)
 
 
+def test_penalty_accessor():
+    """Ctx.penalty is ce_prog - ce_live -- the number S1977-S1983 all published and all re-implemented."""
+    res = {'c': {'r': {'a': {'pooled': {'overall': {'ce_prog': 12.5, 'ce_live': 1.5}}}}}}
+    x = B.Ctx(res, {}, {}, [('c', '', 0)], ['r'])
+    check('penalty: ce_prog - ce_live', abs(x.penalty('c', 'r', 'a') - 11.0) < 1e-9,
+          str(x.penalty('c', 'r', 'a')))
+
+
+def test_composite_arm_grammar():
+    """S1983 named the limit: run() applies ONE arm per plan entry, so `mean mlp4 + compiled attn6` --
+    the intervention S1980's account actually predicts -- could not be expressed. `A@mlp4+B@attn6` can."""
+    check('composite: names its sites', B.composite_sites('meanrow@mlp4+mix30m640@attn6')
+          == [('mlp', 4), ('attn', 6)], str(B.composite_sites('meanrow@mlp4+mix30m640@attn6')))
+    check('composite: a plain arm is not composite', B.composite_sites('mix30m640') is None)
+    check('composite: whole-table if ANY part is', B.is_whole_table('meanrow@mlp4+mix30m640@attn6'))
+    check('composite: not whole-table if no part is', not B.is_whole_table('map512@mlp4+nn@attn6'))
+    for bad in ('meanrow@mlp99', 'meanrow@frobnicate3', 'meanrow@mlp4+nosite'):
+        try:
+            B.composite_sites(bad)
+            check(f'composite: rejects {bad}', False, 'parsed without error')
+        except ValueError:
+            check(f'composite: rejects {bad}', True)
+
+
 def test_whole_table_arms_are_not_fallback_variants():
     """S1983: `meanrow` replaces EVERY row, covered ones included, so it is not a fallback variant and
     the covered-input inertness guarantee does not hold between it and one. Pairing them as same-spec
@@ -351,7 +375,7 @@ def test_gate_accepts_the_library_itself():
           out.stdout.strip()[-120:])
 
 
-for fn in (test_whole_table_arms_are_not_fallback_variants, test_inert_side_of_the_control_is_still_strict, test_site_subsets_change_the_cache_key, test_no_build_level_comparison_is_vote_dependent, test_pooled_t_weights_by_evidence, test_every_ref_path_exists, test_ref_refuses_to_guess_a_coverage, test_rk_key_is_order_independent, test_inertness_pairs_splits_by_table_rank,
+for fn in (test_penalty_accessor, test_composite_arm_grammar, test_whole_table_arms_are_not_fallback_variants, test_inert_side_of_the_control_is_still_strict, test_site_subsets_change_the_cache_key, test_no_build_level_comparison_is_vote_dependent, test_pooled_t_weights_by_evidence, test_every_ref_path_exists, test_ref_refuses_to_guess_a_coverage, test_rk_key_is_order_independent, test_inertness_pairs_splits_by_table_rank,
            test_inertness_pairs_warns_when_a_side_is_vacuous, test_ref_reads_published_triples,
            test_paired_t_arithmetic, test_cost_matches_the_published_closed_form,
            test_arm_names_parse_the_way_the_grammar_says, test_gate_fixtures,

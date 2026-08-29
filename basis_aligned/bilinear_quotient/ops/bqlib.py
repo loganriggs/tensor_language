@@ -265,6 +265,22 @@ class Program:
 
     def arm(self, name, table_rank=None):
         """Full (V, D) substitution rows per site for one arm. `name` as documented on the class."""
+        if AT in name:
+            # S1983 asked whether S1980's fix (compiling attention 6) still applies when mlp4 carries a
+            # MEAN row rather than its compiled table, and could not say it: run() applies ONE arm to the
+            # whole substituted set, so the attn6 arm got the mean row too and the predicate measured a
+            # different intervention. `A@mlp4+B@attn6` gives each named site its own arm. Sites named by
+            # no part take the FIRST part's rows -- run() requires a composite's `sites` to be exactly the
+            # named union, so that default is never what gets hooked.
+            parts = [q.split(AT, 1) for q in name.split(COMPOSE)]
+            if any(len(q) != 2 for q in parts):
+                raise ValueError(f'composite arm {name!r}: each part must be <arm>@<site>[,<site>]')
+            out = self.arm(parts[0][0], table_rank)
+            for sub, sitestr in parts:
+                rows = self.arm(sub, table_rank)
+                for st in _parse_sites(sitestr):
+                    out[st] = rows[st]
+            return out
         tc = self._tables_at(table_rank)
         out = {}
         if name == 'nn':
@@ -442,6 +458,45 @@ def _fingerprint(prog, armname, table_rank, sites=None):
     return f'{armname}|{_rk_key(table_rank)}|{_sites_key(sites)}|' + prog.digest[:16]
 
 
+COMPOSE, AT = '+', '@'
+WHOLE_TABLE_ARMS = ('meanrow',)
+
+
+def _parse_sites(text):
+    """'mlp4,attn6' -> [('mlp', 4), ('attn', 6)]. Raises on anything not a real site."""
+    out = []
+    for tok in text.split(','):
+        for k in ('mlp', 'attn'):
+            if tok.startswith(k) and tok[len(k):].isdigit():
+                st = (k, int(tok[len(k):]))
+                if st not in SITES:
+                    raise ValueError(f'no such site {tok!r}')
+                out.append(st)
+                break
+        else:
+            raise ValueError(f'cannot parse site {tok!r}')
+    return out
+
+
+def composite_sites(armname):
+    """The sites a composite arm names, or None if it is not composite."""
+    if AT not in armname:
+        return None
+    out = []
+    for q in armname.split(COMPOSE):
+        if AT not in q:
+            raise ValueError(f'composite arm {armname!r}: part {q!r} has no {AT!r}')
+        out.extend(_parse_sites(q.split(AT, 1)[1]))
+    return out
+
+
+def is_whole_table(armname):
+    """Does this arm replace COVERED rows too? Then it is not a fallback variant and the covered-input
+    inertness guarantee (S1765/S1936) does not hold between it and one -- see S1983."""
+    parts = [q.split(AT, 1)[0] for q in armname.split(COMPOSE)] if AT in armname else [armname]
+    return any(q in WHOLE_TABLE_ARMS for q in parts)
+
+
 def _sites_key(sites):
     """S1977: an arm may substitute only SOME of the 36 sites, leaving the rest live. The subset is
     part of what the rows mean, so it is part of the cache key and the fingerprint."""
@@ -602,8 +657,7 @@ def inertness_pairs(plan):
     # UNCOVERED rows -- are inert at covered inputs. It does not hold for arms that also change the
     # COVERED rows. `meanrow` replaces every row including covered ones, so it is not a fallback variant
     # and must not be paired as same-spec with one. S1983's control failed on exactly that, correctly.
-    WHOLE_TABLE = {'meanrow'}
-    spec = {lab: (_rk_key(tr), _sites_key(si), a in WHOLE_TABLE)
+    spec = {lab: (_rk_key(tr), _sites_key(si), is_whole_table(a))
             for a, tr, lab, si in plan}
     labs = [lab for _a, _tr, lab, _si in plan]
     inert, differ = [], []
@@ -741,6 +795,14 @@ class Ctx:
     def tpool_full(self, cov, a, b):
         return self._pooled[cov][(a, b)]
 
+    def penalty(self, cov, role, arm, cls='pooled', bucket='overall'):
+        """What the program pays over the live model, in nats: ce_prog - ce_live.
+
+        This is the number S1977-S1983 published in every table, and each of those seven scripts wrote
+        its own three-line `_cost` helper for it. Note `cost` below is the unrelated PARAMETER price."""
+        o = self.res[cov][role][arm][cls][bucket]
+        return o['ce_prog'] - o['ce_live']
+
     def cost(self, cov, arm):
         return self._cost[(cov, arm)]
 
@@ -766,6 +828,15 @@ def run(name, plan, predicates, coverages=(('c5419', FIT_5419, 5419),), refs=(),
     out = out or (PT + f'ops/{name}_results.json')
     # a plan entry is (arm, table_rank, label) or (arm, table_rank, label, sites)
     plan = [tuple(p) + (None,) * (4 - len(p)) for p in plan]
+    for a, _tr, lab, si in plan:
+        cs = composite_sites(a)
+        if cs is None:
+            continue
+        # A composite arm names its own sites. If `sites` disagreed, the hooked set and the arm's
+        # intent would differ silently -- exactly the failure mode S1983's pred_c had. Refuse the plan.
+        if si is None or sorted(set(map(tuple, si))) != sorted(set(cs)):
+            raise ValueError(f"arm {lab!r}: composite {a!r} names sites {sorted(set(cs))} but the plan "
+                             f"declares {si!r}; they must be the same set")
     spec = {lab: (a, tr, si) for a, tr, lab, si in plan}
     labels = [lab for _a, _tr, lab, _si in plan]
     inert, differ = inertness_pairs(plan)
@@ -794,7 +865,11 @@ def run(name, plan, predicates, coverages=(('c5419', FIT_5419, 5419),), refs=(),
                                         torch.cat([arms[b][r][1] for r in roles]))
                        for a, b in want_t}
         ncov[tag] = P.ncov
-        cost.update({(tag, lab): P.cost(spec[lab][0], spec[lab][1]) / 1e6 for lab in labels})
+        # A composite arm has no single shippable price -- its parts are different fallbacks -- and any
+        # number recorded here would be a fabricated one. Record None and let a predicate that wants a
+        # price fail loudly on it rather than quietly compare against a made-up figure.
+        cost.update({(tag, lab): (None if composite_sites(spec[lab][0]) is not None
+                                  else P.cost(spec[lab][0], spec[lab][1]) / 1e6) for lab in labels})
         del P, live, arms
         torch.cuda.empty_cache()
 

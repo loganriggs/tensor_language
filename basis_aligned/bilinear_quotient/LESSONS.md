@@ -2409,3 +2409,24 @@ will be used to justify — "ship X instead of Y", "spend here not there" — an
 units that sentence needs. A spending question needs a rate. A shipping question needs a magnitude. A
 believability question needs σ. **Three questions, three units, and the predicate must name which one it
 is answering.**
+
+## LESSON 94 — a predicate can be MIS-SPECIFIED rather than false, and that is a different verdict
+
+§1983's pred_c read "compiling attention 6 as well removes most of it under the null" and came back FALSE.
+It was not false. `run()` applies **one arm per plan entry**, so the arm meant to compile attention 6 gave
+it the **mean row** instead — a different intervention. The predicate measured something real, just not
+what its registered text said.
+
+**The tell was in the numbers, not the verdict.** `mean_mlp4_attn6` came out at 10.675 / 10.942 / 10.585
+against `mean_mlp4`'s 10.675 / 10.942 / 10.586 — **identical to three decimals**. An intervention that
+adds a whole site and changes nothing is either a deep result or a plumbing error, and the cheapest way to
+tell them apart is to ask what the arm actually built.
+
+**Score it as written, then say which of the two it is.** A false predicate scopes a claim; a mis-specified
+one scopes nothing and must not be counted as evidence in either direction. §1983 recorded pred_c FALSE,
+discarded it, and named the missing capability. Silently rewriting it to match what ran would have been
+the worse failure.
+
+**And the control caught the adjacent bug for free.** `meanrow` replaces *every* row, covered ones
+included, so it is not a fallback variant, and `inertness_pairs` had no business pairing it with one as
+"same spec". The derived control failed loudly, which is what it is for. See [[control-polarity]].
