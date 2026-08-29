@@ -14477,6 +14477,24 @@ rank is 64. Next: simultaneous shared-input HOSVD across the 8 slices, comparing
 against per-slice Frobenius canonicalization (exact scalar gauge under head RMSNorm).
 Findings: `basis_aligned/polynomial_causal/COPY_EDGE_LOWRANK_QK_FINDINGS.md`.
 
+### 2026-08-29T15:22Z — Codex: shared rank-256 HOSVD beats independent rank-64 copy gate price
+
+Exploratory eval96, weights-only factors, 26.5s. Stack 8 L8 H3/H4 Q/K slices and
+share one input-mode basis across all projections.
+
+- canonical shared R256: recovery `92.25%`, factor values 557,056;
+- prior independent R64: recovery `91.00%`, factor values 655,360;
+- R256 scalar R2 H3/H4 `0.9782/0.9621`, corr `0.9902/0.9842`;
+- copy dCE `+0.01022`, top-1 `88.45%` vs native `88.86%`;
+- repeat-negative `-0.00251`, nonrepeat `-0.00044`, all dCE `-0.00033`, KL `0.00067`;
+- gate+writer price 851,968 vs native 1,474,560 = 42.2% local reduction.
+
+Norm-canonical basis beats raw at R256 by only +0.93 recovery point, failing frozen
+H4 (+2 points); call it mild, not decisive. H1/H2/H3/H5/H6 pass. The main gain is
+shared input structure. This exposes a downstream-defined state
+$z=V_{256}^T x^{(8)}$ for the upstream MLP/attention composition telescope. Findings:
+`basis_aligned/polynomial_causal/COPY_EDGE_SHARED_HOSVD_FINDINGS.md`.
+
 ### 2026-08-29T17:35Z — Claude: infrastructure shipped and measured. 267.7s → 52.1s on identical work, and the 36% idle bucket had a root cause in our own tooling.
 
 Following the profile I posted at 17:05. Everything below is measured on the same workload, not projected.

@@ -1103,3 +1103,45 @@ model test of the proposed norm-canonicalization-before-HOSVD idea.
 
 Full formulas, CE/KL/top-1 tables, scalar errors, prices, and caveats are in
 `COPY_EDGE_LOWRANK_QK_FINDINGS.md`.
+
+## 20. **NEW UPDATE: shared HOSVD makes the faithful gate cheaper**
+
+The independent rank-64 result kept a separate low-dimensional input basis for each
+of eight query/key projections.  We have now stacked those weights into one tensor
+and found a single input basis shared by all eight.
+
+At shared rank 256, the program first converts the 1152-dimensional L8 contextual
+state into one 256-dimensional vector.  All H3/H4 query and key computations reuse
+that vector through different small output cores.  This is both cheaper and a cleaner
+interface for composition.
+
+The selected program:
+
+- preserves **92.25%** of the exact copy-edge causal effect;
+- explains 97.8% and 96.2% of the two held-out native scalar variances;
+- changes aggregate CE by `-0.00033` nat and has negligible negative/nonrepeat damage;
+- uses 557,056 gate values instead of 655,360 for independent rank 64;
+- including the writer, uses 851,968 values instead of 1,474,560 native—a **42.2%**
+  reduction for the localized copy program.
+
+The norm-canonicalization-before-HOSVD suggestion was tested directly.  Because each
+query/key vector is RMS-normalized, multiplying a whole projection slice by a positive
+constant should not change its function.  We therefore normalized slice Frobenius
+norms when choosing the shared basis, then restored original scales in the executable
+cores.
+
+Canonicalization consistently helps, but only modestly at the selected rank: 92.25%
+recovery versus 91.32% raw, a +0.93-point gain.  That fails the preregistered +2-point
+bar.  The slice norms were already similar, so this is unsurprising.  The method is
+valid; it is not the main discovery here.  The major gain comes from **sharing one
+input basis across all eight projections**.
+
+This creates a useful new handle on the rest of the model.  The copy edge does not
+need the entire L8 residual stream; it needs the 256-dimensional state
+$z=V_{256}^\top x^{(8)}$.  We can use that downstream-defined state as the target of
+the MLP0/MLP1/MLP2/attention composition telescope.  Earlier components should be
+judged by whether they construct the causally validated $z$ and preserve copy/whole-
+model behavior, rather than whether they reconstruct all 1152 residual coordinates.
+
+Full curves, equations, price accounting, canonicalization comparison, and caveats
+are in `COPY_EDGE_SHARED_HOSVD_FINDINGS.md`.
