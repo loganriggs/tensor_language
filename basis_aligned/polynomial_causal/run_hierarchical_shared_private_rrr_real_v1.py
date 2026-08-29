@@ -316,14 +316,18 @@ def _endpoint_controls(
     deployed_maps = hybrid.deployed_coefficient_maps(deployed)
     if q0 == 0:
         expected = []
+        factor_equal = True
         for site, rank in enumerate(fit.allocation.private_ranks):
             basis64 = state.independent_vectors[site][:, :rank]
             basis32 = basis64.float().contiguous()
             input32 = (state.solved[site] @ basis64).float().contiguous()
             expected.append((input32 @ basis32.T).contiguous())
-        q0_equal = all(torch.equal(left, right) for left, right in zip(
+            factor_equal = factor_equal and torch.equal(
+                deployed.private_bases[site], basis32,
+            ) and torch.equal(deployed.private_input_maps[site], input32)
+        q0_equal = factor_equal and all(torch.equal(left, right) for left, right in zip(
             deployed_maps, expected, strict=True,
-        ))
+        )) and deployed.shared_basis.shape == (D, 0)
     if q0 == D and sum(fit.allocation.private_ranks) == 0:
         shared64 = state.global_vectors[:, :q0]
         shared32 = shared64.float().contiguous()
@@ -331,7 +335,11 @@ def _endpoint_controls(
             (state.solved[site] @ shared64).float().contiguous() @ shared32.T
             for site in range(N_SITES)
         )
-        global_equal = all(torch.equal(left, right) for left, right in zip(
+        global_equal = torch.equal(deployed.shared_basis, shared32) and all(
+            torch.equal(deployed.shared_input_maps[site], (
+                state.solved[site] @ shared64
+            ).float().contiguous()) for site in range(N_SITES)
+        ) and all(torch.equal(left, right) for left, right in zip(
             deployed_maps, expected, strict=True,
         ))
     if q0_equal is False or global_equal is False:
@@ -505,7 +513,7 @@ def semantic_validate_diagnostics(value: Mapping[str, Any], descriptor: Mapping[
     hash_body = {key: item for key, item in hashes.items() if key != "sha256"}
     if hashes["sha256"] != base.logical_sha256(hash_body) or tuple(
         hashes.get("private_ranks", ())
-    ) != ranks or hashes.get("price") != asdict(price):
+    ) != ranks or base.logical_sha256(hashes.get("price")) != base.logical_sha256(asdict(price)):
         raise RuntimeError("hierarchical RRR deployed hash receipt does not replay")
     numeric = (
         "explained_penalized_merit", "explained_shared_merit", "explained_private_merit",

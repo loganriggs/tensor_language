@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from copy import deepcopy
+import json
 from types import SimpleNamespace
 
 import pytest
@@ -116,6 +117,9 @@ def test_interior_fit_replays_allocation_price_hashes_and_gaps(monkeypatch):
     }
     program = run.fit_program(descriptor, state)
     run.semantic_validate_diagnostics(program.diagnostics, descriptor)
+    run.semantic_validate_diagnostics(
+        json.loads(json.dumps(program.diagnostics)), descriptor,
+    )
     assert program.deployed.shared_basis.dtype == torch.float32
     assert program.diagnostics["deployed_hash_receipt"]["serialized_program_authority"] is False
     corrupt = deepcopy(program.diagnostics)

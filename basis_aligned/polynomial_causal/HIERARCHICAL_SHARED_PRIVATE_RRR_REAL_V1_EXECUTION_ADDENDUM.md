@@ -1,8 +1,10 @@
 # Hierarchical shared/private RRR real v1 — execution addendum
 
 **Status:** prospective, outcome-blind execution contract. This addendum creates no
-authority and licenses no row, checkpoint, model, or GPU access until all sources are
-committed, pushed, and a separate no-outcome authority is written.
+authority and licenses no row-tensor deserialization, checkpoint-tensor/model load, or
+GPU access until all sources are committed, pushed, and a separate no-outcome authority
+is written. Checkpoint metadata and the raw file hash are necessarily bound immediately
+before that authority write.
 
 This addendum narrows the larger exploratory grid in
 `HIERARCHICAL_SHARED_PRIVATE_RRR_V1_PREREGISTRATION.md` to the smallest endpoint-complete
