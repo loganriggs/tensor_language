@@ -406,10 +406,8 @@ def test_promotive_gates_fail_closed_when_any_common_control_fails(monkeypatch):
         run.core, "grouped_map_price",
         lambda *_args, **_kwargs: SimpleNamespace(grouped_float_count=8),
     )
-    arms["global_q64"]["roles"]["r"]["covered"]["ce"] = 0.9
     arms["global_q64"]["roles"]["r"]["uncovered"]["ce"] = 0.9
     arms["global_q64"]["roles"]["r"]["all"]["ce"] = 0.9
-    arms["typed_q481"]["roles"]["r"]["covered"]["ce"] = 0.9
     arms["typed_q481"]["roles"]["r"]["uncovered"]["ce"] = 0.9
     arms["typed_q481"]["roles"]["r"]["all"]["ce"] = 0.9
     good = run._result_gates(arms, 1)
