@@ -18,8 +18,8 @@
 #   pred_a MONOTONICITY SURVIVES: pooled CE is strictly decreasing in the attention rank across the whole
 #          sweep, on at least 2 of 3 roles, as it was at 16,110. If FALSE there IS an interior optimum at
 #          the deployed coverage and §1948's shape claim is a 16,110 statement, not a general one.
-#   pred_b BUT THE EFFICIENT POINT MOVES UP: the cheapest attention rank whose step DOWN costs at least
-#          0.010 nats per 100M is STRICTLY GREATER than 256, on at least 2 of 3 roles -- i.e. at 5,419
+#   pred_b BUT THE EFFICIENT POINT MOVES UP: the LARGEST attention rank still reached by a step buying
+#          at least 0.010 nats per 100M is STRICTLY GREATER than 256, on at least 2 of 3 roles -- at 5,419
 #          the efficient stopping point is above §1947's {768,256}. §1951 measured the 384 -> 256 step at
 #          0.0113/0.0135/0.0091, already at or over the threshold on two roles, so this is the direct
 #          consequence. If FALSE §1951's rates do not imply what they appear to.
@@ -122,13 +122,21 @@ monon = sum(1 for r in B.ROLES if mono(r))
 
 
 def eff_rank(r):
-    """cheapest attention rank whose step DOWN to the next one costs >= 0.010 nats per 100M."""
+    """The efficient stopping point: the LARGEST attention rank still reached by a step that buys
+    >= 0.010 nats per 100M.
+
+    The first version of this returned the FIRST qualifying step instead of the last, so at 5,419 it
+    reported 128 -- the first worthwhile upgrade from 64 -- when 128 -> 192 (0.037), 192 -> 256 (0.013)
+    and, on two roles, 256 -> 384 (0.011 / 0.014) all clear the same bar. It INVERTED pred_b: the
+    registered claim was that the efficient rank sits above 256, and the mis-specified helper scored
+    that FALSE 0/3. The docstring was right and the code did not implement it (LESSON 69)."""
+    best = ATTN[0]
     for i in range(1, len(ORDER)):
         rate = ((ce(C, r, ORDER[i - 1]) - ce(C, r, ORDER[i]))
                 / ((COST[ORDER[i]] - COST[ORDER[i - 1]]) / 100.0))
         if rate >= 0.010:
-            return ATTN[i]
-    return ATTN[-1]
+            best = ATTN[i]
+    return best
 
 
 up = sum(1 for r in B.ROLES if eff_rank(r) > 256)

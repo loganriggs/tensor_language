@@ -2183,3 +2183,26 @@ written in a form the tools cannot see. Moving the information from a string int
 cheaper than teaching a checker to read strings — and it is the reason the fifth instance was the last
 one. The corollary that cost me a run: when you *do* sweep literals, sweep both quote styles and inside
 f-strings.
+
+## LESSON 84 — two bar failures in one tick: one where the code did not implement the docstring, one where the bar was tighter than the reference's published precision
+
+**§1952.** `eff_rank` was registered as *"the largest attention rank still reached by a step buying ≥ 0.010
+nats per 100M"* and implemented as *the first* such step. It returned 128 when 128→192 (0.037), 192→256
+(0.013) and 256→384 (0.011/0.014) all clear the same bar. **It scored pred_b and pred_c FALSE 0/3; the
+corrected helper scores them TRUE 2/3.** The bug inverted the answer, and the gate cannot catch it — the
+predicate ran, returned a bool, and meant something else (LESSON 69, third instance). What caught it was
+reading the printed per-step rates against the returned value before writing the section. **Print the
+intermediate quantity a helper reduces, and check the reduction by hand on one role.**
+
+**§1953.** pred_d required §1932's published 125+ kept-fraction (63.5 / 62.9 / 63.4%) to reproduce within
+**0.02pp**. Those figures are published to **0.1pp**, so rounding alone permits **0.05pp** — the bar was
+unmeetable by construction. Observed 0.047pp: inside the rounding envelope, outside my bar, **FAIL as
+written**. PRE-FLIGHT E says never set a fixed absolute tolerance without scaling by the precision the
+data was *computed* in. **This is the other half: scale by the precision the reference was PUBLISHED at.**
+A reproduction bar against a 1-dp figure can never be tighter than 0.05pp, and against a 2-dp figure never
+tighter than 0.005pp.
+
+**The common shape.** Both are bars that could not do the job they were written for — one because the
+code disagreed with the words, one because the arithmetic disagreed with the source. Neither is caught by
+"does it run" or "does it return a bool". The check that catches both is **re-deriving what the bar can
+possibly measure, before the run, from the numbers it will be compared against.**

@@ -1,0 +1,73 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+ATTENTION SWEEP AT 5,419 | mlp 768, attn [64, 128, 192, 256, 384, 576] | fallback mix25m512 | DISCOVERY ONLY
+
+########## COVERAGE 5419 ##########
+  [bqlib] coverage 5419 from fineweb_n96_skip80.pt: 36 tables, neighbour index and map solver built (4s)
+  [bqlib] cache HIT  live     skip7000
+  [bqlib] cache HIT  live     skip11000
+  [bqlib] cache HIT  live     skip1200
+  [bqlib] cache HIT  map64    skip7000
+  [bqlib] cache HIT  map64    skip11000
+  [bqlib] cache HIT  map64    skip1200
+  [bqlib] cache HIT  mix25m512 skip7000
+  [bqlib] cache HIT  mix25m512 skip11000
+  [bqlib] cache HIT  mix25m512 skip1200
+  [bqlib] cache HIT  mix25m512 skip7000
+  [bqlib] cache HIT  mix25m512 skip11000
+  [bqlib] cache HIT  mix25m512 skip1200
+  [bqlib] cache HIT  mix25m512 skip7000
+  [bqlib] cache HIT  mix25m512 skip11000
+  [bqlib] cache HIT  mix25m512 skip1200
+  [bqlib] cache HIT  mix25m512 skip7000
+  [bqlib] cache HIT  mix25m512 skip11000
+  [bqlib] cache HIT  mix25m512 skip1200
+  [bqlib] cache HIT  mix25m512 skip7000
+  [bqlib] cache HIT  mix25m512 skip11000
+  [bqlib] cache HIT  mix25m512 skip1200
+  [bqlib] cache HIT  mix25m512 skip7000
+  [bqlib] cache HIT  mix25m512 skip11000
+  [bqlib] cache HIT  mix25m512 skip1200
+  [bqlib] cache HIT  mix25m512 skip7000
+  [bqlib] cache HIT  mix25m512 skip11000
+  [bqlib] cache HIT  mix25m512 skip1200
+
+  skip7000
+    deployed           [ 230.087M]  top1 13.55% (+0.00pp)  CE 6.01167 (+0.00000, t +0.00)
+    blend_full         [ 267.335M]  top1 14.02% (+0.46pp)  CE 5.94165 (-0.07002, t -31.56)
+    blend_768_64       [ 141.047M]  top1 13.79% (+0.24pp)  CE 5.96092 (-0.05075, t -22.93)
+    blend_768_128      [ 148.617M]  top1 13.88% (+0.33pp)  CE 5.95317 (-0.05850, t -26.53)
+    blend_768_192      [ 156.187M]  top1 13.95% (+0.40pp)  CE 5.94944 (-0.06223, t -28.07)
+    blend_768_256      [ 163.757M]  top1 13.96% (+0.41pp)  CE 5.94788 (-0.06379, t -28.60)
+    blend_768_384      [ 178.896M]  top1 14.00% (+0.45pp)  CE 5.94617 (-0.06550, t -29.16)
+    blend_768_576      [ 201.606M]  top1 13.99% (+0.43pp)  CE 5.94559 (-0.06608, t -29.34)
+    monotone in attention rank: True | efficient rank by the 0.010 rule: 384 | vs {768,256} CE -0.00171 (t -9.94)
+
+  skip11000
+    deployed           [ 230.087M]  top1 14.25% (+0.00pp)  CE 5.98477 (+0.00000, t +0.00)
+    blend_full         [ 267.335M]  top1 14.53% (+0.28pp)  CE 5.91021 (-0.07456, t -30.83)
+    blend_768_64       [ 141.047M]  top1 14.53% (+0.28pp)  CE 5.93093 (-0.05384, t -22.46)
+    blend_768_128      [ 148.617M]  top1 14.58% (+0.33pp)  CE 5.92250 (-0.06227, t -26.00)
+    blend_768_192      [ 156.187M]  top1 14.57% (+0.32pp)  CE 5.91797 (-0.06680, t -27.75)
+    blend_768_256      [ 163.757M]  top1 14.59% (+0.34pp)  CE 5.91648 (-0.06829, t -28.22)
+    blend_768_384      [ 178.896M]  top1 14.62% (+0.37pp)  CE 5.91443 (-0.07034, t -28.86)
+    blend_768_576      [ 201.606M]  top1 14.54% (+0.29pp)  CE 5.91369 (-0.07108, t -29.07)
+    monotone in attention rank: True | efficient rank by the 0.010 rule: 384 | vs {768,256} CE -0.00205 (t -11.86)
+
+  skip1200
+    deployed           [ 230.087M]  top1 13.64% (+0.00pp)  CE 6.00165 (+0.00000, t +0.00)
+    blend_full         [ 267.335M]  top1 13.99% (+0.34pp)  CE 5.93277 (-0.06888, t -20.09)
+    blend_768_64       [ 141.047M]  top1 13.96% (+0.32pp)  CE 5.94538 (-0.05627, t -16.57)
+    blend_768_128      [ 148.617M]  top1 14.05% (+0.41pp)  CE 5.93980 (-0.06185, t -18.24)
+    blend_768_192      [ 156.187M]  top1 14.01% (+0.36pp)  CE 5.93703 (-0.06462, t -18.95)
+    blend_768_256      [ 163.757M]  top1 13.98% (+0.34pp)  CE 5.93606 (-0.06559, t -19.13)
+    blend_768_384      [ 178.896M]  top1 14.01% (+0.36pp)  CE 5.93468 (-0.06697, t -19.39)
+    blend_768_576      [ 201.606M]  top1 14.00% (+0.36pp)  CE 5.93417 (-0.06748, t -19.48)
+    monotone in attention rank: True | efficient rank by the 0.010 rule: 256 | vs {768,256} CE +0.00000 (t +0.00)
+
+  CE is monotone in the attention share at 5,419 too (>=2 roles) -> True  3/3
+  and the efficient attention rank is above 256 (>=2 roles) -> True  2/3  (ranks [384, 384, 256])
+  and it beats {768,256} significantly (>=2 roles) -> True  2/3
+  coverage {'c5419': 5419}, rank-differing arm DOES move covered inputs True, identical-spec fallback-only anchor is INERT there True, live identical 0.0e+00, §1932 top-1 reproduced within 0.005pp -> control True
+
+pred_a True | pred_b True | pred_c True | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/attention_sweep_at_5419_results.json (4.5s)

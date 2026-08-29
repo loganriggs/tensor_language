@@ -1,0 +1,40 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+CONVERGED BUILD STRUCTURE | buckets x input coverage | vs §1789 deployed | 5,419 | DISCOVERY ONLY
+
+########## COVERAGE 5419 ##########
+  [bqlib] coverage 5419 from fineweb_n96_skip80.pt: 36 tables, neighbour index and map solver built (4s)
+  [bqlib] cache HIT  live     skip7000
+  [bqlib] cache HIT  live     skip11000
+  [bqlib] cache HIT  live     skip1200
+  [bqlib] cache HIT  map64    skip7000
+  [bqlib] cache HIT  map64    skip11000
+  [bqlib] cache HIT  map64    skip1200
+  [bqlib] cache HIT  mix25m512 skip7000
+  [bqlib] cache HIT  mix25m512 skip11000
+  [bqlib] cache HIT  mix25m512 skip1200
+
+  skip7000
+    pooled               0-0  2.7%-> 3.4% (+0.75)      1-4  4.2%-> 5.4% (+1.25)     5-24  9.5%->14.5% (+5.00)   25-124 23.6%->26.0% (+2.38)  125-1000000000 63.5%->63.2% (-0.32)
+    uncovered_input      0-0  6.5%-> 8.6% (+2.12)      1-4  6.7%->11.4% (+4.70)     5-24 10.8%->17.2% (+6.39)   25-124 11.4%->21.2% (+9.80)  125-1000000000 48.7%->50.1% (+1.42)
+    covered_input        0-0  0.7%-> 0.8% (+0.07)      1-4  2.8%-> 2.3% (-0.52)     5-24  9.0%->13.5% (+4.55)   25-124 26.5%->27.1% (+0.59)  125-1000000000 69.3%->68.3% (-1.01)
+    overall top-1 gain: uncovered +1.59pp  covered +0.04pp  ratio 44.37x
+
+  skip11000
+    pooled               0-0  6.2%-> 5.9% (-0.36)      1-4  5.4%-> 6.8% (+1.40)     5-24  8.0%->12.6% (+4.56)   25-124 24.5%->26.8% (+2.24)  125-1000000000 62.9%->62.5% (-0.34)
+    uncovered_input      0-0 13.0%->12.0% (-1.02)      1-4 10.8%->16.5% (+5.71)     5-24  8.1%->16.7% (+8.59)   25-124 13.1%->18.4% (+5.25)  125-1000000000 44.9%->45.4% (+0.52)
+    covered_input        0-0  2.0%-> 2.0% (+0.06)      1-4  2.7%-> 2.1% (-0.67)     5-24  8.0%->11.0% (+3.05)   25-124 27.5%->29.0% (+1.44)  125-1000000000 70.1%->69.4% (-0.68)
+    overall top-1 gain: uncovered +1.08pp  covered +0.08pp  ratio 12.89x
+
+  skip1200
+    pooled               0-0  3.6%-> 3.3% (-0.26)      1-4  4.7%-> 5.8% (+1.10)     5-24 12.4%->15.9% (+3.47)   25-124 23.6%->26.1% (+2.47)  125-1000000000 63.4%->63.4% (+0.03)
+    uncovered_input      0-0  6.7%-> 6.3% (-0.38)      1-4  7.8%->12.2% (+4.42)     5-24 12.2%->20.1% (+7.93)   25-124 12.4%->23.7% (+11.20)  125-1000000000 48.1%->48.7% (+0.60)
+    covered_input        0-0  1.1%-> 0.9% (-0.15)      1-4  2.9%-> 2.1% (-0.77)     5-24 12.5%->14.6% (+2.09)   25-124 26.3%->26.7% (+0.39)  125-1000000000 68.7%->68.5% (-0.17)
+    overall top-1 gain: uncovered +1.26pp  covered +0.04pp  ratio 29.25x
+
+  the converged build wins ALL FIVE buckets (>=2 roles) -> False  0/3
+  and the win is >=2x concentrated on uncovered inputs (>=2 roles) -> True  3/3
+  but the truncation costs the 125+ bucket at COVERED inputs (>=2 roles) -> True  3/3
+  coverage {'c5419': 5419}, rank-differing arms move covered inputs True, buckets partition, live identical 0.0e+00, §1932 reproduced within 0.047pp -> control False
+
+pred_a False | pred_b True | pred_c True | pred_d False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/converged_build_structure_results.json (4.0s)

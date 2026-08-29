@@ -55510,3 +55510,86 @@ reading.
 moves with coverage by 2–3×, the sweep that established "CE is monotone in the attention share, so the
 band is an efficiency rule" has not been repeated where attention is worth more — and that is exactly
 where a genuine interior optimum could exist.
+
+## §1952 — attention IS worth buying past §1947's rank at the deployed coverage, and a helper bug had inverted the answer
+
+`ops/attention_sweep_at_5419.py`, **4.5s** warm (348.8s cold), **DISCOVERY ONLY**, 5,419, **rung 2** —
+§1951's open question. **All four predictions TRUE**, on the second scoring. The first scoring reported
+**pred_b and pred_c FALSE 0/3 and it was wrong**; see below.
+
+```
+  5,419, mlp 768, fallback mix25m512, deltas vs §1789's deployed design (skip7000)
+    attn      64        128       192       256       384       576
+    cost   141.047M  148.617M  156.187M  163.757M  178.896M  201.606M
+    CE     5.96092   5.95317   5.94944   5.94788   5.94617   5.94559
+    top-1   13.79%    13.88%    13.95%    13.96%    14.00%    13.99%
+```
+
+> **pred_a PASSED 3/3: CE is strictly monotone decreasing in the attention share at 5,419 too**, as
+> §1948 found at 16,110. **§1948's shape claim generalises** — there is no interior optimum at either
+> coverage, and §1928's band remains an efficiency rule rather than an optimum.
+>
+> **pred_b PASSED 2/3 and pred_c PASSED 2/3: the efficient attention rank at 5,419 is 384 on skip7000
+> and skip11000, and 256 on skip1200** — above §1947's {768,256} on two of three roles, and rank 384
+> beats rank 256 on CE significantly there. **§1951's rate measurement implied this and now has it
+> directly: at the deployed coverage the attention sites are worth one more doubling than at 16,110.**
+
+> **The first scoring of this run reported pred_b and pred_c FALSE 0/3, and that was a bug in my helper,
+> not a result.** `eff_rank` was registered as *"the largest attention rank still reached by a step
+> buying ≥ 0.010 nats per 100M"* and implemented as *the first* such step — so at 5,419 it returned
+> **128**, the first worthwhile upgrade from 64, when 128 → 192 (0.037), 192 → 256 (0.013) and, on two
+> roles, 256 → 384 (0.011 / 0.014) all clear the same bar. **The docstring was right and the code did not
+> implement it** (LESSON 69). Corrected and re-run: efficient ranks **[384, 384, 256]**, and both
+> predicates pass. Nothing was published from the first scoring.
+
+**pred_d PASSED**: coverage exactly 5,419; the rank-differing arm moves covered-input predictions and
+the fallback-only anchor is exactly inert there; buckets partition; live per-cell top-1 and CE identical
+at 0.00e+00; §1932's published deployed top-1 reproduced to **0.005pp**.
+
+## §1953 — the converged build IS a redistribution, and §1951's pooled headline is scoped accordingly
+
+`ops/converged_build_structure.py`, **4.0s**, **DISCOVERY ONLY**, 5,419, **rung 2** — §1951 on the two
+structural instruments. **pred_a False (0/3) | pred_b True (3/3) | pred_c True (3/3) | pred_d False.**
+
+```
+  5,419, kept-fraction, §1789 deployed -> the converged build (skip11000 shown)
+    pooled            0-0  6.2->5.9 (-0.36)   1-4  5.4->6.8 (+1.40)   5-24 8.0->12.6 (+4.56)
+                      25-124 24.5->26.8 (+2.24)   125+ 62.9->62.5 (-0.34)
+    uncovered_input   0-0 13.0->12.0 (-1.02)  1-4 10.8->16.5 (+5.71)  5-24 8.1->16.7 (+8.59)
+                      25-124 13.1->18.4 (+5.25)   125+ 44.9->45.4 (+0.52)
+    covered_input     0-0  2.0-> 2.0 (+0.06)  1-4  2.7->2.1 (-0.67)   5-24 8.0->11.0 (+3.05)
+                      25-124 27.5->29.0 (+1.44)   125+ 70.1->69.4 (-0.68)
+    overall top-1 gain: uncovered +1.08pp, covered +0.08pp -- a ratio of 12.9x
+```
+
+> **pred_a FAILED 0/3, and it is the finding: this is a redistribution, the same shape §1932 found.**
+> The converged build does **not** win all five buckets on any role. **It loses the unseen (0-0) bucket
+> pooled on 3/3 — −0.36 / −0.26 / −0.36pp — and the 125+ bucket is flat to slightly down (−0.34 / +0.03
+> / −0.34pp).** What it wins, and wins hugely, is the **middle**: 5-24 by **+4.56 / +3.47 / +4.55pp** and
+> 25-124 by **+2.24 / +2.47 / +2.24pp**. §1951's pooled "+0.41pp of top-1 and −0.064 nats" is correct and
+> is a **redistribution toward mid-frequency targets**, not a uniform improvement. §1951 is scoped in
+> place, exactly as §1932 was.
+
+> **pred_b PASSED 3/3 and quantifies which lever carries it: the win is overwhelmingly on uncovered
+> inputs — a ratio of 44.4× / 12.9× / 29.3×** in overall top-1 gain (uncovered +1.59 / +1.08 / +1.26pp
+> against covered +0.04 / +0.08 / +0.04pp). The fallback change touches only uncovered inputs (§1936);
+> the table truncation touches everything. **Almost all of §1951's margin is the fallback**, and the
+> 51%-cheaper tables are very nearly free rather than beneficial.
+
+> **pred_c PASSED 3/3: the truncation is visible exactly where predicted.** On **covered** inputs the
+> 125+ bucket falls **−1.01 / −0.68 / −0.17pp** — rank 768 against full rank, paid on the most-frequent
+> targets at the positions the tables serve directly. It is a real cost and it is small.
+
+**pred_d FAILED, and the failing clause is my bar, not the data.** I required §1932's published 125+
+kept-fraction (63.5 / 62.9 / 63.4%) to reproduce within **0.02pp**. Those figures are published to
+**0.1pp**, so rounding alone permits a deviation of up to 0.05pp and the bar was unmeetable by
+construction. Observed max deviation **0.047pp** — inside the rounding envelope, outside my bar. **Scored
+as written it is a FAIL.** Every other control leg passed: coverage exactly 5,419, buckets partitioning,
+rank-differing arms moving covered-input predictions, live per-cell top-1 and CE identical at 0.00e+00.
+**PRE-FLIGHT E, in a form I had not met: never set a tolerance tighter than the precision the reference
+was PUBLISHED at, not merely the precision it was computed in.**
+
+**Open.** §1953 says the tables are nearly free and the fallback carries the margin at 5,419. §1947 said
+the table axis was the larger lever at 16,110. **Both can be true — the fallback touches ~24% of
+positions at 5,419 and ~10% at 16,110 — but the two claims have never been put on the same instrument,**
+and the covered/uncovered decomposition run here at 5,419 has not been run at 16,110.
