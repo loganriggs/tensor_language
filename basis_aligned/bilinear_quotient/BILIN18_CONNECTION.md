@@ -53935,3 +53935,54 @@ about a tenth of the gap; the rest is structural to an embedding-linear fallback
 
 **Open.** Nothing in this line. It has been confirmed on two coverages, priced against its own noise, and
 its one adjacent lever measured.
+
+## §1923 — coverage is not a smooth axis: the covered arm declines mildly, the uncovered arm peaks in the middle on one role
+
+`ops/coverage_trend.py`, 286.9s, **DISCOVERY ONLY**, rung 3 — §1922's one unexplained detail.
+**pred_a True | pred_b False | pred_c True | pred_d True.**
+
+```
+                          5,419        9,054        16,110      uncovered share 24% -> 17% -> 10%
+  skip7000    COVERED     +9.69   ->   +9.36   ->   +9.50       non-monotone, dips
+              UNCOVERED   +3.28   ->   +3.77   ->   +3.90       rising
+  skip11000   COVERED    +10.46   ->  +10.16   ->   +9.79       falling
+              UNCOVERED   +3.11   ->   +3.24   ->   +4.10       rising
+  skip1200    COVERED    +10.17   ->   +9.30   ->   +9.28       falling
+              UNCOVERED   +2.10   ->   +2.93   ->   +2.06       PEAKS in the middle
+```
+
+**pred_a PASSED**: the covered gradient stays inside the endpoint band on all three roles. **Two of the
+three decline monotonically with coverage and skip7000 dips slightly**, so §1922's observation — that the
+covered gradient is higher at low coverage — survives as a **mild decline**, not a clean law.
+
+> **pred_b FAILED, on the role whose band I flagged as near-degenerate when registering it — and it failed
+> by overshooting.** skip1200's uncovered endpoints are 2.10 and 2.06, so the band is [1.76, 2.40]; the
+> middle coverage gives **+2.93**, **0.53 above both endpoints**. §1920 measured skip1200's uncovered
+> gradient spread at 0.319 with n ≈ 350-1,200; here n = 3,084, so the spread should be tighter still and
+> **0.53 is roughly two to three of them. The peak is probably real, not a bar artifact** — though the
+> degenerate band is what made it *fail* rather than merely be noted.
+>
+> **So coverage is not a smooth axis for this signal.** The uncovered gradient rises with coverage on two
+> roles (+3.28 → +3.90, +3.11 → +4.10) and peaks at the middle on the third. **A two-point measurement
+> would have called it monotone on all three, and it is not.** That is the whole reason for a third point
+> and it is the outcome that justifies having taken it.
+
+**pred_c PASSED, and this is the third coverage at which §1765 holds exactly: within-token spread
+0.00e+00 on all three roles**, matching §1922's 5,419 result and tighter than §1913/§1918's ≤2.86e-05 at
+16,110. **The margin is a pure token property at 5,419, 9,054 and 16,110 types.**
+
+**pred_d PASSED**: coverage exactly 9,054, zero lookup misses, and the uncovered share came in at
+**16.9 / 17.5 / 16.7%** — neatly between 24% at 5,419 and 10% at 16,110, confirming the axis moved as
+intended.
+
+**A methodological note worth keeping.** The coverage figures here are **measured, not assumed**: these
+scripts compute coverage from `fit[:, :T]` with the module-level **T = 256**, not the full 512-token row
+width. At T = 256 the first 96 / 192 / 288 / 480 rows give **5,419 / 9,054 / 11,954 / 16,110**; at the
+full width they give 8,172 / 12,959 / — / 21,858. **I checked the wrong width first and would have built
+this run on 12,959**, which no published figure would have matched. Two minutes of measurement, per
+PRE-FLIGHT B.
+
+**Open.** Nothing worth the compute. §1922's detail is now characterised: a mild covered decline, a rising
+uncovered trend on two roles, and one genuine mid-coverage peak. **It is a description, not a mechanism,
+and I am not going to reach for one** — §1888, §1890, §1898-§1900 are five sections of what happens when
+I explain a residual before measuring it.

@@ -1,0 +1,726 @@
+{
+ "config": {
+  "table_ranks": [
+   "full"
+  ],
+  "map_rank_of_table_rank": {
+   "None": 64,
+   "512": 512
+  },
+  "program": "context-free tables, output-NN fallback with a rank-64 embedding->row map -- the settled design of \u00a71780-\u00a71786",
+  "instruments": "top-1 agreement with the live model, top-1 accuracy against the true next token, and KL(live || program). All three are NEW to this thread, which has been CE-only since \u00a71747.",
+  "ROLE_NOTE": "DISCOVERY ONLY; a second-class confirmation with a DIFFERENT instrument, not a replication of the same one."
+ },
+ "results": {
+  "baseline": {
+   "skip7000": 7.014274294849834,
+   "skip11000": 7.4533468559837734,
+   "skip1200": 7.461647058823529
+  },
+  "norms": {
+   "mlp0": 0.6232305263381667,
+   "mlp1": 0.6274330178651366,
+   "mlp2": 0.7265062550676856,
+   "mlp3": 0.6805954794198185,
+   "mlp4": 0.6754013408829773,
+   "mlp5": 0.7167276121897634,
+   "mlp6": 0.7715804547298555,
+   "mlp7": 0.6296280563963625,
+   "mlp8": 0.6258151038307547,
+   "mlp9": 0.5971576598971561,
+   "mlp10": 0.5349425297728018,
+   "mlp11": 0.6255999439985613,
+   "mlp12": 0.48035696240538617,
+   "mlp13": 0.5561230925987675,
+   "mlp14": 0.6988126408722418,
+   "mlp15": 0.7220924380341306,
+   "mlp16": 0.6578370057417399,
+   "mlp17": 0.5988473779867354,
+   "attn0": 0.15225184830747635,
+   "attn1": 0.11926071603061746,
+   "attn2": 0.12203148327304743,
+   "attn3": 0.07078091206924095,
+   "attn4": 0.02663333201678825,
+   "attn5": 0.006609254372866895,
+   "attn6": 0.012402101821685994,
+   "attn7": 0.0763193350762292,
+   "attn8": 0.12795590952989075,
+   "attn9": 0.1655035757675728,
+   "attn10": 0.09762624757664824,
+   "attn11": 0.09911191148617039,
+   "attn12": 0.059801801726462246,
+   "attn13": 0.07645621524831311,
+   "attn14": 0.0810678128645554,
+   "attn15": 0.09541428216392482,
+   "attn16": 0.0686486103236287,
+   "attn17": 0.10313283128155586
+  },
+  "sites": {
+   "g1.00": {
+    "skip7000": {
+     "enrichment": 7.014274294849834,
+     "cells": {
+      "p0_0": {
+       "agreement": 0.09946463792617638,
+       "permutation_null": 0.019037052690898844,
+       "enrichment": 5.2247918593894545,
+       "n": 7098,
+       "live_acc": 0.3427726120033812
+      },
+      "p1_1": {
+       "agreement": 0.16035513680014496,
+       "permutation_null": 0.03220692154375793,
+       "enrichment": 4.978902953586498,
+       "n": 5519,
+       "live_acc": 0.3756115238267802
+      },
+      "p2_2": {
+       "agreement": 0.22205718529520982,
+       "permutation_null": 0.0435388043074638,
+       "enrichment": 5.100213219616204,
+       "n": 8079,
+       "live_acc": 0.35078598836489666
+      },
+      "p3_3": {
+       "agreement": 0.4320652173913043,
+       "permutation_null": 0.08462912640901771,
+       "enrichment": 5.10539616470938,
+       "n": 9936,
+       "live_acc": 0.43347423510466987
+      }
+     },
+     "allpos_ce": 5.957955859634189,
+     "top1_prog": 0.1374240451388889,
+     "max_dev_from_length1": 0.0,
+     "lookup_misses": 0,
+     "global_null": 0.03554289631757639,
+     "uncovered_null": 0.059391046213093705,
+     "uncovered_n": 6232,
+     "u": {
+      "uncq0": {
+       "global_enrichment": 2.0829066337193733,
+       "n": 1932
+      },
+      "uncq1": {
+       "global_enrichment": 2.5966567708710464,
+       "n": 1861
+      },
+      "uncq2": {
+       "global_enrichment": 2.995360167350763,
+       "n": 1484
+      },
+      "uncq3": {
+       "global_enrichment": 5.853474576121341,
+       "n": 955
+      }
+     },
+     "q": {
+      "tokq0": {
+       "agreement": 0.09946463792617638,
+       "global_enrichment": 2.7984393009916277,
+       "local_enrichment": 4.945709281961471,
+       "n": 7098
+      },
+      "tokq1": {
+       "agreement": 0.16035513680014496,
+       "global_enrichment": 4.511594535441598,
+       "local_enrichment": 4.91325468424705,
+       "n": 5519
+      },
+      "tokq2": {
+       "agreement": 0.22205718529520982,
+       "global_enrichment": 6.247582732457283,
+       "local_enrichment": 5.177489177489178,
+       "n": 8079
+      },
+      "tokq3": {
+       "agreement": 0.4320652173913043,
+       "global_enrichment": 12.156162332151947,
+       "local_enrichment": 5.029876977152899,
+       "n": 9936
+      },
+      "livq0": {
+       "agreement": 0.1507563901930099,
+       "global_enrichment": 4.241533634344229,
+       "local_enrichment": 5.370499419279907,
+       "n": 7668
+      },
+      "livq1": {
+       "agreement": 0.20705421293272372,
+       "global_enrichment": 5.825473846663782,
+       "local_enrichment": 5.816513761467889,
+       "n": 7655
+      },
+      "livq2": {
+       "agreement": 0.28543410041841,
+       "global_enrichment": 8.030693330899412,
+       "local_enrichment": 6.357480888241718,
+       "n": 7648
+      },
+      "livq3": {
+       "agreement": 0.3594830962015403,
+       "global_enrichment": 10.114063102498811,
+       "local_enrichment": 10.083295194508008,
+       "n": 7661
+      }
+     },
+     "n": 30632
+    },
+    "skip11000": {
+     "enrichment": 7.4533468559837734,
+     "cells": {
+      "p0_0": {
+       "agreement": 0.09733777038269552,
+       "permutation_null": 0.020001386577925682,
+       "enrichment": 4.866551126516464,
+       "n": 7212,
+       "live_acc": 0.3752079866888519
+      },
+      "p1_1": {
+       "agreement": 0.1574210139603233,
+       "permutation_null": 0.03306392358559882,
+       "enrichment": 4.761111111111112,
+       "n": 5444,
+       "live_acc": 0.39988978692138133
+      },
+      "p2_2": {
+       "agreement": 0.19977553310886645,
+       "permutation_null": 0.04048198029679512,
+       "enrichment": 4.934924913361571,
+       "n": 8019,
+       "live_acc": 0.36837510911584986
+      },
+      "p3_3": {
+       "agreement": 0.4306869600987248,
+       "permutation_null": 0.07709018922254217,
+       "enrichment": 5.586793396698349,
+       "n": 9724,
+       "live_acc": 0.46770876182640886
+      }
+     },
+     "allpos_ce": 5.917991791746165,
+     "top1_prog": 0.1457248263888889,
+     "max_dev_from_length1": 0.0,
+     "lookup_misses": 0,
+     "global_null": 0.032821803348794365,
+     "uncovered_null": 0.058739365815931935,
+     "uncovered_n": 6465,
+     "u": {
+      "uncq0": {
+       "global_enrichment": 2.393911310540438,
+       "n": 1913
+      },
+      "uncq1": {
+       "global_enrichment": 2.310709553099933,
+       "n": 1864
+      },
+      "uncq2": {
+       "global_enrichment": 3.0232172498478556,
+       "n": 1588
+      },
+      "uncq3": {
+       "global_enrichment": 5.63351487222455,
+       "n": 1100
+      }
+     },
+     "q": {
+      "tokq0": {
+       "agreement": 0.09733777038269552,
+       "global_enrichment": 2.965643579918378,
+       "local_enrichment": 4.983141082519964,
+       "n": 7212
+      },
+      "tokq1": {
+       "agreement": 0.1574210139603233,
+       "global_enrichment": 4.796232927466669,
+       "local_enrichment": 4.817990161630359,
+       "n": 5444
+      },
+      "tokq2": {
+       "agreement": 0.19977553310886645,
+       "global_enrichment": 6.086671441720302,
+       "local_enrichment": 4.9945440374123145,
+       "n": 8019
+      },
+      "tokq3": {
+       "agreement": 0.4306869600987248,
+       "global_enrichment": 13.121977349076559,
+       "local_enrichment": 5.7438710783473335,
+       "n": 9724
+      },
+      "livq0": {
+       "agreement": 0.14283837056504597,
+       "global_enrichment": 4.351935481640524,
+       "local_enrichment": 5.354679802955665,
+       "n": 7610
+      },
+      "livq1": {
+       "agreement": 0.19870950750592575,
+       "global_enrichment": 6.0541922512379225,
+       "local_enrichment": 5.552897884084636,
+       "n": 7594
+      },
+      "livq2": {
+       "agreement": 0.26623633249901196,
+       "global_enrichment": 8.111569302568244,
+       "local_enrichment": 6.3678613627412375,
+       "n": 7591
+      },
+      "livq3": {
+       "agreement": 0.3592845870594424,
+       "global_enrichment": 10.94652183615133,
+       "local_enrichment": 10.35829383886256,
+       "n": 7604
+      }
+     },
+     "n": 30399
+    },
+    "skip1200": {
+     "enrichment": 7.461647058823529,
+     "cells": {
+      "p0_0": {
+       "agreement": 0.11415259172976122,
+       "permutation_null": 0.019692778101339545,
+       "enrichment": 5.796672828096119,
+       "n": 3434,
+       "live_acc": 0.32469423412929527
+      },
+      "p1_1": {
+       "agreement": 0.1684027777777778,
+       "permutation_null": 0.03849826388888889,
+       "enrichment": 4.374295377677565,
+       "n": 2880,
+       "live_acc": 0.38263888888888886
+      },
+      "p2_2": {
+       "agreement": 0.21668287937743191,
+       "permutation_null": 0.044291099221789886,
+       "enrichment": 4.8922443376801645,
+       "n": 4112,
+       "live_acc": 0.3321984435797665
+      },
+      "p3_3": {
+       "agreement": 0.4461600975213328,
+       "permutation_null": 0.08223283218203982,
+       "enrichment": 5.42557134033354,
+       "n": 4922,
+       "live_acc": 0.42970337261275904
+      }
+     },
+     "allpos_ce": 5.943776504417757,
+     "top1_prog": 0.13785807291666666,
+     "max_dev_from_length1": 0.0,
+     "lookup_misses": 0,
+     "global_null": 0.03571312223090956,
+     "uncovered_null": 0.056339169909208814,
+     "uncovered_n": 3084,
+     "u": {
+      "uncq0": {
+       "global_enrichment": 2.369208003400343,
+       "n": 914
+      },
+      "uncq1": {
+       "global_enrichment": 2.7993007463188326,
+       "n": 856
+      },
+      "uncq2": {
+       "global_enrichment": 2.962041882417633,
+       "n": 785
+      },
+      "uncq3": {
+       "global_enrichment": 5.301404849655248,
+       "n": 529
+      }
+     },
+     "q": {
+      "tokq0": {
+       "agreement": 0.11415259172976122,
+       "global_enrichment": 3.196376698505588,
+       "local_enrichment": 5.369863013698631,
+       "n": 3434
+      },
+      "tokq1": {
+       "agreement": 0.1684027777777778,
+       "global_enrichment": 4.71543139490688,
+       "local_enrichment": 4.464902186421174,
+       "n": 2880
+      },
+      "tokq2": {
+       "agreement": 0.21668287937743191,
+       "global_enrichment": 6.067318280838906,
+       "local_enrichment": 4.87218045112782,
+       "n": 4112
+      },
+      "tokq3": {
+       "agreement": 0.4461600975213328,
+       "global_enrichment": 12.492889718143518,
+       "local_enrichment": 5.4711927748365,
+       "n": 4922
+      },
+      "livq0": {
+       "agreement": 0.15725071595938558,
+       "global_enrichment": 4.403163491073478,
+       "local_enrichment": 5.5159817351598175,
+       "n": 3841
+      },
+      "livq1": {
+       "agreement": 0.20776850886339937,
+       "global_enrichment": 5.817707774751113,
+       "local_enrichment": 5.844179651695692,
+       "n": 3836
+      },
+      "livq2": {
+       "agreement": 0.2873173277661795,
+       "global_enrichment": 8.045147268515985,
+       "local_enrichment": 6.037011651816313,
+       "n": 3832
+      },
+      "livq3": {
+       "agreement": 0.38082834071372756,
+       "global_enrichment": 10.663540931857316,
+       "local_enrichment": 10.377994676131323,
+       "n": 3839
+      }
+     },
+     "n": 15348
+    }
+   },
+   "PERSITE": {
+    "skip7000": {
+     "enrichment": 1.8601134215500945,
+     "cells": {
+      "p0_0": {
+       "agreement": 0.01535643843336151,
+       "permutation_null": 0.009210340941110172,
+       "enrichment": 1.6673040152963672,
+       "n": 7098,
+       "live_acc": 0.3427726120033812
+      },
+      "p1_1": {
+       "agreement": 0.029171951440478346,
+       "permutation_null": 0.019455517303859395,
+       "enrichment": 1.49941792782305,
+       "n": 5519,
+       "live_acc": 0.3756115238267802
+      },
+      "p2_2": {
+       "agreement": 0.055328629780913484,
+       "permutation_null": 0.02950550810743904,
+       "enrichment": 1.8751966439433667,
+       "n": 8079,
+       "live_acc": 0.35078598836489666
+      },
+      "p3_3": {
+       "agreement": 0.014492753623188406,
+       "permutation_null": 0.010190217391304348,
+       "enrichment": 1.4222222222222223,
+       "n": 9936,
+       "live_acc": 0.43347423510466987
+      }
+     },
+     "allpos_ce": 12.873486478670706,
+     "top1_prog": 0.019992404513888888,
+     "max_dev_from_length1": 6.2678728103637695,
+     "lookup_misses": 0,
+     "global_null": 0.014882312614259598,
+     "uncovered_null": 0.017711007702182285,
+     "uncovered_n": 6232,
+     "u": {
+      "uncq0": {
+       "global_enrichment": 1.5781321440881242,
+       "n": 1932
+      },
+      "uncq1": {
+       "global_enrichment": 1.365283585159527,
+       "n": 1861
+      },
+      "uncq2": {
+       "global_enrichment": 0.7609442204198502,
+       "n": 1484
+      },
+      "uncq3": {
+       "global_enrichment": 1.5371870052711782,
+       "n": 955
+      }
+     },
+     "q": {
+      "tokq0": {
+       "agreement": 0.01535643843336151,
+       "global_enrichment": 1.031858342946487,
+       "local_enrichment": 1.703125,
+       "n": 7098
+      },
+      "tokq1": {
+       "agreement": 0.029171951440478346,
+       "global_enrichment": 1.9601759616665373,
+       "local_enrichment": 1.4586636466591165,
+       "n": 5519
+      },
+      "tokq2": {
+       "agreement": 0.055328629780913484,
+       "global_enrichment": 3.717744090921726,
+       "local_enrichment": 1.9594520547945207,
+       "n": 8079
+      },
+      "tokq3": {
+       "agreement": 0.014492753623188406,
+       "global_enrichment": 0.9738240284847979,
+       "local_enrichment": 1.4204685573366214,
+       "n": 9936
+      },
+      "livq0": {
+       "agreement": 0.020996348461137192,
+       "global_enrichment": 1.4108256562907693,
+       "local_enrichment": 1.7405405405405405,
+       "n": 7668
+      },
+      "livq1": {
+       "agreement": 0.028478118876551276,
+       "global_enrichment": 1.913554674914217,
+       "local_enrichment": 1.9551569506726456,
+       "n": 7655
+      },
+      "livq2": {
+       "agreement": 0.02785041841004184,
+       "global_enrichment": 1.8713770589227345,
+       "local_enrichment": 2.016568047337278,
+       "n": 7648
+      },
+      "livq3": {
+       "agreement": 0.035112909541835276,
+       "global_enrichment": 2.359371856507811,
+       "local_enrichment": 1.6838810641627546,
+       "n": 7661
+      }
+     },
+     "n": 30632
+    },
+    "skip11000": {
+     "enrichment": 1.7521739130434784,
+     "cells": {
+      "p0_0": {
+       "agreement": 0.014836383804769829,
+       "permutation_null": 0.007938158624514698,
+       "enrichment": 1.868995633187773,
+       "n": 7212,
+       "live_acc": 0.3752079866888519
+      },
+      "p1_1": {
+       "agreement": 0.02883908890521675,
+       "permutation_null": 0.020136847905951504,
+       "enrichment": 1.4321550741163056,
+       "n": 5444,
+       "live_acc": 0.39988978692138133
+      },
+      "p2_2": {
+       "agreement": 0.049507419877790254,
+       "permutation_null": 0.026203391944132688,
+       "enrichment": 1.8893515764425937,
+       "n": 8019,
+       "live_acc": 0.36837510911584986
+      },
+      "p3_3": {
+       "agreement": 0.014911559029206089,
+       "permutation_null": 0.010990847387906212,
+       "enrichment": 1.3567251461988303,
+       "n": 9724,
+       "live_acc": 0.46770876182640886
+      }
+     },
+     "allpos_ce": 12.924966441142411,
+     "top1_prog": 0.019938151041666668,
+     "max_dev_from_length1": 6.2678728103637695,
+     "lookup_misses": 0,
+     "global_null": 0.01474966281785585,
+     "uncovered_null": 0.019779582366589325,
+     "uncovered_n": 6465,
+     "u": {
+      "uncq0": {
+       "global_enrichment": 1.242126337315451,
+       "n": 1913
+      },
+      "uncq1": {
+       "global_enrichment": 1.3019017532377632,
+       "n": 1864
+      },
+      "uncq2": {
+       "global_enrichment": 1.2416437060948315,
+       "n": 1588
+      },
+      "uncq3": {
+       "global_enrichment": 1.286910157291389,
+       "n": 1100
+      }
+     },
+     "q": {
+      "tokq0": {
+       "agreement": 0.014836383804769829,
+       "global_enrichment": 1.005879523348086,
+       "local_enrichment": 1.8059071729957803,
+       "n": 7212
+      },
+      "tokq1": {
+       "agreement": 0.02883908890521675,
+       "global_enrichment": 1.9552371644933015,
+       "local_enrichment": 1.4272727272727272,
+       "n": 5444
+      },
+      "tokq2": {
+       "agreement": 0.049507419877790254,
+       "global_enrichment": 3.3565119751657564,
+       "local_enrichment": 1.8792899408284025,
+       "n": 8019
+      },
+      "tokq3": {
+       "agreement": 0.014911559029206089,
+       "global_enrichment": 1.010976265244128,
+       "local_enrichment": 1.3959085439229844,
+       "n": 9724
+      },
+      "livq0": {
+       "agreement": 0.024967148488830485,
+       "global_enrichment": 1.6927267285463239,
+       "local_enrichment": 1.837968561064087,
+       "n": 7610
+      },
+      "livq1": {
+       "agreement": 0.02278114300763761,
+       "global_enrichment": 1.5445195791227784,
+       "local_enrichment": 1.7789203084832905,
+       "n": 7594
+      },
+      "livq2": {
+       "agreement": 0.025161375312870504,
+       "global_enrichment": 1.7058949498432128,
+       "local_enrichment": 1.7767441860465119,
+       "n": 7591
+      },
+      "livq3": {
+       "agreement": 0.03314045239347711,
+       "global_enrichment": 2.246861694584468,
+       "local_enrichment": 1.6140912730184147,
+       "n": 7604
+      }
+     },
+     "n": 30399
+    },
+    "skip1200": {
+     "enrichment": 1.7605321507760534,
+     "cells": {
+      "p0_0": {
+       "agreement": 0.01601630751310425,
+       "permutation_null": 0.01110221316249272,
+       "enrichment": 1.442622950819672,
+       "n": 3434,
+       "live_acc": 0.32469423412929527
+      },
+      "p1_1": {
+       "agreement": 0.021875000000000002,
+       "permutation_null": 0.016319444444444445,
+       "enrichment": 1.3404255319148937,
+       "n": 2880,
+       "live_acc": 0.38263888888888886
+      },
+      "p2_2": {
+       "agreement": 0.05301556420233463,
+       "permutation_null": 0.029730058365758753,
+       "enrichment": 1.7832310838445808,
+       "n": 4112,
+       "live_acc": 0.3321984435797665
+      },
+      "p3_3": {
+       "agreement": 0.012393336042259244,
+       "permutation_null": 0.008558512799674928,
+       "enrichment": 1.448071216617211,
+       "n": 4922,
+       "live_acc": 0.42970337261275904
+      }
+     },
+     "allpos_ce": 12.7984816640706,
+     "top1_prog": 0.017740885416666668,
+     "max_dev_from_length1": 6.2678728103637695,
+     "lookup_misses": 0,
+     "global_null": 0.014944943966640605,
+     "uncovered_null": 0.015118352788586252,
+     "uncovered_n": 3084,
+     "u": {
+      "uncq0": {
+       "global_enrichment": 0.868421515771936,
+       "n": 914
+      },
+      "uncq1": {
+       "global_enrichment": 1.3908947407982761,
+       "n": 856
+      },
+      "uncq2": {
+       "global_enrichment": 0.9268694182134867,
+       "n": 785
+      },
+      "uncq3": {
+       "global_enrichment": 1.250373764044659,
+       "n": 529
+      }
+     },
+     "q": {
+      "tokq0": {
+       "agreement": 0.01601630751310425,
+       "global_enrichment": 1.0716873578686605,
+       "local_enrichment": 1.4379084967320261,
+       "n": 3434
+      },
+      "tokq1": {
+       "agreement": 0.021875000000000002,
+       "global_enrichment": 1.4637057220708447,
+       "local_enrichment": 1.295629820051414,
+       "n": 2880
+      },
+      "tokq2": {
+       "agreement": 0.05301556420233463,
+       "global_enrichment": 3.5473912997381225,
+       "local_enrichment": 1.8435517970401691,
+       "n": 4112
+      },
+      "tokq3": {
+       "agreement": 0.012393336042259244,
+       "global_enrichment": 0.8292661431132202,
+       "local_enrichment": 1.4437869822485208,
+       "n": 4922
+      },
+      "livq0": {
+       "agreement": 0.024733142410830515,
+       "global_enrichment": 1.6549504946983182,
+       "local_enrichment": 1.7966903073286054,
+       "n": 3841
+      },
+      "livq1": {
+       "agreement": 0.024765380604796664,
+       "global_enrichment": 1.6571076251658603,
+       "local_enrichment": 1.7155756207674944,
+       "n": 3836
+      },
+      "livq2": {
+       "agreement": 0.024008350730688934,
+       "global_enrichment": 1.6064530442054006,
+       "local_enrichment": 1.906735751295337,
+       "n": 3832
+      },
+      "livq3": {
+       "agreement": 0.02995571763480073,
+       "global_enrichment": 2.0044048142078323,
+       "local_enrichment": 1.6911764705882353,
+       "n": 3839
+      }
+     },
+     "n": 15348
+    }
+   }
+  }
+ },
+ "predictions": {
+  "pred_a_covered_interpolates": true,
+  "pred_b_uncovered_interpolates": false,
+  "pred_c_s1765_third_time": true,
+  "pred_d_controls": true
+ },
+ "runtime_s": 286.9
+}

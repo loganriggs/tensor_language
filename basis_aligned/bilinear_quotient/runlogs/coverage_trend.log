@@ -1,0 +1,29 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+COVERAGE TREND at 9054 | buckets ((0, 0), (1, 4), (5, 24), (25, 124), (125, 1000000000)) on the fit-row count of the TRUE target | full-rank settled program | DISCOVERY ONLY
+  built the settled fallback and 36 tables (5s)
+  precomputed per-token program margin for 50257 covered types (covered-token quartile bounds [0.1613, 0.3678, 0.7586])
+  uncovered-token quartile bounds [0.1942, 0.4563, 0.9108] over 41203 types
+
+  === all-compiled baseline ===
+    skip7000   covered enrichment  7.01x  (n 30632)
+    skip11000  covered enrichment  7.45x  (n 30399)
+    skip1200   covered enrichment  7.46x  (n 15348)
+    per-site live/table ratios: min 1.3x max 151.3x across 36 sites
+    g1.00    skip7000 CE 5.95796 ( 7.01x)  skip11000 CE 5.91799 ( 7.45x)  skip1200 CE 5.94378 ( 7.46x)   [1/2]
+    PERSITE  skip7000 CE 12.87349 ( 1.86x)  skip11000 CE 12.92497 ( 1.75x)  skip1200 CE 12.79848 ( 1.76x)   [2/2]
+
+  gradients at coverage 9054, against the two published endpoints:
+    skip7000   COVERED   5,419 +9.69  ->  9054 +9.36  ->  16,110 +9.50
+               UNCOVERED 5,419 +3.28  ->  9054 +3.77  ->  16,110 +3.90   (n 6232)
+    skip11000  COVERED   5,419 +10.46  ->  9054 +10.16  ->  16,110 +9.79
+               UNCOVERED 5,419 +3.11  ->  9054 +3.24  ->  16,110 +4.10   (n 6465)
+    skip1200   COVERED   5,419 +10.17  ->  9054 +9.30  ->  16,110 +9.28
+               UNCOVERED 5,419 +2.10  ->  9054 +2.93  ->  16,110 +2.06   (n 3084)
+
+  the COVERED gradient interpolates -> True  skip7000 +9.36 in [+9.20, +9.99]  skip11000 +10.16 in [+9.49, +10.76]  skip1200 +9.30 in [+8.98, +10.47]
+  and so does the UNCOVERED one -> False  skip7000 +3.77 in [+2.98, +4.20]  skip11000 +3.24 in [+2.81, +4.40]  skip1200 +2.93 in [+1.76, +2.40]   (skip1200 band near-degenerate, see docstring)
+  and §1765 holds a THIRD time (< 1e-3) -> True  skip7000 <= 0.00e+00  skip11000 <= 0.00e+00  skip1200 <= 0.00e+00
+  coverage 9054, zero misses -> control True; uncovered share skip7000 16.9%  skip11000 17.5%  skip1200 16.7%  (24% at 5,419, 10% at 16,110)
+
+pred_a True | pred_b False | pred_c True | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/coverage_trend_results.json (286.9s)
