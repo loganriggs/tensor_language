@@ -50918,7 +50918,7 @@ block is part of the edit, not an afterthought**, and it is the part that only r
 expensive has succeeded.
 
 **Open question this ends on.** The fallback's penalty is **+0.55 to +0.75 nats per uncovered position**,
-constant in coverage, and the current fallback is §1780/§1781's output-NN neighbour plus §1785's rank-64
+constant in coverage, and the current fallback is §1785's rank-64
 embedding→row map. **Nothing in the record has measured what the CEILING is for an uncovered position** —
 the analogue of §1848's per-token ceiling, for tokens that have no table row. Until that exists the 0.55
 is a deficit against *live*, not against *what any fallback could achieve*, and the lever's true size is
@@ -50975,8 +50975,9 @@ in principle reach, and that the ceiling is *more* reachable at uncovered positi
 **The position-wise class is not exhausted after all; its last open lever was mislabelled closed for
 twenty sections.**
 
-**Open question this ends on.** The current fallback is §1780/§1781's output-NN neighbour plus §1785's
-rank-64 embedding→row map, and it loses 0.82 nats against a per-token ceiling that exists for every one of
+**Open question this ends on.** The current fallback is §1785's rank-64 embedding→row map **alone**
+— §1785 certified the map "rather than the neighbour" (+0.03), and reading `build()` confirms uncovered
+rows are exactly `Eunc @ mp`, with the output-NN `nnrow` computed and then discarded, and it loses 0.82 nats against a per-token ceiling that exists for every one of
 those 5,672 tokens. **The obvious first probe is whether the map's rank is the binding constraint**:
 §1814 established rank(Ws) ≤ table_rank + 1, so at full-rank tables the map could carry far more than 64
 and its cost — 36 × rank × 2 × D — is the only thing that grows. Sweeping the map rank at fixed table rank
@@ -51031,7 +51032,10 @@ token has a ceiling row.
 
 **Open question this ends on.** The residual 0.60 nats at map rank 512 is the fallback's *functional
 form*, not its capacity: §1785 fits `row = embedding @ W` by least squares, a **linear** map from the
-token embedding. §1868 showed the target — the model's own length-1 row — is reachable in principle for
+token embedding — **and it is the whole fallback.** §1785 certified the map "rather than the neighbour",
+and `build()` confirms it: uncovered rows are exactly `Eunc @ mp`, while the output-NN `nnrow` is
+computed and discarded. Every banner in this lineage prints "context-free tables + output-NN fallback +
+rank-64 map", which over-describes what runs; the numbers are unaffected, the description was not (§1871). §1868 showed the target — the model's own length-1 row — is reachable in principle for
 every one of these tokens. **Whether a non-linear map closes the residual, and at what storage, is the
 first genuinely new object this arc has needed**, and unlike everything since §1829 it is not a re-slice
 of the existing build.
@@ -51091,3 +51095,47 @@ positions; §1869 and §1870 found map rank recovers a fifth to a quarter of it,
 on the deployed build. **The residual — 0.596 / 0.672 / 0.672 nats at map rank 512 — is §1785's map being
 linear in the token embedding, and that is the one open object this arc has produced that is not a
 re-slice of the existing build.**
+
+## §1871 — the fallback is the MAP ALONE: the output-NN neighbour is computed and discarded, and the banner says otherwise
+
+**DERIVED, not a run.** Found by reading `build()` while designing §1870's successor, rather than by
+reading the section prose — which is the point.
+
+```python
+  nnrow = torch.zeros(V, dtype=torch.long, device=DEV)      # computed...
+  nnrow[tk] = torch.arange(n, device=DEV)
+  ...
+      nnrow[u] = (p.half() @ pcn.T).float().argmax(-1)      # ...and never read again
+  ...
+      fr[tk] = tables[st]
+      fr[unc] = (Eunc @ mp).float()                         # uncovered rows are the MAP, alone
+```
+
+**The code is correct and matches the record.** §1785's own table certifies "a rank-**64** learned map
+**rather than the neighbour**, +0.03", so the map was always meant to replace the output-NN fallback, not
+to sit on top of it. The `nnrow` computation is vestigial — it costs setup time in every run of this
+lineage and its result is discarded.
+
+**What was wrong is every description of it, including three of mine.** The banner printed by every
+script in this lineage reads *"settled program (context-free tables + output-NN fallback + rank-64 map)"*,
+and §1867, §1868 and §1869 each describe the fallback as "§1780/§1781's output-NN neighbour **plus**
+§1785's rank-64 map". **No number changes** — the runs measured what the code does — but the object those
+numbers are about is a **linear map from the token embedding and nothing else**. Corrected in place in all
+three sections.
+
+**This sharpens §1869/§1870's conclusion rather than softening it.** The residual after map rank 512 —
+0.596 / 0.672 / 0.672 nats — is what a **single linear map from the embedding** leaves on the table, with
+no neighbour term contributing anything. That is a stronger statement about how much structure the
+fallback is missing than "a neighbour plus a map leaves 0.6".
+
+**And it names a cheap untested experiment.** §1785 compared **neighbour alone** against **map alone** and
+the map won by 0.03. It did **not** test **neighbour as a base with the map fitted on the residual** —
+`fr[unc] = nn_row + (Eunc @ mp_resid)` — which is a different object from either, costs the same storage
+(the neighbour index is 1 integer per uncovered token, ~0.03M reals against the map's 5.308M), and is the
+obvious first non-trivial functional form after a bare linear map. §1869 showed capacity is not the
+binding constraint above rank ~128; this asks whether the *base point* is.
+
+**How this was missed.** I described the fallback from the banner and from §1867's own prose, three
+sections running, without reading `build()` — PRE-FLIGHT A says consult the record before building, and
+the record here is the code. LESSONS 56 already covers stale banners; this is the first case where a
+stale banner propagated into the ledger's prose rather than only into a log header.
