@@ -1,0 +1,34 @@
+WHAT THE PROGRAM GIVES UP | 6 arms x 1 coverage(s) | DISCOVERY ONLY
+
+########## COVERAGE 5419 ##########
+  [bqlib] coverage 5419 from fineweb_n96_skip80.pt: 36 tables, neighbour index and map solver built (4s)
+  [bqlib] computed   live     skip7000 (1.3s)
+  [bqlib] computed   live     skip11000 (1.3s)
+  [bqlib] computed   live     skip1200 (0.6s)
+  [bqlib] computed   mix30m640 skip7000 (1.4s)
+  [bqlib] computed   mix30m640 skip11000 (1.3s)
+  [bqlib] computed   mix30m640 skip1200 (0.6s)
+  [bqlib] computed   mix30m640 skip7000 (3.8s)
+  [bqlib] computed   mix30m640 skip11000 (1.3s)
+  [bqlib] computed   mix30m640 skip1200 (0.6s)
+  [bqlib] computed   mix30m640 skip7000 (3.8s)
+  [bqlib] computed   mix30m640 skip11000 (1.3s)
+  [bqlib] computed   mix30m640 skip1200 (0.6s)
+  [bqlib] computed   mix30m640 skip7000 (3.8s)
+  [bqlib] computed   mix30m640 skip11000 (1.3s)
+  [bqlib] computed   mix30m640 skip1200 (0.6s)
+  [bqlib] computed   mix30m640 skip7000 (3.8s)
+  [bqlib] computed   mix30m640 skip11000 (1.3s)
+  [bqlib] computed   mix30m640 skip1200 (0.7s)
+  [bqlib] computed   map512   skip7000 (3.8s)
+  [bqlib] computed   map512   skip11000 (1.3s)
+  [bqlib] computed   map512   skip1200 (0.7s)
+
+  substituting attention alone costs more than substituting the MLPs alone  -> False
+  and every partial substitution costs under half the full 36-site price  -> False
+  and the late half costs more than the early half, as §1891/§1908 imply  -> False
+  derived controls -> True   coverage_exact=True  inert_pairs_are_inert=True  differing_pairs_do_move=True  buckets_partition=True  live_identical=True  ref_all36=True
+  reference deviations: all36 0.000000
+
+pred_a False | pred_b False | pred_c False | pred_z True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/what_the_program_gives_up_results.json (125.3s)

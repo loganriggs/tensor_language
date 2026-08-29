@@ -56931,3 +56931,57 @@ property that let §1974 re-read 190 comparisons under a new instrument.
 is worth — needs a `sites` parameter that `bqlib`'s row hook does not have: every arm substitutes all 36.
 **That is a small library change and the first experiment since §1946 that would ask what the compiled
 program is giving up, rather than how cheaply it can give it up.**
+
+## §1978 — partial compilation is 3.6× WORSE than full: the program is internally consistent, not degraded
+
+`ops/what_the_program_gives_up.py`, 125.3s, **DISCOVERY ONLY**, 5,419, rung 3 — §1977's open question,
+and the first experiment since §1946 to ask what the compiled program gives up. **All three predicates
+FALSE, derived controls TRUE.** Three failures in a row, and the reason is that my model was wrong.
+
+```
+  cost against the live model, 5,419, as nats and as a share of the FULL 36-site price
+                        skip7000            skip11000           skip1200
+  full 36-site        +2.8075  (100%)     +2.9789  (100%)     +2.7022  (100%)
+  mlp_only           +10.3256  (368%)    +10.5817  (355%)    +10.2112  (378%)
+  attn_only           +2.7074   (96%)     +2.8597   (96%)     +2.5869   (96%)
+  late_half           +1.8726   (67%)     +1.9726   (66%)     +1.7987   (67%)
+  early_half          +2.2556   (80%)     +2.4140   (81%)     +2.1762   (81%)
+```
+
+> **Substituting only the 18 MLP sites costs 10.2–10.6 nats — 3.6× the price of substituting all 36.**
+> Consistent on 3 of 3 roles at 355–378%. **A partially compiled program is far worse than a fully
+> compiled one.** Context-free MLP rows feed into **live attention**, which then mixes them across
+> positions; the result is worse than either the live model or the program. **§1765's object is not a
+> degraded model with errors — it is a different, internally consistent one, and the consistency is
+> load-bearing.** §1884 asked whether the program is "a degraded copy" and answered no on other evidence;
+> this is that claim with a number, and the number is a factor of 3.6.
+
+> **pred_a FAILED and its inference was right for the wrong reason. `attn_only` costs 96% of the full
+> price on 3/3 roles** — substituting attention alone buys essentially the entire penalty, which is
+> §1977's "attention is worth ~2.7 nats" measured directly. But I asked whether `attn_only` exceeds
+> `mlp_only`, and `mlp_only` is 3.7× larger — **not because the MLPs matter more, but because that arm is
+> the inconsistent one.** The predicate compared two things that differ in two ways.
+
+> **pred_c FAILED and reverses my expectation. The EARLY half costs more (80–81%) than the late half
+> (66–67%).** I predicted the opposite from §1891/§1908, which found the tracking the program destroys is
+> *late* attention. Those sections asked which site's ablation destroys the **program's** behaviour; this
+> asks which substitution costs the most **CE against the live model**, and the answers differ:
+> compiling early layers starves everything downstream of context, while late layers still receive
+> contextualised input. **Two different questions about the same sites, and I read one as the other.**
+
+> **pred_b FAILED in the opposite direction to the one it tested.** I asked whether each partial costs
+> *under half* the full price; every consistent partial costs **two-thirds to four-fifths** of it.
+> **The substitution is strongly sublinear: the first sites compiled cost most of the price and the rest
+> are nearly free** — which is why §1946–§1976's parameter tuning, all of it downstream of a fully
+> compiled program, was working in the flat tail of this curve.
+
+**Derived controls TRUE** — coverage exact, same-spec pairs inert at covered inputs and differing-spec
+pairs not (the site subset is now part of "same spec"), buckets partition, live identical, §1975's
+published `converged` CE reproduced to **0.000000** via `B.ref()`. Fifty-seventh clean reading.
+
+**Open.** The 3.6× penalty says compiled and live components interact badly, but not where. **`attn_only`
+at 96% and `mlp_only` at 368% are the two halves of the same partition, and their costs differ by a
+factor of four** — so the damage is not in "mixing" symmetrically, it is specifically in **live attention
+reading context-free rows**. The reverse mix is nearly the whole program's price and no worse.
+**Which layer's live attention does the damage is one sweep away and would say whether §1765's
+consistency requirement is global or local.**
