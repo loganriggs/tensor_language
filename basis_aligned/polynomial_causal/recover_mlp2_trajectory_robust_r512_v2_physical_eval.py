@@ -128,9 +128,7 @@ def failure_terminal_guard(
     expected_authority: dict[str, Any] | None,
     expected_protected: dict[str, Any] | None,
 ) -> None:
-    row_life.recovery_admission(); row_life.base.require_claim(claim, LOCK)
-    if RECEIPT.exists() or FAILURE.exists() or artifact_snapshot() != expected_artifacts:
-        raise RuntimeError("v2 evaluation failure aggregate or terminal changed")
+    row_life.recovery_admission()
     if expected_authority is None:
         if expected_artifacts[AUTHORITY.name] is not None or expected_protected is not None:
             raise RuntimeError("v2 absent-authority failure state changed")
@@ -141,8 +139,8 @@ def failure_terminal_guard(
                 or digest != expected_artifacts[AUTHORITY.name]:
             raise RuntimeError("v2 failure authority/protected state changed")
     if artifact_snapshot() != expected_artifacts or RECEIPT.exists() or FAILURE.exists():
-        raise RuntimeError("v2 evaluation failure state raced replay")
-    row_life.recovery_admission(); row_life.base.require_claim(claim, LOCK)
+        raise RuntimeError("v2 evaluation failure aggregate or terminal changed")
+    row_life.base.require_claim(claim, LOCK)
 
 
 def validate_receipt(value: Any, authority_sha: str, ledger_sha: str,
@@ -286,9 +284,11 @@ def main() -> None:
         }
 
         def ledger_guard() -> None:
-            verify_protected(protected, authority, claim); row_life.recovery_admission()
+            row_life.recovery_admission()
+            verify_protected(protected, authority, claim)
             if any(path.exists() for path in (LEDGER, RESULT, RECEIPT, FAILURE)):
                 raise RuntimeError("v2 terminal raced ledger")
+            row_life.base.require_claim(claim, LOCK)
 
         io.atomic_torch(LEDGER, ledger, pre_link_check=ledger_guard)
         reloaded, ledger_sha = io.stable_torch(LEDGER)
@@ -299,10 +299,12 @@ def main() -> None:
         result["program_integrity"] = program_integrity
 
         def result_guard() -> None:
-            verify_protected(protected, authority, claim); row_life.recovery_admission()
+            row_life.recovery_admission()
+            verify_protected(protected, authority, claim)
             io.stable_torch(LEDGER, ledger_sha)
             if any(path.exists() for path in (RESULT, RECEIPT, FAILURE)):
                 raise RuntimeError("v2 terminal raced result")
+            row_life.base.require_claim(claim, LOCK)
 
         io.atomic_json(RESULT, result, pre_link_check=result_guard)
         reloaded_result, result_sha = io.stable_json(RESULT)
@@ -321,7 +323,8 @@ def main() -> None:
         rendered = json.dumps(result, sort_keys=True, indent=2, allow_nan=False)
 
         def receipt_guard() -> None:
-            verify_protected(protected, authority, claim); row_life.recovery_admission()
+            row_life.recovery_admission()
+            verify_protected(protected, authority, claim)
             io.stable_json(AUTHORITY, authority_sha); io.stable_torch(LEDGER, ledger_sha)
             io.stable_json(RESULT, result_sha)
             if RECEIPT.exists() or FAILURE.exists():

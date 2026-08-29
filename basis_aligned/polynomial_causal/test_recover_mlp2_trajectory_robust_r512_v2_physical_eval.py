@@ -97,6 +97,49 @@ def test_late_v1_output_invalidates_recovery(
         rows.recovery_admission()
 
 
+def test_v1_output_created_during_science_replay_invalidates_recovery(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    late = tmp_path / "late-v1-output"
+    original_paths = rows._v1_absence_paths
+    original_hashes = rows.v1.source_hashes
+    monkeypatch.setattr(rows, "_v1_absence_paths", lambda: (*original_paths(), late))
+
+    def racing_hashes(commit: str):
+        value = original_hashes(commit)
+        late.write_text("appeared during replay")
+        return value
+
+    monkeypatch.setattr(rows.v1, "source_hashes", racing_hashes)
+    with pytest.raises(RuntimeError, match="appeared during science replay"):
+        rows.recovery_admission()
+
+
+def test_row_terminal_guard_checks_claim_after_final_admission(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    destination = tmp_path / "receipt.json"
+    lock = tmp_path / "lock"
+    monkeypatch.setattr(rows, "RECEIPT", destination)
+    claim = rows.base.acquire_claim(lock)
+    calls = 0
+
+    def racing_admission():
+        nonlocal calls
+        calls += 1
+        if calls == 2:
+            lock.write_text("rival claim")
+        return {"bound": True}
+
+    monkeypatch.setattr(rows, "recovery_admission", racing_admission)
+    with pytest.raises(RuntimeError):
+        rows.recovery_write_json(
+            destination, {"schema": "x"},
+            pre_link_check=lambda: rows.base.require_claim(claim, lock),
+        )
+    assert not destination.exists()
+
+
 def configure_eval_namespace(tmp_path: Path, monkeypatch: pytest.MonkeyPatch):
     names = ("authority.json", "ledger.pt", "result.json", "receipt.json", "failure.json", "lock")
     paths = {name: tmp_path / name for name in names}
@@ -150,6 +193,25 @@ def test_v2_failure_guard_rechecks_recovery(
     claim = rows.base.acquire_claim(paths["lock"])
     try:
         recovery.failure_terminal_guard(claim, expected, None, None)
-        assert len(calls) == 2
+        assert len(calls) == 1
+    finally:
+        rows.base.release_claim(claim, paths["lock"])
+
+
+def test_v2_failure_guard_rejects_terminal_created_during_final_admission(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    paths = configure_eval_namespace(tmp_path, monkeypatch)
+    expected = recovery.artifact_snapshot()
+    claim = rows.base.acquire_claim(paths["lock"])
+
+    def racing_admission():
+        paths["receipt.json"].write_text("rival terminal")
+        return {"bound": True}
+
+    monkeypatch.setattr(rows, "recovery_admission", racing_admission)
+    try:
+        with pytest.raises(RuntimeError, match="aggregate or terminal changed"):
+            recovery.failure_terminal_guard(claim, expected, None, None)
     finally:
         rows.base.release_claim(claim, paths["lock"])

@@ -78,6 +78,8 @@ def recovery_admission() -> dict[str, Any]:
             or audit.get("audited_source_commit") != ORIGINAL_AUDITED_COMMIT \
             or v1.source_hashes(ORIGINAL_AUDITED_COMMIT) != audit.get("audited_source_hashes"):
         raise RuntimeError("original science audit or source closure changed")
+    if any(path.exists() for path in _v1_absence_paths()):
+        raise RuntimeError("v1 row or evaluation output appeared during science replay")
     return {
         "v1_failure_path": str(V1_FAILURE.resolve()),
         "v1_failure_sha256": V1_FAILURE_SHA,
@@ -139,9 +141,11 @@ def recovery_write_json(path: Path, value: Mapping[str, Any], *, pre_link_check=
         original_guard = pre_link_check
 
         def combined_guard() -> None:
-            if original_guard is not None:
-                original_guard()
             recovery_admission()
+            if original_guard is not None:
+                # The inherited guard replays admission through audit validation,
+                # then ends with namespace/claim checks adjacent to publication.
+                original_guard()
 
         pre_link_check = combined_guard
     _BASE_WRITE_JSON(path, value, pre_link_check=pre_link_check)
