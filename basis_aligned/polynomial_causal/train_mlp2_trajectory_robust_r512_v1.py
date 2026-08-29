@@ -159,7 +159,9 @@ def protected_snapshot(authority: dict, sources: dict[str, str]) -> dict[str, An
                 "rows_receipt_sha256": receipt_sha,
                 "train_rows_sha256": file_sha256(train_path),
                 "c512_sha256": file_sha256(composition.C512_PATH),
+                "c512_receipt_sha256": file_sha256(composition.C512_RECEIPT),
                 "full512_bundle_sha256": file_sha256(composition.FULL_BUNDLE),
+                "full512_receipt_sha256": file_sha256(composition.FULL_RECEIPT),
                 "checkpoint_config_sha256": file_sha256(checkpoint / "config.json"),
                 "checkpoint_weights_sha256": file_sha256(checkpoint / "pytorch_model.bin")}
     if snapshot != authority["protected"]:
@@ -340,25 +342,28 @@ def validate_bundle(value: Any, parents: dict[str, str]) -> None:
             raise RuntimeError("paired-trajectory optimization status changed")
 
 
-def terminal_guard(claim, authority: dict, sources: dict[str, str],
+def terminal_guard(claim, authority: dict, authority_sha: str,
+                   sources: dict[str, str],
                    *, publishing: str, artifacts: Mapping[Path, str]) -> None:
     composition.row_life.base.require_claim(claim, LOCK)
     if publishing not in {"bundle", "result", "receipt", "failure"}:
         raise ValueError("unknown fit publication boundary")
     if RECEIPT.exists() or FAILURE.exists():
         raise RuntimeError("fit terminal artifact raced publication")
-    on_disk_authority, _ = composition.stable_json(AUTHORITY)
+    on_disk_authority, _ = composition.stable_json(AUTHORITY, authority_sha)
     if on_disk_authority != authority:
         raise RuntimeError("fit authority bytes or semantics changed")
     protected_snapshot(authority, sources)
     for path, expected in artifacts.items():
         if file_sha256(path) != expected:
             raise RuntimeError("fit artifact changed before publication")
-    if RECEIPT.exists() or FAILURE.exists():
-        raise RuntimeError("fit terminal artifact raced late publication")
-    on_disk_authority, _ = composition.stable_json(AUTHORITY)
+    on_disk_authority, _ = composition.stable_json(AUTHORITY, authority_sha)
     if on_disk_authority != authority:
         raise RuntimeError("fit authority changed late in publication")
+    # Terminal absence then owned-claim validation are literally the final callback
+    # operations.  No fallible read is allowed after this boundary.
+    if RECEIPT.exists() or FAILURE.exists():
+        raise RuntimeError("fit terminal artifact raced late publication")
     composition.row_life.base.require_claim(claim, LOCK)
 
 
@@ -382,6 +387,7 @@ def main() -> None:
         raise RuntimeError("paired-trajectory fit namespace already exists")
     claim = composition.row_life.base.acquire_claim(LOCK)
     authority: dict[str, Any] | None = None
+    authority_sha: str | None = None
     sources: dict[str, str] | None = None
     published: dict[Path, str] = {}
     try:
@@ -395,7 +401,9 @@ def main() -> None:
             "rows_receipt_sha256": row_receipt_sha,
             "train_rows_sha256": file_sha256(train_path),
             "c512_sha256": file_sha256(composition.C512_PATH),
+            "c512_receipt_sha256": file_sha256(composition.C512_RECEIPT),
             "full512_bundle_sha256": file_sha256(composition.FULL_BUNDLE),
+            "full512_receipt_sha256": file_sha256(composition.FULL_RECEIPT),
             "checkpoint_config_sha256": file_sha256(checkpoint_path / "config.json"),
             "checkpoint_weights_sha256": file_sha256(
                 checkpoint_path / "pytorch_model.bin"),
@@ -403,10 +411,14 @@ def main() -> None:
         parents = {"rows_receipt_sha256": row_receipt_sha,
                    "train_rows_sha256": protected["train_rows_sha256"],
                    "c512_sha256": composition.C512_SHA,
-                   "full512_bundle_sha256": composition.FULL_BUNDLE_SHA}
+                   "c512_receipt_sha256": composition.C512_RECEIPT_SHA,
+                   "full512_bundle_sha256": composition.FULL_BUNDLE_SHA,
+                   "full512_receipt_sha256": composition.FULL_RECEIPT_SHA}
         if parents["c512_sha256"] != protected["c512_sha256"] or (
             parents["full512_bundle_sha256"] != protected["full512_bundle_sha256"]
-        ):
+        ) or parents["c512_receipt_sha256"] != protected["c512_receipt_sha256"] \
+                or parents["full512_receipt_sha256"] != protected[
+                    "full512_receipt_sha256"]:
             raise RuntimeError("fit parent bytes changed before authority")
         authority = {
             "schema": "mlp2_trajectory_robust_r512_v1_fit_authority",
@@ -477,7 +489,8 @@ def main() -> None:
                   "evaluation_opened": False}
         validate_bundle(bundle, parents)
         refit.atomic_torch(BUNDLE, bundle, pre_link_check=lambda: terminal_guard(
-            claim, authority, sources, publishing="bundle", artifacts={}))
+            claim, authority, authority_sha, sources,
+            publishing="bundle", artifacts={}))
         published[BUNDLE] = file_sha256(BUNDLE)
         reloaded_bundle, bundle_sha = composition.stable_torch(BUNDLE, published[BUNDLE])
         validate_bundle(reloaded_bundle, parents)
@@ -507,7 +520,8 @@ def main() -> None:
             "evaluation_opened": False,
         }
         refit.atomic_json(RESULT, result, pre_link_check=lambda: terminal_guard(
-            claim, authority, sources, publishing="result", artifacts=published))
+            claim, authority, authority_sha, sources,
+            publishing="result", artifacts=published))
         published[RESULT] = file_sha256(RESULT)
         if composition.stable_json(RESULT, published[RESULT])[0] != result:
             raise RuntimeError("fit result semantic replay changed")
@@ -519,7 +533,8 @@ def main() -> None:
             "evaluation_opened": False,
         }
         refit.atomic_json(RECEIPT, receipt_out, pre_link_check=lambda: terminal_guard(
-            claim, authority, sources, publishing="receipt", artifacts=published))
+            claim, authority, authority_sha, sources,
+            publishing="receipt", artifacts=published))
         print(json.dumps(result, sort_keys=True, indent=2))
     except BaseException as exc:
         if not RECEIPT.exists() and not FAILURE.exists():
@@ -531,11 +546,16 @@ def main() -> None:
                 "authority_sha256": (file_sha256(AUTHORITY)
                                       if AUTHORITY.exists() else None),
                 "evaluation_opened": False}
-            if authority is not None and sources is not None:
+            if authority is not None and authority_sha is not None and sources is not None:
                 refit.atomic_json(FAILURE, failure, pre_link_check=lambda: terminal_guard(
-                    claim, authority, sources, publishing="failure", artifacts=published))
+                    claim, authority, authority_sha, sources,
+                    publishing="failure", artifacts=published))
             else:
-                refit.atomic_json(FAILURE, failure)
+                def early_failure_guard() -> None:
+                    if RECEIPT.exists() or FAILURE.exists():
+                        raise RuntimeError("fit terminal raced pre-authority failure")
+                    composition.row_life.base.require_claim(claim, LOCK)
+                refit.atomic_json(FAILURE, failure, pre_link_check=early_failure_guard)
         raise
     finally:
         composition.row_life.base.release_claim(claim, LOCK)
