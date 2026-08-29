@@ -1,0 +1,17 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+IS THE RESTORED ARM DETERMINISTIC? | buckets ((0, 0), (1, 4), (5, 24), (25, 124), (125, 1000000000)) on the fit-row count of the TRUE target | full-rank settled program | DISCOVERY ONLY
+  built the settled fallback and 36 tables (5s)
+
+  === all-compiled baseline: skip7000 36864 scored positions  skip11000 36864 scored positions  skip1200 18432 scored positions ===
+    self-comparison differs at 0 positions (must be 0)
+    skip7000   restored-vs-itself      0  all-compiled-vs-itself      0  restored-vs-all-compiled   1321  (n 36864)
+    skip11000  restored-vs-itself      0  all-compiled-vs-itself      0  restored-vs-all-compiled   1350  (n 36864)
+    skip1200   restored-vs-itself      0  all-compiled-vs-itself      0  restored-vs-all-compiled    650  (n 18432)
+
+  THE RESTORED ARM IS NOT SELF-CONSISTENT (>100 somewhere) -> False  skip7000 0  skip11000 0  skip1200 0
+  and the ALL-COMPILED arm still is (0) -> True  skip7000 0  skip11000 0  skip1200 0
+  and the self-differences match §1898 within 3x -> False  skip7000 0 vs 1321  skip11000 0 vs 1350  skip1200 0 vs 650
+  mlp16-vs-all-compiled reproduces §1898, coverage 16110 -> control True  skip7000 1321 vs 1321  skip11000 1350 vs 1350  skip1200 650 vs 650
+
+pred_a False | pred_b True | pred_c False | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/restored_arm_determinism_results.json (59.2s)

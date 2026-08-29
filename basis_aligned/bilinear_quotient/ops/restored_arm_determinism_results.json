@@ -1,0 +1,49 @@
+{
+ "config": {
+  "table_ranks": [
+   "full"
+  ],
+  "map_rank_of_table_rank": {
+   "None": 64,
+   "512": 512
+  },
+  "program": "context-free tables, output-NN fallback with a rank-64 embedding->row map -- the settled design of \u00a71780-\u00a71786",
+  "instruments": "top-1 agreement with the live model, top-1 accuracy against the true next token, and KL(live || program). All three are NEW to this thread, which has been CE-only since \u00a71747.",
+  "ROLE_NOTE": "DISCOVERY ONLY; a second-class confirmation with a DIFFERENT instrument, not a replication of the same one."
+ },
+ "results": {
+  "baseline": {
+   "skip7000": 36864,
+   "skip11000": 36864,
+   "skip1200": 18432
+  },
+  "self_check": 0,
+  "sites": {
+   "skip7000": {
+    "restored_self": 0,
+    "allcompiled_self": 0,
+    "restored_vs_allcompiled": 1321,
+    "n": 36864
+   },
+   "skip11000": {
+    "restored_self": 0,
+    "allcompiled_self": 0,
+    "restored_vs_allcompiled": 1350,
+    "n": 36864
+   },
+   "skip1200": {
+    "restored_self": 0,
+    "allcompiled_self": 0,
+    "restored_vs_allcompiled": 650,
+    "n": 18432
+   }
+  }
+ },
+ "predictions": {
+  "pred_a_restored_not_self_consistent_program_concentrated_on_frequent_targets": false,
+  "pred_b_allcompiled_still_is_more_concentrated_than_live": true,
+  "pred_c_magnitude_matches_keeps_60pc_on_the_top_bucket": false,
+  "pred_d_controls": true
+ },
+ "runtime_s": 59.2
+}
