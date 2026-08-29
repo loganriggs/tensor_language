@@ -63,15 +63,27 @@ def test_gradients_reach_both_backgrounds():
 
 
 def test_checkpoint_is_minimax_then_mean():
-    assert objective.retain_checkpoint(0.8, 0.8, 0.7, 1.0)
-    assert not objective.retain_checkpoint(0.6, 1.01, 0.7, 1.0)
-    assert objective.retain_checkpoint(0.7, 1.0, 0.8, 1.0)
+    assert objective.retain_checkpoint(0.8, 0.8, 0.7, 1.0, 1.0, 1.0)
+    assert not objective.retain_checkpoint(0.6, 1.01, 0.7, 1.0, 1.0, 1.0)
+    assert objective.retain_checkpoint(0.7, 1.0, 0.8, 1.0, 1.0, 1.0)
     with pytest.raises(ValueError):
         objective.robust_checkpoint_key(math.nan, 1.0)
+
+
+def test_checkpoint_cannot_sacrifice_either_background():
+    assert not objective.retain_checkpoint(0.9, 0.95, 0.2, 1.0, 0.2, 1.0)
+    assert not objective.retain_checkpoint(0.2, 1.03, 0.2, 1.0, 0.2, 1.0)
+
+
+def test_objective_rejects_bfloat16():
+    with pytest.raises(ValueError):
+        objective.normalized_mse(
+            torch.ones(2, dtype=torch.bfloat16),
+            torch.zeros(2, dtype=torch.bfloat16), 1.0,
+        )
 
 
 @pytest.mark.parametrize("energy", [0.0, -1.0, float("nan"), float("inf")])
 def test_invalid_energy_fails_closed(energy):
     with pytest.raises(ValueError):
         objective.normalized_mse(torch.ones(1), torch.zeros(1), energy)
-

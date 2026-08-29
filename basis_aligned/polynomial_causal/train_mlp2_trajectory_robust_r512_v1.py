@@ -135,14 +135,16 @@ def background_dev_loss(candidate, x, y, energy: float) -> float:
     return squared_error / count / energy
 
 
-def train(candidate, native_x, native_y, c512_x, c512_y, device):
+def train(candidate, native_x, native_y, second_x, second_y,
+          c512_dev_x, c512_dev_y, device):
     split = FIT_DOCUMENTS * TOKENS_PER_DOCUMENT
-    nx, ny, cx, cy = (value[:split] for value in
-                       (native_x, native_y, c512_x, c512_y))
-    ndx, ndy, cdx, cdy = (value[split:] for value in
-                           (native_x, native_y, c512_x, c512_y))
+    nx, ny, sx, sy = (value[:split] for value in
+                       (native_x, native_y, second_x, second_y))
+    ndx, ndy = native_x[split:], native_y[split:]
+    cdx, cdy = c512_dev_x[split:], c512_dev_y[split:]
     native_energy = float(objective.centered_target_energy(ny))
-    c512_energy = float(objective.centered_target_energy(cy))
+    c512_energy = float(objective.centered_target_energy(c512_dev_y[:split]))
+    second_energy = native_energy if second_x is native_x else c512_energy
     optimizer = torch.optim.Adam(candidate.parameters(), lr=LEARNING_RATE)
     generator = torch.Generator().manual_seed(SEED)
 
@@ -151,6 +153,7 @@ def train(candidate, native_x, native_y, c512_x, c512_y, device):
                 background_dev_loss(candidate, cdx, cdy, c512_energy))
 
     initial = observe()
+    baseline = initial
     best_losses = initial
     best = refit.program_state(candidate)
     curve = [{"step": 0, "native_normalized_mse": initial[0],
@@ -159,12 +162,12 @@ def train(candidate, native_x, native_y, c512_x, c512_y, device):
     candidate.train()
     for step in range(1, STEPS + 1):
         ni = torch.randint(0, nx.shape[0], (BATCH_PER_BACKGROUND,), generator=generator)
-        ci = torch.randint(0, cx.shape[0], (BATCH_PER_BACKGROUND,), generator=generator)
+        si = torch.randint(0, sx.shape[0], (BATCH_PER_BACKGROUND,), generator=generator)
         nxb, nyb = nx[ni].to(device).float(), ny[ni].to(device).float()
-        cxb, cyb = cx[ci].to(device).float(), cy[ci].to(device).float()
+        sxb, syb = sx[si].to(device).float(), sy[si].to(device).float()
         optimizer.zero_grad(set_to_none=True)
         loss, report = objective.balanced_background_loss(
-            candidate(nxb), nyb, candidate(cxb), cyb, native_energy, c512_energy,
+            candidate(nxb), nyb, candidate(sxb), syb, native_energy, second_energy,
         )
         loss.backward(); optimizer.step()
         if step % 25 == 0:
@@ -176,9 +179,9 @@ def train(candidate, native_x, native_y, c512_x, c512_y, device):
                           "train_balanced_loss": float(loss.detach()),
                           "train_native_normalized_mse": float(
                               report["native_normalized_mse"].detach()),
-                          "train_c512_normalized_mse": float(
+                          "train_second_normalized_mse": float(
                               report["c512_normalized_mse"].detach())})
-            if objective.retain_checkpoint(*observed, *best_losses):
+            if objective.retain_checkpoint(*observed, *best_losses, *baseline):
                 best_losses = observed
                 best = refit.program_state(candidate)
     candidate.load_state_dict(best); candidate.eval()
@@ -215,10 +218,15 @@ def main() -> None:
             model, rows, device, c512=True, c512_tensors=c512_tensors)
         parent, _ = composition.stable_torch(
             composition.FULL_BUNDLE, composition.FULL_BUNDLE_SHA)
-        candidate = refit.build_from_state(parent["programs"]["FULL512"], device)
-        candidate, curve, fit = train(
-            candidate, native_x, native_y, c512_x, c512_y, device)
-        state = refit.program_state(candidate)
+        initial_state = parent["programs"]["FULL512"]
+        continued = refit.build_from_state(initial_state, device)
+        robust = refit.build_from_state(initial_state, device)
+        continued, continued_curve, continued_fit = train(
+            continued, native_x, native_y, native_x, native_y,
+            c512_x, c512_y, device)
+        robust, robust_curve, robust_fit = train(
+            robust, native_x, native_y, c512_x, c512_y,
+            c512_x, c512_y, device)
         parents = {
             "rows_receipt_sha256": file_sha256(ROWS_RECEIPT),
             "train_rows_sha256": receipt["entries"]["TRAIN"]["file_sha256"],
@@ -226,14 +234,20 @@ def main() -> None:
             "full512_bundle_sha256": composition.FULL_BUNDLE_SHA,
         }
         bundle = {"schema": "mlp2_trajectory_robust_r512_v1_fit_bundle",
-                  "program": state, "parents": parents, "fit": fit,
-                  "curve": curve, "evaluation_opened": False}
+                  "programs": {"CONTINUE512": refit.program_state(continued),
+                               "ROBUST512": refit.program_state(robust)},
+                  "parents": parents,
+                  "fit": {"CONTINUE512": continued_fit,
+                          "ROBUST512": robust_fit},
+                  "curves": {"CONTINUE512": continued_curve,
+                             "ROBUST512": robust_curve},
+                  "evaluation_opened": False}
         refit.atomic_torch(BUNDLE, bundle)
         result = {
             "schema": "mlp2_trajectory_robust_r512_v1_fit_result",
             "status": "training_complete_evaluation_unopened",
             "runtime_seconds": time.time() - started,
-            "fit": fit,
+            "fit": {"CONTINUE512": continued_fit, "ROBUST512": robust_fit},
             "trajectory_shift_nrmse": {
                 "pre_mlp2_state": relative_shift(native_x, c512_x),
                 "native_mlp2_write": relative_shift(native_y, c512_y),

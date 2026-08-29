@@ -13,7 +13,8 @@ def centered_target_energy(target: torch.Tensor) -> torch.Tensor:
         raise ValueError("target must be a nonempty floating tensor")
     if not torch.isfinite(target).all():
         raise ValueError("target must be finite")
-    flat = target.reshape(-1, target.shape[-1])
+    # Accumulate the frozen scale in float64 even though optimization is float32.
+    flat = target.reshape(-1, target.shape[-1]).double()
     energy = (flat - flat.mean(dim=0, keepdim=True)).square().mean()
     if not torch.isfinite(energy) or energy <= 0:
         raise ValueError("centered target energy must be positive and finite")
@@ -26,8 +27,8 @@ def normalized_mse(
     """Scalar MSE divided by a precomputed fit-only centered target energy."""
     if prediction.shape != target.shape or prediction.numel() == 0:
         raise ValueError("prediction and target must have one equal nonempty shape")
-    if not prediction.is_floating_point() or not target.is_floating_point():
-        raise ValueError("prediction and target must be floating tensors")
+    if prediction.dtype != torch.float32 or target.dtype != torch.float32:
+        raise ValueError("prediction and target must be float32")
     if not torch.isfinite(prediction).all() or not torch.isfinite(target).all():
         raise ValueError("prediction and target must be finite")
     energy = torch.as_tensor(target_energy, device=prediction.device,
@@ -66,9 +67,17 @@ def retain_checkpoint(
     observed_c512: float,
     best_native: float,
     best_c512: float,
+    baseline_native: float,
+    baseline_c512: float,
+    relative_tolerance: float = 0.02,
 ) -> bool:
-    """Lexicographic minimax rule frozen by the preregistration."""
+    """Coordinatewise baseline eligibility, then lexicographic minimax."""
+    if not math.isfinite(relative_tolerance) or relative_tolerance < 0:
+        raise ValueError("relative_tolerance must be finite and nonnegative")
+    if observed_native > baseline_native * (1 + relative_tolerance) or (
+        observed_c512 > baseline_c512 * (1 + relative_tolerance)
+    ):
+        return False
     return robust_checkpoint_key(observed_native, observed_c512) < robust_checkpoint_key(
         best_native, best_c512,
     )
-
