@@ -56274,7 +56274,11 @@ it had never been checked, and I registered pred_c as the boundary test either w
 > **pred_c PASSED, and it is the boundary I registered it as. At 16,110 the narrow tilt clears the
 > 0.002-nat bar on 3 of 3 roles** — costing **+0.47 / +0.39 / −0.49 milli-nats**, *negative* on skip1200 —
 > while raising the unseen bucket by **+0.12 / +0.09 / +0.22pp**, for **+0.1M** on a 411.2M build.
-> **`pat20_30m640` is a free-to-cheap improvement at high coverage.**
+> **`pat20_30m640` is a free-to-cheap improvement at high coverage.** [**CORRECTED §1966.** Too
+> generous. pred_c asked only whether the tilt *costs no more than* 0.002 nats; the flat build is
+> actually **better on CE at 16,110 on 2 of 3 roles** (−0.47 / −0.39 / +0.49 milli-nats). "Clears a
+> cheapness bar" is not "is an improvement". The bucket gain is real and the price is small, but this is
+> a trade, not a free win — and §1966 found a mid tilt that beats both.]
 
 > **pred_a PASSED at both coverages and pred_b PASSED 3/3: the price falls with coverage**, from
 > +1.45 to +2.94 milli-nats at 5,419 down to −0.49 to +0.47 at 16,110. The mechanism is §1936's: the
@@ -56282,6 +56286,10 @@ it had never been checked, and I registered pred_c as the boundary test either w
 > proportionally less where the blend matters less — the same arithmetic that made §1956's router
 > *worse* at 5,419, running the other way.
 
+> [**§1966 further scopes what follows**: the two "coverage-specific" builds differ by at most +1.29 and
+> +0.49 milli-nats at the other's coverage — inside the 2.0 milli-nat bar — so the coverage-dependence
+> claimed below is smaller than a marginal purchase, and an intermediate tilt beats both everywhere.]
+>
 > **This scopes four published sections and I am stating it plainly. §1955, §1956, §1963 and §1964 each
 > concluded the deficit is "the structural price of the blend"; §1963 said so "at every operating point
 > measured" and §1964 called it structural "across five attempts, two coverages and two allocations".
@@ -56304,3 +56312,58 @@ unlike the table knee (§1951) — it is a **coverage-dependent** build paramete
 compromise build is within 0.002 nats of the coverage-specific optimum at both coverages; **whether that
 still holds once the tilt is in the mix is unmeasured, and it is the same question §1960 answered for the
 allocation, now with a fourth parameter.**
+
+## §1966 — there was no coverage divergence to compromise over, and §1965's headline was too generous
+
+`ops/one_build_with_tilt.py`, 206.1s, **DISCOVERY ONLY**, both coverages, rung 3 — §1965's open question,
+`run()`'s third experiment. **pred_a True | pred_b False | pred_c True | derived controls True.**
+
+§1965 concluded the per-token tilt is worth shipping at 16,110 and not at 5,419, making it a fourth
+coverage-dependent parameter, and asked whether §1960's "one build suffices" survives. **pred_b was
+registered as the test of whether there was anything to survive**: *"if each spec build is already within
+0.002 of the other there was never a compromise to find, and §1965's boundary is smaller than it
+looked."*
+
+```
+  pooled CE relative to each coverage's own "specific" build, in MILLI-nats
+                     spec_5419  spec_16110   mid_2535   mid_2832
+  at 5,419  skip7000    +0.00      +0.64      -0.17      -0.11
+            skip11000   +0.00      +0.02      -0.44      -0.23
+            skip1200    +0.00      +1.29      -0.10      -0.08
+  at 16,110 skip7000    -0.47      +0.00      -0.45      -0.48
+            skip11000   -0.39      +0.00      -0.42      -0.42
+            skip1200    +0.49      +0.00      +0.42      +0.44
+```
+
+> **pred_b FAILED, and it says the divergence was never there. The worst either "coverage-specific"
+> build does at the other coverage is +1.29 and +0.49 milli-nats — both inside the 2.0 milli-nat bar
+> §1960 used and §1965 leaned on.** There was no compromise to find because the two builds were never
+> more than a fraction of a marginal purchase apart.
+
+> **And it corrects §1965, which I overstated. I wrote that `pat20_30m640` is "a free-to-cheap
+> improvement at high coverage" and that the tilt "IS worth shipping at 16,110". The flat build is
+> actually BETTER on CE at 16,110 on 2 of 3 roles** — `spec_5419` sits at −0.47 / −0.39 / +0.49
+> milli-nats against the tilted build. §1965's pred_c only ever asked whether the tilt *costs no more
+> than* 0.002 nats, and it does not; **"clears a cheapness bar" is not "is an improvement", and I wrote
+> it as though it were.** The unseen-bucket gain (+0.12 / +0.09 / +0.22pp) is real and so is the low
+> price, but the honest statement is **a small bucket gain for a small CE loss on most roles — a trade,
+> not a free win.** §1965 is corrected in place.
+
+> **pred_a PASSED, and the winner is neither build I called optimal.** Both intermediate tilts beat the
+> coverage-specific builds at *both* coverages: `mid_2535` is **−0.17 / −0.44 / −0.10** milli-nats at
+> 5,419 and **−0.45 / −0.42 / +0.42** at 16,110. **So one build does suffice — and §1957–§1965 had simply
+> not looked between α = 0.30 flat and the 20→30 tilt.** A tilt of 25→35 is better than both endpoints
+> everywhere except 16,110/skip1200, which is the role that has dissented on this axis since §1963.
+
+> **pred_c PASSED 3/3**: the tilt still raises the unseen bucket at 16,110, so §1965's bucket finding
+> reproduces. It is the *pricing* of it that was wrong, not the effect.
+
+**Derived controls TRUE** — coverages exact, same-spec pairs inert at covered inputs and differing-spec
+pairs not, buckets partitioning, live identical, and §1965's published `flat30` CE reproduced to
+**0.000000** via `B.ref()`. Fiftieth clean reading, none of it hand-written.
+
+**Open.** Three sections in a row (§1964, §1965, §1966) have each moved the recommended fallback by one
+to two milli-nats, and §1966 has now found a better point *between* two I had already called optimal.
+**Every one of these was found by testing a point nobody had tried rather than by a mechanism, and the
+grid on this axis is still 4 points wide.** A denser sweep would settle it, and §1961's α curve is the
+warning: it was flat near its optimum and I spent two sections learning that.

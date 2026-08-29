@@ -1,0 +1,52 @@
+ONE BUILD WITH TILT | 5 arms x 2 coverage(s) | DISCOVERY ONLY
+
+########## COVERAGE 5419 ##########
+  [bqlib] coverage 5419 from fineweb_n96_skip80.pt: 36 tables, neighbour index and map solver built (4s)
+  [bqlib] cache HIT  live     skip7000
+  [bqlib] cache HIT  live     skip11000
+  [bqlib] cache HIT  live     skip1200
+  [bqlib] cache HIT  mix30m640 skip7000
+  [bqlib] cache HIT  mix30m640 skip11000
+  [bqlib] cache HIT  mix30m640 skip1200
+  [bqlib] cache HIT  pat20_30m640 skip7000
+  [bqlib] cache HIT  pat20_30m640 skip11000
+  [bqlib] cache HIT  pat20_30m640 skip1200
+  [bqlib] computed   pat25_35m640 skip7000 (1.4s)
+  [bqlib] computed   pat25_35m640 skip11000 (1.3s)
+  [bqlib] computed   pat25_35m640 skip1200 (0.7s)
+  [bqlib] computed   pat28_32m640 skip7000 (3.8s)
+  [bqlib] computed   pat28_32m640 skip11000 (1.6s)
+  [bqlib] computed   pat28_32m640 skip1200 (0.7s)
+  [bqlib] cache HIT  mix25m512 skip7000
+  [bqlib] cache HIT  mix25m512 skip11000
+  [bqlib] cache HIT  mix25m512 skip1200
+
+########## COVERAGE 16110 ##########
+  [bqlib] coverage 16110 from fineweb_n480_skip80.pt: 36 tables, neighbour index and map solver built (5s)
+  [bqlib] cache HIT  live     skip7000
+  [bqlib] cache HIT  live     skip11000
+  [bqlib] cache HIT  live     skip1200
+  [bqlib] cache HIT  mix30m640 skip7000
+  [bqlib] cache HIT  mix30m640 skip11000
+  [bqlib] cache HIT  mix30m640 skip1200
+  [bqlib] cache HIT  pat20_30m640 skip7000
+  [bqlib] cache HIT  pat20_30m640 skip11000
+  [bqlib] cache HIT  pat20_30m640 skip1200
+  [bqlib] computed   pat25_35m640 skip7000 (1.4s)
+  [bqlib] computed   pat25_35m640 skip11000 (1.3s)
+  [bqlib] computed   pat25_35m640 skip1200 (0.7s)
+  [bqlib] computed   pat28_32m640 skip7000 (3.4s)
+  [bqlib] computed   pat28_32m640 skip11000 (1.3s)
+  [bqlib] computed   pat28_32m640 skip1200 (0.7s)
+  [bqlib] cache HIT  mix25m512 skip7000
+  [bqlib] cache HIT  mix25m512 skip11000
+  [bqlib] cache HIT  mix25m512 skip1200
+
+  one compromise build is within 0.002 nats of both coverage-specific optima  -> True
+  and the two coverage-specific builds genuinely differ by more than that bar  -> False
+  and the tilt still helps the unseen bucket at 16,110 (>=2 roles) -- §1965 reproduced  -> True
+  derived controls -> True   coverage_exact=True  inert_pairs_are_inert=True  differing_pairs_do_move=True  buckets_partition=True  live_identical=True  ref_spec_5419=True
+  reference deviations: spec_5419 0.000000
+
+pred_a True | pred_b False | pred_c True | pred_z True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/one_build_with_tilt_results.json (206.1s)
