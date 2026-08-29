@@ -59,7 +59,7 @@ def _install_synthetic_fit_input(monkeypatch, tmp_path):
         "tokens_shape": [192, 256],
         "payload_fields": sorted(payload),
         "label_copy_cell_synthetic_fields_absent": True,
-        "model_forward_calls": 0,
+        "E4_fit_model_forward_calls": 0,
         "scientific_outcomes_read": False,
         "authorized_for_fit_mean_input_only": True,
         "authorized_for_candidate_selection": False,
@@ -68,10 +68,28 @@ def _install_synthetic_fit_input(monkeypatch, tmp_path):
         "tokens_sha256": payload["tokens_sha256"],
         "ordered_document_ids_sha256": payload["ordered_document_ids_sha256"],
     }
+    projection_manifest = {
+        "inputs_file_sha256": projection_receipt["inputs_file_sha256"],
+    }
+    projection_manifest_path = tmp_path / "fit_input_manifest.json"
+    projection_manifest_path.write_text(json.dumps(projection_manifest))
+    projection_receipt["manifest_file_sha256"] = life.file_sha256(projection_manifest_path)
     projection_receipt_path = tmp_path / "fit_input_receipt.json"
     projection_receipt_path.write_text(json.dumps(projection_receipt))
     monkeypatch.setattr(life, "FIT_INPUT_AUTHORITY", projection_authority_path)
     monkeypatch.setattr(life, "FIT_INPUT_RECEIPT", projection_receipt_path)
+    monkeypatch.setattr(life, "FIT_INPUT_MANIFEST", projection_manifest_path)
+    monkeypatch.setattr(life, "FIT_INPUTS", input_path)
+    monkeypatch.setattr(
+        life.fit_input_projection,
+        "validate_published_metadata",
+        lambda: {
+            "authority": projection_authority,
+            "manifest": projection_manifest,
+            "receipt": projection_receipt,
+            "input_file_sha256": projection_receipt["inputs_file_sha256"],
+        },
+    )
     return payload
 
 
