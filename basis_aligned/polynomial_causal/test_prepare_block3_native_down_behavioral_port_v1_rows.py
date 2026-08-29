@@ -225,6 +225,16 @@ def test_exact_failed_unmaterialized_lineage_is_waived_twice_and_only_twice():
     )
 
 
+def test_embedded_waiver_proofs_are_validated_but_not_reparsed_as_rows():
+    prior = ROWS.BQ / "mlp2_rank512_refit_v1_rows_receipt.json"
+    registry = (ROWS.FAILED_ROW_AUTHORITY, ROWS.TERMINAL_COPY_V2_RECEIPT, prior)
+    _prior, hashes, _tensor_hashes, waivers, _nonrows = ROWS.load_registry_exclusions(registry)
+    assert str(prior) in hashes
+    assert {item["registry_json"] for item in waivers} == {
+        str(ROWS.FAILED_ROW_AUTHORITY), str(ROWS.TERMINAL_COPY_V2_RECEIPT),
+    }
+
+
 def test_independent_audit_binds_exact_source_bytes(tmp_path, monkeypatch):
     source = tmp_path / "source.py"
     source.write_text("x = 1\n")

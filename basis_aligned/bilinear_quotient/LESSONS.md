@@ -2449,3 +2449,18 @@ so or buy the arm that tests it.
 **Scope, don't retract, when the measurement stands.** §1980's ledger section and registry entry now carry
 the condition in place, pointing forward to §1984. Deleting it would have thrown away a true result; leaving
 it unqualified would have left a false one in the registry. See [[control-polarity]] and [[LESSON 94]].
+
+## LESSON 96 — register the bar with the direction the claim predicts, or a better result reads as a failure
+
+§1986 registered two predicates as **"within 0.05 nats"**. Both failed. Neither failed because the rule was
+wrong: attention 0–3 turned out to be **0.372 nats worse than useless**, and attention 6 behind a compiled
+mlp12 made it **3.8× worse**. A two-sided tolerance treats "no different" as the hypothesis, so a large
+*signed* effect in either direction fails it — including the direction that strengthens the claim.
+
+**When the mechanism predicts a sign, register the sign.** "Within 0.05 nats" was the right bar for §1983's
+`mean_mlp4` vs `tab_mlp4` — there the claim genuinely was *no difference*. It was the wrong bar for
+"compiling attention 0–3 buys nothing", where the claim is *not better*, i.e. `path <= prefix`.
+
+**The verdict still stands as written.** §1986 scored both FALSE and published them FALSE; the finding was
+reported from the numbers, not from a rewritten bar. But two of three predicates carried no information
+about what actually happened, and that is a wasted register. See [[LESSON 94]] and [[LESSON 95]].

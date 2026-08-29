@@ -57322,7 +57322,12 @@ prefix and it is cheap (2.11). This subsumes §1980, §1981's non-additivity, §
 §1984's failed fix: the program does not need consistency everywhere, it needs an **unbroken context-free
 path to attention 6**.
 
-**And it is now the cheapest configuration on record — which is the fork, not a recommendation.**
+**A framing correction added at §1986.** Lowest CE across arms with *different site counts* is not a
+ranking of programs: compiling fewer sites retains more of the live model, so of course it scores nearer
+to it. These are **localisation probes**, and the comparison below is legitimate only as evidence about
+where the penalty lives — not as "a better program than §1765's".
+
+**And it is the cheapest configuration on record — which is the fork, not a recommendation.**
 `mlp4_a06` compiles **seven sites** and costs **2.105 / 2.250 / 2.026**, beating the full 36-site program
 by **0.703 nats at pooled t = −151.3** and §1980's fix by **0.637 at t = −130.4**. **I am not taking it.**
 With attention 7–17 live it is not a pure function of the current token, so every §1765-derived result
@@ -57333,3 +57338,49 @@ stops holding — the identical architectural fork raised at §1979/§1981 and s
 cheap test is whether the same contiguity rule holds for a compiled site *above* 6 — a lone compiled
 mlp12, which has no attention 6 between it and the interface — and whether its own prefix requirement
 points at layer 6 or at nothing at all.
+
+## §1986 — the path is not merely sufficient, it is optimal: every compiled site off it costs
+
+`ops/how_far_does_the_prefix_reach.py`, **53.8s**, **DISCOVERY ONLY**, 5,419, rung 3 — §1985's open
+question. **pred_a False | pred_b True | pred_c False | derived controls True.** All three reference
+deviations 0.000000. **Both failures are in the direction that strengthens the rule, and I registered
+two-sided bars that a signed improvement fails. They are scored FALSE as written.**
+
+```
+  cost against the live model, nats, 5,419
+             mlp4     mlp4+attn4-6   mlp4+attn0-6    mlp12    mlp12+attn6    full 36 sites
+  skip7000   10.669      1.745          2.105        0.034      0.129           2.808
+  skip11000  10.937      1.853          2.250        0.036      0.138           2.979
+  skip1200   10.580      1.682          2.026        0.034      0.127           2.702
+```
+
+> **pred_a FAILED because attention 0–3 are not merely unnecessary — they are harmful.** The bar was
+> "within 0.05 nats of §1985's attention 0–6 recipe". The four-site path beats it by **0.372 nats at
+> pooled t = −227.1**. The three attention layers *below* the compiled site cost 0.37 to compile and buy
+> nothing. **The rule is about a path from the site up to layer 6, and nothing else.**
+
+> **pred_b PASSED, and this is the rule's sharpest prediction landing.** A lone compiled **mlp12** — with
+> no attention 6 in front of it — costs **0.034 / 0.036 / 0.034 nats.** The identical substitution eight
+> layers lower costs **10.669**. **A factor of 314, from moving one compiled MLP across layer 6.** Pooled
+> mean −10.724 at t = −402.1.
+
+> **pred_c FAILED the same way pred_a did.** The bar was "compiling attention 6 does nothing for mlp12".
+> It does something: it makes it **3.8× worse** — 0.034 → 0.129, **+0.097 nats at t = +72.4**. Layer 6 is
+> not inert behind a compiled site; compiling it when nothing needs it is simply another site off the path.
+
+**The rule, tightened.** Compile a site, plus the attention layers between it and attention 6. Compile
+**nothing else** — every site off that path has now been measured and every one costs: attention 0–3
+under mlp4 (+0.372), attention 6 behind mlp12 (+0.097), and the 29 sites separating §1985's seven-site
+arm from the full program (+0.703). **§1981 called the cost non-additive; §1986 says it is worse than
+that — off-path compilation is monotonically harmful, and §1978's 3.6× penalty is what you get for
+compiling everywhere instead of along the path.**
+
+**What this does not say.** These are **localisation probes, not candidate programs.** Four compiled sites
+score better than thirty-six partly because thirty-two more of the live model is still there. The CE
+ordering across different site counts is evidence about *where the penalty lives*, and nothing about what
+should ship. The §1979/§1985 fork stands exactly where it did, with Logan.
+
+**Open.** Layer 6 has now been located from below (§1985), from above (§1986) and by content (§1983–§1984),
+and every result names it without explaining it. The remaining question is what attention 6 *does*: the
+cheapest probe is whether the boundary is layer 6 for every compiled MLP, or whether each site's path
+ends at its own layer — compile mlp2 and mlp8 separately and see whether both paths terminate at 6.

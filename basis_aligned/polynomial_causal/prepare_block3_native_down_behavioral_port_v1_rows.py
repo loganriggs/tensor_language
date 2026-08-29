@@ -258,6 +258,43 @@ def _missing_row_paths(payload: Any) -> set[Path]:
     return missing
 
 
+def _strip_embedded_waiver_proofs(payload: Any) -> Any:
+    """Remove only exact previously verified waiver receipts from recursive census.
+
+    Fresh-row receipts preserve the two canonical failed-row proof records. Those
+    records describe an absent tensor; they are not themselves new row references.
+    Every byte-level lineage field is revalidated before the proof metadata is
+    excluded from the recursive path scanner.
+    """
+    sanitized = copy.deepcopy(payload)
+    if not isinstance(sanitized, dict) or "waiver_proofs" not in sanitized:
+        return sanitized
+    proofs = sanitized.pop("waiver_proofs")
+    if not isinstance(proofs, list) or len(proofs) != 2:
+        raise RuntimeError("embedded failed-row waiver family changed")
+    expected_paths = {str(FAILED_ROW_AUTHORITY), str(TERMINAL_COPY_V2_RECEIPT)}
+    observed_paths = set()
+    for proof in proofs:
+        if not isinstance(proof, dict) or set(proof) != {
+            "registry_json", "registry_json_sha256", "omitted_missing_row_path",
+            "authority_sha256", "failure_sha256", "proof",
+        } or proof.get("omitted_missing_row_path") != str(FAILED_ROW) \
+                or proof.get("authority_sha256") != FAILED_ROW_AUTHORITY_SHA256 \
+                or proof.get("failure_sha256") != FAILED_ROW_FAILURE_SHA256 \
+                or proof.get("proof") != (
+                    "exact_spent_authority_and_terminal_failure_no_materialized_outputs"
+                ):
+            raise RuntimeError("embedded failed-row waiver proof changed")
+        path = _resolve_registry_path(proof["registry_json"])
+        if str(path) not in expected_paths or not path.is_file() \
+                or file_sha256(path) != proof.get("registry_json_sha256"):
+            raise RuntimeError("embedded failed-row waiver registry binding changed")
+        observed_paths.add(str(path))
+    if observed_paths != expected_paths:
+        raise RuntimeError("embedded failed-row waiver set changed")
+    return sanitized
+
+
 def _failed_row_waiver(path: Path, payload: Mapping[str, Any]) -> dict[str, Any]:
     """Validate the one historical unmaterialized row reference exactly.
 
@@ -370,10 +407,10 @@ def load_registry_exclusions(
             raise RuntimeError(f"registry JSON changed while reading: {path}")
         registry_hashes[str(path.resolve())] = before
         payload = json.loads(raw)
-        missing = _missing_row_paths(payload)
-        sanitized = copy.deepcopy(payload)
+        sanitized = _strip_embedded_waiver_proofs(payload)
+        missing = _missing_row_paths(sanitized)
         if missing:
-            waiver_proofs.append(_failed_row_waiver(path, payload))
+            waiver_proofs.append(_failed_row_waiver(path, sanitized))
             sanitized = _replace_failed_row_reference(sanitized)
         for tensor_path, specifications in REGISTRY.referenced_row_specs(sanitized).items():
             tensor_specs.setdefault(tensor_path, []).extend(specifications)
