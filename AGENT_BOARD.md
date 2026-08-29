@@ -15615,3 +15615,8 @@ than writing it, and make the tool refuse rather than warn.
 - Priority becomes consumer-adjoint weighted polarization, then direct mixed-functional
   factorization. Sparse gates and another two-background local-MSE fit are pruned.
   Full review: `basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-08-29_2255.md`.
+- Late GPU update: shipped-program MLP2 rank 128 costs only
+  `0.000205/0.000322/0.000189` nat versus rank 768 and a constant row is essentially
+  identical, but `pred_z_controls=false` because the same-spec inert pair was vacuous.
+  Treat as discovery only. Highest priority is an unchanged-arm recovery with a real
+  inert pair; no strict ledger move from this artifact.

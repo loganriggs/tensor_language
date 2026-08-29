@@ -92,13 +92,17 @@ Result artifact:
 
 ## Ranked top five actions
 
-### 1. Finish the active shipped-program MLP2 rank-allocation test
+### 1. Repair and replicate the shipped-program MLP2 rank-allocation test
 
-The GPU lane is already testing ranks 1/16/128/768 and a constant-row baseline at MLP2
-inside the full 36-site program.  This has the best immediate result-to-price ratio:
-it can certify that shipped rank 768 is over-bought, or show that the partial-compilation
-interface results do not transfer.  It is directly executable, falsifiable, and already
-running; duplicating it would waste the GPU.
+The GPU lane finished ranks 1/16/128/768 and a constant-row baseline at MLP2 inside the
+full 36-site program in 443.6 seconds.  Discovery values say rank 128 costs only
+`0.000205 / 0.000322 / 0.000189` nat relative to rank 768, and a constant row differs
+from rank 768 by `-0.000119 / +0.000020 / -0.000284` nat.  That would be a major
+allocation simplification, but the registered `pred_z_controls` failed: the intended
+same-spec inert control was vacuous.  The result is therefore **not certified**.  The
+highest-return action is a source-closed recovery with a genuinely non-vacuous inert
+pair and the same three roles.  It is cheap, directly executable, and sharply
+falsifiable; no ledger should move from the current discovery artifact.
 
 ### 2. Consumer-adjoint weighted polarization pilot
 
@@ -159,7 +163,8 @@ work remains downstream of at least three independent consumers.
 ## Executed action and next handoff
 
 The CPU interaction-geometry analysis was frozen, tested (3/3), executed, and produced
-a create-only result.  While it ran, the shared GPU remained occupied by priority 1.
-The immediate handoff after that job finishes is to record whether rank 128 is within
-the shipped price bar, then freeze the consumer-adjoint sketch rather than launching
-another local-MSE refit.
+a create-only result.  During it, the GPU allocation test finished with a promising
+rank-128 result but a failed/vacuous control.  The immediate handoff is to repair that
+control and replicate without changing the scientific arms or price bar.  If it
+survives, record the executable allocation simplification; then freeze the
+consumer-adjoint sketch rather than launching another local-MSE refit.

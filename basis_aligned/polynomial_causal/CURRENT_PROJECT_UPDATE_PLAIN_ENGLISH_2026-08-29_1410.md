@@ -2303,9 +2303,13 @@ This points toward a common downstream interface metric rather than bad training
 coverage. The next fit should measure which MLP2 tensor errors verified downstream
 consumers can observe, or directly target the mixed MLP0×MLP2 intervention term.
 
-The GPU is currently running a complementary test of whether MLP2 rank 768 is needed
-inside the fully shipped 36-site program. That can produce an immediate certified
-storage simplification, so it is being allowed to finish without duplication.
+The complementary GPU test has now returned a very promising but not yet valid result.
+Inside the fully shipped 36-site program, lowering MLP2 from rank 768 to rank 128 cost
+only `0.00019--0.00032` nat across three roles, far below the registered `0.010`-nat
+price bar. Even a constant row was essentially indistinguishable from rank 768 there.
+But the intended inert control was accidentally vacuous, so the control predicate
+failed. This is a discovery target, not certified simplification. The next action is
+to repair that control and replicate the same arms without moving the threshold.
 
 Full balance sheet, computations, gaps, pruning, and ranked actions are in
 [`HOURLY_STRATEGIC_REVIEW_2026-08-29_2255.md`](HOURLY_STRATEGIC_REVIEW_2026-08-29_2255.md).
