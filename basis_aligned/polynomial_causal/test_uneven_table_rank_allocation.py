@@ -10,12 +10,13 @@ def _spectrum(scale: float = 1.0) -> torch.Tensor:
 
 
 def test_allocator_respects_budget_and_favors_high_marginal_value():
-    spectra = {"a": _spectrum(100), "b": _spectrum(1)}
+    strong = torch.ones(allocation.WIDTH, dtype=torch.float64)
+    strong[:128] *= 100
+    spectra = {"a": strong, "b": _spectrum(1)}
     floor = 2 * allocation.site_cost(64)
     budget = floor + allocation.site_cost(128) - allocation.site_cost(64)
     result = allocation.allocate(spectra, (64, 128), budget, normalized=False)
-    # The first 64 directions are sunk at the floor; the next 64 are equal here, so
-    # deterministic lexical tie-breaking chooses a before b.
+    # The first 64 directions are sunk at the floor; a has the larger next-64 gain.
     assert result.ranks == {"a": 128, "b": 64}
     assert result.cost <= budget
 
@@ -51,4 +52,3 @@ def test_type_shift_preserves_rank_multisets_and_cost():
             ranks[f"{kind}{i}"] for i in range(18)
         )
     assert allocation.allocation_cost(shifted) == allocation.allocation_cost(ranks)
-
