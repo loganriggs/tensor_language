@@ -1,0 +1,107 @@
+{
+  "corrected_support_overlaps": {
+    "DERANGED_HASH_RANDOM": {
+      "intersection": 60,
+      "jaccard": 0.06224066390041494,
+      "union": 964
+    },
+    "DERANGED_LOCAL": {
+      "intersection": 72,
+      "jaccard": 0.07563025210084033,
+      "union": 952
+    },
+    "DERANGED_MASS": {
+      "intersection": 80,
+      "jaccard": 0.0847457627118644,
+      "union": 944
+    },
+    "DERANGED_RMS": {
+      "intersection": 73,
+      "jaccard": 0.07676130389064142,
+      "union": 951
+    },
+    "LOCAL_HASH_RANDOM": {
+      "intersection": 50,
+      "jaccard": 0.0513347022587269,
+      "union": 974
+    },
+    "LOCAL_MASS": {
+      "intersection": 264,
+      "jaccard": 0.3473684210526316,
+      "union": 760
+    },
+    "LOCAL_RMS": {
+      "intersection": 486,
+      "jaccard": 0.9033457249070632,
+      "union": 538
+    },
+    "MASS_HASH_RANDOM": {
+      "intersection": 66,
+      "jaccard": 0.06889352818371608,
+      "union": 958
+    },
+    "RMS_HASH_RANDOM": {
+      "intersection": 51,
+      "jaccard": 0.052415210688591986,
+      "union": 973
+    },
+    "RMS_MASS": {
+      "intersection": 258,
+      "jaccard": 0.3368146214099217,
+      "union": 766
+    },
+    "SUFFIX_DERANGED": {
+      "intersection": 87,
+      "jaccard": 0.09284951974386339,
+      "union": 937
+    },
+    "SUFFIX_HASH_RANDOM": {
+      "intersection": 56,
+      "jaccard": 0.05785123966942149,
+      "union": 968
+    },
+    "SUFFIX_LOCAL": {
+      "intersection": 369,
+      "jaccard": 0.5633587786259542,
+      "union": 655
+    },
+    "SUFFIX_MASS": {
+      "intersection": 308,
+      "jaccard": 0.4301675977653631,
+      "union": 716
+    },
+    "SUFFIX_RMS": {
+      "intersection": 364,
+      "jaccard": 0.5515151515151515,
+      "union": 660
+    }
+  },
+  "experiment_id": "bilin18_mlp2_cmr_v1_suffix_v2_overlap_correction",
+  "original_all_zero_summary_invalid": true,
+  "parents": {
+    "bundle": "cb3f8d3caecab86881eba825785cabd58c1b7ac8e2aa1eb93b459168cff17ce1",
+    "receipt": "b61c7308409ec64dc05601206bda21e1f4e24097871ba8dff0c92bc84e761e1f",
+    "result": "ab08dc0f0a71b5daf21228991b9e78a272aa74d226d97189ac414a546dc16f62"
+  },
+  "replication_opened": false,
+  "schema_version": 1,
+  "selector_scores_or_supports_changed": false,
+  "source_commit": "0b4712830385dd3fa3e87699d6b2dbad63360cfe",
+  "source_hashes": {
+    "basis_aligned/polynomial_causal/MLP2_CMR_V1_SUFFIX_V2_OVERLAP_CORRECTION.md": "599bd3943334a49961f2199c47cb91504b3720e21de3fbe0db33a580a42f7fdc",
+    "basis_aligned/polynomial_causal/correct_mlp2_cmr_v1_suffix_v2_overlaps.py": "1cc66b8ea3e1684185b1fa5fe7555dc9617f05fec10e7aeaefb66dae01e9dae1",
+    "basis_aligned/polynomial_causal/mlp2_cmr_v1_suffix_math.py": "52b0f94c49f64c43fe0fdd740339ae8c240ccce1759322a88a3db648d059b462",
+    "basis_aligned/polynomial_causal/test_correct_mlp2_cmr_v1_suffix_v2_overlaps.py": "121284625dc9f930657914a17f55c58a76f5a2e89e3c60a45ae538c537181de0",
+    "basis_aligned/polynomial_causal/test_mlp2_cmr_v1_suffix_math.py": "33e487e4870adc7970d52139d13f50d4f0e5d98e8874b419245928f9466ccb92"
+  },
+  "status": "corrected_support_overlap_summary_no_model_access",
+  "support_hashes": {
+    "DERANGED": "9a06787043444e982166557c3f3d34bb1653cb4e3c3affb6167a27a75b874775",
+    "HASH_RANDOM": "d6240c9fab1c8b157f111fb99fde39ba5d029cd023d88c75442b57540a5c94d4",
+    "LOCAL": "02087087ac6684e4c2beb982e48b2734a26cabde170ff8e7cf247797a601b8ff",
+    "MASS": "a418e3d54020a6b9ecb47d5f67f79b6406fe25f82e44516f27da6287e7be52e1",
+    "RMS": "9e7576c7f66da71ad6a99b6ec7d29ba3ba51926d5a1f77d8e367b7f7fc06c2e4",
+    "SUFFIX": "3445b3ef1c996e7e42b9ce06ce602fcd2828f4362644f4fd4576436551f4d5f3"
+  },
+  "validation_opened": false
+}

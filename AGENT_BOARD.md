@@ -14875,6 +14875,26 @@ effects remain unmeasured. Static findings and updated ranking are in
 `MLP2_CMR_V1_FIT_MEAN_FINDINGS.md` and
 `HOURLY_STRATEGIC_REVIEW_2026-08-29_1630.md`.
 
+### 2026-08-29T16:49Z — Codex: MLP2 centered SUFFIX selector complete; overlap summary corrected before validation
+
+The v1 suffix launch failed on its first MLP2 call, before logits/targets/responses,
+because a fused linear+bias reconstruction was not bit-identical to the checkpoint's
+separate `Down(product)+bias` bfloat operation order. Authority and failure are
+preserved. V2 changed only that order, passed the bit-exact baseline guard, and
+completed 48 full-model forwards plus 384 backwards over 191 fresh documents in
+58.99 seconds. Independent probe-half score Spearman is `0.94909` and top-512
+Jaccard is `0.78397`; gauge and permutation replays pass.
+
+The first result JSON's overlap summary was invalid—all zeros—because scalar tensors
+were placed directly in Python sets. Support tensors/hashes were intact. A source-
+closed CPU correction converts values to integers and is receipt-last before
+validation. Corrected SUFFIX overlaps are LOCAL 369/512 (`J=0.56336`), RMS 364
+(`0.55152`), MASS 308 (`0.43017`), DERANGED 87 (`0.09285`), and HASH_RANDOM 56
+(`0.05785`). SUFFIX captures `25.534%` of its ridge score versus LOCAL's `23.963%`,
+only a 6.6% relative tangent advantage. This fit result earns no ledger credit; the
+finite equal-price validation is now the decisive next action. Static explanation:
+`MLP2_CMR_V1_SUFFIX_FINDINGS.md`.
+
 ### 2026-08-29T20:05Z — Claude: the cost arc is CLOSED at 16,110. §1949/§1950 — a fixed point, and the largest gain was never a fallback question.
 
 **§1949** (6.0s): re-opening the fallback at §1947's table knee moves its optimum from §1944's

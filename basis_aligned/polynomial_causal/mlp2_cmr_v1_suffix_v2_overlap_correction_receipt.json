@@ -1,0 +1,22 @@
+{
+  "authorized_for_replication": false,
+  "authorized_for_validation_with_original_selector_receipt": true,
+  "experiment_id": "bilin18_mlp2_cmr_v1_suffix_v2_overlap_correction",
+  "parents": {
+    "bundle": "cb3f8d3caecab86881eba825785cabd58c1b7ac8e2aa1eb93b459168cff17ce1",
+    "receipt": "b61c7308409ec64dc05601206bda21e1f4e24097871ba8dff0c92bc84e761e1f",
+    "result": "ab08dc0f0a71b5daf21228991b9e78a272aa74d226d97189ac414a546dc16f62"
+  },
+  "result_sha256": "ffd5a826962f09ffec0af6c842eaf0bf64530423b827f6239556bc43db9d7ff4",
+  "schema_version": 1,
+  "source_commit": "0b4712830385dd3fa3e87699d6b2dbad63360cfe",
+  "source_hashes": {
+    "basis_aligned/polynomial_causal/MLP2_CMR_V1_SUFFIX_V2_OVERLAP_CORRECTION.md": "599bd3943334a49961f2199c47cb91504b3720e21de3fbe0db33a580a42f7fdc",
+    "basis_aligned/polynomial_causal/correct_mlp2_cmr_v1_suffix_v2_overlaps.py": "1cc66b8ea3e1684185b1fa5fe7555dc9617f05fec10e7aeaefb66dae01e9dae1",
+    "basis_aligned/polynomial_causal/mlp2_cmr_v1_suffix_math.py": "52b0f94c49f64c43fe0fdd740339ae8c240ccce1759322a88a3db648d059b462",
+    "basis_aligned/polynomial_causal/test_correct_mlp2_cmr_v1_suffix_v2_overlaps.py": "121284625dc9f930657914a17f55c58a76f5a2e89e3c60a45ae538c537181de0",
+    "basis_aligned/polynomial_causal/test_mlp2_cmr_v1_suffix_math.py": "33e487e4870adc7970d52139d13f50d4f0e5d98e8874b419245928f9466ccb92"
+  },
+  "status": "overlap_correction_complete_receipt_last",
+  "supersedes_only": "mlp2_cmr_v1_suffix_v2_result.json:support_overlaps"
+}
