@@ -55093,3 +55093,52 @@ half reproduced §1942's **published** pooled CE to **0.000005 nats** — twenty
 strength; α and map rank have never been swept together, and the whole point of §1942 is that the two
 ingredients are orthogonal — so the best (α, rank) pair need not have rank 512. That sweep is two nested
 loops over arms the library already builds.
+
+## §1944 — α and map rank interact exactly as the orthogonality picture predicts, and a CHEAPER build beats map512 on both instruments
+
+`ops/alpha_rank_grid.py`, **110.6s**, **DISCOVERY ONLY**, 5,419 coverage, rung 3 — §1943's open question.
+**pred_a False (0/3) | pred_b True (3/3) | pred_c True (3/3) | pred_d True.** 4 α × 4 map ranks.
+
+```
+  skip7000, pooled CE (delta vs map512, paired t) and top-1, by map rank and alpha
+                              a=10               a=25               a=40               a=60
+  rank  64 [230.176M]  5.99265(+.026,+12.3) 5.97692(+.010, +3.9) 5.97231(+.005, +1.7)* 5.97743(+.010,+2.7)
+  rank 128 [235.485M]  5.97537(+.008, +5.2) 5.96266(-.004, -2.0) 5.96116(-.006, -2.0)* 5.97036(+.003,+0.9)
+  rank 256 [246.102M]  5.96053(-.007, -6.1) 5.94988(-.017, -9.1)* 5.95072(-.016, -6.1) 5.96336(-.004,-1.0)
+  rank 512 [267.335M]  5.95161(-.015,-21.1) 5.94165(-.025,-15.0)* 5.94367(-.023, -9.2) 5.95833(-.009,-2.5)
+  anchors: map512 5.96702 / 13.77% [267.246M]   map64 6.01167 / 13.55% [230.087M]      * = CE argmin
+```
+
+> **pred_b PASSED 3/3, and it is the orthogonality picture making a correct prediction about something
+> it was not fitted to. The CE-optimal α RISES as the map gets weaker:** α = **40 at rank 64 on all
+> three roles**, against α = **25 at rank 512 on all three**, with rank 128 and 256 in between (40/25/40
+> and 25/25/40). **A weaker map is leaned on less and the blend shifts toward the neighbour** — exactly
+> what §1942's "the two ingredients contribute along different directions" implies, and not what you
+> would see if α were a property of the neighbour alone.
+
+> **pred_c PASSED 3/3 and it is the deployable result: a CHEAPER build beats `map512` on both
+> instruments.** `mix25m256` at **246.102M — 21.1M less than `map512`'s 267.246M** — wins top-1 by
+> **+0.20 / +0.16 / +0.21pp** and CE by **−0.0171 / −0.0176 / −0.0210 nats at paired t = −9.13 / −8.55 /
+> −7.02**, on every role. `mix10m256` and `mix40m256` do it 3/3 as well, and `mix40m128` (235.485M,
+> **31.8M** cheaper) manages 2/3. **Every improvement over `map512` found before this cost at least as
+> much as `map512` did; this one is strictly better and strictly cheaper.**
+
+> **pred_a FAILED 0/3, and it failed by 0.0033 nats.** I asked whether a rank ≤ 256 pair comes within
+> **0.005 nats** of the best rank-512 blend. The best is `mix25m256` at −0.0171 against `mix25m512`'s
+> −0.0254 — a gap of **0.0083**, so it misses on every role. Scored as written this is a FAIL. **The CE
+> genuinely wants map capacity: blending does not substitute for it.** What is true, and is the honest
+> reading, is that **rank 256 buys 67% of rank 512's CE gain for 21.1M less** — a rate the cost arc
+> should like, but not the equivalence I registered.
+
+**pred_d PASSED**: coverage exactly 5,419; every arm inert at covered inputs; buckets partition; live
+per-cell top-1 and CE identical across all nineteen arms at 0.00e+00; and the α=25 rank=512 pair
+reproduced §1943's **published** pooled CE to **0.000005 nats** — thirtieth clean reading.
+
+**The frontier at 5,419, all beating the 230.087M deployed design on both instruments.**
+`mix40m128` 235.485M (2/3 vs map512) → `mix25m256` **246.102M** (3/3 vs map512, and 21.1M cheaper than
+it) → `mix25m512` 267.335M (best CE anywhere). **`map512` is no longer on the frontier at all.**
+
+**Open.** Rank 256 with α = 25 has not been checked at 16,110, and §1943 is the precedent — margins there
+run a little over half of the 5,419 figures, which would put `mix25m256`'s CE edge over `map512` at
+roughly −0.008 nats. That is still several standard errors by §1943's arithmetic, but it is an
+extrapolation and the run is ~60s.

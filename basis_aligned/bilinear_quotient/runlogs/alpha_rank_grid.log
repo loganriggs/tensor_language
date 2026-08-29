@@ -2,3 +2,96 @@ Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF
 ALPHA x MAP RANK GRID | alphas (10, 25, 40, 60) x ranks (64, 128, 256, 512) | 5,419 | DISCOVERY ONLY
 
 ########## COVERAGE 5419 ##########
+  [bqlib] coverage 5419 from fineweb_n96_skip80.pt: 36 tables, neighbour index and map solver built (4s)
+  [bqlib] cache HIT  live     skip7000
+  [bqlib] cache HIT  live     skip11000
+  [bqlib] cache HIT  live     skip1200
+  [bqlib] computed   mix10m64 skip7000 (1.4s)
+  [bqlib] computed   mix10m64 skip11000 (1.3s)
+  [bqlib] computed   mix10m64 skip1200 (0.7s)
+  [bqlib] computed   mix25m64 skip7000 (3.8s)
+  [bqlib] computed   mix25m64 skip11000 (1.3s)
+  [bqlib] computed   mix25m64 skip1200 (0.7s)
+  [bqlib] computed   mix40m64 skip7000 (3.8s)
+  [bqlib] computed   mix40m64 skip11000 (1.3s)
+  [bqlib] computed   mix40m64 skip1200 (0.7s)
+  [bqlib] computed   mix60m64 skip7000 (3.8s)
+  [bqlib] computed   mix60m64 skip11000 (1.3s)
+  [bqlib] computed   mix60m64 skip1200 (0.7s)
+  [bqlib] computed   mix10m128 skip7000 (3.8s)
+  [bqlib] computed   mix10m128 skip11000 (1.3s)
+  [bqlib] computed   mix10m128 skip1200 (0.7s)
+  [bqlib] computed   mix25m128 skip7000 (3.8s)
+  [bqlib] computed   mix25m128 skip11000 (1.3s)
+  [bqlib] computed   mix25m128 skip1200 (0.7s)
+  [bqlib] computed   mix40m128 skip7000 (3.8s)
+  [bqlib] computed   mix40m128 skip11000 (1.3s)
+  [bqlib] computed   mix40m128 skip1200 (0.7s)
+  [bqlib] computed   mix60m128 skip7000 (3.8s)
+  [bqlib] computed   mix60m128 skip11000 (1.3s)
+  [bqlib] computed   mix60m128 skip1200 (0.7s)
+  [bqlib] computed   mix10m256 skip7000 (3.9s)
+  [bqlib] computed   mix10m256 skip11000 (1.3s)
+  [bqlib] computed   mix10m256 skip1200 (0.7s)
+  [bqlib] computed   mix25m256 skip7000 (3.9s)
+  [bqlib] computed   mix25m256 skip11000 (1.3s)
+  [bqlib] computed   mix25m256 skip1200 (0.7s)
+  [bqlib] computed   mix40m256 skip7000 (3.8s)
+  [bqlib] computed   mix40m256 skip11000 (1.3s)
+  [bqlib] computed   mix40m256 skip1200 (0.7s)
+  [bqlib] computed   mix60m256 skip7000 (3.9s)
+  [bqlib] computed   mix60m256 skip11000 (1.3s)
+  [bqlib] computed   mix60m256 skip1200 (0.7s)
+  [bqlib] cache HIT  mix10m512 skip7000
+  [bqlib] cache HIT  mix10m512 skip11000
+  [bqlib] cache HIT  mix10m512 skip1200
+  [bqlib] cache HIT  mix25m512 skip7000
+  [bqlib] cache HIT  mix25m512 skip11000
+  [bqlib] cache HIT  mix25m512 skip1200
+  [bqlib] cache HIT  mix40m512 skip7000
+  [bqlib] cache HIT  mix40m512 skip11000
+  [bqlib] cache HIT  mix40m512 skip1200
+  [bqlib] cache HIT  mix60m512 skip7000
+  [bqlib] cache HIT  mix60m512 skip11000
+  [bqlib] cache HIT  mix60m512 skip1200
+  [bqlib] cache HIT  nn       skip7000
+  [bqlib] cache HIT  nn       skip11000
+  [bqlib] cache HIT  nn       skip1200
+  [bqlib] cache HIT  map512   skip7000
+  [bqlib] cache HIT  map512   skip11000
+  [bqlib] cache HIT  map512   skip1200
+  [bqlib] cache HIT  map64    skip7000
+  [bqlib] cache HIT  map64    skip11000
+  [bqlib] cache HIT  map64    skip1200
+
+  skip7000   (best rank-512 blend: mix25m512)
+    rank   64 [230.176M]  a10 CE 5.99265 (+0.0256,t+12.30) t1 13.70%  a25 CE 5.97692 (+0.0099,t +3.94) t1 13.81%  a40 CE 5.97231 (+0.0053,t +1.71) t1 13.88%  a60 CE 5.97743 (+0.0104,t +2.70) t1 14.00%
+    rank  128 [235.485M]  a10 CE 5.97537 (+0.0083,t +5.23) t1 13.73%  a25 CE 5.96266 (-0.0044,t -1.99) t1 13.91%  a40 CE 5.96116 (-0.0059,t -2.04) t1 13.95%  a60 CE 5.97036 (+0.0033,t +0.89) t1 14.04%
+    rank  256 [246.102M]  a10 CE 5.96053 (-0.0065,t -6.06) t1 13.86%  a25 CE 5.94988 (-0.0171,t -9.13) t1 13.97%  a40 CE 5.95072 (-0.0163,t -6.10) t1 13.98%  a60 CE 5.96336 (-0.0037,t -1.01) t1 14.05%
+    rank  512 [267.335M]  a10 CE 5.95161 (-0.0154,t-21.12) t1 13.88%  a25 CE 5.94165 (-0.0254,t-15.03) t1 14.02%  a40 CE 5.94367 (-0.0233,t -9.20) t1 14.04%  a60 CE 5.95833 (-0.0087,t -2.46) t1 14.08%
+    anchors: map512 CE 5.96702 t1 13.77% [267.246M] | map64 CE 6.01167 t1 13.55% [230.087M]
+    CE argmin at rank 64: mix40m64   at rank 512: mix25m512
+
+  skip11000   (best rank-512 blend: mix25m512)
+    rank   64 [230.176M]  a10 CE 5.96445 (+0.0280,t+12.83) t1 14.37%  a25 CE 5.94873 (+0.0123,t +4.53) t1 14.47%  a40 CE 5.94592 (+0.0095,t +2.78) t1 14.49%  a60 CE 5.95375 (+0.0173,t +4.07) t1 14.59%
+    rank  128 [235.485M]  a10 CE 5.94571 (+0.0093,t +5.52) t1 14.41%  a25 CE 5.93321 (-0.0032,t -1.36) t1 14.47%  a40 CE 5.93370 (-0.0027,t -0.86) t1 14.57%  a60 CE 5.94593 (+0.0095,t +2.30) t1 14.64%
+    rank  256 [246.102M]  a10 CE 5.92944 (-0.0070,t -6.19) t1 14.43%  a25 CE 5.91886 (-0.0176,t -8.55) t1 14.53%  a40 CE 5.92174 (-0.0147,t -4.96) t1 14.62%  a60 CE 5.93780 (+0.0014,t +0.34) t1 14.65%
+    rank  512 [267.335M]  a10 CE 5.92010 (-0.0163,t-20.96) t1 14.48%  a25 CE 5.91021 (-0.0262,t-14.13) t1 14.53%  a40 CE 5.91409 (-0.0224,t -7.93) t1 14.66%  a60 CE 5.93223 (-0.0042,t -1.08) t1 14.68%
+    anchors: map512 CE 5.93645 t1 14.37% [267.246M] | map64 CE 5.98477 t1 14.25% [230.087M]
+    CE argmin at rank 64: mix40m64   at rank 512: mix25m512
+
+  skip1200   (best rank-512 blend: mix25m512)
+    rank   64 [230.176M]  a10 CE 5.98051 (+0.0196,t +6.20) t1 13.64%  a25 CE 5.96347 (+0.0025,t +0.64) t1 13.74%  a40 CE 5.95802 (-0.0029,t -0.60) t1 13.89%  a60 CE 5.96276 (+0.0018,t +0.30) t1 14.07%
+    rank  128 [235.485M]  a10 CE 5.96357 (+0.0026,t +1.07) t1 13.71%  a25 CE 5.94977 (-0.0112,t -3.21) t1 13.81%  a40 CE 5.94750 (-0.0134,t -2.93) t1 14.00%  a60 CE 5.95614 (-0.0048,t -0.82) t1 14.05%
+    rank  256 [246.102M]  a10 CE 5.95189 (-0.0091,t -5.52) t1 13.80%  a25 CE 5.93995 (-0.0210,t -7.02) t1 13.93%  a40 CE 5.93965 (-0.0213,t -4.99) t1 14.06%  a60 CE 5.95091 (-0.0100,t -1.76) t1 14.08%
+    rank  512 [267.335M]  a10 CE 5.94419 (-0.0168,t-14.75) t1 13.87%  a25 CE 5.93277 (-0.0282,t-10.46) t1 13.99%  a40 CE 5.93340 (-0.0275,t -6.78) t1 14.04%  a60 CE 5.94637 (-0.0146,t -2.62) t1 14.12%
+    anchors: map512 CE 5.96095 t1 13.72% [267.246M] | map64 CE 6.00165 t1 13.64% [230.087M]
+    CE argmin at rank 64: mix40m64   at rank 512: mix25m512
+
+  a rank <= 256 pair matches the best rank-512 blend within 0.005 nats (>=2 roles) -> False  0/3
+  and the CE-optimal alpha RISES as rank falls (>=2 roles) -> True  3/3
+  and a pair CHEAPER than map512 still beats it on both instruments (>=2 roles) -> True  3/3
+  coverage {'c5419': 5419}, arms inert True, live identical 0.0e+00, §1943 CE reproduced within 0.000005 nats -> control True
+
+pred_a False | pred_b True | pred_c True | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/alpha_rank_grid_results.json (110.6s)
