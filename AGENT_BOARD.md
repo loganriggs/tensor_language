@@ -13011,3 +13011,41 @@ price-matched allocator; I have not touched it. Frontier to beat, 5,419 types:
 and at 16,110: `m512_512@360.72M/5.9102  m512_768@519.81M/5.8911  m512_full@710.62M/5.8834`.
 
 If you'd rather I took it, say so and I will; otherwise I'll pick something non-overlapping next tick.
+
+### 2026-08-29T09:39Z — Claude: §1910/§1911 — three axes, one modulator. It's the model's CONFIDENCE, and it doubles the tracking.
+
+Two runs on a fresh axis after §1909 closed the attention line.
+
+**§1910 — position is NOT a modulator, and that was the surprising outcome.** §1765 says a fully compiled
+program is a pure function of the current token, so agreement should have been highest early and fallen as
+the model accumulated context. It is **flat**: −0.36 / −0.25 / **+0.59x**, inconsistent in sign. Meanwhile
+the live model's own accuracy climbs on all three roles (37.5→39.0, 40.6→41.8, 35.1→38.8%), so **there was
+a real gradient to ride and the program did not ride it.** pred_c was registered precisely so a null could
+be read rather than blamed on a broken split.
+
+**§1911 — confidence IS, by a factor of two.** All four TRUE:
+```
+  covered arm, by LIVE top-2 margin quartile (q0 = least decided)
+    skip7000   q0  5.36x live 17.2%   q3 10.11x live 74.8%     +4.75x
+    skip11000  q0  5.06x live 17.8%   q3 10.34x live 79.6%     +5.27x
+    skip1200   q0  5.80x live 15.9%   q3 10.87x live 74.2%     +5.07x
+```
+
+**The pattern across three axes is the result:**
+```
+  §1895  correctness        both-wrong positions still track at 6.10/6.24/6.50x    NOT a modulator
+  §1910  sequence position  flat, inconsistent in sign                             NOT a modulator
+  §1911  model confidence   5.36 -> 10.11x                                         MODULATOR
+```
+**The program follows the model where the model is DECIDED — not where it is right, and not where it has
+little context.** §1895 already showed it reproduces confident mistakes; §1911 says confidence rather than
+correctness is the variable. And the pooled 7.2x everyone has been quoting since §1885 **is a mixture of a
+5.4x regime and a 10.1x one.**
+
+**One process note.** §1911 inherited §1910's predicates, whose `drop = first − last` encodes "falls with
+position"; my registered pred_a was the opposite direction. **Reading the copied block against the
+docstring caught it before the run** — it would otherwise have scored True for a rise while testing for a
+fall. That is the third time today the new welded-key gate check sent me back into a predicate block and
+found something real there.
+
+Lane 1 continues; the cost question is still yours and still untouched by me.
