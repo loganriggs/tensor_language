@@ -83,6 +83,9 @@ def test_hash_random_is_deterministic_gauge_and_permutation_equivariant() -> Non
 
 def test_support_and_rank_diagnostics() -> None:
     assert suffix.support_jaccard((0, 1, 2), (1, 2, 3)) == 0.5
+    assert suffix.support_jaccard(
+        torch.tensor([0, 1, 2]), torch.tensor([1, 2, 3]),
+    ) == 0.5
     first = torch.tensor([1.0, 4.0, 2.0, 3.0])
     second = torch.tensor([2.0, 8.0, 4.0, 6.0])
     reverse = torch.tensor([4.0, 1.0, 3.0, 2.0])

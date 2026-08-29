@@ -1,0 +1,35 @@
+{
+  "authority_sha256": "7c29c2e05a772a81a46a8cbbca7c1e4b6d2f9a1fcd3b27b321ef501145bf6765",
+  "authorized_for_replication": false,
+  "authorized_for_validation": true,
+  "bundle_sha256": "cb3f8d3caecab86881eba825785cabd58c1b7ac8e2aa1eb93b459168cff17ce1",
+  "experiment_id": "bilin18_mlp2_cmr_v1_suffix_v2",
+  "parents": {
+    "fit_bundle": "043bb52b9580d9c9c342460e5bb80ff579db01486b3b6c6672bf5fba77e46f8e",
+    "fit_receipt": "9dc14d909a1b4aafd33c67dc7a3d066db4ccc9cb83c7059fe7aaf499ca9e5efa",
+    "fit_result": "65c1ee33f0399d6489cae0227442d479a9d59b9be98f619d92423cfd39fc7833",
+    "previous_authority": "d204e9adeef3d65a1d6f38ed76071aa38c921bd2884ed136ac6e37f4696c7296",
+    "previous_failure": "eea77b4e7fa9fd6ed35dce31ea43a72f8cf2d21d8c2e76a94396a81547f6d8a2",
+    "token_receipt": "47113c255bf47f9d1c7369639fab39664c71f93134099babadcce9d89a011e85",
+    "token_rows": "3ed0192993095f7de70ab7f1350d091b6c1d8c4c7d0583fd5f0f6441556e4aa6"
+  },
+  "result_sha256": "ab08dc0f0a71b5daf21228991b9e78a272aa74d226d97189ac414a546dc16f62",
+  "schema_version": 1,
+  "scientific_claim": "none_fit_selector_artifact_only",
+  "source_commit": "67ebf450618e230c3ce2a52b6c53ec6c41c88632",
+  "source_hashes": {
+    "basis_aligned/polynomial_causal/MLP2_CMR_V1_PREREGISTRATION.md": "d456e75053de10b378303721a59a03d8a132cf0a0c5226f025bb3b2aa31c340b",
+    "basis_aligned/polynomial_causal/MLP2_CMR_V1_SUFFIX_ADDENDUM.md": "8a02e9162925b7b1297cbf8e3bedda1b8868c135e7929ac23fcbf40d16b46939",
+    "basis_aligned/polynomial_causal/MLP2_CMR_V1_SUFFIX_V2_RECOVERY.md": "7d16ecb03672aa72efb25ebcfb31772fa16af6f71a2cd86cc50e9daf930859a9",
+    "basis_aligned/polynomial_causal/bilin18_observed_model_facade.py": "b62947f772c807259890a9d09dfcbe5e91ad339a0bffa867ab99177fde4c728c",
+    "basis_aligned/polynomial_causal/collect_mlp2_cmr_v1_suffix.py": "41958b928f73fd4dbd87e1a895dd5f9191e5555088cf6c2830d160c77823a959",
+    "basis_aligned/polynomial_causal/mlp2_cmr_v1_random_control_discrepancy.json": "ea0f5bb4741cb081c2afdf631498a8943c5343171eef851999df7d30366065f9",
+    "basis_aligned/polynomial_causal/mlp2_cmr_v1_suffix_math.py": "a15220a26d26b77ac0174915a142f01df920148718febab3bf9e2fe1393e90a4",
+    "basis_aligned/polynomial_causal/mlp_global_gate_response.py": "1c63740067c75dc4dfa264c34c5f4c749cb0c3058cd565eb781fde2effbd8de1",
+    "basis_aligned/polynomial_causal/tensor_bilin18_tangent_collector.py": "718bba471aa9aaac6493cf7cfe354f9d9ec90dc761db3185cc499b862ff66d90",
+    "basis_aligned/polynomial_causal/test_collect_mlp2_cmr_v1_suffix.py": "f77636f6dc19c5e4cfe9ed99a1212d3a9bb368af9c03ff7244cc56be18eb9141",
+    "basis_aligned/polynomial_causal/test_mlp2_cmr_v1_suffix_math.py": "e20c9bb958474a76d0ee7c4c557ecd7149b35dd23d3a8a334c98abf7ec455159",
+    "jacclust/tt_model.py": "49ecdbd6c060ff5b3e57f3134d87ba32841390c891c42e6ae23b71d8627612b2"
+  },
+  "status": "fit_selector_complete_receipt_last"
+}

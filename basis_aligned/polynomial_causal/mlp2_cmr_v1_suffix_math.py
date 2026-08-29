@@ -129,7 +129,8 @@ def mapped_permutation(
 
 
 def support_jaccard(first: Sequence[int], second: Sequence[int]) -> float:
-    left, right = set(first), set(second)
+    left = {int(value) for value in first}
+    right = {int(value) for value in second}
     if not left or not right:
         raise ValueError("support Jaccard requires nonempty supports")
     return len(left & right) / len(left | right)
