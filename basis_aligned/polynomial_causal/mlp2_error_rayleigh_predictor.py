@@ -165,3 +165,49 @@ def fit_design(features: torch.Tensor, finite: torch.Tensor) -> Mapping[str, Any
                 normalize(matrix, model["mean"], model["scale"]), model["coefficients"],
             )
     return {"target": target, "models": models, "null_predictions": null_predictions}
+
+
+def validate_frozen_bundle(value: Any) -> Mapping[str, Any]:
+    """Validate the exact receipt-bound predictor serialization used to unlock HELDOUT."""
+    required = {
+        "schema", "target", "models", "null_predictions", "families", "ridge_grid",
+        "unit", "program_identity_feature", "directional_amplitude_reduction",
+    }
+    if not isinstance(value, dict) or set(value) != required \
+            or value.get("schema") != "mlp2_error_rayleigh_v1_design_predictor_bundle" \
+            or value.get("families") != {
+                name: list(features) for name, features in FAMILIES.items()
+            } or value.get("ridge_grid") != list(RIDGE_GRID) \
+            or value.get("unit") != "source_document_by_program" \
+            or value.get("program_identity_feature") is not False \
+            or value.get("directional_amplitude_reduction") != "arithmetic_mean_h16_h8" \
+            or not isinstance(value.get("target"), torch.Tensor) \
+            or value["target"].dtype != torch.float64 or value["target"].shape != (32, 3) \
+            or not torch.isfinite(value["target"]).all() \
+            or set(value.get("models", {})) != set(FAMILIES) \
+            or set(value.get("null_predictions", {})) != {"DERANGED", "COV_RANDOM"}:
+        raise RuntimeError("DESIGN predictor bundle metadata changed")
+    for family, model in value["models"].items():
+        width = len(FAMILIES[family])
+        if set(model) != {
+            "ridge_selected", "clustered_lodo_mse", "mean", "scale", "coefficients",
+            "design_prediction",
+        } or model["ridge_selected"] not in RIDGE_GRID \
+                or set(model["clustered_lodo_mse"]) != set(RIDGE_GRID) \
+                or model["mean"].shape != (width,) or model["scale"].shape != (width,) \
+                or model["coefficients"].shape != (width + 1,) \
+                or model["design_prediction"].shape != (32, 3) \
+                or any(not torch.isfinite(model[key]).all() for key in (
+                    "mean", "scale", "coefficients", "design_prediction",
+                )) or bool((model["scale"] <= 0).any()):
+            raise RuntimeError(f"DESIGN predictor {family} changed")
+        if any(not isinstance(loss, (int, float)) or not torch.isfinite(torch.tensor(loss))
+               for loss in model["clustered_lodo_mse"].values()):
+            raise RuntimeError(f"DESIGN predictor {family} CV loss changed")
+    for families in value["null_predictions"].values():
+        if set(families) != set(FAMILIES) or any(
+            prediction.shape != (32, 3) or prediction.dtype != torch.float64
+            or not torch.isfinite(prediction).all() for prediction in families.values()
+        ):
+            raise RuntimeError("DESIGN null prediction changed")
+    return value

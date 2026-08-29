@@ -24,6 +24,7 @@ for source_root in (ROOT, HERE, BQ):
 
 import bilin18_observed_model_facade as facade
 import mlp2_error_rayleigh_collector_core as core
+import mlp2_error_rayleigh_predictor as predictor
 import prepare_mlp2_error_rayleigh_v1_rows as row_life
 import run_mlp0_c512_mlp2_full512_composition_v1 as base
 import run_mlp2_rank512_refit_v1 as refit
@@ -40,16 +41,23 @@ CORE_TEST = HERE / "test_mlp2_error_rayleigh_collector_core.py"
 AUDIT = HERE / "mlp2_error_rayleigh_v1_collector_independent_audit.json"
 ROWS_RECEIPT = BQ / "mlp2_error_rayleigh_v1_rows_receipt.json"
 PREDICTOR_RECEIPT = HERE / "mlp2_error_rayleigh_v1_design_predictor_receipt.json"
+PREDICTOR_BUNDLE = HERE / "mlp2_error_rayleigh_v1_design_predictor_bundle.pt"
 SOURCE_PATHS = tuple(dict.fromkeys((
     PREREG, ADDENDUM, RUNNER, TEST, CORE, CORE_TEST,
     HERE / "mlp2_error_rayleigh_metrics.py",
     HERE / "test_mlp2_error_rayleigh_metrics.py",
+    HERE / "mlp2_error_rayleigh_predictor.py",
+    HERE / "test_mlp2_error_rayleigh_predictor.py",
     HERE / "bilin18_observed_model_facade.py",
     HERE / "run_mlp2_trajectory_robust_r512_v1_physical_eval.py",
     HERE / "test_mlp2_trajectory_robust_r512_v1_physical_eval.py",
     HERE / "run_mlp0_c512_mlp2_full512_composition_v1.py",
     HERE / "run_mlp2_rank512_refit_v1.py",
     HERE / "mlp0_native_down_program.py",
+    HERE / "prepare_mlp2_trajectory_robust_r512_v1_eval_rows.py",
+    HERE / "prepare_mlp0_c512_mlp2_full512_composition_v2_rows.py",
+    HERE / "prepare_mlp0_c512_mlp2_full512_composition_v1_rows.py",
+    HERE / "mlp2_cmr_v1_physical_program.py",
     *row_life.SOURCE_PATHS,
     ROOT / "jacclust/__init__.py", ROOT / "jacclust/tt_model.py",
 )))
@@ -153,6 +161,16 @@ def validate_row_receipt(value: Any) -> dict[str, Any]:
         if entry.get("shape") != [DOCUMENTS, 257] or entry.get("dtype") != "torch.int64" \
                 or not path.is_file() or file_sha256(path) != entry.get("file_sha256"):
             raise RuntimeError(f"Rayleigh {role} row bytes changed")
+    commit = value.get("source_commit")
+    source_values = value.get("source_hashes")
+    if not isinstance(commit, str) or not isinstance(source_values, dict):
+        raise RuntimeError("Rayleigh row source binding is absent")
+    subprocess.run(["git", "merge-base", "--is-ancestor", commit, "origin/main"],
+                   cwd=ROOT, check=True)
+    for relative, expected in source_values.items():
+        blob = subprocess.check_output(["git", "show", f"{commit}:{relative}"], cwd=ROOT)
+        if hashlib.sha256(blob).hexdigest() != expected:
+            raise RuntimeError("Rayleigh row committed source binding changed")
     return value
 
 
@@ -170,6 +188,48 @@ def validate_predictor_unlock() -> tuple[dict[str, Any], str]:
             or value.get("design_ledger_sha256") != file_sha256(design["ledger"]) \
             or value.get("design_receipt_sha256") != file_sha256(design["receipt"]):
         raise RuntimeError("HELDOUT predictor unlock changed")
+    design_receipt, _ = stable_json(design["receipt"], value["design_receipt_sha256"])
+    design_ledger, ledger_sha = stable_torch(design["ledger"], value["design_ledger_sha256"])
+    required_receipt = {
+        "schema", "status", "role", "authority_sha256", "ledger_sha256",
+        "runtime_s", "model_responses_opened", "heldout_predictor_was_frozen",
+    }
+    if set(design_receipt) != required_receipt \
+            or design_receipt.get("schema") != "mlp2_error_rayleigh_v1_collector_receipt" \
+            or design_receipt.get("status") != "role_measurements_complete_receipt_last" \
+            or design_receipt.get("role") != "DESIGN" \
+            or design_receipt.get("ledger_sha256") != ledger_sha \
+            or design_receipt.get("model_responses_opened") is not True \
+            or design_receipt.get("heldout_predictor_was_frozen") is not False:
+        raise RuntimeError("HELDOUT DESIGN receipt authority chain changed")
+    design_authority, authority_sha = stable_json(
+        design["authority"], design_receipt["authority_sha256"],
+    )
+    required_authority = {
+        "schema", "status", "role", "source_commit", "source_hashes",
+        "audit_sha256", "audit_reviewer", "row_receipt_sha256", "row_file_sha256",
+        "parent_snapshot", "predictor_unlock_sha256", "programs", "backgrounds",
+        "controls", "amplitudes", "control_seed", "scored_slice",
+        "attention_capture_sites", "outcome_access",
+    }
+    if set(design_authority) != required_authority \
+            or design_authority.get("schema") != "mlp2_error_rayleigh_v1_collector_authority" \
+            or design_authority.get("status") != "frozen_before_role_response_open" \
+            or design_authority.get("role") != "DESIGN" \
+            or design_authority.get("predictor_unlock_sha256") is not None \
+            or design_authority.get("outcome_access") is not False \
+            or authority_sha != design_receipt["authority_sha256"]:
+        raise RuntimeError("HELDOUT DESIGN authority semantics changed")
+    # This is deliberately a full semantic replay, not only a hash join.  It binds
+    # the DESIGN ledger to the checkpoint, rows, programs, audit, and sources that
+    # were frozen before the DESIGN responses were opened.
+    protected_snapshot(design_authority)
+    validate_ledger(design_ledger, design_receipt["authority_sha256"], "DESIGN",
+                    design_authority["parent_snapshot"]["checkpoint"])
+    bundle, bundle_sha = stable_torch(PREDICTOR_BUNDLE, value["predictor_bundle_sha256"])
+    predictor.validate_frozen_bundle(bundle)
+    if bundle_sha != value["predictor_bundle_sha256"]:
+        raise RuntimeError("HELDOUT predictor bundle hash changed")
     return value, digest
 
 
@@ -306,6 +366,14 @@ def capture_error_banks(model, rows: torch.Tensor, programs, c512, device, calls
     return banks
 
 
+def control_seed(role: str, program_index: int, background_index: int) -> int:
+    if role not in ROLE_NAMES or program_index not in range(3) \
+            or background_index not in range(2):
+        raise ValueError("control seed coordinates changed")
+    return CONTROL_SEED + 10_000 * ROLE_NAMES.index(role) + 100*program_index \
+        + 10*background_index
+
+
 def expected_calls() -> dict[str, int]:
     batches = DOCUMENTS // BATCH_SIZE
     outer = 2*batches + 3*2*3*4*batches + 3*2*2*batches
@@ -323,7 +391,7 @@ def expected_calls() -> dict[str, int]:
     }
 
 
-def collect(model, rows: torch.Tensor, programs, c512, device):
+def collect(model, rows: torch.Tensor, programs, c512, device, role: str):
     calls: dict[str, int] = {}
     banks = capture_error_banks(model, rows, programs, c512, device, calls)
     features = torch.empty(
@@ -339,10 +407,20 @@ def collect(model, rows: torch.Tensor, programs, c512, device):
     for pi, program_name in enumerate(PROGRAM_NAMES):
         for bi, background in enumerate(BACKGROUND_NAMES):
             bank = banks[background]
-            seed = CONTROL_SEED + 100*pi + 10*bi
+            seed = control_seed(role, pi, bi)
             controls = core.control_error_bank(bank["errors"][program_name], seed)
             control_hashes[f"{program_name}|{background}"] = {
-                name: row_life.base.tensor_sha256(value) for name, value in controls.items()
+                "seed": seed,
+                "bindings": {
+                    "mlp2_state": row_life.base.tensor_sha256(bank["state"]),
+                    "native_write": row_life.base.tensor_sha256(bank["native"]),
+                    "candidate_write": row_life.base.tensor_sha256(
+                        bank["candidate"][program_name]
+                    ),
+                },
+                "errors": {
+                    name: row_life.base.tensor_sha256(value) for name, value in controls.items()
+                },
             }
             for ci, control_name in enumerate(core.CONTROL_NAMES):
                 chunks = []
@@ -408,7 +486,8 @@ def collect(model, rows: torch.Tensor, programs, c512, device):
     return features, finite, control_hashes, calls
 
 
-def validate_ledger(value: Any, authority_sha: str, role: str) -> dict[str, Any]:
+def validate_ledger(value: Any, authority_sha: str, role: str,
+                    expected_checkpoint: Mapping[str, Any] | None = None) -> dict[str, Any]:
     required = {
         "schema", "role", "features", "finite", "axes", "control_hashes", "calls",
         "authority_sha256", "checkpoint",
@@ -423,6 +502,29 @@ def validate_ledger(value: Any, authority_sha: str, role: str) -> dict[str, Any]
                 "documents": DOCUMENTS,
             }:
         raise RuntimeError("collector ledger metadata changed")
+    if expected_checkpoint is not None and value.get("checkpoint") != dict(expected_checkpoint):
+        raise RuntimeError("collector ledger checkpoint changed")
+    expected_keys = {
+        f"{program}|{background}"
+        for program in PROGRAM_NAMES for background in BACKGROUND_NAMES
+    }
+    if set(value.get("control_hashes", {})) != expected_keys:
+        raise RuntimeError("collector control-hash cells changed")
+    for pi, program in enumerate(PROGRAM_NAMES):
+        for bi, background in enumerate(BACKGROUND_NAMES):
+            cell = value["control_hashes"][f"{program}|{background}"]
+            digests = (*cell.get("bindings", {}).values(), *cell.get("errors", {}).values()) \
+                if isinstance(cell, dict) and isinstance(cell.get("bindings"), dict) \
+                and isinstance(cell.get("errors"), dict) else ()
+            if not isinstance(cell, dict) or set(cell) != {"seed", "bindings", "errors"} \
+                    or cell["seed"] != control_seed(role, pi, bi) \
+                    or set(cell["bindings"]) != {
+                        "mlp2_state", "native_write", "candidate_write",
+                    } or set(cell["errors"]) != set(core.CONTROL_NAMES) \
+                    or any(not isinstance(digest, str) or len(digest) != 64
+                           or any(character not in "0123456789abcdef" for character in digest)
+                           for digest in digests):
+                raise RuntimeError("collector control-hash schema changed")
     expected_feature_shape = (3, 2, 3, DOCUMENTS, len(core.FEATURE_NAMES))
     expected_finite_shape = (3, 2, DOCUMENTS, len(core.FINITE_NAMES))
     if not isinstance(value["features"], torch.Tensor) \
@@ -439,17 +541,46 @@ def validate_ledger(value: Any, authority_sha: str, role: str) -> dict[str, Any]
     return value
 
 
-def publish_failure(paths, claim, exc: BaseException, authority, opened: bool):
+def artifact_snapshot(paths: Mapping[str, Path]) -> dict[str, str]:
+    return {
+        name: file_sha256(path) for name, path in paths.items()
+        if name not in ("lock", "failure", "receipt") and path.is_file()
+    }
+
+
+def publish_failure(paths, claim, exc: BaseException, authority,
+                    protected: Mapping[str, Any] | None, opened: bool):
+    frozen_artifacts = artifact_snapshot(paths)
     failure = {
         "schema": "mlp2_error_rayleigh_v1_collector_failure",
         "status": "terminal_failure_no_receipt", "role": authority.get("role") if authority else None,
         "error": repr(exc), "authority_exists": paths["authority"].exists(),
         "model_or_response_may_have_opened": opened,
-        "artifact_hashes": {name: file_sha256(path) for name, path in paths.items()
-                            if name not in ("lock", "failure", "receipt") and path.is_file()},
+        "artifact_hashes": frozen_artifacts,
     }
-    if not paths["receipt"].exists() and not paths["failure"].exists():
-        base.atomic_json(paths["failure"], failure)
+
+    def failure_guard():
+        row_life.base.require_claim(claim, paths["lock"])
+        if paths["receipt"].exists() or paths["failure"].exists() \
+                or artifact_snapshot(paths) != frozen_artifacts:
+            raise RuntimeError("collector failure terminal or artifacts raced")
+        if authority is not None and paths["authority"].is_file():
+            observed, observed_sha = stable_json(
+                paths["authority"], frozen_artifacts.get("authority"),
+            )
+            if observed != authority or observed_sha != frozen_artifacts.get("authority"):
+                raise RuntimeError("collector failure authority semantic join changed")
+            if protected is not None and protected_snapshot(authority) != protected:
+                raise RuntimeError("collector failure protected state changed")
+        if paths["receipt"].exists() or paths["failure"].exists() \
+                or artifact_snapshot(paths) != frozen_artifacts:
+            raise RuntimeError("collector failure terminal raced protected replay")
+        row_life.base.require_claim(claim, paths["lock"])
+
+    if paths["receipt"].exists() or paths["failure"].exists():
+        return
+    # Failure publication is the final fallible action on the failure path.
+    base.atomic_json(paths["failure"], failure, pre_link_check=failure_guard)
 
 
 def run(role: str) -> None:
@@ -460,6 +591,7 @@ def run(role: str) -> None:
         raise RuntimeError("HELDOUT remains locked until DESIGN predictor receipt")
     claim = row_life.base.acquire_claim(paths["lock"])
     authority = None
+    protected = None
     opened = False
     try:
         commit = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT,
@@ -487,9 +619,12 @@ def run(role: str) -> None:
 
         def authority_guard():
             row_life.base.require_claim(claim, paths["lock"])
-            if any(paths[name].exists() for name in ("authority", "ledger", "receipt", "failure")) \
-                    or protected_snapshot(authority) != protected:
+            if any(paths[name].exists() for name in ("authority", "ledger", "receipt", "failure")):
+                raise RuntimeError("collector authority terminal appeared")
+            if protected_snapshot(authority) != protected:
                 raise RuntimeError("collector authority inputs changed")
+            if any(paths[name].exists() for name in ("authority", "ledger", "receipt", "failure")):
+                raise RuntimeError("collector authority terminal raced protected replay")
             row_life.base.require_claim(claim, paths["lock"])
 
         base.atomic_json(paths["authority"], authority, pre_link_check=authority_guard)
@@ -506,7 +641,7 @@ def run(role: str) -> None:
         c512 = c512_tensors(device)
         with torch.inference_mode():
             features, finite, control_hashes, calls = collect(
-                model, rows, programs, c512, device,
+                model, rows, programs, c512, device, role,
             )
         ledger = {
             "schema": "mlp2_error_rayleigh_v1_role_ledger", "role": role,
@@ -522,12 +657,16 @@ def run(role: str) -> None:
 
         def ledger_guard():
             verify_protected(protected, authority, claim, paths)
+            observed_authority, observed_sha = stable_json(paths["authority"], authority_sha)
+            if observed_authority != authority or observed_sha != authority_sha:
+                raise RuntimeError("collector ledger authority semantic join changed")
             if any(paths[name].exists() for name in ("ledger", "receipt", "failure")):
                 raise RuntimeError("collector terminal raced ledger")
+            row_life.base.require_claim(claim, paths["lock"])
 
         base.atomic_torch(paths["ledger"], ledger, pre_link_check=ledger_guard)
         replay, ledger_sha = stable_torch(paths["ledger"])
-        validate_ledger(replay, authority_sha, role)
+        validate_ledger(replay, authority_sha, role, authority["parent_snapshot"]["checkpoint"])
         receipt = {
             "schema": "mlp2_error_rayleigh_v1_collector_receipt",
             "status": "role_measurements_complete_receipt_last", "role": role,
@@ -544,10 +683,12 @@ def run(role: str) -> None:
                 raise RuntimeError("collector terminal raced receipt")
             row_life.base.require_claim(claim, paths["lock"])
 
+        rendered_receipt = json.dumps(receipt, sort_keys=True, indent=2, allow_nan=False)
+        print(rendered_receipt)
+        # Receipt publication is the final fallible action in the success path.
         base.atomic_json(paths["receipt"], receipt, pre_link_check=receipt_guard)
-        print(json.dumps(receipt, sort_keys=True, indent=2))
     except BaseException as exc:
-        publish_failure(paths, claim, exc, authority, opened)
+        publish_failure(paths, claim, exc, authority, protected, opened)
         raise
     finally:
         row_life.base.release_claim(claim, paths["lock"])

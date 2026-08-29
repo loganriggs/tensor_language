@@ -31,10 +31,29 @@ def test_role_namespaces_are_disjoint_and_heldout_has_unlock_gate(tmp_path, monk
         collect.run("HELDOUT")
 
 
+def test_control_seeds_are_role_separated_and_coordinate_bound():
+    design = {collect.control_seed("DESIGN", pi, bi) for pi in range(3) for bi in range(2)}
+    heldout = {collect.control_seed("HELDOUT", pi, bi) for pi in range(3) for bi in range(2)}
+    assert len(design) == len(heldout) == 6
+    assert design.isdisjoint(heldout)
+    with pytest.raises(ValueError, match="coordinates"):
+        collect.control_seed("DESIGN", 3, 0)
+
+
 def test_ledger_schema_accepts_exact_replay_and_rejects_nonexact():
     features = torch.ones(3, 2, 3, 32, len(core.FEATURE_NAMES), dtype=torch.float64)
     finite = torch.zeros(3, 2, 32, len(core.FINITE_NAMES), dtype=torch.float64)
     finite[..., 5:] = 1
+    control_hashes = {}
+    for pi, program in enumerate(collect.PROGRAM_NAMES):
+        for bi, background in enumerate(collect.BACKGROUND_NAMES):
+            control_hashes[f"{program}|{background}"] = {
+                "seed": collect.control_seed("DESIGN", pi, bi),
+                "bindings": {name: "a" * 64 for name in (
+                    "mlp2_state", "native_write", "candidate_write",
+                )},
+                "errors": {name: "b" * 64 for name in core.CONTROL_NAMES},
+            }
     value = {
         "schema": "mlp2_error_rayleigh_v1_role_ledger", "role": "DESIGN",
         "features": features, "finite": finite,
@@ -43,12 +62,16 @@ def test_ledger_schema_accepts_exact_replay_and_rejects_nonexact():
                  "controls": list(core.CONTROL_NAMES),
                  "features": list(core.FEATURE_NAMES),
                  "finite": list(core.FINITE_NAMES), "documents": 32},
-        "control_hashes": {}, "calls": collect.expected_calls(),
+        "control_hashes": control_hashes, "calls": collect.expected_calls(),
         "authority_sha256": "a", "checkpoint": {},
     }
     assert collect.validate_ledger(value, "a", "DESIGN") is value
     value["finite"] = finite.clone(); value["finite"][0, 0, 0, 5] = 0
     with pytest.raises(RuntimeError, match="ledger tensors"):
+        collect.validate_ledger(value, "a", "DESIGN")
+    value["finite"] = finite
+    value["control_hashes"]["FULL512|NATIVE"]["errors"]["ACTUAL"] = "g" * 64
+    with pytest.raises(RuntimeError, match="control-hash schema"):
         collect.validate_ledger(value, "a", "DESIGN")
 
 
@@ -56,7 +79,13 @@ def test_source_closure_contains_direct_science_and_tests():
     for path in (collect.PREREG, collect.ADDENDUM, collect.RUNNER, collect.TEST,
                  collect.CORE, collect.CORE_TEST,
                  collect.HERE / "mlp2_error_rayleigh_metrics.py",
-                 collect.HERE / "test_mlp2_error_rayleigh_metrics.py"):
+                 collect.HERE / "test_mlp2_error_rayleigh_metrics.py",
+                 collect.HERE / "mlp2_error_rayleigh_predictor.py",
+                 collect.HERE / "test_mlp2_error_rayleigh_predictor.py",
+                 collect.HERE / "prepare_mlp2_trajectory_robust_r512_v1_eval_rows.py",
+                 collect.HERE / "prepare_mlp0_c512_mlp2_full512_composition_v2_rows.py",
+                 collect.HERE / "prepare_mlp0_c512_mlp2_full512_composition_v1_rows.py",
+                 collect.HERE / "mlp2_cmr_v1_physical_program.py"):
         assert collect.SOURCE_PATHS.count(path) == 1
 
 
