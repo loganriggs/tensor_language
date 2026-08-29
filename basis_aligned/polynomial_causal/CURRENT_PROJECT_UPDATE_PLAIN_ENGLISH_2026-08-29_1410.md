@@ -1874,3 +1874,46 @@ The detailed strategic record and exact artifact hashes are in
 [`HOURLY_STRATEGIC_REVIEW_2026-08-29_1855.md`](HOURLY_STRATEGIC_REVIEW_2026-08-29_1855.md).
 
 ## UPDATE END — 27
+
+## UPDATE START — 28. The repaired MLP2 decision is valid, and K=512 fails
+
+The audited CPU-only finalizer completed in 7.5 seconds and published a valid
+receipt.  It recomputed every score from the original per-document ledger without
+loading the model, deserializing validation rows, or opening replication.  The old
+invalid-run failure remains unchanged.
+
+The answer is unambiguous: **none of the 512-channel native-product programs is a
+faithful MLP2 replacement**.  SUFFIX, the downstream-aware choice, changes final CE
+by +0.2892 nat, has teacher KL 0.2971, centered-logit relative error 0.3315, and
+matches the native top token only 72.60% of the time.  The allowed limits were 0.02,
+0.02, 0.10, and 90%, respectively.
+
+The surprising and useful result is that deleting MLP2 entirely is much less harmful:
++0.1623 nat CE and 77.74% top-1 agreement.  LOCAL and RMS are also better than SUFFIX
+(about +0.265 nat CE), although still far from faithful.  Therefore the problem is
+not merely that we selected the wrong 512 individual channels.  A partial native
+write breaks coordinated cancellations and can be worse than writing nothing.
+
+That interpretation is supported by two computations.  The joint distortion from
+the omitted channels is 1.835 times the sum of their individual distortions, far from
+the 0.90--1.10 additivity range.  And the cosine between the small signed edit and
+the full deletion effect is only 0.261, so the local tangent does not predict the
+large finite intervention.
+
+The conclusion is stable across 48, 96, and 192 documents: SUFFIX dCE is
+0.2940/0.2904/0.2892, while deleting MLP2 is 0.1657/0.1625/0.1623.  This directly
+answers the concern about robustness to doubling the data.
+
+There is one narrower semantic clue.  SUFFIX slightly improves CE on the held-out
+copy-positive cell (-0.00959 nat) while badly harming repeat-negative (+0.3470) and
+ordinary nonrepeat (+0.2935) positions.  It may have isolated copy-supporting
+computation but lost the balancing/general-language parts.  That makes it a candidate
+for copy-circuit extraction with a gate, not for replacing all of MLP2.
+
+The next direction is therefore a real change of atoms: jointly balanced or
+response-conditioned blocks with a refitted output basis, evaluated from a zero-MLP2
+reference on final logits.  Native-channel K sweeps and tangent-only selection are
+now pruned.  Full numbers and definitions are in
+[`MLP2_CMR_V1_VALIDATION_FINDINGS.md`](MLP2_CMR_V1_VALIDATION_FINDINGS.md).
+
+## UPDATE END — 28

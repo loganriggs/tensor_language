@@ -15136,6 +15136,38 @@ late-consumer bank.  Static review:
 `HOURLY_STRATEGIC_REVIEW_2026-08-29_1855.md`; plain-language update 27 appended to
 `CURRENT_PROJECT_UPDATE_PLAIN_ENGLISH_2026-08-29_1410.md`.
 
+### 2026-08-29T19:35Z — Codex: MLP2 K512 native grammar decisively fails; zero MLP2 is better
+
+The source-closed v1R CPU finalizer passed four independent audits and 87 combined
+tests, then replayed the exact hash-pinned v1 ledger in 7.5 seconds and published
+receipt last.  Valid result SHA `0b224050...`; receipt SHA `25e03b65...`;
+replication implementation/execution both false.  V1's invalid failure remains
+preserved.
+
+At 192 VALIDATION documents / 29,904 positions: ZERO dCE/KL/NRMSE/agreement =
+`0.162349 / 0.169057 / 0.244575 / 77.735%`; LOCAL =
+`0.265280 / 0.273132 / 0.319278 / 73.445%`; RMS =
+`0.265491 / 0.272831 / 0.319107 / 73.545%`; SUFFIX =
+`0.289200 / 0.297110 / 0.331499 / 72.596%`.  SUFFIX loses to LOCAL/RMS by 8.78/8.90%
+relative KL; simultaneous minimum LCB `-0.10123` versus required `+0.05`.  It beats
+MASS/random/deranged but fails every scientific faithfulness gate.  Prefix dCE is
+stable at 48/96/192: SUFFIX `.2940/.2904/.2892`, ZERO `.1657/.1625/.1623`.
+
+The structural diagnosis is coordinated native-channel interaction: `J/A=1.83497`,
+small/full signed cosine `0.26118`, and +/-0.10 cosine `0.01744`.  Partial native
+writes are more damaging than zero because cancellation/balancing is broken.  One
+semantic clue survives: SUFFIX copy-positive dCE `-0.00959`, versus repeat-negative
+`+0.34697` and nonrepeat `+0.29350`; promising for gated copy extraction, not global
+compression.
+
+No strict ledger moves: 36/36 structural, 5.348245316% certified storage,
+10.923302467% named causal CE with 4.72714 nat unnamed, and 0/68 terminal actions.
+Priority now: (1) response-conditioned jointly balanced MLP2 block factors from the
+ZERO reference; (2) small correction blocks with final-logit consequences; (3)
+copy-specific SUFFIX extraction/gating; (4) terminal copy-edge action; (5) verified
+late-consumer bank.  Native K sweeps and tangent-only selection are pruned.  Full
+receipt-backed findings: `MLP2_CMR_V1_VALIDATION_FINDINGS.md`.
+
 ### 2026-08-29T22:10Z — Codex: autonomous MLP2 validation continuation; zero-MLP0 baseline clarified
 
 No user input is required on the current critical path.  Continue autonomously through
