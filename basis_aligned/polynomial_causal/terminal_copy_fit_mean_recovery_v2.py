@@ -19,6 +19,12 @@ TEST = HERE / "test_terminal_copy_fit_mean_recovery_v2.py"
 AUDIT = HERE / "terminal_copy_fit_mean_recovery_v2_independent_audit.json"
 V1_AUTHORITY = HERE / "terminal_copy_fit_means_v1_authority.json"
 V1_FAILURE = HERE / "terminal_copy_fit_means_v1_failure.json"
+V1_BANK = HERE / "terminal_copy_fit_means_v1_bank.pt"
+V1_RESULT = HERE / "terminal_copy_fit_means_v1_result.json"
+V1_MANIFEST = HERE / "terminal_copy_fit_means_v1_manifest.json"
+V1_RECEIPT = HERE / "terminal_copy_fit_means_v1_receipt.json"
+V1_LOCK = Path("/workspace/runs/.terminal_copy_fit_means_v1.lock")
+V1_ABSENT_OUTPUTS = (V1_BANK, V1_RESULT, V1_MANIFEST, V1_RECEIPT, V1_LOCK)
 V1_AUTHORITY_SHA256 = "66541d42a89eeede2be83724e130037183eb1f9ced9c6150785a30448126aca8"
 V1_FAILURE_SHA256 = "42c102693cb4388384fa40d04bb1091e6efdc878209e12cea3e91c8ed99e7ce4"
 
@@ -41,6 +47,9 @@ RECOVERY_SOURCE_PATHS = (
     "basis_aligned/polynomial_causal/terminal_copy_fit_means_v1_failure.json",
 )
 
+_ORIGINAL_PROTECTED_PATHS = life.PROTECTED_PATHS
+_ORIGINAL_PROTECTED_SNAPSHOT = life.protected_snapshot
+
 
 def file_sha256(path: Path) -> str:
     digest = hashlib.sha256()
@@ -56,6 +65,7 @@ def validate_v1_failure_lineage() -> None:
         or file_sha256(V1_FAILURE) != V1_FAILURE_SHA256
     ):
         raise RuntimeError("terminal-copy fit v1 authority/failure bytes changed")
+    authority = json.loads(V1_AUTHORITY.read_text())
     failure = json.loads(V1_FAILURE.read_text())
     if (
         failure.get("status") != "terminal_failure_no_success_receipt"
@@ -63,9 +73,18 @@ def validate_v1_failure_lineage() -> None:
         or failure.get("result_exists") is not False
         or failure.get("manifest_exists") is not False
         or failure.get("receipt_exists") is not False
+        or failure.get("authority_sha256") != authority.get("authority_sha256")
         or "same device" not in str(failure.get("exception_message"))
+        or any(path.exists() for path in V1_ABSENT_OUTPUTS)
     ):
         raise RuntimeError("terminal-copy fit v1 failure semantics changed")
+
+
+def recovery_protected_snapshot(
+    paths: tuple[Path, ...] | None = None,
+) -> dict[str, str | None]:
+    selected = life.PROTECTED_PATHS if paths is None else paths
+    return _ORIGINAL_PROTECTED_SNAPSHOT(selected)
 
 
 def validate_recovery_audit() -> dict[str, Any]:
@@ -99,6 +118,10 @@ def configure() -> None:
     life.FAILURE = FAILURE
     life.LOCK = LOCK
     life.SOURCE_PATHS = tuple(dict.fromkeys((*life.SOURCE_PATHS, *RECOVERY_SOURCE_PATHS)))
+    life.PROTECTED_PATHS = tuple(dict.fromkeys(
+        (*_ORIGINAL_PROTECTED_PATHS, *V1_ABSENT_OUTPUTS)
+    ))
+    life.protected_snapshot = recovery_protected_snapshot
 
 
 def freeze_authority() -> dict[str, Any]:

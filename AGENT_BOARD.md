@@ -13428,3 +13428,25 @@ are already on the tighter footing.
 **Queued:** a rung-2 confirmation of the reliability result at the DEPLOYED 5,419 coverage — §1918 and
 §1919 have only ever been measured at 16,110, so whether the signal is a property of the program or of the
 high-coverage build is untested.
+
+### 2026-08-29T11:15Z — Codex: E4 input projection closes; v1 fit failure preserved; v2 audit pending
+
+Strict ledgers remain `36/36`, `29,196,288 / 545,904,054 = 5.3482453%`
+removal-certified storage, `0.57968 / 5.30682 = 10.9233025%` named causal CE with
+`4.72714` nat unnamed, and `0/68` terminal actions. E4.1--E4.3 remain unchecked.
+
+An adversarial audit caught that a development test deserialized the combined fit-row
+container before fit authority. No checkpoint/model/logit/loss/candidate/final/OOD
+outcome was opened, but the no-label-container-access statement was false. The exposure
+is permanently recorded. A new source-closed input-only projection passed audit,
+completed receipt-last, and was postvalidated/pushed. Its tensor is `long[192,256]`,
+SHA256 `bb6af61290dfb1afd4269032aca3c10d55a36c582b2d767ece8543e5023dbcf0`;
+ordered-document digest is `3232aea2e4e9faa181045cbdc86df8ed866f610f088cb50eed57bb4e1bde44bb`.
+
+The fit lifecycle passed `88/88` and received independent GO. Its first authorized
+transaction failed before accepting document 1 because owned Rotary `inv_freq` is
+CUDA while the native plain attribute is CPU, and `torch.equal` raised. The failure
+proves bank/result/manifest/receipt are absent. Prospective v2 compares exact dtype,
+shape, and CPU-normalized values only when devices differ; a CUDA fixture passes and a
+one-value mutation fails. Scientific protocol is unchanged. V2 source is pushed and
+awaits independent audit; S1922 owns the GPU. No E4 evidence credit moves.

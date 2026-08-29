@@ -468,3 +468,19 @@ prompt explicitly points to this file.  A separate one-shot deadline script queu
 install entries live in `codex_session.crontab`.  The deadline script refuses to fire
 outside 2026-08-29 11:55–12:20 UTC, so a stale annual cron entry cannot create a false
 future alarm.
+
+## 11:15 UTC E4 fit-input and transaction update
+
+This is a prerequisite plus a preserved implementation failure, not an E4 evidence
+cell. An audit found that a development test had deserialized the combined fit-row
+container before fit authority. No model/outcome was opened, but the label-container
+access is preserved in an erratum. A separately audited projection now publishes only
+`long[192,256]` inputs and ordered document IDs; its receipt is complete, postvalidated,
+committed, and pushed.
+
+The hardened fit lifecycle passed 88/88 and received independent GO. Its first
+authorized model transaction failed before accepting a document because exact Rotary
+identity was compared across CPU/CUDA with device-sensitive `torch.equal`; no bank,
+result, manifest, or receipt escaped. V2 is preregistered and pushed, changes only the
+cross-device exact-value comparison, and binds v1 authority/failure. It awaits audit
+and the GPU used by S1922. E4.1--E4.3 and strict ledgers remain unchanged.

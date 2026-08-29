@@ -164,3 +164,25 @@ were added, and adversarial late-write/lock tests were added. The expanded suite
 GO and the parallel reliability lane occupied the GPU during most of this work.
 
 Strict ledgers and E4.1--E4.3 therefore remain unchanged.
+
+## 11:15 UTC execution update
+
+The input-only projection subsequently received an independent GO, completed,
+postvalidated, committed, and pushed. Its tensor is `long[192,256]`, file SHA256
+`bb6af61290dfb1afd4269032aca3c10d55a36c582b2d767ece8543e5023dbcf0`; the ordered-
+document digest is `3232aea2e4e9faa181045cbdc86df8ed866f610f088cb50eed57bb4e1bde44bb`.
+Its payload has exactly schema, authority digest, tokens and digest, and ordered
+document IDs and digest—no label, copy-cell, synthetic, checkpoint, forward, or
+scientific-outcome field.
+
+After an 88/88 suite and independent lifecycle GO, a fit-only authority was frozen
+and pushed. The first model transaction failed safely before accepting document 1:
+native Rotary `inv_freq` is a plain CPU float32 attribute while the owned exact copy
+is on CUDA, and device-sensitive `torch.equal` raised. The failure proves that no bank,
+result, manifest, or success receipt exists.
+
+This is an implementation failure, not a negative scientific result. Prospective v2
+changes only the identity check: dtype and shape must match, and exact values are
+compared on CPU when devices differ. The CUDA fixture passes and a one-value mutation
+fails. V1 authority/failure and the unchanged scientific protocol are bound into a
+fresh namespace. Independent recovery audit is pending; S1922 currently owns the GPU.

@@ -53885,3 +53885,53 @@ quote one.**
 **Open.** Nothing worth the compute in this line. The reliability arc (§1911-§1920) stands: the signal is
 a precomputable token property covering the whole vocabulary, stronger than the live model's own margin
 under a common null, weaker at uncovered tokens by about half, and partly rank-limited there.
+
+## §1922 — the reliability signal is the PROGRAM's, not the high-coverage build's
+
+`ops/reliability_at_deployed_coverage.py`, 287.5s, **DISCOVERY ONLY**, rung 2 — second-class confirmation
+of §1918 at the coverage anyone would actually ship. **All four predictions TRUE.**
+
+```
+  DEPLOYED coverage 5,419                          (§1918, at 16,110)
+    skip7000   COVERED    2.64 / 4.36 / 6.27 / 12.33   grad  +9.69      (+9.50)
+               UNCOVERED  2.03 / 2.39 / 3.00 /  5.31   grad  +3.28      (+3.90)   n 2791-1452
+    skip11000  COVERED    grad +10.46  (+9.79)    UNCOVERED  grad +3.11  (+4.10)   n 2987-1703
+    skip1200   COVERED    grad +10.17  (+9.28)    UNCOVERED  grad +2.10  (+2.06)   n 1285- 821
+  uncovered share of scored positions: 24.1 / 25.4 / 24.2%   (~10% at 16,110)
+```
+
+> **pred_a PASSED with the tightest figure the arc has produced: the within-token spread is 0.00e+00 on
+> all three roles.** Not "below 1e-3" — **exactly zero**, at both covered and uncovered positions. §1765
+> holds at the logits at the deployed coverage without qualification, so the reliability signal is
+> precomputable for the build that would actually ship.
+>
+> **pred_b and pred_c PASSED: both arms order agreement, and covered still exceeds uncovered** —
+> +9.69 vs +3.28, +10.46 vs +3.11, +10.17 vs +2.10. **The signal and its covered/uncovered shape are
+> properties of the compiled program, not of the 16,110-type build they were discovered on.**
+
+**And these uncovered figures are better estimated than §1918's, which is the point of running at this
+coverage.** The uncovered arm holds **24.1 / 25.4 / 24.2%** of scored positions here against ~10% at
+16,110, so its quartiles carry **821 to 2,987** positions against §1918's 348 to 1,143 — **2.4x the
+sample**. By §1920's scaling their spread should be about 0.6x §1918's, so **§1922's uncovered gradients
+are the ones to quote**: **+3.28 / +3.11 / +2.10**.
+
+**A small consistent detail, reported not explained.** The COVERED gradient is *higher* at the deployed
+coverage than at 16,110 on all three roles — **+9.69 / +10.46 / +10.17 against +9.50 / +9.79 / +9.28**.
+The differences (0.19 / 0.67 / 0.89) are at or above §1916's ±0.077 covered spread on two roles, so this
+is probably real rather than noise. A smaller covered set is a more selective one; whether that sharpens
+the margin's ordering is not something this run can say.
+
+**pred_d PASSED**: coverage exactly 5,419 — §1834's published deployed figure — zero lookup misses across
+the whole vocabulary, and the uncovered share genuinely moved (24% against 10%), which is what makes this
+a confirmation rather than a re-run.
+
+**What the reliability line now says, complete.** The compiled program's top-2 logit margin is a **pure
+token property** (spread exactly 0.00e+00 at deployed coverage, ≤2.86e-05 at 16,110), **precomputable for
+all 50,257 tokens** from length-1 passes at build time. It **orders the program's agreement with the live
+model** on both arms — ~+10x on covered tokens, ~+3x on uncovered — **more strongly than the live model's
+own margin does** under a common null (§1914, +9.3 vs +5.9, confirmed at four times the precision at
+§1915). Raising §1870's map rank from 64 to 512 buys a further +0.7 on the uncovered arm (§1919), closing
+about a tenth of the gap; the rest is structural to an embedding-linear fallback.
+
+**Open.** Nothing in this line. It has been confirmed on two coverages, priced against its own noise, and
+its one adjacent lever measured.
