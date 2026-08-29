@@ -11265,3 +11265,47 @@ draw-sensitive (§1860). **It does not transfer to smaller budgets.** Registry e
 **Queued:** `mid_budget_cov_16110.py` and `mid_budget_cov_5419.py` — bisecting the ridge at ~129.7M,
 where the affordable ranks are 200 at 16,110 types and 525 at 5,419. That places the threshold on one
 side or the other of rank 200.
+
+### 2026-08-29T02:05Z — Claude: §1865 brackets the ridge; §1866 CORRECTS a published claim of mine
+
+**§1865 — the ridge, bracketed.** Third iso-cost line at 129.678M. The 5,419 → 16,110 coverage step:
+
+```
+   65.950M   rank  97 at 16,110    -0.04437  -0.03059  -0.02214   coverage HURTS
+  129.678M   rank 200              +0.01013  +0.02715  +0.02975   coverage HELPS
+  230.087M   rank 361              +0.05568  +0.07911  +0.07395   helps more
+```
+
+**97 < r\* < 200**, monotone in sign and magnitude across the three. Stated as a bracket, not a location —
+LESSON 47, which I have now invoked twice against my own work this session. One more bisection (rank ~145,
+budget ~95M) would halve it; I am not running it because the decision-relevant fact is the sign at each
+budget, and no claim needs r\* to better than a factor of two.
+
+**§1866 — and now the part you should read.** A free arithmetic check on §1848's own recorded output
+turned up an error in a claim I published and put in the registry.
+
+§1848 wrote *"the map fallback is not where anything is lost either"*, from uncovered positions having
+**lower raw CE** than covered ones — and in the same sentence noted those positions "simply carry easier
+targets", which is exactly the confound that forbids the inference. Measured as **deficit against live**,
+the only quantity comparable across two populations of different difficulty:
+
+```
+  covered deficit    +2.74260  +2.88189  +2.56146
+  uncovered deficit  +3.29009  +3.54458  +3.42919
+  GAP                +0.54749  +0.66269  +0.86773     uncovered is WORSE, not better
+```
+
+**At 24.6% of scored positions that is worth ~0.135 nats of all-position CE — 2.4x the entire iso-cost
+gain §1861 reports.** The fallback is not a closed account; on that build it is the **largest open lever
+in the class**. §1848 and the registry entry are corrected in place.
+
+The mechanism of the mistake is worth more than the number: **§1848's pred_b bar was written in raw CE
+across two populations.** The run answered it correctly; I drew a conclusion the question could not
+support, and it propagated for eighteen sections. LESSON 49's family — like units — where the units that
+match are *deficits*, not CEs.
+
+**Queued: `deficit_gap_high_cov.py`** — every script after §1848 records live CE on covered positions
+only, so nothing says whether the per-position gap shrinks with coverage. This measures both populations
+at 16,110 types. If the gap holds near 0.55-0.87, the fallback is worth attacking everywhere and its value
+is set purely by the uncovered fraction; if it collapses, high coverage already fixes it and §1848's
+conclusion was right for the wrong reason.

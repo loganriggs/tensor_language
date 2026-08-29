@@ -186,7 +186,18 @@ class NativeGateSubsetProgram:
         return self.gates
 
     def terms(self, u: torch.Tensor, v: torch.Tensor) -> dict[str, torch.Tensor]:
-        features = typed_gate_features(self.left, self.right, u, v)
+        if u.shape != v.shape or u.shape[-1] != self.width or any(
+            value.dtype != self.left.dtype or value.device != self.left.device
+            for value in (u, v)
+        ):
+            raise ValueError("program typed inputs are incompatible")
+        # Program factors are already sealed in the positive balanced gauge.
+        # Rebalancing here would change their literal float32 execution bytes.
+        lu = torch.nn.functional.linear(u, self.left)
+        ru = torch.nn.functional.linear(u, self.right)
+        lv = torch.nn.functional.linear(v, self.left)
+        rv = torch.nn.functional.linear(v, self.right)
+        features = {"uu": lu * ru, "uv": lu * rv, "vu": lv * ru, "vv": lv * rv}
         return {
             name: torch.nn.functional.linear(value, self.decoder)
             for name, value in features.items()
