@@ -1,0 +1,305 @@
+{
+  "adapter_binding": {
+    "checkpoint_weights_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+    "layers": [
+      5,
+      7,
+      8,
+      13,
+      14
+    ],
+    "native_full_bit_equal": true,
+    "receipt_path": "/workspace/tensor_language/basis_aligned/polynomial_causal/terminal_copy_attention_checkpoint_check_v3_receipt.json",
+    "receipt_sha256": "c5ef51670b6e23bb3cddbbef6c5cd451dff55eea8b8f7ddfdf20aca7374bb324",
+    "result_path": "/workspace/tensor_language/basis_aligned/polynomial_causal/terminal_copy_attention_checkpoint_check_v3_result.json",
+    "result_sha256": "084087dc4264d438d40c64203a60f870629611e125268f1be62e9f0601faec7d",
+    "scientific_claim_authorized_by_parent": false,
+    "sha256": "0ba5a573446aea3e150ab2a0665c46d2364eede755908cc29461d7c3d0cfd753",
+    "value_bus_bit_equal": true
+  },
+  "amendment_governs_conflicts": true,
+  "authority_sha256": "531daab1eff1ef5e168ef8bc35a1453e47b25cf5605e01058bf7817e08dc3d96",
+  "authorized_for_final_ood": false,
+  "authorized_for_selection_execution": true,
+  "checkpoint": {
+    "config_sha256": "428042bfd807ba36f8b4326395440fbbebe52cd3d040212e6fef14a4fdf2d83c",
+    "logit_vocab": 50304,
+    "revision": "ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240",
+    "snapshot": "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240",
+    "tokenizer_vocab": 50257,
+    "weights_bytes": 2067738635,
+    "weights_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3"
+  },
+  "fit_parent_binding": {
+    "document_count": 192,
+    "fit_authority_file_sha256": "566d301680b3ff70b400d34d6dc85ca58eda2bc16b64813f2cff2bdc15045fa8",
+    "fit_authority_sha256": "63a8361580ed3a7edb08adde0c6c19b4ccdda794b1198aed8a39a2b2bbc89965",
+    "fit_bank_file_sha256": "91111377349515125c634c0075c2066ea5c60f827da6dbef6a4f1108dfc84bba",
+    "fit_manifest_file_sha256": "b8c539f63e70503f743e99c44775bcb8c7c6abb4bb664a9f0a1688da6c6b0dad",
+    "fit_receipt_file_sha256": "663d1f85dab3fbe16d8bd88cb95c2783b17f306ffe928918602e667c6bf2b72f",
+    "fit_receipt_self_authorizes_selection": false,
+    "fit_result_file_sha256": "17fdd8556c1e4972104397df90cffe9d8a64b8fda077d5c41e4d049d8fe7d37e",
+    "master_means_sha256": "3e494ad21097d136f313e36112c5e1bdeb7830605c132f82d0c084912adf050d",
+    "ordered_document_ids_sha256": "3232aea2e4e9faa181045cbdc86df8ed866f610f088cb50eed57bb4e1bde44bb",
+    "requires_separate_selection_authority": true,
+    "runtime_means_sha256": "d8b90d58a8830d34c6322e1120d4ba1df9342ef4fc85e43af17f93e0b26c55c6",
+    "schema": "terminal_copy_selection_fit_parent_binding_v1"
+  },
+  "fit_receipt_self_authorizes_selection": false,
+  "independent_audit": {
+    "approved": true,
+    "outcome_access": false,
+    "path": "/workspace/tensor_language/basis_aligned/polynomial_causal/terminal_copy_selection_lifecycle_v1_independent_audit.json",
+    "sha256": "c2152c3cb997efe70c4821437f6c88e78826badac6b6a0e31d6c31bf34e6e46e"
+  },
+  "outputs": {
+    "authority": "/workspace/tensor_language/basis_aligned/polynomial_causal/terminal_copy_selection_v1_authority.json",
+    "failure": "/workspace/tensor_language/basis_aligned/polynomial_causal/terminal_copy_selection_v1_failure.json",
+    "ledger": "/workspace/tensor_language/basis_aligned/polynomial_causal/terminal_copy_selection_v1_ledger.json",
+    "lock": "/workspace/runs/.terminal_copy_selection_v1.lock",
+    "manifest": "/workspace/tensor_language/basis_aligned/polynomial_causal/terminal_copy_selection_v1_manifest.json",
+    "negative_receipt": "/workspace/tensor_language/basis_aligned/polynomial_causal/terminal_copy_selection_v1_negative_receipt.json",
+    "passer_receipt": "/workspace/tensor_language/basis_aligned/polynomial_causal/terminal_copy_selection_v1_passer_receipt.json",
+    "result": "/workspace/tensor_language/basis_aligned/polynomial_causal/terminal_copy_selection_v1_result.json"
+  },
+  "pristine_selection_container_secrecy_claimed": false,
+  "protected_paths": [
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/terminal_copy_induction_v2_rows_receipt.json",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_terminal_copy_induction_v2/selection_natural.pt",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_terminal_copy_induction_v2/fit_token_frequencies.pt",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_terminal_copy_induction_v2/final_natural.pt",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_terminal_copy_induction_v2/ood_code.pt",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/terminal_copy_fit_means_v3_authority.json",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/terminal_copy_fit_means_v3_bank.pt",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/terminal_copy_fit_means_v3_result.json",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/terminal_copy_fit_means_v3_manifest.json",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/terminal_copy_fit_means_v3_receipt.json",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/terminal_copy_attention_checkpoint_check_v3_receipt.json",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/terminal_copy_attention_checkpoint_check_v3_result.json",
+    "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240/config.json",
+    "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240/pytorch_model.bin"
+  ],
+  "protected_snapshot": {
+    "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240/config.json": "428042bfd807ba36f8b4326395440fbbebe52cd3d040212e6fef14a4fdf2d83c",
+    "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240/pytorch_model.bin": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_terminal_copy_induction_v2/final_natural.pt": "1997026ce15d0524bd16540047799a6461bc94a57fbdd2812ef41ff36e8d5e3c",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_terminal_copy_induction_v2/fit_token_frequencies.pt": "7ba995e6bcfa2704cc4c2220dfdc8bd5caea53b976359c6b86cb5e14ba7e4c9a",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_terminal_copy_induction_v2/ood_code.pt": "6cf514e75dfd03399f223a9ba5f6ebe5f4b1315bcb839a515e1c19e7b5474bd9",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_terminal_copy_induction_v2/selection_natural.pt": "cc8e1c3e468b7bc249e0cf8fc00640955ae17251c7f0c7640350f65a86202cac",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/terminal_copy_induction_v2_rows_receipt.json": "aea52a94c643906ef822a7c6ddb37a371b4315507a1a0a79acd539a19ae7f5c8",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/terminal_copy_attention_checkpoint_check_v3_receipt.json": "c5ef51670b6e23bb3cddbbef6c5cd451dff55eea8b8f7ddfdf20aca7374bb324",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/terminal_copy_attention_checkpoint_check_v3_result.json": "084087dc4264d438d40c64203a60f870629611e125268f1be62e9f0601faec7d",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/terminal_copy_fit_means_v3_authority.json": "566d301680b3ff70b400d34d6dc85ca58eda2bc16b64813f2cff2bdc15045fa8",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/terminal_copy_fit_means_v3_bank.pt": "91111377349515125c634c0075c2066ea5c60f827da6dbef6a4f1108dfc84bba",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/terminal_copy_fit_means_v3_manifest.json": "b8c539f63e70503f743e99c44775bcb8c7c6abb4bb664a9f0a1688da6c6b0dad",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/terminal_copy_fit_means_v3_receipt.json": "663d1f85dab3fbe16d8bd88cb95c2783b17f306ffe928918602e667c6bf2b72f",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/terminal_copy_fit_means_v3_result.json": "17fdd8556c1e4972104397df90cffe9d8a64b8fda077d5c41e4d049d8fe7d37e"
+  },
+  "protocol": {
+    "all_mlps_native": true,
+    "artifact_order": [
+      "authority",
+      "ledger",
+      "result",
+      "manifest",
+      "passer_or_negative_receipt_last"
+    ],
+    "bootstrap_coordinates": 24,
+    "bootstrap_repetitions": 10000,
+    "bootstrap_seed": "terminal-copy-v1-document-bootstrap:0",
+    "candidate_plans": {
+      "L13H0": [
+        [
+          13,
+          [
+            0
+          ]
+        ]
+      ],
+      "L14H7": [
+        [
+          14,
+          [
+            7
+          ]
+        ]
+      ],
+      "L5H5": [
+        [
+          5,
+          [
+            5
+          ]
+        ]
+      ],
+      "L7H3": [
+        [
+          7,
+          [
+            3
+          ]
+        ]
+      ],
+      "L8H3": [
+        [
+          8,
+          [
+            3
+          ]
+        ]
+      ],
+      "L8H4": [
+        [
+          8,
+          [
+            4
+          ]
+        ]
+      ],
+      "registered_four_head_set": [
+        [
+          5,
+          [
+            5
+          ]
+        ],
+        [
+          7,
+          [
+            3
+          ]
+        ],
+        [
+          8,
+          [
+            3,
+            4
+          ]
+        ]
+      ],
+      "registered_late_pair": [
+        [
+          13,
+          [
+            0
+          ]
+        ],
+        [
+          14,
+          [
+            7
+          ]
+        ]
+      ]
+    },
+    "candidates": [
+      "L5H5",
+      "L7H3",
+      "L8H3",
+      "L8H4",
+      "L13H0",
+      "L14H7",
+      "registered_four_head_set",
+      "registered_late_pair"
+    ],
+    "collateral_limit": 0.01,
+    "critical_index_zero_based": 9499,
+    "final_ood_opening": "passer_receipt_only",
+    "intervention_arithmetic": "(native_full - selected_heads) + fit_position_mean",
+    "intervention_positions": [
+      0,
+      256
+    ],
+    "late_mlp_screen_omitted": true,
+    "native_plus_candidate_forwards_per_batch": 9,
+    "natural_batch_size": 4,
+    "natural_batches": 48,
+    "natural_documents": 192,
+    "pass_rule": "all three simultaneous lower bounds strictly positive",
+    "role": "selection_natural",
+    "score_positions": [
+      64,
+      256
+    ],
+    "selection_coordinates": [
+      "tau_positive",
+      "specificity",
+      "collateral_margin"
+    ],
+    "synthetic_batch_size": 4,
+    "synthetic_batches": 16,
+    "synthetic_pairs": 32,
+    "synthetic_role": "descriptive_only_no_selection_credit",
+    "synthetic_rows": 64,
+    "total_outer_forwards": 576,
+    "winner_rule": "largest specificity lower bound then lexicographic candidate"
+  },
+  "row_binding": {
+    "authorized_use": "candidate_selection_only",
+    "container_path": "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_terminal_copy_induction_v2/selection_natural.pt",
+    "container_sha256": "cc8e1c3e468b7bc249e0cf8fc00640955ae17251c7f0c7640350f65a86202cac",
+    "final_ood_deserialization_authorized": false,
+    "fit_frequencies_path": "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_terminal_copy_induction_v2/fit_token_frequencies.pt",
+    "fit_frequencies_sha256": "7ba995e6bcfa2704cc4c2220dfdc8bd5caea53b976359c6b86cb5e14ba7e4c9a",
+    "fit_query_frequency_sha256": "5c851e2f76e41f69d85b326bfddfffb12cdf1db4aa5460a981f645bc1f7aa59c",
+    "fit_target_frequency_sha256": "66a536e0e77e841702fb46651c8ec697140b259e5d1b01bdd91fdc354a8c5cd0",
+    "matched_negative_mask_sha256": "ebce79e3303d5355e513f304d982ba2fc5b8e4d2fe3eba4775187fe5d2989ab7",
+    "no_selection_values_or_model_outcomes_observed_in_exposure": true,
+    "positive_mask_sha256": "31455e7186ed198e7cfc2fed52cd59e9b2a535f5445f825fd91ee295526243e4",
+    "pristine_container_secrecy_claimed": false,
+    "query_to_y_tensor_sha256": "4165e59ad701bdcd4221ea18d69ca5458da168fc066f80d7720cf51fd299340b",
+    "query_to_z_tensor_sha256": "32b95ba0ee304cab0a275717030a57244d952c95e6f2aa0d6df4858088382fee",
+    "receipt_path": "/workspace/tensor_language/basis_aligned/bilinear_quotient/terminal_copy_induction_v2_rows_receipt.json",
+    "receipt_sha256": "aea52a94c643906ef822a7c6ddb37a371b4315507a1a0a79acd539a19ae7f5c8",
+    "requires_completed_fit_prerequisite": true,
+    "role": "selection_natural",
+    "row_receipt_cross_role_synthetic_token_banks_disjoint": true,
+    "rows_tensor_sha256": "625258ae1128823194fd27c94c241bd197dfd8daba77cfa2d1a0156ae1daaf8a",
+    "schema_only_pre_authority_container_exposure": true,
+    "sha256": "ce746f047d0a108df50b1342e946b9798d81871ffe67dd8aee5d093a6e05459f",
+    "support_census": {
+      "matched_negative_documents": 154,
+      "matched_negative_positions": 303,
+      "passed": true,
+      "positive_documents": 137,
+      "positive_positions": 303
+    }
+  },
+  "schema": "terminal_copy_selection_v1_authority",
+  "selection_authority_independently_licenses_exact_fit_bank": true,
+  "source_closure": {
+    "commit": "7ae5f793ece2ade14eb3e78b1d4a4597e6937118",
+    "paths": {
+      "basis_aligned/polynomial_causal/TERMINAL_COPY_INDUCTION_V1_PREREGISTRATION.md": "e7b37f70229adfa0c8c744140e93c113e22d49d7ffa4091ad09408d61079b4b6",
+      "basis_aligned/polynomial_causal/TERMINAL_COPY_INDUCTION_V1_SCREENING_AMENDMENT.md": "3e428b13018cce8b1f38100098dab81289be5553b73011c7e97e81cac3f1f9b5",
+      "basis_aligned/polynomial_causal/TERMINAL_COPY_SELECTION_INPUT_EXPOSURE_ERRATUM.md": "b11ac407e7108041597410c3118873e70499391584650a55519318085ef70289",
+      "basis_aligned/polynomial_causal/TERMINAL_COPY_SELECTION_V1_EXECUTION_RULING.md": "2a9d932b54daa13ee3e12194a04432e0c7710a4361a7dd631d2add320d673d37",
+      "basis_aligned/polynomial_causal/bilin18_observed_model_facade.py": "b62947f772c807259890a9d09dfcbe5e91ad339a0bffa867ab99177fde4c728c",
+      "basis_aligned/polynomial_causal/prepare_terminal_copy_fit_inputs_v1.py": "65e2e9fe7e0877ac7be00d24a7a76a4bfea928c3e5058a98b28710bd04db62c1",
+      "basis_aligned/polynomial_causal/terminal_copy_attention_adapter.py": "a302ef0a9857105c907fe9353762881443b1193f3530aa79e6cb98e598441a7e",
+      "basis_aligned/polynomial_causal/terminal_copy_attention_dispatcher.py": "f70e95752cbca6661d7d8353b0220c792b2b06180d46dcab54b9db5708016c1a",
+      "basis_aligned/polynomial_causal/terminal_copy_attention_owner.py": "dc90448382080177d7465564eedfdf8c3883f855c5b7f68de97bbe8954f648c5",
+      "basis_aligned/polynomial_causal/terminal_copy_fit_head_means.py": "b4c430d8ef12a7d99b0be8b803185dcc6107266b69384eeb0145113e3ae7cf03",
+      "basis_aligned/polynomial_causal/terminal_copy_fit_mean_lifecycle.py": "593080489bb1632ea244b125ea8853b7835c2ad9c92a41a01c87497daac88b92",
+      "basis_aligned/polynomial_causal/terminal_copy_fit_mean_owner.py": "8a09180a32de1dcce02b38fc4e40db58d928d8bfc7d790bca110c68c604f87fb",
+      "basis_aligned/polynomial_causal/terminal_copy_fit_mean_recovery_v2.py": "3e3735f6eb2f1f9411b7d51d01a18e4cee9becc2a89e88b46c3f9894d44474ce",
+      "basis_aligned/polynomial_causal/terminal_copy_fit_mean_recovery_v3.py": "a2ffd18e23d7b927fe58c37fce107f871e571ecdc6002d65d27d24459dcea0d3",
+      "basis_aligned/polynomial_causal/terminal_copy_induction_v1.py": "266664ddd814d5f7a88d026750dbed35135203f47398b49722b1948373bf4e1c",
+      "basis_aligned/polynomial_causal/terminal_copy_selection_fit_parent.py": "edcefc7b086dc05993339ef45539a012b7a44cb0d423e2ee3579f55d776b5e22",
+      "basis_aligned/polynomial_causal/terminal_copy_selection_lifecycle.py": "0a098ad9c7268c4b83b5c896d3c98e86a97f92e9fc2772c5b2b235f7a9765553",
+      "basis_aligned/polynomial_causal/terminal_copy_selection_owner.py": "9a5049c3f5902f9bb8092276455d8ca30cd681848807e8d8067bf96a20b55330",
+      "basis_aligned/polynomial_causal/terminal_copy_streaming_statistics.py": "5f7bfc2a1a2767c5ef90dadb615ab5f822906ff348dc93b5ca9a70c5025526d8",
+      "basis_aligned/polynomial_causal/test_terminal_copy_attention_adapter.py": "8064ea9c264c5a37a111f4f8a32c53673040107a9d6d75654ae8b87b82733d4e",
+      "basis_aligned/polynomial_causal/test_terminal_copy_attention_dispatcher.py": "c087989e1bfb81eacd0df73e79fe59f743f0a6d10fce7daa0567376e4f6e40ba",
+      "basis_aligned/polynomial_causal/test_terminal_copy_attention_owner.py": "4850dec82d8012352dc5c9da3dabaf51e75ce5768db078ebce7190719e1f95d4",
+      "basis_aligned/polynomial_causal/test_terminal_copy_selection_fit_parent.py": "0910fccf2430723f8a91a4e4972ee49dc876e9ae6aa0f9af5093172b55733b02",
+      "basis_aligned/polynomial_causal/test_terminal_copy_selection_lifecycle.py": "93206ae531a10b109eb0b65ea10deb9eb170df11ca5a9df5517f16ba862d3768",
+      "basis_aligned/polynomial_causal/test_terminal_copy_selection_owner.py": "39ca4b236b2310c8f98e6941944c72ac4944a29071bef04b35f4385fd08035ec",
+      "basis_aligned/polynomial_causal/test_terminal_copy_streaming_statistics.py": "64f99aff842cb4457fe739e2289f9468192bc12984cd2cb47429b7f46323e5bd",
+      "jacclust/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "jacclust/tt_model.py": "49ecdbd6c060ff5b3e57f3134d87ba32841390c891c42e6ae23b71d8627612b2"
+    },
+    "sha256": "28d72021b6fec41e232020dcca5cc6df38ecea5fdf2223a5e54ed0504a952648"
+  },
+  "status": "frozen_before_selection_value_or_model_outcome_access_after_disclosed_schema_exposure"
+}
