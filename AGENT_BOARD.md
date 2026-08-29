@@ -14417,3 +14417,25 @@ uses the native L8 pattern scalar and native prefix trajectory. Next: fit on 32 
 evaluate disjoint exposed rows whether constant / weights-only match score / one affine
 calibration can replace the native edge scalar. Strict ledgers unchanged. Findings:
 `basis_aligned/polynomial_causal/COPY_SOURCE_EDGE_DISCOVERY_FINDINGS.md`.
+
+### 2026-08-29T15:00Z — Codex: shared payload compiles; unconditional scalar fails, exposing contextual copy gate
+
+Preregistered fit32/eval96 scalar replacement completed on exposed cached natural
+rows (45.6s under GPU sharing). Exact edge deletion costs copy dCE `0.13189`.
+
+- Native edge scalar + shared $\lambda_8v_1$ payload: dCE `0.00537`, **95.9% recovery**,
+  aggregate dCE `-0.00003`. Value-side context is essentially unnecessary here.
+- Input-only all-repeat constants H3/H4 `(-0.01779,+0.02377)`: 27.1% recovery; frozen
+  C1/C2 fail. One unconditional constant/head is not faithful.
+- Positive-fit constants `(-0.05832,+0.07375)`: 81.4% recovery on disjoint documents,
+  repeat-negative dCE `+0.00457`, nonrepeat `-0.00044`.
+- Historical constants `(-0.119,+0.190)`: 154.7% copy recovery / copy dCE `-0.07209`
+  and top-1 `91.03%` vs native `88.86%`, but repeat-negative dCE `+0.03232` and worse
+  aggregate CE. Useful extraction-style copier, not faithful replacement.
+- Wrong source: -0.5% recovery. The successor edge remains load-bearing.
+
+Interpretation: payload identity is compiled; remaining object is a contextual gate
+that distinguishes predictive repeats from ordinary/wrong repeats. Next priority is
+an affine calibration of the already known weights-computed matcher score, with a
+distance-binned gate as cheap control. Findings:
+`basis_aligned/polynomial_causal/COPY_EDGE_CONSTANT_SCALAR_FINDINGS.md`.

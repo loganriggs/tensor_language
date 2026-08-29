@@ -961,3 +961,54 @@ score can replace that scalar on disjoint rows.
 The detailed computation, controls, tables, caveats, and artifact names are in
 `COPY_SOURCE_EDGE_DISCOVERY_FINDINGS.md`. This remains exploratory because it reused
 an exposed selection role; the strict whole-model ledger does not move.
+
+## 17. **NEW UPDATE: the payload is simple; the remaining scalar is a contextual gate**
+
+The promised scalar-replacement test is complete.  It fit on cached documents 1--32
+and evaluated on disjoint cached documents 33--128.  The run took 45.6 seconds while
+another validation job shared the GPU.
+
+At a current token position $p$, let $j$ be the nearest earlier occurrence of the
+same token and let $k=j+1$ be the earlier successor position.  The exact L8 H3/H4
+copy-edge write has two relevant ingredients:
+
+1. a scalar $a_h(p,k)$ saying how strongly head $h$ uses that source here;
+2. a value vector saying which token information to write.
+
+Replacing only the value vector by the shared, nearly static $\lambda_8v_1$ token
+code preserves **95.9%** of copy-positive causal CE.  Aggregate scored CE changes by
+`-0.00003` nat.  Thus the context-refined payload is not the important remaining
+complexity.
+
+Replacing the scalar by one unconditional constant for each head is different.  Two
+constants averaged over every repeat preserve only **27.1%** of the copy effect.  The
+native scalar is near zero on many ordinary repeats and larger in magnitude when the
+earlier successor is a good prediction.
+
+Two constants fitted only from positive copy examples preserve **81.4%** on the
+disjoint evaluation documents.  They are still applied to every evaluation repeat;
+evaluation targets are never read by the program.  This works fairly well because it
+uses appropriately strong copy coefficients, but it slightly over-copies on negative
+repeats.  Older, still stronger synthetic-repeat constants improve copy-positive CE
+and top-1 accuracy beyond native, but harm negative repeats enough to worsen overall
+CE.
+
+The key conclusion is:
+
+> “What token code gets written?” is almost solved.  “When should this repeat be
+> trusted as predicting its successor?” is the main remaining local computation.
+
+That makes the next step specific.  We should reuse the older weights-computed matcher
+score and test whether one affine calibration per head can serve as the contextual
+gate.  A distance-binned gate is a cheap control.  We should not spend more time
+factorizing the already simple payload unless these gate tests reveal a new value-side
+failure.
+
+For extraction, the aggressive two-constant program may already be useful: it makes
+copying stronger and is tiny.  For faithfulness, prediction, and selective removal,
+it needs the gate so that it does not copy in the wrong contexts.  This is exactly why
+we keep separate success metrics instead of treating reconstruction alone as the
+definition of simplicity.
+
+Full equations, definitions, coefficients, CE/top-1 tables, gates, and caveats are in
+`COPY_EDGE_CONSTANT_SCALAR_FINDINGS.md`.
