@@ -25,7 +25,7 @@ for source_root in (ROOT, HERE, BQ):
 
 import bilin18_observed_model_facade as facade
 from mlp0_native_down_program import load_program
-import prepare_mlp0_c512_mlp2_full512_composition_v1_rows as row_life
+import prepare_mlp0_c512_mlp2_full512_composition_v2_rows as row_life
 import run_mlp2_rank512_refit_v1 as refit
 
 PREREG = HERE / "MLP0_C512_MLP2_FULL512_COMPOSITION_V1_PREREGISTRATION.md"
@@ -35,7 +35,7 @@ TEST = HERE / "test_mlp0_c512_mlp2_full512_composition_v1.py"
 AUDIT = HERE / "mlp0_c512_mlp2_full512_composition_v1_independent_audit.json"
 SOURCE_PATHS = row_life.SOURCE_PATHS
 
-ROWS_RECEIPT = BQ / "mlp0_c512_mlp2_full512_composition_v1_rows_receipt.json"
+ROWS_RECEIPT = BQ / "mlp0_c512_mlp2_full512_composition_v2_rows_receipt.json"
 C512_PATH = BQ / "mlp0_native_down_hierarchy_v1_programs/C512_at_C512.bin"
 C512_RECEIPT = BQ / "mlp0_native_down_hierarchy_v1_fit_receipt.json"
 FULL_BUNDLE = HERE / "mlp2_rank512_refit_v2_recovery_bundle.pt"
@@ -143,7 +143,7 @@ def validate_parents() -> dict[str, str]:
 
 def validate_row_receipt(value: Any, sources: dict[str, str]) -> dict[str, Any]:
     if not isinstance(value, dict) or value.get("schema") != (
-        "mlp0_c512_mlp2_full512_composition_v1_rows"
+        "mlp0_c512_mlp2_full512_composition_v2_rows"
     ) or value.get("status") != "fresh_roles_frozen_before_any_model_or_training_access" \
             or value.get("source_hashes") != sources or value.get("outcome_access") != {
                 "model_loaded": False, "training_run": False,
