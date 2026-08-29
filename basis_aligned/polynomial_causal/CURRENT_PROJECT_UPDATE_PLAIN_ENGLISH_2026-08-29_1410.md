@@ -1852,12 +1852,19 @@ allow exactly the path `role_summary.tensor_hashes.rows` when its value is a val
 SHA-256 string, while continuing to reject an actual `rows`, `tokens`, `targets`,
 `logits`, `losses`, `products`, `states`, or `responses` payload anywhere else.  The
 repaired experiment also needs a fresh create-only output namespace so the preserved
-failure cannot be overwritten.  It must pass tests and independent audit before one
-new run.
+failure cannot be overwritten.
+
+Importantly, we do **not** need to repeat the eleven-minute GPU computation if the
+stored bytes replay cleanly.  The original ledger contains the complete per-document
+sufficient statistics, and the original result is hash-bound by the failure.  A new
+CPU-only finalizer can first publish a fresh authority, then read those exact bytes,
+recompute every gate and score, and publish a separate v1R receipt.  It cannot load
+the model, deserialize rows, or access replication.  A new GPU run is only the
+fallback if this exact-byte replay fails.
 
 This invalid run does not move any understanding ledger.  We still have 10.923% of
 the measured causal CE gap named and recovered, 4.72714 nats (89.077%) unnamed, and
-0/68 complete extraction/removal/OOD actions.  The repaired MLP2 run remains the
+0/68 complete extraction/removal/OOD actions.  The repaired CPU finalization remains the
 highest-return immediate experiment because it will decide whether a real 512-product
 MLP2 replacement is faithful, whether the suffix-informed choice beats equal-price
 controls, and whether this native-coordinate grammar is worth composing with MLP0

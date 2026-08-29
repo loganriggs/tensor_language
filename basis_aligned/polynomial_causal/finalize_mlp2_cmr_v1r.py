@@ -214,58 +214,95 @@ def guard_all(
     validate_claim(nonce, inode)
 
 
-_CAPABILITY_KEY = object()
+def canonical_authority(
+    source_commit: str, source_hashes: dict[str, str],
+) -> dict[str, Any]:
+    return {
+        "schema_version": 1,
+        "experiment_id": "bilin18_mlp2_cmr_v1r_finalization",
+        "status": "authority_frozen_before_v1_result_or_ledger_access",
+        "source_commit": source_commit,
+        "source_hashes": source_hashes,
+        "v1_artifacts": EXPECTED_V1,
+        "v1_parents": EXPECTED_PARENTS,
+        "v1_receipt_required_absent": True,
+        "authorized_access": "exact-byte CPU semantic replay only",
+        "parent_integrity_hashing_authorized": True,
+        "model_access_authorized": False,
+        "row_deserialization_authorized": False,
+        "replication_access_authorized": False,
+        "authorized_outputs": [RESULT.name, RECEIPT.name],
+    }
 
 
-class ReplayCapability:
-    __slots__ = (
-        "_authority", "_authority_hash", "_consumed", "_inode", "_nonce",
-        "_source_hashes",
-    )
+def _capability_protocol():
+    seal = object()
 
-    def __init__(
-        self, key: object, authority: dict[str, Any], authority_hash: str,
-        source_hashes: dict[str, str], nonce: str, inode: tuple[int, int],
-    ) -> None:
-        if key is not _CAPABILITY_KEY:
-            raise RuntimeError("ReplayCapability cannot be constructed directly")
-        self._authority = authority
-        self._authority_hash = authority_hash
-        self._source_hashes = source_hashes
-        self._nonce = nonce
-        self._inode = inode
-        self._consumed = False
+    class Capability:
+        __slots__ = (
+            "_authority", "_authority_hash", "_consumed", "_inode", "_nonce",
+            "_source_hashes",
+        )
 
-    def consume(self) -> None:
-        if self._consumed:
+        def __init__(
+            self, key: object, authority: dict[str, Any], authority_hash: str,
+            source_hashes: dict[str, str], nonce: str, inode: tuple[int, int],
+        ) -> None:
+            if key is not seal:
+                raise RuntimeError("capability construction is sealed")
+            self._authority = authority
+            self._authority_hash = authority_hash
+            self._source_hashes = source_hashes
+            self._nonce = nonce
+            self._inode = inode
+            self._consumed = False
+
+        def __copy__(self):
+            raise RuntimeError("v1R replay capability cannot be copied")
+
+        def __deepcopy__(self, memo):
+            del memo
+            raise RuntimeError("v1R replay capability cannot be copied")
+
+    def mint(
+        authority: dict[str, Any], authority_hash: str,
+        source_commit: str, source_hashes: dict[str, str], nonce: str,
+        inode: tuple[int, int],
+    ) -> Any:
+        expected = canonical_authority(source_commit, source_hashes)
+        if authority != expected:
+            raise RuntimeError("v1R authority is not the exact canonical authority")
+        guard_all(source_hashes, nonce, inode, authority_hash)
+        captured = stable_read(AUTHORITY, authority_hash)
+        if json.loads(captured) != expected:
+            raise RuntimeError("v1R authority semantics changed before capability mint")
+        validate_claim(nonce, inode)
+        return Capability(
+            seal, authority, authority_hash, source_hashes, nonce, inode,
+        )
+
+    def consume(capability: Any) -> None:
+        if type(capability) is not Capability:
+            raise RuntimeError("v1R replay requires an exact sealed capability")
+        if capability._consumed:
             raise RuntimeError("v1R replay capability was already consumed")
         guard_all(
-            self._source_hashes, self._nonce, self._inode, self._authority_hash,
+            capability._source_hashes, capability._nonce, capability._inode,
+            capability._authority_hash,
         )
-        captured = stable_read(AUTHORITY, self._authority_hash)
-        if json.loads(captured) != self._authority:
+        captured = stable_read(AUTHORITY, capability._authority_hash)
+        if json.loads(captured) != capability._authority:
             raise RuntimeError("v1R authority semantics changed")
-        self._consumed = True
+        capability._consumed = True
+
+    return mint, consume
 
 
-def mint_replay_capability(
-    authority: dict[str, Any], authority_hash: str, source_hashes: dict[str, str],
-    nonce: str, inode: tuple[int, int],
-) -> ReplayCapability:
-    guard_all(source_hashes, nonce, inode, authority_hash)
-    captured = stable_read(AUTHORITY, authority_hash)
-    if json.loads(captured) != authority:
-        raise RuntimeError("v1R authority semantics changed before capability mint")
-    validate_claim(nonce, inode)
-    return ReplayCapability(
-        _CAPABILITY_KEY, authority, authority_hash, source_hashes, nonce, inode,
-    )
+mint_replay_capability, consume_replay_capability = _capability_protocol()
 
 
-def replay_v1(capability: ReplayCapability) -> tuple[dict[str, Any], dict[str, Any]]:
-    if not isinstance(capability, ReplayCapability):
-        raise RuntimeError("v1R replay requires a sealed capability")
-    capability.consume()
+def replay_v1(capability: Any) -> tuple[dict[str, Any], dict[str, Any]]:
+    consume_replay_capability(capability)
     v1_bytes = {
         name: stable_read(path, EXPECTED_V1[name]) for name, path in V1_PATHS.items()
     }
@@ -386,17 +423,7 @@ def main() -> None:
         stat = LOCK.stat(follow_symlinks=False)
         inode = (stat.st_dev, stat.st_ino)
         validate_claim(nonce, inode)
-        authority = {
-            "schema_version": 1, "experiment_id": experiment_id,
-            "status": "authority_frozen_before_v1_result_or_ledger_access",
-            "source_commit": source_commit, "source_hashes": source_hashes,
-            "v1_artifacts": EXPECTED_V1, "v1_parents": EXPECTED_PARENTS,
-            "v1_receipt_required_absent": True,
-            "authorized_access": "exact-byte CPU semantic replay only",
-            "model_access_authorized": False, "row_access_authorized": False,
-            "replication_access_authorized": False,
-            "authorized_outputs": [RESULT.name, RECEIPT.name],
-        }
+        authority = canonical_authority(source_commit, source_hashes)
         write_create_only_guarded(
             AUTHORITY, canonical_json_bytes(authority),
             before_link=lambda: validate_claim(nonce, inode),
@@ -404,7 +431,7 @@ def main() -> None:
         authority_hash = file_sha256(AUTHORITY)
         guard_all(source_hashes, nonce, inode, authority_hash)
         capability = mint_replay_capability(
-            authority, authority_hash, source_hashes, nonce, inode,
+            authority, authority_hash, source_commit, source_hashes, nonce, inode,
         )
         old_result, score = replay_v1(capability)
         decision = {

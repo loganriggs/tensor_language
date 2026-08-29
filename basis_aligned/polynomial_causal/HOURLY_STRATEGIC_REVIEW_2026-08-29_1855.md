@@ -59,13 +59,13 @@ causal mechanism and does not change these strict quantities.
 The ranking uses expected information gain, causal relevance, whole-model
 composability, falsifiability, GPU price, and duplication of completed work.
 
-1. **Source-close a repaired MLP2 validation under a fresh namespace, then rerun it.**
-   The existing numerical work is unusable, but the defect is a single false-positive
-   metadata path.  A repair must whitelist only the exact
-   `role_summary.tensor_hashes.rows` SHA-256 leaf, retain rejection of every actual
-   raw payload, use a new create-only authority/result/receipt/failure namespace, and
-   pass independent source audit.  This remains highest return because it answers the
-   largest open finite interface question in one modest GPU run.
+1. **Source-close a CPU-only v1R finalizer under a fresh namespace.**  The numerical
+   ledger and result bytes are complete and hash-bound, so rerunning 576 GPU forwards
+   is unnecessary.  V1R must publish authority before parsing those bytes, whitelist
+   only the exact `role_summary.tensor_hashes.rows` SHA-256 leaf, recompute every gate
+   from the sufficient statistics, and preserve v1 unchanged.  This remains highest
+   return because it can recover the preregistered decision without opening a new
+   hypothesis or paying another GPU run.
 2. **If SUFFIX survives, cross it with MLP0 C512 and then the compressed copy edge.**
    This directly tests whether independent simplifications compose and measures the
    compensation term.  It is conditional on a valid rank-1 outcome.
@@ -103,6 +103,7 @@ semantic replay failed:
 The failure status is
 `mlp2_cmr_v1_validation_failed_invalid_no_scientific_decision`, and replication
 remains sealed.  No file will be overwritten and no metric from the invalid result
-will be promoted.  The next safe CPU action is the narrow path-aware payload-guard
-repair plus fresh-namespace contract and tests; a rerun requires that repaired source
-to be committed, pushed, and independently audited first.
+will be promoted.  The next safe action is the narrow, fresh-namespace CPU finalizer.
+It pins all old artifacts and parents, forbids model/row/replication access, and
+replays the complete ledger only after its new authority is published.  A new GPU run
+is required only if that exact-byte replay itself fails.

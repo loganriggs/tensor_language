@@ -15127,8 +15127,9 @@ will be overwritten.
 Strict ledgers therefore remain 36/36 structural surfaces, 5.348245316% certified
 storage removal, 0.57968/5.30682 = 10.923302467% named causal CE with 4.72714 nat
 unnamed, and 0/68 complete terminal actions.  Revised priority: (1) freeze a
-path-aware raw-payload repair and fresh create-only v1R namespace, independently
-audit, then rerun; (2) if SUFFIX survives, compose with C512 and the compressed copy
+path-aware raw-payload repair and fresh create-only CPU-only v1R finalizer,
+independently audit, then replay the exact ledger without rerunning the GPU; (2) if
+SUFFIX survives, compose with C512 and the compressed copy
 edge; (3) on collective native-arm failure, move to response-conditioned/balanced
 block factors; (4) finish a fresh copy-edge terminal action; (5) build a verified
 late-consumer bank.  Static review:

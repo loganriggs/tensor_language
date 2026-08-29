@@ -1,0 +1,70 @@
+TILT AXIS SETTLED | 8 arms x 2 coverage(s) | DISCOVERY ONLY
+
+########## COVERAGE 5419 ##########
+  [bqlib] coverage 5419 from fineweb_n96_skip80.pt: 36 tables, neighbour index and map solver built (4s)
+  [bqlib] cache HIT  live     skip7000
+  [bqlib] cache HIT  live     skip11000
+  [bqlib] cache HIT  live     skip1200
+  [bqlib] cache HIT  mix30m640 skip7000
+  [bqlib] cache HIT  mix30m640 skip11000
+  [bqlib] cache HIT  mix30m640 skip1200
+  [bqlib] cache HIT  pat28_32m640 skip7000
+  [bqlib] cache HIT  pat28_32m640 skip11000
+  [bqlib] cache HIT  pat28_32m640 skip1200
+  [bqlib] cache HIT  pat25_35m640 skip7000
+  [bqlib] cache HIT  pat25_35m640 skip11000
+  [bqlib] cache HIT  pat25_35m640 skip1200
+  [bqlib] computed   pat22_38m640 skip7000 (1.4s)
+  [bqlib] computed   pat22_38m640 skip11000 (1.3s)
+  [bqlib] computed   pat22_38m640 skip1200 (0.6s)
+  [bqlib] computed   pat20_40m640 skip7000 (3.9s)
+  [bqlib] computed   pat20_40m640 skip11000 (1.3s)
+  [bqlib] computed   pat20_40m640 skip1200 (0.7s)
+  [bqlib] computed   pat15_45m640 skip7000 (3.9s)
+  [bqlib] computed   pat15_45m640 skip11000 (1.3s)
+  [bqlib] computed   pat15_45m640 skip1200 (0.7s)
+  [bqlib] computed   pat10_50m640 skip7000 (4.8s)
+  [bqlib] computed   pat10_50m640 skip11000 (1.3s)
+  [bqlib] computed   pat10_50m640 skip1200 (0.7s)
+  [bqlib] cache HIT  mix25m512 skip7000
+  [bqlib] cache HIT  mix25m512 skip11000
+  [bqlib] cache HIT  mix25m512 skip1200
+
+########## COVERAGE 16110 ##########
+  [bqlib] coverage 16110 from fineweb_n480_skip80.pt: 36 tables, neighbour index and map solver built (5s)
+  [bqlib] cache HIT  live     skip7000
+  [bqlib] cache HIT  live     skip11000
+  [bqlib] cache HIT  live     skip1200
+  [bqlib] cache HIT  mix30m640 skip7000
+  [bqlib] cache HIT  mix30m640 skip11000
+  [bqlib] cache HIT  mix30m640 skip1200
+  [bqlib] cache HIT  pat28_32m640 skip7000
+  [bqlib] cache HIT  pat28_32m640 skip11000
+  [bqlib] cache HIT  pat28_32m640 skip1200
+  [bqlib] cache HIT  pat25_35m640 skip7000
+  [bqlib] cache HIT  pat25_35m640 skip11000
+  [bqlib] cache HIT  pat25_35m640 skip1200
+  [bqlib] computed   pat22_38m640 skip7000 (1.4s)
+  [bqlib] computed   pat22_38m640 skip11000 (1.3s)
+  [bqlib] computed   pat22_38m640 skip1200 (0.7s)
+  [bqlib] computed   pat20_40m640 skip7000 (3.3s)
+  [bqlib] computed   pat20_40m640 skip11000 (1.3s)
+  [bqlib] computed   pat20_40m640 skip1200 (0.7s)
+  [bqlib] computed   pat15_45m640 skip7000 (3.3s)
+  [bqlib] computed   pat15_45m640 skip11000 (1.3s)
+  [bqlib] computed   pat15_45m640 skip1200 (0.7s)
+  [bqlib] computed   pat10_50m640 skip7000 (3.3s)
+  [bqlib] computed   pat10_50m640 skip11000 (1.3s)
+  [bqlib] computed   pat10_50m640 skip1200 (0.7s)
+  [bqlib] cache HIT  mix25m512 skip7000
+  [bqlib] cache HIT  mix25m512 skip11000
+  [bqlib] cache HIT  mix25m512 skip1200
+
+  the tilt optimum is interior to the grid at both coverages (>=2 roles each)  -> True
+  and it is the same point at both coverages within one grid step (>=2 roles)  -> True
+  and the curve is flat near it (<0.5 milli-nats over three points) -- the STOPPING RULE  -> True
+  derived controls -> True   coverage_exact=True  inert_pairs_are_inert=True  differing_pairs_do_move=True  buckets_partition=True  live_identical=True  ref_flat=True
+  reference deviations: flat 0.000000
+
+pred_a True | pred_b True | pred_c True | pred_z True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/tilt_axis_settled_results.json (229.4s)

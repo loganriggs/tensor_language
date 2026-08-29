@@ -56367,3 +56367,61 @@ to two milli-nats, and §1966 has now found a better point *between* two I had a
 **Every one of these was found by testing a point nobody had tried rather than by a mechanism, and the
 grid on this axis is still 4 points wide.** A denser sweep would settle it, and §1961's α curve is the
 warning: it was flat near its optimum and I spent two sections learning that.
+
+## §1967 — the tilt axis is settled: the optimum is a 25→35 tilt, worth 0.1–0.5 milli-nats, and the stopping rule fired
+
+`ops/tilt_axis_settled.py`, 229.4s, **DISCOVERY ONLY**, both coverages, rung 3 — §1966's open question,
+`run()`'s fourth experiment. **All three predicates TRUE, derived controls TRUE.**
+
+§1964, §1965 and §1966 each moved the recommended fallback by one to two milli-nats, every time by
+testing an untried point on a four-point grid rather than from a mechanism. §1966's open question named
+the risk. **This sweeps the axis densely and carries an explicit stopping rule**, which §1961 reached for
+α only in hindsight after spending two sections on a flat curve.
+
+```
+  pooled CE relative to flat α = 0.30, in MILLI-nats
+                  flat   28_32   25_35   22_38   20_40   15_45   10_50    argmin
+  5,419 skip7000  0.00   -0.11   -0.17   -0.09   +0.05   +0.71   +1.84    25_35
+        skip11000 0.00   -0.23   -0.44   -0.49   -0.42   +0.08   +1.05    22_38
+        skip1200  0.00   -0.08   -0.10   +0.01   +0.15   +0.80   +1.92    25_35
+  16110 skip7000  0.00   -0.01   +0.01   +0.10   +0.19   +0.56   +1.09    28_32
+        skip11000 0.00   -0.04   -0.03   +0.05   +0.15   +0.53   +1.11    28_32
+        skip1200  0.00   -0.05   -0.07   -0.02   +0.06   +0.40   +0.95    25_35
+```
+
+> **pred_a PASSED at both coverages: the optimum is interior** — never the flat end, never the widest.
+> **pred_b PASSED: it sits at the same place at both coverages within one grid step** (25→35 or 28→32 at
+> 16,110; 25→35 or 22→38 at 5,419), confirming §1966's finding that there is no genuine coverage
+> divergence on this axis, now at full resolution.
+
+> **pred_c PASSED — the stopping rule fired, and that is the point of the section.** The three grid
+> points around the optimum span **under 0.5 milli-nats** at both coverages. **The axis is flat at the
+> resolution of a marginal purchase, so no further section on the tilt is worth running**, and this is
+> recorded as a decision rather than discovered later. §1961 learned the same thing about α by spending
+> two sections on it.
+
+> **The whole tilt axis is worth 0.1 to 0.5 milli-nats.** The best point recovers −0.17 / −0.49 / −0.10
+> milli-nats at 5,419 and −0.01 / −0.04 / −0.07 at 16,110 against the flat blend. **For comparison the
+> converged build beats §1789's deployed design by 64,000 milli-nats at 5,419.** Three sections
+> (§1964–§1966) moved this parameter and the entire axis is worth about a two-hundredth of one of
+> §1957–§1959's marginal purchases. **The honest summary is that §1963–§1967 established a real effect
+> that does not matter, and the stopping rule is what stops that from continuing.**
+
+> **And the wide tilts are actively bad**, +0.95 to +1.92 milli-nats at 10→50 — so §1963/§1964's finding
+> that "the widest tilt is the strongest" on the *unseen bucket* was true and pointed the wrong way for
+> the build. That is consistent, not contradictory: the widest tilt buys the most bucket and costs the
+> most CE, which is exactly what §1963's pred_b measured.
+
+**Derived controls TRUE** — coverages exact, same-spec pairs inert at covered inputs and differing-spec
+pairs not, buckets partition, live identical, §1966's published `spec_5419` CE reproduced to
+**0.000000** via `B.ref()`. Fifty-first clean reading, none of it hand-written.
+
+**Recommended fallback, and the last word on this axis: a 25→35 per-token tilt on a rank-640 map at
+{mlp 768, attn 384}** — 189.7M at 5,419, 411.3M at 16,110. It is the best point at both coverages within
+one grid step, and the axis around it is flat to within half a milli-nat.
+
+**Open.** Four of the five parameters are now settled with explicit stopping criteria: table rank
+(§1947, §1950), attention share (§1948, §1952), map rank (§1959), and the tilt (§1967). **α itself was
+settled by §1961 without one** — it was declared "flat and effectively optimal" from a six-point sweep
+that never checked whether the three points around its optimum span less than a marginal purchase.
+Applying §1967's rule to §1961's data is arithmetic on an artifact already on disk, not a run.
