@@ -1,10 +1,13 @@
 from __future__ import annotations
 
+from copy import deepcopy
+from dataclasses import asdict
 import json
 from types import SimpleNamespace
 
 import pytest
 
+import hierarchical_shared_private_rrr as hybrid
 import run_hierarchical_shared_private_rrr_real_v1 as v1
 import run_hierarchical_shared_private_rrr_real_v2_recovery as recovery
 
@@ -19,13 +22,56 @@ def test_spent_v1_exact_hashes_failure_and_semantic_result_replay():
 
 
 def test_json_normalization_repairs_tuple_list_equality_and_is_idempotent():
-    original = {"price": {"private_ranks": (1, 2, 3)}, "value": 4.0}
+    original = {"price": {
+        "private_ranks": (1, 2, 3),
+        "dense_multiplies_by_site": (8, 16, 24),
+    }, "value": 4.0}
     reloaded = json.loads(json.dumps(original))
     assert reloaded != original
     normalized = recovery.json_normalize(original)
     assert normalized == reloaded
     assert recovery.json_normalize(normalized) == normalized
     assert normalized["price"]["private_ranks"] == [1, 2, 3]
+    assert normalized["price"]["dense_multiplies_by_site"] == [8, 16, 24]
+
+
+def _mismatch_paths(left, right, prefix=""):
+    if isinstance(left, dict) and isinstance(right, dict) and left.keys() == right.keys():
+        output = []
+        for key in left:
+            output.extend(_mismatch_paths(
+                left[key], right[key], f"{prefix}.{key}" if prefix else key,
+            ))
+        return output
+    if isinstance(left, (tuple, list)) and isinstance(right, (tuple, list)) and (
+        len(left) == len(right)
+    ):
+        if type(left) is not type(right):
+            return [prefix]
+        output = []
+        for index, (a, b) in enumerate(zip(left, right, strict=True)):
+            output.extend(_mismatch_paths(a, b, f"{prefix}.{index}"))
+        return output
+    return [] if left == right and type(left) is type(right) else [prefix]
+
+
+def test_all_seven_v1_arms_have_exactly_the_two_registered_container_mismatches():
+    published = json.loads(recovery.V1_RESULTS.read_text())
+    expected_paths = {
+        "deployed_hash_receipt.price.private_ranks",
+        "deployed_hash_receipt.price.dense_multiplies_by_site",
+    }
+    assert len(published["arms"]) == 7
+    for payload in published["arms"].values():
+        diagnostics = payload["diagnostics"]
+        reconstructed = deepcopy(diagnostics)
+        q0 = diagnostics["shared_rank"]
+        price = hybrid.hierarchical_price(
+            v1.N_SITES, v1.D, q0, diagnostics["private_ranks_by_site"],
+        )
+        reconstructed["deployed_hash_receipt"]["price"] = asdict(price)
+        assert set(_mismatch_paths(reconstructed, diagnostics)) == expected_paths
+        assert recovery.json_normalize(reconstructed) == diagnostics
 
 
 def test_fit_wrapper_changes_only_result_safe_diagnostics(monkeypatch):
@@ -103,6 +149,23 @@ def test_receipt_absence_is_checked_before_and_after_parent_replay(monkeypatch):
     monkeypatch.setattr(recovery, "_require_v1_receipt_absent", counted)
     recovery.verify_spent_v1()
     assert calls == ["absent", "absent"]
+
+
+def test_cross_parent_terminal_rehash_rejects_late_drift(monkeypatch):
+    original = recovery.base.file_sha256
+    calls = 0
+
+    def drift_after_individual_reads(path):
+        nonlocal calls
+        calls += 1
+        value = original(path)
+        if calls > 6 and path == recovery.V1_FAILURE:
+            return "0" * 64
+        return value
+
+    monkeypatch.setattr(recovery.base, "file_sha256", drift_after_individual_reads)
+    with pytest.raises(RuntimeError, match="terminal parent set changed"):
+        recovery.verify_spent_v1()
 
 
 def test_run_restores_base_after_preflight_refusal(monkeypatch):

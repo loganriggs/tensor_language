@@ -96,6 +96,16 @@ def _require_v1_receipt_absent() -> None:
         raise RuntimeError("hierarchical RRR v1 receipt unexpectedly exists")
 
 
+def _verify_v1_terminal_files() -> None:
+    """Close the cross-parent window after the three stable individual reads."""
+    observed = {
+        relative: base.file_sha256(ROOT / relative) for relative in V1_HASHES
+    }
+    if observed != V1_HASHES:
+        raise RuntimeError("hierarchical RRR v1 terminal parent set changed")
+    _require_v1_receipt_absent()
+
+
 def verify_spent_v1() -> dict[str, Any]:
     _require_v1_receipt_absent()
     authority = _read_pinned_json(
@@ -114,7 +124,7 @@ def verify_spent_v1() -> dict[str, Any]:
     ) != "shared_output_rrr_real_hierarchical_shared_private_v1_results":
         raise RuntimeError("hierarchical RRR v1 authority/result join changed")
     _semantic_replay_v1(authority, result, failure)
-    _require_v1_receipt_absent()
+    _verify_v1_terminal_files()
     return {
         "authority_file_sha256": V1_HASHES[str(V1_AUTHORITY.relative_to(ROOT))],
         "authority_sha256": authority["authority_sha256"],

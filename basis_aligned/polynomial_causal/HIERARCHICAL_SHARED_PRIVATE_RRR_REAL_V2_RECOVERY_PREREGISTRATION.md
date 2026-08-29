@@ -8,9 +8,12 @@ prediction, gate, control, data role, or execution schedule.
 ## Exact spent parent
 
 V1 completed all seven arms and wrote a result, then failed before receipt publication
-because an in-memory diagnostic contained `HierarchicalPrice.private_ranks` as a tuple.
-JSON publication canonically changed that tuple to a list, so the inherited strict
-`json.loads(result) == in_memory_result` guard rejected it. Preserve and bind:
+because each in-memory diagnostic contained both
+`HierarchicalPrice.private_ranks` and
+`HierarchicalPrice.dense_multiplies_by_site` as tuples. JSON publication canonically
+changed both tuples to lists: exactly two paths in each of seven arms, with no numerical
+change and no other mismatch. The inherited strict
+`json.loads(result) == in_memory_result` guard therefore rejected it. Preserve and bind:
 
 - v1 authority SHA256 `558d316eb5fdb4a4249eb58cdd5c2b80f0005873cdbccf517dfede7226c4d11c`;
 - v1 result SHA256 `86315dcc855e9a27958b6abfd50ed5c6b7bb7108f00fe3684bfbf624405a772d`;
