@@ -55420,15 +55420,15 @@ This re-opens the **table** axis a second time, with §1949's rank-512 fallback 
 
 ```
   16,110, fallback fixed at mix25m512, marginal nats per 100M   (7000 / 11000 / 1200)
-    1024/256 -> 768/256     0.0073 / 0.0079 / 0.0073     <- still under §1947's 0.010 threshold
-    768/256  -> 640/160     0.0130 / 0.0141 / 0.0130     <- still crosses it
-    attn 384 -> 256         0.0034 / 0.0038 / 0.0034     <- attention still not worth buying
+    1024/256 -> 768/256     0.0093 / 0.0090 / 0.0073     <- still under §1947's 0.010 threshold
+    768/256  -> 640/160     0.0169 / 0.0175 / 0.0130     <- still crosses it
+    attn 384 -> 256         0.0047 / 0.0051 / 0.0034     <- attention still not worth buying
 ```
 
 > **pred_a PASSED 3/3: the table knee did not move.** With a rank-512 fallback rather than rank-256, the
 > 0.010 nats/100M threshold is still crossed **between {768,256} and {640,160}** — the same crossing
 > §1947 found. **pred_b PASSED 3/3: the attention share did not move either** — going from attn 384 down
-> to 256 still costs only 0.0034–0.0038 nats/100M, so the extra capacity is still not worth buying, as
+> to 256 still costs only 0.0034–0.0051 nats/100M, so the extra capacity is still not worth buying, as
 > §1948 found under the weaker fallback.
 >
 > **pred_c PASSED: `(tables {mlp 768, attn 256}, fallback mix25m512)` is a FIXED POINT of the
