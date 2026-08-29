@@ -10831,19 +10831,22 @@ retrospective simplicity/prediction knee rather than coefficient sparsity alone.
 
 Critical red-team boundary: the early side is the physical Boolean lattice B3, but
 the suffix registry is not a physical factorial. MLP-only layers 3--8 were absent, so
-the “broad MLP / broad-block synergy” Möbius coordinate aliases a broad MLP main effect
-with attention-by-MLP synergy. The zeta basis is nonorthogonal; coefficient squares
+the “broad MLP / broad-block synergy” Möbius coordinate aliases an early-prefix×MLP
+interaction with the three-way early-prefix×attention×MLP contrast. The zeta basis is nonorthogonal; coefficient squares
 are not energy. GO only as descriptive grammar search; NO-GO for causal interface,
 executable compression, semantics, or OOD.
 
 Froze the cheapest prospective de-aliasing test before any new-mask outcome:
 `BROAD_MLP_SUFFIX_DEALIAS_V1_PREREGISTRATION.md`. It adds exactly the MLP3--MLP8-only
 suffix crossed with all eight early prefixes on both roles (16 role-cells). Frozen
-no-fit prediction is `D_M_hat = D_AM - D_A`; residual `Q = D_AM-D_A-D_M` identifies
-attention×MLP replacement synergy. Two independent 2,000-document bootstraps,
-within-role and direct cross-role gates, no bias/scale correction, CE-only selection,
-top1 secondary. Execution is NO-GO until source-closed implementation and independent
-audit.
+no-fit prediction is `D_M_hat = D_AM - D_A`. Mathematical red-team caught the
+original estimand label before execution: `Q = D_AM-D_A-D_M` is the three-way
+early×attention×MLP contrast, not raw suffix synergy. The corrected protocol separately
+reports `R_i=C(P_iAM)-C(P_iA)-C(P_iM)+C(P_i)` and the standalone M marginal. It tests
+attention-invariance of the early×MLP interaction, with two independent 2,000-document
+bootstraps, conditional direct cross-role intervals, exact old/new document joins,
+no bias/scale correction, CE-only selection, and top1 secondary. Execution is NO-GO
+until source-closed implementation and independent audit.
 
 Artifacts: `early_mlp_context_mobius_diagnostic.py`, 4/4 tests,
 `early_mlp_context_mobius_diagnostic_results.json`,

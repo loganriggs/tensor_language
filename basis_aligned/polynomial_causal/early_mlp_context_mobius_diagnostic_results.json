@@ -1,0 +1,906 @@
+{
+  "bootstrap_draws": 1000,
+  "bootstrap_support_stability": {
+    "skip11000": {
+      "16": [
+        {
+          "name": "MLP0 x MLP3",
+          "selection_frequency": 1.0
+        },
+        {
+          "name": "MLP0+MLP1 x MLP3",
+          "selection_frequency": 1.0
+        },
+        {
+          "name": "MLP2 x local attention3-MLP3 synergy",
+          "selection_frequency": 1.0
+        },
+        {
+          "name": "MLP1 x additional attention4-8 beyond attention3",
+          "selection_frequency": 1.0
+        },
+        {
+          "name": "MLP2 x additional attention4-8 beyond attention3",
+          "selection_frequency": 1.0
+        },
+        {
+          "name": "MLP1+MLP2 x MLP3",
+          "selection_frequency": 1.0
+        },
+        {
+          "name": "MLP1+MLP2 x attention3",
+          "selection_frequency": 1.0
+        },
+        {
+          "name": "MLP2 x additional MLP3-8 / broad-block synergy",
+          "selection_frequency": 1.0
+        },
+        {
+          "name": "MLP1 x attention3",
+          "selection_frequency": 0.984
+        },
+        {
+          "name": "MLP0+MLP1 x attention3",
+          "selection_frequency": 0.957
+        },
+        {
+          "name": "MLP2 x attention3",
+          "selection_frequency": 0.903
+        },
+        {
+          "name": "MLP0+MLP2 x additional MLP3-8 / broad-block synergy",
+          "selection_frequency": 0.887
+        },
+        {
+          "name": "MLP0 x additional attention4-8 beyond attention3",
+          "selection_frequency": 0.811
+        },
+        {
+          "name": "MLP1 x additional MLP3-8 / broad-block synergy",
+          "selection_frequency": 0.796
+        },
+        {
+          "name": "MLP0+MLP1+MLP2 x local attention3-MLP3 synergy",
+          "selection_frequency": 0.718
+        },
+        {
+          "name": "MLP2 x MLP3",
+          "selection_frequency": 0.58
+        }
+      ],
+      "8": [
+        {
+          "name": "MLP0+MLP1 x MLP3",
+          "selection_frequency": 1.0
+        },
+        {
+          "name": "MLP2 x additional attention4-8 beyond attention3",
+          "selection_frequency": 1.0
+        },
+        {
+          "name": "MLP2 x local attention3-MLP3 synergy",
+          "selection_frequency": 1.0
+        },
+        {
+          "name": "MLP1 x additional attention4-8 beyond attention3",
+          "selection_frequency": 1.0
+        },
+        {
+          "name": "MLP1+MLP2 x attention3",
+          "selection_frequency": 1.0
+        },
+        {
+          "name": "MLP0 x MLP3",
+          "selection_frequency": 0.999
+        },
+        {
+          "name": "MLP0+MLP2 x additional MLP3-8 / broad-block synergy",
+          "selection_frequency": 0.71
+        },
+        {
+          "name": "MLP2 x additional MLP3-8 / broad-block synergy",
+          "selection_frequency": 0.586
+        }
+      ]
+    },
+    "skip7000": {
+      "16": [
+        {
+          "name": "MLP0 x MLP3",
+          "selection_frequency": 1.0
+        },
+        {
+          "name": "MLP0+MLP1 x MLP3",
+          "selection_frequency": 1.0
+        },
+        {
+          "name": "MLP1 x attention3",
+          "selection_frequency": 1.0
+        },
+        {
+          "name": "MLP2 x additional attention4-8 beyond attention3",
+          "selection_frequency": 1.0
+        },
+        {
+          "name": "MLP1+MLP2 x MLP3",
+          "selection_frequency": 1.0
+        },
+        {
+          "name": "MLP1+MLP2 x attention3",
+          "selection_frequency": 1.0
+        },
+        {
+          "name": "MLP2 x local attention3-MLP3 synergy",
+          "selection_frequency": 0.999
+        },
+        {
+          "name": "MLP1 x additional attention4-8 beyond attention3",
+          "selection_frequency": 0.998
+        },
+        {
+          "name": "MLP2 x additional MLP3-8 / broad-block synergy",
+          "selection_frequency": 0.988
+        },
+        {
+          "name": "MLP0+MLP1 x attention3",
+          "selection_frequency": 0.975
+        },
+        {
+          "name": "MLP0+MLP1+MLP2 x local attention3-MLP3 synergy",
+          "selection_frequency": 0.972
+        },
+        {
+          "name": "MLP1+MLP2 x additional MLP3-8 / broad-block synergy",
+          "selection_frequency": 0.963
+        },
+        {
+          "name": "MLP0+MLP2 x additional MLP3-8 / broad-block synergy",
+          "selection_frequency": 0.892
+        },
+        {
+          "name": "MLP0 x additional attention4-8 beyond attention3",
+          "selection_frequency": 0.865
+        },
+        {
+          "name": "MLP2 x attention3",
+          "selection_frequency": 0.846
+        },
+        {
+          "name": "MLP1 x local attention3-MLP3 synergy",
+          "selection_frequency": 0.73
+        }
+      ],
+      "8": [
+        {
+          "name": "MLP2 x additional attention4-8 beyond attention3",
+          "selection_frequency": 1.0
+        },
+        {
+          "name": "MLP1+MLP2 x attention3",
+          "selection_frequency": 1.0
+        },
+        {
+          "name": "MLP2 x local attention3-MLP3 synergy",
+          "selection_frequency": 0.998
+        },
+        {
+          "name": "MLP1 x additional attention4-8 beyond attention3",
+          "selection_frequency": 0.988
+        },
+        {
+          "name": "MLP1+MLP2 x additional MLP3-8 / broad-block synergy",
+          "selection_frequency": 0.963
+        },
+        {
+          "name": "MLP0+MLP1 x MLP3",
+          "selection_frequency": 0.916
+        },
+        {
+          "name": "MLP0 x MLP3",
+          "selection_frequency": 0.886
+        },
+        {
+          "name": "MLP0+MLP2 x additional MLP3-8 / broad-block synergy",
+          "selection_frequency": 0.883
+        }
+      ]
+    }
+  },
+  "cross_role_interaction_correlation": 0.9963239785823805,
+  "direct_full_grid_transfer": {
+    "skip11000_to_skip7000": {
+      "nre_to_zero_interaction": 0.10386058493245398,
+      "r2": 0.979743619370218,
+      "rmse": 0.35984662881083274
+    },
+    "skip7000_to_skip11000": {
+      "nre_to_zero_interaction": 0.09618966900005811,
+      "r2": 0.9821022573004512,
+      "rmse": 0.35984662881083274
+    }
+  },
+  "measurement_receipt_sha256": "82af48ef6a553038316004dfcf1e82eb10f9d717fde3f8021c805c0afd79da43",
+  "measurement_source_closure_sha256": "207f9e91ae4d16af293563f65337bb7dfe8666542cd37186cb9ec14b7cd9e437",
+  "roles": {
+    "skip11000": {
+      "interaction_rms": 3.7410111974770945,
+      "largest_exact_mobius_terms": [
+        {
+          "coefficient": -5.393105361324812,
+          "name": "MLP2 x additional attention4-8 beyond attention3"
+        },
+        {
+          "coefficient": 5.353922443342251,
+          "name": "MLP0+MLP1 x MLP3"
+        },
+        {
+          "coefficient": 5.139612409680527,
+          "name": "MLP0+MLP1+MLP2 x additional MLP3-8 / broad-block synergy"
+        },
+        {
+          "coefficient": 5.102823551110029,
+          "name": "MLP1+MLP2 x attention3"
+        },
+        {
+          "coefficient": -4.97603734495787,
+          "name": "MLP0+MLP1+MLP2 x additional attention4-8 beyond attention3"
+        },
+        {
+          "coefficient": 4.911076101613407,
+          "name": "MLP2 x additional MLP3-8 / broad-block synergy"
+        },
+        {
+          "coefficient": 4.622765985546861,
+          "name": "MLP1+MLP2 x MLP3"
+        },
+        {
+          "coefficient": -4.297915331301429,
+          "name": "MLP0+MLP1+MLP2 x MLP3"
+        },
+        {
+          "coefficient": -3.468671756899983,
+          "name": "MLP0 x MLP3"
+        },
+        {
+          "coefficient": -3.3416632051772535,
+          "name": "MLP0+MLP2 x additional MLP3-8 / broad-block synergy"
+        },
+        {
+          "coefficient": 3.1934979660985885,
+          "name": "MLP0+MLP2 x MLP3"
+        },
+        {
+          "coefficient": -3.1757934446134364,
+          "name": "MLP2 x local attention3-MLP3 synergy"
+        }
+      ],
+      "loo_fixed_early_order": {
+        "1": {
+          "nre_to_zero_interaction": 0.9680191535207878,
+          "r2": -0.8126305725647205,
+          "rmse": 3.6213704926935657
+        },
+        "2": {
+          "nre_to_zero_interaction": 0.824798305458011,
+          "r2": -0.31594251989847644,
+          "rmse": 3.0855796963785522
+        }
+      },
+      "loo_omp": {
+        "1": {
+          "nre_to_zero_interaction": 0.7053650288779242,
+          "r2": 0.03756978738044692,
+          "rmse": 2.6387784713410687
+        },
+        "12": {
+          "nre_to_zero_interaction": 0.4085877971717939,
+          "r2": 0.677067181107051,
+          "rmse": 1.5285315243721809
+        },
+        "16": {
+          "nre_to_zero_interaction": 0.34691656412570776,
+          "r2": 0.7671954453588153,
+          "rmse": 1.2978187509845533
+        },
+        "2": {
+          "nre_to_zero_interaction": 0.6159389520077124,
+          "r2": 0.2661340473670495,
+          "rmse": 2.304234516423159
+        },
+        "24": {
+          "nre_to_zero_interaction": 0.39041121054319067,
+          "r2": 0.7051603008511258,
+          "rmse": 1.4605327102626637
+        },
+        "32": {
+          "nre_to_zero_interaction": 0.49170847609472457,
+          "r2": 0.5323113943816484,
+          "rmse": 1.8394869149647628
+        },
+        "4": {
+          "nre_to_zero_interaction": 0.567730995793675,
+          "r2": 0.37651413666480793,
+          "rmse": 2.1238880124189596
+        },
+        "8": {
+          "nre_to_zero_interaction": 0.4230009676847402,
+          "r2": 0.6538820509942924,
+          "rmse": 1.5824513566522598
+        }
+      },
+      "singular_energy_fraction": [
+        0.8707396856361148,
+        0.9664542936264428,
+        0.9917874108683267,
+        0.9998108053065664,
+        0.9999992799743759,
+        0.999999995639328,
+        1.0
+      ],
+      "singular_values": [
+        24.436061950572213,
+        8.101700057491842,
+        4.168035071701573,
+        2.345665712651495,
+        0.35951212442193176,
+        0.022153478228072877,
+        0.0017292738104230498
+      ]
+    },
+    "skip7000": {
+      "interaction_rms": 3.4647082822117743,
+      "largest_exact_mobius_terms": [
+        {
+          "coefficient": 5.366488872876232,
+          "name": "MLP0+MLP1 x MLP3"
+        },
+        {
+          "coefficient": -5.185925778731612,
+          "name": "MLP2 x additional attention4-8 beyond attention3"
+        },
+        {
+          "coefficient": 5.160319200921122,
+          "name": "MLP0+MLP1+MLP2 x additional MLP3-8 / broad-block synergy"
+        },
+        {
+          "coefficient": -4.981074511542655,
+          "name": "MLP0+MLP1+MLP2 x additional attention4-8 beyond attention3"
+        },
+        {
+          "coefficient": 4.706612824493422,
+          "name": "MLP2 x additional MLP3-8 / broad-block synergy"
+        },
+        {
+          "coefficient": 4.684313532358338,
+          "name": "MLP1+MLP2 x attention3"
+        },
+        {
+          "coefficient": -4.505305890105616,
+          "name": "MLP0+MLP1+MLP2 x MLP3"
+        },
+        {
+          "coefficient": 4.16433163803589,
+          "name": "MLP1+MLP2 x MLP3"
+        },
+        {
+          "coefficient": -3.5365071070247796,
+          "name": "MLP2 x local attention3-MLP3 synergy"
+        },
+        {
+          "coefficient": -3.300764265786924,
+          "name": "MLP0+MLP1 x local attention3-MLP3 synergy"
+        },
+        {
+          "coefficient": -3.289576816159844,
+          "name": "MLP0 x MLP3"
+        },
+        {
+          "coefficient": 3.2496016244653543,
+          "name": "MLP0+MLP2 x MLP3"
+        }
+      ],
+      "loo_fixed_early_order": {
+        "1": {
+          "nre_to_zero_interaction": 0.9774044378001022,
+          "r2": -0.7939442145447793,
+          "rmse": 3.386421250716557
+        },
+        "2": {
+          "nre_to_zero_interaction": 0.9290968782760548,
+          "r2": -0.620997415714752,
+          "rmse": 3.219049649140152
+        }
+      },
+      "loo_omp": {
+        "1": {
+          "nre_to_zero_interaction": 0.7102883106239418,
+          "r2": 0.05260812541718629,
+          "rmse": 2.4609417925769805
+        },
+        "12": {
+          "nre_to_zero_interaction": 0.41003042411507146,
+          "r2": 0.6842869850846445,
+          "rmse": 1.4206358063902944
+        },
+        "16": {
+          "nre_to_zero_interaction": 0.3653706782008895,
+          "r2": 0.7493153722375965,
+          "rmse": 1.2659028148399547
+        },
+        "2": {
+          "nre_to_zero_interaction": 0.6243321627005669,
+          "r2": 0.26803260281183894,
+          "rmse": 2.163128814959843
+        },
+        "24": {
+          "nre_to_zero_interaction": 0.4683264823404635,
+          "r2": 0.5881322819247303,
+          "rmse": 1.62261464214411
+        },
+        "32": {
+          "nre_to_zero_interaction": 0.5666720329035625,
+          "r2": 0.39699088155767226,
+          "rmse": 1.9633532856987561
+        },
+        "4": {
+          "nre_to_zero_interaction": 0.5628047919671362,
+          "r2": 0.40519324248009025,
+          "rmse": 1.9499544239970115
+        },
+        "8": {
+          "nre_to_zero_interaction": 0.4449302664480548,
+          "r2": 0.6282557839030325,
+          "rmse": 1.541553579169267
+        }
+      },
+      "singular_energy_fraction": [
+        0.8522666218223883,
+        0.958649634831691,
+        0.9901173220936507,
+        0.999780894152653,
+        0.9999989584302345,
+        0.9999999961611472,
+        1.0
+      ],
+      "singular_values": [
+        22.389915485891642,
+        7.910443945714352,
+        4.3022646974838565,
+        2.3841499076289114,
+        0.3581434210472634,
+        0.02470626476465298,
+        0.0015026763335213007
+      ]
+    }
+  },
+  "schema_version": 1,
+  "sparse_support_transfer": {
+    "skip11000_to_skip7000": {
+      "1": {
+        "direct_value_transfer": {
+          "nre_to_zero_interaction": 0.7055734436107268,
+          "r2": 0.06514388397580051,
+          "rmse": 2.4446061537867676
+        },
+        "support": [
+          "MLP2 x additional attention4-8 beyond attention3"
+        ],
+        "target_refit_on_source_support": {
+          "nre_to_zero_interaction": 0.702744075551359,
+          "r2": 0.07262644640664828,
+          "rmse": 2.4348032188380504
+        }
+      },
+      "12": {
+        "direct_value_transfer": {
+          "nre_to_zero_interaction": 0.23754057748844817,
+          "r2": 0.8940414670474185,
+          "rmse": 0.8230088061855941
+        },
+        "support": [
+          "MLP2 x additional attention4-8 beyond attention3",
+          "MLP1+MLP2 x attention3",
+          "MLP0 x MLP3",
+          "MLP1 x additional attention4-8 beyond attention3",
+          "MLP2 x local attention3-MLP3 synergy",
+          "MLP0+MLP1 x MLP3",
+          "MLP0+MLP2 x additional MLP3-8 / broad-block synergy",
+          "MLP2 x attention3",
+          "MLP0+MLP1+MLP2 x local attention3-MLP3 synergy",
+          "MLP1 x attention3",
+          "MLP0+MLP1 x attention3",
+          "MLP1+MLP2 x MLP3"
+        ],
+        "target_refit_on_source_support": {
+          "nre_to_zero_interaction": 0.2176381663252034,
+          "r2": 0.9110531777169528,
+          "rmse": 0.7540527573923159
+        }
+      },
+      "16": {
+        "direct_value_transfer": {
+          "nre_to_zero_interaction": 0.19665915621177518,
+          "r2": 0.927374578889191,
+          "rmse": 0.6813666072997165
+        },
+        "support": [
+          "MLP2 x additional attention4-8 beyond attention3",
+          "MLP1+MLP2 x attention3",
+          "MLP0 x MLP3",
+          "MLP1 x additional attention4-8 beyond attention3",
+          "MLP2 x local attention3-MLP3 synergy",
+          "MLP0+MLP1 x MLP3",
+          "MLP0+MLP2 x additional MLP3-8 / broad-block synergy",
+          "MLP2 x attention3",
+          "MLP0+MLP1+MLP2 x local attention3-MLP3 synergy",
+          "MLP1 x attention3",
+          "MLP0+MLP1 x attention3",
+          "MLP1+MLP2 x MLP3",
+          "MLP0 x additional attention4-8 beyond attention3",
+          "MLP2 x additional MLP3-8 / broad-block synergy",
+          "MLP1 x additional MLP3-8 / broad-block synergy",
+          "MLP2 x MLP3"
+        ],
+        "target_refit_on_source_support": {
+          "nre_to_zero_interaction": 0.16885715036247528,
+          "r2": 0.9464574276244163,
+          "rmse": 0.585040767371547
+        }
+      },
+      "2": {
+        "direct_value_transfer": {
+          "nre_to_zero_interaction": 0.6228342021182541,
+          "r2": 0.271540808883448,
+          "rmse": 2.1579388185238773
+        },
+        "support": [
+          "MLP2 x additional attention4-8 beyond attention3",
+          "MLP1+MLP2 x attention3"
+        ],
+        "target_refit_on_source_support": {
+          "nre_to_zero_interaction": 0.6188774797507921,
+          "r2": 0.28076687719165916,
+          "rmse": 2.144229929766919
+        }
+      },
+      "24": {
+        "direct_value_transfer": {
+          "nre_to_zero_interaction": 0.13657351492909126,
+          "r2": 0.9649737781324023,
+          "rmse": 0.47318738830559587
+        },
+        "support": [
+          "MLP2 x additional attention4-8 beyond attention3",
+          "MLP1+MLP2 x attention3",
+          "MLP0 x MLP3",
+          "MLP1 x additional attention4-8 beyond attention3",
+          "MLP2 x local attention3-MLP3 synergy",
+          "MLP0+MLP1 x MLP3",
+          "MLP0+MLP2 x additional MLP3-8 / broad-block synergy",
+          "MLP2 x attention3",
+          "MLP0+MLP1+MLP2 x local attention3-MLP3 synergy",
+          "MLP1 x attention3",
+          "MLP0+MLP1 x attention3",
+          "MLP1+MLP2 x MLP3",
+          "MLP0 x additional attention4-8 beyond attention3",
+          "MLP2 x additional MLP3-8 / broad-block synergy",
+          "MLP1 x additional MLP3-8 / broad-block synergy",
+          "MLP2 x MLP3",
+          "MLP0+MLP2 x MLP3",
+          "MLP0 x additional MLP3-8 / broad-block synergy",
+          "MLP1 x local attention3-MLP3 synergy",
+          "MLP0+MLP2 x attention3",
+          "MLP0+MLP1 x local attention3-MLP3 synergy",
+          "MLP0+MLP1+MLP2 x additional attention9-17",
+          "MLP0+MLP1+MLP2 x MLP3",
+          "MLP1 x MLP3"
+        ],
+        "target_refit_on_source_support": {
+          "nre_to_zero_interaction": 0.08975920919997998,
+          "r2": 0.9848707166694146,
+          "rmse": 0.31098947551994993
+        }
+      },
+      "32": {
+        "direct_value_transfer": {
+          "nre_to_zero_interaction": 0.1127230222153553,
+          "r2": 0.9761391687678519,
+          "rmse": 0.3905523886654833
+        },
+        "support": [
+          "MLP2 x additional attention4-8 beyond attention3",
+          "MLP1+MLP2 x attention3",
+          "MLP0 x MLP3",
+          "MLP1 x additional attention4-8 beyond attention3",
+          "MLP2 x local attention3-MLP3 synergy",
+          "MLP0+MLP1 x MLP3",
+          "MLP0+MLP2 x additional MLP3-8 / broad-block synergy",
+          "MLP2 x attention3",
+          "MLP0+MLP1+MLP2 x local attention3-MLP3 synergy",
+          "MLP1 x attention3",
+          "MLP0+MLP1 x attention3",
+          "MLP1+MLP2 x MLP3",
+          "MLP0 x additional attention4-8 beyond attention3",
+          "MLP2 x additional MLP3-8 / broad-block synergy",
+          "MLP1 x additional MLP3-8 / broad-block synergy",
+          "MLP2 x MLP3",
+          "MLP0+MLP2 x MLP3",
+          "MLP0 x additional MLP3-8 / broad-block synergy",
+          "MLP1 x local attention3-MLP3 synergy",
+          "MLP0+MLP2 x attention3",
+          "MLP0+MLP1 x local attention3-MLP3 synergy",
+          "MLP0+MLP1+MLP2 x additional attention9-17",
+          "MLP0+MLP1+MLP2 x MLP3",
+          "MLP1 x MLP3",
+          "MLP1+MLP2 x local attention3-MLP3 synergy",
+          "MLP0+MLP1+MLP2 x additional MLP9-17 / deep-block synergy",
+          "MLP0+MLP2 x additional attention4-8 beyond attention3",
+          "MLP0+MLP1+MLP2 x additional attention4-8 beyond attention3",
+          "MLP0+MLP1+MLP2 x additional MLP3-8 / broad-block synergy",
+          "MLP2 x additional attention9-17",
+          "MLP0+MLP1 x additional attention4-8 beyond attention3",
+          "MLP1+MLP2 x additional attention4-8 beyond attention3"
+        ],
+        "target_refit_on_source_support": {
+          "nre_to_zero_interaction": 0.04413989877941974,
+          "r2": 0.9963413321293415,
+          "rmse": 0.15293187287704496
+        }
+      },
+      "4": {
+        "direct_value_transfer": {
+          "nre_to_zero_interaction": 0.49762265134154104,
+          "r2": 0.534991809582752,
+          "rmse": 1.7241173215192194
+        },
+        "support": [
+          "MLP2 x additional attention4-8 beyond attention3",
+          "MLP1+MLP2 x attention3",
+          "MLP0 x MLP3",
+          "MLP1 x additional attention4-8 beyond attention3"
+        ],
+        "target_refit_on_source_support": {
+          "nre_to_zero_interaction": 0.49081975370606923,
+          "r2": 0.5476189678988378,
+          "rmse": 1.7005472657385612
+        }
+      },
+      "8": {
+        "direct_value_transfer": {
+          "nre_to_zero_interaction": 0.3004307306077482,
+          "r2": 0.8305080686009321,
+          "rmse": 1.0409048405675996
+        },
+        "support": [
+          "MLP2 x additional attention4-8 beyond attention3",
+          "MLP1+MLP2 x attention3",
+          "MLP0 x MLP3",
+          "MLP1 x additional attention4-8 beyond attention3",
+          "MLP2 x local attention3-MLP3 synergy",
+          "MLP0+MLP1 x MLP3",
+          "MLP0+MLP2 x additional MLP3-8 / broad-block synergy",
+          "MLP2 x attention3"
+        ],
+        "target_refit_on_source_support": {
+          "nre_to_zero_interaction": 0.2851161714489484,
+          "r2": 0.8473474645278012,
+          "rmse": 0.9878443606116838
+        }
+      }
+    },
+    "skip7000_to_skip11000": {
+      "1": {
+        "direct_value_transfer": {
+          "nre_to_zero_interaction": 0.6991522453312963,
+          "r2": 0.054449098096280624,
+          "rmse": 2.6155363785256323
+        },
+        "support": [
+          "MLP2 x additional attention4-8 beyond attention3"
+        ],
+        "target_refit_on_source_support": {
+          "nre_to_zero_interaction": 0.6967037191400394,
+          "r2": 0.06106039650976591,
+          "rmse": 2.606376414626824
+        }
+      },
+      "12": {
+        "direct_value_transfer": {
+          "nre_to_zero_interaction": 0.25112748247506733,
+          "r2": 0.878008411745528,
+          "rmse": 0.9394707239334598
+        },
+        "support": [
+          "MLP2 x additional attention4-8 beyond attention3",
+          "MLP1+MLP2 x attention3",
+          "MLP1 x additional attention4-8 beyond attention3",
+          "MLP2 x local attention3-MLP3 synergy",
+          "MLP1+MLP2 x additional MLP3-8 / broad-block synergy",
+          "MLP0 x MLP3",
+          "MLP0+MLP1 x MLP3",
+          "MLP0+MLP2 x additional MLP3-8 / broad-block synergy",
+          "MLP2 x attention3",
+          "MLP0+MLP1+MLP2 x local attention3-MLP3 synergy",
+          "MLP1 x local attention3-MLP3 synergy",
+          "MLP0+MLP1 x attention3"
+        ],
+        "target_refit_on_source_support": {
+          "nre_to_zero_interaction": 0.2352820700634133,
+          "r2": 0.8929173611977443,
+          "rmse": 0.8801928586728195
+        }
+      },
+      "16": {
+        "direct_value_transfer": {
+          "nre_to_zero_interaction": 0.19432704299800488,
+          "r2": 0.9269520749445663,
+          "rmse": 0.7269796438281491
+        },
+        "support": [
+          "MLP2 x additional attention4-8 beyond attention3",
+          "MLP1+MLP2 x attention3",
+          "MLP1 x additional attention4-8 beyond attention3",
+          "MLP2 x local attention3-MLP3 synergy",
+          "MLP1+MLP2 x additional MLP3-8 / broad-block synergy",
+          "MLP0 x MLP3",
+          "MLP0+MLP1 x MLP3",
+          "MLP0+MLP2 x additional MLP3-8 / broad-block synergy",
+          "MLP2 x attention3",
+          "MLP0+MLP1+MLP2 x local attention3-MLP3 synergy",
+          "MLP1 x local attention3-MLP3 synergy",
+          "MLP0+MLP1 x attention3",
+          "MLP1+MLP2 x MLP3",
+          "MLP1 x attention3",
+          "MLP0 x additional attention4-8 beyond attention3",
+          "MLP2 x additional MLP3-8 / broad-block synergy"
+        ],
+        "target_refit_on_source_support": {
+          "nre_to_zero_interaction": 0.1728261254907095,
+          "r2": 0.942222308274788,
+          "rmse": 0.6465444706773258
+        }
+      },
+      "2": {
+        "direct_value_transfer": {
+          "nre_to_zero_interaction": 0.6134651465754786,
+          "r2": 0.27201708457640006,
+          "rmse": 2.2949799826007924
+        },
+        "support": [
+          "MLP2 x additional attention4-8 beyond attention3",
+          "MLP1+MLP2 x attention3"
+        ],
+        "target_refit_on_source_support": {
+          "nre_to_zero_interaction": 0.6100207534919988,
+          "r2": 0.28016887633657517,
+          "rmse": 2.282094469506982
+        }
+      },
+      "24": {
+        "direct_value_transfer": {
+          "nre_to_zero_interaction": 0.13435895660750477,
+          "r2": 0.9650799670432529,
+          "rmse": 0.5026383611500144
+        },
+        "support": [
+          "MLP2 x additional attention4-8 beyond attention3",
+          "MLP1+MLP2 x attention3",
+          "MLP1 x additional attention4-8 beyond attention3",
+          "MLP2 x local attention3-MLP3 synergy",
+          "MLP1+MLP2 x additional MLP3-8 / broad-block synergy",
+          "MLP0 x MLP3",
+          "MLP0+MLP1 x MLP3",
+          "MLP0+MLP2 x additional MLP3-8 / broad-block synergy",
+          "MLP2 x attention3",
+          "MLP0+MLP1+MLP2 x local attention3-MLP3 synergy",
+          "MLP1 x local attention3-MLP3 synergy",
+          "MLP0+MLP1 x attention3",
+          "MLP1+MLP2 x MLP3",
+          "MLP1 x attention3",
+          "MLP0 x additional attention4-8 beyond attention3",
+          "MLP2 x additional MLP3-8 / broad-block synergy",
+          "MLP0+MLP2 x MLP3",
+          "MLP2 x MLP3",
+          "MLP1 x additional MLP3-8 / broad-block synergy",
+          "MLP0 x additional MLP3-8 / broad-block synergy",
+          "MLP0+MLP2 x attention3",
+          "MLP0+MLP1 x local attention3-MLP3 synergy",
+          "MLP0+MLP1+MLP2 x additional attention4-8 beyond attention3",
+          "MLP0+MLP1+MLP2 x MLP3"
+        ],
+        "target_refit_on_source_support": {
+          "nre_to_zero_interaction": 0.0943406185869179,
+          "r2": 0.9827837389638963,
+          "rmse": 0.3529293105105756
+        }
+      },
+      "32": {
+        "direct_value_transfer": {
+          "nre_to_zero_interaction": 0.10144093796980644,
+          "r2": 0.9800947373606763,
+          "rmse": 0.37949168482762524
+        },
+        "support": [
+          "MLP2 x additional attention4-8 beyond attention3",
+          "MLP1+MLP2 x attention3",
+          "MLP1 x additional attention4-8 beyond attention3",
+          "MLP2 x local attention3-MLP3 synergy",
+          "MLP1+MLP2 x additional MLP3-8 / broad-block synergy",
+          "MLP0 x MLP3",
+          "MLP0+MLP1 x MLP3",
+          "MLP0+MLP2 x additional MLP3-8 / broad-block synergy",
+          "MLP2 x attention3",
+          "MLP0+MLP1+MLP2 x local attention3-MLP3 synergy",
+          "MLP1 x local attention3-MLP3 synergy",
+          "MLP0+MLP1 x attention3",
+          "MLP1+MLP2 x MLP3",
+          "MLP1 x attention3",
+          "MLP0 x additional attention4-8 beyond attention3",
+          "MLP2 x additional MLP3-8 / broad-block synergy",
+          "MLP0+MLP2 x MLP3",
+          "MLP2 x MLP3",
+          "MLP1 x additional MLP3-8 / broad-block synergy",
+          "MLP0 x additional MLP3-8 / broad-block synergy",
+          "MLP0+MLP2 x attention3",
+          "MLP0+MLP1 x local attention3-MLP3 synergy",
+          "MLP0+MLP1+MLP2 x additional attention4-8 beyond attention3",
+          "MLP0+MLP1+MLP2 x MLP3",
+          "MLP1 x MLP3",
+          "MLP0+MLP1+MLP2 x additional MLP3-8 / broad-block synergy",
+          "MLP1+MLP2 x local attention3-MLP3 synergy",
+          "MLP0+MLP2 x additional attention4-8 beyond attention3",
+          "MLP2 x additional attention9-17",
+          "MLP1+MLP2 x additional attention4-8 beyond attention3",
+          "MLP0+MLP1 x additional attention4-8 beyond attention3",
+          "MLP0+MLP1+MLP2 x attention3"
+        ],
+        "target_refit_on_source_support": {
+          "nre_to_zero_interaction": 0.032578610049974595,
+          "r2": 0.9979469170206734,
+          "rmse": 0.12187694499519476
+        }
+      },
+      "4": {
+        "direct_value_transfer": {
+          "nre_to_zero_interaction": 0.4570354760322609,
+          "r2": 0.595944312608775,
+          "rmse": 1.7097748334809624
+        },
+        "support": [
+          "MLP2 x additional attention4-8 beyond attention3",
+          "MLP1+MLP2 x attention3",
+          "MLP1 x additional attention4-8 beyond attention3",
+          "MLP2 x local attention3-MLP3 synergy"
+        ],
+        "target_refit_on_source_support": {
+          "nre_to_zero_interaction": 0.4512395117788538,
+          "r2": 0.606127516812279,
+          "rmse": 1.6880920663087893
+        }
+      },
+      "8": {
+        "direct_value_transfer": {
+          "nre_to_zero_interaction": 0.328791523070904,
+          "r2": 0.7908862338553231,
+          "rmse": 1.2300127694438003
+        },
+        "support": [
+          "MLP2 x additional attention4-8 beyond attention3",
+          "MLP1+MLP2 x attention3",
+          "MLP1 x additional attention4-8 beyond attention3",
+          "MLP2 x local attention3-MLP3 synergy",
+          "MLP1+MLP2 x additional MLP3-8 / broad-block synergy",
+          "MLP0 x MLP3",
+          "MLP0+MLP1 x MLP3",
+          "MLP0+MLP2 x additional MLP3-8 / broad-block synergy"
+        ],
+        "target_refit_on_source_support": {
+          "nre_to_zero_interaction": 0.31832686276274463,
+          "r2": 0.8039855997822065,
+          "rmse": 1.1908643580531821
+        }
+      }
+    }
+  },
+  "status": "descriptive_post_outcome_not_prospective"
+}
