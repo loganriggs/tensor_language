@@ -228,6 +228,43 @@ def gate(path):
                              f"produces a label ending in it (labels seen: {sorted(labels)}) -- "
                              f"the reporting step will KeyError after every arm has run")
 
+
+    # LESSONS 63: the pred_* KEY and the pred_* DOCSTRING line disagree, and the docstring line is
+    # inherited VERBATIM from another ops script -- i.e. the registered questions were rewritten in one
+    # place and not the other. Measured: 14 such lines across the tree, in both directions (stale
+    # docstring with fresh code, and fresh docstring with stale code). Restricted to VERBATIM-inherited
+    # lines because a short paraphrase that merely shares no stem is common and benign.
+    _pstop = {'the', 'and', 'is', 'it', 'of', 'a', 'at', 'in', 'to', 'by', 'on', 'its', 'be', 'for',
+              'than', 'not', 'this', 'that', 'all', 'any', 'no', 'are', 'was', 'if', 'true', 'false',
+              'pred', 'with', 'from'}
+
+    def _ptok(t):
+        return {w for w in re.split(r'[^a-z0-9]+', t.lower())
+                if w and w not in _pstop and len(w) > 2}
+    _doc = {m.group(1): m.group(2).strip()
+            for m in re.finditer(r'#\s+pred_([a-d])\s+(.{20,120})', s)}
+    _key = dict(re.findall(r"'pred_([a-d])_([a-z0-9_]+)':", s))
+    _here = __import__('os').path.abspath(path)
+    _dir = __import__('os').path.dirname(_here)
+    for _L in 'abc':
+        if _L not in _doc or _L not in _key:
+            continue
+        if _ptok(_doc[_L]) & _ptok(_key[_L]):
+            continue
+        _from = []
+        for _q in __import__('glob').glob(_dir + '/*.py'):
+            if __import__('os').path.abspath(_q) == _here:
+                continue
+            try:
+                if _doc[_L][:60] in open(_q).read():
+                    _from.append(__import__('os').path.basename(_q))
+            except Exception:
+                pass
+        if _from:
+            fails.append(f"pred_{_L}: the docstring line {_doc[_L][:50]!r} is inherited VERBATIM "
+                         f"from {_from[:2]} but the result key is 'pred_{_L}_{_key[_L]}' -- the "
+                         f"registered question was rewritten in one place and not the other")
+
     # call-arity consistency for the helpers whose return shape varies
     for helper in ('abs_mass',):
         n_ret = [len(n.value.elts) for f in ast.walk(tree)

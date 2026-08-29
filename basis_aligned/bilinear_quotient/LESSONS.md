@@ -1663,3 +1663,19 @@ reporting block is the part you do not look at.** It is the third time this even
 questions change, rewrite `pa`/`pb`/`pc` in the same pass — and before queueing, read the `print` lines
 that report them against the docstring lines that register them. They should say the same thing in the
 same words; if they do not, one of them is from the last script.
+
+## LESSONS 63 — ADDENDUM: the audit, and which direction actually matters
+
+The check written for LESSONS 63 was run across all 132 ops scripts and found **14 inherited
+registered-prediction lines in 9 scripts** (§1857). Two things worth carrying beyond the specific fix:
+
+**The two directions are not equally dangerous.** A stale *docstring* over fresh code is a record defect:
+the bars were still fixed before the run, in the predicate expressions and in the print strings, so
+nothing floated. A stale *code block* under a fresh docstring — §1856 — answers a question nobody asked
+and looks entirely normal doing it. When triaging, check which way round it is first.
+
+**The unrestricted check was too noisy to use.** Requiring only that key and docstring share a content
+word flagged 35 of 341 pairs, mostly benign paraphrases (`single_basin` for "BOTH STARTS CONVERGE").
+Adding "and the docstring line appears verbatim in another ops script" cut it to 14, all true positives.
+**The signal was never the mismatch; it was the inheritance.** A check aimed at the symptom floods; the
+same check aimed at the mechanism does not.

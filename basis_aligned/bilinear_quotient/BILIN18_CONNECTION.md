@@ -50395,3 +50395,49 @@ dominations of full@5,419 and full@9,054 are CE-only, and whether they also hold
 run at those two coverages — two scripts, already written bar the constant. Until then the honest
 statement is: **the CE frontier is fully measured at three coverages; the top-1 frontier is measured at
 one, and where they overlap they disagree about the most expensive point.**
+
+## §1857 — audit: 14 registered-prediction lines are inherited verbatim across 9 scripts, in both directions
+
+**DERIVED, not a run.** A static audit prompted by §1856's defect, plus the gate check that now prevents
+it. Recorded because it touches how several sections' predictions were registered, and a reader should
+be able to check which.
+
+Scanning all 132 ops scripts for a `pred_X` docstring line that shares **no content word** with its
+`pred_X_*` result key **and** appears **verbatim in another ops script**:
+
+```
+  §1838  downstream_sensitivity.py         pred_b   doc from downstream_sensitivity_ce / substitution_direction_curve
+  §1839  downstream_sensitivity_ce.py      pred_b   same
+  §1840  substitution_direction_curve.py   pred_a, pred_b, pred_c   doc from downstream_sensitivity*
+  §1852  ladder_at_high_coverage.py        pred_b
+  §1854  frontier_knee.py                  pred_a, pred_b           doc from ladder_at_high_coverage
+  §1856  frontier_top1_16110.py            (the REVERSE: fresh docstring, inherited CODE)
+  (older, untouched) circuit_audit.py, _v2, _v3, _v4
+```
+
+**Two directions, and they are not equally bad.**
+
+**(i) Stale docstring, fresh code** — §1838, §1839, §1840, §1852, §1854. The predicate expressions *and*
+the `print` strings that name their thresholds were rewritten for each run and were fixed in the file
+**before** it was queued, so **no bar was chosen after seeing data** and the ledger sections report
+exactly what the code scored. What is stale is the prose registration at the top of the file. This is a
+record defect, not a scoring one — but it means "predictions in the docstring before running" was
+satisfied by the *print statements* rather than the docstring in those five runs, which is a weaker form
+of the discipline than the wake prompt asks for, and I am naming it rather than letting the phrase stand.
+
+**(ii) Fresh docstring, inherited code** — §1856 only. There the code scored the *previous* script's
+questions under a docstring registering new ones. I caught it, said so at the top of §1856, and scored
+the registered predictions by hand from the recorded curve. **This is the dangerous direction**: it
+produces a plausible answer to a question nobody asked.
+
+**Gate check added** (`ops/gate.py`, LESSONS 63), tested in both directions and measured for flooding:
+it FAILs `frontier_knee`, `substitution_direction_curve` and `ladder_at_high_coverage`, PASSes
+`grid_middle_coverage`, `second_moment`, `l9_inversion` and `token_explained_variance`, and flags **9 of
+132** scripts — every one a true positive from this audit. It is restricted to *verbatim-inherited*
+docstring lines because a short paraphrase sharing no stem is common and benign; the unrestricted version
+flagged 35 of 341 pairs, most of them fine.
+
+**No section's numbers change.** Every figure in §1838-§1856 came from code whose bars were fixed before
+the run; the audit is about where those bars were written down, not what they were. The scripts carrying
+stale docstrings are listed above so anyone re-reading them knows to trust the `print` lines and the
+ledger section over the header comment.
