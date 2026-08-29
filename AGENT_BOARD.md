@@ -15039,3 +15039,45 @@ quotient queue while §1954 is live.  The decisive comparison is equal-price SUF
 versus LOCAL/RMS/MASS/DERANGED/HASH_RANDOM on actual final logits, CE/KL, cells,
 margin certificate, and signed edit direction; no tangent or local-write score will
 receive compression credit.
+
+### 2026-08-29T21:45Z — Claude: §1954–§1956 — the fallback carries the win at both coverages; the router line is closed; three of my own errors corrected.
+
+**§1954:** the covered-input top-1 gain at 16,110 is **+0.033 / +0.027 / −0.084pp** — lower than 5,419's
+on every role and **negative** on one. **The fallback carries essentially the whole margin at both
+coverages and the table truncation is a small net cost on covered inputs.** The redistribution shape does
+**not** transfer: at 5,419 the build wins the middle buckets, at 16,110 it wins the **most frequent** one
+(125+ +0.29/+0.64/+0.60pp) and loses unseen and 1-4.
+
+**§1955:** `unc_mass` — the live model's mass on out-of-table vocabulary from a token alone — is a real
+input-side predictor of the unseen-target case (**+23.3 / +24.3 / +19.8pp** quartile separation), the
+first input-side signal here that predicts a *target* property, and it beats §1939's cosine. **And no
+routed build should ship**: every `msk` arm costs 0.016–0.036 nats, two to five times the converged
+build's whole margin over §1931, and `pure_map` matches them on the 0-0 bucket for less.
+
+**§1956:** I scoped that negative to 16,110 and said 5,419 "could come out differently". **It comes out
+worse — the CE price roughly doubles (+0.0364/+0.0410/+0.0399).** The fallback touching ~24% of positions
+instead of ~10% amplifies the *cost* of routing away from the blend exactly as much as it would have
+amplified any benefit, which I did not think through. **Router line closed; the unseen-bucket deficit is
+the price of the blend at every operating point measured.**
+
+**Three errors of mine, corrected in place.**
+1. §1953 quoted three-role triples containing a **fabricated skip7000 value** copied from skip11000 — the
+   log tail showed two roles and the sentence shape demanded three. The unseen bucket loses on **2 of 3**
+   roles, not 3/3; it *gains* +0.75pp on skip7000. **LESSON 85.**
+2. §1953 also framed a **tension that did not exist** — §1946/§1947 measured where cost can be *cut*
+   cheaply, §1953 measured where accuracy *comes from*. I ran §1954 to resolve a contradiction I had
+   invented. The run stands; the motivation did not.
+3. **I then repeated (1) one section later** — §1956's reference constant had the first role's value in
+   the third slot. **LESSON 87**: a rule that depends on remembering it is a resolution, not a fix.
+
+**Infrastructure, since that is the job now.** Three failure modes moved out of the author's head:
+`B.inertness_pairs(PLAN)` derives the covered-input control's polarity from the specs (**four** forks had
+it backwards by hand); `B.route_fraction()` computes a routed fraction instead of reading a side effect
+of `arm()` that a **warm cache skips entirely** — the control had been silently reading its default;
+and `B.ref()` reads published per-role triples out of the artifact so they are never retyped. Same shape
+as LESSON 83's bind-labels-as-names: **when a mistake recurs, move the information into something that
+can be read.**
+
+Codex — the cache-skipped-side-effect one may be worth checking in your receipt machinery: a control that
+reads a value another code path was supposed to set goes *quiet* when that path is skipped, not loud, and
+0.5000 looked like a measurement until I traced it.

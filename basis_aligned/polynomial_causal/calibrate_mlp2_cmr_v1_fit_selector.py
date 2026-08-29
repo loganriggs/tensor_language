@@ -182,6 +182,11 @@ def protected_inputs() -> tuple[dict[str, str], dict[str, bytes]]:
     role_receipt = json.loads(captured["role_receipt"])
     suffix_receipt = json.loads(captured["suffix_receipt"])
     correction_receipt = json.loads(captured["correction_receipt"])
+    correction_parents = {
+        "bundle": SUFFIX_BUNDLE_SHA256,
+        "receipt": SUFFIX_RECEIPT_SHA256,
+        "result": SUFFIX_RESULT_SHA256,
+    }
     if (
         role_manifest.get("output_sha256") != ROLE_ROWS_SHA256
         or role_manifest.get("contains_roles") != ["FIT_SELECTOR"]
@@ -191,11 +196,15 @@ def protected_inputs() -> tuple[dict[str, str], dict[str, bytes]]:
         or role_receipt.get("authorized_for_validation") is not False
         or role_receipt.get("authorized_for_replication") is not False
         or suffix_receipt.get("authorized_for_validation") is not True
-        or correction_receipt.get("authorized_for_validation") is not True
-        or correction_receipt.get("supersedes_only") != "support_overlap_summary"
-        or (
-        suffix_receipt.get("authorized_for_replication") is not False
-        )
+        or suffix_receipt.get("authorized_for_replication") is not False
+        or correction_receipt.get(
+            "authorized_for_validation_with_original_selector_receipt"
+        ) is not True
+        or correction_receipt.get("authorized_for_replication") is not False
+        or correction_receipt.get("supersedes_only")
+        != "mlp2_cmr_v1_suffix_v2_result.json:support_overlaps"
+        or correction_receipt.get("parents") != correction_parents
+        or correction_receipt.get("result_sha256") != CORRECTION_SHA256
     ):
         raise RuntimeError("MLP2 suffix receipt authority boundary changed")
     return actual, captured
@@ -236,21 +245,30 @@ def mint_capability(nonce: str, inode: tuple[int, int], authority_sha256: str) -
     return _CalibrationCapability(nonce, inode, authority_sha256)
 
 
-def final_guard(
+def guard_inputs(
     source_hashes: dict[str, str], parents: dict[str, str], nonce: str,
-    inode: tuple[int, int], authority_hash: str, bundle_hash: str,
-    result_hash: str,
+    inode: tuple[int, int], authority_hash: str,
 ) -> None:
     validate_claim(nonce, inode)
     for relative, expected in source_hashes.items():
         if file_sha256(ROOT / relative) != expected:
             raise RuntimeError(f"calibration source changed during execution: {relative}")
     current, _ = protected_inputs()
-    if current != parents or file_sha256(AUTHORITY) != authority_hash or file_sha256(
-        BUNDLE
-    ) != bundle_hash or file_sha256(RESULT) != result_hash or FAILURE.exists() or (
-        RECEIPT.exists()
-    ):
+    if current != parents or not AUTHORITY.is_file() or file_sha256(
+        AUTHORITY
+    ) != authority_hash or FAILURE.exists() or RECEIPT.exists():
+        raise RuntimeError("MLP2 calibration protected input snapshot changed")
+
+
+def final_guard(
+    source_hashes: dict[str, str], parents: dict[str, str], nonce: str,
+    inode: tuple[int, int], authority_hash: str, bundle_hash: str,
+    result_hash: str,
+) -> None:
+    guard_inputs(source_hashes, parents, nonce, inode, authority_hash)
+    if not BUNDLE.is_file() or file_sha256(BUNDLE) != bundle_hash or not (
+        RESULT.is_file()
+    ) or file_sha256(RESULT) != result_hash:
         raise RuntimeError("MLP2 calibration terminal snapshot changed")
 
 
