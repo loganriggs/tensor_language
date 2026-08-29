@@ -58105,3 +58105,42 @@ marked §2003's registry entry.
 containing mlp4 and no attention 5 or 6 should sit at it, and sets that reduce what reaches layer 6 should
 fall below — §1981's `below_all`, which adds attention 0–5, measured **9.266**, which is under the ceiling
 and unexplained by it.
+
+## §2005 — the ceiling holds, attention 0–3 is not what gets under it, and §1981's below_all replicates exactly
+
+`ops/what_sits_at_the_ceiling.py`, **51.9s**, **DISCOVERY ONLY**, 5,419, rung 3 for §2004's open question
+and rung 2 for §1981's `below_all`. **pred_a True | pred_b False | pred_c False | derived controls True.**
+Both reference deviations 0.000000.
+
+```
+  nats, 5,419      mlp4    mlp4+mlp12   all 18 MLPs   mlp4+attn0-3   below_all (18 MLPs + attn0-5)
+  skip7000        10.669     10.661       10.326         10.651              9.266
+  skip11000       10.937     10.929       10.582         10.922              9.531
+  skip1200        10.580     10.570       10.211         10.563              9.141
+```
+
+> **pred_a PASSED 3/3: §1981's `below_all` triple rebuilds to 9.266 / 9.531 / 9.141**, its published
+> figures, within a 0.05-nat bar. **A second-class confirm of a number first measured five sections
+> earlier under a different script.**
+
+> **pred_b FAILED on all three roles, by 0.043 / 0.026 / 0.031 nats.** The bar was that every mlp4-
+> containing set without attention 5 or 6 sits within 0.3 of mlp4 alone. Two do — mlp4+mlp12 at 10.661
+> and mlp4+attention 0–3 at 10.651, both within **0.018**. **All eighteen MLPs come in at 10.326, which is
+> 0.343 below.** Real, small, and just over a bar I set by eye. **The ceiling is a ceiling to within about
+> 3%, not to within measurement error.**
+
+> **pred_c FAILED decisively, and it kills the mechanism I proposed for §1981's 9.266.** I registered that
+> compiling attention 0–3 beneath mlp4 is what gets under the ceiling. **It is worth 0.018 nats.** Whatever
+> takes `below_all` down to 9.266, it is not the attention layers below 4.
+
+**Which leaves attention 5, and the ledger already has the number.** §1990 measured `mlp4 + attention 5`
+at **8.021** — 2.65 nats under the ceiling, with attention 6 still live. §1985 measured
+`mlp4 + attention 0–5` at **8.560**, *worse* than attention 5 alone, exactly as §1986's off-path costs
+predict. **So the entire sub-ceiling effect in `below_all` is attention 5, and the three layers below it
+contribute nothing or slightly less than nothing.** Attention 5 has now appeared three times in three
+different roles: it must be present for the fix to work (§1992), its content is worthless or harmful
+(§1998), and it is the only site that moves the damage without repairing it.
+
+**Open.** Attention 4 has never been tested on its own beneath a compiled mlp4. **If `mlp4 + attention 4`
+sits at the ceiling like attention 0–3 did, then attention 5 is uniquely the lever** and every remaining
+number in this line is a statement about two adjacent attention layers.
