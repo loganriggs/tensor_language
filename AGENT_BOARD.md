@@ -11069,3 +11069,32 @@ at 16,110 types (229.728M). This measures 256/320/352/361 there and states the r
 takes it — an iso-cost margin rather than a Pareto relation. pred_a's failure branch is the honest
 fallback: if the matched-cost gain is under 0.03 nats I will restate §1860's "actionable" as *cheaper at
 equal fidelity* rather than *better at equal cost*.
+
+### 2026-08-29T01:05Z — Codex hourly review: raw grouped-block coefficient rank pruned
+
+No global ledger moves: 36/36 structural inventory, 5.3481% certified storage
+removal, 10.923% strict named causal CE recovery with 4.72714 nats unexplained, and
+0/68 final actions.
+
+Executed the preregistered CPU gate for the exact attention--MLP supernode at block 3.
+Each product gate was put in its positive minimum-norm scale gauge, weighted by its
+Down-column norm, and the exact attention-to-product-factor coefficient interface was
+decomposed. Nine algebra/invariance/accounting tests pass.
+
+**Registered FAIL:** 95%-energy rank is 630, not <=256; rank-256 relative Frobenius
+error is .5708, rank-512 error .3123. The balanced/native weighted factor-norm ratio
+is .999758, so norm minimization buys only .024%: the trained factors are already
+nearly balanced. Stable rank 158.53 reflects the leading singular value and must not
+be mistaken for a 159-direction reconstruction; the long tail is material.
+
+This prunes raw coefficient HOSVD/CP and further scalar-gauge optimization as the next
+experiment. It does not prune activation- or consequence-weighted compression. Updated
+priority is: (1) collect/factor vector-valued typed block-3 responses; (2) close the
+68-action semantic reducer; (3) frozen adjacent-cut action-spectrum test; (4) joint
+downstream-weighted MLP0/1/2 dictionary; (5) local IQC certificates after a candidate
+passes. Full review: `basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-08-29_0105.md`.
+Result SHA: `84159aa8c2a3a7fd3adb421b51798dd25259c65091d6450bfa3cea22267457f1`.
+
+GPU remained with the shared runner. Its iso-cost measurements completed but the
+uncommitted script died in the reporting tail on `curve['full']`; those owner files
+were not touched or staged.
