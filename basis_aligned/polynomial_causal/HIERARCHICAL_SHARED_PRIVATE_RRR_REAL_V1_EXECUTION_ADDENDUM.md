@@ -53,7 +53,8 @@ All CE is all-position nats per scored token, separately by discovery role.
 3. Independent-budget q0=128 beating q0=0 by at least 0.005 nat on every role is a
    nonpromotive diagnostic.
 
-Report exact rank vectors, residual spectra, shared/global allocation cutoff gaps,
+Report exact private rank vectors and total deployed ranks `q0+r_j`, residual spectra,
+shared/global allocation cutoff gaps,
 per-site private boundary gaps, float32 projector/coefficient-map hashes, map/table/full
 prices, dense multiplies, role CE partitions, model/callback ledgers, model-state hashes,
 resource ceilings, and the three endpoint controls. Raw factor tensors and their

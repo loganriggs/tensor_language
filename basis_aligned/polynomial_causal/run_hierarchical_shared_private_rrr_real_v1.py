@@ -9,6 +9,7 @@ only the prospectively frozen arm bank, fitter, autonomous adapter, and semantic
 from __future__ import annotations
 
 from dataclasses import asdict, dataclass
+import hashlib
 import json
 import math
 from pathlib import Path
@@ -112,13 +113,31 @@ def expected_call_schedule() -> dict[str, Any]:
     }
 
 
+def _read_pinned_json(path: Path, expected_sha256: str) -> dict[str, Any]:
+    before = base.file_sha256(path)
+    payload = path.read_bytes()
+    payload_hash = hashlib.sha256(payload).hexdigest()
+    after = base.file_sha256(path)
+    if before != expected_sha256 or payload_hash != expected_sha256 or after != expected_sha256:
+        raise RuntimeError(f"hierarchical RRR pinned JSON changed while reading: {path}")
+    value = json.loads(payload)
+    if not isinstance(value, dict):
+        raise RuntimeError("hierarchical RRR pinned JSON is not an object")
+    return value
+
+
 def verify_parent() -> dict[str, Any]:
-    observed = {relative: base.file_sha256(ROOT / relative) for relative in PARENT_HASHES}
-    if observed != PARENT_HASHES or PARENT_FAILURE.exists():
+    if PARENT_FAILURE.exists():
         raise RuntimeError("hierarchical RRR parent byte closure changed")
-    authority = json.loads(PARENT_AUTHORITY.read_text())
-    result = json.loads(PARENT_RESULTS.read_text())
-    receipt = json.loads(PARENT_RECEIPT.read_text())
+    authority = _read_pinned_json(
+        PARENT_AUTHORITY, PARENT_HASHES[str(PARENT_AUTHORITY.relative_to(ROOT))],
+    )
+    result = _read_pinned_json(
+        PARENT_RESULTS, PARENT_HASHES[str(PARENT_RESULTS.relative_to(ROOT))],
+    )
+    receipt = _read_pinned_json(
+        PARENT_RECEIPT, PARENT_HASHES[str(PARENT_RECEIPT.relative_to(ROOT))],
+    )
     if receipt.get("authority_file_sha256") != PARENT_HASHES[str(
         PARENT_AUTHORITY.relative_to(ROOT)
     )] or receipt.get("results_file_sha256") != PARENT_HASHES[str(
@@ -138,10 +157,10 @@ def verify_parent() -> dict[str, Any]:
     if not required.issubset(result.get("arms", {})):
         raise RuntimeError("hierarchical RRR parent comparator bank changed")
     return {
-        "authority_file_sha256": observed[str(PARENT_AUTHORITY.relative_to(ROOT))],
+        "authority_file_sha256": PARENT_HASHES[str(PARENT_AUTHORITY.relative_to(ROOT))],
         "authority_sha256": authority["authority_sha256"],
-        "results_file_sha256": observed[str(PARENT_RESULTS.relative_to(ROOT))],
-        "receipt_file_sha256": observed[str(PARENT_RECEIPT.relative_to(ROOT))],
+        "results_file_sha256": PARENT_HASHES[str(PARENT_RESULTS.relative_to(ROOT))],
+        "receipt_file_sha256": PARENT_HASHES[str(PARENT_RECEIPT.relative_to(ROOT))],
         "receipt_sha256": receipt["receipt_sha256"],
         "authority_scope": receipt["authority_scope"],
     }
@@ -368,11 +387,17 @@ def fit_program(descriptor: Mapping[str, Any], state: base.SpectralState) -> Hie
         ),
         "explained_shared_merit": fit.explained_shared_merit,
         "explained_private_merit": fit.explained_private_merit,
+        "total_y_squared_frobenius": sum(state.y2),
+        "global_eigenvalues": state.global_values.tolist(),
         "penalized_residual_fraction": (
             sum(state.y2) - fit.explained_shared_merit - fit.explained_private_merit
         ) / sum(state.y2),
         "shared_rank": q0,
-        "ranks_by_site": list(fit.allocation.private_ranks),
+        # The inherited physical-price validator defines ranks_by_site as the total
+        # deployed rank participating in the two dense products.  Preserve that
+        # currency and report private allocation separately.
+        "ranks_by_site": [q0 + value for value in fit.allocation.private_ranks],
+        "private_ranks_by_site": list(fit.allocation.private_ranks),
         "residual_eigenvalues": [value.tolist() for value in residual.eigenvalues],
         "shared_boundary_eigengap": shared_gap,
         "private_boundary_eigengaps": _private_boundary_gaps(
@@ -457,7 +482,9 @@ def _is_sha(value: Any) -> bool:
 def semantic_validate_diagnostics(value: Mapping[str, Any], descriptor: Mapping[str, Any]) -> None:
     required = {
         "explained_penalized_merit", "explained_shared_merit", "explained_private_merit",
+        "total_y_squared_frobenius", "global_eigenvalues",
         "penalized_residual_fraction", "shared_rank", "ranks_by_site",
+        "private_ranks_by_site",
         "residual_eigenvalues", "shared_boundary_eigengap",
         "private_boundary_eigengaps", "allocation_cutoff_eigengap",
         "combined_orthogonality_max_abs_float64", "map_float_count", "map_float_bytes",
@@ -470,6 +497,13 @@ def semantic_validate_diagnostics(value: Mapping[str, Any], descriptor: Mapping[
     ) or value["finite"] is not True:
         raise RuntimeError("hierarchical RRR diagnostic schema changed")
     q0 = int(descriptor["shared_rank"])
+    global_values = torch.tensor(value["global_eigenvalues"], dtype=torch.float64)
+    if global_values.shape != (D,) or not bool(torch.isfinite(global_values).all()) or bool(
+        (global_values < 0).any()
+    ) or (D > 1 and bool((global_values[1:] > global_values[:-1] + 1e-12 * max(
+        float(global_values.abs().max()), 1.0,
+    )).any())):
+        raise RuntimeError("hierarchical RRR global spectrum changed")
     spectra = tuple(torch.tensor(item, dtype=torch.float64) for item in value[
         "residual_eigenvalues"
     ])
@@ -477,16 +511,19 @@ def semantic_validate_diagnostics(value: Mapping[str, Any], descriptor: Mapping[
         spectra, dimension=D, shared_rank=q0,
         total_float_budget=int(descriptor["map_float_budget"]),
     )
-    ranks = tuple(value["ranks_by_site"])
+    private_ranks = tuple(value["private_ranks_by_site"])
+    total_ranks = tuple(value["ranks_by_site"])
     price = hybrid.hierarchical_price(N_SITES, D, q0, allocation.private_ranks)
-    if ranks != allocation.private_ranks or value["map_float_bytes"] != 4 * price.map_float_count or (
+    if private_ranks != allocation.private_ranks or total_ranks != tuple(
+        q0 + rank for rank in allocation.private_ranks
+    ) or value["map_float_bytes"] != 4 * price.map_float_count or (
         value["common_table_float_count"] != COMMON_TABLE_FLOATS
     ) or value["full_program_float_count"] != COMMON_TABLE_FLOATS + price.map_float_count or (
         value["full_program_float_bytes"] != 4 * value["full_program_float_count"]
     ) or value["dense_multiplies_per_uncovered_token"] != (
         price.dense_multiplies_per_uncovered_token
     ) or value["private_boundary_eigengaps"] != _private_boundary_gaps(
-        spectra, ranks,
+        spectra, private_ranks,
     ) or value["allocation_cutoff_eigengap"] != _allocation_cutoff_gap(
         spectra, allocation.private_rank_slots,
     ):
@@ -498,7 +535,14 @@ def semantic_validate_diagnostics(value: Mapping[str, Any], descriptor: Mapping[
     }:
         raise RuntimeError("hierarchical RRR endpoint control changed")
     hashes = value["deployed_hash_receipt"]
-    if hashes.get("serialized_program_authority") is not False or hashes.get(
+    expected_hash_keys = {
+        "hash_currency", "shared_projector_sha256", "site_projector_sha256s",
+        "coefficient_map_sha256s", "private_ranks", "price",
+        "raw_factor_hashes_reported", "serialized_program_authority", "sha256",
+    }
+    if set(hashes) != expected_hash_keys or hashes.get(
+        "serialized_program_authority"
+    ) is not False or hashes.get(
         "raw_factor_hashes_reported"
     ) is not False or hashes.get("hash_currency") != (
         "float32_deployed_projectors_and_coefficient_maps"
@@ -513,23 +557,38 @@ def semantic_validate_diagnostics(value: Mapping[str, Any], descriptor: Mapping[
     hash_body = {key: item for key, item in hashes.items() if key != "sha256"}
     if hashes["sha256"] != base.logical_sha256(hash_body) or tuple(
         hashes.get("private_ranks", ())
-    ) != ranks or base.logical_sha256(hashes.get("price")) != base.logical_sha256(asdict(price)):
+    ) != private_ranks or base.logical_sha256(hashes.get("price")) != base.logical_sha256(asdict(price)):
         raise RuntimeError("hierarchical RRR deployed hash receipt does not replay")
     numeric = (
         "explained_penalized_merit", "explained_shared_merit", "explained_private_merit",
-        "penalized_residual_fraction", "combined_orthogonality_max_abs_float64",
+        "total_y_squared_frobenius", "penalized_residual_fraction",
+        "combined_orthogonality_max_abs_float64",
     )
     if any(isinstance(value[key], bool) or not isinstance(value[key], (int, float)) or not (
         math.isfinite(value[key])
     ) for key in numeric) or value["combined_orthogonality_max_abs_float64"] > 1e-8:
         raise RuntimeError("hierarchical RRR numerical diagnostic changed")
-    if not math.isclose(
+    expected_shared = float(global_values[:q0].sum())
+    expected_shared_gap = None if q0 == 0 or q0 == D else float(
+        global_values[q0 - 1] - global_values[q0]
+    )
+    if value["shared_boundary_eigengap"] != expected_shared_gap or not math.isclose(
+        value["explained_shared_merit"], expected_shared, rel_tol=1e-12, abs_tol=1e-8,
+    ) or not math.isclose(
         value["explained_private_merit"], allocation.selected_residual_merit,
         rel_tol=1e-12, abs_tol=1e-8,
     ) or value["explained_penalized_merit"] != (
         value["explained_shared_merit"] + value["explained_private_merit"]
     ):
         raise RuntimeError("hierarchical RRR merit replay changed")
+    expected_residual_fraction = (
+        value["total_y_squared_frobenius"] - value["explained_penalized_merit"]
+    ) / value["total_y_squared_frobenius"]
+    if value["total_y_squared_frobenius"] <= 0 or not math.isclose(
+        value["penalized_residual_fraction"], expected_residual_fraction,
+        rel_tol=1e-12, abs_tol=1e-12,
+    ):
+        raise RuntimeError("hierarchical RRR residual fraction replay changed")
     for gap in (value["shared_boundary_eigengap"], *value["private_boundary_eigengaps"],
                 value["allocation_cutoff_eigengap"]):
         if gap is not None and (isinstance(gap, bool) or not isinstance(gap, (int, float))
@@ -538,7 +597,9 @@ def semantic_validate_diagnostics(value: Mapping[str, Any], descriptor: Mapping[
 
 
 def _parent_arms() -> Mapping[str, Any]:
-    return json.loads(PARENT_RESULTS.read_text())["arms"]
+    return _read_pinned_json(
+        PARENT_RESULTS, PARENT_HASHES[str(PARENT_RESULTS.relative_to(ROOT))],
+    )["arms"]
 
 
 def comparison_ledger(arms: Mapping[str, Any]) -> dict[str, Any]:
@@ -667,8 +728,11 @@ def restore_base_defaults() -> None:
 
 def run(*, device: str = "cuda") -> dict[str, Any]:
     configure_base()
-    verify_parent()
-    return base.run(device=device)
+    try:
+        verify_parent()
+        return base.run(device=device)
+    finally:
+        restore_base_defaults()
 
 
 def main() -> None:

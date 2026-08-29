@@ -64,6 +64,16 @@ def test_parent_receipt_and_source_input_closure_are_exact():
         assert str(path.relative_to(run.ROOT)) in run.SOURCE_PATHS
 
 
+def test_pinned_parent_read_rejects_between_hash_drift(tmp_path, monkeypatch):
+    path = tmp_path / "parent.json"
+    path.write_text('{"ok": true}')
+    expected = run.base.file_sha256(path)
+    observed = iter((expected, "0" * 64))
+    monkeypatch.setattr(run.base, "file_sha256", lambda _path: next(observed))
+    with pytest.raises(RuntimeError, match="changed while reading"):
+        run._read_pinned_json(path, expected)
+
+
 def test_configuration_is_isolated_and_restorable():
     original = {name: getattr(run.base, name) for name in run._BASE_DEFAULTS}
     try:
@@ -78,6 +88,40 @@ def test_configuration_is_isolated_and_restorable():
     assert all(getattr(run.base, name) is value if callable(value) else (
         getattr(run.base, name) == value
     ) for name, value in original.items())
+
+
+def test_exact_seven_arm_call_ledger_replays():
+    try:
+        run.configure_base()
+        ledger = run.base.PhysicalCallLedger()
+        for phase, count in (("fit", run.base.FIT_OUTER_CALLS),
+                             ("native_reference", run.base.EVAL_CALLS_PER_ARM)):
+            for _ in range(count):
+                ledger.record_native_outer(phase)
+                for kind in ("attn", "mlp"):
+                    for site in range(18):
+                        ledger.record_native_site(phase, kind, site)
+        for descriptor in run.arm_descriptors():
+            for _ in range(run.base.EVAL_CALLS_PER_ARM):
+                ledger.record_compiled_outer(descriptor["name"])
+                for kind in ("attn", "mlp"):
+                    for site in range(18):
+                        ledger.record_compiled_site(descriptor["name"], kind, site)
+        receipt = ledger.receipt()
+        run.base.semantic_validate_call_ledger(receipt)
+        assert receipt["registered"] == run.expected_call_schedule()
+    finally:
+        run.restore_base_defaults()
+
+
+def test_run_restores_base_even_when_preflight_refuses(monkeypatch):
+    original = run.base.AUTHORITY
+    monkeypatch.setattr(run, "verify_parent", lambda: (_ for _ in ()).throw(
+        RuntimeError("prospective refusal")
+    ))
+    with pytest.raises(RuntimeError, match="prospective refusal"):
+        run.run(device="cpu")
+    assert run.base.AUTHORITY == original
 
 
 def test_q0_zero_is_literal_independent_and_full_shared_is_literal_global(monkeypatch):
@@ -123,12 +167,20 @@ def test_interior_fit_replays_allocation_price_hashes_and_gaps(monkeypatch):
     assert program.deployed.shared_basis.dtype == torch.float32
     assert program.diagnostics["deployed_hash_receipt"]["serialized_program_authority"] is False
     corrupt = deepcopy(program.diagnostics)
-    corrupt["ranks_by_site"][0] += 1
+    corrupt["private_ranks_by_site"][0] += 1
     with pytest.raises(RuntimeError, match="allocation|price"):
         run.semantic_validate_diagnostics(corrupt, descriptor)
+    assert program.diagnostics["ranks_by_site"] == [
+        descriptor["shared_rank"] + rank
+        for rank in program.diagnostics["private_ranks_by_site"]
+    ]
     corrupt = deepcopy(program.diagnostics)
     corrupt["deployed_hash_receipt"]["coefficient_map_sha256s"][0] = "0" * 64
     with pytest.raises(RuntimeError, match="does not replay"):
+        run.semantic_validate_diagnostics(corrupt, descriptor)
+    corrupt = deepcopy(program.diagnostics)
+    corrupt["global_eigenvalues"][0] += 1.0
+    with pytest.raises(RuntimeError, match="merit replay"):
         run.semantic_validate_diagnostics(corrupt, descriptor)
 
 

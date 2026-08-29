@@ -1841,3 +1841,29 @@ rather than to watchers — the same discipline, one level up, and I had not bee
 
 `ops/gate.py` cannot catch either: both are semantically wrong and syntactically perfect. **This one is
 mine to do by hand, and the cost of skipping it is a run plus a struck result.**
+
+## LESSON 70 — apply a guard to every predicate it protects, and print the n in the predicate line
+
+§1889 split the fallback arm into four rarity bands. Three were empty or near-empty, because the axis I
+chose (the current token's fit-row count) is collinear with the coverage definition itself — uncovered
+tokens have fit-count 0 in **99.9%** of cases. The run could not answer its question.
+
+That was a design error, and it was compounded by a smaller one that is more general. **I wrote the guard
+and then used it in only two of the three places it was needed.** `live_bands` required `n >= 100`
+exactly because empty bands give meaningless enrichments; pred_b and pred_c used it, pred_a did not, and
+pred_a returned **True** by observing that an empty band (0.00x, n = 0) scores lower than a populated one.
+
+**Two rules from this:**
+
+1. **A guard belongs to the quantity, not to the predicate.** If a statistic is only meaningful above some
+   n, filter it once where it is computed, so no downstream predicate can reach the unguarded version.
+2. **Print the n in the predicate line.** The output read `COMMONEST band tracks WORSE than the rarest ->
+   True  skip7000 100-1000000000 0.00x vs 0-0 2.92x`. Everything needed to see the bug is in the table
+   two lines above — and the predicate line, which is what I read first, showed a clean pass. A `0.00x`
+   should be impossible to print without the `n=0` beside it.
+
+This is the third predicate failure in eleven sections (LESSON 68's unfalsifiable bar, LESSON 69's
+mis-specified null, this). All three passed `ops/gate.py`. The pattern is not carelessness in coding — it
+is that I keep checking whether a predicate RUNS and not whether it can be satisfied by a degenerate
+case. **The one-minute habit that catches all three: before the run, ask what the WORST possible data
+would print, and check the predicate says FALSE for it.**

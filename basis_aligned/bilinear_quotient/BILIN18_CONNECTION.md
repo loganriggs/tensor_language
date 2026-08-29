@@ -52107,3 +52107,51 @@ moved (24% against 10%) — which is what makes this a confirmation rather than 
 
 **Open, unchanged.** The per-site question remains with Codex (board 06:36Z / 06:44Z / 06:52Z). The
 consistent fallback sign above is the only new loose thread and it is small.
+
+## §1889 — a null run, and the null is my design error: the split I chose is collinear with coverage
+
+`ops/fallback_tracking_by_rarity.py`, 48.5s, **DISCOVERY ONLY**, rung 3 — §1888's loose thread.
+**pred_a VACUOUS (struck) | pred_b False | pred_c True | pred_d True.**
+
+```
+  uncovered arm split by the CURRENT token's own fit-row count, 5,419 types
+    skip7000    0-0  n 8883  2.92x  |  1-9  n 7  16.00x  |  10-99  n 0  |  100+  n 0
+    skip11000   0-0  n 9363  2.85x  |  1-9  n 4   2.00x  |  10-99  n 0  |  100+  n 0
+    skip1200    0-0  n 4456  2.84x  |  1-9  n 3   2.67x  |  10-99  n 0  |  100+  n 0
+```
+
+> **The split is empty by construction and I should have seen it before the run.** Coverage is DEFINED by
+> whether a token appears among the fit rows' current tokens; `COV['freq']` counts appearances among the
+> fit rows' targets. Those are the same 480 rows offset by one position, so an uncovered token has
+> fit-count 0 in **99.9%** of cases — 8,883 of 8,890, 9,363 of 9,367, 4,456 of 4,459. **The rarity axis I
+> chose to explain a coverage effect is the coverage axis.** The run cannot answer §1888's question and
+> nothing here bears on it.
+
+**pred_a is STRUCK as vacuous, not scored as passed.** It read True by comparing the commonest band
+(**n = 0**, enrichment 0.00x) against the rarest, i.e. by finding that an empty band scores lower than a
+populated one. I built the `n >= 100` guard for exactly this and applied it to pred_b and pred_c and
+**not** to pred_a. That is the third predicate-design failure this session — after §1879's unfalsifiable
+convergence clause and §1884's mis-specified null — and the first where I had already written the correct
+guard and then failed to use it everywhere.
+
+**pred_b FAILED correctly**, which is the one predicate that did its job: the within-arm spread over
+populated bands is **0.00x** against a 0.5x bar, because there is only one populated band. A bar that
+fails when the data cannot support the comparison is the right behaviour.
+
+**pred_c PASSED meaningfully**: the single populated band tracks the model at **2.92 / 2.85 / 2.84x**,
+confirming §1887's "the fallback is not inert" on the full uncovered arm.
+
+**pred_d PASSED exactly**: the covered arm reproduced §1888's 7.19 / 7.29 / 7.64x **to three digits on all
+three roles** — the same build, same positions, one extra split. A sixteenth known-answer check.
+
+**§1888's loose thread therefore remains open, and the instrument to close it must not be collinear with
+coverage.** The current token's frequency in the *evaluation* corpus, or its vocabulary rank, would both
+work; its fit-row count cannot. I am recording the thread as still open rather than letting a vacuous
+pass close it.
+
+**LESSON 70.** A guard written for one predicate must be applied to every predicate it protects. I wrote
+`live_bands` (require n >= 100) precisely because empty bands produce meaningless enrichments, used it in
+two of three substantive predicates, and the one I omitted is the one that returned a false positive.
+Worse, the omission was invisible in the output: pred_a printed `True` next to a `0.00x` figure, and only
+reading the band counts revealed it. **Print the n alongside any per-group statistic, in the predicate
+line itself, not only in the table above it.**
