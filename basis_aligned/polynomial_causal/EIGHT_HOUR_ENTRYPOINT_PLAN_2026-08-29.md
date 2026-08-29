@@ -221,7 +221,7 @@ early component, rather than reconstructing its full residual write?
   negative E3.1 outcome for infinitesimal final-output Fisher responses.  It does not
   test finite amplitudes, unseen intervention compositions, residual-direction
   targets, or selective edits, so E3.2/E3.3 remain open.
-- [ ] **E3.2 Unseen-composition prediction.** Fit a predictive-state realization on a
+- [x] **E3.2 Unseen-composition prediction.** Fit a predictive-state realization on a
   subset of prefix/intervention × suffix-reader cells and predict sealed cells.  Score
   vector error and resulting KL/CE; compare with equally priced local-MSE PCA/RRR.
 
@@ -257,9 +257,27 @@ early component, rather than reconstructing its full residual write?
   This removes the pseudoreplication blocker but is not an E3.2 result and explicitly
   does not authorize the triangle runner.  Source closure, create-only lifecycle, and
   the full finite-composition controls remain required before launch.
-- [ ] **E3.3 State-variable edit test.** Remove or transplant one learned state
+
+  **Receipt-backed outcome, 08:39 UTC:** negative for the frozen pointwise rank-64
+  L8 $\rightarrow$ L11 $\rightarrow$ L14 grammar. The exact full-response oracle
+  passes (`E_out=1.50e-11`), but the true response projected into the rank-64 L14
+  basis already fails sufficiency (`E_out=0.2709 > 0.25`). The direct map scores
+  `E_out=0.4861`, coordinate `R2=0.4028`; the unseen composed chain scores
+  `E_out=0.4520`, `R2=0.4024`. All harness, scale, position-shuffle, gauge, and price
+  controls pass. The chain does not incur a special extra collapse relative to direct,
+  but neither representation is adequate. V1's import failure and v2's receipt-only
+  failure are preserved; v3 bound and semantically validated the complete v2 result
+  and state without a scientific rerun. Static result:
+  `GAUGE_TRANSPORT_TRIANGLE_V1_RESULT_2026-08-29.md`.
+- [x] **E3.3 State-variable edit test — pruned for this interface after E3.2.** Remove or transplant one learned state
   direction and test target effect, collateral effect, and OOD transport.  A state is
   useful only if it predicts a new composition or supports a selective edit.
+
+  No rank-64 state passed the destination-sufficiency or transport gates, so editing
+  one of its coordinates cannot test a licensed state variable. Running E3.3 in this
+  failed representation would turn a locator into an API retrospectively. Higher-rank,
+  behavior-specific, temporal-kernel, or nonlinear states remain separate future
+  grammars rather than rescues of this cell.
 
 Pass criterion: held-out cross-composition prediction or selective edits improve over
 local-reconstruction baselines at matched state dimension/price.  A low in-sample
