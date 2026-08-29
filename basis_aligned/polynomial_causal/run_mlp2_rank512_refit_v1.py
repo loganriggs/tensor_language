@@ -306,10 +306,13 @@ def train_candidate(
         if step % 25 == 0:
             observed = dev_loss(model, dev_x, dev_y)
             curve.append({"step": step, "dev_mse": observed, "train_batch_mse": float(loss)})
-            if observed < best_loss:
+            retain, significant = checkpoint_decision(
+                observed, best_loss, significant_best,
+            )
+            if retain:
                 best_loss = observed
                 best = {k: v.detach().cpu().clone() for k, v in model.state_dict().items()}
-            if observed < significant_best * 0.999:
+            if significant:
                 significant_best = observed
                 stale = 0
             else:
@@ -326,6 +329,16 @@ def train_candidate(
         "dev_evaluations": len(curve), "best_dev_mse": best_loss,
         "best_dev_nrmse": nrmse, "stopped_early": completed < steps,
     }
+
+
+def checkpoint_decision(
+    observed: float, literal_best: float, significant_best: float,
+) -> tuple[bool, bool]:
+    if not all(math.isfinite(value) and value >= 0 for value in (
+        observed, literal_best, significant_best,
+    )):
+        raise ValueError("checkpoint losses must be finite and nonnegative")
+    return observed < literal_best, observed < significant_best * 0.999
 
 
 def program_state(model: RankBilinear) -> dict[str, torch.Tensor]:
@@ -372,6 +385,20 @@ def validate_bundle(value: Any, expected_parents: dict[str, str],
     return value
 
 
+@torch.no_grad()
+def deployment_replay(
+    before: RankBilinear, after: RankBilinear, device: torch.device,
+) -> float:
+    generator = torch.Generator(device="cpu").manual_seed(SEED + 10)
+    state = torch.randn(2, 7, WIDTH, generator=generator).to(
+        device=device, dtype=torch.bfloat16,
+    )
+    error = float((before(state).float() - after(state).float()).abs().max())
+    if error != 0.0:
+        raise RuntimeError("serialized deployment-precision candidate changed")
+    return error
+
+
 def reduce_document(native: torch.Tensor, candidate: torch.Tensor,
                     targets: torch.Tensor) -> torch.Tensor:
     native = native[:, SCORING].float()
@@ -412,6 +439,13 @@ def summarize(ledger: torch.Tensor, prefix: int) -> dict[str, float]:
 
 
 def bootstrap_improvements(ledgers: dict[str, torch.Tensor]) -> dict[str, Any]:
+    if set(ledgers) != set(ARMS) or any(
+        not isinstance(value, torch.Tensor) or value.dtype != torch.float64
+        or tuple(value.shape) != (192, 9) or not torch.isfinite(value).all()
+        or (value[:, 8] <= 0).any()
+        for value in ledgers.values()
+    ):
+        raise RuntimeError("bootstrap ledger schema or finiteness changed")
     generator = torch.Generator().manual_seed(BOOTSTRAP_SEED)
     indices = torch.randint(0, 192, (BOOTSTRAPS, 192), generator=generator)
     output = {}
@@ -662,6 +696,11 @@ def run() -> tuple[dict[str, Any], dict[str, Any]]:
         "FULL512": build_from_state(reloaded_bundle["programs"]["FULL512"], device),
         "RANDOM512": build_from_state(reloaded_bundle["programs"]["RANDOM512"], device),
     }
+    deployment_replays = {
+        "DOWN512": deployment_replay(down, programs["DOWN512"], device),
+        "FULL512": deployment_replay(full, programs["FULL512"], device),
+        "RANDOM512": deployment_replay(random, programs["RANDOM512"], device),
+    }
     ledgers, calls = evaluate(model, eval_rows, programs, device)
     ledger = {
         "schema": "mlp2_rank512_refit_v1_document_ledger",
@@ -730,7 +769,8 @@ def run() -> tuple[dict[str, Any], dict[str, Any]]:
             "DOWN512": type(programs["DOWN512"]).__name__,
             "FULL512": type(programs["FULL512"]).__name__,
             "RANDOM512": type(programs["RANDOM512"]).__name__,
-        }, "training": bundle["training"], "gauges": gauges,
+        }, "deployment_replay_max_abs_error": deployment_replays,
+        "training": bundle["training"], "gauges": gauges,
         "summaries": summaries, "bootstrap_improvements": improvements,
         "absolute_gates": absolute_gates, "relative_gates": relative_gates,
         "call_census": calls,

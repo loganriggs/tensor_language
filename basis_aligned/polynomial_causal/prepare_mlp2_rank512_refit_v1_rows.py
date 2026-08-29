@@ -228,10 +228,12 @@ def freeze_locked(claim: RunClaim) -> dict[str, Any]:
                 "tensor_sha256": tensor_sha256(tensor),
                 "shape": list(tensor.shape), "dtype": str(tensor.dtype),
             }
+        _fsync_directory(staging)
         verify_snapshot(snapshot); require_claim(claim, LOCK)
-        CACHE.mkdir(parents=False, exist_ok=False)
-        for staged in staging.iterdir():
-            os.link(staged, CACHE / staged.name)
+        # One atomic directory rename publishes both roles together.  A crash can
+        # leave either the private staging directory or the complete cache, never a
+        # cache containing only one licensed role.
+        os.rename(staging, CACHE)
         _fsync_directory(CACHE); _fsync_directory(CACHE.parent)
     finally:
         if staging.exists():
