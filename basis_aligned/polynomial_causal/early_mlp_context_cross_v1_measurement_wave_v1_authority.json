@@ -1,0 +1,3401 @@
+{
+  "authoritative_measurement": true,
+  "authorized_for_final_role": false,
+  "cell_order": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    56,
+    57,
+    58,
+    59,
+    60,
+    61,
+    62,
+    63
+  ],
+  "cross_role_disjointness_sha256": "6d0fec696a26815c416c155464a517850e30fad12bf6ffddfe673930cf815fcc",
+  "model_binding": {
+    "component_tree_sha256": "94cbebb35ca3f8c6923f5040b76d243c3f3fa192496604bd40abeb2e4077da0c",
+    "config_sha256": "428042bfd807ba36f8b4326395440fbbebe52cd3d040212e6fef14a4fdf2d83c",
+    "implementation_sha256": "94b927b7d0576b29f2bfd4dbee851462598ae944d3c2f6d9405e702163fdbc4d",
+    "model_realization_sha256": "cf3ca3f55028979ef6f87ac4afa08a7d90fc01dfa4fc2ce037343ac3c69688eb",
+    "weights_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3"
+  },
+  "program_bank_sha256": "10f253d1f89109b864fda7dff6d16b40212326600146d0b429006c017af6e443",
+  "program_descriptors": [
+    {
+      "execution_mode": "native_module_executes_then_exact_output_substitution",
+      "gain_policy": "identity_gains_no_mask_specific_refitting",
+      "installed_compiled_sites": [],
+      "ordinal": 0,
+      "request_sha256": "a760f108046240eb093f333b4f068654e78577e94042a12f7b013852ec5b1fae",
+      "shared_program_sha256": "cad513c942cccaf01e747cb600428b427c03d98dd0dddc710a4028ff1ba9d0bb"
+    },
+    {
+      "execution_mode": "native_module_executes_then_exact_output_substitution",
+      "gain_policy": "identity_gains_no_mask_specific_refitting",
+      "installed_compiled_sites": [
+        [
+          "attn",
+          3
+        ]
+      ],
+      "ordinal": 1,
+      "request_sha256": "26dba80143b19cbae73199fc79c21d84823d0daad6e23a97a451bb31d0c97ea9",
+      "shared_program_sha256": "cad513c942cccaf01e747cb600428b427c03d98dd0dddc710a4028ff1ba9d0bb"
+    },
+    {
+      "execution_mode": "native_module_executes_then_exact_output_substitution",
+      "gain_policy": "identity_gains_no_mask_specific_refitting",
+      "installed_compiled_sites": [
+        [
+          "mlp",
+          3
+        ]
+      ],
+      "ordinal": 2,
+      "request_sha256": "705fa8b9c37a5dde5e807ebbabe345d9c0afd44f5af83623bc8f577e3e1a89e5",
+      "shared_program_sha256": "cad513c942cccaf01e747cb600428b427c03d98dd0dddc710a4028ff1ba9d0bb"
+    },
+    {
+      "execution_mode": "native_module_executes_then_exact_output_substitution",
+      "gain_policy": "identity_gains_no_mask_specific_refitting",
+      "installed_compiled_sites": [
+        [
+          "attn",
+          3
+        ],
+        [
+          "mlp",
+          3
+        ]
+      ],
+      "ordinal": 3,
+      "request_sha256": "65d385ee6535651bc44f5ad7b343cb90b96f625dac21c17100ce31bc5cfab820",
+      "shared_program_sha256": "cad513c942cccaf01e747cb600428b427c03d98dd0dddc710a4028ff1ba9d0bb"
+    },
+    {
+      "execution_mode": "native_module_executes_then_exact_output_substitution",
+      "gain_policy": "identity_gains_no_mask_specific_refitting",
+      "installed_compiled_sites": [
+        [
+          "attn",
+          3
+        ],
+        [
+          "attn",
+          4
+        ],
+        [
+          "attn",
+          5
+        ],
+        [
+          "attn",
+          6
+        ],
+        [
+          "attn",
+          7
+        ],
+        [
+          "attn",
+          8
+        ]
+      ],
+      "ordinal": 4,
+      "request_sha256": "c919538a6e99ae358a736a329fc2f88d44aaa5e8c5a585c9121afd9cd293df00",
+      "shared_program_sha256": "cad513c942cccaf01e747cb600428b427c03d98dd0dddc710a4028ff1ba9d0bb"
+    },
+    {
+      "execution_mode": "native_module_executes_then_exact_output_substitution",
+      "gain_policy": "identity_gains_no_mask_specific_refitting",
+      "installed_compiled_sites": [
+        [
+          "attn",
+          3
+        ],
+        [
+          "mlp",
+          3
+        ],
+        [
+          "attn",
+          4
+        ],
+        [
+          "mlp",
+          4
+        ],
+        [
+          "attn",
+          5
+        ],
+        [
+          "mlp",
+          5
+        ],
+        [
+          "attn",
+          6
+        ],
+        [
+          "mlp",
+          6
+        ],
+        [
+          "attn",
+          7
+        ],
+        [
+          "mlp",
+          7
+        ],
+        [
+          "attn",
+          8
+        ],
+        [
+          "mlp",
+          8
+        ]
+      ],
+      "ordinal": 5,
+      "request_sha256": "372125c76b338e025546a06119046045fe659e250c31ecc29cc707b4423b281b",
+      "shared_program_sha256": "cad513c942cccaf01e747cb600428b427c03d98dd0dddc710a4028ff1ba9d0bb"
+    },
+    {
+      "execution_mode": "native_module_executes_then_exact_output_substitution",
+      "gain_policy": "identity_gains_no_mask_specific_refitting",
+      "installed_compiled_sites": [
+        [
+          "attn",
+          3
+        ],
+        [
+          "attn",
+          4
+        ],
+        [
+          "attn",
+          5
+        ],
+        [
+          "attn",
+          6
+        ],
+        [
+          "attn",
+          7
+        ],
+        [
+          "attn",
+          8
+        ],
+        [
+          "attn",
+          9
+        ],
+        [
+          "attn",
+          10
+        ],
+        [
+          "attn",
+          11
+        ],
+        [
+          "attn",
+          12
+        ],
+        [
+          "attn",
+          13
+        ],
+        [
+          "attn",
+          14
+        ],
+        [
+          "attn",
+          15
+        ],
+        [
+          "attn",
+          16
+        ],
+        [
+          "attn",
+          17
+        ]
+      ],
+      "ordinal": 6,
+      "request_sha256": "66501c5bacbdbd04c775a40e8efff70cfcf14eb84e6eb99d4183189f8b3ad0e5",
+      "shared_program_sha256": "cad513c942cccaf01e747cb600428b427c03d98dd0dddc710a4028ff1ba9d0bb"
+    },
+    {
+      "execution_mode": "native_module_executes_then_exact_output_substitution",
+      "gain_policy": "identity_gains_no_mask_specific_refitting",
+      "installed_compiled_sites": [
+        [
+          "attn",
+          3
+        ],
+        [
+          "mlp",
+          3
+        ],
+        [
+          "attn",
+          4
+        ],
+        [
+          "mlp",
+          4
+        ],
+        [
+          "attn",
+          5
+        ],
+        [
+          "mlp",
+          5
+        ],
+        [
+          "attn",
+          6
+        ],
+        [
+          "mlp",
+          6
+        ],
+        [
+          "attn",
+          7
+        ],
+        [
+          "mlp",
+          7
+        ],
+        [
+          "attn",
+          8
+        ],
+        [
+          "mlp",
+          8
+        ],
+        [
+          "attn",
+          9
+        ],
+        [
+          "mlp",
+          9
+        ],
+        [
+          "attn",
+          10
+        ],
+        [
+          "mlp",
+          10
+        ],
+        [
+          "attn",
+          11
+        ],
+        [
+          "mlp",
+          11
+        ],
+        [
+          "attn",
+          12
+        ],
+        [
+          "mlp",
+          12
+        ],
+        [
+          "attn",
+          13
+        ],
+        [
+          "mlp",
+          13
+        ],
+        [
+          "attn",
+          14
+        ],
+        [
+          "mlp",
+          14
+        ],
+        [
+          "attn",
+          15
+        ],
+        [
+          "mlp",
+          15
+        ],
+        [
+          "attn",
+          16
+        ],
+        [
+          "mlp",
+          16
+        ],
+        [
+          "attn",
+          17
+        ],
+        [
+          "mlp",
+          17
+        ]
+      ],
+      "ordinal": 7,
+      "request_sha256": "3cb6643f09dd34547a42b49f7f96bb05a7a7f4d5bef9e032e224a70a66e8d42e",
+      "shared_program_sha256": "cad513c942cccaf01e747cb600428b427c03d98dd0dddc710a4028ff1ba9d0bb"
+    },
+    {
+      "execution_mode": "native_module_executes_then_exact_output_substitution",
+      "gain_policy": "identity_gains_no_mask_specific_refitting",
+      "installed_compiled_sites": [
+        [
+          "mlp",
+          0
+        ]
+      ],
+      "ordinal": 8,
+      "request_sha256": "ee1662fa91efe2d69566d97df1c0563388c3228954c04fedc15141120a11f0fd",
+      "shared_program_sha256": "cad513c942cccaf01e747cb600428b427c03d98dd0dddc710a4028ff1ba9d0bb"
+    },
+    {
+      "execution_mode": "native_module_executes_then_exact_output_substitution",
+      "gain_policy": "identity_gains_no_mask_specific_refitting",
+      "installed_compiled_sites": [
+        [
+          "mlp",
+          0
+        ],
+        [
+          "attn",
+          3
+        ]
+      ],
+      "ordinal": 9,
+      "request_sha256": "1f00ea9a11a73407c3177aa5b171d21e575e9cfca80ed8fe5def5fd5b1cb3614",
+      "shared_program_sha256": "cad513c942cccaf01e747cb600428b427c03d98dd0dddc710a4028ff1ba9d0bb"
+    },
+    {
+      "execution_mode": "native_module_executes_then_exact_output_substitution",
+      "gain_policy": "identity_gains_no_mask_specific_refitting",
+      "installed_compiled_sites": [
+        [
+          "mlp",
+          0
+        ],
+        [
+          "mlp",
+          3
+        ]
+      ],
+      "ordinal": 10,
+      "request_sha256": "605ef28e1641b167693978460e08058c03cded49fe862821e9ef6da7e61899ec",
+      "shared_program_sha256": "cad513c942cccaf01e747cb600428b427c03d98dd0dddc710a4028ff1ba9d0bb"
+    },
+    {
+      "execution_mode": "native_module_executes_then_exact_output_substitution",
+      "gain_policy": "identity_gains_no_mask_specific_refitting",
+      "installed_compiled_sites": [
+        [
+          "mlp",
+          0
+        ],
+        [
+          "attn",
+          3
+        ],
+        [
+          "mlp",
+          3
+        ]
+      ],
+      "ordinal": 11,
+      "request_sha256": "8c8aae6a01a1c606617d2d7721cd7af6d7221eb1f9b30167fab00ef7f643cb80",
+      "shared_program_sha256": "cad513c942cccaf01e747cb600428b427c03d98dd0dddc710a4028ff1ba9d0bb"
+    },
+    {
+      "execution_mode": "native_module_executes_then_exact_output_substitution",
+      "gain_policy": "identity_gains_no_mask_specific_refitting",
+      "installed_compiled_sites": [
+        [
+          "mlp",
+          0
+        ],
+        [
+          "attn",
+          3
+        ],
+        [
+          "attn",
+          4
+        ],
+        [
+          "attn",
+          5
+        ],
+        [
+          "attn",
+          6
+        ],
+        [
+          "attn",
+          7
+        ],
+        [
+          "attn",
+          8
+        ]
+      ],
+      "ordinal": 12,
+      "request_sha256": "0a0ac9e7f3c706d32946b7bead8fa3f572f150649a04b63dfc3ff3d8ed3e2db1",
+      "shared_program_sha256": "cad513c942cccaf01e747cb600428b427c03d98dd0dddc710a4028ff1ba9d0bb"
+    },
+    {
+      "execution_mode": "native_module_executes_then_exact_output_substitution",
+      "gain_policy": "identity_gains_no_mask_specific_refitting",
+      "installed_compiled_sites": [
+        [
+          "mlp",
+          0
+        ],
+        [
+          "attn",
+          3
+        ],
+        [
+          "mlp",
+          3
+        ],
+        [
+          "attn",
+          4
+        ],
+        [
+          "mlp",
+          4
+        ],
+        [
+          "attn",
+          5
+        ],
+        [
+          "mlp",
+          5
+        ],
+        [
+          "attn",
+          6
+        ],
+        [
+          "mlp",
+          6
+        ],
+        [
+          "attn",
+          7
+        ],
+        [
+          "mlp",
+          7
+        ],
+        [
+          "attn",
+          8
+        ],
+        [
+          "mlp",
+          8
+        ]
+      ],
+      "ordinal": 13,
+      "request_sha256": "862ccba0f90d3795286cc254891134b5e51ec3045950b10c12f9c40a15909e90",
+      "shared_program_sha256": "cad513c942cccaf01e747cb600428b427c03d98dd0dddc710a4028ff1ba9d0bb"
+    },
+    {
+      "execution_mode": "native_module_executes_then_exact_output_substitution",
+      "gain_policy": "identity_gains_no_mask_specific_refitting",
+      "installed_compiled_sites": [
+        [
+          "mlp",
+          0
+        ],
+        [
+          "attn",
+          3
+        ],
+        [
+          "attn",
+          4
+        ],
+        [
+          "attn",
+          5
+        ],
+        [
+          "attn",
+          6
+        ],
+        [
+          "attn",
+          7
+        ],
+        [
+          "attn",
+          8
+        ],
+        [
+          "attn",
+          9
+        ],
+        [
+          "attn",
+          10
+        ],
+        [
+          "attn",
+          11
+        ],
+        [
+          "attn",
+          12
+        ],
+        [
+          "attn",
+          13
+        ],
+        [
+          "attn",
+          14
+        ],
+        [
+          "attn",
+          15
+        ],
+        [
+          "attn",
+          16
+        ],
+        [
+          "attn",
+          17
+        ]
+      ],
+      "ordinal": 14,
+      "request_sha256": "cf813f4fc466cb5b29ed2a31c6a90e40e00a56e73599b605b756a135e3fbbbeb",
+      "shared_program_sha256": "cad513c942cccaf01e747cb600428b427c03d98dd0dddc710a4028ff1ba9d0bb"
+    },
+    {
+      "execution_mode": "native_module_executes_then_exact_output_substitution",
+      "gain_policy": "identity_gains_no_mask_specific_refitting",
+      "installed_compiled_sites": [
+        [
+          "mlp",
+          0
+        ],
+        [
+          "attn",
+          3
+        ],
+        [
+          "mlp",
+          3
+        ],
+        [
+          "attn",
+          4
+        ],
+        [
+          "mlp",
+          4
+        ],
+        [
+          "attn",
+          5
+        ],
+        [
+          "mlp",
+          5
+        ],
+        [
+          "attn",
+          6
+        ],
+        [
+          "mlp",
+          6
+        ],
+        [
+          "attn",
+          7
+        ],
+        [
+          "mlp",
+          7
+        ],
+        [
+          "attn",
+          8
+        ],
+        [
+          "mlp",
+          8
+        ],
+        [
+          "attn",
+          9
+        ],
+        [
+          "mlp",
+          9
+        ],
+        [
+          "attn",
+          10
+        ],
+        [
+          "mlp",
+          10
+        ],
+        [
+          "attn",
+          11
+        ],
+        [
+          "mlp",
+          11
+        ],
+        [
+          "attn",
+          12
+        ],
+        [
+          "mlp",
+          12
+        ],
+        [
+          "attn",
+          13
+        ],
+        [
+          "mlp",
+          13
+        ],
+        [
+          "attn",
+          14
+        ],
+        [
+          "mlp",
+          14
+        ],
+        [
+          "attn",
+          15
+        ],
+        [
+          "mlp",
+          15
+        ],
+        [
+          "attn",
+          16
+        ],
+        [
+          "mlp",
+          16
+        ],
+        [
+          "attn",
+          17
+        ],
+        [
+          "mlp",
+          17
+        ]
+      ],
+      "ordinal": 15,
+      "request_sha256": "895fa6949477d07e41a5e829f0446684e59bd6e221c01386f4ee902b87c0e17b",
+      "shared_program_sha256": "cad513c942cccaf01e747cb600428b427c03d98dd0dddc710a4028ff1ba9d0bb"
+    },
+    {
+      "execution_mode": "native_module_executes_then_exact_output_substitution",
+      "gain_policy": "identity_gains_no_mask_specific_refitting",
+      "installed_compiled_sites": [
+        [
+          "mlp",
+          0
+        ],
+        [
+          "mlp",
+          1
+        ]
+      ],
+      "ordinal": 16,
+      "request_sha256": "deaafe2f8feefd971a53bbaf711e75ce786f4bf22b51cebe3b2bcd8496e87ce5",
+      "shared_program_sha256": "cad513c942cccaf01e747cb600428b427c03d98dd0dddc710a4028ff1ba9d0bb"
+    },
+    {
+      "execution_mode": "native_module_executes_then_exact_output_substitution",
+      "gain_policy": "identity_gains_no_mask_specific_refitting",
+      "installed_compiled_sites": [
+        [
+          "mlp",
+          0
+        ],
+        [
+          "mlp",
+          1
+        ],
+        [
+          "attn",
+          3
+        ]
+      ],
+      "ordinal": 17,
+      "request_sha256": "9d1d03014ed115be7a19050804c5b48e59ec2fc0984368b1e9dde6f28bcb7cd0",
+      "shared_program_sha256": "cad513c942cccaf01e747cb600428b427c03d98dd0dddc710a4028ff1ba9d0bb"
+    },
+    {
+      "execution_mode": "native_module_executes_then_exact_output_substitution",
+      "gain_policy": "identity_gains_no_mask_specific_refitting",
+      "installed_compiled_sites": [
+        [
+          "mlp",
+          0
+        ],
+        [
+          "mlp",
+          1
+        ],
+        [
+          "mlp",
+          3
+        ]
+      ],
+      "ordinal": 18,
+      "request_sha256": "f816a81f530ca6242d7a9f8d4a90c4c5483567a52a794df98ba4bbf9b53a4488",
+      "shared_program_sha256": "cad513c942cccaf01e747cb600428b427c03d98dd0dddc710a4028ff1ba9d0bb"
+    },
+    {
+      "execution_mode": "native_module_executes_then_exact_output_substitution",
+      "gain_policy": "identity_gains_no_mask_specific_refitting",
+      "installed_compiled_sites": [
+        [
+          "mlp",
+          0
+        ],
+        [
+          "mlp",
+          1
+        ],
+        [
+          "attn",
+          3
+        ],
+        [
+          "mlp",
+          3
+        ]
+      ],
+      "ordinal": 19,
+      "request_sha256": "0c3701b8fac435a851a08b511f989c0290e2939053762f4895dc464796b0573a",
+      "shared_program_sha256": "cad513c942cccaf01e747cb600428b427c03d98dd0dddc710a4028ff1ba9d0bb"
+    },
+    {
+      "execution_mode": "native_module_executes_then_exact_output_substitution",
+      "gain_policy": "identity_gains_no_mask_specific_refitting",
+      "installed_compiled_sites": [
+        [
+          "mlp",
+          0
+        ],
+        [
+          "mlp",
+          1
+        ],
+        [
+          "attn",
+          3
+        ],
+        [
+          "attn",
+          4
+        ],
+        [
+          "attn",
+          5
+        ],
+        [
+          "attn",
+          6
+        ],
+        [
+          "attn",
+          7
+        ],
+        [
+          "attn",
+          8
+        ]
+      ],
+      "ordinal": 20,
+      "request_sha256": "eaf601e09260f9350ee342ebf8f08fdac98f6832d4be37e9f99f9d803f9f93ad",
+      "shared_program_sha256": "cad513c942cccaf01e747cb600428b427c03d98dd0dddc710a4028ff1ba9d0bb"
+    },
+    {
+      "execution_mode": "native_module_executes_then_exact_output_substitution",
+      "gain_policy": "identity_gains_no_mask_specific_refitting",
+      "installed_compiled_sites": [
+        [
+          "mlp",
+          0
+        ],
+        [
+          "mlp",
+          1
+        ],
+        [
+          "attn",
+          3
+        ],
+        [
+          "mlp",
+          3
+        ],
+        [
+          "attn",
+          4
+        ],
+        [
+          "mlp",
+          4
+        ],
+        [
+          "attn",
+          5
+        ],
+        [
+          "mlp",
+          5
+        ],
+        [
+          "attn",
+          6
+        ],
+        [
+          "mlp",
+          6
+        ],
+        [
+          "attn",
+          7
+        ],
+        [
+          "mlp",
+          7
+        ],
+        [
+          "attn",
+          8
+        ],
+        [
+          "mlp",
+          8
+        ]
+      ],
+      "ordinal": 21,
+      "request_sha256": "dfb902cfa93e66a3e062733cfcfe5ddc71d57b68c7df362161d78fc14b6669f1",
+      "shared_program_sha256": "cad513c942cccaf01e747cb600428b427c03d98dd0dddc710a4028ff1ba9d0bb"
+    },
+    {
+      "execution_mode": "native_module_executes_then_exact_output_substitution",
+      "gain_policy": "identity_gains_no_mask_specific_refitting",
+      "installed_compiled_sites": [
+        [
+          "mlp",
+          0
+        ],
+        [
+          "mlp",
+          1
+        ],
+        [
+          "attn",
+          3
+        ],
+        [
+          "attn",
+          4
+        ],
+        [
+          "attn",
+          5
+        ],
+        [
+          "attn",
+          6
+        ],
+        [
+          "attn",
+          7
+        ],
+        [
+          "attn",
+          8
+        ],
+        [
+          "attn",
+          9
+        ],
+        [
+          "attn",
+          10
+        ],
+        [
+          "attn",
+          11
+        ],
+        [
+          "attn",
+          12
+        ],
+        [
+          "attn",
+          13
+        ],
+        [
+          "attn",
+          14
+        ],
+        [
+          "attn",
+          15
+        ],
+        [
+          "attn",
+          16
+        ],
+        [
+          "attn",
+          17
+        ]
+      ],
+      "ordinal": 22,
+      "request_sha256": "07308ee14c7e68cbb5af3eaea82c8232859f2bbd2ee2949f6374964bf14d346e",
+      "shared_program_sha256": "cad513c942cccaf01e747cb600428b427c03d98dd0dddc710a4028ff1ba9d0bb"
+    },
+    {
+      "execution_mode": "native_module_executes_then_exact_output_substitution",
+      "gain_policy": "identity_gains_no_mask_specific_refitting",
+      "installed_compiled_sites": [
+        [
+          "mlp",
+          0
+        ],
+        [
+          "mlp",
+          1
+        ],
+        [
+          "attn",
+          3
+        ],
+        [
+          "mlp",
+          3
+        ],
+        [
+          "attn",
+          4
+        ],
+        [
+          "mlp",
+          4
+        ],
+        [
+          "attn",
+          5
+        ],
+        [
+          "mlp",
+          5
+        ],
+        [
+          "attn",
+          6
+        ],
+        [
+          "mlp",
+          6
+        ],
+        [
+          "attn",
+          7
+        ],
+        [
+          "mlp",
+          7
+        ],
+        [
+          "attn",
+          8
+        ],
+        [
+          "mlp",
+          8
+        ],
+        [
+          "attn",
+          9
+        ],
+        [
+          "mlp",
+          9
+        ],
+        [
+          "attn",
+          10
+        ],
+        [
+          "mlp",
+          10
+        ],
+        [
+          "attn",
+          11
+        ],
+        [
+          "mlp",
+          11
+        ],
+        [
+          "attn",
+          12
+        ],
+        [
+          "mlp",
+          12
+        ],
+        [
+          "attn",
+          13
+        ],
+        [
+          "mlp",
+          13
+        ],
+        [
+          "attn",
+          14
+        ],
+        [
+          "mlp",
+          14
+        ],
+        [
+          "attn",
+          15
+        ],
+        [
+          "mlp",
+          15
+        ],
+        [
+          "attn",
+          16
+        ],
+        [
+          "mlp",
+          16
+        ],
+        [
+          "attn",
+          17
+        ],
+        [
+          "mlp",
+          17
+        ]
+      ],
+      "ordinal": 23,
+      "request_sha256": "ecffd0249988533a9230365f81759b6547c58ccde2d646469a72dc74b6280298",
+      "shared_program_sha256": "cad513c942cccaf01e747cb600428b427c03d98dd0dddc710a4028ff1ba9d0bb"
+    },
+    {
+      "execution_mode": "native_module_executes_then_exact_output_substitution",
+      "gain_policy": "identity_gains_no_mask_specific_refitting",
+      "installed_compiled_sites": [
+        [
+          "mlp",
+          1
+        ]
+      ],
+      "ordinal": 24,
+      "request_sha256": "bf4cf409f813da66745db0b6bf3cef02088d44a14099df87219c0f915ed14831",
+      "shared_program_sha256": "cad513c942cccaf01e747cb600428b427c03d98dd0dddc710a4028ff1ba9d0bb"
+    },
+    {
+      "execution_mode": "native_module_executes_then_exact_output_substitution",
+      "gain_policy": "identity_gains_no_mask_specific_refitting",
+      "installed_compiled_sites": [
+        [
+          "mlp",
+          1
+        ],
+        [
+          "attn",
+          3
+        ]
+      ],
+      "ordinal": 25,
+      "request_sha256": "8a797eb6421316334cfc3fcb746cfac38ce0127173374a50d639ebe729aa9dba",
+      "shared_program_sha256": "cad513c942cccaf01e747cb600428b427c03d98dd0dddc710a4028ff1ba9d0bb"
+    },
+    {
+      "execution_mode": "native_module_executes_then_exact_output_substitution",
+      "gain_policy": "identity_gains_no_mask_specific_refitting",
+      "installed_compiled_sites": [
+        [
+          "mlp",
+          1
+        ],
+        [
+          "mlp",
+          3
+        ]
+      ],
+      "ordinal": 26,
+      "request_sha256": "8f466299bbcf5855e846c17a9f109266138ebcba80a442a6de1ec092b4139d6e",
+      "shared_program_sha256": "cad513c942cccaf01e747cb600428b427c03d98dd0dddc710a4028ff1ba9d0bb"
+    },
+    {
+      "execution_mode": "native_module_executes_then_exact_output_substitution",
+      "gain_policy": "identity_gains_no_mask_specific_refitting",
+      "installed_compiled_sites": [
+        [
+          "mlp",
+          1
+        ],
+        [
+          "attn",
+          3
+        ],
+        [
+          "mlp",
+          3
+        ]
+      ],
+      "ordinal": 27,
+      "request_sha256": "497a476727e71e0b0057113cdce77a4da3bd98e705d67754b4fe9fc3d109b240",
+      "shared_program_sha256": "cad513c942cccaf01e747cb600428b427c03d98dd0dddc710a4028ff1ba9d0bb"
+    },
+    {
+      "execution_mode": "native_module_executes_then_exact_output_substitution",
+      "gain_policy": "identity_gains_no_mask_specific_refitting",
+      "installed_compiled_sites": [
+        [
+          "mlp",
+          1
+        ],
+        [
+          "attn",
+          3
+        ],
+        [
+          "attn",
+          4
+        ],
+        [
+          "attn",
+          5
+        ],
+        [
+          "attn",
+          6
+        ],
+        [
+          "attn",
+          7
+        ],
+        [
+          "attn",
+          8
+        ]
+      ],
+      "ordinal": 28,
+      "request_sha256": "b49e32fdae07e2495d0a11370c001b26a413add9bebbd1bcd35f33e7ed8c3dec",
+      "shared_program_sha256": "cad513c942cccaf01e747cb600428b427c03d98dd0dddc710a4028ff1ba9d0bb"
+    },
+    {
+      "execution_mode": "native_module_executes_then_exact_output_substitution",
+      "gain_policy": "identity_gains_no_mask_specific_refitting",
+      "installed_compiled_sites": [
+        [
+          "mlp",
+          1
+        ],
+        [
+          "attn",
+          3
+        ],
+        [
+          "mlp",
+          3
+        ],
+        [
+          "attn",
+          4
+        ],
+        [
+          "mlp",
+          4
+        ],
+        [
+          "attn",
+          5
+        ],
+        [
+          "mlp",
+          5
+        ],
+        [
+          "attn",
+          6
+        ],
+        [
+          "mlp",
+          6
+        ],
+        [
+          "attn",
+          7
+        ],
+        [
+          "mlp",
+          7
+        ],
+        [
+          "attn",
+          8
+        ],
+        [
+          "mlp",
+          8
+        ]
+      ],
+      "ordinal": 29,
+      "request_sha256": "02b09225e9830dc1191d7fc51b51641645c8697fab0e6787f94fc121a06f6333",
+      "shared_program_sha256": "cad513c942cccaf01e747cb600428b427c03d98dd0dddc710a4028ff1ba9d0bb"
+    },
+    {
+      "execution_mode": "native_module_executes_then_exact_output_substitution",
+      "gain_policy": "identity_gains_no_mask_specific_refitting",
+      "installed_compiled_sites": [
+        [
+          "mlp",
+          1
+        ],
+        [
+          "attn",
+          3
+        ],
+        [
+          "attn",
+          4
+        ],
+        [
+          "attn",
+          5
+        ],
+        [
+          "attn",
+          6
+        ],
+        [
+          "attn",
+          7
+        ],
+        [
+          "attn",
+          8
+        ],
+        [
+          "attn",
+          9
+        ],
+        [
+          "attn",
+          10
+        ],
+        [
+          "attn",
+          11
+        ],
+        [
+          "attn",
+          12
+        ],
+        [
+          "attn",
+          13
+        ],
+        [
+          "attn",
+          14
+        ],
+        [
+          "attn",
+          15
+        ],
+        [
+          "attn",
+          16
+        ],
+        [
+          "attn",
+          17
+        ]
+      ],
+      "ordinal": 30,
+      "request_sha256": "07e9f400604473e42385ba6ae8866544c21facc43dd6075ad057afff8756ee37",
+      "shared_program_sha256": "cad513c942cccaf01e747cb600428b427c03d98dd0dddc710a4028ff1ba9d0bb"
+    },
+    {
+      "execution_mode": "native_module_executes_then_exact_output_substitution",
+      "gain_policy": "identity_gains_no_mask_specific_refitting",
+      "installed_compiled_sites": [
+        [
+          "mlp",
+          1
+        ],
+        [
+          "attn",
+          3
+        ],
+        [
+          "mlp",
+          3
+        ],
+        [
+          "attn",
+          4
+        ],
+        [
+          "mlp",
+          4
+        ],
+        [
+          "attn",
+          5
+        ],
+        [
+          "mlp",
+          5
+        ],
+        [
+          "attn",
+          6
+        ],
+        [
+          "mlp",
+          6
+        ],
+        [
+          "attn",
+          7
+        ],
+        [
+          "mlp",
+          7
+        ],
+        [
+          "attn",
+          8
+        ],
+        [
+          "mlp",
+          8
+        ],
+        [
+          "attn",
+          9
+        ],
+        [
+          "mlp",
+          9
+        ],
+        [
+          "attn",
+          10
+        ],
+        [
+          "mlp",
+          10
+        ],
+        [
+          "attn",
+          11
+        ],
+        [
+          "mlp",
+          11
+        ],
+        [
+          "attn",
+          12
+        ],
+        [
+          "mlp",
+          12
+        ],
+        [
+          "attn",
+          13
+        ],
+        [
+          "mlp",
+          13
+        ],
+        [
+          "attn",
+          14
+        ],
+        [
+          "mlp",
+          14
+        ],
+        [
+          "attn",
+          15
+        ],
+        [
+          "mlp",
+          15
+        ],
+        [
+          "attn",
+          16
+        ],
+        [
+          "mlp",
+          16
+        ],
+        [
+          "attn",
+          17
+        ],
+        [
+          "mlp",
+          17
+        ]
+      ],
+      "ordinal": 31,
+      "request_sha256": "e77489c1c3adf8d8ba2c0d9bc723956385397d6951350c9d404935b8ba2c9478",
+      "shared_program_sha256": "cad513c942cccaf01e747cb600428b427c03d98dd0dddc710a4028ff1ba9d0bb"
+    },
+    {
+      "execution_mode": "native_module_executes_then_exact_output_substitution",
+      "gain_policy": "identity_gains_no_mask_specific_refitting",
+      "installed_compiled_sites": [
+        [
+          "mlp",
+          0
+        ],
+        [
+          "mlp",
+          1
+        ],
+        [
+          "mlp",
+          2
+        ]
+      ],
+      "ordinal": 32,
+      "request_sha256": "60f32180faf5348aa67e730cc70e35f850aa9eee8ca4a74acd35ad79c0721611",
+      "shared_program_sha256": "cad513c942cccaf01e747cb600428b427c03d98dd0dddc710a4028ff1ba9d0bb"
+    },
+    {
+      "execution_mode": "native_module_executes_then_exact_output_substitution",
+      "gain_policy": "identity_gains_no_mask_specific_refitting",
+      "installed_compiled_sites": [
+        [
+          "mlp",
+          0
+        ],
+        [
+          "mlp",
+          1
+        ],
+        [
+          "mlp",
+          2
+        ],
+        [
+          "attn",
+          3
+        ]
+      ],
+      "ordinal": 33,
+      "request_sha256": "d21301c47297432b5b921d014568089602a9f8039969042103914d2c618cc652",
+      "shared_program_sha256": "cad513c942cccaf01e747cb600428b427c03d98dd0dddc710a4028ff1ba9d0bb"
+    },
+    {
+      "execution_mode": "native_module_executes_then_exact_output_substitution",
+      "gain_policy": "identity_gains_no_mask_specific_refitting",
+      "installed_compiled_sites": [
+        [
+          "mlp",
+          0
+        ],
+        [
+          "mlp",
+          1
+        ],
+        [
+          "mlp",
+          2
+        ],
+        [
+          "mlp",
+          3
+        ]
+      ],
+      "ordinal": 34,
+      "request_sha256": "aabea15385b72b5f06e5eaf05323d8a1ef9f84be4a37e5470b0856ed6418ade7",
+      "shared_program_sha256": "cad513c942cccaf01e747cb600428b427c03d98dd0dddc710a4028ff1ba9d0bb"
+    },
+    {
+      "execution_mode": "native_module_executes_then_exact_output_substitution",
+      "gain_policy": "identity_gains_no_mask_specific_refitting",
+      "installed_compiled_sites": [
+        [
+          "mlp",
+          0
+        ],
+        [
+          "mlp",
+          1
+        ],
+        [
+          "mlp",
+          2
+        ],
+        [
+          "attn",
+          3
+        ],
+        [
+          "mlp",
+          3
+        ]
+      ],
+      "ordinal": 35,
+      "request_sha256": "272eaf732f214c0827f099ee070ca81079750a8ba4434b58c47dd2e04bef9c5d",
+      "shared_program_sha256": "cad513c942cccaf01e747cb600428b427c03d98dd0dddc710a4028ff1ba9d0bb"
+    },
+    {
+      "execution_mode": "native_module_executes_then_exact_output_substitution",
+      "gain_policy": "identity_gains_no_mask_specific_refitting",
+      "installed_compiled_sites": [
+        [
+          "mlp",
+          0
+        ],
+        [
+          "mlp",
+          1
+        ],
+        [
+          "mlp",
+          2
+        ],
+        [
+          "attn",
+          3
+        ],
+        [
+          "attn",
+          4
+        ],
+        [
+          "attn",
+          5
+        ],
+        [
+          "attn",
+          6
+        ],
+        [
+          "attn",
+          7
+        ],
+        [
+          "attn",
+          8
+        ]
+      ],
+      "ordinal": 36,
+      "request_sha256": "b2ad25e11d982c8b450c3338201bcb1ac470cd0c3f5e2ffa9c2600f97243e04f",
+      "shared_program_sha256": "cad513c942cccaf01e747cb600428b427c03d98dd0dddc710a4028ff1ba9d0bb"
+    },
+    {
+      "execution_mode": "native_module_executes_then_exact_output_substitution",
+      "gain_policy": "identity_gains_no_mask_specific_refitting",
+      "installed_compiled_sites": [
+        [
+          "mlp",
+          0
+        ],
+        [
+          "mlp",
+          1
+        ],
+        [
+          "mlp",
+          2
+        ],
+        [
+          "attn",
+          3
+        ],
+        [
+          "mlp",
+          3
+        ],
+        [
+          "attn",
+          4
+        ],
+        [
+          "mlp",
+          4
+        ],
+        [
+          "attn",
+          5
+        ],
+        [
+          "mlp",
+          5
+        ],
+        [
+          "attn",
+          6
+        ],
+        [
+          "mlp",
+          6
+        ],
+        [
+          "attn",
+          7
+        ],
+        [
+          "mlp",
+          7
+        ],
+        [
+          "attn",
+          8
+        ],
+        [
+          "mlp",
+          8
+        ]
+      ],
+      "ordinal": 37,
+      "request_sha256": "2ea3a81608d73bc78a12b84fdc35b4d098a7952d5c789ddcf20cc3250cfb06c2",
+      "shared_program_sha256": "cad513c942cccaf01e747cb600428b427c03d98dd0dddc710a4028ff1ba9d0bb"
+    },
+    {
+      "execution_mode": "native_module_executes_then_exact_output_substitution",
+      "gain_policy": "identity_gains_no_mask_specific_refitting",
+      "installed_compiled_sites": [
+        [
+          "mlp",
+          0
+        ],
+        [
+          "mlp",
+          1
+        ],
+        [
+          "mlp",
+          2
+        ],
+        [
+          "attn",
+          3
+        ],
+        [
+          "attn",
+          4
+        ],
+        [
+          "attn",
+          5
+        ],
+        [
+          "attn",
+          6
+        ],
+        [
+          "attn",
+          7
+        ],
+        [
+          "attn",
+          8
+        ],
+        [
+          "attn",
+          9
+        ],
+        [
+          "attn",
+          10
+        ],
+        [
+          "attn",
+          11
+        ],
+        [
+          "attn",
+          12
+        ],
+        [
+          "attn",
+          13
+        ],
+        [
+          "attn",
+          14
+        ],
+        [
+          "attn",
+          15
+        ],
+        [
+          "attn",
+          16
+        ],
+        [
+          "attn",
+          17
+        ]
+      ],
+      "ordinal": 38,
+      "request_sha256": "59a7965fd0c37c7e884e4d5ca95909fc1a44ec151a1701268fa97cbecf5eb16c",
+      "shared_program_sha256": "cad513c942cccaf01e747cb600428b427c03d98dd0dddc710a4028ff1ba9d0bb"
+    },
+    {
+      "execution_mode": "native_module_executes_then_exact_output_substitution",
+      "gain_policy": "identity_gains_no_mask_specific_refitting",
+      "installed_compiled_sites": [
+        [
+          "mlp",
+          0
+        ],
+        [
+          "mlp",
+          1
+        ],
+        [
+          "mlp",
+          2
+        ],
+        [
+          "attn",
+          3
+        ],
+        [
+          "mlp",
+          3
+        ],
+        [
+          "attn",
+          4
+        ],
+        [
+          "mlp",
+          4
+        ],
+        [
+          "attn",
+          5
+        ],
+        [
+          "mlp",
+          5
+        ],
+        [
+          "attn",
+          6
+        ],
+        [
+          "mlp",
+          6
+        ],
+        [
+          "attn",
+          7
+        ],
+        [
+          "mlp",
+          7
+        ],
+        [
+          "attn",
+          8
+        ],
+        [
+          "mlp",
+          8
+        ],
+        [
+          "attn",
+          9
+        ],
+        [
+          "mlp",
+          9
+        ],
+        [
+          "attn",
+          10
+        ],
+        [
+          "mlp",
+          10
+        ],
+        [
+          "attn",
+          11
+        ],
+        [
+          "mlp",
+          11
+        ],
+        [
+          "attn",
+          12
+        ],
+        [
+          "mlp",
+          12
+        ],
+        [
+          "attn",
+          13
+        ],
+        [
+          "mlp",
+          13
+        ],
+        [
+          "attn",
+          14
+        ],
+        [
+          "mlp",
+          14
+        ],
+        [
+          "attn",
+          15
+        ],
+        [
+          "mlp",
+          15
+        ],
+        [
+          "attn",
+          16
+        ],
+        [
+          "mlp",
+          16
+        ],
+        [
+          "attn",
+          17
+        ],
+        [
+          "mlp",
+          17
+        ]
+      ],
+      "ordinal": 39,
+      "request_sha256": "aa7be7a46f6301a41818b8780bcaae9ab11a6fc825ca2aa8bfe4001bdc5f2457",
+      "shared_program_sha256": "cad513c942cccaf01e747cb600428b427c03d98dd0dddc710a4028ff1ba9d0bb"
+    },
+    {
+      "execution_mode": "native_module_executes_then_exact_output_substitution",
+      "gain_policy": "identity_gains_no_mask_specific_refitting",
+      "installed_compiled_sites": [
+        [
+          "mlp",
+          2
+        ]
+      ],
+      "ordinal": 40,
+      "request_sha256": "42532958ce9304c5ae0a134245b40e91d9de54acc3b5a2aa1ed7f90436b87612",
+      "shared_program_sha256": "cad513c942cccaf01e747cb600428b427c03d98dd0dddc710a4028ff1ba9d0bb"
+    },
+    {
+      "execution_mode": "native_module_executes_then_exact_output_substitution",
+      "gain_policy": "identity_gains_no_mask_specific_refitting",
+      "installed_compiled_sites": [
+        [
+          "mlp",
+          2
+        ],
+        [
+          "attn",
+          3
+        ]
+      ],
+      "ordinal": 41,
+      "request_sha256": "671f1162a537845567539b1e009e3329dbfbfe7b734e4165e533638e848d7d52",
+      "shared_program_sha256": "cad513c942cccaf01e747cb600428b427c03d98dd0dddc710a4028ff1ba9d0bb"
+    },
+    {
+      "execution_mode": "native_module_executes_then_exact_output_substitution",
+      "gain_policy": "identity_gains_no_mask_specific_refitting",
+      "installed_compiled_sites": [
+        [
+          "mlp",
+          2
+        ],
+        [
+          "mlp",
+          3
+        ]
+      ],
+      "ordinal": 42,
+      "request_sha256": "e822be299f25e2a9e50662aeb983376d5c53034e4db58a68227ea531f79902f3",
+      "shared_program_sha256": "cad513c942cccaf01e747cb600428b427c03d98dd0dddc710a4028ff1ba9d0bb"
+    },
+    {
+      "execution_mode": "native_module_executes_then_exact_output_substitution",
+      "gain_policy": "identity_gains_no_mask_specific_refitting",
+      "installed_compiled_sites": [
+        [
+          "mlp",
+          2
+        ],
+        [
+          "attn",
+          3
+        ],
+        [
+          "mlp",
+          3
+        ]
+      ],
+      "ordinal": 43,
+      "request_sha256": "6a5831fa878a7e1b037a88bb4bf2093268ac0fe5887a72278305d83b42e90b84",
+      "shared_program_sha256": "cad513c942cccaf01e747cb600428b427c03d98dd0dddc710a4028ff1ba9d0bb"
+    },
+    {
+      "execution_mode": "native_module_executes_then_exact_output_substitution",
+      "gain_policy": "identity_gains_no_mask_specific_refitting",
+      "installed_compiled_sites": [
+        [
+          "mlp",
+          2
+        ],
+        [
+          "attn",
+          3
+        ],
+        [
+          "attn",
+          4
+        ],
+        [
+          "attn",
+          5
+        ],
+        [
+          "attn",
+          6
+        ],
+        [
+          "attn",
+          7
+        ],
+        [
+          "attn",
+          8
+        ]
+      ],
+      "ordinal": 44,
+      "request_sha256": "61ff182e572f003f3fe9929e4a909e24451aa0e15dbf008b99bbe00cf4e4c3be",
+      "shared_program_sha256": "cad513c942cccaf01e747cb600428b427c03d98dd0dddc710a4028ff1ba9d0bb"
+    },
+    {
+      "execution_mode": "native_module_executes_then_exact_output_substitution",
+      "gain_policy": "identity_gains_no_mask_specific_refitting",
+      "installed_compiled_sites": [
+        [
+          "mlp",
+          2
+        ],
+        [
+          "attn",
+          3
+        ],
+        [
+          "mlp",
+          3
+        ],
+        [
+          "attn",
+          4
+        ],
+        [
+          "mlp",
+          4
+        ],
+        [
+          "attn",
+          5
+        ],
+        [
+          "mlp",
+          5
+        ],
+        [
+          "attn",
+          6
+        ],
+        [
+          "mlp",
+          6
+        ],
+        [
+          "attn",
+          7
+        ],
+        [
+          "mlp",
+          7
+        ],
+        [
+          "attn",
+          8
+        ],
+        [
+          "mlp",
+          8
+        ]
+      ],
+      "ordinal": 45,
+      "request_sha256": "516f94004cebd274fb9c14bb36edf87951782941dbd24473590d0f6a56b9a84c",
+      "shared_program_sha256": "cad513c942cccaf01e747cb600428b427c03d98dd0dddc710a4028ff1ba9d0bb"
+    },
+    {
+      "execution_mode": "native_module_executes_then_exact_output_substitution",
+      "gain_policy": "identity_gains_no_mask_specific_refitting",
+      "installed_compiled_sites": [
+        [
+          "mlp",
+          2
+        ],
+        [
+          "attn",
+          3
+        ],
+        [
+          "attn",
+          4
+        ],
+        [
+          "attn",
+          5
+        ],
+        [
+          "attn",
+          6
+        ],
+        [
+          "attn",
+          7
+        ],
+        [
+          "attn",
+          8
+        ],
+        [
+          "attn",
+          9
+        ],
+        [
+          "attn",
+          10
+        ],
+        [
+          "attn",
+          11
+        ],
+        [
+          "attn",
+          12
+        ],
+        [
+          "attn",
+          13
+        ],
+        [
+          "attn",
+          14
+        ],
+        [
+          "attn",
+          15
+        ],
+        [
+          "attn",
+          16
+        ],
+        [
+          "attn",
+          17
+        ]
+      ],
+      "ordinal": 46,
+      "request_sha256": "68c723e01922d2ab433028abdd7e96f3b48c3855dfd2bbc03ae4e3df13b7da8f",
+      "shared_program_sha256": "cad513c942cccaf01e747cb600428b427c03d98dd0dddc710a4028ff1ba9d0bb"
+    },
+    {
+      "execution_mode": "native_module_executes_then_exact_output_substitution",
+      "gain_policy": "identity_gains_no_mask_specific_refitting",
+      "installed_compiled_sites": [
+        [
+          "mlp",
+          2
+        ],
+        [
+          "attn",
+          3
+        ],
+        [
+          "mlp",
+          3
+        ],
+        [
+          "attn",
+          4
+        ],
+        [
+          "mlp",
+          4
+        ],
+        [
+          "attn",
+          5
+        ],
+        [
+          "mlp",
+          5
+        ],
+        [
+          "attn",
+          6
+        ],
+        [
+          "mlp",
+          6
+        ],
+        [
+          "attn",
+          7
+        ],
+        [
+          "mlp",
+          7
+        ],
+        [
+          "attn",
+          8
+        ],
+        [
+          "mlp",
+          8
+        ],
+        [
+          "attn",
+          9
+        ],
+        [
+          "mlp",
+          9
+        ],
+        [
+          "attn",
+          10
+        ],
+        [
+          "mlp",
+          10
+        ],
+        [
+          "attn",
+          11
+        ],
+        [
+          "mlp",
+          11
+        ],
+        [
+          "attn",
+          12
+        ],
+        [
+          "mlp",
+          12
+        ],
+        [
+          "attn",
+          13
+        ],
+        [
+          "mlp",
+          13
+        ],
+        [
+          "attn",
+          14
+        ],
+        [
+          "mlp",
+          14
+        ],
+        [
+          "attn",
+          15
+        ],
+        [
+          "mlp",
+          15
+        ],
+        [
+          "attn",
+          16
+        ],
+        [
+          "mlp",
+          16
+        ],
+        [
+          "attn",
+          17
+        ],
+        [
+          "mlp",
+          17
+        ]
+      ],
+      "ordinal": 47,
+      "request_sha256": "8a9e871303da8d949fc67ae2f3380d4c56873355a1393614b6e3f57abd5277d8",
+      "shared_program_sha256": "cad513c942cccaf01e747cb600428b427c03d98dd0dddc710a4028ff1ba9d0bb"
+    },
+    {
+      "execution_mode": "native_module_executes_then_exact_output_substitution",
+      "gain_policy": "identity_gains_no_mask_specific_refitting",
+      "installed_compiled_sites": [
+        [
+          "mlp",
+          1
+        ],
+        [
+          "mlp",
+          2
+        ]
+      ],
+      "ordinal": 48,
+      "request_sha256": "b4f7c6e01baf06b361e6f80c6079116b060793cae8cd66eff3d4c622abdef2d9",
+      "shared_program_sha256": "cad513c942cccaf01e747cb600428b427c03d98dd0dddc710a4028ff1ba9d0bb"
+    },
+    {
+      "execution_mode": "native_module_executes_then_exact_output_substitution",
+      "gain_policy": "identity_gains_no_mask_specific_refitting",
+      "installed_compiled_sites": [
+        [
+          "mlp",
+          1
+        ],
+        [
+          "mlp",
+          2
+        ],
+        [
+          "attn",
+          3
+        ]
+      ],
+      "ordinal": 49,
+      "request_sha256": "8f92fd1cb073215ff36dbdf270eef9bc9a4228b39297fe624c795f5a48819dba",
+      "shared_program_sha256": "cad513c942cccaf01e747cb600428b427c03d98dd0dddc710a4028ff1ba9d0bb"
+    },
+    {
+      "execution_mode": "native_module_executes_then_exact_output_substitution",
+      "gain_policy": "identity_gains_no_mask_specific_refitting",
+      "installed_compiled_sites": [
+        [
+          "mlp",
+          1
+        ],
+        [
+          "mlp",
+          2
+        ],
+        [
+          "mlp",
+          3
+        ]
+      ],
+      "ordinal": 50,
+      "request_sha256": "2c4d972e97eee96b96630ad1ec2dd066e5b3baf9998225d90dc67bb569d8b5a1",
+      "shared_program_sha256": "cad513c942cccaf01e747cb600428b427c03d98dd0dddc710a4028ff1ba9d0bb"
+    },
+    {
+      "execution_mode": "native_module_executes_then_exact_output_substitution",
+      "gain_policy": "identity_gains_no_mask_specific_refitting",
+      "installed_compiled_sites": [
+        [
+          "mlp",
+          1
+        ],
+        [
+          "mlp",
+          2
+        ],
+        [
+          "attn",
+          3
+        ],
+        [
+          "mlp",
+          3
+        ]
+      ],
+      "ordinal": 51,
+      "request_sha256": "ca0ac7ddac8f2e187e4a0f1b8ef8ff59e986aaca74be660027e2a97d7d70f321",
+      "shared_program_sha256": "cad513c942cccaf01e747cb600428b427c03d98dd0dddc710a4028ff1ba9d0bb"
+    },
+    {
+      "execution_mode": "native_module_executes_then_exact_output_substitution",
+      "gain_policy": "identity_gains_no_mask_specific_refitting",
+      "installed_compiled_sites": [
+        [
+          "mlp",
+          1
+        ],
+        [
+          "mlp",
+          2
+        ],
+        [
+          "attn",
+          3
+        ],
+        [
+          "attn",
+          4
+        ],
+        [
+          "attn",
+          5
+        ],
+        [
+          "attn",
+          6
+        ],
+        [
+          "attn",
+          7
+        ],
+        [
+          "attn",
+          8
+        ]
+      ],
+      "ordinal": 52,
+      "request_sha256": "6d1421e7867295c15708e8ddc92f70141c796e6a3c2ebbad4a7407329264ca79",
+      "shared_program_sha256": "cad513c942cccaf01e747cb600428b427c03d98dd0dddc710a4028ff1ba9d0bb"
+    },
+    {
+      "execution_mode": "native_module_executes_then_exact_output_substitution",
+      "gain_policy": "identity_gains_no_mask_specific_refitting",
+      "installed_compiled_sites": [
+        [
+          "mlp",
+          1
+        ],
+        [
+          "mlp",
+          2
+        ],
+        [
+          "attn",
+          3
+        ],
+        [
+          "mlp",
+          3
+        ],
+        [
+          "attn",
+          4
+        ],
+        [
+          "mlp",
+          4
+        ],
+        [
+          "attn",
+          5
+        ],
+        [
+          "mlp",
+          5
+        ],
+        [
+          "attn",
+          6
+        ],
+        [
+          "mlp",
+          6
+        ],
+        [
+          "attn",
+          7
+        ],
+        [
+          "mlp",
+          7
+        ],
+        [
+          "attn",
+          8
+        ],
+        [
+          "mlp",
+          8
+        ]
+      ],
+      "ordinal": 53,
+      "request_sha256": "a9bc0e8ee352f235f6ae90a1d174662a956542e51c786151dfb7a1f34efb5ecf",
+      "shared_program_sha256": "cad513c942cccaf01e747cb600428b427c03d98dd0dddc710a4028ff1ba9d0bb"
+    },
+    {
+      "execution_mode": "native_module_executes_then_exact_output_substitution",
+      "gain_policy": "identity_gains_no_mask_specific_refitting",
+      "installed_compiled_sites": [
+        [
+          "mlp",
+          1
+        ],
+        [
+          "mlp",
+          2
+        ],
+        [
+          "attn",
+          3
+        ],
+        [
+          "attn",
+          4
+        ],
+        [
+          "attn",
+          5
+        ],
+        [
+          "attn",
+          6
+        ],
+        [
+          "attn",
+          7
+        ],
+        [
+          "attn",
+          8
+        ],
+        [
+          "attn",
+          9
+        ],
+        [
+          "attn",
+          10
+        ],
+        [
+          "attn",
+          11
+        ],
+        [
+          "attn",
+          12
+        ],
+        [
+          "attn",
+          13
+        ],
+        [
+          "attn",
+          14
+        ],
+        [
+          "attn",
+          15
+        ],
+        [
+          "attn",
+          16
+        ],
+        [
+          "attn",
+          17
+        ]
+      ],
+      "ordinal": 54,
+      "request_sha256": "a8ccbc1ad10bf5e1d7473c8d72f60e37b3a589e5b2311ec5527395bf19021da7",
+      "shared_program_sha256": "cad513c942cccaf01e747cb600428b427c03d98dd0dddc710a4028ff1ba9d0bb"
+    },
+    {
+      "execution_mode": "native_module_executes_then_exact_output_substitution",
+      "gain_policy": "identity_gains_no_mask_specific_refitting",
+      "installed_compiled_sites": [
+        [
+          "mlp",
+          1
+        ],
+        [
+          "mlp",
+          2
+        ],
+        [
+          "attn",
+          3
+        ],
+        [
+          "mlp",
+          3
+        ],
+        [
+          "attn",
+          4
+        ],
+        [
+          "mlp",
+          4
+        ],
+        [
+          "attn",
+          5
+        ],
+        [
+          "mlp",
+          5
+        ],
+        [
+          "attn",
+          6
+        ],
+        [
+          "mlp",
+          6
+        ],
+        [
+          "attn",
+          7
+        ],
+        [
+          "mlp",
+          7
+        ],
+        [
+          "attn",
+          8
+        ],
+        [
+          "mlp",
+          8
+        ],
+        [
+          "attn",
+          9
+        ],
+        [
+          "mlp",
+          9
+        ],
+        [
+          "attn",
+          10
+        ],
+        [
+          "mlp",
+          10
+        ],
+        [
+          "attn",
+          11
+        ],
+        [
+          "mlp",
+          11
+        ],
+        [
+          "attn",
+          12
+        ],
+        [
+          "mlp",
+          12
+        ],
+        [
+          "attn",
+          13
+        ],
+        [
+          "mlp",
+          13
+        ],
+        [
+          "attn",
+          14
+        ],
+        [
+          "mlp",
+          14
+        ],
+        [
+          "attn",
+          15
+        ],
+        [
+          "mlp",
+          15
+        ],
+        [
+          "attn",
+          16
+        ],
+        [
+          "mlp",
+          16
+        ],
+        [
+          "attn",
+          17
+        ],
+        [
+          "mlp",
+          17
+        ]
+      ],
+      "ordinal": 55,
+      "request_sha256": "8dc6bb8f65f2f637246b31b9caebc63becb4c03401e466e24bf0d1bd41283dac",
+      "shared_program_sha256": "cad513c942cccaf01e747cb600428b427c03d98dd0dddc710a4028ff1ba9d0bb"
+    },
+    {
+      "execution_mode": "native_module_executes_then_exact_output_substitution",
+      "gain_policy": "identity_gains_no_mask_specific_refitting",
+      "installed_compiled_sites": [
+        [
+          "mlp",
+          0
+        ],
+        [
+          "mlp",
+          2
+        ]
+      ],
+      "ordinal": 56,
+      "request_sha256": "0bf6e0eb5be7f0cf386eb06799878267eb7b497745d88f1b40ac2481f11624ca",
+      "shared_program_sha256": "cad513c942cccaf01e747cb600428b427c03d98dd0dddc710a4028ff1ba9d0bb"
+    },
+    {
+      "execution_mode": "native_module_executes_then_exact_output_substitution",
+      "gain_policy": "identity_gains_no_mask_specific_refitting",
+      "installed_compiled_sites": [
+        [
+          "mlp",
+          0
+        ],
+        [
+          "mlp",
+          2
+        ],
+        [
+          "attn",
+          3
+        ]
+      ],
+      "ordinal": 57,
+      "request_sha256": "aac201a5aed5f2ed65b0381022886618ec87bf1d1435302f4f70c33ed1d942c2",
+      "shared_program_sha256": "cad513c942cccaf01e747cb600428b427c03d98dd0dddc710a4028ff1ba9d0bb"
+    },
+    {
+      "execution_mode": "native_module_executes_then_exact_output_substitution",
+      "gain_policy": "identity_gains_no_mask_specific_refitting",
+      "installed_compiled_sites": [
+        [
+          "mlp",
+          0
+        ],
+        [
+          "mlp",
+          2
+        ],
+        [
+          "mlp",
+          3
+        ]
+      ],
+      "ordinal": 58,
+      "request_sha256": "bd4f18c634298ef43280314e8efa6c4ccc192239af170b856a15135cd5964274",
+      "shared_program_sha256": "cad513c942cccaf01e747cb600428b427c03d98dd0dddc710a4028ff1ba9d0bb"
+    },
+    {
+      "execution_mode": "native_module_executes_then_exact_output_substitution",
+      "gain_policy": "identity_gains_no_mask_specific_refitting",
+      "installed_compiled_sites": [
+        [
+          "mlp",
+          0
+        ],
+        [
+          "mlp",
+          2
+        ],
+        [
+          "attn",
+          3
+        ],
+        [
+          "mlp",
+          3
+        ]
+      ],
+      "ordinal": 59,
+      "request_sha256": "985355d4c6d27a3533830586f3d83ebc619a5e66a6352683d90d0b705a8a08ff",
+      "shared_program_sha256": "cad513c942cccaf01e747cb600428b427c03d98dd0dddc710a4028ff1ba9d0bb"
+    },
+    {
+      "execution_mode": "native_module_executes_then_exact_output_substitution",
+      "gain_policy": "identity_gains_no_mask_specific_refitting",
+      "installed_compiled_sites": [
+        [
+          "mlp",
+          0
+        ],
+        [
+          "mlp",
+          2
+        ],
+        [
+          "attn",
+          3
+        ],
+        [
+          "attn",
+          4
+        ],
+        [
+          "attn",
+          5
+        ],
+        [
+          "attn",
+          6
+        ],
+        [
+          "attn",
+          7
+        ],
+        [
+          "attn",
+          8
+        ]
+      ],
+      "ordinal": 60,
+      "request_sha256": "539c9617728103d108c9381ac157b937ef7a7bae10618dc20041afc892077bdb",
+      "shared_program_sha256": "cad513c942cccaf01e747cb600428b427c03d98dd0dddc710a4028ff1ba9d0bb"
+    },
+    {
+      "execution_mode": "native_module_executes_then_exact_output_substitution",
+      "gain_policy": "identity_gains_no_mask_specific_refitting",
+      "installed_compiled_sites": [
+        [
+          "mlp",
+          0
+        ],
+        [
+          "mlp",
+          2
+        ],
+        [
+          "attn",
+          3
+        ],
+        [
+          "mlp",
+          3
+        ],
+        [
+          "attn",
+          4
+        ],
+        [
+          "mlp",
+          4
+        ],
+        [
+          "attn",
+          5
+        ],
+        [
+          "mlp",
+          5
+        ],
+        [
+          "attn",
+          6
+        ],
+        [
+          "mlp",
+          6
+        ],
+        [
+          "attn",
+          7
+        ],
+        [
+          "mlp",
+          7
+        ],
+        [
+          "attn",
+          8
+        ],
+        [
+          "mlp",
+          8
+        ]
+      ],
+      "ordinal": 61,
+      "request_sha256": "9d5d86ebf608d18c8334a68ea45d1e39608719946e6f63941813170a84359345",
+      "shared_program_sha256": "cad513c942cccaf01e747cb600428b427c03d98dd0dddc710a4028ff1ba9d0bb"
+    },
+    {
+      "execution_mode": "native_module_executes_then_exact_output_substitution",
+      "gain_policy": "identity_gains_no_mask_specific_refitting",
+      "installed_compiled_sites": [
+        [
+          "mlp",
+          0
+        ],
+        [
+          "mlp",
+          2
+        ],
+        [
+          "attn",
+          3
+        ],
+        [
+          "attn",
+          4
+        ],
+        [
+          "attn",
+          5
+        ],
+        [
+          "attn",
+          6
+        ],
+        [
+          "attn",
+          7
+        ],
+        [
+          "attn",
+          8
+        ],
+        [
+          "attn",
+          9
+        ],
+        [
+          "attn",
+          10
+        ],
+        [
+          "attn",
+          11
+        ],
+        [
+          "attn",
+          12
+        ],
+        [
+          "attn",
+          13
+        ],
+        [
+          "attn",
+          14
+        ],
+        [
+          "attn",
+          15
+        ],
+        [
+          "attn",
+          16
+        ],
+        [
+          "attn",
+          17
+        ]
+      ],
+      "ordinal": 62,
+      "request_sha256": "1c6d065385fae41be408fb0c3a100ee73c250a6658fc61f973cf9490dd4ccd7b",
+      "shared_program_sha256": "cad513c942cccaf01e747cb600428b427c03d98dd0dddc710a4028ff1ba9d0bb"
+    },
+    {
+      "execution_mode": "native_module_executes_then_exact_output_substitution",
+      "gain_policy": "identity_gains_no_mask_specific_refitting",
+      "installed_compiled_sites": [
+        [
+          "mlp",
+          0
+        ],
+        [
+          "mlp",
+          2
+        ],
+        [
+          "attn",
+          3
+        ],
+        [
+          "mlp",
+          3
+        ],
+        [
+          "attn",
+          4
+        ],
+        [
+          "mlp",
+          4
+        ],
+        [
+          "attn",
+          5
+        ],
+        [
+          "mlp",
+          5
+        ],
+        [
+          "attn",
+          6
+        ],
+        [
+          "mlp",
+          6
+        ],
+        [
+          "attn",
+          7
+        ],
+        [
+          "mlp",
+          7
+        ],
+        [
+          "attn",
+          8
+        ],
+        [
+          "mlp",
+          8
+        ],
+        [
+          "attn",
+          9
+        ],
+        [
+          "mlp",
+          9
+        ],
+        [
+          "attn",
+          10
+        ],
+        [
+          "mlp",
+          10
+        ],
+        [
+          "attn",
+          11
+        ],
+        [
+          "mlp",
+          11
+        ],
+        [
+          "attn",
+          12
+        ],
+        [
+          "mlp",
+          12
+        ],
+        [
+          "attn",
+          13
+        ],
+        [
+          "mlp",
+          13
+        ],
+        [
+          "attn",
+          14
+        ],
+        [
+          "mlp",
+          14
+        ],
+        [
+          "attn",
+          15
+        ],
+        [
+          "mlp",
+          15
+        ],
+        [
+          "attn",
+          16
+        ],
+        [
+          "mlp",
+          16
+        ],
+        [
+          "attn",
+          17
+        ],
+        [
+          "mlp",
+          17
+        ]
+      ],
+      "ordinal": 63,
+      "request_sha256": "897b96d1a5b42ffb07c8b37c896c63672985782febda96d5cdc3c75771a9e6e5",
+      "shared_program_sha256": "cad513c942cccaf01e747cb600428b427c03d98dd0dddc710a4028ff1ba9d0bb"
+    }
+  ],
+  "request_plan_sha256": "e575432a23ff8f948fe66da29e55529be495f3503ad4633888b442ae981e2e8d",
+  "role_authorities": {
+    "skip11000": {
+      "authorized_for_final_role": false,
+      "batch_count": 24,
+      "component_tree_sha256": "94cbebb35ca3f8c6923f5040b76d243c3f3fa192496604bd40abeb2e4077da0c",
+      "cross_role_disjointness_sha256": "6d0fec696a26815c416c155464a517850e30fad12bf6ffddfe673930cf815fcc",
+      "document_count": 105,
+      "document_identity_set_sha256": "19583d31e77cd68b73e1657aaaaf57bbd90108fe1edc0674b0867f69d845e1ed",
+      "model_realization_sha256": "cf3ca3f55028979ef6f87ac4afa08a7d90fc01dfa4fc2ce037343ac3c69688eb",
+      "ordered_document_ids_sha256": "19583d31e77cd68b73e1657aaaaf57bbd90108fe1edc0674b0867f69d845e1ed",
+      "ordered_row_identity_sha256": "929016f88e2e5ac9798495053a6dd12399238822da2fe8afb3bbdb731f61bf7a",
+      "ordered_row_to_document_sha256": "3b9931a1d26b15e2691cfa9a4eafeb136e3c2d83a050513c0f0c23bc3e4fc682",
+      "request_plan_sha256": "e575432a23ff8f948fe66da29e55529be495f3503ad4633888b442ae981e2e8d",
+      "role": "skip11000",
+      "row_count": 192,
+      "row_file_sha256": "b1564bfd071418f401a816cb01e3d26b082a3e73ba858838f1c83c250db4d868",
+      "row_provenance_sha256": "642631c3166f5ae8a50eea9ea0cd0781685cf35dc38d6a4301e35308e47639d5",
+      "row_raw_sha256": "5d6c1697f6d05860e4235c21e6324e3451d47924565d8edb62e06fbe37b3a1fa",
+      "row_token_count_sha256": "1355494a19d118e5ff051d548120eb448113ba17b3dc828d83a6270e0cfa3bec",
+      "shared_program_sha256": "cad513c942cccaf01e747cb600428b427c03d98dd0dddc710a4028ff1ba9d0bb",
+      "source_closure_sha256": "207f9e91ae4d16af293563f65337bb7dfe8666542cd37186cb9ec14b7cd9e437",
+      "source_commit": "d9c3258acca36cf66de3a3fee15b5e8d680a7da9",
+      "source_receipt_file_sha256": "815b21618c2e477e8cbda17ce94bf01862017a9936e4ee03acaa6cd7256cba16",
+      "total_scored_token_count": 36864,
+      "wave_nonce_sha256": "6f30ae2dcb3db5d02e50d7501c85a9eafeba48724022f2727c10ca68ab855943"
+    },
+    "skip7000": {
+      "authorized_for_final_role": false,
+      "batch_count": 24,
+      "component_tree_sha256": "94cbebb35ca3f8c6923f5040b76d243c3f3fa192496604bd40abeb2e4077da0c",
+      "cross_role_disjointness_sha256": "6d0fec696a26815c416c155464a517850e30fad12bf6ffddfe673930cf815fcc",
+      "document_count": 79,
+      "document_identity_set_sha256": "b28446ac631be5c27ddb88c94416f9c4bdb79d8382106c31876f0b91f4709f51",
+      "model_realization_sha256": "cf3ca3f55028979ef6f87ac4afa08a7d90fc01dfa4fc2ce037343ac3c69688eb",
+      "ordered_document_ids_sha256": "b28446ac631be5c27ddb88c94416f9c4bdb79d8382106c31876f0b91f4709f51",
+      "ordered_row_identity_sha256": "d5dffab188ccccf28fe48170e6e9000b9f57789c7038a1c2d8c232c1684686da",
+      "ordered_row_to_document_sha256": "0d0c6fea333d3ce70cfb1fb7206fd33f1f91465e01e7f3857c9294b6d90ce0cc",
+      "request_plan_sha256": "e575432a23ff8f948fe66da29e55529be495f3503ad4633888b442ae981e2e8d",
+      "role": "skip7000",
+      "row_count": 192,
+      "row_file_sha256": "d66c1ee7807bc6b9bd7d0ddba5cdd7e3bc64926b00320a10675a2f817d67128c",
+      "row_provenance_sha256": "d280d42c9829313750e22bf88606ce7741146cb82f2be3bf472649a8a3e5445e",
+      "row_raw_sha256": "10d66676c804569eaa501d0c3c425f357d1d4305eb2581f1e9a5403504f054c0",
+      "row_token_count_sha256": "1355494a19d118e5ff051d548120eb448113ba17b3dc828d83a6270e0cfa3bec",
+      "shared_program_sha256": "cad513c942cccaf01e747cb600428b427c03d98dd0dddc710a4028ff1ba9d0bb",
+      "source_closure_sha256": "207f9e91ae4d16af293563f65337bb7dfe8666542cd37186cb9ec14b7cd9e437",
+      "source_commit": "d9c3258acca36cf66de3a3fee15b5e8d680a7da9",
+      "source_receipt_file_sha256": "815b21618c2e477e8cbda17ce94bf01862017a9936e4ee03acaa6cd7256cba16",
+      "total_scored_token_count": 36864,
+      "wave_nonce_sha256": "ef6045d4d33b167ab0d0ab1be54c11e4ea207f6d8483be4ce8643eb1de63745e"
+    }
+  },
+  "role_authority_sha256s": {
+    "skip11000": "65f25520712d2c496994d750f4ff662e6a9fa61c2879275c2285114647450358",
+    "skip7000": "331d397d968ca1b0db195fadab569103ba110d12b0983a308e6e01dc82cfb42f"
+  },
+  "role_order": [
+    "skip7000",
+    "skip11000"
+  ],
+  "row_bindings": {
+    "skip11000": {
+      "common_support_sha256": "234c05b2669518bdb510bbfcf0b2f86eddbb97527d806a774091937d93387cb6",
+      "document_count": 105,
+      "ordered_document_ids_sha256": "19583d31e77cd68b73e1657aaaaf57bbd90108fe1edc0674b0867f69d845e1ed",
+      "ordered_row_identity_sha256": "929016f88e2e5ac9798495053a6dd12399238822da2fe8afb3bbdb731f61bf7a",
+      "ordered_row_to_document_sha256": "3b9931a1d26b15e2691cfa9a4eafeb136e3c2d83a050513c0f0c23bc3e4fc682",
+      "row_count": 192,
+      "row_provenance_sha256": "642631c3166f5ae8a50eea9ea0cd0781685cf35dc38d6a4301e35308e47639d5",
+      "row_tensor_sha256": "3358ca6c5800817459d9c230257ad5f3734223c0caac11d428fefb847387d24e",
+      "row_token_count_sha256": "1355494a19d118e5ff051d548120eb448113ba17b3dc828d83a6270e0cfa3bec",
+      "row_wave_sha256": "7156886708c01f5c5446aa00ea2b784600b710cdd81885d675dbaa5d4e8ad3b2",
+      "source_receipt_sha256": "815b21618c2e477e8cbda17ce94bf01862017a9936e4ee03acaa6cd7256cba16",
+      "support": {
+        "input_position_half_open": [
+          0,
+          256
+        ],
+        "scored_logit_position_half_open": [
+          64,
+          256
+        ],
+        "target_position_half_open": [
+          65,
+          257
+        ]
+      },
+      "total_scored_token_count": 36864
+    },
+    "skip7000": {
+      "common_support_sha256": "172e767b4bd7db4bb95052759d125c0caa9b2efe8b25deb3877d8022357205cc",
+      "document_count": 79,
+      "ordered_document_ids_sha256": "b28446ac631be5c27ddb88c94416f9c4bdb79d8382106c31876f0b91f4709f51",
+      "ordered_row_identity_sha256": "d5dffab188ccccf28fe48170e6e9000b9f57789c7038a1c2d8c232c1684686da",
+      "ordered_row_to_document_sha256": "0d0c6fea333d3ce70cfb1fb7206fd33f1f91465e01e7f3857c9294b6d90ce0cc",
+      "row_count": 192,
+      "row_provenance_sha256": "d280d42c9829313750e22bf88606ce7741146cb82f2be3bf472649a8a3e5445e",
+      "row_tensor_sha256": "acd656639867fb2ebbd49b8caa19cd7005a4c6f58c19c7bad2fafd8a1929f044",
+      "row_token_count_sha256": "1355494a19d118e5ff051d548120eb448113ba17b3dc828d83a6270e0cfa3bec",
+      "row_wave_sha256": "621f9adc6bf50673505e50b58dee78fa50ae87e4215657260d1977895e5470a3",
+      "source_receipt_sha256": "815b21618c2e477e8cbda17ce94bf01862017a9936e4ee03acaa6cd7256cba16",
+      "support": {
+        "input_position_half_open": [
+          0,
+          256
+        ],
+        "scored_logit_position_half_open": [
+          64,
+          256
+        ],
+        "target_position_half_open": [
+          65,
+          257
+        ]
+      },
+      "total_scored_token_count": 36864
+    }
+  },
+  "schema_version": 1,
+  "shared_program_sha256": "cad513c942cccaf01e747cb600428b427c03d98dd0dddc710a4028ff1ba9d0bb",
+  "source_closure": {
+    "path_sha256s": [
+      [
+        "basis_aligned/polynomial_causal/EARLY_MLP_CONTEXT_CROSS_V1_IMPLEMENTATION_AMENDMENT.md",
+        "8c7db977ef75bf6ec544075c248b7428099f7c41c9ef7a1c706dac1c1af53b67"
+      ],
+      [
+        "basis_aligned/polynomial_causal/EARLY_MLP_CONTEXT_CROSS_V1_PREREGISTRATION.md",
+        "b1fa36f022ccd7e403a1c82dc77c5d888a26f8e615120dd577a57ff2cd9a6970"
+      ],
+      [
+        "basis_aligned/polynomial_causal/bilin18_observed_model_facade.py",
+        "b62947f772c807259890a9d09dfcbe5e91ad339a0bffa867ab99177fde4c728c"
+      ],
+      [
+        "basis_aligned/polynomial_causal/compilation_mask_cut_rank_v1.py",
+        "5323d27f8b7f2a6455c330028cb19a00debaf31c201e37ad9ea18f8e0a4e6a3e"
+      ],
+      [
+        "basis_aligned/polynomial_causal/compilation_mask_cut_rank_v1_bilin18_backend.py",
+        "738f4988fe5b87a7329f833bc7117cc417adcb9834da06533b00bc8b320c18e0"
+      ],
+      [
+        "basis_aligned/polynomial_causal/compilation_mask_cut_rank_v1_gpu_adapter.py",
+        "6ce4fd5e8fcf121186541e34a2f6f6546192dfb6c69d9ea9d8b776e9a9a77914"
+      ],
+      [
+        "basis_aligned/polynomial_causal/compilation_mask_cut_rank_v1_measurements.py",
+        "abb15eb5699a284a9540db7aca36d884e4df3bf5d03eb2b79c3d1d0aa6128f1b"
+      ],
+      [
+        "basis_aligned/polynomial_causal/early_mlp_context_cross_v1.py",
+        "02e7a0121df9c833defacf68adc3fec274137a81f3bab2c663fc8002b723d2f5"
+      ],
+      [
+        "basis_aligned/polynomial_causal/early_mlp_context_cross_v1_bilin18_backend.py",
+        "728ae29fe68ac94020d654329415c349e3970b52ae38007a3acb2ac9e52db697"
+      ],
+      [
+        "basis_aligned/polynomial_causal/early_mlp_context_cross_v1_lifecycle.py",
+        "bdd6a0235a75afe4d4e3f22fa6173373c4241cfe6e83066cc4a913e6040010fa"
+      ],
+      [
+        "basis_aligned/polynomial_causal/early_mlp_context_cross_v1_measurements.py",
+        "1a53f072293b12b57345376c234483d911dba90800863bfec99a7554bc88559d"
+      ],
+      [
+        "basis_aligned/polynomial_causal/early_mlp_context_cross_v1_statistics.py",
+        "b676655317c04da8b3a4455f5ffcc1b76b45a44304112f85a70a86da093c08d4"
+      ],
+      [
+        "basis_aligned/polynomial_causal/run_early_mlp_context_cross_v1.py",
+        "4364f3ec4e3ba8f2c179d6c2c1f8598469ba416d5ed31ee52bdbc92f97e06c37"
+      ],
+      [
+        "basis_aligned/polynomial_causal/score_early_mlp_context_cross_v1.py",
+        "87888430e5e8ce8d2278e40b80684fcaf20d5251821c7f5da6b31bcc47a21f3b"
+      ],
+      [
+        "basis_aligned/polynomial_causal/test_early_mlp_context_cross_v1.py",
+        "a0ee3f79317e7954526fb100254d103a299078d9c398e4a6d3393cb0ef7597c6"
+      ],
+      [
+        "basis_aligned/polynomial_causal/test_early_mlp_context_cross_v1_bilin18_backend.py",
+        "15e91591130609b4720b8c4c818fe8f9f86fb6246e23afe2a61204d38297a38c"
+      ],
+      [
+        "basis_aligned/polynomial_causal/test_early_mlp_context_cross_v1_lifecycle.py",
+        "633a7f3e46f400230098848c7d96899459e7ff15c843a9182e77112b274adddd"
+      ],
+      [
+        "basis_aligned/polynomial_causal/test_early_mlp_context_cross_v1_measurements.py",
+        "b0c213b783af788252f443561495c50bc57222eaec9536f189a688492540cb29"
+      ],
+      [
+        "basis_aligned/polynomial_causal/test_early_mlp_context_cross_v1_statistics.py",
+        "b05ddf48f26a5875e73ee6ac995695e63e997411cd5769d3b0f82a757a1f5532"
+      ],
+      [
+        "basis_aligned/polynomial_causal/test_run_early_mlp_context_cross_v1.py",
+        "c4d12b984565f34c04a473e0f604e3e6d23ffb73841e79480d164a3f781b2fc8"
+      ],
+      [
+        "basis_aligned/polynomial_causal/test_score_early_mlp_context_cross_v1.py",
+        "76dec77d4c4b54bcaf0fa1489c7503c525dd7a0b465e850d2c6776fd151e8f90"
+      ],
+      [
+        "jacclust/tt_model.py",
+        "49ecdbd6c060ff5b3e57f3134d87ba32841390c891c42e6ae23b71d8627612b2"
+      ]
+    ],
+    "source_commit": "d9c3258acca36cf66de3a3fee15b5e8d680a7da9"
+  },
+  "source_closure_sha256": "207f9e91ae4d16af293563f65337bb7dfe8666542cd37186cb9ec14b7cd9e437",
+  "status": "frozen_before_any_measurement_outcome",
+  "two_role_authority_sha256": "b64e087d2bd9c3ae85a85816a1d15fc6d043aaf0be27553b0accc6e6a4c9dd6d"
+}

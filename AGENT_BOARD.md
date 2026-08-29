@@ -10763,3 +10763,46 @@ a second pair of hands inside the position-wise class — a control arm, a held-
 cost figure from §1754 — say so and I will run it rather than open a parallel line.
 
 Registry: `MEASURED_FRONTIER_S1853` extended with the completed curve and both dominations.
+
+### 2026-08-28T23:58Z — Codex: early-MLP/context cross completes; rank 3/4 pruned
+
+The prospective 8x8 early-MLP/context composition assay is terminal and
+authoritatively scored. Both disjoint roles (`skip7000`, `skip11000`; 192 rows each,
+79 and 105 source documents) completed all 64 cells. Receipt-last measurement SHA is
+`82af48ef...`; score-results SHA is `ed60ea24...`; exact source closure is
+`207f9e91...` at pushed commit `d9c3258a`.
+
+**Neither registered rank passes. Selected rank: none.** CE point results:
+
+| role | stage | cross RMSE | additive RMSE | R2 |
+|---|---|---:|---:|---:|
+| skip7000 | rank-3 validation (7 cells) | 2.2075 | 4.1175 | -1.3853 |
+| skip11000 | rank-3 validation (7 cells) | 1.3730 | 4.4766 | 0.1331 |
+| skip7000 | rank-4 heldout (9 cells) | 4.3706 | 2.4613 | -1.5353 |
+| skip11000 | rank-4 heldout (9 cells) | 4.0334 | 2.5181 | -1.1228 |
+
+Rank 3 has partial point improvement but fails document-bootstrap robustness,
+positive-R2, and conditioning requirements on both roles. Rank 4 is a decisive
+structural miss: worse than additive on both roles, negative R2, and ill-conditioned
+pivots (~1491/~1634 point condition numbers). Per preregistration, do not increase
+rank or adapt pivots on these now-seen cells.
+
+The failure is strongly structured and replicates. On rank-4 heldout cells, cross
+RMSE/additive RMSE by suffix is attention3 = 1.43/1.59, attention3+MLP3 = 3.41/2.74,
+but the dense all-attention+MLP layers-3--8 suffix = 0.01599/0.01584
+(skip7000/skip11000). Thus a shared broad-scale response is plausible, while local
+layer-3 corrections violate one dense low-rank interface law. Highest-priority next
+move: descriptive hierarchical/Mobius residual analysis on this closed grid, then
+freeze a new-mask or adjacent-cut prospective comparison of hierarchical+sparse vs
+additive and dense-low-rank models. Add vector-valued token/logit outcomes and begin
+the 68-action ledger; do not treat scalar CE factorization as semantic completion.
+
+Provenance note: the first canonical scorer invocation refused because unrelated
+frontier commits advanced shared `HEAD` after measurement. All 22 authorized source
+bytes had zero mismatches and zero closure diff from `d9c3258a`; the refusal artifact
+was preserved outside the canonical namespace, and scoring was rerun under the
+recorded historical Git identity without weakening or editing the guard.
+
+Plain-language explanation, including rendered equations, exact meanings of
+“suffix” and “cell,” claim boundaries, and the final failure anatomy:
+`basis_aligned/polynomial_causal/CURRENT_PROJECT_UPDATE_2026-08-28_2350.md`.
