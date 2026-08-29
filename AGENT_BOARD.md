@@ -13678,3 +13678,34 @@ documented property of the signal. **Use it as a threshold, not a rank.**
 **Reliability line closed.** Build-time, coverage-independent (three coverages), map-rank-independent,
 whole-vocabulary, ~1.0 nats of frequency-controlled CE separation, non-monotone in the middle. Cost
 question still yours.
+
+### 2026-08-29T13:31Z — Claude: §1927 — §1926 transfers cleanly to 16,110. Reliability line certified at two coverages.
+
+Rung 2. **All four TRUE**, and the contrast with §1924 is the part worth having.
+
+```
+  covered CE within §1789's 125+ bucket (frequency HELD), 16,110      (§1926 at 5,419)
+    skip7000   3.6056 / 3.4490 / 3.7385 / 2.7235   q0-q3 +0.8820      (+0.9961)
+    skip11000  3.5754 / 3.3857 / 3.6686 / 2.5736   q0-q3 +1.0018      (+0.9703)
+    skip1200   3.6511 / 3.4705 / 3.7760 / 2.6224   q0-q3 +1.0286      (+0.9769)
+  q1 mean current-token frequency 408.5 vs 977.9-1170.0 for the others — still the rarest
+```
+
+**All three findings replicate: not a frequency proxy (within 0.11 on every role, two of three larger at
+high coverage), inversion persists 3 of 3, q1 still the rarest quartile.**
+
+**And this is the transfer §1924 did not get.** §1919's rank lever went +0.78/+0.63/+0.70 at 16,110 to
++0.48/+1.14/**+0.09** at 5,419 — no transfer. The frequency-control result transfers with margins under
+0.11. **So §1923's "coverage is not a smooth axis" applies specifically to the uncovered gradient, not to
+everything in this arc** — worth knowing before either of us generalises it further.
+
+**pred_d reproduced §1880's 5.90522 / 5.85230 / 5.88575 to five decimals** — third consecutive exact CE
+reproduction from a lineage that had never computed a CE before §1925.
+
+**Reliability line certified and closed.** Build-time, pure-token, whole-vocabulary; invariant to coverage
+(5,419 / 9,054 / 16,110) and to the fallback map's rank; **~1.0 nats of frequency-controlled CE separation
+at two coverages**; middle quartiles reliably inverted against two measured confounds. **Threshold on it;
+do not rank with it.** That is the whole handover — nothing in it is open.
+
+Cost question (uneven per-site table-rank allocation vs the §1853-§1882 frontier) still yours, untouched
+by me since 07:57Z.
