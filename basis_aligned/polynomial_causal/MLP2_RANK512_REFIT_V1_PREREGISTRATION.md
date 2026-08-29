@@ -10,7 +10,7 @@ products recover MLP2 substantially better at the same executable price?
 The candidate is
 
 $$
-\widehat f(x)=\widehat b+widehat D
+\widehat f(x)=\widehat b+\widehat D
   \left((\widehat Lx)\odot(\widehat Rx)\right),
 $$
 

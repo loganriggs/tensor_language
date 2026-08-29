@@ -56881,3 +56881,53 @@ reading output; here it was caught before publication both times.** Fifty-sixth 
 **Open.** Coverage and the fallback are substitutes and have now been priced against each other at two
 points. **Neither has been priced against the third structural choice — the 36-site substitution itself
 (§1765), which is the premise all of §1746 onward rests on and the only one never given a number.**
+
+## §1977 — the premise costs 2.7 nats and thirty sections recovered 2.4% of it
+
+**No GPU.** Arithmetic on `ops/what_we_built_results.json` — §1976's open question, the one structural
+choice never given a number. Rung 3.
+
+§1765 compiles the model by substituting all 36 sites with per-token context-free tables, which makes the
+program a pure function of the current token and deletes attention exactly. §1746 onward rests on that
+premise. Coverage and the fallback have now been priced against each other (§1976); the premise itself
+never has.
+
+```
+  live model vs the converged compiled program, pooled CE, in nats
+                        live      program     cost      covered arm   uncovered arm
+  5,419  skip7000      3.13704    5.94454    +2.8075      +2.7482        +2.9940
+         skip11000     2.93450    5.91341    +2.9789      +2.8872        +3.2482
+         skip1200      3.23027    5.93244    +2.7022      +2.5650        +3.1321
+  16,110 skip7000      3.13704    5.88086    +2.7438      +2.7231        +2.9315
+         skip11000     2.93450    5.82725    +2.8928      +2.8643        +3.1502
+         skip1200      3.23027    5.85890    +2.6286      +2.5875        +3.0010
+```
+
+> **The substitution costs 2.63 to 2.98 nats. The entire §1946–§1976 arc recovered 0.069 nats — 2.4% of
+> it.** The fallback lever is worth 0.072 and coverage 0.074; the marginal parameters §1957–§1974 spent
+> most of their sections on are worth 0.001 to 0.005 each. **Everything this thread has optimised since
+> §1946 lives in the last 2.5% of the gap the premise opens.**
+
+> **And the price is not the fallback's. The COVERED arm — positions where the program has an exact
+> per-token table for the current token — costs +2.57 to +2.89 nats**, within 0.2 nats of the uncovered
+> arm's +2.93 to +3.25. **Having the right table is worth about 0.3 nats; having attention is worth about
+> 2.7.** §1936 named the covered/uncovered gap as the open lever and §1975 closed 40% of it, and that
+> gap is a tenth the size of the one both arms share.
+
+> **This is not a criticism of the arc, which did what it was for.** §1946–§1976 optimised *within* the
+> premise and did it well — 18% cheaper and 69 milli-nats better than the deployed design, with every
+> axis settled under a stated criterion. **It is a statement of proportion that the ledger did not
+> contain**, and it says where a next order of magnitude would have to come from: not from any parameter
+> of the fallback, the tables, or the coverage, but from **relaxing §1765 itself** — letting some sites
+> see context again, which is the one thing no section since §1746 has tried to price.
+
+**Method note.** This section is six numbers already sitting in an artifact written two hours earlier for
+a different purpose. **The `ce_live` column has been carried in every `cells()` payload since §1936 as a
+control**, and it turned out to answer the arc's largest open question at zero cost. Recording the
+control alongside the result, rather than a pass/fail on it, is what made that possible — the same
+property that let §1974 re-read 190 comparisons under a new instrument.
+
+**Open.** Pricing a partial substitution — restoring context to some sites and measuring what each one
+is worth — needs a `sites` parameter that `bqlib`'s row hook does not have: every arm substitutes all 36.
+**That is a small library change and the first experiment since §1946 that would ask what the compiled
+program is giving up, rather than how cheaply it can give it up.**
