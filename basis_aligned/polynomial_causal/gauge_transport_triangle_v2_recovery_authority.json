@@ -1,0 +1,33 @@
+{
+  "schema": "gauge_transport_triangle_v2_recovery_authority",
+  "status": "source_closed_go",
+  "source_commit": "50f90adec8f36a80e0706384cbe2875433c89de2",
+  "source_files": [
+    "basis_aligned/polynomial_causal/gauge_transport_triangle.py",
+    "basis_aligned/polynomial_causal/gauge_transport.py",
+    "basis_aligned/polynomial_causal/PRICED_GAUGE_TRANSPORT_SPEC.md",
+    "basis_aligned/polynomial_causal/GAUGE_TRANSPORT_TRIANGLE_V1_EXECUTION_PREREGISTRATION.md",
+    "basis_aligned/polynomial_causal/GAUGE_TRANSPORT_TRIANGLE_V2_RECOVERY_PREREGISTRATION.md",
+    "basis_aligned/polynomial_causal/test_gauge_transport_triangle.py",
+    "basis_aligned/polynomial_causal/test_gauge_transport_triangle_contract_audit.py"
+  ],
+  "source_sha256s": {
+    "basis_aligned/polynomial_causal/gauge_transport_triangle.py": "0c8b4a8efc5708afce028f26ee2e31cbe8e2ebc8c0ec76a8ea20f83ff984383e",
+    "basis_aligned/polynomial_causal/gauge_transport.py": "3d4a24d0c0f083270429d189ef021bf85cccf2c7aebbbdef645c512268137db6",
+    "basis_aligned/polynomial_causal/PRICED_GAUGE_TRANSPORT_SPEC.md": "b0b67e27089d27d6d2e54e8065037fd1e6a226ffe15acf4cd4f9938043696e17",
+    "basis_aligned/polynomial_causal/GAUGE_TRANSPORT_TRIANGLE_V1_EXECUTION_PREREGISTRATION.md": "bb75030eaf6735e29ce51dd36b5a5475b7b34e1261be7a4f28bb40c3a714b7b8",
+    "basis_aligned/polynomial_causal/GAUGE_TRANSPORT_TRIANGLE_V2_RECOVERY_PREREGISTRATION.md": "efd21a110c6fe80608830c361b2ba2064935a32f05241d2f78e14fa7447f22ff",
+    "basis_aligned/polynomial_causal/test_gauge_transport_triangle.py": "a49b6c909c15a9ef8d00c47bf37c53174feb6ead4e5ef20b4a88e5c6e78666ee",
+    "basis_aligned/polynomial_causal/test_gauge_transport_triangle_contract_audit.py": "dfd6902ea0cf57db5baa7984038744cb75853b7c4baae320ae5c1008bcc99bea"
+  },
+  "row_artifact_file_sha256": "102b79726b7132a6438b4080272fee1774499ac4fc83c4aa025fa86439b4074d",
+  "row_receipt_file_sha256": "3f92d8b3aa5e89e6059a010338521bffa0cf440e0815d9d67e1b65aa58a8e102",
+  "model_weights_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+  "terminal_outputs": {
+    "result": "gauge_transport_triangle_results.json",
+    "state": "gauge_transport_triangle_state.pt",
+    "receipt": "gauge_transport_triangle_v2_recovery_receipt.json",
+    "failure": "gauge_transport_triangle_v2_recovery_failure.json"
+  },
+  "authority_sha256": "197915b29e284d02b7e45c21477fe7d5f24197f20059f02950fa215bd98c2c79"
+}
