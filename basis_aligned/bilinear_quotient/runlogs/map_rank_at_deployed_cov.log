@@ -1,0 +1,39 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+MAP RANK AT DEPLOYED COV | 5419 types, full table rank, map 64/128/256/512 | settled program (context-free tables + output-NN fallback + rank-64 map) | DISCOVERY ONLY
+
+  per-site norm calibration (live mean / row mean), measured on the LIVE model:
+    attn L0:  2.71 L1:  2.49 L2:  2.26 L3:  2.13 L4:  4.37 L5:  1.00 L6:  1.02 L7:  3.61 L8:  3.59 L9:  4.83 L10:  3.80 L11:  4.49 L12:  6.72 L13:  6.39 L14:  7.07 L15:  6.33 L16:  5.70 L17:  5.59
+    mlp  L0:  0.88 L1:  0.42 L2:  0.61 L3:  0.49 L4:  0.10 L5:  0.39 L6:  0.52 L7:  1.66 L8:  2.04 L9:  1.32 L10:  2.33 L11:  1.05 L12:  1.91 L13:  1.26 L14:  1.66 L15:  1.19 L16:  1.13 L17:  1.21
+
+  arms  (47s)
+  all_substituted      skip7000 13.55%  skip11000 14.25%  skip1200 13.64%
+  all_sub_scaled       skip7000 12.16%  skip11000 12.81%  skip1200 12.10%
+  live_model           skip7000 39.32%  skip11000 42.35%  skip1200 38.88%
+
+  arms  (111s)
+  all_substituted        skip7000 13.55%  skip11000 14.25%  skip1200 13.64%
+  live_model             skip7000 39.32%  skip11000 42.35%  skip1200 38.88%
+
+  arms  (124s)
+  B0_raw                 skip7000 23.20%  skip11000 25.38%  skip1200 23.26%
+  B0_seq                 skip7000 30.25%  skip11000 32.59%  skip1200 29.11%
+  uncovered-token ceiling built for 10455 token types
+
+  coverage 5419 types (1.00x §1834); ceiling CE skip7000 6.03465  skip11000 5.97900  skip1200 5.96423 (146s)
+    rank 64    covered skip7000  6.03465 (+-0.00000)  skip11000  5.97900 (+-0.00000)  skip1200  5.96423 (+-0.00000)   (191s)
+    rank 128   covered skip7000  6.03465 (+-0.00000)  skip11000  5.97900 (+-0.00000)  skip1200  5.96423 (+-0.00000)   (235s)
+    rank 256   covered skip7000  6.03465 (+-0.00000)  skip11000  5.97900 (+-0.00000)  skip1200  5.96423 (+-0.00000)   (279s)
+    rank 512   covered skip7000  6.03465 (+-0.00000)  skip11000  5.97900 (+-0.00000)  skip1200  5.96423 (+-0.00000)   (323s)
+
+  FALLBACK LOSS by MAP RANK at 5419 covered types (DEPLOYED), full table rank:
+    map 64      5.308M  skip7000 +0.78075  skip11000 +0.86225  skip1200 +0.83997
+    map 128    10.617M  skip7000 +0.70092  skip11000 +0.77988  skip1200 +0.76049
+    map 256    21.234M  skip7000 +0.63412  skip11000 +0.71100  skip1200 +0.70603
+    map 512    42.467M  skip7000 +0.59560  skip11000 +0.67209  skip1200 +0.67172
+
+  the RECOVERY transfers (>=0.18, within 0.06 of §1869) -> False  skip7000 +0.18515 vs §1869 +0.21926  skip11000 +0.19016 vs §1869 +0.23135  skip1200 +0.16825 vs §1869 +0.25424
+  and the COVERED arm is untouched (<1e-6) -> True  max spread 0.00e+00
+  and the 64->128 lever is worth MORE here (> §1869 0.00948) -> True  skip7000 0.01925  skip11000 0.02093  skip1200 0.01923   at unc frac 24.1%
+  coverage 5419, attainment True, unc frac ~ §1848 24.6% -> control True
+
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/map_rank_at_deployed_cov_results.json (322.9s)

@@ -51035,3 +51035,59 @@ token embedding. §1868 showed the target — the model's own length-1 row — i
 every one of these tokens. **Whether a non-linear map closes the residual, and at what storage, is the
 first genuinely new object this arc has needed**, and unlike everything since §1829 it is not a re-slice
 of the existing build.
+
+## §1870 — the map lever is WORTH MORE on the deployed build (276 M/nat) even though the per-position recovery is smaller
+
+`ops/map_rank_at_deployed_cov.py`, 322.9s, **DISCOVERY ONLY**, rung 3 — §1869's deployed-build half.
+**pred_a False | pred_b True | pred_c True | pred_d True.**
+
+Fallback loss by map rank at **5,419** covered types — §1789's deployed build — full table rank:
+
+```
+  map rank   map cost    skip7000   skip11000   skip1200      (§1869 at 16,110 types)
+      64      5.308M     +0.78075    +0.86225    +0.83997      +0.82155 +0.87058 +0.87692
+     128     10.617M     +0.70092    +0.77988    +0.76049      +0.72678 +0.76218 +0.76518
+     256     21.234M     +0.63412    +0.71100    +0.70603      +0.64902 +0.68268 +0.68008
+     512     42.467M     +0.59560    +0.67209    +0.67172      +0.60230 +0.63923 +0.62268
+```
+
+**pred_a FAILED: the per-position recovery does NOT transfer.** Rank 64 → 512 recovers **+0.18515 /
++0.19016 / +0.16825** here against §1869's **+0.21926 / +0.23135 / +0.25424** at 16,110 types — short of
+the 0.18 floor on skip1200 and outside the 0.06 tolerance there by 0.026. **The map-rank recovery is
+coverage-dependent**, which is pred_a's registered failure branch and **a second disanalogy with §1867**,
+where the fallback *penalty* was constant in coverage. Penalty constant, recovery not.
+
+**pred_c PASSED, and the two effects run opposite ways — the fraction wins.** The uncovered slice here is
+**24.1%** against §1869's 10.0%, so despite a smaller per-position recovery the 64 → 128 step is worth
+**0.01925 / 0.02093 / 0.01923** all-position nats against §1869's 0.00948 — **2.0 to 2.2x more valuable
+on the build that actually exists.**
+
+> **The deployed build's map ladder, in the units a decision uses:**
+>
+> ```
+>    64 -> 128   +5.309M   0.01924 all-pos nats  =   276 M/nat
+>   128 -> 256  +10.617M   0.01610               =   660 M/nat
+>   256 -> 512  +21.233M   0.00928               =  2288 M/nat
+> ```
+>
+> **Map rank 64 → 128 costs 5.309M — 2.3% of the deployed build's 230.087M — and buys 0.0192
+> all-position nats at 276 M/nat.** That is **6.7x cheaper per nat than the best comparable table-rank
+> step** on §1854's frontier (1859 M/nat) and **twice as cheap as the same map step at high coverage**.
+> It is the single best purchase measured anywhere in §1829-§1870, and the first two steps of the ladder
+> both beat every table-rank step in the record.
+
+**pred_b PASSED at 0.00e+00 for a second time.** Covered CE is bit-identical across all four map ranks on
+all three roles, now on a second, independent covered set. The map touches uncovered rows only, and two
+exact zeros on two covered sets is as strong as that control gets.
+
+**Controls (pred_d).** Coverage is exactly 5,419, reproducing §1834; the covered arm attains its ceiling
+exactly — an eleventh independent confirmation; the uncovered fraction is 24.1% against §1848's published
+24.6%, inside the 1pp bar; every uncovered scored token has a ceiling row.
+
+**Where §1866-§1870 leave the class.** §1848 called the fallback closed; §1866 showed that rested on a
+raw-CE comparison across unequal populations; §1867 found its penalty constant in coverage; §1868
+decomposed it and found most of it is the fallback's own, against a ceiling that is *easier* at uncovered
+positions; §1869 and §1870 found map rank recovers a fifth to a quarter of it, cheaply, and most cheaply
+on the deployed build. **The residual — 0.596 / 0.672 / 0.672 nats at map rank 512 — is §1785's map being
+linear in the token embedding, and that is the one open object this arc has produced that is not a
+re-slice of the existing build.**
