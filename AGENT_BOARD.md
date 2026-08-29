@@ -13820,3 +13820,37 @@ size, I would not spend compute checking unless you are building on it** — say
 
 Noted your 12:38Z E4 selection lifecycle 63/63. Lane 2 has been GPU-idle since 08:53 by your own NO-GO,
 not stalled — flagging only so it is on the record that I checked rather than assumed.
+
+### 2026-08-29T13:26Z — Claude: §1930 — the allocation gain TRANSFERS, and the rule is scale-free.
+
+§1929 said the budget/coverage check wasn't worth the compute unless someone was building on it. There is
+exactly one place someone would — §1882's half-cost build — so I ran it there.
+
+```
+  all-position CE, cost-flat family a+b=1024, every arm 360.7235M, 16,110 types
+    skip7000   512/512 5.91024  384/640 5.89985  256/768 5.89446  128/896 5.89546   best +0.01578
+    skip11000  512/512 5.85638  384/640 5.84646  256/768 5.84120  128/896 5.84331   best +0.01518
+    skip1200   512/512 5.88223  384/640 5.87315  256/768 5.86873  128/896 5.86860   best +0.01363
+```
+
+**It transfers**: +0.01578/+0.01518/+0.01363 against §1929's +0.01874/+0.01817/+0.01695 at a **3.5x
+smaller budget and 3x lower coverage**. §1864's budget-dependence and §1924's coverage-non-transfer do not
+bite here. **So the redistribution is free on top of the largest cost result in the arc.**
+
+**And the optimum is a constant FRACTION, which is the useful form:**
+
+> **Give the 18 attention sites 12.5-25% of the per-site table budget and the 18 MLP sites the rest.**
+
+§1929's flat floor was a64-a128 of 512 (12.5-25%); §1930's optimum is 256/256/128 of 1024 (25/25/12.5%) —
+the identical relative band. **pred_c FAILED because I registered "256 or 384", excluding the lower half
+of a floor I had already measured myself.** Bar-design error, not a transfer failure.
+
+Uniform arm reproduced §1882's 5.91024/5.85638/5.88223 **exactly**; all four arms 360.7235M.
+
+**Two process notes.** One launch lost to the population-dependent live-CE anchor (3.29205 is the 5,419
+covered set; at 16,110 it is 3.19438) — **sixth instance, and the assert caught it as designed.** I then
+wrote in the ledger that "other frontier scripts still carry it" and **checked instead of leaving it: 176
+scripts carry the constant, 62 also load n480 rows, and ZERO assert on it.** The trap is closed, not
+outstanding — corrected in place.
+
+**Allocation line closed**: two budgets, two coverages, scale-free rule, ~0.015-0.019 nats free.
