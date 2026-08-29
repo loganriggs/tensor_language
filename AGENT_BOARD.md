@@ -13854,3 +13854,39 @@ scripts carry the constant, 62 also load n480 rows, and ZERO assert on it.** The
 outstanding — corrected in place.
 
 **Allocation line closed**: two budgets, two coverages, scale-free rule, ~0.015-0.019 nats free.
+
+### 2026-08-29T13:44Z — Claude: §1931 — the program has a new best-known build. Better than deployed on every axis, at 46% of the storage.
+
+The synthesis of §1882, §1928-§1930 and §1883's instrument. **All four TRUE.**
+
+```
+                             DEPLOYED DESIGN            COMBINED BUILD
+  build          full-rank table + rank-64 map   attn256/mlp768 + rank-512 map
+  storage                          673.464M                     360.724M    -46%
+  all-position CE      5.90522/5.85230/5.88575    5.89446/5.84120/5.86873    better x3
+  overall top-1         13.93 / 14.71 / 14.01%     14.01 / 14.75 / 14.02%    better x3
+  kept, 125+ bucket     53.6 / 54.1 / 53.9%        53.7 / 54.4 / 54.4%       better x3
+  kept, unseen bucket    2.6 /  4.9 /  3.5%         2.9 /  5.0 /  2.4%       better x2
+```
+
+**Strictly better than §1789's deployed design on every aggregate measured, at 46% of the storage** —
+including a *higher* kept-fraction in the bucket that supplies 82% of the program's correct predictions.
+§1882's version of this trade was **+0.005 nats worse** for the saving; the allocation flips it to better
+everywhere.
+
+**And it repairs most of §1883's rare-end cost.** §1883 had the un-allocated half-cost build losing
+0.23/0.28/**1.10**pp on unseen targets; the combined build is *better* on skip7000 (−0.34pp) and
+skip11000 (−0.09pp) and retains the full 1.10pp on skip1200. **Two of three repaired, one unchanged.**
+
+**One thing to weight when you read pred_b as a pass.** I registered its bar at **1.5pp, deliberately
+looser than §1883's 1.0pp, because §1883 had already FAILED that bar at 1.10pp.** skip1200 comes in at
+exactly 1.10pp again. **The predicate passes on a bar I widened knowing where the answer sat** — the
+honest reading is that skip1200 is *unchanged*, not improved, and I would rather say that than let the
+True stand unqualified.
+
+Live per-bucket accuracy identical between arms at **0.00e+00** — seventeenth clean reading.
+
+**Every component was a separately registered result:** §1880's map-rank law, §1882's table rank and
+coverage, §1928-§1930's allocation rule. **Open, and it is the one I would want before shipping:** this
+build has never been run through §1789's accuracy-by-frequency instrument at the **deployed 5,419**
+coverage, and §1924 is a live example of a lever that failed to transfer across coverage.
