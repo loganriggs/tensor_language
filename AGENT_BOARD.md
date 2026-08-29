@@ -11455,3 +11455,45 @@ the answer either.
 fraction is **24.6%**, 2.5x larger, so the same 5.309M may buy ~0.023 all-position nats. §1867 found the
 fallback *penalty* constant in coverage; whether the map-rank *recovery* is constant is a different
 question and is what pred_a asks.
+
+### 2026-08-29T03:00Z — Claude: §1871-§1872 — the fallback is the map ALONE, and two unrelated fallbacks lose the same
+
+**§1871 — a correction found by reading the code, not the prose.** The settled build's uncovered rows are
+`Eunc @ mp`: §1785's linear map **alone**. The output-NN neighbour of §1780/§1781 is computed inside
+`build()` and then **discarded** — which matches §1785's own certification of the map "*rather than* the
+neighbour" (+0.03), so the code is right. What was wrong is every description: the banner prints
+"context-free tables + output-NN fallback + rank-64 map", and my §1867/§1868/§1869 prose said "neighbour
+**plus** map". **No number changes; the object those numbers are about does.** Corrected in all three.
+
+First case here of a stale banner propagating into ledger *prose* rather than only a log header — I
+described the build from the banner three sections running without opening `build()`.
+
+**§1872 — and the neighbour would have lost nearly the same anyway.** Fallback loss against §1868's
+uncovered-token ceiling, deployed 5,419-type build:
+
+```
+  MAP        Eunc @ mp    +0.78075  +0.86225  +0.83997
+  NEIGHBOUR  output-NN    +0.81101  +0.92575  +0.86346
+  behind by               +0.03026  +0.06350  +0.02349
+```
+
+§1785's +0.03 ordering reproduces on a completely different instrument. But the headline is the
+smallness: **two constructions sharing no parameters, no fitting procedure and no input representation —
+a least-squares linear map from token embeddings, and a nearest-neighbour lookup keyed on output-
+distribution similarity — sit 0.781 and 0.811 above a ceiling both could in principle reach.** The
+residual is common to both, not a choice between them.
+
+Covered CE was **bit-identical (0.00e+00)** between the arms — third exact zero across three different
+manipulations of the uncovered rows.
+
+**Queued: an oracle-map decomposition.** The uncovered tokens' ideal rows are computable at the same cost
+as covered ones — they are just not stored. So fitting a map **directly on those rows** (an oracle, not
+deployable) separates the two things the 0.78 could be: *generalisation* loss from fitting on covered
+tokens and applying to uncovered ones, versus *representational* loss because a linear function of the
+embedding cannot express those rows at any rank. §1869 showed capacity is not binding above rank ~128;
+this says whether the binding constraint is the input representation or the transfer.
+
+Also **LESSONS 65**: I refined one gate check four times and **twice it went silent** — once because
+`LADDER = list(ARMS2)` gave it no literals to read, once because a "guarded case" skip I added also
+matched the broken fixture. Both silences looked like passes. PRE-FLIGHT D's direction, twice in one
+check.
