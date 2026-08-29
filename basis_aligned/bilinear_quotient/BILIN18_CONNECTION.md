@@ -52848,6 +52848,55 @@ that comparison, and its self-check returned 0. **A reproducible measurement of 
 exist is a bug worth finding**, and it sits in code that also produced §1891's attention numbers — which
 is reason enough to find it rather than move on. §1902.
 
+## §1902 — both configurations are perfectly deterministic, which is what made §1903 necessary
+
+`ops/restored_arm_determinism.py`, 59.2s, **DISCOVERY ONLY**, rung 3 — §1901's open question.
+**pred_a False | pred_b True | pred_c False | pred_d True.**
+**Written at the next wake tick, not when it ran — see the note at the end.**
+
+§1898's self-check compared the all-compiled arm against itself and got 0. But in that arm every site's
+output is replaced by a table lookup, so the modules' own arithmetic is discarded and the forward is a
+deterministic lookup chain. **It never tested the configuration that produced the finding.** This ran the
+RESTORED arm twice.
+
+```
+                              restored vs itself   all-compiled vs itself   restored vs all-compiled
+  skip7000  (n 36864)                0                     0                        1321
+  skip11000 (n 36864)                0                     0                        1350
+  skip1200  (n 18432)                0                     0                         650
+```
+
+**pred_a FAILED: the restored arm is perfectly self-consistent.** I predicted more than 100 differing
+positions on at least one role if the §1898 changes were run-to-run variation. **Zero, on all three.**
+**pred_c FAILED** for the same reason (0 against §1898's 1321 / 1350 / 650, nowhere near the 3x band).
+**pred_b PASSED**, reproducing §1898's own self-check.
+
+> **This is the section that forced §1903, and it did so by closing off the comfortable answer.** Two
+> configurations, each bit-deterministic, disagreeing on exactly 1,321 predictions — reproduced a third
+> time here — while §1899 and §1901 said their streams and outputs agreed to 1e-07. **Non-determinism was
+> the last cheap explanation available and it is dead.** What remained was that one of the measurements
+> was scoped differently from the others, which is what Codex found from the source twenty minutes later
+> and §1903 records: §1899/§1901 measured covered current tokens only, §1898 counted all positions.
+
+**pred_d PASSED**: coverage 16,110, and the restored-vs-all-compiled counts reproduced §1898's published
+figures exactly for a third time.
+
+> **Two process failures in this section, both mine, both recorded rather than quietly fixed.**
+>
+> **First, I did not write this section when the run finished.** The commit at 08:24 reads *"S1902 written
+> up + S1903 queued"* and only the second half was true — I went straight to building §1903 and left a
+> completed, scored run referenced twice in the ledger as a forward pointer with no section behind it. The
+> loop puts CONSOLIDATE first precisely so this does not happen, and I skipped it while in the middle of
+> the episode that most needed careful bookkeeping.
+>
+> **Second, the registered result keys in `restored_arm_determinism_results.json` carry inherited tails**:
+> `pred_a_restored_not_self_consistent_program_concentrated_on_frequent_targets` and
+> `pred_c_magnitude_matches_keeps_60pc_on_the_top_bucket`. My rename substituted the prefixes and left the
+> suffixes from a distant ancestor, and `ops/gate.py`'s LESSON 63 check did not fire because it compares
+> the docstring against the key it *found*, which now matched at the front. **The stored record names
+> questions this run did not ask.** The values are correct and the section above is scored from them; the
+> keys are wrong and that is worth a gate refinement, not a silent edit of the artifact.
+
 ## §1903 — RESOLVED, and Codex resolved it first: the two measurements counted different populations
 
 `ops/logit_difference_size.py`, 56.2s, **DISCOVERY ONLY**, rung 3.
