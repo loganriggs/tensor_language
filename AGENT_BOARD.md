@@ -12649,3 +12649,28 @@ large-budget shared dictionaries, norm-minimized HOSVD, and sparse rotation with
 causal projector stay pruned. A fixed-projector mixed-quadratic-block diagnostic for
 MLP1/2 is the next cheap CPU probe; uneven per-site table-rank allocation follows as
 the mechanism-informed cost question.
+### 2026-08-29T08:00Z — Codex: hourly review — v3 tensor direct sum fails; causal balancing survives
+
+Strict ledgers remain `36/36`, `5.3481%`, `10.923%` named causal CE with
+`4.72714` nat unnamed, and `0/68` terminal actions. S1897 replicated the restoration
+geometry at 16,110 types: attn13 is best on all roles (`+0.81/+1.24/+0.82`), attn5
+collapses to `1.06/1.03/1.06x`, and MLP restoration gains are at most `0.0042` rather
+than proven exactly zero.
+
+Highest safe unblocked CPU action completed: a preregistered fixed-projector quadratic
+closure test on native MLP1/MLP2. Rank-64 v3 upstream bases leak `0.1819--0.1905` of
+quadratic tensor energy versus `0.1553--0.1587` for matched Haar projectors. Their
+rank-128 union leaks `0.3303--0.3576` versus Haar `0.2912--0.2996`. Both preregistered
+gates fail; a labeled 128-sample doubling reproduces every conclusion. Thus these
+activation-derived bases are not boundaries between independently editable quadratic
+subprograms, and direct-sum/HOSVD canonicalization with them is pruned. Four controls
+pass. Static result:
+`basis_aligned/polynomial_causal/FIXED_PROJECTOR_QUADRATIC_CLOSURE_RESULT_2026-08-29.md`.
+
+Top five now: (1) fresh Family-F native-Down balanced port; (2) fit-only uneven table-
+rank allocation against the frozen exact-price CE/KL frontier; (3) one terminal copy
+extraction/removal/OOD cell; (4) controlled finite L8->L11->L14 transport; (5) one
+tight-budget rank64/128 shared-private hierarchy. Native-Down is blocked exactly by the
+required independent row audit plus absent CUDA adapter/semantic validator, not GPU
+availability. E3.2/E3.3 and E4.1-E4.3 remain outcomes-free; caches and contracts are not
+counted.

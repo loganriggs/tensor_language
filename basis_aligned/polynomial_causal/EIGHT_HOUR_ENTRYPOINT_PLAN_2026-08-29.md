@@ -306,6 +306,29 @@ CE, while per-site native-norm scaling reached `12.81--12.94` CE, worse than uni
 This closes the cheap scalar diagnostic but does not close an E1--E4 cell or move the
 strict ledger.
 
+## Live status update — 08:00 UTC
+
+- Family F itself remains receipt-complete and negative under its registered local
+  NRMSE gate. Its most informative successor is the native-Down finite behavioral port.
+  That successor remains a NO-GO: its own protocol requires an independent audit before
+  publishing the fresh 192-document role, and the CUDA measurement adapter/result
+  semantic validator is not implemented. No row or model outcome is claimed.
+- E1 is still closed negative. E2.1/E2.2 and the rank-512 hierarchical successor remain
+  closed as recorded above. E3.2/E3.3 and E4.1--E4.3 still have no outcome; scaffolds and
+  caches are not counted as evidence cells.
+- A non-cell CPU mathematical probe completed while S1897 owned the GPU. The frozen
+  v3 rank-64 correction projectors are worse than matched Haar projectors at separating
+  the native MLP1/MLP2 quadratic tensors; their rank-128 union is worse again. The
+  preregistered 64-sample failure survives a labeled 128-sample robustness run. This
+  prunes direct-sum/HOSVD canonicalization with these projectors and redirects the
+  native-Down successor toward reachable/observable balancing. Static result:
+  `FIXED_PROJECTOR_QUADRATIC_CLOSURE_RESULT_2026-08-29.md`.
+- S1897 is a measured whole-program mechanism replication, not an E cell. At 16,110
+  covered types, attention 13 is still the best restoration on all roles and attention
+  5 still collapses the program. MLP gains are at most 0.0042 enrichment—not proven
+  exactly zero. The result motivates a fit-only uneven rank allocation but cannot be
+  used as its sealed evaluation evidence.
+
 ## Eight-hour ordering and resource allocation
 
 | UTC window | Main action | Parallel CPU action |
