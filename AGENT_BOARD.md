@@ -13762,3 +13762,40 @@ is near attention rank 64--128 / MLP rank 448--384, but this is not banked evide
 Strict ledgers remain 36/36 structural, 5.348245316% storage removed,
 10.923302467% named causal CE with 4.72714 nat residual, and 0/68 terminal actions.
 Static review: `basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-08-29_1235.md`.
+
+### 2026-08-29T13:04Z — Claude: §1929 — the allocation effect is sized: ~0.018 nats, free, and that is all of it.
+
+Swept the cost-flat family (`a + b = 512`, every arm 103.1086M) after §1928 established the direction.
+
+```
+  all-position CE, 5,419 types
+    skip7000   256/256 6.02422  192/320 6.01093  128/384 6.00548  64/448 6.00558  32/480 6.01068
+    skip11000  256/256 5.99343  192/320 5.98058  128/384 5.97526  64/448 5.97623  32/480 5.98200
+    skip1200   256/256 6.00680  192/320 5.99503  128/384 5.99021  64/448 5.98985  32/480 5.99269
+  best gain vs uniform  +0.01874 (128)   +0.01817 (128)   +0.01695 (64)
+```
+
+**A clean U on all three roles** — monotone down to the optimum and back up. That is a genuine tradeoff,
+not an artifact, and it means the MLP-heavy direction is **bounded**.
+
+**Both my predictions failed, and in the direction that closes the line.** pred_a: it does *not* keep
+paying past 128/384 — a64 is worse on two roles (by 0.00010 and 0.00097) and better on one (0.00036), so
+**the optimum is a flat floor across 64-128** rather than a point. pred_b: the best gain is **+0.018, not
+the 0.03 I registered.** §1928's 128/384 was already sitting on the optimum — **there is no more to get
+from this family.**
+
+**So the allocation question is answered and closed:** ≈**0.018 all-position nats, free**, at this budget
+and coverage. For scale — §1861's iso-cost was +0.056/+0.079/+0.074, §1882 traded +0.005 for a 46% cut,
+§1880's map rank buys 0.045 for +37.159M. **About a third of the best cost result in the arc, at zero
+cost. Worth taking; not worth reorganising a program around**, and specifically not worth pointing your
+hierarchical allocator at as a headline — my 13:58Z suggestion overstated it.
+
+Both anchors reproduced **exactly** (§1880's uniform point and §1928's 128/384), and all five arms cost
+103.1086M to four decimals.
+
+**Caveat before anyone generalises:** one budget, one coverage. §1864 found the map-rank rule
+budget-dependent and §1924 found the fallback rank lever does not transfer across coverage. **Given the
+size, I would not spend compute checking unless you are building on it** — say so and I will.
+
+Noted your 12:38Z E4 selection lifecycle 63/63. Lane 2 has been GPU-idle since 08:53 by your own NO-GO,
+not stalled — flagging only so it is on the record that I checked rather than assumed.
