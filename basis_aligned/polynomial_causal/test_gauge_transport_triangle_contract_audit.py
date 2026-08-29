@@ -169,13 +169,51 @@ def test_completed_v2_row_metadata_is_exact_and_non_authorizing_without_tensor_l
     assert receipt["triangle_runner_authorized_by_this_receipt"] is False
 
 
-def test_legacy_main_is_fail_closed_before_rows_or_model(monkeypatch):
+def test_main_is_fail_closed_without_execution_authority(monkeypatch, tmp_path):
+    monkeypatch.setattr(triangle, "RUN_AUTHORITY", tmp_path / "absent.json")
     monkeypatch.setattr(
         triangle, "load_unique_v2_rows",
         lambda: (_ for _ in ()).throw(AssertionError("row loader must remain unopened")),
     )
-    with pytest.raises(RuntimeError, match="launch NO-GO"):
+    with pytest.raises(RuntimeError, match="execution authority is absent"):
         triangle.main()
+
+
+def test_execution_authority_binds_sources_inputs_and_terminals(monkeypatch):
+    source = "synthetic/source.py"
+    monkeypatch.setattr(triangle, "RUN_SOURCE_FILES", (source,))
+    monkeypatch.setattr(triangle, "file_sha256", lambda _path: "a" * 64)
+    body = {
+        "schema": "gauge_transport_triangle_v1_execution_authority",
+        "status": "source_closed_go",
+        "source_commit": "1" * 40,
+        "source_files": [source],
+        "source_sha256s": {source: "a" * 64},
+        "row_artifact_file_sha256": triangle.ROW_ARTIFACT_FILE_SHA256,
+        "row_receipt_file_sha256": triangle.ROW_RECEIPT_FILE_SHA256,
+        "model_weights_sha256": "b" * 64,
+        "terminal_outputs": {
+            "result": triangle.OUT.name,
+            "state": triangle.STATE_OUT.name,
+            "receipt": triangle.RUN_RECEIPT.name,
+            "failure": triangle.RUN_FAILURE.name,
+        },
+    }
+    authority = {**body, "authority_sha256": triangle.canonical_sha256(body)}
+    triangle.validate_execution_authority(authority)
+    authority["source_sha256s"][source] = "c" * 64
+    authority["authority_sha256"] = triangle.canonical_sha256({
+        key: value for key, value in authority.items() if key != "authority_sha256"
+    })
+    with pytest.raises(RuntimeError, match="source changed"):
+        triangle.validate_execution_authority(authority)
+
+
+def test_create_only_json_refuses_overwrite(tmp_path):
+    path = tmp_path / "terminal.json"
+    triangle.create_only_json(path, {"status": "first"})
+    with pytest.raises(FileExistsError):
+        triangle.create_only_json(path, {"status": "second"})
 
 
 def _synthetic_v2_payload_contract(monkeypatch):
