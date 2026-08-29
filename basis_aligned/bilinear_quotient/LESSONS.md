@@ -2321,3 +2321,25 @@ its reference anchors. The covered-input control is **derived from the plan**, t
 the bottleneck moves, and it moved here from compute to authoring in a single day. And when a failure
 class keeps recurring under different names, ask what *shape of work* produces it — the answer was "copy
 a file and edit it", and no amount of checking a copied file is as good as not copying it.
+
+## LESSON 90 — I proposed archiving 1,601 dead scripts; measuring first killed the proposal
+
+The tree looks like bloat: 247 scripts in `ops/`, 90% of everything ever run was run once. Archiving the
+fossils to shrink the live surface is the obvious move. **Measured before moving anything:**
+
+- **238 of 247** scripts are referenced somewhere — the ledger, the registry, or another script. Only
+  **9** are provably inert.
+- **36** are referenced by another `.py`: real import or path dependencies.
+- **237 of 239** result JSONs are referenced by a script or the registry. `B.ref()` anchors read these by
+  path, so moving one silently breaks a reproduction control in a script that still looks fine.
+
+**The proposal was wrong.** The ledger and registry refer to scripts *by name* — that is what makes the
+record a record — and the artifacts are load-bearing for controls. Moving 9 files is not worth the risk.
+
+**The real bloat problem is not the files that exist; it is that each new experiment adds another
+224-line file.** `B.run()` addresses that at the source; the fossils should stay where the record points.
+
+Third time this session that measuring killed a plausible infrastructure plan: caching the 36 tables
+(setup was ~4s, saving nothing), four static gate checks for dropped string keys (218/227, then 2/82
+skipping the at-risk population, then 35/178, then 43 verdict changes), and now this.
+**A tidy-up is a change, and a change needs a measurement, not an intuition.**

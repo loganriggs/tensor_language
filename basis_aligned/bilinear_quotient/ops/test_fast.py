@@ -235,6 +235,22 @@ main()
 ]
 
 
+def test_every_ref_path_exists():
+    """Guards against exactly what Logan asked about: moving or deleting an artifact silently breaks a
+    reproduction control in a script that still looks fine. 237 of 239 result JSONs are referenced by a
+    .py or the registry, so nothing here is safely movable without this check."""
+    import glob
+    import re
+    missing = []
+    for f in glob.glob(os.path.join(HERE, '*.py')):
+        src = open(f, errors='replace').read()
+        for m in re.finditer(r"B\.PT \+ '(ops/[A-Za-z0-9_]+_results\.json)'", src):
+            if not os.path.exists(B.PT + m.group(1)):
+                missing.append((os.path.basename(f), m.group(1)))
+    check(f'ref paths: every B.ref() artifact referenced in ops/ still exists', not missing,
+          str(missing[:3]))
+
+
 def test_gate_fixtures():
     """The gate protects every run; these are the shapes that have actually reached the GPU."""
     for name, want_pass, src in GATE_FIXTURES:
@@ -260,7 +276,7 @@ def test_gate_accepts_the_library_itself():
           out.stdout.strip()[-120:])
 
 
-for fn in (test_ref_refuses_to_guess_a_coverage, test_rk_key_is_order_independent, test_inertness_pairs_splits_by_table_rank,
+for fn in (test_every_ref_path_exists, test_ref_refuses_to_guess_a_coverage, test_rk_key_is_order_independent, test_inertness_pairs_splits_by_table_rank,
            test_inertness_pairs_warns_when_a_side_is_vacuous, test_ref_reads_published_triples,
            test_paired_t_arithmetic, test_cost_matches_the_published_closed_form,
            test_arm_names_parse_the_way_the_grammar_says, test_gate_fixtures,
