@@ -53043,3 +53043,61 @@ The threshold conclusion survives it; any future quantitative use of a ratio mus
 actionable**: `BENCHMARK_BACKLOG.md` states rungs 4-8 are open but has never contained their descriptions
 — checked against every revision in its git history, the earliest being byte-identical to the current
 text. That gap is now recorded in the file itself. This wake therefore took rung 2.
+
+## §1906 — the norm ratio does NOT cause the collapse. Amplifying a harmless site past attn5's ratio makes it BETTER.
+
+`ops/cliff_location.py`, 149.3s, **DISCOVERY ONLY**, rung 3 — §1905's one quantitative gap.
+**pred_a False | pred_b False | pred_c False | pred_d True.** Three substantive misses, and they overturn
+the causal reading two sections have rested on.
+
+```
+  covered-arm enrichment while a HARMLESS site's live output is amplified (16,110 types)
+    attn3   x1  13.0x eff   7.36  7.52  7.67      attn13  x1  11.5x eff   7.97  8.53  8.31
+            x3  39.0x       7.86  8.19  8.24              x3  34.4x       9.89 10.70  8.45
+            x6  78.0x       8.36  8.96  9.15              x6  68.9x      11.62 13.10  9.09
+            x12 156.0x      9.04  9.81 10.09              x12 137.8x     12.76 14.48  8.59
+  for comparison, natural sites: attn5 144.0x -> 1.06   attn6 77.1x -> 1.32   baseline 7.16/7.29/7.49
+```
+
+> **There is no cliff, because there is no collapse. Driving attn3 to an effective ratio of 156x — HIGHER
+> than attn5's natural 144x — leaves it at 9.04x enrichment, the best figure in the run, while attn5 at
+> 144x sits at 1.06x.** attn13 reaches **12.76 / 14.48x**, nearly double the baseline. Amplification does
+> not degrade these sites at all; it monotonically **improves** their agreement with the model.
+>
+> **So the norm ratio is not the cause of the collapse, and §1892's causal reading is wrong.** I wrote
+> there that the mechanism *"is now demonstrated behaviourally rather than inferred"* and that the ratios
+> *"are the whole ordering"* — §1905 already downgraded the ordering to a threshold; §1906 removes the
+> causation. A high live/table ratio is a **correlate** of attn5 and attn6, not the reason they destroy
+> the program. Both sections are corrected in place.
+
+**What survives from §1892, stated exactly.** Its rescaling *measurement* stands: scaling attn5's live
+output DOWN to its table norm restores 1.07 → 7.26x. **Muting a harmful site returns it to baseline.**
+What does not follow — and what I asserted — is that being loud is what made it harmful. The two results
+together are asymmetric and that asymmetry is the finding: **scaling a harmful site down fixes it, and
+scaling a harmless site up does not break it.** Magnitude is sufficient to neutralise, and not sufficient
+to cause.
+
+> **Which means DIRECTION matters after all, and §1892 said it barely did.** §1892 concluded *"at the
+> compiled scale a restored site's DIRECTION barely matters; magnitude alone decides"*. The first clause
+> survives — at the table's magnitude every site returned to baseline. The second does not: at amplified
+> magnitude attn3 gets better and attn5 is at chance, so what separates them cannot be magnitude. **attn5
+> and attn6 write something the compiled program cannot absorb, and the open question is what.**
+
+**pred_a FAILED** with the largest adjacent gap being **−0.13 / −0.30 / −0.28x** — negative, i.e. every
+step up improves it. **pred_b and pred_c FAILED** vacuously in the strict sense: no multiplier produced an
+onset, so both "onset" quantities are undefined and print as 0. **They are scored FAIL as written**, and
+their vacuity is itself the result rather than a defect in the bars — a sweep designed to bracket a
+transition found no transition.
+
+**A non-monotonicity worth recording rather than smoothing.** attn13 on skip1200 rises to **9.09x at x6**
+then falls back to **8.59x at x12**, while skip7000 and skip11000 keep climbing. One role turns over and
+two do not; I am reporting it, not explaining it.
+
+**pred_d PASSED**: multiplier 1 reproduced §1905's published attn3 7.36 and attn13 7.97 **exactly**,
+coverage 16,110, and **the baseline is reported (7.16 / 7.29 / 7.49x) rather than anchored** — LESSON 71
+applied deliberately after §1905's pred_d failed on exactly that.
+
+**Open, and it is now the real question.** What do attn5 and attn6 write that the compiled program cannot
+absorb? It is not magnitude (§1906) and it is not depth (attn4 and attn7 flank them harmlessly). The next
+instrument is directional: compare attn5's live output direction against its table row's, and against the
+same comparison at a harmless site.

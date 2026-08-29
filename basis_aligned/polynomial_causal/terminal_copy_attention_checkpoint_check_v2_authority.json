@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "status": "frozen_before_checkpoint_weight_load",
+  "commit": "57689d4873f57981788c9f92e964e859a56498cd",
+  "source_hashes": {
+    "basis_aligned/polynomial_causal/TERMINAL_COPY_ATTENTION_CHECKPOINT_CHECK_V2_RECOVERY_PREREGISTRATION.md": "a53ffd9069d5abfd8ae9cc7dc91a24beec199f445286874af72cc23510901227",
+    "basis_aligned/polynomial_causal/terminal_copy_attention_checkpoint_check_v2.py": "41fd4ed66b3d9e1c840d0d0996a997cf0fde439caeb480d85b06256dd61213da",
+    "basis_aligned/polynomial_causal/terminal_copy_attention_checkpoint_check_v1_authority.json": "15c68bfaff6362300fa680a60ce14077bea43142f135ff4a6c809b5341ce2b5c",
+    "basis_aligned/polynomial_causal/terminal_copy_attention_checkpoint_check_v1_failure.json": "fdb947c9c557f23e819050a007bbf6d5cfc19039ce195aedcd47a6aadcbc9138",
+    "basis_aligned/polynomial_causal/terminal_copy_attention_checkpoint_check_v1.py": "ebb2988c029c5710fe9299890e396b57b2caadfc20bd96de44a0eead05ef398f",
+    "basis_aligned/polynomial_causal/TERMINAL_COPY_ATTENTION_ADAPTER_V1_ADDENDUM.md": "1c84e0288760be00dd06569badb1bdc4cb0f09a05ca3609767e01daf9094b0a8",
+    "basis_aligned/polynomial_causal/terminal_copy_attention_adapter.py": "be7c69a19bb1d2bf6249adb595dacf35433bba4abe35d6643153c4b2b3ac1c75",
+    "basis_aligned/polynomial_causal/test_terminal_copy_attention_adapter.py": "f5b6c65a00cc3517d6adc4ed3143b61be374cff6d693a6fa00102ccec9feafc8",
+    "basis_aligned/polynomial_causal/bilin18_observed_model_facade.py": "b62947f772c807259890a9d09dfcbe5e91ad339a0bffa867ab99177fde4c728c",
+    "jacclust/tt_model.py": "49ecdbd6c060ff5b3e57f3134d87ba32841390c891c42e6ae23b71d8627612b2",
+    "jacclust/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "checkpoint": {
+    "revision": "ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240",
+    "snapshot": "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240",
+    "config_sha256": "428042bfd807ba36f8b4326395440fbbebe52cd3d040212e6fef14a4fdf2d83c",
+    "weights_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+    "weights_bytes": 2067738635,
+    "tokenizer_vocab": 50257,
+    "logit_vocab": 50304
+  },
+  "seed": 2026082917,
+  "layers": [
+    5,
+    7,
+    8,
+    13,
+    14
+  ],
+  "shape": [
+    2,
+    32,
+    1152
+  ],
+  "dtype": "torch.bfloat16",
+  "relative_tolerance": 0.01,
+  "max_abs_tolerance": 1e+30,
+  "scientific_claim_authorized": false
+}

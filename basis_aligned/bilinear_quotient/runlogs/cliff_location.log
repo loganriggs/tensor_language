@@ -1,0 +1,33 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+WHERE IS THE COLLAPSE CLIFF? | buckets ((0, 0), (1, 4), (5, 24), (25, 124), (125, 1000000000)) on the fit-row count of the TRUE target | full-rank settled program | DISCOVERY ONLY
+  built the settled fallback and 36 tables (5s)
+
+  === all-compiled baseline ===
+    skip7000   covered enrichment  7.16x  (n 33192)
+    skip11000  covered enrichment  7.29x  (n 33196)
+    skip1200   covered enrichment  7.49x  (n 16597)
+    norm attn3   live 40722.015  table 3132.882  rescale x0.0769
+    norm attn13  live 3995.626  table  347.956  rescale x0.0871
+    attn3   x1     eff-ratio    13.0x  skip7000  7.36x  skip11000  7.52x  skip1200  7.67x
+    attn3   x2     eff-ratio    26.0x  skip7000  7.64x  skip11000  7.87x  skip1200  7.95x
+    attn3   x3     eff-ratio    39.0x  skip7000  7.86x  skip11000  8.19x  skip1200  8.24x
+    attn3   x4     eff-ratio    52.0x  skip7000  7.99x  skip11000  8.49x  skip1200  8.57x
+    attn3   x6     eff-ratio    78.0x  skip7000  8.36x  skip11000  8.96x  skip1200  9.15x
+    attn3   x8     eff-ratio   104.0x  skip7000  8.73x  skip11000  9.40x  skip1200  9.56x
+    attn3   x12    eff-ratio   156.0x  skip7000  9.04x  skip11000  9.81x  skip1200 10.09x
+    attn13  x1     eff-ratio    11.5x  skip7000  7.97x  skip11000  8.53x  skip1200  8.31x
+    attn13  x2     eff-ratio    23.0x  skip7000  8.80x  skip11000  9.63x  skip1200  8.46x
+    attn13  x3     eff-ratio    34.4x  skip7000  9.89x  skip11000 10.70x  skip1200  8.45x
+    attn13  x4     eff-ratio    45.9x  skip7000 10.55x  skip11000 11.63x  skip1200  8.82x
+    attn13  x6     eff-ratio    68.9x  skip7000 11.62x  skip11000 13.10x  skip1200  9.09x
+    attn13  x8     eff-ratio    91.9x  skip7000 12.48x  skip11000 14.00x  skip1200  8.98x
+    attn13  x12    eff-ratio   137.8x  skip7000 12.76x  skip11000 14.48x  skip1200  8.59x
+
+  IT IS A CLIFF, NOT A RAMP (adjacent gap >= 3.0x, attn3) -> False  skip7000 -0.13x  skip11000 -0.30x  skip1200 -0.28x
+  and the onset sits in §1905's (35x, 80x] bracket -> False  skip7000 last-ok 12.0x13.0=156x, onset 0x  skip11000 last-ok 12.0x13.0=156x, onset 0x  skip1200 last-ok 12.0x13.0=156x, onset 0x
+  and the two sites agree within 2x -> False  skip7000 attn3 0x vs attn13 0x  skip11000 attn3 0x vs attn13 0x  skip1200 attn3 0x vs attn13 0x
+  coverage 16110, x1 reproduces §1905 -> control True  attn3 7.36 vs 7.36  attn13 7.97 vs 7.97
+  baseline REPORTED (not a bar, LESSON 71): skip7000 7.16x  skip11000 7.29x  skip1200 7.49x
+
+pred_a False | pred_b False | pred_c False | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/cliff_location_results.json (149.3s)

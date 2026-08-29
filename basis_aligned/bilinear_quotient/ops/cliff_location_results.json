@@ -1,0 +1,242 @@
+{
+ "config": {
+  "table_ranks": [
+   "full"
+  ],
+  "map_rank_of_table_rank": {
+   "None": 64,
+   "512": 512
+  },
+  "program": "context-free tables, output-NN fallback with a rank-64 embedding->row map -- the settled design of \u00a71780-\u00a71786",
+  "instruments": "top-1 agreement with the live model, top-1 accuracy against the true next token, and KL(live || program). All three are NEW to this thread, which has been CE-only since \u00a71747.",
+  "ROLE_NOTE": "DISCOVERY ONLY; a second-class confirmation with a DIFFERENT instrument, not a replication of the same one."
+ },
+ "results": {
+  "baseline": {
+   "skip7000": 7.159873237897497,
+   "skip11000": 7.293872350283794,
+   "skip1200": 7.488382385483515
+  },
+  "norms": {
+   "attn3": {
+    "live_mean_norm": 40722.0146484375,
+    "table_mean_norm": 3132.881591796875,
+    "ratio": 0.07693336439377474
+   },
+   "attn13": {
+    "live_mean_norm": 3995.6257832845054,
+    "table_mean_norm": 347.9564514160156,
+    "ratio": 0.08708434430263053
+   }
+  },
+  "sites": {
+   "attn3": {
+    "m1": {
+     "skip7000": {
+      "enrichment": 7.3567343276886845,
+      "n": 33192
+     },
+     "skip11000": {
+      "enrichment": 7.519407619730085,
+      "n": 33196
+     },
+     "skip1200": {
+      "enrichment": 7.6713572401271,
+      "n": 16597
+     }
+    },
+    "m2": {
+     "skip7000": {
+      "enrichment": 7.64394471773249,
+      "n": 33192
+     },
+     "skip11000": {
+      "enrichment": 7.872665747587417,
+      "n": 33196
+     },
+     "skip1200": {
+      "enrichment": 7.947069943289225,
+      "n": 16597
+     }
+    },
+    "m3": {
+     "skip7000": {
+      "enrichment": 7.859462078992004,
+      "n": 33192
+     },
+     "skip11000": {
+      "enrichment": 8.194580304031724,
+      "n": 33196
+     },
+     "skip1200": {
+      "enrichment": 8.240809277078707,
+      "n": 16597
+     }
+    },
+    "m4": {
+     "skip7000": {
+      "enrichment": 7.993978170869402,
+      "n": 33192
+     },
+     "skip11000": {
+      "enrichment": 8.491880638445524,
+      "n": 33196
+     },
+     "skip1200": {
+      "enrichment": 8.571130797290255,
+      "n": 16597
+     }
+    },
+    "m6": {
+     "skip7000": {
+      "enrichment": 8.355531541267053,
+      "n": 33192
+     },
+     "skip11000": {
+      "enrichment": 8.957463027900594,
+      "n": 33196
+     },
+     "skip1200": {
+      "enrichment": 9.148741418764303,
+      "n": 16597
+     }
+    },
+    "m8": {
+     "skip7000": {
+      "enrichment": 8.73009932344897,
+      "n": 33192
+     },
+     "skip11000": {
+      "enrichment": 9.401373895976448,
+      "n": 33196
+     },
+     "skip1200": {
+      "enrichment": 9.560439560439562,
+      "n": 16597
+     }
+    },
+    "m12": {
+     "skip7000": {
+      "enrichment": 9.04094861660079,
+      "n": 33192
+     },
+     "skip11000": {
+      "enrichment": 9.810801014860457,
+      "n": 33196
+     },
+     "skip1200": {
+      "enrichment": 10.085539714867618,
+      "n": 16597
+     }
+    }
+   },
+   "attn13": {
+    "m1": {
+     "skip7000": {
+      "enrichment": 7.970408308436477,
+      "n": 33192
+     },
+     "skip11000": {
+      "enrichment": 8.533665059866273,
+      "n": 33196
+     },
+     "skip1200": {
+      "enrichment": 8.305472038484666,
+      "n": 16597
+     }
+    },
+    "m2": {
+     "skip7000": {
+      "enrichment": 8.804530011325028,
+      "n": 33192
+     },
+     "skip11000": {
+      "enrichment": 9.628557645923781,
+      "n": 33196
+     },
+     "skip1200": {
+      "enrichment": 8.461273666092945,
+      "n": 16597
+     }
+    },
+    "m3": {
+     "skip7000": {
+      "enrichment": 9.891161178509531,
+      "n": 33192
+     },
+     "skip11000": {
+      "enrichment": 10.699787083037615,
+      "n": 33196
+     },
+     "skip1200": {
+      "enrichment": 8.447321954090642,
+      "n": 16597
+     }
+    },
+    "m4": {
+     "skip7000": {
+      "enrichment": 10.5546875,
+      "n": 33192
+     },
+     "skip11000": {
+      "enrichment": 11.627450980392156,
+      "n": 33196
+     },
+     "skip1200": {
+      "enrichment": 8.822429906542057,
+      "n": 16597
+     }
+    },
+    "m6": {
+     "skip7000": {
+      "enrichment": 11.623119556611243,
+      "n": 33192
+     },
+     "skip11000": {
+      "enrichment": 13.095623987034035,
+      "n": 33196
+     },
+     "skip1200": {
+      "enrichment": 9.092945128779395,
+      "n": 16597
+     }
+    },
+    "m8": {
+     "skip7000": {
+      "enrichment": 12.479647964796479,
+      "n": 33192
+     },
+     "skip11000": {
+      "enrichment": 13.997755331088664,
+      "n": 33196
+     },
+     "skip1200": {
+      "enrichment": 8.975069252077562,
+      "n": 16597
+     }
+    },
+    "m12": {
+     "skip7000": {
+      "enrichment": 12.756097560975608,
+      "n": 33192
+     },
+     "skip11000": {
+      "enrichment": 14.478527607361963,
+      "n": 33196
+     },
+     "skip1200": {
+      "enrichment": 8.590051457975987,
+      "n": 16597
+     }
+    }
+   }
+  }
+ },
+ "predictions": {
+  "pred_a_cliff_not_ramp": false,
+  "pred_b_onset_in_bracket": false,
+  "pred_c_two_sites_agree": false,
+  "pred_d_controls": true
+ },
+ "runtime_s": 149.3
+}
