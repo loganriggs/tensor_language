@@ -1162,6 +1162,26 @@ C512 preserves the L8 copy state $z$ extremely well:
 - cosine `0.9985`;
 - it removes **99.63%** of the $z$ error caused by deleting MLP0.
 
+Here **deleting MLP0** means replacing MLP0's complete residual-stream write by the
+zero vector at every token position.  It deletes the variable bilinear contribution
+and MLP0's learned `Down` bias.  The residual bypass, embedding stream, attention0,
+and every later component remain live.  This is **not** replacement by the mean
+MLP0 write, an optimal constant, or a fitted bias.  It is intentionally a severe
+causal scale control.  A mean/optimal-constant replacement would probably be less
+damaging, but it was not the denominator used here.
+
+More precisely, if $z_N$ is the native downstream copy state, $z_C$ is the state
+under C512, and $z_Z$ is the state when the MLP0 write is zeroed, the reported
+quantity is
+
+$$
+1-\frac{\lVert z_C-z_N\rVert_2^2}{\lVert z_Z-z_N\rVert_2^2}=99.63\%.
+$$
+
+Thus 99.63% refers to recovery of the **squared-error gap in the 256-dimensional
+state $z$**.  It is not a claim that C512 recovers exactly 99.63% of the CE damage.
+The CE measurements are reported separately below.
+
 This last comparison shows the score is not vacuous: deleting MLP0 raises aggregate
 CE by `2.591` nat and copy CE by `2.801` nat.  MLP0 matters enormously, and C512
 preserves almost all of what this downstream copy consumer needs.
