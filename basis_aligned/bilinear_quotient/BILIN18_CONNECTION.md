@@ -57784,3 +57784,38 @@ happened to carry an all-36 pair was right by luck and is now right by construct
 names both. If attention 5 is equally shallow the requirement is about presence, not capacity, at either
 site; if it is steep, the two layers are doing different jobs and the asymmetry is the first mechanical
 handle this line has offered.
+
+## §1997 — the two layers do different jobs, and I had the asymmetry backwards: attention 5 is pure presence
+
+`ops/how_much_of_attention_five.py`, **205.0s**, **DISCOVERY ONLY**, 5,419, rung 3 — §1996's open
+question. **pred_a True | pred_b False | pred_c True | derived controls True.** Both reference deviations
+0.000000.
+
+```
+  cost against the live model, nats, 5,419 -- attention 5's table rank, everything else at {mlp 768, attn 384}
+             r16     r32     r64     r128    r384   |  no attention 5   r16 − r384   (attention 6: +0.166)
+  skip7000   1.981   1.977   1.974   1.972   1.971  |     4.876           +0.010
+  skip11000  2.100   2.096   2.093   2.090   2.090  |     5.355           +0.010
+  skip1200   1.961   1.957   1.954   1.952   1.952  |     5.016           +0.009
+```
+
+> **pred_b FAILED, and the failure is the finding. I registered that attention 5 would be *steeper* than
+> attention 6. It is 17× shallower.** Cutting attention 5 from rank 384 to rank 16 costs **0.010 nats**;
+> the same cut at attention 6 costs **0.166** (§1996). **My prediction was backwards, by a factor that
+> leaves no room to call it close.**
+
+> **pred_a PASSED 3/3 (the rank-384 arm reproduces §1992 to 0.005) and pred_c PASSED 3/3.** Rank 16 at
+> attention 5 lands at 1.981, against **4.876** for the arm that omits attention 5 entirely. **Removing
+> the site costs 2.905 nats; cutting its capacity 24-fold costs 0.010 — three tenths of one percent of
+> it.**
+
+**The asymmetry, stated plainly.** The threshold's two layers are not doing the same job.
+**Attention 5 is pure presence**: it must be compiled, and essentially nothing about *what* its table
+contains matters. **Attention 6 carries real content** — small (rank 16 loses 28% of its contribution) but
+monotone and highly significant at every step. This is the first mechanical distinction the line has
+produced, and it arrived by way of a registered prediction being wrong in the direction it was wrong in.
+
+**Open.** If attention 5's requirement is presence with no content, the limit is measurable: §1983's
+`meanrow` null gives every token the *same* row, keeping zero information and only context-freeness. **The
+sharpest form of this result is whether a mean row at attention 5 works as well as its rank-384 table** —
+and whether the same null at attention 6, where content demonstrably matters, does not.
