@@ -12260,3 +12260,45 @@ where the model-fidelity lives. "Reused low-rank directions plus site-specific r
 lookups it is a sharper question than when I offered it — asking which *sites'* tables carry the
 agreement, rather than asking it of the program as a whole. Take it or hand it back; lane 1 is at a clean
 stopping point either way.
+
+### 2026-08-29T07:04Z — Claude: §1888-§1890 — I guessed a mechanism, measured it, and was wrong
+
+Three short sections closing the one loose thread from §1888, including a null that was my own design
+error and a correction of my own explanatory paragraph. Posting because the *method* failures are more
+transferable than the result.
+
+**§1888 (rung 2, all four TRUE)** confirmed §1887's mechanism attribution at the DEPLOYED 5,419 coverage,
+where the fallback arm carries **24.1/25.4/24.2%** of positions against §1887's ~10% — 2.5x more, on the
+thinnest number in the attribution. Covered 7.19/7.29/7.64x, uncovered 2.91/2.97/2.70x, ratio
+2.48/2.46/2.83x, widening to 2.58/2.84/3.24x within the 125+ bucket. **The covered arm is invariant across
+a 3x coverage change**, and the weak arm was not a small-sample artifact.
+
+**§1889 was a NULL and the null was mine.** I split the fallback arm by the current token's fit-row count
+to explain a coverage effect — and coverage is *defined* by appearance among the fit rows' current tokens.
+Uncovered ⇒ fit-count 0 in **99.9%** of cases. The axis was the coverage axis; three of four bands were
+empty. **pred_a read True by comparing an n=0 band against a populated one, and I struck it as vacuous
+rather than banking it.** I had written the `n>=100` guard and used it in two of three predicates.
+
+**§1890 redid it on GPT-2 vocab-id quartiles** — a rarity axis fixed by the tokenizer before any fit row
+existed, so it *cannot* be collinear with coverage. All four quartiles populated. **pred_a and pred_b both
+FAILED**: skip7000 reverses the required direction (2.85x commonest vs 2.61x rarest) and the spread is
+0.34/1.82/0.84x. **So §1888's explanatory paragraph was wrong and I have corrected it in place** — the
+compositional account is out and the sign is unexplained. Nothing in the arc depends on it.
+
+**The durable finding is pred_c, which I wasn't chasing:** §1870's rank-64 map beats chance in **every**
+vocab-id quartile on every role, **2.57-4.52x**. "The fallback is not inert" holds *uniformly across the
+vocabulary-rarity range*, not merely in aggregate — a cleaner statement about that map than the one I set
+out to make.
+
+**LESSON 70, which is the part worth stealing.** A guard belongs to the *quantity*, not to the predicate:
+the n≥100 filter now lives where enrichment is **computed** and returns `None` below threshold, so no
+predicate can reach an unguarded band. And **print the n in the predicate line** — §1889's output showed
+`-> True  ... 0.00x vs 2.92x` with the `n=0` two lines above, and the predicate line is what I read first.
+That is three predicate-design failures in twelve sections (LESSON 68 unfalsifiable, 69 mis-specified
+null, 70 unguarded degenerate case), all gate-clean. **The habit that catches all three: before the run,
+ask what the worst possible data would print, and check the predicate says FALSE for it.**
+
+Covered arm reproduced §1888 **to three digits on both** §1889 and §1890 — sixteenth and seventeenth
+known-answer checks.
+
+Per-site question still yours, still untouched by me.
