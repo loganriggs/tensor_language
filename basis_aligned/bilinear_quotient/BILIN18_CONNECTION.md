@@ -58571,3 +58571,49 @@ than their sum in any case.**
 **Open.** §2013 priced rank 128 against rank 768 at **mlp2**, where the content is worth 0.0001 nats, and
 found it marginally worth buying. **The same question at mlp16 and mlp17, where the content is worth 0.35
 and 0.82, has not been asked** — and those two sites are where a rank decision actually moves the program.
+
+## §2016 — rank 768 is correctly bought at the two sites that carry the program, by 5× to 24×
+
+`ops/rank_at_the_two_sites_that_matter.py`, **445.4s**, **DISCOVERY ONLY**, 5,419, rung 3 — §2015's open
+question. **pred_a True | pred_b True | pred_c True | pred_d True | derived controls True.** Reference
+deviation 0.000000.
+
+```
+  cost of truncating one site's table inside the shipped program, nats, 5,419
+             mlp16 r128  mlp16 r384  mlp17 r128  mlp17 r384  both r128   sum    gap
+  skip7000    +0.00565    +0.00259    +0.01006    +0.00285   +0.01941  +0.01571 +0.00370
+  skip11000   +0.00608    +0.00199    +0.00857    +0.00288   +0.01851  +0.01465 +0.00386
+  skip1200    +0.00503    +0.00125    +0.00844    +0.00193   +0.01727  +0.01347 +0.00380
+
+  §1947's price: 768->128 saves 4.205M = 0.00042 nats;  768->384 saves 2.52M = 0.00025 nats
+```
+
+> **pred_b PASSED 3/3 at both sites, and not marginally. Rank 128 costs 0.0050–0.0061 at mlp16 and
+> 0.0084–0.0101 at mlp17 — 12× to 24× what the 4.205M saved values are worth.** Rank 384 costs 5× to 12×
+> its own 0.00025 price. **Every truncation tested at these two sites loses money by an order of
+> magnitude, so §1959's uniform rank 768 is correctly bought where the program actually lives.**
+
+> **§2013's mlp2 result does not generalise, and §2016 is the reason it was worth asking again.** At mlp2
+> — whose entire table content is 0.0001 nats — rank 128 is marginally justified, costing 0.00025 against
+> 0.00042 of parameters. **At mlp17 the same truncation costs 0.0084–0.0101.** A per-site allocation would
+> have to be genuinely per-site; a uniform rank read off mlp2 would be a 20-fold error at mlp17.
+
+> **pred_c PASSED: the curve is convex.** Rank 384 costs **0.23 to 0.46** of what rank 128 costs, for 60%
+> of the saving. A middle rank is the better buy *if one were buying* — but at 5–12× the price, none of
+> them is.
+
+> **pred_d PASSED 3/3 and independently reproduces §2014. Truncating both sites costs 0.0173–0.0194
+> against a sum of 0.0135–0.0157 — super-additive by 24%**, where §2014 measured 22% on entirely
+> different arms (mean rows at mlp2, mlp3 and mlp12). **Two measurements of the same nonlinearity, from
+> different interventions, agreeing to two points.**
+
+**Where the shipped build stands after §2013–§2016.** Its table content is concentrated in mlp16 and mlp17
+(§2015); at those two sites its rank is correctly bought by 5–24× (§2016); at the shallow sites the tables
+are nearly free to degrade but their parameters are worth ten times less than degrading them costs
+(§2015); and the whole program is super-additive in loss by 22–24%, so per-site decisions do not simply
+add (§2014, §2016). **No allocation change is indicated, and that is a result rather than an absence of
+one.**
+
+**Open.** Every rank tested has been *below* 768, and 768 is itself a truncation — the untruncated table at
+5,419 coverage has rank **1152**. **Whether mlp16 and mlp17 are leaving content on the table above 768 has
+never been asked**, and it is the one direction in which the allocation could still be wrong.
