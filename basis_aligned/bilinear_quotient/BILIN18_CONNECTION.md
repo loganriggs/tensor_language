@@ -54322,7 +54322,13 @@ arms cost **360.7235M** against §1882's 360.724M, and coverage is exactly 16,11
 > covered CE is **3.19438** and the assert fired. **The guard worked exactly as intended** — it has now
 > caught this in §1882, §1905 (as a scored pred_d failure) and here — but I converted the reliability
 > lineage to `None` anchors and never touched the frontier one. **Fixed in this script with the reason in
-> the source; the other frontier scripts still carry it.**
+> the source.**
+>
+> **[CORRECTED, same session: I wrote "the other frontier scripts still carry it" without checking.
+> Measured: 176 ops scripts carry the 3.29205 constant, 62 of those also load the n480 fit rows, and
+> ZERO of them assert on it — the assert lives only in the frontier lineage's `ce_both` path, and
+> this script was the last one there running at a mismatched coverage. The trap is CLOSED, not
+> outstanding. Two minutes of grep, against a claim I had just made the opposite way.]**
 
 **Open.** Nothing in the allocation line. It is measured at two budgets and two coverages, the rule is
 scale-free, and the size is ~0.015-0.019 nats free.
