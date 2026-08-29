@@ -2464,3 +2464,22 @@ mlp12 made it **3.8× worse**. A two-sided tolerance treats "no different" as th
 **The verdict still stands as written.** §1986 scored both FALSE and published them FALSE; the finding was
 reported from the numbers, not from a rewritten bar. But two of three predicates carried no information
 about what actually happened, and that is a wasted register. See [[LESSON 94]] and [[LESSON 95]].
+
+## LESSON 97 — a rule derived from one site cannot tell a chain from its endpoint
+
+§1990 closed nine sections with a rule: *"a compiled site is safe when every attention layer strictly above
+it, up to and including attention 6, is also compiled."* It fit every number I had. §1991 tested it at a
+second site, removed one middle layer from the supposed path, and the cost went **down** by 0.042 nats.
+**There was never a chain.** Every working arm shared attention 5 and attention 6; the layers in between
+came along for free because a *contiguous* prefix always contains them.
+
+**The generalisation outran the design.** Each arm in §1985–§1990 varied the prefix by *extending* it, so
+"contiguous through 6" and "contains 5 and 6" were never separated — the same defect as §1980's fixed
+prefix (LESSON 95), one rung up: there I held something constant, here I only ever varied it monotonically.
+
+**A monotone sweep tests an ordering, not a mechanism.** To claim a *set* is required, delete a member.
+§1991's gap arm cost 50 seconds and falsified nine sections of framing.
+
+**Withdraw the sentence, keep the table.** §1990's measurements reproduced to 0.000000 inside §1991. What
+failed was one sentence, and it is now struck in the ledger, marked in the registry, and corrected on the
+board — with no rule in force until §1992 measures the narrow form. See [[LESSON 95]] and [[LESSON 96]].

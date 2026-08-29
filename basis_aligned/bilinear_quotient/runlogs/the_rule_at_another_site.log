@@ -1,3 +1,37 @@
 THE RULE AT ANOTHER SITE | 7 arms x 1 coverage(s) | DISCOVERY ONLY
 
 ########## COVERAGE 5419 ##########
+  [bqlib] coverage 5419 from fineweb_n96_skip80.pt: 36 tables, neighbour index and map solver built (4s)
+  [bqlib] cache HIT  live     skip7000
+  [bqlib] cache HIT  live     skip11000
+  [bqlib] cache HIT  live     skip1200
+  [bqlib] cache HIT  mix30m640 skip7000
+  [bqlib] cache HIT  mix30m640 skip11000
+  [bqlib] cache HIT  mix30m640 skip1200
+  [bqlib] computed   mix30m640 skip7000 (1.4s)
+  [bqlib] computed   mix30m640 skip11000 (1.3s)
+  [bqlib] computed   mix30m640 skip1200 (0.6s)
+  [bqlib] cache HIT  mix30m640 skip7000
+  [bqlib] cache HIT  mix30m640 skip11000
+  [bqlib] cache HIT  mix30m640 skip1200
+  [bqlib] computed   mix30m640 skip7000 (1.6s)
+  [bqlib] computed   mix30m640 skip11000 (1.3s)
+  [bqlib] computed   mix30m640 skip1200 (0.6s)
+  [bqlib] cache HIT  mix30m640 skip7000
+  [bqlib] cache HIT  mix30m640 skip11000
+  [bqlib] cache HIT  mix30m640 skip1200
+  [bqlib] cache HIT  mix30m640 skip7000
+  [bqlib] cache HIT  mix30m640 skip11000
+  [bqlib] cache HIT  mix30m640 skip1200
+  [bqlib] cache HIT  map512   skip7000
+  [bqlib] cache HIT  map512   skip11000
+  [bqlib] cache HIT  map512   skip1200
+
+  dropping attention 2, which runs below mlp2, costs nothing (>=2 roles, +0.01 slack)  -> True
+  and a gap at layer 3 breaks it -- mlp2 + attention 4-6 stays above 4 nats  -> False
+  and mlp2's minimal path lands under 2.5 nats -- the rule transfers to a new site  -> True
+  derived controls -> True   coverage_exact=True  inert_pairs_are_inert=True  some_differing_pair_moves=True  buckets_partition=True  live_identical=True  ref_mlp2=True  ref_mlp2_a26=True  ref_mlp4_a56=True  ref_full_program=True
+  reference deviations: mlp2 0.000000  mlp2_a26 0.000000  mlp4_a56 0.000000  full_program 0.000000
+
+pred_a True | pred_b False | pred_c True | pred_z True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/the_rule_at_another_site_results.json (50.8s)

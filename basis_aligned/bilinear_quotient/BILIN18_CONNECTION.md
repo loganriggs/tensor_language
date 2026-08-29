@@ -57530,8 +57530,13 @@ or only attention 6 with one intermediary.**
 **The localisation line, closed.** §1978 measured partial compilation at 3.6× the full program and called
 it a mystery. Nine sections later the answer is three sites and one rule:
 
-> **A compiled site is safe when every attention layer strictly above it, up to and including attention 6,
-> is also compiled — and nothing else is.** Sites below it cost (§1986: −0.372; §1990: −0.198). A path
+> **WITHDRAWN BY §1991 — read the table, not this sentence.** The "every attention layer strictly above"
+> form was derived from one site and is false: §1991 removes attention 3 from mlp2's path and it gets
+> *better* by 0.042 nats. What the working arms share is attention 5 and attention 6. The measurements
+> below stand; the generalisation did not.
+>
+> ~~A compiled site is safe when every attention layer strictly above it, up to and including attention 6,
+> is also compiled — and nothing else is.~~ Sites below it cost (§1986: −0.372; §1990: −0.198). A path
 > stopped short costs more than no path (§1987: +2.08). Above attention 6 nothing is required at all
 > (§1988, §1989: 0.03–0.20 nats). The site that matters is **mlp4**, its content is **irrelevant**
 > (§1983), and the whole 3.6× penalty is one chain: **mlp4 → attention 5 → attention 6.**
@@ -57543,3 +57548,43 @@ a program. The §1979 architectural fork is unchanged and still with Logan.
 **Open.** The rule is stated for mlp4 and verified for one site. It predicts the minimal path for **mlp2**
 is attention 3–6 — dropping attention 2, which runs below it — and that dropping attention 3 as well
 breaks it. §1987 bought attention 2–6 without asking.
+
+## §1991 — the rule I stated in §1990 is wrong: the chain is not a chain, and a gap costs nothing
+
+`ops/the_rule_at_another_site.py`, **50.8s**, **DISCOVERY ONLY**, 5,419, rung 3 — §1990's open question.
+**pred_a True | pred_b False | pred_c True | derived controls True.** All four reference deviations
+0.000000.
+
+```
+  cost against the live model, nats, 5,419
+             mlp2    +attn3-6   +attn2-6   +attn4-6 (GAP at 3)  |  mlp4+attn5,6   full 36 sites
+  skip7000   4.813    1.887      1.977        1.845             |     1.555          2.808
+  skip11000  5.291    2.016      2.117        1.959             |     1.640          2.979
+  skip1200   4.958    1.817      1.906        1.807             |     1.498          2.702
+```
+
+> **pred_a PASSED 3/3 and transferred cleanly: attention 2 runs below mlp2 and is not needed.** Dropping
+> it is worth **0.095 nats at pooled t = −174.9**, the same sign and a smaller size than the 0.198 §1990
+> measured at mlp4. **pred_c PASSED 3/3** — mlp2's path lands at 1.82–2.02, under the 2.5 bar.
+
+> **pred_b FAILED, and it falsifies the rule's form, not its numbers.** The bar was "a gap at layer 3
+> breaks it — mlp2 + attention 4–6 stays above 4 nats". It costs **1.845**. **Skipping attention 3
+> entirely is not a break; it is a small improvement** — compiling attention 3 costs 0.042 nats at pooled
+> t = +18.9. **There is no chain.**
+
+**§1990's rule is withdrawn as stated.** I wrote it into the ledger, the registry and the board as *"every
+attention layer strictly above the compiled site, up to and including attention 6, is also compiled"*, on
+evidence from one site that could not distinguish a chain from its endpoint. §1991 removes attention 3 from
+mlp2's path and nothing happens. **What every working arm actually shares is attention 5 and attention 6** —
+mlp4+{5,6} 1.555, mlp2+{4,5,6} 1.845, mlp2+{3,4,5,6} 1.887 — and every layer beyond those two costs a
+little more. **The sites in between were never doing the work.**
+
+**Scored and marked, not quietly patched.** §1990's *measurements* stand and all four references in this
+run reproduced to 0.000000. §1990's rule statement now carries this correction in place, and the registry
+entry is marked. The narrow form — *compile attention 5 and attention 6, and nothing else* — is the obvious
+reading of these numbers and is **not yet measured**: no arm here compiles mlp2 with attention 5 and 6
+alone. §1992 does exactly that, and until it reports there is no rule in force, only a table.
+
+**Open.** If `mlp2 + attention 5 + attention 6` lands near 1.8, the requirement is the **two layers beneath
+the boundary**, independent of where the compiled site sits, and both §1986's "path" and §1990's "chain"
+were the same two layers seen through longer prefixes.

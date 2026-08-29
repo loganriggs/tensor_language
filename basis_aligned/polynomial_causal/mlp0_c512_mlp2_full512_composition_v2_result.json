@@ -1,0 +1,136 @@
+{
+  "claim_boundary": "in_distribution_frozen_parent_composition_no_strict_ledger_move",
+  "composition_gates": {
+    "abs_interaction_at_most_0p01": true,
+    "both_dce_within_full_plus_0p01": false,
+    "both_kl_within_full_plus_0p01": false,
+    "interaction_ci_inside_pm0p02": true,
+    "prefix_stability": true
+  },
+  "documents": 192,
+  "interaction": {
+    "bootstrap_draws": 10000,
+    "both_dce_one_sided_95_ucb": 0.06983402106497023,
+    "both_kl_one_sided_95_ucb": 0.07076498907990754,
+    "c512_marginal_given_full": 0.01212003082036972,
+    "full_marginal_given_c512": 0.061615285774072014,
+    "interaction_ci95": [
+      0.007510854407317108,
+      0.0100136316070954
+    ],
+    "interaction_dce": 0.008739273581239913
+  },
+  "parents": {
+    "authority": "4e0a9476db70d1a8918c322db86ac011fd4ed9ea6c6526da5fc9857261dc1f91",
+    "ledger": "d3b9cafee166ac16361526edb36d5882e360575d08140620da0fc7d73295b873"
+  },
+  "runtime_seconds": 20.293899536132812,
+  "schema": "mlp0_c512_mlp2_full512_composition_v1_result",
+  "status": "interaction_inconclusive",
+  "summaries": {
+    "BOTH": {
+      "192": {
+        "candidate_accuracy": 0.400146484375,
+        "centered_logit_nrmse": 0.1545250966055521,
+        "dce": 0.06499604301320182,
+        "native_accuracy": 0.4091796875,
+        "teacher_kl": 0.06790292493274643,
+        "top1_agreement": 0.8576117621527778
+      },
+      "48": {
+        "candidate_accuracy": 0.4060329861111111,
+        "centered_logit_nrmse": 0.14549241482316197,
+        "dce": 0.05652718411551581,
+        "native_accuracy": 0.4122178819444444,
+        "teacher_kl": 0.06373056479626232,
+        "top1_agreement": 0.8623046875
+      },
+      "96": {
+        "candidate_accuracy": 0.39599609375,
+        "centered_logit_nrmse": 0.1484195333686903,
+        "dce": 0.060237473911709256,
+        "native_accuracy": 0.4044596354166667,
+        "teacher_kl": 0.06753497092156774,
+        "top1_agreement": 0.8550347222222222
+      }
+    },
+    "C512": {
+      "192": {
+        "candidate_accuracy": 0.4080132378472222,
+        "centered_logit_nrmse": 0.040698557859279325,
+        "dce": 0.0033807572391298083,
+        "native_accuracy": 0.4091796875,
+        "teacher_kl": 0.004478085233131424,
+        "top1_agreement": 0.9607747395833334
+      },
+      "48": {
+        "candidate_accuracy": 0.4114583333333333,
+        "centered_logit_nrmse": 0.038771210864346733,
+        "dce": 0.0022391080856323242,
+        "native_accuracy": 0.4122178819444444,
+        "teacher_kl": 0.004464342077780101,
+        "top1_agreement": 0.9600694444444444
+      },
+      "96": {
+        "candidate_accuracy": 0.4031032986111111,
+        "centered_logit_nrmse": 0.03866754013098597,
+        "dce": 0.0022384822368621826,
+        "native_accuracy": 0.4044596354166667,
+        "teacher_kl": 0.004403798275032184,
+        "top1_agreement": 0.9615342881944444
+      }
+    },
+    "FULL512": {
+      "192": {
+        "candidate_accuracy": 0.4019911024305556,
+        "centered_logit_nrmse": 0.14030106987618274,
+        "dce": 0.0528760121928321,
+        "native_accuracy": 0.4091796875,
+        "teacher_kl": 0.055820001340988606,
+        "top1_agreement": 0.867431640625
+      },
+      "48": {
+        "candidate_accuracy": 0.4089626736111111,
+        "centered_logit_nrmse": 0.1327666955367,
+        "dce": 0.04535357157389323,
+        "native_accuracy": 0.4122178819444444,
+        "teacher_kl": 0.05233444697741005,
+        "top1_agreement": 0.8727213541666666
+      },
+      "96": {
+        "candidate_accuracy": 0.3980577256944444,
+        "centered_logit_nrmse": 0.13512884661563399,
+        "dce": 0.04925723373889923,
+        "native_accuracy": 0.4044596354166667,
+        "teacher_kl": 0.05568893615984254,
+        "top1_agreement": 0.8649088541666666
+      }
+    },
+    "NATIVE": {
+      "192": {
+        "candidate_accuracy": 0.4091796875,
+        "centered_logit_nrmse": 0.0,
+        "dce": 0.0,
+        "native_accuracy": 0.4091796875,
+        "teacher_kl": 0.0,
+        "top1_agreement": 1.0
+      },
+      "48": {
+        "candidate_accuracy": 0.4122178819444444,
+        "centered_logit_nrmse": 0.0,
+        "dce": 0.0,
+        "native_accuracy": 0.4122178819444444,
+        "teacher_kl": 0.0,
+        "top1_agreement": 1.0
+      },
+      "96": {
+        "candidate_accuracy": 0.4044596354166667,
+        "centered_logit_nrmse": 0.0,
+        "dce": 0.0,
+        "native_accuracy": 0.4044596354166667,
+        "teacher_kl": 0.0,
+        "top1_agreement": 1.0
+      }
+    }
+  }
+}

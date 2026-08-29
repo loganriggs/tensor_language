@@ -1,0 +1,19 @@
+{
+  "authority_sha256": "4e0a9476db70d1a8918c322db86ac011fd4ed9ea6c6526da5fc9857261dc1f91",
+  "evaluation_opened": true,
+  "ledger_sha256": "d3b9cafee166ac16361526edb36d5882e360575d08140620da0fc7d73295b873",
+  "recovery_admission": {
+    "recovery_audit_sha256": "39cb2b4f04f7386cd2b8162d8af4e03351fef930d8d79a0c5d89b12bfdad3238",
+    "recovery_audited_source_commit": "cec797ac970f08714e79b8b59f3889fc449c3bc7",
+    "recovery_source_hashes": {
+      "basis_aligned/polynomial_causal/MLP0_C512_MLP2_FULL512_COMPOSITION_V2_EXECUTION_RECOVERY_AMENDMENT.md": "268ce974ac5de80a2567682e4c2a0a8d72613fe031026c5e1d27ff4d7db8e11b",
+      "basis_aligned/polynomial_causal/recover_mlp0_c512_mlp2_full512_composition_v2.py": "06e0dd15b65068270f14c44ee072da07374f09b327123f827cbe2267f8649f09",
+      "basis_aligned/polynomial_causal/test_recover_mlp0_c512_mlp2_full512_composition_v2.py": "69db56806df682784be8d074123c09cf512dcd15c825c4b181d132bdc90c8490"
+    },
+    "v1_failure_sha256": "6c375e461def332a38584e11a542ab4ec3c6822e6a385a31c46d8e51c98e42e1",
+    "v1_success_and_lock_absent": true
+  },
+  "result_sha256": "97822bd27e9b4fca0768da16e7df3c5adbacc2fedcaa6652a715394a5f380f1b",
+  "schema": "mlp0_c512_mlp2_full512_composition_v2_receipt",
+  "status": "result_complete_receipt_last"
+}

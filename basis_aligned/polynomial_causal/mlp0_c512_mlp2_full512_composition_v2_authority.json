@@ -1,0 +1,66 @@
+{
+  "arms": [
+    "NATIVE",
+    "C512",
+    "FULL512",
+    "BOTH"
+  ],
+  "audit_reviewer": "Codex independent source-only audit",
+  "audit_sha256": "e5f8b6bce43524e7dfc0a6d05f33adf5e494c1b4fbe266bd2781cd20979407c2",
+  "evaluation_rows_sha256": "c340a75c27afa0c37f4404c8ddc865275ed626542260c7f84ae14dba7c1ccbbc",
+  "outcome_access": false,
+  "parents": {
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/mlp0_native_down_hierarchy_v1_fit_receipt.json": "79d0069864e9df521a99fc36531dd86c7ed31106f58f029d681fb1788a269f82",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/mlp0_native_down_hierarchy_v1_programs/C512_at_C512.bin": "3ecf43b485d343bc5413e817dbd4236e5ce6cdaa7a3e0e653214e812b84ce470",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/mlp2_rank512_refit_v2_recovery_bundle.pt": "d0ad8aedcfec5097e2791d64281f5cc4b644af450968456fc64dc7312123078e",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/mlp2_rank512_refit_v2_recovery_receipt.json": "3578a68b4e8c20ea95f55a62cf9ff4e59e628bd69dbbad995f17a20f5265a7b2"
+  },
+  "recovery_admission": {
+    "recovery_audit_sha256": "39cb2b4f04f7386cd2b8162d8af4e03351fef930d8d79a0c5d89b12bfdad3238",
+    "recovery_audited_source_commit": "cec797ac970f08714e79b8b59f3889fc449c3bc7",
+    "recovery_source_hashes": {
+      "basis_aligned/polynomial_causal/MLP0_C512_MLP2_FULL512_COMPOSITION_V2_EXECUTION_RECOVERY_AMENDMENT.md": "268ce974ac5de80a2567682e4c2a0a8d72613fe031026c5e1d27ff4d7db8e11b",
+      "basis_aligned/polynomial_causal/recover_mlp0_c512_mlp2_full512_composition_v2.py": "06e0dd15b65068270f14c44ee072da07374f09b327123f827cbe2267f8649f09",
+      "basis_aligned/polynomial_causal/test_recover_mlp0_c512_mlp2_full512_composition_v2.py": "69db56806df682784be8d074123c09cf512dcd15c825c4b181d132bdc90c8490"
+    },
+    "v1_failure_sha256": "6c375e461def332a38584e11a542ab4ec3c6822e6a385a31c46d8e51c98e42e1",
+    "v1_success_and_lock_absent": true
+  },
+  "row_receipt_sha256": "3b0de23f0d9f3ef781e25a6f6173071abacf4aab8965faa2bd6ab6b3a747bbb0",
+  "schema": "mlp0_c512_mlp2_full512_composition_v2_authority",
+  "scored_slice": [
+    64,
+    256
+  ],
+  "source_commit": "7b7c5763e5b9a02143ffaafacbeb873799882e78",
+  "source_hashes": {
+    "basis_aligned/polynomial_causal/BLOCK3_NATIVE_DOWN_BEHAVIORAL_PORT_V1_EXECUTION_ADDENDUM.md": "19a59ab85a85a1ab7b398ecfba42dc684dc17a9066cfb64b0b1bceed1196bea0",
+    "basis_aligned/polynomial_causal/BLOCK3_NATIVE_DOWN_BEHAVIORAL_PORT_V1_PREREGISTRATION.md": "8801b6cdfc0bf2f586a4e7462abf51b0213697eff27af4b8260a3aa4e8c9e6bb",
+    "basis_aligned/polynomial_causal/MLP0_C512_MLP2_FULL512_COMPOSITION_V1_PREREGISTRATION.md": "fe45d545efe7d9bd007cdda524490476c6bfd916366273eac05e47c7e87f6f7a",
+    "basis_aligned/polynomial_causal/MLP0_C512_MLP2_FULL512_COMPOSITION_V2_ROW_RECOVERY_AMENDMENT.md": "e071dc6dbf88d4c3da2062d7f9cd9f949c416dc258495f91f6c58151e7f7ba14",
+    "basis_aligned/polynomial_causal/MLP2_RANK512_REFIT_V1_PREREGISTRATION.md": "92303790c2c6ccc54887892779ddbbe14c1ae05918b1ba521a39c4426a409d68",
+    "basis_aligned/polynomial_causal/bilin18_observed_model_facade.py": "b62947f772c807259890a9d09dfcbe5e91ad339a0bffa867ab99177fde4c728c",
+    "basis_aligned/polynomial_causal/local_fineweb_harvest.py": "87d9abeaf1182811650c35bcae25b0373687d2e87aede895bc9f2bc440b90b04",
+    "basis_aligned/polynomial_causal/mlp0_native_down_program.py": "2cf7094fa0d3a41b9c2cd795597c1b83ef937f05b665ef49fe3340c52fadbc66",
+    "basis_aligned/polynomial_causal/mlp2_cmr_v1_physical_program.py": "8352d69b630e78934b623dd868a2191ab061772350a7e469a355b6ff91901ecf",
+    "basis_aligned/polynomial_causal/prepare_block3_native_down_behavioral_port_v1_rows.py": "e168fa1c9c58e9970475b55ae39951232158075b112b8fda473794cd4238f450",
+    "basis_aligned/polynomial_causal/prepare_mlp0_c512_mlp2_compensation_v1_rows.py": "0885ac954ae7f2dce2f035d760443f79d9ff3afc434f6b1335940024ef84988e",
+    "basis_aligned/polynomial_causal/prepare_mlp0_c512_mlp2_full512_composition_v1_rows.py": "de02e073e269f46b4dbc62be7d4b75ce54c31a3f07ba49684d679a1b687ca55e",
+    "basis_aligned/polynomial_causal/prepare_mlp0_c512_mlp2_full512_composition_v2_rows.py": "95bb1fd4d3b0d7e34185064951080b0b1b190026aa652a4e430a4816d35e52d2",
+    "basis_aligned/polynomial_causal/prepare_mlp0_native_down_hierarchy_v1_rows.py": "f7eee860ef40a6301d78461c5d677394757014b6096ecbb853b8e8d48990ab83",
+    "basis_aligned/polynomial_causal/prepare_mlp2_rank512_refit_v1_rows.py": "006b39a4ccb16dc12eca6145f69de625fcbc24c1795e40b7f401198afc7e43a0",
+    "basis_aligned/polynomial_causal/run_block3_native_down_behavioral_port_v1.py": "c51ef40c3d6516a176bde3ba7d6904672fbe5b975e3ed23bf665f51f003c2b62",
+    "basis_aligned/polynomial_causal/run_mlp0_c512_mlp2_full512_composition_v1.py": "45270a0f9b0e13f35e7b9a7ec533826e1f4f816e142d6a0cb54c8546a8ef1093",
+    "basis_aligned/polynomial_causal/run_mlp2_rank512_refit_v1.py": "b9ef3c6ad1151405bd3aeb4f27a2194ba9f7b202f068961b0ce78ab3038188bf",
+    "basis_aligned/polynomial_causal/test_bilin18_observed_model_facade.py": "7ce76de82cba3355abd07dab6a0d3b4d380d39eae43ad064ae4d954878606a71",
+    "basis_aligned/polynomial_causal/test_mlp0_c512_mlp2_full512_composition_v1.py": "219261a88570255d028a4fb3847a9e037d97b1b34004213db663028ad64fbdb1",
+    "basis_aligned/polynomial_causal/test_mlp0_native_down_program.py": "66bec13d4ff2742eac7b00d297c85ee8c2e0a9d74caac00397416b6540c4922e",
+    "basis_aligned/polynomial_causal/test_mlp2_cmr_v1_physical_program.py": "7631ead45f3d9e6ede00edb159619dc86d78e762b6f9ad2addb3abf98cad5d8f",
+    "basis_aligned/polynomial_causal/test_mlp2_rank512_refit_v1.py": "32f15f92af19316cb9000cbeeba71b238446782c48105fa4fd9751a7d9946501",
+    "basis_aligned/polynomial_causal/test_prepare_block3_native_down_behavioral_port_v1_rows.py": "755ce451cc869afaa0257dacec1c36bc58fb656f252f02f139e89490c9c381a2",
+    "basis_aligned/polynomial_causal/test_run_block3_native_down_behavioral_port_v1.py": "c266cc66f0d1b758ad540d07d2672b1d6ce92d721186022bebb1c864648d403c",
+    "jacclust/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jacclust/tt_model.py": "49ecdbd6c060ff5b3e57f3134d87ba32841390c891c42e6ae23b71d8627612b2"
+  },
+  "status": "frozen_before_evaluation_open"
+}
