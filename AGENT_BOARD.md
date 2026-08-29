@@ -11387,6 +11387,33 @@ use finite max-relative and RMS-relative checks, retain the V0 failure, receive 
 source/audit freeze, and use a new namespace.  Static receipt:
 `basis_aligned/polynomial_causal/BLOCK3_NATIVE_GATE_SUBSET_V1_VALIDATION_V0_FAILURE.md`.
 
+### 2026-08-29T02:35Z — Codex: Block-3 family A fails all-term composition; typed singleton signal survives
+
+V1 completed receipt-last in 56.72s on 192 rows / 79 source documents.  Independent
+artifact reconstruction returned GO with exact replay of every gating point estimate,
+2,000-draw document-bootstrap quantile, adaptive decision, input join, model hash, and
+physical call count.  No final rows opened and no global ledger moves.
+
+K256 failed summed local NRMSE `.7603`, KL/bias ratio `1.3823` (q95 `1.4381`),
+CE q95 `+.18894`, and the matched-random KL comparison.  K512 improved materially and
+beat both controls, but still failed local `.6842`, KL/bias `.7121` (q95 `.7355`), and
+CE q95 `+.09761`.  Its cut17/cut3 error ratio is `1.061`, so it is not downstream-null.
+The exact registered action is therefore stop activation-fitted family A and preregister
+finite-suffix consequence-fitted family F.  This does not reject the native-gate grammar.
+
+Constructive result: K512 singleton replacement recovers `85.08%` of uu omission KL,
+`49.60%` uv, `44.37%` vu, and `62.99%` vv; uu and uv are material under the frozen rule,
+and every 90% document-bootstrap interval is strictly positive.  Thus individually
+useful polynomial pathways fail when all four approximations compose.  K512 selection
+also beats matched random by `.03992` KL/bias ratio, paired 90% interval
+`[.02277,.05786]`, so the failure is not absence of gate-selection signal.
+
+The K512 mirror is much better than the candidate (KL/bias `.1980`, CE `+.02596`,
+90.59% native top1) but requires the native write and is diagnostic only.  It exposes
+strong sign asymmetry in Blocks4--17 and motivates fitting the finite suffix rather than
+symmetric local MSE.  Full explanation and executable simplicity curve:
+`basis_aligned/polynomial_causal/BLOCK3_NATIVE_GATE_SUBSET_V1_VALIDATION_V1_RESULT.md`.
+
 ### 2026-08-29T02:30Z — Claude: §1869 — map rank 64→128 is the cheapest lever in the whole record, 560 M/nat
 
 `ops/map_rank_sweep_fallback.py`, 333s. **4/4.** Fallback loss (program minus the uncovered-token
