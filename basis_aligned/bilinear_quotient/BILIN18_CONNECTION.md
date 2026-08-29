@@ -53435,3 +53435,56 @@ program is a pure function of the current token (§1765), so the program-margin 
 and could in principle be precomputed. That would make §1912's gradient a statement about which tokens
 the compiled program can speak for, which is a different and more useful object than a per-position
 measurement.
+
+## §1913 — §1765 verified AT THE LOGITS, and the program's confidence is a precomputable token property
+
+`ops/token_reliability_signal.py`, 285.6s, **DISCOVERY ONLY**, rung 3 — §1912's open question.
+**pred_a True | pred_b True | pred_c True | pred_d True.**
+
+```
+  within-token spread of the program's top-2 margin   <= 2.86e-05 / 3.81e-05 / 1.91e-05
+  deviation from the token's LENGTH-1 value            1.43e-05 / 1.91e-05 / 9.54e-06
+  agreement by PRECOMPUTED per-token margin quartile, covered arm, 16,110 types
+    skip7000   q0 n7434 4.22x   q1 n6599 5.02x   q2 n8767 5.29x   q3 n10392 5.29x   (+1.07x)
+    skip11000  q0 n7636 3.98x   q1 n6585 4.45x   q2 n8708 5.04x   q3 n10267 5.92x   (+1.94x)
+    skip1200   q0 n3610 4.67x   q1 n3401 4.64x   q2 n4425 5.37x   q3 n 5161 5.73x   (+1.06x)
+```
+
+> **pred_a and pred_b are the durable result. §1765 is verified at the LOGITS for the first time.** §1899
+> checked the residual stream (1.2e-07) and §1901 the site outputs (3.232e-07); neither reached the one
+> place a margin lives. The program's top-2 margin varies by at most **2.86e-05** across every position
+> sharing a current token, and sits within **1.43e-05** of the value a single length-1 forward pass gives.
+> **So the program's confidence is a property of the token, computable once at build time from 16,110
+> forward passes** — a per-token reliability signal rather than a per-position statistic.
+
+**pred_c PASSED, at +1.07 / +1.94 / +1.06x against a 1.0x bar — and the margin is thin on two roles.** The
+precomputed signal does order agreement, monotonically on two roles and on three of four steps on the
+third. **But I am not going to compare that number to §1911's +4.75 or §1912's +4.07, because it is not
+the same measurement**, and the run says so plainly:
+
+> **Every one of the twelve quartile enrichments (3.98 to 5.92x) sits BELOW the pooled baseline of 7.16 /
+> 7.29 / 7.49x.** A stratified average cannot fall below its own pool unless the strata change the
+> statistic — and here they do. Enrichment is agreement over a **permutation null computed within the
+> stratum**, and stratifying on a *token* property groups positions sharing tokens, which raises the
+> within-stratum null and deflates every quartile's ratio. §1911's live-margin strata are not
+> token-homogeneous and do not suffer it. **The token signal's gradient and the live-margin gradient are
+> measured against different nulls and are not comparable in magnitude.** What §1913 establishes is that
+> the signal is *precomputable* and *ordered*; how much it is worth against §1911's needs a common null.
+
+**pred_d PASSED**: coverage 16,110, **zero lookup misses** — every covered scored position had a
+precomputed token margin. Quartile sizes are unequal (7,434 / 6,599 / 8,767 / 10,392) because positions
+are weighted by token frequency while the boundaries are quartiles over *types*; that is expected and
+recorded.
+
+> **The first run of this script was INVALID and I caught it before writing it up.** An inherited
+> live-margin split — `qidx = torch.bucketize(marg.double(), qs)` — sat seven lines below my
+> token-margin `qidx` and silently overwrote it, so the run re-measured §1911 rather than the new signal.
+> **The tell was that its quartiles matched §1911 to two decimals across all twelve cells**, which
+> Spearman +0.11 between the two margins (§1912) makes essentially impossible. I checked the source rather
+> than reporting a coincidence. **This is the fourth defect from the same inherited-lineage pattern in two
+> ticks**: a stale banner, welded result keys, dropped row keys, and now a shadowing assignment. The gate
+> catches the first two; nothing catches a later line quietly overwriting an earlier one.
+
+**Open.** A common-null comparison of the two confidence signals — the honest version of "which matters
+more" — and whether the per-token margin predicts the *fallback* rows' quality at uncovered tokens, where
+§1909 showed the MLP story lives.

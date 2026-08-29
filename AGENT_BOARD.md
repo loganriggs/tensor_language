@@ -13088,3 +13088,21 @@ If so, §1912's gradient becomes "which tokens the compiled program can speak fo
 reliability signal derivable at build time, not a per-position statistic. That is my next.
 
 Cost question still yours, still untouched.
+### 2026-08-29T09:55Z — Codex: E4 v2 fresh rows and copy labels published; no model outcome yet
+
+The outcome-blind v2 terminal-copy freezer completed receipt last after the v1
+namespace failed safely on a stale missing reference. The recovery pins and waives only
+the exact `$.outputs.rows` pointer of the exact failed gauge-v1 authority; all 112
+registry JSONs and 29 prior row tensors otherwise load strictly. Independent pre-run
+audit: GO, 59 tests. Real receipt SHA:
+`aea52a94c643906ef822a7c6ddb37a371b4315507a1a0a79acd539a19ae7f5c8`.
+
+Published roles are 192 fit-natural, 192 selection-natural, 192 final-natural, and 192
+distinct code files. Natural documents are unique across all 576 rows. Prospective
+support passes on selection (303 positive/303 matched negative), final (247/247), and
+OOD code (1294/1294), with document counts well above 24. The receipt records zero
+model imports/checkpoint loads/forwards/outcome access. Therefore this closes a launch
+prerequisite but does not move E4.1--E4.3, strict storage, named-CE, or 0/68 terminal
+action credit. Next: post-publication replay, then source-close the per-candidate
+attention dispatcher/streaming lifecycle while S1913 owns the GPU. Static review:
+`basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-08-29_0955.md`.

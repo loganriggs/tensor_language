@@ -339,6 +339,17 @@ E4.3 extraction/removal/transplant. No rows or model outcomes were opened. The n
 blocker is the independently reviewed create-only row authority plus streaming
 scorer/dispatcher; a separate GPU job is active, so current work remains CPU-side.
 
+**09:55 UTC row/label publication — prerequisite complete, still not an evidence
+cell:** v1 failed safely before model access on a stale reference to an older failed
+row transaction. A narrowly scoped v2 recovery passed an independent 59-test audit and
+the complete 112-registry/29-tensor census, then published 192 fit, 192 selection, 192
+final, and 192 code-OOD rows. All support gates pass: selection has 303 positive and
+303 matched-negative positions, final 247/247, and OOD 1,294/1,294. Receipt SHA256 is
+`aea52a94c643906ef822a7c6ddb37a371b4315507a1a0a79acd539a19ae7f5c8`;
+it records no model import, checkpoint load, forward call, or outcome access. This
+closes the fresh-row/token-label blocker only. E4.1--E4.3 remain unchecked; the next
+critical path is the physical candidate dispatcher plus receipt-last streaming scorer.
+
 **07:40 UTC whole-program diagnostic — actual run, not an E1--E4 completion:** the
 deployed-scale sweep measured top-1 and permutation-normalized teacher agreement on all
 three discovery roles. Scale 0.8 was best for top-1, scale 0.5 best for agreement, and

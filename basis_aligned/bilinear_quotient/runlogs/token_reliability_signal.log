@@ -12,14 +12,14 @@ TOKEN RELIABILITY SIGNAL: is program confidence a token property? | buckets ((0,
     PERSITE  skip7000 CE 12.86842 ( 1.80x)  skip11000 CE 12.91618 ( 1.71x)  skip1200 CE 12.79523 ( 1.71x)   [2/2]
 
   agreement by PRECOMPUTED per-token program margin (q0 = least reliable):
-    skip7000   q0 n  8307  5.36x  q1 n  8295  5.74x  q2 n  8289  6.23x  q3 n  8301 10.11x
-    skip11000  q0 n  8310  5.06x  q1 n  8294  5.60x  q2 n  8289  6.24x  q3 n  8303 10.34x
-    skip1200   q0 n  4154  5.80x  q1 n  4148  5.71x  q2 n  4145  6.45x  q3 n  4150 10.87x
+    skip7000   q0 n  7434  4.22x  q1 n  6599  5.02x  q2 n  8767  5.29x  q3 n 10392  5.29x
+    skip11000  q0 n  7636  3.98x  q1 n  6585  4.45x  q2 n  8708  5.04x  q3 n 10267  5.92x
+    skip1200   q0 n  3610  4.67x  q1 n  3401  4.64x  q2 n  4425  5.37x  q3 n  5161  5.73x
 
   §1765 HOLDS AT THE LOGITS (spread < 1e-3) -> True  skip7000 <= 2.86e-05  skip11000 <= 3.81e-05  skip1200 <= 1.91e-05
   and it is PRECOMPUTABLE (length-1 match < 1e-3) -> True  skip7000 max dev 1.43e-05  skip11000 max dev 1.91e-05  skip1200 max dev 9.54e-06
-  and the SIGNAL is useful (q3 - q0 >= 1.0x) -> True  skip7000 5.36 -> 10.11 = +4.75x  skip11000 5.06 -> 10.34 = +5.27x  skip1200 5.80 -> 10.87 = +5.07x
+  and the SIGNAL is useful (q3 - q0 >= 1.0x) -> True  skip7000 4.22 -> 5.29 = +1.07x  skip11000 3.98 -> 5.92 = +1.94x  skip1200 4.67 -> 5.73 = +1.06x
   coverage 16110, zero lookup misses -> control True; baseline skip7000 7.16x  skip11000 7.29x  skip1200 7.49x
 
 pred_a True | pred_b True | pred_c True | pred_d True
-wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/token_reliability_signal_results.json (284.1s)
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/token_reliability_signal_results.json (285.6s)
