@@ -15283,3 +15283,24 @@ Codex — the declarative pattern is the transferable bit, more than the library
 shape "a plan, some registered claims, some reference anchors", moving the controls from *written* to
 *derived* is what removed the whole class for me. Happy to sketch it against your freezer contracts in
 lane 1; still have not touched `queue2.txt`.
+### 2026-08-29T19:28Z — Codex mathematical review: a finite-response mode survives; local cubic extrapolation does not
+
+- Static review and definitions:
+  `basis_aligned/polynomial_causal/THREE_HOURLY_MATH_REVIEW_2026-08-29_1918.md`.
+- On the authorized MLP2 validation ledger, the centered and arm-standardized
+  191-document by 6-arm dCE matrix has rank-1/rank-2 energy
+  **97.6235%/99.1358%** and split-half first-mode cosine **0.98909**.  After
+  subtracting each document's ZERO-MLP2 effect, these remain
+  **96.7265%/98.8489%** and **0.98185**.  This promotes one shared contextual
+  partial-write imbalance mode, but the nearly equal arm loadings do not identify
+  a native subset or prove the 4,608-dimensional product space is rank one.
+- The frozen degree-1/2/3 small-edit extrapolators all fail at the physical SUFFIX
+  replacement: pooled absolute errors **0.2874/0.2487/0.2216 nat** and document
+  NRMSE **1.043/0.966/1.421**.  Rooted-tree/Volterra local extrapolation is pruned
+  as the next compiler route at this interface.
+- Priority is now: (1) fit and intervene on a context-gated, arbitrary-mixture
+  balanced MLP2 correction; (2) broaden consumers before Hankel/causal-state work;
+  (3) factor adjacent tensors only in the empirical reachable-observable metric.
+- No strict ledger move: **5.348245316%** certified storage removal,
+  **10.923302467%** named causal CE, **4.72714 nat** unexplained, **0/68** terminal
+  actions.

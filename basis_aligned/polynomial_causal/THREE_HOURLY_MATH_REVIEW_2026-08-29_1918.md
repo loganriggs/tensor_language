@@ -188,6 +188,94 @@ probe count.
 
 ## Execution status
 
-The two frozen CPU falsifiers above are the highest-priority safe action.  Their
-results will be appended below without changing the thresholds.
+The two frozen CPU falsifiers above were run against the authorized
+`mlp2_cmr_v1_validation_ledger.pt`.  No thresholds were changed after seeing the
+results.
 
+### Result 1 — the finite causal-response matrix passes the low-rank falsifier
+
+For each of the 191 supported validation documents and each of the six equal-price
+arms `SUFFIX`, `LOCAL`, `RMS`, `MASS`, `DERANGED`, and `HASH_RANDOM`, let
+
+$$
+R_{d,a}=\Delta\mathrm{CE}_{d,a}.
+$$
+
+I subtracted each arm's document mean, divided each arm by its document-level RMS,
+and took an SVD.  The singular-value energy fractions were
+
+$$
+(0.976235, 0.015123, 0.003488, 0.003022, 0.001908, 0.000224).
+$$
+
+Thus rank 1 explains **97.6235%** of standardized document-to-document variation,
+above the frozen 80% bar; rank 2 explains **99.1358%**, above the frozen 90% bar.
+The first response direction is also stable: fitting it separately to the first and
+second document halves gives absolute cosine **0.98909**, above the frozen 0.90 bar.
+
+One important red-team check was not preregistered but is diagnostic.  A common
+factor could merely mean that some documents depend more on MLP2 under every
+intervention.  I therefore subtracted each document's `ZERO`-MLP2 CE effect from
+all six arms and repeated the calculation.  Rank 1 still explains **96.7265%**,
+rank 2 **98.8489%**, and split-half cosine is **0.98185**.  The result is therefore
+not explained solely by generic document sensitivity to deleting MLP2.
+
+The six first-mode arm loadings are almost equal in magnitude (approximately
+0.404--0.412).  This is both useful and limiting:
+
+- useful: most document-to-document variation in the harm of a partial MLP2 write
+  behaves like one shared contextual scalar;
+- limiting: it does **not** identify a uniquely good native channel subset, and the
+  SVD has only six columns, so it is not evidence that the full 4,608-dimensional
+  product space itself has rank one.
+
+The precise promoted hypothesis is therefore a **context-dependent balanced
+correction mode** shared by many arbitrary product mixtures, not a sparse native
+selector.  A candidate compiled form is
+
+$$
+y_{\mathrm{compiled}}(x)
+=y_{\mathrm{zero}}(x)+g(c(x))\,B\,\phi(x),
+$$
+
+where $c(x)$ is an upstream context state, $g$ is a small gate measuring the shared
+finite-response mode, $\phi$ is a low-dimensional jointly mixed product code, and
+$B$ writes that code back to the residual stream.  The next experiment must fit
+these objects on FIT data and judge final CE/KL, OOD transport, and selective
+interventions on held-out data; the response SVD alone is not a compression claim.
+
+### Result 2 — local polynomial/Volterra extrapolation is decisively pruned
+
+For each document, zero-intercept polynomials of degree 1, 2, and 3 were fitted to
+the signed interventions $t\in\{-0.25,-0.10,0.10,0.25\}$ and extrapolated to the
+physical `SUFFIX` replacement at $t=1$.  At 192 documents:
+
+| Degree | Predicted pooled dCE | Actual pooled dCE | Absolute error | Document NRMSE | Pearson correlation |
+|---:|---:|---:|---:|---:|---:|
+| 1 | 0.001785 | 0.289200 | 0.287415 | 1.04343 | -0.08684 |
+| 2 | 0.040544 | 0.289200 | 0.248656 | 0.96611 | 0.02161 |
+| 3 | 0.067623 | 0.289200 | 0.221577 | 1.42142 | 0.00928 |
+
+Every degree misses both frozen bars (pooled error at most 0.02 nat and NRMSE at
+most 0.25), by a wide margin.  The failure is stable at 48, 96, and 192 documents.
+Small signed edits therefore do not predict the finite replacement even through
+cubic order.  Rooted-tree/Volterra machinery remains mathematically valid as a
+local expansion but is now pruned as the next compiler entry point for this
+interface.
+
+## Revised priority after the executed falsifiers
+
+1. **Finite-response balanced realization.**  Promoted narrowly by the stable
+   97.6% one-mode response result.  Fit an arbitrary mixed product/write basis plus
+   a small context gate and demand held-out final-consequence improvement over both
+   `ZERO` and K512 native selectors.
+2. **Causal-state/Hankel realization after broadening the consumer bank.**  Still
+   the best route to a canonical cross-layer interface, but copy-only tests cannot
+   identify a whole-model predictive state.
+3. **Joint factorization across adjacent MLP/residual interfaces in the balanced
+   metric.**  This is the tensor move now licensed: factor the empirically
+   reachable-and-observable operator, not one weight tensor in Frobenius norm.
+
+The rooted-tree small-edit move drops out of the top three because its cheapest
+falsifier failed.  No strict ledger quantity moves: this review found a strong
+coordinate clue, not a validated replacement or terminal action.
