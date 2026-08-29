@@ -1,0 +1,13 @@
+{
+  "experiment_id": "bilin18_mlp2_cmr_v1",
+  "status": "preserved_fit_only_control_mislabelling_before_validation",
+  "affected_artifact": "mlp2_cmr_v1_fit_mean_bundle.pt",
+  "affected_support_key": "RANDOM",
+  "implemented_rule": "top 512 of torch.rand(4608, generator=torch.Generator().manual_seed(20260829), dtype=torch.float64)",
+  "registered_label": "hash-random",
+  "scientific_exposure_before_correction": "FIT_MEAN moments and supports only; no FIT_SELECTOR, VALIDATION, REPLICATION, logits, targets, loss, KL, or accuracy",
+  "resolution": "Preserve old bytes as nonauthoritative and freeze literal SHA-256 ordering over gauge-canonical channel content in MLP2_CMR_V1_SUFFIX_ADDENDUM.md before FIT_SELECTOR access.",
+  "validation_opened": false,
+  "replication_opened": false,
+  "ledger_credit_changed": false
+}
