@@ -57819,3 +57819,45 @@ produced, and it arrived by way of a registered prediction being wrong in the di
 `meanrow` null gives every token the *same* row, keeping zero information and only context-freeness. **The
 sharpest form of this result is whether a mean row at attention 5 works as well as its rank-384 table** —
 and whether the same null at attention 6, where content demonstrably matters, does not.
+
+## §1998 — attention 5's content is not merely unnecessary, it is slightly harmful; attention 6's is worth 0.21 nats
+
+`ops/presence_or_content_at_attention_five.py`, **53.8s**, **DISCOVERY ONLY**, 5,419, rung 3 — §1997's
+open question. **pred_a True | pred_b True | pred_c True | derived controls True.** Both reference
+deviations 0.000000.
+
+`meanrow` gives every token the same row — zero information, only context-freeness. The composite arms put
+it at one attention layer while the others keep their compiled tables.
+
+```
+  cost against the live model, nats, 5,419
+             all tables   mean row at a5   mean row at a6   mean at both   |  no attention 5   full 36
+  skip7000     1.971         1.940            2.183            2.180       |      4.876        2.808
+  skip11000    2.090         2.047            2.306            2.295       |      5.355        2.979
+  skip1200     1.952         1.881            2.142            2.109       |      5.016        2.702
+```
+
+> **pred_a PASSED 3/3, and it passed in the wrong direction to be called "sufficient". A mean row at
+> attention 5 is BETTER than its full compiled table** — by 0.031 / 0.043 / 0.070 nats, pooled **−0.044 at
+> t = −23.0**. The bar was "costs under 0.20". It costs nothing; it *pays*. **Attention 5's table content
+> is not merely unnecessary, it is slightly harmful**, and §1997's rank sweep was measuring the removal of
+> something with negative value.
+
+> **pred_b PASSED 3/3 and the two layers separate cleanly under the same null. A mean row at attention 6
+> costs +0.209 at pooled t = +157.2** — an order of magnitude the other way, and consistent with §1996's
+> rank curve, where truncating to rank 16 cost +0.166. **Removing all of attention 6's content costs about
+> what removing 24/25ths of its rank did**, which is what a low-dimensional signal looks like.
+
+> **pred_c PASSED 3/3, and mean rows at both layers cost no more than a mean row at attention 6 alone**
+> (2.180 against 2.183). **Attention 5's content adds nothing on top of attention 6's.**
+
+**The three sites, with their roles finally distinct.**
+
+> **mlp2 / mlp4** — must be compiled; **content irrelevant** (§1983: a mean row costs the same 10.67).
+> **attention 5** — must be **present**; **content slightly negative** (−0.044 nats).
+> **attention 6** — must be present **and carries content**, worth **+0.209 nats**, and low-dimensional:
+> rank 16 recovers 72% of it (§1996).
+
+**Open.** Everything from §1996 to §1998 used **mlp2** as the compiled MLP. §1990's minimal path used
+**mlp4**, where the lone-site damage is 2.2× larger. **The presence/content split has never been checked
+at a second MLP**, and that is a rung-2 second-class confirm rather than a new question.
