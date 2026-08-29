@@ -4,3 +4,39 @@ ROUTED DOMINATION REPLICATION | arms ('nn', 'nn75', 'map64', 'map512') | coverag
 ########## COVERAGE 5419 ##########
   building at coverage 5419 from fineweb_n96_skip80.pt
   built the settled fallback and 36 tables (4s)
+  scored map rank 0 on 3 roles (10s)
+  scored map rank 64 on 3 roles (51s)
+  scored map rank 64 on 3 roles (92s)
+  scored map rank 512 on 3 roles (133s)
+
+########## COVERAGE 16110 ##########
+  building at coverage 16110 from fineweb_n480_skip80.pt
+  built the settled fallback and 36 tables (138s)
+  scored map rank 0 on 3 roles (145s)
+  scored map rank 64 on 3 roles (186s)
+  scored map rank 64 on 3 roles (226s)
+  scored map rank 512 on 3 roles (268s)
+
+  === coverage 5419 ===
+    skip7000   nn t1 14.17% CE 6.01897  nn75 t1 14.02% CE 6.00963  map64 t1 13.55% CE 6.01167  map512 t1 13.77% CE 5.96702
+               nn75 - map64: top1 +0.47pp | CE -0.00204 (paired mean -0.002039, se 0.003756, t -0.54, 7464/36864 positions differ)
+    skip11000  nn t1 14.66% CE 6.00091  nn75 t1 14.69% CE 5.98385  map64 t1 14.25% CE 5.98477  map512 t1 14.37% CE 5.93645
+               nn75 - map64: top1 +0.44pp | CE -0.00092 (paired mean -0.000924, se 0.004017, t -0.23, 7764/36864 positions differ)
+    skip1200   nn t1 14.24% CE 6.00733  nn75 t1 14.12% CE 5.99919  map64 t1 13.64% CE 6.00165  map512 t1 13.72% CE 5.96095
+               nn75 - map64: top1 +0.47pp | CE -0.00246 (paired mean -0.002458, se 0.005620, t -0.44, 3640/18432 positions differ)
+
+  === coverage 16110 ===
+    skip7000   nn t1 14.25% CE 5.90344  nn75 t1 14.18% CE 5.90078  map64 t1 13.93% CE 5.90522  map512 t1 13.98% CE 5.88338
+               nn75 - map64: top1 +0.25pp | CE -0.00444 (paired mean -0.004438, se 0.002342, t -1.90, 2946/36864 positions differ)
+    skip11000  nn t1 14.79% CE 5.85640  nn75 t1 14.82% CE 5.84696  map64 t1 14.71% CE 5.85230  map512 t1 14.70% CE 5.82928
+               nn75 - map64: top1 +0.11pp | CE -0.00534 (paired mean -0.005340, se 0.002613, t -2.04, 2802/36864 positions differ)
+    skip1200   nn t1 14.24% CE 5.90150  nn75 t1 14.18% CE 5.89513  map64 t1 14.01% CE 5.88575  map512 t1 14.12% CE 5.86044
+               nn75 - map64: top1 +0.17pp | CE +0.00938 (paired mean +0.009383, se 0.003618, t +2.59, 1420/18432 positions differ)
+
+  the domination REPLICATES at 16,110 (>=2 roles) -> True  2/3
+  and the paired CE margin has t<=-2 at BOTH coverages (>=2 roles each) -> False  5419 0/3, 16110 1/3
+  and the top-1 margin SHRINKS but stays positive (>=2 roles each) -> True  shrink 3/3, positive 3/3
+  coverages True, arms inert at covered inputs, partitions, LIVE identical, c5419 reproduces §1939 (top1 0.005pp, CE 0.00000) -> control True
+
+pred_a True | pred_b False | pred_c True | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/routed_domination_replication_results.json (267.7s)

@@ -117,7 +117,9 @@ class OwnedPerHeadTensorAttention(nn.Module):
 
     def _decompose(
         self, state: torch.Tensor, first_value: torch.Tensor | None,
-    ) -> tuple[torch.Tensor, torch.Tensor, torch.Tensor]:
+    ) -> tuple[
+        torch.Tensor, torch.Tensor, torch.Tensor, torch.Tensor, torch.Tensor,
+    ]:
         if state.ndim != 3 or state.shape[-1] != self.width or not state.is_floating_point() or (
             not bool(torch.isfinite(state).all())
         ):
@@ -164,7 +166,7 @@ class OwnedPerHeadTensorAttention(nn.Module):
             head_outputs.reshape(state.shape[0], state.shape[1], self.width),
             self.proj.to(head_outputs.dtype),
         )
-        return head_writes, full_write, bus
+        return head_writes, full_write, bus, pattern, mixed
 
     def begin(
         self, state: torch.Tensor, first_value: torch.Tensor | None = None,
@@ -191,13 +193,20 @@ class HeadWriteTransaction(AbstractContextManager):
         self, program: OwnedPerHeadTensorAttention, state: torch.Tensor,
         first_value: torch.Tensor | None,
     ) -> None:
-        head_writes, full_write, bus = program._decompose(state, first_value)
+        head_writes, full_write, bus, pattern, mixed = program._decompose(
+            state, first_value,
+        )
         reconstructed = head_writes.sum(2)
         difference = (reconstructed.float() - full_write.float()).abs()
         denominator = max(float(full_write.float().norm()), torch.finfo(torch.float32).tiny)
         self._head_writes: torch.Tensor | None = head_writes
         self._full_write: torch.Tensor | None = full_write
         self._bus: torch.Tensor | None = bus
+        self._pattern: torch.Tensor | None = pattern
+        self._mixed: torch.Tensor | None = mixed
+        self._projection: torch.Tensor | None = program.proj.view(
+            program.width, program.n_head, program.head_dim,
+        )
         self._max_error = float(difference.max())
         self._relative_error = float(difference.norm()) / denominator
         self._selected: list[tuple[int, ...]] = []
@@ -228,6 +237,88 @@ class HeadWriteTransaction(AbstractContextManager):
     def all_heads(self) -> torch.Tensor:
         return self.select(range(self._n_head))
 
+    def source_write(
+        self,
+        heads: Iterable[int],
+        source_indices: torch.Tensor,
+        destination_mask: torch.Tensor | None = None,
+    ) -> torch.Tensor:
+        """Return selected heads' exact write from one source per destination.
+
+        ``source_indices[b, t]`` chooses the source position whose additive
+        contribution to destination ``t`` is returned.  The method gathers the
+        already-computed attention pattern and mixed value vectors, so it never
+        materializes the prohibitively large ``[B,T,H,T,D_model]`` tensor.
+        ``destination_mask`` can restrict the returned write to chosen destination
+        positions; the attention calculation itself is unchanged.
+        """
+
+        selected = tuple(heads)
+        if not selected or len(set(selected)) != len(selected) or any(
+            type(head) is not int or not 0 <= head < self._n_head
+            for head in selected
+        ):
+            raise ValueError("selected attention heads are malformed")
+        self._require_open()
+        assert self._pattern is not None and self._mixed is not None
+        assert self._projection is not None
+        batch, _, destination_count, source_count = self._pattern.shape
+        if (
+            not torch.is_tensor(source_indices)
+            or source_indices.dtype != torch.long
+            or source_indices.device != self._pattern.device
+            or tuple(source_indices.shape) != (batch, destination_count)
+            or bool((source_indices < 0).any())
+            or bool((source_indices >= source_count).any())
+        ):
+            raise ValueError("source indices are malformed")
+        if destination_mask is None:
+            mask = torch.ones_like(source_indices, dtype=torch.bool)
+        else:
+            if (
+                not torch.is_tensor(destination_mask)
+                or destination_mask.dtype != torch.bool
+                or destination_mask.device != self._pattern.device
+                or tuple(destination_mask.shape) != (batch, destination_count)
+            ):
+                raise ValueError("destination mask is malformed")
+            mask = destination_mask
+
+        head_index = torch.tensor(
+            selected, device=self._pattern.device, dtype=torch.long,
+        )
+        head_count = len(selected)
+        head_dim = self._mixed.shape[-1]
+        # [B,H,T,S] -> one pattern scalar for each [B,T,H].
+        selected_pattern = self._pattern.index_select(1, head_index)
+        pattern_at_source = torch.gather(
+            selected_pattern,
+            3,
+            source_indices[:, None, :, None].expand(
+                batch, head_count, destination_count, 1,
+            ),
+        ).squeeze(3).transpose(1, 2)
+        # [B,S,H,Dh] -> one mixed value vector for each [B,T,H].
+        selected_mixed = self._mixed.index_select(2, head_index)
+        mixed_at_source = torch.gather(
+            selected_mixed,
+            1,
+            source_indices[:, :, None, None].expand(
+                batch, destination_count, head_count, head_dim,
+            ),
+        )
+        source_head_output = pattern_at_source[..., None].to(
+            mixed_at_source.dtype,
+        ) * mixed_at_source
+        projection = self._projection.index_select(1, head_index).to(
+            source_head_output.dtype,
+        )
+        write = torch.einsum(
+            "bthd,ohd->bto", source_head_output, projection,
+        )
+        self._selected.append(selected)
+        return (write * mask[..., None].to(write.dtype)).clone()
+
     def native_full_write(self) -> torch.Tensor:
         self._require_open()
         assert self._full_write is not None
@@ -255,5 +346,8 @@ class HeadWriteTransaction(AbstractContextManager):
             self._head_writes = None
             self._full_write = None
             self._bus = None
+            self._pattern = None
+            self._mixed = None
+            self._projection = None
             self._closed = True
         return False

@@ -99,6 +99,61 @@ def test_disjoint_head_sums_add_and_returned_tensors_do_not_alias_storage():
         transaction.all_heads()
 
 
+def test_source_writes_sum_to_head_writes_without_materializing_source_tensor():
+    program = OwnedPerHeadTensorAttention.from_native(FakeNative())
+    state = torch.randn(2, 5, 8)
+    with program.begin(state) as transaction:
+        expected = transaction.select((0, 1))
+        observed = torch.zeros_like(expected)
+        for source in range(state.shape[1]):
+            indices = torch.full(
+                state.shape[:2], source, dtype=torch.long, device=state.device,
+            )
+            observed += transaction.source_write((0, 1), indices)
+        assert torch.allclose(observed, expected, rtol=1e-6, atol=1e-7)
+    assert transaction.closure.selected_head_sets == (
+        (0, 1), (0, 1), (0, 1), (0, 1), (0, 1), (0, 1),
+    )
+
+
+def test_source_write_is_additive_selective_masked_and_revoked_on_close():
+    program = OwnedPerHeadTensorAttention.from_native(FakeNative())
+    state = torch.randn(2, 4, 8)
+    sources = torch.tensor([[0, 0, 1, 2], [0, 1, 1, 3]], dtype=torch.long)
+    mask = torch.tensor(
+        [[False, True, False, True], [True, False, True, False]],
+        dtype=torch.bool,
+    )
+    with program.begin(state) as transaction:
+        head0 = transaction.source_write((0,), sources, mask)
+        head1 = transaction.source_write((1,), sources, mask)
+        both = transaction.source_write((0, 1), sources, mask)
+        unmasked = transaction.source_write((0, 1), sources)
+        assert torch.allclose(head0 + head1, both, rtol=1e-6, atol=1e-7)
+        assert torch.equal(both[~mask], torch.zeros_like(both[~mask]))
+        assert torch.allclose(both[mask], unmasked[mask], rtol=1e-6, atol=1e-7)
+        both.zero_()
+        replay = transaction.source_write((0, 1), sources, mask)
+        assert torch.count_nonzero(replay[mask]) > 0
+    with pytest.raises(RuntimeError, match="closed"):
+        transaction.source_write((0,), sources)
+
+
+def test_source_write_rejects_malformed_indices_and_masks():
+    program = OwnedPerHeadTensorAttention.from_native(FakeNative())
+    state = torch.randn(1, 3, 8)
+    valid = torch.zeros(1, 3, dtype=torch.long)
+    with program.begin(state) as transaction:
+        with pytest.raises(ValueError, match="heads"):
+            transaction.source_write((), valid)
+        with pytest.raises(ValueError, match="indices"):
+            transaction.source_write((0,), valid.float())
+        with pytest.raises(ValueError, match="indices"):
+            transaction.source_write((0,), torch.full_like(valid, 3))
+        with pytest.raises(ValueError, match="mask"):
+            transaction.source_write((0,), valid, torch.ones(1, 3))
+
+
 def test_program_owns_weights_and_never_calls_native_projection_after_clone():
     native = FakeNative()
     program = OwnedPerHeadTensorAttention.from_native(native)

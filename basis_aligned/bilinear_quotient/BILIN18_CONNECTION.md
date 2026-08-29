@@ -54814,7 +54814,7 @@ neighbour index is built and thrown away. **Routing per input token on the neigh
 neighbour row when it is close, the map row when it is not — is the first hybrid this thread can actually
 build, and it has never been tried.**
 
-## §1939 — the deployed fallback is strictly dominated for +0.09M: cosine-routed nn75 beats it on BOTH instruments, 3/3
+## §1939 — [HEADLINE RETRACTED §1940] cosine-routed nn75 beats the deployed fallback on top-1 for +0.09M; the CE half did not survive its standard error
 
 `ops/cosine_routed_fallback.py`, 215.6s, **DISCOVERY ONLY**, 5,419 coverage, rung 3 — §1938's open
 question. **pred_a False (1/3) | pred_b False (0/3) | pred_c True (3/3) | pred_d True.** The two
@@ -54837,6 +54837,12 @@ map row; cost ~5.40M, a **0.04% premium on the 230.087M deployed build**.
     map512    13.77/14.37/13.72 (+.22/+.12/+.08)  5.96702/5.93645/5.96095 (-.0447/-.0483/-.0407)  42.47M
 ```
 
+> [**RETRACTED §1940.** The CE half of this domination is not distinguishable from zero: the paired t
+> on the nn75 − map64 per-position CE difference is **−0.54 / −0.23 / −0.44** at this coverage, and at
+> 16,110 one role is **significantly WORSE** (t = +2.59). There is no CE domination. The top-1 half
+> below is correct and replicates at both coverages on all six role-coverage cells. Read the rest of
+> this section as a top-1 result only.]
+>
 > **pred_c PASSED 3/3 and it is the deployable result: §1789's fallback is strictly dominated.** `nn75`
 > beats the deployed design on **pooled top-1 by +0.47 / +0.44 / +0.47pp AND on pooled CE by −0.0020 /
 > −0.0009 / −0.0025 nats**, on every role, for **+0.09M on a 230.087M build**. §1937 and §1938 left the
@@ -54884,3 +54890,53 @@ real 7.9×-cost-for-0.04-nats decision.**
 much less room to shrink, and the uncovered arm is ~10% of positions at 16,110 against ~24% here. **The
 replication at 16,110 — with a paired standard error on the CE margin this time — is the next run, and it
 is the one that decides whether this is a deployment recommendation or a 5,419-only curiosity.**
+
+## §1940 — the paired t kills §1939's CE half. The domination is top-1 only, and I am retracting the rest.
+
+`ops/routed_domination_replication.py`, 267.7s, **DISCOVERY ONLY**, 5,419 **and** 16,110, **rung 2**.
+**pred_a True (2/3) | pred_b False | pred_c True | pred_d True.** I queued pred_b to test my own §1939
+headline and said I would scope the claim if it failed. It failed, and the scoping is a retraction.
+
+```
+                       nn75 - map64 (DEPLOYED)
+                  top-1        CE        paired mean / se / t      positions differing
+  5,419  skip7000  +0.47pp  -0.00204   -0.002039 / 0.003756 / -0.54    7464/36864
+         skip11000 +0.44pp  -0.00092   -0.000924 / 0.004017 / -0.23    7764/36864
+         skip1200  +0.47pp  -0.00246   -0.002458 / 0.005620 / -0.44    3640/18432
+  16,110 skip7000  +0.25pp  -0.00444   -0.004438 / 0.002342 / -1.90    2946/36864
+         skip11000 +0.11pp  -0.00534   -0.005340 / 0.002613 / -2.04    2802/36864
+         skip1200  +0.17pp  +0.00938   +0.009383 / 0.003618 / +2.59    1420/18432   <- WRONG SIGN, significant
+```
+
+> **RETRACTION. §1939's headline — "the deployed fallback is strictly dominated on BOTH instruments" — is
+> withdrawn.** The CE half does not survive its own standard error. At 5,419 the paired t on the
+> nn75 − map64 CE difference is **−0.54 / −0.23 / −0.44**: the margins I published as −0.0020 / −0.0009 /
+> −0.0025 nats are **not distinguishable from zero**, and the "3/3 in sign" I quoted was three draws from
+> a near-zero effect, exactly as §1939's own caveat paragraph feared. At 16,110 the margins are larger but
+> **inconsistent in direction**: skip7000 −1.90, skip11000 −2.04, and **skip1200 +2.59 — significantly
+> WORSE, not better.** pred_b required t ≤ −2 on ≥2 of 3 roles at both coverages and scored 0/3 and 1/3.
+> **There is no CE domination.** §1939's section heading, its pred_c paragraph and its registry entry are
+> corrected in place.
+
+> **What survives, and it replicates cleanly: the top-1 win.** `nn75` beats §1789's deployed design on
+> pooled top-1 at **both** coverages and on **all six** role-coverage cells — +0.47 / +0.44 / +0.47pp at
+> 5,419 and +0.25 / +0.11 / +0.17pp at 16,110 — for **+0.09M on a 230.087M build**. **pred_a PASSED 2/3**
+> (skip7000 and skip11000; skip1200 fails on the CE leg) and **pred_c PASSED on both halves 3/3: the
+> margin shrinks at every role and stays positive at every role.** The shrink is the predicted one — the
+> uncovered arm falls from ~24% to ~10% of scored positions, and the margin falls by roughly half. **An
+> effect that had not shrunk would have meant it was not coming from the fallback at all.**
+
+**pred_d PASSED**: coverages exactly 5,419 and 16,110; every arm inert at covered inputs at both; counts
+partition; routed fraction 0.75 to within 0.0006; and the c5419 half reproduced §1939's **published**
+pooled top-1 to **0.005pp** and its pooled CE to **0.00000** — every digit — twenty-sixth clean reading.
+
+**Where this leaves the fallback.** `nn75` is a **top-1 improvement at negligible cost that is
+CE-neutral**, not a strict dominator. Under a top-1 objective it should replace §1789's fallback; under
+the M/nat objective the cost arc has actually used since §1747, §1938's ordering stands unchanged and
+`map512` remains the CE choice. **The objective fork §1937/§1938 opened is not closed after all — §1939
+briefly claimed it was, on a margin its own instrument could not resolve.**
+
+**Process note.** §1939's caveat paragraph named the exact risk ("a 1-milli-nat margin is where 3/3 in
+sign can be three draws from the same near-zero effect") and I published the headline anyway, then queued
+the test. The right order was the other one: **the significance instrument cost 52 extra seconds inside a
+run I was already doing.** Written up as LESSON 78.

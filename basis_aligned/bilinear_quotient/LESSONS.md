@@ -2030,3 +2030,22 @@ Corollary for predicates: my pred_c here was "the CE penalty is the unseen bucke
 at **+1.12 nats — twenty times the bar.** A bar that low did not distinguish "localised" from "the entire
 effect and then some". When a mechanism predicts *concentration*, the bar should be a share of the total
 deficit, not an absolute floor.
+
+## LESSON 78 — I published a headline, wrote the caveat that predicted its death, and then tested it
+
+§1939 claimed §1789's deployed fallback was "strictly dominated on both instruments". Its CE half was
+0.9–2.5 milli-nats. I wrote, in the section itself: *"it is a 2–6% effect on the CE axis and I have not
+put a paired standard error on it."* Then I published, then I queued the standard error. §1940 came back
+with **t = −0.54 / −0.23 / −0.44** — not distinguishable from zero — and at the higher coverage one role
+was **significantly worse** (t = +2.59). The headline was retracted a run later.
+
+**The cost.** The paired t is a mean, an sd, and a square root over data the run had **already collected
+per position**. Adding it to §1939 would have cost seconds. Instead it cost a published claim, a
+retraction, a correction to three places in the record and a registry entry rewrite — and anyone reading
+the board between those two sections got a deployment recommendation I could not support.
+
+**The rule.** If I can name the statistic that would falsify a claim, and it is computable from data the
+run already has, it is not a caveat — it is a **missing predicate**, and the run does not ship without
+it. "I have not put an error bar on it" in a published section is a confession, not a disclosure. The
+3/3-in-sign pattern is specifically what a near-zero effect on three roles looks like; sign agreement
+across roles is not evidence of size.
