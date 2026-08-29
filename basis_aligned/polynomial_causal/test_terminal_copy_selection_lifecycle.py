@@ -371,9 +371,16 @@ def test_serialized_ledger_rejects_candidate_specific_native_baseline():
         life._deserialize_ledger(payload, "a" * 64)
 
 
-def _write_selection_fixture(tmp_path: Path, *, corrupt_published_mask: bool = False):
+def _write_selection_fixture(
+    tmp_path: Path, *, corrupt_published_mask: bool = False,
+    duplicate_bank_across_items: bool = False, bank_token_in_base_row: bool = False,
+):
     generator = torch.Generator().manual_seed(4)
     rows = torch.randint(0, 101, (life.NATURAL_DOCUMENTS, 257), generator=generator)
+    if bank_token_in_base_row:
+        # Position 8 is one of the overwritten crossover slots.  The pure crossover
+        # constructor permits this, but the amendment's token-bank contract does not.
+        rows[0, life.SYNTHETIC_POSITION_TEMPLATES[0][0]] = 49_000
     documents = tuple(f"document-{index:03d}" for index in range(life.NATURAL_DOCUMENTS))
     records = [
         {"role": "selection_natural", "role_row_index": index, "document_id": document}
@@ -388,6 +395,8 @@ def _write_selection_fixture(tmp_path: Path, *, corrupt_published_mask: bool = F
     query_to_y, query_to_z, banks = [], [], []
     for index in range(life.SYNTHETIC_PAIRS):
         bank = [49_000 + 4 * index + offset for offset in range(4)]
+        if duplicate_bank_across_items and index == 1:
+            bank = [49_000 + offset for offset in range(4)]
         first, reciprocal, query = life.SYNTHETIC_POSITION_TEMPLATES[index % 4]
         crossover = contract.build_synthetic_association_crossover(
             tuple(int(value) for value in rows[index]),
@@ -479,6 +488,43 @@ def test_loader_rejects_published_mask_that_disagrees_with_independent_replay(
         "support_census": life._support_census(cells),
     }}
     with pytest.raises(RuntimeError, match="mask reconstruction"):
+        life._load_selection_inputs(authority, None)  # type: ignore[arg-type]
+
+
+@pytest.mark.parametrize(
+    "fixture_options",
+    [
+        {"duplicate_bank_across_items": True},
+        {"bank_token_in_base_row": True},
+    ],
+)
+def test_loader_rejects_nonunique_or_base_row_present_synthetic_bank(
+    tmp_path, monkeypatch, fixture_options,
+):
+    rows, cells, synthetic, selection_path, frequency_path, _ = _write_selection_fixture(
+        tmp_path, **fixture_options,
+    )
+    for name, value in {
+        "SELECTION_PAYLOAD_SHA256": life.file_sha256(selection_path),
+        "FIT_FREQUENCIES_SHA256": life.file_sha256(frequency_path),
+        "SELECTION_ROWS_SHA256": life.tensor_sha256(rows),
+        "SELECTION_POSITIVE_SHA256": life.tensor_sha256(cells.positive),
+        "SELECTION_NEGATIVE_SHA256": life.tensor_sha256(cells.matched_negative),
+        "SELECTION_SYNTHETIC_Y_SHA256": life.tensor_sha256(synthetic["query_to_y"]),
+        "SELECTION_SYNTHETIC_Z_SHA256": life.tensor_sha256(synthetic["query_to_z"]),
+    }.items():
+        monkeypatch.setattr(life, name, value)
+    frequencies = torch.load(frequency_path, weights_only=True)
+    monkeypatch.setattr(life, "FIT_QUERY_FREQUENCY_SHA256", life.tensor_sha256(frequencies["query"]))
+    monkeypatch.setattr(life, "FIT_TARGET_FREQUENCY_SHA256", life.tensor_sha256(frequencies["target"]))
+    monkeypatch.setattr(life, "require_claim", lambda _claim: None)
+    monkeypatch.setattr(life, "validate_execution_authority", lambda _authority: None)
+    authority = {"row_binding": {
+        "container_path": str(selection_path),
+        "fit_frequencies_path": str(frequency_path),
+        "support_census": life._support_census(cells),
+    }}
+    with pytest.raises(RuntimeError, match="cross-item unique and base-row absent"):
         life._load_selection_inputs(authority, None)  # type: ignore[arg-type]
 
 
