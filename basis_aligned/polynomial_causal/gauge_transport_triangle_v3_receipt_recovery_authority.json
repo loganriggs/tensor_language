@@ -1,0 +1,23 @@
+{
+  "schema": "gauge_transport_triangle_v3_receipt_recovery_authority",
+  "status": "source_closed_receipt_only_go",
+  "source_commit": "83bad7effa82f77ce53bf40db172086f8e984870",
+  "source_files": [
+    "basis_aligned/polynomial_causal/recover_gauge_transport_triangle_v3_receipt.py",
+    "basis_aligned/polynomial_causal/GAUGE_TRANSPORT_TRIANGLE_V3_RECEIPT_RECOVERY_PREREGISTRATION.md",
+    "basis_aligned/polynomial_causal/test_recover_gauge_transport_triangle_v3_receipt.py"
+  ],
+  "source_sha256s": {
+    "basis_aligned/polynomial_causal/recover_gauge_transport_triangle_v3_receipt.py": "98c50acec7d0c081b544209ba3fbd0c581d0b3d777e2e1e518ff120f8cc00fe3",
+    "basis_aligned/polynomial_causal/GAUGE_TRANSPORT_TRIANGLE_V3_RECEIPT_RECOVERY_PREREGISTRATION.md": "f1ac92ee1263f8bb7a85c6aad4dc3391161a915751f6c6c82d45013d6ca4fff8",
+    "basis_aligned/polynomial_causal/test_recover_gauge_transport_triangle_v3_receipt.py": "1313e41e19d566935507a7efb02531c8097b079d561898cfdc6f0ff8d381bf23"
+  },
+  "input_sha256s": {
+    "result": "2b79648c9866dfbad51c57c6b8536870962db8998040476f9c636fac5994891b",
+    "state": "a85d7cefcc1ea2623dfd0ba42289dbe11b4eb7aec94f923a5492e16a9a069c2e",
+    "v2_failure": "4d6c77993af2a4362345b8654ac5ba5d6640f7be0b04cd2d6e17f5b1c081de7b",
+    "v2_authority": "5f5785e47dea61db6633c6d65d228946f71905e0baf4b9fa7cc0188377410898"
+  },
+  "output": "gauge_transport_triangle_v3_receipt.json",
+  "authority_sha256": "952ef4624d95774fd72f51b82079faa1cb71053216b42658c91b78f9f396810e"
+}
