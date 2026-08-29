@@ -58804,3 +58804,47 @@ in this line could express a per-site rank until §1996 added one for a differen
 smoothly from mlp8 (0.0014) through mlp10 (0.0107) to mlp12 (0.0269) — **no sharp feature there to explain
 a sharp knee here.** Layers 8–17 and 12–17 would locate it, and if the knee is genuinely sharp where the
 content profile is smooth, that is worth more than the 0.3 milli-nats it would buy.
+
+## §2021 — the knee located: the marginal ladder crosses §1947's price between layers 10 and 8
+
+`ops/where_exactly_is_the_rank_knee.py`, **545.1s**, **DISCOVERY ONLY**, both coverages, rung 3 — §2020's
+open question. **pred_a True | pred_b True | pred_c True | pred_d True | derived controls True.**
+Reference deviation 0.000000. All gains pooled over 92,160 positions.
+
+```
+  cumulative, over the shipped build          each step adds exactly 2 sites, 5.05M values, price 0.00050
+              5,419 gain    per-parameter      step        5,419      16,110
+  16–17      0.000962        1.9×              16,17     +0.000962   +0.002340    1.9× / 4.7×
+  14–17      0.002132        2.1×              14,15     +0.001170   +0.002336    2.3× / 4.7×
+  12–17      0.002768        1.8×              12,13     +0.000636   +0.001988    1.3× / 4.0×
+  10–17      0.003300        1.6×              10,11     +0.000531   +0.000957    1.1× / 1.9×
+   8–17      0.003459        1.4×               8,9      +0.000159   +0.000318    0.3× / 0.6×
+```
+
+> **All four predicates PASSED, and §2020's build is confirmed as the correct stopping point rather than
+> superseded.** Under a marginal rule — buy while the next step clears its own price — the ladder pays at
+> every step down to layers 10–11 (**1.1× at 5,419, 1.9× at 16,110**) and stops at 8–9 (**0.3× and 0.6×**).
+> **Layers 10–17 is right at both coverages.**
+
+> **pred_d PASSED: layers 10–11 buy 3.34× what layers 8–9 buy** (0.000531 against 0.000159), against a
+> registered bar of 3.0. **The drop across the knee is real.** But the fuller ladder shows the approach to
+> it is a *decline*, not a plateau — 1.9×, 2.3×, 1.3×, 1.1×, then 0.3×. **The knee is a cliff at the end
+> of a slope**, and §2020's "sharp" was measured from one arm on each side.
+
+**And the two profiles do not track each other, which is the mechanism finding.** §2015 measured what each
+table *carries*: mlp14 **0.0126**, mlp12 **0.0269**, mlp10 **0.0107**, mlp8 **0.0014**. §2021 measures what
+*more rank* at those sites buys: **0.00117, 0.00064, 0.00053, 0.00016.** **The content profile peaks at
+mlp12; the extra-rank profile peaks at mlp14–15 and declines monotonically from there.** What a table holds
+and what a fuller table would add are different quantities, **and not even monotonically related** — which
+is precisely the conflation that produced §2020's wrong registered direction.
+
+> **The per-parameter champion is not the recommended build.** Layers 14–17 alone return **2.1× per
+> parameter** against layers 10–17's 1.6×. §1947's rule is a *marginal* rule, not a ratio-maximising one:
+> it says buy every step that clears the bar, and layers 12–13 and 10–11 clear it. **A ratio-maximising
+> reading would stop at 14–17 and leave 1.2 milli-nats on the table.** Recording the distinction because
+> the two give different builds and the ledger has never had to separate them before.
+
+**Open.** Every rank finding since §2016 concerns the **MLP** sites. §1959 set **attention at 384** by the
+same uniform sweep that set mlp at 768 — averaging over eighteen attention sites whose contributions
+§1989 already showed differ by 6× (0.05 to 0.31 nats). **The attention rank axis above 384 has never been
+tested per-site, and it is the same instrument, the same failure mode, and one arm away.**

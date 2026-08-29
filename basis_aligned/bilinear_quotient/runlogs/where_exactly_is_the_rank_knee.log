@@ -1,0 +1,65 @@
+WHERE EXACTLY IS THE RANK KNEE | 7 arms x 2 coverage(s) | DISCOVERY ONLY
+
+########## COVERAGE 5419 ##########
+  [bqlib] coverage 5419 from fineweb_n96_skip80.pt: 36 tables, neighbour index and map solver built (4s)
+  [bqlib] cache HIT  live     skip7000
+  [bqlib] cache HIT  live     skip11000
+  [bqlib] cache HIT  live     skip1200
+  [bqlib] cache HIT  mix30m640 skip7000
+  [bqlib] cache HIT  mix30m640 skip11000
+  [bqlib] cache HIT  mix30m640 skip1200
+  [bqlib] computed   mix30m640 skip7000 (1.4s)
+  [bqlib] computed   mix30m640 skip11000 (1.3s)
+  [bqlib] computed   mix30m640 skip1200 (0.6s)
+  [bqlib] computed   mix30m640 skip7000 (1.4s)
+  [bqlib] computed   mix30m640 skip11000 (1.3s)
+  [bqlib] computed   mix30m640 skip1200 (0.7s)
+  [bqlib] cache HIT  mix30m640 skip7000
+  [bqlib] cache HIT  mix30m640 skip11000
+  [bqlib] cache HIT  mix30m640 skip1200
+  [bqlib] computed   mix30m640 skip7000 (1.4s)
+  [bqlib] computed   mix30m640 skip11000 (1.3s)
+  [bqlib] computed   mix30m640 skip1200 (0.7s)
+  [bqlib] cache HIT  map512   skip7000
+  [bqlib] cache HIT  map512   skip11000
+  [bqlib] cache HIT  map512   skip1200
+  [bqlib] cache HIT  mix30m640 skip7000
+  [bqlib] cache HIT  mix30m640 skip11000
+  [bqlib] cache HIT  mix30m640 skip1200
+
+########## COVERAGE 16110 ##########
+  [bqlib] coverage 16110 from fineweb_n480_skip80.pt: 36 tables, neighbour index and map solver built (5s)
+  [bqlib] cache HIT  live     skip7000
+  [bqlib] cache HIT  live     skip11000
+  [bqlib] cache HIT  live     skip1200
+  [bqlib] cache HIT  mix30m640 skip7000
+  [bqlib] cache HIT  mix30m640 skip11000
+  [bqlib] cache HIT  mix30m640 skip1200
+  [bqlib] computed   mix30m640 skip7000 (1.4s)
+  [bqlib] computed   mix30m640 skip11000 (1.3s)
+  [bqlib] computed   mix30m640 skip1200 (0.7s)
+  [bqlib] computed   mix30m640 skip7000 (1.3s)
+  [bqlib] computed   mix30m640 skip11000 (1.3s)
+  [bqlib] computed   mix30m640 skip1200 (0.7s)
+  [bqlib] cache HIT  mix30m640 skip7000
+  [bqlib] cache HIT  mix30m640 skip11000
+  [bqlib] cache HIT  mix30m640 skip1200
+  [bqlib] computed   mix30m640 skip7000 (1.3s)
+  [bqlib] computed   mix30m640 skip11000 (1.3s)
+  [bqlib] computed   mix30m640 skip1200 (0.7s)
+  [bqlib] cache HIT  map512   skip7000
+  [bqlib] cache HIT  map512   skip11000
+  [bqlib] cache HIT  map512   skip1200
+  [bqlib] cache HIT  mix30m640 skip7000
+  [bqlib] cache HIT  mix30m640 skip11000
+  [bqlib] cache HIT  mix30m640 skip1200
+
+  §2020's layers 10-17 build rebuilds to 0.003300 / 0.007621 pooled within 0.0002 nats  -> True
+  and adding layers 8 and 9 buys under their 0.00050 price at 5,419  -> True
+  and layers 10 and 11 clear the same 0.00050 bar, at both coverages  -> True
+  and layers 10-11 buy more than three times what layers 8-9 buy, at 5,419  -> True
+  derived controls -> True   coverage_exact=True  inert_pairs_are_inert=True  some_differing_pair_moves=True  buckets_partition=True  live_identical=True  ref_shipped=True
+  reference deviations: shipped 0.000000
+
+pred_a True | pred_b True | pred_c True | pred_d True | pred_z True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/where_exactly_is_the_rank_knee_results.json (545.1s)
