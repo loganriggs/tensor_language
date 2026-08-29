@@ -1679,3 +1679,31 @@ word flagged 35 of 341 pairs, mostly benign paraphrases (`single_basin` for "BOT
 Adding "and the docstring line appears verbatim in another ops script" cut it to 14, all true positives.
 **The signal was never the mismatch; it was the inheritance.** A check aimed at the symptom floods; the
 same check aimed at the mechanism does not.
+
+## LESSONS 64 — a results key that only exists conditionally, and a regression fixture that was a no-op
+
+`ops/iso_cost_rank.py` built all four rank tables, then died in its reporting block:
+
+```
+  KeyError: 'full'
+```
+
+The rank-sweep lineage keys its results dict by `str(rank)` with `None -> 'full'`. This script dropped
+full rank from `TRANKS` and kept the inherited `curve['full']` lookup. **Fourth tail-inheritance failure**
+in this codebase (LESSONS 56 banner, 59 label suffix, 63 predicate block, now this), and the first that
+is **statically decidable**: if `TRANKS` contains no `None`, `curve['full']` cannot resolve. Gate check
+added; it flags 0 of 138 existing scripts.
+
+**The more useful half of this is the fixture.** I built the must-fail case with a `sed` substitution
+whose pattern did not match — the replacement text contained quotes and brackets — so the "broken" file
+was **identical to the fixed one**, and the new check "passed" its must-fail test by never being
+exercised. I only caught it because PRE-FLIGHT D says to test a watcher in the degraded direction and I
+printed the intermediate: `curve['full'] found: False`.
+
+**This is LESSONS 52 repeated exactly** — there too my first regression fixture was a no-op and the check
+looked fine. The pattern is now twice-observed and worth stating as a rule:
+
+**How to apply:** build regression fixtures with an explicit assertion that the defect is present
+(`assert "curve['full']" in broken`), not with a text substitution you assume worked. A fixture that
+silently fails to introduce the bug makes a broken check indistinguishable from a working one, and the
+whole point of the must-fail test is that it can only be trusted if the fixture is verified first.

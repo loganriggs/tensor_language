@@ -1,0 +1,39 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+ISO COST RANK | 16,110 types, ranks 256/320/352/361 at the deployed budget | settled program (context-free tables + output-NN fallback + rank-64 map) | DISCOVERY ONLY
+
+  per-site norm calibration (live mean / row mean), measured on the LIVE model:
+    attn L0:  2.66 L1:  2.47 L2:  2.19 L3:  2.07 L4:  4.30 L5:  0.99 L6:  1.01 L7:  3.55 L8:  3.30 L9:  4.77 L10:  3.73 L11:  4.40 L12:  6.40 L13:  5.89 L14:  6.59 L15:  6.04 L16:  5.32 L17:  5.55
+    mlp  L0:  0.87 L1:  0.41 L2:  0.60 L3:  0.48 L4:  0.10 L5:  0.39 L6:  0.51 L7:  1.63 L8:  1.98 L9:  1.30 L10:  2.22 L11:  1.03 L12:  1.87 L13:  1.24 L14:  1.62 L15:  1.18 L16:  1.12 L17:  1.21
+
+  arms  (49s)
+  all_substituted      skip7000 13.93%  skip11000 14.71%  skip1200 14.01%
+  all_sub_scaled       skip7000 12.20%  skip11000 12.96%  skip1200 12.11%
+  live_model           skip7000 39.32%  skip11000 42.35%  skip1200 38.88%
+
+  arms  (114s)
+  all_substituted        skip7000 13.93%  skip11000 14.71%  skip1200 14.01%
+  live_model             skip7000 39.32%  skip11000 42.35%  skip1200 38.88%
+
+  arms  (127s)
+  B0_raw                 skip7000 25.87%  skip11000 28.57%  skip1200 26.20%
+  B0_seq                 skip7000 31.32%  skip11000 33.99%  skip1200 30.05%
+
+  coverage 16110 types (2.97x §1834); ceiling CE skip7000 5.90775  skip11000 5.84750  skip1200 5.87767 (149s)
+    rank 256   covered skip7000  6.00027 (+0.09252)  skip11000  5.94595 (+0.09844)  skip1200  5.95815 (+0.08049)   (248s)
+    rank 320   covered skip7000  5.97590 (+0.06815)  skip11000  5.92024 (+0.07273)  skip1200  5.93523 (+0.05757)   (347s)
+    rank 352   covered skip7000  5.96632 (+0.05857)  skip11000  5.90958 (+0.06207)  skip1200  5.92669 (+0.04902)   (447s)
+    rank 361   covered skip7000  5.96419 (+0.05644)  skip11000  5.90666 (+0.05915)  skip1200  5.92463 (+0.04697)   (547s)
+
+  ISO-COST at 16110 types -- the deployed budget is 230.087M (full rank at 5,419 types):
+    rank 256   164.478M  skip7000 5.98851 (+0.09252)  skip11000 5.94106 (+0.09844)  skip1200 5.95781 (+0.08049)
+    rank 320   204.250M  skip7000 5.96654 (+0.06815)  skip11000 5.91793 (+0.07273)  skip1200 5.93722 (+0.05757)
+    rank 352   224.135M  skip7000 5.95792 (+0.05857)  skip11000 5.90828 (+0.06207)  skip1200 5.92957 (+0.04902)
+    rank 361   229.728M  skip7000 5.95599 (+0.05644)  skip11000 5.90566 (+0.05915)  skip1200 5.92770 (+0.04697)
+    DEPLOYED  230.087M  skip7000 6.01167  skip11000 5.98477  skip1200 6.00165
+
+  AT THE DEPLOYED BUDGET rank wins by >=0.03 nats -> True  rank 361 costs 229.728M <= 230.087M, gain skip7000 +0.05568  skip11000 +0.07911  skip1200 +0.07395
+  and spending the WHOLE budget beats stopping at 256 -> True  skip7000 +0.03252  skip11000 +0.03540  skip1200 +0.03011
+  and the ladder is MONOTONE at this resolution -> True
+  rank 256 reproduces §1852 above-ceiling, coverage 16110 -> control True
+
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/iso_cost_rank_results.json (546.7s)

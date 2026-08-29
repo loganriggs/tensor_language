@@ -50578,3 +50578,52 @@ single margin at +0.00297 nats and typical margins an order of magnitude larger.
 result in the §1829-§1860 arc and the only one that is also actionable**: at ~41% less storage, a
 rank-256 table over a ~14-16k covered set beats the full-rank build the record has used as its baseline
 since §1789.
+
+## §1861 — at IDENTICAL storage the alternative build is 0.056-0.079 nats better
+
+`ops/iso_cost_rank.py`, 546.7s, **DISCOVERY ONLY**, rung 3 — the question §1860's actionable claim raises.
+**pred_a True | pred_b True | pred_c True | pred_d True.**
+
+Every domination in §1853-§1860 is at a *different* cost, which is correct but awkward to act on.
+§1754's model says the deployed 230.087M budget buys up to **rank 361** at 16,110 covered types
+(229.728M). Measured there:
+
+```
+  rank 256   164.478M   5.98851   5.94106   5.95781
+  rank 320   204.250M   5.96654   5.91793   5.93722
+  rank 352   224.135M   5.95792   5.90828   5.92957
+  rank 361   229.728M   5.95599   5.90566   5.92770    <- inside the deployed budget
+  DEPLOYED   230.087M   6.01167   5.98477   6.00165    full rank at 5,419 types
+```
+
+> **At the same storage — 229.728M against 230.087M — the alternative build is better by +0.05568 /
+> +0.07911 / +0.07395 nats on the three roles.** That is an *iso-cost* margin, the form a deployment
+> decision actually takes, and it is **an order of magnitude larger than the Pareto margins** §1859 and
+> §1860 report (+0.003 to +0.044), because those compared arms at unequal cost while this one spends the
+> whole budget.
+
+**pred_b PASSED: spending the whole budget beats stopping at rank 256** by **+0.03252 / +0.03540 /
++0.03011** nats. The 65M reals between rank 256 and the budget ceiling are worth having — so the
+recommendation is not simply "use rank 256", it is "use as much rank as the budget allows at the largest
+covered set you can build". **pred_c PASSED**: the ladder is monotone at 32-rank resolution, so
+interpolating between measured ranks is safe.
+
+**Controls (pred_d).** Rank 256 reproduces §1852's published CE above the ceiling exactly
+(+0.09252 / +0.09844 / +0.08049) at the same 16,110-type covered set; every cost is computed from
+§1754's model rather than typed; rank 361's 229.728M is inside the deployed 230.087M by construction;
+coverage is 16,110; the ceiling is finite and above live on every role.
+
+**The arc's one actionable result, in its final form.** The compiled program the record has used as its
+baseline since §1789 — full rank over 5,419 covered types — is beaten **at its own storage budget** by a
+rank-361 table over 16,110 types, by 0.056 to 0.079 nats. Confirmed second class on both arms (§1859,
+§1860), role-invariant (§1855), and not draw-sensitive (§1860's two large-coverage builds agree to 0.009
+nats).
+
+**A run defect and a fixture defect, both recorded.** The first execution completed all four builds and
+died in the tail on `curve['full']` — inherited from a predecessor whose `TRANKS` included `None`, where
+this one's does not. That is the **fourth** tail-inheritance failure in this codebase (LESSONS 56, 59,
+63, now 64) and the first that is statically decidable, so it now has a gate check. **My first regression
+fixture for that check was a no-op**: a `sed` that silently failed to match, so the "broken" file was
+never broken and the check passed the must-fail test by not being exercised. That is LESSONS 52's defect
+repeated exactly — the fixture, not the check, was wrong — and the check only earned its place after the
+fixture was rebuilt in Python with an assertion that the bug was actually present.

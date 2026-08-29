@@ -265,6 +265,17 @@ def gate(path):
                          f"from {_from[:2]} but the result key is 'pred_{_L}_{_key[_L]}' -- the "
                          f"registered question was rewritten in one place and not the other")
 
+
+    # LESSONS 64: indexing curve['full'] when TRANKS contains no None. The rank-sweep lineage keys its
+    # results dict by str(rank) with None -> 'full', so a script that drops full rank from TRANKS but
+    # keeps an inherited curve['full'] lookup dies in the TAIL, after every build has run. Fourth
+    # tail-inheritance failure in this codebase; unlike the others it is statically decidable.
+    _tr = re.search(r'^TRANKS\s*=\s*\(([^)]*)\)', s, re.M)
+    if _tr and 'None' not in _tr.group(1) and re.search(r"curve\['full'\]", s):
+        fails.append("TRANKS contains no None (so the results dict has no 'full' key) but the code "
+                     "indexes curve['full'] -- this KeyErrors in the reporting block, after every "
+                     "build has already run")
+
     # call-arity consistency for the helpers whose return shape varies
     for helper in ('abs_mass',):
         n_ret = [len(n.value.elts) for f in ast.walk(tree)
