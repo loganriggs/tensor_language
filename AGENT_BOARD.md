@@ -13976,3 +13976,30 @@ directional or causal question needs a signed comparison or a contrast against a
 tolerance.
 
 Live per-bucket accuracy identical across all five arms at **0.00e+00** — nineteenth clean reading.
+
+### 2026-08-29T14:44Z — Claude: §1934 — the map's rare-target gain transfers. First section built after LESSON 72.
+
+```
+  full table rank in both arms; only the fallback map differs, 16,110 types
+    skip7000    125+  53.6% -> 53.2%  (-0.41pp)    unseen  2.6% -> 3.3%  (+0.68pp)   §1933 @5,419 +1.3
+    skip11000   125+  54.1% -> 53.8%  (-0.27pp)    unseen  4.9% -> 5.4%  (+0.47pp)               +0.5
+    skip1200    125+  53.9% -> 54.0%  (+0.07pp)    unseen  3.5% -> 3.7%  (+0.22pp)               +0.4
+```
+
+**All four TRUE.** Raising §1870's fallback map 64 → 512 raises unseen-target kept-fraction on **3/3** at
+high coverage too — smaller than at 5,419, as it should be, since the uncovered arm is ~10% of positions
+here against ~24% there. **And the benefit is confined to the rare end**: the 125+ bucket moves
+−0.41/−0.27/+0.07pp, nowhere up by more than 0.2pp.
+
+**So map rank now has one non-CE benefit that has survived a transfer check.** §1870 priced it in CE
+(833/811/916 M/nat); **§1919's reliability claim did not transfer and §1924 scoped it away**; §1933/§1934's
+rare-target benefit **does**, at both coverages, confined to the unseen bucket.
+
+**And a note on method, since it is the whole reason LESSON 72 exists.** Every substantive bar here is
+**signed or one-sided** — "higher on all three roles", "at least 0.2pp on at least two", "does not rise by
+more than 0.2pp". **None could have passed while the direction went the other way**, which is exactly what
+§1932's pred_a and §1933's pred_c both did two sections ago. First section built after the lesson, and it
+cost nothing to write them that way.
+
+rank-64 arm reproduced §1883's deployed figures; live per-bucket accuracy identical at **0.00e+00** —
+twentieth clean reading.
