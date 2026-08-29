@@ -53921,6 +53921,11 @@ The differences (0.19 / 0.67 / 0.89) are at or above §1916's ±0.077 covered sp
 is probably real rather than noise. A smaller covered set is a more selective one; whether that sharpens
 the margin's ordering is not something this run can say.
 
+> **[§1923 added a third coverage, 9,054.** The covered decline is mild and monotone on two of
+> three roles; the UNCOVERED gradient is **not monotone at all** — it peaks mid-coverage on
+> skip1200 at +2.93 against endpoints of 2.10 and 2.06. **Coverage is not a smooth axis for this
+> signal, and a two-point measurement would have said it was.]**
+
 **pred_d PASSED**: coverage exactly 5,419 — §1834's published deployed figure — zero lookup misses across
 the whole vocabulary, and the uncovered share genuinely moved (24% against 10%), which is what makes this
 a confirmation rather than a re-run.

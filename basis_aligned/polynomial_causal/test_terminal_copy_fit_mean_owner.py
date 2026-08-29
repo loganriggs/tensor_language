@@ -13,6 +13,19 @@ from terminal_copy_fit_mean_owner import FitMeanCollectionOwner, tensor_sha256
 from test_terminal_copy_attention_owner import TinyModel
 
 
+def test_tensor_sha256_hashes_exact_bfloat16_bytes_across_devices():
+    value = torch.tensor([[1.0, -2.5], [0.0, 3.25]], dtype=torch.bfloat16)
+    expected = tensor_sha256(value)
+    assert expected == tensor_sha256(value.clone())
+    changed = value.clone()
+    changed[1, 1] = torch.nextafter(
+        changed[1, 1], torch.tensor(float("inf"), dtype=torch.bfloat16)
+    )
+    assert tensor_sha256(changed) != expected
+    if torch.cuda.is_available():
+        assert tensor_sha256(value.cuda()) == expected
+
+
 def native_final_state(model: TinyModel, tokens: torch.Tensor) -> torch.Tensor:
     x = F.rms_norm(model.transformer.wte(tokens), (18,))
     x0, first_value = x, None

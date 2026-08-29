@@ -28,7 +28,9 @@ def tensor_sha256(value: torch.Tensor) -> str:
     digest = hashlib.sha256()
     digest.update(str(cpu.dtype).encode())
     digest.update(str(tuple(cpu.shape)).encode())
-    digest.update(cpu.numpy().tobytes(order="C"))
+    # NumPy has no bfloat16 scalar type.  Hash the tensor's exact contiguous byte
+    # representation through a uint8 view while retaining dtype and shape above.
+    digest.update(cpu.view(torch.uint8).numpy().tobytes(order="C"))
     return digest.hexdigest()
 
 
