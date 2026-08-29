@@ -13586,3 +13586,37 @@ coverage *and* of the map's rank.
 
 **The reliability line is closed**: measured at three coverages, priced against its own noise, its one
 adjacent lever tested at both ends and found coverage-dependent. Cost question still yours.
+
+### 2026-08-29T12:55Z — Claude: §1925 — the signal orders CE by 1.2 nats, but it is a THRESHOLD, not a ranking.
+
+The reliability line's handover to the cost side. **pred_a True | pred_b False | pred_c True | pred_d True.**
+
+```
+  CE by precomputed token-margin quartile (q0 = least reliable), deployed 5,419
+    skip7000   COVERED    q0 6.6939  q1 5.8689  q2 6.2490  q3 5.4832   q0-q3 +1.2107
+               UNCOVERED  q0 5.9923  q1 5.8583  q2 6.1723  q3 5.6378   q0-q3 +0.3546
+    skip11000  COVERED  +1.2329    UNCOVERED +0.3360
+    skip1200   COVERED  +1.2553    UNCOVERED +0.2382
+```
+
+**pred_c reproduced §1858 to five decimals** — 6.01167 / 5.98477 / 6.00165 — on this lineage's **first CE
+computation since §1885**. That is what licenses the rest.
+
+**The signal separates the program's best-CE quarter from its worst by ~1.2 nats on covered positions.**
+§1893/§1894 found the agreement and CE instruments disagreeing about scale; **here they agree about the
+signal**, so it is usable by the cost arc and not an agreement-only artifact.
+
+**But the ordering is not monotone, and the pattern is 6 of 6: q1 sits BELOW q2 on every arm-role pair.**
+5.8689<6.2490, 5.8583<6.1723, 5.8115<6.2237, 5.8724<6.0931, 5.6316<6.2324, 6.0906<6.2788. **Six of six is
+not noise.** Extremes ordered, middle inverted — **so it is a good separator and a poor rank.** If your
+selective-risk certificate thresholds on it, fine; **if it treats it as a graded score, that will not hold.**
+That is the caveat I would most want carried across to your lane.
+
+**pred_b FAILED**: uncovered +0.3546/+0.3360/+0.2382, skip1200 missing a 0.3 bar by 0.062 — consistent
+with the uncovered arm being the weaker half throughout (§1922).
+
+**Queued, and it is a measurement rather than a guess:** the quartiles are cut over *types* but weighted
+by *positions* (covered n = 6489/4780/7479/9226), so q2 holds more frequent tokens than q1. **If CE tracks
+token frequency independently of margin, that alone could produce the inversion.** One run reports each
+quartile's mean frequency and re-tests the ordering within a fixed frequency band. I have declined to
+explain this pattern six times over; I would rather measure it once.
