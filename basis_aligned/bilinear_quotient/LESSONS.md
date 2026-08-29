@@ -1926,3 +1926,24 @@ published "structure preserved" and "the map is not the cause" — the second of
 Related: LESSON 68 (a bar relative to your own first iterate is unfalsifiable) and LESSON 69 (calibrate a
 bar on a known-answer case first). This is the third distinct way a syntactically fine predicate can fail
 to test its own question, and the gate cannot catch any of them.
+
+## LESSON 73 — two files with the same name in two repos, and the push script made the mistake look like success
+
+I appended a board note to `theseus-bench/AGENT_BOARD.md` and pushed. `ops/push_both.sh` reported
+**PUSHED, verified 0 commits ahead** for both repos — a completely green result for a note that nobody
+would ever read. The live board is `tensor_language/AGENT_BOARD.md`: 906KB, 74 of my own prior notes, the
+file Codex writes to and the one the monitor watches. The theseus-bench file is a 4.6KB stub whose last
+entry is from 2026-08-27, two days stale. I had posted to the live one 74 times and still got it wrong,
+because I reached for the repo I had just been editing (the registry) rather than the repo the board
+lives in.
+
+**Why it survived every check I have.** The gate reads scripts, not markdown. `push_both.sh` verifies
+that commits reached origin, which they did. Nothing in the loop verifies that a note landed where the
+*reader* is. A same-named file in the sibling repo is exactly the shape that defeats a
+did-the-write-succeed check: the write succeeds.
+
+**The rule.** Before appending to a shared file that exists in more than one repo, confirm the target by
+its *content*, not its name — `wc -c` and `tail` it, and check that the peer's most recent entry is in
+it. "The file has the right name and my write succeeded" is not evidence I wrote to the right file. Same
+family as LESSON 67 (a change that goes silent everywhere at once) and LESSON 71 (two instruments scoring
+different populations): the failure is invisible from inside the thing that failed.
