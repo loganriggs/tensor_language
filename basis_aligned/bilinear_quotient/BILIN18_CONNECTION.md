@@ -54391,6 +54391,8 @@ confirms both arms scored the same positions.
 5,419 coverage, only at 16,110. Given §1924 found a lever that failed to transfer across coverage, that is
 the one check I would want before anyone shipped it.
 
+
+> [**SCOPED §1937.** This build's fallback component is §1870's map, selected on CE alone. §1937 scored the map against §1780/§1781's output-NN neighbour on **top-1** and the ranking **inverts**: the neighbour beats the deployed map by **+0.61 / +0.41 / +0.60pp pooled** at **~0.09M against 5.308M**. Every cost and accuracy figure in this section is therefore conditional on a fallback choice that is CE-optimal and top-1-suboptimal. The build has never been priced with the neighbour.]
 ## §1932 — at the DEPLOYED coverage the combined build trades common-target accuracy for rare-target accuracy
 
 `ops/combined_at_deployed_coverage.py`, 138.5s, **DISCOVERY ONLY**, 5,419 coverage, rung 3 — the check
@@ -54684,3 +54686,73 @@ being the only free parameter, and §1877–§1879 closed the option of regenera
 The uncovered arm's 28.7% against 37.5% says the *form* is what is leaving accuracy on the table, and
 §1780/§1781's output-NN neighbour is the only alternative fallback this thread has ever measured against
 it. Neither has been measured on the input-coverage axis introduced here.
+
+## §1937 — the FREE neighbour fallback beats the deployed map on top-1, on every role. §1870's ranking is instrument-dependent.
+
+`ops/fallback_form_by_input_coverage.py`, 92.3s, **DISCOVERY ONLY**, 5,419 coverage, rung 3 — §1936's
+open question. **pred_a False (0/3) | pred_b True (3/3) | pred_c True (3/3, and near-vacuous) | pred_d
+True.** The predicate I was most confident in failed on every role and that is the result.
+
+§1936 named the open lever: every fallback measurement since §1870 has varied the map's **rank** and never
+its **form**, and the uncovered arm runs at 28.7% kept-fraction against the covered arm's 37.5%. There is
+exactly one alternative form this thread has measured — §1780/§1781's output-NN neighbour, which gives an
+uncovered token the **row of its nearest covered token** in output-distribution space. §1870 priced it in
+**CE** and the map won by +0.0073 / +0.0161 / +0.0057 nats, and that is why the deployed design carries a
+map. It had never been scored on top-1, never on buckets, and never on the arm where it acts.
+
+```
+  UNCOVERED-input positions only (24.1 / 25.4 / 24.2% of scored positions)
+              overall top1        0-0     1-4    5-24  25-124    125+     cost
+    nn        14.68 14.25 13.90   7.7    14.4    22.8    22.9    52.6    ~0.09M
+    map64     12.14 12.63 11.44   6.5     6.7    10.8    11.4    48.7     5.308M   <- §1789 DEPLOYED
+    map512    13.05 13.10 11.75  10.4    11.1    14.7    18.2    47.5    42.467M
+                                (skip7000 row shown for the buckets; all three roles in the log)
+```
+
+> **pred_a FAILED 0/3, and it inverts the deployed choice. The neighbour beats the map on the uncovered
+> arm's overall top-1 on every role** — **+2.54 / +1.62 / +2.47pp** over the deployed rank-64 map and
+> **+1.63 / +1.15 / +2.15pp** over the rank-512 map. Pooled over **all** scored positions, since all three
+> arms are identical at covered inputs, the neighbour beats §1789's deployed design by **+0.61 / +0.41 /
+> +0.60pp of top-1** — while costing **~0.09M against 5.308M**, i.e. it is simultaneously **59× cheaper
+> and better**. §1870's ranking was correct in CE and does not survive the change of instrument.
+
+> **pred_b PASSED 3/3 and the split is cleaner than I registered it.** I predicted the neighbour would win
+> the 125+ bucket (52.6 / 49.1 / 52.2 against map512's 47.5 / 42.4 / 46.0). It wins **four of the five
+> buckets on all three roles — 12 of 12 cells** — and loses only the **0-0 (unseen-target) bucket**, on
+> 3/3 (7.7 / 6.9 / 5.6 against 10.4 / 14.2 / 7.7). **The two forms are complementary and the boundary is
+> exactly whether the target was ever seen.** That is the mechanism: the neighbour can only emit what a
+> real covered token emits, so it inherits real-token behaviour everywhere a real token suffices and is
+> structurally incapable of reaching a target no fit row contains; the map's least-squares reconstruction
+> is a smooth function of the embedding and can land on tokens the tables never saw. **§1933–§1936's
+> "the map buys rare-target accuracy" is correct and now sharpened: it buys UNSEEN-target accuracy
+> specifically, and pays for it in all four other buckets.**
+
+> **pred_c PASSED 3/3 at 21.22 / 17.99 / 32.35pp against a 1.0pp bar, and I am flagging it rather than
+> banking it — the same failure mode as §1933's pred_c.** I registered an oracle per-bucket better-of{nn,
+> map512} ceiling as evidence that a hybrid is available. Given pred_a's failure the "hybrid" is
+> overwhelmingly just *use the neighbour*: it wins 4 of 5 buckets outright, so the ceiling measures the
+> neighbour's dominance, not a mixture's value. **The bar was set before I knew the ordering and it no
+> longer tests what it was written to test.** The real hybrid question — can the *unseen* case be routed
+> to the map without knowing the target — is untouched, because the choice must be made per **input**
+> token and the bucket is a property of the **target** (LESSON 74, immediately again).
+
+**pred_d PASSED**: coverage exactly 5,419; **all three arms change the top-1 at exactly 0 covered-input
+positions** in all three pairwise comparisons, extending §1936's exact-zero instrument to the neighbour
+(11,101 / 10,985 / 6,936 changed at uncovered inputs); counts partition; the map64 arm reproduced §1936's
+**published** uncovered-input figures to a max deviation of **0.04pp**; live per-cell accuracy identical
+across all three arms — twenty-third clean reading.
+
+**What this does to the record.** §1870 is **not retracted** — its CE measurement stands and I have no
+reason to doubt it. What is corrected is the **inference drawn from it**: the map was selected as the
+settled fallback on a single instrument, that choice propagated unexamined into §1789's deployed design
+and into every section from §1933 to §1936, and **on top-1 it is the wrong choice by +0.4 to +0.6pp
+pooled at 59× the cost.** §1870, §1789 and §1931's "best-known build" are scoped in place: their fallback
+component is CE-optimal and top-1-suboptimal, and no build in this thread has been priced with the
+neighbour under a top-1 objective.
+
+**Open, and it is the next run.** The two instruments disagree and every figure above is top-1 only. CE
+and top-1 have never been measured for these three arms **in the same build on the same positions** —
+§1870's CE and this section's top-1 come from different scripts, so "the instruments disagree" currently
+rests on a cross-run comparison, which is exactly the shape LESSON 71 warns about. Measuring both, on
+both input classes, is a second-class confirmation with a different instrument and it either establishes
+the inversion or dissolves it.

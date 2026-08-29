@@ -21,6 +21,7 @@ from pathlib import Path
 import secrets
 import shutil
 import subprocess
+import copy
 from typing import Any, Callable, Iterable, Mapping, NamedTuple
 
 import torch
@@ -55,15 +56,38 @@ CACHE = BQ / ".rowcache_block3_native_down_behavioral_port_v1"
 RECEIPT = BQ / "block3_native_down_behavioral_port_v1_rows_receipt.json"
 LOCK = Path("/workspace/runs/.block3_native_down_behavioral_port_v1_rows.lock")
 ADDENDUM = HERE / "BLOCK3_NATIVE_DOWN_BEHAVIORAL_PORT_V1_EXECUTION_ADDENDUM.md"
+PREREGISTRATION = HERE / "BLOCK3_NATIVE_DOWN_BEHAVIORAL_PORT_V1_PREREGISTRATION.md"
 FREEZER = Path(__file__).resolve()
 TEST = HERE / "test_prepare_block3_native_down_behavioral_port_v1_rows.py"
 RUNNER = HERE / "run_block3_native_down_behavioral_port_v1.py"
 RUNNER_TEST = HERE / "test_run_block3_native_down_behavioral_port_v1.py"
 LOCAL_HARVESTER = HERE / "local_fineweb_harvest.py"
 REFERENCE_ROWS = BQ / "bilin18_eval_tokens_large.pt"
+AUDIT = HERE / "block3_native_down_behavioral_port_v1_rows_independent_audit.json"
+
+FAILED_ROW = (HERE / "gauge_transport_triangle_unique_rows_v1_rows.pt").resolve()
+FAILED_ROW_AUTHORITY = (
+    HERE / "gauge_transport_triangle_unique_rows_v1_authority.json"
+).resolve()
+FAILED_ROW_FAILURE = (
+    HERE / "gauge_transport_triangle_unique_rows_v1_failure.json"
+).resolve()
+TERMINAL_COPY_V2_RECEIPT = (
+    BQ / "terminal_copy_induction_v2_rows_receipt.json"
+).resolve()
+FAILED_ROW_AUTHORITY_SHA256 = (
+    "5f7435150561ef385c9a4ee51e2040c4a029e98faefbfe1bc0f92612d820498e"
+)
+FAILED_ROW_FAILURE_SHA256 = (
+    "91859b52b55b8be8ac05dc61f26b95fd43cdb92db7b8c39dfa72d226df41eb58"
+)
+TERMINAL_COPY_V2_RECEIPT_SHA256 = (
+    "aea52a94c643906ef822a7c6ddb37a371b4315507a1a0a79acd539a19ae7f5c8"
+)
 
 SOURCE_PATHS = (
-    FREEZER, TEST, ADDENDUM, RUNNER, RUNNER_TEST, REGISTRY_PATH, BASE_PATH,
+    FREEZER, TEST, PREREGISTRATION, ADDENDUM, RUNNER, RUNNER_TEST,
+    REGISTRY_PATH, BASE_PATH,
     LOCAL_HARVESTER,
 )
 
@@ -152,7 +176,10 @@ def release_claim(claim: RunClaim, path: Path | None = None) -> None:
         os.close(claim.descriptor)
 
 
-def write_json_create_only(payload: Mapping[str, Any], path: Path) -> None:
+def write_json_create_only(
+    payload: Mapping[str, Any], path: Path,
+    *, pre_link_check: Callable[[], None] | None = None,
+) -> None:
     temporary = path.with_name(f".{path.name}.tmp.{os.getpid()}.{secrets.token_hex(8)}")
     descriptor: int | None = None
     try:
@@ -162,6 +189,8 @@ def write_json_create_only(payload: Mapping[str, Any], path: Path) -> None:
             sink.write(json.dumps(payload, indent=2, allow_nan=False) + "\n")
             sink.flush()
             os.fsync(sink.fileno())
+        if pre_link_check is not None:
+            pre_link_check()
         os.link(temporary, path)
         directory = os.open(path.parent, os.O_RDONLY | getattr(os, "O_DIRECTORY", 0))
         try:
@@ -186,11 +215,107 @@ def discover_registry_files() -> tuple[Path, ...]:
     return tuple(sorted(path.resolve() for path in paths))
 
 
+def _resolve_registry_path(value: str) -> Path:
+    path = Path(value)
+    return (path if path.is_absolute() else ROOT / path).resolve()
+
+
+def _looks_row_like(value: Any) -> bool:
+    if not isinstance(value, str) or not value.endswith((".pt", ".pth")):
+        return False
+    path = Path(value)
+    name = path.name.lower()
+    return any(part.startswith(".rowcache") for part in path.parts) or any(
+        term in name for term in (
+            "row", "fineweb", "eval_token", "oracle_corpus", "source_document",
+        )
+    )
+
+
+def _replace_failed_row_reference(value: Any) -> Any:
+    if isinstance(value, dict):
+        return {key: _replace_failed_row_reference(child) for key, child in value.items()}
+    if isinstance(value, list):
+        return [_replace_failed_row_reference(child) for child in value]
+    if _looks_row_like(value) and _resolve_registry_path(value) == FAILED_ROW:
+        return None
+    return value
+
+
+def _missing_row_paths(payload: Any) -> set[Path]:
+    missing: set[Path] = set()
+    for value in REGISTRY.walk_json(payload):
+        if _looks_row_like(value):
+            path = _resolve_registry_path(value)
+            if not path.is_file():
+                missing.add(path)
+    return missing
+
+
+def _failed_row_waiver(path: Path, payload: Mapping[str, Any]) -> dict[str, Any]:
+    """Validate the one historical unmaterialized row reference exactly.
+
+    Two registry JSONs name this same absent tensor: its spent authority and the later
+    terminal-copy v2 receipt that already bound the failed-unmaterialized proof.  No
+    other file or missing row receives a waiver.
+    """
+
+    path = path.resolve()
+    if path not in (FAILED_ROW_AUTHORITY, TERMINAL_COPY_V2_RECEIPT):
+        raise RuntimeError("registry has an unregistered missing row-like reference")
+    if _missing_row_paths(payload) != {FAILED_ROW}:
+        raise RuntimeError("registered failed-row JSON has unexpected missing paths")
+    if FAILED_ROW.exists() or file_sha256(FAILED_ROW_AUTHORITY) != (
+        FAILED_ROW_AUTHORITY_SHA256
+    ) or file_sha256(FAILED_ROW_FAILURE) != FAILED_ROW_FAILURE_SHA256:
+        raise RuntimeError("failed-unmaterialized row lineage changed")
+    authority = json.loads(FAILED_ROW_AUTHORITY.read_bytes())
+    outputs = authority.get("outputs", {})
+    expected_outputs = {"authority", "failure", "lock", "manifest", "receipt", "rows"}
+    if set(outputs) != expected_outputs or authority.get("authority_sha256") != (
+        "8901a7446f70358e7e058013bb81c72f477c8636f5a1f76088307eda437025b5"
+    ) or _resolve_registry_path(outputs["rows"]) != FAILED_ROW:
+        raise RuntimeError("failed-unmaterialized authority semantics changed")
+    resolved = {key: _resolve_registry_path(value) for key, value in outputs.items()}
+    failure = json.loads(FAILED_ROW_FAILURE.read_bytes())
+    if failure.get("status") != "terminal_failure_no_receipt" or any(
+        failure.get(f"{kind}_exists") is not False
+        for kind in ("rows", "manifest", "receipt")
+    ) or any(resolved[kind].exists() for kind in ("rows", "manifest", "receipt", "lock")):
+        raise RuntimeError("failed-unmaterialized transaction is no longer terminal/absent")
+    staging = sorted({
+        str(candidate.resolve())
+        for kind in ("rows", "manifest", "receipt", "failure")
+        for candidate in resolved[kind].parent.glob(f".{resolved[kind].name}.tmp-*")
+    })
+    if staging:
+        raise RuntimeError("failed-unmaterialized transaction has staging artifacts")
+    if path == TERMINAL_COPY_V2_RECEIPT:
+        if file_sha256(path) != TERMINAL_COPY_V2_RECEIPT_SHA256:
+            raise RuntimeError("terminal-copy v2 waiver receipt changed")
+        waivers = payload.get("failed_unmaterialized_registry_exclusions")
+        if not isinstance(waivers, list) or len(waivers) != 1 or (
+            waivers[0].get("authority_sha256") != FAILED_ROW_AUTHORITY_SHA256
+            or waivers[0].get("failure_sha256") != FAILED_ROW_FAILURE_SHA256
+            or waivers[0].get("omitted_missing_row_path") != str(FAILED_ROW)
+            or waivers[0].get("proof", {}).get("rows_exists") is not False
+        ):
+            raise RuntimeError("terminal-copy v2 failed-row proof changed")
+    return {
+        "registry_json": str(path),
+        "registry_json_sha256": file_sha256(path),
+        "omitted_missing_row_path": str(FAILED_ROW),
+        "authority_sha256": FAILED_ROW_AUTHORITY_SHA256,
+        "failure_sha256": FAILED_ROW_FAILURE_SHA256,
+        "proof": "exact_spent_authority_and_terminal_failure_no_materialized_outputs",
+    }
+
+
 def load_registry_exclusions(
     registry_files: tuple[Path, ...],
 ) -> tuple[
     tuple[set[str], set[int], set[tuple[int, ...]], set[tuple[int, ...]]],
-    dict[str, str], dict[str, str],
+    dict[str, str], dict[str, str], list[dict[str, Any]],
 ]:
     """Parse the full registry with each JSON and tensor bound to exact bytes."""
     documents: set[str] = set()
@@ -199,6 +324,7 @@ def load_registry_exclusions(
     prefixes: set[tuple[int, ...]] = set()
     registry_hashes: dict[str, str] = {}
     tensor_specs: dict[Path, list[dict[str, str]]] = {REFERENCE_ROWS.resolve(): []}
+    waiver_proofs: list[dict[str, Any]] = []
 
     for path in registry_files:
         before = file_sha256(path)
@@ -209,9 +335,14 @@ def load_registry_exclusions(
             raise RuntimeError(f"registry JSON changed while reading: {path}")
         registry_hashes[str(path.resolve())] = before
         payload = json.loads(raw)
-        for tensor_path, specifications in REGISTRY.referenced_row_specs(payload).items():
+        missing = _missing_row_paths(payload)
+        sanitized = copy.deepcopy(payload)
+        if missing:
+            waiver_proofs.append(_failed_row_waiver(path, payload))
+            sanitized = _replace_failed_row_reference(sanitized)
+        for tensor_path, specifications in REGISTRY.referenced_row_specs(sanitized).items():
             tensor_specs.setdefault(tensor_path, []).extend(specifications)
-        for value in REGISTRY.walk_json(payload):
+        for value in REGISTRY.walk_json(sanitized):
             if not isinstance(value, dict):
                 continue
             document = value.get("document_id")
@@ -230,7 +361,14 @@ def load_registry_exclusions(
                 values = tuple(int(item) for item in row.tolist())
                 full_rows.add(values)
                 prefixes.add(values[:PREFIX_LENGTH])
-    return (documents, indices, full_rows, prefixes), registry_hashes, tensor_hashes
+    waiver_proofs.sort(key=lambda item: item["registry_json"])
+    expected_waiver_files = {str(FAILED_ROW_AUTHORITY), str(TERMINAL_COPY_V2_RECEIPT)}
+    if {item["registry_json"] for item in waiver_proofs} != expected_waiver_files:
+        raise RuntimeError("registry did not reproduce both exact failed-row waiver records")
+    return (
+        (documents, indices, full_rows, prefixes), registry_hashes, tensor_hashes,
+        waiver_proofs,
+    )
 
 
 def harvest_fresh_documents(

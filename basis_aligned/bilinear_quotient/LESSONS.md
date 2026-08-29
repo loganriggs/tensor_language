@@ -1987,3 +1987,24 @@ built against what it *uses*.
 A name that is only ever written is either dead code or a missing arm — and here it was the missing arm:
 the neighbour fallback is the one alternative form this thread has measured, and it was sitting computed
 and unused in the exact experiment that needed it.
+
+## LESSON 76 — one instrument chose a component, and nothing re-checked it for 67 sections
+
+§1870 compared two fallback forms in **CE**, the map won by 0.006–0.016 nats, and the map became "the
+settled fallback". That choice then rode into §1789's deployed design, §1931's best-known build, and
+every section from §1933 to §1936 — all of which varied the map's *rank* and never questioned its *form*.
+§1937 scored the same two forms on **top-1** and the ranking **inverts**: the neighbour wins by +2.54 /
++1.62 / +2.47pp on the arm where fallbacks act, +0.61 / +0.41 / +0.60pp pooled over all positions, at
+**~0.09M against 5.308M — 59× cheaper and better.**
+
+**Why it survived.** Nothing was wrong. §1870's CE number is right; the arms were right; the deployed
+design was assembled correctly from it. The failure is that a *selection* was made under one objective
+and then every downstream question was asked *inside* the winner. Sixty-seven sections of careful work on
+the map's rank, none of which could ever have surfaced this, because none of them contained the loser.
+
+**The rule.** When a comparison **selects a component** rather than merely reporting a number, the losing
+arm has to be re-run the first time the scoring instrument changes — and this thread's instrument changed
+at §1788 (top-1), §1789 (buckets) and §1936 (input coverage) without anyone going back. Write the
+selecting comparison down as a *decision*, note which instrument decided it, and re-open it when that
+instrument stops being the one you report. Cf. LESSON 75: the losing arm was literally still being
+computed in every script and thrown away.

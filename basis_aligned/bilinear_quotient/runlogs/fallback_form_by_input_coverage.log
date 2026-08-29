@@ -1,2 +1,40 @@
 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
 FALLBACK FORM BY INPUT COVERAGE at 5419 | arms ('nn', 'map64', 'map512') | (input covered/uncovered) x (target bucket ((0, 0), (1, 4), (5, 24), (25, 124), (125, 1000000000))) | FULL table rank | DISCOVERY ONLY
+  built the settled fallback and 36 tables (4s)
+  scored map rank 0 on 3 roles (10s)
+  scored map rank 64 on 3 roles (51s)
+  scored map rank 512 on 3 roles (92s)
+
+  CHANGED top-1 between arms, summed over 3 roles:
+    nn_vs_map64        covered inputs      0   uncovered inputs  11101
+    nn_vs_map512       covered inputs      0   uncovered inputs  10985
+    map64_vs_map512    covered inputs      0   uncovered inputs   6936
+
+  skip7000: 8890/36864 = 24.1% of scored positions have an UNCOVERED input; live there 45.43%
+    UNCOVERED-input kept-fraction by arm
+      nn      overall top1 14.68% |     0-0  7.7%      1-4 14.4%     5-24 22.8%   25-124 22.9%  125-1000000000 52.6%
+      map64   overall top1 12.14% |     0-0  6.5%      1-4  6.7%     5-24 10.8%   25-124 11.4%  125-1000000000 48.7%
+      map512  overall top1 13.05% |     0-0 10.4%      1-4 11.1%     5-24 14.7%   25-124 18.2%  125-1000000000 47.5%
+      oracle per-bucket better-of(nn, map512) beats map512 by 21.22pp summed
+
+  skip11000: 9367/36864 = 25.4% of scored positions have an UNCOVERED input; live there 49.28%
+    UNCOVERED-input kept-fraction by arm
+      nn      overall top1 14.25% |     0-0  6.9%      1-4 18.7%     5-24 18.5%   25-124 21.0%  125-1000000000 49.1%
+      map64   overall top1 12.63% |     0-0 13.0%      1-4 10.8%     5-24  8.1%   25-124 13.1%  125-1000000000 44.9%
+      map512  overall top1 13.10% |     0-0 14.2%      1-4 15.9%     5-24 12.8%   25-124 18.2%  125-1000000000 42.4%
+      oracle per-bucket better-of(nn, map512) beats map512 by 17.99pp summed
+
+  skip1200: 4459/18432 = 24.2% of scored positions have an UNCOVERED input; live there 46.11%
+    UNCOVERED-input kept-fraction by arm
+      nn      overall top1 13.90% |     0-0  5.6%      1-4 14.3%     5-24 25.6%   25-124 29.5%  125-1000000000 52.2%
+      map64   overall top1 11.44% |     0-0  6.7%      1-4  7.8%     5-24 12.2%   25-124 12.4%  125-1000000000 48.1%
+      map512  overall top1 11.75% |     0-0  7.7%      1-4 11.6%     5-24 13.4%   25-124 18.3%  125-1000000000 46.0%
+      oracle per-bucket better-of(nn, map512) beats map512 by 32.35pp summed
+
+  the MAP still wins overall on the uncovered arm (>=2 roles) -> False  0/3
+  but the NEIGHBOUR wins the 125+ bucket there (>=2 roles) -> True  3/3
+  and a per-bucket hybrid CEILING beats map512 by >=1.0pp summed (>=2 roles) -> True  3/3
+  coverage 5419, ALL arms inert at covered inputs, partitions, LIVE identical, map64 reproduces §1936 (max dev 0.04pp) -> control True
+
+pred_a False | pred_b True | pred_c True | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/fallback_form_by_input_coverage_results.json (92.3s)
