@@ -58617,3 +58617,47 @@ one.**
 **Open.** Every rank tested has been *below* 768, and 768 is itself a truncation — the untruncated table at
 5,419 coverage has rank **1152**. **Whether mlp16 and mlp17 are leaving content on the table above 768 has
 never been asked**, and it is the one direction in which the allocation could still be wrong.
+
+## §2017 — the shipped rank 768 is very slightly UNDER-bought at mlp17, and improvements are sub-additive
+
+`ops/is_768_leaving_content_on_the_table.py`, **267.4s**, **DISCOVERY ONLY**, 5,419, rung 3 — §2016's open
+question. **pred_a True | pred_b False | pred_c True | pred_d False | derived controls True.** Reference
+deviation 0.000000.
+
+Untruncating a site means rank **1152**, the table's own rank at 5,419 coverage; it adds 2.52M values,
+worth **0.00025 nats** at §1947's 0.010-per-100M price.
+
+```
+  nats bought by raising one site from rank 768 to its untruncated 1152
+             mlp16      mlp17      both       sum of each     price
+  skip7000  +0.00053   +0.00063   +0.00105     +0.00116     0.00025
+  skip11000 +0.00102   +0.00030   +0.00120     +0.00131
+  skip1200  −0.00008   +0.00051   +0.00031     +0.00043
+  pooled t    −5.84      −3.58      −5.48
+```
+
+> **pred_c PASSED, and mlp17 clears the price on all three roles. Untruncating mlp17 buys 0.00030 to
+> 0.00063 nats against a 0.00025 price — 1.2× to 2.5×.** Pooled t = −3.58. **§1959's rank 768 is very
+> slightly under-bought at the single site that carries most of the program's content.**
+
+> **pred_b FAILED, at mlp16, on one role. It buys +0.00102 and +0.00053 on two roles and −0.00008 on
+> skip1200** — a small negative. **mlp16 does not clear the bar as written and I am not recommending it.**
+> The two sites §2015 identified together behave differently at the top of the rank axis.
+
+> **pred_d FAILED 3/3, and the direction is the interesting part. Raising both buys LESS than the sum of
+> raising each** — 0.00105 against 0.00116, 0.00120 against 0.00131, 0.00031 against 0.00043 — **so
+> improvements are sub-additive by 10–28%, where §2014 and §2016 both measured degradations as
+> super-additive by 22–24%.** Same nonlinearity, opposite sign of perturbation: moving away from the
+> program's optimum compounds, moving toward it saturates. **I registered "the same nonlinearity should
+> make improvements compound too"; it does the opposite, and that is a cleaner statement about the loss
+> than the one I expected.**
+
+**What this recommends, and what it does not.** **mlp17 at rank 1152 is justified under §1947's price rule
+on 3/3 roles, by 1.2× to 2.5×, for +2.52M values on a 189.5M build — a 1.3% price rise for 0.0005 nats.**
+That is a real but small margin on a rule whose bar is itself 0.010 per 100M. **mlp16 is not justified.**
+**I am not editing the shipped build on a discovery run**: the house pattern is to score a candidate build
+end-to-end, at both coverages, against the deployed one, and that is what §2018 does.
+
+**Open.** Every number here is at 5,419. §1993 and §2008 both found this family stable at 16,110, but
+§1963 and §1965 reversed 5,419 claims twice, and **a 0.0005-nat margin is exactly the size that a coverage
+change could erase.**

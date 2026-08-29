@@ -1,0 +1,35 @@
+IS 768 LEAVING CONTENT ON THE TABLE | 6 arms x 1 coverage(s) | DISCOVERY ONLY
+
+########## COVERAGE 5419 ##########
+  [bqlib] coverage 5419 from fineweb_n96_skip80.pt: 36 tables, neighbour index and map solver built (4s)
+  [bqlib] cache HIT  live     skip7000
+  [bqlib] cache HIT  live     skip11000
+  [bqlib] cache HIT  live     skip1200
+  [bqlib] cache HIT  mix30m640 skip7000
+  [bqlib] cache HIT  mix30m640 skip11000
+  [bqlib] cache HIT  mix30m640 skip1200
+  [bqlib] computed   mix30m640 skip7000 (1.4s)
+  [bqlib] computed   mix30m640 skip11000 (1.3s)
+  [bqlib] computed   mix30m640 skip1200 (0.6s)
+  [bqlib] computed   mix30m640 skip7000 (1.4s)
+  [bqlib] computed   mix30m640 skip11000 (1.3s)
+  [bqlib] computed   mix30m640 skip1200 (0.7s)
+  [bqlib] computed   mix30m640 skip7000 (1.4s)
+  [bqlib] computed   mix30m640 skip11000 (1.3s)
+  [bqlib] computed   mix30m640 skip1200 (0.7s)
+  [bqlib] cache HIT  map512   skip7000
+  [bqlib] cache HIT  map512   skip11000
+  [bqlib] cache HIT  map512   skip1200
+  [bqlib] cache HIT  mix30m640 skip7000
+  [bqlib] cache HIT  mix30m640 skip11000
+  [bqlib] cache HIT  mix30m640 skip1200
+
+  the shipped program rebuilds to 2.80750/2.97891/2.70217 within 0.0005 nats on 3/3 roles  -> True
+  and untruncating mlp16 or mlp17 buys strictly positive CE, on 3/3 roles  -> False
+  and at one of them it buys more than §1947's 0.00025 price (>=2 roles)  -> True
+  and raising both buys more than the sum of raising each -- super-additivity in the other direction  -> False
+  derived controls -> True   coverage_exact=True  inert_pairs_are_inert=True  some_differing_pair_moves=True  buckets_partition=True  live_identical=True  ref_full_program=True
+  reference deviations: full_program 0.000000
+
+pred_a True | pred_b False | pred_c True | pred_d False | pred_z True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/is_768_leaving_content_on_the_table_results.json (267.4s)
