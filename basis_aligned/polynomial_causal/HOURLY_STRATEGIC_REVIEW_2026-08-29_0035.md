@@ -174,3 +174,27 @@ This is not a status-only review. It reduced the next GPU action from an informa
 idea to a falsifiable 16-cell transaction with exact provenance, physical call
 census, protected old/new joins, deterministic uncertainty, and receipt-last scoring.
 No model outcome has been opened yet.
+
+## Outcome addendum — 00:45 UTC
+
+After independent GO, commit/push, exact source-closure replay, and GPU release, the
+authoritative 16-cell measurement and receipt-last score completed. The registered
+attention-invariance law **fails on both roles and both directed transports**.
+
+- within-role NRE: 0.8813 / 0.8841;
+- within-role \(R^2\): −4.5227 / −3.9284;
+- directed-transfer NRE: 0.8909 / 0.8738;
+- all seven signs agree, but predicted magnitudes are far too small;
+- the three-way error \(Q\) is almost exactly opposite the true MLP-only interaction:
+  cosine −0.9983 / −0.9982.
+
+Replacing MLP3--8 alone costs 10.60–10.87 CE nats and 38.31–41.21 top-1 points.
+Early-prefix replacements mitigate that damage by 2.20–6.95 CE nats, but the old
+attention-plus-MLP cells predict only 0.44–0.69 nats of mitigation. Attention thus
+cancels most of the early-prefix/MLP-suffix interaction; the broad suffix is a coupled
+attention/MLP object, not a separable MLP interface.
+
+A post-outcome scalar/affine check does not rescue cell-specific prediction. Scaling
+restores mean magnitude (NRE about 0.39–0.41), but \(R^2\) remains at or below zero;
+adding bias gives \(R^2\) only 0.007–0.010. Full explanation and receipts are in
+`BROAD_MLP_SUFFIX_DEALIAS_V1_RESULT.md`.

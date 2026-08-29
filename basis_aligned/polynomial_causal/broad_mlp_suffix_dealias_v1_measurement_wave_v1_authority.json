@@ -1,0 +1,608 @@
+{
+  "authoritative_measurement": true,
+  "authorized_for_final_role": false,
+  "cell_order": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "model_binding": {
+    "component_tree_sha256": "94cbebb35ca3f8c6923f5040b76d243c3f3fa192496604bd40abeb2e4077da0c",
+    "config_sha256": "428042bfd807ba36f8b4326395440fbbebe52cd3d040212e6fef14a4fdf2d83c",
+    "implementation_sha256": "94b927b7d0576b29f2bfd4dbee851462598ae944d3c2f6d9405e702163fdbc4d",
+    "model_realization_sha256": "cf3ca3f55028979ef6f87ac4afa08a7d90fc01dfa4fc2ce037343ac3c69688eb",
+    "weights_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3"
+  },
+  "parent_two_role_authority_sha256": "b64e087d2bd9c3ae85a85816a1d15fc6d043aaf0be27553b0accc6e6a4c9dd6d",
+  "program_bank_sha256": "f5eaf38be60838ad154be24b11b7ae6398141504096bc9e84acaaaab970620fe",
+  "program_descriptors": [
+    {
+      "execution_mode": "native_module_executes_then_exact_output_substitution",
+      "gain_policy": "identity_gains_no_mask_specific_refitting",
+      "installed_compiled_sites": [
+        [
+          "mlp",
+          3
+        ],
+        [
+          "mlp",
+          4
+        ],
+        [
+          "mlp",
+          5
+        ],
+        [
+          "mlp",
+          6
+        ],
+        [
+          "mlp",
+          7
+        ],
+        [
+          "mlp",
+          8
+        ]
+      ],
+      "ordinal": 0,
+      "request_sha256": "ee3c7a9569fb0dc503d199424e65e805476731f42093a6bf08d2d7d41f4060da",
+      "shared_program_sha256": "cad513c942cccaf01e747cb600428b427c03d98dd0dddc710a4028ff1ba9d0bb"
+    },
+    {
+      "execution_mode": "native_module_executes_then_exact_output_substitution",
+      "gain_policy": "identity_gains_no_mask_specific_refitting",
+      "installed_compiled_sites": [
+        [
+          "mlp",
+          0
+        ],
+        [
+          "mlp",
+          3
+        ],
+        [
+          "mlp",
+          4
+        ],
+        [
+          "mlp",
+          5
+        ],
+        [
+          "mlp",
+          6
+        ],
+        [
+          "mlp",
+          7
+        ],
+        [
+          "mlp",
+          8
+        ]
+      ],
+      "ordinal": 1,
+      "request_sha256": "8aa0ba817cf292428aceb7838507030c9ff7a97709e02d5b755dddc57a6dce11",
+      "shared_program_sha256": "cad513c942cccaf01e747cb600428b427c03d98dd0dddc710a4028ff1ba9d0bb"
+    },
+    {
+      "execution_mode": "native_module_executes_then_exact_output_substitution",
+      "gain_policy": "identity_gains_no_mask_specific_refitting",
+      "installed_compiled_sites": [
+        [
+          "mlp",
+          0
+        ],
+        [
+          "mlp",
+          1
+        ],
+        [
+          "mlp",
+          3
+        ],
+        [
+          "mlp",
+          4
+        ],
+        [
+          "mlp",
+          5
+        ],
+        [
+          "mlp",
+          6
+        ],
+        [
+          "mlp",
+          7
+        ],
+        [
+          "mlp",
+          8
+        ]
+      ],
+      "ordinal": 2,
+      "request_sha256": "47411408b31cac0ff87623a25c1855935f802ecf1aab5a289edac7ccd46f2e42",
+      "shared_program_sha256": "cad513c942cccaf01e747cb600428b427c03d98dd0dddc710a4028ff1ba9d0bb"
+    },
+    {
+      "execution_mode": "native_module_executes_then_exact_output_substitution",
+      "gain_policy": "identity_gains_no_mask_specific_refitting",
+      "installed_compiled_sites": [
+        [
+          "mlp",
+          1
+        ],
+        [
+          "mlp",
+          3
+        ],
+        [
+          "mlp",
+          4
+        ],
+        [
+          "mlp",
+          5
+        ],
+        [
+          "mlp",
+          6
+        ],
+        [
+          "mlp",
+          7
+        ],
+        [
+          "mlp",
+          8
+        ]
+      ],
+      "ordinal": 3,
+      "request_sha256": "d4d5f48c25dd21b212f8f09ffbef4f394727f182e40f27e655e6ce6e76e0722b",
+      "shared_program_sha256": "cad513c942cccaf01e747cb600428b427c03d98dd0dddc710a4028ff1ba9d0bb"
+    },
+    {
+      "execution_mode": "native_module_executes_then_exact_output_substitution",
+      "gain_policy": "identity_gains_no_mask_specific_refitting",
+      "installed_compiled_sites": [
+        [
+          "mlp",
+          0
+        ],
+        [
+          "mlp",
+          1
+        ],
+        [
+          "mlp",
+          2
+        ],
+        [
+          "mlp",
+          3
+        ],
+        [
+          "mlp",
+          4
+        ],
+        [
+          "mlp",
+          5
+        ],
+        [
+          "mlp",
+          6
+        ],
+        [
+          "mlp",
+          7
+        ],
+        [
+          "mlp",
+          8
+        ]
+      ],
+      "ordinal": 4,
+      "request_sha256": "8b674099f31a2c302c4686401ba3d2fc0934154179cbe5520056150ebeaf3738",
+      "shared_program_sha256": "cad513c942cccaf01e747cb600428b427c03d98dd0dddc710a4028ff1ba9d0bb"
+    },
+    {
+      "execution_mode": "native_module_executes_then_exact_output_substitution",
+      "gain_policy": "identity_gains_no_mask_specific_refitting",
+      "installed_compiled_sites": [
+        [
+          "mlp",
+          2
+        ],
+        [
+          "mlp",
+          3
+        ],
+        [
+          "mlp",
+          4
+        ],
+        [
+          "mlp",
+          5
+        ],
+        [
+          "mlp",
+          6
+        ],
+        [
+          "mlp",
+          7
+        ],
+        [
+          "mlp",
+          8
+        ]
+      ],
+      "ordinal": 5,
+      "request_sha256": "687722a11daf05fdaf8811e8acd532d79d29529cbd1e03fdc030587c04278931",
+      "shared_program_sha256": "cad513c942cccaf01e747cb600428b427c03d98dd0dddc710a4028ff1ba9d0bb"
+    },
+    {
+      "execution_mode": "native_module_executes_then_exact_output_substitution",
+      "gain_policy": "identity_gains_no_mask_specific_refitting",
+      "installed_compiled_sites": [
+        [
+          "mlp",
+          1
+        ],
+        [
+          "mlp",
+          2
+        ],
+        [
+          "mlp",
+          3
+        ],
+        [
+          "mlp",
+          4
+        ],
+        [
+          "mlp",
+          5
+        ],
+        [
+          "mlp",
+          6
+        ],
+        [
+          "mlp",
+          7
+        ],
+        [
+          "mlp",
+          8
+        ]
+      ],
+      "ordinal": 6,
+      "request_sha256": "3b6039706c43b70bba7fa1b9ec0e730dfa6f8a64f1013107816f00bfbac142c3",
+      "shared_program_sha256": "cad513c942cccaf01e747cb600428b427c03d98dd0dddc710a4028ff1ba9d0bb"
+    },
+    {
+      "execution_mode": "native_module_executes_then_exact_output_substitution",
+      "gain_policy": "identity_gains_no_mask_specific_refitting",
+      "installed_compiled_sites": [
+        [
+          "mlp",
+          0
+        ],
+        [
+          "mlp",
+          2
+        ],
+        [
+          "mlp",
+          3
+        ],
+        [
+          "mlp",
+          4
+        ],
+        [
+          "mlp",
+          5
+        ],
+        [
+          "mlp",
+          6
+        ],
+        [
+          "mlp",
+          7
+        ],
+        [
+          "mlp",
+          8
+        ]
+      ],
+      "ordinal": 7,
+      "request_sha256": "fd2ee5e3e2a892951ff3530e1f1248c6a11f0f856132bb2bebcc30f7f1f7e20d",
+      "shared_program_sha256": "cad513c942cccaf01e747cb600428b427c03d98dd0dddc710a4028ff1ba9d0bb"
+    }
+  ],
+  "request_plan_sha256": "24d1dc888fa94c2e0c3552a3da4e4d1fbed211ecc70f4150b1a36b02055f9556",
+  "role_authorities": {
+    "skip11000": {
+      "authorized_for_final_role": false,
+      "batch_count": 24,
+      "common_support_sha256": "234c05b2669518bdb510bbfcf0b2f86eddbb97527d806a774091937d93387cb6",
+      "component_tree_sha256": "94cbebb35ca3f8c6923f5040b76d243c3f3fa192496604bd40abeb2e4077da0c",
+      "document_count": 105,
+      "model_realization_sha256": "cf3ca3f55028979ef6f87ac4afa08a7d90fc01dfa4fc2ce037343ac3c69688eb",
+      "ordered_document_ids_sha256": "19583d31e77cd68b73e1657aaaaf57bbd90108fe1edc0674b0867f69d845e1ed",
+      "ordered_row_identity_sha256": "929016f88e2e5ac9798495053a6dd12399238822da2fe8afb3bbdb731f61bf7a",
+      "ordered_row_to_document_sha256": "3b9931a1d26b15e2691cfa9a4eafeb136e3c2d83a050513c0f0c23bc3e4fc682",
+      "parent_measurement_receipt_sha256": "82af48ef6a553038316004dfcf1e82eb10f9d717fde3f8021c805c0afd79da43",
+      "parent_role_authority_sha256": "65f25520712d2c496994d750f4ff662e6a9fa61c2879275c2285114647450358",
+      "request_plan_sha256": "24d1dc888fa94c2e0c3552a3da4e4d1fbed211ecc70f4150b1a36b02055f9556",
+      "role": "skip11000",
+      "row_count": 192,
+      "row_file_sha256": "b1564bfd071418f401a816cb01e3d26b082a3e73ba858838f1c83c250db4d868",
+      "row_raw_sha256": "5d6c1697f6d05860e4235c21e6324e3451d47924565d8edb62e06fbe37b3a1fa",
+      "row_token_count_sha256": "1355494a19d118e5ff051d548120eb448113ba17b3dc828d83a6270e0cfa3bec",
+      "shared_program_sha256": "cad513c942cccaf01e747cb600428b427c03d98dd0dddc710a4028ff1ba9d0bb",
+      "source_closure_sha256": "1002e8199a8c6921cd72c952ce63d90a65c46cdc5cd95c85a4cd9ba3f8e004b5",
+      "source_commit": "cd9bd33b183c35f342c09d7746f15e98024ff7ed",
+      "total_scored_token_count": 36864,
+      "wave_nonce_sha256": "97efb2089b19446d9115c459e5c3af3f78ee174c8b799e11fd926564734c783f"
+    },
+    "skip7000": {
+      "authorized_for_final_role": false,
+      "batch_count": 24,
+      "common_support_sha256": "172e767b4bd7db4bb95052759d125c0caa9b2efe8b25deb3877d8022357205cc",
+      "component_tree_sha256": "94cbebb35ca3f8c6923f5040b76d243c3f3fa192496604bd40abeb2e4077da0c",
+      "document_count": 79,
+      "model_realization_sha256": "cf3ca3f55028979ef6f87ac4afa08a7d90fc01dfa4fc2ce037343ac3c69688eb",
+      "ordered_document_ids_sha256": "b28446ac631be5c27ddb88c94416f9c4bdb79d8382106c31876f0b91f4709f51",
+      "ordered_row_identity_sha256": "d5dffab188ccccf28fe48170e6e9000b9f57789c7038a1c2d8c232c1684686da",
+      "ordered_row_to_document_sha256": "0d0c6fea333d3ce70cfb1fb7206fd33f1f91465e01e7f3857c9294b6d90ce0cc",
+      "parent_measurement_receipt_sha256": "82af48ef6a553038316004dfcf1e82eb10f9d717fde3f8021c805c0afd79da43",
+      "parent_role_authority_sha256": "331d397d968ca1b0db195fadab569103ba110d12b0983a308e6e01dc82cfb42f",
+      "request_plan_sha256": "24d1dc888fa94c2e0c3552a3da4e4d1fbed211ecc70f4150b1a36b02055f9556",
+      "role": "skip7000",
+      "row_count": 192,
+      "row_file_sha256": "d66c1ee7807bc6b9bd7d0ddba5cdd7e3bc64926b00320a10675a2f817d67128c",
+      "row_raw_sha256": "10d66676c804569eaa501d0c3c425f357d1d4305eb2581f1e9a5403504f054c0",
+      "row_token_count_sha256": "1355494a19d118e5ff051d548120eb448113ba17b3dc828d83a6270e0cfa3bec",
+      "shared_program_sha256": "cad513c942cccaf01e747cb600428b427c03d98dd0dddc710a4028ff1ba9d0bb",
+      "source_closure_sha256": "1002e8199a8c6921cd72c952ce63d90a65c46cdc5cd95c85a4cd9ba3f8e004b5",
+      "source_commit": "cd9bd33b183c35f342c09d7746f15e98024ff7ed",
+      "total_scored_token_count": 36864,
+      "wave_nonce_sha256": "afa5e04b7c53bbc5bf6981fde78c721bb8d6760dfa83047ae3ecdc0d5dfae4b0"
+    }
+  },
+  "role_authority_sha256s": {
+    "skip11000": "92dbd1d677c7f3723380f33fdfd47e283cc027204beaca38094ff037f8c667a7",
+    "skip7000": "9bb47a999f59575a6111b53babf1e6e62b89a50b17e05afcb2680835b235b924"
+  },
+  "role_order": [
+    "skip7000",
+    "skip11000"
+  ],
+  "row_bindings": {
+    "skip11000": {
+      "common_support_sha256": "234c05b2669518bdb510bbfcf0b2f86eddbb97527d806a774091937d93387cb6",
+      "document_count": 105,
+      "ordered_document_ids_sha256": "19583d31e77cd68b73e1657aaaaf57bbd90108fe1edc0674b0867f69d845e1ed",
+      "ordered_row_identity_sha256": "929016f88e2e5ac9798495053a6dd12399238822da2fe8afb3bbdb731f61bf7a",
+      "ordered_row_to_document_sha256": "3b9931a1d26b15e2691cfa9a4eafeb136e3c2d83a050513c0f0c23bc3e4fc682",
+      "row_count": 192,
+      "row_provenance_sha256": "642631c3166f5ae8a50eea9ea0cd0781685cf35dc38d6a4301e35308e47639d5",
+      "row_tensor_sha256": "3358ca6c5800817459d9c230257ad5f3734223c0caac11d428fefb847387d24e",
+      "row_token_count_sha256": "1355494a19d118e5ff051d548120eb448113ba17b3dc828d83a6270e0cfa3bec",
+      "row_wave_sha256": "7156886708c01f5c5446aa00ea2b784600b710cdd81885d675dbaa5d4e8ad3b2",
+      "source_receipt_sha256": "815b21618c2e477e8cbda17ce94bf01862017a9936e4ee03acaa6cd7256cba16",
+      "support": {
+        "input_position_half_open": [
+          0,
+          256
+        ],
+        "scored_logit_position_half_open": [
+          64,
+          256
+        ],
+        "target_position_half_open": [
+          65,
+          257
+        ]
+      },
+      "total_scored_token_count": 36864
+    },
+    "skip7000": {
+      "common_support_sha256": "172e767b4bd7db4bb95052759d125c0caa9b2efe8b25deb3877d8022357205cc",
+      "document_count": 79,
+      "ordered_document_ids_sha256": "b28446ac631be5c27ddb88c94416f9c4bdb79d8382106c31876f0b91f4709f51",
+      "ordered_row_identity_sha256": "d5dffab188ccccf28fe48170e6e9000b9f57789c7038a1c2d8c232c1684686da",
+      "ordered_row_to_document_sha256": "0d0c6fea333d3ce70cfb1fb7206fd33f1f91465e01e7f3857c9294b6d90ce0cc",
+      "row_count": 192,
+      "row_provenance_sha256": "d280d42c9829313750e22bf88606ce7741146cb82f2be3bf472649a8a3e5445e",
+      "row_tensor_sha256": "acd656639867fb2ebbd49b8caa19cd7005a4c6f58c19c7bad2fafd8a1929f044",
+      "row_token_count_sha256": "1355494a19d118e5ff051d548120eb448113ba17b3dc828d83a6270e0cfa3bec",
+      "row_wave_sha256": "621f9adc6bf50673505e50b58dee78fa50ae87e4215657260d1977895e5470a3",
+      "source_receipt_sha256": "815b21618c2e477e8cbda17ce94bf01862017a9936e4ee03acaa6cd7256cba16",
+      "support": {
+        "input_position_half_open": [
+          0,
+          256
+        ],
+        "scored_logit_position_half_open": [
+          64,
+          256
+        ],
+        "target_position_half_open": [
+          65,
+          257
+        ]
+      },
+      "total_scored_token_count": 36864
+    }
+  },
+  "schema_version": 1,
+  "shared_program_sha256": "cad513c942cccaf01e747cb600428b427c03d98dd0dddc710a4028ff1ba9d0bb",
+  "source_closure": {
+    "path_sha256s": [
+      [
+        "basis_aligned/polynomial_causal/BROAD_MLP_SUFFIX_DEALIAS_V1_IMPLEMENTATION_AMENDMENT.md",
+        "991299e02e813011cd767625f61b80b7888e403f0a82d0fc8b77717cea5fdf25"
+      ],
+      [
+        "basis_aligned/polynomial_causal/BROAD_MLP_SUFFIX_DEALIAS_V1_PREREGISTRATION.md",
+        "065f1458a93685432596abf43c6628935e93c4e84d8210cb19d7f346d1e9b24f"
+      ],
+      [
+        "basis_aligned/polynomial_causal/EARLY_MLP_CONTEXT_CROSS_V1_IMPLEMENTATION_AMENDMENT.md",
+        "8c7db977ef75bf6ec544075c248b7428099f7c41c9ef7a1c706dac1c1af53b67"
+      ],
+      [
+        "basis_aligned/polynomial_causal/EARLY_MLP_CONTEXT_CROSS_V1_PREREGISTRATION.md",
+        "b1fa36f022ccd7e403a1c82dc77c5d888a26f8e615120dd577a57ff2cd9a6970"
+      ],
+      [
+        "basis_aligned/polynomial_causal/bilin18_observed_model_facade.py",
+        "b62947f772c807259890a9d09dfcbe5e91ad339a0bffa867ab99177fde4c728c"
+      ],
+      [
+        "basis_aligned/polynomial_causal/broad_mlp_suffix_dealias_v1.py",
+        "e9759fcf78e663fbc111c911dd4e39a795a5cf0e87d9f1454197e83929eab545"
+      ],
+      [
+        "basis_aligned/polynomial_causal/broad_mlp_suffix_dealias_v1_bilin18_backend.py",
+        "c59c258eb891d733c69f7480666d42b25140c25d7adf4de6b4b4a4012e16f8c5"
+      ],
+      [
+        "basis_aligned/polynomial_causal/broad_mlp_suffix_dealias_v1_lifecycle.py",
+        "0caa41a60003393e5957040ce3cd1684c5390fd3023e0809d5fbaf7bfb8ce60a"
+      ],
+      [
+        "basis_aligned/polynomial_causal/broad_mlp_suffix_dealias_v1_measurements.py",
+        "c1b680721dae16e7c7d37734ecf9634e44f76282d4d79ab6be438ee1bccf1575"
+      ],
+      [
+        "basis_aligned/polynomial_causal/compilation_mask_cut_rank_v1.py",
+        "5323d27f8b7f2a6455c330028cb19a00debaf31c201e37ad9ea18f8e0a4e6a3e"
+      ],
+      [
+        "basis_aligned/polynomial_causal/compilation_mask_cut_rank_v1_bilin18_backend.py",
+        "738f4988fe5b87a7329f833bc7117cc417adcb9834da06533b00bc8b320c18e0"
+      ],
+      [
+        "basis_aligned/polynomial_causal/compilation_mask_cut_rank_v1_gpu_adapter.py",
+        "6ce4fd5e8fcf121186541e34a2f6f6546192dfb6c69d9ea9d8b776e9a9a77914"
+      ],
+      [
+        "basis_aligned/polynomial_causal/compilation_mask_cut_rank_v1_measurements.py",
+        "abb15eb5699a284a9540db7aca36d884e4df3bf5d03eb2b79c3d1d0aa6128f1b"
+      ],
+      [
+        "basis_aligned/polynomial_causal/early_mlp_context_cross_v1.py",
+        "02e7a0121df9c833defacf68adc3fec274137a81f3bab2c663fc8002b723d2f5"
+      ],
+      [
+        "basis_aligned/polynomial_causal/early_mlp_context_cross_v1_bilin18_backend.py",
+        "728ae29fe68ac94020d654329415c349e3970b52ae38007a3acb2ac9e52db697"
+      ],
+      [
+        "basis_aligned/polynomial_causal/early_mlp_context_cross_v1_lifecycle.py",
+        "bdd6a0235a75afe4d4e3f22fa6173373c4241cfe6e83066cc4a913e6040010fa"
+      ],
+      [
+        "basis_aligned/polynomial_causal/early_mlp_context_cross_v1_measurements.py",
+        "1a53f072293b12b57345376c234483d911dba90800863bfec99a7554bc88559d"
+      ],
+      [
+        "basis_aligned/polynomial_causal/early_mlp_context_cross_v1_statistics.py",
+        "b676655317c04da8b3a4455f5ffcc1b76b45a44304112f85a70a86da093c08d4"
+      ],
+      [
+        "basis_aligned/polynomial_causal/run_broad_mlp_suffix_dealias_v1.py",
+        "caa630712cece4f4ddd20401e8bc38358c4024f34435a39492a228ee72c0098a"
+      ],
+      [
+        "basis_aligned/polynomial_causal/run_early_mlp_context_cross_v1.py",
+        "4364f3ec4e3ba8f2c179d6c2c1f8598469ba416d5ed31ee52bdbc92f97e06c37"
+      ],
+      [
+        "basis_aligned/polynomial_causal/score_broad_mlp_suffix_dealias_v1.py",
+        "d5e4ea5cba5feb53a3ce676f79e4f7c76c0a1ad13de43bc40f5870d67a87f867"
+      ],
+      [
+        "basis_aligned/polynomial_causal/score_early_mlp_context_cross_v1.py",
+        "87888430e5e8ce8d2278e40b80684fcaf20d5251821c7f5da6b31bcc47a21f3b"
+      ],
+      [
+        "basis_aligned/polynomial_causal/test_broad_mlp_suffix_dealias_v1.py",
+        "a62ea687b9dc8ac58da7d737f3d5df9c5b793ee125a1c507ed0319fd57f12833"
+      ],
+      [
+        "basis_aligned/polynomial_causal/test_broad_mlp_suffix_dealias_v1_bilin18_backend.py",
+        "f993f39422367c6aaa18711359793bc6d42384e84b3fc5e2945d8fb5ef694004"
+      ],
+      [
+        "basis_aligned/polynomial_causal/test_broad_mlp_suffix_dealias_v1_lifecycle.py",
+        "91981dca261ac64a38472a7e6e68b9716b44b2fda7cbd7e750d98874e8a37ffb"
+      ],
+      [
+        "basis_aligned/polynomial_causal/test_broad_mlp_suffix_dealias_v1_measurements.py",
+        "3bac5c975e2808db17a5375910669316fbbd6ec397c5cb1be415404bf5096221"
+      ],
+      [
+        "basis_aligned/polynomial_causal/test_early_mlp_context_cross_v1.py",
+        "a0ee3f79317e7954526fb100254d103a299078d9c398e4a6d3393cb0ef7597c6"
+      ],
+      [
+        "basis_aligned/polynomial_causal/test_early_mlp_context_cross_v1_bilin18_backend.py",
+        "15e91591130609b4720b8c4c818fe8f9f86fb6246e23afe2a61204d38297a38c"
+      ],
+      [
+        "basis_aligned/polynomial_causal/test_early_mlp_context_cross_v1_lifecycle.py",
+        "633a7f3e46f400230098848c7d96899459e7ff15c843a9182e77112b274adddd"
+      ],
+      [
+        "basis_aligned/polynomial_causal/test_early_mlp_context_cross_v1_measurements.py",
+        "b0c213b783af788252f443561495c50bc57222eaec9536f189a688492540cb29"
+      ],
+      [
+        "basis_aligned/polynomial_causal/test_early_mlp_context_cross_v1_statistics.py",
+        "b05ddf48f26a5875e73ee6ac995695e63e997411cd5769d3b0f82a757a1f5532"
+      ],
+      [
+        "basis_aligned/polynomial_causal/test_run_broad_mlp_suffix_dealias_v1.py",
+        "0f589414832bdb19b1ed199b44f613bd7c751385c943661f112e199823c35ff0"
+      ],
+      [
+        "basis_aligned/polynomial_causal/test_run_early_mlp_context_cross_v1.py",
+        "c4d12b984565f34c04a473e0f604e3e6d23ffb73841e79480d164a3f781b2fc8"
+      ],
+      [
+        "basis_aligned/polynomial_causal/test_score_broad_mlp_suffix_dealias_v1.py",
+        "1751321ce7718022c65c2e00a290d07232767d4689e96b013088c24da460fa38"
+      ],
+      [
+        "basis_aligned/polynomial_causal/test_score_early_mlp_context_cross_v1.py",
+        "76dec77d4c4b54bcaf0fa1489c7503c525dd7a0b465e850d2c6776fd151e8f90"
+      ],
+      [
+        "jacclust/tt_model.py",
+        "49ecdbd6c060ff5b3e57f3134d87ba32841390c891c42e6ae23b71d8627612b2"
+      ]
+    ],
+    "source_commit": "cd9bd33b183c35f342c09d7746f15e98024ff7ed"
+  },
+  "source_closure_sha256": "1002e8199a8c6921cd72c952ce63d90a65c46cdc5cd95c85a4cd9ba3f8e004b5",
+  "status": "frozen_before_any_measurement_outcome",
+  "two_role_authority_sha256": "261e5fd9afeba3ae20d4d31118a2361012b5f1ec6a92409cfae060c7f50b7899"
+}

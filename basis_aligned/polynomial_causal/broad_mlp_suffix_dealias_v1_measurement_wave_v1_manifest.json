@@ -1,0 +1,5580 @@
+{
+  "authoritative_measurement": true,
+  "authority_file_sha256": "fba4a31790acf71f807565b2a4b4cec83a3752136580acea981d99a2a3def249",
+  "authorized_for_final_role": false,
+  "cell_audit_records": {
+    "skip11000": [
+      {
+        "call_ledger": {
+          "batch_count": 24,
+          "execution_mode": "native_module_executes_then_exact_output_substitution",
+          "fitter_calls": 0,
+          "hook_order": "native_count_registered_before_substitution",
+          "native_module_calls": [
+            [
+              [
+                "attn",
+                0
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                0
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                1
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                1
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                2
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                2
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                3
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                3
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                4
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                4
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                5
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                5
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                6
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                6
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                7
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                7
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                8
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                8
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                9
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                9
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                10
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                10
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                11
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                11
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                12
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                12
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                13
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                13
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                14
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                14
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                15
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                15
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                16
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                16
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                17
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                17
+              ],
+              24
+            ]
+          ],
+          "ordinal": 0,
+          "outer_forward_count": 24,
+          "outer_returned_count": 24,
+          "program_sha256": "ddaf36e9f2852fec430592806bc3e9fafcda79f1f3d254f83a155987bb559f50",
+          "request_sha256": "ee3c7a9569fb0dc503d199424e65e805476731f42093a6bf08d2d7d41f4060da",
+          "retained_logits": 0,
+          "row_count": 192,
+          "scored_token_count": 36864,
+          "substitution_calls": [
+            [
+              [
+                "mlp",
+                3
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                4
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                5
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                6
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                7
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                8
+              ],
+              24
+            ]
+          ]
+        },
+        "call_ledger_sha256": "0c91b470a673b34475519fe4253cc016ec6b5b61250020aecdc4dd61f71a614a",
+        "cell_receipt": {
+          "authority_sha256": "92dbd1d677c7f3723380f33fdfd47e283cc027204beaca38094ff037f8c667a7",
+          "batch_count": 24,
+          "call_ledger_sha256": "0c91b470a673b34475519fe4253cc016ec6b5b61250020aecdc4dd61f71a614a",
+          "ce_sum_sha256": "676ed9536f564e4c509968ef7965641853bb8b090f9c41c0527d7afe9f23bb08",
+          "model_tree_after_sha256": "94cbebb35ca3f8c6923f5040b76d243c3f3fa192496604bd40abeb2e4077da0c",
+          "model_tree_before_sha256": "94cbebb35ca3f8c6923f5040b76d243c3f3fa192496604bd40abeb2e4077da0c",
+          "ordinal": 0,
+          "outer_forward_count": 24,
+          "prefix_index": 0,
+          "request_sha256": "ee3c7a9569fb0dc503d199424e65e805476731f42093a6bf08d2d7d41f4060da",
+          "row_token_count_sha256": "1355494a19d118e5ff051d548120eb448113ba17b3dc828d83a6270e0cfa3bec",
+          "shared_program_after_sha256": "cad513c942cccaf01e747cb600428b427c03d98dd0dddc710a4028ff1ba9d0bb",
+          "shared_program_before_sha256": "cad513c942cccaf01e747cb600428b427c03d98dd0dddc710a4028ff1ba9d0bb",
+          "source_closure_sha256": "1002e8199a8c6921cd72c952ce63d90a65c46cdc5cd95c85a4cd9ba3f8e004b5",
+          "statistics_sha256": "8f7f61e3f281c0e29beacbcbaebda9b90e59f01b7e2174d8ff79a69b114c8871",
+          "top1_correct_sha256": "c6df49200822e3c0b44b0d48ef253e7f2ccf9c8500c1bb8c22220992b6186c73"
+        },
+        "cell_receipt_sha256": "9bf127f73cc0e0eff61e02fee3c02ea3bb87f4494db393a83c51566493356de0",
+        "ordinal": 0,
+        "program_descriptor_sha256": "ddaf36e9f2852fec430592806bc3e9fafcda79f1f3d254f83a155987bb559f50"
+      },
+      {
+        "call_ledger": {
+          "batch_count": 24,
+          "execution_mode": "native_module_executes_then_exact_output_substitution",
+          "fitter_calls": 0,
+          "hook_order": "native_count_registered_before_substitution",
+          "native_module_calls": [
+            [
+              [
+                "attn",
+                0
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                0
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                1
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                1
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                2
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                2
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                3
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                3
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                4
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                4
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                5
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                5
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                6
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                6
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                7
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                7
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                8
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                8
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                9
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                9
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                10
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                10
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                11
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                11
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                12
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                12
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                13
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                13
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                14
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                14
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                15
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                15
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                16
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                16
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                17
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                17
+              ],
+              24
+            ]
+          ],
+          "ordinal": 1,
+          "outer_forward_count": 24,
+          "outer_returned_count": 24,
+          "program_sha256": "b6be46c4cbd966053ba1614e37b95d17d3543c0798055cbbd7bc3a178d775b4c",
+          "request_sha256": "8aa0ba817cf292428aceb7838507030c9ff7a97709e02d5b755dddc57a6dce11",
+          "retained_logits": 0,
+          "row_count": 192,
+          "scored_token_count": 36864,
+          "substitution_calls": [
+            [
+              [
+                "mlp",
+                0
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                3
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                4
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                5
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                6
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                7
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                8
+              ],
+              24
+            ]
+          ]
+        },
+        "call_ledger_sha256": "89780a5b60f45e42f7c5a90cf7dcba3c220293b0c13f2002a21157cce997697c",
+        "cell_receipt": {
+          "authority_sha256": "92dbd1d677c7f3723380f33fdfd47e283cc027204beaca38094ff037f8c667a7",
+          "batch_count": 24,
+          "call_ledger_sha256": "89780a5b60f45e42f7c5a90cf7dcba3c220293b0c13f2002a21157cce997697c",
+          "ce_sum_sha256": "ead334af1f91dcfcfded4f579a6fe810440d9cb4f5cd7913689cdadf1d1edc54",
+          "model_tree_after_sha256": "94cbebb35ca3f8c6923f5040b76d243c3f3fa192496604bd40abeb2e4077da0c",
+          "model_tree_before_sha256": "94cbebb35ca3f8c6923f5040b76d243c3f3fa192496604bd40abeb2e4077da0c",
+          "ordinal": 1,
+          "outer_forward_count": 24,
+          "prefix_index": 1,
+          "request_sha256": "8aa0ba817cf292428aceb7838507030c9ff7a97709e02d5b755dddc57a6dce11",
+          "row_token_count_sha256": "1355494a19d118e5ff051d548120eb448113ba17b3dc828d83a6270e0cfa3bec",
+          "shared_program_after_sha256": "cad513c942cccaf01e747cb600428b427c03d98dd0dddc710a4028ff1ba9d0bb",
+          "shared_program_before_sha256": "cad513c942cccaf01e747cb600428b427c03d98dd0dddc710a4028ff1ba9d0bb",
+          "source_closure_sha256": "1002e8199a8c6921cd72c952ce63d90a65c46cdc5cd95c85a4cd9ba3f8e004b5",
+          "statistics_sha256": "ccaf8f997cd4fd3976f0c3cb26118a2e2c365b367819f9e34a60e74ef29b5143",
+          "top1_correct_sha256": "5bae7664a2a234cfa374ce0f4e35c5a1d5a5bb018876e70e10cdd7945281a404"
+        },
+        "cell_receipt_sha256": "c56e7e6d432d296c21013a0a8094339b1ad44fe61dabccdc514394acf3dec4cf",
+        "ordinal": 1,
+        "program_descriptor_sha256": "b6be46c4cbd966053ba1614e37b95d17d3543c0798055cbbd7bc3a178d775b4c"
+      },
+      {
+        "call_ledger": {
+          "batch_count": 24,
+          "execution_mode": "native_module_executes_then_exact_output_substitution",
+          "fitter_calls": 0,
+          "hook_order": "native_count_registered_before_substitution",
+          "native_module_calls": [
+            [
+              [
+                "attn",
+                0
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                0
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                1
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                1
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                2
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                2
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                3
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                3
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                4
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                4
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                5
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                5
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                6
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                6
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                7
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                7
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                8
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                8
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                9
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                9
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                10
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                10
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                11
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                11
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                12
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                12
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                13
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                13
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                14
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                14
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                15
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                15
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                16
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                16
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                17
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                17
+              ],
+              24
+            ]
+          ],
+          "ordinal": 2,
+          "outer_forward_count": 24,
+          "outer_returned_count": 24,
+          "program_sha256": "38486a215348695e834cfe3002bda93372d5e87153efc93cd8303de1262c019a",
+          "request_sha256": "47411408b31cac0ff87623a25c1855935f802ecf1aab5a289edac7ccd46f2e42",
+          "retained_logits": 0,
+          "row_count": 192,
+          "scored_token_count": 36864,
+          "substitution_calls": [
+            [
+              [
+                "mlp",
+                0
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                1
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                3
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                4
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                5
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                6
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                7
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                8
+              ],
+              24
+            ]
+          ]
+        },
+        "call_ledger_sha256": "8ab1b87118c235767e5f9655ae7709f1237a0438dd1498142f3f6e46f69a8fd8",
+        "cell_receipt": {
+          "authority_sha256": "92dbd1d677c7f3723380f33fdfd47e283cc027204beaca38094ff037f8c667a7",
+          "batch_count": 24,
+          "call_ledger_sha256": "8ab1b87118c235767e5f9655ae7709f1237a0438dd1498142f3f6e46f69a8fd8",
+          "ce_sum_sha256": "f19d9b321736f95045a46d8342aa3f09fe04b37e4675715ab168dda22e65cbbb",
+          "model_tree_after_sha256": "94cbebb35ca3f8c6923f5040b76d243c3f3fa192496604bd40abeb2e4077da0c",
+          "model_tree_before_sha256": "94cbebb35ca3f8c6923f5040b76d243c3f3fa192496604bd40abeb2e4077da0c",
+          "ordinal": 2,
+          "outer_forward_count": 24,
+          "prefix_index": 2,
+          "request_sha256": "47411408b31cac0ff87623a25c1855935f802ecf1aab5a289edac7ccd46f2e42",
+          "row_token_count_sha256": "1355494a19d118e5ff051d548120eb448113ba17b3dc828d83a6270e0cfa3bec",
+          "shared_program_after_sha256": "cad513c942cccaf01e747cb600428b427c03d98dd0dddc710a4028ff1ba9d0bb",
+          "shared_program_before_sha256": "cad513c942cccaf01e747cb600428b427c03d98dd0dddc710a4028ff1ba9d0bb",
+          "source_closure_sha256": "1002e8199a8c6921cd72c952ce63d90a65c46cdc5cd95c85a4cd9ba3f8e004b5",
+          "statistics_sha256": "81b12dd2b618a7ff954a6a4348307f496c9a39592c343e75fa78a7b6731d7d69",
+          "top1_correct_sha256": "19e681efb0906b49c4a54413d34f49715247619f3a74db16c3767f4432f44b7f"
+        },
+        "cell_receipt_sha256": "54875dbce273b694376c5ca84a608b8cb0eeb00746e6437670814a3ad0faf761",
+        "ordinal": 2,
+        "program_descriptor_sha256": "38486a215348695e834cfe3002bda93372d5e87153efc93cd8303de1262c019a"
+      },
+      {
+        "call_ledger": {
+          "batch_count": 24,
+          "execution_mode": "native_module_executes_then_exact_output_substitution",
+          "fitter_calls": 0,
+          "hook_order": "native_count_registered_before_substitution",
+          "native_module_calls": [
+            [
+              [
+                "attn",
+                0
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                0
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                1
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                1
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                2
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                2
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                3
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                3
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                4
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                4
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                5
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                5
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                6
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                6
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                7
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                7
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                8
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                8
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                9
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                9
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                10
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                10
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                11
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                11
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                12
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                12
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                13
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                13
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                14
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                14
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                15
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                15
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                16
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                16
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                17
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                17
+              ],
+              24
+            ]
+          ],
+          "ordinal": 3,
+          "outer_forward_count": 24,
+          "outer_returned_count": 24,
+          "program_sha256": "f574b2685d638947426c99c6a4d8f3511747acc48de0d3cae6180f9969942c10",
+          "request_sha256": "d4d5f48c25dd21b212f8f09ffbef4f394727f182e40f27e655e6ce6e76e0722b",
+          "retained_logits": 0,
+          "row_count": 192,
+          "scored_token_count": 36864,
+          "substitution_calls": [
+            [
+              [
+                "mlp",
+                1
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                3
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                4
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                5
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                6
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                7
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                8
+              ],
+              24
+            ]
+          ]
+        },
+        "call_ledger_sha256": "a762694a72a33fc646851ffda3ab1273f9d78871347bfbfb1cded690b0f2620c",
+        "cell_receipt": {
+          "authority_sha256": "92dbd1d677c7f3723380f33fdfd47e283cc027204beaca38094ff037f8c667a7",
+          "batch_count": 24,
+          "call_ledger_sha256": "a762694a72a33fc646851ffda3ab1273f9d78871347bfbfb1cded690b0f2620c",
+          "ce_sum_sha256": "7dfbde78260e254df14799690c837d8f48b5eadd74415731a1e048ec3791f8a1",
+          "model_tree_after_sha256": "94cbebb35ca3f8c6923f5040b76d243c3f3fa192496604bd40abeb2e4077da0c",
+          "model_tree_before_sha256": "94cbebb35ca3f8c6923f5040b76d243c3f3fa192496604bd40abeb2e4077da0c",
+          "ordinal": 3,
+          "outer_forward_count": 24,
+          "prefix_index": 3,
+          "request_sha256": "d4d5f48c25dd21b212f8f09ffbef4f394727f182e40f27e655e6ce6e76e0722b",
+          "row_token_count_sha256": "1355494a19d118e5ff051d548120eb448113ba17b3dc828d83a6270e0cfa3bec",
+          "shared_program_after_sha256": "cad513c942cccaf01e747cb600428b427c03d98dd0dddc710a4028ff1ba9d0bb",
+          "shared_program_before_sha256": "cad513c942cccaf01e747cb600428b427c03d98dd0dddc710a4028ff1ba9d0bb",
+          "source_closure_sha256": "1002e8199a8c6921cd72c952ce63d90a65c46cdc5cd95c85a4cd9ba3f8e004b5",
+          "statistics_sha256": "f2853462501651ba07d103565dea280a9a66b1832d433a189433aec0fa188252",
+          "top1_correct_sha256": "88f2781849313f2e89ca152c31ac20f44b7cd8380e1fc489db2de8d4ae54501b"
+        },
+        "cell_receipt_sha256": "c7a49d5139c77e0c0f328e4312903a7b46e7194ba4167c7bf943ebe79ce64714",
+        "ordinal": 3,
+        "program_descriptor_sha256": "f574b2685d638947426c99c6a4d8f3511747acc48de0d3cae6180f9969942c10"
+      },
+      {
+        "call_ledger": {
+          "batch_count": 24,
+          "execution_mode": "native_module_executes_then_exact_output_substitution",
+          "fitter_calls": 0,
+          "hook_order": "native_count_registered_before_substitution",
+          "native_module_calls": [
+            [
+              [
+                "attn",
+                0
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                0
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                1
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                1
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                2
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                2
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                3
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                3
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                4
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                4
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                5
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                5
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                6
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                6
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                7
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                7
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                8
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                8
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                9
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                9
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                10
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                10
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                11
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                11
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                12
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                12
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                13
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                13
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                14
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                14
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                15
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                15
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                16
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                16
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                17
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                17
+              ],
+              24
+            ]
+          ],
+          "ordinal": 4,
+          "outer_forward_count": 24,
+          "outer_returned_count": 24,
+          "program_sha256": "5b235201bd4b049d06f8178f359c9edf8d1a50ace4065fa0217a5a3f36511534",
+          "request_sha256": "8b674099f31a2c302c4686401ba3d2fc0934154179cbe5520056150ebeaf3738",
+          "retained_logits": 0,
+          "row_count": 192,
+          "scored_token_count": 36864,
+          "substitution_calls": [
+            [
+              [
+                "mlp",
+                0
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                1
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                2
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                3
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                4
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                5
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                6
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                7
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                8
+              ],
+              24
+            ]
+          ]
+        },
+        "call_ledger_sha256": "013de5a114bac90d8df61e204575cd4caa07507b30b7ca34d05adc1929950982",
+        "cell_receipt": {
+          "authority_sha256": "92dbd1d677c7f3723380f33fdfd47e283cc027204beaca38094ff037f8c667a7",
+          "batch_count": 24,
+          "call_ledger_sha256": "013de5a114bac90d8df61e204575cd4caa07507b30b7ca34d05adc1929950982",
+          "ce_sum_sha256": "b7eb01b1890b6f9144e1ae48f8dd9df3406ebbf9a67fa0a8a970c4fea49c3276",
+          "model_tree_after_sha256": "94cbebb35ca3f8c6923f5040b76d243c3f3fa192496604bd40abeb2e4077da0c",
+          "model_tree_before_sha256": "94cbebb35ca3f8c6923f5040b76d243c3f3fa192496604bd40abeb2e4077da0c",
+          "ordinal": 4,
+          "outer_forward_count": 24,
+          "prefix_index": 4,
+          "request_sha256": "8b674099f31a2c302c4686401ba3d2fc0934154179cbe5520056150ebeaf3738",
+          "row_token_count_sha256": "1355494a19d118e5ff051d548120eb448113ba17b3dc828d83a6270e0cfa3bec",
+          "shared_program_after_sha256": "cad513c942cccaf01e747cb600428b427c03d98dd0dddc710a4028ff1ba9d0bb",
+          "shared_program_before_sha256": "cad513c942cccaf01e747cb600428b427c03d98dd0dddc710a4028ff1ba9d0bb",
+          "source_closure_sha256": "1002e8199a8c6921cd72c952ce63d90a65c46cdc5cd95c85a4cd9ba3f8e004b5",
+          "statistics_sha256": "673b542d139390577f040742603906314e29212423a3d28b4b55a471c64b996b",
+          "top1_correct_sha256": "6d8dbcc3ce0d748b950de63e82a28a29db592bc774f98401bc90a29f47c79a0a"
+        },
+        "cell_receipt_sha256": "7c6abed4f00475fd492325c44eab10a9ee3807a41df8d8121383a3296b2ab3e9",
+        "ordinal": 4,
+        "program_descriptor_sha256": "5b235201bd4b049d06f8178f359c9edf8d1a50ace4065fa0217a5a3f36511534"
+      },
+      {
+        "call_ledger": {
+          "batch_count": 24,
+          "execution_mode": "native_module_executes_then_exact_output_substitution",
+          "fitter_calls": 0,
+          "hook_order": "native_count_registered_before_substitution",
+          "native_module_calls": [
+            [
+              [
+                "attn",
+                0
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                0
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                1
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                1
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                2
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                2
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                3
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                3
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                4
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                4
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                5
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                5
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                6
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                6
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                7
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                7
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                8
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                8
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                9
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                9
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                10
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                10
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                11
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                11
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                12
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                12
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                13
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                13
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                14
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                14
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                15
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                15
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                16
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                16
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                17
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                17
+              ],
+              24
+            ]
+          ],
+          "ordinal": 5,
+          "outer_forward_count": 24,
+          "outer_returned_count": 24,
+          "program_sha256": "ad7ff9ec0fd904c05344434b1484e3c77a73b607909afb9b32610c5924acabe2",
+          "request_sha256": "687722a11daf05fdaf8811e8acd532d79d29529cbd1e03fdc030587c04278931",
+          "retained_logits": 0,
+          "row_count": 192,
+          "scored_token_count": 36864,
+          "substitution_calls": [
+            [
+              [
+                "mlp",
+                2
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                3
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                4
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                5
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                6
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                7
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                8
+              ],
+              24
+            ]
+          ]
+        },
+        "call_ledger_sha256": "57f478aa55abc81f6c91128f49bf066800500adef9a90e010804a100a76a856a",
+        "cell_receipt": {
+          "authority_sha256": "92dbd1d677c7f3723380f33fdfd47e283cc027204beaca38094ff037f8c667a7",
+          "batch_count": 24,
+          "call_ledger_sha256": "57f478aa55abc81f6c91128f49bf066800500adef9a90e010804a100a76a856a",
+          "ce_sum_sha256": "f0f1b683c699ff6a28a71e835318d8642e02b96c613ce59417517b380406d9c8",
+          "model_tree_after_sha256": "94cbebb35ca3f8c6923f5040b76d243c3f3fa192496604bd40abeb2e4077da0c",
+          "model_tree_before_sha256": "94cbebb35ca3f8c6923f5040b76d243c3f3fa192496604bd40abeb2e4077da0c",
+          "ordinal": 5,
+          "outer_forward_count": 24,
+          "prefix_index": 5,
+          "request_sha256": "687722a11daf05fdaf8811e8acd532d79d29529cbd1e03fdc030587c04278931",
+          "row_token_count_sha256": "1355494a19d118e5ff051d548120eb448113ba17b3dc828d83a6270e0cfa3bec",
+          "shared_program_after_sha256": "cad513c942cccaf01e747cb600428b427c03d98dd0dddc710a4028ff1ba9d0bb",
+          "shared_program_before_sha256": "cad513c942cccaf01e747cb600428b427c03d98dd0dddc710a4028ff1ba9d0bb",
+          "source_closure_sha256": "1002e8199a8c6921cd72c952ce63d90a65c46cdc5cd95c85a4cd9ba3f8e004b5",
+          "statistics_sha256": "e1061fa8597f7142216c412dde4d5a7dad2c41c2ec118e3fb48ea1e7881101e7",
+          "top1_correct_sha256": "bd28288cbe6ef0449e1b187601024db17fceb6b480ac71801c3826f9742d7d99"
+        },
+        "cell_receipt_sha256": "f111bb2d134a1e95fd31f0cf4bd3a74ed6b907f03c14ecb7cbca6aede7784eae",
+        "ordinal": 5,
+        "program_descriptor_sha256": "ad7ff9ec0fd904c05344434b1484e3c77a73b607909afb9b32610c5924acabe2"
+      },
+      {
+        "call_ledger": {
+          "batch_count": 24,
+          "execution_mode": "native_module_executes_then_exact_output_substitution",
+          "fitter_calls": 0,
+          "hook_order": "native_count_registered_before_substitution",
+          "native_module_calls": [
+            [
+              [
+                "attn",
+                0
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                0
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                1
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                1
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                2
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                2
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                3
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                3
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                4
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                4
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                5
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                5
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                6
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                6
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                7
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                7
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                8
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                8
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                9
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                9
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                10
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                10
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                11
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                11
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                12
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                12
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                13
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                13
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                14
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                14
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                15
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                15
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                16
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                16
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                17
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                17
+              ],
+              24
+            ]
+          ],
+          "ordinal": 6,
+          "outer_forward_count": 24,
+          "outer_returned_count": 24,
+          "program_sha256": "92626d2f64ebcc7d6445297eff42c323b3220eaf6d578b6006b81da32a0f06c5",
+          "request_sha256": "3b6039706c43b70bba7fa1b9ec0e730dfa6f8a64f1013107816f00bfbac142c3",
+          "retained_logits": 0,
+          "row_count": 192,
+          "scored_token_count": 36864,
+          "substitution_calls": [
+            [
+              [
+                "mlp",
+                1
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                2
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                3
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                4
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                5
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                6
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                7
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                8
+              ],
+              24
+            ]
+          ]
+        },
+        "call_ledger_sha256": "eefb969455c4b75972a3f933c21190634839d546cce17dd764d23f54d2bce3bb",
+        "cell_receipt": {
+          "authority_sha256": "92dbd1d677c7f3723380f33fdfd47e283cc027204beaca38094ff037f8c667a7",
+          "batch_count": 24,
+          "call_ledger_sha256": "eefb969455c4b75972a3f933c21190634839d546cce17dd764d23f54d2bce3bb",
+          "ce_sum_sha256": "e733f9a503e327325f4f45f508d2606f0d0646a0a914d25d635907d8def25be9",
+          "model_tree_after_sha256": "94cbebb35ca3f8c6923f5040b76d243c3f3fa192496604bd40abeb2e4077da0c",
+          "model_tree_before_sha256": "94cbebb35ca3f8c6923f5040b76d243c3f3fa192496604bd40abeb2e4077da0c",
+          "ordinal": 6,
+          "outer_forward_count": 24,
+          "prefix_index": 6,
+          "request_sha256": "3b6039706c43b70bba7fa1b9ec0e730dfa6f8a64f1013107816f00bfbac142c3",
+          "row_token_count_sha256": "1355494a19d118e5ff051d548120eb448113ba17b3dc828d83a6270e0cfa3bec",
+          "shared_program_after_sha256": "cad513c942cccaf01e747cb600428b427c03d98dd0dddc710a4028ff1ba9d0bb",
+          "shared_program_before_sha256": "cad513c942cccaf01e747cb600428b427c03d98dd0dddc710a4028ff1ba9d0bb",
+          "source_closure_sha256": "1002e8199a8c6921cd72c952ce63d90a65c46cdc5cd95c85a4cd9ba3f8e004b5",
+          "statistics_sha256": "726f16fab30a3e817ec9d6ee4428e5d34c60a0f8d1a69dc85f0f560d6eff929e",
+          "top1_correct_sha256": "52ac38a3ac8e72fdd4bee77c58875c5edf7fa746c0abbb3e6c58e7aa654bf969"
+        },
+        "cell_receipt_sha256": "214c38106f61d6b151bc03a8b7f213ce0c98e49134b067c517e754f2cc3884cb",
+        "ordinal": 6,
+        "program_descriptor_sha256": "92626d2f64ebcc7d6445297eff42c323b3220eaf6d578b6006b81da32a0f06c5"
+      },
+      {
+        "call_ledger": {
+          "batch_count": 24,
+          "execution_mode": "native_module_executes_then_exact_output_substitution",
+          "fitter_calls": 0,
+          "hook_order": "native_count_registered_before_substitution",
+          "native_module_calls": [
+            [
+              [
+                "attn",
+                0
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                0
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                1
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                1
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                2
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                2
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                3
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                3
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                4
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                4
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                5
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                5
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                6
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                6
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                7
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                7
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                8
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                8
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                9
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                9
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                10
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                10
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                11
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                11
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                12
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                12
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                13
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                13
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                14
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                14
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                15
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                15
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                16
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                16
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                17
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                17
+              ],
+              24
+            ]
+          ],
+          "ordinal": 7,
+          "outer_forward_count": 24,
+          "outer_returned_count": 24,
+          "program_sha256": "1610da01839ad78ef1cd4ec1d92b42a48caeab79443e84a72eb100153a87a5a5",
+          "request_sha256": "fd2ee5e3e2a892951ff3530e1f1248c6a11f0f856132bb2bebcc30f7f1f7e20d",
+          "retained_logits": 0,
+          "row_count": 192,
+          "scored_token_count": 36864,
+          "substitution_calls": [
+            [
+              [
+                "mlp",
+                0
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                2
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                3
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                4
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                5
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                6
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                7
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                8
+              ],
+              24
+            ]
+          ]
+        },
+        "call_ledger_sha256": "c46a8b21afdf70db2b0dc707cfeb2a455e4f241a9fab1c1872c47ff20bdfbafd",
+        "cell_receipt": {
+          "authority_sha256": "92dbd1d677c7f3723380f33fdfd47e283cc027204beaca38094ff037f8c667a7",
+          "batch_count": 24,
+          "call_ledger_sha256": "c46a8b21afdf70db2b0dc707cfeb2a455e4f241a9fab1c1872c47ff20bdfbafd",
+          "ce_sum_sha256": "ff1a4b1fc407577f881ffeb4344be88689430c5ddc8f9b1f1d2b2ca0bbf1cabc",
+          "model_tree_after_sha256": "94cbebb35ca3f8c6923f5040b76d243c3f3fa192496604bd40abeb2e4077da0c",
+          "model_tree_before_sha256": "94cbebb35ca3f8c6923f5040b76d243c3f3fa192496604bd40abeb2e4077da0c",
+          "ordinal": 7,
+          "outer_forward_count": 24,
+          "prefix_index": 7,
+          "request_sha256": "fd2ee5e3e2a892951ff3530e1f1248c6a11f0f856132bb2bebcc30f7f1f7e20d",
+          "row_token_count_sha256": "1355494a19d118e5ff051d548120eb448113ba17b3dc828d83a6270e0cfa3bec",
+          "shared_program_after_sha256": "cad513c942cccaf01e747cb600428b427c03d98dd0dddc710a4028ff1ba9d0bb",
+          "shared_program_before_sha256": "cad513c942cccaf01e747cb600428b427c03d98dd0dddc710a4028ff1ba9d0bb",
+          "source_closure_sha256": "1002e8199a8c6921cd72c952ce63d90a65c46cdc5cd95c85a4cd9ba3f8e004b5",
+          "statistics_sha256": "39b7fd0103989a0f9458728f76cccbb21aca5bab4bb3e2d7af17a79a5d273970",
+          "top1_correct_sha256": "853f4d6ad183f044a067f445e96d71429b0be81ddef2acb01b7a52aef0771014"
+        },
+        "cell_receipt_sha256": "b87e5231d8973d9ee82466a992190c89499ad20db9317ad2075cd33d2ba6638f",
+        "ordinal": 7,
+        "program_descriptor_sha256": "1610da01839ad78ef1cd4ec1d92b42a48caeab79443e84a72eb100153a87a5a5"
+      }
+    ],
+    "skip7000": [
+      {
+        "call_ledger": {
+          "batch_count": 24,
+          "execution_mode": "native_module_executes_then_exact_output_substitution",
+          "fitter_calls": 0,
+          "hook_order": "native_count_registered_before_substitution",
+          "native_module_calls": [
+            [
+              [
+                "attn",
+                0
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                0
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                1
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                1
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                2
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                2
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                3
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                3
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                4
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                4
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                5
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                5
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                6
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                6
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                7
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                7
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                8
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                8
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                9
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                9
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                10
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                10
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                11
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                11
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                12
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                12
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                13
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                13
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                14
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                14
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                15
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                15
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                16
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                16
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                17
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                17
+              ],
+              24
+            ]
+          ],
+          "ordinal": 0,
+          "outer_forward_count": 24,
+          "outer_returned_count": 24,
+          "program_sha256": "ddaf36e9f2852fec430592806bc3e9fafcda79f1f3d254f83a155987bb559f50",
+          "request_sha256": "ee3c7a9569fb0dc503d199424e65e805476731f42093a6bf08d2d7d41f4060da",
+          "retained_logits": 0,
+          "row_count": 192,
+          "scored_token_count": 36864,
+          "substitution_calls": [
+            [
+              [
+                "mlp",
+                3
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                4
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                5
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                6
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                7
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                8
+              ],
+              24
+            ]
+          ]
+        },
+        "call_ledger_sha256": "0c91b470a673b34475519fe4253cc016ec6b5b61250020aecdc4dd61f71a614a",
+        "cell_receipt": {
+          "authority_sha256": "9bb47a999f59575a6111b53babf1e6e62b89a50b17e05afcb2680835b235b924",
+          "batch_count": 24,
+          "call_ledger_sha256": "0c91b470a673b34475519fe4253cc016ec6b5b61250020aecdc4dd61f71a614a",
+          "ce_sum_sha256": "310f58d98937ee35bfca24c3301bd285a485b2a40e4ee03b90b6b792851a04ff",
+          "model_tree_after_sha256": "94cbebb35ca3f8c6923f5040b76d243c3f3fa192496604bd40abeb2e4077da0c",
+          "model_tree_before_sha256": "94cbebb35ca3f8c6923f5040b76d243c3f3fa192496604bd40abeb2e4077da0c",
+          "ordinal": 0,
+          "outer_forward_count": 24,
+          "prefix_index": 0,
+          "request_sha256": "ee3c7a9569fb0dc503d199424e65e805476731f42093a6bf08d2d7d41f4060da",
+          "row_token_count_sha256": "1355494a19d118e5ff051d548120eb448113ba17b3dc828d83a6270e0cfa3bec",
+          "shared_program_after_sha256": "cad513c942cccaf01e747cb600428b427c03d98dd0dddc710a4028ff1ba9d0bb",
+          "shared_program_before_sha256": "cad513c942cccaf01e747cb600428b427c03d98dd0dddc710a4028ff1ba9d0bb",
+          "source_closure_sha256": "1002e8199a8c6921cd72c952ce63d90a65c46cdc5cd95c85a4cd9ba3f8e004b5",
+          "statistics_sha256": "0121c6d8d368dd8b4aef53675ad1b7e0b38805c2f6376522423b003d19b4d801",
+          "top1_correct_sha256": "b97a4d67041d63a8000faa622a21eea873823d8750b578b706640849ccab6f88"
+        },
+        "cell_receipt_sha256": "7abe20d4dd20649a84774f5e94f335f1aee9b38dadfeb89e29b30ddf644e787b",
+        "ordinal": 0,
+        "program_descriptor_sha256": "ddaf36e9f2852fec430592806bc3e9fafcda79f1f3d254f83a155987bb559f50"
+      },
+      {
+        "call_ledger": {
+          "batch_count": 24,
+          "execution_mode": "native_module_executes_then_exact_output_substitution",
+          "fitter_calls": 0,
+          "hook_order": "native_count_registered_before_substitution",
+          "native_module_calls": [
+            [
+              [
+                "attn",
+                0
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                0
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                1
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                1
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                2
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                2
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                3
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                3
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                4
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                4
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                5
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                5
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                6
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                6
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                7
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                7
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                8
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                8
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                9
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                9
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                10
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                10
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                11
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                11
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                12
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                12
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                13
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                13
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                14
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                14
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                15
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                15
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                16
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                16
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                17
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                17
+              ],
+              24
+            ]
+          ],
+          "ordinal": 1,
+          "outer_forward_count": 24,
+          "outer_returned_count": 24,
+          "program_sha256": "b6be46c4cbd966053ba1614e37b95d17d3543c0798055cbbd7bc3a178d775b4c",
+          "request_sha256": "8aa0ba817cf292428aceb7838507030c9ff7a97709e02d5b755dddc57a6dce11",
+          "retained_logits": 0,
+          "row_count": 192,
+          "scored_token_count": 36864,
+          "substitution_calls": [
+            [
+              [
+                "mlp",
+                0
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                3
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                4
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                5
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                6
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                7
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                8
+              ],
+              24
+            ]
+          ]
+        },
+        "call_ledger_sha256": "89780a5b60f45e42f7c5a90cf7dcba3c220293b0c13f2002a21157cce997697c",
+        "cell_receipt": {
+          "authority_sha256": "9bb47a999f59575a6111b53babf1e6e62b89a50b17e05afcb2680835b235b924",
+          "batch_count": 24,
+          "call_ledger_sha256": "89780a5b60f45e42f7c5a90cf7dcba3c220293b0c13f2002a21157cce997697c",
+          "ce_sum_sha256": "39c3884572ddd89df65c0ff19db2a5077338ff548ca4d5b250b37b1c0a57b8c4",
+          "model_tree_after_sha256": "94cbebb35ca3f8c6923f5040b76d243c3f3fa192496604bd40abeb2e4077da0c",
+          "model_tree_before_sha256": "94cbebb35ca3f8c6923f5040b76d243c3f3fa192496604bd40abeb2e4077da0c",
+          "ordinal": 1,
+          "outer_forward_count": 24,
+          "prefix_index": 1,
+          "request_sha256": "8aa0ba817cf292428aceb7838507030c9ff7a97709e02d5b755dddc57a6dce11",
+          "row_token_count_sha256": "1355494a19d118e5ff051d548120eb448113ba17b3dc828d83a6270e0cfa3bec",
+          "shared_program_after_sha256": "cad513c942cccaf01e747cb600428b427c03d98dd0dddc710a4028ff1ba9d0bb",
+          "shared_program_before_sha256": "cad513c942cccaf01e747cb600428b427c03d98dd0dddc710a4028ff1ba9d0bb",
+          "source_closure_sha256": "1002e8199a8c6921cd72c952ce63d90a65c46cdc5cd95c85a4cd9ba3f8e004b5",
+          "statistics_sha256": "1ad237f112e47e613c9b08644f2227b01f86af3a1f01cae11408a627f20f63a4",
+          "top1_correct_sha256": "9854866665946655cbaa6bfca66c646414d38ff2d1987230c254cb6dc4a2546a"
+        },
+        "cell_receipt_sha256": "c46330622c7b990bbbd474f9c5fcc890a2baea12982b0a4ab4e4741309169dbe",
+        "ordinal": 1,
+        "program_descriptor_sha256": "b6be46c4cbd966053ba1614e37b95d17d3543c0798055cbbd7bc3a178d775b4c"
+      },
+      {
+        "call_ledger": {
+          "batch_count": 24,
+          "execution_mode": "native_module_executes_then_exact_output_substitution",
+          "fitter_calls": 0,
+          "hook_order": "native_count_registered_before_substitution",
+          "native_module_calls": [
+            [
+              [
+                "attn",
+                0
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                0
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                1
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                1
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                2
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                2
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                3
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                3
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                4
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                4
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                5
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                5
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                6
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                6
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                7
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                7
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                8
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                8
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                9
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                9
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                10
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                10
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                11
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                11
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                12
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                12
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                13
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                13
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                14
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                14
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                15
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                15
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                16
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                16
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                17
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                17
+              ],
+              24
+            ]
+          ],
+          "ordinal": 2,
+          "outer_forward_count": 24,
+          "outer_returned_count": 24,
+          "program_sha256": "38486a215348695e834cfe3002bda93372d5e87153efc93cd8303de1262c019a",
+          "request_sha256": "47411408b31cac0ff87623a25c1855935f802ecf1aab5a289edac7ccd46f2e42",
+          "retained_logits": 0,
+          "row_count": 192,
+          "scored_token_count": 36864,
+          "substitution_calls": [
+            [
+              [
+                "mlp",
+                0
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                1
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                3
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                4
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                5
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                6
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                7
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                8
+              ],
+              24
+            ]
+          ]
+        },
+        "call_ledger_sha256": "8ab1b87118c235767e5f9655ae7709f1237a0438dd1498142f3f6e46f69a8fd8",
+        "cell_receipt": {
+          "authority_sha256": "9bb47a999f59575a6111b53babf1e6e62b89a50b17e05afcb2680835b235b924",
+          "batch_count": 24,
+          "call_ledger_sha256": "8ab1b87118c235767e5f9655ae7709f1237a0438dd1498142f3f6e46f69a8fd8",
+          "ce_sum_sha256": "fedda42a2fc7f218f9d3a9cc9b7c4ae13a8ae2731680d56441b2382619642e2d",
+          "model_tree_after_sha256": "94cbebb35ca3f8c6923f5040b76d243c3f3fa192496604bd40abeb2e4077da0c",
+          "model_tree_before_sha256": "94cbebb35ca3f8c6923f5040b76d243c3f3fa192496604bd40abeb2e4077da0c",
+          "ordinal": 2,
+          "outer_forward_count": 24,
+          "prefix_index": 2,
+          "request_sha256": "47411408b31cac0ff87623a25c1855935f802ecf1aab5a289edac7ccd46f2e42",
+          "row_token_count_sha256": "1355494a19d118e5ff051d548120eb448113ba17b3dc828d83a6270e0cfa3bec",
+          "shared_program_after_sha256": "cad513c942cccaf01e747cb600428b427c03d98dd0dddc710a4028ff1ba9d0bb",
+          "shared_program_before_sha256": "cad513c942cccaf01e747cb600428b427c03d98dd0dddc710a4028ff1ba9d0bb",
+          "source_closure_sha256": "1002e8199a8c6921cd72c952ce63d90a65c46cdc5cd95c85a4cd9ba3f8e004b5",
+          "statistics_sha256": "7eb9c94dfd6f3848ab87c95df590c45158a4ec0123bfb6144045f0fa67fc706d",
+          "top1_correct_sha256": "a01f84fed6f0d2789df433b2e252a7c3fd7c19caf3932724c2f964f9ff1e5eb9"
+        },
+        "cell_receipt_sha256": "cebe14912c1c36a3c9adbe57e3547c107d1da167b544df886df968e436e7a010",
+        "ordinal": 2,
+        "program_descriptor_sha256": "38486a215348695e834cfe3002bda93372d5e87153efc93cd8303de1262c019a"
+      },
+      {
+        "call_ledger": {
+          "batch_count": 24,
+          "execution_mode": "native_module_executes_then_exact_output_substitution",
+          "fitter_calls": 0,
+          "hook_order": "native_count_registered_before_substitution",
+          "native_module_calls": [
+            [
+              [
+                "attn",
+                0
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                0
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                1
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                1
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                2
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                2
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                3
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                3
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                4
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                4
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                5
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                5
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                6
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                6
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                7
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                7
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                8
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                8
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                9
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                9
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                10
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                10
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                11
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                11
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                12
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                12
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                13
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                13
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                14
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                14
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                15
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                15
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                16
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                16
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                17
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                17
+              ],
+              24
+            ]
+          ],
+          "ordinal": 3,
+          "outer_forward_count": 24,
+          "outer_returned_count": 24,
+          "program_sha256": "f574b2685d638947426c99c6a4d8f3511747acc48de0d3cae6180f9969942c10",
+          "request_sha256": "d4d5f48c25dd21b212f8f09ffbef4f394727f182e40f27e655e6ce6e76e0722b",
+          "retained_logits": 0,
+          "row_count": 192,
+          "scored_token_count": 36864,
+          "substitution_calls": [
+            [
+              [
+                "mlp",
+                1
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                3
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                4
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                5
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                6
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                7
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                8
+              ],
+              24
+            ]
+          ]
+        },
+        "call_ledger_sha256": "a762694a72a33fc646851ffda3ab1273f9d78871347bfbfb1cded690b0f2620c",
+        "cell_receipt": {
+          "authority_sha256": "9bb47a999f59575a6111b53babf1e6e62b89a50b17e05afcb2680835b235b924",
+          "batch_count": 24,
+          "call_ledger_sha256": "a762694a72a33fc646851ffda3ab1273f9d78871347bfbfb1cded690b0f2620c",
+          "ce_sum_sha256": "59023914b01f8d8ddba1d8ec6de46bb1126b6ce260b7197d30549b7aa72e3f0b",
+          "model_tree_after_sha256": "94cbebb35ca3f8c6923f5040b76d243c3f3fa192496604bd40abeb2e4077da0c",
+          "model_tree_before_sha256": "94cbebb35ca3f8c6923f5040b76d243c3f3fa192496604bd40abeb2e4077da0c",
+          "ordinal": 3,
+          "outer_forward_count": 24,
+          "prefix_index": 3,
+          "request_sha256": "d4d5f48c25dd21b212f8f09ffbef4f394727f182e40f27e655e6ce6e76e0722b",
+          "row_token_count_sha256": "1355494a19d118e5ff051d548120eb448113ba17b3dc828d83a6270e0cfa3bec",
+          "shared_program_after_sha256": "cad513c942cccaf01e747cb600428b427c03d98dd0dddc710a4028ff1ba9d0bb",
+          "shared_program_before_sha256": "cad513c942cccaf01e747cb600428b427c03d98dd0dddc710a4028ff1ba9d0bb",
+          "source_closure_sha256": "1002e8199a8c6921cd72c952ce63d90a65c46cdc5cd95c85a4cd9ba3f8e004b5",
+          "statistics_sha256": "d3c2a951db8a2e125c5c349e069d170d8d2982eaf30665a883e397f8e3b5e9e2",
+          "top1_correct_sha256": "675b840f2450300942bc88833a280710e15d34f5c81580b23ac18efe21c9df6e"
+        },
+        "cell_receipt_sha256": "c17d86ef4cf045f376a93a6cef74267849c286e9ce4aab96823504a9b06a006b",
+        "ordinal": 3,
+        "program_descriptor_sha256": "f574b2685d638947426c99c6a4d8f3511747acc48de0d3cae6180f9969942c10"
+      },
+      {
+        "call_ledger": {
+          "batch_count": 24,
+          "execution_mode": "native_module_executes_then_exact_output_substitution",
+          "fitter_calls": 0,
+          "hook_order": "native_count_registered_before_substitution",
+          "native_module_calls": [
+            [
+              [
+                "attn",
+                0
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                0
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                1
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                1
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                2
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                2
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                3
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                3
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                4
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                4
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                5
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                5
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                6
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                6
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                7
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                7
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                8
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                8
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                9
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                9
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                10
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                10
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                11
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                11
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                12
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                12
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                13
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                13
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                14
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                14
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                15
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                15
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                16
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                16
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                17
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                17
+              ],
+              24
+            ]
+          ],
+          "ordinal": 4,
+          "outer_forward_count": 24,
+          "outer_returned_count": 24,
+          "program_sha256": "5b235201bd4b049d06f8178f359c9edf8d1a50ace4065fa0217a5a3f36511534",
+          "request_sha256": "8b674099f31a2c302c4686401ba3d2fc0934154179cbe5520056150ebeaf3738",
+          "retained_logits": 0,
+          "row_count": 192,
+          "scored_token_count": 36864,
+          "substitution_calls": [
+            [
+              [
+                "mlp",
+                0
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                1
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                2
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                3
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                4
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                5
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                6
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                7
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                8
+              ],
+              24
+            ]
+          ]
+        },
+        "call_ledger_sha256": "013de5a114bac90d8df61e204575cd4caa07507b30b7ca34d05adc1929950982",
+        "cell_receipt": {
+          "authority_sha256": "9bb47a999f59575a6111b53babf1e6e62b89a50b17e05afcb2680835b235b924",
+          "batch_count": 24,
+          "call_ledger_sha256": "013de5a114bac90d8df61e204575cd4caa07507b30b7ca34d05adc1929950982",
+          "ce_sum_sha256": "4d8de40710d9f050446bd6ff488051001c288f622d22a1704b7b73a6ec836d05",
+          "model_tree_after_sha256": "94cbebb35ca3f8c6923f5040b76d243c3f3fa192496604bd40abeb2e4077da0c",
+          "model_tree_before_sha256": "94cbebb35ca3f8c6923f5040b76d243c3f3fa192496604bd40abeb2e4077da0c",
+          "ordinal": 4,
+          "outer_forward_count": 24,
+          "prefix_index": 4,
+          "request_sha256": "8b674099f31a2c302c4686401ba3d2fc0934154179cbe5520056150ebeaf3738",
+          "row_token_count_sha256": "1355494a19d118e5ff051d548120eb448113ba17b3dc828d83a6270e0cfa3bec",
+          "shared_program_after_sha256": "cad513c942cccaf01e747cb600428b427c03d98dd0dddc710a4028ff1ba9d0bb",
+          "shared_program_before_sha256": "cad513c942cccaf01e747cb600428b427c03d98dd0dddc710a4028ff1ba9d0bb",
+          "source_closure_sha256": "1002e8199a8c6921cd72c952ce63d90a65c46cdc5cd95c85a4cd9ba3f8e004b5",
+          "statistics_sha256": "dd7c4550f03d50af4822f1f249f545f095ee35d3d224570c6ab9ed24dcb75885",
+          "top1_correct_sha256": "1230e5373c4af91812b553ba44a1114b38425d6e5ba10e2b49b53c48e42b8d40"
+        },
+        "cell_receipt_sha256": "d0e8ff2d33d99d9b0960aff98f87c729f905f2b1804d34457db7d5b7e1841f65",
+        "ordinal": 4,
+        "program_descriptor_sha256": "5b235201bd4b049d06f8178f359c9edf8d1a50ace4065fa0217a5a3f36511534"
+      },
+      {
+        "call_ledger": {
+          "batch_count": 24,
+          "execution_mode": "native_module_executes_then_exact_output_substitution",
+          "fitter_calls": 0,
+          "hook_order": "native_count_registered_before_substitution",
+          "native_module_calls": [
+            [
+              [
+                "attn",
+                0
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                0
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                1
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                1
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                2
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                2
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                3
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                3
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                4
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                4
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                5
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                5
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                6
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                6
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                7
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                7
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                8
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                8
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                9
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                9
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                10
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                10
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                11
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                11
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                12
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                12
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                13
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                13
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                14
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                14
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                15
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                15
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                16
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                16
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                17
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                17
+              ],
+              24
+            ]
+          ],
+          "ordinal": 5,
+          "outer_forward_count": 24,
+          "outer_returned_count": 24,
+          "program_sha256": "ad7ff9ec0fd904c05344434b1484e3c77a73b607909afb9b32610c5924acabe2",
+          "request_sha256": "687722a11daf05fdaf8811e8acd532d79d29529cbd1e03fdc030587c04278931",
+          "retained_logits": 0,
+          "row_count": 192,
+          "scored_token_count": 36864,
+          "substitution_calls": [
+            [
+              [
+                "mlp",
+                2
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                3
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                4
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                5
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                6
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                7
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                8
+              ],
+              24
+            ]
+          ]
+        },
+        "call_ledger_sha256": "57f478aa55abc81f6c91128f49bf066800500adef9a90e010804a100a76a856a",
+        "cell_receipt": {
+          "authority_sha256": "9bb47a999f59575a6111b53babf1e6e62b89a50b17e05afcb2680835b235b924",
+          "batch_count": 24,
+          "call_ledger_sha256": "57f478aa55abc81f6c91128f49bf066800500adef9a90e010804a100a76a856a",
+          "ce_sum_sha256": "03b2922abcd5f9ccb537151dcec9e4b1afad1a267688a4e63935f3e45e842378",
+          "model_tree_after_sha256": "94cbebb35ca3f8c6923f5040b76d243c3f3fa192496604bd40abeb2e4077da0c",
+          "model_tree_before_sha256": "94cbebb35ca3f8c6923f5040b76d243c3f3fa192496604bd40abeb2e4077da0c",
+          "ordinal": 5,
+          "outer_forward_count": 24,
+          "prefix_index": 5,
+          "request_sha256": "687722a11daf05fdaf8811e8acd532d79d29529cbd1e03fdc030587c04278931",
+          "row_token_count_sha256": "1355494a19d118e5ff051d548120eb448113ba17b3dc828d83a6270e0cfa3bec",
+          "shared_program_after_sha256": "cad513c942cccaf01e747cb600428b427c03d98dd0dddc710a4028ff1ba9d0bb",
+          "shared_program_before_sha256": "cad513c942cccaf01e747cb600428b427c03d98dd0dddc710a4028ff1ba9d0bb",
+          "source_closure_sha256": "1002e8199a8c6921cd72c952ce63d90a65c46cdc5cd95c85a4cd9ba3f8e004b5",
+          "statistics_sha256": "d33642b4c5970b1bad6b82f3f113dea56f0140b3838a730bdc494e96c1cdd81b",
+          "top1_correct_sha256": "34315606e8e263f8dff047f3160420ddc09e9597bb44dbdb946c3b1b81907eb9"
+        },
+        "cell_receipt_sha256": "07030bf6833ef050c881e8adef11c250666cabcb4fecf9033da6231f2e724b5c",
+        "ordinal": 5,
+        "program_descriptor_sha256": "ad7ff9ec0fd904c05344434b1484e3c77a73b607909afb9b32610c5924acabe2"
+      },
+      {
+        "call_ledger": {
+          "batch_count": 24,
+          "execution_mode": "native_module_executes_then_exact_output_substitution",
+          "fitter_calls": 0,
+          "hook_order": "native_count_registered_before_substitution",
+          "native_module_calls": [
+            [
+              [
+                "attn",
+                0
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                0
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                1
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                1
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                2
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                2
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                3
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                3
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                4
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                4
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                5
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                5
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                6
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                6
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                7
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                7
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                8
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                8
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                9
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                9
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                10
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                10
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                11
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                11
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                12
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                12
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                13
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                13
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                14
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                14
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                15
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                15
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                16
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                16
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                17
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                17
+              ],
+              24
+            ]
+          ],
+          "ordinal": 6,
+          "outer_forward_count": 24,
+          "outer_returned_count": 24,
+          "program_sha256": "92626d2f64ebcc7d6445297eff42c323b3220eaf6d578b6006b81da32a0f06c5",
+          "request_sha256": "3b6039706c43b70bba7fa1b9ec0e730dfa6f8a64f1013107816f00bfbac142c3",
+          "retained_logits": 0,
+          "row_count": 192,
+          "scored_token_count": 36864,
+          "substitution_calls": [
+            [
+              [
+                "mlp",
+                1
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                2
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                3
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                4
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                5
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                6
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                7
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                8
+              ],
+              24
+            ]
+          ]
+        },
+        "call_ledger_sha256": "eefb969455c4b75972a3f933c21190634839d546cce17dd764d23f54d2bce3bb",
+        "cell_receipt": {
+          "authority_sha256": "9bb47a999f59575a6111b53babf1e6e62b89a50b17e05afcb2680835b235b924",
+          "batch_count": 24,
+          "call_ledger_sha256": "eefb969455c4b75972a3f933c21190634839d546cce17dd764d23f54d2bce3bb",
+          "ce_sum_sha256": "f2bc009d53a38e0f56ea8378d8448738d1b7c2d42eee5c318834b6bcbdf2cf67",
+          "model_tree_after_sha256": "94cbebb35ca3f8c6923f5040b76d243c3f3fa192496604bd40abeb2e4077da0c",
+          "model_tree_before_sha256": "94cbebb35ca3f8c6923f5040b76d243c3f3fa192496604bd40abeb2e4077da0c",
+          "ordinal": 6,
+          "outer_forward_count": 24,
+          "prefix_index": 6,
+          "request_sha256": "3b6039706c43b70bba7fa1b9ec0e730dfa6f8a64f1013107816f00bfbac142c3",
+          "row_token_count_sha256": "1355494a19d118e5ff051d548120eb448113ba17b3dc828d83a6270e0cfa3bec",
+          "shared_program_after_sha256": "cad513c942cccaf01e747cb600428b427c03d98dd0dddc710a4028ff1ba9d0bb",
+          "shared_program_before_sha256": "cad513c942cccaf01e747cb600428b427c03d98dd0dddc710a4028ff1ba9d0bb",
+          "source_closure_sha256": "1002e8199a8c6921cd72c952ce63d90a65c46cdc5cd95c85a4cd9ba3f8e004b5",
+          "statistics_sha256": "afdf41543302bbe394dd1c36fd2ef481812b8d89634d2ba327b70f17c3e275be",
+          "top1_correct_sha256": "968f716fb9a5c0238b41d1d0d17a858756919f871eeb403d78e373236341e83a"
+        },
+        "cell_receipt_sha256": "2ccd2bed7a11ac442bc14c4c07d122c52730af8725bebe57e06185665da20dea",
+        "ordinal": 6,
+        "program_descriptor_sha256": "92626d2f64ebcc7d6445297eff42c323b3220eaf6d578b6006b81da32a0f06c5"
+      },
+      {
+        "call_ledger": {
+          "batch_count": 24,
+          "execution_mode": "native_module_executes_then_exact_output_substitution",
+          "fitter_calls": 0,
+          "hook_order": "native_count_registered_before_substitution",
+          "native_module_calls": [
+            [
+              [
+                "attn",
+                0
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                0
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                1
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                1
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                2
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                2
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                3
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                3
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                4
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                4
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                5
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                5
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                6
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                6
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                7
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                7
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                8
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                8
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                9
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                9
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                10
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                10
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                11
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                11
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                12
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                12
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                13
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                13
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                14
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                14
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                15
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                15
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                16
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                16
+              ],
+              24
+            ],
+            [
+              [
+                "attn",
+                17
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                17
+              ],
+              24
+            ]
+          ],
+          "ordinal": 7,
+          "outer_forward_count": 24,
+          "outer_returned_count": 24,
+          "program_sha256": "1610da01839ad78ef1cd4ec1d92b42a48caeab79443e84a72eb100153a87a5a5",
+          "request_sha256": "fd2ee5e3e2a892951ff3530e1f1248c6a11f0f856132bb2bebcc30f7f1f7e20d",
+          "retained_logits": 0,
+          "row_count": 192,
+          "scored_token_count": 36864,
+          "substitution_calls": [
+            [
+              [
+                "mlp",
+                0
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                2
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                3
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                4
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                5
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                6
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                7
+              ],
+              24
+            ],
+            [
+              [
+                "mlp",
+                8
+              ],
+              24
+            ]
+          ]
+        },
+        "call_ledger_sha256": "c46a8b21afdf70db2b0dc707cfeb2a455e4f241a9fab1c1872c47ff20bdfbafd",
+        "cell_receipt": {
+          "authority_sha256": "9bb47a999f59575a6111b53babf1e6e62b89a50b17e05afcb2680835b235b924",
+          "batch_count": 24,
+          "call_ledger_sha256": "c46a8b21afdf70db2b0dc707cfeb2a455e4f241a9fab1c1872c47ff20bdfbafd",
+          "ce_sum_sha256": "29cd22704569bbdc7b6ea0986ed7d9989935e5fafef685bef3f925a954189091",
+          "model_tree_after_sha256": "94cbebb35ca3f8c6923f5040b76d243c3f3fa192496604bd40abeb2e4077da0c",
+          "model_tree_before_sha256": "94cbebb35ca3f8c6923f5040b76d243c3f3fa192496604bd40abeb2e4077da0c",
+          "ordinal": 7,
+          "outer_forward_count": 24,
+          "prefix_index": 7,
+          "request_sha256": "fd2ee5e3e2a892951ff3530e1f1248c6a11f0f856132bb2bebcc30f7f1f7e20d",
+          "row_token_count_sha256": "1355494a19d118e5ff051d548120eb448113ba17b3dc828d83a6270e0cfa3bec",
+          "shared_program_after_sha256": "cad513c942cccaf01e747cb600428b427c03d98dd0dddc710a4028ff1ba9d0bb",
+          "shared_program_before_sha256": "cad513c942cccaf01e747cb600428b427c03d98dd0dddc710a4028ff1ba9d0bb",
+          "source_closure_sha256": "1002e8199a8c6921cd72c952ce63d90a65c46cdc5cd95c85a4cd9ba3f8e004b5",
+          "statistics_sha256": "1ccc03d49c03758ba83f55f74943e9b8f4861c3af493a6d6acf239c231429dd5",
+          "top1_correct_sha256": "417fac4cb05f04754c4cc1c68b1c22b8c28ef7a81670ec92062bdcc449307144"
+        },
+        "cell_receipt_sha256": "2dbbcc03a987187b2f985b2b7bfb268fe519c3096e9d2a874f927410fb65dcec",
+        "ordinal": 7,
+        "program_descriptor_sha256": "1610da01839ad78ef1cd4ec1d92b42a48caeab79443e84a72eb100153a87a5a5"
+      }
+    ]
+  },
+  "cell_order": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "payload_file_sha256": "11bc0157372f114c45f2221288a7dfb5724cd9591c406ac7821e97da5dc90dcc",
+  "program_bank_sha256": "f5eaf38be60838ad154be24b11b7ae6398141504096bc9e84acaaaab970620fe",
+  "role_order": [
+    "skip7000",
+    "skip11000"
+  ],
+  "role_receipt_sha256s": {
+    "skip11000": "a15d795818cf59a33cd465d0b306f6d03cd13294206a627bcaffdff94c6a24fe",
+    "skip7000": "6ecf58d5bf2dbcef892f8c9e13bd65b0ff56a4ee18a89abc17ad97aa65e3d7b1"
+  },
+  "schema_version": 1,
+  "source_closure_sha256": "1002e8199a8c6921cd72c952ce63d90a65c46cdc5cd95c85a4cd9ba3f8e004b5",
+  "source_commit": "cd9bd33b183c35f342c09d7746f15e98024ff7ed",
+  "status": "terminal_payload_verified",
+  "two_role_authority_sha256": "261e5fd9afeba3ae20d4d31118a2361012b5f1ec6a92409cfae060c7f50b7899"
+}

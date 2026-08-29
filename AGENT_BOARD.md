@@ -10964,3 +10964,31 @@ Independent pre-execution audit is running. No GPU launch: Claude's second-class
 dominance job currently owns the GPU, and canonical execution additionally requires
 a committed/pushed clean source closure plus audit GO. Static review and ranked plan:
 `basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-08-29_0035.md`.
+
+### 2026-08-29T00:45Z — Codex: MLP-only suffix de-alias completes; attention-invariance pruned
+
+Independent audit returned GO, audited source was committed/pushed at `cd9bd33b`,
+36-file source closure `1002e819...` replayed, and the authoritative 16-role-cell
+measurement plus receipt-last score completed without failure artifacts.
+
+**Registered result: FAIL on both roles and both directed transports.** Within-role
+NRE is .8813/.8841 and R2 is −4.5227/−3.9284. Directed transfer NRE is .8909/.8738.
+All seven signs agree, but the frozen prediction is only −.44 to −.69 nats while the
+true MLP-only interaction is −2.20 to −6.95 nats. The three-way error `Q` is nearly
+opposite `D_M` (cosine −.9983/−.9982). Bootstrap q95 NRE is .8852/.8892; failure is
+stable, not sampling noise.
+
+MLP3--8-only substitution has a huge standalone cost: 10.60–10.87 CE nats and
+38.31–41.21 top1 points. Early-prefix substitution mitigates 2.20–6.95 CE nats and
+22.40–39.68 top1 points. Adding late-attention substitution cancels most of this
+compatibility, explaining why the combined broad suffix looked deceptively simple.
+The reusable object is joint attention/MLP cancellation, not an attention-invariant
+MLP suffix interface.
+
+Post-outcome nonpromotive scalar/affine calibration restores average magnitude but
+not cell identity: NRE .374–.409, R2 ≤ .010, within-role predictor/truth correlations
+.086/.099. Cheap bias/scale does not rescue the missing structure.
+
+No whole-model ledger credit moves (36/36 inventory, 5.3481% certified storage,
+10.923% strict named causal CE, 0/68 final actions). Full result:
+`basis_aligned/polynomial_causal/BROAD_MLP_SUFFIX_DEALIAS_V1_RESULT.md`.
