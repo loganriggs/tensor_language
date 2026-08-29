@@ -51241,3 +51241,65 @@ express it. The natural next probe is not a richer function of the embedding but
 the token's length-1 output at an *earlier* site, which the compiled program has already computed by the
 time it needs a later row. That is free at inference and untested, and it is the first fallback proposal
 in this arc that is not a re-parameterisation of the same map.
+
+## §1874 — a richer input helps by 12% and 71% still survives: the limit is the function class, not the features
+
+`ops/oracle_stream_input.py`, 271.5s, **DISCOVERY ONLY**, rung 3 — §1873's open question.
+**pred_a False | pred_b True | pred_c True | pred_d True.**
+
+The same oracle as §1873, fed the **length-1 residual stream entering each site** instead of the token
+embedding — a strictly richer function of the token, and one the compiled program has already computed by
+the time it needs that row:
+
+```
+  fallback loss against §1868's uncovered-token ceiling, 5,419-type deployed build, rank 64
+    MAP     embedding input, fitted on COVERED     +0.78075   +0.86225   +0.83997
+    ORACLE  embedding input, fitted on UNCOVERED   +0.65138   +0.72189   +0.70037   (§1873)
+    STREAM  stream input,    fitted on UNCOVERED   +0.55527   +0.62110   +0.57685   (here)
+```
+
+**pred_a FAILED**: the stream oracle needed to come in under **0.326** — half §1873's embedding oracle —
+and reached **0.555**. **pred_b PASSED**: it does beat the deployed map, by 0.226, so the richer input is
+worth something real.
+
+> **The deployed fallback's 0.781 nats decompose three ways (skip7000):**
+>
+> ```
+>   fitting     covered-fit -> oracle-fit, same input      0.12937    16.6%
+>   input       embedding -> length-1 stream, both oracle  0.09611    12.3%
+>   residual    survives an oracle linear map on the       0.55527    71.1%
+>               richest per-token input available
+> ```
+>
+> **Two levers worth ~29% between them, and 71% that survives giving the map both the answers and a
+> better input.** The binding constraint is neither the fitting set nor the features: it is the
+> **function class** — a linear map — or the per-token restriction itself.
+
+**pred_c PASSED at 0.00e+00 for a fifth time**, now across five distinct manipulations of the uncovered
+rows: the deployed map, the output-NN neighbour, four map ranks, an oracle refit, and an oracle on a
+different input. The covered arm has never moved by a bit under any of them.
+
+**A label carried over that I am naming rather than leaving.** The script prints "generalisation share of
+the deployed loss: 28.9% / 28.0% / 31.3%". That variable was named in §1873, where the only difference
+between the two arms *was* the fitting set. Here it measures **(MAP − STREAM)/MAP**, which is fitting
+**and** input together. The three-way split above is the correct reading; the printed label is a
+§1873-ism and the JSON key `generalisation_share` should be read as "combined recoverable share".
+
+**Controls (pred_d).** The deployed MAP arm reproduces §1872's published +0.78075 / +0.86225 / +0.83997
+exactly; coverage is 5,419; the covered arm attains its ceiling — a fourteenth confirmation; every
+uncovered scored token has a ceiling row.
+
+**A run note.** Three failed attempts before this one, all mine and all caught differently: a shape error
+I found **by review before the run reported it** (`ORC['stream']` has one row per token that occurs at an
+uncovered scored position — 10,455 here, not the 5,672 §1868 measured at higher coverage — while
+`fr[unc]` wants all ~44.8k), and then a leftover `fbloss["ORACLE"]` in a double-quoted f-string that my
+rename missed. **Eighth tail-inheritance failure of the session.**
+
+**Open question this ends on.** 0.555 nats survive a linear map given the answers and the best per-token
+input in the build. Two things remain untested and they are different in kind: a **non-linear** map on the
+same input, which stays inside the per-token class and is an ordinary fitting problem; and whether the
+0.555 is simply what **any** per-token function must lose, which §1765's derivation would predict and
+which the covered positions already answer — there the same class attains its ceiling exactly. **That
+contrast is the sharpest form of the question: covered rows are perfectly expressible per-token because
+they are stored, and uncovered rows are 0.555 away because they are predicted. The remaining question is
+whether prediction from any function of the token can close a gap that storage closes trivially.**
