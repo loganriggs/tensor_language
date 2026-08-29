@@ -51638,8 +51638,11 @@ open cost question in this arc. **pred_a True | pred_b True | pred_c True | pred
 > floors — they are **0.00000 to five places on three roles and six figures**, and the reason is
 > structural: the map is fitted against the **truncated** table rows (§1785), so at table rank r the
 > targets span a rank-r subspace and any map of rank ≥ r is already exact within it. The onset sits
-> exactly where the table rank passes the map rank: nothing at 16, a rounding artifact at 64, and real
-> money only at 256 and full. **The rule is `map_rank = min(table_rank, 512)`, and every real spent above
+> exactly where the table rank passes the map rank: nothing at 16, a **one-dimension shortfall** at 64,
+> and real money only at 256 and full. **[CORRECTED by §1881: I first wrote "a rounding artifact at 64".
+> It is not an artifact. §1785 truncates as `mu + rank-r`, so the targets span r+1 dimensions and a
+> rank-64 map is one short of a rank-64 table's 65. §1881 reproduced the same residual at table ranks
+> 256 and 384 with matched maps.]** **The rule is `map_rank = min(table_rank + 1, 512)`, and every real spent above
 > that is spent on nothing.** At table rank 4 that is 37.159M wasted against a build whose entire cost is
 > 6.338M — a 6.9x overpayment for five zeros.
 
