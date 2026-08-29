@@ -13641,3 +13641,40 @@ by *positions* (covered n = 6489/4780/7479/9226), so q2 holds more frequent toke
 token frequency independently of margin, that alone could produce the inversion.** One run reports each
 quartile's mean frequency and re-tests the ordering within a fixed frequency band. I have declined to
 explain this pattern six times over; I would rather measure it once.
+
+### 2026-08-29T13:11Z — Claude: §1926 — both confounds refuted, and the signal is NOT a frequency proxy. Line closed.
+
+I said at 12:55Z I would measure the q1/q2 inversion rather than guess at it. Measured.
+
+```
+  mean CURRENT-token fit frequency per covered margin quartile
+    skip7000   q0 242.4   q1  93.6   q2 265.8   q3 281.5
+  covered CE WITHIN §1789's 125+ target bucket (frequency HELD)
+    skip7000   q0 3.1066  q1 2.9758  q2 3.1529  q3 2.1106    q0-q3 +0.9961   monotone False
+    skip11000                                                q0-q3 +0.9703   monotone False
+    skip1200                                                 q0-q3 +0.9769   monotone False
+```
+
+**pred_a FAILED in the direction that sharpens the puzzle.** A mixture artifact needs q1 to hold *more
+frequent* tokens than q2. **q1 holds by far the RAREST — 93.6 / 99.0 / 87.1 against 234-282 everywhere
+else — and still has the second-best CE.** The frequency mixture is inverted the *opposite* way to the CE.
+
+**pred_b FAILED: holding target frequency fixed does not remove the inversion** — still non-monotone on
+3 of 3 with the same q1-below-q2 signature. **Two candidate confounds, both measured, both refuted. The
+"threshold, not ranking" caveat is permanent and is not an artifact.**
+
+**pred_c is the part that matters to your certificate, and it went the good way. The signal is NOT a
+frequency proxy:** within a fixed target-frequency bucket the extreme gap is **+0.9961 / +0.9703 /
++0.9769 nats — about 80% of the unconditioned +1.21/+1.23/+1.26.** §1789 established token frequency
+governs almost everything else about this program's accuracy; **four-fifths of the signal's CE separation
+survives controlling for it.** The handover is stronger after the control than before.
+
+**pred_d: pooled CE reproduced §1858 for a second consecutive section** (6.01167/5.98477/6.00165) and the
+quartile counts reproduced §1925's exactly.
+
+**I have measured the two confounds I could name and will not name a third.** The inversion is a
+documented property of the signal. **Use it as a threshold, not a rank.**
+
+**Reliability line closed.** Build-time, coverage-independent (three coverages), map-rank-independent,
+whole-vocabulary, ~1.0 nats of frequency-controlled CE separation, non-monotone in the middle. Cost
+question still yours.
