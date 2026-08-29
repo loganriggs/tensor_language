@@ -119,6 +119,7 @@ class OwnedPerHeadTensorAttention(nn.Module):
         self, state: torch.Tensor, first_value: torch.Tensor | None,
     ) -> tuple[
         torch.Tensor, torch.Tensor, torch.Tensor, torch.Tensor, torch.Tensor,
+        torch.Tensor, torch.Tensor,
     ]:
         if state.ndim != 3 or state.shape[-1] != self.width or not state.is_floating_point() or (
             not bool(torch.isfinite(state).all())
@@ -148,7 +149,9 @@ class OwnedPerHeadTensorAttention(nn.Module):
             ):
                 raise ValueError("first-value bus is malformed")
             bus = first_value
-        mixed = (1 - self.lamb) * value + self.lamb * bus
+        fresh = (1 - self.lamb) * value
+        broadcast = self.lamb * bus
+        mixed = fresh + broadcast
         # Preserve the checkpoint's physical contraction and layout order: its
         # native module first forms [batch,head,query,d_head], then transposes and
         # materializes [batch,query,head,d_head] before c_proj.  Asking einsum for
@@ -166,7 +169,7 @@ class OwnedPerHeadTensorAttention(nn.Module):
             head_outputs.reshape(state.shape[0], state.shape[1], self.width),
             self.proj.to(head_outputs.dtype),
         )
-        return head_writes, full_write, bus, pattern, mixed
+        return head_writes, full_write, bus, pattern, mixed, fresh, broadcast
 
     def begin(
         self, state: torch.Tensor, first_value: torch.Tensor | None = None,
@@ -193,9 +196,9 @@ class HeadWriteTransaction(AbstractContextManager):
         self, program: OwnedPerHeadTensorAttention, state: torch.Tensor,
         first_value: torch.Tensor | None,
     ) -> None:
-        head_writes, full_write, bus, pattern, mixed = program._decompose(
-            state, first_value,
-        )
+        (
+            head_writes, full_write, bus, pattern, mixed, fresh, broadcast,
+        ) = program._decompose(state, first_value)
         reconstructed = head_writes.sum(2)
         difference = (reconstructed.float() - full_write.float()).abs()
         denominator = max(float(full_write.float().norm()), torch.finfo(torch.float32).tiny)
@@ -204,6 +207,8 @@ class HeadWriteTransaction(AbstractContextManager):
         self._bus: torch.Tensor | None = bus
         self._pattern: torch.Tensor | None = pattern
         self._mixed: torch.Tensor | None = mixed
+        self._fresh: torch.Tensor | None = fresh
+        self._broadcast: torch.Tensor | None = broadcast
         self._projection: torch.Tensor | None = program.proj.view(
             program.width, program.n_head, program.head_dim,
         )
@@ -242,15 +247,19 @@ class HeadWriteTransaction(AbstractContextManager):
         heads: Iterable[int],
         source_indices: torch.Tensor,
         destination_mask: torch.Tensor | None = None,
+        *,
+        route: str = "mixed",
     ) -> torch.Tensor:
         """Return selected heads' exact write from one source per destination.
 
         ``source_indices[b, t]`` chooses the source position whose additive
         contribution to destination ``t`` is returned.  The method gathers the
-        already-computed attention pattern and mixed value vectors, so it never
+        already-computed attention pattern and selected value route, so it never
         materializes the prohibitively large ``[B,T,H,T,D_model]`` tensor.
         ``destination_mask`` can restrict the returned write to chosen destination
-        positions; the attention calculation itself is unchanged.
+        positions; the attention calculation itself is unchanged.  ``route`` may
+        select the complete mixed value, the ``(1-lambda)`` fresh-value term, or the
+        ``lambda*v1`` broadcast term.
         """
 
         selected = tuple(heads)
@@ -260,7 +269,15 @@ class HeadWriteTransaction(AbstractContextManager):
         ):
             raise ValueError("selected attention heads are malformed")
         self._require_open()
-        assert self._pattern is not None and self._mixed is not None
+        routes = {
+            "mixed": self._mixed,
+            "fresh": self._fresh,
+            "broadcast": self._broadcast,
+        }
+        if route not in routes:
+            raise ValueError("source route is unknown")
+        selected_route = routes[route]
+        assert self._pattern is not None and selected_route is not None
         assert self._projection is not None
         batch, _, destination_count, source_count = self._pattern.shape
         if (
@@ -288,7 +305,7 @@ class HeadWriteTransaction(AbstractContextManager):
             selected, device=self._pattern.device, dtype=torch.long,
         )
         head_count = len(selected)
-        head_dim = self._mixed.shape[-1]
+        head_dim = selected_route.shape[-1]
         # [B,H,T,S] -> one pattern scalar for each [B,T,H].
         selected_pattern = self._pattern.index_select(1, head_index)
         pattern_at_source = torch.gather(
@@ -299,7 +316,7 @@ class HeadWriteTransaction(AbstractContextManager):
             ),
         ).squeeze(3).transpose(1, 2)
         # [B,S,H,Dh] -> one mixed value vector for each [B,T,H].
-        selected_mixed = self._mixed.index_select(2, head_index)
+        selected_mixed = selected_route.index_select(2, head_index)
         mixed_at_source = torch.gather(
             selected_mixed,
             1,
@@ -348,6 +365,8 @@ class HeadWriteTransaction(AbstractContextManager):
             self._bus = None
             self._pattern = None
             self._mixed = None
+            self._fresh = None
+            self._broadcast = None
             self._projection = None
             self._closed = True
         return False

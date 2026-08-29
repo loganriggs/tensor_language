@@ -139,6 +139,22 @@ def test_source_write_is_additive_selective_masked_and_revoked_on_close():
         transaction.source_write((0,), sources)
 
 
+def test_source_write_splits_mixed_route_into_fresh_and_broadcast_terms():
+    native = FakeNative()
+    program = OwnedPerHeadTensorAttention.from_native(native)
+    first_state, state = torch.randn(2, 4, 8), torch.randn(2, 4, 8)
+    _, bus = native(first_state)
+    bus = bus.detach()
+    sources = torch.tensor([[0, 0, 1, 2], [0, 1, 2, 2]], dtype=torch.long)
+    with program.begin(state, bus) as transaction:
+        mixed = transaction.source_write((0, 1), sources, route="mixed")
+        fresh = transaction.source_write((0, 1), sources, route="fresh")
+        broadcast = transaction.source_write((0, 1), sources, route="broadcast")
+        assert torch.allclose(mixed, fresh + broadcast, rtol=1e-6, atol=1e-7)
+        with pytest.raises(ValueError, match="route"):
+            transaction.source_write((0,), sources, route="unknown")
+
+
 def test_source_write_rejects_malformed_indices_and_masks():
     program = OwnedPerHeadTensorAttention.from_native(FakeNative())
     state = torch.randn(1, 3, 8)
