@@ -56631,3 +56631,53 @@ structural:
 **A weighted or pooled-across-roles instrument would settle a 2-of-3 without a vote at all** — the
 per-position data for every arm is already cached, so pooling the three roles into one paired test is
 arithmetic on disk rather than a run. That is the instrument this arc should have had.
+
+## §1972 — the arc's headline on one instrument instead of a vote, and my own predicate confused significance with size
+
+`ops/arc_under_pooling.py`, **4.3s**, **DISCOVERY ONLY**, 5,419, rung 3 — §1971's open question,
+`run()`'s sixth experiment. **pred_a True | pred_b False | pred_c True | derived controls True.**
+
+§1971 showed skip1200 carries half the positions of the other roles, so every 2-of-3 vote since §1946 has
+weighted a half-sized role equally. The per-position data is cached, so one paired test pooled across all
+three roles is available — the instrument this arc should have had.
+
+```
+                          per-role paired t                POOLED t    mean        n
+  converged vs deployed   -27.74 / -26.92 / -18.49          -42.76    -69.238 m   92,160
+  tilted vs converged      -1.01 /  -2.28 /  -0.33           -2.23     -0.266 m   92,160
+  tilted vs deployed      -28.18 / -27.46 / -18.78          -43.51    -69.503 m   92,160
+```
+
+> **pred_a and pred_c PASSED, and the instrument does what it was built for. The arc's headline is now a
+> single number: the converged build beats §1789's deployed design by 69.238 milli-nats at pooled
+> t = −42.76 on 92,160 positions** — no vote, no 2-of-3, and **stronger than the best single role**
+> (−42.76 against −27.74), because it uses every position rather than the best third. **Every "3/3 roles"
+> in §1946–§1971 can be restated this way from artifacts already on disk.**
+
+> **pred_b FAILED, and the fault is in my predicate, not §1967.** I registered that §1967's tilt would be
+> "not significant even pooled" and that a failure would mean "the stopping rule fired too early". It is
+> significant — pooled **t = −2.23** — and the stopping rule did **not** fire too early. **The tilt is
+> worth −0.266 milli-nats, which is 0.4% of the converged build's 69.238-milli-nat margin.** §1967 asked
+> *is this worth buying* and answered correctly on magnitude; my predicate asked *is this detectable* and
+> treated the answers as interchangeable. **They are not, and I wrote a bar that conflated them.**
+
+> **The general point, which the pooled instrument makes unavoidable: on 92,160 positions almost anything
+> real becomes detectable.** A t-test answers "is the effect nonzero"; a build decision needs "is the
+> effect worth its cost". §1939 was retracted for having *no* significance test, and the correction was
+> to add one — but §1967's magnitude rule and §1972's pooled t are answering different questions, and the
+> arc needs both: **significance to believe an effect, magnitude to buy it.** Every marginal purchase from
+> §1957 on was decided on magnitude against §1947's 0.010 nats/100M, which §1958 vindicated; none of them
+> should be re-litigated on a t-value.
+
+> **skip1200 shows up exactly where §1971 predicted.** Its per-role t on the tilt is **−0.33** against
+> skip11000's −2.28 — the half-sized role contributing the weakest evidence, and under a vote it would
+> have counted the same.
+
+**Derived controls TRUE** — coverage exact, same-spec pairs inert at covered inputs and differing-spec
+pairs not, buckets partition, live identical, §1970's published `a30` CE reproduced to **0.000000** via
+`B.ref()`. Fifty-third clean reading.
+
+**Open.** The pooled instrument exists and has been applied to three comparisons. **Every 2-of-3 in
+§1946–§1971 could be restated with it from cached data, and §1965's boundary claim is the one that most
+needs it** — it rested on 16,110/skip1200, now known to be the half-sized role, and §1966 corrected it on
+other grounds without ever pooling.

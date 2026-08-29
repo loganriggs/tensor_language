@@ -2343,3 +2343,25 @@ Third time this session that measuring killed a plausible infrastructure plan: c
 (setup was ~4s, saving nothing), four static gate checks for dropped string keys (218/227, then 2/82
 skipping the at-risk population, then 35/178, then 43 verdict changes), and now this.
 **A tidy-up is a change, and a change needs a measurement, not an intuition.**
+
+## LESSON 91 — significance and magnitude are different questions, and I wrote a bar that conflated them
+
+§1939 was retracted for publishing a headline with no significance test; the fix was to attach a paired t
+to every CE claim, and it has held since. §1972 then registered that §1967's tilt would be "not
+significant even pooled", with the stated consequence that a failure would mean **"the stopping rule
+fired too early"**. It failed — pooled **t = −2.23** — and the stopping rule had **not** fired too early.
+
+**The tilt is worth −0.266 milli-nats: 0.4% of the converged build's 69.238-milli-nat margin over the
+deployed design.** It is real *and* negligible. §1967 asked "is this worth buying" and answered on
+magnitude, correctly. My predicate asked "is this detectable" and treated that as the same question.
+
+**Why the pooled instrument makes this unavoidable.** On 92,160 positions almost anything real clears 2σ.
+A t-value is a statement about whether an effect is nonzero; a build decision needs whether it is worth
+its cost. The arc needs both and they do not substitute: **significance to believe an effect, magnitude
+to buy it.**
+
+**The rule.** When registering a predicate about whether something *matters*, state the bar in the units
+of the decision — nats, parameters, nats per 100M — not in σ. Use σ to decide whether the number is real,
+then the units to decide whether it is worth having. And when a predicate's failure is given a
+consequence in its own registered text, check that the consequence follows from the bar as written: mine
+did not.
