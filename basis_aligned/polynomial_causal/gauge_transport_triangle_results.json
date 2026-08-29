@@ -1,0 +1,194 @@
+{
+  "config": {
+    "model": "bilin18",
+    "model_revision": "ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240",
+    "model_config_sha256": "428042bfd807ba36f8b4326395440fbbebe52cd3d040212e6fef14a4fdf2d83c",
+    "model_weights_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+    "sites": [
+      8,
+      11,
+      14
+    ],
+    "residual_semantics": "raw post-block; downstream RMSNorm live",
+    "rank": 64,
+    "support_rank": 256,
+    "basis_spec": [
+      96,
+      80
+    ],
+    "response_fit_spec": [
+      96,
+      1200
+    ],
+    "evaluation_spec": [
+      192,
+      11000
+    ],
+    "sequence_length": 256,
+    "fit_draws": 4,
+    "response_rows": {
+      "scale_calibration": 16,
+      "map_fit": 64,
+      "row_group_validation": 16
+    },
+    "relative_ridge": 0.001,
+    "seed": 8675309,
+    "row_receipt_schema": "gauge_transport_triangle_unique_rows_v2_receipt",
+    "row_receipt_file_sha256": "3f92d8b3aa5e89e6059a010338521bffa0cf440e0815d9d67e1b65aa58a8e102",
+    "row_selection_plan_sha256": "0d66f060a43959c94afc14691b4a19730147c942da94807f919513fb8c421629",
+    "status": "preliminary_screen_failed_no_interface_license"
+  },
+  "canaries": {
+    "native_vs_reference_relative_rmse": 0.0,
+    "zero_patch_relative_rmse": 0.0,
+    "passed": true,
+    "raw_zero_patch_max_abs": 0.0,
+    "cp_gauge_rewrite": {
+      "relative_rmse": 4.894228713466347e-07,
+      "passed": true
+    }
+  },
+  "position_shuffle_canary": {
+    "response_nre": 1.2645299066046962,
+    "registered_floor": 0.25,
+    "passed": true
+  },
+  "expanded_physical_price_canary": {
+    "maps": {
+      "8_11": {
+        "physical_response_relative_drift": 8.598482304836163e-07,
+        "expanded_price_bits": 1975800,
+        "gauged_expanded_price_bits": 1975800,
+        "price_relative_drift": 0.0
+      },
+      "8_14": {
+        "physical_response_relative_drift": 8.273126514241297e-07,
+        "expanded_price_bits": 1972792,
+        "gauged_expanded_price_bits": 1972696,
+        "price_relative_drift": 4.866199781832043e-05
+      },
+      "11_14": {
+        "physical_response_relative_drift": 8.554207576245661e-07,
+        "expanded_price_bits": 1974072,
+        "gauged_expanded_price_bits": 1973832,
+        "price_relative_drift": 0.00012157611272537172
+      }
+    },
+    "maximum_response_relative_drift": 8.598482304836163e-07,
+    "maximum_price_relative_drift": 0.00012157611272537172,
+    "passed": true,
+    "pricing_scope": "expanded ambient SVD upper bound; shared-basis DAG price not certified"
+  },
+  "natural_coordinate_scales": {
+    "8": 210.26808547647195,
+    "11": 471.3268020813033,
+    "14": 752.9373958882309
+  },
+  "scale_calibration": [
+    {
+      "multiplier": 0.01,
+      "amplitude": 2.1026808547647198,
+      "median_suffix_kl": 6.937531538009888e-08
+    },
+    {
+      "multiplier": 0.1,
+      "amplitude": 21.026808547647196,
+      "median_suffix_kl": 9.41937880891464e-06
+    },
+    {
+      "multiplier": 1.0,
+      "amplitude": 210.26808547647195,
+      "median_suffix_kl": 0.0006558676988046809
+    },
+    {
+      "multiplier": 10.0,
+      "amplitude": 2102.6808547647197,
+      "median_suffix_kl": 0.03982767330017864
+    },
+    {
+      "multiplier": 100.0,
+      "amplitude": 21026.808547647197,
+      "median_suffix_kl": 0.07559503742256465
+    }
+  ],
+  "scale_decision": {
+    "passed": true,
+    "selected": {
+      "multiplier": 10.0,
+      "amplitude": 2102.6808547647197,
+      "median_suffix_kl": 0.03982767330017864
+    },
+    "target": 0.044721359549995794
+  },
+  "fit_counts": {
+    "l8_examples": 512,
+    "l11_examples": 512
+  },
+  "row_group_map_validation": {
+    "r2_8_11": 0.37661895033389803,
+    "r2_8_14": 0.20250149108805104,
+    "r2_11_14": 0.5883617855513328,
+    "selects_hyperparameters": false
+  },
+  "metrics": {
+    "full_l11_oracle": {
+      "e_out": 2.3869262181299092e-11,
+      "centered_raw_logit_relative_rmse": 5.746389879856915e-06,
+      "early_vs_baseline_kl_sum": 903.2482415427141,
+      "early_vs_transport_kl_sum": 2.1559869092180416e-08,
+      "coordinate_response_r2": null
+    },
+    "projected_l11_oracle": {
+      "e_out": 0.22816598053523024,
+      "centered_raw_logit_relative_rmse": 0.6433894756933554,
+      "early_vs_baseline_kl_sum": 903.2482415427141,
+      "early_vs_transport_kl_sum": 206.09052069831586,
+      "coordinate_response_r2": null
+    },
+    "predicted_l11": {
+      "e_out": 0.31681487596205116,
+      "centered_raw_logit_relative_rmse": 0.7703133280272043,
+      "early_vs_baseline_kl_sum": 903.2482415427141,
+      "early_vs_transport_kl_sum": 286.1624796072958,
+      "coordinate_response_r2": null
+    },
+    "full_oracle": {
+      "e_out": 1.495382770058782e-11,
+      "centered_raw_logit_relative_rmse": 4.3702575775983695e-06,
+      "early_vs_baseline_kl_sum": 903.2482415427141,
+      "early_vs_transport_kl_sum": 1.3507018574888675e-08,
+      "coordinate_response_r2": 1.0
+    },
+    "projected_oracle": {
+      "e_out": 0.27086531254556206,
+      "centered_raw_logit_relative_rmse": 0.6634168607314375,
+      "early_vs_baseline_kl_sum": 903.2482415427141,
+      "early_vs_transport_kl_sum": 244.65861725169663,
+      "coordinate_response_r2": 1.0
+    },
+    "direct": {
+      "e_out": 0.486110122803587,
+      "centered_raw_logit_relative_rmse": 0.8811812291498102,
+      "early_vs_baseline_kl_sum": 903.2482415427141,
+      "early_vs_transport_kl_sum": 439.0781136184528,
+      "coordinate_response_r2": 0.4028175347339469
+    },
+    "chain": {
+      "e_out": 0.4520267943849178,
+      "centered_raw_logit_relative_rmse": 0.8593879760355378,
+      "early_vs_baseline_kl_sum": 903.2482415427141,
+      "early_vs_transport_kl_sum": 408.292407158367,
+      "coordinate_response_r2": 0.4024163493277517
+    }
+  },
+  "decisions": {
+    "full_oracle_exact": true,
+    "projected_u14_sufficient": false,
+    "direct_response_transport": false,
+    "chain_composes": false
+  },
+  "screen_passed": false,
+  "not_licensed": "No interface claim until all 20 matched nulls, behavior cells, complete gauges, price, and alternate backgrounds pass.",
+  "runtime_s": 42.9,
+  "execution_authority_sha256": "197915b29e284d02b7e45c21477fe7d5f24197f20059f02950fa215bd98c2c79"
+}

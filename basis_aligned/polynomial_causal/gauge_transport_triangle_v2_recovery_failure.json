@@ -1,0 +1,11 @@
+{
+  "schema": "gauge_transport_triangle_v2_recovery_failure",
+  "status": "failed_before_receipt",
+  "authority_sha256": "197915b29e284d02b7e45c21477fe7d5f24197f20059f02950fa215bd98c2c79",
+  "error_type": "RuntimeError",
+  "error": "triangle result semantic replay failed",
+  "traceback": "Traceback (most recent call last):\n  File \"/workspace/tensor_language/basis_aligned/polynomial_causal/gauge_transport_triangle.py\", line 1127, in main\n    publish_execution(authority, output, state)\n  File \"/workspace/tensor_language/basis_aligned/polynomial_causal/gauge_transport_triangle.py\", line 214, in publish_execution\n    raise RuntimeError(\"triangle result semantic replay failed\")\nRuntimeError: triangle result semantic replay failed\n",
+  "partial_result_sha256": "2b79648c9866dfbad51c57c6b8536870962db8998040476f9c636fac5994891b",
+  "partial_state_sha256": "a85d7cefcc1ea2623dfd0ba42289dbe11b4eb7aec94f923a5492e16a9a069c2e",
+  "failure_sha256": "7cd1858d5f0d0e021ab71c90168a20f4ab8613ccc06c0141ca907e0a341ff39c"
+}
