@@ -51358,3 +51358,59 @@ sharp and practical rather than conceptual: **how much of that survives a covere
 input is computable offline for any token, so a covered-fit rank-512 stream map is a real, deployable
 build — and §1873's 16.6% generalisation gap was measured at rank 64 on the embedding, which §1875 has
 just shown says nothing about rank 512 on the stream.
+
+## §1876 — the fallback is largely FIXED: a deployable covered-fit stream map at rank 512 reaches 0.174
+
+`ops/deployable_stream_map.py`, 271.1s, **DISCOVERY ONLY**, rung 3 — §1875's open question. **4/4.**
+
+```
+  fallback loss against §1868's uncovered-token ceiling (5.15861 on skip7000), 5,419-type deployed build
+    DEPLOYED   embedding, covered-fit, rank  64      +0.78075   +0.86225   +0.83997
+    §1870      embedding, covered-fit, rank 512      +0.59560   +0.67209   +0.67172
+    THIS RUN   STREAM,    covered-fit, rank 512      +0.17427   +0.21358   +0.21419
+    §1875      STREAM,    ORACLE-fit,  rank 512      +0.11388   +0.14094   +0.14196
+```
+
+**pred_a PASSED with room: 0.174 against a 0.35 bar.** The deployable build — fitted on covered tokens
+only, applied to uncovered ones, using an input computable offline from the token alone — lands **0.060
+above §1875's oracle bound.** The generalisation gap that §1873 estimated at 16.6% *on the embedding at
+rank 64* is, on the stream at rank 512, **7.7% of the deployed loss**.
+
+**pred_b PASSED and it isolates the input at matched rank and matched fitting set** — the comparison no
+earlier run made. Against §1870's rank-512 **embedding** map at +0.59560, the rank-512 **stream** map
+reaches +0.17427: **the input alone is worth 0.421 nats** once the rank is there to use it.
+
+> **What this is worth on the deployed build.** Recovering 0.606 / 0.649 / 0.626 nats per uncovered
+> position at a 24.1% uncovered fraction is **0.146 / 0.156 / 0.151 all-position nats**, for **+37.16M
+> reals** (map rank 64 → 512, 16% of the deployed build's 230.087M):
+>
+> ```
+>   254 M reals per all-position nat — and 2.6x the ENTIRE iso-cost improvement of §1861 (0.056 nats),
+>   which was itself the best whole-program result in the arc.
+> ```
+>
+> **77.7% / 75.2% / 74.5% of the deployed fallback's loss is recoverable by a build that needs no new
+> data, no new inference-time computation, and one changed hyper-parameter plus a changed map input.**
+
+**pred_c PASSED at 0.00e+00 for a seventh time**, across a seventh distinct manipulation of the uncovered
+rows. **pred_d PASSED**, and this time with the anchor stated at its rank: the MAP arm reproduces §1870's
+published rank-512 row (+0.59560 / +0.67209 / +0.67172), which is the constant §1875's pred_d got wrong.
+
+**The corrected account of the fallback, replacing §1873's and §1874's.** Of the deployed 0.78075:
+
+```
+  input representation   embedding -> length-1 stream, at rank 512      0.42133    54.0%
+  map rank               64 -> 512, on the stream input                 0.18515    23.7%   (see below)
+  generalisation         covered-fit -> oracle-fit, stream at rank 512  0.06039     7.7%
+  residual               survives all three                             0.11388    14.6%
+```
+
+The rank and input terms are **not separable** — §1875 measured rank as worth 0.185 on the embedding and
+0.441 on the stream — so the two middle rows are one 0.607-nat compound lever, split here only to show
+which end dominates. **The input is the larger half, and neither works without the other.**
+
+**Where this leaves the class.** §1848 recorded the fallback closed; it was the largest open lever
+(§1866), constant in coverage (§1867), mostly its own rather than the class's (§1868), and it is now
+**three-quarters fixed by a deployable build**. What remains is 0.114 nats per uncovered position —
+14.6% of the original — which §1875's oracle says is the floor for a linear per-token map from this
+input at this rank, and which nothing yet distinguishes from the floor for *any* per-token function.

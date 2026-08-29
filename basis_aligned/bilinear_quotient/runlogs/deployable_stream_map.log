@@ -9,3 +9,29 @@ DEPLOYABLE STREAM MAP | 5419 types, covered-fit stream map at rank 512 | settled
   all_substituted      skip7000 13.55%  skip11000 14.25%  skip1200 13.64%
   all_sub_scaled       skip7000 12.16%  skip11000 12.81%  skip1200 12.10%
   live_model           skip7000 39.32%  skip11000 42.35%  skip1200 38.88%
+
+  arms  (110s)
+  all_substituted        skip7000 13.55%  skip11000 14.25%  skip1200 13.64%
+  live_model             skip7000 39.32%  skip11000 42.35%  skip1200 38.88%
+
+  arms  (124s)
+  B0_raw                 skip7000 23.20%  skip11000 25.38%  skip1200 23.26%
+  B0_seq                 skip7000 30.25%  skip11000 32.59%  skip1200 29.11%
+  uncovered-token ceiling built for 10455 token types
+
+  coverage 5419 types (1.00x §1834); ceiling CE skip7000 6.03465  skip11000 5.97900  skip1200 5.96423 (146s)
+  oracle target rows built for 10455 uncovered token types (147s)
+    rank MAP   covered skip7000  6.03465 (+-0.00000)  skip11000  5.97900 (+-0.00000)  skip1200  5.96423 (+-0.00000)   (191s)
+    rank STREAMCOV covered skip7000  6.03465 (+-0.00000)  skip11000  5.97900 (+-0.00000)  skip1200  5.96423 (+-0.00000)   (271s)
+
+  FALLBACK LOSS: fitted on COVERED (deployed) vs on UNCOVERED (oracle), 5419 covered types:
+    MAP      skip7000 +0.59560  skip11000 +0.67209  skip1200 +0.67172
+    STREAMCOV skip7000 +0.17427  skip11000 +0.21358  skip1200 +0.21419
+    generalisation share of the deployed loss: skip7000 70.7%  skip11000 68.2%  skip1200 68.1%
+
+  most of the ORACLE gain survives a covered-only fit (<0.35) -> True  skip7000 +0.17427  skip11000 +0.21358  skip1200 +0.21419
+  and it beats the rank-512 EMBEDDING map (§1870) -> True  skip7000 +0.17427  skip11000 +0.21358  skip1200 +0.21419
+  and the COVERED arm is untouched (<1e-6) -> True  max spread 0.00e+00
+  MAP arm reproduces §1872, coverage 5419, attainment True -> control True
+
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/deployable_stream_map_results.json (271.1s)
