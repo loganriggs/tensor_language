@@ -1,0 +1,49 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+DOES THE CONJUNCTION GOVERN THE MLPs? | buckets ((0, 0), (1, 4), (5, 24), (25, 124), (125, 1000000000)) on the fit-row count of the TRUE target | full-rank settled program | DISCOVERY ONLY
+  built the settled fallback and 36 tables (5s)
+    mlp0   COVERED cos +1.0000 ratio   1.00x (n 82985)  |  UNCOVERED cos +0.8738 ratio    1.27x conj    1.11 (n 9175)
+    mlp1   COVERED cos +1.0000 ratio   1.00x (n 82985)  |  UNCOVERED cos +0.8803 ratio    1.37x conj    1.20 (n 9175)
+    mlp2   COVERED cos +1.0000 ratio   1.00x (n 82985)  |  UNCOVERED cos +0.9449 ratio    1.46x conj    1.38 (n 9175)
+    mlp3   COVERED cos +1.0000 ratio   1.00x (n 82985)  |  UNCOVERED cos +0.9853 ratio    1.34x conj    1.32 (n 9175)
+    mlp4   COVERED cos +1.0000 ratio   1.00x (n 82985)  |  UNCOVERED cos +0.9998 ratio    1.19x conj    1.19 (n 9175)
+    mlp5   COVERED cos +1.0000 ratio   1.00x (n 82985)  |  UNCOVERED cos +0.9993 ratio    1.18x conj    1.18 (n 9175)
+    mlp6   COVERED cos +1.0000 ratio   1.00x (n 82985)  |  UNCOVERED cos +0.9968 ratio    1.22x conj    1.22 (n 9175)
+    mlp7   COVERED cos +1.0000 ratio   1.00x (n 82985)  |  UNCOVERED cos +0.9202 ratio    1.52x conj    1.40 (n 9175)
+    mlp8   COVERED cos +1.0000 ratio   1.00x (n 82985)  |  UNCOVERED cos +0.8678 ratio    1.48x conj    1.29 (n 9175)
+    mlp9   COVERED cos +1.0000 ratio   1.00x (n 82985)  |  UNCOVERED cos +0.9471 ratio    1.34x conj    1.27 (n 9175)
+    mlp10  COVERED cos +1.0000 ratio   1.00x (n 82985)  |  UNCOVERED cos +0.6921 ratio    1.76x conj    1.22 (n 9175)
+    mlp11  COVERED cos +1.0000 ratio   1.00x (n 82985)  |  UNCOVERED cos +0.9750 ratio    1.25x conj    1.22 (n 9175)
+    mlp12  COVERED cos +1.0000 ratio   1.00x (n 82985)  |  UNCOVERED cos +0.8334 ratio    1.54x conj    1.28 (n 9175)
+    mlp13  COVERED cos +1.0000 ratio   1.00x (n 82985)  |  UNCOVERED cos +0.9587 ratio    1.33x conj    1.27 (n 9175)
+    mlp14  COVERED cos +1.0000 ratio   1.00x (n 82985)  |  UNCOVERED cos +0.9492 ratio    1.37x conj    1.31 (n 9175)
+    mlp15  COVERED cos +1.0000 ratio   1.00x (n 82985)  |  UNCOVERED cos +0.9936 ratio    1.21x conj    1.20 (n 9175)
+    mlp16  COVERED cos +1.0000 ratio   1.00x (n 82985)  |  UNCOVERED cos +0.9965 ratio    1.18x conj    1.18 (n 9175)
+    mlp17  COVERED cos +1.0000 ratio   1.00x (n 82985)  |  UNCOVERED cos +0.9922 ratio    1.20x conj    1.19 (n 9175)
+
+  per-MLP: UNCOVERED cosine, ratio, conjunction, vs §1898 change rate:
+    mlp0   cos +0.8738  ratio    1.27x  conj    1.11   §1898 rate  0.00%
+    mlp1   cos +0.8803  ratio    1.37x  conj    1.20   §1898 rate  0.13%
+    mlp2   cos +0.9449  ratio    1.46x  conj    1.38   §1898 rate  0.13%
+    mlp3   cos +0.9853  ratio    1.34x  conj    1.32   §1898 rate  0.20%
+    mlp4   cos +0.9998  ratio    1.19x  conj    1.19   §1898 rate  1.21%
+    mlp5   cos +0.9993  ratio    1.18x  conj    1.18   §1898 rate  1.61%
+    mlp6   cos +0.9968  ratio    1.22x  conj    1.22   §1898 rate  1.60%
+    mlp7   cos +0.9202  ratio    1.52x  conj    1.40   §1898 rate  0.84%
+    mlp8   cos +0.8678  ratio    1.48x  conj    1.29   §1898 rate  0.81%
+    mlp9   cos +0.9471  ratio    1.34x  conj    1.27   §1898 rate  1.27%
+    mlp10  cos +0.6921  ratio    1.76x  conj    1.22   §1898 rate  1.07%
+    mlp11  cos +0.9750  ratio    1.25x  conj    1.22   §1898 rate  1.53%
+    mlp12  cos +0.8334  ratio    1.54x  conj    1.28   §1898 rate  1.33%
+    mlp13  cos +0.9587  ratio    1.33x  conj    1.27   §1898 rate  1.40%
+    mlp14  cos +0.9492  ratio    1.37x  conj    1.31   §1898 rate  1.34%
+    mlp15  cos +0.9936  ratio    1.21x  conj    1.20   §1898 rate  2.32%
+    mlp16  cos +0.9965  ratio    1.18x  conj    1.18   §1898 rate  3.58%
+    mlp17  cos +0.9922  ratio    1.20x  conj    1.19   §1898 rate  3.15%
+
+  COVERED side is the known answer (all cos > 0.999) -> True  min +1.000000
+  and the UNCOVERED side is far from aligned (median < 0.80) -> False  median +0.9587
+  and the conjunction predicts §1898's profile (Spearman >= +0.6) -> False  rho -0.389
+  coverage 16110, 18 sites -> control True; covered-arm baseline ENRICHMENT skip7000 7.16x  skip11000 7.29x  skip1200 7.49x
+
+pred_a True | pred_b False | pred_c False | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/mlp_conjunction_results.json (123.9s)

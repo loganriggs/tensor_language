@@ -111,6 +111,38 @@ def test_nearest_prior_query_controls_the_copy_label():
     assert int(cells.matched_negative[:, 64].sum()) == 2
 
 
+def test_retained_matches_remain_document_balanced_with_many_positions_in_one_document():
+    rows = torch.arange(3000, 3000 + 4 * contract.ROW_WIDTH, dtype=torch.long).reshape(
+        4, contract.ROW_WIDTH,
+    )
+    # Each polarity has one prolific document and one single-record document.  All
+    # records share a position/distance/frequency/multiplicity stratum.
+    positive_positions = {0: range(64, 80, 4), 1: (64,)}
+    negative_positions = {2: range(64, 80, 4), 3: (64,)}
+    for row_index, positions in positive_positions.items():
+        for position in positions:
+            query = 7 + 20 * (position - 64)
+            target = query + 1
+            rows[row_index, position - 16:position - 14] = torch.tensor([query, target])
+            rows[row_index, position:position + 2] = torch.tensor([query, target])
+    for row_index, positions in negative_positions.items():
+        for position in positions:
+            query = 7 + 20 * (position - 64)
+            target = query + 1
+            rows[row_index, position - 16:position - 14] = torch.tensor([query, target + 1])
+            rows[row_index, position:position + 2] = torch.tensor([query, target])
+    size = int(rows.max()) + 1
+    frequencies = contract.FitTokenFrequencies(
+        query=torch.ones(size, dtype=torch.long) * 4,
+        target=torch.ones(size, dtype=torch.long) * 4,
+    )
+    cells = contract.build_copy_cells(
+        rows, frequencies, tuple(f"imbalanced-{i}" for i in range(4)),
+    )
+    assert {pair[0] for pair in cells.pair_indices} == {0, 1}
+    assert {pair[2] for pair in cells.pair_indices} == {2, 3}
+
+
 def test_synthetic_control_preserves_support_and_breaks_only_prior_successor():
     sequence = (100, 101, 102, 103, 104)
     cut = 3
@@ -206,7 +238,7 @@ def test_causal_contrast_uses_within_input_effect_then_specificity_subtraction()
     def reduction(count, ce):
         return contract.CellReduction(
             count=count, ce=ce, target_logprob=-ce, top1_accuracy=0.5,
-            native_to_candidate_kl=None,
+            native_to_candidate_kl=None, support_sha256=f"support-{count}",
         )
 
     native = {
@@ -223,6 +255,14 @@ def test_causal_contrast_uses_within_input_effect_then_specificity_subtraction()
     assert contrast.positive_ce_effect == pytest.approx(0.8)
     assert contrast.matched_negative_ce_effect == pytest.approx(0.2)
     assert contrast.specificity_ce_effect == pytest.approx(0.6)
+
+    wrong_support = dict(ablated)
+    wrong_support["positive"] = contract.CellReduction(
+        count=20, ce=2.8, target_logprob=-2.8, top1_accuracy=0.5,
+        native_to_candidate_kl=None, support_sha256="different-support",
+    )
+    with pytest.raises(ValueError, match="unequal cell support"):
+        contract.causal_copy_contrast(native, wrong_support)
 
 
 def test_extraction_recovery_has_exact_denominator_and_no_zero_stake_fallback():

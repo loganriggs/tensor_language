@@ -102,6 +102,29 @@ def _order_digest(document_id: str, position: int, label: str) -> bytes:
     ).digest()
 
 
+def _document_balanced_records(
+    records: Sequence[tuple[bytes, int, int]],
+) -> list[tuple[bytes, int, int]]:
+    """Order one record per document before taking second records from any document."""
+
+    grouped: dict[int, list[tuple[bytes, int, int]]] = {}
+    for record in records:
+        grouped.setdefault(record[1], []).append(record)
+    groups = [sorted(group) for group in grouped.values()]
+    groups.sort(key=lambda group: group[0])
+    ordered: list[tuple[bytes, int, int]] = []
+    depth = 0
+    while True:
+        added = False
+        for group in groups:
+            if depth < len(group):
+                ordered.append(group[depth])
+                added = True
+        if not added:
+            return ordered
+        depth += 1
+
+
 @dataclass(frozen=True)
 class CopyCells:
     """Disjoint confirmatory cells and matching diagnostics for one row role."""
@@ -210,8 +233,8 @@ def build_copy_cells(
     eligible_strata = 0
     excluded_strata = 0
     for stratum in sorted(set(positive_records) & set(negative_records)):
-        positives = sorted(positive_records[stratum])
-        negatives = sorted(negative_records[stratum])
+        positives = _document_balanced_records(positive_records[stratum])
+        negatives = _document_balanced_records(negative_records[stratum])
         positive_documents = {row for _, row, _ in positives}
         negative_documents = {row for _, row, _ in negatives}
         if min(len(positive_documents), len(negative_documents)) < (
@@ -220,9 +243,17 @@ def build_copy_cells(
             excluded_strata += 1
             continue
         eligible_strata += 1
-        for (_, positive_row, positive_position), (_, negative_row, negative_position) in zip(
-            positives, negatives, strict=False,
-        ):
+        retained = list(zip(positives, negatives, strict=False))
+        if min(
+            len({positive_record[1] for positive_record, _ in retained}),
+            len({negative_record[1] for _, negative_record in retained}),
+        ) < minimum_documents_per_polarity_stratum:
+            # This should be unreachable with document-balanced ordering, but keep the
+            # scored-support requirement fail-closed rather than relying on that proof.
+            excluded_strata += 1
+            eligible_strata -= 1
+            continue
+        for (_, positive_row, positive_position), (_, negative_row, negative_position) in retained:
             positive[positive_row, positive_position] = True
             matched_negative[negative_row, negative_position] = True
             pairs.append((positive_row, positive_position, negative_row, negative_position))
@@ -343,6 +374,7 @@ class CellReduction:
     target_logprob: float
     top1_accuracy: float
     native_to_candidate_kl: float | None
+    support_sha256: str
 
 
 @dataclass(frozen=True)
@@ -369,7 +401,9 @@ def causal_copy_contrast(
     if set(native) != required or set(ablated) != required:
         raise ValueError("causal reductions must contain the exact cell schema")
     for name in required:
-        if native[name].count != ablated[name].count:
+        if native[name].count != ablated[name].count or (
+            native[name].support_sha256 != ablated[name].support_sha256
+        ):
             raise ValueError("native and ablated reductions have unequal cell support")
     positive = ablated["positive"].ce - native["positive"].ce
     negative = ablated["matched_negative"].ce - native["matched_negative"].ce
@@ -417,6 +451,10 @@ def _reduce_cell(
     count = int(mask.sum())
     if count <= 0:
         raise ValueError("every reported confirmatory cell must have positive support")
+    support = torch.nonzero(mask, as_tuple=False).to(torch.int64).contiguous()
+    support_digest = hashlib.sha256()
+    support_digest.update(str(tuple(mask.shape)).encode())
+    support_digest.update(support.numpy().tobytes(order="C"))
     selected = logits[mask].double()
     selected_targets = targets[mask]
     logprob = F.log_softmax(selected, dim=-1)
@@ -432,6 +470,7 @@ def _reduce_cell(
         target_logprob=float(target_logprob.mean()),
         top1_accuracy=float((selected.argmax(1) == selected_targets).double().mean()),
         native_to_candidate_kl=kl,
+        support_sha256=support_digest.hexdigest(),
     )
 
 

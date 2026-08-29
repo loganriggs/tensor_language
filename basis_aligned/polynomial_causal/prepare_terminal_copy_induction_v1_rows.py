@@ -40,9 +40,13 @@ NATURAL_ROLES = ("fit_natural", "selection_natural", "final_natural")
 OOD_ROLE = "ood_code"
 ALL_ROLES = NATURAL_ROLES + (OOD_ROLE,)
 SYNTHETIC_PAIRS_PER_ROLE = 32
-SYNTHETIC_SEQUENCE_LENGTH = 16
-SYNTHETIC_CUT = 8
 SYNTHETIC_SEED = "terminal_copy_induction_v1:synthetic-banks:0"
+SYNTHETIC_POSITION_TEMPLATES = (
+    (8, 32, 80),
+    (12, 44, 96),
+    (20, 52, 128),
+    (28, 60, 160),
+)
 CODE_SEED = "terminal_copy_induction_v1:ood-code-files:0"
 CODE_PRIOR_MANIFESTS = tuple(sorted(HERE.glob("code_oracle_corpus*_manifest.json")))
 
@@ -240,38 +244,61 @@ def build_synthetic_roles(
     outputs: dict[str, dict[str, torch.Tensor]] = {}
     banks: dict[str, list[list[int]]] = {}
     globally_used: set[int] = set()
-    stem_length = contract.ROW_WIDTH - SYNTHETIC_SEQUENCE_LENGTH - SYNTHETIC_CUT - 1
     for role in ALL_ROLES:
         iterator = iter(_token_order(role))
-        positive_rows, control_rows, role_banks = [], [], []
+        query_to_y_rows, query_to_z_rows, role_banks = [], [], []
         for index in range(pairs_per_role):
-            stem = tuple(int(value) for value in role_rows[role][index, :stem_length])
-            sequence: list[int] = []
-            while len(sequence) < SYNTHETIC_SEQUENCE_LENGTH:
+            base = tuple(int(value) for value in role_rows[role][index])
+            token_bank: list[int] = []
+            while len(token_bank) < 4:
                 token = next(iterator)
-                if token not in globally_used and token not in stem:
+                if token not in globally_used and token not in base:
                     globally_used.add(token)
-                    sequence.append(token)
-            positive, control = contract.build_synthetic_copy_pair(
-                stem, sequence, SYNTHETIC_CUT,
+                    token_bank.append(token)
+            first, reciprocal, query = SYNTHETIC_POSITION_TEMPLATES[
+                index % len(SYNTHETIC_POSITION_TEMPLATES)
+            ]
+            crossover = contract.build_synthetic_association_crossover(
+                base,
+                first_query_position=first,
+                reciprocal_position=reciprocal,
+                query_position=query,
+                query_token=token_bank[0],
+                reciprocal_query=token_bank[1],
+                successor_y=token_bank[2],
+                successor_z=token_bank[3],
             )
-            positive_rows.append(positive)
-            control_rows.append(control)
-            role_banks.append(sequence)
+            query_to_y_rows.append(crossover.query_to_y)
+            query_to_z_rows.append(crossover.query_to_z)
+            role_banks.append(token_bank)
         outputs[role] = {
-            "positive": torch.stack(positive_rows).contiguous(),
-            "control": torch.stack(control_rows).contiguous(),
+            "query_to_y": torch.stack(query_to_y_rows).contiguous(),
+            "query_to_z": torch.stack(query_to_z_rows).contiguous(),
         }
         banks[role] = role_banks
     return outputs, banks
 
 
-def fit_token_counts(rows: torch.Tensor) -> torch.Tensor:
+def fit_token_frequencies(rows: torch.Tensor) -> contract.FitTokenFrequencies:
     if tuple(rows.shape) != (N_PER_ROLE, contract.ROW_WIDTH):
         raise ValueError("fit natural rows have the wrong shape")
-    return torch.bincount(
-        rows[:, : contract.MODEL_WIDTH].reshape(-1), minlength=50257,
-    ).long()
+    return contract.FitTokenFrequencies.from_rows(rows, vocab_size=50257)
+
+
+def serialize_copy_cells(cells: contract.CopyCells) -> dict[str, Any]:
+    """Make the frozen label artifact explicit and tensor-only."""
+
+    return {
+        "all_positive": cells.all_positive,
+        "positive": cells.positive,
+        "matched_negative": cells.matched_negative,
+        "off_target": cells.off_target,
+        "pair_indices": cells.pair_indices,
+        "unmatched_positive_count": cells.unmatched_positive_count,
+        "negative_candidate_count": cells.negative_candidate_count,
+        "eligible_stratum_count": cells.eligible_stratum_count,
+        "excluded_low_document_stratum_count": cells.excluded_low_document_stratum_count,
+    }
 
 
 def summarize_roles(
@@ -302,7 +329,7 @@ def summarize_roles(
         ),
         "synthetic_roles_have_32_pairs": all(
             tuple(synthetic[role][arm].shape) == (SYNTHETIC_PAIRS_PER_ROLE, contract.ROW_WIDTH)
-            for role in ALL_ROLES for arm in ("positive", "control")
+            for role in ALL_ROLES for arm in ("query_to_y", "query_to_z")
         ),
         "synthetic_token_banks_are_cross_role_disjoint": bank_disjoint,
     }
@@ -310,7 +337,7 @@ def summarize_roles(
         raise RuntimeError(f"terminal-copy row gates failed: {gates}")
     return {
         "roles": {role: len(rows[role]) for role in ALL_ROLES},
-        "synthetic_pairs": {role: len(synthetic[role]["positive"]) for role in ALL_ROLES},
+        "synthetic_pairs": {role: len(synthetic[role]["query_to_y"]) for role in ALL_ROLES},
         "unique_natural_documents": len(natural_documents),
         "unique_ood_files": len(code_paths),
         "gates": gates,
@@ -356,7 +383,18 @@ def freeze() -> dict[str, Any]:
         role_rows[OOD_ROLE] = code_rows
         role_records[OOD_ROLE] = code_records
         synthetic, banks = build_synthetic_roles(role_rows)
-        counts = fit_token_counts(role_rows["fit_natural"])
+        frequencies = fit_token_frequencies(role_rows["fit_natural"])
+        copy_cells: dict[str, contract.CopyCells] = {}
+        for role in ALL_ROLES:
+            document_ids = tuple(
+                str(record.get("document_id") or (
+                    f"code:{record['path']}:{record['blob_sha256']}"
+                ))
+                for record in role_records[role]
+            )
+            copy_cells[role] = contract.build_copy_cells(
+                role_rows[role], frequencies, document_ids,
+            )
         summary = summarize_roles(role_rows, role_records, synthetic, banks)
 
         natural.verify_snapshot(
@@ -377,6 +415,8 @@ def freeze() -> dict[str, Any]:
                 "records": role_records[role],
                 "synthetic": synthetic[role],
                 "synthetic_token_banks": banks[role],
+                "synthetic_position_templates": SYNTHETIC_POSITION_TEMPLATES,
+                "copy_cells": serialize_copy_cells(copy_cells[role]),
             }
             path = CACHE / f"{role}.pt"
             _save_create_only(payload, path)
@@ -384,15 +424,23 @@ def freeze() -> dict[str, Any]:
                 "path": str(path.resolve()),
                 "file_sha256": file_sha256(path),
                 "rows_tensor_sha256": tensor_sha256(role_rows[role]),
-                "positive_tensor_sha256": tensor_sha256(synthetic[role]["positive"]),
-                "control_tensor_sha256": tensor_sha256(synthetic[role]["control"]),
+                "query_to_y_tensor_sha256": tensor_sha256(synthetic[role]["query_to_y"]),
+                "query_to_z_tensor_sha256": tensor_sha256(synthetic[role]["query_to_z"]),
+                "copy_positive_mask_sha256": tensor_sha256(copy_cells[role].positive),
+                "copy_matched_negative_mask_sha256": tensor_sha256(
+                    copy_cells[role].matched_negative
+                ),
             }
-        counts_path = CACHE / "fit_token_counts.pt"
-        _save_create_only(counts, counts_path)
-        counts_entry = {
-            "path": str(counts_path.resolve()),
-            "file_sha256": file_sha256(counts_path),
-            "tensor_sha256": tensor_sha256(counts),
+        frequencies_path = CACHE / "fit_token_frequencies.pt"
+        _save_create_only(
+            {"query": frequencies.query, "target": frequencies.target},
+            frequencies_path,
+        )
+        frequencies_entry = {
+            "path": str(frequencies_path.resolve()),
+            "file_sha256": file_sha256(frequencies_path),
+            "query_tensor_sha256": tensor_sha256(frequencies.query),
+            "target_tensor_sha256": tensor_sha256(frequencies.target),
         }
 
         receipt = {
@@ -412,10 +460,15 @@ def freeze() -> dict[str, Any]:
                 "tokens_per_row": contract.ROW_WIDTH,
                 "score_positions": [contract.SCORE_START, contract.SCORE_STOP],
                 "synthetic_pairs_per_role": SYNTHETIC_PAIRS_PER_ROLE,
+                "synthetic_position_templates": SYNTHETIC_POSITION_TEMPLATES,
+                "copy_label": "nearest prior equal query has current target as successor",
+                "minimum_documents_per_polarity_stratum": (
+                    contract.MIN_DOCUMENTS_PER_POLARITY_STRATUM
+                ),
             },
             "summary": summary,
             "entries": entries,
-            "fit_token_counts": counts_entry,
+            "fit_token_frequencies": frequencies_entry,
             "prior_registry_files": registry_hashes,
             "prior_row_tensors": prior_tensor_hashes,
             "prior_code_manifests": code_manifest_hashes,
@@ -441,4 +494,3 @@ def freeze() -> dict[str, Any]:
 
 if __name__ == "__main__":
     print(json.dumps(freeze(), indent=2))
-

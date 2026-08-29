@@ -53223,3 +53223,58 @@ naturally satisfy both.
 
 **Open.** Whether the same conjunction governs the MLP sites, where §1903 showed restorations are no-ops
 at covered tokens and large at uncovered ones — the cosine there has never been measured.
+
+## §1909 — the conjunction is bounded, not broken: the MLPs never enter its regime. Depth explains their profile.
+
+`ops/mlp_conjunction.py`, 123.9s, **DISCOVERY ONLY**, rung 3 — §1908's open question.
+**pred_a True | pred_b False | pred_c False | pred_d True.**
+
+```
+  per-MLP, UNCOVERED current tokens, 16,110 types            covered side: median cosine +1.000000
+    mlp0  cos +0.8738 ratio 1.27x  rate 0.003%     mlp9   cos +0.9471 ratio 1.34x  rate 1.27%
+    mlp4  cos +0.9998 ratio 1.19x  rate 1.21%      mlp10  cos +0.6921 ratio 1.76x  rate 1.07%
+    mlp5  cos +0.9993 ratio 1.18x  rate 1.61%      mlp15  cos +0.9936 ratio 1.21x  rate 2.32%
+    mlp7  cos +0.9202 ratio 1.52x  rate 0.84%      mlp16  cos +0.9965 ratio 1.18x  rate 3.58%
+    mlp8  cos +0.8678 ratio 1.48x  rate 0.81%      mlp17  cos +0.9922 ratio 1.20x  rate 3.15%
+```
+
+**pred_a PASSED at median cosine +1.000000** on the covered side — the known-answer check, agreeing with
+§1901's 3.232e-07 relative difference and confirming the instrument.
+
+> **pred_b and pred_c FAILED, and together they BOUND §1908 rather than break it.** I predicted the
+> uncovered fallback rows would be poorly aligned (median cosine below 0.80); they are **+0.9587**, well
+> aligned. And the conjunction does not predict §1898's change-rate profile: **Spearman −0.389** against a
+> +0.6 bar.
+>
+> **The reason is that the MLPs never reach §1908's regime.** Their uncovered live/table norm ratios span
+> **1.18x to 1.76x**. §1908's collapse requires high alignment *and* large magnitude, and the attention
+> sites that collapse sit at **77x and 144x**. The MLPs have the alignment and not the magnitude — by a
+> factor of roughly a hundred. **So §1908 predicts no MLP collapse, and §1903 measured none at covered
+> tokens. The two results are consistent; the law simply has nothing to act on here.**
+
+**What does explain §1898's MLP profile is DEPTH, and I checked the alternatives rather than asserting
+one.** Spearman against the per-site change rate:
+
+```
+  depth index   +0.785      cosine       +0.637
+  norm ratio    -0.610      conjunction  -0.389
+```
+
+**Depth is the strongest single predictor**, which matches §1898's own reading — a perturbation injected
+at mlp16 reaches the logits through one remaining block while one at mlp0 passes through seventeen and is
+renormalised away. Cosine at +0.637 is not far behind and the two are not independent (deeper MLPs here
+are also better aligned), so **I am not claiming depth is the mechanism, only that it orders the profile
+better than the conjunction does** — which is what pred_c was registered to decide.
+
+**pred_d PASSED**: coverage 16,110, both populations non-empty at every site, and **the covered-arm
+baseline is reported as a genuine enrichment (7.16 / 7.29 / 7.49x)** — computed in this run rather than
+inherited, fixing the position-count-labelled-as-enrichment defect §1907 caught in its own output.
+
+**Where §1908 now stands.** Confirmed for attention by a designed falsification (§1908), and **explicitly
+bounded to it** — not because it fails on the MLPs but because no MLP site comes within two orders of
+magnitude of the conditions it describes. That is the honest scope, and it is the scope pred_c was
+written to establish either way.
+
+**Open.** Nothing in the attention line. The remaining named question is the cost one handed to Codex at
+07:57Z and restated at 08:06Z: whether an uneven per-site table-rank allocation beats the §1853-§1882
+frontier, now that §1891 and §1908 say which sites carry behaviour and why.
