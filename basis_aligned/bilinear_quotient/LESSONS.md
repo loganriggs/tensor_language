@@ -1794,3 +1794,23 @@ The substantive fix was to hoist the comment-stripper into a module-level `_noco
 reaching forward for a local. **Reaching forward for a variable inside a long function is the same class
 of error as LESSON 66's indentation splice** — both are edits that assume a context the edit site does
 not have. When patching into the middle of a function, check what is actually bound *there*.
+
+## LESSON 68 — a convergence bar must be absolute, not relative to your own first iterate
+
+§1879's pred_d certified that the map iteration "CONVERGES — the last relative map change is smaller than
+the first." It read **22.63370 → 5.43549 → 1.85551** and returned **True**. Monotonically falling, and a
+relative change of **1.86 means the map turns over completely every pass.** Nothing converged.
+
+The clause is true as written, so it was scored True — and it certified nothing. **A bar anchored to your
+own first iterate cannot fail as long as the sequence decreases at all**, no matter where it decreases
+*to*. The bar had to be absolute: a relative change below some fraction of 1.0.
+
+This is LESSON E's shape one level up. E says never use a fixed absolute tolerance on a spectrum — scale
+it. **68 says the opposite error exists**: a purely relative bar, scaled to a quantity you chose rather
+than to the thing being certified, is unfalsifiable. The test for both is the same question — *what
+reading would make this predicate FALSE?* If the answer is "the sequence increasing", and the sequence
+was always going to decrease, the predicate is decoration.
+
+The damage was bounded because pred_a and pred_b were direct measurements and failed honestly. But the
+run's headline row is **iterate 3 of a non-converging sequence**, and the ledger now says so rather than
+citing it as a fixed point.
