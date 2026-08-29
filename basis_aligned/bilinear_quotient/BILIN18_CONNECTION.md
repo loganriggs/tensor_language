@@ -57861,3 +57861,41 @@ it at one attention layer while the others keep their compiled tables.
 **Open.** Everything from §1996 to §1998 used **mlp2** as the compiled MLP. §1990's minimal path used
 **mlp4**, where the lone-site damage is 2.2× larger. **The presence/content split has never been checked
 at a second MLP**, and that is a rung-2 second-class confirm rather than a new question.
+
+## §1999 — the split transfers in sign and not in size: attention 6's content is worth half as much at mlp4
+
+`ops/the_split_at_mlp4.py`, **51.0s**, **DISCOVERY ONLY**, 5,419, rung 2 — §1998 second-class confirmed at
+a different compiled MLP. **pred_a True | pred_b False | pred_c False | derived controls True.** All three
+reference deviations 0.000000.
+
+```
+  cost against the live model, nats, 5,419 -- and what each mean row costs against the all-tables arm
+                all tables   mean a5   mean a6   mean both  |   d5       d6      (mlp2, rebuilt here)
+  mlp4 s7000      1.555       1.538     1.650     1.643     | −0.017   +0.095   | d5 −0.031  d6 +0.212
+       s11000     1.640       1.623     1.738     1.731     | −0.017   +0.098   | d5 −0.043  d6 +0.216
+       s1200      1.498       1.478     1.578     1.571     | −0.020   +0.080   | d5 −0.070  d6 +0.191
+```
+
+> **pred_a PASSED 3/3 and §1998's strangest result replicates: a mean row at attention 5 beats its
+> compiled table at mlp4 too**, by 0.017 / 0.017 / 0.020 nats. **Attention 5's content is slightly harmful
+> at both compiled sites**, so that is a fact about the layer.
+
+> **pred_b FAILED on all three roles, and on one of them by 0.002 nats.** The bar was "a mean row at
+> attention 6 still costs more than 0.10 nats at mlp4". It costs **0.095 / 0.098 / 0.080** — short by
+> 0.005, **0.002**, and 0.020. A miss is a miss, and I set the bar from the mlp2 figures.
+
+> **pred_c FAILED on all three roles by 0.011–0.018 nats.** The bar was "within 0.10 nats of the same
+> quantity at mlp2", with both sides rebuilt in this run rather than one retyped. The differences are
+> **0.117 / 0.118 / 0.111**. **Attention 6's content is worth roughly half as much at mlp4 as at mlp2** —
+> +0.09 against +0.21.
+
+**A partial confirmation, and I am recording it as one.** The *qualitative* split is a fact about the two
+layers and transfers cleanly: **attention 5's content is negative at both sites, attention 6's is positive
+at both.** The *magnitude* does not transfer — attention 6's content is worth 2.2× more to a compiled mlp2
+than to a compiled mlp4 — so **how much attention 6 must carry is a fact about the pair, not about the
+layer.** §1998's registry entry now says so.
+
+**Open.** Two sites give a difference but not a trend. The lone-site damages run mlp2 **4.81**, mlp3
+**6.57**, mlp4 **10.67**, and attention 6's content is worth **+0.21** at the first and **+0.09** at the
+last — the *inverse* order, which is not what "more broken sites need more help" would predict. **mlp3 is
+the one cheap point that would say whether this is monotone or two points on a line.**

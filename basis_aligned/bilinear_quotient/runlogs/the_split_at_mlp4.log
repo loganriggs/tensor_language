@@ -1,0 +1,46 @@
+THE SPLIT AT MLP4 | 10 arms x 1 coverage(s) | DISCOVERY ONLY
+
+########## COVERAGE 5419 ##########
+  [bqlib] coverage 5419 from fineweb_n96_skip80.pt: 36 tables, neighbour index and map solver built (4s)
+  [bqlib] cache HIT  live     skip7000
+  [bqlib] cache HIT  live     skip11000
+  [bqlib] cache HIT  live     skip1200
+  [bqlib] cache HIT  mix30m640 skip7000
+  [bqlib] cache HIT  mix30m640 skip11000
+  [bqlib] cache HIT  mix30m640 skip1200
+  [bqlib] computed   meanrow@attn5+mix30m640@mlp4,attn6 skip7000 (1.3s)
+  [bqlib] computed   meanrow@attn5+mix30m640@mlp4,attn6 skip11000 (1.3s)
+  [bqlib] computed   meanrow@attn5+mix30m640@mlp4,attn6 skip1200 (0.6s)
+  [bqlib] computed   meanrow@attn6+mix30m640@mlp4,attn5 skip7000 (1.3s)
+  [bqlib] computed   meanrow@attn6+mix30m640@mlp4,attn5 skip11000 (1.3s)
+  [bqlib] computed   meanrow@attn6+mix30m640@mlp4,attn5 skip1200 (0.6s)
+  [bqlib] computed   meanrow@attn5,attn6+mix30m640@mlp4 skip7000 (1.3s)
+  [bqlib] computed   meanrow@attn5,attn6+mix30m640@mlp4 skip11000 (1.3s)
+  [bqlib] computed   meanrow@attn5,attn6+mix30m640@mlp4 skip1200 (0.6s)
+  [bqlib] cache HIT  mix30m640 skip7000
+  [bqlib] cache HIT  mix30m640 skip11000
+  [bqlib] cache HIT  mix30m640 skip1200
+  [bqlib] cache HIT  meanrow@attn5+mix30m640@mlp2,attn6 skip7000
+  [bqlib] cache HIT  meanrow@attn5+mix30m640@mlp2,attn6 skip11000
+  [bqlib] cache HIT  meanrow@attn5+mix30m640@mlp2,attn6 skip1200
+  [bqlib] cache HIT  meanrow@attn6+mix30m640@mlp2,attn5 skip7000
+  [bqlib] cache HIT  meanrow@attn6+mix30m640@mlp2,attn5 skip11000
+  [bqlib] cache HIT  meanrow@attn6+mix30m640@mlp2,attn5 skip1200
+  [bqlib] cache HIT  mix30m640 skip7000
+  [bqlib] cache HIT  mix30m640 skip11000
+  [bqlib] cache HIT  mix30m640 skip1200
+  [bqlib] cache HIT  map512   skip7000
+  [bqlib] cache HIT  map512   skip11000
+  [bqlib] cache HIT  map512   skip1200
+  [bqlib] cache HIT  mix30m640 skip7000
+  [bqlib] cache HIT  mix30m640 skip11000
+  [bqlib] cache HIT  mix30m640 skip1200
+
+  a mean row at attention 5 is no worse than its table at mlp4 too (<=+0.01, >=2 roles)  -> True
+  and a mean row at attention 6 still costs more than 0.10 nats at mlp4 (>=2 roles)  -> False
+  and attention 6's content is worth the same at mlp4 as at mlp2 (within 0.10 nats, >=2 roles)  -> False
+  derived controls -> True   coverage_exact=True  inert_pairs_are_inert=True  some_differing_pair_moves=True  buckets_partition=True  live_identical=True  ref_mlp2_tables=True  ref_mlp2_mean_a5=True  ref_mlp4_tables=True
+  reference deviations: mlp2_tables 0.000000  mlp2_mean_a5 0.000000  mlp4_tables 0.000000
+
+pred_a True | pred_b False | pred_c False | pred_z True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/the_split_at_mlp4_results.json (51.0s)
