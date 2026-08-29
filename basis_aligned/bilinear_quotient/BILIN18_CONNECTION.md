@@ -51803,6 +51803,12 @@ reason recorded in the source.
 
 **Open.** The cost model is now dense on all three axes and the deployed build is dominated on every one
 of them. What is NOT measured is whether `m512_512 @ 16,110` — half the deployed cost for five
-thousandths of a nat — holds up as a *program* under the §1789 checks the deployed build passed, rather
-than only as a point on a CE/cost curve. That is the natural next rung and it is a certification, not a
-sweep.
+thousandths of a nat — preserves the deployed build's accuracy STRUCTURE. §1789 found that structure is
+sharply non-uniform: the program keeps ~63% of the live model's top-1 on targets seen 125+ times and
+~3-6% on targets never seen. **A mean CE that moves by 0.005 can hide a large redistribution across
+those buckets**, and truncating a table from full rank to 512 is exactly the operation that would hurt
+the rare end first. §1883 applies §1789's instrument to both builds at this coverage.
+
+*(Phrasing corrected: I first called this "the §1789 checks the deployed build passed". §1789 is a
+DISCOVERY run that characterised the deployed build, not a certification gate it cleared. The question
+is whether the new build reproduces that characterisation, which is a comparison, not a pass/fail.)*

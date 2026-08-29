@@ -249,9 +249,14 @@ def validate_source_closure(value: Mapping[str, Any]) -> None:
 
 
 def load_parent_metadata() -> dict[str, Any]:
-    if file_sha256(PARENT_RECEIPT) != PARENT_RECEIPT_SHA256:
+    before = file_sha256(PARENT_RECEIPT)
+    serialized = PARENT_RECEIPT.read_bytes()
+    after = file_sha256(PARENT_RECEIPT)
+    if before != PARENT_RECEIPT_SHA256 or after != before or hashlib.sha256(
+        serialized
+    ).hexdigest() != before:
         raise RuntimeError("canonical FineWeb parent receipt changed")
-    receipt = json.loads(PARENT_RECEIPT.read_text())
+    receipt = json.loads(serialized)
     gate = receipt.get("ordered_manifest_local_parquet_identity_gate", {})
     if receipt.get("authorized_for_scored_experiments") is not True or (
         gate.get("revision") != PINNED_REVISION
@@ -578,6 +583,8 @@ def build_receipt(
     authority: Mapping[str, Any], payload: Mapping[str, Any], manifest: Mapping[str, Any],
     replay: Mapping[str, Any],
 ) -> dict[str, Any]:
+    if FAILURE.exists():
+        raise RuntimeError("unique-row failure exists before receipt construction")
     body = {
         "schema": "gauge_transport_triangle_unique_rows_v1_receipt",
         "status": "complete_unique_document_rows_receipt_last",
@@ -594,6 +601,7 @@ def build_receipt(
         "manifest_sha256": manifest["manifest_sha256"],
         "selection_plan_sha256": payload["selection_plan_sha256"],
         "unique_document_count": sum(ROLE_SIZES.values()),
+        "failure_absent": True,
         "triangle_runner_authorized_by_this_receipt": False,
         "global_ledger_credit": False,
     }
@@ -607,6 +615,8 @@ def validate_receipt(value: Mapping[str, Any]) -> None:
         "status"
     ) != "complete_unique_document_rows_receipt_last":
         raise RuntimeError("unique-row receipt header changed")
+    if value.get("failure_absent") is not True or FAILURE.exists():
+        raise RuntimeError("unique-row receipt/failure exclusivity changed")
     body = {key: value[key] for key in value if key != "receipt_sha256"}
     if canonical_sha256(body) != value.get("receipt_sha256"):
         raise RuntimeError("unique-row receipt hash changed")
@@ -660,7 +670,10 @@ def materialize() -> dict[str, Any]:
     except BaseException as error:
         try:
             assert_owner_lock(owner)
-            if not FAILURE.exists():
+            # The receipt is the terminal, receipt-last success marker.  Once its
+            # atomic hard link exists, a later validation/fsync/cleanup exception
+            # must not create a contradictory terminal failure artifact.
+            if not RECEIPT.exists() and not FAILURE.exists():
                 publish_json(FAILURE, {
                     "schema": "gauge_transport_triangle_unique_rows_v1_failure",
                     "status": "terminal_failure_no_receipt",
