@@ -56580,3 +56580,54 @@ pairs not, buckets partition, live identical, §1967's published `flat` CE repro
 wants less neighbour (§1970) and had the only unseen-bucket regression under five CE purchases (§1962).
 **Every conclusion in §1946–§1970 is a 2-of-3 or 3-of-3 vote across three held-out roles, and one role
 has now disagreed often enough to be worth characterising rather than outvoted.**
+
+## §1971 — the dissenting role is half-sized, its dissent is not significant, and every 2-of-3 vote in the arc has been miscounted
+
+**No GPU.** Arithmetic on `ops/alpha_dense_results.json` — §1970's open question, answered from disk.
+Rung 3.
+
+§1970 closed by noting that one role, 16,110/skip1200, has dissented on two axes and in §1962, §1963,
+§1966 and §1967, and that it deserved characterising rather than outvoting. It does, and the answer is
+structural:
+
+```
+  scored positions            skip7000   skip11000   skip1200
+    both coverages              36,864      36,864      18,432    <- exactly half
+  standard error of the paired α = 0.24 vs 0.30 difference, milli-nats
+    5,419                        0.379       0.434       0.618    <- 1.5x
+    16,110                       0.258       0.270       0.379    <- 1.4x
+  and the dissent itself, 16,110/skip1200:  -0.601 m at  t = -1.59
+```
+
+> **skip1200 carries exactly half the scored positions of the other two roles** — it is the `n96`
+> rowcache against their `n192` — so its standard errors run about **√2 larger**, which is what the table
+> shows. **And its dissent is not significant: the a24-versus-a30 difference that made it prefer the edge
+> of the α window is −0.601 milli-nats at t = −1.59.** It is a sub-2σ excursion on the noisiest role.
+
+> **The consequence reaches back through the whole arc, and it cuts both ways.** Every conclusion in
+> §1946–§1971 is a 2-of-3 or 3-of-3 vote across three held-out roles, and **the vote has been counting a
+> half-sized role as an equal voter.**
+> - A 2-of-3 where **skip1200 dissents** is *stronger* than it reads: the two agreeing roles carry
+>   three-quarters of the data and the dissenter is the noisiest.
+> - A 2-of-3 where **skip1200 supports** is *weaker* than it reads: one of the two supporting votes has
+>   half the evidence of the other.
+>
+> **I have not been weighting them, and the write-ups quote "2/3" as if the three were interchangeable.**
+
+> **What this does and does not change.** It does not overturn a result — the 3-of-3 findings are
+> untouched, and I have quoted per-role margins throughout, so the numbers needed to re-weight are
+> already in the ledger and the artifacts. What it changes is how a 2-of-3 should be *read*, and the
+> honest fix going forward is to say which role dissented, since that determines whether the margin is
+> better or worse than the count suggests. §1965's boundary claim is the case to re-examine first: it
+> rested on 16,110/skip1200 being the role where the tilt was free (−0.49 milli-nats), and that is the
+> half-sized role — a point §1966 corrected on other grounds without noticing this one.
+
+> **On the α axis specifically, almost nothing is significant.** The a24-vs-a30 paired t values across
+> all six cells are **+2.02, +0.54, +2.45, +1.83, +1.32, −1.59** — only two clear 2σ. That is consistent
+> with §1970's finding that the whole 0.24–0.36 window is worth at most 1.6 milli-nats, and it means α's
+> optimum is pinned to ±2 points by a curve most of whose structure is inside the noise.
+
+**Open.** The three roles are not interchangeable and the ledger has treated them as such since §1946.
+**A weighted or pooled-across-roles instrument would settle a 2-of-3 without a vote at all** — the
+per-position data for every arm is already cached, so pooling the three roles into one paired test is
+arithmetic on disk rather than a run. That is the instrument this arc should have had.
