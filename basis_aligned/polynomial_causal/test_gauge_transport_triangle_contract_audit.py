@@ -184,7 +184,7 @@ def test_execution_authority_binds_sources_inputs_and_terminals(monkeypatch):
     monkeypatch.setattr(triangle, "RUN_SOURCE_FILES", (source,))
     monkeypatch.setattr(triangle, "file_sha256", lambda _path: "a" * 64)
     body = {
-        "schema": "gauge_transport_triangle_v1_execution_authority",
+        "schema": "gauge_transport_triangle_v2_recovery_authority",
         "status": "source_closed_go",
         "source_commit": "1" * 40,
         "source_files": [source],

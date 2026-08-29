@@ -46,8 +46,10 @@ import torch.nn.functional as F
 
 
 HERE = Path(__file__).resolve().parent
+ROOT = HERE.parents[1]
 BQ = HERE.parent / "bilinear_quotient"
 QK = HERE.parent / "qk_mdl"
+sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(BQ))
 sys.path.insert(0, str(QK))
 
@@ -79,9 +81,9 @@ POSITION_SHUFFLE_NRE_FLOOR = 0.25
 PRICE_QUANTIZATION_STEP = 1e-4
 OUT = HERE / "gauge_transport_triangle_results.json"
 STATE_OUT = HERE / "gauge_transport_triangle_state.pt"
-RUN_AUTHORITY = HERE / "gauge_transport_triangle_v1_execution_authority.json"
-RUN_RECEIPT = HERE / "gauge_transport_triangle_v1_execution_receipt.json"
-RUN_FAILURE = HERE / "gauge_transport_triangle_v1_execution_failure.json"
+RUN_AUTHORITY = HERE / "gauge_transport_triangle_v2_recovery_authority.json"
+RUN_RECEIPT = HERE / "gauge_transport_triangle_v2_recovery_receipt.json"
+RUN_FAILURE = HERE / "gauge_transport_triangle_v2_recovery_failure.json"
 ROW_AUTHORITY = HERE / "gauge_transport_triangle_unique_rows_v2_authority.json"
 ROW_MANIFEST = HERE / "gauge_transport_triangle_unique_rows_v2_manifest.json"
 ROW_RECEIPT = HERE / "gauge_transport_triangle_unique_rows_v2_receipt.json"
@@ -100,6 +102,7 @@ RUN_SOURCE_FILES = (
     "basis_aligned/polynomial_causal/gauge_transport.py",
     "basis_aligned/polynomial_causal/PRICED_GAUGE_TRANSPORT_SPEC.md",
     "basis_aligned/polynomial_causal/GAUGE_TRANSPORT_TRIANGLE_V1_EXECUTION_PREREGISTRATION.md",
+    "basis_aligned/polynomial_causal/GAUGE_TRANSPORT_TRIANGLE_V2_RECOVERY_PREREGISTRATION.md",
     "basis_aligned/polynomial_causal/test_gauge_transport_triangle.py",
     "basis_aligned/polynomial_causal/test_gauge_transport_triangle_contract_audit.py",
 )
@@ -127,7 +130,7 @@ def _git(*arguments: str) -> str:
 
 def validate_execution_authority(value: dict[str, Any]) -> None:
     body = {key: item for key, item in value.items() if key != "authority_sha256"}
-    if value.get("schema") != "gauge_transport_triangle_v1_execution_authority" or (
+    if value.get("schema") != "gauge_transport_triangle_v2_recovery_authority" or (
         value.get("status") != "source_closed_go"
         or value.get("authority_sha256") != canonical_sha256(body)
     ):
@@ -210,7 +213,7 @@ def publish_execution(
     ]:
         raise RuntimeError("triangle result semantic replay failed")
     receipt = {
-        "schema": "gauge_transport_triangle_v1_execution_receipt",
+        "schema": "gauge_transport_triangle_v2_recovery_receipt",
         "status": "complete_receipt_last",
         "authority_sha256": authority["authority_sha256"],
         "result_file_sha256": result_hash,
@@ -1125,7 +1128,7 @@ def main() -> None:
     except BaseException as error:
         if not RUN_FAILURE.exists() and not RUN_RECEIPT.exists():
             failure = {
-                "schema": "gauge_transport_triangle_v1_execution_failure",
+                "schema": "gauge_transport_triangle_v2_recovery_failure",
                 "status": "failed_before_receipt",
                 "authority_sha256": authority["authority_sha256"],
                 "error_type": type(error).__name__,
