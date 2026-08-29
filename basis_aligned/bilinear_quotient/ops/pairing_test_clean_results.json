@@ -1,0 +1,846 @@
+{
+ "config": {
+  "table_ranks": [
+   "full"
+  ],
+  "map_rank_of_table_rank": {
+   "None": 512,
+   "512": 512
+  },
+  "program": "context-free tables, output-NN fallback with a rank-64 embedding->row map -- the settled design of \u00a71780-\u00a71786",
+  "instruments": "top-1 agreement with the live model, top-1 accuracy against the true next token, and KL(live || program). All three are NEW to this thread, which has been CE-only since \u00a71747.",
+  "ROLE_NOTE": "DISCOVERY ONLY; a second-class confirmation with a DIFFERENT instrument, not a replication of the same one."
+ },
+ "results": {
+  "baseline": {
+   "skip7000": 7.159873237897497,
+   "skip11000": 7.293872350283794,
+   "skip1200": 7.488382385483515
+  },
+  "norms": {
+   "mlp0": 0.675284177278494,
+   "mlp1": 0.6954203418590181,
+   "mlp2": 0.8007695916974191,
+   "mlp3": 0.7315749619185131,
+   "mlp4": 0.7121684172584188,
+   "mlp5": 0.7535198864675527,
+   "mlp6": 0.8170258308480516,
+   "mlp7": 0.6844189597429556,
+   "mlp8": 0.6851731667786416,
+   "mlp9": 0.6333954841814907,
+   "mlp10": 0.6197871437406579,
+   "mlp11": 0.6561880175811898,
+   "mlp12": 0.5271625550470955,
+   "mlp13": 0.5877041623866958,
+   "mlp14": 0.75140171484503,
+   "mlp15": 0.7615017856499796,
+   "mlp16": 0.6903975696492807,
+   "mlp17": 0.6243713675210923,
+   "attn0": 0.18344932419228024,
+   "attn1": 0.1290507328499182,
+   "attn2": 0.14119273436325505,
+   "attn3": 0.08037250468506912,
+   "attn4": 0.029551942370350377,
+   "attn5": 0.006949245050253667,
+   "attn6": 0.013054029156255028,
+   "attn7": 0.08356237776143975,
+   "attn8": 0.1681436062157486,
+   "attn9": 0.1790692386457225,
+   "attn10": 0.10902483138108279,
+   "attn11": 0.11305926932950049,
+   "attn12": 0.07178922813018433,
+   "attn13": 0.10565426361075811,
+   "attn14": 0.10950493002076812,
+   "attn15": 0.11592399749573873,
+   "attn16": 0.10334410627567636,
+   "attn17": 0.10858533582475165
+  },
+  "sites": {
+   "g1.00": {
+    "skip7000": {
+     "enrichment": 7.159873237897497,
+     "cells": {
+      "p0_0": {
+       "agreement": 0.10532687651331718,
+       "permutation_null": 0.024969733656174335,
+       "enrichment": 4.218181818181818,
+       "n": 7434,
+       "live_acc": 0.34342211460855526
+      },
+      "p1_1": {
+       "agreement": 0.1538111835126534,
+       "permutation_null": 0.03066752538263373,
+       "enrichment": 5.015441630636195,
+       "n": 6599,
+       "live_acc": 0.38854371874526444
+      },
+      "p2_2": {
+       "agreement": 0.21809056689859702,
+       "permutation_null": 0.041248431618569635,
+       "enrichment": 5.287245074317318,
+       "n": 8767,
+       "live_acc": 0.35633626097867
+      },
+      "p3_3": {
+       "agreement": 0.43110084680523475,
+       "permutation_null": 0.08156514626635873,
+       "enrichment": 5.285356142161922,
+       "n": 10392,
+       "live_acc": 0.4357197844495766
+      }
+     },
+     "allpos_ce": 5.883380848217105,
+     "top1_prog": 0.13975694444444445,
+     "max_dev_from_length1": 0.0,
+     "lookup_misses": 0,
+     "global_null": 0.03428536996866715,
+     "uncovered_null": 0.05038126361655774,
+     "uncovered_n": 3672,
+     "u": {
+      "uncq0": {
+       "global_enrichment": 2.3495085995085994,
+       "n": 1056,
+       "seed_spread": 0.10146395175972023,
+       "seed_mean": 2.3768012860580994
+      },
+      "uncq1": {
+       "global_enrichment": 2.765954963795984,
+       "n": 1019,
+       "seed_spread": 0.11944826295798716,
+       "seed_mean": 2.7980852321647425
+      },
+      "uncq2": {
+       "global_enrichment": 3.999673811742777,
+       "n": 928,
+       "seed_spread": 0.1727266334646158,
+       "seed_mean": 4.046135375521249
+      },
+      "uncq3": {
+       "global_enrichment": 7.0315840504181315,
+       "n": 669,
+       "seed_spread": 0.30366022283777205,
+       "seed_mean": 7.113265308990525
+      }
+     },
+     "unc_grad_seeds": {
+      "mean": 4.7364640229324255,
+      "spread": 0.20219627107805138
+     },
+     "grad_shared": {
+      "mean": 4.7364640229324255,
+      "spread": 0.20219627107805138
+     },
+     "grad_independent": {
+      "mean": 4.731954292727682,
+      "spread": 0.5816798292580252
+     },
+     "q": {
+      "tokq0": {
+       "agreement": 0.10532687651331718,
+       "global_enrichment": 3.0720647497627627,
+       "local_enrichment": 4.267029972752043,
+       "n": 7434
+      },
+      "tokq1": {
+       "agreement": 0.1538111835126534,
+       "global_enrichment": 4.486204572189799,
+       "local_enrichment": 5.155555555555555,
+       "n": 6599
+      },
+      "tokq2": {
+       "agreement": 0.21809056689859702,
+       "global_enrichment": 6.361038749119712,
+       "local_enrichment": 5.195652173913044,
+       "n": 8767
+      },
+      "tokq3": {
+       "agreement": 0.43110084680523475,
+       "global_enrichment": 12.573900972899255,
+       "local_enrichment": 5.276019431767996,
+       "n": 10392
+      },
+      "livq0": {
+       "agreement": 0.14818827494883832,
+       "global_enrichment": 4.322201425397049,
+       "local_enrichment": 5.094671495085359,
+       "n": 8307
+      },
+      "livq1": {
+       "agreement": 0.20337552742616036,
+       "global_enrichment": 5.931845787635425,
+       "local_enrichment": 5.812230835486649,
+       "n": 8295
+      },
+      "livq2": {
+       "agreement": 0.28073350223187354,
+       "global_enrichment": 8.188142711845646,
+       "local_enrichment": 6.274351196494775,
+       "n": 8289
+      },
+      "livq3": {
+       "agreement": 0.3547765329478376,
+       "global_enrichment": 10.347752795786139,
+       "local_enrichment": 10.038346825734981,
+       "n": 8301
+      }
+     },
+     "n": 33192
+    },
+    "skip11000": {
+     "enrichment": 7.293872350283794,
+     "cells": {
+      "p0_0": {
+       "agreement": 0.10607647983237298,
+       "permutation_null": 0.02665007857517025,
+       "enrichment": 3.98034398034398,
+       "n": 7636,
+       "live_acc": 0.3715295966474594
+      },
+      "p1_1": {
+       "agreement": 0.14760820045558087,
+       "permutation_null": 0.033181473044798786,
+       "enrichment": 4.448512585812357,
+       "n": 6585,
+       "live_acc": 0.4167046317388003
+      },
+      "p2_2": {
+       "agreement": 0.19625631603123564,
+       "permutation_null": 0.038929719797887,
+       "enrichment": 5.041297935103245,
+       "n": 8708,
+       "live_acc": 0.3791915480018374
+      },
+      "p3_3": {
+       "agreement": 0.42660952566475113,
+       "permutation_null": 0.07211210674978084,
+       "enrichment": 5.915920985986832,
+       "n": 10267,
+       "live_acc": 0.4729716567643908
+      }
+     },
+     "allpos_ce": 5.829282058621023,
+     "top1_prog": 0.1470269097222222,
+     "max_dev_from_length1": 0.0,
+     "lookup_misses": 0,
+     "global_null": 0.032748674539101096,
+     "uncovered_null": 0.045119956379498366,
+     "uncovered_n": 3668,
+     "u": {
+      "uncq0": {
+       "global_enrichment": 3.1493754265008826,
+       "n": 943,
+       "seed_spread": 0.20580384848368505,
+       "seed_mean": 3.136136380691153
+      },
+      "uncq1": {
+       "global_enrichment": 3.063671421736936,
+       "n": 1143,
+       "seed_spread": 0.20020330500370953,
+       "seed_mean": 3.0507926502964033
+      },
+      "uncq2": {
+       "global_enrichment": 3.9978610135662147,
+       "n": 887,
+       "seed_spread": 0.26125027056839567,
+       "seed_mean": 3.981055184494785
+      },
+      "uncq3": {
+       "global_enrichment": 7.876684996413744,
+       "n": 695,
+       "seed_spread": 0.5147217673431594,
+       "seed_mean": 7.843573734854118
+      }
+     },
+     "unc_grad_seeds": {
+      "mean": 4.707437354162965,
+      "spread": 0.30891791885947395
+     },
+     "grad_shared": {
+      "mean": 4.707437354162965,
+      "spread": 0.30891791885947395
+     },
+     "grad_independent": {
+      "mean": 4.80682115590554,
+      "spread": 0.5786920721150581
+     },
+     "q": {
+      "tokq0": {
+       "agreement": 0.10607647983237298,
+       "global_enrichment": 3.239107576879801,
+       "local_enrichment": 4.0,
+       "n": 7636
+      },
+      "tokq1": {
+       "agreement": 0.14760820045558087,
+       "global_enrichment": 4.5073030445656785,
+       "local_enrichment": 4.456160458452723,
+       "n": 6585
+      },
+      "tokq2": {
+       "agreement": 0.19625631603123564,
+       "global_enrichment": 5.99280180933462,
+       "local_enrichment": 5.222307104660046,
+       "n": 8708
+      },
+      "tokq3": {
+       "agreement": 0.42660952566475113,
+       "global_enrichment": 13.026772279146446,
+       "local_enrichment": 5.884130982367758,
+       "n": 10267
+      },
+      "livq0": {
+       "agreement": 0.14127557160048135,
+       "global_enrichment": 4.3139325053232875,
+       "local_enrichment": 5.3092142453363484,
+       "n": 8310
+      },
+      "livq1": {
+       "agreement": 0.1962864721485411,
+       "global_enrichment": 5.993722644077701,
+       "local_enrichment": 5.539770310506167,
+       "n": 8294
+      },
+      "livq2": {
+       "agreement": 0.2613101701049584,
+       "global_enrichment": 7.97925942904836,
+       "local_enrichment": 6.298800436205017,
+       "n": 8289
+      },
+      "livq3": {
+       "agreement": 0.34963266289293027,
+       "global_enrichment": 10.676238590220732,
+       "local_enrichment": 10.381761287438533,
+       "n": 8303
+      }
+     },
+     "n": 33196
+    },
+    "skip1200": {
+     "enrichment": 7.488382385483515,
+     "cells": {
+      "p0_0": {
+       "agreement": 0.121606648199446,
+       "permutation_null": 0.026038781163434905,
+       "enrichment": 4.670212765957447,
+       "n": 3610,
+       "live_acc": 0.3238227146814404
+      },
+      "p1_1": {
+       "agreement": 0.16112907968244633,
+       "permutation_null": 0.0347324316377536,
+       "enrichment": 4.639153439153439,
+       "n": 3401,
+       "live_acc": 0.3954719200235225
+      },
+      "p2_2": {
+       "agreement": 0.21694915254237288,
+       "permutation_null": 0.04042372881355932,
+       "enrichment": 5.366876310272536,
+       "n": 4425,
+       "live_acc": 0.34757062146892653
+      },
+      "p3_3": {
+       "agreement": 0.4423561325324549,
+       "permutation_null": 0.0772379383840341,
+       "enrichment": 5.727187206020695,
+       "n": 5161,
+       "live_acc": 0.4340244138732804
+      }
+     },
+     "allpos_ce": 5.86043795476553,
+     "top1_prog": 0.1411675347222222,
+     "max_dev_from_length1": 2.86102294921875e-06,
+     "lookup_misses": 0,
+     "global_null": 0.03457703199373381,
+     "uncovered_null": 0.04822888283378747,
+     "uncovered_n": 1835,
+     "u": {
+      "uncq0": {
+       "global_enrichment": 3.018059872053656,
+       "n": 529,
+       "seed_spread": 0.34865044238375287,
+       "seed_mean": 2.906003034048274
+      },
+      "uncq1": {
+       "global_enrichment": 3.7769096675277756,
+       "n": 538,
+       "seed_spread": 0.43631381823150894,
+       "seed_mean": 3.636677673227698
+      },
+      "uncq2": {
+       "global_enrichment": 4.097524885660479,
+       "n": 420,
+       "seed_spread": 0.47335173078983983,
+       "seed_mean": 3.9453888440308464
+      },
+      "uncq3": {
+       "global_enrichment": 5.779433729462952,
+       "n": 348,
+       "seed_spread": 0.6676481620405097,
+       "seed_mean": 5.564850488360915
+      }
+     },
+     "unc_grad_seeds": {
+      "mean": 2.6588474543126415,
+      "spread": 0.31899771965675683
+     },
+     "grad_shared": {
+      "mean": 2.6588474543126415,
+      "spread": 0.31899771965675683
+     },
+     "grad_independent": {
+      "mean": 2.7513960378647306,
+      "spread": 0.29326772415586344
+     },
+     "q": {
+      "tokq0": {
+       "agreement": 0.121606648199446,
+       "global_enrichment": 3.516977634791906,
+       "local_enrichment": 4.701472556894244,
+       "n": 3610
+      },
+      "tokq1": {
+       "agreement": 0.16112907968244633,
+       "global_enrichment": 4.660003198413524,
+       "local_enrichment": 4.332015810276681,
+       "n": 3401
+      },
+      "tokq2": {
+       "agreement": 0.21694915254237288,
+       "global_enrichment": 6.274371744274907,
+       "local_enrichment": 5.289256198347108,
+       "n": 4425
+      },
+      "tokq3": {
+       "agreement": 0.4423561325324549,
+       "global_enrichment": 12.793351743221352,
+       "local_enrichment": 5.716431924882629,
+       "n": 5161
+      },
+      "livq0": {
+       "agreement": 0.15888300433317284,
+       "global_enrichment": 4.595044605389099,
+       "local_enrichment": 5.623003194888179,
+       "n": 4154
+      },
+      "livq1": {
+       "agreement": 0.20467695274831244,
+       "global_enrichment": 5.919448285364829,
+       "local_enrichment": 5.805128205128205,
+       "n": 4148
+      },
+      "livq2": {
+       "agreement": 0.2890229191797346,
+       "global_enrichment": 8.358812266828238,
+       "local_enrichment": 6.674094707520891,
+       "n": 4145
+      },
+      "livq3": {
+       "agreement": 0.3669879518072289,
+       "global_enrichment": 10.613633694000569,
+       "local_enrichment": 10.422583404619331,
+       "n": 4150
+      }
+     },
+     "n": 16597
+    }
+   },
+   "PERSITE": {
+    "skip7000": {
+     "enrichment": 2.0959843290891285,
+     "cells": {
+      "p0_0": {
+       "agreement": 0.015873015873015872,
+       "permutation_null": 0.010038337368845842,
+       "enrichment": 1.5812395309882747,
+       "n": 7434,
+       "live_acc": 0.34342211460855526
+      },
+      "p1_1": {
+       "agreement": 0.028034550689498408,
+       "permutation_null": 0.019851492650401575,
+       "enrichment": 1.4122137404580153,
+       "n": 6599,
+       "live_acc": 0.38854371874526444
+      },
+      "p2_2": {
+       "agreement": 0.053039808372305236,
+       "permutation_null": 0.026306033991102998,
+       "enrichment": 2.0162601626016263,
+       "n": 8767,
+       "live_acc": 0.35633626097867
+      },
+      "p3_3": {
+       "agreement": 0.029060816012317164,
+       "permutation_null": 0.010597093918398767,
+       "enrichment": 2.742338251986379,
+       "n": 10392,
+       "live_acc": 0.4357197844495766
+      }
+     },
+     "allpos_ce": 12.865063943830641,
+     "top1_prog": 0.024169921875,
+     "max_dev_from_length1": 6.280055046081543,
+     "lookup_misses": 0,
+     "global_null": 0.015180615811038804,
+     "uncovered_null": 0.018961056644880177,
+     "uncovered_n": 3672,
+     "u": {
+      "uncq0": {
+       "global_enrichment": 1.448343398074098,
+       "n": 1056,
+       "seed_spread": 0.11769010210568642,
+       "seed_mean": 1.4399419087716832
+      },
+      "uncq1": {
+       "global_enrichment": 1.2939076751770224,
+       "n": 1019,
+       "seed_spread": 0.10514089863592169,
+       "seed_mean": 1.2864020301029555
+      },
+      "uncq2": {
+       "global_enrichment": 1.2502940630223485,
+       "n": 928,
+       "seed_spread": 0.1015969252422455,
+       "seed_mean": 1.243041409950347
+      },
+      "uncq3": {
+       "global_enrichment": 1.3401711603642188,
+       "n": 669,
+       "seed_spread": 0.10890019653632721,
+       "seed_mean": 1.3323971520163527
+      }
+     },
+     "unc_grad_seeds": {
+      "mean": -0.1075447567553306,
+      "spread": 0.008789905569359213
+     },
+     "grad_shared": {
+      "mean": -0.1075447567553306,
+      "spread": 0.008789905569359213
+     },
+     "grad_independent": {
+      "mean": -0.17286511728409296,
+      "spread": 0.15242276487140916
+     },
+     "q": {
+      "tokq0": {
+       "agreement": 0.015873015873015872,
+       "global_enrichment": 1.045610801998795,
+       "local_enrichment": 1.6303972366148531,
+       "n": 7434
+      },
+      "tokq1": {
+       "agreement": 0.028034550689498408,
+       "global_enrichment": 1.8467334288977053,
+       "local_enrichment": 1.4041745730550286,
+       "n": 6599
+      },
+      "tokq2": {
+       "agreement": 0.053039808372305236,
+       "global_enrichment": 3.4939167839117946,
+       "local_enrichment": 1.9787234042553192,
+       "n": 8767
+      },
+      "tokq3": {
+       "agreement": 0.029060816012317164,
+       "global_enrichment": 1.9143370976548377,
+       "local_enrichment": 2.819136522753792,
+       "n": 10392
+      },
+      "livq0": {
+       "agreement": 0.021668472372697724,
+       "global_enrichment": 1.4273776928694277,
+       "local_enrichment": 1.6532721010332951,
+       "n": 8307
+      },
+      "livq1": {
+       "agreement": 0.027968655816757084,
+       "global_enrichment": 1.8423927042814214,
+       "local_enrichment": 1.9273104880581515,
+       "n": 8295
+      },
+      "livq2": {
+       "agreement": 0.02702376643744722,
+       "global_enrichment": 1.7801495521543005,
+       "local_enrichment": 1.9145299145299146,
+       "n": 8289
+      },
+      "livq3": {
+       "agreement": 0.05228285748704975,
+       "global_enrichment": 3.444053794512836,
+       "local_enrichment": 2.4942528735632186,
+       "n": 8301
+      }
+     },
+     "n": 33192
+    },
+    "skip11000": {
+     "enrichment": 2.09997537552327,
+     "cells": {
+      "p0_0": {
+       "agreement": 0.01571503404924044,
+       "permutation_null": 0.009559979046621269,
+       "enrichment": 1.643835616438356,
+       "n": 7636,
+       "live_acc": 0.3715295966474594
+      },
+      "p1_1": {
+       "agreement": 0.027031131359149585,
+       "permutation_null": 0.019153378891419895,
+       "enrichment": 1.4112983151635283,
+       "n": 6585,
+       "live_acc": 0.4167046317388003
+      },
+      "p2_2": {
+       "agreement": 0.04754248966467616,
+       "permutation_null": 0.02602491961414791,
+       "enrichment": 1.8268063982349698,
+       "n": 8708,
+       "live_acc": 0.3791915480018374
+      },
+      "p3_3": {
+       "agreement": 0.03447940001947988,
+       "permutation_null": 0.011834031362618097,
+       "enrichment": 2.91358024691358,
+       "n": 10267,
+       "live_acc": 0.4729716567643908
+      }
+     },
+     "allpos_ce": 12.909241592749217,
+     "top1_prog": 0.025770399305555556,
+     "max_dev_from_length1": 6.280055046081543,
+     "lookup_misses": 0,
+     "global_null": 0.015205145198216653,
+     "uncovered_null": 0.020856052344601965,
+     "uncovered_n": 3668,
+     "u": {
+      "uncq0": {
+       "global_enrichment": 1.677915704988252,
+       "n": 943,
+       "seed_spread": 0.1864036883221012,
+       "seed_mean": 1.6799351847704074
+      },
+      "uncq1": {
+       "global_enrichment": 1.5521131753955593,
+       "n": 1143,
+       "seed_spread": 0.17242798295942197,
+       "seed_mean": 1.5539812437186638
+      },
+      "uncq2": {
+       "global_enrichment": 1.1351769569157988,
+       "n": 887,
+       "seed_spread": 0.12610953639583777,
+       "seed_mean": 1.1365432156061759
+      },
+      "uncq3": {
+       "global_enrichment": 1.172821742605915,
+       "n": 695,
+       "seed_spread": 0.13029158611256175,
+       "seed_mean": 1.1742333092240853
+      }
+     },
+     "unc_grad_seeds": {
+      "mean": -0.5057018755463221,
+      "spread": 0.05611210220953944
+     },
+     "grad_shared": {
+      "mean": -0.5057018755463221,
+      "spread": 0.05611210220953944
+     },
+     "grad_independent": {
+      "mean": -0.4882371295286952,
+      "spread": 0.17711955182490002
+     },
+     "q": {
+      "tokq0": {
+       "agreement": 0.01571503404924044,
+       "global_enrichment": 1.0335339679021014,
+       "local_enrichment": 1.523809523809524,
+       "n": 7636
+      },
+      "tokq1": {
+       "agreement": 0.027031131359149585,
+       "global_enrichment": 1.7777621329337883,
+       "local_enrichment": 1.4383838383838383,
+       "n": 6585
+      },
+      "tokq2": {
+       "agreement": 0.04754248966467616,
+       "global_enrichment": 3.1267369725776915,
+       "local_enrichment": 1.8904109589041096,
+       "n": 8708
+      },
+      "tokq3": {
+       "agreement": 0.03447940001947988,
+       "global_enrichment": 2.2676139931583044,
+       "local_enrichment": 2.8957055214723924,
+       "n": 10267
+      },
+      "livq0": {
+       "agreement": 0.02430806257521059,
+       "global_enrichment": 1.598673492316376,
+       "local_enrichment": 1.7699890470974808,
+       "n": 8310
+      },
+      "livq1": {
+       "agreement": 0.02375210995900651,
+       "global_enrichment": 1.562110039027598,
+       "local_enrichment": 1.7668161434977576,
+       "n": 8294
+      },
+      "livq2": {
+       "agreement": 0.024128362890577872,
+       "global_enrichment": 1.5868551451522992,
+       "local_enrichment": 1.7777777777777777,
+       "n": 8289
+      },
+      "livq3": {
+       "agreement": 0.056244730820185475,
+       "global_enrichment": 3.6990591070963386,
+       "local_enrichment": 2.560657984921179,
+       "n": 8303
+      }
+     },
+     "n": 33196
+    },
+    "skip1200": {
+     "enrichment": 2.219724067450179,
+     "cells": {
+      "p0_0": {
+       "agreement": 0.018005540166204988,
+       "permutation_null": 0.01218836565096953,
+       "enrichment": 1.4772727272727273,
+       "n": 3610,
+       "live_acc": 0.3238227146814404
+      },
+      "p1_1": {
+       "agreement": 0.02058218171126139,
+       "permutation_null": 0.017017053807703613,
+       "enrichment": 1.209503239740821,
+       "n": 3401,
+       "live_acc": 0.3954719200235225
+      },
+      "p2_2": {
+       "agreement": 0.0503954802259887,
+       "permutation_null": 0.026073446327683616,
+       "enrichment": 1.932827735644637,
+       "n": 4425,
+       "live_acc": 0.34757062146892653
+      },
+      "p3_3": {
+       "agreement": 0.035845766324355745,
+       "permutation_null": 0.009978686301104437,
+       "enrichment": 3.592233009708738,
+       "n": 5161,
+       "live_acc": 0.4340244138732804
+      }
+     },
+     "allpos_ce": 12.78906752803919,
+     "top1_prog": 0.024631076388888888,
+     "max_dev_from_length1": 6.280055046081543,
+     "lookup_misses": 0,
+     "global_null": 0.014437850213894078,
+     "uncovered_null": 0.014577656675749319,
+     "uncovered_n": 1835,
+     "u": {
+      "uncq0": {
+       "global_enrichment": 1.29675105559776,
+       "n": 529,
+       "seed_spread": 0.08735982556599398,
+       "seed_mean": 1.3151110442619272
+      },
+      "uncq1": {
+       "global_enrichment": 1.27505819407289,
+       "n": 538,
+       "seed_spread": 0.08589841584462987,
+       "seed_mean": 1.293111045380222
+      },
+      "uncq2": {
+       "global_enrichment": 0.9799732977303072,
+       "n": 420,
+       "seed_spread": 0.06601906817772984,
+       "seed_mean": 0.9938482034493709
+      },
+      "uncq3": {
+       "global_enrichment": 0.7884842625416264,
+       "n": 348,
+       "seed_spread": 0.05311879048782864,
+       "seed_mean": 0.79964797978685
+      }
+     },
+     "unc_grad_seeds": {
+      "mean": -0.5154630644750772,
+      "spread": 0.03424103507816534
+     },
+     "grad_shared": {
+      "mean": -0.5154630644750772,
+      "spread": 0.03424103507816534
+     },
+     "grad_independent": {
+      "mean": -0.49025104439164036,
+      "spread": 0.20065114064214762
+     },
+     "q": {
+      "tokq0": {
+       "agreement": 0.018005540166204988,
+       "global_enrichment": 1.2471067298424796,
+       "local_enrichment": 1.4606741573033708,
+       "n": 3610
+      },
+      "tokq1": {
+       "agreement": 0.02058218171126139,
+       "global_enrichment": 1.425571079235494,
+       "local_enrichment": 1.25,
+       "n": 3401
+      },
+      "tokq2": {
+       "agreement": 0.0503954802259887,
+       "global_enrichment": 3.4905113627991002,
+       "local_enrichment": 1.953997809419496,
+       "n": 4425
+      },
+      "tokq3": {
+       "agreement": 0.035845766324355745,
+       "global_enrichment": 2.482763416527208,
+       "local_enrichment": 3.737373737373738,
+       "n": 5161
+      },
+      "livq0": {
+       "agreement": 0.02431391429947039,
+       "global_enrichment": 1.6840397939626917,
+       "local_enrichment": 1.6192384769539077,
+       "n": 4154
+      },
+      "livq1": {
+       "agreement": 0.025554484088717456,
+       "global_enrichment": 1.7699646214728997,
+       "local_enrichment": 1.804255319148936,
+       "n": 4148
+      },
+      "livq2": {
+       "agreement": 0.024125452352231604,
+       "global_enrichment": 1.6709864692331264,
+       "local_enrichment": 1.7130620985010705,
+       "n": 4145
+      },
+      "livq3": {
+       "agreement": 0.056867469879518066,
+       "global_enrichment": 3.938776828754768,
+       "local_enrichment": 3.090016366612111,
+       "n": 4150
+      }
+     },
+     "n": 16597
+    }
+   }
+  }
+ },
+ "predictions": {
+  "pred_a_pairing_tightens": false,
+  "pred_b_ratio_matches_S1920": false,
+  "pred_c_pairing_unbiased": true,
+  "pred_d_controls": true
+ },
+ "runtime_s": 291.9
+}

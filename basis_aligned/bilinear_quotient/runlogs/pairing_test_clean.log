@@ -1,0 +1,26 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+PAIRING TEST, CLEAN: does sharing the draw tighten a difference? | buckets ((0, 0), (1, 4), (5, 24), (25, 124), (125, 1000000000)) on the fit-row count of the TRUE target | full-rank settled program | DISCOVERY ONLY
+  built the settled fallback and 36 tables (5s)
+  precomputed per-token program margin for 50257 covered types (covered-token quartile bounds [0.1608, 0.367, 0.7641])
+  uncovered-token quartile bounds [0.219, 0.5238, 1.0668] over 34147 types
+
+  === all-compiled baseline ===
+    skip7000   covered enrichment  7.16x  (n 33192)
+    skip11000  covered enrichment  7.29x  (n 33196)
+    skip1200   covered enrichment  7.49x  (n 16597)
+    per-site live/table ratios: min 1.2x max 143.9x across 36 sites
+    g1.00    skip7000 CE 5.88338 ( 7.16x)  skip11000 CE 5.82928 ( 7.29x)  skip1200 CE 5.86044 ( 7.49x)   [1/2]
+    PERSITE  skip7000 CE 12.86506 ( 2.10x)  skip11000 CE 12.90924 ( 2.10x)  skip1200 CE 12.78907 ( 2.22x)   [2/2]
+
+  uncovered gradient (q3 - q0), 8 seeds, SHARED vs INDEPENDENT draws:
+    skip7000   shared +4.736 +-0.202   independent +4.732 +-0.582   ratio 0.35
+    skip11000  shared +4.707 +-0.309   independent +4.807 +-0.579   ratio 0.53
+    skip1200   shared +2.659 +-0.319   independent +2.751 +-0.293   ratio 1.09
+
+  PAIRING TIGHTENS the difference -> False  skip7000 0.202 < 0.582  skip11000 0.309 < 0.579  skip1200 0.319 < 0.293
+  and by the amount §1920 estimated (0.3-0.9) -> False  skip7000 0.35 (§1920 approx 0.63/0.56/0.42)  skip11000 0.53 (§1920 approx 0.63/0.56/0.42)  skip1200 1.09 (§1920 approx 0.63/0.56/0.42)
+  and pairing does NOT bias (means within 0.1) -> True  skip7000 0.005  skip11000 0.099  skip1200 0.093
+  coverage 16110, shared mean reproduces §1920 -> control True  skip7000 +4.736 vs +4.736  skip11000 +4.707 vs +4.707  skip1200 +2.659 vs +2.659
+
+pred_a False | pred_b False | pred_c True | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/pairing_test_clean_results.json (291.9s)

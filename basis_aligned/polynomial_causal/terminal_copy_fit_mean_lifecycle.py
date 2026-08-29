@@ -860,8 +860,8 @@ def _publish_fit_mean_bundle(
         or protected_after_replay != live_protected
         or FAILURE.exists()
         or RECEIPT.exists()
-        or _stable_json(RESULT) != result
-        or _stable_json(MANIFEST) != manifest
+        or _stable_json(RESULT) != json.loads(json.dumps(result, allow_nan=False))
+        or _stable_json(MANIFEST) != json.loads(json.dumps(manifest, allow_nan=False))
         or file_sha256(BANK) != result["bank_file_sha256"]
         or file_sha256(RESULT) != manifest["files"][str(RESULT)]
         or final_replay.runtime_means_sha256 != replay.runtime_means_sha256
@@ -887,6 +887,32 @@ def _publish_fit_mean_bundle(
         "authorized_for_candidate_selection_parent": False,
         "authorized_for_E4_evidence": False,
     }
+    # Sole receipt-write barrier.  Constructing the receipt above performs file
+    # hashing, so repeat the complete mutable gate afterwards and leave no helper
+    # work between this barrier and the create-only receipt write.
+    require_claim(claim)
+    validate_execution_authority(authority)
+    adjacent_protected_before = protected_snapshot()
+    adjacent_replay = load_bank_semantically(
+        BANK, authority_sha, require_production=True,
+    )
+    adjacent_protected_after = protected_snapshot()
+    require_claim(claim)
+    if (
+        adjacent_protected_before != live_protected
+        or adjacent_protected_after != live_protected
+        or FAILURE.exists()
+        or RECEIPT.exists()
+        or _stable_json(RESULT) != json.loads(json.dumps(result, allow_nan=False))
+        or _stable_json(MANIFEST) != json.loads(json.dumps(manifest, allow_nan=False))
+        or file_sha256(AUTHORITY) != receipt["authority_file_sha256"]
+        or file_sha256(BANK) != receipt["bank_file_sha256"]
+        or file_sha256(RESULT) != receipt["result_file_sha256"]
+        or file_sha256(MANIFEST) != receipt["manifest_file_sha256"]
+        or adjacent_replay.master_means_sha256 != receipt["master_means_sha256"]
+        or adjacent_replay.runtime_means_sha256 != receipt["runtime_means_sha256"]
+    ):
+        raise RuntimeError("fit-mean adjacent receipt gate failed")
     create_only_json(RECEIPT, receipt)
     return receipt
 

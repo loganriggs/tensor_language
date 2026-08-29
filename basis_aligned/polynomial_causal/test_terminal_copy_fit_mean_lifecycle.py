@@ -349,3 +349,155 @@ def test_pristine_namespace_rejects_partial_transaction(tmp_path):
     paths[1].write_bytes(b"partial")
     with pytest.raises(RuntimeError, match="namespace is spent"):
         life.require_pristine_namespace(paths)
+
+
+def _install_publish_transaction(monkeypatch, tmp_path):
+    monkeypatch.setattr(life, "AUTHORITY", tmp_path / "authority.json")
+    monkeypatch.setattr(life, "BANK", tmp_path / "bank.pt")
+    monkeypatch.setattr(life, "RESULT", tmp_path / "result.json")
+    monkeypatch.setattr(life, "MANIFEST", tmp_path / "manifest.json")
+    monkeypatch.setattr(life, "RECEIPT", tmp_path / "receipt.json")
+    monkeypatch.setattr(life, "FAILURE", tmp_path / "failure.json")
+    monkeypatch.setattr(life, "LOCK", tmp_path / "lock")
+    monkeypatch.setattr(life, "validate_execution_authority", lambda value: None)
+    stable_protected = {"parent": "p" * 64}
+    monkeypatch.setattr(life, "protected_snapshot", lambda: dict(stable_protected))
+    original_load = life.load_bank_semantically
+    monkeypatch.setattr(
+        life, "load_bank_semantically",
+        lambda path, authority_sha256, require_production=True: original_load(
+            path, authority_sha256, require_production=False,
+        ),
+    )
+    authority_body = {"row_binding": {"input_file_sha256": "f" * 64}}
+    authority = {
+        **authority_body,
+        "authority_sha256": life.logical_sha256(authority_body),
+    }
+    life.create_only_json(life.AUTHORITY, authority)
+    claim = life.acquire_claim()
+    bank = _bank()
+    collected = life._CollectedFitTransaction(
+        life._COLLECTION_SEAL,
+        bank=bank,
+        closure=_closure(),
+        ordered_document_ids_sha256=bank.ordered_document_ids_sha256,
+        row_file_sha256="f" * 64,
+        checkpoint_weights_sha256_before=life.facade.WEIGHTS_SHA256,
+        checkpoint_weights_sha256_after=life.facade.WEIGHTS_SHA256,
+        claim=claim,
+        authority_sha256=authority["authority_sha256"],
+    )
+    return authority, claim, collected, stable_protected
+
+
+def _publish(monkeypatch, tmp_path):
+    authority, claim, collected, protected = _install_publish_transaction(
+        monkeypatch, tmp_path,
+    )
+    return authority, claim, collected, protected
+
+
+def test_full_publish_transaction_is_receipt_last(monkeypatch, tmp_path):
+    authority, claim, collected, protected = _publish(monkeypatch, tmp_path)
+    try:
+        receipt = life._publish_fit_mean_bundle(
+            authority=authority, claim=claim, collected=collected,
+            protected_before=protected, protected_after=protected,
+        )
+        assert life.RECEIPT.exists()
+        assert not life.FAILURE.exists()
+        assert receipt["status"] == "complete_receipt_last_fit_only"
+        assert receipt["authorized_for_candidate_selection_parent"] is False
+    finally:
+        life.release_claim(claim)
+
+
+def test_full_publish_detects_late_protected_mutation(monkeypatch, tmp_path):
+    authority, claim, collected, protected = _publish(monkeypatch, tmp_path)
+    calls = 0
+
+    def changing_snapshot():
+        nonlocal calls
+        calls += 1
+        return protected if calls < 5 else {"parent": "changed"}
+
+    monkeypatch.setattr(life, "protected_snapshot", changing_snapshot)
+    try:
+        with pytest.raises(RuntimeError, match="adjacent receipt gate"):
+            life._publish_fit_mean_bundle(
+                authority=authority, claim=claim, collected=collected,
+                protected_before=protected, protected_after=protected,
+            )
+        assert not life.RECEIPT.exists()
+    finally:
+        life.release_claim(claim)
+
+
+def test_full_publish_detects_late_lock_replacement(monkeypatch, tmp_path):
+    authority, claim, collected, protected = _publish(monkeypatch, tmp_path)
+    original = life.load_bank_semantically
+    calls = 0
+
+    def replace_on_adjacent_reload(*args, **kwargs):
+        nonlocal calls
+        calls += 1
+        result = original(*args, **kwargs)
+        if calls == 3:
+            life.LOCK.unlink()
+            life.LOCK.write_text("replacement\n")
+        return result
+
+    monkeypatch.setattr(life, "load_bank_semantically", replace_on_adjacent_reload)
+    try:
+        with pytest.raises(RuntimeError, match="lock ownership changed"):
+            life._publish_fit_mean_bundle(
+                authority=authority, claim=claim, collected=collected,
+                protected_before=protected, protected_after=protected,
+            )
+        assert not life.RECEIPT.exists()
+    finally:
+        life.release_claim(claim)
+
+
+def test_full_publish_detects_bank_reserialization_after_manifest(monkeypatch, tmp_path):
+    authority, claim, collected, protected = _publish(monkeypatch, tmp_path)
+    original = life.create_only_json
+
+    def reserialize_after_manifest(path, value):
+        original(path, value)
+        if path == life.MANIFEST:
+            payload = torch.load(life.BANK, map_location="cpu", weights_only=True)
+            torch.save(payload, life.BANK)
+
+    monkeypatch.setattr(life, "create_only_json", reserialize_after_manifest)
+    try:
+        with pytest.raises(RuntimeError, match="terminal publication recheck"):
+            life._publish_fit_mean_bundle(
+                authority=authority, claim=claim, collected=collected,
+                protected_before=protected, protected_after=protected,
+            )
+        assert not life.RECEIPT.exists()
+    finally:
+        life.release_claim(claim)
+
+
+def test_full_publish_injected_post_manifest_failure_has_no_receipt(monkeypatch, tmp_path):
+    authority, claim, collected, protected = _publish(monkeypatch, tmp_path)
+    original = life.create_only_json
+
+    def fail_after_manifest(path, value):
+        original(path, value)
+        if path == life.MANIFEST:
+            raise RuntimeError("injected post-manifest failure")
+
+    monkeypatch.setattr(life, "create_only_json", fail_after_manifest)
+    try:
+        with pytest.raises(RuntimeError, match="injected post-manifest"):
+            life._publish_fit_mean_bundle(
+                authority=authority, claim=claim, collected=collected,
+                protected_before=protected, protected_after=protected,
+            )
+        assert not life.RECEIPT.exists()
+    finally:
+        life.release_claim(claim)

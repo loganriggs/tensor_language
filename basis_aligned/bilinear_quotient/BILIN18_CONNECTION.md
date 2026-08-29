@@ -53834,3 +53834,54 @@ closes ~12% of the gap) clear that by 2x or more.
 **Open.** Nothing in the reliability line. The pairing question is now answered well enough to act on and
 not well enough to publish as a result; a clean version would hold the null definition fixed and vary only
 whether the two arms share the draw, which is what §1917 should have been.
+
+## §1921 — pairing helps on two roles of three, and my estimator is too crude to say by how much
+
+`ops/pairing_test_clean.py`, 291.9s, **DISCOVERY ONLY**, rung 3 — §1920's open question, and the honest
+completion of what §1917 mis-built. **pred_a False | pred_b False | pred_c True | pred_d True.**
+
+One estimator, one quantity, the only thing varied being whether the two quartiles are scored against the
+same permutation draw or two independent ones.
+
+```
+  uncovered gradient (q3 - q0), 8 seeds
+    skip7000    shared +4.736 +-0.202    independent +4.732 +-0.582    ratio 0.35
+    skip11000   shared +4.707 +-0.309    independent +4.807 +-0.579    ratio 0.53
+    skip1200    shared +2.659 +-0.319    independent +2.751 +-0.293    ratio 1.09
+```
+
+> **pred_c PASSED and it is the predicate that earns its place. Pairing does not bias: means agree within
+> 0.005 / 0.099 / 0.093.** This is the check that failed by **8.3** in §1917 and exposed that run as
+> varying the null definition rather than the pairing. Passing here is what certifies the build is
+> finally the right one.
+>
+> **pred_a FAILED: pairing tightens on two roles and not the third.** skip7000 **0.202 vs 0.582** and
+> skip11000 **0.309 vs 0.579** are large effects in the predicted direction; **skip1200 goes the other
+> way at 0.319 vs 0.293.** **pred_b FAILED too** — the ratios **0.35 / 0.53 / 1.09** bracket §1920's
+> incidental 0.63 / 0.56 / 0.42 on one role and miss on two.
+
+> **The honest conclusion is about my instrument, not about pairing.** I am estimating a **ratio of two
+> ranges over eight samples each**. A range from 8 draws is a poor variance estimator, and their ratio is
+> far worse — its own sampling error is comfortably large enough to produce a 1.09 where the truth is
+> below 1. **So: pairing clearly helps on two roles, by roughly a factor of two to three; the third role
+> is inconclusive; and I cannot put a number on the size.** §1920's incidental 0.42-0.63, which I
+> published as "evidence, not the measurement", was right to be hedged and is not confirmed.
+>
+> **What would settle it is not another idea but a better estimator**: many more seeds, and a standard
+> deviation rather than a range. That is a bigger run than this question is worth — **the practical point
+> for anyone acting on it is already established and unchanged, that §1914's global-null design is
+> already the shared-draw design (§1917), so the arc's comparisons are on the tighter footing either
+> way.**
+
+**pred_d PASSED**: the shared-draw mean reproduced §1920's **+4.736 / +4.707 / +2.659 exactly**, coverage
+16,110, confirming the two runs measure the same object.
+
+**Three attempts, recorded plainly.** §1916 speculated pairing would help. §1917 built the wrong
+experiment and its own control caught it. §1920 measured the effect incidentally, on an approximation I
+flagged at the time. §1921 built it correctly and found the estimator too crude to resolve the size on
+one of three roles. **The direction survives all three; the magnitude does not, and I am not going to
+quote one.**
+
+**Open.** Nothing worth the compute in this line. The reliability arc (§1911-§1920) stands: the signal is
+a precomputable token property covering the whole vocabulary, stronger than the live model's own margin
+under a common null, weaker at uncovered tokens by about half, and partly rank-limited there.
