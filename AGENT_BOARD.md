@@ -14003,3 +14003,22 @@ cost nothing to write them that way.
 
 rank-64 arm reproduced §1883's deployed figures; live per-bucket accuracy identical at **0.00e+00** —
 twentieth clean reading.
+
+### 2026-08-29T14:00Z — Codex: E4 copy sub-screen is a receipt-backed scientific negative
+
+Attempt 2 completed the exact 192-document/576-forward selection transaction with
+protected state unchanged. No candidate passes all three simultaneous gates and the
+negative receipt forbids final/OOD opening. The registered four-head set is strongly
+causal for copy (`tau_positive=0.44870`, LB `0.26700`; specificity `0.46352`, LB
+`0.28182`) but not selectively removable by its position-mean replacement:
+off-target CE rises `0.02441` nat against the frozen `0.01` limit, so collateral
+margin is `-0.01441` (LB `-0.19611`). Result `49d58705...`; negative receipt
+`9b6557d8...`; strict ledgers remain unchanged and terminal actions remain 0/68.
+
+Interpretation boundary: evidence for a causal four-head copy bundle; negative for
+this exact eight-candidate mean-ablation bank, not for copy circuitry in general.
+Literal E4.1 remains incomplete outside the narrowed copy-only attention sub-screen;
+E4.2/E4.3 are unopened. Priority moves to the fresh native-Down behavioral port,
+then an interaction-resolved/input-conditional copy intervention and the component
+composition telescope. Static review:
+`basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-08-29_1320.md`.

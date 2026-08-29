@@ -589,3 +589,24 @@ final/OOD extraction-removal sequence. The second is a new prospective Family-F 
 native-Down finite behavioral port on fresh documents. Strict ledgers remain 36/36
 structural, 5.348245316% storage removed, 10.923302467% named causal CE,
 4.72714 nat unexplained, and 0/68 terminal actions.
+
+## 14:00 UTC post-deadline E4 copy-screen outcome
+
+The frozen copy-only attention sub-screen completed receipt-last on 192 natural
+documents. It is a scientific negative for the exact eight position-mean
+interventions, not an infrastructure failure. The strongest arm was the registered
+four-head set: copy-position effect `0.44869993` nat and specificity `0.46352133`
+nat, with simultaneous lower bounds `0.26699771` and `0.28181911`. Its off-target
+effect was `0.02440914` nat, above the frozen `0.01` limit, giving collateral margin
+`-0.01440914` and simultaneous lower bound `-0.19611136`. No candidate passed all
+three gates. Result SHA256 is `49d58705b41a100e1ac36c743206e37fbabf6a69497cc3313e39ef595fa79a64`;
+negative-receipt SHA256 is
+`9b6557d8a7076eac9177bd6b46aec6cfc8da7049ad0fc33db5906f85f951fe10`.
+
+This is evidence for a large causal four-head copy bundle and against the registered
+mean-replacement family as a selective extraction/removal mechanism. The negative
+receipt forbids final/OOD opening. The literal broader E4.1 checkbox remains
+unchecked because its terminal-layer MLP/other-output-class scope was not run; E4.2
+and E4.3 also remain unchecked. The next experiment must use a new prospective role
+and a more interaction-resolved/input-conditional intervention, not relax the gate
+or reuse this selection role.

@@ -52,6 +52,17 @@ There are two real numerical updates and one execution failure/recovery update.
    frequency- and context-conditional residual rather than a single global rank
    allocation rule.
 
+6. **E4 completed as a receipt-backed scientific negative.** The four-head copy
+   bundle is causally important: replacing its output by the registered position
+   mean raises copy-position CE by **0.44870 nat**, with simultaneous lower bound
+   **0.26700**, and its specificity point estimate is **0.46352 nat**, lower bound
+   **0.28182**. But the same intervention raises off-target CE by **0.02441 nat**.
+   The frozen collateral budget was 0.01 nat, so the collateral margin is
+   **-0.01441**, with simultaneous lower bound **-0.19611**. No candidate passes
+   all three gates. The negative receipt forbids final/OOD opening. This rejects
+   the eight registered position-mean replacements; it does **not** show that the
+   four heads are unrelated to copy behavior.
+
 ## What the percentages mean
 
 The strict ledgers have not moved:
@@ -75,9 +86,11 @@ small minority of behavior has a certified causal explanation.
 
 ## Largest remaining gaps
 
-1. **No selected terminal circuit.** We have an exact eight-candidate causal
-   screen, but attempt 1 failed before measurement. Attempt 2 is awaiting an
-   independent infrastructure audit.
+1. **No selectively removable terminal circuit.** The exact eight-candidate copy
+   screen is complete. It found a large causal four-head copy bundle, but its
+   registered mean replacement exceeds the off-target collateral budget. The
+   missing object is a more precise, input-dependent decomposition that preserves
+   those heads' non-copy work.
 2. **The current compiler deletes most context.** A context-free table maps the
    current token to a stored site output. The rare-target accuracy collapse and
    the 25–28 percentage-point live/program top-1 gap show that token identity
@@ -119,16 +132,17 @@ into the whole model, falsifiability, GPU cost, and duplication of finished work
 
 ## Top five actions now
 
-1. **Finish E4 attempt 2 under a fresh audited authority.** This is the cheapest
-   direct test of a named, editable terminal-copy circuit. It can fail cleanly:
-   either one candidate has positive copy-cell effect, specificity over matched
-   negatives, and collateral margin, or the entire eight-candidate mean-ablation
-   bank is rejected. Only a passer can open final/OOD data.
-
-2. **Run the rank-512 native-Down behavioral port on fresh rows.** This directly
+1. **Run the rank-512 native-Down behavioral port on fresh rows.** This directly
    tests the strongest lesson from Family F: preserve the model's downstream
    decoder instead of optimizing local reconstruction. Score CE, native-to-port
    KL, top-1 agreement, ordinary/error secants, and registered edits.
+
+2. **Resolve the four-head copy bundle's interaction and collateral.** On a new
+   prospectively frozen role, decompose the selected heads' output into a
+   copy-conditioned component and a complementary component, then intervene on
+   only the copy component. The target is to retain the measured 0.44870-nat copy
+   effect while bringing off-target damage below 0.01 nat. Do not relax E4's gate
+   or reuse its selection role for promotion.
 
 3. **Build the exact MLP0/MLP1/MLP2/attention composition telescope.** Use the
    same documents and measure singleton replacements, pairs, and the combined
@@ -149,9 +163,9 @@ into the whole model, falsifiability, GPU cost, and duplication of finished work
 
 ## Action executed in this review
 
-The highest-priority safe CPU-side action was executed: the E4 attempt-1 failure
-was audited, the scalar serializer was repaired, a truthful and isolated
-attempt-2 recovery lifecycle was implemented, historical and absent-output
-bindings were added, and **66/66** lifecycle/inference/adapter tests passed. The
-fresh independent audit is the remaining launch gate. No selection outcome or
-final/OOD role has been opened.
+The highest-priority action was executed end to end. The E4 attempt-1 failure was
+preserved; the scalar serializer and recovery lifecycle passed two independent
+audits and **79/79** tests; a new authority was frozen; and the exact 576-forward,
+192-document transaction published receipt-last. The outcome is a scientific
+negative with no selected candidate. Final/OOD roles remain unopened and are now
+forbidden by the negative receipt.
