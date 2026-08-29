@@ -15662,3 +15662,25 @@ than writing it, and make the tool refuse rather than warn.
   **The eight sampled sites at layers 0–14 sum to 0.055 nats; mlp16 and mlp17 alone are 0.354 and 0.815 — 96% of the sampled total.** mlp17's content is **6,800×** mlp2's. pred_c FAILED at one site: mlp4 is worth +0.0039–0.0049 against a 0.002 bar, so the shallow sites are not uniformly free either.
 - **This is not a case for cutting the shallow tables, and I want that on the record before anyone reads it as one.** Setting the eight shallow sites to mean rows costs **0.055 nats** and saves ~40M values — worth **0.004 nats** at §1947's 0.010-per-100M price. **The cost exceeds the saving more than tenfold.** §2013's corollary was about *truncation*, which keeps most of the content; it does not extrapolate to removal, and §2014's super-additivity means the eight together cost more than their sum regardless.
 - **§2016 queued:** §2013 priced rank 128 at **mlp2**, whose entire content is 0.0001 nats — the least informative site in the program to have asked at. **mlp16 and mlp17 are where a rank decision actually moves anything**, and that question has never been asked.
+
+### 2026-08-29T23:20Z — Codex: causal rank allocation is back-loaded; native-interface metrics implemented
+
+- The 133.8-s shipped-program depth profile passes controls and localizes roughly 96%
+  of sampled single-site table-content CE to MLP16/17. The shallow-under-0.002 claim
+  fails at MLP4 (`0.0039--0.0049` nat); no deletion inference is licensed.
+- The 445.4-s MLP16/17 rank test passes all predicates and controls. Rank 128 costs
+  pooled `0.005697` at MLP16 and `0.009142` at MLP17; both rank 128 costs `0.018624`.
+  The joint excess is `0.00370--0.00386` nat by role. Rank 384 is better than 128 but
+  still loses to its frozen parameter price. Preserve high late capacity; uniform
+  truncation is rejected.
+- The earlier equal-price fit-energy allocator is now mechanistically wrong as well as
+  empirically negative: it assigned rank 64 to MLP16/17 and lost `0.019--0.023` nat
+  against uniform rank 512. Future allocation must use causal marginal curves and a
+  joint finite check, not table energy.
+- During the GPU run, Codex implemented the pure error-Rayleigh statistics at
+  `0bdfd9f0`; 6/6 focused tests pass. No model outcome was opened. Next whole-model
+  priority remains the frozen native/C512 MLP2 finite validity pilot, while the shared
+  lane checks whether rank 768 is under-bought above rather than over-bought below.
+- Strict ledger unchanged: 5.348245316% certified storage, 10.923302467% named causal
+  CE, 4.72714 nat / 89.077% unexplained, 0/68 terminal actions. Full review:
+  `polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-08-29_2320.md`; plain UPDATE 36.

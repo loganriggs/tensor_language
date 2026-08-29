@@ -2361,3 +2361,42 @@ The strict ledger is unchanged: `5.348245316%` certified storage,
 terminal actions.
 
 ## UPDATE END — 35
+
+## UPDATE START — 36: the shipped program needs high rank mainly at the end
+
+We measured how much each sampled MLP table matters inside the fully compiled 36-site
+program. The result is extremely uneven. Replacing MLP0 or MLP2 by a constant mean row
+is essentially free; MLP4 costs about `0.004` nat; MLP10--14 cost roughly
+`0.008--0.029` nat; MLP16 costs about `0.366` nat and MLP17 about `0.823` nat. The last
+two sampled sites carry roughly 96% of the summed single-site value.
+
+This does not justify deleting the early tables. Their combined CE cost is still much
+larger than the frozen value assigned to their saved storage, and simultaneous changes
+interact through final normalization and cross-entropy.
+
+We then measured actual rank curves at MLP16 and MLP17. Lowering rank 768 to 128 costs
+about `0.00570` and `0.00914` nat respectively. Lowering both costs `0.01862` nat,
+which is about `0.0038` more than adding their individual costs. Rank 384 is much
+better, but still does not repay its storage saving under the frozen price rule. Thus
+the correct shipped-program strategy is heterogeneous: preserve high capacity at the
+end and search for principled truncation earlier. The previous fit-energy allocator
+did nearly the reverse and lost to uniform rank 512.
+
+This is useful compression work on the shipped program, not a solution to native-model
+interpretation. The table program still has CE near `5.94` versus native `3.14`; the
+large missing behavior comes from interfaces that disappear when every component is
+replaced by a token table.
+
+While the rank job used the GPU, we implemented the fixed mathematical metrics for the
+next native-interface experiment. Six focused tests pass. The next experiment will ask
+whether final-logit Fisher response and attention-5/6 response predict the real finite
+MLP0×MLP2 composition error better than local MSE.
+
+Full computations, gaps, pruning, and ranked actions are in
+[`HOURLY_STRATEGIC_REVIEW_2026-08-29_2320.md`](HOURLY_STRATEGIC_REVIEW_2026-08-29_2320.md).
+
+The strict ledger remains unchanged: `5.348245316%` certified storage,
+`10.923302467%` named causal CE, `4.72714` nat (`89.077%`) unexplained, and `0/68`
+terminal actions.
+
+## UPDATE END — 36
