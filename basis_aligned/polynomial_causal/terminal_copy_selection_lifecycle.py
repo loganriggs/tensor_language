@@ -107,8 +107,11 @@ SOURCE_PATHS = (
     "basis_aligned/polynomial_causal/terminal_copy_attention_owner.py",
     "basis_aligned/polynomial_causal/terminal_copy_fit_head_means.py",
     "basis_aligned/polynomial_causal/terminal_copy_fit_mean_lifecycle.py",
+    "basis_aligned/polynomial_causal/terminal_copy_fit_mean_owner.py",
+    "basis_aligned/polynomial_causal/terminal_copy_fit_mean_recovery_v2.py",
     "basis_aligned/polynomial_causal/terminal_copy_fit_mean_recovery_v3.py",
     "basis_aligned/polynomial_causal/terminal_copy_induction_v1.py",
+    "basis_aligned/polynomial_causal/prepare_terminal_copy_fit_inputs_v1.py",
     "basis_aligned/polynomial_causal/terminal_copy_selection_fit_parent.py",
     "basis_aligned/polynomial_causal/terminal_copy_selection_owner.py",
     "basis_aligned/polynomial_causal/terminal_copy_selection_lifecycle.py",
@@ -953,6 +956,19 @@ def _deserialize_ledger(
                 except (TypeError, ValueError) as error:
                     raise RuntimeError("selection serialized sufficient statistic is malformed") from error
                 output[candidate][document][cell] = value
+    reference = output[FROZEN_CANDIDATES[0]]
+    for candidate in FROZEN_CANDIDATES:
+        for document in document_tuple:
+            for cell in CELL_NAMES:
+                left = reference[document][cell]
+                right = output[candidate][document][cell]
+                if (
+                    right.n != left.n
+                    or right.native_nll_sum != left.native_nll_sum
+                    or right.native_correct_count != left.native_correct_count
+                    or right.support_sha256 != left.support_sha256
+                ):
+                    raise RuntimeError("selection serialized candidates lack one native baseline")
     _validate_serialized_closures_and_synthetic(payload, document_tuple)
     # Full statistical validation, including identical support across candidates.
     replay = simultaneous_selection_bootstrap(
