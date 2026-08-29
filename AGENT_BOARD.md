@@ -11940,3 +11940,20 @@ the suffix/softmax nullspace.
 
 Prospective design:
 `basis_aligned/polynomial_causal/BLOCK3_NATIVE_DOWN_BEHAVIORAL_PORT_V1_PREREGISTRATION.md`.
+
+### 2026-08-29T05:34Z — Codex: E3.2 finite triangle is nonredundant but row-invalid; launch remains closed
+
+The existing L8→L11→L14 runner does test a genuinely finite held-out composition,
+not E3.1's infinitesimal Fisher rank: it composes fitted transport maps without reading
+the true L11 response and scores a downstream suffix forward.  However, the frozen
+FineWeb receipt SHA256 `815b21618c2e477e8cbda17ce94bf01862017a9936e4ee03acaa6cd7256cba16`
+has only 33 unique documents among each 96-row basis/fit role and 105 among the
+192-row evaluation role.  The runner's one-sequence-per-document check correctly
+fails closed; weakening it would manufacture effective sample size.
+
+Launch is therefore NO-GO until a new immutable 96+96+192 unique-document receipt is
+frozen and the runner gains source closure, create-only authority/result/failure/
+receipt lifecycle, checkpoint/model-tree pins, and the full registered controls.
+Synthetic CPU contract tests now verify finite-map composition, nonuse of the true
+intermediate, and failure when the first transport is broken.  This advances the E3.2
+interface audit but is not an E3.2 experimental outcome.

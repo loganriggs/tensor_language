@@ -193,6 +193,20 @@ early component, rather than reconstructing its full residual write?
 - [ ] **E3.2 Unseen-composition prediction.** Fit a predictive-state realization on a
   subset of prefix/intervention × suffix-reader cells and predict sealed cells.  Score
   vector error and resulting KL/CE; compare with equally priced local-MSE PCA/RRR.
+
+  **Pre-execution audit, 05:34 UTC:** the existing L8→L11→L14 transport-triangle
+  runner is scientifically nonredundant with E3.1: it fits finite antithetic edits and
+  predicts an unseen donor-minus-target response through the composed map
+  $T_{8\to11}T_{11\to14}$ without reading the true L11 response.  It is nevertheless
+  a NO-GO for launch.  The frozen FineWeb receipt (SHA256 `815b2161...`) contains
+  `96/33`, `96/33`, and `192/105` rows/unique documents in its three relevant roles,
+  while the runner correctly requires one row per source document.  Weakening that
+  check would create pseudoreplication.  The runner also lacks the registered
+  source-closed create-only lifecycle and most full null/control families.  A new
+  immutable 96+96+192 unique-document receipt and lifecycle hardening are required;
+  no E3.2 experimental outcome is claimed.  New synthetic contract tests establish
+  that the finite chain uses the fitted maps rather than the true intermediate and
+  fails when the first transport is broken.
 - [ ] **E3.3 State-variable edit test.** Remove or transplant one learned state
   direction and test target effect, collateral effect, and OOD transport.  A state is
   useful only if it predicts a new composition or supports a selective edit.
