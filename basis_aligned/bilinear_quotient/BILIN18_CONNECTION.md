@@ -54189,3 +54189,50 @@ confounds and surviving both, at two coverages. **Threshold on it; do not rank w
 
 **Open.** Nothing. Every claim in this line is now measured at two or more coverages, controlled against
 the one variable §1789 showed governs this program's accuracy, and priced against its own estimator noise.
+
+## §1928 — the MLP tables deserve MORE rank, not less. Behavioural localisation is not storage localisation.
+
+`ops/uneven_per_site_rank.py`, 767.6s, **DISCOVERY ONLY**, 5,419 coverage, rung 3 — the cost question the
+mechanism results have been pointing at. **pred_a False | pred_b False | pred_c True | pred_d True.**
+
+```
+  all-position CE at MATCHED storage (103.1086M in all three arms), 5,419 types
+    skip7000    uniform-256 6.02422    attn-heavy 384/128 6.07717 (+0.05295)   mlp-heavy 128/384 6.00548 (-0.01874)
+    skip11000   uniform-256 5.99343    attn-heavy         6.04764 (+0.05421)   mlp-heavy         5.97526 (-0.01817)
+    skip1200    uniform-256 6.00680    attn-heavy         6.05398 (+0.04718)   mlp-heavy         5.99021 (-0.01659)
+```
+
+> **Both substantive predictions failed, and they failed in the same direction: I had the allocation
+> backwards.** I predicted attention-heavy would beat uniform because §1891 showed attention carries the
+> program's behavioural fidelity — attention restorations change up to 96.56% of covered predictions
+> against the MLP maximum of 0.03% (§1904), a 3,200x ratio. **Attention-heavy is WORSE than uniform by
+> +0.053 / +0.054 / +0.047 nats, and MLP-heavy is BETTER by −0.019 / −0.018 / −0.017, on all three roles
+> at identical storage.**
+>
+> **So §1891's behavioural localisation does NOT imply a storage localisation, and I registered exactly
+> that as the FALSE branch.** The two questions are different: which sites carry the program's *fidelity
+> to the model* when you restore them, and which sites' *tables* are hardest to compress. Attention wins
+> the first and loses the second. **Restoring an attention site matters because it reintroduces context,
+> which the compiled program has no way to store at any rank** — the table budget cannot buy what §1765
+> deleted.
+
+> **I told Codex the opposite, repeatedly, and that needs correcting rather than quietly dropping.** I
+> handed this question over at 07:57Z and restated it at 08:06Z, 09:27Z, 12:03Z and 13:31Z, each time
+> framing §1891 as saying *"which sites carry behaviour and why"* was the thing an allocation should
+> follow. **It is not.** The correction goes to the board with this section.
+
+**pred_c PASSED: the three arms cost 103.1086M each**, identical to four decimals by construction — 18
+sites at 384 plus 18 at 128 is exactly 36 at 256. **pred_d PASSED**: the uniform arm reproduced §1880's
+published m512_256 figures **6.02422 / 5.99343 / 6.00680 exactly**, so the comparison sits on the measured
+frontier rather than beside it.
+
+> **The frontier is leaving storage on the table, in the opposite direction from my hypothesis.** −0.018
+> nats for **zero extra cost** is small but free and consistent on 3 of 3 roles. For scale: §1861's
+> iso-cost result was +0.056 / +0.079 / +0.074 and §1882's half-cost build traded +0.005 for a 46% saving.
+> **This is a genuine, if modest, improvement to every point on the §1853-§1882 frontier**, and it was
+> found by testing a hypothesis that turned out backwards.
+
+**Open, and it is the natural continuation.** 128/384 is one point on a one-dimensional family. Whether a
+more extreme split (64/448, 32/480) gains more, and whether the optimum moves with the budget — §1864
+already found the map-rank rule is budget-dependent — is unmeasured. **The direction is now established;
+the size is not.**

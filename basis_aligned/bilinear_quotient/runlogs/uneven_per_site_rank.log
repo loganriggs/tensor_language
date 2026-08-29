@@ -3,13 +3,29 @@ UNEVEN PER-SITE TABLE RANK | table ranks ('uniform', 'attn_heavy', 'mlp_heavy') 
   built the output-NN map and 36 tables (4s)
 
   skip7000: live cov 3.29205 all 3.13704
-Traceback (most recent call last):
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/uneven_per_site_rank.py", line 307, in <module>
-    main()
-  File "/venv/main/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/uneven_per_site_rank.py", line 245, in main
-    a, b = row[f'm64_{key}'], row[f'm512_{key}']
-           ~~~^^^^^^^^^^^^^^
-KeyError: 'm64_uniform'
+    uniform      all 6.02422  (103.1086M table)
+    attn_heavy   all 6.07717  (103.1086M table)
+    mlp_heavy    all 6.00548  (103.1086M table)
+
+  skip11000: live cov 3.09711 all 2.93450
+    uniform      all 5.99343  (103.1086M table)
+    attn_heavy   all 6.04764  (103.1086M table)
+    mlp_heavy    all 5.97526  (103.1086M table)
+
+  skip1200: live cov 3.40277 all 3.23027
+    uniform      all 6.00680  (103.1086M table)
+    attn_heavy   all 6.05398  (103.1086M table)
+    mlp_heavy    all 5.99021  (103.1086M table)
+
+  all-position CE at MATCHED storage (103.109M table + map), 5,419 types:
+    skip7000   uniform-256 6.02422   attn-heavy(384/128) 6.07717 (+0.05295)   mlp-heavy(128/384) 6.00548 (-0.01874)
+    skip11000  uniform-256 5.99343   attn-heavy(384/128) 6.04764 (+0.05421)   mlp-heavy(128/384) 5.97526 (-0.01817)
+    skip1200   uniform-256 6.00680   attn-heavy(384/128) 6.05398 (+0.04718)   mlp-heavy(128/384) 5.99021 (-0.01659)
+
+  ATTENTION-HEAVY beats uniform at matched cost -> False  skip7000 -0.05295  skip11000 -0.05421  skip1200 -0.04718
+  and MLP-HEAVY is worse than uniform -> False  skip7000 -0.01874  skip11000 -0.01817  skip1200 -0.01659
+  and the three arms cost the same (<= 0.001M) -> True  uniform 103.1086M  attn_heavy 103.1086M  mlp_heavy 103.1086M
+  coverage 5419, uniform reproduces §1880 -> control True  skip7000 6.02422 vs 6.02422  skip11000 5.99343 vs 5.99343  skip1200 6.00680 vs 6.00680
+
+pred_a False | pred_b False | pred_c True | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/uneven_per_site_rank_results.json (767.6s)

@@ -2,13 +2,27 @@ from __future__ import annotations
 
 import hashlib
 from pathlib import Path
+from types import SimpleNamespace
 
 import pytest
 import torch
 
 import terminal_copy_induction_v1 as contract
 import terminal_copy_selection_lifecycle as life
-from terminal_copy_streaming_statistics import CELL_NAMES, FROZEN_CANDIDATES
+from terminal_copy_attention_owner import CandidateOwnerClosure
+from terminal_copy_selection_owner import (
+    MergedSelectionBatches,
+    MergedSyntheticBatches,
+    SelectionBatchClosure,
+    SyntheticBatchClosure,
+    SyntheticPairEffect,
+)
+from terminal_copy_streaming_statistics import (
+    CELL_NAMES,
+    FROZEN_CANDIDATES,
+    DocumentCellSums,
+    SelectionResult,
+)
 
 
 def _candidate_closure(candidate: str, document_calls: int) -> dict:
@@ -107,6 +121,224 @@ def _ledger_payload() -> dict:
         "synthetic_batch_closures": synthetic_closures,
         "raw_logits_published": False,
     }
+
+
+def _candidate_closure_object(candidate: str, document_calls: int) -> CandidateOwnerClosure:
+    plan = life.PhysicalCandidateDispatcher.plan(candidate)
+    selected = dict(plan)
+    return CandidateOwnerClosure(
+        candidate=candidate,
+        attempted_batch_calls=1,
+        batch_calls=1,
+        document_calls=document_calls,
+        native_attention_calls=tuple(
+            0 if layer in selected else 1 for layer in range(18)
+        ),
+        adapter_attention_calls=tuple(
+            1 if layer in selected else 0 for layer in range(18)
+        ),
+        native_mlp_calls=(1,) * 18,
+        selected_layer_heads=plan,
+        maximum_head_recomposition_abs_error=0.0,
+        maximum_head_recomposition_relative_error=0.0,
+        closed=True,
+    )
+
+
+def _materialized_transaction(selected_candidate: str | None):
+    payload = _ledger_payload()
+    documents = tuple(payload["ordered_document_ids"])
+    ledgers = {
+        candidate: {
+            document: {
+                cell: DocumentCellSums(**payload["candidates"][candidate][document][cell])
+                for cell in CELL_NAMES
+            }
+            for document in documents
+        }
+        for candidate in FROZEN_CANDIDATES
+    }
+    natural_closures = []
+    for start in range(0, len(documents), life.NATURAL_BATCH_SIZE):
+        batch_documents = documents[start:start + life.NATURAL_BATCH_SIZE]
+        natural_closures.append(SelectionBatchClosure(
+            document_ids=batch_documents,
+            native_attention_calls=(1,) * 18,
+            native_mlp_calls=(1,) * 18,
+            native_unembedding_calls=1,
+            candidate_unembedding_calls=(1,) * len(FROZEN_CANDIDATES),
+            candidate_closures=tuple(
+                _candidate_closure_object(candidate, life.NATURAL_BATCH_SIZE)
+                for candidate in FROZEN_CANDIDATES
+            ),
+            raw_logits_returned=False,
+            closed=True,
+        ))
+    natural = MergedSelectionBatches(
+        ledgers=ledgers,
+        batch_closures=tuple(natural_closures),
+        ordered_document_ids=documents,
+    )
+    item_ids = tuple(payload["synthetic_item_ids"])
+    synthetic_effects = {
+        candidate: tuple(
+            SyntheticPairEffect(**value)
+            for value in payload["synthetic_effects"][candidate]
+        )
+        for candidate in FROZEN_CANDIDATES
+    }
+    synthetic_closures = []
+    for start in range(0, len(item_ids), 2):
+        synthetic_closures.append(SyntheticBatchClosure(
+            item_ids=item_ids[start:start + 2],
+            native_attention_calls=(1,) * 18,
+            native_mlp_calls=(1,) * 18,
+            native_unembedding_calls=1,
+            candidate_unembedding_calls=(1,) * len(FROZEN_CANDIDATES),
+            candidate_closures=tuple(
+                _candidate_closure_object(candidate, life.SYNTHETIC_BATCH_SIZE)
+                for candidate in FROZEN_CANDIDATES
+            ),
+            raw_logits_returned=False,
+            closed=True,
+        ))
+    synthetic = MergedSyntheticBatches(
+        effects=synthetic_effects,
+        batch_closures=tuple(synthetic_closures),
+        ordered_item_ids=item_ids,
+    )
+    candidates = tuple(sorted(FROZEN_CANDIDATES))
+    coordinate_names = tuple(
+        f"{candidate}:{name}"
+        for candidate in candidates
+        for name in ("tau_positive", "specificity", "collateral_margin")
+    )
+    lower = torch.ones(24, dtype=torch.float64)
+    if selected_candidate is None:
+        lower.fill_(-1.0)
+    selection = SelectionResult(
+        candidates=candidates,
+        coordinate_names=coordinate_names,
+        point_estimates=torch.zeros(24, dtype=torch.float64),
+        simultaneous_lower_bounds=lower,
+        critical_value=0.0,
+        selected_candidate=selected_candidate,
+    )
+    return natural, synthetic, selection
+
+
+def _patch_output_namespace(monkeypatch, directory: Path):
+    paths = {
+        "AUTHORITY": directory / "authority.json",
+        "LEDGER": directory / "ledger.json",
+        "RESULT": directory / "result.json",
+        "MANIFEST": directory / "manifest.json",
+        "PASSER_RECEIPT": directory / "passer.json",
+        "NEGATIVE_RECEIPT": directory / "negative.json",
+        "FAILURE": directory / "failure.json",
+        "LOCK": directory / "selection.lock",
+        "AUDIT": directory / "audit.json",
+    }
+    for name, path in paths.items():
+        monkeypatch.setattr(life, name, path)
+    return paths
+
+
+class _FakeTensor:
+    def __getitem__(self, _key):
+        return self
+
+    def to(self, *args, **kwargs):
+        return self
+
+
+class _FakeDispatcher:
+    def assert_matches_native(self, _attentions):
+        return None
+
+
+def _run_mocked_execute(
+    tmp_path: Path, monkeypatch, selected_candidate: str | None,
+    *, fail_during_natural: bool = False,
+):
+    paths = _patch_output_namespace(monkeypatch, tmp_path)
+    weights = tmp_path / "snapshot" / "pytorch_model.bin"
+    weights.parent.mkdir()
+    weights.write_bytes(b"mock weights")
+    weights_sha = life.file_sha256(weights)
+    monkeypatch.setattr(life.facade, "DEFAULT_SNAPSHOT", weights.parent)
+    monkeypatch.setattr(life.facade, "WEIGHTS_SHA256", weights_sha)
+    checkpoint = life.facade.CheckpointReceipt(
+        revision="mock", snapshot=str(weights.parent), config_sha256="c" * 64,
+        weights_sha256=weights_sha, weights_bytes=len(b"mock weights"),
+        tokenizer_vocab=50_257, logit_vocab=50_304,
+    )
+    authority = {
+        "authority_sha256": "a" * 64,
+        "checkpoint": life.asdict(checkpoint),
+        "source_closure": {},
+    }
+    life.create_only_json(paths["AUTHORITY"], authority)
+    natural, synthetic, selection = _materialized_transaction(selected_candidate)
+    inputs = life.SelectionInputs(
+        rows=_FakeTensor(), masks={cell: torch.zeros(192, 256, dtype=torch.bool) for cell in CELL_NAMES},
+        ordered_document_ids=natural.ordered_document_ids,
+        ordered_document_ids_sha256=life._document_digest(natural.ordered_document_ids),
+        selection_file_sha256=life.SELECTION_PAYLOAD_SHA256,
+        frequencies_file_sha256=life.FIT_FREQUENCIES_SHA256,
+        synthetic_rows=_FakeTensor(),
+        synthetic_item_ids=synthetic.ordered_item_ids,
+        synthetic_query_positions=tuple(80 for _ in range(32)),
+        synthetic_successor_y=tuple(1 for _ in range(32)),
+        synthetic_successor_z=tuple(2 for _ in range(32)),
+        expected_support_sha256s={},
+    )
+    fake_model = SimpleNamespace(
+        transformer=SimpleNamespace(h=[SimpleNamespace(attn=object()) for _ in range(18)])
+    )
+    monkeypatch.setattr(life, "validate_execution_authority", lambda _authority: None)
+    monkeypatch.setattr(life, "verify_source_closure", lambda _binding: None)
+    monkeypatch.setattr(life, "protected_snapshot", lambda *args, **kwargs: {"protected": "fixed"})
+    monkeypatch.setattr(life, "_load_selection_inputs", lambda _authority, _claim: inputs)
+    monkeypatch.setattr(
+        life, "_load_fit_bank",
+        lambda _authority: SimpleNamespace(
+            per_head_position_means={layer: _FakeTensor() for layer in life.NAMED_LAYERS}
+        ),
+    )
+    monkeypatch.setattr(life.facade, "load_bilin18", lambda **kwargs: (fake_model, checkpoint))
+    monkeypatch.setattr(life.facade, "validate_production_model", lambda _model: None)
+    monkeypatch.setattr(life, "model_state_sha256", lambda _model: "m" * 64)
+    monkeypatch.setattr(
+        life.PhysicalCandidateDispatcher, "from_native", lambda **kwargs: _FakeDispatcher(),
+    )
+    monkeypatch.setattr(life, "_validate_exact_support", lambda *_args, **_kwargs: None)
+    counters = {"natural": 0, "synthetic": 0}
+
+    class FakeNaturalOwner:
+        def __init__(self, _dispatcher):
+            pass
+
+        def run(self, *_args, **_kwargs):
+            counters["natural"] += 1
+            if fail_during_natural and counters["natural"] == 2:
+                raise RuntimeError("injected partial natural forward")
+            return None
+
+    class FakeSyntheticOwner:
+        def __init__(self, _dispatcher):
+            pass
+
+        def run(self, *_args, **_kwargs):
+            counters["synthetic"] += 1
+            return None
+
+    monkeypatch.setattr(life, "SelectionBatchOwner", FakeNaturalOwner)
+    monkeypatch.setattr(life, "SyntheticSelectionBatchOwner", FakeSyntheticOwner)
+    monkeypatch.setattr(life, "merge_selection_batches", lambda *_args, **_kwargs: natural)
+    monkeypatch.setattr(life, "merge_synthetic_batches", lambda *_args, **_kwargs: synthetic)
+    monkeypatch.setattr(life, "simultaneous_selection_bootstrap", lambda *_args, **_kwargs: selection)
+    return paths, counters, life.execute_selection
 
 
 def test_protocol_freezes_literal_selection_and_call_census():

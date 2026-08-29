@@ -1,0 +1,125 @@
+{
+ "config": {
+  "map_ranks": [
+   512
+  ],
+  "ridge": 0.01,
+  "table_ranks": [
+   "uniform",
+   "attn_heavy",
+   "mlp_heavy"
+  ],
+  "learned": "ridge map from the token embedding to the site row, fitted on the 5419 COVERED tokens and applied only at uncovered ones; still a function of the current token alone",
+  "map_cost_formula": "36 * map_rank * 2 * 1152 reals",
+  "neighbour": "the settled output-NN fallback (\u00a71780/\u00a71781)",
+  "ROLE_NOTE": "DISCOVERY ONLY."
+ },
+ "results": {
+  "skip7000": {
+   "live": {
+    "cov": 3.29205,
+    "all": 3.13704
+   },
+   "m512_uniform": {
+    "cov": 6.10045,
+    "all": 6.02422,
+    "cost_M": 103.1086
+   },
+   "m512_attn_heavy": {
+    "cov": 6.16056,
+    "all": 6.07717,
+    "cost_M": 103.1086
+   },
+   "m512_mlp_heavy": {
+    "cov": 6.0783,
+    "all": 6.00548,
+    "cost_M": 103.1086
+   }
+  },
+  "skip11000": {
+   "live": {
+    "cov": 3.09711,
+    "all": 2.9345
+   },
+   "m512_uniform": {
+    "cov": 6.04503,
+    "all": 5.99343,
+    "cost_M": 103.1086
+   },
+   "m512_attn_heavy": {
+    "cov": 6.10691,
+    "all": 6.04764,
+    "cost_M": 103.1086
+   },
+   "m512_mlp_heavy": {
+    "cov": 6.02266,
+    "all": 5.97526,
+    "cost_M": 103.1086
+   }
+  },
+  "skip1200": {
+   "live": {
+    "cov": 3.40277,
+    "all": 3.23027
+   },
+   "m512_uniform": {
+    "cov": 6.02022,
+    "all": 6.0068,
+    "cost_M": 103.1086
+   },
+   "m512_attn_heavy": {
+    "cov": 6.07345,
+    "all": 6.05398,
+    "cost_M": 103.1086
+   },
+   "m512_mlp_heavy": {
+    "cov": 5.99742,
+    "all": 5.99021,
+    "cost_M": 103.1086
+   }
+  }
+ },
+ "allocation": {
+  "uniform": {
+   "attn": 256,
+   "mlp": 256
+  },
+  "attn_heavy": {
+   "attn": 384,
+   "mlp": 128
+  },
+  "mlp_heavy": {
+   "attn": 128,
+   "mlp": 384
+  }
+ },
+ "allpos_ce": {
+  "skip7000": {
+   "uniform": 6.02422,
+   "attn_heavy": 6.07717,
+   "mlp_heavy": 6.00548
+  },
+  "skip11000": {
+   "uniform": 5.99343,
+   "attn_heavy": 6.04764,
+   "mlp_heavy": 5.97526
+  },
+  "skip1200": {
+   "uniform": 6.0068,
+   "attn_heavy": 6.05398,
+   "mlp_heavy": 5.99021
+  }
+ },
+ "table_cost_M": {
+  "uniform": 103.1086,
+  "attn_heavy": 103.1086,
+  "mlp_heavy": 103.1086
+ },
+ "predictions": {
+  "pred_a_attn_heavy_beats_uniform": false,
+  "pred_b_mlp_heavy_worse": false,
+  "pred_c_costs_matched": true,
+  "pred_d_controls": true
+ },
+ "runtime_s": 767.6
+}

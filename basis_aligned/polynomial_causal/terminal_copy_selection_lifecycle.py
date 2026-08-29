@@ -116,7 +116,13 @@ SOURCE_PATHS = (
     "basis_aligned/polynomial_causal/terminal_copy_selection_owner.py",
     "basis_aligned/polynomial_causal/terminal_copy_selection_lifecycle.py",
     "basis_aligned/polynomial_causal/terminal_copy_streaming_statistics.py",
+    "basis_aligned/polynomial_causal/test_terminal_copy_attention_adapter.py",
+    "basis_aligned/polynomial_causal/test_terminal_copy_attention_dispatcher.py",
+    "basis_aligned/polynomial_causal/test_terminal_copy_attention_owner.py",
+    "basis_aligned/polynomial_causal/test_terminal_copy_selection_fit_parent.py",
     "basis_aligned/polynomial_causal/test_terminal_copy_selection_lifecycle.py",
+    "basis_aligned/polynomial_causal/test_terminal_copy_selection_owner.py",
+    "basis_aligned/polynomial_causal/test_terminal_copy_streaming_statistics.py",
     "jacclust/__init__.py",
     "jacclust/tt_model.py",
 )
@@ -304,6 +310,7 @@ def row_binding() -> dict[str, Any]:
     frequencies = receipt.get("fit_token_frequencies", {})
     license_ = receipt.get("role_licenses", {}).get("selection_natural", {})
     support = receipt.get("support_census", {}).get("selection_natural", {})
+    summary_gates = receipt.get("summary", {}).get("gates", {})
     expected_support = {
         "positive_positions": 303, "matched_negative_positions": 303,
         "positive_documents": 137, "matched_negative_documents": 154,
@@ -316,6 +323,7 @@ def row_binding() -> dict[str, Any]:
         or receipt.get("authorized_for_scored_experiments") is not False
         or receipt.get("summary", {}).get("roles", {}).get("selection_natural") != 192
         or receipt.get("summary", {}).get("synthetic_pairs", {}).get("selection_natural") != 32
+        or summary_gates.get("synthetic_token_banks_are_cross_role_disjoint") is not True
         or support != expected_support
         or license_ != {
             "authorized_use": "candidate_selection_only",
@@ -352,6 +360,7 @@ def row_binding() -> dict[str, Any]:
         "fit_query_frequency_sha256": FIT_QUERY_FREQUENCY_SHA256,
         "fit_target_frequency_sha256": FIT_TARGET_FREQUENCY_SHA256,
         "support_census": expected_support,
+        "row_receipt_cross_role_synthetic_token_banks_disjoint": True,
         "authorized_use": "candidate_selection_only",
         "requires_completed_fit_prerequisite": True,
         "schema_only_pre_authority_container_exposure": True,
@@ -444,6 +453,24 @@ def validate_canonical_audit(path: Path = AUDIT) -> dict[str, Any]:
             file_sha256(HERE / "test_terminal_copy_selection_owner.py"),
         "basis_aligned/polynomial_causal/terminal_copy_selection_fit_parent.py":
             file_sha256(HERE / "terminal_copy_selection_fit_parent.py"),
+        "basis_aligned/polynomial_causal/test_terminal_copy_selection_fit_parent.py":
+            file_sha256(HERE / "test_terminal_copy_selection_fit_parent.py"),
+        "basis_aligned/polynomial_causal/terminal_copy_streaming_statistics.py":
+            file_sha256(HERE / "terminal_copy_streaming_statistics.py"),
+        "basis_aligned/polynomial_causal/test_terminal_copy_streaming_statistics.py":
+            file_sha256(HERE / "test_terminal_copy_streaming_statistics.py"),
+        "basis_aligned/polynomial_causal/terminal_copy_attention_adapter.py":
+            file_sha256(HERE / "terminal_copy_attention_adapter.py"),
+        "basis_aligned/polynomial_causal/test_terminal_copy_attention_adapter.py":
+            file_sha256(HERE / "test_terminal_copy_attention_adapter.py"),
+        "basis_aligned/polynomial_causal/terminal_copy_attention_dispatcher.py":
+            file_sha256(HERE / "terminal_copy_attention_dispatcher.py"),
+        "basis_aligned/polynomial_causal/test_terminal_copy_attention_dispatcher.py":
+            file_sha256(HERE / "test_terminal_copy_attention_dispatcher.py"),
+        "basis_aligned/polynomial_causal/terminal_copy_attention_owner.py":
+            file_sha256(HERE / "terminal_copy_attention_owner.py"),
+        "basis_aligned/polynomial_causal/test_terminal_copy_attention_owner.py":
+            file_sha256(HERE / "test_terminal_copy_attention_owner.py"),
         "basis_aligned/polynomial_causal/TERMINAL_COPY_SELECTION_V1_EXECUTION_RULING.md":
             file_sha256(RULING),
         "basis_aligned/polynomial_causal/TERMINAL_COPY_SELECTION_INPUT_EXPOSURE_ERRATUM.md":
@@ -754,6 +781,7 @@ def _load_selection_inputs(
     successor_z: list[int] = []
     alternating_rows: list[torch.Tensor] = []
     item_ids: list[str] = []
+    seen_synthetic_tokens: set[int] = set()
     for index, bank in enumerate(banks):
         if (
             not isinstance(bank, list) or len(bank) != 4
@@ -761,6 +789,13 @@ def _load_selection_inputs(
             or len(set(bank)) != 4
         ):
             raise RuntimeError("selection synthetic token bank changed")
+        if seen_synthetic_tokens.intersection(bank) or any(
+            token in set(int(value) for value in rows[index]) for token in bank
+        ):
+            raise RuntimeError(
+                "selection synthetic token banks are not cross-item unique and base-row absent"
+            )
+        seen_synthetic_tokens.update(bank)
         first, reciprocal, query = SYNTHETIC_POSITION_TEMPLATES[index % 4]
         replay = contract.build_synthetic_association_crossover(
             tuple(int(value) for value in rows[index]),
@@ -1492,17 +1527,44 @@ def _publish_failure(claim: RunClaim, authority_sha256: str, error: BaseExceptio
     require_claim(claim)
     if PASSER_RECEIPT.exists() or NEGATIVE_RECEIPT.exists():
         raise RuntimeError("cannot publish selection failure after a decision receipt")
+    partial_artifacts: dict[str, Any] = {}
+    for path in (LEDGER, RESULT, MANIFEST):
+        if not path.is_file():
+            partial_artifacts[str(path)] = None
+            continue
+        before = file_sha256(path)
+        raw = path.read_bytes()
+        after = file_sha256(path)
+        parsed: Any = None
+        try:
+            parsed = json.loads(raw)
+        except (json.JSONDecodeError, UnicodeDecodeError):
+            pass
+        partial_artifacts[str(path)] = {
+            "file_sha256": before,
+            "stable_read": before == after == hashlib.sha256(raw).hexdigest(),
+            "json_object": isinstance(parsed, dict),
+            "schema": parsed.get("schema") if isinstance(parsed, dict) else None,
+            "authority_sha256": (
+                parsed.get("authority_sha256") if isinstance(parsed, dict) else None
+            ),
+            "joins_failed_authority": (
+                isinstance(parsed, dict)
+                and parsed.get("authority_sha256") == authority_sha256
+            ),
+        }
     create_only_json(FAILURE, {
         "schema": "terminal_copy_selection_v1_failure",
         "status": "terminal_integrity_or_execution_failure_no_decision_receipt",
         "authority_sha256": authority_sha256,
+        "authority_file_sha256": file_sha256(AUTHORITY) if AUTHORITY.is_file() else None,
         "exception_type": type(error).__name__,
         "exception_message": str(error),
-        "ledger_exists": LEDGER.exists(),
-        "result_exists": RESULT.exists(),
-        "manifest_exists": MANIFEST.exists(),
+        "partial_artifacts": partial_artifacts,
+        "protected_at_failure": protected_snapshot(),
         "passer_receipt_exists": False,
         "negative_receipt_exists": False,
+        "decision_receipts_mutually_absent": True,
         "same_authority_retry_authorized": False,
     })
 
