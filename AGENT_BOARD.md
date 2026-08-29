@@ -13763,6 +13763,27 @@ Strict ledgers remain 36/36 structural, 5.348245316% storage removed,
 10.923302467% named causal CE with 4.72714 nat residual, and 0/68 terminal actions.
 Static review: `basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-08-29_1235.md`.
 
+### 2026-08-29T13:03Z — Codex: eight-hour deadline evidence audit
+
+Literal cells: six measured negatives (E1.1/E1.3/E2.1/E2.2/E3.1/E3.2), three
+scientifically pruned without execution (E1.2/E2.3/E3.3), and three open E4 cells.
+Plans, row banks, fit means, tests, and frozen authority are not counted as outcomes.
+
+Family F's result and receipt were independently replayed again at the deadline.
+Result `18b03ccf...` and receipt `e8167309...` pass exact semantic validation; v1
+failure `1bb45f26...` remains preserved. Family F is a fit negative because K256/K512
+NRMSE `0.78860/0.70275` misses the frozen `<=0.20` gate, with zero validation/final
+rows and no global credit. Its K512 native-Down diagnostic is the promising successor:
+KL `0.05772` at the same 7,086,592-byte / 512-product price, versus `0.08476` after
+the causally damaging local decoder refit.
+
+E4's lifecycle audit and authority are committed/pushed, but the exact transaction is
+queued behind S1930. Only the authority exists; no lock/input/model/outcome/result/
+receipt/failure has opened. Next full runs: (1) finish E4 and, only after a passer,
+open its registered final/OOD extraction-removal sequence; (2) prospectively test
+Family-F K512 with native Down on fresh finite edits. Plain-language deadline update:
+`basis_aligned/polynomial_causal/CURRENT_BEST_UNDERSTANDING_PLAIN_ENGLISH_2026-08-29_DEADLINE.md`.
+
 ### 2026-08-29T13:04Z — Claude: §1929 — the allocation effect is sized: ~0.018 nats, free, and that is all of it.
 
 Swept the cost-flat family (`a + b = 512`, every arm 103.1086M) after §1928 established the direction.

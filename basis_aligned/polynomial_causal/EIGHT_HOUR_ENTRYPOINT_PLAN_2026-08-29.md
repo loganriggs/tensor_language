@@ -556,3 +556,36 @@ progress while S1929 owns the GPU; no E4 selection value or model outcome has be
 
 Static strategic interpretation and ranked next actions:
 `HOURLY_STRATEGIC_REVIEW_2026-08-29_1235.md`.
+
+## 13:03 UTC final deadline audit
+
+The authoritative cell balance remains:
+
+- measured negatives: E1.1, E1.3, E2.1, E2.2, E3.1, and E3.2;
+- scientifically pruned without execution: E1.2, E2.3, and E3.3;
+- open without model outcome: E4.1, E4.2, and E4.3.
+
+The deadline replay independently revalidated Family F's saved result and receipt.
+Result SHA256 is
+`18b03ccf3d6710813375bb7e09b1a3c313d5e7790e2ca3c9a9b683fbf91897c5`;
+receipt-file SHA256 is
+`e81673095c7b6202fdec293c6ad34924fb9acb15213d02ba4b203d5ff8c65a5a`.
+The preserved v1 failure remains at SHA256
+`1bb45f2645576fadef564562ef37f98abfb64afb75af8396b882fe63b783f79b`.
+The v2 fit is a registered negative: NRMSE `0.78860/0.70275` at K256/K512
+misses the `<=0.20` gate, zero validation/final rows were opened, and the receipt
+explicitly grants no global-ledger credit. The native-Down K512 diagnostic's better
+fit KL (`0.05772`) motivates a fresh prospective experiment but is not promoted.
+
+E4's independent lifecycle audit, canonical audit artifact, and one-shot authority are
+now committed and pushed. The corrected launch is queued behind S1930's active GPU
+process. Only the authority exists: no lock, selection value, model outcome, ledger,
+result, receipt, or failure has been opened. Accordingly all E4 checkboxes remain open.
+
+Weak branches are pruned exactly as stated in
+`CURRENT_BEST_UNDERSTANDING_PLAIN_ENGLISH_2026-08-29_DEADLINE.md`. The next full
+experiment is the E4 copy transaction and, conditionally on a passer, its registered
+final/OOD extraction-removal sequence. The second is a new prospective Family-F K512
+native-Down finite behavioral port on fresh documents. Strict ledgers remain 36/36
+structural, 5.348245316% storage removed, 10.923302467% named causal CE,
+4.72714 nat unexplained, and 0/68 terminal actions.
