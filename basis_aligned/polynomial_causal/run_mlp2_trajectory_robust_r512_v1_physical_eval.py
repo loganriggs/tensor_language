@@ -241,16 +241,56 @@ def expected_program_integrity() -> dict[str, Any]:
     return validate_program_integrity(old_bundle, robust_bundle)
 
 
-def failure_terminal_guard(claim, artifact_hashes: dict[Path, str]) -> None:
+def artifact_snapshot() -> dict[str, str | None]:
+    return {path.name: base.file_sha256(path) if path.is_file() else None
+            for path in (AUTHORITY, LEDGER, RESULT)}
+
+
+def failure_terminal_guard(
+    claim, expected_artifacts: dict[str, str | None],
+    expected_authority: dict[str, Any] | None,
+    expected_protected: dict[str, Any] | None,
+) -> None:
     row_life.base.require_claim(claim, LOCK)
     if RECEIPT.exists() or FAILURE.exists():
         raise RuntimeError("physical-eval terminal raced failure")
-    for path, digest in artifact_hashes.items():
-        if base.file_sha256(path) != digest:
-            raise RuntimeError("physical-eval failure artifact changed")
+    if artifact_snapshot() != expected_artifacts:
+        raise RuntimeError("physical-eval failure aggregate artifact state changed")
+    if expected_authority is None:
+        if expected_artifacts.get(AUTHORITY.name) is not None \
+                or expected_protected is not None:
+            raise RuntimeError("physical-eval absent authority failure state changed")
+    else:
+        authority_value, authority_sha = base.stable_json(
+            AUTHORITY, expected_artifacts[AUTHORITY.name],
+        )
+        if authority_value != expected_authority or expected_protected is None \
+                or protected_snapshot(authority_value) != expected_protected \
+                or authority_sha != expected_artifacts[AUTHORITY.name]:
+            raise RuntimeError("physical-eval failure authority or protected state changed")
+    if artifact_snapshot() != expected_artifacts:
+        raise RuntimeError("physical-eval failure artifact state changed during replay")
     if RECEIPT.exists() or FAILURE.exists():
         raise RuntimeError("physical-eval terminal raced failure during artifact replay")
     row_life.base.require_claim(claim, LOCK)
+
+
+def validate_receipt_value(value: Any, authority_sha: str, ledger_sha: str,
+                           result_sha: str) -> dict[str, Any]:
+    expected = {
+        "schema": "mlp2_trajectory_robust_r512_v1_physical_eval_receipt",
+        "status": "result_complete_receipt_last", "authority_sha256": authority_sha,
+        "ledger_sha256": ledger_sha, "result_sha256": result_sha,
+        "evaluation_opened": True,
+    }
+    if value != expected:
+        raise RuntimeError("physical-eval receipt semantics changed")
+    # Force canonical JSON serialization and a semantic round-trip before the
+    # create-only receipt transaction begins.  Nothing fallible follows its link.
+    encoded = json.dumps(value, sort_keys=True, indent=2, allow_nan=False) + "\n"
+    if json.loads(encoded) != expected:
+        raise RuntimeError("physical-eval canonical receipt replay changed")
+    return expected
 
 
 def document_metric(ledger: torch.Tensor, metric: str) -> torch.Tensor:
@@ -519,10 +559,13 @@ def main() -> None:
               if key not in ("parents", "program_integrity")} \
                 or reloaded_result.get("program_integrity") != program_integrity:
             raise RuntimeError("physical-eval result replay changed")
-        receipt = {"schema": "mlp2_trajectory_robust_r512_v1_physical_eval_receipt",
-                   "status": "result_complete_receipt_last", "authority_sha256": authority_sha,
-                   "ledger_sha256": ledger_sha, "result_sha256": result_sha,
-                   "evaluation_opened": True}
+        receipt = validate_receipt_value({
+            "schema": "mlp2_trajectory_robust_r512_v1_physical_eval_receipt",
+            "status": "result_complete_receipt_last", "authority_sha256": authority_sha,
+            "ledger_sha256": ledger_sha, "result_sha256": result_sha,
+            "evaluation_opened": True,
+        }, authority_sha, ledger_sha, result_sha)
+        rendered_result = json.dumps(result, sort_keys=True, indent=2, allow_nan=False)
 
         def receipt_guard() -> None:
             verify_protected(protected, authority, claim)
@@ -532,24 +575,23 @@ def main() -> None:
                 raise RuntimeError("physical-eval terminal raced receipt")
             row_life.base.require_claim(claim, LOCK)
 
+        print(rendered_result)
+        # Receipt publication is deliberately the final fallible transaction action.
         base.atomic_json(RECEIPT, receipt, pre_link_check=receipt_guard)
-        if base.stable_json(RECEIPT)[0] != receipt:
-            raise RuntimeError("physical-eval receipt replay changed")
-        print(json.dumps(result, sort_keys=True, indent=2))
     except BaseException as exc:
         failure = {"schema": "mlp2_trajectory_robust_r512_v1_physical_eval_failure",
                    "status": "terminal_failure_no_receipt", "error": repr(exc),
                    "authority_exists": AUTHORITY.exists(),
                    "evaluation_may_have_opened": evaluation_opened,
                    "protected_snapshot": protected,
-                   "artifact_hashes": {p.name: base.file_sha256(p) for p in (LEDGER, RESULT)
-                                       if p.is_file()}}
+                   "artifact_snapshot": artifact_snapshot()}
         if not RECEIPT.exists() and not FAILURE.exists():
-            frozen_artifacts = {HERE / name: digest
-                                for name, digest in failure["artifact_hashes"].items()}
+            frozen_artifacts = failure["artifact_snapshot"]
 
             def failure_guard() -> None:
-                failure_terminal_guard(claim, frozen_artifacts)
+                failure_terminal_guard(
+                    claim, frozen_artifacts, authority, protected,
+                )
 
             base.atomic_json(FAILURE, failure, pre_link_check=failure_guard)
         raise

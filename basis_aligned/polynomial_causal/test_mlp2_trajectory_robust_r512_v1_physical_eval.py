@@ -139,12 +139,20 @@ def test_failure_guard_rejects_receipt_race(
     lock = tmp_path / "lock"
     receipt = tmp_path / "receipt.json"
     failure = tmp_path / "failure.json"
+    authority_path = tmp_path / "authority.json"
     artifact = tmp_path / "ledger.pt"
+    authority_value = {"bound": True}
+    authority_path.write_text('{"bound": true}\n')
     artifact.write_bytes(b"bound-ledger")
-    digest = hashlib.sha256(artifact.read_bytes()).hexdigest()
     monkeypatch.setattr(assay, "LOCK", lock)
     monkeypatch.setattr(assay, "RECEIPT", receipt)
     monkeypatch.setattr(assay, "FAILURE", failure)
+    monkeypatch.setattr(assay, "AUTHORITY", authority_path)
+    monkeypatch.setattr(assay, "LEDGER", artifact)
+    monkeypatch.setattr(assay, "RESULT", tmp_path / "result.json")
+    protected = {"parents": "bound"}
+    monkeypatch.setattr(assay, "protected_snapshot", lambda _: protected)
+    expected = assay.artifact_snapshot()
     original = assay.base.file_sha256
 
     def racing_hash(path: Path) -> str:
@@ -157,6 +165,48 @@ def test_failure_guard_rejects_receipt_race(
     claim = assay.row_life.base.acquire_claim(lock)
     try:
         with pytest.raises(RuntimeError, match="during artifact replay"):
-            assay.failure_terminal_guard(claim, {artifact: digest})
+            assay.failure_terminal_guard(
+                claim, expected, authority_value, protected,
+            )
     finally:
         assay.row_life.base.release_claim(claim, lock)
+
+
+def test_failure_guard_rejects_late_partial_and_authority_mutation(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    lock, receipt, failure = (tmp_path / name for name in ("lock", "receipt", "failure"))
+    authority_path, ledger, result = (
+        tmp_path / name for name in ("authority.json", "ledger.pt", "result.json")
+    )
+    authority_value = {"bound": True}
+    authority_path.write_text('{"bound": true}\n')
+    monkeypatch.setattr(assay, "LOCK", lock); monkeypatch.setattr(assay, "RECEIPT", receipt)
+    monkeypatch.setattr(assay, "FAILURE", failure); monkeypatch.setattr(assay, "AUTHORITY", authority_path)
+    monkeypatch.setattr(assay, "LEDGER", ledger); monkeypatch.setattr(assay, "RESULT", result)
+    protected = {"parents": "bound"}
+    monkeypatch.setattr(assay, "protected_snapshot", lambda _: protected)
+    expected = assay.artifact_snapshot()
+    claim = assay.row_life.base.acquire_claim(lock)
+    try:
+        ledger.write_bytes(b"late partial")
+        with pytest.raises(RuntimeError, match="aggregate artifact state"):
+            assay.failure_terminal_guard(claim, expected, authority_value, protected)
+        ledger.unlink()
+        authority_path.write_text('{"bound": false}\n')
+        with pytest.raises(RuntimeError, match="aggregate artifact state"):
+            assay.failure_terminal_guard(claim, expected, authority_value, protected)
+    finally:
+        assay.row_life.base.release_claim(claim, lock)
+
+
+def test_receipt_is_exact_and_canonical() -> None:
+    value = assay.validate_receipt_value({
+        "schema": "mlp2_trajectory_robust_r512_v1_physical_eval_receipt",
+        "status": "result_complete_receipt_last", "authority_sha256": "a",
+        "ledger_sha256": "l", "result_sha256": "r", "evaluation_opened": True,
+    }, "a", "l", "r")
+    assert value["status"] == "result_complete_receipt_last"
+    changed = dict(value); changed["evaluation_opened"] = False
+    with pytest.raises(RuntimeError, match="receipt semantics"):
+        assay.validate_receipt_value(changed, "a", "l", "r")
