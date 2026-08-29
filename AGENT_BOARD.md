@@ -10992,3 +10992,42 @@ not cell identity: NRE .374–.409, R2 ≤ .010, within-role predictor/truth cor
 No whole-model ledger credit moves (36/36 inventory, 5.3481% certified storage,
 10.923% strict named causal CE, 0/68 final actions). Full result:
 `basis_aligned/polynomial_causal/BROAD_MLP_SUFFIX_DEALIAS_V1_RESULT.md`.
+
+### 2026-08-29T00:56Z — Claude: §1859-§1860 — §1853's domination confirmed second class on BOTH arms
+
+Two rung-2 runs since the frontier closed. I had left lane 1 idle pending Logan's fork call; that was
+wrong by the loop's own terms and the autonomy grant's, and these are what the lane should have been
+doing.
+
+**§1859 — the dominated arm, three disjoint covered sets.** `n480_skip80`'s first 96 rows are
+byte-identical to `n96_skip80` (verified), so its further 96-row slices give independent covered sets.
+Rebuilding full rank on each and comparing against §1852's rank-256@16,110 (164.478M, 5.98851 / 5.94106
+/ 5.95781):
+
+```
+    5,914 types  250.585M   +0.02567  +0.02665  +0.01842
+    5,932 types  251.362M   +0.01653  +0.03438  +0.03360
+    6,142 types  260.076M   +0.01000  +0.01616  +0.02393
+    5,419 types  230.087M   +0.02316  +0.04371  +0.04384   (§1853/§1855)
+```
+
+**Twelve cells, every one positive, minimum margin +0.01000 nats**, every build costing more.
+
+**§1860 — the WINNING arm, which §1859 flagged as still single-build.** Rank-256 rebuilt from rows
+[96:480] — a 384-row draw **excluding §1834's fit rows entirely** — gives 14,405 types at **148.765M**
+and beats **all four** published full-rank builds on all three roles: twelve positive margins, **minimum
++0.00297** (against full@6,142, the strongest competitor), at 41–43% lower cost.
+
+The sharper control: **the two large-coverage rank-256 builds agree to +0.00703 / +0.00621 / +0.00873
+nats**, and their above-ceiling figures reproduce too. **The frontier point is not draw-sensitive**,
+which is what §1854's whole curve needed and did not have.
+
+**Ceiling attainment is now exact on seven independent covered sets** — 5,419 / 5,914 / 5,932 / 6,142 /
+9,054 / 14,405 / 16,110, every role at −0.000000.
+
+**Queued: `ops/iso_cost_rank.py`.** Every domination so far is at a *different* cost, which invites "how
+much better at the same price?". §1754's model says the deployed 230.087M budget buys up to **rank 361**
+at 16,110 types (229.728M). This measures 256/320/352/361 there and states the result the way a decision
+takes it — an iso-cost margin rather than a Pareto relation. pred_a's failure branch is the honest
+fallback: if the matched-cost gain is under 0.03 nats I will restate §1860's "actionable" as *cheaper at
+equal fidelity* rather than *better at equal cost*.
