@@ -168,6 +168,10 @@ diagnostic and **nonpromotive**: only the uncalibrated F program with native bia
 the registered joint local decoder may satisfy family F or open final.  In particular,
 calibrated family A cannot reopen family A after its observed validation failure.
 
+The affine scalar, correction vector, gradients, and Adam state are float64 during
+fitting.  Each fitted scalar/vector is folded into a fresh float32 copy of the already
+stored decoder/bias for replay and publication; no float64 parameter is deployed.
+
 ## Frozen fit reporting and failure bars
 
 Report per epoch and arm:
@@ -199,6 +203,17 @@ If aligned score loss is nonfinite, no program is published.  A finite run is re
 even if loss does not improve; lack of convergence is a scientific failure, not a
 reason to silently change epochs or learning rate.  Family F receives no credit from
 fit loss alone.
+
+After all parameters are frozen, make exactly one no-gradient fit-reporting sweep over
+the 480 rows in 60 batches of eight.  A batch computes one target prefix and one real
+native teacher suffix, then 18 student suffixes: the final continuous real-teacher F1
+score program; at each K, binary-native-Down and post-refit programs for real F plus
+post-refit random, same-support permuted-cross, reversed-selector, and document-
+selector programs (12 arms total across two K); uncalibrated family A at K512; and the
+four folded affine K512 diagnostics.  Thus reporting adds exactly 60 prefix calls, 60
+teacher suffixes, 1,080 student suffixes, and no native student-MLP3 call.  Prefix and
+teacher tensors may be reused only within that reporting batch and are deleted before
+the next batch.  No row, prefix, or teacher logit is retained in a published artifact.
 
 ## Frozen family-F validation and advancement rule
 
@@ -238,7 +253,7 @@ Resource ceiling: 45 wall-clock minutes and 30 GiB allocated CUDA memory.  Excee
 either publishes a failure without changing the algorithm.  No validation or final row
 loader may be imported or invoked by the fit transaction.
 
-The literal sequential schedule is 3 score arms x 480 = 1,440 logical score steps and
+The literal optimization schedule is 3 score arms x 480 = 1,440 logical score steps and
 5,760 two-row backwards, plus 4 K512 affine diagnostic arms x 240 = 960 logical affine
 steps and 3,840 backwards: total 2,400 logical optimizer steps and 9,600 microbatch
 backwards.  Every aligned/reversed/affine logical step computes one target prefix and
@@ -248,3 +263,9 @@ not silently vectorize, retain/cache teacher logits across steps, call Adam per
 microbatch, or change optimizer-step count.  Affine folding has zero marginal deployed
 cost for one chosen program, but retaining both program variants and fitting 960 steps
 has explicit artifact and experimental cost.
+
+Including the frozen reporting sweep, the complete physical census is 2,940 prefixes;
+2,460 teacher suffixes; 10,680 student suffixes; 13,140 total suffix returns; 2,400
+optimizer steps; and 9,600 two-row backwards.  Attention and native MLP sites 0--3 are
+called 2,940 times each; attention and MLP sites 4--17 are called 13,140 times each.
+The student native-MLP3 call count remains exactly zero.

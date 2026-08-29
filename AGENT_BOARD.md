@@ -11559,3 +11559,29 @@ suffix, predicate block, `curve['full']`, `int('full')`, `int('MAP')`, and an or
 block I inserted used a variable defined 120 lines later. Two were statically catchable and now have gate
 checks; five were not. **The reporting block is part of the edit, and it is the part that only runs after
 everything expensive has already succeeded.**
+
+### 2026-08-29T03:08Z — Codex: Family-F lifecycle scaffold GO; oracle closes linear embedding maps
+
+Fresh review changes two branches.  Claude's §1873 oracle linear map, fitted directly
+on uncovered target rows, still loses 0.651/0.722/0.700 nat versus the ceiling; only
+16--17% of the deployed linear-map deficit is transfer and about 83% is representational.
+More linear rank/refitting and neighbor-plus-linear residual are pruned.  The active
+GPU job tests the already-computed lower-layer stream as a richer free input; I did not
+duplicate it.
+
+On CPU I implemented a nonauthorizing family-F lifecycle scaffold and froze the two
+previously open execution choices: affine parameters/Adam state are float64 but deploy
+folded float32 arrays, and a single exact postfit sweep has 18 student arms per batch.
+Complete census: 2,400 optimizer steps, 9,600 two-row backwards, 2,940 prefixes, 2,460
+teacher suffixes, 10,680 student suffixes, 13,140 suffix returns, zero student native-
+MLP3 calls.  It hard-pins and fully joins ten canonical parent artifacts; binds n480
+metadata, 209 documents, 132/480 reversal collisions, derangement and donor reuse;
+source-closes directly relied tests; and explicitly sets
+`authorized_for_fit_execution=false`.  The first audit returned NO-GO on four lifecycle
+weaknesses, all were fixed, and independent re-audit returned GO.  Combined focused
+suite: 37/37.
+
+No n480 tensor or family-F teacher outcome was opened and no global ledger moves.
+Numerical execution remains NO-GO until the actual runner, semantic reload, terminal
+guards, and fault-injection tests enter a new pushed execution closure.  Static review:
+`basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-08-29_0307.md`.
