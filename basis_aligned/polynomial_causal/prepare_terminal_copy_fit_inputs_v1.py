@@ -145,6 +145,14 @@ def parent_binding() -> dict[str, Any]:
     }
 
 
+def expected_outputs() -> dict[str, str]:
+    return {
+        "authority": str(AUTHORITY), "inputs": str(INPUTS),
+        "manifest": str(MANIFEST), "receipt": str(RECEIPT),
+        "failure": str(FAILURE), "lock": str(LOCK),
+    }
+
+
 def validate_audit(path: Path = AUDIT) -> dict[str, Any]:
     if path.resolve() != AUDIT.resolve():
         raise RuntimeError("fit-input audit path changed")
@@ -176,13 +184,107 @@ def validate_audit(path: Path = AUDIT) -> dict[str, Any]:
     return value
 
 
+def validate_authority(value: Mapping[str, Any]) -> None:
+    expected_keys = {
+        "schema", "status", "source_closure", "parent_binding", "erratum_path",
+        "erratum_sha256", "audit_path", "audit_sha256", "outputs",
+        "E4_fit_model_forward_calls_before_authority",
+        "authorized_for_fit_input_projection", "authorized_for_model_forward",
+        "authorized_for_candidate_selection", "authority_sha256",
+    }
+    body = {key: item for key, item in value.items() if key != "authority_sha256"}
+    if (
+        set(value) != expected_keys
+        or value.get("schema") != "terminal_copy_fit_inputs_v1_authority"
+        or value.get("status")
+        != "frozen_before_any_E4_fit_model_forward_after_disclosed_parent_container_access"
+        or logical_sha256(body) != value.get("authority_sha256")
+        or value.get("parent_binding") != parent_binding()
+        or value.get("erratum_path") != str(ERRATUM)
+        or value.get("erratum_sha256") != file_sha256(ERRATUM)
+        or value.get("audit_path") != str(AUDIT)
+        or value.get("audit_sha256") != file_sha256(AUDIT)
+        or value.get("outputs") != expected_outputs()
+        or value.get("E4_fit_model_forward_calls_before_authority") != 0
+        or value.get("authorized_for_fit_input_projection") is not True
+        or value.get("authorized_for_model_forward") is not False
+        or value.get("authorized_for_candidate_selection") is not False
+    ):
+        raise RuntimeError("fit-input authority identity or claim boundary changed")
+    validate_audit()
+    verify_source(value["source_closure"])
+
+
+def validate_published_metadata() -> dict[str, Any]:
+    """Replay the completed projection chain without loading tensor contents."""
+
+    authority = stable_json(AUTHORITY)
+    validate_authority(authority)
+    manifest = stable_json(MANIFEST)
+    receipt = stable_json(RECEIPT)
+    input_hash = file_sha256(INPUTS)
+    if (
+        set(manifest) != {
+            "schema", "authority_sha256", "inputs_file_sha256", "tokens_sha256",
+            "ordered_document_ids_sha256", "exposed_payload_fields",
+            "forbidden_fields_absent",
+        }
+        or manifest.get("schema") != "terminal_copy_fit_inputs_v1_manifest"
+        or manifest.get("authority_sha256") != authority["authority_sha256"]
+        or manifest.get("inputs_file_sha256") != input_hash
+        or manifest.get("forbidden_fields_absent") is not True
+        or set(receipt) != {
+            "schema", "status", "authority_file_sha256", "authority_sha256",
+            "inputs_path", "inputs_file_sha256", "manifest_file_sha256",
+            "parent_row_receipt_sha256", "erratum_sha256", "tokens_shape",
+            "tokens_sha256", "ordered_document_ids_sha256", "payload_fields",
+            "label_copy_cell_synthetic_fields_absent",
+            "parent_container_fully_deserialized_during_projection",
+            "parent_container_fields_indexed", "model_imported", "checkpoint_loaded",
+            "E4_fit_model_forward_calls", "scientific_outcomes_read",
+            "authorized_for_fit_mean_input_only", "authorized_for_candidate_selection",
+        }
+        or receipt.get("schema") != "terminal_copy_fit_inputs_v1_receipt"
+        or receipt.get("status") != "complete_receipt_last_input_only_no_model_access"
+        or receipt.get("authority_file_sha256") != file_sha256(AUTHORITY)
+        or receipt.get("authority_sha256") != authority["authority_sha256"]
+        or receipt.get("inputs_path") != str(INPUTS)
+        or receipt.get("inputs_file_sha256") != input_hash
+        or receipt.get("manifest_file_sha256") != file_sha256(MANIFEST)
+        or receipt.get("parent_row_receipt_sha256") != PARENT_RECEIPT_SHA256
+        or receipt.get("erratum_sha256") != file_sha256(ERRATUM)
+        or receipt.get("tokens_shape") != [192, 256]
+        or receipt.get("tokens_sha256") != manifest["tokens_sha256"]
+        or receipt.get("ordered_document_ids_sha256")
+        != manifest["ordered_document_ids_sha256"]
+        or receipt.get("payload_fields") != manifest["exposed_payload_fields"]
+        or receipt.get("label_copy_cell_synthetic_fields_absent") is not True
+        or receipt.get("parent_container_fully_deserialized_during_projection") is not True
+        or receipt.get("parent_container_fields_indexed") != ["records", "rows"]
+        or receipt.get("model_imported") is not False
+        or receipt.get("checkpoint_loaded") is not False
+        or receipt.get("E4_fit_model_forward_calls") != 0
+        or receipt.get("scientific_outcomes_read") is not False
+        or receipt.get("authorized_for_fit_mean_input_only") is not True
+        or receipt.get("authorized_for_candidate_selection") is not False
+    ):
+        raise RuntimeError("completed fit-input metadata chain changed")
+    return {
+        "authority": authority,
+        "manifest": manifest,
+        "receipt": receipt,
+        "input_file_sha256": input_hash,
+    }
+
+
 class Claim(NamedTuple):
     descriptor: int
     inode: int
     nonce: str
 
 
-def acquire_claim(path: Path = LOCK) -> Claim:
+def acquire_claim(path: Path | None = None) -> Claim:
+    path = LOCK if path is None else path
     path.parent.mkdir(parents=True, exist_ok=True)
     nonce = secrets.token_hex(32)
     descriptor = os.open(path, os.O_WRONLY | os.O_CREAT | os.O_EXCL, 0o600)
@@ -196,7 +298,8 @@ def acquire_claim(path: Path = LOCK) -> Claim:
         raise
 
 
-def require_claim(claim: Claim, path: Path = LOCK) -> None:
+def require_claim(claim: Claim, path: Path | None = None) -> None:
+    path = LOCK if path is None else path
     if (
         not path.is_file() or path.stat().st_ino != claim.inode
         or path.read_text() != claim.nonce + "\n"
@@ -204,7 +307,8 @@ def require_claim(claim: Claim, path: Path = LOCK) -> None:
         raise RuntimeError("fit-input lock ownership changed")
 
 
-def release_claim(claim: Claim, path: Path = LOCK) -> None:
+def release_claim(claim: Claim, path: Path | None = None) -> None:
+    path = LOCK if path is None else path
     try:
         if path.exists() and path.stat().st_ino == claim.inode:
             path.unlink()
@@ -221,6 +325,11 @@ def create_only_bytes(path: Path, data: bytes) -> None:
             sink.flush()
             os.fsync(sink.fileno())
         os.link(temporary, path)
+        directory = os.open(path.parent, os.O_RDONLY)
+        try:
+            os.fsync(directory)
+        finally:
+            os.close(directory)
     finally:
         temporary.unlink(missing_ok=True)
 
@@ -240,6 +349,11 @@ def create_only_torch(path: Path, value: Mapping[str, Any]) -> None:
             sink.flush()
             os.fsync(sink.fileno())
         os.link(temporary, path)
+        directory = os.open(path.parent, os.O_RDONLY)
+        try:
+            os.fsync(directory)
+        finally:
+            os.close(directory)
     finally:
         temporary.unlink(missing_ok=True)
 
@@ -285,10 +399,8 @@ def execute() -> dict[str, Any]:
         "erratum_sha256": file_sha256(ERRATUM),
         "audit_path": str(AUDIT),
         "audit_sha256": file_sha256(AUDIT),
-        "outputs": {"authority": str(AUTHORITY), "inputs": str(INPUTS),
-                    "manifest": str(MANIFEST), "receipt": str(RECEIPT),
-                    "failure": str(FAILURE), "lock": str(LOCK)},
-        "model_forward_calls_before_authority": 0,
+        "outputs": expected_outputs(),
+        "E4_fit_model_forward_calls_before_authority": 0,
         "authorized_for_fit_input_projection": True,
         "authorized_for_model_forward": False,
         "authorized_for_candidate_selection": False,
@@ -298,6 +410,7 @@ def execute() -> dict[str, Any]:
     claim = acquire_claim()
     try:
         require_claim(claim)
+        validate_authority(authority)
         container = Path(parent["container_path"])
         before = file_sha256(container)
         if before != parent["container_sha256"]:
@@ -350,6 +463,7 @@ def execute() -> dict[str, Any]:
             parent_binding() != parent or validate_audit() != audit
             or stable_json(AUTHORITY) != authority
             or stable_json(MANIFEST) != manifest
+            or file_sha256(INPUTS) != manifest["inputs_file_sha256"]
             or FAILURE.exists() or RECEIPT.exists()
             or validate_projection(INPUTS, authority["authority_sha256"])["tokens_sha256"]
             != replay["tokens_sha256"]
@@ -362,7 +476,7 @@ def execute() -> dict[str, Any]:
             "authority_file_sha256": file_sha256(AUTHORITY),
             "authority_sha256": authority["authority_sha256"],
             "inputs_path": str(INPUTS),
-            "inputs_file_sha256": file_sha256(INPUTS),
+            "inputs_file_sha256": manifest["inputs_file_sha256"],
             "manifest_file_sha256": file_sha256(MANIFEST),
             "parent_row_receipt_sha256": PARENT_RECEIPT_SHA256,
             "erratum_sha256": file_sha256(ERRATUM),
@@ -371,17 +485,33 @@ def execute() -> dict[str, Any]:
             "ordered_document_ids_sha256": replay["ordered_document_ids_sha256"],
             "payload_fields": sorted(replay),
             "label_copy_cell_synthetic_fields_absent": True,
+            "parent_container_fully_deserialized_during_projection": True,
+            "parent_container_fields_indexed": ["records", "rows"],
             "model_imported": False,
             "checkpoint_loaded": False,
-            "model_forward_calls": 0,
+            "E4_fit_model_forward_calls": 0,
             "scientific_outcomes_read": False,
             "authorized_for_fit_mean_input_only": True,
             "authorized_for_candidate_selection": False,
         }
+        # Sole receipt-write barrier: repeat every mutable join after constructing
+        # the receipt so no intervening helper work remains.
+        require_claim(claim)
+        validate_authority(authority)
+        if (
+            parent_binding() != parent
+            or stable_json(AUTHORITY) != authority
+            or stable_json(MANIFEST) != manifest
+            or file_sha256(INPUTS) != manifest["inputs_file_sha256"]
+            or file_sha256(Path(parent["container_path"])) != parent["container_sha256"]
+            or FAILURE.exists() or RECEIPT.exists()
+        ):
+            raise RuntimeError("fit-input adjacent receipt gate failed")
         create_only_json(RECEIPT, receipt)
         return receipt
     except BaseException as error:
         if not RECEIPT.exists() and not FAILURE.exists():
+            require_claim(claim)
             create_only_json(FAILURE, {
                 "schema": "terminal_copy_fit_inputs_v1_failure",
                 "status": "terminal_failure_no_success_receipt",

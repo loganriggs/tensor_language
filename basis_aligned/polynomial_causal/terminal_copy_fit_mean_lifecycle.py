@@ -22,6 +22,7 @@ from typing import Any, Mapping, NamedTuple, Sequence
 import torch
 
 import bilin18_observed_model_facade as facade
+import prepare_terminal_copy_fit_inputs_v1 as fit_input_projection
 from terminal_copy_attention_dispatcher import NAMED_LAYERS, PhysicalCandidateDispatcher
 from terminal_copy_fit_head_means import (
     FitHeadMeanAccumulator,
@@ -44,6 +45,7 @@ ROW_RECEIPT_SHA256 = "aea52a94c643906ef822a7c6ddb37a371b4315507a1a0a79acd539a19a
 FIT_INPUT_AUTHORITY = BQ / "terminal_copy_fit_inputs_v1_authority.json"
 FIT_INPUT_RECEIPT = BQ / "terminal_copy_fit_inputs_v1_receipt.json"
 FIT_INPUTS = BQ / ".rowcache_terminal_copy_fit_inputs_v1" / "fit_inputs.pt"
+FIT_INPUT_MANIFEST = BQ / "terminal_copy_fit_inputs_v1_manifest.json"
 FIT_INPUT_ERRATUM = HERE / "TERMINAL_COPY_FIT_INPUT_EXPOSURE_ERRATUM.md"
 ADAPTER_RECEIPT = HERE / "terminal_copy_attention_checkpoint_check_v3_receipt.json"
 ADAPTER_RECEIPT_SHA256 = "c5ef51670b6e23bb3cddbbef6c5cd451dff55eea8b8f7ddfdf20aca7374bb324"
@@ -64,6 +66,7 @@ PROTECTED_PATHS = (
     FIT_INPUT_AUTHORITY,
     FIT_INPUT_RECEIPT,
     FIT_INPUTS,
+    FIT_INPUT_MANIFEST,
     ADAPTER_RECEIPT,
     ADAPTER_RESULT,
     facade.DEFAULT_SNAPSHOT / "config.json",
@@ -80,6 +83,7 @@ SOURCE_PATHS = (
     "basis_aligned/polynomial_causal/terminal_copy_fit_head_means.py",
     "basis_aligned/polynomial_causal/terminal_copy_fit_mean_owner.py",
     "basis_aligned/polynomial_causal/terminal_copy_fit_mean_lifecycle.py",
+    "basis_aligned/polynomial_causal/prepare_terminal_copy_fit_inputs_v1.py",
     "basis_aligned/polynomial_causal/terminal_copy_induction_v1.py",
     "basis_aligned/polynomial_causal/terminal_copy_streaming_statistics.py",
     "basis_aligned/polynomial_causal/test_terminal_copy_attention_adapter.py",
@@ -253,10 +257,13 @@ def row_binding() -> dict[str, Any]:
 
     if file_sha256(ROW_RECEIPT) != ROW_RECEIPT_SHA256 or not (
         FIT_INPUT_AUTHORITY.is_file() and FIT_INPUT_RECEIPT.is_file()
+        and FIT_INPUT_MANIFEST.is_file() and FIT_INPUTS.is_file()
     ):
         raise RuntimeError("terminal-copy row receipt bytes changed")
-    receipt = _stable_json(FIT_INPUT_RECEIPT)
-    projection_authority = _stable_json(FIT_INPUT_AUTHORITY)
+    metadata = fit_input_projection.validate_published_metadata()
+    receipt = metadata["receipt"]
+    projection_authority = metadata["authority"]
+    manifest = metadata["manifest"]
     projection_body = {
         key: value for key, value in projection_authority.items()
         if key != "authority_sha256"
@@ -275,7 +282,7 @@ def row_binding() -> dict[str, Any]:
         or receipt.get("tokens_shape") != [192, 256]
         or set(receipt.get("payload_fields", ())) != payload_fields
         or receipt.get("label_copy_cell_synthetic_fields_absent") is not True
-        or receipt.get("model_forward_calls") != 0
+        or receipt.get("E4_fit_model_forward_calls") != 0
         or receipt.get("scientific_outcomes_read") is not False
         or receipt.get("authorized_for_fit_mean_input_only") is not True
         or receipt.get("authorized_for_candidate_selection") is not False
@@ -286,6 +293,8 @@ def row_binding() -> dict[str, Any]:
         or not isinstance(receipt.get("inputs_path"), str)
         or not Path(receipt["inputs_path"]).is_file()
         or file_sha256(Path(receipt["inputs_path"])) != receipt.get("inputs_file_sha256")
+        or receipt.get("manifest_file_sha256") != file_sha256(FIT_INPUT_MANIFEST)
+        or manifest.get("inputs_file_sha256") != receipt.get("inputs_file_sha256")
     ):
         raise RuntimeError("sanitized fit-input receipt semantics changed")
     body = {
@@ -546,7 +555,11 @@ def load_bank_semantically(
 ) -> FitHeadMeanBank:
     """Reload tensors and prove their meaning, rather than trusting a file hash alone."""
 
+    before = file_sha256(path)
     payload = torch.load(path, map_location="cpu", weights_only=True)
+    after = file_sha256(path)
+    if before != after:
+        raise RuntimeError("serialized fit-mean bank changed during semantic reload")
     expected_keys = {
         "schema", "authority_sha256", "document_count",
         "ordered_document_ids_sha256", "source_dtype", "accumulator_dtype",
@@ -840,16 +853,18 @@ def _publish_fit_mean_bundle(
     require_claim(claim)
     validate_execution_authority(authority)
     final_protected = protected_snapshot()
+    final_replay = load_bank_semantically(BANK, authority_sha, require_production=True)
+    protected_after_replay = protected_snapshot()
     if (
         final_protected != live_protected
+        or protected_after_replay != live_protected
         or FAILURE.exists()
         or RECEIPT.exists()
         or _stable_json(RESULT) != result
         or _stable_json(MANIFEST) != manifest
         or file_sha256(BANK) != result["bank_file_sha256"]
         or file_sha256(RESULT) != manifest["files"][str(RESULT)]
-        or load_bank_semantically(BANK, authority_sha, require_production=True).runtime_means_sha256
-        != replay.runtime_means_sha256
+        or final_replay.runtime_means_sha256 != replay.runtime_means_sha256
     ):
         raise RuntimeError("fit-mean terminal publication recheck failed")
     receipt = {

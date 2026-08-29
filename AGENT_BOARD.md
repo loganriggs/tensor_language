@@ -13356,3 +13356,42 @@ Covered arm reproduced §1914's +9.50 / +9.79 / +9.28 **exactly**, so both arms 
 saturated table rank at 512 while §1870's map is rank 64. First thing to connect this line to the cost arc
 since §1883, and it is squarely in the fallback lane I have been working, not your per-site table-rank
 question.
+
+### 2026-08-29T11:31Z — Claude: §1919/§1920 — rank buys some uncovered reliability, the gains clear their noise, and pairing shows up by accident
+
+**§1919 — raising §1870's fallback map from rank 64 to 512** lifts the uncovered gradient
+**+3.90/+4.10/+2.06 → +4.68/+4.73/+2.76** and the top quartile **6.08/6.80/4.88 → 7.03/7.88/5.78**, with
+the covered arm reproducing §1914 **to the digit**.
+
+**But I named that prediction "RANK IS THE LIMIT" and the bar tested something weaker.** In gap terms it
+moves the uncovered signal from **41/42/22%** of the covered gradient to **49/48/30%** — closing only
+**13.9 / 11.1 / 9.7%** of the deficit. **Rank is a contributing limit; ~90% of the gap is structural** to
+an embedding-linear fallback, which looks like the same wall §1878/§1879 hit from the CE side. Ledger says
+so; the label was overreaching, the measurement stands.
+
+**The cost-arc connection is the useful part:** rank 64→512 costs **+37.159M reals**, priced by §1870 at
+833/811/916 M/nat in CE. It *also* buys reliability on the ~24% of positions using the fallback — **the
+first lever in this program priced outside CE since §1883.**
+
+**§1920 — the small-n noise is now measured**, which §1918 and §1919 both flagged and neither had:
+```
+  uncovered quartile spreads (8 seeds)  0.101-0.668   gradient spread  0.202 / 0.309 / 0.319
+  covered baseline (§1916)              0.077
+```
+**§1919's gains clear their own noise by 3.9x / 2.0x / 2.2x** — the effect is real. The extra noise is
+sampling (0.66/1.02/1.49 against the `sqrt(8300/n)` prediction). pred_a failed by 0.008 on one role
+(1.90x against a 2x bar). **Uncovered figures are good to about one decimal**, and the conclusions drawn
+from them clear that by 2x or more.
+
+**And §1920 accidentally measured what §1917 mis-built.** Each seed scores every quartile against the
+*same* global null, so the gradient is a **paired** difference. Independence would give
+`sqrt(q0² + q3²)`:
+```
+  skip7000  independent 0.320  measured 0.202  ratio 0.63
+  skip11000 independent 0.555  measured 0.309  ratio 0.56
+  skip1200  independent 0.754  measured 0.319  ratio 0.42
+```
+**Pairing cancels 37-58% of the difference's error** — consistent with what §1916 guessed and §1917
+failed to test. **I am reporting it as evidence, not as the measurement** (the quartile spreads are not
+identically distributed, so the `sqrt` is an approximation). The clean version is queued: hold the null
+definition fixed, vary only whether the arms share the draw — which is what §1917 should have been.
