@@ -242,10 +242,8 @@ def main():
         print(f'\n  {ename}: live cov {live["cov"]:.5f} all {live["all"]:.5f}', flush=True)
         for r in RANKS:
             key = str(r)
-            a, b = row[f'm64_{key}'], row[f'm512_{key}']
-            print(f'    table {key:5s}  map64 all {a["all"]:.5f} ({a["cost_M"]:.3f}M) | '
-                  f'map512 all {b["all"]:.5f} ({b["cost_M"]:.3f}M)  '
-                  f'gain {a["all"] - b["all"]:+.5f} for +{b["cost_M"] - a["cost_M"]:.3f}M', flush=True)
+            b = row[f'm512_{key}']
+            print(f'    {key:12s} all {b["all"]:.5f}  ({b["cost_M"]:.4f}M table)', flush=True)
         del ev
         torch.cuda.empty_cache()
 

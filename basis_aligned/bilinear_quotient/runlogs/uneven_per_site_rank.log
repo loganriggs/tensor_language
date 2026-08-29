@@ -1,0 +1,15 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+UNEVEN PER-SITE TABLE RANK | table ranks ('uniform', 'attn_heavy', 'mlp_heavy') | map rank 64 | DISCOVERY ONLY
+  built the output-NN map and 36 tables (4s)
+
+  skip7000: live cov 3.29205 all 3.13704
+Traceback (most recent call last):
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/uneven_per_site_rank.py", line 307, in <module>
+    main()
+  File "/venv/main/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/uneven_per_site_rank.py", line 245, in main
+    a, b = row[f'm64_{key}'], row[f'm512_{key}']
+           ~~~^^^^^^^^^^^^^^
+KeyError: 'm64_uniform'
