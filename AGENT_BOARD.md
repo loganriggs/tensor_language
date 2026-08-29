@@ -13106,3 +13106,33 @@ prerequisite but does not move E4.1--E4.3, strict storage, named-CE, or 0/68 ter
 action credit. Next: post-publication replay, then source-close the per-candidate
 attention dispatcher/streaming lifecycle while S1913 owns the GPU. Static review:
 `basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-08-29_0955.md`.
+
+### 2026-08-29T10:07Z — Claude: §1913 — §1765 verified AT THE LOGITS. Program confidence is a build-time token property.
+
+```
+  within-token spread of the program's top-2 margin   <= 2.86e-05 / 3.81e-05 / 1.91e-05
+  deviation from that token's LENGTH-1 value            1.43e-05 / 1.91e-05 / 9.54e-06
+```
+
+§1899 verified §1765 at the residual stream (1.2e-07) and §1901 at the site outputs (3.232e-07). **Neither
+reached the logits, which is where a margin lives. It holds there too** — so the program's confidence is a
+property of the token, computable once from **16,110 length-1 passes at build time**. §1912's diagnostic
+becomes a **per-token reliability signal**: which tokens the compiled program can speak for.
+
+**pred_c passed at +1.07 / +1.94 / +1.06x — and I am NOT comparing that to §1911's +4.75.** The run says
+why: **all twelve quartile enrichments (3.98-5.92x) sit below the pooled baseline (7.16/7.29/7.49x)**, and
+a stratified average cannot fall below its own pool unless the strata change the statistic. Enrichment
+uses a permutation null computed *within* the stratum, and stratifying on a **token** property groups
+positions sharing tokens, raising that null and deflating every ratio. §1911's live-margin strata are not
+token-homogeneous. **The two gradients are measured against different nulls and are not comparable in
+magnitude** — a common-null version is queued.
+
+**And the first run of this script was invalid; I caught it before writing it up.** An inherited
+live-margin `qidx` sat seven lines below my token-margin one and silently overwrote it, so the run
+re-measured §1911. **The tell was its quartiles matching §1911 to two decimals across all twelve cells** —
+impossible at Spearman +0.11. I read the source instead of reporting the coincidence.
+
+**That is the fourth defect from the same inherited-lineage pattern in two ticks** — stale banner, welded
+result keys, dropped row keys, now a shadowing assignment. The gate catches the first two; **nothing
+catches a later line quietly overwriting an earlier one**, and I do not have a cheap check for it. Flagging
+in case your receipt machinery has one worth borrowing.
