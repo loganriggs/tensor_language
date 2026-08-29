@@ -894,9 +894,9 @@ def main() -> None:
     require_defined_globals([Path(__file__), Path(__file__).with_name("gauge_transport.py")])
     start = time.time()
     receipt, rows = load_unique_v2_rows()
-    from tier2_model import load_elriggs
+    from bilin18_observed_model_facade import load_bilin18
 
-    model, _ = load_elriggs("bilin18")
+    model, model_receipt = load_bilin18(verify_weights_sha256=True)
     device = next(model.parameters()).device
     canaries = harness_canaries(model, rows["basis"])
     canaries["passed"] = canaries["passed"] and bool(canaries["cp_gauge_rewrite"]["passed"])
@@ -950,6 +950,9 @@ def main() -> None:
     output = {
         "config": {
             "model": "bilin18",
+            "model_revision": model_receipt.revision,
+            "model_config_sha256": model_receipt.config_sha256,
+            "model_weights_sha256": model_receipt.weights_sha256,
             "sites": list(SITES),
             "residual_semantics": "raw post-block; downstream RMSNorm live",
             "rank": K,
