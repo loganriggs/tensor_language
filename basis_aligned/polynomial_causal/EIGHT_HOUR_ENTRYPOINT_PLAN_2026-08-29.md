@@ -286,6 +286,22 @@ has a concentrated intended effect and limited collateral damage.  Top-1 agreeme
 may support extraction, but faithful prediction/removal additionally requires KL/CE
 and OOD checks.
 
+**07:40 UTC implementation update — not an evidence cell:** a prospective copy/
+induction contract now freezes the named six-head family, registered four-head subset,
+late pair, deterministic natural matched negatives, length/multiset-matched synthetic
+nulls, and separate CE/KL/extraction/removal/OOD/price currencies. Nine synthetic
+known-answer tests pass. No fresh row, checkpoint, model forward, or authority was
+opened, so E4.1--E4.3 remain unchecked. Exact launch blockers are fresh four-role rows,
+reviewed per-head attention and optional late-product adapters, scorer/bootstrap
+authority, checkpoint binding, and create-only terminal lifecycle.
+
+**07:40 UTC whole-program diagnostic — actual run, not an E1--E4 completion:** the
+deployed-scale sweep measured top-1 and permutation-normalized teacher agreement on all
+three discovery roles. Scale 0.8 was best for top-1, scale 0.5 best for agreement, and
+per-site native-norm scaling was catastrophic. Its advertised CE field was null, so a
+separate all-position-CE sweep is actively running. This does not close an evidence
+cell or move the strict ledger.
+
 ## Eight-hour ordering and resource allocation
 
 | UTC window | Main action | Parallel CPU action |
