@@ -496,3 +496,136 @@ def test_create_only_json_never_overwrites(tmp_path):
     with pytest.raises(FileExistsError):
         life.create_only_json(path, {"a": 2})
     assert life.stable_json(path) == {"a": 1}
+
+
+def test_mocked_authority_freeze_is_create_only_and_validates(tmp_path, monkeypatch):
+    paths = _patch_output_namespace(monkeypatch, tmp_path)
+    paths["AUDIT"].write_text("{}\n")
+    audit = {"approved": True, "outcome_access": False}
+    source = {"commit": "c" * 40, "paths": {}, "sha256": "s" * 64}
+    row = {"row": "bound"}
+    fit = {"fit": "bound"}
+    adapter = {"adapter": "bound"}
+    checkpoint = life.facade.CheckpointReceipt(
+        revision="mock", snapshot="/mock", config_sha256="c" * 64,
+        weights_sha256="w" * 64, weights_bytes=1,
+        tokenizer_vocab=50_257, logit_vocab=50_304,
+    )
+    monkeypatch.setattr(life, "validate_canonical_audit", lambda _path=paths["AUDIT"]: audit)
+    monkeypatch.setattr(life, "source_closure", lambda: source)
+    monkeypatch.setattr(life, "verify_source_closure", lambda binding: binding == source or None)
+    monkeypatch.setattr(life, "row_binding", lambda: row)
+    monkeypatch.setattr(life.fit_parent, "replay_fit_parent", lambda: fit)
+    monkeypatch.setattr(life, "adapter_binding", lambda: adapter)
+    monkeypatch.setattr(life.facade, "validate_snapshot", lambda **kwargs: checkpoint)
+    authority = life.freeze_execution_authority(paths["AUDIT"])
+    assert authority["authorized_for_selection_execution"] is True
+    assert authority["authorized_for_final_ood"] is False
+    assert authority["fit_receipt_self_authorizes_selection"] is False
+    assert authority["amendment_governs_conflicts"] is True
+    assert life.stable_json(paths["AUTHORITY"]) == authority
+    with pytest.raises(RuntimeError, match="spent"):
+        life.freeze_execution_authority(paths["AUDIT"])
+
+
+@pytest.mark.parametrize(
+    ("selected_candidate", "receipt_key", "other_key", "authorized"),
+    [
+        ("L5H5", "PASSER_RECEIPT", "NEGATIVE_RECEIPT", True),
+        (None, "NEGATIVE_RECEIPT", "PASSER_RECEIPT", False),
+    ],
+)
+def test_mocked_full_execute_publishes_exactly_one_receipt_last(
+    tmp_path, monkeypatch, selected_candidate, receipt_key, other_key, authorized,
+):
+    paths, counters, execute = _run_mocked_execute(
+        tmp_path, monkeypatch, selected_candidate,
+    )
+    receipt = execute()
+    assert counters == {"natural": 48, "synthetic": 16}
+    assert paths["LEDGER"].is_file()
+    assert paths["RESULT"].is_file()
+    assert paths["MANIFEST"].is_file()
+    assert paths[receipt_key].is_file()
+    assert not paths[other_key].exists()
+    assert not paths["FAILURE"].exists()
+    assert not paths["LOCK"].exists()
+    assert receipt["selected_candidate"] == selected_candidate
+    assert receipt["final_ood_opening_authorized"] is authorized
+    assert receipt["negative_forbids_final_ood_opening"] is (not authorized)
+    assert receipt["ledger_file_sha256"] == life.file_sha256(paths["LEDGER"])
+    assert receipt["result_file_sha256"] == life.file_sha256(paths["RESULT"])
+    assert receipt["manifest_file_sha256"] == life.file_sha256(paths["MANIFEST"])
+
+
+def test_partial_forward_publishes_failure_not_scientific_negative(tmp_path, monkeypatch):
+    paths, counters, execute = _run_mocked_execute(
+        tmp_path, monkeypatch, None, fail_during_natural=True,
+    )
+    with pytest.raises(RuntimeError, match="injected partial"):
+        execute()
+    failure = life.stable_json(paths["FAILURE"])
+    assert counters == {"natural": 2, "synthetic": 0}
+    assert failure["status"] == "terminal_integrity_or_execution_failure_no_decision_receipt"
+    assert failure["same_authority_retry_authorized"] is False
+    assert failure["decision_receipts_mutually_absent"] is True
+    assert not paths["PASSER_RECEIPT"].exists()
+    assert not paths["NEGATIVE_RECEIPT"].exists()
+    assert not paths["LOCK"].exists()
+    with pytest.raises(RuntimeError, match="spent"):
+        execute()
+
+
+def test_late_protected_mutation_preserves_hashed_partial_outputs_and_no_decision(
+    tmp_path, monkeypatch,
+):
+    paths, _, execute = _run_mocked_execute(tmp_path, monkeypatch, "L5H5")
+    calls = {"count": 0}
+
+    def changing_snapshot(*_args, **_kwargs):
+        calls["count"] += 1
+        return {"protected": "fixed" if calls["count"] <= 4 else "mutated"}
+
+    monkeypatch.setattr(life, "protected_snapshot", changing_snapshot)
+    with pytest.raises(RuntimeError, match="terminal publication replay"):
+        execute()
+    failure = life.stable_json(paths["FAILURE"])
+    assert all(paths[name].is_file() for name in ("LEDGER", "RESULT", "MANIFEST"))
+    assert not paths["PASSER_RECEIPT"].exists()
+    assert not paths["NEGATIVE_RECEIPT"].exists()
+    for name in ("LEDGER", "RESULT", "MANIFEST"):
+        entry = failure["partial_artifacts"][str(paths[name])]
+        assert entry["file_sha256"] == life.file_sha256(paths[name])
+        assert entry["stable_read"] is True
+        assert entry["joins_failed_authority"] is True
+    assert failure["protected_at_failure"] == {"protected": "mutated"}
+
+
+def test_lock_inode_replacement_is_detected(tmp_path, monkeypatch):
+    paths = _patch_output_namespace(monkeypatch, tmp_path)
+    claim = life.acquire_claim()
+    paths["LOCK"].unlink()
+    paths["LOCK"].write_text(claim.nonce + "\n")
+    with pytest.raises(RuntimeError, match="ownership changed"):
+        life.require_claim(claim)
+    life.release_claim(claim)
+    paths["LOCK"].unlink()
+
+
+def test_fit_bank_load_rejects_parent_binding_reserialization(monkeypatch):
+    monkeypatch.setattr(life.fit_parent, "replay_fit_parent", lambda: {"fit": "changed"})
+    with pytest.raises(RuntimeError, match="binding changed"):
+        life._load_fit_bank({"fit_parent_binding": {"fit": "authorized"}})
+
+
+def test_failure_cannot_coexist_with_a_decision_receipt(tmp_path, monkeypatch):
+    paths = _patch_output_namespace(monkeypatch, tmp_path)
+    life.create_only_json(paths["AUTHORITY"], {"authority_sha256": "a" * 64})
+    life.create_only_json(paths["PASSER_RECEIPT"], {"status": "already complete"})
+    claim = life.acquire_claim()
+    try:
+        with pytest.raises(RuntimeError, match="after a decision receipt"):
+            life._publish_failure(claim, "a" * 64, RuntimeError("late"))
+        assert not paths["FAILURE"].exists()
+    finally:
+        life.release_claim(claim)
