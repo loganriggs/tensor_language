@@ -79,3 +79,38 @@ def test_row_receipt_contract_rejects_role_leak():
     value["roles"]["HELDOUT"]["authorized_for_training"] = True
     with pytest.raises(RuntimeError, match="semantics changed"):
         collect.validate_row_receipt(value)
+
+
+def test_forward_capture_calls_attention_once_and_edits_complete_mlp2_write(monkeypatch):
+    class Block:
+        def __init__(self, site):
+            self.site = site
+            self.attn = lambda state, first: (state + site, torch.tensor(float(site)))
+            self.mlp = lambda state: state + 100 + site
+
+    def fake_forward(_model, tokens, attention, mlp):
+        state = torch.zeros(*tokens.shape, 4, dtype=torch.bfloat16)
+        first = torch.tensor(0.0)
+        for site in range(18):
+            block = Block(site)
+            event_a = collect.facade.AttentionEvent(site, block, state, tokens, first)
+            write, first = attention(event_a)
+            event_m = collect.facade.EarlyMLPEvent(site, block, state, write, tokens, ())
+            mlp(event_m)
+        return torch.zeros(*tokens.shape, 9)
+
+    monkeypatch.setattr(collect.facade, "forward_with_dispatch", fake_forward)
+    monkeypatch.setattr(collect.base, "c512_write", lambda event, tensors: event.state + 7)
+    calls = {}
+    tokens = torch.zeros(2, 5, dtype=torch.long)
+    candidate = torch.full((2, 5, 4), 23, dtype=torch.bfloat16)
+    out = collect.forward_capture(
+        object(), tokens, "C512", "ACTUAL", {}, candidate=candidate,
+        alpha=1.0, calls=calls,
+    )
+    assert out["attention5"].shape == candidate.shape
+    assert out["attention6"].shape == candidate.shape
+    assert calls["attention_calls"] == 18
+    assert calls["c512_calls"] == 1
+    assert calls["native_mlp2_calls"] == 1
+    assert calls["injected_calls"] == 1
