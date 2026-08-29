@@ -1,0 +1,66 @@
+CONVERGED BUILD AT 5,419 | fallback mix25m512 | vs §1789 deployed | DISCOVERY ONLY
+
+########## COVERAGE 5419 ##########
+  [bqlib] coverage 5419 from fineweb_n96_skip80.pt: 36 tables, neighbour index and map solver built (4s)
+  [bqlib] cache HIT  live     skip7000
+  [bqlib] cache HIT  live     skip11000
+  [bqlib] cache HIT  live     skip1200
+  [bqlib] cache HIT  map64    skip7000
+  [bqlib] cache HIT  map64    skip11000
+  [bqlib] cache HIT  map64    skip1200
+  [bqlib] cache HIT  mix25m512 skip7000
+  [bqlib] cache HIT  mix25m512 skip11000
+  [bqlib] cache HIT  mix25m512 skip1200
+  [bqlib] cache HIT  mix25m512 skip7000
+  [bqlib] cache HIT  mix25m512 skip11000
+  [bqlib] cache HIT  mix25m512 skip1200
+  [bqlib] cache HIT  mix25m512 skip7000
+  [bqlib] cache HIT  mix25m512 skip11000
+  [bqlib] cache HIT  mix25m512 skip1200
+  [bqlib] cache HIT  mix25m512 skip7000
+  [bqlib] cache HIT  mix25m512 skip11000
+  [bqlib] cache HIT  mix25m512 skip1200
+  [bqlib] cache HIT  mix25m512 skip7000
+  [bqlib] cache HIT  mix25m512 skip11000
+  [bqlib] cache HIT  mix25m512 skip1200
+  [bqlib] cache HIT  mix25m512 skip7000
+  [bqlib] cache HIT  mix25m512 skip11000
+  [bqlib] cache HIT  mix25m512 skip1200
+
+  skip7000
+    deployed           [ 230.087M]  top1 13.55% (+0.00pp)  CE 6.01167 (+0.00000, t +0.00)
+    blend_full         [ 267.335M]  top1 14.02% (+0.46pp)  CE 5.94165 (-0.07002, t -31.56)
+    blend_1024_256     [ 194.036M]  top1 14.07% (+0.52pp)  CE 5.94415 (-0.06752, t -30.75)
+    blend_768_384      [ 178.896M]  top1 14.00% (+0.45pp)  CE 5.94617 (-0.06550, t -29.16)
+    blend_768_256      [ 163.757M]  top1 13.96% (+0.41pp)  CE 5.94788 (-0.06379, t -28.60)
+    blend_640_160      [ 137.262M]  top1 13.93% (+0.38pp)  CE 5.95504 (-0.05663, t -25.07)
+    blend_512_128      [ 118.338M]  top1 13.63% (+0.08pp)  CE 5.96549 (-0.04618, t -19.79)
+    1024->768 0.0123 | 768->640 0.0270 | attn 384->256 0.0113  nats/100M
+
+  skip11000
+    deployed           [ 230.087M]  top1 14.25% (+0.00pp)  CE 5.98477 (+0.00000, t +0.00)
+    blend_full         [ 267.335M]  top1 14.53% (+0.28pp)  CE 5.91021 (-0.07456, t -30.83)
+    blend_1024_256     [ 194.036M]  top1 14.60% (+0.35pp)  CE 5.91346 (-0.07131, t -29.81)
+    blend_768_384      [ 178.896M]  top1 14.62% (+0.37pp)  CE 5.91443 (-0.07034, t -28.86)
+    blend_768_256      [ 163.757M]  top1 14.59% (+0.34pp)  CE 5.91648 (-0.06829, t -28.22)
+    blend_640_160      [ 137.262M]  top1 14.58% (+0.33pp)  CE 5.92421 (-0.06056, t -24.82)
+    blend_512_128      [ 118.338M]  top1 14.32% (+0.07pp)  CE 5.93452 (-0.05025, t -20.05)
+    1024->768 0.0100 | 768->640 0.0292 | attn 384->256 0.0135  nats/100M
+
+  skip1200
+    deployed           [ 230.087M]  top1 13.64% (+0.00pp)  CE 6.00165 (+0.00000, t +0.00)
+    blend_full         [ 267.335M]  top1 13.99% (+0.34pp)  CE 5.93277 (-0.06888, t -20.09)
+    blend_1024_256     [ 194.036M]  top1 13.90% (+0.25pp)  CE 5.93468 (-0.06697, t -19.75)
+    blend_768_384      [ 178.896M]  top1 14.01% (+0.36pp)  CE 5.93468 (-0.06697, t -19.39)
+    blend_768_256      [ 163.757M]  top1 13.98% (+0.34pp)  CE 5.93606 (-0.06559, t -19.13)
+    blend_640_160      [ 137.262M]  top1 13.96% (+0.32pp)  CE 5.94128 (-0.06037, t -17.46)
+    blend_512_128      [ 118.338M]  top1 13.74% (+0.09pp)  CE 5.94847 (-0.05317, t -14.99)
+    1024->768 0.0045 | 768->640 0.0197 | attn 384->256 0.0091  nats/100M
+
+  the converged build still beats §1789 deployed, with the t bar (>=2 roles) -> True  3/3
+  and the table knee MOVES at 5,419 (>=2 roles) -> False  1/3
+  and the attention share does NOT (>=2 roles) -> False  1/3
+  coverage {'c5419': 5419}, rank-differing arm DOES move covered inputs True, identical-spec fallback-only anchor is INERT there True, live identical 0.0e+00, §1932 top-1 reproduced within 0.005pp -> control True
+
+pred_a True | pred_b False | pred_c False | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/converged_at_deployed_coverage_results.json (4.4s)

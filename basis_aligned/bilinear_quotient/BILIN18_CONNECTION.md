@@ -55453,3 +55453,60 @@ row space and closed that fork by blending; §1944–§1945 made the blend cheap
 knees and proved them stable. **The single largest gain in the whole arc was §1946's repricing —
 truncating the tables, which was never a fallback question at all — and the fallback work that occupied
 §1937–§1945 bought roughly a tenth as much.** Both are in the final build.
+
+## §1951 — the converged build wins far bigger at the DEPLOYED coverage, and both of my transfer predictions were backwards
+
+`ops/converged_at_deployed_coverage.py`, **4.4s** warm (496.4s cold), **DISCOVERY ONLY**, 5,419, **rung
+2**. **pred_a True (3/3) | pred_b False (1/3) | pred_c False (1/3) | pred_d True**, after a third
+polarity correction.
+
+```
+  5,419 (§1789's DEPLOYED coverage), skip7000, deltas vs the deployed design
+                      cost      top-1              CE               paired t
+  deployed         230.087M   13.55%    6.01167        —          §1789
+  blend_full       267.335M   14.02% (+0.46)  5.94165 (-0.0700)  -31.56
+  blend_1024_256   194.036M   14.07% (+0.52)  5.94415 (-0.0675)  -30.75
+  blend_768_256    163.757M   13.96% (+0.41)  5.94788 (-0.0638)  -28.60
+  blend_640_160    137.262M   13.93% (+0.38)  5.95504 (-0.0566)  -25.07
+  blend_512_128    118.338M   13.63% (+0.08)  5.96549 (-0.0462)  -19.79
+
+  marginal nats per 100M            7000 / 11000 / 1200
+  1024/256 -> 768/256      0.0123 / 0.0100 / 0.0045
+  768/256  -> 640/160      0.0270 / 0.0292 / 0.0197
+  attn 384 -> 256          0.0113 / 0.0135 / 0.0091
+```
+
+> **pred_a PASSED 3/3, and the margin at the deployed coverage is far larger than at 16,110.** The
+> converged build at **163.757M — 29% cheaper than §1789's 230.087M** — beats it by **+0.41pp of top-1
+> and −0.0638 nats at paired t = −28.60** on skip7000, with t = −19 to −29 across roles. At 16,110 the
+> same comparison was ~0.011 nats; here it is **six times that**, because the fallback touches ~24% of
+> positions rather than ~10% (§1936). **The deployed design is beaten by 29% less money on both
+> instruments at both coverages, and by a wide margin at its own.**
+
+> **pred_b FAILED 1/3 — I predicted the table knee would MOVE at 5,419 and it essentially does not.**
+> The crossing sits between {768,256} and {640,160} on skip1200 exactly as at 16,110; on skip11000 the
+> 1024 → 768 step lands at **0.0100**, on the threshold itself; only skip7000 moves it up one grid step
+> (0.0123). **The MLP/table tradeoff is approximately coverage-invariant, to within one step of this
+> grid** — a stronger transfer result than the one I registered, and I registered the possibility
+> explicitly as "more surprising than what I am predicting."
+
+> **pred_c FAILED 1/3 in the opposite direction, and this is the real finding: the ATTENTION share is
+> NOT coverage-invariant.** Removing attention capacity (384 → 256) costs **0.0113 / 0.0135 / 0.0091
+> nats per 100M at 5,419** against **0.0047 / 0.0051 / 0.0034 at 16,110** — **two to three times more.**
+> At the deployed coverage the attention sites are worth buying past the threshold, and §1948/§1950's
+> "attention is not worth its cost" is a **16,110 statement**, scoped accordingly. **Both of my transfer
+> predictions were backwards: the axis I expected to move is stable, and the one I expected to be stable
+> moves.**
+
+**pred_d PASSED** after the session's **third** control-polarity correction (LESSON 81). The inherited
+clause asserted that the reference arm differs from `blend_full` at covered inputs; here the reference is
+§1789's deployed design and both are at **full table rank**, differing only in the **fallback**, so they
+are exactly inert there. Corrected: rank-differing arms **do** move covered-input predictions, the
+fallback-only anchor is **exactly inert**, buckets partition, live per-cell top-1 and CE identical at
+0.00e+00, and §1932's **published** deployed top-1 reproduced to **0.005pp** — thirty-seventh clean
+reading.
+
+**Open.** §1948's monotone attention sweep was run only at 16,110. Given that the attention share's worth
+moves with coverage by 2–3×, the sweep that established "CE is monotone in the attention share, so the
+band is an efficiency rule" has not been repeated where attention is worth more — and that is exactly
+where a genuine interior optimum could exist.
