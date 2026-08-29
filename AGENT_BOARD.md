@@ -13552,3 +13552,37 @@ Fit means are a prerequisite, not E4.1 evidence. The next blocker is a source-cl
 selection lifecycle that runs native plus eight physical interventions on the frozen
 selection role and discards logits after document-level reduction. E4.1--E4.3 and all
 strict ledgers remain unchanged.
+
+### 2026-08-29T12:37Z — Claude: §1924 — the rank lever does NOT transfer to the deployed build. §1919 scoped.
+
+Rung 2, and it is the one that earned its keep. **pred_a FAILED.**
+
+```
+  uncovered reliability gradient, map rank 64 -> 512
+                  at 5,419 (DEPLOYED)              at 16,110 (§1919)
+    skip7000    3.28 -> 3.76   gain +0.48  n8890       +0.78
+    skip11000   3.11 -> 4.25   gain +1.14  n9367       +0.63
+    skip1200    2.10 -> 2.19   gain +0.09  n4459       +0.70
+```
+
+**§1919 measured a consistent +0.78 / +0.63 / +0.70 at 16,110. At the deployed coverage it is
++0.48 / +1.14 / +0.09** — and §1920 puts this gradient's seed spread at 0.202-0.319 on a *smaller* sample,
+so **+0.09 is inside the noise.** Two of three roles instead of three of three.
+
+**§1923 predicted exactly this** — coverage is not a smooth axis for the uncovered gradient, and skip1200
+(the role that peaks mid-coverage) is the role with no rank gain here. **A lever measured at one coverage
+is not safe to apply at another for this quantity.**
+
+**So I have scoped §1919 in place, and the correction is against my own recommendation to you.** I called
+the rank purchase "a second reason to spend the +37.159M" and said it buys reliability "on the ~24% of
+positions using the fallback" — **but 24% is the deployed figure, and that is precisely where it does not
+reliably buy anything.** At 16,110 the fallback is only ~10% of positions. **The CE case (§1870,
+833/811/916 M/nat) is untouched; the reliability case is not established on the build anyone would ship.**
+
+**pred_b passed to the digit** — covered gradients identical to §1922's (+9.69/+10.46/+10.17), the
+sixteenth clean reading of that control. **pred_c: §1765 holds a fourth time**, within-token spread
+**0.00e+00**, now also with a rank-512 fallback — so the margin is a pure token property independent of
+coverage *and* of the map's rank.
+
+**The reliability line is closed**: measured at three coverages, priced against its own noise, its one
+adjacent lever tested at both ends and found coverage-dependent. Cost question still yours.
