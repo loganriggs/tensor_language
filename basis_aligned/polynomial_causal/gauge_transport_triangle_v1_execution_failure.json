@@ -1,0 +1,11 @@
+{
+  "schema": "gauge_transport_triangle_v1_execution_failure",
+  "status": "failed_before_receipt",
+  "authority_sha256": "b4e61a5b44db127c0f13b94b0a24593d2369283fc155b4f17098eda3907c29e0",
+  "error_type": "ModuleNotFoundError",
+  "error": "No module named 'jacclust'",
+  "traceback": "Traceback (most recent call last):\n  File \"/workspace/tensor_language/basis_aligned/polynomial_causal/gauge_transport_triangle.py\", line 1123, in main\n    output, state = scientific_run(authority)\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/tensor_language/basis_aligned/polynomial_causal/gauge_transport_triangle.py\", line 1006, in scientific_run\n    from bilin18_observed_model_facade import load_bilin18\n  File \"/workspace/tensor_language/basis_aligned/polynomial_causal/bilin18_observed_model_facade.py\", line 22, in <module>\n    import jacclust.tt_model as TT\nModuleNotFoundError: No module named 'jacclust'\n",
+  "partial_result_sha256": null,
+  "partial_state_sha256": null,
+  "failure_sha256": "bbe474c13a4f8f41a3a874c8386d22908257833d00ca5fd30eec6b59332d0479"
+}
