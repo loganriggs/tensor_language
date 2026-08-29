@@ -14,13 +14,24 @@ that these tiny differences only flip close logit ties. It failed: MLP16's chang
 positions have median top-two margins `0.197 / 0.267 / 0.283`, only about twice smaller
 than unchanged positions and far above the registered `0.01` near-tie threshold.
 
-The honest conclusion is that S1898, S1899, and S1900 are not yet mutually explained.
-If MLP16 receives exactly its length-one stream and computes in float32, its live output
-should equal its stored table row; nevertheless S1898 and S1900 exactly reproduce 1,321
-/ 1,350 / 650 changed predictions. None of the three runs directly compared MLP16's
-live restored output tensor against that table row element by element. That comparison,
-not another verbal mechanism, is now the decisive audit. MLP0 behaves differently: its
-one to three flips really are near ties.
+The population split resolves this. S1899 and S1901 compare only **covered current
+tokens**, which possess measured table rows. S1898 and S1900 counted top-1 changes at
+**all** positions, including uncovered tokens represented by a learned fallback map.
+The direct split reproduces all change counts and finds:
+
+| role | MLP16 changes | changes on uncovered tokens | uncovered share |
+|---|---:|---:|---:|
+| skip7000 | 1,321 | 1,311 | 99.24% |
+| skip11000 | 1,350 | 1,342 | 99.41% |
+| skip1200 | 650 | 650 | 100.00% |
+
+At covered positions, live MLP16 agrees with its table row to
+`3.55e-7--3.57e-7` relative L2 error. At uncovered positions, live MLP16 differs from
+the learned fallback row by `0.328--0.336` relative L2 error. Therefore the exact
+covered-table no-op derivation is correct; extending it to the fallback population was
+the error. S1902 independently confirms that both the restored and all-compiled arms
+are deterministic (zero self-differences on every role) while reproducing the same
+between-arm change counts. MLP0's one to three covered flips remain ordinary near ties.
 
 The completed experiment redistributed the **same storage budget** across all 36
 compiled sites. A site rank $r$ is the number of singular directions retained from
@@ -93,11 +104,11 @@ addition and RMSNorm.
 5. **A simplicity proxy can optimize the wrong thing.** Normalized spectral energy now
    has a direct falsification at equal executable price. Raw energy has a small lead,
    but needs a prospective causal/OOD confirmation.
-6. **The late-MLP restoration measurements are internally unresolved.** Exact stream
-   agreement, a position-wise float32 MLP, and thousands of non-near-tie downstream
-   changes cannot all be true under the current interpretation. The missing direct
-   live-output-versus-table-row comparison is cheaper and more decisive than building
-   strategy on any one of those proxies.
+6. **Covered-table and uncovered-fallback claims must stay separate.** The table
+   substitution is a true no-op for covered tokens, but the learned fallback is not:
+   its MLP16 row has roughly one-third relative output error and accounts for virtually
+   every restoration-induced top-1 change. Whole-program averages had mixed these two
+   mechanisms and generated the apparent contradiction.
 
 ## Candidate actions considered and pruned
 
@@ -146,8 +157,14 @@ The highest-priority source-closed and unblocked action at the start of the revi
 the exact-budget uneven-rank experiment; the higher native-Down action was authority-
 and implementation-blocked. The run completed in 244.1 seconds. The primary hypothesis
 failed, the controls passed, and the raw-energy diagnostic supplied the narrow successor
-described above. This is a real whole-program outcome, but it does **not** complete an
-E1--E4 evidence cell and does not move any strict ledger.
+described above.
+
+When S1898--S1901 exposed an apparent contradiction during the review, a second
+source-closed audit split the restored MLP16 comparison by current-token coverage. It
+completed all four frozen predictions and localized over 99% of changes to uncovered
+fallback positions. This converts a confusing mechanism dispute into a precise
+interface boundary. Both runs are real outcomes, but neither completes an E1--E4
+evidence cell or moves a strict ledger.
 
 Static evidence:
 
@@ -155,3 +172,5 @@ Static evidence:
 - `UNEVEN_TABLE_RANK_ALLOCATION_PREREG_2026-08-29.md`
 - `basis_aligned/bilinear_quotient/ops/context_free_premise_results.json`
 - `basis_aligned/bilinear_quotient/ops/argmax_margin_at_changes_results.json`
+- `basis_aligned/bilinear_quotient/ops/coverage_split_mlp16_identity_results.json`
+- `basis_aligned/bilinear_quotient/ops/restored_arm_determinism_results.json`

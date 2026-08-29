@@ -333,13 +333,15 @@ strict ledger.
 
 ## Live status update — 08:15 UTC
 
-- S1899 reports that compiled and native length-one streams agree at every MLP entry to
-  relative error `1.15e-7--4.13e-7`. S1900 then falsified the near-tie explanation for
-  MLP16: changed positions have median margins `0.197/0.267/0.283`, not `<0.01`, while
-  reproducing S1898's change counts exactly. The three measurements are not yet mutually
-  explained. The decisive missing audit directly compares the restored live MLP16
-  output tensor with its stored table row element-wise. These are mechanism diagnostics,
-  not E1--E4 cells.
+- S1899/S1901 establish covered-token stream/output identity, while S1898/S1900 count
+  all positions. A source-closed coverage split resolves the apparent contradiction:
+  `1311/1321`, `1342/1350`, and `650/650` changed predictions occur on uncovered current
+  tokens. Covered live MLP16 versus table-row error is `3.55e-7--3.57e-7`; uncovered
+  live MLP16 versus learned-fallback-row error is `0.328--0.336`. Thus the covered-table
+  no-op derivation is correct and its extension to fallback rows was false. S1902 also
+  confirms zero restored-arm and all-compiled self-differences on all roles while
+  reproducing the between-arm counts. These are measured mechanism diagnostics, not
+  E1--E4 cells.
 - The source-closed exact-budget uneven table-rank experiment completed in 244.1 seconds.
   The preregistered normalized-energy allocation loses to uniform rank 512 by
   `0.01944/0.02053/0.02309` nat and to its shifted null on every role. A diagnostic raw-
