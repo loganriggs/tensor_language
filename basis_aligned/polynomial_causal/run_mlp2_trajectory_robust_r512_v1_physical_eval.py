@@ -55,6 +55,24 @@ BOOTSTRAPS = 10_000
 SEED = 2026082942
 LOW_Q = 0.0027777778
 HIGH_Q = 0.9972222222
+STATE_SHAPES = {
+    "left": (512, 1152), "right": (512, 1152),
+    "down": (1152, 512), "bias": (1152,),
+}
+EXPECTED_PRICE = {
+    "input_width": 1152, "output_width": 1152, "products": 512,
+    "coefficient_count": 1770624, "stored_scalar_values": 1770624,
+    "stored_bytes_float32": 7082496, "support_metadata_values": 0,
+    "dense_matrix_multiplies_per_token": 3, "stored_dtype": "torch.float32",
+    "execution_dtype": "state_dtype_bfloat16_in_deployment",
+    "native_mlp_calls_per_forward": 0,
+}
+EXPECTED_CHECKPOINT = {
+    "config_sha256": "428042bfd807ba36f8b4326395440fbbebe52cd3d040212e6fef14a4fdf2d83c",
+    "weights_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+    "weights_bytes": 2067738635, "tokenizer_vocab": 50257,
+    "logit_vocab": 50304, "revision": "ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240",
+}
 
 
 def committed_sources() -> tuple[str, dict[str, str]]:
@@ -79,9 +97,45 @@ def validate_parents() -> dict[str, str]:
             or bundle.get("evaluation_opened") is not False \
             or set(bundle.get("programs", {})) != {"CONTINUE512", "ROBUST512"}:
         raise RuntimeError("trajectory-robust frozen parent chain changed")
+    old_bundle, _ = base.stable_torch(base.FULL_BUNDLE, base.FULL_BUNDLE_SHA)
+    validate_program_integrity(old_bundle, bundle)
     parents[str(ROBUST_BUNDLE)] = ROBUST_BUNDLE_SHA
     parents[str(ROBUST_RECEIPT)] = ROBUST_RECEIPT_SHA
     return parents
+
+
+def validate_program_state(name: str, state: Any) -> dict[str, Any]:
+    if not isinstance(state, dict) or set(state) != set(STATE_SHAPES):
+        raise RuntimeError(f"{name} program state schema changed")
+    for key, shape in STATE_SHAPES.items():
+        value = state[key]
+        if not isinstance(value, torch.Tensor) or value.dtype != torch.float32 \
+                or tuple(value.shape) != shape or not torch.isfinite(value).all():
+            raise RuntimeError(f"{name}.{key} serialization changed")
+    model = refit.build_from_state(state, torch.device("cpu"))
+    if model.price() != EXPECTED_PRICE \
+            or any(parameter.dtype != torch.float32 for parameter in model.parameters()):
+        raise RuntimeError(f"{name} literal price or stored dtype changed")
+    probe = torch.zeros(1, 1, 1152, dtype=torch.bfloat16)
+    with torch.inference_mode():
+        output = model(probe)
+    if output.dtype != torch.bfloat16 or tuple(output.shape) != tuple(probe.shape) \
+            or not torch.isfinite(output).all():
+        raise RuntimeError(f"{name} deployment precision contract changed")
+    return {"price": EXPECTED_PRICE, "serialized_state_dtype": "torch.float32",
+            "probe_input_dtype": "torch.bfloat16", "probe_output_dtype": "torch.bfloat16",
+            "probe_finite": True}
+
+
+def validate_program_integrity(old_bundle: Any, robust_bundle: Any) -> dict[str, Any]:
+    if not isinstance(old_bundle, dict) or "programs" not in old_bundle \
+            or set(old_bundle["programs"]) != {"DOWN512", "FULL512", "RANDOM512"} \
+            or not isinstance(robust_bundle, dict) \
+            or set(robust_bundle.get("programs", {})) != {"CONTINUE512", "ROBUST512"}:
+        raise RuntimeError("physical-eval program bundle schema changed")
+    states = {"FULL512": old_bundle["programs"]["FULL512"],
+              **robust_bundle["programs"]}
+    return {name: validate_program_state(name, state) for name, state in states.items()}
 
 
 def validate_row_receipt(value: Any, sources: dict[str, str]) -> dict[str, Any]:
@@ -124,6 +178,7 @@ def protected_snapshot(authority: dict[str, Any]) -> dict[str, Any]:
         "row_file_hashes": {k: base.file_sha256(Path(v["path"]))
                             for k, v in rows["entries"].items()},
         "parents": parents,
+        "program_integrity": authority["program_integrity"],
         "checkpoint_config_sha256": base.file_sha256(snapshot / "config.json"),
         "checkpoint_weights_sha256": base.file_sha256(snapshot / "pytorch_model.bin"),
     }
@@ -156,18 +211,46 @@ def expected_call_census() -> dict[str, Any]:
 
 
 def validate_ledger(value: Any, authority_sha: str) -> dict[str, torch.Tensor]:
-    if not isinstance(value, dict) or value.get("schema") != (
+    if not isinstance(value, dict) or set(value) != {
+        "schema", "arms", "calls", "authority_sha256", "checkpoint",
+        "program_integrity",
+    } or value.get("schema") != (
         "mlp2_trajectory_robust_r512_v1_physical_eval_ledger"
     ) or value.get("authority_sha256") != authority_sha \
             or value.get("calls") != expected_call_census() \
-            or set(value.get("arms", {})) != set(ARMS):
+            or set(value.get("arms", {})) != set(ARMS) \
+            or value.get("program_integrity") != expected_program_integrity():
         raise RuntimeError("physical-eval ledger metadata changed")
+    checkpoint = value.get("checkpoint")
+    if not isinstance(checkpoint, dict) or set(checkpoint) != {
+        "snapshot", "revision", "weights_sha256", "weights_bytes", "config_sha256",
+        "tokenizer_vocab", "logit_vocab",
+    } or any(checkpoint.get(key) != expected for key, expected in EXPECTED_CHECKPOINT.items()):
+        raise RuntimeError("physical-eval checkpoint identity changed")
     arms = value["arms"]
     if any(not isinstance(x, torch.Tensor) or x.dtype != torch.float64
            or tuple(x.shape) != (192, 9) or not torch.isfinite(x).all()
            or (x[:, 8] != 192).any() for x in arms.values()):
         raise RuntimeError("physical-eval sufficient statistics changed")
     return arms
+
+
+def expected_program_integrity() -> dict[str, Any]:
+    old_bundle, _ = base.stable_torch(base.FULL_BUNDLE, base.FULL_BUNDLE_SHA)
+    robust_bundle, _ = base.stable_torch(ROBUST_BUNDLE, ROBUST_BUNDLE_SHA)
+    return validate_program_integrity(old_bundle, robust_bundle)
+
+
+def failure_terminal_guard(claim, artifact_hashes: dict[Path, str]) -> None:
+    row_life.base.require_claim(claim, LOCK)
+    if RECEIPT.exists() or FAILURE.exists():
+        raise RuntimeError("physical-eval terminal raced failure")
+    for path, digest in artifact_hashes.items():
+        if base.file_sha256(path) != digest:
+            raise RuntimeError("physical-eval failure artifact changed")
+    if RECEIPT.exists() or FAILURE.exists():
+        raise RuntimeError("physical-eval terminal raced failure during artifact replay")
+    row_life.base.require_claim(claim, LOCK)
 
 
 def document_metric(ledger: torch.Tensor, metric: str) -> torch.Tensor:
@@ -317,6 +400,7 @@ def main() -> None:
         commit, sources = committed_sources()
         audit, audit_sha = row_life.validate_independent_audit(sources)
         parents = validate_parents()
+        program_integrity = expected_program_integrity()
         row_receipt, row_receipt_sha = base.stable_json(ROWS_RECEIPT)
         validate_row_receipt(row_receipt, sources)
         entry = row_receipt["entries"]["EVALUATION"]
@@ -325,6 +409,7 @@ def main() -> None:
             "status": "frozen_before_evaluation_open", "source_commit": commit,
             "source_hashes": sources, "audit_sha256": audit_sha,
             "audit_reviewer": audit["reviewer"], "parents": parents,
+            "program_integrity": program_integrity,
             "row_receipt_sha256": row_receipt_sha,
             "evaluation_rows_sha256": entry["file_sha256"], "arms": list(ARMS),
             "scored_slice": [64, 256], "outcome_access": False,
@@ -334,7 +419,9 @@ def main() -> None:
             row_life.base.require_claim(claim, LOCK)
             verify_sources(commit, sources); row_life.validate_independent_audit(sources)
             base.stable_json(ROWS_RECEIPT, row_receipt_sha)
-            if validate_parents() != parents or any(p.exists() for p in (
+            if validate_parents() != parents \
+                    or expected_program_integrity() != program_integrity \
+                    or any(p.exists() for p in (
                 AUTHORITY, LEDGER, RESULT, RECEIPT, FAILURE,
             )):
                 raise RuntimeError("physical-eval authority inputs changed")
@@ -361,6 +448,8 @@ def main() -> None:
             "CONTINUE512": refit.build_from_state(robust_bundle["programs"]["CONTINUE512"], device).eval(),
             "ROBUST512": refit.build_from_state(robust_bundle["programs"]["ROBUST512"], device).eval(),
         }
+        if validate_program_integrity(old_bundle, robust_bundle) != program_integrity:
+            raise RuntimeError("physical-eval loaded program integrity changed")
         ledgers = {arm: [] for arm in ARMS}
         calls = {arm: {
             "outer_calls": 0, "outer_returns": 0,
@@ -401,7 +490,8 @@ def main() -> None:
             raise RuntimeError("physical-eval call census changed")
         ledger = {"schema": "mlp2_trajectory_robust_r512_v1_physical_eval_ledger",
                   "arms": packed, "calls": calls, "authority_sha256": authority_sha,
-                  "checkpoint": checkpoint.__dict__}
+                  "checkpoint": checkpoint.__dict__,
+                  "program_integrity": program_integrity}
 
         def ledger_guard() -> None:
             verify_protected(protected, authority, claim)
@@ -414,6 +504,7 @@ def main() -> None:
         runtime = time.time() - started
         result = derive_result(replay_arms, runtime, robust_bundle)
         result["parents"] = {"authority": authority_sha, "ledger": ledger_sha}
+        result["program_integrity"] = program_integrity
 
         def result_guard() -> None:
             verify_protected(protected, authority, claim); base.stable_torch(LEDGER, ledger_sha)
@@ -422,7 +513,11 @@ def main() -> None:
 
         base.atomic_json(RESULT, result, pre_link_check=result_guard)
         reloaded_result, result_sha = base.stable_json(RESULT)
-        if reloaded_result != result:
+        if reloaded_result != result or derive_result(
+            replay_arms, runtime, robust_bundle,
+        ) != {key: value for key, value in result.items()
+              if key not in ("parents", "program_integrity")} \
+                or reloaded_result.get("program_integrity") != program_integrity:
             raise RuntimeError("physical-eval result replay changed")
         receipt = {"schema": "mlp2_trajectory_robust_r512_v1_physical_eval_receipt",
                    "status": "result_complete_receipt_last", "authority_sha256": authority_sha,
@@ -438,6 +533,8 @@ def main() -> None:
             row_life.base.require_claim(claim, LOCK)
 
         base.atomic_json(RECEIPT, receipt, pre_link_check=receipt_guard)
+        if base.stable_json(RECEIPT)[0] != receipt:
+            raise RuntimeError("physical-eval receipt replay changed")
         print(json.dumps(result, sort_keys=True, indent=2))
     except BaseException as exc:
         failure = {"schema": "mlp2_trajectory_robust_r512_v1_physical_eval_failure",
@@ -448,7 +545,13 @@ def main() -> None:
                    "artifact_hashes": {p.name: base.file_sha256(p) for p in (LEDGER, RESULT)
                                        if p.is_file()}}
         if not RECEIPT.exists() and not FAILURE.exists():
-            base.atomic_json(FAILURE, failure)
+            frozen_artifacts = {HERE / name: digest
+                                for name, digest in failure["artifact_hashes"].items()}
+
+            def failure_guard() -> None:
+                failure_terminal_guard(claim, frozen_artifacts)
+
+            base.atomic_json(FAILURE, failure, pre_link_check=failure_guard)
         raise
     finally:
         row_life.base.release_claim(claim, LOCK)

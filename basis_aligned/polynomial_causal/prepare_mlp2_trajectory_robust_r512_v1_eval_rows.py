@@ -15,11 +15,13 @@ HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
 BQ = HERE.parent / "bilinear_quotient"
 ADDENDUM = HERE / "MLP2_TRAJECTORY_ROBUST_R512_V1_PHYSICAL_EVALUATION_ADDENDUM.md"
+PARENT_PREREG = HERE / "MLP2_TRAJECTORY_ROBUST_R512_V1_PREREGISTRATION.md"
 FREEZER = Path(__file__).resolve()
 RUNNER = HERE / "run_mlp2_trajectory_robust_r512_v1_physical_eval.py"
 TEST = HERE / "test_mlp2_trajectory_robust_r512_v1_physical_eval.py"
 AUDIT = HERE / "mlp2_trajectory_robust_r512_v1_physical_eval_independent_audit.json"
-SOURCE_PATHS = tuple(dict.fromkeys((ADDENDUM, FREEZER, RUNNER, TEST, *base.SOURCE_PATHS)))
+DIRECT_SOURCES = (ADDENDUM, PARENT_PREREG, FREEZER, RUNNER, TEST)
+SOURCE_PATHS = tuple(dict.fromkeys((*DIRECT_SOURCES, *base.SOURCE_PATHS)))
 
 CACHE = BQ / ".rowcache_mlp2_trajectory_robust_r512_v1_physical_eval"
 RECEIPT = BQ / "mlp2_trajectory_robust_r512_v1_physical_eval_rows_receipt.json"
@@ -35,6 +37,9 @@ def file_sha256(path: Path) -> str:
 
 
 def source_hashes(commit: str) -> dict[str, str]:
+    if len(SOURCE_PATHS) != len(set(SOURCE_PATHS)) \
+            or not set(DIRECT_SOURCES).issubset(SOURCE_PATHS):
+        raise RuntimeError("physical-eval direct source closure changed")
     subprocess.run(["git", "merge-base", "--is-ancestor", commit, "origin/main"],
                    cwd=ROOT, check=True)
     output = {}

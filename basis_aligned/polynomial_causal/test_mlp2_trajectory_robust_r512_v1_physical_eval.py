@@ -1,5 +1,9 @@
 from __future__ import annotations
 
+import hashlib
+from pathlib import Path
+
+import pytest
 import torch
 
 import prepare_mlp2_trajectory_robust_r512_v1_eval_rows as row_life
@@ -90,6 +94,25 @@ def test_fresh_row_wrapper_configures_one_evaluation_role() -> None:
             setattr(row_life.base, name, value)
 
 
+def test_source_closure_requires_parent_prereg(monkeypatch: pytest.MonkeyPatch) -> None:
+    assert row_life.SOURCE_PATHS.count(row_life.PARENT_PREREG) == 1
+    monkeypatch.setattr(
+        row_life, "SOURCE_PATHS",
+        tuple(path for path in row_life.SOURCE_PATHS if path != row_life.PARENT_PREREG),
+    )
+    with pytest.raises(RuntimeError, match="direct source closure"):
+        row_life.source_hashes("3d16e689")
+
+
+def test_program_price_and_deployment_precision_contract() -> None:
+    old, _ = assay.base.stable_torch(assay.base.FULL_BUNDLE, assay.base.FULL_BUNDLE_SHA)
+    robust, _ = assay.base.stable_torch(assay.ROBUST_BUNDLE, assay.ROBUST_BUNDLE_SHA)
+    value = assay.validate_program_integrity(old, robust)
+    assert set(value) == {"FULL512", "CONTINUE512", "ROBUST512"}
+    assert all(row["price"] == assay.EXPECTED_PRICE for row in value.values())
+    assert all(row["probe_output_dtype"] == "torch.bfloat16" for row in value.values())
+
+
 def test_known_answer_passes_all_scientific_gates() -> None:
     ledgers = {arm: fake_ledger(0.0) for arm in assay.ARMS}
     ledgers.update({
@@ -108,3 +131,32 @@ def test_known_answer_passes_all_scientific_gates() -> None:
     )
     assert result["status"] == "trajectory_exposure_supported"
     assert all(result["decision_gates"].values())
+
+
+def test_failure_guard_rejects_receipt_race(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    lock = tmp_path / "lock"
+    receipt = tmp_path / "receipt.json"
+    failure = tmp_path / "failure.json"
+    artifact = tmp_path / "ledger.pt"
+    artifact.write_bytes(b"bound-ledger")
+    digest = hashlib.sha256(artifact.read_bytes()).hexdigest()
+    monkeypatch.setattr(assay, "LOCK", lock)
+    monkeypatch.setattr(assay, "RECEIPT", receipt)
+    monkeypatch.setattr(assay, "FAILURE", failure)
+    original = assay.base.file_sha256
+
+    def racing_hash(path: Path) -> str:
+        observed = original(path)
+        if path == artifact:
+            receipt.write_text("{}")
+        return observed
+
+    monkeypatch.setattr(assay.base, "file_sha256", racing_hash)
+    claim = assay.row_life.base.acquire_claim(lock)
+    try:
+        with pytest.raises(RuntimeError, match="during artifact replay"):
+            assay.failure_terminal_guard(claim, {artifact: digest})
+    finally:
+        assay.row_life.base.release_claim(claim, lock)
