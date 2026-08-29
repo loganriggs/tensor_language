@@ -67,7 +67,11 @@ def recovery_admission() -> dict[str, Any]:
             or failure.get("status") != "terminal_failure_no_receipt" \
             or failure.get("authority_exists") is not False \
             or failure.get("evaluation_may_have_opened") is not False \
-            or any(value is not None for value in failure.get("artifact_snapshot", {}).values()) \
+            or failure.get("artifact_snapshot") != {
+                v2.AUTHORITY.name: None, v2.LEDGER.name: None, v2.RESULT.name: None,
+            } \
+            or failure.get("protected_snapshot") is not None \
+            or failure.get("recovery_admission") != parent \
             or "merge-base" not in failure.get("error", "") \
             or "origin/main" not in failure.get("error", ""):
         raise RuntimeError("v2 execution failure semantics changed")
