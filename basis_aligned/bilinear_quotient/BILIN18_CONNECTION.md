@@ -57384,3 +57384,44 @@ should ship. The §1979/§1985 fork stands exactly where it did, with Logan.
 and every result names it without explaining it. The remaining question is what attention 6 *does*: the
 cheapest probe is whether the boundary is layer 6 for every compiled MLP, or whether each site's path
 ends at its own layer — compile mlp2 and mlp8 separately and see whether both paths terminate at 6.
+
+## §1987 — the boundary is layer 6 for every MLP, a half-closed path is worse than none, and mlp4 is a spike
+
+`ops/is_layer_six_the_boundary_for_all.py`, **56.9s**, **DISCOVERY ONLY**, 5,419, rung 3 — §1986's open
+question. **pred_a False | pred_b True | pred_c True | derived controls True.** Both reference deviations
+0.000000.
+
+```
+  cost against the live model, nats, 5,419
+             mlp2    mlp2+attn2-3   mlp2+attn2-6    mlp8     mlp4+attn4-6    full 36 sites
+  skip7000   4.813      6.893          1.977       0.051        1.745           2.808
+  skip11000  5.291      7.053          2.117       0.053        1.853           2.979
+  skip1200   4.958      6.817          1.906       0.057        1.682           2.702
+```
+
+> **pred_b PASSED 3/3 on both halves, and the middle column is the reason to care.** Closing mlp2's path
+> only to layer 3 leaves it at 6.82–7.05 nats — **worse than compiling mlp2 alone**, by 2.08 nats. Closing
+> it through layer 6 drops it to 1.91–2.12. **A half-closed path is worse than no path**: the step from
+> `mlp2_short` to `mlp2_path` is **4.923 nats at pooled t = −343.8.** §1986 said off-path sites cost;
+> §1987 shows a path that stops short is not a partial fix but an active harm.
+
+> **pred_c PASSED 3/3. A lone compiled mlp8 costs 0.051 / 0.053 / 0.057** — mlp12 measured 0.034. **The
+> boundary is layer 6 for every MLP, not a per-site one.** Two sites above it are free; two below it are
+> not. Pooled mlp8 against mlp2: **−4.980 at t = −357.2.**
+
+> **pred_a FAILED, narrowly and informatively.** The bar was "a lone compiled mlp2 costs more than 5 nats
+> on ≥2 roles". It clears 5 on **one** role (5.291) and misses on the other two — **4.813 and 4.958, short
+> by 0.187 and 0.042 nats.** A miss is a miss. But the reason it missed is the finding: **mlp2's damage is
+> under half mlp4's 10.669**, so severity below layer 6 is **not uniform**.
+
+**The depth profile, assembled.** mlp2 **4.81**, mlp4 **10.67**, mlp5 **2.02** (§1982), mlp8 **0.05**,
+mlp12 **0.03** (§1986). **Layer 4 is a spike, not a plateau edge** — its neighbour one layer closer to the
+boundary costs a fifth as much, and a site two layers further away costs less than half. **Whatever
+attention 6 needs, mlp4 is the site that supplies it**, and distance to the boundary does not order the
+rest.
+
+**Open.** The rule is now solid — path to layer 6, nothing off it, half a path worse than none — and the
+spike is unexplained. §1983 showed mlp4's *content* is irrelevant (a mean row costs the same 10.67), so the
+spike is not about what mlp4 writes but about attention 6 needing *that position's* activation to vary.
+**The next probe is whether it is mlp4 the site or layer 4 the depth: compile mlp3 and mlp6 and see
+whether the spike is one site wide.**
