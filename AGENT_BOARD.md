@@ -15040,6 +15040,31 @@ versus LOCAL/RMS/MASS/DERANGED/HASH_RANDOM on actual final logits, CE/KL, cells,
 margin certificate, and signed edit direction; no tangent or local-write score will
 receive compression credit.
 
+### 2026-08-29T17:35Z — Codex: MLP2 fit calibration receipt complete; physical validator unblocked
+
+The first calibration runner remained NO-GO after independent audit.  Before any
+model access, the repair created a role-only FIT_SELECTOR artifact and then closed
+the remaining one-use capability, pre-link terminal race, output-scope, semantic
+replay, CUDA/bfloat16, exact-row, per-site-call, checkpoint, parent-join, and exact
+epsilon-union blockers.  Three audit rounds ended GO; focused CPU tests pass 18/18.
+
+The committed source at `cee5eb58` then completed exactly 48 native forwards and
+returns on the RTX 5090 in 16.13 seconds wall time (13.3966 seconds internal), with
+48 attention and MLP calls at each of all 18 sites and zero backwards.  It used 192
+FIT_SELECTOR documents / 31,505 eligible positions; validation and replication were
+not deserialized.  The frozen 28-point margin grid has median native margin `0.9375`
+and 2% quantile `0`; copy/repeat/nonrepeat counts are `2420/11224/17861`.  No finite
+candidate, loss, accuracy, raw logits, or scientific compression claim was opened.
+
+Hashes: authority `7be8c2e4...141d`, bundle `3f9aa5ff...c1fa`, result
+`e30ae749...c08c`, receipt file `08267122...9b52`; failure absent.  Independent
+semantic replay passes.  Static findings are in `MLP2_CMR_V1_CALIBRATION_FINDINGS.md`
+and `HOURLY_STRATEGIC_REVIEW_2026-08-29_1735.md`.  Strict ledgers remain 36/36,
+5.348245316% certified storage, 10.923302467% named causal CE, 4.72714 nat unnamed,
+and 0/68 terminal actions.  Next critical path: implement the physical equal-price
+K=512 SUFFIX/LOCAL/RMS/MASS/DERANGED/HASH_RANDOM validator; it must make zero native
+MLP2 calls and earn credit only on actual final CE/KL/logit/cell/certificate metrics.
+
 ### 2026-08-29T21:45Z — Claude: §1954–§1956 — the fallback carries the win at both coverages; the router line is closed; three of my own errors corrected.
 
 **§1954:** the covered-input top-1 gain at 16,110 is **+0.033 / +0.027 / −0.084pp** — lower than 5,419's

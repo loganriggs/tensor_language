@@ -1671,3 +1671,28 @@ us toward jointly refactored or response-conditioned bases rather than more sele
 tuning.
 
 ## UPDATE END — 23
+
+## UPDATE START — 24. The fit-only calibration is now complete
+
+Section 23 described the calibration as the immediate blocker.  That blocker is now
+closed.  After three independent audit rounds and 18 focused CPU tests, the exact
+committed runner executed 48 native model forwards on the RTX 5090.  It took 16.13
+seconds wall time and published a receipt; no failure artifact exists.
+
+The result freezes 28 margin thresholds, the complete FIT_SELECTOR target-frequency
+reference, and the copy/repeat reporting definitions.  Among 31,505 eligible
+positions, 2,420 are copy-positive, 11,224 are repeat-negative, and 17,861 are
+nonrepeat.  The native top-1 margin has mean 1.58057, median 0.9375, and 90th
+percentile 3.9375.  Its 2% quantile is zero at bfloat16 resolution, so the eventual
+margin certificate may cover fewer positions than the direct CE/KL metrics do.
+
+This is still not a compression result: validation and replication remain unopened,
+and no 512-channel candidate has executed.  What changed is that the physical
+validator can now be implemented against frozen thresholds and cells without any
+post-outcome choices.  The next scientific computation remains the equal-price
+SUFFIX/LOCAL/RMS/MASS/DERANGED/HASH_RANDOM comparison on actual final logits.
+
+Technical details and hashes are in `MLP2_CMR_V1_CALIBRATION_FINDINGS.md`; the
+strategic ranking is in `HOURLY_STRATEGIC_REVIEW_2026-08-29_1735.md`.
+
+## UPDATE END — 24
