@@ -52,6 +52,8 @@ CACHE = BQ / ".rowcache_mlp2_rank512_refit_v1"
 RECEIPT = BQ / "mlp2_rank512_refit_v1_rows_receipt.json"
 FAILURE = BQ / "mlp2_rank512_refit_v1_rows_failure.json"
 LOCK = Path("/workspace/runs/.mlp2_rank512_refit_v1_rows.lock")
+RECEIPT_SCHEMA = "mlp2_rank512_refit_v1_rows"
+FAILURE_SCHEMA = "mlp2_rank512_refit_v1_rows_failure"
 
 RunClaim = BASE.RunClaim
 acquire_claim = BASE.acquire_claim
@@ -260,7 +262,7 @@ def freeze_locked(claim: RunClaim) -> dict[str, Any]:
            or roles[role][1] != replay_roles[role][1] for role in roles):
         raise RuntimeError("MLP2 refit canonical row replay changed")
     receipt = {
-        "schema": "mlp2_rank512_refit_v1_rows",
+        "schema": RECEIPT_SCHEMA,
         "status": "fresh_roles_frozen_before_any_model_or_training_access",
         "source_commit": commit, "source_hashes": sources,
         "independent_audit": {
@@ -307,7 +309,7 @@ def freeze() -> dict[str, Any]:
         return freeze_locked(claim)
     except BaseException as exc:
         failure = {
-            "schema": "mlp2_rank512_refit_v1_rows_failure",
+            "schema": FAILURE_SCHEMA,
             "status": "terminal_failure_no_receipt",
             "error": repr(exc), "receipt_exists": RECEIPT.exists(),
             "cache_exists": CACHE.exists(), "cache_preserved": CACHE.exists(),

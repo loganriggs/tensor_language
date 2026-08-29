@@ -1,8 +1,11 @@
 from __future__ import annotations
 
 import torch
+import torch.nn as nn
+from types import SimpleNamespace
 
 import run_mlp0_c512_mlp2_full512_composition_v1 as assay
+import bilin18_observed_model_facade as facade
 
 
 def fake_ledger(dce: float) -> torch.Tensor:
@@ -38,3 +41,39 @@ def test_factorial_interaction_detects_incompatibility() -> None:
     out = assay.interaction_from_ledgers(ledgers)
     assert abs(out["interaction_dce"] - 0.038) < 1e-12
     assert out["interaction_ci95"][0] > 0.01
+
+
+def test_c512_write_is_exact_declared_formula_and_bias_once() -> None:
+    torch.manual_seed(4)
+    left = nn.Linear(3, 5, bias=False)
+    right = nn.Linear(3, 5, bias=False)
+    mlp = SimpleNamespace(Left=left, Right=right, Down_bias=torch.randn(3))
+    state = torch.randn(2, 4, 3)
+    tensors = {
+        "right": torch.randn(2, 5),
+        "left": torch.randn(3, 2),
+        "intercept": torch.randn(3),
+    }
+    event = facade.EarlyMLPEvent(
+        site=0, block=SimpleNamespace(mlp=mlp), state=state,
+        attention_write=torch.zeros_like(state), tokens=torch.zeros(2, 4, dtype=torch.long),
+        prior_writes=(),
+    )
+    hidden = left(state) * right(state)
+    expected = torch.nn.functional.linear(
+        torch.nn.functional.linear(hidden, tensors["right"]),
+        tensors["left"], tensors["intercept"],
+    ) + mlp.Down_bias
+    assert torch.equal(assay.c512_write(event, tensors), expected)
+
+
+def test_full_call_census_tracks_all_sites_and_returns() -> None:
+    census = assay.expected_call_census()
+    assert census["NATIVE"]["outer_calls"] == census["NATIVE"]["outer_returns"] == 48
+    assert set(census["BOTH"]["attention_sites"]) == {str(i) for i in range(18)}
+    assert all(v == 48 for v in census["BOTH"]["attention_sites"].values())
+    assert census["BOTH"]["native_mlp_sites"]["0"] == 0
+    assert census["BOTH"]["native_mlp_sites"]["2"] == 0
+    assert census["BOTH"]["native_mlp_sites"]["1"] == 48
+    assert census["BOTH"]["candidate_c512"] == 48
+    assert census["BOTH"]["candidate_full512"] == 48

@@ -19,13 +19,20 @@ FREEZER = Path(__file__).resolve()
 RUNNER = HERE / "run_mlp0_c512_mlp2_full512_composition_v1.py"
 TEST = HERE / "test_mlp0_c512_mlp2_full512_composition_v1.py"
 AUDIT = HERE / "mlp0_c512_mlp2_full512_composition_v1_independent_audit.json"
-SOURCE_PATHS = tuple(dict.fromkeys((PREREG, FREEZER, RUNNER, TEST, *base.SOURCE_PATHS)))
+SOURCE_PATHS = tuple(dict.fromkeys((
+    PREREG, FREEZER, RUNNER, TEST,
+    HERE / "mlp0_native_down_program.py",
+    HERE / "test_mlp0_native_down_program.py",
+    *base.SOURCE_PATHS,
+)))
 
 CACHE = BQ / ".rowcache_mlp0_c512_mlp2_full512_composition_v1"
 RECEIPT = BQ / "mlp0_c512_mlp2_full512_composition_v1_rows_receipt.json"
 FAILURE = BQ / "mlp0_c512_mlp2_full512_composition_v1_rows_failure.json"
 LOCK = Path("/workspace/runs/.mlp0_c512_mlp2_full512_composition_v1_rows.lock")
 START_DOCUMENT_INDEX = 110_000
+RECEIPT_SCHEMA = "mlp0_c512_mlp2_full512_composition_v1_rows"
+FAILURE_SCHEMA = "mlp0_c512_mlp2_full512_composition_v1_rows_failure"
 
 
 def file_sha256(path: Path) -> str:
@@ -76,6 +83,7 @@ def configure() -> None:
     base.AUDIT, base.SOURCE_PATHS = AUDIT, SOURCE_PATHS
     base.START_DOCUMENT_INDEX = START_DOCUMENT_INDEX
     base.CACHE, base.RECEIPT, base.FAILURE, base.LOCK = CACHE, RECEIPT, FAILURE, LOCK
+    base.RECEIPT_SCHEMA, base.FAILURE_SCHEMA = RECEIPT_SCHEMA, FAILURE_SCHEMA
     base.source_hashes = source_hashes
     base.validate_independent_audit = validate_independent_audit
 
@@ -87,4 +95,3 @@ def freeze():
 
 if __name__ == "__main__":
     print(json.dumps(freeze(), sort_keys=True, indent=2))
-
