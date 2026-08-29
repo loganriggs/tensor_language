@@ -53636,3 +53636,54 @@ two and I have not tested it**: if two arms are scored against the *same* permut
 becomes paired, and the shared null error cancels rather than adding. That would tighten a *difference*
 far more than raising NPERM tightens each *level*. It is one run to check and I am not claiming it until
 it is.
+
+## §1917 — my pairing test varied the wrong thing. It re-derived §1913 vs §1914 instead.
+
+`ops/paired_vs_more_perms.py`, 323.0s, **DISCOVERY ONLY**, rung 3 — §1916's open question.
+**pred_a False | pred_b False | pred_c False | pred_d False.** All four, and the run does not answer the
+question it was built for.
+
+```
+  token-margin gradient (q3 - q0), 8 seeds
+    skip7000    indep8 +1.004 +-0.249    paired8 +9.309 +-0.198    indep64 +1.007 +-0.079
+    skip11000   indep8 +1.870 +-0.281    paired8 +9.860 +-0.285    indep64 +1.858 +-0.096
+    skip1200    indep8 +0.967 +-0.826    paired8 +9.387 +-0.271    indep64 +0.961 +-0.182
+```
+
+> **The means give it away and pred_b is the predicate that caught it.** I registered that pairing changes
+> an estimator's *variance*, not its *expectation*, so the two means must agree within 0.1. They differ by
+> **8.305 / 7.990 / 8.421**. Pairing cannot do that. **What I actually built varies the NULL DEFINITION,
+> not the RNG pairing**: my "paired" arm scores both quartiles against the GLOBAL null — which is §1914's
+> estimator — while my "indep" arm scores each against its OWN within-stratum null, which is §1913's.
+>
+> **So the run re-derives §1913 versus §1914 and nothing else.** indep8 gives **+1.004 / +1.870 / +0.967**
+> against §1913's published +1.07 / +1.94 / +1.06; paired8 gives **+9.309 / +9.860 / +9.387** against
+> §1914's +9.50 / +9.79 / +9.28. Both reproduce, which is worth something — **it is a third independent
+> confirmation of the §1914 reversal** — but it is not the experiment I registered.
+
+**pred_d FAILED and it failed correctly.** I anchored the indep8 mean to §1914's +9.50 and got +1.00. **A
+control comparing an arm to a published figure it should equal is exactly what catches a mislabelled
+arm**, and it did, on the first reading. That is the second time this session a pred_d anchor caught a
+structural error rather than a numerical one.
+
+**pred_a and pred_c are uninterpretable** and I am not reading anything into their spreads: they compare
+the dispersion of two *different estimators*, which is not what either predicate was about.
+
+> **Where the pairing question actually stands: still open, and my framing of it was confused.** With a
+> GLOBAL null, both arms already share the draw **by construction** — the global estimator is *already*
+> paired. The unpaired comparison would require drawing two independent global nulls, one per arm, which
+> nothing in the arc does and nothing needs to. **So the honest answer to Codex's 10:22Z note is that
+> §1914's global-null design is already the frozen-draw design**, and the ±0.2 they and I both quoted
+> applies to *levels*, not to the *difference* between two arms scored against a shared null. §1916's
+> speculation that "freezing would tighten a difference more than raising NPERM tightens a level" is
+> probably right and remains unmeasured; **the experiment to measure it is not the one I ran.**
+
+**One number worth keeping.** Within the within-stratum estimator, the NPERM 8 → 64 spread falls
+**0.249 → 0.079**, **0.281 → 0.096**, **0.826 → 0.182** — factors of 3.2 / 2.9 / 4.5, again straddling
+`sqrt(8) = 2.83`, on a *gradient* rather than a level. **skip1200's 0.826 at NPERM = 8 is the largest
+spread measured anywhere in this arc** and is a reminder that the ±0.2 figure is a typical value, not a
+bound.
+
+**Open.** The pairing question, correctly posed: score one comparison against two *independent global*
+nulls versus one shared global null, holding the estimator definition fixed. That is one run and it is
+what §1916 should have asked for.

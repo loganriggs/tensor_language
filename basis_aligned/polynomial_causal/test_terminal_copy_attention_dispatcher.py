@@ -11,6 +11,7 @@ from terminal_copy_attention_dispatcher import (
     FROZEN_HEAD_PLANS,
     NAMED_LAYERS,
     PhysicalCandidateDispatcher,
+    registered_candidate_arithmetic,
 )
 
 
@@ -31,12 +32,12 @@ def make_dispatcher(sequence: int = 7) -> PhysicalCandidateDispatcher:
         for layer in NAMED_LAYERS
     }
     means = {
-        layer: torch.zeros(sequence, 9, 18)
+        layer: torch.zeros(sequence, 2 if layer == 8 else 1, 18)
         for layer in NAMED_LAYERS
     }
-    means[5][:, 5] = 0.125
-    means[8][:, 3] = 0.25
-    means[8][:, 4] = -0.5
+    means[5][:, 0] = 0.125
+    means[8][:, 0] = 0.25
+    means[8][:, 1] = -0.5
     return PhysicalCandidateDispatcher(
         adapters=adapters, per_head_position_means=means,
     )
@@ -114,17 +115,39 @@ def test_dispatch_fails_closed_outside_candidate_plan_or_sequence_bank():
         )
 
 
+def test_production_dispatch_rejects_synthetic_shape_and_missing_value_bus():
+    dispatcher = make_dispatcher(sequence=4)
+    with pytest.raises(ValueError, match="production"):
+        dispatcher.dispatch(
+            candidate="L5H5", layer=5, state=torch.randn(1, 4, 18),
+            first_value=None, require_production=True,
+        )
+
+
+def test_bfloat_candidate_arithmetic_is_not_reassociated():
+    native = torch.tensor(52.75, dtype=torch.bfloat16)
+    selected = torch.tensor(67.5, dtype=torch.bfloat16)
+    mean = torch.tensor(-69.0, dtype=torch.bfloat16)
+    registered = registered_candidate_arithmetic(native, selected, mean)
+    reassociated = native + (-selected + mean)
+    assert registered.item() == -84.0
+    assert reassociated.item() == -83.0
+
+
 def test_constructor_rejects_missing_layers_and_bad_mean_topology():
     adapters = {
         layer: OwnedPerHeadTensorAttention.from_native(TinyAttention())
         for layer in NAMED_LAYERS
     }
-    means = {layer: torch.zeros(4, 9, 18) for layer in NAMED_LAYERS}
+    means = {
+        layer: torch.zeros(4, 2 if layer == 8 else 1, 18)
+        for layer in NAMED_LAYERS
+    }
     with pytest.raises(ValueError, match="exact five"):
         PhysicalCandidateDispatcher(
             adapters={5: adapters[5]}, per_head_position_means=means,
         )
-    means[14] = torch.zeros(4, 8, 18)
+    means[14] = torch.zeros(4, 2, 18)
     with pytest.raises(ValueError, match="malformed"):
         PhysicalCandidateDispatcher(
             adapters=adapters, per_head_position_means=means,
@@ -134,7 +157,7 @@ def test_constructor_rejects_missing_layers_and_bad_mean_topology():
 def test_dispatcher_prices_owned_adapters_and_full_mean_bank():
     dispatcher = make_dispatcher(sequence=7)
     price = dispatcher.price()
-    assert price["fit_mean_values"] == 5 * 7 * 9 * 18
+    assert price["fit_mean_values"] == 6 * 7 * 18
     assert price["owned_adapter_values"] == 5 * (6 * 18 * 18 + 2)
     assert price["total_instrument_values"] == (
         price["owned_adapter_values"] + price["fit_mean_values"]

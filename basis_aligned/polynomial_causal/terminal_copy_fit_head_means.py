@@ -42,15 +42,23 @@ def _document_digest(document_ids: Sequence[str]) -> str:
 @dataclass(frozen=True)
 class FitHeadMeanBank:
     per_head_position_means: Mapping[int, torch.Tensor]
+    master_per_head_position_means: Mapping[int, torch.Tensor]
     document_count: int
     ordered_document_ids_sha256: str
-    means_sha256: str
+    runtime_means_sha256: str
+    master_means_sha256: str
     accumulator_dtype: str
     published_dtype: str
 
     def clone_means(self) -> dict[int, torch.Tensor]:
         return {
             layer: self.per_head_position_means[layer].clone()
+            for layer in NAMED_LAYERS
+        }
+
+    def clone_master_means(self) -> dict[int, torch.Tensor]:
+        return {
+            layer: self.master_per_head_position_means[layer].clone()
             for layer in NAMED_LAYERS
         }
 
@@ -168,28 +176,31 @@ class FitHeadMeanAccumulator:
         }
         if incomplete:
             raise RuntimeError(f"fit head-mean layers are incomplete: {incomplete}")
+        master_means: dict[int, torch.Tensor] = {}
         means: dict[int, torch.Tensor] = {}
         for layer in NAMED_LAYERS:
-            full = torch.zeros(
-                self._sequence_length, self._n_head, self._width,
-                dtype=self._published_dtype,
-            )
-            selected = (sums[layer] / len(self._documents)).to(self._published_dtype)
-            full[:, NAMED_HEADS_BY_LAYER[layer], :] = selected
-            means[layer] = full.contiguous()
-        digest = hashlib.sha256()
-        digest.update(_document_digest(self._documents).encode())
-        for layer in NAMED_LAYERS:
-            value = means[layer]
-            digest.update(layer.to_bytes(8, "little"))
-            digest.update(str(value.dtype).encode())
-            digest.update(str(tuple(value.shape)).encode())
-            digest.update(value.numpy().tobytes(order="C"))
+            master = (sums[layer] / len(self._documents)).contiguous()
+            master_means[layer] = master
+            means[layer] = master.to(self._published_dtype).contiguous()
+
+        def digest_bank(bank: Mapping[int, torch.Tensor]) -> str:
+            digest = hashlib.sha256()
+            digest.update(_document_digest(self._documents).encode())
+            for layer in NAMED_LAYERS:
+                value = bank[layer]
+                digest.update(layer.to_bytes(8, "little"))
+                digest.update(str(value.dtype).encode())
+                digest.update(str(tuple(value.shape)).encode())
+                digest.update(value.numpy().tobytes(order="C"))
+            return digest.hexdigest()
+
         bank = FitHeadMeanBank(
             per_head_position_means=means,
+            master_per_head_position_means=master_means,
             document_count=len(self._documents),
             ordered_document_ids_sha256=_document_digest(self._documents),
-            means_sha256=digest.hexdigest(),
+            runtime_means_sha256=digest_bank(means),
+            master_means_sha256=digest_bank(master_means),
             accumulator_dtype=str(torch.float64),
             published_dtype=str(self._published_dtype),
         )

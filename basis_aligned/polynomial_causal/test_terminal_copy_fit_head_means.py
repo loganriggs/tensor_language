@@ -47,20 +47,21 @@ def test_means_are_exact_and_unnamed_heads_are_zero():
     expected_base = base.double().mean(0).float()
     for layer in NAMED_LAYERS:
         value = bank.per_head_position_means[layer]
-        for head in range(9):
-            if head in NAMED_HEADS_BY_LAYER[layer]:
-                assert torch.equal(value[:, head], expected_base + 10 * layer + head)
-            else:
-                assert torch.equal(value[:, head], torch.zeros_like(value[:, head]))
+        assert value.shape == (3, len(NAMED_HEADS_BY_LAYER[layer]), 4)
+        for head_index, head in enumerate(NAMED_HEADS_BY_LAYER[layer]):
+            assert torch.equal(value[:, head_index], expected_base + 10 * layer + head)
+        assert torch.equal(bank.master_per_head_position_means[layer].float(), value)
     assert bank.document_count == 4
     assert len(bank.ordered_document_ids_sha256) == 64
-    assert len(bank.means_sha256) == 64
+    assert len(bank.runtime_means_sha256) == 64
+    assert len(bank.master_means_sha256) == 64
 
 
 def test_result_is_bit_identical_across_batch_partitions():
     first, _ = complete((4,))
     second, _ = complete((1, 2, 1))
-    assert first.means_sha256 == second.means_sha256
+    assert first.runtime_means_sha256 == second.runtime_means_sha256
+    assert first.master_means_sha256 == second.master_means_sha256
     for layer in NAMED_LAYERS:
         assert torch.equal(
             first.per_head_position_means[layer],
@@ -152,3 +153,6 @@ def test_bank_clone_does_not_alias_published_values():
     clone = bank.clone_means()
     clone[5].zero_()
     assert not torch.equal(clone[5], bank.per_head_position_means[5])
+    master = bank.clone_master_means()
+    master[5].zero_()
+    assert not torch.equal(master[5], bank.master_per_head_position_means[5])

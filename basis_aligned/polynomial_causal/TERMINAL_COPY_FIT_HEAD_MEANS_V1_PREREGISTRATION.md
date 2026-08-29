@@ -38,10 +38,17 @@ native write and the known separately accumulated bfloat16 head-sum discrepancy.
 ## Deterministic reduction
 
 The accumulator consumes documents in receipt order independently at each of layers
-5, 7, 8, 13, and 14. It transfers each selected write to CPU float64 and performs one
-addition per document in that order. Consequently the published float32 means and hash
-are invariant to GPU batch boundaries. Unnamed heads are stored as exact zeros so the
-dispatcher cannot silently acquire a new candidate.
+5, 7, 8, 13, and 14. It transfers each selected source-bfloat16 write to CPU float64
+and performs one addition per document in that order. Consequently the serialized
+float64 master and its published float32 runtime cast are invariant to GPU batch
+boundaries. This is a float64 accumulation of bfloat16 physical writes, not an exact
+real-valued native mean. The bank is sparse: it contains exactly one head at layers 5,
+7, 13, and 14 and exactly heads 3 and 4 at layer 8. There are no unnamed-head slots.
+
+For the L8 pair, physical removal uses one atomic bfloat16 `select((3,4))` call. The
+replacement first sums the two separately accumulated published float32 means in head
+order `(3,4)`, casts the sum to the native dtype, and evaluates exactly
+`(native_full - selected_pair) + mean_sum`; reassociation is not permitted.
 
 The receipt must bind:
 
@@ -50,7 +57,7 @@ The receipt must bind:
 - exact named layer/head bank;
 - per-layer document and adapter-decomposition counts;
 - accumulator and published dtypes;
-- mean tensor shapes and raw hashes;
+- sparse master/runtime mean tensor shapes and separate raw hashes;
 - native full-write/value-bus replay and head-sum discrepancy bounds;
 - zero model losses/logits/labels read; and
 - create-only authority, result, manifest, and receipt-last publication.

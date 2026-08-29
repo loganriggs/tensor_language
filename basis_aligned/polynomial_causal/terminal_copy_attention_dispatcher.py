@@ -62,6 +62,16 @@ if set(_plans) != set(FROZEN_CANDIDATES):
 FROZEN_HEAD_PLANS: Mapping[str, tuple[tuple[int, tuple[int, ...]], ...]] = (
     MappingProxyType(_plans)
 )
+REGISTERED_HEADS_BY_LAYER = MappingProxyType({
+    layer: tuple(sorted({
+        head
+        for plan in _plans.values()
+        for plan_layer, heads in plan
+        if plan_layer == layer
+        for head in heads
+    }))
+    for layer in NAMED_LAYERS
+})
 
 
 @dataclass(frozen=True)
@@ -72,6 +82,14 @@ class DispatchedAttentionWrite:
     write: torch.Tensor
     first_value_bus: torch.Tensor
     closure: HeadWriteClosure
+
+
+def registered_candidate_arithmetic(
+    native: torch.Tensor, selected: torch.Tensor, mean: torch.Tensor,
+) -> torch.Tensor:
+    """The frozen, deliberately parenthesized finite-precision intervention."""
+
+    return (native - selected) + mean
 
 
 class PhysicalCandidateDispatcher(nn.Module):
@@ -108,7 +126,9 @@ class PhysicalCandidateDispatcher(nn.Module):
                 not torch.is_tensor(mean)
                 or not mean.is_floating_point()
                 or mean.ndim != 3
-                or mean.shape[1:] != (self.n_head, self.width)
+                or mean.shape[1:] != (
+                    len(REGISTERED_HEADS_BY_LAYER[layer]), self.width,
+                )
                 or mean.shape[0] <= 0
                 or not bool(torch.isfinite(mean).all())
             ):
@@ -165,6 +185,7 @@ class PhysicalCandidateDispatcher(nn.Module):
         layer: int,
         state: torch.Tensor,
         first_value: torch.Tensor | None,
+        require_production: bool = False,
     ) -> DispatchedAttentionWrite:
         """Return one physical mean-ablation write on the candidate's live state."""
 
@@ -173,16 +194,29 @@ class PhysicalCandidateDispatcher(nn.Module):
             state.shape[1] > self.maximum_sequence
         ):
             raise ValueError("candidate attention state is malformed")
+        if require_production and (
+            tuple(state.shape[1:]) != (256, 1152)
+            or self.maximum_sequence != 256
+            or self.width != 1152
+            or self.n_head != 9
+            or first_value is None
+        ):
+            raise ValueError("production candidate state or first-value bus is malformed")
         adapter = self.adapters[str(layer)]
         with adapter.begin(state, first_value) as transaction:
             selected = transaction.select(heads)
             native = transaction.native_full_write()
             bus = transaction.first_value_bus()
         mean_bank = getattr(self, f"position_mean_{layer}")
-        mean = mean_bank[: state.shape[1], heads, :].sum(1).to(
+        registered = REGISTERED_HEADS_BY_LAYER[layer]
+        indices = tuple(registered.index(head) for head in heads)
+        # Frozen numeric convention: sum published float means, cast that sum to the
+        # native dtype, then evaluate exactly (native - selected) + mean.  The L8 pair
+        # is selected atomically but its two fit means are summed in this order.
+        mean = mean_bank[: state.shape[1], indices, :].sum(1).to(
             device=native.device, dtype=native.dtype,
         )
-        write = native - selected + mean.unsqueeze(0)
+        write = registered_candidate_arithmetic(native, selected, mean.unsqueeze(0))
         if not bool(torch.isfinite(write).all()):
             raise RuntimeError("candidate attention write is nonfinite")
         return DispatchedAttentionWrite(

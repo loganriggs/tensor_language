@@ -1,0 +1,25 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+PAIRED vs MORE PERMUTATIONS: which lever tightens a comparison? | buckets ((0, 0), (1, 4), (5, 24), (25, 124), (125, 1000000000)) on the fit-row count of the TRUE target | full-rank settled program | DISCOVERY ONLY
+  built the settled fallback and 36 tables (5s)
+  precomputed per-token program margin for 16110 covered types (quartile bounds [0.1608, 0.367, 0.7641])
+
+  === all-compiled baseline ===
+    skip7000   covered enrichment  7.16x  (n 33192)
+    skip11000  covered enrichment  7.29x  (n 33196)
+    skip1200   covered enrichment  7.49x  (n 16597)
+    per-site live/table ratios: min 1.2x max 144.0x across 36 sites
+    g1.00    skip7000 CE 5.90522 ( 7.16x)  skip11000 CE 5.85230 ( 7.29x)  skip1200 CE 5.88575 ( 7.49x)   [1/2]
+    PERSITE  skip7000 CE 12.86842 ( 1.80x)  skip11000 CE 12.91618 ( 1.71x)  skip1200 CE 12.79523 ( 1.71x)   [2/2]
+
+  token-margin gradient (q3 - q0), 8 seeds, three regimes:
+    skip7000   indep8 +1.004 +-0.249  paired8 +9.309 +-0.198  indep64 +1.007 +-0.079
+    skip11000  indep8 +1.870 +-0.281  paired8 +9.860 +-0.285  indep64 +1.858 +-0.096
+    skip1200   indep8 +0.967 +-0.826  paired8 +9.387 +-0.271  indep64 +0.961 +-0.182
+
+  PAIRING cuts the comparison error >=2x -> False  skip7000 0.198 vs 0.249  skip11000 0.285 vs 0.281  skip1200 0.271 vs 0.826
+  and pairing does NOT bias (means within 0.1) -> False  skip7000 8.305  skip11000 7.990  skip1200 8.421
+  and PAIRED-8 beats INDEP-64 -> False  skip7000 0.198 vs 0.079  skip11000 0.285 vs 0.096  skip1200 0.271 vs 0.182
+  coverage 16110, indep8 mean reproduces §1914 -> control False  skip7000 +1.00 vs +9.50  skip11000 +1.87 vs +9.79  skip1200 +0.97 vs +9.28
+
+pred_a False | pred_b False | pred_c False | pred_d False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/paired_vs_more_perms_results.json (323.0s)
