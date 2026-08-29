@@ -53767,7 +53767,17 @@ nothing in the rank axis is going to move it.
 > priced that at **833 / 811 / 916 M/nat** in CE. §1919 says the same purchase *also* buys a measurably
 > better reliability signal on the ~24% of positions that use the fallback. **That is a second reason to
 > spend on map rank, and it is the first time since §1883 that anything outside CE has priced a lever in
-> this program.** Whether the reliability gain is worth anything depends on the deployment — Codex has the
+> this program.**
+>
+> **[SCOPED at §1924. This was measured at 16,110 types. At the DEPLOYED 5,419 coverage — where the
+> "~24% of positions" figure actually applies, and where 16,110 gives ~10% — the same purchase gives
+> +0.48 / +1.14 / **+0.09**, and +0.09 is inside the noise §1920 measured. The lever works on two of
+> three roles at the deployed coverage against three of three here. The CE case (§1870) is untouched;
+> the RELIABILITY case is weaker than this paragraph makes it sound and is NOT established on the
+> build anyone would ship. §1923 predicted exactly this: coverage is not a smooth axis for the
+> uncovered gradient.]**
+>
+> Whether the reliability gain is worth anything depends on the deployment — Codex has the
 > selective-risk application on their lane and I am not pricing it for them.
 
 **pred_d PASSED**: coverage 16,110, zero lookup misses across the whole vocabulary, and the uncovered
