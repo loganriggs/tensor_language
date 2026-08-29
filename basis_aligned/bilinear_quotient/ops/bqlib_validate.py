@@ -16,6 +16,8 @@
 #   pred_b POOLED CE REPRODUCES §1940 EXACTLY, nn75 and map64 at 5,419, to within 0.00005 nats.
 #   pred_c THE PAIRED t REPRODUCES §1940, all six role-coverage cells, to within 0.02 -- including the
 #          sign reversal at 16,110/skip1200 (+2.59) that forced §1939's retraction.
+#   pred_e SPEED: bqlib v2 must beat the 267.7s hand-written §1940 it replaces. Recorded, not barred --
+#          a timing bar would fail on a shared GPU. The number is written to the result JSON.
 #   pred_d CONTROLS: coverages exactly 5,419 and 16,110; every arm inert at covered inputs (0 changed
 #          top-1 vs map64 there); buckets partition; live per-cell top-1 and CE identical across arms;
 #          the routed fraction is 0.75 within 1%; and the cache round-trips -- every key HITs on a second
@@ -42,16 +44,22 @@ res, paired, chg, frac = {}, {}, {}, {}
 for cov, fit, nc in (('c5419', B.FIT_5419, 5419), ('c16110', B.FIT_16110, 16110)):
     P = B.Program(fit, expect_ncov=nc)
     res[cov], paired[cov], chg[cov] = {}, {}, {}
+    # score_roles builds each arm AT MOST ONCE across all three roles. The first version of this
+    # validator called score() per role, rebuilt every arm three times, and ran 808s against the 267.7s
+    # of the hand-written script it replaces -- 95% of it in the map's float64 SVD (bqlib v2 fixes both).
+    liveR = B.score_roles(P, None)
+    armR = {a: B.score_roles(P, a) for a in ARMS}
     for role in B.ROLES:
         tgt, icov = B.axes(P, role)
-        live = B.score(P, None, role)
-        arms = {a: B.score(P, a, role) for a in ARMS}
+        live = liveR[role]
+        arms = {a: armR[a][role] for a in ARMS}
         res[cov][role] = {a: B.cells(P, tgt, icov, live, arms[a]) for a in ARMS}
         if cov == 'c5419' and role == 'skip7000':
             cached_ref = arms['map64']          # the reference the cache test compares against
         paired[cov][role] = B.paired_t(arms['nn75'][1], arms['map64'][1])
         chg[cov][role] = {a: int(((arms[a][0] != arms['map64'][0]) & icov).sum()) for a in ARMS}
     frac[cov] = P.routefrac.get('nn75', 0.0)
+    del liveR, armR
     del P
     torch.cuda.empty_cache()
 

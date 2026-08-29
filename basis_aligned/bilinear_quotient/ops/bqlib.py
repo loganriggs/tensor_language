@@ -35,7 +35,7 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from bilin18_joint_removal import m, DEV                                    # noqa: E402
 
-LIB_VERSION = 1          # bump on ANY change to table building, arm construction or forward_logits
+LIB_VERSION = 2          # bump on ANY change to table building, arm construction or forward_logits
 
 D = 1152
 T = 256
@@ -168,6 +168,9 @@ class Program:
                   + RIDGE * torch.eye(D, device=DEV, dtype=torch.float64) * (self.ncov / D))
         self.Eunc = m.transformer.wte.weight.detach()[self.unc].float().double()
         self.routefrac = {}
+        self._tabmemo = {}
+        self._mapmemo = {}
+        self.digest = _tables_digest(self)
         self.build_s = time.time() - t0
         if verbose:
             print(f'  [bqlib] coverage {self.ncov} from {os.path.basename(fit_path)}: 36 tables, '
@@ -178,17 +181,31 @@ class Program:
     def _tables_at(self, table_rank):
         if table_rank is None:
             return self.tables
+        if table_rank in self._tabmemo:
+            return self._tabmemo[table_rank]
         out = {}
         for st, tbl in self.tables.items():
             b = tbl.double()
             mu = b.mean(0, keepdim=True)
             U, S, Vh = torch.linalg.svd(b - mu, full_matrices=False)
             out[st] = (mu + (U[:, :table_rank] * S[:table_rank]) @ Vh[:table_rank]).float()
+        self._tabmemo[table_rank] = out
         return out
 
-    def _map(self, tc, st, rank):
-        Ws = torch.linalg.solve(self.A, self.Ecov.T @ tc[st].double())
-        U, S, Vh = torch.linalg.svd(Ws, full_matrices=False)
+    def _map(self, tc, st, rank, table_rank=None):
+        """Rank-`rank` embedding->row map rows for the uncovered types.
+
+        PROFILED 2026-08-29: 95% of a six-arm two-coverage run (764.5s of 808.0s) was here -- 36 float64
+        ridge solves and 36 float64 SVDs of a 1152x1152, recomputed for EVERY arm and EVERY role. The
+        solve and the SVD do not depend on `rank` at all; only the truncation does. Memoizing them per
+        (table rank, site) turns 324 SVDs per coverage into 36."""
+        key = (table_rank, st)
+        usv = self._mapmemo.get(key)
+        if usv is None:
+            Ws = torch.linalg.solve(self.A, self.Ecov.T @ tc[st].double())
+            usv = torch.linalg.svd(Ws, full_matrices=False)
+            self._mapmemo[key] = usv
+        U, S, Vh = usv
         return (self.Eunc @ ((U[:, :rank] * S[:rank]) @ Vh[:rank])).float()
 
     def arm(self, name, table_rank=None):
@@ -212,7 +229,7 @@ class Program:
                 fr = torch.zeros(V, D, device=DEV)
                 fr[self.tk] = tc[st]
                 fr[self.unc] = torch.where(usenn.unsqueeze(1), tc[st][self.nnrow[self.unc]],
-                                           self._map(tc, st, 64))
+                                           self._map(tc, st, 64, table_rank))
                 out[st] = fr
             return out
         if name.startswith('map'):
@@ -220,7 +237,7 @@ class Program:
             for st in SITES:
                 fr = torch.zeros(V, D, device=DEV)
                 fr[self.tk] = tc[st]
-                fr[self.unc] = self._map(tc, st, rank)
+                fr[self.unc] = self._map(tc, st, rank, table_rank)
                 out[st] = fr
             return out
         raise ValueError(f'unknown arm {name!r}')
@@ -240,14 +257,26 @@ class Program:
 
 # ---------------------------------------------------------------- scoring, with a verified cache
 
-def _fingerprint(rows):
-    """A cheap, order-stable digest of a substitution row set -- guards the cache against drift."""
+def _tables_digest(prog):
+    """Digest of everything an arm is built FROM: the 36 tables, the neighbour index and its cosine.
+
+    Keyed on the Program rather than on constructed rows so that score() can verify a cached entry
+    WITHOUT building the arm -- building it was 95% of the runtime (see Program._map)."""
     h = hashlib.sha256()
     for st in SITES:
-        r = rows[st]
+        r = prog.tables[st]
         h.update(str(tuple(r.shape)).encode())
-        h.update(r[::4093].float().cpu().numpy().tobytes())
+        h.update(r[::997].float().cpu().numpy().tobytes())
+    h.update(prog.nnrow[::97].cpu().numpy().tobytes())
+    h.update(prog.nnsim[::97].float().cpu().numpy().tobytes())
     return h.hexdigest()[:32]
+
+
+def _fingerprint(prog, armname, table_rank):
+    """What a cached entry must match: the program it came from, plus the arm spec."""
+    if armname is None:
+        return 'live|' + prog.digest[:16]
+    return f'{armname}|{table_rank}|' + prog.digest[:16]
 
 
 def _key(prog, armname, table_rank, role):
@@ -278,7 +307,7 @@ def cache_path(prog, armname, role, table_rank=None):
     return CACHE + _key(prog, 'live' if armname is None else armname, table_rank, role) + '.pt'
 
 
-def score(prog, armname, role, table_rank=None, use_cache=True):
+def score(prog, armname, role, table_rank=None, use_cache=True, prerows=None):
     """(top1, ce) per scored position for one arm on one role. armname None == the LIVE model.
 
     Cached on disk under (LIB_VERSION, fit file, coverage, arm, table rank, role). A cached entry
@@ -286,8 +315,7 @@ def score(prog, armname, role, table_rank=None, use_cache=True):
     name = 'live' if armname is None else armname
     k = _key(prog, name, table_rank, role)
     path = CACHE + k + '.pt'
-    rows = None if armname is None else prog.arm(armname, table_rank)
-    fp = 'live' if rows is None else _fingerprint(rows)
+    fp = _fingerprint(prog, armname, table_rank)
     if use_cache and os.path.exists(path):
         try:
             c = torch.load(path, map_location='cpu')
@@ -303,6 +331,8 @@ def score(prog, armname, role, table_rank=None, use_cache=True):
             print(f'  [bqlib] cache UNREADABLE {name} {role} ({e}) -- recomputing', flush=True)
     STATS['miss'] += 1
     t0 = time.time()
+    rows = prerows if prerows is not None else (None if armname is None
+                                                else prog.arm(armname, table_rank))
     hooks = () if rows is None else [(st, row_hook(rows[st])) for st in SITES]
     am, nl = _run(None, hooks, role)
     del rows, hooks
@@ -314,6 +344,24 @@ def score(prog, armname, role, table_rank=None, use_cache=True):
         os.replace(tmp, path)
     print(f'  [bqlib] computed   {name:8s} {role} ({time.time() - t0:.1f}s)', flush=True)
     return am, nl
+
+
+def score_roles(prog, armname, roles=ROLES, table_rank=None, use_cache=True):
+    """{role: (top1, ce)} for one arm, constructing its rows AT MOST ONCE across all roles.
+
+    The per-role score() loop in the first validator built the same arm three times and made a run
+    3x SLOWER than the hand-written script it replaced. Prefer this."""
+    out, rows = {}, None
+    for r in roles:
+        if use_cache and os.path.exists(cache_path(prog, armname, r, table_rank)):
+            out[r] = score(prog, armname, r, table_rank, use_cache)
+            continue
+        if rows is None and armname is not None:
+            rows = prog.arm(armname, table_rank)
+        out[r] = score(prog, armname, r, table_rank, use_cache, prerows=rows)
+    del rows
+    torch.cuda.empty_cache()
+    return out
 
 
 def axes(prog, role):
