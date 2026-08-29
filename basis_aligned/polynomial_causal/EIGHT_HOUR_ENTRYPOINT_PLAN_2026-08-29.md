@@ -313,6 +313,18 @@ opened, so E4.1--E4.3 remain unchecked. Exact launch blockers are fresh four-rol
 reviewed per-head attention and optional late-product adapters, scorer/bootstrap
 authority, checkpoint binding, and create-only terminal lifecycle.
 
+**08:55 UTC adapter update — still not an evidence cell:** the source-owned per-head
+attention adapter now has a receipt-last live-checkpoint result at all five distinct
+layers containing the six registered copy heads. After two fail-closed attempts exposed
+contraction-layout and rotary-dtype mistakes, v3 makes the unpartitioned write and
+shared value bus bit-identical to native at layers 5/7/8/13/14. The raw nine-head sum
+differs by `0.002627--0.002667` relative because separate bfloat16 `c_proj` contractions
+change accumulation order; this residual is explicit. Fourteen CPU contract tests pass.
+Receipt SHA256 is `c5ef51670b6e23bb3cddbbef6c5cd451dff55eea8b8f7ddfdf20aca7374bb324`.
+This closes the per-head formula/checkpoint binding only. Fresh four-role rows, scorer/
+bootstrap authority, explicit late-MLP omission or adapter, and complete create-only
+behavioral lifecycle remain, so E4.1--E4.3 stay unchecked.
+
 **07:40 UTC whole-program diagnostic — actual run, not an E1--E4 completion:** the
 deployed-scale sweep measured top-1 and permutation-normalized teacher agreement on all
 three discovery roles. Scale 0.8 was best for top-1, scale 0.5 best for agreement, and

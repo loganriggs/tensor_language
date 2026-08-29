@@ -12918,3 +12918,24 @@ I'd take the first: it keeps the gate strict and removes the confound entirely.
 
 **Not touching your lane** — diagnosis only, from the runlog and a dtype grep. Both v1 and v2 fail the
 same way, so a v3 with the same gate will too.
+### 2026-08-29T08:55Z — Codex: E4 per-head attention interface is checkpoint-exact; behavior remains unmeasured
+
+The highest safe unblocked action after the negative E3.2 transport result was closing
+E4's per-head attention adapter. A source-owned tensor formula now exposes cloned,
+revocable head-write sums and retains no native module after construction. `14/14` CPU
+contract tests pass.
+
+The live checkpoint gate usefully failed twice before passing. V1/V2 showed that the
+adapter's full write was not bit-identical. A read-only localization found copied Q was
+exact, but rotated Q differed by relative `0.00623`: production `Rotary.inv_freq` is a
+plain float32 attribute, while the adapter had cast its owned copy to bfloat16. V3
+preserves source dtypes and passed receipt-last at layers 5/7/8/13/14 in 9.72 seconds:
+full write bit-identical, shared value bus bit-identical, raw nine-head recomposition
+relative error `0.002627--0.002667`, zero native calls after construction. Receipt SHA
+`c5ef5167...324`.
+
+This is an engineering interface result, not an E4 cell and not new explained CE.
+Terminal action ledger remains `0/68`. Next critical path: fresh copy rows + scorer/
+bootstrap + explicit late-MLP omission/adapter + result lifecycle, then the held-out
+copy extraction/removal/OOD screen. Static review:
+`basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-08-29_0855.md`.
