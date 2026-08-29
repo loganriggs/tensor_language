@@ -35,14 +35,14 @@ FineWeb documents:
 - `FULL512`: only the frozen rank-512 free-factor MLP2 program is installed.
 - `BOTH`: both frozen programs are installed simultaneously.
 
-For an arm (a), extra cross-entropy is
+For an arm $a$, extra cross-entropy is
 
 $$
 \Delta CE_a = CE_a-CE_{\mathrm{NATIVE}}.
 $$
 
 It measures how much worse that intervention predicts the actual next tokens. A
-positive factorial interaction (I) means the joint damage is greater than the
+positive factorial interaction $I$ means the joint damage is greater than the
 sum of the standalone damages: each program changes the input distribution seen
 by the other enough that independently good fits cease to be independent.
 
@@ -117,8 +117,8 @@ fit next.
 
 Yes: learning additional late circuits is a high-return complementary entry point.
 An early representation should not be clustered merely by Euclidean proximity. Two
-early states (x,x') can be treated as equivalent relative to a verified consumer
-bank (g_1,\ldots,g_m) when
+early states $x,x'$ can be treated as equivalent relative to a verified consumer
+bank $g_1,\ldots,g_m$ when
 
 $$
 (g_1(x),\ldots,g_m(x)) \approx (g_1(x'),\ldots,g_m(x')).
@@ -192,6 +192,12 @@ active in the shared workspace, so the useful immediate work is to preregister a
 implement its CPU-side two-background capture/loss contract without opening new
 evaluation rows.
 
+That CPU-side action is now complete: the prospective protocol is frozen in
+`MLP2_TRAJECTORY_ROBUST_R512_V1_PREREGISTRATION.md`, and the balanced normalized
+two-background loss plus minimax checkpoint rule have a focused known-answer test
+suite. No new row, model, or outcome was opened. This is an implemented prerequisite,
+not a scientific outcome.
+
 ## Evidence
 
 - Result: `mlp0_c512_mlp2_full512_composition_v2_result.json`
@@ -199,4 +205,3 @@ evaluation rows.
 - Result SHA256: `97822bd27e9b4fca0768da16e7df3c5adbacc2fedcaa6652a715394a5f380f1b`
 - Receipt status: `result_complete_receipt_last`
 - Runtime: `20.293899536132812` seconds
-

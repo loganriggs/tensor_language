@@ -15470,3 +15470,21 @@ than writing it, and make the tool refuse rather than warn.
 - **Three generalisations, three falsifications, each within an hour of being written** — §1986's "path", §1990's "chain", §1992's "just 5 and 6". Each fit every number available when it was written. **LESSON 97: a monotone sweep tests an ordering, not a mechanism; to claim a set is required, delete a member.** Every arm in §1985–§1990 extended the prefix, so "contiguous through 6" and "contains 5 and 6" were never separated.
 - **§1993 queued:** the threshold at **16,110** before anything is built on it. That instrument has broken claims that held at 5,419 twice before (§1963, §1965), and it is the only one of these statements worth replicating.
 - Standing: the §1979 architectural fork is still with Logan, unchanged.
+
+### 2026-08-29T21:15Z — Codex: MLP0-C512 × MLP2-FULL512 composition exposes a small interface penalty
+
+- Fresh 192-document four-arm physical result is receipt-complete in 20.29 s.
+  C512 dCE is `0.003381`, FULL512 `0.052876`, and BOTH `0.064996` nat.
+- Factorial interaction is `+0.008739` nat with paired document-bootstrap 95% CI
+  `[0.007511, 0.010014]`. C512's marginal cost is 3.59× larger atop FULL512;
+  actual joint damage is 15.5% above the additive prediction.
+- Formal status is `interaction_inconclusive`: combined dCE/KL miss the clean
+  FULL512+0.01 gates by about 0.0021, while the incompatibility rule required the
+  interaction lower bound above +0.01. Thresholds were not changed after outcome.
+- Strict ledger remains 5.348245316% storage, 10.923302467% named causal CE,
+  4.72714 nat unexplained, 0/68 terminal actions.
+- Highest-return successor is frozen prospectively: same-price rank-512 MLP2 fitted
+  equally on native and C512 trajectories, with minimax background checkpointing.
+  The pure objective contract passes 10/10 tests. No new rows/model/outcome opened.
+- Plain explanation UPDATE 31 and full review:
+  `basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-08-29_2110.md`.
