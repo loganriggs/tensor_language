@@ -2365,3 +2365,28 @@ of the decision — nats, parameters, nats per 100M — not in σ. Use σ to dec
 then the units to decide whether it is worth having. And when a predicate's failure is given a
 consequence in its own registered text, check that the consequence follows from the bar as written: mine
 did not.
+
+## LESSON 92 — third time reading truncated output instead of the data, and this time a mechanism caught it in minutes
+
+§1953 quoted a per-role triple from a `tail`ed log that showed two of three roles. LESSON 85 said read the
+JSON. §1956 retyped a reference triple wrong; LESSON 87 made `B.ref()` read it from the artifact. **§1974
+then published "not one of the 47 involves a build-level arm" after grepping a printed list that my own
+audit had truncated to `risk[:12]`.** Six do.
+
+**What is different this time is the interval.** LESSON 85 took a section to surface; LESSON 87 took two.
+This took **four minutes**, because `ops/pooling_audit.py` was wired into `ops/test_fast.py` moments
+after the claim was written, and the suite went red on the very thing the prose had just denied.
+
+**The correction is small — none of the six is a sign disagreement, all are sub-2σ, and §1966 had already
+concluded those builds do not differ — so no result moved.** But the count was wrong in a published
+section, and the shape of the error was one I had already written down twice.
+
+**Two fixes, both structural.** The audit no longer truncates its own output — a display limit inside a
+tool that produces evidence is a trap, because the next reader is me. And the gate now fires only on the
+**§1965 shape** (a build-level comparison where the vote and the pooled sign disagree) rather than on
+mere non-significance, so it flags the failure that actually cost a claim instead of everything small.
+
+**The rule, now stated in the form that would have prevented all three.** Any number that reaches a
+write-up must come from the artifact, never from a terminal rendering of the artifact. `tail`, `head`,
+`[:12]` and a wrapped table are all the same hazard. If a tool prints a list you might quote, it must
+print all of it or exit non-zero.
