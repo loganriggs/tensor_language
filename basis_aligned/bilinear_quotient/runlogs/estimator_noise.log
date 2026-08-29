@@ -1,0 +1,25 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+ESTIMATOR NOISE: how big is the permutation-null error? | buckets ((0, 0), (1, 4), (5, 24), (25, 124), (125, 1000000000)) on the fit-row count of the TRUE target | full-rank settled program | DISCOVERY ONLY
+  built the settled fallback and 36 tables (5s)
+  precomputed per-token program margin for 16110 covered types (quartile bounds [0.1608, 0.367, 0.7641])
+
+  === all-compiled baseline ===
+    skip7000   covered enrichment  7.11x  (n 33192)
+    skip11000  covered enrichment  7.30x  (n 33196)
+    skip1200   covered enrichment  7.42x  (n 16597)
+    per-site live/table ratios: min 1.2x max 144.0x across 36 sites
+    g1.00    skip7000 CE 5.90522 ( 7.11x)  skip11000 CE 5.85230 ( 7.30x)  skip1200 CE 5.88575 ( 7.42x)   [1/2]
+    PERSITE  skip7000 CE 12.86842 ( 1.81x)  skip11000 CE 12.91618 ( 1.72x)  skip1200 CE 12.79523 ( 1.71x)   [2/2]
+
+  covered-arm baseline enrichment under 8 independent seeds:
+    skip7000   NPERM=8  mean 7.082 spread 0.218   NPERM=64 mean 7.102 spread 0.061
+    skip11000  NPERM=8  mean 7.262 spread 0.334   NPERM=64 mean 7.255 spread 0.123
+    skip1200   NPERM=8  mean 7.423 spread 0.188   NPERM=64 mean 7.432 spread 0.096
+
+  §1914's +-0.2 is the right ORDER (0.05 <= spread8 <= 0.60) -> True  skip7000 0.218  skip11000 0.334  skip1200 0.188
+  and NPERM=64 halves it -> False  skip7000 0.061 vs 0.109  skip11000 0.123 vs 0.167  skip1200 0.096 vs 0.094
+  and the §1914 RANKING survives at NPERM=64 -> True  skip7000 token +9.32 vs live +5.91 (§1914 +9.50/+6.03)  skip11000 token +9.82 vs live +6.38 (§1914 +9.79/+6.36)  skip1200 token +9.40 vs live +6.10 (§1914 +9.28/+6.02)
+  coverage 16110, NPERM=8 unbiased vs 64 (<=0.3) -> control True  skip7000 0.020  skip11000 0.007  skip1200 0.008
+
+pred_a True | pred_b False | pred_c True | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/estimator_noise_results.json (322.1s)

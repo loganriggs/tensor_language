@@ -53542,3 +53542,55 @@ is the stronger** (+9.5 vs +6.0), and it is a build-time property of the token (
 **Open.** Whether the per-token signal, now that it is both stronger and precomputable, predicts anything
 the deployed program should act on — refusing to answer on its own low-confidence tokens, for instance,
 is a concrete use and nothing has priced it.
+
+## §1915 — the estimator is UNBIASED and noisy at ±0.2; §1914's reversal survives at four times the precision
+
+`ops/estimator_noise.py`, 322.1s, **DISCOVERY ONLY**, rung 3 — §1914's open precision question.
+**pred_a True | pred_b False | pred_c True | pred_d True.**
+
+```
+  covered-arm baseline enrichment, 8 independent seeds, 16,110 types
+                NPERM=8  mean / spread        NPERM=64  mean / spread     reduction
+    skip7000     7.082 / 0.218                 7.102 / 0.061               3.6x
+    skip11000    7.262 / 0.334                 7.255 / 0.123               2.7x
+    skip1200     7.423 / 0.188                 7.432 / 0.096               2.0x
+```
+
+> **pred_a PASSED: §1914's inferred ±0.2 was the right order, measured directly.** The seed-to-seed
+> spread at NPERM = 8 is **0.218 / 0.334 / 0.188**. That figure was inferred from a single discrepancy;
+> it is now a measurement over eight seeds, and it stands.
+>
+> **pred_d PASSED and it is the reassuring half.** The NPERM = 8 and NPERM = 64 means differ by **0.020 /
+> 0.007 / 0.008**. **The estimator is unbiased — it was only ever noisy.** Every central value quoted
+> since §1885 is therefore correct in expectation; it is the tight *reproduction* claims that were
+> overstated, exactly as §1914 said.
+>
+> **pred_c PASSED and it matters most: §1914's reversal holds at four times the precision.** At NPERM = 64
+> the token-margin gradient is **+9.32 / +9.82 / +9.40x** against the live-margin's **+5.91 / +6.38 /
+> +6.10x**, reproducing §1914's +9.50/+9.79/+9.28 vs +6.03/+6.36/+6.02. **The program's own precomputable
+> per-token confidence really is the stronger signal**, and that conclusion is not an artifact of a noisy
+> null.
+
+**pred_b FAILED by 0.002 on one role, and I am scoring it FAIL as written.** I required the NPERM = 64
+spread to be below **half** the NPERM = 8 spread. It is on skip7000 (0.061 vs 0.109) and skip11000 (0.123
+vs 0.167), and misses on skip1200 (**0.096 vs 0.094**). **The physics is nonetheless right**: the observed
+reductions are **3.6x / 2.7x / 2.0x** for an 8x increase in permutations, straddling the `sqrt(8) = 2.83`
+that sampling error predicts. My bar demanded better than 2x on a quantity whose expectation is 2.83x with
+its own spread across only eight seeds — **too tight for the sample, and that is a bar-design fault, not a
+finding.**
+
+**One number to correct in passing.** The baseline I have been quoting throughout as **7.16 / 7.29 /
+7.49x** measures here at **7.102 / 7.255 / 7.432** (NPERM = 64, eight seeds). All three sit inside the
+NPERM = 8 spread, so nothing is wrong — but the better estimate is slightly lower on two roles, and
+anything quoting the baseline to three digits should quote these.
+
+**What §1914 and §1915 together settle.** The permutation-null enrichment is unbiased with a spread of
+about **±0.2 at NPERM = 8** and **±0.09 at NPERM = 64**, falling as `1/sqrt(NPERM)`. **Large effects across
+the arc are an order or more above that** — §1908's 7.53 → 2.74, §1911's 5.36 → 10.11, §1914's 5.29 →
+12.57, §1915's +9.3 vs +5.9. **The anchor "reproductions" quoted to three digits were tighter than the
+instrument**, and this pair of sections is the record of by how much.
+
+**Open.** Nothing in the precision line. §1914's open question stands: whether the per-token signal, now
+confirmed the stronger and precomputable, is worth acting on — refusing on the program's own low-confidence
+tokens. Codex reports at 10:22Z that they have it in a document-cluster selective-risk certificate, so the
+use is being priced on their lane and I am not duplicating it.
