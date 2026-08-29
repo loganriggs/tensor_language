@@ -58533,3 +58533,41 @@ sites by about 22% at this scale, for a reason that lives in the loss rather tha
 that quantity exists — every profile in this line (§1988, §2002) measured *lone-compilation damage with
 attention live*, which §2013 showed is a different regime entirely. **The shipped program has its own
 depth profile and it has never been measured.**
+
+## §2015 — the shipped program's table content lives almost entirely in the last two layers
+
+`ops/the_shipped_programs_depth_profile.py`, **133.8s**, **DISCOVERY ONLY**, 5,419, rung 3 — §2014's open
+question, and the first experiment since §1983 that is directly about the deployed artifact.
+**pred_a True | pred_b True | pred_c False | derived controls True.** Reference deviation 0.000000.
+
+```
+  cost of replacing ONE site's table with a mean row inside the shipped 36-site program, nats, 5,419
+             mlp0      mlp2      mlp4      mlp6      mlp8      mlp10     mlp12     mlp14     mlp16     mlp17
+  skip7000  −0.00005  −0.00012  +0.00392  +0.00012  +0.00138  +0.01065  +0.02692  +0.01258  +0.35449  +0.81517
+  skip11000 −0.00004  +0.00002  +0.00436  +0.00027  +0.00236  +0.01466  +0.02912  +0.01567  +0.36669  +0.82456
+  skip1200  −0.00007  −0.00028  +0.00493  −0.00193  +0.00072  +0.00843  +0.02687  +0.01263  +0.37535  +0.82788
+```
+
+> **pred_b PASSED 3/3 and the profile is extreme rather than graded. The eight sampled sites at layers
+> 0–14 sum to 0.055 nats; mlp16 and mlp17 alone are 0.354 and 0.815.** **mlp17's table content is 6,800
+> times mlp2's**, and the last two sampled sites carry **96%** of the sampled total.
+
+> **pred_c FAILED on all three roles, at one site, by 0.0019 / 0.0024 / 0.0029 nats.** The bar was that
+> mlp0, mlp2 and mlp4 are each worth under 0.002. **mlp0 and mlp2 are worth −0.0001 to +0.0000; mlp4 is
+> worth +0.0039–0.0049.** A miss is a miss, and it says the shallow sites are not uniformly free either.
+
+**What this says about the build, which is the point of running it.** §1959's allocation buys **rank 768 at
+every MLP site**. §2015 shows the content those tables encode is worth **nothing measurable at layers 0, 2
+and 6**, thousandths at 4 and 8, hundredths at 10–14, and **almost everything at 16 and 17.** **The shipped
+program's cost is dominated by two of its thirty-six tables.**
+
+**And the arithmetic does not say "cut the shallow tables", so I am not saying it.** Setting the eight
+sampled shallow sites to mean rows costs 0.055 nats and would save about 40M values — worth **0.004 nats**
+at §1947's 0.010-per-100M price. **The cost exceeds the saving by more than tenfold.** §2013's corollary —
+that rank 128 at mlp2 is marginally justified — was about *truncation*, which keeps most of the content;
+**it does not extrapolate to removal, and §2014's 22% super-additivity means the eight together cost more
+than their sum in any case.**
+
+**Open.** §2013 priced rank 128 against rank 768 at **mlp2**, where the content is worth 0.0001 nats, and
+found it marginally worth buying. **The same question at mlp16 and mlp17, where the content is worth 0.35
+and 0.82, has not been asked** — and those two sites are where a rank decision actually moves the program.
