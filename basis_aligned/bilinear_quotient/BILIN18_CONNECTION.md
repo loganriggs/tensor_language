@@ -50870,3 +50870,56 @@ recompute the deficit gap. If it stays near 0.55-0.87 nats per position, the fal
 at every coverage and its value is set purely by the uncovered fraction; if it shrinks toward zero, high
 coverage already fixes it and §1848's conclusion is right for the builds that matter, just not for the one
 it was measured on.
+
+## §1867 — the fallback's per-position penalty is CONSTANT in coverage; coverage only shrinks how often it applies
+
+`ops/deficit_gap_high_cov.py`, 152.4s, **DISCOVERY ONLY**, rung 3 — §1866's open question. **4/4.**
+
+```
+  full rank, deficit against live (program minus live) on each population
+                       covered     uncovered      GAP        uncovered fraction
+    5,419 types (§1866)
+      skip7000        +2.74260     +3.29009    +0.54749           24.6%
+      skip11000       +2.88189     +3.54458    +0.66269           24.6%
+      skip1200        +2.56146     +3.42919    +0.86773           24.6%
+    16,110 types (here)
+      skip7000        +2.71337     +3.26363    +0.55027           10.0%
+      skip11000       +2.85364     +3.49850    +0.64486           10.0%
+      skip1200        +2.58051     +3.33352    +0.75301           10.0%
+```
+
+**pred_a PASSED and the margin is the finding: the gap barely moves.** From 5,419 to 16,110 covered types
+— a 2.97x increase — the per-position deficit gap goes **+0.54749 → +0.55027**, **+0.66269 → +0.64486**,
+**+0.86773 → +0.75301**. Two roles change by under 0.02 nats and the third by 0.115. **The fallback's
+per-position penalty is a property of the fallback, not of how much is covered.**
+
+**pred_b and pred_c PASSED, and together they say where the value goes.** The uncovered slice falls from
+**24.6% to 10.0%** of scored positions, and the value of closing the gap falls almost exactly in
+proportion — **0.135 → 0.05481** on skip7000, 0.16 → 0.06416 and 0.21 → 0.07497 on the others.
+**Coverage does not improve the fallback; it reduces how often you have to use it.**
+
+> **And even at 16,110 types the fallback is still worth as much as the entire rank/coverage
+> optimisation.** Closing the gap there is worth **0.055 / 0.064 / 0.075 nats**; §1861's whole iso-cost
+> improvement over the deployed build is **0.056 / 0.079 / 0.074**. **The fallback is the largest single
+> open lever inside the position-wise class at every coverage measured**, and §1848 recorded it as closed
+> for eighteen sections on a comparison in the wrong units.
+
+**Controls (pred_d).** Coverage exactly 16,110; the ceiling is finite and above live on both populations;
+the program's CE exceeds live's on both, as it must; full-rank attainment is exact again (an eighth
+covered set). Live covered CE is 3.19438 / 2.99387 / 3.29715 here against 3.29205 / 3.09711 / 3.40277 at
+5,419 — different because the scored covered population is different, which is the §1851 lesson and is
+why nothing in this section anchors a live figure across coverages.
+
+**A run note.** The first execution died in the tail on `rcost('full')` — `int('full')` — inherited from
+the iso-cost lineage where every ladder entry was numeric. **Fifth tail-inheritance failure** (LESSONS 56,
+59, 63, 64, now this). Two of the five were statically decidable and have gate checks; three were not.
+The honest generalisation is not another narrow check but the habit LESSONS 63 states: **the reporting
+block is part of the edit, not an afterthought**, and it is the part that only runs after everything
+expensive has succeeded.
+
+**Open question this ends on.** The fallback's penalty is **+0.55 to +0.75 nats per uncovered position**,
+constant in coverage, and the current fallback is §1780/§1781's output-NN neighbour plus §1785's rank-64
+embedding→row map. **Nothing in the record has measured what the CEILING is for an uncovered position** —
+the analogue of §1848's per-token ceiling, for tokens that have no table row. Until that exists the 0.55
+is a deficit against *live*, not against *what any fallback could achieve*, and the lever's true size is
+unknown: it could be almost entirely irreducible.
