@@ -1,0 +1,77 @@
+{
+ "config": {
+  "table_ranks": [
+   "full"
+  ],
+  "map_rank_of_table_rank": {
+   "None": 64,
+   "512": 512
+  },
+  "program": "context-free tables, output-NN fallback with a rank-64 embedding->row map -- the settled design of \u00a71780-\u00a71786",
+  "instruments": "top-1 agreement with the live model, top-1 accuracy against the true next token, and KL(live || program). All three are NEW to this thread, which has been CE-only since \u00a71747.",
+  "ROLE_NOTE": "DISCOVERY ONLY; a second-class confirmation with a DIFFERENT instrument, not a replication of the same one."
+ },
+ "results": {
+  "baseline": {
+   "skip7000": 36864,
+   "skip11000": 36864,
+   "skip1200": 18432
+  },
+  "self_check": 0,
+  "sites": {
+   "mlp16": {
+    "skip7000": {
+     "changed": 1321,
+     "n": 36864,
+     "median_margin_changed": 0.19664955139160156,
+     "median_margin_unchanged": 0.4704771041870117,
+     "ratio": 2.3924646705657557
+    },
+    "skip11000": {
+     "changed": 1350,
+     "n": 36864,
+     "median_margin_changed": 0.2674999237060547,
+     "median_margin_unchanged": 0.4704771041870117,
+     "ratio": 1.758793414475889
+    },
+    "skip1200": {
+     "changed": 650,
+     "n": 18432,
+     "median_margin_changed": 0.2831611633300781,
+     "median_margin_unchanged": 0.4704771041870117,
+     "ratio": 1.6615170620646917
+    }
+   },
+   "mlp0": {
+    "skip7000": {
+     "changed": 1,
+     "n": 36864,
+     "median_margin_changed": 0.0063266754150390625,
+     "median_margin_unchanged": 0.46188831329345703,
+     "ratio": 73.00648176062707
+    },
+    "skip11000": {
+     "changed": 2,
+     "n": 36864,
+     "median_margin_changed": 5.0067901611328125e-05,
+     "median_margin_unchanged": 0.46188831329345703,
+     "ratio": 9225.238095238095
+    },
+    "skip1200": {
+     "changed": 3,
+     "n": 18432,
+     "median_margin_changed": 0.0017108917236328125,
+     "median_margin_unchanged": 0.4682798385620117,
+     "ratio": 273.70512820512823
+    }
+   }
+  }
+ },
+ "predictions": {
+  "pred_a_changes_at_near_ties_program_concentrated_on_frequent_targets": false,
+  "pred_b_tighter_than_unchanged_more_concentrated_than_live": false,
+  "pred_c_mlp0_same_way_keeps_60pc_on_the_top_bucket": true,
+  "pred_d_controls": true
+ },
+ "runtime_s": 59.4
+}

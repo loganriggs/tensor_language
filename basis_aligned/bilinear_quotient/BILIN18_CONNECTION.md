@@ -52727,3 +52727,55 @@ noise, and it carries no information now that pred_a has failed.
 exactly. **The honest current statement is that MLP restorations are no-ops in exact arithmetic and are
 not no-ops in float, by an amount that grows with depth — and whether that amount is entirely numerical
 is one measurement away.**
+
+## §1900 — the float32 near-tie account is REFUTED. §1898's retraction stands; the mechanism is open.
+
+`ops/argmax_margin_at_changes.py`, 59.4s, **DISCOVERY ONLY**, rung 3 — §1899's open question.
+**pred_a False | pred_b False | pred_c True | pred_d True.**
+
+```
+  top-2 logit margin in the all-compiled program (tanh-bounded to +-30)
+    mlp16   changed n1321 / 1350 / 650   median 0.19665 / 0.26750 / 0.28316
+            unchanged                    median 0.4705  / 0.4705  / 0.4705    ratio 2x
+    mlp0    changed n   1 /    2 /   3   median 0.00633 / 0.00005 / 0.00171
+            unchanged                    median 0.4619  / 0.4619  / 0.4683
+```
+
+> **pred_a and pred_b FAILED, and they refute the explanation I offered in §1899 and preferred.** I
+> predicted the mlp16 changes would sit at near-ties — median margin below **0.01**, at least **20x**
+> tighter than unchanged positions. Measured: **0.197 / 0.268 / 0.283**, only **2x** tighter than the
+> 0.47 typical. **These are not coin-flip positions.** The float32-argmax-flip account of §1898's 3.5% is
+> dead, and **§1898's retraction of §1891 stands in full**: MLP restoration changes real predictions at
+> positions the program was not tied on.
+
+**pred_c PASSED and it separates the two depths cleanly.** mlp0's handful — **1 / 2 / 3** positions —
+sits at margins of **0.0063 / 0.00005 / 0.0017**, three to four orders below mlp16's. **At depth 0, where
+§1899 proves the streams are bit-identical to 1.2e-07, the changes really are numerical. At depth 16 they
+are not.** Same instrument, same run, opposite verdicts — which is what makes both readable.
+
+> **So the state of this question, stated without a preferred story.** §1899 verified §1765's premise
+> exactly: the compiled stream entering mlp16 equals the model's length-1 stream to 1.2e-07. §1898
+> measured 1,321 predictions changing when mlp16 is restored. §1900 shows those changes are not at
+> near-ties. **Identical input, position-wise module, and yet a different output that matters — the three
+> together are not yet consistent, and I do not have the mechanism.**
+>
+> The candidate I would test next, labelled as a candidate: the substituted row is a **stored float32
+> table entry cast at hook time to the module's working dtype**, while the live path computes in that
+> dtype throughout. If the model works in bfloat16, that is a ~1e-2 relative difference, not 1e-7 — the
+> right scale to move a 0.2 margin, and it would also explain why depth 16 matters and depth 0 does not,
+> since a perturbation at mlp16 reaches the logits through one block rather than seventeen. **§1899's
+> stream comparison was computed in float32 and would not see it.** I am not asserting this; §1898,
+> §1899 and now §1900 are three consecutive runs in which my explanation for a residual was wrong, and
+> the honest position is that the mechanism is open.
+
+**pred_d PASSED**: the mlp16 change counts reproduced §1898's published 1321 / 1350 / 650 **exactly**,
+the self-comparison changed 0 positions, coverage 16,110.
+
+**What is settled across §1891-§1900, and it is worth stating because the claim moved four times.**
+§1891's *behavioural* localisation — the tracking is late attention, attention restorations change up to
+96.6% of positions against the MLP maximum of 3.7%, and MLP restorations move the agreement enrichment by
+at most 0.0042 — **has never been in question and is unaffected by any of this.** What moved is only the
+strength of the MLP claim: **provable no-op (§1891) → not a no-op (§1898) → premise verified exactly
+(§1899) → changes are not numerical at depth (§1900).** The current honest statement is that **MLP
+restorations carry no model-agreement but do change ~3.5% of predictions at real margins, by a mechanism
+that is not yet identified.**

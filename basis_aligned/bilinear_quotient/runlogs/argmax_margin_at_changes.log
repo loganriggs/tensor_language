@@ -1,0 +1,15 @@
+LOGIT MARGIN AT CHANGED POSITIONS | buckets ((0, 0), (1, 4), (5, 24), (25, 124), (125, 1000000000)) on the fit-row count of the TRUE target | full-rank settled program | DISCOVERY ONLY
+  built the settled fallback and 36 tables (5s)
+
+  === all-compiled baseline: skip7000 36864 scored positions  skip11000 36864 scored positions  skip1200 18432 scored positions ===
+    self-comparison differs at 0 positions (must be 0)
+    restore mlp16  skip7000 n1321 med-changed 0.19665 med-unchanged 0.4705  skip11000 n1350 med-changed 0.26750 med-unchanged 0.4705  skip1200 n650 med-changed 0.28316 med-unchanged 0.4705
+    restore mlp0   skip7000 n1 med-changed 0.00633 med-unchanged 0.4619  skip11000 n2 med-changed 0.00005 med-unchanged 0.4619  skip1200 n3 med-changed 0.00171 med-unchanged 0.4683
+
+  THE CHANGES ARE AT NEAR-TIES (mlp16 median margin < 0.01) -> False  skip7000 0.196650  skip11000 0.267500  skip1200 0.283161
+  and FAR tighter than at unchanged positions (>=20x) -> False  skip7000 unchanged 0.4705 / changed 0.196650 = 2x  skip11000 unchanged 0.4705 / changed 0.267500 = 2x  skip1200 unchanged 0.4705 / changed 0.283161 = 2x
+  and mlp0 behaves the same way -> True  skip7000 n1 0.006327  skip11000 n2 0.000050  skip1200 n3 0.001711
+  mlp16 counts reproduce §1898, coverage 16110, self-check 0 -> control True  skip7000 1321 vs 1321  skip11000 1350 vs 1350  skip1200 650 vs 650
+
+pred_a False | pred_b False | pred_c True | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/argmax_margin_at_changes_results.json (59.4s)
