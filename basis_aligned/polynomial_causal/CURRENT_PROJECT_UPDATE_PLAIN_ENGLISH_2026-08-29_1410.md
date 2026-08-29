@@ -1954,3 +1954,156 @@ Exact definitions and the full priority list are in
 [`HOURLY_STRATEGIC_REVIEW_2026-08-29_1930.md`](HOURLY_STRATEGIC_REVIEW_2026-08-29_1930.md).
 
 ## UPDATE END — 29
+
+## UPDATE START — 30. Free rank-512 factors recover most of MLP2's useful effect, but are not yet faithful
+
+### The short answer
+
+We have now completed the experiment that asks whether the problem was selecting the
+wrong 512 **original** MLP2 channels, rather than rank 512 itself.
+
+The answer is **yes, substantially, but not completely**. A program with 512 freely
+learned quadratic products reduces the final cross-entropy damage from **0.16222
+nat** when MLP2 is deleted to **0.05147 nat**. That recovers **68.27%** of the
+deletion damage at exactly the same product and parameter price as the earlier
+failed 512-channel program.
+
+It still fails our faithfulness threshold of 0.02 nat. Its teacher KL is 0.05619,
+its centered-logit relative error is 0.14538, and it chooses the same top token as
+the original model 87.52% of the time. The required limits were 0.02, 0.10, and 90%.
+So this is a promising compressed predictor, not yet a faithful replacement.
+
+### What computation did we learn?
+
+At each token, let (x\in\mathbb R^{1152}) be the RMS-normalized residual-stream
+vector entering MLP2. The replacement returns another 1152-dimensional vector to
+be added to the residual stream:
+
+$$
+\widehat f(x)=\widehat b+
+\widehat D\left((\widehat Lx)\odot(\widehat Rx)\right).
+$$
+
+The two maps \hat L and \hat R each turn the 1152 input numbers into 512
+numbers. The symbol ⊙ means multiply corresponding entries, producing 512
+quadratic features. The map \hat D mixes those 512 numbers back into an
+1152-dimensional write, and \hat b is a constant bias.
+
+This program has 1,770,624 stored float32 coefficients, 512 products, and three
+dense matrix multiplications per token. It calls no part of native MLP2. Those
+counts are the relevant simplicity price in this experiment.
+
+### Why the controls matter
+
+| replacement | what is allowed to change | extra CE | native top-1 agreement |
+|---|---|---:|---:|
+| `ZERO` | delete MLP2 | 0.16222 | 78.35% |
+| `LOCAL512` | retain 512 original products | 0.25419 | 74.31% |
+| `DOWN512` | retain products; relearn output map and bias | 0.10027 | 83.23% |
+| `FULL512` | relearn both product directions, output map, and bias | **0.05147** | **87.52%** |
+| `RANDOM512` | same full fit from random native support | 0.05739 | 86.74% |
+
+`LOCAL512` being worse than deletion says the native products are coordinated; an
+arbitrary subset breaks cancellations. `DOWN512` recovers a large fraction just by
+relearning how the products are written out, including the bias. `FULL512` improves
+again when it can learn new product directions. This is direct evidence that joint
+factorization is more useful than treating native neurons as indivisible atoms.
+
+The random-start arm finishing fairly close to `FULL512` is also important. It says
+we have not found a unique semantic set of 512 native channels. The useful object
+appears to be a learned mixed coordinate system, with substantial gauge and
+non-identifiability still to resolve.
+
+### Was it trained to convergence?
+
+No. `FULL512` used all 1,200 allowed optimizer steps and its development loss was
+still improving. Its local MLP2-write NRMSE was 0.6866, much worse than the frozen
+0.25 optimization gate. Therefore the registered result is
+`optimization_failure`, not “rank 512 is impossible.”
+
+This creates a useful puzzle: local write reconstruction is poor, but final CE is
+already much better. The downstream model discards or ignores much of the local
+Euclidean error. Ordinary activation MSE is consequently a poor proxy for what the
+network function cares about. The next fit should weight errors by their downstream
+effect—using teacher logits, a Fisher/Gauss--Newton metric, or direct consequence
+distillation—rather than only running the same local loss longer.
+
+### A numerical canonicalization oddity
+
+We applied the minimum-norm gauge rescaling discussed earlier. Algebraically it
+should preserve the function while balancing the norms of each factor. The frozen
+check required maximum absolute output change below (10^{-4}). It observed 0.544
+for `FULL512` and therefore failed.
+
+The canary output itself reached magnitude 1,106, so the observed discrepancy is
+about (4.9\times10^{-4}) relative to maximum output magnitude. This looks like
+float32 roundoff amplified by large intermediate values, rather than incorrect
+gauge algebra. But we do not change a registered absolute gate after seeing the
+result; it remains a failure and the future version should preregister both an
+absolute and scale-aware relative check.
+
+### How robust is the result?
+
+`FULL512` extra CE was 0.04216, 0.04502, and 0.05147 on prefixes of 48, 96, and 192
+new documents. KL was 0.05104, 0.05220, and 0.05619. The bootstrap lower bounds say
+its improvement over deletion and native-channel selection is positive
+simultaneously.
+
+One stability gate narrowly failed: centered-logit NRMSE changed from 0.13533 at 96
+documents to 0.14538 at 192, a change of 0.010055 against a 0.01 limit. This is a
+good reason we used 192 documents rather than stopping at 32 or 96.
+
+There is also a task-performance/faithfulness split. The candidate's actual
+next-token accuracy is 41.58%, versus native 42.12%, only 0.54 percentage points
+lower. Yet it disagrees with the native model's exact top choice 12.48% of the time.
+That can be acceptable for extracting a small predictor, but is not sufficient for
+faithful behavioral prediction or controlled removal.
+
+### What took time?
+
+- Freezing 384 registry-fresh documents took about 30 seconds.
+- The first attempt trained for about 87 seconds, then a concurrent Git movement
+  triggered an overbroad source-lifecycle check before any bundle or evaluation was
+  opened. That failure is preserved rather than overwritten.
+- The recovery added adversarial publication and lineage tests. An independent
+  auditor ran 16 focused tests in 2.15 seconds and issued GO without outcome access.
+- The successful complete run took **118.29 seconds**, including training three
+  candidates and evaluating six physical whole-model arms on 192 new documents.
+
+So the science computation is now roughly two minutes. The extra elapsed time was
+experiment-lifecycle repair, not data loading. No user response was needed or
+awaited.
+
+### Where this leaves the whole project
+
+The strict ledger remains unchanged: all 36 intervention surfaces are accessible,
+but only **5.348245316%** of storage is certified removable, **10.923302467%** of the
+measured causal CE gap is named and recovered, **4.72714 nat (89.077%)** remains,
+and **0/68** complete extraction/removal/OOD actions pass.
+
+This result still advances the strategy: at a controlled simplicity price, mixed
+bilinear factors work far better than selected native factors. It is the first
+strong evidence in this MLP2 line that a joint tensor decomposition is the right
+kind of object. It does not yet give semantic names, OOD guarantees, or a composed
+whole-model program.
+
+The next priorities are:
+
+1. On fresh rows, compose frozen MLP0-C512 with this frozen MLP2-`FULL512` and
+   measure the interaction. This directly tests whether independently good
+   reductions share a compatible interface.
+2. Fit rank 512 with a downstream-sensitive objective at the same executable price.
+3. Build a causally verified bank of late consumers—capitalization, numerical
+   formatting, syntax/entity, and copy—to give earlier factors operational semantic
+   meanings.
+4. Test small conditional block-term/shared-dictionary models if the fixed program
+   cannot pass.
+5. Resolve interactions inside the four-copy-head bundle for a selective terminal
+   action.
+
+The dedicated numerical explanation is
+[`MLP2_RANK512_REFIT_V2_RECOVERY_FINDINGS.md`](MLP2_RANK512_REFIT_V2_RECOVERY_FINDINGS.md),
+and the full strategic balance sheet is
+[`HOURLY_STRATEGIC_REVIEW_2026-08-29_2030.md`](HOURLY_STRATEGIC_REVIEW_2026-08-29_2030.md).
+
+## UPDATE END — 30

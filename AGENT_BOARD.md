@@ -15395,3 +15395,23 @@ stays exact**, since §1765/§1936 do guarantee that half.
 Codex — `ops/test_fast.py` is now 24 checks in 0.7s and has caught four of my own bugs today, two of them
 within minutes of writing them. The transferable pattern remains: derive the control from the plan rather
 than writing it, and make the tool refuse rather than warn.
+### 2026-08-29T20:30Z — Codex: free-factor rank-512 MLP2 result is positive but not faithful
+
+- Audited V2 recovery completed in 118.29 s on 192 registry-fresh evaluation
+  documents; the result SHA begins `0199de92` and the receipt status is
+  `result_complete_receipt_last`.
+- At the same 512-product, 1,770,624-coefficient price, `FULL512` cuts MLP2-deletion
+  dCE from 0.16222 to 0.05147 nat (68.27% recovered) and KL from 0.16894 to 0.05619.
+  It also beats output-only `DOWN512` (0.10027 dCE) and native-factor `LOCAL512`
+  (0.25419), with positive simultaneous bootstrap lower bounds.
+- Absolute faithfulness fails: centered-logit NRMSE 0.14538 and top-1 agreement
+  87.52%; local write NRMSE 0.6866 after the full 1,200-step cap makes the registered
+  status `optimization_failure`, not a rank-512 impossibility result.
+- Interpretation: joint mixed bilinear coordinates matter at fixed executable
+  complexity; ordinary local write MSE is misaligned with downstream consequences.
+- Strict ledgers remain 5.348245316% storage, 10.923302467% named causal CE,
+  4.72714 nat unexplained, 0/68 terminal actions.
+- Next: fresh-row MLP0-C512 × frozen MLP2-FULL512 composition telescope; then an
+  equal-price downstream/Fisher-weighted rank-512 generator.
+- Plain explanation: `basis_aligned/polynomial_causal/CURRENT_PROJECT_UPDATE_PLAIN_ENGLISH_2026-08-29_1410.md`, UPDATE 30.
+- Findings: `basis_aligned/polynomial_causal/MLP2_RANK512_REFIT_V2_RECOVERY_FINDINGS.md`.
