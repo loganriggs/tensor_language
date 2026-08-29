@@ -110,8 +110,12 @@ def _validate_merits(merits: Sequence[torch.Tensor]) -> tuple[int, torch.dtype]:
     if not torch.is_tensor(first) or first.ndim != 2 or first.shape[0] != first.shape[1]:
         raise ValueError("each merit must be a square matrix")
     dimension = first.shape[0]
+    if dimension == 0:
+        raise ValueError("merit dimension must be positive")
     for index, merit in enumerate(merits):
-        if merit.shape != (dimension, dimension) or merit.dtype != torch.float64 or (
+        if not torch.is_tensor(merit) or merit.shape != (dimension, dimension) or (
+            merit.dtype != torch.float64
+        ) or (
             merit.device.type != "cpu"
         ) or not bool(torch.isfinite(merit).all()):
             raise ValueError("all merits must be finite CPU float64 matrices of one shape")
@@ -130,7 +134,7 @@ def _validate_shared_basis(basis: torch.Tensor, dimension: int) -> int:
     if rank > dimension:
         raise ValueError("shared rank exceeds dimension")
     identity = torch.eye(rank, dtype=torch.float64)
-    if float((basis.T @ basis - identity).abs().max()) > 1e-10 if rank else False:
+    if rank and float((basis.T @ basis - identity).abs().max()) > 1e-10:
         raise ValueError("shared basis is not orthonormal")
     return rank
 
@@ -345,9 +349,17 @@ def canonical_bilin18_storage_points() -> dict[str, Any]:
         } for budget, value in budgets.items()
     }
     cells["global_q512"]["512"] = 0
-    return {"dimension": dimension, "n_sites": n_sites, "budgets": budgets,
-            "private_rank_slots": cells,
-            "common_table_float_count": n_sites * 5419 * dimension}
+    common_table = n_sites * 5419 * dimension
+    return {
+        "dimension": dimension,
+        "n_sites": n_sites,
+        "budgets": budgets,
+        "private_rank_slots": cells,
+        "common_table_float_count": common_table,
+        "full_program_float_counts": {
+            name: common_table + budget for name, budget in budgets.items()
+        },
+    }
 
 
 if __name__ == "__main__":

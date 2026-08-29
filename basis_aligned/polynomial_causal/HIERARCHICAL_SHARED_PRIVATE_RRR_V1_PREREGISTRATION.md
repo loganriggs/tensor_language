@@ -100,7 +100,9 @@ the following cells before any evaluation role is deserialized:
 | independent rank 512 | 42,467,328 | 0, 64, 128, 256 | 18432 / 17248 / 16064 / 13696 |
 
 The common exact 5,419-token tables cost 224,736,768 floats in every arm and must be
-reported separately and in the full-program price. Dense multiplies are
+reported separately and in the full-program price. The three full-program totals are
+therefore respectively 246,560,256, 247,150,080, and 267,204,096 floats. Dense
+multiplies are
 `2*1152*(q0+r_j)` at site (j); equal storage does not imply equal compute.
 
 Frozen comparators are:

@@ -1,5 +1,3 @@
-import math
-
 import pytest
 import torch
 
@@ -93,6 +91,16 @@ def test_q0_zero_reduces_to_exact_price_independent_allocation():
     assert fit.allocation.private_ranks == expected.ranks_by_site
     assert fit.price.map_float_count == expected.independent_float_count
     assert fit.explained_shared_merit == 0.0
+    # This is equality of the deployed coefficient maps, not merely of rank prices.
+    for site, (solved_cross, merit, rank) in enumerate(zip(
+        solved, merits, expected.ranks_by_site, strict=True,
+    )):
+        _, vectors = torch.linalg.eigh(merit)
+        basis = vectors[:, -rank:].flip(1) if rank else vectors[:, :0]
+        expected_map = solved_cross @ basis @ basis.T
+        assert torch.allclose(
+            hybrid.coefficient_maps(fit)[site], expected_map, atol=1e-11, rtol=1e-11,
+        )
 
 
 def test_zero_private_reduces_exactly_to_global_rrr():
@@ -194,6 +202,11 @@ def test_frozen_bilin18_storage_grid_is_exact():
     assert value["private_rank_slots"]["typed_q512"]["0"] == 9728
     assert value["private_rank_slots"]["independent_q512"]["0"] == 18432
     assert value["common_table_float_count"] == 224_736_768
+    assert value["full_program_float_counts"] == {
+        "global_q512": 246_560_256,
+        "typed_q512": 247_150_080,
+        "independent_q512": 267_204_096,
+    }
 
 
 def test_validation_rejects_nonorthogonal_shared_basis_and_indefinite_residual():
