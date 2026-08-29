@@ -1,0 +1,83 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+ONE BUILD OR TWO | ['spec_5419', 'spec_16110', 'mid_a', 'mid_b', 'mid_c'] at both coverages | DISCOVERY ONLY
+
+########## COVERAGE 5419 ##########
+  [bqlib] coverage 5419 from fineweb_n96_skip80.pt: 36 tables, neighbour index and map solver built (4s)
+  [bqlib] cache HIT  live     skip7000
+  [bqlib] cache HIT  live     skip11000
+  [bqlib] cache HIT  live     skip1200
+  [bqlib] cache HIT  mix25m640 skip7000
+  [bqlib] cache HIT  mix25m640 skip11000
+  [bqlib] cache HIT  mix25m640 skip1200
+  [bqlib] cache HIT  mix25m512 skip7000
+  [bqlib] cache HIT  mix25m512 skip11000
+  [bqlib] cache HIT  mix25m512 skip1200
+  [bqlib] cache HIT  mix25m576 skip7000
+  [bqlib] cache HIT  mix25m576 skip11000
+  [bqlib] cache HIT  mix25m576 skip1200
+  [bqlib] cache HIT  mix25m512 skip7000
+  [bqlib] cache HIT  mix25m512 skip11000
+  [bqlib] cache HIT  mix25m512 skip1200
+  [bqlib] cache HIT  mix25m640 skip7000
+  [bqlib] cache HIT  mix25m640 skip11000
+  [bqlib] cache HIT  mix25m640 skip1200
+
+########## COVERAGE 16110 ##########
+  [bqlib] coverage 16110 from fineweb_n480_skip80.pt: 36 tables, neighbour index and map solver built (5s)
+  [bqlib] cache HIT  live     skip7000
+  [bqlib] cache HIT  live     skip11000
+  [bqlib] cache HIT  live     skip1200
+  [bqlib] cache HIT  mix25m640 skip7000
+  [bqlib] cache HIT  mix25m640 skip11000
+  [bqlib] cache HIT  mix25m640 skip1200
+  [bqlib] cache HIT  mix25m512 skip7000
+  [bqlib] cache HIT  mix25m512 skip11000
+  [bqlib] cache HIT  mix25m512 skip1200
+  [bqlib] cache HIT  mix25m576 skip7000
+  [bqlib] cache HIT  mix25m576 skip11000
+  [bqlib] cache HIT  mix25m576 skip1200
+  [bqlib] cache HIT  mix25m512 skip7000
+  [bqlib] cache HIT  mix25m512 skip11000
+  [bqlib] cache HIT  mix25m512 skip1200
+  [bqlib] cache HIT  mix25m640 skip7000
+  [bqlib] cache HIT  mix25m640 skip11000
+  [bqlib] cache HIT  mix25m640 skip1200
+
+  skip7000   unseen-rate top vs bottom unc_mass quartile: +0.233
+    spec_5419        0-0 2.47%  125+ 54.0%  CE 5.88121
+    spec_16110       0-0 2.47%  125+ 53.9%  CE 5.88341
+    mid_a            0-0 2.47%  125+ 54.0%  CE 5.88204
+    mid_b            0-0 2.47%  125+ 54.0%  CE 5.88154
+    mid_c            0-0 2.47%  125+ 54.0%  CE 5.88305
+
+  skip11000   unseen-rate top vs bottom unc_mass quartile: +0.243
+    spec_5419        0-0 4.25%  125+ 54.7%  CE 5.82749
+    spec_16110       0-0 4.25%  125+ 54.7%  CE 5.82982
+    mid_a            0-0 4.25%  125+ 54.7%  CE 5.82859
+    mid_b            0-0 4.34%  125+ 54.6%  CE 5.82779
+    mid_c            0-0 4.15%  125+ 54.7%  CE 5.82949
+
+  skip1200   unseen-rate top vs bottom unc_mass quartile: +0.198
+    spec_5419        0-0 2.64%  125+ 54.4%  CE 5.85834
+    spec_16110       0-0 2.64%  125+ 54.5%  CE 5.86029
+    mid_a            0-0 2.64%  125+ 54.6%  CE 5.85915
+    mid_b            0-0 2.64%  125+ 54.4%  CE 5.85894
+    mid_c            0-0 2.64%  125+ 54.5%  CE 5.85967
+
+  === c5419 (coverage-specific arm: spec_5419) ===
+    skip7000   spec_5419 5.94506 (+0.00m)  spec_16110 5.94788 (+2.82m)  mid_a 5.94607 (+1.02m)  mid_b 5.94617 (+1.12m)  mid_c 5.94671 (+1.66m)
+    skip11000  spec_5419 5.91346 (+0.00m)  spec_16110 5.91648 (+3.02m)  mid_a 5.91458 (+1.12m)  mid_b 5.91443 (+0.97m)  mid_c 5.91545 (+1.99m)
+    skip1200   spec_5419 5.93358 (+0.00m)  spec_16110 5.93606 (+2.48m)  mid_a 5.93443 (+0.85m)  mid_b 5.93468 (+1.10m)  mid_c 5.93490 (+1.32m)
+
+  === c16110 (coverage-specific arm: spec_16110) ===
+    skip7000   spec_5419 5.88121 (-2.20m)  spec_16110 5.88341 (+0.00m)  mid_a 5.88204 (-1.37m)  mid_b 5.88154 (-1.87m)  mid_c 5.88305 (-0.35m)
+    skip11000  spec_5419 5.82749 (-2.33m)  spec_16110 5.82982 (+0.00m)  mid_a 5.82859 (-1.23m)  mid_b 5.82779 (-2.03m)  mid_c 5.82949 (-0.33m)
+    skip1200   spec_5419 5.85834 (-1.95m)  spec_16110 5.86029 (+0.00m)  mid_a 5.85915 (-1.14m)  mid_b 5.85894 (-1.35m)  mid_c 5.85967 (-0.63m)
+
+  the best single build is within 0.002 nats at BOTH coverages (>=2 roles each) -> True  best mid_a {'c5419': 3, 'c16110': 3}
+  and the MAP axis separates more than the attention axis (>=2 roles) -> True  3/3
+  and some arm is within 0.002 at both coverages on the same role (>=2 roles) -> True  3/3  {'mid_a': 3, 'mid_b': 3, 'mid_c': 3}
+  coverage {'c5419': 5419, 'c16110': 16110}, 2 same-spec pairs inert and 8 differing-spec pairs not, at covered inputs: True; buckets partition, live identical 0.0e+00, §1949 CE reproduced within 0.000000, route fracs within 0.0000 -> control True
+
+pred_a True | pred_b True | pred_c True | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/one_build_or_two_results.json (9.8s)

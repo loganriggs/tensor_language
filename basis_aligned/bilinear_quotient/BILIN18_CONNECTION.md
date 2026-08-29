@@ -55953,3 +55953,69 @@ four levers at this point**, which is what convergence looks like when it is rea
 attention rank (384 vs 256) and, if the same turnover applies, about map rank (640 vs 512) — so "the
 build" is now two builds, and no section has yet asked whether one compromise build beats running the
 coverage-specific pair.**
+[**CORRECTED §1960.** They do not disagree about the *build*. The 5,419 build is better than the 16,110
+build at **both** coverages — including by 1.95–2.33 milli-nats at 16,110, the coverage the other was
+chosen for. The disagreement is only about whether the extra capacity is worth its price, which is what
+§1947/§1950's threshold rule says and not a conflict. **One ordering, two budgets** — and §1960 finds a
+single compromise build within 0.002 nats of the coverage-specific optimum at both.]
+
+## §1960 — the coverages never disagreed about which build is better, only about whether to pay for it; and one compromise build works
+
+`ops/one_build_or_two.py`, **9.8s** warm (471.9s cold), **DISCOVERY ONLY**, 5,419 **and** 16,110, rung 3
+— §1959's open question. **All four predictions TRUE**, after two control repairs. Figures from the
+result JSON (LESSON 85).
+
+§1959 closed by saying "the build is now two builds" because §1957 put attention at 384 for 5,419 against
+§1947's 256 for 16,110, and §1959 put the map at 640 against §1949's 512. **That framing was wrong, and
+this run shows it in the first row.**
+
+```
+  pooled CE relative to each coverage's own specific build, in MILLI-nats
+                        spec_5419  spec_16110    mid_a    mid_b    mid_c
+    at 5,419  skip7000     +0.00      +2.82      +1.02    +1.12    +1.66
+              skip11000    +0.00      +3.02      +1.12    +0.97    +1.99
+              skip1200     +0.00      +2.48      +0.85    +1.10    +1.32
+    at 16,110 skip7000     -2.20      +0.00      -1.37    -1.87    -0.35
+              skip11000    -2.33      +0.00      -1.23    -2.03    -0.33
+              skip1200     -1.95      +0.00      -1.14    -1.35    -0.63
+    cost at 5,419  /  at 16,110      189.5/411.2  163.8/360.8  176.6/386.0  178.9/400.6  174.4/371.4
+```
+
+> **`spec_5419` is better than `spec_16110` at BOTH coverages** — by 2.5–3.0 milli-nats at 5,419 and by
+> **1.95–2.33 milli-nats at 16,110, the coverage `spec_16110` was chosen for.** So the two coverages
+> never disagreed about which build is *better*; they disagreed only about whether the extra capacity is
+> **worth its price**, which is exactly what §1947/§1950's threshold rule said and not a contradiction of
+> it. **§1959's "the coverages disagree about the build, so it is now two builds" is corrected in place:
+> there is one ordering and two budgets.**
+
+> **pred_a PASSED (best `mid_a`, 3/3 at both coverages) and pred_c PASSED 3/3 for all three
+> compromises: a single build is within 0.002 nats of the coverage-specific optimum at both
+> coverages.** 0.002 was registered as the size of the last two marginal purchases (§1957:
+> 0.0017/0.0021/0.0014; §1959: 0.0011/0.0010/0.0011), so **shipping one build costs less than one of the
+> steps that produced the apparent disagreement.** `mid_a` — {mlp 768, attn 320} with a rank-576 map —
+> is the best of them at 176.6M / 386.0M.
+
+> **pred_b PASSED 3/3: the map axis separates the compromises more than the attention axis does**, so
+> the choice among them is decided on map rank — consistent with §1958 pricing map as the richest lever
+> and attention as the poorest.
+
+**pred_d PASSED after two repairs, both mine and both invisible until scored.**
+- The coverage clause still read `ncov[C] == 5419` while `C` had become `'c16110'` — **a string
+  replacement I made that silently did not match**, so the control compared 16,110 against 5,419 and
+  failed while every printed leg passed. The edit now asserts its anchor matched exactly once before
+  writing, which is the check I keep skipping.
+- `COST` was a flat `{label: M}` dict updated inside the coverage loop, so **it silently kept only the
+  last coverage's numbers** — the tables dominate and `ncov` differs, so the same build costs 189.5M at
+  5,419 and 411.2M at 16,110. Now keyed by `(coverage, label)`. **The first write-up of this section
+  would have quoted 16,110 costs against 5,419 results.**
+
+Otherwise: coverages exactly 5,419 and 16,110; the plan-derived control non-vacuous both ways (2
+same-spec pairs exactly inert at covered inputs, 8 differing-spec pairs not); buckets partition; live
+per-cell top-1 and CE identical at 0.00e+00; §1949's published CE reproduced to **0.000000** via
+`B.ref()` — forty-fourth clean reading.
+
+**Open.** Every build compared here uses §1943's α = 0.25, chosen at 5,419 on full-rank tables before the
+allocation work existed, and §1958 showed α is **cost-neutral** — so it is a free parameter that has
+never been re-optimised at any of the operating points §1946–§1960 established. **A free parameter left
+at a stale value is the cheapest remaining thing to check, and it is the only one of the four levers
+that costs nothing to move.**
