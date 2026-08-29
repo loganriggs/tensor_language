@@ -9,6 +9,24 @@ from terminal_copy_fit_head_means import FitHeadMeanBank, NAMED_HEADS_BY_LAYER, 
 from terminal_copy_fit_mean_owner import FitMeanOwnerClosure
 
 
+def _write_audit(path):
+    path.write_text(json.dumps({
+        "schema": "terminal_copy_fit_mean_lifecycle_independent_audit_v1",
+        "status": "approved_outcome_blind_infrastructure",
+        "approved": True,
+        "outcome_access": False,
+        "reviewer": "independent_artifact_audit_agent",
+        "reviewed_source_sha256s": {
+            "basis_aligned/polynomial_causal/terminal_copy_fit_mean_lifecycle.py":
+                life.file_sha256(life.Path(life.__file__).resolve()),
+            "basis_aligned/polynomial_causal/test_terminal_copy_fit_mean_lifecycle.py":
+                life.file_sha256(life.HERE / "test_terminal_copy_fit_mean_lifecycle.py"),
+        },
+        "focused_tests": {"passed": True, "count": 1},
+        "remaining_launch_blockers": [],
+    }))
+
+
 def _bank(sequence_length=3, width=4):
     master = {
         layer: torch.arange(
@@ -110,6 +128,82 @@ def test_validate_closure_enforces_exact_physical_census():
         life.validate_closure(broken)
 
 
+def test_execution_authority_replays_every_parent(monkeypatch, tmp_path):
+    audit = tmp_path / "audit.json"
+    _write_audit(audit)
+    checkpoint = life.facade.CheckpointReceipt(
+        revision="r", snapshot="s", config_sha256="c" * 64,
+        weights_sha256="w" * 64, weights_bytes=1,
+        tokenizer_vocab=10, logit_vocab=11,
+    )
+    monkeypatch.setattr(life, "AUTHORITY", tmp_path / "authority.json")
+    monkeypatch.setattr(life, "AUDIT", audit)
+    monkeypatch.setattr(life, "PROTECTED_PATHS", ())
+    monkeypatch.setattr(life, "row_binding", lambda: {"sha256": "r" * 64})
+    monkeypatch.setattr(life, "adapter_binding", lambda: {"sha256": "p" * 64})
+    monkeypatch.setattr(life, "protocol", lambda: {"fit": True})
+    monkeypatch.setattr(life, "verify_source_closure", lambda value: None)
+    monkeypatch.setattr(life.facade, "validate_snapshot", lambda **kwargs: checkpoint)
+    outputs = {name: str(path) for name, path in {
+        "authority": life.AUTHORITY, "bank": life.BANK, "result": life.RESULT,
+        "manifest": life.MANIFEST, "receipt": life.RECEIPT,
+        "failure": life.FAILURE, "lock": life.LOCK,
+    }.items()}
+    body = {
+        "schema": "terminal_copy_fit_means_v1_authority",
+        "status": "frozen_before_any_fit_row_tensor_or_model_load",
+        "source_closure": {"closed": True},
+        "row_binding": life.row_binding(),
+        "adapter_binding": life.adapter_binding(),
+        "checkpoint": life.asdict(checkpoint),
+        "protocol": life.protocol(),
+        "outputs": outputs,
+        "protected_paths": [],
+        "independent_audit": {
+            "approved": True, "outcome_access": False,
+            "path": str(audit), "sha256": life.file_sha256(audit),
+        },
+        "authorized_for_fit_execution": True,
+        "authorized_for_candidate_selection": False,
+        "authorized_for_scored_experiments": False,
+    }
+    authority = {**body, "authority_sha256": life.logical_sha256(body)}
+    life.create_only_json(life.AUTHORITY, authority)
+    life.validate_execution_authority(authority)
+    changed = dict(authority)
+    changed["authorized_for_candidate_selection"] = True
+    with pytest.raises(RuntimeError, match="authority identity"):
+        life.validate_execution_authority(changed)
+
+
+def test_freeze_authority_is_create_only_and_fit_only(monkeypatch, tmp_path):
+    audit = tmp_path / "audit.json"
+    _write_audit(audit)
+    authority_path = tmp_path / "authority.json"
+    checkpoint = life.facade.CheckpointReceipt(
+        revision="r", snapshot="s", config_sha256="c" * 64,
+        weights_sha256="w" * 64, weights_bytes=1,
+        tokenizer_vocab=10, logit_vocab=11,
+    )
+    monkeypatch.setattr(life, "AUTHORITY", authority_path)
+    monkeypatch.setattr(life, "AUDIT", audit)
+    monkeypatch.setattr(life, "PROTECTED_PATHS", ())
+    monkeypatch.setattr(life, "require_pristine_namespace", lambda: None)
+    monkeypatch.setattr(life, "source_closure", lambda: {"closed": True})
+    monkeypatch.setattr(life, "row_binding", lambda: {"sha256": "r" * 64})
+    monkeypatch.setattr(life, "adapter_binding", lambda: {"sha256": "p" * 64})
+    monkeypatch.setattr(life, "protocol", lambda: {"fit": True})
+    monkeypatch.setattr(life.facade, "validate_snapshot", lambda **kwargs: checkpoint)
+    validated = []
+    monkeypatch.setattr(life, "validate_execution_authority", lambda value: validated.append(value))
+    authority = life.freeze_execution_authority(audit)
+    assert validated == [authority]
+    assert authority["authorized_for_fit_execution"] is True
+    assert authority["authorized_for_candidate_selection"] is False
+    assert authority["authorized_for_scored_experiments"] is False
+    assert json.loads(authority_path.read_text()) == authority
+
+
 def test_create_only_json_never_overwrites(tmp_path):
     path = tmp_path / "x.json"
     life.create_only_json(path, {"first": 1})
@@ -125,9 +219,14 @@ def test_publish_failure_is_terminal_and_never_creates_receipt(tmp_path, monkeyp
     monkeypatch.setattr(life, "MANIFEST", tmp_path / "manifest.json")
     monkeypatch.setattr(life, "RECEIPT", tmp_path / "receipt.json")
     monkeypatch.setattr(life, "FAILURE", tmp_path / "failure.json")
-    life.publish_failure("a" * 64, ValueError("expected"))
-    assert not life.RECEIPT.exists()
-    assert json.loads(life.FAILURE.read_text())["status"] == "terminal_failure_no_success_receipt"
+    monkeypatch.setattr(life, "LOCK", tmp_path / "lock")
+    claim = life.acquire_claim()
+    try:
+        life._publish_failure(claim, "a" * 64, ValueError("expected"))
+        assert not life.RECEIPT.exists()
+        assert json.loads(life.FAILURE.read_text())["status"] == "terminal_failure_no_success_receipt"
+    finally:
+        life.release_claim(claim)
 
 
 def test_pristine_namespace_rejects_partial_transaction(tmp_path):

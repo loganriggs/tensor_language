@@ -1,0 +1,28 @@
+FALLBACK RANK AND RELIABILITY: is the uncovered signal rank-limited? | buckets ((0, 0), (1, 4), (5, 24), (25, 124), (125, 1000000000)) on the fit-row count of the TRUE target | full-rank settled program | DISCOVERY ONLY
+  built the settled fallback and 36 tables (5s)
+  precomputed per-token program margin for 50257 covered types (covered-token quartile bounds [0.1608, 0.367, 0.7641])
+  uncovered-token quartile bounds [0.219, 0.5238, 1.0668] over 34147 types
+
+  === all-compiled baseline ===
+    skip7000   covered enrichment  7.16x  (n 33192)
+    skip11000  covered enrichment  7.29x  (n 33196)
+    skip1200   covered enrichment  7.49x  (n 16597)
+    per-site live/table ratios: min 1.2x max 143.9x across 36 sites
+    g1.00    skip7000 CE 5.88338 ( 7.16x)  skip11000 CE 5.82928 ( 7.29x)  skip1200 CE 5.86044 ( 7.49x)   [1/2]
+    PERSITE  skip7000 CE 12.86506 ( 2.10x)  skip11000 CE 12.90924 ( 2.10x)  skip1200 CE 12.78907 ( 2.22x)   [2/2]
+
+  agreement by PRECOMPUTED token margin, COVERED vs UNCOVERED arm:
+    skip7000   COVERED   q0  3.07x  q1  4.49x  q2  6.36x  q3 12.57x   grad +9.50
+               UNCOVERED q0  2.35x (n 1056)  q1  2.77x (n 1019)  q2  4.00x (n  928)  q3  7.03x (n  669)   grad +4.68
+    skip11000  COVERED   q0  3.24x  q1  4.51x  q2  5.99x  q3 13.03x   grad +9.79
+               UNCOVERED q0  3.15x (n  943)  q1  3.06x (n 1143)  q2  4.00x (n  887)  q3  7.88x (n  695)   grad +4.73
+    skip1200   COVERED   q0  3.52x  q1  4.66x  q2  6.27x  q3 12.79x   grad +9.28
+               UNCOVERED q0  3.02x (n  529)  q1  3.78x (n  538)  q2  4.10x (n  420)  q3  5.78x (n  348)   grad +2.76
+
+  RANK IS THE LIMIT (uncovered gradient > §1918 + 0.5) -> True  skip7000 +4.68 vs §1918 +3.90  skip11000 +4.73 vs §1918 +4.10  skip1200 +2.76 vs §1918 +2.06
+  and it RAISES THE LEVEL too (q3 > §1918) -> True  skip7000 7.03 vs 6.08  skip11000 7.88 vs 6.80  skip1200 5.78 vs 4.88
+  and the COVERED arm is untouched (within 0.5 of §1914) -> True  skip7000 +9.50 vs +9.50  skip11000 +9.79 vs +9.79  skip1200 +9.28 vs +9.28
+  coverage 16110, zero misses, uncovered quartile n reported -> control True  skip7000 n 1056/1019/928/669  skip11000 n 943/1143/887/695  skip1200 n 529/538/420/348
+
+pred_a True | pred_b True | pred_c True | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/fallback_rank_and_reliability_results.json (291.3s)

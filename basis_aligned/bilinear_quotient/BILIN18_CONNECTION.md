@@ -53730,3 +53730,51 @@ than across the §1913/§1914 boundary.
 **Open.** Whether the *weakness* at uncovered tokens is the map's rank or its being a map at all — §1877
 showed table rank saturates at 512 while §1870's map is rank 64, so a rank-512 fallback might carry a
 stronger signal. That is one run and it connects this line to the cost arc for the first time since §1883.
+
+## §1919 — rank is A limit on the uncovered signal, not THE limit: it closes ~12% of the gap
+
+`ops/fallback_rank_and_reliability.py`, 291.3s, **DISCOVERY ONLY**, rung 3 — §1918's open question, and
+the first thing to connect the reliability line to the cost arc since §1883.
+**All four predictions TRUE.**
+
+```
+  uncovered arm, per-token margin quartiles, global null, 16,110 types
+    map rank   64 (§1918)   2.18 / 2.85 / 3.33 / 6.08    grad +3.90   +4.10   +2.06
+    map rank  512 (here)    2.35 / 2.77 / 4.00 / 7.03    grad +4.68   +4.73   +2.76
+    covered arm, both                                    grad +9.50   +9.79   +9.28
+```
+
+**pred_a and pred_b PASSED**: the gradient rises by **+0.78 / +0.63 / +0.70** and the top quartile by
+**+0.95 / +1.08 / +0.90**, both clearing their bars on all three roles. **pred_c PASSED exactly** — the
+covered gradient reproduced §1914's +9.50 / +9.79 / +9.28 **to the digit**, confirming the map wrote only
+uncovered rows, the arc's oldest control in its natural home.
+
+> **But I named the prediction "RANK IS THE LIMIT" and that is stronger than what passed.** Priced against
+> the covered arm, rank 64 → 512 moves the uncovered signal from **41% / 42% / 22%** of the covered
+> gradient to **49% / 48% / 30%**, closing **13.9% / 11.1% / 9.7%** of the gap and leaving **4.82 / 5.06 /
+> 6.52** of it. **Rank is a contributing limit and roughly nine-tenths of the deficit is not rank.** The
+> bar I registered (+0.5) was a detection threshold, and it detected something real; it was never a test
+> of whether rank *explains* the gap, and I should not have written the prediction's name as though it
+> were. The measurement stands; the label was overreaching.
+
+**What is left is structural to the fallback.** An uncovered row is a linear map of the token embedding
+however much rank it is given; a covered row is the model's own output. §1879 already showed the richer
+input a map would need (the length-1 residual stream) is one the compiled program cannot reproduce. **So
+the ~50% ceiling on uncovered reliability looks like the same wall §1878/§1879 hit from the CE side**, and
+nothing in the rank axis is going to move it.
+
+> **The cost-arc connection, which is the useful part.** Rank 64 → 512 costs **+37.159M reals**, and §1870
+> priced that at **833 / 811 / 916 M/nat** in CE. §1919 says the same purchase *also* buys a measurably
+> better reliability signal on the ~24% of positions that use the fallback. **That is a second reason to
+> spend on map rank, and it is the first time since §1883 that anything outside CE has priced a lever in
+> this program.** Whether the reliability gain is worth anything depends on the deployment — Codex has the
+> selective-risk application on their lane and I am not pricing it for them.
+
+**pred_d PASSED**: coverage 16,110, zero lookup misses across the whole vocabulary, and the uncovered
+quartile counts are reported (1056/1019/928/669, 943/1143/887/695, 529/538/420/348). **§1918's small-n
+caveat still stands and I still have not measured the spread at those n** — the gains here (+0.63 to
++0.78) are of the same order as §1916's ±0.08 baseline spread multiplied up for the smaller samples, so
+**this is a real effect on all three roles but not one I would quote to two decimals.**
+
+**Open.** Measuring the null spread at n ≈ 350-1,200 would say how much of §1918's and §1919's uncovered
+figures are signal. That is the one loose end left in this line, and it is cheap.

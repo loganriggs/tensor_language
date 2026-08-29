@@ -17,17 +17,22 @@ import os
 from pathlib import Path
 import secrets
 import subprocess
-from typing import Any, Mapping, Sequence
+from typing import Any, Mapping, NamedTuple, Sequence
 
 import torch
 
 import bilin18_observed_model_facade as facade
-from terminal_copy_attention_dispatcher import NAMED_LAYERS
+from terminal_copy_attention_dispatcher import NAMED_LAYERS, PhysicalCandidateDispatcher
 from terminal_copy_fit_head_means import (
+    FitHeadMeanAccumulator,
     FitHeadMeanBank,
     NAMED_HEADS_BY_LAYER,
+    _document_digest,
 )
-from terminal_copy_fit_mean_owner import FitMeanOwnerClosure
+from terminal_copy_fit_mean_owner import (
+    FitMeanCollectionOwner,
+    FitMeanOwnerClosure,
+)
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -48,6 +53,17 @@ MANIFEST = HERE / "terminal_copy_fit_means_v1_manifest.json"
 RECEIPT = HERE / "terminal_copy_fit_means_v1_receipt.json"
 FAILURE = HERE / "terminal_copy_fit_means_v1_failure.json"
 LOCK = Path("/workspace/runs/.terminal_copy_fit_means_v1.lock")
+AUDIT = HERE / "terminal_copy_fit_mean_lifecycle_v1_independent_audit.json"
+
+PROTECTED_PATHS = (
+    ROW_RECEIPT,
+    Path("/workspace/tensor_language/basis_aligned/bilinear_quotient/"
+         ".rowcache_terminal_copy_induction_v2/fit_natural.pt"),
+    ADAPTER_RECEIPT,
+    ADAPTER_RESULT,
+    facade.DEFAULT_SNAPSHOT / "config.json",
+    facade.DEFAULT_SNAPSHOT / "pytorch_model.bin",
+)
 
 SOURCE_PATHS = (
     "basis_aligned/polynomial_causal/TERMINAL_COPY_FIT_HEAD_MEANS_V1_PREREGISTRATION.md",
@@ -58,6 +74,8 @@ SOURCE_PATHS = (
     "basis_aligned/polynomial_causal/terminal_copy_fit_head_means.py",
     "basis_aligned/polynomial_causal/terminal_copy_fit_mean_owner.py",
     "basis_aligned/polynomial_causal/terminal_copy_fit_mean_lifecycle.py",
+    "basis_aligned/polynomial_causal/terminal_copy_induction_v1.py",
+    "basis_aligned/polynomial_causal/terminal_copy_streaming_statistics.py",
     "basis_aligned/polynomial_causal/test_terminal_copy_attention_adapter.py",
     "basis_aligned/polynomial_causal/test_terminal_copy_attention_dispatcher.py",
     "basis_aligned/polynomial_causal/test_terminal_copy_fit_head_means.py",
@@ -82,6 +100,15 @@ def logical_sha256(value: Any) -> str:
     ).encode()).hexdigest()
 
 
+def tensor_sha256(value: torch.Tensor) -> str:
+    tensor = value.detach().to("cpu").contiguous()
+    digest = hashlib.sha256()
+    digest.update(str(tensor.dtype).encode())
+    digest.update(json.dumps(list(tensor.shape), separators=(",", ":")).encode())
+    digest.update(tensor.numpy().tobytes(order="C"))
+    return digest.hexdigest()
+
+
 def _stable_json(path: Path) -> dict[str, Any]:
     before = file_sha256(path)
     raw = path.read_bytes()
@@ -97,11 +124,72 @@ def output_namespace() -> tuple[Path, ...]:
     return AUTHORITY, BANK, RESULT, MANIFEST, RECEIPT, FAILURE, LOCK
 
 
+def protected_snapshot(paths: Sequence[Path] = PROTECTED_PATHS) -> dict[str, str | None]:
+    """Hash every immutable parent/model input before and after model execution."""
+
+    return {
+        str(path): file_sha256(path) if path.is_file() else None
+        for path in paths
+    }
+
+
+class RunClaim(NamedTuple):
+    descriptor: int
+    inode: int
+    nonce: str
+
+
+def acquire_claim(path: Path | None = None) -> RunClaim:
+    path = LOCK if path is None else path
+    path.parent.mkdir(parents=True, exist_ok=True)
+    nonce = secrets.token_hex(32)
+    try:
+        descriptor = os.open(path, os.O_WRONLY | os.O_CREAT | os.O_EXCL, 0o600)
+    except FileExistsError as error:
+        raise RuntimeError(f"fit-mean namespace is locked: {path}") from error
+    try:
+        os.write(descriptor, (nonce + "\n").encode())
+        os.fsync(descriptor)
+        return RunClaim(descriptor, os.fstat(descriptor).st_ino, nonce)
+    except BaseException:
+        os.close(descriptor)
+        path.unlink(missing_ok=True)
+        raise
+
+
+def require_claim(claim: RunClaim, path: Path | None = None) -> None:
+    path = LOCK if path is None else path
+    if (
+        not isinstance(claim, RunClaim)
+        or not path.is_file()
+        or path.stat().st_ino != claim.inode
+        or path.read_text() != claim.nonce + "\n"
+    ):
+        raise RuntimeError("fit-mean execution lock ownership changed")
+
+
+def release_claim(claim: RunClaim, path: Path | None = None) -> None:
+    path = LOCK if path is None else path
+    try:
+        if path.exists() and path.stat().st_ino == claim.inode:
+            path.unlink()
+    finally:
+        os.close(claim.descriptor)
+
+
 def require_pristine_namespace(paths: Sequence[Path] | None = None) -> None:
     selected = output_namespace() if paths is None else tuple(paths)
     spent = [str(path) for path in selected if path.exists()]
     if spent:
         raise RuntimeError(f"fit-mean output namespace is spent: {spent}")
+
+
+def require_pristine_execution_namespace() -> None:
+    if not AUTHORITY.is_file():
+        raise RuntimeError("fit-mean execution authority is absent")
+    spent = [str(path) for path in (BANK, RESULT, MANIFEST, RECEIPT, FAILURE, LOCK) if path.exists()]
+    if spent:
+        raise RuntimeError(f"fit-mean execution namespace is spent: {spent}")
 
 
 def source_closure() -> dict[str, Any]:
@@ -138,7 +226,15 @@ def verify_source_closure(binding: Mapping[str, Any]) -> None:
     ):
         raise RuntimeError("fit-mean source closure is malformed")
     for relative, digest in body["paths"].items():
-        if file_sha256(ROOT / relative) != digest:
+        completed = subprocess.run(
+            ["git", "show", f"{body['commit']}:{relative}"], cwd=ROOT,
+            stdout=subprocess.PIPE, stderr=subprocess.DEVNULL,
+        )
+        if (
+            completed.returncode != 0
+            or hashlib.sha256(completed.stdout).hexdigest() != digest
+            or file_sha256(ROOT / relative) != digest
+        ):
             raise RuntimeError(f"fit-mean source drift: {relative}")
     subprocess.run(
         ["git", "merge-base", "--is-ancestor", str(body["commit"]), "origin/main"],
@@ -276,6 +372,124 @@ def verified_draft_authority() -> dict[str, Any]:
     return {**body, "authority_sha256": logical_sha256(body)}
 
 
+def validate_canonical_audit(path: Path = AUDIT) -> dict[str, Any]:
+    if path.resolve() != AUDIT.resolve():
+        raise RuntimeError("fit-mean audit is not the canonical audit path")
+    audit = _stable_json(path)
+    reviewed = audit.get("reviewed_source_sha256s")
+    expected_reviewed = {
+        "basis_aligned/polynomial_causal/terminal_copy_fit_mean_lifecycle.py":
+            file_sha256(Path(__file__).resolve()),
+        "basis_aligned/polynomial_causal/test_terminal_copy_fit_mean_lifecycle.py":
+            file_sha256(HERE / "test_terminal_copy_fit_mean_lifecycle.py"),
+    }
+    if (
+        set(audit) != {
+            "schema", "status", "approved", "outcome_access", "reviewer",
+            "reviewed_source_sha256s", "focused_tests", "remaining_launch_blockers",
+        }
+        or audit.get("schema") != "terminal_copy_fit_mean_lifecycle_independent_audit_v1"
+        or audit.get("status") != "approved_outcome_blind_infrastructure"
+        or audit.get("approved") is not True
+        or audit.get("outcome_access") is not False
+        or audit.get("reviewer") != "independent_artifact_audit_agent"
+        or reviewed != expected_reviewed
+        or not isinstance(audit.get("focused_tests"), Mapping)
+        or audit["focused_tests"].get("passed") is not True
+        or type(audit["focused_tests"].get("count")) is not int
+        or audit["focused_tests"]["count"] <= 0
+        or not isinstance(audit.get("remaining_launch_blockers"), list)
+    ):
+        raise RuntimeError("fit-mean canonical audit semantics or reviewed bytes changed")
+    return audit
+
+
+def freeze_execution_authority(independent_audit_path: Path) -> dict[str, Any]:
+    """Publish the sole fit-only authority before any row tensor or model load."""
+
+    require_pristine_namespace()
+    audit = validate_canonical_audit(independent_audit_path)
+    checkpoint = facade.validate_snapshot(verify_weights_sha256=True)
+    body = {
+        "schema": "terminal_copy_fit_means_v1_authority",
+        "status": "frozen_before_any_fit_row_tensor_or_model_load",
+        "source_closure": source_closure(),
+        "row_binding": row_binding(),
+        "adapter_binding": adapter_binding(),
+        "checkpoint": asdict(checkpoint),
+        "protocol": protocol(),
+        "outputs": {name: str(path) for name, path in {
+            "authority": AUTHORITY, "bank": BANK, "result": RESULT,
+            "manifest": MANIFEST, "receipt": RECEIPT, "failure": FAILURE,
+            "lock": LOCK,
+        }.items()},
+        "protected_paths": [str(path) for path in PROTECTED_PATHS],
+        "independent_audit": {
+            "approved": audit["approved"],
+            "outcome_access": audit["outcome_access"],
+            "path": str(independent_audit_path.resolve()),
+            "sha256": file_sha256(independent_audit_path),
+        },
+        "authorized_for_fit_execution": True,
+        "authorized_for_candidate_selection": False,
+        "authorized_for_scored_experiments": False,
+    }
+    authority = {**body, "authority_sha256": logical_sha256(body)}
+    create_only_json(AUTHORITY, authority)
+    validate_execution_authority(authority)
+    return authority
+
+
+def validate_execution_authority(authority: Mapping[str, Any]) -> None:
+    """Replay all parent/source/model bindings before publication or execution."""
+
+    expected_keys = {
+        "schema", "status", "source_closure", "row_binding", "adapter_binding",
+        "checkpoint", "protocol", "outputs", "protected_paths",
+        "independent_audit", "authorized_for_fit_execution",
+        "authorized_for_candidate_selection", "authorized_for_scored_experiments",
+        "authority_sha256",
+    }
+    body = {key: value for key, value in authority.items() if key != "authority_sha256"}
+    if (
+        set(authority) != expected_keys
+        or authority.get("schema") != "terminal_copy_fit_means_v1_authority"
+        or authority.get("status") != "frozen_before_any_fit_row_tensor_or_model_load"
+        or authority.get("authorized_for_fit_execution") is not True
+        or authority.get("authorized_for_candidate_selection") is not False
+        or authority.get("authorized_for_scored_experiments") is not False
+        or logical_sha256(body) != authority.get("authority_sha256")
+        or authority.get("row_binding") != row_binding()
+        or authority.get("adapter_binding") != adapter_binding()
+        or authority.get("protocol") != protocol()
+        or authority.get("checkpoint") != asdict(
+            facade.validate_snapshot(verify_weights_sha256=True)
+        )
+        or authority.get("outputs") != {name: str(path) for name, path in {
+            "authority": AUTHORITY, "bank": BANK, "result": RESULT,
+            "manifest": MANIFEST, "receipt": RECEIPT, "failure": FAILURE,
+            "lock": LOCK,
+        }.items()}
+        or authority.get("protected_paths") != [str(path) for path in PROTECTED_PATHS]
+    ):
+        raise RuntimeError("fit-mean execution authority identity changed")
+    audit = authority.get("independent_audit")
+    if (
+        not isinstance(audit, Mapping)
+        or audit.get("approved") is not True
+        or audit.get("outcome_access") is not False
+        or not isinstance(audit.get("path"), str)
+        or not isinstance(audit.get("sha256"), str)
+        or Path(audit["path"]).resolve() != AUDIT.resolve()
+        or file_sha256(AUDIT) != audit["sha256"]
+    ):
+        raise RuntimeError("fit-mean independent audit is absent or changed")
+    validate_canonical_audit(AUDIT)
+    verify_source_closure(authority["source_closure"])
+    if not AUTHORITY.is_file() or _stable_json(AUTHORITY) != dict(authority):
+        raise RuntimeError("fit-mean authority file differs from supplied authority")
+
+
 def _bank_payload(bank: FitHeadMeanBank, authority_sha256: str) -> dict[str, Any]:
     if not isinstance(bank, FitHeadMeanBank) or not bank.verify_hashes():
         raise RuntimeError("fit-mean bank is invalid before serialization")
@@ -390,6 +604,70 @@ def validate_closure(closure: FitMeanOwnerClosure) -> dict[str, Any]:
     return asdict(closure)
 
 
+class FitRoleInputs(NamedTuple):
+    tokens: torch.Tensor
+    ordered_document_ids: tuple[str, ...]
+    ordered_document_ids_sha256: str
+    row_file_sha256: str
+
+
+def _load_fit_role_inputs(
+    authority: Mapping[str, Any], claim: RunClaim,
+) -> FitRoleInputs:
+    """Load only the fit rows/records fields under the owned execution lock."""
+
+    require_claim(claim)
+    validate_execution_authority(authority)
+    binding = authority["row_binding"]
+    path = Path(binding["row_path"])
+    before = file_sha256(path)
+    if before != binding["row_file_sha256"]:
+        raise RuntimeError("fit-role row file differs from authority before load")
+    payload = torch.load(path, map_location="cpu", weights_only=True)
+    after = file_sha256(path)
+    if before != after:
+        raise RuntimeError("fit-role row file changed during load")
+    if not isinstance(payload, dict):
+        raise RuntimeError("fit-role row payload is not an object")
+    # Deliberately access only these two fit-authorized fields.  Copy labels, masks,
+    # synthetic rows, and token-frequency fields may coexist in the container but are
+    # neither indexed nor returned by this transaction.
+    rows = payload.get("rows")
+    records = payload.get("records")
+    if (
+        not torch.is_tensor(rows)
+        or rows.device.type != "cpu"
+        or rows.dtype != torch.long
+        or tuple(rows.shape) != (192, 257)
+        or tensor_sha256(rows) != binding["rows_tensor_sha256"]
+        or not isinstance(records, list)
+        or len(records) != 192
+    ):
+        raise RuntimeError("fit-role row tensor or record topology changed")
+    document_ids: list[str] = []
+    for index, record in enumerate(records):
+        if (
+            not isinstance(record, Mapping)
+            or record.get("role") != "fit_natural"
+            or record.get("role_row_index") != index
+            or not isinstance(record.get("document_id"), str)
+            or not record["document_id"]
+        ):
+            raise RuntimeError("fit-role ordered document provenance changed")
+        document_ids.append(record["document_id"])
+    if len(set(document_ids)) != 192:
+        raise RuntimeError("fit-role documents are not unique")
+    documents = tuple(document_ids)
+    tokens = rows[:, :256].clone()
+    del payload, rows, records
+    return FitRoleInputs(
+        tokens=tokens,
+        ordered_document_ids=documents,
+        ordered_document_ids_sha256=_document_digest(documents),
+        row_file_sha256=after,
+    )
+
+
 def _create_only_bytes(path: Path, payload: bytes) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     temporary = path.parent / f".{path.name}.tmp-{os.getpid()}-{secrets.token_hex(8)}"
@@ -432,27 +710,32 @@ def create_only_torch(path: Path, value: Mapping[str, Any]) -> None:
         temporary.unlink(missing_ok=True)
 
 
-def publish_fit_mean_bundle(
-    *, authority: Mapping[str, Any], bank: FitHeadMeanBank,
+def _publish_fit_mean_bundle(
+    *, authority: Mapping[str, Any], claim: RunClaim, bank: FitHeadMeanBank,
     closure: FitMeanOwnerClosure, protected_before: Mapping[str, str | None],
-    protected_after: Mapping[str, str | None],
+    protected_after: Mapping[str, str | None], ordered_document_ids_sha256: str,
+    row_file_sha256: str,
 ) -> dict[str, Any]:
     """Publish bank/result/manifest then the sole success receipt last."""
 
-    if authority.get("schema") != "terminal_copy_fit_means_v1_authority" or (
-        authority.get("authorized_for_fit_execution") is not True
-        or authority.get("authorized_for_candidate_selection") is not False
-        or authority.get("authorized_for_scored_experiments") is not False
-    ):
-        raise RuntimeError("fit-mean execution authority is absent or nonauthorizing")
+    require_claim(claim)
+    validate_execution_authority(authority)
     authority_sha = str(authority.get("authority_sha256", ""))
     body = {key: value for key, value in authority.items() if key != "authority_sha256"}
     if len(authority_sha) != 64 or logical_sha256(body) != authority_sha:
         raise RuntimeError("fit-mean execution authority digest changed")
-    verify_source_closure(authority["source_closure"])
-    if dict(protected_before) != dict(protected_after):
+    live_protected = protected_snapshot()
+    if (
+        dict(protected_before) != live_protected
+        or dict(protected_after) != live_protected
+    ):
         raise RuntimeError("fit-mean collection changed protected artifacts")
     closure_payload = validate_closure(closure)
+    if (
+        bank.ordered_document_ids_sha256 != ordered_document_ids_sha256
+        or row_file_sha256 != authority["row_binding"]["row_file_sha256"]
+    ):
+        raise RuntimeError("fit-mean bank is not joined to authorized ordered documents")
     payload = _bank_payload(bank, authority_sha)
     create_only_torch(BANK, payload)
     replay = load_bank_semantically(BANK, authority_sha, require_production=True)
@@ -463,6 +746,8 @@ def publish_fit_mean_bundle(
         "bank_file_sha256": file_sha256(BANK),
         "master_means_sha256": replay.master_means_sha256,
         "runtime_means_sha256": replay.runtime_means_sha256,
+        "ordered_document_ids_sha256": ordered_document_ids_sha256,
+        "row_file_sha256": row_file_sha256,
         "owner_closure": closure_payload,
         "outcome_access": {
             "unembedding_calls": 0, "loss_or_logit_reads": 0,
@@ -483,6 +768,22 @@ def publish_fit_mean_bundle(
         "protected_unchanged": True,
     }
     create_only_json(MANIFEST, manifest)
+    # Receipt-last is a separate integrity barrier, not merely the next write.
+    require_claim(claim)
+    validate_execution_authority(authority)
+    final_protected = protected_snapshot()
+    if (
+        final_protected != live_protected
+        or FAILURE.exists()
+        or RECEIPT.exists()
+        or _stable_json(RESULT) != result
+        or _stable_json(MANIFEST) != manifest
+        or file_sha256(BANK) != result["bank_file_sha256"]
+        or file_sha256(RESULT) != manifest["files"][str(RESULT)]
+        or load_bank_semantically(BANK, authority_sha, require_production=True).runtime_means_sha256
+        != replay.runtime_means_sha256
+    ):
+        raise RuntimeError("fit-mean terminal publication recheck failed")
     receipt = {
         "schema": "terminal_copy_fit_means_v1_receipt",
         "status": "complete_receipt_last_fit_only",
@@ -493,18 +794,24 @@ def publish_fit_mean_bundle(
         "manifest_file_sha256": file_sha256(MANIFEST),
         "master_means_sha256": replay.master_means_sha256,
         "runtime_means_sha256": replay.runtime_means_sha256,
+        "ordered_document_ids_sha256": ordered_document_ids_sha256,
+        "row_file_sha256": row_file_sha256,
         "document_count": replay.document_count,
         "selection_or_outcome_access": False,
-        "authorized_for_candidate_selection_parent": True,
+        "fit_means_prerequisite_complete": True,
+        "authorized_for_candidate_selection_parent": False,
         "authorized_for_E4_evidence": False,
     }
     create_only_json(RECEIPT, receipt)
     return receipt
 
 
-def publish_failure(authority_sha256: str, error: BaseException) -> None:
+def _publish_failure(
+    claim: RunClaim, authority_sha256: str, error: BaseException,
+) -> None:
     """Close a failed namespace without ever manufacturing a success receipt."""
 
+    require_claim(claim)
     if RECEIPT.exists():
         raise RuntimeError("cannot publish failure after success receipt")
     create_only_json(FAILURE, {
@@ -518,3 +825,85 @@ def publish_failure(authority_sha256: str, error: BaseException) -> None:
         "manifest_exists": MANIFEST.exists(),
         "receipt_exists": False,
     })
+
+
+def execute_fit_mean_collection(
+    *, device: str | torch.device = "cuda", batch_size: int = 4,
+) -> dict[str, Any]:
+    """Run the only evidence-producing fit path under one owned transaction.
+
+    The exact checkpoint is loaded internally after authority validation.  The
+    dispatcher, accumulator, owner, mean bank, and closure never cross the public
+    boundary; only the non-scientific fit receipt is returned.
+    """
+
+    if type(batch_size) is not int or batch_size <= 0 or batch_size > 192:
+        raise ValueError("fit-mean batch size is malformed")
+    require_pristine_execution_namespace()
+    authority = _stable_json(AUTHORITY)
+    validate_execution_authority(authority)
+    claim = acquire_claim()
+    model: torch.nn.Module | None = None
+    try:
+        require_claim(claim)
+        protected_before = protected_snapshot()
+        inputs = _load_fit_role_inputs(authority, claim)
+        model, loaded = facade.load_bilin18(
+            device=device, dtype=torch.bfloat16, verify_weights_sha256=False,
+        )
+        if asdict(loaded) != authority["checkpoint"]:
+            raise RuntimeError("loaded checkpoint differs from fit-mean authority")
+        means = {
+            layer: torch.zeros(
+                256, len(NAMED_HEADS_BY_LAYER[layer]), 1152,
+                dtype=torch.float32, device=device,
+            )
+            for layer in NAMED_LAYERS
+        }
+        dispatcher = PhysicalCandidateDispatcher.from_native(
+            attentions={layer: model.transformer.h[layer].attn for layer in NAMED_LAYERS},
+            per_head_position_means=means,
+        )
+        accumulator = FitHeadMeanAccumulator(
+            ordered_document_ids=inputs.ordered_document_ids,
+            sequence_length=256,
+            n_head=9,
+            width=1152,
+            published_dtype=torch.float32,
+            source_dtype=torch.bfloat16,
+            require_production=True,
+        )
+        owner = FitMeanCollectionOwner(dispatcher=dispatcher, accumulator=accumulator)
+        for start in range(0, 192, batch_size):
+            stop = min(start + batch_size, 192)
+            owner.collect_batch(
+                model,
+                inputs.tokens[start:stop].to(device=device),
+                inputs.ordered_document_ids[start:stop],
+                require_production=True,
+            )
+        bank, closure = owner.finalize()
+        if bank.ordered_document_ids_sha256 != inputs.ordered_document_ids_sha256:
+            raise RuntimeError("fit owner changed authorized document order")
+        protected_after = protected_snapshot()
+        return _publish_fit_mean_bundle(
+            authority=authority,
+            claim=claim,
+            bank=bank,
+            closure=closure,
+            protected_before=protected_before,
+            protected_after=protected_after,
+            ordered_document_ids_sha256=inputs.ordered_document_ids_sha256,
+            row_file_sha256=inputs.row_file_sha256,
+        )
+    except BaseException as error:
+        if not RECEIPT.exists() and not FAILURE.exists():
+            _publish_failure(
+                claim,
+                str(authority.get("authority_sha256", "")),
+                error,
+            )
+        raise
+    finally:
+        del model
+        release_claim(claim)
