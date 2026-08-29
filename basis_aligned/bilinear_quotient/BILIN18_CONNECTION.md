@@ -54412,7 +54412,11 @@ the one check I would want before anyone shipped it.
 > direction reversed underneath it.**
 >
 > **So at the coverage anyone would ship, this is a redistribution rather than a free win: it moves
-> accuracy off frequent targets and onto rare ones.** Overall top-1 still improves on all three roles
+> accuracy off frequent targets and onto rare ones.** **[CORRECTED at §1933: nothing is moved.** The
+> rank-512 MAP raises the unseen bucket (+1.3 / +0.5 / +0.4pp at fixed full table rank) and the
+> reduced TABLE rank lowers BOTH buckets (unseen 4.0 -> 3.5, 6.7 -> 5.2, 4.0 -> 3.5). The observed
+> pattern is a superposition of two levers that happen to sum this way at this operating point, not
+> a trade.]** Overall top-1 still improves on all three roles
 > (+0.19 / +0.20 / +0.11pp) because the mid and rare buckets more than cover the common bucket's loss, and
 > the build is still 29% cheaper. **But "strictly better on every aggregate" was a 16,110 statement and
 > §1931 should not have been read without it.** §1931 is scoped in place.
@@ -54437,3 +54441,52 @@ set is 3x smaller at 5,419, so the tables are relatively *richer* there and the 
 full-rank advantage on frequent targets is correspondingly larger. **That is a plausible account and I
 have not measured it** — §1888, §1890, §1898-§1900, §1923 and §1925 are the record of what guessing costs,
 and the measurement would be a rank sweep at fixed coverage against the bucket instrument.
+
+## §1933 — it is not one effect: the MAP raises the rare bucket, the TABLE rank lowers both
+
+`ops/redistribution_is_rank.py`, 368.7s, **DISCOVERY ONLY**, 5,419 coverage, rung 3 — §1932's open
+question, measured. **pred_a True | pred_b False | pred_c True (and misleading) | pred_d True.**
+
+```
+  kept-fraction, map fixed at 512 except the deployed arm, 5,419 types
+    skip7000   125+    deployed 63.5%   full512 63.1%   r768 62.0%   r512 62.0%   r256 62.0%
+               unseen  deployed  2.7%   full512  4.0%   r768  4.1%   r512  4.1%   r256  3.5%
+    skip11000  125+    deployed 62.9%   full512 62.1%   r768 61.5%   r512 61.6%   r256 61.3%
+               unseen  deployed  6.2%   full512  6.7%   r768  6.7%   r512  6.1%   r256  5.2%
+    skip1200   125+    deployed 63.4%   full512 62.8%   r768 62.2%   r512 62.1%   r256 61.9%
+               unseen  deployed  3.6%   full512  4.0%   r768  3.7%   r512  3.8%   r256  3.5%
+```
+
+> **pred_a PASSED 3/3: the common bucket does fall with table rank** — 63.1 → 62.0, 62.1 → 61.3, 62.8 →
+> 61.9 as rank goes full → 256 with the map held fixed. **pred_b FAILED 0/3, and that is the result: the
+> unseen bucket falls too** (4.0 → 3.5, 6.7 → 5.2, 4.0 → 3.5). **Table rank is not a redistribution. It
+> loses accuracy in both buckets, and §1932's account — that the frequent-target loss is a rank effect
+> paid for by a rare-target gain — is half right and half wrong.**
+>
+> **What actually raises the rare bucket is the MAP.** Deployed (rank-64 map) → full512 (rank-512 map) at
+> identical full table rank moves the unseen bucket **2.7 → 4.0, 6.2 → 6.7, 3.6 → 4.0** — up on all three
+> — while the 125+ bucket moves only 63.5 → 63.1, 62.9 → 62.1, 63.4 → 62.8. **§1932's "redistribution" is
+> a superposition of two separate levers, not a trade: the rank-512 fallback map buys rare-target accuracy
+> (§1870's lever, never before measured on buckets), and the reduced table rank costs accuracy everywhere.**
+
+> **pred_c PASSED at 1.33pp against a 1.5pp bar, and the pass is misleading — I am flagging it rather than
+> banking it.** I registered "the map is not the cause" as *both buckets move less than 1.5pp*. The map
+> moves the unseen bucket by **1.33pp on skip7000, which is the entire rare-end effect §1932 attributed to
+> the trade.** The predicate measured magnitude and the direction is the story — **the second time in two
+> sections a bar passed while the sign carried the finding** (§1932's pred_a was the first). **A bar on
+> |Δ| cannot test a claim about causation, and I wrote two of them in a row.**
+
+**pred_d PASSED**: the deployed arm reproduced §1932's published 125+ figures (63.5 / 62.9 / 63.4%) and
+unseen figures (2.7 / 6.2 / 3.6%) exactly, coverage 5,419, buckets partitioning, and the **live model's
+per-bucket accuracy identical across all five arms at 0.00e+00** — nineteenth clean reading.
+
+**What this corrects.** §1932 called the combined build's behaviour at the deployed coverage a
+redistribution "moving accuracy off frequent targets and onto rare ones", and labelled the mechanism
+unmeasured. **The behaviour is real and the description is wrong: nothing is moved.** The map adds
+rare-target accuracy and the table-rank cut subtracts everywhere; at the combined build's operating point
+the two happen to sum to a rare-end gain and a common-end loss. §1932's paragraph is corrected in place.
+
+**Open.** §1870/§1877/§1880 priced map rank purely in CE. §1933 is the first measurement of it on the
+accuracy structure and it shows **+1.3 / +0.5 / +0.4pp of unseen-target kept-fraction for the 64 → 512
+step** — a second reason to spend on map rank that is *not* the one §1919 claimed and §1924 scoped away.
+Whether it survives at 16,110 is unmeasured.

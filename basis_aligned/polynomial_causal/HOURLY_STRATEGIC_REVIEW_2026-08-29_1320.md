@@ -42,6 +42,16 @@ There are two real numerical updates and one execution failure/recovery update.
    does not repair the missing contextual/long-tail computation. This result is
    also discovery-only and currently has no receipt.
 
+5. **A same-coverage check turns the combined build from a strict win into a
+   trade.** At the deployed 5,419-token coverage, the combined build is 29%
+   cheaper and improves overall top-1 by 0.11–0.20 percentage points on all
+   three roles. It improves the unseen-target bucket on all three roles, but
+   reduces the 125+-frequency bucket by 0.65–1.20 points on all three. Thus the
+   compression redistributes accuracy from common to rare targets at deployed
+   coverage; it is not uniformly better. This strengthens the need for a
+   frequency- and context-conditional residual rather than a single global rank
+   allocation rule.
+
 ## What the percentages mean
 
 The strict ledgers have not moved:
@@ -145,4 +155,3 @@ attempt-2 recovery lifecycle was implemented, historical and absent-output
 bindings were added, and **66/66** lifecycle/inference/adapter tests passed. The
 fresh independent audit is the remaining launch gate. No selection outcome or
 final/OOD role has been opened.
-
