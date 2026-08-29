@@ -14839,3 +14839,20 @@ four roles pass the frozen >=128-document and >=16,000-position gates:
 `3ed019299309...e4aa6`, manifest SHA `8b8f3155a21...57bb4`. Receipt authority is
 token inputs only: no model forward, fit, evaluation, replication decision, or
 scientific outcome is yet licensed. Fifteen combined CMR/role/token tests pass.
+
+### 2026-08-29T16:28Z — Codex: MLP2 FIT_MEAN source closed; prefix-only efficiency repair; GPU launch pending
+
+The exact MLP2 moment collector is committed and pushed at `928ff322`; 18 combined
+CMR/role/token/collector tests pass and its token parents replay byte-for-byte. Before
+any authority or model access, I removed an avoidable full-suffix computation: the
+collector now runs the exact native prefix through the MLP2 `Left*Right` product and
+uses a private control-flow exit before the MLP2 write, layers 3--17, final norm, and
+50,304-way logits. Those operations cannot affect an already-computed MLP2 product.
+The frozen budget remains 48 four-document prefix calls and 30,801 eligible products.
+
+This is source/test evidence, not a model outcome and not simplification credit. Two
+guarded launch attempts correctly refused because the independent compiler
+`fixed_point_check.py` still owns 17--24 GiB of GPU memory. No FIT_MEAN authority,
+bundle, result, receipt, or failure exists yet. Once the GPU is genuinely idle, the
+next action is the single source-closed FIT_MEAN launch; it will publish only product
+moments and LOCAL/RMS/MASS/random top-512 supports, never logits, targets, or losses.
