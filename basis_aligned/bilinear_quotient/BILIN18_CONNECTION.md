@@ -57741,7 +57741,13 @@ together — and the cheapest unasked question about it is one of degree rather 
 much of attention 6 does it take?** The table-rank machinery already sweeps capacity per kind; extending
 it to name an individual site makes "attention 6 at rank 32, everything else at 384" expressible.
 
-## §1996 — attention 6 needs almost no capacity: rank 16 buys 72% of what rank 384 does
+## §1996 — ~~attention 6 needs almost no capacity~~ **INTERPRETATION SCOPED BY §2011**
+
+**SCOPING NOTE (§2011).** The measurements below are correct. **The 72% is a share of the arm that OMITS
+attention 6, which §2010 showed is 64–69% presence** — not a share of its content. Measured against the
+mean row, rank 16 buys **17–22%** of the content, and rank 4 buys nothing a constant row does not. **The
+"low-dimensional" reading is withdrawn**; attention 6's content needs 64 directions for half and 128 for
+four fifths (§2011). LESSON 99.
 
 `ops/how_much_of_attention_six.py`, **4.8s** warm (289.2s cold), **DISCOVERY ONLY**, 5,419, rung 3 —
 §1995's open question. **pred_a True | pred_b True | pred_c True | derived controls True**, on the third
@@ -58343,3 +58349,51 @@ than rank 1 at mlp2, and the last 28 points need all 368 remaining dimensions (�
 the presence floor instead. **The instrument that separates them is the mean row, not the rank sweep**: the
 content is exactly `meanrow − table`, and its rank structure needs a sweep run *relative to* the mean row
 rather than to the no-attention-6 arm.
+
+## §2011 — attention 6's content is HIGH-dimensional: rank 4 is worth exactly a constant row
+
+`ops/attention_sixs_content_by_rank.py`, **4.9s** warm, **DISCOVERY ONLY**, 5,419, rung 3 — §2010's open
+question, with the denominator LESSON 99 demanded. **pred_a True | pred_b True | pred_c False | derived
+controls True.** Both reference deviations 0.000000.
+
+Content is `mean row − table`: the part a context-free row cannot supply. The mean-row baseline is
+2.183 / 2.306 / 2.142 and the full-rank arm 1.971 / 2.090 / 1.952, so the content is **0.212 / 0.216 /
+0.191 nats**.
+
+```
+  share of attention 6's CONTENT recovered, measured from the mean row
+             r1        r4       r16      r64      r128     r384
+  skip7000  −12.7%    +2.6%    21.9%    58.3%    81.1%    100%
+  skip11000 −15.4%    +0.7%    20.8%    56.6%    80.0%    100%
+  skip1200  −21.5%    −3.3%    17.0%    53.6%    78.7%    100%
+```
+
+> **pred_b PASSED 3/3 and confirms §2010 from the other side: rank 1 recovers a NEGATIVE share of the
+> content**, −12.7% to −21.5%. **A rank-1 table at attention 6 is measurably worse than giving every token
+> the same row.**
+
+> **Rank 4 is worth exactly a constant row** — +2.6% / +0.7% / −3.3%, straddling zero. Four directions
+> buy nothing that a single constant does not.
+
+> **pred_c FAILED on all three roles, by 3.6 / 6.6 / 8.3 percentage points.** The bar was that even rank
+> 64 recovers under half the content. It recovers **53.6% to 58.3%.** A miss is a miss — and the shape it
+> reveals is the point: **the content curve is roughly linear in log-rank from 16 upward** (17–22% at 16,
+> 54–58% at 64, 79–81% at 128), with nothing below 16 at all.
+
+**Which closes the rank line, and scopes §1996 as well.** §1996 reported "attention 6 needs almost no
+capacity: rank 16 buys 72% of what rank 384 does" and concluded the signal was low-dimensional. **That 72%
+was against the same wrong denominator** — the arm omitting attention 6, which §2010 showed is 64–69%
+presence. **Measured against the mean row, rank 16 buys 17–22%.** §1996's numbers stand; its
+"low-dimensional" reading is struck, and its registry entry is marked.
+
+**The corrected account of attention 6.** Its contribution to a compiled MLP is **mostly presence**, which
+any context-free row supplies. **Its content is small (0.19–0.22 nats at a compiled mlp2) and genuinely
+high-dimensional — half of it needs 64 directions and four fifths needs 128.** There is no small set of
+directions to name, and the head-level probe §2008 and §2009 were building toward is **not** motivated by
+this evidence.
+
+**Open.** Three sections used the wrong denominator and two headlines came from it. The one thing the
+corrected instrument has not been asked is whether the high-dimensionality is a property of attention 6 or
+of every site: **the same content-by-rank curve for attention 5, whose content is negative, and for a
+compiled mlp2, whose content §1983 measured at essentially zero**, would say whether "content needs rank"
+is specific or generic — the §1995 control, one level up.
