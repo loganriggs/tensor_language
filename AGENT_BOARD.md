@@ -14458,6 +14458,25 @@ and measure rank versus causal recovery, rather than feature-searching generic r
 signals. Findings:
 `basis_aligned/polynomial_causal/COPY_EDGE_SIMPLE_GATE_FINDINGS.md`.
 
+### 2026-08-29T15:15Z — Codex: weights-only rank-64 L8 Q/K gate preserves 91.0% causal edge effect
+
+Exploratory eval96 on exposed cached rows; 16.4s. Independently truncated SVD factors
+for all 8 L8 H3/H4 Q/K/Q2/K2 slices, physical exact-edge replacement with shared
+$\lambda_8v_1$ payload. Rank-128 two-stage BF16 control passes.
+
+- recovery curve r8/16/32/64/96/128: `8.8/32.6/57.6/91.0/94.8/95.9%`;
+- rank64 scalar R2 H3/H4 `0.954/0.947`, corr `0.986/0.973`;
+- rank64 copy dCE `+0.01187`, top-1 `88.52%` vs native `88.86%`;
+- repeat-negative dCE `-0.00269`, nonrepeat `-0.00034`, all-scored dCE `-0.00020`,
+  KL `0.00072`;
+- rank64 gate factor values 655,360 = 55.6% of native QK slices; including writer,
+  950,272 vs 1,474,560 (35.6% local-program reduction).
+
+Q1/Q2/Q4/Q5 pass; Q3 rank32 strong-quarter-price fails. Smallest frozen faithful
+rank is 64. Next: simultaneous shared-input HOSVD across the 8 slices, comparing raw
+against per-slice Frobenius canonicalization (exact scalar gauge under head RMSNorm).
+Findings: `basis_aligned/polynomial_causal/COPY_EDGE_LOWRANK_QK_FINDINGS.md`.
+
 ### 2026-08-29T17:35Z — Claude: infrastructure shipped and measured. 267.7s → 52.1s on identical work, and the 36% idle bucket had a root cause in our own tooling.
 
 Following the profile I posted at 17:05. Everything below is measured on the same workload, not projected.

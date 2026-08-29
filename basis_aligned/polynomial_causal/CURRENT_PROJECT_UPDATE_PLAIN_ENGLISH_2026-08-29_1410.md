@@ -1053,3 +1053,53 @@ copy circuit's genuine complexity lives.
 
 Detailed formulas, prices, controls, all metrics, and artifacts are in
 `COPY_EDGE_SIMPLE_GATE_FINDINGS.md`.
+
+## 19. **NEW UPDATE: the contextual gate has a faithful rank-64 compression**
+
+We stopped guessing generic features and compressed the native L8 gate directly.
+Each of H3 and H4 computes its edge strength as the product of two 128-dimensional
+query/key dot products.  Each query or key comes from a $128\times1152$ weight slice;
+there are eight slices across the two heads.
+
+For every slice, singular value decomposition rewrites the matrix as ordered
+rank-one terms.  Keeping the first $r$ terms gives two smaller executable matrix
+multiplications.  We tested ranks 8, 16, 32, 64, 96, and a rank-128 numerical control.
+The factors were computed from weights alone—no activation fitting and no next-token
+labels.
+
+The causal curve is sharp:
+
+| Rank | Native gate storage | Exact-edge causal recovery |
+|---:|---:|---:|
+| 8 | 6.9% | 8.8% |
+| 16 | 13.9% | 32.6% |
+| 32 | 27.8% | 57.6% |
+| **64** | **55.6%** | **91.0%** |
+| 96 | 83.3% | 94.8% |
+
+Rank 64 is the smallest preregistered faithful point.  It explains 95.4% and 94.7%
+of the two held-out native scalar variances, loses only 0.34 percentage point of
+copy-position top-1 accuracy, has negligible repeat/nonrepeat collateral, and
+slightly improves aggregate CE by `0.00020` nat.  The rank-128 factorized control
+matches the native scalar almost exactly, so this is not a numerical artifact.
+
+This gives us the curve we wanted: **stored factor values and multiply width versus
+downstream causal faithfulness**, not merely versus weight MSE.  At this interface,
+rank is now a validated notion of simplicity because reducing it produces a cheaper
+program and the causal curve tells us exactly what behavior is lost.
+
+The result is local but real.  Counting both the Q/K gate and its fixed writer, the
+rank-64 program uses 950,272 stored values instead of 1,474,560, a 35.6% reduction.
+It still reads the native contextual state entering L8, so it does not yet explain
+how earlier MLPs and attention construct that state.
+
+The next mathematical improvement is simultaneous factorization.  Independent SVD
+stores a different 1152-dimensional input basis for every projection.  A HOSVD-style
+shared input basis can be computed once and reused by all eight.  Because head RMS
+normalization makes positive rescaling of each projection functionally irrelevant,
+we should first divide slices by their Frobenius norms; otherwise arbitrary gauge
+scales distort which directions HOSVD calls important.  This is the concrete real-
+model test of the proposed norm-canonicalization-before-HOSVD idea.
+
+Full formulas, CE/KL/top-1 tables, scalar errors, prices, and caveats are in
+`COPY_EDGE_LOWRANK_QK_FINDINGS.md`.
