@@ -1,0 +1,43 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+FALLBACK TRACKING BY VOCAB ID | buckets ((0, 0), (1, 4), (5, 24), (25, 124), (125, 1000000000)) on the fit-row count of the TRUE target | full-rank settled program | DISCOVERY ONLY
+  built the settled fallback and 36 tables (4s)
+
+  === table rank full, map rank 64 ===
+  skip7000: overall live 39.32% prog 13.55%
+    target fit-count 0-0          n   8904  live 25.29%  prog  0.67%  kept   2.7%  agree 13.22% (null  1.81% =  7.30x)  prog-right-also-live  88.3%
+    target fit-count 1-4          n   6585  live 26.65%  prog  1.11%  kept   4.2%  agree 13.74% (null  1.71% =  8.05x)  prog-right-also-live  91.8%
+    target fit-count 5-24         n   4783  live 30.52%  prog  2.89%  kept   9.5%  agree 17.35% (null  2.05% =  8.48x)  prog-right-also-live  79.0%
+    target fit-count 25-124       n   6003  live 41.98%  prog  9.90%  kept  23.6%  agree 25.17% (null  3.43% =  7.33x)  prog-right-also-live  86.5%
+    target fit-count 125-1000000000 n  10589  live 61.46%  prog 39.01%  kept  63.5%  agree 40.27% (null  8.75% =  4.60x)  prog-right-also-live  80.9%
+  skip11000: overall live 42.35% prog 14.25%
+    target fit-count 0-0          n   9385  live 29.90%  prog  1.86%  kept   6.2%  agree 12.62% (null  1.59% =  7.93x)  prog-right-also-live  89.1%
+    target fit-count 1-4          n   6638  live 30.11%  prog  1.61%  kept   5.4%  agree 12.47% (null  1.47% =  8.48x)  prog-right-also-live  86.9%
+    target fit-count 5-24         n   4763  live 35.00%  prog  2.81%  kept   8.0%  agree 15.98% (null  1.87% =  8.53x)  prog-right-also-live  81.3%
+    target fit-count 25-124       n   5546  live 42.66%  prog 10.46%  kept  24.5%  agree 23.82% (null  2.83% =  8.41x)  prog-right-also-live  88.6%
+    target fit-count 125-1000000000 n  10532  live 64.31%  prog 40.42%  kept  62.9%  agree 40.62% (null  8.62% =  4.71x)  prog-right-also-live  82.3%
+  skip1200: overall live 38.88% prog 13.64%
+    target fit-count 0-0          n   4470  live 26.15%  prog  0.94%  kept   3.6%  agree 14.70% (null  2.08% =  7.07x)  prog-right-also-live  92.9%
+    target fit-count 1-4          n   3209  live 25.40%  prog  1.18%  kept   4.7%  agree 15.46% (null  1.73% =  8.92x)  prog-right-also-live  89.5%
+    target fit-count 5-24         n   2440  live 28.32%  prog  3.52%  kept  12.4%  agree 19.22% (null  1.91% = 10.09x)  prog-right-also-live  76.7%
+    target fit-count 25-124       n   3037  live 41.29%  prog  9.75%  kept  23.6%  agree 24.43% (null  3.00% =  8.13x)  prog-right-also-live  83.1%
+    target fit-count 125-1000000000 n   5276  live 61.37%  prog 38.91%  kept  63.4%  agree 39.76% (null  8.51% =  4.67x)  prog-right-also-live  79.9%
+
+  THE TABLES CARRY THE TRACKING (covered/uncovered enrichment >= 1.5x) -> False
+    skip7000   covered   n  27974  live 37.38%  prog 14.00%  agree 25.35%  null  3.52%  =  7.19x
+    skip7000   uncovered n   8890  live 45.43%  prog 12.14%  agree 17.94%  null  6.17%  =  2.91x   ratio  2.48x
+    skip11000  covered   n  27497  live 39.99%  prog 14.80%  agree 24.42%  null  3.35%  =  7.29x
+    skip11000  uncovered n   9367  live 49.28%  prog 12.63%  agree 17.68%  null  5.96%  =  2.97x   ratio  2.46x
+    skip1200   covered   n  13973  live 36.58%  prog 14.35%  agree 26.28%  null  3.44%  =  7.64x
+    skip1200   uncovered n   4459  live 46.11%  prog 11.44%  agree 17.72%  null  6.56%  =  2.70x   ratio  2.83x
+
+  UNCOVERED arm split by GPT-2 VOCAB ID quartile (all four populated: True):
+    skip7000   0-12563 n 5031  2.85x  12564-25127 n 2113  2.71x  25128-37691 n 1129  2.95x  37692-50256 n  617  2.61x
+    skip11000  0-12563 n 5438  2.74x  12564-25127 n 2280  2.84x  25128-37691 n 1046  2.71x  37692-50256 n  603  4.52x
+    skip1200   0-12563 n 2713  2.57x  12564-25127 n 1015  3.12x  25128-37691 n  470  3.21x  37692-50256 n  261  3.41x
+  COMMONEST quartile tracks WORSE than the rarest -> False  skip7000 [0-12563 n 5031  2.85x] vs [37692-50256 n  617  2.61x]  skip11000 [0-12563 n 5438  2.74x] vs [37692-50256 n  603  4.52x]  skip1200 [0-12563 n 2713  2.57x] vs [37692-50256 n  261  3.41x]
+  and the within-arm spread is material (>=0.5x) -> False  skip7000 0.34x  skip11000 1.82x  skip1200 0.84x
+  and EVERY quartile still beats chance (>=1.5x) -> True  skip7000 min 2.61x  skip11000 min 2.71x  skip1200 min 2.57x
+  coverage 5419, quartiles partition, all populated True, covered arm reproduces §1888 -> control True  skip7000 7.19x vs 7.19x  skip11000 7.29x vs 7.29x  skip1200 7.64x vs 7.64x
+
+pred_a False | pred_b False | pred_c True | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/fallback_tracking_by_vocab_id_results.json (48.3s)

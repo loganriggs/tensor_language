@@ -52097,10 +52097,15 @@ of them or 16,110.
 
 **A small directional detail, stated because it runs the other way from the headline.** Every fallback
 figure here is *slightly lower* than §1887's (2.91 vs 3.14, 2.97 vs 3.56, 2.70 vs 3.11), and every ratio
-correspondingly higher. At lower coverage the uncovered set includes somewhat commoner tokens, and the
-rank-64 map appears to serve them marginally worse. All six differences are inside pred_b's 1.0x bar and
-none is large, but the sign is consistent across all three roles and I am not going to call it noise
+correspondingly higher. The sign is consistent across all three roles and I am not going to call it noise
 without measuring it.
+
+> **[CORRECTED at §1890.]** This paragraph originally continued: *"At lower coverage the uncovered set
+> includes somewhat commoner tokens, and the rank-64 map appears to serve them marginally worse."* That
+> compositional account is now measured and **wrong**. Splitting the uncovered arm by GPT-2 vocabulary id
+> — a rarity axis fixed by the tokenizer, not collinear with coverage — gives 2.85/2.71/2.95/2.61x on
+> skip7000, which REVERSES the required direction, while two roles go the other way. §1890 pred_a and
+> pred_b both FAILED. The sign remains unexplained; having measured, noise is back on the table.
 
 **pred_d PASSED**: coverage exactly 5,419, both partitions exact, and the uncovered share materially
 moved (24% against 10%) — which is what makes this a confirmation rather than a re-run.
@@ -52155,3 +52160,52 @@ two of three substantive predicates, and the one I omitted is the one that retur
 Worse, the omission was invisible in the output: pred_a printed `True` next to a `0.00x` figure, and only
 reading the band counts revealed it. **Print the n alongside any per-group statistic, in the predicate
 line itself, not only in the table above it.**
+
+## §1890 — the compositional explanation is WRONG, and §1888's paragraph is corrected in place
+
+`ops/fallback_tracking_by_vocab_id.py`, 48.3s, **DISCOVERY ONLY**, rung 3 — §1888's thread, second
+attempt, on an axis that is not coverage. **pred_a False | pred_b False | pred_c True | pred_d True.**
+
+The axis is the GPT-2 **vocabulary id**: BPE merges are learned in frequency order, so id is a rarity
+proxy fixed by the tokenizer before any fit row existed and therefore cannot be collinear with coverage —
+the defect that made §1889 a null. All four quartiles populated on all three roles.
+
+```
+  uncovered arm, enrichment by vocab-id quartile (n beside each, per LESSON 70)
+    skip7000   0-12563  n5031 2.85x | 12564-25127 n2113 2.71x | 25128-37691 n1129 2.95x | 37692+ n617 2.61x
+    skip11000  0-12563  n5438 2.74x | 12564-25127 n2280 2.84x | 25128-37691 n1046 2.71x | 37692+ n603 4.52x
+    skip1200   0-12563  n2713 2.57x | 12564-25127 n1015 3.12x | 25128-37691  n470 3.21x | 37692+ n261 3.41x
+```
+
+> **pred_a FAILED and the compositional story does not survive.** I predicted the commonest quartile
+> would track worse than the rarest, which is what §1888's consistent sign requires. Two roles go that
+> way (2.74 → 4.52, 2.57 → 3.41) and **skip7000 goes the other** (2.85 → 2.61). A three-role effect that
+> reverses on one role is not the mechanism.
+>
+> **§1888's explanatory paragraph is corrected in place.** It offered the compositional account —
+> *"at lower coverage the uncovered set includes somewhat commoner tokens, and the rank-64 map appears to
+> serve them marginally worse"* — as the likely reason its fallback figures sat below §1887's. **That is
+> now measured and it is not the reason.** The sign remains unexplained. I flagged it as too consistent
+> to call noise without measuring; having measured, the compositional hypothesis is out and noise is back
+> on the table, on arms of a few thousand positions with quartile-level scatter of 0.34-1.82x.
+
+**pred_b FAILED too**, and for the same reason: the within-arm spread is **0.34 / 1.82 / 0.84x**, above
+the 0.5x bar on two roles and well below on the third. §1888's effect is ~0.3x, so re-weighting could
+only produce it given a consistent spread; there isn't one.
+
+**pred_c PASSED, and it is the durable finding here.** **Every quartile beats chance on every role, 2.57
+to 4.52x.** §1887's "the fallback is not inert" now holds not just in aggregate but **uniformly across the
+whole vocabulary-rarity range** — §1870's rank-64 embedding map carries roughly the same fraction of the
+model's top-1 preference for the commonest uncovered tokens as for the rarest. That is a cleaner statement
+about the map than the one I was chasing.
+
+**pred_d PASSED**: coverage 5,419, quartiles partitioning, all four populated above n = 100 by
+construction, and the covered arm reproduced §1888's 7.19 / 7.29 / 7.64x **to three digits for the second
+consecutive run** — a seventeenth known-answer check.
+
+**LESSON 70 was applied and it worked.** The `n >= 100` guard now lives where the enrichment is
+*computed*, returning `None` below threshold, so no predicate can reach an unguarded band; and every
+predicate line prints the n beside the figure. §1889's vacuous pass is not reachable in this script.
+
+**Thread closed as unexplained rather than left open with a wrong guess.** §1888's sign is not
+compositional. Nothing in the arc depends on it.
