@@ -997,13 +997,17 @@ def harness_canaries(model, row: torch.Tensor) -> dict[str, Any]:
     }
 
 
-def scientific_run() -> tuple[dict[str, Any], dict[str, Any] | None]:
+def scientific_run(
+    authority: dict[str, Any],
+) -> tuple[dict[str, Any], dict[str, Any] | None]:
     require_defined_globals([Path(__file__), Path(__file__).with_name("gauge_transport.py")])
     start = time.time()
     receipt, rows = load_unique_v2_rows()
     from bilin18_observed_model_facade import load_bilin18
 
     model, model_receipt = load_bilin18(verify_weights_sha256=True)
+    if model_receipt.weights_sha256 != authority["model_weights_sha256"]:
+        raise RuntimeError("triangle checkpoint differs from execution authority")
     device = next(model.parameters()).device
     canaries = harness_canaries(model, rows["basis"])
     canaries["passed"] = canaries["passed"] and bool(canaries["cp_gauge_rewrite"]["passed"])
@@ -1025,7 +1029,14 @@ def scientific_run() -> tuple[dict[str, Any], dict[str, Any] | None]:
     )
     if not scale_decision["passed"]:
         output = {
-            "config": {"status": "scale_calibration_failed_before_response_fit"},
+            "config": {
+                "status": "scale_calibration_failed_before_response_fit",
+                "model": "bilin18",
+                "model_revision": model_receipt.revision,
+                "model_config_sha256": model_receipt.config_sha256,
+                "model_weights_sha256": model_receipt.weights_sha256,
+                "row_receipt_file_sha256": ROW_RECEIPT_FILE_SHA256,
+            },
             "canaries": canaries,
             "scale_calibration": calibration,
             "scale_decision": scale_decision,
@@ -1109,7 +1120,7 @@ def scientific_run() -> tuple[dict[str, Any], dict[str, Any] | None]:
 def main() -> None:
     authority = require_source_closed_runner_lifecycle()
     try:
-        output, state = scientific_run()
+        output, state = scientific_run(authority)
         publish_execution(authority, output, state)
     except BaseException as error:
         if not RUN_FAILURE.exists() and not RUN_RECEIPT.exists():
