@@ -64,12 +64,16 @@ parameterization, Adam optimizer, learning rate, 1,024-token total batch, maximu
 
 This matched continuation control separates trajectory exposure from the extra data
 and optimization that the still-improving frozen FULL512 parent did not receive.
+CONTINUE512 receives no C512-gradient exposure, but uses the same C512 development
+states for checkpoint eligibility as ROBUST512. It therefore controls gradient
+exposure, compute, data quantity, and checkpoint opportunities—not every possible
+form of C512 information exposure.
 Publish separate native/C512 learning curves and paired state-shift statistics. Local
 loss has no scientific decision authority.
 
 The exact unopened row parent is
 `mlp0_c512_mlp2_full512_composition_v2_rows_receipt.json`, TRAIN file SHA256
-`efb7daed052009df10e1619f90c5648977144a8f549304c3bc56dbbd0f2130d8`, with
+`efb7dad2ba187e1d265773bc6d4b5ea133366a646cbc2bc07b4929e6815bd599`, with
 documents 0–159 for fit, 160–191 for development, and positions 64–255. Evaluation
 must use a later registry-disjoint source-document family.
 
@@ -100,8 +104,10 @@ where (C) means C512 is installed and (N) means native MLP0. Run one paired
 
 ## Decisions fixed before data
 
-Use Bonferroni simultaneous two-sided 95% percentile intervals across eight
-registered document-level contrasts (per-contrast quantiles 0.003125 and 0.996875).
+Use Bonferroni simultaneous two-sided 95% percentile intervals across nine
+registered document-level contrasts (per-contrast quantiles 0.0027777778 and
+0.9972222222). Use 10,000 draws, seed `2026082942`, common document index draws for
+every arm and contrast, and linear quantile interpolation.
 The narrow trajectory-exposure hypothesis passes only if:
 
 - fresh frozen-FULL interaction has a lower bound above zero;
@@ -115,7 +121,7 @@ The narrow trajectory-exposure hypothesis passes only if:
 - the same prefix-stability standard passes; and
 - all call, byte-price, precision, and no-native-MLP2 controls pass.
 
-The eighth bootstrap contrast is ROBUST combined-arm KL improvement over CONTINUE;
+The ninth bootstrap contrast is ROBUST combined-arm KL improvement over CONTINUE;
 it is reported and simultaneously bounded but is diagnostic rather than an additional
 pass gate.
 
