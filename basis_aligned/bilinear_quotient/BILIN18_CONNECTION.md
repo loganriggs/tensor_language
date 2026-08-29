@@ -58251,3 +58251,44 @@ with context-free input, and nothing about how the program fills in tokens it ha
 and §1996 showed rank 16 recovers 72% of it. **The bottom of that curve has never been measured.** If rank
 4 or rank 2 recovers most of it, the signal is small enough that a head-level account becomes the obvious
 next instrument rather than a speculation.
+
+## §2009 — one direction carries 60% of attention 6's content
+
+`ops/the_bottom_of_attention_sixs_curve.py`, **201.8s**, **DISCOVERY ONLY**, 5,419, rung 3 — §2008's open
+question. **pred_a True | pred_b True | pred_c False | derived controls True.** Both reference deviations
+0.000000.
+
+```
+  attention 6's table rank inside mlp2 + attention 5,6; % of its whole contribution recovered
+                 r1      r2      r4      r8      r16     r384   |  attention 5 at r1
+  skip7000      2.210   2.191   2.177   2.162   2.137   1.971   |      1.993
+  recovered     59.2%   62.4%   64.7%   67.4%   71.7%   100%
+  skip11000     61.1%   64.2%   66.5%   69.3%   73.3%   100%
+  skip1200      61.8%   65.1%   67.5%   70.0%   73.9%   100%
+```
+
+> **pred_b PASSED 3/3 and rank 4 was not the interesting number. Rank ONE at attention 6 recovers
+> 59.2% / 61.1% / 61.8% of its entire contribution.** A single direction — the same one for every token —
+> does three fifths of what a rank-384 table does.
+
+> **The curve's shape is the finding. From rank 1 to rank 16 it climbs only 59% → 72%; the last 28% needs
+> all 368 remaining dimensions.** So attention 6's content is not "low-dimensional" in the ordinary sense:
+> it is **one strong direction plus a long, flat tail**, and the tail is worth about as much as ranks 2–16
+> put together.
+
+> **pred_c FAILED on all three roles, by 0.002 / 0.003 / 0.003 nats.** The bar was that attention 5 at
+> **rank 1** sits within 0.02 nats of the full-rank arm. It sits at **0.022 / 0.023 / 0.023**. A miss is a
+> miss, and I set that bar from §2007's +0.001 at rank 16. **The substance is unchanged** — rank 1 at
+> attention 5 costs 0.022 nats where *removing* attention 5 costs 2.905, so a single direction buys 99.2%
+> of the site — but the registered bar does not survive, and §2007's "pure presence" is now known to have
+> a floor of about 0.02 nats rather than 0.001.
+
+**Where the line stands.** The compiled-MLP damage has a ceiling at 10.7 nats, coverage-invariant to 0.001
+(§2008). Attention 5 removes 2.65 of it by presence alone, needing one direction (§2006, §2007, §2009).
+Attention 6 removes the rest, and **60% of what it contributes is a single direction.** The remaining
+unexplained quantity is that direction's identity, and it is now small enough and concrete enough to name.
+
+**Open.** §2000 measured attention 6's content at 0.212 for a compiled mlp2 and 0.095 for a compiled mlp4 —
+a factor of 2.2. **Whether rank 1 carries 60% of it at mlp4 too has not been checked**, and a rank-1
+fraction that transfers would mean the direction is a property of attention 6 rather than of the pair,
+which is the question §1999 left open one level up.
