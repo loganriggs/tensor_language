@@ -2504,3 +2504,24 @@ When the setup changes — attention deleted → attention live — re-derive wh
 rather than checking whether it still passes. **Passing is not evidence that it applies.** Compare
 LESSON 86, where four control-polarity errors were inherited the same way and fixed by deriving polarity
 from the plan instead of copying it.
+
+## LESSON 99 — a share is a share of something; name the denominator in the sentence, not just the code
+
+§2009 measured that rank 1 at attention 6 recovers 59–62% of a quantity, and I wrote the headline "one
+direction carries 60% of attention 6's **content**." The code's denominator was the *whole contribution* —
+the arm omitting attention 6 minus the full-rank arm. **That contribution is 64–69% presence**, and §2010
+showed rank 1 tracks the presence share and sits *below* it on all six cells. **Rank 1 carries none of the
+content. The number was right and the noun was wrong.**
+
+**The tell was available before the run.** §1998 had already measured attention 6's content directly, as
+`meanrow − table` = 0.212 nats, and §2009's rank-1 arm cost 2.210 against that mean row's 2.183 — *worse
+than a constant row*. Two published numbers in the same ledger contradicted the headline the moment it was
+written, and I compared the new arm only against the denominator my helper happened to use.
+
+**The habit:** when a predicate returns a fraction, write the denominator into the registered text, not
+only into the helper. §2009's `_recovered` said `(hi - x) / (hi - lo)` with `hi = NO6`; had the registered
+text said "of the arm omitting attention 6", the word "content" could not have survived the sentence.
+
+**Retract the sentence, keep the table.** §2009's measurements reproduced within 0.01 inside §2010. What
+failed was one noun, and it is struck in the ledger and marked in the registry. See [[LESSON 95]] on reach
+and [[LESSON 97]] on generalising past the design.
