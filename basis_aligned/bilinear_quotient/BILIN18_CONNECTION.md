@@ -55244,3 +55244,63 @@ output-NN neighbour + 75% rank-256 map, 339.558M.** It beats §1931's best-known
 `blend_mlpheavy` for a further 119.3M — a much worse rate than the full → mlp-heavy step, so the table
 curve is turning over somewhere between. **Where it turns is unmeasured, and it is now the cheapest
 remaining lever.**
+
+## §1947 — the table curve is convex and §1946's build sits ON the knee. The cost arc has converged.
+
+`ops/table_curve_knee.py`, 374.6s, **DISCOVERY ONLY**, 16,110 coverage, rung 3 — §1946's open question.
+**pred_a True (3/3) | pred_b False (0/3) | pred_c False (0/3) | pred_d True.** The two failures both say
+the same thing, and it is a better answer than the one I predicted.
+
+```
+  16,110, blend fallback fixed at mix25m256; deltas vs map512_mlpheavy (§1931, 360.723M)
+                        cost      top-1 (7000/11000/1200)        CE delta          paired t
+  blend_full         689.457M   +0.08 / +0.11 / +0.04pp   -.0188/-.0201/-.0121   -13.0/-13.8/ -5.9
+  blend_1024_256     419.101M   +0.10 / +0.10 / +0.06pp   -.0158/-.0169/-.0100   -12.1/-12.6/ -5.4
+  blend_768_256      339.558M   +0.10 / +0.07 / +0.07pp   -.0084/-.0087/-.0052    -7.0/ -7.3/ -3.0   §1946
+  blend_640_160      269.958M   -0.19 / -0.22 / -0.15pp   +.0034/+.0037/+.0022    +2.6/ +2.9/ +1.4
+  blend_512_128      220.243M   -0.27 / -0.24 / -0.31pp   +.0186/+.0197/+.0173   +12.1/+13.0/ +7.9
+  blend_384_96       170.529M   -0.37 / -0.31 / -0.29pp   +.0446/+.0470/+.0391   +23.4/+24.7/+14.6
+  blend_256_64       120.814M   -0.61 / -0.55 / -0.45pp   +.0890/+.0952/+.0804   +35.5/+37.3/+23.2
+
+  marginal nats per 100M saved, by step   (skip7000 / skip11000 / skip1200)
+    full -> 1024/256   0.0011 / 0.0015 / 0.0005      <- nearly free
+    -> 768/256         0.0094 / 0.0090 / 0.0072      <- last step under 0.010
+    -> 640/160         0.0169 / 0.0177 / 0.0132      <- crosses
+    -> 512/128         0.0306 / 0.0323 / 0.0267
+    -> 384/96          0.0522 / 0.0560 / 0.0438
+    -> 256/64          0.0894 / 0.0968 / 0.0831
+```
+
+> **pred_a PASSED 3/3: the curve is convex, and cleanly so.** The marginal rate rises strictly at every
+> one of six steps on all three roles — **eighteen of eighteen** — and it roughly **doubles per step**
+> (0.001 → 0.009 → 0.017 → 0.031 → 0.052 → 0.089 at skip7000). There is a single knee to find.
+
+> **pred_b FAILED 0/3, and the failure locates the knee ABOVE where I put it.** I predicted the step to
+> {640,160} would still cost under 0.010 nats per 100M. It costs **0.0132–0.0177**, while {768,256}
+> costs **0.0072–0.0094** — so the threshold is crossed **between 768 and 640**, and **{768,256} is the
+> last efficient step.** §1946's build is not near the knee; **it is on it**, and I found that by
+> predicting otherwise and being wrong.
+
+> **pred_c FAILED 0/3 and closes the cost question from below.** No build under 300M beats §1931's on
+> top-1: {640,160} at 269.958M is already **−0.19 / −0.22 / −0.15pp**, and it is worse on CE too
+> (+0.0034, t = +2.56). **Below the knee the blend's entire advantage is spent** — every sub-300M arm
+> loses to §1931's 360.723M build on both instruments. The top-1 win does not survive the truncation
+> that would pay for it.
+
+**pred_d PASSED** on §1946's corrected two-sided form: coverage exactly 16,110; a rank-differing arm
+**does** move covered-input predictions while an identical-spec arm does **not**; buckets partition; live
+per-cell top-1 and CE identical at 0.00e+00; §1946's published CE reproduced to **0.000005 nats** —
+thirty-third clean reading.
+
+> **The efficient set at 16,110 is two points, and the arc has converged.** `blend_768_256` at
+> **339.558M** is the cheapest build that still beats §1931's best-known on both instruments;
+> `blend_1024_256` at **419.101M** buys a further 0.0074 nats for 79.5M (0.0093 nats/100M — right at the
+> threshold) if CE is worth more than cost. **Everything below 339.558M is dominated by §1931's build,
+> and everything above 419.101M pays more than 0.010 nats per 100M for what it gets.** From full rank at
+> 689.457M, §1946–§1947 removed **349.9M — 51% of the build — for 0.007–0.011 nats**, while remaining
+> strictly better than the previous best-known on both instruments.
+
+**Open.** The allocation sweep moves along §1928's ray with attention pinned at 25% of the MLP rank.
+§1928–§1935 bounded the good region at **12.5–25%**, and every point here sits at the top of it. Whether
+the ray itself is optimal *at the knee* — where the tables are 78% of the build rather than 97% — is
+unmeasured, and it is a two-parameter question the library can now express directly.

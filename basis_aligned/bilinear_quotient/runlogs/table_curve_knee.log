@@ -12,3 +12,62 @@ TABLE CURVE KNEE at 16,110 | allocations ((1024, 256), (768, 256), (640, 160), (
   [bqlib] cache HIT  map512   skip7000
   [bqlib] cache HIT  map512   skip11000
   [bqlib] cache HIT  map512   skip1200
+  [bqlib] computed   mix25m256 skip7000 (1.4s)
+  [bqlib] computed   mix25m256 skip11000 (1.3s)
+  [bqlib] computed   mix25m256 skip1200 (0.6s)
+  [bqlib] cache HIT  mix25m256 skip7000
+  [bqlib] cache HIT  mix25m256 skip11000
+  [bqlib] cache HIT  mix25m256 skip1200
+  [bqlib] computed   mix25m256 skip7000 (1.3s)
+  [bqlib] computed   mix25m256 skip11000 (1.3s)
+  [bqlib] computed   mix25m256 skip1200 (0.6s)
+  [bqlib] cache HIT  mix25m256 skip7000
+  [bqlib] cache HIT  mix25m256 skip11000
+  [bqlib] cache HIT  mix25m256 skip1200
+  [bqlib] computed   mix25m256 skip7000 (1.3s)
+  [bqlib] computed   mix25m256 skip11000 (1.4s)
+  [bqlib] computed   mix25m256 skip1200 (0.7s)
+  [bqlib] computed   mix25m256 skip7000 (1.3s)
+  [bqlib] computed   mix25m256 skip11000 (1.3s)
+  [bqlib] computed   mix25m256 skip1200 (0.7s)
+
+  skip7000
+    blend_full         [ 689.457M]  top1 14.09% (+0.08pp)  CE 5.87567 (-0.01879, t -12.98)
+    map512_mlpheavy    [ 360.723M]  top1 14.01% (+0.00pp)  CE 5.89445 (+0.00000, t +0.00)
+    blend_1024_256     [ 419.101M]  top1 14.12% (+0.10pp)  CE 5.87865 (-0.01581, t -12.05)
+    blend_768_256      [ 339.558M]  top1 14.12% (+0.10pp)  CE 5.88609 (-0.00836, t -7.00)
+    blend_640_160      [ 269.958M]  top1 13.83% (-0.19pp)  CE 5.89787 (+0.00341, t +2.56)
+    blend_512_128      [ 220.243M]  top1 13.75% (-0.27pp)  CE 5.91309 (+0.01863, t +12.10)
+    blend_384_96       [ 170.529M]  top1 13.65% (-0.37pp)  CE 5.93903 (+0.04457, t +23.43)
+    blend_256_64       [ 120.814M]  top1 13.40% (-0.61pp)  CE 5.98349 (+0.08904, t +35.48)
+    marginal nats per 100M by step: 1024_256 0.0011  768_256 0.0094  640_160 0.0169  512_128 0.0306  384_96 0.0522  256_64 0.0894
+
+  skip11000
+    blend_full         [ 689.457M]  top1 14.81% (+0.07pp)  CE 5.82113 (-0.02007, t -13.82)
+    map512_mlpheavy    [ 360.723M]  top1 14.75% (+0.00pp)  CE 5.84120 (+0.00000, t +0.00)
+    blend_1024_256     [ 419.101M]  top1 14.93% (+0.18pp)  CE 5.82529 (-0.01592, t -12.13)
+    blend_768_256      [ 339.558M]  top1 14.82% (+0.07pp)  CE 5.83249 (-0.00872, t -7.28)
+    blend_640_160      [ 269.958M]  top1 14.68% (-0.06pp)  CE 5.84478 (+0.00357, t +2.69)
+    blend_512_128      [ 220.243M]  top1 14.61% (-0.14pp)  CE 5.86085 (+0.01965, t +12.79)
+    blend_384_96       [ 170.529M]  top1 14.46% (-0.29pp)  CE 5.88868 (+0.04747, t +25.12)
+    blend_256_64       [ 120.814M]  top1 14.17% (-0.58pp)  CE 5.93679 (+0.09558, t +38.30)
+    marginal nats per 100M by step: 1024_256 0.0015  768_256 0.0090  640_160 0.0177  512_128 0.0323  384_96 0.0560  256_64 0.0968
+
+  skip1200
+    blend_full         [ 689.457M]  top1 14.16% (+0.14pp)  CE 5.85661 (-0.01212, t -5.85)
+    map512_mlpheavy    [ 360.723M]  top1 14.02% (+0.00pp)  CE 5.86873 (+0.00000, t +0.00)
+    blend_1024_256     [ 419.101M]  top1 14.19% (+0.17pp)  CE 5.85783 (-0.01090, t -5.80)
+    blend_768_256      [ 339.558M]  top1 14.09% (+0.07pp)  CE 5.86357 (-0.00515, t -2.98)
+    blend_640_160      [ 269.958M]  top1 13.79% (-0.23pp)  CE 5.87274 (+0.00401, t +2.09)
+    blend_512_128      [ 220.243M]  top1 13.70% (-0.31pp)  CE 5.88599 (+0.01726, t +7.87)
+    blend_384_96       [ 170.529M]  top1 13.73% (-0.29pp)  CE 5.90779 (+0.03906, t +14.59)
+    blend_256_64       [ 120.814M]  top1 13.57% (-0.45pp)  CE 5.94912 (+0.08039, t +23.15)
+    marginal nats per 100M by step: 1024_256 0.0005  768_256 0.0072  640_160 0.0132  512_128 0.0267  384_96 0.0438  256_64 0.0831
+
+  the marginal rate rises monotonically as rank falls (>=2 roles) -> True  3/3
+  and the knee is at or below mlp 640 (>=2 roles) -> False  0/3
+  and some build under 300M still beats §1931 on top-1 (>=2 roles) -> False  0/3
+  coverage {'c16110': 16110}, rank-differing arm DOES move covered inputs True, identical-spec arm does NOT True, live identical 0.0e+00, §1946 CE reproduced within 0.000005 nats -> control True
+
+pred_a True | pred_b False | pred_c False | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/table_curve_knee_results.json (374.6s)
