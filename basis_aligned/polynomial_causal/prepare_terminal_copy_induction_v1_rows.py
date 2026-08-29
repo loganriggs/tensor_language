@@ -32,6 +32,8 @@ BQ = ROOT / "basis_aligned" / "bilinear_quotient"
 FREEZER = Path(__file__).resolve()
 TEST = HERE / "test_prepare_terminal_copy_induction_v1_rows.py"
 CONTRACT_TEST = HERE / "test_terminal_copy_induction_v1.py"
+STREAMING_SCORER = HERE / "terminal_copy_streaming_statistics.py"
+STREAMING_SCORER_TEST = HERE / "test_terminal_copy_streaming_statistics.py"
 PREREG = HERE / "TERMINAL_COPY_INDUCTION_V1_PREREGISTRATION.md"
 CONTRACT = HERE / "terminal_copy_induction_v1.py"
 ADAPTER_ADDENDUM = HERE / "TERMINAL_COPY_ATTENTION_ADAPTER_V1_ADDENDUM.md"
@@ -71,7 +73,8 @@ FAILURE = BQ / "terminal_copy_induction_v1_rows_failure.json"
 LOCK = Path("/workspace/runs/.terminal_copy_induction_v1_rows.lock")
 
 SOURCE_PATHS = (
-    FREEZER, TEST, CONTRACT_TEST, PREREG, CONTRACT, ADAPTER_ADDENDUM, SCREENING_AMENDMENT,
+    FREEZER, TEST, CONTRACT_TEST, STREAMING_SCORER, STREAMING_SCORER_TEST,
+    PREREG, CONTRACT, ADAPTER_ADDENDUM, SCREENING_AMENDMENT,
     HERE / "prepare_block3_native_down_behavioral_port_v1_rows.py",
     HERE / "test_prepare_block3_native_down_behavioral_port_v1_rows.py",
     HERE / "prepare_mlp0_native_down_hierarchy_v1_rows.py",
@@ -634,6 +637,12 @@ def _semantic_equal(left: Any, right: Any) -> bool:
     return left == right
 
 
+def json_normalize(value: Mapping[str, Any]) -> dict[str, Any]:
+    """Return the exact JSON-domain value that a receipt reload will produce."""
+
+    return json.loads(json.dumps(value, sort_keys=True, allow_nan=False))
+
+
 def validate_cached_payload(
     path: Path, expected: Mapping[str, Any], entry: Mapping[str, Any], role: str,
 ) -> dict[str, Any]:
@@ -863,7 +872,7 @@ def freeze() -> dict[str, Any]:
         ):
             raise RuntimeError("terminal-copy installed frequencies failed exact replay")
 
-        receipt = {
+        receipt = json_normalize({
             "schema_version": 1,
             "receipt_kind": "terminal_copy_induction_v1_rows",
             "status": "frozen_before_any_terminal_copy_model_forward",
@@ -920,7 +929,7 @@ def freeze() -> dict[str, Any]:
                 "model_forward_calls": 0,
                 "scientific_outcomes_read": False,
             },
-        }
+        })
         natural.verify_snapshot(
             commit=commit,
             sources=natural.source_closure(commit),

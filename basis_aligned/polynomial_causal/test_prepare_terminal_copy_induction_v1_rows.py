@@ -279,3 +279,13 @@ def test_cached_payload_validator_binds_every_tensor_and_semantic_field(tmp_path
     bad["records"][0] = {"document_id": "changed"}
     with pytest.raises(RuntimeError, match="exact replay"):
         rows.validate_cached_payload(path, bad, entry, role)
+
+
+def test_receipt_json_normalization_makes_nested_templates_reload_exactly():
+    value = {
+        "selection": {"synthetic_position_templates": rows.SYNTHETIC_POSITION_TEMPLATES},
+        "roles": rows.ALL_ROLES,
+    }
+    normalized = rows.json_normalize(value)
+    assert normalized == __import__("json").loads(__import__("json").dumps(normalized))
+    assert normalized["selection"]["synthetic_position_templates"][0] == [8, 32, 80]

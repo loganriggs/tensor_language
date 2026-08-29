@@ -165,13 +165,6 @@ def compare_by_bucket(rows, hooks, seenmask=None):
         tp = lgp.topk(2, dim=-1)
         pmarg = tp.values[..., 0] - tp.values[..., 1]
         both['lm'].append(marg[iscov]); both['pm'].append(pmarg[iscov])
-        hiq_m = iscov & (qidx == 3)
-        if int(hiq_m.sum()) > 0:
-            pm_h = pmarg[hiq_m]
-            thr = pm_h.double().median()
-            for half, hm in (('hi', pm_h >= thr), ('lo', pm_h < thr)):
-                sub['%s' % half]['l'].append(al[hiq_m][hm]); sub[half]['p'].append(ap[hiq_m][hm])
-                sub[half]['n'] += int(hm.sum()); sub[half]['ok'] += int(cp[hiq_m][hm].sum())
         mc = marg[iscov]
         if mc.numel() >= 4:
             qs = torch.quantile(mc.double(), torch.tensor([0.25, 0.5, 0.75],
@@ -179,6 +172,13 @@ def compare_by_bucket(rows, hooks, seenmask=None):
         else:
             qs = torch.zeros(3, device=DEV, dtype=torch.float64)
         qidx = torch.bucketize(marg.double(), qs)
+        hiq_m = iscov & (qidx == 3)
+        if int(hiq_m.sum()) > 0:
+            pm_h = pmarg[hiq_m]
+            thr = pm_h.double().median()
+            for half, hm in (('hi', pm_h >= thr), ('lo', pm_h < thr)):
+                sub['%s' % half]['l'].append(al[hiq_m][hm]); sub[half]['p'].append(ap[hiq_m][hm])
+                sub[half]['n'] += int(hm.sum()); sub[half]['ok'] += int(cp[hiq_m][hm].sum())
         for a4, b4 in PB:
             k4 = f'p{a4}_{b4}'
             m5 = iscov & (qidx == a4)
