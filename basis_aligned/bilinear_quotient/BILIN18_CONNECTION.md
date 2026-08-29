@@ -49952,10 +49952,16 @@ The precise position now:
   *conclusion* survives only for partial compilation, on §1847's evidence. Recorded rather than quietly
   re-edited, since both statements are already in the ledger.
 
-**pred_b FAILED and removes the other candidate.** Uncovered positions are not worse than covered — they
-are **−0.095 nats better** on skip7000, +0.023 on skip11000, +0.155 on skip1200. The map fallback is not
-where anything is lost either; those positions simply carry easier targets, as their live CE shows
-(2.65 / 2.46 / 2.69 against 3.29 / 3.10 / 3.40).
+**pred_b FAILED.** Uncovered positions are not worse than covered in **raw CE** — they are **−0.095 nats
+better** on skip7000, +0.023 on skip11000, +0.155 on skip1200.
+
+**~~The map fallback is not where anything is lost either.~~ CORRECTED BY §1866 — THIS INFERENCE IS
+WRONG.** I noted in the same sentence that "those positions simply carry easier targets, as their live CE
+shows (2.65 / 2.46 / 2.69 against 3.29 / 3.10 / 3.40)" — and then drew the conclusion that confound
+forbids. Measured as **deficit against live**, which is the only comparable quantity across two
+populations of different difficulty, uncovered positions are **+0.547 / +0.663 / +0.868 nats WORSE** than
+covered ones (3.29009 / 3.54458 / 3.42919 against 2.74260 / 2.88189 / 2.56146). **The fallback is a
+lever, and on this build the largest one left in the class.** See §1866.
 
 **pred_c PASSED**: the covered difference is −0.00000 on every role, so it reproduces trivially.
 
@@ -50818,3 +50824,49 @@ neighbouring rank on an independently rebuilt bank.
 fall as coverage rises (sign change between rank 97 and 200). **The practical rule — spend the budget on
 rank at any coverage above ~12,000 types — is measured at 230.087M and holds wherever the budget affords
 rank ≥ 200 at the coverage in question.**
+
+## §1866 — CORRECTION: the fallback IS a lever. §1848 compared raw CE across populations of different difficulty.
+
+**DERIVED, not a run.** Arithmetic on §1848's own recorded output, prompted by a free check of whether the
+uncovered population becomes a deficit at higher coverage. It does not become one — **it always was one**,
+and §1848 said otherwise.
+
+```
+  §1848's build (full rank, 5,419 covered types), by population
+                  covered                          uncovered                    deficit gap
+    skip7000   prog 6.03465  live 3.29205 (+2.74260)   prog 5.93936  live 2.64927 (+3.29009)   +0.54749
+    skip11000  prog 5.97900  live 3.09711 (+2.88189)   prog 6.00172  live 2.45715 (+3.54458)   +0.66269
+    skip1200   prog 5.96423  live 3.40277 (+2.56146)   prog 6.11891  live 2.68972 (+3.42919)   +0.86773
+```
+
+> **§1848 wrote "the map fallback is not where anything is lost either", and in the same sentence noted
+> that uncovered positions "simply carry easier targets".** Both halves are true and the first does not
+> follow from the data — it follows from comparing **raw CE** across two populations whose *live* CE
+> differs by 0.6-0.7 nats. Measured as **deficit against live**, the only quantity comparable across
+> them, **the uncovered positions are 0.547 to 0.868 nats worse.** Corrected in §1848 in place.
+
+**The consequence, and it is large.** At 5,419 covered types the uncovered slice is **9,124 of 37,098**
+scored positions — **24.6%**. Bringing its deficit down to the covered level would be worth
+**0.246 × 0.547 = 0.135 nats** of all-position CE on skip7000, and 0.16-0.21 on the other two roles.
+**That is 2.4x the entire iso-cost gain §1861 reports** (+0.05568) and larger than any lever measured in
+§1852-§1865. The fallback is not a closed account; it is the biggest open one inside the class.
+
+**Scope, stated rather than assumed.** The 24.6% figure is at 5,419 covered types. The uncovered fraction
+falls as coverage rises, so the *value* of closing this deficit falls with it — and §1800 already found
+the coverage lever itself flattens by ~3,600 types. **What is not known is whether the per-position
+deficit gap also shrinks with coverage**, because no run has recorded uncovered live CE at a coverage
+above 5,419: my later scripts store `livev` on covered positions only. That is one line of instrumentation,
+not a new experiment.
+
+**Why this was missed for eighteen sections.** §1848's pred_b asked whether uncovered positions are "≥1.0
+nats worse than covered" and I wrote the bar in raw CE. The bar was mis-specified, the run answered it
+correctly, and the conclusion I drew from a correctly-answered wrong question then propagated into §1848's
+closing paragraph and the registry entry. **This is LESSON 49's family — a comparison must be between like
+units, and "CE on population A" versus "CE on population B" are not like units when the populations differ
+in difficulty.** The deficit is; the raw CE is not.
+
+**Open question this ends on.** Record uncovered live CE at 9,054 / 11,954 / 16,110 covered types and
+recompute the deficit gap. If it stays near 0.55-0.87 nats per position, the fallback is worth attacking
+at every coverage and its value is set purely by the uncovered fraction; if it shrinks toward zero, high
+coverage already fixes it and §1848's conclusion is right for the builds that matter, just not for the one
+it was measured on.
