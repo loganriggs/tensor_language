@@ -52225,7 +52225,12 @@ change in covered-arm agreement enrichment against the all-compiled baseline (7.
   restore attn17   7.65  7.88  7.93   (+0.45 +0.59 +0.28)      restore mlp0..17 7.19  7.29  7.64   (+0.00 x 18 sites)
 ```
 
-> **All eighteen MLP restorations are EXACTLY +0.00, and this is derivable rather than measured.** With
+> **All eighteen MLP restorations are +0.00 to two decimal places, and this is derivable rather than
+> measured.** **[CORRECTED at §1897: I wrote "EXACTLY +0.00". That was a two-decimal display. Measured
+> to four decimals at 16,110 coverage the largest MLP |gain| is 0.0023 / 0.0042 / 0.0000 — inside any
+> reasonable bar, but not exactly zero. The derivation predicts the raw AGREEMENT is bit-identical; what
+> is measured here is the enrichment, whose permutation-null denominator carries sampling variance. I
+> did not record the numerator separately, so I cannot yet claim the residual is null noise.]** With
 > the other 35 sites compiled, the residual stream at every depth is a function of the current token
 > alone — §1765's result. An MLP is position-wise. So a live MLP applied to a context-free stream returns
 > precisely the value its own table stores, which is that site's output on a length-1 sequence.
@@ -52536,3 +52541,47 @@ both-wrong dominates as the marginals require. Coverage exactly 16,110.
 across 36 sites, of which 18 cannot move top-1 at all and the live ones are concentrated in late
 attention. Whether an uneven per-site allocation beats the §1853-§1882 frontier is unmeasured. Offered to
 Codex on the board at 07:57Z, since it sits directly on their hierarchical shared/private machinery.
+
+## §1897 — §1891 replicates at 3x coverage, and my "exactly +0.00" was a two-decimal display
+
+`ops/per_site_tracking_high_coverage.py`, 291.1s, **DISCOVERY ONLY**, rung 2 — second-class confirmation.
+**pred_a True | pred_b True | pred_c True | pred_d True.** All four.
+
+```
+                              §1891, 5,419 types          §1897, 16,110 types
+  best restoration        attn13 +0.91 +0.96 +0.66     attn13 +0.81 +1.24 +0.82
+  share of summed gain      28.5% 25.7% 26.4%            26.2% 31.0% 29.8%
+  top five                 attn8, attn13-attn17         attn3, attn8, attn13-attn17
+  attn5 restoration        1.07  1.04  1.08x            1.06  1.03  1.06x
+  MLP restorations, max |gain|   "+0.00" (2 dp)         0.0023  0.0042  0.0000
+  baseline                 7.19  7.29  7.64x            7.16  7.29  7.49x
+```
+
+**pred_b and pred_c PASSED cleanly.** The best-restoring site is **attn13 on all three roles** (it was
+attn16 on skip1200 at 5,419, so the localisation actually tightened), the top five remain late attention,
+and attn5 still collapses to **1.06 / 1.03 / 1.06x** against §1891's 1.07 / 1.04 / 1.08x — three roles
+agreeing to within 0.02x across a tripling of the tables. **The localisation is a property of the
+program, not of the deployed coverage**, and §1892's norm-ratio account survives the table change.
+
+> **pred_a PASSED its 0.01x bar, and in passing it corrected my own wording.** §1891 stated that all
+> eighteen MLP restorations were **"EXACTLY +0.00"**. That was printed at **two decimal places**. Measured
+> to four here, the largest MLP |gain| is **0.0023 / 0.0042 / 0.0000** — small, inside the registered bar,
+> and **not exactly zero on two of three roles.** §1891's wording is corrected in place.
+>
+> **The derivation still stands, and I want to be precise about what the residual is and is not.**
+> §1765's argument says a live MLP on a context-free stream returns its own table value *identically*, so
+> the raw AGREEMENT numerator should be bit-identical. What I measured is the **enrichment**, whose
+> denominator is a permutation null estimated from 8 random shuffles — a quantity with its own sampling
+> variance. A 0.004 residual in a ratio near 7.2 is 0.06%, which is the right order for that. **But I did
+> not record the raw agreement separately, so I cannot claim the residual IS null-estimation noise rather
+> than a real effect. The clean test is the numerator, and it is one line I did not write.** Recording
+> the gap rather than asserting the reading I prefer.
+
+**pred_d PASSED**: coverage exactly 16,110, all 36 restorations on identical positions, baseline reported
+rather than anchored (7.16 / 7.29 / 7.49x, against §1888's 7.19 / 7.29 / 7.64x at the same coverage but a
+different eval composition).
+
+**Open.** The uneven per-site rank allocation is with Codex (board, 07:57Z and 08:06Z) with the frontier
+it must beat. Mine: **the raw-agreement numerator for the MLP restorations**, which would turn §1891's
+derivation from "consistent with, to four decimals" into "exact, as derived" — one line, and it closes the
+only loose end in the mechanism line.
