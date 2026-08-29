@@ -55844,3 +55844,61 @@ empty**, so a vacuous half announces itself instead of reading as a pass. Otherw
 found by the same 0.010 nats/100M rule. **That threshold is inherited from §1947 and has never been
 justified**; it was chosen as a round number when the table curve was first swept. Every allocation
 conclusion in §1947–§1957 is conditional on it, and a different threshold would move both knees.
+
+## §1958 — §1947's 0.010 threshold is defensible, the levers are not equalised, and the blend's α is not a spending lever at all
+
+`ops/lever_exchange_rates.py`, **4.8s** warm (292.6s cold), **DISCOVERY ONLY**, 5,419, rung 3 — §1957's
+open question. **pred_a True | pred_b True (3/3) | pred_c False (0/3) | pred_d True.**
+
+§1947 introduced a 0.010 nats/100M spending threshold as a round number, and §1947–§1957 used it to place
+the table knee, reject extra attention at 16,110, accept it at 5,419 and reject §1955's router. **Every
+allocation conclusion in that range is conditional on it and none of them justified it.** An allocation
+is efficient when every lever's marginal return is equal, so this prices all of them at one operating
+point — §1957's {mlp 768, attn 384} with `mix25m512`, at 5,419.
+
+```
+  marginal nats per 100M, priced across each lever's two neighbouring points
+                mlp      attn      map     alpha        median   max/min
+    skip7000   0.0143   0.0061   0.0145   cost-neutral  0.0143    2.40x
+    skip11000  0.0147   0.0074   0.0147   cost-neutral  0.0147    2.02x
+    skip1200   0.0090   0.0050   0.0126   cost-neutral  0.0090    2.54x
+```
+
+> **pred_c FAILED 0/3, and the failure vindicates the threshold. The median marginal return is 0.0143 /
+> 0.0147 / 0.0090 nats per 100M — inside the registered 0.005–0.015 band on every role.** I asked whether
+> §1947's round number was far from the natural exchange rate; it is not. **Every allocation conclusion
+> in §1947–§1957 rests on a threshold that sits within the measured rate, and none of them needs
+> revisiting on that account.** I had no prior and would have said so either way.
+
+> **pred_a PASSED: the levers are NOT equalised — max/min is 2.40 / 2.02 / 2.54×** — so the allocation is
+> not at an interior optimum in all directions, and **pred_b PASSED 3/3: the MAP rank is the richest
+> lever**, ahead of mlp on every role. Marginal money should move toward map rank, which is what §1949
+> found when it doubled the map from 256 to 512, and `map_up` (rank 1024, 221.4M) is better still on
+> 3/3 — 5.94471 / 5.91320 / 5.93305 against base's 5.94617 / 5.91443 / 5.93468.
+
+> **The attention lever is the poorest at 0.0061 / 0.0074 / 0.0050, and that does NOT contradict §1957.**
+> §1957 priced the single step 256 → 384 and got 0.0113 / 0.0135 / 0.0091; this prices the wider bracket
+> 256 → 576, where the 384 → 576 half returns almost nothing and drags the average down. **The step
+> §1957 bought is worth buying; the next one is not.** Both statements are in the table above
+> (`attn_down` 163.8M, `base` 178.9M, `attn_up` 201.6M).
+
+> **A structural point the run turned up by returning `nan`: the blend's α is not a spending lever.**
+> `mix10m512` and `mix40m512` store the same rank-512 map and the same index — **identical cost, 178.9M
+> both** — so "nats per 100M" for α is 0/0. **α is a free parameter and should simply be set to its
+> optimum (§1943: 0.25), never traded against money.** The first scoring of this run left the `nan` in
+> the set and computed a median and a max/min over it; both happened to come out right because Python's
+> `sorted()` and `max()` do not propagate `nan`, which is luck and not a method. Cost-neutral levers are
+> now excluded explicitly and the exclusion is printed.
+
+**pred_d PASSED**, and this plan was built so that **neither half of the control is vacuous** — §1957's
+was, having no same-spec pairs. Here: **10 same-spec pairs exactly inert at covered inputs and 26
+differing-spec pairs not**, coverage exactly 5,419, buckets partitioning, live per-cell top-1 and CE
+identical at 0.00e+00, and §1957's CE reproduced to **0.000000** via `B.ref()` — forty-second clean
+reading.
+
+**Open.** `map_up` at rank 1024 is better on 3/3 and costs 221.4M against base's 178.9M — a return of
+about 0.0034 / 0.0029 / 0.0038 nats per 100M **below** the 0.010 threshold, so the rule says do not buy
+it even though the map is the richest lever. **The two findings pull in opposite directions and both come
+from this run**: the map is where marginal money should go, and the specific next map purchase available
+is not worth its price. Which means the map's own curve turns over between 512 and 1024, and where has
+not been measured.

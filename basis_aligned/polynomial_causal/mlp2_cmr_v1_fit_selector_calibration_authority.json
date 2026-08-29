@@ -1,0 +1,43 @@
+{
+  "authorized_backward_calls": 0,
+  "authorized_forward_calls": 48,
+  "authorized_outputs": [
+    "mlp2_cmr_v1_fit_selector_calibration_bundle.pt",
+    "mlp2_cmr_v1_fit_selector_calibration_result.json",
+    "mlp2_cmr_v1_fit_selector_calibration_receipt.json"
+  ],
+  "authorized_role": "FIT_SELECTOR",
+  "experiment_id": "bilin18_mlp2_cmr_v1_fit_selector_calibration",
+  "forbidden": [
+    "VALIDATION",
+    "REPLICATION",
+    "finite MLP2 candidate",
+    "next-token loss",
+    "accuracy",
+    "raw logit publication"
+  ],
+  "parents": {
+    "correction": "ffd5a826962f09ffec0af6c842eaf0bf64530423b827f6239556bc43db9d7ff4",
+    "correction_receipt": "dd557dc6366503bea2f3f7649d6312abc8a89857bb277ea4e844d8822e4e968a",
+    "role_manifest": "6073c2fd38ad3287c6b7349f2d99aae41c0e98655961255fc18ba4c7c4b745a2",
+    "role_receipt": "6a0dad2f7df3dd17d20fc16df15c03b47c3ef0da30fd65c1cc2149d762709a21",
+    "role_rows": "08a508d6e1526800347d94c6637c84a662c220d84ef30bc674bf6b905ab67798",
+    "suffix_bundle": "cb3f8d3caecab86881eba825785cabd58c1b7ac8e2aa1eb93b459168cff17ce1",
+    "suffix_receipt": "b61c7308409ec64dc05601206bda21e1f4e24097871ba8dff0c92bc84e761e1f",
+    "suffix_result": "ab08dc0f0a71b5daf21228991b9e78a272aa74d226d97189ac414a546dc16f62"
+  },
+  "schema_version": 1,
+  "source_commit": "cee5eb58305853df1b51f4fed2e8fbf5d9b1a7d8",
+  "source_hashes": {
+    "basis_aligned/polynomial_causal/COPY_SOURCE_EDGE_DISCOVERY_PREREGISTRATION.md": "563312b82557a6076707a0ab0f2742d789932fff0b2773d2cd157125706dedaf",
+    "basis_aligned/polynomial_causal/MLP2_CMR_V1_MARGIN_FREQUENCY_ADDENDUM.md": "5e73385cecfeea3b35138a5fc6fbf2873a5354fb15a494a5c6b639d7d0b128b2",
+    "basis_aligned/polynomial_causal/MLP2_CMR_V1_PREREGISTRATION.md": "d456e75053de10b378303721a59a03d8a132cf0a0c5226f025bb3b2aa31c340b",
+    "basis_aligned/polynomial_causal/bilin18_observed_model_facade.py": "b62947f772c807259890a9d09dfcbe5e91ad339a0bffa867ab99177fde4c728c",
+    "basis_aligned/polynomial_causal/calibrate_mlp2_cmr_v1_fit_selector.py": "dc9d59b0717a76a2d6afb526a18f487536592512f19c87feb384539c13106958",
+    "basis_aligned/polynomial_causal/project_mlp2_cmr_v1_fit_selector_rows.py": "014c5ac280813d06e9944ef544a87be6b57a7e7ac105e17517e42c1c35638283",
+    "basis_aligned/polynomial_causal/test_calibrate_mlp2_cmr_v1_fit_selector.py": "27576d24267302b9100299998f31594f5dfbd8572779fdcf2a9f2bccd5bf6dfd",
+    "basis_aligned/polynomial_causal/test_project_mlp2_cmr_v1_fit_selector_rows.py": "3b7605599c4ebb120dd688ebf3875401c9ba3597b144a4a79055b4ed28436ce5",
+    "jacclust/tt_model.py": "49ecdbd6c060ff5b3e57f3134d87ba32841390c891c42e6ae23b71d8627612b2"
+  },
+  "status": "authority_frozen_before_calibration_model_access"
+}

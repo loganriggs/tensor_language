@@ -1,0 +1,83 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+LEVER EXCHANGE RATES at {'mlp': 768, 'attn': 384} | four levers priced at one point | 5,419 | DISCOVERY ONLY
+
+########## COVERAGE 5419 ##########
+  [bqlib] coverage 5419 from fineweb_n96_skip80.pt: 36 tables, neighbour index and map solver built (4s)
+  [bqlib] cache HIT  live     skip7000
+  [bqlib] cache HIT  live     skip11000
+  [bqlib] cache HIT  live     skip1200
+  [bqlib] cache HIT  mix25m512 skip7000
+  [bqlib] cache HIT  mix25m512 skip11000
+  [bqlib] cache HIT  mix25m512 skip1200
+  [bqlib] cache HIT  mix25m512 skip7000
+  [bqlib] cache HIT  mix25m512 skip11000
+  [bqlib] cache HIT  mix25m512 skip1200
+  [bqlib] cache HIT  mix25m512 skip7000
+  [bqlib] cache HIT  mix25m512 skip11000
+  [bqlib] cache HIT  mix25m512 skip1200
+  [bqlib] cache HIT  mix25m512 skip7000
+  [bqlib] cache HIT  mix25m512 skip11000
+  [bqlib] cache HIT  mix25m512 skip1200
+  [bqlib] cache HIT  mix25m512 skip7000
+  [bqlib] cache HIT  mix25m512 skip11000
+  [bqlib] cache HIT  mix25m512 skip1200
+  [bqlib] cache HIT  mix25m256 skip7000
+  [bqlib] cache HIT  mix25m256 skip11000
+  [bqlib] cache HIT  mix25m256 skip1200
+  [bqlib] cache HIT  mix25m1024 skip7000
+  [bqlib] cache HIT  mix25m1024 skip11000
+  [bqlib] cache HIT  mix25m1024 skip1200
+  [bqlib] cache HIT  mix10m512 skip7000
+  [bqlib] cache HIT  mix10m512 skip11000
+  [bqlib] cache HIT  mix10m512 skip1200
+  [bqlib] cache HIT  mix40m512 skip7000
+  [bqlib] cache HIT  mix40m512 skip11000
+  [bqlib] cache HIT  mix40m512 skip1200
+
+  skip7000   unseen-rate top vs bottom unc_mass quartile: +0.402
+    base             0-0 3.51%  125+ 63.1%  CE 5.94617
+    mlp_down         0-0 3.46%  125+ 63.2%  CE 5.95033
+    mlp_up           0-0 3.64%  125+ 63.4%  CE 5.94382
+    attn_down        0-0 3.42%  125+ 63.2%  CE 5.94788
+    attn_up          0-0 3.51%  125+ 63.2%  CE 5.94559
+    map_down         0-0 3.29%  125+ 63.3%  CE 5.95397
+    map_up           0-0 3.60%  125+ 63.3%  CE 5.94471
+    alpha_down       0-0 4.00%  125+ 62.5%  CE 5.95621
+    alpha_up         0-0 3.06%  125+ 63.5%  CE 5.94775
+
+  skip11000   unseen-rate top vs bottom unc_mass quartile: +0.410
+    base             0-0 5.95%  125+ 62.5%  CE 5.91443
+    mlp_down         0-0 5.81%  125+ 62.5%  CE 5.91892
+    mlp_up           0-0 5.92%  125+ 62.4%  CE 5.91226
+    attn_down        0-0 5.88%  125+ 62.5%  CE 5.91648
+    attn_up          0-0 5.92%  125+ 62.4%  CE 5.91369
+    map_down         0-0 5.88%  125+ 62.7%  CE 5.92270
+    map_up           0-0 5.88%  125+ 62.4%  CE 5.91320
+    alpha_down       0-0 6.84%  125+ 62.0%  CE 5.92432
+    alpha_up         0-0 5.56%  125+ 62.9%  CE 5.91791
+
+  skip1200   unseen-rate top vs bottom unc_mass quartile: +0.448
+    base             0-0 3.34%  125+ 63.3%  CE 5.93468
+    mlp_down         0-0 3.25%  125+ 63.4%  CE 5.93786
+    mlp_up           0-0 3.42%  125+ 63.6%  CE 5.93375
+    attn_down        0-0 3.34%  125+ 63.4%  CE 5.93606
+    attn_up          0-0 3.34%  125+ 63.3%  CE 5.93417
+    map_down         0-0 3.17%  125+ 63.5%  CE 5.94111
+    map_up           0-0 3.51%  125+ 63.5%  CE 5.93305
+    alpha_down       0-0 3.68%  125+ 63.0%  CE 5.94670
+    alpha_up         0-0 3.51%  125+ 63.7%  CE 5.93429
+
+  skip7000  marginal nats per 100M: mlp 0.0143  attn 0.0061  map 0.0145  | median 0.0143  spread 2.40x
+
+  skip11000  marginal nats per 100M: mlp 0.0147  attn 0.0074  map 0.0149  | median 0.0147  spread 2.02x
+
+  skip1200  marginal nats per 100M: mlp 0.0090  attn 0.0050  map 0.0126  | median 0.0090  spread 2.54x
+
+  cost-neutral levers excluded from every statistic: ['alpha']
+  the levers are NOT equalised, max/min >= 2x (>=2 roles) -> True
+  and the MAP rank is richer than the MLP rank (>=2 roles) -> True  3/3
+  and the median rate is OUTSIDE 0.005-0.015 (>=2 roles) -> False  0/3
+  coverage {'c5419': 5419}, 10 same-spec pairs inert and 26 differing-spec pairs not, at covered inputs: True; buckets partition, live identical 0.0e+00, §1957 CE reproduced within 0.000000, route fracs within 0.0000 -> control True
+
+pred_a True | pred_b True | pred_c False | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/lever_exchange_rates_results.json (4.8s)
