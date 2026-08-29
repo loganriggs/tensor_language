@@ -50923,3 +50923,61 @@ embedding→row map. **Nothing in the record has measured what the CEILING is fo
 the analogue of §1848's per-token ceiling, for tokens that have no table row. Until that exists the 0.55
 is a deficit against *live*, not against *what any fallback could achieve*, and the lever's true size is
 unknown: it could be almost entirely irreducible.
+
+## §1868 — the fallback squanders 0.82-0.88 nats per uncovered position against a ceiling that is EASIER there
+
+`ops/uncovered_ceiling.py`, 152.6s, **DISCOVERY ONLY**, rung 3 — §1867's open question. **4/4.**
+
+The uncovered deficit, decomposed against the model's own length-1 logits for the **5,672** token types
+that actually occur at uncovered scored positions:
+
+```
+                live_unc   ceiling_unc   program_unc    irreducible    FALLBACK LOSS
+  skip7000      2.61876      5.06084       5.88240       +2.44208        +0.82155
+  skip11000     2.39722      5.02514       5.89572       +2.62793        +0.87058
+  skip1200      2.62535      5.08194       5.95886       +2.45660        +0.87692
+```
+
+**pred_a and pred_b both PASSED, and pred_b passed at over 100% — which needs explaining rather than
+celebrating.** The fallback's own loss (**+0.82155 / +0.87058 / +0.87692**) is **149% / 135% / 117%** of
+§1867's per-position gap. That is not an inconsistency; it is arithmetic:
+
+```
+  deficit_unc = irreducible + fallback_loss = 2.44208 + 0.82155 = 3.26363   (matches §1867)
+  deficit_cov = ceiling_cov - live_cov      = 5.90775 - 3.19438 = 2.71337   (the program attains it)
+  §1867's gap = 3.26363 - 2.71337 = 0.55026
+```
+
+> **The per-token ceiling is EASIER to reach at uncovered positions than at covered ones** — irreducible
+> deficit **2.442** there against **2.713** here, a difference of **0.271 nats in the uncovered
+> positions' favour**. §1867's gap of 0.550 is the fallback's loss of 0.822 *minus* that 0.271 head start.
+> **The fallback does not merely underperform; it throws away an advantage.**
+
+**What this makes the lever worth.** At 16,110 covered types the uncovered slice is **10.0%** of scored
+positions, so recovering the fallback's loss is worth **0.10 × 0.822 = 0.082 nats** of all-position CE on
+skip7000, and 0.087 / 0.088 on the other roles. **That is 1.5x §1861's entire iso-cost improvement over
+the deployed build (0.056), and unlike that improvement it costs no extra storage** — the map already
+occupies its 5.308M whatever it contains. It is the largest open lever inside the position-wise class and
+the only one that is free.
+
+**pred_c PASSED — a ninth independent confirmation** that the covered arm attains its ceiling exactly
+(−0.000000 on all three roles), which is what licenses reading the uncovered half of the same machinery.
+
+**Controls (pred_d).** Every uncovered scored position's token has a ceiling row (5,672 types, zero
+misses); coverage is 16,110; the uncovered fraction reproduces §1867's published 10.0%; program CE exceeds
+live CE on both populations.
+
+**What §1866-§1868 have done to the arc's conclusion.** §1848 recorded the fallback as closed. §1866 found
+that inference rested on comparing raw CE across populations of unequal difficulty and corrected it.
+§1867 showed the penalty is constant in coverage — coverage reduces how often you pay it, never how much.
+§1868 now shows **most of that penalty is the fallback's own**, measured against a ceiling the class can
+in principle reach, and that the ceiling is *more* reachable at uncovered positions than at covered ones.
+**The position-wise class is not exhausted after all; its last open lever was mislabelled closed for
+twenty sections.**
+
+**Open question this ends on.** The current fallback is §1780/§1781's output-NN neighbour plus §1785's
+rank-64 embedding→row map, and it loses 0.82 nats against a per-token ceiling that exists for every one of
+those 5,672 tokens. **The obvious first probe is whether the map's rank is the binding constraint**:
+§1814 established rank(Ws) ≤ table_rank + 1, so at full-rank tables the map could carry far more than 64
+and its cost — 36 × rank × 2 × D — is the only thing that grows. Sweeping the map rank at fixed table rank
+prices that directly, and it is the same shape of experiment as §1849's table-rank ladder.

@@ -1,0 +1,35 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+UNCOVERED CEILING | 16110 types, ceiling for uncovered tokens too | settled program (context-free tables + output-NN fallback + rank-64 map) | DISCOVERY ONLY
+
+  per-site norm calibration (live mean / row mean), measured on the LIVE model:
+    attn L0:  2.66 L1:  2.47 L2:  2.19 L3:  2.07 L4:  4.30 L5:  0.99 L6:  1.01 L7:  3.55 L8:  3.30 L9:  4.77 L10:  3.73 L11:  4.40 L12:  6.40 L13:  5.89 L14:  6.59 L15:  6.04 L16:  5.32 L17:  5.55
+    mlp  L0:  0.87 L1:  0.41 L2:  0.60 L3:  0.48 L4:  0.10 L5:  0.39 L6:  0.51 L7:  1.63 L8:  1.98 L9:  1.30 L10:  2.22 L11:  1.03 L12:  1.87 L13:  1.24 L14:  1.62 L15:  1.18 L16:  1.12 L17:  1.21
+
+  arms  (49s)
+  all_substituted      skip7000 13.93%  skip11000 14.71%  skip1200 14.01%
+  all_sub_scaled       skip7000 12.20%  skip11000 12.96%  skip1200 12.11%
+  live_model           skip7000 39.32%  skip11000 42.35%  skip1200 38.88%
+
+  arms  (113s)
+  all_substituted        skip7000 13.93%  skip11000 14.71%  skip1200 14.01%
+  live_model             skip7000 39.32%  skip11000 42.35%  skip1200 38.88%
+
+  arms  (127s)
+  B0_raw                 skip7000 25.87%  skip11000 28.57%  skip1200 26.20%
+  B0_seq                 skip7000 31.32%  skip11000 33.99%  skip1200 30.05%
+  uncovered-token ceiling built for 5672 token types
+
+  coverage 16110 types (2.97x §1834); ceiling CE skip7000 5.90775  skip11000 5.84750  skip1200 5.87767 (149s)
+    rank full  covered skip7000  5.90775 (+0.00000)  skip11000  5.84750 (+-0.00000)  skip1200  5.87767 (+-0.00000)   (153s)
+
+  UNCOVERED DEFICIT DECOMPOSED at 16110 covered types (5672 uncovered token types):
+    skip7000   live_unc 2.61876  ceiling_unc 5.06084  program_unc 5.88240   irreducible +2.44208  FALLBACK LOSS +0.82155  (149.3% of §1867 gap 0.55027)
+    skip11000  live_unc 2.39722  ceiling_unc 5.02514  program_unc 5.89572   irreducible +2.62793  FALLBACK LOSS +0.87058  (135.0% of §1867 gap 0.64486)
+    skip1200   live_unc 2.62535  ceiling_unc 5.08194  program_unc 5.95886   irreducible +2.45660  FALLBACK LOSS +0.87692  (116.5% of §1867 gap 0.75301)
+
+  the FALLBACK's own loss is large (>=0.30) -> True  skip7000 +0.82155  skip11000 +0.87058  skip1200 +0.87692
+  and it is MOST of §1867's gap (>=50%) -> True  skip7000 149.3%  skip11000 135.0%  skip1200 116.5%
+  and the covered arm still ATTAINS its ceiling -> True  skip7000 +0.000000  skip11000 -0.000000  skip1200 -0.000000
+  uncovered fraction 10.0% ~ §1867 10.0%, coverage 16110 -> control True
+
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/uncovered_ceiling_results.json (152.6s)
