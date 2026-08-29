@@ -55741,3 +55741,58 @@ build still should not use it — because the *cost* of routing away from the bl
 unseen bucket is worth. **That is a statement about this operating point, not about the signal.** At
 5,419 the unseen bucket is a larger share of scored positions and the blend's CE margin is six times
 larger (§1951), so the same trade could come out differently, and it has not been run there.
+[**CORRECTED §1956.** It has now been run there and it comes out **worse**, not differently: the CE
+price of routing is **+0.0364 / +0.0410 / +0.0399 nats at 5,419** against +0.0159 / +0.0173 / +0.0275
+here — roughly double. The fallback touching ~24% of positions instead of ~10% amplifies the *cost* of
+routing away from the blend exactly as much as it would have amplified any benefit, which I did not
+think through. **The negative is general, not a 16,110 statement**, and the router line is closed.]
+
+## §1956 — the router is unprofitable at BOTH coverages, and it is worse exactly where I said it might pay
+
+`ops/unseen_router_at_5419.py`, **4.6s** warm, **DISCOVERY ONLY**, 5,419, **rung 2** — §1955's named
+caveat, tested. **pred_a True (3/3) | pred_b False (0/3) | pred_c False (0/3) | pred_d True**, after
+correcting a reference constant I had mistyped. All figures read from the result JSON (LESSON 85).
+
+§1955 found the `unc_mass` router real but unprofitable at 16,110 and explicitly scoped that: *"a
+statement about the operating point, not the signal. At 5,419 the unseen bucket is a larger share of
+scored positions and the blend's CE margin is six times larger, so the same trade could come out
+differently."* It does come out differently — **in the opposite direction.**
+
+```
+  5,419, pooled            0-0 kept      CE         CE penalty vs the converged build
+    deployed              .0266 / .0624 / .0359   6.01167 / 5.98477 / 6.00165
+    blend_768_256         .0342 / .0588 / .0334   5.94788 / 5.91648 / 5.93606        —
+    pure_map              .0409 / .0656 / .0376   5.97303 / 5.94232 / 5.96500   +.0252/+.0258/+.0289
+    msk50m512             .0391 / .0641 / .0359   5.98431 / 5.95744 / 5.97597   +.0364/+.0410/+.0399
+```
+
+> **pred_a PASSED 3/3: the signal is real here too**, with the same top-vs-bottom quartile separation in
+> unseen-target rate that §1955 measured at 16,110.
+
+> **pred_b FAILED 0/3 and it is the answer. The CE price of routing is roughly TWICE as high at 5,419 as
+> at 16,110** — **+0.0364 / +0.0410 / +0.0399 nats** against §1955's +0.0159 / +0.0173 / +0.0275. I
+> predicted it would be *lower* because the fallback matters more here; it is higher, for the same
+> reason — the fallback touching ~24% of positions instead of ~10% amplifies the cost of routing away
+> from the blend just as much as it would amplify any benefit.
+
+> **pred_c FAILED 0/3: no `msk` arm gains the 0-0 bucket for under §1947's 0.010-nat threshold on any
+> role.** The cheapest useful arm, `msk50m512`, buys **+0.49 / +0.53 / +0.25pp** of unseen-bucket
+> kept-fraction for **+0.036 to +0.041 nats** — four times the threshold. And `pure_map` again beats
+> every `msk` arm on that bucket (.0409 / .0656 / .0376) for less CE.
+
+> **The router line is closed. `unc_mass` is a genuine input-side predictor of a target property — the
+> first in this thread — and routing on it is unprofitable at both coverages, more so at the one where I
+> expected it to pay. §1955's negative is the general answer, and §1955's closing caveat is corrected in
+> place: the trade does not come out differently at 5,419, it comes out worse.** The unseen-bucket
+> deficit is the price of the blend at every operating point measured.
+
+**pred_d PASSED after a correction that should not have been needed.** The control compares against
+§1951's published 5,419 CE for the converged build. I typed the triple as
+`(5.94788, 5.93606, 5.94788)` — **repeating the first role's value in the third slot.** The real triple
+is `(5.94788, 5.91648, 5.93606)`. pred_d failed at 0.0196 against a 0.0005 bar, which reads as a data
+discrepancy and was an arithmetic one. **This is LESSON 85 again, one section after writing it.** The
+fix is now structural rather than a resolution: `B.ref()` reads a published per-role triple out of the
+artifact that produced it, so a reference is never retyped. Otherwise: coverage exactly 5,419, the
+plan-derived control satisfied (15 same-spec pairs inert, 6 differing-spec pairs not), buckets
+partitioning, live per-cell top-1 and CE identical at 0.00e+00, §1951 reproduced to **0.000003 nats**,
+routed fractions exact — fortieth clean reading.

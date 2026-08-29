@@ -1,0 +1,64 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+UNSEEN-TARGET ROUTER AT 5,419 | msk arms on unc_mass | the S1955 caveat tested | DISCOVERY ONLY
+
+########## COVERAGE 5419 ##########
+  [bqlib] coverage 5419 from fineweb_n96_skip80.pt: 36 tables, neighbour index and map solver built (4s)
+  [bqlib] cache HIT  live     skip7000
+  [bqlib] cache HIT  live     skip11000
+  [bqlib] cache HIT  live     skip1200
+  [bqlib] cache HIT  map64    skip7000
+  [bqlib] cache HIT  map64    skip11000
+  [bqlib] cache HIT  map64    skip1200
+  [bqlib] cache HIT  mix25m512 skip7000
+  [bqlib] cache HIT  mix25m512 skip11000
+  [bqlib] cache HIT  mix25m512 skip1200
+  [bqlib] cache HIT  nn75m512 skip7000
+  [bqlib] cache HIT  nn75m512 skip11000
+  [bqlib] cache HIT  nn75m512 skip1200
+  [bqlib] cache HIT  map512   skip7000
+  [bqlib] cache HIT  map512   skip11000
+  [bqlib] cache HIT  map512   skip1200
+  [bqlib] cache HIT  msk10m512 skip7000
+  [bqlib] cache HIT  msk10m512 skip11000
+  [bqlib] cache HIT  msk10m512 skip1200
+  [bqlib] cache HIT  msk25m512 skip7000
+  [bqlib] cache HIT  msk25m512 skip11000
+  [bqlib] cache HIT  msk25m512 skip1200
+  [bqlib] cache HIT  msk50m512 skip7000
+  [bqlib] cache HIT  msk50m512 skip11000
+  [bqlib] cache HIT  msk50m512 skip1200
+
+  skip7000   unseen-rate top vs bottom unc_mass quartile: +0.402
+    deployed         0-0 2.66%  125+ 63.5%  CE 6.01167
+    blend_768_256    0-0 3.42%  125+ 63.2%  CE 5.94788
+    cosine_router    0-0 3.77%  125+ 63.7%  CE 5.99531
+    pure_map         0-0 4.09%  125+ 62.3%  CE 5.97303
+    msk10m512        0-0 2.98%  125+ 63.8%  CE 6.01246
+    msk25m512        0-0 3.64%  125+ 63.7%  CE 5.99965
+    msk50m512        0-0 3.91%  125+ 63.1%  CE 5.98431
+
+  skip11000   unseen-rate top vs bottom unc_mass quartile: +0.410
+    deployed         0-0 6.24%  125+ 62.9%  CE 5.98477
+    blend_768_256    0-0 5.88%  125+ 62.5%  CE 5.91648
+    cosine_router    0-0 6.02%  125+ 63.5%  CE 5.96796
+    pure_map         0-0 6.56%  125+ 61.9%  CE 5.94232
+    msk10m512        0-0 4.35%  125+ 63.6%  CE 5.98773
+    msk25m512        0-0 5.63%  125+ 63.4%  CE 5.96850
+    msk50m512        0-0 6.41%  125+ 62.8%  CE 5.95744
+
+  skip1200   unseen-rate top vs bottom unc_mass quartile: +0.448
+    deployed         0-0 3.59%  125+ 63.4%  CE 6.00165
+    blend_768_256    0-0 3.34%  125+ 63.4%  CE 5.93606
+    cosine_router    0-0 3.25%  125+ 63.8%  CE 5.97755
+    pure_map         0-0 3.76%  125+ 62.8%  CE 5.96500
+    msk10m512        0-0 2.65%  125+ 64.2%  CE 5.99246
+    msk25m512        0-0 3.17%  125+ 63.9%  CE 5.98043
+    msk50m512        0-0 3.59%  125+ 63.2%  CE 5.97597
+
+  unc_mass predicts the unseen-target case (>=2 roles) -> True  3/3
+  and the CE price is lower here than §1955 measured at 16,110 (>=2 roles) -> False  0/3  (penalties +0.0364 +0.0410 +0.0399 vs (0.0159, 0.0173, 0.0275))
+  and some msk arm gains the 0-0 bucket for under 0.010 nats (>=2 roles) -> False  0/3
+  coverage {'c5419': 5419}, 15 same-spec pairs inert and 6 differing-spec pairs not, at covered inputs: True; buckets partition, live identical 0.0e+00, §1951 CE reproduced within 0.000003, route fracs within 0.0000 -> control True
+
+pred_a True | pred_b False | pred_c False | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/unseen_router_at_5419_results.json (4.6s)

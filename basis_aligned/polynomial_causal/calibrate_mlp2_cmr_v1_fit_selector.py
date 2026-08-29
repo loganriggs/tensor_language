@@ -24,13 +24,15 @@ for source_root in (ROOT, HERE):
         sys.path.insert(0, str(source_root))
 
 import bilin18_observed_model_facade as facade
+import project_mlp2_cmr_v1_fit_selector_rows as projection
 
 
 PREREG = HERE / "MLP2_CMR_V1_PREREGISTRATION.md"
 ADDENDUM = HERE / "MLP2_CMR_V1_MARGIN_FREQUENCY_ADDENDUM.md"
 COPY_PREREG = HERE / "COPY_SOURCE_EDGE_DISCOVERY_PREREGISTRATION.md"
-TOKEN_ROWS = HERE / "mlp2_cmr_v1_token_rows.pt"
-TOKEN_RECEIPT = HERE / "mlp2_cmr_v1_token_rows_receipt.json"
+ROLE_ROWS = HERE / "mlp2_cmr_v1_fit_selector_rows.pt"
+ROLE_MANIFEST = HERE / "mlp2_cmr_v1_fit_selector_rows_manifest.json"
+ROLE_RECEIPT = HERE / "mlp2_cmr_v1_fit_selector_rows_receipt.json"
 SUFFIX_BUNDLE = HERE / "mlp2_cmr_v1_suffix_v2_bundle.pt"
 SUFFIX_RESULT = HERE / "mlp2_cmr_v1_suffix_v2_result.json"
 SUFFIX_RECEIPT = HERE / "mlp2_cmr_v1_suffix_v2_receipt.json"
@@ -43,8 +45,9 @@ RECEIPT = HERE / "mlp2_cmr_v1_fit_selector_calibration_receipt.json"
 FAILURE = HERE / "mlp2_cmr_v1_fit_selector_calibration_failure.json"
 LOCK = HERE / ".mlp2_cmr_v1_fit_selector_calibration.lock"
 
-TOKEN_ROWS_SHA256 = "3ed0192993095f7de70ab7f1350d091b6c1d8c4c7d0583fd5f0f6441556e4aa6"
-TOKEN_RECEIPT_SHA256 = "47113c255bf47f9d1c7369639fab39664c71f93134099babadcce9d89a011e85"
+ROLE_ROWS_SHA256 = "08a508d6e1526800347d94c6637c84a662c220d84ef30bc674bf6b905ab67798"
+ROLE_MANIFEST_SHA256 = "6073c2fd38ad3287c6b7349f2d99aae41c0e98655961255fc18ba4c7c4b745a2"
+ROLE_RECEIPT_SHA256 = "6a0dad2f7df3dd17d20fc16df15c03b47c3ef0da30fd65c1cc2149d762709a21"
 SUFFIX_BUNDLE_SHA256 = "cb3f8d3caecab86881eba825785cabd58c1b7ac8e2aa1eb93b459168cff17ce1"
 SUFFIX_RESULT_SHA256 = "ab08dc0f0a71b5daf21228991b9e78a272aa74d226d97189ac414a546dc16f62"
 SUFFIX_RECEIPT_SHA256 = "b61c7308409ec64dc05601206bda21e1f4e24097871ba8dff0c92bc84e761e1f"
@@ -69,6 +72,8 @@ DYADIC_EXPONENTS = tuple(range(-10, 6))
 SOURCE_CLOSURE = (
     PREREG, ADDENDUM, COPY_PREREG, Path(__file__).resolve(),
     HERE / "test_calibrate_mlp2_cmr_v1_fit_selector.py",
+    Path(projection.__file__).resolve(),
+    HERE / "test_project_mlp2_cmr_v1_fit_selector_rows.py",
     Path(facade.__file__).resolve(), ROOT / "jacclust/tt_model.py",
 )
 
@@ -94,6 +99,14 @@ def canonical_json_bytes(value: Any) -> bytes:
     return (json.dumps(value, sort_keys=True, indent=2) + "\n").encode()
 
 
+def fsync_directory(path: Path) -> None:
+    descriptor = os.open(path, os.O_RDONLY | getattr(os, "O_DIRECTORY", 0))
+    try:
+        os.fsync(descriptor)
+    finally:
+        os.close(descriptor)
+
+
 def write_create_only(path: Path, data: bytes) -> None:
     temporary = path.with_name(f".{path.name}.{os.getpid()}.{secrets.token_hex(8)}")
     try:
@@ -103,6 +116,7 @@ def write_create_only(path: Path, data: bytes) -> None:
             target.flush()
             os.fsync(target.fileno())
         os.link(temporary, path)
+        fsync_directory(path.parent)
     finally:
         temporary.unlink(missing_ok=True)
 
@@ -111,7 +125,10 @@ def publish_torch_create_only(path: Path, value: Any) -> None:
     temporary = path.with_name(f".{path.name}.{os.getpid()}.{secrets.token_hex(8)}")
     try:
         torch.save(value, temporary)
+        with temporary.open("rb") as source:
+            os.fsync(source.fileno())
         os.link(temporary, path)
+        fsync_directory(path.parent)
     finally:
         temporary.unlink(missing_ok=True)
 
@@ -135,8 +152,9 @@ def committed_source() -> tuple[str, dict[str, str]]:
 
 def protected_inputs() -> tuple[dict[str, str], dict[str, bytes]]:
     expected = {
-        "token_rows": TOKEN_ROWS_SHA256,
-        "token_receipt": TOKEN_RECEIPT_SHA256,
+        "role_rows": ROLE_ROWS_SHA256,
+        "role_manifest": ROLE_MANIFEST_SHA256,
+        "role_receipt": ROLE_RECEIPT_SHA256,
         "suffix_bundle": SUFFIX_BUNDLE_SHA256,
         "suffix_result": SUFFIX_RESULT_SHA256,
         "suffix_receipt": SUFFIX_RECEIPT_SHA256,
@@ -144,8 +162,9 @@ def protected_inputs() -> tuple[dict[str, str], dict[str, bytes]]:
         "correction_receipt": CORRECTION_RECEIPT_SHA256,
     }
     paths = {
-        "token_rows": TOKEN_ROWS,
-        "token_receipt": TOKEN_RECEIPT,
+        "role_rows": ROLE_ROWS,
+        "role_manifest": ROLE_MANIFEST,
+        "role_receipt": ROLE_RECEIPT,
         "suffix_bundle": SUFFIX_BUNDLE,
         "suffix_result": SUFFIX_RESULT,
         "suffix_receipt": SUFFIX_RECEIPT,
@@ -159,21 +178,80 @@ def protected_inputs() -> tuple[dict[str, str], dict[str, bytes]]:
     }
     if actual != expected:
         raise RuntimeError("MLP2 calibration protected parent changed")
+    role_manifest = json.loads(captured["role_manifest"])
+    role_receipt = json.loads(captured["role_receipt"])
     suffix_receipt = json.loads(captured["suffix_receipt"])
-    if suffix_receipt.get("authorized_for_validation") is not True or (
+    correction_receipt = json.loads(captured["correction_receipt"])
+    if (
+        role_manifest.get("output_sha256") != ROLE_ROWS_SHA256
+        or role_manifest.get("contains_roles") != ["FIT_SELECTOR"]
+        or role_receipt.get("output_sha256") != ROLE_ROWS_SHA256
+        or role_receipt.get("manifest_sha256") != ROLE_MANIFEST_SHA256
+        or role_receipt.get("authorized_for_fit_selector_calibration_input") is not True
+        or role_receipt.get("authorized_for_validation") is not False
+        or role_receipt.get("authorized_for_replication") is not False
+        or suffix_receipt.get("authorized_for_validation") is not True
+        or correction_receipt.get("authorized_for_validation") is not True
+        or correction_receipt.get("supersedes_only") != "support_overlap_summary"
+        or (
         suffix_receipt.get("authorized_for_replication") is not False
+        )
     ):
         raise RuntimeError("MLP2 suffix receipt authority boundary changed")
     return actual, captured
 
 
-def final_guard(source_hashes: dict[str, str], parents: dict[str, str]) -> None:
+def validate_claim(nonce: str, inode: tuple[int, int]) -> None:
+    descriptor = os.open(LOCK, os.O_RDONLY | getattr(os, "O_NOFOLLOW", 0))
+    try:
+        stat = os.fstat(descriptor)
+        payload = os.read(descriptor, 4096)
+    finally:
+        os.close(descriptor)
+    if (stat.st_dev, stat.st_ino) != inode or json.loads(payload).get("nonce") != nonce:
+        raise RuntimeError("MLP2 calibration claim changed")
+
+
+class _CalibrationCapability:
+    __slots__ = ("nonce", "inode", "authority_sha256", "consumed")
+
+    def __init__(self, nonce: str, inode: tuple[int, int], authority_sha256: str) -> None:
+        self.nonce = nonce
+        self.inode = inode
+        self.authority_sha256 = authority_sha256
+        self.consumed = False
+
+
+def mint_capability(nonce: str, inode: tuple[int, int], authority_sha256: str) -> _CalibrationCapability:
+    validate_claim(nonce, inode)
+    if not AUTHORITY.is_file() or file_sha256(AUTHORITY) != authority_sha256:
+        raise RuntimeError("MLP2 calibration authority is absent or changed")
+    authority = json.loads(AUTHORITY.read_bytes())
+    if authority.get("status") != "authority_frozen_before_calibration_model_access" or (
+        authority.get("authorized_role") != "FIT_SELECTOR"
+        or authority.get("authorized_forward_calls") != CALLS
+        or authority.get("authorized_backward_calls") != 0
+    ):
+        raise RuntimeError("MLP2 calibration authority semantics changed")
+    return _CalibrationCapability(nonce, inode, authority_sha256)
+
+
+def final_guard(
+    source_hashes: dict[str, str], parents: dict[str, str], nonce: str,
+    inode: tuple[int, int], authority_hash: str, bundle_hash: str,
+    result_hash: str,
+) -> None:
+    validate_claim(nonce, inode)
     for relative, expected in source_hashes.items():
         if file_sha256(ROOT / relative) != expected:
             raise RuntimeError(f"calibration source changed during execution: {relative}")
     current, _ = protected_inputs()
-    if current != parents:
-        raise RuntimeError("MLP2 calibration parent changed during execution")
+    if current != parents or file_sha256(AUTHORITY) != authority_hash or file_sha256(
+        BUNDLE
+    ) != bundle_hash or file_sha256(RESULT) != result_hash or FAILURE.exists() or (
+        RECEIPT.exists()
+    ):
+        raise RuntimeError("MLP2 calibration terminal snapshot changed")
 
 
 def target_frequency_reference(

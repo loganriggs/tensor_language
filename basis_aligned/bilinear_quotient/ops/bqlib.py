@@ -496,6 +496,23 @@ def axes(prog, role):
     return torch.cat(tg), torch.cat(ic)
 
 
+def ref(results_json, arm, field='ce_prog', cls='pooled', bucket='overall', roles=ROLES):
+    """Read a published per-role reference triple from the artifact that produced it.
+
+    Twice on 2026-08-29 I typed a three-role reference triple by hand and got one entry wrong -- once
+    by copying the second role's value into the third (S1953), and again ONE SECTION after writing the
+    lesson about it (S1956, where the control then failed on my constant rather than on the data).
+    A reference that exists in a result JSON should never be retyped. Pass the path the number was
+    published from.
+    """
+    with open(results_json) as fh:
+        d = json.load(fh)
+    r = d['results']
+    if roles[0] not in r:                       # single-coverage runs nest under a coverage key
+        r = r[next(iter(r))]
+    return tuple(r[role][arm][cls][bucket][field] for role in roles)
+
+
 def inertness_pairs(plan):
     """Derive the two-sided covered-input control from the PLAN, instead of by hand.
 

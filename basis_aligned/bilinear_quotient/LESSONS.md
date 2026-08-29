@@ -2251,3 +2251,21 @@ quantity from the signal (`B.route_fraction`) rather than reading it off a side 
 *script author* had to get right — a direction, or a code path having run. Neither survives contact with
 a fork or a cache. **Move the invariant into the library where it can be derived, and prefer a control
 that computes its own quantity to one that reads a value someone else was supposed to have set.**
+
+## LESSON 87 — I repeated LESSON 85 one section after writing it, so the fix had to stop being a resolution
+
+§1953 quoted a three-role triple with a fabricated entry; LESSON 85 said *"read all three, from the result
+JSON, not from whatever the log tail happened to show."* **§1956 then typed
+`S1951_CE = (5.94788, 5.93606, 5.94788)` — the first role's value repeated in the third slot** — and its
+control failed at 0.0196 against a 0.0005 bar, which reads as a data discrepancy and was an arithmetic
+one. Two sections apart, same error, with the lesson already written down between them.
+
+**Why the lesson did not hold.** LESSON 85 asked me to be careful. Care does not survive a fork at
+17:16 when the previous section's numbers are three scrolls up and the shape of the constant demands
+three floats. **A rule that depends on remembering to apply it is not a fix; it is a resolution.**
+
+**The fix.** `B.ref(results_json, arm, field)` reads a published per-role triple out of the artifact that
+produced it. A reference that exists in a JSON is never retyped, and the failure mode disappears rather
+than being guarded against. Same shape as LESSON 83 (bind labels as names so a rename breaks a
+definition) and LESSON 86 (derive the control's polarity from the plan): **when a mistake recurs, move
+the information out of the author's head and into something that can be read.**
