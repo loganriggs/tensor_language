@@ -5,22 +5,25 @@ import terminal_copy_induction_v1 as contract
 
 
 def _rows_for_matching():
-    rows = torch.arange(3 * contract.ROW_WIDTH, dtype=torch.long).reshape(
-        3, contract.ROW_WIDTH,
+    rows = torch.arange(1000, 1000 + 5 * contract.ROW_WIDTH, dtype=torch.long).reshape(
+        5, contract.ROW_WIDTH,
     )
-    # One positive at row0,p=64: prior 10,11 equals query,target 7,8.
-    rows[0, 10:12] = torch.tensor([7, 8])
-    rows[0, 64:66] = torch.tensor([7, 8])
-    # Same matching stratum negative: prior query 7 has successor 9, current target 8.
-    rows[1, 10:12] = torch.tensor([7, 9])
-    rows[1, 64:66] = torch.tensor([7, 8])
-    # A second positive without a matched negative exercises explicit exclusion.
-    rows[2, 20:22] = torch.tensor([17, 18])
-    rows[2, 80:82] = torch.tensor([17, 18])
-    counts = torch.ones(int(rows.max()) + 1, dtype=torch.long)
-    counts[7] = counts[17] = 8
-    counts[8] = counts[18] = 4
-    return rows, counts
+    # Two positive documents and two negative documents in one eligible stratum.
+    for row_index in (0, 1):
+        rows[row_index, 10:12] = torch.tensor([7, 8])
+        rows[row_index, 64:66] = torch.tensor([7, 8])
+    for row_index in (2, 3):
+        rows[row_index, 10:12] = torch.tensor([7, 9])
+        rows[row_index, 64:66] = torch.tensor([7, 8])
+    # A positive in a different stratum has no supported negative polarity.
+    rows[4, 20:22] = torch.tensor([17, 18])
+    rows[4, 80:82] = torch.tensor([17, 18])
+    size = int(rows.max()) + 1
+    query = torch.ones(size, dtype=torch.long)
+    target = torch.ones(size, dtype=torch.long)
+    query[7] = query[17] = 8
+    target[8] = target[18] = 4
+    return rows, contract.FitTokenFrequencies(query=query, target=target)
 
 
 def test_registered_candidate_sets_and_specificity_negative_are_frozen():
@@ -37,15 +40,20 @@ def test_registered_candidate_sets_and_specificity_negative_are_frozen():
 
 
 def test_copy_cells_are_exact_disjoint_deterministic_and_one_to_one():
-    rows, counts = _rows_for_matching()
-    first = contract.build_copy_cells(rows, counts, ("d0", "d1", "d2"))
-    second = contract.build_copy_cells(rows, counts, ("d0", "d1", "d2"))
+    rows, frequencies = _rows_for_matching()
+    document_ids = tuple(f"d{i}" for i in range(len(rows)))
+    first = contract.build_copy_cells(rows, frequencies, document_ids)
+    second = contract.build_copy_cells(rows, frequencies, document_ids)
     assert torch.equal(first.all_positive, second.all_positive)
-    assert first.pair_indices == second.pair_indices == ((0, 64, 1, 64),)
+    assert first.pair_indices == second.pair_indices
+    assert len(first.pair_indices) == 2
+    assert {pair[0] for pair in first.pair_indices} == {0, 1}
+    assert {pair[2] for pair in first.pair_indices} == {2, 3}
     assert first.all_positive[0, 64] and first.positive[0, 64]
-    assert first.matched_negative[1, 64]
-    assert first.all_positive[2, 80] and not first.positive[2, 80]
+    assert first.matched_negative[2, 64] or first.matched_negative[3, 64]
+    assert first.all_positive[4, 80] and not first.positive[4, 80]
     assert first.unmatched_positive_count == 1
+    assert first.eligible_stratum_count == 1
     assert not bool((first.all_positive & first.off_target).any())
     assert not bool((first.matched_negative & first.off_target).any())
     assert int(first.all_positive.sum() + first.matched_negative.sum() + first.off_target.sum()) == (
@@ -54,13 +62,53 @@ def test_copy_cells_are_exact_disjoint_deterministic_and_one_to_one():
 
 
 def test_copy_matching_rejects_bad_rows_counts_and_document_ids():
-    rows, counts = _rows_for_matching()
+    rows, frequencies = _rows_for_matching()
+    document_ids = tuple(f"d{i}" for i in range(len(rows)))
     with pytest.raises(ValueError, match=r"CPU long\[n,257\]"):
-        contract.build_copy_cells(rows[:, :-1], counts, ("d0", "d1", "d2"))
+        contract.build_copy_cells(rows[:, :-1], frequencies, document_ids)
     with pytest.raises(ValueError, match="token counts"):
-        contract.build_copy_cells(rows, counts[:-1], ("d0", "d1", "d2"))
+        contract.build_copy_cells(
+            rows,
+            contract.FitTokenFrequencies(
+                query=frequencies.query[:-1], target=frequencies.target,
+            ),
+            document_ids,
+        )
     with pytest.raises(ValueError, match="document IDs"):
-        contract.build_copy_cells(rows, counts, ("same", "same", "d2"))
+        contract.build_copy_cells(rows, frequencies, ("same",) * len(rows))
+
+
+def test_frequency_bins_keep_unseen_distinct_from_count_one():
+    assert contract._frequency_bin(0) == -1
+    assert contract._frequency_bin(1) == 0
+    assert contract._frequency_bin(2) == 1
+
+
+def test_nearest_prior_query_controls_the_copy_label():
+    rows = torch.arange(2000, 2000 + 4 * contract.ROW_WIDTH, dtype=torch.long).reshape(
+        4, contract.ROW_WIDTH,
+    )
+    # Positive rows: an older contradiction is superseded by nearest q->y.
+    for row_index in (0, 1):
+        rows[row_index, 5:7] = torch.tensor([7, 9])
+        rows[row_index, 10:12] = torch.tensor([7, 8])
+        rows[row_index, 64:66] = torch.tensor([7, 8])
+    # Negative rows: an older q->y witness is superseded by nearest q->z.
+    for row_index in (2, 3):
+        rows[row_index, 5:7] = torch.tensor([7, 8])
+        rows[row_index, 10:12] = torch.tensor([7, 9])
+        rows[row_index, 64:66] = torch.tensor([7, 8])
+    size = int(rows.max()) + 1
+    frequencies = contract.FitTokenFrequencies(
+        query=torch.ones(size, dtype=torch.long),
+        target=torch.ones(size, dtype=torch.long),
+    )
+    cells = contract.build_copy_cells(
+        rows, frequencies, tuple(f"nearest-{i}" for i in range(4)),
+    )
+    assert cells.all_positive[:, 64].tolist() == [True, True, False, False]
+    assert int(cells.positive[:, 64].sum()) == 2
+    assert int(cells.matched_negative[:, 64].sum()) == 2
 
 
 def test_synthetic_control_preserves_support_and_breaks_only_prior_successor():
@@ -91,9 +139,33 @@ def test_synthetic_pair_requires_exact_width_unique_bank_and_interior_cut():
         contract.build_synthetic_copy_pair((10,) + stem[1:], sequence, 2)
 
 
+def test_reciprocal_synthetic_crossover_preserves_multiset_and_scores_did():
+    base = tuple(range(1000, 1000 + contract.ROW_WIDTH))
+    crossover = contract.build_synthetic_association_crossover(
+        base, first_query_position=10, reciprocal_position=30, query_position=80,
+        query_token=7, reciprocal_query=11, successor_y=8, successor_z=12,
+    )
+    assert torch.equal(
+        torch.sort(crossover.query_to_y).values,
+        torch.sort(crossover.query_to_z).values,
+    )
+    assert crossover.query_to_y[10:12].tolist() == [7, 8]
+    assert crossover.query_to_y[30:32].tolist() == [11, 12]
+    assert crossover.query_to_z[10:12].tolist() == [7, 12]
+    assert crossover.query_to_z[30:32].tolist() == [11, 8]
+    logits = torch.zeros(2, contract.MODEL_WIDTH, 20)
+    logits[0, 80, 8] = 2.0
+    logits[0, 80, 12] = -1.0
+    logits[1, 80, 8] = -2.0
+    logits[1, 80, 12] = 1.0
+    assert contract.synthetic_association_did(logits, crossover) == pytest.approx(6.0)
+
+
 def test_behavior_reductions_keep_ce_top1_and_kl_separate():
-    rows, counts = _rows_for_matching()
-    cells = contract.build_copy_cells(rows, counts, ("d0", "d1", "d2"))
+    rows, frequencies = _rows_for_matching()
+    cells = contract.build_copy_cells(
+        rows, frequencies, tuple(f"d{i}" for i in range(len(rows))),
+    )
     vocab = int(rows.max()) + 2
     native = torch.zeros(len(rows), contract.MODEL_WIDTH, vocab)
     candidate = native.clone()
@@ -102,7 +174,7 @@ def test_behavior_reductions_keep_ce_top1_and_kl_separate():
     candidate.scatter_(2, targets.unsqueeze(-1), 1.0)
     reduced = contract.reduce_behavior(candidate, rows, cells, native_logits=native)
     assert set(reduced) == {"positive", "matched_negative", "off_target"}
-    assert reduced["positive"].count == reduced["matched_negative"].count == 1
+    assert reduced["positive"].count == reduced["matched_negative"].count == 2
     assert reduced["positive"].ce == pytest.approx(-reduced["positive"].target_logprob)
     assert reduced["positive"].top1_accuracy == 1.0
     assert reduced["positive"].native_to_candidate_kl > 0
@@ -110,8 +182,10 @@ def test_behavior_reductions_keep_ce_top1_and_kl_separate():
 
 
 def test_behavior_reduction_refuses_empty_confirmatory_support():
-    rows, counts = _rows_for_matching()
-    cells = contract.build_copy_cells(rows, counts, ("d0", "d1", "d2"))
+    rows, frequencies = _rows_for_matching()
+    cells = contract.build_copy_cells(
+        rows, frequencies, tuple(f"d{i}" for i in range(len(rows))),
+    )
     empty = contract.CopyCells(
         all_positive=cells.all_positive,
         positive=torch.zeros_like(cells.positive),
@@ -120,10 +194,35 @@ def test_behavior_reduction_refuses_empty_confirmatory_support():
                     & ~cells.all_positive),
         pair_indices=(), unmatched_positive_count=int(cells.all_positive.sum()),
         negative_candidate_count=cells.negative_candidate_count,
+        eligible_stratum_count=cells.eligible_stratum_count,
+        excluded_low_document_stratum_count=cells.excluded_low_document_stratum_count,
     )
     logits = torch.zeros(len(rows), contract.MODEL_WIDTH, int(rows.max()) + 2)
     with pytest.raises(ValueError, match="positive support"):
         contract.reduce_behavior(logits, rows, empty)
+
+
+def test_causal_contrast_uses_within_input_effect_then_specificity_subtraction():
+    def reduction(count, ce):
+        return contract.CellReduction(
+            count=count, ce=ce, target_logprob=-ce, top1_accuracy=0.5,
+            native_to_candidate_kl=None,
+        )
+
+    native = {
+        "positive": reduction(20, 2.0),
+        "matched_negative": reduction(20, 2.5),
+        "off_target": reduction(100, 3.0),
+    }
+    ablated = {
+        "positive": reduction(20, 2.8),
+        "matched_negative": reduction(20, 2.7),
+        "off_target": reduction(100, 3.1),
+    }
+    contrast = contract.causal_copy_contrast(native, ablated)
+    assert contrast.positive_ce_effect == pytest.approx(0.8)
+    assert contrast.matched_negative_ce_effect == pytest.approx(0.2)
+    assert contrast.specificity_ce_effect == pytest.approx(0.6)
 
 
 def test_extraction_recovery_has_exact_denominator_and_no_zero_stake_fallback():

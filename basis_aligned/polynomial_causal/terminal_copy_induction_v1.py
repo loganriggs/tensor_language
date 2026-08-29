@@ -345,6 +345,71 @@ class CellReduction:
     native_to_candidate_kl: float | None
 
 
+@dataclass(frozen=True)
+class CausalCopyContrast:
+    """Within-input ablation effects and their matched-cell specificity contrast."""
+
+    positive_ce_effect: float
+    matched_negative_ce_effect: float
+    specificity_ce_effect: float
+
+
+def causal_copy_contrast(
+    native: Mapping[str, CellReduction],
+    ablated: Mapping[str, CellReduction],
+) -> CausalCopyContrast:
+    """Compute causal CE effects; matching is used only for effect specificity.
+
+    Positive values mean that ablation worsened prediction.  The primary causal
+    estimand is the native-to-ablation change on the same positive inputs.  The
+    matched-negative subtraction asks whether that harm is specific to copy events.
+    """
+
+    required = {"positive", "matched_negative", "off_target"}
+    if set(native) != required or set(ablated) != required:
+        raise ValueError("causal reductions must contain the exact cell schema")
+    for name in required:
+        if native[name].count != ablated[name].count:
+            raise ValueError("native and ablated reductions have unequal cell support")
+    positive = ablated["positive"].ce - native["positive"].ce
+    negative = ablated["matched_negative"].ce - native["matched_negative"].ce
+    if not math.isfinite(positive) or not math.isfinite(negative):
+        raise ValueError("causal CE effects must be finite")
+    return CausalCopyContrast(
+        positive_ce_effect=positive,
+        matched_negative_ce_effect=negative,
+        specificity_ce_effect=positive - negative,
+    )
+
+
+def synthetic_association_did(
+    logits: torch.Tensor,
+    crossover: SyntheticAssociationCrossover,
+) -> float:
+    """Score the reciprocal association difference-in-differences.
+
+    ``logits[0]`` is the q->y/r->z history and ``logits[1]`` is q->z/r->y.
+    Both alternatives y and z are scored at the shared current-query position.
+    A positive value means the earlier q->y association selectively shifts the
+    current q prediction toward y rather than z.
+    """
+
+    if (
+        not torch.is_tensor(logits) or logits.device.type != "cpu"
+        or logits.ndim != 3 or tuple(logits.shape[:2]) != (2, MODEL_WIDTH)
+        or not logits.is_floating_point() or not bool(torch.isfinite(logits).all())
+        or logits.shape[2] <= max(crossover.successor_y, crossover.successor_z)
+    ):
+        raise ValueError("synthetic crossover logits are malformed")
+    logprob = F.log_softmax(
+        logits[:, crossover.query_position, :].double(), dim=-1,
+    )
+    preference = (
+        logprob[:, crossover.successor_y] - logprob[:, crossover.successor_z]
+    )
+    return float(preference[0] - preference[1])
+
+
 def _reduce_cell(
     logits: torch.Tensor, targets: torch.Tensor, mask: torch.Tensor,
     native_logits: torch.Tensor | None,
