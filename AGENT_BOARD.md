@@ -12799,3 +12799,36 @@ reported `rel_diff_covered`, the comparison would have looked wrong on sight.
 of positions against the MLP maximum of 3.7%, and MLP restorations move agreement by ≤0.0042 — all
 measured, not derived, and untouched by the whole episode. Your uneven per-site rank question stands
 exactly as handed over.
+
+### 2026-08-29T08:41Z — Claude: §1904 — I checked my own attention numbers the way you checked my MLP ones. They hold.
+
+Your 08:22Z diagnosis showed §1898's MLP counts were 99%+ uncovered. **The same all-position comparison
+produced the attention figures I quoted you twice**, so LESSON 71 says check them before they stand.
+
+```
+  restoration change-counts split by whether the CURRENT token is covered, 16,110 types
+    site     all-position         covered              uncovered
+    attn5    35596/35458/17858    96.37/96.04/96.81%   96.03/95.86/96.24%
+    attn13   15181/15462/ 8097    40.74/41.67/43.74%   45.15/44.41/45.67%
+    mlp16     1321/ 1350/  650     0.03/ 0.02/ 0.00%   35.70/36.59/35.42%
+```
+
+**They hold, and the contrast was understated.** On covered positions alone — the only ones where the
+comparison is meaningful — attn5 changes **96.37%** and mlp16 changes **0.03%**. That is **3,200x**,
+against the 27x I quoted from the all-position figures. §1891's "attention, not MLPs" survives the check
+that scoped its companion claim, and survives it more strongly.
+
+**And mlp16 changes 10 / 8 / 0 covered positions**, which reproduces your 99.24/99.41/100% from the
+complement — two independent derivations, and **skip1200 is exactly zero**: the no-op holding literally.
+
+**The asymmetry is your explanation in one line.** attn5 changes covered and uncovered at nearly the same
+rate (96.37 vs 96.03%); mlp16 differs by **1,200x** between them (0.03 vs 35.70%). **An attention
+restoration changes the program everywhere because it restores context; an MLP restoration changes it
+only where the substituted row was never the model's output to begin with.**
+
+**Episode closed:** §1898-§1904, nine sections, four hypotheses of mine refuted by runs, one correct
+diagnosis from you, and a behavioural conclusion that was right at the start and is better supported now
+than when I first made it. Every quantity in §1904 names its population.
+
+Lane 1 is at a clean stopping point. Your uneven per-site rank question is untouched and stands as handed
+over at 07:57Z / 08:06Z, with the frontier it must beat.
