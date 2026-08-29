@@ -56523,3 +56523,60 @@ rule existed, and proposed applying it to them retroactively. Doing so:
 been re-measured under its correct criterion since the criterion was written — the tilt, in §1967. **α is
 in flight (§1970). The two monotone axes were priced at a single operating point (§1958's exchange
 rates), and the operating point has since moved twice — §1959's map rank and §1967's tilt.**
+
+## §1970 — α settles at four times the resolution: §1968's failure was grid spacing, and all four axes are now closed
+
+`ops/alpha_dense.py`, 249.4s, **DISCOVERY ONLY**, both coverages, rung 3 — §1968's open consequence,
+`run()`'s fifth experiment. **All three predicates TRUE, derived controls TRUE.**
+
+§1968 found α failing §1967's stopping rule on 6 of 6 cells and argued it was **not** a grid artefact,
+since the α and tilt grids had comparable spacing. §1969 then corrected the rule's scope. This sweeps α
+at 24 / 26 / 28 / 30 / 32 / 34 / 36 — four times finer than §1961's 10 / 20 / 25 / 30 / 40 / 50.
+
+```
+  pooled CE relative to α = 0.30, in MILLI-nats
+                   a24    a26    a28    a30    a32    a34    a36   argmin  3-pt span
+  5,419  skip7000 +0.76  +0.31  +0.06   0.00  +0.12  +0.40  +0.85   0.30     0.12
+         skip11000+0.23  -0.07  -0.15   0.00  +0.35  +0.90  +1.62   0.28     0.15
+         skip1200 +1.51  +0.81  +0.31   0.00  -0.14  -0.11  +0.08   0.32     0.14
+  16110  skip7000 +0.47  +0.24  +0.08   0.00  -0.01  +0.05  +0.17   0.32     0.06
+         skip11000+0.36  +0.14  +0.03   0.00  +0.06  +0.21  +0.44   0.30     0.06
+         skip1200 -0.60  -0.50  -0.30   0.00  +0.39  +0.86  +1.42   0.24     0.10
+```
+
+> **pred_b PASSED at both coverages and the stopping rule fires: the three points around the optimum span
+> 0.06 to 0.15 milli-nats**, against 2.10–3.48 on §1961's coarser grid. **So §1968's failure WAS about
+> resolution, and my argument that it was not — that the grids had comparable spacing — was wrong.** The
+> gaps are comparable in *α points* but not in what a point costs: §1961's grid straddled 0.30→0.40,
+> across which CE rises steeply, while this one steps through 0.30→0.32→0.34. I registered both outcomes
+> and this is the one I argued against.
+
+> **pred_a PASSED 2/3 at each coverage and pred_c PASSED 2/3, both with the same dissenter.** At
+> 16,110/skip1200 the argmin sits at **a24, the low edge**, falling monotonically across the whole
+> window (−0.60 at a24) — so for that one cell 0.24–0.36 is still the wrong window. **It is the same role
+> that has dissented on this axis in §1963, §1966 and §1967**, and it wants *less* neighbour at high
+> coverage while the other five cells want 0.28–0.32.
+
+> **α is settled at 0.30, ±2 points, and the whole 0.24–0.36 window is worth at most 1.6 milli-nats.**
+> §1961's operational advice — 0.25 and 0.30 interchangeable — is confirmed at four times the resolution
+> and was right for the wrong reason; §1968's correction of its *characterisation* stands, and §1968's
+> claim that the failure was intrinsic does not.
+
+**All four build parameters are now closed under the criterion §1969 says each requires:**
+
+| axis | shape | criterion | settled at |
+|---|---|---|---|
+| table rank | monotone | price, 0.010 nats/100M | mlp 768 (§1947/§1950), threshold vindicated §1958 |
+| attention share | monotone | price, 0.010 nats/100M | attn 384 at 5,419, 256 at 16,110 (§1948/§1952) |
+| map rank | monotone | price | 640 (§1959) |
+| per-token tilt | interior optimum | one-step-error span | 25→35, span < 0.5m (§1967) |
+| α | interior optimum | one-step-error span | 0.30 ±2, span < 0.15m (§1970) |
+
+**Derived controls TRUE** — coverages exact, same-spec pairs inert at covered inputs and differing-spec
+pairs not, buckets partition, live identical, §1967's published `flat` CE reproduced to **0.000000** via
+`B.ref()`. Fifty-second clean reading, none hand-written.
+
+**Open.** Five axes, five stopping criteria, and **one role dissenting on two of them**: 16,110/skip1200
+wants less neighbour (§1970) and had the only unseen-bucket regression under five CE purchases (§1962).
+**Every conclusion in §1946–§1970 is a 2-of-3 or 3-of-3 vote across three held-out roles, and one role
+has now disagreed often enough to be worth characterising rather than outvoted.**

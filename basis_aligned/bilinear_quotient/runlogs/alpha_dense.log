@@ -5,3 +5,66 @@ ALPHA DENSE | 8 arms x 2 coverage(s) | DISCOVERY ONLY
   [bqlib] cache HIT  live     skip7000
   [bqlib] cache HIT  live     skip11000
   [bqlib] cache HIT  live     skip1200
+  [bqlib] computed   mix24m640 skip7000 (1.4s)
+  [bqlib] computed   mix24m640 skip11000 (1.3s)
+  [bqlib] computed   mix24m640 skip1200 (0.6s)
+  [bqlib] computed   mix26m640 skip7000 (3.8s)
+  [bqlib] computed   mix26m640 skip11000 (1.3s)
+  [bqlib] computed   mix26m640 skip1200 (0.6s)
+  [bqlib] computed   mix28m640 skip7000 (3.8s)
+  [bqlib] computed   mix28m640 skip11000 (1.3s)
+  [bqlib] computed   mix28m640 skip1200 (0.6s)
+  [bqlib] cache HIT  mix30m640 skip7000
+  [bqlib] cache HIT  mix30m640 skip11000
+  [bqlib] cache HIT  mix30m640 skip1200
+  [bqlib] computed   mix32m640 skip7000 (3.8s)
+  [bqlib] computed   mix32m640 skip11000 (1.3s)
+  [bqlib] computed   mix32m640 skip1200 (0.6s)
+  [bqlib] computed   mix34m640 skip7000 (3.9s)
+  [bqlib] computed   mix34m640 skip11000 (1.3s)
+  [bqlib] computed   mix34m640 skip1200 (0.7s)
+  [bqlib] computed   mix36m640 skip7000 (3.8s)
+  [bqlib] computed   mix36m640 skip11000 (1.3s)
+  [bqlib] computed   mix36m640 skip1200 (0.7s)
+  [bqlib] cache HIT  mix25m512 skip7000
+  [bqlib] cache HIT  mix25m512 skip11000
+  [bqlib] cache HIT  mix25m512 skip1200
+
+########## COVERAGE 16110 ##########
+  [bqlib] coverage 16110 from fineweb_n480_skip80.pt: 36 tables, neighbour index and map solver built (5s)
+  [bqlib] cache HIT  live     skip7000
+  [bqlib] cache HIT  live     skip11000
+  [bqlib] cache HIT  live     skip1200
+  [bqlib] computed   mix24m640 skip7000 (1.4s)
+  [bqlib] computed   mix24m640 skip11000 (1.3s)
+  [bqlib] computed   mix24m640 skip1200 (0.7s)
+  [bqlib] computed   mix26m640 skip7000 (3.3s)
+  [bqlib] computed   mix26m640 skip11000 (1.3s)
+  [bqlib] computed   mix26m640 skip1200 (0.7s)
+  [bqlib] computed   mix28m640 skip7000 (3.3s)
+  [bqlib] computed   mix28m640 skip11000 (1.3s)
+  [bqlib] computed   mix28m640 skip1200 (0.7s)
+  [bqlib] cache HIT  mix30m640 skip7000
+  [bqlib] cache HIT  mix30m640 skip11000
+  [bqlib] cache HIT  mix30m640 skip1200
+  [bqlib] computed   mix32m640 skip7000 (3.3s)
+  [bqlib] computed   mix32m640 skip11000 (1.3s)
+  [bqlib] computed   mix32m640 skip1200 (0.7s)
+  [bqlib] computed   mix34m640 skip7000 (3.3s)
+  [bqlib] computed   mix34m640 skip11000 (1.3s)
+  [bqlib] computed   mix34m640 skip1200 (0.7s)
+  [bqlib] computed   mix36m640 skip7000 (3.3s)
+  [bqlib] computed   mix36m640 skip11000 (1.3s)
+  [bqlib] computed   mix36m640 skip1200 (0.7s)
+  [bqlib] cache HIT  mix25m512 skip7000
+  [bqlib] cache HIT  mix25m512 skip11000
+  [bqlib] cache HIT  mix25m512 skip1200
+
+  the alpha optimum is interior to the 0.24-0.36 window at both coverages (>=2 roles each)  -> True
+  and the three points around it now span <0.5 milli-nats -- §1967 stopping rule  -> True
+  and it is the same point at both coverages within one grid step  -> True
+  derived controls -> True   coverage_exact=True  inert_pairs_are_inert=True  differing_pairs_do_move=True  buckets_partition=True  live_identical=True  ref_a30=True
+  reference deviations: a30 0.000000
+
+pred_a True | pred_b True | pred_c True | pred_z True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/alpha_dense_results.json (249.4s)
