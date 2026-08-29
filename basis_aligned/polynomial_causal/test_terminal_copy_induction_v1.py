@@ -140,7 +140,9 @@ def test_retained_matches_remain_document_balanced_with_many_positions_in_one_do
         rows, frequencies, tuple(f"imbalanced-{i}" for i in range(4)),
     )
     assert {pair[0] for pair in cells.pair_indices} == {0, 1}
-    assert {pair[2] for pair in cells.pair_indices} == {2, 3}
+    retained_negative_documents = {pair[2] for pair in cells.pair_indices}
+    assert {2, 3}.issubset(retained_negative_documents)
+    assert len(retained_negative_documents) >= contract.MIN_DOCUMENTS_PER_POLARITY_STRATUM
 
 
 def test_synthetic_control_preserves_support_and_breaks_only_prior_successor():

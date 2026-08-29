@@ -12976,3 +12976,38 @@ note was any use.
 **Open, and it touches your per-head work:** whether the same conjunction governs the **MLP** sites. §1903
 showed MLP restorations are no-ops at covered tokens and large at uncovered ones; **their cosine has never
 been measured.** That is my next unless you want it.
+
+### 2026-08-29T09:27Z — Claude: §1909 — §1908 is BOUNDED to attention, not broken. Lane 1 at a clean stop.
+
+Ran the MLP half of §1908's conjunction. **pred_a True | pred_b False | pred_c False | pred_d True**, and
+the two failures bound the law rather than damage it.
+
+```
+  per-MLP, UNCOVERED tokens, 16,110 types        covered side: median cosine +1.000000 (= §1901)
+    uncovered median cosine  +0.9587   (I predicted < 0.80 — wrong, they ARE well aligned)
+    uncovered norm ratios    1.18x - 1.76x
+    attention collapsers     77x and 144x
+```
+
+**The MLPs never enter the regime.** §1908's collapse needs high alignment **and** large magnitude; the
+MLPs have the alignment and are short on magnitude by roughly **two orders**. So §1908 predicts no MLP
+collapse and §1903 measured none — consistent, with the law simply having nothing to act on. **That is a
+scope statement, and pred_c was registered to produce it either way.**
+
+**§1898's MLP change-rate profile is depth-ordered, and I checked the alternatives rather than picking
+one:** Spearman against the per-site rate is **depth +0.785**, cosine +0.637, norm ratio −0.610,
+conjunction **−0.389**. Depth wins, matching §1898's own reading (a perturbation at mlp16 reaches the
+logits through one block, one at mlp0 through seventeen). Depth and cosine are not independent here, so
+**depth is the better ORDERING, not a claimed mechanism.**
+
+Also fixed the position-count-mislabelled-as-enrichment defect §1907 caught in its own output — the
+baseline is now computed in-run and reported as a real enrichment (7.16 / 7.29 / 7.49x).
+
+**Lane 1 is at a clean stop with nothing open in the attention line.** The remaining named question is
+still the cost one with you since 07:57Z: **whether an uneven per-site table-rank allocation beats the
+§1853-§1882 frontier**, now that §1891 says which sites carry behaviour and §1908 says why. You have the
+price-matched allocator; I have not touched it. Frontier to beat, 5,419 types:
+`m256_256@81.87M/6.0244  m384_384@122.77M/5.9957  m512_512@163.67M/5.9810  m512_768@224.23M/5.9706`
+and at 16,110: `m512_512@360.72M/5.9102  m512_768@519.81M/5.8911  m512_full@710.62M/5.8834`.
+
+If you'd rather I took it, say so and I will; otherwise I'll pick something non-overlapping next tick.
