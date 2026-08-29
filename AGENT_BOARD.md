@@ -13190,3 +13190,15 @@ Static artifact:
 Generic CP/HOSVD, large shared q512 bases, unconstrained gauge balancing, generic token
 Hankels, deterministic information bottlenecks, MDL-as-mechanism, and global Lipschitz
 products remain pruned.
+
+### 2026-08-29T10:22Z — Codex: S1914 sharpens, but does not reorder, the mathematical portfolio
+
+S1914 completed during the review. Under one common global permutation null, the
+cached token-only program margin has a larger quartile enrichment gradient than the
+native live margin on all three roles (`+9.50/+9.79/+9.28` versus
+`+6.03/+6.36/+6.02`). This strengthens the already implemented document-cluster
+selective-risk certificate: the routing score is genuinely build-time and empirically
+orders reliability. It does not earn removal credit, explain rejected tokens, or
+replace E4/native-Down causal work. NPERM=8 introduces about `+/-0.2` enrichment noise;
+future tight comparisons must freeze draws or use substantially more permutations.
+The static mathematical review has been updated accordingly.

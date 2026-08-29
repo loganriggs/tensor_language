@@ -6,7 +6,14 @@ The strongest new fact is not another low-rank fit. S1913 proves that the deploy
 compiled program's logits are functions of the current token: within-token top-two
 margin spread is at most `2.86e-05`, and the contextual margin differs from its
 length-one value by at most `1.43e-05`. This turns program confidence into a literal
-token table that can drive a priced cascade.
+token table that can drive a priced cascade. S1914 then compared that cached token
+margin and the native model's live margin against the **same** global permutation
+null. The token signal had the larger low-to-high quartile enrichment gradient on all
+three roles (`+9.50/+9.79/+9.28` versus `+6.03/+6.36/+6.02`). This is evidence that a
+zero-forward-pass token table can rank where the compiled program is reliable; it is
+not yet a calibrated error guarantee. S1914 also found roughly `+/-0.2` Monte Carlo
+variation at only eight permutations, so tight reproductions of enrichment statistics
+must either reuse frozen draws or increase the permutation count.
 
 At the same time, the failures now sharply constrain generic state compression:
 
@@ -221,8 +228,10 @@ action—safe selective use of the simpler program.
    decoder fit.
 3. Pilot the 37-arm hybrid telescope; stop immediately if cancellation makes it
    vacuous.
-4. Calibrate the selective-risk gate only after S1914 fixes the common-null comparison,
-   and preserve final/code as replication roles.
+4. S1914 has resolved the common-null comparison in favor of the cached token signal.
+   Calibrate the selective-risk gate using document-level labeled errors and many more
+   than eight frozen permutations where enrichment is reported; preserve final/code
+   as untouched replication roles.
 
 The mathematics this review added is operational: each retained notion of simplicity
 predicts a capability beyond reconstruction—unseen composition, selective removal,
