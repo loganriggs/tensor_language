@@ -17,6 +17,11 @@ case "$f" in /*) ;; *) echo "REFUSED: path is not absolute: $f" >&2; exit 1;; es
 python3 -c "import ast,sys; ast.parse(open(sys.argv[1]).read())" "$f" \
   || { echo "REFUSED: does not parse: $f" >&2; exit 1; }
 D="$(dirname "$(dirname "$f")")"
+# The fast suite (~0.4s, no GPU) runs before every enqueue: a broken bqlib or a regressed gate cannot
+# reach the GPU. It encodes the mistakes that actually cost runs -- see ops/test_fast.py.
+python3 "$D/ops/test_fast.py" >/tmp/bq_test_fast.out 2>&1 || {
+  echo "REFUSED: ops/test_fast.py is failing -- fix the library before queueing:" >&2
+  tail -12 /tmp/bq_test_fast.out >&2; exit 1; }
 python3 "$D/ops/gate.py" "$f" >/dev/null 2>&1 || {
   echo "REFUSED: gate FAILED:" >&2; python3 "$D/ops/gate.py" "$f" >&2; exit 1; }
 echo "$f" >> "$D/queue.txt"

@@ -33,7 +33,12 @@ import torch.nn.functional as F
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from bilin18_joint_removal import m, DEV                                    # noqa: E402
+# Importing the model costs ~6.5s of the 8.1s it takes to import this module, which made every pure
+# helper in here untestable without a GPU. BQLIB_NO_MODEL=1 skips it so ops/test_fast.py can exercise
+# the logic in about a second; nothing else sets it, so normal runs are unchanged.
+m, DEV = None, 'cpu'                       # bound unconditionally: a conditional import leaves every
+if os.environ.get('BQLIB_NO_MODEL') != '1':  # reader of `m` looking undefined, which the gate flags --
+    from bilin18_joint_removal import m, DEV                                # noqa: E402
 
 LIB_VERSION = 3          # bump on ANY change to table building, arm construction or forward_logits
 
@@ -44,7 +49,7 @@ W = 50304
 RIDGE = 1e-2
 PT = '/workspace/tensor_language/basis_aligned/bilinear_quotient/'
 CACHE = PT + '.bqcache/'
-H = m.transformer.h
+H = m.transformer.h if m is not None else None
 SITES = [(k, L) for k in ('mlp', 'attn') for L in range(18)]
 
 FIT_5419 = PT + '.rowcache/fineweb_n96_skip80.pt'      # 5,419 types at T=256 -- DEPLOYED coverage

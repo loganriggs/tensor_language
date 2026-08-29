@@ -114,6 +114,8 @@ logits are deleted.  On the first validation batch, the complete native/SUFFIX
 calculation is independently recomputed from CPU-float64 logits.  The run fails if
 the maximum per-position NLL or KL discrepancy exceeds $10^{-4}$, or if the maximum
 relative discrepancy of centered or raw squared-logit error exceeds $10^{-4}$.
+Relative discrepancies use a denominator floor of $10^{-12}$; native centered-logit
+energy is audited by the same relative rule.
 This precision audit is fixed before outcomes and is not a selectable arm.
 
 The signed-direction inner products are stricter: candidate and native logits are

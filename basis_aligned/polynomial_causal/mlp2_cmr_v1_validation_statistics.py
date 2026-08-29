@@ -347,6 +347,7 @@ def margin_certificate_curve(
         support_counts.dtype != torch.long or bool((margin_counts < 0).any())
         or bool((support_counts < 0).any())
         or bool((margin_counts > support_counts[:, None]).any())
+        or bool((margin_counts[:, 1:] < margin_counts[:, :-1]).any())
         or epsilon_grid.dtype != torch.float64 or epsilon_grid.ndim != 1
         or not bool(torch.isfinite(epsilon_grid).all())
         or not bool((epsilon_grid > 0).all())
@@ -354,6 +355,10 @@ def margin_certificate_curve(
     ):
         raise ValueError("margin-count ledger is malformed")
     values = [ledger[index]["all_scored"] for index in range(prefix_documents)]
+    for index, value in enumerate(values):
+        _validate_cell_sum(value)
+        if value.count != int(support_counts[index]):
+            raise RuntimeError("per-document margin support changed")
     n = sum(value.count for value in values)
     if n <= 0 or n != int(support_counts[:prefix_documents].sum()):
         raise RuntimeError("margin certificate support changed")
@@ -449,7 +454,9 @@ def simultaneous_relative_kl_bootstrap(
 ) -> dict[str, object]:
     """Canonical frozen validation bootstrap; protocol constants are not tunable."""
     primary_documents = tuple(sorted(ledgers.get(primary, {})))
-    if repetitions != BOOTSTRAP_REPETITIONS or seed != BOOTSTRAP_SEED or (
+    if primary != "SUFFIX" or tuple(controls) != EQUAL_PRICE_CONTROLS or (
+        repetitions != BOOTSTRAP_REPETITIONS or seed != BOOTSTRAP_SEED
+    ) or (
         primary_documents != tuple(range(DOCUMENTS))
     ):
         raise ValueError("canonical relative-KL bootstrap protocol changed")
@@ -535,22 +542,30 @@ def float32_precision_audit(
     native32, candidate32 = native_logits.float(), candidate_logits.float()
     native_logp32 = F.log_softmax(native32, -1)
     candidate_logp32 = F.log_softmax(candidate32, -1)
-    nll32 = -candidate_logp32.gather(2, targets32.unsqueeze(-1)).squeeze(-1)
+    native_nll32 = -native_logp32.gather(2, targets32.unsqueeze(-1)).squeeze(-1)
+    candidate_nll32 = -candidate_logp32.gather(2, targets32.unsqueeze(-1)).squeeze(-1)
     kl32 = (native_logp32.exp() * (native_logp32 - candidate_logp32)).sum(-1)
     delta32 = candidate32 - native32
     raw32 = delta32.square().sum(-1)
     centered32 = (delta32 - delta32.mean(-1, keepdim=True)).square().sum(-1)
+    native_energy32 = (
+        native32 - native32.mean(-1, keepdim=True)
+    ).square().sum(-1)
 
     native64 = native_logits.detach().cpu().double()
     candidate64 = candidate_logits.detach().cpu().double()
     targets64 = rows[:, 1:]
     native_logp64 = F.log_softmax(native64, -1)
     candidate_logp64 = F.log_softmax(candidate64, -1)
-    nll64 = -candidate_logp64.gather(2, targets64.unsqueeze(-1)).squeeze(-1)
+    native_nll64 = -native_logp64.gather(2, targets64.unsqueeze(-1)).squeeze(-1)
+    candidate_nll64 = -candidate_logp64.gather(2, targets64.unsqueeze(-1)).squeeze(-1)
     kl64 = (native_logp64.exp() * (native_logp64 - candidate_logp64)).sum(-1)
     delta64 = candidate64 - native64
     raw64 = delta64.square().sum(-1)
     centered64 = (delta64 - delta64.mean(-1, keepdim=True)).square().sum(-1)
+    native_energy64 = (
+        native64 - native64.mean(-1, keepdim=True)
+    ).square().sum(-1)
     selected = eligible
 
     def maximum_absolute(single: torch.Tensor, double: torch.Tensor) -> float:
@@ -560,22 +575,40 @@ def float32_precision_audit(
         difference = (single.detach().cpu().double()[selected] - double[selected]).abs()
         return float((difference / double[selected].abs().clamp_min(1e-12)).max())
 
-    nll_error = maximum_absolute(nll32, nll64)
+    native_nll_error = maximum_absolute(native_nll32, native_nll64)
+    candidate_nll_error = maximum_absolute(candidate_nll32, candidate_nll64)
     kl_error = maximum_absolute(kl32, kl64)
     raw_error = maximum_relative(raw32, raw64)
     centered_error = maximum_relative(centered32, centered64)
+    native_energy_error = maximum_relative(native_energy32, native_energy64)
     return {
-        "maximum_nll_absolute_error": nll_error,
+        "maximum_native_nll_absolute_error": native_nll_error,
+        "maximum_candidate_nll_absolute_error": candidate_nll_error,
         "maximum_teacher_kl_absolute_error": kl_error,
         "maximum_raw_sse_relative_error": raw_error,
         "maximum_centered_sse_relative_error": centered_error,
+        "maximum_native_centered_energy_relative_error": native_energy_error,
         "passed": (
-            nll_error <= NLL_KL_PRECISION_TOLERANCE
+            native_nll_error <= NLL_KL_PRECISION_TOLERANCE
+            and candidate_nll_error <= NLL_KL_PRECISION_TOLERANCE
             and kl_error <= NLL_KL_PRECISION_TOLERANCE
             and raw_error <= SQUARED_ERROR_RELATIVE_TOLERANCE
             and centered_error <= SQUARED_ERROR_RELATIVE_TOLERANCE
+            and native_energy_error <= SQUARED_ERROR_RELATIVE_TOLERANCE
         ),
     }
+
+
+def enforce_float32_precision_audit(
+    native_logits: torch.Tensor, candidate_logits: torch.Tensor,
+    rows: torch.Tensor, eligible: torch.Tensor,
+) -> dict[str, float | bool]:
+    audit = float32_precision_audit(
+        native_logits, candidate_logits, rows, eligible,
+    )
+    if audit["passed"] is not True:
+        raise RuntimeError("float32 validation metrics failed the frozen CPU-float64 audit")
+    return audit
 
 
 def summarize_signed_geometry(

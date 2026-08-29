@@ -2269,3 +2269,32 @@ produced it. A reference that exists in a JSON is never retyped, and the failure
 than being guarded against. Same shape as LESSON 83 (bind labels as names so a rename breaks a
 definition) and LESSON 86 (derive the control's polarity from the plan): **when a mistake recurs, move
 the information out of the author's head and into something that can be read.**
+
+## LESSON 88 — the lessons are not the mechanism; ops/test_fast.py is
+
+Eighty-seven lessons are written down and the record shows they are not reliably applied at the moment of
+writing a fork: **LESSON 85 was repeated one section after it was written**, and the covered-input control
+polarity was inherited backwards **four times** across §1946, §1949, §1951 and §1955. A rule you have to
+remember is a resolution. A check that runs in 0.4 seconds is a mechanism.
+
+`ops/test_fast.py` runs in **~0.4s** with no GPU and no model — `BQLIB_NO_MODEL=1` skips the 6.5s model
+load that made every pure helper in the library untestable — and it is wired into `ops/enqueue.sh`, so a
+broken library or a regressed gate **cannot reach the GPU**. Every check in it is a mistake that already
+cost a run:
+
+- `_rk_key` order-independence — two identical builds must not get two cache entries.
+- `inertness_pairs` polarity, **and its warning when one side is empty** (§1957 passed a vacuous control).
+- `ref()` against a real artifact (LESSONS 85/87, the fabricated triples).
+- `paired_t` arithmetic (the instrument §1939 lacked and §1940 used to retract a headline).
+- `cost()` against published figures — 224.868M for `nn`, 267.245M for `map512` at 5,419.
+- arm-grammar invariants — `nn75` must price identically to `nn75m64` or every cached key lies.
+- **six gate fixtures**, each a shape that actually reached the GPU: except-name escape, module-level
+  undefined name, a constant assigned twice, too few predicates, and the two that must still pass.
+
+**It caught its first real bug within seconds of being written.** Making the model import optional left
+`m` and `DEV` conditionally bound, and the gate flagged every reader of them as undefined — a change I
+had just made and would otherwise have shipped. Both directions of the enqueue gate were then tested: a
+good script still queues, and deliberately corrupting `_rank_of` blocks every enqueue.
+
+**The rule.** When a lesson recurs, stop writing it down and make it executable. Cheap tests are worth
+more than remembered rules because they do not depend on the state of the person writing the fork.

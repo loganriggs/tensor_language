@@ -130,6 +130,12 @@ def test_canonical_bootstrap_rejects_small_or_tunable_protocol() -> None:
     }
     with pytest.raises(ValueError, match="canonical"):
         stats.simultaneous_relative_kl_bootstrap(ledgers)
+    with pytest.raises(ValueError, match="canonical"):
+        stats.simultaneous_relative_kl_bootstrap(
+            ledgers, primary="LOCAL", controls=(
+                "SUFFIX", "RMS", "MASS", "DERANGED", "HASH_RANDOM",
+            ),
+        )
     assert int.from_bytes(
         __import__("hashlib").sha256(stats.BOOTSTRAP_SEED.encode()).digest()[:8], "little",
     ) == 13_376_816_517_823_017_776
@@ -160,8 +166,16 @@ def test_signed_geometry_recovers_one_direction_and_rejects_zero_norm() -> None:
 
 def test_float32_precision_audit_passes_small_fixture_and_is_fail_closed() -> None:
     rows, eligible, _, native, candidate = fixture()
-    audit = stats.float32_precision_audit(native, candidate, rows, eligible)
+    audit = stats.enforce_float32_precision_audit(native, candidate, rows, eligible)
     assert audit["passed"]
-    assert audit["maximum_nll_absolute_error"] <= 1e-4
+    assert audit["maximum_native_nll_absolute_error"] <= 1e-4
+    assert audit["maximum_candidate_nll_absolute_error"] <= 1e-4
     with pytest.raises(ValueError, match="support"):
         stats.float32_precision_audit(native, candidate, rows, eligible[:, :-1])
+    old = stats.NLL_KL_PRECISION_TOLERANCE
+    try:
+        stats.NLL_KL_PRECISION_TOLERANCE = -1
+        with pytest.raises(RuntimeError, match="frozen"):
+            stats.enforce_float32_precision_audit(native, candidate, rows, eligible)
+    finally:
+        stats.NLL_KL_PRECISION_TOLERANCE = old
