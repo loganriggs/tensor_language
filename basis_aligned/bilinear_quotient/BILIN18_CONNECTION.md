@@ -51188,3 +51188,56 @@ found the neighbour is discarded and the fallback is the map alone, and §1872 f
 have lost nearly the same. **The remaining ~0.6 nats is what any per-token function built from the token
 embedding or from output-similarity fails to capture about a site's row** — and nothing in the record
 says what that is.
+
+## §1873 — 83% of the fallback loss is REPRESENTATIONAL: a linear map from the embedding cannot express those rows even with the answers in hand
+
+`ops/oracle_map_decomposition.py`, 271.1s, **DISCOVERY ONLY**, rung 3 — §1872's open question.
+**pred_a False | pred_b True | pred_c True | pred_d True.**
+
+```
+  fallback loss against §1868's uncovered-token ceiling, 5,419-type deployed build, map rank 64
+    MAP     fitted on COVERED tokens, applied to uncovered   +0.78075   +0.86225   +0.83997
+    ORACLE  fitted on the UNCOVERED rows themselves          +0.65138   +0.72189   +0.70037
+    generalisation share of the deployed loss                  16.6%      16.3%      16.6%
+```
+
+**pred_a FAILED, and its failure branch is the result.** The oracle map is given the answers it is asked
+to predict — it is least-squares fitted on exactly the rows it must reproduce — and it **still loses
+0.651 to 0.720 nats**. Only **16.6 / 16.3 / 16.6 percent** of the deployed map's loss is the failure to
+transfer from covered tokens to uncovered ones. **The other 83% is representational: a linear function of
+the token embedding cannot express these rows at all, however it is fitted.**
+
+> **This closes the linear family.** §1869 showed rank is a real but partial lever inside it (a fifth to a
+> quarter of the loss, cheaply). §1873 shows that even an unfittable-in-practice *oracle* linear map
+> leaves 83% of the loss standing. **No better-fitted linear map from the token embedding will help**, and
+> §1871's proposed "neighbour as a base with the map fitted on the residual" is unpromising for the same
+> reason — §1872 already showed the neighbour lands in the same place, and §1873 now says why: both are
+> bounded by what a per-token function of the *available features* can express, not by how it is chosen.
+
+**pred_b PASSED, far from its bar.** The oracle stays above 0.10 nats — indeed above 0.65. A linear map
+from a 1152-dimensional embedding to a 1152-dimensional row has the parameters to interpolate 5,672
+targets exactly, and it does not come close; the rank-64 truncation is doing the limiting, and §1869's
+sweep says rank 512 only reaches 0.596. **Rank and fitting set are two modest levers that both plateau
+well above zero.**
+
+**pred_c PASSED at 0.00e+00 for a fourth time**, now across a fourth distinct manipulation of the
+uncovered rows (map, neighbour, map ranks, oracle refit). The covered arm has never moved by a single bit
+under any of them.
+
+**Controls (pred_d).** The deployed MAP arm reproduces §1872's published +0.78075 / +0.86225 / +0.83997
+exactly; coverage is 5,419; the covered arm attains its ceiling — a thirteenth independent confirmation;
+every uncovered scored token has a ceiling row.
+
+**Where §1866-§1873 leave the fallback.** It is the largest open lever in the class (§1866), its
+per-position penalty is constant in coverage (§1867), most of it is the fallback's own rather than the
+class's (§1868), map rank recovers a fifth of it at 276 M/nat — the cheapest purchase in the record
+(§1869/§1870) — the neighbour it discards would have lost the same (§1871/§1872), and **83% of what
+remains is not expressible as any linear function of the token embedding (§1873)**. The lever is real,
+partly cheap, and mostly blocked by the input representation rather than by the fitting or the capacity.
+
+**Open question this ends on.** The embedding is not enough, and the target *is* computable — it is the
+token's own length-1 site output. So the question is what cheap, stored function of the token **can**
+express it. The natural next probe is not a richer function of the embedding but a **different input**:
+the token's length-1 output at an *earlier* site, which the compiled program has already computed by the
+time it needs a later row. That is free at inference and untested, and it is the first fallback proposal
+in this arc that is not a re-parameterisation of the same map.
