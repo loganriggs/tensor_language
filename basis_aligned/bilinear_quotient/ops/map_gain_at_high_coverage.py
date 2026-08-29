@@ -56,7 +56,7 @@ BUCKETS = ((0, 0), (1, 4), (5, 24), (25, 124), (125, 10 ** 9))
 EVAL_SETS = [('skip7000', PT + '.rowcache/fineweb_n192_skip7000.pt', None),
              ('skip11000', PT + '.rowcache/fineweb_n192_skip11000.pt', None),
              ('skip1200', PT + '.rowcache/fineweb_n96_skip1200.pt', None)]
-FIT_ROWS = PT + '.rowcache/fineweb_n480_skip80.pt'   # 5,419 types at T=256 -- the DEPLOYED coverage
+FIT_ROWS = PT + '.rowcache/fineweb_n480_skip80.pt'   # 16,110 types at T=256 (measured, §1923)
 H = m.transformer.h
 NCOV = 16110      # high coverage; §1933 measured the same comparison at the deployed 5,419
 S1789_COV = 5419  # below are AT 5419 and are printed for context, never used as bars (§1882's trap)
