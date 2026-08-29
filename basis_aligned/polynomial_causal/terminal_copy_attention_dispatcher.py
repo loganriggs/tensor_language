@@ -263,17 +263,29 @@ class PhysicalCandidateDispatcher(nn.Module):
             "q": "c_q", "k": "c_k", "q2": "c_q2", "k2": "c_k2",
             "v": "c_v", "proj": "c_proj",
         }
+
+        def same_value(left: torch.Tensor, right: torch.Tensor) -> bool:
+            """Exact value/dtype/shape equality across registered/plain-attribute devices."""
+
+            if left.dtype != right.dtype or left.shape != right.shape:
+                return False
+            if left.device == right.device:
+                return bool(torch.equal(left, right))
+            return bool(torch.equal(
+                left.detach().to("cpu"), right.detach().to("cpu"),
+            ))
+
         for layer in NAMED_LAYERS:
             native = attentions[layer]
             owned = self.adapters[str(layer)]
             try:
                 matches = all(
-                    torch.equal(
+                    same_value(
                         getattr(owned, owned_name),
                         getattr(native, native_name).weight.detach(),
                     )
                     for owned_name, native_name in source_names.items()
-                ) and torch.equal(owned.lamb, native.lamb.detach().reshape(())) and torch.equal(
+                ) and same_value(owned.lamb, native.lamb.detach().reshape(())) and same_value(
                     owned.inv_freq, native.rotary.inv_freq.detach()
                 ) and int(native.n_head) == owned.n_head
             except (AttributeError, TypeError, ValueError) as error:

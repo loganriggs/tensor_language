@@ -162,3 +162,25 @@ def test_dispatcher_prices_owned_adapters_and_full_mean_bank():
     assert price["total_instrument_values"] == (
         price["owned_adapter_values"] + price["fit_mean_values"]
     )
+
+
+def test_native_identity_normalizes_plain_rotary_attribute_device():
+    if not torch.cuda.is_available():
+        pytest.skip("cross-device rotary identity requires CUDA")
+    natives = {layer: TinyAttention().to("cuda") for layer in NAMED_LAYERS}
+    # Match production: Rotary.inv_freq is a plain attribute and stays on CPU while
+    # projection Parameters move to CUDA.
+    assert all(native.rotary.inv_freq.device.type == "cpu" for native in natives.values())
+    dispatcher = PhysicalCandidateDispatcher.from_native(
+        attentions=natives,
+        per_head_position_means={
+            layer: torch.zeros(
+                7, 2 if layer == 8 else 1, 18, device="cuda",
+            )
+            for layer in NAMED_LAYERS
+        },
+    )
+    dispatcher.assert_matches_native(natives)
+    natives[8].rotary.inv_freq[0] += 1
+    with pytest.raises(RuntimeError, match="does not match"):
+        dispatcher.assert_matches_native(natives)
