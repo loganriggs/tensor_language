@@ -14,3 +14,24 @@ HOW WIDE IS THE SPIKE | 7 arms x 1 coverage(s) | DISCOVERY ONLY
   [bqlib] cache HIT  mix30m640 skip7000
   [bqlib] cache HIT  mix30m640 skip11000
   [bqlib] cache HIT  mix30m640 skip1200
+  [bqlib] computed   mix30m640 skip7000 (1.4s)
+  [bqlib] computed   mix30m640 skip11000 (1.3s)
+  [bqlib] computed   mix30m640 skip1200 (0.6s)
+  [bqlib] computed   mix30m640 skip7000 (1.3s)
+  [bqlib] computed   mix30m640 skip11000 (1.3s)
+  [bqlib] computed   mix30m640 skip1200 (0.6s)
+  [bqlib] cache HIT  mix30m640 skip7000
+  [bqlib] cache HIT  mix30m640 skip11000
+  [bqlib] cache HIT  mix30m640 skip1200
+  [bqlib] cache HIT  map512   skip7000
+  [bqlib] cache HIT  map512   skip11000
+  [bqlib] cache HIT  map512   skip1200
+
+  mlp6 and mlp7 both cost under 0.5 nats -- attention 6 runs before mlp6, so mlp6 is above the cut  -> True
+  and mlp3 costs less than half of mlp4 (>=2 roles), as mlp5 does  -> False
+  and mlp4 is strictly the worst of layers 3, 4, 5 on all three roles  -> True
+  derived controls -> True   coverage_exact=True  inert_pairs_are_inert=True  some_differing_pair_moves=True  buckets_partition=True  live_identical=True  ref_mlp4=True  ref_mlp5=True  ref_full_program=True
+  reference deviations: mlp4 0.000000  mlp5 0.000000  full_program 0.000000
+
+pred_a True | pred_b False | pred_c True | pred_z True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/how_wide_is_the_spike_results.json (46.2s)

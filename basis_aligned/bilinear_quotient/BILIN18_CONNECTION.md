@@ -57425,3 +57425,43 @@ spike is unexplained. §1983 showed mlp4's *content* is irrelevant (a mean row c
 spike is not about what mlp4 writes but about attention 6 needing *that position's* activation to vary.
 **The next probe is whether it is mlp4 the site or layer 4 the depth: compile mlp3 and mlp6 and see
 whether the spike is one site wide.**
+
+## §1988 — the cut is attention 6 itself, and the spike is a peak with a broad shoulder below and a cliff above
+
+`ops/how_wide_is_the_spike.py`, **46.2s**, **DISCOVERY ONLY**, 5,419, rung 3 — §1987's open question.
+**pred_a True | pred_b False | pred_c True | derived controls True.** All three reference deviations
+0.000000.
+
+```
+  cost of a LONE compiled MLP against the live model, nats, 5,419
+             mlp2*   mlp3    mlp4     mlp5    mlp6    mlp7    mlp8*   mlp12*
+  skip7000   4.813   6.574  10.669   2.022   0.202   0.072   0.051   0.034
+  skip11000  5.291   6.894  10.937   2.141   0.209   0.077   0.053   0.036
+  skip1200   4.958   6.567  10.580   1.994   0.214   0.075   0.057   0.034
+                                                          * §1986/§1987
+```
+
+> **pred_a PASSED 3/3 and locates the cut exactly. mlp6 costs 0.202 and mlp7 0.072** — both under the
+> 0.5-nat bar. **Attention 6 runs before mlp6 in block order, so mlp6 is already on the far side of the
+> boundary, and it behaves like one.** The cut is attention 6 itself, not "layer 6". mlp6 is still the
+> most expensive site above it — 2.8× mlp7 at pooled t = +81.6 — which is what being nearest looks like.
+
+> **pred_b FAILED on all three roles by the same margin.** The bar was "mlp3 costs less than half of
+> mlp4". It costs **0.616 / 0.630 / 0.621** of it — missing by about 0.12 each time. **The spike is not
+> one site wide on its low side.**
+
+> **pred_c PASSED 3/3: mlp4 is strictly the worst of layers 3, 4, 5.** So the shape is a **peak, not a
+> plateau, and it is asymmetric** — a broad ramp beneath it (4.81 → 6.57 → **10.67**) and a cliff above it
+> (**10.67** → 2.02 → 0.20 → 0.07). The single step from mlp5 to mlp4 is **8.694 nats at pooled
+> t = −365.6**; the step from mlp3 to mlp4 is 4.058 at t = −342.1.
+
+**What the shape says.** Nothing in the path rule predicts a peak, and the asymmetry rules out the two
+easy readings. It is not distance to the boundary — mlp5 is nearer than mlp3 and costs a third as much.
+It is not depth — the profile rises then falls. **Layer 4 is a distinguished site, layer 5 is not, and they
+are adjacent.** With §1983's result that mlp4's *content* is irrelevant, what attention 6 needs from
+position-4 activations is that they **vary**, and apparently nothing else supplies that variation.
+
+**Open.** Every measurement so far has compiled MLPs. If the peak is a property of the *residual stream at
+layer 4* rather than of that MLP, then compiling **attention 4** alone should be expensive too, and the
+attention profile should peak in the same place. If instead the lone attention layers are all cheap, the
+spike belongs to mlp4 specifically and the next question is which of attention 6's nine heads reads it.
