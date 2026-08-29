@@ -52629,23 +52629,26 @@ stream entering a restored MLP need not be the length-1 stream, and the MLP's ou
 table row. **That is a candidate, not a finding. It is one run to check and I have not run it.**
 
 > **And the depth profile is diagnostic, which I did not anticipate when registering pred_a as a flat
-> zero.** The MLP change-counts are not uniform — they rise monotonically with depth:
+> zero.** The MLP change-counts are not uniform. They rise with depth **overall but NOT monotonically**
+> (skip7000, % of scored positions):
 >
 > ```
->   mlp0     1 /    2 /    3   (0.003%)   <- a TRUE no-op, at float-nondeterminism level
->   mlp1    48 /   56 /   22   (0.13%)
->   mlp3   100 /   70 /   37   (0.20%)
->   mlp4   445 /  403 /  212   (1.21%)
->   mlp5   592 /  564 /  272   (1.61%)
->   ...rising to the 1321 / 1350 / 650 maximum
+>   mlp0  0.003%   mlp1  0.13%   mlp2  0.13%   mlp3  0.20%   mlp4  1.21%   mlp5  1.61%
+>   mlp6  1.60%    mlp7  0.84%   mlp8  0.81%   mlp9  1.27%   mlp10 1.07%   mlp11 1.53%
+>   mlp12 1.33%    mlp13 1.40%   mlp14 1.34%   mlp15 2.32%   mlp16 3.58%   mlp17 3.15%
+> ```
+>
+> A clear rise from 0.003% to ~3.5% across the stack, with a **dip at mlp7-mlp8** back to 0.8%
+> that a pure-accumulation story does not predict. Reporting the shape, not explaining it.
+> (mlp0 changes 1 / 2 / 3 positions — a TRUE no-op at float-nondeterminism level.)
 > ```
 >
 > **At depth 0 the argument is exactly right**: the stream entering mlp0 is the normalised embedding,
 > which genuinely is a function of the current token alone, and the restoration changes 1-3 positions —
-> float nondeterminism, not structure. **The failure grows with depth**, which is the signature of the
-> compiled stream drifting away from the length-1 stream as more substituted sites accumulate beneath it.
-> That is consistent with the `v1` hypothesis above and with simple accumulation, and it does not
-> distinguish them. **§1765 holds where it is checkable at depth 0 and does not survive composition** —
+> float nondeterminism, not structure. **The failure grows with depth overall**, which is the signature
+> of the compiled stream drifting from the length-1 stream as substituted sites accumulate beneath it —
+> but the mlp7-mlp8 dip says it is not accumulation alone. Consistent with the `v1` hypothesis and
+> with accumulation; it distinguishes neither, and the dip is unexplained by both.
 > which is a more interesting failure than the flat one I was expecting, and is the second time in this
 > arc (after §1840's non-first-order cost) that composing the substitution has broken an argument that
 > is correct site-by-site.
