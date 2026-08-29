@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "experiment_id": "bilin18_mlp2_cmr_v1",
+  "attempt": 1,
+  "status": "failed_before_manifest_or_receipt_publication",
+  "source_commit": "8f5abd0a7f867d223b4b9b95823efbc67317941f",
+  "freezer_sha256": "b7098eb827e578e42a1cfe3f243ead0d2d72efc0507ebcb3777dc177bf639ae0",
+  "protocol_sha256": "31ccc8c2af344628c53664b5833d4c8ed54112bb4cf1cbff121a7a42ba987114",
+  "failure": {
+    "type": "RuntimeError",
+    "message": "malformed document-index list in mlp0_c512_mlp2_compensation_v0_incomplete_registry_rows_receipt.json",
+    "triggering_registry_sha256": "a3bbd6f96a4826be196c8089c335ae38c49c16d900f4554a850fd5a63b21fa29",
+    "root_cause": "The recursive parser interpreted every key ending in document_indices as a literal identity list. A historical incomplete receipt uses exclusion_counts.dataset_document_indices as an integer count, not an identity list.",
+    "allowed_recovery": "Recognize exact identity-list fields; treat a scalar dataset_document_indices under count metadata as non-identity; add a regression test; change nothing about experiment ID, ordering, roles, exclusions, or publication semantics."
+  },
+  "published_manifest": false,
+  "published_receipt": false,
+  "tokenization_or_model_access": false,
+  "scientific_outcome_access": false
+}

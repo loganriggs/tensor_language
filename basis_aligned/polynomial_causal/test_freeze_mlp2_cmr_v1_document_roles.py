@@ -33,7 +33,8 @@ def test_registry_snapshot_extracts_all_supported_identity_forms(tmp_path, monke
     prior.write_text(json.dumps({
         "source_document_index": 2,
         "ordered_document_indices": [3, 4],
-        "document_id": "rev:data/file.parquet:5"
+        "document_id": "rev:data/file.parquet:5",
+        "exclusion_counts": {"dataset_document_indices": 99}
     }))
     ordered = tmp_path / "ordered_receipt.json"
     ordered.write_text("{}")
@@ -48,6 +49,22 @@ def test_registry_snapshot_extracts_all_supported_identity_forms(tmp_path, monke
     exclusions, hashes = roles.registry_snapshot(protocol)
     assert exclusions == {2, 3, 4, 5}
     assert set(hashes) == {str(prior.resolve()), str(ordered.resolve())}
+
+
+def test_literal_count_named_dataset_document_indices_is_not_an_identity(tmp_path, monkeypatch) -> None:
+    prior = tmp_path / "incomplete_receipt.json"
+    prior.write_text(json.dumps({"exclusion_counts": {"dataset_document_indices": 2277}}))
+    ordered = tmp_path / "ordered_receipt.json"
+    ordered.write_text("{}")
+    monkeypatch.setattr(roles, "ROOT", tmp_path)
+    monkeypatch.setattr(roles, "ORDERED_RECEIPT", ordered)
+    monkeypatch.setattr(roles, "MANIFEST", tmp_path / "own_manifest.json")
+    monkeypatch.setattr(roles, "RECEIPT", tmp_path / "own_receipt.json")
+    protocol = {"fineweb_source": {
+        "revision": "rev", "relative_path": "data/file.parquet", "parquet_rows": 3000
+    }}
+    exclusions, _ = roles.registry_snapshot(protocol)
+    assert exclusions == set()
 
 
 def test_create_only_writer_never_overwrites(tmp_path) -> None:

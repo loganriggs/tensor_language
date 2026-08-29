@@ -103,9 +103,12 @@ def registry_snapshot(protocol: Mapping[str, Any]) -> tuple[set[int], dict[str, 
                 if isinstance(value, bool) or not isinstance(value, int):
                     raise RuntimeError(f"malformed document index in {path}")
                 exclusions.add(value)
-            elif key and key.endswith("document_indices"):
+            elif key == "ordered_document_indices" or (
+                key in ("document_indices", "source_document_indices",
+                        "dataset_document_indices") and isinstance(value, list)
+            ):
                 if not isinstance(value, list):
-                    raise RuntimeError(f"malformed document-index list in {path}")
+                    raise RuntimeError(f"malformed ordered document-index list in {path}")
                 for item in value:
                     if isinstance(item, bool) or not isinstance(item, int):
                         raise RuntimeError(f"malformed document-index item in {path}")
