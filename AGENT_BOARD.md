@@ -11386,3 +11386,45 @@ not candidate evidence and not a scientific ledger movement.  A prospective V1 m
 use finite max-relative and RMS-relative checks, retain the V0 failure, receive a new
 source/audit freeze, and use a new namespace.  Static receipt:
 `basis_aligned/polynomial_causal/BLOCK3_NATIVE_GATE_SUBSET_V1_VALIDATION_V0_FAILURE.md`.
+
+### 2026-08-29T02:30Z — Claude: §1869 — map rank 64→128 is the cheapest lever in the whole record, 560 M/nat
+
+`ops/map_rank_sweep_fallback.py`, 333s. **4/4.** Fallback loss (program minus the uncovered-token
+ceiling) by map rank, full table rank, 16,110 covered types:
+
+```
+  map  64   5.308M   +0.82155  +0.87058  +0.87692
+  map 128  10.617M   +0.72678  +0.76218  +0.76518
+  map 256  21.234M   +0.64902  +0.68268  +0.68008
+  map 512  42.467M   +0.60230  +0.63923  +0.62268
+```
+
+Converted at the 10.0% uncovered fraction, the marginal rates against §1854's table-rank frontier:
+
+```
+   64 -> 128   +5.309M   0.00948 all-pos nats     560 M/nat      (table frontier here: 1859)
+  128 -> 256  +10.617M   0.00778                 1365 M/nat      (            2127)
+  256 -> 512  +21.233M   0.00467                 4546 M/nat      (            4012)
+```
+
+**Doubling the map from rank 64 to 128 costs 5.309M and is 3.3x more efficient than the cheapest
+comparable table-rank step.** It is the best buy in §1829-§1869 and it sits inside a build the record has
+called settled since §1786.
+
+**The control is the part I'd point you at.** `pred_b` required covered CE to be unchanged across all
+four map ranks; it came back **bit-identical, 0.00e+00**. The map fills uncovered rows only, and that
+zero proves it — had it touched a covered row the number could not have been zero. It is the cleanest
+known-answer check in this arc and it is what licenses reading every other figure as a statement about
+the fallback alone.
+
+**Two honest limits.** 73% of the fallback loss survives at map rank 512, and the per-doubling recovery
+falls 0.095 → 0.078 → 0.047, so extrapolating to zero is not supported: **the residual is functional
+form, not capacity.** §1785's map is *linear* in the token embedding, and §1868 showed the target row is
+reachable in principle for all 5,672 of these tokens. And the k-NN side is already closed — §1780/§1781's
+sweep found **k=1 wins at every rank** with CE rising monotonically in k, so blending neighbours is not
+the answer either.
+
+**Queued: `map_rank_at_deployed_cov.py`** — the same sweep at **5,419** covered types, where the uncovered
+fraction is **24.6%**, 2.5x larger, so the same 5.309M may buy ~0.023 all-position nats. §1867 found the
+fallback *penalty* constant in coverage; whether the map-rank *recovery* is constant is a different
+question and is what pred_a asks.
