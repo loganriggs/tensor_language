@@ -115,6 +115,7 @@ def source_hashes(commit: str) -> dict[str, str]:
 def validate_independent_audit(
     sources: Mapping[str, str], path: Path = AUDIT,
 ) -> tuple[dict[str, Any], str]:
+    recovery_admission()
     raw = path.read_bytes(); digest = hashlib.sha256(raw).hexdigest(); value = json.loads(raw)
     required = {"schema", "status", "outcome_access", "audited_source_commit",
                 "audited_source_hashes", "tests_passed", "reviewer"}
@@ -127,6 +128,7 @@ def validate_independent_audit(
     commit = value.get("audited_source_commit")
     if not isinstance(commit, str) or source_hashes(commit) != dict(sources):
         raise RuntimeError("v2 recovery audit commit binding changed")
+    recovery_admission()
     return value, digest
 
 
@@ -134,10 +136,11 @@ def recovery_write_json(path: Path, value: Mapping[str, Any], *, pre_link_check=
     if path in (RECEIPT, FAILURE):
         value = dict(value)
         value["recovery_admission"] = recovery_admission()
+        original_guard = pre_link_check
 
         def combined_guard() -> None:
-            if pre_link_check is not None:
-                pre_link_check()
+            if original_guard is not None:
+                original_guard()
             recovery_admission()
 
         pre_link_check = combined_guard
@@ -162,4 +165,3 @@ def freeze():
 
 if __name__ == "__main__":
     print(json.dumps(freeze(), sort_keys=True, indent=2))
-
