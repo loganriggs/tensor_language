@@ -1,6 +1,6 @@
 # Current project update, with the computations explained
 
-**Updated:** 2026-08-29 14:10 UTC
+**Updated:** 2026-08-29 16:58 UTC
 
 ## UPDATE: what is genuinely new
 
@@ -1189,3 +1189,259 @@ specific missing producer coordinate.
 
 Full computations, definitions, factorial, state metrics, CE/KL/top-1 tables, and
 caveats are in `C512_COPY_GATE_COMPOSITION_FINDINGS.md`.
+
+## 22. **NEW UPDATE: the MLP2 downstream-aware selector is fitted, but the finite compression has not yet been tested**
+
+This is the newest result.  It is important to separate two statements that are easy
+to blur together:
+
+1. we have now chosen six precise, equal-price candidates for a much smaller MLP2;
+2. we have **not yet run those candidates through the complete model and measured
+   their loss**.
+
+So this update is evidence about how to choose an MLP2 program.  It is not yet
+evidence that the program works.
+
+### 22.1 What is the MLP2 map?
+
+At each token position, the input $x$ is the 1,152-dimensional normalized residual
+stream presented to MLP2.  MLP2 computes two linear maps,
+
+$$
+u=Lx,\qquad v=Rx,
+$$
+
+where $u$ and $v$ each contain 4,608 numbers.  It multiplies matching coordinates,
+
+$$
+a_j(x)=u_jv_j=(L_jx)(R_jx),\qquad j=1,\ldots,4608,
+$$
+
+and maps the 4,608 products back to a 1,152-dimensional residual-stream write,
+
+$$
+y(x)=b+Da(x)=b+\sum_{j=1}^{4608}D_{:j}a_j(x).
+$$
+
+Thus one native **product channel** $j$ consists of one row $L_j$, one row $R_j$,
+their scalar multiplication, and one output direction $D_{:j}$.  The proposed
+program retains only 512 of these 4,608 channels.
+
+For every omitted channel, it keeps that channel's average product
+$\mu_j=\mathbb E[a_j]$.  Because an average is constant, all omitted average writes
+can be added once to the ordinary bias:
+
+$$
+b'=b+\sum_{j\notin K}D_{:j}\mu_j.
+$$
+
+The resulting executable is
+
+$$
+y_K(x)=b'+\sum_{j\in K}D_{:j}(L_jx)(R_jx),
+$$
+
+where $K$ contains exactly 512 channels.  It physically needs only 512 rows of
+$L$, 512 rows of $R$, 512 columns of $D$, and one 1,152-number bias.  Its price is
+
+$$
+512(1152+1152+1152)+1152=1{,}770{,}624
+$$
+
+stored scalar values, which is 11.12% of native MLP2's fixed-grammar value count.
+Equivalently, it would remove 88.88% of this local MLP2 price **if** the complete
+model validation succeeds.  A rank or value count is useful here because it buys a
+literal reduction in stored parameters and executed bilinear products; it is not
+being treated as semantic understanding by itself.
+
+### 22.2 How were the 512 channels chosen?
+
+We fitted several selectors at the same size so the downstream-aware method cannot
+win merely by spending more.
+
+- **LOCAL** measures each centered product's immediate output-write energy:
+
+  $$
+  \operatorname{Var}(a_j)\lVert D_{:j}\rVert_2^2.
+  $$
+
+  It asks, “If this channel varies a lot and writes in a large direction, is it
+  locally important?”
+
+- **RMS** uses the uncentered second moment:
+
+  $$
+  \mathbb E[a_j^2]\lVert D_{:j}\rVert_2^2.
+  $$
+
+  It differs from LOCAL by including the constant mean component.
+
+- **MASS** uses weights only:
+
+  $$
+  \lVert L_j\rVert_2^2\lVert R_j\rVert_2^2\lVert D_{:j}\rVert_2^2.
+  $$
+
+  It does not ask how often natural text activates the channel.
+
+- **HASH_RANDOM** chooses 512 channels by a content-hash ordering.  It is an
+  equal-price null control.
+
+- **DERANGED** deliberately mismatches product channels and output directions in a
+  gauge-invariant way, then applies the same downstream selection machinery.  It
+  tests whether the real product-to-output pairing matters.
+
+- **SUFFIX** is the downstream-aware selector.  “Suffix” means every computation
+  after the MLP2 write: later residual additions, RMSNorms, attention blocks, MLPs,
+  final normalization, and logits.
+
+The SUFFIX computation introduces one scale $\alpha_j$ for each centered product,
+shared across every token position in one document:
+
+$$
+y_q(\alpha)=b+Da_q+D\big[(a_q-\mu)\odot(\alpha-1)\big].
+$$
+
+At $\alpha=1$, this is exactly native MLP2.  We differentiate a downstream
+log-probability score $s$ with respect to each $\alpha_j$:
+
+$$
+E_j
+=\frac{\partial s}{\partial\alpha_j}
+=\sum_q(a_{qj}-\mu_j)D_{:j}^{\mathsf T}
+  \frac{\partial s}{\partial y_q}.
+$$
+
+The sum over token positions $q$ is essential.  Deleting a channel changes it at
+every position, and later attention can move one position's change to another
+position.  A local gradient at only the scored position would miss that route.
+
+We used 191 fresh FineWeb documents and eight independent categorical-Fisher probes.
+A probe samples output categories from the native model and differentiates their log
+probabilities.  This samples sensitivity across the model's predicted distribution
+instead of privileging one hand-selected token.  The resulting response tensor had
+shape
+
+$$
+191\ \text{documents}\times8\ \text{probes}\times4608\ \text{channels}.
+$$
+
+Each document was normalized to equal total response energy so a few high-gradient
+documents could not dominate.  We then flattened the first two axes, performed a
+float64 singular-value decomposition, and computed rank-256 **ridge-leverage
+scores**.  In plain language, a leverage score is high when a channel supplies a
+direction in downstream-response space that the other channels do not already span.
+The 512 highest-scoring native channels form SUFFIX512.  Rank 256 is an analysis
+scale used to estimate this shared response geometry; the executable still contains
+512 ordinary native bilinear channels.
+
+### 22.3 What was actually measured, and how long did it take?
+
+The mean/control stage used 192 fresh documents and 30,801 eligible token positions.
+It made 48 four-document forwards, stopping immediately after MLP2, and took
+**10.54 seconds**.
+
+The downstream SUFFIX stage used 191 live documents, eight probes, 48 complete-model
+forwards, and 384 backwards.  It took **58.99 seconds**.  The two substantive model
+computations therefore took about **69.52 seconds total**.  The later overlap repair
+was a source-closed CPU summary correction, not another model run.
+
+The first SUFFIX implementation attempt stopped before producing logits, targets, or
+responses because its fused matrix multiplication plus bias was not bit-exact with
+the native model's separate operations.  The corrected run used the native operation
+order and obtained a bit-exact baseline.  Separately, the first published overlap
+summary converted scalar tensors into Python sets incorrectly and printed zero
+overlaps.  The stored support tensors and hashes were correct; converting the tensor
+indices to ordinary integers repaired only the summary.  These failures are
+preserved because they affect how much confidence to place in the pipeline, even
+though neither changed the selected supports.
+
+### 22.4 What worked?
+
+The SUFFIX selector is statistically stable on its fit data:
+
+- the channel-score ordering from two independent four-probe halves has Spearman
+  correlation `0.94909`;
+- their independently selected top-512 sets have Jaccard overlap `0.78397`;
+- reciprocal channel rescalings and channel permutations replay the same physical
+  selection, so the selector is not exploiting an arbitrary gauge convention.
+
+Here **Spearman correlation** compares two complete rankings: 1 means the rankings
+are identical and 0 means no rank association.  **Jaccard overlap** for two sets
+$A,B$ is
+
+$$
+J(A,B)=\frac{|A\cap B|}{|A\cup B|}.
+$$
+
+The corrected equal-size support comparisons are:
+
+| Comparison | Shared channels | Jaccard overlap |
+|---|---:|---:|
+| SUFFIX versus LOCAL | 369 | `0.56336` |
+| SUFFIX versus RMS | 364 | `0.55152` |
+| SUFFIX versus MASS | 308 | `0.43017` |
+| SUFFIX versus DERANGED | 87 | `0.09285` |
+| SUFFIX versus HASH_RANDOM | 56 | `0.05785` |
+
+So SUFFIX is not random and not merely a weight-magnitude ranking.  But it is also
+not a radically new decomposition: it shares 369 of its 512 channels with LOCAL and
+exchanges 143.
+
+Measured in SUFFIX's own ridge-leverage currency, the retained supports capture:
+
+| 512-channel support | Fraction of total SUFFIX score captured |
+|---|---:|
+| SUFFIX | **25.534%** |
+| LOCAL | 23.963% |
+| RMS | 23.867% |
+| MASS | 22.399% |
+| DERANGED | 12.589% |
+| HASH_RANDOM | 11.581% |
+
+SUFFIX therefore improves its own fit objective over LOCAL by only about 6.6%
+relative.  That is a real, split-stable difference, but it is modest.  It does not
+tell us that SUFFIX will have 6.6% lower KL after deleting 4,096 channels at once.
+Gradients describe infinitesimal changes around the native model; the proposed
+compression is a large finite change, and omitted channels can cancel, interact, or
+be amplified by later nonlinearities.
+
+### 22.5 What is the current conclusion and next computation?
+
+The honest conclusion is:
+
+> We now have a stable downstream-aware hypothesis for which 512 native MLP2
+> products matter, but no demonstrated 512-product MLP2 program yet.
+
+The decisive next run physically builds all six 512-channel candidates and sends
+each changed trajectory through layers 3--17.  It will compare them on:
+
+- **cross-entropy (CE):** probability assigned to the true next token;
+- **teacher KL:** the complete candidate output distribution versus the native
+  model's distribution;
+- **centered-logit NRMSE:** distortion of relative logits after removing the
+  irrelevant common logit offset;
+- **top-1 agreement:** how often candidate and native model choose the same token;
+- copy-positive, repeat-negative, nonrepeat, token-frequency, and per-document cells;
+- a margin certificate relating measured logit distortion to top-1 stability;
+- small signed edits, checking whether the finite change follows the fitted tangent
+  direction rather than reversing it.
+
+The frozen absolute bars include $|\Delta\mathrm{CE}|\leq0.02$, teacher
+$\mathrm{KL}\leq0.02$, centered-logit NRMSE $\leq0.10$, top-1 agreement at least
+0.90, and no registered cell above 0.02 nat collateral damage.  SUFFIX must also
+beat every equal-price control by at least 5% teacher KL with a document-bootstrap
+simultaneous lower confidence bound.  Only then would the experiment justify saying
+that MLP2 has been compressed at this width.
+
+Before opening the protected validation role, one fit-only calibration still has to
+freeze the native-margin epsilon grid and token-frequency strata.  This is a missing
+preregistered measurement, not a data or GPU blocker; the RTX 5090 is currently
+available.  After that, the finite validator is the critical path.  If every K=512
+candidate fails the absolute bars, the useful negative result is that selection of
+native products is the wrong grain at this width, and the next move is a shared or
+response-conditioned factor basis rather than many nearby K sweeps.
+
+The focused technical receipt is `MLP2_CMR_V1_SUFFIX_FINDINGS.md`.  This section is
+the plain-English continuation; the complete current explanation remains this file:
+`CURRENT_PROJECT_UPDATE_PLAIN_ENGLISH_2026-08-29_1410.md`.
