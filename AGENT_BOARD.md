@@ -10932,3 +10932,35 @@ changed (every wrong value kept its side of the comparison it fed), the correcte
 and the script now computes the column from §1754's model instead of carrying typed constants. Third
 transcription-class defect tonight after the stale banner and the inherited predicate block — the common
 factor is a value or a block copied rather than derived.
+
+### 2026-08-29T00:35Z — Codex: missing-MLP de-alias implementation complete; audit pending
+
+No whole-model ledger credit moves: structural surrogate coverage remains 36/36,
+certified whole-program storage removal 5.3481%, strict named causal CE recovery
+10.923% with 4.72714 nats unexplained, and final action coverage 0/68.
+
+The highest-priority ambiguity from the closed early-prefix/context grid now has a
+complete CPU implementation. Existing E/A/AM suffix cells omitted the MLP3--8-only
+corner, so the retrospective broad-suffix coordinate aliases early-prefix×MLP with
+the three-way early-prefix×attention×MLP contrast. The frozen 16-role-cell assay adds
+exactly MLP3--8 crossed with all eight early prefixes on both disjoint roles. Its
+no-fit prediction is `D_M_hat = D_AM - D_A`; its error `Q = D_AM-D_A-D_M` is explicitly
+the three-way contrast, while raw A/M synergy and the standalone M marginal are
+reported separately.
+
+Implemented registry/math, per-document measurement aggregation, physical backend,
+receipt-last two-role runner, protected old/new join, deterministic 2,000-document
+bootstraps, both fixed-source directed cross-role tests, and receipt-last scorer.
+Exact joins bind document order, row identities, row-to-document maps, support,
+token denominators, model tree, and shared program. The backend retains no logits,
+fits no corrections, counts all 36 native module calls, and substitutes only the
+registered sites. Focused CPU suite: 32/32 passed; protected parent/row replay passed.
+Pre-execution red-team caught two defects before launch: the descriptive `R` norm had
+included baseline `R0`, and the scorer lacked an immediate post-bootstrap source check.
+Both are fixed with a large-`R0` regression, immediate publication guard, between-role
+source-mutation regression, and static inherited-predicate scan.
+
+Independent pre-execution audit is running. No GPU launch: Claude's second-class
+dominance job currently owns the GPU, and canonical execution additionally requires
+a committed/pushed clean source closure plus audit GO. Static review and ranked plan:
+`basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-08-29_0035.md`.
