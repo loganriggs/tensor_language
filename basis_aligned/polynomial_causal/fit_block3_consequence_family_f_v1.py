@@ -375,6 +375,41 @@ def _score_epoch_trace(
     return asdict(trace)
 
 
+def validate_native_replay(
+    ordinary_full_raw: torch.Tensor, teacher_raw: torch.Tensor,
+    teacher: torch.Tensor,
+) -> dict[str, float]:
+    """Compare autonomous and ordinary execution before and after the softcap."""
+
+    ordinary_raw = ordinary_full_raw[:, POSITION_START:POSITION_STOP]
+    if ordinary_raw.shape != teacher_raw.shape or teacher.shape != teacher_raw.shape:
+        raise RuntimeError("family-F native replay tensor shapes changed")
+    raw_difference = ordinary_raw - teacher_raw
+    raw_absolute = float(raw_difference.abs().max())
+    raw_relative = raw_absolute / max(
+        float(teacher_raw.abs().max()), torch.finfo(torch.float32).tiny,
+    )
+    ordinary = softcap_logits(ordinary_raw)
+    difference = ordinary - teacher
+    absolute = float(difference.abs().max())
+    relative = absolute / max(
+        float(teacher.abs().max()), torch.finfo(torch.float32).tiny,
+    )
+    self_kl = float(core.teacher_kl_by_row(teacher, teacher).abs().max())
+    replay = {
+        "raw_max_absolute": raw_absolute,
+        "raw_max_relative": raw_relative,
+        "max_absolute": absolute,
+        "max_relative": relative,
+        "teacher_self_kl_max": self_kl,
+    }
+    if raw_relative > core.REPLAY_RELATIVE_LIMIT or (
+        relative > core.REPLAY_RELATIVE_LIMIT
+    ) or self_kl > 2e-7:
+        raise RuntimeError("family-F native autonomous suffix replay failed")
+    return replay
+
+
 def fit_score_arm(
     *, model: torch.nn.Module, rows: torch.Tensor, row_to_document: torch.Tensor,
     row_weights: torch.Tensor, donor_rows: torch.Tensor,
@@ -411,30 +446,8 @@ def fit_score_arm(
                 ordinary_raw = full_raw_logits(
                     model, rows[start:start + LOGICAL_BATCH, :MODEL_TOKENS].to(DEVICE), calls,
                 )
-                ordinary_raw = ordinary_raw[:, POSITION_START:POSITION_STOP]
-                raw_difference = ordinary_raw - teacher_raw
-                raw_absolute = float(raw_difference.abs().max())
-                raw_relative = raw_absolute / max(
-                    float(teacher_raw.abs().max()), torch.finfo(torch.float32).tiny,
-                )
-                ordinary = softcap_logits(ordinary_raw)
-                difference = ordinary - teacher
-                absolute = float(difference.abs().max())
-                relative = absolute / max(
-                    float(teacher.abs().max()), torch.finfo(torch.float32).tiny,
-                )
-                self_kl = float(core.teacher_kl_by_row(teacher, teacher).abs().max())
-                replay = {
-                    "raw_max_absolute": raw_absolute,
-                    "raw_max_relative": raw_relative,
-                    "max_absolute": absolute, "max_relative": relative,
-                    "teacher_self_kl_max": self_kl,
-                }
-                if raw_relative > core.REPLAY_RELATIVE_LIMIT or (
-                    relative > core.REPLAY_RELATIVE_LIMIT
-                ) or self_kl > 2e-7:
-                    raise RuntimeError("family-F native autonomous suffix replay failed")
-                del ordinary_raw, ordinary, raw_difference, difference
+                replay = validate_native_replay(ordinary_raw, teacher_raw, teacher)
+                del ordinary_raw
             logical_row_losses: list[torch.Tensor] = []
             closures = []
             for micro_start in range(0, LOGICAL_BATCH, MICROBATCH):
@@ -489,7 +502,9 @@ def _affine_write(
 ) -> torch.Tensor:
     """Execute exactly the float32 program that publication would fold."""
 
-    features = program.features(z)
+    left = F.linear(z, program.left)
+    right = F.linear(z, program.right)
+    features = left * right
     decoder = program.decoder * scale.to(program.decoder)
     bias = program.bias + correction.to(program.bias)
     return F.linear(features, decoder, bias)
@@ -728,20 +743,81 @@ def report_fit_arms(
     }
 
 
-def semantic_validate_program_artifact(value: Mapping[str, Any]) -> None:
+def reconstruct_programs_from_sealed_parents(
+    *, value: Mapping[str, Any], left: torch.Tensor, right: torch.Tensor,
+    native_down: torch.Tensor, native_bias: torch.Tensor,
+    parent_payload: Mapping[str, Any], raw_a_programs: Mapping[str, Any],
+) -> tuple[dict[str, subset.NativeGateSubsetProgram], dict[str, torch.Tensor]]:
+    """Independently rebuild every published array from frozen scores and parents."""
+
+    programs, supports = build_programs(
+        left=left, right=right, native_down=native_down, native_bias=native_bias,
+        prefilter_indices=parent_payload["prefilter_indices"].long().contiguous(),
+        gram=parent_payload["prefilter_gram"].double(),
+        cross=parent_payload["prefilter_cross"].double(),
+        permuted_cross=parent_payload["prefilter_permuted_cross"].double(),
+        scores=value["scores"],
+    )
+    a_payload = raw_a_programs.get("programs", {}).get("activation_selected_k512")
+    if not isinstance(a_payload, Mapping):
+        raise RuntimeError("family-F sealed family-A K512 program is absent")
+    programs["family_A_uncalibrated_k512"] = _materialize_program(
+        a_payload, device=str(left.device),
+    )
+    affine_bases = {
+        "teacher_F_k512": "real_F_post_refit_k512",
+        "family_A_k512": "family_A_uncalibrated_k512",
+        "random_k512": "random_post_refit_k512",
+        "same_support_permuted_cross_k512": (
+            "same_support_permuted_cross_post_refit_k512"
+        ),
+    }
+    for arm, base in affine_bases.items():
+        parameters = value["affine_parameters"][arm]
+        programs[f"affine_{arm}"] = core.fold_affine_calibration(
+            programs[base], float(parameters["scale_float64"]),
+            parameters["correction_float64"].to(left.device).float(),
+        )
+    return programs, supports
+
+
+def _require_exact_program_payload(
+    observed: Mapping[str, torch.Tensor], expected: subset.NativeGateSubsetProgram,
+    *, arm: str,
+) -> None:
+    expected_payload = _program_payload(expected)
+    if set(observed) != set(expected_payload):
+        raise RuntimeError(f"family-F reconstructed program schema changed: {arm}")
+    for name, tensor in expected_payload.items():
+        if not torch.equal(observed[name], tensor):
+            raise RuntimeError(
+                f"family-F reconstructed program tensor changed: {arm}/{name}"
+            )
+
+
+def semantic_validate_program_artifact(
+    value: Mapping[str, Any], *, expected_authority_sha256: str,
+    prefilter: torch.Tensor,
+    reconstructed_programs: Mapping[str, subset.NativeGateSubsetProgram] | None = None,
+    family_a_supports: Mapping[int, torch.Tensor] | None = None,
+) -> None:
     required = {
         "schema", "authority_sha256", "scores", "supports", "programs",
         "affine_parameters", "promotive_programs", "nonpromotive_programs",
     }
     if not isinstance(value, Mapping) or set(value) != required or value.get(
         "schema"
-    ) != "block3_consequence_family_f_v1_programs" or set(value["scores"]) != set(
+    ) != "block3_consequence_family_f_v1_programs" or value.get(
+        "authority_sha256"
+    ) != expected_authority_sha256 or set(value["scores"]) != set(
         call_contract.SCORE_ARMS
     ):
         raise RuntimeError("family-F program artifact schema changed")
-    prefilter = torch.load(
-        collector.PAYLOAD, map_location="cpu", weights_only=True,
-    )["prefilter_indices"].long()
+    if not torch.is_tensor(prefilter) or prefilter.shape != (PREFILTER,) or (
+        prefilter.dtype != torch.long
+    ):
+        raise RuntimeError("family-F semantic prefilter is malformed")
+    prefilter = prefilter.detach().cpu().contiguous()
     expected_support_keys = {
         f"{arm}_k{budget}" for arm in call_contract.SCORE_ARMS for budget in BUDGETS
     } | {f"random_k{budget}" for budget in BUDGETS}
@@ -750,8 +826,12 @@ def semantic_validate_program_artifact(value: Mapping[str, Any]) -> None:
     for arm, scores in value["scores"].items():
         if not torch.is_tensor(scores) or scores.shape != (PREFILTER,) or scores.dtype != (
             torch.float64
-        ) or not bool(torch.isfinite(scores).all()) or abs(float(scores.sum()) - 512) > 1e-10:
+        ) or not bool(torch.isfinite(scores).all()) or float(scores.min()) < 0 or (
+            float(scores.max()) > 1
+        ) or abs(float(scores.sum()) - 512) > 1e-10:
             raise RuntimeError(f"family-F stored score vector is malformed: {arm}")
+        if float((core.project_capped_simplex(scores, 512) - scores).abs().max()) > 2e-10:
+            raise RuntimeError(f"family-F stored score projection does not replay: {arm}")
         reconstructed = core.stable_nested_supports(scores, prefilter, BUDGETS)
         for budget in BUDGETS:
             if not torch.equal(
@@ -776,6 +856,12 @@ def semantic_validate_program_artifact(value: Mapping[str, Any]) -> None:
             "reversal": value["supports"][f"teacher_row_reversal_k{budget}"],
             "document": value["supports"][f"teacher_document_derangement_k{budget}"],
         }
+        budget_programs = tuple(
+            program for name, program in programs.items()
+            if f"k{budget}" in name and not name.startswith("affine_")
+        )
+        if any(program.gates != budget or program.width != WIDTH for program in budget_programs):
+            raise RuntimeError("family-F executable program dimensions changed")
         if not torch.equal(
             value["supports"][f"random_k{budget}"], prefilter[random_order[:budget]],
         ) or not torch.equal(real.indices, expected_indices["real"]) or not torch.equal(
@@ -797,6 +883,13 @@ def semantic_validate_program_artifact(value: Mapping[str, Any]) -> None:
         )
         if any(not torch.equal(program.bias, real.bias) for program in uncalibrated):
             raise RuntimeError("family-F uncalibrated native bias changed")
+        if family_a_supports is not None and budget in family_a_supports and budget == 512 and (
+            not torch.equal(
+                programs["family_A_uncalibrated_k512"].indices,
+                family_a_supports[budget].detach().cpu(),
+            )
+        ):
+            raise RuntimeError("family-F sealed family-A support changed")
     if value["promotive_programs"] != [
         "real_F_post_refit_k256", "real_F_post_refit_k512",
     ] or set(value["promotive_programs"]) & set(value["nonpromotive_programs"]):
@@ -815,6 +908,13 @@ def semantic_validate_program_artifact(value: Mapping[str, Any]) -> None:
             correction.dtype != torch.float64
         ) or not bool(torch.isfinite(correction).all()):
             raise RuntimeError(f"family-F affine parameters are malformed: {arm}")
+    if reconstructed_programs is not None:
+        if set(reconstructed_programs) != set(value["programs"]):
+            raise RuntimeError("family-F reconstructed program arm set changed")
+        for arm, expected in reconstructed_programs.items():
+            _require_exact_program_payload(value["programs"][arm], expected, arm=arm)
+    for arm, program in programs.items():
+        deployed_polarization_replay(program)
 
 
 def execute_fit(
@@ -939,13 +1039,37 @@ def execute_fit(
         "promotive_programs": promotive,
         "nonpromotive_programs": nonpromotive,
     }
-    semantic_validate_program_artifact(program_artifact)
+    reconstructed_programs, reconstructed_supports = (
+        reconstruct_programs_from_sealed_parents(
+            value=program_artifact, left=left, right=right,
+            native_down=native_down, native_bias=native_bias,
+            parent_payload=parent_payload, raw_a_programs=raw_a_programs,
+        )
+    )
+    if set(reconstructed_supports) != set(supports) or any(
+        not torch.equal(reconstructed_supports[name], supports[name])
+        for name in supports
+    ):
+        raise RuntimeError("family-F independently reconstructed supports changed")
+    family_a_supports = {
+        budget: raw_a_programs["programs"][
+            f"activation_selected_k{budget}"
+        ]["indices"].long().contiguous()
+        for budget in BUDGETS
+    }
+    semantic_validate_program_artifact(
+        program_artifact,
+        expected_authority_sha256=frozen_authority["authority_sha256"],
+        prefilter=prefilter_indices_cpu,
+        reconstructed_programs=reconstructed_programs,
+        family_a_supports=family_a_supports,
+    )
 
     stacked_nrmse = {
         name: _stacked_fit_nrmse(
             programs[name], prefilter_indices_cpu, gram, cross, write_energy,
         )
-        for name in program_names
+        for name in program_names if not name.startswith("affine_")
     }
     prices = {name: core.program_price(programs[name]) for name in program_names}
     polarization_replays = {
@@ -994,6 +1118,11 @@ def execute_fit(
                 "intersection": len(real & other),
                 "jaccard": len(real & other) / len(real | other),
             }
+        family_a = set(family_a_supports[budget].tolist())
+        score_overlaps[f"teacher_vs_family_A_k{budget}"] = {
+            "intersection": len(real & family_a),
+            "jaccard": len(real & family_a) / len(real | family_a),
+        }
 
     elapsed, max_cuda = require_resource_ceiling(started)
     result = {
@@ -1029,6 +1158,226 @@ def execute_fit(
     return program_artifact, result
 
 
+def require_exact_tensor_tree(observed: Any, expected: Any, *, path: str = "root") -> None:
+    """Exact recursive replay for a just-published tensor artifact."""
+
+    if torch.is_tensor(expected):
+        if not torch.is_tensor(observed) or not torch.equal(observed, expected):
+            raise RuntimeError(f"family-F tensor artifact changed at {path}")
+        return
+    if isinstance(expected, Mapping):
+        if not isinstance(observed, Mapping) or set(observed) != set(expected):
+            raise RuntimeError(f"family-F tensor artifact schema changed at {path}")
+        for key in expected:
+            require_exact_tensor_tree(observed[key], expected[key], path=f"{path}/{key}")
+        return
+    if isinstance(expected, (list, tuple)):
+        if not isinstance(observed, type(expected)) or len(observed) != len(expected):
+            raise RuntimeError(f"family-F tensor sequence changed at {path}")
+        for index, (left, right) in enumerate(zip(observed, expected, strict=True)):
+            require_exact_tensor_tree(left, right, path=f"{path}/{index}")
+        return
+    if observed != expected:
+        raise RuntimeError(f"family-F scalar artifact changed at {path}")
+
+
+def _require_finite_tree(value: Any, *, path: str = "root") -> None:
+    if isinstance(value, Mapping):
+        for key, child in value.items():
+            _require_finite_tree(child, path=f"{path}/{key}")
+    elif isinstance(value, list):
+        for index, child in enumerate(value):
+            _require_finite_tree(child, path=f"{path}/{index}")
+    elif isinstance(value, float) and not math.isfinite(value):
+        raise RuntimeError(f"family-F nonfinite result at {path}")
+
+
+def semantic_validate_result(
+    value: Mapping[str, Any], *, expected_authority_sha256: str,
+    expected_programs_file_sha256: str,
+) -> None:
+    required = {
+        "schema", "status", "authority_sha256", "score_traces", "affine_traces",
+        "known_answer_replay", "postfit_report", "postfit_stage_transitions",
+        "stacked_typed_fit_nrmse", "direct_polarization_replay",
+        "score_projection_replay_max_abs", "support_overlaps", "program_prices",
+        "call_ledger", "model_state_before_sha256", "model_state_after_sha256",
+        "fit_rows_loaded", "validation_rows_loaded", "final_rows_loaded",
+        "ground_truth_target_tokens_used", "retained_teacher_logits",
+        "authorized_for_validation", "authorized_for_final",
+        "authorized_for_global_ledger_credit", "elapsed_seconds",
+        "maximum_allocated_cuda_bytes", "torch_version", "python_version",
+        "programs_file_sha256",
+    }
+    if not isinstance(value, Mapping) or set(value) != required or value.get(
+        "schema"
+    ) != "block3_consequence_family_f_v1_fit_results" or value.get(
+        "status"
+    ) != "fit_complete_no_validation_or_final_opened" or value.get(
+        "authority_sha256"
+    ) != expected_authority_sha256 or value.get(
+        "programs_file_sha256"
+    ) != expected_programs_file_sha256:
+        raise RuntimeError("family-F result schema or joins changed")
+    _require_finite_tree(value)
+    if set(value["score_traces"]) != set(call_contract.SCORE_ARMS) or any(
+        len(trace) != 8 or [row.get("epoch") for row in trace] != list(range(1, 9))
+        for trace in value["score_traces"].values()
+    ):
+        raise RuntimeError("family-F score trace schedule changed")
+    score_trace_fields = {
+        "epoch", "document_kl", "row_kl", "score_min", "score_max", "score_sum",
+        "saturated_zero", "saturated_one", "gradient_norm_max",
+    }
+    if any(
+        not isinstance(row, Mapping) or set(row) != score_trace_fields
+        for trace in value["score_traces"].values() for row in trace
+    ):
+        raise RuntimeError("family-F score trace schema changed")
+    if set(value["affine_traces"]) != set(call_contract.AFFINE_ARMS) or any(
+        len(trace) != 4 or [row.get("epoch") for row in trace] != list(range(1, 5))
+        for trace in value["affine_traces"].values()
+    ):
+        raise RuntimeError("family-F affine trace schedule changed")
+    affine_trace_fields = {
+        "epoch", "document_kl", "row_kl", "gradient_norm_max", "scale",
+        "correction_rms", "correction_norm",
+    }
+    if any(
+        not isinstance(row, Mapping) or set(row) != affine_trace_fields
+        for trace in value["affine_traces"].values() for row in trace
+    ):
+        raise RuntimeError("family-F affine trace schema changed")
+    known = value["known_answer_replay"]
+    if not isinstance(known, Mapping) or set(known) != {
+        "raw_max_absolute", "raw_max_relative", "max_absolute", "max_relative",
+        "teacher_self_kl_max",
+    } or known["raw_max_relative"] > core.REPLAY_RELATIVE_LIMIT or known[
+        "max_relative"
+    ] > core.REPLAY_RELATIVE_LIMIT or known["teacher_self_kl_max"] > 2e-7:
+        raise RuntimeError("family-F known-answer replay changed")
+    report_names = set(call_contract.REPORT_STUDENT_ARMS)
+    if set(value["postfit_report"]) != report_names or any(
+        set(metrics) != {
+            "document_balanced_teacher_kl", "row_mean_teacher_kl",
+            "summed_write_nrmse",
+        }
+        for metrics in value["postfit_report"].values()
+    ):
+        raise RuntimeError("family-F postfit report schema changed")
+    program_names = report_names - {"continuous_teacher_F1"}
+    if set(value["direct_polarization_replay"]) != program_names or set(
+        value["program_prices"]
+    ) != program_names or set(value["stacked_typed_fit_nrmse"]) != {
+        name for name in program_names if not name.startswith("affine_")
+    }:
+        raise RuntimeError("family-F executable diagnostic arm registry changed")
+    if any(
+        set(metrics) != {"max_absolute", "max_relative"} or metrics.get(
+            "max_relative", math.inf
+        ) > core.REPLAY_RELATIVE_LIMIT
+        for metrics in value["direct_polarization_replay"].values()
+    ) or set(value["score_projection_replay_max_abs"]) != set(
+        call_contract.SCORE_ARMS
+    ) or any(
+        replay > 2e-10 for replay in value["score_projection_replay_max_abs"].values()
+    ):
+        raise RuntimeError("family-F program or projection replay changed")
+    expected_overlap_keys = {
+        f"teacher_vs_{comparison}_k{budget}"
+        for comparison in (
+            "teacher_row_reversal", "teacher_document_derangement", "random", "family_A",
+        )
+        for budget in BUDGETS
+    }
+    if set(value["support_overlaps"]) != expected_overlap_keys or any(
+        set(metrics) != {"intersection", "jaccard"} or not (
+            0 <= metrics["intersection"] <= budget and 0 <= metrics["jaccard"] <= 1
+        )
+        for key, metrics in value["support_overlaps"].items()
+        for budget in [int(key.rsplit("k", 1)[1])]
+    ):
+        raise RuntimeError("family-F support-overlap registry changed")
+    transition_fields = {
+        "continuous_F1_document_kl", "binary_native_down_document_kl",
+        "post_refit_document_kl", "binary_minus_continuous_document_kl",
+        "refit_minus_binary_document_kl",
+    }
+    if set(value["postfit_stage_transitions"]) != {"256", "512"} or any(
+        set(metrics) != transition_fields
+        for metrics in value["postfit_stage_transitions"].values()
+    ):
+        raise RuntimeError("family-F postfit transition registry changed")
+    for price in value["program_prices"].values():
+        if set(price) != {
+            "float_values", "float_bytes", "index_bytes", "total_bytes",
+            "products_per_token", "linear_multiplies_per_token",
+        } or any(type(number) is not int or number <= 0 for number in price.values()):
+            raise RuntimeError("family-F executable price changed")
+    call_contract.FamilyFCallLedger.replay_complete_receipt(value["call_ledger"])
+    before = value["model_state_before_sha256"]
+    after = value["model_state_after_sha256"]
+    if before != after or not isinstance(before, str) or len(before) != 64:
+        raise RuntimeError("family-F model integrity result changed")
+    if (
+        value["fit_rows_loaded"] != life.ROW_COUNT
+        or value["validation_rows_loaded"] != 0
+        or value["final_rows_loaded"] != 0
+        or value["ground_truth_target_tokens_used"] != 0
+        or value["retained_teacher_logits"] != 0
+        or value["authorized_for_validation"] is not False
+        or value["authorized_for_final"] is not False
+        or value["authorized_for_global_ledger_credit"] is not False
+        or not 0 <= value["elapsed_seconds"] <= MAX_WALL_SECONDS
+        or not 0 <= value["maximum_allocated_cuda_bytes"] <= MAX_ALLOCATED_CUDA_BYTES
+    ):
+        raise RuntimeError("family-F result permissions, rows, or resources changed")
+
+
+def semantic_validate_receipt(
+    value: Mapping[str, Any], *, expected_authority_sha256: str,
+    authority_file_sha256: str, programs_file_sha256: str,
+    results_file_sha256: str, source_sha256: str, prior_sha256: str,
+    rows_sha256: str, checkpoint_weights_sha256: str,
+    expected_call_ledger: Mapping[str, Any],
+) -> None:
+    required = {
+        "schema", "status", "authority_sha256", "authority_file_sha256",
+        "programs_file_sha256", "results_file_sha256", "source_closure_sha256",
+        "prior_artifact_binding_sha256", "row_binding_sha256",
+        "checkpoint_weights_sha256", "call_ledger", "validation_rows_loaded",
+        "final_rows_loaded", "authorized_for_validation", "authorized_for_final",
+        "authorized_for_global_ledger_credit", "elapsed_seconds",
+    }
+    expected = {
+        "authority_sha256": expected_authority_sha256,
+        "authority_file_sha256": authority_file_sha256,
+        "programs_file_sha256": programs_file_sha256,
+        "results_file_sha256": results_file_sha256,
+        "source_closure_sha256": source_sha256,
+        "prior_artifact_binding_sha256": prior_sha256,
+        "row_binding_sha256": rows_sha256,
+        "checkpoint_weights_sha256": checkpoint_weights_sha256,
+    }
+    if not isinstance(value, Mapping) or set(value) != required or value.get(
+        "schema"
+    ) != "block3_consequence_family_f_v1_receipt" or value.get(
+        "status"
+    ) != "fit_complete_receipt_last_no_evaluation_opened" or any(
+        value.get(key) != expected_value for key, expected_value in expected.items()
+    ) or value.get("call_ledger") != expected_call_ledger:
+        raise RuntimeError("family-F receipt schema or joins changed")
+    call_contract.FamilyFCallLedger.replay_complete_receipt(value["call_ledger"])
+    if value["validation_rows_loaded"] != 0 or value["final_rows_loaded"] != 0 or (
+        value["authorized_for_validation"] is not False
+    ) or value["authorized_for_final"] is not False or value[
+        "authorized_for_global_ledger_credit"
+    ] is not False or not isinstance(value["elapsed_seconds"], (int, float)) or not (
+        0 <= value["elapsed_seconds"] <= MAX_WALL_SECONDS
+    ):
+        raise RuntimeError("family-F receipt permissions or resources changed")
+
+
 def run() -> dict[str, Any]:
     life.require_pristine_namespace()
     claim = collector.acquire_claim(LOCK)
@@ -1052,24 +1401,58 @@ def run() -> dict[str, Any]:
             frozen_authority=frozen_authority, rows_binding=rows_binding,
             checkpoint=checkpoint, calls=calls, started=started,
         )
+        require_resource_ceiling(started)
         claim.verify()
         verify_frozen_inputs(source, prior, rows_binding, checkpoint)
         if json.loads(AUTHORITY.read_text()) != frozen_authority:
             raise RuntimeError("family-F authority drifted before program publication")
-        semantic_validate_program_artifact(program_artifact)
+        validation_parent, validation_a = load_parent_tensors_after_authority(
+            frozen_authority, started=started,
+        )
+        family_a_supports = {
+            budget: validation_a["programs"][
+                f"activation_selected_k{budget}"
+            ]["indices"].long().contiguous()
+            for budget in BUDGETS
+        }
+        semantic_validate_program_artifact(
+            program_artifact,
+            expected_authority_sha256=frozen_authority["authority_sha256"],
+            prefilter=validation_parent["prefilter_indices"].long(),
+            family_a_supports=family_a_supports,
+        )
         collector.create_torch(PROGRAMS, program_artifact)
         reloaded_programs = torch.load(PROGRAMS, map_location="cpu", weights_only=True)
-        semantic_validate_program_artifact(reloaded_programs)
+        require_exact_tensor_tree(reloaded_programs, program_artifact)
+        semantic_validate_program_artifact(
+            reloaded_programs,
+            expected_authority_sha256=frozen_authority["authority_sha256"],
+            prefilter=validation_parent["prefilter_indices"].long(),
+            family_a_supports=family_a_supports,
+        )
         program_hash = file_sha256(PROGRAMS)
         result = {**result, "programs_file_sha256": program_hash}
+        semantic_validate_result(
+            result, expected_authority_sha256=frozen_authority["authority_sha256"],
+            expected_programs_file_sha256=program_hash,
+        )
         collector.create_json(RESULTS, result)
+        reloaded_result = json.loads(RESULTS.read_text())
+        if reloaded_result != result:
+            raise RuntimeError("family-F result changed after publication")
+        semantic_validate_result(
+            reloaded_result,
+            expected_authority_sha256=frozen_authority["authority_sha256"],
+            expected_programs_file_sha256=program_hash,
+        )
         result_hash = file_sha256(RESULTS)
 
+        authority_hash = file_sha256(AUTHORITY)
         receipt = {
             "schema": "block3_consequence_family_f_v1_receipt",
             "status": "fit_complete_receipt_last_no_evaluation_opened",
             "authority_sha256": frozen_authority["authority_sha256"],
-            "authority_file_sha256": file_sha256(AUTHORITY),
+            "authority_file_sha256": authority_hash,
             "programs_file_sha256": program_hash,
             "results_file_sha256": result_hash,
             "source_closure_sha256": source["sha256"],
@@ -1084,20 +1467,29 @@ def run() -> dict[str, Any]:
             "authorized_for_global_ledger_credit": False,
             "elapsed_seconds": time.time() - started,
         }
+        semantic_validate_receipt(
+            receipt,
+            expected_authority_sha256=frozen_authority["authority_sha256"],
+            authority_file_sha256=authority_hash,
+            programs_file_sha256=program_hash,
+            results_file_sha256=result_hash,
+            source_sha256=source["sha256"], prior_sha256=prior["sha256"],
+            rows_sha256=rows_binding["sha256"],
+            checkpoint_weights_sha256=checkpoint.weights_sha256,
+            expected_call_ledger=result["call_ledger"],
+        )
+        # All deserialization and semantic reconstruction is complete above.  The
+        # terminal window contains only frozen-input/byte guards and receipt creation.
         claim.verify()
         verify_frozen_inputs(source, prior, rows_binding, checkpoint)
         if json.loads(AUTHORITY.read_text()) != frozen_authority or file_sha256(
-            PROGRAMS
-        ) != program_hash or file_sha256(RESULTS) != result_hash:
+            AUTHORITY
+        ) != authority_hash or file_sha256(PROGRAMS) != program_hash or file_sha256(
+            RESULTS
+        ) != result_hash:
             raise RuntimeError("family-F terminal byte integrity replay failed")
-        semantic_validate_program_artifact(torch.load(
-            PROGRAMS, map_location="cpu", weights_only=True,
-        ))
-        call_contract.FamilyFCallLedger.replay_complete_receipt(result["call_ledger"])
-        if time.time() - started > 2700 or result[
-            "maximum_allocated_cuda_bytes"
-        ] > 30 * 1024 ** 3:
-            raise RuntimeError("family-F terminal resource ceiling failed")
+        require_resource_ceiling(started)
+        claim.verify()
         collector.create_json(RECEIPT, receipt)
         return result
     except BaseException as error:

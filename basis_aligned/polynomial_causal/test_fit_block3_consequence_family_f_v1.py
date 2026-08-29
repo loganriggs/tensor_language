@@ -54,6 +54,49 @@ def test_rows_refuse_to_deserialize_before_authority(monkeypatch, tmp_path):
     assert loaded == []
 
 
+def test_parent_load_detects_hash_drift_during_deserialization(monkeypatch, tmp_path):
+    payload_path = tmp_path / "parent.pt"
+    a_path = tmp_path / "family_a.pt"
+    payload_path.write_bytes(b"parent-before")
+    a_path.write_bytes(b"a-before")
+    monkeypatch.setattr(runner, "ROOT", tmp_path)
+    monkeypatch.setattr(runner.collector, "PAYLOAD", payload_path)
+    prior_paths = list(runner.life.PRIOR_PATHS)
+    prior_paths[4] = a_path
+    monkeypatch.setattr(runner.life, "PRIOR_PATHS", tuple(prior_paths))
+    authority_path = tmp_path / "authority.json"
+    monkeypatch.setattr(runner, "AUTHORITY", authority_path)
+    hashes = {
+        "parent.pt": runner.file_sha256(payload_path),
+        "family_a.pt": runner.file_sha256(a_path),
+    }
+    frozen = {
+        "prior_artifact_binding": {
+            "file_sha256s": hashes,
+            "collector_authority_sha256": "c" * 64,
+            "fit_authority_sha256": "f" * 64,
+        }
+    }
+    authority_path.write_text(json.dumps(frozen))
+    loads = 0
+
+    def drifting_load(path, **kwargs):
+        nonlocal loads
+        loads += 1
+        if loads == 1:
+            payload_path.write_bytes(b"parent-after")
+            return {
+                "authority_sha256": "c" * 64,
+                "prefilter_indices": torch.arange(runner.PREFILTER),
+            }
+        return {"fit_authority_sha256": "f" * 64}
+
+    monkeypatch.setattr(runner.torch, "load", drifting_load)
+    monkeypatch.setattr(runner, "require_resource_ceiling", lambda started: (0.0, 0))
+    with pytest.raises(RuntimeError, match="changed during load"):
+        runner.load_parent_tensors_after_authority(frozen, started=0.0)
+
+
 def test_affine_write_preserves_double_parameter_gradients_with_float32_program():
     generator = torch.Generator().manual_seed(0)
     program = subset.NativeGateSubsetProgram(
@@ -71,6 +114,36 @@ def test_affine_write_preserves_double_parameter_gradients_with_float32_program(
     write.square().sum().backward()
     assert scale.grad is not None and scale.grad.dtype == torch.float64
     assert correction.grad is not None and correction.grad.dtype == torch.float64
+
+
+def test_affine_write_is_the_exact_prospective_folded_float32_program():
+    generator = torch.Generator().manual_seed(17)
+    program = subset.NativeGateSubsetProgram(
+        indices=torch.arange(3),
+        left=torch.randn(3, 4, generator=generator),
+        right=torch.randn(3, 4, generator=generator),
+        decoder=torch.randn(4, 3, generator=generator),
+        bias=torch.randn(4, generator=generator),
+    )
+    z = torch.randn(2, 5, 4, generator=generator)
+    scale = torch.tensor(0.713, dtype=torch.float64, requires_grad=True)
+    correction = torch.randn(4, generator=generator, dtype=torch.float64).requires_grad_()
+    observed = runner._affine_write(program, z, scale, correction)
+    folded = runner.core.fold_affine_calibration(
+        program, scale.detach().float(), correction.detach().float(),
+    )
+    torch.testing.assert_close(observed.detach(), folded.write(z), rtol=0, atol=0)
+
+
+def test_raw_replay_rejects_discrepancy_hidden_by_saturated_softcap(monkeypatch):
+    monkeypatch.setattr(runner, "POSITION_START", 0)
+    monkeypatch.setattr(runner, "POSITION_STOP", 1)
+    teacher_raw = torch.tensor([[[1000.0, 0.0]]])
+    ordinary_raw = torch.tensor([[[2000.0, 0.0]]])
+    teacher = runner.softcap_logits(teacher_raw)
+    assert float((runner.softcap_logits(ordinary_raw) - teacher).abs().max()) == 0.0
+    with pytest.raises(RuntimeError, match="autonomous suffix replay"):
+        runner.validate_native_replay(ordinary_raw, teacher_raw, teacher)
 
 
 def test_build_programs_has_nested_real_support_and_same_support_control(monkeypatch):
@@ -166,12 +239,153 @@ def _valid_program_artifact(monkeypatch):
 
 def test_semantic_program_reload_rejects_control_support_drift(monkeypatch):
     artifact = _valid_program_artifact(monkeypatch)
-    runner.semantic_validate_program_artifact(artifact)
+    prefilter = torch.arange(1024)
+    runner.semantic_validate_program_artifact(
+        artifact, expected_authority_sha256="a" * 64, prefilter=prefilter,
+    )
     artifact["programs"]["same_support_permuted_cross_post_refit_k256"][
         "indices"
     ] = torch.arange(1, 257)
     with pytest.raises(RuntimeError, match="support provenance"):
-        runner.semantic_validate_program_artifact(artifact)
+        runner.semantic_validate_program_artifact(
+            artifact, expected_authority_sha256="a" * 64, prefilter=prefilter,
+        )
+
+
+def test_semantic_program_rejects_authority_score_and_tensor_corruption(monkeypatch):
+    artifact = _valid_program_artifact(monkeypatch)
+    prefilter = torch.arange(1024)
+    reconstructed = {
+        name: runner._materialize_program(payload, device="cpu")
+        for name, payload in artifact["programs"].items()
+    }
+    with pytest.raises(RuntimeError, match="schema"):
+        runner.semantic_validate_program_artifact(
+            artifact, expected_authority_sha256="b" * 64, prefilter=prefilter,
+        )
+    artifact = _valid_program_artifact(monkeypatch)
+    artifact["scores"]["teacher"][0] = 1.1
+    artifact["scores"]["teacher"][512] = -0.1
+    with pytest.raises(RuntimeError, match="score vector"):
+        runner.semantic_validate_program_artifact(
+            artifact, expected_authority_sha256="a" * 64, prefilter=prefilter,
+        )
+    artifact = _valid_program_artifact(monkeypatch)
+    artifact["programs"]["real_F_post_refit_k256"]["decoder"][0, 0] += 1
+    with pytest.raises(RuntimeError, match="reconstructed program tensor"):
+        runner.semantic_validate_program_artifact(
+            artifact, expected_authority_sha256="a" * 64, prefilter=prefilter,
+            reconstructed_programs=reconstructed,
+        )
+
+
+def _valid_result():
+    ledger = call_contract.FamilyFCallLedger()
+    call_contract.record_frozen_schedule(ledger)
+    call_receipt = ledger.validate_exact()
+    score_trace_fields = {
+        "document_kl": 0.1, "row_kl": 0.1, "score_min": 0.0,
+        "score_max": 1.0, "score_sum": 512.0, "saturated_zero": 0.5,
+        "saturated_one": 0.5, "gradient_norm_max": 0.1,
+    }
+    affine_trace_fields = {
+        "document_kl": 0.1, "row_kl": 0.1, "gradient_norm_max": 0.1,
+        "scale": 1.0, "correction_rms": 0.0, "correction_norm": 0.0,
+    }
+    report_names = set(call_contract.REPORT_STUDENT_ARMS)
+    program_names = report_names - {"continuous_teacher_F1"}
+    overlaps = {
+        f"teacher_vs_{comparison}_k{budget}": {"intersection": 1, "jaccard": 0.1}
+        for comparison in (
+            "teacher_row_reversal", "teacher_document_derangement", "random", "family_A",
+        )
+        for budget in runner.BUDGETS
+    }
+    price = {
+        "float_values": 1, "float_bytes": 4, "index_bytes": 8, "total_bytes": 12,
+        "products_per_token": 1, "linear_multiplies_per_token": 1,
+    }
+    transition = {
+        "continuous_F1_document_kl": 0.1, "binary_native_down_document_kl": 0.2,
+        "post_refit_document_kl": 0.15, "binary_minus_continuous_document_kl": 0.1,
+        "refit_minus_binary_document_kl": -0.05,
+    }
+    return {
+        "schema": "block3_consequence_family_f_v1_fit_results",
+        "status": "fit_complete_no_validation_or_final_opened",
+        "authority_sha256": "a" * 64,
+        "score_traces": {
+            arm: [{"epoch": epoch, **score_trace_fields} for epoch in range(1, 9)]
+            for arm in call_contract.SCORE_ARMS
+        },
+        "affine_traces": {
+            arm: [{"epoch": epoch, **affine_trace_fields} for epoch in range(1, 5)]
+            for arm in call_contract.AFFINE_ARMS
+        },
+        "known_answer_replay": {
+            "raw_max_absolute": 0.0, "raw_max_relative": 0.0,
+            "max_absolute": 0.0, "max_relative": 0.0, "teacher_self_kl_max": 0.0,
+        },
+        "postfit_report": {
+            arm: {
+                "document_balanced_teacher_kl": 0.1, "row_mean_teacher_kl": 0.1,
+                "summed_write_nrmse": 0.2,
+            }
+            for arm in report_names
+        },
+        "postfit_stage_transitions": {"256": transition, "512": transition},
+        "stacked_typed_fit_nrmse": {
+            arm: 0.2 for arm in program_names if not arm.startswith("affine_")
+        },
+        "direct_polarization_replay": {
+            arm: {"max_absolute": 0.0, "max_relative": 0.0} for arm in program_names
+        },
+        "score_projection_replay_max_abs": {
+            arm: 0.0 for arm in call_contract.SCORE_ARMS
+        },
+        "support_overlaps": overlaps,
+        "program_prices": {arm: price for arm in program_names},
+        "call_ledger": call_receipt,
+        "model_state_before_sha256": "b" * 64,
+        "model_state_after_sha256": "b" * 64,
+        "fit_rows_loaded": runner.life.ROW_COUNT,
+        "validation_rows_loaded": 0, "final_rows_loaded": 0,
+        "ground_truth_target_tokens_used": 0, "retained_teacher_logits": 0,
+        "authorized_for_validation": False, "authorized_for_final": False,
+        "authorized_for_global_ledger_credit": False,
+        "elapsed_seconds": 1.0, "maximum_allocated_cuda_bytes": 0,
+        "torch_version": "test", "python_version": "test",
+        "programs_file_sha256": "c" * 64,
+    }
+
+
+def test_result_semantic_replay_rejects_missing_arm_and_bad_join():
+    result = _valid_result()
+    runner.semantic_validate_result(
+        result, expected_authority_sha256="a" * 64,
+        expected_programs_file_sha256="c" * 64,
+    )
+    broken = dict(result)
+    broken["authority_sha256"] = "d" * 64
+    with pytest.raises(RuntimeError, match="joins"):
+        runner.semantic_validate_result(
+            broken, expected_authority_sha256="a" * 64,
+            expected_programs_file_sha256="c" * 64,
+        )
+    result["postfit_report"] = dict(result["postfit_report"])
+    result["postfit_report"].pop("continuous_teacher_F1")
+    with pytest.raises(RuntimeError, match="postfit report"):
+        runner.semantic_validate_result(
+            result, expected_authority_sha256="a" * 64,
+            expected_programs_file_sha256="c" * 64,
+        )
+
+
+def test_resource_ceiling_aborts_during_execution(monkeypatch):
+    monkeypatch.setattr(runner.time, "time", lambda: runner.MAX_WALL_SECONDS + 1.0)
+    monkeypatch.setattr(runner.torch.cuda, "is_available", lambda: False)
+    with pytest.raises(RuntimeError, match="resource ceiling"):
+        runner.require_resource_ceiling(0.0)
 
 
 def _configure_transaction(monkeypatch, tmp_path, *, terminal_drift=False):
@@ -198,7 +412,22 @@ def _configure_transaction(monkeypatch, tmp_path, *, terminal_drift=False):
             raise RuntimeError("injected terminal source drift")
 
     monkeypatch.setattr(runner, "verify_frozen_inputs", verify)
-    monkeypatch.setattr(runner, "semantic_validate_program_artifact", lambda value: None)
+    monkeypatch.setattr(
+        runner, "semantic_validate_program_artifact", lambda value, **kwargs: None,
+    )
+    monkeypatch.setattr(runner, "semantic_validate_result", lambda value, **kwargs: None)
+    monkeypatch.setattr(runner, "semantic_validate_receipt", lambda value, **kwargs: None)
+    parent = {"prefilter_indices": torch.arange(runner.PREFILTER)}
+    a_programs = {
+        "programs": {
+            f"activation_selected_k{budget}": {"indices": torch.arange(budget)}
+            for budget in runner.BUDGETS
+        }
+    }
+    monkeypatch.setattr(
+        runner, "load_parent_tensors_after_authority",
+        lambda frozen_authority, started: (parent, a_programs),
+    )
 
     def execute_fit(**kwargs):
         assert runner.AUTHORITY.exists()

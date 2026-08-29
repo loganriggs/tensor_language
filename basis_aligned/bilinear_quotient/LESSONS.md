@@ -1736,3 +1736,36 @@ re-running the must-fail fixture, because a skip is the easiest way to silence i
 contains the defect before trusting either outcome. The gate ended at 2 of 150 flags, both explained —
 guarded, unreachable `int(r)` in scripts that already ran — which is the state to record rather than
 tune away.
+
+## LESSON 66 — a replacement block's trailing indentation re-indents the line that FOLLOWS it
+
+`stream_input_closure.py` was built by string surgery on `deployable_stream_map.py`. The replaced slice
+ended just before `        del tables, Ecov, Eunc, A`, and my replacement string ended with a newline and
+eight spaces. Eight plus eight is sixteen: the retained `del` landed **inside the `for st in sites:` loop
+I had just inserted**. It parsed. `ops/gate.py` passed it. `ops/enqueue.sh` queued it. It died **271
+seconds in**, on the second iteration, with `UnboundLocalError: cannot access local variable 'tables'` —
+after both other arms had run and returned their covered CE at exactly 0.00000.
+
+This is the second splice failure in one session. The first (`deployable_stream_rank1024.py`) produced a
+`SyntaxError` and was caught for free by `enqueue.sh`. **This one produced valid Python, so every
+syntactic guard I own was blind to it.** The difference is entirely luck about where the collision landed.
+
+**The rule:** when a replacement's boundary abuts a retained line, the retained line's own indentation is
+still in the file. End the replacement at a newline with **no trailing whitespace**, or include the
+retained line in the replacement and own its indentation explicitly. Do not rely on the two agreeing.
+
+**The check** (now in `gate.py`): `del X` inside a `for`/`while` whose body never assigns `X`. A
+loop-invariant delete-in-loop is always a bug, and it is the exact fingerprint an indentation splice
+leaves. Building it took three drafts, and **LESSON D's two directions caught both wrong ones**:
+
+```
+  draft 1  bare ast.Name targets only          FIRES on the bug   FLOODS: 28 of 156 working scripts
+  draft 2  + tuple-unpacking targets            FIRES              2 of 156 -- rank_crossover{,_v2}
+  draft 3  + the loop's OWN target              FIRES              0 of 156
+```
+
+Draft 1 missed `bank, seen, n = build(...)`. Draft 2 missed `for name, sc in (...): ... del sc`, where
+the loop target rebinds every iteration — both flagged scripts had **exit=0** in `_completed.txt`, which
+is how I knew they were false positives rather than a backlog. **A flood is a failed check, not a
+finding**: I only trusted the third draft because it fires on the reintroduced bug AND is silent on all
+156 scripts that actually ran.

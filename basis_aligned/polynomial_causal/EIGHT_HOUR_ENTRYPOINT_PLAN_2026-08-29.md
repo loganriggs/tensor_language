@@ -1,0 +1,153 @@
+# Eight-hour reverse-engineering experiment queue
+
+**Opened:** 2026-08-29 04:00 UTC  
+**Deadline audit:** 2026-08-29 12:00 UTC  
+**Scope:** finish the already-preregistered Block-3 Family-F experiment and run at
+least three cheap, falsifiable probes for each of the first four alternative entry
+points in `CURRENT_PROJECT_EXPLANATION_2026-08-29_0334.md`.
+
+This is a work queue, not a promise that all twelve pilots will be positive or that a
+failed pilot will be silently enlarged.  A completed negative result counts if its
+inputs, prediction, measurement and failure are preserved.  No pilot earns a broad
+claim from local MSE alone.
+
+## What success by 12:00 UTC means
+
+1. Family F has either a receipt-last numerical fit artifact or a precise preserved
+   implementation/resource failure.  It is not left in an unaudited half-runnable
+   state.
+2. Each entry point below has at least three recorded experimental outcomes.  A
+   theorem/proof check or synthetic known-answer test counts only where explicitly
+   listed; a plan or unexecuted runner does not count.
+3. Every result states its input, output, fitted information, held-out information,
+   literal price, and the downstream consequence it predicts beyond reconstruction.
+4. The 12:00 audit prunes weak branches and names the next one or two full experiments.
+
+## Immediate critical path: Family F
+
+Family F asks whether selecting native MLP3 product gates by their *downstream suffix
+consequence* makes an independently simplified MLP3 compose better than the earlier
+activation-selected family.  It preserves the exact native gate grammar and changes
+only support selection and the refitted Down map.
+
+- [ ] Close raw-pre-softcap replay, exact float32 affine deployment, Family-A overlap,
+  parent hash-before/load/hash-after, continuous resource checks, and program/result/
+  receipt semantic replay.
+- [ ] Pass focused and adversarial CPU tests.
+- [ ] Obtain independent outcome-blind GO; source-close, commit and push.
+- [ ] When the current stream-closure GPU job releases the device, run the fit under
+  the preregistered 45-minute/30-GiB ceiling.
+- [ ] Preserve the receipt or failure and write the scientific interpretation.  Fit
+  KL alone never opens validation; only the uncalibrated real-F K256/K512 programs are
+  promotive candidates.
+
+## Entry point 1 — close the stream-map dataflow
+
+Question: does the strong rank-512 stream map still work when its input is produced by
+the compressed program rather than by a native one-token forward?
+
+- [ ] **E1.1 Recursive closure (already running).** Feed each site map the site-entry
+  stream recursively produced by the settled compressed prefix.  Report uncovered CE
+  deficit on all three document roles and compare with embedding-r512, native-stream-
+  r512, and the shared ceiling.
+- [ ] **E1.2 Drift localization.** At every one of the 36 sites, compare native and
+  recursively generated map inputs by centered NRMSE, principal-angle/canonical-
+  correlation summaries, and the downstream CE change when only that site's input is
+  switched.  This distinguishes recoverable coordinate drift from accumulated causal
+  state loss.
+- [ ] **E1.3 Closed-input refit.** Fit the same rank-512 map on *covered tokens' closed
+  program streams*, then evaluate on uncovered tokens' closed program streams.  This
+  tests whether failure in E1.1 is merely train/deploy covariate shift.  Keep rank,
+  coverage, roles, and price fixed.
+
+Pass criterion for further work: a source-closed map improves whole-program held-out
+CE materially at matched price on all three roles without a native call or hidden
+token-by-site table.  Otherwise the native-stream result remains an oracle diagnostic.
+
+## Entry point 2 — factor all 36 maps jointly
+
+Question: do the independently successful site maps speak a shared continuous output
+language that is cheaper and easier to name?
+
+- [ ] **E2.1 Exact joint-RRR sweep.** Run the implemented simultaneous reduced-rank
+  regression at shared output ranks 64/128/256/512.  Compare residual energy and
+  held-out CE with 36 independent maps at both matched rank and matched stored floats.
+- [ ] **E2.2 One dictionary versus two.** Compare one global output basis with separate
+  attention and MLP output bases at equal total rank/storage.  This tests whether the
+  apparent sharing is architectural or merely caused by the common residual space.
+- [ ] **E2.3 Stable sparse coordinates.** Rotate the best shared subspace with a frozen
+  sparse/dictionary objective on fit data, then measure support/direction stability on
+  two disjoint roles and whether single-coordinate interventions have concentrated
+  downstream effects.  Reconstruction alone is insufficient.
+
+Pass criterion: shared factors reduce literal storage or improve held-out prediction
+at matched price, and their coordinates show cross-role stability or selective causal
+effects.  Dense rotationally arbitrary coordinates count as compression, not semantic
+interpretation.
+
+## Entry point 3 — work backward from downstream consequences
+
+Question: can a small predictive state summarize everything downstream needs from an
+early component, rather than reconstructing its full residual write?
+
+- [ ] **E3.1 Response-panel rank.** Build a small vector-valued matrix whose rows are
+  controlled early-component/prefix interventions and whose columns are later residual
+  directions plus selected logit groups.  Measure held-out singular-value/rank
+  stability across documents and intervention amplitudes.
+- [ ] **E3.2 Unseen-composition prediction.** Fit a predictive-state realization on a
+  subset of prefix/intervention × suffix-reader cells and predict sealed cells.  Score
+  vector error and resulting KL/CE; compare with equally priced local-MSE PCA/RRR.
+- [ ] **E3.3 State-variable edit test.** Remove or transplant one learned state
+  direction and test target effect, collateral effect, and OOD transport.  A state is
+  useful only if it predicts a new composition or supports a selective edit.
+
+Pass criterion: held-out cross-composition prediction or selective edits improve over
+local-reconstruction baselines at matched state dimension/price.  A low in-sample
+matrix rank alone is not enough.
+
+## Entry point 4 — terminal or behavior-anchored circuits
+
+Question: can a short causal path produce the first genuinely extracted and selectively
+removable circuit, thereby telling us which simplicity measure has practical value?
+
+- [ ] **E4.1 Terminal-layer screen.** Rank the last blocks' attention/MLP product-gate
+  groups by causal effect on sharply defined output classes, using positive, matched
+  negative, and off-target examples.  Prefer paths with short distance to unembedding.
+- [ ] **E4.2 Three behavior probes.** Run small controlled suites for capitalization,
+  number formatting, and copy/continuation behavior.  For each, require held-out
+  templates and a natural-text replication slice; report effect and collateral CE.
+- [ ] **E4.3 Extraction/removal pair.** For the strongest behavior/site pair, compare a
+  sparse extracted program, native circuit ablation, and extracted-program removal or
+  transplant.  Measure task accuracy/logit effect, off-target damage, OOD transport,
+  and executable cost.
+
+Pass criterion: one behavior admits a held-out predictive circuit whose intervention
+has a concentrated intended effect and limited collateral damage.  Top-1 agreement
+may support extraction, but faithful prediction/removal additionally requires KL/CE
+and OOD checks.
+
+## Eight-hour ordering and resource allocation
+
+| UTC window | Main action | Parallel CPU action |
+|---|---|---|
+| 04:00–05:15 | Harden/audit Family F while E1.1 owns GPU | Freeze E1.2/E1.3 and E2 harness inputs |
+| 05:15–06:15 | Read E1.1; run E1.2/E1.3 if cheap | Run E2.1 sufficient-statistic checks |
+| 06:15–07:15 | Run Family-F fit when GPU is free | Implement/test E2.2 and E3 response-panel reducer |
+| 07:15–08:30 | Preserve Family-F result/failure; launch best E2 pilot | Run E3.1/E3.2 small panels |
+| 08:30–10:00 | E2.2/E2.3 or E3 GPU follow-up | Prepare and run E4.1 terminal screen |
+| 10:00–11:30 | E3.3 and E4.2/E4.3 focused pilots | Consolidate prices, causal and OOD metrics |
+| 11:30–12:00 | Stop opening branches; audit all 12 cells | Rank next full experiments and update explanation |
+
+If a long GPU job consumes a window, the queue advances through CPU-known-answer
+tests, sufficient-statistic factorizations, response-matrix design, artifact review,
+and result consolidation.  No second GPU job is launched concurrently on this device.
+
+## Alarm and audit contract
+
+The existing hourly Codex cron is the recurring progress alarm.  During this window its
+prompt explicitly points to this file.  A separate one-shot deadline script queues a
+12:00 UTC completion audit into the same thread.  Both are session-local; their durable
+install entries live in `codex_session.crontab`.  The deadline script refuses to fire
+outside 2026-08-29 11:55–12:20 UTC, so a stale annual cron entry cannot create a false
+future alarm.
+

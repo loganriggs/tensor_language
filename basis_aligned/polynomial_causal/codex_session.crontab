@@ -4,3 +4,4 @@ CRON_TZ=Etc/UTC
 PATH=/opt/nvm/versions/node/v24.19.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 0 * * * * /workspace/tensor_language/basis_aligned/polynomial_causal/hourly_strategic_review.sh >> /workspace/runs/codex_hourly_review.log 2>&1
 30 */3 * * * /workspace/tensor_language/basis_aligned/polynomial_causal/three_hour_math_review.sh >> /workspace/runs/codex_three_hour_math_review.log 2>&1
+0 12 29 8 * /workspace/tensor_language/basis_aligned/polynomial_causal/eight_hour_entrypoint_deadline.sh >> /workspace/runs/codex_eight_hour_deadline.log 2>&1

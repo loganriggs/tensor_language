@@ -608,7 +608,7 @@ def main():
                 forward_logits(tt5, [(st, _mkc(st)) for st in sites])
                 for st in sites:
                     out[st][utoks[i5:i5 + tt5.shape[0]]] = crow[st]
-                del tables, Ecov, Eunc, A
+        del tables, Ecov, Eunc, A
         torch.cuda.empty_cache()
         return out, seen, n
 

@@ -314,6 +314,41 @@ def gate(path):
                 if len(u.split(',')) != want:
                     fails.append(f'{helper}() returns {want} values; unpack `{u.strip()}` '
                                  f'takes {len(u.split(","))}')
+
+    # `del X` inside a loop whose body never assigns X. String surgery that leaves trailing
+    # indentation silently re-indents the FOLLOWING retained line into the block just inserted:
+    # stream_input_closure.py absorbed `del tables, Ecov, Eunc, A` into the for-loop above it, parsed
+    # clean, passed this gate, and died 271s in on the loop's second iteration. Delete-in-loop of a
+    # loop-invariant name is the signature, and it is always a bug.
+    for node in ast.walk(tree):
+        if not isinstance(node, (ast.For, ast.While)):
+            continue
+        # the loop's OWN target rebinds every iteration, so `for name, sc in ...: ... del sc` is
+        # legal -- that idiom is what the second draft flagged in rank_crossover{,_v2}, both exit=0.
+        bound = {t.id for t in ast.walk(node.target) if isinstance(t, ast.Name)} \
+            if isinstance(node, ast.For) else set()
+        for b in node.body:
+            for n2 in ast.walk(b):
+                if isinstance(n2, ast.Assign):
+                    # targets may be tuples: `bank, seen, n = build(...)` binds all three. Matching
+                    # only bare ast.Name flagged 28 of 156 working scripts on the first draft.
+                    bound |= {t.id for tg in n2.targets for t in ast.walk(tg)
+                              if isinstance(t, ast.Name)}
+                elif isinstance(n2, (ast.AugAssign, ast.AnnAssign)) and isinstance(n2.target, ast.Name):
+                    bound.add(n2.target.id)
+                elif isinstance(n2, (ast.For, ast.comprehension)):
+                    bound |= {t.id for t in ast.walk(n2.target) if isinstance(t, ast.Name)}
+                elif isinstance(n2, (ast.With, ast.AsyncWith)):
+                    bound |= {t.id for it in n2.items if it.optional_vars
+                              for t in ast.walk(it.optional_vars) if isinstance(t, ast.Name)}
+        for b in node.body:
+            for n2 in ast.walk(b):
+                if isinstance(n2, ast.Delete):
+                    for tgt in n2.targets:
+                        if isinstance(tgt, ast.Name) and tgt.id not in bound:
+                            fails.append(f'line {n2.lineno}: `del {tgt.id}` sits inside a loop that '
+                                         f'never assigns {tgt.id} -- UnboundLocalError on the second '
+                                         f'iteration (an indentation splice, per stream_input_closure)')
     return fails
 
 
