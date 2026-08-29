@@ -1,0 +1,173 @@
+{
+  "authority_sha256": "5e22a810552c500cf0a0a1e5ff080888459f5351df55357531fdfbad0197706c",
+  "bundle_sha256": "79d13685a1e0f53aecc3ea1d34e0c332a55149bf6de510daab519712b6ed5856",
+  "calls": {
+    "c512": {
+      "attention_sites": {
+        "0": 48,
+        "1": 48,
+        "10": 48,
+        "11": 48,
+        "12": 48,
+        "13": 48,
+        "14": 48,
+        "15": 48,
+        "16": 48,
+        "17": 48,
+        "2": 48,
+        "3": 48,
+        "4": 48,
+        "5": 48,
+        "6": 48,
+        "7": 48,
+        "8": 48,
+        "9": 48
+      },
+      "c512": 48,
+      "native_mlp_sites": {
+        "0": 0,
+        "1": 48,
+        "10": 48,
+        "11": 48,
+        "12": 48,
+        "13": 48,
+        "14": 48,
+        "15": 48,
+        "16": 48,
+        "17": 48,
+        "2": 48,
+        "3": 48,
+        "4": 48,
+        "5": 48,
+        "6": 48,
+        "7": 48,
+        "8": 48,
+        "9": 48
+      },
+      "outer_calls": 48,
+      "outer_returns": 48,
+      "site2_capture": 48
+    },
+    "native": {
+      "attention_sites": {
+        "0": 48,
+        "1": 48,
+        "10": 48,
+        "11": 48,
+        "12": 48,
+        "13": 48,
+        "14": 48,
+        "15": 48,
+        "16": 48,
+        "17": 48,
+        "2": 48,
+        "3": 48,
+        "4": 48,
+        "5": 48,
+        "6": 48,
+        "7": 48,
+        "8": 48,
+        "9": 48
+      },
+      "c512": 0,
+      "native_mlp_sites": {
+        "0": 48,
+        "1": 48,
+        "10": 48,
+        "11": 48,
+        "12": 48,
+        "13": 48,
+        "14": 48,
+        "15": 48,
+        "16": 48,
+        "17": 48,
+        "2": 48,
+        "3": 48,
+        "4": 48,
+        "5": 48,
+        "6": 48,
+        "7": 48,
+        "8": 48,
+        "9": 48
+      },
+      "outer_calls": 48,
+      "outer_returns": 48,
+      "site2_capture": 48
+    }
+  },
+  "checkpoint": {
+    "config_sha256": "428042bfd807ba36f8b4326395440fbbebe52cd3d040212e6fef14a4fdf2d83c",
+    "logit_vocab": 50304,
+    "revision": "ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240",
+    "snapshot": "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240",
+    "tokenizer_vocab": 50257,
+    "weights_bytes": 2067738635,
+    "weights_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3"
+  },
+  "documents": {
+    "dev": 32,
+    "fit": 160
+  },
+  "evaluation_opened": false,
+  "fit": {
+    "CONTINUE512": {
+      "best_dev_normalized_mse": {
+        "c512": 0.44012746247047707,
+        "native": 0.4483383980737898
+      },
+      "best_dev_nrmse": {
+        "c512": 0.6634210295660494,
+        "native": 0.6695807629209413
+      },
+      "initial_dev_normalized_mse": {
+        "c512": 0.47243171198240397,
+        "native": 0.48107742403331855
+      },
+      "steps": 1200,
+      "target_energy": {
+        "c512": 184745.395196045,
+        "native": 193779.0970547314
+      }
+    },
+    "ROBUST512": {
+      "best_dev_normalized_mse": {
+        "c512": 0.43888617081921116,
+        "native": 0.4480662227001309
+      },
+      "best_dev_nrmse": {
+        "c512": 0.6624848457279692,
+        "native": 0.6693774889403817
+      },
+      "initial_dev_normalized_mse": {
+        "c512": 0.47243171198240397,
+        "native": 0.48107742403331855
+      },
+      "steps": 1200,
+      "target_energy": {
+        "c512": 184745.395196045,
+        "native": 193779.0970547314
+      }
+    }
+  },
+  "parents": {
+    "c512_receipt_sha256": "79d0069864e9df521a99fc36531dd86c7ed31106f58f029d681fb1788a269f82",
+    "c512_sha256": "3ecf43b485d343bc5413e817dbd4236e5ce6cdaa7a3e0e653214e812b84ce470",
+    "full512_bundle_sha256": "d0ad8aedcfec5097e2791d64281f5cc4b644af450968456fc64dc7312123078e",
+    "full512_receipt_sha256": "3578a68b4e8c20ea95f55a62cf9ff4e59e628bd69dbbad995f17a20f5265a7b2",
+    "rows_receipt_sha256": "3b0de23f0d9f3ef781e25a6f6173071abacf4aab8965faa2bd6ab6b3a747bbb0",
+    "train_rows_sha256": "efb7dad2ba187e1d265773bc6d4b5ea133366a646cbc2bc07b4929e6815bd599"
+  },
+  "program_price": {
+    "float32_coefficients_each": 1770624,
+    "native_mlp2_calls_at_deployment": 0,
+    "products_per_token": 512,
+    "rank": 512
+  },
+  "runtime_seconds": 109.38122200965881,
+  "schema": "mlp2_trajectory_robust_r512_v1_fit_result",
+  "status": "training_complete_evaluation_unopened",
+  "trajectory_shift_nrmse": {
+    "native_mlp2_write": 0.16091212630271912,
+    "pre_mlp2_state": 0.1507754772901535
+  }
+}

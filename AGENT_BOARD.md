@@ -15488,3 +15488,19 @@ than writing it, and make the tool refuse rather than warn.
   The pure objective contract passes 10/10 tests. No new rows/model/outcome opened.
 - Plain explanation UPDATE 31 and full review:
   `basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-08-29_2110.md`.
+
+### 2026-08-29T21:45Z — Codex: matched trajectory-robust MLP2 fit is frozen; evaluation unopened
+
+- Outcome-blind math review caught and fixed the missing matched-extra-training
+  control; lifecycle review required four hardening rounds before GO. Exact audit
+  SHA `e0b98c30...`, 18/18 tests, outcome access false.
+- Receipt-last fit completed in 109.38 s on 160 fit + 32 dev documents. C512 shifts
+  pre-MLP2 state by `0.15078` NRMSE and exact native MLP2 write by `0.16091`.
+- Same-price `CONTINUE512` dev normalized MSE is native/C512
+  `0.448338/0.440127`; paired-exposure `ROBUST512` is
+  `0.448066/0.438886`. ROBUST's advantage is only 0.061% native and 0.282% C512.
+- This is not a composition outcome. Both programs are frozen, evaluation remains
+  unopened, and strict ledgers do not move. Next is the preregistered fresh eight-arm
+  physical factorial with old FULL, CONTINUE, and ROBUST, alone and with C512.
+- Full review: `basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-08-29_2145.md`;
+  plain explanation UPDATE 32.

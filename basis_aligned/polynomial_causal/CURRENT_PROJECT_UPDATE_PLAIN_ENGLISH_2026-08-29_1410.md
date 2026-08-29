@@ -2201,3 +2201,40 @@ The strict ledger remains unchanged: `5.348245316%` certified storage removal,
 terminal actions.
 
 ## UPDATE END — 31
+
+## UPDATE START — 32: trajectory-robust MLP2 fit
+
+The controlled follow-up to the MLP0×MLP2 interaction has finished training. We
+compared two equal-price rank-512 MLP2 programs initialized from exactly the same
+FULL512 bytes:
+
+- `CONTINUE512` received 1,200 more steps on native states;
+- `ROBUST512` received the same compute, but half its examples came from states made
+  by the compressed MLP0-C512 program.
+
+This control matters because FULL512 was still improving when its original training
+budget ended. Without CONTINUE512, any gain could be merely “more optimization.”
+
+C512 creates a real change at the MLP2 interface: the MLP2 input moves by `0.15078`
+NRMSE, and the exact native MLP2 write moves by `0.16091`. Continued training improves
+local normalized MSE by about 6.8%, but explicit C512 exposure improves over matched
+continuation by only 0.282% on C512 development states and 0.061% on native states.
+
+That small difference is not yet a failure: local activation error is known to be a
+poor proxy for final CE. Both programs are now frozen, evaluation remains unopened,
+and the next experiment is a fresh eight-arm physical comparison of old FULL512,
+CONTINUE512, and ROBUST512, each alone and with C512.
+
+The independent attention-program work also found a replicated downstream interface
+condition involving attention 5 and 6, but deletion controls killed stronger “chain”
+stories. This is useful evidence for learning late consumers to interpret early
+layers, not yet a semantic circuit.
+
+Full definitions, numbers, project balance sheet, pruning, and priorities are in
+[`HOURLY_STRATEGIC_REVIEW_2026-08-29_2145.md`](HOURLY_STRATEGIC_REVIEW_2026-08-29_2145.md).
+
+The strict ledger remains unchanged: `5.348245316%` certified storage,
+`10.923302467%` named causal CE, `4.72714` nat (`89.077%`) unexplained, and `0/68`
+terminal actions.
+
+## UPDATE END — 32
