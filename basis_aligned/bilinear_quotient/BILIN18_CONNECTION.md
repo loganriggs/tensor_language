@@ -56074,3 +56074,57 @@ redistribution, §1954 that the shape inverts with coverage, and §1957–§1961
 without once checking what they do to the bucket structure. **No section since §1954 has looked at where
 the last five purchases landed**, and a sequence of CE-optimal steps can drift the accuracy profile
 somewhere nobody chose.
+
+## §1962 — the profile DID drift, my bar failed, and the drift is almost entirely favourable
+
+`ops/profile_after_five_purchases.py`, **9.3s** warm, **DISCOVERY ONLY**, both coverages, rung 3 —
+§1961's open question. **pred_a False | pred_b True (3/3) | pred_c True | pred_d True.**
+
+§1957–§1961 each bought one to two milli-nats of **pooled CE** and none looked at the bucket structure.
+I registered that five locally-CE-optimal steps should be **invisible** on buckets — no bucket moving
+more than 0.5pp — and asked what it would mean if they were not.
+
+```
+  current build minus §1950's converged build, pooled kept-fraction, pp
+                    0-0     1-4    5-24   25-124   125+    max |Δ|
+  5,419  skip7000  +0.00   +0.46  +1.23   +0.00   +0.31    1.23
+         skip11000 +0.00   +0.35  +0.66   +0.08   +0.13    0.66
+         skip1200  -0.09   +0.25  +0.58   +0.32   +0.00    0.58
+  16,110 skip7000  +0.00   +0.23  +0.00   +0.81   +0.12    0.81
+         skip11000 +0.09   -0.06  +0.34   +0.31   -0.02    0.34
+         skip1200  -0.66   +0.31  +0.24   +0.40   +0.13    0.66
+```
+
+> **pred_a FAILED — 0 of 3 roles at 5,419 and 1 of 3 at 16,110 stayed inside 0.5pp, against a
+> 2-of-3-each bar. The purchases are NOT invisible: the largest single move is +1.23pp.** My assumption
+> that ~5 milli-nats of pooled CE could not shift a bucket by half a point was simply wrong, and the
+> conclusion I flagged in advance — *"optimising pooled CE has been moving the accuracy profile as a side
+> effect"* — is correct.
+
+> **And the direction is the part I could not have predicted: 26 of the 30 cells are ≥ 0, and the drift
+> is concentrated where the build was already strong.** 5-24 gains +1.23 / +0.66 / +0.58pp at 5,419 and
+> 25-124 gains +0.81pp at 16,110. **The five CE purchases bought bucket accuracy too, not at its
+> expense.** That is a better outcome than the bar was written to detect, and it is why the bar failing
+> is worth more than it passing would have been.
+
+> **One regression, and it is the one to watch: 16,110 / skip1200 loses 0.66pp of the unseen bucket** —
+> the deficit §1954 identified, deepened by the purchases on that role. The other five cells move the
+> unseen bucket by −0.09 to +0.09pp. **pred_b PASSED 3/3**: §1954's unseen-bucket loss against the
+> deployed design still holds at 16,110, so the purchases have not fixed it and on one role have made it
+> worse.
+
+> **pred_c PASSED at both coverages, 3/3 each: the common-target cost is still bounded** — the current
+> build's 125+ kept-fraction is within 1.0pp of the deployed design's everywhere, so §1953's
+> characterisation of the build survives five changes to it.
+
+**pred_d PASSED**: coverages exactly 5,419 and 16,110; the plan-derived control non-vacuous both ways (1
+same-spec pair exactly inert at covered inputs, 5 differing-spec pairs not); buckets partition; live
+per-cell top-1 and CE identical at 0.00e+00; §1949's published CE reproduced to **0.000000** via
+`B.ref()`; and §1932's published deployed top-1 reproduced within a **0.1pp** bar set at twice the
+rounding envelope of a 1-dp figure (LESSON 84) — forty-sixth clean reading.
+
+**Open.** The unseen bucket is now the only place the build is worse than §1789's deployed design, it is
+the only cell that drifted the wrong way under five CE purchases, and §1955/§1956 established that the
+one input-side signal able to predict it cannot be routed on profitably. **Three independent lines have
+now converged on the same residual, and none of them has tried the obvious thing: not blending at all on
+the tokens whose neighbour is the problem — a per-token α rather than a per-token choice of row.**

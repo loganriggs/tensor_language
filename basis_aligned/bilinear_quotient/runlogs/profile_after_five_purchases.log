@@ -1,0 +1,61 @@
+PROFILE AFTER FIVE PURCHASES | deployed vs converged vs current | both coverages | DISCOVERY ONLY
+
+########## COVERAGE 5419 ##########
+  [bqlib] coverage 5419 from fineweb_n96_skip80.pt: 36 tables, neighbour index and map solver built (4s)
+  [bqlib] cache HIT  live     skip7000
+  [bqlib] cache HIT  live     skip11000
+  [bqlib] cache HIT  live     skip1200
+  [bqlib] cache HIT  map64    skip7000
+  [bqlib] cache HIT  map64    skip11000
+  [bqlib] cache HIT  map64    skip1200
+  [bqlib] cache HIT  mix25m512 skip7000
+  [bqlib] cache HIT  mix25m512 skip11000
+  [bqlib] cache HIT  mix25m512 skip1200
+  [bqlib] cache HIT  mix30m576 skip7000
+  [bqlib] cache HIT  mix30m576 skip11000
+  [bqlib] cache HIT  mix30m576 skip1200
+  [bqlib] cache HIT  mix25m576 skip7000
+  [bqlib] cache HIT  mix25m576 skip11000
+  [bqlib] cache HIT  mix25m576 skip1200
+
+########## COVERAGE 16110 ##########
+  [bqlib] coverage 16110 from fineweb_n480_skip80.pt: 36 tables, neighbour index and map solver built (5s)
+  [bqlib] cache HIT  live     skip7000
+  [bqlib] cache HIT  live     skip11000
+  [bqlib] cache HIT  live     skip1200
+  [bqlib] cache HIT  map64    skip7000
+  [bqlib] cache HIT  map64    skip11000
+  [bqlib] cache HIT  map64    skip1200
+  [bqlib] cache HIT  mix25m512 skip7000
+  [bqlib] cache HIT  mix25m512 skip11000
+  [bqlib] cache HIT  mix25m512 skip1200
+  [bqlib] cache HIT  mix30m576 skip7000
+  [bqlib] cache HIT  mix30m576 skip11000
+  [bqlib] cache HIT  mix30m576 skip1200
+  [bqlib] cache HIT  mix25m576 skip7000
+  [bqlib] cache HIT  mix25m576 skip11000
+  [bqlib] cache HIT  mix25m576 skip1200
+
+  === c5419 ===
+    skip7000       0-0 dep  2.7% conv  3.4% cur  3.4%      1-4 dep  4.2% conv  5.4% cur  5.9%     5-24 dep  9.5% conv 14.5% cur 15.7%   25-124 dep 23.6% conv 26.0% cur 26.0%  125-1000000000 dep 63.5% conv 63.2% cur 63.5%
+               max |current - converged| across buckets: 1.23pp
+    skip11000      0-0 dep  6.2% conv  5.9% cur  5.9%      1-4 dep  5.4% conv  6.8% cur  7.1%     5-24 dep  8.0% conv 12.6% cur 13.3%   25-124 dep 24.5% conv 26.8% cur 26.8%  125-1000000000 dep 62.9% conv 62.5% cur 62.6%
+               max |current - converged| across buckets: 0.66pp
+    skip1200       0-0 dep  3.6% conv  3.3% cur  3.3%      1-4 dep  4.7% conv  5.8% cur  6.0%     5-24 dep 12.4% conv 15.9% cur 16.5%   25-124 dep 23.6% conv 26.1% cur 26.4%  125-1000000000 dep 63.4% conv 63.4% cur 63.4%
+               max |current - converged| across buckets: 0.58pp
+
+  === c16110 ===
+    skip7000       0-0 dep  2.6% conv  2.5% cur  2.5%      1-4 dep  4.0% conv  5.3% cur  5.5%     5-24 dep  5.4% conv  6.7% cur  6.7%   25-124 dep  8.6% conv  8.5% cur  9.3%  125-1000000000 dep 53.6% conv 53.9% cur 54.0%
+               max |current - converged| across buckets: 0.81pp
+    skip11000      0-0 dep  4.9% conv  4.2% cur  4.3%      1-4 dep  7.5% conv  6.9% cur  6.8%     5-24 dep  7.9% conv  8.2% cur  8.5%   25-124 dep  7.2% conv  7.3% cur  7.6%  125-1000000000 dep 54.1% conv 54.7% cur 54.7%
+               max |current - converged| across buckets: 0.34pp
+    skip1200       0-0 dep  3.5% conv  2.6% cur  2.0%      1-4 dep  4.6% conv  5.1% cur  5.4%     5-24 dep  6.3% conv  7.3% cur  7.5%   25-124 dep  9.6% conv  7.9% cur  8.3%  125-1000000000 dep 53.9% conv 54.5% cur 54.7%
+               max |current - converged| across buckets: 0.66pp
+
+  the profile did NOT drift, <=0.5pp in every bucket (>=2 roles each) -> False  {'c5419': 0, 'c16110': 1}
+  and §1954's unseen-bucket loss still holds at 16,110 (>=2 roles) -> True  3/3
+  and the 125+ cost is still within 1.0pp of deployed (>=2 roles each) -> True  {'c5419': 3, 'c16110': 3}
+  coverage {'c5419': 5419, 'c16110': 16110}, 1 same-spec pairs inert and 5 differing-spec pairs not, at covered inputs: True; buckets partition, live identical 0.0e+00, §1949 CE reproduced within 0.000000, route fracs within 0.0000 -> control True
+
+pred_a False | pred_b True | pred_c True | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/profile_after_five_purchases_results.json (9.3s)
