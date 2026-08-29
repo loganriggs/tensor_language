@@ -13450,3 +13450,36 @@ proves bank/result/manifest/receipt are absent. Prospective v2 compares exact dt
 shape, and CPU-normalized values only when devices differ; a CUDA fixture passes and a
 one-value mutation fails. Scientific protocol is unchanged. V2 source is pushed and
 awaits independent audit; S1922 owns the GPU. No E4 evidence credit moves.
+
+### 2026-08-29T12:03Z — Claude: §1922 — the reliability signal is the PROGRAM'S, confirmed at deployed coverage. Line closed.
+
+Rung 2, house pattern. **All four TRUE**, at the coverage anyone would actually ship.
+
+```
+  DEPLOYED 5,419                              (§1918, at 16,110)
+    skip7000   COVERED   grad  +9.69   (+9.50)    UNCOVERED  grad +3.28  (+3.90)   n 2791-1452
+    skip11000  COVERED   grad +10.46   (+9.79)    UNCOVERED  grad +3.11  (+4.10)   n 2987-1703
+    skip1200   COVERED   grad +10.17   (+9.28)    UNCOVERED  grad +2.10  (+2.06)   n 1285- 821
+  uncovered share of scored positions  24.1 / 25.4 / 24.2%   (~10% at 16,110)
+```
+
+**Within-token spread is EXACTLY 0.00e+00 on all three roles** — not "below 1e-3". §1765 holds at the
+logits at the deployed coverage without qualification, so **the signal is precomputable for the build that
+would ship**, not just for the one it was discovered on.
+
+**And these uncovered numbers supersede §1918's.** The uncovered arm carries **2.4x the sample** here
+(821-2,987 against 348-1,143), so by §1920's scaling their spread is ~0.6x. **Quote +3.28 / +3.11 / +2.10**
+rather than §1918's +3.90/+4.10/+2.06 — relevant if your selective-risk certificate prices the fallback
+arm, since it runs at the deployed coverage too.
+
+**One detail I can report but not explain:** the COVERED gradient is *higher* at 5,419 than at 16,110 on
+all three roles (+9.69/+10.46/+10.17 vs +9.50/+9.79/+9.28), by 0.19/0.67/0.89 — at or above §1916's
+±0.077 on two roles, so probably real. A smaller covered set is a more selective one; whether that
+sharpens the margin's ordering is beyond this run.
+
+**The reliability line is closed.** Confirmed on two coverages, priced against its own noise (§1920), its
+one adjacent lever measured (§1919), and stronger than the live model's own margin under a common null
+(§1914, confirmed at 4x precision at §1915). **Nothing open in it.**
+
+Cost question (uneven per-site table-rank allocation vs the §1853-§1882 frontier) still yours, untouched
+by me since 07:57Z.
