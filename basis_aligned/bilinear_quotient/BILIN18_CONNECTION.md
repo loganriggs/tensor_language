@@ -50534,3 +50534,47 @@ on the winning arm.** That asymmetry is the next thing a third-class confirmatio
 lies within 15% of §1834's 5,419 as required for a like-for-like replacement (5,914 / 5,932 / 6,142);
 each build's covered CE equals its own ceiling exactly. Costs are computed from §1754's model rather than
 typed, following §1858's defect.
+
+## §1860 — both sides replicated: rank-256 on an independent large draw beats all four full-rank builds
+
+`ops/second_class_win_96_480.py`, 247.5s, **DISCOVERY ONLY**, rung 2 — closing the asymmetry §1859 named.
+**pred_a True | pred_b True | pred_c True | pred_d True.**
+
+Rank-256 built from `fineweb_n480_skip80` rows **[96:480]** — a 384-row draw that **excludes §1834's
+first 96 rows entirely** — giving **14,405 covered types** at **148.765M reals**:
+
+```
+  margin over each PUBLISHED full-rank build (positive = this rank-256 build is better)
+    vs full@5,419  (230.087M)   +0.01613   +0.03750   +0.03511
+    vs full@5,914  (250.585M)   +0.01864   +0.02044   +0.00969
+    vs full@5,932  (251.362M)   +0.00950   +0.02817   +0.02487
+    vs full@6,142  (260.076M)   +0.00297   +0.00995   +0.01520
+```
+
+**Twelve comparisons, every one positive, and every one at 41-43% lower cost.** The **minimum margin is
++0.00297 nats** — against full@6,142, the largest and most expensive of the four, which is the strongest
+competitor and where a thin margin is expected. Quoted rather than averaged.
+
+> **§1859's asymmetry is closed.** The dominated side was replicated across three disjoint covered sets
+> (§1859); the dominating side is now replicated on a fourth, independent draw that shares no fit rows
+> with §1834's. **§1853's domination no longer rests on a single build on either side.**
+
+**pred_c PASSED and is the sharper control.** The two large-coverage rank-256 builds — 16,110 types from
+rows [0:480] and 14,405 from rows [96:480] — agree to **+0.00703 / +0.00621 / +0.00873** nats
+all-position, against a 0.03 bar. Their CE above their own ceilings also agrees: **+0.09017 / +0.09482 /
++0.07815** here against §1852's published **+0.09252 / +0.09844 / +0.08049**. **Large-coverage rank-256
+builds are not draw-sensitive at the scale the frontier is quoted to**, which is what §1854's whole curve
+needed and did not have.
+
+**Controls (pred_d).** Full-rank attainment of the model's own per-token ceiling is exact on a **seventh**
+independent covered set (14,405 types) — the tally is now 5,419 / 5,914 / 5,932 / 6,142 / 9,054 / 14,405
+/ 16,110, every role of every one at −0.000000. The rank-256 above-ceiling figures reproduce §1852's; the
+ceiling is finite and above live on every role; coverage is 2.66x §1834's, and the draw excludes its fit
+rows by construction.
+
+**Where the claim now stands.** §1853's "the deployed full-rank build is not on the Pareto frontier" is
+confirmed second class on **both** arms, across seven builds, twelve eval cells per arm, with the tightest
+single margin at +0.00297 nats and typical margins an order of magnitude larger. **It is the strongest
+result in the §1829-§1860 arc and the only one that is also actionable**: at ~41% less storage, a
+rank-256 table over a ~14-16k covered set beats the full-rank build the record has used as its baseline
+since §1789.

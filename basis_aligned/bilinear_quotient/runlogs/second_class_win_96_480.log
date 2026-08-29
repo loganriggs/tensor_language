@@ -1,0 +1,41 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+SECOND CLASS WIN | fit rows [96:480], 14,405 types, ranks full and 256 | settled program (context-free tables + output-NN fallback + rank-64 map) | DISCOVERY ONLY
+
+  per-site norm calibration (live mean / row mean), measured on the LIVE model:
+    attn L0:  2.66 L1:  2.47 L2:  2.20 L3:  2.08 L4:  4.31 L5:  0.99 L6:  1.01 L7:  3.56 L8:  3.33 L9:  4.78 L10:  3.74 L11:  4.41 L12:  6.43 L13:  5.93 L14:  6.64 L15:  6.07 L16:  5.36 L17:  5.56
+    mlp  L0:  0.87 L1:  0.41 L2:  0.60 L3:  0.49 L4:  0.10 L5:  0.39 L6:  0.51 L7:  1.63 L8:  1.98 L9:  1.30 L10:  2.23 L11:  1.04 L12:  1.87 L13:  1.24 L14:  1.62 L15:  1.18 L16:  1.12 L17:  1.21
+
+  arms  (49s)
+  all_substituted      skip7000 13.95%  skip11000 14.69%  skip1200 14.00%
+  all_sub_scaled       skip7000 12.22%  skip11000 12.97%  skip1200 12.13%
+  live_model           skip7000 39.32%  skip11000 42.35%  skip1200 38.88%
+
+  arms  (113s)
+  all_substituted        skip7000 13.95%  skip11000 14.69%  skip1200 14.00%
+  live_model             skip7000 39.32%  skip11000 42.35%  skip1200 38.88%
+
+  arms  (126s)
+  B0_raw                 skip7000 25.70%  skip11000 28.38%  skip1200 26.01%
+  B0_seq                 skip7000 31.22%  skip11000 33.92%  skip1200 30.07%
+
+  coverage 14405 types (2.66x §1834); ceiling CE skip7000 5.92040  skip11000 5.85691  skip1200 5.88470 (148s)
+    rank full  covered skip7000  5.92040 (+0.00000)  skip11000  5.85691 (+-0.00000)  skip1200  5.88470 (+-0.00000)   (152s)
+    rank 256   covered skip7000  6.01057 (+0.09017)  skip11000  5.95173 (+0.09482)  skip1200  5.96285 (+0.07815)   (247s)
+
+  rows [96:480] -- 14405 covered types, rank-256 cost 148.765M (§1852 build: 164.478M at 16,110)
+    skip7000   ceiling 5.92040  r256 covered 6.01057 (+0.09017, §1852 +0.09252)  ALLPOS 5.99554 (§1852 5.98851)
+    skip11000  ceiling 5.85691  r256 covered 5.95173 (+0.09482, §1852 +0.09844)  ALLPOS 5.94727 (§1852 5.94106)
+    skip1200   ceiling 5.88470  r256 covered 5.96285 (+0.07815, §1852 +0.08049)  ALLPOS 5.96654 (§1852 5.95781)
+
+  margin over each PUBLISHED full-rank build (positive = this build is better):
+    vs full@5419  (230.087M)  skip7000 +0.01613  skip11000 +0.03750  skip1200 +0.03511
+    vs full@5914  (250.585M)  skip7000 +0.01864  skip11000 +0.02044  skip1200 +0.00969
+    vs full@5932  (251.362M)  skip7000 +0.00950  skip11000 +0.02817  skip1200 +0.02487
+    vs full@6142  (260.076M)  skip7000 +0.00297  skip11000 +0.00995  skip1200 +0.01520
+
+  the WINNING arm replicates on an independent draw -> True
+  and the covered set is LARGE and independent (>=2.5x 5419) -> True  14405 types
+  and the two large-coverage rank-256 builds AGREE (<0.03) -> True  skip7000 +0.00703  skip11000 +0.00621  skip1200 +0.00873
+  full-rank attainment exact (7th covered set) True, r256 above-ceiling reproduces -> control True
+
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/second_class_win_96_480_results.json (247.5s)
