@@ -20,7 +20,7 @@ Frozen before execution:
   * sites 8/11/14; post-block raw residuals; live downstream RMSNorm;
   * rank 64 within independently fit rank-256 token-deviation supports;
   * relative ridge 1e-3, no intercept; four isotropic perturbation draws;
-  * scale chosen on the first eight response-fit rows from a fixed log grid so
+  * scale chosen on the first sixteen response-fit rows from a fixed log grid so
     median per-row early-intervention KL lies in [0.01, 0.20];
   * response-fit uses the remaining rows; heldout family is a position-matched
     donor direction normalized to the frozen perturbation norm;
@@ -881,18 +881,17 @@ def harness_canaries(model, row: torch.Tensor) -> dict[str, Any]:
 def main() -> None:
     require_defined_globals([Path(__file__), Path(__file__).with_name("gauge_transport.py")])
     start = time.time()
-    receipt, rows = validate_receipt()
-    require_document_disjoint_receipt(receipt)
+    receipt, rows = load_unique_v2_rows()
     from tier2_model import load_elriggs
 
     model, _ = load_elriggs("bilin18")
     device = next(model.parameters()).device
-    canaries = harness_canaries(model, rows[BASIS_SPEC])
+    canaries = harness_canaries(model, rows["basis"])
     canaries["passed"] = canaries["passed"] and bool(canaries["cp_gauge_rewrite"]["passed"])
     if not canaries["passed"]:
         raise RuntimeError(f"native intervention harness canary failed: {canaries}")
 
-    basis_states, basis_tokens = capture_rows(model, rows[BASIS_SPEC])
+    basis_states, basis_tokens = capture_rows(model, rows["basis"])
     bases, supports, natural_scales = {}, {}, {}
     vocab = int(model.lm_head.weight.shape[0])
     for site in SITES:
@@ -903,7 +902,7 @@ def main() -> None:
         torch.cuda.empty_cache()
 
     calibration, scale_decision = calibrate_scale(
-        model, rows[FIT_SPEC], supports[8], natural_scales[8]
+        model, rows["fit"], supports[8], natural_scales[8]
     )
     if not scale_decision["passed"]:
         output = {
@@ -918,21 +917,21 @@ def main() -> None:
         return
     amplitude = float(scale_decision["selected"]["amplitude"])
     shuffle_canary = position_shuffle_canary(
-        model, rows[FIT_SPEC], supports[8], amplitude
+        model, rows["fit"], supports[8], amplitude
     )
     if not shuffle_canary["passed"]:
         raise RuntimeError(f"position-shuffle negative control is underpowered: {shuffle_canary}")
     maps, fit_counts = fit_triangle_maps(
-        model, rows[FIT_SPEC], bases, supports, amplitude
+        model, rows["fit"], bases, supports, amplitude
     )
     map_validation = validate_triangle_maps(
-        model, rows[FIT_SPEC], bases, supports, maps, amplitude
+        model, rows["fit"], bases, supports, maps, amplitude
     )
     price_canary = expanded_physical_price_canary(bases, maps)
     if not price_canary["passed"]:
         raise RuntimeError(f"physical transport gauge/price canary failed: {price_canary}")
     metrics = evaluate_triangle(
-        model, rows[EVAL_SPEC], bases, supports, maps, amplitude
+        model, rows["evaluation"], bases, supports, maps, amplitude
     )
     decisions = screen_decisions(metrics)
     screen_passed = all(decisions.values())
@@ -955,7 +954,9 @@ def main() -> None:
             },
             "relative_ridge": RIDGE,
             "seed": SEED,
-            "row_receipt_schema": receipt["schema_version"],
+            "row_receipt_schema": receipt["schema"],
+            "row_receipt_file_sha256": ROW_RECEIPT_FILE_SHA256,
+            "row_selection_plan_sha256": ROW_SELECTION_PLAN_SHA256,
             "status": (
                 "preliminary_screen_passed_requires_20_null_behavior_gauge_price_extension"
                 if screen_passed else

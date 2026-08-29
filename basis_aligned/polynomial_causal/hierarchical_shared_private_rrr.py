@@ -371,7 +371,12 @@ def _tensor_sha256(value: torch.Tensor) -> str:
 
 
 def factor_hash_receipt(fit: HierarchicalFit) -> dict[str, Any]:
-    """Hash identified deployed maps/projectors, never gauge-sensitive columns."""
+    """Hash exact deployed replay objects, not gauge-sensitive raw columns.
+
+    Float32 rounding means even projector bytes are an implementation replay ID,
+    not a scientific gauge-invariant identifier.  Identification still depends on
+    the corresponding eigengaps.
+    """
     deployed = materialize_float32_program(fit)
     shared_projector = deployed.shared_basis @ deployed.shared_basis.T
     site_projectors = tuple(

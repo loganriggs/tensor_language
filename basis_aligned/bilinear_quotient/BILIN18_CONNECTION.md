@@ -52012,3 +52012,52 @@ uniform across the 36 sites, or carried by a few. §1829 put the entire bottom-u
 there is a specific reason to expect concentration. Offered to Codex on the board at 06:36Z; it bears on
 their hierarchical-sharing result, since a site carrying no agreement is a site whose map can be shared
 hardest.
+
+## §1887 — the tracking is the TABLES': 7.2-7.5x at covered tokens, 3.1-3.6x at the fallback
+
+`ops/tracking_by_mechanism.py`, 49.9s, **DISCOVERY ONLY**, rung 3 — §1886's open question, in-lane half.
+**pred_a True | pred_b True | pred_c True | pred_d True.** All four.
+
+**The axis is new.** Every split since §1789 has been on the TRUE TARGET's frequency, asking what the
+program can *produce*. This splits on the CURRENT token's coverage, asking which *mechanism* produced it:
+a covered current token gets its exact length-1 site outputs from the table; an uncovered one gets
+§1870's rank-64 linear map of the embedding.
+
+```
+  deployed build, 16,110 types, top-1 agreement enrichment over the permutation null
+                    n      live     prog    agree    null   enrichment
+    covered      33192   38.47%   14.03%   24.68%   3.45%     7.16x
+    uncovered     3672   47.00%   13.07%   18.41%   5.87%     3.14x     ratio 2.28x
+    (skip11000 7.29x / 3.56x = 2.05x;  skip1200 7.49x / 3.11x = 2.41x)
+```
+
+> **The compiled program's fidelity to the model is carried by the table lookups, at more than twice the
+> rate of the fallback map.** 7.16 / 7.29 / 7.49x against 3.14 / 3.56 / 3.11x. That is what §1885's
+> aggregate 5.8x was averaging, and it is the first result in this arc to attribute the program's
+> behaviour to a mechanism rather than to price it.
+
+**pred_b PASSED: the fallback is not inert.** At 3.14 / 3.56 / 3.11x it carries real information about
+the model's preference — a rank-64 linear map of the embedding, fitted to the model's own rows, tracks the
+model three times better than chance. **So §1866-§1882's fallback lever is not a CE-only story**; it moves
+top-1 behaviour too. It simply moves it less than half as well as an exact lookup does.
+
+**pred_c PASSED and it is the control that makes pred_a mean anything.** Covered current tokens are
+commoner tokens, so a raw covered/uncovered split risks re-measuring target frequency by proxy. Holding
+the target bucket fixed at 125+, the gap not only survives but **widens**: **2.57 / 2.97 / 2.71x**
+(covered 6.09 / 6.33 / 6.11x against uncovered 2.37 / 2.13 / 2.26x). The mechanism effect is larger than
+the raw split suggested, not smaller.
+
+**One number worth flagging against the obvious reading.** The live model is *more* accurate at uncovered
+current tokens (47.00 / 51.04 / 47.68%) than at covered ones (38.47 / 41.39 / 37.91%), while the program
+is slightly *less* (13.07 vs 14.03%). Uncovered current tokens are rarer tokens, and rarer current tokens
+apparently sit at more predictable positions for the model. **So the fallback's lower enrichment is not
+because its positions are harder for the model — they are easier.** That strengthens pred_a rather than
+qualifying it.
+
+**pred_d PASSED**: coverage 16,110, the mechanism split partitions all 36,864 / 36,864 / 18,432 scored
+positions, and the target buckets partition independently — a fifteenth known-answer check.
+
+**Open.** The per-site question from §1885/§1886 remains offered to Codex (board, 06:36Z and 06:44Z) and
+is now better founded: with the tracking localised to the table lookups, asking whether *particular sites'*
+tables carry it is a sharper question than asking it of the program as a whole. If they stay on
+hierarchical sharing I will take it on the next tick.

@@ -8,6 +8,10 @@ screen while preserving the current fail-closed row-provenance requirement.
 
 from __future__ import annotations
 
+import copy
+import json
+from pathlib import Path
+
 import pytest
 import torch
 
@@ -139,3 +143,88 @@ def test_broken_first_map_fails_chain_without_harming_direct(monkeypatch):
     assert result["direct"]["e_out"] == pytest.approx(0.0, abs=1e-12)
     assert result["chain"]["coordinate_response_r2"] == pytest.approx(0.0)
     assert result["chain"]["e_out"] == pytest.approx(1.0)
+
+
+def test_completed_v2_row_metadata_is_exact_and_non_authorizing_without_tensor_load(
+    monkeypatch,
+):
+    monkeypatch.setattr(
+        torch, "load",
+        lambda *_args, **_kwargs: (_ for _ in ()).throw(
+            AssertionError("metadata audit must not deserialize row tensors")
+        ),
+    )
+    authority = triangle.load_pinned_json(
+        triangle.ROW_AUTHORITY, triangle.ROW_AUTHORITY_FILE_SHA256, "row authority",
+    )
+    manifest = triangle.load_pinned_json(
+        triangle.ROW_MANIFEST, triangle.ROW_MANIFEST_FILE_SHA256, "row manifest",
+    )
+    receipt = triangle.load_pinned_json(
+        triangle.ROW_RECEIPT, triangle.ROW_RECEIPT_FILE_SHA256, "row receipt",
+    )
+    triangle.validate_v2_row_metadata(authority, manifest, receipt)
+    assert manifest["role_sizes"] == {"basis": 96, "fit": 96, "evaluation": 192}
+    assert receipt["unique_document_count"] == 384
+    assert receipt["triangle_runner_authorized_by_this_receipt"] is False
+
+
+def _synthetic_v2_payload_contract(monkeypatch):
+    monkeypatch.setattr(triangle, "ROLE_SIZES", {"basis": 1, "fit": 1, "evaluation": 1})
+    monkeypatch.setattr(triangle, "ROW_TOKEN_LENGTH", 3)
+    records = {
+        role: [{"document_id": f"{role}-document", "role_index": 0}]
+        for role in triangle.ROLE_SIZES
+    }
+    roles = {
+        role: torch.tensor([[index, index + 1, index + 2]], dtype=torch.long)
+        for index, role in enumerate(triangle.ROLE_SIZES)
+    }
+    authority = {"selection_plan": {"roles": copy.deepcopy(records)}}
+    manifest = {
+        "role_record_sha256s": {
+            role: triangle.canonical_sha256(value) for role, value in records.items()
+        },
+    }
+    receipt = {
+        "role_tensor_composite_sha256s": {
+            role: triangle.composite_tensor_sha256(value) for role, value in roles.items()
+        },
+    }
+    payload = {
+        "schema": "gauge_transport_triangle_unique_rows_v2_rows",
+        "authority_sha256": triangle.ROW_AUTHORITY_SHA256,
+        "selection_plan_sha256": triangle.ROW_SELECTION_PLAN_SHA256,
+        "roles": roles,
+        "records": records,
+    }
+    return authority, manifest, receipt, payload
+
+
+def test_v2_payload_requires_exact_roles_records_hashes_and_global_document_disjointness(
+    monkeypatch,
+):
+    authority, manifest, receipt, payload = _synthetic_v2_payload_contract(monkeypatch)
+    rows = triangle.validate_v2_row_payload(payload, authority, manifest, receipt)
+    assert set(rows) == {"basis", "fit", "evaluation"}
+
+    changed = copy.deepcopy(payload)
+    changed["records"]["evaluation"][0]["document_id"] = "basis-document"
+    authority["selection_plan"]["roles"]["evaluation"] = copy.deepcopy(
+        changed["records"]["evaluation"]
+    )
+    manifest["role_record_sha256s"]["evaluation"] = triangle.canonical_sha256(
+        changed["records"]["evaluation"]
+    )
+    with pytest.raises(RuntimeError, match="globally unique"):
+        triangle.validate_v2_row_payload(changed, authority, manifest, receipt)
+
+
+def test_v2_pinned_json_detects_mutation_during_read(monkeypatch, tmp_path: Path):
+    path = tmp_path / "receipt.json"
+    path.write_text(json.dumps({"status": "complete"}))
+    expected = triangle.file_sha256(path)
+    hashes = iter((expected, "0" * 64))
+    monkeypatch.setattr(triangle, "file_sha256", lambda _path: next(hashes))
+    with pytest.raises(RuntimeError, match="changed during pinned read"):
+        triangle.load_pinned_json(path, expected, "synthetic receipt")
