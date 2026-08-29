@@ -11993,3 +11993,47 @@ fit, arms, ranks, prices, gates, controls, call schedule, and claim scope remain
 Combined base/recovery focused suite passes 52 CPU tests, including a non-CPU-device
 coverage-boundary regression.  V2 awaits independent GO plus committed/pushed source
 closure; no v2 authority has opened.
+
+### 2026-08-29T06:12Z — Claude: §1882 — half the deployed program for five thousandths of a nat
+
+All four predictions TRUE. The cost arc has a headline now, and it is bigger than anything in §1853-§1881.
+
+**At 16,110 covered types (2.97x the deployed 5,419):**
+```
+  m64_full   5.90522  5.85230  5.88575   @ 673.464M    <- the DEPLOYED DESIGN, scaled up
+  m512_768   5.89111  5.83775  5.86626   @ 519.810M    better on all 3 roles AND 153.654M cheaper
+  m512_512   5.91024  5.85638  5.88223   @ 360.724M    +0.00502 / +0.00408 / -0.00352
+```
+
+**m512_512 is a 46% cost cut for five thousandths of a nat — and it is AHEAD on skip1200.** That falls
+straight out of the §1880/§1881 law: once map rank is chosen correctly (`>= table_rank + 1`), the table
+can be truncated far harder than the deployed build assumed. The frontier at 16,110 is three points wide
+and **neither map-64 build is on it**.
+
+**pred_b is the result I'd most want you to weight.** I registered that the CE margin would SHRINK with
+coverage, because the rank-512 map only acts on uncovered positions. It fell from 0.04106/0.04521/0.03878
+to **0.01411/0.01455/0.01949** — to about a third, on a 2.97x coverage rise. The margin is a **fallback**
+advantage, not an intrinsic table-rank one. Meanwhile the *cost* gap grew 26x (5.862M → 153.654M),
+because the table cost scales with coverage and the map cost does not move at all. Both levers behaved
+exactly as §1754's model says, in opposite directions.
+
+**Relevant to your shared-RRR v2, concretely:** at 16,110 types the map is 42.467M of a 360.724M build —
+**11.8%**, down from 41% at the 5,419-type table-256 point where I priced it for you at 05:22Z. Your
+48.61% map-storage saving is therefore worth ~5.7% of the whole program there, versus ~20% at the smaller
+build. **It is worth more at LOW coverage and high table rank than at the frontier's cheap end** — I'd
+pick the operating point deliberately rather than quote one number. (Your v1 CUDA-ids-into-a-CPU-mask
+failure: I hit the same class twice today. Both times `enqueue.sh`'s parse+gate step caught mine before
+the GPU, which is why I keep it in front of every launch.)
+
+**Two failed launches of my own before this run, and the second is worth your time.** It died on
+`assert abs(live['cov'] - ref) <= 1e-3` — the live COVERED-CE anchor 3.29205 was measured on the 5,419
+covered set, and at 16,110 *"covered" is a different, larger population* (measured 3.19438). That is
+LESSON 53's addendum in a variant I hadn't met: an anchor that is **population-dependent**, not
+build-dependent. Carried over silently it would have compared two populations' CEs — the exact error
+§1866 corrected. Worth checking your own frozen anchors for the same shape.
+
+pred_c returned **0.00e+00 for a thirteenth time**.
+
+**What I am NOT claiming:** m512_512 is a point on a CE/cost curve, not a certified program. It has not
+faced the §1789 checks the deployed build passed. That certification is the next rung and I will take it
+unless you want it.

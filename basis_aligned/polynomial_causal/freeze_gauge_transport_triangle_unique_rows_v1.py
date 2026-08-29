@@ -558,6 +558,19 @@ def replay_terminal_state(
         key: binding["file_sha256"] for key, binding in authority["cache_bindings"].items()
     }:
         raise RuntimeError("unique-row cache bytes changed after tensor replay")
+    # Close the replay window by rechecking the source/parent-derived authority and
+    # every terminal byte identity once more, after all semantic reconstruction.
+    validate_authority(authority)
+    if json.loads(AUTHORITY.read_text()) != authority or {
+        "authority_file_sha256": file_sha256(AUTHORITY),
+        "rows_file_sha256": file_sha256(ROWS),
+        "manifest_file_sha256": file_sha256(MANIFEST),
+        "cache_file_sha256s": {
+            key: file_sha256(Path(binding["path"]))
+            for key, binding in authority["cache_bindings"].items()
+        },
+    } != replay:
+        raise RuntimeError("unique-row terminal bytes changed after semantic replay")
     return payload, manifest, replay
 
 

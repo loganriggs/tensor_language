@@ -234,6 +234,26 @@ def test_owner_lock_rejects_same_inode_content_mutation(monkeypatch, tmp_path: P
         freezer.assert_owner_lock(owner)
 
 
+def test_atomic_publication_rechecks_lock_before_final_link(monkeypatch, tmp_path: Path):
+    lock = tmp_path / "owner.lock"
+    final = tmp_path / "artifact.json"
+    monkeypatch.setattr(freezer, "LOCK", lock)
+    owner = freezer.acquire_owner_lock()
+    original_write = freezer._write_all
+
+    def write_then_replace_lock(descriptor: int, payload: bytes) -> None:
+        original_write(descriptor, payload)
+        lock.unlink()
+        lock.write_text('{"nonce":"replacement"}\n')
+
+    monkeypatch.setattr(freezer, "_write_all", write_then_replace_lock)
+    with pytest.raises(RuntimeError, match="replaced"):
+        freezer.publish_json(final, {"status": "must-not-link"}, owner=owner)
+    assert not final.exists()
+    assert lock.exists()
+    assert not list(tmp_path.glob(".*.tmp-*"))
+
+
 def test_cache_loader_rejects_byte_and_tensor_mutation(tmp_path: Path):
     path = tmp_path / "cache.pt"
     tensor = torch.arange(12, dtype=torch.long).reshape(3, 4)
@@ -251,6 +271,31 @@ def test_cache_loader_rejects_byte_and_tensor_mutation(tmp_path: Path):
     torch.save(tensor + 1, path)
     with pytest.raises(RuntimeError, match="cache tensor changed"):
         freezer.load_cache_tensors(authority)
+
+
+def test_manifest_rejects_self_consistent_permission_mutation(monkeypatch, tmp_path: Path):
+    rows = tmp_path / "rows.pt"
+    rows.write_bytes(b"synthetic-row-bytes")
+    monkeypatch.setattr(freezer, "ROWS", rows)
+    monkeypatch.setattr(freezer, "ROLE_SIZES", {"basis": 1})
+    monkeypatch.setattr(freezer, "EXPECTED_CONTRIBUTIONS", {"basis": {"cache": 1}})
+    authority = {
+        "authority_sha256": "a" * 64,
+        "permissions": {"conditional_future_row_eligibility": "separate runner required"},
+    }
+    payload = {
+        "selection_plan_sha256": "p" * 64,
+        "roles": {"basis": torch.tensor([[1, 2]], dtype=torch.long)},
+        "records": {"basis": [{"document_id": "one"}]},
+    }
+    manifest = freezer.build_manifest(payload, authority)
+    freezer.validate_manifest(manifest, payload, authority)
+    changed = copy.deepcopy(manifest)
+    changed["triangle_runner_authorized_by_this_manifest"] = True
+    changed_body = {key: changed[key] for key in changed if key != "manifest_sha256"}
+    changed["manifest_sha256"] = freezer.canonical_sha256(changed_body)
+    with pytest.raises(RuntimeError, match="exact rebuilt manifest"):
+        freezer.validate_manifest(changed, payload, authority)
 
 
 def test_strict_receipt_reload_rejects_self_consistent_mutation(monkeypatch, tmp_path: Path):
