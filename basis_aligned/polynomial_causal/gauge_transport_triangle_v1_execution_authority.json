@@ -1,0 +1,31 @@
+{
+  "schema": "gauge_transport_triangle_v1_execution_authority",
+  "status": "source_closed_go",
+  "source_commit": "7d3d11c1e3cdf031eace579222ad82f762285766",
+  "source_files": [
+    "basis_aligned/polynomial_causal/gauge_transport_triangle.py",
+    "basis_aligned/polynomial_causal/gauge_transport.py",
+    "basis_aligned/polynomial_causal/PRICED_GAUGE_TRANSPORT_SPEC.md",
+    "basis_aligned/polynomial_causal/GAUGE_TRANSPORT_TRIANGLE_V1_EXECUTION_PREREGISTRATION.md",
+    "basis_aligned/polynomial_causal/test_gauge_transport_triangle.py",
+    "basis_aligned/polynomial_causal/test_gauge_transport_triangle_contract_audit.py"
+  ],
+  "source_sha256s": {
+    "basis_aligned/polynomial_causal/gauge_transport_triangle.py": "21a10e5a7c61d55c70dc2a9463c293e69264972d62e1cb92a4c48f41d48d493d",
+    "basis_aligned/polynomial_causal/gauge_transport.py": "3d4a24d0c0f083270429d189ef021bf85cccf2c7aebbbdef645c512268137db6",
+    "basis_aligned/polynomial_causal/PRICED_GAUGE_TRANSPORT_SPEC.md": "b0b67e27089d27d6d2e54e8065037fd1e6a226ffe15acf4cd4f9938043696e17",
+    "basis_aligned/polynomial_causal/GAUGE_TRANSPORT_TRIANGLE_V1_EXECUTION_PREREGISTRATION.md": "bb75030eaf6735e29ce51dd36b5a5475b7b34e1261be7a4f28bb40c3a714b7b8",
+    "basis_aligned/polynomial_causal/test_gauge_transport_triangle.py": "a49b6c909c15a9ef8d00c47bf37c53174feb6ead4e5ef20b4a88e5c6e78666ee",
+    "basis_aligned/polynomial_causal/test_gauge_transport_triangle_contract_audit.py": "0e7b6e3df0e9677dd3127d52cd35368b247bc3ffa6dc121516fff9846f2d7cee"
+  },
+  "row_artifact_file_sha256": "102b79726b7132a6438b4080272fee1774499ac4fc83c4aa025fa86439b4074d",
+  "row_receipt_file_sha256": "3f92d8b3aa5e89e6059a010338521bffa0cf440e0815d9d67e1b65aa58a8e102",
+  "model_weights_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+  "terminal_outputs": {
+    "result": "gauge_transport_triangle_results.json",
+    "state": "gauge_transport_triangle_state.pt",
+    "receipt": "gauge_transport_triangle_v1_execution_receipt.json",
+    "failure": "gauge_transport_triangle_v1_execution_failure.json"
+  },
+  "authority_sha256": "PLACEHOLDER"
+}
