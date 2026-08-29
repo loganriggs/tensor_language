@@ -4,6 +4,7 @@ import pytest
 import torch
 
 from simultaneous_shared_output_rrr import (
+    allocate_equal_storage_independent_ranks,
     canonical_price_receipt,
     fit_grouped_output_bases,
     fit_shared_output_basis,
@@ -112,6 +113,66 @@ def test_grouped_prices_interpolate_between_one_shared_and_independent():
     assert math.isclose(attention_mlp.saved_fraction, 0.4722222222222222)
     assert independent.grouped_float_count == independent.separate_float_count
     assert independent.saved_float_count == 0
+
+
+def test_equal_storage_allocator_uses_exact_global_budget_and_strongest_marginals():
+    # Heterogeneous known answer: the best exact allocation is ranks (3, 1, 2),
+    # not the balanced (2, 2, 2).  With n=3, g=1, d=p=4, q=3 the grouped
+    # grammar costs 48 floats, exactly six independent rank slots.
+    spectra = [
+        torch.tensor([10.0, 9.0, 8.0, 0.1], dtype=torch.float64),
+        torch.tensor([7.0, 0.6, 0.5, 0.4], dtype=torch.float64),
+        torch.tensor([6.0, 5.0, 0.3, 0.2], dtype=torch.float64),
+    ]
+    allocation = allocate_equal_storage_independent_ranks(
+        spectra,
+        n_output_bases=1,
+        input_dim=4,
+        output_dim=4,
+        shared_rank=3,
+    )
+    assert allocation.grouped_float_budget == 48
+    assert allocation.independent_float_count == 48
+    assert allocation.total_rank_slots == 6
+    assert allocation.ranks_by_site == (3, 1, 2)
+    assert math.isclose(allocation.selected_marginal_merit, 45.0)
+
+
+@pytest.mark.parametrize(
+    ("groups", "expected_slots"),
+    [(1, 9472), (2, 9728)],
+)
+def test_rank512_bilin18_equal_storage_slot_counts_are_exact(groups, expected_slots):
+    spectra = [torch.linspace(1152.0, 1.0, 1152, dtype=torch.float64) for _ in range(36)]
+    allocation = allocate_equal_storage_independent_ranks(
+        spectra,
+        n_output_bases=groups,
+        input_dim=1152,
+        output_dim=1152,
+        shared_rank=512,
+    )
+    assert allocation.total_rank_slots == expected_slots
+    assert allocation.independent_float_count == allocation.grouped_float_budget
+    assert max(allocation.ranks_by_site) - min(allocation.ranks_by_site) <= 1
+
+
+def test_equal_storage_allocator_rejects_nonprefix_spectra_and_inexact_budget():
+    with pytest.raises(ValueError, match="nonincreasing"):
+        allocate_equal_storage_independent_ranks(
+            [torch.tensor([2.0, 3.0], dtype=torch.float64)],
+            n_output_bases=1,
+            input_dim=2,
+            output_dim=2,
+            shared_rank=1,
+        )
+    with pytest.raises(ValueError, match="cannot be matched"):
+        allocate_equal_storage_independent_ranks(
+            [torch.tensor([2.0, 1.0], dtype=torch.float64)] * 2,
+            n_output_bases=1,
+            input_dim=2,
+            output_dim=3,
+            shared_rank=1,
+        )
 
 
 def test_one_group_exactly_replays_global_shared_fit():

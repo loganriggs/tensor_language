@@ -63,6 +63,29 @@ class GroupedMapPrice:
     multiplies_per_site: int
 
 
+@dataclass(frozen=True)
+class EqualStorageIndependentAllocation:
+    """Fit-only independent rank allocation at exactly a grouped map's storage.
+
+    Each independently factorized site consumes ``input_dim + output_dim`` floats
+    per retained rank-one term.  The allocation takes the globally largest marginal
+    predictive eigenvalues, with deterministic site/eigen-index tie breaking.  This
+    is stronger than rounding one common independent rank and is exact whenever the
+    grouped storage is divisible by the per-rank independent charge.
+    """
+
+    n_sites: int
+    n_output_bases: int
+    input_dim: int
+    output_dim: int
+    shared_rank: int
+    grouped_float_budget: int
+    independent_float_count: int
+    total_rank_slots: int
+    ranks_by_site: tuple[int, ...]
+    selected_marginal_merit: float
+
+
 def map_price(n_sites: int, input_dim: int, output_dim: int, rank: int) -> MapPrice:
     """Literal factor storage and dense multiply count for two map grammars."""
     for name, value in {
@@ -136,6 +159,84 @@ def grouped_map_price(
         saved_float_count=saved,
         saved_fraction=saved / separate,
         multiplies_per_site=input_dim * rank + rank * output_dim,
+    )
+
+
+def allocate_equal_storage_independent_ranks(
+    marginal_eigenvalues: Sequence[torch.Tensor],
+    *,
+    n_output_bases: int,
+    input_dim: int,
+    output_dim: int,
+    shared_rank: int,
+) -> EqualStorageIndependentAllocation:
+    """Allocate exact matched-storage independent ranks from fit-only spectra.
+
+    ``marginal_eigenvalues[j][k]`` is the fit-objective gain of adding the
+    ``(k+1)``th reduced-rank direction at site ``j``.  Every spectrum must be a
+    finite, nonnegative, nonincreasing float64 CPU vector.  Ranking all marginal
+    gains is optimal because independent-site reduced-rank objectives add.
+    """
+    n_sites = len(marginal_eigenvalues)
+    price = grouped_map_price(
+        n_sites=n_sites,
+        n_output_bases=n_output_bases,
+        input_dim=input_dim,
+        output_dim=output_dim,
+        rank=shared_rank,
+    )
+    per_slot = input_dim + output_dim
+    total_slots, remainder = divmod(price.grouped_float_count, per_slot)
+    if remainder:
+        raise ValueError("grouped storage cannot be matched by integer independent ranks")
+
+    candidates: list[tuple[float, int, int]] = []
+    for site, values in enumerate(marginal_eigenvalues):
+        if (
+            not torch.is_tensor(values)
+            or values.device.type != "cpu"
+            or values.dtype != torch.float64
+            or values.ndim != 1
+            or values.numel() == 0
+        ):
+            raise ValueError("each marginal spectrum must be a nonempty CPU float64 vector")
+        if values.numel() > min(input_dim, output_dim):
+            raise ValueError("a marginal spectrum exceeds the maximum site rank")
+        if not bool(torch.isfinite(values).all()) or bool((values < 0).any()):
+            raise ValueError("marginal spectra must be finite and nonnegative")
+        scale = max(float(values.abs().max()), 1.0)
+        if values.numel() > 1 and bool((values[1:] - values[:-1] > 1e-12 * scale).any()):
+            raise ValueError("marginal spectra must be nonincreasing")
+        candidates.extend((float(value), site, index) for index, value in enumerate(values))
+    if total_slots > len(candidates):
+        raise ValueError("marginal spectra do not contain enough rank slots for the budget")
+
+    # Python's stable tuple order supplies the frozen tie break: larger merit first,
+    # then smaller site, then smaller within-site eigen-index.
+    selected = sorted(candidates, key=lambda item: (-item[0], item[1], item[2]))[:total_slots]
+    ranks = [0] * n_sites
+    selected_indices: list[list[int]] = [[] for _ in range(n_sites)]
+    for _, site, index in selected:
+        ranks[site] += 1
+        selected_indices[site].append(index)
+    for indices in selected_indices:
+        if indices and indices != list(range(len(indices))):
+            raise RuntimeError("optimal marginal allocation violated a spectral prefix")
+
+    independent_count = per_slot * sum(ranks)
+    if independent_count != price.grouped_float_count:
+        raise RuntimeError("independent allocation failed exact storage matching")
+    return EqualStorageIndependentAllocation(
+        n_sites=n_sites,
+        n_output_bases=n_output_bases,
+        input_dim=input_dim,
+        output_dim=output_dim,
+        shared_rank=shared_rank,
+        grouped_float_budget=price.grouped_float_count,
+        independent_float_count=independent_count,
+        total_rank_slots=total_slots,
+        ranks_by_site=tuple(ranks),
+        selected_marginal_merit=sum(value for value, _, _ in selected),
     )
 
 
