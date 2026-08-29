@@ -48,6 +48,11 @@ DOCUMENTS_PER_ROLE = 192
 TOTAL_DOCUMENTS = 384
 TOKEN_LENGTH = 257
 PREFIX_LENGTH = 32
+ROLE_NAMES = ("TRAIN", "EVALUATION")
+ROLE_AUTHORIZATIONS = {
+    "TRAIN": {"authorized_for_training": True, "authorized_for_evaluation": False},
+    "EVALUATION": {"authorized_for_training": False, "authorized_for_evaluation": True},
+}
 CACHE = BQ / ".rowcache_mlp2_rank512_refit_v1"
 RECEIPT = BQ / "mlp2_rank512_refit_v1_rows_receipt.json"
 FAILURE = BQ / "mlp2_rank512_refit_v1_rows_failure.json"
@@ -142,12 +147,15 @@ def write_json_create_only(
 
 def split_rows(rows: torch.Tensor, records: list[dict[str, Any]]):
     if tuple(rows.shape) != (TOTAL_DOCUMENTS, TOKEN_LENGTH) or rows.dtype != torch.long \
-            or len(records) != TOTAL_DOCUMENTS:
+            or len(records) != TOTAL_DOCUMENTS \
+            or TOTAL_DOCUMENTS != DOCUMENTS_PER_ROLE * len(ROLE_NAMES) \
+            or set(ROLE_NAMES) != set(ROLE_AUTHORIZATIONS):
         raise RuntimeError("fresh row family changed")
-    return {
-        "TRAIN": (rows[:DOCUMENTS_PER_ROLE].clone(), records[:DOCUMENTS_PER_ROLE]),
-        "EVALUATION": (rows[DOCUMENTS_PER_ROLE:].clone(), records[DOCUMENTS_PER_ROLE:]),
-    }
+    output = {}
+    for index, role in enumerate(ROLE_NAMES):
+        start, stop = index * DOCUMENTS_PER_ROLE, (index + 1) * DOCUMENTS_PER_ROLE
+        output[role] = (rows[start:stop].clone(), records[start:stop])
+    return output
 
 
 def validate_selected(rows: torch.Tensor, records: list[dict[str, Any]], prior):
@@ -273,10 +281,7 @@ def freeze_locked(claim: RunClaim) -> dict[str, Any]:
         "selection": {"start_document_index": START_DOCUMENT_INDEX,
                       "documents_per_role": DOCUMENTS_PER_ROLE,
                       "token_length": TOKEN_LENGTH, "scored_slice": [64, 256]},
-        "roles": {
-            "TRAIN": {"authorized_for_training": True, "authorized_for_evaluation": False},
-            "EVALUATION": {"authorized_for_training": False, "authorized_for_evaluation": True},
-        },
+        "roles": ROLE_AUTHORIZATIONS,
         "entries": entries,
         "provenance": {role: value[1] for role, value in roles.items()},
         "disjointness": gates,
