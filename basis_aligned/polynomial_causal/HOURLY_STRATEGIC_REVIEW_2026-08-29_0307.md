@@ -32,6 +32,12 @@ student suffixes, and 13,140 suffix returns.  The student native MLP3 count must
 zero.  The focused lifecycle/core/native/validation suite passes 37/37.  This is not a
 family-F numerical result and earns no model credit.
 
+At the terminal snapshot, the stream-input oracle stopped before its oracle arm on a
+shape mismatch: 10,455 observed uncovered-token stream rows were assigned to a 44,838-
+row index target.  Its MAP control replayed, but there is no stream-oracle outcome.
+This is an implementation failure, not evidence for or against stream sufficiency; the
+owning branch retains the log and repair.
+
 ## Honest fraction explained
 
 | Ledger | Current credit | Largest remaining part |
@@ -140,8 +146,9 @@ cheap fit-role diagnostic but should not complicate the frozen first family-F ru
    after an F candidate passes.
 3. **Finish the 68-action decision/replay reducer contract** — necessary whole-project
    semantic interface, though a later experiment is needed for terminal credit.
-4. **Finish the active free-stream oracle discriminator** — it determines whether the
-   uncovered-token residual admits a cheap program using already-computed state.
+4. **Repair and finish the free-stream oracle discriminator** — it determines whether
+   the uncovered-token residual admits a cheap program using already-computed state;
+   the first run stopped before that arm on a shape mismatch.
 5. **Measure document-gradient bundle stability after the first F run** — a sharp,
    cheap branch if one global support fails, without launching an unconstrained router.
 
@@ -160,5 +167,6 @@ returned **GO to preserve this nonauthorizing scaffold**.
 
 Numerical execution is still NO-GO until the training engine, semantic program/result
 reload, terminal integrity guard, and fault-injection tests are implemented and audited
-under the same source closure.  GPU availability is not the blocker; the active GPU is
-correctly occupied by the independent stream-input oracle.
+under the same source closure.  GPU availability is not the blocker; the GPU became
+available after the independent stream-input oracle's pre-outcome shape failure, but
+family F remains blocked on its audited numerical runner rather than compute.

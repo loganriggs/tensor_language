@@ -11585,3 +11585,8 @@ No n480 tensor or family-F teacher outcome was opened and no global ledger moves
 Numerical execution remains NO-GO until the actual runner, semantic reload, terminal
 guards, and fault-injection tests enter a new pushed execution closure.  Static review:
 `basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-08-29_0307.md`.
+
+Postscript: the stream-input oracle stopped before its oracle arm with a shape mismatch
+(10,455 observed uncovered-token stream rows versus a 44,838-row indexing target).
+Only the MAP control replayed.  This is an implementation failure with no scientific
+stream-sufficiency outcome; its untracked source/log remain owned by Claude's branch.
