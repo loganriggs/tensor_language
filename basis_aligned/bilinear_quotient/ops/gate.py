@@ -49,7 +49,30 @@ def _bound(scope, fn=None):
                 loc.add(t.id)
             elif isinstance(t, ast.Tuple):
                 loc |= {e.id for e in t.elts if isinstance(e, ast.Name)}
+        # `except E as e:` binds a plain str, not a Name/Store node, so the walk above never saw it and
+        # every `except ... as e: print(e)` read as an undefined name. Found 2026-08-29 on ops/bqlib.py.
+        # Binding it scope-wide would HIDE the one real bug in this shape -- Python DELETES the name at
+        # the end of the handler, so a use AFTER the handler is a genuine NameError -- so that case gets
+        # its own check below rather than being swallowed here.
+        if isinstance(n, ast.ExceptHandler) and n.name:
+            loc.add(n.name)
+        if isinstance(n, (ast.Global, ast.Nonlocal)):
+            loc |= set(n.names)
     return loc
+
+
+def _except_name_escapes(tree):
+    """`except E as e:` names are deleted at the end of the handler; using one after it is a NameError."""
+    bad = []
+    for h in [n for n in ast.walk(tree) if isinstance(n, ast.ExceptHandler) and n.name]:
+        inside = {id(x) for x in ast.walk(h)}
+        for fn in [n for n in ast.walk(tree)
+                   if isinstance(n, (ast.FunctionDef, ast.Module, ast.AsyncFunctionDef))]:
+            for u in ast.walk(fn):
+                if (isinstance(u, ast.Name) and u.id == h.name
+                        and isinstance(u.ctx, ast.Load) and id(u) not in inside):
+                    bad.append((h.name, u.lineno))
+    return sorted(set(bad))
 
 
 def _nocomment(src):
@@ -79,6 +102,8 @@ def gate(path):
         u = sorted(used - _bound(fn, fn) - mod - set(dir(builtins)))
         if u:
             fails.append(f'{fn.name}(): possibly undefined {u}')
+    for nm, ln in _except_name_escapes(tree):
+        fails.append(f'line {ln}: `{nm}` is an except-handler name used OUTSIDE its handler -- Python deletes it there (NameError)')
 
     # A NESTED FUNCTION'S FREE VARIABLE MUST NOT BE ASSIGNED LATER IN ITS ENCLOSING FUNCTION.
     # §1815's ce_dominance_check named a Pareto marker `m` inside main(); that made `m` a local of
@@ -144,12 +169,29 @@ def gate(path):
     # MORE falsifiable content. Distinctness and the a/b/c core are still required.
     keys = re.findall(r"'(pred_[A-Za-z0-9_]+)':", s)
     letters = {k.split("_")[1] for k in keys}
-    if len(keys) < 3:
-        fails.append(f'expected at least 3 pred_* keys, found {len(keys)}: {keys}')
-    if len(letters) != len(keys):
-        fails.append(f'pred keys not distinct: {keys}')
-    if not {'a', 'b', 'c'} <= letters:
-        fails.append(f'pred keys must include a, b and c: {sorted(letters)}')
+    # 2026-08-29: ops/bqlib.py introduced a THIRD file class -- a shared library that no experiment
+    # result comes out of. The predicate rules exist to stop an EXPERIMENT shipping unregistered; they
+    # are meaningless for a module and were rejecting it. The exemption is deliberately hard to trip by
+    # accident: it needs an explicit marker AND no result-JSON write AND no module-level main() call.
+    # It skips ONLY the three predicate checks -- every other check still runs on the library -- and it
+    # announces itself, so it can never fire silently on something that should have been registered.
+    lib_marker = bool(re.search(r'^# BQGATE: LIBRARY\b', s, re.M))
+    writes_results = bool(re.search(r'json\.dump\s*\(', s))
+    calls_main = bool(re.search(r'^main\(\)\s*$', s, re.M)) or "__main__" in s
+    is_library = lib_marker and not writes_results and not calls_main
+    if is_library:
+        print(f'GATE: {path} is a LIBRARY (marker + no result write + no main()); '
+              f'predicate checks skipped, all other checks applied')
+    else:
+        if lib_marker:
+            fails.append('carries the LIBRARY marker but writes results or calls main() -- '
+                         'it is an experiment and must register predicates')
+        if len(keys) < 3:
+            fails.append(f'expected at least 3 pred_* keys, found {len(keys)}: {keys}')
+        if len(letters) != len(keys):
+            fails.append(f'pred keys not distinct: {keys}')
+        if not {'a', 'b', 'c'} <= letters:
+            fails.append(f'pred keys must include a, b and c: {sorted(letters)}')
 
     # site consistency (LESSONS 20: forward extent must match the component set)
     st = re.search(r'SITE_STOP = (\d+)', s)

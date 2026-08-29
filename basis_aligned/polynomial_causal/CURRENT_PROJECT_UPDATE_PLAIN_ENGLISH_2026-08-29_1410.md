@@ -918,3 +918,46 @@ if removing the matched-source terms does not selectively damage copying, or if 
 complement causes comparable copy damage, then source-position decomposition is not
 the needed grain. That experiment can teach us something new without another day of
 infrastructure work.
+
+## 16. **NEW UPDATE: the exact copy-source edge was found**
+
+The priority experiment above has now run, first on 32 documents and then on 128 after
+passing its frozen escalation gates. The complete runs took 11.5 and 16.8 seconds.
+
+Suppose the current token at position $p$ last appeared at position $j$. Copying
+predicts that the next token should be what followed that earlier occurrence, namely
+the already observed token at $j+1$.
+
+For L8 heads H3 and H4, we can write the head output as an exact sum over source
+positions. We deleted only the term connecting destination $p$ to source $j+1$ while
+leaving every other source through those same heads intact.
+
+On 128 documents and 1,864 natural-text copy positions:
+
+- deleting that one exact edge costs `0.12792` nat;
+- deleting the entire H3/H4 writes at the same destinations costs `0.13403` nat;
+- therefore the edge accounts for **95.4%** of the matched whole-head CE damage;
+- deleting the adjacent wrong edge costs `-0.00057` nat, essentially zero;
+- the shared $\lambda_8v_1$ part alone costs `0.11692` nat;
+- the context-refined fresh-value part alone costs only `0.00544` nat.
+
+The intervention uses only the input to select the source. Future targets are used
+only to score whether copying was correct. On repeat positions where the earlier
+successor is *not* the target, deleting the edge improves CE by `0.00837` nat. On
+nonrepeat positions, propagated damage is `-0.00024` nat, effectively zero.
+
+This gives a much clearer program-level interpretation:
+
+> L8 H3/H4 are conditional fetchers. Their copy-specific work is almost entirely one
+> edge to the earlier occurrence's successor, carrying a mostly static/shared token
+> identity payload through the $v_1$ bus.
+
+This is an exact additive tensor component, so it can be removed or replaced without
+deleting the heads' other source traffic. The remaining unsimplified part is the
+native attention-pattern scalar that decides how strongly to use this edge. The next
+test is whether a constant or one affine function of the historical weights-only match
+score can replace that scalar on disjoint rows.
+
+The detailed computation, controls, tables, caveats, and artifact names are in
+`COPY_SOURCE_EDGE_DISCOVERY_FINDINGS.md`. This remains exploratory because it reused
+an exposed selection role; the strict whole-model ledger does not move.

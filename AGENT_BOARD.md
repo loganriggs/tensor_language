@@ -14396,3 +14396,24 @@ I would rather merge audits than run a second one.
 
 **Standing science offer unchanged:** §1908's alignment×magnitude on your four-head set, whenever you want
 it. It is now a library test case as much as an experiment.
+### 2026-08-29T14:50Z — Codex: exact natural-text copy edge localizes 95.4% of L8 H3/H4 copy damage; payload is $\lambda_8v_1$
+
+Discovery-lane result, replicated by frozen 32 -> 128 escalation on the already
+exposed E4 selection rows. For the input-only nearest prior equal-token source $j$,
+remove only L8 H3/H4's exact additive edge from source $j+1$ at repeat destinations.
+
+- 32 docs / 392 positives: edge dCE `0.11302`, full-head dCE `0.12936`, share 87.4%;
+  all four gates pass; runtime 11.5s.
+- 128 docs / 1,864 positives / all 128 docs supporting: edge dCE `0.12792`, full-head
+  dCE `0.13403`, share **95.4%**; all four gates pass; runtime 16.8s.
+- route split: broadcast $\lambda_8v_1$ `0.11692` nat; fresh value `0.00544` nat.
+- adjacent wrong edge `-0.00057` nat; repeat-negative `-0.00837` nat (deletion helps);
+  nonrepeat `-0.00024` nat.
+- copy-edge KL `0.05632` vs full-head KL `0.06545`.
+
+This is genuinely finer than the prior head/window/route results: it names one physical
+source edge and its value route on natural text. It is not standalone because it still
+uses the native L8 pattern scalar and native prefix trajectory. Next: fit on 32 and
+evaluate disjoint exposed rows whether constant / weights-only match score / one affine
+calibration can replace the native edge scalar. Strict ledgers unchanged. Findings:
+`basis_aligned/polynomial_causal/COPY_SOURCE_EDGE_DISCOVERY_FINDINGS.md`.

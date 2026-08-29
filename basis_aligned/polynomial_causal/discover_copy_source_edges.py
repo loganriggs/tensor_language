@@ -8,11 +8,16 @@ import hashlib
 import json
 import math
 from pathlib import Path
+import sys
 import time
 from typing import Any
 
 import torch
 import torch.nn.functional as F
+
+ROOT = Path(__file__).resolve().parents[2]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
 
 import bilin18_observed_model_facade as facade
 from terminal_copy_attention_adapter import OwnedPerHeadTensorAttention
@@ -98,7 +103,8 @@ def nearest_repeat_policy(
 def _empty_stats(rows: int) -> dict[str, dict[str, torch.Tensor]]:
     return {
         arm: {
-            cell: torch.zeros(rows, 4, dtype=torch.float64)
+            # count, native NLL, candidate-native NLL, KL(native||candidate), correct
+            cell: torch.zeros(rows, 5, dtype=torch.float64)
             for cell in CELLS
         }
         for arm in ARMS
@@ -106,31 +112,36 @@ def _empty_stats(rows: int) -> dict[str, dict[str, torch.Tensor]]:
 
 
 def _record(
-    destination: torch.Tensor,
+    destination: dict[str, torch.Tensor],
     row_offset: int,
-    native_logits: torch.Tensor,
-    candidate_logits: torch.Tensor,
+    native_logprob: torch.Tensor,
+    native_nll: torch.Tensor,
+    candidate_logits: torch.Tensor | None,
     targets: torch.Tensor,
     masks: dict[str, torch.Tensor],
 ) -> None:
-    native_logprob = F.log_softmax(native_logits.float(), dim=-1)
-    candidate_logprob = F.log_softmax(candidate_logits.float(), dim=-1)
-    native_nll = -native_logprob.gather(2, targets[..., None]).squeeze(2)
-    candidate_nll = -candidate_logprob.gather(2, targets[..., None]).squeeze(2)
-    point_kl = (
-        native_logprob.exp() * (native_logprob - candidate_logprob)
-    ).sum(2).clamp_min(0)
-    candidate_correct = candidate_logits.argmax(2) == targets
+    if candidate_logits is None:
+        delta_nll = torch.zeros_like(native_nll)
+        point_kl = torch.zeros_like(native_nll)
+        candidate_correct = native_logprob.argmax(2) == targets
+    else:
+        candidate_logprob = F.log_softmax(candidate_logits.float(), dim=-1)
+        candidate_nll = -candidate_logprob.gather(2, targets[..., None]).squeeze(2)
+        delta_nll = candidate_nll - native_nll
+        point_kl = (
+            native_logprob.exp() * (native_logprob - candidate_logprob)
+        ).sum(2).clamp_min(0)
+        candidate_correct = candidate_logits.argmax(2) == targets
     for cell in CELLS:
         mask = masks[cell]
-        for row in range(len(targets)):
-            selected = mask[row]
-            destination[cell][row_offset + row] = torch.tensor((
-                int(selected.sum()),
-                float((candidate_nll[row] - native_nll[row])[selected].sum()),
-                float(point_kl[row][selected].sum()),
-                int(candidate_correct[row][selected].sum()),
-            ), dtype=torch.float64)
+        rows = slice(row_offset, row_offset + len(targets))
+        destination[cell][rows] = torch.stack((
+            mask.sum(1),
+            (native_nll * mask).sum(1),
+            (delta_nll * mask).sum(1),
+            (point_kl * mask).sum(1),
+            (candidate_correct & mask).sum(1),
+        ), dim=1).double().cpu()
 
 
 def _summarize(stats: dict[str, dict[str, torch.Tensor]]) -> dict[str, Any]:
@@ -141,7 +152,7 @@ def _summarize(stats: dict[str, dict[str, torch.Tensor]]) -> dict[str, Any]:
             values = stats[arm][cell]
             count = int(values[:, 0].sum())
             supported = values[:, 0] > 0
-            document_effect = values[supported, 1] / values[supported, 0]
+            document_effect = values[supported, 2] / values[supported, 0]
             document_mean = float(document_effect.mean()) if len(document_effect) else None
             document_se = (
                 float(document_effect.std(unbiased=True) / math.sqrt(len(document_effect)))
@@ -150,9 +161,11 @@ def _summarize(stats: dict[str, dict[str, torch.Tensor]]) -> dict[str, Any]:
             output[arm][cell] = {
                 "count": count,
                 "supporting_documents": int(supported.sum()),
-                "delta_ce": float(values[:, 1].sum() / max(count, 1)),
-                "native_to_arm_kl": float(values[:, 2].sum() / max(count, 1)),
-                "arm_accuracy": float(values[:, 3].sum() / max(count, 1)),
+                "native_ce": float(values[:, 1].sum() / max(count, 1)),
+                "arm_ce": float((values[:, 1] + values[:, 2]).sum() / max(count, 1)),
+                "delta_ce": float(values[:, 2].sum() / max(count, 1)),
+                "native_to_arm_kl": float(values[:, 3].sum() / max(count, 1)),
+                "arm_accuracy": float(values[:, 4].sum() / max(count, 1)),
                 "document_mean_delta_ce": document_mean,
                 "document_se_delta_ce": document_se,
             }
@@ -228,10 +241,13 @@ def run(row_count: int) -> dict[str, Any]:
         native_logits = facade.forward_with_dispatch(
             model, tokens, native_attention, native_mlp,
         )
+        native_logprob = F.log_softmax(native_logits.float(), dim=-1)
+        native_nll = -native_logprob.gather(2, targets[..., None]).squeeze(2)
         masks = {cell: batch_policy[cell] for cell in CELLS}
         _record(
-            stats["native"], start, native_logits, native_logits, targets, masks,
+            stats["native"], start, native_logprob, native_nll, None, targets, masks,
         )
+        del native_logits
 
         for arm in ARMS[1:]:
             def intervened_attention(
@@ -269,10 +285,11 @@ def run(row_count: int) -> dict[str, Any]:
                 model, tokens, intervened_attention, native_mlp,
             )
             _record(
-                stats[arm], start, native_logits, candidate_logits, targets, masks,
+                stats[arm], start, native_logprob, native_nll, candidate_logits,
+                targets, masks,
             )
             del candidate_logits
-        del native_logits
+        del native_logprob, native_nll
 
     summary = _summarize(stats)
     return {
