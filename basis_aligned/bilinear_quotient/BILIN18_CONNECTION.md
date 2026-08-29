@@ -57979,3 +57979,47 @@ when…" — was describing the upper half of that curve and quietly assuming ev
 **Open.** No measured MLP lies between 2.02 and 4.81 nats of lone damage, so the crossing is bracketed but
 not located. **mlp0 and mlp1 have never been measured at all** — they are the two remaining sites below
 the boundary, they extend the depth profile of §1988 downward, and either could land in the gap.
+
+## §2002 — the crossing is located at ~2.15 nats, and the depth profile below the boundary is monotone
+
+`ops/the_last_two_sites_below.py`, **49.4s**, **DISCOVERY ONLY**, 5,419, rung 3 — §2001's open question.
+**pred_a True | pred_b True | pred_c True | derived controls True.** All three reference deviations
+0.000000.
+
+```
+  lone compiled MLP, and what adding attention 5,6 is worth, nats, 5,419
+              mlp0        mlp1        mlp5        mlp2
+  lone        1.352       2.155       2.022       4.813
+  fixed       1.751       2.153       2.263       1.971
+  gain       −0.399      +0.002      −0.241      +2.842
+  (s11000)   −0.467      −0.021      −0.239      +3.200
+  (s1200)    −0.389      −0.013      −0.194      +3.006
+```
+
+> **pred_a PASSED 3/3 (both anchors rebuild within 0.005), pred_b PASSED 3/3, pred_c PASSED 3/3.**
+> §2001's one quantitative commitment about sites it had not measured — that no site loses more than the
+> flat 0.65-nat plateau — held at both new sites.
+
+> **mlp1 sits on the crossing.** Its gain is **+0.002 / −0.021 / −0.013** at a lone damage of 2.07–2.24.
+> §2001 could only bracket the crossing between 2.02 and 4.81; **it is at roughly 2.15 nats**, and the
+> bracket's lower end was nearly the answer.
+
+> **mlp0 is partially rescued too:** lone 1.35, losing 0.39–0.47 against the 0.65 plateau, so the pair
+> recovers about a third of what it costs even at a site this cheap.
+
+**The depth profile below attention 6, now complete.**
+
+```
+  mlp0   mlp1   mlp2   mlp3   mlp4   |  mlp5   mlp6   mlp7   mlp8   mlp12
+  1.35   2.16   4.81   6.57  10.67   |  2.02   0.20   0.07   0.05    0.03
+```
+
+**It rises monotonically from layer 0 to layer 4 and then collapses.** §1988 saw a "peak with a broad
+shoulder" from five points; with mlp0 and mlp1 the low side is not a shoulder at all but a **clean monotone
+ramp**, and the whole structure is a rise across five layers followed by a fall of 5.3× in one.
+
+**Open.** The account is now quantitative: the fix costs a flat ~0.65 nats and recovers a share of the
+compiled site's damage, crossing at ~2.15. **It has never been asked to predict anything.** The cheapest
+real test is a configuration it has not seen — **two compiled MLPs at once**. §1981 established that
+compilation *cost* is badly non-additive; whether the fix's *value* is additive is a separate question and
+the account implies an answer.
