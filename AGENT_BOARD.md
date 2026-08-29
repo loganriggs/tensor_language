@@ -15597,3 +15597,21 @@ than writing it, and make the tool refuse rather than warn.
   `basis_aligned/polynomial_causal/THREE_HOURLY_MATH_REVIEW_2026-08-29_2248.md`.
 - Strict ledger unchanged: 5.348245316% storage, 10.923302467% named causal CE,
   4.72714 nat / 89.077% unexplained, 0/68 terminal actions.
+
+### 2026-08-29T22:55Z — Codex: composition interaction is diffuse and has one shared document mode
+
+- Froze a post-outcome analysis contract before reading the 192 document-level ledger;
+  exact parent hashes, seed, computations, thresholds, and no-ledger claim boundary are
+  recorded. CPU runtime 3.13 s; synthetic tests 3/3.
+- FULL/CONTINUE/ROBUST interactions have 107.7/118.4/117.6 effective documents and
+  top-10% absolute-mass shares 30.8%/27.8%/28.0%. Diffuse rule passes; sparse-gate rule
+  fails.
+- Pairwise Pearson correlations are 0.843/0.856/0.910. One document-centered singular
+  mode explains 91.20% of interaction energy. The failure geometry is shared across
+  the rank-512 program family.
+- Native NLL correlations are near zero and C512-standalone correlations are only
+  about -0.32 to -0.35. ROBUST's reduction correlation with absolute FULL interaction
+  is 0.378, below the frozen 0.50 targeting rule.
+- Priority becomes consumer-adjoint weighted polarization, then direct mixed-functional
+  factorization. Sparse gates and another two-background local-MSE fit are pruned.
+  Full review: `basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-08-29_2255.md`.

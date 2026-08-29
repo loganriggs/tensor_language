@@ -2281,3 +2281,37 @@ The strict ledger remains unchanged: `5.348245316%` certified storage,
 terminal actions.
 
 ## UPDATE END — 33
+
+## UPDATE START — 34: the composition error is shared and diffuse
+
+We used the already-completed eight-arm experiment to inspect the MLP0×MLP2
+composition error document by document. The exact computations and thresholds were
+committed before reading those document-level values.
+
+The error is not caused by a small exceptional set of prompts. Depending on the MLP2
+fit, roughly 108--118 of the 192 documents contribute effectively, and the largest
+10% of documents account for only 28--31% of the absolute interaction. A sparse gate
+or mixture-of-experts fix is therefore not motivated.
+
+More importantly, the document-level interaction looks almost the same under the old
+FULL512, continued-training CONTINUE512, and trajectory-trained ROBUST512 programs.
+Their pairwise correlations are `0.843--0.910`, and one shared document mode explains
+`91.2%` of centered variation. Ordinary document difficulty does not predict it, and
+ROBUST training did not preferentially fix the largest failures.
+
+This points toward a common downstream interface metric rather than bad training
+coverage. The next fit should measure which MLP2 tensor errors verified downstream
+consumers can observe, or directly target the mixed MLP0×MLP2 intervention term.
+
+The GPU is currently running a complementary test of whether MLP2 rank 768 is needed
+inside the fully shipped 36-site program. That can produce an immediate certified
+storage simplification, so it is being allowed to finish without duplication.
+
+Full balance sheet, computations, gaps, pruning, and ranked actions are in
+[`HOURLY_STRATEGIC_REVIEW_2026-08-29_2255.md`](HOURLY_STRATEGIC_REVIEW_2026-08-29_2255.md).
+
+The strict ledger remains unchanged: `5.348245316%` certified storage,
+`10.923302467%` named causal CE, `4.72714` nat (`89.077%`) unexplained, and `0/68`
+terminal actions.
+
+## UPDATE END — 34
