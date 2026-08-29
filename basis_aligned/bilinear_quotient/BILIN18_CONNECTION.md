@@ -57139,3 +57139,48 @@ reproduced to **0.000000** via `B.ref()`. Sixtieth clean reading.
 what layer 6 reads from what it writes** — compiling it removes both at once, and the six MLPs below it
 are compiled together. Which of the six, and whether the damage is in layer 6's attention *pattern* or in
 its *output magnitude*, are the two questions §1908's alignment×magnitude instrument was built for.
+
+## §1982 — one MLP: compiling layer 4 alone costs 3.9× the whole program, and layer 5 costs nothing
+
+`ops/which_mlp_below_six.py`, 121.9s, **DISCOVERY ONLY**, 5,419, rung 3 — §1981's open question.
+**pred_a True | pred_b False | pred_c False | derived controls True.** Attention at layer 6 is **live**
+in every arm; each arm compiles exactly **one** MLP and leaves the other thirty-five sites live.
+
+```
+  cost against the live model, nats, 5,419 -- ONE compiled site per arm
+             mlp0   mlp1   mlp2   mlp3   mlp4    mlp5  |  all six   full(36)   sum of singles
+  skip7000   1.352  2.155  4.813  6.574 10.669  2.022  |  10.688     2.808        27.585
+  skip11000  1.356  2.240  5.291  6.894 10.937  2.141  |  10.958     2.979        28.859
+  skip1200   1.276  2.066  4.958  6.567 10.580  1.994  |  10.598     2.702        27.442
+```
+
+> **pred_a PASSED, and the line ends at a single site. Compiling the MLP at layer 4 alone — with all
+> thirty-five other sites live — costs 10.58–10.94 nats, which is the whole of §1981's six-site figure
+> (10.60–10.96) and 3.9× the complete thirty-six-site program.** One site out of thirty-six, and worse
+> than all of them together.
+
+> **pred_b FAILED and kills the propagation story. I predicted mlp0 would be costliest, its compiled row
+> passing through the most live machinery before reaching layer 6. The gradient runs the other way up to
+> layer 4 — 1.35, 2.16, 4.81, 6.57, 10.67 — and then COLLAPSES at layer 5 to 2.02**, one layer closer to
+> the interface. **It is not distance, not depth, and not adjacency. It is layer 4.**
+
+> **pred_c FAILED in the direction that completes the picture: the six are strongly SUB-additive.** The
+> singles sum to 27.4–28.9 nats; the six together cost 10.6–11.0. **They overlap almost entirely, because
+> mlp4 already does all of it** — §1981 found the cost non-additive over sites and this says which way it
+> fails here, having asked the opposite.
+
+> **The mechanism, as far as this line can take it.** The 2.7-nat premise (§1977), the 3.6× partial
+> penalty (§1978), the three-layer step (§1979), the one attention layer (§1980) and the six MLPs (§1981)
+> all reduce to **one pair of sites: a compiled MLP at layer 4 feeding a live attention at layer 6.**
+> Break either half — compile layer 6's attention (§1980) or leave layer 4's MLP live — and the penalty
+> is gone. **Thirty-four of the thirty-six sites are indifferent to what their inputs are made of.**
+
+**Derived controls TRUE** — coverage exact, same-spec pairs exactly inert at covered inputs, at least one
+differing-spec pair moving, buckets partitioning, live identical, §1975's published `converged` CE
+reproduced to **0.000000** via `B.ref()`. Sixty-first clean reading.
+
+**Open.** The pair is named and nothing here says what passes between them. **The two halves are one
+layer apart, so whatever mlp4 writes reaches attn6 through layer 5 — and layer 5's own MLP, compiled
+alone, costs 2.0 nats.** §1908's alignment×magnitude instrument decomposes a site's contribution into
+direction and size and would say which of the two the compiled mlp4 row gets wrong; it has never been
+pointed at an MLP.
