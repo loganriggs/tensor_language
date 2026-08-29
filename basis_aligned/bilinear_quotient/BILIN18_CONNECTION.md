@@ -58252,7 +58252,7 @@ and §1996 showed rank 16 recovers 72% of it. **The bottom of that curve has nev
 4 or rank 2 recovers most of it, the signal is small enough that a head-level account becomes the obvious
 next instrument rather than a speculation.
 
-## §2009 — one direction carries 60% of attention 6's content
+## §2009 — ~~one direction carries 60% of attention 6's content~~ **HEADLINE RETRACTED BY §2010**
 
 `ops/the_bottom_of_attention_sixs_curve.py`, **201.8s**, **DISCOVERY ONLY**, 5,419, rung 3 — §2008's open
 question. **pred_a True | pred_b True | pred_c False | derived controls True.** Both reference deviations
@@ -58266,6 +58266,12 @@ question. **pred_a True | pred_b True | pred_c False | derived controls True.** 
   skip11000     61.1%   64.2%   66.5%   69.3%   73.3%   100%
   skip1200      61.8%   65.1%   67.5%   70.0%   73.9%   100%
 ```
+
+**RETRACTION (§2010).** The measurements below are correct and reproduced within 0.01. **The word
+"content" in this section's title and first claim is wrong.** Rank 1 recovers 60% of attention 6's *whole
+contribution*, which is 64–69% **presence** at mlp2 — and rank 1 tracks the presence share while sitting
+slightly *below* it, so it carries **none** of the content. Read every figure here as a share of the whole
+contribution, never of the content.
 
 > **pred_b PASSED 3/3 and rank 4 was not the interesting number. Rank ONE at attention 6 recovers
 > 59.2% / 61.1% / 61.8% of its entire contribution.** A single direction — the same one for every token —
@@ -58292,3 +58298,48 @@ unexplained quantity is that direction's identity, and it is now small enough an
 a factor of 2.2. **Whether rank 1 carries 60% of it at mlp4 too has not been checked**, and a rank-1
 fraction that transfers would mean the direction is a property of attention 6 rather than of the pair,
 which is the question §1999 left open one level up.
+
+## §2010 — §2009's headline is wrong: rank 1 delivers PRESENCE, and carries none of attention 6's content
+
+`ops/is_the_rank_one_direction_the_same.py`, **162.8s**, **DISCOVERY ONLY**, 5,419, rung 2 — §2009
+second-class confirmed at mlp4. **pred_a True | pred_b False | pred_c True | derived controls True.** All
+three reference deviations 0.000000.
+
+```
+  attention 6's rank-1 share of its WHOLE contribution, and the presence share for comparison
+                        total     presence (mean row)   rank 1        rank 16
+  mlp2  skip7000        0.585      0.373  (63.8%)     0.346 (59.2%)   (71.7%)
+  mlp4  skip7000        6.466      6.371  (98.5%)     6.349 (98.2%)   (98.8%)
+  mlp2  skip1200        0.606      0.416  (68.6%)     0.375 (61.8%)
+  mlp4  skip1200        6.464      6.384  (98.8%)     6.357 (98.3%)
+```
+
+> **pred_b FAILED by 36.5 to 39.0 percentage points — not a near miss.** The rank-1 fraction is **59–62%
+> at mlp2 and 98.1–98.3% at mlp4.** I registered that it would transfer within 10 points. It does not
+> transfer at all.
+
+> **And the reason retracts §2009's headline, which I published one section ago.** The rank-1 fraction
+> tracks the **presence share** — 59.2% against 63.8%, 61.1% against 66.3%, 98.2% against 98.5% — and
+> sits **slightly below it on all six cells.** Rank 1 at attention 6 is very slightly *worse than a
+> constant row*. **It delivers presence and none of the content.**
+
+> **§2009 said "one direction carries 60% of attention 6's content". That is wrong.** Rank 1 carries 60%
+> of attention 6's **whole contribution** at mlp2, and that contribution is 64–69% presence. **The content
+> share — the part a mean row cannot supply — is what rank 1 misses entirely.** The measurements in §2009
+> stand and reproduced here within 0.01; **the sentence I wrote about them does not, and it is struck in
+> the ledger and marked in the registry.**
+
+> **pred_a PASSED 3/3 and pred_c PASSED 3/3**: §2009's mlp2 fractions rebuilt within 0.01, and at mlp4
+> rank 16 adds only 0.5–0.6 points over rank 1, against a 20-point bar — because at mlp4 there is almost
+> no content left to add.
+
+**What the two sites actually show, stated once.** Attention 6's contribution to a compiled MLP is mostly
+**presence** — 98.5% of it at mlp4, 64–69% at mlp2 — and the presence part is delivered by **any**
+context-free row, including a constant one and including a rank-1 table. The **content** part is small
+(0.095 at mlp4, 0.212 at mlp2, §1999/§2000) and needs **real rank**: rank 16 recovers only 12 points more
+than rank 1 at mlp2, and the last 28 points need all 368 remaining dimensions (§2009).
+
+**Open.** Three sections have now tried to characterise attention 6's content by rank and each has measured
+the presence floor instead. **The instrument that separates them is the mean row, not the rank sweep**: the
+content is exactly `meanrow − table`, and its rank structure needs a sweep run *relative to* the mean row
+rather than to the no-attention-6 arm.
