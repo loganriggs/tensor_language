@@ -1,0 +1,50 @@
+{
+  "status": "discovery_complete",
+  "scope": "restored MLP16 output versus compiled row, split by current-token coverage",
+  "coverage": 16110,
+  "results": {
+    "skip7000": {
+      "covered": 33192,
+      "uncovered": 3672,
+      "changed_covered": 10,
+      "changed_uncovered": 1311,
+      "changed_total": 1321,
+      "uncovered_share_of_changes": 0.9924299772899319,
+      "relative_l2_covered": 3.5509794755779646e-07,
+      "relative_l2_uncovered": 0.33620191179871634,
+      "max_abs_covered": 0.021484375,
+      "max_abs_uncovered": 44874.93359375
+    },
+    "skip11000": {
+      "covered": 33196,
+      "uncovered": 3668,
+      "changed_covered": 8,
+      "changed_uncovered": 1342,
+      "changed_total": 1350,
+      "uncovered_share_of_changes": 0.9940740740740741,
+      "relative_l2_covered": 3.5514130508646206e-07,
+      "relative_l2_uncovered": 0.3342944803869293,
+      "max_abs_covered": 0.0234375,
+      "max_abs_uncovered": 37491.67578125
+    },
+    "skip1200": {
+      "covered": 16597,
+      "uncovered": 1835,
+      "changed_covered": 0,
+      "changed_uncovered": 650,
+      "changed_total": 650,
+      "uncovered_share_of_changes": 1.0,
+      "relative_l2_covered": 3.5707423420104275e-07,
+      "relative_l2_uncovered": 0.3277299900718,
+      "max_abs_covered": 0.0234375,
+      "max_abs_uncovered": 39176.75390625
+    }
+  },
+  "predictions": {
+    "pred_a_99pct_changes_uncovered": true,
+    "pred_b_covered_row_identity": true,
+    "pred_c_fallback_nonidentity": true,
+    "pred_d_controls": true
+  },
+  "runtime_s": 49.53161072731018
+}
