@@ -1778,3 +1778,37 @@ small executable at all.  Once that is answered, the named-consumer bank is the
 highest-return way to attach meaning and editability to retained early components.
 
 ## UPDATE END — 25
+
+## UPDATE START — 26. Which experiment code should always be reused?
+
+Yes. The detailed audit and the concrete rule are in
+[`EXPERIMENT_REUSE_POLICY_2026-08-29.md`](EXPERIMENT_REUSE_POLICY_2026-08-29.md).
+
+The short version is that a future experiment should normally define only its new
+candidate program, intervention sites, semantic masks, and hypotheses. It should
+reuse the explicit model dispatcher, an owned physical-component interface, a
+document-wise streaming scorer, and one lifecycle/publication library.
+
+The largest performance opportunity is exact-key reuse of already computed
+decompositions, native baselines, and identical arm scores. Model loading is not
+the large cost. In the other project lane, centralizing the build and caching exact
+arm scores reduced an identical 267.7-second workload to 52.1 seconds. In this
+lane, the source audit found 78 separate file-hash functions and repeated scoring,
+bootstrap, publication, and receipt machinery. That is enough duplication to
+justify a shared harness.
+
+For authoritative physical interventions, the stable rule is:
+
+```python
+bilin18_observed_model_facade.forward_with_dispatch(
+    model, tokens, attention_dispatcher, mlp_dispatcher
+)
+```
+
+Observation-only exploratory hooks can still be useful, but a claim that a
+component has been replaced should be replayed through this explicit dispatcher or
+a fully owned tensor program. The current frozen MLP2 validation will be completed
+before extracting the remaining generic harness, so its preregistration and source
+closure are not changed midstream.
+
+## UPDATE END — 26
