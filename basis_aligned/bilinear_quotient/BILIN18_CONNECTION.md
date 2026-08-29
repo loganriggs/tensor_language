@@ -52610,6 +52610,11 @@ compiled, versus that site left live, counting positions whose argmax changes.
 ```
 
 > **~~RETRACTION. §1891's "all eighteen MLP restorations are a provable no-op" is withdrawn.~~**
+> **[FINAL, §1903: the no-op holds at COVERED current tokens and NOT at uncovered ones, where the
+> substituted row is §1870's fallback map output rather than the model's length-1 output and the
+> premise fails by construction. 99.24 / 99.41 / 100% of the changes below are at uncovered tokens
+> (Codex, 08:22Z). §1891's derivation was right; its SCOPE was never stated. Every measurement in
+> §1898-§1903 is correct — they scored different populations. LESSON 71.]**
 > **[THIS RETRACTION IS ITSELF RETRACTED AT §1901.** The comparison none of §1898-§1900 made — mlp16's
 > live output against its own table row, inside the restored configuration — gives **3.232e-07**, the
 > same order as mlp0's 4.524e-07 and as §1899's stream agreement. The restoration IS a no-op at the
@@ -52842,3 +52847,51 @@ positions — was never in doubt and is unaffected. **Open: what §1898 and §19
 that comparison, and its self-check returned 0. **A reproducible measurement of a quantity that cannot
 exist is a bug worth finding**, and it sits in code that also produced §1891's attention numbers — which
 is reason enough to find it rather than move on. §1902.
+
+## §1903 — RESOLVED, and Codex resolved it first: the two measurements counted different populations
+
+`ops/logit_difference_size.py`, 56.2s, **DISCOVERY ONLY**, rung 3.
+**pred_a False | pred_b False | pred_c False | pred_d True.** Three registered predictions, three misses,
+and the misses are the answer.
+
+```
+  logit difference between the all-compiled and mlp16-restored configurations
+    max |dlogit|                     2.159e+01   2.421e+01   2.009e+01
+    median |dlogit|, CHANGED         3.686e+00   3.931e+00   3.875e+00
+    median |dlogit|, UNCHANGED       7.629e-06   7.629e-06   7.629e-06
+    changed count                    1321        1350        650      (§1898, a fourth reproduction)
+```
+
+**The distribution is bimodal by six orders of magnitude.** Unchanged positions differ by 7.6e-06 —
+consistent with §1899's 1.2e-07 stream and §1901's 3.2e-07 output agreement. Changed positions differ by
+**3.7-3.9 nats of logit**, with a maximum of **21.6**. Nothing about that is numerical.
+
+> **THE RESOLUTION IS CODEX'S, posted at 08:22Z, six minutes before my run landed, and it is correct.**
+> *"§1899/§1901 measured only positions whose current token has a table row; §1898/§1900 counted
+> prediction changes at all positions."* They localised **1311/1321, 1342/1350 and 650/650** of the
+> changes to **uncovered** current tokens — **99.24 / 99.41 / 100%**.
+>
+> **I wrote `msk = seen[flat]` into §1899 and §1901 deliberately, and registered it as pred_d — "the
+> comparison is run on COVERED current tokens only, since an uncovered token has no table row." Then I
+> compared those results against §1898's all-position counts as though they described the same thing.**
+> At an uncovered token the substituted row is **§1870's fallback map output**, not the model's length-1
+> output, so a live MLP fed that stream returns something with no reason to match it. The premise fails
+> there **by construction**, and I had written the reason down myself.
+
+> **So every measurement in §1898-§1903 is correct and none of them contradicted any other.** The
+> corrected statement: **MLP leave-one-out restoration is a no-op at COVERED current tokens** — verified
+> at the stream (1.2e-07), the output (3.2e-07) and now the logits (7.6e-06) — **and is not a no-op at
+> uncovered ones**, where it moves logits by ~3.9 and flips essentially all of §1898's changes. §1891's
+> derivation was right and its scope was never stated. **§1891 is corrected in place to say "covered",
+> and §1898's retraction — already reversed at §1901 — is closed as a scoping error, not a refutation.**
+>
+> **This is the population-dependence trap for the fourth time this session**: §1882 lost a launch to a
+> live-CE anchor measured on a different covered set, §1889 built an entire null run on an axis collinear
+> with coverage, §1890 corrected §1888's compositional guess, and now six sections went round a loop
+> because two instruments silently scored different populations. **LESSON 71.**
+
+**pred_d PASSED**: the changed count reproduced §1898's 1321 / 1350 / 650 for a **fourth** time.
+
+**Credit, plainly.** Codex found this from the source while I was building a fifth measurement. My §1903
+independently confirms the magnitude and the bimodality, which is worth having, but the diagnosis is
+theirs and they had it faster.

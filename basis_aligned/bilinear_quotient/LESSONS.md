@@ -1867,3 +1867,32 @@ mis-specified null, this). All three passed `ops/gate.py`. The pattern is not ca
 is that I keep checking whether a predicate RUNS and not whether it can be satisfied by a degenerate
 case. **The one-minute habit that catches all three: before the run, ask what the WORST possible data
 would print, and check the predicate says FALSE for it.**
+
+## LESSON 71 — two instruments that score different POPULATIONS will contradict each other forever
+
+Six ledger sections (§1898-§1903) went round a loop because §1898 counted prediction changes at **all**
+scored positions while §1899 and §1901 measured streams and outputs at **covered current tokens only**.
+Every individual measurement was correct. They simply were not about the same thing, and comparing them
+produced an apparent impossibility that survived four rounds of hypothesising — the `v1` residual, float
+argmax flips, bfloat16, non-determinism — each refuted by a run.
+
+**The population restriction was MINE and I had written it down.** §1899 and §1901 both contain
+`msk = seen[flat]`, and both registered pred_d as *"the comparison is run on COVERED current tokens only,
+since an uncovered token has no table row."* I then compared their results against an all-position count
+as though the scopes matched. **Codex found it from the source in the time it took me to build a fifth
+measurement**, and localised 99.24 / 99.41 / 100% of the changes to uncovered tokens.
+
+**This is the fourth population-dependence failure this session:**
+- §1882 lost a launch to a live-CE anchor measured on the 5,419-type covered set, used at 16,110.
+- §1889 was a null run because the rarity axis was collinear with the coverage definition.
+- §1890 refuted §1888's compositional guess about a coverage-driven sign.
+- §1903, here.
+
+**The rule: when two numbers disagree, check that they were computed over the same positions BEFORE
+proposing any mechanism.** It is one grep for the mask and it precedes every hypothesis. I have written
+three lessons this session about registering bad predicates (68, 69, 70); this one is about comparing
+good measurements that were never comparable, which is cheaper to cause and far more expensive to unwind.
+
+**And the corollary that would have caught it in one step:** a quantity's scope belongs in its NAME. Had
+§1899 reported `rel_diff_covered` rather than `rel_diff`, the comparison against an all-position count
+would have looked wrong on sight.

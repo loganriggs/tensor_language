@@ -33,8 +33,11 @@ from __future__ import annotations
 import json
 import hashlib
 import math
+import os
+import subprocess
 import sys
 import time
+import traceback
 from pathlib import Path
 from typing import Any
 
@@ -75,6 +78,10 @@ KL_BAND = (0.01, 0.20)
 POSITION_SHUFFLE_NRE_FLOOR = 0.25
 PRICE_QUANTIZATION_STEP = 1e-4
 OUT = HERE / "gauge_transport_triangle_results.json"
+STATE_OUT = HERE / "gauge_transport_triangle_state.pt"
+RUN_AUTHORITY = HERE / "gauge_transport_triangle_v1_execution_authority.json"
+RUN_RECEIPT = HERE / "gauge_transport_triangle_v1_execution_receipt.json"
+RUN_FAILURE = HERE / "gauge_transport_triangle_v1_execution_failure.json"
 ROW_AUTHORITY = HERE / "gauge_transport_triangle_unique_rows_v2_authority.json"
 ROW_MANIFEST = HERE / "gauge_transport_triangle_unique_rows_v2_manifest.json"
 ROW_RECEIPT = HERE / "gauge_transport_triangle_unique_rows_v2_receipt.json"
@@ -88,17 +95,14 @@ ROW_AUTHORITY_SHA256 = "99226c959912b22701c2df085029d9e082fda3af95c482a0d7483a31
 ROW_MANIFEST_SHA256 = "f781231f1eca2a77a10bebb767eddc17a579b9f103e930fc0ba816bdfc1d68e2"
 ROW_RECEIPT_SHA256 = "bfd6eeb3f7f8f5ce57ceb2fca6109f5b50f02c007725099c1082163ba0f81468"
 ROW_SELECTION_PLAN_SHA256 = "0d66f060a43959c94afc14691b4a19730147c942da94807f919513fb8c421629"
-RUNNER_LIFECYCLE_READY = False
-
-
-def require_source_closed_runner_lifecycle() -> None:
-    """Bar the legacy writer until a separately reviewed terminal owner exists."""
-    if RUNNER_LIFECYCLE_READY is not False:
-        raise RuntimeError("triangle lifecycle readiness may not be enabled by a mutable flag")
-    raise RuntimeError(
-        "triangle launch NO-GO: source-closed authority, create-only terminal owner, "
-        "and registered Stage-0/null control ledger are not implemented"
-    )
+RUN_SOURCE_FILES = (
+    "basis_aligned/polynomial_causal/gauge_transport_triangle.py",
+    "basis_aligned/polynomial_causal/gauge_transport.py",
+    "basis_aligned/polynomial_causal/PRICED_GAUGE_TRANSPORT_SPEC.md",
+    "basis_aligned/polynomial_causal/GAUGE_TRANSPORT_TRIANGLE_V1_EXECUTION_PREREGISTRATION.md",
+    "basis_aligned/polynomial_causal/test_gauge_transport_triangle.py",
+    "basis_aligned/polynomial_causal/test_gauge_transport_triangle_contract_audit.py",
+)
 
 
 def file_sha256(path: Path) -> str:
@@ -113,6 +117,110 @@ def canonical_sha256(value: Any) -> str:
     return hashlib.sha256(json.dumps(
         value, sort_keys=True, separators=(",", ":"), allow_nan=False,
     ).encode()).hexdigest()
+
+
+def _git(*arguments: str) -> str:
+    return subprocess.check_output(
+        ["git", *arguments], cwd=HERE.parents[1], text=True,
+    ).strip()
+
+
+def validate_execution_authority(value: dict[str, Any]) -> None:
+    body = {key: item for key, item in value.items() if key != "authority_sha256"}
+    if value.get("schema") != "gauge_transport_triangle_v1_execution_authority" or (
+        value.get("status") != "source_closed_go"
+        or value.get("authority_sha256") != canonical_sha256(body)
+    ):
+        raise RuntimeError("triangle execution authority identity changed")
+    if tuple(value.get("source_files", ())) != RUN_SOURCE_FILES or set(
+        value.get("source_sha256s", {})
+    ) != set(RUN_SOURCE_FILES):
+        raise RuntimeError("triangle execution source set changed")
+    for relative in RUN_SOURCE_FILES:
+        if file_sha256(HERE.parents[1] / relative) != value["source_sha256s"][relative]:
+            raise RuntimeError(f"triangle execution source changed: {relative}")
+    if value.get("row_artifact_file_sha256") != ROW_ARTIFACT_FILE_SHA256 or (
+        value.get("row_receipt_file_sha256") != ROW_RECEIPT_FILE_SHA256
+        or value.get("model_weights_sha256") is None
+    ):
+        raise RuntimeError("triangle execution input binding changed")
+    if value.get("terminal_outputs") != {
+        "result": OUT.name,
+        "state": STATE_OUT.name,
+        "receipt": RUN_RECEIPT.name,
+        "failure": RUN_FAILURE.name,
+    }:
+        raise RuntimeError("triangle execution terminal namespace changed")
+
+
+def require_source_closed_runner_lifecycle() -> dict[str, Any]:
+    """Require a pushed immutable authority and a fresh create-only terminal namespace."""
+    if not RUN_AUTHORITY.exists():
+        raise RuntimeError("triangle execution authority is absent")
+    authority = json.loads(RUN_AUTHORITY.read_text())
+    validate_execution_authority(authority)
+    commit = str(authority.get("source_commit", ""))
+    if not commit:
+        raise RuntimeError("triangle execution authority lacks source commit")
+    subprocess.run(
+        ["git", "merge-base", "--is-ancestor", commit, "HEAD"],
+        cwd=HERE.parents[1], check=True,
+    )
+    subprocess.run(
+        ["git", "merge-base", "--is-ancestor", commit, "origin/main"],
+        cwd=HERE.parents[1], check=True,
+    )
+    status = _git("status", "--porcelain", "--", *RUN_SOURCE_FILES,
+                  str(RUN_AUTHORITY.relative_to(HERE.parents[1])))
+    if status:
+        raise RuntimeError(f"triangle execution sources are dirty: {status}")
+    for terminal in (OUT, STATE_OUT, RUN_RECEIPT, RUN_FAILURE):
+        if terminal.exists():
+            raise RuntimeError(f"triangle terminal namespace is not fresh: {terminal.name}")
+    return authority
+
+
+def create_only_json(path: Path, value: dict[str, Any]) -> None:
+    data = (json.dumps(value, indent=2, allow_nan=False) + "\n").encode()
+    with path.open("xb") as handle:
+        handle.write(data)
+        handle.flush()
+        os.fsync(handle.fileno())
+
+
+def create_only_torch(path: Path, value: dict[str, Any]) -> None:
+    with path.open("xb") as handle:
+        torch.save(value, handle)
+        handle.flush()
+        os.fsync(handle.fileno())
+
+
+def publish_execution(
+    authority: dict[str, Any], output: dict[str, Any], state: dict[str, Any] | None,
+) -> None:
+    output["execution_authority_sha256"] = authority["authority_sha256"]
+    create_only_json(OUT, output)
+    if state is not None:
+        create_only_torch(STATE_OUT, state)
+    result_hash = file_sha256(OUT)
+    state_hash = file_sha256(STATE_OUT) if STATE_OUT.exists() else None
+    replay = json.loads(OUT.read_text())
+    if replay != output or replay.get("execution_authority_sha256") != authority[
+        "authority_sha256"
+    ]:
+        raise RuntimeError("triangle result semantic replay failed")
+    receipt = {
+        "schema": "gauge_transport_triangle_v1_execution_receipt",
+        "status": "complete_receipt_last",
+        "authority_sha256": authority["authority_sha256"],
+        "result_file_sha256": result_hash,
+        "state_file_sha256": state_hash,
+        "failure_absent": not RUN_FAILURE.exists(),
+        "result_status": output.get("config", {}).get("status"),
+        "screen_passed": output.get("screen_passed"),
+    }
+    receipt["receipt_sha256"] = canonical_sha256(receipt)
+    create_only_json(RUN_RECEIPT, receipt)
 
 
 def composite_tensor_sha256(value: torch.Tensor) -> str:

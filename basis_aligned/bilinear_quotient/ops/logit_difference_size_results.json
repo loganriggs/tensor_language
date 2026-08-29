@@ -1,0 +1,55 @@
+{
+ "config": {
+  "table_ranks": [
+   "full"
+  ],
+  "map_rank_of_table_rank": {
+   "None": 64,
+   "512": 512
+  },
+  "program": "context-free tables, output-NN fallback with a rank-64 embedding->row map -- the settled design of \u00a71780-\u00a71786",
+  "instruments": "top-1 agreement with the live model, top-1 accuracy against the true next token, and KL(live || program). All three are NEW to this thread, which has been CE-only since \u00a71747.",
+  "ROLE_NOTE": "DISCOVERY ONLY; a second-class confirmation with a DIFFERENT instrument, not a replication of the same one."
+ },
+ "results": {
+  "baseline": {
+   "skip7000": 36864,
+   "skip11000": 36864,
+   "skip1200": 18432
+  },
+  "self_check": 0,
+  "sites": {
+   "skip7000": {
+    "max_logit_diff": 21.586387634277344,
+    "changed": 1321,
+    "min_margin_changed": 4.76837158203125e-07,
+    "median_margin_changed": 0.19664955139160156,
+    "median_logitdiff_changed": 3.6862473487854004,
+    "median_logitdiff_unchanged": 7.62939453125e-06
+   },
+   "skip11000": {
+    "max_logit_diff": 24.20734214782715,
+    "changed": 1350,
+    "min_margin_changed": 4.76837158203125e-07,
+    "median_margin_changed": 0.2674999237060547,
+    "median_logitdiff_changed": 3.931391716003418,
+    "median_logitdiff_unchanged": 7.62939453125e-06
+   },
+   "skip1200": {
+    "max_logit_diff": 20.088054656982422,
+    "changed": 650,
+    "min_margin_changed": 0.0010509490966796875,
+    "median_margin_changed": 0.2831611633300781,
+    "median_logitdiff_changed": 3.8752036094665527,
+    "median_logitdiff_unchanged": 7.62939453125e-06
+   }
+  }
+ },
+ "predictions": {
+  "pred_a_logit_diff_tiny_program_concentrated_on_frequent_targets": false,
+  "pred_b_cannot_explain_flips_more_concentrated_than_live": false,
+  "pred_c_changed_not_special_keeps_60pc_on_the_top_bucket": false,
+  "pred_d_controls": true
+ },
+ "runtime_s": 56.2
+}

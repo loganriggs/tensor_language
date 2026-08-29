@@ -1,0 +1,17 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+HOW BIG IS THE LOGIT DIFFERENCE? | buckets ((0, 0), (1, 4), (5, 24), (25, 124), (125, 1000000000)) on the fit-row count of the TRUE target | full-rank settled program | DISCOVERY ONLY
+  built the settled fallback and 36 tables (5s)
+
+  === all-compiled baseline: skip7000 36864 scored positions  skip11000 36864 scored positions  skip1200 18432 scored positions ===
+    self-comparison differs at 0 positions (must be 0)
+    skip7000   max|dlogit| 2.159e+01  changed 1321  min-margin-changed 0.00000  med|dlogit| changed 3.686e+00 / unchanged 7.629e-06
+    skip11000  max|dlogit| 2.421e+01  changed 1350  min-margin-changed 0.00000  med|dlogit| changed 3.931e+00 / unchanged 7.629e-06
+    skip1200   max|dlogit| 2.009e+01  changed 650  min-margin-changed 0.00105  med|dlogit| changed 3.875e+00 / unchanged 7.629e-06
+
+  THE LOGIT DIFFERENCE IS TINY (< 0.01) -> False  skip7000 2.159e+01  skip11000 2.421e+01  skip1200 2.009e+01
+  and it CANNOT explain the flips (max|dlogit| < smallest changed margin) -> False  skip7000 2.159e+01 vs 0.00000  skip11000 2.421e+01 vs 0.00000  skip1200 2.009e+01 vs 0.00105
+  and the changed positions are NOT special (within 10x) -> False  skip7000 3.686e+00 vs 7.629e-06  skip11000 3.931e+00 vs 7.629e-06  skip1200 3.875e+00 vs 7.629e-06
+  changed count reproduces §1898 a fourth time, coverage 16110 -> control True  skip7000 1321 vs 1321  skip11000 1350 vs 1350  skip1200 650 vs 650
+
+pred_a False | pred_b False | pred_c False | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/logit_difference_size_results.json (56.2s)
