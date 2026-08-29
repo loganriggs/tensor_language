@@ -2107,3 +2107,97 @@ and the full strategic balance sheet is
 [`HOURLY_STRATEGIC_REVIEW_2026-08-29_2030.md`](HOURLY_STRATEGIC_REVIEW_2026-08-29_2030.md).
 
 ## UPDATE END — 30
+
+## UPDATE START — 31: the first MLP0 + MLP2 composition test
+
+### The short answer
+
+The fresh 192-document experiment is complete. The rank-512 MLP0 and rank-512 MLP2
+programs work well independently and **mostly, but not cleanly, work together**.
+Their combined extra cross-entropy is `0.064996` nat. Simply adding their standalone
+errors predicts `0.056257` nat, so there is an excess interaction of `0.008739` nat.
+Its document-bootstrap 95% interval is `[0.007511, 0.010014]`, which is tightly
+positive.
+
+The registered label is `interaction_inconclusive`, not “incompatible.” Clean
+composition missed its tolerance slightly: adding C512 on top of FULL512 costs
+`0.012120` nat, versus the allowed `0.01`. But the preregistered incompatibility rule
+required the *lower* confidence bound to exceed `0.01`; it is `0.007511`. The honest
+reading is a small, robust, positive interaction that narrowly falls between the two
+registered decision regions.
+
+### What was computed
+
+On the same fresh documents we ran native, MLP0-C512 alone, MLP2-FULL512 alone, and
+both replacements. Extra cross-entropy means candidate CE minus native CE. If the
+two replacements were independent, the combined extra CE would be the sum of the
+two standalone values. The factorial interaction is
+
+$$
+I=\Delta CE_{\mathrm{BOTH}}
+ -\Delta CE_{\mathrm{C512}}
+ -\Delta CE_{\mathrm{FULL512}}.
+$$
+
+| arm | extra CE | teacher KL | logit NRMSE | native top-1 agreement |
+|---|---:|---:|---:|---:|
+| MLP0-C512 | 0.003381 | 0.004478 | 0.04070 | 96.08% |
+| MLP2-FULL512 | 0.052876 | 0.055820 | 0.14030 | 86.74% |
+| both | 0.064996 | 0.067903 | 0.15453 | 85.76% |
+
+The MLP0 program's marginal CE cost becomes 3.59 times larger when the MLP2 program
+is present. Conversely, MLP2's marginal cost becomes 16.5% larger after MLP0 is
+compressed. This most naturally says that FULL512 was trained for the native input
+trajectory and is somewhat brittle to the small state shift made by C512.
+
+This does **not** erase either independent result. MLP2-FULL512 gives `0.05288` nat
+on this second fresh role, extremely close to its earlier `0.05147`; C512 remains at
+only `0.00338`. The result identifies the interface that a joint fit must repair.
+
+### Runtime and current blocker
+
+Fresh-row freezing took about 23 seconds and the four-arm whole-model experiment took
+20.29 seconds. Earlier attempts failed before outcome access because two provenance
+checks were overly coupled to historical metadata and concurrent branch movement.
+Those failures are preserved and both checks were generalized. The computation is
+fast; the experiment-lifecycle repair was the elapsed-time cost.
+
+There is no user-input blocker. Another shared GPU job is active, so the immediate
+safe work is CPU-side design and testing of the next fit.
+
+### Why downstream circuits help with early MLPs
+
+Learning late circuits for capitalization, number formatting, copy, syntax, and
+entities gives us an operational coordinate system for MLP0/1/2. Rather than saying
+two early states are similar because their vectors are close, we can say they are
+equivalent when all verified downstream consumers respond the same way:
+
+$$
+x\sim x' \quad\text{when}\quad
+(g_1(x),\ldots,g_m(x))\approx(g_1(x'),\ldots,g_m(x')).
+$$
+
+This can reveal shared and private directions and a hierarchy/DAG of reusable early
+features. It also gives a consequence-weighted fitting loss. The important caveat is
+that every consumer must pass sufficiency, necessity, shuffle, off-target, and OOD
+checks; an incomplete or correlational consumer bank would collapse distinctions the
+model really uses.
+
+### What happens next
+
+The highest-return experiment is an equal-price MLP2 rank-512 refit trained on both
+native and C512-produced pre-MLP2 states, with downstream logit/Fisher consequences
+in the loss. It predicts a reduction in the measured `0.008739` interaction without
+adding products or coefficients. In parallel, the next conceptual entry point is the
+verified late-consumer bank, followed by shared-plus-private trajectory factors,
+MLP1 composition, and selective copy-bundle interactions.
+
+The full explanation, including terms, computations, balance sheet, pruning, and
+ranked priorities, is
+[`HOURLY_STRATEGIC_REVIEW_2026-08-29_2110.md`](HOURLY_STRATEGIC_REVIEW_2026-08-29_2110.md).
+
+The strict ledger remains unchanged: `5.348245316%` certified storage removal,
+`10.923302467%` named causal CE, `4.72714` nat (`89.077%`) unexplained, and `0/68`
+terminal actions.
+
+## UPDATE END — 31

@@ -57588,3 +57588,47 @@ alone. §1992 does exactly that, and until it reports there is no rule in force,
 **Open.** If `mlp2 + attention 5 + attention 6` lands near 1.8, the requirement is the **two layers beneath
 the boundary**, independent of where the compiled site sits, and both §1986's "path" and §1990's "chain"
 were the same two layers seen through longer prefixes.
+
+## §1992 — the narrow form fails too: no rule fits, and what the table supports is a threshold, not a rule
+
+`ops/is_it_just_attention_five_and_six.py`, **55.7s**, **DISCOVERY ONLY**, 5,419, rung 3 — §1991's open
+question. **pred_a False | pred_b False | pred_c False | derived controls True.** All three reference
+deviations 0.000000. **This is my third attempt to state a rule and the third one the data refuses.**
+
+```
+  cost against the live model, nats, 5,419
+             mlp2+a5,6  mlp3+a5,6  mlp2+a5  mlp2+a6  mlp2+a3-6  mlp4+a5,6   full 36 sites
+  skip7000     1.971      1.996     2.556    4.876     1.887      1.555        2.808
+  skip11000    2.090      2.152     2.730    5.355     2.016      1.640        2.979
+  skip1200     1.952      1.933     2.558    5.016     1.817      1.498        2.702
+```
+
+> **pred_a FAILED by 0.090 nats. Attention 5 and 6 alone are not enough for mlp2** — 1.971 against
+> attention 3–6's 1.887, pooled t = +27.0. Set against §1991, which measured attention **3** as worth
+> −0.042: the ordering is `+a4,5,6` **1.845** < `+a3,4,5,6` **1.887** < `+a5,6` **1.971**. **Attention 4
+> helps mlp2 and attention 3 hurts it.** The narrow form is wrong in the opposite direction to the chain.
+
+> **pred_b FAILED, and mlp2 does not behave like mlp4 at all.** The bar was "neither layer alone works".
+> **Attention 5 alone gets mlp2 to 2.556** — against a 4.0 bar, and against **8.021** for the same arm at
+> mlp4. Only attention 6 alone genuinely fails (4.876). **Whatever the two layers do, they do it in
+> different proportions for different sites.**
+
+> **pred_c FAILED on one role by 0.012 nats.** mlp2 / mlp3 / mlp4 with attention 5,6 span 0.441 / **0.512**
+> / 0.454 against a 0.5 bar required on 3/3. A miss is a miss. But it is a 12-milli-nat miss on a bar I
+> set by eye, and the honest reading is that these three are close, not identical.
+
+**What the table actually supports — and this time I am not calling it a rule.** Across every arm measured
+in §1984–§1992: **an arm that compiles both attention 5 and attention 6 costs 1.50–2.15 nats. An arm that
+omits either costs 2.56–10.94.** No exceptions in fifteen arms. The fine structure inside the good band —
+attention 4 worth +0.13 at mlp2, attention 3 worth −0.04, attention 4 worth −0.20 at mlp4 — is **real,
+small, and site-dependent**, and three different generalisations of it have now been falsified within an
+hour of being written.
+
+**The three withdrawn statements, for the record.** §1986: "the path from the site up to layer 6" — killed
+by §1991's gap arm. §1990: "every attention layer strictly above the site through 6" — same. §1992's own
+premise, "just attention 5 and 6" — killed by its own pred_a. **Each fit every number available when
+written.** The threshold above is the largest claim the fifteen arms carry.
+
+**Open.** Everything above is at 5,419 types. The threshold is the one statement worth replicating before
+it is built on, and the second coverage (16,110) is the standing instrument for exactly that — it halves
+the uncovered arm and has broken claims before (§1963, §1965).
