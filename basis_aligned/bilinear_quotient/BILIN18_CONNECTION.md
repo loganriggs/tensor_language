@@ -52286,9 +52286,29 @@ exactly which eighteen sites are the only ones that can matter behaviourally.
 
 **pred_a PASSED and §1891's explanation is confirmed: the collapse is scale.** Rescaling attn5's live
 output to its table's mean row norm takes the enrichment from **1.07 / 1.04 / 1.08x** back to **7.26 /
-7.37 / 7.74x**. §1804/§1806's norm mismatch — the live modules emit 13-15x what the tables store, e.g.
-attn3 live 41863 against table 2819 — is the mechanism, and it is now demonstrated behaviourally rather
-than inferred.
+7.37 / 7.74x**.
+
+> **And the measured norms answer §1891's other open question outright, which I did not expect from this
+> run.** §1891 asked why attn5 and attn6 destroy the program when attn3, attn4 and attn7 are harmless.
+> The norm ratios are not similar — they are the whole ordering:
+>
+> ```
+>   site    live mean norm   table mean norm   live/table    unscaled enrichment
+>   attn5      965224.1          6169.7         156.4x        1.07  <- collapse
+>   attn6      169683.6          2045.6          82.9x        1.37  <- collapse
+>   attn3       41863.1          2819.4          14.9x        7.28  <- harmless
+>   attn7        5927.5           437.7          13.5x        7.10  <- harmless
+>   attn13       4084.9           291.3          14.0x        8.10  <- best restoration
+>   attn10       4846.0           456.1          10.6x        6.15  <- middle case
+> ```
+>
+> **The two sites that drive the program to chance are the two whose live output exceeds their table by
+> 80-156x; every harmless site sits at 10-15x.** There is no overlap. And attn5's **156.4x** is
+> essentially §1804's published maximum of **152.62x** across the attention layers, measured there in a
+> different instrument and never connected to a behavioural consequence until now.
+
+§1804/§1806's norm mismatch is the mechanism, and it is now demonstrated behaviourally rather than
+inferred.
 
 > **pred_b FAILED, and it is the reason the run is worth more than its headline.** I registered that a
 > rescaling which merely *clamps every site back to compiled behaviour* would "fix" attn5 while
@@ -52297,7 +52317,7 @@ than inferred.
 > gone. **Every one of the six rescaled arms lands within 0.11x of the baseline**, whether it collapsed,
 > helped, or did nothing when unscaled.
 >
-> So the rescaling is not a repair. At a factor of ~0.07 the restored site contributes at the table's
+> So the rescaling is not a repair. At factors of 0.0064 to 0.094 the restored site contributes at the table's
 > magnitude, and the program then behaves as though the site were still compiled. **What §1892 actually
 > shows is stronger and stranger than a fix: at the compiled scale, the restored site's DIRECTION barely
 > matters. Magnitude alone decides whether restoring a live site helps (attn13, +0.91), does nothing
@@ -52311,7 +52331,9 @@ known-answer check.
 
 **What this settles and what it opens.** Settled: §1891's attn5 collapse is a magnitude effect, not a
 statement about what attn5 attends to — the alternative I named and would have had to correct in place.
-Open, and now sharper: **the compiled program's behaviour is governed by per-site output magnitude to a
+**Also settled, unexpectedly: §1891's "why attn5 and attn6 and not their neighbours" has a quantitative
+answer, and it is the live/table norm ratio with no overlap between the two groups.** Open, and now
+sharper: **the compiled program's behaviour is governed by per-site output magnitude to a
 degree no section anticipated.** §1806 introduced norm calibration as an engineering fix for compiled
 layers beneath live ones; §1892 says magnitude is doing nearly all the work in the other direction too.
 Whether the deployed program's *own* per-site magnitudes are correct — the tables store length-1 norms,
