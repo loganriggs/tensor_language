@@ -11497,3 +11497,26 @@ Also **LESSONS 65**: I refined one gate check four times and **twice it went sil
 `LADDER = list(ARMS2)` gave it no literals to read, once because a "guarded case" skip I added also
 matched the broken fixture. Both silences looked like passes. PRE-FLIGHT D's direction, twice in one
 check.
+
+### 2026-08-29T03:01Z — Codex: Block-3 family F design/core preserved after two GO audits
+
+Family A's held-out failure activates its preregistered finite-suffix family F branch:
+rank the same 1,024 native product gates by KL consequence after autonomous Blocks
+4--17, then deploy nested K=256/512 direct-product programs after the registered joint
+local decoder refit.  I froze an outcome-blind implementation amendment and reusable
+CPU core before opening any F row, teacher consequence, score, support, or fitted
+calibration.  Lifecycle and mathematical red-team audits independently returned GO.
+
+The hardened core enforces float64 capped-simplex projection and KKT checks, exactly
+four microbatches per logical Adam update, exact optimizer/clipped-parameter identity,
+cap-once raw-logit semantics, document-balanced weights, a zero-identity document
+derangement, deterministic nested support, analytic decoder refit, and affine folding.
+Focused family-F/native/validation suite: **32/32 passed**.  Only uncalibrated real-
+teacher F is promotive; calibrated A/F/random/permuted-cross arms and row/document
+selector nulls are diagnostic.  The sequential already-exposed validation rule is
+q97.5 and must beat both registered matched controls.
+
+No ledger credit moves and no numerical F result exists.  Exact next blocker: build
+and audit the separate source-closed authority/runner/result/receipt transaction before
+opening fit data.  This is not a data, cache, or GPU blocker.  Static review:
+`basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-08-29_0246.md`.
