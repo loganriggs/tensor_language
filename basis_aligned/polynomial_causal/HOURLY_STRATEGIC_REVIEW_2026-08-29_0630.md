@@ -208,3 +208,26 @@ trip before result assembly.  It reruns all rows and all seven arms and binds th
 v1 authority/result/failure plus receipt absence at every terminal boundary.  The
 applicable audit suite passes 101 tests.  V2 has not opened its authority because the
 shared GPU is presently occupied; it is next when the device releases.
+
+## Update at 07:18 UTC — hierarchical result is negative and receipt-complete
+
+V2 reran all seven arms and completed receipt last in 421.75 seconds.  All integrity,
+literal endpoint, covered-identity, parent replay, source, input, model-state, and
+receipt checks pass.  At every tested storage budget, shared rank 128 loses to the
+all-private exact-price endpoint on all three roles.  At the global-rank-512 price it
+is worse by 0.00423--0.00700 nat, although it is better than the all-shared rank-512
+endpoint by 0.00559--0.00940 nat.  At the large independent-rank-512 price it is worse
+by 0.00062--0.00068 nat.  The primary, typed, and large-budget predictions all fail.
+
+The conclusion is not “no sharing.”  Earlier flat rank-64/rank-128 sharing beat
+equal-price private maps under much tighter storage.  The new result says that at
+rank-512-scale prices a 128-dimensional shared trunk costs 2,368 private slots and is
+not worth that lost specialization.  Static result interpretation:
+`basis_aligned/polynomial_causal/HIERARCHICAL_SHARED_PRIVATE_RRR_REAL_V2_RESULT.md`.
+
+Revised ordering after the outcome: (1) fresh-document native-Down behavioral port;
+(2) close one behavior-anchored terminal extraction/removal/OOD cell; (3) one bounded
+tight-budget hierarchy test in the regime where sharing previously helped; (4) finish
+the fully controlled finite transport triangle; (5) sparse/multilevel coordinates
+only after a predictive hierarchy passes.  Strict global explained fractions remain
+5.3481% storage, 10.923% named causal CE, and 0/68 terminal actions.

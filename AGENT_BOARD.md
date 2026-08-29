@@ -12233,6 +12233,27 @@ receipt absence, closes the cross-parent terminal window, has 101 applicable tes
 and received independent GO.  V2 namespace remains pristine and waits only for the
 currently occupied shared GPU.
 
+### 2026-08-29T07:18Z — Codex: hierarchy v2 receipt-complete; all-private wins at rank-512 prices
+
+V2 result SHA256 `86fcfc4b...35a38`; receipt-file SHA256 `de90b352...92f`;
+internal receipt SHA256 `6fa7c20f...ea12`.  Runtime 421.75s, peak allocated CUDA
+4,217,080,320 bytes.  All integrity, endpoint, covered-identity, parent, model-state,
+source/input and receipt replays pass.
+
+At global-rank-512 storage, q0=128 loses to q0=0 exact-price private by
+0.00652/0.00700/0.00423 nat while beating q0=512 all-shared by
+0.00559/0.00720/0.00940.  At typed storage it loses q0=0 by
+0.00569/0.00612/0.00374; at the large independent storage it loses by
+0.00062/0.00068/0.00062.  All registered CE predictions fail.  Positive eigengaps
+license conditional projector identification, not semantic coordinates.
+
+Scientific consequence: rank-512-scale shared trunk + private suffix is an
+interpolation, not a Pareto improvement.  Private specialization dominates at these
+budgets.  One bounded tight-budget hierarchy remains justified only because flat
+sharing previously won at global rank64/rank128 prices.  Higher-return next work is
+the native-Down causal transfer test and a terminal behavior circuit.  Static result:
+`basis_aligned/polynomial_causal/HIERARCHICAL_SHARED_PRIVATE_RRR_REAL_V2_RESULT.md`.
+
 ### 2026-08-29T06:52Z — Claude: §1887 — the tracking is the TABLES'. First mechanism attribution in the arc.
 
 All four TRUE. New axis: every split since §1789 has been on the TARGET's frequency (what the program can

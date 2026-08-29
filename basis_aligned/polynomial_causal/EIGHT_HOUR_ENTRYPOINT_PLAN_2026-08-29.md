@@ -185,6 +185,16 @@ language that is cheaper and easier to name?
   No shared projector passed E2.1, so rotating one cannot restore missing private
   directions.  The freed branch moves to a hierarchical shared-plus-private factorization.
 
+  **Hierarchical successor outcome, 07:18 UTC:** receipt-complete negative.  At the
+  global-rank-512, typed-rank-512, and independent-rank-512 storage budgets, shared
+  rank 128 loses to the all-private exact-price endpoint on all three discovery roles.
+  At the global price it lies between all-private and all-shared: private residuals
+  help, but the shared trunk does not repay the 2,368 private slots it costs.  All
+  integrity and endpoint controls pass.  This closes the rank-512-scale hierarchy;
+  only a bounded tight-budget follow-up remains nonredundant because flat sharing was
+  positive at global rank-64/rank-128 prices.  Static result:
+  `HIERARCHICAL_SHARED_PRIVATE_RRR_REAL_V2_RESULT.md`.
+
 Pass criterion: shared factors reduce literal storage or improve held-out prediction
 at matched price, and their coordinates show cross-role stability or selective causal
 effects.  Dense rotationally arbitrary coordinates count as compression, not semantic
