@@ -1,0 +1,152 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+BLEND ALPHA SWEEP | 7 alphas x 2 coverages | paired t on every CE margin | DISCOVERY ONLY
+
+########## COVERAGE 5419 ##########
+  [bqlib] coverage 5419 from fineweb_n96_skip80.pt: 36 tables, neighbour index and map solver built (4s)
+  [bqlib] cache HIT  live     skip7000
+  [bqlib] cache HIT  live     skip11000
+  [bqlib] cache HIT  live     skip1200
+  [bqlib] computed   mix10m512 skip7000 (1.4s)
+  [bqlib] computed   mix10m512 skip11000 (1.3s)
+  [bqlib] computed   mix10m512 skip1200 (0.7s)
+  [bqlib] cache HIT  mix25m512 skip7000
+  [bqlib] cache HIT  mix25m512 skip11000
+  [bqlib] cache HIT  mix25m512 skip1200
+  [bqlib] computed   mix40m512 skip7000 (3.8s)
+  [bqlib] computed   mix40m512 skip11000 (1.3s)
+  [bqlib] computed   mix40m512 skip1200 (0.6s)
+  [bqlib] cache HIT  mix50m512 skip7000
+  [bqlib] cache HIT  mix50m512 skip11000
+  [bqlib] cache HIT  mix50m512 skip1200
+  [bqlib] computed   mix60m512 skip7000 (3.9s)
+  [bqlib] computed   mix60m512 skip11000 (1.3s)
+  [bqlib] computed   mix60m512 skip1200 (0.7s)
+  [bqlib] cache HIT  mix75m512 skip7000
+  [bqlib] cache HIT  mix75m512 skip11000
+  [bqlib] cache HIT  mix75m512 skip1200
+  [bqlib] computed   mix90m512 skip7000 (4.7s)
+  [bqlib] computed   mix90m512 skip11000 (1.4s)
+  [bqlib] computed   mix90m512 skip1200 (1.0s)
+  [bqlib] cache HIT  nn       skip7000
+  [bqlib] cache HIT  nn       skip11000
+  [bqlib] cache HIT  nn       skip1200
+  [bqlib] cache HIT  map512   skip7000
+  [bqlib] cache HIT  map512   skip11000
+  [bqlib] cache HIT  map512   skip1200
+  [bqlib] cache HIT  map64    skip7000
+  [bqlib] cache HIT  map64    skip11000
+  [bqlib] cache HIT  map64    skip1200
+
+########## COVERAGE 16110 ##########
+  [bqlib] coverage 16110 from fineweb_n480_skip80.pt: 36 tables, neighbour index and map solver built (5s)
+  [bqlib] cache HIT  live     skip7000
+  [bqlib] cache HIT  live     skip11000
+  [bqlib] cache HIT  live     skip1200
+  [bqlib] computed   mix10m512 skip7000 (1.4s)
+  [bqlib] computed   mix10m512 skip11000 (1.3s)
+  [bqlib] computed   mix10m512 skip1200 (0.7s)
+  [bqlib] computed   mix25m512 skip7000 (3.3s)
+  [bqlib] computed   mix25m512 skip11000 (1.3s)
+  [bqlib] computed   mix25m512 skip1200 (0.7s)
+  [bqlib] computed   mix40m512 skip7000 (3.3s)
+  [bqlib] computed   mix40m512 skip11000 (1.3s)
+  [bqlib] computed   mix40m512 skip1200 (0.7s)
+  [bqlib] computed   mix50m512 skip7000 (3.3s)
+  [bqlib] computed   mix50m512 skip11000 (1.3s)
+  [bqlib] computed   mix50m512 skip1200 (0.7s)
+  [bqlib] computed   mix60m512 skip7000 (3.3s)
+  [bqlib] computed   mix60m512 skip11000 (1.3s)
+  [bqlib] computed   mix60m512 skip1200 (0.7s)
+  [bqlib] computed   mix75m512 skip7000 (3.3s)
+  [bqlib] computed   mix75m512 skip11000 (1.3s)
+  [bqlib] computed   mix75m512 skip1200 (0.7s)
+  [bqlib] computed   mix90m512 skip7000 (3.3s)
+  [bqlib] computed   mix90m512 skip11000 (1.3s)
+  [bqlib] computed   mix90m512 skip1200 (0.7s)
+  [bqlib] cache HIT  nn       skip7000
+  [bqlib] cache HIT  nn       skip11000
+  [bqlib] cache HIT  nn       skip1200
+  [bqlib] cache HIT  map512   skip7000
+  [bqlib] cache HIT  map512   skip11000
+  [bqlib] cache HIT  map512   skip1200
+  [bqlib] cache HIT  map64    skip7000
+  [bqlib] cache HIT  map64    skip11000
+  [bqlib] cache HIT  map64    skip1200
+
+  === coverage 5419 ===
+    skip7000  (CE argmin: mix25m512)
+      mix10m512  top1 13.88% (+0.11pp)  CE 5.95161 (-0.01541, t -21.12)
+      mix25m512  top1 14.02% (+0.24pp)  CE 5.94165 (-0.02537, t -15.03)
+      mix40m512  top1 14.04% (+0.27pp)  CE 5.94367 (-0.02335, t -9.20)
+      mix50m512  top1 14.07% (+0.30pp)  CE 5.94962 (-0.01740, t -5.69)
+      mix60m512  top1 14.08% (+0.31pp)  CE 5.95833 (-0.00869, t -2.46)
+      mix75m512  top1 14.12% (+0.35pp)  CE 5.97602 (+0.00900, t +2.16)
+      mix90m512  top1 14.15% (+0.38pp)  CE 5.99963 (+0.03261, t +6.89)
+      nn         top1 14.17% (+0.39pp)  CE 6.01897 (+0.05195, t +10.19)
+      map512     top1 13.77% (+0.00pp)  CE 5.96702 (+0.00000, t +0.00)
+      map64      top1 13.55% (-0.22pp)  CE 6.01167 (+0.04465, t +22.28)
+    skip11000  (CE argmin: mix25m512)
+      mix10m512  top1 14.48% (+0.11pp)  CE 5.92010 (-0.01635, t -20.96)
+      mix25m512  top1 14.53% (+0.16pp)  CE 5.91021 (-0.02624, t -14.13)
+      mix40m512  top1 14.66% (+0.29pp)  CE 5.91409 (-0.02236, t -7.93)
+      mix50m512  top1 14.69% (+0.33pp)  CE 5.92175 (-0.01470, t -4.34)
+      mix60m512  top1 14.68% (+0.31pp)  CE 5.93223 (-0.00422, t -1.08)
+      mix75m512  top1 14.62% (+0.25pp)  CE 5.95255 (+0.01610, t +3.52)
+      mix90m512  top1 14.62% (+0.25pp)  CE 5.97913 (+0.04268, t +8.22)
+      nn         top1 14.66% (+0.29pp)  CE 6.00091 (+0.06446, t +11.54)
+      map512     top1 14.37% (+0.00pp)  CE 5.93645 (+0.00000, t +0.00)
+      map64      top1 14.25% (-0.12pp)  CE 5.98477 (+0.04832, t +23.04)
+    skip1200  (CE argmin: mix25m512)
+      mix10m512  top1 13.87% (+0.15pp)  CE 5.94419 (-0.01676, t -14.75)
+      mix25m512  top1 13.99% (+0.27pp)  CE 5.93277 (-0.02818, t -10.46)
+      mix40m512  top1 14.04% (+0.31pp)  CE 5.93340 (-0.02754, t -6.78)
+      mix50m512  top1 14.13% (+0.41pp)  CE 5.93841 (-0.02254, t -4.64)
+      mix60m512  top1 14.12% (+0.40pp)  CE 5.94637 (-0.01458, t -2.62)
+      mix75m512  top1 14.20% (+0.48pp)  CE 5.96351 (+0.00256, t +0.39)
+      mix90m512  top1 14.22% (+0.50pp)  CE 5.98734 (+0.02639, t +3.62)
+      nn         top1 14.24% (+0.52pp)  CE 6.00733 (+0.04639, t +5.95)
+      map512     top1 13.72% (+0.00pp)  CE 5.96095 (+0.00000, t +0.00)
+      map64      top1 13.64% (-0.08pp)  CE 6.00165 (+0.04070, t +13.59)
+
+  === coverage 16110 ===
+    skip7000  (CE argmin: mix25m512)
+      mix10m512  top1 14.04% (+0.06pp)  CE 5.87691 (-0.00647, t -12.92)
+      mix25m512  top1 14.08% (+0.10pp)  CE 5.87265 (-0.01073, t -9.27)
+      mix40m512  top1 14.15% (+0.17pp)  CE 5.87316 (-0.01022, t -5.92)
+      mix50m512  top1 14.20% (+0.23pp)  CE 5.87547 (-0.00791, t -3.84)
+      mix60m512  top1 14.22% (+0.25pp)  CE 5.87900 (-0.00438, t -1.85)
+      mix75m512  top1 14.26% (+0.28pp)  CE 5.88619 (+0.00281, t +1.02)
+      mix90m512  top1 14.25% (+0.28pp)  CE 5.89568 (+0.01230, t +4.00)
+      nn         top1 14.25% (+0.27pp)  CE 5.90344 (+0.02006, t +6.11)
+      map512     top1 13.98% (+0.00pp)  CE 5.88338 (+0.00000, t +0.00)
+      map64      top1 13.93% (-0.04pp)  CE 5.90522 (+0.02184, t +17.21)
+    skip11000  (CE argmin: mix25m512)
+      mix10m512  top1 14.77% (+0.06pp)  CE 5.82251 (-0.00677, t -13.80)
+      mix25m512  top1 14.82% (+0.12pp)  CE 5.81812 (-0.01117, t -9.66)
+      mix40m512  top1 14.85% (+0.15pp)  CE 5.81941 (-0.00987, t -5.58)
+      mix50m512  top1 14.86% (+0.15pp)  CE 5.82268 (-0.00661, t -3.08)
+      mix60m512  top1 14.81% (+0.11pp)  CE 5.82730 (-0.00198, t -0.79)
+      mix75m512  top1 14.80% (+0.10pp)  CE 5.83615 (+0.00686, t +2.32)
+      mix90m512  top1 14.82% (+0.11pp)  CE 5.84738 (+0.01810, t +5.37)
+      nn         top1 14.79% (+0.09pp)  CE 5.85640 (+0.02712, t +7.48)
+      map512     top1 14.70% (+0.00pp)  CE 5.82928 (+0.00000, t +0.00)
+      map64      top1 14.71% (+0.01pp)  CE 5.85230 (+0.02302, t +16.87)
+    skip1200  (CE argmin: mix25m512)
+      mix10m512  top1 14.17% (+0.05pp)  CE 5.85478 (-0.00566, t -7.91)
+      mix25m512  top1 14.20% (+0.08pp)  CE 5.85260 (-0.00784, t -4.73)
+      mix40m512  top1 14.25% (+0.14pp)  CE 5.85642 (-0.00402, t -1.59)
+      mix50m512  top1 14.32% (+0.20pp)  CE 5.86133 (+0.00090, t +0.29)
+      mix60m512  top1 14.32% (+0.20pp)  CE 5.86760 (+0.00716, t +1.98)
+      mix75m512  top1 14.28% (+0.17pp)  CE 5.87884 (+0.01840, t +4.22)
+      mix90m512  top1 14.27% (+0.15pp)  CE 5.89183 (+0.03139, t +6.26)
+      nn         top1 14.24% (+0.12pp)  CE 5.90150 (+0.04106, t +7.59)
+      map512     top1 14.12% (+0.00pp)  CE 5.86044 (+0.00000, t +0.00)
+      map64      top1 14.01% (-0.10pp)  CE 5.88575 (+0.02531, t +12.95)
+
+  the CE optimum is INTERIOR at 5,419 (3/3) -> True  3/3
+  and the CE argmin alpha is <= 0.40 (>=2 roles) -> True  3/3  (argmins ['mix25m512', 'mix25m512', 'mix25m512'])
+  and the 16,110 CE argmin still beats map512 on top-1 with t<=-2 (>=2 roles) -> True  3/3  (argmins ['mix25m512', 'mix25m512', 'mix25m512'])
+  coverages {'c5419': 5419, 'c16110': 16110}, arms inert True, live identical 0.0e+00, §1942 CE reproduced within 0.000005 nats -> control True
+
+pred_a True | pred_b True | pred_c True | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/blend_alpha_sweep_results.json (145.0s)

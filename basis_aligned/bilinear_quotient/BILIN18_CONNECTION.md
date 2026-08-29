@@ -55044,3 +55044,52 @@ retracted and §1941 confirmed still open, is closed — by a mechanism none of 
 rank is fixed at 512 throughout; and every figure is at 5,419. §1940 is the precedent for what happens at
 16,110 — the fallback arm falls from ~24% to ~10% of positions and margins roughly halve. **The α sweep
 at both coverages, with the paired t on every CE margin, is the next run and it is cheap now.**
+
+## §1943 — the blend optimum is α ≈ 0.25, it is interior, and it holds at both coverages on all six cells
+
+`ops/blend_alpha_sweep.py`, **145.0s**, **DISCOVERY ONLY**, 5,419 **and** 16,110, rung 3 — §1942's open
+question. **All four predictions TRUE.** Seven α, two coverages, three roles, a paired t on every CE
+margin.
+
+```
+  pooled CE relative to map512 (α=0), and pooled top-1 relative to it.  argmin marked *
+                 a=10     a=25*    a=40     a=50     a=60     a=75     a=90     nn(a=100)
+  5,419  CE    -.0154   -.0254   -.0234   -.0174   -.0087   +.0090   +.0326   +.0520   (skip7000)
+         t     -21.12   -15.03    -9.20    -5.69    -2.46    +2.16    +6.89   +10.19
+         top1  +0.11    +0.24    +0.27    +0.30    +0.31    +0.35    +0.38    +0.39 pp
+  16,110 CE    -.0065   -.0107   -.0102   -.0079   -.0044   +.0028   +.0123   +.0201
+         t     -12.92    -9.27    -5.92    -3.84    -1.85    +1.02    +4.00    +6.11
+         top1  +0.06    +0.10    +0.17    +0.23    +0.25    +0.28    +0.28    +0.27 pp
+```
+
+> **pred_b PASSED 3/3 and gives the deployment answer: the CE optimum is α = 0.25, on every role at
+> BOTH coverages — six of six cells.** It is genuinely **interior**: α=10 is worse than α=25 on all six,
+> and so is α=40. Not an edge of the grid, unlike §1942's three-point sweep where 25 was the boundary.
+> **pred_a PASSED 3/3** as its reproduction leg — the interior minimum sits below both endpoints.
+
+> **pred_c PASSED 3/3: it survives at 16,110, and it shrinks by exactly the predicted factor.** The CE
+> margin at the optimum goes **−0.0254 / −0.0262 / −0.0282 → −0.0107 / −0.0112 / −0.0078** and the top-1
+> margin **+0.24 / +0.16 / +0.27 → +0.10 / +0.12 / +0.08pp** — a little over half, matching the fallback
+> arm's fall from ~24% to ~10% of scored positions (§1936). Still significant everywhere:
+> **t = −9.27 / −9.66 / −4.73.** §1942 is not a 5,419-only result, and unlike §1939 it did not need
+> retracting when the second coverage arrived — because the paired t was registered before the run.
+
+> **The two objectives disagree about α but not about the answer.** CE is **U-shaped** with its minimum
+> at 25; top-1 rises **monotonically** in α all the way to the pure neighbour. They still overlap widely:
+> **every α from 10 to 50 beats `map512` on BOTH instruments at 5,419**, and 10 to 40 at 16,110. So
+> §1942's "closed fork" is not a knife-edge — it is a **band**, and α = 0.25 sits inside it with the
+> largest CE margin and two-thirds of the available top-1 gain.
+
+**pred_d PASSED**: coverages exactly 5,419 and 16,110; every arm inert at covered inputs at both;
+buckets partition; live per-cell top-1 and CE identical across all ten arms at 0.00e+00; and the 5,419
+half reproduced §1942's **published** pooled CE to **0.000005 nats** — twenty-ninth clean reading.
+
+> **One thing worth recording against §1938. At 16,110 `map512`'s top-1 edge over the deployed `map64`
+> has essentially vanished** — −0.04 / +0.01 / −0.10pp, i.e. the deployed design is level or ahead on one
+> role. §1938's ordering `map512 > map64` on top-1 was a **5,419 fact**, and nothing had checked it at
+> the higher coverage. The CE ordering is unchanged and large (t = +17.21 / +16.87 / +12.95).
+
+**Open.** The map rank is pinned at 512 throughout §1941–§1943 because that is where §1938 found the CE
+strength; α and map rank have never been swept together, and the whole point of §1942 is that the two
+ingredients are orthogonal — so the best (α, rank) pair need not have rank 512. That sweep is two nested
+loops over arms the library already builds.

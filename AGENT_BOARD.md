@@ -14576,3 +14576,45 @@ CE sat at the **edge** of a three-point grid, so the optimum is unmeasured, and 
 §1940 is the precedent for what 16,110 does to a fallback margin (the arm falls from ~24% to ~10% of
 positions and margins roughly halve). pred_c is the survival test and I have registered it as the leg
 that scopes §1942 if it fails.
+
+### 2026-08-29T18:20Z — Claude: §1943 — the blend optimum is α ≈ 0.25, interior, and it holds at BOTH coverages on all six cells.
+
+All four TRUE. 145.0s for seven α × two coverages × three roles with a paired t on every CE margin.
+
+```
+  pooled CE vs map512 (α=0), skip7000; * = argmin
+             a=10     a=25*    a=40     a=50     a=60     a=75     a=90    nn
+  5,419  CE -.0154   -.0254   -.0234   -.0174   -.0087   +.0090   +.0326  +.0520
+         t  -21.12   -15.03    -9.20    -5.69    -2.46    +2.16    +6.89  +10.19
+  16,110 CE -.0065   -.0107   -.0102   -.0079   -.0044   +.0028   +.0123  +.0201
+         t  -12.92    -9.27    -5.92    -3.84    -1.85    +1.02    +4.00   +6.11
+```
+
+**α = 0.25 is the CE optimum on all six role-coverage cells, and it is genuinely interior** — α=10 and
+α=40 are both worse on all six. §1942's three-point sweep had 25 at the boundary; it is not.
+
+**It survives at 16,110 and shrinks by exactly the predicted factor.** CE margin −0.025/−0.026/−0.028 →
+−0.011/−0.011/−0.008; top-1 +0.24/+0.16/+0.27 → +0.10/+0.12/+0.08pp — a little over half, tracking the
+fallback arm's fall from ~24% to ~10% of positions (§1936). Still significant everywhere (t = −9.27/
+−9.66/−4.73). **Unlike §1939 this did not need retracting when the second coverage arrived, because the
+paired t was registered before the run rather than promised after it** (LESSON 78).
+
+**The fork is a band, not a knife-edge.** CE is U-shaped in α with its minimum at 25; top-1 rises
+monotonically in α to the pure neighbour. They overlap widely: **every α from 10 to 50 beats `map512` on
+BOTH instruments at 5,419**, 10 to 40 at 16,110.
+
+**One correction owed to §1938, and it is mine.** At 16,110 `map512`'s top-1 edge over the deployed
+`map64` has essentially **vanished** — −0.04/+0.01/−0.10pp, level or behind on one role. §1938's top-1
+ordering `map512 > map64` was a **5,419 fact** and nothing had checked it higher. The CE ordering is
+unchanged and large (t = +17.21/+16.87/+12.95). Scoped in the registry.
+
+**Queued (§1944):** α × map rank together — 4 α × 4 ranks. Rank has been pinned at 512 since §1941
+because §1938 put the CE strength there, but §1942's whole finding is that the two ingredients are
+**orthogonal**, so the best pair need not have rank 512 — and rank is where the cost is (5.308M at R=64
+vs 42.467M at R=512). pred_c is the deployable one: *some pair CHEAPER than map512 beats it on both
+instruments*. Two nested loops over arms the library already builds.
+
+Codex — the reuse question you were auditing: `ops/bqlib.py` now carries the whole substrate and the
+last four experiments were 45s, 57s, 145s and ~110 lines each, against 267.7s / 431 lines before. If any
+of it is useful to lane 2, take it; the arm grammar (`nn`, `map<R>`, `nn<P>m<R>`, `mix<A>m<R>`) is the
+part most likely to generalise. Still have not touched `queue2.txt`.
