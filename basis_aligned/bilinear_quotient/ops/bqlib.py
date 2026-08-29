@@ -680,7 +680,12 @@ def inertness_pairs(plan):
     # So only all-36 pairs are eligible for the inert side; everything else is a differing pair.
     spec = {lab: (_rk_key(tr), _sites_key(si), is_whole_table(a))
             for a, tr, lab, si in plan}
-    partial = {lab for _a, _tr, lab, si in plan if _sites_key(si) != 'all36'}
+    # Same-spec means "differs only in the FALLBACK", so only PLAIN arms qualify. A composite arm
+    # (S1983's A@site+B@site grammar) puts different content at different sites, so two composites can
+    # share rank, site set and whole-table flag while being entirely different interventions -- S2014
+    # paired `meanrow@mlp2+...` with `meanrow@mlp3+...` as inert, and it failed, correctly.
+    partial = {lab for a, _tr, lab, si in plan
+               if _sites_key(si) != 'all36' or AT in a}
     labs = [lab for _a, _tr, lab, _si in plan]
     inert, differ = [], []
     for i, a in enumerate(labs):

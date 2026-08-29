@@ -2525,3 +2525,22 @@ text said "of the arm omitting attention 6", the word "content" could not have s
 **Retract the sentence, keep the table.** §2009's measurements reproduced within 0.01 inside §2010. What
 failed was one noun, and it is struck in the ledger and marked in the registry. See [[LESSON 95]] on reach
 and [[LESSON 97]] on generalising past the design.
+
+## LESSON 100 — independent perturbations do not give an additive loss
+
+§2013 established something true and structural: in the fully compiled program every module's output is a
+fixed per-token row, so nothing downstream reads anything, and **each site contributes an independent
+additive term to the residual stream.** From that I predicted the program's **cross-entropy** would be
+additive over sites, and registered it as §2014's pred_c.
+
+**It failed by 0.004 nats — degrading three sites costs 22% more than the sum of degrading each.** The
+residual terms *are* independent. The loss is a softmax cross-entropy of their **sum**, which is nonlinear
+in the logits, so independent perturbations compound in it. **Additivity of the computation does not
+transfer to additivity of the objective**, and nothing in §2013's argument ever said it did — I added that
+step silently.
+
+**The general shape:** when a structural fact licenses a prediction, check which *function* of the
+structure the prediction is about. §2013's fact is about the residual stream; pred_c was about CE. Two
+different spaces, one linear and one not. Compare [[LESSON 99]], where the error was the denominator of a
+share, and [[LESSON 95]], where it was the quantifier — the same class of mistake in three different
+positions of the same sentence.

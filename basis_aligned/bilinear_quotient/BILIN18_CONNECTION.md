@@ -58492,3 +58492,44 @@ has never been tested: **the fully compiled program's cost should be ADDITIVE ov
 contributes an independent residual term. §1981 measured badly non-additive costs, but every arm there
 had **live attention**. **In the shipped frame the prediction is exact additivity, and it is cheap to
 falsify.**
+
+## §2014 — the residual terms are independent but the LOSS is not, and site relevance varies 100× with depth
+
+`ops/is_the_shipped_program_additive.py`, **4.7s** warm, **DISCOVERY ONLY**, 5,419, rung 3 — §2013's open
+question. **pred_a True | pred_b False | pred_c False | derived controls True**, on the second plan.
+Reference deviation 0.000000.
+
+```
+  cost of replacing one site's table with a mean row, inside the shipped 36-site program, nats
+             mlp2       mlp3       mlp12      all three    sum of the three     gap
+  skip7000  −0.00012   −0.00020   +0.02692   +0.03249        +0.02661        +0.00588
+  skip11000 +0.00002   −0.00016   +0.02912   +0.03522        +0.02898        +0.00624
+  skip1200  −0.00028   −0.00075   +0.02687   +0.03198        +0.02584        +0.00614
+```
+
+> **pred_b FAILED, by 0.022 nats, and on one site only. mlp2 and mlp3 cost −0.0003 to +0.0000 — nothing —
+> but mlp12 costs +0.027**, more than a hundred times either. **Site relevance in the shipped program is
+> not uniform: a deep MLP's table content matters where a shallow one's does not.** §2013 measured mlp2
+> and generalised to "a compiled site's content"; that was one site, and it was the wrong one to
+> generalise from.
+
+> **pred_c FAILED by 0.0039 / 0.0042 / 0.0041 nats. The program is NOT additive: degrading all three costs
+> 22% more than the sum of degrading each.**
+
+**And the failure corrects my own mechanism, not the measurement behind it.** §2013 argued that in the
+fully compiled program each site contributes an **independent additive term to the residual stream**, and
+I predicted **additive CE** from it. **That does not follow.** The residual terms are independent; the loss
+is a softmax cross-entropy of their sum, which is nonlinear, so independent perturbations produce a
+**super-additive** loss. §2013's structural claim stands exactly as stated; **the prediction I drew from it
+confused additivity of the computation with additivity of the objective**, and the +0.006 gap is that
+confusion measured.
+
+**What survives.** §2013's boundary is unaffected: the §1983–§2012 arc is about live attention, and a
+compiled site's content in the shipped program is worth thousandths of a nat *at mlp2*. **§2014 adds that
+this is site-specific — mlp12 is worth 0.027 — and that the shipped program's cost is super-additive over
+sites by about 22% at this scale, for a reason that lives in the loss rather than in the program.**
+
+**Open.** mlp12 is a hundred times more relevant than mlp2 in the shipped program, and no depth profile of
+that quantity exists — every profile in this line (§1988, §2002) measured *lone-compilation damage with
+attention live*, which §2013 showed is a different regime entirely. **The shipped program has its own
+depth profile and it has never been measured.**
