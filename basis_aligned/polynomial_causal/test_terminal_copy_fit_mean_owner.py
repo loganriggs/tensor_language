@@ -92,7 +92,7 @@ def test_collection_rejects_wrong_order_and_incomplete_finalize():
         owner.collect_batch(
             model, torch.randint(0, 23, (1, 4)), ("b",), require_production=False,
         )
-    with pytest.raises(RuntimeError, match="incomplete"):
+    with pytest.raises(RuntimeError, match="failed"):
         owner.finalize()
 
 

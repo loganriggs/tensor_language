@@ -253,3 +253,30 @@ class PhysicalCandidateDispatcher(nn.Module):
             "fit_mean_values": mean_values,
             "total_instrument_values": adapter_values + mean_values,
         }
+
+    def assert_matches_native(self, attentions: Mapping[int, nn.Module]) -> None:
+        """Fail if owned adapters are not exact clones of the supplied model."""
+
+        if set(attentions) != set(NAMED_LAYERS):
+            raise ValueError("native attention binding differs from registered layers")
+        source_names = {
+            "q": "c_q", "k": "c_k", "q2": "c_q2", "k2": "c_k2",
+            "v": "c_v", "proj": "c_proj",
+        }
+        for layer in NAMED_LAYERS:
+            native = attentions[layer]
+            owned = self.adapters[str(layer)]
+            try:
+                matches = all(
+                    torch.equal(
+                        getattr(owned, owned_name),
+                        getattr(native, native_name).weight.detach(),
+                    )
+                    for owned_name, native_name in source_names.items()
+                ) and torch.equal(owned.lamb, native.lamb.detach().reshape(())) and torch.equal(
+                    owned.inv_freq, native.rotary.inv_freq.detach()
+                ) and int(native.n_head) == owned.n_head
+            except (AttributeError, TypeError, ValueError) as error:
+                raise ValueError("native attention binding schema changed") from error
+            if not matches:
+                raise RuntimeError(f"owned attention{layer} does not match supplied model")

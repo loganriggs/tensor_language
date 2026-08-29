@@ -8,6 +8,7 @@ deterministic accumulator.  It never calls the unembedding or computes logits/lo
 
 from __future__ import annotations
 
+import copy
 from dataclasses import dataclass
 import hashlib
 from typing import Sequence
@@ -59,8 +60,8 @@ class FitMeanCollectionOwner:
             accumulator, FitHeadMeanAccumulator
         ):
             raise ValueError("fit mean owner requires dispatcher and accumulator")
-        self._dispatcher: PhysicalCandidateDispatcher | None = dispatcher
-        self._accumulator: FitHeadMeanAccumulator | None = accumulator
+        self._dispatcher: PhysicalCandidateDispatcher | None = copy.deepcopy(dispatcher)
+        self._accumulator: FitHeadMeanAccumulator | None = copy.deepcopy(accumulator)
         self._native_attention = [0] * LAYER_COUNT
         self._adapter = [0] * LAYER_COUNT
         self._native_mlp = [0] * LAYER_COUNT
@@ -117,10 +118,14 @@ class FitMeanCollectionOwner:
         if require_production and tuple(tokens.shape[1:]) != (256,):
             raise ValueError("production fit mean rows must have 256 input tokens")
         if require_production and (
-            accumulator.source_dtype != torch.bfloat16
+            not accumulator.production_contract
+            or accumulator.source_dtype != torch.bfloat16
             or accumulator.published_dtype != torch.float32
         ):
             raise ValueError("production fit mean numeric dtypes are not frozen")
+        dispatcher.assert_matches_native({
+            layer: blocks[layer].attn for layer in NAMED_LAYERS
+        })
         self._active = True
         success = False
         try:

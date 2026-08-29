@@ -38,6 +38,20 @@ def _document_digest(document_ids: Sequence[str]) -> str:
     return digest.hexdigest()
 
 
+def _mean_bank_digest(
+    ordered_document_ids_sha256: str, bank: Mapping[int, torch.Tensor],
+) -> str:
+    digest = hashlib.sha256()
+    digest.update(ordered_document_ids_sha256.encode())
+    for layer in NAMED_LAYERS:
+        value = bank[layer]
+        digest.update(layer.to_bytes(8, "little"))
+        digest.update(str(value.dtype).encode())
+        digest.update(str(tuple(value.shape)).encode())
+        digest.update(value.numpy().tobytes(order="C"))
+    return digest.hexdigest()
+
+
 class FitHeadMeanBank:
     """Read-only-by-copy finalized mean artifact."""
 
@@ -112,6 +126,14 @@ class FitHeadMeanBank:
             for layer in NAMED_LAYERS
         }
 
+    def verify_hashes(self) -> bool:
+        return (
+            _mean_bank_digest(self._ordered_document_ids_sha256, self._runtime)
+            == self._runtime_means_sha256
+            and _mean_bank_digest(self._ordered_document_ids_sha256, self._master)
+            == self._master_means_sha256
+        )
+
 
 class FitHeadMeanAccumulator:
     """Accumulate native fit-role head writes in exact document order."""
@@ -125,6 +147,7 @@ class FitHeadMeanAccumulator:
         width: int,
         published_dtype: torch.dtype = torch.float32,
         source_dtype: torch.dtype | None = None,
+        require_production: bool = False,
     ) -> None:
         documents = tuple(ordered_document_ids)
         if (
@@ -145,12 +168,22 @@ class FitHeadMeanAccumulator:
             raise ValueError("source mean dtype must be floating or unspecified")
         if any(head >= n_head for heads in NAMED_HEADS_BY_LAYER.values() for head in heads):
             raise ValueError("fit mean head topology cannot represent frozen heads")
+        if require_production and (
+            len(documents) != 192
+            or sequence_length != 256
+            or n_head != 9
+            or width != 1152
+            or source_dtype != torch.bfloat16
+            or published_dtype != torch.float32
+        ):
+            raise ValueError("production fit mean contract is not exact")
         self._documents = documents
         self._sequence_length = sequence_length
         self._n_head = n_head
         self._width = width
         self._published_dtype = published_dtype
         self._source_dtype = source_dtype
+        self._production_contract = require_production
         self._next = {layer: 0 for layer in NAMED_LAYERS}
         self._sums: dict[int, torch.Tensor] | None = {
             layer: torch.zeros(
@@ -240,24 +273,14 @@ class FitHeadMeanAccumulator:
             master_means[layer] = master
             means[layer] = master.to(self._published_dtype).contiguous()
 
-        def digest_bank(bank: Mapping[int, torch.Tensor]) -> str:
-            digest = hashlib.sha256()
-            digest.update(_document_digest(self._documents).encode())
-            for layer in NAMED_LAYERS:
-                value = bank[layer]
-                digest.update(layer.to_bytes(8, "little"))
-                digest.update(str(value.dtype).encode())
-                digest.update(str(tuple(value.shape)).encode())
-                digest.update(value.numpy().tobytes(order="C"))
-            return digest.hexdigest()
-
+        documents_sha256 = _document_digest(self._documents)
         bank = FitHeadMeanBank(
             per_head_position_means=means,
             master_per_head_position_means=master_means,
             document_count=len(self._documents),
-            ordered_document_ids_sha256=_document_digest(self._documents),
-            runtime_means_sha256=digest_bank(means),
-            master_means_sha256=digest_bank(master_means),
+            ordered_document_ids_sha256=documents_sha256,
+            runtime_means_sha256=_mean_bank_digest(documents_sha256, means),
+            master_means_sha256=_mean_bank_digest(documents_sha256, master_means),
             accumulator_dtype=str(torch.float64),
             published_dtype=str(self._published_dtype),
             source_dtype=str(self._source_dtype),
@@ -273,3 +296,7 @@ class FitHeadMeanAccumulator:
     @property
     def published_dtype(self) -> torch.dtype:
         return self._published_dtype
+
+    @property
+    def production_contract(self) -> bool:
+        return self._production_contract

@@ -156,3 +156,22 @@ def test_bank_clone_does_not_alias_published_values():
     master = bank.clone_master_means()
     master[5].zero_()
     assert not torch.equal(master[5], bank.master_per_head_position_means[5])
+    exposed = bank.per_head_position_means
+    exposed[5].zero_()
+    assert bank.verify_hashes()
+    assert not torch.equal(exposed[5], bank.per_head_position_means[5])
+
+
+def test_production_accumulator_requires_exact_population_shape_and_dtypes():
+    with pytest.raises(ValueError, match="production"):
+        FitHeadMeanAccumulator(
+            ordered_document_ids=("a",), sequence_length=256, n_head=9, width=1152,
+            source_dtype=torch.bfloat16, require_production=True,
+        )
+    documents = tuple(f"doc-{index}" for index in range(192))
+    accumulator = FitHeadMeanAccumulator(
+        ordered_document_ids=documents, sequence_length=256, n_head=9, width=1152,
+        source_dtype=torch.bfloat16, published_dtype=torch.float32,
+        require_production=True,
+    )
+    assert accumulator.production_contract

@@ -94,6 +94,7 @@ def test_owner_replays_native_when_selected_writes_and_means_are_zero():
     observed = owner.run(model, tokens, require_production=False)
     assert torch.equal(observed, expected)
     closure = owner.close()
+    assert closure.attempted_batch_calls == 1
     assert closure.batch_calls == 1 and closure.document_calls == 3
     assert closure.selected_layer_heads == ((5, (5,)), (7, (3,)), (8, (3, 4)))
     assert closure.native_attention_calls == tuple(
@@ -150,3 +151,46 @@ def test_owner_rejects_wrong_model_depth_and_unknown_candidate():
     with pytest.raises(ValueError, match="18"):
         owner.run(model, torch.randint(0, 23, (1, 4)), require_production=False)
     owner.close()
+
+
+@pytest.mark.parametrize("failed_layer", [0, 9, 17])
+def test_failed_forward_poison_owner_and_cannot_contaminate_later_ledger(failed_layer):
+    model = TinyModel()
+    owner = make_owner(model, candidate="L5H5")
+    model.transformer.h[failed_layer].mlp.forward = lambda *_args, **_kwargs: (
+        _ for _ in ()
+    ).throw(RuntimeError("injected site failure"))
+    with pytest.raises(RuntimeError, match="injected"):
+        owner.run(model, torch.randint(0, 23, (1, 4)), require_production=False)
+    with pytest.raises(RuntimeError, match="failed"):
+        owner.run(model, torch.randint(0, 23, (1, 4)), require_production=False)
+    with pytest.raises(RuntimeError, match="failed"):
+        owner.close()
+
+
+def test_owner_clones_dispatcher_and_rejects_different_model_weights():
+    model = TinyModel()
+    means = {
+        layer: torch.zeros(4, 2 if layer == 8 else 1, 18)
+        for layer in NAMED_LAYERS
+    }
+    dispatcher = PhysicalCandidateDispatcher.from_native(
+        attentions={layer: model.transformer.h[layer].attn for layer in NAMED_LAYERS},
+        per_head_position_means=means,
+    )
+    owner = CandidateForwardOwner(candidate="L5H5", dispatcher=dispatcher)
+    dispatcher.position_mean_5.add_(1000)
+    # The external alias cannot alter the owner's private clone.
+    owner.run(model, torch.randint(0, 23, (1, 4)), require_production=False)
+    owner.close()
+
+    model2 = TinyModel()
+    dispatcher2 = PhysicalCandidateDispatcher.from_native(
+        attentions={layer: model2.transformer.h[layer].attn for layer in NAMED_LAYERS},
+        per_head_position_means=means,
+    )
+    owner2 = CandidateForwardOwner(candidate="L5H5", dispatcher=dispatcher2)
+    with torch.no_grad():
+        model2.transformer.h[5].attn.c_q.weight[0, 0].add_(1)
+    with pytest.raises(RuntimeError, match="does not match"):
+        owner2.run(model2, torch.randint(0, 23, (1, 4)), require_production=False)

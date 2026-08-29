@@ -8,12 +8,13 @@ dispatcher reference on close.  It does not load rows, a model, or outcomes.
 
 from __future__ import annotations
 
+import copy
 from dataclasses import dataclass
 
 import torch
 
 import bilin18_observed_model_facade as facade
-from terminal_copy_attention_dispatcher import PhysicalCandidateDispatcher
+from terminal_copy_attention_dispatcher import NAMED_LAYERS, PhysicalCandidateDispatcher
 
 
 LAYER_COUNT = 18
@@ -22,6 +23,7 @@ LAYER_COUNT = 18
 @dataclass(frozen=True)
 class CandidateOwnerClosure:
     candidate: str
+    attempted_batch_calls: int
     batch_calls: int
     document_calls: int
     native_attention_calls: tuple[int, ...]
@@ -44,11 +46,12 @@ class CandidateForwardOwner:
         self._plan = dispatcher.plan(candidate)
         self._selected = dict(self._plan)
         self._candidate = candidate
-        self._dispatcher: PhysicalCandidateDispatcher | None = dispatcher
+        self._dispatcher: PhysicalCandidateDispatcher | None = copy.deepcopy(dispatcher)
         self._native_attention = [0] * LAYER_COUNT
         self._adapter_attention = [0] * LAYER_COUNT
         self._native_mlp = [0] * LAYER_COUNT
         self._batch_calls = 0
+        self._attempted_batch_calls = 0
         self._document_calls = 0
         self._max_abs = 0.0
         self._max_relative = 0.0
@@ -81,7 +84,11 @@ class CandidateForwardOwner:
             raise ValueError("candidate model does not expose transformer blocks") from error
         if len(blocks) != LAYER_COUNT:
             raise ValueError("candidate owner requires exactly 18 transformer blocks")
+        dispatcher.assert_matches_native({
+            layer: blocks[layer].attn for layer in NAMED_LAYERS
+        })
         self._active = True
+        self._attempted_batch_calls += 1
 
         def attention(event: facade.AttentionEvent):
             if event.site in self._selected:
@@ -130,6 +137,7 @@ class CandidateForwardOwner:
             raise RuntimeError("cannot close an active candidate forward")
         self._closure = CandidateOwnerClosure(
             candidate=self._candidate,
+            attempted_batch_calls=self._attempted_batch_calls,
             batch_calls=self._batch_calls,
             document_calls=self._document_calls,
             native_attention_calls=tuple(self._native_attention),
