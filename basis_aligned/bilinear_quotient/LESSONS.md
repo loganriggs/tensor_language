@@ -1814,3 +1814,30 @@ was always going to decrease, the predicate is decoration.
 The damage was bounded because pred_a and pred_b were direct measurements and failed honestly. But the
 run's headline row is **iterate 3 of a non-converging sequence**, and the ledger now says so rather than
 citing it as a fixed point.
+
+## LESSON 69 — the gate checks that a predicate RUNS, not that it MEANS what the docstring says
+
+Two bad predicates in three sections, both gate-clean, both scored:
+
+- **§1879 pred_d** certified convergence as *"the last relative map change is smaller than the first"* and
+  passed on **22.63 → 5.44 → 1.86** — a map still turning over completely every iteration. Unfalsifiable
+  as long as the sequence decreases at all (LESSON 68).
+- **§1884 pred_a/pred_c** used `acc_live * acc_prog` as the chance baseline for top-1 **agreement**. That
+  is the probability both are RIGHT, not the probability they AGREE. It assumes disagreeing predictors
+  scatter wrong answers uniformly over 50,257 tokens; both of these concentrate on frequent tokens, so
+  the null is far too low — and the inflation is worst where accuracy is lowest, which manufactured a
+  **97x** "enrichment" on the rare bucket and a spurious inversion.
+
+**The shared tell: neither bar was ever evaluated on a case whose answer I already knew.** Both would
+have been caught in under a minute of arithmetic before the run — 1.86 is obviously not converged, and a
+97x enrichment is obviously implausible for two predictors of the same text. I did that arithmetic *after*
+reading the output, both times.
+
+**The rule: before registering a bar, evaluate the predicate on one hand-made case where you know the
+verdict, and check it gives that verdict.** For a convergence bar, feed it a sequence that plainly has not
+converged and confirm it says FALSE. For a chance baseline, compute it on two predictors you know to be
+independent and confirm the ratio is ~1. This is LESSON D's two-direction test applied to *predicates*
+rather than to watchers — the same discipline, one level up, and I had not been applying it there.
+
+`ops/gate.py` cannot catch either: both are semantically wrong and syntactically perfect. **This one is
+mine to do by hand, and the cost of skipping it is a run plus a struck result.**
