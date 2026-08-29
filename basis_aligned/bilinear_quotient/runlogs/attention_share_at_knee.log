@@ -1,0 +1,73 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+ATTENTION SHARE AT THE KNEE | mlp 768, attn [64, 128, 192, 256, 384, 576] | 16,110 | DISCOVERY ONLY
+
+########## COVERAGE 16110 ##########
+  [bqlib] coverage 16110 from fineweb_n480_skip80.pt: 36 tables, neighbour index and map solver built (5s)
+  [bqlib] cache HIT  live     skip7000
+  [bqlib] cache HIT  live     skip11000
+  [bqlib] cache HIT  live     skip1200
+  [bqlib] cache HIT  mix25m256 skip7000
+  [bqlib] cache HIT  mix25m256 skip11000
+  [bqlib] cache HIT  mix25m256 skip1200
+  [bqlib] cache HIT  map512   skip7000
+  [bqlib] cache HIT  map512   skip11000
+  [bqlib] cache HIT  map512   skip1200
+  [bqlib] cache HIT  mix25m256 skip7000
+  [bqlib] cache HIT  mix25m256 skip11000
+  [bqlib] cache HIT  mix25m256 skip1200
+  [bqlib] cache HIT  mix25m256 skip7000
+  [bqlib] cache HIT  mix25m256 skip11000
+  [bqlib] cache HIT  mix25m256 skip1200
+  [bqlib] cache HIT  mix25m256 skip7000
+  [bqlib] cache HIT  mix25m256 skip11000
+  [bqlib] cache HIT  mix25m256 skip1200
+  [bqlib] cache HIT  mix25m256 skip7000
+  [bqlib] cache HIT  mix25m256 skip11000
+  [bqlib] cache HIT  mix25m256 skip1200
+  [bqlib] cache HIT  mix25m256 skip7000
+  [bqlib] cache HIT  mix25m256 skip11000
+  [bqlib] cache HIT  mix25m256 skip1200
+  [bqlib] cache HIT  mix25m256 skip7000
+  [bqlib] cache HIT  mix25m256 skip11000
+  [bqlib] cache HIT  mix25m256 skip1200
+
+  skip7000
+    blend_mlpheavy_anchor [ 339.558M]  top1 14.12% (+0.10pp)  CE 5.88609 (-0.00836, t -7.00)
+    map512_mlpheavy    [ 360.723M]  top1 14.01% (+0.00pp)  CE 5.89445 (+0.00000, t +0.00)
+    blend_768_64       [ 279.901M]  top1 13.71% (-0.30pp)  CE 5.90049 (+0.00604, t +4.21)
+    blend_768_128      [ 299.786M]  top1 13.98% (-0.03pp)  CE 5.89187 (-0.00259, t -2.02)
+    blend_768_192      [ 319.672M]  top1 14.06% (+0.05pp)  CE 5.88778 (-0.00668, t -5.47)
+    blend_768_256      [ 339.558M]  top1 14.12% (+0.10pp)  CE 5.88609 (-0.00836, t -7.00)
+    blend_768_384      [ 379.330M]  top1 14.17% (+0.16pp)  CE 5.88452 (-0.00994, t -8.19)
+    blend_768_576      [ 438.987M]  top1 14.15% (+0.14pp)  CE 5.88379 (-0.01067, t -8.69)
+    CE argmin attention rank: 576 (75% of mlp) | best rate above the anchor: blend_768_384 at 0.0040 nats/100M
+
+  skip11000
+    blend_mlpheavy_anchor [ 339.558M]  top1 14.82% (+0.07pp)  CE 5.83249 (-0.00872, t -7.28)
+    map512_mlpheavy    [ 360.723M]  top1 14.75% (+0.00pp)  CE 5.84120 (+0.00000, t +0.00)
+    blend_768_64       [ 279.901M]  top1 14.58% (-0.17pp)  CE 5.84842 (+0.00722, t +5.05)
+    blend_768_128      [ 299.786M]  top1 14.76% (+0.02pp)  CE 5.83975 (-0.00146, t -1.13)
+    blend_768_192      [ 319.672M]  top1 14.79% (+0.04pp)  CE 5.83449 (-0.00671, t -5.49)
+    blend_768_256      [ 339.558M]  top1 14.82% (+0.07pp)  CE 5.83249 (-0.00872, t -7.28)
+    blend_768_384      [ 379.330M]  top1 14.84% (+0.09pp)  CE 5.83076 (-0.01045, t -8.58)
+    blend_768_576      [ 438.987M]  top1 14.83% (+0.09pp)  CE 5.82987 (-0.01134, t -9.19)
+    CE argmin attention rank: 576 (75% of mlp) | best rate above the anchor: blend_768_384 at 0.0043 nats/100M
+
+  skip1200
+    blend_mlpheavy_anchor [ 339.558M]  top1 14.09% (+0.07pp)  CE 5.86357 (-0.00515, t -2.98)
+    map512_mlpheavy    [ 360.723M]  top1 14.02% (+0.00pp)  CE 5.86873 (+0.00000, t +0.00)
+    blend_768_64       [ 279.901M]  top1 13.75% (-0.27pp)  CE 5.87424 (+0.00552, t +2.64)
+    blend_768_128      [ 299.786M]  top1 14.05% (+0.03pp)  CE 5.86776 (-0.00097, t -0.52)
+    blend_768_192      [ 319.672M]  top1 14.02% (+0.01pp)  CE 5.86463 (-0.00410, t -2.31)
+    blend_768_256      [ 339.558M]  top1 14.09% (+0.07pp)  CE 5.86357 (-0.00515, t -2.98)
+    blend_768_384      [ 379.330M]  top1 14.11% (+0.09pp)  CE 5.86269 (-0.00604, t -3.44)
+    blend_768_576      [ 438.987M]  top1 14.10% (+0.08pp)  CE 5.86228 (-0.00645, t -3.63)
+    CE argmin attention rank: 576 (75% of mlp) | best rate above the anchor: blend_768_384 at 0.0022 nats/100M
+
+  the CE optimum is INTERIOR in the attention share (>=2 roles) -> False  0/3
+  and the argmin attention rank is above 192 = 25% of mlp (>=2 roles) -> True  3/3  (argmins [576, 576, 576])
+  and a larger share beats §1946 at better than 0.010 nats/100M (>=2 roles) -> False  0/3
+  coverage {'c16110': 16110}, rank-differing arm DOES move covered inputs True, identical-spec arm does NOT True, live identical 0.0e+00, §1946 CE reproduced within 0.000005 nats -> control True
+
+pred_a False | pred_b True | pred_c False | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/attention_share_at_knee_results.json (5.9s)

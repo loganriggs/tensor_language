@@ -63,14 +63,17 @@ for cov, fit, nc in COVS:
     print(f'\n########## COVERAGE {nc} ##########', flush=True)
     P = B.Program(fit, expect_ncov=nc)
     liveR = B.score_roles(P, None)
-    armR = {lab: B.score_roles(P, SPEC[lab][0], table_rank=SPEC[lab][1]) for lab in ARMS}
+    armR = {}
+    for lab in ARMS:
+        armR[lab] = B.score_roles(P, SPEC[lab][0], table_rank=SPEC[lab][1])
+        torch.cuda.empty_cache()
     res[cov], pt[cov], chg[cov] = {}, {}, {}
     for role in B.ROLES:
         tgt, icov = B.axes(P, role)
         res[cov][role] = {a: B.cells(P, tgt, icov, liveR[role], armR[a][role]) for a in ARMS}
         pt[cov][role] = {a: B.paired_t(armR[a][role][1], armR['map512_mlpheavy'][role][1])
                          for a in ARMS}
-        chg[cov][role] = {a: int(((armR[a][role][0] != armR['blend_full'][role][0]) & icov).sum())
+        chg[cov][role] = {a: int(((armR[a][role][0] != armR['blend_mlpheavy_anchor'][role][0]) & icov).sum())
                           for a in ARMS}
         # two-sided: fallback-only differences must be EXACTLY inert at covered inputs; table-rank
         # differences must NOT be. See the pred_d note in the header.

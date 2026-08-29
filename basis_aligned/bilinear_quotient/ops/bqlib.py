@@ -189,6 +189,25 @@ class Program:
         """table_rank may be None (full), an int (uniform), or {'mlp': r, 'attn': r} (per-site)."""
         return table_rank[st[0]] if isinstance(table_rank, dict) else table_rank
 
+    MEMO_CAP = 2       # distinct table-rank specs held at once; see _evict()
+
+    def _evict(self):
+        """Bound the memos.
+
+        PROFILED 2026-08-29: memoizing the truncated tables and the map SVD per rank spec turned 324
+        float64 SVDs per coverage into 36 and was the single biggest speed win (bqlib v2). But the memos
+        were UNBOUNDED, and one truncated table set at 16,110 is 36 x 16110 x 1152 x 4 = 2.67 GB. A
+        six-point allocation sweep asked for eight specs -- 21 GB of tables plus 6 GB of SVD factors --
+        and died with CUDA OOM after the first three arms. The access pattern is one spec at a time, so
+        a cap of two keeps essentially all the reuse (score_roles holds one arm across three roles, and
+        consecutive arms often share a spec) while bounding memory."""
+        while len(self._tabmemo) > self.MEMO_CAP:
+            old = next(iter(self._tabmemo))
+            del self._tabmemo[old]
+            for k in [k for k in self._mapmemo if k[0] == old]:
+                del self._mapmemo[k]
+            torch.cuda.empty_cache()
+
     def _tables_at(self, table_rank):
         if table_rank is None:
             return self.tables
@@ -206,6 +225,7 @@ class Program:
             U, S, Vh = torch.linalg.svd(b - mu, full_matrices=False)
             out[st] = (mu + (U[:, :r] * S[:r]) @ Vh[:r]).float()
         self._tabmemo[key] = out
+        self._evict()
         return out
 
     def _map(self, tc, st, rank, table_rank=None):
@@ -221,6 +241,7 @@ class Program:
             Ws = torch.linalg.solve(self.A, self.Ecov.T @ tc[st].double())
             usv = torch.linalg.svd(Ws, full_matrices=False)
             self._mapmemo[key] = usv
+            del Ws
         U, S, Vh = usv
         return (self.Eunc @ ((U[:, :rank] * S[:rank]) @ Vh[:rank])).float()
 

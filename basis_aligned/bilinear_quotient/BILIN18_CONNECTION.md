@@ -55304,3 +55304,52 @@ thirty-third clean reading.
 §1928–§1935 bounded the good region at **12.5–25%**, and every point here sits at the top of it. Whether
 the ray itself is optimal *at the knee* — where the tables are 78% of the build rather than 97% — is
 unmeasured, and it is a two-parameter question the library can now express directly.
+
+## §1948 — attention capacity is monotone in CE, so §1928's band is an EFFICIENCY rule, not an optimum
+
+`ops/attention_share_at_knee.py`, **5.9s**, **DISCOVERY ONLY**, 16,110 coverage, rung 3 — §1947's open
+question. **pred_a False (0/3) | pred_b True (3/3) | pred_c False (0/3) | pred_d True.**
+
+§1928–§1935 bounded the good attention share at **12.5–25%** of the MLP rank, and every build from §1941
+on has sat at the top of it. That band was found where the tables were ~97% of the build with a rank-64
+map fallback; §1947 put the efficient build at {768, 256} where the tables are 78% and the fallback is
+§1944's blend. Holding mlp at 768 and sweeping attention:
+
+```
+  16,110, pooled CE by attention rank (mlp 768, blend fallback)
+    attn      64        128       192       256       384       576
+    cost   279.9M    299.8M    319.7M    339.6M    379.3M    439.0M
+    7000  5.90049   5.89187   5.88778   5.88609   5.88452   5.88379
+    11000 5.84842   5.83975   5.83449   5.83249   5.83076   5.82987
+    1200  5.87424   5.86776   5.86463   5.86357   5.86269   5.86228
+```
+
+> **pred_a FAILED 0/3, and the shape is the finding: CE is strictly MONOTONE decreasing in the attention
+> share across the whole sweep, on all three roles — eighteen of eighteen points.** There is no interior
+> optimum. **pred_b PASSED 3/3** as the corollary: the CE argmin is **576 — 75% of the MLP rank — on
+> every role**, three times the top of §1928's band. **More attention capacity always helps.**
+
+> **pred_c FAILED 0/3, and together with pred_a it corrects §1928 precisely. The extra capacity is not
+> worth buying.** Going 256 → 576 costs **+99.4M** and buys **0.0023 / 0.0026 / 0.0013 nats per 100M** —
+> a quarter of §1947's 0.010 threshold and an eighth of the rate the same money buys on the MLP axis.
+> Going the other way, 64 → 256 runs at **0.0241 / 0.0267 / 0.0179 nats per 100M**, well above it.
+> **§1928's 12.5–25% band is where the RATE crosses, not where the CE minimum is** — and §1928 stated it
+> as an allocation optimum. It is corrected in place: the rule is right and its justification was wrong.
+> **{768, 256} remains the efficient point**, now for a reason §1928 did not have.
+
+**pred_d PASSED** on §1946's two-sided form: coverage exactly 16,110; a rank-differing arm **does** move
+covered-input predictions while an identical-spec arm does **not**; buckets partition; live per-cell
+top-1 and CE identical at 0.00e+00; §1946's published CE reproduced to **0.000005 nats** — thirty-fourth
+clean reading. The `blend_mlpheavy_anchor` arm and `blend_768_256` are the same specification and came
+back **bit-identical**, which is the strongest form that control has taken.
+
+**Where the cost arc stands.** Two axes, both now measured to their knees at 16,110, and the answer is
+the same build from both directions: **`blend_768_256` — 36 tables at mlp 768 / attn 256, fallback =
+25% output-NN neighbour + 75% rank-256 map, 339.558M.** It beats §1931's previous best-known on both
+instruments at 21.2M less (§1946); nothing cheaper beats §1931 at all (§1947); and buying more attention
+capacity runs at a quarter of the threshold rate (§1948).
+
+**Open.** Both knees were located with the **fallback fixed** at §1944's `mix25m256`, and §1944 chose
+α = 0.25 and rank 256 on **full-rank tables at 5,419**. §1948 shows the MLP/attention tradeoff moved when
+the operating point moved; the fallback's own two parameters have never been re-opened **at the knee**,
+where the tables are 78% of the build rather than 97%.

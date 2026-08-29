@@ -2119,3 +2119,29 @@ silently leaks the fallback.
 ask *what would have to be true for this to fail?* If the answer is "nothing, it cannot fail" the control
 is dead weight; if it is "the thing I just changed", it is false by construction. Prefer controls that
 assert both a positive and a negative, because those cannot be satisfied by an arm that does nothing.
+
+## LESSON 82 — three variants of a gate check, all measured, all rejected; recording the negative
+
+A fork replacing its arm block leaves behind string literals naming arms that no longer exist:
+`res[c][r]['map64']`, `armR['blend_full']`. **Three times on 2026-08-29**, each a `KeyError` *after* the
+full run. Name analysis cannot see them — they are `str`, not `Name` — so I tried to build a gate check
+and measured three forms against the whole corpus:
+
+1. **any string subscript appearing once in the file** — fires on **218 of 227** scripts (615 hits) on
+   ordinary keys like `'rows'`, `'seen'`, `'ce_prog'`. Unusable.
+2. **an arm-shaped literal absent from a statically-declared ARMS** — only 2 of 82 flagged, but both are
+   false positives from my own extractor, and it **skips every script that builds its labels with a
+   comprehension or f-string** — which is exactly the population that drops keys. It did not catch the
+   bug it was written for.
+3. **a literal subscripting a result container and appearing once in the file** — 35 of 178 scripts
+   flagged on legitimate `'baseline'`, `'norms'`, `'self_check'`, and it flags two *valid* keys in the
+   very file it was meant to protect.
+
+**Rejected, and the gate reverted.** Writing this down so the next attempt starts from the measurements
+rather than the idea. What actually reduced the cost of this bug class was **the cache**: a re-run after
+a fix is now ~5 seconds instead of ~270, so the same mistake costs a hundredth of what it did this
+morning. Sometimes the right fix for a failure mode is to make failing cheap rather than to prevent it.
+
+**The rule that did generalise** is LESSON 80's: a new gate check is not done when it catches its
+motivating case — run it against every script and require a zero verdict delta on the ones you have not
+changed. All three variants above died on that test, and each took about two minutes to kill.
