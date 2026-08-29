@@ -585,9 +585,11 @@ def _save_staged(value: Any, path: Path) -> None:
 
 
 def _publish_json_terminal(
-    payload: Mapping[str, Any], path: Path, claim: Any, *, lock_path: Path = LOCK,
+    payload: Mapping[str, Any], path: Path, claim: Any, *, lock_path: Path | None = None,
 ) -> None:
     """Create a terminal JSON once, checking lock ownership at the actual link."""
+
+    lock_path = LOCK if lock_path is None else lock_path
 
     encoded = (json.dumps(payload, indent=2, sort_keys=True, allow_nan=False) + "\n").encode()
     temporary = path.with_name(f".{path.name}.tmp.{os.getpid()}.{secrets.token_hex(8)}")
@@ -824,6 +826,19 @@ def freeze() -> dict[str, Any]:
             and support_census(replay_cells) == frozen_support_census
         ):
             raise RuntimeError("terminal-copy exact pre-publication semantic replay changed")
+        # This replay is intentionally adjacent to cache installation.  In v2 it
+        # rechecks the exact failed-authority/failure pair and every declared absence
+        # under the E4-v2 owner lock; in strict v1 it is an ordinary full census.
+        verify_prior_snapshot(
+            commit=commit,
+            sources=natural.source_closure(commit),
+            registry_files=registry_files,
+            registry_hashes=registry_hashes,
+            tensor_hashes=prior_tensor_hashes,
+            prior=prior,
+            parquet=parquet,
+            registry_waivers=registry_waivers,
+        )
         natural.require_claim(claim, LOCK)
         staging = CACHE.with_name(
             f".{CACHE.name}.tmp.{os.getpid()}.{secrets.token_hex(8)}"

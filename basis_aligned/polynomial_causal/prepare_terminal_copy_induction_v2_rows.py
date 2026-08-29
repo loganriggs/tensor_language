@@ -26,6 +26,9 @@ RECOVERY_ADDENDUM = HERE / "TERMINAL_COPY_INDUCTION_V2_ROW_RECOVERY_ADDENDUM.md"
 V1_FAILURE = BQ / "terminal_copy_induction_v1_rows_failure.json"
 FAILED_AUTHORITY = HERE / "gauge_transport_triangle_unique_rows_v1_authority.json"
 FAILED_AUTHORITY_FAILURE = HERE / "gauge_transport_triangle_unique_rows_v1_failure.json"
+FAILED_AUTHORITY_RUNNER = HERE / "freeze_gauge_transport_triangle_unique_rows_v1.py"
+FAILED_AUTHORITY_TEST = HERE / "test_freeze_gauge_transport_triangle_unique_rows_v1.py"
+FAILED_AUTHORITY_PREREG = HERE / "GAUGE_TRANSPORT_TRIANGLE_UNIQUE_ROWS_V1_PREREGISTRATION.md"
 
 CACHE = BQ / ".rowcache_terminal_copy_induction_v2"
 RECEIPT = BQ / "terminal_copy_induction_v2_rows_receipt.json"
@@ -47,7 +50,8 @@ def configure() -> None:
     base.FAILURE_KIND = "terminal_copy_induction_v2_rows_failure"
     base.SOURCE_PATHS = tuple(dict.fromkeys((
         FREEZER, TEST, RECOVERY, RECOVERY_ADDENDUM, V1_FAILURE,
-        FAILED_AUTHORITY, FAILED_AUTHORITY_FAILURE, *original_sources,
+        FAILED_AUTHORITY, FAILED_AUTHORITY_FAILURE, FAILED_AUTHORITY_RUNNER,
+        FAILED_AUTHORITY_TEST, FAILED_AUTHORITY_PREREG, *original_sources,
     )))
     base.load_prior_registry = recovery.load_registry_exclusions
     base.verify_prior_snapshot = recovery.verify_snapshot

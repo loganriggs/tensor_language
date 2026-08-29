@@ -134,4 +134,22 @@ def test_v2_configuration_uses_fresh_namespace_and_source_closes_v1_failure():
     assert v2.base.FAILURE == v2.FAILURE
     assert v2.V1_FAILURE in v2.base.SOURCE_PATHS
     assert v2.RECOVERY_ADDENDUM in v2.base.SOURCE_PATHS
+    assert v2.FAILED_AUTHORITY_RUNNER in v2.base.SOURCE_PATHS
+    assert v2.FAILED_AUTHORITY_TEST in v2.base.SOURCE_PATHS
+    assert v2.FAILED_AUTHORITY_PREREG in v2.base.SOURCE_PATHS
     assert v2.base.load_prior_registry is recovery.load_registry_exclusions
+
+
+def test_terminal_json_default_lock_is_resolved_at_call_time(tmp_path):
+    v2.configure()
+    lock = tmp_path / "v2.lock"
+    target = tmp_path / "terminal.json"
+    claim = v2.base.natural.acquire_claim(lock)
+    old_lock = v2.base.LOCK
+    try:
+        v2.base.LOCK = lock
+        v2.base._publish_json_terminal({"status": "ok"}, target, claim)
+        assert json.loads(target.read_bytes()) == {"status": "ok"}
+    finally:
+        v2.base.LOCK = old_lock
+        v2.base.natural.release_claim(claim, lock)
