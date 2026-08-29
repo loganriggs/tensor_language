@@ -1896,3 +1896,33 @@ good measurements that were never comparable, which is cheaper to cause and far 
 **And the corollary that would have caught it in one step:** a quantity's scope belongs in its NAME. Had
 §1899 reported `rel_diff_covered` rather than `rel_diff`, the comparison against an all-position count
 would have looked wrong on sight.
+
+## LESSON 72 — a bar on |Δ| cannot test a claim about direction, and I wrote two in a row
+
+§1932's pred_a: *"the combined build's kept-fraction in the 125+ bucket is within 2 percentage points of
+the deployed design's"*. It passed at 1.20pp — **while the sign flipped from favourable at 16,110 to
+unfavourable at 5,419.** The predicate was about magnitude; the finding was the reversal, and the True
+told me nothing about it.
+
+§1933's pred_c: *"the map is not the cause: going from the rank-64 to the rank-512 map moves both buckets
+by less than 1.5pp"*. It passed at 1.33pp — **while that 1.33pp IS the entire rare-end effect the section
+was trying to attribute.** I had written a predicate whose pass was compatible with the map being wholly
+responsible for the thing I was asking about.
+
+**Both were framed as causal or directional questions and tested with a two-sided tolerance on an absolute
+difference.** A `|Δ| <= t` bar answers "is the change small", never "which way did it go" or "is this the
+cause". They are different questions and only one of them was mine.
+
+**The rule: when the registered question contains a direction or an attribution, the predicate must
+contain a SIGNED comparison or a contrast against an alternative — not a tolerance.**
+- direction → `a < b` on every role, not `abs(a - b) <= t`
+- attribution → compare the candidate lever against a lever held fixed, and require the candidate to
+  account for most of the effect, not merely to be small
+
+Both sections' *results* survive because I read the tables rather than the booleans. **But two passes in
+two consecutive sections carried no information, and if I had trusted the pred lines I would have
+published "structure preserved" and "the map is not the cause" — the second of which is false.**
+
+Related: LESSON 68 (a bar relative to your own first iterate is unfalsifiable) and LESSON 69 (calibrate a
+bar on a known-answer case first). This is the third distinct way a syntactically fine predicate can fail
+to test its own question, and the gate cannot catch any of them.
