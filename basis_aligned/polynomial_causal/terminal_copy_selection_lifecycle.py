@@ -78,9 +78,11 @@ ADAPTER_RESULT = HERE / "terminal_copy_attention_checkpoint_check_v3_result.json
 
 PRIOR_AUTHORITY = HERE / "terminal_copy_selection_v1_authority.json"
 PRIOR_FAILURE = HERE / "terminal_copy_selection_v1_failure.json"
+PRIOR_AUDIT = HERE / "terminal_copy_selection_lifecycle_v1_independent_audit.json"
 PRIOR_AUTHORITY_FILE_SHA256 = "df00365e5d0db18b9ab7b60a16580e461aeadbc78b643d16e670af701eae1458"
 PRIOR_AUTHORITY_SHA256 = "531daab1eff1ef5e168ef8bc35a1453e47b25cf5605e01058bf7817e08dc3d96"
 PRIOR_FAILURE_SHA256 = "421b51beba693868b471d45f55129584bc078be0bdd29b97b63478b7582696aa"
+PRIOR_AUDIT_SHA256 = "c2152c3cb997efe70c4821437f6c88e78826badac6b6a0e31d6c31bf34e6e46e"
 
 EXECUTION_ATTEMPT = 2
 AUTHORITY_STATUS = (
@@ -157,7 +159,7 @@ PROTECTED_PATHS = (
     Path("/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_terminal_copy_induction_v2/ood_code.pt"),
     fit_v3.AUTHORITY, fit_v3.BANK, fit_v3.RESULT, fit_v3.MANIFEST, fit_v3.RECEIPT,
     ADAPTER_RECEIPT, ADAPTER_RESULT,
-    PRIOR_AUTHORITY, PRIOR_FAILURE, *PRIOR_ABSENT_PATHS,
+    PRIOR_AUTHORITY, PRIOR_FAILURE, PRIOR_AUDIT, *PRIOR_ABSENT_PATHS,
     facade.DEFAULT_SNAPSHOT / "config.json",
     facade.DEFAULT_SNAPSHOT / "pytorch_model.bin",
 )
@@ -478,7 +480,15 @@ def recovery_binding() -> dict[str, Any]:
 
     prior_authority = stable_json(PRIOR_AUTHORITY, PRIOR_AUTHORITY_FILE_SHA256)
     prior_failure = stable_json(PRIOR_FAILURE, PRIOR_FAILURE_SHA256)
+    prior_audit = stable_json(PRIOR_AUDIT, PRIOR_AUDIT_SHA256)
     prior_absent = {str(path): path.exists() for path in PRIOR_ABSENT_PATHS}
+    historical_protected = prior_authority.get("protected_snapshot")
+    if not isinstance(historical_protected, Mapping):
+        raise RuntimeError("selection attempt-1 protected snapshot is absent")
+    current_historical_protected = {
+        str(path): file_sha256(path) if path.is_file() else None
+        for path in map(Path, historical_protected)
+    }
     if (
         prior_authority.get("authority_sha256") != PRIOR_AUTHORITY_SHA256
         or prior_failure.get("schema") != "terminal_copy_selection_v1_failure"
@@ -500,6 +510,21 @@ def recovery_binding() -> dict[str, Any]:
         or prior_failure.get("same_authority_retry_authorized") is not False
         or prior_failure.get("protected_at_failure")
             != prior_authority.get("protected_snapshot")
+        or current_historical_protected != historical_protected
+        or prior_authority.get("independent_audit") != {
+            "approved": True,
+            "outcome_access": False,
+            "path": str(PRIOR_AUDIT),
+            "sha256": PRIOR_AUDIT_SHA256,
+        }
+        or prior_audit.get("schema")
+            != "terminal_copy_selection_lifecycle_independent_audit_v1"
+        or prior_audit.get("status")
+            != "approved_outcome_blind_selection_infrastructure"
+        or prior_audit.get("approved") is not True
+        or prior_audit.get("outcome_access") is not False
+        or prior_audit.get("reviewer") != "independent_artifact_audit_agent"
+        or prior_audit.get("remaining_launch_blockers") != []
         or prior_authority.get("protocol") != protocol()
         or any(prior_absent.values())
     ):
@@ -512,10 +537,13 @@ def recovery_binding() -> dict[str, Any]:
         "prior_authority_sha256": PRIOR_AUTHORITY_SHA256,
         "prior_failure_path": str(PRIOR_FAILURE),
         "prior_failure_sha256": PRIOR_FAILURE_SHA256,
+        "prior_audit_path": str(PRIOR_AUDIT),
+        "prior_audit_sha256": PRIOR_AUDIT_SHA256,
         "prior_attempt_status": "spent_pre_forward_execution_failure",
         "prior_attempt_full_selection_input_parent_checkpoint_exposed": True,
         "prior_attempt_model_outcome_observed": False,
         "prior_attempt_absent_outcome_paths": prior_absent,
+        "prior_attempt_protected_snapshot": dict(historical_protected),
         "same_authority_retry": False,
         "scientific_protocol_changed": False,
         "repair": "flatten_before_dtype_byte_view_only",

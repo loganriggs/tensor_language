@@ -1,0 +1,52 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+COMBINED BUILD AT DEPLOYED COVERAGE 5419 | buckets ((0, 0), (1, 4), (5, 24), (25, 124), (125, 1000000000)) on the fit-row count of the TRUE target | full-rank settled program | DISCOVERY ONLY
+  built the settled fallback and 36 tables (4s)
+
+  === table rank deployed, map rank 64 ===
+  skip7000: overall live 39.32% prog 13.55%
+    target fit-count 0-0          n   8904  live 25.29%  prog  0.67%  kept   2.7%
+    target fit-count 1-4          n   6585  live 26.65%  prog  1.11%  kept   4.2%
+    target fit-count 5-24         n   4783  live 30.52%  prog  2.89%  kept   9.5%
+    target fit-count 25-124       n   6003  live 41.98%  prog  9.90%  kept  23.6%
+    target fit-count 125-1000000000 n  10589  live 61.46%  prog 39.01%  kept  63.5%
+  skip11000: overall live 42.35% prog 14.25%
+    target fit-count 0-0          n   9385  live 29.90%  prog  1.86%  kept   6.2%
+    target fit-count 1-4          n   6638  live 30.11%  prog  1.61%  kept   5.4%
+    target fit-count 5-24         n   4763  live 35.00%  prog  2.81%  kept   8.0%
+    target fit-count 25-124       n   5546  live 42.66%  prog 10.46%  kept  24.5%
+    target fit-count 125-1000000000 n  10532  live 64.31%  prog 40.42%  kept  62.9%
+  skip1200: overall live 38.88% prog 13.64%
+    target fit-count 0-0          n   4470  live 26.15%  prog  0.94%  kept   3.6%
+    target fit-count 1-4          n   3209  live 25.40%  prog  1.18%  kept   4.7%
+    target fit-count 5-24         n   2440  live 28.32%  prog  3.52%  kept  12.4%
+    target fit-count 25-124       n   3037  live 41.29%  prog  9.75%  kept  23.6%
+    target fit-count 125-1000000000 n   5276  live 61.37%  prog 38.91%  kept  63.4%
+
+  === table rank combined, map rank 512 ===
+  skip7000: overall live 39.32% prog 13.74%
+    target fit-count 0-0          n   8904  live 25.29%  prog  1.03%  kept   4.1%
+    target fit-count 1-4          n   6585  live 26.65%  prog  1.37%  kept   5.1%
+    target fit-count 5-24         n   4783  live 30.52%  prog  4.16%  kept  13.6%
+    target fit-count 25-124       n   6003  live 41.98%  prog 10.53%  kept  25.1%
+    target fit-count 125-1000000000 n  10589  live 61.46%  prog 38.28%  kept  62.3%
+  skip11000: overall live 42.35% prog 14.45%
+    target fit-count 0-0          n   9385  live 29.90%  prog  1.96%  kept   6.6%
+    target fit-count 1-4          n   6638  live 30.11%  prog  1.87%  kept   6.2%
+    target fit-count 5-24         n   4763  live 35.00%  prog  4.12%  kept  11.8%
+    target fit-count 25-124       n   5546  live 42.66%  prog 11.36%  kept  26.6%
+    target fit-count 125-1000000000 n  10532  live 64.31%  prog 39.82%  kept  61.9%
+  skip1200: overall live 38.88% prog 13.75%
+    target fit-count 0-0          n   4470  live 26.15%  prog  0.98%  kept   3.8%
+    target fit-count 1-4          n   3209  live 25.40%  prog  1.37%  kept   5.4%
+    target fit-count 5-24         n   2440  live 28.32%  prog  4.18%  kept  14.8%
+    target fit-count 25-124       n   3037  live 41.29%  prog 10.31%  kept  25.0%
+    target fit-count 125-1000000000 n   5276  live 61.37%  prog 38.51%  kept  62.8%
+
+  STRUCTURE AT THE COMMON END (125+ bucket, kept-fraction) -> True  skip7000 deployed 63.5% vs combined 62.3% (d 1.20pp)  skip11000 deployed 62.9% vs combined 61.9% (d 0.93pp)  skip1200 deployed 63.4% vs combined 62.8% (d 0.65pp)
+  AT THE RARE END (fit-count 0 bucket) -> True  skip7000 deployed 2.7% vs combined 4.1% (d -1.42pp)  skip11000 deployed 6.2% vs combined 6.6% (d -0.32pp)  skip1200 deployed 3.6% vs combined 3.8% (d -0.17pp)
+  OVERALL top-1 gap under 1pp -> True  skip7000 deployed 13.55% vs half-cost 13.74% (d 0.19pp)  skip11000 deployed 14.25% vs half-cost 14.45% (d 0.20pp)  skip1200 deployed 13.64% vs half-cost 13.75% (d 0.11pp)
+  costs REPORTED: deployed 230.087M vs combined 163.667M (29% cheaper)
+  coverage 5419, buckets partition True, LIVE identical between arms (spread 0.00e+00) -> control True
+
+pred_a True | pred_b True | pred_c True | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/combined_at_deployed_coverage_results.json (138.5s)

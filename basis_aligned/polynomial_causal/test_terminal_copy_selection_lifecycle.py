@@ -244,6 +244,89 @@ def _patch_output_namespace(monkeypatch, directory: Path):
     return paths
 
 
+def _patch_recovery_lineage(monkeypatch, directory: Path):
+    directory.mkdir(parents=True, exist_ok=True)
+    protected = directory / "historical_protected.bin"
+    protected.write_bytes(b"historical bytes")
+    prior_audit = directory / "prior_audit.json"
+    prior_audit.write_text(life.json.dumps({
+        "schema": "terminal_copy_selection_lifecycle_independent_audit_v1",
+        "status": "approved_outcome_blind_selection_infrastructure",
+        "approved": True,
+        "outcome_access": False,
+        "reviewer": "independent_artifact_audit_agent",
+        "remaining_launch_blockers": [],
+    }, sort_keys=True) + "\n")
+    prior_audit_sha = life.file_sha256(prior_audit)
+    protocol = {"frozen_protocol": True}
+    fit_parent = {"fit": "bound"}
+    source = {"commit": "c" * 40, "paths": {}, "sha256": "s" * 64}
+    prior_authority = directory / "prior_authority.json"
+    authority_sha = "a" * 64
+    prior_authority.write_text(life.json.dumps({
+        "authority_sha256": authority_sha,
+        "source_closure": source,
+        "protocol": protocol,
+        "fit_parent_binding": fit_parent,
+        "protected_snapshot": {str(protected): life.file_sha256(protected)},
+        "independent_audit": {
+            "approved": True,
+            "outcome_access": False,
+            "path": str(prior_audit),
+            "sha256": prior_audit_sha,
+        },
+    }, sort_keys=True) + "\n")
+    prior_authority_file_sha = life.file_sha256(prior_authority)
+    prior_failure = directory / "prior_failure.json"
+    prior_failure.write_text(life.json.dumps({
+        "schema": "terminal_copy_selection_v1_failure",
+        "status": "terminal_integrity_or_execution_failure_no_decision_receipt",
+        "authority_sha256": authority_sha,
+        "authority_file_sha256": prior_authority_file_sha,
+        "exception_type": "RuntimeError",
+        "exception_message": (
+            "self.dim() cannot be 0 to view BFloat16 as Byte (different element sizes)"
+        ),
+        "partial_artifacts": {
+            str(life.HERE / "terminal_copy_selection_v1_ledger.json"): None,
+            str(life.HERE / "terminal_copy_selection_v1_manifest.json"): None,
+            str(life.HERE / "terminal_copy_selection_v1_result.json"): None,
+        },
+        "protected_at_failure": {str(protected): life.file_sha256(protected)},
+        "passer_receipt_exists": False,
+        "negative_receipt_exists": False,
+        "decision_receipts_mutually_absent": True,
+        "same_authority_retry_authorized": False,
+    }, sort_keys=True) + "\n")
+    recovery_ruling = directory / "recovery_ruling.md"
+    recovery_ruling.write_text("frozen recovery ruling\n")
+    absent = tuple(directory / f"prior_absent_{index}" for index in range(6))
+    for name, value in {
+        "PRIOR_AUTHORITY": prior_authority,
+        "PRIOR_FAILURE": prior_failure,
+        "PRIOR_AUDIT": prior_audit,
+        "RECOVERY_RULING": recovery_ruling,
+        "PRIOR_AUTHORITY_FILE_SHA256": prior_authority_file_sha,
+        "PRIOR_AUTHORITY_SHA256": authority_sha,
+        "PRIOR_FAILURE_SHA256": life.file_sha256(prior_failure),
+        "PRIOR_AUDIT_SHA256": prior_audit_sha,
+        "PRIOR_ABSENT_PATHS": absent,
+        "PROTECTED_PATHS": (protected, prior_authority, prior_failure, prior_audit, *absent),
+    }.items():
+        monkeypatch.setattr(life, name, value)
+    monkeypatch.setattr(life, "protocol", lambda: protocol)
+    monkeypatch.setattr(life, "verify_historical_source_closure", lambda binding: None)
+    return {
+        "protected": protected,
+        "prior_authority": prior_authority,
+        "prior_failure": prior_failure,
+        "prior_audit": prior_audit,
+        "absent": absent,
+        "fit_parent": fit_parent,
+        "source": source,
+    }
+
+
 class _FakeTensor:
     def __getitem__(self, _key):
         return self
@@ -544,6 +627,24 @@ def test_tensor_hash_handles_scalar_bfloat16_and_encodes_shape():
     assert life.tensor_sha256(scalar) != life.tensor_sha256(vector)
 
 
+@pytest.mark.parametrize(
+    "tensor",
+    [
+        torch.arange(12, dtype=torch.uint8).reshape(3, 4),
+        torch.arange(12, dtype=torch.int64).reshape(3, 4),
+        torch.arange(12, dtype=torch.float32).reshape(3, 4),
+        torch.arange(12, dtype=torch.float64).reshape(3, 4),
+        torch.arange(12, dtype=torch.bfloat16).reshape(3, 4),
+    ],
+)
+def test_tensor_hash_preserves_legacy_nonscalar_bytes(tensor):
+    digest = hashlib.sha256()
+    digest.update(str(tensor.dtype).encode())
+    digest.update(life.json.dumps(list(tensor.shape), separators=(",", ":")).encode())
+    digest.update(tensor.contiguous().view(torch.uint8).numpy().tobytes(order="C"))
+    assert life.tensor_sha256(tensor) == digest.hexdigest()
+
+
 def test_model_state_hash_preserves_legacy_nonscalar_bytes():
     model = torch.nn.Linear(4, 3, bias=True).to(dtype=torch.bfloat16)
     digest = hashlib.sha256()
@@ -556,6 +657,79 @@ def test_model_state_hash_preserves_legacy_nonscalar_bytes():
         digest.update(life.json.dumps(list(tensor.shape), separators=(",", ":")).encode())
         digest.update(tensor.view(torch.uint8).numpy().tobytes(order="C"))
     assert life.model_state_sha256(model) == digest.hexdigest()
+
+
+def test_recovery_lineage_happy_replay_and_namespace_isolation(tmp_path, monkeypatch):
+    paths = _patch_output_namespace(monkeypatch, tmp_path / "attempt2")
+    paths["AUTHORITY"].parent.mkdir()
+    fixture = _patch_recovery_lineage(monkeypatch, tmp_path / "lineage")
+    binding = life.recovery_binding()
+    assert binding["prior_attempt_model_outcome_observed"] is False
+    assert binding["prior_attempt_absent_outcome_paths"] == {
+        str(path): False for path in fixture["absent"]
+    }
+    assert life.licensed_fit_parent_binding() == fixture["fit_parent"]
+    life.require_pristine_namespace()
+    assert not set(life.output_namespace()) & {
+        fixture["prior_authority"], fixture["prior_failure"], *fixture["absent"],
+    }
+
+
+def test_recovery_rejects_current_historical_protected_drift(tmp_path, monkeypatch):
+    fixture = _patch_recovery_lineage(monkeypatch, tmp_path)
+    fixture["protected"].write_bytes(b"drifted")
+    with pytest.raises(RuntimeError, match="recovery evidence changed"):
+        life.recovery_binding()
+
+
+def test_recovery_rejects_reappearing_old_outcome(tmp_path, monkeypatch):
+    fixture = _patch_recovery_lineage(monkeypatch, tmp_path)
+    fixture["absent"][0].write_text("late artifact\n")
+    with pytest.raises(RuntimeError, match="recovery evidence changed"):
+        life.recovery_binding()
+
+
+def test_recovery_rejects_historical_source_failure(tmp_path, monkeypatch):
+    _patch_recovery_lineage(monkeypatch, tmp_path)
+    def reject(_binding):
+        raise RuntimeError("historical selection source drift")
+    monkeypatch.setattr(life, "verify_historical_source_closure", reject)
+    with pytest.raises(RuntimeError, match="historical selection source drift"):
+        life.recovery_binding()
+
+
+@pytest.mark.parametrize("target", ["prior_authority", "prior_failure", "prior_audit"])
+def test_recovery_rejects_lineage_file_drift(tmp_path, monkeypatch, target):
+    fixture = _patch_recovery_lineage(monkeypatch, tmp_path)
+    fixture[target].write_bytes(fixture[target].read_bytes() + b" ")
+    with pytest.raises(RuntimeError, match="selection JSON changed"):
+        life.recovery_binding()
+
+
+def test_authority_freeze_recovery_path_never_calls_torch_load(tmp_path, monkeypatch):
+    paths = _patch_output_namespace(monkeypatch, tmp_path / "attempt2")
+    paths["AUTHORITY"].parent.mkdir()
+    paths["AUDIT"].write_text("{}\n")
+    fixture = _patch_recovery_lineage(monkeypatch, tmp_path / "lineage")
+    checkpoint = life.facade.CheckpointReceipt(
+        revision="mock", snapshot="/mock", config_sha256="c" * 64,
+        weights_sha256="w" * 64, weights_bytes=1,
+        tokenizer_vocab=50_257, logit_vocab=50_304,
+    )
+    monkeypatch.setattr(
+        life, "validate_canonical_audit",
+        lambda _path=paths["AUDIT"]: {"approved": True, "outcome_access": False},
+    )
+    monkeypatch.setattr(life, "source_closure", lambda: fixture["source"])
+    monkeypatch.setattr(life, "verify_source_closure", lambda binding: None)
+    monkeypatch.setattr(life, "row_binding", lambda: {"row": "bound"})
+    monkeypatch.setattr(life, "adapter_binding", lambda: {"adapter": "bound"})
+    monkeypatch.setattr(life.facade, "validate_snapshot", lambda **kwargs: checkpoint)
+    def reject_tensor_load(*_args, **_kwargs):
+        raise AssertionError("torch.load occurred before attempt-2 authority")
+    monkeypatch.setattr(torch, "load", reject_tensor_load)
+    authority = life.freeze_execution_authority(paths["AUDIT"])
+    assert authority["fit_parent_binding"] == fixture["fit_parent"]
 
 
 @pytest.mark.skipif(not torch.cuda.is_available(), reason="CUDA unavailable")

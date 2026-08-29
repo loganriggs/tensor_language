@@ -54374,6 +54374,12 @@ scale-free, and the size is ~0.015-0.019 nats free.
 accuracy is identical between arms at 0.00e+00** — the seventeenth clean reading of that control, and what
 confirms both arms scored the same positions.
 
+> **[SCOPED at §1932: everything in this paragraph is a 16,110 statement.** At the DEPLOYED 5,419
+> coverage the same design is 29% cheaper (not 46%), better on overall top-1 and on the UNSEEN-target
+> bucket on all three roles, and **WORSE on the 125+ bucket on all three by 1.20 / 0.93 / 0.65pp** —
+> a redistribution from frequent to rare targets rather than a strict improvement. "Better on every
+> aggregate" does not hold at the coverage anyone would ship.]**
+>
 > **The program's best-known build, stated once.** 16,110 covered types; **18 attention sites at table
 > rank 256, 18 MLP sites at 768**; a **rank-512** covered-fit embedding fallback map; **360.724M reals**.
 > Against §1789's deployed design it is **46% smaller and better on CE, top-1, and the common-target
@@ -54384,3 +54390,50 @@ confirms both arms scored the same positions.
 **Open.** This build has never been run through §1789's accuracy-by-frequency instrument at the *deployed*
 5,419 coverage, only at 16,110. Given §1924 found a lever that failed to transfer across coverage, that is
 the one check I would want before anyone shipped it.
+
+## §1932 — at the DEPLOYED coverage the combined build trades common-target accuracy for rare-target accuracy
+
+`ops/combined_at_deployed_coverage.py`, 138.5s, **DISCOVERY ONLY**, 5,419 coverage, rung 3 — the check
+§1931 named as wanted before shipping. **All four predictions TRUE.**
+
+```
+                          DEPLOYED DESIGN        COMBINED BUILD        at 16,110 (§1931)
+  storage                        230.087M              163.667M   -29%          -46%
+  overall top-1        13.55 / 14.25 / 13.64%   13.74 / 14.45 / 13.75%   better x3     better x3
+  kept, 125+ bucket     63.5 / 62.9 / 63.4%      62.3 / 61.9 / 62.8%     WORSE  x3     better x3
+  kept, unseen bucket    2.7 /  6.2 /  3.6%       4.1 /  6.6 /  3.8%     better x3     better x2
+```
+
+> **All four predicates passed, and the sign flipped on two of them between coverages. That is the
+> finding, and it scopes §1931.** At 16,110 the combined build was better than the deployed design on the
+> 125+ bucket on all three roles; **at 5,419 it is WORSE on all three, by 1.20 / 0.93 / 0.65pp.** And at
+> 16,110 it was worse on the unseen bucket on one role; **here it is BETTER on all three, by 1.42 / 0.32 /
+> 0.17pp.** pred_a passed because 1.20pp is inside its 2pp bar — **the bar was about magnitude and the
+> direction reversed underneath it.**
+>
+> **So at the coverage anyone would ship, this is a redistribution rather than a free win: it moves
+> accuracy off frequent targets and onto rare ones.** Overall top-1 still improves on all three roles
+> (+0.19 / +0.20 / +0.11pp) because the mid and rare buckets more than cover the common bucket's loss, and
+> the build is still 29% cheaper. **But "strictly better on every aggregate" was a 16,110 statement and
+> §1931 should not have been read without it.** §1931 is scoped in place.
+
+**pred_b PASSED and this time genuinely, not on a widened bar.** §1931 carried a 1.5pp threshold I had
+loosened knowing skip1200 sat at 1.10pp; here the combined build is **better** on the rare end on every
+role, so the bar is not doing any work. **The allocation's rare-end behaviour at 5,419 is the opposite of
+§1883's finding for the un-allocated half-cost build**, which lost 0.23 / 0.28 / 1.10pp there.
+
+**pred_c PASSED**: overall top-1 gaps of 0.19 / 0.20 / 0.11pp, all favourable. **pred_d PASSED**: coverage
+exactly 5,419, both arms partitioned, and the **live model's per-bucket accuracy identical at 0.00e+00** —
+eighteenth clean reading.
+
+> **The build's honest description, both coverages.** *At 16,110*: 46% cheaper and better on CE, top-1 and
+> both accuracy buckets — a strict improvement. *At 5,419*: 29% cheaper, better on top-1 and rare targets,
+> **~1pp worse on frequent targets**. **Which of those matters depends on the deployment, and it is not my
+> call to make** — but anyone quoting §1931's headline at the deployed coverage would be quoting the wrong
+> coverage's result.
+
+**Open.** Why the sign flips. The combined build's table rank is 256/768 in both cases while the covered
+set is 3x smaller at 5,419, so the tables are relatively *richer* there and the deployed design's
+full-rank advantage on frequent targets is correspondingly larger. **That is a plausible account and I
+have not measured it** — §1888, §1890, §1898-§1900, §1923 and §1925 are the record of what guessing costs,
+and the measurement would be a rank sweep at fixed coverage against the bucket instrument.
