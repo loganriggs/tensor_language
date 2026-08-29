@@ -8,3 +8,31 @@ THE MINIMAL PATH | 7 arms x 1 coverage(s) | DISCOVERY ONLY
   [bqlib] cache HIT  mix30m640 skip7000
   [bqlib] cache HIT  mix30m640 skip11000
   [bqlib] cache HIT  mix30m640 skip1200
+  [bqlib] computed   mix30m640 skip7000 (1.4s)
+  [bqlib] computed   mix30m640 skip11000 (1.3s)
+  [bqlib] computed   mix30m640 skip1200 (0.6s)
+  [bqlib] cache HIT  mix30m640 skip7000
+  [bqlib] cache HIT  mix30m640 skip11000
+  [bqlib] cache HIT  mix30m640 skip1200
+  [bqlib] computed   mix30m640 skip7000 (1.3s)
+  [bqlib] computed   mix30m640 skip11000 (1.3s)
+  [bqlib] computed   mix30m640 skip1200 (0.6s)
+  [bqlib] cache HIT  mix30m640 skip7000
+  [bqlib] cache HIT  mix30m640 skip11000
+  [bqlib] cache HIT  mix30m640 skip1200
+  [bqlib] cache HIT  mix30m640 skip7000
+  [bqlib] cache HIT  mix30m640 skip11000
+  [bqlib] cache HIT  mix30m640 skip1200
+  [bqlib] cache HIT  map512   skip7000
+  [bqlib] cache HIT  map512   skip11000
+  [bqlib] cache HIT  map512   skip1200
+  [bqlib] note: 3 differing-spec pair(s) flip no covered-input top-1 -- legal for a site-subset difference, e.g. ('mlp4', 'mlp4_a6')
+
+  dropping attention 4 costs nothing -- it runs below the compiled site (>=2 roles, +0.01 slack)  -> True
+  and neither attention 5 nor attention 6 works alone (both >5 nats) while the pair is under 3  -> True
+  and three sites remove >=80% of the lone-mlp4 penalty  -> True
+  derived controls -> True   coverage_exact=True  inert_pairs_are_inert=True  some_differing_pair_moves=True  buckets_partition=True  live_identical=True  ref_mlp4=True  ref_mlp4_a456=True  ref_full_program=True
+  reference deviations: mlp4 0.000000  mlp4_a456 0.000000  full_program 0.000000
+
+pred_a True | pred_b True | pred_c True | pred_z True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/the_minimal_path_results.json (47.5s)

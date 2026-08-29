@@ -57500,3 +57500,46 @@ mlp4 costs 10.67, and §1983 showed the row's content is irrelevant — a consta
 1.745) therefore probably contains one site it does not need. **The minimal path should be
 `mlp4 + attention 5 + attention 6`, and testing it also asks whether both remaining layers are required
 or only attention 6 with one intermediary.**
+
+## §1990 — the minimal path is three sites: mlp4, attention 5, attention 6
+
+`ops/the_minimal_path.py`, **47.5s**, **DISCOVERY ONLY**, 5,419, rung 3 — §1989's open question.
+**pred_a True | pred_b True | pred_c True | derived controls True.** All three reference deviations
+0.000000.
+
+```
+  cost against the live model, nats, 5,419
+             mlp4    +attn5   +attn6   +attn5,6   +attn4,5,6   full 36 sites
+  skip7000   10.669   8.021   10.666    1.555       1.745         2.808
+  skip11000  10.937   8.300   10.934    1.640       1.853         2.979
+  skip1200   10.580   7.962   10.577    1.498       1.682         2.702
+```
+
+> **pred_a PASSED 3/3, and attention 4 was never in the path.** Block order is attention_L then mlp_L, so
+> attention 4 runs **before** mlp4 and sits below it — precisely where §1986 measured compiled sites as
+> costly. Dropping it does not merely cost nothing: **it is worth 0.198 nats at pooled t = −239.5.**
+> §1986's four-site path carried one site it did not need, and I said so in §1989 before measuring it.
+
+> **pred_b PASSED 3/3 on both halves, and the interaction is the whole effect.** Attention 5 alone leaves
+> **8.02**; attention 6 alone leaves **10.67**; the two together give **1.56**. Neither buys a fifth of
+> what the pair buys — **−6.543 at t = −344.2 and −9.178 at t = −371.9.** The path is a chain, not a site.
+
+> **pred_c PASSED 3/3.** Three sites remove **99.6%** of the lone-mlp4 penalty and land **1.25 nats below
+> the full 36-site program.**
+
+**The localisation line, closed.** §1978 measured partial compilation at 3.6× the full program and called
+it a mystery. Nine sections later the answer is three sites and one rule:
+
+> **A compiled site is safe when every attention layer strictly above it, up to and including attention 6,
+> is also compiled — and nothing else is.** Sites below it cost (§1986: −0.372; §1990: −0.198). A path
+> stopped short costs more than no path (§1987: +2.08). Above attention 6 nothing is required at all
+> (§1988, §1989: 0.03–0.20 nats). The site that matters is **mlp4**, its content is **irrelevant**
+> (§1983), and the whole 3.6× penalty is one chain: **mlp4 → attention 5 → attention 6.**
+
+**These remain localisation probes.** Three compiled sites score better than thirty-six partly because
+thirty-three more of the live model is still present; this is evidence about where the penalty lives, not
+a program. The §1979 architectural fork is unchanged and still with Logan.
+
+**Open.** The rule is stated for mlp4 and verified for one site. It predicts the minimal path for **mlp2**
+is attention 3–6 — dropping attention 2, which runs below it — and that dropping attention 3 as well
+breaks it. §1987 bought attention 2–6 without asking.
