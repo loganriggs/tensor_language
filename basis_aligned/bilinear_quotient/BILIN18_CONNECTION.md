@@ -58662,7 +58662,13 @@ end-to-end, at both coverages, against the deployed one, and that is what §2018
 §1963 and §1965 reversed 5,419 claims twice, and **a 0.0005-nat margin is exactly the size that a coverage
 change could erase.**
 
-## §2018 — NEW BEST-KNOWN BUILD: mlp17 untruncated, 192.0M, and the margin triples at the higher coverage
+## §2018 — ~~NEW BEST-KNOWN BUILD: mlp17 untruncated~~ **SUPERSEDED BY §2019 — mlp16 belongs in it too**
+
+**CORRECTION (§2019).** The measurements below are correct and reproduced within 0.0002. **The
+recommendation is not.** mlp16 was excluded on a 2-of-3 role vote whose dissenting role, skip1200, carries
+half the scored positions (§1971). Pooled, mlp16 buys **0.000602 nats at t = −5.84** against mlp17's
+**0.000472 at t = −3.58** — it is the *better* purchase per parameter. The best-known build is §2019's:
+**both** sites untruncated, 194.5M. LESSON 101.
 
 `ops/candidate_build_mlp17_untruncated.py`, **199.8s**, **DISCOVERY ONLY**, both coverages, rung 3 —
 §2017's open question. **pred_a True | pred_b True | pred_c True | pred_d True | derived controls True.**
@@ -58705,3 +58711,49 @@ parameters (the shallow sites, by tenfold).
 (22–24%), so **stacking mlp16's coverage-dependent gain on mlp17's would not add** — and at 16,110, where
 both qualify, the pair has never been scored as a build. That is the only remaining untested allocation in
 this family.
+
+## §2019 — I excluded mlp16 on a vote and the pooled instrument says include it; the build is superseded again
+
+`ops/the_pair_as_a_build.py`, **106.0s**, **DISCOVERY ONLY**, both coverages, rung 3 — §2018's open
+question. **pred_a True | pred_b True | pred_c True | pred_d False | derived controls True.** Reference
+deviation 0.000000.
+
+```
+  nats bought over the shipped build, pooled across all three roles (92,160 positions)
+                 mlp17 only      mlp16 only      both        price
+  5,419           0.000472        0.000602      0.000962    0.00025 / 0.00025 / 0.00050
+    pooled t       −3.58           −5.84         −5.48
+  16,110          0.001341        0.001262      0.002340
+    pooled t       −7.70           −9.32         −9.97
+```
+
+> **pred_d FAILED on the roles it was scored on, and the failure is a correction to §2018. I registered
+> that adding mlp16 to §2018's build would not pay for itself at 5,419. It buys +0.00042 / +0.00090 /
+> −0.00020 over that build — clearing the 0.00025 price on two of three roles — and pooled it buys
+> 0.000490 at t = −4.75, nearly twice its price.**
+
+> **§2018 excluded mlp16 on a 2-of-3 vote, and §1971 established four hundred sections ago that the vote
+> is the wrong instrument here.** The dissenting role is **skip1200**, which carries **18,432 scored
+> positions against the others' 36,864** — half the evidence, a third of the vote. Pooled, mlp16 alone
+> buys **0.000602 at t = −5.84 against mlp17's 0.000472 at t = −3.58**. **The site I declined is the
+> better of the two purchases per parameter**, 2.4× against 1.9×.
+
+> **pred_b PASSED 3/3 at both coverages: the pair is sub-additive**, 0.000962 against a sum of 0.001074 at
+> 5,419 and 0.002340 against 0.002603 at 16,110 — **10% short of additive, exactly the 10–28% band §2017
+> measured.** pred_c PASSED: the pair clears its own 0.00050 price at 16,110 on 3/3 and pooled by 4.7×.
+
+**NEW BEST-KNOWN BUILD, superseding §2018's after twenty minutes.**
+
+> **36 tables at {mlp 768, attn 384} with mlp16 AND mlp17 at their untruncated rank 1152; uncovered rows
+> 30% output-NN neighbour, 70% rank-640 map. 194.5M values at 5,419** — 189.5M plus 5.05M, **+2.66%** —
+> buying **0.96 milli-nats pooled at 5,419 (t = −5.48) and 2.34 at 16,110 (t = −9.97)** against a
+> 0.50 milli-nat price. **1.9× at the deployed coverage, 4.7× at the higher one.**
+
+**§2018 is marked, not deleted.** Its measurements are correct and reproduced here to 0.0002; its
+*recommendation* was wrong, and wrong for a reason the ledger had already diagnosed. **I used a per-role
+vote to make a build decision in a section that quoted a pooled t in its own headline.**
+
+**Open.** Both late sites are now untruncated, so the rank axis is closed at the top for the two sites that
+carry the program. **The eighteen MLP sites below them have never been tested above 768 either** — §2015
+showed their content is small, but "small" was measured at rank 768, and §2017's sub-additivity means a
+sixteen-site sweep is not a sixteen-fold extrapolation of one.

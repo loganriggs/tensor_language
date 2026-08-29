@@ -2544,3 +2544,24 @@ structure the prediction is about. §2013's fact is about the residual stream; p
 different spaces, one linear and one not. Compare [[LESSON 99]], where the error was the denominator of a
 share, and [[LESSON 95]], where it was the quantifier — the same class of mistake in three different
 positions of the same sentence.
+
+## LESSON 101 — do not settle a build decision with a vote in a section that quotes a pooled t
+
+§2018 recorded a new best-known build and excluded mlp16 from it because mlp16 cleared §1947's price on
+**two of three roles** — one role came in at −0.00008. §2019 pooled the same data and mlp16 buys
+**0.000602 nats at t = −5.84**, against the adopted mlp17's **0.000472 at t = −3.58**. **I declined the
+better of the two purchases.**
+
+**The dissenting role was skip1200, which §1971 measured at 18,432 scored positions against the other two
+roles' 36,864** — half the evidence and a third of the vote. That is the exact failure §1971 was written to
+prevent, and §2018's own headline quoted a pooled t while its recommendation counted roles.
+
+**The rule:** a 2-of-3 role vote is a legitimate screen for *discovery* — it is cheap and it is what most
+of this ledger's predicates use. It is **not** the instrument for a decision about what to ship, when the
+per-position data is cached and a pooled paired test costs nothing. **Where a section computes both, the
+pooled test decides.**
+
+**Marked, not deleted.** §2018's measurements reproduced within 0.0002 inside §2019; only the
+recommendation was wrong. See [[LESSON 91]] and [[LESSON 93]] on unit errors in bars, and [[LESSON 99]] on
+naming the quantity a number is a share of — three versions of the same failure to check what the number
+in front of me actually was.
