@@ -213,6 +213,50 @@ def test_create_only_json_never_overwrites(tmp_path):
     assert not list(tmp_path.glob(".x.json.tmp-*"))
 
 
+def test_execution_lock_is_exclusive_and_detects_replacement(tmp_path):
+    lock = tmp_path / "lock"
+    claim = life.acquire_claim(lock)
+    try:
+        with pytest.raises(RuntimeError, match="locked"):
+            life.acquire_claim(lock)
+        life.require_claim(claim, lock)
+        lock.unlink()
+        lock.write_text(claim.nonce + "\n")
+        with pytest.raises(RuntimeError, match="ownership changed"):
+            life.require_claim(claim, lock)
+    finally:
+        life.release_claim(claim, lock)
+
+
+def test_fit_input_loader_joins_real_row_bytes_to_document_order(monkeypatch, tmp_path):
+    lock = tmp_path / "lock"
+    monkeypatch.setattr(life, "LOCK", lock)
+    monkeypatch.setattr(life, "validate_execution_authority", lambda value: None)
+    binding = life.row_binding()
+    claim = life.acquire_claim()
+    try:
+        loaded = life._load_fit_role_inputs({"row_binding": binding}, claim)
+    finally:
+        life.release_claim(claim)
+    assert loaded.tokens.shape == (192, 256)
+    assert len(loaded.ordered_document_ids) == 192
+    assert len(set(loaded.ordered_document_ids)) == 192
+    assert loaded.ordered_document_ids_sha256 == life._document_digest(
+        loaded.ordered_document_ids
+    )
+    assert loaded.row_file_sha256 == binding["row_file_sha256"]
+
+
+def test_collection_capability_requires_private_seal():
+    with pytest.raises(RuntimeError, match="cannot be constructed externally"):
+        life._CollectedFitTransaction(
+            object(), bank=_bank(), closure=_closure(),
+            ordered_document_ids_sha256="d" * 64,
+            row_file_sha256="f" * 64,
+            claim=life.RunClaim(-1, -1, "n"), authority_sha256="a" * 64,
+        )
+
+
 def test_publish_failure_is_terminal_and_never_creates_receipt(tmp_path, monkeypatch):
     monkeypatch.setattr(life, "BANK", tmp_path / "bank.pt")
     monkeypatch.setattr(life, "RESULT", tmp_path / "result.json")

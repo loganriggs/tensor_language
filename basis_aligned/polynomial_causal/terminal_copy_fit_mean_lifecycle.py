@@ -611,6 +611,32 @@ class FitRoleInputs(NamedTuple):
     row_file_sha256: str
 
 
+_COLLECTION_SEAL = object()
+
+
+class _CollectedFitTransaction:
+    """Opaque return capability created only after the owned collector closes."""
+
+    __slots__ = (
+        "bank", "closure", "ordered_document_ids_sha256", "row_file_sha256",
+        "claim_nonce", "authority_sha256",
+    )
+
+    def __init__(
+        self, seal: object, *, bank: FitHeadMeanBank, closure: FitMeanOwnerClosure,
+        ordered_document_ids_sha256: str, row_file_sha256: str,
+        claim: RunClaim, authority_sha256: str,
+    ) -> None:
+        if seal is not _COLLECTION_SEAL:
+            raise RuntimeError("fit collection capability cannot be constructed externally")
+        self.bank = bank
+        self.closure = closure
+        self.ordered_document_ids_sha256 = ordered_document_ids_sha256
+        self.row_file_sha256 = row_file_sha256
+        self.claim_nonce = claim.nonce
+        self.authority_sha256 = authority_sha256
+
+
 def _load_fit_role_inputs(
     authority: Mapping[str, Any], claim: RunClaim,
 ) -> FitRoleInputs:
@@ -711,10 +737,10 @@ def create_only_torch(path: Path, value: Mapping[str, Any]) -> None:
 
 
 def _publish_fit_mean_bundle(
-    *, authority: Mapping[str, Any], claim: RunClaim, bank: FitHeadMeanBank,
-    closure: FitMeanOwnerClosure, protected_before: Mapping[str, str | None],
-    protected_after: Mapping[str, str | None], ordered_document_ids_sha256: str,
-    row_file_sha256: str,
+    *, authority: Mapping[str, Any], claim: RunClaim,
+    collected: _CollectedFitTransaction,
+    protected_before: Mapping[str, str | None],
+    protected_after: Mapping[str, str | None],
 ) -> dict[str, Any]:
     """Publish bank/result/manifest then the sole success receipt last."""
 
@@ -730,7 +756,16 @@ def _publish_fit_mean_bundle(
         or dict(protected_after) != live_protected
     ):
         raise RuntimeError("fit-mean collection changed protected artifacts")
-    closure_payload = validate_closure(closure)
+    if (
+        not isinstance(collected, _CollectedFitTransaction)
+        or collected.claim_nonce != claim.nonce
+        or collected.authority_sha256 != authority_sha
+    ):
+        raise RuntimeError("fit-mean collection capability is absent or from another run")
+    bank = collected.bank
+    closure_payload = validate_closure(collected.closure)
+    ordered_document_ids_sha256 = collected.ordered_document_ids_sha256
+    row_file_sha256 = collected.row_file_sha256
     if (
         bank.ordered_document_ids_sha256 != ordered_document_ids_sha256
         or row_file_sha256 != authority["row_binding"]["row_file_sha256"]
@@ -886,15 +921,21 @@ def execute_fit_mean_collection(
         if bank.ordered_document_ids_sha256 != inputs.ordered_document_ids_sha256:
             raise RuntimeError("fit owner changed authorized document order")
         protected_after = protected_snapshot()
+        collected = _CollectedFitTransaction(
+            _COLLECTION_SEAL,
+            bank=bank,
+            closure=closure,
+            ordered_document_ids_sha256=inputs.ordered_document_ids_sha256,
+            row_file_sha256=inputs.row_file_sha256,
+            claim=claim,
+            authority_sha256=authority["authority_sha256"],
+        )
         return _publish_fit_mean_bundle(
             authority=authority,
             claim=claim,
-            bank=bank,
-            closure=closure,
+            collected=collected,
             protected_before=protected_before,
             protected_after=protected_after,
-            ordered_document_ids_sha256=inputs.ordered_document_ids_sha256,
-            row_file_sha256=inputs.row_file_sha256,
         )
     except BaseException as error:
         if not RECEIPT.exists() and not FAILURE.exists():
