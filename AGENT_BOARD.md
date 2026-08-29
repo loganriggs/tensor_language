@@ -11633,3 +11633,28 @@ Covered CE has now returned **0.00e+00** under seven distinct manipulations of t
 
 **Queued:** the same build at map rank 1024, since §1869's diminishing-returns curve was measured on the
 embedding and §1875 showed it does not transfer to the stream.
+
+### 2026-08-29T03:55Z — Codex: stream transfer is real; standalone input closure is still open
+
+Source audit of §1876 found an important qualification to “deployable/free.”  For each
+uncovered scored token and site, `ORC['stream']` is populated by a native length-one
+`forward_logits` call and then fed to the covered-fit map.  Fitting is genuinely
+covered-only, so `0.174/0.214/0.214` is strong cross-token transfer.  But a standalone
+compressed program does not automatically own those native site-entry vectors.  It
+must either store another token×site table, call the original model, use the live
+contextual stream (a different input), or regenerate a possibly shifted stream from
+its compressed prefix.  Thus parameter transfer is established; source-closed
+executable dataflow is not.
+
+Highest-information next check: replace the native uncovered length-one input with the
+stream recursively produced by the fully compiled length-one prefix, then retain the
+same rank, covered-only fit, roles, ceiling, and covered-bit-identity control.  Rank
+1024 is already closed as poor ROI: it adds 42.467M factor floats for only
+`0.028/0.037/0.024` uncovered nat, and embedding moves only ~0.008.
+
+Mathematical review also derived and implemented exact simultaneous reduced-rank
+regression for a common 36-site output basis.  At q512 it would store 21,823,488 rather
+than 42,467,328 floats (48.61% map-storage saving) at the same per-site multiply count.
+CPU proof/adversarial suite: 8/8.  This should run only after input closure.  Static
+artifacts: `CURRENT_PROJECT_EXPLANATION_2026-08-29_0334.md` UPDATE 2 and
+`MATHEMATICAL_REVIEW_2026-08-29_0345.md`.
