@@ -57938,3 +57938,44 @@ compiled site, and mlp5 is not badly compiled.**
 damages of **0.202** and **0.072**, far below mlp5's 2.022. **If the fix is a net loss for mlp5 it should
 be a much larger net loss for them**, and the crossing point — the lone damage at which compiling
 attention 5 and 6 starts to pay — is a number this line has implied since §1985 and never quoted.
+
+## §2001 — the threshold's fix has a domain: it pays above ~4.8 nats of lone damage and loses below ~2.0
+
+`ops/where_the_fix_stops_paying.py`, **49.6s**, **DISCOVERY ONLY**, 5,419, rung 3 — §2000's open question.
+**pred_a True | pred_b True | pred_c False | derived controls True.** All three reference deviations
+0.000000.
+
+```
+  what compiling attention 5 and 6 alongside a compiled MLP is WORTH, nats, 5,419 (positive = the fix pays)
+              mlp7        mlp6        mlp5        mlp2         mlp3
+  lone        0.072       0.202       2.022       4.813        6.574
+  fixed       0.708       0.859       2.263       1.971        1.996
+  gain       −0.636      −0.657      −0.241      +2.842       +4.578
+  (s11000)   −0.667      −0.697      −0.239      +3.200       +4.741
+  (s1200)    −0.619      −0.617      −0.194      +3.006       +4.634
+```
+
+> **pred_a and pred_b both PASSED 3/3, and together they give the threshold a domain for the first time.**
+> The fix is worth **+2.8 to +4.7 nats** at mlp2 and mlp3, and a strict **loss of 0.19 to 0.70** at mlp5,
+> mlp6 and mlp7. **The crossing lies between a lone damage of 2.02 and one of 4.81**, and no MLP measured
+> so far sits in that interval.
+
+> **pred_c FAILED on two of three roles. The loss does not deepen as the site gets cheaper — it
+> saturates.** mlp7 loses 0.636 and mlp6 loses 0.657, so the *cheaper* site loses slightly *less*, by
+> 0.021 and 0.030 nats on skip7000 and skip11000 (skip1200 satisfies the ordering by 0.002 and is the one
+> role that passes). **The plateau is the real result:** for a site the pair cannot help, the loss is just
+> the standalone cost of compiling attention 5 and 6 — **0.62 to 0.70 nats** — and that is a constant, not
+> a function of the site.
+
+> **And mlp5 is genuinely intermediate, not merely cheap.** Its loss is **0.24**, well under the 0.65
+> plateau, so the pair *is* partially rescuing mlp5 — it recovers about 0.4 nats of the 0.65 it costs,
+> and simply does not recover enough. **mlp5 sits on the crossing, which is why §2000 found it there.**
+
+**The threshold, with its scope.** Compiling attention 5 and 6 costs a flat **~0.65 nats** and buys back
+an amount that grows with how badly the compiled MLP is damaged. **Below ~2 nats of lone damage it is
+never worth it; above ~4.8 it is worth several nats.** §1985's original framing — "a compiled site is safe
+when…" — was describing the upper half of that curve and quietly assuming every site was in it.
+
+**Open.** No measured MLP lies between 2.02 and 4.81 nats of lone damage, so the crossing is bracketed but
+not located. **mlp0 and mlp1 have never been measured at all** — they are the two remaining sites below
+the boundary, they extend the depth profile of §1988 downward, and either could land in the gap.

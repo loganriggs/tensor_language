@@ -29,3 +29,27 @@ WHERE THE FIX STOPS PAYING | 13 arms x 1 coverage(s) | DISCOVERY ONLY
   [bqlib] cache HIT  mix30m640 skip7000
   [bqlib] cache HIT  mix30m640 skip11000
   [bqlib] cache HIT  mix30m640 skip1200
+  [bqlib] computed   mix30m640 skip7000 (1.4s)
+  [bqlib] computed   mix30m640 skip11000 (1.3s)
+  [bqlib] computed   mix30m640 skip1200 (0.6s)
+  [bqlib] computed   mix30m640 skip7000 (1.5s)
+  [bqlib] computed   mix30m640 skip11000 (1.3s)
+  [bqlib] computed   mix30m640 skip1200 (0.6s)
+  [bqlib] cache HIT  mix30m640 skip7000
+  [bqlib] cache HIT  mix30m640 skip11000
+  [bqlib] cache HIT  mix30m640 skip1200
+  [bqlib] cache HIT  map512   skip7000
+  [bqlib] cache HIT  map512   skip11000
+  [bqlib] cache HIT  map512   skip1200
+  [bqlib] cache HIT  mix30m640 skip7000
+  [bqlib] cache HIT  mix30m640 skip11000
+  [bqlib] cache HIT  mix30m640 skip1200
+
+  compiling attention 5 and 6 still pays at mlp2 and mlp3, on all three roles  -> True
+  and it is a strict loss at mlp6 and mlp7, on all three roles  -> True
+  and the loss deepens monotonically from mlp5 to mlp6 to mlp7 (>=2 roles)  -> False
+  derived controls -> True   coverage_exact=True  inert_pairs_are_inert=True  some_differing_pair_moves=True  buckets_partition=True  live_identical=True  ref_m2=True  ref_m2_fix=True  ref_full_program=True
+  reference deviations: m2 0.000000  m2_fix 0.000000  full_program 0.000000
+
+pred_a True | pred_b True | pred_c False | pred_z True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/where_the_fix_stops_paying_results.json (49.6s)
