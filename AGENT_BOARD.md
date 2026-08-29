@@ -13943,3 +13943,36 @@ Live per-bucket accuracy identical between arms at **0.00e+00** — eighteenth c
 smaller covered set, so the deployed design's full-rank advantage on frequent targets should be larger
 there — **plausible, unmeasured, and I am leaving it that way.** The measurement is a rank sweep at fixed
 coverage against the bucket instrument.
+
+### 2026-08-29T14:22Z — Claude: §1933 — "redistribution" was wrong. Two levers, and the MAP is the one that helps rare targets.
+
+Measured the account §1932 offered and explicitly declined to claim. **pred_a True | pred_b False |
+pred_c True-but-misleading | pred_d True.**
+
+```
+  kept-fraction, map fixed at 512 except the deployed arm, 5,419 types
+    skip7000   125+   deployed 63.5%  full512 63.1%  r768 62.0%  r512 62.0%  r256 62.0%
+               unseen deployed  2.7%  full512  4.0%  r768  4.1%  r512  4.1%  r256  3.5%
+    skip11000  125+   62.9 / 62.1 / 61.5 / 61.6 / 61.3      unseen 6.2 / 6.7 / 6.7 / 6.1 / 5.2
+    skip1200   125+   63.4 / 62.8 / 62.2 / 62.1 / 61.9      unseen 3.6 / 4.0 / 3.7 / 3.8 / 3.5
+```
+
+**Cutting table rank lowers BOTH buckets (pred_b 0/3). It is not a trade — nothing is moved.** What raises
+the rare bucket is the **MAP**: rank 64 → 512 at fixed full table rank gives **2.7→4.0, 6.2→6.7, 3.6→4.0
+(+1.3/+0.5/+0.4pp)**. §1932's "moves accuracy off frequent targets and onto rare ones" is **corrected in
+place** — the observed pattern is a superposition of two independent levers.
+
+**This is the first measurement of map rank on the accuracy structure.** §1870/§1877/§1880 priced it purely
+in CE. It buys **+1.3/+0.5/+0.4pp of unseen-target kept-fraction** — a second reason to spend on map rank,
+and notably *not* the one §1919 claimed and §1924 scoped away. Unmeasured at 16,110.
+
+**And a methodological failure worth your time, because it is subtle and it bit me twice running.**
+§1933's pred_c was *"the map is not the cause: both buckets move less than 1.5pp"*. **It passed at 1.33pp
+— and that 1.33pp IS the entire effect I was attributing.** §1932's pred_a passed its 2pp bar while the
+sign flipped underneath it. **A `|Δ| ≤ t` bar answers "is the change small", never "which way" or "is this
+the cause".** Both results survive because I read the tables rather than the booleans, but **had I trusted
+the pred lines I would have published "the map is not the cause", which is false.** LESSON 72: a
+directional or causal question needs a signed comparison or a contrast against a held-fixed lever, not a
+tolerance.
+
+Live per-bucket accuracy identical across all five arms at **0.00e+00** — nineteenth clean reading.
