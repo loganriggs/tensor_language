@@ -1,0 +1,3402 @@
+{
+  "disjointness": {
+    "dataset_indices_disjoint_from_registry": true,
+    "full_rows_disjoint_from_registry": true,
+    "prefix32_disjoint_from_registry": true,
+    "source_documents_disjoint_from_registry": true,
+    "unique_dataset_indices": true,
+    "unique_full_rows": true,
+    "unique_prefix32": true,
+    "unique_source_documents": true
+  },
+  "entries": {
+    "EVALUATION": {
+      "dtype": "torch.int64",
+      "file_sha256": "774d34bda702bf78783639a6fb0c23986155b0be2da0adfcd31b77201f0f4a6e",
+      "path": "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_mlp2_rank512_refit_v1/evaluation_192.pt",
+      "shape": [
+        192,
+        257
+      ],
+      "tensor_sha256": "580075ad9530b1ed832a56748badf3eb2416ca0c01c79c21b6026e84be41f9b7"
+    },
+    "TRAIN": {
+      "dtype": "torch.int64",
+      "file_sha256": "68bc19bbedba9f2cbf94a6f3b44038c0e65b0966a4073467ba6005e8ba4a4ccc",
+      "path": "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_mlp2_rank512_refit_v1/train_192.pt",
+      "shape": [
+        192,
+        257
+      ],
+      "tensor_sha256": "7385229d2ef48d622fe63e59719835d5fca54ef78238a38e6de63008272f7357"
+    }
+  },
+  "independent_audit": {
+    "audited_source_commit": "16938ee60e1d0fc9ccf4f1fc55bc828006364c2c",
+    "file_sha256": "f3d5f78e885e901a5da12618aa9752770fb0e32c61c9b5fb07ad2165be2a4c7f",
+    "path": "/workspace/tensor_language/basis_aligned/polynomial_causal/mlp2_rank512_refit_v1_independent_audit.json",
+    "reviewer": "Codex independent source-only audit",
+    "tests_passed": 22
+  },
+  "nonrow_proofs": [
+    {
+      "file_sha256": "7ba995e6bcfa2704cc4c2220dfdc8bd5caea53b976359c6b86cb5e14ba7e4c9a",
+      "keys": [
+        "query",
+        "target"
+      ],
+      "kind": "exact_nonrow_frequency_vector",
+      "path": "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_terminal_copy_induction_v2/fit_token_frequencies.pt",
+      "reason": "contains no document rows; filename-only row heuristic overmatch",
+      "shape": [
+        50257
+      ]
+    }
+  ],
+  "ordered_manifest_gate": {
+    "builder_class": "ParquetFineweb",
+    "config": "default",
+    "datasets_version": "5.0.1",
+    "first_relative_path": "data/CC-MAIN-2013-20/000_00000.parquet",
+    "first_uri": "hf://datasets/HuggingFaceFW/fineweb@9bb295ddab0e05d785b879661af7260fed5140fc/data/CC-MAIN-2013-20/000_00000.parquet",
+    "last_uri": "hf://datasets/HuggingFaceFW/fineweb@9bb295ddab0e05d785b879661af7260fed5140fc/data/CC-MAIN-2025-26/004_00049.parquet",
+    "maximum_consumed_document_index": 11311,
+    "ordered_file_count": 27468,
+    "ordered_manifest_sha256": "ba5e92b0d157f47cc6f8656eb1c37e46b7aac6957be8be68c1596736b98e6f90",
+    "passed": true,
+    "revision": "9bb295ddab0e05d785b879661af7260fed5140fc",
+    "source_local_path": "/workspace/fineweb_pinned/data/CC-MAIN-2013-20/000_00000.parquet",
+    "source_parquet_rows": 1091396,
+    "source_sha256": "c84e6941d787b50959521df6d6894a91397c8b2db13f8a9c8fe0f8782872e930",
+    "source_size": 2147531358
+  },
+  "outcome_access": {
+    "model_loaded": false,
+    "training_run": false
+  },
+  "prior_tensor_hashes": {
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache/fineweb_n192_skip11000.pt": "b1564bfd071418f401a816cb01e3d26b082a3e73ba858838f1c83c250db4d868",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache/fineweb_n192_skip7000.pt": "d66c1ee7807bc6b9bd7d0ddba5cdd7e3bc64926b00320a10675a2f817d67128c",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache/fineweb_n480_skip80.pt": "2acf75382486988a1e124a1a575ef3230af43aa1b1507d80dee02eefc7bba496",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache/fineweb_n96_skip1200.pt": "21707551f35d13818c10ac59e12e9445ef076d0522371fe779691bfab719d34f",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache/fineweb_n96_skip80.pt": "94bc1fb3e3a6a061541e555295e0af8c50ae6068fdff84e95a69c25844091eda",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_compiler_v1/fineweb_n192_skip19000.pt": "95221f3f4e7f8a4fbb2784c03e3f71cfca3016bbba1acb111d12c9f6d6dc7a1d",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_compiler_v1/fineweb_n192_skip23000.pt": "c853a86ffe7606b914c462669120ea7854dccbec785f3efb7d154c4eb306bc69",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_compiler_v1/fineweb_n480_skip15000.pt": "f034a2f3804a40371c115de9e84529182a1ac4877fb5023b1feb5f0c7a7617b9",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_compiler_v2/fineweb_n192_skip31000.pt": "0d66fc0958da4fa8c0aedbe5b4203d474382acf6b5c0ebe77b53a54505a91ac9",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_compiler_v2/fineweb_n192_skip35000.pt": "c9de7d6386668f24414018b330f4182a17c4c73fb2babb395c0654a52f9a3acd",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_compiler_v2/fineweb_n480_skip27000.pt": "cf3abe833dec8ccfc09afef0ff1bdcc74b2ba8a37dc86e9c954c238bb6b7c276",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_compiler_v21/fineweb_n192_skip39000.pt": "6982853519be38f627fec91532f2e622573f57304bd8b04fe08220491122c8da",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_mlp0_c512_mlp1_interchange_v1/eval_384_source_documents.pt": "624b7adc977ac28926c1cc8784038bcc921e509c1d191ee74cd557d5116e58df",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_mlp0_c512_mlp2_compensation_v0_incomplete_registry/eval_384_source_documents.pt": "67f748209d46f1947e178437711f8927571b3d442d161e3d25df3b2933d968c5",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_mlp0_c512_mlp2_compensation_v1/eval_384_source_documents.pt": "d141b074906d04831a452c9a713030a58fd4a18a756a04d3273c0ea67eb3a150",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_mlp0_native_down_hierarchy_v1/eval_384_source_documents.pt": "512f19fd93275ea06e02f32da38c1adafdcdeef1e4d11aaf1cebdc6e69ea7db5",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_mlp0_quotient_stage0_v1/eval_n192_skip21000.pt": "6f128fb79e7f967e252756d170e2d0cadceae730cf8c1eac04ae55b36d207b87",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_mlp0_quotient_stage0_v1/fit_n960_skip80.pt": "4439d377fadf02be8961205ac7f9e89649ff9099347373f8b6e53b8048e9eb86",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_mlp1_global_gate_v1/fineweb_32_source_documents.pt": "bdb34db40fffcfcbb22c88cf958ad7d6894cdce770399f48d7669acec684bd04",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_shadow/fineweb_n192_skip11000.pt": "b1564bfd071418f401a816cb01e3d26b082a3e73ba858838f1c83c250db4d868",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_shadow/fineweb_n192_skip7000.pt": "d66c1ee7807bc6b9bd7d0ddba5cdd7e3bc64926b00320a10675a2f817d67128c",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_shadow/fineweb_n480_skip80.pt": "2acf75382486988a1e124a1a575ef3230af43aa1b1507d80dee02eefc7bba496",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_shadow/fineweb_n8_skip40.pt": "6577fc7c7b56d2702b4906035d14f743624ec3be308a42190994e497226cff2c",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_shadow/fineweb_n96_skip1200.pt": "21707551f35d13818c10ac59e12e9445ef076d0522371fe779691bfab719d34f",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_shadow/fineweb_n96_skip80.pt": "94bc1fb3e3a6a061541e555295e0af8c50ae6068fdff84e95a69c25844091eda",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_terminal_copy_fit_inputs_v1/fit_inputs.pt": "bb6af61290dfb1afd4269032aca3c10d55a36c582b2d767ece8543e5023dbcf0",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_terminal_copy_induction_v2/final_natural.pt": "1997026ce15d0524bd16540047799a6461bc94a57fbdd2812ef41ff36e8d5e3c",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_terminal_copy_induction_v2/fit_natural.pt": "666a32015c8ab3dcbabca4a859f5a0c8a3e1b9b9cc8f0b7f7c9e5211d903e2a1",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_terminal_copy_induction_v2/fit_token_frequencies.pt": "7ba995e6bcfa2704cc4c2220dfdc8bd5caea53b976359c6b86cb5e14ba7e4c9a",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_terminal_copy_induction_v2/ood_code.pt": "6cf514e75dfd03399f223a9ba5f6ebe5f4b1315bcb839a515e1c19e7b5474bd9",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_terminal_copy_induction_v2/selection_natural.pt": "cc8e1c3e468b7bc249e0cf8fc00640955ae17251c7f0c7640350f65a86202cac",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/bilin18_eval_tokens_large.pt": "bb2b00699e511245bb68069be1fe5559777170fb78a6dc9218830454f38e3cd7",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/curated_rows.pt": "faaf89f38ddf1471234a1d30d978213367a566a9927bb3c73b274ab32afaa9dd",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/code_oracle_corpus_v2.pt": "6750a72b4232d4d4687946bb379457210555a660c9ef2e0d4967a63ddfaf2d9d",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/gauge_transport_triangle_unique_rows_v2_rows.pt": "102b79726b7132a6438b4080272fee1774499ac4fc83c4aa025fa86439b4074d",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/mlp2_cmr_v1_fit_selector_rows.pt": "08a508d6e1526800347d94c6637c84a662c220d84ef30bc674bf6b905ab67798",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/mlp2_cmr_v1_token_rows.pt": "3ed0192993095f7de70ab7f1350d091b6c1d8c4c7d0583fd5f0f6441556e4aa6",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/mlp2_cmr_v1_validation_rows.pt": "f0436268b6a17f1c4c47621ff16d542fe7c20a6579a3fee6e10bce241cee90db"
+  },
+  "provenance": {
+    "EVALUATION": [
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100300,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100300",
+        "row_index": 192,
+        "source_document_ordinal": 192,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100302,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100302",
+        "row_index": 193,
+        "source_document_ordinal": 193,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100303,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100303",
+        "row_index": 194,
+        "source_document_ordinal": 194,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100305,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100305",
+        "row_index": 195,
+        "source_document_ordinal": 195,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100306,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100306",
+        "row_index": 196,
+        "source_document_ordinal": 196,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100307,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100307",
+        "row_index": 197,
+        "source_document_ordinal": 197,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100308,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100308",
+        "row_index": 198,
+        "source_document_ordinal": 198,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100309,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100309",
+        "row_index": 199,
+        "source_document_ordinal": 199,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100310,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100310",
+        "row_index": 200,
+        "source_document_ordinal": 200,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100311,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100311",
+        "row_index": 201,
+        "source_document_ordinal": 201,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100312,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100312",
+        "row_index": 202,
+        "source_document_ordinal": 202,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100313,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100313",
+        "row_index": 203,
+        "source_document_ordinal": 203,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100316,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100316",
+        "row_index": 204,
+        "source_document_ordinal": 204,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100319,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100319",
+        "row_index": 205,
+        "source_document_ordinal": 205,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100320,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100320",
+        "row_index": 206,
+        "source_document_ordinal": 206,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100322,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100322",
+        "row_index": 207,
+        "source_document_ordinal": 207,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100323,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100323",
+        "row_index": 208,
+        "source_document_ordinal": 208,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100324,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100324",
+        "row_index": 209,
+        "source_document_ordinal": 209,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100325,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100325",
+        "row_index": 210,
+        "source_document_ordinal": 210,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100326,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100326",
+        "row_index": 211,
+        "source_document_ordinal": 211,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100327,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100327",
+        "row_index": 212,
+        "source_document_ordinal": 212,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100331,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100331",
+        "row_index": 213,
+        "source_document_ordinal": 213,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100333,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100333",
+        "row_index": 214,
+        "source_document_ordinal": 214,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100334,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100334",
+        "row_index": 215,
+        "source_document_ordinal": 215,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100335,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100335",
+        "row_index": 216,
+        "source_document_ordinal": 216,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100336,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100336",
+        "row_index": 217,
+        "source_document_ordinal": 217,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100342,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100342",
+        "row_index": 218,
+        "source_document_ordinal": 218,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100344,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100344",
+        "row_index": 219,
+        "source_document_ordinal": 219,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100345,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100345",
+        "row_index": 220,
+        "source_document_ordinal": 220,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100346,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100346",
+        "row_index": 221,
+        "source_document_ordinal": 221,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100347,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100347",
+        "row_index": 222,
+        "source_document_ordinal": 222,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100349,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100349",
+        "row_index": 223,
+        "source_document_ordinal": 223,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100350,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100350",
+        "row_index": 224,
+        "source_document_ordinal": 224,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100351,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100351",
+        "row_index": 225,
+        "source_document_ordinal": 225,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100353,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100353",
+        "row_index": 226,
+        "source_document_ordinal": 226,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100355,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100355",
+        "row_index": 227,
+        "source_document_ordinal": 227,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100357,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100357",
+        "row_index": 228,
+        "source_document_ordinal": 228,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100359,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100359",
+        "row_index": 229,
+        "source_document_ordinal": 229,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100360,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100360",
+        "row_index": 230,
+        "source_document_ordinal": 230,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100361,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100361",
+        "row_index": 231,
+        "source_document_ordinal": 231,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100362,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100362",
+        "row_index": 232,
+        "source_document_ordinal": 232,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100365,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100365",
+        "row_index": 233,
+        "source_document_ordinal": 233,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100366,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100366",
+        "row_index": 234,
+        "source_document_ordinal": 234,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100367,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100367",
+        "row_index": 235,
+        "source_document_ordinal": 235,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100370,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100370",
+        "row_index": 236,
+        "source_document_ordinal": 236,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100372,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100372",
+        "row_index": 237,
+        "source_document_ordinal": 237,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100373,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100373",
+        "row_index": 238,
+        "source_document_ordinal": 238,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100376,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100376",
+        "row_index": 239,
+        "source_document_ordinal": 239,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100377,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100377",
+        "row_index": 240,
+        "source_document_ordinal": 240,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100378,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100378",
+        "row_index": 241,
+        "source_document_ordinal": 241,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100379,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100379",
+        "row_index": 242,
+        "source_document_ordinal": 242,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100381,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100381",
+        "row_index": 243,
+        "source_document_ordinal": 243,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100382,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100382",
+        "row_index": 244,
+        "source_document_ordinal": 244,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100384,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100384",
+        "row_index": 245,
+        "source_document_ordinal": 245,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100385,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100385",
+        "row_index": 246,
+        "source_document_ordinal": 246,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100387,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100387",
+        "row_index": 247,
+        "source_document_ordinal": 247,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100391,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100391",
+        "row_index": 248,
+        "source_document_ordinal": 248,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100393,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100393",
+        "row_index": 249,
+        "source_document_ordinal": 249,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100395,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100395",
+        "row_index": 250,
+        "source_document_ordinal": 250,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100396,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100396",
+        "row_index": 251,
+        "source_document_ordinal": 251,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100397,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100397",
+        "row_index": 252,
+        "source_document_ordinal": 252,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100400,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100400",
+        "row_index": 253,
+        "source_document_ordinal": 253,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100401,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100401",
+        "row_index": 254,
+        "source_document_ordinal": 254,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100402,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100402",
+        "row_index": 255,
+        "source_document_ordinal": 255,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100406,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100406",
+        "row_index": 256,
+        "source_document_ordinal": 256,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100410,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100410",
+        "row_index": 257,
+        "source_document_ordinal": 257,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100411,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100411",
+        "row_index": 258,
+        "source_document_ordinal": 258,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100412,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100412",
+        "row_index": 259,
+        "source_document_ordinal": 259,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100418,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100418",
+        "row_index": 260,
+        "source_document_ordinal": 260,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100419,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100419",
+        "row_index": 261,
+        "source_document_ordinal": 261,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100420,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100420",
+        "row_index": 262,
+        "source_document_ordinal": 262,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100421,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100421",
+        "row_index": 263,
+        "source_document_ordinal": 263,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100422,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100422",
+        "row_index": 264,
+        "source_document_ordinal": 264,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100423,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100423",
+        "row_index": 265,
+        "source_document_ordinal": 265,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100426,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100426",
+        "row_index": 266,
+        "source_document_ordinal": 266,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100428,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100428",
+        "row_index": 267,
+        "source_document_ordinal": 267,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100432,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100432",
+        "row_index": 268,
+        "source_document_ordinal": 268,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100433,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100433",
+        "row_index": 269,
+        "source_document_ordinal": 269,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100435,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100435",
+        "row_index": 270,
+        "source_document_ordinal": 270,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100436,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100436",
+        "row_index": 271,
+        "source_document_ordinal": 271,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100438,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100438",
+        "row_index": 272,
+        "source_document_ordinal": 272,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100439,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100439",
+        "row_index": 273,
+        "source_document_ordinal": 273,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100441,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100441",
+        "row_index": 274,
+        "source_document_ordinal": 274,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100442,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100442",
+        "row_index": 275,
+        "source_document_ordinal": 275,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100444,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100444",
+        "row_index": 276,
+        "source_document_ordinal": 276,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100446,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100446",
+        "row_index": 277,
+        "source_document_ordinal": 277,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100448,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100448",
+        "row_index": 278,
+        "source_document_ordinal": 278,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100449,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100449",
+        "row_index": 279,
+        "source_document_ordinal": 279,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100450,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100450",
+        "row_index": 280,
+        "source_document_ordinal": 280,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100452,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100452",
+        "row_index": 281,
+        "source_document_ordinal": 281,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100453,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100453",
+        "row_index": 282,
+        "source_document_ordinal": 282,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100454,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100454",
+        "row_index": 283,
+        "source_document_ordinal": 283,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100455,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100455",
+        "row_index": 284,
+        "source_document_ordinal": 284,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100456,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100456",
+        "row_index": 285,
+        "source_document_ordinal": 285,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100457,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100457",
+        "row_index": 286,
+        "source_document_ordinal": 286,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100458,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100458",
+        "row_index": 287,
+        "source_document_ordinal": 287,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100459,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100459",
+        "row_index": 288,
+        "source_document_ordinal": 288,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100460,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100460",
+        "row_index": 289,
+        "source_document_ordinal": 289,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100462,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100462",
+        "row_index": 290,
+        "source_document_ordinal": 290,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100464,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100464",
+        "row_index": 291,
+        "source_document_ordinal": 291,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100466,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100466",
+        "row_index": 292,
+        "source_document_ordinal": 292,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100467,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100467",
+        "row_index": 293,
+        "source_document_ordinal": 293,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100470,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100470",
+        "row_index": 294,
+        "source_document_ordinal": 294,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100472,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100472",
+        "row_index": 295,
+        "source_document_ordinal": 295,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100474,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100474",
+        "row_index": 296,
+        "source_document_ordinal": 296,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100475,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100475",
+        "row_index": 297,
+        "source_document_ordinal": 297,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100476,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100476",
+        "row_index": 298,
+        "source_document_ordinal": 298,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100477,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100477",
+        "row_index": 299,
+        "source_document_ordinal": 299,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100478,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100478",
+        "row_index": 300,
+        "source_document_ordinal": 300,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100479,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100479",
+        "row_index": 301,
+        "source_document_ordinal": 301,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100481,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100481",
+        "row_index": 302,
+        "source_document_ordinal": 302,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100482,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100482",
+        "row_index": 303,
+        "source_document_ordinal": 303,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100483,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100483",
+        "row_index": 304,
+        "source_document_ordinal": 304,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100484,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100484",
+        "row_index": 305,
+        "source_document_ordinal": 305,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100485,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100485",
+        "row_index": 306,
+        "source_document_ordinal": 306,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100488,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100488",
+        "row_index": 307,
+        "source_document_ordinal": 307,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100493,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100493",
+        "row_index": 308,
+        "source_document_ordinal": 308,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100494,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100494",
+        "row_index": 309,
+        "source_document_ordinal": 309,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100495,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100495",
+        "row_index": 310,
+        "source_document_ordinal": 310,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100496,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100496",
+        "row_index": 311,
+        "source_document_ordinal": 311,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100497,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100497",
+        "row_index": 312,
+        "source_document_ordinal": 312,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100498,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100498",
+        "row_index": 313,
+        "source_document_ordinal": 313,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100500,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100500",
+        "row_index": 314,
+        "source_document_ordinal": 314,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100501,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100501",
+        "row_index": 315,
+        "source_document_ordinal": 315,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100502,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100502",
+        "row_index": 316,
+        "source_document_ordinal": 316,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100506,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100506",
+        "row_index": 317,
+        "source_document_ordinal": 317,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100507,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100507",
+        "row_index": 318,
+        "source_document_ordinal": 318,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100508,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100508",
+        "row_index": 319,
+        "source_document_ordinal": 319,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100510,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100510",
+        "row_index": 320,
+        "source_document_ordinal": 320,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100512,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100512",
+        "row_index": 321,
+        "source_document_ordinal": 321,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100513,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100513",
+        "row_index": 322,
+        "source_document_ordinal": 322,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100515,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100515",
+        "row_index": 323,
+        "source_document_ordinal": 323,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100516,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100516",
+        "row_index": 324,
+        "source_document_ordinal": 324,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100517,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100517",
+        "row_index": 325,
+        "source_document_ordinal": 325,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100519,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100519",
+        "row_index": 326,
+        "source_document_ordinal": 326,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100520,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100520",
+        "row_index": 327,
+        "source_document_ordinal": 327,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100521,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100521",
+        "row_index": 328,
+        "source_document_ordinal": 328,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100523,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100523",
+        "row_index": 329,
+        "source_document_ordinal": 329,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100527,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100527",
+        "row_index": 330,
+        "source_document_ordinal": 330,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100529,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100529",
+        "row_index": 331,
+        "source_document_ordinal": 331,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100530,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100530",
+        "row_index": 332,
+        "source_document_ordinal": 332,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100531,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100531",
+        "row_index": 333,
+        "source_document_ordinal": 333,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100532,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100532",
+        "row_index": 334,
+        "source_document_ordinal": 334,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100533,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100533",
+        "row_index": 335,
+        "source_document_ordinal": 335,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100536,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100536",
+        "row_index": 336,
+        "source_document_ordinal": 336,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100538,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100538",
+        "row_index": 337,
+        "source_document_ordinal": 337,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100539,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100539",
+        "row_index": 338,
+        "source_document_ordinal": 338,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100540,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100540",
+        "row_index": 339,
+        "source_document_ordinal": 339,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100548,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100548",
+        "row_index": 340,
+        "source_document_ordinal": 340,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100552,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100552",
+        "row_index": 341,
+        "source_document_ordinal": 341,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100553,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100553",
+        "row_index": 342,
+        "source_document_ordinal": 342,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100554,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100554",
+        "row_index": 343,
+        "source_document_ordinal": 343,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100555,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100555",
+        "row_index": 344,
+        "source_document_ordinal": 344,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100556,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100556",
+        "row_index": 345,
+        "source_document_ordinal": 345,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100557,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100557",
+        "row_index": 346,
+        "source_document_ordinal": 346,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100559,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100559",
+        "row_index": 347,
+        "source_document_ordinal": 347,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100560,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100560",
+        "row_index": 348,
+        "source_document_ordinal": 348,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100561,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100561",
+        "row_index": 349,
+        "source_document_ordinal": 349,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100562,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100562",
+        "row_index": 350,
+        "source_document_ordinal": 350,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100563,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100563",
+        "row_index": 351,
+        "source_document_ordinal": 351,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100564,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100564",
+        "row_index": 352,
+        "source_document_ordinal": 352,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100566,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100566",
+        "row_index": 353,
+        "source_document_ordinal": 353,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100567,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100567",
+        "row_index": 354,
+        "source_document_ordinal": 354,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100568,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100568",
+        "row_index": 355,
+        "source_document_ordinal": 355,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100569,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100569",
+        "row_index": 356,
+        "source_document_ordinal": 356,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100570,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100570",
+        "row_index": 357,
+        "source_document_ordinal": 357,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100572,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100572",
+        "row_index": 358,
+        "source_document_ordinal": 358,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100574,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100574",
+        "row_index": 359,
+        "source_document_ordinal": 359,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100577,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100577",
+        "row_index": 360,
+        "source_document_ordinal": 360,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100578,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100578",
+        "row_index": 361,
+        "source_document_ordinal": 361,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100579,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100579",
+        "row_index": 362,
+        "source_document_ordinal": 362,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100580,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100580",
+        "row_index": 363,
+        "source_document_ordinal": 363,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100582,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100582",
+        "row_index": 364,
+        "source_document_ordinal": 364,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100583,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100583",
+        "row_index": 365,
+        "source_document_ordinal": 365,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100584,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100584",
+        "row_index": 366,
+        "source_document_ordinal": 366,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100585,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100585",
+        "row_index": 367,
+        "source_document_ordinal": 367,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100586,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100586",
+        "row_index": 368,
+        "source_document_ordinal": 368,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100587,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100587",
+        "row_index": 369,
+        "source_document_ordinal": 369,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100589,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100589",
+        "row_index": 370,
+        "source_document_ordinal": 370,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100591,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100591",
+        "row_index": 371,
+        "source_document_ordinal": 371,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100593,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100593",
+        "row_index": 372,
+        "source_document_ordinal": 372,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100595,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100595",
+        "row_index": 373,
+        "source_document_ordinal": 373,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100596,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100596",
+        "row_index": 374,
+        "source_document_ordinal": 374,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100600,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100600",
+        "row_index": 375,
+        "source_document_ordinal": 375,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100601,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100601",
+        "row_index": 376,
+        "source_document_ordinal": 376,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100603,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100603",
+        "row_index": 377,
+        "source_document_ordinal": 377,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100605,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100605",
+        "row_index": 378,
+        "source_document_ordinal": 378,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100606,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100606",
+        "row_index": 379,
+        "source_document_ordinal": 379,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100607,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100607",
+        "row_index": 380,
+        "source_document_ordinal": 380,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100608,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100608",
+        "row_index": 381,
+        "source_document_ordinal": 381,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100609,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100609",
+        "row_index": 382,
+        "source_document_ordinal": 382,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100611,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100611",
+        "row_index": 383,
+        "source_document_ordinal": 383,
+        "token_start": 0
+      }
+    ],
+    "TRAIN": [
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100000,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100000",
+        "row_index": 0,
+        "source_document_ordinal": 0,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100001,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100001",
+        "row_index": 1,
+        "source_document_ordinal": 1,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100002,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100002",
+        "row_index": 2,
+        "source_document_ordinal": 2,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100005,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100005",
+        "row_index": 3,
+        "source_document_ordinal": 3,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100006,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100006",
+        "row_index": 4,
+        "source_document_ordinal": 4,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100007,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100007",
+        "row_index": 5,
+        "source_document_ordinal": 5,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100008,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100008",
+        "row_index": 6,
+        "source_document_ordinal": 6,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100009,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100009",
+        "row_index": 7,
+        "source_document_ordinal": 7,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100015,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100015",
+        "row_index": 8,
+        "source_document_ordinal": 8,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100016,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100016",
+        "row_index": 9,
+        "source_document_ordinal": 9,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100017,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100017",
+        "row_index": 10,
+        "source_document_ordinal": 10,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100018,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100018",
+        "row_index": 11,
+        "source_document_ordinal": 11,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100019,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100019",
+        "row_index": 12,
+        "source_document_ordinal": 12,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100020,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100020",
+        "row_index": 13,
+        "source_document_ordinal": 13,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100021,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100021",
+        "row_index": 14,
+        "source_document_ordinal": 14,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100025,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100025",
+        "row_index": 15,
+        "source_document_ordinal": 15,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100026,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100026",
+        "row_index": 16,
+        "source_document_ordinal": 16,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100027,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100027",
+        "row_index": 17,
+        "source_document_ordinal": 17,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100028,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100028",
+        "row_index": 18,
+        "source_document_ordinal": 18,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100030,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100030",
+        "row_index": 19,
+        "source_document_ordinal": 19,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100031,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100031",
+        "row_index": 20,
+        "source_document_ordinal": 20,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100032,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100032",
+        "row_index": 21,
+        "source_document_ordinal": 21,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100033,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100033",
+        "row_index": 22,
+        "source_document_ordinal": 22,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100034,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100034",
+        "row_index": 23,
+        "source_document_ordinal": 23,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100035,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100035",
+        "row_index": 24,
+        "source_document_ordinal": 24,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100036,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100036",
+        "row_index": 25,
+        "source_document_ordinal": 25,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100038,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100038",
+        "row_index": 26,
+        "source_document_ordinal": 26,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100043,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100043",
+        "row_index": 27,
+        "source_document_ordinal": 27,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100044,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100044",
+        "row_index": 28,
+        "source_document_ordinal": 28,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100046,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100046",
+        "row_index": 29,
+        "source_document_ordinal": 29,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100047,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100047",
+        "row_index": 30,
+        "source_document_ordinal": 30,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100048,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100048",
+        "row_index": 31,
+        "source_document_ordinal": 31,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100049,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100049",
+        "row_index": 32,
+        "source_document_ordinal": 32,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100050,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100050",
+        "row_index": 33,
+        "source_document_ordinal": 33,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100053,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100053",
+        "row_index": 34,
+        "source_document_ordinal": 34,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100054,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100054",
+        "row_index": 35,
+        "source_document_ordinal": 35,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100055,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100055",
+        "row_index": 36,
+        "source_document_ordinal": 36,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100060,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100060",
+        "row_index": 37,
+        "source_document_ordinal": 37,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100061,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100061",
+        "row_index": 38,
+        "source_document_ordinal": 38,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100063,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100063",
+        "row_index": 39,
+        "source_document_ordinal": 39,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100064,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100064",
+        "row_index": 40,
+        "source_document_ordinal": 40,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100065,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100065",
+        "row_index": 41,
+        "source_document_ordinal": 41,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100066,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100066",
+        "row_index": 42,
+        "source_document_ordinal": 42,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100067,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100067",
+        "row_index": 43,
+        "source_document_ordinal": 43,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100070,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100070",
+        "row_index": 44,
+        "source_document_ordinal": 44,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100072,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100072",
+        "row_index": 45,
+        "source_document_ordinal": 45,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100073,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100073",
+        "row_index": 46,
+        "source_document_ordinal": 46,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 1,
+        "dataset_document_index": 100074,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100074",
+        "row_index": 47,
+        "source_document_ordinal": 47,
+        "token_start": 257
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100075,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100075",
+        "row_index": 48,
+        "source_document_ordinal": 48,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100076,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100076",
+        "row_index": 49,
+        "source_document_ordinal": 49,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100077,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100077",
+        "row_index": 50,
+        "source_document_ordinal": 50,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100078,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100078",
+        "row_index": 51,
+        "source_document_ordinal": 51,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100079,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100079",
+        "row_index": 52,
+        "source_document_ordinal": 52,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100080,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100080",
+        "row_index": 53,
+        "source_document_ordinal": 53,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100082,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100082",
+        "row_index": 54,
+        "source_document_ordinal": 54,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100083,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100083",
+        "row_index": 55,
+        "source_document_ordinal": 55,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100085,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100085",
+        "row_index": 56,
+        "source_document_ordinal": 56,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100086,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100086",
+        "row_index": 57,
+        "source_document_ordinal": 57,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100091,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100091",
+        "row_index": 58,
+        "source_document_ordinal": 58,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100095,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100095",
+        "row_index": 59,
+        "source_document_ordinal": 59,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100097,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100097",
+        "row_index": 60,
+        "source_document_ordinal": 60,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100098,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100098",
+        "row_index": 61,
+        "source_document_ordinal": 61,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100099,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100099",
+        "row_index": 62,
+        "source_document_ordinal": 62,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100100,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100100",
+        "row_index": 63,
+        "source_document_ordinal": 63,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100101,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100101",
+        "row_index": 64,
+        "source_document_ordinal": 64,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100102,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100102",
+        "row_index": 65,
+        "source_document_ordinal": 65,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100103,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100103",
+        "row_index": 66,
+        "source_document_ordinal": 66,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100105,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100105",
+        "row_index": 67,
+        "source_document_ordinal": 67,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100108,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100108",
+        "row_index": 68,
+        "source_document_ordinal": 68,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100110,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100110",
+        "row_index": 69,
+        "source_document_ordinal": 69,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100111,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100111",
+        "row_index": 70,
+        "source_document_ordinal": 70,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100112,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100112",
+        "row_index": 71,
+        "source_document_ordinal": 71,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100113,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100113",
+        "row_index": 72,
+        "source_document_ordinal": 72,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100114,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100114",
+        "row_index": 73,
+        "source_document_ordinal": 73,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100115,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100115",
+        "row_index": 74,
+        "source_document_ordinal": 74,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100116,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100116",
+        "row_index": 75,
+        "source_document_ordinal": 75,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100117,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100117",
+        "row_index": 76,
+        "source_document_ordinal": 76,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100118,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100118",
+        "row_index": 77,
+        "source_document_ordinal": 77,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100119,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100119",
+        "row_index": 78,
+        "source_document_ordinal": 78,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100121,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100121",
+        "row_index": 79,
+        "source_document_ordinal": 79,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100123,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100123",
+        "row_index": 80,
+        "source_document_ordinal": 80,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100124,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100124",
+        "row_index": 81,
+        "source_document_ordinal": 81,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100125,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100125",
+        "row_index": 82,
+        "source_document_ordinal": 82,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100126,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100126",
+        "row_index": 83,
+        "source_document_ordinal": 83,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100131,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100131",
+        "row_index": 84,
+        "source_document_ordinal": 84,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100134,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100134",
+        "row_index": 85,
+        "source_document_ordinal": 85,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100135,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100135",
+        "row_index": 86,
+        "source_document_ordinal": 86,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100136,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100136",
+        "row_index": 87,
+        "source_document_ordinal": 87,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100137,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100137",
+        "row_index": 88,
+        "source_document_ordinal": 88,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100138,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100138",
+        "row_index": 89,
+        "source_document_ordinal": 89,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100139,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100139",
+        "row_index": 90,
+        "source_document_ordinal": 90,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100144,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100144",
+        "row_index": 91,
+        "source_document_ordinal": 91,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100145,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100145",
+        "row_index": 92,
+        "source_document_ordinal": 92,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100147,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100147",
+        "row_index": 93,
+        "source_document_ordinal": 93,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100150,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100150",
+        "row_index": 94,
+        "source_document_ordinal": 94,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100151,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100151",
+        "row_index": 95,
+        "source_document_ordinal": 95,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100152,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100152",
+        "row_index": 96,
+        "source_document_ordinal": 96,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100153,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100153",
+        "row_index": 97,
+        "source_document_ordinal": 97,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100154,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100154",
+        "row_index": 98,
+        "source_document_ordinal": 98,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100156,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100156",
+        "row_index": 99,
+        "source_document_ordinal": 99,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100158,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100158",
+        "row_index": 100,
+        "source_document_ordinal": 100,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100159,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100159",
+        "row_index": 101,
+        "source_document_ordinal": 101,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100162,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100162",
+        "row_index": 102,
+        "source_document_ordinal": 102,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100164,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100164",
+        "row_index": 103,
+        "source_document_ordinal": 103,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100165,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100165",
+        "row_index": 104,
+        "source_document_ordinal": 104,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100167,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100167",
+        "row_index": 105,
+        "source_document_ordinal": 105,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100168,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100168",
+        "row_index": 106,
+        "source_document_ordinal": 106,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100169,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100169",
+        "row_index": 107,
+        "source_document_ordinal": 107,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100170,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100170",
+        "row_index": 108,
+        "source_document_ordinal": 108,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100172,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100172",
+        "row_index": 109,
+        "source_document_ordinal": 109,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100174,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100174",
+        "row_index": 110,
+        "source_document_ordinal": 110,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100175,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100175",
+        "row_index": 111,
+        "source_document_ordinal": 111,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100176,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100176",
+        "row_index": 112,
+        "source_document_ordinal": 112,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100177,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100177",
+        "row_index": 113,
+        "source_document_ordinal": 113,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100178,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100178",
+        "row_index": 114,
+        "source_document_ordinal": 114,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100183,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100183",
+        "row_index": 115,
+        "source_document_ordinal": 115,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100184,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100184",
+        "row_index": 116,
+        "source_document_ordinal": 116,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100186,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100186",
+        "row_index": 117,
+        "source_document_ordinal": 117,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100187,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100187",
+        "row_index": 118,
+        "source_document_ordinal": 118,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100188,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100188",
+        "row_index": 119,
+        "source_document_ordinal": 119,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100189,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100189",
+        "row_index": 120,
+        "source_document_ordinal": 120,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100190,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100190",
+        "row_index": 121,
+        "source_document_ordinal": 121,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100192,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100192",
+        "row_index": 122,
+        "source_document_ordinal": 122,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100193,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100193",
+        "row_index": 123,
+        "source_document_ordinal": 123,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100194,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100194",
+        "row_index": 124,
+        "source_document_ordinal": 124,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100195,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100195",
+        "row_index": 125,
+        "source_document_ordinal": 125,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100196,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100196",
+        "row_index": 126,
+        "source_document_ordinal": 126,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100197,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100197",
+        "row_index": 127,
+        "source_document_ordinal": 127,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100200,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100200",
+        "row_index": 128,
+        "source_document_ordinal": 128,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100201,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100201",
+        "row_index": 129,
+        "source_document_ordinal": 129,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100205,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100205",
+        "row_index": 130,
+        "source_document_ordinal": 130,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100206,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100206",
+        "row_index": 131,
+        "source_document_ordinal": 131,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100211,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100211",
+        "row_index": 132,
+        "source_document_ordinal": 132,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100212,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100212",
+        "row_index": 133,
+        "source_document_ordinal": 133,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100214,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100214",
+        "row_index": 134,
+        "source_document_ordinal": 134,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100215,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100215",
+        "row_index": 135,
+        "source_document_ordinal": 135,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100216,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100216",
+        "row_index": 136,
+        "source_document_ordinal": 136,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100217,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100217",
+        "row_index": 137,
+        "source_document_ordinal": 137,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100222,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100222",
+        "row_index": 138,
+        "source_document_ordinal": 138,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100225,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100225",
+        "row_index": 139,
+        "source_document_ordinal": 139,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100227,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100227",
+        "row_index": 140,
+        "source_document_ordinal": 140,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100232,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100232",
+        "row_index": 141,
+        "source_document_ordinal": 141,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100233,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100233",
+        "row_index": 142,
+        "source_document_ordinal": 142,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100235,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100235",
+        "row_index": 143,
+        "source_document_ordinal": 143,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100236,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100236",
+        "row_index": 144,
+        "source_document_ordinal": 144,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100237,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100237",
+        "row_index": 145,
+        "source_document_ordinal": 145,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100238,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100238",
+        "row_index": 146,
+        "source_document_ordinal": 146,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100240,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100240",
+        "row_index": 147,
+        "source_document_ordinal": 147,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100241,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100241",
+        "row_index": 148,
+        "source_document_ordinal": 148,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100243,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100243",
+        "row_index": 149,
+        "source_document_ordinal": 149,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100245,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100245",
+        "row_index": 150,
+        "source_document_ordinal": 150,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100246,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100246",
+        "row_index": 151,
+        "source_document_ordinal": 151,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100248,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100248",
+        "row_index": 152,
+        "source_document_ordinal": 152,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100249,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100249",
+        "row_index": 153,
+        "source_document_ordinal": 153,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100250,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100250",
+        "row_index": 154,
+        "source_document_ordinal": 154,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100251,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100251",
+        "row_index": 155,
+        "source_document_ordinal": 155,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100252,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100252",
+        "row_index": 156,
+        "source_document_ordinal": 156,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100253,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100253",
+        "row_index": 157,
+        "source_document_ordinal": 157,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100254,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100254",
+        "row_index": 158,
+        "source_document_ordinal": 158,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100256,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100256",
+        "row_index": 159,
+        "source_document_ordinal": 159,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100257,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100257",
+        "row_index": 160,
+        "source_document_ordinal": 160,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100258,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100258",
+        "row_index": 161,
+        "source_document_ordinal": 161,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100259,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100259",
+        "row_index": 162,
+        "source_document_ordinal": 162,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100260,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100260",
+        "row_index": 163,
+        "source_document_ordinal": 163,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100261,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100261",
+        "row_index": 164,
+        "source_document_ordinal": 164,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100262,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100262",
+        "row_index": 165,
+        "source_document_ordinal": 165,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100264,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100264",
+        "row_index": 166,
+        "source_document_ordinal": 166,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100265,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100265",
+        "row_index": 167,
+        "source_document_ordinal": 167,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100266,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100266",
+        "row_index": 168,
+        "source_document_ordinal": 168,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100268,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100268",
+        "row_index": 169,
+        "source_document_ordinal": 169,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100269,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100269",
+        "row_index": 170,
+        "source_document_ordinal": 170,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100271,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100271",
+        "row_index": 171,
+        "source_document_ordinal": 171,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100272,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100272",
+        "row_index": 172,
+        "source_document_ordinal": 172,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100273,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100273",
+        "row_index": 173,
+        "source_document_ordinal": 173,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100274,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100274",
+        "row_index": 174,
+        "source_document_ordinal": 174,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100275,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100275",
+        "row_index": 175,
+        "source_document_ordinal": 175,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100279,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100279",
+        "row_index": 176,
+        "source_document_ordinal": 176,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100280,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100280",
+        "row_index": 177,
+        "source_document_ordinal": 177,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100282,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100282",
+        "row_index": 178,
+        "source_document_ordinal": 178,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100283,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100283",
+        "row_index": 179,
+        "source_document_ordinal": 179,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100284,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100284",
+        "row_index": 180,
+        "source_document_ordinal": 180,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100286,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100286",
+        "row_index": 181,
+        "source_document_ordinal": 181,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100287,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100287",
+        "row_index": 182,
+        "source_document_ordinal": 182,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100289,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100289",
+        "row_index": 183,
+        "source_document_ordinal": 183,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100290,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100290",
+        "row_index": 184,
+        "source_document_ordinal": 184,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100291,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100291",
+        "row_index": 185,
+        "source_document_ordinal": 185,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100292,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100292",
+        "row_index": 186,
+        "source_document_ordinal": 186,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100293,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100293",
+        "row_index": 187,
+        "source_document_ordinal": 187,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100294,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100294",
+        "row_index": 188,
+        "source_document_ordinal": 188,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100295,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100295",
+        "row_index": 189,
+        "source_document_ordinal": 189,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100297,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100297",
+        "row_index": 190,
+        "source_document_ordinal": 190,
+        "token_start": 0
+      },
+      {
+        "chunk_id": 0,
+        "dataset_document_index": 100299,
+        "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:100299",
+        "row_index": 191,
+        "source_document_ordinal": 191,
+        "token_start": 0
+      }
+    ]
+  },
+  "registry_hashes": {
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache/fineweb_oracle_v2_receipt.json": "815b21618c2e477e8cbda17ce94bf01862017a9936e4ee03acaa6cd7256cba16",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_shadow/fineweb_local_shadow_v1_receipt.json": "b83bd23857f510347e10ce1140d7788f7247ce00f7c329d6aa4b24d72af43663",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/early_mlp_affine_compiler_v1_authority.json": "2c1ad6ca099d4910f83531fbc958f070da600f554799947c5118284e7b939e28",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/early_mlp_affine_compiler_v1_manifest.json": "8ed7ce4449f6ce2901b53daa20e5b164be0598bc3cddb8620b0c2953f0ccaa2b",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/early_mlp_affine_compiler_v1_programs_receipt.json": "9ed63cd042890e6d1698684189ab08f09f2f27ad53207ff3dcaabcff4befba74",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/early_mlp_affine_compiler_v1_rows_receipt.json": "762528ea02cd98071ea55e6b4e904a8fc453f3eb4e545946b8e7149aaf8caa04",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/early_mlp_state_complete_compiler_v21_final_authority.json": "659051ed8e2d34a2d755d1942f4112161294831e724d6697f4c3e2ef466f6987",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/early_mlp_state_complete_compiler_v21_final_manifest.json": "21c1a3718fd040f702b31db0a574b886a979f2f18d4faac6941f704d696305dc",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/early_mlp_state_complete_compiler_v21_programs_receipt.json": "c9c67bdd14a34dd83192a02d49705d0ed7043e2f9751d042250f44395f88ec2c",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/early_mlp_state_complete_compiler_v21_rows_manifest.json": "1cfe4b383c8298ca79164dc42098a9c9e5bce8c47b4411605e1aa1fb2dc44975",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/early_mlp_state_complete_compiler_v21_rows_receipt.json": "7fa45e9a9e77e6622167fbf024400177f581cdd40958c1fb722ca13d8fcc018b",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/early_mlp_state_complete_compiler_v21_site0_aborted_shared_head_drift_manifest.json": "60f08aee6890c885a0e19567d731b629bb5384ca26bc9ac43309cfe22b9a9ea3",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/early_mlp_state_complete_compiler_v21_site0_ledger_receipt.json": "51c33f2022dce9ebb8ef11688c9425b09c50018c2748195d901f0841dd838d0b",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/early_mlp_state_complete_compiler_v21_site0_manifest.json": "1dee20bb22194a1215f18da1378a1b2aa96a2c886542a941d929af4930fc6673",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/early_mlp_state_complete_compiler_v21_site0_training_receipt.json": "674f1f9c304e695b343e8f086e5793008d9c4863513ece296307c9c672e5a936",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/early_mlp_state_complete_compiler_v21_site1_ledger_receipt.json": "fbd98d1941bd1500026c345b9c2f66b66e1cbae2375e106a6e55b4ee9844739f",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/early_mlp_state_complete_compiler_v21_site1_manifest.json": "3036431d9c1249a09a1250ab8aecdf28bc13fc13efcf2cca9e62b754238470a6",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/early_mlp_state_complete_compiler_v2_full_native_numeric_diagnostic_v1_manifest.json": "8ce7b8cb38399eb5ac502ef9d0b78825cf97977cfa86384c355bde2d9f041c00",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/early_mlp_state_complete_compiler_v2_full_native_numeric_diagnostic_v1_receipt.json": "fffecb9a3d99a4f6b7f615c96caf9bd7e2ac9c4d4788d610df7edf18d6a1d9fd",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/early_mlp_state_complete_compiler_v2_preflight_manifest.json": "219f5fb7a02d782f4d04b54fe8f1d6a961d601323971513ddc3945d649a31526",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/early_mlp_state_complete_compiler_v2_preflight_r2_manifest.json": "8f78472c0bbcaf4c8b4d89e22a900264073ee0c11eca81887fe777473169c102",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/early_mlp_state_complete_compiler_v2_rows_receipt.json": "23319ece1d8542d51e024bde0e2253d740b08ad18ad4f2d8565ba5120473fd82",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/early_mlp_state_complete_compiler_v2_site0_manifest.json": "0903b0822b935e7dd6225da46dd1e58064ec275b80fd9c599685cea8b8b05f36",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/early_mlp_state_complete_compiler_v2_site0_retry1_manifest.json": "2eb0ef098a93d5562bb1abd0b3e94187a461e86cc1c3aec055a1bb719632829a",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/joint_early_mlp_oracle_factorial_authoritative_v3_manifest.json": "5b2d091ff3846bb41e210695eac056e5fffb74fae0053381bb002b99b49e986f",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/joint_early_mlp_oracle_factorial_authoritative_v4_authority.json": "62a62262bf89b1a2a59b9a1dab092f57910f02e4550f17bd75689a9b3e583e33",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/joint_early_mlp_oracle_factorial_authoritative_v4_manifest.json": "de6524fd4c91b19a4cae7f9942c59792ee30b181568a9afcd3498ce73bdf8406",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/joint_early_mlp_oracle_factorial_curated_dev_v1_manifest.json": "710a142b82879f1c1ac95fcdf32c48b39fdd1660f6dfe40f7661f05403adfc92",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/joint_early_mlp_oracle_factorial_curated_dev_v2_manifest.json": "1f9e23ba9325c330b76411b07ea8dba5539d7ca8315e54f14f6ffa1a6f5a1f5a",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/joint_early_mlp_pca_composition_authoritative_v3_authority.json": "38cf5a349e4426b4ed3227ad11f37499ffa9c3959de5d85d606580aa32c39f1e",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/joint_early_mlp_pca_composition_authoritative_v3_basis_receipt.json": "b81adb4c78255613997de4cbfc8ffd9e8eec233b40950915a14005ba3efcba0f",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/joint_early_mlp_pca_composition_authoritative_v3_manifest.json": "cae4a3092213d3e1d0983448576f9a4c3966a092d731d56ab16169a8c82b7588",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/mlp0_c512_mlp1_interchange_v1_eval_authority.json": "89abb2292754b9a4ba15cbae80efd02c4181710d3083327b31582601f0bf248f",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/mlp0_c512_mlp1_interchange_v1_rows_receipt.json": "9153f4e2c05725264c5ea9e8d17dd640885c48e738d4e97776ac628d05b5722f",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/mlp0_c512_mlp1_interchange_v2_eval_authority.json": "7b68e3f2dab9022a07a1cea17cb67d0df5aad96e44c434a5ba84e2251ec57540",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/mlp0_c512_mlp1_interchange_v3_eval_authority.json": "535a4e4d69cfea8205c3d37526cbe664a3505bf5436367e22a85a3dbbe6404c8",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/mlp0_c512_mlp2_compensation_v0_incomplete_registry_rows_receipt.json": "a3bbd6f96a4826be196c8089c335ae38c49c16d900f4554a850fd5a63b21fa29",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/mlp0_c512_mlp2_compensation_v1_eval_authority.json": "fb322004f33db15f1ce53e7eec883dd779c49c73a2631790ee7fcc300c5301ba",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/mlp0_c512_mlp2_compensation_v1_rows_receipt.json": "f9b6be90167e7fb1c8d17d7ffcfa41db918416a91a4f5726f7a01253a0eb43d1",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/mlp0_c512_mlp2_compensation_v2_eval_authority.json": "167ce13f15c584d7e5af29e1c14e994d0d6af2f2741ec1f4d26527f589d943b5",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/mlp0_native_down_hierarchy_v1_eval_authority.json": "1a68ca34b5fafa2c747e03a724c8a6e6b7cc04a4f6d9a9a29185cdc79d2f7dce",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/mlp0_native_down_hierarchy_v1_fit_authority.json": "a1b704d03dc44d00d89f389c8af113ef0532466270855c4fe981429a6a9b6fd6",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/mlp0_native_down_hierarchy_v1_fit_receipt.json": "79d0069864e9df521a99fc36531dd86c7ed31106f58f029d681fb1788a269f82",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/mlp0_native_down_hierarchy_v1_rows_receipt.json": "9888c8f718897273cdfa8f2fa1a0a749fde45bce5295712ffd33585aa09fcc7e",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/mlp0_quotient_stage0_v1_collector_authority.json": "e61d861a925b010cbaf713d819a4298e09fa1ce9500c2e8639769ddaa9bccbeb",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/mlp0_quotient_stage0_v1_fit_receipt.json": "111a5a26bcb69683fffd5c10d991376c8c30a7c77482fe932f1d7cf77826b4f4",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/mlp0_quotient_stage0_v1_rows_receipt.json": "69b068d582e616c37e37937e6705a61a5cf7eb2737270067e4253f10ffe19cea",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/mlp0_quotient_stage0_v2_collector_authority.json": "586bcca33046fdc6e89a04fdf8799e777eabd1f71ff29e11ba2d839032fce02f",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/mlp0_quotient_stage0_v2_fit_receipt.json": "3f46efa1518e7971f076f91d2ce48234fb9e0593ba80e09e3a678460973c609c",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/mlp1_global_gate_v1_rows_receipt.json": "63d35040a22c5da69a889cd94ece37cf7c6d353c41ebda3fdbaa12114303b3cd",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/oracle_local_pca_strength_control_v1_manifest.json": "50bca1efe14a357d7014c376aed63d0a0607aaacc80562524f173f58234c1da8",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/oracle_local_pca_strength_control_v1_scale_receipt.json": "42f6149d5105dad45f8c4e041b2683b198f39d0f4cadf9fdd50de5957c3c43bf",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ship_content_oracle_curated_dev_manifest.json": "46b18d342952eda074d6f461f859b56952eb740717b9366e188daaddf179b8c7",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ship_content_oracle_curated_dev_v2_manifest.json": "d58b8a9c4d69a071b64d20ed4f5fbcc6a7f349587f8edc784d17fdbd9ffd9781",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/terminal_copy_fit_inputs_v1_authority.json": "147c4f3ecb648fcb30917a9d5cf07df567929db250d8ddb331c9ce3575890273",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/terminal_copy_fit_inputs_v1_manifest.json": "8ea2be6208ed80a9e06638edd4740c1bdfc4abe741444d6748f08ae4d10cd638",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/terminal_copy_fit_inputs_v1_receipt.json": "63bccea6cb9c804c49065d165b10d60d7593f31e2008ac5999bd0cfd2439d96e",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/terminal_copy_induction_v2_rows_receipt.json": "aea52a94c643906ef822a7c6ddb37a371b4315507a1a0a79acd539a19ae7f5c8",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/bilin18_observed_adapter_transaction_smoke_receipt.json": "45b4c0e1602900cbfe81864043b38b7744ee1b70c19e8cf62897ea5712e46d56",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/bilin18_observed_dispatch_smoke_receipt.json": "2cfe06efad4d9df95a30804590a3c87a377f485652d44dcb5ba7faacb78093cb",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/block3_consequence_family_f_v1_authority.json": "70a4f751d6f79438263eb44f235b24b14334527aca4c169afa77dca6fc701e7d",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/block3_consequence_family_f_v2_recovery_authority.json": "ca759bebef883093ec2312249baf36c5e5e2175effc3e9af88b57d2471913dbd",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/block3_consequence_family_f_v2_recovery_receipt.json": "e81673095c7b6202fdec293c6ad34924fb9acb15213d02ba4b203d5ff8c65a5a",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/block3_native_gate_fit_v1_authority.json": "cd83bbcd5dbf466a7ab57617a2b28ef2f62943c2ef011e1d71821a4547f8351a",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/block3_native_gate_fit_v1_receipt.json": "3facf67a90beea923a666f29a0770080d2277721e4443df444b6a416b186435e",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/block3_native_gate_subset_v1_fit_authority.json": "d166df7a02a39296c4c95052f392ac29157947db41038788afab83222babae98",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/block3_native_gate_subset_v1_fit_receipt.json": "dbf76301d4c7d5ac03942465da98c331429e1b2e84c771d767b1302b0137ab89",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/block3_native_gate_subset_v1_validation_v0_authority.json": "24d61b89f162d84e4aee17f9a714e99b348776ae21049b6287c6163be82c61cb",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/block3_native_gate_subset_v1_validation_v1_authority.json": "4fa0ea1c2e64bc7a02d375d4496ff552ae4dd9074c721c23c1bfce6233324db2",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/block3_native_gate_subset_v1_validation_v1_receipt.json": "4f0f1153263bb5312041405290940c6e8bdb0a958d3941cc34f0fbc8c2dad3f8",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/broad_mlp_suffix_dealias_v1_measurement_wave_v1_authority.json": "fba4a31790acf71f807565b2a4b4cec83a3752136580acea981d99a2a3def249",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/broad_mlp_suffix_dealias_v1_measurement_wave_v1_manifest.json": "76032734dd97c591625c52dc25a664d0521ca91d0ce53c2a3858033bade97deb",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/broad_mlp_suffix_dealias_v1_measurement_wave_v1_receipt.json": "513772809648a2344bbf47aa6809627ff0a3f80868861043cc289d617cffb287",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/broad_mlp_suffix_dealias_v1_score_v1_receipt.json": "6acbdeec6ede6ce7a9a7f5db08023a7bb08bc1f83066768035b01b8d4311719a",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/code_oracle_corpus_manifest.json": "6093901d651dfbc9c71e62f4928b0411c5a09ee8fb1f33aff55908d08db3d76e",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/code_oracle_corpus_v2_manifest.json": "a19def47d44a581a72a6cb8f0d91ac7ae0bb2121007f43964f4f1dcb526cb9ec",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/compilation_mask_cut_rank_v1_measurement_wave_v1_authority.json": "3d0a8204afa14d7bcb53296ebe6747de8513f95aeb9d9550ba9e3b00f800181c",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/compilation_mask_cut_rank_v1_measurement_wave_v1_receipt.json": "a7c479bc45df5b9db06c76c0b83c59ef36b342d3342eba8bf8655c00e7c5e9f5",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/compilation_mask_cut_rank_v1_score_v1_authority.json": "a09325df7f3bee715cc507880fd3bf712b14e4943f19a1deaf6732fea820702c",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/compilation_mask_cut_rank_v1_score_v1_receipt.json": "c91a8dc37f3e5e864a6f0ef7267482f6e1f20b0788bdd6c0c669331e41bc261f",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/early_mlp_context_cross_v1_measurement_wave_v1_authority.json": "2bca3a523c3fbcb95b67766033c54d908d00784378dab0216572147780834463",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/early_mlp_context_cross_v1_measurement_wave_v1_manifest.json": "4ca06eb4b2d854469317e487d3dac7a06ef86a1c441e3fe54db03b2505744e9f",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/early_mlp_context_cross_v1_measurement_wave_v1_receipt.json": "82af48ef6a553038316004dfcf1e82eb10f9d717fde3f8021c805c0afd79da43",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/early_mlp_context_cross_v1_score_v1_receipt.json": "1704a9f1dbe95db7697e9b224960ad699180d9f8a37f72355cf9d937d5636ee9",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/early_mlp_state_complete_compiler_v2_interpretation_receipt.json": "7c3d98acfa5f127fd20926acb4c511451183f9fd360e67d17d7675a2ebbb7e25",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/early_mlp_state_complete_compiler_v2_solver_correction_receipt.json": "546ac9ca72eba86747a1ca43fdcab5ceb9834d7e0916e4e13fcbccca824cfee1",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/failed_tangent_lifecycle_20260828_vocab_contract/tensor_bilin18_tangent_authority_receipt.json": "abd6b038c347faa6d49d3c5111312bb34bec8f1c7977eecce32ad9fb232cd84e",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/failed_tangent_lifecycle_20260828_vocab_contract/tensor_bilin18_tangent_geometry_receipt.json": "0113ae547049a4a7c956fd5d10ec10796207f0c31a70809bc25c71ea4721b847",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/gauge_transport_triangle_unique_rows_v1_authority.json": "5f7435150561ef385c9a4ee51e2040c4a029e98faefbfe1bc0f92612d820498e",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/gauge_transport_triangle_unique_rows_v2_authority.json": "6e10911a458da61ebf0cb0db09637d6d9eefa404fb138da26148e98eb532041f",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/gauge_transport_triangle_unique_rows_v2_manifest.json": "f86b9df20f0fc2ae5cef0e8f31ce4f02ca120821dfcab8de47d2a3166f5f5f1e",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/gauge_transport_triangle_unique_rows_v2_receipt.json": "3f92d8b3aa5e89e6059a010338521bffa0cf440e0815d9d67e1b65aa58a8e102",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/gauge_transport_triangle_v1_execution_authority.json": "0241511a0e10cd15ad4de0b6f076a37c76d0aced4c92b75d80f68bb176d95f44",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/gauge_transport_triangle_v2_recovery_authority.json": "5f5785e47dea61db6633c6d65d228946f71905e0baf4b9fa7cc0188377410898",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/gauge_transport_triangle_v3_receipt.json": "f080af3cf1aa9dbbf93b420a8d2c5f0ed2e3247fa0e5022d7b49124c90f61f12",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/gauge_transport_triangle_v3_receipt_recovery_authority.json": "4e3a10d5d35a7f2cef7bbdc72363596902569fe86bfa20d2ef22eab45edf1357",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/hierarchical_shared_private_rrr_real_v1_authority.json": "558d316eb5fdb4a4249eb58cdd5c2b80f0005873cdbccf517dfede7226c4d11c",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/hierarchical_shared_private_rrr_real_v2_recovery_authority.json": "a591dd6b50c9aa4aa44546232c61748976cdc8790ebac136f64fd7949dea0379",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/hierarchical_shared_private_rrr_real_v2_recovery_receipt.json": "de90b352855ca5126a35e2bd05fd88cef632bdef2902a2b5c7bca331ffc0d92f",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/mlp1_global_gate_row_use_authority.json": "9177ca13727e268d4d7ea492d832296b4853ead5b6b4764c4a11444ef3f3b40f",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/mlp1_implicit_folded_tensor_v1_authority.json": "7b2cebe982559a3e232e073d238b984df6246461b92c622e0275bc9279b8b468",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/mlp1_implicit_folded_tensor_v2_authority.json": "baa1eb9bb245c792f9a8ac473d5ca25f0012b55f9aef5b5a8e86f6c5f693ce92",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/mlp1_implicit_folded_tensor_v2_outcome_authority.json": "b96573ee373e6d4f0032667acb5c838d5205fc9c166eb9e5112d90396c56a9de",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/mlp2_cmr_v1_document_roles_manifest.json": "70946691916f3d9de9409087cf8311029c0d9ea9ec26a118d5cacdbf5397d96e",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/mlp2_cmr_v1_document_roles_receipt.json": "0cda2fb909c9e62f8db46f1fc717a2a86fad712346a98d81c307d3b79fde63e1",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/mlp2_cmr_v1_fit_mean_authority.json": "606362f7f79a50ac00101c7dfde5f0e7cca87ba8b5b49bf45c917c3b22a36441",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/mlp2_cmr_v1_fit_mean_receipt.json": "9dc14d909a1b4aafd33c67dc7a3d066db4ccc9cb83c7059fe7aaf499ca9e5efa",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/mlp2_cmr_v1_fit_selector_calibration_authority.json": "7be8c2e42b6995fafcd478cee50437408c3f2b6ba7745d5189acc8925bc8141d",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/mlp2_cmr_v1_fit_selector_calibration_receipt.json": "08267122572157203ccf87f9d901d9c4efdfb41c9bb3b4f0d34f1f1f4e669b52",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/mlp2_cmr_v1_fit_selector_rows_manifest.json": "6073c2fd38ad3287c6b7349f2d99aae41c0e98655961255fc18ba4c7c4b745a2",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/mlp2_cmr_v1_fit_selector_rows_receipt.json": "6a0dad2f7df3dd17d20fc16df15c03b47c3ef0da30fd65c1cc2149d762709a21",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/mlp2_cmr_v1_suffix_authority.json": "d204e9adeef3d65a1d6f38ed76071aa38c921bd2884ed136ac6e37f4696c7296",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/mlp2_cmr_v1_suffix_v2_authority.json": "7c29c2e05a772a81a46a8cbbca7c1e4b6d2f9a1fcd3b27b321ef501145bf6765",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/mlp2_cmr_v1_suffix_v2_overlap_correction_receipt.json": "dd557dc6366503bea2f3f7649d6312abc8a89857bb277ea4e844d8822e4e968a",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/mlp2_cmr_v1_suffix_v2_receipt.json": "b61c7308409ec64dc05601206bda21e1f4e24097871ba8dff0c92bc84e761e1f",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/mlp2_cmr_v1_token_rows_manifest.json": "8b8f3155a21b73af8b89278b9f09c60bf82fd965a7723e046e191415c5d57bb4",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/mlp2_cmr_v1_token_rows_receipt.json": "47113c255bf47f9d1c7369639fab39664c71f93134099babadcce9d89a011e85",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/mlp2_cmr_v1_validation_authority.json": "c22e1fe9e075953d95668893c371f73616823592ba035d6a6fb05c3cf9826bab",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/mlp2_cmr_v1_validation_rows_manifest.json": "4ff1155386cec27daf7702675797ec8ed0a1a5534f07c4f24a31fea9ef384a40",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/mlp2_cmr_v1_validation_rows_receipt.json": "98e077918ab132a6d3e1cc6ffc5d03f3295f3e30adfe7670cf088843b43acebe",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/mlp2_cmr_v1r_finalization_authority.json": "5dbd207b819b072b65a6aad8d98cac48789e12f1c4c6c147030ee5d7f9427fa1",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/mlp2_cmr_v1r_finalization_receipt.json": "25e03b6530bd621ea2aa0f95f2f6e3e46cdd502f6272d2db50ce6c6d6c07f2ed",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/mlp2_implicit_folded_tensor_v1_authority.json": "eed76e66ad2dd13d75f814bb5669c3bf90f3da9a36aed32ccef095ce327976e6",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/mlp2_implicit_folded_tensor_v1_outcome_authority.json": "13003b3576ba15bdc8dbb6904220ac84c1fe1b54946c0bc6803ae3477cf028c3",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/shared_output_rrr_real_v1_authority.json": "4ac2839267abc99179fda32f161ec33eabe091384053b53ec78dca5f6b54e122",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/shared_output_rrr_real_v2_recovery_authority.json": "32106d80f43bd73853ca25841b81ea1297d0e9c5d2bf6f404510a1c1b217c7db",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/shared_output_rrr_real_v2_recovery_receipt.json": "57f699d680a7ea010f6ec8b12c3c33d61f1b3f540ad2891517fe751074dbdd56",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/tensor_bilin18_mlp1_global_gate_authority_receipt.json": "a1871771f0b5135410495611d4efa440c5c14bdcdde75f7456a623cfea363f10",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/tensor_bilin18_mlp1_split_probe_authority_receipt.json": "badbf2c69d76cca580155b3cfb274e96d8a3e0c4e8ee1f4bbe8cbdeae2c49e4d",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/tensor_bilin18_tangent_authority_receipt.json": "1dc6fa711803e6d7ac1c7958e8507fec66c8dab983c7562c605331ee46adaadd",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/tensor_bilin18_tangent_geometry_receipt.json": "2b96c001db6053934dd1aa8f33a5cbbcac3e81b59b2525e089baf8e89e7f0e1b",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/terminal_copy_attention_checkpoint_check_v1_authority.json": "15c68bfaff6362300fa680a60ce14077bea43142f135ff4a6c809b5341ce2b5c",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/terminal_copy_attention_checkpoint_check_v2_authority.json": "8d84f8a568fa84d5b2dbce2f17e9b3c65ab8fb1966bbe616105ca55d17b4475f",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/terminal_copy_attention_checkpoint_check_v3_authority.json": "67641f88dbf8e633641ba80a23dbdfc050dc35091eff35bbe493353b14e88e6a",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/terminal_copy_attention_checkpoint_check_v3_receipt.json": "c5ef51670b6e23bb3cddbbef6c5cd451dff55eea8b8f7ddfdf20aca7374bb324",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/terminal_copy_fit_means_v1_authority.json": "66541d42a89eeede2be83724e130037183eb1f9ced9c6150785a30448126aca8",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/terminal_copy_fit_means_v2_authority.json": "49b1b8cb7960fbf389118bee356a8509c029046cbe498dbbbd39f11757a91451",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/terminal_copy_fit_means_v3_authority.json": "566d301680b3ff70b400d34d6dc85ca58eda2bc16b64813f2cff2bdc15045fa8",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/terminal_copy_fit_means_v3_manifest.json": "b8c539f63e70503f743e99c44775bcb8c7c6abb4bb664a9f0a1688da6c6b0dad",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/terminal_copy_fit_means_v3_receipt.json": "663d1f85dab3fbe16d8bd88cb95c2783b17f306ffe928918602e667c6bf2b72f",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/terminal_copy_selection_v1_attempt2_authority.json": "c6489437ee51f6a6f9954d6c5b3c5ff7d6a595407be77bf593fa9b5a67f2a60c",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/terminal_copy_selection_v1_attempt2_manifest.json": "be8e0c9bb656d2d34ee4e3b1ffc73711bd18f634e34561edfd6e5742fa1fb81a",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/terminal_copy_selection_v1_attempt2_negative_receipt.json": "9b6557d8a7076eac9177bd6b46aec6cfc8da7049ad0fc33db5906f85f951fe10",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/terminal_copy_selection_v1_authority.json": "df00365e5d0db18b9ab7b60a16580e461aeadbc78b643d16e670af701eae1458"
+  },
+  "roles": {
+    "EVALUATION": {
+      "authorized_for_evaluation": true,
+      "authorized_for_training": false
+    },
+    "TRAIN": {
+      "authorized_for_evaluation": false,
+      "authorized_for_training": true
+    }
+  },
+  "schema": "mlp2_rank512_refit_v1_rows",
+  "selection": {
+    "documents_per_role": 192,
+    "scored_slice": [
+      64,
+      256
+    ],
+    "start_document_index": 100000,
+    "token_length": 257
+  },
+  "source_commit": "3d8cbd72f19044830ba060abb926786e70dd75cb",
+  "source_hashes": {
+    "basis_aligned/polynomial_causal/BLOCK3_NATIVE_DOWN_BEHAVIORAL_PORT_V1_EXECUTION_ADDENDUM.md": "19a59ab85a85a1ab7b398ecfba42dc684dc17a9066cfb64b0b1bceed1196bea0",
+    "basis_aligned/polynomial_causal/BLOCK3_NATIVE_DOWN_BEHAVIORAL_PORT_V1_PREREGISTRATION.md": "8801b6cdfc0bf2f586a4e7462abf51b0213697eff27af4b8260a3aa4e8c9e6bb",
+    "basis_aligned/polynomial_causal/MLP2_RANK512_REFIT_V1_PREREGISTRATION.md": "92303790c2c6ccc54887892779ddbbe14c1ae05918b1ba521a39c4426a409d68",
+    "basis_aligned/polynomial_causal/bilin18_observed_model_facade.py": "b62947f772c807259890a9d09dfcbe5e91ad339a0bffa867ab99177fde4c728c",
+    "basis_aligned/polynomial_causal/local_fineweb_harvest.py": "87d9abeaf1182811650c35bcae25b0373687d2e87aede895bc9f2bc440b90b04",
+    "basis_aligned/polynomial_causal/mlp2_cmr_v1_physical_program.py": "8352d69b630e78934b623dd868a2191ab061772350a7e469a355b6ff91901ecf",
+    "basis_aligned/polynomial_causal/prepare_block3_native_down_behavioral_port_v1_rows.py": "c0f60b90ebc891d0e8d6fcdbc8f855199f9cdcd34c919d44513b90fabef7dc16",
+    "basis_aligned/polynomial_causal/prepare_mlp0_c512_mlp2_compensation_v1_rows.py": "0885ac954ae7f2dce2f035d760443f79d9ff3afc434f6b1335940024ef84988e",
+    "basis_aligned/polynomial_causal/prepare_mlp0_native_down_hierarchy_v1_rows.py": "f7eee860ef40a6301d78461c5d677394757014b6096ecbb853b8e8d48990ab83",
+    "basis_aligned/polynomial_causal/prepare_mlp2_rank512_refit_v1_rows.py": "f2ba31927242db40200acf388d7f572a497d278b379615217571740dd1e50afa",
+    "basis_aligned/polynomial_causal/run_block3_native_down_behavioral_port_v1.py": "c51ef40c3d6516a176bde3ba7d6904672fbe5b975e3ed23bf665f51f003c2b62",
+    "basis_aligned/polynomial_causal/run_mlp2_rank512_refit_v1.py": "b9ef3c6ad1151405bd3aeb4f27a2194ba9f7b202f068961b0ce78ab3038188bf",
+    "basis_aligned/polynomial_causal/test_bilin18_observed_model_facade.py": "7ce76de82cba3355abd07dab6a0d3b4d380d39eae43ad064ae4d954878606a71",
+    "basis_aligned/polynomial_causal/test_mlp2_cmr_v1_physical_program.py": "7631ead45f3d9e6ede00edb159619dc86d78e762b6f9ad2addb3abf98cad5d8f",
+    "basis_aligned/polynomial_causal/test_mlp2_rank512_refit_v1.py": "32f15f92af19316cb9000cbeeba71b238446782c48105fa4fd9751a7d9946501",
+    "basis_aligned/polynomial_causal/test_prepare_block3_native_down_behavioral_port_v1_rows.py": "3e8a4f8d7de53a82132b668af0533447aadfd613b8178a90f3c1cb5fde11f868",
+    "basis_aligned/polynomial_causal/test_run_block3_native_down_behavioral_port_v1.py": "c266cc66f0d1b758ad540d07d2672b1d6ce92d721186022bebb1c864648d403c",
+    "jacclust/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jacclust/tt_model.py": "49ecdbd6c060ff5b3e57f3134d87ba32841390c891c42e6ae23b71d8627612b2"
+  },
+  "status": "fresh_roles_frozen_before_any_model_or_training_access",
+  "waiver_proofs": [
+    {
+      "authority_sha256": "5f7435150561ef385c9a4ee51e2040c4a029e98faefbfe1bc0f92612d820498e",
+      "failure_sha256": "91859b52b55b8be8ac05dc61f26b95fd43cdb92db7b8c39dfa72d226df41eb58",
+      "omitted_missing_row_path": "/workspace/tensor_language/basis_aligned/polynomial_causal/gauge_transport_triangle_unique_rows_v1_rows.pt",
+      "proof": "exact_spent_authority_and_terminal_failure_no_materialized_outputs",
+      "registry_json": "/workspace/tensor_language/basis_aligned/bilinear_quotient/terminal_copy_induction_v2_rows_receipt.json",
+      "registry_json_sha256": "aea52a94c643906ef822a7c6ddb37a371b4315507a1a0a79acd539a19ae7f5c8"
+    },
+    {
+      "authority_sha256": "5f7435150561ef385c9a4ee51e2040c4a029e98faefbfe1bc0f92612d820498e",
+      "failure_sha256": "91859b52b55b8be8ac05dc61f26b95fd43cdb92db7b8c39dfa72d226df41eb58",
+      "omitted_missing_row_path": "/workspace/tensor_language/basis_aligned/polynomial_causal/gauge_transport_triangle_unique_rows_v1_rows.pt",
+      "proof": "exact_spent_authority_and_terminal_failure_no_materialized_outputs",
+      "registry_json": "/workspace/tensor_language/basis_aligned/polynomial_causal/gauge_transport_triangle_unique_rows_v1_authority.json",
+      "registry_json_sha256": "5f7435150561ef385c9a4ee51e2040c4a029e98faefbfe1bc0f92612d820498e"
+    }
+  ]
+}

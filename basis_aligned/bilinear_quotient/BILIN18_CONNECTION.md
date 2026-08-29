@@ -57042,3 +57042,54 @@ pure function of the current token and every §1765-derived result — the exact
 Jacobians, the covered-input inertness the controls rest on — would not hold for it. **Whether that 0.3
 nats is worth the entire analytical frame is the first genuinely architectural question this thread has
 faced since §1765 itself, and it is a decision rather than an experiment.**
+
+## §1980 — it is one site: live attention at layer 6 reading compiled rows carries 98% of the penalty
+
+`ops/which_of_the_three.py`, 102.1s, **DISCOVERY ONLY**, 5,419, rung 3 — §1979's within-frame open
+question. **pred_a True | pred_b False | pred_c True | derived controls True.**
+
+§1979 localised the 3.6× partial-compilation penalty to attention layers 6–8 because its sweep moved in
+threes. Resolving that step one layer at a time, with all 18 MLPs and attention 0–5 substituted in every
+arm:
+
+```
+  cost against the live model, nats, 5,419
+             n0 (attn 6+ live)   +a6      +a7      +a8        step sizes
+  skip7000        9.266         2.733    2.740    2.596    +6.533 / -0.008 / +0.145
+  skip11000       9.531         2.889    2.894    2.760    +6.642 / -0.005 / +0.134
+  skip1200        9.141         2.681    2.684    2.533    +6.460 / -0.003 / +0.150
+```
+
+> **pred_a PASSED and the answer is a single site. Compiling attention at layer 6 alone recovers
+> 6.46–6.64 nats — 98% of the entire fall — on 3 of 3 roles.** §1979 said the requirement was local;
+> it is *one layer*. **Live attention at layer 6 reading context-free rows is the whole of §1978's 3.6×
+> penalty.**
+
+> **The obvious alternative reading is ruled out by the data itself.** If the phenomenon were a *boundary*
+> effect — "whichever live attention layer sits directly above the compiled prefix does the damage" —
+> then compiling layer 6 would merely move the boundary to layer 7 and buy nothing. **Compiling layer 7
+> next is worth −0.003 to −0.008 nats: slightly negative on all three roles.** So it is layer 6
+> specifically, not its position relative to the compiled block.
+
+> **pred_b FAILED, and that is the same observation stated as a bar. Not every one of the three layers
+> helps: layer 7 is marginally harmful on 3/3.** §1979's three-layer step was two layers of nothing and
+> one layer of everything, and the sweep's granularity was the only reason it looked like a block.
+
+> **pred_c PASSED: the n0 → n3 fall is 6.61–6.77 nats, reproducing §1979's k = 6 → 9 within 0.15** — the
+> same two builds reached by a different route, so neither sweep is mis-specified.
+
+**Derived controls TRUE** — coverage exact, same-spec pairs exactly inert at covered inputs, at least one
+differing-spec pair moving, buckets partitioning, live identical, and §1975's published `converged` CE
+reproduced to **0.000000** via `B.ref()`. Fifty-ninth clean reading.
+
+**What this says about §1765.** The premise costs 2.7 nats (§1977) and is *internally consistent* in a
+way that matters (§1978), but the consistency it needs is not global: **35 of the 36 sites can be
+compiled or live in any combination without disaster, and one — attention at layer 6 — must match its
+inputs.** §1891/§1908 named late attention as what the program destroys; §1978 found early layers costliest
+to compile; **neither is layer 6, and the three questions have now been shown to have three different
+answers about the same stack.**
+
+**Open.** Layer 6's attention is doing something with context-free input that no other layer does, and
+nothing here says what. **The thread has an instrument for exactly this question — §1908's
+alignment×magnitude decomposition, which separated a head's contribution into direction and size and is
+the offer still standing to Codex — and it has never been pointed at a site identified this way.**
