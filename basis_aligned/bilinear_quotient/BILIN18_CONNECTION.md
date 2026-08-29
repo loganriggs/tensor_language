@@ -52209,3 +52209,61 @@ predicate line prints the n beside the figure. §1889's vacuous pass is not reac
 
 **Thread closed as unexplained rather than left open with a wrong guess.** §1888's sign is not
 compositional. Nothing in the arc depends on it.
+
+## §1891 — the tracking is LATE ATTENTION, every MLP restoration is a provable no-op, and one live head drives the program to chance
+
+`ops/per_site_tracking.py`, 290.5s, **DISCOVERY ONLY**, rung 3 — the per-site question §1885-§1888 ended
+on, offered to Codex four times unclaimed. **pred_a True | pred_b False | pred_c False | pred_d True.**
+
+Leave-one-out **restoration**: 36 runs, each with all sites compiled except one left live, measuring the
+change in covered-arm agreement enrichment against the all-compiled baseline (7.19 / 7.29 / 7.64x).
+
+```
+  restore attn13   8.10  8.25  8.30   (+0.91 +0.96 +0.66)      restore attn5    1.07  1.04  1.08   (-6.12 -6.25 -6.57)
+  restore attn16   7.85  8.11  8.33   (+0.66 +0.82 +0.69)      restore attn6    1.37  1.44  1.38   (-5.83 -5.85 -6.26)
+  restore attn14   7.83  7.94  8.09   (+0.64 +0.65 +0.44)      restore attn10   6.15  6.30  6.64   (-1.05 -0.99 -1.00)
+  restore attn17   7.65  7.88  7.93   (+0.45 +0.59 +0.28)      restore mlp0..17 7.19  7.29  7.64   (+0.00 x 18 sites)
+```
+
+> **All eighteen MLP restorations are EXACTLY +0.00, and this is derivable rather than measured.** With
+> the other 35 sites compiled, the residual stream at every depth is a function of the current token
+> alone — §1765's result. An MLP is position-wise. So a live MLP applied to a context-free stream returns
+> precisely the value its own table stores, which is that site's output on a length-1 sequence.
+> **Restoring an MLP cannot change anything, and the run confirms it to two decimals on 18 sites x 3
+> roles.** The corollary is that only the 18 attention sites can carry any of the program's fidelity, and
+> pred_a's "concentration" must be read against 18 candidates, not 36.
+
+**pred_b FAILED, and this is the result.** I predicted the best-restoring site would sit at layer ≤ 5,
+following §1829's finding that 73.3% of the bottom-up CE fall happens at layer 1. The best sites are
+**attn13 / attn13 / attn16**, and the top five on every role are drawn from **attn8 and attn13-attn17**.
+**The agreement instrument and the CE instrument disagree about where the program is weakest.** §1829
+says the damage is done early; §1891 says what the program fails to *reproduce about the model* is late
+attention. Both are measurements; neither supersedes the other, and no section had reason to expect them
+to point the same way until one of them was checked.
+
+> **pred_c FAILED catastrophically, and I registered that as the more valuable outcome.** Restoring
+> **attn5** drops the enrichment from 7.19x to **1.07x** — a permutation-matched pair sits at 1.0x, so
+> **giving the program one true attention head at layer 5 drives its agreement with the model to
+> chance.** attn6 gives 1.37x, attn10 costs a full 1.0x.
+>
+> **The compiled program is therefore not a sum of independent substitutions.** Its 36 tables are
+> mutually calibrated, and a single un-compiled site at the wrong depth destroys the object. This is
+> §1804/§1806's norm mismatch surfacing in a behavioural instrument: substituted rows are 2.71x to
+> 152.62x smaller than what the live modules emit, so a live attn5 fed a compiled stream writes something
+> far out of scale and swamps every site above it. §1806 measured that in CE; here it is visible as the
+> program's predictions decorrelating from the model entirely.
+
+**pred_a PASSED**: the best single site accounts for **28.5 / 25.7 / 26.4%** of the summed positive gain
+(3.17 / 3.74 / 2.61x total). Registered as sum-over-parts per LESSON 57, so it separates dominance from
+redundancy rather than assuming it.
+
+**pred_d PASSED**: coverage 5,419, all 36 sites measured on identical positions, and the all-compiled
+baseline reproduced §1888's 7.19 / 7.29 / 7.64x **to three digits for the third consecutive run** — an
+eighteenth known-answer check.
+
+**Open.** Two things, both sharp for the first time in this arc. **(1)** Why attn5 and attn6 specifically,
+when attn3 and attn4 are harmless (+0.08 / −0.02) and attn7 nearly so (−0.10)? A four-site window at
+layers 5-6 destroys the program and its neighbours do not. **(2)** The late-attention sites that carry the
+tracking are the ones whose tables would be cheapest to spend rank on — §1880's law says map rank tracks
+table rank, but nothing has asked whether TABLE rank should be spent unevenly ACROSS sites, and §1891 says
+exactly which eighteen sites are the only ones that can matter behaviourally.

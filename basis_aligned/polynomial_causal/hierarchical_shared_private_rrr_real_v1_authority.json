@@ -1,0 +1,296 @@
+{
+  "authority_sha256": "6879613b647358cff1a501c00404f320b5452de5639aef325a355d8109c1a546",
+  "checkpoint": {
+    "config_sha256": "428042bfd807ba36f8b4326395440fbbebe52cd3d040212e6fef14a4fdf2d83c",
+    "logit_vocab": 50304,
+    "revision": "ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240",
+    "snapshot": "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240",
+    "tokenizer_vocab": 50257,
+    "weights_bytes": 2067738635,
+    "weights_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3"
+  },
+  "input_file_sha256s": {
+    "basis_aligned/bilinear_quotient/.rowcache/fineweb_n192_skip11000.pt": "b1564bfd071418f401a816cb01e3d26b082a3e73ba858838f1c83c250db4d868",
+    "basis_aligned/bilinear_quotient/.rowcache/fineweb_n192_skip7000.pt": "d66c1ee7807bc6b9bd7d0ddba5cdd7e3bc64926b00320a10675a2f817d67128c",
+    "basis_aligned/bilinear_quotient/.rowcache/fineweb_n96_skip1200.pt": "21707551f35d13818c10ac59e12e9445ef076d0522371fe779691bfab719d34f",
+    "basis_aligned/bilinear_quotient/.rowcache/fineweb_n96_skip80.pt": "94bc1fb3e3a6a061541e555295e0af8c50ae6068fdff84e95a69c25844091eda",
+    "basis_aligned/bilinear_quotient/ops/frontier_at_map512.py": "893fdc9dca7859cb01d54b4ac36d48bfb95dcd98eca0769a83fa86bbe52fe8a7",
+    "basis_aligned/bilinear_quotient/ops/frontier_at_map512_results.json": "83039fba204e1339fe330e5e026a13cbf207c668751d4d480711675a6a5a890a",
+    "basis_aligned/polynomial_causal/shared_output_rrr_real_v2_recovery_authority.json": "32106d80f43bd73853ca25841b81ea1297d0e9c5d2bf6f404510a1c1b217c7db",
+    "basis_aligned/polynomial_causal/shared_output_rrr_real_v2_recovery_receipt.json": "57f699d680a7ea010f6ec8b12c3c33d61f1b3f540ad2891517fe751074dbdd56",
+    "basis_aligned/polynomial_causal/shared_output_rrr_real_v2_recovery_results.json": "19d65e2c6d4a0cff19ddfb76ddbe62dcd26c462a695e006c457da85a89adc053"
+  },
+  "outputs": {
+    "failure": "/workspace/tensor_language/basis_aligned/polynomial_causal/hierarchical_shared_private_rrr_real_v1_failure.json",
+    "receipt": "/workspace/tensor_language/basis_aligned/polynomial_causal/hierarchical_shared_private_rrr_real_v1_receipt.json",
+    "results": "/workspace/tensor_language/basis_aligned/polynomial_causal/hierarchical_shared_private_rrr_real_v1_results.json"
+  },
+  "protocol": {
+    "arms": [
+      {
+        "budget_name": "global_q512",
+        "family": "hierarchical_shared_private",
+        "map_float_budget": 21823488,
+        "name": "global_q512_shared_q0",
+        "shared_rank": 0
+      },
+      {
+        "budget_name": "typed_q512",
+        "family": "hierarchical_shared_private",
+        "map_float_budget": 22413312,
+        "name": "typed_q512_shared_q0",
+        "shared_rank": 0
+      },
+      {
+        "budget_name": "independent_q512",
+        "family": "hierarchical_shared_private",
+        "map_float_budget": 42467328,
+        "name": "independent_q512_shared_q0",
+        "shared_rank": 0
+      },
+      {
+        "budget_name": "global_q512",
+        "family": "hierarchical_shared_private",
+        "map_float_budget": 21823488,
+        "name": "global_q512_shared_q128",
+        "shared_rank": 128
+      },
+      {
+        "budget_name": "typed_q512",
+        "family": "hierarchical_shared_private",
+        "map_float_budget": 22413312,
+        "name": "typed_q512_shared_q128",
+        "shared_rank": 128
+      },
+      {
+        "budget_name": "independent_q512",
+        "family": "hierarchical_shared_private",
+        "map_float_budget": 42467328,
+        "name": "independent_q512_shared_q128",
+        "shared_rank": 128
+      },
+      {
+        "budget_name": "global_q512",
+        "family": "hierarchical_shared_private",
+        "map_float_budget": 21823488,
+        "name": "global_q512_shared_q512",
+        "shared_rank": 512
+      }
+    ],
+    "authority_scope": "discovery_only_no_validation_final_or_semantic_coordinates",
+    "call_schedule": {
+      "backward_calls": 0,
+      "compiled_arm_count": 7,
+      "compiled_component_calls": 30240,
+      "compiled_outer_per_arm": 120,
+      "compiled_outer_total": 840,
+      "fit_native_outer": 22,
+      "native_component_calls_per_kind": 2556,
+      "native_reference_outer": 120,
+      "optimizer_calls": 0,
+      "outer_total": 982
+    },
+    "covered_types": 5419,
+    "dimension": 1152,
+    "effective_ridge": 0.047039930555555554,
+    "execution_addendum": "/workspace/tensor_language/basis_aligned/polynomial_causal/HIERARCHICAL_SHARED_PRIVATE_RRR_REAL_V1_EXECUTION_ADDENDUM.md",
+    "fit_path": "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache/fineweb_n96_skip80.pt",
+    "float64_fit_float32_deployment": "contiguous .float factors; shared product then one private product/add",
+    "math_preregistration": "/workspace/tensor_language/basis_aligned/polynomial_causal/HIERARCHICAL_SHARED_PRIVATE_RRR_V1_PREREGISTRATION.md",
+    "parent": {
+      "authority_file_sha256": "32106d80f43bd73853ca25841b81ea1297d0e9c5d2bf6f404510a1c1b217c7db",
+      "authority_scope": "discovery_only_no_validation_final_or_semantic_coordinates",
+      "authority_sha256": "9267d02152a4ff184212b759ec7d3164300d6aec4da9826c34021a0f9340d936",
+      "receipt_file_sha256": "57f699d680a7ea010f6ec8b12c3c33d61f1b3f540ad2891517fe751074dbdd56",
+      "receipt_sha256": "2ed051ba2d11d3867d2badadf16ec290ee56973b2d06944620d968945c64986a",
+      "results_file_sha256": "19d65e2c6d4a0cff19ddfb76ddbe62dcd26c462a695e006c457da85a89adc053"
+    },
+    "resource_ceiling": {
+      "peak_allocated_cuda_bytes": 17179869184,
+      "wall_seconds": 4500
+    },
+    "ridge_scale": 0.01,
+    "roles": {
+      "skip11000": "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache/fineweb_n192_skip11000.pt",
+      "skip1200": "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache/fineweb_n96_skip1200.pt",
+      "skip7000": "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache/fineweb_n192_skip7000.pt"
+    },
+    "row_truncation": 257,
+    "score_positions": [
+      64,
+      255
+    ],
+    "site_order": [
+      [
+        "mlp",
+        0
+      ],
+      [
+        "mlp",
+        1
+      ],
+      [
+        "mlp",
+        2
+      ],
+      [
+        "mlp",
+        3
+      ],
+      [
+        "mlp",
+        4
+      ],
+      [
+        "mlp",
+        5
+      ],
+      [
+        "mlp",
+        6
+      ],
+      [
+        "mlp",
+        7
+      ],
+      [
+        "mlp",
+        8
+      ],
+      [
+        "mlp",
+        9
+      ],
+      [
+        "mlp",
+        10
+      ],
+      [
+        "mlp",
+        11
+      ],
+      [
+        "mlp",
+        12
+      ],
+      [
+        "mlp",
+        13
+      ],
+      [
+        "mlp",
+        14
+      ],
+      [
+        "mlp",
+        15
+      ],
+      [
+        "mlp",
+        16
+      ],
+      [
+        "mlp",
+        17
+      ],
+      [
+        "attn",
+        0
+      ],
+      [
+        "attn",
+        1
+      ],
+      [
+        "attn",
+        2
+      ],
+      [
+        "attn",
+        3
+      ],
+      [
+        "attn",
+        4
+      ],
+      [
+        "attn",
+        5
+      ],
+      [
+        "attn",
+        6
+      ],
+      [
+        "attn",
+        7
+      ],
+      [
+        "attn",
+        8
+      ],
+      [
+        "attn",
+        9
+      ],
+      [
+        "attn",
+        10
+      ],
+      [
+        "attn",
+        11
+      ],
+      [
+        "attn",
+        12
+      ],
+      [
+        "attn",
+        13
+      ],
+      [
+        "attn",
+        14
+      ],
+      [
+        "attn",
+        15
+      ],
+      [
+        "attn",
+        16
+      ],
+      [
+        "attn",
+        17
+      ]
+    ]
+  },
+  "schema": "hierarchical_shared_private_rrr_real_v1_authority",
+  "source_closure": {
+    "commit": "25b385b9eb862d993595f7c98b87918b1c922b5c",
+    "paths": {
+      "basis_aligned/polynomial_causal/HIERARCHICAL_SHARED_PRIVATE_RRR_REAL_V1_EXECUTION_ADDENDUM.md": "ed52c301802ef95373bb7044b5ad98c33effc93e5c6331c3c92f59db78a0498b",
+      "basis_aligned/polynomial_causal/HIERARCHICAL_SHARED_PRIVATE_RRR_V1_PREREGISTRATION.md": "fb2ebad2692d9982e9634051afbf8fc2d626678a15c2847efa93133103f7f811",
+      "basis_aligned/polynomial_causal/SHARED_OUTPUT_RRR_REAL_V1_PREREGISTRATION.md": "ae095e36d463f9d7d54625fa87ab660fc6f91903586092d7dfdc4265ab2629f7",
+      "basis_aligned/polynomial_causal/SHARED_OUTPUT_RRR_REAL_V2_RECOVERY_PREREGISTRATION.md": "04ab3ab6b2dac1881819b72be79f07f061c9acb0ed6ccdf2a30577854c7590a4",
+      "basis_aligned/polynomial_causal/bilin18_observed_model_facade.py": "b62947f772c807259890a9d09dfcbe5e91ad339a0bffa867ab99177fde4c728c",
+      "basis_aligned/polynomial_causal/hierarchical_shared_private_rrr.py": "ce61fadbc113d5b5ea1a90297d03fe48e702134584406533fb496119ebdd76d4",
+      "basis_aligned/polynomial_causal/run_hierarchical_shared_private_rrr_real_v1.py": "596a44fcd689c2bf1cf148a720db8d6540ef78334b22654b1b3ff83f59460659",
+      "basis_aligned/polynomial_causal/run_shared_output_rrr_real_v1.py": "fee4364d984e1497558928b23aec6294b7bd03866252497c4b30ae965de9257f",
+      "basis_aligned/polynomial_causal/run_shared_output_rrr_real_v2_recovery.py": "be67425349abd394e6ea048725139a2d15b621f0f31a0a7f5fa14ce097d4c22c",
+      "basis_aligned/polynomial_causal/simultaneous_shared_output_rrr.py": "a7dfe395542488917b2a08193f5b704bdd3383c730f1fd237ba1b9d3fc343f36",
+      "basis_aligned/polynomial_causal/test_bilin18_observed_model_facade.py": "7ce76de82cba3355abd07dab6a0d3b4d380d39eae43ad064ae4d954878606a71",
+      "basis_aligned/polynomial_causal/test_hierarchical_shared_private_rrr.py": "58d6b372044f4f01aaed3f1ae5f2c2dfde6547373a50ec0fa59d514c11dd29bf",
+      "basis_aligned/polynomial_causal/test_run_hierarchical_shared_private_rrr_real_v1.py": "0d87246da81596a67e215da9f25ce95f889b7f2bec72a2dc789d5e650d6d07cd",
+      "basis_aligned/polynomial_causal/test_run_shared_output_rrr_real_v1.py": "bdc787dcb77b900ad926f0f695bbcec69d220b4bc22afe4b8821fc14f45c46c0",
+      "basis_aligned/polynomial_causal/test_run_shared_output_rrr_real_v2_recovery.py": "f569f60a88a1879c798579c7c5bdb93e77efb836e49c3504a97b2b31d1900287",
+      "basis_aligned/polynomial_causal/test_simultaneous_shared_output_rrr.py": "9b831ca1ef6317189754fcd288898d11eeea661421c931d03842aa689cfd595b",
+      "jacclust/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "jacclust/tt_model.py": "49ecdbd6c060ff5b3e57f3134d87ba32841390c891c42e6ae23b71d8627612b2"
+    },
+    "sha256": "806dc3945369adc84d6a69ad08bf271bb22939da98353efa65df5159d3c5e2e2"
+  },
+  "status": "frozen_before_any_row_tensor_or_model_load"
+}
