@@ -49,8 +49,10 @@ SWEEP = {'full': (64, 512), '768': (512,), '512': (512,)}
 RIDGE = 1e-2
 PT = '/workspace/tensor_language/basis_aligned/bilinear_quotient/'
 OUT = PT + 'ops/domination_at_high_coverage_results.json'
-EVAL_SETS = [('skip7000', PT + '.rowcache/fineweb_n192_skip7000.pt', 3.29205),
-             ('skip11000', PT + '.rowcache/fineweb_n192_skip11000.pt', 3.09711),
+# live COVERED-CE anchors are POPULATION-dependent: 3.29205/3.09711 were measured on the 5,419
+# covered set, and at 16,110 'covered' is a different, larger population (§1882). None here.
+EVAL_SETS = [('skip7000', PT + '.rowcache/fineweb_n192_skip7000.pt', None),
+             ('skip11000', PT + '.rowcache/fineweb_n192_skip11000.pt', None),
              ('skip1200', PT + '.rowcache/fineweb_n96_skip1200.pt', None)]
 FIT_ROWS = PT + '.rowcache/fineweb_n480_skip80.pt'   # 5x the fit rows -> 16,110 types
 H = m.transformer.h
@@ -143,7 +145,7 @@ def main():
     tk = toks.to(DEV)
     unc = (~seen).nonzero(as_tuple=True)[0]
     sites = [(k, L) for k in ('mlp', 'attn') for L in range(18)]
-    print(f'DOMINATION AT HIGH COVERAGE | table ranks {RANKS} | map rank '
+    print(f'DOMINATION AT HIGH COVERAGE | table ranks {RANKS} | '
           f'map ranks {sorted(set(r for v in SWEEP.values() for r in v))} | DISCOVERY ONLY', flush=True)
 
     # the settled output-NN map (§1780/§1781), for the baseline arm
