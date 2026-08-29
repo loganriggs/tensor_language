@@ -213,6 +213,13 @@ def compare_by_bucket(rows, hooks, seenmask=None):
                              'top1_acc_live': mech[nm]['al'] / n2,
                              'top1_acc_prog': mech[nm]['ap'] / n2}
         out[f'mech_{nm}_top_bucket'] = _en(mtop[nm]['l'], mtop[nm]['p'])
+    # the 2x2 cells. PRE-FLIGHT C: my first attempt anchored this on a `for b in UBANDS` block that
+    # exists in a SIBLING branch of this script's lineage and not here, so it never landed and the run
+    # died on KeyError 'cell_both_right' after the banks were built.
+    for k4 in cell:
+        out[f'cell_{k4}'] = {**_en(cell[k4]['l'], cell[k4]['p']), 'n': cell[k4]['n']}
+    assert sum(cell[k4]['n'] for k4 in cell) == out['mech_cov']['n'], \
+        'the 2x2 cells do not partition the covered arm'
     assert out['mech_cov']['n'] + out['mech_unc']['n'] == tot['n'], \
         'the mechanism split does not partition the scored positions'
     return out
