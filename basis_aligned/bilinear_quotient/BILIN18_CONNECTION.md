@@ -56729,3 +56729,48 @@ data — §1965 by pooling, §1961's "flat" by the one-step-error rule — and i
 needed were already on disk. **The remaining 2-of-3 conclusions in §1946–§1972 have not been re-read
 under pooling, and doing so costs no GPU.** The ones where skip1200 was a *supporting* vote are the ones
 at risk, and §1946–§1972 does not currently record which those are.
+
+## §1974 — the whole arc audited under pooling: only the negligible conclusions were ever at risk
+
+**No GPU.** `ops/pooling_audit.py` over every result artifact in the tree — §1973's open question. Rung 3.
+
+A paired difference pools exactly from per-role summary statistics, so the entire arc can be re-read from
+disk without re-running anything:
+`mean_pool = Σ nᵢmᵢ / N`, `sdᵢ = seᵢ√nᵢ`, `var_pool = [Σ(nᵢ−1)sdᵢ² + Σnᵢ(mᵢ−mean_pool)²] / (N−1)`.
+
+```
+  comparisons carrying three roles of paired statistics          190
+  where the 2-of-3 SIGN VOTE and the pooled sign DISAGREE           6   all |t| <= 0.51
+  "at risk" -- skip1200 supported the majority AND pooled |t| < 2  41
+  unambiguous at pooled |t| >= 10                                  40
+  of the 47 disagreeing-or-at-risk, involving a BUILD-level arm     0
+```
+
+> **The risk §1971 identified was real in principle and small in practice, and it is now measured rather
+> than assumed. Every one of the 47 problematic comparisons lives inside the α sweep (14), the tilt sweep
+> (3+3) or the tilt-compromise run (1) — the axes §1972 and §1973 already priced at 0.4% of the build's
+> margin and nothing, respectively. Not one involves a build-level arm.** The comparisons that decide the
+> build — deployed against converged, the map ranks, the allocations — are among the 40 at pooled
+> |t| ≥ 10, where a half-sized role cannot change the answer.
+
+> **And the six genuine vote-versus-pooling disagreements are all inside the noise**, |t| ≤ 0.51 — sign
+> flips on differences of 0.016 to 0.116 milli-nats. **A vote over unequal roles disagrees with the
+> evidence exactly where there is no evidence.** That is reassuring rather than alarming, and it is the
+> opposite of what §1965 looked like: there the vote passed a *cheapness* bar while the pooled evidence
+> said "worse", which is a different failure and the one that actually cost a published claim.
+
+> **What this closes.** §1971 found the roles are not interchangeable; §1972 built the pooled instrument;
+> §1973 used it to overturn §1965 and price the tilt line; §1974 checks whether anything else moves. **It
+> does not.** The arc's structural conclusions stand as published, and the ones that were vulnerable to
+> the voting scheme were, without exception, the ones too small to matter.
+
+**Method note.** The audit reads 190 comparisons out of artifacts written across §1935–§1973 by both the
+hand-forked and declarative forms, which is only possible because every one of them recorded per-role
+`mean`, `se` and `n` rather than a bare verdict. **Recording the margin rather than the boolean is what
+made a retrospective re-analysis possible at zero cost** — the house rule that has been in the wake
+prompt since before this arc ("report MARGINS not booleans") paid for itself here.
+
+**Open.** `ops/pooling_audit.py` runs over the whole tree in seconds and is not wired to anything. **The
+same arithmetic could gate a section at write-up time** — refusing to let a 2-of-3 be published without
+its pooled t alongside — which is the §1972 lesson (significance to believe, magnitude to buy) turned
+into a mechanism rather than a resolution.
