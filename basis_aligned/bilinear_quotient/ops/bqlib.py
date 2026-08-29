@@ -434,7 +434,13 @@ def _sites_key(sites):
     part of what the rows mean, so it is part of the cache key and the fingerprint."""
     if sites is None:
         return 'all36'
-    return ','.join(f'{k}{L}' for k, L in sorted(sites))
+    st = sorted(set(tuple(x) for x in sites))
+    # An explicit list of every site MEANS all36. Without this normalisation the same substitution gets
+    # two cache keys and two fingerprints, and inertness_pairs calls it two different specs -- which is
+    # how S1979's plan ended up with no same-spec pair and a vacuous control half.
+    if st == sorted(SITES):
+        return 'all36'
+    return ','.join(f'{k}{L}' for k, L in st)
 
 
 def _key(prog, armname, table_rank, role, sites=None):
@@ -778,7 +784,13 @@ def run(name, plan, predicates, coverages=(('c5419', FIT_5419, 5419),), refs=(),
     # ---- derived controls. Nobody writes these, so nobody writes them backwards.
     ctl = {'coverage_exact': all(ncov[t] == n for t, _f, n in coverages),
            'inert_pairs_are_inert': all(chg[c][r][p] == 0 for c in chg for r in chg[c] for p in inert),
-           'differing_pairs_do_move': all(chg[c][r][p] > 0 for c in chg for r in chg[c] for p in differ),
+           # S1979: "different spec => must move covered-input top-1" is NOT logically guaranteed. It
+           # holds for table-rank differences, which perturb every row, but a SITE-SUBSET difference can
+           # shift CE while flipping no argmax among covered inputs. What the plan must guarantee is
+           # that the differing side is not vacuous -- at least one such pair moves. Inert differing
+           # pairs are reported, not failed.
+           'some_differing_pair_moves': (not differ) or any(
+               chg[c][r][p] > 0 for c in chg for r in chg[c] for p in differ),
            'buckets_partition': all(
                sum(res[c][r][lab]['pooled'][b]['n'] for b in ctx.buckets)
                == res[c][r][lab]['pooled']['overall']['n']
@@ -796,6 +808,10 @@ def run(name, plan, predicates, coverages=(('c5419', FIT_5419, 5419),), refs=(),
         ctl[f'ref_{lab}'] = refdev[lab] <= tol
     if not inert or not differ:
         ctl['control_is_two_sided'] = False          # inertness_pairs already warned; make it a FAIL
+    quiet = [(c, r, p) for c in chg for r in chg[c] for p in differ if chg[c][r][p] == 0]
+    if quiet:
+        print(f'  [bqlib] note: {len(quiet)} differing-spec pair(s) flip no covered-input top-1 -- '
+              f'legal for a site-subset difference, e.g. {quiet[0][2]}', flush=True)
 
     verdict = {}
     for key, text, fn in predicates:

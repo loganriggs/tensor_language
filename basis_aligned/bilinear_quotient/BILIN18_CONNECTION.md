@@ -56985,3 +56985,60 @@ factor of four** — so the damage is not in "mixing" symmetrically, it is speci
 reading context-free rows**. The reverse mix is nearly the whole program's price and no worse.
 **Which layer's live attention does the damage is one sweep away and would say whether §1765's
 consistency requirement is global or local.**
+
+## §1979 — the 3.6× penalty is three layers: live attention at 6–8 reading compiled rows carries 89% of it
+
+`ops/where_the_mixing_hurts.py`, **4.6s** warm (122.5s cold), **DISCOVERY ONLY**, 5,419, rung 3 —
+§1978's open question. **pred_a False | pred_b True | pred_c True | derived controls True**, after two
+control repairs and a real cache bug (below).
+
+Every arm substitutes all 18 MLPs and differs only in how many **attention** sites are also substituted,
+bottom-up: k = 0 is §1978's catastrophic `mlp_only`, k = 18 is the compiled program.
+
+```
+  cost against the live model, nats, 5,419
+            k=0     k=3     k=6     k=9    k=12    k=15    k=18
+  skip7000 10.326  10.343   9.266   2.596  2.476   2.489   2.808
+  skip11000 10.582 10.599   9.531   2.760  2.665   2.656   2.979
+  skip1200 10.211  10.228   9.141   2.533  2.438   2.422   2.702
+  step      -0.017  +1.077  +6.670  +0.120 -0.012  -0.319          (skip7000; the fall per step)
+```
+
+> **pred_b and pred_c PASSED, and the answer is sharp: the k = 6 → 9 step recovers 6.61–6.77 nats, which
+> is 88–89% of the entire fall, on 3 of 3 roles.** Compiling attention at **layers 6, 7 and 8** removes
+> nearly the whole 3.6× penalty. **§1765's consistency requirement is local, not global** — it is
+> specifically *live attention in the middle third reading context-free rows* that is catastrophic, and
+> the other fifteen attention layers reading the same rows cost almost nothing.
+
+> **pred_a FAILED and the non-monotonicity is informative twice over.** Compiling attention layers 0–2
+> makes things **very slightly worse** (−0.017 on all three roles), and compiling the **last three**
+> (k = 15 → 18) makes it worse by **0.28–0.32 nats**. **The fully compiled program is not the best point
+> on its own curve**: k = 12 and k = 15 beat k = 18 by roughly a tenth of a nat on every role. §1765
+> compiles all 36 sites for definitional reasons — the program must be a pure function of the current
+> token — and that definition costs about 0.3 nats against the best partial point, which nobody had
+> measured because no section before §1978 could express a partial one.
+
+> **§1891 and §1908 found the tracking the program destroys is late attention, and §1978 found early
+> layers cost more to compile. Both are consistent with this and neither predicted it**: the damage from
+> *mixing* is in the middle, layers 6–8, which is neither the late attention that carries the tracking
+> nor the early layers whose compilation starves everything downstream.
+
+**Derived controls TRUE, after two repairs that were both my errors and one that was a real bug:**
+- The control asserted **"different spec ⇒ must move covered-input top-1"**. That holds for a table-rank
+  difference, which perturbs every row, but a **site-subset** difference can shift CE while flipping no
+  argmax among covered inputs — which is what happened. The differing side now requires only that **one**
+  such pair moves and reports the quiet ones; **the inert side stays exact**, since §1765/§1936 do
+  guarantee that half and it is the one that catches a fallback leaking into covered rows.
+- `_sites_key` hashed an **explicit list of all 36 sites** differently from `None`, though they mean the
+  same substitution. **That is two cache entries and two fingerprints for one object**, and it is why
+  this plan had no same-spec pair and a vacuous control half. Normalised, with tests for the full list,
+  for ordering and for duplicates.
+
+Fifty-eighth clean reading.
+
+**Open.** k = 12 and k = 15 beat the fully compiled program by ~0.3 nats, so **the best point on this
+curve is not the one §1765 defines.** A program that leaves three attention layers live is no longer a
+pure function of the current token and every §1765-derived result — the exact zero cross-position
+Jacobians, the covered-input inertness the controls rest on — would not hold for it. **Whether that 0.3
+nats is worth the entire analytical frame is the first genuinely architectural question this thread has
+faced since §1765 itself, and it is a decision rather than an experiment.**

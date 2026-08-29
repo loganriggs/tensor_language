@@ -117,6 +117,19 @@ def test_paired_t_arithmetic():
     check('paired_t: counts every position and every nonzero', p['n'] == 4 and p['n_nonzero'] == 4)
 
 
+def test_inert_side_of_the_control_is_still_strict():
+    """S1979 relaxed the DIFFERING side (a site-subset change can flip no covered-input argmax). The
+    INERT side must stay exact -- S1765/S1936 guarantee it, and it is the half that catches a fallback
+    leaking into covered rows."""
+    src = open(os.path.join(HERE, 'bqlib.py'), errors='replace').read()
+    check('control: same-spec pairs are still asserted EXACTLY inert',
+          "chg[c][r][p] == 0 for c in chg for r in chg[c] for p in inert" in src)
+    check('control: the differing side asks only that ONE pair moves',
+          "'some_differing_pair_moves'" in src)
+    check('control: a vacuous side is still a hard FAIL',
+          "ctl['control_is_two_sided'] = False" in src)
+
+
 def test_site_subsets_change_the_cache_key():
     """S1977: an arm may substitute only SOME of the 36 sites. The subset is part of what the rows mean,
     so two arms differing only in it must not collide in the cache -- and must not be treated as
@@ -124,6 +137,10 @@ def test_site_subsets_change_the_cache_key():
     prog = object.__new__(B.Program)
     prog.fit_path, prog.ncov = B.FIT_5419, 5419
     prog.digest = 'x' * 32
+    check('site subset: an explicit full list normalises to all36',
+          B._sites_key(list(B.SITES)) == B._sites_key(None) == 'all36')
+    check('site subset: order and duplicates do not matter',
+          B._sites_key([('mlp', 1), ('mlp', 0)]) == B._sites_key([('mlp', 0), ('mlp', 1), ('mlp', 0)]))
     all36 = B._key(prog, 'map512', None, 'skip7000', None)
     mlps = B._key(prog, 'map512', None, 'skip7000', [('mlp', i) for i in range(18)])
     check('site subset: a different subset gives a different cache key', all36 != mlps)
@@ -323,7 +340,7 @@ def test_gate_accepts_the_library_itself():
           out.stdout.strip()[-120:])
 
 
-for fn in (test_site_subsets_change_the_cache_key, test_no_build_level_comparison_is_vote_dependent, test_pooled_t_weights_by_evidence, test_every_ref_path_exists, test_ref_refuses_to_guess_a_coverage, test_rk_key_is_order_independent, test_inertness_pairs_splits_by_table_rank,
+for fn in (test_inert_side_of_the_control_is_still_strict, test_site_subsets_change_the_cache_key, test_no_build_level_comparison_is_vote_dependent, test_pooled_t_weights_by_evidence, test_every_ref_path_exists, test_ref_refuses_to_guess_a_coverage, test_rk_key_is_order_independent, test_inertness_pairs_splits_by_table_rank,
            test_inertness_pairs_warns_when_a_side_is_vacuous, test_ref_reads_published_triples,
            test_paired_t_arithmetic, test_cost_matches_the_published_closed_form,
            test_arm_names_parse_the_way_the_grammar_says, test_gate_fixtures,
