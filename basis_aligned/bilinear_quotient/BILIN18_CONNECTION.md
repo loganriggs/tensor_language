@@ -51392,6 +51392,29 @@ reaches +0.17427: **the input alone is worth 0.421 nats** once the rank is there
 > **77.7% / 75.2% / 74.5% of the deployed fallback's loss is recoverable by a build that needs no new
 > data, no new inference-time computation, and one changed hyper-parameter plus a changed map input.**
 
+**AND THE LARGER HALF OF IT IS FREE.** The figures above bundle two changes — rank 64 → 512 (which costs
+37.16M) and embedding → stream (which costs **nothing**: the map is 36 × rank × 2 × D whatever it is fed,
+and the stream is computed at build time, not inference). Separating them on the **whole program's
+all-position CE**, reconstructed exactly from this run's stored components:
+
+```
+                     MAP r512    STREAM r512   iso-cost gain      vs the DEPLOYED r64 build
+    skip7000          5.96702      5.86541       +0.10161                 +0.14626
+    skip11000         5.93645      5.81995       +0.11650                 +0.16482
+    skip1200          5.96095      5.85026       +0.11069                 +0.15139
+```
+
+> **At identical storage — 42.467M of map either way — feeding the map the length-1 stream instead of the
+> token embedding buys 0.102 / 0.117 / 0.111 all-position nats for nothing.** That alone is **1.8x
+> §1861's entire iso-cost improvement** (0.056), which was the best whole-program result in the arc and
+> cost a rank increase to get. The remaining 0.045 / 0.048 / 0.041 is what the rank half adds, and that
+> half is the part with a price.
+
+**These are measured, not projected.** Each `curve` entry comes from scoring the full 36-site program
+with all hooks installed, so the all-position figures above are the program's, not a per-position
+recovery scaled by a fraction. §1846 is the reason to say so: there a single-site gain **reversed** in
+the whole program, and a projected number would not have caught it.
+
 **pred_c PASSED at 0.00e+00 for a seventh time**, across a seventh distinct manipulation of the uncovered
 rows. **pred_d PASSED**, and this time with the anchor stated at its rank: the MAP arm reproduces §1870's
 published rank-512 row (+0.59560 / +0.67209 / +0.67172), which is the constant §1875's pred_d got wrong.
