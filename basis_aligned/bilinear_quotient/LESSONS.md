@@ -2008,3 +2008,25 @@ at §1788 (top-1), §1789 (buckets) and §1936 (input coverage) without anyone g
 selecting comparison down as a *decision*, note which instrument decided it, and re-open it when that
 instrument stops being the one you report. Cf. LESSON 75: the losing arm was literally still being
 computed in every script and thrown away.
+
+## LESSON 77 — CE and top-1 cannot agree about a component that fails catastrophically on a small subset
+
+§1938 measured both instruments on three fallback forms in one build. **The orderings are exact
+reversals**: CE ranks map512 > map64 > nn, top-1 ranks nn > map512 > map64. The cause is not noise and not
+a near-tie — it is a structural property of the two objectives. On uncovered inputs with an unseen target
+the neighbour's CE is **+1.06 to +1.16 nats worse** than the map's, because it emits a real token's
+distribution which puts near-zero mass on a token no fit row contains, and CE charges the log of that.
+**Top-1 charges at most one position for the same failure**, and the neighbour still scores 5.6–7.7%
+there. That bucket is ~5–7% of scored positions and it reverses the entire pooled CE ranking while
+leaving the top-1 ranking untouched.
+
+**The rule.** Whenever one arm can fail *unboundedly* on a subset the other cannot — an impossible
+target, a zero-mass token, a division by something the other arm never divides by — CE and accuracy will
+disagree, and which one is "right" is a question about the objective, not about the model. Report both,
+and say which objective a selection was made under. This thread denominated everything in M/nat from
+§1747, and that denominator, not any error, is what put the map into the deployed build.
+
+Corollary for predicates: my pred_c here was "the CE penalty is the unseen bucket, ≥0.05 nats". It passed
+at **+1.12 nats — twenty times the bar.** A bar that low did not distinguish "localised" from "the entire
+effect and then some". When a mechanism predicts *concentration*, the bar should be a share of the total
+deficit, not an absolute floor.

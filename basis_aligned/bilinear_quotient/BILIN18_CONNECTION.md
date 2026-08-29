@@ -54756,3 +54756,60 @@ and top-1 have never been measured for these three arms **in the same build on t
 rests on a cross-run comparison, which is exactly the shape LESSON 71 warns about. Measuring both, on
 both input classes, is a second-class confirmation with a different instrument and it either establishes
 the inversion or dissolves it.
+
+## §1938 — CE and top-1 rank the three fallbacks in OPPOSITE orders, in one build, and the disagreement is one bucket
+
+`ops/both_instruments_same_build.py`, 92.6s, **DISCOVERY ONLY**, 5,419 coverage, **rung 2** — a
+second-class confirmation of §1937 with a different instrument. **All four predictions TRUE.**
+
+§1937's inversion rested on comparing §1870's CE to §1937's top-1 **across two scripts** — the cross-run
+two-instrument comparison LESSON 71 warns about. This measures both, in one build, on the same positions.
+
+```
+                     UNCOVERED arm            POOLED (all positions)      uncovered UNSEEN bucket
+              top-1        CE            top-1         CE                        CE
+    nn      14.68/14.25/13.90  5.96962/6.06522/6.14240   14.17/14.66/14.24  6.01897/6.00091/6.00733   9.81/9.59/9.47
+    map64   12.14/12.63/11.44  5.93936/6.00172/6.11891   13.55/14.25/13.64  6.01167/5.98477/6.00165   9.23/8.94/8.93
+    map512  13.05/13.10/11.75  5.75421/5.81156/5.95066   13.77/14.37/13.72  5.96702/5.93645/5.96095   8.68/8.42/8.41
+```
+
+> **pred_a PASSED as a conjunction, 3/3 on both halves: the inversion is real inside one build.** The
+> neighbour wins the uncovered arm's top-1 on 3/3 (+2.54 / +1.62 / +2.47pp over map64) **and** loses its
+> CE on 3/3 (+0.030 / +0.064 / +0.023 nats). Not a cross-run artefact. **The full orderings are exact
+> reversals: CE ranks map512 > map64 > nn; top-1 ranks nn > map512 > map64.** The best build under one
+> objective is the worst under the other.
+
+> **pred_b PASSED 3/3, and the reproduction is better than the bar deserved.** The pooled CE gap
+> nn − map64 came in at **+0.00730 / +0.01614 / +0.00568 nats** against §1870's published **+0.0073 /
+> +0.0161 / +0.0057** — agreement to every published digit, from a different script, a different arm
+> construction and a different scoring path. §1870's CE measurement is confirmed exactly; nothing about
+> it was wrong.
+
+> **pred_c PASSED 3/3 at roughly twenty times its bar, and it explains the whole thing.** On uncovered
+> inputs with an **unseen** target the neighbour's CE exceeds map512's by **+1.124 / +1.162 / +1.059
+> nats** against a 0.05-nat bar. **The neighbour's entire CE deficit is the unseen bucket**, exactly where
+> §1937's mechanism says it must be: the neighbour emits a real covered token's distribution, which puts
+> near-zero mass on a token no fit row contains, and CE charges the log of that. Top-1 barely registers
+> the same failure — the neighbour still scores 7.7 / 6.9 / 5.6% there — because top-1 cannot charge more
+> than one position, while CE is unbounded below.
+
+**pred_d PASSED**: coverage exactly 5,419; all three arms inert at covered inputs in all three pairwise
+comparisons; counts partition; the top-1 figures reproduced §1937's **published** uncovered-input
+overalls to a max deviation of **0.004pp**; and the **live per-cell top-1 AND CE identical across all
+three arms** — twenty-fourth clean reading, now on two instruments at once.
+
+**What this settles, and what it costs.** Priced as the cost arc has priced everything since §1747, the
+nn → map64 step buys **715 / 323 / 919 M/nat** and map64 → map512 buys **832 / 769 / 913 M/nat** —
+comparable, and §1870 was right to take them. Priced on top-1, the **same +5.218M step is a loss of
+0.61 / 0.41 / 0.60pp.** **The compiled-program cost arc has been denominated in M/nat since §1747, and
+that denominator, not an error, is what put the map in the deployed build.** §1870, §1789, §1931 and
+§1933–§1936 are correct under their own objective and wrong under the other; none of them is retracted
+and all of them are now scoped by objective rather than by scope of data.
+
+**Open, and it is deployable.** LESSON 74 forbids the obvious hybrid: the bucket is a property of the
+**target** and the fallback row must be chosen per **input token**. But the neighbour's failure mode has
+an input-side signature — a token whose nearest covered neighbour is *far* in output-distribution space
+is exactly the token whose neighbour row will be wrong. That similarity is already computed when the
+neighbour index is built and thrown away. **Routing per input token on the neighbour's cosine — take the
+neighbour row when it is close, the map row when it is not — is the first hybrid this thread can actually
+build, and it has never been tried.**
