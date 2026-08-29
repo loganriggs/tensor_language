@@ -381,6 +381,41 @@ def test_result_semantic_replay_rejects_missing_arm_and_bad_join():
         )
 
 
+def test_receipt_semantic_replay_binds_all_terminal_artifacts():
+    result = _valid_result()
+    receipt = {
+        "schema": "block3_consequence_family_f_v1_receipt",
+        "status": "fit_complete_receipt_last_no_evaluation_opened",
+        "authority_sha256": "a" * 64,
+        "authority_file_sha256": "b" * 64,
+        "programs_file_sha256": "c" * 64,
+        "results_file_sha256": "d" * 64,
+        "source_closure_sha256": "e" * 64,
+        "prior_artifact_binding_sha256": "f" * 64,
+        "row_binding_sha256": "1" * 64,
+        "checkpoint_weights_sha256": "2" * 64,
+        "call_ledger": result["call_ledger"],
+        "validation_rows_loaded": 0, "final_rows_loaded": 0,
+        "authorized_for_validation": False, "authorized_for_final": False,
+        "authorized_for_global_ledger_credit": False, "elapsed_seconds": 2.0,
+    }
+    kwargs = {
+        "expected_authority_sha256": "a" * 64,
+        "authority_file_sha256": "b" * 64,
+        "programs_file_sha256": "c" * 64,
+        "results_file_sha256": "d" * 64,
+        "source_sha256": "e" * 64,
+        "prior_sha256": "f" * 64,
+        "rows_sha256": "1" * 64,
+        "checkpoint_weights_sha256": "2" * 64,
+        "expected_call_ledger": result["call_ledger"],
+    }
+    runner.semantic_validate_receipt(receipt, **kwargs)
+    receipt["results_file_sha256"] = "9" * 64
+    with pytest.raises(RuntimeError, match="joins"):
+        runner.semantic_validate_receipt(receipt, **kwargs)
+
+
 def test_resource_ceiling_aborts_during_execution(monkeypatch):
     monkeypatch.setattr(runner.time, "time", lambda: runner.MAX_WALL_SECONDS + 1.0)
     monkeypatch.setattr(runner.torch.cuda, "is_available", lambda: False)

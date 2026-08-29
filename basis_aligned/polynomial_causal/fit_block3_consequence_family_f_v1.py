@@ -507,7 +507,9 @@ def _affine_write(
     features = left * right
     decoder = program.decoder * scale.to(program.decoder)
     bias = program.bias + correction.to(program.bias)
-    return F.linear(features, decoder, bias)
+    output = F.linear(features, decoder)
+    shape = (1,) * (output.ndim - 1) + (program.width,)
+    return output + bias.reshape(shape)
 
 
 def fit_affine_arm(

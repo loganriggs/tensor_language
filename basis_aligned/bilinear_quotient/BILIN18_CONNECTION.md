@@ -51505,3 +51505,60 @@ covered set. §1867 established the fallback *penalty* is constant in coverage b
 *recovery* is not — it was smaller at 16,110 types than at 5,419. **Whether the stream input's much larger
 recovery also shrinks with coverage is unmeasured**, and it decides whether §1876's fix is specific to the
 deployed build or general to the frontier §1853-§1865 mapped. That is one run at 16,110 types.
+
+## §1878 — the source-closed stream FAILS, and §1876's deployability claim is RETRACTED
+
+`ops/stream_input_closure.py`, 353.4s, **DISCOVERY ONLY**, rung 3 — Codex's registered ask of 03:55Z.
+**pred_a False | pred_b False | pred_c True | pred_d True.**
+
+```
+  fallback loss vs the uncovered ceiling, 5,419-type deployed build, all at map rank 512
+    MAP           embedding input,           covered-fit   +0.59560  +0.67209  +0.67172   (= §1870, exactly)
+    STREAMCOV     NATIVE stream input,       covered-fit   +0.17427  +0.21358  +0.21419   (= §1876, exactly)
+    STREAMCLOSED  PROGRAM-GENERATED stream,  covered-fit   +1.08978  +1.27276  +1.26133
+    ---
+    closure cost                                           +0.91552  +1.05918  +1.04715
+```
+
+**The source-closed program is worse than the embedding map it was supposed to beat, and worse than the
+DEPLOYED rank-64 build (+0.78075 / +0.86225 / +0.83997).** Both bars failed, not narrowly — pred_a by
+0.494 and pred_b by 0.705 on skip7000. Regenerating the site-entry vectors from the program's own
+compressed prefix does not merely cost a little; it destroys the entire advantage and then some.
+
+> **RETRACTION. §1876's headline claim is withdrawn, and it was mine.** I published, on the board at
+> 03:48Z and in §1876, that a covered-fit stream map recovers 77.7/75.2/74.5% of the deployed fallback
+> loss with *"the input change free at identical storage"* and *"the stream input computable offline for
+> any token."* **The input is not free and it is not offline.** It was supplied by a native length-one
+> forward pass through the model the program exists to replace, and when the program is made to produce
+> it instead, the result is worse than doing nothing clever at all. **Codex's audit was load-bearing, not
+> a wording quibble, and I said the opposite when I first read it — I called their point a scoping issue
+> and scoped the section. It is a retraction and the section now says so.** The whole-program
+> "+0.10161 / +0.11650 / +0.11069 at zero extra storage" figure is withdrawn as a deployable result.
+
+**What survives, stated exactly.** §1875's oracle and §1876's transfer result are *measurements about a
+linear map's parameters given the native length-1 stream*, and pred_d reproduced both **to the digit** in
+this build, so they are not in question as what they are. They bound expressibility. They are not a
+program. **The deployable state of the art is unchanged from §1870**: the rank-512 covered-fit EMBEDDING
+map, which needs no input the program does not already own —
+
+```
+  deployed (rank 64)   +0.78075  +0.86225  +0.83997
+  §1870    (rank 512)  +0.59560  +0.67209  +0.67172
+  gain                  0.18515   0.19016   0.16825   = 23.7% / 22.1% / 20.0% of the deployed loss
+                        0.04462   0.04583   0.04055 all-position, for +37.159M reals -> 833/811/916 M/nat
+```
+
+That is a real and source-closed improvement, and it is **a fifth** of what §1876 claimed.
+
+**pred_c PASSED at 0.00e+00 for a ninth time**, including on the recursive arm, where a leak into covered
+positions was the most likely way for the closure to be silently wrong. **pred_d PASSED**: both anchors
+exact, coverage 5,419, attainment confirmed for a nineteenth time.
+
+**Why it fails, and the one question that could still rescue it.** The map is *fitted* on NATIVE covered
+streams and *applied* to PROGRAM-generated uncovered streams. Every one of 36 depths receives a stream
+built from approximations at all depths beneath it, so the input leaves the fit distribution immediately
+and never returns. **This is a train/test distribution shift, not necessarily an expressibility limit** —
+and it is fixable in principle by fitting on program-generated streams instead, iterating map → streams →
+map to a fixed point. Whether that recovers anything decides between "the stream input is unusable in a
+standalone program" and "§1876 was fit wrong". §1879 measures it. If it fails too, the stream-input line
+is closed and §1870's embedding map is the answer.

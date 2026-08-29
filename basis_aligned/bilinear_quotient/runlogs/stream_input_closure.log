@@ -1,1 +1,40 @@
 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+SOURCE-CLOSED STREAM INPUT | 5419 types, program-generated site-entry vectors, rank 512 | settled program (context-free tables + output-NN fallback + rank-64 map) | DISCOVERY ONLY
+
+  per-site norm calibration (live mean / row mean), measured on the LIVE model:
+    attn L0:  2.71 L1:  2.49 L2:  2.26 L3:  2.13 L4:  4.37 L5:  1.00 L6:  1.02 L7:  3.61 L8:  3.59 L9:  4.83 L10:  3.80 L11:  4.49 L12:  6.72 L13:  6.39 L14:  7.07 L15:  6.33 L16:  5.70 L17:  5.59
+    mlp  L0:  0.88 L1:  0.42 L2:  0.61 L3:  0.49 L4:  0.10 L5:  0.39 L6:  0.52 L7:  1.66 L8:  2.04 L9:  1.32 L10:  2.33 L11:  1.05 L12:  1.91 L13:  1.26 L14:  1.66 L15:  1.19 L16:  1.13 L17:  1.21
+
+  arms  (47s)
+  all_substituted      skip7000 13.55%  skip11000 14.25%  skip1200 13.64%
+  all_sub_scaled       skip7000 12.16%  skip11000 12.81%  skip1200 12.10%
+  live_model           skip7000 39.32%  skip11000 42.35%  skip1200 38.88%
+
+  arms  (111s)
+  all_substituted        skip7000 13.55%  skip11000 14.25%  skip1200 13.64%
+  live_model             skip7000 39.32%  skip11000 42.35%  skip1200 38.88%
+
+  arms  (124s)
+  B0_raw                 skip7000 23.20%  skip11000 25.38%  skip1200 23.26%
+  B0_seq                 skip7000 30.25%  skip11000 32.59%  skip1200 29.11%
+  uncovered-token ceiling built for 10455 token types
+
+  coverage 5419 types (1.00x §1834); ceiling CE skip7000 6.03465  skip11000 5.97900  skip1200 5.96423 (146s)
+  oracle target rows built for 10455 uncovered token types (147s)
+    rank MAP   covered skip7000  6.03465 (+-0.00000)  skip11000  5.97900 (+-0.00000)  skip1200  5.96423 (+-0.00000)   (191s)
+    rank STREAMCOV covered skip7000  6.03465 (+-0.00000)  skip11000  5.97900 (+-0.00000)  skip1200  5.96423 (+-0.00000)   (272s)
+    rank STREAMCLOSED covered skip7000  6.03465 (+-0.00000)  skip11000  5.97900 (+-0.00000)  skip1200  5.96423 (+-0.00000)   (353s)
+
+  FALLBACK LOSS: fitted on COVERED (deployed) vs on UNCOVERED (oracle), 5419 covered types:
+    MAP      skip7000 +0.59560  skip11000 +0.67209  skip1200 +0.67172
+    STREAMCOV skip7000 +0.17427  skip11000 +0.21358  skip1200 +0.21419
+    STREAMCLOSED skip7000 +1.08978  skip11000 +1.27276  skip1200 +1.26133
+    generalisation share of the deployed loss: skip7000 70.7%  skip11000 68.2%  skip1200 68.1%
+
+  the CLOSURE survives -- beats §1870 rank-512 embedding -> False  skip7000 +1.08978 vs +0.59560  skip11000 +1.27276 vs +0.67209  skip1200 +1.26133 vs +0.67172
+  and keeps HALF of §1876 native advantage -> False  skip7000 +1.08978 vs bar +0.38494  skip11000 +1.27276 vs bar +0.44283  skip1200 +1.26133 vs bar +0.44295
+  and the COVERED arm is untouched (<1e-6) -> True  max spread 0.00e+00
+  MAP reproduces §1870 and STREAMCOV reproduces §1876, coverage 5419, attainment True -> control True
+  CLOSURE COST (closed - native §1876): skip7000 +0.91552  skip11000 +1.05918  skip1200 +1.04715
+
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/stream_input_closure_results.json (353.4s)
