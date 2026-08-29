@@ -2049,3 +2049,25 @@ run already has, it is not a caveat — it is a **missing predicate**, and the r
 it. "I have not put an error bar on it" in a published section is a confession, not a disclosure. The
 3/3-in-sign pattern is specifically what a near-zero effect on three roles looks like; sign agreement
 across roles is not evidence of size.
+
+## LESSON 79 — a guard written for one action, applied to a different one, caused the largest loss on the box
+
+`ops/enqueue.sh` refused to queue an experiment while the GPU was busy. The guard came from the standing
+rule *"never launch onto a busy GPU"* — but **enqueue does not launch anything.** `ops/bqrunner.sh` pops
+one line at a time in a single loop and IS the serialization point; appending while a run is in flight is
+precisely what a queue is for. The guard's only effect was to make queueing ahead **impossible**, so the
+pattern was forced to be: run one, wait, write the next, queue it, run one.
+
+**What it cost, measured.** Over a 48 h window: GPU busy 22.7 h (47%), agent turnaround 17.1 h (36%), and
+**long idles 17.4 h (36%)** — a lane sitting empty. Two of the three biggest buckets are the GPU waiting
+for me, and the tool was enforcing that it must.
+
+**Why it survived.** The guard was correct-looking, cheap, and had a good comment citing a real lesson
+(LESSON 61, about chaining commands whose failure does not propagate). Nobody re-derives the purpose of a
+passing check. It only surfaced because I was profiling wall-clock rather than reading code — the numbers
+pointed at idle, idle pointed at queue depth, and queue depth pointed at the guard.
+
+**The rule.** A guard states a precondition for a specific ACTION. When the same guard is copied onto a
+different action, re-derive it from scratch: what goes wrong if it is absent, *here*? "Don't run two jobs
+on one GPU" is a fact about running, not about appending a line to a file. And profile wall-clock, not
+just code — a check that is individually correct can still be the system's dominant cost.

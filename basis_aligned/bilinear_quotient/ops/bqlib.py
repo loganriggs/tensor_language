@@ -109,6 +109,7 @@ class Program:
       'map<R>'               rank-R embedding->row map for uncovered types (S1870), 36*R*2*D
       'nn<P>'                cosine-routed: the top P% of uncovered types by neighbour cosine take the
                              neighbour row, the rest take the rank-64 map row (S1939)
+      'nn<P>m<R>'            the same, with the routed-out remainder on a rank-R map instead
       ('table', R, arm)      the same, with every table truncated to rank R first
     """
 
@@ -219,8 +220,15 @@ class Program:
                 fr[self.unc] = tc[st][self.nnrow[self.unc]]
                 out[st] = fr
             return out
-        if name.startswith('nn') and name[2:].isdigit():          # cosine-routed hybrid, e.g. nn75
-            frac = int(name[2:]) / 100.0
+        if name.startswith('nn') and ('m' in name[2:] or name[2:].isdigit()) and name != 'nn':
+            # nn<P>      route the top P% of uncovered types by cosine to the neighbour, rest to map64
+            # nn<P>m<R>  same, but the routed-out remainder takes a rank-R map instead
+            spec = name[2:]
+            pstr, mrank = (spec.split('m', 1) if 'm' in spec else (spec, '64'))
+            if not (pstr.isdigit() and mrank.isdigit()):
+                raise ValueError(f'unknown arm {name!r}')
+            frac = int(pstr) / 100.0
+            mrank = int(mrank)
             su = self.nnsim[self.unc]
             tau = torch.quantile(su.double(), 1.0 - frac).float()
             usenn = (su >= tau)
@@ -229,7 +237,7 @@ class Program:
                 fr = torch.zeros(V, D, device=DEV)
                 fr[self.tk] = tc[st]
                 fr[self.unc] = torch.where(usenn.unsqueeze(1), tc[st][self.nnrow[self.unc]],
-                                           self._map(tc, st, 64, table_rank))
+                                           self._map(tc, st, mrank, table_rank))
                 out[st] = fr
             return out
         if name.startswith('map'):
@@ -251,7 +259,9 @@ class Program:
         elif name.startswith('map'):
             fb = 36 * int(name[3:]) * 2 * D
         else:
-            fb = 36 * 64 * 2 * D + int(self.unc.numel()) * 2
+            spec = name[2:]
+            mr = int(spec.split('m', 1)[1]) if 'm' in spec else 64
+            fb = 36 * mr * 2 * D + int(self.unc.numel()) * 2
         return tab + fb
 
 
