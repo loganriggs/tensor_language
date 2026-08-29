@@ -11,6 +11,7 @@ from simultaneous_shared_output_rrr import (
     grouped_map_price,
     map_price,
     penalized_objective_from_statistics,
+    scale_relative_ridge,
 )
 
 
@@ -165,6 +166,30 @@ def test_equal_storage_allocator_rejects_nonprefix_spectra_and_inexact_budget():
             output_dim=2,
             shared_rank=1,
         )
+
+
+def test_scale_relative_ridge_matches_deployed_value_and_row_replication_invariance():
+    assert math.isclose(
+        scale_relative_ridge(5419, 1152, 0.01),
+        0.047039930555555554,
+        rel_tol=0.0,
+        abs_tol=1e-17,
+    )
+    _, _, grams, crosses, _, _ = _synthetic()
+    ridge = scale_relative_ridge(80, 5, 0.01)
+    original = fit_shared_output_basis(grams, crosses, rank=2, ridge=ridge)
+    copies = 3
+    replicated = fit_shared_output_basis(
+        [copies * gram for gram in grams],
+        [copies * cross for cross in crosses],
+        rank=2,
+        ridge=scale_relative_ridge(copies * 80, 5, 0.01),
+    )
+    torch.testing.assert_close(original["projector"], replicated["projector"])
+    for expected, observed in zip(
+        original["coefficient_maps"], replicated["coefficient_maps"], strict=True
+    ):
+        torch.testing.assert_close(expected, observed)
     with pytest.raises(ValueError, match="cannot be matched"):
         allocate_equal_storage_independent_ranks(
             [torch.tensor([2.0, 1.0], dtype=torch.float64)] * 2,

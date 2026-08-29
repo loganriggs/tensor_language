@@ -86,6 +86,24 @@ class EqualStorageIndependentAllocation:
     selected_marginal_merit: float
 
 
+def scale_relative_ridge(n_rows: int, input_dim: int, relative_ridge: float) -> float:
+    """Return the row-replication-invariant ridge used by the deployed map family.
+
+    Sufficient statistics are unnormalized sums.  Scaling ``lambda`` with
+    ``n_rows / input_dim`` means that exact replication of every fit row scales the
+    Gram, cross moment, and ridge by the same amount and leaves the fitted map fixed.
+    """
+    if type(n_rows) is not int or n_rows <= 0:
+        raise ValueError("n_rows must be a positive integer")
+    if type(input_dim) is not int or input_dim <= 0:
+        raise ValueError("input_dim must be a positive integer")
+    if not isinstance(relative_ridge, (int, float)) or not torch.isfinite(
+        torch.tensor(relative_ridge)
+    ) or relative_ridge <= 0:
+        raise ValueError("relative_ridge must be finite and positive")
+    return float(relative_ridge) * n_rows / input_dim
+
+
 def map_price(n_sites: int, input_dim: int, output_dim: int, rank: int) -> MapPrice:
     """Literal factor storage and dense multiply count for two map grammars."""
     for name, value in {

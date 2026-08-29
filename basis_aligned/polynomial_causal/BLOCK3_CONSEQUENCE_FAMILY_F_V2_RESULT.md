@@ -91,6 +91,22 @@ test it on new documents with finite positive/negative edits and matched control
 decide explicitly whether the goal is behavioral extraction or a locally faithful
 port.  It must not be relabeled as a Family-F validation success.
 
+### Post-outcome weight diagnostics
+
+These exact tensor comparisons are descriptive and do not change the registered
+decision.  At K512, the refitted decoder differs from the corresponding native Down
+columns by `1.066` native-decoder Frobenius norms.  Across columns, median directional
+cosine is `0.828` and median norm ratio is `1.680`; at K256 they are `0.747` and
+`2.023`.  Thus the refit is not a small scalar correction—it substantially rotates
+and amplifies the selected residual directions, consistent with its causal damage.
+
+The K512 Family-F support overlaps Family A in 258 of 512 gates (Jaccard `0.337`) and
+the fixed random support in 260 (Jaccard `0.340`).  Consequence selection is therefore
+not merely a small refinement of activation selection.  By contrast, the row-reversal
+and document-derangement null supports overlap in 505 of 512 gates, suggesting both
+nonsignal objectives collapse toward nearly the same generic boundary solution.  No
+atom-level semantic claim follows from these overlaps.
+
 ## Project consequence
 
 Family F closes one hypothesis: downstream-aware gate selection followed by a local
