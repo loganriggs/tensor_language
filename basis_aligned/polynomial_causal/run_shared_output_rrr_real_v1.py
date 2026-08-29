@@ -739,7 +739,7 @@ def require_resources(started: float) -> tuple[float, int]:
 
 def _result_gates(arms: Mapping[str, Any], coverage: int) -> dict[str, Any]:
     roles = tuple(ROLE_PATHS)
-    passing_ranks = []
+    ce_qualifying_ranks = []
     for rank in RANKS:
         global_arm = arms[f"global_q{rank}"]["roles"]
         independent = arms[f"independent_q{rank}"]["roles"]
@@ -747,8 +747,8 @@ def _result_gates(arms: Mapping[str, Any], coverage: int) -> dict[str, Any]:
         if all(global_arm[role]["all"]["ce"] <= independent[role]["all"]["ce"] + 0.01
                and global_arm[role]["all"]["ce"] <= price[role]["all"]["ce"] - 0.01
                for role in roles):
-            passing_ranks.append(rank)
-    e22 = all(
+            ce_qualifying_ranks.append(rank)
+    e22_ce_qualifies = all(
         arms["typed_q481"]["roles"][role]["all"]["ce"]
         <= arms["global_q494"]["roles"][role]["all"]["ce"] - 0.01
         for role in roles
@@ -761,19 +761,32 @@ def _result_gates(arms: Mapping[str, Any], coverage: int) -> dict[str, Any]:
                for role, expected in role_values.items()}
         for name, role_values in FRONTIER_ANCHORS.items()
     }
+    coverage_control = coverage == COVERAGE
+    covered_identity_control = spread <= 1e-6
+    legacy_controls_pass = all(all(value.values()) for value in anchors.values())
+    exact_price_controls = all(
+        payload["diagnostics"]["map_float_count"] == core.grouped_map_price(
+            N_SITES, int(payload["descriptor"]["budget_bases"]), D, D,
+            int(payload["descriptor"]["rank"]),
+        ).grouped_float_count
+        for payload in arms.values() if payload["descriptor"]["family"] == "price_independent"
+    )
+    common_controls_pass = all((
+        coverage_control, covered_identity_control, legacy_controls_pass,
+        exact_price_controls,
+    ))
+    passing_ranks = ce_qualifying_ranks if common_controls_pass else []
     return {
         "e2_1_pass": bool(passing_ranks), "e2_1_passing_ranks": passing_ranks,
-        "e2_2_pass": e22, "coverage_control": coverage == COVERAGE,
-        "covered_ce_spread": spread, "covered_identity_control": spread <= 1e-6,
+        "e2_1_ce_qualifying_ranks": ce_qualifying_ranks,
+        "e2_2_pass": bool(e22_ce_qualifies and common_controls_pass),
+        "e2_2_ce_qualifies": e22_ce_qualifies,
+        "promotive_controls_all_pass": common_controls_pass,
+        "coverage_control": coverage_control,
+        "covered_ce_spread": spread, "covered_identity_control": covered_identity_control,
         "legacy_frontier_anchor_controls": anchors,
-        "legacy_frontier_controls_all_pass": all(all(value.values()) for value in anchors.values()),
-        "exact_price_controls": all(
-            payload["diagnostics"]["map_float_count"] == core.grouped_map_price(
-                N_SITES, int(payload["descriptor"]["budget_bases"]), D, D,
-                int(payload["descriptor"]["rank"]),
-            ).grouped_float_count
-            for payload in arms.values() if payload["descriptor"]["family"] == "price_independent"
-        ),
+        "legacy_frontier_controls_all_pass": legacy_controls_pass,
+        "exact_price_controls": exact_price_controls,
     }
 
 
@@ -837,12 +850,20 @@ def semantic_validate_metric_ledger(value: Mapping[str, Any], expected_tokens: i
         metric = value[key]
         if set(metric) != {"ce", "tokens"} or not isinstance(metric["tokens"], int) or (
             metric["tokens"] <= 0
-        ) or not math.isfinite(float(metric["ce"])):
+        ) or isinstance(metric["ce"], bool) or not isinstance(metric["ce"], (int, float)) or (
+            not math.isfinite(float(metric["ce"]))
+        ) or float(metric["ce"]) < 0:
             raise RuntimeError("shared-RRR metric ledger is malformed")
     if value["all"]["tokens"] != expected_tokens or value["covered"]["tokens"] + value[
         "uncovered"
     ]["tokens"] != expected_tokens:
         raise RuntimeError("shared-RRR metric denominator changed")
+    weighted = (
+        float(value["covered"]["ce"]) * value["covered"]["tokens"]
+        + float(value["uncovered"]["ce"]) * value["uncovered"]["tokens"]
+    ) / expected_tokens
+    if not math.isclose(float(value["all"]["ce"]), weighted, rel_tol=0.0, abs_tol=1e-12):
+        raise RuntimeError("shared-RRR all-position CE is not the weighted partition mean")
 
 
 def expected_program_price(descriptor: Mapping[str, Any]) -> tuple[int, tuple[int, ...] | None]:
@@ -1091,8 +1112,12 @@ def semantic_validate_result(value: Mapping[str, Any], frozen: Mapping[str, Any]
     if set(value["arms"]) != set(descriptors) or set(value["native_reference"]) != set(ROLE_PATHS):
         raise RuntimeError("shared-RRR result arm or role set changed")
     expected_tokens = {role: rows * SCORED_PER_ROW for role, rows in ROLE_ROWS.items()}
+    partition_counts: dict[str, tuple[int, int]] = {}
     for role, metrics in value["native_reference"].items():
         semantic_validate_metric_ledger(metrics, expected_tokens[role])
+        partition_counts[role] = (
+            metrics["covered"]["tokens"], metrics["uncovered"]["tokens"],
+        )
     raw_spectra = value["independent_marginal_spectra"]
     for name, payload in value["arms"].items():
         if payload["descriptor"] != descriptors[name] or set(payload) != {
@@ -1117,6 +1142,10 @@ def semantic_validate_result(value: Mapping[str, Any], frozen: Mapping[str, Any]
             raise RuntimeError("shared-RRR price schema changed")
         for role, metrics in payload["roles"].items():
             semantic_validate_metric_ledger(metrics, expected_tokens[role])
+            if (metrics["covered"]["tokens"], metrics["uncovered"]["tokens"]) != (
+                partition_counts[role]
+            ):
+                raise RuntimeError("shared-RRR arm coverage partition changed")
     semantic_validate_call_ledger(value["call_ledger"])
     semantic_validate_physical_calls(value["physical_native_module_calls"])
     if value["model_state_before_sha256"] != value["model_state_after_sha256"] or (
@@ -1158,6 +1187,10 @@ def receipt_payload(frozen: Mapping[str, Any], result: Mapping[str, Any]) -> dic
 
 def semantic_validate_receipt(value: Mapping[str, Any], frozen: Mapping[str, Any],
                               result: Mapping[str, Any]) -> None:
+    if not AUTHORITY.is_file() or json.loads(AUTHORITY.read_text()) != dict(frozen) or not (
+        RESULTS.is_file()
+    ) or json.loads(RESULTS.read_text()) != dict(result):
+        raise RuntimeError("shared-RRR receipt inputs changed")
     if value != receipt_payload(frozen, result):
         raise RuntimeError("shared-RRR receipt joins changed")
     body = {key: item for key, item in value.items() if key != "receipt_sha256"}
@@ -1210,18 +1243,25 @@ def run(*, device: str = "cuda") -> dict[str, Any]:
         atomic_create_json(result, RESULTS)
         if json.loads(RESULTS.read_text()) != result:
             raise RuntimeError("shared-RRR result replay changed")
-        # Receipt is the final artifact write.  Recheck exact source/input bytes and
-        # lock ownership immediately before it; the checkpoint was fully rehashed
-        # immediately before result and its stat identity is bound in the authority.
-        verify_source_closure(frozen["source_closure"])
-        if input_bindings() != frozen["input_file_sha256s"]:
-            raise RuntimeError("shared-RRR input changed before receipt")
+        # Receipt is the final artifact write.  Reload and semantically replay both
+        # joined files, then recheck exact source/input bytes and lock ownership.
+        require_published_authority(frozen)
+        published_result = json.loads(RESULTS.read_text())
+        if published_result != result:
+            raise RuntimeError("shared-RRR published result changed before receipt")
+        semantic_validate_result(published_result, frozen)
+        verify_frozen_inputs(frozen, verify_checkpoint_hash=True)
         require_claim(claim, LOCK)
-        receipt = receipt_payload(frozen, result)
-        semantic_validate_receipt(receipt, frozen, result)
+        receipt = receipt_payload(frozen, published_result)
+        semantic_validate_receipt(receipt, frozen, published_result)
         if receipt["failure_absent"] is not True or RECEIPT.exists():
             raise RuntimeError("shared-RRR receipt preconditions changed")
+        require_published_authority(frozen)
+        if json.loads(RESULTS.read_text()) != published_result:
+            raise RuntimeError("shared-RRR result changed at receipt boundary")
+        require_claim(claim, LOCK)
         atomic_create_json(receipt, RECEIPT)
+        semantic_validate_receipt(json.loads(RECEIPT.read_text()), frozen, published_result)
         return receipt
     except BaseException as error:
         publish_failure(claim, error)

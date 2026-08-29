@@ -142,9 +142,10 @@ whole-program CE.  Local fit merit is diagnostic only.
   2.70%-different-storage diagnostics.  Otherwise attention/MLP typing has not earned
   a second dictionary.
 - **Controls:** coverage is exactly 5,419; covered CE is identical across all map arms
-  within `1e-6`; same-rank independent q64 and q512 reproduce the corresponding
-  published full-table frontier rows within 0.002 after that frontier publishes; all
-  exact-price arms match their target float budget exactly.
+  within `1e-6`; the nonpromotive legacy coefficient-SVD q64 and q512 arms reproduce
+  the corresponding published full-table frontier rows within 0.002; all exact-price
+  arms match their target float budget exactly.  E2.1/E2.2 cannot pass unless every
+  common control passes.
 
 A pass is a useful compression result, not semantic interpretation.  E2.3 remains a
 separate prospective sparse-gauge stability and coordinate-intervention experiment.
