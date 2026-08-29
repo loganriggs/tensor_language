@@ -51861,3 +51861,55 @@ the accuracy structure here. The deployed build is dominated on all three axes a
 real cost is now measured and named. **The open question is no longer about this program's price but about
 what its remaining 46% buys** — the 125+ bucket keeps ~54% of the live model and everything else keeps
 under 10%, and no section has asked what the program is *doing* on the bucket it does keep.
+
+## §1884 — the program is right where the model is wrong 19% of the time, and my agreement baseline was invalid
+
+`ops/agreement_by_bucket.py`, 104.8s, **DISCOVERY ONLY**, rung 3 — §1883's open question.
+**pred_a False | pred_b False | pred_c False | pred_d True.** Three substantive bars, three misses.
+
+```
+  §1882's half-cost build, 16,110 types, by the TRUE target's fit-row count
+  bucket        n      live     prog    kept   agreement   prog-right-ALSO-live-right
+    0        1837-3662  24.7-29.0%  0.6-1.3%  2.4-4.6%   14.4-15.6%   100.0 / 92.0 / 100.0%
+    125+     8181-16357 54.6-57.6% 29.0-30.9% 52.7-53.7%  34.6-35.1%   81.4 /  82.5 /  80.7%
+```
+
+**pred_b is the clean result and it FAILED by 8 percentage points.** I registered that at least **90%** of
+the program's correct top-1 predictions on the 125+ bucket would be positions the live model also gets
+right; measured **81.4 / 82.5 / 80.7%**. **About one in five of the program's correct answers on its best
+bucket are positions where the model itself is wrong.** That needs no baseline and no modelling — it is a
+count — and it says the program is not simply a degraded copy of the model. It is a different predictor
+that happens to be right on a partly different set of positions.
+
+> **pred_a and pred_c are UNINTERPRETABLE because I registered a broken instrument, and I am striking
+> their ratios rather than reporting them.** I defined the independence baseline for top-1 *agreement* as
+> `acc_live * acc_prog` — the probability both are RIGHT. That is not the probability they AGREE. The
+> missing term assumes two disagreeing predictors scatter their wrong answers uniformly over 50,257
+> tokens, and these two do the opposite: both concentrate on frequent tokens, so genuine chance agreement
+> is far higher than the null allows.
+>
+> ```
+>   skip1200, rare bucket:  agreement 0.1443   my null 0.00148 (97.5x)   with uniform-wrong 0.00150 (96.3x)
+>   skip1200, common:       agreement 0.3473   my null 0.15856 ( 2.2x)
+> ```
+>
+> The 97x is an artifact of dividing agreement by a both-right probability, and the inflation is worst
+> exactly where accuracy is lowest — which is why pred_c "inverted". **pred_c did not discover that the
+> program imitates most where the model is worst; it discovered that my denominator collapses there.**
+> Both are scored FAIL as written and neither ratio should be cited. The correct null is a **permutation
+> control**: agreement between the program's and the model's predictions on SHUFFLED positions, which
+> preserves each predictor's marginal distribution over tokens and destroys only the pairing. §1885.
+
+**What survives, stated narrowly.** Raw agreement on the 125+ bucket is **34.6 / 35.1 / 34.7%** while the
+program's accuracy there is 29.0-30.9% and the model's is 54.6-57.6%. So the program's top-1 matches the
+model's on about a third of frequent-target positions, and is *correct* on a set that overlaps the model's
+correct set by only ~81%. Whether a third is high is precisely what the missing control decides.
+
+**pred_d PASSED**, reproducing §1883's published kept-fractions (52.7 / 53.7 / 53.1 and 2.4 / 4.6 / 2.4)
+within 0.2pp on the same build with extra instruments — coverage 16,110, buckets partitioning.
+
+**LESSON 69.** I have now written two bad predicates in three sections: §1879's convergence clause was
+unfalsifiable, and this one's null was mis-specified. Both passed the gate, because the gate checks that
+predicates *run*, not that they *mean* what the docstring claims. The shared tell is that **neither bar
+was calibrated against a case where I knew the answer.** A 97x enrichment should have been implausible on
+its face and prompted the arithmetic before the run, not after.

@@ -1,0 +1,31 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+AGREEMENT BY BUCKET | buckets ((0, 0), (1, 4), (5, 24), (25, 124), (125, 1000000000)) on the fit-row count of the TRUE target | full-rank settled program | DISCOVERY ONLY
+  built the settled fallback and 36 tables (5s)
+
+  === table rank 512, map rank 512 ===
+  skip7000: overall live 39.32% prog 13.74%
+    target fit-count 0-0          n   3679  live 24.16%  prog  0.57%  kept   2.4%  agree 13.73% ( 99.5x indep)  prog-right-also-live  90.5%
+    target fit-count 1-4          n   5258  live 24.80%  prog  1.18%  kept   4.8%  agree 14.24% ( 48.7x indep)  prog-right-also-live  87.1%
+    target fit-count 5-24         n   6571  live 27.45%  prog  1.48%  kept   5.4%  agree 14.26% ( 35.2x indep)  prog-right-also-live  91.8%
+    target fit-count 25-124       n   4999  live 29.55%  prog  2.54%  kept   8.6%  agree 18.04% ( 24.0x indep)  prog-right-also-live  77.2%
+    target fit-count 125-1000000000 n  16357  live 55.15%  prog 29.08%  kept  52.7%  agree 34.64% (  2.2x indep)  prog-right-also-live  81.4%
+  skip11000: overall live 42.35% prog 14.58%
+    target fit-count 0-0          n   3662  live 28.95%  prog  1.34%  kept   4.6%  agree 13.27% ( 34.3x indep)  prog-right-also-live  87.8%
+    target fit-count 1-4          n   5467  live 30.67%  prog  2.23%  kept   7.3%  agree 13.28% ( 19.4x indep)  prog-right-also-live  95.9%
+    target fit-count 5-24         n   6759  live 30.60%  prog  2.20%  kept   7.2%  agree 13.43% ( 19.9x indep)  prog-right-also-live  88.6%
+    target fit-count 25-124       n   5030  live 32.39%  prog  2.45%  kept   7.6%  agree 17.30% ( 21.8x indep)  prog-right-also-live  77.2%
+    target fit-count 125-1000000000 n  15946  live 57.55%  prog 30.92%  kept  53.7%  agree 35.11% (  2.0x indep)  prog-right-also-live  82.5%
+  skip1200: overall live 38.88% prog 13.75%
+    target fit-count 0-0          n   1837  live 24.71%  prog  0.60%  kept   2.4%  agree 14.43% ( 97.5x indep)  prog-right-also-live 100.0%
+    target fit-count 1-4          n   2557  live 25.30%  prog  1.21%  kept   4.8%  agree 14.98% ( 48.8x indep)  prog-right-also-live  80.6%
+    target fit-count 5-24         n   3193  live 26.28%  prog  1.57%  kept   6.0%  agree 16.91% ( 41.1x indep)  prog-right-also-live  88.0%
+    target fit-count 25-124       n   2664  live 28.42%  prog  2.59%  kept   9.1%  agree 18.99% ( 25.8x indep)  prog-right-also-live  68.1%
+    target fit-count 125-1000000000 n   8181  live 54.64%  prog 29.02%  kept  53.1%  agree 34.73% (  2.2x indep)  prog-right-also-live  80.7%
+
+  IMITATION, not coincidence (125+ agreement > 2x independence) -> False  skip7000 agree 34.64% vs indep 16.04% = 2.16x  skip11000 agree 35.11% vs indep 17.80% = 1.97x  skip1200 agree 34.73% vs indep 15.86% = 2.19x
+  and RIGHT ALMOST ONLY WHERE THE MODEL IS (>=90%) -> False  skip7000 81.4%  skip11000 82.5%  skip1200 80.7%
+  and the picture INVERTS at the rare end -> False  skip7000 rare 99.52x vs common 2.16x  skip11000 rare 34.27x vs common 1.97x  skip1200 rare 97.48x vs common 2.19x
+  coverage 16110, buckets partition True, §1883 kept-fractions reproduce -> control True
+
+pred_a False | pred_b False | pred_c False | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/agreement_by_bucket_results.json (104.8s)

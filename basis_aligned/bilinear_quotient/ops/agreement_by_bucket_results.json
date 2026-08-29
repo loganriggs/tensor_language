@@ -1,0 +1,202 @@
+{
+ "config": {
+  "table_ranks": [
+   "512"
+  ],
+  "map_rank_of_table_rank": {
+   "None": 64,
+   "512": 512
+  },
+  "program": "context-free tables, output-NN fallback with a rank-64 embedding->row map -- the settled design of \u00a71780-\u00a71786",
+  "instruments": "top-1 agreement with the live model, top-1 accuracy against the true next token, and KL(live || program). All three are NEW to this thread, which has been CE-only since \u00a71747.",
+  "ROLE_NOTE": "DISCOVERY ONLY; a second-class confirmation with a DIFFERENT instrument, not a replication of the same one."
+ },
+ "results": {
+  "512": {
+   "skip7000": {
+    "overall": {
+     "top1_acc_live": 0.3932,
+     "top1_acc_prog": 0.13737,
+     "n": 36864,
+     "agreement": 0.2376,
+     "prog_right_also_live_right": 0.81596
+    },
+    "0-0": {
+     "top1_acc_live": 0.24164,
+     "top1_acc_prog": 0.00571,
+     "kept_fraction": 0.02362,
+     "n": 3679,
+     "agreement": 0.13727,
+     "independence": 0.00138,
+     "agree_over_independence": 99.51765,
+     "prog_right_also_live_right": 0.90476
+    },
+    "1-4": {
+     "top1_acc_live": 0.248,
+     "top1_acc_prog": 0.01179,
+     "kept_fraction": 0.04755,
+     "n": 5258,
+     "agreement": 0.14245,
+     "independence": 0.00292,
+     "agree_over_independence": 48.71168,
+     "prog_right_also_live_right": 0.87097
+    },
+    "5-24": {
+     "top1_acc_live": 0.27454,
+     "top1_acc_prog": 0.01476,
+     "kept_fraction": 0.05377,
+     "n": 6571,
+     "agreement": 0.1426,
+     "independence": 0.00405,
+     "agree_over_independence": 35.18542,
+     "prog_right_also_live_right": 0.91753
+    },
+    "25-124": {
+     "top1_acc_live": 0.29546,
+     "top1_acc_prog": 0.02541,
+     "kept_fraction": 0.08599,
+     "n": 4999,
+     "agreement": 0.18044,
+     "independence": 0.00751,
+     "agree_over_independence": 24.03839,
+     "prog_right_also_live_right": 0.77165
+    },
+    "125-1000000000": {
+     "top1_acc_live": 0.55151,
+     "top1_acc_prog": 0.29082,
+     "kept_fraction": 0.52733,
+     "n": 16357,
+     "agreement": 0.3464,
+     "independence": 0.16039,
+     "agree_over_independence": 2.15969,
+     "prog_right_also_live_right": 0.81396
+    }
+   },
+   "skip11000": {
+    "overall": {
+     "top1_acc_live": 0.42348,
+     "top1_acc_prog": 0.14578,
+     "n": 36864,
+     "agreement": 0.23299,
+     "prog_right_also_live_right": 0.82899
+    },
+    "0-0": {
+     "top1_acc_live": 0.28946,
+     "top1_acc_prog": 0.01338,
+     "kept_fraction": 0.04623,
+     "n": 3662,
+     "agreement": 0.13271,
+     "independence": 0.00387,
+     "agree_over_independence": 34.26515,
+     "prog_right_also_live_right": 0.87755
+    },
+    "1-4": {
+     "top1_acc_live": 0.30675,
+     "top1_acc_prog": 0.02232,
+     "kept_fraction": 0.07275,
+     "n": 5467,
+     "agreement": 0.1328,
+     "independence": 0.00685,
+     "agree_over_independence": 19.3996,
+     "prog_right_also_live_right": 0.95902
+    },
+    "5-24": {
+     "top1_acc_live": 0.30596,
+     "top1_acc_prog": 0.02204,
+     "kept_fraction": 0.07205,
+     "n": 6759,
+     "agreement": 0.13434,
+     "independence": 0.00674,
+     "agree_over_independence": 19.91735,
+     "prog_right_also_live_right": 0.88591
+    },
+    "25-124": {
+     "top1_acc_live": 0.32386,
+     "top1_acc_prog": 0.02445,
+     "kept_fraction": 0.07551,
+     "n": 5030,
+     "agreement": 0.17296,
+     "independence": 0.00792,
+     "agree_over_independence": 21.84042,
+     "prog_right_also_live_right": 0.77236
+    },
+    "125-1000000000": {
+     "top1_acc_live": 0.5755,
+     "top1_acc_prog": 0.30923,
+     "kept_fraction": 0.53732,
+     "n": 15946,
+     "agreement": 0.35112,
+     "independence": 0.17796,
+     "agree_over_independence": 1.973,
+     "prog_right_also_live_right": 0.82498
+    }
+   },
+   "skip1200": {
+    "overall": {
+     "top1_acc_live": 0.38883,
+     "top1_acc_prog": 0.13753,
+     "n": 18432,
+     "agreement": 0.24604,
+     "prog_right_also_live_right": 0.80592
+    },
+    "0-0": {
+     "top1_acc_live": 0.24714,
+     "top1_acc_prog": 0.00599,
+     "kept_fraction": 0.02423,
+     "n": 1837,
+     "agreement": 0.14426,
+     "independence": 0.00148,
+     "agree_over_independence": 97.47797,
+     "prog_right_also_live_right": 1.0
+    },
+    "1-4": {
+     "top1_acc_live": 0.25303,
+     "top1_acc_prog": 0.01212,
+     "kept_fraction": 0.04791,
+     "n": 2557,
+     "agreement": 0.14978,
+     "independence": 0.00307,
+     "agree_over_independence": 48.82739,
+     "prog_right_also_live_right": 0.80645
+    },
+    "5-24": {
+     "top1_acc_live": 0.26276,
+     "top1_acc_prog": 0.01566,
+     "kept_fraction": 0.05959,
+     "n": 3193,
+     "agreement": 0.16912,
+     "independence": 0.00411,
+     "agree_over_independence": 41.10179,
+     "prog_right_also_live_right": 0.88
+    },
+    "25-124": {
+     "top1_acc_live": 0.28416,
+     "top1_acc_prog": 0.0259,
+     "kept_fraction": 0.09115,
+     "n": 2664,
+     "agreement": 0.18994,
+     "independence": 0.00736,
+     "agree_over_independence": 25.80713,
+     "prog_right_also_live_right": 0.68116
+    },
+    "125-1000000000": {
+     "top1_acc_live": 0.54639,
+     "top1_acc_prog": 0.29018,
+     "kept_fraction": 0.5311,
+     "n": 8181,
+     "agreement": 0.34727,
+     "independence": 0.15855,
+     "agree_over_independence": 2.19023,
+     "prog_right_also_live_right": 0.80708
+    }
+   }
+  }
+ },
+ "predictions": {
+  "pred_a_imitates_not_coincides_program_concentrated_on_frequent_targets": false,
+  "pred_b_more_concentrated_than_live": false,
+  "pred_c_keeps_60pc_on_the_top_bucket": false,
+  "pred_d_controls": true
+ },
+ "runtime_s": 104.8
+}
