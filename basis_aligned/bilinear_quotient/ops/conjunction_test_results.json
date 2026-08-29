@@ -1,0 +1,214 @@
+{
+ "config": {
+  "table_ranks": [
+   "full"
+  ],
+  "map_rank_of_table_rank": {
+   "None": 64,
+   "512": 512
+  },
+  "program": "context-free tables, output-NN fallback with a rank-64 embedding->row map -- the settled design of \u00a71780-\u00a71786",
+  "instruments": "top-1 agreement with the live model, top-1 accuracy against the true next token, and KL(live || program). All three are NEW to this thread, which has been CE-only since \u00a71747.",
+  "ROLE_NOTE": "DISCOVERY ONLY; a second-class confirmation with a DIFFERENT instrument, not a replication of the same one."
+ },
+ "results": {
+  "baseline": {
+   "skip7000": 7.159873237897497,
+   "skip11000": 7.293872350283794,
+   "skip1200": 7.488382385483515
+  },
+  "norms": {
+   "attn17": {
+    "live_mean_norm": 9186.112630208334,
+    "table_mean_norm": 984.3004760742188,
+    "ratio": 0.1071509261531769
+   },
+   "attn3": {
+    "live_mean_norm": 40722.0146484375,
+    "table_mean_norm": 3132.881591796875,
+    "ratio": 0.07693336439377474
+   }
+  },
+  "sites": {
+   "attn17": {
+    "m1": {
+     "skip7000": {
+      "enrichment": 7.531890530172907,
+      "n": 33192
+     },
+     "skip11000": {
+      "enrichment": 7.757369062119367,
+      "n": 33196
+     },
+     "skip1200": {
+      "enrichment": 7.718400000000001,
+      "n": 16597
+     }
+    },
+    "m2": {
+     "skip7000": {
+      "enrichment": 7.454587474000462,
+      "n": 33192
+     },
+     "skip11000": {
+      "enrichment": 7.732014833127318,
+      "n": 33196
+     },
+     "skip1200": {
+      "enrichment": 7.741391426563598,
+      "n": 16597
+     }
+    },
+    "m4": {
+     "skip7000": {
+      "enrichment": 6.2202052944354405,
+      "n": 33192
+     },
+     "skip11000": {
+      "enrichment": 6.629216124103891,
+      "n": 33196
+     },
+     "skip1200": {
+      "enrichment": 6.436419347778506,
+      "n": 16597
+     }
+    },
+    "m8": {
+     "skip7000": {
+      "enrichment": 5.153289700310025,
+      "n": 33192
+     },
+     "skip11000": {
+      "enrichment": 5.525120083084512,
+      "n": 33196
+     },
+     "skip1200": {
+      "enrichment": 5.242307692307692,
+      "n": 16597
+     }
+    },
+    "m16": {
+     "skip7000": {
+      "enrichment": 2.737749401436553,
+      "n": 33192
+     },
+     "skip11000": {
+      "enrichment": 3.089171974522293,
+      "n": 33196
+     },
+     "skip1200": {
+      "enrichment": 2.9514275120504263,
+      "n": 16597
+     }
+    },
+    "m32": {
+     "skip7000": {
+      "enrichment": 1.1487834064619067,
+      "n": 33192
+     },
+     "skip11000": {
+      "enrichment": 1.5685503685503683,
+      "n": 33196
+     },
+     "skip1200": {
+      "enrichment": 1.810760667903525,
+      "n": 16597
+     }
+    }
+   },
+   "attn3": {
+    "m1": {
+     "skip7000": {
+      "enrichment": 7.3567343276886845,
+      "n": 33192
+     },
+     "skip11000": {
+      "enrichment": 7.519407619730085,
+      "n": 33196
+     },
+     "skip1200": {
+      "enrichment": 7.6713572401271,
+      "n": 16597
+     }
+    },
+    "m2": {
+     "skip7000": {
+      "enrichment": 7.64394471773249,
+      "n": 33192
+     },
+     "skip11000": {
+      "enrichment": 7.872665747587417,
+      "n": 33196
+     },
+     "skip1200": {
+      "enrichment": 7.947069943289225,
+      "n": 16597
+     }
+    },
+    "m4": {
+     "skip7000": {
+      "enrichment": 7.993978170869402,
+      "n": 33192
+     },
+     "skip11000": {
+      "enrichment": 8.491880638445524,
+      "n": 33196
+     },
+     "skip1200": {
+      "enrichment": 8.571130797290255,
+      "n": 16597
+     }
+    },
+    "m8": {
+     "skip7000": {
+      "enrichment": 8.73009932344897,
+      "n": 33192
+     },
+     "skip11000": {
+      "enrichment": 9.401373895976448,
+      "n": 33196
+     },
+     "skip1200": {
+      "enrichment": 9.560439560439562,
+      "n": 16597
+     }
+    },
+    "m16": {
+     "skip7000": {
+      "enrichment": 9.378298095404508,
+      "n": 33192
+     },
+     "skip11000": {
+      "enrichment": 10.305303488606574,
+      "n": 33196
+     },
+     "skip1200": {
+      "enrichment": 10.56429370108088,
+      "n": 16597
+     }
+    },
+    "m32": {
+     "skip7000": {
+      "enrichment": 12.168273444347061,
+      "n": 33192
+     },
+     "skip11000": {
+      "enrichment": 13.535025380710662,
+      "n": 33196
+     },
+     "skip1200": {
+      "enrichment": 14.242597898758357,
+      "n": 16597
+     }
+    }
+   }
+  }
+ },
+ "predictions": {
+  "pred_a_conjunction_sufficient": true,
+  "pred_b_midcosine_contrast_holds": true,
+  "pred_c_onset_near_attn5_ratio": true,
+  "pred_d_controls": true
+ },
+ "runtime_s": 134.7
+}

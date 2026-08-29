@@ -1,0 +1,31 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+THE CONJUNCTION TEST | buckets ((0, 0), (1, 4), (5, 24), (25, 124), (125, 1000000000)) on the fit-row count of the TRUE target | full-rank settled program | DISCOVERY ONLY
+  built the settled fallback and 36 tables (5s)
+
+  === all-compiled baseline ===
+    skip7000   covered enrichment  7.16x  (n 33192)
+    skip11000  covered enrichment  7.29x  (n 33196)
+    skip1200   covered enrichment  7.49x  (n 16597)
+    norm attn17  live 9186.113  table  984.300  rescale x0.1072
+    norm attn3   live 40722.015  table 3132.882  rescale x0.0769
+    attn17  x1     eff-ratio     9.3x  skip7000  7.53x  skip11000  7.76x  skip1200  7.72x
+    attn17  x2     eff-ratio    18.7x  skip7000  7.45x  skip11000  7.73x  skip1200  7.74x
+    attn17  x4     eff-ratio    37.3x  skip7000  6.22x  skip11000  6.63x  skip1200  6.44x
+    attn17  x8     eff-ratio    74.7x  skip7000  5.15x  skip11000  5.53x  skip1200  5.24x
+    attn17  x16    eff-ratio   149.3x  skip7000  2.74x  skip11000  3.09x  skip1200  2.95x
+    attn17  x32    eff-ratio   298.6x  skip7000  1.15x  skip11000  1.57x  skip1200  1.81x
+    attn3   x1     eff-ratio    13.0x  skip7000  7.36x  skip11000  7.52x  skip1200  7.67x
+    attn3   x2     eff-ratio    26.0x  skip7000  7.64x  skip11000  7.87x  skip1200  7.95x
+    attn3   x4     eff-ratio    52.0x  skip7000  7.99x  skip11000  8.49x  skip1200  8.57x
+    attn3   x8     eff-ratio   104.0x  skip7000  8.73x  skip11000  9.40x  skip1200  9.56x
+    attn3   x16    eff-ratio   208.0x  skip7000  9.38x  skip11000 10.31x  skip1200 10.56x
+    attn3   x32    eff-ratio   415.9x  skip7000 12.17x  skip11000 13.54x  skip1200 14.24x
+
+  THE CONJUNCTION IS SUFFICIENT (attn17 falls below 3.0x) -> True  skip7000 onset x16.0  skip11000 onset x32.0  skip1200 onset x16.0
+  and the MID-COSINE contrast holds (attn3 stays > 5.0x) -> True  skip7000 min 7.36x  skip11000 min 7.52x  skip1200 min 7.67x
+  and the onset is near attn5's 144x (48x-432x) -> True  skip7000 149x  skip11000 299x  skip1200 149x
+  coverage 16110, x1 reproduces §1905 -> control True  attn17 7.53 vs 7.53  attn3 7.36 vs 7.36
+  covered-arm baseline ENRICHMENT, reported not anchored: skip7000 7.16x  skip11000 7.29x  skip1200 7.49x
+
+pred_a True | pred_b True | pred_c True | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/conjunction_test_results.json (134.7s)

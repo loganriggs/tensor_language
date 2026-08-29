@@ -21,6 +21,7 @@ MODEL_WIDTH = 256
 SCORE_START = 64
 SCORE_STOP = 256
 MATCH_SEED = "terminal_copy_induction_v1:matched-natural:0"
+MIN_DOCUMENTS_PER_POLARITY_STRATUM = 2
 
 NAMED_SIX_HEAD_FAMILY = (
     "L5H5", "L7H3", "L8H3", "L8H4", "L13H0", "L14H7",
@@ -66,6 +67,35 @@ def _log2_bin(value: int) -> int:
     return int(math.floor(math.log2(max(value, 1))))
 
 
+def _frequency_bin(value: int) -> int:
+    """Keep unseen tokens distinct from tokens observed exactly once."""
+    if value < 0:
+        raise ValueError("token frequency cannot be negative")
+    return -1 if value == 0 else _log2_bin(value)
+
+
+@dataclass(frozen=True)
+class FitTokenFrequencies:
+    """Fit-only frequencies for the distinct query and target column domains."""
+
+    query: torch.Tensor
+    target: torch.Tensor
+
+    def validate(self, maximum_token: int) -> None:
+        _validate_counts(self.query, maximum_token)
+        _validate_counts(self.target, maximum_token)
+
+    @classmethod
+    def from_rows(cls, rows: torch.Tensor, vocab_size: int = 50_257) -> "FitTokenFrequencies":
+        _validate_rows(rows)
+        if type(vocab_size) is not int or vocab_size <= int(rows.max()):
+            raise ValueError("fit frequency vocabulary does not cover rows")
+        return cls(
+            query=torch.bincount(rows[:, :MODEL_WIDTH].reshape(-1), minlength=vocab_size).long(),
+            target=torch.bincount(rows[:, 1:].reshape(-1), minlength=vocab_size).long(),
+        )
+
+
 def _order_digest(document_id: str, position: int, label: str) -> bytes:
     return hashlib.sha256(
         f"{MATCH_SEED}\0{label}\0{document_id}\0{position}".encode()
@@ -83,6 +113,8 @@ class CopyCells:
     pair_indices: tuple[tuple[int, int, int, int], ...]
     unmatched_positive_count: int
     negative_candidate_count: int
+    eligible_stratum_count: int
+    excluded_low_document_stratum_count: int
 
     def __post_init__(self) -> None:
         shape = self.all_positive.shape
@@ -111,13 +143,24 @@ class CopyCells:
 
 def build_copy_cells(
     rows: torch.Tensor,
-    fit_token_counts: torch.Tensor,
+    fit_token_frequencies: FitTokenFrequencies,
     ordered_document_ids: Sequence[str],
+    *, minimum_documents_per_polarity_stratum: int = MIN_DOCUMENTS_PER_POLARITY_STRATUM,
 ) -> CopyCells:
-    """Derive copy labels and deterministic, without-replacement matched controls."""
+    """Derive nearest-successor labels and deterministic matched specificity cells.
+
+    Matching is not the causal estimator.  It balances registered observables for
+    comparing within-input intervention effects on positive versus negative cells.
+    """
 
     _validate_rows(rows)
-    _validate_counts(fit_token_counts, int(rows.max()))
+    if not isinstance(fit_token_frequencies, FitTokenFrequencies):
+        raise ValueError("fit query/target frequencies must be separately bound")
+    fit_token_frequencies.validate(int(rows.max()))
+    if type(minimum_documents_per_polarity_stratum) is not int or (
+        minimum_documents_per_polarity_stratum < 2
+    ):
+        raise ValueError("each polarity needs at least two documents per stratum")
     if len(ordered_document_ids) != len(rows) or any(
         not isinstance(value, str) or not value for value in ordered_document_ids
     ) or len(set(ordered_document_ids)) != len(ordered_document_ids):
@@ -137,17 +180,18 @@ def build_copy_cells(
             ]
             if not predecessors:
                 continue
-            matching = [
-                earlier for earlier in predecessors
-                if int(row[earlier + 1]) == target
-            ]
-            chosen = max(matching if matching else predecessors)
+            # Freeze the strong induction label: the nearest previous occurrence of
+            # the current query must itself have the current successor.  An older
+            # q->y witness cannot override a nearer contradictory q->z association.
+            chosen = max(predecessors)
+            matching = int(row[chosen + 1]) == target
             distance = position - chosen
             stratum = (
                 position // 16,
                 _log2_bin(distance),
-                _log2_bin(int(fit_token_counts[query])),
-                _log2_bin(int(fit_token_counts[target])),
+                _frequency_bin(int(fit_token_frequencies.query[query])),
+                _frequency_bin(int(fit_token_frequencies.target[target])),
+                _log2_bin(len(predecessors)),
             )
             record = (
                 _order_digest(document_id, position, "positive" if matching else "negative"),
@@ -163,9 +207,19 @@ def build_copy_cells(
     positive = torch.zeros(shape, dtype=torch.bool)
     matched_negative = torch.zeros(shape, dtype=torch.bool)
     pairs: list[tuple[int, int, int, int]] = []
+    eligible_strata = 0
+    excluded_strata = 0
     for stratum in sorted(set(positive_records) & set(negative_records)):
         positives = sorted(positive_records[stratum])
         negatives = sorted(negative_records[stratum])
+        positive_documents = {row for _, row, _ in positives}
+        negative_documents = {row for _, row, _ in negatives}
+        if min(len(positive_documents), len(negative_documents)) < (
+            minimum_documents_per_polarity_stratum
+        ):
+            excluded_strata += 1
+            continue
+        eligible_strata += 1
         for (_, positive_row, positive_position), (_, negative_row, negative_position) in zip(
             positives, negatives, strict=False,
         ):
@@ -184,6 +238,8 @@ def build_copy_cells(
         pair_indices=tuple(pairs),
         unmatched_positive_count=int(all_positive.sum() - positive.sum()),
         negative_candidate_count=sum(map(len, negative_records.values())),
+        eligible_stratum_count=eligible_strata,
+        excluded_low_document_stratum_count=excluded_strata,
     )
 
 
@@ -210,6 +266,74 @@ def build_synthetic_copy_pair(
     if len(positive) != ROW_WIDTH or len(control) != ROW_WIDTH:
         raise ValueError("synthetic stem does not produce an exact 257-token row")
     return torch.tensor(positive), torch.tensor(control)
+
+
+@dataclass(frozen=True)
+class SyntheticAssociationCrossover:
+    """Two histories for a reciprocal q/r by y/z association difference-in-differences."""
+
+    query_to_y: torch.Tensor
+    query_to_z: torch.Tensor
+    query_position: int
+    query_token: int
+    successor_y: int
+    successor_z: int
+    reciprocal_query: int
+
+
+def build_synthetic_association_crossover(
+    base_row: Sequence[int], *, first_query_position: int,
+    reciprocal_position: int, query_position: int,
+    query_token: int, reciprocal_query: int, successor_y: int, successor_z: int,
+) -> SyntheticAssociationCrossover:
+    """Build a reciprocal association crossover without treating a swap as one edge.
+
+    Both rows have the same length and token multiset.  The scorer must evaluate both
+    y and z log-probabilities at ``query_position`` and take
+    ``[(log p(y)-log p(z))_q->y - (log p(y)-log p(z))_q->z]``.
+    """
+
+    values = tuple(base_row)
+    tokens = (query_token, reciprocal_query, successor_y, successor_z)
+    positions = (first_query_position, reciprocal_position, query_position)
+    overwritten = {
+        first_query_position, first_query_position + 1,
+        reciprocal_position, reciprocal_position + 1,
+        query_position, query_position + 1,
+    }
+    if len(values) != ROW_WIDTH or any(type(value) is not int or not 0 <= value < 50_257 for value in values):
+        raise ValueError("synthetic crossover base must be 257 valid token IDs")
+    if len(set(tokens)) != 4 or any(type(value) is not int or not 0 <= value < 50_256 for value in tokens):
+        raise ValueError("synthetic crossover tokens must be four distinct nonspecial IDs")
+    if any(type(position) is not int for position in positions) or not (
+        0 <= first_query_position < first_query_position + 1 < query_position
+        and 0 <= reciprocal_position < reciprocal_position + 1 < query_position
+        and SCORE_START <= query_position < SCORE_STOP
+        and len(set(overwritten)) == 6
+    ):
+        raise ValueError("synthetic crossover positions are malformed")
+    if any(value in tokens for index, value in enumerate(values) if index not in overwritten):
+        raise ValueError("synthetic crossover bank token already occurs outside intervention slots")
+
+    query_to_y = list(values)
+    query_to_z = list(values)
+    query_to_y[first_query_position:first_query_position + 2] = [query_token, successor_y]
+    query_to_y[reciprocal_position:reciprocal_position + 2] = [reciprocal_query, successor_z]
+    query_to_z[first_query_position:first_query_position + 2] = [query_token, successor_z]
+    query_to_z[reciprocal_position:reciprocal_position + 2] = [reciprocal_query, successor_y]
+    # The observed next token is held fixed.  Both alternative successors are scored
+    # explicitly, so this column is not used to manufacture a second input prefix.
+    query_to_y[query_position:query_position + 2] = [query_token, successor_y]
+    query_to_z[query_position:query_position + 2] = [query_token, successor_y]
+    first = torch.tensor(query_to_y, dtype=torch.long)
+    second = torch.tensor(query_to_z, dtype=torch.long)
+    if not torch.equal(torch.sort(first).values, torch.sort(second).values):
+        raise RuntimeError("synthetic crossover failed to preserve the token multiset")
+    return SyntheticAssociationCrossover(
+        query_to_y=first, query_to_z=second, query_position=query_position,
+        query_token=query_token, successor_y=successor_y, successor_z=successor_z,
+        reciprocal_query=reciprocal_query,
+    )
 
 
 @dataclass(frozen=True)

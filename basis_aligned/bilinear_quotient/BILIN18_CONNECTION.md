@@ -53170,3 +53170,56 @@ whose live output is most nearly parallel to their table row, while also being 1
 it, and no healthy site combines those two properties.* Whether that conjunction is the mechanism is one
 experiment away — amplify a HIGH-cosine harmless site (attn17, +0.9472, currently 7.53x) and see whether
 it collapses. §1906 amplified a mid-cosine site and learned nothing about attn5.
+
+## §1908 — CONFIRMED: alignment × magnitude is what destroys the program. Same amplification, opposite outcomes.
+
+`ops/conjunction_test.py`, 134.7s, **DISCOVERY ONLY**, rung 3 — §1907's named next experiment.
+**pred_a True | pred_b True | pred_c True | pred_d True.** All four, on a test designed to falsify.
+
+```
+  covered-arm enrichment while a HEALTHY site's live output is amplified, 16,110 types
+    attn17  cos +0.9472    x1 7.53   x2 7.45   x4 6.22   x8 5.15   x16 2.74   x32 1.15
+            eff ratio      9.3x     18.7x     37.3x     74.7x    149.3x     298.6x
+    attn3   cos +0.7001    x1 7.36   x2 7.64   x4 7.99   x8 8.73   x16 9.38   x32 12.17
+            eff ratio     13.0x     26.0x     52.0x    104.0x    208.0x     415.9x
+  natural collapsers, for reference: attn5 144.0x cos +0.9992 -> 1.06     attn6 77.1x +0.9866 -> 1.32
+```
+
+> **Two sites, the same multipliers, opposite outcomes, and the only difference between them is cosine.**
+> attn17 — aligned at +0.9472 — falls **7.53 → 2.74x** and then to 1.15x. attn3 — at +0.7001 — climbs
+> **7.36 → 12.17x** at an effective ratio *2.8 times higher* than the one that destroyed attn17. **This
+> is the conjunction §1907 proposed, confirmed by a designed falsification test rather than inferred from
+> which sites happen to be extreme.**
+>
+> **And the onset is quantitatively right.** attn17 crosses below 3.0x at an effective ratio of
+> **149.3x** on skip7000 and skip1200 — against attn5's natural **144.0x**, a match to within **4%**. I
+> registered a factor-of-3 band (48x-432x) and the answer landed near its centre on two roles and at 299x
+> on the third.
+
+**What the mechanism appears to be, stated as sufficiency and not as proof.** A site whose live output is
+nearly parallel to its table row contributes *more of what the compiled program already has* at that
+position. Amplifying it overwhelms the residual stream along a direction every downstream table was
+calibrated against, and the program's predictions decorrelate from the model. A site at cosine +0.70 adds
+a largely **new** direction, which acts like restoring genuine context — which is why attn3 gets *better*,
+reaching 12.17x, well above the 7.16 / 7.29 / 7.49 baseline.
+
+> **Sufficiency is demonstrated; necessity is supported but not proved.** The conjunction is *sufficient*:
+> §1908 built it and the program collapsed on all three roles. That no healthy site has both properties
+> is a survey result over eighteen sites (§1905, §1907), not a proof that no other route to collapse
+> exists. **After correcting this line three times — §1905 downgraded §1892's ordering, §1906 removed its
+> causation, §1907 inverted my expected sign — I am stating exactly what was tested and no more.**
+
+**pred_b PASSED and it is the control that makes pred_a mean something**: attn3 stayed above 5.0x at every
+multiplier, minimum **7.36 / 7.52 / 7.67x**, reproducing §1906 *inside this run* so the contrast is not
+assembled across builds. **pred_d PASSED**: multiplier 1 reproduced §1905's published attn17 7.53 and
+attn3 7.36 **exactly**, coverage 16,110, and the baseline is reported as an enrichment — **fixing the
+mislabelled position count §1907 caught in its own output**.
+
+**Where the line stands.** §1891 localised the tracking to late attention. §1892 attributed the collapse
+to magnitude; §1905, §1906 and §1907 dismantled that in three steps. §1908 replaces it: **the compiled
+program is destroyed by a restored site that is simultaneously near-parallel to its table row and far
+larger than it, and by neither property alone.** attn5 and attn6 are the only two sites in the model that
+naturally satisfy both.
+
+**Open.** Whether the same conjunction governs the MLP sites, where §1903 showed restorations are no-ops
+at covered tokens and large at uncovered ones — the cosine there has never been measured.
