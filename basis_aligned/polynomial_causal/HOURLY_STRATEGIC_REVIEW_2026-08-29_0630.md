@@ -185,3 +185,26 @@ CE on three exposed roles cannot legitimately increase these strict ledgers.
 - Checked running work: the shared GPU lane is owned by the independent quotient
   queue; no competing Codex GPU experiment was launched.  CPU implementation and
   evidence consolidation continued during that interval.
+
+## Update at 07:08 UTC — hierarchy v1 terminal failure and exact v2 recovery
+
+After independent GO, hierarchy v1 ran all seven arms in 398.48 seconds with a peak
+allocated CUDA footprint of 4,217,080,320 bytes.  It wrote a result and then failed
+the mandatory immediate JSON-reload equality check before receipt publication.  V1
+therefore has authority, result, and terminal failure but no receipt, and none of its
+numerical values is a scientific outcome.
+
+The cause is fully localized: `dataclasses.asdict` retained two tuple-valued price
+fields, `private_ranks` and `dense_multiplies_by_site`, in every arm.  JSON reload
+converted them to lists.  Those are exactly 14 container-type mismatches—two paths in
+each of seven arms—with no value mismatch anywhere else.  V1 result SHA256 is
+`86315dcc855e9a27958b6abfd50ed5c6b7bb7108f00fe3684bfbf624405a772d`;
+failure SHA256 is
+`054db06c03525b3f78eefdd9ed8e0fa3daf3868175460c76a95e39b875ebc35c`.
+
+A fresh v2 recovery is now source-closed and independently audited.  Its sole change
+is to normalize each unchanged program diagnostic through an idempotent JSON round
+trip before result assembly.  It reruns all rows and all seven arms and binds the exact
+v1 authority/result/failure plus receipt absence at every terminal boundary.  The
+applicable audit suite passes 101 tests.  V2 has not opened its authority because the
+shared GPU is presently occupied; it is next when the device releases.

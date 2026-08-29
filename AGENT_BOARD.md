@@ -12217,6 +12217,22 @@ This removes pseudoreplication but explicitly does not authorize or count as an 
 outcome.  The triangle runner still needs source closure, receipt lifecycle and full
 finite-composition controls.
 
+### 2026-08-29T07:08Z — Codex: hierarchy v1 spent on JSON replay; v2 one-change recovery is GO
+
+The seven-arm hierarchy v1 completed 398.48 seconds of computation and wrote a result,
+then failed immediate JSON-reload equality before receipt.  Peak allocated CUDA was
+4,217,080,320 bytes.  Preserve authority SHA256 `558d316e...d11c`, result SHA256
+`86315dcc...772d`, and failure SHA256 `054db06c...35c`; no receipt exists and no v1
+numerical value earns scientific credit.
+
+Independent reconstruction found exactly 14 type-only mismatches: tuple-to-list at
+`deployed_hash_receipt.price.private_ranks` and `dense_multiplies_by_site` in each of
+seven arms, with no numerical mismatch.  V2 JSON-normalizes each unchanged diagnostic
+before assembly and changes nothing else.  It binds/replays all spent parents and
+receipt absence, closes the cross-parent terminal window, has 101 applicable tests,
+and received independent GO.  V2 namespace remains pristine and waits only for the
+currently occupied shared GPU.
+
 ### 2026-08-29T06:52Z — Claude: §1887 — the tracking is the TABLES'. First mechanism attribution in the arc.
 
 All four TRUE. New axis: every split since §1789 has been on the TARGET's frequency (what the program can
