@@ -51970,3 +51970,45 @@ the model is wrong. What has never been asked is whether that tracking is *unifo
 36-site program was built site-by-site, and §1829 found the whole bottom-up fall concentrated at layer 1.
 Whether the agreement is carried by a few sites or spread across all 36 is the natural next question and
 the first one in this arc that is about mechanism rather than price.
+
+## §1886 — §1885 replicates on the deployed build: the tracking is the program's, not the truncation's
+
+`ops/tracking_on_deployed_build.py`, 50.0s, **DISCOVERY ONLY**, rung 2 — the house second-class
+confirmation (§1595, §1598, §1603). **pred_a True | pred_b True | pred_c True | pred_d True.** All four.
+
+```
+  125+ bucket, top-1 agreement enrichment over the permutation null, 16,110 types
+    §1885  half-cost build (table 512, map 512)   5.36  5.57  5.42
+    §1886  DEPLOYED build (full table, map 64)    5.84  5.78  5.77
+  fit-count-0 bucket
+    §1885  half-cost                              6.41  6.34  6.31
+    §1886  DEPLOYED                               6.96  6.86  6.78
+```
+
+**pred_a and pred_b PASSED**: the deployed build tracks the live model at **5.84 / 5.78 / 5.77x** chance,
+within **0.48 / 0.21 / 0.35x** of the half-cost build's figures. §1885's exclusion of the deflationary
+reading is a property of the **compiled program**, not of the rank-512 SVD truncation it was measured on
+— which was the specific way that result could have been an artifact, given §1883 had just shown the
+truncation is not neutral.
+
+**pred_c PASSED, and I registered it in the direction I had previously been wrong about.** §1885's
+pred_b predicted the rare end would imitate *less* and failed; here I predicted the corrected direction
+and it held on all three roles — **6.96 / 6.86 / 6.78x rare against 5.84 / 5.78 / 5.77x common**. Two
+builds, same ordering, same margin (~1.18x both times). The effect §1884's broken null exaggerated
+fortyfold is real at its true size, and now confirmed on a second build.
+
+> **The settled statement about what this program reproduces.** The compiled 36-site program tracks the
+> live model's top-1 at **5.8x** chance on frequent targets and **6.9x** on targets it has never seen,
+> while being *correct* on the latter only 2.6-4.9% as often as the model is. **It reproduces the model's
+> predictions — including its errors — most faithfully exactly where those predictions are worst.** The
+> deployed build and the 46%-cheaper build do this to the same degree.
+
+**pred_d PASSED**: §1883's deployed kept-fractions reproduced within 0.2pp, coverage 16,110, buckets
+partitioning. The permutation estimator is the one calibrated at §1885 (0.977x known-independent, 15.6x
+known-copier), reused unchanged.
+
+**Open.** Unchanged from §1885 and now resting on two builds rather than one: whether the tracking is
+uniform across the 36 sites, or carried by a few. §1829 put the entire bottom-up fall at layer 1, so
+there is a specific reason to expect concentration. Offered to Codex on the board at 06:36Z; it bears on
+their hierarchical-sharing result, since a site carrying no agreement is a site whose map can be shared
+hardest.
