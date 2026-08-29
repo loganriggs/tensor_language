@@ -1,0 +1,37 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+MLP-HEAVY SPLIT SWEEP | table ranks ('a256', 'a192', 'a128', 'a64', 'a32') | map rank 64 | DISCOVERY ONLY
+  built the output-NN map and 36 tables (4s)
+
+  skip7000: live cov 3.29205 all 3.13704
+    a256         all 6.02422  (103.1086M table)
+    a192         all 6.01093  (103.1086M table)
+    a128         all 6.00548  (103.1086M table)
+    a64          all 6.00558  (103.1086M table)
+    a32          all 6.01068  (103.1086M table)
+
+  skip11000: live cov 3.09711 all 2.93450
+    a256         all 5.99343  (103.1086M table)
+    a192         all 5.98058  (103.1086M table)
+    a128         all 5.97526  (103.1086M table)
+    a64          all 5.97623  (103.1086M table)
+    a32          all 5.98200  (103.1086M table)
+
+  skip1200: live cov 3.40277 all 3.23027
+    a256         all 6.00680  (103.1086M table)
+    a192         all 5.99503  (103.1086M table)
+    a128         all 5.99021  (103.1086M table)
+    a64          all 5.98985  (103.1086M table)
+    a32          all 5.99269  (103.1086M table)
+
+  all-position CE across the cost-flat family (attn rank / mlp rank), 103.1086M:
+    skip7000   256/256 6.02422  192/320 6.01093  128/384 6.00548  64/448 6.00558  32/480 6.01068   best 128 (+0.01874 vs uniform)
+    skip11000  256/256 5.99343  192/320 5.98058  128/384 5.97526  64/448 5.97623  32/480 5.98200   best 128 (+0.01817 vs uniform)
+    skip1200   256/256 6.00680  192/320 5.99503  128/384 5.99021  64/448 5.98985  32/480 5.99269   best 64 (+0.01695 vs uniform)
+
+  it KEEPS PAYING past 128/384 (a64 < a128) -> False  skip7000 6.00558 vs 6.00548  skip11000 5.97623 vs 5.97526  skip1200 5.98985 vs 5.99021
+  and the BEST arm beats uniform by >= 0.03 -> False  skip7000 +0.01874 at 128/384  skip11000 +0.01817 at 128/384  skip1200 +0.01695 at 64/448
+  and the family is COST-FLAT (<= 0.001M) -> True  a256 103.1086M  a192 103.1086M  a128 103.1086M  a64 103.1086M  a32 103.1086M
+  coverage 5419, a256 reproduces §1880 and a128 reproduces §1928 -> control True
+
+pred_a False | pred_b False | pred_c True | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/mlp_heavy_sweep_results.json (1256.7s)

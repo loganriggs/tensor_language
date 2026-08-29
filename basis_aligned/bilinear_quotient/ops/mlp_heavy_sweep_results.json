@@ -1,0 +1,173 @@
+{
+ "config": {
+  "map_ranks": [
+   512
+  ],
+  "ridge": 0.01,
+  "table_ranks": [
+   "a256",
+   "a192",
+   "a128",
+   "a64",
+   "a32"
+  ],
+  "learned": "ridge map from the token embedding to the site row, fitted on the 5419 COVERED tokens and applied only at uncovered ones; still a function of the current token alone",
+  "map_cost_formula": "36 * map_rank * 2 * 1152 reals",
+  "neighbour": "the settled output-NN fallback (\u00a71780/\u00a71781)",
+  "ROLE_NOTE": "DISCOVERY ONLY."
+ },
+ "results": {
+  "skip7000": {
+   "live": {
+    "cov": 3.29205,
+    "all": 3.13704
+   },
+   "m512_a256": {
+    "cov": 6.10045,
+    "all": 6.02422,
+    "cost_M": 103.1086
+   },
+   "m512_a192": {
+    "cov": 6.0857,
+    "all": 6.01093,
+    "cost_M": 103.1086
+   },
+   "m512_a128": {
+    "cov": 6.0783,
+    "all": 6.00548,
+    "cost_M": 103.1086
+   },
+   "m512_a64": {
+    "cov": 6.07626,
+    "all": 6.00558,
+    "cost_M": 103.1086
+   },
+   "m512_a32": {
+    "cov": 6.07986,
+    "all": 6.01068,
+    "cost_M": 103.1086
+   }
+  },
+  "skip11000": {
+   "live": {
+    "cov": 3.09711,
+    "all": 2.9345
+   },
+   "m512_a256": {
+    "cov": 6.04503,
+    "all": 5.99343,
+    "cost_M": 103.1086
+   },
+   "m512_a192": {
+    "cov": 6.03003,
+    "all": 5.98058,
+    "cost_M": 103.1086
+   },
+   "m512_a128": {
+    "cov": 6.02266,
+    "all": 5.97526,
+    "cost_M": 103.1086
+   },
+   "m512_a64": {
+    "cov": 6.02036,
+    "all": 5.97623,
+    "cost_M": 103.1086
+   },
+   "m512_a32": {
+    "cov": 6.02378,
+    "all": 5.982,
+    "cost_M": 103.1086
+   }
+  },
+  "skip1200": {
+   "live": {
+    "cov": 3.40277,
+    "all": 3.23027
+   },
+   "m512_a256": {
+    "cov": 6.02022,
+    "all": 6.0068,
+    "cost_M": 103.1086
+   },
+   "m512_a192": {
+    "cov": 6.00568,
+    "all": 5.99503,
+    "cost_M": 103.1086
+   },
+   "m512_a128": {
+    "cov": 5.99742,
+    "all": 5.99021,
+    "cost_M": 103.1086
+   },
+   "m512_a64": {
+    "cov": 5.99535,
+    "all": 5.98985,
+    "cost_M": 103.1086
+   },
+   "m512_a32": {
+    "cov": 5.99615,
+    "all": 5.99269,
+    "cost_M": 103.1086
+   }
+  }
+ },
+ "allocation": {
+  "a256": {
+   "attn": 256,
+   "mlp": 256
+  },
+  "a192": {
+   "attn": 192,
+   "mlp": 320
+  },
+  "a128": {
+   "attn": 128,
+   "mlp": 384
+  },
+  "a64": {
+   "attn": 64,
+   "mlp": 448
+  },
+  "a32": {
+   "attn": 32,
+   "mlp": 480
+  }
+ },
+ "allpos_ce": {
+  "skip7000": {
+   "a256": 6.02422,
+   "a192": 6.01093,
+   "a128": 6.00548,
+   "a64": 6.00558,
+   "a32": 6.01068
+  },
+  "skip11000": {
+   "a256": 5.99343,
+   "a192": 5.98058,
+   "a128": 5.97526,
+   "a64": 5.97623,
+   "a32": 5.982
+  },
+  "skip1200": {
+   "a256": 6.0068,
+   "a192": 5.99503,
+   "a128": 5.99021,
+   "a64": 5.98985,
+   "a32": 5.99269
+  }
+ },
+ "table_cost_M": {
+  "a256": 103.1086,
+  "a192": 103.1086,
+  "a128": 103.1086,
+  "a64": 103.1086,
+  "a32": 103.1086
+ },
+ "predictions": {
+  "pred_a_keeps_paying_past_128": false,
+  "pred_b_best_beats_uniform_by_0p03": false,
+  "pred_c_family_cost_flat": true,
+  "pred_d_controls": true
+ },
+ "runtime_s": 1256.7
+}

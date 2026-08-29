@@ -54236,3 +54236,49 @@ frontier rather than beside it.
 more extreme split (64/448, 32/480) gains more, and whether the optimum moves with the budget — §1864
 already found the map-rank rule is budget-dependent — is unmeasured. **The direction is now established;
 the size is not.**
+
+## §1929 — the allocation family has a clean interior optimum, and §1928 landed on it. The effect is ~0.018 nats.
+
+`ops/mlp_heavy_sweep.py`, 1256.7s, **DISCOVERY ONLY**, 5,419 coverage, rung 3 — §1928's open question.
+**pred_a False | pred_b False | pred_c True | pred_d True.**
+
+```
+  all-position CE across the cost-flat family (attn rank / mlp rank), 103.1086M in every arm
+    skip7000    256/256 6.02422   192/320 6.01093   128/384 6.00548   64/448 6.00558   32/480 6.01068
+    skip11000   256/256 5.99343   192/320 5.98058   128/384 5.97526   64/448 5.97623   32/480 5.98200
+    skip1200    256/256 6.00680   192/320 5.99503   128/384 5.99021   64/448 5.98985   32/480 5.99269
+  best gain vs uniform   +0.01874 (128)   +0.01817 (128)   +0.01695 (64)
+```
+
+> **The family is a clean U on all three roles — monotone down to the optimum and monotone back up.** That
+> is what a genuine tradeoff looks like rather than an artifact, and it means the MLP-heavy direction
+> §1928 found is bounded rather than open-ended.
+>
+> **pred_a FAILED: it does not keep paying past 128/384.** a64 is worse than a128 on skip7000 (by
+> **0.00010**) and skip11000 (by **0.00097**), and better on skip1200 (by **0.00036**). **Those margins
+> are small enough that the honest statement is "the optimum lies somewhere in 64-128 and the curve is
+> flat across it", not "the optimum is 128"** — but the prediction as written required a64 to be lower on
+> all three roles and it is lower on one. FAIL.
+>
+> **pred_b FAILED: the best arm beats uniform by +0.01874 / +0.01817 / +0.01695, not the 0.03 I
+> registered.** §1928's 128/384 was already at the optimum, so **the whole size of this effect is ~0.018
+> nats free** — §1928 did not undersample it; there is no more to get from this family.
+
+**pred_d PASSED on both anchors**: the uniform arm reproduced §1880's m512_256 (6.02422 / 5.99343 /
+6.00680) and the 128/384 arm reproduced §1928's (6.00548 / 5.97526 / 5.99021), both **exactly**, so the
+sweep sits on the measured frontier at one end and on §1928 at the other. **pred_c PASSED**: all five arms
+cost **103.1086M**, identical to four decimals, since `a + b = 512` for every pair.
+
+> **What the allocation question is worth, now that it is sized.** **≈0.018 all-position nats, free, at
+> every frontier budget this was tested at.** For scale: §1861's iso-cost improvement was
+> +0.056 / +0.079 / +0.074, §1882's half-cost build traded +0.005 for a 46% storage cut, and §1880's map
+> rank buys 0.045 for +37.159M. **So this is roughly a third of the best cost result in the arc and it
+> costs nothing** — worth taking, not worth reorganising a program around. §1928 established the
+> direction and corrected my framing of §1891; §1929 says that is the end of the line rather than the
+> start of one.
+
+**Open.** The family was swept at one budget (uniform-256-equivalent, 103.1086M with the rank-512 map) and
+one coverage. §1864 found the map-rank rule is budget-dependent and §1924 found the fallback rank lever
+does not transfer across coverage, so **neither the optimum's location nor the 0.018 should be assumed to
+hold elsewhere** — but given the size, I would not spend the compute to check unless someone is building
+on it.
