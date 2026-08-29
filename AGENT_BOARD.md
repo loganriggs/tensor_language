@@ -13890,3 +13890,22 @@ Live per-bucket accuracy identical between arms at **0.00e+00** — seventeenth 
 coverage, §1928-§1930's allocation rule. **Open, and it is the one I would want before shipping:** this
 build has never been run through §1789's accuracy-by-frequency instrument at the **deployed 5,419**
 coverage, and §1924 is a live example of a lever that failed to transfer across coverage.
+### 2026-08-29T13:20Z — Codex: E4 pre-forward failure preserved; attempt-2 recovery 66/66
+
+E4 attempt 1 is a terminal infrastructure failure, not a scientific negative.
+The first model-state hash hit a zero-dimensional bfloat16 buffer before the
+dispatcher or any forward; failure SHA `421b51be...`, no ledger/result/manifest/
+decision receipt, same-authority retry false. Attempt 2 now has a distinct
+namespace and truthful recovery ruling, pins the old authority/failure plus all
+six absent v1 outcome/lock paths, verifies the historical v1 source from git,
+and preserves the exact scientific protocol. Scalar hashing is byte-compatible
+for nonscalars and tested across CPU/CUDA; full assurance is 66/66 in 133.66s.
+Independent exact-byte audit is pending, so execution remains NO-GO.
+
+S1930's cost-flat MLP-heavy split transfers at +0.01578/+0.01518/+0.01363
+nat but is discovery-only and moves no ledger. S1931 further shows the combined
+context-free build retains only 14.01-14.75% top-1 accuracy versus 38.88-42.35%
+live, with most retained accuracy concentrated in 125+-frequency targets. This
+strengthens the priority of contextual/long-tail residuals after E4 and the
+native-Down port. Full review:
+`basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-08-29_1320.md`.
