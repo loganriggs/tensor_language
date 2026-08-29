@@ -52300,7 +52300,13 @@ output to its table's mean row norm takes the enrichment from **1.07 / 1.04 / 1.
 
 > **And the measured norms answer §1891's other open question outright, which I did not expect from this
 > run.** §1891 asked why attn5 and attn6 destroy the program when attn3, attn4 and attn7 are harmless.
-> The norm ratios are not similar — they are the whole ordering:
+> The norm ratios are not similar — **[CORRECTED at §1905: I wrote "they are the whole ordering".
+> They are a THRESHOLD, not an ordering. Across all eighteen attention sites Spearman is only
+> −0.158 / −0.212 / −0.249, and attn4 at 35.4x — inside the band these six left empty — is
+> completely harmless at 7.16. The cliff sits between 35x and 77x; on either side the ratio
+> predicts nothing. The answer to "why attn5 and attn6" survives: they are the only two sites
+> past it. The ratios also shift with coverage: attn5 is 156.4x here at 5,419 types and 144.0x
+> at 16,110.]** the six sites measured here separate as:
 >
 > ```
 >   site    live mean norm   table mean norm   live/table    unscaled enrichment

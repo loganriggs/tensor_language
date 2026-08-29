@@ -69,16 +69,20 @@ def test_all_heads_recompose_exact_native_formula_and_shared_value_bus():
     expected_first, expected_bus = native(first_state)
     with program.begin(first_state) as transaction:
         observed_first = transaction.all_heads()
+        native_full_first = transaction.native_full_write()
         observed_bus = transaction.first_value_bus()
-    assert torch.equal(observed_first, expected_first)
+    assert torch.equal(native_full_first, expected_first)
+    assert torch.allclose(observed_first, expected_first, rtol=1e-6, atol=1e-7)
     assert torch.equal(observed_bus, expected_bus)
-    assert transaction.closure.all_head_recomposition_max_abs_error == 0.0
+    assert transaction.closure.all_head_recomposition_relative_error < 1e-6
 
     expected_second, _ = native(second_state, expected_bus)
     with program.begin(second_state, observed_bus) as transaction2:
         observed_second = transaction2.all_heads()
-    assert torch.equal(observed_second, expected_second)
-    assert transaction2.closure.all_head_recomposition_relative_error == 0.0
+        native_full_second = transaction2.native_full_write()
+    assert torch.equal(native_full_second, expected_second)
+    assert torch.allclose(observed_second, expected_second, rtol=1e-6, atol=1e-7)
+    assert transaction2.closure.all_head_recomposition_relative_error < 1e-6
 
 
 def test_disjoint_head_sums_add_and_returned_tensors_do_not_alias_storage():
@@ -89,7 +93,7 @@ def test_disjoint_head_sums_add_and_returned_tensors_do_not_alias_storage():
         full = transaction.native_full_write()
         head0.zero_()
         replay = transaction.select((0,)) + head1
-        assert torch.equal(replay, full)
+        assert torch.allclose(replay, full, rtol=1e-6, atol=1e-7)
     assert transaction.closure.selected_head_sets == ((0,), (1,), (0,))
     with pytest.raises(RuntimeError, match="closed"):
         transaction.all_heads()
@@ -129,4 +133,3 @@ def test_adapter_refuses_projection_bias_and_invalid_head_selection():
             transaction.select((0, 0))
         with pytest.raises(ValueError, match="malformed"):
             transaction.select((2,))
-

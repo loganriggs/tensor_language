@@ -54,10 +54,13 @@ later arm.
 ## Known-answer boundary
 
 The synthetic native implementation covers both the block-0 value-bus creation and a
-later attention call reusing that bus. Tests require bit equality of the all-head sum
-with the native formula, exact additivity of disjoint head subsets, zero native calls
-after cloning, price accounting, clone non-aliasing, transaction revocation, and
-fail-closed handling of projection biases or invalid head sets.
+later attention call reusing that bus. Tests require bit equality of the adapter's
+unpartitioned full write with the native formula. The separately projected head sum
+must recompose within relative error $10^{-6}$ because splitting `c_proj` changes
+floating-point accumulation order even though the real-number identity is exact.
+Tests also require additivity of disjoint head subsets within that tolerance, zero
+native calls after cloning, price accounting, clone non-aliasing, transaction
+revocation, and fail-closed handling of projection biases or invalid head sets.
 
 Passing these tests does **not** establish checkpoint identity on CUDA. The future
 source-closed collector must perform a pre-outcome native-vs-adapter replay at every
