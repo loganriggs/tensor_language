@@ -7,13 +7,18 @@ TRACKING BY POSITION | buckets ((0, 0), (1, 4), (5, 24), (25, 124), (125, 100000
     skip11000  covered enrichment  7.29x  (n 33196)
     skip1200   covered enrichment  7.49x  (n 16597)
     per-site live/table ratios: min 1.2x max 144.0x across 36 sites
-Traceback (most recent call last):
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/tracking_by_position.py", line 422, in <module>
-    main()
-  File "/venv/main/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/tracking_by_position.py", line 354, in main
-    [f'p{a4}_{b4}' for a4, b4 in PB]},
-                                 ^^
-UnboundLocalError: cannot access local variable 'PB' where it is not associated with a value
+    g1.00    skip7000 CE 5.90522 ( 7.16x)  skip11000 CE 5.85230 ( 7.29x)  skip1200 CE 5.88575 ( 7.49x)   [1/2]
+    PERSITE  skip7000 CE 12.86842 ( 1.80x)  skip11000 CE 12.91618 ( 1.71x)  skip1200 CE 12.79523 ( 1.71x)   [2/2]
+
+  enrichment and live accuracy by scored position, covered arm:
+    skip7000   64_95 n  5519  6.82x live 37.5%  96_127 n  5491  7.24x live 38.9%  128_159 n  5507  7.05x live 37.5%  160_100 n 16675  7.19x live 39.0%
+    skip11000  64_95 n  5520  7.16x live 40.6%  96_127 n  5519  7.54x live 40.6%  128_159 n  5489  7.09x live 41.9%  160_100 n 16668  7.41x live 41.8%
+    skip1200   64_95 n  2751  8.16x live 35.1%  96_127 n  2740  7.38x live 39.0%  128_159 n  2765  6.86x live 37.0%  160_100 n  8341  7.57x live 38.8%
+
+  AGREEMENT FALLS WITH POSITION -> False  skip7000 6.82 -> 7.19  skip11000 7.16 -> 7.41  skip1200 8.16 -> 7.57
+  and the effect is MATERIAL (>= 1.0x) -> False  skip7000 -0.36x  skip11000 -0.25x  skip1200 +0.59x
+  and the LIVE model improves with position -> True  skip7000 37.5% -> 39.0%  skip11000 40.6% -> 41.8%  skip1200 35.1% -> 38.8%
+  coverage 16110, buckets partition -> control True; baseline skip7000 7.16x  skip11000 7.29x  skip1200 7.49x
+
+pred_a False | pred_b False | pred_c True | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/tracking_by_position_results.json (167.0s)

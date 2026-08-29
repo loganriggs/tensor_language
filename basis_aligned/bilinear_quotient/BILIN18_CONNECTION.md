@@ -53278,3 +53278,52 @@ written to establish either way.
 **Open.** Nothing in the attention line. The remaining named question is the cost one handed to Codex at
 07:57Z and restated at 08:06Z: whether an uneven per-site table-rank allocation beats the §1853-§1882
 frontier, now that §1891 and §1908 say which sites carry behaviour and why.
+
+## §1910 — the tracking is FLAT in position while the model's accuracy climbs. §1765 has no behavioural signature here.
+
+`ops/tracking_by_position.py`, 167.0s, **DISCOVERY ONLY**, rung 3 on a fresh axis.
+**pred_a False | pred_b False | pred_c True | pred_d True.**
+
+```
+  covered arm, 16,110 types, by scored position          enrichment / live top-1
+    skip7000    64-95  6.82x 37.5%   96-127  7.24x 38.9%   128-159  7.05x 37.5%   160+  7.19x 39.0%
+    skip11000   64-95  7.16x 40.6%   96-127  7.54x 40.6%   128-159  7.09x 41.9%   160+  7.41x 41.8%
+    skip1200    64-95  8.16x 35.1%   96-127  7.38x 39.0%   128-159  6.86x 37.0%   160+  7.57x 38.8%
+```
+
+**pred_c PASSED on all three roles** — the live model's top-1 climbs from 37.5 / 40.6 / 35.1% at
+positions 64-95 to 39.0 / 41.8 / 38.8% at 160+. **The position axis is real and the split works**, which
+is what makes the null in pred_a readable rather than suspect. It was registered for exactly that.
+
+> **pred_a FAILED, and I named this as the more interesting outcome when I registered it.** §1765
+> establishes that a fully compiled program is a pure function of the current token — cross-position
+> Jacobians exactly zero. The live model is not, and pred_c confirms it is genuinely using more context as
+> the sequence proceeds. **So agreement should have been highest at the earliest positions and fallen. It
+> does not fall. It is flat**: 6.82 → 7.19 and 7.16 → 7.41 *rise* on two roles, 8.16 → 7.57 falls on the
+> third, and pred_b's magnitudes are **−0.36 / −0.25 / +0.59x** against a 1.0x bar — inconsistent in sign
+> and small in every case.
+>
+> **That constrains how §1885-§1896's 6-8x should be read.** The obvious interpretation of the tracking
+> was that both predictors are partly doing the same token-level thing, and that the program follows the
+> model precisely where the model is least contextual. **If that were so, the effect would be strongest
+> at position 64 and weakest at 160+, and the model's own accuracy gradient (pred_c) shows there is a
+> real gradient to ride. There is no signature.** Whatever the compiled program reproduces about the
+> model, it is not the model's context-free component — or at least, the amount of context available does
+> not modulate it.
+
+**§1765 remains true as stated and has no behavioural signature on this axis.** It is a statement about
+Jacobians, verified exactly at §1899 (streams identical to 1.2e-07) and §1901 (outputs to 3.232e-07).
+**§1910 is not evidence against it; it is evidence that its consequence for agreement is not the simple
+one.** I am recording the null rather than reaching for a mechanism, having spent §1888, §1890, §1898,
+§1899 and §1900 on explanations for residuals that measurement then refuted.
+
+**pred_d PASSED**: coverage 16,110, buckets partition every scored covered position, and the baseline
+(7.16 / 7.29 / 7.49x) is computed in-run and reported as an enrichment.
+
+**One launch lost to my own error.** The first attempt died with `UnboundLocalError: PB` — I bound the
+position buckets locally in `compare_by_bucket` and again in the reporting block, and the arm loop read a
+third reference that neither reached. Hoisted to module scope with the reason in a comment. **LESSON 67's
+family: an edit that assumes a binding the edit site does not have**, third instance this session.
+
+**Open.** Nothing named in my lane. The cost question — uneven per-site table-rank allocation against the
+§1853-§1882 frontier — has been with Codex since 07:57Z and is untouched by me.

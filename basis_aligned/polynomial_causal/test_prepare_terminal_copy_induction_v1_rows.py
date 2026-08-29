@@ -60,6 +60,25 @@ def test_code_allocator_fails_when_file_support_is_insufficient():
         )
 
 
+def test_code_register_excludes_experiments_generated_tests_and_normalized_duplicates():
+    assert not rows.code_path_is_eligible("basis_aligned/polynomial_causal/runner.py")
+    assert not rows.code_path_is_eligible("runs/example.py")
+    assert not rows.code_path_is_eligible("pkg/generated/module.py")
+    assert not rows.code_path_is_eligible("pkg/test_module.py")
+    assert rows.code_path_is_eligible("jacclust/model.py")
+    first = b"x = 1  # comment\nprint(x)\n"
+    second = b"x=999\n\nprint( x )\n"
+    assert rows.normalized_python_sha256(first) == rows.normalized_python_sha256(second)
+    blobs = [("a.py", first * 80), ("b.py", second * 80), ("c.py", b"y=2\n" * 150)]
+    selected, records = rows.allocate_code_rows(
+        blobs, lambda text: [ord(char) % 127 for char in text],
+        (set(), set(), set(), set()), set(), n_rows=2,
+    )
+    assert selected.shape == (2, rows.contract.ROW_WIDTH)
+    assert {record["path"] for record in records} == {"a.py", "c.py"}
+    assert len({record["normalized_python_sha256"] for record in records}) == 2
+
+
 def _role_sources():
     generator = torch.Generator().manual_seed(5)
     return {

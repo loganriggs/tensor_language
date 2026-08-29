@@ -10,9 +10,11 @@ using token banks disjoint across roles and rows.
 from __future__ import annotations
 
 import hashlib
+import io
 import json
 import os
 from pathlib import Path
+import tokenize
 import secrets
 import shutil
 import subprocess
@@ -50,9 +52,21 @@ SYNTHETIC_POSITION_TEMPLATES = (
 )
 CODE_SEED = "terminal_copy_induction_v1:ood-code-files:0"
 CODE_PRIOR_MANIFESTS = tuple(sorted(HERE.glob("code_oracle_corpus*_manifest.json")))
+GPT2_ENCODING_SHA256 = "0be287937901b1baae837369293dd6f63da1bece9609006e6485b57a3de37335"
+TIKTOKEN_VERSION = "0.14.0"
+PYARROW_VERSION = "25.0.1"
+CODE_EXCLUDED_PREFIXES = (
+    "archive/", "basis_aligned/bilinear_quotient/",
+    "basis_aligned/polynomial_causal/", "data_", "figures/", "logs/",
+    "runs/", "runs_", "tests/",
+)
+CODE_EXCLUDED_PARTS = {
+    "__pycache__", "generated", "vendor", "third_party", "runlogs", "results",
+}
 
 CACHE = BQ / ".rowcache_terminal_copy_induction_v1"
 RECEIPT = BQ / "terminal_copy_induction_v1_rows_receipt.json"
+FAILURE = BQ / "terminal_copy_induction_v1_rows_failure.json"
 LOCK = Path("/workspace/runs/.terminal_copy_induction_v1_rows.lock")
 
 SOURCE_PATHS = (
@@ -112,6 +126,51 @@ def validate_audit(commit: str, source_hashes: Mapping[str, str]) -> dict[str, A
     return payload
 
 
+def source_identity(
+    canonical: Mapping[str, Any], parquet: Path, registry_hashes: Mapping[str, str],
+    encoding: Any,
+) -> dict[str, Any]:
+    """Bind the exact canonical receipt bytes, loader versions, and tokenizer table."""
+
+    import pyarrow
+    import tiktoken
+    import local_fineweb_harvest as local
+
+    canonical_path = natural.BASE.CANONICAL_RECEIPT.resolve()
+    before = file_sha256(canonical_path)
+    raw = canonical_path.read_bytes()
+    after = file_sha256(canonical_path)
+    parsed = json.loads(raw)
+    fingerprint = local.encoding_fingerprint(encoding)
+    if (
+        before != after
+        or hashlib.sha256(raw).hexdigest() != before
+        or registry_hashes.get(str(canonical_path)) != before
+        or parsed != dict(canonical)
+        or fingerprint != GPT2_ENCODING_SHA256
+        or tiktoken.__version__ != TIKTOKEN_VERSION
+        or pyarrow.__version__ != PYARROW_VERSION
+        or parquet.stat().st_size != local.PINNED_SIZE
+        or file_sha256(parquet) != local.PINNED_SHA256
+    ):
+        raise RuntimeError("terminal-copy source/tokenizer/loader identity changed")
+    return {
+        "canonical_receipt_path": str(canonical_path),
+        "canonical_receipt_sha256": before,
+        "parquet_path": str(parquet.resolve()),
+        "parquet_bytes": parquet.stat().st_size,
+        "parquet_sha256": local.PINNED_SHA256,
+        "tiktoken_version": tiktoken.__version__,
+        "gpt2_encoding_sha256": fingerprint,
+        "pyarrow_version": pyarrow.__version__,
+        "loader_semantics": (
+            "pinned parquet canonical document order; GPT-2 encode_ordinary; "
+            "search every nonoverlapping 257-token chunk until the first row and "
+            "prefix32 collision-free chunk; exactly one row per accepted document"
+        ),
+    }
+
+
 def split_natural_rows(
     rows: torch.Tensor, records: Sequence[Mapping[str, Any]],
 ) -> tuple[dict[str, torch.Tensor], dict[str, list[dict[str, Any]]]]:
@@ -161,12 +220,47 @@ def prior_code_paths(manifests: Sequence[Path] = CODE_PRIOR_MANIFESTS) -> tuple[
     return paths, hashes
 
 
+def code_path_is_eligible(path: str) -> bool:
+    parts = Path(path).parts
+    name = Path(path).name
+    return (
+        path.endswith(".py")
+        and not path.startswith(CODE_EXCLUDED_PREFIXES)
+        and not any(part in CODE_EXCLUDED_PARTS for part in parts)
+        and not name.startswith("test_")
+        and not name.endswith("_test.py")
+    )
+
+
+def normalized_python_sha256(blob: bytes) -> str:
+    """Hash Python after removing formatting/comments and normalizing literal values."""
+
+    normalized: list[str] = []
+    try:
+        stream = tokenize.tokenize(io.BytesIO(blob).readline)
+        for token in stream:
+            if token.type in {
+                tokenize.ENCODING, tokenize.ENDMARKER, tokenize.NEWLINE,
+                tokenize.NL, tokenize.INDENT, tokenize.DEDENT, tokenize.COMMENT,
+            }:
+                continue
+            if token.type == tokenize.STRING:
+                normalized.append("STRING")
+            elif token.type == tokenize.NUMBER:
+                normalized.append("NUMBER")
+            else:
+                normalized.append(token.string)
+    except (IndentationError, SyntaxError, tokenize.TokenError, UnicodeDecodeError):
+        normalized = [" ".join(blob.decode("utf-8", errors="replace").split())]
+    return hashlib.sha256("\0".join(normalized).encode()).hexdigest()
+
+
 def ordered_code_blobs(commit: str) -> Iterable[tuple[str, bytes]]:
     paths = subprocess.check_output(
         ["git", "ls-tree", "-r", "--name-only", commit], cwd=ROOT, text=True,
     ).splitlines()
     candidates = sorted(
-        (path for path in paths if path.endswith(".py")),
+        (path for path in paths if code_path_is_eligible(path)),
         key=lambda path: hashlib.sha256(f"{CODE_SEED}\0{path}".encode()).digest(),
     )
     for path in candidates:
@@ -185,6 +279,7 @@ def allocate_code_rows(
     selected: list[list[int]] = []
     records: list[dict[str, Any]] = []
     seen_paths: set[str] = set()
+    seen_normalized: set[str] = set()
     for path, blob in blobs:
         if len(selected) == n_rows:
             break
@@ -193,6 +288,10 @@ def allocate_code_rows(
         ):
             continue
         seen_paths.add(path)
+        normalized_sha256 = normalized_python_sha256(blob)
+        if normalized_sha256 in seen_normalized:
+            continue
+        seen_normalized.add(normalized_sha256)
         tokens = [50256] + encode(blob.decode("utf-8", errors="replace"))
         chunks = len(tokens) // contract.ROW_WIDTH
         if chunks <= 0:
@@ -220,6 +319,7 @@ def allocate_code_rows(
             "role_row_index": len(selected) - 1,
             "path": path,
             "blob_sha256": hashlib.sha256(blob).hexdigest(),
+            "normalized_python_sha256": normalized_sha256,
             "chunk_index": chunk,
             "token_start": chunk * contract.ROW_WIDTH,
         })
