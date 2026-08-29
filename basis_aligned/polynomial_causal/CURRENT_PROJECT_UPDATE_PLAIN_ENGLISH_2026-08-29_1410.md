@@ -1917,3 +1917,40 @@ now pruned.  Full numbers and definitions are in
 [`MLP2_CMR_V1_VALIDATION_FINDINGS.md`](MLP2_CMR_V1_VALIDATION_FINDINGS.md).
 
 ## UPDATE END — 28
+
+## UPDATE START — 29. The shared MLP2 response pattern is real, but a simple context gate cannot predict it
+
+The preceding mathematical review found that six different partial MLP2
+replacements rise and fall together across documents: one common direction explains
+97.6% of their standardized variation.  That did **not** mean MLP2 itself was rank
+one.  The next question was whether we could compute that common direction cheaply
+from the input presented to MLP2.
+
+We tested a deliberately simple answer.  For each document, we summarized the
+RMS-normalized 1,152-dimensional state entering MLP2 by its coordinatewise mean and
+coordinatewise mean square.  This produces 2,304 numbers describing the average
+context and its diagonal variation.  A PCA-plus-ridge model was trained on one half
+of the documents and tested on the other, then the halves were reversed.  All
+dimension and regularization choices were made inside the training half.
+
+The model's out-of-sample correlation with the common response was only **0.226**,
+below the preregistered **0.50** requirement.  It reduced squared prediction error by
+only **4.64%** compared with cheap token/count features, below the required **20%**.
+It therefore fails as a usable document-level gate.  The run was not slow: 48 full
+native forwards completed in **18.35 seconds**.
+
+This is useful pruning.  The response regularity is downstream and causal, but it is
+not encoded as a simple global property such as “this document needs more MLP2.”  A
+candidate must instead decide at individual token positions, use nonlinear context,
+or learn the gate jointly with an arbitrary mixed MLP2 write.
+
+The immediate next experiment is now the cheap composition telescope: compare
+MLP0-C512 alone, deleting MLP2 alone, and both together.  Its interaction term tells
+us whether MLP2 was compensating for the information discarded by C512.  After that,
+the next new MLP2 family should use mixed balanced coordinates rather than selecting
+native product channels.
+
+Exact definitions and the full priority list are in
+[`HOURLY_STRATEGIC_REVIEW_2026-08-29_1930.md`](HOURLY_STRATEGIC_REVIEW_2026-08-29_1930.md).
+
+## UPDATE END — 29

@@ -15304,3 +15304,20 @@ lane 1; still have not touched `queue2.txt`.
 - No strict ledger move: **5.348245316%** certified storage removal,
   **10.923302467%** named causal CE, **4.72714 nat** unexplained, **0/68** terminal
   actions.
+### 2026-08-29T19:30Z — Codex hourly: document-level MLP2 context gate fails in 18.35 seconds
+
+- Preregistered and executed on 191 supported VALIDATION documents; result SHA-256
+  `f47eb2529b7f3872dd361f04169d4dd4f0c66b0ba7dd9281fa7e282d09d10afe`.
+- Pre-MLP2 state mean + diagonal second moment, PCA/ridge with nested selection:
+  out-of-fold Pearson **0.22587**, only **4.6436%** MSE improvement over token/count
+  baseline.  Frozen bars were 0.50 and 20%; status is
+  `not_sufficient_at_document_moments`.  Both fold correlations were positive and
+  the permutation control passed, so the signal is weak rather than nonexistent.
+- Interpretation: the 97.6% common finite-response mode is not a simple
+  document-level need-for-MLP2 scalar.  Prune document moments; retain tokenwise or
+  jointly learned mixed gates.
+- Next priority is the cheap MLP0-C512 × MLP2-ZERO composition telescope, followed
+  by a FIT-trained arbitrary-mixture balanced MLP2 correction from ZERO.
+- Full review: `basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-08-29_1930.md`.
+  Strict ledgers remain **5.348245316%** storage, **10.923302467%** named causal CE,
+  **4.72714 nat** unexplained, and **0/68** terminal actions.
