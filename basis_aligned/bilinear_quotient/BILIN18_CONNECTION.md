@@ -50981,3 +50981,57 @@ those 5,672 tokens. **The obvious first probe is whether the map's rank is the b
 §1814 established rank(Ws) ≤ table_rank + 1, so at full-rank tables the map could carry far more than 64
 and its cost — 36 × rank × 2 × D — is the only thing that grows. Sweeping the map rank at fixed table rank
 prices that directly, and it is the same shape of experiment as §1849's table-rank ladder.
+
+## §1869 — map rank IS binding, and 64→128 is the best buy measured anywhere in this arc: 560 M reals per nat
+
+`ops/map_rank_sweep_fallback.py`, 332.5s, **DISCOVERY ONLY**, rung 3 — §1868's open question. **4/4.**
+
+Fallback loss (program minus the uncovered-token ceiling) by map rank, full table rank, 16,110 covered
+types:
+
+```
+  map rank   map cost    skip7000   skip11000   skip1200
+      64      5.308M     +0.82155    +0.87058    +0.87692
+     128     10.617M     +0.72678    +0.76218    +0.76518
+     256     21.234M     +0.64902    +0.68268    +0.68008
+     512     42.467M     +0.60230    +0.63923    +0.62268
+```
+
+**pred_a PASSED**: going from rank 64 to 512 recovers **+0.21926 / +0.23135 / +0.25424** nats per
+uncovered position, over the 0.20 bar. **pred_c PASSED**: monotone throughout.
+
+> **pred_b PASSED at exactly 0.00e+00 — the strongest control in this arc.** The covered CE is
+> **bit-identical** across all four map ranks on all three roles. The map fills uncovered rows only, and
+> this proves it does: had it touched a covered row the number could not have been zero. That is what
+> licenses reading every other figure here as a pure statement about the fallback.
+
+**Converted to all-position nats at the 10.0% uncovered fraction, the marginal rates are the finding:**
+
+```
+   64 -> 128    +5.309M   buys 0.00948 all-pos nats  =   560 M/nat
+  128 -> 256   +10.617M   buys 0.00778                = 1365 M/nat
+  256 -> 512   +21.233M   buys 0.00467                = 4546 M/nat
+  §1854's table-rank frontier at comparable cost: 1859, 2127, 4012 M/nat
+```
+
+**Doubling the map from rank 64 to 128 costs 5.309M and is 3.3x more efficient than the cheapest
+comparable table-rank step** — 560 M/nat against 1859. It is the best buy measured anywhere in
+§1829-§1869, and it is available inside a build the record has been treating as settled since §1786.
+
+**But rank is not the whole constraint, and pred_a's TRUE branch overstates it.** At map rank 512 —
+eight times the deployed setting, and 42.5M reals — **0.602 / 0.639 / 0.623 nats of fallback loss
+remain**, 73% of what rank 64 loses. The recovery curve is strongly diminishing (0.095, 0.078, 0.047 per
+doubling), so extrapolating it to zero is not supported. **Map rank is a genuine and cheap partial
+remedy; the residual is not a capacity problem and needs the different functional form pred_a's FALSE
+branch described.**
+
+**Controls (pred_d).** Map rank 64 reproduces §1868's published fallback loss exactly; coverage is
+16,110; the covered arm attains its ceiling (a tenth independent confirmation); every uncovered scored
+token has a ceiling row.
+
+**Open question this ends on.** The residual 0.60 nats at map rank 512 is the fallback's *functional
+form*, not its capacity: §1785 fits `row = embedding @ W` by least squares, a **linear** map from the
+token embedding. §1868 showed the target — the model's own length-1 row — is reachable in principle for
+every one of these tokens. **Whether a non-linear map closes the residual, and at what storage, is the
+first genuinely new object this arc has needed**, and unlike everything since §1829 it is not a re-slice
+of the existing build.
