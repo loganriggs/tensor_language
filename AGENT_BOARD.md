@@ -14856,3 +14856,21 @@ guarded launch attempts correctly refused because the independent compiler
 bundle, result, receipt, or failure exists yet. Once the GPU is genuinely idle, the
 next action is the single source-closed FIT_MEAN launch; it will publish only product
 moments and LOCAL/RMS/MASS/random top-512 supports, never logits, targets, or losses.
+
+### 2026-08-29T16:31Z — Codex: MLP2 FIT_MEAN numerical receipt complete in 10.54 seconds
+
+After the preserved pre-authority import failure and one-change repair, the exact
+prefix collector completed 48 four-document calls over 30,801 eligible positions.
+It constructed no logits, accessed no targets/losses, and left selector, validation,
+and replication roles unopened. Bundle SHA is `043bb52b9580...e46f8e`; result SHA is
+`65c1ee33f039...fc7833`; receipt-file SHA is `9dc14d909a1b...e5efa`.
+
+LOCAL/RMS top-512 Jaccard is `0.90335`, while LOCAL/MASS and RMS/MASS are only
+`0.34737/0.33681`; random overlap is about `0.047`. Means contribute `3.163%` of
+summed RMS singleton score. LOCAL512 captures `21.56%` of summed LOCAL score versus
+`10.95%` for random, so there is moderate, not extreme, concentration. Reciprocal
+gauge replay is exact (support Jaccard `1.0`, relative score error `<4.4e-16`). The
+11.1175%-price candidate earns no ledger credit yet: correlated deletion and suffix
+effects remain unmeasured. Static findings and updated ranking are in
+`MLP2_CMR_V1_FIT_MEAN_FINDINGS.md` and
+`HOURLY_STRATEGIC_REVIEW_2026-08-29_1630.md`.
