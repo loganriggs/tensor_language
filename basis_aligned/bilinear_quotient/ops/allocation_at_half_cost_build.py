@@ -52,8 +52,10 @@ S1929_GAIN = [0.01874, 0.01817, 0.01695]   # §1929 best gains at 5,419 / 103.1M
 RIDGE = 1e-2
 PT = '/workspace/tensor_language/basis_aligned/bilinear_quotient/'
 OUT = PT + 'ops/allocation_at_half_cost_build_results.json'
-EVAL_SETS = [('skip7000', PT + '.rowcache/fineweb_n192_skip7000.pt', 3.29205),
-             ('skip11000', PT + '.rowcache/fineweb_n192_skip11000.pt', 3.09711),
+# live COVERED-CE anchors are POPULATION-dependent: 3.29205 / 3.09711 were measured on the 5,419
+# covered set and at 16,110 'covered' is a different, larger population (§1882, and §1905's pred_d).
+EVAL_SETS = [('skip7000', PT + '.rowcache/fineweb_n192_skip7000.pt', None),
+             ('skip11000', PT + '.rowcache/fineweb_n192_skip11000.pt', None),
              ('skip1200', PT + '.rowcache/fineweb_n96_skip1200.pt', None)]
 FIT_ROWS = PT + '.rowcache/fineweb_n480_skip80.pt'
 H = m.transformer.h
