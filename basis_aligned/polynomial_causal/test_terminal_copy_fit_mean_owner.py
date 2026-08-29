@@ -9,7 +9,7 @@ import torch.nn.functional as F
 from terminal_copy_attention_dispatcher import NAMED_LAYERS, PhysicalCandidateDispatcher
 from terminal_copy_attention_owner import LAYER_COUNT
 from terminal_copy_fit_head_means import FitHeadMeanAccumulator
-from terminal_copy_fit_mean_owner import FitMeanCollectionOwner
+from terminal_copy_fit_mean_owner import FitMeanCollectionOwner, tensor_sha256
 from test_terminal_copy_attention_owner import TinyModel
 
 
@@ -50,10 +50,10 @@ def test_collection_is_observational_and_never_calls_unembedding():
         AssertionError("fit collection called unembedding")
     )
     owner = make_owner(model, ("a", "b"), 6)
-    observed = owner.collect_batch(
+    observed_sha256 = owner.collect_batch(
         model, tokens, ("a", "b"), require_production=False,
     )
-    assert torch.equal(observed, expected)
+    assert observed_sha256 == tensor_sha256(expected)
     bank, closure = owner.finalize()
     assert closure.native_unembedding_calls == 0
     assert closure.native_attention_calls == (1,) * LAYER_COUNT

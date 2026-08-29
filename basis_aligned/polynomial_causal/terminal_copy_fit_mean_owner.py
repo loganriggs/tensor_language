@@ -23,7 +23,7 @@ from terminal_copy_fit_head_means import FitHeadMeanAccumulator, FitHeadMeanBank
 LAYER_COUNT = 18
 
 
-def _tensor_sha256(value: torch.Tensor) -> str:
+def tensor_sha256(value: torch.Tensor) -> str:
     cpu = value.detach().to("cpu").contiguous()
     digest = hashlib.sha256()
     digest.update(str(cpu.dtype).encode())
@@ -93,8 +93,8 @@ class FitMeanCollectionOwner:
         document_ids: Sequence[str],
         *,
         require_production: bool = True,
-    ) -> torch.Tensor:
-        """Advance one native batch and return its final hidden state, never logits."""
+    ) -> str:
+        """Advance one native batch and return only its final-state hash, never logits."""
 
         dispatcher, accumulator = self._require_open()
         if self._active:
@@ -166,12 +166,12 @@ class FitMeanCollectionOwner:
                 x = x + native_write
                 x = x + block.mlp(F.rms_norm(x, (dispatcher.width,)))
                 self._native_mlp[site] += 1
-            final = x.detach().clone()
-            self._final_state_hashes.append(_tensor_sha256(final))
+            final_sha256 = tensor_sha256(x)
+            self._final_state_hashes.append(final_sha256)
             self._batch_calls += 1
             self._document_calls += len(documents)
             success = True
-            return final
+            return final_sha256
         finally:
             self._active = False
             if not success:

@@ -365,6 +365,24 @@ native-MLP omission authority, and the create-only selection/result lifecycle. T
 launch gate now requires `physical_candidate_dispatcher` separately from the adapter.
 E4.1--E4.3 remain unchecked.
 
+**10:35 UTC fit-mean/owner update — infrastructure only, still not an evidence
+cell:** the mean bank is now sparse over exactly the six licensed heads, accumulates
+source writes one document at a time on CPU float64 in frozen receipt order, retains a
+sealed float64 master and separately hashed float32 runtime cast, and is invariant to
+batch partition. A hook-free native collection owner advances all 18 blocks without
+calling the unembedding, uses original native writes for the live trajectory, and
+independently decomposes only layers 5/7/8/13/14. A separate candidate owner executes
+multi-layer candidates sequentially on their live counterfactual states, calls every
+MLP natively, and records native/adapter/site integrity. Production rejects short
+states, null value buses, non-bfloat16 physical state/adapters, non-float32 means,
+wrong model weights, and any population other than 192 ordered 256-token documents.
+Hashed banks expose clones only; owners privately clone their instruments and become
+permanently poisoned after a partial forward failure. The focused suite passes
+`56/56`. This still opens no model or E4 outcome. Remaining launch blockers are the
+create-only parent/source authority, model pre/post and row/support ledgers, atomic
+mean bundle/manifest/receipt lifecycle, and a selection scorer that reduces and
+discards logits without response escape. S1918 owns the GPU, so no launch was attempted.
+
 **07:40 UTC whole-program diagnostic — actual run, not an E1--E4 completion:** the
 deployed-scale sweep measured top-1 and permutation-normalized teacher agreement on all
 three discovery roles. Scale 0.8 was best for top-1, scale 0.5 best for agreement, and
