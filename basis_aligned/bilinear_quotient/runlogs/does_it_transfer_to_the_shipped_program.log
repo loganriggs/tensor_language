@@ -1,0 +1,37 @@
+DOES IT TRANSFER TO THE SHIPPED PROGRAM | 7 arms x 1 coverage(s) | DISCOVERY ONLY
+
+########## COVERAGE 5419 ##########
+  [bqlib] coverage 5419 from fineweb_n96_skip80.pt: 36 tables, neighbour index and map solver built (4s)
+  [bqlib] cache HIT  live     skip7000
+  [bqlib] cache HIT  live     skip11000
+  [bqlib] cache HIT  live     skip1200
+  [bqlib] cache HIT  mix30m640 skip7000
+  [bqlib] cache HIT  mix30m640 skip11000
+  [bqlib] cache HIT  mix30m640 skip1200
+  [bqlib] cache HIT  mix30m640 skip7000
+  [bqlib] cache HIT  mix30m640 skip11000
+  [bqlib] cache HIT  mix30m640 skip1200
+  [bqlib] cache HIT  mix30m640 skip7000
+  [bqlib] cache HIT  mix30m640 skip11000
+  [bqlib] cache HIT  mix30m640 skip1200
+  [bqlib] cache HIT  mix30m640 skip7000
+  [bqlib] cache HIT  mix30m640 skip11000
+  [bqlib] cache HIT  mix30m640 skip1200
+  [bqlib] cache HIT  meanrow@mlp2+mix30m640@mlp0,mlp1,mlp3,mlp4,mlp5,mlp6,mlp7,mlp8,mlp9,mlp10,mlp11,mlp12,mlp13,mlp14,mlp15,mlp16,mlp17,attn0,attn1,attn2,attn3,attn4,attn5,attn6,attn7,attn8,attn9,attn10,attn11,attn12,attn13,attn14,attn15,attn16,attn17 skip7000
+  [bqlib] cache HIT  meanrow@mlp2+mix30m640@mlp0,mlp1,mlp3,mlp4,mlp5,mlp6,mlp7,mlp8,mlp9,mlp10,mlp11,mlp12,mlp13,mlp14,mlp15,mlp16,mlp17,attn0,attn1,attn2,attn3,attn4,attn5,attn6,attn7,attn8,attn9,attn10,attn11,attn12,attn13,attn14,attn15,attn16,attn17 skip11000
+  [bqlib] cache HIT  meanrow@mlp2+mix30m640@mlp0,mlp1,mlp3,mlp4,mlp5,mlp6,mlp7,mlp8,mlp9,mlp10,mlp11,mlp12,mlp13,mlp14,mlp15,mlp16,mlp17,attn0,attn1,attn2,attn3,attn4,attn5,attn6,attn7,attn8,attn9,attn10,attn11,attn12,attn13,attn14,attn15,attn16,attn17 skip1200
+  [bqlib] computed   map512   skip7000 (1.4s)
+  [bqlib] computed   map512   skip11000 (1.3s)
+  [bqlib] computed   map512   skip1200 (0.6s)
+  [bqlib] cache HIT  mix30m640 skip7000
+  [bqlib] cache HIT  mix30m640 skip11000
+  [bqlib] cache HIT  mix30m640 skip1200
+
+  naming mlp2 at rank 768 reproduces the shipped program to 0.005 nats on 3/3 roles  -> True
+  and mlp2's content in the full program is under half its repaired-arm value (>=2 roles)  -> True
+  and dropping mlp2 to rank 128 costs under 0.010 nats -- §1947's price of 100M (>=2 roles)  -> True
+  derived controls -> True   coverage_exact=True  inert_pairs_are_inert=True  some_differing_pair_moves=True  buckets_partition=True  live_identical=True  ref_r768=True
+  reference deviations: r768 0.000000
+
+pred_a True | pred_b True | pred_c True | pred_z True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/does_it_transfer_to_the_shipped_program_results.json (92.9s)

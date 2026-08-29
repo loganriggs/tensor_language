@@ -58448,3 +58448,47 @@ this line large enough to be worth *buying* rather than explaining. §1947's pri
 100M parameters, and a rank-128 MLP table is a different price from a rank-768 one. **Whether the repaired
 configuration changes the shipped build's allocation is a costing question the ledger has not asked since
 §1959.**
+
+## §2013 — the whole §1983–§2012 line does not reach the shipped program: mlp2's content there is 0.0003 nats
+
+`ops/does_it_transfer_to_the_shipped_program.py`, **92.9s**, **DISCOVERY ONLY**, 5,419, rung 3 — §2012's
+open question. **pred_a True | pred_b True | pred_c True | derived controls True**, on the second plan.
+Reference deviation 0.000000.
+
+```
+  cost against the live model, nats, 5,419 -- mlp2's table rank inside the FULL 36-site program
+             r1        r16       r128      r768      mean row at mlp2
+  skip7000  2.80782   2.80795   2.80771   2.80750      2.80738
+  skip11000 2.97933   2.97943   2.97923   2.97891      2.97893
+  skip1200  2.70236   2.70234   2.70236   2.70217      2.70189
+```
+
+> **pred_b PASSED 3/3 and the margin is four orders of magnitude. mlp2's entire table content inside the
+> shipped program is worth about 0.0003 nats** — the mean row is 0.00012 *better* than the full-rank table
+> at skip7000 and skip1200. Against **1.408 nats** for the same site's content in §2012's three-site
+> repaired arm. **Per §1515 I am not quoting a ratio: the denominator is within noise and the share is
+> unbounded.**
+
+> **The mechanism is structural and follows from §1765.** In the fully compiled program **every** module's
+> output is a fixed per-token row, so **nothing downstream reads mlp2's output** — it contributes only its
+> own additive term to the residual stream. §2012's 1.408 nats were entirely about live downstream
+> attention, which the shipped program does not have.
+
+**So the §1983–§2012 arc is about partial compilation and does not bear on the shipped allocation, and I
+am recording that boundary explicitly.** Fourteen sections localised a penalty that exists only when
+attention is alive. The shipped program has no interface to break, no ceiling, no lever, and no threshold.
+**Everything from the ceiling to attention 5's presence-only character is a statement about programs
+§1765 does not produce.**
+
+> **pred_c PASSED 3/3, and its unregistered corollary is the one shippable thing here.** Dropping mlp2
+> from rank 768 to rank 128 costs **0.00025 nats at pooled t = +8.97** — real, and far under §1947's
+> 0.010-per-100M bar. The parameters saved are **4.2M at that one site**, worth 0.00042 nats at that
+> price. **Rank 128 at mlp2 is marginally justified — it saves more than it costs — but by 0.0002 nats,
+> and this is one site of eighteen.** §1947 and §1959 swept the MLP rank *uniformly and jointly with
+> attention*; a per-site allocation has never been priced.
+
+**Open.** §2013's mechanism — nothing downstream reads a compiled site — predicts something sharper that
+has never been tested: **the fully compiled program's cost should be ADDITIVE over sites**, since each
+contributes an independent residual term. §1981 measured badly non-additive costs, but every arm there
+had **live attention**. **In the shipped frame the prediction is exact additivity, and it is cheap to
+falsify.**
