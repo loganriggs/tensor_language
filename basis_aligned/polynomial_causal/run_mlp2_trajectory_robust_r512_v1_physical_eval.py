@@ -293,6 +293,32 @@ def validate_receipt_value(value: Any, authority_sha: str, ledger_sha: str,
     return expected
 
 
+def publish_failure(
+    claim, exc: BaseException, authority: dict[str, Any] | None,
+    protected: dict[str, Any] | None, evaluation_opened: bool,
+) -> dict[str, Any]:
+    frozen_artifacts = artifact_snapshot()
+    authority_published = frozen_artifacts[AUTHORITY.name] is not None
+    published_authority = authority if authority_published else None
+    published_protected = protected if authority_published else None
+    failure = {
+        "schema": "mlp2_trajectory_robust_r512_v1_physical_eval_failure",
+        "status": "terminal_failure_no_receipt", "error": repr(exc),
+        "authority_exists": authority_published,
+        "evaluation_may_have_opened": evaluation_opened,
+        "protected_snapshot": published_protected,
+        "artifact_snapshot": frozen_artifacts,
+    }
+    if not RECEIPT.exists() and not FAILURE.exists():
+        def failure_guard() -> None:
+            failure_terminal_guard(
+                claim, frozen_artifacts, published_authority, published_protected,
+            )
+
+        base.atomic_json(FAILURE, failure, pre_link_check=failure_guard)
+    return failure
+
+
 def document_metric(ledger: torch.Tensor, metric: str) -> torch.Tensor:
     if metric == "dce":
         return (ledger[:, 1] - ledger[:, 0]) / ledger[:, 8]
@@ -454,6 +480,9 @@ def main() -> None:
             "evaluation_rows_sha256": entry["file_sha256"], "arms": list(ARMS),
             "scored_slice": [64, 256], "outcome_access": False,
         }
+        # Compute the complete protected state before the authority link.  This
+        # ensures every published authority has a matching failure-replay snapshot.
+        protected = protected_snapshot(authority)
 
         def authority_guard() -> None:
             row_life.base.require_claim(claim, LOCK)
@@ -469,7 +498,6 @@ def main() -> None:
 
         base.atomic_json(AUTHORITY, authority, pre_link_check=authority_guard)
         authority_sha = base.file_sha256(AUTHORITY)
-        protected = protected_snapshot(authority)
         started = time.time(); evaluation_opened = True
         rows, rows_sha = base.stable_torch(Path(entry["path"]), entry["file_sha256"])
         if rows_sha != authority["evaluation_rows_sha256"] \
@@ -579,21 +607,7 @@ def main() -> None:
         # Receipt publication is deliberately the final fallible transaction action.
         base.atomic_json(RECEIPT, receipt, pre_link_check=receipt_guard)
     except BaseException as exc:
-        failure = {"schema": "mlp2_trajectory_robust_r512_v1_physical_eval_failure",
-                   "status": "terminal_failure_no_receipt", "error": repr(exc),
-                   "authority_exists": AUTHORITY.exists(),
-                   "evaluation_may_have_opened": evaluation_opened,
-                   "protected_snapshot": protected,
-                   "artifact_snapshot": artifact_snapshot()}
-        if not RECEIPT.exists() and not FAILURE.exists():
-            frozen_artifacts = failure["artifact_snapshot"]
-
-            def failure_guard() -> None:
-                failure_terminal_guard(
-                    claim, frozen_artifacts, authority, protected,
-                )
-
-            base.atomic_json(FAILURE, failure, pre_link_check=failure_guard)
+        publish_failure(claim, exc, authority, protected, evaluation_opened)
         raise
     finally:
         row_life.base.release_claim(claim, LOCK)

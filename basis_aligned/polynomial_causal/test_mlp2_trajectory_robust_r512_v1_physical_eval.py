@@ -210,3 +210,58 @@ def test_receipt_is_exact_and_canonical() -> None:
     changed = dict(value); changed["evaluation_opened"] = False
     with pytest.raises(RuntimeError, match="receipt semantics"):
         assay.validate_receipt_value(changed, "a", "l", "r")
+
+
+def configure_failure_namespace(tmp_path: Path, monkeypatch: pytest.MonkeyPatch):
+    paths = {name: tmp_path / name for name in (
+        "authority.json", "ledger.pt", "result.json", "receipt.json", "failure.json", "lock",
+    )}
+    for attribute, name in (
+        ("AUTHORITY", "authority.json"), ("LEDGER", "ledger.pt"),
+        ("RESULT", "result.json"), ("RECEIPT", "receipt.json"),
+        ("FAILURE", "failure.json"), ("LOCK", "lock"),
+    ):
+        monkeypatch.setattr(assay, attribute, paths[name])
+    return paths
+
+
+def test_publish_failure_before_authority_link(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    paths = configure_failure_namespace(tmp_path, monkeypatch)
+    claim = assay.row_life.base.acquire_claim(paths["lock"])
+    try:
+        value = assay.publish_failure(
+            claim, RuntimeError("injected authority prelink"),
+            {"constructed": True}, {"protected": True}, False,
+        )
+        assert value["authority_exists"] is False
+        assert paths["failure.json"].is_file()
+        assert not paths["receipt.json"].exists()
+        assert __import__("json").loads(paths["failure.json"].read_text())["status"] == (
+            "terminal_failure_no_receipt"
+        )
+    finally:
+        assay.row_life.base.release_claim(claim, paths["lock"])
+
+
+def test_publish_failure_after_authority_link_before_evaluation_open(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    paths = configure_failure_namespace(tmp_path, monkeypatch)
+    authority = {"published": True}
+    paths["authority.json"].write_text('{"published": true}\n')
+    protected = {"protected": True}
+    monkeypatch.setattr(assay, "protected_snapshot", lambda _: protected)
+    claim = assay.row_life.base.acquire_claim(paths["lock"])
+    try:
+        value = assay.publish_failure(
+            claim, RuntimeError("injected postlink preopen"),
+            authority, protected, False,
+        )
+        assert value["authority_exists"] is True
+        assert value["evaluation_may_have_opened"] is False
+        assert paths["failure.json"].is_file()
+        assert not paths["receipt.json"].exists()
+    finally:
+        assay.row_life.base.release_claim(claim, paths["lock"])
