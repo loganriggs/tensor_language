@@ -26,6 +26,7 @@ if str(HERE) not in sys.path:
 
 import hierarchical_shared_private_rrr as hybrid
 import run_shared_output_rrr_real_v1 as base
+import run_shared_output_rrr_real_v2_recovery as parent_recovery
 
 
 RUNNER = HERE / "run_hierarchical_shared_private_rrr_real_v1.py"
@@ -70,6 +71,7 @@ SOURCE_PATHS = tuple(dict.fromkeys((
     *base.SOURCE_PATHS,
     *(str(path.relative_to(ROOT)) for path in (
         MATH_PREREG, MATH_CORE, MATH_TEST, ADDENDUM, RUNNER, TEST,
+        parent_recovery.RUNNER, parent_recovery.TEST, parent_recovery.PREREG,
     )),
 )))
 FILE_PINS = {**base.FILE_PINS, **PARENT_HASHES}
@@ -126,6 +128,22 @@ def _read_pinned_json(path: Path, expected_sha256: str) -> dict[str, Any]:
     return value
 
 
+def _semantic_replay_parent(
+    authority: Mapping[str, Any], result: Mapping[str, Any], receipt: Mapping[str, Any],
+) -> None:
+    saved = {name: getattr(base, name) for name in _BASE_DEFAULTS}
+    try:
+        for name, value in _BASE_DEFAULTS.items():
+            setattr(base, name, value)
+        parent_recovery.configure_base()
+        parent_recovery.verify_spent_parent()
+        base.semantic_validate_result(result, authority)
+        base.semantic_validate_receipt(receipt, authority, result)
+    finally:
+        for name, value in saved.items():
+            setattr(base, name, value)
+
+
 def verify_parent() -> dict[str, Any]:
     if PARENT_FAILURE.exists():
         raise RuntimeError("hierarchical RRR parent byte closure changed")
@@ -156,6 +174,7 @@ def verify_parent() -> dict[str, Any]:
     }
     if not required.issubset(result.get("arms", {})):
         raise RuntimeError("hierarchical RRR parent comparator bank changed")
+    _semantic_replay_parent(authority, result, receipt)
     return {
         "authority_file_sha256": PARENT_HASHES[str(PARENT_AUTHORITY.relative_to(ROOT))],
         "authority_sha256": authority["authority_sha256"],
@@ -260,6 +279,27 @@ def _private_boundary_gaps(
         output.append(None if rank == 0 or rank == values.numel()
                       else float(values[rank - 1] - values[rank]))
     return output
+
+
+def _identification_scope(
+    q0: int, spectra: Sequence[torch.Tensor], ranks: Sequence[int],
+    shared_gap: float | None, allocation_gap: float | None,
+) -> tuple[bool, str]:
+    relevant: list[float | None] = []
+    if 0 < q0 < D:
+        relevant.append(shared_gap)
+    slots = sum(ranks)
+    capacity = sum(value.numel() for value in spectra)
+    if 0 < slots < capacity:
+        relevant.append(allocation_gap)
+    for values, rank in zip(spectra, ranks, strict=True):
+        if 0 < rank < values.numel():
+            relevant.append(float(values[rank - 1] - values[rank]))
+    identified = bool(relevant) and all(value is not None and value > 0 for value in relevant)
+    return identified, (
+        "conditional_projector_identification" if identified
+        else "compression_only_zero_or_unresolved_eigengap"
+    )
 
 
 def _fit_from_residual(
@@ -381,6 +421,13 @@ def fit_program(descriptor: Mapping[str, Any], state: base.SpectralState) -> Hie
     shared_gap = None if q0 == 0 or q0 == D else float(
         state.global_values[q0 - 1] - state.global_values[q0]
     )
+    allocation_gap = _allocation_cutoff_gap(
+        residual.eigenvalues, fit.allocation.private_rank_slots,
+    )
+    identified, identification_scope = _identification_scope(
+        q0, residual.eigenvalues, fit.allocation.private_ranks,
+        shared_gap, allocation_gap,
+    )
     diagnostics = {
         "explained_penalized_merit": (
             fit.explained_shared_merit + fit.explained_private_merit
@@ -403,9 +450,9 @@ def fit_program(descriptor: Mapping[str, Any], state: base.SpectralState) -> Hie
         "private_boundary_eigengaps": _private_boundary_gaps(
             residual.eigenvalues, fit.allocation.private_ranks,
         ),
-        "allocation_cutoff_eigengap": _allocation_cutoff_gap(
-            residual.eigenvalues, fit.allocation.private_rank_slots,
-        ),
+        "allocation_cutoff_eigengap": allocation_gap,
+        "strictly_positive_gap_identification": identified,
+        "scientific_identification_scope": identification_scope,
         "combined_orthogonality_max_abs_float64": fit.combined_orthogonality_max_abs,
         "map_float_count": fit.price.map_float_count,
         "map_float_bytes": fit.price.map_float_bytes,
