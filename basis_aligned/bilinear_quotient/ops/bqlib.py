@@ -598,7 +598,13 @@ def inertness_pairs(plan):
     plan = [tuple(p) + (None,) * (4 - len(p)) for p in plan]
     # two arms are covered-input-inert relative to each other only if they share BOTH the table rank
     # and the substituted site set (S1977) -- a different site set changes covered positions too.
-    spec = {lab: (_rk_key(tr), _sites_key(si)) for _a, tr, lab, si in plan}
+    # The inertness guarantee (S1765/S1936) is that two arms differing only in the FALLBACK -- the
+    # UNCOVERED rows -- are inert at covered inputs. It does not hold for arms that also change the
+    # COVERED rows. `meanrow` replaces every row including covered ones, so it is not a fallback variant
+    # and must not be paired as same-spec with one. S1983's control failed on exactly that, correctly.
+    WHOLE_TABLE = {'meanrow'}
+    spec = {lab: (_rk_key(tr), _sites_key(si), a in WHOLE_TABLE)
+            for a, tr, lab, si in plan}
     labs = [lab for _a, _tr, lab, _si in plan]
     inert, differ = [], []
     for i, a in enumerate(labs):

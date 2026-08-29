@@ -57184,3 +57184,52 @@ layer apart, so whatever mlp4 writes reaches attn6 through layer 5 — and layer
 alone, costs 2.0 nats.** §1908's alignment×magnitude instrument decomposes a site's contribution into
 direction and size and would say which of the two the compiled mlp4 row gets wrong; it has never been
 pointed at an MLP.
+
+## §1983 — it is context-freeness itself, not the table's content; and my third predicate did not test what it said
+
+`ops/is_mlp4_just_fragile.py`, **4.5s** warm (68.7s cold), **DISCOVERY ONLY**, 5,419, rung 3 — §1982's
+open question, and the deflationary control that had to pass before §1982's pair claim could stand.
+**pred_a True | pred_b True | pred_c MIS-SPECIFIED (scored False) | derived controls True**, after the
+control caught a real bug in my own helper.
+
+`meanrow` is the maximally context-free null: **every token gets the same row**, the mean of the covered
+table. It keeps none of the table's content and only its context-freeness.
+
+```
+  cost against the live model, nats, 5,419
+             tab_mlp4  tab_mlp5   mean_mlp4  mean_mlp5   full_program
+  skip7000    10.669    2.022      10.675     2.049         2.808
+  skip11000   10.937    2.141      10.942     2.178         2.979
+  skip1200    10.580    1.994      10.586     2.032         2.702
+```
+
+> **pred_a PASSED 3/3, and the agreement is near-exact. The mean row at mlp4 costs 10.675 / 10.942 /
+> 10.586 against the compiled table's 10.669 / 10.937 / 10.580 — a difference of 0.006 nats.** The
+> compiled table's *content* is irrelevant: **what layer 6 cannot use is a row that does not vary with
+> context, whatever it contains.** That is §1765's premise being the cause, not this program's tables.
+
+> **pred_b PASSED 3/3 and refutes the deflationary reading. Layer 5 stays mild under the identical
+> substitution — 2.049 / 2.178 / 2.032, a fifth of layer 4's.** Two adjacent MLPs perturbed in exactly
+> the same way, and only one is catastrophic. **"Layer 4 is simply a fragile site" is dead**, which is
+> what this section existed to test.
+
+> **pred_c did not test what its registered text says, and I am scoring it False and discarding it.** It
+> reads "compiling attention 6 as well removes most of it under the null" — but `run()` applies **one arm
+> per plan entry**, so the `mean_mlp4_attn6` arm gave attention 6 the **mean row too**, not §1980's
+> compiled table. It measures mean-substituting both sites, which is a different intervention, and it
+> came out identical to mean-substituting mlp4 alone (10.675 vs 10.675). **§1980's fix is untested under
+> this null and remains untested**; testing it needs mixed-arm substitution, which the library cannot
+> express.
+
+**The control caught a real bug in `inertness_pairs`, and it was mine.** The helper keyed a "same spec"
+on `(table_rank, site set)` — but the covered-input inertness guarantee (§1765/§1936) holds only between
+arms differing in the **fallback**, i.e. the *uncovered* rows. **`meanrow` replaces every row, covered
+ones included**, so it is not a fallback variant, and pairing it with one made the control assert
+something false. It failed, correctly, with `inert_pairs_are_inert=False`. Whole-table arms are now
+excluded from same-spec pairing and a test locks it. **Sixty-second clean reading, on the second run.**
+
+**Open.** The pair is (a context-free row at layer 4) → (live attention at layer 6), and §1980's fix —
+compiling attention 6 — has been shown only for the compiled-table version. **Testing it under the mean
+null needs an arm that substitutes different sites by different means, which `run()`'s one-arm-per-entry
+shape forbids.** That is a genuine library limit rather than an oversight, and it is the first thing this
+line has wanted that the declarative form cannot say.

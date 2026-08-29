@@ -1,0 +1,82 @@
+{
+  "independent_audit_reviewer": "Codex independent source-only audit",
+  "independent_audit_sha256": "f3d5f78e885e901a5da12618aa9752770fb0e32c61c9b5fb07ad2165be2a4c7f",
+  "outcome_access_before_authority": {
+    "checkpoint_loaded": false,
+    "evaluation_rows_opened": false,
+    "mean_bundle_semantically_validated": true,
+    "model_forward_calls": 0,
+    "train_rows_opened": false
+  },
+  "parents": {
+    "evaluation_rows": "774d34bda702bf78783639a6fb0c23986155b0be2da0adfcd31b77201f0f4a6e",
+    "mean_bundle": "043bb52b9580d9c9c342460e5bb80ff579db01486b3b6c6672bf5fba77e46f8e",
+    "mean_receipt": "9dc14d909a1b4aafd33c67dc7a3d066db4ccc9cb83c7059fe7aaf499ca9e5efa",
+    "rows_receipt": "e631c4ccf75ca561a4267c85330b7d2774717bad1920c6d5921b1258ddab10a9",
+    "train_rows": "68bc19bbedba9f2cbf94a6f3b44038c0e65b0966a4073467ba6005e8ba4a4ccc"
+  },
+  "recovery_admission": {
+    "recovery_audit_sha256": "edb131d8ca3726102907781f3142a5421f3e541cef98db6dd90c6ec24df2dacb",
+    "recovery_audited_source_commit": "b764cfec01988ab33a35acdda1f7eb22ab93d115",
+    "recovery_source_hashes": {
+      "basis_aligned/polynomial_causal/MLP2_RANK512_REFIT_V2_RECOVERY_AMENDMENT.md": "b7a06b111621eae4cc4dd40be97874a84c1878322d35706dc76c9c7d986cfa2d",
+      "basis_aligned/polynomial_causal/recover_mlp2_rank512_refit_v2.py": "df2a1d0594be5e756bcbf2ff83386314289f98365900c5e69b32856b08b4371c",
+      "basis_aligned/polynomial_causal/test_recover_mlp2_rank512_refit_v2.py": "78b2a74088d9bb5a95bc575831f61b1765f6a452c5c306dd1df30ec9d42d8545"
+    },
+    "v1_authority_sha256": "bf4384bc2c1f3a3858562e5b3980b4cecda7b6e737faeefa27650d7423e352cc",
+    "v1_failure_sha256": "9000830570023bcb9f797d6fcd7bfa1e5f73e791e7783ebf2f56009febd79e26",
+    "v1_source_commit": "3d8cbd72f19044830ba060abb926786e70dd75cb",
+    "v1_source_hashes": {
+      "basis_aligned/polynomial_causal/BLOCK3_NATIVE_DOWN_BEHAVIORAL_PORT_V1_EXECUTION_ADDENDUM.md": "19a59ab85a85a1ab7b398ecfba42dc684dc17a9066cfb64b0b1bceed1196bea0",
+      "basis_aligned/polynomial_causal/BLOCK3_NATIVE_DOWN_BEHAVIORAL_PORT_V1_PREREGISTRATION.md": "8801b6cdfc0bf2f586a4e7462abf51b0213697eff27af4b8260a3aa4e8c9e6bb",
+      "basis_aligned/polynomial_causal/MLP2_RANK512_REFIT_V1_PREREGISTRATION.md": "92303790c2c6ccc54887892779ddbbe14c1ae05918b1ba521a39c4426a409d68",
+      "basis_aligned/polynomial_causal/bilin18_observed_model_facade.py": "b62947f772c807259890a9d09dfcbe5e91ad339a0bffa867ab99177fde4c728c",
+      "basis_aligned/polynomial_causal/local_fineweb_harvest.py": "87d9abeaf1182811650c35bcae25b0373687d2e87aede895bc9f2bc440b90b04",
+      "basis_aligned/polynomial_causal/mlp2_cmr_v1_physical_program.py": "8352d69b630e78934b623dd868a2191ab061772350a7e469a355b6ff91901ecf",
+      "basis_aligned/polynomial_causal/prepare_block3_native_down_behavioral_port_v1_rows.py": "c0f60b90ebc891d0e8d6fcdbc8f855199f9cdcd34c919d44513b90fabef7dc16",
+      "basis_aligned/polynomial_causal/prepare_mlp0_c512_mlp2_compensation_v1_rows.py": "0885ac954ae7f2dce2f035d760443f79d9ff3afc434f6b1335940024ef84988e",
+      "basis_aligned/polynomial_causal/prepare_mlp0_native_down_hierarchy_v1_rows.py": "f7eee860ef40a6301d78461c5d677394757014b6096ecbb853b8e8d48990ab83",
+      "basis_aligned/polynomial_causal/prepare_mlp2_rank512_refit_v1_rows.py": "f2ba31927242db40200acf388d7f572a497d278b379615217571740dd1e50afa",
+      "basis_aligned/polynomial_causal/run_block3_native_down_behavioral_port_v1.py": "c51ef40c3d6516a176bde3ba7d6904672fbe5b975e3ed23bf665f51f003c2b62",
+      "basis_aligned/polynomial_causal/run_mlp2_rank512_refit_v1.py": "b9ef3c6ad1151405bd3aeb4f27a2194ba9f7b202f068961b0ce78ab3038188bf",
+      "basis_aligned/polynomial_causal/test_bilin18_observed_model_facade.py": "7ce76de82cba3355abd07dab6a0d3b4d380d39eae43ad064ae4d954878606a71",
+      "basis_aligned/polynomial_causal/test_mlp2_cmr_v1_physical_program.py": "7631ead45f3d9e6ede00edb159619dc86d78e762b6f9ad2addb3abf98cad5d8f",
+      "basis_aligned/polynomial_causal/test_mlp2_rank512_refit_v1.py": "32f15f92af19316cb9000cbeeba71b238446782c48105fa4fd9751a7d9946501",
+      "basis_aligned/polynomial_causal/test_prepare_block3_native_down_behavioral_port_v1_rows.py": "3e8a4f8d7de53a82132b668af0533447aadfd613b8178a90f3c1cb5fde11f868",
+      "basis_aligned/polynomial_causal/test_run_block3_native_down_behavioral_port_v1.py": "c266cc66f0d1b758ad540d07d2672b1d6ce92d721186022bebb1c864648d403c",
+      "jacclust/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "jacclust/tt_model.py": "49ecdbd6c060ff5b3e57f3134d87ba32841390c891c42e6ae23b71d8627612b2"
+    },
+    "v1_success_and_lock_absent": [
+      "/workspace/tensor_language/basis_aligned/polynomial_causal/mlp2_rank512_refit_v1_bundle.pt",
+      "/workspace/tensor_language/basis_aligned/polynomial_causal/mlp2_rank512_refit_v1_ledger.pt",
+      "/workspace/tensor_language/basis_aligned/polynomial_causal/mlp2_rank512_refit_v1_result.json",
+      "/workspace/tensor_language/basis_aligned/polynomial_causal/mlp2_rank512_refit_v1_receipt.json",
+      "/workspace/runs/.mlp2_rank512_refit_v1.lock"
+    ]
+  },
+  "schema": "mlp2_rank512_refit_v1_execution_authority",
+  "source_commit": "3d8cbd72f19044830ba060abb926786e70dd75cb",
+  "source_hashes": {
+    "basis_aligned/polynomial_causal/BLOCK3_NATIVE_DOWN_BEHAVIORAL_PORT_V1_EXECUTION_ADDENDUM.md": "19a59ab85a85a1ab7b398ecfba42dc684dc17a9066cfb64b0b1bceed1196bea0",
+    "basis_aligned/polynomial_causal/BLOCK3_NATIVE_DOWN_BEHAVIORAL_PORT_V1_PREREGISTRATION.md": "8801b6cdfc0bf2f586a4e7462abf51b0213697eff27af4b8260a3aa4e8c9e6bb",
+    "basis_aligned/polynomial_causal/MLP2_RANK512_REFIT_V1_PREREGISTRATION.md": "92303790c2c6ccc54887892779ddbbe14c1ae05918b1ba521a39c4426a409d68",
+    "basis_aligned/polynomial_causal/bilin18_observed_model_facade.py": "b62947f772c807259890a9d09dfcbe5e91ad339a0bffa867ab99177fde4c728c",
+    "basis_aligned/polynomial_causal/local_fineweb_harvest.py": "87d9abeaf1182811650c35bcae25b0373687d2e87aede895bc9f2bc440b90b04",
+    "basis_aligned/polynomial_causal/mlp2_cmr_v1_physical_program.py": "8352d69b630e78934b623dd868a2191ab061772350a7e469a355b6ff91901ecf",
+    "basis_aligned/polynomial_causal/prepare_block3_native_down_behavioral_port_v1_rows.py": "c0f60b90ebc891d0e8d6fcdbc8f855199f9cdcd34c919d44513b90fabef7dc16",
+    "basis_aligned/polynomial_causal/prepare_mlp0_c512_mlp2_compensation_v1_rows.py": "0885ac954ae7f2dce2f035d760443f79d9ff3afc434f6b1335940024ef84988e",
+    "basis_aligned/polynomial_causal/prepare_mlp0_native_down_hierarchy_v1_rows.py": "f7eee860ef40a6301d78461c5d677394757014b6096ecbb853b8e8d48990ab83",
+    "basis_aligned/polynomial_causal/prepare_mlp2_rank512_refit_v1_rows.py": "f2ba31927242db40200acf388d7f572a497d278b379615217571740dd1e50afa",
+    "basis_aligned/polynomial_causal/run_block3_native_down_behavioral_port_v1.py": "c51ef40c3d6516a176bde3ba7d6904672fbe5b975e3ed23bf665f51f003c2b62",
+    "basis_aligned/polynomial_causal/run_mlp2_rank512_refit_v1.py": "b9ef3c6ad1151405bd3aeb4f27a2194ba9f7b202f068961b0ce78ab3038188bf",
+    "basis_aligned/polynomial_causal/test_bilin18_observed_model_facade.py": "7ce76de82cba3355abd07dab6a0d3b4d380d39eae43ad064ae4d954878606a71",
+    "basis_aligned/polynomial_causal/test_mlp2_cmr_v1_physical_program.py": "7631ead45f3d9e6ede00edb159619dc86d78e762b6f9ad2addb3abf98cad5d8f",
+    "basis_aligned/polynomial_causal/test_mlp2_rank512_refit_v1.py": "32f15f92af19316cb9000cbeeba71b238446782c48105fa4fd9751a7d9946501",
+    "basis_aligned/polynomial_causal/test_prepare_block3_native_down_behavioral_port_v1_rows.py": "3e8a4f8d7de53a82132b668af0533447aadfd613b8178a90f3c1cb5fde11f868",
+    "basis_aligned/polynomial_causal/test_run_block3_native_down_behavioral_port_v1.py": "c266cc66f0d1b758ad540d07d2672b1d6ce92d721186022bebb1c864648d403c",
+    "jacclust/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jacclust/tt_model.py": "49ecdbd6c060ff5b3e57f3134d87ba32841390c891c42e6ae23b71d8627612b2"
+  },
+  "status": "spent_before_train_or_model_access"
+}
