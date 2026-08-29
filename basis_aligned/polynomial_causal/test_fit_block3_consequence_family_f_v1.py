@@ -381,6 +381,17 @@ def test_result_semantic_replay_rejects_missing_arm_and_bad_join():
             impossible, expected_authority_sha256="a" * 64,
             expected_programs_file_sha256="c" * 64,
         )
+    impossible_trace = _valid_result()
+    impossible_trace["score_traces"]["teacher"][0]["score_sum"] = 0.0
+    impossible_trace["score_traces"]["teacher"][0]["document_kl"] = -100.0
+    impossible_trace["affine_traces"]["teacher_F_k512"][0][
+        "correction_norm"
+    ] = -3.0
+    with pytest.raises(RuntimeError, match="trace contains impossible"):
+        runner.semantic_validate_result(
+            impossible_trace, expected_authority_sha256="a" * 64,
+            expected_programs_file_sha256="c" * 64,
+        )
     result["postfit_report"] = dict(result["postfit_report"])
     result["postfit_report"].pop("continuous_teacher_F1")
     with pytest.raises(RuntimeError, match="postfit report"):

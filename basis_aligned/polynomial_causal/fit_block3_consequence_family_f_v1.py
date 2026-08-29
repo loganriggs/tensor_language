@@ -1239,6 +1239,16 @@ def semantic_validate_result(
         for trace in value["score_traces"].values() for row in trace
     ):
         raise RuntimeError("family-F score trace schema changed")
+    if any(
+        row["document_kl"] < -1e-7 or row["row_kl"] < -1e-7
+        or row["gradient_norm_max"] < 0
+        or not 0 <= row["score_min"] <= row["score_max"] <= 1
+        or abs(row["score_sum"] - 512) > 1e-10
+        or not 0 <= row["saturated_zero"] <= 1
+        or not 0 <= row["saturated_one"] <= 1
+        for trace in value["score_traces"].values() for row in trace
+    ):
+        raise RuntimeError("family-F score trace contains impossible metrics")
     if set(value["affine_traces"]) != set(call_contract.AFFINE_ARMS) or any(
         len(trace) != 4 or [row.get("epoch") for row in trace] != list(range(1, 5))
         for trace in value["affine_traces"].values()
@@ -1253,6 +1263,16 @@ def semantic_validate_result(
         for trace in value["affine_traces"].values() for row in trace
     ):
         raise RuntimeError("family-F affine trace schema changed")
+    if any(
+        row["document_kl"] < -1e-7 or row["row_kl"] < -1e-7
+        or row["gradient_norm_max"] < 0 or row["correction_rms"] < 0
+        or row["correction_norm"] < 0 or not math.isclose(
+            row["correction_rms"], row["correction_norm"] / math.sqrt(WIDTH),
+            rel_tol=1e-6, abs_tol=1e-9,
+        )
+        for trace in value["affine_traces"].values() for row in trace
+    ):
+        raise RuntimeError("family-F affine trace contains impossible metrics")
     known = value["known_answer_replay"]
     if not isinstance(known, Mapping) or set(known) != {
         "raw_max_absolute", "raw_max_relative", "max_absolute", "max_relative",
