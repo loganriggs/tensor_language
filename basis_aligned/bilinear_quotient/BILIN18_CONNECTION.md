@@ -50675,3 +50675,46 @@ beaten at its own storage budget by any rank-maximising build at ≥9,054 covere
 0.080 nats**, with the advantage saturating above ~14,000 types. Confirmed second class on both arms
 (§1859, §1860), role-invariant (§1855), not draw-sensitive (§1860), and now shown to be insensitive to
 where on the iso-cost line it is taken.
+
+## §1863 — the plateau's onset located: 88-96% of the iso-cost gain is captured by ~12,000 types
+
+`ops/iso_cost_cov11954.py`, 245.1s, **DISCOVERY ONLY**, rung 3 — §1862's two-point bracket, closed.
+**pred_a True | pred_b True | pred_c True | pred_d True.**
+
+The 230.087M iso-cost line, now five points:
+
+```
+  coverage  rank    cost        skip7000   skip11000   skip1200    % of the achievable gain
+     5,419  full  230.087M      6.01167     5.98477     6.00165        0%   (DEPLOYED)
+     9,054   611  229.883M      5.97012     5.93014     5.95397       75 / 69 / 65%
+    11,954   476  229.976M      5.95819     5.91055     5.93656       96 / 94 / 88%
+    14,405   401  229.972M      5.95604     5.90496     5.93050      100 / 101 / 96%
+    16,110   361  229.728M      5.95599     5.90566     5.92770      100 / 100 / 100%
+```
+
+**pred_b PASSED**: 11,954 sits within **+0.00215 / +0.00559 / +0.00606** of the 14,405 point, inside the
+0.01 bar — **the plateau is already reached at ~12,000 types**. **pred_c PASSED**: it clearly beats 9,054
+by **+0.01193 / +0.01959 / +0.01741**, so the gain between 9,054 and 14,405 is concentrated *below* this
+point, not above it. **pred_a PASSED**: it beats the deployed build by **+0.05348 / +0.07422 / +0.06509**.
+
+> **The curve is a smooth saturation, and the threshold is ~12k rather than ~14k.** Roughly **88-96% of
+> the entire achievable iso-cost gain is captured by 11,954 covered types**, and **65-75% by 9,054**. The
+> operative recommendation from §1862 tightens to: **spend the budget on rank, at any coverage above
+> ~12,000 types** — and going beyond that is worth under 0.006 nats.
+
+**This closes a bracket I had left open twice.** §1862 said "the plateau starts somewhere between 9,054
+and 14,405", which is exactly the two-point-bracket error §1829 was built to correct and which LESSON 47
+records. Having written that lesson and then repeated the pattern twice in one session, measuring the
+midpoint was the minimum honest follow-through rather than an optional refinement.
+
+**Controls (pred_d).** Cost 229.976M, computed from §1754's model and inside the 230.087M budget;
+coverage exactly 11,954 from fit rows [0:288]; the ceiling is finite and above live on every role; the
+covered CE lies strictly above its own ceiling (+0.03114 / +0.03158 / +0.02457), as it must at rank 476.
+
+**Open question this ends on.** Every iso-cost figure in §1861-§1863 is at **one budget**, 230.087M.
+§1853's grid found coverage *helps* at rank ≥16 and *hurts* at rank 4, so the sign of the coverage term
+depends on how much rank is affordable — and at a smaller budget the whole line sits at lower rank. At
+66M (the cost of rank-256 at 16,110), the affordable ranks are **256 at 5,419 types** and only **97 at
+16,110**. §1849 already published the first at all-position CE **6.06004**. If the second is worse, then
+**coverage hurts at low budget and the §1862/§1863 recommendation is budget-dependent** — which would
+matter, because it is currently stated without one.

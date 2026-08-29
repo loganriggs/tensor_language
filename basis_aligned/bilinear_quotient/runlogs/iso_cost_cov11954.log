@@ -1,0 +1,34 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+ISO COST COV | 11954 types, rank 476, plateau onset | settled program (context-free tables + output-NN fallback + rank-64 map) | DISCOVERY ONLY
+
+  per-site norm calibration (live mean / row mean), measured on the LIVE model:
+    attn L0:  2.67 L1:  2.47 L2:  2.21 L3:  2.09 L4:  4.32 L5:  0.99 L6:  1.01 L7:  3.57 L8:  3.38 L9:  4.79 L10:  3.75 L11:  4.43 L12:  6.49 L13:  6.03 L14:  6.76 L15:  6.12 L16:  5.43 L17:  5.56
+    mlp  L0:  0.87 L1:  0.41 L2:  0.60 L3:  0.49 L4:  0.10 L5:  0.39 L6:  0.52 L7:  1.64 L8:  1.99 L9:  1.31 L10:  2.25 L11:  1.04 L12:  1.88 L13:  1.25 L14:  1.63 L15:  1.18 L16:  1.13 L17:  1.21
+
+  arms  (48s)
+  all_substituted      skip7000 13.89%  skip11000 14.63%  skip1200 13.91%
+  all_sub_scaled       skip7000 12.17%  skip11000 12.97%  skip1200 12.09%
+  live_model           skip7000 39.32%  skip11000 42.35%  skip1200 38.88%
+
+  arms  (112s)
+  all_substituted        skip7000 13.89%  skip11000 14.63%  skip1200 13.91%
+  live_model             skip7000 39.32%  skip11000 42.35%  skip1200 38.88%
+
+  arms  (126s)
+  B0_raw                 skip7000 25.21%  skip11000 27.94%  skip1200 25.53%
+  B0_seq                 skip7000 31.11%  skip11000 33.62%  skip1200 29.96%
+
+  coverage 11954 types (2.21x §1834); ceiling CE skip7000 5.93641  skip11000 5.88047  skip1200 5.89324 (147s)
+    rank 476   covered skip7000  5.96755 (+0.03114)  skip11000  5.91204 (+0.03158)  skip1200  5.91781 (+0.02457)   (245s)
+
+  ISO-COST point: 11954 covered types, rank 476, 229.976M (budget 230.087M)
+    skip7000   ceiling 5.93641  covered 5.96755 (+0.03114)  ALLPOS 5.95819
+    skip11000  ceiling 5.88047  covered 5.91204 (+0.03158)  ALLPOS 5.91055
+    skip1200   ceiling 5.89324  covered 5.91781 (+0.02457)  ALLPOS 5.93656
+
+  beats the DEPLOYED build at matched cost -> True  skip7000 +0.05348  skip11000 +0.07422  skip1200 +0.06509
+  and the PLATEAU is already reached here (<0.01 from 14,405) -> True  skip7000 +0.00215  skip11000 +0.00559  skip1200 +0.00606
+  and it clearly beats 9,054 (>=0.005) -> True  skip7000 +0.01193  skip11000 +0.01959  skip1200 +0.01741
+  cost <= budget, coverage 11954, ceiling above live -> control True
+
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/iso_cost_cov11954_results.json (245.1s)
