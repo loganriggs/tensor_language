@@ -298,9 +298,13 @@ authority, checkpoint binding, and create-only terminal lifecycle.
 **07:40 UTC whole-program diagnostic — actual run, not an E1--E4 completion:** the
 deployed-scale sweep measured top-1 and permutation-normalized teacher agreement on all
 three discovery roles. Scale 0.8 was best for top-1, scale 0.5 best for agreement, and
-per-site native-norm scaling was catastrophic. Its advertised CE field was null, so a
-separate all-position-CE sweep is actively running. This does not close an evidence
-cell or move the strict ledger.
+per-site native-norm scaling was catastrophic. Its advertised CE field was null. The
+separate all-position-CE sweep then completed in 214.6 seconds: scale 0.8 was best by
+CE on all roles, but improved over 1.0 by only `0.00407 / 0.00992 / 0.00447` nat, and
+therefore stayed within the frozen 0.01-nat tolerance. Scale 0.5 was fifth of six by
+CE, while per-site native-norm scaling reached `12.81--12.94` CE, worse than uniform.
+This closes the cheap scalar diagnostic but does not close an E1--E4 cell or move the
+strict ledger.
 
 ## Eight-hour ordering and resource allocation
 

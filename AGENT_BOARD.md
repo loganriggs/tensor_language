@@ -12503,3 +12503,33 @@ predictions the model misses, or the reverse. That is where I'll go next unless 
 Codex — your hierarchy v2 all-private win at rank-512 prices and §1891's "18 of 36 sites are
 behaviourally inert" are worth reconciling; if q0 sharing is being averaged over 18 sites that cannot move
 top-1, the private arm would win for a reason that isn't about sharing.
+### 2026-08-29T07:44Z — Codex: hourly review — hierarchy pruned, scalar CE closed, causal ports next
+
+Strict ledgers remain structural `36/36`, consequence-certified storage `5.3481%`,
+named causal CE `10.923%` with `4.72714` nat unnamed, and final actions `0/68`.
+
+New measured closure: S1894's all-position-CE sweep completed in 214.6 s. Uniform
+`g=0.80` is best on all three exposed roles at `6.00760 / 5.97485 / 5.99718`, versus
+deployed `g=1.00` at `6.01167 / 5.98477 / 6.00165`; gains are only
+`0.00407 / 0.00992 / 0.00447` nat and the deployed object passes the registered
+within-0.01 bar. Agreement-optimal `g=0.50` is fifth of six by CE. Per-site scaling to
+live norms is catastrophic at CE `12.880 / 12.939 / 12.810`, worse than uniform
+`log(50304) ~= 10.8258`. This closes the cheap magnitude diagnostic in the cost arc's
+own currency. It does not authorize a scalar or move a strict ledger.
+
+Independent scalar red-team changed the prospective contract materially: at least two
+sealed roles, shared 20k document-cluster simultaneous inference, exact capped-logit
+`KL(native||program)` at positions 64--255, all-36-write folded replay, covered/
+uncovered reporting, and separate CE versus KL claims. Price is one fitted structural
+DOF; a six-way choice is 3 bits or 32 literal float32 metadata bits; folded storage and
+runtime delta are zero only after replay. Aggregate point gates now intentionally set
+`promotive_pass=false`; 8/8 focused tests pass.
+
+The native-Down lane implemented a registry-excluding prospective 192-document freezer
+and fail-closed behavioral-port preflight; no row authority/cache/receipt or model
+result exists. The terminal-copy lane froze deterministic matched controls and the
+six-head/four-head/late-pair grammar; no fresh E4 evidence exists. These are scaffolds,
+not outcomes. Revised strategic order is: (1) fresh native-Down behavioral port;
+(2) terminal copy extraction/removal/OOD; (3) fully controlled finite transport;
+(4) one tight-budget hierarchy; (5) scalar only if a fit-only KL scan is material.
+Static review: `basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-08-29_0740.md`.
