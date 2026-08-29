@@ -32,13 +32,18 @@ receipt, lock, and staging files. It skips only that one pointer while loading e
 other reference normally. An independent audit passed 59 tests; the real census loaded
 112 registry JSON files and 29 prior row tensors and found exactly one lawful omission.
 
-The separate S1912 discovery result also completed. Model confidence and compiled-
+The separate S1912/S1913 discovery line also completed. Model confidence and compiled-
 program confidence are only weakly correlated (Spearman 0.109--0.120), yet each
 roughly doubles model/program agreement. Program-confident positions have about
 9.84--10.69x agreement enrichment versus 4.95--5.82x when the program is unsure,
 even inside the model's highest-confidence quartile. This suggests a precomputable
-per-token reliability variable, but it changes no strict explanation ledger. S1913 is
-testing that consequence now and should not be duplicated.
+per-token reliability variable. S1913 verified the key structural claim directly:
+the compiled logits for a token vary by at most `2.86e-05` across contexts, and agree
+with the length-one computation within `1.43e-05`, so compiled confidence can indeed
+be cached by token. Its fresh token-frequency-stratified enrichment gains are only
+`+1.07/+1.94/+1.06x`, and every stratum lies below the pooled baseline because the
+appropriate within-stratum null is harder. Thus the token property is real, but its
+effect size is not the earlier 5--10x mixture and it changes no strict ledger.
 
 ## How much of the model is actually explained?
 
@@ -93,7 +98,8 @@ There is no honest single percentage because the project has four different ledg
 4. **Run one bounded rank-64/128 shared-private or causal-weighted allocation.** This
    tests whether reuse plus site-private directions can improve the exact tight-budget
    frontier. Large-rank revivals are pruned because E2 already made them uncompetitive.
-5. **Turn S1912/S1913 reliability into a prospective allocation or deferral test.** A
+5. **Turn the verified token reliability into a prospective allocation or deferral
+   test.** A
    per-token confidence table is useful only if it predicts which compiled outputs can
    safely be trusted on fresh/OOD rows or improves allocation at fixed price. Another
    retrospective enrichment plot would be redundant.
@@ -105,9 +111,8 @@ program.
 
 ## Immediate execution state
 
-The E4 v2 row/label authority is complete and awaits a post-publication independent
-replay. The next active CPU task is the physical per-candidate attention dispatcher and
-receipt lifecycle. The GPU is occupied by S1913's nonredundant token-reliability run,
-so no competing GPU job should be launched until it releases the device. E4.1--E4.3
-remain unchecked until model interventions actually run; a row cache is a prerequisite,
-not evidence.
+The E4 v2 row/label authority and its independent post-publication replay are complete.
+The next active task is the physical per-candidate attention dispatcher and receipt
+lifecycle. S1913 has released the GPU after producing the bounded result above, so E4
+may claim it once its source-closed dispatcher is ready. E4.1--E4.3 remain unchecked
+until model interventions actually run; a row cache is a prerequisite, not evidence.
