@@ -40,6 +40,12 @@ RECEIPT_SCHEMA = "mlp2_trajectory_robust_r512_v3_physical_eval_receipt"
 FAILURE_SCHEMA = "mlp2_trajectory_robust_r512_v3_physical_eval_failure"
 
 _V2_ADMISSION = v2.row_life.recovery_admission
+_V2_AUTHORITY = v2.AUTHORITY
+_V2_LEDGER = v2.LEDGER
+_V2_RESULT = v2.RESULT
+_V2_RECEIPT = v2.RECEIPT
+_V2_LOCK = v2.LOCK
+_V2_FAILURE_SCHEMA = v2.FAILURE_SCHEMA
 
 
 def file_sha256(path: Path) -> str:
@@ -57,18 +63,18 @@ def stable_json(path: Path, expected: str) -> tuple[dict[str, Any], str]:
 
 
 def _v2_absence_paths() -> tuple[Path, ...]:
-    return (v2.AUTHORITY, v2.LEDGER, v2.RESULT, v2.RECEIPT, v2.LOCK)
+    return (_V2_AUTHORITY, _V2_LEDGER, _V2_RESULT, _V2_RECEIPT, _V2_LOCK)
 
 
 def recovery_admission() -> dict[str, Any]:
     parent = _V2_ADMISSION()
     failure, _ = stable_json(V2_FAILURE, V2_FAILURE_SHA)
-    if failure.get("schema") != v2.FAILURE_SCHEMA \
+    if failure.get("schema") != _V2_FAILURE_SCHEMA \
             or failure.get("status") != "terminal_failure_no_receipt" \
             or failure.get("authority_exists") is not False \
             or failure.get("evaluation_may_have_opened") is not False \
             or failure.get("artifact_snapshot") != {
-                v2.AUTHORITY.name: None, v2.LEDGER.name: None, v2.RESULT.name: None,
+                _V2_AUTHORITY.name: None, _V2_LEDGER.name: None, _V2_RESULT.name: None,
             } \
             or failure.get("protected_snapshot") is not None \
             or failure.get("recovery_admission") != parent \

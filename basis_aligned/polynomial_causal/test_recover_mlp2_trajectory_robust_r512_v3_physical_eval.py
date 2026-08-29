@@ -53,3 +53,18 @@ def test_committed_sources_uses_audited_commit_not_mutable_head(
     assert v3.committed_sources() == (
         "frozen-commit", {"commit": "frozen-commit"},
     )
+
+
+def test_recovery_admission_survives_v2_namespace_configuration(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    for name in (
+        "AUTHORITY", "LEDGER", "RESULT", "RECEIPT", "FAILURE", "LOCK",
+        "AUTHORITY_SCHEMA", "LEDGER_SCHEMA", "RESULT_SCHEMA", "RECEIPT_SCHEMA",
+        "FAILURE_SCHEMA", "committed_sources", "validate_row_receipt",
+    ):
+        monkeypatch.setattr(v2, name, getattr(v2, name))
+    for name in ("source_hashes", "validate_independent_audit", "recovery_admission"):
+        monkeypatch.setattr(v2.row_life, name, getattr(v2.row_life, name))
+    v3.configure()
+    assert v3.recovery_admission()["v2_evaluation_outputs_and_lock_absent"] is True
