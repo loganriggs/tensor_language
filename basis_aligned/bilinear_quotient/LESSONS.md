@@ -2095,3 +2095,27 @@ fails.**
 script in the tree and require a *zero* verdict delta on the ones you have not changed — a check that
 changes 226 verdicts is not stricter, it is broken, and one that changes 0 while catching the case is
 the only evidence that it is measuring what you think.
+
+## LESSON 81 — I registered a control that was false by construction, and only the run could tell me
+
+§1946's pred_d inherited the clause *"every arm is inert at covered inputs"* from §1936–§1945, where it
+was a strong and repeatedly-passing control: those sections varied only the **fallback**, which by §1765
+cannot touch a position whose current token has a table entry. §1946 varies the **table rank** as well —
+and a truncated table changes covered-input predictions by definition. **The control could not hold. It
+failed, while pred_a/b/c passed 3/3.**
+
+**What makes this different from a wrong prediction.** A failed prediction is information. A control that
+is false by construction is **noise in the place I put my assurance**: had I not read the clause I would
+have concluded the run was broken, and had I quietly dropped it I would have shipped a section whose
+controls tested nothing. Thirty-one prior sections passed that clause, which is exactly why it survived
+the fork — its track record was evidence about the OLD lineage and none at all about this one.
+
+**The fix, and it is better than the original.** Rewritten two-sided: arms differing only in the fallback
+must be **exactly** inert at covered inputs, and arms differing in table rank must **not** be. Asserting
+the invariant *and* its negation catches a build that silently stops truncating as well as one that
+silently leaks the fallback.
+
+**The rule.** When a lineage gains a new free variable, re-derive every inherited control against it and
+ask *what would have to be true for this to fail?* If the answer is "nothing, it cannot fail" the control
+is dead weight; if it is "the thing I just changed", it is false by construction. Prefer controls that
+assert both a positive and a negative, because those cannot be satisfied by an arm that does nothing.

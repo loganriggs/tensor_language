@@ -55188,3 +55188,59 @@ reproduced §1943's **published** 16,110 pooled CE to **0.000004 nats** — thir
 per-site rank allocation is worth ~0.015–0.019 nats on its own and that attention sites want 12.5–25% of
 the per-site budget. **The blend and the allocation lever have never been combined**, and at 16,110 the
 tables are 94% of the build, so that is where the remaining cost is.
+
+## §1946 — the two levers compose: §1931's best-known build is superseded at 21.2M less
+
+`ops/blend_meets_allocation.py`, **5.6s** (fully warm), **DISCOVERY ONLY**, 16,110 coverage, rung 3 —
+§1945's open question. **All four predictions TRUE**, after pred_d was rewritten mid-section (below).
+
+Everything from §1937 to §1945 improved the **fallback** and held the 36 tables at **full rank**; at
+16,110 the tables are 667.9M of a 689.5M build, so every nat won since §1937 was won on 3% of the cost.
+§1928–§1935 worked the other axis. The two had never been combined.
+
+```
+  16,110, pooled                     cost      top-1 (7000/11000/1200)     CE
+  blend_full        mix25m256 full  689.457M   14.09 / 14.81 / 14.16   5.87567 / 5.82113 / 5.85661
+  map512_full       map512    full  710.623M   13.98 / 14.70 / 14.12   5.88338 / 5.82928 / 5.86044
+  blend_mlpheavy    mix25m256 768/256 339.558M 14.12 / 14.82 / 14.09   5.88609 / 5.83249 / 5.86357
+  map512_mlpheavy   map512    768/256 360.723M 14.01 / 14.75 / 14.02   5.89445 / 5.84120 / 5.86873  §1931
+  blend_uniform512  mix25m256 unif512 339.558M 13.85 / 14.68 / 13.77   5.90214 / 5.84796 / 5.87742
+  blend_lean        mix25m256 512/128 220.243M 13.75 / 14.61 / 13.70   5.91309 / 5.86085 / 5.88599
+```
+
+> **pred_a PASSED 3/3: the levers compose, and §1931's best-known build is superseded.**
+> `map512_mlpheavy` at 360.723M **is** §1931's best-known build (16,110 types, attn 256 / mlp 768,
+> rank-512 map). Swapping only its fallback for the blend gives `blend_mlpheavy` at **339.558M — 21.2M
+> less — and it wins on top-1 by +0.10 / +0.07 / +0.07pp and on CE by −0.0084 / −0.0087 / −0.0052 nats
+> at paired t = −7.00 / −7.28 / −2.98.** The fallback advantage found on full-rank builds **survives
+> table truncation**, which §1942's orthogonality result did not guarantee.
+
+> **pred_b PASSED 3/3 at exactly matched cost: §1928's allocation rule holds under a fallback it was
+> never measured with.** `blend_mlpheavy` and `blend_uniform512` both cost **339.558M — a gap of
+> 0.0000M** — and the MLP-heavy split wins CE by **0.0161 / 0.0155 / 0.0139 nats** and top-1 by 0.27 /
+> 0.14 / 0.32pp. Not an artefact of the rank-64-map builds §1928–§1935 was found on.
+
+> **pred_c PASSED 3/3 and it reprices the whole arc. Truncating from full rank to {mlp 768, attn 256}
+> saves 349.9M — more than half the build — for +0.0104 / +0.0114 / +0.0070 nats**, against a 0.10-nat
+> bar. **The table axis is roughly thirty times cheaper per nat than the fallback axis at this
+> coverage**, and §1937–§1945 spent nine sections on the expensive one. That is worth saying plainly:
+> the fallback work is right, and it was never where the money was.
+
+**pred_d — I registered a control that was FALSE BY CONSTRUCTION, and the first run failed on it.**
+I inherited *"every arm is inert at covered inputs"* from §1936–§1945, where arms differed **only** in
+the fallback. Here the table **rank** varies, so a truncated arm **must** move covered-input predictions.
+pred_a/b/c passed 3/3 while pred_d failed on a clause that could not hold. Rewritten as a **two-sided**
+control — arms differing only in the fallback (`blend_full` vs `map512_full`) must be **exactly** inert
+at covered inputs, and arms differing in table rank must **not** be — and re-run: **both hold**, plus
+coverage 16,110, buckets partitioning, live per-cell top-1 and CE identical at 0.00e+00, the matched-cost
+gap at 0.0000M, and §1945's published CE reproduced to **0.000003 nats**. Thirty-second clean reading,
+on a control that now asserts an invariant *and* its negation. Written up as LESSON 81.
+
+**The build to beat, at 16,110: `blend_mlpheavy` — 36 tables at mlp 768 / attn 256, fallback = 25%
+output-NN neighbour + 75% rank-256 map, 339.558M.** It beats §1931's best-known on both instruments at
+21.2M less, and beats the full-rank `blend_full` on cost by 349.9M for 0.010 nats.
+
+**Open.** `blend_lean` (mlp 512 / attn 128, 220.243M) costs 0.027 / 0.028 / 0.022 nats against
+`blend_mlpheavy` for a further 119.3M — a much worse rate than the full → mlp-heavy step, so the table
+curve is turning over somewhere between. **Where it turns is unmeasured, and it is now the cheapest
+remaining lever.**

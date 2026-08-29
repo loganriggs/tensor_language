@@ -29,7 +29,14 @@
 #          {mlp 768, attn 256} -- a saving of ~371M, more than half the build -- costs LESS than 0.10
 #          nats of pooled CE, on at least 2 of 3 roles. If FALSE the table rank is not a cheap lever at
 #          this coverage and the cost arc should stay at full rank.
-#   pred_d CONTROLS: coverage exactly 16,110; every arm inert at covered inputs; buckets partition; live
+#   pred_d CONTROLS, CORRECTED. The first run of this script registered "every arm inert at covered
+#          inputs", inherited from §1936-§1945 where arms differed ONLY in the fallback. Here the table
+#          RANK varies, so a truncated arm MUST move covered-input predictions -- the clause was false by
+#          construction and pred_d failed on it while pred_a/b/c passed 3/3. Replaced by a TWO-SIDED
+#          version: arms that differ only in the fallback (blend_full vs map512_full) must be EXACTLY
+#          inert at covered inputs, and arms that differ in table rank (blend_full vs blend_mlpheavy)
+#          must NOT be -- asserting the invariant where it holds and its negation where it must not.
+#          Plus: coverage exactly 16,110; buckets partition; live
 #          per-cell top-1 and CE identical across arms; the two matched-cost allocations really do cost
 #          the same to within 0.1M; and the FULL-rank mix25m256 and map512 arms reproduce §1945's
 #          PUBLISHED pooled CE (5.87567/5.82113/5.85661 and 5.88338/5.82928/5.86044) within 0.0002 nats.
@@ -72,6 +79,10 @@ for cov, fit, nc in COVS:
                          for a in ARMS}
         chg[cov][role] = {a: int(((armR[a][role][0] != armR['blend_full'][role][0]) & icov).sum())
                           for a in ARMS}
+        # two-sided: fallback-only differences must be EXACTLY inert at covered inputs; table-rank
+        # differences must NOT be. See the pred_d note in the header.
+        chg[cov][role]['_fallback_only'] = int(((armR['map512_full'][role][0]
+                                                 != armR['blend_full'][role][0]) & icov).sum())
     ncov[cov] = P.ncov
     COST = {lab: P.cost(SPEC[lab][0], SPEC[lab][1]) / 1e6 for lab in ARMS}
     del P, liveR, armR
@@ -97,8 +108,10 @@ cheap = sum(1 for r in B.ROLES if trunc[r] < 0.10)
 pc = cheap >= 2
 matched = abs(COST['blend_mlpheavy'] - COST['blend_uniform512'])
 
-inert = all(v == 0 for c in chg for r in chg[c] for v in chg[c][r].values())
-livesame = max(abs(res[c][r][a][cl][b]['ce_live'] - res[c][r]['map64'][cl][b]['ce_live'])
+inert_fb = all(chg[c][r]['_fallback_only'] == 0 for c in chg for r in chg[c])
+moves_rank = all(chg[c][r]['blend_mlpheavy'] > 0 for c in chg for r in chg[c])
+inert = inert_fb and moves_rank
+livesame = max(abs(res[c][r][a][cl][b]['ce_live'] - res[c][r][ARMS[0]][cl][b]['ce_live'])
                for c in res for r in B.ROLES for a in ARMS
                for cl in ('covered_input', 'uncovered_input', 'pooled') for b in res[c][r][a][cl])
 repro = max(abs(ce(C, r, a) - S1945_C16[a][i])
@@ -120,7 +133,8 @@ print(f'  and mlp-heavy beats uniform-512 at MATCHED cost (>=2 roles) -> {pb}  {
 print(f'  and the truncation costs < 0.10 nats for a {COST["blend_full"] - COST["blend_mlpheavy"]:.0f}M '
       f'saving (>=2 roles) -> {pc}  {cheap}/3  (costs {[f"{trunc[r]:+.4f}" for r in B.ROLES]})',
       flush=True)
-print(f'  coverage {ncov}, arms inert {inert}, live identical {livesame:.1e}, matched-cost gap '
+print(f'  coverage {ncov}, fallback-only inert at covered inputs {inert_fb}, table-rank arm DOES '
+      f'move them {moves_rank}, live identical {livesame:.1e}, matched-cost gap '
       f'{matched:.4f}M, §1945 CE reproduced within {repro:.6f} nats -> control {pd}', flush=True)
 
 B.report({'pred_a_levers_compose': pa, 'pred_b_mlpheavy_beats_uniform': pb,

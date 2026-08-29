@@ -3,18 +3,59 @@ BLEND x ALLOCATION at 16,110 | ('blend_full', 'map512_full', 'blend_mlpheavy', '
 
 ########## COVERAGE 16110 ##########
   [bqlib] coverage 16110 from fineweb_n480_skip80.pt: 36 tables, neighbour index and map solver built (5s)
-  [bqlib] computed   live     skip7000 (1.3s)
-  [bqlib] computed   live     skip11000 (1.3s)
-  [bqlib] computed   live     skip1200 (0.6s)
-  [bqlib] computed   mix25m256 skip7000 (1.3s)
-  [bqlib] computed   mix25m256 skip11000 (1.3s)
-  [bqlib] computed   mix25m256 skip1200 (0.6s)
-  [bqlib] computed   map512   skip7000 (3.2s)
-  [bqlib] computed   map512   skip11000 (1.3s)
-  [bqlib] computed   map512   skip1200 (0.6s)
-  [bqlib] computed   mix25m256 skip7000 (1.3s)
-  [bqlib] computed   mix25m256 skip11000 (1.3s)
-  [bqlib] computed   mix25m256 skip1200 (0.6s)
-  [bqlib] computed   map512   skip7000 (3.2s)
-  [bqlib] computed   map512   skip11000 (1.3s)
-  [bqlib] computed   map512   skip1200 (0.7s)
+  [bqlib] cache HIT  live     skip7000
+  [bqlib] cache HIT  live     skip11000
+  [bqlib] cache HIT  live     skip1200
+  [bqlib] cache HIT  mix25m256 skip7000
+  [bqlib] cache HIT  mix25m256 skip11000
+  [bqlib] cache HIT  mix25m256 skip1200
+  [bqlib] cache HIT  map512   skip7000
+  [bqlib] cache HIT  map512   skip11000
+  [bqlib] cache HIT  map512   skip1200
+  [bqlib] cache HIT  mix25m256 skip7000
+  [bqlib] cache HIT  mix25m256 skip11000
+  [bqlib] cache HIT  mix25m256 skip1200
+  [bqlib] cache HIT  map512   skip7000
+  [bqlib] cache HIT  map512   skip11000
+  [bqlib] cache HIT  map512   skip1200
+  [bqlib] cache HIT  mix25m256 skip7000
+  [bqlib] cache HIT  mix25m256 skip11000
+  [bqlib] cache HIT  mix25m256 skip1200
+  [bqlib] cache HIT  mix25m256 skip7000
+  [bqlib] cache HIT  mix25m256 skip11000
+  [bqlib] cache HIT  mix25m256 skip1200
+
+  skip7000
+    blend_full         [ 689.457M]  top1 14.09%  CE 5.87567  (vs map512_mlpheavy -0.01879, t -12.98)
+    map512_full        [ 710.623M]  top1 13.98%  CE 5.88338  (vs map512_mlpheavy -0.01107, t -13.60)
+    blend_mlpheavy     [ 339.558M]  top1 14.12%  CE 5.88609  (vs map512_mlpheavy -0.00836, t -7.00)
+    map512_mlpheavy    [ 360.723M]  top1 14.01%  CE 5.89445  (vs map512_mlpheavy +0.00000, t +0.00)
+    blend_uniform512   [ 339.558M]  top1 13.85%  CE 5.90214  (vs map512_mlpheavy +0.00768, t +5.43)
+    blend_lean         [ 220.243M]  top1 13.75%  CE 5.91309  (vs map512_mlpheavy +0.01863, t +12.10)
+    FULL -> mlp-heavy costs +0.01042 nats and saves 349.9M
+
+  skip11000
+    blend_full         [ 689.457M]  top1 14.81%  CE 5.82113  (vs map512_mlpheavy -0.02007, t -13.82)
+    map512_full        [ 710.623M]  top1 14.70%  CE 5.82928  (vs map512_mlpheavy -0.01192, t -14.68)
+    blend_mlpheavy     [ 339.558M]  top1 14.82%  CE 5.83249  (vs map512_mlpheavy -0.00872, t -7.28)
+    map512_mlpheavy    [ 360.723M]  top1 14.75%  CE 5.84120  (vs map512_mlpheavy +0.00000, t +0.00)
+    blend_uniform512   [ 339.558M]  top1 14.68%  CE 5.84796  (vs map512_mlpheavy +0.00676, t +4.78)
+    blend_lean         [ 220.243M]  top1 14.61%  CE 5.86085  (vs map512_mlpheavy +0.01965, t +12.79)
+    FULL -> mlp-heavy costs +0.01135 nats and saves 349.9M
+
+  skip1200
+    blend_full         [ 689.457M]  top1 14.16%  CE 5.85661  (vs map512_mlpheavy -0.01212, t -5.85)
+    map512_full        [ 710.623M]  top1 14.12%  CE 5.86044  (vs map512_mlpheavy -0.00829, t -7.33)
+    blend_mlpheavy     [ 339.558M]  top1 14.09%  CE 5.86357  (vs map512_mlpheavy -0.00515, t -2.98)
+    map512_mlpheavy    [ 360.723M]  top1 14.02%  CE 5.86873  (vs map512_mlpheavy +0.00000, t +0.00)
+    blend_uniform512   [ 339.558M]  top1 13.77%  CE 5.87742  (vs map512_mlpheavy +0.00869, t +4.32)
+    blend_lean         [ 220.243M]  top1 13.70%  CE 5.88599  (vs map512_mlpheavy +0.01726, t +7.87)
+    FULL -> mlp-heavy costs +0.00697 nats and saves 349.9M
+
+  the blend still beats the map under mlp-heavy truncation (>=2 roles) -> True  3/3
+  and mlp-heavy beats uniform-512 at MATCHED cost (>=2 roles) -> True  3/3  (cost gap 0.0000M)
+  and the truncation costs < 0.10 nats for a 350M saving (>=2 roles) -> True  3/3  (costs ['+0.0104', '+0.0114', '+0.0070'])
+  coverage {'c16110': 16110}, fallback-only inert at covered inputs True, table-rank arm DOES move them True, live identical 0.0e+00, matched-cost gap 0.0000M, §1945 CE reproduced within 0.000003 nats -> control True
+
+pred_a True | pred_b True | pred_c True | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/blend_meets_allocation_results.json (5.6s)
