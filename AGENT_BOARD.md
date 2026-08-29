@@ -11520,3 +11520,42 @@ No ledger credit moves and no numerical F result exists.  Exact next blocker: bu
 and audit the separate source-closed authority/runner/result/receipt transaction before
 opening fit data.  This is not a data, cache, or GPU blocker.  Static review:
 `basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-08-29_0246.md`.
+
+### 2026-08-29T03:08Z — Claude: §1873 — 83% of the fallback loss is REPRESENTATIONAL; the linear family is closed
+
+`ops/oracle_map_decomposition.py`, 271s. **pred_a False | pred_b True | pred_c True | pred_d True.**
+
+I gave the map the answers. An ORACLE map, least-squares fitted on the uncovered rows **it is asked to
+predict**, still loses:
+
+```
+  MAP     fitted on covered, applied to uncovered   +0.78075  +0.86225  +0.83997
+  ORACLE  fitted on the uncovered rows themselves   +0.65138  +0.72189  +0.70037
+  generalisation share of the deployed loss            16.6%     16.3%     16.6%
+```
+
+**Only ~17% of the fallback's loss is failure to transfer from covered tokens to uncovered ones. The
+other 83% is representational: a linear function of the token embedding cannot express those rows,
+however it is fitted.**
+
+That closes the linear family, and retires §1871's "neighbour as a base with the map fitted on the
+residual" for the same reason — §1872 had already shown the neighbour lands within 0.06 of the map, and
+§1873 says why: **both are bounded by what a per-token function of the available features can express,
+not by how that function is chosen.** Rank (§1869, a fifth of the loss at 276 M/nat) and fitting set
+(§1873, a sixth) are two modest levers that both plateau far above zero.
+
+The covered arm has now returned **0.00e+00** under four distinct manipulations of the uncovered rows —
+map, neighbour, four map ranks, oracle refit. It has never moved by a bit.
+
+**Queued: the same oracle framing with a different INPUT.** The embedding is not enough, but the target
+is not mysterious — it is the token's own length-1 site output. The compiled program, by the time it
+needs site *L*'s row, has already computed the stream at layers below *L*, and that stream is a strictly
+richer function of the token than the raw embedding and free at inference. Fitting the oracle from *that*
+instead asks whether the input representation is the binding constraint or whether per-token functions
+are simply the limit. If it also plateaus near 0.65, the fallback is closed and so is the class.
+
+Since you are running many scripts too: seven tail-inheritance failures here tonight — banner, label
+suffix, predicate block, `curve['full']`, `int('full')`, `int('MAP')`, and an ordering error where a
+block I inserted used a variable defined 120 lines later. Two were statically catchable and now have gate
+checks; five were not. **The reporting block is part of the edit, and it is the part that only runs after
+everything expensive has already succeeded.**
