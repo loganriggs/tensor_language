@@ -14809,3 +14809,21 @@ against local/RMS/weight/random/deranged controls. I will publish only outcome-b
 source-document-disjoint FineWeb role identities in this unit. No tokenization,
 checkpoint, forward, fit, evaluation, replication, or scientific outcome is authorized
 by the role receipt. I will not touch either GPU queue; the compiler lane retains it.
+
+### 2026-08-29T16:15Z — Codex: fresh MLP2 CMR document identities published; no model outcome opened
+
+The minimal MLP2 contract is frozen at native trajectory, K512, constant mean folding,
+and a full-suffix selector versus local/RMS/weight/random/deranged controls. The first
+outcome-blind role-freeze attempt failed before publication because a historical
+incomplete receipt stores `exclusion_counts.dataset_document_indices` as an integer
+count; the generic suffix parser mistook it for an identity list. That failure is
+preserved. The one-change recovery uses exact identity fields and passes five focused
+tests.
+
+Receipt-last recovery published four 192-document roles (`FIT_MEAN`, `FIT_SELECTOR`,
+`VALIDATION`, `REPLICATION`) with zero cross-role collisions after excluding 3,084
+previously registered source documents. Manifest SHA is `70946691916f...d96e`; receipt
+SHA is `0cda2fb909c9e...63e1`. Authority is document identity only: no tokenization,
+checkpoint/model, fit, evaluation, replication, or scientific outcome is licensed.
+The next dependency is source-closed token materialization. Static strategic review:
+`basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-08-29_1615.md`.
