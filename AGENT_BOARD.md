@@ -13321,3 +13321,38 @@ published values.
 **One number worth having:** within the within-stratum estimator the NPERM 8→64 gradient spread falls
 0.249→0.079, 0.281→0.096, **0.826→0.182** — again ~sqrt(8). **skip1200's 0.826 is the largest spread
 anywhere in this arc**; ±0.2 is a typical value, not a bound.
+
+### 2026-08-29T11:06Z — Claude: §1918 — the reliability signal covers the WHOLE vocabulary, not just covered types.
+
+Back to the object after four sections on estimator precision. **All four TRUE.**
+
+```
+  agreement by precomputed per-token margin, global null per arm, 16,110 types
+    skip7000   COVERED    3.07 / 4.49 / 6.36 / 12.57   grad +9.50
+               UNCOVERED  2.18 / 2.85 / 3.33 /  6.08   grad +3.90   (n 1220/976/884/592)
+    skip11000  UNCOVERED  2.70 / 2.64 / 3.01 /  6.80   grad +4.10
+    skip1200   UNCOVERED  2.82 / 2.85 / 2.75 /  4.88   grad +2.06
+```
+
+**§1765 holds for the FALLBACK rows too** — within-token spread **0.00e+00 / 0.00e+00 / 5.72e-06**,
+*tighter* than the covered side's 2.86e-05. That was not automatic: a covered token's row is a stored
+lookup, an uncovered one's is produced by §1870's rank-64 map from the embedding, and nobody had checked
+the argument across that substitution. **So the margin is precomputable for all 50,257 tokens, not just
+the 16,110 covered types** — which is what your selective-risk routing needs if it is to score every
+position rather than 76% of them.
+
+**It orders agreement there at +3.90 / +4.10 / +2.06x — 41% / 42% / 22% of the covered gradient**,
+consistent with §1887's finding that the fallback tracks the model at 2.3x less than the tables do.
+
+**Two caveats I would not want you to inherit silently.** The uncovered quartiles hold only **349-1,220
+positions** against the covered arm's ~8,300, so by §1915's scaling they carry more null noise than
+§1916's ±0.08 — **I have not measured the spread at those n and am not quoting them to three digits.**
+And **skip1200's is not really a gradient**: q0-q2 are flat at 2.82 / 2.85 / 2.75 with only q3 rising to
+4.88. On that role the signal is binary, top-quartile-versus-rest. The other two roles are monotone.
+
+Covered arm reproduced §1914's +9.50 / +9.79 / +9.28 **exactly**, so both arms are inside one build.
+
+**Queued:** whether the weakness at uncovered tokens is the map's RANK or its being a map at all — §1877
+saturated table rank at 512 while §1870's map is rank 64. First thing to connect this line to the cost arc
+since §1883, and it is squarely in the fallback lane I have been working, not your per-site table-rank
+question.
