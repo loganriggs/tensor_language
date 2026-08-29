@@ -52339,3 +52339,60 @@ layers beneath live ones; §1892 says magnitude is doing nearly all the work in 
 Whether the deployed program's *own* per-site magnitudes are correct — the tables store length-1 norms,
 and §1804 measured live norms 2.71x to 152.62x larger — is a question about the deployed build that the
 whole cost arc (§1866-§1883) assumed away.
+
+## §1893 — the deployed magnitudes are near-optimal in nats and NOT optimal in agreement: the instruments disagree
+
+`ops/deployed_magnitude_sweep.py`, 190.9s, **DISCOVERY ONLY**, rung 3 — §1892's open question, and the
+one that bears on everything priced since §1866.
+**pred_a False | pred_b True | pred_c False (and mis-implemented — see below) | pred_d True.**
+
+Global multipliers on all 36 compiled banks, plus a per-site arm scaling each bank to its own live norm.
+
+```
+  arm        covered enrichment          program top-1
+  g0.50      8.27  8.41  8.91            13.47%  13.82%  13.41%
+  g0.80      7.50  7.59  8.06            13.64%  14.32%  13.72%   <- best top-1
+  g1.00      7.19  7.29  7.64            13.55%  14.25%  13.64%   <- DEPLOYED
+  g1.25      6.97  7.16  7.43            13.36%  14.17%  13.45%
+  g2.00      6.77  6.92  7.14            12.94%  13.46%  13.04%
+  g4.00      5.96  6.00  6.29            12.40%  12.58%  12.42%
+  PERSITE    1.89  1.84  1.76             1.98%   1.98%   1.78%   <- live norms, catastrophic
+```
+
+**pred_b PASSED emphatically.** Scaling every site to its measured live norm (ratios 1.3x to 156.4x)
+destroys the program: enrichment **1.89 / 1.84 / 1.76x** and top-1 **1.98 / 1.98 / 1.78%** against
+13.55 / 14.25 / 13.64%. §1804's ratio is a **diagnosis, not a correction** — matching live magnitudes
+everywhere is catastrophic, exactly as §1892 predicted from the single-site case.
+
+> **pred_a FAILED: the length-1 norm is not optimal for agreement.** Halving every bank buys **+1.07 /
+> +1.12 / +1.27x** enrichment. So the deployed magnitudes are *not* the best available, and §1892's worry
+> was well founded on that instrument.
+>
+> **pred_c FAILED, and the failure is the answer to §1892's question.** By enrichment the ordering is
+> `g0.50 > g0.80 > g1.00`; by **top-1 it is `g0.80 > g1.00 > g1.25 > g0.50`** — g0.50 maximises agreement
+> with the model while being *worse* than the deployed build at being right (13.47% against 13.55% on
+> skip7000). **The two instruments disagree about scale, consistently, on all three roles.**
+>
+> **What that means for the cost arc.** §1866-§1883 — the frontier, the map-rank law, the 46% build —
+> are all in nats and top-1. On that instrument the deployed magnitude is **near-optimal**: the best arm
+> is g0.80 and it beats 1.0 by **+0.09 / +0.07 / +0.08 percentage points**. So the answer to §1892's
+> open question is **no, the cost arc was not measuring a badly mis-scaled object**, and none of those
+> results needs qualifying. The mis-scaling is real but lives in an instrument the cost arc never used.
+
+> **A discrepancy in my own predicate, stated rather than buried.** pred_c as REGISTERED said *"the arm
+> ranking by all-position CE matches the ranking by enrichment"*. As IMPLEMENTED it ranked by **top-1
+> accuracy**, because the bucket instrument this script inherits does not compute all-position CE and my
+> `c['overall'].get('allpos_ce')` returned `None`. The conclusion — that the accuracy-side and
+> agreement-side instruments disagree about scale — holds for **top-1 vs enrichment**, which is what ran.
+> **All-position CE was not measured here and I am not claiming it.** This is LESSON 63's family again:
+> the docstring and the code named different quantities, and the gate's check did not fire because the
+> wording differed rather than being inherited verbatim.
+
+**pred_d PASSED**: the g1.00 arm reproduced §1888's 7.19 / 7.29 / 7.64x — a **fifth** consecutive
+reproduction — and coverage is exactly 5,419.
+
+**Open.** Whether the g0.80 arm's +0.08pp is worth anything is a question about deployment, not
+measurement, and it is small. The real remainder is the disagreement itself: **a scale that makes the
+program agree with the model more makes it slightly less accurate**, which says the program's errors and
+the model's are not aligned in the way §1884's 81% overlap suggested. That is one run with both
+instruments on the same arms, and it is the natural next rung.

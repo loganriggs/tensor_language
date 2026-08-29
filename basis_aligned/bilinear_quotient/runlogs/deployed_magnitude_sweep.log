@@ -1,4 +1,3 @@
-Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
 DEPLOYED PER-SITE MAGNITUDE SWEEP | buckets ((0, 0), (1, 4), (5, 24), (25, 124), (125, 1000000000)) on the fit-row count of the TRUE target | full-rank settled program | DISCOVERY ONLY
   built the settled fallback and 36 tables (4s)
 
@@ -7,13 +6,24 @@ DEPLOYED PER-SITE MAGNITUDE SWEEP | buckets ((0, 0), (1, 4), (5, 24), (25, 124),
     skip11000  covered enrichment  7.29x  (n 27497)
     skip1200   covered enrichment  7.64x  (n 13973)
     per-site live/table ratios: min 1.3x max 156.4x across 36 sites
-Traceback (most recent call last):
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/deployed_magnitude_sweep.py", line 385, in <module>
-    main()
-  File "/venv/main/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/deployed_magnitude_sweep.py", line 314, in main
-    hk = [(st, row_hook(fr[st], s=(1.0 / nrm[f'{st[0]}{st[1]}'] if g is None else g)))
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-TypeError: row_hook() got an unexpected keyword argument 's'
+    g0.50    skip7000  8.27x top1 13.47%  skip11000  8.41x top1 13.82%  skip1200  8.91x top1 13.41%   [1/7]
+    g0.80    skip7000  7.50x top1 13.64%  skip11000  7.59x top1 14.32%  skip1200  8.06x top1 13.72%   [2/7]
+    g1.00    skip7000  7.19x top1 13.55%  skip11000  7.29x top1 14.25%  skip1200  7.64x top1 13.64%   [3/7]
+    g1.25    skip7000  6.97x top1 13.36%  skip11000  7.16x top1 14.17%  skip1200  7.43x top1 13.45%   [4/7]
+    g2.00    skip7000  6.77x top1 12.94%  skip11000  6.92x top1 13.46%  skip1200  7.14x top1 13.04%   [5/7]
+    g4.00    skip7000  5.96x top1 12.40%  skip11000  6.00x top1 12.58%  skip1200  6.29x top1 12.42%   [6/7]
+    PERSITE  skip7000  1.89x top1  1.98%  skip11000  1.84x top1  1.98%  skip1200  1.76x top1  1.78%   [7/7]
+
+  THE LENGTH-1 NORM IS ALREADY RIGHT (no global scale beats 1.0 by >0.2x) -> False  skip7000 best g0.50 8.27x vs 1.0 7.19x (+1.07)  skip11000 best g0.50 8.41x vs 1.0 7.29x (+1.12)  skip1200 best g0.50 8.91x vs 1.0 7.64x (+1.27)
+  and LIVE-NORM scaling is WORSE -> True  skip7000 persite 1.89x vs 1.0 7.19x  skip11000 persite 1.84x vs 1.0 7.29x  skip1200 persite 1.76x vs 1.0 7.64x
+  and top-1 ranks the arms the same way -> False
+    skip7000   by enrichment ['g0.50', 'g0.80', 'g1.00', 'g1.25', 'g2.00', 'g4.00', 'PERSITE']
+    skip7000   by top-1      ['g0.80', 'g1.00', 'g0.50', 'g1.25', 'g2.00', 'g4.00', 'PERSITE']
+    skip11000  by enrichment ['g0.50', 'g0.80', 'g1.00', 'g1.25', 'g2.00', 'g4.00', 'PERSITE']
+    skip11000  by top-1      ['g0.80', 'g1.00', 'g1.25', 'g0.50', 'g2.00', 'g4.00', 'PERSITE']
+    skip1200   by enrichment ['g0.50', 'g0.80', 'g1.00', 'g1.25', 'g2.00', 'g4.00', 'PERSITE']
+    skip1200   by top-1      ['g0.80', 'g1.00', 'g1.25', 'g0.50', 'g2.00', 'g4.00', 'PERSITE']
+  coverage 5419, 1.0 arm reproduces §1888 -> control True  skip7000 7.19x vs 7.19x  skip11000 7.29x vs 7.29x  skip1200 7.64x vs 7.64x
+
+pred_a False | pred_b True | pred_c False | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/deployed_magnitude_sweep_results.json (190.9s)

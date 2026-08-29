@@ -1,0 +1,208 @@
+{
+ "config": {
+  "table_ranks": [
+   "full"
+  ],
+  "map_rank_of_table_rank": {
+   "None": 64,
+   "512": 512
+  },
+  "program": "context-free tables, output-NN fallback with a rank-64 embedding->row map -- the settled design of \u00a71780-\u00a71786",
+  "instruments": "top-1 agreement with the live model, top-1 accuracy against the true next token, and KL(live || program). All three are NEW to this thread, which has been CE-only since \u00a71747.",
+  "ROLE_NOTE": "DISCOVERY ONLY; a second-class confirmation with a DIFFERENT instrument, not a replication of the same one."
+ },
+ "results": {
+  "baseline": {
+   "skip7000": 7.193609737542792,
+   "skip11000": 7.289105955772622,
+   "skip1200": 7.644028103044496
+  },
+  "norms": {
+   "mlp0": 0.6021496600067614,
+   "mlp1": 0.6083665651395157,
+   "mlp2": 0.6947761633253599,
+   "mlp3": 0.6532673804755809,
+   "mlp4": 0.6528200744428104,
+   "mlp5": 0.6932214230750869,
+   "mlp6": 0.7415519141593334,
+   "mlp7": 0.597167958741493,
+   "mlp8": 0.5977302437149447,
+   "mlp9": 0.5769761388572132,
+   "mlp10": 0.5085709315767704,
+   "mlp11": 0.6082847777434396,
+   "mlp12": 0.46674890076589404,
+   "mlp13": 0.5409891104811341,
+   "mlp14": 0.6715907101142733,
+   "mlp15": 0.6986318997049937,
+   "mlp16": 0.6399461346763314,
+   "mlp17": 0.5853959857167449,
+   "attn0": 0.14881708340632172,
+   "attn1": 0.11387338080232544,
+   "attn2": 0.11498663170870824,
+   "attn3": 0.06734734472200865,
+   "attn4": 0.02573787463005738,
+   "attn5": 0.006391974666753095,
+   "attn6": 0.012055327405724275,
+   "attn7": 0.07383762874930717,
+   "attn8": 0.12067939283559216,
+   "attn9": 0.16024074695291768,
+   "attn10": 0.09412615276923125,
+   "attn11": 0.09533742728660523,
+   "attn12": 0.05655977855660627,
+   "attn13": 0.07130811915437434,
+   "attn14": 0.08021953425897232,
+   "attn15": 0.09014443415839642,
+   "attn16": 0.0628724406064927,
+   "attn17": 0.10106128014290537
+  },
+  "sites": {
+   "g0.50": {
+    "skip7000": {
+     "enrichment": 8.267521759047183,
+     "allpos_ce": null,
+     "top1_prog": 0.13468424479166666,
+     "n": 27974
+    },
+    "skip11000": {
+     "enrichment": 8.407382992748847,
+     "allpos_ce": null,
+     "top1_prog": 0.13818359375,
+     "n": 27497
+    },
+    "skip1200": {
+     "enrichment": 8.914792524548622,
+     "allpos_ce": null,
+     "top1_prog": 0.13411458333333334,
+     "n": 13973
+    }
+   },
+   "g0.80": {
+    "skip7000": {
+     "enrichment": 7.500330819108112,
+     "allpos_ce": null,
+     "top1_prog": 0.13636610243055555,
+     "n": 27974
+    },
+    "skip11000": {
+     "enrichment": 7.588343994314143,
+     "allpos_ce": null,
+     "top1_prog": 0.14322916666666666,
+     "n": 27497
+    },
+    "skip1200": {
+     "enrichment": 8.063370663753071,
+     "allpos_ce": null,
+     "top1_prog": 0.1371527777777778,
+     "n": 13973
+    }
+   },
+   "g1.00": {
+    "skip7000": {
+     "enrichment": 7.193609737542792,
+     "allpos_ce": null,
+     "top1_prog": 0.1355251736111111,
+     "n": 27974
+    },
+    "skip11000": {
+     "enrichment": 7.289105955772622,
+     "allpos_ce": null,
+     "top1_prog": 0.14249674479166666,
+     "n": 27497
+    },
+    "skip1200": {
+     "enrichment": 7.644028103044496,
+     "allpos_ce": null,
+     "top1_prog": 0.1364474826388889,
+     "n": 13973
+    }
+   },
+   "g1.25": {
+    "skip7000": {
+     "enrichment": 6.974308300395257,
+     "allpos_ce": null,
+     "top1_prog": 0.1335720486111111,
+     "n": 27974
+    },
+    "skip11000": {
+     "enrichment": 7.159574468085107,
+     "allpos_ce": null,
+     "top1_prog": 0.14173719618055555,
+     "n": 27497
+    },
+    "skip1200": {
+     "enrichment": 7.43250829293187,
+     "allpos_ce": null,
+     "top1_prog": 0.1345486111111111,
+     "n": 13973
+    }
+   },
+   "g2.00": {
+    "skip7000": {
+     "enrichment": 6.768705825006092,
+     "allpos_ce": null,
+     "top1_prog": 0.1294216579861111,
+     "n": 27974
+    },
+    "skip11000": {
+     "enrichment": 6.915858453473133,
+     "allpos_ce": null,
+     "top1_prog": 0.13460286458333334,
+     "n": 27497
+    },
+    "skip1200": {
+     "enrichment": 7.141861622697859,
+     "allpos_ce": null,
+     "top1_prog": 0.13037109375,
+     "n": 13973
+    }
+   },
+   "g4.00": {
+    "skip7000": {
+     "enrichment": 5.9586328945913065,
+     "allpos_ce": null,
+     "top1_prog": 0.1240234375,
+     "n": 27974
+    },
+    "skip11000": {
+     "enrichment": 6.003543167591827,
+     "allpos_ce": null,
+     "top1_prog": 0.1257866753472222,
+     "n": 27497
+    },
+    "skip1200": {
+     "enrichment": 6.287643484132342,
+     "allpos_ce": null,
+     "top1_prog": 0.12418619791666667,
+     "n": 13973
+    }
+   },
+   "PERSITE": {
+    "skip7000": {
+     "enrichment": 1.8885877747666366,
+     "allpos_ce": null,
+     "top1_prog": 0.019829644097222224,
+     "n": 27974
+    },
+    "skip11000": {
+     "enrichment": 1.8389912706110572,
+     "allpos_ce": null,
+     "top1_prog": 0.019829644097222224,
+     "n": 27497
+    },
+    "skip1200": {
+     "enrichment": 1.7613776137761379,
+     "allpos_ce": null,
+     "top1_prog": 0.017795138888888888,
+     "n": 13973
+    }
+   }
+  }
+ },
+ "predictions": {
+  "pred_a_length1_norm_already_right_program_concentrated_on_frequent_targets": false,
+  "pred_b_live_norm_scaling_worse_more_concentrated_than_live": true,
+  "pred_c_ce_and_top1_agree_keeps_60pc_on_the_top_bucket": false,
+  "pred_d_controls": true
+ },
+ "runtime_s": 190.9
+}
