@@ -99,3 +99,198 @@ Works that isolate the mechanism *below* the head level:
 - Weight-sparse transformers — Gao et al. (OpenAI), arXiv 2511.13653
 - Circuit Tracing / Biology of an LLM — Anthropic, transformer-circuits.pub 2025
 - MIB — Mueller et al., arXiv 2504.13151 (ICML 2025)
+
+## Bilin18 application update (2026-08-29)
+
+### Short answer
+
+Yes.  The highest-value additional entry point is a **typed sparse-transcoder
+graph with causal edge masks**.  This combines three ideas in this literature:
+
+1. sparse feature circuits / cross-layer transcoders supply candidate state variables;
+2. edge pruning supplies an explicit pressure for a small wiring diagram;
+3. DAS-style interchange tests decide whether the candidate variables and edges are
+   the variables and edges the downstream model actually uses.
+
+The important qualification is that this should not be a generic activation SAE.
+Bilin18 gives us more structure than an ordinary transformer: every bilinear MLP has
+an exact product vector and an exact linear `Down` write, while attention and residual
+updates can be retained as typed operators.  The graph should therefore be trained
+around these physical interfaces, with reconstruction anchors, rather than being
+allowed to replace an arbitrary hidden activation by an unconstrained predictor.
+
+This is not wholly speculative.  Earlier bilin18 experiments already established:
+
+- a hard-top-k weight-action dictionary for MLP1 `Down` recovered `0.870`, `0.938`,
+  and `0.951` of its causal CE contribution at 8, 32, and 64 active atoms;
+- joint reconstruction-anchored training across MLP0 `Down` and MLP1 `Left`
+  preserved `0.945` CE recovery while reducing measured wiring in-degree from 291
+  to 70, a 76% reduction;
+- the resulting weights-only coupling predicted the sign pattern of downstream
+  atom responses above a shuffled null, but weakly: correlation `0.217` versus
+  `-0.008` for the null;
+- the missing terms were localized: the old graph omitted attention's cross-position
+  mixing, RMSNorm's input-dependent scalar, MLP1's `Right` branch, and the bilinear
+  product joining `Left` and `Right`.
+
+Thus the literature suggests a concrete repair to an already-positive result, not a
+new blind search.
+
+### Entry point 1: typed sparse-transcoder graph (highest expected return)
+
+The first graph should span the physical interface
+
+$$
+g_0
+\xrightarrow{\mathrm{Down}_0}
+x_1
+\xrightarrow{\mathrm{RMSNorm}+\mathrm{Attn}_1+\mathrm{residual}}
+\bigl(\ell_1,r_1\bigr)
+\xrightarrow{\odot}
+g_1
+\xrightarrow{\mathrm{Down}_1}
+w_1.
+$$
+
+Here:
+
+- $g_0$ is MLP0's vector of exact scalar products, one per bilinear channel;
+- $x_1$ is the residual-stream state read by block 1;
+- $\ell_1$ and $r_1$ are MLP1's `Left` and `Right` linear reads;
+- $g_1=\ell_1\odot r_1$ is the exact coordinatewise bilinear product;
+- $w_1$ is MLP1's residual-stream write.
+
+Sparse dictionaries define candidate nodes at the write/read interfaces.  The exact
+RMSNorm, residual, attention, and product operators remain explicit typed nodes.
+Learned gates then select a small set of dictionary nodes and cross-node edges.
+Training should minimize a combination such as
+
+$$
+\mathcal L =
+\mathcal L_{\mathrm{teacher\ KL}}
++\alpha\mathcal L_{\mathrm{physical\ response}}
++\beta\mathcal L_{\mathrm{weight/action\ reconstruction}}
++\lambda_n\lVert m_{\mathrm{node}}\rVert_0
++\lambda_e\lVert m_{\mathrm{edge}}\rVert_0.
+$$
+
+The reconstruction term is essential: earlier CE-only joint training preserved some
+loss while making the fitted weights physically unrelated to the original model.
+The anchor prevents that escape.  The teacher-KL term orders equally reconstructive
+graphs by what matters to predictions.  The node and edge penalties price an
+executable graph instead of merely pricing matrix rank.
+
+The cheapest decisive pilot is MLP0-to-MLP1, with the already-composed C512 MLP0 and
+shared-HOSVD copy gate as downstream checks.  Relative to the previous left-only
+graph, a useful pilot should simultaneously:
+
+- retain at least about `0.94` of MLP1's held-out causal CE contribution;
+- retain the physical response anchor rather than drifting under CE training;
+- improve held-out edge-response prediction materially above correlation `0.217`;
+- preserve the validated L8 copy state and copy-edge behavior;
+- keep roughly the existing 70--80% edge reduction.
+
+If it succeeds, extend the identical typed construction to MLP2.  If it cannot beat
+the `0.217` response correlation after the omitted exact operators are included, the
+sparse wiring is probably a convenient reparameterization rather than the model's
+causal graph, and this branch should be pruned.
+
+### Entry point 2: supervised DAS on downstream-defined state variables
+
+DAS is not new to this repository: class and topic interchange experiments already
+showed that a subspace can transport a causal variable even when single-direction
+steering is weak.  The new use is to apply it to a variable whose downstream meaning
+is now exact.
+
+For the copy circuit, the shared-HOSVD result defines
+
+$$
+z_{\mathrm{copy}} = V_{256}^{\top}x^{(8)},
+$$
+
+the 256-dimensional part of the layer-8 stream read by the compressed H3/H4 gate.
+C512 preserves this state with held-out $R^2=0.9955$.  Instead of asking only which
+upstream approximation reconstructs $z_{\mathrm{copy}}$, learn the smallest rotated
+subspace whose value can be swapped between prompts and whose swap predicts the
+native copy scalar, MLP2 response, and final logits.  This is interchange intervention
+accuracy applied to a known consumer interface.
+
+The payoff is a causal-state dimension rather than a variance rank.  It may reveal
+that only a much smaller part of the 256-dimensional HOSVD interface is independently
+manipulable.  Required controls are a same-rank random rotation, wrong-source swaps,
+and a downstream connectivity check; high end-to-end interchange accuracy alone can
+be produced through a dormant parallel pathway.
+
+### Entry point 3: edge pruning over exact tensor terms
+
+Ordinary edge pruning learns masks over transformer component edges.  Bilin18 permits
+a finer and more meaningful mask: each MLP already has exact scalar product nodes and
+exact additive `Down` writes.  Put gates over:
+
+- groups of bilinear product coordinates;
+- residual-stream writer-to-reader routes;
+- attention source-to-destination edges such as the exact L8 copy edge;
+- the low-rank factors already admitted for C512 and the shared-HOSVD gate.
+
+Optimize a stratified teacher-KL objective on natural text plus the existing circuit
+slices, with explicit price and complement tests.  This could discover which exact
+monomials and routes deserve to survive before we try to name them.  It is a better
+fit than head-level edge pruning because it exploits the known polynomial graph.
+
+This ranks below the typed-transcoder pilot because an unconstrained mask can produce
+a task-specific sparse subnetwork without yielding a reusable basis.  It becomes
+more valuable after the dictionary/interface nodes are fixed.
+
+### Entry point 4: algorithmic-variable seeds
+
+The successor-head, binding-ID, and greater-than studies show that a narrow behavior
+can expose a shared variable that cuts across polysemantic components.  Bilin18
+already has well-supported copy and successor circuits, so rediscovering those heads
+has low information gain.  A genuinely new seed would be entity binding or another
+task with a known counterfactual variable: entity identity, binding slot, numerical
+residue, or bracket depth.
+
+The purpose would not be to claim that a task circuit explains the whole model.  It
+would provide a clean variable on which to calibrate the typed graph and DAS machinery:
+can the same learned nodes predict, interchange, extract, and selectively remove the
+variable?  Binding is the best candidate because it explicitly tests a shared
+continuous code rather than a single token class.
+
+### Entry point 5: weight-sparse teacher distillation (high upside, high cost)
+
+A more radical route is to initialize a second bilin18 from the dense weights and
+distill it under global hard-concrete/L0 masks plus teacher KL, while keeping the same
+tensor architecture.  If a highly sparse student matches the teacher on held-out and
+OOD distributions, its graph could serve as a proposed executable explanation.
+
+This is attractive because weight-sparse transformers demonstrate that very sparse
+models can contain legible circuits.  It is not the first experiment to run: a sparse
+student can implement the same function by a different internal mechanism, so it
+does not automatically explain the dense teacher.  Cross-model interchange and
+weight/action anchors would be required to establish correspondence.
+
+### What should not be treated as a new decomposition entry point
+
+- **Plain SAE atoms:** already tested.  They are efficient reconstructors, but most
+  atoms are seed-unstable and atom monosemanticity is nearly orthogonal to causal
+  importance.  Use their span as a proposal, not the atoms as ground truth.
+- **More successor/copy-head localization:** these behaviors already have localized
+  circuits.  The open problem is composing their variables with upstream MLPs.
+- **Hydra, ablation robustness, and dormant-pathway checks:** these are essential
+  validators, not decomposition algorithms.
+- **CE-only sparse fitting:** it can preserve predictions while drifting away from
+  the physical model.  That may be useful extraction, but it is not weight-faithful
+  reverse engineering.
+
+### Recommended order
+
+1. typed sparse-transcoder graph across MLP0 $\rightarrow$ MLP1, including both
+   bilinear branches and exact intervening operators;
+2. DAS/interchange compression of the validated copy state and the MLP1/MLP2 state;
+3. edge-mask optimization over the resulting fixed typed nodes;
+4. one binding-variable seed to test whether the machinery transfers beyond copy;
+5. only then, a global weight-sparse distilled twin.
+
+This ordering makes each stage falsifiable and composable.  The first three can share
+one intervention substrate and directly attack the current MLP0/MLP1/MLP2 bottleneck;
+the last two are broader bets.
