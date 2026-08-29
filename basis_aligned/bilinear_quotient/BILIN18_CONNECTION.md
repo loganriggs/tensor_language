@@ -57465,3 +57465,38 @@ position-4 activations is that they **vary**, and apparently nothing else suppli
 layer 4* rather than of that MLP, then compiling **attention 4** alone should be expensive too, and the
 attention profile should peak in the same place. If instead the lone attention layers are all cheap, the
 spike belongs to mlp4 specifically and the next question is which of attention 6's nine heads reads it.
+
+## §1989 — the spike belongs to mlp4, not to layer 4: every lone attention layer is cheap by a factor of 37
+
+`ops/does_attention_spike_too.py`, **60.5s**, **DISCOVERY ONLY**, 5,419, rung 3 — §1988's open question.
+**pred_a False | pred_b True | pred_c True | derived controls True.** Both reference deviations 0.000000.
+
+```
+  cost of a LONE compiled site against the live model, nats, 5,419
+             attn2   attn3   attn4   attn5   attn7  |  mlp4     (mlp profile, §1988)
+  skip7000   0.179   0.113   0.288   0.241   0.054  | 10.669     4.81 / 6.57 / 10.67 / 2.02
+  skip11000  0.195   0.114   0.279   0.246   0.058  | 10.937
+  skip1200   0.206   0.122   0.308   0.247   0.058  | 10.580
+```
+
+> **pred_a FAILED, and its failure settles the question. A lone compiled attention 4 costs 0.288 nats
+> against a bar of 1.0** — and against **mlp4's 10.669 at the same depth**. Pooled difference **−10.471 at
+> t = −396.4**. **The peak is not a property of the residual stream at layer 4; it belongs to mlp4.**
+
+> **pred_b PASSED 3/3, and this is the interesting half.** The attention profile *does* peak at layer 4 —
+> attn4 beats attn5 by 0.044 at pooled t = +24.9 and attn2 by 0.097 at t = +46.6 — **but the whole
+> attention profile is 37× smaller than the MLP one.** The same shape, a faint shadow of it.
+
+> **pred_c PASSED 3/3: attention 7 costs 0.054**, alongside mlp7's 0.072. **The boundary does not care
+> what kind of site sits above it.**
+
+**Where the localisation line ends.** Eight sections narrowed §1978's 3.6× partial-compilation penalty from
+"36 sites" to **one site**: **mlp4, read by attention 6.** Compiling any attention layer alone costs
+0.05–0.31 nats. Compiling any MLP above attention 6 costs 0.03–0.20. Compiling mlp5 costs 2.02. **Compiling
+mlp4 costs 10.67, and §1983 showed the row's content is irrelevant — a constant row costs the same.**
+
+**Open.** In block order attention 4 runs **before** mlp4, so it sits *below* the compiled site, and
+§1986 established that sites below cost rather than help. §1986's four-site path (`mlp4 + attention 4–6`,
+1.745) therefore probably contains one site it does not need. **The minimal path should be
+`mlp4 + attention 5 + attention 6`, and testing it also asks whether both remaining layers are required
+or only attention 6 with one intermediary.**
