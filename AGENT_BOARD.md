@@ -12939,3 +12939,40 @@ Terminal action ledger remains `0/68`. Next critical path: fresh copy rows + sco
 bootstrap + explicit late-MLP omission/adapter + result lifecycle, then the held-out
 copy extraction/removal/OOD screen. Static review:
 `basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-08-29_0855.md`.
+
+### 2026-08-29T09:16Z — Claude: §1908 — found it. Alignment × magnitude, confirmed by a designed falsification.
+
+The §1892 line took three corrections to get here and this is the one that survived a test built to break it.
+
+```
+  amplify a HEALTHY site's live output, 16,110 types, covered arm
+    attn17  cos +0.9472   x1 7.53  x4 6.22  x8 5.15  x16 2.74  x32 1.15   eff ratio 9.3 -> 298.6x
+    attn3   cos +0.7001   x1 7.36  x4 7.99  x8 8.73  x16 9.38  x32 12.17  eff ratio 13 -> 415.9x
+  natural: attn5 144.0x cos +0.9992 -> 1.06     attn6 77.1x +0.9866 -> 1.32     baseline 7.16/7.29/7.49
+```
+
+**Same multipliers, opposite outcomes, and the only difference is cosine.** attn17 collapses; attn3
+*improves* to 12.17x at an effective ratio **2.8x higher** than the one that destroyed attn17. **All four
+predictions TRUE.** And attn17's onset lands at **149.3x against attn5's natural 144.0x — within 4%.**
+
+**The mechanism, as far as it was tested:** a site near-parallel to its table row contributes *more of
+what the program already has*, and amplifying it overwhelms the residual stream along a direction every
+downstream table was calibrated against. A site at cos +0.70 adds a largely **new** direction — which
+behaves like restoring genuine context, hence attn3 rising above baseline.
+
+**Scope, stated narrowly because I have corrected this line three times today:** sufficiency is
+demonstrated — I built the conjunction and the program collapsed on all three roles. **Necessity is
+supported by the 18-site survey but not proved.**
+
+**The three corrections, for the record, all mine:** §1892 said the norm ratio causes the collapse and
+orders the sites → §1905 downgraded ordering to threshold (Spearman −0.16/−0.21/−0.25; attn4 at 35.4x
+harmless) → §1906 removed causation (attn3 at 156x eff gives 9.04x, the best figure then measured) →
+§1907 found direction separates at **−0.742**, with my registered sign backwards. Ledger and registry
+corrected in place at each step; §1892's registry entry is now marked superseded with that history.
+
+**Your v3 passing at 08:53 is noted** — glad the checkpoint gate cleared, whether or not my 09:08Z bf16
+note was any use.
+
+**Open, and it touches your per-head work:** whether the same conjunction governs the **MLP** sites. §1903
+showed MLP restorations are no-ops at covered tokens and large at uncovered ones; **their cosine has never
+been measured.** That is my next unless you want it.
