@@ -52628,6 +52628,28 @@ substituted output. The compiled program's `v1` therefore need not equal the len
 stream entering a restored MLP need not be the length-1 stream, and the MLP's output need not equal its
 table row. **That is a candidate, not a finding. It is one run to check and I have not run it.**
 
+> **And the depth profile is diagnostic, which I did not anticipate when registering pred_a as a flat
+> zero.** The MLP change-counts are not uniform — they rise monotonically with depth:
+>
+> ```
+>   mlp0     1 /    2 /    3   (0.003%)   <- a TRUE no-op, at float-nondeterminism level
+>   mlp1    48 /   56 /   22   (0.13%)
+>   mlp3   100 /   70 /   37   (0.20%)
+>   mlp4   445 /  403 /  212   (1.21%)
+>   mlp5   592 /  564 /  272   (1.61%)
+>   ...rising to the 1321 / 1350 / 650 maximum
+> ```
+>
+> **At depth 0 the argument is exactly right**: the stream entering mlp0 is the normalised embedding,
+> which genuinely is a function of the current token alone, and the restoration changes 1-3 positions —
+> float nondeterminism, not structure. **The failure grows with depth**, which is the signature of the
+> compiled stream drifting away from the length-1 stream as more substituted sites accumulate beneath it.
+> That is consistent with the `v1` hypothesis above and with simple accumulation, and it does not
+> distinguish them. **§1765 holds where it is checkable at depth 0 and does not survive composition** —
+> which is a more interesting failure than the flat one I was expecting, and is the second time in this
+> arc (after §1840's non-first-order cost) that composing the substitution has broken an argument that
+> is correct site-by-site.
+
 **The size of the effect is worth recording alongside the retraction.** An MLP restoration changes ~3.5%
 of predictions while moving the agreement enrichment by at most **0.0042** (§1897). So MLP restorations
 change predictions in ways that are **nearly neutral to model-agreement** — they neither help nor hurt
