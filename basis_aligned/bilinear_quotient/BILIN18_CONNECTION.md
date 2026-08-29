@@ -52985,3 +52985,55 @@ row was never the model's output to begin with.**
 episode is closed: nine sections, four refuted hypotheses of mine, one correct diagnosis from Codex, and
 a behavioural conclusion that was right at the start and is now better supported than when I first
 claimed it.
+
+## §1905 — the norm ratio is a THRESHOLD, not an ordering. §1892 overstated it; corrected in place.
+
+`ops/norm_law_all_attention.py`, 217.6s, **DISCOVERY ONLY**, rung 2 — second-class confirmation of §1892
+across all eighteen attention sites rather than the six that suggested it.
+**pred_a True | pred_b False | pred_c False | pred_d False.**
+
+```
+  norm ratio (live/table) vs COVERED-arm enrichment, all 18 attention sites, 16,110 types
+    attn5   144.0x   1.06  1.03  1.06        attn13   11.5x   7.97  8.53  8.31
+    attn6    77.1x   1.32  1.35  1.30        attn14   10.6x   7.85  8.11  8.04
+    attn4    35.4x   7.16  7.28  7.39        attn10    9.7x   6.13  6.24  6.36
+    attn12   15.1x   7.00  7.09  7.25        attn15    9.6x   7.32  7.50  7.55
+    attn3    13.0x   7.36  7.52  7.67        attn11    9.4x   6.88  7.09  7.25
+    attn16   12.5x   7.85  8.19  8.15        attn17    9.3x   7.53  7.76  7.72
+    attn7    12.4x   6.93  6.99  7.22        attn1/2/8/0/9  7.9-5.8x   6.85-7.31
+```
+
+**pred_a PASSED**: only attn5 (144.0x) and attn6 (77.1x) exceed 50x and both collapse; all fifteen sites
+at or below 20x stay above 5.0x. The extremes separate cleanly across the full set, not just the sample.
+
+> **pred_b and pred_c FAILED, and together they correct §1892.** §1892 wrote that the ratios *"are not
+> similar — they are the whole ordering"*. They are not an ordering. **Spearman over all eighteen sites
+> is −0.158 / −0.212 / −0.249**, against a −0.6 bar: below the collapse threshold the ratio carries
+> almost no information about behaviour (attn9 at 5.8x gives 6.85; attn13 at 11.5x gives 7.97; attn10 at
+> 9.7x gives 6.13). And **attn4 sits at 35.4x — squarely inside the 20-50x band §1892's six sites left
+> empty — and is completely harmless at 7.16 / 7.28 / 7.39**, not intermediate as pred_c required.
+>
+> **The corrected statement: the norm ratio is a THRESHOLD, not an ordering.** Somewhere between 35.4x
+> and 77.1x the program falls off a cliff; on either side of it the ratio predicts nothing. §1892's
+> answer to §1891's "why attn5 and attn6 and not their neighbours" survives — those two are the only
+> sites past the cliff — but its stronger claim that the ratio orders the sites does not, and §1892 is
+> corrected in place.
+
+**The ratios themselves move with coverage**, which no section had noted: attn5 is **156.4x at 5,419
+types (§1892) and 144.0x at 16,110** here, attn3 14.9x → 13.0x. The tables change, so their norms change.
+The threshold conclusion survives it; any future quantitative use of a ratio must state its coverage.
+
+> **pred_d FAILED, and the cause is mine: a coverage-mismatched anchor, for the fifth time today.** I
+> checked the covered-arm baseline against §1888's **7.19 / 7.29 / 7.64x**, which was measured at **5,419
+> types**. This run is at **16,110**, where the baseline is **7.1599 / 7.2939 / 7.4884** — skip1200 misses
+> the 0.05 bar by **0.152**. **§1897 had already met this exact trap and chose to REPORT the baseline
+> rather than anchor it**, writing so in its pred_d; I reintroduced the anchor two sections later, in the
+> same run where I applied LESSON 71's corollary to the variable names. The run's baseline reproduces
+> §1897's 16,110-type figures (7.16 / 7.29 / 7.49) to three decimals, and the §1897 site anchors attn5
+> and attn13 reproduced **exactly** (1.06 and 7.97). **The control is sound; my bar was wrong; it is
+> scored FAIL as written.**
+
+**Rung and selection, recorded.** Rung 3's named question is with Codex since 07:57Z. **Rung 4 is not
+actionable**: `BENCHMARK_BACKLOG.md` states rungs 4-8 are open but has never contained their descriptions
+— checked against every revision in its git history, the earliest being byte-identical to the current
+text. That gap is now recorded in the file itself. This wake therefore took rung 2.

@@ -1,0 +1,72 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+THE NORM-RATIO LAW ACROSS ALL 18 ATTENTION SITES | buckets ((0, 0), (1, 4), (5, 24), (25, 124), (125, 1000000000)) on the fit-row count of the TRUE target | full-rank settled program | DISCOVERY ONLY
+  built the settled fallback and 36 tables (5s)
+
+  === all-compiled baseline ===
+    skip7000   covered enrichment  7.16x  (n 33192)
+    skip11000  covered enrichment  7.29x  (n 33196)
+    skip1200   covered enrichment  7.49x  (n 16597)
+    norm attn0   live  399.054  table   64.397  rescale x0.1614
+    norm attn1   live 4372.790  table  555.667  rescale x0.1271
+    norm attn2   live 27635.871  table 3707.847  rescale x0.1342
+    norm attn3   live 40722.015  table 3132.882  rescale x0.0769
+    norm attn4   live 51640.974  table 1460.575  rescale x0.0283
+    norm attn5   live 967176.536  table 6718.598  rescale x0.0069
+    norm attn6   live 170267.669  table 2207.330  rescale x0.0130
+    norm attn7   live 5875.503  table  473.399  rescale x0.0806
+    norm attn8   live 2665.152  table  375.847  rescale x0.1410
+    norm attn9   live 3130.035  table  543.721  rescale x0.1737
+    norm attn10  live 4768.961  table  491.863  rescale x0.1031
+    norm attn11  live 3573.976  table  379.866  rescale x0.1063
+    norm attn12  live 3369.379  table  223.161  rescale x0.0662
+    norm attn13  live 3995.626  table  347.956  rescale x0.0871
+    norm attn14  live 2733.377  table  257.295  rescale x0.0941
+    norm attn15  live 2986.894  table  312.588  rescale x0.1047
+    norm attn16  live 5607.968  table  450.063  rescale x0.0803
+    norm attn17  live 9186.113  table  984.300  rescale x0.1072
+    attn0   ratio     6.2x  skip7000  7.16x  skip11000  7.30x  skip1200  7.49x   [1/18]
+    attn1   ratio     7.9x  skip7000  7.15x  skip11000  7.29x  skip1200  7.47x   [2/18]
+    attn2   ratio     7.5x  skip7000  7.19x  skip11000  7.29x  skip1200  7.47x   [3/18]
+    attn3   ratio    13.0x  skip7000  7.36x  skip11000  7.52x  skip1200  7.67x   [4/18]
+    attn4   ratio    35.4x  skip7000  7.16x  skip11000  7.28x  skip1200  7.39x   [5/18]
+    attn5   ratio   144.0x  skip7000  1.06x  skip11000  1.03x  skip1200  1.06x   [6/18]
+    attn6   ratio    77.1x  skip7000  1.32x  skip11000  1.35x  skip1200  1.30x   [7/18]
+    attn7   ratio    12.4x  skip7000  6.93x  skip11000  6.99x  skip1200  7.22x   [8/18]
+    attn8   ratio     7.1x  skip7000  7.31x  skip11000  7.41x  skip1200  7.72x   [9/18]
+    attn9   ratio     5.8x  skip7000  6.85x  skip11000  6.98x  skip1200  7.08x   [10/18]
+    attn10  ratio     9.7x  skip7000  6.13x  skip11000  6.24x  skip1200  6.36x   [11/18]
+    attn11  ratio     9.4x  skip7000  6.88x  skip11000  7.09x  skip1200  7.25x   [12/18]
+    attn12  ratio    15.1x  skip7000  7.00x  skip11000  7.09x  skip1200  7.25x   [13/18]
+    attn13  ratio    11.5x  skip7000  7.97x  skip11000  8.53x  skip1200  8.31x   [14/18]
+    attn14  ratio    10.6x  skip7000  7.85x  skip11000  8.11x  skip1200  8.04x   [15/18]
+    attn15  ratio     9.6x  skip7000  7.32x  skip11000  7.50x  skip1200  7.55x   [16/18]
+    attn16  ratio    12.5x  skip7000  7.85x  skip11000  8.19x  skip1200  8.15x   [17/18]
+    attn17  ratio     9.3x  skip7000  7.53x  skip11000  7.76x  skip1200  7.72x   [18/18]
+
+  norm ratio vs covered enrichment, all 18 attention sites (skip7000):
+    attn5   ratio   144.0x  enrichment  1.06   1.03   1.06
+    attn6   ratio    77.1x  enrichment  1.32   1.35   1.30
+    attn4   ratio    35.4x  enrichment  7.16   7.28   7.39
+    attn12  ratio    15.1x  enrichment  7.00   7.09   7.25
+    attn3   ratio    13.0x  enrichment  7.36   7.52   7.67
+    attn16  ratio    12.5x  enrichment  7.85   8.19   8.15
+    attn7   ratio    12.4x  enrichment  6.93   6.99   7.22
+    attn13  ratio    11.5x  enrichment  7.97   8.53   8.31
+    attn14  ratio    10.6x  enrichment  7.85   8.11   8.04
+    attn10  ratio     9.7x  enrichment  6.13   6.24   6.36
+    attn15  ratio     9.6x  enrichment  7.32   7.50   7.55
+    attn11  ratio     9.4x  enrichment  6.88   7.09   7.25
+    attn17  ratio     9.3x  enrichment  7.53   7.76   7.72
+    attn1   ratio     7.9x  enrichment  7.15   7.29   7.47
+    attn2   ratio     7.5x  enrichment  7.19   7.29   7.47
+    attn8   ratio     7.1x  enrichment  7.31   7.41   7.72
+    attn0   ratio     6.2x  enrichment  7.16   7.30   7.49
+    attn9   ratio     5.8x  enrichment  6.85   6.98   7.08
+
+  CLEAN SEPARATION across all 18 (>=50x collapse, <=20x do not) -> True  2 high ['attn5', 'attn6']  15 low
+  and the ordering is MONOTONE (Spearman <= -0.6) -> False  skip7000 -0.158  skip11000 -0.212  skip1200 -0.249
+  and the 20x-50x band (1 sites ['attn4']) is intermediate -> False  attn4 7.16 7.28 7.39
+  coverage 16110, §1888 baseline and §1897 attn5/attn13 reproduce -> control False  attn5 1.06 vs 1.06  attn13 7.97 vs 7.97
+
+pred_a True | pred_b False | pred_c False | pred_d False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/norm_law_all_attention_results.json (217.6s)

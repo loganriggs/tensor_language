@@ -1,0 +1,374 @@
+{
+ "config": {
+  "table_ranks": [
+   "full"
+  ],
+  "map_rank_of_table_rank": {
+   "None": 64,
+   "512": 512
+  },
+  "program": "context-free tables, output-NN fallback with a rank-64 embedding->row map -- the settled design of \u00a71780-\u00a71786",
+  "instruments": "top-1 agreement with the live model, top-1 accuracy against the true next token, and KL(live || program). All three are NEW to this thread, which has been CE-only since \u00a71747.",
+  "ROLE_NOTE": "DISCOVERY ONLY; a second-class confirmation with a DIFFERENT instrument, not a replication of the same one."
+ },
+ "results": {
+  "baseline": {
+   "skip7000": 7.159873237897497,
+   "skip11000": 7.293872350283794,
+   "skip1200": 7.488382385483515
+  },
+  "norms": {
+   "attn0": {
+    "live_mean_norm": 399.0535303751628,
+    "table_mean_norm": 64.39666748046875,
+    "ratio": 0.16137350650657675
+   },
+   "attn1": {
+    "live_mean_norm": 4372.790100097656,
+    "table_mean_norm": 555.666748046875,
+    "ratio": 0.12707372989032
+   },
+   "attn2": {
+    "live_mean_norm": 27635.870686848957,
+    "table_mean_norm": 3707.846923828125,
+    "ratio": 0.1341679068426302
+   },
+   "attn3": {
+    "live_mean_norm": 40722.0146484375,
+    "table_mean_norm": 3132.881591796875,
+    "ratio": 0.07693336439377474
+   },
+   "attn4": {
+    "live_mean_norm": 51640.974283854164,
+    "table_mean_norm": 1460.574951171875,
+    "ratio": 0.028283257073027993
+   },
+   "attn5": {
+    "live_mean_norm": 967176.5364583334,
+    "table_mean_norm": 6718.59765625,
+    "ratio": 0.006946609437872195
+   },
+   "attn6": {
+    "live_mean_norm": 170267.66861979166,
+    "table_mean_norm": 2207.329833984375,
+    "ratio": 0.012963881234043033
+   },
+   "attn7": {
+    "live_mean_norm": 5875.50341796875,
+    "table_mean_norm": 473.3992614746094,
+    "ratio": 0.08057169365723399
+   },
+   "attn8": {
+    "live_mean_norm": 2665.1516927083335,
+    "table_mean_norm": 375.847412109375,
+    "ratio": 0.14102289679708174
+   },
+   "attn9": {
+    "live_mean_norm": 3130.0352884928384,
+    "table_mean_norm": 543.7207641601562,
+    "ratio": 0.17371074574113393
+   },
+   "attn10": {
+    "live_mean_norm": 4768.960917154948,
+    "table_mean_norm": 491.8630065917969,
+    "ratio": 0.10313840166365443
+   },
+   "attn11": {
+    "live_mean_norm": 3573.976287841797,
+    "table_mean_norm": 379.865966796875,
+    "ratio": 0.10628664999516915
+   },
+   "attn12": {
+    "live_mean_norm": 3369.37939453125,
+    "table_mean_norm": 223.16090393066406,
+    "ratio": 0.06623204982284589
+   },
+   "attn13": {
+    "live_mean_norm": 3995.6257832845054,
+    "table_mean_norm": 347.9564514160156,
+    "ratio": 0.08708434430263053
+   },
+   "attn14": {
+    "live_mean_norm": 2733.377237955729,
+    "table_mean_norm": 257.29473876953125,
+    "ratio": 0.09413070951083208
+   },
+   "attn15": {
+    "live_mean_norm": 2986.894012451172,
+    "table_mean_norm": 312.5876770019531,
+    "ratio": 0.10465308634953217
+   },
+   "attn16": {
+    "live_mean_norm": 5607.967875162761,
+    "table_mean_norm": 450.06298828125,
+    "ratio": 0.0802542022885942
+   },
+   "attn17": {
+    "live_mean_norm": 9186.112630208334,
+    "table_mean_norm": 984.3004760742188,
+    "ratio": 0.1071509261531769
+   }
+  },
+  "sites": {
+   "attn0": {
+    "skip7000": {
+     "enrichment": 7.159090909090909,
+     "n": 33192
+    },
+    "skip11000": {
+     "enrichment": 7.298099211868335,
+     "n": 33196
+    },
+    "skip1200": {
+     "enrichment": 7.488382385483515,
+     "n": 16597
+    }
+   },
+   "attn1": {
+    "skip7000": {
+     "enrichment": 7.147898061424526,
+     "n": 33192
+    },
+    "skip11000": {
+     "enrichment": 7.287595287595287,
+     "n": 33196
+    },
+    "skip1200": {
+     "enrichment": 7.467962881131242,
+     "n": 16597
+    }
+   },
+   "attn2": {
+    "skip7000": {
+     "enrichment": 7.190216204411445,
+     "n": 33192
+    },
+    "skip11000": {
+     "enrichment": 7.2918305947697295,
+     "n": 33196
+    },
+    "skip1200": {
+     "enrichment": 7.466548907043498,
+     "n": 16597
+    }
+   },
+   "attn3": {
+    "skip7000": {
+     "enrichment": 7.3567343276886845,
+     "n": 33192
+    },
+    "skip11000": {
+     "enrichment": 7.519407619730085,
+     "n": 33196
+    },
+    "skip1200": {
+     "enrichment": 7.6713572401271,
+     "n": 16597
+    }
+   },
+   "attn4": {
+    "skip7000": {
+     "enrichment": 7.158127208480566,
+     "n": 33192
+    },
+    "skip11000": {
+     "enrichment": 7.27788763522159,
+     "n": 33196
+    },
+    "skip1200": {
+     "enrichment": 7.386112339672712,
+     "n": 16597
+    }
+   },
+   "attn5": {
+    "skip7000": {
+     "enrichment": 1.0605263157894735,
+     "n": 33192
+    },
+    "skip11000": {
+     "enrichment": 1.0308660473479172,
+     "n": 33196
+    },
+    "skip1200": {
+     "enrichment": 1.0580825752274317,
+     "n": 16597
+    }
+   },
+   "attn6": {
+    "skip7000": {
+     "enrichment": 1.3183077775725107,
+     "n": 33192
+    },
+    "skip11000": {
+     "enrichment": 1.3468889792598617,
+     "n": 33196
+    },
+    "skip1200": {
+     "enrichment": 1.298365640440897,
+     "n": 16597
+    }
+   },
+   "attn7": {
+    "skip7000": {
+     "enrichment": 6.926186900773941,
+     "n": 33192
+    },
+    "skip11000": {
+     "enrichment": 6.9909823253577015,
+     "n": 33196
+    },
+    "skip1200": {
+     "enrichment": 7.217331812998859,
+     "n": 16597
+    }
+   },
+   "attn8": {
+    "skip7000": {
+     "enrichment": 7.310837988826816,
+     "n": 33192
+    },
+    "skip11000": {
+     "enrichment": 7.406202811011732,
+     "n": 33196
+    },
+    "skip1200": {
+     "enrichment": 7.721518987341772,
+     "n": 16597
+    }
+   },
+   "attn9": {
+    "skip7000": {
+     "enrichment": 6.84533419438166,
+     "n": 33192
+    },
+    "skip11000": {
+     "enrichment": 6.977349181430814,
+     "n": 33196
+    },
+    "skip1200": {
+     "enrichment": 7.084594076283827,
+     "n": 16597
+    }
+   },
+   "attn10": {
+    "skip7000": {
+     "enrichment": 6.12697792537605,
+     "n": 33192
+    },
+    "skip11000": {
+     "enrichment": 6.244777336186691,
+     "n": 33196
+    },
+    "skip1200": {
+     "enrichment": 6.360617308067982,
+     "n": 16597
+    }
+   },
+   "attn11": {
+    "skip7000": {
+     "enrichment": 6.879931755171679,
+     "n": 33192
+    },
+    "skip11000": {
+     "enrichment": 7.0945597307908015,
+     "n": 33196
+    },
+    "skip1200": {
+     "enrichment": 7.252144082332762,
+     "n": 16597
+    }
+   },
+   "attn12": {
+    "skip7000": {
+     "enrichment": 6.997832683138274,
+     "n": 33192
+    },
+    "skip11000": {
+     "enrichment": 7.093952242802946,
+     "n": 33196
+    },
+    "skip1200": {
+     "enrichment": 7.247584281726434,
+     "n": 16597
+    }
+   },
+   "attn13": {
+    "skip7000": {
+     "enrichment": 7.970408308436477,
+     "n": 33192
+    },
+    "skip11000": {
+     "enrichment": 8.533665059866273,
+     "n": 33196
+    },
+    "skip1200": {
+     "enrichment": 8.305472038484666,
+     "n": 16597
+    }
+   },
+   "attn14": {
+    "skip7000": {
+     "enrichment": 7.84729586426299,
+     "n": 33192
+    },
+    "skip11000": {
+     "enrichment": 8.106380258278993,
+     "n": 33196
+    },
+    "skip1200": {
+     "enrichment": 8.044487427466152,
+     "n": 16597
+    }
+   },
+   "attn15": {
+    "skip7000": {
+     "enrichment": 7.320828363872927,
+     "n": 33192
+    },
+    "skip11000": {
+     "enrichment": 7.49689011748445,
+     "n": 33196
+    },
+    "skip1200": {
+     "enrichment": 7.5514511873350925,
+     "n": 16597
+    }
+   },
+   "attn16": {
+    "skip7000": {
+     "enrichment": 7.849440018473617,
+     "n": 33192
+    },
+    "skip11000": {
+     "enrichment": 8.190689013035382,
+     "n": 33196
+    },
+    "skip1200": {
+     "enrichment": 8.150069476609541,
+     "n": 16597
+    }
+   },
+   "attn17": {
+    "skip7000": {
+     "enrichment": 7.531890530172907,
+     "n": 33192
+    },
+    "skip11000": {
+     "enrichment": 7.757369062119367,
+     "n": 33196
+    },
+    "skip1200": {
+     "enrichment": 7.718400000000001,
+     "n": 16597
+    }
+   }
+  }
+ },
+ "predictions": {
+  "pred_a_clean_separation_all18": true,
+  "pred_b_ordering_monotone": false,
+  "pred_c_mid_band_intermediate": false,
+  "pred_d_controls": false
+ },
+ "runtime_s": 217.6
+}
