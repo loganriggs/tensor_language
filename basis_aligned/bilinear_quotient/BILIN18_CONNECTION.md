@@ -51207,9 +51207,9 @@ to predict — it is least-squares fitted on exactly the rows it must reproduce 
 transfer from covered tokens to uncovered ones. **The other 83% is representational: a linear function of
 the token embedding cannot express these rows at all, however it is fitted.**
 
-> **This closes the linear family.** §1869 showed rank is a real but partial lever inside it (a fifth to a
-> quarter of the loss, cheaply). §1873 shows that even an unfittable-in-practice *oracle* linear map
-> leaves 83% of the loss standing. **No better-fitted linear map from the token embedding will help**, and
+> **~~This closes the linear family.~~ OVERTURNED BY §1875.** This section's oracle is at **map rank 64**.
+> At rank 512 with the stream input the oracle reaches 0.114 (§1875), so the linear family is **not**
+> closed and the 83% figure is specific to rank 64 and the embedding input. **No better-fitted linear map from the token embedding will help**, and
 > §1871's proposed "neighbour as a base with the map fitted on the residual" is unpromising for the same
 > reason — §1872 already showed the neighbour lands in the same place, and §1873 now says why: both are
 > bounded by what a per-token function of the *available features* can express, not by how it is chosen.
@@ -51271,9 +51271,11 @@ worth something real.
 >               richest per-token input available
 > ```
 >
-> **Two levers worth ~29% between them, and 71% that survives giving the map both the answers and a
-> better input.** The binding constraint is neither the fitting set nor the features: it is the
-> **function class** — a linear map — or the per-token restriction itself.
+> **~~Two levers worth ~29% between them, and 71% that survives...~~ OVERTURNED BY §1875.** Every number
+> in this table is at **map rank 64**. §1875 reran the stream oracle at rank 512 and it reaches **0.114**,
+> not 0.555 — so rank, input and fitting **compound**, and the residual is 15% of the deployed loss, not
+> 71%. The three-way split above is a rank-64 decomposition and must not be read as a general one. The
+> conclusion that the binding constraint is the function class is **withdrawn**.
 
 **pred_c PASSED at 0.00e+00 for a fifth time**, now across five distinct manipulations of the uncovered
 rows: the deployed map, the output-NN neighbour, four map ranks, an oracle refit, and an oracle on a
@@ -51303,3 +51305,44 @@ which the covered positions already answer — there the same class attains its 
 contrast is the sharpest form of the question: covered rows are perfectly expressible per-token because
 they are stored, and uncovered rows are 0.555 away because they are predicted. The remaining question is
 whether prediction from any function of the token can close a gap that storage closes trivially.**
+
+## §1875 — OVERTURNS §1873 and §1874: rank, input and fitting COMPOUND. The oracle reaches 0.114, not 0.555.
+
+`ops/oracle_stream_rank512.py`, 271.6s, **DISCOVERY ONLY**, rung 3 — written to test §1874's own weakest
+assumption. **pred_a False | pred_b True | pred_c True | pred_d False (wrong anchor, see below).**
+
+```
+  fallback loss against §1868's uncovered-token ceiling, 5,419-type deployed build
+    deployed map, embedding, covered-fit, rank 64            +0.78075   +0.86225   +0.83997
+    oracle, embedding, rank 64        (§1873)                +0.65138   +0.72189   +0.70037
+    oracle, STREAM,    rank 64        (§1874)                +0.55527   +0.62110   +0.57685
+    oracle, STREAM,    rank 512       (here)                 +0.11388   +0.14094   +0.14196
+```
+
+**pred_a FAILED and it overturns two of my own sections.** I predicted the rank-512 stream oracle would
+stay above 0.40, on the reading that 71% of the loss was function class. It reaches **0.114** — an **80%
+reduction from rank 64 on the same input and the same fit**. §1873's "83% representational" and §1874's
+"71% function class" were both **artifacts of holding map rank at 64**, and both conclusions are
+withdrawn in place.
+
+> **The three levers compound; they do not decompose.** Rank alone (§1869) recovers a fifth. Input alone
+> at rank 64 (§1874) recovers 12%. Rank **and** input **and** oracle fitting together recover **85%** of
+> the deployed fallback's 0.781 nats. Reading any one of them at another's fixed setting understates all
+> of them — which is precisely the mistake §1853 warned about for coverage and rank, and I made it again
+> one axis over.
+
+**pred_d FAILED for a reason worth recording separately.** I anchored the MAP arm to §1872's PUBLISHED
+rank-64 figures, but this run sets rank 512 for **both** arms — so its MAP arm is the rank-512 map, and it
+reports **+0.59560 / +0.67209 / +0.67172**, which reproduces §1870's published rank-512 row **exactly**.
+The run is correct; the anchor was for a different build. **LESSONS 53's fourth instance**, and again the
+gate cannot see it: a wrong published constant is a syntactically perfect float.
+
+**pred_c PASSED at 0.00e+00 for a sixth time** across a sixth distinct manipulation of the uncovered rows.
+
+**What is and is not established.** The 0.114 is an **oracle** — fitted on the rows it predicts — so it is
+a bound on expressibility, not a deployable result. What it establishes is that **a linear per-token map
+from the length-1 stream, at rank 512, can express these rows almost exactly.** The open question is now
+sharp and practical rather than conceptual: **how much of that survives a covered-only fit?** The stream
+input is computable offline for any token, so a covered-fit rank-512 stream map is a real, deployable
+build — and §1873's 16.6% generalisation gap was measured at rank 64 on the embedding, which §1875 has
+just shown says nothing about rank 512 on the stream.

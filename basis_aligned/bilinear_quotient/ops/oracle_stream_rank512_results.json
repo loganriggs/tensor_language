@@ -1,0 +1,55 @@
+{
+ "run": "oracle_stream_rank512",
+ "n_covered": 5419,
+ "arms": [
+  "MAP",
+  "STREAM"
+ ],
+ "fallback_loss": {
+  "MAP": {
+   "skip7000": 0.5955993920752434,
+   "skip11000": 0.6720855999028075,
+   "skip1200": 0.6717231721374164
+  },
+  "STREAM": {
+   "skip7000": 0.11388452626048196,
+   "skip11000": 0.1409352128332806,
+   "skip1200": 0.14195902002371774
+  }
+ },
+ "covered_ce": {
+  "MAP": {
+   "skip7000": 6.0346503954442605,
+   "skip11000": 5.978998133661841,
+   "skip1200": 5.964231215357265
+  },
+  "STREAM": {
+   "skip7000": 6.0346503954442605,
+   "skip11000": 5.978998133661841,
+   "skip1200": 5.964231215357265
+  }
+ },
+ "generalisation_share": {
+  "skip7000": 0.8087900562428804,
+  "skip11000": 0.7903016924426566,
+  "skip1200": 0.7886643993953557
+ },
+ "covered_spread": 0.0,
+ "ceiling_uncovered": {
+  "skip7000": 5.158606205333687,
+  "skip11000": 5.139473380010885,
+  "skip1200": 5.278934981720323
+ },
+ "uncovered_fraction": {
+  "skip7000": 0.2411566840277778,
+  "skip11000": 0.2540961371527778,
+  "skip1200": 0.2419162326388889
+ },
+ "attainment_exact": true,
+ "predictions": {
+  "pred_a_S1874_stands": false,
+  "pred_b_rank_still_helps": true,
+  "pred_c_covered_untouched": true,
+  "pred_d_controls": false
+ }
+}

@@ -1,0 +1,37 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+ORACLE STREAM RANK512 | 5419 types, stream-input oracle at map rank 512 | settled program (context-free tables + output-NN fallback + rank-64 map) | DISCOVERY ONLY
+
+  per-site norm calibration (live mean / row mean), measured on the LIVE model:
+    attn L0:  2.71 L1:  2.49 L2:  2.26 L3:  2.13 L4:  4.37 L5:  1.00 L6:  1.02 L7:  3.61 L8:  3.59 L9:  4.83 L10:  3.80 L11:  4.49 L12:  6.72 L13:  6.39 L14:  7.07 L15:  6.33 L16:  5.70 L17:  5.59
+    mlp  L0:  0.88 L1:  0.42 L2:  0.61 L3:  0.49 L4:  0.10 L5:  0.39 L6:  0.52 L7:  1.66 L8:  2.04 L9:  1.32 L10:  2.33 L11:  1.05 L12:  1.91 L13:  1.26 L14:  1.66 L15:  1.19 L16:  1.13 L17:  1.21
+
+  arms  (47s)
+  all_substituted      skip7000 13.55%  skip11000 14.25%  skip1200 13.64%
+  all_sub_scaled       skip7000 12.16%  skip11000 12.81%  skip1200 12.10%
+  live_model           skip7000 39.32%  skip11000 42.35%  skip1200 38.88%
+
+  arms  (110s)
+  all_substituted        skip7000 13.55%  skip11000 14.25%  skip1200 13.64%
+  live_model             skip7000 39.32%  skip11000 42.35%  skip1200 38.88%
+
+  arms  (124s)
+  B0_raw                 skip7000 23.20%  skip11000 25.38%  skip1200 23.26%
+  B0_seq                 skip7000 30.25%  skip11000 32.59%  skip1200 29.11%
+  uncovered-token ceiling built for 10455 token types
+
+  coverage 5419 types (1.00x §1834); ceiling CE skip7000 6.03465  skip11000 5.97900  skip1200 5.96423 (146s)
+  oracle target rows built for 10455 uncovered token types (147s)
+    rank MAP   covered skip7000  6.03465 (+-0.00000)  skip11000  5.97900 (+-0.00000)  skip1200  5.96423 (+-0.00000)   (191s)
+    rank STREAM covered skip7000  6.03465 (+-0.00000)  skip11000  5.97900 (+-0.00000)  skip1200  5.96423 (+-0.00000)   (272s)
+
+  FALLBACK LOSS: fitted on COVERED (deployed) vs on UNCOVERED (oracle), 5419 covered types:
+    MAP      skip7000 +0.59560  skip11000 +0.67209  skip1200 +0.67172
+    STREAM   skip7000 +0.11388  skip11000 +0.14094  skip1200 +0.14196
+    generalisation share of the deployed loss: skip7000 80.9%  skip11000 79.0%  skip1200 78.9%
+
+  §1874 STANDS (stream oracle at rank 512 still >0.40) -> False  skip7000 +0.11388  skip11000 +0.14094  skip1200 +0.14196
+  and RANK still helps (below §1874 rank-64) -> True  skip7000 +0.11388  skip11000 +0.14094  skip1200 +0.14196
+  and the COVERED arm is untouched (<1e-6) -> True  max spread 0.00e+00
+  MAP arm reproduces §1872, coverage 5419, attainment True -> control False
+
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/oracle_stream_rank512_results.json (271.6s)
