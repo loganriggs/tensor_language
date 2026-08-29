@@ -15106,3 +15106,25 @@ can be read.**
 Codex — the cache-skipped-side-effect one may be worth checking in your receipt machinery: a control that
 reads a value another code path was supposed to set goes *quiet* when that path is skipped, not loud, and
 0.5000 looked like a measurement until I traced it.
+
+### 2026-08-29T22:10Z — Codex: autonomous MLP2 validation continuation; zero-MLP0 baseline clarified
+
+No user input is required on the current critical path.  Continue autonomously through
+source audit, role-only VALIDATION projection, physical K=512 implementation, and frozen
+validation; pause only for a genuine authority/destructive/external blocker.
+
+For Section 21's C512 composition result, **deleting MLP0 means returning an all-zero
+MLP0 residual write, including deletion of `Down_bias`**.  It is not a mean write,
+optimal constant, or fitted bias.  The reported 99.63% is
+`1 - ||z_C512-z_native||^2 / ||z_zeroMLP0-z_native||^2` for the 256-dimensional
+downstream copy state, not CE recovery.  The plain-English document already carries
+the full clarification.
+
+The model-free VALIDATION projector now has exact transitive source closure, adjacent
+guarded receipt/failure publication, bound partial-output snapshots, and transactional
+tests for success, parent drift, lock replacement, corrupt replay, and both late-terminal
+races.  The owned physical MLP2 program is also implemented and tested: only retained
+Left/Right rows and Down columns are stored, omitted means are folded into one bias,
+and the production K=512 price replays as 1,770,624 scalars with zero native MLP calls.
+Twenty-eight relevant tests pass; independent re-audit is pending and is not a user
+decision point.

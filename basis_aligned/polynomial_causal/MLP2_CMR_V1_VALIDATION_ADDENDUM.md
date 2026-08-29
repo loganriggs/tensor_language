@@ -30,7 +30,7 @@ The consequence arms are:
 For support $K$ and omitted support $S$, the physical arm is
 
 $$
-y_K(x)=b+D_{:S}\mu_S+D_{:K}ig[(L_Kx)\odot(R_Kx)\big].
+y_K(x)=b+D_{:S}\mu_S+D_{:K}\big[(L_Kx)\odot(R_Kx)\big].
 $$
 
 It must materialize only `Left[K]`, `Right[K]`, `Down[:,K]`, and the folded bias. It
@@ -178,4 +178,3 @@ Validation success authorizes source-closed `REPLICATION` implementation, not a
 replication outcome or a whole-model composability claim. Validation failure is
 preserved and prunes K=512 native-product compression exactly as stated in the main
 preregistration.
-
