@@ -52061,3 +52061,49 @@ positions, and the target buckets partition independently — a fifteenth known-
 is now better founded: with the tracking localised to the table lookups, asking whether *particular sites'*
 tables carry it is a sharper question than asking it of the program as a whole. If they stay on
 hierarchical sharing I will take it on the next tick.
+
+## §1888 — §1887 confirmed at deployed coverage, on 2.5x the fallback positions
+
+`ops/mechanism_at_deployed_coverage.py`, 48.4s, **DISCOVERY ONLY**, rung 2 — second-class confirmation of
+§1887. **pred_a True | pred_b True | pred_c True | pred_d True.** All four.
+
+```
+  enrichment over the permutation null, covered / uncovered current token
+                        covered            uncovered          ratio      uncovered n
+    §1887  16,110    7.16 7.29 7.49     3.14 3.56 3.11     2.28 2.05 2.41    3672/3668/1835
+    §1888   5,419    7.19 7.29 7.64     2.91 2.97 2.70     2.48 2.46 2.83    8890/9367/4459
+  within the 125+ target bucket
+    §1887  16,110    6.09 6.33 6.11     2.37 2.13 2.26     2.57 2.97 2.71
+    §1888   5,419    5.54 5.74 5.99     2.15 2.02 1.85     2.58 2.84 3.24
+```
+
+**The attribution holds and the covered arm is essentially identical across a 3x coverage change** —
+7.19 / 7.29 / 7.64x here against 7.16 / 7.29 / 7.49x at 16,110, one of which matches to three digits.
+That is a strong invariance: the table lookups track the model at the same rate whether there are 5,419
+of them or 16,110.
+
+**pred_b PASSED and it is the reason this run existed.** §1887's fallback arm rested on 3,672 / 3,668 /
+1,835 positions — the thinnest number in the whole attribution. Here it rests on **8,890 / 9,367 /
+4,459**, an uncovered share of **24.1 / 25.4 / 24.2%** against §1887's ~10%, and reproduces at 2.91 /
+2.97 / 2.70x against 3.14 / 3.56 / 3.11x. **The weaker arm was not a small-sample artifact.**
+
+**pred_c PASSED**: within the 125+ bucket the ratio is **2.58 / 2.84 / 3.24x**, against §1887's 2.57 /
+2.97 / 2.71x. The frequency-proxy control gives the same answer at both coverages.
+
+> **Settled, on two coverages and two builds.** The compiled program's top-1 fidelity to the live model
+> is carried by the **table lookups at roughly 7.2-7.6x** chance and by **§1870's fallback map at roughly
+> 2.7-3.0x** — a ratio near **2.5x**, which survives holding the target bucket fixed and does not depend
+> on coverage. The fallback is not inert, and it is not half as good as a lookup either.
+
+**A small directional detail, stated because it runs the other way from the headline.** Every fallback
+figure here is *slightly lower* than §1887's (2.91 vs 3.14, 2.97 vs 3.56, 2.70 vs 3.11), and every ratio
+correspondingly higher. At lower coverage the uncovered set includes somewhat commoner tokens, and the
+rank-64 map appears to serve them marginally worse. All six differences are inside pred_b's 1.0x bar and
+none is large, but the sign is consistent across all three roles and I am not going to call it noise
+without measuring it.
+
+**pred_d PASSED**: coverage exactly 5,419, both partitions exact, and the uncovered share materially
+moved (24% against 10%) — which is what makes this a confirmation rather than a re-run.
+
+**Open, unchanged.** The per-site question remains with Codex (board 06:36Z / 06:44Z / 06:52Z). The
+consistent fallback sign above is the only new loose thread and it is small.

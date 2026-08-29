@@ -502,6 +502,11 @@ def semantic_validate_diagnostics(value: Mapping[str, Any], descriptor: Mapping[
         *hashes["site_projector_sha256s"], *hashes["coefficient_map_sha256s"],
     )):
         raise RuntimeError("hierarchical RRR deployed hash receipt changed")
+    hash_body = {key: item for key, item in hashes.items() if key != "sha256"}
+    if hashes["sha256"] != base.logical_sha256(hash_body) or tuple(
+        hashes.get("private_ranks", ())
+    ) != ranks or hashes.get("price") != asdict(price):
+        raise RuntimeError("hierarchical RRR deployed hash receipt does not replay")
     numeric = (
         "explained_penalized_merit", "explained_shared_merit", "explained_private_merit",
         "penalized_residual_fraction", "combined_orthogonality_max_abs_float64",
@@ -510,6 +515,18 @@ def semantic_validate_diagnostics(value: Mapping[str, Any], descriptor: Mapping[
         math.isfinite(value[key])
     ) for key in numeric) or value["combined_orthogonality_max_abs_float64"] > 1e-8:
         raise RuntimeError("hierarchical RRR numerical diagnostic changed")
+    if not math.isclose(
+        value["explained_private_merit"], allocation.selected_residual_merit,
+        rel_tol=1e-12, abs_tol=1e-8,
+    ) or value["explained_penalized_merit"] != (
+        value["explained_shared_merit"] + value["explained_private_merit"]
+    ):
+        raise RuntimeError("hierarchical RRR merit replay changed")
+    for gap in (value["shared_boundary_eigengap"], *value["private_boundary_eigengaps"],
+                value["allocation_cutoff_eigengap"]):
+        if gap is not None and (isinstance(gap, bool) or not isinstance(gap, (int, float))
+                                or not math.isfinite(gap)):
+            raise RuntimeError("hierarchical RRR eigengap schema changed")
 
 
 def _parent_arms() -> Mapping[str, Any]:
