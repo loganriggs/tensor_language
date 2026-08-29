@@ -35,7 +35,7 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from bilin18_joint_removal import m, DEV                                    # noqa: E402
 
-LIB_VERSION = 2          # bump on ANY change to table building, arm construction or forward_logits
+LIB_VERSION = 3          # bump on ANY change to table building, arm construction or forward_logits
 
 D = 1152
 T = 256
@@ -111,6 +111,10 @@ class Program:
                              neighbour row, the rest take the rank-64 map row (S1939)
       'nn<P>m<R>'            the same, with the routed-out remainder on a rank-R map instead
       'mix<A>m<R>'           BLEND in row space: A% neighbour + (100-A)% rank-R map, every type
+
+    table_rank is None (full), an int (uniform), or {'mlp': r, 'attn': r} -- S1928-S1935 found
+    MLP-heavy allocation beats uniform for free, with attention wanting 12.5-25% of the
+    per-site budget. cost() sums the ACTUAL per-site ranks.
       ('table', R, arm)      the same, with every table truncated to rank R first
     """
 
@@ -180,18 +184,28 @@ class Program:
 
     # -------------------------------------------------- arm construction
 
+    @staticmethod
+    def _rank_of(table_rank, st):
+        """table_rank may be None (full), an int (uniform), or {'mlp': r, 'attn': r} (per-site)."""
+        return table_rank[st[0]] if isinstance(table_rank, dict) else table_rank
+
     def _tables_at(self, table_rank):
         if table_rank is None:
             return self.tables
-        if table_rank in self._tabmemo:
-            return self._tabmemo[table_rank]
+        key = _rk_key(table_rank)
+        if key in self._tabmemo:
+            return self._tabmemo[key]
         out = {}
         for st, tbl in self.tables.items():
+            r = self._rank_of(table_rank, st)
+            if r is None:
+                out[st] = tbl
+                continue
             b = tbl.double()
             mu = b.mean(0, keepdim=True)
             U, S, Vh = torch.linalg.svd(b - mu, full_matrices=False)
-            out[st] = (mu + (U[:, :table_rank] * S[:table_rank]) @ Vh[:table_rank]).float()
-        self._tabmemo[table_rank] = out
+            out[st] = (mu + (U[:, :r] * S[:r]) @ Vh[:r]).float()
+        self._tabmemo[key] = out
         return out
 
     def _map(self, tc, st, rank, table_rank=None):
@@ -201,7 +215,7 @@ class Program:
         ridge solves and 36 float64 SVDs of a 1152x1152, recomputed for EVERY arm and EVERY role. The
         solve and the SVD do not depend on `rank` at all; only the truncation does. Memoizing them per
         (table rank, site) turns 324 SVDs per coverage into 36."""
-        key = (table_rank, st)
+        key = (_rk_key(table_rank), st)
         usv = self._mapmemo.get(key)
         if usv is None:
             Ws = torch.linalg.solve(self.A, self.Ecov.T @ tc[st].double())
@@ -269,8 +283,10 @@ class Program:
 
     def cost(self, name, table_rank=None):
         """Parameter count of a build, in the S1754 accounting."""
-        tab = 36 * ((self.ncov * D + D) if table_rank is None
-                    else (table_rank * (self.ncov + D) + 2 * D))
+        tab = 0
+        for st in SITES:
+            r = self._rank_of(table_rank, st)
+            tab += (self.ncov * D + D) if r is None else (r * (self.ncov + D) + 2 * D)
         if name == 'nn':
             fb = int(self.unc.numel()) * 2                 # one index per uncovered type
         elif name.startswith('map'):
@@ -283,6 +299,13 @@ class Program:
 
 
 # ---------------------------------------------------------------- scoring, with a verified cache
+
+def _rk_key(table_rank):
+    """A hashable, cache-stable key for a table-rank spec (None / int / per-site dict)."""
+    if isinstance(table_rank, dict):
+        return tuple(sorted((k, table_rank[k]) for k in table_rank))
+    return table_rank
+
 
 def _tables_digest(prog):
     """Digest of everything an arm is built FROM: the 36 tables, the neighbour index and its cosine.
@@ -303,13 +326,13 @@ def _fingerprint(prog, armname, table_rank):
     """What a cached entry must match: the program it came from, plus the arm spec."""
     if armname is None:
         return 'live|' + prog.digest[:16]
-    return f'{armname}|{table_rank}|' + prog.digest[:16]
+    return f'{armname}|{_rk_key(table_rank)}|' + prog.digest[:16]
 
 
 def _key(prog, armname, table_rank, role):
     return hashlib.sha256(
         f'{LIB_VERSION}|{os.path.basename(prog.fit_path)}|{prog.ncov}|{armname}|'
-        f'{table_rank}|{role}|{SKIP}'.encode()).hexdigest()[:24]
+        f'{_rk_key(table_rank)}|{role}|{SKIP}'.encode()).hexdigest()[:24]
 
 
 @torch.no_grad()

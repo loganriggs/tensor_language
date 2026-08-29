@@ -55142,3 +55142,49 @@ it) → `mix25m512` 267.335M (best CE anywhere). **`map512` is no longer on the 
 run a little over half of the 5,419 figures, which would put `mix25m256`'s CE edge over `map512` at
 roughly −0.008 nats. That is still several standard errors by §1943's arithmetic, but it is an
 extrapolation and the run is ~60s.
+
+## §1945 — the cheaper frontier holds at 16,110: mix25m256 beats map512 on both instruments at 21.2M less
+
+`ops/frontier_at_high_coverage.py`, **52.1s**, **DISCOVERY ONLY**, 16,110 coverage, **rung 2** — a
+second-class confirmation of §1944 at the other coverage. **All four predictions TRUE.**
+
+```
+  16,110, pooled, deltas vs map512
+                    cost        top-1              CE                    paired t
+  mix25m256    689.457M   +0.12/+0.11/+0.04pp  -.00771/-.00815/-.00383   -6.30/-6.57/-2.13
+  mix40m128    678.841M   +0.16/+0.11/+0.10pp  -.00415/-.00314/+.00310   -2.23/-1.61/+1.11
+  mix25m512    710.691M   +0.10/+0.12/+0.08pp  -.01073/-.01117/-.00784   -9.27/-9.66/-4.73
+  nn           668.224M   +0.27/+0.09/+0.12pp  +.02006/+.02712/+.04106   +6.11/+7.48/+7.59
+  map512       710.623M          —                     —                       —
+  map64        673.464M   -0.04/+0.01/-0.10pp  +.02184/+.02302/+.02531  +17.21/+16.87/+12.95  DEPLOYED
+```
+
+> **pred_a PASSED 3/3: `mix25m256` still beats `map512` on both instruments at the higher coverage**, by
+> **+0.12 / +0.11 / +0.04pp** of top-1 and **−0.0077 / −0.0082 / −0.0038 nats** of CE at paired
+> **t = −6.30 / −6.57 / −2.13**, for **21.2M less** (689.457M against 710.623M). §1944 is not a
+> 5,419-only result. The skip1200 leg clears the t bar by 0.13 and I am flagging it as the weak one.
+
+> **pred_c PASSED 3/3: the frontier ORDER survives** — CE(`mix25m512`) < CE(`mix25m256`) < CE(`map512`)
+> on every role. Rank still buys CE, the blend still beats the pure map, and the ordering §1944
+> established is not coverage-dependent.
+
+> **pred_b PASSED 2/3 and the miss is worth naming.** The 16,110 CE margin came in at **45% / 46% / 18%**
+> of its 5,419 value against a registered 30–80% band. Two roles sit near the middle, exactly the "a
+> little over half" §1943 measured. **skip1200 shrank far more than predicted, to 18%** — its margin is
+> −0.0038 nats at t = −2.13, the weakest cell in the table. The scaling is not uniform across roles, and
+> anyone extrapolating a fallback margin to a new coverage from one role would have been wrong by 2.5×.
+
+**pred_d PASSED**: coverage exactly 16,110; every arm inert at covered inputs; buckets partition; live
+per-cell top-1 and CE identical across all six arms at 0.00e+00; and `map512` / `map64` / `mix25m512`
+reproduced §1943's **published** 16,110 pooled CE to **0.000004 nats** — thirty-first clean reading.
+
+> **A note on what the cost numbers mean at this coverage.** At 16,110 the 36 full-rank tables cost
+> 667.9M, so the fallback is 1.5–6% of the build and the *relative* saving of `mix25m256` over `map512`
+> is 3.0% rather than 5,419's 7.9%. **The blend's advantage is in nats and points, not in a cost ratio,
+> once coverage is high** — and §1936 explains why: the fallback only ever touches ~10% of positions here
+> against ~24% at 5,419.
+
+**Open.** Everything from §1937 onward holds the 36 tables at **full rank**. §1928–§1935 established that
+per-site rank allocation is worth ~0.015–0.019 nats on its own and that attention sites want 12.5–25% of
+the per-site budget. **The blend and the allocation lever have never been combined**, and at 16,110 the
+tables are 94% of the build, so that is where the remaining cost is.

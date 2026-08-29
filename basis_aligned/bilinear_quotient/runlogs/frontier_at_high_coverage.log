@@ -6,3 +6,56 @@ FRONTIER AT 16,110 | arms ('mix25m256', 'mix40m128', 'mix25m512', 'nn', 'map512'
   [bqlib] cache HIT  live     skip7000
   [bqlib] cache HIT  live     skip11000
   [bqlib] cache HIT  live     skip1200
+  [bqlib] computed   mix25m256 skip7000 (1.4s)
+  [bqlib] computed   mix25m256 skip11000 (1.3s)
+  [bqlib] computed   mix25m256 skip1200 (0.7s)
+  [bqlib] computed   mix40m128 skip7000 (3.2s)
+  [bqlib] computed   mix40m128 skip11000 (1.3s)
+  [bqlib] computed   mix40m128 skip1200 (0.7s)
+  [bqlib] cache HIT  mix25m512 skip7000
+  [bqlib] cache HIT  mix25m512 skip11000
+  [bqlib] cache HIT  mix25m512 skip1200
+  [bqlib] cache HIT  nn       skip7000
+  [bqlib] cache HIT  nn       skip11000
+  [bqlib] cache HIT  nn       skip1200
+  [bqlib] cache HIT  map512   skip7000
+  [bqlib] cache HIT  map512   skip11000
+  [bqlib] cache HIT  map512   skip1200
+  [bqlib] cache HIT  map64    skip7000
+  [bqlib] cache HIT  map64    skip11000
+  [bqlib] cache HIT  map64    skip1200
+
+  skip7000
+    mix25m256  [ 689.457M]  top1 14.09% (+0.12pp)  CE 5.87567 (-0.00771, t -6.30)
+    mix40m128  [ 678.841M]  top1 14.13% (+0.16pp)  CE 5.87923 (-0.00415, t -2.23)
+    mix25m512  [ 710.691M]  top1 14.08% (+0.10pp)  CE 5.87265 (-0.01073, t -9.27)
+    nn         [ 668.224M]  top1 14.25% (+0.27pp)  CE 5.90344 (+0.02006, t +6.11)
+    map512     [ 710.623M]  top1 13.98% (+0.00pp)  CE 5.88338 (+0.00000, t +0.00)
+    map64      [ 673.464M]  top1 13.93% (-0.04pp)  CE 5.90522 (+0.02184, t +17.21)
+    mix25m256 CE margin is 45% of its 5,419 value (-0.01714)
+
+  skip11000
+    mix25m256  [ 689.457M]  top1 14.81% (+0.11pp)  CE 5.82113 (-0.00815, t -6.57)
+    mix40m128  [ 678.841M]  top1 14.81% (+0.11pp)  CE 5.82614 (-0.00314, t -1.61)
+    mix25m512  [ 710.691M]  top1 14.82% (+0.12pp)  CE 5.81812 (-0.01117, t -9.66)
+    nn         [ 668.224M]  top1 14.79% (+0.09pp)  CE 5.85640 (+0.02712, t +7.48)
+    map512     [ 710.623M]  top1 14.70% (+0.00pp)  CE 5.82928 (+0.00000, t +0.00)
+    map64      [ 673.464M]  top1 14.71% (+0.01pp)  CE 5.85230 (+0.02302, t +16.87)
+    mix25m256 CE margin is 46% of its 5,419 value (-0.01759)
+
+  skip1200
+    mix25m256  [ 689.457M]  top1 14.16% (+0.04pp)  CE 5.85661 (-0.00383, t -2.13)
+    mix40m128  [ 678.841M]  top1 14.21% (+0.10pp)  CE 5.86354 (+0.00310, t +1.11)
+    mix25m512  [ 710.691M]  top1 14.20% (+0.08pp)  CE 5.85260 (-0.00784, t -4.73)
+    nn         [ 668.224M]  top1 14.24% (+0.12pp)  CE 5.90150 (+0.04106, t +7.59)
+    map512     [ 710.623M]  top1 14.12% (+0.00pp)  CE 5.86044 (+0.00000, t +0.00)
+    map64      [ 673.464M]  top1 14.01% (-0.10pp)  CE 5.88575 (+0.02531, t +12.95)
+    mix25m256 CE margin is 18% of its 5,419 value (-0.02100)
+
+  mix25m256 still beats map512 on both, with the t bar (>=2 roles) -> True  3/3
+  and the CE margin is 30-80% of its 5,419 value (>=2 roles) -> True  2/3  (ratios ['45%', '46%', '18%'])
+  and the frontier ORDER mix25m512 < mix25m256 < map512 holds (>=2 roles) -> True  3/3
+  coverage {'c16110': 16110}, arms inert True, live identical 0.0e+00, §1943 16,110 CE reproduced within 0.000004 nats -> control True
+
+pred_a True | pred_b True | pred_c True | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/frontier_at_high_coverage_results.json (52.1s)
