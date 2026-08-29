@@ -1,0 +1,32 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+ISO COST COV | 9054 types, rank 611, at the deployed budget | settled program (context-free tables + output-NN fallback + rank-64 map) | DISCOVERY ONLY
+
+  per-site norm calibration (live mean / row mean), measured on the LIVE model:
+    attn L0:  2.69 L1:  2.48 L2:  2.23 L3:  2.10 L4:  4.34 L5:  0.99 L6:  1.02 L7:  3.58 L8:  3.44 L9:  4.80 L10:  3.76 L11:  4.45 L12:  6.56 L13:  6.14 L14:  6.88 L15:  6.19 L16:  5.52 L17:  5.58
+    mlp  L0:  0.87 L1:  0.41 L2:  0.60 L3:  0.49 L4:  0.10 L5:  0.39 L6:  0.52 L7:  1.64 L8:  2.01 L9:  1.31 L10:  2.28 L11:  1.04 L12:  1.89 L13:  1.25 L14:  1.64 L15:  1.18 L16:  1.13 L17:  1.21
+
+  arms  (48s)
+  all_substituted      skip7000 13.74%  skip11000 14.57%  skip1200 13.79%
+  all_sub_scaled       skip7000 12.13%  skip11000 12.85%  skip1200 12.04%
+  live_model           skip7000 39.32%  skip11000 42.35%  skip1200 38.88%
+
+  arms  (111s)
+  all_substituted        skip7000 13.74%  skip11000 14.57%  skip1200 13.79%
+  live_model             skip7000 39.32%  skip11000 42.35%  skip1200 38.88%
+
+  arms  (125s)
+  B0_raw                 skip7000 24.61%  skip11000 27.27%  skip1200 24.89%
+  B0_seq                 skip7000 30.84%  skip11000 33.38%  skip1200 29.76%
+
+  coverage 9054 types (1.67x §1834); ceiling CE skip7000 5.96070  skip11000 5.90524  skip1200 5.91433 (146s)
+    rank 611   covered skip7000  5.97522 (+0.01451)  skip11000  5.91996 (+0.01472)  skip1200  5.92683 (+0.01250)   (240s)
+\n  ISO-COST point: 9054 covered types, rank 611, 229.883M (budget 230.087M)
+    skip7000   ceiling 5.96070  covered 5.97522 (+0.01451)  ALLPOS 5.97012
+    skip11000  ceiling 5.90524  covered 5.91996 (+0.01472)  ALLPOS 5.93014
+    skip1200   ceiling 5.91433  covered 5.92683 (+0.01250)  ALLPOS 5.95397
+\n  beats the DEPLOYED build at matched cost -> True  skip7000 +0.04155  skip11000 +0.05463  skip1200 +0.04768
+  but §1861 largest-coverage point still WINS -> True  skip7000 this +0.01413 vs §1861  skip11000 this +0.02448 vs §1861  skip1200 this +0.02627 vs §1861
+  and the iso-cost line is FLAT (<0.05) -> True
+  cost <= budget, coverage 9054, ceiling above live -> control True
+
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/iso_cost_cov9054_results.json (240.5s)

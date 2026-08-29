@@ -50627,3 +50627,51 @@ fixture for that check was a no-op**: a `sed` that silently failed to match, so 
 never broken and the check passed the must-fail test by not being exercised. That is LESSONS 52's defect
 repeated exactly — the fixture, not the check, was wrong — and the check only earned its place after the
 fixture was rebuilt in Python with an assertion that the bug was actually present.
+
+## §1862 — the iso-cost optimum is a PLATEAU above ~14k types, not a peak at the largest coverage
+
+`ops/iso_cost_cov9054.py` and `ops/iso_cost_cov14405.py`, 240.5 / 245.5s, **DISCOVERY ONLY**, rung 3 —
+the untested half of §1861's recommendation.
+**cov 9,054: pred_a True | pred_b True | pred_c True | pred_d True.**
+**cov 14,405: pred_a True | pred_b FALSE | pred_c True | pred_d True.**
+
+Four points on the 230.087M iso-cost line, all-position CE:
+
+```
+  coverage   rank    cost        skip7000   skip11000   skip1200
+     5,419   full  230.087M      6.01167     5.98477     6.00165    <- DEPLOYED
+     9,054    611  229.883M      5.97012     5.93014     5.95397
+    14,405    401  229.972M      5.95604     5.90496     5.93050
+    16,110    361  229.728M      5.95599     5.90566     5.92770    (§1861)
+```
+
+**pred_a PASSED at both coverages**: every point on the line beats the deployed build at matched cost —
+by +0.042 / +0.055 / +0.048 at 9,054 and +0.056 / +0.080 / +0.071 at 14,405. **§1861's improvement is a
+property of the iso-cost line, not of the largest covered set.**
+
+**pred_b FAILED at 14,405, and the failure is a TIE rather than a middle-point win.** I registered that
+§1861's largest-coverage point must beat every other; at 14,405 the deltas are **+0.00005 / −0.00070 /
++0.00280** — better on skip11000 by 0.0007 nats, indistinguishable on skip7000, worse on skip1200. Scored
+as written that is a FAIL, and I am recording it as one; read honestly it is **a tie between 14,405 and
+16,110**, not evidence that an interior point is better.
+
+> **The right statement is a plateau, not a peak.** Going from 9,054 to 14,405 types buys **+0.014 to
+> +0.026** nats at fixed cost; going from 14,405 to 16,110 buys **±0.003** — nothing. §1861's rule "the
+> largest covered set you can build" is not wrong, but **above roughly 14,000 types it does no work**.
+> The operative version is: **spend the budget on rank, at any coverage above ~14k.**
+
+**pred_c PASSED at both**: the iso-cost line is flat within 0.05 nats everywhere measured, so any point on
+it is defensible against the deployed build. The variation *along* the line (0.026 nats between its worst
+and best measured points) is a fifth of the variation *between* the line and the deployed build (0.056 to
+0.080).
+
+**Controls (pred_d).** Both costs are computed from §1754's model and land under the 230.087M budget
+(229.883M and 229.972M); coverage is exactly 9,054 and 14,405 from the stated fit-row draws; the ceiling
+is finite and above live on every role; each covered CE lies strictly above its own ceiling, as it must at
+finite rank.
+
+**Where §1853-§1862 leave the practical claim.** The compiled program the record has used since §1789 is
+beaten at its own storage budget by any rank-maximising build at ≥9,054 covered types, by **0.042 to
+0.080 nats**, with the advantage saturating above ~14,000 types. Confirmed second class on both arms
+(§1859, §1860), role-invariant (§1855), not draw-sensitive (§1860), and now shown to be insensitive to
+where on the iso-cost line it is taken.
