@@ -964,7 +964,7 @@ def evaluate_triangle(
     result["full_oracle"]["coordinate_response_r2"] = 1.0
     result["projected_oracle"]["coordinate_response_r2"] = 1.0
     for name in ("full_l11_oracle", "projected_l11_oracle", "predicted_l11"):
-        result[name]["coordinate_response_r2"] = float("nan")
+        result[name]["coordinate_response_r2"] = None
     return result
 
 
@@ -997,8 +997,7 @@ def harness_canaries(model, row: torch.Tensor) -> dict[str, Any]:
     }
 
 
-def main() -> None:
-    require_source_closed_runner_lifecycle()
+def scientific_run() -> tuple[dict[str, Any], dict[str, Any] | None]:
     require_defined_globals([Path(__file__), Path(__file__).with_name("gauge_transport.py")])
     start = time.time()
     receipt, rows = load_unique_v2_rows()
@@ -1032,9 +1031,7 @@ def main() -> None:
             "scale_decision": scale_decision,
             "runtime_s": round(time.time() - start, 1),
         }
-        OUT.write_text(json.dumps(output, indent=2) + "\n")
-        print(json.dumps(output, indent=2), flush=True)
-        return
+        return output, None
     amplitude = float(scale_decision["selected"]["amplitude"])
     shuffle_canary = position_shuffle_canary(
         model, rows["fit"], supports[8], amplitude
@@ -1100,18 +1097,37 @@ def main() -> None:
         "not_licensed": "No interface claim until all 20 matched nulls, behavior cells, complete gauges, price, and alternate backgrounds pass.",
         "runtime_s": round(time.time() - start, 1),
     }
-    OUT.write_text(json.dumps(output, indent=2) + "\n")
-    torch.save(
-        {
-            "config": output["config"],
-            "bases": {site: basis.cpu() for site, basis in bases.items()},
-            "supports": {site: support.cpu() for site, support in supports.items()},
-            "maps": maps,
-        },
-        HERE / "gauge_transport_triangle_state.pt",
-    )
-    print(json.dumps(output, indent=2), flush=True)
-    print(f"wrote {OUT} ({output['runtime_s']}s)", flush=True)
+    state = {
+        "config": output["config"],
+        "bases": {site: basis.cpu() for site, basis in bases.items()},
+        "supports": {site: support.cpu() for site, support in supports.items()},
+        "maps": maps,
+    }
+    return output, state
+
+
+def main() -> None:
+    authority = require_source_closed_runner_lifecycle()
+    try:
+        output, state = scientific_run()
+        publish_execution(authority, output, state)
+    except BaseException as error:
+        if not RUN_FAILURE.exists() and not RUN_RECEIPT.exists():
+            failure = {
+                "schema": "gauge_transport_triangle_v1_execution_failure",
+                "status": "failed_before_receipt",
+                "authority_sha256": authority["authority_sha256"],
+                "error_type": type(error).__name__,
+                "error": str(error),
+                "traceback": traceback.format_exc(),
+                "partial_result_sha256": file_sha256(OUT) if OUT.exists() else None,
+                "partial_state_sha256": file_sha256(STATE_OUT) if STATE_OUT.exists() else None,
+            }
+            failure["failure_sha256"] = canonical_sha256(failure)
+            create_only_json(RUN_FAILURE, failure)
+        raise
+    print(json.dumps(output, indent=2, allow_nan=False), flush=True)
+    print(f"wrote {OUT} and receipt {RUN_RECEIPT} ({output['runtime_s']}s)", flush=True)
 
 
 if __name__ == "__main__":
