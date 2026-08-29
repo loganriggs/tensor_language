@@ -51682,3 +51682,67 @@ this program is the TABLE, and §1854's frontier prices it at 4012 M/nat at its 
 shared-RRR core (12/12 as of 04:35Z) claims a **48.61% map-storage saving at equal per-site multiply
 count** — which by this section applies only where the map is worth buying at all, i.e. table rank ≥ 256.
 That is the next thing worth measuring, and it is theirs.
+
+## §1881 — the matched-rank law is `map_rank >= table_rank + 1`, and the DEPLOYED build is strictly dominated
+
+`ops/matched_map_frontier.py`, 1470.3s, **DISCOVERY ONLY**, rung 2 on the law and rung 3 on the gap.
+**pred_a False | pred_b True | pred_c True | pred_d True.**
+
+**pred_a FAILED by 22x and the failure is the interesting part.** I registered that a map at the matched
+rank equals a map at rank 512 within **1e-5**. Measured max deviation: **2.20e-04**.
+
+```
+  table 256   map256 6.02435 / 5.99365 / 6.00700  (81.875M)   map512 6.02422 / 5.99343 / 6.00680  (103.109M)
+  table 384   map384 5.99572 / 5.96422 / 5.98199 (122.771M)   map512 5.99567 / 5.96415 / 5.98186  (133.388M)
+```
+
+**The matched map is consistently WORSE — never better, on all six comparisons — by 1.3e-4 to 2.2e-4.**
+That is systematic, not noise, and the cause is exact: §1785 truncates a table as `mu + rank-r`, so the
+targets span **r + 1** dimensions, `r` directions plus the mean offset. A rank-`r` map is one dimension
+short of hitting them.
+
+> **The law is `map_rank >= table_rank + 1`, not `>= table_rank`, and that single correction retro-fits
+> §1880 exactly.** §1880 measured EXACT zeros at table rank 16, 8 and 4 with a rank-64 map — consistent,
+> since 64 >= 17. It measured **+0.00020 / +0.00044 / +0.00028** at table rank **64** with the same map
+> and I wrote that off in §1880 as *"a rounding artifact at 64"*. **It is not an artifact. 64 < 65, so
+> the map was one dimension short, and the residual it produced is the same size as the one measured
+> here at 256 and 384.** Three independent table ranks, one mechanism, quantitatively consistent.
+> §1880's characterisation of that row is corrected in place.
+
+**The practical rule is unchanged and worth stating separately from the law.** Buying map rank 512 over
+the matched rank at table 256 costs **21.234M for 0.00013 nats — 163,338 M/nat.** Use the matched rank.
+pred_a failed on the law's *exactness*, not on its usefulness.
+
+> **THE DEPLOYED BUILD IS STRICTLY DOMINATED — cheaper AND better, on all three roles.** §1789's
+> deployed program is full-rank tables at 5,419 types with a rank-64 map: **230.087M**, all-position CE
+> **6.01167 / 5.98477 / 6.00165** (§1858). Table rank **768** with a rank-512 map:
+>
+> ```
+>   deployed   6.01167  5.98477  6.00165   @ 230.087M
+>   m512_768   5.97061  5.93956  5.96287   @ 224.225M
+>   ---        +0.04106 +0.04521 +0.03878  AND 5.862M CHEAPER
+> ```
+>
+> §1853-§1865 established that the deployed build is off the frontier; this is the sharpest single
+> instance — **a build that beats it on both axes at once, with no trade to argue about.**
+
+**pred_b PASSED**: three intermediate table ranks are all Pareto-nondominated, and the frontier through
+the old 65.95M -> 230.09M hole is now measured:
+```
+  m256_256@81.87M/6.0244  m512_256@103.11M/6.0242  m384_384@122.77M/5.9957
+  m512_384@133.39M/5.9957  m512_512@163.67M/5.9810  m512_768@224.23M/5.9706  m512_full@267.25M/5.9670
+```
+Identical ordering on all three roles. The 256 -> full jump was not convex; there are four usable builds
+inside it.
+
+**pred_c returned 0.00e+00 for a twelfth time.** **pred_d PASSED**: both §1880 anchors reproduced,
+coverage 5,419.
+
+**The stale banner recurred, and that is on me.** §1880 recorded that the banner prints `map rank 64`
+while sweeping more; I built this script from it and shipped the same wrong header. Fixed in the script
+now. Two runs' logs carry it; the data are unaffected.
+
+**Open.** The table-rank axis is now dense from 4 to full and the map axis is settled by the corrected
+law. The remaining lever is **coverage**, which §1880 and §1881 both held at 5,419 while §1853-§1865
+mapped it only at map rank 64. Whether the m512_768 build that dominates the deployed one keeps its
+margin at higher coverage is the last unmeasured cell of the cost model.

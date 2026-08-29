@@ -1,0 +1,39 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+MATCHED-MAP FRONTIER | table ranks (None, 768, 512, 384, 256) | map rank 64 | DISCOVERY ONLY
+  built the output-NN map and 36 tables (4s)
+
+  skip7000: live cov 3.29205 all 3.13704
+    table full   map512 all 5.96702 (267.246M)
+    table 768    map512 all 5.97061 (224.225M)
+    table 512    map512 all 5.98100 (163.667M)
+    table 384    map384 all 5.99572 (122.771M) | map512 all 5.99567 (133.388M)
+    table 256    map256 all 6.02435 (81.875M) | map512 all 6.02422 (103.109M)
+
+  skip11000: live cov 3.09711 all 2.93450
+    table full   map512 all 5.93645 (267.246M)
+    table 768    map512 all 5.93956 (224.225M)
+    table 512    map512 all 5.94957 (163.667M)
+    table 384    map384 all 5.96422 (122.771M) | map512 all 5.96415 (133.388M)
+    table 256    map256 all 5.99365 (81.875M) | map512 all 5.99343 (103.109M)
+
+  skip1200: live cov 3.40277 all 3.23027
+    table full   map512 all 5.96095 (267.246M)
+    table 768    map512 all 5.96287 (224.225M)
+    table 512    map512 all 5.96977 (163.667M)
+    table 384    map384 all 5.98199 (122.771M) | map512 all 5.98186 (133.388M)
+    table 256    map256 all 6.00700 (81.875M) | map512 all 6.00680 (103.109M)
+
+  MATCHED-RANK LAW (§1880): max |map_matched - map512| over table 256 and 384 = 2.20e-04  -> False
+    table 256: skip7000 map256 6.02435 (81.875M) vs map512 6.02422 (103.109M)  skip11000 map256 5.99365 (81.875M) vs map512 5.99343 (103.109M)  skip1200 map256 6.00700 (81.875M) vs map512 6.00680 (103.109M)
+    table 384: skip7000 map384 5.99572 (122.771M) vs map512 5.99567 (133.388M)  skip11000 map384 5.96422 (122.771M) vs map512 5.96415 (133.388M)  skip1200 map384 5.98199 (122.771M) vs map512 5.98186 (133.388M)
+
+  PARETO FRONTIER over table rank x map rank (cost_M, all-position CE):
+    skip7000   m256_256@81.87M/6.0244  m512_256@103.11M/6.0242  m384_384@122.77M/5.9957  m512_384@133.39M/5.9957  m512_512@163.67M/5.9810  m512_768@224.23M/5.9706  m512_full@267.25M/5.9670
+    skip11000  m256_256@81.87M/5.9936  m512_256@103.11M/5.9934  m384_384@122.77M/5.9642  m512_384@133.39M/5.9642  m512_512@163.67M/5.9496  m512_768@224.23M/5.9396  m512_full@267.25M/5.9364
+    skip1200   m256_256@81.87M/6.0070  m512_256@103.11M/6.0068  m384_384@122.77M/5.9820  m512_384@133.39M/5.9819  m512_512@163.67M/5.9698  m512_768@224.23M/5.9629  m512_full@267.25M/5.9610
+  an INTERMEDIATE table rank (384/512/768) is on the frontier -> True
+  and the COVERED arm is blind to the map (<1e-6) -> True  max spread 0.00e+00
+  §1880 anchors (table 256 and full at map 512) reproduce + coverage 5419 -> control True
+
+pred_a False | pred_b True | pred_c True | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/matched_map_frontier_results.json (1470.3s)
