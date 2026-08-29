@@ -54490,3 +54490,47 @@ the two happen to sum to a rare-end gain and a common-end loss. §1932's paragra
 accuracy structure and it shows **+1.3 / +0.5 / +0.4pp of unseen-target kept-fraction for the 64 → 512
 step** — a second reason to spend on map rank that is *not* the one §1919 claimed and §1924 scoped away.
 Whether it survives at 16,110 is unmeasured.
+
+## §1934 — the map's rare-target gain survives at 16,110, and it is confined to the rare end
+
+`ops/map_gain_at_high_coverage.py`, 93.6s, **DISCOVERY ONLY**, 16,110 coverage, rung 3 — §1933's open
+question. **All four predictions TRUE, and every one of them signed** (LESSON 72).
+
+```
+  full table rank in both arms; only the fallback map differs, 16,110 types
+    skip7000    125+   53.6% -> 53.2%  (-0.41pp)     unseen  2.6% -> 3.3%  (+0.68pp)   §1933 @5,419 +1.3
+    skip11000   125+   54.1% -> 53.8%  (-0.27pp)     unseen  4.9% -> 5.4%  (+0.47pp)               +0.5
+    skip1200    125+   53.9% -> 54.0%  (+0.07pp)     unseen  3.5% -> 3.7%  (+0.22pp)               +0.4
+```
+
+> **pred_a PASSED signed on 3/3: raising §1870's fallback map from rank 64 to 512 raises the
+> unseen-target kept-fraction at high coverage too**, by **+0.68 / +0.47 / +0.22pp**. §1933 measured
+> +1.3 / +0.5 / +0.4pp at 5,419, so the gain is **smaller at 16,110 but present on every role** — which is
+> what a fallback lever should do, since the uncovered arm is ~10% of scored positions here against ~24%
+> at 5,419.
+>
+> **pred_c PASSED and it is the sharper half: the benefit is confined to the rare end.** The 125+ bucket
+> moves **−0.41 / −0.27 / +0.07pp** — down on two roles, flat on the third, and nowhere up by more than
+> 0.2pp. **The map is not simply a better fallback; it buys rare-target accuracy specifically, and costs a
+> little on common targets.** That is the same shape §1933 found at 5,419 (63.5 → 63.1 etc.).
+
+**pred_b PASSED at 3/3** against a 2-of-3 bar. **pred_d PASSED**: coverage 16,110, the rank-64 arm
+reproduced §1883's published deployed figures at this coverage (125+ 53.6 / 54.1 / 53.9%, unseen 2.6 /
+4.9 / 3.5%), buckets partitioning, and the **live per-bucket accuracy identical across arms at 0.00e+00**
+— twentieth clean reading.
+
+> **This is now a two-coverage result and it belongs beside the CE case for map rank.** §1870 priced the
+> 64 → 512 step at 833 / 811 / 916 M/nat in CE; §1919 claimed a reliability gain that §1924 scoped away as
+> not transferring; **§1933 and §1934 establish a third thing that does transfer — +0.2 to +1.3pp of
+> unseen-target kept-fraction, at both coverages, confined to the rare end.** It is the only non-CE
+> benefit of map rank that has survived a transfer check.
+
+**A note on the predicates, since LESSON 72 was written two sections ago.** All three substantive bars
+here are **signed or one-sided**: "higher on all three roles", "at least 0.2pp on at least two", "does not
+rise by more than 0.2pp". **None of them could have passed while the direction went the other way**, which
+is exactly what §1932's pred_a and §1933's pred_c did. The lesson was worth writing and this is the first
+section built after it.
+
+**Open.** Nothing in this line. The map-rank lever now has a CE price (§1870), a rank ceiling (§1877), a
+table-rank interaction (§1880/§1881), a withdrawn reliability claim (§1919/§1924) and a confirmed
+rare-target benefit at two coverages (§1933/§1934).

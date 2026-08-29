@@ -1,3 +1,59 @@
 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
 MAP RARE-TARGET GAIN AT 16110 | buckets ((0, 0), (1, 4), (5, 24), (25, 124), (125, 1000000000)) on the fit-row count of the TRUE target | full-rank settled program | DISCOVERY ONLY
   built the settled fallback and 36 tables (5s)
+
+  === table rank map64, map rank 64 ===
+  skip7000: overall live 39.32% prog 13.93%
+    target fit-count 0-0          n   3679  live 24.16%  prog  0.63%  kept   2.6%
+    target fit-count 1-4          n   5258  live 24.80%  prog  0.99%  kept   4.0%
+    target fit-count 5-24         n   6571  live 27.45%  prog  1.48%  kept   5.4%
+    target fit-count 25-124       n   4999  live 29.55%  prog  2.54%  kept   8.6%
+    target fit-count 125-1000000000 n  16357  live 55.15%  prog 29.57%  kept  53.6%
+  skip11000: overall live 42.35% prog 14.71%
+    target fit-count 0-0          n   3662  live 28.95%  prog  1.42%  kept   4.9%
+    target fit-count 1-4          n   5467  live 30.67%  prog  2.30%  kept   7.5%
+    target fit-count 5-24         n   6759  live 30.60%  prog  2.43%  kept   7.9%
+    target fit-count 25-124       n   5030  live 32.39%  prog  2.33%  kept   7.2%
+    target fit-count 125-1000000000 n  15946  live 57.55%  prog 31.13%  kept  54.1%
+  skip1200: overall live 38.88% prog 14.01%
+    target fit-count 0-0          n   1837  live 24.71%  prog  0.87%  kept   3.5%
+    target fit-count 1-4          n   2557  live 25.30%  prog  1.17%  kept   4.6%
+    target fit-count 5-24         n   3193  live 26.28%  prog  1.66%  kept   6.3%
+    target fit-count 25-124       n   2664  live 28.42%  prog  2.74%  kept   9.6%
+    target fit-count 125-1000000000 n   8181  live 54.64%  prog 29.47%  kept  53.9%
+
+  === table rank map512, map rank 512 ===
+  skip7000: overall live 39.32% prog 13.98%
+    target fit-count 0-0          n   3679  live 24.16%  prog  0.79%  kept   3.3%
+    target fit-count 1-4          n   5258  live 24.80%  prog  1.26%  kept   5.1%
+    target fit-count 5-24         n   6571  live 27.45%  prog  1.81%  kept   6.6%
+    target fit-count 25-124       n   4999  live 29.55%  prog  2.76%  kept   9.3%
+    target fit-count 125-1000000000 n  16357  live 55.15%  prog 29.35%  kept  53.2%
+  skip11000: overall live 42.35% prog 14.70%
+    target fit-count 0-0          n   3662  live 28.95%  prog  1.56%  kept   5.4%
+    target fit-count 1-4          n   5467  live 30.67%  prog  2.41%  kept   7.9%
+    target fit-count 5-24         n   6759  live 30.60%  prog  2.49%  kept   8.1%
+    target fit-count 25-124       n   5030  live 32.39%  prog  2.47%  kept   7.6%
+    target fit-count 125-1000000000 n  15946  live 57.55%  prog 30.97%  kept  53.8%
+  skip1200: overall live 38.88% prog 14.12%
+    target fit-count 0-0          n   1837  live 24.71%  prog  0.93%  kept   3.7%
+    target fit-count 1-4          n   2557  live 25.30%  prog  1.25%  kept   4.9%
+    target fit-count 5-24         n   3193  live 26.28%  prog  1.82%  kept   6.9%
+    target fit-count 25-124       n   2664  live 28.42%  prog  3.04%  kept  10.7%
+    target fit-count 125-1000000000 n   8181  live 54.64%  prog 29.51%  kept  54.0%
+
+  kept-fraction at FULL table rank, map 64 vs 512, 16110 types:
+    skip7000   125+   map64 53.6%  map512 53.2%  (-0.41pp)
+               unseen map64 2.6%  map512 3.3%  (+0.68pp)   (§1933 at 5,419 +1.3pp)
+    skip11000  125+   map64 54.1%  map512 53.8%  (-0.27pp)
+               unseen map64 4.9%  map512 5.4%  (+0.47pp)   (§1933 at 5,419 +0.5pp)
+    skip1200   125+   map64 53.9%  map512 54.0%  (+0.07pp)
+               unseen map64 3.5%  map512 3.7%  (+0.22pp)   (§1933 at 5,419 +0.4pp)
+
+  the GAIN SURVIVES, signed (unseen higher on 3/3) -> True  skip7000 +0.68pp  skip11000 +0.47pp  skip1200 +0.22pp
+  and it is MATERIAL (>= 0.2pp on >= 2 roles) -> True  3/3
+  and it is CONFINED to the rare end (125+ does not rise > 0.2pp) -> True  skip7000 -0.41pp  skip11000 -0.27pp  skip1200 +0.07pp
+  coverage 16110, map64 arm reproduces §1883, partitions, LIVE identical -> control True
+
+pred_a True | pred_b True | pred_c True | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/map_gain_at_high_coverage_results.json (93.6s)
