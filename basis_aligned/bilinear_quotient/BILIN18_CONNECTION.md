@@ -57093,3 +57093,49 @@ answers about the same stack.**
 nothing here says what. **The thread has an instrument for exactly this question — §1908's
 alignment×magnitude decomposition, which separated a head's contribution into direction and size and is
 the offer still standing to Codex — and it has never been pointed at a site identified this way.**
+
+## §1981 — the cost is not additive over sites: six compiled MLPs are worse than all thirty-six
+
+`ops/what_layer6_reads.py`, 104.3s, **DISCOVERY ONLY**, 5,419, rung 3 — §1980's open question.
+**All three predicates TRUE, derived controls TRUE.** Attention at layer 6 is **live** in every arm; only
+the set compiled around it varies.
+
+```
+  cost against the live model, nats, 5,419   (number of substituted sites in brackets)
+                    below_mlp(6)  below_full(12)  below_all(24)  above_only(22)  full(36)
+  skip7000            10.688          8.621          9.266          2.506         2.808
+  skip11000           10.958          8.914          9.531          2.665         2.979
+  skip1200            10.598          8.552          9.141          2.423         2.702
+```
+
+> **pred_b PASSED 3/3 and it is the sharpest number in this line. Compiling six sites — the MLPs at
+> layers 0–5, with all thirty other sites live — costs 10.60–10.96 nats: 3.9× the price of compiling all
+> thirty-six.** Six of thirty-six, and worse than the whole.
+
+> **pred_a PASSED 3/3: compiling twenty-two sites ABOVE layer 6 costs 2.42–2.67 nats — less than
+> compiling all thirty-six (2.70–2.98).** More sites than `below_full`'s twelve, a fifth of the cost, and
+> *better than the complete program.* **The penalty is not about how many sites are compiled. It is
+> entirely about what reaches layer 6.**
+
+> **So the cost is not additive over sites and not even monotone in them: a subset can be catastrophic
+> while its superset is fine.** Compiling `below_mlp` costs 10.7; adding the other thirty sites to that
+> set *reduces* the cost to 2.8. **There is one forbidden configuration — context-free rows arriving at
+> a LIVE attention layer 6 — and every other combination measured is within 0.4 nats of the program.**
+
+> **This closes the mechanism §1978 opened.** §1978 found partial compilation 3.6× worse than full and
+> called the program "internally consistent"; §1979 localised it to three layers; §1980 to one; and the
+> consistency the program needs turns out to be a **single interface**, not a global property. **Thirty
+> five sites do not care what their inputs are made of. Layer 6's attention does.**
+
+> **And `above_only` beating the full program by 0.30 / 0.31 / 0.28 nats is the same ~0.3 nats §1979
+> found at k = 12 and k = 15** — reached by a third route, and it is the number in the architectural
+> question still standing with Logan.
+
+**Derived controls TRUE** — coverage exact, same-spec pairs exactly inert at covered inputs, at least one
+differing-spec pair moving, buckets partitioning, live identical, and §1975's published `converged` CE
+reproduced to **0.000000** via `B.ref()`. Sixtieth clean reading.
+
+**Open.** Every arm here substitutes layer 6's *inputs* or leaves them live wholesale. **Nothing separates
+what layer 6 reads from what it writes** — compiling it removes both at once, and the six MLPs below it
+are compiled together. Which of the six, and whether the damage is in layer 6's attention *pattern* or in
+its *output magnitude*, are the two questions §1908's alignment×magnitude instrument was built for.
