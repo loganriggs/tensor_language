@@ -1,0 +1,28 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+MAGNITUDE SWEEP IN NATS | buckets ((0, 0), (1, 4), (5, 24), (25, 124), (125, 1000000000)) on the fit-row count of the TRUE target | full-rank settled program | DISCOVERY ONLY
+  built the settled fallback and 36 tables (4s)
+
+  === all-compiled baseline ===
+    skip7000   covered enrichment  7.19x  (n 27974)
+    skip11000  covered enrichment  7.29x  (n 27497)
+    skip1200   covered enrichment  7.64x  (n 13973)
+    per-site live/table ratios: min 1.3x max 156.4x across 36 sites
+    g0.50    skip7000 CE 6.18268 ( 8.27x)  skip11000 CE 6.13618 ( 8.41x)  skip1200 CE 6.17589 ( 8.91x)   [1/7]
+    g0.80    skip7000 CE 6.00760 ( 7.50x)  skip11000 CE 5.97485 ( 7.59x)  skip1200 CE 5.99718 ( 8.06x)   [2/7]
+    g1.00    skip7000 CE 6.01167 ( 7.19x)  skip11000 CE 5.98477 ( 7.29x)  skip1200 CE 6.00165 ( 7.64x)   [3/7]
+    g1.25    skip7000 CE 6.04089 ( 6.97x)  skip11000 CE 6.01961 ( 7.16x)  skip1200 CE 6.03217 ( 7.43x)   [4/7]
+    g2.00    skip7000 CE 6.12890 ( 6.77x)  skip11000 CE 6.11797 ( 6.92x)  skip1200 CE 6.12376 ( 7.14x)   [5/7]
+    g4.00    skip7000 CE 6.24116 ( 5.96x)  skip11000 CE 6.24046 ( 6.00x)  skip1200 CE 6.24067 ( 6.29x)   [6/7]
+    PERSITE  skip7000 CE 12.88014 ( 1.89x)  skip11000 CE 12.93864 ( 1.84x)  skip1200 CE 12.80992 ( 1.76x)   [7/7]
+
+  CE SIDES WITH TOP-1 (best scale is g0.80 or g1.00, not g0.50) -> True  skip7000 best g0.80 6.00760  skip11000 best g0.80 5.97485  skip1200 best g0.80 5.99718
+  and CE ranks the arms as top-1 does -> False
+    skip7000   by CE ['g0.80', 'g1.00', 'g1.25', 'g2.00', 'g0.50', 'g4.00']
+    skip11000  by CE ['g0.80', 'g1.00', 'g1.25', 'g2.00', 'g0.50', 'g4.00']
+    skip1200   by CE ['g0.80', 'g1.00', 'g1.25', 'g2.00', 'g0.50', 'g4.00']
+    §1893 by top-1 ['g0.80', 'g1.00', 'g1.25', 'g0.50', 'g2.00', 'g4.00']
+  and the DEPLOYED arm is within 0.01 nats of the best -> True  skip7000 6.01167 vs 6.00760 (+0.00407)  skip11000 5.98477 vs 5.97485 (+0.00992)  skip1200 6.00165 vs 5.99718 (+0.00447)
+  x1.00 reproduces §1858 + coverage 5419 -> control True  skip7000 6.01167 vs 6.01167  skip11000 5.98477 vs 5.98477  skip1200 6.00165 vs 6.00165
+
+pred_a True | pred_b False | pred_c True | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/magnitude_sweep_in_nats_results.json (214.6s)

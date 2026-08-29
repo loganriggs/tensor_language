@@ -40,12 +40,18 @@ def test_sealed_role_gates_are_rolewise_and_price_is_foldable():
     })
     assert result["predictive_scale_pass"] is True
     assert result["teacher_faithful_scale_pass"] is True
+    assert result["predictive_point_gate"] is True
+    assert result["teacher_faithful_point_gate"] is True
+    assert result["uncertainty_certified"] is False
+    assert result["promotive_pass"] is False
     assert result["selection_reopened_on_sealed_roles"] is False
     assert result["literal_price"] == {
-        "stored_scalar_values": 1,
+        "structural_fitted_degrees_of_freedom": 1,
+        "finite_grid_choice_bits": 3,
+        "literal_float32_metadata_bits": 32,
         "extra_deployed_float_values": 0,
         "extra_runtime_multiplies": 0,
-        "folded_into_existing_tables_and_output_factors": True,
+        "zero_delta_requires_folded_program_replay": True,
     }
 
 
@@ -58,6 +64,12 @@ def test_one_role_failure_cannot_be_averaged_away():
     ) for item in failed]
     result = core.evaluate_sealed_roles(selected, {"good": bank(), "bad": failed})
     assert result["predictive_scale_pass"] is False
+
+
+def test_one_sealed_role_is_insufficient_for_a_claim():
+    selected = core.select_calibration_scales(bank())
+    with pytest.raises(ValueError, match="invalid schema"):
+        core.evaluate_sealed_roles(selected, {"only_one": bank()})
 
 
 @pytest.mark.parametrize("mutation", ["missing", "duplicate", "tokens"])

@@ -63,6 +63,25 @@ Failure on one role cannot be averaged away.  Report top-1 and agreement changes
 they do not rescue failed CE/KL gates.  A pass is still discovery-only until replicated
 on natural-text and a separately frozen OOD role.
 
+The point estimates above are necessary but insufficient. Retain per-document CE and
+KL numerators and counts, then use 20,000 shared document-cluster bootstrap draws
+simultaneously over both selected scales, both metrics, and every role. A positive
+gate uses a lower 95% simultaneous confidence bound of at least 0.005 nat; a collateral
+non-regression gate uses an upper 95% simultaneous bound of at most 0.010 nat. The
+pure aggregate contract intentionally reports `promotive_pass = false` because it
+cannot reconstruct these confidence bounds.
+
+Teacher KL means, literally,
+
+\[
+\mathrm{KL}\!\left(\operatorname{softmax}(z_{\rm native}^{\rm capped})\,\middle\|\,
+\operatorname{softmax}(z_g^{\rm capped})\right),
+\]
+
+at positions 64--255, with token weighting inside each document and document
+clustering for inference. Every arm reuses identical native logits, targets, positions,
+and denominators. Covered and uncovered current-token cells are reported separately.
+
 ## Required controls and claim boundary
 
 The execution contract must bind the exact settled compiler, scale-sweep discovery
@@ -70,7 +89,19 @@ artifact, model/checkpoint, rows, source closure, physical call census, identica
 positions, native reference, and \(g=1\) known-answer.  It must preserve model state,
 publish result create-only and receipt last, and report actual folded storage/compute.
 
+It must scale every one of the 36 physical residual writes, including table, fallback
+map, mean, and bias contributions. The stored folded program must reproduce hook-time
+post-write scaling within a registered scale-aware float32 tolerance. Without that
+replay, post-write multiplication costs (36\times1{,}152=41{,}472) multiplies per
+token and cannot be priced as free. After successful folding, one arm has one fitted
+degree of freedom, a six-way grid choice costs 3 bits, literal float32 metadata costs
+32 bits, and standalone folded tensor-storage/runtime deltas are zero. Bind the
+\(g=1\) CE, KL, logits, physical-call census, zero arm, and original-state controls.
+
+The two selectors license separate claims. CE success licenses task calibration only;
+KL success licenses teacher imitation only. Their logical OR does not license
+composition, a circuit, selective removal, or OOD transport.
+
 A passing scalar calibrates one existing compiled program.  It does not interpret a
 coordinate, explain an attention circuit, repair recursive-state closure, or increase
 the strict extraction/removal/OOD ledger by itself.
-

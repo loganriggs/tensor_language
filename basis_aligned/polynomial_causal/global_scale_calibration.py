@@ -86,9 +86,14 @@ def _improvements(selected: ScaleMetrics, baseline: ScaleMetrics) -> dict[str, f
 def evaluate_sealed_roles(
     selected: Mapping[str, float], roles: Mapping[str, Sequence[ScaleMetrics]],
 ) -> dict[str, object]:
-    """Apply registered rolewise CE/KL gates without reselection."""
+    """Compute point-estimate diagnostics without reselection.
+
+    A real result must retain per-document sufficient statistics and apply the
+    preregistered simultaneous cluster bootstrap.  Aggregate means are useful known
+    answers, but deliberately cannot issue a promotive pass.
+    """
     if set(selected) != {"target_ce_selected_scale", "teacher_kl_selected_scale"} or (
-        not roles
+        len(roles) < 2
     ):
         raise ValueError("selected scales or sealed roles have invalid schema")
     for value in selected.values():
@@ -119,13 +124,17 @@ def evaluate_sealed_roles(
         "role_ledger": ledger,
         "predictive_scale_pass": predictive,
         "teacher_faithful_scale_pass": faithful,
-        "any_registered_scale_pass": predictive or faithful,
+        "predictive_point_gate": predictive,
+        "teacher_faithful_point_gate": faithful,
+        "uncertainty_certified": False,
+        "promotive_pass": False,
         "selection_reopened_on_sealed_roles": False,
         "literal_price": {
-            "stored_scalar_values": 1,
+            "structural_fitted_degrees_of_freedom": 1,
+            "finite_grid_choice_bits": 3,
+            "literal_float32_metadata_bits": 32,
             "extra_deployed_float_values": 0,
             "extra_runtime_multiplies": 0,
-            "folded_into_existing_tables_and_output_factors": True,
+            "zero_delta_requires_folded_program_replay": True,
         },
     }
-

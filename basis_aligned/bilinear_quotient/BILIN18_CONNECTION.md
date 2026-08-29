@@ -52396,3 +52396,50 @@ measurement, and it is small. The real remainder is the disagreement itself: **a
 program agree with the model more makes it slightly less accurate**, which says the program's errors and
 the model's are not aligned in the way §1884's 81% overlap suggested. That is one run with both
 instruments on the same arms, and it is the natural next rung.
+
+## §1894 — in nats, the deployed magnitude is within 0.004-0.010 of optimal. The cost arc is settled.
+
+`ops/magnitude_sweep_in_nats.py`, 214.6s, **DISCOVERY ONLY**, rung 3 — the half of §1893's pred_c that was
+registered and not run. **pred_a True | pred_b False | pred_c True | pred_d True.**
+
+```
+  arm       all-position CE                    covered enrichment    §1893 top-1
+  g0.50     6.18268  6.13618  6.17589            8.27  8.41  8.91    13.47%
+  g0.80     6.00760  5.97485  5.99718  <- best   7.50  7.59  8.06    13.64%  <- best
+  g1.00     6.01167  5.98477  6.00165  DEPLOYED  7.19  7.29  7.64    13.55%
+  g1.25     6.04089  6.01961  6.03217            6.97  7.16  7.43    13.36%
+  g2.00     6.12890  6.11797  6.12376            6.77  6.92  7.14    12.94%
+  g4.00     6.24116  6.24046  6.24067            5.96  6.00  6.29    12.40%
+  PERSITE  12.88014 12.93864 12.80992            1.89  1.84  1.76     1.98%
+```
+
+> **pred_a and pred_c PASSED, and together they settle §1892's question in the unit that matters.** CE
+> sides with top-1: the optimum is **x0.80** on all three roles, not the agreement-optimal x0.50. And the
+> deployed x1.00 sits **+0.00407 / +0.00992 / +0.00447 nats** from it. **§1866-§1883 — the frontier, the
+> map-rank law, the iso-cost results, the 46% build — were priced on an object within one hundredth of a
+> nat of the best available magnitude, in their own unit.** §1892 raised the worry that the whole cost
+> arc measured a mis-scaled object; §1893 answered it on top-1 and §1894 answers it in nats. **No result
+> in that arc needs qualifying.**
+
+**pred_b FAILED, and the failure sharpens §1893 rather than softening it.** I expected CE to reproduce
+top-1's ordering exactly. It does not: **CE puts g0.50 FIFTH of six**, behind g2.00 (6.18268 against
+6.12890), while top-1 put it fourth, ahead of g2.00. So the two accuracy-side instruments agree on the
+optimum and disagree in the tail — **and both rank g0.50 far below where AGREEMENT ranks it (first).**
+The scale that maximises the program's agreement with the model is fifth-best by CE. §1893's divergence
+is not a top-1 artifact; it is larger in nats.
+
+> **PERSITE is worse than uniform.** Scaling every site to its live norm gives all-position CE
+> **12.88 / 12.94 / 12.81**, against `ln(50257) = 10.82`. The program is not merely destroyed — it is
+> confidently wrong. §1804's 2.71-152.62x ratio is a diagnosis of a mismatch, and applying it as a
+> correction produces something worse than predicting uniformly at random.
+
+**pred_d PASSED to five decimal places**: the x1.00 arm reproduced §1858's published 6.01167 / 5.98477 /
+6.00165 **exactly**, closing an anchor this lineage had never checked — it has been an agreement-only
+instrument since §1885. That is the strongest form of the control available, and it also confirms that
+the CE routine added here computes the same quantity the cost arc did.
+
+**Open.** The live thread from §1893 stands and is now quantified: **a scale that maximises agreement with
+the model is fifth of six by CE.** The program's errors and the model's are not aligned in the way §1884's
+81% overlap reads, and the disagreement is worth 0.17 nats between x0.50 and x0.80. What the program is
+doing when it agrees with the model but is wrong — the ~19% of its correct predictions the model misses,
+and whatever the reverse case is — has never been looked at directly.
