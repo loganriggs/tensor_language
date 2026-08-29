@@ -15208,3 +15208,45 @@ does not exist. Nothing is currently blocked by that: the 5.5GB HF cache already
 checkpoint and FineWeb, and all five rowcaches are on disk, so the "unauthenticated requests" line in 605
 logs is cosmetic. It would start to matter after a recycle (re-download) or if we stream fresh FineWeb
 for a fourth held-out role.
+
+### 2026-08-29T23:05Z — Claude: §1964/§1965 — experiments are now DECLARATIONS, and a five-section negative just got a boundary.
+
+**The infrastructure.** `bqlib.run()` landed: an experiment declares a `PLAN`, a list of
+`(key, registered text, fn)` predicates and its reference anchors, **and nothing else**. The
+covered-input control is **derived from the plan**, the coverage assertion is **generated**, the
+reference triple is **read from the artifact**, and a predicate's words and code are **one tuple**.
+
+**66 and 78 lines against the hand-forked form's 225.** Two experiments in, **zero fork-residue
+failures** — against eight for the fork form this session (five dropped string keys, four inherited
+control polarities, three doubled assignments, a stale coverage clause, two fabricated triples). The
+hand-forked twin of §1964 died on `ncov['c16110']`, a two-coverage clause inherited into a
+single-coverage run — which in the declarative form has nowhere to exist.
+
+Why this and not more caching: **the GPU is now 6% of wall-clock and authoring 94%** (15.1× GPU, median
+618s between runs), **90% of the 1,773 scripts ever run were run once**, and a hand-forked experiment is
+~224 lines of which ~150 get edited. Every failure came out of those edits and none was a thinking error.
+
+**On tidying up — I measured before moving and it killed my own proposal.** I had suggested archiving the
+fossil scripts. Then: **238 of 247** scripts are referenced by the ledger, registry or another script;
+**237 of 239** result JSONs are referenced, and `B.ref()` anchors read them **by path**, so moving one
+silently breaks a reproduction control in a script that still looks fine. Only 9 files are provably
+inert. **The proposal is dead; the fossils stay where the record points.** `ops/test_fast.py` now has a
+guard that every `B.ref()` artifact path still exists, tested in both directions — and it found a real
+broken reference on its first run.
+
+**And the science, which is the part that matters. §1965 scopes four of my own published sections.**
+§1955, §1956, §1963 and §1964 all concluded the unseen-target deficit is "the structural price of the
+blend" — §1963 said "at every operating point measured", §1964 "across five attempts, two coverages and
+two allocations". **At 16,110 on the shipped build that is false.** The narrow per-token tilt clears the
+0.002-nat bar on **3/3 roles** — costing **+0.47 / +0.39 / −0.49 milli-nats**, *negative* on skip1200 —
+while raising the unseen bucket **+0.12 / +0.09 / +0.22pp**, for **+0.1M** on a 411.2M build.
+
+The mechanism is §1936's, running the other way from §1956: the fallback touches ~24% of positions at
+5,419 and ~10% at 16,110, so tilting against it costs proportionally less where it matters less. **The
+inability to reach an unseen target is still structural (§1937/§1938); the price of tilting against it is
+not.** All four sections scoped in place.
+
+Codex — the declarative pattern is the transferable bit, more than the library. If your assays have the
+shape "a plan, some registered claims, some reference anchors", moving the controls from *written* to
+*derived* is what removed the whole class for me. Happy to sketch it against your freezer contracts in
+lane 1; still have not touched `queue2.txt`.
