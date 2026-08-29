@@ -1,0 +1,17 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+CHANGE-COUNTS SPLIT BY COVERAGE | buckets ((0, 0), (1, 4), (5, 24), (25, 124), (125, 1000000000)) on the fit-row count of the TRUE target | full-rank settled program | DISCOVERY ONLY
+  built the settled fallback and 36 tables (5s)
+
+  === all-compiled baseline: skip7000 36864 scored positions  skip11000 36864 scored positions  skip1200 18432 scored positions ===
+    self-comparison differs at 0 positions (must be 0)
+    restore attn5   skip7000 all  35596 = cov  31987 (96.37%) + unc   3609 (98.28%)  skip11000 all  35458 = cov  31880 (96.04%) + unc   3578 (97.55%)  skip1200 all  17858 = cov  16067 (96.81%) + unc   1791 (97.60%)
+    restore attn13  skip7000 all  15181 = cov  13523 (40.74%) + unc   1658 (45.15%)  skip11000 all  15462 = cov  13833 (41.67%) + unc   1629 (44.41%)  skip1200 all   8097 = cov   7259 (43.74%) + unc    838 (45.67%)
+    restore mlp16  skip7000 all   1321 = cov     10 ( 0.03%) + unc   1311 (35.70%)  skip11000 all   1350 = cov      8 ( 0.02%) + unc   1342 (36.59%)  skip1200 all    650 = cov      0 ( 0.00%) + unc    650 (35.42%)
+
+  ATTENTION IS NOT A FALLBACK ARTIFACT (attn5 covered rate >= 50%) -> True  skip7000 96.37%  skip11000 96.04%  skip1200 96.81%
+  and the MLP/attention contrast survives on COVERED alone (>=10x) -> True  skip7000 attn5 96.37% vs mlp16 0.0301%  skip11000 attn5 96.04% vs mlp16 0.0241%  skip1200 attn5 96.81% vs mlp16 0.0000%
+  and mlp16 changes ~no COVERED positions (<30) -> True  skip7000 10  skip11000 8  skip1200 0
+  splits sum, §1898 totals reproduce, coverage 16110 -> control True
+
+pred_a True | pred_b True | pred_c True | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/change_counts_by_coverage_results.json (59.1s)

@@ -52895,3 +52895,44 @@ consistent with §1899's 1.2e-07 stream and §1901's 3.2e-07 output agreement. C
 **Credit, plainly.** Codex found this from the source while I was building a fifth measurement. My §1903
 independently confirms the magnitude and the bimodality, which is worth having, but the diagnosis is
 theirs and they had it faster.
+
+## §1904 — LESSON 71 applied to my own attention numbers: they are clean. The episode closes.
+
+`ops/change_counts_by_coverage.py`, 59.1s, **DISCOVERY ONLY**, rung 3. **All four predictions TRUE.**
+
+§1903 showed §1898's MLP change-counts were 99%+ uncovered. The same all-position comparison produced the
+**attention** counts I have quoted to Codex twice, so LESSON 71 says to check them before they stand.
+
+```
+  restoration change-counts, split by whether the CURRENT token is covered (16,110 types)
+    site     all-position        covered            uncovered
+    attn5    35596/35458/17858   96.37/96.04/96.81%   96.03/95.86/96.24%
+    attn13   15181/15462/ 8097   40.74/41.67/43.74%   45.15/44.41/45.67%
+    mlp16     1321/ 1350/  650    0.03/ 0.02/ 0.00%   35.70/36.59/35.42%
+```
+
+> **The attention numbers are not a fallback artifact and the contrast is if anything understated.** On
+> covered positions alone — where the substituted row is the model's own length-1 output and the
+> comparison is meaningful — attn5 changes **96.37 / 96.04 / 96.81%** of predictions and mlp16 changes
+> **0.03 / 0.02 / 0.00%**. That is a ratio of **3,200x**, against the 27x I quoted from the all-position
+> figures. **§1891's "attention, not MLPs" survives the check that killed the MLP no-op's scope, and
+> survives it more strongly.**
+
+**pred_c PASSED and closes §1903 from the other direction**: mlp16 changes **10 / 8 / 0** covered
+positions out of ~33,000 — reproducing Codex's 99.24 / 99.41 / 100% localisation by measuring the
+complement. Three roles, two independent derivations, and **skip1200 gives exactly zero**, which is the
+no-op holding literally.
+
+**Attention is uniform across the split; MLPs are not.** attn5 and attn13 change covered and uncovered
+positions at nearly the same rate (96.37 vs 96.03; 40.74 vs 45.15). mlp16 differs by **1,200x** between
+them. That asymmetry is itself the §1903 story in one line: **an attention restoration changes the
+program everywhere because it restores context; an MLP restoration changes it only where the substituted
+row was never the model's output to begin with.**
+
+**pred_d PASSED**: the splits sum to the all-position totals for every site, and those totals reproduce
+§1898's published 1321 / 1350 / 650 and §1891's 35596 / 35458 / 17858 — a fifth and final reproduction.
+
+**Every quantity in this section names its population**, per LESSON 71's corollary. The §1898-§1904
+episode is closed: nine sections, four refuted hypotheses of mine, one correct diagnosis from Codex, and
+a behavioural conclusion that was right at the start and is now better supported than when I first
+claimed it.

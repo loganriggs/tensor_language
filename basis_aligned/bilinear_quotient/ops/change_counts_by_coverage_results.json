@@ -1,0 +1,118 @@
+{
+ "config": {
+  "table_ranks": [
+   "full"
+  ],
+  "map_rank_of_table_rank": {
+   "None": 64,
+   "512": 512
+  },
+  "program": "context-free tables, output-NN fallback with a rank-64 embedding->row map -- the settled design of \u00a71780-\u00a71786",
+  "instruments": "top-1 agreement with the live model, top-1 accuracy against the true next token, and KL(live || program). All three are NEW to this thread, which has been CE-only since \u00a71747.",
+  "ROLE_NOTE": "DISCOVERY ONLY; a second-class confirmation with a DIFFERENT instrument, not a replication of the same one."
+ },
+ "results": {
+  "baseline": {
+   "skip7000": 36864,
+   "skip11000": 36864,
+   "skip1200": 18432
+  },
+  "self_check": 0,
+  "sites": {
+   "attn5": {
+    "skip7000": {
+     "changed_all": 35596,
+     "changed_covered": 31987,
+     "changed_uncovered": 3609,
+     "n_covered": 33192,
+     "n_uncovered": 3672,
+     "rate_covered": 0.9636960713424921,
+     "rate_uncovered": 0.9828431372549019
+    },
+    "skip11000": {
+     "changed_all": 35458,
+     "changed_covered": 31880,
+     "changed_uncovered": 3578,
+     "n_covered": 33196,
+     "n_uncovered": 3668,
+     "rate_covered": 0.9603566694782504,
+     "rate_uncovered": 0.97546346782988
+    },
+    "skip1200": {
+     "changed_all": 17858,
+     "changed_covered": 16067,
+     "changed_uncovered": 1791,
+     "n_covered": 16597,
+     "n_uncovered": 1835,
+     "rate_covered": 0.9680665180454299,
+     "rate_uncovered": 0.9760217983651226
+    }
+   },
+   "attn13": {
+    "skip7000": {
+     "changed_all": 15181,
+     "changed_covered": 13523,
+     "changed_uncovered": 1658,
+     "n_covered": 33192,
+     "n_uncovered": 3672,
+     "rate_covered": 0.4074174499879489,
+     "rate_uncovered": 0.4515250544662309
+    },
+    "skip11000": {
+     "changed_all": 15462,
+     "changed_covered": 13833,
+     "changed_uncovered": 1629,
+     "n_covered": 33196,
+     "n_uncovered": 3668,
+     "rate_covered": 0.4167068321484516,
+     "rate_uncovered": 0.4441112322791712
+    },
+    "skip1200": {
+     "changed_all": 8097,
+     "changed_covered": 7259,
+     "changed_uncovered": 838,
+     "n_covered": 16597,
+     "n_uncovered": 1835,
+     "rate_covered": 0.4373681990721215,
+     "rate_uncovered": 0.4566757493188011
+    }
+   },
+   "mlp16": {
+    "skip7000": {
+     "changed_all": 1321,
+     "changed_covered": 10,
+     "changed_uncovered": 1311,
+     "n_covered": 33192,
+     "n_uncovered": 3672,
+     "rate_covered": 0.00030127741624487827,
+     "rate_uncovered": 0.3570261437908497
+    },
+    "skip11000": {
+     "changed_all": 1350,
+     "changed_covered": 8,
+     "changed_uncovered": 1342,
+     "n_covered": 33196,
+     "n_uncovered": 3668,
+     "rate_covered": 0.00024099289070972406,
+     "rate_uncovered": 0.3658669574700109
+    },
+    "skip1200": {
+     "changed_all": 650,
+     "changed_covered": 0,
+     "changed_uncovered": 650,
+     "n_covered": 16597,
+     "n_uncovered": 1835,
+     "rate_covered": 0.0,
+     "rate_uncovered": 0.3542234332425068
+    }
+   }
+  }
+ },
+ "predictions": {
+  "pred_a_attention_not_fallback_artifact_program_concentrated_on_frequent_targets": true,
+  "pred_b_contrast_survives_covered_more_concentrated_than_live": true,
+  "pred_c_mlp16_covered_near_zero_keeps_60pc_on_the_top_bucket": true,
+  "pred_d_controls": true
+ },
+ "runtime_s": 59.1
+}
