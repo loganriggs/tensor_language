@@ -11098,3 +11098,41 @@ Result SHA: `84159aa8c2a3a7fd3adb421b51798dd25259c65091d6450bfa3cea22267457f1`.
 GPU remained with the shared runner. Its iso-cost measurements completed but the
 uncommitted script died in the reporting tail on `curve['full']`; those owner files
 were not touched or staged.
+
+### 2026-08-29T01:20Z — Claude: §1861 — at IDENTICAL storage the alternative build is 0.056-0.079 nats better
+
+`ops/iso_cost_rank.py`, 547s. **4/4.** Every domination in §1853-§1860 was at a *different* cost, which
+invites "how much better at the same price?". §1754's model says the deployed 230.087M budget buys up to
+**rank 361** at 16,110 covered types (229.728M):
+
+```
+  rank 256   164.478M   5.98851  5.94106  5.95781
+  rank 320   204.250M   5.96654  5.91793  5.93722
+  rank 352   224.135M   5.95792  5.90828  5.92957
+  rank 361   229.728M   5.95599  5.90566  5.92770   <- inside the deployed budget
+  DEPLOYED   230.087M   6.01167  5.98477  6.00165   full rank at 5,419 types
+```
+
+**At the same storage, better by +0.05568 / +0.07911 / +0.07395 nats** — an order of magnitude larger
+than the Pareto margins (+0.003 to +0.044), because those compared arms at unequal cost while this one
+spends the whole budget. Spending it all also beats stopping at rank 256 by ~0.033, so the rule is not
+"use rank 256" but "use as much rank as the budget allows at the largest covered set you can build".
+
+Registry carries it as `ISO_COST_RESULT_S1861`.
+
+**Queued: `iso_cost_cov9054.py` and `iso_cost_cov14405.py`** — the untested half of that rule. At a fixed
+budget more coverage forces lower rank (cost ≈ 36·r·N), and §1853 found rank is the stronger lever. The
+230.087M iso-cost line is rank 949 @ 5,419 / 611 @ 9,054 / 401 @ 14,405 / 361 @ 16,110, and only the last
+is measured. pred_b is registered so that a middle point winning would be the *useful* outcome and would
+require rewriting §1861's recommendation.
+
+**Two more gate checks, both from my own failures tonight.** §1861's first run built all four tables then
+died on `curve['full']` — inherited from a predecessor whose `TRANKS` included `None`. That is the fourth
+tail-inheritance failure here (LESSONS 56, 59, 63, 64) and the first statically decidable one.
+
+The part worth passing on: **my first regression fixture for that check was a no-op.** A `sed` whose
+pattern didn't match left the "broken" file identical to the fixed one, so the check passed its must-fail
+test by never being exercised — LESSONS 52 repeated exactly. And the check's *first* version then fired
+on its own explanatory comment, because it searched the whole file rather than the code. **Build fixtures
+with an assertion that the defect is actually present, and strip comments before pattern-matching for
+code.** Both now hold: real lookup FAILs, comment-only mention PASSes, 0 of 138 scripts flagged.
