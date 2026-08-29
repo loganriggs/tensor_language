@@ -1,42 +1,47 @@
-# WHERE DOES THE MAP ACT? -- cross-tabulating §1935's gain by the INPUT token's coverage.
+# WHICH FALLBACK FORM? -- the neighbour against the map, on the axis where fallbacks actually act.
 #
-# §1935 found the fallback map's 64 -> 512 gain is BROAD: all four rarer target buckets gain on 3/3 roles
-# (12/12 cells), only the 125+ bucket loses. That left an open question I flagged in the section itself --
-# the 1-4 through 25-124 buckets are mostly COVERED targets, so the map appears to be doing something
-# beyond serving the uncovered arm.
+# §1936 established that the fallback touches ONLY the ~24-25% of positions whose current token has no
+# table entry (0 changed top-1 at 69,444 covered-input positions), and that on that arm the compiled
+# program runs at 28.7% kept-fraction against the covered arm's 37.5% -- while the LIVE model scores
+# HIGHER there (45.4/49.3/46.1%) than at covered inputs (37.4/40.0/36.6%). A quarter of positions served
+# at three-quarters of the covered arm's efficiency, on easier material. That gap is the open cost lever
+# and §1936 named it: every measurement since §1870 has varied the map's RANK and never its FORM.
 #
-# It cannot be. The map supplies rows only for tokens with no table entry, and §1765 makes the compiled
-# program a pure function of the CURRENT token, so at any position whose INPUT token is one of the 5,419
-# covered types the map is never consulted and changing its rank cannot move the prediction AT ALL. The
-# bucket axis is the TARGET's frequency, not the input's -- so a frequent target reached from an uncovered
-# input sits in the 125+ bucket and is fully exposed to the map. That is the resolution, if it is right,
-# and nothing in the record has ever partitioned this thread's scoring by INPUT coverage.
+# There is exactly one alternative form this thread has measured -- §1780/§1781's output-NN neighbour,
+# which gives an uncovered token the ROW OF ITS NEAREST COVERED TOKEN in output-distribution space. §1870
+# priced it in CE and the map won (+0.0073 / +0.0161 / +0.0057 nats). It has never been scored on top-1,
+# never on buckets, and never on the input-coverage axis. It is also FREE: it stores one index per
+# uncovered type (~0.09M against the rank-64 map's 5.308M and the rank-512 map's 42.467M).
 #
-# This measures it: two arms (map rank 64 = §1789's deployed design, and 512), full table rank, 5,419
-# coverage, every scored position cross-tabulated by (input token covered vs uncovered) x (target bucket).
+# The mechanism reason to expect a split: the neighbour copies a REAL covered token's row, so it should
+# behave like a real token -- and real tokens are exactly what the 125+ bucket rewards. The map's low-rank
+# least-squares reconstruction has no such guarantee, and §1935/§1936 found it pays a 125+ toll
+# (-1.20/-2.48/-2.16pp on the uncovered arm) that no map rank avoids.
 #
-# ROLES. skip7000, skip11000, skip1200. DISCOVERY ONLY, 5,419 coverage. Rung 3 -- §1935's open question.
+# ARMS. nn (neighbour, ~0.09M), map64 (§1789 deployed, 5.308M), map512 (42.467M). Full table rank, 5,419
+# coverage, scored on (input covered/uncovered) x (target bucket).
 #
-# Registered predictions, SIGNED and one-sided per LESSON 72; pred_a is an EXACT-ZERO bar, not a tolerance.
-#   pred_a THE MAP IS INERT AT COVERED INPUTS: summed over all three roles, the number of scored positions
-#          whose input token is one of the 5,419 covered types and whose top-1 DIFFERS between the rank-64
-#          and rank-512 arms is EXACTLY 0. Not "small" -- zero. If FALSE, either §1765 does not hold where
-#          I have been assuming it or the map is leaking into covered rows, and every map result from
-#          §1870 onward needs re-reading. This is the mechanism claim and it is the point of the run.
-#   pred_b SO THE WHOLE GAIN LIVES ON UNCOVERED INPUTS: restricted to uncovered-input positions, the
-#          64 -> 512 kept-fraction change is POSITIVE in all four rarer buckets, on at least 2 of 3 roles.
-#          If FALSE the breadth §1935 found is not simply the uncovered arm seen through a target-frequency
-#          lens and §1935's post-hoc paragraph is wrong about what it was looking at.
-#   pred_c AND THE COMMON-TARGET DAMAGE IS SEVERE WHERE IT ACTS: on uncovered-input positions the 125+
-#          kept-fraction FALLS by at least 1.5pp, on at least 2 of 3 roles. Pooled, §1935 measured only
-#          -0.4 / -0.8 / -0.6pp; if the loss is confined to ~a quarter of positions it must be several
-#          times larger there. Deployment cares: a build could keep rank-64 rows for uncovered inputs and
-#          spend the rank only where it pays. If FALSE the pooled figure is already the true size and the
-#          loss is spread more thinly than pred_a would imply.
-#   pred_d CONTROLS: coverage is exactly 5,419; the covered and uncovered input counts sum to the scored
-#          total in every bucket; recombining the two input classes reproduces §1935's PUBLISHED pooled
-#          kept-fractions -- 125+ 63.5/62.9/63.4 -> 63.1/62.1/62.8 and unseen 2.7/6.2/3.6 -> 4.0/6.7/4.0 --
-#          within 0.1pp; and the LIVE per-cell accuracy is identical across both arms.
+# ROLES. skip7000, skip11000, skip1200. DISCOVERY ONLY. Rung 3 -- §1936's open question.
+#
+# Registered predictions, SIGNED and one-sided per LESSON 72.
+#   pred_a THE MAP STILL WINS OVERALL ON ITS OWN ARM: restricted to uncovered inputs, the neighbour's
+#          overall top-1 is BELOW map64's, on at least 2 of 3 roles. §1870 established this in CE over all
+#          positions; this asks whether it survives on top-1 and on the ~24% where the choice acts. If
+#          FALSE, §1870's ranking is an artefact of CE or of pooling and the deployed design is wrong.
+#   pred_b BUT THE NEIGHBOUR WINS THE COMMON BUCKET: restricted to uncovered inputs, the neighbour's 125+
+#          kept-fraction is ABOVE map512's, on at least 2 of 3 roles. This is the mechanism claim -- the
+#          125+ toll is a property of the MAP's form, not of fallbacks in general. If FALSE the toll is
+#          intrinsic to substituting a row at all and no hybrid can avoid it.
+#   pred_c AND A PER-BUCKET HYBRID WOULD BEAT EITHER: on uncovered inputs, taking the better of {nn,
+#          map512} in each of the five buckets beats map512's own five kept-fractions by at least 1.0pp
+#          SUMMED, on at least 2 of 3 roles. This is an ORACLE CEILING on a hybrid, not a build -- a
+#          per-bucket choice needs the target, which no deployed program has. Registered and labelled as
+#          a bound. If FALSE the two forms do not differ enough by bucket for any mixture to help.
+#   pred_d CONTROLS: coverage exactly 5,419; ALL THREE arms change the top-1 at EXACTLY 0 covered-input
+#          positions (§1936's instrument extended to the neighbour, which must also be inert there);
+#          counts partition; the map64 arm reproduces §1936's PUBLISHED uncovered-input kept-fractions --
+#          125+ 48.7/44.9/48.1% and 0-0 6.5/13.0/6.7% -- within 0.2pp; live per-cell accuracy identical
+#          across all three arms.
 import json, time, sys, os, torch
 import torch.nn.functional as F
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -44,18 +49,16 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from bilin18_joint_removal import m, DEV
 
 D = 1152; T = 256; V = 50257; W = 50304
-RANKS = ('map64', 'map512')
-MAPRANK_OF = {'map64': 64, 'map512': 512}
+RANKS = ('nn', 'map64', 'map512')
+MAPRANK_OF = {'nn': 0, 'map64': 64, 'map512': 512}   # rank 0 == the neighbour, no map at all
 # UNIFORM ranks only -- the question is about the table axis, not the allocation.
-ALLOC = {k9: None for k9 in ('map64', 'map512')}   # FULL table rank throughout
-S1932_TOP = {'skip7000': 0.635, 'skip11000': 0.629, 'skip1200': 0.634}   # §1932 deployed @5,419
-S1932_BOT = {'skip7000': 0.027, 'skip11000': 0.062, 'skip1200': 0.036}   # §1932 deployed @5,419
-S1935_TOP512 = {'skip7000': 0.631, 'skip11000': 0.621, 'skip1200': 0.628}   # §1935 pooled, map512
-S1935_BOT512 = {'skip7000': 0.040, 'skip11000': 0.067, 'skip1200': 0.040}   # §1935 pooled, map512
+ALLOC = {k9: None for k9 in ('nn', 'map64', 'map512')}   # FULL table rank throughout
+S1936_UTOP64 = {'skip7000': 0.487, 'skip11000': 0.449, 'skip1200': 0.481}  # §1936 UNCOVERED-input, map64
+S1936_UBOT64 = {'skip7000': 0.065, 'skip11000': 0.130, 'skip1200': 0.067}  # §1936 UNCOVERED-input, map64
 
 RIDGE = 1e-2
 PT = '/workspace/tensor_language/basis_aligned/bilinear_quotient/'
-OUT = PT + 'ops/map_gain_by_input_coverage_results.json'
+OUT = PT + 'ops/fallback_form_by_input_coverage_results.json'
 BUCKETS = ((0, 0), (1, 4), (5, 24), (25, 124), (125, 10 ** 9))
 # live COVERED-CE refs set to None. This lineage runs at 5,419, where 3.29205 / 3.09711 / 3.40277
 # WOULD be the right constants -- but they are left None anyway so that a fork to another coverage
@@ -66,10 +69,6 @@ EVAL_SETS = [('skip7000', PT + '.rowcache/fineweb_n192_skip7000.pt', None),
 FIT_ROWS = PT + '.rowcache/fineweb_n96_skip80.pt'   # 5,419 types at T=256 -- DEPLOYED coverage
 H = m.transformer.h
 NCOV = 5419       # §1834's deployed coverage
-S1789_COV = 5419  # below are AT 5419 and are printed for context, never used as bars (§1882's trap)
-S1788_ACC = {'skip7000': {'prog': 0.1355, 'live': 0.3932},
-             'skip11000': {'prog': 0.1425, 'live': 0.4235},
-             'skip1200': {'prog': 0.1364, 'live': 0.3888}}
 STATE = {}
 COV = {}
 
@@ -174,8 +173,8 @@ def main():
     sites = [(k, L) for k in ('mlp', 'attn') for L in range(18)]
     COV['freq'] = torch.bincount(fit[:, 1:T + 1].reshape(-1).long(),
                                  minlength=V).to(DEV)
-    print(f'MAP GAIN BY INPUT COVERAGE at {NCOV} | (input covered/uncovered) x (target bucket '
-          f'{BUCKETS}) | map rank 64 vs 512, FULL table rank | DISCOVERY ONLY', flush=True)
+    print(f'FALLBACK FORM BY INPUT COVERAGE at {NCOV} | arms {RANKS} | (input covered/uncovered) x '
+          f'(target bucket {BUCKETS}) | FULL table rank | DISCOVERY ONLY', flush=True)
 
     # nnrow: the output-NN neighbour index (§1780/§1781). NOT used by program_rows below --
     # the settled design fills uncovered rows from the MAP alone (§1870). Kept because the
@@ -228,6 +227,14 @@ def main():
                 U, S, Vh = torch.linalg.svd(b - mu, full_matrices=False)
                 tc[st] = (mu + (U[:, :rk] * S[:rk]) @ Vh[:rk]).float()
         out = {}
+        if r == 'nn':
+            # §1780/§1781: an uncovered token gets the ROW OF ITS NEAREST COVERED TOKEN. No map.
+            for st in sites:
+                fr = torch.zeros(V, D, device=DEV)
+                fr[tk] = tc[st]
+                fr[unc] = tc[st][nnrow[unc]]
+                out[st] = fr
+            return out
         for st in sites:
             Ws = torch.linalg.solve(A, Ecov.T @ tc[st].double())
             U, S, Vh = torch.linalg.svd(Ws, full_matrices=False)
@@ -269,25 +276,33 @@ def main():
         tgt, icov = AX[ename]
         res[ename] = {r: cells(tgt, icov, LV[ename], P[(r, ename)]) for r in RANKS}
 
-    # pred_a -- EXACT zero changed predictions at covered inputs, summed over roles.
-    chg_cov = sum(int(((P[('map64', e)] != P[('map512', e)]) & AX[e][1]).sum()) for e in roles)
-    chg_unc = sum(int(((P[('map64', e)] != P[('map512', e)]) & ~AX[e][1]).sum()) for e in roles)
-    pa = (chg_cov == 0)
+    # every arm must be inert at covered inputs -- §1936's instrument, extended to all three pairs.
+    PAIRS = [('nn', 'map64'), ('nn', 'map512'), ('map64', 'map512')]
+    chg_cov = {f'{a}_vs_{b}': sum(int(((P[(a, e)] != P[(b, e)]) & AX[e][1]).sum()) for e in roles)
+               for a, b in PAIRS}
+    chg_unc = {f'{a}_vs_{b}': sum(int(((P[(a, e)] != P[(b, e)]) & ~AX[e][1]).sum()) for e in roles)
+               for a, b in PAIRS}
 
     def kf(e, cls, arm, b):
         return res[e][arm][cls][b]['kept_fraction']
 
-    def gain(e, cls, b):
-        return kf(e, cls, 'map512', b) - kf(e, cls, 'map64', b)
+    def ov(e, cls, arm):
+        return res[e][arm][cls]['overall']['top1_acc_prog']
 
-    # pred_b -- on uncovered inputs, all four rarer buckets gain.
-    bpos = sum(1 for e in roles if all(gain(e, 'uncovered_input', b) > 0 for b in RARE))
-    pb = bpos >= 2
-    # pred_c -- on uncovered inputs the 125+ bucket falls by >= 1.5pp.
-    cbad = sum(1 for e in roles if gain(e, 'uncovered_input', top) <= -0.015)
-    pc = cbad >= 2
+    # pred_a -- the neighbour is BELOW map64 on the uncovered arm's overall top-1.
+    abelow = sum(1 for e in roles
+                 if ov(e, 'uncovered_input', 'nn') < ov(e, 'uncovered_input', 'map64'))
+    pa = abelow >= 2
+    # pred_b -- but the neighbour is ABOVE map512 on the uncovered 125+ bucket.
+    babove = sum(1 for e in roles
+                 if kf(e, 'uncovered_input', 'nn', top) > kf(e, 'uncovered_input', 'map512', top))
+    pb = babove >= 2
+    # pred_c -- ORACLE CEILING: per-bucket better-of {nn, map512}, summed advantage over map512.
+    hyb = {e: sum(max(0.0, kf(e, 'uncovered_input', 'nn', b) - kf(e, 'uncovered_input', 'map512', b))
+                  for b in RARE + [top]) for e in roles}
+    cwin = sum(1 for e in roles if hyb[e] >= 0.010)
+    pc = cwin >= 2
 
-    # pred_d -- partition, pooled reproduction of §1935, live identical across arms.
     partition = all(res[e][r]['covered_input'][b]['n'] + res[e][r]['uncovered_input'][b]['n']
                     == res[e][r]['pooled'][b]['n']
                     for e in roles for r in RANKS for b in RARE + [top])
@@ -295,51 +310,57 @@ def main():
                      for e in roles for r in RANKS
                      for c in ('covered_input', 'uncovered_input', 'pooled')
                      for b in RARE + [top])
-    repro = max(max(abs(kf(e, 'pooled', 'map64', top) - S1932_TOP[e]),
-                    abs(kf(e, 'pooled', 'map64', bot) - S1932_BOT[e]),
-                    abs(kf(e, 'pooled', 'map512', top) - S1935_TOP512[e]),
-                    abs(kf(e, 'pooled', 'map512', bot) - S1935_BOT512[e])) for e in roles)
-    pd = (ncov == NCOV and partition and livespread <= 1e-9 and repro <= 0.001)
+    repro = max(max(abs(kf(e, 'uncovered_input', 'map64', top) - S1936_UTOP64[e]),
+                    abs(kf(e, 'uncovered_input', 'map64', bot) - S1936_UBOT64[e])) for e in roles)
+    pd = (ncov == NCOV and partition and livespread <= 1e-9 and repro <= 0.002
+          and all(v == 0 for v in chg_cov.values()))
 
-    print(f'\n  CHANGED top-1 between the rank-64 and rank-512 arms, summed over {len(roles)} roles:',
-          flush=True)
-    print(f'    covered   inputs (map inert): {chg_cov}', flush=True)
-    print(f'    uncovered inputs (map acts) : {chg_unc}', flush=True)
+    print(f'\n  CHANGED top-1 between arms, summed over {len(roles)} roles:', flush=True)
+    for k in chg_cov:
+        print(f'    {k:18s} covered inputs {chg_cov[k]:6d}   uncovered inputs {chg_unc[k]:6d}',
+              flush=True)
     for e in roles:
         nu = res[e]['map64']['uncovered_input']['overall']['n']
         npo = res[e]['map64']['pooled']['overall']['n']
-        print(f'\n  {e}: {nu}/{npo} = {nu / npo:.1%} of scored positions have an UNCOVERED input',
+        print(f'\n  {e}: {nu}/{npo} = {nu / npo:.1%} of scored positions have an UNCOVERED input; '
+              f'live there {res[e]["map64"]["uncovered_input"]["overall"]["top1_acc_live"]:.2%}',
               flush=True)
-        for cls in ('pooled', 'uncovered_input', 'covered_input'):
-            print(f'    {cls:16s} ' + '  '.join(
-                f'{b:>7s} {kf(e, cls, "map64", b):5.1%}->{kf(e, cls, "map512", b):5.1%} '
-                f'({gain(e, cls, b) * 100:+.2f})' for b in RARE + [top]), flush=True)
-            print(f'    {"":16s} ' + '  '.join(
-                f'{b:>7s} n={res[e]["map64"][cls][b]["n"]:6d}' for b in RARE + [top]), flush=True)
+        print(f'    UNCOVERED-input kept-fraction by arm', flush=True)
+        for r in RANKS:
+            print(f'      {r:7s} overall top1 {ov(e, "uncovered_input", r):6.2%} | ' + '  '.join(
+                f'{b:>7s} {kf(e, "uncovered_input", r, b):5.1%}' for b in RARE + [top]), flush=True)
+        print(f'      oracle per-bucket better-of(nn, map512) beats map512 by '
+              f'{hyb[e] * 100:.2f}pp summed', flush=True)
 
-    print(f'\n  the map is INERT at covered inputs: exactly 0 changed -> {pa}  ({chg_cov} changed)',
+    print(f'\n  the MAP still wins overall on the uncovered arm (>=2 roles) -> {pa}  {abelow}/3',
           flush=True)
-    print(f'  the whole gain lives on UNCOVERED inputs, all 4 rare buckets (>=2 roles) -> {pb}  '
-          f'{bpos}/3', flush=True)
-    print(f'  and the 125+ loss is >=1.5pp THERE (>=2 roles) -> {pc}  {cbad}/3', flush=True)
-    print(f'  coverage {ncov}, partitions, LIVE identical, pooled reproduces §1935 (max dev '
-          f'{repro * 100:.2f}pp) -> control {pd}', flush=True)
+    print(f'  but the NEIGHBOUR wins the 125+ bucket there (>=2 roles) -> {pb}  {babove}/3', flush=True)
+    print(f'  and a per-bucket hybrid CEILING beats map512 by >=1.0pp summed (>=2 roles) -> {pc}  '
+          f'{cwin}/3', flush=True)
+    print(f'  coverage {ncov}, ALL arms inert at covered inputs, partitions, LIVE identical, map64 '
+          f'reproduces §1936 (max dev {repro * 100:.2f}pp) -> control {pd}', flush=True)
 
-    r2 = {'config': {'arms': list(RANKS), 'map_rank_of_arm': {str(k): v for k, v in MAPRANK_OF.items()},
-                     'table_rank': 'FULL in both arms -- only the fallback map differs',
+    r2 = {'config': {'arms': list(RANKS),
+                     'nn': 'output-NN neighbour (§1780/§1781): an uncovered token takes the ROW of its '
+                           'nearest covered token in output-distribution space. ~0.09M (one index per '
+                           'uncovered type).',
+                     'map64': '§1789 deployed, rank-64 embedding->row map, 5.308M',
+                     'map512': 'rank-512 map, 42.467M',
+                     'table_rank': 'FULL in all arms -- only the fallback FORM/rank differs',
                      'coverage': ncov,
-                     'axis': 'every scored position cross-tabulated by (INPUT token covered vs '
-                             'uncovered) x (TRUE TARGET fit-row bucket). The input axis is new to '
-                             'this thread; §1789 onward bucketed only on the target.',
-                     'ROLE_NOTE': 'DISCOVERY ONLY, rung 3 -- §1935 open question.'},
+                     'axis': '(INPUT token covered vs uncovered) x (TRUE TARGET fit-row bucket), the '
+                             'axis introduced in §1936.',
+                     'ROLE_NOTE': 'DISCOVERY ONLY, rung 3 -- §1936 open question.'},
           'results': {e: {r: {c: {b: {k: (round(v, 6) if isinstance(v, float) else v)
                                       for k, v in res[e][r][c][b].items()}
                                   for b in res[e][r][c]} for c in res[e][r]} for r in RANKS}
                       for e in roles},
-          'changed_top1': {'covered_input': chg_cov, 'uncovered_input': chg_unc},
-          'predictions': {'pred_a_map_inert_at_covered_inputs': bool(pa),
-                          'pred_b_gain_on_uncovered_inputs': bool(pb),
-                          'pred_c_common_loss_severe_there': bool(pc),
+          'changed_top1_covered': chg_cov,
+          'changed_top1_uncovered': chg_unc,
+          'oracle_hybrid_ceiling_pp': {e: round(hyb[e] * 100, 3) for e in roles},
+          'predictions': {'pred_a_map_wins_overall': bool(pa),
+                          'pred_b_neighbour_wins_common': bool(pb),
+                          'pred_c_hybrid_ceiling': bool(pc),
                           'pred_d_controls': bool(pd)},
           'runtime_s': round(time.time() - t0, 1)}
     json.dump(r2, open(OUT, 'w'), indent=1)

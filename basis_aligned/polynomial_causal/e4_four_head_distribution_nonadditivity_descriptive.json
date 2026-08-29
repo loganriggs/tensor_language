@@ -1,0 +1,64 @@
+{
+  "analysis": {
+    "bootstrap_draws": 10000,
+    "bootstrap_seed": 2026082915,
+    "cells": {
+      "matched_negative": {
+        "joint_kl": 0.06922259208807979,
+        "joint_minus_singleton_sum": 0.034749903931675034,
+        "joint_to_singleton_sum_ratio": 2.008041605981307,
+        "singleton_kl_sum": 0.03447268815640476
+      },
+      "off_target": {
+        "joint_kl": 0.03649824114582999,
+        "joint_minus_singleton_sum": 0.014812683753012715,
+        "joint_to_singleton_sum_ratio": 1.6830667750287571,
+        "singleton_kl_sum": 0.021685557392817273
+      },
+      "positive": {
+        "joint_kl": 0.3883483477227171,
+        "joint_minus_singleton_sum": 0.32848425821029414,
+        "joint_to_singleton_sum_ratio": 6.487167029277663,
+        "singleton_kl_sum": 0.059864089512422974
+      }
+    },
+    "coordinates": [
+      "positive",
+      "matched_negative",
+      "off_target",
+      "copy_specificity"
+    ],
+    "documents": 192,
+    "lower_radius": 0.13124583926468722,
+    "point": [
+      0.32848425821029414,
+      0.034749903931675034,
+      0.014812683753012715,
+      0.2937343542786191
+    ],
+    "simultaneous_q05_lower": [
+      0.19723841894560692,
+      -0.09649593533301218,
+      -0.1164331555116745,
+      0.16248851501393188
+    ],
+    "simultaneous_q95_upper": [
+      0.4859562881532335,
+      0.1922219338746144,
+      0.17228471369595205,
+      0.45120638422155845
+    ],
+    "upper_radius": 0.15747202994293935
+  },
+  "claim_boundary": "Native-to-replacement output-distribution KL only. This is not a residual-stream displacement norm, does not identify interaction order, and cannot by itself distinguish head interaction from downstream nonlinearity.",
+  "joint": "registered_four_head_set",
+  "ledger_file_sha256": "ca180ec981bfdc68d554740597afb0ae94db8469022f8f090257fe6b9f6f6935",
+  "schema": "e4_four_head_distribution_nonadditivity_descriptive_v1",
+  "singletons": [
+    "L5H5",
+    "L7H3",
+    "L8H3",
+    "L8H4"
+  ],
+  "status": "posthoc_descriptive_not_confirmatory_not_interface_norm"
+}

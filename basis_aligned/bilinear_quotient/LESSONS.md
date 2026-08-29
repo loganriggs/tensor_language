@@ -1947,3 +1947,43 @@ its *content*, not its name — `wc -c` and `tail` it, and check that the peer's
 it. "The file has the right name and my write succeeded" is not evidence I wrote to the right file. Same
 family as LESSON 67 (a change that goes silent everywhere at once) and LESSON 71 (two instruments scoring
 different populations): the failure is invisible from inside the thing that failed.
+
+## LESSON 74 — a bucket axis names ONE thing, and I read a second thing into it
+
+§1935 found the map's gain in the 1-4 through 25-124 target buckets and wrote: "the 1-4 through 25-124
+buckets are mostly **covered** targets, so the map is doing something beyond serving the uncovered arm."
+§1936 measured it: the map changes the top-1 at **exactly 0 of 69,444 covered-input positions.** The
+inference was wrong because §1789's instrument buckets on the **TARGET's** frequency and the map is
+consulted on the **INPUT's** coverage. A frequent target reached from an uncovered input sits in a high
+bucket and is fully exposed to the map. Two different coverage axes, one word.
+
+**Why it got through.** The instrument's own docstring says it plainly — *"The bucket axis is the TARGET,
+not the current token"* — and I had copied that docstring forward through four forks. Knowing the axis
+was not enough; at the moment I reasoned about a *mechanism* I substituted the axis I cared about for the
+axis I had. Same family as LESSON 71 (two instruments scoring different populations contradict each other
+forever), but one level worse: here it was one instrument and I misread which population it scored.
+
+**The rule.** When an aggregate surprises me and I reach for a mechanism to explain it, first write down
+what the aggregate's axis is keyed on and check that the mechanism acts on the SAME key. If they differ,
+the surprise is probably a projection and the fix is a cross-tabulation, not a theory. The
+cross-tabulation cost 89 seconds and gave an exact-zero answer.
+
+## LESSON 75 — dead compute behind a confident label survived four forks
+
+Every script in the map lineage (§1933, §1934, §1935, §1936) prints *"the settled fallback: output-NN
+neighbour (§1780/§1781)"* and spends several seconds building the neighbour index `nnrow` over all 50,257
+types. **`nnrow` is written and never read in any of them** — `program_rows` fills the uncovered rows from
+the map alone. The arms were still correct (§1870's settled design *is* map-only for uncovered rows;
+230.087M = 224.778M table + 5.308M rank-64 map, against the neighbour's 224.778M), so nothing published
+is wrong. But the runtime banner asserted a component that was not in the build, in four consecutive
+sections, and I quoted that banner while writing them up.
+
+**Why no check caught it.** The gate flags a `del X` in a loop that never assigns X, and empty literals,
+and welded result keys — all *syntactic* smells. An assigned-but-never-read local is legal, cheap-looking,
+and its label is in a `print`, which no gate reads. Nothing in the loop compares what a script *says* it
+built against what it *uses*.
+
+**The rule.** When forking a script, grep every name in the banner for a second occurrence that READS it.
+A name that is only ever written is either dead code or a missing arm — and here it was the missing arm:
+the neighbour fallback is the one alternative form this thread has measured, and it was sitting computed
+and unused in the exact experiment that needed it.

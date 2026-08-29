@@ -155,7 +155,9 @@ def main():
     print(f'MAP RANK BUCKET SWEEP at 5419 | buckets {BUCKETS} on the fit-row count of the TRUE '
           f'target | full-rank settled program | DISCOVERY ONLY', flush=True)
 
-    # the settled fallback: output-NN neighbour (§1780/§1781)
+    # nnrow: the output-NN neighbour index (§1780/§1781). NOT used by program_rows below --
+    # the settled design fills uncovered rows from the MAP alone (§1870). Kept because the
+    # next experiment needs it as an arm; the misleading banner is LESSON 75.
     lpc = torch.zeros(ncov, W, device=DEV)
     for i in range(0, ncov, 256):
         t = tk[i:i + 256].unsqueeze(1)

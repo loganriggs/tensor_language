@@ -54608,3 +54608,79 @@ toll is paid in full at the first doubling and never recovered.**
 fixed at §1870's ridge-regressed embedding→row map and varies only its rank. The 12-of-12 breadth above
 says the map is doing more than serving the uncovered arm, since the 1-4 through 25-124 buckets are
 mostly **covered** targets. What the map is contributing on covered targets is unmeasured.
+[**CORRECTED §1936**: that inference confused the **target** axis with the **input** axis. §1789's
+buckets are on the target; the map is consulted on the input. §1936 cross-tabulated both and found the
+map changes the top-1 at **exactly 0 of 69,444 covered-input positions**. The breadth above is the
+uncovered-input arm — ~24% of positions — diluted by its share, and the map contributes **nothing** at
+covered inputs. Nothing here is evidence of a covered-target contribution.]
+
+## §1936 — the map is exactly inert at covered inputs: §1935's "breadth" is the uncovered arm seen through a target lens
+
+`ops/map_gain_by_input_coverage.py`, 88.9s, **DISCOVERY ONLY**, 5,419 coverage, rung 3 — §1935's open
+question, answered. **All four predictions TRUE**, and pred_a on an **exact-zero** bar rather than a
+tolerance.
+
+§1935 closed by observing that the map's 64 → 512 gain appears in the 1-4 through 25-124 buckets, which
+are "mostly **covered** targets", and inferred the map must be doing something beyond serving the
+uncovered arm. **That inference confused two different coverage axes.** §1789's bucket instrument buckets
+on the **target**; the map is consulted on the **input**. A frequent target reached from an uncovered
+input is fully exposed to the map and sits in a high bucket. This cross-tabulates every scored position
+by (input covered / uncovered) × (target bucket) — an axis nothing in this thread had ever used.
+
+```
+  changed top-1 between the rank-64 and rank-512 arms, summed over 3 roles
+    covered   inputs (map inert):     0        <- out of 69,444 covered-input positions
+    uncovered inputs (map acts) : 6,936
+
+  kept-fraction 64 -> 512, uncovered inputs only  (~24-25% of scored positions)
+                 0-0            1-4           5-24         25-124        125+
+    skip7000   6.5->10.4 (+3.97)  6.7->11.1 (+4.36) 10.8->14.7 (+3.89) 11.4->18.2 (+6.73) 48.7->47.5 (-1.20)
+    skip11000 13.0->14.2 (+1.20) 10.8->15.9 (+5.09)  8.1->12.8 (+4.63) 13.1->18.2 (+5.05) 44.9->42.4 (-2.48)
+    skip1200   6.7-> 7.7 (+0.96)  7.8->11.6 (+3.74) 12.2->13.4 (+1.22) 12.4->18.3 (+5.81) 48.1->46.0 (-2.16)
+  covered inputs, all fifteen cells, all three roles:  +0.00pp
+```
+
+> **pred_a PASSED on an exact-zero bar: the map changed the top-1 at ZERO of 69,444 covered-input
+> positions**, while changing 6,936 of 22,716 uncovered-input ones. Not "small" — zero. **§1765 verified
+> at a seventh place**: the compiled program is a pure function of the current token, so a row the current
+> token does not use cannot reach the logits, and the fallback map is strictly a fallback. Every map
+> result from §1870 onward is confirmed to be a statement about ~24% of positions and nothing else.
+
+> **pred_b PASSED 3/3 and it resolves §1935.** Restricted to uncovered inputs, all four rarer buckets gain
+> on every role, and they gain **three to five times harder** than the pooled figures: +6.73pp on the
+> 25-124 bucket at skip7000 against +1.31pp pooled, +5.09pp on 1-4 at skip11000 against +1.65pp. **The
+> pooled breadth §1935 reported is exactly the uncovered-input arm diluted by its ~24% share** — nothing
+> more, and nothing on covered inputs. §1935's closing paragraph is corrected in place.
+
+> **pred_c PASSED 2/3 against a 2-of-3 bar, and the miss is worth naming: skip7000 came in at −1.20pp
+> against the −1.5pp bar** while skip11000 and skip1200 cleared it at −2.48 and −2.16pp. Scored as
+> written this is a pass, but on a 2-of-3 bar with one role short by 0.30pp it is the weakest of the four
+> and I am not treating it as more than "the common-target loss is roughly 2-4× larger where the map acts
+> than the pooled figure suggests."
+
+**pred_d PASSED**: coverage exactly 5,419; covered + uncovered counts sum to the scored total in every
+cell; recombining the two classes reproduced §1935's **published** pooled kept-fractions to a **maximum
+deviation of 0.05pp** — i.e. rounding — across all twelve checked figures; and the **live per-cell
+accuracy identical across both arms** — twenty-second clean reading.
+
+> **The absolute arithmetic is less flattering than the kept-fractions, and it is the number a deployment
+> decision needs.** In correct tokens on the uncovered arm, 64 → 512 buys **+103 / +92 / +32** across the
+> four rare buckets and gives back **−22 / −48 / −18** on the 125+ bucket: **the frequent-target loss
+> cancels 21% / 52% / 56% of the rare-target gain.** Net **+81 / +44 / +14 tokens = +0.91 / +0.47 /
+> +0.31pp** on the uncovered arm, which is the +1.33 / +0.46 / +0.43pp §1933–§1935 measured pooled, once
+> the ~24% share is undone. **On two of three roles more than half of what the rank-512 map wins on rare
+> targets it hands straight back on frequent ones.** §1935's "no sweet spot" reads the same way from here:
+> the two effects are the same lever pulled in one place, not two knobs.
+
+> **And the headroom is not where the spend has been going.** On uncovered inputs the live model scores
+> **45.4 / 49.3 / 46.1%** — a *higher* baseline than at covered inputs (37.4 / 40.0 / 36.6%) — yet the
+> rank-512 program scores only **13.1 / 13.1 / 11.8%** there against **14.0 / 14.8 / 14.4%** at covered
+> inputs. In kept-fraction terms the uncovered arm runs at **28.7%** against the covered arm's **37.5%**
+> at skip7000. **A quarter of all positions are served at three-quarters of the covered arm's efficiency,
+> on easier material.** That gap, not the map's rank, is the open cost lever.
+
+**Open.** Everything above holds the map's *form* fixed — §1870's ridge-regressed embedding→row map, rank
+being the only free parameter, and §1877–§1879 closed the option of regenerating rows from the stream.
+The uncovered arm's 28.7% against 37.5% says the *form* is what is leaving accuracy on the table, and
+§1780/§1781's output-NN neighbour is the only alternative fallback this thread has ever measured against
+it. Neither has been measured on the input-coverage axis introduced here.

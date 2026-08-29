@@ -1,0 +1,41 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+MAP GAIN BY INPUT COVERAGE at 5419 | (input covered/uncovered) x (target bucket ((0, 0), (1, 4), (5, 24), (25, 124), (125, 1000000000))) | map rank 64 vs 512, FULL table rank | DISCOVERY ONLY
+  built the settled fallback and 36 tables (4s)
+  scored map rank 64 on 3 roles (48s)
+  scored map rank 512 on 3 roles (89s)
+
+  CHANGED top-1 between the rank-64 and rank-512 arms, summed over 3 roles:
+    covered   inputs (map inert): 0
+    uncovered inputs (map acts) : 6936
+
+  skip7000: 8890/36864 = 24.1% of scored positions have an UNCOVERED input
+    pooled               0-0  2.7%-> 4.0% (+1.33)      1-4  4.2%-> 5.6% (+1.48)     5-24  9.5%->10.4% (+0.96)   25-124 23.6%->24.9% (+1.31)  125-1000000000 63.5%->63.1% (-0.34)
+                         0-0 n=  8904      1-4 n=  6585     5-24 n=  4783   25-124 n=  6003  125-1000000000 n= 10589
+    uncovered_input      0-0  6.5%->10.4% (+3.97)      1-4  6.7%->11.1% (+4.36)     5-24 10.8%->14.7% (+3.89)   25-124 11.4%->18.2% (+6.73)  125-1000000000 48.7%->47.5% (-1.20)
+                         0-0 n=  2034      1-4 n=  1503     5-24 n=   918   25-124 n=  1188  125-1000000000 n=  3247
+    covered_input        0-0  0.7%-> 0.7% (+0.00)      1-4  2.8%-> 2.8% (+0.00)     5-24  9.0%-> 9.0% (+0.00)   25-124 26.5%->26.5% (+0.00)  125-1000000000 69.3%->69.3% (+0.00)
+                         0-0 n=  6870      1-4 n=  5082     5-24 n=  3865   25-124 n=  4815  125-1000000000 n=  7342
+
+  skip11000: 9367/36864 = 25.4% of scored positions have an UNCOVERED input
+    pooled               0-0  6.2%-> 6.7% (+0.46)      1-4  5.4%-> 7.0% (+1.65)     5-24  8.0%-> 9.3% (+1.26)   25-124 24.5%->25.6% (+1.06)  125-1000000000 62.9%->62.1% (-0.71)
+                         0-0 n=  9385      1-4 n=  6638     5-24 n=  4763   25-124 n=  5546  125-1000000000 n= 10532
+    uncovered_input      0-0 13.0%->14.2% (+1.20)      1-4 10.8%->15.9% (+5.09)     5-24  8.1%->12.8% (+4.63)   25-124 13.1%->18.2% (+5.05)  125-1000000000 44.9%->42.4% (-2.48)
+                         0-0 n=  2486      1-4 n=  1489     5-24 n=  1021   25-124 n=  1178  125-1000000000 n=  3193
+    covered_input        0-0  2.0%-> 2.0% (+0.00)      1-4  2.7%-> 2.7% (+0.00)     5-24  8.0%-> 8.0% (+0.00)   25-124 27.5%->27.5% (+0.00)  125-1000000000 70.1%->70.1% (+0.00)
+                         0-0 n=  6899      1-4 n=  5149     5-24 n=  3742   25-124 n=  4368  125-1000000000 n=  7339
+
+  skip1200: 4459/18432 = 24.2% of scored positions have an UNCOVERED input
+    pooled               0-0  3.6%-> 4.0% (+0.43)      1-4  4.7%-> 6.0% (+1.35)     5-24 12.4%->12.7% (+0.29)   25-124 23.6%->24.7% (+1.12)  125-1000000000 63.4%->62.8% (-0.56)
+                         0-0 n=  4470      1-4 n=  3209     5-24 n=  2440   25-124 n=  3037  125-1000000000 n=  5276
+    uncovered_input      0-0  6.7%-> 7.7% (+0.96)      1-4  7.8%->11.6% (+3.74)     5-24 12.2%->13.4% (+1.22)   25-124 12.4%->18.3% (+5.81)  125-1000000000 48.1%->46.0% (-2.16)
+                         0-0 n=  1171      1-4 n=   737     5-24 n=   445   25-124 n=   593  125-1000000000 n=  1513
+    covered_input        0-0  1.1%-> 1.1% (+0.00)      1-4  2.9%-> 2.9% (+0.00)     5-24 12.5%->12.5% (+0.00)   25-124 26.3%->26.3% (+0.00)  125-1000000000 68.7%->68.7% (+0.00)
+                         0-0 n=  3299      1-4 n=  2472     5-24 n=  1995   25-124 n=  2444  125-1000000000 n=  3763
+
+  the map is INERT at covered inputs: exactly 0 changed -> True  (0 changed)
+  the whole gain lives on UNCOVERED inputs, all 4 rare buckets (>=2 roles) -> True  3/3
+  and the 125+ loss is >=1.5pp THERE (>=2 roles) -> True  2/3
+  coverage 5419, partitions, LIVE identical, pooled reproduces §1935 (max dev 0.05pp) -> control True
+
+pred_a True | pred_b True | pred_c True | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/map_gain_by_input_coverage_results.json (88.9s)
