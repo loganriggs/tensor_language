@@ -56167,6 +56167,12 @@ uncovered type keeping both components, but in a ratio set by its own `unc_mass`
 > unseen bucket by paying CE: the same trade §1955 and §1956 rejected as routing, in a new costume,
 > exactly as pred_b was written to detect.**
 
+> [**SCOPED §1965.** "At every operating point measured" was true of the operating points measured *here*
+> — all at or below 5,419's fallback share. At **16,110 on the shipped build** the narrow tilt clears the
+> same 0.002-nat bar on 3/3 roles, costing +0.47 / +0.39 / **−0.49** milli-nats. The *inability* to reach
+> an unseen target remains structural; the *price of tilting against it* is not, and falls with the
+> fallback's share of scored positions.]
+>
 > **The residual is a price, not an engineering gap.** Four distinct attempts have now been made on the
 > unseen-target deficit — a cosine router (§1939), a mass router (§1955), the same at the other coverage
 > (§1956), and a per-token weight (§1963) — and every one either fails to move it or moves it by paying
@@ -56244,3 +56250,57 @@ exactly one verdict changed, the intended file.**
 **Open.** `run()` has been exercised on one experiment. The 1,601 single-use scripts remain, and until a
 second and third experiment are written against it the claim that it removes the fork is a claim about
 one data point.
+
+## §1965 — the tilt IS worth shipping at 16,110: five sections of negatives get a boundary
+
+`ops/tilt_both_coverages.py`, **115.4s**, **DISCOVERY ONLY**, both coverages, **rung 2** — §1964's open
+question, and `run()`'s second experiment. **All three predicates TRUE, derived controls TRUE.**
+
+§1955, §1956, §1963 and §1964 all concluded the same thing: the unseen-target deficit is the structural
+price of the blend, and every attempt to buy it back costs more CE than it is worth. §1963 noticed the
+price roughly halved at 16,110 but measured that on the **compromise** allocation. On the shipped build
+it had never been checked, and I registered pred_c as the boundary test either way.
+
+```
+  {mlp 768, attn 384}, rank-640 map      0-0 kept-fraction        ΔCE vs flat α = 0.30
+  5,419   flat30      189.5M    .0360 / .0588 / .0317          —
+          pat20_30    189.7M    .0360 / .0606 / .0317    +0.64 / +0.02 / +1.29 m
+          pat10_40    189.7M    .0386 / .0617 / .0342    +2.30 / +1.45 / +2.94 m
+  16,110  flat30      411.2M    .0247 / .0425 / .0242          —
+          pat20_30    411.3M    .0259 / .0434 / .0264    +0.47 / +0.39 / **-0.49** m
+          pat10_40    411.3M    .0259 / .0425 / .0242    +1.29 / +1.30 / +0.30 m
+```
+
+> **pred_c PASSED, and it is the boundary I registered it as. At 16,110 the narrow tilt clears the
+> 0.002-nat bar on 3 of 3 roles** — costing **+0.47 / +0.39 / −0.49 milli-nats**, *negative* on skip1200 —
+> while raising the unseen bucket by **+0.12 / +0.09 / +0.22pp**, for **+0.1M** on a 411.2M build.
+> **`pat20_30m640` is a free-to-cheap improvement at high coverage.**
+
+> **pred_a PASSED at both coverages and pred_b PASSED 3/3: the price falls with coverage**, from
+> +1.45 to +2.94 milli-nats at 5,419 down to −0.49 to +0.47 at 16,110. The mechanism is §1936's: the
+> fallback touches ~24% of positions at 5,419 and ~10% at 16,110, so tilting away from the blend costs
+> proportionally less where the blend matters less — the same arithmetic that made §1956's router
+> *worse* at 5,419, running the other way.
+
+> **This scopes four published sections and I am stating it plainly. §1955, §1956, §1963 and §1964 each
+> concluded the deficit is "the structural price of the blend"; §1963 said so "at every operating point
+> measured" and §1964 called it structural "across five attempts, two coverages and two allocations".
+> That is true at 5,419 and FALSE at 16,110 on the shipped build.** The inability to reach an unseen
+> target is still structural (§1937/§1938) — what is not structural is the *price of tilting against it*,
+> which is a function of how much of the scored data the fallback touches. All four sections are scoped
+> in place.
+
+**Derived controls TRUE**: coverages exactly 5,419 and 16,110; same-spec pairs exactly inert at covered
+inputs and differing-spec pairs not (both sides non-empty); buckets partition; live per-cell top-1 and CE
+identical across arms; and §1964's published `flat30` CE reproduced to **0.000000** via `B.ref()` —
+forty-ninth clean reading, **and not one of those clauses was written by hand.**
+
+**`run()`'s second data point.** 78 lines, both coverages, and the multi-coverage path exercised for the
+first time. Two experiments in, the declarative form has produced **zero** fork-residue failures against
+the hand-forked form's eight.
+
+**Open.** The tilt is worth shipping at 16,110 and not at 5,419, so — like the attention rank (§1952) and
+unlike the table knee (§1951) — it is a **coverage-dependent** build parameter. §1960 established that one
+compromise build is within 0.002 nats of the coverage-specific optimum at both coverages; **whether that
+still holds once the tilt is in the mix is unmeasured, and it is the same question §1960 answered for the
+allocation, now with a fourth parameter.**

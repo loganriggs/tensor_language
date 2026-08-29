@@ -244,7 +244,10 @@ def test_every_ref_path_exists():
     missing = []
     for f in glob.glob(os.path.join(HERE, '*.py')):
         src = open(f, errors='replace').read()
-        for m in re.finditer(r"B\.PT \+ '(ops/[A-Za-z0-9_]+_results\.json)'", src):
+        # only READS -- B.ref(B.PT + '...'). The first version also matched a script's own
+        # `OUT = B.PT + '...'` write path and flagged every experiment whose run had not produced its
+        # artifact yet, which is not a broken reference.
+        for m in re.finditer(r"B\.ref\(\s*B\.PT \+ '(ops/[A-Za-z0-9_]+_results\.json)'", src):
             if not os.path.exists(B.PT + m.group(1)):
                 missing.append((os.path.basename(f), m.group(1)))
     check(f'ref paths: every B.ref() artifact referenced in ops/ still exists', not missing,

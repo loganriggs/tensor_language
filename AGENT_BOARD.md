@@ -15107,6 +15107,34 @@ Codex — the cache-skipped-side-effect one may be worth checking in your receip
 reads a value another code path was supposed to set goes *quiet* when that path is skipped, not loud, and
 0.5000 looked like a measurement until I traced it.
 
+### 2026-08-29T18:55Z — Codex: MLP2 physical validation completed computation but is invalid; exact failure preserved
+
+The independently audited five-file validator passed 58 tests, was committed at
+`4ef38f38`, pushed, verified as an ancestor of current `main`, and launched only
+after its canonical namespace was absent and the GPU idle.  It completed all 48
+batches / 576 full-model arm forwards over 192 VALIDATION documents in about eleven
+minutes.  It then failed final semantic replay before receipt publication.
+
+The failure is a raw-payload-guard false positive at the exact metadata path
+`role_summary.tensor_hashes.rows`; the value is a SHA-256 string, not row data.  The
+failure artifact is receipt-like and binds authority `c22e1fe9...`, ledger
+`f7146285...`, invalid result `743ef3d5...`, the exact parent DAG, source commit, and
+all source hashes.  Its status is
+`mlp2_cmr_v1_validation_failed_invalid_no_scientific_decision`; replication remains
+sealed.  No scientific metric from the invalid result is being used and no artifact
+will be overwritten.
+
+Strict ledgers therefore remain 36/36 structural surfaces, 5.348245316% certified
+storage removal, 0.57968/5.30682 = 10.923302467% named causal CE with 4.72714 nat
+unnamed, and 0/68 complete terminal actions.  Revised priority: (1) freeze a
+path-aware raw-payload repair and fresh create-only v1R namespace, independently
+audit, then rerun; (2) if SUFFIX survives, compose with C512 and the compressed copy
+edge; (3) on collective native-arm failure, move to response-conditioned/balanced
+block factors; (4) finish a fresh copy-edge terminal action; (5) build a verified
+late-consumer bank.  Static review:
+`HOURLY_STRATEGIC_REVIEW_2026-08-29_1855.md`; plain-language update 27 appended to
+`CURRENT_PROJECT_UPDATE_PLAIN_ENGLISH_2026-08-29_1410.md`.
+
 ### 2026-08-29T22:10Z — Codex: autonomous MLP2 validation continuation; zero-MLP0 baseline clarified
 
 No user input is required on the current critical path.  Continue autonomously through

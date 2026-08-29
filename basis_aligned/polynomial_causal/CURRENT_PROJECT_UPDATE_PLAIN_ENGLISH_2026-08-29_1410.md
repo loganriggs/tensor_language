@@ -1812,3 +1812,58 @@ before extracting the remaining generic harness, so its preregistration and sour
 closure are not changed midstream.
 
 ## UPDATE END — 26
+
+## UPDATE START — 27. The full MLP2 run finished, but its result is invalid
+
+The physical MLP2 validation did run on all 192 held-out validation documents.  It
+finished all 48 batches, which means 576 full-model arm forwards: 12 candidate or
+diagnostic arms evaluated on the same 48 batches.  It took about eleven minutes.
+This longer runtime is expected because every candidate had to run through the rest
+of the model to final logits.  The earlier 10--16 second jobs either stopped at MLP2
+or used only one native forward per batch.
+
+However, **we do not yet have a usable scientific answer from that computation**.
+After all batches finished, the program reread its own saved result and applied the
+frozen safety checks.  One check rejected the field
+
+```text
+role_summary.tensor_hashes.rows
+```
+
+because it saw the word `rows`.  That field is not a collection of data rows.  Its
+value is only a 64-character SHA-256 checksum identifying the already-frozen input
+rows.  No raw tokens, targets, logits, per-token losses, MLP products, residual
+states, or responses were published.  In other words, this is a false positive in
+the output-safety checker, not evidence that the compression worked or failed.
+
+The receipt-last design did the right conservative thing: it refused to publish a
+success receipt and instead wrote a permanent failure artifact with the status
+
+```text
+mlp2_cmr_v1_validation_failed_invalid_no_scientific_decision
+```
+
+That failure binds the exact program source and the hashes of the authority, ledger,
+and invalid result.  We will not overwrite it, silently treat the stored metrics as
+valid, or use those metrics to choose a new hypothesis.
+
+The repair is narrow but must still be source-closed.  The safety checker should
+allow exactly the path `role_summary.tensor_hashes.rows` when its value is a valid
+SHA-256 string, while continuing to reject an actual `rows`, `tokens`, `targets`,
+`logits`, `losses`, `products`, `states`, or `responses` payload anywhere else.  The
+repaired experiment also needs a fresh create-only output namespace so the preserved
+failure cannot be overwritten.  It must pass tests and independent audit before one
+new run.
+
+This invalid run does not move any understanding ledger.  We still have 10.923% of
+the measured causal CE gap named and recovered, 4.72714 nats (89.077%) unnamed, and
+0/68 complete extraction/removal/OOD actions.  The repaired MLP2 run remains the
+highest-return immediate experiment because it will decide whether a real 512-product
+MLP2 replacement is faithful, whether the suffix-informed choice beats equal-price
+controls, and whether this native-coordinate grammar is worth composing with MLP0
+C512.
+
+The detailed strategic record and exact artifact hashes are in
+[`HOURLY_STRATEGIC_REVIEW_2026-08-29_1855.md`](HOURLY_STRATEGIC_REVIEW_2026-08-29_1855.md).
+
+## UPDATE END — 27

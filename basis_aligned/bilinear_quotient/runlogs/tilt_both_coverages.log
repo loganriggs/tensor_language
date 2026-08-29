@@ -1,0 +1,46 @@
+TILT BOTH COVERAGES | 4 arms x 2 coverage(s) | DISCOVERY ONLY
+
+########## COVERAGE 5419 ##########
+  [bqlib] coverage 5419 from fineweb_n96_skip80.pt: 36 tables, neighbour index and map solver built (4s)
+  [bqlib] cache HIT  live     skip7000
+  [bqlib] cache HIT  live     skip11000
+  [bqlib] cache HIT  live     skip1200
+  [bqlib] cache HIT  mix30m640 skip7000
+  [bqlib] cache HIT  mix30m640 skip11000
+  [bqlib] cache HIT  mix30m640 skip1200
+  [bqlib] cache HIT  pat10_40m640 skip7000
+  [bqlib] cache HIT  pat10_40m640 skip11000
+  [bqlib] cache HIT  pat10_40m640 skip1200
+  [bqlib] cache HIT  pat20_30m640 skip7000
+  [bqlib] cache HIT  pat20_30m640 skip11000
+  [bqlib] cache HIT  pat20_30m640 skip1200
+  [bqlib] cache HIT  mix25m512 skip7000
+  [bqlib] cache HIT  mix25m512 skip11000
+  [bqlib] cache HIT  mix25m512 skip1200
+
+########## COVERAGE 16110 ##########
+  [bqlib] coverage 16110 from fineweb_n480_skip80.pt: 36 tables, neighbour index and map solver built (5s)
+  [bqlib] cache HIT  live     skip7000
+  [bqlib] cache HIT  live     skip11000
+  [bqlib] cache HIT  live     skip1200
+  [bqlib] computed   mix30m640 skip7000 (1.4s)
+  [bqlib] computed   mix30m640 skip11000 (1.3s)
+  [bqlib] computed   mix30m640 skip1200 (0.6s)
+  [bqlib] computed   pat10_40m640 skip7000 (3.3s)
+  [bqlib] computed   pat10_40m640 skip11000 (1.3s)
+  [bqlib] computed   pat10_40m640 skip1200 (0.6s)
+  [bqlib] computed   pat20_30m640 skip7000 (3.3s)
+  [bqlib] computed   pat20_30m640 skip11000 (1.3s)
+  [bqlib] computed   pat20_30m640 skip1200 (0.7s)
+  [bqlib] cache HIT  mix25m512 skip7000
+  [bqlib] cache HIT  mix25m512 skip11000
+  [bqlib] cache HIT  mix25m512 skip1200
+
+  the tilt raises the unseen bucket at both coverages (>=2 roles each)  -> True
+  and the CE price is lower at 16,110 than at 5,419 (>=2 roles)  -> True
+  and at 16,110 it clears the 0.002-nat bar (>=2 roles) -- the boundary, if there is one  -> True
+  derived controls -> True   coverage_exact=True  inert_pairs_are_inert=True  differing_pairs_do_move=True  buckets_partition=True  live_identical=True  ref_flat30=True
+  reference deviations: flat30 0.000000
+
+pred_a True | pred_b True | pred_c True | pred_z True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/tilt_both_coverages_results.json (115.4s)
