@@ -45,6 +45,28 @@ claim from local MSE alone.
    literal price, and the downstream consequence it predicts beyond reconstruction.
 4. The 12:00 audit prunes weak branches and names the next one or two full experiments.
 
+## Live status update — 05:10 UTC
+
+- Family-F v2 is source-closed and queued behind the other agent's single active GPU
+  frontier job.  The queue checks both the owning PID and the physical GPU process
+  list before opening the fresh v2 namespace.  This is execution-in-wait, not an
+  outcome; no v2 authority, result, receipt, or failure exists yet.
+- The rank-512 frontier has completed two of three document roles.  On both, the large
+  map improves all-position CE only with full or rank-256 tables (`0.04465/0.03582`
+  nat on `skip7000`, `0.04832/0.03968` on `skip11000`); its gain is at most `0.00044`
+  nat at table rank 64 and exactly zero at ranks 16/8/4.  These are partial log values,
+  not banked evidence until the runner publishes its artifact.
+- E2's CPU core now has the missing exact equal-storage comparator.  It allocates the
+  independent sites' rank slots by fit-only predictive eigenvalues, rather than using
+  an arbitrary common rounded rank.  The expanded known-answer suite passes `16/16`
+  and commit `95acfeb0` is pushed.  This closes a fairness prerequisite but does not
+  check E2.1 or E2.2: no real shared-map fit or held-out CE has run.
+- A result audit found that the earlier source-closed tangent pilot is an exact bounded
+  instance of E3.1 and had been omitted from this queue.  Its measured negative outcome
+  is recorded below.  There is no retained vector-response bank from which a lawful
+  CPU-only E3.2 can be manufactured; the next finite-composition measurement needs a
+  new GPU collection.
+
 ## Immediate critical path: Family F
 
 Family F asks whether selecting native MLP3 product gates by their *downstream suffix
@@ -140,10 +162,22 @@ interpretation.
 Question: can a small predictive state summarize everything downstream needs from an
 early component, rather than reconstructing its full residual write?
 
-- [ ] **E3.1 Response-panel rank.** Build a small vector-valued matrix whose rows are
+- [x] **E3.1 Response-panel rank.** Build a small vector-valued matrix whose rows are
   controlled early-component/prefix interventions and whose columns are later residual
   directions plus selected logit groups.  Measure held-out singular-value/rank
   stability across documents and intervention amplitudes.
+
+  **Existing measured outcome, audited 05:10 UTC:** the source-closed MLP0--2
+  final-output Fisher-tangent panel in
+  `tensor_bilin18_tangent_pilot_results.json` (SHA256 `efd788fa0089008c4a2b0767244f1759453f02dd6e98b31aceae3847b26bc9d4`)
+  used 96 whole-document-split rows and took 199.87 seconds.  At cuts 1/2/3 the exact
+  ranks stayed at the full registered column dimensions 32/64/96, no compression knee
+  was selected in either split, normalized squared-spectrum L1 drift was
+  `0.18785/0.16928/0.17641`, and exposure-normalized trace drift was
+  `0.71767/0.60919/0.60332`.  All split-stability gates failed.  This is a genuine
+  negative E3.1 outcome for infinitesimal final-output Fisher responses.  It does not
+  test finite amplitudes, unseen intervention compositions, residual-direction
+  targets, or selective edits, so E3.2/E3.3 remain open.
 - [ ] **E3.2 Unseen-composition prediction.** Fit a predictive-state realization on a
   subset of prefix/intervention × suffix-reader cells and predict sealed cells.  Score
   vector error and resulting KL/CE; compare with equally priced local-MSE PCA/RRR.

@@ -51618,3 +51618,67 @@ Open: **the measured Pareto frontier of §1853-§1865 was built with a rank-64 m
 moved the fallback by 0.185 nats for 37.159M reals. Whether the table-rank frontier *shifts* under the
 better fallback — the map's 42.467M is a large fixed charge against the low-rank builds, which cost as
 little as 6.338M in total — is unmeasured and is the last open cost question in this arc. §1880.
+
+## §1880 — the map rank must track the TABLE rank: above it, the map buys exactly nothing
+
+`ops/frontier_at_map512.py`, 1981.4s, **DISCOVERY ONLY**, rung 3 — §1879's open question, and the last
+open cost question in this arc. **pred_a True | pred_b True | pred_c True | pred_d True.** All four.
+
+```
+  all-position CE, table rank x map rank, gain of map 512 over map 64 for a flat +37.159M reals
+    table  full   +0.04465  +0.04832  +0.04070      832 /  769 /  913 M/nat
+    table  256    +0.03582  +0.03968  +0.03558     1037 /  936 / 1044 M/nat
+    table   64    +0.00020  +0.00044  +0.00028   185795 / 84452 /132711 M/nat
+    table   16    +0.00000  +0.00000  +0.00000            nothing at all
+    table    8    +0.00000  +0.00000  +0.00000            nothing at all
+    table    4    +0.00000  +0.00000  +0.00000            nothing at all
+```
+
+> **The map rank is only ever worth what the table rank allows.** Those three exact zeros are not noise
+> floors — they are **0.00000 to five places on three roles and six figures**, and the reason is
+> structural: the map is fitted against the **truncated** table rows (§1785), so at table rank r the
+> targets span a rank-r subspace and any map of rank ≥ r is already exact within it. The onset sits
+> exactly where the table rank passes the map rank: nothing at 16, a rounding artifact at 64, and real
+> money only at 256 and full. **The rule is `map_rank = min(table_rank, 512)`, and every real spent above
+> that is spent on nothing.** At table rank 4 that is 37.159M wasted against a build whose entire cost is
+> 6.338M — a 6.9x overpayment for five zeros.
+
+**Pareto membership is not the same as being worth buying, and this run shows the difference sharply.**
+`m512_64` **is** on the frontier on all three roles (57.69M / 6.1731 against m64_64's 20.53M / 6.1733) —
+nothing dominates it, because it is 0.0002 nats better. It is also a **185,795 M/nat** purchase. pred_a
+and pred_b are about frontier *membership* and both read True as written; the economic reading is that
+the frontier has a near-vertical segment there and no one should stand on it. §1861's iso-cost framing is
+the right instrument for that region, not dominance.
+
+**The frontier, measured, over both axes (cost_M / all-position CE, skip7000):**
+```
+  m64_4@6.34/6.6242  m64_8@7.28/6.4718  m64_16@9.18/6.3592  m64_64@20.53/6.1733
+  m512_64@57.69/6.1731  m64_256@65.95/6.0600  m512_256@103.11/6.0242
+  m64_full@230.09/6.0117  m512_full@267.25/5.9670
+```
+Identical ordering on all three roles — nine points, same sequence, no role-dependence.
+
+> **Correcting §1878's rate, in place.** §1878 quoted the rank-512 map at **833 / 811 / 916 M/nat**,
+> derived from the uncovered-position deficit times the 0.241 uncovered fraction. This run measures the
+> all-position CE directly: **832 / 769 / 913**. skip7000 and skip1200 confirm to within a unit; the
+> skip11000 figure was **5% optimistic** because the uncovered fraction is role-specific and I applied one
+> role's. The direct measurement supersedes the derived one. §1878's conclusion is unaffected.
+
+**§1870 stands as the deployable answer, with its scope now stated exactly**: it is the right fallback
+**for a full-rank-table build**, which is what §1789 deployed. It is not the right fallback at any table
+rank at or below 64, where the rank-64 map is equal or better and 37.159M cheaper.
+
+**pred_c returned 0.00e+00 for an eleventh time**, across all six table ranks and both map ranks.
+**pred_d reproduced all eighteen of §1858's published figures** within 0.002.
+
+**A reporting defect I am recording rather than hiding.** The run's banner prints `map rank 64` while the
+sweep covers `(64, 512)` — it interpolates the module-level `MAP_RANK`, which this script no longer uses
+for anything but that line. The data are unaffected and the header is the only wrong text in the log, but
+LESSON 56's stale-banner check did not catch it because it matches banners against *filename* tokens, and
+`frontier_at_map512` contains no token contradicting "64". Left as-is; noted so the log reads honestly.
+
+**Open.** With the fallback settled and the map rank now bounded by the table rank, the remaining lever on
+this program is the TABLE, and §1854's frontier prices it at 4012 M/nat at its worst step. Codex's grouped
+shared-RRR core (12/12 as of 04:35Z) claims a **48.61% map-storage saving at equal per-site multiply
+count** — which by this section applies only where the map is worth buying at all, i.e. table rank ≥ 256.
+That is the next thing worth measuring, and it is theirs.

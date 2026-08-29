@@ -1,0 +1,40 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+FRONTIER AT THE SETTLED MAP RANK | table ranks (None, 256, 64, 16, 8, 4) | map rank 64 | DISCOVERY ONLY
+  built the output-NN map and 36 tables (4s)
+
+  skip7000: live cov 3.29205 all 3.13704
+    table full   map64 all 6.01167 (230.087M) | map512 all 5.96702 (267.246M)  gain +0.04465 for +37.159M
+    table 256    map64 all 6.06004 (65.950M) | map512 all 6.02422 (103.109M)  gain +0.03582 for +37.159M
+    table 64     map64 all 6.17330 (20.531M) | map512 all 6.17310 (57.690M)  gain +0.00020 for +37.159M
+    table 16     map64 all 6.35916 (9.176M) | map512 all 6.35916 (46.335M)  gain +0.00000 for +37.159M
+    table 8      map64 all 6.47177 (7.284M) | map512 all 6.47177 (44.443M)  gain +0.00000 for +37.159M
+    table 4      map64 all 6.62422 (6.338M) | map512 all 6.62422 (43.496M)  gain +0.00000 for +37.159M
+
+  skip11000: live cov 3.09711 all 2.93450
+    table full   map64 all 5.98477 (230.087M) | map512 all 5.93645 (267.246M)  gain +0.04832 for +37.159M
+    table 256    map64 all 6.03311 (65.950M) | map512 all 5.99343 (103.109M)  gain +0.03968 for +37.159M
+    table 64     map64 all 6.15261 (20.531M) | map512 all 6.15217 (57.690M)  gain +0.00044 for +37.159M
+    table 16     map64 all 6.35149 (9.176M) | map512 all 6.35149 (46.335M)  gain +0.00000 for +37.159M
+    table 8      map64 all 6.47693 (7.284M) | map512 all 6.47693 (44.443M)  gain +0.00000 for +37.159M
+    table 4      map64 all 6.63689 (6.338M) | map512 all 6.63689 (43.496M)  gain +0.00000 for +37.159M
+
+  skip1200: live cov 3.40277 all 3.23027
+    table full   map64 all 6.00165 (230.087M) | map512 all 5.96095 (267.246M)  gain +0.04070 for +37.159M
+    table 256    map64 all 6.04238 (65.950M) | map512 all 6.00680 (103.109M)  gain +0.03558 for +37.159M
+    table 64     map64 all 6.14463 (20.531M) | map512 all 6.14435 (57.690M)  gain +0.00028 for +37.159M
+    table 16     map64 all 6.32237 (9.176M) | map512 all 6.32237 (46.335M)  gain +0.00000 for +37.159M
+    table 8      map64 all 6.43090 (7.284M) | map512 all 6.43090 (44.443M)  gain +0.00000 for +37.159M
+    table 4      map64 all 6.59044 (6.338M) | map512 all 6.59044 (43.496M)  gain +0.00000 for +37.159M
+
+  PARETO FRONTIER over table rank x map rank (cost_M, all-position CE):
+    skip7000   m64_4@6.34M/6.6242  m64_8@7.28M/6.4718  m64_16@9.18M/6.3592  m64_64@20.53M/6.1733  m512_64@57.69M/6.1731  m64_256@65.95M/6.0600  m512_256@103.11M/6.0242  m64_full@230.09M/6.0117  m512_full@267.25M/5.9670
+    skip11000  m64_4@6.34M/6.6369  m64_8@7.28M/6.4769  m64_16@9.18M/6.3515  m64_64@20.53M/6.1526  m512_64@57.69M/6.1522  m64_256@65.95M/6.0331  m512_256@103.11M/5.9934  m64_full@230.09M/5.9848  m512_full@267.25M/5.9364
+    skip1200   m64_4@6.34M/6.5904  m64_8@7.28M/6.4309  m64_16@9.18M/6.3224  m64_64@20.53M/6.1446  m512_64@57.69M/6.1444  m64_256@65.95M/6.0424  m512_256@103.11M/6.0068  m64_full@230.09M/6.0016  m512_full@267.25M/5.9610
+
+  the rank-512 map is OFF the frontier at table rank 16/8/4 -> True
+  and ON it at table rank full/256 -> True
+  and the COVERED arm is blind to the map (<1e-6) -> True  max spread 0.00e+00
+  map-64 column reproduces §1858 (18 figures) + coverage 5419 -> control True
+
+pred_a True | pred_b True | pred_c True | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/frontier_at_map512_results.json (1981.4s)
