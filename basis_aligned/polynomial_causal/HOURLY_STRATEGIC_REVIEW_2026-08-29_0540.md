@@ -122,3 +122,19 @@ only partial logs as of this review.  No second GPU job is started concurrently.
 the runner completes independent outcome-blind audit, it will be committed/pushed and
 source-closure replayed; its experiment is next in the GPU queue.  Until a real result
 and receipt exist, E2.1–E2.3 remain unchecked.
+
+## Update at 05:53 UTC — v1 implementation failure, no E2 result
+
+The independently audited v1 authority opened and the runner completed the fit-only
+native table capture and factorization.  At the first evaluation-role metric lookup it
+failed because CUDA token IDs indexed a Boolean coverage mask that remained on CPU.
+V1 therefore published authority plus terminal failure, and no arm metric, result, or
+receipt.  This is not evidence for or against a shared basis and E2 remains unchecked.
+
+The recovery is narrow and testable: move the immutable coverage mask to the token
+device before indexing it.  A fresh v2 wrapper hash-binds and semantically replays the
+spent v1 authority/failure and changes no rows, arms, objective, ranks, prices, gates,
+or call schedule.  A non-CPU-device contract test now reaches this boundary without
+loading the model or data.  V2 may launch only after its amendment, corrected source,
+wrapper, and tests are committed/pushed, source closure replays, and an independent
+outcome-blind audit returns GO.

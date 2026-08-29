@@ -11977,3 +11977,19 @@ Claude started S1882 eight seconds later; combined allocation was about 21/32.6 
 Neither process was killed.  The shared-RRR runner retains its own 16-GiB allocated
 peak and 75-minute fail-closed ceilings.  E2 remains unchecked until receipt-last
 publication and semantic replay.
+
+### 2026-08-29T05:53Z — Codex: shared-RRR v1 failed before metrics; v2 device-only recovery prepared
+
+V1 authority file SHA256 `4ac2839267abc99179fda32f161ec33eabe091384053b53ec78dca5f6b54e122`
+is preserved with terminal failure SHA256
+`1162039e29635f35978a267324b6b9f1da3333ec01b410d04e61b614664bfd88`.
+The failure occurred at the first evaluation-role coverage partition: CUDA token IDs
+indexed a CPU Boolean mask.  No arm metric, result, or receipt exists.  This is an
+implementation failure and earns no E2 evidence.
+
+A fresh v2 recovery wrapper binds and semantically replays both v1 parents.  Its only
+execution change places the immutable mask on the token device before indexing; rows,
+fit, arms, ranks, prices, gates, controls, call schedule, and claim scope remain frozen.
+Combined base/recovery focused suite passes 52 CPU tests, including a non-CPU-device
+coverage-boundary regression.  V2 awaits independent GO plus committed/pushed source
+closure; no v2 authority has opened.

@@ -53,6 +53,8 @@ RESULTS = HERE / "shared_output_rrr_real_v1_results.json"
 FAILURE = HERE / "shared_output_rrr_real_v1_failure.json"
 RECEIPT = HERE / "shared_output_rrr_real_v1_receipt.json"
 LOCK = Path("/workspace/runs/.shared_output_rrr_real_v1.lock")
+PROTOCOL_VERSION = "v1"
+RECOVERY_PARENT: dict[str, Any] | None = None
 
 ROW_ROOT = ROOT / "basis_aligned" / "bilinear_quotient" / ".rowcache"
 FIT_PATH = ROW_ROOT / "fineweb_n96_skip80.pt"
@@ -249,8 +251,10 @@ def authority_payload(
                              "peak_allocated_cuda_bytes": MAX_ALLOCATED_CUDA_BYTES},
         "authority_scope": "discovery_only_no_validation_final_or_semantic_coordinates",
     }
+    if RECOVERY_PARENT is not None:
+        protocol["recovery_parent"] = dict(RECOVERY_PARENT)
     body = {
-        "schema": "shared_output_rrr_real_v1_authority",
+        "schema": f"shared_output_rrr_real_{PROTOCOL_VERSION}_authority",
         "status": "frozen_before_any_row_tensor_or_model_load",
         "source_closure": dict(source), "input_file_sha256s": dict(inputs),
         "checkpoint": dict(checkpoint), "protocol": protocol,
@@ -325,7 +329,7 @@ def output_namespace() -> tuple[Path, ...]:
 def require_pristine_namespace() -> None:
     spent = [str(path) for path in (*output_namespace(), LOCK) if path.exists()]
     if spent:
-        raise RuntimeError(f"shared-RRR v1 namespace is spent: {spent}")
+        raise RuntimeError(f"shared-RRR {PROTOCOL_VERSION} namespace is spent: {spent}")
 
 
 def require_published_authority(value: Mapping[str, Any]) -> None:
@@ -388,7 +392,7 @@ class PhysicalCallLedger:
                     raise RuntimeError(f"shared-RRR compiled {arm}/{kind} census changed")
         outer_returns = FIT_OUTER_CALLS + EVAL_CALLS_PER_ARM + len(arm_names) * EVAL_CALLS_PER_ARM
         return {
-            "schema": "shared_output_rrr_real_v1_call_ledger",
+            "schema": f"shared_output_rrr_real_{PROTOCOL_VERSION}_call_ledger",
             "registered": expected_call_schedule(),
             "native_outer": dict(self.outer),
             "native_sites": {
@@ -701,6 +705,11 @@ def _finish_metric(metric: Mapping[str, Sequence[float | int]]) -> dict[str, Any
     return result
 
 
+def coverage_partition_mask(covered_mask: torch.Tensor, tokens: torch.Tensor) -> torch.Tensor:
+    """Return the scored input-token coverage partition on the token device."""
+    return covered_mask.to(tokens.device)[tokens[:, SCORE_START:]].reshape(-1)
+
+
 def score_role(model: torch.nn.Module, rows: torch.Tensor, covered_mask: torch.Tensor,
                attention, mlp, *, after_outer, device: str) -> dict[str, Any]:
     metric = _empty_metric()
@@ -713,7 +722,7 @@ def score_role(model: torch.nn.Module, rows: torch.Tensor, covered_mask: torch.T
             logits[:, SCORE_START:].reshape(-1, logits.shape[-1]),
             targets[:, SCORE_START:].reshape(-1), reduction="none",
         ).reshape(tokens.shape[0], SCORED_PER_ROW)
-        mask = covered_mask[tokens[:, SCORE_START:]].reshape(-1)
+        mask = coverage_partition_mask(covered_mask, tokens)
         flat = losses.double().reshape(-1)
         for label, choose in (("covered", mask), ("uncovered", ~mask)):
             metric[label][0] += float(flat[choose].sum())
@@ -818,7 +827,7 @@ def semantic_validate_call_ledger(value: Mapping[str, Any]) -> None:
         "compiled_sites", "outer_returns", "logit_returns", "optimizer_calls", "backward_calls",
     }
     if set(value) != expected_keys or value.get("schema") != (
-        "shared_output_rrr_real_v1_call_ledger"
+        f"shared_output_rrr_real_{PROTOCOL_VERSION}_call_ledger"
     ) or value.get("registered") != expected_call_schedule() or value.get("native_outer") != {
         "fit": FIT_OUTER_CALLS, "native_reference": EVAL_CALLS_PER_ARM,
     } or value.get("compiled_outer") != {
@@ -1012,7 +1021,7 @@ def execute_discovery(frozen: Mapping[str, Any], *, device: str = "cuda") -> dic
     table_device = table.to(device)
     token_to_row = torch.full((VOCAB,), -1, dtype=torch.long)
     token_to_row[covered] = torch.arange(COVERAGE)
-    covered_mask = token_to_row >= 0
+    covered_mask = (token_to_row >= 0).to(device)
 
     physical = {kind: Counter(counts) for kind, counts in fit_physical.items()}
     handles = []
@@ -1065,7 +1074,7 @@ def execute_discovery(frozen: Mapping[str, Any], *, device: str = "cuda") -> dic
         raise RuntimeError("shared-RRR model state changed")
     elapsed, allocated = require_resources(started)
     result = {
-        "schema": "shared_output_rrr_real_v1_results",
+        "schema": f"shared_output_rrr_real_{PROTOCOL_VERSION}_results",
         "status": "discovery_complete_no_validation_or_generalization_authority",
         "authority_sha256": frozen["authority_sha256"],
         "coverage": COVERAGE, "covered_tokens_sha256": tensor_sha256(covered),
@@ -1100,7 +1109,9 @@ def semantic_validate_result(value: Mapping[str, Any], frozen: Mapping[str, Any]
         "elapsed_seconds", "maximum_allocated_cuda_bytes", "optimizer_calls",
         "backward_calls", "authority_scope",
     }
-    if set(value) != required or value["schema"] != "shared_output_rrr_real_v1_results" or (
+    if set(value) != required or value["schema"] != (
+        f"shared_output_rrr_real_{PROTOCOL_VERSION}_results"
+    ) or (
         value["authority_sha256"] != frozen["authority_sha256"]
     ) or value["status"] != "discovery_complete_no_validation_or_generalization_authority" or (
         value["coverage"] != COVERAGE
@@ -1171,7 +1182,7 @@ def semantic_validate_result(value: Mapping[str, Any], frozen: Mapping[str, Any]
 
 def receipt_payload(frozen: Mapping[str, Any], result: Mapping[str, Any]) -> dict[str, Any]:
     body = {
-        "schema": "shared_output_rrr_real_v1_receipt",
+        "schema": f"shared_output_rrr_real_{PROTOCOL_VERSION}_receipt",
         "status": "complete_discovery_receipt_last",
         "authority_path": str(AUTHORITY), "authority_file_sha256": file_sha256(AUTHORITY),
         "authority_sha256": frozen["authority_sha256"],
@@ -1210,7 +1221,7 @@ def publish_failure(claim: RunClaim, error: BaseException) -> None:
     if RECEIPT.exists() or FAILURE.exists():
         return
     payload = {
-        "schema": "shared_output_rrr_real_v1_failure",
+        "schema": f"shared_output_rrr_real_{PROTOCOL_VERSION}_failure",
         "status": "terminal_failure_no_receipt",
         "error_type": type(error).__name__, "error": str(error),
         "authority_exists": AUTHORITY.exists(), "results_exists": RESULTS.exists(),

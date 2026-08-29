@@ -156,6 +156,12 @@ language that is cheaper and easier to name?
 - [ ] **E2.1 Exact joint-RRR sweep.** Run the implemented simultaneous reduced-rank
   regression at shared output ranks 64/128/256/512.  Compare residual energy and
   held-out CE with 36 independent maps at both matched rank and matched stored floats.
+
+  **Execution update, 05:53 UTC:** v1 spent its authority and failed before the first
+  evaluation metric because CUDA token IDs indexed a CPU coverage mask.  It produced
+  no scientific result or receipt, so this checkbox remains open.  A fresh v2 recovery
+  changes only that device placement, binds the exact v1 authority/failure, and must
+  pass a new source closure and independent audit before launch.
 - [ ] **E2.2 One dictionary versus two.** Compare one global output basis with separate
   attention and MLP output bases at equal total rank/storage.  This tests whether the
   apparent sharing is architectural or merely caused by the common residual space.
