@@ -1,0 +1,40 @@
+WHAT WE BUILT | 3 arms x 2 coverage(s) | DISCOVERY ONLY
+
+########## COVERAGE 5419 ##########
+  [bqlib] coverage 5419 from fineweb_n96_skip80.pt: 36 tables, neighbour index and map solver built (4s)
+  [bqlib] cache HIT  live     skip7000
+  [bqlib] cache HIT  live     skip11000
+  [bqlib] cache HIT  live     skip1200
+  [bqlib] cache HIT  map64    skip7000
+  [bqlib] cache HIT  map64    skip11000
+  [bqlib] cache HIT  map64    skip1200
+  [bqlib] cache HIT  mix30m640 skip7000
+  [bqlib] cache HIT  mix30m640 skip11000
+  [bqlib] cache HIT  mix30m640 skip1200
+  [bqlib] computed   map512   skip7000 (1.4s)
+  [bqlib] computed   map512   skip11000 (1.3s)
+  [bqlib] computed   map512   skip1200 (0.7s)
+
+########## COVERAGE 16110 ##########
+  [bqlib] coverage 16110 from fineweb_n480_skip80.pt: 36 tables, neighbour index and map solver built (5s)
+  [bqlib] cache HIT  live     skip7000
+  [bqlib] cache HIT  live     skip11000
+  [bqlib] cache HIT  live     skip1200
+  [bqlib] cache HIT  map64    skip7000
+  [bqlib] cache HIT  map64    skip11000
+  [bqlib] cache HIT  map64    skip1200
+  [bqlib] cache HIT  mix30m640 skip7000
+  [bqlib] cache HIT  mix30m640 skip11000
+  [bqlib] cache HIT  mix30m640 skip1200
+  [bqlib] computed   map512   skip7000 (1.4s)
+  [bqlib] computed   map512   skip11000 (1.3s)
+  [bqlib] computed   map512   skip1200 (0.7s)
+
+  the build still serves covered inputs >=5pp better than uncovered ones  -> False
+  but the covered-vs-uncovered gap is narrower than the deployed design was  -> True
+  and the unseen-target bucket is still the worst of the five  -> True
+  derived controls -> True   coverage_exact=True  inert_pairs_are_inert=True  differing_pairs_do_move=True  buckets_partition=True  live_identical=True  ref_converged=True
+  reference deviations: converged 0.000000
+
+pred_a False | pred_b True | pred_c True | pred_z True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/what_we_built_results.json (193.8s)

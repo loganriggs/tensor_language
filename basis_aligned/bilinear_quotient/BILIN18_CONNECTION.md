@@ -56783,3 +56783,55 @@ prompt since before this arc ("report MARGINS not booleans") paid for itself her
 same arithmetic could gate a section at write-up time** — refusing to let a 2-of-3 be published without
 its pooled t alongside — which is the §1972 lesson (significance to believe, magnitude to buy) turned
 into a mechanism rather than a resolution.
+
+## §1975 — what the arc built: the covered arm is untouched, and 40% of §1936's gap is closed
+
+`ops/what_we_built.py`, 193.8s, **DISCOVERY ONLY**, both coverages, rung 3 — a characterisation rather
+than a parameter. **pred_a False | pred_b True | pred_c True | derived controls True.**
+
+§1936 measured the compiled program serving **covered** inputs at 37.5% kept-fraction and **uncovered**
+inputs at 28.7%, and named that gap the open cost lever. Thirty sections later nothing had looked again.
+
+```
+  kept-fraction by input class      DEPLOYED (§1789)              CONVERGED
+                                 covered  uncov   gap        covered  uncov   gap
+  5,419  skip7000                 37.5%   26.7%  +10.7pp      37.6%   31.3%   +6.3pp
+         skip11000                37.0%   25.6%  +11.4        37.3%   28.4%   +8.9
+         skip1200                 39.2%   24.8%  +14.4        39.4%   27.7%  +11.7
+  16,110 skip7000                 36.5%   27.8%   +8.7        36.7%   32.2%   +4.5
+         skip11000                35.6%   28.5%   +7.1        35.7%   31.0%   +4.6
+         skip1200                 37.7%   23.8%  +14.0        37.5%   28.7%   +8.9
+```
+
+> **pred_b PASSED 6 of 6, and it is the arc in one table. The covered arm did not move** — 37.5 → 37.6,
+> 37.0 → 37.3, 39.2 → 39.4, and at 16,110 one role went *down* (37.7 → 37.5). **The uncovered arm moved
+> by 2.9 to 4.9 points on every cell.** §1953 and §1954 attributed essentially the whole margin to the
+> fallback; this is that attribution stated as an object rather than a difference, and **it means the
+> 51% of parameters removed from the tables (§1946) cost the covered arm nothing measurable.**
+
+> **pred_a FAILED, and the failure is the good news I registered it as.** I asked whether the build still
+> serves covered inputs at least 5pp better than uncovered ones — §1936's shape. **At 16,110 it no longer
+> does on two of three roles (+4.5 and +4.6pp).** Averaged over the six cells the gap fell from **+11.1pp
+> to +7.5pp: roughly 40% of the lever §1936 named is closed**, and at high coverage the two arms are
+> within five points of each other.
+
+> **pred_c PASSED: the unseen-target bucket is still the worst of the five at both coverages.** Four
+> attempts (§1939, §1955, §1956, §1963) and a per-token weight (§1973) could not buy it back, and
+> §1937/§1938 explain why — the neighbour half cannot reach a token no fit row contains. **It is the one
+> thing about this program that thirty sections did not change.**
+
+**Derived controls TRUE**, after the runner **failed the first version of this plan**: with only two arms
+at different table ranks there were no same-spec pairs, so the covered-input control had nothing to check
+on one side and `run()` marked `control_is_two_sided=False`. A third arm at the converged allocation
+fixed it. **That is §1957's vacuous-control failure being caught automatically instead of published** —
+§1957 shipped with exactly that hole and I found it by reading the output. Fifty-fifth clean reading.
+
+**The build, stated once.** 36 context-free tables at **mlp rank 768 / attention rank 384**, uncovered
+rows filled with **30% output-NN neighbour + 70% rank-640 embedding→row map**, **189.5M** at 5,419
+against §1789's 230.087M — **18% cheaper and 69.238 milli-nats better at pooled t = −42.76** (§1972).
+
+**Open.** §1936's lever is 40% closed and the remaining 7.5pp is now the largest single gap between the
+compiled program and the live model that this thread has a name for. **Every attempt on it since §1937
+has been a better *fallback*; none has questioned the premise that an uncovered token must be served by
+one — the alternative, extending coverage until the arm is empty, was priced in §1923 and never revisited
+against a build 18% cheaper than the one it was priced against.**

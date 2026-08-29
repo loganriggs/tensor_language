@@ -23,7 +23,10 @@ A384 = {'mlp': 768, 'attn': 384}
 LO, HI = 'c5419', 'c16110'
 DEP, CONV = 'deployed', 'converged'
 
-PLAN = [('map64', None, DEP), ('mix30m640', A384, CONV)]
+# a second arm at the SAME table rank as CONV, so the derived covered-input control has a same-spec
+# pair to check and neither half is vacuous (§1957). The runner FAILED the first version of this plan
+# for exactly that, which is the protection working.
+PLAN = [('map64', None, DEP), ('mix30m640', A384, CONV), ('map512', A384, 'spec_partner')]
 
 
 def _kfc(x, cov, r, arm, cls):
