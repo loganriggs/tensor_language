@@ -57190,7 +57190,13 @@ alone, costs 2.0 nats.** §1908's alignment×magnitude instrument decomposes a s
 direction and size and would say which of the two the compiled mlp4 row gets wrong; it has never been
 pointed at an MLP.
 
-## §1983 — it is context-freeness itself, not the table's content; and my third predicate did not test what it said
+## §1983 — it is context-freeness itself, not the table's content **[SCOPED BY §2012: at the ceiling only]**
+
+**SCOPING NOTE (§2012).** The measurement below is correct and the conclusion holds **in the unrepaired
+configuration**, where the damage sits at the 10.7-nat ceiling and nothing the MLP writes can matter.
+**Repair the interface — compile attention 5 and 6 — and the same table's content is worth 1.408 / 1.469 /
+1.436 nats**, the largest single term in that arm. "Content is irrelevant" is a statement about the
+ceiling, not about the site.; and my third predicate did not test what it said
 
 `ops/is_mlp4_just_fragile.py`, **4.5s** warm (68.7s cold), **DISCOVERY ONLY**, 5,419, rung 3 — §1982's
 open question, and the deflationary control that had to pass before §1982's pair claim could stand.
@@ -58397,3 +58403,48 @@ corrected instrument has not been asked is whether the high-dimensionality is a 
 of every site: **the same content-by-rank curve for attention 5, whose content is negative, and for a
 compiled mlp2, whose content §1983 measured at essentially zero**, would say whether "content needs rank"
 is specific or generic — the §1995 control, one level up.
+
+## §2012 — once the interface is repaired, the compiled MLP's content is worth 1.4 nats, not 0.006
+
+`ops/is_high_dimensional_content_generic.py`, **240.5s**, **DISCOVERY ONLY**, 5,419, rung 3 — §2011's open
+question, the §1995 control one level up. **pred_a True | pred_b True | pred_c True | derived controls
+True.** Reference deviation 0.000000.
+
+```
+  share of each site's CONTENT recovered by rank, measured from its own mean row, inside mlp2+attn5,6
+                       content     r1       r16      r64      r128
+  mlp2  skip7000       1.408      8.1%     44.0%    74.8%    85.8%
+        skip11000      1.469      8.4%     45.1%    75.7%    86.2%
+        skip1200       1.436      8.1%     43.7%    74.9%    85.9%
+  attention 6 (§2011)  0.212    −12.7%     21.9%    58.3%    81.1%
+```
+
+> **pred_c PASSED 3/3 by 22.1 / 24.3 / 26.7 points: the high-dimensionality is NOT generic.** A compiled
+> mlp2's content curve is far steeper than attention 6's at every rank — rank 1 buys 8% where attention 6
+> buys **−13%**, rank 16 buys 44% where attention 6 buys 22%. **Attention 6's content is harder to
+> compress than a compiled MLP's, and its low ranks are actively harmful where the MLP's are merely weak.**
+> The §1995 control passes: this one is specific.
+
+> **And the denominator itself is the larger finding. mlp2's content inside the repaired arm is 1.408 /
+> 1.469 / 1.436 nats** — against attention 6's 0.212, and against **0.006** for a *lone* compiled mlp4
+> (§1983). **Six and a half times attention 6's, and two hundred times §1983's.**
+
+**Which scopes §1983, the section this whole line started from.** §1983 showed a mean row at mlp4 costs
+10.675 against the compiled table's 10.669 and concluded the table's *content* was irrelevant. **That is
+true only at the ceiling.** At 10.7 nats the interface is broken and nothing the MLP writes can matter;
+**repair the interface with attention 5 and 6 and the same table's content becomes worth 1.4 nats** — the
+single largest term left in the arm. §1983's measurement stands and its conclusion is now bounded to the
+unrepaired configuration, marked in the ledger and the registry.
+
+**The account, restated.** A compiled MLP below attention 6 does two separable things. **Broken** (no
+attention 5 or 6): costs up to the 10.7-nat ceiling, content irrelevant, the interface swamps everything.
+**Repaired** (attention 5 and 6 compiled): costs 1.5–2.2 nats, of which **content is the dominant term** —
+1.4 of it — and attention 6 contributes 0.2 more. **The arc from §1983 to §2012 is one long lesson that
+which quantity dominates depends on which configuration you are in, and every headline that forgot to say
+which one has needed scoping.**
+
+**Open.** mlp2's content is 1.4 nats and its rank curve reaches 86% at rank 128 — the first quantity in
+this line large enough to be worth *buying* rather than explaining. §1947's price rule is 0.010 nats per
+100M parameters, and a rank-128 MLP table is a different price from a rank-768 one. **Whether the repaired
+configuration changes the shipped build's allocation is a costing question the ledger has not asked since
+§1959.**
