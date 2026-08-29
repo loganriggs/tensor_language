@@ -54813,3 +54813,74 @@ is exactly the token whose neighbour row will be wrong. That similarity is alrea
 neighbour index is built and thrown away. **Routing per input token on the neighbour's cosine — take the
 neighbour row when it is close, the map row when it is not — is the first hybrid this thread can actually
 build, and it has never been tried.**
+
+## §1939 — the deployed fallback is strictly dominated for +0.09M: cosine-routed nn75 beats it on BOTH instruments, 3/3
+
+`ops/cosine_routed_fallback.py`, 215.6s, **DISCOVERY ONLY**, 5,419 coverage, rung 3 — §1938's open
+question. **pred_a False (1/3) | pred_b False (0/3) | pred_c True (3/3) | pred_d True.** The two
+predicates about the routing *mechanism* failed; the one about the *deployment*, which I registered as
+the less likely outcome, passed on every role.
+
+LESSON 74 forbids routing on the target bucket. The neighbour's failure has an input-side signature
+instead — a token whose nearest covered neighbour is far in output-distribution space. That cosine is
+computed when the index is built and thrown away (LESSON 75, twice in this lineage). Arms route the top
+75 / 50 / 25% of uncovered types **by cosine** to the neighbour row and the rest to the deployed rank-64
+map row; cost ~5.40M, a **0.04% premium on the 230.087M deployed build**.
+
+```
+                POOLED top-1 (vs deployed)      POOLED CE (vs deployed)          cost
+    nn        14.17/14.66/14.24 (+.61/+.41/+.60)  6.01897/6.00091/6.00733 (+.0073/+.0161/+.0057)  ~0.09M
+    nn75      14.02/14.69/14.12 (+.47/+.44/+.47)  6.00963/5.98385/5.99919 (-.0020/-.0009/-.0025)   5.40M
+    nn50      13.87/14.51/13.97 (+.31/+.26/+.33)  6.01173/5.97897/5.99086 (+.0001/-.0058/-.0108)   5.40M
+    nn25      13.72/14.47/13.85 (+.17/+.23/+.20)  6.00442/5.97466/5.99694 (-.0073/-.0101/-.0047)   5.40M
+    map64     13.55/14.25/13.64      DEPLOYED     6.01167/5.98477/6.00165      DEPLOYED            5.31M
+    map512    13.77/14.37/13.72 (+.22/+.12/+.08)  5.96702/5.93645/5.96095 (-.0447/-.0483/-.0407)  42.47M
+```
+
+> **pred_c PASSED 3/3 and it is the deployable result: §1789's fallback is strictly dominated.** `nn75`
+> beats the deployed design on **pooled top-1 by +0.47 / +0.44 / +0.47pp AND on pooled CE by −0.0020 /
+> −0.0009 / −0.0025 nats**, on every role, for **+0.09M on a 230.087M build**. §1937 and §1938 left the
+> fallback choice as a genuine objective fork; **this closes it — there is a build that is better under
+> both objectives at once**, and the deployed one is not on the frontier under either. `nn25` also
+> dominates 3/3 and `nn50` 2/3.
+
+> **The CE half of that domination is small and I am quoting it as such: 0.9 to 2.5 milli-nats**, against
+> the map64 → map512 step's 40–48 milli-nats. It replicates 3/3 in sign across three held-out roles and
+> the evaluation is deterministic, but it is a 2–6% effect on the CE axis and I have not put a paired
+> standard error on it. The top-1 half is comfortable — +0.44 to +0.47pp is ~160 tokens per role.
+
+> **pred_a FAILED 1/3: routing does not beat pure-neighbour on top-1.** On the uncovered arm top-1 is
+> essentially monotone decreasing in the map fraction (14.68 → 14.09 → 13.44 → 12.82 → 12.14 at
+> skip7000); only skip11000 shows `nn75` edging `nn` (14.36 vs 14.25). **For top-1 alone the right answer
+> is still all-neighbour**, and the routed arms buy their CE back by giving top-1 away.
+
+> **pred_b FAILED 0/3, and the failure is specific: the cosine does not find the unseen-target case.**
+> Routing a quarter of types to the map recovers only **21.6 / 30.8 / 24.2%** of the neighbour's
+> unseen-bucket CE deficit; routing three quarters recovers 53.4 / 56.7 / 46.1%. **Recovery is roughly
+> proportional to the fraction routed** — which is what a signal carrying *no* information about the
+> unseen case would give. §1938's mechanism (the neighbour cannot reach a target no fit row contains) is
+> not detectable from the input token's neighbour distance.
+
+> **But the cosine is not noise, and pred_b's failure hides that.** Post-hoc: **every routed arm beats
+> the linear interpolation of its two endpoints, 12 of 12 cells, by +0.006 to +0.014 nats**, and 11 of 12
+> come in **below both endpoints** — `nn75` at skip7000 scores 6.00963 against endpoints 6.01897 and
+> 6.01167. A per-token split can only beat both endpoints if the ranking correlates with which form is
+> better for that token. **The cosine carries real signal about which fallback to use; it just is not the
+> unseen-target signal I predicted.** Flagged as post-hoc, not banked.
+
+**pred_d PASSED**: coverage exactly 5,419; every arm inert at covered inputs; counts partition; the routed
+arms sent the intended fraction to within **0.0006**; the `nn` and `map64` arms reproduced §1937's
+published uncovered top-1 to **0.004pp** and §1938's published pooled CE to **0.00000** — every digit; and
+live per-cell top-1 and CE identical across all six arms — twenty-fifth clean reading.
+
+**Where the frontier now stands at 5,419.** `nn75` (5.40M) beats `map512` (42.47M) on top-1 by +0.25 /
++0.32 / +0.40pp and loses to it on CE by 0.038–0.047 nats, at **7.9× lower cost**. So the objective fork
+survives *between the two good builds* — it just no longer includes the deployed one. **§1789's fallback
+component should be replaced by `nn75` under any objective; the choice between `nn75` and `map512` is a
+real 7.9×-cost-for-0.04-nats decision.**
+
+**Open.** Everything here is at 5,419. §1934 is the precedent: the map's bucket gain was measured at
+5,419 and then confirmed at 16,110, where it shrank but held. A domination margin of 1–2 milli-nats has
+much less room to shrink, and the uncovered arm is ~10% of positions at 16,110 against ~24% here. **The
+replication at 16,110 — with a paired standard error on the CE margin this time — is the next run, and it
+is the one that decides whether this is a deployment recommendation or a 5,419-only curiosity.**
