@@ -58066,3 +58066,42 @@ per-site story predicts, and both are what a shared-interface story predicts.**
 0.166 is the smallest quantity this line has rested a claim on. **Three sites would say whether the
 super-additivity grows with the number of compiled MLPs or saturates**, which is the difference between a
 shared interface and a shared interface with limited capacity.
+
+## §2004 — there is a damage CEILING near 10.7 nats: the interface can only be broken once
+
+`ops/does_the_repair_saturate.py`, **51.2s**, **DISCOVERY ONLY**, 5,419, rung 3 — §2003's open question.
+**pred_a True | pred_b True | pred_c False | derived controls True.** All three reference deviations
+0.000000.
+
+```
+  nats, 5,419        mlp2    mlp3     mlp4   |  mlp2+3   sum(2,3)  |  mlp2+3+4   sum(2,3,4)
+  lone damage        4.813   6.574   10.669  |  10.542    11.388   |   10.701      22.057
+  with attention 5,6 1.971   1.996    1.555  |   1.944              |    2.176
+```
+
+> **pred_b PASSED 3/3 and understates what it found. Three compiled MLPs cost 10.701 against a sum of
+> 22.057 — sub-additive by 11.36 nats.** More to the point: **mlp4 alone costs 10.669.** Adding mlp2 and
+> mlp3 on top of it costs **0.032 nats.**
+
+> **pred_c FAILED on all three roles, and the model it was testing is what failed.** I registered that the
+> repair's super-additive excess would *grow* with a third site. It collapses — from +0.528 to **−9.31** —
+> because the naive prediction it is measured against assumes single-site gains add, and once damage
+> saturates they cannot. **The excess statistic is meaningless above the ceiling, and §2003's +0.528 was
+> measured just below it.**
+
+**The ceiling, with a fourth point already in the ledger.** Compiling one MLP (mlp4) costs **10.669**; two
+(mlp2+mlp3) **10.542**; three (mlp2+3+4) **10.701**; and §1981's `below_mlp` arm — **six** compiled MLPs,
+layers 0–5 — cost **10.688**. **Four configurations spanning one to six sites, all within 0.16 nats of each
+other.** §1981 called it "one forbidden configuration"; §2004 gives it a value. **Context-free rows
+arriving at a live attention 6 cost about 10.7 nats, and it does not matter how many of them there are.**
+
+**Which retro-fits §2003's two signs.** Damage looked sub-additive at two sites because the pair was
+already near the ceiling; repair looked super-additive for the same reason. **Neither was a property of the
+interface being shared — both were the ceiling seen from below**, and the third site made that visible.
+§2003's finding stands as measured and its *explanation* is now the ceiling, not shared repair. I have
+marked §2003's registry entry.
+
+**Open.** If the ceiling is what a fully context-free input to attention 6 costs, then **any** set
+containing mlp4 and no attention 5 or 6 should sit at it, and sets that reduce what reaches layer 6 should
+fall below — §1981's `below_all`, which adds attention 0–5, measured **9.266**, which is under the ceiling
+and unexplained by it.
