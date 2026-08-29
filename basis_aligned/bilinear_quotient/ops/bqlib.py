@@ -110,6 +110,7 @@ class Program:
       'nn<P>'                cosine-routed: the top P% of uncovered types by neighbour cosine take the
                              neighbour row, the rest take the rank-64 map row (S1939)
       'nn<P>m<R>'            the same, with the routed-out remainder on a rank-R map instead
+      'mix<A>m<R>'           BLEND in row space: A% neighbour + (100-A)% rank-R map, every type
       ('table', R, arm)      the same, with every table truncated to rank R first
     """
 
@@ -240,6 +241,22 @@ class Program:
                                            self._map(tc, st, mrank, table_rank))
                 out[st] = fr
             return out
+        if name.startswith('mix'):
+            # mix<A>m<R>: BLEND the two forms in row space, A% neighbour + (100-A)% rank-R map, for
+            # every uncovered type. Routing (nn<P>m<R>) gives each token one form or the other;
+            # blending gives every token some of both. Different mechanism, same two ingredients.
+            spec = name[3:]
+            astr, mrank = (spec.split('m', 1) if 'm' in spec else (spec, '64'))
+            if not (astr.isdigit() and mrank.isdigit()):
+                raise ValueError(f'unknown arm {name!r}')
+            al, mrank = int(astr) / 100.0, int(mrank)
+            for st in SITES:
+                fr = torch.zeros(V, D, device=DEV)
+                fr[self.tk] = tc[st]
+                fr[self.unc] = (al * tc[st][self.nnrow[self.unc]]
+                                + (1.0 - al) * self._map(tc, st, mrank, table_rank))
+                out[st] = fr
+            return out
         if name.startswith('map'):
             rank = int(name[3:])
             for st in SITES:
@@ -259,7 +276,7 @@ class Program:
         elif name.startswith('map'):
             fb = 36 * int(name[3:]) * 2 * D
         else:
-            spec = name[2:]
+            spec = name[3:] if name.startswith('mix') else name[2:]
             mr = int(spec.split('m', 1)[1]) if 'm' in spec else 64
             fb = 36 * mr * 2 * D + int(self.unc.numel()) * 2
         return tab + fb

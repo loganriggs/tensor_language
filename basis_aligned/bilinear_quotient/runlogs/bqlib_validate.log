@@ -1,36 +1,61 @@
 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
 BQLIB ACID TEST | reproducing §1940 from the library | INFRASTRUCTURE VALIDATION
   [bqlib] coverage 5419 from fineweb_n96_skip80.pt: 36 tables, neighbour index and map solver built (4s)
-  [bqlib] computed   live     skip7000 (1.3s)
-  [bqlib] computed   live     skip11000 (1.3s)
-  [bqlib] computed   live     skip1200 (0.6s)
-  [bqlib] computed   nn       skip7000 (1.3s)
-  [bqlib] computed   nn       skip11000 (1.3s)
-  [bqlib] computed   nn       skip1200 (0.6s)
-  [bqlib] computed   nn75     skip7000 (1.6s)
-  [bqlib] computed   nn75     skip11000 (1.6s)
-  [bqlib] computed   nn75     skip1200 (0.8s)
-  [bqlib] computed   map64    skip7000 (4.5s)
-  [bqlib] computed   map64    skip11000 (1.3s)
-  [bqlib] computed   map64    skip1200 (0.7s)
-  [bqlib] computed   map512   skip7000 (3.8s)
-  [bqlib] computed   map512   skip11000 (1.3s)
-  [bqlib] computed   map512   skip1200 (0.7s)
+  [bqlib] cache HIT  live     skip7000
+  [bqlib] cache HIT  live     skip11000
+  [bqlib] cache HIT  live     skip1200
+  [bqlib] cache HIT  nn       skip7000
+  [bqlib] cache HIT  nn       skip11000
+  [bqlib] cache HIT  nn       skip1200
+  [bqlib] cache HIT  nn75     skip7000
+  [bqlib] cache HIT  nn75     skip11000
+  [bqlib] cache HIT  nn75     skip1200
+  [bqlib] cache HIT  map64    skip7000
+  [bqlib] cache HIT  map64    skip11000
+  [bqlib] cache HIT  map64    skip1200
+  [bqlib] cache HIT  map512   skip7000
+  [bqlib] cache HIT  map512   skip11000
+  [bqlib] cache HIT  map512   skip1200
   [bqlib] coverage 16110 from fineweb_n480_skip80.pt: 36 tables, neighbour index and map solver built (5s)
-  [bqlib] computed   live     skip7000 (1.3s)
-  [bqlib] computed   live     skip11000 (1.3s)
-  [bqlib] computed   live     skip1200 (0.6s)
-  [bqlib] computed   nn       skip7000 (1.3s)
-  [bqlib] computed   nn       skip11000 (1.3s)
-  [bqlib] computed   nn       skip1200 (0.7s)
-  [bqlib] computed   nn75     skip7000 (1.4s)
-  [bqlib] computed   nn75     skip11000 (1.3s)
-  [bqlib] computed   nn75     skip1200 (0.7s)
-  [bqlib] computed   map64    skip7000 (3.2s)
-  [bqlib] computed   map64    skip11000 (1.3s)
-  [bqlib] computed   map64    skip1200 (0.7s)
-  [bqlib] computed   map512   skip7000 (3.2s)
-  [bqlib] computed   map512   skip11000 (1.3s)
-  [bqlib] computed   map512   skip1200 (0.7s)
+  [bqlib] cache HIT  live     skip7000
+  [bqlib] cache HIT  live     skip11000
+  [bqlib] cache HIT  live     skip1200
+  [bqlib] cache HIT  nn       skip7000
+  [bqlib] cache HIT  nn       skip11000
+  [bqlib] cache HIT  nn       skip1200
+  [bqlib] cache HIT  nn75     skip7000
+  [bqlib] cache HIT  nn75     skip11000
+  [bqlib] cache HIT  nn75     skip1200
+  [bqlib] cache HIT  map64    skip7000
+  [bqlib] cache HIT  map64    skip11000
+  [bqlib] cache HIT  map64    skip1200
+  [bqlib] cache HIT  map512   skip7000
+  [bqlib] cache HIT  map512   skip11000
+  [bqlib] cache HIT  map512   skip1200
   [bqlib] cache HIT  map64    skip7000
   [bqlib] cache STALE map64    skip7000 -- fingerprint changed, recomputing
+  [bqlib] computed   map64    skip7000 (40.1s)
+
+  === c5419 ===
+    skip7000   nn t1 14.17% CE 6.01897  nn75 t1 14.02% CE 6.00963  map64 t1 13.55% CE 6.01167  map512 t1 13.77% CE 5.96702
+               nn75-map64 paired t -0.54 (§1940 published -0.54)
+    skip11000  nn t1 14.66% CE 6.00091  nn75 t1 14.69% CE 5.98385  map64 t1 14.25% CE 5.98477  map512 t1 14.37% CE 5.93645
+               nn75-map64 paired t -0.23 (§1940 published -0.23)
+    skip1200   nn t1 14.24% CE 6.00733  nn75 t1 14.12% CE 5.99919  map64 t1 13.64% CE 6.00165  map512 t1 13.72% CE 5.96095
+               nn75-map64 paired t -0.44 (§1940 published -0.44)
+
+  === c16110 ===
+    skip7000   nn t1 14.25% CE 5.90344  nn75 t1 14.18% CE 5.90078  map64 t1 13.93% CE 5.90522  map512 t1 13.98% CE 5.88338
+               nn75-map64 paired t -1.90 (§1940 published -1.90)
+    skip11000  nn t1 14.79% CE 5.85640  nn75 t1 14.82% CE 5.84696  map64 t1 14.71% CE 5.85230  map512 t1 14.70% CE 5.82928
+               nn75-map64 paired t -2.04 (§1940 published -2.04)
+    skip1200   nn t1 14.24% CE 5.90150  nn75 t1 14.18% CE 5.89513  map64 t1 14.01% CE 5.88575  map512 t1 14.12% CE 5.86044
+               nn75-map64 paired t +2.59 (§1940 published +2.59)
+
+  pooled top-1 reproduces §1940 (max dev 0.0048pp) -> True
+  pooled CE reproduces §1940 (max dev 0.000002 nats) -> True
+  paired t reproduces §1940 (max dev 0.005) -> True
+  arms inert at covered inputs True, live identical 0.0e+00, routefrac dev 0.7500, warm key HIT and matched True, corrupt fingerprint rejected and recomputed correctly True, stats {'hit': 31, 'miss': 1, 'stale': 1, 'unreadable': 0} -> False
+
+pred_a True | pred_b True | pred_c True | pred_d False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/bqlib_validate_results.json (52.1s)

@@ -54940,3 +54940,52 @@ briefly claimed it was, on a margin its own instrument could not resolve.**
 sign can be three draws from the same near-zero effect") and I published the headline anyway, then queued
 the test. The right order was the other one: **the significance instrument cost 52 extra seconds inside a
 run I was already doing.** Written up as LESSON 78.
+
+## §1941 — routing the remainder to a rank-512 map DOES strictly beat the deployed design, with the t bar §1939 lacked
+
+`ops/close_the_fork.py`, **45.4s**, **DISCOVERY ONLY**, 5,419 coverage, rung 3 — §1940's open question,
+and the first experiment written against `ops/bqlib.py` (110 lines against §1940's 431, and 45.4s against
+267.7s, with 12 of its 15 scoring passes served from cache). **pred_a True (3/3) | pred_b False (0/3) |
+pred_c True (3/3) | pred_d True.**
+
+§1939's `nn75` routes its non-neighbour quarter to a rank-**64** map purely because it was built as a
+cheap variant of the deployed design — an accident of lineage. §1938 showed the map's CE strength lives
+in the unseen-target bucket, and rank-512 is where that strength is. `nn75m512` is the same router with a
+rank-512 map on the routed-out quarter.
+
+```
+              top-1 (7000/11000/1200)      CE                        cost
+  nn75m512    14.12 / 14.74 / 14.13   5.99132 / 5.96390 / 5.97729   267.335M
+  map512      13.77 / 14.37 / 13.72   5.96702 / 5.93645 / 5.96095   267.246M
+  nn75        14.02 / 14.69 / 14.12   6.00963 / 5.98385 / 5.99919   230.176M
+  map64       13.55 / 14.25 / 13.64   6.01167 / 5.98477 / 6.00165   230.087M   DEPLOYED
+```
+
+> **pred_c PASSED 3/3, and it is §1939's retracted claim finally established — by a different build.**
+> `nn75m512` beats the deployed design on **top-1 by +0.56 / +0.49 / +0.48pp** and on **CE by −0.0204 /
+> −0.0209 / −0.0244 nats at paired t = −5.17 / −4.95 / −4.10.** That is a strict domination on both
+> instruments with the significance bar attached up front (LESSON 78). **§1939 claimed this for `nn75` at
+> +0.09M and was wrong; it is true for `nn75m512` at +37.2M.** The distinction matters: the cheap hybrid
+> is a top-1 win and CE-neutral (§1940); the expensive one dominates.
+
+> **pred_a PASSED 3/3: the routing keeps its top-1 edge over a pure rank-512 map** — +0.34 / +0.37 /
+> +0.41pp — at **essentially identical cost** (267.335M against 267.246M, a 0.03% difference). The
+> neighbour's top-1 advantage on its three quarters survives putting a strong map on the remaining one.
+
+> **pred_b FAILED 0/3, and the fork does NOT close.** Routing a quarter of uncovered types away from the
+> rank-512 map **costs real CE**: +0.0243 / +0.0275 / +0.0164 nats at paired **t = +5.93 / +6.30 /
+> +2.67** — significantly worse, on every role, against a bar that only asked it not to be. **At ~267M
+> the frontier is exactly two points and the choice between them is a genuine objective decision:
+> `nn75m512` for top-1, `map512` for CE.** What has changed since §1938 is that **the 230M deployed
+> design is now dominated by both of them**, so the fork no longer includes it.
+
+**pred_d PASSED**: coverage exactly 5,419; every arm inert at covered inputs; buckets partition; live
+per-cell top-1 and CE identical across arms at 0.00e+00; and the `nn75` / `map64` / `map512` anchors
+reproduced §1940's **published** pooled top-1 to **0.005pp** — twenty-seventh clean reading, and the
+first one produced through the shared library rather than a hand-copied script.
+
+**Open.** The router is still §1939's cosine, which §1939 showed carries real signal (12/12 arms beat
+linear interpolation) but **not** the unseen-target signal (recovery proportional to the fraction routed).
+`nn75m512` inherits that limitation: it gives up CE in proportion to what it routes away. **A router that
+identified the unseen-target case specifically would take map512's CE and the neighbour's top-1 at once,
+and nothing has yet been tried beyond the cosine.**

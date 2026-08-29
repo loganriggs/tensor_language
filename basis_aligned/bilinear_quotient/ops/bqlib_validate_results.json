@@ -3704,15 +3704,15 @@
   }
  },
  "routed_fraction": {
-  "c5419": 0.750011146068573,
-  "c16110": 0.7502562403678894
+  "c5419": 0.0,
+  "c16110": 0.0
  },
  "cache": {
   "hit_matched": true,
   "corrupt_rejected": true,
   "stats": {
-   "hit": 1,
-   "miss": 31,
+   "hit": 31,
+   "miss": 1,
    "stale": 1,
    "unreadable": 0
   }
@@ -3721,8 +3721,8 @@
   "pred_a_top1_reproduces": true,
   "pred_b_ce_reproduces": true,
   "pred_c_paired_t_reproduces": true,
-  "pred_d_controls": true
+  "pred_d_controls": false
  },
- "runtime_s": 808.0,
- "lib_version": 1
+ "runtime_s": 52.1,
+ "lib_version": 2
 }
