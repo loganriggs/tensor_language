@@ -177,6 +177,29 @@ def test_mint_rejects_every_noncanonical_authority(monkeypatch, tmp_path: Path) 
             )
 
 
+def test_mint_rejects_self_consistent_caller_chosen_source(monkeypatch, tmp_path: Path) -> None:
+    out = _fake_main_environment(monkeypatch, tmp_path)
+    nonce = "n"
+    finalizer.write_create_only_guarded(
+        out["LOCK"], finalizer.canonical_json_bytes({
+            "experiment_id": "bilin18_mlp2_cmr_v1r_finalization", "nonce": nonce,
+        }), before_link=lambda: None,
+    )
+    stat = out["LOCK"].stat(follow_symlinks=False)
+    inode = (stat.st_dev, stat.st_ino)
+    caller_commit = "c" * 40
+    authority = finalizer.canonical_authority(caller_commit, {})
+    finalizer.write_create_only_guarded(
+        out["AUTHORITY"], finalizer.canonical_json_bytes(authority),
+        before_link=lambda: None,
+    )
+    monkeypatch.setattr(finalizer, "committed_source", lambda: ("d" * 40, {"real": HASH}))
+    with pytest.raises(RuntimeError, match="independently committed source identity"):
+        finalizer.mint_replay_capability(
+            authority, finalizer.file_sha256(out["AUTHORITY"]), caller_commit, {}, nonce, inode,
+        )
+
+
 def test_mocked_main_failure_is_failure_only(monkeypatch, tmp_path: Path) -> None:
     out = _fake_main_environment(monkeypatch, tmp_path)
     def fail(capability):

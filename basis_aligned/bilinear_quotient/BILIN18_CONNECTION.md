@@ -56049,7 +56049,12 @@ it is **cost-neutral**, so it is the only free lever.
 > not. **α is a property of the two fallback components, not of the build.**
 
 > **pred_c FAILED 1/3, and that is the useful part. The move is free but almost too small to be worth
-> making: −0.549 / −0.078 / −1.187 milli-nats at 5,419**, significant on one role only. **A lever that
+> making: −0.549 / −0.078 / −1.187 milli-nats at 5,419**, significant on one role only.
+> [**CORRECTED §1968.** The "flat" characterisation below is wrong under §1967's stopping rule: the three
+> points around α's optimum span **2.10 / 3.48 / 1.19** milli-nats at 5,419, failing on 6 of 6 cells,
+> because α = 0.40 is expensive. This section called α flat by comparing against α = 0.10 at the far end
+> of the grid — "flat compared to a bad value" is not "flat near the optimum". The operational advice
+> (0.25 and 0.30 interchangeable) stands; the characterisation does not.] **A lever that
 > costs nothing and returns half a milli-nat is not a finding about the build; it is a finding about the
 > curve.** What the table actually shows is how **flat** α is near its optimum and how sharply it falls
 > away — a10 costs **+10 to +12 milli-nats**, ten to twenty times what the 0.25 → 0.30 move recovers.
@@ -56425,3 +56430,47 @@ one grid step, and the axis around it is flat to within half a milli-nat.
 settled by §1961 without one** — it was declared "flat and effectively optimal" from a six-point sweep
 that never checked whether the three points around its optimum span less than a marginal purchase.
 Applying §1967's rule to §1961's data is arithmetic on an artifact already on disk, not a run.
+
+## §1968 — α fails §1967's stopping rule on 6 of 6 cells, and §1961 called it flat by looking at the wrong thing
+
+**No GPU.** Arithmetic on `ops/alpha_reoptimised_results.json`, the artifact §1961 already wrote —
+§1967's open question, answered from disk. Rung 3.
+
+§1967 introduced a stopping rule: an axis is settled when the three grid points around its optimum span
+less than half a milli-nat, the resolution of a marginal purchase. §1961 declared α "flat and effectively
+optimal" **without** such a rule. Applying §1967's to §1961's own data:
+
+```
+  span of the three points around the argmin, in MILLI-nats   (rule: < 0.50)
+    5,419   skip7000  2.10   skip11000  3.48   skip1200  1.19    argmin α = 0.30 on all three
+    16,110  skip7000  0.57   skip11000  1.08   skip1200  0.51    argmin 0.30 / 0.30 / 0.25
+  grid gaps -- α: [10, 5, 5, 10, 10]      tilt (§1967): [4, 6, 6, 4, 10, 10]
+```
+
+> **α fails the rule on 6 of 6 cells**, by up to **seven times** the tilt's span. **And it is not a
+> grid-density artefact** — the two grids have comparable spacing, so the difference is in the curves.
+
+> **What §1961 got wrong was the comparison, not the arithmetic.** It called α flat by noting that
+> α = 0.10 costs **+10 to +12 milli-nats** against the optimum — flat *relative to the far ends of the
+> grid*. §1967's rule asks something different and more useful: what does being **one grid step off**
+> cost? For α that is up to 3.48 milli-nats, because α = 0.40 is expensive; for the tilt it is under 0.5.
+> **"Flat compared to a bad value" is not "flat near the optimum", and §1961 used the first to conclude
+> the second.** §1961's operational advice — 0.25 and 0.30 are interchangeable, worth 0.08 to 1.19
+> milli-nats — survives; its "flat" characterisation does not, and is corrected in place.
+
+> **One honest limitation of my own rule, stated now rather than discovered later.** The span of three
+> points is sensitive to **asymmetry**, not only to flatness: α's large span is driven mostly by 0.40
+> being bad, while 0.25 is close. A rule that measured only the *better* neighbour would call α settled.
+> I am keeping the two-sided form deliberately — the cost of landing one step the wrong way is exactly
+> what makes an axis worth pinning down — but the rule should be read as **"how much does a one-step
+> error cost"**, not "is the curve symmetric and flat".
+
+**Consequence, and it is actionable.** α is worth pinning to ±5 points and the tilt is not. §1961 swept
+α at 10 / 20 / 25 / 30 / 40 / 50 and **never looked between 0.25 and 0.35**, where the optimum sits on
+5 of 6 cells. **§1969 queued: α at 24 / 26 / 28 / 30 / 32 / 34 / 36, both coverages, carrying §1967's
+stopping rule** — so the axis either settles or says what it costs.
+
+**Open.** §1967's rule has now been applied to two axes and retro-applied to a third. **The other two
+settled axes — table rank (§1947/§1950) and attention share (§1948/§1952) — were closed before the rule
+existed**, on the 0.010 nats/100M threshold, which asks about *cost-efficiency* and not about the penalty
+for a one-step error. Both artifacts are on disk and the same arithmetic applies to them.

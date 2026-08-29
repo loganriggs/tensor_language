@@ -269,7 +269,10 @@ def _capability_protocol():
         source_commit: str, source_hashes: dict[str, str], nonce: str,
         inode: tuple[int, int],
     ) -> Any:
-        expected = canonical_authority(source_commit, source_hashes)
+        actual_commit, actual_hashes = committed_source()
+        if source_commit != actual_commit or source_hashes != actual_hashes:
+            raise RuntimeError("v1R mint lacks the independently committed source identity")
+        expected = canonical_authority(actual_commit, actual_hashes)
         if authority != expected:
             raise RuntimeError("v1R authority is not the exact canonical authority")
         guard_all(source_hashes, nonce, inode, authority_hash)
