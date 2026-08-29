@@ -106,7 +106,7 @@ def centered_dual_write(
     down_d = down.to(device=device, dtype=dtype)
     bias_d = bias.to(device=device, dtype=dtype)
     centered = product - mean_d
-    native = F.linear(product, down_d, bias_d)
+    native = F.linear(product, down_d) + bias_d
     real_delta = F.linear(centered * (alpha.to(dtype) - 1)[:, None, :], down_d)
     canonical_product = centered / std_d * orient_d
     canonical_down = down_d * std_d[None, :] * orient_d[None, :]

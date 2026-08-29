@@ -32,23 +32,28 @@ import tensor_bilin18_tangent_collector as tangent
 PREREG = HERE / "MLP2_CMR_V1_PREREGISTRATION.md"
 ADDENDUM = HERE / "MLP2_CMR_V1_SUFFIX_ADDENDUM.md"
 DISCREPANCY = HERE / "mlp2_cmr_v1_random_control_discrepancy.json"
+RECOVERY = HERE / "MLP2_CMR_V1_SUFFIX_V2_RECOVERY.md"
 TOKEN_ROWS = HERE / "mlp2_cmr_v1_token_rows.pt"
 TOKEN_RECEIPT = HERE / "mlp2_cmr_v1_token_rows_receipt.json"
 FIT_BUNDLE = HERE / "mlp2_cmr_v1_fit_mean_bundle.pt"
 FIT_RESULT = HERE / "mlp2_cmr_v1_fit_mean_result.json"
 FIT_RECEIPT = HERE / "mlp2_cmr_v1_fit_mean_receipt.json"
-AUTHORITY = HERE / "mlp2_cmr_v1_suffix_authority.json"
-BUNDLE = HERE / "mlp2_cmr_v1_suffix_bundle.pt"
-RESULT = HERE / "mlp2_cmr_v1_suffix_result.json"
-RECEIPT = HERE / "mlp2_cmr_v1_suffix_receipt.json"
-FAILURE = HERE / "mlp2_cmr_v1_suffix_failure.json"
-LOCK = HERE / ".mlp2_cmr_v1_suffix.lock"
+PREVIOUS_AUTHORITY = HERE / "mlp2_cmr_v1_suffix_authority.json"
+PREVIOUS_FAILURE = HERE / "mlp2_cmr_v1_suffix_failure.json"
+AUTHORITY = HERE / "mlp2_cmr_v1_suffix_v2_authority.json"
+BUNDLE = HERE / "mlp2_cmr_v1_suffix_v2_bundle.pt"
+RESULT = HERE / "mlp2_cmr_v1_suffix_v2_result.json"
+RECEIPT = HERE / "mlp2_cmr_v1_suffix_v2_receipt.json"
+FAILURE = HERE / "mlp2_cmr_v1_suffix_v2_failure.json"
+LOCK = HERE / ".mlp2_cmr_v1_suffix_v2.lock"
 
 TOKEN_ROWS_SHA256 = "3ed0192993095f7de70ab7f1350d091b6c1d8c4c7d0583fd5f0f6441556e4aa6"
 TOKEN_RECEIPT_SHA256 = "47113c255bf47f9d1c7369639fab39664c71f93134099babadcce9d89a011e85"
 FIT_BUNDLE_SHA256 = "043bb52b9580d9c9c342460e5bb80ff579db01486b3b6c6672bf5fba77e46f8e"
 FIT_RESULT_SHA256 = "65c1ee33f0399d6489cae0227442d479a9d59b9be98f619d92423cfd39fc7833"
 FIT_RECEIPT_SHA256 = "9dc14d909a1b4aafd33c67dc7a3d066db4ccc9cb83c7059fe7aaf499ca9e5efa"
+PREVIOUS_AUTHORITY_SHA256 = "d204e9adeef3d65a1d6f38ed76071aa38c921bd2884ed136ac6e37f4696c7296"
+PREVIOUS_FAILURE_SHA256 = "eea77b4e7fa9fd6ed35dce31ea43a72f8cf2d21d8c2e76a94396a81547f6d8a2"
 
 SITE = 2
 SOURCE_DOCUMENTS = 192
@@ -67,7 +72,7 @@ DERANGEMENT_SEED = 2026090209
 HASH_RANDOM_SEED = 20260829
 
 SOURCE_CLOSURE = (
-    PREREG, ADDENDUM, DISCREPANCY, Path(__file__).resolve(),
+    PREREG, ADDENDUM, DISCREPANCY, RECOVERY, Path(__file__).resolve(),
     HERE / "test_collect_mlp2_cmr_v1_suffix.py",
     HERE / "mlp2_cmr_v1_suffix_math.py",
     HERE / "test_mlp2_cmr_v1_suffix_math.py",
@@ -143,6 +148,8 @@ def protected_inputs() -> dict[str, str]:
         "fit_bundle": file_sha256(FIT_BUNDLE),
         "fit_result": file_sha256(FIT_RESULT),
         "fit_receipt": file_sha256(FIT_RECEIPT),
+        "previous_authority": file_sha256(PREVIOUS_AUTHORITY),
+        "previous_failure": file_sha256(PREVIOUS_FAILURE),
     }
     expected = {
         "token_rows": TOKEN_ROWS_SHA256,
@@ -150,6 +157,8 @@ def protected_inputs() -> dict[str, str]:
         "fit_bundle": FIT_BUNDLE_SHA256,
         "fit_result": FIT_RESULT_SHA256,
         "fit_receipt": FIT_RECEIPT_SHA256,
+        "previous_authority": PREVIOUS_AUTHORITY_SHA256,
+        "previous_failure": PREVIOUS_FAILURE_SHA256,
     }
     if actual != expected:
         raise RuntimeError("MLP2 suffix protected parent changed")
@@ -462,7 +471,7 @@ def main() -> None:
         parents = protected_inputs()
         authority = {
             "schema_version": 1,
-            "experiment_id": "bilin18_mlp2_cmr_v1_suffix",
+            "experiment_id": "bilin18_mlp2_cmr_v1_suffix_v2",
             "status": "authority_frozen_before_fit_selector_checkpoint_or_model_access",
             "source_commit": commit,
             "source_hashes": source_hashes,
@@ -497,7 +506,7 @@ def main() -> None:
                 raise RuntimeError("MLP2 suffix bundle semantic replay failed")
             receipt = {
                 "schema_version": 1,
-                "experiment_id": "bilin18_mlp2_cmr_v1_suffix",
+                "experiment_id": "bilin18_mlp2_cmr_v1_suffix_v2",
                 "status": "fit_selector_complete_receipt_last",
                 "authority_sha256": authority_hash,
                 "bundle_sha256": file_sha256(BUNDLE),
@@ -517,7 +526,7 @@ def main() -> None:
             if not FAILURE.exists():
                 failure = {
                     "schema_version": 1,
-                    "experiment_id": "bilin18_mlp2_cmr_v1_suffix",
+                    "experiment_id": "bilin18_mlp2_cmr_v1_suffix_v2",
                     "status": "failed_after_authority",
                     "authority_sha256": authority_hash,
                     "error_type": type(exc).__name__,

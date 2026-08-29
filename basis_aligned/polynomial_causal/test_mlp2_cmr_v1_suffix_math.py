@@ -24,7 +24,7 @@ def test_centered_dual_write_has_exact_native_baseline_and_centered_gradient() -
     write = suffix.centered_dual_write(
         product, mean, down, bias, alpha, beta, std, orientation, permutation,
     )
-    native = torch.nn.functional.linear(product, down, bias)
+    native = torch.nn.functional.linear(product, down) + bias
     assert torch.equal(write, native)
     gradient = torch.autograd.grad(write.sum(), alpha, retain_graph=True)[0]
     expected = torch.einsum("bth,oh->bh", product - mean, down)

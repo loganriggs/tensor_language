@@ -35,6 +35,6 @@ def test_runner_imports_from_outside_repository() -> None:
 def test_protected_inputs_and_constants_are_current() -> None:
     parents = collect.protected_inputs()
     assert parents["fit_bundle"] == collect.FIT_BUNDLE_SHA256
+    assert parents["previous_failure"] == collect.PREVIOUS_FAILURE_SHA256
     assert len(collect.PROBE_SEEDS) == 8
     assert collect.CALLS * len(collect.PROBE_SEEDS) == 384
-
