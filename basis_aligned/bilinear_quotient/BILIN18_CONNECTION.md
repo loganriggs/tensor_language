@@ -58217,3 +58217,37 @@ the compiled MLP (§2000), and low-dimensional — rank 16 recovers 72% of it (�
 character — is measured at 5,419 types. §1993 replicated the *threshold* at 16,110 and found it unmoved;
 **the ceiling has never been checked there**, and §1963 and §1965 are the standing reminders that this
 instrument has reversed 5,419 claims twice.
+
+## §2008 — the ceiling is coverage-independent to 0.001 nats, and everything below it moves
+
+`ops/the_ceiling_at_both_coverages.py`, **164.9s**, **DISCOVERY ONLY**, both coverages, rung 2 — §2007's
+open question. **pred_a True | pred_b True | pred_c True | derived controls True.** All three reference
+deviations 0.000000.
+
+```
+  nats                    mlp4     mlp2+3+4   mlp4+a4   mlp4+a5   +a5 mean row   mlp4+a5,6   full 36
+  5,419   skip7000       10.669     10.701    10.669     8.021       7.845         1.555      2.808
+  16,110  skip7000       10.670     10.700    10.670     8.059       7.901         1.547      2.744
+  5,419   skip1200       10.580     10.611    10.579     7.962       7.721         1.498      2.702
+  16,110  skip1200       10.580     10.610    10.579     7.999       7.772         1.492      2.629
+```
+
+> **pred_a, pred_b and pred_c all PASSED 3/3 at 16,110.** The ceiling holds, attention 5 still takes
+> **2.58–2.61 nats** off it (2.62–2.65 at 5,419), and a mean row at attention 5 still beats its compiled
+> table (**−0.158 to −0.227**, against −0.176 to −0.241).
+
+> **The unregistered observation is the sharpest thing in the run. The three ceiling arms are identical
+> across coverages to 0.001 nats** — 10.669 → 10.670, 10.701 → 10.700, 10.669 → 10.670 — while **the full
+> program moves 0.064** (2.808 → 2.744), the repaired arm 0.008, and the lever arm 0.038. Tripling the
+> table's coverage from 5,419 types to 16,110 changes the ceiling **not at all**.
+
+**Which is the strongest form of §1994's conclusion.** Coverage acts only on the *uncovered* arm — §1870's
+map, the guessing part. **A quantity that does not move when coverage triples is not about the fallback.**
+§1994 showed 90–95% of the threshold's gap sits at covered inputs; §2008 shows the ceiling is
+coverage-*invariant* to the third decimal. **The 10.7 nats are a fact about what a live attention 6 does
+with context-free input, and nothing about how the program fills in tokens it has not seen.**
+
+**Open.** Attention 6's content is the one thing in this account still unexplained: worth 0.08–0.22 nats,
+and §1996 showed rank 16 recovers 72% of it. **The bottom of that curve has never been measured.** If rank
+4 or rank 2 recovers most of it, the signal is small enough that a head-level account becomes the obvious
+next instrument rather than a speculation.

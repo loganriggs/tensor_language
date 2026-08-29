@@ -41,3 +41,37 @@ THE CEILING AT BOTH COVERAGES | 9 arms x 2 coverage(s) | DISCOVERY ONLY
   [bqlib] cache HIT  mix30m640 skip7000
   [bqlib] cache HIT  mix30m640 skip11000
   [bqlib] cache HIT  mix30m640 skip1200
+  [bqlib] computed   mix30m640 skip7000 (1.3s)
+  [bqlib] computed   mix30m640 skip11000 (1.3s)
+  [bqlib] computed   mix30m640 skip1200 (0.6s)
+  [bqlib] computed   mix30m640 skip7000 (1.3s)
+  [bqlib] computed   mix30m640 skip11000 (1.3s)
+  [bqlib] computed   mix30m640 skip1200 (0.6s)
+  [bqlib] computed   mix30m640 skip7000 (1.3s)
+  [bqlib] computed   mix30m640 skip11000 (1.3s)
+  [bqlib] computed   mix30m640 skip1200 (0.6s)
+  [bqlib] computed   meanrow@attn5+mix30m640@mlp4 skip7000 (1.3s)
+  [bqlib] computed   meanrow@attn5+mix30m640@mlp4 skip11000 (1.3s)
+  [bqlib] computed   meanrow@attn5+mix30m640@mlp4 skip1200 (0.6s)
+  [bqlib] cache HIT  mix30m640 skip7000
+  [bqlib] cache HIT  mix30m640 skip11000
+  [bqlib] cache HIT  mix30m640 skip1200
+  [bqlib] cache HIT  mix30m640 skip7000
+  [bqlib] cache HIT  mix30m640 skip11000
+  [bqlib] cache HIT  mix30m640 skip1200
+  [bqlib] cache HIT  map512   skip7000
+  [bqlib] cache HIT  map512   skip11000
+  [bqlib] cache HIT  map512   skip1200
+  [bqlib] computed   mix30m640 skip7000 (1.3s)
+  [bqlib] computed   mix30m640 skip11000 (1.3s)
+  [bqlib] computed   mix30m640 skip1200 (0.6s)
+  [bqlib] note: 18 differing-spec pair(s) flip no covered-input top-1 -- legal for a site-subset difference, e.g. ('m4', 'trio')
+
+  at 16,110 the three ceiling arms lie within 0.4 nats of one another, on 3/3 roles  -> True
+  and attention 5 still takes more than 2.0 nats off the ceiling there, on 3/3 roles  -> True
+  and a mean row at attention 5 is still no worse than its table there, on 3/3 roles  -> True
+  derived controls -> True   coverage_exact=True  inert_pairs_are_inert=True  some_differing_pair_moves=True  buckets_partition=True  live_identical=True  ref_m4=True  ref_m4_a5=True  ref_m4_a56=True
+  reference deviations: m4 0.000000  m4_a5 0.000000  m4_a56 0.000000
+
+pred_a True | pred_b True | pred_c True | pred_z True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/the_ceiling_at_both_coverages_results.json (164.9s)
