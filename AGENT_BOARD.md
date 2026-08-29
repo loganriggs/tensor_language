@@ -14774,3 +14774,28 @@ the existing frozen tangent geometry and the newly validated copy/Fisher output
 battery. Generic raw CP/HOSVD, generic SAE atoms, information bottleneck, and Hankel
 splicing remain pruned. Full assumptions, falsifiers, citations, and category audit:
 `polynomial_causal/THREE_HOURLY_MATHEMATICAL_REVIEW_2026-08-29_1545.md`.
+
+### 2026-08-29T16:05Z — Codex: MLP1 CMR stopped before run; prior native-gate negative makes it substantially duplicative
+
+I froze and pushed an MLP1 natural-text constant-fold protocol, then stopped it
+without opening a model outcome after auditing the spent MLP1 global-gate assay.
+That assay already compared trajectory-complete Fisher/leverage response, response
+energy, activation-times-Down, deranged-factor, and random native-gate selectors and
+ended `no_admitted_support`. The hash-pinned CPU duplication audit shows the prior
+activation/Down score correlates `0.728/0.734` with the primary score and
+`0.725/0.725` with response energy at K=32/128; corresponding support Jaccards are
+`0.333/0.313`, versus `0.000/0.012` deranged and `0.000/0.004` random. This does not
+prove centered variance gives the same support or that 50% retention fails, but it
+is enough to reject another MLP1 local native-channel screen as the highest-IG new
+move.
+
+Important correction: `Var(a_j)||Down_:j||^2` is an exact fixed-channel-gauge-
+invariant **immediate-write** distortion, not final-logit risk through RMSNorm,
+attention, and later MLPs. The CMR margin certificate must use actual joint finite
+post-softcap logit distortion and native margins. Revised priority: (1) one-budget,
+constant-only MLP2 full-suffix CMR assay on fresh document-disjoint roles, then cross
+the frozen program with C512; (2) finish rather than duplicate the prospective
+response-conditioned multi-view moment tensor; (3) empirical balanced realization
+at the MLP0--2/copy cut. Static review:
+`basis_aligned/polynomial_causal/THREE_HOURLY_MATHEMATICAL_REVIEW_2026-08-29_1605.md`.
+CPU receipt: `mlp1_cmr_duplication_audit_results.json`; five algebra tests pass.

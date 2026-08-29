@@ -1,0 +1,47 @@
+{
+  "bundle_sha256": "b8061f3b50b49309d6cc4cc6aa8b6c91c705a3ae91a98a45012ec9985dae372e",
+  "claim_boundary": "This audit establishes protocol redundancy. It does not prove that centered-variance and RMS rankings are identical or that 50% retention fails.",
+  "comparisons": {
+    "128": {
+      "factor_product_derangement": {
+        "score_rank_spearman_with_activation_down": -0.07373794169035586,
+        "support_jaccard_with_activation_down": 0.011857707509881422
+      },
+      "hash_random": {
+        "score_rank_spearman_with_activation_down": -0.04654253619103936,
+        "support_jaccard_with_activation_down": 0.00392156862745098
+      },
+      "primary": {
+        "score_rank_spearman_with_activation_down": 0.7342501357445564,
+        "support_jaccard_with_activation_down": 0.3128205128205128
+      },
+      "response_energy": {
+        "score_rank_spearman_with_activation_down": 0.7253415097095274,
+        "support_jaccard_with_activation_down": 0.3128205128205128
+      }
+    },
+    "32": {
+      "factor_product_derangement": {
+        "score_rank_spearman_with_activation_down": -0.07339272420381887,
+        "support_jaccard_with_activation_down": 0.0
+      },
+      "hash_random": {
+        "score_rank_spearman_with_activation_down": -0.04654253619103936,
+        "support_jaccard_with_activation_down": 0.0
+      },
+      "primary": {
+        "score_rank_spearman_with_activation_down": 0.7277887742547451,
+        "support_jaccard_with_activation_down": 0.3333333333333333
+      },
+      "response_energy": {
+        "score_rank_spearman_with_activation_down": 0.7253415097095274,
+        "support_jaccard_with_activation_down": 0.3333333333333333
+      }
+    }
+  },
+  "decision": "no_run_mlp1_cmr_due_to_substantial_duplicate_and_prior_negative",
+  "exact_relation": "The spent activation_down selector ranks by RMS(a_j)*||D_j||. Its square is E[a_j^2]*||D_j||^2. The proposed diagonal local CMR selector is Var(a_j)*||D_j||^2, differing only by the nonnegative mean-squared term E[a_j]^2*||D_j||^2. Both are immediate-write, fixed-native-channel scores, not final-logit risk.",
+  "result_sha256": "e428887fc0b17b2a374d07ede5752de2c43cad465a17cb891fabd35c4f29ec84",
+  "schema": "mlp1_cmr_duplication_audit_v1",
+  "spent_assay_status": "no_admitted_support"
+}
