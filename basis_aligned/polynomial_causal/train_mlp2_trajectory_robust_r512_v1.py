@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import math
 import os
 from pathlib import Path
 import subprocess
@@ -297,7 +298,7 @@ def optimization_status(fit: dict, curve: list[dict]) -> str:
     tail = [point["worst_normalized_mse"] for point in curve[-5:]]
     still_improving = (len(tail) == 5
                        and all(tail[index + 1] < tail[index]
-                               for index in range(len(tail) - 1))
+                               for index in range(1, len(tail) - 1))
                        and tail[-1] <= 0.99 * tail[0])
     return ("optimization_inconclusive" if worst_nrmse > 0.25 and still_improving
             else "fit_complete")
@@ -318,6 +319,21 @@ def validate_bundle(value: Any, parents: dict[str, str]) -> None:
     for state in value["programs"].values():
         validate_program_state(state)
     for name in ("CONTINUE512", "ROBUST512"):
+        if [point.get("step") for point in value["curves"][name]] != list(
+            range(0, STEPS + 1, 25)
+        ):
+            raise RuntimeError("paired-trajectory development schedule changed")
+        numeric = []
+        for mapping in (value["fit"][name]["initial_dev_normalized_mse"],
+                        value["fit"][name]["best_dev_normalized_mse"],
+                        value["fit"][name]["best_dev_nrmse"],
+                        value["fit"][name]["target_energy"]):
+            numeric.extend(mapping.values())
+        for point in value["curves"][name]:
+            numeric.extend(item for item in point.values()
+                           if isinstance(item, (int, float)))
+        if not numeric or not all(math.isfinite(float(item)) for item in numeric):
+            raise RuntimeError("paired-trajectory fit contains nonfinite metrics")
         if value["statuses"][name] != optimization_status(
             value["fit"][name], value["curves"][name]
         ):
@@ -331,11 +347,32 @@ def terminal_guard(claim, authority: dict, sources: dict[str, str],
         raise ValueError("unknown fit publication boundary")
     if RECEIPT.exists() or FAILURE.exists():
         raise RuntimeError("fit terminal artifact raced publication")
+    on_disk_authority, _ = composition.stable_json(AUTHORITY)
+    if on_disk_authority != authority:
+        raise RuntimeError("fit authority bytes or semantics changed")
     protected_snapshot(authority, sources)
     for path, expected in artifacts.items():
         if file_sha256(path) != expected:
             raise RuntimeError("fit artifact changed before publication")
+    if RECEIPT.exists() or FAILURE.exists():
+        raise RuntimeError("fit terminal artifact raced late publication")
+    on_disk_authority, _ = composition.stable_json(AUTHORITY)
+    if on_disk_authority != authority:
+        raise RuntimeError("fit authority changed late in publication")
     composition.row_life.base.require_claim(claim, LOCK)
+
+
+def nested_equal(first: Any, second: Any) -> bool:
+    if isinstance(first, torch.Tensor) and isinstance(second, torch.Tensor):
+        return first.dtype == second.dtype and first.shape == second.shape \
+            and torch.equal(first, second)
+    if isinstance(first, dict) and isinstance(second, dict):
+        return set(first) == set(second) and all(
+            nested_equal(first[key], second[key]) for key in first)
+    if isinstance(first, list) and isinstance(second, list):
+        return len(first) == len(second) and all(
+            nested_equal(a, b) for a, b in zip(first, second))
+    return first == second
 
 
 def main() -> None:
@@ -407,6 +444,8 @@ def main() -> None:
         model, checkpoint = facade.load_bilin18(device=device, dtype=torch.bfloat16)
         protected_snapshot(authority, sources)
         c512 = load_program(composition.C512_PATH)
+        if file_sha256(composition.C512_PATH) != composition.C512_SHA:
+            raise RuntimeError("C512 bytes changed across program load")
         c512_tensors = {key: c512[key].to(device)
                         for key in ("intercept", "left", "right")}
         native_x, native_y, native_calls = capture_background(
@@ -442,6 +481,11 @@ def main() -> None:
         published[BUNDLE] = file_sha256(BUNDLE)
         reloaded_bundle, bundle_sha = composition.stable_torch(BUNDLE, published[BUNDLE])
         validate_bundle(reloaded_bundle, parents)
+        if not nested_equal(reloaded_bundle, bundle):
+            raise RuntimeError("fit bundle semantic roundtrip changed")
+        continued_fit = reloaded_bundle["fit"]["CONTINUE512"]
+        robust_fit = reloaded_bundle["fit"]["ROBUST512"]
+        statuses = reloaded_bundle["statuses"]
         result = {
             "schema": "mlp2_trajectory_robust_r512_v1_fit_result",
             "status": ("optimization_inconclusive" if

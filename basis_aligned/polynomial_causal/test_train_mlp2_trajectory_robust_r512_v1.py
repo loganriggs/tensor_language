@@ -45,3 +45,10 @@ def test_optimization_status_is_numeric_not_visual():
     plateau = [{"worst_normalized_mse": value}
                for value in (1.0, 0.999, 0.998, 0.997, 0.996)]
     assert assay.optimization_status(fit, plateau) == "fit_complete"
+
+
+def test_nested_equal_is_tensor_exact():
+    value = {"x": [torch.tensor([1.0], dtype=torch.float32)], "y": 2}
+    assert assay.nested_equal(value, {"x": [value["x"][0].clone()], "y": 2})
+    assert not assay.nested_equal(value, {"x": [torch.tensor([2.0])], "y": 2})
+    assert not assay.nested_equal(value, {"x": [value["x"][0].double()], "y": 2})
