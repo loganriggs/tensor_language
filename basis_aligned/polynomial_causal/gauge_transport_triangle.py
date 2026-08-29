@@ -31,6 +31,7 @@ Frozen before execution:
 from __future__ import annotations
 
 import json
+import hashlib
 import math
 import sys
 import time
@@ -48,7 +49,6 @@ sys.path.insert(0, str(BQ))
 sys.path.insert(0, str(QK))
 
 from gauge_transport import fit_delta_ridge, response_metrics, response_r2  # noqa: E402
-from prepare_fineweb_oracle_rows import validate_receipt  # noqa: E402
 from source_global_preflight import require_defined_globals  # noqa: E402
 
 
@@ -62,9 +62,11 @@ BATCH = 4
 FIT_DRAWS = 4
 RIDGE = 1e-3
 SEED = 8675309
-BASIS_SPEC = (96, 80)
-FIT_SPEC = (96, 1200)
+BASIS_SPEC = (96, 80)  # Legacy address retained only for old contract tests.
+FIT_SPEC = (96, 1200)  # V2 execution uses the explicit roles below.
 EVAL_SPEC = (192, 11000)
+ROLE_SIZES = {"basis": 96, "fit": 96, "evaluation": 192}
+ROW_TOKEN_LENGTH = 513
 CALIBRATION_ROWS = 16
 MAP_FIT_ROWS = 64
 MAP_VALIDATION_ROWS = 16
@@ -73,6 +75,158 @@ KL_BAND = (0.01, 0.20)
 POSITION_SHUFFLE_NRE_FLOOR = 0.25
 PRICE_QUANTIZATION_STEP = 1e-4
 OUT = HERE / "gauge_transport_triangle_results.json"
+ROW_AUTHORITY = HERE / "gauge_transport_triangle_unique_rows_v2_authority.json"
+ROW_MANIFEST = HERE / "gauge_transport_triangle_unique_rows_v2_manifest.json"
+ROW_RECEIPT = HERE / "gauge_transport_triangle_unique_rows_v2_receipt.json"
+ROW_ARTIFACT = HERE / "gauge_transport_triangle_unique_rows_v2_rows.pt"
+ROW_FAILURE = HERE / "gauge_transport_triangle_unique_rows_v2_failure.json"
+ROW_AUTHORITY_FILE_SHA256 = "6e10911a458da61ebf0cb0db09637d6d9eefa404fb138da26148e98eb532041f"
+ROW_MANIFEST_FILE_SHA256 = "f86b9df20f0fc2ae5cef0e8f31ce4f02ca120821dfcab8de47d2a3166f5f5f1e"
+ROW_RECEIPT_FILE_SHA256 = "3f92d8b3aa5e89e6059a010338521bffa0cf440e0815d9d67e1b65aa58a8e102"
+ROW_ARTIFACT_FILE_SHA256 = "102b79726b7132a6438b4080272fee1774499ac4fc83c4aa025fa86439b4074d"
+ROW_AUTHORITY_SHA256 = "99226c959912b22701c2df085029d9e082fda3af95c482a0d7483a319b368c3c"
+ROW_MANIFEST_SHA256 = "f781231f1eca2a77a10bebb767eddc17a579b9f103e930fc0ba816bdfc1d68e2"
+ROW_RECEIPT_SHA256 = "bfd6eeb3f7f8f5ce57ceb2fca6109f5b50f02c007725099c1082163ba0f81468"
+ROW_SELECTION_PLAN_SHA256 = "0d66f060a43959c94afc14691b4a19730147c942da94807f919513fb8c421629"
+
+
+def file_sha256(path: Path) -> str:
+    digest = hashlib.sha256()
+    with path.open("rb") as handle:
+        while block := handle.read(8 << 20):
+            digest.update(block)
+    return digest.hexdigest()
+
+
+def canonical_sha256(value: Any) -> str:
+    return hashlib.sha256(json.dumps(
+        value, sort_keys=True, separators=(",", ":"), allow_nan=False,
+    ).encode()).hexdigest()
+
+
+def composite_tensor_sha256(value: torch.Tensor) -> str:
+    tensor = value.detach().cpu().contiguous()
+    digest = hashlib.sha256()
+    digest.update(str(tensor.dtype).encode())
+    digest.update(json.dumps(list(tensor.shape), separators=(",", ":")).encode())
+    digest.update(tensor.numpy().tobytes(order="C"))
+    return digest.hexdigest()
+
+
+def load_pinned_json(path: Path, expected_sha256: str, label: str) -> dict[str, Any]:
+    before = file_sha256(path)
+    serialized = path.read_bytes()
+    after = file_sha256(path)
+    if before != expected_sha256 or after != before or hashlib.sha256(
+        serialized
+    ).hexdigest() != before:
+        raise RuntimeError(f"triangle {label} changed during pinned read")
+    value = json.loads(serialized)
+    if not isinstance(value, dict):
+        raise RuntimeError(f"triangle {label} is not a JSON object")
+    return value
+
+
+def validate_v2_row_metadata(
+    authority: dict[str, Any], manifest: dict[str, Any], receipt: dict[str, Any],
+) -> None:
+    authority_body = {key: value for key, value in authority.items() if key != "authority_sha256"}
+    manifest_body = {key: value for key, value in manifest.items() if key != "manifest_sha256"}
+    receipt_body = {key: value for key, value in receipt.items() if key != "receipt_sha256"}
+    if authority.get("schema") != "gauge_transport_triangle_unique_rows_v2_authority" or (
+        authority.get("authority_sha256") != ROW_AUTHORITY_SHA256
+        or canonical_sha256(authority_body) != ROW_AUTHORITY_SHA256
+    ):
+        raise RuntimeError("triangle row authority identity changed")
+    if manifest.get("schema") != "gauge_transport_triangle_unique_rows_v2_manifest" or (
+        manifest.get("manifest_sha256") != ROW_MANIFEST_SHA256
+        or canonical_sha256(manifest_body) != ROW_MANIFEST_SHA256
+    ):
+        raise RuntimeError("triangle row manifest identity changed")
+    if receipt.get("schema") != "gauge_transport_triangle_unique_rows_v2_receipt" or (
+        receipt.get("status") != "complete_v2_unique_document_rows_receipt_last"
+        or receipt.get("receipt_sha256") != ROW_RECEIPT_SHA256
+        or canonical_sha256(receipt_body) != ROW_RECEIPT_SHA256
+    ):
+        raise RuntimeError("triangle row receipt identity changed")
+    if receipt.get("failure_absent") is not True or ROW_FAILURE.exists():
+        raise RuntimeError("triangle row receipt/failure exclusivity changed")
+    if receipt.get("triangle_runner_authorized_by_this_receipt") is not False or (
+        manifest.get("triangle_runner_authorized_by_this_manifest") is not False
+    ):
+        raise RuntimeError("row artifacts cannot themselves authorize the triangle runner")
+    if manifest.get("role_sizes") != ROLE_SIZES or manifest.get(
+        "unique_document_count"
+    ) != sum(ROLE_SIZES.values()):
+        raise RuntimeError("triangle row role allocation changed")
+    if not (
+        authority.get("selection_plan", {}).get("selection_plan_sha256")
+        == manifest.get("selection_plan_sha256")
+        == receipt.get("selection_plan_sha256")
+        == ROW_SELECTION_PLAN_SHA256
+    ):
+        raise RuntimeError("triangle row selection identity changed")
+    if not (
+        receipt.get("authority_file_sha256") == ROW_AUTHORITY_FILE_SHA256
+        and receipt.get("manifest_file_sha256") == ROW_MANIFEST_FILE_SHA256
+        and receipt.get("rows_file_sha256") == ROW_ARTIFACT_FILE_SHA256
+        and receipt.get("authority_sha256") == ROW_AUTHORITY_SHA256
+        and receipt.get("manifest_sha256") == ROW_MANIFEST_SHA256
+        and receipt.get("role_tensor_composite_sha256s")
+        == manifest.get("role_tensor_composite_sha256s")
+    ):
+        raise RuntimeError("triangle row terminal hash chain changed")
+
+
+def validate_v2_row_payload(
+    payload: dict[str, Any], authority: dict[str, Any], manifest: dict[str, Any],
+    receipt: dict[str, Any],
+) -> dict[str, torch.Tensor]:
+    if set(payload) != {
+        "schema", "authority_sha256", "selection_plan_sha256", "roles", "records",
+    } or payload.get("schema") != "gauge_transport_triangle_unique_rows_v2_rows" or (
+        payload.get("authority_sha256") != ROW_AUTHORITY_SHA256
+        or payload.get("selection_plan_sha256") != ROW_SELECTION_PLAN_SHA256
+        or set(payload.get("roles", {})) != set(ROLE_SIZES)
+        or set(payload.get("records", {})) != set(ROLE_SIZES)
+    ):
+        raise RuntimeError("triangle row payload header changed")
+    documents = []
+    for role, size in ROLE_SIZES.items():
+        tensor = payload["roles"][role]
+        records = payload["records"][role]
+        if not torch.is_tensor(tensor) or tensor.dtype != torch.long or tuple(tensor.shape) != (
+            size, ROW_TOKEN_LENGTH,
+        ):
+            raise RuntimeError(f"triangle row tensor changed: {role}")
+        if records != authority["selection_plan"]["roles"][role] or len(records) != size:
+            raise RuntimeError(f"triangle row provenance changed: {role}")
+        if composite_tensor_sha256(tensor) != receipt[
+            "role_tensor_composite_sha256s"
+        ][role] or canonical_sha256(records) != manifest["role_record_sha256s"][role]:
+            raise RuntimeError(f"triangle row semantic hash changed: {role}")
+        documents.extend(record["document_id"] for record in records)
+    if len(documents) != len(set(documents)):
+        raise RuntimeError("triangle row documents are not globally unique")
+    return dict(payload["roles"])
+
+
+def load_unique_v2_rows() -> tuple[dict[str, Any], dict[str, torch.Tensor]]:
+    authority = load_pinned_json(
+        ROW_AUTHORITY, ROW_AUTHORITY_FILE_SHA256, "row authority",
+    )
+    manifest = load_pinned_json(ROW_MANIFEST, ROW_MANIFEST_FILE_SHA256, "row manifest")
+    receipt = load_pinned_json(ROW_RECEIPT, ROW_RECEIPT_FILE_SHA256, "row receipt")
+    validate_v2_row_metadata(authority, manifest, receipt)
+    before = file_sha256(ROW_ARTIFACT)
+    payload = torch.load(ROW_ARTIFACT, map_location="cpu", weights_only=True)
+    after = file_sha256(ROW_ARTIFACT)
+    if before != ROW_ARTIFACT_FILE_SHA256 or after != before:
+        raise RuntimeError("triangle row tensor artifact changed during pinned load")
+    rows = validate_v2_row_payload(payload, authority, manifest, receipt)
+    if file_sha256(ROW_ARTIFACT) != before or ROW_FAILURE.exists():
+        raise RuntimeError("triangle row terminal state changed after semantic load")
+    return receipt, rows
 
 
 def suffix_mask(positions: torch.Tensor, length: int = SEQ) -> torch.Tensor:

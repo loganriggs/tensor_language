@@ -185,8 +185,36 @@ def test_factor_receipt_hashes_without_program_authority():
     )
     receipt = hybrid.factor_hash_receipt(fit)
     assert receipt["serialized_program_authority"] is False
+    assert receipt["raw_factor_hashes_reported"] is False
+    assert receipt["hash_currency"] == "float32_deployed_projectors_and_coefficient_maps"
     assert len(receipt["sha256"]) == 64
-    assert len(receipt["private_basis_sha256s"]) == 3
+    assert len(receipt["site_projector_sha256s"]) == 3
+    assert len(receipt["coefficient_map_sha256s"]) == 3
+
+
+def test_float64_fit_has_one_exact_float32_deployment_order():
+    solved, merits = _problem()
+    shared = hybrid.global_shared_basis(merits, 1)
+    fit = hybrid.fit_hierarchical_shared_private(
+        solved, merits, shared, total_float_budget=4 * 4 + 8 * 3,
+    )
+    deployed = hybrid.materialize_float32_program(fit)
+    assert deployed.shared_basis.dtype == torch.float32
+    assert all(value.dtype == torch.float32 for value in (
+        *deployed.shared_input_maps, *deployed.private_bases, *deployed.private_input_maps,
+    ))
+    expected = []
+    for shared_map, private_map, private_basis in zip(
+        deployed.shared_input_maps, deployed.private_input_maps,
+        deployed.private_bases, strict=True,
+    ):
+        value = shared_map @ deployed.shared_basis.T
+        if private_map.shape[1]:
+            value = value + private_map @ private_basis.T
+        expected.append(value)
+    assert all(torch.equal(left, right) for left, right in zip(
+        hybrid.deployed_coefficient_maps(deployed), expected, strict=True,
+    ))
 
 
 def test_frozen_bilin18_storage_grid_is_exact():
@@ -218,3 +246,9 @@ def test_validation_rejects_nonorthogonal_shared_basis_and_indefinite_residual()
     indefinite[0] = -torch.eye(4, dtype=torch.float64)
     with pytest.raises(ValueError, match="indefinite"):
         hybrid.residual_eigensystems(tuple(indefinite), torch.empty((4, 0), dtype=torch.float64))
+
+
+def test_full_rank_shared_basis_still_rejects_indefinite_merit():
+    merits = (torch.diag(torch.tensor([1., 1., 1., -0.1], dtype=torch.float64)),)
+    with pytest.raises(ValueError, match="indefinite"):
+        hybrid.residual_eigensystems(merits, torch.eye(4, dtype=torch.float64))

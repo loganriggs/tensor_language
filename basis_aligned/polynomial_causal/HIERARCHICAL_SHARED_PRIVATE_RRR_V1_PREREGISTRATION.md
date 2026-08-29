@@ -134,15 +134,27 @@ All CE differences are all-position nats per scored token and must hold separate
    literal prices, private allocation prefixes, factor hashes, call counts, and
    parent anchors must replay exactly.
 
-Local fit merit is diagnostic and can never exceed the (q_0=0) independent optimum
-at a fixed total price. Whole-model CE remains the primary causal currency.
+Local fit merit is diagnostic. The (q_0=0) endpoint is optimal only within the
+independent-site grammar at its exact price. An interior cell is the conditional
+optimum for its prospectively fixed (P,q_0), but neither endpoint nor interior is a
+global optimum over all hierarchical decompositions. Whole-model CE remains the
+primary causal currency.
 
 ## Identifiability and claim boundary
 
 Only the shared projector, each combined site projector, and deployed coefficient map
 are identified. Columns are arbitrary up to sign and rotations within tied
-eigenspaces. At a tied allocation cutoff, the deterministic tie rule makes bytes
-reproducible but does not make the chosen site scientifically unique.
+eigenspaces. A numerical runner must report shared and per-site boundary eigengaps and
+hash the float32 deployed projectors/coefficient maps, not raw basis columns. At a tied
+allocation cutoff, the deterministic tie rule makes one implementation reproducible
+but does not make its gauge or chosen site scientifically unique.
+
+Fit matrices and eigensolvers use CPU float64. Deployment has exactly one cast and
+evaluation order: independently cast every input map and basis with contiguous
+`.float()`; compute the shared factor product first and private factor product second;
+add the private term exactly once. Literal prices and hashes are computed from these
+deployed float32 objects. Dense coefficient matrices are diagnostic hashes only and
+must not be serialized or substituted for the priced factor execution.
 
 More importantly, “shared” and “private” are conditional on the frozen global
 projector. This core does not prove that the split is the globally optimal hierarchical

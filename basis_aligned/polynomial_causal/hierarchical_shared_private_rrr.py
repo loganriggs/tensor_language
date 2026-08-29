@@ -69,6 +69,17 @@ class HierarchicalFit:
     combined_orthogonality_max_abs: float
 
 
+@dataclass(frozen=True)
+class DeployedHierarchicalProgram:
+    """Exact float32 factor order used by any future intervention adapter."""
+
+    shared_basis: torch.Tensor
+    shared_input_maps: tuple[torch.Tensor, ...]
+    private_bases: tuple[torch.Tensor, ...]
+    private_input_maps: tuple[torch.Tensor, ...]
+    private_ranks: tuple[int, ...]
+
+
 def _positive_integer(name: str, value: Any, *, allow_zero: bool = False) -> int:
     if not isinstance(value, int) or isinstance(value, bool) or value < (0 if allow_zero else 1):
         raise ValueError(f"{name} must be {'a nonnegative' if allow_zero else 'a positive'} integer")
@@ -122,6 +133,9 @@ def _validate_merits(merits: Sequence[torch.Tensor]) -> tuple[int, torch.dtype]:
         scale = max(float(merit.abs().max()), 1.0)
         if float((merit - merit.T).abs().max()) > 1e-11 * scale:
             raise ValueError(f"merit {index} is not symmetric")
+        minimum = float(torch.linalg.eigvalsh(0.5 * (merit + merit.T))[0])
+        if minimum < -1e-10 * scale:
+            raise ValueError(f"merit {index} is materially indefinite")
     return dimension, torch.float64
 
 
@@ -306,6 +320,47 @@ def coefficient_maps(fit: HierarchicalFit) -> tuple[torch.Tensor, ...]:
     )
 
 
+def materialize_float32_program(fit: HierarchicalFit) -> DeployedHierarchicalProgram:
+    """Freeze the only licensed cast and factor ordering for future execution.
+
+    Fit is float64.  Every factor is independently converted by ``.float()`` on
+    CPU and made contiguous.  Runtime must compute the shared term first, the
+    private term second, and add them once; it may not pre-materialize a dense map.
+    """
+    program = DeployedHierarchicalProgram(
+        shared_basis=fit.shared_basis.float().contiguous(),
+        shared_input_maps=tuple(value.float().contiguous() for value in fit.shared_input_maps),
+        private_bases=tuple(value.float().contiguous() for value in fit.private_bases),
+        private_input_maps=tuple(value.float().contiguous() for value in fit.private_input_maps),
+        private_ranks=fit.allocation.private_ranks,
+    )
+    tensors = (
+        program.shared_basis, *program.shared_input_maps,
+        *program.private_bases, *program.private_input_maps,
+    )
+    if any(value.dtype != torch.float32 or value.device.type != "cpu" or not (
+        value.is_contiguous() and bool(torch.isfinite(value).all())
+    ) for value in tensors):
+        raise RuntimeError("deployed hierarchical factors have invalid schema")
+    return program
+
+
+def deployed_coefficient_maps(
+    program: DeployedHierarchicalProgram,
+) -> tuple[torch.Tensor, ...]:
+    """Apply the frozen float32 shared-then-private factor materialization order."""
+    output = []
+    for shared, private, basis in zip(
+        program.shared_input_maps, program.private_input_maps,
+        program.private_bases, strict=True,
+    ):
+        value = shared @ program.shared_basis.T
+        if private.shape[1]:
+            value = value + private @ basis.T
+        output.append(value.contiguous())
+    return tuple(output)
+
+
 def _tensor_sha256(value: torch.Tensor) -> str:
     tensor = value.detach().cpu().contiguous()
     digest = hashlib.sha256()
@@ -316,14 +371,22 @@ def _tensor_sha256(value: torch.Tensor) -> str:
 
 
 def factor_hash_receipt(fit: HierarchicalFit) -> dict[str, Any]:
-    """Hash factors without licensing their serialization as a program artifact."""
+    """Hash identified deployed maps/projectors, never gauge-sensitive columns."""
+    deployed = materialize_float32_program(fit)
+    shared_projector = deployed.shared_basis @ deployed.shared_basis.T
+    site_projectors = tuple(
+        shared_projector + basis @ basis.T for basis in deployed.private_bases
+    )
     body = {
-        "shared_basis_sha256": _tensor_sha256(fit.shared_basis),
-        "shared_input_map_sha256s": [_tensor_sha256(value) for value in fit.shared_input_maps],
-        "private_basis_sha256s": [_tensor_sha256(value) for value in fit.private_bases],
-        "private_input_map_sha256s": [_tensor_sha256(value) for value in fit.private_input_maps],
+        "hash_currency": "float32_deployed_projectors_and_coefficient_maps",
+        "shared_projector_sha256": _tensor_sha256(shared_projector),
+        "site_projector_sha256s": [_tensor_sha256(value) for value in site_projectors],
+        "coefficient_map_sha256s": [
+            _tensor_sha256(value) for value in deployed_coefficient_maps(deployed)
+        ],
         "private_ranks": list(fit.allocation.private_ranks),
         "price": asdict(fit.price),
+        "raw_factor_hashes_reported": False,
         "serialized_program_authority": False,
     }
     return {**body, "sha256": hashlib.sha256(json.dumps(
