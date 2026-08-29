@@ -1445,3 +1445,209 @@ response-conditioned factor basis rather than many nearby K sweeps.
 The focused technical receipt is `MLP2_CMR_V1_SUFFIX_FINDINGS.md`.  This section is
 the plain-English continuation; the complete current explanation remains this file:
 `CURRENT_PROJECT_UPDATE_PLAIN_ENGLISH_2026-08-29_1410.md`.
+
+## UPDATE START — 23. What happened after the MLP2 selector run?
+
+The short answer is: **there is not yet a new MLP2 compression outcome after
+Section 22**.  The last scientific model result is still the 58.99-second SUFFIX
+selector fit described above.  Since then, the work has been preparing the one
+small calibration that must precede the decisive finite K=512 experiment, and
+repairing weaknesses found by an independent audit of that calibration code.
+
+This distinction matters.  Writing a runner, projecting a data file, or passing a
+test does not show that a compressed MLP works.  The scientific question remains:
+after physically replacing native MLP2 by 512 selected product channels, what
+happens to the complete model's output distribution and cross-entropy?
+
+### 23.1 What actually ran, and how long did it take?
+
+After the two model computations in Section 22, the only newly executed data job was
+a **model-free role projection**.  It copied the already frozen FIT_SELECTOR rows
+out of a combined token container into a separate file.  It contained:
+
+- 192 document rows;
+- 31,505 eligible next-token positions;
+- 191 documents with at least one eligible position;
+- exactly one short document with no eligible position.
+
+The observed shell wall time was about **2.7 seconds**.  This time is not stored as a
+scientific model-result field, so it should be understood as operational timing,
+not a receipted benchmark.  The operation loaded no model, made no forward or
+backward calls, and revealed no validation or replication outcome.
+
+The calibration itself has **not run**, and the K=512 finite validator has **not
+run**.  Therefore there is no new CE, KL, logit-error, top-1, extraction, removal, or
+OOD number to report.  Code review and hardening occupied the remaining interval;
+there is no honest single runtime for that human/agent reasoning work.
+
+For reference, the complete substantive MLP2 model timing remains:
+
+| Computation | Model work | Wall time |
+|---|---:|---:|
+| FIT_MEAN | 48 prefix-only forwards | 10.54 s |
+| SUFFIX selector | 48 full forwards + 384 backwards | 58.99 s |
+| Role-only projection | no model calls | about 2.7 s |
+| Margin/frequency calibration | not run | — |
+| Physical K=512 validation | not run | — |
+
+### 23.2 What is a “role,” and why make a separate FIT_SELECTOR file?
+
+The documents were preregistered into disjoint **roles**:
+
+- FIT_MEAN estimates the average product values $\mu_j$;
+- FIT_SELECTOR chooses the 512 product channels;
+- VALIDATION tests the resulting choices once;
+- REPLICATION checks a surviving claim on another held-out sample.
+
+A role is therefore a permission boundary, not a semantic token category.  A
+fitting program is allowed to inspect fitting rows but must not deserialize held-out
+validation rows, even if it promises not to use them.  The original token file
+contained all four roles in one serialized object.  The independent audit correctly
+identified that loading that object would technically expose validation and
+replication data to calibration code.  The 2.7-second projection created a new
+serialized object containing only FIT_SELECTOR.  Its tensor hashes agree exactly
+with the earlier frozen rows.
+
+This repair does not improve the model.  It makes the next comparison trustworthy:
+the thresholds and reporting cells cannot accidentally adapt to validation data.
+
+### 23.3 What is the missing calibration computing?
+
+It computes only reference quantities from the native model on FIT_SELECTOR.  It
+does not choose SUFFIX channels and cannot change the K=512 candidates.
+
+#### Native top-1 margin
+
+Let $z_i\in\mathbb R^{50304}$ be the native final-logit vector at eligible token
+position $i$.  If $z_{i,(1)}$ and $z_{i,(2)}$ are its largest and second-largest
+entries, the **native margin** is
+
+$$
+m_i=z_{i,(1)}-z_{i,(2)}.
+$$
+
+A large $m_i$ means the winning token is far ahead of the runner-up.  A small
+$m_i$ means a modest logit perturbation can change top-1.  The calibration freezes
+an epsilon grid consisting of fixed dyadic values $2^k$, for $k=-10,\ldots,5$,
+plus one half of several empirical margin quantiles.  The dyadic values prevent the
+data from choosing the entire grid; the quantile values give resolution where this
+particular model's decisions actually lie.
+
+In validation, if the candidate's maximum relevant logit disturbance is below a
+position's native margin, the native winner is certified unchanged at that
+position.  Sweeping the frozen epsilon grid gives a margin-based top-1 stability
+curve rather than relying on one convenient threshold selected after seeing the
+candidate.
+
+#### Target-frequency cells
+
+For target token type $v$, the calibration counts
+
+$$
+c(v)=\sum_i\mathbf 1\{t_i=v\},
+$$
+
+where $t_i$ is the true next token at eligible FIT_SELECTOR position $i$.  Positions
+are placed into the predeclared count bins
+
+$$
+0,\ 1,\ 2\text{--}3,\ 4\text{--}7,\ 8\text{--}15,\ 16\text{--}31,
+\ 32\text{--}63,\ 64\text{--}127,\ \ge128.
+$$
+
+These are **reporting cells**: subsets on which the same loss metrics are recomputed.
+They test whether a candidate looks good only because it preserves common targets
+while damaging rare ones.  The bins do not train the selector.
+
+#### Copy and repeat cells
+
+At each eligible position, we look back at most 128 tokens for the nearest earlier
+occurrence of the current input token.  If that earlier occurrence was followed by
+the current target, the position is **copy-positive**: an induction-like copy rule
+could predict it.  If the input repeats but its earlier successor differs from the
+current target, it is **repeat-negative**.  If no such earlier input occurs, it is
+**nonrepeat**.
+
+Again, these cells do not make the compression.  They reveal whether MLP2 removal
+selectively breaks copy-related behavior, confuses arbitrary repetition with useful
+copying, or mainly affects ordinary nonrepeat text.
+
+### 23.4 What are $D_2$, teacher KL, and the other validation computations?
+
+For native logits $z_i$ and candidate logits $\hat z_i$, the frozen squared-logit
+distortion is
+
+$$
+D_2=\frac1N\sum_{i=1}^{N}\sum_{v=1}^{50304}
+       (\hat z_{iv}-z_{iv})^2.
+$$
+
+The vocabulary dimension is **summed**, not averaged, and the logits are not
+centered for this particular certificate.  This exact normalization was missing
+from the first draft and is now frozen before validation.
+
+The other whole-model measures answer different questions:
+
+- **CE change** asks how much probability the candidate loses on the true next
+  tokens.  It is closest to the model's training objective.
+- **Teacher KL** compares the candidate's complete next-token distribution with the
+  native model's distribution, including alternatives that are not the true token.
+- **Centered-logit NRMSE** measures relative-logit distortion after subtracting the
+  irrelevant common offset from every vocabulary logit.
+- **Top-1 agreement** asks how often candidate and native select the same winning
+  token.  It can remain high while probabilities are badly distorted, which is why
+  it is not used alone.
+- **Per-document bootstrap bounds** resample whole documents, not individual tokens,
+  to test whether SUFFIX's advantage over every equal-price control is robust to
+  which documents were sampled.
+
+The finite validator will compare SUFFIX with LOCAL, RMS, MASS, DERANGED, and
+HASH_RANDOM at exactly the same 512-channel storage and execution price.  It also
+includes the native model and a zero-MLP2 baseline.  This is the first computation
+that can convert the selector evidence into a compression claim.
+
+### 23.5 Why did the calibration code need more work?
+
+An independent audit returned **NO-GO** on the first version.  The important issues
+were concrete rather than mathematical disagreement:
+
+1. the calibration could deserialize the combined four-role token object;
+2. the model-collection function needed a one-use authority token rather than being
+   callable as an ordinary public helper;
+3. CPU fallback was allowed even though the numerical contract requires the RTX
+   5090 in bfloat16;
+4. the per-site forward-call ledger and exact row semantics needed stronger checks;
+5. crash/receipt publication needed stronger filesystem and hash joins;
+6. the $D_2$ normalization had not been stated exactly.
+
+The role-only projection fixes item 1.  The addendum freezes item 6.  The calibration
+runner is being repaired for items 2--5 and must pass a second audit before it is
+allowed to touch the model.  This is a real quality-control gain, but it also means
+the interval produced less scientific information than intended.
+
+### 23.6 Is anything externally blocking progress?
+
+No.  FineWeb rows are cached, the model artifacts are present, and this calibration
+does not need new data or user permission.  The blocker is internal and precise:
+finish the source-closed calibration runner, pass its second audit, execute its 48
+native forwards, and then run the physical validator.
+
+The immediate order is therefore:
+
+1. finish and re-audit the FIT_SELECTOR-only calibration;
+2. execute it and publish the frozen margin grid, frequency counts, and copy-cell
+   identities;
+3. build and test the physical 512-channel MLP2 path, verifying it makes zero native
+   MLP2 calls;
+4. execute the six equal-price candidates plus native/zero baselines on validation;
+5. promote only a candidate that passes both the absolute faithfulness bars and the
+   document-bootstrap comparison with all controls.
+
+The key scientific fork remains simple.  A finite SUFFIX win would show that a
+downstream-aware native-product decomposition buys a smaller executable MLP2.  A
+SUFFIX/LOCAL tie would say the expensive downstream geometry added little.  Failure
+of every K=512 arm would say native product coordinates are the wrong atoms, sending
+us toward jointly refactored or response-conditioned bases rather than more selector
+tuning.
+
+## UPDATE END — 23
