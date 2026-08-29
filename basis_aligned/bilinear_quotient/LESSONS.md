@@ -2390,3 +2390,22 @@ mere non-significance, so it flags the failure that actually cost a claim instea
 write-up must come from the artifact, never from a terminal rendering of the artifact. `tail`, `head`,
 `[:12]` and a wrapped table are all the same hazard. If a tool prints a list you might quote, it must
 print all of it or exit non-zero.
+
+## LESSON 93 — I wrote a bar in the wrong unit twice in five sections, having written the lesson in between
+
+LESSON 91 (§1972): *"When registering a predicate about whether something matters, state the bar in the
+units of the decision — nats, parameters, nats per 100M — not in σ."* §1976 then asked whether coverage
+"buys more CE than the entire fallback lever", **in absolute nats, for a question explicitly about how to
+spend a parameter budget.** It passes 2 of 3, and the correct answer is the reverse: per 100M parameters
+the fallback returns **149–157** milli-nats against coverage's **29–39**, a 4.4–5.2× difference the
+predicate could not see.
+
+**The bar was not wrong about significance this time — it was wrong about the denominator.** LESSON 91
+generalised from σ to "units of the decision" and I read it as "not σ" rather than as "the units of the
+decision", which is how a lesson decays into a slogan.
+
+**The rule, in the form that covers both.** Before registering a bar, write down the sentence the result
+will be used to justify — "ship X instead of Y", "spend here not there" — and check the bar is in the
+units that sentence needs. A spending question needs a rate. A shipping question needs a magnitude. A
+believability question needs σ. **Three questions, three units, and the predicate must name which one it
+is answering.**

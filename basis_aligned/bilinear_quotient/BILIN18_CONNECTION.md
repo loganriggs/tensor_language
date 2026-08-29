@@ -56835,3 +56835,49 @@ compiled program and the live model that this thread has a name for. **Every att
 has been a better *fallback*; none has questioned the premise that an uncovered token must be served by
 one — the alternative, extending coverage until the arm is empty, was priced in §1923 and never revisited
 against a build 18% cheaper than the one it was priced against.**
+
+## §1976 — the fallback is 4.5× more parameter-efficient than coverage, and my predicate asked in the wrong unit again
+
+`ops/coverage_vs_fallback.py`, 50.4s, **DISCOVERY ONLY**, both coverages, rung 3 — §1975's open question.
+**All three predicates TRUE, derived controls TRUE** (after the runner failed the plan twice, below).
+
+§1975 noted that every attempt on the covered/uncovered gap since §1937 built a better **fallback**, and
+none questioned the premise that an uncovered token must be served by one. The alternative is to buy
+**coverage** until the arm shrinks. Both are priced in parameters and had never been put on one axis.
+
+```
+                       CE gain           cost         per 100M parameters
+  coverage 5,419 -> 16,110   +63.68 / +86.16 / +73.54 m   221.7 M    28.7 / 38.9 / 33.2 m
+  fallback map64 -> converged +71.35 / +75.33 / +71.89 m    47.9 M   149.1 / 157.4 / 150.2 m
+```
+
+> **The fallback is 4.4 to 5.2× more parameter-efficient than coverage.** It buys ~72 milli-nats for
+> **47.9M**; coverage buys ~74 for **221.7M**. **The arc spent thirty sections on the right axis**, and
+> that was not established until now — §1946–§1975 improved the fallback because that is where the
+> margin was, never because anyone had priced the alternative.
+
+> **My pred_a asked the wrong question, for the second time in five sections.** I registered "raising
+> coverage buys more CE than the entire fallback lever" — in **nats**, for a question that is explicitly
+> about how to spend a **budget**. It passes 2 of 3 and the correct answer is the reverse once you divide
+> by cost. **LESSON 91 said to state a bar in the units of the decision and I wrote another one in σ's
+> cousin: absolute nats.** The predicate is scored as written — TRUE — and it is uninformative; the
+> useful number is the one it did not ask for.
+
+> **pred_b PASSED and gives the mechanism: the fallback lever is worth less than half as much at 16,110
+> (33.1 / 34.8 / 33.1 milli-nats) as at 5,419 (71.4 / 75.3 / 71.9)** — §1936's arithmetic, the uncovered
+> arm being ~10% of positions against ~24%. **So the two levers are substitutes: buying coverage devalues
+> the fallback, which is why they must be priced together and never were.**
+
+> **And both coarse levers dwarf everything §1957–§1974 spent its time on.** §1958 measured the marginal
+> levers at **9 to 15** milli-nats per 100M. Coverage runs at 29–39 and the fallback at 149–157. **The
+> arc tuned parameters worth an order of magnitude less than the two structural choices it inherited
+> without examining.**
+
+**Derived controls TRUE, after the runner rejected this plan twice for opposite reasons** —
+first with no same-spec pair, then with no differing-spec pair, each time flagging
+`control_is_two_sided=False`. **§1957 shipped with exactly the first of those holes and I found it by
+reading output; here it was caught before publication both times.** Fifty-sixth clean reading.
+
+**Open.** Coverage and the fallback are substitutes and have now been priced against each other at two
+points. **Neither has been priced against the third structural choice — the 36-site substitution itself
+(§1765), which is the premise all of §1746 onward rests on and the only one never given a number.**

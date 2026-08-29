@@ -28,7 +28,10 @@ RICH, POOR = 'rich_fallback', 'poor_fallback'
 
 PLAN = [('mix30m640', A384, RICH),          # the converged fallback
         ('map64', A384, POOR),              # §1789's rank-64 map, same tables
-        ('map512', A384, 'spec_partner')]   # same table rank: keeps the control two-sided
+        ('map512', A384, 'spec_partner'),   # same table rank as the two above
+        ('map512', None, 'rank_partner')]   # DIFFERENT table rank -- the runner failed the first
+# version of this plan with control_is_two_sided=False because all three arms shared a spec, so the
+# differing-pair half had nothing to check. Both halves are now non-empty.
 
 
 def _coverage_beats_fallback(x):
