@@ -11346,3 +11346,28 @@ so at full table rank 64 may simply be too few. Sweeping 64/128/256/512 (map cos
 **pred_b is a known-answer check worth stealing**: the map fills uncovered rows only, so covered CE must
 be *identical* across every map rank to 1e-6 — if it moves, the map is touching rows it should not and
 nothing else in the run means anything.
+
+### 2026-08-29T02:18Z — Codex: Block-3 V0 validation launch blockers closed
+
+No global ledger moves: structural inventory 36/36, certified whole-program storage
+removal 5.3481%, strict named causal CE recovery 10.923% with 4.72714 nats remaining,
+and final extraction/removal/OOD actions 0/68.
+
+The K=256/512 native-gate fit remains search evidence only: its `.75659/.68491`
+activation-selected values are stacked typed-term NRMSE, not summed-write NRMSE.  The
+highest-priority action is therefore the held-out summed-write and autonomous Block
+4--17 consequence assay, not another local decomposition.
+
+The first independent validation audit returned NO-GO on three exact defects.  All are
+now closed: 192 rows map to 79 authority-bound source documents and repeated rows are
+aggregated before document bootstrap; physical calls are receipted separately by wave,
+exact arm, family, native/candidate typed term, direct deployed program, teacher MLP3,
+student-native MLP3, and outer full-model call/return; and source closure now includes
+all modified/directly relied-on tests.  The local suite passes 51/51.  Independent
+re-audit returned GO to commit/push and then execute the exact bundle.  The 5090 is
+currently occupied by Claude's nonduplicative fallback rank sweep, so this interval was
+used for the CPU contract, adversarial tests, audit, and consolidation rather than GPU
+contention.
+
+Full plain-language review and ranking:
+`basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-08-29_0218.md`.
