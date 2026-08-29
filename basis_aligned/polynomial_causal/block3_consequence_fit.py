@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 import math
-from typing import Iterable, Mapping, Sequence
+from typing import Callable, Iterable, Mapping, Sequence
 
 import torch
 import torch.nn.functional as F
@@ -176,6 +176,48 @@ def logical_batch_adam_step(
         if loss.numel() != 1 or not bool(torch.isfinite(loss)):
             raise RuntimeError("logical batch contains a nonfinite microbatch loss")
         loss.backward()
+    norm = torch.nn.utils.clip_grad_norm_(parameter_list, max_grad_norm)
+    if not bool(torch.isfinite(norm)):
+        raise RuntimeError("logical batch gradient norm is nonfinite")
+    optimizer.step()
+    return float(norm)
+
+
+def logical_batch_adam_closure_step(
+    optimizer: torch.optim.Optimizer, parameters: Iterable[torch.Tensor],
+    additive_microbatch_loss_closures: Sequence[Callable[[], torch.Tensor]],
+    *, max_grad_norm: float = 1.0,
+) -> float:
+    """Backpropagate four lazily built microbatch graphs, then clip/update once.
+
+    This has the same gradient and Adam trajectory as :func:`logical_batch_adam_step`
+    but releases each suffix graph before constructing the next one.
+    """
+
+    parameter_list = list(parameters)
+    closures = tuple(additive_microbatch_loss_closures)
+    optimized = [
+        parameter
+        for group in optimizer.param_groups
+        for parameter in group["params"]
+    ]
+    if not isinstance(optimizer, torch.optim.Adam) or not parameter_list or len(
+        closures
+    ) != 4 or not all(callable(closure) for closure in closures) or (
+        len({id(parameter) for parameter in parameter_list}) != len(parameter_list)
+    ) or len(optimized) != len(parameter_list) or {
+        id(parameter) for parameter in optimized
+    } != {
+        id(parameter) for parameter in parameter_list
+    } or not math.isfinite(max_grad_norm) or max_grad_norm <= 0:
+        raise ValueError("logical Adam closure step inputs are malformed")
+    optimizer.zero_grad(set_to_none=True)
+    for closure in closures:
+        loss = closure()
+        if loss.numel() != 1 or not bool(torch.isfinite(loss)):
+            raise RuntimeError("logical batch contains a nonfinite microbatch loss")
+        loss.backward()
+        del loss
     norm = torch.nn.utils.clip_grad_norm_(parameter_list, max_grad_norm)
     if not bool(torch.isfinite(norm)):
         raise RuntimeError("logical batch gradient norm is nonfinite")

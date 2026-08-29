@@ -264,8 +264,14 @@ microbatch, or change optimizer-step count.  Affine folding has zero marginal de
 cost for one chosen program, but retaining both program variants and fitting 960 steps
 has explicit artifact and experimental cost.
 
-Including the frozen reporting sweep, the complete physical census is 2,940 prefixes;
+Before optimization, one independent ordinary full-model raw-logit replay is compared
+with the autonomous native prefix-plus-suffix path on the first logical batch.  This
+adds one outer call/return and one attention/MLP call at every site; it does not add a
+registered prefix or suffix call.
+
+Including that replay and the frozen reporting sweep, the complete physical census is 2,940 prefixes;
 2,460 teacher suffixes; 10,680 student suffixes; 13,140 total suffix returns; 2,400
-optimizer steps; and 9,600 two-row backwards.  Attention and native MLP sites 0--3 are
-called 2,940 times each; attention and MLP sites 4--17 are called 13,140 times each.
-The student native-MLP3 call count remains exactly zero.
+optimizer steps; 9,600 two-row backwards; one outer full-model replay; and 13,141 raw-
+logit returns.  Attention and native MLP sites 0--3 are called 2,941 times each;
+attention and MLP sites 4--17 are called 13,141 times each.  The student native-MLP3
+call count remains exactly zero.

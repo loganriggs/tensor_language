@@ -19,6 +19,10 @@ def test_protocol_matches_frozen_schedule_and_denies_evaluation():
     assert protocol["total_teacher_suffix_calls"] == 2460
     assert protocol["total_student_suffix_calls"] == 10680
     assert protocol["total_suffix_returns"] == 13140
+    assert protocol["outer_full_model_replays"] == 1
+    assert protocol["total_raw_logit_returns"] == 13141
+    assert protocol["total_attention_mlp_calls_sites_0_3_each"] == 2941
+    assert protocol["total_attention_mlp_calls_sites_4_17_each"] == 13141
     assert protocol["promotive_family"] == "uncalibrated_real_teacher_F"
     assert protocol["authorized_for_validation"] is False
     assert protocol["authorized_for_final"] is False

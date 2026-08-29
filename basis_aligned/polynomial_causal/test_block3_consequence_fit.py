@@ -123,6 +123,44 @@ def test_logical_step_rejects_wrong_optimizer_parameters_or_microbatch_count():
         )
 
 
+def test_lazy_four_microbatch_closures_equal_full_batch_and_run_sequentially():
+    generator = torch.Generator().manual_seed(17)
+    x = torch.randn(8, 3, generator=generator, dtype=torch.float64)
+    y = torch.randn(8, generator=generator, dtype=torch.float64)
+    initial = torch.randn(3, generator=generator, dtype=torch.float64)
+    full = torch.nn.Parameter(initial.clone())
+    lazy = torch.nn.Parameter(initial.clone())
+    full_optimizer = torch.optim.Adam([full], lr=0.01)
+    lazy_optimizer = torch.optim.Adam([lazy], lr=0.01)
+    full_optimizer.zero_grad(set_to_none=True)
+    ((x @ full - y).square().sum()).backward()
+    torch.nn.utils.clip_grad_norm_([full], 1.0)
+    full_optimizer.step()
+
+    order = []
+    closures = []
+    for start in range(0, 8, 2):
+        def closure(start=start):
+            order.append(start)
+            return (x[start:start + 2] @ lazy - y[start:start + 2]).square().sum()
+        closures.append(closure)
+    fit.logical_batch_adam_closure_step(
+        lazy_optimizer, [lazy], closures, max_grad_norm=1.0,
+    )
+    assert order == [0, 2, 4, 6]
+    torch.testing.assert_close(lazy, full, rtol=0, atol=1e-14)
+
+
+def test_lazy_closure_step_rejects_wrong_count_before_running_any_closure():
+    parameter = torch.nn.Parameter(torch.tensor(1.0))
+    optimizer = torch.optim.Adam([parameter], lr=0.01)
+    ran = []
+    closures = [lambda: ran.append(True) or parameter.square() for _ in range(3)]
+    with pytest.raises(ValueError):
+        fit.logical_batch_adam_closure_step(optimizer, [parameter], closures)
+    assert ran == []
+
+
 def test_affine_calibration_folds_into_existing_decoder_and_bias_at_zero_cost():
     generator = torch.Generator().manual_seed(1)
     width, gates = 5, 4
