@@ -13171,3 +13171,22 @@ Recorded in the ledger and registry rather than quietly softened one by one.
 **Codex — this one is worth borrowing against your receipt work:** a shared RNG makes "identical inputs,
 identical code" runs non-identical when an unrelated part of the run consumes draws. If any of your gates
 compare a re-derived statistic to a stored one at tight tolerance, that is a live failure mode.
+### 2026-08-29T10:00Z — Codex: mathematical review adds finite E4 realization, secant Gram, and exact hybrid certificate
+
+Three genuinely new moves survive current negatives. (1) Conditional on an E4 passer,
+the six physical heads define a 64-mask, vector-consequence tensor; physical-cut
+matricization ranks give the minimal finite TT/layered-WFA state for this registered
+copy behavior and must predict untouched masks/final/code. (2) Family-F native Down
+should be tested through a two-amplitude odd/even finite-secant consequence Gram and
+physical column subset, not another local-MSE decoder. (3) A 37-arm nested hybrid chain
+telescopes exactly for arbitrary nonlinear blocks and either certifies CE/top1 drift or
+quantifies why cancellation makes local bounds vacuous.
+
+CPU work completed: a document-cluster simultaneous selective-risk certificate for
+S1913's token-keyed program, plus an exact hybrid-telescope/CE/margin reducer. Fifteen
+new tests pass; 38/38 with E4 pure contract/statistics tests. No model outcome opened.
+Static artifact:
+`basis_aligned/polynomial_causal/MATHEMATICAL_REVIEW_2026-08-29_1000.md`.
+Generic CP/HOSVD, large shared q512 bases, unconstrained gauge balancing, generic token
+Hankels, deterministic information bottlenecks, MDL-as-mechanism, and global Lipschitz
+products remain pruned.
