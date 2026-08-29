@@ -54282,3 +54282,47 @@ one coverage. §1864 found the map-rank rule is budget-dependent and §1924 foun
 does not transfer across coverage, so **neither the optimum's location nor the 0.018 should be assumed to
 hold elsewhere** — but given the size, I would not spend the compute to check unless someone is building
 on it.
+
+## §1930 — the allocation gain transfers to the half-cost build, and the optimum is a constant FRACTION
+
+`ops/allocation_at_half_cost_build.py`, 1120.7s, **DISCOVERY ONLY**, 16,110 coverage, rung 3 — §1929's
+one open question, at the one place it mattered. **pred_a True | pred_b True | pred_c False | pred_d True.**
+
+```
+  all-position CE, cost-flat family a+b=1024, every arm 360.7235M, 16,110 types
+    skip7000    512/512 5.91024   384/640 5.89985   256/768 5.89446   128/896 5.89546   best +0.01578
+    skip11000   512/512 5.85638   384/640 5.84646   256/768 5.84120   128/896 5.84331   best +0.01518
+    skip1200    512/512 5.88223   384/640 5.87315   256/768 5.86873   128/896 5.86860   best +0.01363
+```
+
+> **pred_a and pred_b PASSED: the gain transfers.** +0.01578 / +0.01518 / +0.01363 here against §1929's
+> +0.01874 / +0.01817 / +0.01695 at a **3.5x smaller budget and 3x lower coverage** — slightly smaller,
+> comfortably the same order. **So §1928/§1929 are not a 5,419-only curiosity: the MLP-heavy
+> redistribution is free on top of §1882's half-cost build, which is the largest cost result in the arc.**
+> §1929 flagged that neither §1864's budget-dependence nor §1924's coverage-non-transfer should be assumed
+> away; here they do not bite.
+
+> **pred_c FAILED because my band was too narrow, and the substantive answer is better than the one I
+> registered.** I required the optimum at attn 256 or 384, scaling §1929's 128-of-512. It is **256 / 256 /
+> 128**. But §1929's optimum was a *flat floor* spanning a64-a128 — **12.5% to 25% of the per-site
+> budget** — and §1930's is 128-256 of 1024, **the identical 12.5%-25% relative band**, with skip1200's
+> two candidates differing by **0.00013**. **The optimum scales as a constant FRACTION of the budget, and
+> my prediction excluded the lower half of a floor I had already measured.** The failure is a bar-design
+> error, not a transfer failure.
+>
+> **The rule, stated scale-free: give the 18 attention sites 12.5-25% of the per-site table budget and
+> the 18 MLP sites the rest.** Confirmed at two budgets (103.1M and 360.7M) and two coverages (5,419 and
+> 16,110), worth ~0.015-0.019 all-position nats, free.
+
+**pred_d PASSED**: the uniform arm reproduced §1882's **5.91024 / 5.85638 / 5.88223 exactly**, all four
+arms cost **360.7235M** against §1882's 360.724M, and coverage is exactly 16,110.
+
+> **One launch lost, to the population-dependence trap for a sixth time.** The frontier lineage carries
+> live-covered-CE anchors of 3.29205 / 3.09711, measured on the **5,419** covered set; at 16,110 the live
+> covered CE is **3.19438** and the assert fired. **The guard worked exactly as intended** — it has now
+> caught this in §1882, §1905 (as a scored pred_d failure) and here — but I converted the reliability
+> lineage to `None` anchors and never touched the frontier one. **Fixed in this script with the reason in
+> the source; the other frontier scripts still carry it.**
+
+**Open.** Nothing in the allocation line. It is measured at two budgets and two coverages, the rule is
+scale-free, and the size is ~0.015-0.019 nats free.

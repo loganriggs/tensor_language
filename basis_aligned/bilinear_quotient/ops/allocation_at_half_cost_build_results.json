@@ -1,0 +1,149 @@
+{
+ "config": {
+  "map_ranks": [
+   512
+  ],
+  "ridge": 0.01,
+  "table_ranks": [
+   "a512",
+   "a384",
+   "a256",
+   "a128"
+  ],
+  "learned": "ridge map from the token embedding to the site row, fitted on the 5419 COVERED tokens and applied only at uncovered ones; still a function of the current token alone",
+  "map_cost_formula": "36 * map_rank * 2 * 1152 reals",
+  "neighbour": "the settled output-NN fallback (\u00a71780/\u00a71781)",
+  "ROLE_NOTE": "DISCOVERY ONLY."
+ },
+ "results": {
+  "skip7000": {
+   "live": {
+    "cov": 3.19438,
+    "all": 3.13704
+   },
+   "m512_a512": {
+    "cov": 5.93671,
+    "all": 5.91024,
+    "cost_M": 360.7235
+   },
+   "m512_a384": {
+    "cov": 5.92536,
+    "all": 5.89985,
+    "cost_M": 360.7235
+   },
+   "m512_a256": {
+    "cov": 5.91932,
+    "all": 5.89446,
+    "cost_M": 360.7235
+   },
+   "m512_a128": {
+    "cov": 5.91938,
+    "all": 5.89546,
+    "cost_M": 360.7235
+   }
+  },
+  "skip11000": {
+   "live": {
+    "cov": 2.99387,
+    "all": 2.9345
+   },
+   "m512_a512": {
+    "cov": 5.87703,
+    "all": 5.85638,
+    "cost_M": 360.7235
+   },
+   "m512_a384": {
+    "cov": 5.86605,
+    "all": 5.84646,
+    "cost_M": 360.7235
+   },
+   "m512_a256": {
+    "cov": 5.86008,
+    "all": 5.8412,
+    "cost_M": 360.7235
+   },
+   "m512_a128": {
+    "cov": 5.86128,
+    "all": 5.84331,
+    "cost_M": 360.7235
+   }
+  },
+  "skip1200": {
+   "live": {
+    "cov": 3.29715,
+    "all": 3.23027
+   },
+   "m512_a512": {
+    "cov": 5.90114,
+    "all": 5.88223,
+    "cost_M": 360.7235
+   },
+   "m512_a384": {
+    "cov": 5.89111,
+    "all": 5.87315,
+    "cost_M": 360.7235
+   },
+   "m512_a256": {
+    "cov": 5.88562,
+    "all": 5.86873,
+    "cost_M": 360.7235
+   },
+   "m512_a128": {
+    "cov": 5.88386,
+    "all": 5.8686,
+    "cost_M": 360.7235
+   }
+  }
+ },
+ "allocation": {
+  "a512": {
+   "attn": 512,
+   "mlp": 512
+  },
+  "a384": {
+   "attn": 384,
+   "mlp": 640
+  },
+  "a256": {
+   "attn": 256,
+   "mlp": 768
+  },
+  "a128": {
+   "attn": 128,
+   "mlp": 896
+  }
+ },
+ "allpos_ce": {
+  "skip7000": {
+   "a512": 5.91024,
+   "a384": 5.89985,
+   "a256": 5.89446,
+   "a128": 5.89546
+  },
+  "skip11000": {
+   "a512": 5.85638,
+   "a384": 5.84646,
+   "a256": 5.8412,
+   "a128": 5.84331
+  },
+  "skip1200": {
+   "a512": 5.88223,
+   "a384": 5.87315,
+   "a256": 5.86873,
+   "a128": 5.8686
+  }
+ },
+ "table_cost_M": {
+  "a512": 360.7235,
+  "a384": 360.7235,
+  "a256": 360.7235,
+  "a128": 360.7235
+ },
+ "predictions": {
+  "pred_a_gain_survives": true,
+  "pred_b_same_order": true,
+  "pred_c_optimum_scales": false,
+  "pred_d_controls": true
+ },
+ "runtime_s": 1120.7
+}

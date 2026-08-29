@@ -1,13 +1,34 @@
 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
 ALLOCATION AT THE HALF-COST BUILD | table ranks ('a512', 'a384', 'a256', 'a128') | map rank 64 | DISCOVERY ONLY
   built the output-NN map and 36 tables (5s)
-Traceback (most recent call last):
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/allocation_at_half_cost_build.py", line 307, in <module>
-    main()
-  File "/venv/main/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/allocation_at_half_cost_build.py", line 226, in main
-    assert abs(live['cov'] - ref) <= 1e-3, f'{ename} live cov {live["cov"]:.5f} != {ref}'
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-AssertionError: skip7000 live cov 3.19438 != 3.29205
+
+  skip7000: live cov 3.19438 all 3.13704
+    a512         all 5.91024  (360.7235M table)
+    a384         all 5.89985  (360.7235M table)
+    a256         all 5.89446  (360.7235M table)
+    a128         all 5.89546  (360.7235M table)
+
+  skip11000: live cov 2.99387 all 2.93450
+    a512         all 5.85638  (360.7235M table)
+    a384         all 5.84646  (360.7235M table)
+    a256         all 5.84120  (360.7235M table)
+    a128         all 5.84331  (360.7235M table)
+
+  skip1200: live cov 3.29715 all 3.23027
+    a512         all 5.88223  (360.7235M table)
+    a384         all 5.87315  (360.7235M table)
+    a256         all 5.86873  (360.7235M table)
+    a128         all 5.86860  (360.7235M table)
+
+  all-position CE, cost-flat family a+b=1024 at 360.7235M, 16,110 types:
+    skip7000   512/512 5.91024  384/640 5.89985  256/768 5.89446  128/896 5.89546   best 256 (+0.01578 vs uniform)
+    skip11000  512/512 5.85638  384/640 5.84646  256/768 5.84120  128/896 5.84331   best 256 (+0.01518 vs uniform)
+    skip1200   512/512 5.88223  384/640 5.87315  256/768 5.86873  128/896 5.86860   best 128 (+0.01363 vs uniform)
+
+  the GAIN SURVIVES at the half-cost build -> True  skip7000 best +0.01578  skip11000 best +0.01518  skip1200 best +0.01363
+  and it is the SAME ORDER as §1929 (0.006-0.054) -> True  skip7000 +0.01578 vs §1929 +0.01874  skip11000 +0.01518 vs §1929 +0.01817  skip1200 +0.01363 vs §1929 +0.01695
+  and the OPTIMUM scales (best is 256 or 384) -> False  skip7000 256  skip11000 256  skip1200 128
+  coverage 16110, uniform reproduces §1882, costs flat -> control True  skip7000 5.91024 vs 5.91024  skip11000 5.85638 vs 5.85638  skip1200 5.88223 vs 5.88223
+
+pred_a True | pred_b True | pred_c False | pred_d True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/allocation_at_half_cost_build_results.json (1120.7s)
