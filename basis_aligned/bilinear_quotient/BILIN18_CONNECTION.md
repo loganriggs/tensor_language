@@ -57672,3 +57672,38 @@ have stopped proposing rules for it.
 carries the target-frequency buckets and the §1936 covered/uncovered input axis, so the gap can be
 decomposed without new plumbing: **is the penalty for omitting attention 5 or 6 spread across the
 distribution, or concentrated in the rare-target and uncovered-input cells where the program is weakest?**
+
+## §1994 — the threshold's gap is not a fallback artefact: 90–95% of it sits at covered inputs, and it is in every bucket
+
+`ops/where_the_threshold_gap_lives.py`, **4.4s** warm, **DISCOVERY ONLY**, 5,419, rung 3 — §1993's open
+question. **pred_a True | pred_b True | pred_c True | derived controls True.** All three reference
+deviations 0.000000.
+
+The comparison is `mlp2 + attention 5` against `mlp2 + attention 5,6` — the same compiled MLP, differing
+by exactly one attention layer, one on each side of the threshold.
+
+```
+  CE cost of omitting attention 6, nats, 5,419
+             pooled   covered inputs   uncovered   |  by target frequency: unseen  1-4   5-24  25-124  125+
+  skip7000   0.585    0.558 (95%)        0.669     |     +0.931  +0.754  +0.547  +0.424  +0.295
+  skip11000  0.640    0.600 (94%)        0.759     |     +1.031  +0.779  +0.607  +0.488  +0.299
+  skip1200   0.606    0.548 (90%)        0.788     |     +1.023  +0.712  +0.605  +0.459  +0.272
+```
+
+> **pred_a PASSED 3/3, and by a wide margin: the covered-input gap is 90–95% of the pooled gap**, against
+> a bar of 50%. **The threshold is not an artefact of the fallback.** The uncovered arm is where the
+> program guesses, and if the effect lived there it would be a fact about §1870's map rather than about
+> the computation. It does not — the uncovered gap is larger (0.67–0.79) but carries a quarter of the mass.
+
+> **pred_b PASSED 3/3 and pred_c PASSED 3/3. The gap is strictly positive in all five frequency buckets**,
+> and the most frequent bucket carries 0.27–0.32 of the unseen bucket's gap, against a bar of 0.25.
+> **Every part of the distribution pays.**
+
+> **But it is graded, and the gradient is monotone on all three roles: 0.93 → 0.75 → 0.55 → 0.42 → 0.30.**
+> Omitting attention 6 costs **three times as much on an unseen target as on a frequent one.** Nothing was
+> registered about the gradient; it is an observation, and the shape is clean enough to be worth a control.
+
+**Open, and it is a deflationary one.** A 3:1 frequency gradient looks like a mechanism, and after §1986,
+§1990 and §1992 that is exactly when I should suspect it is generic. **The full 36-site program's own
+damage, and a lone compiled mlp2's, can be given the same bucket decomposition from artifacts already on
+disk. If all compilation damage has this shape, the gradient says nothing about attention 6.**

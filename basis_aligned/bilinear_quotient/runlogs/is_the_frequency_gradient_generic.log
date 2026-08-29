@@ -1,0 +1,34 @@
+IS THE FREQUENCY GRADIENT GENERIC | 6 arms x 1 coverage(s) | DISCOVERY ONLY
+
+########## COVERAGE 5419 ##########
+  [bqlib] coverage 5419 from fineweb_n96_skip80.pt: 36 tables, neighbour index and map solver built (4s)
+  [bqlib] cache HIT  live     skip7000
+  [bqlib] cache HIT  live     skip11000
+  [bqlib] cache HIT  live     skip1200
+  [bqlib] cache HIT  mix30m640 skip7000
+  [bqlib] cache HIT  mix30m640 skip11000
+  [bqlib] cache HIT  mix30m640 skip1200
+  [bqlib] cache HIT  mix30m640 skip7000
+  [bqlib] cache HIT  mix30m640 skip11000
+  [bqlib] cache HIT  mix30m640 skip1200
+  [bqlib] cache HIT  mix30m640 skip7000
+  [bqlib] cache HIT  mix30m640 skip11000
+  [bqlib] cache HIT  mix30m640 skip1200
+  [bqlib] cache HIT  mix30m640 skip7000
+  [bqlib] cache HIT  mix30m640 skip11000
+  [bqlib] cache HIT  mix30m640 skip1200
+  [bqlib] cache HIT  mix30m640 skip7000
+  [bqlib] cache HIT  mix30m640 skip11000
+  [bqlib] cache HIT  mix30m640 skip1200
+  [bqlib] cache HIT  map512   skip7000
+  [bqlib] cache HIT  map512   skip11000
+  [bqlib] cache HIT  map512   skip1200
+
+  the full program's damage is graded like the threshold gap, within 0.15 of 0.29 (>=2 roles)  -> True
+  and both lone compiled MLPs do too, though their total damage differs by 2.2x  -> True
+  and every shape is under 0.5 on 3/3 roles -- damage is always at least 2x steeper on unseen targets  -> True
+  derived controls -> True   coverage_exact=True  inert_pairs_are_inert=True  some_differing_pair_moves=True  buckets_partition=True  live_identical=True  ref_mlp2_a56=True  ref_mlp2_a5=True  ref_mlp4=True
+  reference deviations: mlp2_a56 0.000000  mlp2_a5 0.000000  mlp4 0.000000
+
+pred_a True | pred_b True | pred_c True | pred_z True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/is_the_frequency_gradient_generic_results.json (4.5s)
