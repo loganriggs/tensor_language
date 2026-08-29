@@ -1,0 +1,308 @@
+{
+  "schema_version": 1,
+  "status": "discovery_complete",
+  "source_commit": "dffd508461c3e609d95529c46472d5b238bb54ec",
+  "source_hashes": {
+    "basis_aligned/polynomial_causal/UNEVEN_TABLE_RANK_ALLOCATION_PREREG_2026-08-29.md": "63a40acba1375e720dbcd31d2a0fa29ebdf88674cf4dbe83bfe21f090ecb8d87",
+    "basis_aligned/polynomial_causal/uneven_table_rank_allocation.py": "b8227967dc1d206d00795bf9f194cab57206b6698f219ae8cee5ee7aea264586",
+    "basis_aligned/polynomial_causal/test_uneven_table_rank_allocation.py": "6f4a4a86460f9786b952757f3ea80996153676298d0d33bd94458456114b2667",
+    "basis_aligned/polynomial_causal/run_uneven_table_rank_allocation.py": "41d2b340996d3dccc4a6fd59a09d8a3efcd95d2fd0d0aa636cfebfc660095799"
+  },
+  "inputs": {
+    "fit_rows_sha256": "94bc1fb3e3a6a061541e555295e0af8c50ae6068fdff84e95a69c25844091eda",
+    "evaluation_rows_sha256": {
+      "skip7000": "d66c1ee7807bc6b9bd7d0ddba5cdd7e3bc64926b00320a10675a2f817d67128c",
+      "skip11000": "b1564bfd071418f401a816cb01e3d26b082a3e73ba858838f1c83c250db4d868",
+      "skip1200": "21707551f35d13818c10ac59e12e9445ef076d0522371fe779691bfab719d34f"
+    },
+    "coverage": 5419,
+    "rank_grid": [
+      64,
+      128,
+      192,
+      256,
+      320,
+      384,
+      448,
+      512,
+      576,
+      640,
+      704,
+      768,
+      832,
+      896,
+      960,
+      1024,
+      1088,
+      1152
+    ],
+    "budget_values": 163666944,
+    "budget_M": 163.666944
+  },
+  "allocations": {
+    "uniform_r512": {
+      "ranks": {
+        "mlp0": 512,
+        "mlp1": 512,
+        "mlp2": 512,
+        "mlp3": 512,
+        "mlp4": 512,
+        "mlp5": 512,
+        "mlp6": 512,
+        "mlp7": 512,
+        "mlp8": 512,
+        "mlp9": 512,
+        "mlp10": 512,
+        "mlp11": 512,
+        "mlp12": 512,
+        "mlp13": 512,
+        "mlp14": 512,
+        "mlp15": 512,
+        "mlp16": 512,
+        "mlp17": 512,
+        "attn0": 512,
+        "attn1": 512,
+        "attn2": 512,
+        "attn3": 512,
+        "attn4": 512,
+        "attn5": 512,
+        "attn6": 512,
+        "attn7": 512,
+        "attn8": 512,
+        "attn9": 512,
+        "attn10": 512,
+        "attn11": 512,
+        "attn12": 512,
+        "attn13": 512,
+        "attn14": 512,
+        "attn15": 512,
+        "attn16": 512,
+        "attn17": 512
+      },
+      "cost_values": 163666944,
+      "cost_M": 163.666944
+    },
+    "normalized_fit_energy": {
+      "ranks": {
+        "attn0": 320,
+        "attn1": 256,
+        "attn10": 576,
+        "attn11": 576,
+        "attn12": 576,
+        "attn13": 512,
+        "attn14": 576,
+        "attn15": 640,
+        "attn16": 576,
+        "attn17": 192,
+        "attn2": 448,
+        "attn3": 448,
+        "attn4": 512,
+        "attn5": 256,
+        "attn6": 384,
+        "attn7": 320,
+        "attn8": 512,
+        "attn9": 448,
+        "mlp0": 896,
+        "mlp1": 768,
+        "mlp10": 896,
+        "mlp11": 768,
+        "mlp12": 896,
+        "mlp13": 896,
+        "mlp14": 960,
+        "mlp15": 832,
+        "mlp16": 64,
+        "mlp17": 64,
+        "mlp2": 768,
+        "mlp3": 640,
+        "mlp4": 192,
+        "mlp5": 128,
+        "mlp6": 320,
+        "mlp7": 768,
+        "mlp8": 832,
+        "mlp9": 768
+      },
+      "cost_values": 163569024,
+      "cost_M": 163.569024
+    },
+    "type_shifted_null": {
+      "ranks": {
+        "mlp0": 64,
+        "mlp1": 896,
+        "mlp2": 768,
+        "mlp3": 768,
+        "mlp4": 640,
+        "mlp5": 192,
+        "mlp6": 128,
+        "mlp7": 320,
+        "mlp8": 768,
+        "mlp9": 832,
+        "mlp10": 768,
+        "mlp11": 896,
+        "mlp12": 768,
+        "mlp13": 896,
+        "mlp14": 896,
+        "mlp15": 960,
+        "mlp16": 832,
+        "mlp17": 64,
+        "attn0": 192,
+        "attn1": 320,
+        "attn2": 256,
+        "attn3": 448,
+        "attn4": 448,
+        "attn5": 512,
+        "attn6": 256,
+        "attn7": 384,
+        "attn8": 320,
+        "attn9": 512,
+        "attn10": 448,
+        "attn11": 576,
+        "attn12": 576,
+        "attn13": 576,
+        "attn14": 512,
+        "attn15": 576,
+        "attn16": 640,
+        "attn17": 576
+      },
+      "cost_values": 163569024,
+      "cost_M": 163.569024
+    },
+    "raw_fit_energy_diagnostic": {
+      "ranks": {
+        "attn0": 64,
+        "attn1": 64,
+        "attn10": 128,
+        "attn11": 192,
+        "attn12": 128,
+        "attn13": 256,
+        "attn14": 256,
+        "attn15": 192,
+        "attn16": 384,
+        "attn17": 128,
+        "attn2": 768,
+        "attn3": 768,
+        "attn4": 576,
+        "attn5": 64,
+        "attn6": 192,
+        "attn7": 64,
+        "attn8": 320,
+        "attn9": 128,
+        "mlp0": 1152,
+        "mlp1": 1152,
+        "mlp10": 768,
+        "mlp11": 1024,
+        "mlp12": 1024,
+        "mlp13": 1088,
+        "mlp14": 1152,
+        "mlp15": 1152,
+        "mlp16": 1152,
+        "mlp17": 1152,
+        "mlp2": 1152,
+        "mlp3": 1152,
+        "mlp4": 1152,
+        "mlp5": 128,
+        "mlp6": 192,
+        "mlp7": 192,
+        "mlp8": 448,
+        "mlp9": 704
+      },
+      "cost_values": 163662208,
+      "cost_M": 163.662208
+    }
+  },
+  "fit_objectives": {
+    "normalized_utility": 35.18035823838453,
+    "raw_utility": 14568173182545.783
+  },
+  "scores": {
+    "uniform_r512": {
+      "skip7000": {
+        "all": 5.98099603348489,
+        "covered": 6.053605125413961,
+        "uncovered": 5.752518335214494
+      },
+      "skip11000": {
+        "all": 5.9495666187118905,
+        "covered": 5.9972876464371865,
+        "uncovered": 5.809480668102042
+      },
+      "skip1200": {
+        "all": 5.969770820361747,
+        "covered": 5.977949724268591,
+        "uncovered": 5.9441408978925105
+      }
+    },
+    "normalized_fit_energy": {
+      "skip7000": {
+        "all": 6.000435721852676,
+        "covered": 6.073591834839035,
+        "uncovered": 5.770236722451055
+      },
+      "skip11000": {
+        "all": 5.9701007046882255,
+        "covered": 6.016603277838357,
+        "uncovered": 5.833591549792405
+      },
+      "skip1200": {
+        "all": 5.992863686864514,
+        "covered": 5.999934067835379,
+        "uncovered": 5.970707500879792
+      }
+    },
+    "type_shifted_null": {
+      "skip7000": {
+        "all": 5.986878880314874,
+        "covered": 6.057438395406277,
+        "uncovered": 5.764850547900151
+      },
+      "skip11000": {
+        "all": 5.9557455622364035,
+        "covered": 6.0002075571709375,
+        "uncovered": 5.825226562053325
+      },
+      "skip1200": {
+        "all": 5.977330136623095,
+        "covered": 5.982439225750618,
+        "uncovered": 5.961319976861072
+      }
+    },
+    "raw_fit_energy_diagnostic": {
+      "skip7000": {
+        "all": 5.973280898368753,
+        "covered": 6.040292248570936,
+        "uncovered": 5.762417511354594
+      },
+      "skip11000": {
+        "all": 5.942812295232904,
+        "covered": 5.984403546077533,
+        "uncovered": 5.820720416886074
+      },
+      "skip1200": {
+        "all": 5.96530189738006,
+        "covered": 5.967725767802407,
+        "uncovered": 5.957706306123846
+      }
+    }
+  },
+  "primary_gain_nats": {
+    "skip7000": -0.01943968836778609,
+    "skip11000": -0.020534085976334993,
+    "skip1200": -0.02309286650276743
+  },
+  "gain_over_shifted_null_nats": {
+    "skip7000": -0.013556841537801567,
+    "skip11000": -0.014355142451822012,
+    "skip1200": -0.015533550241419114
+  },
+  "uniform_anchor_absolute_error": {
+    "skip7000": 3.966515110143121e-06,
+    "skip11000": 3.3812881090611313e-06,
+    "skip1200": 8.203617474222824e-07
+  },
+  "predictions": {
+    "pred_a_primary_beats_uniform_0p005_all_roles": false,
+    "pred_b_primary_beats_shifted_0p005_all_roles": false,
+    "pred_c_controls": true
+  },
+  "runtime_s": 244.07822346687317,
+  "scope": "Discovery-only; existing roles are spent and no E1-E4 cell is promoted."
+}
