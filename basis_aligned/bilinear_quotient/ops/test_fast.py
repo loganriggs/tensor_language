@@ -117,6 +117,19 @@ def test_paired_t_arithmetic():
     check('paired_t: counts every position and every nonzero', p['n'] == 4 and p['n_nonzero'] == 4)
 
 
+def test_pooled_t_weights_by_evidence():
+    """S1971: pooling three roles must weight a half-sized role by its positions, not by a vote. A
+    concatenation of two agreeing halves and one dissenting half-sized one must come out agreeing."""
+    big_a = torch.cat([torch.full((100,), 1.0), torch.full((100,), 1.0)])
+    big_b = torch.zeros(200)
+    small_a, small_b = torch.zeros(50), torch.full((50,), 1.0)      # dissents, half the size
+    pooled = B.paired_t(torch.cat([big_a, small_a]), torch.cat([big_b, small_b]))
+    check('pooled_t: n is the total across roles', pooled['n'] == 250, str(pooled['n']))
+    check('pooled_t: the majority-by-evidence wins the sign', pooled['mean'] > 0, str(pooled['mean']))
+    per_role = B.paired_t(small_a, small_b)
+    check('pooled_t: and it disagrees with the dissenting role alone', per_role['mean'] < 0)
+
+
 def test_cost_matches_the_published_closed_form():
     """S1754's accounting, against numbers already published: nn is 224.868M and map512 267.245M
     at 5,419 coverage."""
@@ -279,7 +292,7 @@ def test_gate_accepts_the_library_itself():
           out.stdout.strip()[-120:])
 
 
-for fn in (test_every_ref_path_exists, test_ref_refuses_to_guess_a_coverage, test_rk_key_is_order_independent, test_inertness_pairs_splits_by_table_rank,
+for fn in (test_pooled_t_weights_by_evidence, test_every_ref_path_exists, test_ref_refuses_to_guess_a_coverage, test_rk_key_is_order_independent, test_inertness_pairs_splits_by_table_rank,
            test_inertness_pairs_warns_when_a_side_is_vacuous, test_ref_reads_published_triples,
            test_paired_t_arithmetic, test_cost_matches_the_published_closed_form,
            test_arm_names_parse_the_way_the_grammar_says, test_gate_fixtures,

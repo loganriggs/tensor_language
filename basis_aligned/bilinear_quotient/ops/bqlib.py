@@ -671,8 +671,9 @@ def report(preds, payload, out_path, t0):
 class Ctx:
     """What a predicate gets. Every accessor here is something experiments were re-implementing."""
 
-    def __init__(self, res, paired, cost, coverages, roles):
+    def __init__(self, res, paired, cost, coverages, roles, pooled=None):
         self.res, self._paired, self._cost = res, paired, cost
+        self._pooled = pooled or {}
         self.coverages = [c[0] for c in coverages]
         self.roles = list(roles)
         self.buckets = [f'{x}-{y}' for x, y in BUCKETS]
@@ -688,8 +689,19 @@ class Ctx:
         return self.res[cov][role][arm][cls][bucket]['kept_fraction']
 
     def t(self, cov, role, a, b):
-        """paired t of arm a against arm b, per position."""
+        """paired t of arm a against arm b, per position, on ONE role."""
         return self._paired[cov][role][(a, b)]['t']
+
+    def tpool(self, cov, a, b):
+        """paired t of a against b POOLED across roles -- one test on every scored position.
+
+        S1971: skip1200 carries exactly half the positions of the other two roles (18,432 vs 36,864), so
+        a 2-of-3 vote counts a half-sized role as an equal voter. Pooling weights each role by the
+        evidence it actually carries and replaces the vote with a single significance statement."""
+        return self._pooled[cov][(a, b)]['t']
+
+    def tpool_full(self, cov, a, b):
+        return self._pooled[cov][(a, b)]
 
     def cost(self, cov, arm):
         return self._cost[(cov, arm)]
@@ -721,7 +733,7 @@ def run(name, plan, predicates, coverages=(('c5419', FIT_5419, 5419),), refs=(),
     print(f'{name.upper().replace("_", " ")} | {len(labels)} arms x {len(coverages)} coverage(s) | '
           f'DISCOVERY ONLY', flush=True)
 
-    res, paired, cost, ncov, chg = {}, {}, {}, {}, {}
+    res, paired, cost, ncov, chg, pooled, diffs = {}, {}, {}, {}, {}, {}, {}
     for tag, fit, nc in coverages:
         print(f'\n########## COVERAGE {nc} ##########', flush=True)
         P = Program(fit, expect_ncov=nc)
@@ -735,12 +747,17 @@ def run(name, plan, predicates, coverages=(('c5419', FIT_5419, 5419),), refs=(),
                                  for a, b in want_t}
             chg[tag][role] = {(a, b): int(((arms[a][role][0] != arms[b][role][0]) & icov).sum())
                               for a, b in inert + differ}
+        # S1971's instrument: one paired test over every scored position of every role, so a
+        # half-sized role contributes half the evidence instead of a third of a vote.
+        pooled[tag] = {(a, b): paired_t(torch.cat([arms[a][r][1] for r in roles]),
+                                        torch.cat([arms[b][r][1] for r in roles]))
+                       for a, b in want_t}
         ncov[tag] = P.ncov
         cost.update({(tag, lab): P.cost(spec[lab][0], spec[lab][1]) / 1e6 for lab in labels})
         del P, live, arms
         torch.cuda.empty_cache()
 
-    ctx = Ctx(res, paired, cost, coverages, roles)
+    ctx = Ctx(res, paired, cost, coverages, roles, pooled)
 
     # ---- derived controls. Nobody writes these, so nobody writes them backwards.
     ctl = {'coverage_exact': all(ncov[t] == n for t, _f, n in coverages),
@@ -796,6 +813,8 @@ def run(name, plan, predicates, coverages=(('c5419', FIT_5419, 5419),), refs=(),
                                for r in roles} for c in res},
                'paired': {c: {r: {f'{a}|{b}': paired[c][r][(a, b)] for a, b in want_t}
                               for r in roles} for c in paired},
+               'paired_pooled': {c: {f'{a}|{b}': pooled[c][(a, b)] for a, b in want_t}
+                                 for c in pooled},
                'controls': {k: (bool(v) if not isinstance(v, float) else v) for k, v in ctl.items()},
                'reference_deviation': refdev}
     report(verdict, payload, out, t0)
