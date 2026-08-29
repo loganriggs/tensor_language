@@ -93,7 +93,10 @@ def test_centered_logits_remove_only_per_position_constant():
 
 
 def test_source_closure_contains_all_direct_contract_sources():
-    for path in (port.PREREG, port.ADDENDUM, port.RUNNER, port.TEST):
+    for path in (
+        port.PREREG, port.ADDENDUM, port.RUNNER, port.TEST,
+        port.ROW_FREEZER, port.ROW_FREEZER_TEST,
+    ):
         assert str(path.relative_to(port.ROOT)) in port.SOURCE_PATHS
 
 

@@ -14,6 +14,15 @@ indices, full rows, and 32-token prefixes. The future row freezer must use a cre
 provenance, row-to-document identity, source/registry hashes, and receipt last. With one
 row per document, the required row-to-document map is exactly `range(192)`.
 
+The prospective freezer source is
+`prepare_block3_native_down_behavioral_port_v1_rows.py`. Its recursive census covers
+receipt/manifest/authority JSONs throughout `basis_aligned`, not merely the historical
+`bilinear_quotient` directory; every referenced row tensor is hash-before/load/hash-after
+verified. It re-harvests the canonical ordered role after cache installation, rechecks
+the complete registry/source/parquet snapshot and nonce/inode lock, then publishes the
+receipt last. Merely committing this freezer does not authorize the role: the canonical
+cache and receipt remain absent until a separate audit explicitly approves publication.
+
 Bind exact Family-F parents: v2 recovery authority `ca759beb...13dbd`, result
 `18b03ccf...97c5`, receipt `e8167309...65a5a`, and the sealed v1 program tensor
 `d4af5bfb...a038`. The selected program key is exactly

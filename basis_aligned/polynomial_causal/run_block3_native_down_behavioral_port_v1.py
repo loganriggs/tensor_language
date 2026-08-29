@@ -26,6 +26,8 @@ PREREG = HERE / "BLOCK3_NATIVE_DOWN_BEHAVIORAL_PORT_V1_PREREGISTRATION.md"
 ADDENDUM = HERE / "BLOCK3_NATIVE_DOWN_BEHAVIORAL_PORT_V1_EXECUTION_ADDENDUM.md"
 RUNNER = HERE / "run_block3_native_down_behavioral_port_v1.py"
 TEST = HERE / "test_run_block3_native_down_behavioral_port_v1.py"
+ROW_FREEZER = HERE / "prepare_block3_native_down_behavioral_port_v1_rows.py"
+ROW_FREEZER_TEST = HERE / "test_prepare_block3_native_down_behavioral_port_v1_rows.py"
 
 AUTHORITY = HERE / "block3_native_down_behavioral_port_v1_authority.json"
 DIRECTIONS = HERE / "block3_native_down_behavioral_port_v1_directions.pt"
@@ -63,7 +65,7 @@ AMPLITUDES = (0.5, 1.0)
 SIGNS = (-1, 1)
 DIRECTION_COUNT = 4
 SOURCE_PATHS = tuple(str(path.relative_to(ROOT)) for path in (
-    PREREG, ADDENDUM, RUNNER, TEST,
+    PREREG, ADDENDUM, RUNNER, TEST, ROW_FREEZER, ROW_FREEZER_TEST,
     HERE / "recover_block3_consequence_family_f_v2.py",
     HERE / "fit_block3_consequence_family_f_v1.py",
     HERE / "block3_consequence_fit.py",
@@ -285,7 +287,7 @@ def output_namespace() -> tuple[Path, ...]:
 
 
 EXECUTION_BLOCKERS = (
-    "canonical fresh-row freezer/receipt is not implemented in this bounded slice",
+    "canonical fresh-row cache/receipt is not published; independent row audit is required",
     "CUDA measurement adapter/result semantic validator is not implemented in this bounded slice",
 )
 
