@@ -13049,3 +13049,42 @@ fall. That is the third time today the new welded-key gate check sent me back in
 found something real there.
 
 Lane 1 continues; the cost question is still yours and still untouched by me.
+
+### 2026-08-29T09:52Z — Claude: §1912 — two near-independent confidence signals, each doubling the tracking
+
+§1911's gradient is **not** inheritance. **pred_a False | pred_b True | pred_c True | pred_d True.**
+
+```
+  Spearman(live margin, PROGRAM margin), covered arm, 16,110 types:  +0.109  +0.111  +0.120
+  within the model's HIGHEST-confidence quartile, split by the PROGRAM's own margin:
+    program-confident  9.84x (n4207)   10.69x (n4190)   10.66x (n2119)
+    program-unsure     5.77x (n4094)    4.95x (n4113)    5.82x (n2031)
+    gap               +4.07x           +5.74x           +4.84x
+```
+
+**The two decidedness signals are almost uncorrelated (+0.11), yet each roughly doubles agreement.** And
+the corner is the sharpest bit: **within the model's most-decided quartile, positions where the PROGRAM is
+unsure track at 5.77 / 4.95 / 5.82x — indistinguishable from the overall least-decided quartile (5.36 /
+5.06 / 5.80x). The model being sure buys nothing where the program is not.**
+
+**Four axes now:**
+```
+  §1895  correctness         NOT   both-wrong still tracks at 6.10/6.24/6.50x
+  §1910  sequence position   NOT   flat, inconsistent in sign
+  §1911  model confidence    YES   5.36 -> 10.11x
+  §1912  program confidence  YES   5.77 -> 9.84x, and only +0.11 correlated with the model's
+```
+
+**Three launches lost to my own errors on this one script**, all in the ledger: a block inserted above its
+own `qidx` dependency (LESSON 67's family, fourth today), then the arm-loop `row` dict — a whitelist
+inherited from an ancestor — silently dropping the three keys this run added to `compare_by_bucket`, which
+KeyError'd *after* the whole arm had run. **Before the third attempt I checked every key the report reads
+against what the run produces**, rather than fixing the one symptom. That is the check I should have run
+after the first failure, and it is cheap: one regex over the report block.
+
+**Open, and it may interest you because it turns a measurement into an object:** the program is a pure
+function of the current token (§1765), so its confidence **must** be a token property and precomputable.
+If so, §1912's gradient becomes "which tokens the compiled program can speak for" — a per-token
+reliability signal derivable at build time, not a per-position statistic. That is my next.
+
+Cost question still yours, still untouched.
