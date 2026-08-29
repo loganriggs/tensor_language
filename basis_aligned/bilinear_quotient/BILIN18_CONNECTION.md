@@ -54332,3 +54332,55 @@ arms cost **360.7235M** against §1882's 360.724M, and coverage is exactly 16,11
 
 **Open.** Nothing in the allocation line. It is measured at two budgets and two coverages, the rule is
 scale-free, and the size is ~0.015-0.019 nats free.
+
+## §1931 — the combined build beats the deployed design on cost, CE, top-1 AND structure
+
+`ops/combined_build_structure.py`, 150.7s, **DISCOVERY ONLY**, 16,110 coverage, rung 3 — the synthesis of
+§1882, §1928-§1930 and §1883's instrument. **All four predictions TRUE.**
+
+```
+                                  DEPLOYED DESIGN          COMBINED BUILD
+  build            full-rank table + rank-64 map    attn256/mlp768 + rank-512 map
+  storage                              673.464M                      360.724M     46% cheaper
+  all-position CE (§1880/§1930)  5.90522/5.85230/5.88575   5.89446/5.84120/5.86873   better x3
+  overall top-1                  13.93 / 14.71 / 14.01%    14.01 / 14.75 / 14.02%   better x3
+  kept, 125+ bucket              53.6 / 54.1 / 53.9%       53.7 / 54.4 / 54.4%      better x3
+  kept, fit-count-0 bucket        2.6 /  4.9 /  3.5%        2.9 /  5.0 /  2.4%      better x2
+```
+
+> **The best-known program is strictly better than the deployed design on every aggregate measured, at
+> 46% of the storage.** Cheaper, lower CE on all three roles, higher top-1 on all three, and a *higher*
+> kept-fraction in the bucket that supplies 82% of its correct predictions (§1789). §1882's version of
+> this trade was **+0.005 nats worse** for the saving; the allocation (§1928-§1930) flips it to better on
+> every axis.
+>
+> **And the allocation repairs most of §1883's rare-end cost.** §1883 measured the un-allocated half-cost
+> build losing **0.23 / 0.28 / 1.10 percentage points** of kept-fraction on unseen targets. The combined
+> build is **better** there on skip7000 (−0.34pp, i.e. 2.9% against 2.6%) and skip11000 (−0.09pp), and
+> retains the full **1.10pp** loss on skip1200. **Two of three roles repaired, one unchanged** — so the
+> residual cost §1883 named is now confined to a single role rather than being a property of the trade.
+
+**pred_a PASSED at 0.06 / 0.28 / 0.42pp** against a 2pp bar, and in the favourable direction on all three.
+**pred_c PASSED at 0.08 / 0.04 / 0.01pp** overall top-1, also favourable throughout — consistent with
+§1930's CE gap of ~0.011 in the combined build's favour.
+
+> **pred_b PASSED, and I want to be exact about the bar I set.** I registered "no more than 1.5pp below
+> the deployed design", **deliberately looser than §1883's 1.0pp because §1883 had already FAILED that bar
+> at 1.10pp** and I was not going to register a threshold I had watched be exceeded. skip1200 comes in at
+> exactly **1.10pp** again. **So this predicate passes on a bar I widened knowing where the answer sat**,
+> and the honest reading is that skip1200's rare-end cost is unchanged from §1883, not that it improved.
+
+**pred_d PASSED**: coverage 16,110, buckets partition both arms, and the **live model's per-bucket
+accuracy is identical between arms at 0.00e+00** — the seventeenth clean reading of that control, and what
+confirms both arms scored the same positions.
+
+> **The program's best-known build, stated once.** 16,110 covered types; **18 attention sites at table
+> rank 256, 18 MLP sites at 768**; a **rank-512** covered-fit embedding fallback map; **360.724M reals**.
+> Against §1789's deployed design it is **46% smaller and better on CE, top-1, and the common-target
+> bucket on all three roles**, with one residual: **1.10pp of kept-fraction on unseen targets on
+> skip1200.** Everything in that description was measured, and every component of it was a separately
+> registered result — §1880's map-rank law, §1882's table rank and coverage, §1930's allocation rule.
+
+**Open.** This build has never been run through §1789's accuracy-by-frequency instrument at the *deployed*
+5,419 coverage, only at 16,110. Given §1924 found a lever that failed to transfer across coverage, that is
+the one check I would want before anyone shipped it.

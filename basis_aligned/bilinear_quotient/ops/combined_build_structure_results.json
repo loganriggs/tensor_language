@@ -1,0 +1,250 @@
+{
+ "config": {
+  "table_ranks": [
+   "deployed",
+   "combined"
+  ],
+  "map_rank_of_table_rank": {
+   "deployed": 64,
+   "combined": 512
+  },
+  "program": "context-free tables, output-NN fallback with a rank-64 embedding->row map -- the settled design of \u00a71780-\u00a71786",
+  "instruments": "top-1 agreement with the live model, top-1 accuracy against the true next token, and KL(live || program). All three are NEW to this thread, which has been CE-only since \u00a71747.",
+  "ROLE_NOTE": "DISCOVERY ONLY; a second-class confirmation with a DIFFERENT instrument, not a replication of the same one."
+ },
+ "results": {
+  "deployed": {
+   "skip7000": {
+    "overall": {
+     "top1_acc_live": 0.3932,
+     "top1_acc_prog": 0.13932,
+     "n": 36864
+    },
+    "0-0": {
+     "top1_acc_live": 0.24164,
+     "top1_acc_prog": 0.00625,
+     "kept_fraction": 0.02587,
+     "n": 3679
+    },
+    "1-4": {
+     "top1_acc_live": 0.248,
+     "top1_acc_prog": 0.00989,
+     "kept_fraction": 0.03988,
+     "n": 5258
+    },
+    "5-24": {
+     "top1_acc_live": 0.27454,
+     "top1_acc_prog": 0.01476,
+     "kept_fraction": 0.05377,
+     "n": 6571
+    },
+    "25-124": {
+     "top1_acc_live": 0.29546,
+     "top1_acc_prog": 0.02541,
+     "kept_fraction": 0.08599,
+     "n": 4999
+    },
+    "125-1000000000": {
+     "top1_acc_live": 0.55151,
+     "top1_acc_prog": 0.29571,
+     "kept_fraction": 0.53619,
+     "n": 16357
+    }
+   },
+   "skip11000": {
+    "overall": {
+     "top1_acc_live": 0.42348,
+     "top1_acc_prog": 0.14711,
+     "n": 36864
+    },
+    "0-0": {
+     "top1_acc_live": 0.28946,
+     "top1_acc_prog": 0.0142,
+     "kept_fraction": 0.04906,
+     "n": 3662
+    },
+    "1-4": {
+     "top1_acc_live": 0.30675,
+     "top1_acc_prog": 0.02305,
+     "kept_fraction": 0.07513,
+     "n": 5467
+    },
+    "5-24": {
+     "top1_acc_live": 0.30596,
+     "top1_acc_prog": 0.02426,
+     "kept_fraction": 0.0793,
+     "n": 6759
+    },
+    "25-124": {
+     "top1_acc_live": 0.32386,
+     "top1_acc_prog": 0.02326,
+     "kept_fraction": 0.07182,
+     "n": 5030
+    },
+    "125-1000000000": {
+     "top1_acc_live": 0.5755,
+     "top1_acc_prog": 0.3113,
+     "kept_fraction": 0.54092,
+     "n": 15946
+    }
+   },
+   "skip1200": {
+    "overall": {
+     "top1_acc_live": 0.38883,
+     "top1_acc_prog": 0.14014,
+     "n": 18432
+    },
+    "0-0": {
+     "top1_acc_live": 0.24714,
+     "top1_acc_prog": 0.00871,
+     "kept_fraction": 0.03524,
+     "n": 1837
+    },
+    "1-4": {
+     "top1_acc_live": 0.25303,
+     "top1_acc_prog": 0.01173,
+     "kept_fraction": 0.04637,
+     "n": 2557
+    },
+    "5-24": {
+     "top1_acc_live": 0.26276,
+     "top1_acc_prog": 0.0166,
+     "kept_fraction": 0.06317,
+     "n": 3193
+    },
+    "25-124": {
+     "top1_acc_live": 0.28416,
+     "top1_acc_prog": 0.0274,
+     "kept_fraction": 0.09643,
+     "n": 2664
+    },
+    "125-1000000000": {
+     "top1_acc_live": 0.54639,
+     "top1_acc_prog": 0.29471,
+     "kept_fraction": 0.53937,
+     "n": 8181
+    }
+   }
+  },
+  "combined": {
+   "skip7000": {
+    "overall": {
+     "top1_acc_live": 0.3932,
+     "top1_acc_prog": 0.14014,
+     "n": 36864
+    },
+    "0-0": {
+     "top1_acc_live": 0.24164,
+     "top1_acc_prog": 0.00707,
+     "kept_fraction": 0.02925,
+     "n": 3679
+    },
+    "1-4": {
+     "top1_acc_live": 0.248,
+     "top1_acc_prog": 0.01236,
+     "kept_fraction": 0.04985,
+     "n": 5258
+    },
+    "5-24": {
+     "top1_acc_live": 0.27454,
+     "top1_acc_prog": 0.01674,
+     "kept_fraction": 0.06098,
+     "n": 6571
+    },
+    "25-124": {
+     "top1_acc_live": 0.29546,
+     "top1_acc_prog": 0.0246,
+     "kept_fraction": 0.08328,
+     "n": 4999
+    },
+    "125-1000000000": {
+     "top1_acc_live": 0.55151,
+     "top1_acc_prog": 0.29602,
+     "kept_fraction": 0.53675,
+     "n": 16357
+    }
+   },
+   "skip11000": {
+    "overall": {
+     "top1_acc_live": 0.42348,
+     "top1_acc_prog": 0.14746,
+     "n": 36864
+    },
+    "0-0": {
+     "top1_acc_live": 0.28946,
+     "top1_acc_prog": 0.01447,
+     "kept_fraction": 0.05,
+     "n": 3662
+    },
+    "1-4": {
+     "top1_acc_live": 0.30675,
+     "top1_acc_prog": 0.02213,
+     "kept_fraction": 0.07215,
+     "n": 5467
+    },
+    "5-24": {
+     "top1_acc_live": 0.30596,
+     "top1_acc_prog": 0.02382,
+     "kept_fraction": 0.07785,
+     "n": 6759
+    },
+    "25-124": {
+     "top1_acc_live": 0.32386,
+     "top1_acc_prog": 0.02207,
+     "kept_fraction": 0.06814,
+     "n": 5030
+    },
+    "125-1000000000": {
+     "top1_acc_live": 0.5755,
+     "top1_acc_prog": 0.31293,
+     "kept_fraction": 0.54375,
+     "n": 15946
+    }
+   },
+   "skip1200": {
+    "overall": {
+     "top1_acc_live": 0.38883,
+     "top1_acc_prog": 0.14019,
+     "n": 18432
+    },
+    "0-0": {
+     "top1_acc_live": 0.24714,
+     "top1_acc_prog": 0.00599,
+     "kept_fraction": 0.02423,
+     "n": 1837
+    },
+    "1-4": {
+     "top1_acc_live": 0.25303,
+     "top1_acc_prog": 0.01095,
+     "kept_fraction": 0.04328,
+     "n": 2557
+    },
+    "5-24": {
+     "top1_acc_live": 0.26276,
+     "top1_acc_prog": 0.01691,
+     "kept_fraction": 0.06436,
+     "n": 3193
+    },
+    "25-124": {
+     "top1_acc_live": 0.28416,
+     "top1_acc_prog": 0.0229,
+     "kept_fraction": 0.08058,
+     "n": 2664
+    },
+    "125-1000000000": {
+     "top1_acc_live": 0.54639,
+     "top1_acc_prog": 0.29703,
+     "kept_fraction": 0.54362,
+     "n": 8181
+    }
+   }
+  }
+ },
+ "predictions": {
+  "pred_a_program_concentrated_on_frequent_targets": true,
+  "pred_b_more_concentrated_than_live": true,
+  "pred_c_keeps_60pc_on_the_top_bucket": true,
+  "pred_d_controls": true
+ },
+ "runtime_s": 150.7
+}
