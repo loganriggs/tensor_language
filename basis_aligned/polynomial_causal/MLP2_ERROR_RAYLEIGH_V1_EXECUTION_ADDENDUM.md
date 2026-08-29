@@ -99,3 +99,8 @@ inside each held-out document, and breaks exact ties in favor of the larger pena
 The selected penalty, normalizers, and coefficients are frozen receipt-last before
 HELDOUT can open. Bootstrap resampling is always by the 32 source documents with all
 three program rows kept together.
+
+Each directional predictor feature is the arithmetic mean of its independently
+stored `1/16` and `1/8` estimates. The two estimates remain separate for the frozen
+tangent-scale gate; averaging for regression cannot turn a failed scale gate into a
+pass.
