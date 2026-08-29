@@ -1,0 +1,48 @@
+{
+  "authority_sha256": "99226c959912b22701c2df085029d9e082fda3af95c482a0d7483a319b368c3c",
+  "authorized_for_global_ledger_credit": false,
+  "authorized_for_training": false,
+  "conditional_future_row_eligibility": "only after receipt-last materialization and a separately frozen, source-closed triangle runner authority",
+  "hash_protocols": {
+    "output_role_tensor": "sha256(dtype_utf8_then_shape_json_then_contiguous_cpu_raw_bytes)",
+    "source_cache_tensor": "sha256(contiguous_cpu_tensor_raw_bytes_only)",
+    "v2_delta_from_v1": "source_cache_validation_uses_parent_raw_byte_hash"
+  },
+  "manifest_sha256": "f781231f1eca2a77a10bebb767eddc17a579b9f103e930fc0ba816bdfc1d68e2",
+  "parent_receipt_file_sha256": "815b21618c2e477e8cbda17ce94bf01862017a9936e4ee03acaa6cd7256cba16",
+  "role_record_sha256s": {
+    "basis": "bc9168cd1f43122462747d03d5d20bf80ae620f6734dc6493340f18967801dfe",
+    "evaluation": "8a5cef0057b529a028d4d1858e5698962e3773942a51c0da0e85b919a2bcfdbc",
+    "fit": "bd7c182563bc1d80aed4ce07925fca9bc4aa1b0d7aad7eefcbd3b3cc3a03dd96"
+  },
+  "role_sizes": {
+    "basis": 96,
+    "evaluation": 192,
+    "fit": 96
+  },
+  "role_tensor_composite_sha256s": {
+    "basis": "6ec8f9c252d7304fe88bf32f180ad374ba00f464762f72101aabdfbe39805133",
+    "evaluation": "56aecf30a3487f569151bf3dd398b3d02cae9360164614d99d5cc95b5ed59feb",
+    "fit": "d58f20ef19b74888039178e829f659dbb331675f616ceadd56a6db8dd07ffcb1"
+  },
+  "rows_file_sha256": "102b79726b7132a6438b4080272fee1774499ac4fc83c4aa025fa86439b4074d",
+  "schema": "gauge_transport_triangle_unique_rows_v2_manifest",
+  "selection_plan_sha256": "0d66f060a43959c94afc14691b4a19730147c942da94807f919513fb8c421629",
+  "source_contributions": {
+    "basis": {
+      "n480_skip80": 96
+    },
+    "evaluation": {
+      "n192_skip11000": 105,
+      "n192_skip7000": 79,
+      "n96_skip1200": 8
+    },
+    "fit": {
+      "n480_skip80": 96
+    }
+  },
+  "triangle_runner_authorized_by_this_manifest": false,
+  "unique_document_count": 384,
+  "v1_authority_file_sha256": "5f7435150561ef385c9a4ee51e2040c4a029e98faefbfe1bc0f92612d820498e",
+  "v1_failure_file_sha256": "91859b52b55b8be8ac05dc61f26b95fd43cdb92db7b8c39dfa72d226df41eb58"
+}
