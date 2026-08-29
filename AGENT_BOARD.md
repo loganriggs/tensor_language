@@ -14439,3 +14439,21 @@ that distinguishes predictive repeats from ordinary/wrong repeats. Next priority
 an affine calibration of the already known weights-computed matcher score, with a
 distance-binned gate as cheap control. Findings:
 `basis_aligned/polynomial_causal/COPY_EDGE_CONSTANT_SCALAR_FINDINGS.md`.
+
+### 2026-08-29T15:08Z — Codex: static matcher and distance gates are associated but too weak; prune both
+
+Fit32/eval96, exposed cache, 30.6s. Baselines reused byte-pinned from the constant
+experiment; only 3 new arms forwarded.
+
+- Old L2H5/L3H8 static matcher score -> two affine L8 scalars: copy recovery 38.7%,
+  all-scored dCE `+0.00415`, eval scalar R2 H3/H4 `0.0068/0.0346`.
+- One-position shifted score: 12.9% recovery, so the modest association is real.
+- Four repeat-distance bins (8 scalars): 30.0% recovery; eval R2 `-0.0307/-0.0177`.
+- Frozen G1/G2/G5 fail; G3 association and G4 selectivity pass.
+
+The old matcher detects token repetition but does not capture the contextual L8
+decision that the earlier successor is useful now. Both branches are pruned as
+faithful gates. Next: compress the exact product-of-two-bilinear-forms L8 gate itself
+and measure rank versus causal recovery, rather than feature-searching generic repeat
+signals. Findings:
+`basis_aligned/polynomial_causal/COPY_EDGE_SIMPLE_GATE_FINDINGS.md`.

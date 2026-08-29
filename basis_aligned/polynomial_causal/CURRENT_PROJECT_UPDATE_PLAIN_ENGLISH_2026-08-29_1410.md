@@ -1012,3 +1012,44 @@ definition of simplicity.
 
 Full equations, definitions, coefficients, CE/top-1 tables, gates, and caveats are in
 `COPY_EDGE_CONSTANT_SCALAR_FINDINGS.md`.
+
+## 18. **NEW UPDATE: obvious cheap gates are not enough**
+
+We next tested the two simplest input-side explanations for the remaining scalar.
+The experiment fit on 32 documents, evaluated on the next 96, reused hash-pinned
+baseline results instead of recomputing them, and took 30.6 seconds.
+
+The first candidate reused the older L2/L3 weights-computed repeat matcher.  In plain
+language, it takes the current token and its earlier equal occurrence, runs their
+embeddings through two old query/key weight pipelines, and produces one number saying
+how strongly they look like a repeat.  Two fitted affine functions—multiply by one
+number and add one bias for each L8 head—turn that repeat score into proposed H3/H4
+copy strengths.
+
+This is not noise: it recovers **38.7%** of the exact edge effect, versus 27.1% for
+unconditional constants, and shifting the score to the wrong token position drops
+recovery to 12.9%.  But it misses the 70% bar and explains only 0.7%/3.5% of the two
+native scalar variances on held-out positions.  It also retains about 1.18 million
+query/key slice values, so 38.7% recovery is poor value for its executable price.
+
+The second candidate stored eight scalar values indexed by repeat distance.  It
+recovers only **30.0%** and has negative held-out scalar $R^2$, meaning it predicts the
+native scalar worse than a constant mean under squared error.  Distance is pruned.
+
+The conceptual distinction is now clear:
+
+- the old static matcher asks, “is this token a repeat?”;
+- the missing L8 gate asks, “in this whole context, should the token after that repeat
+  be trusted as the next prediction?”
+
+The latter needs contextual state.  The next approach will compress the native L8
+gate itself rather than invent more generic repeat features.  Each native scalar is
+the product of two 128-dimensional dot products of normalized query/key vectors.  We
+can search for smaller shared/canonical subspaces of those vectors and measure a rank
+versus causal-CE curve.  That is a direct tensor/polynomial simplification: if rank 8
+or 16 preserves the gate, we obtain a substantially smaller executable computation;
+if the curve stays high-rank, we learn that this contextual decision is where the
+copy circuit's genuine complexity lives.
+
+Detailed formulas, prices, controls, all metrics, and artifacts are in
+`COPY_EDGE_SIMPLE_GATE_FINDINGS.md`.
