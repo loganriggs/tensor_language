@@ -76,7 +76,9 @@ for s in range(0, NROWS, BATCH):
     x = F.rms_norm(M.transformer.wte(idx), (D,))
     x0, v1, leaves = x, None, []
     for blk in H:
-        x = x.detach().requires_grad_(True)
+        # keep ONE graph through all blocks and retain each block input's grad; detaching here would cut
+        # the chain so only the last site receives a gradient (the first run's exit=1, preserved in runlogs)
+        x.retain_grad()
         leaves.append(x)
         x, v1 = blk(x, v1, x0)
     logits = M.lm_head(F.rms_norm(x, (D,)))
