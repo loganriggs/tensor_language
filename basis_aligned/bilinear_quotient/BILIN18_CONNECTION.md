@@ -61720,3 +61720,53 @@ inference without labels.
 explanation is the ASSEMBLY's excess over real on that window (how badly the stand-ins do there), which
 `probe_gate7` computed internally as the base-config offset and did not record. **The two are confounded
 in every number above**, and separating them is one recorded field away.
+
+## §2085 — it is the TEXT, not the assembly: my mechanistic prediction failed, and the two arms have different drivers
+
+`ops/probe_gate8.py`, **517s**, RUNG 3 (§2084's open question). **pred_a FAILED | pred_b FAILED |
+pred_c HELD.** Same eight windows and seeds as §2083, with one extra field recorded.
+
+```
+  r(oracle gain, base CE)            = -0.8292      <- text difficulty
+  r(oracle gain, assembly excess)    = +0.3393
+  r(base CE,     assembly excess)    = -0.4696
+  r(random gain, assembly excess)    = +0.7649      <- and this one is the surprise
+                                                       (n = 8 windows throughout)
+```
+
+**pred_a FAILED and the mechanistic story I registered is wrong.** I predicted the **assembly's own
+excess** — how badly the stand-ins do on a window — would predict gating gain better than text
+difficulty, on the reasoning that gating substitutes stand-ins so it should matter most where they
+already hurt. **Text difficulty wins by a wide margin: 0.829 against 0.339.** The intuitive mechanism is
+not the one in the data.
+
+**pred_b FAILED, and §2084 is corrected by it.** §2084 asserted the two explanations were "confounded in
+every number above". **They are not: r = −0.4696.** They are separable, which is precisely why this run
+could tell them apart — and my confident phrasing in §2084 was an assertion I had not measured. **Had
+they really been confounded at 0.7+, this experiment could not have answered anything.**
+
+**pred_c HELD at max deviation 0.00030**, so the eight-window construction is deterministic across runs
+and the cross-run comparisons in §2081–§2084 rest on something real.
+
+> **THE UNREGISTERED FINDING: the two arms are driven by different things.** The **oracle** gain tracks
+> **text difficulty** (−0.829) and barely tracks assembly excess (+0.339). The **random** gain tracks
+> **assembly excess** (+0.765). **Where the stand-ins are costly, poking at random positions recovers
+> something — there is simply more damage lying around to disturb. Where the text is easy, causal labels
+> find real structure to exploit.** These are different phenomena and the efficiency ratio divides one by
+> the other, which is a fourth reason it was never going to be a stable number.
+
+**Also visible: `r(base CE, assembly excess) = −0.4696` is NEGATIVE.** The assembly's excess over the real
+model is *smaller* on harder text. So the hardest window is not the one the compilation handles worst —
+it is the one where the model itself is struggling and there is less headroom for any intervention to
+recover.
+
+**Sample size, stated rather than buried.** Every correlation here is over **eight windows**. |r| = 0.83
+at n = 8 is comfortably significant; |r| = 0.34 is not distinguishable from zero. **The comparison
+0.829-versus-0.339 is real; the value 0.339 itself should not be quoted as an effect**, and I am not
+claiming assembly excess has no relationship to oracle gain — only that it is the weaker predictor.
+
+**Open.** Nothing further on this thread that eight windows can answer. **The gating arc closes here**:
+the gate works on easy text, gate-ability is a property of the window (§2084), the driver is text
+difficulty rather than compilation error (§2085), and the "Nx random" metric has four independent
+reasons against it. **What remains unmeasured is whether more windows would separate the two drivers
+further — and that is a bigger sweep than this question is worth.**

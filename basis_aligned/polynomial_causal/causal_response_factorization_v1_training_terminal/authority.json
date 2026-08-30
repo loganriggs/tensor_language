@@ -1,0 +1,94 @@
+{
+  "authority_sha256": "15bd8e9278e5346cb0aa3cb011b18f1e5eba420f23a0bd9761203134e880727d",
+  "authorized_for_eval": false,
+  "authorized_for_training_input": true,
+  "authorized_for_validation": false,
+  "independent_audit": {
+    "path": "/workspace/tensor_language/basis_aligned/polynomial_causal/causal_response_factorization_v1_training_lifecycle_independent_audit.json",
+    "reviewer": "OpenAI Codex independent training-lifecycle auditor /root/balance_sheet_audit",
+    "sha256": "ca4d0b9c3703d29d53e1181e4d4670631f28422affb608f2694636383ca10078"
+  },
+  "outcome_access_before_authority": {
+    "eval_values_read": false,
+    "fit_bundle_deserialized": false,
+    "fit_response_values_read": false,
+    "validation_values_read": false
+  },
+  "output_paths": {
+    "authority": "/workspace/tensor_language/basis_aligned/polynomial_causal/causal_response_factorization_v1_training_authority.json",
+    "failure": "/workspace/tensor_language/basis_aligned/polynomial_causal/causal_response_factorization_v1_training_terminal/failure.json",
+    "input": "/workspace/tensor_language/basis_aligned/polynomial_causal/causal_response_factorization_v1_training_input.pt",
+    "lock": "/workspace/runs/.causal_response_factorization_v1_training.lock",
+    "manifest": "/workspace/tensor_language/basis_aligned/polynomial_causal/causal_response_factorization_v1_training_manifest.json",
+    "receipt": "/workspace/tensor_language/basis_aligned/polynomial_causal/causal_response_factorization_v1_training_terminal/receipt.json",
+    "terminal": "/workspace/tensor_language/basis_aligned/polynomial_causal/causal_response_factorization_v1_training_terminal/terminal.json",
+    "terminal_directory": "/workspace/tensor_language/basis_aligned/polynomial_causal/causal_response_factorization_v1_training_terminal"
+  },
+  "parent_binding_sha256": "2c17df26a5770b8323e589e5d4df7af391d76354eb2f3ee67ea80425097a78d9",
+  "protocol": {
+    "artifact_order": [
+      "authority",
+      "training_input",
+      "manifest",
+      "terminal_receipt"
+    ],
+    "authorized_for_candidate_fitting_parent": true,
+    "authorized_for_eval": false,
+    "authorized_for_validation": false,
+    "eval_documents_exposed": 0,
+    "response_dtype": "torch.float64",
+    "response_shape": [
+      2,
+      49,
+      49,
+      229
+    ],
+    "role": "FIT_TRAINING",
+    "training_documents": 229,
+    "valid_dtype": "torch.bool",
+    "validation_documents_exposed": 0
+  },
+  "schema": "causal_response_factorization_v1_training_authority",
+  "source_closure": {
+    "commit": "ff2e1802864a7660b33c99a1fc1404beb0139e10",
+    "paths": {
+      "basis_aligned/polynomial_causal/CAUSAL_RESPONSE_FACTORIZATION_V1_AMENDMENT_1.md": "cf8b9e3dce807a94183d8314e4bba14e1f01ff3aa579d8648c680dc385540768",
+      "basis_aligned/polynomial_causal/CAUSAL_RESPONSE_FACTORIZATION_V1_AMENDMENT_10.md": "5ed5c75422380d68872d5908720604194dd5385cd46cdf93e83743129439388a",
+      "basis_aligned/polynomial_causal/CAUSAL_RESPONSE_FACTORIZATION_V1_AMENDMENT_11.md": "c6054f4c9b80d0d7455d3ca8b5282f027bbb02af079ad51ac572b084dce2580c",
+      "basis_aligned/polynomial_causal/CAUSAL_RESPONSE_FACTORIZATION_V1_AMENDMENT_2.md": "9819b5b5486ccdcd57747bf36d3e4862aba827dbc52ff8cc49e6209b938d0017",
+      "basis_aligned/polynomial_causal/CAUSAL_RESPONSE_FACTORIZATION_V1_AMENDMENT_3.md": "6ffaf88efe3e5c2711c2c3d136136d2f12d7d0040ca597da06ff3907ff7e3dae",
+      "basis_aligned/polynomial_causal/CAUSAL_RESPONSE_FACTORIZATION_V1_AMENDMENT_4.md": "055b7d214df74d428983782a080224bdc44766c8e77d9eb5d79582850f6e8c15",
+      "basis_aligned/polynomial_causal/CAUSAL_RESPONSE_FACTORIZATION_V1_AMENDMENT_5.md": "8902bba99446f05688864668eba29302dbfc35cfb0799568703693f42dfb55e7",
+      "basis_aligned/polynomial_causal/CAUSAL_RESPONSE_FACTORIZATION_V1_AMENDMENT_6.md": "5a125a81d6d72111d3903aa9fd3411d1f7ba41482f0c504cf2a966ec822c59ec",
+      "basis_aligned/polynomial_causal/CAUSAL_RESPONSE_FACTORIZATION_V1_AMENDMENT_7.md": "d797e03d2e90ff1d368b54cd26a14c1bdfd67c952a0836e884bc09ab04a74c79",
+      "basis_aligned/polynomial_causal/CAUSAL_RESPONSE_FACTORIZATION_V1_AMENDMENT_8.md": "e828cd47b0df6b3763964b417e9b3fbe5337a8cba9c5558a7ea8123cdddab30c",
+      "basis_aligned/polynomial_causal/CAUSAL_RESPONSE_FACTORIZATION_V1_AMENDMENT_9.md": "30c621986bcedb2d11e6f5d1274329152de4ddf89173bdd80669e152fa6d5183",
+      "basis_aligned/polynomial_causal/CAUSAL_RESPONSE_FACTORIZATION_V1_PREREGISTRATION.md": "2782866d8fdd1ca5abb3de4348534ceefadddb42a19ec17a756dd6017c89ffba",
+      "basis_aligned/polynomial_causal/bilin18_observed_model_facade.py": "b62947f772c807259890a9d09dfcbe5e91ad339a0bffa867ab99177fde4c728c",
+      "basis_aligned/polynomial_causal/causal_response_factorization_v1.py": "8af3e8c4987b15d8da5413f2998452ea7064779ad648c17c0d9269fd7ed0f881",
+      "basis_aligned/polynomial_causal/causal_response_factorization_v1_accelerated.py": "04ed10232a8b36f5d5e18fe9777539e41201feecea0e6e1a795822ffa0b0ff6d",
+      "basis_aligned/polynomial_causal/causal_response_factorization_v1_fit_adapter.py": "5cc4f0ea628e5f9aac6c475517b5c4d7fbc6205e2c4a681bafd90e1e5f7b5c0a",
+      "basis_aligned/polynomial_causal/causal_response_factorization_v1_parent_binding.py": "cedb4f9326cf2cb057f9e26638f890c8001cd5238a2bbfe5b5e460cfff98014c",
+      "basis_aligned/polynomial_causal/causal_response_factorization_v1_training_input.py": "0f87bd4346f086c8299d6a2c55665d658ad1eeda9731d48f4f7d75e4aca1183b",
+      "basis_aligned/polynomial_causal/causal_response_factorization_v1_training_lifecycle.py": "5c66aaa1843618d086a1c0361dde584a4e851e717861b650500a60aab79d59ec",
+      "basis_aligned/polynomial_causal/causal_response_factorization_v1_training_loader.py": "551a293649e1a17ad0157f75fa1042c78b9c13053637eb1088b7a2708c349fe5",
+      "basis_aligned/polynomial_causal/causal_response_factorization_v1_training_snapshot.py": "2b4cf9b889ec5c5587f9910b76d64dae6da31b03fc5eef1517167a7a2128d3b2",
+      "basis_aligned/polynomial_causal/causal_response_tensor_collection.py": "a48fa3d35fdd280254563f83b6482bdaa7660d8dcc8a8c649d4b3fe5881bbd8f",
+      "basis_aligned/polynomial_causal/causal_response_tensor_v1_backend.py": "bb454120fdbd794b28aaf0416a076d53e268086f330abd822c3f78b955abdcfc",
+      "basis_aligned/polynomial_causal/causal_response_tensor_v1_fit_bundle.py": "af514bdf45e10defeba0cee9270434d079a7892b7e42cecaf93e646cd2234c0a",
+      "basis_aligned/polynomial_causal/test_causal_response_factorization_v1.py": "33b29ec7b045fa61d3bd27ec92664103668163f10e60736ea9d3b892589c29b6",
+      "basis_aligned/polynomial_causal/test_causal_response_factorization_v1_accelerated.py": "fa2c948e489a54aaf2f45887d22e2aa7c85723fdd2e8af21667afa75301b3e02",
+      "basis_aligned/polynomial_causal/test_causal_response_factorization_v1_fit_adapter.py": "5978a50e0812ce8c71f064adb244039995e4fd5fffd6732d3c347b0dddca24a8",
+      "basis_aligned/polynomial_causal/test_causal_response_factorization_v1_parent_binding.py": "12b377ec31fbd6ae71e679483250cee26ccd01eb14369744065a1603225f0e2a",
+      "basis_aligned/polynomial_causal/test_causal_response_factorization_v1_training_input.py": "5ce81fcebcc21930484441d1ec52f56d9253f1eeacd7d42fc90824a6ae8fa0ef",
+      "basis_aligned/polynomial_causal/test_causal_response_factorization_v1_training_lifecycle.py": "69d18f1a74b759ef750e22de503bd483919dd05c3e954e7296182eef1d45d43e",
+      "basis_aligned/polynomial_causal/test_causal_response_factorization_v1_training_loader.py": "f46ecfc98f33c568a1665f76262197abc3ff141dbf18046e75dbda33ed235849",
+      "basis_aligned/polynomial_causal/test_causal_response_factorization_v1_training_snapshot.py": "4c1b8937c8639bb8c053de63beaeb4d7dd5b50267772e29ac2d07bccfd5ac37f",
+      "basis_aligned/polynomial_causal/test_causal_response_tensor_v1_fit_bundle.py": "e7b041f290882c9cb1d31a152ceb29f8603a1df5cb592a00ddd4e9ece3038e95",
+      "jacclust/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "jacclust/tt_model.py": "49ecdbd6c060ff5b3e57f3134d87ba32841390c891c42e6ae23b71d8627612b2"
+    },
+    "sha256": "c22fc7480fc8170779135491db4e8988cb1f0dfbc877ed77cbc3e4307bd2cbe3"
+  },
+  "status": "frozen_before_fit_bundle_tensor_deserialization"
+}

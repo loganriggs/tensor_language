@@ -1,0 +1,40 @@
+{
+  "authority_artifact_sha256": "57beef66ccefb9a034c7523dfec2d0b0f72eb49ff6166f32e63429b51b48be29",
+  "authority_logical_sha256": "15bd8e9278e5346cb0aa3cb011b18f1e5eba420f23a0bd9761203134e880727d",
+  "kind": "receipt",
+  "payload": {
+    "authorized_for_candidate_fitting_parent": true,
+    "authorized_for_eval": false,
+    "authorized_for_validation": false,
+    "eval_values_read": false,
+    "fit_parent_binding_sha256": "2c17df26a5770b8323e589e5d4df7af391d76354eb2f3ee67ea80425097a78d9",
+    "input_sha256": "0b359a560850b12427b0e3547e88d5b7e22b066aa0c8c25d92546c702071fafd",
+    "manifest_sha256": "b42d6a5758b8ac66224e90e6a366ccef66a60a19d538d5e36ef5a91e1dfafa02",
+    "status": "complete_training_only_receipt_last",
+    "training_documents": 229,
+    "validation_values_read": false
+  },
+  "schema": "causal_response_factorization_v1_training_terminal",
+  "terminal_snapshot": {
+    "audit.json": {
+      "bytes": 5739,
+      "path_within_terminal_directory": "audit.json",
+      "sha256": "ca4d0b9c3703d29d53e1181e4d4670631f28422affb608f2694636383ca10078"
+    },
+    "authority.json": {
+      "bytes": 8158,
+      "path_within_terminal_directory": "authority.json",
+      "sha256": "57beef66ccefb9a034c7523dfec2d0b0f72eb49ff6166f32e63429b51b48be29"
+    },
+    "manifest.json": {
+      "bytes": 1841,
+      "path_within_terminal_directory": "manifest.json",
+      "sha256": "b42d6a5758b8ac66224e90e6a366ccef66a60a19d538d5e36ef5a91e1dfafa02"
+    },
+    "training_input.pt": {
+      "bytes": 9906521,
+      "path_within_terminal_directory": "training_input.pt",
+      "sha256": "0b359a560850b12427b0e3547e88d5b7e22b066aa0c8c25d92546c702071fafd"
+    }
+  }
+}

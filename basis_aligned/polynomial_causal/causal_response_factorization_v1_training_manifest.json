@@ -1,0 +1,45 @@
+{
+  "authority_artifact_sha256": "57beef66ccefb9a034c7523dfec2d0b0f72eb49ff6166f32e63429b51b48be29",
+  "authority_logical_sha256": "15bd8e9278e5346cb0aa3cb011b18f1e5eba420f23a0bd9761203134e880727d",
+  "authorized_for_eval": false,
+  "authorized_for_validation": false,
+  "fit_parent_binding_sha256": "2c17df26a5770b8323e589e5d4df7af391d76354eb2f3ee67ea80425097a78d9",
+  "input": {
+    "bytes": 9906521,
+    "path": "/workspace/tensor_language/basis_aligned/polynomial_causal/causal_response_factorization_v1_training_input.pt",
+    "sha256": "0b359a560850b12427b0e3547e88d5b7e22b066aa0c8c25d92546c702071fafd"
+  },
+  "manifest_sha256": "f4be247080d9de583c161c6cd90f69d24b817eae9663ebb287d07c16b618d482",
+  "protocol": {
+    "artifact_order": [
+      "authority",
+      "training_input",
+      "manifest",
+      "terminal_receipt"
+    ],
+    "authorized_for_candidate_fitting_parent": true,
+    "authorized_for_eval": false,
+    "authorized_for_validation": false,
+    "eval_documents_exposed": 0,
+    "response_dtype": "torch.float64",
+    "response_shape": [
+      2,
+      49,
+      49,
+      229
+    ],
+    "role": "FIT_TRAINING",
+    "training_documents": 229,
+    "valid_dtype": "torch.bool",
+    "validation_documents_exposed": 0
+  },
+  "schema": "causal_response_factorization_v1_training_manifest",
+  "status": "complete_training_only_input_semantically_replayed",
+  "tensor_hashes": {
+    "document_ids": "a922899c2a92930bcf8fefc7ce1366654ebf0d188ba23a77f82e39afd325bb9a",
+    "original_document_indices": "a1b172a1f991e9e454c45b25ad2cff7c51ed5cd72b19dd85eac08b2316fe1e06",
+    "response": "3a19be886f4352fcae6861584b897587bb12ffc60894ff470e840f1bddb02485",
+    "source_groups": "e7178f765e9b7ceb3e6f4738209cfd797221da5a9cace014f5e3aa60e95864ba",
+    "valid": "58853263bb89ac8236408822cbf904b963f51df5939ef04744a3c09a96c2c619"
+  }
+}

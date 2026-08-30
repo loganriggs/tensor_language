@@ -1,0 +1,50 @@
+a2-input probe acc 0.69
+fit a2
+fit a3
+fit a4
+fit a5
+fit a6
+fit a7
+fit a8
+fit a9
+fit a10
+fit a11
+fit a12
+fit a13
+fit a14
+fit a15
+fit a16
+fit a17
+8 windows x 120 rows, document-disjoint; docs per window: [7, 42, 17, 23, 43, 26, 35, 35]
+L1 (+38 heads): C +1.9801 | fresh +2.2871
+fit a10L
+fit a11L
+fit a12L
+fit a13L
+fit a14L
+fit a15L
+fit a16L
+fit a17L
+probe 0/36
+probe 12/36
+probe 24/36
+gated fractions: [0.1725, 0.2084, 0.2823, 0.243, 0.2138, 0.1954, 0.2306, 0.2031]
+  arm blk2     dim 1152
+  arm blk2+9   dim 2304
+  win0 docs   7 baseCE 3.4002 frac 0.172 | oracle +0.0776 random +0.0179 blk2 +0.0325 blk2+9 +0.0516
+  win1 docs  42 baseCE 3.3773 frac 0.208 | oracle +0.0577 random +0.0343 blk2 -0.0019 blk2+9 +0.0332
+  win2 docs  17 baseCE 3.9876 frac 0.282 | oracle -0.1305 random -0.0135 blk2 -0.0332 blk2+9 -0.0346
+  win3 docs  23 baseCE 3.4730 frac 0.243 | oracle +0.0438 random +0.0581 blk2 +0.0033 blk2+9 +0.0218
+  win4 docs  43 baseCE 3.5882 frac 0.214 | oracle +0.0829 random +0.0500 blk2 +0.0495 blk2+9 +0.0714
+  win5 docs  26 baseCE 3.3520 frac 0.195 | oracle +0.0529 random +0.0436 blk2 +0.0055 blk2+9 +0.0270
+  win6 docs  35 baseCE 3.7687 frac 0.231 | oracle +0.0191 random +0.0141 blk2 +0.0058 blk2+9 +0.0018
+  win7 docs  35 baseCE 3.6643 frac 0.203 | oracle +0.0317 random +0.0163 blk2 +0.0093 blk2+9 +0.0084
+
+r(oracle, base CE)          = -0.8292
+r(oracle, assembly excess)  = +0.3393
+r(base CE, assembly excess) = -0.4696
+r(random, assembly excess)  = +0.7649
+(a) |r_excess| 0.3393 > |r_baseCE| 0.8292: FAILED
+(b) |r(baseCE,excess)| 0.4696 >= 0.7: FAILED
+(c) oracle gains reproduce S2083 within 0.005 (max dev 0.00030): HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/probe_gate8_results.json (517s)

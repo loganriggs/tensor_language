@@ -1,0 +1,103 @@
+{
+ "windows": [
+  {
+   "window": 0,
+   "docs": 7,
+   "gated_frac": 0.1725,
+   "base_ce": 3.4002,
+   "assembly_excess": 2.6735,
+   "oracle_gain": 0.0776,
+   "random_gain": 0.0179,
+   "gain_blk2": 0.0325,
+   "gain_blk2+9": 0.0516
+  },
+  {
+   "window": 1,
+   "docs": 42,
+   "gated_frac": 0.2084,
+   "base_ce": 3.3773,
+   "assembly_excess": 2.9704,
+   "oracle_gain": 0.0577,
+   "random_gain": 0.0343,
+   "gain_blk2": -0.0019,
+   "gain_blk2+9": 0.0332
+  },
+  {
+   "window": 2,
+   "docs": 17,
+   "gated_frac": 0.2823,
+   "base_ce": 3.9876,
+   "assembly_excess": 2.7322,
+   "oracle_gain": -0.1305,
+   "random_gain": -0.0135,
+   "gain_blk2": -0.0332,
+   "gain_blk2+9": -0.0346
+  },
+  {
+   "window": 3,
+   "docs": 23,
+   "gated_frac": 0.243,
+   "base_ce": 3.473,
+   "assembly_excess": 2.9632,
+   "oracle_gain": 0.0438,
+   "random_gain": 0.0581,
+   "gain_blk2": 0.0033,
+   "gain_blk2+9": 0.0218
+  },
+  {
+   "window": 4,
+   "docs": 43,
+   "gated_frac": 0.2138,
+   "base_ce": 3.5882,
+   "assembly_excess": 2.9547,
+   "oracle_gain": 0.0829,
+   "random_gain": 0.05,
+   "gain_blk2": 0.0495,
+   "gain_blk2+9": 0.0714
+  },
+  {
+   "window": 5,
+   "docs": 26,
+   "gated_frac": 0.1954,
+   "base_ce": 3.352,
+   "assembly_excess": 2.8355,
+   "oracle_gain": 0.0529,
+   "random_gain": 0.0436,
+   "gain_blk2": 0.0055,
+   "gain_blk2+9": 0.027
+  },
+  {
+   "window": 6,
+   "docs": 35,
+   "gated_frac": 0.2306,
+   "base_ce": 3.7687,
+   "assembly_excess": 2.641,
+   "oracle_gain": 0.0191,
+   "random_gain": 0.0141,
+   "gain_blk2": 0.0058,
+   "gain_blk2+9": 0.0018
+  },
+  {
+   "window": 7,
+   "docs": 35,
+   "gated_frac": 0.2031,
+   "base_ce": 3.6643,
+   "assembly_excess": 2.7055,
+   "oracle_gain": 0.0317,
+   "random_gain": 0.0163,
+   "gain_blk2": 0.0093,
+   "gain_blk2+9": 0.0084
+  }
+ ],
+ "n_windows": 8,
+ "pearson_oracle_vs_base_ce": -0.8292,
+ "pearson_oracle_vs_assembly_excess": 0.3393,
+ "pearson_base_ce_vs_assembly_excess": -0.4696,
+ "pearson_random_vs_assembly_excess": 0.7649,
+ "pearson_probe_vs_assembly_excess": 0.455,
+ "max_oracle_deviation_from_S2083": 0.0003,
+ "pred_a_assembly_beats_text": false,
+ "pred_b_they_are_confounded": false,
+ "pred_c_reproduces_S2083": true,
+ "runtime_s": 517.4842367172241
+}
