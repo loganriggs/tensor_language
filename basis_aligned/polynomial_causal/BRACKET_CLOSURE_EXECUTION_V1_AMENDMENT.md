@@ -73,3 +73,11 @@ the receipt; a failure callback must bind any partial-result presence and exact 
 Both paths recheck the stable lock inode and nonce plus the exact input aggregate
 immediately before their receipt-last publication.  These lifecycle repairs change
 no row, arm, metric, bootstrap, threshold, or scientific claim.
+
+The lock's original `O_EXCL` creator descriptor remains open for the transaction;
+its `fstat` device/inode and bytes define ownership before the lock is returned, and
+every later check joins the path back to that same open file.  Once an exact artifact
+has been hard-linked, directory-fsync reporting and temporary-file cleanup are
+non-authoritative housekeeping: their errors cannot reverse the link or strand a
+success claim.  The linked JSON is semantically reloaded before execution advances
+to the next receipt-last stage.
