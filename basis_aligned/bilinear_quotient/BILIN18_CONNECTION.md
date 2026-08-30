@@ -63179,3 +63179,37 @@ pile-10k windows, whose prefixes are disjoint from every FW row. The equal-price
 prediction — select 8 of the 32 leading plain-PCA directions by metric weight at the tail (selection among
 data-defined directions). If that also hurts, the distinction is "model-defined vs data-defined", not "select vs
 construct".
+
+## §2121 — RUNG 27: ANY eight of the top-32 PCA directions beat the top-8 by ~0.2 nat at the tail — metric-selected (+0.204 on window 1, +0.210 fresh median) AND random (+0.197 / +0.23). The metric adds nothing; the "gain" is the tail program intervening on less of the output. The select-vs-construct reading is not supported; the tail span's variance coverage is the variable
+
+`ops/metric_tail_select.py`, **173s**, BACKLOG rung 27. **pred_d HELD (1.7415) | pred_a HELD | pred_b HELD | pred_c FAILED —
+in the informative direction.**
+
+```
+  tail span (8 dirs per tail MLP)     gap w1     fresh-window gaps (8)                                    fresh median gain
+  plain top-8 by variance (cfgE)      +1.581     1.861 2.046 1.841 1.955 1.974 1.883 1.748 1.819              --
+  metric-selected 8 of top-32         +1.377     1.715 1.837 1.630 1.693 1.683 1.694 1.528 1.633           +0.210
+  RANDOM 8 of top-32                  +1.384     1.678 1.781 1.613 1.649 1.657 1.644 1.483 1.594           +0.234   <- better than metric on 8/8 fresh
+```
+
+- **pred_c FAILED the opposite way:** a random 8 of the top-32 directions is not worse than the top-8 by variance — it
+  is *better* by 0.20 nat on window 1 and by 0.23 median on the fresh windows, and better than the metric's pick on
+  all eight fresh windows. **The metric contributes nothing here; the select-vs-construct hypothesis of §2120 is not
+  supported** (selecting among data-defined directions "works" only because anything but the top-8 works).
+- **What the 0.2 nat is.** The tail program replaces the projection of each tail MLP's *real* output on an 8-dim span
+  with a class-dictionary target and passes the rest of the output through untouched. Its cost is the cost of that
+  replacement. Replacing the eight highest-variance directions replaces the most output content with a class mean;
+  replacing eight lower-variance directions replaces less, and the real MLP does the rest. **The gain is the stand-in
+  explaining less of the module**, not explaining it better — a coverage reduction that the benchmark's accounting
+  (a tail MLP "replaced" by a rank-8 span program) does not currently see.
+- **Consequences for the ledger.** (i) §2117's "the tail spans tie for the largest lever (0.158)" is the cost of the
+  span replacement as configured, and most of it can be made to vanish by choosing directions that matter less —
+  which is not a frontier move. (ii) The certified assembly's tail stand-ins must be priced with their *variance
+  coverage* (or better, their observable-energy coverage) stated, or the +2.93 / +1.58 numbers over-credit them.
+  (iii) The mlp4/mlp5 unit-selection gain (§2116/§2119) is NOT of this kind: the CP-2304 program is a genuine
+  replacement (the real MLP is not run), and its unit count is fixed across arms. That distinction is why §2116
+  stands and this does not count.
+
+**Registered next (rung 28):** across several random 8-of-32 draws, the gain should track the *variance share* the
+chosen span covers (ρ ≤ −0.7): if so, the effect is coverage and closes; the honest tail-span price is then the
+span's cost per unit of covered variance.

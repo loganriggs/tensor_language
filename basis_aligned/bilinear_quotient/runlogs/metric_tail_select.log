@@ -1,0 +1,50 @@
+a2-input probe acc 0.69
+fit a2
+fit a3
+fit a4
+fit a5
+fit a6
+fit a7
+fit a8
+fit a9
+fit a10
+fit a11
+fit a12
+fit a13
+fit a14
+fit a15
+fit a16
+fit a17
+metric for t10 at block 11: top eig 1.185e-06, floor 1.695e-09
+metric for t11 at block 12: top eig 6.562e-07, floor 9.679e-10
+metric for t12 at block 13: top eig 5.317e-07, floor 5.638e-10
+metric for t13 at block 14: top eig 5.372e-07, floor 5.372e-10
+metric for t14 at block 15: top eig 4.745e-07, floor 4.745e-10
+metric for t15 at block 16: top eig 3.021e-07, floor 3.021e-10
+metric for t16 at block 17: top eig 2.127e-07, floor 2.127e-10
+metric for t17 at block 18: top eig 1.904e-07, floor 1.904e-10
+  tail span mlp10 (select-8-of-32): overlap with plain span 0.625
+  tail span mlp11 (select-8-of-32): overlap with plain span 0.625
+  tail span mlp12 (select-8-of-32): overlap with plain span 0.625
+  tail span mlp13 (select-8-of-32): overlap with plain span 0.500
+  tail span mlp14 (select-8-of-32): overlap with plain span 0.625
+  tail span mlp15 (select-8-of-32): overlap with plain span 0.625
+  tail span mlp16 (select-8-of-32): overlap with plain span 0.250
+  tail span mlp17 (select-8-of-32): overlap with plain span 0.000
+  tail span mlp10 (random-8-of-32): overlap with plain span 0.250
+  tail span mlp11 (random-8-of-32): overlap with plain span 0.000
+  tail span mlp12 (random-8-of-32): overlap with plain span 0.375
+  tail span mlp13 (random-8-of-32): overlap with plain span 0.250
+  tail span mlp14 (random-8-of-32): overlap with plain span 0.250
+  tail span mlp15 (random-8-of-32): overlap with plain span 0.250
+  tail span mlp16 (random-8-of-32): overlap with plain span 0.125
+  tail span mlp17 (random-8-of-32): overlap with plain span 0.375
+8 windows x 120 rows, document-disjoint; docs per window [7, 42, 17, 23, 43, 26, 35, 35]
+plain        : gap w1 +1.5808 | fresh [1.861, 2.046, 1.841, 1.955, 1.974, 1.883, 1.748, 1.819] | b6 1.741 b17 0.593 | 18s
+select-8-of-32: gap w1 +1.3773 | fresh [1.715, 1.837, 1.63, 1.693, 1.683, 1.694, 1.528, 1.633] | b6 1.741 b17 0.554 | 18s
+random-8-of-32: gap w1 +1.3836 | fresh [1.678, 1.781, 1.613, 1.649, 1.657, 1.644, 1.483, 1.594] | b6 1.741 b17 0.508 | 18s
+(d) cfgE b6 1.7415: HELD
+(a) select-8 gap w1 +1.3773 <= plain +1.5808 + 0.01: HELD
+(b) fresh median gain +0.2101 >= 0.02: HELD
+(c) random-8 gap w1 +1.3836 >= plain + 0.02: FAILED
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/metric_tail_select_results.json (173s)

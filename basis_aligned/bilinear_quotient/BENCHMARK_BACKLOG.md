@@ -371,6 +371,20 @@ AGENT_BOARD (2026-08-30 §2096 entry).
     plain top-8 by >= 0.02 (the selection is not free); pred_d cfgE
     reproduces 1.7415. If (a) fails, the distinction is model-defined vs
     data-defined directions, not select vs construct.
+    RUN 2026-08-30, §2121: (a)(b)(d) HELD; (c) FAILED in the informative
+    direction — RANDOM 8 of top-32 also gains ~0.2 (better than metric on
+    8/8 fresh). The metric adds nothing; the gain is the tail program
+    intervening on LESS of the output (coverage), not a frontier move.
+    §2117's tail lever is the cost of its own coverage. NOT COUNTED.
+
+28. COVERAGE, NOT CHOICE (opened from §2121): six random 8-of-32 spans per
+    tail MLP; record the variance share each span covers and the CE gap.
+    -> ops/tail_span_coverage.py [QUEUED]
+    pred_a Spearman(gain over cfgE, covered variance share) <= -0.7 across
+    the draws + plain; pred_b a span of the 8 LOWEST-variance of the top-32
+    gains >= the random median (the limit of doing less); pred_c the
+    observable-energy coverage (via the site Gramian) predicts gain no
+    better than variance share (|rho| within 0.1); pred_d cfgE 1.7415.
 
 BOOKKEEPING NOTE 2026-08-30 18:40Z: rungs 12-22 above were reconstructed from
 the ledger entries §2103-§2115 after a cwd slip appended §2103 and rung 12's
