@@ -60362,3 +60362,61 @@ direction §2056 found best explained by r.11.1.2's. **And this is still closed-
 gradient-descent DAS** — `das_class_learned.py` optimises an interchange objective and could find
 multi-dimensional structure a single residual direction misses, which is now the obvious next step rather
 than a speculation.
+
+## §2059 — every curated circuit localises: 62 of 62, and the localiser is not just tracking the loudest component
+
+`circuit_battery_all.py`, **899s**, **DISCOVERY ONLY**, census_state_diverse (256,000 positions).
+**pred_a True | pred_b True | pred_c FALSE 1/62.** Logan's circuit task: ablation and interchange
+patching on as many circuits as possible, target ~35.
+
+§2054 and §2055 each ran all 36 components but scored only the **twelve** circuits missing a `components`
+field. The 36 dCE vectors do not depend on which circuit is scored, so scoring all 70 curated circuits
+against the same vectors cost **zero extra sweeps**. 62 of the 70 are present in the census state.
+
+```
+  pred_a  best mean-ablation concentration >= 2.0 :  62/62   (bar >=35)          TRUE
+  pred_b  mean and interchange pick the same best :  45/62 = 73%  (bar >=60%)    TRUE
+  pred_c  interchange concentration > mean's      :   1/62   (bar majority)      FALSE
+
+  concentration   max 12.28   median 4.08   min 2.61
+     >=3: 59/62      >=4: 33/62      >=5: 14/62      >=8: 7/62
+```
+
+> **pred_a passed at 62 of 62, against a target of 35.** The bar is not scraped: the *minimum* over all
+> 62 is 2.61 and the median is 4.08. **Every curated census circuit is localisable to a single component
+> by direct mean-ablation** — including the twelve that failed all four of the pipeline's ATTRIBUTION
+> tests. Attribution asks which upstream writer explains a component's input; that machinery could not
+> name these, and the direct causal question answers all of them.
+
+**THE CONTROL THAT MATTERS.** A concentration ratio could be an artefact of one component simply being
+loudest everywhere. **It is not, and the data refute it cleanly.** `m1` carries **by far** the largest
+off-slice damage — **6.98 against 1.04 for the next** — and wins **zero** circuits. Not one of the
+top-six loudest components wins anything; the two that win most (**a8** with 16 circuits, **a16** with
+13) are absent from the loud list entirely. **Concentration is selecting where a circuit lives, not where
+the model is noisy.**
+
+**Sixteen of the 36 components win at least one circuit, and two carry nearly half.** a8 (16) and a16
+(13) account for **29 of 62**. §2056 and §2058 studied a8 because five circuits happened to sit there;
+**a8 is in fact the single most circuit-dense component in the model**, and a16 is nearly its equal.
+That makes the §2058 shared-substrate result more important than it looked, not less — and it makes
+**a16, on which nothing has been done, the obvious next target**.
+
+**pred_c failed 1/62, and it failed backwards.** I predicted interchange would concentrate *harder* than
+mean-ablation, on the reasoning that injecting another position's activation is a sharper intervention
+than substituting a bland mean. **The opposite holds, essentially universally.** The reason is visible in
+the denominators: interchange raises off-slice damage more than it raises member damage, because an
+activation from a random other position is off-distribution *everywhere*, not just on the circuit. **Mean
+ablation is the sharper localiser of the two**, and interchange's value here is as the independent second
+method for pred_b, not as a better one.
+
+**pred_b at 73% is the load-bearing number for everything else in this folder.** Two different
+interventions — one removing signal, one substituting a different valid signal — pick the same component
+for 45 of 62 circuits. Localisation is a property of the circuit, not of the intervention. **The 17
+disagreements are not noise to be waved away**: they concentrate on the `m13/m14/m15/m16` band (`r.1.2`,
+`r.1.2.0`, `r.1.2.1`, `r.1.1.1`, `r.1.1.2`, `r.1.3.1` all disagree by one or two layers within that
+band), which is exactly the signature of a circuit spread across adjacent MLPs rather than sitting on
+one. **Those six should be reported as band-localised, not component-localised.**
+
+**Open.** `circuits/BATTERY.json` carries all 36 components × 62 circuits × 2 methods. Nothing here is
+DAS: both methods intervene on a component's *whole* output, so they locate the circuit to a component
+and say nothing about which directions inside it carry it.
