@@ -24,29 +24,29 @@ fit a13L
 fit a15L
 fit a16L
 fit a17L
-  window 0 (7 docs): L2 fresh +2.5085
+  window 0 (7 docs): L2 fresh +2.5087
   window 1 (42 docs): L2 fresh +2.7085
   window 2 (17 docs): L2 fresh +2.3575
   window 3 (23 docs): L2 fresh +2.6147
-  window 4 (43 docs): L2 fresh +2.6418
-  window 5 (26 docs): L2 fresh +2.5498
+  window 4 (43 docs): L2 fresh +2.6416
+  window 5 (26 docs): L2 fresh +2.5496
   window 6 (35 docs): L2 fresh +2.4134
-  window 7 (35 docs): L2 fresh +2.4337
-  head 0 zeroed, per-window: [2.5085, 2.7085, 2.3575, 2.6147, 2.6418, 2.5498, 2.4134, 2.4337]
-  head 1 zeroed, per-window: [2.5085, 2.7085, 2.3575, 2.6147, 2.6418, 2.5498, 2.4134, 2.4337]
-  head 2 zeroed, per-window: [2.5085, 2.7085, 2.3575, 2.6147, 2.6418, 2.5498, 2.4134, 2.4337]
-  head 3 zeroed, per-window: [2.5085, 2.7085, 2.3575, 2.6147, 2.6418, 2.5498, 2.4134, 2.4337]
-  head 4 zeroed, per-window: [2.5085, 2.7085, 2.3575, 2.6147, 2.6418, 2.5498, 2.4134, 2.4337]
-  head 5 zeroed, per-window: [2.5085, 2.7085, 2.3575, 2.6147, 2.6418, 2.5498, 2.4134, 2.4337]
-  head 6 zeroed, per-window: [2.5085, 2.7085, 2.3575, 2.6147, 2.6418, 2.5498, 2.4134, 2.4337]
-  head 7 zeroed, per-window: [2.5085, 2.7085, 2.3575, 2.6147, 2.6418, 2.5498, 2.4134, 2.4337]
-  head 8 zeroed, per-window: [2.5085, 2.7085, 2.3575, 2.6147, 2.6418, 2.5498, 2.4134, 2.4337]
-  head all zeroed, per-window: [2.5085, 2.7085, 2.3575, 2.6147, 2.6418, 2.5498, 2.4134, 2.4337]
-L2 empirical: C +2.2265 | fresh +2.5085 | tail-attn increment +0.1877
+  window 7 (35 docs): L2 fresh +2.4336
+  head 0 zeroed, per-window: [2.5358, 2.7373, 2.3754, 2.6369, 2.6704, 2.5721, 2.439, 2.4599]
+  head 1 zeroed, per-window: [2.5237, 2.7258, 2.3703, 2.6271, 2.6591, 2.5663, 2.4295, 2.4482]
+  head 2 zeroed, per-window: [2.4837, 2.6766, 2.3414, 2.591, 2.6078, 2.5251, 2.3067, 2.4073]
+  head 3 zeroed, per-window: [2.5087, 2.7078, 2.3592, 2.6158, 2.6413, 2.5498, 2.4142, 2.4331]
+  head 4 zeroed, per-window: [2.5374, 2.7464, 2.3799, 2.6469, 2.6776, 2.5798, 2.4431, 2.4619]
+  head 5 zeroed, per-window: [2.5085, 2.7054, 2.3505, 2.6097, 2.64, 2.5387, 2.4104, 2.4327]
+  head 6 zeroed, per-window: [2.5247, 2.7458, 2.4485, 2.6802, 2.7205, 2.5899, 2.4531, 2.4753]
+  head 7 zeroed, per-window: [2.5239, 2.723, 2.3739, 2.6335, 2.6599, 2.5629, 2.4276, 2.4486]
+  head 8 zeroed, per-window: [2.5075, 2.7126, 2.3709, 2.6158, 2.6496, 2.5788, 2.4195, 2.4451]
+  head all zeroed, per-window: [2.5998, 2.8413, 2.5739, 2.7747, 2.8298, 2.7015, 2.4734, 2.5775]
+L2 empirical: C +2.2265 | fresh +2.5087 | tail-attn increment +0.1879
 (a) L2 <= +2.75 fresh: HELD
 (b) increment in [0.30,0.55]: FAILED
-window-median d per head: 14.0:+0.0000 14.1:+0.0000 14.2:+0.0000 14.3:+0.0000 14.4:+0.0000 14.5:+0.0000 14.6:+0.0000 14.7:+0.0000 14.8:+0.0000  all:+0.0000
-(a) max +0.0000 >= 2 x median +0.0000: FAILED
-(b) |sum +0.0000 - all +0.0000| = 0.0000 <= 0.05: HELD
-(c) saving vs S2144 best, median +0.2326 >= +0.04: HELD
-wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/attn14_headw8_results.json (214s)
+window-median d per head: 14.0:+0.0259 14.1:+0.0155 14.2:-0.0257 14.3:+0.0001 14.4:+0.0299 14.5:-0.0030 14.6:+0.0410 14.7:+0.0151 14.8:+0.0071  all:+0.1479
+(a) max +0.0410 >= 2 x median +0.0151: HELD
+(b) |sum +0.1060 - all +0.1479| = 0.0419 <= 0.05: HELD
+(c) saving vs S2144 best, median +0.2327 >= +0.04: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/attn14_headw8_results.json (213s)

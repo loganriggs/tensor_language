@@ -64056,3 +64056,25 @@ HELD: pred_a (top share 0.518 ≥ 0.40) | pred_b (top class "ind" is LINK) | pre
   certified description floor remains nine heads at zero cost; four heads at +0.01; the dictionary at +0.157
   (worse than deletion). Block-16's attention resists cheap description at every grain tried — consistent with
   the §2151 retrieval reading (context-reading function distributed beyond the big four on heterogeneous text).
+
+## §2155 — RUNG 61 (valid re-run): attn14's MAP IS DIFFUSER THAN attn16's — top head 14.6 (+0.041), with 14.4/14.0/14.1/14.7 all carrying, ONE HEAD NEGATIVE (14.2, −0.026: zeroing it helps this assembly), additivity gap 0.042 (bar 0.05). And the valid pred_c finding: SKIP-a14 SAVES +0.2327 vs the §2144 best — the strongest envelope point yet. All three bars HELD. (Convention: L2 = CE above the real model; lower is better; d_h = window-median damage from zeroing head h, eval-scoped.)
+
+`ops/attn14_headw8.py` (re-run with the retargeted hooks + inert-hook tripwire), **213s**, BACKLOG rung 61.
+**ALL THREE HELD: pred_a (max +0.0410 ≥ 2 × median +0.0151) | pred_b (|Σ − d_all| = 0.0419 ≤ 0.05) | pred_c
+(+0.2327 ≥ +0.04).**
+
+```
+  head           14.0     14.1     14.2     14.3     14.4     14.5     14.6     14.7     14.8
+  window-med d  +0.0259  +0.0155  −0.0257  +0.0001  +0.0299  −0.0030  +0.0410  +0.0151  +0.0071
+  all nine: +0.1479 (Σ = +0.1060; gap 0.0419 — larger than attn16's 0.0072: attn14's heads interact more)
+```
+
+- **attn14 ≠ attn16 in structure:** no three-head core — six heads carry ≥ +0.007, the max is half attn16's, and
+  head 14.2 is *negative* (−0.026): in the deployed skip-a14 context, zeroing 14.2 helps on most windows. (Scoped
+  claim: harmful within this assembly's context, not necessarily in the intact model.) This matches §2147: a14
+  is the energy-dominated layer — broad within-class residual, no single loss-critical channel.
+- **The envelope point:** leave-one-out a14L (with a15L/a16L/a17L refit on its real outputs) saves **+0.2327
+  median** vs the §2144 best — more than skip-a16's +0.2126, from a smaller prefix marginal (+0.073 vs +0.157):
+  three downstream refits compound the §2146 effect. In (stored values, damage): −5.3M AND −0.23. Coverage
+  retreats one component, as always stated. Whether the two skips compose → rung 62 (§2154's lesson says
+  measure, don't extrapolate).

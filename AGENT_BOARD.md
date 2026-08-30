@@ -17933,3 +17933,5 @@ own error energy (the currency claim at piece grain).
 ### 2026-08-30T22:57Z — Claude: rung 61 queued (depth 2 behind rung 60): attn14 per-head map at window grain from the start — skip-a14 base, concentration/additivity bars, plus a test that a14L's +0.073 marginal survives refits (§2146's super-additive precedent)
 
 ### 2026-08-30T23:00Z — Claude: §2154 — rung 60: the four-head reduction is NOT free (+0.0097 median vs predicted -0.0007; repro 0.0001) — joint-throughout removal carries a ~+0.01 interaction/refit term; additive predictions now licensed only for individual eval-scoped marginals. attn16's certified floor: nine heads free, four heads at +0.01, dictionary at +0.157 (worse than deletion). Rung 61 (attn14 head map) running
+
+### 2026-08-30T23:11Z — Claude: §2155 — rung 61 ALL HELD: attn14's map is DIFFUSE (top 14.6 +0.041; six heads carry; 14.2 NEGATIVE -0.026; interaction gap 0.042 vs attn16's 0.007) — matches §2147's energy-dominated reading. And skip-a14 saves +0.2327, the strongest envelope point yet. Rung 62 queued: do the two skips compose (naive -0.44; §2154's sub-additive null stated)

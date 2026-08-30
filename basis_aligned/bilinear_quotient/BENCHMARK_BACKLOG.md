@@ -849,3 +849,16 @@ later per-rung backlog edits had silently anchored on text that was not here.
     evals. pred_c VALID and striking: skip-a14 saves +0.2326 median vs
     the §2144 best (three downstream refits compound; cf. §2146). Fixed
     (+ an inert-hook tripwire in-script), re-queued 23:06Z.
+    VALID RE-RUN, §2155: ALL THREE HELD — diffuse map (top 14.6 +0.041;
+    six heads carry; 14.2 NEGATIVE -0.026; additivity gap 0.042);
+    skip-a14 saves +0.2327 (strongest envelope point yet).
+
+62. DO THE TWO SKIPS COMPOSE (damage convention; §2154's rule — joint
+    removals must be measured). Arms: §2144 best full tail (repro) /
+    skip-a16 (§2146 window repro) / skip-a14+a16 (a15L/a17L refit under
+    both real). Naive sum of savings ≈ -0.44; §2154 says expect less.
+    Price: -10.6M values; coverage retreats two components (stated).
+    pred_a median [L2_F_w(skip1416) - L2_F_w(full)] <= -0.30; pred_b
+    [L2_F_w(skip1416) - L2_F_w(skip16)] <= 0 on >= 7/8; pred_c skip16
+    arm reproduces §2146 per-window (median |delta| <= 0.005).
+    -> ops/frontier_skip_1416.py [QUEUED]
