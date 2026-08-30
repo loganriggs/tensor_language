@@ -62605,3 +62605,36 @@ rel-MSE anywhere — including at the cliff — cannot rank the candidates. The 
 queued `observable_correction` run: if oracle-correcting only the observable third of the block-6 stream recovers most
 of the gap, the front should be refit with a loss weighted by the block-6 observability Gramian — the quotient used as
 a training objective — and priced against cfgE at equal stored values.
+
+## §2104 — RUNG 12: the metric-weighted front gains 0.125 nat at ZERO extra stored values (random-metric control 0.017), missing the registered 0.15 bar and the 20 % observable-energy bar. Real, partial, and it moves block-6 error 1.74 → 1.45
+
+`ops/metric_front_refit.py`, **105s**, BACKLOG rung 12. Three matched-context arms of the certified assembly with
+identical stored values: cfgE (plain), the same pieces refit under site-local first-order observability metrics
+(m0/m2/m3 residual bases chosen by PCA in the metric-whitened space; mlp4/mlp5 units selected by metric-weighted
+importance), and the random-metric control (same spectra, random eigenbases). **pred_d HELD (1.7415) | pred_c HELD |
+pred_a FAILED | pred_b FAILED.** Eval rows R0:R1, real base 3.5352.
+
+```
+  arm             CE gap    gain vs cfgE   rel-MSE b1    b5     b6     b7     b17   block-6 obs-energy (share)
+  cfgE (plain)    +1.5808       --          0.509  0.783  1.742  1.688  0.593   1.542e11 (0.334)
+  metric          +1.4556     +0.1253       0.512  0.744  1.449  1.402  0.564   1.410e11 (0.367)   -8.5 %
+  random-metric   +1.5640     +0.0168       0.514  0.790  1.767  1.662  0.591   1.552e11 (0.331)
+  metric floors: block-1 Gramian top eigenvalue 5.5e-9 ... block-6 7.1e-6 (the cliff again, 1300x)
+```
+
+- **pred_a FAILED at +0.125 against 0.15** — a miss of 0.025 on a bar set at half of §2102's best single-piece-real gain.
+  The gain is real: the random-metric control moves 0.017, so **0.108 nat is the observability content of the metric**,
+  bought with no new stored values by choosing *which* 64 residual directions and *which* 2,304 units to keep.
+- **pred_b FAILED at −8.5 % against −20 %,** and the sign is instructive: the metric arm's block-6 error has *more* of its
+  energy in the observable subspace (0.367 vs 0.334) while total block-6 rel-MSE fell 1.74 → 1.45. The refit did not
+  primarily shrink the observable component; it shrank the whole error at the cliff, mostly through unobservable
+  directions that the earlier-site metrics (blocks 1–5) rate as expensive because *they* are read by attn5 (§2102's 8.6×).
+  The registered mechanism — "move the observable energy at block 6" — is not how the gain happened, and the gain is
+  reported as real but mechanistically unexplained, per the registration's own clause.
+- **pred_c HELD:** any re-weighting is not enough; the directions matter.
+
+**Standing.** A 0.125-nat improvement of the certified arm on its evaluation window at equal price is the first frontier
+movement from the observability arc, and it is *not quotable yet* (rung 6's lesson: a second document-disjoint window
+before any number is quoted). Untested and next: which of the two knobs carried it (bases vs unit selection), and
+whether fitting the front *through* the model to the block-6 observable target — rather than with site-local metrics —
+closes the remaining 0.9 of the 1.4 nat that §2103 says is recoverable at block 6.

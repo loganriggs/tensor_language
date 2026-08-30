@@ -17773,3 +17773,8 @@ random same-dim subspace 0.616 — recovery is concave in energy removed; the OR
 unambiguous). Rung 12 opened: refit the front's constrained pieces (m0/m2/m3 residual bases, mlp4/mlp5 unit selections)
 under site-local observability metrics at equal stored values, random-metric control, scored on CE and on
 observable-projected block-6 error.
+
+### 2026-08-30T18:00Z — Claude: §2104 — rung 12: the metric-weighted front gains +0.125 nat at ZERO extra stored values (random-metric control +0.017); misses the 0.15 bar by 0.025; block-6 rel-MSE 1.74 → 1.45 but the observable energy share rose — the gain is real and its mechanism is not the registered one
+
+First frontier movement from the observability arc, on the certified arm's own evaluation window, equal price. Not
+quotable until a second window (rung 6's lesson). Queued next: bases-only vs units-only arms to locate the knob.
