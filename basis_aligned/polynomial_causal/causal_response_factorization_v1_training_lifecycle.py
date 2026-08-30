@@ -46,6 +46,7 @@ SOURCE_PATHS = tuple(ROOT / path for path in (
     "basis_aligned/polynomial_causal/CAUSAL_RESPONSE_FACTORIZATION_V1_AMENDMENT_5.md",
     "basis_aligned/polynomial_causal/CAUSAL_RESPONSE_FACTORIZATION_V1_AMENDMENT_6.md",
     "basis_aligned/polynomial_causal/CAUSAL_RESPONSE_FACTORIZATION_V1_AMENDMENT_7.md",
+    "basis_aligned/polynomial_causal/CAUSAL_RESPONSE_FACTORIZATION_V1_AMENDMENT_8.md",
     "basis_aligned/polynomial_causal/causal_response_factorization_v1.py",
     "basis_aligned/polynomial_causal/causal_response_factorization_v1_accelerated.py",
     "basis_aligned/polynomial_causal/causal_response_factorization_v1_fit_adapter.py",
@@ -217,7 +218,12 @@ def release_claim(claim: Claim) -> None:
         except Exception:
             pass
         else:
-            LOCK.unlink()
+            try:
+                LOCK.unlink()
+            except OSError:
+                # A terminal snapshot, once installed, is authoritative. A stale
+                # advisory lock is recoverable and cannot reverse that transaction.
+                pass
     finally:
         try:
             os.close(claim.descriptor)
@@ -300,53 +306,65 @@ def _artifact_observation(path: Path) -> dict[str, Any]:
     }
 
 
-def _raw_protected_observation() -> dict[str, Any]:
-    """Exact bytes-only snapshot usable even when semantic replay is already broken."""
-    fit_paths = parent.PRODUCTION_PATHS
-    return {
-        "authority": _artifact_observation(AUTHORITY),
-        "audit": _artifact_observation(AUDIT),
-        "input": _artifact_observation(INPUT),
-        "manifest": _artifact_observation(MANIFEST),
-        "owner_claim": _artifact_observation(LOCK),
-        "sources": {
-            str(path.relative_to(ROOT)): _artifact_observation(path)
-            for path in SOURCE_PATHS
-        },
-        "fit_parent_artifacts": {
-            name: _artifact_observation(getattr(fit_paths, name))
-            for name in (
-                "authority", "bundle", "manifest", "receipt",
-                "failure", "terminal", "lock",
-            )
-        },
+def _stable_artifact_bytes(path: Path) -> tuple[bytes, dict[str, Any]]:
+    """Capture one exact regular-file version and its physical identity."""
+
+    flags = os.O_RDONLY | getattr(os, "O_NOFOLLOW", 0)
+    descriptor = os.open(path, flags)
+    try:
+        before = os.fstat(descriptor)
+        if not stat.S_ISREG(before.st_mode):
+            raise RuntimeError(f"factor training snapshot source is not regular: {path}")
+        chunks: list[bytes] = []
+        while chunk := os.read(descriptor, 8 << 20):
+            chunks.append(chunk)
+        raw = b"".join(chunks)
+        after = os.fstat(descriptor)
+        path_stat = path.stat(follow_symlinks=False)
+    finally:
+        os.close(descriptor)
+    identity = (before.st_dev, before.st_ino, before.st_size, before.st_mtime_ns)
+    if any(
+        (value.st_dev, value.st_ino, value.st_size, value.st_mtime_ns) != identity
+        for value in (after, path_stat)
+    ) or len(raw) != before.st_size:
+        raise RuntimeError(f"factor training snapshot source changed during read: {path}")
+    return raw, {
+        "source_path": str(path),
+        "sha256": hashlib.sha256(raw).hexdigest(),
+        "bytes": len(raw),
     }
 
 
-def _assert_stable_protected_observation(
-    expected: Mapping[str, Any], claim: Claim,
-) -> None:
-    """Replay the whole protected aggregate twice at the final boundary.
+def _stage_terminal_snapshot(
+    staging: Path,
+    sources: Mapping[str, tuple[Path, str | None]],
+) -> tuple[dict[str, Path], dict[str, dict[str, Any]]]:
+    """Copy exact historical inputs into the private terminal transaction."""
 
-    The lifecycle claim is part of the same aggregate, rather than a later callback.
-    Two complete equal sweeps catch a one-shot mutation after any sequential member
-    read.  Publication immediately follows this function with no path lookup.
-    """
-
-    owner = expected.get("owner_claim")
-    expected_lock_raw = (claim.nonce + "\n").encode()
-    if type(owner) is not dict or (
-        owner.get("exists") is not True
-        or owner.get("device") != claim.device
-        or owner.get("inode") != claim.inode
-        or owner.get("sha256") != hashlib.sha256(expected_lock_raw).hexdigest()
-        or owner.get("bytes") != len(expected_lock_raw)
-    ):
-        raise RuntimeError("factor training expected owner claim is malformed")
-    first = _raw_protected_observation()
-    second = _raw_protected_observation()
-    if first != expected or second != expected:
-        raise RuntimeError("factor training protected aggregate changed at terminal boundary")
+    paths: dict[str, Path] = {}
+    records: dict[str, dict[str, Any]] = {}
+    for name in sorted(sources):
+        if not name or Path(name).name != name or name in ("receipt.json", "failure.json", "terminal.json"):
+            raise RuntimeError("factor training terminal snapshot name is malformed")
+        source, expected_sha256 = sources[name]
+        raw, record = _stable_artifact_bytes(source)
+        if expected_sha256 is not None and record["sha256"] != expected_sha256:
+            raise RuntimeError(f"factor training terminal snapshot source changed: {name}")
+        target = staging / name
+        descriptor = os.open(target, os.O_WRONLY | os.O_CREAT | os.O_EXCL, 0o400)
+        with os.fdopen(descriptor, "wb") as sink:
+            sink.write(raw); sink.flush(); os.fsync(sink.fileno())
+        if file_sha256(target) != record["sha256"] or target.stat().st_size != record["bytes"]:
+            raise RuntimeError(f"factor training staged snapshot does not replay: {name}")
+        record = {
+            "path_within_terminal_directory": name,
+            "sha256": record["sha256"],
+            "bytes": record["bytes"],
+        }
+        paths[name] = target
+        records[name] = record
+    return paths, records
 
 
 def _fsync_directory_best_effort(path: Path) -> None:
@@ -385,6 +403,7 @@ def _rename_directory_noreplace(source: Path, target: Path) -> None:
 
 def _publish_terminal_pair(
     value: Mapping[str, Any], *, kind: str, claim: Claim, final_guard,
+    snapshot_sources: Mapping[str, tuple[Path, str | None]] | None = None,
 ) -> str:
     """Atomically publish terminal plus receipt/failure as one directory rename.
 
@@ -394,15 +413,23 @@ def _publish_terminal_pair(
     """
     if kind not in ("receipt", "failure"):
         raise ValueError("factor training terminal kind is malformed")
-    normalized = json.loads(json.dumps(value, sort_keys=True, allow_nan=False))
-    raw = _normalized_json_bytes(normalized)
-    digest = hashlib.sha256(raw).hexdigest()
+    if "terminal_snapshot" in value:
+        raise RuntimeError("terminal snapshot is owned by the publisher")
     staging = Path(tempfile.mkdtemp(
         prefix=f".{TERMINAL_DIR.name}.", dir=TERMINAL_DIR.parent
     ))
-    payload = staging / f"{kind}.json"
-    terminal = staging / "terminal.json"
     try:
+        snapshot_paths, snapshot_records = _stage_terminal_snapshot(
+            staging, {} if snapshot_sources is None else snapshot_sources
+        )
+        normalized = json.loads(json.dumps(
+            {**value, "terminal_snapshot": snapshot_records},
+            sort_keys=True, allow_nan=False,
+        ))
+        raw = _normalized_json_bytes(normalized)
+        digest = hashlib.sha256(raw).hexdigest()
+        payload = staging / f"{kind}.json"
+        terminal = staging / "terminal.json"
         descriptor = os.open(payload, os.O_WRONLY | os.O_CREAT | os.O_EXCL, 0o600)
         with os.fdopen(descriptor, "wb") as sink:
             sink.write(raw); sink.flush(); os.fsync(sink.fileno())
@@ -412,7 +439,8 @@ def _publish_terminal_pair(
         ):
             raise RuntimeError("staged factor training terminal pair does not replay")
         _fsync_directory_best_effort(staging)
-        final_guard()
+        require_claim(claim)
+        final_guard(snapshot_paths, snapshot_records)
         # Atomic create-only publication is the final filesystem operation.  There is
         # no lookup, callback, sync, or cleanup on the success path after this call.
         _rename_directory_noreplace(staging, TERMINAL_DIR)
@@ -455,6 +483,9 @@ def _freeze_authority(
             _normalized_json_bytes(authority)
         ).hexdigest(),
         "fit_parent": fit_parent,
+        "audit": audit,
+        "audit_artifact_sha256": audit_digest,
+        "source_closure": closure,
     })
 
     def guard() -> None:
@@ -565,35 +596,37 @@ def execute_training_input_v1() -> str:
                 "authorized_for_eval": False,
             },
         }
-        protected_observation = _raw_protected_observation()
-        receipt["protected_observation_sha256"] = logical_sha256(protected_observation)
-        def receipt_guard() -> None:
-            authority_replay, authority_observed = stable_json(AUTHORITY)
-            audit_replay, audit_observed = stable_audit()
+        def receipt_guard(snapshot_paths, snapshot_records) -> None:
+            authority_replay, authority_observed = stable_json(snapshot_paths["authority.json"])
+            audit_replay, audit_observed = stable_json(snapshot_paths["audit.json"])
             input_replay, observed_input = training_input.replay_training_input(
-                INPUT,
+                snapshot_paths["training_input.pt"],
                 expected_analysis_authority_sha256=authority["authority_sha256"],
                 expected_artifact_sha256=input_digest, require_production=True,
             )
             del input_replay
-            manifest_replay, observed_manifest = stable_json(MANIFEST)
+            manifest_replay, observed_manifest = stable_json(snapshot_paths["manifest.json"])
             if (
                 authority_replay != authority or authority_observed != authority_digest
-                or audit_replay.get("audited_source_commit")
-                != authority["source_closure"]["commit"]
-                or audit_observed != authority["independent_audit"]["sha256"]
-                or source_closure(authority["source_closure"]["commit"])
-                != authority["source_closure"]
-                or parent.fit_parent_binding_without_tensor_load() != fit_parent
+                or audit_replay != attempt["audit"]
+                or audit_observed != attempt["audit_artifact_sha256"]
                 or observed_input != input_digest
                 or manifest_replay != manifest
                 or observed_manifest != manifest_digest
+                or set(snapshot_records) != {
+                    "authority.json", "audit.json", "training_input.pt", "manifest.json"
+                }
             ):
-                raise RuntimeError("factor training manifest changed before receipt")
-            _assert_stable_protected_observation(protected_observation, claim)
+                raise RuntimeError("factor training terminal snapshot does not replay")
 
         return _publish_terminal_pair(
-            receipt, kind="receipt", claim=claim, final_guard=receipt_guard
+            receipt, kind="receipt", claim=claim, final_guard=receipt_guard,
+            snapshot_sources={
+                "authority.json": (AUTHORITY, authority_digest),
+                "audit.json": (AUDIT, attempt["audit_artifact_sha256"]),
+                "training_input.pt": (INPUT, input_digest),
+                "manifest.json": (MANIFEST, manifest_digest),
+            },
         )
     except Exception as error:
         attempt_authority = attempt.get("authority")
@@ -602,14 +635,11 @@ def execute_training_input_v1() -> str:
             type(attempt_authority) is dict and isinstance(attempt_digest, str)
             and not TERMINAL_DIR.exists()
         ):
-            protected_observation = _raw_protected_observation()
             failure = {
                 "schema": "causal_response_factorization_v1_training_terminal",
                 "kind": "failure",
                 "attempt_authority_artifact_sha256": attempt_digest,
                 "attempt_authority_logical_sha256": attempt_authority["authority_sha256"],
-                "protected_observation_sha256": logical_sha256(protected_observation),
-                "protected_observation": protected_observation,
                 "payload": {
                     "status": "failed_no_training_receipt",
                     "error_type": type(error).__name__,
@@ -619,11 +649,28 @@ def execute_training_input_v1() -> str:
                 },
             }
 
-            def failure_guard() -> None:
-                _assert_stable_protected_observation(protected_observation, claim)
+            failure_sources: dict[str, tuple[Path, str | None]] = {}
+            for name, path in (
+                ("authority.json", AUTHORITY),
+                ("audit.json", AUDIT),
+                ("training_input.pt", INPUT),
+                ("manifest.json", MANIFEST),
+            ):
+                if path.is_file():
+                    failure_sources[name] = (path, None)
+
+            def failure_guard(snapshot_paths, snapshot_records) -> None:
+                if set(snapshot_paths) != set(failure_sources) or set(snapshot_records) != set(
+                    failure_sources
+                ):
+                    raise RuntimeError("factor training failure snapshot does not replay")
+                for name, path in snapshot_paths.items():
+                    if file_sha256(path) != snapshot_records[name]["sha256"]:
+                        raise RuntimeError("factor training failure snapshot changed")
 
             _publish_terminal_pair(
-                failure, kind="failure", claim=claim, final_guard=failure_guard
+                failure, kind="failure", claim=claim, final_guard=failure_guard,
+                snapshot_sources=failure_sources,
             )
         raise
     finally:

@@ -42,15 +42,25 @@ FIT_PARENT_PATH_FIELDS = (
 
 
 def _same_physical_path(left: Path, right: Path) -> bool:
-    """Compare canonical path targets, including dot-dot and symlink aliases."""
+    """Compare canonical or existing inode targets."""
 
-    return left.resolve(strict=False) == right.resolve(strict=False)
+    if left.resolve(strict=False) == right.resolve(strict=False):
+        return True
+    try:
+        left_stat = left.stat()
+        right_stat = right.stat()
+    except OSError:
+        return False
+    return (left_stat.st_dev, left_stat.st_ino) == (right_stat.st_dev, right_stat.st_ino)
 
 
 def _touches_production_parent(paths: parent.FitParentPaths) -> bool:
     return any(
-        _same_physical_path(getattr(paths, field), getattr(parent.PRODUCTION_PATHS, field))
-        for field in FIT_PARENT_PATH_FIELDS
+        _same_physical_path(
+            getattr(paths, candidate_field), getattr(parent.PRODUCTION_PATHS, production_field)
+        )
+        for candidate_field in FIT_PARENT_PATH_FIELDS
+        for production_field in FIT_PARENT_PATH_FIELDS
     )
 
 
