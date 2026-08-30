@@ -464,4 +464,17 @@ later per-rung backlog edits had silently anchored on text that was not here.
     Bars: pred_a median per-window gain, L2_F(asm) − L2_F(norm), >= 0.04;
     pred_b >= 7/8 windows positive; pred_c norm reproduces 2.6735 within
     0.01 on the original FR windows (pipeline unchanged).
-    -> ops/frontier_asm_fresh8.py [QUEUED 19:59Z]
+    -> ops/frontier_asm_fresh8.py
+    RUN 2026-08-30, §2129: ALL THREE HELD — median +0.0481, 7/8 positive,
+    reproduction exact. Certified frontier best: +2.7707 fresh / +2.4846 C
+    at equal price, label-free assembly-conditioned selector.
+
+36. CONDITION cfgE ON ITSELF. §2128 showed conditioning the Fisher on the
+    deployed §312 assembly adds +0.047 over the real-model Fisher there.
+    cfgE's certified +0.086 (§2124) still uses the real-model metric; test
+    whether conditioning is general: recompute the top-8 at blocks 5/6
+    with cfgE's own CP middles + front tables installed (labels from
+    cfgE's predictions), re-select, and score on the eight windows.
+    Bars when built: pred_a median gain over real-model-metric selection
+    >= +0.02; pred_b >= 6/8 windows non-negative; pred_c the real-model
+    arm reproduces §2124's +0.086 median within 0.01.

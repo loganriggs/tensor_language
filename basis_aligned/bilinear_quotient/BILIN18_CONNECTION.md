@@ -63417,3 +63417,29 @@ as-written FAILED — because both formulas inherited rung 30's inverted sign; s
 - **Process rule (adopted):** registered formulas must name the arms in the inequality (`L2_F(asm) − L2_F(norm)`),
   and a write-up halts when the printed arm values contradict the signed summary — §2125 had both in view and
   followed the wrong one.
+
+## §2129 — RUNG 35: THE CONDITIONED FRONTIER CERTIFIES AT THE RUNG-6 STANDARD. Median gain +0.0481 over the eight document-disjoint fresh windows, positive on 7 of 8; the deployed §312 frontier's certified best is now +2.7707 fresh / +2.4846 C, at equal stored price, with the label-free assembly-conditioned selector
+
+`ops/frontier_asm_fresh8.py`, **245s**, BACKLOG rung 35. **pred_a HELD (+0.0481 ≥ 0.04) | pred_b HELD (7/8) |
+pred_c HELD (norm FR 2.6735, exact).**
+
+```
+  window     0        1        2        3        4        5        6        7      median
+  norm    +2.6735  +2.9704  +2.7323  +2.9634  +2.9546  +2.8355  +2.6407  +2.7056
+  asm     +2.7707  +3.0313  +2.7677  +2.9326  +2.9884  +2.8964  +2.6603  +2.7784
+  gain    +0.0972  +0.0609  +0.0354  −0.0308  +0.0338  +0.0609  +0.0196  +0.0728   +0.0481
+```
+
+- **What is now certified, end to end:** rank the kept mlp4/mlp5 CP units by their Down-columns' weight in the top-8
+  true-Fisher directions at blocks 5/6, with the Fisher computed *through the deployed §312 assembly* (its 38 motif
+  dictionaries, CP middles and hooks active; labels sampled from the assembly's own predictions — no data labels
+  anywhere). Same stored price as norm selection; +0.048 median nats across eight held-out window sets. Chain:
+  §2116 (metric gain, cfgE) → §2124 (label-free) → §2128 (sign correction; installs, conditioning adds +0.047 on
+  FR) → certified here.
+- **One window is negative** (w3, −0.031), as cfgE's window spread led us to expect; the 7/8 + median bars were set
+  for exactly that shape.
+- **Reproducibility note:** the asm arm's FR value moved +2.7682 → +2.7707 between runs — the Fisher collection's
+  backward pass accumulates with CUDA atomics, so a few marginal units can swap across runs; the norm arm is
+  bit-stable. The certified claim is the eight-window median, which absorbs this.
+- **Ledger state for the frontier:** §312's +2.6735 → **+2.7707 fresh** at equal price; §312's registered sanity
+  ceiling (L2 ≤ +2.75) retires with the configuration that owned it.
