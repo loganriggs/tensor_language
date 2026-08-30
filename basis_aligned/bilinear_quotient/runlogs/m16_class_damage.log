@@ -17,3 +17,66 @@ fit a15
 fit a16
 fit a17
 L1 (+38 heads): C +2.0113 | fresh +2.3208
+fit a10L
+fit a11L
+fit a12L
+fit a13L
+fit a14L
+fit a15L
+fit a16L
+fit a17L
+  window 0 (7 docs): L2 fresh +2.6662
+  window 1 (42 docs): L2 fresh +2.9354
+  window 2 (17 docs): L2 fresh +2.6122
+  window 3 (23 docs): L2 fresh +2.8498
+  window 4 (43 docs): L2 fresh +2.9137
+  window 5 (26 docs): L2 fresh +2.7953
+  window 6 (35 docs): L2 fresh +2.5818
+  window 7 (35 docs): L2 fresh +2.6640
+L2 empirical: C +2.4191 | fresh +2.6662 | tail-attn increment +0.3454
+(a) L2 <= +2.75 fresh: HELD
+(b) increment in [0.30,0.55]: HELD
+ARM 2/2: m16 zeroed throughout (bases excluded), per-position CE captured
+a2-input probe acc 0.69
+fit a2
+fit a3
+fit a4
+fit a5
+fit a6
+fit a7
+fit a8
+fit a9
+fit a10
+fit a11
+fit a12
+fit a13
+fit a14
+fit a15
+fit a16
+fit a17
+m16 zeroed for this arm (bases excluded)
+L1 (+38 heads): C +2.0665 | fresh +2.3467
+fit a10L
+fit a11L
+fit a12L
+fit a13L
+fit a14L
+fit a15L
+fit a16L
+fit a17L
+  window 0 (7 docs): L2 fresh +1.6495
+  window 1 (42 docs): L2 fresh +1.6593
+  window 2 (17 docs): L2 fresh +0.6425
+  window 3 (23 docs): L2 fresh +1.0741
+  window 4 (43 docs): L2 fresh +1.6169
+  window 5 (26 docs): L2 fresh +1.4244
+  window 6 (35 docs): L2 fresh +1.1768
+  window 7 (35 docs): L2 fresh +1.4239
+L2 empirical: C +2.4483 | fresh +2.6689 | tail-attn increment +0.3222
+(a) L2 <= +2.75 fresh: HELD
+(b) increment in [0.30,0.55]: HELD
+class shares: digit:+0.097 bclose:+0.075 newline:-3.477 sentend:+0.406 comma:-0.921 name:+0.770 rep:+0.424 subword:+10.233 ind:-7.686 other:+1.079
+(a) ind+other+subword +3.626 >= 0.60: HELD
+(b) ind -7.686 >= 0.25: FAILED
+(c) full FR L2_F 2.6662 vs 2.6662 (tol 0.01): HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/m16_class_damage_results.json (227s)

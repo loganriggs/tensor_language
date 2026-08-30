@@ -906,4 +906,10 @@ later per-rung backlog edits had silently anchored on text that was not here.
     remainder with the retrieval price. Null: class-uniform damage.
     pred_a ind+other+subword >= 0.60; pred_b ind >= 0.25; pred_c full
     arm reproduces §2144 (2.6662 within 0.01).
-    -> ops/m16_class_damage.py [QUEUED 23:32Z]
+    -> ops/m16_class_damage.py
+    RUN 2026-08-30, §2159: coupled-retrieval REFUTED, informatively —
+    m16 is a subword-continuation unit (+830 summed nats) that HURTS ind
+    positions (−620); net deletion cost only +0.0027 FR / +0.029 C.
+    pred_b FAILED; pred_a voided as ill-posed (share bars need a
+    sign-definite total — lesson adopted); pred_c HELD. Zeroed arm's
+    per-window numbers VOID (hook-scope bug on the per-window bases).

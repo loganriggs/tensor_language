@@ -64122,3 +64122,30 @@ FAILED (ind 0.571 vs ≤ 0.30) | pred_b FAILED (CONSTN 0.015 vs ≥ 0.20).**
   primitive* — something that reads the stream at the earlier occurrence — not more classes, not per-class
   linearity (§2148), not head reduction (§2154). Registered next: rung 64, a pointer-linear stand-in for the
   ind class at a16.
+
+
+## §2159 — RUNG 65: m16 IS NOT A RETRIEVAL TRANSFORM — IT IS A SUBWORD-CONTINUATION UNIT THAT ACTIVELY INTERFERES WITH REPEAT-PREDICTION. Deleting it costs almost nothing net on FR (+0.0027) but moves ~±800 summed nats between classes: subword pays +830, while ind IMPROVES by -624. pred_b FAILED; pred_a "held" on an ill-posed share bar (flagged); pred_c HELD. (Convention: per-position CE(m16 zeroed) − CE(m16 real) on FR; positive = m16 was helping there.)
+
+`ops/m16_class_damage.py`, **227s**, BACKLOG rung 65. **pred_c HELD (2.6662 exact) | pred_b FAILED (ind share
+−7.69 vs ≥ 0.25 — ind positions get BETTER without m16) | pred_a printed HELD but is VOIDED AS ILL-POSED: the
+share bars assumed a positive-definite total; the net (+81 summed, +0.0026/position) nearly cancels between
+large signed class effects, so "shares" are not concentrations. Raw signed sums are the honest quantity:**
+
+```
+  class        digit   bclose  newline  sentend  comma    name     rep    subword     ind     other
+  Σ damage      +8       +6     −282      +33     −75      +62     +34    +830     -624     +88
+  (summed nats over FR's 30,720 positions; positive = m16 was helping that class)
+```
+
+- **The coupled-retrieval-unit hypothesis is REFUTED, informatively:** block 16's MLP and attention do OPPOSING
+  work on in-document repeats — attn16 supplies the retrieval that ind positions need (§2151), while m16's
+  transform *hurts* those same positions (deleting it helps them by ~620 summed nats); m16's real job is
+  subword continuation (+830) with smaller help on names/sentence-ends. This reframes the §2098–§2100 m16
+  remainder: its document-stable two-direction basis is presumably the subword-continuation machinery, and its
+  "private per-document coefficient" need not be retrieval state at all.
+- **Instrument notes (recorded):** (i) the zeroed arm's per-WINDOW numbers are VOID — the per-window bases were
+  computed with the zeroing hook already registered (a hook-scope bug; the FR/C aggregates and the per-class
+  capture used clean bases and stand); (ii) net FR cost of deleting m16 outright in this assembly: +0.0027
+  fresh / +0.029 C — astonishingly small for a full MLP block, consistent with large internal cancellation.
+- Registered-bar lesson (adopted): share-based bars require a sign-definite total; future attribution rungs
+  register bars on SIGNED SUMS.

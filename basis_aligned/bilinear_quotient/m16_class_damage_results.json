@@ -1,0 +1,60 @@
+{
+ "full": {
+  "L1_F": 2.3208,
+  "L2_C": 2.4191,
+  "L2_F": 2.6662,
+  "increment": 0.3454,
+  "orig_s312_a": true,
+  "orig_s312_b": true,
+  "fresh8": [
+   2.6662,
+   2.9354,
+   2.6122,
+   2.8498,
+   2.9137,
+   2.7953,
+   2.5818,
+   2.664
+  ],
+  "runtime_s": 113.84053897857666
+ },
+ "m16_zeroed": {
+  "L1_F": 2.3467,
+  "L2_C": 2.4483,
+  "L2_F": 2.6689,
+  "increment": 0.3222,
+  "orig_s312_a": true,
+  "orig_s312_b": true,
+  "fresh8": [
+   1.6495,
+   1.6593,
+   0.6425,
+   1.0741,
+   1.6169,
+   1.4244,
+   1.1768,
+   1.4239
+  ],
+  "runtime_s": 112.85202240943909
+ },
+ "total_damage_sum": 81.12,
+ "class_shares": {
+  "digit": 0.0969,
+  "bclose": 0.0749,
+  "newline": -3.4768,
+  "sentend": 0.4061,
+  "comma": -0.9208,
+  "name": 0.7697,
+  "rep": 0.4245,
+  "subword": 10.2332,
+  "ind": -7.6862,
+  "other": 1.0787
+ },
+ "retrieval_combined_share": 3.6257,
+ "convention": "per-position CE(m16 zeroed) - CE(m16 real) on FR; positive = m16 was helping there",
+ "pred_a_retrieval_shaped": true,
+ "pred_b_ind_carries": false,
+ "pred_c_reproduces_s2144": true,
+ "self_reviewed": true,
+ "runtime_s": 226.7
+}
