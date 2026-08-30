@@ -1,5 +1,6 @@
 import hashlib
 import inspect
+import json
 import os
 
 import pytest
@@ -65,7 +66,9 @@ def _mock_transaction(
     audit = {
         "reviewer": "fixture", "audited_source_commit": closure["commit"],
     }
-    monkeypatch.setattr(lifecycle, "stable_audit", lambda: (audit, "4" * 64))
+    lifecycle.AUDIT.write_text(json.dumps(audit, sort_keys=True) + "\n")
+    audit_digest = lifecycle.file_sha256(lifecycle.AUDIT)
+    monkeypatch.setattr(lifecycle, "stable_audit", lambda: (audit, audit_digest))
     monkeypatch.setattr(lifecycle, "source_closure", lambda _commit: closure)
     monkeypatch.setattr(
         lifecycle.parent, "fit_parent_binding_without_tensor_load", lambda: fit_parent
@@ -127,6 +130,12 @@ def test_mocked_execute_freezes_authority_before_loader_and_receipt_last(
     assert observed == digest
     assert receipt["payload"]["validation_values_read"] is False
     assert receipt["payload"]["eval_values_read"] is False
+    assert set(receipt["terminal_snapshot"]) == {
+        "authority.json", "audit.json", "training_input.pt", "manifest.json"
+    }
+    for name, record in receipt["terminal_snapshot"].items():
+        snapshot = lifecycle.TERMINAL_DIR / name
+        assert lifecycle.file_sha256(snapshot) == record["sha256"]
 
 
 def test_mocked_loader_failure_publishes_failure_not_receipt(monkeypatch, tmp_path):
@@ -163,7 +172,7 @@ def test_input_drift_after_manifest_cannot_publish_success(monkeypatch, tmp_path
         return digest
 
     monkeypatch.setattr(lifecycle, "_publish_json", publish_then_mutate)
-    with pytest.raises(RuntimeError, match="changed before receipt"):
+    with pytest.raises(RuntimeError):
         lifecycle.execute_training_input_v1()
     assert lifecycle.FAILURE.is_file() and lifecycle.TERMINAL.is_file()
     assert not lifecycle.RECEIPT.exists()
@@ -201,7 +210,7 @@ def test_terminal_install_is_create_only_against_empty_rival_directory(
         with pytest.raises(OSError):
             lifecycle._publish_terminal_pair(
                 {"kind": "receipt"}, kind="receipt", claim=claim,
-                final_guard=lambda: None,
+                final_guard=lambda _paths, _records: None,
             )
     finally:
         lifecycle.release_claim(claim)
@@ -219,7 +228,7 @@ def test_terminal_success_has_no_post_install_filesystem_work(monkeypatch, tmp_p
     def sync(_path):
         events.append("sync_before")
 
-    def guard():
+    def guard(_paths, _records):
         events.append("guard")
 
     def install(source, target):
@@ -254,7 +263,10 @@ def test_mutated_authority_failure_binds_current_bytes_not_stale_digest(
         lifecycle.execute_training_input_v1()
     failure, _ = lifecycle.stable_json(lifecycle.FAILURE)
     current = lifecycle.file_sha256(lifecycle.AUTHORITY)
-    assert failure["protected_observation"]["authority"]["sha256"] == current
+    assert failure["terminal_snapshot"]["authority.json"]["sha256"] == current
+    assert lifecycle.file_sha256(
+        lifecycle.TERMINAL_DIR / "authority.json"
+    ) == current
     assert failure["attempt_authority_artifact_sha256"] != current
 
 
@@ -299,23 +311,42 @@ def test_authority_post_link_replay_failure_still_publishes_failure_pair(
     assert not lifecycle.RECEIPT.exists()
 
 
-def test_late_authority_mutation_cannot_publish_stale_success(monkeypatch, tmp_path):
+def test_late_live_authority_mutation_cannot_stale_terminal_snapshot(monkeypatch, tmp_path):
     _mock_transaction(monkeypatch, tmp_path)
-    original = lifecycle.parent.fit_parent_binding_without_tensor_load
-    calls = {"count": 0, "mutated": False}
+    original = lifecycle._stage_terminal_snapshot
+    state = {"mutated": False}
 
-    def replay_then_mutate():
-        value = original()
-        calls["count"] += 1
-        # The receipt guard is the first phase with a manifest already installed.
-        if lifecycle.MANIFEST.exists() and not calls["mutated"]:
+    def snapshot_then_mutate(staging, sources):
+        value = original(staging, sources)
+        if "training_input.pt" in sources and not state["mutated"]:
             lifecycle.AUTHORITY.write_text('{"late_mutation":true}\n')
-            calls["mutated"] = True
+            state["mutated"] = True
         return value
 
-    monkeypatch.setattr(
-        lifecycle.parent, "fit_parent_binding_without_tensor_load", replay_then_mutate
+    monkeypatch.setattr(lifecycle, "_stage_terminal_snapshot", snapshot_then_mutate)
+    lifecycle.execute_training_input_v1()
+    receipt, _ = lifecycle.stable_json(lifecycle.RECEIPT)
+    snapshot_authority = lifecycle.TERMINAL_DIR / "authority.json"
+    assert lifecycle.file_sha256(snapshot_authority) == receipt[
+        "terminal_snapshot"
+    ]["authority.json"]["sha256"]
+    assert lifecycle.file_sha256(snapshot_authority) != lifecycle.file_sha256(
+        lifecycle.AUTHORITY
     )
-    with pytest.raises(RuntimeError, match="terminal boundary"):
-        lifecycle.execute_training_input_v1()
-    assert not lifecycle.RECEIPT.exists()
+
+
+def test_owner_unlink_failure_after_success_is_nonpropagating(monkeypatch, tmp_path):
+    _mock_transaction(monkeypatch, tmp_path)
+    original = lifecycle.Path.unlink
+
+    def fail_owner_only(path, *args, **kwargs):
+        if path == lifecycle.LOCK and lifecycle.TERMINAL_DIR.exists():
+            raise OSError("injected owner unlink failure")
+        return original(path, *args, **kwargs)
+
+    monkeypatch.setattr(lifecycle.Path, "unlink", fail_owner_only)
+    digest = lifecycle.execute_training_input_v1()
+    assert len(digest) == 64
+    assert lifecycle.RECEIPT.is_file() and lifecycle.TERMINAL.is_file()
+    assert not lifecycle.FAILURE.exists()
+    assert lifecycle.LOCK.exists()

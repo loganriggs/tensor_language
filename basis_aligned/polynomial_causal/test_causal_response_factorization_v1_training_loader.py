@@ -235,3 +235,23 @@ def test_synthetic_loader_rejects_even_one_production_artifact_alias(tmp_path):
         loader.OneUseFitTrainingLoader(
             mixed, require_production=False, train_documents=3
         )
+
+
+def test_synthetic_loader_rejects_hardlink_alias_to_production_bundle(tmp_path):
+    alias = tmp_path / "innocent-looking-bundle.pt"
+    alias.hardlink_to(parent.PRODUCTION_PATHS.bundle)
+    values = [tmp_path / f"synthetic-{index}" for index in range(7)]
+    values[1] = alias
+    with pytest.raises(RuntimeError, match="production FIT paths"):
+        loader.OneUseFitTrainingLoader(
+            parent.FitParentPaths(*values), require_production=False, train_documents=3
+        )
+
+
+def test_synthetic_loader_rejects_cross_role_production_path(tmp_path):
+    values = [tmp_path / f"synthetic-{index}" for index in range(7)]
+    values[0] = parent.PRODUCTION_PATHS.bundle
+    with pytest.raises(RuntimeError, match="production FIT paths"):
+        loader.OneUseFitTrainingLoader(
+            parent.FitParentPaths(*values), require_production=False, train_documents=3
+        )
