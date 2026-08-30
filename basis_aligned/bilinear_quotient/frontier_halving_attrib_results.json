@@ -1,0 +1,85 @@
+{
+ "norm2304": {
+  "L1_F": 2.2872,
+  "L2_C": 2.4234,
+  "L2_F": 2.6736,
+  "increment": 0.3864,
+  "orig_s312_a": true,
+  "orig_s312_b": true,
+  "fresh8": [
+   2.6736,
+   2.9704,
+   2.7325,
+   2.9634,
+   2.9546,
+   2.8355,
+   2.6407,
+   2.7056
+  ],
+  "runtime_s": 113.67227482795715
+ },
+ "halve45": {
+  "L1_F": 2.3291,
+  "L2_C": 2.5096,
+  "L2_F": 2.7171,
+  "increment": 0.388,
+  "orig_s312_a": true,
+  "orig_s312_b": true,
+  "fresh8": [
+   2.7171,
+   3.0211,
+   2.7707,
+   3.0759,
+   3.005,
+   2.8767,
+   2.7132,
+   2.7498
+  ],
+  "runtime_s": 112.53142476081848
+ },
+ "halve69": {
+  "L1_F": 2.2902,
+  "L2_C": 2.4219,
+  "L2_F": 2.6645,
+  "increment": 0.3743,
+  "orig_s312_a": true,
+  "orig_s312_b": true,
+  "fresh8": [
+   2.6645,
+   2.9584,
+   2.7196,
+   2.9114,
+   2.9609,
+   2.8438,
+   2.6142,
+   2.6939
+  ],
+  "runtime_s": 112.13220477104187
+ },
+ "per_window_damage_halve45": [
+  0.0435,
+  0.0507,
+  0.0382,
+  0.1125,
+  0.0504,
+  0.0412,
+  0.0725,
+  0.0442
+ ],
+ "per_window_damage_halve69": [
+  -0.0091,
+  -0.012,
+  -0.0129,
+  -0.052,
+  0.0063,
+  0.0083,
+  -0.0265,
+  -0.0117
+ ],
+ "convention": "L2 = CE above the real model; lower is better; positive entries = damage added",
+ "pred_a_additive": true,
+ "pred_b_mlp45_pay_more": true,
+ "pred_c_reproduces_s312": true,
+ "self_reviewed": true,
+ "runtime_s": 338.3
+}

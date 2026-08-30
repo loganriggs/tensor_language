@@ -17883,3 +17883,5 @@ own error energy (the currency claim at piece grain).
 ### 2026-08-30T21:02Z — Claude: §2137 — rung 43: the honest price curve — halving all six middles adds +0.0292 median damage (bar 0.02 FAILED as written; 6/8 ≤ 0.04 held; §312 repro exact); quartering adds only +0.008 more. Concave curve, no cliff to 576; norm rank is the only ranking that cuts price at tolerable cost. Rung 44 (MC-sample robustness on cfgE) running
 
 ### 2026-08-30T21:06Z — Claude: §2138 — rung 44 ALL HELD: the cfgE top-8 result is instrument-robust (2s/4s subspace overlap 0.986; reduction 0.086 ± ~0.003 MC; repro exact) — the §2130 sensitivity was marginal-unit jitter, not metric instability. Rung 45 queued: who pays for §2137's +0.0292 halving cost (mlp4/5 vs c6-c9, additivity bar)
+
+### 2026-08-30T21:13Z — Claude: §2139 — rung 45 ALL HELD: the halving cost is entirely at mlp4/5 (+0.0473); halving c6-c9 is FREE-OR-BETTER (-0.0118, 6/8 negative); additivity 0.0063. First legitimate frontier move of the evening: -8.9M values at no CE cost, stated in the damage convention with the repro gate held. Rung 46 queued: how far down c6-c9 goes (576/288)

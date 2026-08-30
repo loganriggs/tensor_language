@@ -616,4 +616,16 @@ later per-rung backlog edits had silently anchored on text that was not here.
     §2113's cliff at blocks 6-9.
     pred_a additivity of the two medians to +0.0292 within 0.01; pred_b
     median dmg(halve45) >= median dmg(halve6789); pred_c repro 2.6735
-    within 0.01. -> ops/frontier_halving_attrib.py [QUEUED 21:08Z]
+    within 0.01. -> ops/frontier_halving_attrib.py
+    RUN 2026-08-30, §2139: ALL THREE HELD — the cost is ALL at mlp4/5
+    (+0.0473); halving c6-c9 is free-or-better (-0.0118, 6/8 negative);
+    additivity 0.0063. Legit frontier move: -8.9M values at no cost.
+
+46. HOW FAR DOWN DOES c6-c9 GO FOR FREE (damage convention). §2139:
+    c6-c9 at 1152 is free-or-better with mlp4/5 kept at 2304. Arms:
+    norm-2304 (repro) / c69-1152 (§2139 repro) / c69-576 / c69-288.
+    Price: -8.9M / -13.3M / -15.6M values.
+    pred_a median [L2_F_w(c69_576) - L2_F_w(norm2304)] <= +0.01; pred_b
+    that <= +0.02 on >= 6/8; pred_c c69-1152 reproduces §2139 (median
+    -0.0118 within 0.015). c69-288 descriptive.
+    -> ops/frontier_c69_floor.py [QUEUED]

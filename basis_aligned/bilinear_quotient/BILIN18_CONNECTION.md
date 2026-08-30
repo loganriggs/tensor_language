@@ -63705,3 +63705,24 @@ certify the OPPOSITE of their prose intent.
 - **The one standing positive result is now bounded on its instrument side:** label-free top-8 selection reduces
   cfgE's damage by 0.086 ± ~0.003 (MC), median over eight document-disjoint windows, 8/8 positive at 2 samples,
   7/8 at 4 (window 0, the near-zero window, flips sign at −0.001).
+
+## §2139 — RUNG 45: THE HALVING COST LIVES ENTIRELY AT mlp4/mlp5 — AND HALVING c6–c9 IS FREE OR SLIGHTLY BENEFICIAL (−0.0118 median, less damage than the full frontier on 6/8 windows). All three bars HELD. (Convention: L2 = CE above the real model; lower is better.)
+
+`ops/frontier_halving_attrib.py`, **338s**, BACKLOG rung 45. **ALL THREE HELD: pred_a (additivity, off by
+0.0063 ≤ 0.01) | pred_b (+0.0473 ≥ −0.0118) | pred_c (2.6736 vs 2.6735).**
+
+```
+  arm (damage added vs norm-2304, per window)      median      windows
+  halve mlp4/mlp5 only (−4.4M values)             +0.0473     +0.038 … +0.113, all positive
+  halve c6–c9 only     (−8.9M values)             −0.0118     negative (better) on 6/8; worst +0.008
+```
+
+- **The tension resolves for §2136's hint and against a naive cliff reading:** blocks 6–9 sit on the price cliff
+  for *stream perturbations* (§2113), but their norm-ranked bottom-1152 CP units contribute nothing the deployed
+  assembly uses — dropping them slightly REDUCES fresh damage (window 3: −0.052). mlp4/mlp5's bottom halves, by
+  contrast, carry real function (+0.047 when dropped). The two effects add almost exactly to §2137's joint
+  +0.0292 (additivity gap 0.0063) — the middles' halving costs compose linearly.
+- **A legitimate frontier move, found the honest way:** norm-2304 at mlp4/5 + norm-1152 at c6–c9 stores 8.9M
+  fewer values than §312 at equal-or-slightly-less fresh damage (−0.0118 median). After an evening of retracted
+  "improvements," this one is stated in the damage convention, with the reproduction gate held and every window
+  printed. How far down c6–c9 goes before it costs → rung 46.
