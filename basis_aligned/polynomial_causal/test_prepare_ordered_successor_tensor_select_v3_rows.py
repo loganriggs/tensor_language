@@ -45,11 +45,15 @@ def test_namespace_is_fresh_distinct_and_prospectively_no_go() -> None:
     assert rows_v3.FAILURE != rows_v3.v2.FAILURE
     assert rows_v3.LOCK != rows_v3.v2.LOCK
     assert rows_v3.AUDIT != rows_v3.v2.AUDIT
+    assert rows_v3.TERMINAL not in {
+        rows_v3.RECEIPT, rows_v3.FAILURE, rows_v3.LOCK, rows_v3.AUDIT,
+    }
     assert not rows_v3.CACHE.exists()
     assert not rows_v3.RECEIPT.exists()
     assert not rows_v3.FAILURE.exists()
-    assert not rows_v3.AUDIT.exists()
-    with pytest.raises(RuntimeError, match="independent row audit is absent"):
+    assert not rows_v3.TERMINAL.exists()
+    assert rows_v3.AUDIT.is_file()
+    with pytest.raises(RuntimeError, match="not an exact GO"):
         rows_v3.validate_independent_audit()
 
 
@@ -197,25 +201,40 @@ def test_guarded_terminal_writer_is_create_only_and_receipt_last(
 ) -> None:
     receipt = tmp_path / "receipt.json"
     failure = tmp_path / "failure.json"
+    terminal = tmp_path / "terminal.json"
+    lock = tmp_path / "lock"
     monkeypatch.setattr(rows_v3, "RECEIPT", receipt)
     monkeypatch.setattr(rows_v3, "FAILURE", failure)
+    monkeypatch.setattr(rows_v3, "TERMINAL", terminal)
     calls: list[str] = []
-    rows_v3._write_json_create_only(
-        {"schema": "terminal"}, receipt,
-        before_link=lambda: calls.append("guard"),
-    )
-    assert calls == ["guard"]
-    assert json.loads(receipt.read_text()) == {"schema": "terminal"}
-    with pytest.raises(FileExistsError):
-        rows_v3._write_json_create_only(
-            {"schema": "replacement"}, receipt, before_link=lambda: None,
+    claim = rows_v3.acquire_claim(lock)
+    try:
+        rows_v3._publish_terminal_json(
+            {"schema": "terminal"}, kind="receipt", claim=claim,
+            before_claim=lambda: calls.append("guard"),
         )
+        assert calls == ["guard"]
+        assert json.loads(receipt.read_text()) == {"schema": "terminal"}
+        assert json.loads(terminal.read_text())["kind"] == "receipt"
+        with pytest.raises(RuntimeError, match="terminal already exists"):
+            rows_v3._publish_terminal_json(
+                {"schema": "replacement"}, kind="failure", claim=claim,
+                before_claim=lambda: None,
+            )
+    finally:
+        rows_v3.release_claim(claim, lock)
 
 
 def test_postlink_fsync_and_cleanup_errors_cannot_reverse_terminal(
     tmp_path: Path, monkeypatch,
 ) -> None:
     receipt = tmp_path / "receipt.json"
+    failure = tmp_path / "failure.json"
+    terminal = tmp_path / "terminal.json"
+    lock = tmp_path / "lock"
+    monkeypatch.setattr(rows_v3, "RECEIPT", receipt)
+    monkeypatch.setattr(rows_v3, "FAILURE", failure)
+    monkeypatch.setattr(rows_v3, "TERMINAL", terminal)
     monkeypatch.setattr(
         rows_v3.v2.base, "_fsync_directory",
         lambda _path: (_ for _ in ()).throw(OSError("late fsync")),
@@ -223,22 +242,75 @@ def test_postlink_fsync_and_cleanup_errors_cannot_reverse_terminal(
     real_unlink = Path.unlink
 
     def cleanup_fails(path: Path, *args, **kwargs):
-        if path.name.startswith(".receipt.json.tmp."):
+        if ".tmp." in path.name:
             raise OSError("late cleanup")
         return real_unlink(path, *args, **kwargs)
 
     monkeypatch.setattr(Path, "unlink", cleanup_fails)
-    rows_v3._write_json_create_only(
-        {"schema": "terminal"}, receipt, before_link=lambda: None,
-    )
-    assert json.loads(receipt.read_text()) == {"schema": "terminal"}
+    claim = rows_v3.acquire_claim(lock)
+    try:
+        rows_v3._publish_terminal_json(
+            {"schema": "terminal"}, kind="receipt", claim=claim,
+            before_claim=lambda: None,
+        )
+        assert json.loads(receipt.read_text()) == {"schema": "terminal"}
+        assert json.loads(terminal.read_text())["kind"] == "receipt"
+        assert not failure.exists()
+    finally:
+        rows_v3.release_claim(claim, lock)
+
+
+@pytest.mark.parametrize(
+    ("first_kind", "rival_kind"), (("receipt", "failure"), ("failure", "receipt")),
+)
+def test_opposite_terminal_race_after_callback_has_exactly_one_winner(
+    tmp_path: Path, monkeypatch, first_kind: str, rival_kind: str,
+) -> None:
+    """Immutable-audit reproduction: rival links after callback, before own link."""
+
+    receipt = tmp_path / "receipt.json"
+    failure = tmp_path / "failure.json"
+    terminal = tmp_path / "terminal.json"
+    lock = tmp_path / "lock"
+    monkeypatch.setattr(rows_v3, "RECEIPT", receipt)
+    monkeypatch.setattr(rows_v3, "FAILURE", failure)
+    monkeypatch.setattr(rows_v3, "TERMINAL", terminal)
+    claim = rows_v3.acquire_claim(lock)
+    real_link = os.link
+    injected = False
+
+    def race_link(source, target, *args, **kwargs):
+        nonlocal injected
+        if Path(target) == terminal and not injected:
+            injected = True
+            rows_v3._publish_terminal_json(
+                {"schema": rival_kind}, kind=rival_kind, claim=claim,
+                before_claim=lambda: None,
+            )
+        return real_link(source, target, *args, **kwargs)
+
+    try:
+        monkeypatch.setattr(os, "link", race_link)
+        with pytest.raises(FileExistsError):
+            rows_v3._publish_terminal_json(
+                {"schema": first_kind}, kind=first_kind, claim=claim,
+                before_claim=lambda: None,
+            )
+        assert json.loads(terminal.read_text())["kind"] == rival_kind
+        assert (receipt.exists(), failure.exists()) == (
+            (True, False) if rival_kind == "receipt" else (False, True)
+        )
+    finally:
+        rows_v3.release_claim(claim, lock)
 
 
 def test_receipt_exists_suppresses_contradictory_failure(tmp_path: Path, monkeypatch) -> None:
     receipt = tmp_path / "receipt.json"
     failure = tmp_path / "failure.json"
+    terminal = tmp_path / "terminal.json"
     monkeypatch.setattr(rows_v3, "RECEIPT", receipt)
     monkeypatch.setattr(rows_v3, "FAILURE", failure)
+    monkeypatch.setattr(rows_v3, "TERMINAL", terminal)
     monkeypatch.setattr(rows_v3, "CACHE", tmp_path / "cache")
     monkeypatch.setattr(rows_v3, "acquire_claim", lambda: object())
     monkeypatch.setattr(rows_v3, "release_claim", lambda _claim: None)
@@ -252,14 +324,17 @@ def test_receipt_exists_suppresses_contradictory_failure(tmp_path: Path, monkeyp
         rows_v3.freeze()
     assert receipt.is_file()
     assert not failure.exists()
+    assert not terminal.exists()
 
 
 def test_failure_before_receipt_is_create_only_and_terminal(tmp_path: Path, monkeypatch) -> None:
     receipt = tmp_path / "receipt.json"
     failure = tmp_path / "failure.json"
+    terminal = tmp_path / "terminal.json"
     cache = tmp_path / "cache"
     monkeypatch.setattr(rows_v3, "RECEIPT", receipt)
     monkeypatch.setattr(rows_v3, "FAILURE", failure)
+    monkeypatch.setattr(rows_v3, "TERMINAL", terminal)
     monkeypatch.setattr(rows_v3, "CACHE", cache)
     monkeypatch.setattr(rows_v3, "acquire_claim", lambda: object())
     monkeypatch.setattr(rows_v3, "release_claim", lambda _claim: None)
@@ -280,6 +355,7 @@ def test_failure_before_receipt_is_create_only_and_terminal(tmp_path: Path, monk
         "outcome_access": False,
     }
     assert not receipt.exists()
+    assert json.loads(terminal.read_text())["kind"] == "failure"
 
 
 def test_inode_nonce_claim_rejects_replacement(tmp_path: Path) -> None:
@@ -288,6 +364,34 @@ def test_inode_nonce_claim_rejects_replacement(tmp_path: Path) -> None:
     try:
         lock.unlink()
         lock.write_text("replacement\n")
+        with pytest.raises(RuntimeError, match="claim changed"):
+            rows_v3.require_claim(claim, lock)
+    finally:
+        rows_v3.release_claim(claim, lock)
+
+
+def test_claim_open_fstat_rejects_exact_stat_read_inode_swap(
+    tmp_path: Path, monkeypatch,
+) -> None:
+    """Immutable-audit reproduction: replace path after stable open, before read."""
+
+    lock = tmp_path / "claim.lock"
+    claim = rows_v3.acquire_claim(lock)
+    real_open = os.open
+    swapped = False
+
+    def open_then_swap(path, flags, *args, **kwargs):
+        nonlocal swapped
+        descriptor = real_open(path, flags, *args, **kwargs)
+        if Path(path) == lock and not swapped:
+            swapped = True
+            nonce = lock.read_bytes()
+            lock.unlink()
+            lock.write_bytes(nonce)
+        return descriptor
+
+    try:
+        monkeypatch.setattr(os, "open", open_then_swap)
         with pytest.raises(RuntimeError, match="claim changed"):
             rows_v3.require_claim(claim, lock)
     finally:

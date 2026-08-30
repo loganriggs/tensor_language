@@ -130,6 +130,7 @@ class RunClaim(NamedTuple):
     device: int
     inode: int
     nonce: str
+    path: Path
 
 
 def acquire_claim(path: Path = LOCK) -> RunClaim:
@@ -143,14 +144,15 @@ def acquire_claim(path: Path = LOCK) -> RunClaim:
         os.write(descriptor, (nonce + "\n").encode("ascii"))
         os.fsync(descriptor)
         stat = os.fstat(descriptor)
-        return RunClaim(descriptor, stat.st_dev, stat.st_ino, nonce)
+        return RunClaim(descriptor, stat.st_dev, stat.st_ino, nonce, path)
     except BaseException:
         os.close(descriptor)
         path.unlink(missing_ok=True)
         raise
 
 
-def require_claim(claim: RunClaim, path: Path = LOCK) -> None:
+def require_claim(claim: RunClaim, path: Path | None = None) -> None:
+    path = claim.path if path is None else path
     original = os.fstat(claim.descriptor)
     if (original.st_dev, original.st_ino) != (claim.device, claim.inode):
         raise RuntimeError("successor v3 row claim changed")
@@ -183,7 +185,8 @@ def require_claim(claim: RunClaim, path: Path = LOCK) -> None:
         raise RuntimeError("successor v3 row claim changed")
 
 
-def release_claim(claim: RunClaim, path: Path = LOCK) -> None:
+def release_claim(claim: RunClaim, path: Path | None = None) -> None:
+    path = claim.path if path is None else path
     try:
         try:
             require_claim(claim, path)
@@ -626,7 +629,8 @@ def freeze_locked(claim: RunClaim) -> dict[str, Any]:
             "model_forward_calls": 0,
             "scientific_outcomes_read": False,
         },
-        "artifact_order": ["rows", "manifest", "receipt_last"],
+        "terminal_claim": {"path": str(TERMINAL), "kind": "receipt"},
+        "artifact_order": ["rows", "manifest", "shared_terminal_claim", "receipt_last"],
     }
 
     def final_guard() -> None:
