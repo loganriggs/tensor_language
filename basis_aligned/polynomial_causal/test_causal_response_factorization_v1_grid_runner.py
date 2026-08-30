@@ -15,7 +15,7 @@ def _sha(character: str) -> str:
 
 def _tiny_input() -> FitTrainingInput:
     generator = torch.Generator().manual_seed(7)
-    response = torch.randn((2, 4, 3, 7), generator=generator, dtype=torch.float64)
+    response = torch.randn((2, 4, 4, 7), generator=generator, dtype=torch.float64)
     valid = torch.ones_like(response, dtype=torch.bool)
     return FitTrainingInput(
         response=response.contiguous(), valid=valid.contiguous(),
@@ -23,7 +23,7 @@ def _tiny_input() -> FitTrainingInput:
         original_document_indices=torch.arange(7, dtype=torch.int64),
         source_groups=torch.tensor([0, 0, 1, 1], dtype=torch.int64),
         phases=("off", "on"), source_tags=("a", "b", "c", "d"),
-        target_tags=("a", "b", "c", "d")[:3],
+        target_tags=("a", "b", "c", "d"),
         source_components=("x", "x", "y", "y"), owner_components=("x", "y"),
         artifacts=FitArtifactBinding(
             parent_binding_sha256=_sha("0"), receipt_sha256=_sha("1"),

@@ -61770,3 +61770,55 @@ the gate works on easy text, gate-ability is a property of the window (§2084), 
 difficulty rather than compilation error (§2085), and the "Nx random" metric has four independent
 reasons against it. **What remains unmeasured is whether more windows would separate the two drivers
 further — and that is a bigger sweep than this question is worth.**
+
+## §2086 — the assembly's stream error is a HUMP, not a ramp: injected at block 5, then attenuated by half
+
+`ops/stream_error_profile.py`, **73s**, BACKLOG rung 2 prerequisite. **pred_a HELD | pred_b HELD |
+pred_c FAILED.** All 18 block inputs profiled on the certified empirical matched-context arm.
+
+```
+  block input   0      1      2      3      4      5      6      7      8
+  rel-MSE     0.0000 0.5093 0.5203 0.6436 0.7523 0.7832 1.7415 1.6880 1.6990
+                9     10     11     12     13     14     15     16     17
+              1.1851 1.2966 1.1857 1.0128 0.9101 0.8139 0.7546 0.7102 0.5925
+
+  band increase (2 -> 10)  +0.7763      tail increase (10 -> 17)  -0.7041
+  largest single step      +0.9583  at block input 6
+  non-decreasing steps     8 / 17
+```
+
+**pred_a HELD: the band is where the error comes from.** Error rises +0.776 across blocks 2–10 and
+*falls* 0.704 across 10–17. **So rung 2's absorber remainder has a real target** — the attention band is
+where the assembly loses the stream, not merely where it is expensive in CE.
+
+**pred_b HELD and it is sharper than the rung assumed: the injection is one block.** The step into block
+6 is **+0.9583**, larger than the entire rest of the profile's rise combined. §311's rule was "spend
+absorber capacity at read sites, not uniformly"; **this says spend it at block 5's output**.
+
+> **pred_c FAILED, and the failure is the finding. Stream error is ATTENUATED, not conducted.** The
+> profile is a **hump**: 0.52 at block 2, peaking at **1.7415** at block 6, then falling monotonically to
+> **0.5925** by block 17 — **a 66% recovery**. Only 8 of 17 steps are non-decreasing, and every decrease
+> is after the peak. **The model actively repairs a substituted stream over its second half.** §309
+> registered "divergence should grow with depth" and measured it False; this generalises that from four
+> probe points to eighteen and shows the shape.
+
+**§309's probes bracketed the peak without landing on it.** It sampled blocks 4, 7, 10, 14 — reading
+0.7523 and 1.6880 on either side of the 1.7415 maximum at block 6. **Its "divergence does not grow"
+verdict was right and its four points could not show that the profile has a peak at all.**
+
+**What this does to §311's economics, stated carefully.** §311 prices downstream rungs by the local
+stream error at their read sites, and that stands — it is a statement about read sites, and this measures
+read sites. **What changes is that upstream error is not a lower bound on downstream error**: a rung
+reading at block 17 sees a third of what a rung reading at block 6 sees, from the same substitutions.
+**Pricing by "the error the assembly injects" would overcharge deep readers by 3x.**
+
+**THE LIMITATION THAT DECIDES RUNG 2, AND THIS RUN CANNOT SETTLE IT.** Block 5 contains **both** `a5` and
+`m5`, and both are substituted in this config. **The profile attributes the +0.9583 to the block, not to
+the attention rung inside it.** Rung 2's remainder is specifically about *attention* absorbers, so
+**whether that jump is `a5` or `m5` is exactly the question**, and I am not claiming the attention band
+is responsible on this evidence. A per-component step profile — capturing between the attention and MLP
+sublayers rather than at block inputs — separates them at the same cost as this run.
+
+**Open.** Split block 5's +0.9583 between `a5` and `m5`. If it is `a5`, rung 2's absorber build has a
+single named target and §311's placement rule tells it where to spend. If it is `m5`, the rung's premise
+is wrong: the attention dictionaries are not where the stream is lost, and the remainder should close.

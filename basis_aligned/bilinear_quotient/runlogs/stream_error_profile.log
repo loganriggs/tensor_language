@@ -1,0 +1,43 @@
+a2-input probe acc 0.69
+fit a2
+fit a3
+fit a4
+fit a5
+fit a6
+fit a7
+fit a8
+fit a9
+fit a10
+fit a11
+fit a12
+fit a13
+fit a14
+fit a15
+fit a16
+fit a17
+  block  0 input: rel-MSE 0.0000
+  block  1 input: rel-MSE 0.5093
+  block  2 input: rel-MSE 0.5203
+  block  3 input: rel-MSE 0.6436
+  block  4 input: rel-MSE 0.7523
+  block  5 input: rel-MSE 0.7832
+  block  6 input: rel-MSE 1.7415
+  block  7 input: rel-MSE 1.6880
+  block  8 input: rel-MSE 1.6990
+  block  9 input: rel-MSE 1.1851
+  block 10 input: rel-MSE 1.2966
+  block 11 input: rel-MSE 1.1857
+  block 12 input: rel-MSE 1.0128
+  block 13 input: rel-MSE 0.9101
+  block 14 input: rel-MSE 0.8139
+  block 15 input: rel-MSE 0.7546
+  block 16 input: rel-MSE 0.7102
+  block 17 input: rel-MSE 0.5925
+
+band increase (2->10) +0.7763 | tail (10->17) -0.7041
+largest single step +0.9583 at block input 6
+non-decreasing steps 8/17
+(a) band increase > tail increase: HELD
+(b) largest step inside/just after the band (2..10): HELD
+(c) non-decreasing on >=14 of 17 steps: FAILED
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/stream_error_profile_results.json (73s)
