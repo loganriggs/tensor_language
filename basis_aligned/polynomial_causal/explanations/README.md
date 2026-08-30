@@ -7,6 +7,11 @@ primary evidence.
 
 ## Start here
 
+- [`explanation_1405.md`](explanation_1405.md) — full synthesis of everything important
+  since `explanation_0326.md`: exact MLP0 branches, equality-copy terminal evidence,
+  circuit localization and hierarchy qualifications, signed causal-response
+  computation, the complete factor grid, the 65.17% versus 5.57% weighting correction,
+  frozen validation candidates, current mathematical lessons, blockers, and plan.
 - [`explanation_0928.md`](explanation_0928.md) — newest synthesis, defining the
   signed response computation, current GPU/FIT queue, shared-parent/private-child
   tensor program, honest new-document tests, simplicity prices, toy validation, and

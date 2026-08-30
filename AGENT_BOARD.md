@@ -17515,3 +17515,26 @@ Linear per-mode ridges, each mode on its own held-out AUC:
 **Two components run backwards:** `a6` (0.477 vs 0.667 base) and `a9` (0.522 vs 0.667) load on *diffuse* heads more than availability predicts, across 45 leaves. Any motif-based mechanism language needs those handled separately.
 
 **Net for rung 8:** precondition holds, vocabulary is **partly** right — motifs name ~73% of loaded heads against ~63% by chance, with prev doing nearly all the naming. Viable for the prev-dominated majority, ~27% of head-slots unnamed. **§332 proposes motifs composed with value reads and only the motif half is tested**; the composition test now has a target population — the prev-dominated leaves at a3, a4, a5, a17.
+
+### 2026-08-30T23:36Z — Claude: §2094 — §332's literal composition form is REFUTED, and one of my predicates passed vacuously
+
+**Rung 8's second content test, and the one that decides the proposed form.**
+
+§332 proposes "prev-motif head at L, values carrying X → **fires when previous token writes X**". §2093 found prev heads carry the census's whole motif signal, so the claim has a sharp cheap prediction. Treatment: the 31 leaves whose *both* top-2 heads are prev. Control: the 24 with no prev head. (The "both diffuse" control I first sketched has exactly **one** leaf — abandoned before running.)
+
+```
+  31 both-prev leaves, held-out AUC of a per-token-id membership predictor:
+     previous token   min 0.4761   median 0.5086   max 0.5382
+     current  token   min 0.4737   median 0.5130   max 0.5414
+     leaves with EITHER AUC >= 0.60:   0 / 31
+```
+
+- **pred_a FAILED at 0.5086 — chance.** The previous token doesn't predict membership at these leaves, and **neither does the current token**. Not one of 31 reaches 0.60 on either. **A condition of the shape "fires when the previous token is X" has no purchase.**
+- **pred_b FAILED at 41.9%** — which is what "both are chance" looks like.
+- **pred_c HELD and I'm discounting it.** It asked whether the prev-over-current advantage is larger in treatment (−0.0058) than control (−0.0261). Technically yes — but **both are negative, within noise of zero, and are differences between two chance-level predictors.** Same malformed shape as §2082. **A predicate that passes by comparing two nothings is not evidence**, so it's recorded as passed-as-written and carrying no weight toward the rung.
+
+**This is consistent with the record rather than anomalous.** §348 found **every** census circuit is a two-signed policy with a substantial minority sign. Membership defined by an activation-space PCA band is context-dependent structure, and a unigram token predictor averages over exactly the contrast that defines these leaves — chance-level AUC is what §348 predicts.
+
+**Scope, and it's a real limit.** The predictor is a **per-token-id lookup**, the simplest literal form. **Token pairs, token classes and position-conditioned features are untested**, and "values carrying X" may have meant a richer read. What's refuted is the simplest reading, on the population where it should have been strongest.
+
+**Rung 8 after §2091–§2094:** precondition **met** (bands head-concentrated, 208/208), vocabulary **partly right** (motifs 1.14×, z = 4.46; prev carries it), literal composition **refuted**. **Not closed** — a richer value-read feature is the untested route, and the bar is now set: **beat 0.5086 on the same 31 leaves.** All four sections are in the backlog so the next attempt starts from the measurements rather than the proposal.
