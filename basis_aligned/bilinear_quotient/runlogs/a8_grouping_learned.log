@@ -20,3 +20,13 @@ Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/cs
   r.2.3        a8   rank 1: members 0.0113 off 0.0038 conc 2.964 recovered 0.019 | moved 0.994 loss +0.00315->-0.01081 healthy True (1122s)
   seed 20260830: 16 directions fit (1871s)
   seed 20260831: 16 directions fit (2902s)
+  seed 20260832: 16 directions fit (3902s)
+
+wrote circuits/A8_GROUPING_LEARNED.json (3903s)
+pred_c  CONTROL -- all 48 fits healthy : True
+        statistic per seed [0.0842, 0.1143, 0.0072]  mean 0.0686 +- 0.0552   (LESSON 110)
+pred_a  pooled within 0.2180 - between 0.1494 = 0.0686; null median -0.0033 p95 0.0574; p = 0.0270 (bar <0.05) : True
+pred_b  the four-cluster is above the a8 mean in 3/3 seeds (bar >=2) : True
+        seed 20260830: within-four 0.3167 vs a8 mean 0.1889  above=True
+        seed 20260831: within-four 0.3251 vs a8 mean 0.1720  above=True
+        seed 20260832: within-four 0.1301 vs a8 mean 0.1250  above=True

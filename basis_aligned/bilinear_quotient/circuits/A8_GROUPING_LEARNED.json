@@ -1,0 +1,107 @@
+{
+ "schema_version": 1,
+ "generated": "2026-08-30 by Claude",
+ "component": "a8",
+ "seeds": [
+  20260830,
+  20260831,
+  20260832
+ ],
+ "circuits": [
+  "r.11.1.1",
+  "r.11.1.2",
+  "r.11.3.1",
+  "r.23.2.1",
+  "r.23.2.3",
+  "r.2.0",
+  "r.2.0.0",
+  "r.2.0.1",
+  "r.2.0.2",
+  "r.2.1",
+  "r.2.1.0",
+  "r.2.1.1",
+  "r.2.2",
+  "r.2.2.0",
+  "r.2.2.1",
+  "r.2.3"
+ ],
+ "clusters_from_S2075": [
+  [
+   "r.11.1.1",
+   "r.11.1.2",
+   "r.2.0",
+   "r.2.0.0",
+   "r.2.2",
+   "r.2.3"
+  ],
+  [
+   "r.11.3.1",
+   "r.2.1"
+  ],
+  [
+   "r.23.2.1"
+  ],
+  [
+   "r.23.2.3"
+  ],
+  [
+   "r.2.0.1",
+   "r.2.0.2",
+   "r.2.1.1",
+   "r.2.2.1"
+  ],
+  [
+   "r.2.1.0"
+  ],
+  [
+   "r.2.2.0"
+  ]
+ ],
+ "confirms": "S2075 / A8_HAS_A_CAUSALLY_VALIDATED_GROUPING_S2075, on a THIRD quantity",
+ "method": "rank-1 DAS per circuit at three seeds; pairwise |cos| of the LEARNED directions pooled over seeds; S2075 clustering tested by within-minus-between against a 20,000-draw size-matched permutation null registered BEFORE the run (LESSON 111)",
+ "pooled_within": 0.218,
+ "pooled_between": 0.1494,
+ "pooled_within_minus_between": 0.0686,
+ "null_median": -0.0033,
+ "null_p95": 0.0574,
+ "p_value": 0.027,
+ "per_seed_statistic": [
+  0.0842,
+  0.1143,
+  0.0072
+ ],
+ "statistic_mean": 0.0686,
+ "statistic_sd": 0.0552,
+ "four_cluster": [
+  "r.2.0.1",
+  "r.2.0.2",
+  "r.2.1.1",
+  "r.2.2.1"
+ ],
+ "four_cluster_detail": [
+  {
+   "seed": 20260830,
+   "within_four": 0.3167,
+   "a8_mean": 0.1889,
+   "above": true
+  },
+  {
+   "seed": 20260831,
+   "within_four": 0.3251,
+   "a8_mean": 0.172,
+   "above": true
+  },
+  {
+   "seed": 20260832,
+   "within_four": 0.1301,
+   "a8_mean": 0.125,
+   "above": true
+  }
+ ],
+ "four_above_a8_mean_in_n_seeds": 3,
+ "unhealthy_fits": [],
+ "pred_a_grouping_predicts_learned_directions": true,
+ "pred_b_four_cluster_survives_quantity_change": true,
+ "pred_c_controls_pass": true,
+ "note": "read-only artifact; no circuit file was modified"
+}

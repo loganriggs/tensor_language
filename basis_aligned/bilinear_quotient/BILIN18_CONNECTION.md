@@ -61297,3 +61297,60 @@ cluster being individually significant. §2075's aggregate p = 0.0185 also stand
 is any reading in which a8 decomposes into three identified sub-mechanisms — **one cluster of four is
 suggestive at p = 0.049 uncorrected and nothing more, and the geometrically tightest pair is causally
 backwards.**
+
+## §2077 — §2075's grouping CONFIRMED on a third quantity, and one seed of three sees nothing
+
+`ops/a8_grouping_learned.py`, **3903s**, **DISCOVERY ONLY**, RUNG 2 (second-class confirmation, house
+pattern §1595/§1598/§1603). **pred_a True | pred_b True | pred_c True.** All three passed and the
+per-seed numbers qualify two of them.
+
+§2075's clustering and its ablation validation both take a8's **closed-form** directions as input, so
+they are not independent of each other. This tests the same grouping against the **learned** DAS
+directions, which §2060/§2071 measured as overlapping the closed-form ones only 0.006-0.344 — far above
+random, nowhere near identity. Three seeds, 48 fits, all health-gated.
+
+```
+  pooled over three seeds:  within 0.2180  between 0.1494  difference 0.0686
+  size-matched permutation null (20,000 draws):  median -0.0033   p95 0.0574
+  p = 0.0270                                                      bar < 0.05
+
+  per-seed difference:  0.0842   0.1143   0.0072      mean 0.0686 +- 0.0552
+  exceeds the null p95:   yes      yes      NO
+```
+
+**pred_a passed at p = 0.0270, and this is a real second-class confirmation.** A grouping built purely on
+closed-form geometry predicts the arrangement of directions found by gradient descent, which it never
+saw. **§2075 is now supported on three quantities — closed-form geometry, ablation concentrations, and
+learned directions — of which the last is genuinely independent of the first two.**
+
+**But the seed spread is 80% of the mean, and one seed of three sees nothing.** The statistic is
+**0.0686 ± 0.0552**, and seed 20260832 gives **0.0072** against a null p95 of 0.0574 — **comfortably
+inside the null, not a weak positive**. Two seeds clear the null individually; one does not. **The pooled
+p-value is doing real work here, and a reader who takes p = 0.0270 without the per-seed column will
+overrate this.** Had I run one seed and drawn 20260832, this section would report a clean negative.
+LESSON 110 is why the column exists; this is the first time in the arc it has changed how a *passing*
+result reads.
+
+**pred_b passed 3/3 and the third one is effectively a tie.** The four-circuit cluster
+`{r.2.0.1, r.2.0.2, r.2.1.1, r.2.2.1}` — the only cluster §2076 found carrying the ablation signal — is
+above the a8-wide mean on every seed, but the margins are **0.3167 vs 0.1889** and **0.3251 vs 0.1720**
+on the first two seeds and **0.1301 vs 0.1250** on the third, a ratio of **1.04**. Scored as written it
+is 3/3; **quoted honestly it is two clear seeds and one tie**, the same flag §2058's `r.23.2.1` and
+§2065's `m14` earned.
+
+> **What this establishes and what it does not.** The a8 grouping is not an artefact of the construction
+> that produced it: an independent quantity organises the same way, and the one cluster with causal
+> support (§2076) is also the one that holds up here. **What it does not establish is stability** — a
+> third of the seeds show nothing, so the effect is real on average and unreliable per fit, which is
+> exactly the shape §2073 found for m16's pairwise cosines and §2071 predicted for ratio-like quantities.
+
+**Cost note, and it repeats one I already recorded.** The run was 3903s of which **1122s was a dead
+inherited fit loop** whose output nothing reads — 16 wasted fits of 64, on a job that was also holding a
+peer's lane until I posted the headroom. §2070 recorded this identical waste in the same parent at 357s
+and I derived from that parent anyway. Removed mid-run and written up as LESSON 112.
+
+**Open.** Seed 20260832 is not a marginal seed on the other statistics — its four-cluster margin (1.04)
+and its pooled difference (0.0072) are both the weakest of the three, which suggests one bad draw rather
+than a quantity-wide instability. Whether a fourth and fifth seed pull the mean toward the two strong
+seeds or toward the weak one is the cheap next step, and it is the difference between "real but noisy"
+and "two seeds out of three".
