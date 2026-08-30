@@ -22,8 +22,7 @@ from typing import Callable, Sequence
 
 import torch
 
-from causal_response_factorization_v1 import FitResult
-from causal_response_factorization_v1 import predict_from_codes
+from causal_response_factorization_v1 import FitResult, ResponseProgram, predict_from_codes
 from causal_response_factorization_v1_accelerated import (
     fit_shared_private_program_accelerated,
 )
@@ -50,9 +49,31 @@ SOURCE_PATHS = tuple(HERE / name for name in (
     "causal_response_factorization_v1_candidate_price_audit.py",
     "causal_response_factorization_v1_fit_adapter.py",
     "causal_response_factorization_v1_training_snapshot.py",
+    "causal_response_factorization_v1_training_lifecycle.py",
+    "causal_response_factorization_v1_training_input.py",
+    "causal_response_factorization_v1_parent_binding.py",
+    "causal_response_factorization_v1_training_loader.py",
+    "causal_response_tensor_collection.py",
+    "causal_response_tensor_v1_backend.py",
+    "causal_response_tensor_v1_fit_bundle.py",
+    "bilin18_observed_model_facade.py",
+    "__init__.py",
+    "tt_model.py",
     "causal_response_factorization_v1_grid_runner.py",
     "CAUSAL_RESPONSE_FACTORIZATION_V1_PREREGISTRATION.md",
     *((f"CAUSAL_RESPONSE_FACTORIZATION_V1_AMENDMENT_{index}.md") for index in range(1, 13)),
+    "test_causal_response_factorization_v1_grid_runner.py",
+    "test_causal_response_factorization_v1.py",
+    "test_causal_response_factorization_v1_accelerated.py",
+    "test_causal_response_factorization_v1_fit_adapter.py",
+    "test_causal_response_factorization_v1_parent_binding.py",
+    "test_causal_response_factorization_v1_training_loader.py",
+    "test_causal_response_factorization_v1_training_snapshot.py",
+    "test_causal_response_factorization_v1_training_input.py",
+    "test_causal_response_factorization_v1_training_lifecycle.py",
+    "test_causal_response_tensor_v1_fit_bundle.py",
+    "causal_response_factorization_v1_candidate_price_audit.json",
+    "causal_response_factorization_v1_training_lifecycle_independent_audit.json",
 ))
 
 
@@ -151,7 +172,13 @@ def _program_payload(result: FitResult) -> dict[str, object]:
     }
 
 
-def _atomic_create(path: Path, raw: bytes) -> None:
+def _validated_bytes_create(
+    path: Path,
+    raw: bytes,
+    validator: Callable[[Path], object],
+    *,
+    before_link: Callable[[], None] | None = None,
+) -> object:
     path.parent.mkdir(parents=True, exist_ok=True)
     descriptor, temporary_name = tempfile.mkstemp(prefix=f".{path.name}.", dir=path.parent)
     temporary = Path(temporary_name)
@@ -160,21 +187,39 @@ def _atomic_create(path: Path, raw: bytes) -> None:
             sink.write(raw)
             sink.flush()
             os.fsync(sink.fileno())
+        validated = validator(temporary)
+        if before_link is not None:
+            before_link()
         os.link(temporary, path)
+        directory = os.open(path.parent, os.O_RDONLY)
+        try:
+            os.fsync(directory)
+        finally:
+            os.close(directory)
+        return validated
     finally:
         temporary.unlink(missing_ok=True)
 
 
-def _atomic_torch_create(path: Path, value: object) -> None:
+def _validated_torch_create(
+    path: Path, value: object, validator: Callable[[Path], object],
+) -> object:
     path.parent.mkdir(parents=True, exist_ok=True)
     descriptor, temporary_name = tempfile.mkstemp(prefix=f".{path.name}.", dir=path.parent)
     os.close(descriptor)
     temporary = Path(temporary_name)
     try:
         torch.save(value, temporary)
-        with temporary.open("rb") as source:
+        with temporary.open("rb+") as source:
             os.fsync(source.fileno())
+        validated = validator(temporary)
         os.link(temporary, path)
+        directory = os.open(path.parent, os.O_RDONLY)
+        try:
+            os.fsync(directory)
+        finally:
+            os.close(directory)
+        return validated
     finally:
         temporary.unlink(missing_ok=True)
 
@@ -190,6 +235,129 @@ def _load_torch_cell(path: Path) -> dict[str, object]:
     ) or value.get("status") != "complete_training_only":
         raise RuntimeError(f"grid cell schema changed: {path.name}")
     return value
+
+
+def _validate_result_cell(
+    path: Path,
+    training: FitTrainingInput,
+    *,
+    source_sha256: str,
+    input_sha256: str,
+    global_rank: int,
+    private_rank: int,
+    seed: int,
+    steps: int,
+    learning_rate: float,
+    optimizer_device: str,
+) -> tuple[dict[str, object], bytes]:
+    payload = _load_torch_cell(path)
+    if set(payload) != {"schema", "status", "program", "document_codes", "metrics", "receipt"}:
+        raise RuntimeError(f"grid result payload keys changed: {path.name}")
+    program_payload = payload["program"]
+    if type(program_payload) is not dict or set(program_payload) != {
+        "global_phase", "global_source", "global_target", "private_phase",
+        "private_source", "private_target", "source_groups",
+    }:
+        raise RuntimeError(f"grid result program schema changed: {path.name}")
+    program = ResponseProgram(**program_payload)
+    codes = payload["document_codes"]
+    if type(codes) is not torch.Tensor or codes.dtype != torch.float64 or (
+        codes.device.type != "cpu" or not codes.is_contiguous()
+        or codes.shape != (training.response.shape[-1], program.code_dimension)
+    ):
+        raise RuntimeError(f"grid result codes changed: {path.name}")
+    if not torch.equal(program.source_groups, training.source_groups):
+        raise RuntimeError(f"grid result owner topology changed: {path.name}")
+    metrics = payload["metrics"]
+    receipt = payload["receipt"]
+    if type(metrics) is not dict or set(metrics) != {
+        "initial_mse", "final_mse", "improvement_fraction", "steps", "seed",
+    } or type(receipt) is not dict:
+        raise RuntimeError(f"grid result metrics/receipt schema changed: {path.name}")
+    fixed = {
+        "source_closure_sha256": source_sha256,
+        "input_binding_sha256": input_sha256,
+        "global_rank": global_rank,
+        "private_rank_each_owner": private_rank,
+        "seed": seed,
+        "steps": steps,
+        "learning_rate": learning_rate,
+        "optimizer_device": optimizer_device,
+        "validation_values_read": False,
+        "eval_values_read": False,
+    }
+    if any(receipt.get(key) != value for key, value in fixed.items()) or (
+        metrics["seed"] != seed or metrics["steps"] != steps
+        or metrics["initial_mse"] != receipt.get("initial_mse")
+        or metrics["final_mse"] != receipt.get("final_mse")
+        or metrics["improvement_fraction"] != receipt.get("improvement_fraction")
+    ):
+        raise RuntimeError(f"grid result fixed binding changed: {path.name}")
+    replay = predict_from_codes(program.basis(), codes).reshape_as(training.response)
+    replay_mse = float(((replay[training.valid] - training.response[training.valid]) ** 2).mean())
+    initial_mse = float((training.response[training.valid] ** 2).mean())
+    improvement = (initial_mse - replay_mse) / max(
+        initial_mse, torch.finfo(torch.float64).tiny,
+    )
+    fitted = FitResult(
+        program=program, document_codes=codes, initial_mse=initial_mse,
+        final_mse=replay_mse, improvement_fraction=improvement, steps=steps, seed=seed,
+    )
+    expected_report = _training_error_report(training, fitted)
+    if (
+        replay_mse != receipt.get("final_mse")
+        or initial_mse != receipt.get("initial_mse")
+        or improvement != receipt.get("improvement_fraction")
+        or any(receipt.get(key) != value for key, value in expected_report.items())
+        or receipt.get("persistent_values") != program.persistent_values
+        or receipt.get("per_document_values") != program.code_dimension
+        or receipt.get("healthy") is not (
+            math.isfinite(replay_mse) and improvement >= MINIMUM_IMPROVEMENT
+        )
+    ):
+        raise RuntimeError(f"grid result semantic replay changed: {path.name}")
+    raw = path.read_bytes()
+    return receipt, raw
+
+
+def _validate_failure_cell(
+    path: Path,
+    *,
+    source_sha256: str,
+    input_sha256: str,
+    global_rank: int,
+    private_rank: int,
+    seed: int,
+    steps: int,
+    learning_rate: float,
+    optimizer_device: str,
+) -> tuple[dict[str, object], bytes]:
+    value = json.loads(path.read_bytes())
+    required = {
+        "schema", "status", "source_closure_sha256", "input_binding_sha256",
+        "global_rank", "private_rank_each_owner", "seed", "steps", "learning_rate",
+        "optimizer_device", "elapsed_seconds", "error_type", "error_message",
+        "validation_values_read", "eval_values_read",
+    }
+    fixed = {
+        "schema": "causal_response_factorization_v1_grid_failure",
+        "status": "failed_training_only", "source_closure_sha256": source_sha256,
+        "input_binding_sha256": input_sha256, "global_rank": global_rank,
+        "private_rank_each_owner": private_rank, "seed": seed, "steps": steps,
+        "learning_rate": learning_rate, "optimizer_device": optimizer_device,
+        "validation_values_read": False, "eval_values_read": False,
+    }
+    if type(value) is not dict or set(value) != required or any(
+        value.get(key) != item for key, item in fixed.items()
+    ) or not isinstance(value["error_type"], str) or not value["error_type"] or (
+        not isinstance(value["error_message"], str)
+        or not isinstance(value["elapsed_seconds"], (int, float))
+        or not math.isfinite(value["elapsed_seconds"])
+        or value["elapsed_seconds"] < 0
+    ):
+        raise RuntimeError(f"grid failure semantic replay changed: {path.name}")
+    raw = path.read_bytes()
+    return value, raw
 
 
 def _mean_controls(response: torch.Tensor, valid: torch.Tensor) -> dict[str, float | int]:
@@ -214,6 +382,8 @@ def _training_error_report(
     ).reshape_as(training.response)
     squared = (prediction - training.response) ** 2
     response_rms = math.sqrt(float((training.response[training.valid] ** 2).mean()))
+    if not math.isfinite(response_rms) or response_rms <= 0:
+        raise RuntimeError("training response RMS is not positive and finite")
 
     def masked_mse(mask: torch.Tensor) -> float:
         selected = training.valid & mask
@@ -238,11 +408,9 @@ def _training_error_report(
         target_owner_mse.append(masked_mse(target_mask))
         row = []
         for target_owner in range(len(training.owner_components)):
-            pair_mask = torch.zeros_like(training.valid)
-            pair_mask[
-                :, training.source_groups == source_owner,
-                training.source_groups == target_owner,
-            ] = True
+            source_axis = (training.source_groups == source_owner)[None, :, None, None]
+            target_axis = (training.source_groups == target_owner)[None, None, :, None]
+            pair_mask = (source_axis & target_axis).expand_as(training.valid)
             row.append(math.sqrt(masked_mse(pair_mask)) / response_rms)
         owner_pair_nrmse.append(row)
     return {
@@ -268,8 +436,10 @@ def run_grid(
     require_published_source: bool,
     fitter: Callable[..., FitResult] = fit_shared_private_program_accelerated,
 ) -> dict[str, object]:
-    """Run or resume a fixed training-only grid and publish its terminal receipt."""
+    """Synthetic-only grid surface used by source-isolated acceptance tests."""
 
+    if require_published_source:
+        raise RuntimeError("published production fitting is available only through main()")
     if output.exists() and not output.is_dir():
         raise RuntimeError("factor-grid output namespace is not a directory")
     output.mkdir(parents=True, exist_ok=True)
@@ -279,7 +449,7 @@ def run_grid(
         return _run_grid_locked(
             training, output, rank_pairs=rank_pairs, seeds=seeds, steps=steps,
             learning_rate=learning_rate, optimizer_device=optimizer_device,
-            require_published_source=require_published_source, fitter=fitter,
+            require_published_source=False, fitter=fitter, source_override=None,
         )
 
 
@@ -289,9 +459,18 @@ def _run_grid_locked(
     *,
     rank_pairs: Sequence[tuple[int, int]], seeds: Sequence[int], steps: int,
     learning_rate: float, optimizer_device: str, require_published_source: bool,
-    fitter: Callable[..., FitResult],
+    fitter: Callable[..., FitResult], source_override: dict[str, object] | None,
 ) -> dict[str, object]:
-    source = _source_closure(require_published=require_published_source)
+    if require_published_source and (
+        output.resolve() != OUTPUT.resolve()
+        or tuple(rank_pairs) != RANK_PAIRS or tuple(seeds) != SEEDS
+        or steps != STEPS or learning_rate != LEARNING_RATE
+        or optimizer_device != "cuda"
+        or fitter is not fit_shared_private_program_accelerated
+        or source_override is None
+    ):
+        raise RuntimeError("production factor-grid protocol changed")
+    source = source_override or _source_closure(require_published=False)
     input_binding = _input_binding(training)
     price_lookup = {
         (row.global_rank, row.private_rank_each_owner): row for row in audit_rows()
@@ -307,28 +486,22 @@ def _run_grid_locked(
             if result_path.exists() and failure_path.exists():
                 raise RuntimeError(f"grid cell has two terminal states: {stem}")
             if result_path.exists():
-                payload = _load_torch_cell(result_path)
-                receipt = payload["receipt"]
-                if receipt["source_closure_sha256"] != source["sha256"] or (
-                    receipt["input_binding_sha256"] != input_binding["sha256"]
-                    or receipt["global_rank"] != global_rank
-                    or receipt["private_rank_each_owner"] != private_rank
-                    or receipt["seed"] != seed
-                    or receipt["steps"] != steps
-                    or receipt["learning_rate"] != learning_rate
-                ):
-                    raise RuntimeError(f"resumed grid cell binding changed: {stem}")
-                raw = result_path.read_bytes()
+                receipt, raw = _validate_result_cell(
+                    result_path, training, source_sha256=source["sha256"],
+                    input_sha256=input_binding["sha256"], global_rank=global_rank,
+                    private_rank=private_rank, seed=seed, steps=steps,
+                    learning_rate=learning_rate, optimizer_device=optimizer_device,
+                )
                 cells.append({**receipt, "kind": "result", "artifact": result_path.name,
                               "artifact_sha256": _sha256(raw), "bytes": len(raw)})
                 continue
             if failure_path.exists():
-                failure = json.loads(failure_path.read_bytes())
-                if failure.get("source_closure_sha256") != source["sha256"] or (
-                    failure.get("input_binding_sha256") != input_binding["sha256"]
-                ):
-                    raise RuntimeError(f"resumed failure binding changed: {stem}")
-                raw = failure_path.read_bytes()
+                failure, raw = _validate_failure_cell(
+                    failure_path, source_sha256=source["sha256"],
+                    input_sha256=input_binding["sha256"], global_rank=global_rank,
+                    private_rank=private_rank, seed=seed, steps=steps,
+                    learning_rate=learning_rate, optimizer_device=optimizer_device,
+                )
                 cells.append({**failure, "kind": "failure", "artifact": failure_path.name,
                               "artifact_sha256": _sha256(raw), "bytes": len(raw)})
                 continue
@@ -340,59 +513,7 @@ def _run_grid_locked(
                     steps=steps, learning_rate=learning_rate,
                     optimizer_device=optimizer_device,
                 )
-                elapsed = time.perf_counter() - started
-                price = fitted.program.persistent_values
-                code = fitted.program.code_dimension
-                if require_published_source:
-                    expected = price_lookup[(global_rank, private_rank)]
-                    if (price, code) != (expected.persistent_values, expected.per_document_values):
-                        raise RuntimeError("fitted program price differs from frozen audit")
-                healthy = bool(
-                    math.isfinite(fitted.final_mse)
-                    and fitted.improvement_fraction >= MINIMUM_IMPROVEMENT
-                )
-                receipt = {
-                    "source_closure_sha256": source["sha256"],
-                    "input_binding_sha256": input_binding["sha256"],
-                    "global_rank": global_rank,
-                    "private_rank_each_owner": private_rank,
-                    "seed": seed,
-                    "steps": steps,
-                    "learning_rate": learning_rate,
-                    "optimizer_device": optimizer_device,
-                    "persistent_values": price,
-                    "per_document_values": code,
-                    "amortized_total_values": price + training.response.shape[-1] * code,
-                    "strict_dense_matched_rank": (
-                        price_lookup[(global_rank, private_rank)].strict_dense_matched_rank
-                        if (global_rank, private_rank) in price_lookup else None
-                    ),
-                    "amortized_total_dense_rank_noncontrolling": (
-                        price_lookup[(global_rank, private_rank)].amortized_total_dense_rank
-                        if (global_rank, private_rank) in price_lookup else None
-                    ),
-                    "prediction_multiply_adds_per_document": (
-                        training.response.shape[0] * training.response.shape[1]
-                        * training.response.shape[2] * code
-                    ),
-                    "initial_mse": fitted.initial_mse,
-                    "final_mse": fitted.final_mse,
-                    "improvement_fraction": fitted.improvement_fraction,
-                    "healthy": healthy,
-                    "minimum_improvement": MINIMUM_IMPROVEMENT,
-                    "elapsed_seconds": elapsed,
-                    "validation_values_read": False,
-                    "eval_values_read": False,
-                }
-                receipt.update(_training_error_report(training, fitted))
-                payload = _program_payload(fitted)
-                payload["receipt"] = receipt
-                _atomic_torch_create(result_path, payload)
             except Exception as error:
-                if result_path.exists():
-                    raise RuntimeError(
-                        f"published grid result failed post-publication checks: {stem}"
-                    ) from error
                 failure = {
                     "schema": "causal_response_factorization_v1_grid_failure",
                     "status": "failed_training_only",
@@ -415,10 +536,64 @@ def _run_grid_locked(
                 cells.append({**failure, "kind": "failure", "artifact": failure_path.name,
                               "artifact_sha256": _sha256(raw), "bytes": len(raw)})
                 continue
-            replay = _load_torch_cell(result_path)
-            if replay["receipt"] != receipt:
+            elapsed = time.perf_counter() - started
+            price = fitted.program.persistent_values
+            code = fitted.program.code_dimension
+            if require_published_source:
+                expected = price_lookup[(global_rank, private_rank)]
+                if (price, code) != (expected.persistent_values, expected.per_document_values):
+                    raise RuntimeError("fitted program price differs from frozen audit")
+            healthy = bool(
+                math.isfinite(fitted.final_mse)
+                and fitted.improvement_fraction >= MINIMUM_IMPROVEMENT
+            )
+            receipt = {
+                "source_closure_sha256": source["sha256"],
+                "input_binding_sha256": input_binding["sha256"],
+                "global_rank": global_rank,
+                "private_rank_each_owner": private_rank,
+                "seed": seed,
+                "steps": steps,
+                "learning_rate": learning_rate,
+                "optimizer_device": optimizer_device,
+                "persistent_values": price,
+                "per_document_values": code,
+                "amortized_total_values": price + training.response.shape[-1] * code,
+                "strict_dense_matched_rank": (
+                    price_lookup[(global_rank, private_rank)].strict_dense_matched_rank
+                    if (global_rank, private_rank) in price_lookup else None
+                ),
+                "amortized_total_dense_rank_noncontrolling": (
+                    price_lookup[(global_rank, private_rank)].amortized_total_dense_rank
+                    if (global_rank, private_rank) in price_lookup else None
+                ),
+                "prediction_multiply_adds_per_document": (
+                    training.response.shape[0] * training.response.shape[1]
+                    * training.response.shape[2] * code
+                ),
+                "calibration_cells_training_stage": 0,
+                "registered_validation_calibration_arm_budgets": [2, 4, 8, 16],
+                "initial_mse": fitted.initial_mse,
+                "final_mse": fitted.final_mse,
+                "improvement_fraction": fitted.improvement_fraction,
+                "healthy": healthy,
+                "minimum_improvement": MINIMUM_IMPROVEMENT,
+                "elapsed_seconds": elapsed,
+                "validation_values_read": False,
+                "eval_values_read": False,
+            }
+            receipt.update(_training_error_report(training, fitted))
+            payload = _program_payload(fitted)
+            payload["receipt"] = receipt
+            _atomic_torch_create(result_path, payload)
+            replay_receipt, raw = _validate_result_cell(
+                result_path, training, source_sha256=source["sha256"],
+                input_sha256=input_binding["sha256"], global_rank=global_rank,
+                private_rank=private_rank, seed=seed, steps=steps,
+                learning_rate=learning_rate, optimizer_device=optimizer_device,
+            )
+            if replay_receipt != receipt:
                 raise RuntimeError("new grid cell did not replay exactly")
-            raw = result_path.read_bytes()
             cells.append({**receipt, "kind": "result", "artifact": result_path.name,
                           "artifact_sha256": _sha256(raw), "bytes": len(raw)})
     final_source = _source_closure(require_published=require_published_source)
@@ -462,12 +637,31 @@ def _run_grid_locked(
 
 
 def main() -> None:
-    training = load_production_training_snapshot()
-    terminal = run_grid(
-        training, OUTPUT, rank_pairs=RANK_PAIRS, seeds=SEEDS, steps=STEPS,
-        learning_rate=LEARNING_RATE, optimizer_device="cuda",
-        require_published_source=True,
-    )
+    if OUTPUT.exists() and not OUTPUT.is_dir():
+        raise RuntimeError("production factor-grid namespace is not a directory")
+    OUTPUT.mkdir(parents=True, exist_ok=True)
+    with (OUTPUT / ".lock").open("a+b") as lock:
+        fcntl.flock(lock.fileno(), fcntl.LOCK_EX)
+        source = _source_closure(require_published=True)
+        allowed = {".lock", "terminal.json"}
+        for global_rank, private_rank in RANK_PAIRS:
+            for seed in SEEDS:
+                stem = _cell_stem(global_rank, private_rank, seed)
+                allowed.update({f"{stem}.pt", f"{stem}.failure.json"})
+        extras = {path.name for path in OUTPUT.iterdir()} - allowed
+        if extras:
+            raise RuntimeError(f"production factor-grid namespace has extras: {sorted(extras)}")
+        training = load_production_training_snapshot()
+        if training.response.shape != (2, 49, 49, 229) or len(
+            training.owner_components
+        ) != 6:
+            raise RuntimeError("production factor-grid training role changed")
+        terminal = _run_grid_locked(
+            training, OUTPUT, rank_pairs=RANK_PAIRS, seeds=SEEDS, steps=STEPS,
+            learning_rate=LEARNING_RATE, optimizer_device="cuda",
+            require_published_source=True,
+            fitter=fit_shared_private_program_accelerated, source_override=source,
+        )
     print(_json_bytes(terminal).decode(), end="")
 
 

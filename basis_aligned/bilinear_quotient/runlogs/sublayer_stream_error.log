@@ -1,0 +1,42 @@
+a2-input probe acc 0.69
+fit a2
+fit a3
+fit a4
+fit a5
+fit a6
+fit a7
+fit a8
+fit a9
+fit a10
+fit a11
+fit a12
+fit a13
+fit a14
+fit a15
+fit a16
+fit a17
+  block  0: in 0.0000 -> postattn 0.0000 (attn +0.0000) -> next-in (mlp +0.5093)
+  block  1: in 0.5093 -> postattn 1.3477 (attn +0.8384) -> next-in (mlp -0.8274)
+  block  2: in 0.5203 -> postattn 0.6022 (attn +0.0819) -> next-in (mlp +0.0414)
+  block  3: in 0.6436 -> postattn 0.7279 (attn +0.0842) -> next-in (mlp +0.0244)
+  block  4: in 0.7523 -> postattn 0.8045 (attn +0.0522) -> next-in (mlp -0.0213)
+  block  5: in 0.7832 -> postattn 1.6356 (attn +0.8523) -> next-in (mlp +0.1059)
+  block  6: in 1.7415 -> postattn 2.6261 (attn +0.8846) -> next-in (mlp -0.9381)
+  block  7: in 1.6880 -> postattn 1.8742 (attn +0.1862) -> next-in (mlp -0.1753)
+  block  8: in 1.6990 -> postattn 1.3236 (attn -0.3754) -> next-in (mlp -0.1385)
+  block  9: in 1.1851 -> postattn 1.2808 (attn +0.0957) -> next-in (mlp +0.0158)
+  block 10: in 1.2966 -> postattn 1.2777 (attn -0.0188) -> next-in (mlp -0.0920)
+  block 11: in 1.1857 -> postattn 1.1054 (attn -0.0803) -> next-in (mlp -0.0926)
+  block 12: in 1.0128 -> postattn 0.9656 (attn -0.0472) -> next-in (mlp -0.0556)
+  block 13: in 0.9101 -> postattn 0.8630 (attn -0.0471) -> next-in (mlp -0.0490)
+  block 14: in 0.8140 -> postattn 0.7818 (attn -0.0322) -> next-in (mlp -0.0271)
+  block 15: in 0.7546 -> postattn 0.7363 (attn -0.0183) -> next-in (mlp -0.0262)
+  block 16: in 0.7102 -> postattn 0.6829 (attn -0.0273) -> next-in (mlp -0.0904)
+  block 17: in 0.5925 -> postattn 0.5653 (attn -0.0272) -> next-in (mlp +0.0272)
+
+block 5: attn +0.8523 | mlp +0.1059
+band 2..9 totals: attn +1.8617 | mlp -1.0857
+(c) reconstruction reproduces S2086 (max dev 0.00006 <= 0.01): HELD
+(a) block 5 attn step > mlp step: HELD
+(b) band attn total > mlp total: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/sublayer_stream_error_results.json (71s)

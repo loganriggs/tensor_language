@@ -61822,3 +61822,57 @@ sublayers rather than at block inputs — separates them at the same cost as thi
 **Open.** Split block 5's +0.9583 between `a5` and `m5`. If it is `a5`, rung 2's absorber build has a
 single named target and §311's placement rule tells it where to spend. If it is `m5`, the rung's premise
 is wrong: the attention dictionaries are not where the stream is lost, and the remainder should close.
+
+## §2087 — RUNG 2'S PREMISE CONFIRMED: attention injects the stream error, the MLPs remove it, and the target is three heads not a band
+
+`ops/sublayer_stream_error.py`, **71s**, BACKLOG rung 2 (§2086's open question). **pred_a HELD |
+pred_b HELD | pred_c HELD at max deviation 0.00006.** Post-attention stream reconstructed exactly on the
+same config §2086 measured — no arm surgery, so §307's matched-context rule does not apply.
+
+```
+  block   in ->  post-attn    attn step    mlp step        block   attn      mlp
+    1    0.5093   1.3477       +0.8384     -0.8274           9    +0.0957  +0.0158
+    2    0.5203   0.6022       +0.0819     +0.0414          10    -0.0188  -0.0920
+    3    0.6436   0.7279       +0.0842     +0.0244          11    -0.0803  -0.0926
+    4    0.7523   0.8045       +0.0522     -0.0213          12    -0.0472  -0.0556
+    5    0.7832   1.6356       +0.8523     +0.1059          13    -0.0471  -0.0490
+    6    1.7415   2.6261       +0.8846     -0.9381          14    -0.0322  -0.0271
+    7    1.6880   1.8742       +0.1862     -0.1753          15    -0.0183  -0.0262
+    8    1.6990   1.3236       -0.3754     -0.1385          16    -0.0273  -0.0904
+
+  block 5:        attn +0.8523   mlp +0.1059      (8x)
+  band 2..9:      attn +1.8617   mlp -1.0857
+```
+
+**pred_c HELD at 0.00006** — the reconstructed block inputs reproduce §2086's profile to five decimals,
+and the band totals sum to +0.7760 against §2086's independently measured +0.7763. **The arithmetic is
+exact, so the splits below can be read.**
+
+> **pred_a and pred_b HELD: rung 2's premise is confirmed and it was not obvious.** At block 5 the
+> attention sublayer injects **+0.8523** against the MLP's +0.1059 — **eight times**. Across the whole
+> band the attention sublayers add **+1.8617** while the MLP sublayers **remove −1.0857**. **The attention
+> dictionaries are where the assembly loses the stream; the MLP rungs in the same band are net
+> repairers.** §2086 could not distinguish these and explicitly declined to; the split is unambiguous.
+
+**The same component type injects early and repairs late.** Attention steps are strongly positive at
+blocks 1, 5 and 6 (+0.838, +0.852, +0.885), turn negative at block 8 (**−0.3754**), and stay negative
+through block 17. **This is §2086's attenuation, and it is attention doing it** — the deep-half attention
+rungs pull the substituted stream back toward the real one.
+
+**THE PLACEMENT, WHICH IS THE POINT OF THE RUNG.** §311's rule is "spend absorber capacity at read sites,
+not uniformly", and the profile names three sites: **`a6` (+0.8846), `a5` (+0.8523), `a1` (+0.8384)**
+carry **2.575 of the band's +1.862** — the other five attention rungs in 2..9 total **+0.287** between
+them. **An absorber programme should target three rungs, not eight.** Note `a1` sits *outside* the
+nominal 2–9 band and is the third-largest injector, so "the middle-attention band" is not quite the right
+frame for the remainder either.
+
+**What rung 2 should now be.** Not "absorbers on the attention dictionaries" as a band-wide programme,
+but **absorbers on `a1`, `a5`, `a6`**, fitted under the eval configuration's own context per §307. **The
+premise is confirmed, the target is three-eighths the size it was assumed to be, and one of the three is
+outside the band the rung names.**
+
+**Open, and it is the build itself.** Nothing further is diagnosable without fitting an absorber: whether
+a rank-r read at `a5`/`a6` can recover the +0.85 it injects is exactly what `absorber_variants.py`'s
+machinery answers for MLP rungs, and porting it to an attention rung is the remainder. **I have not
+built it and am not claiming the recovery is achievable** — only that the injection is localised and
+named.

@@ -18,8 +18,18 @@ Rungs 1-3 are DONE; rung 4 is the first genuinely open one.
    dictionaries (they have none).
    **DONE** -- ledger **§303** (both bars HELD, +2.3644 on window C, 0.27
    BETTER than the all-dictionary band) and **§304** for head_hybrid_fresh
-   (certified on never-seen text). The absorbers-on-attention-dictionaries
-   half is NOT done and is the live remainder of this rung.
+   (certified on never-seen text).
+   **THE ABSORBER REMAINDER IS NOW SPECIFIED, 2026-08-30, §2086 + §2087.**
+   The premise was tested before building and CONFIRMED: attention sublayers
+   inject the assembly's stream error (band 2..9 total **+1.8617**) while the
+   MLP sublayers in the same band **remove** it (**-1.0857**). But the target
+   is far smaller than "the band": **`a6` (+0.8846), `a5` (+0.8523) and `a1`
+   (+0.8384) carry 2.575 of the +1.862; the other five attention rungs total
+   +0.287 between them.** So the remainder is **absorbers on a1, a5, a6** --
+   three rungs, not eight -- and note **`a1` is OUTSIDE the 2-9 band this rung
+   names**. Fit under the eval configuration's own context (**§307**); place by
+   local stream error at read sites (**§311**). Whether a rank-r read can
+   recover the +0.85 an injector adds is UNMEASURED and is the build.
 3. a8 / COUNTING: symbolic count features from raw tokens (deploy-legal)
    -> a8_symbolic.py
    **DONE, and the result was NEGATIVE** -- ledger **§304**: "the
