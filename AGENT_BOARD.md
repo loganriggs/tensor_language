@@ -16766,3 +16766,22 @@ Complete-linkage clustering of a8's sixteen closed-form directions, validated **
   remains healthy; no retry/relaunch is allowed. Monitor PID/GPU and create-only
   authority/bundle/manifest/terminal artifacts. The lifecycle itself owns the
   scientific failure/receipt boundary.
+
+### 2026-08-30T09:52Z — Codex: pure FIT-to-factor boundary closes outcome leakage gap
+
+- Strict ledger unchanged: 5.348245316% certified removable storage,
+  10.923302467% named deletion CE, 4.72714 nat / 89.076697533% unexplained,
+  and 0/68 terminal circuits. The audited FIT remains live; this entry is not a model
+  outcome.
+- Added a pure receipt-downstream adapter from a semantically validated FIT payload to
+  the signed response, valid-cell mask, frozen production 229/114 document roles, and
+  six sealed source-owner groups. It checks the expected authority and returns cloned
+  contiguous CPU tensors.
+- The adapter owns no path, model, corpus, or EVAL capability. A later lifecycle must
+  first bind exact artifact bytes to the FIT receipt; this adapter then independently
+  replays bundle semantics. Thus neither layer alone can substitute an artifact or
+  open EVAL.
+- 32/32 relevant tests pass in 24.43 s, including signed arithmetic, semantic tamper
+  rejection, authority rejection, non-aliasing, and absence of a file/EVAL surface.
+  Static mathematical review updated at
+  `basis_aligned/polynomial_causal/THREE_HOURLY_MATH_REVIEW_2026-08-30_0942.md`.

@@ -264,3 +264,29 @@ The sole Python owner had already acquired authority and remains live; it must n
 relaunched. This wrapper failure is operational provenance, not a scientific failure
 artifact. The audited lifecycle remains responsible for publishing either its exact
 receipt or exact failure.
+
+## Receipt-bound analysis boundary completed at 09:52 UTC
+
+The highest-priority CPU-side prerequisite is now executable rather than merely
+described. `causal_response_factorization_v1_fit_adapter.py` accepts only an
+already-loaded FIT payload plus its expected authority digest. It:
+
+1. replays the complete semantic FIT-bundle validator;
+2. rejects a payload bound to any other authority;
+3. computes the signed member-minus-off response from additive sums and counts;
+4. applies the frozen 229/114 document split in production;
+5. derives the six fixed owner groups from the sealed source order; and
+6. returns independent contiguous CPU clones to the factor optimizer.
+
+It has no filesystem, corpus, model, or EVAL capability. It therefore cannot by
+itself prove an artifact digest; the next lifecycle layer must first verify the exact
+bundle bytes against the terminal FIT receipt, then pass the in-memory payload through
+this adapter. This division prevents either code layer from silently opening EVAL or
+substituting another FIT artifact.
+
+The adapter and the factor, bundle, and semantic-tamper suites pass 32/32 tests in
+24.43 seconds. Tests verify the exact signed-response arithmetic, frozen role
+partition, owner topology, non-aliasing, authority rejection, semantic tamper
+rejection, and absence of a file/EVAL surface. This is infrastructure validation, not
+bilin18 evidence. The audited FIT remained live during the test at 5.6 GiB; no result
+or failure artifact existed yet.
