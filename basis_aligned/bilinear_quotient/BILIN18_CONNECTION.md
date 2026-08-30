@@ -63141,3 +63141,10 @@ pred_a HELD (7/8) | pred_b HELD (median 0.0824 ≥ 0.049).**
 values, choosing mlp4/mlp5's kept CP units by their write into eight named loss-gradient directions improves the
 certified empirical assembly by a median 0.08 nat (7 of 8 windows positive; up to 0.22 on hard text).* No
 compression factor is certified (§2118).
+
+**CORRECTION to §2106 (found while designing rung 26).** §2106 called FW rows 0:120 "untouched by every fit and evaluation
+in this arc". That is wrong in one respect: the certified arm's tail *spans* (the rank-8 PCA basis of each tail MLP's real
+output) are computed on FW rows 0:120 (`for i in range(0,120,6): fwd(FW[i:i+6,:513], collect=li)` in the builder). The
+use is unsupervised (real-model activations, no labels, no CE), but it is a use. The "second window" claim of §2106
+therefore rests on rows that fed one unsupervised basis; the clean certifications are §2116 and §2119 on the eight
+pile-10k windows, whose prefixes are disjoint from every FW row. The equal-price gain stands on those.
