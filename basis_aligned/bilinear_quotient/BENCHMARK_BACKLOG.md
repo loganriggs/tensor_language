@@ -898,6 +898,9 @@ later per-rung backlog edits had silently anchored on text that was not here.
     tripwire referenced main-local `cur` -> NameError before the JSON was
     written. Fixed (nptr via SEL), re-queued 23:35Z behind rung 65; the
     scored artifact comes from the rerun.
+    VALID RERUN, §2158: pred_c HELD, pred_a/b FAILED — recovery +0.0109
+    median (8/8 positive, 100,324 fires): real, uniform, ~5% of the
+    cost. Last-occurrence-linear is NOT attn16's read.
 
 65. IS m16 RETRIEVAL-SHAPED TOO (cross-object attribution; damage
     convention). m16 cannot read other positions; if deleting it still
@@ -913,3 +916,13 @@ later per-rung backlog edits had silently anchored on text that was not here.
     pred_b FAILED; pred_a voided as ill-posed (share bars need a
     sign-definite total — lesson adopted); pred_c HELD. Zeroed arm's
     per-window numbers VOID (hook-scope bug on the per-window bases).
+
+66. THE INDUCTION POINTER AT a16 (the single registered v2; damage
+    convention). For ind positions, match the last previous occurrence
+    of the CURRENT token idx[p] and read the stream at the position
+    JUST AFTER it (where the successor token — the induction guess —
+    lives): output = x[q*+1] @ W_ptr. Same price (+1.33M), same oracle
+    interface. NULL (§2158): this too recovers ~0.01.
+    pred_a median [L2_F_w(full) - L2_F_w(a16ind)] >= +0.05; pred_b
+    >= +0.02 on >= 6/8; pred_c full reproduces §2144 (2.6662 within
+    0.01). Tripwire: pointer fires > 0. -> ops/a16_induction.py [QUEUED]

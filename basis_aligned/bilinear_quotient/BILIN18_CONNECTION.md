@@ -64149,3 +64149,19 @@ large signed class effects, so "shares" are not concentrations. Raw signed sums 
   fresh / +0.029 C — astonishingly small for a full MLP block, consistent with large internal cancellation.
 - Registered-bar lesson (adopted): share-based bars require a sign-definite total; future attribution rungs
   register bars on SIGNED SUMS.
+
+## §2158 — RUNG 64 (valid rerun): THE POINTER-LINEAR PRIMITIVE RECOVERS +0.0109 MEDIAN — REAL (positive on 8/8, 30× the noise floor, tripwire: 100,324 pointer fires) BUT AN ORDER BELOW THE BAR. The null wins: attn16's retrieval read is richer than a linear map of the target's last occurrence. pred_a/b FAILED, pred_c HELD. (Convention: L2 = CE above the real model; lower is better; recovery = full-arm damage − pointer-arm damage.)
+
+`ops/a16_pointer.py` (rerun after the runner-tripwire NameError; both arms of the first pass matched), **232s**,
+BACKLOG rung 64. **pred_c HELD (2.6662 exact) | pred_a FAILED (+0.0109 vs ≥ +0.05) | pred_b FAILED (0/8 ≥ +0.02;
+recovery per window +0.0095 … +0.0137).**
+
+- **The first constructive retrieval element works, slightly and uniformly:** every window improves by ~+0.011 —
+  about 5% of a16L's ~0.21 cost — with remarkable cross-window stability (the mechanism is real, just small).
+  What it rules out: the ind-class failure is NOT mostly "didn't know where to look at the last occurrence" —
+  a full D×D linear read of that stream barely helps.
+- **With §2159, block 16 sharpens into a two-piece story with the retrieval still unexplained:** attn16's 3–4
+  heads do a read the last-occurrence-linear model cannot mimic (candidates for one registered v2: the
+  induction form — match the CURRENT token's previous occurrence and read the stream just after it, i.e. where
+  the successor token lives — or a multi-occurrence read); and m16 fights that retrieval while carrying subword
+  continuation. Rung 66 tests the induction form, the single sharpest v2.

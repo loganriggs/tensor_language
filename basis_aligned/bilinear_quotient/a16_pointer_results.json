@@ -1,0 +1,57 @@
+{
+ "full": {
+  "L1_F": 2.3207,
+  "L2_C": 2.419,
+  "L2_F": 2.6662,
+  "increment": 0.3455,
+  "orig_s312_a": true,
+  "orig_s312_b": true,
+  "fresh8": [
+   2.6662,
+   2.9355,
+   2.612,
+   2.8498,
+   2.9137,
+   2.7953,
+   2.5818,
+   2.6641
+  ],
+  "runtime_s": 112.59169793128967
+ },
+ "a16ptr": {
+  "L1_F": 2.3207,
+  "L2_C": 2.3997,
+  "L2_F": 2.655,
+  "increment": 0.3343,
+  "orig_s312_a": true,
+  "orig_s312_b": true,
+  "fresh8": [
+   2.655,
+   2.9231,
+   2.6017,
+   2.8361,
+   2.9008,
+   2.785,
+   2.5723,
+   2.6534
+  ],
+  "runtime_s": 119.58346199989319
+ },
+ "per_window_recovery": [
+  0.0112,
+  0.0124,
+  0.0103,
+  0.0137,
+  0.0129,
+  0.0103,
+  0.0095,
+  0.0107
+ ],
+ "pointer_fires": 100324,
+ "convention": "L2 = CE above the real model; lower is better; recovery = full-arm damage minus pointer-arm damage",
+ "pred_a_quarter_back": false,
+ "pred_b_windows": false,
+ "pred_c_reproduces_s2144": true,
+ "self_reviewed": true,
+ "runtime_s": 232.2
+}
