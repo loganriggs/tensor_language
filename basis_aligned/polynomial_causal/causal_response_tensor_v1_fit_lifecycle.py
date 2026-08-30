@@ -89,6 +89,39 @@ def stable_json(path: Path, expected_sha256: str | None = None) -> tuple[dict[st
     return value, before
 
 
+def _stable_json_exact_inode(
+    path: Path, *, expected_sha256: str, expected_device: int, expected_inode: int,
+) -> dict[str, Any]:
+    """Read one exact JSON inode through one descriptor, rejecting path replacement."""
+    flags = os.O_RDONLY | getattr(os, "O_NOFOLLOW", 0)
+    descriptor = os.open(path, flags)
+    try:
+        before = os.fstat(descriptor)
+        chunks: list[bytes] = []
+        while chunk := os.read(descriptor, 8 << 20):
+            chunks.append(chunk)
+        after = os.fstat(descriptor)
+        path_stat = path.stat(follow_symlinks=False)
+    finally:
+        os.close(descriptor)
+    identity = (expected_device, expected_inode)
+    if (
+        (before.st_dev, before.st_ino) != identity
+        or (after.st_dev, after.st_ino) != identity
+        or (path_stat.st_dev, path_stat.st_ino) != identity
+        or before.st_size != after.st_size
+        or before.st_mtime_ns != after.st_mtime_ns
+    ):
+        raise RuntimeError("FIT JSON inode changed during stable read")
+    raw = b"".join(chunks)
+    if hashlib.sha256(raw).hexdigest() != expected_sha256:
+        raise RuntimeError("FIT JSON hash changed")
+    value = json.loads(raw)
+    if type(value) is not dict:
+        raise RuntimeError("FIT JSON is not a plain object")
+    return value
+
+
 def source_closure(commit: str | None = None) -> dict[str, Any]:
     if len(SOURCE_PATHS) != len(set(SOURCE_PATHS)):
         raise RuntimeError("FIT source closure contains duplicate paths")
@@ -455,19 +488,18 @@ def _publish_terminal_record(
         # complete payload, so terminal-only remains semantically recoverable.
         os.link(temporary, TERMINAL)
         _fsync_parent_best_effort(TERMINAL)
-        terminal_replay, terminal_digest = stable_json(TERMINAL, digest)
-        terminal_stat = TERMINAL.stat(follow_symlinks=False)
         temporary_stat = temporary.stat(follow_symlinks=False)
-        if (
-            terminal_digest != digest
-            or terminal_replay != json.loads(json.dumps(
-                record, sort_keys=True, allow_nan=False
-            ))
-            or (terminal_stat.st_dev, terminal_stat.st_ino)
-            != (temporary_stat.st_dev, temporary_stat.st_ino)
-            or target.exists() or opposite.exists()
-        ):
+        if target.exists() or opposite.exists():
             raise RuntimeError("FIT terminal aggregate changed before final link")
+        terminal_replay = _stable_json_exact_inode(
+            TERMINAL, expected_sha256=digest,
+            expected_device=temporary_stat.st_dev,
+            expected_inode=temporary_stat.st_ino,
+        )
+        if terminal_replay != json.loads(json.dumps(
+            record, sort_keys=True, allow_nan=False
+        )):
+            raise RuntimeError("FIT terminal semantics changed before final link")
         require_claim(claim)
         os.link(temporary, target)
         _fsync_parent_best_effort(target)

@@ -442,3 +442,32 @@ def test_in_place_terminal_mutation_blocks_final_receipt_link(monkeypatch, tmp_p
         assert not lifecycle.FAILURE.exists()
     finally:
         lifecycle.release_claim(claim)
+
+
+def test_target_absence_check_cannot_mutate_terminal_after_final_replay(
+    monkeypatch, tmp_path
+):
+    _redirect_namespace(monkeypatch, tmp_path)
+    claim = lifecycle.acquire_claim()
+    original_exists = Path.exists
+    attacked = False
+
+    def mutate_from_target_check(path):
+        nonlocal attacked
+        if path == lifecycle.RECEIPT and lifecycle.TERMINAL.is_file() and not attacked:
+            attacked = True
+            lifecycle.TERMINAL.write_text('{"mutated":"after-replay"}\n')
+        return original_exists(path)
+
+    monkeypatch.setattr(Path, "exists", mutate_from_target_check)
+    try:
+        with pytest.raises(RuntimeError, match="JSON hash changed"):
+            lifecycle._publish_terminal_record(
+                _terminal_record("receipt"), kind="receipt", claim=claim,
+                final_guard=lambda: None,
+            )
+        assert attacked
+        assert not original_exists(lifecycle.RECEIPT)
+        assert not original_exists(lifecycle.FAILURE)
+    finally:
+        lifecycle.release_claim(claim)
