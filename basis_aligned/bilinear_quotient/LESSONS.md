@@ -2586,3 +2586,26 @@ pass it unchanged.
 **The general shape:** when a check can run before the expensive step, a warning at that point is a bug in
 the check, not a courtesy. Ask of every diagnostic: *could this have refused instead?* See [[LESSON 98]] —
 the same control, failing for the same reason, three times before I made it cheap to fail early.
+
+## LESSON 103 — a crashed predicate is not a FALSE, and mine were printed as one
+
+**MEASURED 2026-08-30.** `run()` caught any exception from a predicate, printed `PREDICATE <key> CRASHED`,
+and recorded **`False`**. The summary line then printed `-> False` identically to a measured negative, the
+artifact stored False, and `pred_z_controls` stayed True. **A broken experiment was indistinguishable from
+a clean negative result in every place I read.**
+
+**It reached publication.** §2024's pred_d raised `KeyError: ('cut7', 'shipped')` and I wrote *"pred_d
+FAILED, and the failure is a real coverage dependence rather than noise."* §2026's first run reported three
+clean negatives; **all three were crashes, and two of the three verdicts were wrong** — pred_c and pred_d
+are True. The one saving grace is that the CRASHED line was in the log, above the summary I was reading.
+
+**Two fixes, both at the source.** A crashed predicate now **raises**: a predicate that cannot be evaluated
+has not been scored, and the run has no verdict to report. And the actual cause — `tpool_full` looked up
+`(a, b)` in a dict that had stored `(b, a)`, because a pair is computed once under whichever ordering asked
+for it — is gone: the lookup now tries both orientations and negates the sign-carrying fields.
+
+**The general shape, and it is PRE-FLIGHT D exactly.** *Watchers fail in two directions.* I had tested that
+the predicate machinery reports False when a bar is missed. I had never tested what it reports when the
+predicate cannot run — and the answer was "the same thing". **Ask of every failure path: does it produce a
+value that a success could also produce?** If so it is not a failure path, it is a silent one. Compare
+[[LESSON 102]], where the diagnostic existed but arrived after the cost.

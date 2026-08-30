@@ -153,6 +153,22 @@ def test_composite_arm_grammar():
             check(f'composite: rejects {bad}', True)
 
 
+def test_pooled_lookup_is_orientation_agnostic():
+    """S2024/S2026: a pair is stored under whichever ordering asked for it, and a helper looking it up the
+    other way raised KeyError -- which run() then recorded as a FALSE predicate."""
+    x = B.Ctx({}, {}, {}, [('c', '', 0)], ['r'],
+              pooled={'c': {('a', 'b'): {'mean': 0.5, 't': 3.0, 'n': 10}}})
+    fwd, rev = x.tpool_full('c', 'a', 'b'), x.tpool_full('c', 'b', 'a')
+    check('pooled: forward orientation', fwd['mean'] == 0.5 and fwd['t'] == 3.0)
+    check('pooled: reverse orientation negates', rev['mean'] == -0.5 and rev['t'] == -3.0, str(rev))
+    check('pooled: n is unchanged', rev['n'] == 10)
+    try:
+        x.tpool_full('c', 'a', 'zzz')
+        check('pooled: a genuinely missing pair still raises', False, 'no raise')
+    except KeyError as e:
+        check('pooled: a genuinely missing pair still raises', 'paired_pairs' in str(e), str(e)[:60])
+
+
 def test_run_refuses_a_vacuous_control_plan():
     """MEASURED 2026-08-30: six GPU runs this session died on an ill-formed covered-input control, every
     one decidable from the plan alone. run() now raises instead of warning-and-proceeding."""
@@ -437,7 +453,7 @@ def test_gate_accepts_the_library_itself():
           out.stdout.strip()[-120:])
 
 
-for fn in (test_run_refuses_a_vacuous_control_plan, test_composites_are_never_same_spec, test_inertness_requires_all36, test_per_site_table_ranks, test_penalty_accessor, test_composite_arm_grammar, test_whole_table_arms_are_not_fallback_variants, test_inert_side_of_the_control_is_still_strict, test_site_subsets_change_the_cache_key, test_no_build_level_comparison_is_vote_dependent, test_pooled_t_weights_by_evidence, test_every_ref_path_exists, test_ref_refuses_to_guess_a_coverage, test_rk_key_is_order_independent, test_inertness_pairs_splits_by_table_rank,
+for fn in (test_pooled_lookup_is_orientation_agnostic, test_run_refuses_a_vacuous_control_plan, test_composites_are_never_same_spec, test_inertness_requires_all36, test_per_site_table_ranks, test_penalty_accessor, test_composite_arm_grammar, test_whole_table_arms_are_not_fallback_variants, test_inert_side_of_the_control_is_still_strict, test_site_subsets_change_the_cache_key, test_no_build_level_comparison_is_vote_dependent, test_pooled_t_weights_by_evidence, test_every_ref_path_exists, test_ref_refuses_to_guess_a_coverage, test_rk_key_is_order_independent, test_inertness_pairs_splits_by_table_rank,
            test_inertness_pairs_warns_when_a_side_is_vacuous, test_ref_reads_published_triples,
            test_paired_t_arithmetic, test_cost_matches_the_published_closed_form,
            test_arm_names_parse_the_way_the_grammar_says, test_gate_fixtures,

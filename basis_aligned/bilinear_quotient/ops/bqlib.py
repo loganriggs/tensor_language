@@ -824,7 +824,21 @@ class Ctx:
         return self._pooled[cov][(a, b)]['t']
 
     def tpool_full(self, cov, a, b):
-        return self._pooled[cov][(a, b)]
+        """Pooled paired statistics for (a, b), in either stored orientation.
+
+        A pair is computed once and stored under whichever ordering asked for it -- paired_pairs, or the
+        derived control's inert/differing sets. A helper that wrote `tpool_full(cov, arm, BASELINE)` while
+        the control had stored `(BASELINE, arm)` raised KeyError, which S2024 and S2026 then recorded as a
+        FALSE predicate. Look both ways and negate the sign-carrying fields."""
+        d = self._pooled[cov].get((a, b))
+        if d is not None:
+            return d
+        d = self._pooled[cov].get((b, a))
+        if d is None:
+            raise KeyError(
+                f'no pooled statistics for ({a!r}, {b!r}) at {cov}. Add it to paired_pairs -- the '
+                f'derived control only computes pairs it needs.')
+        return {**d, 'mean': -d['mean'], 't': -d['t']}
 
     def penalty(self, cov, role, arm, cls='pooled', bucket='overall'):
         """What the program pays over the live model, in nats: ce_prog - ce_live.
@@ -963,8 +977,16 @@ def run(name, plan, predicates, coverages=(('c5419', FIT_5419, 5419),), refs=(),
         try:
             verdict[key] = bool(fn(ctx))
         except Exception as exc:
-            print(f'  PREDICATE {key} CRASHED: {type(exc).__name__}: {exc}', flush=True)
-            verdict[key] = False
+            # MEASURED 2026-08-30: this used to record False and carry on. A crashed predicate then
+            # printed `-> False` in the summary, wrote False to the artifact, and left pred_z True --
+            # indistinguishable from a measured negative. S2024's pred_d was published as "FAILED, and
+            # the failure is a real coverage dependence" when it had in fact raised KeyError, and
+            # S2026's pred_b/c/d were all crashes read as three clean negatives. A predicate that cannot
+            # be evaluated has not been scored, and the run has no verdict to report.
+            raise RuntimeError(
+                f'PREDICATE {key} CRASHED and a crash is not a FALSE: '
+                f'{type(exc).__name__}: {exc}. Fix the predicate and re-run; do not read this as a '
+                f'negative result.') from exc
     verdict['pred_z_controls'] = all(ctl.values())
 
     print('', flush=True)

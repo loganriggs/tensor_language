@@ -58957,6 +58957,12 @@ deviation 0.000000. Steps normalised to two sites, against the 0.000177 nats two
 > step through layer 7 costs 0.18× to 0.66× what it releases; layers 8–9 cost **2.85×**. **§2023 stopped
 > at layer 5 on a four-site average; two more sites are free.**
 
+**CORRECTION (§2026).** When this section was written, **pred_d had not been evaluated — it raised
+`KeyError: ('cut7', 'shipped')` and `run()` recorded the crash as `False`**, printing it in the summary
+identically to a measured negative. Re-run against the fixed library it is **genuinely False**, so the
+paragraph below stands as written and the verdict is now earned rather than assumed. **The ladder numbers
+in the table were never affected** — they came from pooled pairs that did exist. LESSON 103.
+
 > **pred_d FAILED, and the failure is a real coverage dependence rather than noise. At 16,110 no step
 > fails — layers 8–9 cost 0.78×, still free.** The knee is at layer 8 at 5,419 and beyond layer 9 at
 > 16,110. **The map acts only on uncovered rows, and 16,110 halves that arm, so a poorer map costs less
@@ -59019,3 +59025,62 @@ one that had not is the axis §1989 measured as homogeneous.**
 uniform across all thirty-six sites. §1998 and §2007 showed the two fallback arms serve different sites
 very differently, and the composite grammar can express a per-site α without new plumbing. **It is the
 last of the four and the only one never re-examined.**
+
+## §2026 — α is the one uniform sweep that was right, and a crashed predicate is not a False
+
+`ops/does_alpha_want_to_vary_by_site.py`, **229.6s**, **DISCOVERY ONLY**, both coverages, rung 3 — §2025's
+open question, and the fourth and last of the uniform sweeps. **pred_a True | pred_b False | pred_c True |
+pred_d True | derived controls True.** Reference deviation 0.000000. **These are the verdicts from the
+re-run; the first run's pred_b, pred_c and pred_d were all crashes — see the correction below.**
+
+α costs nothing: it reweights two fallback arms the build already pays for. **There is no price to clear,
+so any gain is free and any loss is pure.**
+
+```
+  delta against uniform α = 0.30, pooled over 92,160 positions
+                          5,419                    16,110
+  α 0.10 at MLP 10–17   −0.004267  (t −5.67)     −0.001679  (t −3.49)
+  α 0.50 at MLP 10–17   −0.011037  (t −15.97)    −0.005046  (t −10.65)
+  α 0.10 at MLP 0–7     −0.005744  (t −16.98)    −0.002129  (t −9.87)
+```
+
+> **pred_b FAILED and the answer is a clean negative: no per-site α beats uniform 0.30.** Every move loses
+> — **1.7 to 11.0 milli-nats**, at t = −3.5 to −16.0 — and these are *free* moves, so there is no price to
+> excuse them. **§1961's and §1967's uniform sweep was right.**
+
+> **pred_c PASSED: α matters more at the late sites** (worst late move 11.0 milli-nats against the early
+> move's 5.7), consistent with §2015 putting 96% of the table content there. **pred_d PASSED:** every sign
+> agrees across coverages.
+
+> **The losses dwarf everything the rank axes bought.** Moving α by 0.20 at eight sites costs **11.0
+> milli-nats**; untruncating those same eight tables *bought* **3.30** (§2020), and the entire map
+> refinement was worth **0.47** (§2024). **α is the most sensitive parameter in the build and the only one
+> that was already optimal.**
+
+**The sweep audit, complete.** Four parameters were set by sweeps uniform over per-site quantities.
+**Table rank: a knee at layer 10, +3.30 milli-nats missed (§2020). Attention rank: nothing, 384 correct
+(§2022). Map rank: over-bought below layer 8, +0.47 missed (§2024). α: correct, and moving it costs an
+order of magnitude more than the other three axes were worth (§2026).** Two of four had missed something.
+**The two that had not — attention rank and α — are the two axes whose per-site variation §1989 and §1961
+had already measured as small.** The heterogeneity was knowable in advance in every case.
+
+**And the correction, which matters more than the result.** §2026's first run reported pred_b, pred_c and
+pred_d as three clean negatives. **All three had raised `KeyError` and `run()` recorded the crash as
+`False`** — printing `-> False` in the summary, writing False to the artifact, and leaving the derived
+controls True. **Two of those three verdicts were wrong**: pred_c and pred_d are True. The cause was a
+pooled-statistics lookup that was sensitive to the order the pair happened to be stored in.
+
+**§2024 was published on the same bug.** Its pred_d raised `KeyError: ('cut7', 'shipped')` and I wrote
+*"pred_d FAILED, and the failure is a real coverage dependence rather than noise."* **Re-run, it is
+genuinely False** — the conclusion survives and the ladder numbers were never affected — but **it was
+published as a measurement when it was a crash, and that is the correction.**
+
+**Both fixed at the source.** A crashed predicate now raises rather than scoring False, and `tpool_full`
+looks the pair up in either orientation. An audit of every run log in the repository found **exactly these
+two runs affected, four predicates in total.**
+
+**Open.** The sweep audit is complete and the build is converged on all four parameters it examined:
+**{attn 384; mlp 768 at layers 0–9, 1152 at 10–17; map 640 except 256 at MLP 0–7; α 0.30}, 202.6M.** The
+next thing the ledger has never priced is not a parameter but a **structure**: every arm since §1789 has
+used the same two-arm fallback — output-NN neighbour blended with a ridge map — and §1998/§2007 showed the
+two serve different sites very differently. **Whether a third arm earns its place has never been asked.**
