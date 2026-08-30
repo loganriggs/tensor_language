@@ -6,6 +6,7 @@ from causal_response_factorization_v1 import (
 )
 from causal_response_factorization_v1_accelerated import (
     fit_shared_private_program_accelerated,
+    seeded_initial_mse,
 )
 
 
@@ -54,6 +55,9 @@ def test_accelerated_same_seed_replays_exactly_on_cpu():
     assert first.final_mse == second.final_mse
     assert torch.equal(first.program.basis(), second.program.basis())
     assert torch.equal(first.document_codes, second.document_codes)
+    assert first.initial_mse == seeded_initial_mse(
+        response, valid, groups, global_rank=1, private_rank=1, seed=2026083002,
+    )
 
 
 def test_accelerated_rejects_unavailable_or_noncompute_device():

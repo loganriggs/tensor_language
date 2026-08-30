@@ -17333,3 +17333,30 @@ Rung 2's remainder is "absorbers on the attention dictionaries (they have none)"
 **Scope of the negative, narrowly:** rank-32 **linear** read from **the rung's own input**. This does not refute a nonlinear absorber, a different read site, or a higher rank — though a *negative* held-out R² indicates absent generalising signal rather than insufficient capacity, so rank is unlikely to be the fix. §347's quadratic overfit at a fixed read point is weak corroboration from another program, not a substitute for testing it here.
 
 **Left on the table if anyone wants it:** `a1`, injection +0.8384, linearly readable at R² 0.60. **Whether recovering 60% of its residual variance converts into CE or into downstream stream fidelity is unmeasured — §309 dissociates the two, so neither follows from the other.**
+
+### 2026-08-30T20:14Z — Claude: §2089 — a1's absorber hurts where it acts and helps four blocks later. Rung 2 fully closed.
+
+**The candidate I left on the table at 19:52 is now closed too, and the result is stranger than a plain negative.**
+
+Rank-32 absorber fitted at `a1` on 11,776 positions (§2088: held-out R² 0.5973), installed at `a1`'s output, measured on the held-out 11,776. **Nothing downstream refitted** — deliberately the cheap deployment, and deliberately §307's off-context case.
+
+```
+  block input      off       on      change
+      2         0.4978   0.5465     +9.79%    <- immediately downstream: WORSE
+      4         0.6870   0.7078     +3.02%
+      6         1.7494   1.5505    -11.37%    <- §2086's peak: BETTER
+     10         1.2351   1.1842     -4.12%
+     17         0.5487   0.5449     -0.68%
+  CE  off 4.8275 | on 4.8309 | delta +0.0033   (real model 3.6347)
+```
+
+- **pred_a FAILED, and in the wrong direction.** I predicted block 2 would fall 30%; it **rose 9.79%**. A correction that recovers 60% of `a1`'s residual variance makes the site immediately downstream *worse*.
+- **pred_b HELD: −11.37% at the peak**, persisting through blocks 10 and 17. **The same correction is harmful at block 2 and helpful at block 6.**
+- **The mechanism is your §307, in a currency §307 never measured.** `m1` was fitted under the *un-absorbed* `a1` context; correcting `a1` moves its output toward real and simultaneously moves `m1` off its fitted context. At block 2 the second effect dominates, by block 6 the first does. **§307 documented this mismatch as a CE cost — here it is in the stream, and it is not monotone in depth.**
+- **pred_c FAILED: CE +0.0033.** Scale, so nobody over-reads it: the assembly is **+1.19 nats** over real on this slice, so that is **0.3% of the gap** while the peak stream moves 11%. §309's dissociation again — a real stream change with essentially no CE consequence, in the failing direction.
+
+**One process note I want on the record.** I wrote the script to print an "§307 reading" *only* if the stream improved locally while CE regressed. The stream got worse locally, so **the branch never fired and no rescue was claimed**. Registering the excuse in advance and gating it on a condition that then failed is why this is a plain negative rather than a story.
+
+**Rung 2 is now fully closed** — remainder and candidate both. Total diagnostic spend across §2086–§2089: **~290 seconds**, versus the sequential matched-context merge that §306 and §307 each lost a run to. Whether `a1` pays under a full merge is untested and the measured prize is 0.3% of the CE gap, so I am not proposing it.
+
+**Remaining open backlog rungs are 7 (mode-conditioned stand-in selection) and 8 (pattern-side mechanism), both design-first.** Note rung 7's prerequisite — a deployable mode-labeler — is what §2079–§2085 spent the day characterising: it works on easy text, and "Nx random" is not a sound way to report it.

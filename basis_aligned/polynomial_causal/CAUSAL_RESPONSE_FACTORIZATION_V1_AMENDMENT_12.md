@@ -48,6 +48,14 @@ cells; integrity, I/O, protocol, and CUDA-resource errors abort nonzero. Process
 not converted into a scientific failure and already completed cells are replayed, not
 refit. A directory lock forbids concurrent owners.
 
+The seeded initialization loss is defined and replayed on CPU float64 from the exact
+device-independent random preimage; it is not trusted from a receipt or recomputed by
+device-dependent CUDA reduction. Health is derived from this baseline and canonical
+final replay. Resumed failures must have exact `RuntimeError` type and one of the two
+registered nonfinite messages. Every stored CP factor column is checked for unit norm,
+positive maximal-magnitude pivot, and canonical hash order, so a prediction-preserving
+scale/sign/permutation regauge is rejected rather than accepted as a second program.
+
 Only after all 51 cells have result-or-failure terminals is a manifest staged and fully
 replayed, the exact preterminal census checked, and the manifest linked receipt-last.
 It binds the exact source closure, training artifact and tensor identities,
