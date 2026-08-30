@@ -36,3 +36,20 @@ Shared-owner caveat: the copy heads overlap copied-entity and capitalization ser
 
 **Next experiment:** recursively replay matcher/payload/relay sources to token and
 position primitives, then run source-match-gated terminal extraction/removal.
+
+## 2026-08-30 equality-tensor update
+
+The source-match-gated experiment completed and passed all SELECT gates. The four-head
+equality-fetch tensor caused `+0.51225` nat target damage when removed, with specificity
+`+0.55251` and off-target damage only `+0.006264`. Extraction from the four-head-deleted
+background recovered `0.97397` (95% `[0.94789,0.99479]`); a fixed cyclic-vocabulary
+derangement recovered approximately zero. Analytical replay was bit-exact and candidate
+native-call counts were zero at all three affected layers.
+
+This resolves the prior collateral failure: unconditional whole-head replacement was
+the wrong intervention because those heads have other services. The fixed
+equality-and-successor contraction isolates induction without introducing a router.
+Current status is **mechanistic Tier 4; extraction/selective removal SELECT pass; OOD
+pending**. It is frozen for natural FINAL and code OOD.
+
+Details: [`INDUCTION_EQUALITY_TENSOR_DISCOVERY_FINDINGS.md`](../../../polynomial_causal/INDUCTION_EQUALITY_TENSOR_DISCOVERY_FINDINGS.md).

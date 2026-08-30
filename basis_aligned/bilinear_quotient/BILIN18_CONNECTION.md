@@ -60157,3 +60157,51 @@ over eighteen layers; it concentrates on attention 8 and attention 16.**
 all 70), `circuits/DIGEST.json` (one-file summary: 65 of 70 clear the concentration-3 bar, 45 clear 5, but
 only **7 have any mechanism** — 2 computational and 5 surface), `circuits/LOCALISATION.json` (the full
 36-component profile for each of the twelve). **No circuit file was modified.**
+
+## §2055 — interchange confirms the localisation 10/12, and the two exceptions are exactly the two §2054 flagged
+
+`circuit_interchange_localise.py`, **616s**, **DISCOVERY ONLY**, census_state_diverse.
+**pred_a 10/12 | pred_b 0/12 | pred_c 3/3.**
+
+Resample ablation: each component's output at every position replaced by its output at a random other
+position, fixed seed. On-distribution donors instead of §2054's grid mean.
+
+```
+  tag        mean 1st  conc  | inter 1st  conc   2nd   conc   margin  agree
+  r.3.0          a16  9.211  |      a16  6.999   a14  5.731  +22.1%   yes
+  r.3.0.2        a16  8.558  |      a16  6.515   a14  4.816  +35.3%   yes
+  r.4.1.1        a16  5.466  |      a16  4.529   a14  3.704  +22.3%   yes
+  r.23.2.3        a8  4.931  |       a8  3.971    a6  2.447  +62.3%   yes
+  r.11.1.2        a8  4.904  |       a8  4.190   a14  3.556  +17.8%   yes
+  r.11.3.1        a8  4.313  |       a8  3.628   a14  2.902  +25.0%   yes
+  r.1.3.1        m13  4.098  |      m14  3.485   m13  3.458   +0.8%    NO
+  r.11.1.1        a8  3.979  |       a8  3.488   a14  3.096  +12.7%   yes
+  r.23.2.1        a8  3.385  |       a8  2.908    a3  2.542  +14.4%   yes
+  r.18.2.0        a7  3.104  |       a7  2.763   a16  2.549   +8.4%   yes
+  r.13.2.1        a3  3.042  |       a7  2.771   a14  2.631   +5.3%    NO
+  r.7.1.1         a7  2.977  |       a7  2.679   a16  2.535   +5.7%   yes
+```
+
+> **pred_a PASSED 10/12, and the two failures are the strongest evidence in the run. The only circuits
+> where the two counterfactuals name different components are r.13.2.1 and r.1.3.1 — exactly the two
+> §2054 had already flagged as effectively tied, at +1.1% and +0.3% top-two margin.** The methods disagree
+> precisely where the first method said it could not tell, and nowhere else. **pred_c PASSED 3/3: all
+> three of §2054's tied circuits stay tied under interchange.**
+
+> **pred_b FAILED 0/12, completely, and my reasoning was wrong. I registered that interchange
+> concentration would EXCEED mean-ablation concentration on at least 8 of 12, because on-distribution
+> donors should isolate circuit-specific content better than an off-distribution mean. It is lower in
+> every single case**, by 8% to 24%. **Concentration is a ratio, and a resampled activation is a
+> plausible-but-wrong signal everywhere — so it damages off-slice positions relatively more than the mean
+> does, which lowers the ratio.** The mean is a specific kind of wrong that members are disproportionately
+> sensitive to. **That does not weaken the localisation: what matters is the ranking, and the ranking is
+> stable.**
+
+**Written into the twelve circuit files** — the only files I touched, as posted to the board before
+starting. Each now carries a `localisation` block with both counterfactuals, the top-two margin, an
+agreement flag and a verdict: **6 localised, 4 localised with a weak margin, 2 ambiguous.** `components`
+was set only where the two methods agree and the field was previously absent.
+
+**Open.** Ablation and interchange both act on a whole component. **Neither can say whether a8 carries
+five circuits in five different subspaces or one shared one** — that is what DAS is for, and it is the
+third method Logan named. `das_class_learned.py` and `das_class_interchange.py` already exist.
