@@ -798,4 +798,17 @@ later per-rung backlog edits had silently anchored on text that was not here.
     pred_a median [L2_F_w(three) - L2_F_w(nine)] <= +0.005; pred_b
     <= +0.01 on >= 6/8; pred_c the nine-head arm reproduces §2146's
     per-window values (median |delta| <= 0.005).
-    -> ops/attn16_three_heads_w8.py [QUEUED]
+    -> ops/attn16_three_heads_w8.py
+    RUN 2026-08-30, §2152: pred_c HELD (repro to 0.0001), pred_a/b
+    FAILED (+0.0239 median, 2/8) — the three-head claim was an FR
+    text-homogeneity artifact; scope notices on §2149/§2150. Every
+    reduction claim now needs the eight windows first.
+
+59. attn16 PER-HEAD MAP AT WINDOW GRAIN (damage convention). Rung 55's
+    map was FR-only. Single skip-a16 build; eval-scoped zeroing of each
+    head (and all nine) over the eight stored windows.
+    pred_a the top three heads by window-median d_h are {16.0,16.3,16.4}
+    (the FR big three); pred_b the OTHER six heads' summed window-median
+    >= +0.015 (they carry, per §2152); pred_c the base arm reproduces
+    §2146's per-window values (median |delta| <= 0.005).
+    -> ops/attn16_headw8.py [QUEUED]

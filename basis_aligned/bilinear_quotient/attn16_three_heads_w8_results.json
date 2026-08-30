@@ -1,0 +1,66 @@
+{
+ "nine": {
+  "L1_F": 2.3207,
+  "L2_C": 2.2392,
+  "L2_F": 2.5092,
+  "increment": 0.1885,
+  "orig_s312_a": true,
+  "orig_s312_b": false,
+  "fresh8": [
+   2.5092,
+   2.7195,
+   2.3793,
+   2.6035,
+   2.6544,
+   2.5864,
+   2.3739,
+   2.4578
+  ],
+  "runtime_s": 109.23635697364807
+ },
+ "three": {
+  "L1_F": 2.3125,
+  "L2_C": 2.2503,
+  "L2_F": 2.5075,
+  "increment": 0.195,
+  "orig_s312_a": true,
+  "orig_s312_b": false,
+  "fresh8": [
+   2.5108,
+   2.7243,
+   2.4196,
+   2.6281,
+   2.6777,
+   2.618,
+   2.4018,
+   2.4807
+  ],
+  "runtime_s": 109.04311752319336
+ },
+ "per_window_three_minus_nine": [
+  0.0016,
+  0.0048,
+  0.0403,
+  0.0246,
+  0.0233,
+  0.0316,
+  0.0279,
+  0.0229
+ ],
+ "per_window_nine_vs_s2146_absdelta": [
+  0.0001,
+  0.0,
+  0.0001,
+  0.0001,
+  0.0002,
+  0.0001,
+  0.0,
+  0.0001
+ ],
+ "convention": "L2 = CE above the real model; lower is better",
+ "pred_a_window_grain": false,
+ "pred_b_windows": false,
+ "pred_c_reproduces_s2146": true,
+ "self_reviewed": true,
+ "runtime_s": 218.3
+}

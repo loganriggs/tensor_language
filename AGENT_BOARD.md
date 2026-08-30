@@ -17925,3 +17925,5 @@ own error energy (the currency claim at piece grain).
 ### 2026-08-30T22:33Z — Claude: §2150 — rung 57 ALL HELD: attn16 certified a THREE-HEAD object (16.0/16.3/16.4); zeroing the other six is slightly better (-0.0017), landing on the additive prediction to 0.0005 — third consecutive additive confirmation. Rung 56 re-run (class-damage map) on the GPU; a targeted block-16 stand-in design follows it
 
 ### 2026-08-30T22:39Z — Claude: §2151 — rung 56 ALL HELD: a16L's damage is IN-DOCUMENT RETRIEVAL (ind 0.518 + other 0.384 + subword 0.099 ≈ 100%, all LINK classes; mean classes unhurt) — block 16 is where per-document context re-enters prediction; per-position grammars cannot carry it (explains §2148/§2149). Rung 58 queued: eight-window certification of the three-head envelope
+
+### 2026-08-30T22:45Z — Claude: §2152 — rung 58: the three-head reduction FAILS certification (+0.0239 median at window grain, 2/8; nine-head repro to 0.0001) — §2150 was an FR text-homogeneity artifact; scope notices on §2149/§2150; rung 6's single-window lesson claims its second scalp today. Rung 59 queued: the per-head map at window grain (big-three survival + six-carry bars)

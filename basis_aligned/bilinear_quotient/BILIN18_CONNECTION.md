@@ -63951,6 +63951,9 @@ pred_b FAILED (argmax is a14, 0.933 vs a16's 0.908) | pred_c FAILED (smallest tw
 - (The §312 tail-increment band printed FAILED on the skip-a16 build arm, as in §2146 — inapplicable to the
   seven-dictionary tail, recorded, not retired.)
 
+**[SCOPE, from §2152: this per-head map is FR-only; on the eight windows the six "free" heads carry ~+0.024
+median. The head-grain rank order is re-measured at window grain in rung 59.]**
+
 ## §2150 — RUNG 57: attn16 IS A THREE-HEAD OBJECT — ZEROING THE SIX FREE HEADS TOGETHER LANDS ON THE ADDITIVE PREDICTION TO 0.0005 (d = −0.0017, slightly BETTER than keeping them). All three bars HELD; third consecutive additive confirmation. (Convention: L2 = CE above the real model; lower is better.)
 
 `ops/attn16_three_heads.py`, **112s**, BACKLOG rung 57. **ALL THREE HELD: pred_a (|−0.0017 − (−0.0012)| =
@@ -63966,6 +63969,10 @@ pred_b FAILED (argmax is a14, 0.933 vs a16's 0.908) | pred_c FAILED (smallest tw
 - **Block-16 program state after rungs 51–57:** the target object is three attention heads plus the m16
   remainder; the failed dictionary is worse than zero; the class-damage map (rung 56, re-running) is the last
   attribution before a targeted stand-in is designed.
+
+**[SCOPE, from §2152: this three-head claim was FR-only and FAILS at window grain (+0.0239 median on the
+eight windows). Window 0 (≈ FR docs) matches the FR number — the failure is text heterogeneity, not the refit.
+The rung-6 standard did its job; §2149's "six free heads" is likewise an FR-specific ordering.]**
 
 ## §2151 — RUNG 56 (valid re-run): a16L's DAMAGE IS IN-DOCUMENT RETRIEVAL — the "ind" class (target token seen earlier in the document) carries 51.8% of the cost and "other" 38.4%; with "subword" that is ~100%, all LINK classes. The six mean classes are unhurt. All three bars HELD. (Convention: per-position CE(full with a16L) − CE(attn16 real) on FR; positive = the dictionary hurts there.)
 
@@ -63988,3 +63995,23 @@ HELD: pred_a (top share 0.518 ≥ 0.40) | pred_b (top class "ind" is LINK) | pre
 - Design consequence for any future block-16 stand-in: it must be an attention-shaped object (read over
   context), plausibly only for the three heads and only on LINK positions. The certified cheap description
   today: three real heads → window certification next (rung 58).
+
+## §2152 — RUNG 58: THE THREE-HEAD REDUCTION FAILS CERTIFICATION — at window grain the six "free" heads carry +0.0239 median (2/8 windows within +0.01); window 0 (≈ FR's documents) matches the FR number, so §2150 was a text-homogeneity artifact, exactly what the rung-6 standard exists to catch. pred_c HELD (nine-head arm reproduces §2146's windows to |Δ| 0.0001). (Convention: L2 = CE above the real model; lower is better.)
+
+`ops/attn16_three_heads_w8.py`, **218s**, BACKLOG rung 58. **pred_c HELD (median |Δ| 0.0001) | pred_a FAILED
+(+0.0239 vs ≤ +0.005) | pred_b FAILED (2/8 vs 6/8).**
+
+```
+  window (three − nine)    0        1        2        3        4        5        6        7      median
+                        +0.0016  +0.0048  +0.0403  +0.0246  +0.0233  +0.0316  +0.0279  +0.0229  +0.0239
+```
+
+- **The withdrawal, scoped precisely:** "attn16 = three heads" holds on FR/window-0-like text and fails on
+  windows 2–7 (+0.02–0.04). The six heads §2149 priced at ≈ 0 on FR do real work on broader text. Scope notices
+  are appended to §2149/§2150. Window 0's agreement (+0.0016 vs FR's −0.0017) localizes the failure to document
+  heterogeneity rather than to the fits-vs-eval zeroing difference.
+- **What survives:** attn16's damage concentration at head grain is untested at window grain (rung 59, queued);
+  the §2151 class story (in-document retrieval) and §2149's dictionary-worse-than-zero comparison are
+  unaffected (both were like-for-like on their own eval sets). The single-window lesson of rung 6 claims its
+  second scalp of the day — every reduction claim now needs the eight windows before it enters the ledger as an
+  object description.
