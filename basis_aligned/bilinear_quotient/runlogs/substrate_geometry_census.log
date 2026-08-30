@@ -1,1 +1,12 @@
 grid 256000; components with >= 4 circuits: [('a8', 16), ('a16', 13), ('m16', 6), ('a3', 5), ('m14', 5), ('m13', 4)]
+  a8   n=16  shared 0.9309  |cos| 0.9250  resid |cos| 0.2162  sel full 5/16 -> resid 9/16  | a8-like: substrate WITH separable circuits under it (309s)
+  a16  n=13  shared 0.4887  |cos| 0.4271  resid |cos| 0.2255  sel full 7/13 -> resid 6/13  | a16-like: no shared substrate, circuits already separate (534s)
+  m16  n= 6  shared 0.9567  |cos| 0.9473  resid |cos| 0.5185  sel full 2/6 -> resid 2/6  | m16-like: substrate with NOTHING separable under it (636s)
+  a3   n= 5  shared 0.6974  |cos| 0.6163  resid |cos| 0.3155  sel full 1/5 -> resid 1/5  | a16-like: no shared substrate, circuits already separate (722s)
+  m14  n= 5  shared 0.7996  |cos| 0.7437  resid |cos| 0.2612  sel full 0/5 -> resid 2/5  | a16-like: no shared substrate, circuits already separate (808s)
+  m13  n= 4  shared 0.9591  |cos| 0.9452  resid |cos| 0.3819  sel full 1/4 -> resid 1/4  | m16-like: substrate with NOTHING separable under it (879s)
+
+wrote circuits/SUBSTRATE_CENSUS.json (879s)
+pred_a  shared substrate in 3/6 components ['a8', 'm16', 'm13'] (bar >=4) : False
+pred_b  two-level reversal unique to a8: found in ['a8'] (bar == [a8]) : True
+pred_c  Pearson(shared_variance, mean|cos|) = 0.9961 (bar |r|>=0.90) : True

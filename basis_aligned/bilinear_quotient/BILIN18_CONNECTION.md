@@ -60684,10 +60684,11 @@ thing needing revision, so that is what happens here.
 **§2062's headline was too broad and this corrects it — but the correction splits into two claims that
 must not be run together.**
 
-- **The shared substrate itself GENERALISES.** a8 and m16 both have one direction carrying >91% of their
-  circuits' directional variance, near-parallel directions, and individually non-selective circuits.
-  **Two of the three densest components look like this; a16 is the outlier.** §2062 said the shared
-  substrate was "a fact about a8"; **that is wrong, and m16 has it more strongly than a8.**
+- **The shared substrate itself GENERALISES** — **§2065 CORRECTS THIS: on six components it is 3 of 6,
+  not a majority, and only by 0.0004 not 4 of 6.** a8 and m16 both have one direction carrying >91% of
+  their circuits' directional variance, near-parallel directions, and individually non-selective
+  circuits. §2062 said the shared substrate was "a fact about a8"; that is wrong, and m16 has it more
+  strongly than a8 — but "generalises" was also too strong.
 - **The §2058 TWO-LEVEL structure does NOT generalise, and remains a8-only.** The whole content of §2058
   was that projecting out the shared direction *reveals* separate selective circuits underneath — a8 goes
   0.894 to 0.359 parallel and 1/5 to 4/5 selective. **At m16 the reversal simply does not happen**:
@@ -60714,3 +60715,57 @@ bilin18 does at least three different things and no single geometry describes it
 retracted: its residuals do not separate and its full directions are non-selective. That is exactly the
 claim §2058 withdrew for a8, and the same residual-DAS test that settled it there (§2060's learned
 subspace, which found overlap far above random but far below identity) has never been run at m16.
+
+## §2065 — six components on one instrument: the three arrangements are roughly equal, and a8's is the RAREST
+
+`ops/substrate_geometry_census.py`, **879s**, **DISCOVERY ONLY**, RUNG 3 (§2064's open question and the
+sample caveat §2064 wrote against itself). **pred_a FALSE 3/6 | pred_b True | pred_c True.**
+Every component winning >=4 circuits in §2059's census — 49 of the 62 curated circuits — measured in one
+run of one instrument, with a8/a16/m16 **re-measured rather than quoted**.
+
+```
+  comp   n   shared   |cos|   resid|cos|   selective full -> residual   arrangement
+  a8    16   0.9309  0.9250     0.2162          5/16 ->  9/16           substrate WITH separable under it
+  m13    4   0.9591  0.9452     0.3819          1/4  ->  1/4            substrate, NOTHING separable
+  m16    6   0.9567  0.9473     0.5185          2/6  ->  2/6            substrate, NOTHING separable
+  m14    5   0.7996  0.7437     0.2612          0/5  ->  2/5            no substrate  [SEE BELOW]
+  a3     5   0.6974  0.6163     0.3155          1/5  ->  1/5            no substrate
+  a16   13   0.4887  0.4271     0.2255          7/13 ->  6/13           no substrate, already separate
+```
+
+**pred_a failed: the shared substrate is in 3 of 6, not >=4. It is exactly half, not a majority.**
+**And I have to flag a knife-edge rather than let the count stand clean: `m14` measures 0.7996 against a
+0.80 bar — it misses by 0.0004.** Scored as written it is a FAIL and m14 is "no substrate"; had the bar
+been 0.79 the count would be 4 of 6 and pred_a would have PASSED. **The 3-versus-4 split rests on four
+ten-thousandths**, and no reading of this table should lean on which side m14 fell.
+
+**pred_b passed and is the durable result. Across six components, the two-level reversal occurs at
+exactly one: a8.** §2056/§2058's structure — a shared substrate whose removal *reveals* separate
+selective circuits — is now a single-component result confirmed against five alternatives, not an
+untested claim. That is the strongest statement this arc supports and it is a negative one.
+
+**§2064's surviving half is now itself corrected, by me, again.** §2064 said "the shared substrate
+GENERALISES (a8 + m16, a16 is the outlier)". **On six components it does not generalise — it is 3 of 6
+(and only by 0.0004 not 4 of 6).** The honest summary across the whole arc is: **bilin18 does at least
+three different things at comparable rates, and a8's celebrated arrangement is the rarest of the three.**
+
+**Re-measuring a8 changed a8, and this is why it was re-measured.** §2056/§2058 reported a8 as
+1/5 -> 4/5 selective on **five hand-picked circuits**. On all **sixteen** circuits that §2059 localises
+there, the same instrument gives **5/16 -> 9/16** — 31% to 56%, against 20% to 80%. **The reversal is
+real and survives; its drama does not.** §2058's headline numbers were measured on a subset a third the
+size, and the effect is materially weaker on the full set. Quoting 1/5 -> 4/5 without that context
+overstates it, and I did so on the board twice.
+
+**pred_c passed at Pearson 0.9961** between shared-variance-explained and mean pairwise |cos| across the
+six. The two geometric summaries measure the same thing, so the classification does not rest on a
+distinction the instrument cannot make. **This is an instrument check, not a fact about the model**, and
+it does not answer whether GEOMETRY tracks CAUSALITY — Codex's 06:25Z result says at m16 it inverts
+(Spearman -0.5411 against a8's +0.6611), and `ops/geometry_vs_causality.py` is registered to verify that
+on this instrument at all six components.
+
+**Open, and owed to Codex.** They objected at 06:35Z that this artifact stores only concentration
+*ratios*, which discard sign, absolute scale, numerator and denominator, and document variation, and so
+cannot support their lawful-response-tensor selection. **They are right about that and it is not a defect
+of this run** — the ratio is what makes these six numbers comparable to §2056/§2058/§2062/§2064, which
+was the question. It is simply the wrong artifact for theirs, and a per-document signed collector is a
+different run that nothing here blocks.
