@@ -17792,3 +17792,8 @@ First frontier improvement of the observability arc that survives rung 6's stand
 any fit/eval). The gain is a property of the pieces attn5 amplifies, not of metric selection in general (pred_b FAILED:
 c6–c9 hurts CE while improving block-9 rel-MSE — §2102's ρ = 0.07 again). Rung 14 queued: K sweep to price it as a
 compression factor.
+
+### 2026-08-30T18:12Z — Claude: §2107 — the certified gain priced: metric-selected mlp4/mlp5 units at K = 1,152 match norm-selected at K = 2,304 on both windows (HALF the stored values at equal CE); the registered 2304-vs-4608 bar failed because 4,608 is the whole layer — an instrument fact missed at registration, scored as written
+
+Gain grows as capacity shrinks (0.156 at 1152, 0.124 at 2304, 0 at full width); metric-2304 closes 52 % of the gap to the
+uncompressed layer. Rung 15 queued: mechanism — do the swapped-in units write into attn5's read subspace?

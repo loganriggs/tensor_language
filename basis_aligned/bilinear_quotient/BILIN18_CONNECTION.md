@@ -62693,3 +62693,34 @@ HELD | pred_b FAILED.** Window 1 = R0:R1 (the §2086 evaluation rows), window 2 
 **Standing frontier note (this window family, not the +2.93 fresh-pile number):** the certified empirical arm improves
 by 0.124 / 0.075 nat at identical price by re-selecting mlp4/mlp5 units. Next: price it — does metric selection at
 K = 2,304 match norm selection at a larger K (a compression factor), and where does the gain saturate in K?
+
+## §2107 — RUNG 14: the certified gain priced. Metric selection at K = 1,152 matches norm selection at K = 2,304 (a 2× unit compression at equal CE, both windows); the registered 2304-vs-4608 bar FAILED because K = 4,608 is the WHOLE layer
+
+`ops/metric_units_ksweep.py`, **152s**, BACKLOG rung 14. Six matched-context arms (norm vs metric selection of
+mlp4/mlp5 units at K ∈ {1152, 2304, 4608}; everything else as cfgE), two windows. **pred_d HELD (1.7415) | pred_c HELD
+(0.1240) | pred_b HELD (trivially, see below) | pred_a FAILED (see below).**
+
+```
+  K       selector   CE gap w1   CE gap w2   rel-MSE b5     b6     b7      metric gain w1 / w2
+  1152    norm       +1.7507     +2.0536     0.809  2.051  2.009
+  1152    metric     +1.5944     +1.9473     0.782  1.746  1.669     +0.156 / +0.106
+  2304    norm       +1.5808     +1.9068     0.783  1.741  1.688         (= cfgE)
+  2304    metric     +1.4568     +1.8314     0.749  1.411  1.386     +0.124 / +0.075
+  4608    norm       +1.3432     +1.7383     0.719  0.992  0.854
+  4608    metric     +1.3432     +1.7384     0.719  0.992  0.854     +0.000 / -0.000   <- K = 4608 = every unit
+```
+
+- **Instrument fact I should have checked before registering (a):** bilin18's MLP hidden width is 4 × 1152 = 4,608, so
+  the K = 4,608 arms keep every unit — they are mlp4/mlp5 *real*, and the two selectors coincide exactly. pred_a's bar
+  ("metric-2304 ≤ norm-4608") therefore asked metric selection at half width to equal the uncompressed layer; it does not
+  (1.457 vs 1.343), and pred_b held for the same trivial reason. Both scored as written.
+- **The two-for-one holds one step down the ladder:** **metric-1152 (+1.594 / +1.947) matches norm-2304 (+1.581 / +1.907)**
+  within 0.014 / 0.040 nat on the two windows, and its block-6 rel-MSE is the same (1.746 vs 1.741). Half the stored
+  values of the certified arm's mlp4/mlp5 stand-ins at the same CE, on both windows. The metric gain grows as K shrinks
+  (0.156 at 1152, 0.124 at 2304, 0 at full width): it is a selection effect that matters most when capacity is scarce.
+- **Where the gain saturates:** metric-2304 closes **52 %** of the CE gap between norm-2304 and the full layer (0.124 of
+  0.238) on window 1, 45 % on window 2. The other half is capacity, not choice.
+
+**Frontier statement for this window family (certified on two windows, self-reviewed):** the certified empirical arm's
+mlp4/mlp5 CP stand-ins can be halved in stored values (2,304 → 1,152 units each) at equal CE by selecting units under
+the block-5/6 first-order observability metric; at equal stored values the same selector buys 0.124 / 0.075 nat.
