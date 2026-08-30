@@ -60872,7 +60872,13 @@ It is also the only m16 circuit §2059 did not flag as band-localised. Whether m
 circuits plus one genuine outlier, rather than six of anything, is a five-circuit rerun of this same
 script away.
 
-## §2068 — m16's five band circuits: geometrically separable, causally indistinguishable, 0 of 5
+## §2068 — m16's five band circuits: geometrically separable, causally indistinguishable, ~~0 of 5~~ **SEED-DEPENDENT (§2070)**
+
+**CORRECTION (§2070).** The "0 of 5" below is a SINGLE-SEED verdict. Across three seeds `r.6.2.2`'s mean
+margin is **1.198**, above the bar — so the count is seed-dependent, not clean. Its sd is **0.319** and its
+seeds run 0.885 / 1.522 / 1.188, so it is not evidence of selectivity either; it is evidence that a
+single-seed verdict at m16 can land anywhere. The four circuits that stay below the bar on every seed are
+`r.1.1.2`, `r.1.2`, `r.1.2.0` and `r.1.2.1`.
 
 `ops/das_m16_minus_outlier.py`, **322s**, **DISCOVERY ONLY**, RUNG 3 (§2067's open question).
 **pred_a FALSE | pred_b True | pred_c True.**
@@ -60917,6 +60923,10 @@ honest next step is whether that margin survives the held-out row split §2061 a
 a mechanism story built on it.
 
 ## §2069 — r.1.1.1 survives the held-out split BY 0.001, and that number should not carry a conclusion
+
+**§2070 quantified it: the seed-to-seed sd of this margin is 0.0461, forty-six times the 0.0010 below.
+The caution below was correct and the number is noise. The CONCLUSION survives on different evidence —
+`r.1.1.1` clears the bar on 3 of 3 independent seeds — not on the 1.1010 reported here.**
 
 `ops/das_m16_heldout_margin.py`, **391s**, **DISCOVERY ONLY**, RUNG 3 (§2068's open question).
 **pred_a True | pred_b True | pred_c True.** All three passed, and the first one passed by the narrowest
@@ -60963,3 +60973,53 @@ than either §2067's "1 of 6 selective" or a clean "0 of 6" would have been.
 split of the same rows: either the interleaved even/odd row split §2061 used (which measures a different
 partition of the same data) or more DAS seeds per circuit, since a 0.001 margin is well inside the spread
 I would expect across initialisations and no seed-to-seed variance has ever been measured for these fits.
+
+## §2070 — the seed spread is 46x the margin §2069 passed by; it corrects §2068 and rescues §2069's conclusion but not its number
+
+`ops/das_m16_seed_variance.py`, **1101s**, **DISCOVERY ONLY**, RUNG 3 (§2069's open question).
+**pred_a True | pred_b True | pred_c FALSE.** Three seeds per circuit, every fit scored on held-out rows
+600-1000 exactly as §2069 scored its one.
+
+```
+  circuit    seed 830   seed 831   seed 832    mean +- sd      crosses 1.10
+  r.1.1.1     1.1013     1.1920     1.1605    1.151 +- 0.046      3 / 3
+  r.6.2.2     0.8846     1.5224     1.1883    1.198 +- 0.319      2 / 3
+  r.1.2.1     0.9807     0.9684     1.0371    0.995 +- 0.037      0 / 3
+  r.1.1.2     0.9729     0.9385     0.9952    0.969 +- 0.029      0 / 3
+  r.1.2       0.9526     0.9127     0.9756    0.947 +- 0.032      0 / 3
+  r.1.2.0     0.9043     0.7441     0.7494    0.799 +- 0.091      0 / 3
+```
+
+**pred_a passed and it is the finding: the standard deviation of `r.1.1.1`'s margin across seeds is
+0.0461 — forty-six times the 0.0010 by which §2069's single fit cleared its bar.** §2069 said that
+number carried no conclusion; it now has a number attached, and the ratio is not close. **No single-seed
+DAS margin anywhere in §2067, §2068 or §2069 should be treated as decisive, mine included.** The spread
+across circuits runs 0.029 to 0.319, so this is not specific to one fit.
+
+**pred_c FAILED, and it forces a correction to §2068.** `r.6.2.2`'s **mean** margin is 1.198, above the
+bar — a second circuit crosses once seeds are averaged, which §2068 reported as a clean "0 of 5". **But
+its sd is 0.319**, by far the largest here, and its three seeds run **0.885, 1.522, 1.188**: the mean is
+above the bar because of one wild draw. **So §2068's "0 of 5" was seed-dependent, and `r.6.2.2` is not
+evidence of selectivity either — it is evidence that a single-seed verdict at m16 can land anywhere.**
+Both halves get recorded; neither is allowed to stand alone.
+
+**pred_b passed, and the per-seed counts say more than the mean does.** `r.1.1.1` clears 1.10 on
+**3 of 3** seeds (1.101, 1.192, 1.161) with the smallest-but-one spread in the table. **That is better
+evidence than §2069 had, and it is a different kind of evidence than §2069 offered**: §2069's case was a
+point estimate 0.001 above a threshold, and this is a consistent sign across independent initialisations.
+**§2069's conclusion about `r.1.1.1` survives; §2069's number does not.**
+
+> **Where m16 stands.** Four circuits sit below the bar on every seed with the sign against selectivity
+> throughout (`r.1.1.2`, `r.1.2`, `r.1.2.0`, `r.1.2.1`). `r.1.1.1` is above it on every seed.
+> `r.6.2.2` is uninterpretable at sd 0.319. **The causal "one mechanism" reading holds for four of six,
+> is contradicted for one, and is unresolved for one** — which is weaker than §2068's "0 of 5" claimed
+> and stronger than §2069's 0.001 could support.
+
+**A cost I should record.** This script inherited the single-seed fit loop from its parent and ran it
+before the seed loop, so roughly 357s of the 1101s recomputed fits the seed loop then redid. The results
+are unaffected — the inherited loop's output is not read by the seed analysis — but a third of the run
+was waste, and deriving a script from a parent whose main loop you no longer need is how that happens.
+
+**Open.** Three seeds gives a standard error of 0.027 on `r.1.1.1`'s mean, which places it about 1.9
+standard errors above the bar — suggestive, not settled, and the honest way to close it is more seeds
+rather than more analysis of these three. `r.6.2.2` at sd 0.319 needs them more than `r.1.1.1` does.

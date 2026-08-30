@@ -1,0 +1,19 @@
+DAS at m16 on all 6 circuits localised there: ['r.1.1.1', 'r.1.1.2', 'r.1.2', 'r.1.2.0', 'r.1.2.1', 'r.6.2.2']
+/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/das_m16_seed_variance.py:212: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:836.)
+  losses.append(float(loss))
+  r.1.1.1      m16  rank 1: members 4.2903 off 0.8370 conc 5.126 recovered 2.631 | moved 0.999 loss -0.30151->-3.33011 healthy True (66s)
+  r.1.1.2      m16  rank 1: members 1.8480 off 0.4828 conc 3.828 recovered 1.22 | moved 1.000 loss -0.01420->-2.39556 healthy True (125s)
+  r.1.2        m16  rank 1: members 4.6778 off 1.0368 conc 4.512 recovered 3.064 | moved 0.999 loss -0.02979->-2.95503 healthy True (180s)
+  r.1.2.0      m16  rank 1: members 8.8873 off 1.0785 conc 8.24 recovered 3.881 | moved 0.999 loss -0.24200->-6.73962 healthy True (241s)
+  r.1.2.1      m16  rank 1: members 6.0028 off 1.0783 conc 5.567 recovered 2.993 | moved 1.000 loss -0.13302->-6.21545 healthy True (302s)
+  r.6.2.2      m16  rank 1: members 0.9478 off 0.2337 conc 4.056 recovered 0.614 | moved 1.000 loss +0.02829->-1.25611 healthy True (357s)
+  seed 20260830: r.1.1.1 1.1013, r.1.1.2 0.9729, r.1.2 0.9526, r.1.2.0 0.9043, r.1.2.1 0.9807, r.6.2.2 0.8846  (615s)
+  seed 20260831: r.1.1.1 1.1920, r.1.1.2 0.9385, r.1.2 0.9127, r.1.2.0 0.7441, r.1.2.1 0.9684, r.6.2.2 1.5224  (857s)
+  seed 20260832: r.1.1.1 1.1605, r.1.1.2 0.9952, r.1.2 0.9756, r.1.2.0 0.7494, r.1.2.1 1.0371, r.6.2.2 1.1883  (1101s)
+
+wrote circuits/DAS_M16_SEEDS.json (1101s)
+pred_a  sd of r.1.1.1 margin across seeds 0.0461 (bar >=0.02; S2069 cleared its bar by 0.0010) : True
+pred_b  mean r.1.1.1 margin 1.1513 (bar >1.10) : True
+pred_c  other circuits with mean margin >1.10: ['r.6.2.2'] (bar none) : False
+        mean+-sd: r.1.1.1 1.151+-0.046, r.1.1.2 0.969+-0.029, r.1.2 0.947+-0.032, r.1.2.0 0.799+-0.091, r.1.2.1 0.995+-0.037, r.6.2.2 1.198+-0.319

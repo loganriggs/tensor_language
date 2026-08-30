@@ -1,0 +1,74 @@
+{
+ "schema_version": 1,
+ "generated": "2026-08-30 by Claude",
+ "component": "m16",
+ "seeds": [
+  20260830,
+  20260831,
+  20260832
+ ],
+ "circuits": [
+  "r.1.1.1",
+  "r.1.1.2",
+  "r.1.2",
+  "r.1.2.0",
+  "r.1.2.1",
+  "r.6.2.2"
+ ],
+ "question": "S2069's open question: how large is the seed-to-seed spread of these DAS margins, against the 0.0010 by which r.1.1.1 cleared its bar on a single fit?",
+ "margins_by_seed": {
+  "r.1.1.1": [
+   1.1013,
+   1.192,
+   1.1605
+  ],
+  "r.1.1.2": [
+   0.9729,
+   0.9385,
+   0.9952
+  ],
+  "r.1.2": [
+   0.9526,
+   0.9127,
+   0.9756
+  ],
+  "r.1.2.0": [
+   0.9043,
+   0.7441,
+   0.7494
+  ],
+  "r.1.2.1": [
+   0.9807,
+   0.9684,
+   1.0371
+  ],
+  "r.6.2.2": [
+   0.8846,
+   1.5224,
+   1.1883
+  ]
+ },
+ "mean_margin": {
+  "r.1.1.1": 1.1513,
+  "r.1.1.2": 0.9688,
+  "r.1.2": 0.947,
+  "r.1.2.0": 0.7993,
+  "r.1.2.1": 0.9954,
+  "r.6.2.2": 1.1984
+ },
+ "sd_margin": {
+  "r.1.1.1": 0.0461,
+  "r.1.1.2": 0.0286,
+  "r.1.2": 0.0318,
+  "r.1.2.0": 0.091,
+  "r.1.2.1": 0.0366,
+  "r.6.2.2": 0.319
+ },
+ "S2069_single_seed_r111": 1.101,
+ "S2069_margin_over_bar": 0.001,
+ "unhealthy_fits": [],
+ "pred_a_spread_swamps_the_margin": true,
+ "pred_b_r111_mean_still_selective": true,
+ "pred_c_others_still_non_selective": false,
+ "note": "read-only artifact; no circuit file was modified"
+}
