@@ -88,12 +88,20 @@ or support-dependent budget choice is licensed.
 ## Concrete freezer and remaining launch gates
 
 `prepare_ordered_successor_tensor_select_v3_rows.py` is the prospective concrete
-freezer owner.  It has a fresh cache/lock/audit/failure/manifest/receipt namespace;
+freezer owner.  It has a fresh cache/lock/audit/failure/shared-terminal/manifest/receipt namespace;
 binds this amendment, the pure budget contract, the complete v2 source closure, and
 the exact immutable v2 audit/failure parents; requires the v2 cache and receipt to
 remain absent; recomputes the exact 335-document stopping count; fills exactly 384
 rows; publishes full support and pair occupancy; re-harvests/reallocates after install;
 and uses a guarded receipt-last terminal lifecycle.  Import is model-free.
+
+The run lock keeps its original `O_EXCL` read/write descriptor open for the entire
+transaction.  Every check opens the path with `O_NOFOLLOW`, compares stable
+before/after `fstat` identity and contents to the original descriptor's device/inode
+and nonce, then rechecks the path identity.  Receipt and failure publication stage and
+semantically replay their payloads before competing for one create-only shared
+terminal-claim hard link.  Only that winner may link its terminal payload.  Directory
+fsync and temporary-cleanup errors after a successful hard link are non-propagating.
 
 Those source bytes still require an independent outcome-blind audit at an immutable
 pushed commit.  No exact v3 audit exists in this amendment, and the owner fails before

@@ -2,11 +2,36 @@ from __future__ import annotations
 
 import json
 import dataclasses
+import os
+from pathlib import Path
+import stat
 
 import pytest
 
 import bracket_closure_execution_lifecycle_v1 as lifecycle
 from test_bracket_closure_execution_v1 import _authority
+
+
+def _inject_post_link_housekeeping_failures(monkeypatch):
+    """Fail only directory fsync and dot-temporary cleanup, never pre-link writes."""
+    real_fsync, real_unlink = os.fsync, Path.unlink
+    counts = {"directory_fsync": 0, "temporary_unlink": 0}
+
+    def failing_fsync(descriptor):
+        if stat.S_ISDIR(os.fstat(descriptor).st_mode):
+            counts["directory_fsync"] += 1
+            raise OSError("injected post-link directory fsync failure")
+        return real_fsync(descriptor)
+
+    def failing_temporary_unlink(path, *args, **kwargs):
+        if path.name.startswith(".") and ".tmp." in path.name:
+            counts["temporary_unlink"] += 1
+            raise OSError("injected post-link temporary cleanup failure")
+        return real_unlink(path, *args, **kwargs)
+
+    monkeypatch.setattr(lifecycle.os, "fsync", failing_fsync)
+    monkeypatch.setattr(Path, "unlink", failing_temporary_unlink)
+    return counts
 
 
 def test_transaction_is_no_go_before_backend_access() -> None:
@@ -48,6 +73,28 @@ def test_guard_failure_or_lock_swap_cannot_publish(tmp_path) -> None:
                 final_guard=lambda: (_ for _ in ()).throw(RuntimeError("injected")),
             )
     assert not receipt.exists()
+
+
+def test_acquisition_replacement_cannot_become_the_owned_claim(
+    tmp_path, monkeypatch,
+) -> None:
+    lock_path = tmp_path / "lock"
+    original = lifecycle.RunLock.require_owned
+    injected = False
+
+    def replace_before_first_validation(lock):
+        nonlocal injected
+        if not injected:
+            injected = True
+            assert lock.claim is not None
+            lock_path.unlink()
+            lock_path.write_text(lock.claim[2])
+        return original(lock)
+
+    monkeypatch.setattr(lifecycle.RunLock, "require_owned", replace_before_first_validation)
+    with pytest.raises(RuntimeError, match="ownership changed"):
+        lifecycle.RunLock(lock_path).__enter__()
+    assert lock_path.exists(), "the replacement must not be unlinked as if owner-created"
 
 
 def test_result_is_bound_then_receipt_is_linked_last(tmp_path) -> None:
@@ -159,6 +206,45 @@ def test_failure_guard_or_partial_result_race_cannot_publish(tmp_path) -> None:
                 lock=lock, final_guard=lambda: result.write_text("late"),
             )
     assert not failure.exists() and not terminal.exists()
+
+
+def test_success_post_link_housekeeping_errors_cannot_strand_claim(
+    tmp_path, monkeypatch,
+) -> None:
+    counts = _inject_post_link_housekeeping_failures(monkeypatch)
+    result, receipt = tmp_path / "result.json", tmp_path / "receipt.json"
+    failure, terminal = tmp_path / "failure.json", tmp_path / "terminal.json"
+    with lifecycle.RunLock(tmp_path / "lock") as lock:
+        lifecycle.publish_result_receipt_last(
+            {"schema": "known", "promoted": False}, result, receipt,
+            failure_path=failure, terminal_path=terminal,
+            authority_sha256="a" * 64, lock=lock, final_guard=lambda: None,
+        )
+    assert result.is_file() and terminal.is_file() and receipt.is_file()
+    assert not failure.exists()
+    assert json.loads(terminal.read_text())["status"] == "success_claimed_before_receipt"
+    assert json.loads(receipt.read_text())["status"] == "complete_nonpromotion"
+    assert counts == {"directory_fsync": 3, "temporary_unlink": 3}
+
+
+def test_failure_post_link_housekeeping_errors_still_finish_failure_receipt(
+    tmp_path, monkeypatch,
+) -> None:
+    counts = _inject_post_link_housekeeping_failures(monkeypatch)
+    result, receipt = tmp_path / "result.json", tmp_path / "receipt.json"
+    failure, terminal = tmp_path / "failure.json", tmp_path / "terminal.json"
+    with lifecycle.RunLock(tmp_path / "lock") as lock:
+        lifecycle.publish_failure_receipt_last(
+            {"schema": "failed", "authority_sha256": "a" * 64}, failure,
+            result_path=result, receipt_path=receipt, terminal_path=terminal,
+            lock=lock, final_guard=lambda: None,
+        )
+    assert terminal.is_file() and failure.is_file()
+    assert not result.exists() and not receipt.exists()
+    assert json.loads(terminal.read_text())["status"] == (
+        "failure_claimed_before_failure_receipt"
+    )
+    assert counts == {"directory_fsync": 2, "temporary_unlink": 2}
 
 
 def test_source_closure_binds_no_go_and_tests() -> None:

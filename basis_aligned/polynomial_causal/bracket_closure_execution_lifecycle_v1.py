@@ -48,19 +48,44 @@ SOURCE_CLOSURE = (
 
 class RunLock:
     def __init__(self, path: Path):
-        self.path = path; self.claim = None
+        self.path = path; self.claim = None; self._descriptor = None
 
     def __enter__(self):
         self.path.parent.mkdir(parents=True, exist_ok=True)
         nonce = secrets.token_hex(16)
-        descriptor = os.open(self.path, os.O_WRONLY | os.O_CREAT | os.O_EXCL, 0o600)
-        os.write(descriptor, nonce.encode()); os.fsync(descriptor); os.close(descriptor)
-        stat = self.path.stat(); self.claim = (stat.st_dev, stat.st_ino, nonce)
-        return self
+        descriptor = os.open(self.path, os.O_RDWR | os.O_CREAT | os.O_EXCL, 0o600)
+        self._descriptor = descriptor
+        try:
+            os.write(descriptor, nonce.encode()); os.fsync(descriptor)
+            stat = os.fstat(descriptor)
+            self.claim = (stat.st_dev, stat.st_ino, nonce)
+            # Acquisition itself is a protected boundary: a replacement after the
+            # O_EXCL create but before returning the lock must not become our claim.
+            self.require_owned()
+            return self
+        except BaseException:
+            try:
+                path_stat = self.path.stat(follow_symlinks=False)
+                if self.claim is not None and (path_stat.st_dev, path_stat.st_ino) == (
+                    self.claim[0], self.claim[1],
+                ):
+                    self.path.unlink()
+            except FileNotFoundError:
+                pass
+            os.close(descriptor)
+            self._descriptor = None
+            self.claim = None
+            raise
 
     def require_owned(self):
-        if self.claim is None:
+        if self.claim is None or self._descriptor is None:
             raise RuntimeError("execution lock is not owned")
+        creator_before = os.fstat(self._descriptor)
+        os.lseek(self._descriptor, 0, os.SEEK_SET)
+        creator_raw = os.read(self._descriptor, 4096)
+        if os.read(self._descriptor, 1):
+            raise RuntimeError("execution lock contents changed")
+        creator_after = os.fstat(self._descriptor)
         flags = os.O_RDONLY | getattr(os, "O_NOFOLLOW", 0)
         descriptor = os.open(self.path, flags)
         try:
@@ -72,16 +97,51 @@ class RunLock:
         finally:
             os.close(descriptor)
         path_stat = self.path.stat(follow_symlinks=False)
-        if (before.st_dev, before.st_ino) != (after.st_dev, after.st_ino) or (
+        if (creator_before.st_dev, creator_before.st_ino) != (
+            creator_after.st_dev, creator_after.st_ino,
+        ) or creator_before.st_size != creator_after.st_size or (
+            creator_before.st_mtime_ns != creator_after.st_mtime_ns
+        ) or (before.st_dev, before.st_ino) != (after.st_dev, after.st_ino) or (
             before.st_size != after.st_size or before.st_mtime_ns != after.st_mtime_ns
         ) or (path_stat.st_dev, path_stat.st_ino) != (before.st_dev, before.st_ino) or (
-            before.st_dev, before.st_ino, raw.decode()
+            before.st_dev, before.st_ino
+        ) != (creator_before.st_dev, creator_before.st_ino) or raw != creator_raw or (
+            creator_before.st_dev, creator_before.st_ino, creator_raw.decode()
         ) != self.claim:
             raise RuntimeError("execution lock ownership changed")
 
     def __exit__(self, *_):
-        try: self.require_owned(); self.path.unlink()
-        except (FileNotFoundError, RuntimeError): pass
+        try:
+            self.require_owned(); self.path.unlink()
+        except (FileNotFoundError, RuntimeError):
+            pass
+        finally:
+            if self._descriptor is not None:
+                os.close(self._descriptor)
+                self._descriptor = None
+
+
+def _fsync_link_parent_best_effort(path: Path) -> None:
+    """A completed hard link is authoritative even if durability reporting fails."""
+    directory = None
+    try:
+        directory = os.open(path.parent, os.O_RDONLY | getattr(os, "O_DIRECTORY", 0))
+        os.fsync(directory)
+    except OSError:
+        pass
+    finally:
+        if directory is not None:
+            try:
+                os.close(directory)
+            except OSError:
+                pass
+
+
+def _unlink_best_effort(path: Path) -> None:
+    try:
+        path.unlink(missing_ok=True)
+    except OSError:
+        pass
 
 
 def publish_json_receipt_last(
@@ -98,11 +158,11 @@ def publish_json_receipt_last(
         if path.exists():
             raise RuntimeError("execution receipt namespace is spent")
         os.link(temporary, path)
-        directory = os.open(path.parent, os.O_RDONLY | getattr(os, "O_DIRECTORY", 0))
-        try: os.fsync(directory)
-        finally: os.close(directory)
+        _fsync_link_parent_best_effort(path)
+        if json.loads(path.read_bytes()) != payload:
+            raise RuntimeError("execution linked receipt semantic replay failed")
     finally:
-        temporary.unlink(missing_ok=True)
+        _unlink_best_effort(temporary)
 
 
 def file_sha256(path: Path) -> str:
@@ -159,11 +219,13 @@ def publish_result_receipt_last(
         if any(path.exists() for path in paths):
             raise RuntimeError("execution terminal aggregate changed before result")
         os.link(result_tmp, result_path)
-        directory = os.open(result_path.parent, os.O_RDONLY | getattr(os, "O_DIRECTORY", 0))
-        try: os.fsync(directory)
-        finally: os.close(directory)
+        _fsync_link_parent_best_effort(result_path)
+        if file_sha256(result_path) != result_sha256 or json.loads(
+            result_path.read_bytes()
+        ) != result:
+            raise RuntimeError("execution linked result semantic replay failed")
     finally:
-        result_tmp.unlink(missing_ok=True)
+        _unlink_best_effort(result_tmp)
     receipt = {
         "schema": "bracket_closure_execution_v1_receipt",
         "authority_sha256": authority_sha256,
@@ -189,11 +251,13 @@ def publish_result_receipt_last(
         ):
             raise RuntimeError("execution terminal aggregate changed before success claim")
         os.link(terminal_tmp, terminal_path)
-        directory = os.open(terminal_path.parent, os.O_RDONLY | getattr(os, "O_DIRECTORY", 0))
-        try: os.fsync(directory)
-        finally: os.close(directory)
+        _fsync_link_parent_best_effort(terminal_path)
+        if file_sha256(terminal_path) != hashlib.sha256(terminal_bytes).hexdigest() or (
+            json.loads(terminal_path.read_bytes()) != terminal
+        ):
+            raise RuntimeError("execution linked success claim semantic replay failed")
     finally:
-        terminal_tmp.unlink(missing_ok=True)
+        _unlink_best_effort(terminal_tmp)
     terminal_sha256 = hashlib.sha256(terminal_bytes).hexdigest()
     publish_json_receipt_last(
         receipt, receipt_path, lock=lock,
@@ -244,11 +308,13 @@ def publish_failure_receipt_last(
         ) or any(path.exists() for path in (receipt_path, failure_path, terminal_path)):
             raise RuntimeError("execution terminal aggregate changed before failure claim")
         os.link(temporary, terminal_path)
-        directory = os.open(terminal_path.parent, os.O_RDONLY | getattr(os, "O_DIRECTORY", 0))
-        try: os.fsync(directory)
-        finally: os.close(directory)
+        _fsync_link_parent_best_effort(terminal_path)
+        if file_sha256(terminal_path) != hashlib.sha256(terminal_bytes).hexdigest() or (
+            json.loads(terminal_path.read_bytes()) != terminal
+        ):
+            raise RuntimeError("execution linked failure claim semantic replay failed")
     finally:
-        temporary.unlink(missing_ok=True)
+        _unlink_best_effort(temporary)
     terminal_sha256 = hashlib.sha256(terminal_bytes).hexdigest()
     publish_json_receipt_last(
         failure, failure_path, lock=lock,

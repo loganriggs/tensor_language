@@ -79,16 +79,40 @@ target-minus-jitter specificity, global collateral UCB at most 0.01 nat and at m
 match native write/logits under production currency. Any singular stake, nonfinite
 metric, support loss, source drift, or call mismatch is terminal unevaluable.
 
-## Preserved launch blockers
+## Prospective model-free row transaction
 
-The new sources close tokenizer classification and deterministic fresh-role
-allocation only. Launch remains NO-GO until separate committed sources provide:
+`prepare_newline_l12h6_canary_v1_rows.py` prospectively closes candidate enumeration
+and row publication. Before opening the pinned parquet or any code blob, it requires
+an externally created canonical authority and independent outcome-blind audit. The
+authority binds the pushed source closure, the canonical FineWeb manifest/parquet,
+the complete eligible committed code tree, exact tokenizer registry, allocation seed,
+recursive metadata-only JSON registry snapshot, and canonical output namespace.
 
-1. an audited candidate enumerator for pinned prose, code, and list/table sources;
-2. a create-only, receipt-last row publisher with recursive registry replay;
-3. an external independent row/source audit and pre-forward authority;
-4. exact checkpoint-derived program manifests made before any canary forward; and
-5. a concrete facade transaction that terminally binds full call closures, sufficient
+Natural documents are typed `list` only by the frozen line-prefix census (at least
+four nonempty lines, at least three list/table lines, and at least one third of lines
+structural); every other natural document is `prose`. `code` is drawn from the exact
+committed eligible non-test Python tree. Each document gets a role license by a fixed
+SHA split before token-row eligibility is inspected. Within it, the selected
+nonoverlapping 257-token chunk is the minimum frozen SHA among chunks with a valid
+newline/control mask. Historical document/path/blob/normalized-Python/row/prefix
+identities are excluded recursively without deserializing any prior tensor.
+
+The publisher creates three physically separate role tensors, so CANARY_SELECT can
+later be loaded without deserializing sealed FINAL/OOD. It replays masks, support,
+domain quotas, role licenses, provenance, disjointness, sources, registry, audit, and
+authority after installation. Cache files and manifest are linked first; the success
+receipt is the final create-only artifact. A failure is terminal, binds the exact
+partial-artifact state, and cannot coexist with a success receipt. No authority or
+audit can be minted by the freezer.
+
+## Remaining launch blockers
+
+These sources are prospective and have not been executed. Launch remains NO-GO until:
+
+1. a different agent independently audits the exact pushed enumerator/freezer closure;
+2. an external row authority is frozen from that audit before the freezer runs;
+3. exact checkpoint-derived program manifests are made before any canary forward; and
+4. a concrete facade transaction terminally binds full call closures, sufficient
    statistics, model/input immutability, failure exclusivity, and receipt-last replay.
 
 `FINAL` and `OOD` stay sealed even after row freezing. Their release requires a later

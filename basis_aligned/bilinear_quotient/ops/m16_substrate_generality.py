@@ -1,33 +1,34 @@
-# IS §2058'S SHARED-SUBSTRATE STRUCTURE A PROPERTY OF a8, OR OF THE MODEL?
+# WHICH IS TYPICAL -- a8's SHARED SUBSTRATE, OR a16's ALREADY-SEPARATE CIRCUITS?
 #
-# RUNG 3: the open question named at the end of §2059 -- "a16 is a8's near-twin and has had no analysis
-# at all". §2056 and §2058 established, at a8 alone, a specific two-level structure: the circuits sharing
-# a component have (i) full directions that are strongly parallel (mean pairwise |cos| 0.894) and
-# individually NON-selective (1 of 5), and (ii) once the dominant shared direction is projected out --
-# 91.6% of the directional variance -- residuals that are near-ORTHOGONAL (0.359) and mostly SELECTIVE
-# (4 of 5). "Five circuits on a common substrate, not one circuit seen five ways."
+# RUNG 3: the open question named at the end of §2062.
 #
-# That was measured on ONE component, at five circuits chosen because they happened to be there. §2059
-# then found a8 is the densest component in the model (16 circuits) and a16 its near-twin (13) -- so the
-# generality question is now answerable on a second, independent, comparably-dense component.
+# §2056/§2058 found at a8 that circuits sharing a component have strongly parallel, individually
+# NON-selective directions dominated by one shared direction (91.6% of the variance), separating only once
+# it is projected out (1/5 selective -> 4/5). §2062 ran the identical test at a16 and found the OPPOSITE:
+# no dominant shared direction (48.9%), directions not parallel (0.427), and circuits ALREADY individually
+# selective before removal (11/13 raw, 7/13 at an honest 10% margin), with removal HURTING (-> 6/13).
 #
-# The circuit list is taken from circuits/BATTERY.json (every curated circuit whose best mean-ablation
-# component is a16), not hand-picked -- circuit_subspace_separation.py still names only three a16
-# circuits, which predates the battery.
+# Two components, two opposite geometries, and no way yet to say which is typical of bilin18. m16 is the
+# third-densest component in §2059's census (6 circuits) and is an MLP rather than an attention site,
+# which makes it the informative third case: if the dichotomy tracks the attention/MLP distinction rather
+# than being idiosyncratic, m16 should differ from BOTH attention sites measured so far.
+#
+# This is §2062's script with KEY changed and nothing else, so the comparison is instrument-identical.
 #
 # REGISTERED PREDICTIONS (written before running):
-#   pred_a  a16's circuits also have ONE dominant shared direction, explaining >= 0.80 of the variance of
-#           their per-circuit directions (a8 measured 0.9161). If FALSE, the shared substrate is a fact
-#           about a8 rather than about components that carry many circuits.
-#   pred_b  Their full directions are strongly parallel too: mean pairwise |cos| >= 0.70 (a8: 0.8942).
-#   pred_c  And the §2058 reversal reproduces: after projecting out the shared direction, the residual
-#           directions are near-orthogonal (mean pairwise |cos| < 0.50, a8: 0.3587) AND rank-1 projection
-#           ablation along a residual is selective for its own circuit in >= 60% of them (a8: 4/5 = 80%,
-#           against 1/5 for the full directions). If TRUE, the two-level structure is a general property
-#           of circuit-dense components and §2058 generalises. If FALSE it is a8-specific and §2058 must
-#           be read as a single-component result.
+#   pred_a  m16 follows the a16 pattern rather than the a8 one: the shared direction explains < 0.80 of
+#           the variance of the per-circuit directions. Registered this way round because two of the three
+#           densest components would then agree, making a8 the special case rather than the rule -- the
+#           reading §2062 leaves as most likely, and the one this can falsify.
+#   pred_b  Its full directions are correspondingly NOT strongly parallel: mean pairwise |cos| < 0.70.
+#   pred_c  And its circuits are already individually selective BEFORE any removal, at a >= 10% margin for
+#           at least half of them -- the honest bar §2062 had to retrofit onto its own headline, used here
+#           as the registered one from the start. If pred_a and pred_b hold with pred_c, the a8
+#           arrangement is the exception among the three densest components. If m16 instead reproduces a8,
+#           two of three share a substrate, a16 is the outlier, and §2062's "single-component result"
+#           framing is the thing needing revision -- which I would report as written.
 #
-# Writes circuits/A16.json. DISCOVERY ONLY. No circuit file is modified.
+# Writes circuits/M16.json. DISCOVERY ONLY. No circuit file is modified.
 import json
 import os
 import sys
@@ -40,7 +41,7 @@ os.chdir(BQ)
 
 # PLAN PRE-FLIGHT (LESSON 109): census_lib builds MODS from the live model at import, so enqueue's
 # BQLIB_DRYRUN gate must be answered BEFORE that import or the gate runs the experiment for real.
-KEY = 'a16'                                          # single source of truth: the guard and the body
+KEY = 'm16'                                          # single source of truth: the guard and the body
 #                                                      must never disagree about which component this is
 
 if os.environ.get('BQLIB_DRYRUN') == '1':
@@ -178,16 +179,22 @@ full_tab = conc_table(dirs, 'full   ')
 res_tab = conc_table(resid, 'residual')
 
 
-def n_sel(tab):
+def n_sel(tab, margin=1.0):
+    """circuits whose own concentration exceeds the mean of the others by at least `margin`.
+
+    §2062 reported raw selectivity (margin 1.0) and then had to retrofit a 10% bar, because 4 of its 11
+    'selective' circuits were within 5% of a tie. Here the honest bar is the registered one.
+    """
     n = 0
     for src in TAGS:
         oth = [v for k, v in tab[src].items() if k != src and v is not None]
-        if tab[src][src] is not None and oth and tab[src][src] > sum(oth) / len(oth):
+        if tab[src][src] is not None and oth and tab[src][src] > margin * (sum(oth) / len(oth)):
             n += 1
     return n
 
 
 nf, nr = n_sel(full_tab), n_sel(res_tab)
+nf10, nr10 = n_sel(full_tab, 1.10), n_sel(res_tab, 1.10)
 rep = {'schema_version': 1, 'generated': '2026-08-30 by Claude',
        'component': KEY, 'circuits': TAGS, 'a8_reference': A8_REF,
        'method': 'per-circuit direction = unit(mean over members - mean off slice) in the component '
@@ -197,21 +204,25 @@ rep = {'schema_version': 1, 'generated': '2026-08-30 by Claude',
        'shared_variance_explained': round(share_var, 4),
        'mean_pairwise_abs_cos_full': round(mean_full, 4),
        'mean_pairwise_abs_cos_residual': round(mean_res, 4),
-       'full_selective': f'{nf}/{len(TAGS)}', 'residual_selective': f'{nr}/{len(TAGS)}',
-       'pred_a_shared_direction_dominates': bool(share_var >= 0.80),
-       'pred_b_full_directions_parallel': bool(mean_full >= 0.70),
-       'pred_c_residuals_orthogonal_and_selective': bool(mean_res < 0.50
-                                                         and nr >= 0.60 * len(TAGS)),
+       'full_selective_raw': f'{nf}/{len(TAGS)}', 'residual_selective_raw': f'{nr}/{len(TAGS)}',
+       'full_selective_10pct_margin': f'{nf10}/{len(TAGS)}',
+       'residual_selective_10pct_margin': f'{nr10}/{len(TAGS)}',
+       'pred_a_follows_a16_not_a8': bool(share_var < 0.80),
+       'pred_b_directions_not_parallel': bool(mean_full < 0.70),
+       'pred_c_already_selective_before_removal': bool(nf10 >= 0.50 * len(TAGS)),
        'cos_full': full_cos, 'cos_residual': res_cos,
        'concentration_full': full_tab, 'concentration_residual': res_tab,
        'note': 'read-only artifact; no circuit file was modified'}
-json.dump(rep, open('circuits/A16.json', 'w'), indent=1)
+json.dump(rep, open('circuits/M16.json', 'w'), indent=1)
 
-print(f'\nwrote circuits/A16.json ({time.time()-t0:.0f}s)   [{len(TAGS)} circuits at {KEY}]')
-print(f'pred_a  shared direction explains {share_var:.4f} of variance (bar >=0.80, a8 0.9161) : '
-      f'{share_var >= 0.80}')
-print(f'pred_b  full directions mean |cos| {mean_full:.4f} (bar >=0.70, a8 0.8942) : {mean_full >= 0.70}')
-print(f'pred_c  residual |cos| {mean_res:.4f} (bar <0.50, a8 0.3587) AND residual selective '
-      f'{nr}/{len(TAGS)} (bar >=60%, a8 4/5) : '
-      f'{rep["pred_c_residuals_orthogonal_and_selective"]}')
-print(f'        for contrast, FULL directions were selective {nf}/{len(TAGS)} (a8: 1/5)')
+print(f'\nwrote circuits/M16.json ({time.time()-t0:.0f}s)   [{len(TAGS)} circuits at {KEY}]')
+print(f'pred_a  shared direction explains {share_var:.4f} (bar <0.80 = a16-like; a8 0.9161, '
+      f'a16 0.4887) : {share_var < 0.80}')
+print(f'pred_b  full directions mean |cos| {mean_full:.4f} (bar <0.70 = a16-like; a8 0.8942, '
+      f'a16 0.4271) : {mean_full < 0.70}')
+print(f'pred_c  FULL directions already selective before removal at a >=10% margin: '
+      f'{nf10}/{len(TAGS)} (bar >= half) : {rep["pred_c_already_selective_before_removal"]}')
+print(f'        raw (any margin): full {nf}/{len(TAGS)}, residual {nr}/{len(TAGS)}')
+print(f'        at 10% margin   : full {nf10}/{len(TAGS)}, residual {nr10}/{len(TAGS)}')
+print(f'        residual |cos| {mean_res:.4f}   [a8: full 1/5 -> residual 4/5; '
+      f'a16: full 7/13 -> residual 6/13, both at the 10% margin]')

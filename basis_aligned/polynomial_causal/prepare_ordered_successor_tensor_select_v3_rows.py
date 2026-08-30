@@ -32,6 +32,7 @@ AUDIT = HERE / "ordered_successor_tensor_select_v3_rows_independent_audit.json"
 CACHE = BQ / ".rowcache_ordered_successor_tensor_select_v3"
 RECEIPT = BQ / "ordered_successor_tensor_select_v3_rows_receipt.json"
 FAILURE = BQ / "ordered_successor_tensor_select_v3_rows_failure.json"
+TERMINAL = BQ / "ordered_successor_tensor_select_v3_rows_terminal_claim.json"
 LOCK = Path("/workspace/runs/.ordered_successor_tensor_select_v3_rows.lock")
 MANIFEST_NAME = "select_manifest.json"
 ROWS_NAME = "select_rows.pt"
@@ -126,6 +127,7 @@ def validate_independent_audit(path: Path = AUDIT) -> tuple[dict[str, Any], str]
 
 class RunClaim(NamedTuple):
     descriptor: int
+    device: int
     inode: int
     nonce: str
 
@@ -134,13 +136,14 @@ def acquire_claim(path: Path = LOCK) -> RunClaim:
     path.parent.mkdir(parents=True, exist_ok=True)
     nonce = secrets.token_hex(32)
     try:
-        descriptor = os.open(path, os.O_WRONLY | os.O_CREAT | os.O_EXCL, 0o600)
+        descriptor = os.open(path, os.O_RDWR | os.O_CREAT | os.O_EXCL, 0o600)
     except FileExistsError as error:
         raise RuntimeError(f"successor v3 row namespace is locked: {path}") from error
     try:
         os.write(descriptor, (nonce + "\n").encode("ascii"))
         os.fsync(descriptor)
-        return RunClaim(descriptor, os.fstat(descriptor).st_ino, nonce)
+        stat = os.fstat(descriptor)
+        return RunClaim(descriptor, stat.st_dev, stat.st_ino, nonce)
     except BaseException:
         os.close(descriptor)
         path.unlink(missing_ok=True)
@@ -148,24 +151,52 @@ def acquire_claim(path: Path = LOCK) -> RunClaim:
 
 
 def require_claim(claim: RunClaim, path: Path = LOCK) -> None:
+    original = os.fstat(claim.descriptor)
+    if (original.st_dev, original.st_ino) != (claim.device, claim.inode):
+        raise RuntimeError("successor v3 row claim changed")
+    flags = os.O_RDONLY | getattr(os, "O_NOFOLLOW", 0)
+    try:
+        descriptor = os.open(path, flags)
+    except (FileNotFoundError, OSError) as error:
+        raise RuntimeError("successor v3 row claim changed") from error
+    try:
+        before = os.fstat(descriptor)
+        raw = os.read(descriptor, 4096)
+        overflow = os.read(descriptor, 1)
+        after = os.fstat(descriptor)
+    finally:
+        os.close(descriptor)
+    try:
+        path_stat = path.stat(follow_symlinks=False)
+    except FileNotFoundError as error:
+        raise RuntimeError("successor v3 row claim changed") from error
+    identity = (claim.device, claim.inode)
     if (
-        not path.is_file()
-        or path.stat().st_ino != claim.inode
-        or path.read_text() != claim.nonce + "\n"
+        (before.st_dev, before.st_ino) != identity
+        or (after.st_dev, after.st_ino) != identity
+        or (path_stat.st_dev, path_stat.st_ino) != identity
+        or before.st_size != after.st_size
+        or before.st_mtime_ns != after.st_mtime_ns
+        or overflow
+        or raw != (claim.nonce + "\n").encode("ascii")
     ):
         raise RuntimeError("successor v3 row claim changed")
 
 
 def release_claim(claim: RunClaim, path: Path = LOCK) -> None:
     try:
-        if path.exists() and path.stat().st_ino == claim.inode:
+        try:
+            require_claim(claim, path)
+        except RuntimeError:
+            pass
+        else:
             path.unlink()
     finally:
         os.close(claim.descriptor)
 
 
 def _terminal_absent() -> None:
-    if RECEIPT.exists() or FAILURE.exists():
+    if RECEIPT.exists() or FAILURE.exists() or TERMINAL.exists():
         raise RuntimeError("successor v3 row terminal already exists")
 
 
@@ -355,9 +386,7 @@ def _protected_replay(
         raise RuntimeError("successor v3 source/tokenizer identity changed")
 
 
-def _write_json_create_only(
-    value: Mapping[str, Any], path: Path, *, before_link: Callable[[], None],
-) -> None:
+def _stage_json(value: Mapping[str, Any], path: Path) -> tuple[dict[str, Any], Path, str]:
     normalized = json.loads(json.dumps(value, allow_nan=False, sort_keys=True))
     temporary = path.with_name(f".{path.name}.tmp.{os.getpid()}.{secrets.token_hex(8)}")
     descriptor = os.open(temporary, os.O_WRONLY | os.O_CREAT | os.O_EXCL, 0o600)
@@ -370,18 +399,63 @@ def _write_json_create_only(
         replay, _ = _stable_json(temporary)
         if replay != normalized:
             raise RuntimeError("successor v3 terminal JSON replay failed")
-        before_link()
-        os.link(temporary, path)
-        try:
-            v2.base._fsync_directory(path.parent)
-        except OSError:
-            # A linked, semantically replayed terminal cannot become a failure.
-            pass
+        return normalized, temporary, file_sha256(temporary)
+    except BaseException:
+        temporary.unlink(missing_ok=True)
+        raise
     finally:
         if descriptor >= 0:
             os.close(descriptor)
+
+
+def _late_fsync(path: Path) -> None:
+    try:
+        v2.base._fsync_directory(path.parent)
+    except OSError:
+        # A successful hard link is already the authoritative state transition.
+        pass
+
+
+def _publish_terminal_json(
+    value: Mapping[str, Any], *, kind: str, claim: RunClaim,
+    before_claim: Callable[[], None],
+) -> None:
+    """Win one shared claim, then link exactly one mutually exclusive terminal."""
+
+    if kind not in ("receipt", "failure"):
+        raise ValueError("successor v3 terminal kind is malformed")
+    path = RECEIPT if kind == "receipt" else FAILURE
+    opposite = FAILURE if kind == "receipt" else RECEIPT
+    normalized, payload_tmp, payload_sha256 = _stage_json(value, path)
+    claim_value = {
+        "schema": "ordered_successor_tensor_select_v3_rows_terminal_claim",
+        "status": f"{kind}_claimed_before_terminal_link",
+        "kind": kind,
+        "target_path": str(path.resolve()),
+        "payload_sha256": payload_sha256,
+    }
+    _normalized_claim, claim_tmp, claim_sha256 = _stage_json(claim_value, TERMINAL)
+    try:
+        before_claim()
+        require_claim(claim)
+        _terminal_absent()
+        # This single O_EXCL hard-link is the serialization point. A competing
+        # receipt/failure publisher must lose here before it can link its payload.
+        os.link(claim_tmp, TERMINAL)
+        _late_fsync(TERMINAL)
+        # The staged payload was semantically replayed before the shared claim.
+        # There are no fallible callbacks after the serialization point.
+        if file_sha256(TERMINAL) != claim_sha256 or opposite.exists() or path.exists():
+            raise RuntimeError("successor v3 terminal aggregate changed after shared claim")
+        os.link(payload_tmp, path)
+        _late_fsync(path)
+    finally:
         try:
-            temporary.unlink(missing_ok=True)
+            payload_tmp.unlink(missing_ok=True)
+        except OSError:
+            pass
+        try:
+            claim_tmp.unlink(missing_ok=True)
         except OSError:
             pass
 
@@ -580,7 +654,9 @@ def freeze_locked(claim: RunClaim) -> dict[str, Any]:
         _terminal_absent()
         require_claim(claim)
 
-    _write_json_create_only(receipt, RECEIPT, before_link=final_guard)
+    _publish_terminal_json(
+        receipt, kind="receipt", claim=claim, before_claim=final_guard,
+    )
     return receipt
 
 
@@ -589,7 +665,7 @@ def freeze() -> dict[str, Any]:
     try:
         return freeze_locked(claim)
     except BaseException as error:
-        if not RECEIPT.exists() and not FAILURE.exists():
+        if not RECEIPT.exists() and not FAILURE.exists() and not TERMINAL.exists():
             failure = {
                 "schema": "ordered_successor_tensor_select_v3_rows_failure",
                 "status": "terminal_failure_no_receipt",
@@ -605,7 +681,9 @@ def freeze() -> dict[str, Any]:
                         raise RuntimeError("successor v3 failure cache state changed")
                     require_claim(claim)
 
-                _write_json_create_only(failure, FAILURE, before_link=failure_guard)
+                _publish_terminal_json(
+                    failure, kind="failure", claim=claim, before_claim=failure_guard,
+                )
             except BaseException:
                 pass
         raise
