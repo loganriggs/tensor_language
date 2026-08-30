@@ -12,6 +12,7 @@ from dataclasses import dataclass, field
 import hashlib
 import math
 from collections.abc import Callable, Mapping, Sequence
+import json
 
 import torch
 import torch.nn.functional as F
@@ -105,8 +106,51 @@ class PhysicalCallLedger:
             },
             "projection_calls": dict(sorted(self.projection_calls.items())),
             "capture_calls": dict(sorted(self.capture_calls.items())),
-            "projection_events": dict(sorted(self.projection_events.items())),
-            "capture_events": dict(sorted(self.capture_events.items())),
+        }
+
+    def structured_payload(
+        self,
+        specs: Sequence[CircuitSpec],
+        *,
+        batches: int,
+        include_capture: bool,
+    ) -> dict[str, object]:
+        """Encode exact event identities as compact dense integer tensors."""
+        tags = [spec.tag for spec in specs]
+        components = [spec.component for spec in specs]
+        capture_components = list(dict.fromkeys(components)) if include_capture else []
+        projection_counts = torch.empty(
+            (len(PHASES), len(specs), batches), dtype=torch.int64
+        )
+        for phase_index, phase in enumerate(PHASES):
+            for source_index, spec in enumerate(specs):
+                for batch_index in range(batches):
+                    projection_counts[phase_index, source_index, batch_index] = (
+                        self.projection_events.get(
+                            projection_event_key(
+                                phase, spec.tag, spec.component, batch_index
+                            ),
+                            0,
+                        )
+                    )
+        capture_counts = torch.empty(
+            (len(capture_components), batches), dtype=torch.int64
+        )
+        for component_index, component in enumerate(capture_components):
+            for batch_index in range(batches):
+                capture_counts[component_index, batch_index] = self.capture_events.get(
+                    capture_event_key(component, batch_index), 0
+                )
+        return {
+            **self.payload(),
+            "projection_phases": list(PHASES),
+            "projection_source_tags": tags,
+            "projection_source_components": components,
+            "projection_batch_indices": list(range(batches)),
+            "projection_event_counts": projection_counts,
+            "capture_components": capture_components,
+            "capture_batch_indices": list(range(batches)),
+            "capture_event_counts": capture_counts,
         }
 
     def record_projection(
@@ -136,6 +180,17 @@ def capture_event_key(component: str, batch_index: int) -> str:
     return f"{component}\t{batch_index}"
 
 
+def tensor_sha256(value: torch.Tensor) -> str:
+    if type(value) is not torch.Tensor or value.device.type != "cpu":
+        raise TypeError("only owned CPU tensors may be hashed")
+    tensor = value.contiguous()
+    digest = hashlib.sha256()
+    digest.update(str(tensor.dtype).encode())
+    digest.update(json.dumps(list(tensor.shape), separators=(",", ":")).encode())
+    digest.update(tensor.numpy().tobytes(order="C"))
+    return digest.hexdigest()
+
+
 def canonicalize_sign(vector: torch.Tensor) -> torch.Tensor:
     vector = torch.as_tensor(vector)
     pivot = int(vector.abs().argmax())
@@ -143,7 +198,7 @@ def canonicalize_sign(vector: torch.Tensor) -> torch.Tensor:
 
 
 def leading_shared_direction(matrix: torch.Tensor) -> tuple[torch.Tensor, torch.Tensor]:
-    """Return a sign-fixed leading direction, rejecting an unstable top subspace."""
+    """Return a float64 sign-fixed direction, rejecting an unstable top subspace."""
     if type(matrix) is not torch.Tensor or matrix.dtype != torch.float64 or (
         matrix.device.type != "cpu" or matrix.ndim != 2 or matrix.shape[0] < 2
     ):
@@ -154,7 +209,7 @@ def leading_shared_direction(matrix: torch.Tensor) -> tuple[torch.Tensor, torch.
     relative_gap = (singular_values[0] - singular_values[1]) / singular_values[0]
     if relative_gap <= 1e-6:
         raise RuntimeError("shared-direction top singular value is tied")
-    return canonicalize_sign(right[0]).to(torch.float32), singular_values
+    return canonicalize_sign(right[0]), singular_values
 
 
 class ObservedResponseCollector:
@@ -416,7 +471,9 @@ class ObservedResponseCollector:
 
             self._forward(tokens, capture=capture)
 
+        full_master: dict[str, torch.Tensor] = {}
         full: dict[str, torch.Tensor] = {}
+        full_norms: dict[str, float] = {}
         fit_counts: dict[str, dict[str, int]] = {}
         fit_write_statistics: dict[str, dict[str, torch.Tensor]] = {}
         for spec in self.specs:
@@ -427,7 +484,9 @@ class ObservedResponseCollector:
             norm = vector.norm()
             if not torch.isfinite(vector).all() or norm <= 1e-12:
                 raise RuntimeError("FIT direction is zero or nonfinite")
-            full[spec.tag] = (vector / norm).float()
+            full_master[spec.tag] = vector / norm
+            full[spec.tag] = full_master[spec.tag].float()
+            full_norms[spec.tag] = float(norm)
             fit_counts[spec.tag] = {
                 "member_count": item["member_count"],
                 "off_count": item["off_count"],
@@ -445,17 +504,19 @@ class ObservedResponseCollector:
         relative_singular_gaps: dict[str, float] = {}
         residual_norms: dict[str, float] = {}
         for component, component_specs in specs_by_component.items():
-            matrix = torch.stack([full[spec.tag] for spec in component_specs]).double()
-            shared_direction, singular_values = leading_shared_direction(matrix)
-            shared[component] = shared_direction
+            matrix = torch.stack(
+                [full_master[spec.tag] for spec in component_specs]
+            )
+            shared_master, singular_values = leading_shared_direction(matrix)
+            shared[component] = shared_master.float()
             singular_spectra[component] = singular_values.clone()
             relative_singular_gaps[component] = float(
                 (singular_values[0] - singular_values[1]) / singular_values[0]
             )
             for spec in component_specs:
-                remainder = full[spec.tag] - (
-                    full[spec.tag] @ shared_direction
-                ) * shared_direction
+                remainder = full_master[spec.tag] - (
+                    full_master[spec.tag] @ shared_master
+                ) * shared_master
                 relative_norm = float(remainder.norm())
                 if not math.isfinite(relative_norm) or relative_norm <= 1e-6:
                     raise RuntimeError("residual direction is numerically absent")
@@ -467,6 +528,7 @@ class ObservedResponseCollector:
             "shared": shared,
             "fit_counts": fit_counts,
             "fit_write_statistics": fit_write_statistics,
+            "full_direction_norms": full_norms,
             "singular_spectra": singular_spectra,
             "relative_singular_gaps": relative_singular_gaps,
             "residual_norms": residual_norms,
@@ -698,24 +760,38 @@ class ObservedResponseCollector:
             "source_tags": ordered_tags,
             "source_components": [spec.component for spec in self.specs],
             "target_tags": ordered_tags,
-            "_direction_preimage": direction_preimage,
-            "directions": {
-                phase: torch.stack(
-                    [direction_preimage[phase][tag] for tag in ordered_tags]
-                )
-                for phase in PHASES
+            "model_layer_count": self.layer_count,
+            "model_width": self.width,
+            "batch_size": self.batch_size,
+            "spec_order_sha256": hashlib.sha256("".join(
+                f"{spec.component}\t{spec.tag}\n" for spec in self.specs
+            ).encode()).hexdigest(),
+            "support_hashes": {
+                spec.tag: {
+                    "member_mask_sha256": tensor_sha256(spec.member_mask),
+                    "slice_mask_sha256": tensor_sha256(spec.slice_mask),
+                }
+                for spec in self.specs
             },
+            "_direction_preimage": direction_preimage,
+            "directions": torch.stack([
+                torch.stack([direction_preimage[phase][tag] for tag in ordered_tags])
+                for phase in PHASES
+            ]),
             "shared_directions": {
                 component: value.clone()
                 for component, value in directions["shared"].items()
             },
             "fit_counts": directions["fit_counts"],
             "fit_write_statistics": directions["fit_write_statistics"],
+            "full_direction_norms": directions["full_direction_norms"],
             "singular_spectra": directions["singular_spectra"],
             "relative_singular_gaps": directions["relative_singular_gaps"],
             "residual_norms": directions["residual_norms"],
             "fit_response": response,
-            "call_ledger": self.ledger.payload(),
+            "call_ledger": self.ledger.structured_payload(
+                self.specs, batches=batches, include_capture=True
+            ),
         }
 
     @torch.no_grad()
@@ -764,7 +840,9 @@ class ObservedResponseCollector:
             "source_tags": [spec.tag for spec in self.specs],
             "source_components": [spec.component for spec in self.specs],
             "eval_response": response,
-            "call_ledger": self.ledger.payload(),
+            "call_ledger": self.ledger.structured_payload(
+                self.specs, batches=batches, include_capture=False
+            ),
         }
 
     def collect(self, *_args, **_kwargs):

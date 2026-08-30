@@ -1,0 +1,279 @@
+{
+ "schema_version": 1,
+ "generated": "2026-08-30 by Claude",
+ "component": "m16",
+ "circuits": [
+  "r.1.1.1",
+  "r.1.1.2",
+  "r.1.2",
+  "r.1.2.0",
+  "r.1.2.1",
+  "r.6.2.2"
+ ],
+ "question": "S2068's open question: does r.1.1.1's 13.5% margin survive rows its direction was not trained on?",
+ "method": "DAS directions trained on rows 0-600 as in S2067/S2068; cross-circuit rank-1 projection-ablation tables computed separately on held-out rows 600-1000 and on the fit rows, so contamination is measured rather than assumed",
+ "margins_heldout": {
+  "r.1.1.1": 1.101,
+  "r.1.1.2": 0.9731,
+  "r.1.2": 0.9525,
+  "r.1.2.0": 0.9042,
+  "r.1.2.1": 0.9808,
+  "r.6.2.2": 0.8846
+ },
+ "margins_fitrows": {
+  "r.1.1.1": 1.1573,
+  "r.1.1.2": 0.952,
+  "r.1.2": 0.8815,
+  "r.1.2.0": 1.0438,
+  "r.1.2.1": 1.0431,
+  "r.6.2.2": 0.9558
+ },
+ "heldout_over_fit_ratio_median": 0.9514,
+ "n_circuits_fit_margin_higher": 4,
+ "r_1_1_1_heldout_margin": 1.101,
+ "concentration_heldout": {
+  "r.1.1.1": {
+   "r.1.1.1": 1.89,
+   "r.1.1.2": 1.659,
+   "r.1.2": 1.651,
+   "r.1.2.0": 1.622,
+   "r.1.2.1": 1.846,
+   "r.6.2.2": 1.805
+  },
+  "r.1.1.2": {
+   "r.1.1.1": 1.645,
+   "r.1.1.2": 1.547,
+   "r.1.2": 1.554,
+   "r.1.2.0": 1.669,
+   "r.1.2.1": 1.559,
+   "r.6.2.2": 1.522
+  },
+  "r.1.2": {
+   "r.1.1.1": 1.799,
+   "r.1.1.2": 1.652,
+   "r.1.2": 1.664,
+   "r.1.2.0": 1.694,
+   "r.1.2.1": 1.8,
+   "r.6.2.2": 1.79
+  },
+  "r.1.2.0": {
+   "r.1.1.1": 1.717,
+   "r.1.1.2": 1.479,
+   "r.1.2": 1.499,
+   "r.1.2.0": 1.442,
+   "r.1.2.1": 1.623,
+   "r.6.2.2": 1.656
+  },
+  "r.1.2.1": {
+   "r.1.1.1": 1.281,
+   "r.1.1.2": 1.129,
+   "r.1.2": 1.026,
+   "r.1.2.0": 0.847,
+   "r.1.2.1": 1.116,
+   "r.6.2.2": 1.406
+  },
+  "r.6.2.2": {
+   "r.1.1.1": 2.084,
+   "r.1.1.2": 1.73,
+   "r.1.2": 1.739,
+   "r.1.2.0": 1.984,
+   "r.1.2.1": 1.817,
+   "r.6.2.2": 1.655
+  }
+ },
+ "concentration_fitrows": {
+  "r.1.1.1": {
+   "r.1.1.1": 2.1,
+   "r.1.1.2": 1.955,
+   "r.1.2": 1.627,
+   "r.1.2.0": 1.761,
+   "r.1.2.1": 2.048,
+   "r.6.2.2": 1.682
+  },
+  "r.1.1.2": {
+   "r.1.1.1": 1.751,
+   "r.1.1.2": 1.566,
+   "r.1.2": 1.539,
+   "r.1.2.0": 1.722,
+   "r.1.2.1": 1.673,
+   "r.6.2.2": 1.54
+  },
+  "r.1.2": {
+   "r.1.1.1": 2.05,
+   "r.1.1.2": 1.825,
+   "r.1.2": 1.63,
+   "r.1.2.0": 1.72,
+   "r.1.2.1": 1.891,
+   "r.6.2.2": 1.76
+  },
+  "r.1.2.0": {
+   "r.1.1.1": 1.828,
+   "r.1.1.2": 1.588,
+   "r.1.2": 1.572,
+   "r.1.2.0": 1.74,
+   "r.1.2.1": 1.764,
+   "r.6.2.2": 1.583
+  },
+  "r.1.2.1": {
+   "r.1.1.1": 1.382,
+   "r.1.1.2": 1.147,
+   "r.1.2": 1.015,
+   "r.1.2.0": 0.978,
+   "r.1.2.1": 1.239,
+   "r.6.2.2": 1.417
+  },
+  "r.6.2.2": {
+   "r.1.1.1": 2.233,
+   "r.1.1.2": 1.913,
+   "r.1.2": 1.706,
+   "r.1.2.0": 2.044,
+   "r.1.2.1": 2.033,
+   "r.6.2.2": 1.898
+  }
+ },
+ "optimiser_unhealthy_fits": [],
+ "pred_a_r111_survives_heldout": true,
+ "pred_b_others_still_zero": true,
+ "pred_c_contamination_small": true,
+ "per_circuit": {
+  "r.1.1.1": {
+   "component": "m16",
+   "members": 864,
+   "ranks": {
+    "1": {
+     "das_dce_members": 4.2903,
+     "das_dce_offslice": 0.837,
+     "das_concentration": 5.126,
+     "full_dce_members": 1.6308,
+     "full_dce_offslice": 0.5078,
+     "full_concentration": 3.212,
+     "fraction_of_full_recovered": 2.631,
+     "subspace_moved_from_init": 0.9991,
+     "loss_first20": -0.301505,
+     "loss_last20": -3.330109,
+     "optimiser_healthy": true,
+     "overlap_with_closed_form": 0.211,
+     "closed_form_dce_members": 0.84,
+     "closed_form_concentration": 4.137,
+     "das_beats_closed_form": true
+    }
+   }
+  },
+  "r.1.1.2": {
+   "component": "m16",
+   "members": 864,
+   "ranks": {
+    "1": {
+     "das_dce_members": 1.848,
+     "das_dce_offslice": 0.4828,
+     "das_concentration": 3.828,
+     "full_dce_members": 1.5152,
+     "full_dce_offslice": 0.5078,
+     "full_concentration": 2.984,
+     "fraction_of_full_recovered": 1.22,
+     "subspace_moved_from_init": 0.9997,
+     "loss_first20": -0.014197,
+     "loss_last20": -2.395563,
+     "optimiser_healthy": true,
+     "overlap_with_closed_form": 0.265,
+     "closed_form_dce_members": 1.1866,
+     "closed_form_concentration": 3.213,
+     "das_beats_closed_form": true
+    }
+   }
+  },
+  "r.1.2": {
+   "component": "m16",
+   "members": 5760,
+   "ranks": {
+    "1": {
+     "das_dce_members": 4.6778,
+     "das_dce_offslice": 1.0368,
+     "das_concentration": 4.512,
+     "full_dce_members": 1.5269,
+     "full_dce_offslice": 0.4362,
+     "full_concentration": 3.5,
+     "fraction_of_full_recovered": 3.064,
+     "subspace_moved_from_init": 0.9989,
+     "loss_first20": -0.029787,
+     "loss_last20": -2.955025,
+     "optimiser_healthy": true,
+     "overlap_with_closed_form": 0.467,
+     "closed_form_dce_members": 1.0678,
+     "closed_form_concentration": 3.635,
+     "das_beats_closed_form": true
+    }
+   }
+  },
+  "r.1.2.0": {
+   "component": "m16",
+   "members": 864,
+   "ranks": {
+    "1": {
+     "das_dce_members": 8.8873,
+     "das_dce_offslice": 1.0785,
+     "das_concentration": 8.24,
+     "full_dce_members": 2.29,
+     "full_dce_offslice": 0.501,
+     "full_concentration": 4.571,
+     "fraction_of_full_recovered": 3.881,
+     "subspace_moved_from_init": 0.9986,
+     "loss_first20": -0.242,
+     "loss_last20": -6.739624,
+     "optimiser_healthy": true,
+     "overlap_with_closed_form": 0.442,
+     "closed_form_dce_members": 1.5472,
+     "closed_form_concentration": 6.49,
+     "das_beats_closed_form": true
+    }
+   }
+  },
+  "r.1.2.1": {
+   "component": "m16",
+   "members": 864,
+   "ranks": {
+    "1": {
+     "das_dce_members": 6.0028,
+     "das_dce_offslice": 1.0783,
+     "das_concentration": 5.567,
+     "full_dce_members": 2.0059,
+     "full_dce_offslice": 0.501,
+     "full_concentration": 4.004,
+     "fraction_of_full_recovered": 2.993,
+     "subspace_moved_from_init": 0.9998,
+     "loss_first20": -0.133022,
+     "loss_last20": -6.215448,
+     "optimiser_healthy": true,
+     "overlap_with_closed_form": 0.41,
+     "closed_form_dce_members": 1.4443,
+     "closed_form_concentration": 4.687,
+     "das_beats_closed_form": true
+    }
+   }
+  },
+  "r.6.2.2": {
+   "component": "m16",
+   "members": 864,
+   "ranks": {
+    "1": {
+     "das_dce_members": 0.9478,
+     "das_dce_offslice": 0.2337,
+     "das_concentration": 4.056,
+     "full_dce_members": 1.5433,
+     "full_dce_offslice": 0.5134,
+     "full_concentration": 3.006,
+     "fraction_of_full_recovered": 0.614,
+     "subspace_moved_from_init": 0.9998,
+     "loss_first20": 0.028288,
+     "loss_last20": -1.25611,
+     "optimiser_healthy": true,
+     "overlap_with_closed_form": 0.14,
+     "closed_form_dce_members": 0.8526,
+     "closed_form_concentration": 4.647,
+     "das_beats_closed_form": true
+    }
+   }
+  }
+ },
+ "note": "read-only artifact; no circuit file was modified"
+}

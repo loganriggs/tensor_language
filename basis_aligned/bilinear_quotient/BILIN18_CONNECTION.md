@@ -60915,3 +60915,51 @@ same angle as four circuits that are not. Its concentration under its own DAS di
 clears the mean of the others (1.776) — a 13.5% margin, above the bar but not far above it — so the
 honest next step is whether that margin survives the held-out row split §2061 applied to the census, not
 a mechanism story built on it.
+
+## §2069 — r.1.1.1 survives the held-out split BY 0.001, and that number should not carry a conclusion
+
+`ops/das_m16_heldout_margin.py`, **391s**, **DISCOVERY ONLY**, RUNG 3 (§2068's open question).
+**pred_a True | pred_b True | pred_c True.** All three passed, and the first one passed by the narrowest
+margin this ledger has recorded.
+
+§2067/§2068 trained every DAS direction on rows 0-600 and then scored the cross-circuit table over the
+whole grid, training rows included — LESSON 106's shape, on the one number the m16 conclusion turns on.
+Recomputed on rows 600-1000 only, with the fit rows beside it:
+
+```
+  circuit     held-out margin   fit-row margin   selective on held-out?
+  r.1.1.1         1.1010            1.1570              yes  <- clears >1.10 by 0.0010
+  r.1.2.1         0.9810            1.0430              no
+  r.1.1.2         0.9730            0.9520              no
+  r.1.2           0.9520            0.8810              no
+  r.1.2.0         0.9040            1.0440              no
+  r.6.2.2         0.8850            0.9560              no
+```
+
+> **pred_a is scored TRUE as written and I am flagging it as hard as I can: the margin over the bar is
+> 0.0010.** This ledger's standing rule is that a miss by 0.001 is a FAIL; a pass by 0.001 is a pass by
+> the same arithmetic and is worth just as little. **`r.1.1.1`'s selectivity at m16 is not established by
+> this run and is not refuted by it.** Any claim that m16 has exactly one selective circuit now rests on
+> the fourth decimal place of a single measurement.
+
+**pred_b passed cleanly and is the result actually worth having.** All five other circuits sit at held-out
+margins **below 1.0** — 0.885 to 0.981 — meaning each one's own DAS direction damages its own circuit
+*less* than it damages the others. **That is not weak selectivity; it is the absence of selectivity, with
+the sign against it in every case.** §2068's "0 of 5" holds on rows no direction was trained on.
+
+**pred_c passed and quantifies the contamination that motivated the run: it is real and small.** The fit
+margin exceeds the held-out margin for **4 of 6** circuits and the median held-out/fit ratio is
+**0.9514** — about a 5% inflation from scoring directions on the rows that trained them. **On `r.1.1.1`
+specifically the drop is 1.157 to 1.101, and that ~5% is almost exactly the amount by which it formerly
+cleared the bar.** §2067's "1 of 6 selective" was reported at 1.135 on the contaminated table; the clean
+number is 1.101.
+
+**Where this leaves m16.** Five circuits with the selectivity sign against them on held-out rows, and one
+whose margin is indistinguishable from the bar. **The causal "one mechanism" reading is now supported for
+five sixths of m16 without qualification and is unresolved for the sixth** — which is a more honest place
+than either §2067's "1 of 6 selective" or a clean "0 of 6" would have been.
+
+**Open.** The decidable version of the `r.1.1.1` question needs more evidence per estimate, not another
+split of the same rows: either the interleaved even/odd row split §2061 used (which measures a different
+partition of the same data) or more DAS seeds per circuit, since a 0.001 margin is well inside the spread
+I would expect across initialisations and no seed-to-seed variance has ever been measured for these fits.

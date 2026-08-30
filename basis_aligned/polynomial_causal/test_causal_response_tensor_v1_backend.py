@@ -75,20 +75,25 @@ def test_typed_backend_collects_complete_signed_grid_without_hooks() -> None:
     assert eval_payload["call_ledger"]["attention_native_calls"] == 36
     assert sum(fit_payload["call_ledger"]["projection_calls"].values()) == 8
     assert sum(eval_payload["call_ledger"]["projection_calls"].values()) == 8
-    assert fit_payload["call_ledger"]["projection_events"] == {
-        projection_event_key(phase, spec.tag, spec.component, 0): 1
-        for phase in ("full", "residual")
-        for spec in specs
-    }
-    assert fit_payload["call_ledger"]["capture_events"] == {
-        capture_event_key(component, 0): 1 for component in ("a1", "m2")
-    }
-    assert eval_payload["call_ledger"]["projection_events"] == {
-        projection_event_key(phase, spec.tag, spec.component, 0): 1
-        for phase in ("full", "residual")
-        for spec in specs
-    }
-    assert eval_payload["call_ledger"]["capture_events"] == {}
+    assert fit_payload["call_ledger"]["projection_phases"] == ["full", "residual"]
+    assert fit_payload["call_ledger"]["projection_source_tags"] == [
+        spec.tag for spec in specs
+    ]
+    assert torch.equal(
+        fit_payload["call_ledger"]["projection_event_counts"],
+        torch.ones((2, 4, 1), dtype=torch.int64),
+    )
+    assert fit_payload["call_ledger"]["capture_components"] == ["a1", "m2"]
+    assert torch.equal(
+        fit_payload["call_ledger"]["capture_event_counts"],
+        torch.ones((2, 1), dtype=torch.int64),
+    )
+    assert torch.equal(
+        eval_payload["call_ledger"]["projection_event_counts"],
+        torch.ones((2, 4, 1), dtype=torch.int64),
+    )
+    assert eval_payload["call_ledger"]["capture_components"] == []
+    assert eval_payload["call_ledger"]["capture_event_counts"].shape == (0, 1)
 
 
 def test_structured_ledger_rejects_missing_or_duplicate_event() -> None:
@@ -225,6 +230,6 @@ def test_shared_direction_rejects_tie_and_accepts_above_frozen_gap() -> None:
         leading_shared_direction(torch.eye(2, dtype=torch.float64))
     matrix = torch.diag(torch.tensor([1.0 + 1.1e-6, 1.0], dtype=torch.float64))
     direction, spectrum = leading_shared_direction(matrix)
-    assert direction.dtype == torch.float32
+    assert direction.dtype == torch.float64
     assert direction.tolist() == [1.0, 0.0]
     assert float((spectrum[0] - spectrum[1]) / spectrum[0]) > 1e-6
