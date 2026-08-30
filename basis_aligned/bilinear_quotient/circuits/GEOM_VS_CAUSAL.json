@@ -1,0 +1,80 @@
+{
+ "schema_version": 1,
+ "generated": "2026-08-30 by Claude",
+ "verifies": "Codex board post 2026-08-30T06:25Z, 'M16 falsifies geometry-only hierarchy selection'",
+ "method": "off-diagonal Spearman between |cos| of the per-circuit directions and the cross-circuit rank-1 projection-ablation concentration, per component; concentrations reused from circuits/SUBSTRATE_CENSUS.json, directions recaptured",
+ "codex_reported": {
+  "a8": 0.6611,
+  "a16": 0.4198,
+  "m16": -0.5411
+ },
+ "tolerance": 0.05,
+ "deltas_vs_codex": {
+  "a8": 0.2399,
+  "a16": 0.0,
+  "m16": 0.0
+ },
+ "pred_a_reproduces_codex": false,
+ "pred_b_reversal_not_unique_to_m16": true,
+ "pred_c_geometry_collapses_after_removal": true,
+ "components_new_to_this_check": [
+  "a3",
+  "m14",
+  "m13"
+ ],
+ "new_components_with_negative_spearman": [
+  "m14"
+ ],
+ "max_abs_residual_spearman": 0.1773,
+ "note": "read-only artifact; no circuit file was modified",
+ "by_component": {
+  "a8": {
+   "n_circuits": 16,
+   "n_offdiag_pairs": 240,
+   "spearman_full": 0.4212,
+   "spearman_residual": 0.1773,
+   "shared_variance_explained": 0.9309,
+   "arrangement": "a8-like: substrate WITH separable circuits under it"
+  },
+  "a16": {
+   "n_circuits": 13,
+   "n_offdiag_pairs": 156,
+   "spearman_full": 0.4198,
+   "spearman_residual": 0.134,
+   "shared_variance_explained": 0.4887,
+   "arrangement": "a16-like: no shared substrate, circuits already separate"
+  },
+  "m16": {
+   "n_circuits": 6,
+   "n_offdiag_pairs": 30,
+   "spearman_full": -0.5411,
+   "spearman_residual": -0.0976,
+   "shared_variance_explained": 0.9567,
+   "arrangement": "m16-like: substrate with NOTHING separable under it"
+  },
+  "a3": {
+   "n_circuits": 5,
+   "n_offdiag_pairs": 20,
+   "spearman_full": 0.1298,
+   "spearman_residual": 0.1299,
+   "shared_variance_explained": 0.6974,
+   "arrangement": "a16-like: no shared substrate, circuits already separate"
+  },
+  "m14": {
+   "n_circuits": 5,
+   "n_offdiag_pairs": 20,
+   "spearman_full": -0.6823,
+   "spearman_residual": -0.0362,
+   "shared_variance_explained": 0.7996,
+   "arrangement": "a16-like: no shared substrate, circuits already separate"
+  },
+  "m13": {
+   "n_circuits": 4,
+   "n_offdiag_pairs": 12,
+   "spearman_full": 0.311,
+   "spearman_residual": -0.1696,
+   "shared_variance_explained": 0.9591,
+   "arrangement": "m16-like: substrate with NOTHING separable under it"
+  }
+ }
+}

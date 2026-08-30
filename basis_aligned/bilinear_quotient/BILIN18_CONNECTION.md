@@ -60769,3 +60769,57 @@ cannot support their lawful-response-tensor selection. **They are right about th
 of this run** — the ratio is what makes these six numbers comparable to §2056/§2058/§2062/§2064, which
 was the question. It is simply the wrong artifact for theirs, and a per-document signed collector is a
 different run that nothing here blocks.
+
+## §2066 — Codex's geometry-vs-causality result VERIFIED exactly, and the one discrepancy was a8's circuit set
+
+`ops/geometry_vs_causality.py`, **67s**, **DISCOVERY ONLY**, RUNG 2 (second-class confirmation of a
+peer's claim). **pred_a FALSE | pred_b True | pred_c True.**
+
+Codex posted at 06:25Z that off-diagonal Spearman between |cos| of the per-circuit directions and the
+cross-circuit rank-1 ablation concentration is **+0.6611 at a8, +0.4198 at a16, −0.5411 at m16** — m16
+inverting despite the strongest shared variance — with max |correlation| 0.1340 after removing the shared
+direction, concluding "geometry does not transport as a causal hierarchy metric". Their strategic
+recommendation to select on causal response rather than cosine rests on it, and it bears on my own
+§2062/§2065 classification, so it was checked rather than taken.
+
+```
+  comp   n  pairs   spearman full   residual    Codex     delta
+  a8    16    240      +0.4212       +0.1773   +0.6611   0.2399   <- MISMATCH as run
+  a16   13    156      +0.4198       +0.1340   +0.4198   0.0000   <- exact
+  m16    6     30      -0.5411       -0.0976   -0.5411   0.0000   <- exact
+  a3     5     20      +0.1298       +0.1299      --
+  m14    5     20      -0.6823       -0.0362      --
+  m13    4     12      +0.3110       -0.1696      --
+```
+
+**pred_a is FALSE as written — a8 missed the ±0.05 tolerance by 0.2399 — and I keep that score. But the
+discrepancy is fully explained and it is not a disagreement between the two implementations.** Two of the
+three reproduce to **four decimal places**, which is not what a genuine methodological difference looks
+like. The remaining suspect was therefore an input, and it was: **Codex's a8 artifact holds §2056's five
+hand-picked circuits, while my census uses all sixteen that §2059 localises at a8.** Restricting my
+computation to those five gives:
+
+```
+  a8, all 16 circuits (240 pairs)   +0.4212
+  a8, §2056's five    ( 20 pairs)   +0.6611      <- Codex's number, exactly
+```
+
+> **All three of Codex's values are confirmed on an independent implementation.** The two lanes agree
+> completely once the inputs match, and the delta was mine to explain, not theirs to defend.
+
+**This is the third independent measurement showing §2056's five-circuit subset is not representative of
+a8.** §2065 found the reversal is 5/16 → 9/16 on all sixteen against 1/5 → 4/5 on the five; here the
+geometry-causality correlation falls from **+0.6611 to +0.4212** on the same substitution. **Every time
+a8 is re-measured on its full circuit set the effect shrinks**, and any a8 number quoted from §2056/§2058
+should now carry that qualification.
+
+**pred_b passed: m16's sign reversal is not unique.** `m14` is **−0.6823**, stronger than m16's −0.5411,
+and it is one of the three components Codex had not tested. **Two of six components invert the
+geometry-causality relationship**, so this is a second arrangement rather than an m16 peculiarity — which
+strengthens their conclusion beyond what their three components could show.
+
+**pred_c passed at six components: after the shared direction is removed, max |Spearman| is 0.1773**
+(their 0.1340 over three). **Geometry stops predicting causal structure once the substrate is gone,
+everywhere it has been measured.** Codex's recommendation — select shared/private structure on held-out
+causal response and literal price, not on cosine or reconstruction — is supported by this lane's
+instrument as well as theirs.

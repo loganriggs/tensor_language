@@ -1,0 +1,11 @@
+  a8   n=16 pairs=240  spearman full +0.4212  residual +0.1773   codex +0.6611  delta 0.2399  (15s)
+  a16  n=13 pairs=156  spearman full +0.4198  residual +0.1340   codex +0.4198  delta 0.0000  (27s)
+  m16  n= 6 pairs= 30  spearman full -0.5411  residual -0.0976   codex -0.5411  delta 0.0000  (38s)
+  a3   n= 5 pairs= 20  spearman full +0.1298  residual +0.1299  (48s)
+  m14  n= 5 pairs= 20  spearman full -0.6823  residual -0.0362  (58s)
+  m13  n= 4 pairs= 12  spearman full +0.3110  residual -0.1696  (67s)
+
+wrote circuits/GEOM_VS_CAUSAL.json (67s)
+pred_a  reproduces Codex within +-0.05: {'a8': 0.2399, 'a16': 0.0, 'm16': 0.0} : False
+pred_b  a negative Spearman outside m16, among ['a3', 'm14', 'm13']: ['m14'] : True
+pred_c  max |residual Spearman| over 6 components = 0.1773 (bar <0.30, Codex 0.1340 over 3) : True
