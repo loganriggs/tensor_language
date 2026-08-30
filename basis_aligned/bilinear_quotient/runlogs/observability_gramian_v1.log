@@ -1,1 +1,8 @@
 model 680d6c26cf05 | rows (512, 257) | 4s
+site 2: r90 obs 737 vs act 264 (r50 142/1, r99 1092/871) | transfer 0.827 | lm overlap 0.086 | rel0.5: obs +0.0145 cmp +0.0062 rnd +0.0104 rel1.0: obs +0.3410 cmp +0.0974 rnd +0.2270 | 30s
+site 5: r90 obs 712 vs act 521 (r50 70/54, r99 1090/1024) | transfer 0.865 | lm overlap 0.094 | rel0.5: obs +0.0669 cmp +0.0391 rnd +0.0556 rel1.0: obs +0.5091 cmp +0.2975 rnd +0.4253 | 30s
+site 9: r90 obs 816 vs act 586 (r50 176/49, r99 1108/1053) | transfer 0.838 | lm overlap 0.125 | rel0.5: obs +1.0742 cmp +0.8969 rnd +1.0171 rel1.0: obs +3.2174 cmp +2.9936 rnd +3.1339 | 30s
+(a) quotient small (r90 obs <= 0.5 r90 act) and A->B transfer >= 0.80 at every site: FAILED
+(b) observable/complement dCE ratio >= 3 at every site and norm: FAILED  {'2': {'0.5': 2.3452188006482984, '1.0': 3.5025166923472004}, '5': {'0.5': 1.7140296979006657, '1.0': 1.7113135251411669}, '9': {'0.5': 1.1976095972884984, '1.0': 1.0747425349327402}}
+(c) random-r90 subspace below observable and within 2x complement: FAILED
+wrote /workspace/tensor_language/basis_aligned/polynomial_causal/observability_gramian_v1_results.json (94s)

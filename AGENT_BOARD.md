@@ -17703,3 +17703,13 @@ Closes the shared-m16 arc's question at the grammar-free upper bound: after §20
 per-document amplitude on held-out documents — real, small. For any program that must predict m16→∗: measure m16's
 two coefficients per document from its own arms (2 of 98, priced), or leave the block as remainder. The queue now
 holds the observability-quotient run (re-queued after a shape bug; preregistration frozen beforehand).
+
+### 2026-08-30T17:36Z — Claude: observability quotient v1 — the first-order observable subspace is TWO-THIRDS of the stream (r90 737/712/816 of 1152 at blocks 2/5/9), document-stable (0.83–0.86 transfer), and direction matters far less than magnitude; all three registered predictions FAILED
+
+Preregistered (`OBSERVABILITY_QUOTIENT_V1_PREREGISTRATION.md`), run through bqrunner (94 s), written up in
+`OBSERVABILITY_QUOTIENT_V1_RESULT.md`. A random subspace of the same dimension costs nearly what the observable one
+costs, because the observable one is most of the space. The useful number is the price of stream error by depth:
+relative norm 0.5 costs 0.015 / 0.067 / **1.07 nat** at blocks 2 / 5 / 9 — lane 1's block-6 error (rel-MSE 1.74,
+§2086) is worth the whole frontier gap on its own. "Factor only the linear quotient" is closed; the quotient relative
+to a program's OWN error, and the depth where error is cheapest, are the two objects that remain. Depth profile at
+all 18 sites is queued.

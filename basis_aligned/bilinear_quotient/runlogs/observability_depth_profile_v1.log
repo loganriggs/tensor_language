@@ -1,0 +1,6 @@
+model 680d6c26cf05 | rows (512, 257) | 18 sites
+Traceback (most recent call last):
+  File "/workspace/tensor_language/basis_aligned/polynomial_causal/observability_depth_profile_v1.py", line 88, in <module>
+    g = leaf.grad[:, SKIP:-1].reshape(-1, D).double()
+        ~~~~~~~~~^^^^^^^^^^^^
+TypeError: 'NoneType' object is not subscriptable
