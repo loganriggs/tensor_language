@@ -26,53 +26,30 @@ Rungs 1-3 are DONE; rung 4 is the first genuinely open one.
    counting-feature rescue is REFUTED with unusual" force. Closed, not open.
 4. DEPLOY GAP (~0.09): two-probe labeling (a10-input probe acc 0.73 for the
    late rungs) -> two_probe_deploy.py
-   **OPEN, but far more advanced than this line suggests -- RESEARCHED
-   2026-08-30, read this before building anything.** `two_probe_deploy.py`
-   does not exist and never ran, but the gating ladder it belongs to has four
-   measured rungs and one failed branch:
-     - **§337** 14 input-only surface programs: efficiency **1.5x** random,
-       both bars FAILED. (`experiments/gating/deploy_gated.py`)
-     - **§341** 57 surface programs: gain 12x larger (+0.171) but efficiency
-       still **1.54x**. Verdict: "the deploy gap is a property of the
-       DESCRIPTION LANGUAGE, not of program count."
-       (`experiments/gating/deploy_gated2.py`)
-     - **§342** `probe_gate.py`, linear ridge on the residual stream after
-       block 2, fitted to fit-window oracle labels: **3.8x random (bar 2.5x
-       HELD)** -- the first deploy-legal gate above the surface ceiling. AUC
-       0.621 (bar 0.75 FAILED), 42% of oracle gain (bar 50% FAILED, close).
-     - **§347** `probe_gate2.py`, quadratic features in mlp3's read directions
-       + per-mode regression: **strictly WORSE than v1** -- AUC 0.551,
-       efficiency **-0.625** (worse than random), all three bars FAILED.
-     - oracle causal labels: **9.4x**, not deploy-legal.
-   **The live branch is named by §347's own closing line:** "the AUC ceiling
-   (~0.62) needs information not linearly-or-quadratically present at block 2
-   -- **later read points** or context aggregation, not fancier features."
-   §342 had set the same fork ("deeper reads OR nonlinear features"), and
-   **nonlinear was tried and failed; deeper reads were never tried.** An
-   a10-input probe IS the deeper read, so rung 4 is that fork's untaken half.
-   **Design constraint -- SETTLED 2026-08-30, and I had framed it wrong.** I
-   first wrote that an a10 read might not be deploy-legal depending on whether
-   the frontier supplies blocks 0-9 real. That is not the right test, and
-   "§105-legal" was a mis-citation on my part: §105 is the lambda-mixing
-   instrument correction, not a deploy rule; the "§105-legal fit surface"
-   phrasing at ledger line 33640 belongs to the separate route-kit program.
-   **An a10-input probe IS deploy-legal.** The frontier assembly (§304: 26 full
-   components + 38 of 72 middle heads, +2.54 fresh) must COMPUTE the stream
-   entering block 10 in order to run at all, so that stream is available at
-   inference with no oracle label -- the same argument §342 used for block 2.
-   That some of blocks 0-9 are stand-ins does not disqualify the read; it means
-   the probe fits on the stream the deployed assembly actually has, which is
-   the correct surface rather than a compromise.
-   **The real risk is empirical, not legal**, and it is §1365's: if the
-   assembly's stand-ins have removed the values carrying the signal, the probe
-   cannot see what the kit deleted, and AUC will sit near the ~0.61 ceiling
-   that thread measured. That is the thing the experiment tests, so it should
-   be REGISTERED as a predicate rather than treated as a blocker.
-   **Related negative worth knowing:** §1365 (`exclaim_probe_gate2.py`) tried
-   TWO capture sites (L3 + L8 concatenated) on a different capability and got
-   AUC 0.611 vs 0.618 -- no gain -- because "a kit-stream probe cannot see
-   what the kit removed". If the a10 probe reads a stream whose relevant
-   values the assembly ablates, it inherits that ceiling by construction.
+   **RUN 2026-08-30 as `ops/probe_gate3.py`; written up as ledger §2079.**
+   §342 set the fork as "deeper reads OR nonlinear features"; §347 took the
+   nonlinear half and came out strictly worse, closing with "the AUC ceiling
+   (~0.62) needs LATER READ POINTS". That half had never been run. v1's read
+   depth was a single constant, so the derivation changed only the depths.
+     blk2 (v1 replicate)  AUC 0.6210  eff 3.867x  frac_of_oracle 0.420
+     blk5                 AUC 0.6384  eff 5.488x  frac_of_oracle 0.596
+     blk9 (= a10 input)   AUC 0.6545  eff 4.574x  frac_of_oracle 0.497
+     blk2+9 (two-site)    AUC 0.6382  eff 6.113x  frac_of_oracle 0.664
+   **Depth breaks the ceiling** (0.6545 > 0.621) and **the deploy-legal ladder
+   is now 1.5x -> 3.87x -> 6.11x against a 9.4x non-deploy-legal oracle.**
+   §342's original "recover >= 50% of oracle gain" bar, which v1 FAILED at
+   41.9%, is HELD by blk5 (59.6%) and blk2+9 (66.4%).
+   **Two sites FAILED on AUC** (0.6382 < 0.6545), reproducing §1365's two-site
+   negative in a second program -- **but won on every gating measure.** AUC
+   scores the whole ranking; a gate at 17.25% uses only the top of it, so
+   **§342's AUC >= 0.75 bar was the wrong bar** and gain-at-fraction is the
+   deployable quantity.
+   **STILL OPEN on this rung, and it is a control not a new idea:** [2;9] is
+   2304-dim against the single sites' 1152, so depth-pair versus width is
+   unseparated. Queued as `ops/probe_gate4.py` (all three 2304-dim pairs).
+   **Also owed: fresh-window certification (rung 6) before 6.11x is quotable
+   as a frontier number.**
+
 5. INDUCTION heads: closed as irreducible-linear, but a *bilinear* stand-in
    (learned low-rank pattern q-k factor + value read) was never tried at the
    head level.

@@ -16981,3 +16981,29 @@ Complete-linkage clustering of a8's sixteen closed-form directions, validated **
 **Where the a8 arc rests:** §2075's grouping confirmed on three quantities (closed-form geometry → ablation concentrations → learned directions), the last over five seeds; §2076's per-cluster caveat unchanged (no individual cluster survives Bonferroni); §2074's finding that §2056's five circuits are arbitrary confirmed three independent ways.
 
 **Next on lane 1: BENCHMARK_BACKLOG rung 4**, which I researched into the file last tick and have now unblocked. Correction to what I wrote there: I had flagged an a10-input probe as possibly not "§105-legal" — **§105 is the lambda-mixing instrument correction, not a deploy rule**, and that phrasing belongs to the route-kit program. **The read is deploy-legal**: the frontier assembly must compute the stream entering block 10 to run at all, which is exactly §342's argument for block 2. The real risk is empirical and belongs in a predicate — §1365's "a kit-stream probe cannot see what the kit removed", which pinned that thread near AUC 0.61.
+
+### 2026-08-30T15:02Z — Claude: §2079 — BACKLOG RUNG 4 run; the deploy-legal gating ladder moves 3.87x → 6.11x
+
+**A benchmark frontier move, and a methodological finding I did not register that is probably worth more than the frontier move.**
+
+§342 set the fork as "deeper reads **or** nonlinear features". §347 took the nonlinear half and came out *strictly worse* (AUC 0.551, efficiency −0.625), closing with "the AUC ceiling (~0.62) needs **later read points**". **Nobody ran that half.** v1's read depth was a single constant, so the derivation changed only the depths — block 9's output is a10's input, the read the backlog names.
+
+```
+  arm       dim    AUC      eff vs random   frac of oracle
+  blk2     1152   0.6210      3.867x           0.420        <- v1 replicate
+  blk5     1152   0.6384      5.488x           0.596
+  blk9     1152   0.6545      4.574x           0.497
+  blk2+9   2304   0.6382      6.113x           0.664
+  oracle gain +0.0777   random +0.0084   gated 17.25%
+```
+
+- **`blk2` reproduces §342 to three decimals** (0.6210 vs 0.621, 3.867 vs 3.826, 0.420 vs 0.419) — the depths really are the only change.
+- **pred_a and pred_b HELD: depth breaks the ceiling where features could not.** The deploy-legal ladder is now **1.5× (surface) → 3.87× (block 2) → 6.11× (blocks 2+9)** against the 9.4× non-deploy-legal oracle. §342's *original* "recover ≥50% of oracle gain" bar, which v1 failed at 41.9%, is now **held by two arms** (59.6%, 66.4%).
+- **pred_c FAILED — and your kind of result: §1365 reproduces.** The two-site `[2;9]` arm is **below** `blk9` on AUC (0.6382 vs 0.6545), exactly as §1365's L3+L8 concatenation gave 0.611 vs 0.618. **Two sites do not beat one on ranking quality, now in a second program.**
+- **`blk9` recovers 0.497 of the oracle against a 0.50 bar — a miss of 0.003, recorded as a FAIL.**
+
+**The unregistered finding.** The two-site arm is **second-worst on AUC and best on every gating measure**. AUC and gate efficiency rank the arms in nearly *opposite* orders, and the reason is structural: **AUC scores the whole ranking, but a gate at 17.25% only ever uses the top of it.** A probe can order its top slice well and the rest poorly, and AUC punishes it for the part the gate never reads. **§342's AUC ≥ 0.75 bar — failed by every probe in this arc including the ones that worked — was the wrong bar.** The deployable quantity is gain-at-fraction.
+
+**Two things I am deliberately NOT claiming.** (1) That two *sites* help: `[2;9]` is 2304-dim against the singles' 1152, so depth-pair versus width is unseparated. **Queued `ops/probe_gate4.py`** — all three pairs from {2,5,9} at 2304 dims, so width is held constant and only site choice varies, with a registered instrument control that `blk2` reproduces 3.867x again. (2) That 6.11× is a frontier number: **it needs fresh-window certification (backlog rung 6) first**, and I have written that into the backlog rather than quoting it.
+
+Backlog rung 4 is now marked run with all four arms recorded, so it will not be re-derived.
