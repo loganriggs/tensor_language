@@ -59513,3 +59513,54 @@ and the pre-flight now refuses an unregistered role.
 **What the arc's fifteen sections actually established is a method failure, not a build**, and the
 question it leaves is whether ANY of the four parameter findings survives fresh rows individually —
 §2020's table raise is the largest and is one arm.
+
+## §2038 — the failure is entirely §2020's table raise; §2024's map cut reproduces out-of-sample
+
+`ops/does_any_finding_survive_fresh_rows.py`, **177.3s**, **DISCOVERY ONLY**, 5,419, rung 3 — §2037's open
+question. **pred_a True | pred_b True | pred_c True | pred_d True | derived controls True.** No crashed
+predicates. 98,304 fresh positions.
+
+```
+  milli-nats over §1959's build          FRESH WINDOW        [in-sample, three roles]
+  §2020's table raise alone            −11.578 (t −28.36)         +3.300
+  §2024's map cut alone                 −0.206 (t  −4.50)         −0.236
+  the two composed                     −11.770 (t −28.71)         +3.064
+  sum of components −11.785 against a composed −11.770: gap 0.015
+```
+
+> **pred_b PASSED and it is the whole story. §2020's table raise — the largest single finding of the arc,
+> +3.300 milli-nats in-sample — is −11.578 on fresh rows at t = −28.36.** It accounts for **98.4%** of the
+> composed deficit. **Untruncating the late MLP tables does not merely fail to generalise; it is
+> substantially harmful on rows that did not choose it.**
+
+> **pred_c PASSED, and this is the part §2037 could not say. §2024's map cut REPRODUCES: −0.206 fresh
+> against −0.236 in-sample**, same sign, same order, t = −4.50. **It was never a fitted quantity.** It is
+> what it was always measured to be — a small, real, stable CE cost, incurred deliberately to release
+> 7.08M values under §1947's price rule.
+
+> **pred_d PASSED: the components sum to −11.785 against a composed −11.770, a gap of 0.015 milli-nats.**
+> **On fresh rows the two changes are additive to a hundredth of a milli-nat**, where §2014 measured the
+> shipped program super-additive by 22% in-sample. **The failure is two independent effects, not an
+> interaction.**
+
+**Which narrows §2037's retraction, and I am narrowing it rather than leaving it broad.** §2037 retracted
+six sections as build recommendations. **§2038 shows they do not fail alike.**
+
+> **§2020 — falsified out-of-sample.** −11.578 milli-nats, t = −28.36. Its in-sample measurement stands;
+> its conclusion does not travel. **§2018 and §2019 raised subsets of the same eight sites and were not
+> scored individually here** — the presumption is that they fail too, and it is a presumption, not a
+> measurement.
+> **§2023 and §2024 — measurements CONFIRMED out-of-sample.** The map cut's CE cost is −0.21 to −0.24
+> milli-nats on both the selecting roles and rows that had no say. **What remains open about them is not
+> whether the cost is real but whether releasing 7.08M values is worth paying it** — which is exactly the
+> §1947 question, now resting on out-of-sample evidence.
+> **§2028 — retraction stands**, since it certified the composition.
+
+**The pattern worth keeping.** The component that was **selected for** — fifteen sections of choosing a
+rank that maximised a margin — reversed. The component that was **measured and paid for** — a cost
+accepted in exchange for parameters, never optimised — reproduced. **Selection is what failed to travel,
+not measurement.**
+
+**Open.** §2021's marginal ladder found the table raise paying down to layers 10–11 and stopping at 8–9,
+all in-sample. **Whether ANY depth of untruncation survives fresh rows — or whether the whole axis is
+harmful there — is one arm on the ladder that already exists.**

@@ -1,0 +1,21 @@
+DOES ANY FINDING SURVIVE FRESH ROWS | 6 arms x 1 coverage(s) | DISCOVERY ONLY
+
+########## COVERAGE 5419 ##########
+  [bqlib] coverage 5419 from fineweb_n96_skip80.pt: 36 tables, neighbour index and map solver built (4s)
+  [bqlib] cache HIT  live     fresh
+  [bqlib] cache HIT  mix30m640 fresh
+  [bqlib] computed   mix30m640 fresh (3.5s)
+  [bqlib] computed   mix30m256@mlp0,mlp1,mlp2,mlp3,mlp4,mlp5,mlp6,mlp7+mix30m640@mlp8,mlp9,mlp10,mlp11,mlp12,mlp13,mlp14,mlp15,mlp16,mlp17,attn0,attn1,attn2,attn3,attn4,attn5,attn6,attn7,attn8,attn9,attn10,attn11,attn12,attn13,attn14,attn15,attn16,attn17 fresh (3.5s)
+  [bqlib] cache HIT  mix30m256@mlp0,mlp1,mlp2,mlp3,mlp4,mlp5,mlp6,mlp7+mix30m640@mlp8,mlp9,mlp10,mlp11,mlp12,mlp13,mlp14,mlp15,mlp16,mlp17,attn0,attn1,attn2,attn3,attn4,attn5,attn6,attn7,attn8,attn9,attn10,attn11,attn12,attn13,attn14,attn15,attn16,attn17 fresh
+  [bqlib] cache HIT  map512   fresh
+  [bqlib] cache HIT  mix30m640 fresh
+  [bqlib] note: 3 differing-spec pair(s) flip no covered-input top-1 -- legal for a site-subset difference, e.g. ('build_1959', 'mapcut_only')
+
+  §2037's -11.770 milli-nat fresh-window deficit rebuilds within 0.5 milli-nats  -> True
+  and §2020's table raise alone is negative on the fresh window  -> True
+  and §2024's map cut alone is negative there too  -> True
+  and the two components sum to within 3 milli-nats of the composed deficit  -> True
+  derived controls -> True   coverage_exact=True  inert_pairs_are_inert=True  some_differing_pair_moves=True  buckets_partition=True  live_identical=True
+
+pred_a True | pred_b True | pred_c True | pred_d True | pred_z True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/does_any_finding_survive_fresh_rows_results.json (177.3s)
