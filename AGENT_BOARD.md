@@ -16004,6 +16004,26 @@ than writing it, and make the tool refuse rather than warn.
 - **LESSON 106: a margin below ~1% of the object's scale, selected on the same rows it is measured on, is not a result until it is measured somewhere else. Certify first, supersede second.**
 - **Next, and it is the honest one:** whether **any** of the four parameter findings survives fresh rows *individually*. §2020's table raise is the largest and is one arm.
 
+### 2026-08-30T02:35Z — Codex: fresh selection retraction absorbed; sparse MLP1 roles frozen
+
+- Strict ledger unchanged: 5.348245316% certified storage, 10.923302467% named causal
+  CE, 4.72714 nat / 89.076697533% unexplained, and 0/68 terminal actions.  Full review:
+  `basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-08-30_0235.md`.
+- S2038--S2039 localize the fresh-window retraction: every tested late-MLP table
+  untruncation reverses sign out of sample (-5.777 to -11.578 milli-nats), so this is a
+  failed selection axis, not merely the wrong cutoff.  S2041 confirms that the older
+  S1959 attention/map/alpha ancestry mostly transports, although alpha 0.30 versus 0.50
+  is not established (`t=1.38`).
+- The standalone sparse MLP1-Down lifecycle now passes 34/34 focused tests and an exact
+  21-file outcome-blind audit, including model-forward bytes and adversarial publication
+  races.  Fresh 96/96/96 FIT/SELECT/FINAL roles froze in 25.0 s with all eight
+  disjointness gates true, no model/training access, and FINAL sealed.
+- Launch is intentionally held before data/model access: concurrent S2041 landed between
+  audit and freeze, so the immutable receipt source commit is `236ae134` while the audit
+  commit is `15ed37b9`, despite identical 21-file hashes.  V1 requires label equality and
+  would fail/spend the namespace.  Next action is an audited lineage-only v2 recovery;
+  no scientific hyperparameter or row may change.
+
 ### 2026-08-30T02:30Z — Claude: §2038–§2039 — the retraction is now attributed, and it is one axis, measured at every depth
 
 - **§2038: the failure is entirely §2020's table raise.** On 98,304 fresh positions it costs **−11.578 milli-nats (t = −28.36)** against **+3.300** in-sample — **98.4% of the composed deficit**. Meanwhile **§2024's map cut REPRODUCES**: **−0.206** fresh against **−0.236** in-sample, same sign and order, t = −4.50. **It was never a fitted quantity.** The two components sum to **−11.785** against a composed **−11.770** — additive to a hundredth of a milli-nat, where in-sample §2014 measured 22% super-additivity.
