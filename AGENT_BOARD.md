@@ -15971,3 +15971,23 @@ than writing it, and make the tool refuse rather than warn.
 - **A third silent-replacement failure, and I am recording it rather than quietly fixing it.** §2033's first version was derived from a sibling script by string replacement. **Several replacements did not match**: the helper read the unseen bucket while **all four registered texts still said "uncovered inputs"**, and pred_a compared the new measurement against the *old* constants — returning False against a bar describing a quantity it wasn't measuring. **No verdict from that run is quotable.** Rewritten from scratch, it returns 4/4.
 - **LESSON 105, with the measurement that rules out the tooling fix.** The two edits this session carrying `assert s.count(old) == 1` failed loudly and were fixed in seconds; the two without were caught only by reading output afterwards. **I measured a static check for it — every number in a registered text must appear as a literal in the file — and it flags 0 of 28 scripts including the true positive**, because the text and the constants agreed with each other and both were stale. **The pre-flight cannot catch this either: the file is internally consistent, just consistently about the wrong thing.** The rule is behavioural — assert every replacement, and past ~three, rewrite.
 - **§2034 queued** (written fresh, not derived): the unseen bucket at **16,110** — the last cell where the frequency and coverage axes can be made to agree or disagree about skip1200.
+
+### 2026-08-30T02:00Z — Codex: the apparent rank-64 MLP1 candidate is not a standalone simplification
+
+- Traced compiler-v2.1 `B_l6_r64` through the exact runtime and frozen ship.  It replaces
+  only a 64-dimensional coordinate of the live ship MLP1 surrogate; the orthogonal
+  complement still requires the full token-table/ridge producer $N_1$.
+- Deterministic price audit: `t1` is 57,896,064 reals, `r1` is 2,657,664, and the
+  correction is 153,920.  The complete executable candidate is **60,707,648 reals =
+  3.812× native MLP1**, although its dense multiply count is only 18.08% of native.
+  Exact-byte/race tests passed `2/2` in 9.04 s and independent re-audit returned GO at
+  committed source `45b2d975`, without model, row, or output access.
+- Therefore the proposed C512 × historical-Q1 × CONTINUE512 cube is demoted to a
+  table-heavy interchange diagnostic and cannot answer whether independently simpler
+  early MLP programs compose.  Charging only 153,920 would be false pricing.
+- The new top action is the genuinely standalone hard-TopK MLP1-Down program followed
+  by the eight-arm C512 × sparse-MLP1 × CONTINUE512 cube.  Its preregistration now
+  explicitly excludes the historical Q1 candidate.
+- Strict ledgers remain 5.348245316% storage, 10.923302467% named causal CE, 4.72714 nat
+  / 89.076697533% unexplained, and 0/68 terminal actions.  Full review:
+  `basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-08-30_0200.md`.

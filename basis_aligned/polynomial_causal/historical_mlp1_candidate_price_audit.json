@@ -1,0 +1,67 @@
+{
+  "decision": {
+    "possible_rehabilitation": "recover and certify the original low-rank-plus-2000-row-exception table recipe, then rerun the complete price and composition audit",
+    "reason": "the executable artifact requires the complete frozen N1 producer; its literal storage is larger than native MLP1",
+    "run_as_current_standalone_simplification": false
+  },
+  "literal_storage_reals": {
+    "base_N1_total": 60553728,
+    "complete_candidate": 60707648,
+    "complete_candidate_over_native": 3.811762105686156,
+    "correction_only_over_native": 0.009664456499899539,
+    "native_full_mlp1": 15926400,
+    "rank64_basis": 73728,
+    "rank64_correction": 153920,
+    "rank64_predictor": 80192,
+    "ridge": 2657664,
+    "token_table": 57896064
+  },
+  "outcome_access": {
+    "evaluation_rows_loaded": false,
+    "model_loaded": false,
+    "model_outputs_opened": false
+  },
+  "parents": {
+    "compiler_v21_programs": {
+      "path": "/workspace/tensor_language/basis_aligned/bilinear_quotient/early_mlp_state_complete_compiler_v21_programs.pt",
+      "selected_true_site1": "B_l6_r64",
+      "sha256": "36a8e5203ec72d8c8f30909dba9241d1bf2a4a2d3fd980d8c558e28c3c0b614e"
+    },
+    "external_rank64_basis": {
+      "path": "/workspace/tensor_language/basis_aligned/bilinear_quotient/joint_early_mlp_pca_composition_authoritative_v3_bases.pt",
+      "receipt_path": "/workspace/tensor_language/basis_aligned/bilinear_quotient/joint_early_mlp_pca_composition_authoritative_v3_basis_receipt.json",
+      "receipt_sha256": "b81adb4c78255613997de4cbfc8ffd9e8eec233b40950915a14005ba3efcba0f",
+      "sha256": "0eee01f39087548a479486d068404f78c4bdc2fd930932add162212da31fe4d9",
+      "site1_tensor_sha256": "17d5cd4be8bbfbac288acb0dc942d94912be78229689bb92eacf0f8b02f6b424"
+    },
+    "frozen_ship": {
+      "path": "/workspace/runs/bilin18_frozen_ship_v2.pt",
+      "realization_sha256": "21ddc9ffdb7703aa570f88c5c7f4fa9fe007a988a1a7a3fd91058ee76a25ab8e",
+      "sha256": "fe21ead35b1dcb3c0914a36b04d7be36e9c3f179c57bc63eee62bd78d34fe9df"
+    }
+  },
+  "runtime_multiplies_per_token": {
+    "base_N1_ridge": 2654208,
+    "complete_candidate": 2879488,
+    "complete_candidate_over_native": 0.18081275720164608,
+    "native_full_mlp1_dense_maps": 15925248,
+    "notes": "lookup, additions, RMSNorm, comparisons, and Hadamard products are reported separately",
+    "rank64_correction": 225280
+  },
+  "schema": "historical_mlp1_candidate_price_audit_v1",
+  "semantics": {
+    "base_N1": "t1[token] + ym1 + ([attention1_write, live_mlp0_write] - xm1) @ W1",
+    "depends_on_live_mlp0_write": true,
+    "is_correction_alone_a_standalone_mlp1_replacement": false,
+    "rank64_Q": "replace only the B1-coordinate of base_N1; preserve its orthogonal complement"
+  },
+  "source_binding": {
+    "commit": "45b2d975f2372e7986fa8e7566e482f1c183b269",
+    "sha256": {
+      "basis_aligned/polynomial_causal/MLP1_SPARSE_C512_CONTINUE_FACTORIAL_V1_PREREGISTRATION.md": "c62991638e8a28c30a61f8fc4021eae0ba14cb3097e81b105e40aa81da4bdd2c",
+      "basis_aligned/polynomial_causal/audit_historical_mlp1_candidate_price.py": "5318ea781fef78cb8fcfe0e971d62960fa62433e0d3f7b6dd43df2d4e6a534ab",
+      "basis_aligned/polynomial_causal/test_historical_mlp1_candidate_price.py": "31a5a380b238bbf4d6b66b29b3aa37fe6a1ec12f0526b2d9fc86aaaa04935606"
+    }
+  },
+  "status": "deterministic_artifact_audit_complete"
+}
