@@ -1,0 +1,83 @@
+{
+ "full": {
+  "L1_F": 2.3207,
+  "L2_C": 2.4192,
+  "L2_F": 2.6662,
+  "increment": 0.3455,
+  "orig_s312_a": true,
+  "orig_s312_b": true,
+  "fresh8": [
+   2.6662,
+   2.9357,
+   2.6122,
+   2.8498,
+   2.9139,
+   2.7955,
+   2.582,
+   2.664
+  ],
+  "runtime_s": 113.12396383285522
+ },
+ "skip16": {
+  "L1_F": 2.3207,
+  "L2_C": 2.2392,
+  "L2_F": 2.5091,
+  "increment": 0.1884,
+  "orig_s312_a": true,
+  "orig_s312_b": false,
+  "fresh8": [
+   2.5091,
+   2.7195,
+   2.3793,
+   2.6035,
+   2.6545,
+   2.5863,
+   2.3738,
+   2.4579
+  ],
+  "runtime_s": 110.35340213775635
+ },
+ "sum_near32": 1227.4,
+ "sum_all_ind": 2501.1,
+ "bins_log2": {
+  "0": {
+   "n": 105,
+   "mean": 0.13294
+  },
+  "1": {
+   "n": 479,
+   "mean": 0.10836
+  },
+  "2": {
+   "n": 829,
+   "mean": 0.1343
+  },
+  "3": {
+   "n": 1624,
+   "mean": 0.24157
+  },
+  "4": {
+   "n": 2051,
+   "mean": 0.30907
+  },
+  "5": {
+   "n": 1959,
+   "mean": 0.36624
+  },
+  "6": {
+   "n": 1433,
+   "mean": 0.31006
+  },
+  "7": {
+   "n": 509,
+   "mean": 0.26697
+  }
+ },
+ "spearman_bin_vs_mean": 0.81,
+ "convention": "per-position CE(full with a16L) - CE(attn16 real) on FR; positive = the dictionary hurts there",
+ "pred_a_near_carries": false,
+ "pred_b_monotone": true,
+ "pred_c_reproduces_s2146": true,
+ "self_reviewed": true,
+ "runtime_s": 223.5
+}

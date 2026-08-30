@@ -954,4 +954,17 @@ later per-rung backlog edits had silently anchored on text that was not here.
     long-range memory); pred_b monotonicity: Spearman |rho|(mean damage
     per log2-distance bin) >= 0.5 over bins; pred_c skip-a16 arm
     reproduces §2146 per-window (median |delta| <= 0.005).
-    -> ops/a16_distance_split.py [QUEUED]
+    -> ops/a16_distance_split.py
+    RUN 2026-08-30, §2162: pred_b HELD (rho 0.810, RISING with distance,
+    peak 32-64 tokens), pred_c HELD, pred_a FAILED by 0.9% (near = 49.1%).
+    Truncated-window NOT licensed; block 16 is document-scale memory.
+
+69. IS HEAD 16.3 THE LONG-RANGE CARRIER (attribution; signed-sum bars;
+    damage convention). Per-position damage of zeroing head 16.3 alone
+    (on the skip-a16 config, bases excluded), split by distance as in
+    rung 68. pred_a FAR CARRIES: distance > 32 carries >= 0.6 of head
+    16.3's summed ind damage; pred_b rising profile (Spearman >= 0.5);
+    pred_c the skip-a16 arm reproduces §2146 per-window (median |delta|
+    <= 0.005). Tripwire: the zeroed arm's CE must differ from base.
+    Null: 16.3's damage has the same ~49/51 profile as the whole module.
+    -> ops/a16_head3_distance.py [QUEUED]

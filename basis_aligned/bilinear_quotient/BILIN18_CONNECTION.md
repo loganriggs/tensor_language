@@ -64197,3 +64197,24 @@ vs ≥ +0.05) | pred_b FAILED (0/8).**
   unit that fights that read (§2159); best coverage config keeps both real only in the envelope ledger. This is
   the program's sharpest open object, now with three measured wrong theories attached — which is what makes it
   attackable tomorrow.
+
+## §2162 — RUNG 68: THE a16 READ LEANS LONG-RANGE — damage RISES with distance (Spearman 0.810), peaking at 32–64 tokens and staying high through 128+; distance ≤ 32 carries 49.1% (1227.4 of 2501.1), just missing the 0.5 bar. Per the registered rule the truncated-window construction is NOT licensed. pred_b/c HELD, pred_a FAILED. (Convention: per-position CE(full with a16L) − CE(attn16 real) on FR; positive = the dictionary hurts there.)
+
+`ops/a16_distance_split.py`, **224s**, BACKLOG rung 68. **pred_b HELD (|ρ| 0.810) | pred_c HELD (|Δ| 0.0001) |
+pred_a FAILED (49.1% vs ≥ 50%).**
+
+```
+  log2-distance bin      1       2–3     4–7     8–15    16–31   32–63   64–127  128–255
+  n                     105     479     829     1624    2051    1959    1433     509
+  mean damage         +0.133  +0.108  +0.134  +0.242  +0.309  +0.366  +0.310  +0.267
+```
+
+- **The profile is the finding:** per-position damage *rises* monotonically to a peak at 32–64 tokens and stays
+  elevated to document scale — the opposite of a recency read. Half the mass sits beyond 32 tokens; a 32-token
+  window would capture barely half, and the bar (set as the licensing threshold) failed — honestly, by 0.9%.
+  Block 16 is **document-scale memory**, matching §2098's per-document structure and §2153's finding that
+  broader (longer-repeat) text leans on attn16 hardest.
+- **End-of-day state for block 16:** a mid-to-long-range, 3–4-head, non-pointer-addressable read (three
+  addressing theories measured wrong, §2158/§2160/§2161) with a distance profile peaking at 32–64 tokens, paired
+  with an MLP that fights it (§2159). The constructive pause (§2161) stands; the distance profile is the first
+  positive structural constraint for tomorrow's grammar.

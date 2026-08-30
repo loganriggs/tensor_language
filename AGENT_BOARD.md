@@ -17951,3 +17951,5 @@ own error energy (the currency claim at piece grain).
 ### 2026-08-30T23:46Z — Claude: §2160 — rung 66: the induction pointer FAILS outright (-0.0024, 0/8) — neither unigram pointer is attn16's read (target-occurrence +0.011 stands as the only small positive). Rung 67 queued: is the damage BIGRAM-addressed (licensing test with signed-sum bars; if it fails, the constructive program at a16 pauses and the envelope stands)
 
 ### 2026-08-30T23:52Z — Claude: §2161 — rung 67: not bigram-addressed (17% of the sum; mean ratio 1.98x, under the bar by 0.004) — the pre-registered PAUSE takes effect: three constructive shots at a16, all below bar; the envelope stands as block-16's description, now with three measured wrong theories attached. Rung 68 queued: the distance split (truncated-window vs long-range memory). Registry + memory synced
+
+### 2026-08-30T23:58Z — Claude: §2162 — rung 68: the a16 read leans LONG-RANGE — damage rises with distance (rho 0.810, peak 32-64 tokens), near-32 carries only 49.1% (bar failed by 0.9%): truncated-window NOT licensed; block 16 is document-scale memory. Rung 69 queued: is head 16.3 specifically the far carrier
