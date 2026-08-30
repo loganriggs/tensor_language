@@ -366,3 +366,38 @@ abstraction.  That toy is the gate; no real-model abstraction claim is licensed 
    cheaper executor rather than a sparse description of an expensive computation.
 
 No strict ledger quantity moves from this review or its toy.
+
+## 01:01Z execution addendum: second scorer audit and exact repair
+
+The fresh independent audit of commit `af7be129` was outcome-blind and returned
+**NO-GO** even though `136/136` closure tests passed.  The remaining issue was a
+transaction boundary, not the Rayleigh mathematics: after one exact replay of the
+published scorer authority, the code could lose its lock or acquire a rival terminal
+before opening the DESIGN tensor ledger.  It would suppress the final receipt, but the
+protected values could already have been opened.  DESIGN scoring therefore remained
+unlicensed and no audit artifact was created.
+
+The repair adds a dedicated guard immediately before the first possible DESIGN tensor
+load, in this exact order:
+
+1. exact replay of the already-published scorer authority;
+2. proof that bundle, receipt, and failure terminals are absent; and
+3. proof that this process still owns the lock.
+
+There is no protected operation between that guard and the semantic snapshot.  The
+failure reporter also no longer opens protected tensors merely to diagnose a failure
+that occurred before the open boundary.  Adversarial tests now replace the authority,
+insert a rival terminal, and replace the lock at that boundary; all three yield **zero**
+DESIGN tensor loads.  The six focused Rayleigh suites pass `65/65` in `5.89 s`.
+Predictor features, ridge grid, family selection, nulls, thresholds, and preregistered
+HELDOUT decisions are unchanged.  A new exact-source independent GO is still mandatory
+before the scorer runs.
+
+Separately, the compiled-program end-to-end confirmation finished in `91.2 s`.  At
+5,419 table rows, the heterogeneous 202.6M-value program improves CE over the old
+230.087M-value deployed program by `0.072302` nat (`SE=0.001598`, `t=45.25`,
+`n=92,160`) while using about 12.0% fewer stored values.  It improves over the previous
+189.5M-value build by `0.003064` nat (`SE=0.000297`, `t=10.31`).  At 16,110 rows the
+corresponding gains are `0.032619` and `0.007486` nat.  This is strong executable
+compression evidence, but it remains a compiled-program result: it does not move the
+strict native-model causal ledger or explain why the learned native circuit works.

@@ -15833,3 +15833,22 @@ than writing it, and make the tool refuse rather than warn.
   Scorer and HELDOUT remain unrun pending a fresh exact-source independent GO.
 - Strict ledgers remain `5.348245316%` storage, `10.923302467%` named causal CE,
   `4.72714 nat / 89.0767%` unexplained, and `0/68` terminal actions.
+
+### 2026-08-30T01:01Z — Codex: scorer pre-open race repaired; DESIGN remains closed
+
+- Fresh exact-source audit of `af7be129` was outcome-blind NO-GO despite `136/136`
+  passing closure tests: after a post-link authority replay, a rival terminal or lost
+  lock could occur before DESIGN tensor access.  The receipt would fail closed, but
+  protected values could already have opened.  No audit artifact was published and
+  DESIGN/HELDOUT remain unlicensed.
+- Added a final pre-open transaction boundary: exact authority replay, scorer-terminal
+  absence, then lock ownership, immediately followed by protected replay.  Failure
+  diagnostics now also avoid protected replay when the main path failed pre-open.
+  Adversarial authority-drift, rival-terminal, and lock-replacement tests each prove
+  zero DESIGN tensor loads.  Six focused Rayleigh suites pass `65/65` in `5.89 s`.
+  Predictor math and preregistered thresholds are unchanged; re-audit is required.
+- Independent compiled-program line completed its `91.2 s` end-to-end confirmation:
+  the heterogeneous 202.6M-value build beats the 230.087M deployed program by
+  `0.072302` nat at 5,419 rows (`t=45.25`) and `0.032619` at 16,110 (`t=29.08`), while
+  using 12.0% fewer stored values.  This validates an executable compression allocation,
+  not native-circuit understanding; strict ledgers remain unchanged.

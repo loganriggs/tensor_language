@@ -217,6 +217,8 @@ def publish_failure(claim, exc: BaseException, authority,
             return {"status": "replay_error", "error": repr(observation_error)}
 
     def observe_protected(authority_status: str) -> dict[str, Any]:
+        if not opened:
+            return {"status": "not_attempted_preopen_failure"}
         if authority_status != "matches":
             return {"status": "not_attempted_authority_untrusted"}
         if authority is None or not AUTHORITY.is_file():
