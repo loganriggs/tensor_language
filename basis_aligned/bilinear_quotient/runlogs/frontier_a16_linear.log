@@ -26,14 +26,14 @@ fit a15L
 fit a16L
 fit a17L
   window 0 (7 docs): L2 fresh +2.6662
-  window 1 (42 docs): L2 fresh +2.9354
-  window 2 (17 docs): L2 fresh +2.6121
+  window 1 (42 docs): L2 fresh +2.9355
+  window 2 (17 docs): L2 fresh +2.6120
   window 3 (23 docs): L2 fresh +2.8498
   window 4 (43 docs): L2 fresh +2.9137
-  window 5 (26 docs): L2 fresh +2.7953
+  window 5 (26 docs): L2 fresh +2.7954
   window 6 (35 docs): L2 fresh +2.5818
-  window 7 (35 docs): L2 fresh +2.6642
-L2 empirical: C +2.4191 | fresh +2.6662 | tail-attn increment +0.3454
+  window 7 (35 docs): L2 fresh +2.6640
+L2 empirical: C +2.4190 | fresh +2.6662 | tail-attn increment +0.3454
 (a) L2 <= +2.75 fresh: HELD
 (b) increment in [0.30,0.55]: HELD
 ARM 2/2: same, a16L with linear maps for ALL 10 classes
@@ -63,19 +63,19 @@ fit a14L
 fit a15L
 fit a16L
 fit a17L
-  window 0 (7 docs): L2 fresh +2.6662
-  window 1 (42 docs): L2 fresh +2.9357
-  window 2 (17 docs): L2 fresh +2.6123
-  window 3 (23 docs): L2 fresh +2.8498
-  window 4 (43 docs): L2 fresh +2.9139
-  window 5 (26 docs): L2 fresh +2.7954
-  window 6 (35 docs): L2 fresh +2.5820
-  window 7 (35 docs): L2 fresh +2.6640
-L2 empirical: C +2.4192 | fresh +2.6662 | tail-attn increment +0.3454
+  window 0 (7 docs): L2 fresh +2.6727
+  window 1 (42 docs): L2 fresh +2.9392
+  window 2 (17 docs): L2 fresh +2.6155
+  window 3 (23 docs): L2 fresh +2.8515
+  window 4 (43 docs): L2 fresh +2.9236
+  window 5 (26 docs): L2 fresh +2.7988
+  window 6 (35 docs): L2 fresh +2.5855
+  window 7 (35 docs): L2 fresh +2.6683
+L2 empirical: C +2.4243 | fresh +2.6727 | tail-attn increment +0.3519
 (a) L2 <= +2.75 fresh: HELD
 (b) increment in [0.30,0.55]: HELD
-a16lin - full per window: [0.0, 0.0003, 0.0002, 0.0, 0.0002, 0.0001, 0.0002, -0.0002]  median +0.0002
-(a) median +0.0002 <= -0.05: FAILED
-(b) <= 0 on 3/8 (bar 7): FAILED
+a16lin - full per window: [0.0065, 0.0037, 0.0035, 0.0017, 0.0099, 0.0034, 0.0037, 0.0043]  median +0.0037
+(a) median +0.0037 <= -0.05: FAILED
+(b) <= 0 on 0/8 (bar 7): FAILED
 (c) full FR L2_F 2.6662 vs 2.6662 (tol 0.01): HELD
 wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/frontier_a16_linear_results.json (223s)

@@ -63915,3 +63915,17 @@ pred_b FAILED (argmax is a14, 0.933 vs a16's 0.908) | pred_c FAILED (smallest tw
   the class code — it is specifically loss-relevant. This sharpens, rather than replaces, the block-16 story.
 - Scored as written; both failures preserved. The class-bottleneck frame survives as an ordering tool (ρ 0.79)
   and dies as a pointwise price law.
+
+## §2148 — RUNG 54 (valid re-run): ALL-LINEAR CLASSES AT a16 BUY NOTHING — SLIGHTLY WORSE ON ALL 8 WINDOWS (+0.0037 median, an order of magnitude above the 0.0003 rerun-noise floor). The §2147 null wins completely: a16's cost is not class-mean sloppiness, and per-class linearity cannot touch it. (Convention: L2 = CE above the real model; lower is better.)
+
+`ops/frontier_a16_linear.py` (re-run after the voided first attempt), **223s**, BACKLOG rung 54. **pred_c HELD
+(full repro 2.6662, exact) | pred_a FAILED (+0.0037 vs ≤ −0.05) | pred_b FAILED (0/8 vs 7/8).**
+
+- **+8.0M values for a small, uniform harm:** upgrading a16's six CONSTN classes from stored means to ridge-fit
+  linear maps makes every window slightly worse — the no-intercept maps reproduce the means imperfectly and add
+  nothing the class code can use. Combined with §2147 (a16's residual is unusually damaging per unit energy),
+  the in-grammar upgrade path at a16 is exhausted: **whatever attn16 computes, it is conditional structure the
+  10-class partition cannot see, at any per-class linear order.**
+- Block-16 program state: m16 — no cheap interface (§2127); a16L — most expensive replacement (§2145), immune to
+  class-linear upgrades (here); leaving attn16 real dominates in (price, damage) (§2146). The next instrument is
+  attribution INSIDE attn16 → rung 55 (per-head marginals of the real attn16 under the deployed config).
