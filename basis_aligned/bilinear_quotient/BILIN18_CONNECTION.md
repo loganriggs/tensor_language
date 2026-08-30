@@ -63820,3 +63820,26 @@ pred_b (additivity, |+0.0164 − 0.0217| = 0.0053) | pred_c (best repro −0.028
 - **Additive prediction, registered for rung 50:** c8@288 + c9@288 together should land at −0.0076 − 0.0036 =
   **−0.0112 vs the best config** (i.e., a new best at 2.658-ish FR fresh, −14.4M values vs §312). Rung 50 tests
   exactly that number, plus c8/c9@144 as the next floor.
+
+
+## §2144 — RUNG 50: THE ADDITIVE PREDICTION LANDS TO 0.0016 — c8+c9@288 IS THE NEW BEST CONFIG: better than the §2140 best on 8/8 windows (−0.0128 median vs the predicted −0.0112) at 14.4M fewer values than §312. All three bars HELD. (Convention: L2 = CE above the real model; lower is better.)
+
+`ops/frontier_c89_288.py`, **448s**, BACKLOG rung 50. **ALL THREE HELD: pred_a (−0.0128 ≤ −0.005) | pred_b
+(|−0.0128 − (−0.0112)| = 0.0016 ≤ 0.01) | pred_c (best repro −0.0290, exact).**
+
+```
+  arm (fresh / C damage)                              L2_F      L2_C
+  norm-2304 everywhere (§312)                        2.6736    2.4233
+  §2140 best (mlp45-2304 + c69-576)                  2.6690    2.4275
+  NEW BEST: + c8/c9 @ 288                            2.6662    2.4191
+  c8/c9 @ 144 (descriptive)                          2.6854    2.4353   (−0.0011 vs §2140 best: break-even; floor ≈ 288)
+```
+
+- **The additivity registered in §2143 predicted this rung's number to 0.0016** — the second time (after §2139)
+  that per-piece damage costs compose linearly on this frontier. §2142's composition failure was between
+  *different kinds* of intervention (selection vs pruning on cfgE); within norm-rank pruning, effects add.
+- **New best config, stated with the caveat pattern of §2140:** mlp4/5 at 2304, c6/c7 at 576, c8/c9 at 288 —
+  **2.6662 FR fresh** (§312: 2.6736), better on 8/8 fresh windows, **−14.4M stored values**;
+  window C 2.4191 vs §312's 2.4233 (-0.0042).
+- The descriptive floor: 144 gives back the improvement (−0.0011 net) — c8/c9's useful content sits in their top
+  ~288 norm-ranked units. Tail attribution (rung 51, running) decides where the next cheap price cut lives.

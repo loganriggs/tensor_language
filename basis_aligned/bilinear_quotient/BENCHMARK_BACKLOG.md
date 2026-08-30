@@ -683,7 +683,11 @@ later per-rung backlog edits had silently anchored on text that was not here.
     pred_a median [L2_F_w(c89_288) - L2_F_w(best)] <= -0.005 (a real
     improvement); pred_b that median within 0.01 of the additive
     prediction -0.0112; pred_c best reproduces §2140 (-0.0290 within
-    0.015). -> ops/frontier_c89_288.py [QUEUED]
+    0.015). -> ops/frontier_c89_288.py
+    RUN 2026-08-30, §2144: ALL THREE HELD — c89@288 lands at -0.0128 vs
+    the predicted -0.0112 (gap 0.0016). NEW BEST: mlp45-2304 + c6/c7-576
+    + c8/c9-288, 8/8 windows better, -14.4M values; 144 breaks even
+    (floor ~288).
 
 51. WHO PAYS THE TAIL-ATTENTION INCREMENT (attribution rung; damage
     convention). The aXL dictionaries are fit sequentially, so prefix

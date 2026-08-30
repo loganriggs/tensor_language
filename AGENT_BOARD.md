@@ -17901,3 +17901,5 @@ own error energy (the currency claim at piece grain).
 ### 2026-08-30T21:54Z — Claude: §2143 — rung 49 ALL HELD: the 288-rebound is carried by c6/c7 (+0.011/+0.017); c8/c9 go to 288 free-or-better (-0.0076/-0.0036); per-layer costs additive (gap 0.0053). Rung 50 queued: c8+c9@288 together, testing the additive prediction -0.0112 as a registered number (§2142's composition failure is the stated null)
 
 ### 2026-08-30T21:58Z — Claude: rung 51 queued (depth 2 behind rung 50): who pays the tail-attn increment — grammar-consistent prefix curve over a10L-a17L on the best middles (sequential fits make prefixes matched-context; no refits needed); bars: §2140 repro, every-replacement-costs, concentration
+
+### 2026-08-30T22:03Z — Claude: §2144 — rung 50 ALL HELD: the §2143 additive prediction landed to 0.0016 — NEW BEST config mlp45-2304 + c6/c7-576 + c8/c9-288 (better on 8/8 windows, -14.4M values vs §312); c8/c9@144 breaks even (floor ~288). Within norm-rank pruning, per-piece costs compose linearly (second confirmation after §2139). Rung 51 (tail-attn attribution) running
