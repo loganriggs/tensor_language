@@ -58,6 +58,7 @@ SOURCE_PATHS = tuple(dict.fromkeys((*training_lifecycle.SOURCE_PATHS, *(
     HERE / "causal_response_factorization_v1_grid_runner.py",
     HERE / "test_causal_response_factorization_v1_grid_runner.py",
     HERE / "CAUSAL_RESPONSE_FACTORIZATION_V1_AMENDMENT_12.md",
+    HERE / "CAUSAL_RESPONSE_FACTORIZATION_V1_AMENDMENT_13.md",
 ))))
 
 
@@ -86,28 +87,25 @@ def _tensor_sha256(value: torch.Tensor) -> str:
 
 
 def _source_closure(*, require_published: bool) -> dict[str, object]:
-    head = subprocess.check_output(
-        ["git", "rev-parse", "HEAD"], cwd=ROOT, text=True,
-    ).strip()
-    if require_published and subprocess.run(
-        ["git", "merge-base", "--is-ancestor", head, "origin/main"], cwd=ROOT,
-        stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,
-    ).returncode != 0:
-        raise RuntimeError("factor-grid source commit is not published")
     hashes: dict[str, str] = {}
     paths = SOURCE_PATHS + ((GRID_AUDIT,) if require_published else ())
     for path in paths:
         relative = str(path.relative_to(ROOT))
         raw = path.read_bytes()
-        if require_published:
-            committed = subprocess.run(
-                ["git", "show", f"{head}:{relative}"], cwd=ROOT,
-                stdout=subprocess.PIPE, stderr=subprocess.DEVNULL,
-            )
-            if committed.returncode != 0 or committed.stdout != raw:
-                raise RuntimeError(f"factor-grid source is not exact at HEAD: {relative}")
         hashes[relative] = _sha256(raw)
-    body: dict[str, object] = {"commit": head, "paths": hashes}
+    if require_published:
+        audit_raw = GRID_AUDIT.read_bytes()
+        audit = json.loads(audit_raw)
+        body: dict[str, object] = {
+            "audited_source_commit": audit.get("audited_source_commit"),
+            "independent_audit_sha256": _sha256(audit_raw),
+            "paths": hashes,
+        }
+    else:
+        head = subprocess.check_output(
+            ["git", "rev-parse", "HEAD"], cwd=ROOT, text=True,
+        ).strip()
+        body = {"commit": head, "paths": hashes}
     return {**body, "sha256": _logical_sha256(body)}
 
 
@@ -130,6 +128,8 @@ def _validate_grid_audit(source: dict[str, object]) -> None:
         or not isinstance(audit.get("tests_passed"), int) or audit["tests_passed"] < 1
         or audit.get("remaining_execution_blockers") != []
         or audit.get("audited_source_hashes") != source_hashes
+        or source.get("audited_source_commit") != audit.get("audited_source_commit")
+        or source.get("independent_audit_sha256") != _sha256(raw)
     ):
         raise RuntimeError("factor-grid independent audit is not exact GO")
     audited_commit = audit["audited_source_commit"]
@@ -142,6 +142,13 @@ def _validate_grid_audit(source: dict[str, object]) -> None:
         cwd=ROOT, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,
     ).returncode != 0:
         raise RuntimeError("factor-grid audited commit is not published")
+    audit_relative = str(GRID_AUDIT.relative_to(ROOT))
+    published_audit = subprocess.run(
+        ["git", "show", f"origin/main:{audit_relative}"], cwd=ROOT,
+        stdout=subprocess.PIPE, stderr=subprocess.DEVNULL,
+    )
+    if published_audit.returncode != 0 or published_audit.stdout != raw:
+        raise RuntimeError("factor-grid independent audit blob is not published")
     for relative, digest in source_hashes.items():
         committed = subprocess.run(
             ["git", "show", f"{audited_commit}:{relative}"], cwd=ROOT,
