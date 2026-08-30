@@ -1,0 +1,58 @@
+{
+  "claim_boundary": "CPU toy and exact reanalysis of an already-opened MLP0 factorial only; no model, rows, protected outcomes, circuit promotion, or real 10-circuit query-efficiency claim. OMP has no guarantee under coherent AND features.",
+  "dense_failure_control": {
+    "fitted_terms": 8,
+    "holdout_normalized_rmse": 0.469221330380077,
+    "holdout_rmse": 0.2557995234683494,
+    "nonzero_truth_terms": 299
+  },
+  "mlp0_artifact": "/workspace/tensor_language/basis_aligned/polynomial_causal/mlp0_token_context_tensor_factorial_discovery.json",
+  "mlp0_artifact_sha256": "0d586445478829e29669415a196fead77294a2b060eee4e6cbfff658b7a26010",
+  "mlp0_known_answer": {
+    "FIT": {
+      "coefficients": {
+        "CC": 2.2386686975757284,
+        "EMPTY": -5.576495627562205,
+        "TT": 0.6440318996707601,
+        "TT+CC": -1.1359986811876301,
+        "TT+X": 1.7064039682348566,
+        "TT+X+CC": 0.01659830411275287,
+        "X": 0.06484378377596567,
+        "X+CC": -1.022299262384574
+      },
+      "degree_two_max_abs_prediction_error_nat": 0.01659830411275287,
+      "largest_pair_abs_nat": 1.7064039682348566,
+      "max_abs_error_vs_registered": 8.881784197001252e-16,
+      "third_order_abs_nat": 0.01659830411275287
+    },
+    "SELECT": {
+      "coefficients": {
+        "CC": 2.262918258706729,
+        "EMPTY": -5.4662592361370725,
+        "TT": 0.635995003084342,
+        "TT+CC": -1.15367811669906,
+        "TT+X": 1.7215755743285013,
+        "TT+X+CC": 0.024389988432328646,
+        "X": 0.048258100946744875,
+        "X+CC": -1.0328001752495775
+      },
+      "degree_two_max_abs_prediction_error_nat": 0.024389988432328646,
+      "largest_pair_abs_nat": 1.7215755743285013,
+      "max_abs_error_vs_registered": 0.0,
+      "third_order_abs_nat": 0.024389988432328646
+    }
+  },
+  "planted_sparse_gate": {
+    "candidate_terms_degree_at_most_3": 299,
+    "false_support_terms": 0,
+    "full_cube_queries": 4096,
+    "holdout_rmse": 7.168930775210397e-15,
+    "max_abs_coefficient_error": 5.662137425588298e-15,
+    "n_components": 12,
+    "partial_queries": 202,
+    "support_terms_recovered": 8,
+    "true_nonzero_terms": 8
+  },
+  "runtime_seconds": 0.10824141278862953,
+  "schema": "sparse_mobius_interaction_tomography_toy_v1"
+}
