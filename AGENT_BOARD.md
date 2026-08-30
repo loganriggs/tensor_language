@@ -16836,3 +16836,19 @@ Complete-linkage clustering of a8's sixteen closed-form directions, validated **
 - Analysis remains forbidden: the second NO-GO is immutable, and the pre-load
   analysis authority, one-use loader, candidate result lifecycle, and fresh
   independent audit still do not exist. Live FIT remains in collection.
+
+### 2026-08-30T10:17Z — Codex: audited signed-response FIT completes receipt-last
+
+- The sole FIT owner exited successfully. It published bundle at 10:15:27Z, manifest
+  at 10:15:36Z, and receipt/shared terminal at 10:15:45Z; no failure and no owner lock
+  remain.
+- Opaque bundle is 55,475,273 bytes, SHA
+  `f0b23bcb9ce926f19bc680aaccc4cf8c7b2694e6a9f97a46c2e9af57e887218a`.
+  Manifest SHA is `48dfc183...56548c`; receipt/terminal SHA is
+  `49a50f31...b632a`. Receipt and terminal are the same inode with link count 2.
+- Outcome-blind parent verifier replayed the exact aggregate, historical 21-file
+  closure, independent GO, parents, protocol, and terminal state. Parent-binding SHA
+  is `2c17df26...a78d9`; it reports tensor values deserialized false and EVAL false.
+- Exact bundle/manifest/receipt/terminal are being preserved before any scientific
+  read. Strict ledger remains unchanged: a completed measurement artifact is not yet
+  an explained circuit or validated simpler program.

@@ -1,0 +1,63 @@
+{
+  "aggregate": {
+    "authority": {
+      "bytes": 6599,
+      "ctime_ns": 1788083199563236298,
+      "device": 50,
+      "inode": 21834436,
+      "mtime_ns": 1788083197423380928,
+      "path": "/workspace/tensor_language/basis_aligned/polynomial_causal/causal_response_tensor_v1_fit_authority.json",
+      "present": true,
+      "sha256": "109e1a0fa30cfd210f4a99a386ac0973b119e3de7ecd64673fb9a3d77210aa97"
+    },
+    "bundle": {
+      "bytes": 55475273,
+      "ctime_ns": 1788084936327895199,
+      "device": 50,
+      "inode": 65975450,
+      "mtime_ns": 1788084927691955152,
+      "path": "/workspace/tensor_language/basis_aligned/polynomial_causal/causal_response_tensor_v1_fit_bundle.pt",
+      "present": true,
+      "sha256": "f0b23bcb9ce926f19bc680aaccc4cf8c7b2694e6a9f97a46c2e9af57e887218a"
+    },
+    "manifest": {
+      "bytes": 44446,
+      "ctime_ns": 1788084945151834255,
+      "device": 50,
+      "inode": 65975452,
+      "mtime_ns": 1788084936919891099,
+      "path": "/workspace/tensor_language/basis_aligned/polynomial_causal/causal_response_tensor_v1_fit_manifest.json",
+      "present": true,
+      "sha256": "48dfc183f1697b4836142eac1a50016f5c2d3f4a4c6d66466c01e1e11a56548c"
+    }
+  },
+  "authority_artifact_sha256": "109e1a0fa30cfd210f4a99a386ac0973b119e3de7ecd64673fb9a3d77210aa97",
+  "authority_logical_sha256": "2bee93a652f797fbb501bb40442d511ca2227f297b8968df1382aa8f89614826",
+  "kind": "receipt",
+  "payload": {
+    "authorized_for_eval": false,
+    "capture_event_shape": [
+      6,
+      124
+    ],
+    "checkpoint": {
+      "config_sha256": "428042bfd807ba36f8b4326395440fbbebe52cd3d040212e6fef14a4fdf2d83c",
+      "logit_vocab": 50304,
+      "revision": "ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240",
+      "snapshot": "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240",
+      "tokenizer_vocab": 50257,
+      "weights_bytes": 2067738635,
+      "weights_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3"
+    },
+    "model_state_sha256_after": "7c6b000b24bc89c865db138b0797d99b02498ae8216e1430bc748348bfbf0436",
+    "model_state_sha256_before": "7c6b000b24bc89c865db138b0797d99b02498ae8216e1430bc748348bfbf0436",
+    "outer_forwards": 12400,
+    "projection_event_shape": [
+      2,
+      49,
+      124
+    ],
+    "status": "complete"
+  },
+  "schema": "causal_response_tensor_v1_fit_terminal"
+}

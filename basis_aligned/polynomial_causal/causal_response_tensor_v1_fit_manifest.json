@@ -1,0 +1,690 @@
+{
+  "authority_artifact_sha256": "109e1a0fa30cfd210f4a99a386ac0973b119e3de7ecd64673fb9a3d77210aa97",
+  "authority_logical_sha256": "2bee93a652f797fbb501bb40442d511ca2227f297b8968df1382aa8f89614826",
+  "authorized_for_eval": false,
+  "bundle": {
+    "bytes": 55475273,
+    "path": "/workspace/tensor_language/basis_aligned/polynomial_causal/causal_response_tensor_v1_fit_bundle.pt",
+    "sha256": "f0b23bcb9ce926f19bc680aaccc4cf8c7b2694e6a9f97a46c2e9af57e887218a"
+  },
+  "bundle_summary": {
+    "axes": {
+      "batch_size": 4,
+      "model_layer_count": 18,
+      "model_width": 1152,
+      "phases": [
+        "full",
+        "residual"
+      ],
+      "source_components": [
+        "a8",
+        "a8",
+        "a8",
+        "a8",
+        "a8",
+        "a8",
+        "a8",
+        "a8",
+        "a8",
+        "a8",
+        "a8",
+        "a8",
+        "a8",
+        "a8",
+        "a8",
+        "a8",
+        "a16",
+        "a16",
+        "a16",
+        "a16",
+        "a16",
+        "a16",
+        "a16",
+        "a16",
+        "a16",
+        "a16",
+        "a16",
+        "a16",
+        "a16",
+        "m16",
+        "m16",
+        "m16",
+        "m16",
+        "m16",
+        "m16",
+        "a3",
+        "a3",
+        "a3",
+        "a3",
+        "a3",
+        "m14",
+        "m14",
+        "m14",
+        "m14",
+        "m14",
+        "m13",
+        "m13",
+        "m13",
+        "m13"
+      ],
+      "source_tags": [
+        "r.11.1.1",
+        "r.11.1.2",
+        "r.11.3.1",
+        "r.2.0",
+        "r.2.0.0",
+        "r.2.0.1",
+        "r.2.0.2",
+        "r.2.1",
+        "r.2.1.0",
+        "r.2.1.1",
+        "r.2.2",
+        "r.2.2.0",
+        "r.2.2.1",
+        "r.2.3",
+        "r.23.2.1",
+        "r.23.2.3",
+        "r.1.0.0",
+        "r.3.0",
+        "r.3.0.0",
+        "r.3.0.1",
+        "r.3.0.2",
+        "r.4.1.0",
+        "r.4.1.1",
+        "r.5.0.1",
+        "r.6.0.0",
+        "r.6.1.1",
+        "r.6.2.0",
+        "r.6.3.0",
+        "r.6.3.1",
+        "r.1.1.1",
+        "r.1.1.2",
+        "r.1.2",
+        "r.1.2.0",
+        "r.1.2.1",
+        "r.6.2.2",
+        "r.0.0.0",
+        "r.0.0.1",
+        "r.0.3.0",
+        "r.13.2.1",
+        "r.8.1.0",
+        "r.1.0",
+        "r.1.0.1",
+        "r.1.0.2",
+        "r.1.0.3",
+        "r.1.1.0",
+        "r.1.1",
+        "r.1.3",
+        "r.1.3.0",
+        "r.1.3.1"
+      ],
+      "spec_order_sha256": "86d0bd7250102fc8dcdee517562fcadda74f2f6bf6d026582bcab71a33f24ca0",
+      "target_tags": [
+        "r.11.1.1",
+        "r.11.1.2",
+        "r.11.3.1",
+        "r.2.0",
+        "r.2.0.0",
+        "r.2.0.1",
+        "r.2.0.2",
+        "r.2.1",
+        "r.2.1.0",
+        "r.2.1.1",
+        "r.2.2",
+        "r.2.2.0",
+        "r.2.2.1",
+        "r.2.3",
+        "r.23.2.1",
+        "r.23.2.3",
+        "r.1.0.0",
+        "r.3.0",
+        "r.3.0.0",
+        "r.3.0.1",
+        "r.3.0.2",
+        "r.4.1.0",
+        "r.4.1.1",
+        "r.5.0.1",
+        "r.6.0.0",
+        "r.6.1.1",
+        "r.6.2.0",
+        "r.6.3.0",
+        "r.6.3.1",
+        "r.1.1.1",
+        "r.1.1.2",
+        "r.1.2",
+        "r.1.2.0",
+        "r.1.2.1",
+        "r.6.2.2",
+        "r.0.0.0",
+        "r.0.0.1",
+        "r.0.3.0",
+        "r.13.2.1",
+        "r.8.1.0",
+        "r.1.0",
+        "r.1.0.1",
+        "r.1.0.2",
+        "r.1.0.3",
+        "r.1.1.0",
+        "r.1.1",
+        "r.1.3",
+        "r.1.3.0",
+        "r.1.3.1"
+      ]
+    },
+    "binding": {
+      "authority_sha256": "2bee93a652f797fbb501bb40442d511ca2227f297b8968df1382aa8f89614826",
+      "battery_sha256": "86d7ac72eeb95f9ec80a3e92ef65e28c0df66a36b9291d2d1d2d01f7bb6c5030",
+      "census_state_diverse_sha256": "c785f3d938091253535aa4f613ab2b4107bf297c8d615da4f7eab4f8282f5e0b",
+      "config_sha256": "428042bfd807ba36f8b4326395440fbbebe52cd3d040212e6fef14a4fdf2d83c",
+      "curated_rows_sha256": "faaf89f38ddf1471234a1d30d978213367a566a9927bb3c73b274ab32afaa9dd",
+      "document_split_sha256": "3cb829ce5c9627f787e804e4e2ca44098030c629933f14df2c3a7fb07283317c",
+      "fit_document_ids_sha256": "0f514805a7615e5ef3fe862eb8bf37bebfe8c57b8b7e781fbb25907c729b808d",
+      "fit_role_sha256": "6873c2a279bf73fe17c38d72ac25003f4741825efc271ff91b6b783615cdd815",
+      "model_rows_sha256": "1786a30bc0d27d26324486e582a539cc292428c2f3f4f1ed7594014390a437ce",
+      "model_state_sha256_after": "7c6b000b24bc89c865db138b0797d99b02498ae8216e1430bc748348bfbf0436",
+      "model_state_sha256_before": "7c6b000b24bc89c865db138b0797d99b02498ae8216e1430bc748348bfbf0436",
+      "source_closure_sha256": "2d3fddb1eed66384d681ddb795ce85871cd6c41a26119b45fb82130082178b60",
+      "support_hashes_sha256": "a8e033d981e82b5e39404ed5ee705119897e1d5d5a1cceaf80ea12c0b711a5aa",
+      "weights_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3"
+    },
+    "ledger": {
+      "attention_native_calls": 223200,
+      "capture_calls": {
+        "a16": 124,
+        "a3": 124,
+        "a8": 124,
+        "m13": 124,
+        "m14": 124,
+        "m16": 124
+      },
+      "mlp_native_calls": 223200,
+      "outer_forwards": 12400,
+      "projection_calls": {
+        "a16": 3224,
+        "a3": 1240,
+        "a8": 3968,
+        "m13": 992,
+        "m14": 1240,
+        "m16": 1488
+      }
+    },
+    "schema": "causal_response_tensor_v1_fit_bundle_summary",
+    "scientific_contract": {
+      "claim_boundary": "FIT-only program and causal-response bundle. It contains no raw tokens, targets, activations, logits, EVAL rows, or EVAL outcomes.",
+      "forbidden_payload_contract": {
+        "aggregate_fit_write_sums_and_means_only": true,
+        "component_activations": false,
+        "component_writes": false,
+        "eval_outcomes": false,
+        "eval_rows": false,
+        "logits": false,
+        "raw_tokens": false,
+        "targets": false
+      },
+      "off_mask": "exact complement of the target circuit's frozen slice mask",
+      "sign_convention": "dCE = rank-one-projection intervention CE - native CE"
+    },
+    "support_hashes": {
+      "r.0.0.0": {
+        "member_mask_sha256": "3c4bdff81b6ae19fabac3f41160bee71ea5a7274e69065c4567b7978c150bcaa",
+        "slice_mask_sha256": "5b1821041dd43a2d2cf45f19e75607b02b82855a059c652c03b30e8b1673f3ca"
+      },
+      "r.0.0.1": {
+        "member_mask_sha256": "1d5bfbe0f33917c0d3e69a603098b8d12f3ad4c513597d4383907e812d301415",
+        "slice_mask_sha256": "5b1821041dd43a2d2cf45f19e75607b02b82855a059c652c03b30e8b1673f3ca"
+      },
+      "r.0.3.0": {
+        "member_mask_sha256": "f33cfeecc9d0ea3b98ad24ba33578fc9f168956877ae4bdad2dc0130d36115cb",
+        "slice_mask_sha256": "733d51adfe31c979b6861ed456a0b29eeb1307d547c2d21ab7407aa553cc9818"
+      },
+      "r.1.0": {
+        "member_mask_sha256": "afb4ed91d45e2e449f6725288f2c2fc533feb9a9b293b7375638793bcb697b73",
+        "slice_mask_sha256": "c17334dca8ec4a2a0933db976d82d636eef034c3bde5ae4bd7a0379a2ec621a3"
+      },
+      "r.1.0.0": {
+        "member_mask_sha256": "8fe6684af7360cc163f1015950aa4c496acaa0ba0f852e559877b4ac2ea3f6df",
+        "slice_mask_sha256": "afb4ed91d45e2e449f6725288f2c2fc533feb9a9b293b7375638793bcb697b73"
+      },
+      "r.1.0.1": {
+        "member_mask_sha256": "d93ae71254bba7c5613dee14c5c1eca56056469dc02f762d7186097daa3a84b1",
+        "slice_mask_sha256": "afb4ed91d45e2e449f6725288f2c2fc533feb9a9b293b7375638793bcb697b73"
+      },
+      "r.1.0.2": {
+        "member_mask_sha256": "fcd126fcaa6c63206bea258e54ab4007228a0d0a25ab9f63aefa720c21c3dc4d",
+        "slice_mask_sha256": "afb4ed91d45e2e449f6725288f2c2fc533feb9a9b293b7375638793bcb697b73"
+      },
+      "r.1.0.3": {
+        "member_mask_sha256": "2a7bffece78f08438241615ad842645c2e1bfad44979aa373ade746147bc1d05",
+        "slice_mask_sha256": "afb4ed91d45e2e449f6725288f2c2fc533feb9a9b293b7375638793bcb697b73"
+      },
+      "r.1.1": {
+        "member_mask_sha256": "b60e30fe07dcf92cdadc2a4b959b8c6f44468cbd920f8c6093eb133889826071",
+        "slice_mask_sha256": "c17334dca8ec4a2a0933db976d82d636eef034c3bde5ae4bd7a0379a2ec621a3"
+      },
+      "r.1.1.0": {
+        "member_mask_sha256": "d01c20d1a2adb6e6520818d713eec4f018ec1cc6a189aa3942491cad703f3a9e",
+        "slice_mask_sha256": "b60e30fe07dcf92cdadc2a4b959b8c6f44468cbd920f8c6093eb133889826071"
+      },
+      "r.1.1.1": {
+        "member_mask_sha256": "049af3a08798068c2d20e104ab16ee83578cad090b6122aa02ce433cd1e01c39",
+        "slice_mask_sha256": "b60e30fe07dcf92cdadc2a4b959b8c6f44468cbd920f8c6093eb133889826071"
+      },
+      "r.1.1.2": {
+        "member_mask_sha256": "dd431111d073e09cda3523b414cd160ad755ed1c9a45688fff4a01b5b648ef59",
+        "slice_mask_sha256": "b60e30fe07dcf92cdadc2a4b959b8c6f44468cbd920f8c6093eb133889826071"
+      },
+      "r.1.2": {
+        "member_mask_sha256": "68871f4c9354d59a172999f93b966b3cbca2d36af35dcb877eb2e0e8e0f72dc3",
+        "slice_mask_sha256": "c17334dca8ec4a2a0933db976d82d636eef034c3bde5ae4bd7a0379a2ec621a3"
+      },
+      "r.1.2.0": {
+        "member_mask_sha256": "c294a13fb2756c459bf92bef091d77cb66ca2d63c81e14e33192079700eca90e",
+        "slice_mask_sha256": "68871f4c9354d59a172999f93b966b3cbca2d36af35dcb877eb2e0e8e0f72dc3"
+      },
+      "r.1.2.1": {
+        "member_mask_sha256": "b8ce411fdaf7e4ef55b0bfe8901e4f2d113c657654929a9e72182d9e7491a91a",
+        "slice_mask_sha256": "68871f4c9354d59a172999f93b966b3cbca2d36af35dcb877eb2e0e8e0f72dc3"
+      },
+      "r.1.3": {
+        "member_mask_sha256": "0ff814151c7b449338fd9239e09e75e064c5b248dd658e46b5a1a9b1b0ce959b",
+        "slice_mask_sha256": "c17334dca8ec4a2a0933db976d82d636eef034c3bde5ae4bd7a0379a2ec621a3"
+      },
+      "r.1.3.0": {
+        "member_mask_sha256": "7217341fcb9bb29dee0330d55e3a360cea6268df5d084f4223da80a80a10bc74",
+        "slice_mask_sha256": "0ff814151c7b449338fd9239e09e75e064c5b248dd658e46b5a1a9b1b0ce959b"
+      },
+      "r.1.3.1": {
+        "member_mask_sha256": "853da6c4739c64eed31adfd5a04273a68ba0aeb48e516e11aaa2038c47dfa862",
+        "slice_mask_sha256": "0ff814151c7b449338fd9239e09e75e064c5b248dd658e46b5a1a9b1b0ce959b"
+      },
+      "r.11.1.1": {
+        "member_mask_sha256": "9a79aac3ab747af0ab1098b4a88cba9c7d61772de168dd98d6999452d25fefc3",
+        "slice_mask_sha256": "9bf5eec495e90bde4552146548f4621b669d193b19f0836813802baa1732eafe"
+      },
+      "r.11.1.2": {
+        "member_mask_sha256": "f759fa276dea06edadc20fcd664c75b9e4aa5fed9b30ef8288bc420df94d1f26",
+        "slice_mask_sha256": "9bf5eec495e90bde4552146548f4621b669d193b19f0836813802baa1732eafe"
+      },
+      "r.11.3.1": {
+        "member_mask_sha256": "fe19989d91df9533e54eb601f39f24e3848f25fd4b35de1e42d6c1692ef6b430",
+        "slice_mask_sha256": "f3d3f77b6865dcbfbe1e97eaca7a8bb2b105880b65036a88ffc4b0e241280d6d"
+      },
+      "r.13.2.1": {
+        "member_mask_sha256": "d05c1da2124faa7a30f42ac5449db92ad5fa9bc7e06bd3a2710fd913635c167b",
+        "slice_mask_sha256": "8bd3ce173499f17f24a7fb375a16e140dad4e4050fa8d3a0648e2b7a3b591a32"
+      },
+      "r.2.0": {
+        "member_mask_sha256": "7809265229ef598a8d6e3ada6bb4c6e3fdddc804c670f34e0801bbc59f8577fc",
+        "slice_mask_sha256": "ca20e52a7f652b05b02e6ea50ccf4a2a3fb4b8b675ba0f37dab0fa1d260ad290"
+      },
+      "r.2.0.0": {
+        "member_mask_sha256": "029cf5a2070e759463219282ce9acacb2a87a23bd843f922877603912a13ff48",
+        "slice_mask_sha256": "7809265229ef598a8d6e3ada6bb4c6e3fdddc804c670f34e0801bbc59f8577fc"
+      },
+      "r.2.0.1": {
+        "member_mask_sha256": "1c61c03163a738fccb58a58f9ee712860ee76719c0a0094353d2d64393ac8bbd",
+        "slice_mask_sha256": "7809265229ef598a8d6e3ada6bb4c6e3fdddc804c670f34e0801bbc59f8577fc"
+      },
+      "r.2.0.2": {
+        "member_mask_sha256": "682d983f9ee7556c08b686c0e6cd56609f260ce515a22a89c9ba811181682288",
+        "slice_mask_sha256": "7809265229ef598a8d6e3ada6bb4c6e3fdddc804c670f34e0801bbc59f8577fc"
+      },
+      "r.2.1": {
+        "member_mask_sha256": "0a6bc4e752f60b2370a2ab7aaec039d7a842fa0cd7960e64743a8e1b2535e241",
+        "slice_mask_sha256": "ca20e52a7f652b05b02e6ea50ccf4a2a3fb4b8b675ba0f37dab0fa1d260ad290"
+      },
+      "r.2.1.0": {
+        "member_mask_sha256": "fe78d26d88737526ddca8743fe733c60737409b2f8572604d0d6f6bafc4a9176",
+        "slice_mask_sha256": "0a6bc4e752f60b2370a2ab7aaec039d7a842fa0cd7960e64743a8e1b2535e241"
+      },
+      "r.2.1.1": {
+        "member_mask_sha256": "2f0e25d58708a3b13a382bdddada29879022ca4bf74cb30ef3476727fc9a4da0",
+        "slice_mask_sha256": "0a6bc4e752f60b2370a2ab7aaec039d7a842fa0cd7960e64743a8e1b2535e241"
+      },
+      "r.2.2": {
+        "member_mask_sha256": "ba275fdfc03822a7bf5269ccdb760205fbde520c85d6e42bd12e3823a19a5785",
+        "slice_mask_sha256": "ca20e52a7f652b05b02e6ea50ccf4a2a3fb4b8b675ba0f37dab0fa1d260ad290"
+      },
+      "r.2.2.0": {
+        "member_mask_sha256": "bc76d1917decd3886823eb8657840278bcbc0d93d32586c1456d22712d6a563e",
+        "slice_mask_sha256": "ba275fdfc03822a7bf5269ccdb760205fbde520c85d6e42bd12e3823a19a5785"
+      },
+      "r.2.2.1": {
+        "member_mask_sha256": "18665329b0978586da967b568bd145700c70e7197344bcc373dcd9ee53272518",
+        "slice_mask_sha256": "ba275fdfc03822a7bf5269ccdb760205fbde520c85d6e42bd12e3823a19a5785"
+      },
+      "r.2.3": {
+        "member_mask_sha256": "a679714c6dc52d54991c2b74b2e4e3a0753754ff713c3d3be49b351710f71274",
+        "slice_mask_sha256": "ca20e52a7f652b05b02e6ea50ccf4a2a3fb4b8b675ba0f37dab0fa1d260ad290"
+      },
+      "r.23.2.1": {
+        "member_mask_sha256": "e8522bc92268a668ea9df4e14fd689cacdbc1c4443d203a140f0f4737269657b",
+        "slice_mask_sha256": "b9dc0f3b61d13dbc2bae54388c4df3c18d0614ff20d40a10469d63e2e61c6471"
+      },
+      "r.23.2.3": {
+        "member_mask_sha256": "7114dbfb40fc9480cf92068282d04e6bf82337b1f4e8b81bea078658aae48277",
+        "slice_mask_sha256": "b9dc0f3b61d13dbc2bae54388c4df3c18d0614ff20d40a10469d63e2e61c6471"
+      },
+      "r.3.0": {
+        "member_mask_sha256": "3a7cc635d4a98c233546085839d7e9e7f33d5db69b8844a203b7f7812f937f23",
+        "slice_mask_sha256": "fa65184f0c4c6bc48713105c025eb19184de1e127632b157775748b07ac79d51"
+      },
+      "r.3.0.0": {
+        "member_mask_sha256": "d501753174df590d2f87c3c7e428707ce91b8ba985b99f13ac33e95bd090c97a",
+        "slice_mask_sha256": "3a7cc635d4a98c233546085839d7e9e7f33d5db69b8844a203b7f7812f937f23"
+      },
+      "r.3.0.1": {
+        "member_mask_sha256": "6b765ffae7c5077c494077517437dd5aa3cbe36bf0e1c4a1d8158c3d1a94985a",
+        "slice_mask_sha256": "3a7cc635d4a98c233546085839d7e9e7f33d5db69b8844a203b7f7812f937f23"
+      },
+      "r.3.0.2": {
+        "member_mask_sha256": "ac42e4b984cd8ef6bd6ea451532bd1773c1911d00f3036095a0b3857db36fc78",
+        "slice_mask_sha256": "3a7cc635d4a98c233546085839d7e9e7f33d5db69b8844a203b7f7812f937f23"
+      },
+      "r.4.1.0": {
+        "member_mask_sha256": "a131d14dc7d197b6d338621cb1343c98e6b6e3db67bd099c75c0d675c3c7630a",
+        "slice_mask_sha256": "4ada23c5fba01ecd40e2be09626bcac8fd0865a0e4a4f4a0b327348e0779b775"
+      },
+      "r.4.1.1": {
+        "member_mask_sha256": "cc4fc326ff09c0d75f3ad0be984a6b23774989159e1e0a5763ddc9933ca1004e",
+        "slice_mask_sha256": "4ada23c5fba01ecd40e2be09626bcac8fd0865a0e4a4f4a0b327348e0779b775"
+      },
+      "r.5.0.1": {
+        "member_mask_sha256": "79ead7298c25a5aec51518009302e8490ba3a109cb2fbf37fd580242b2f2aa8b",
+        "slice_mask_sha256": "0c72ba482e71db7a47c4f230152b40b8875cb21529e7556cb03746893fc56002"
+      },
+      "r.6.0.0": {
+        "member_mask_sha256": "9d668de48f8129d08de3b79e4f1dcaac0b7582389b0d95b9f3f24a2e695252b1",
+        "slice_mask_sha256": "a1f32eaf365883891d8bb21819300c078ab84d1f95fce8941c87ccd2731e3785"
+      },
+      "r.6.1.1": {
+        "member_mask_sha256": "eb0e6ba4ae1c158809cbf4b241d140d2d6333916e67e45f9394438fc00e25064",
+        "slice_mask_sha256": "5509c86975d834f5f5642ed24542288564f56ac5142b6df74866ec33c6d6f3f3"
+      },
+      "r.6.2.0": {
+        "member_mask_sha256": "43b3fdef965cbf785f4deacfb8e633011e46e1938643069000007447b51c7e24",
+        "slice_mask_sha256": "694da14c8353a928b8180b0ad6389dde7db76d883f59f16873e694f69584a38b"
+      },
+      "r.6.2.2": {
+        "member_mask_sha256": "1e10d23bdb4c0e7a1ecf40d0eeff278ea44e88f63765d484897043993f35a854",
+        "slice_mask_sha256": "694da14c8353a928b8180b0ad6389dde7db76d883f59f16873e694f69584a38b"
+      },
+      "r.6.3.0": {
+        "member_mask_sha256": "e0ffc7eea660d4d0826a19e06ad972083db78378bca902c1dc3b2aca857388a3",
+        "slice_mask_sha256": "8d10d60b6991b62e705dd702c68f94b2be1c60d608b32e4c35db35e6baafd2bc"
+      },
+      "r.6.3.1": {
+        "member_mask_sha256": "0e39adf980874b859dde18a096040bb25a1bcfc4695f8a5e93ca67eab7e0253e",
+        "slice_mask_sha256": "8d10d60b6991b62e705dd702c68f94b2be1c60d608b32e4c35db35e6baafd2bc"
+      },
+      "r.8.1.0": {
+        "member_mask_sha256": "593c04bc1c0b7e2b2c90fdb200604bbd44c766cb2adb270d54492f3d51142916",
+        "slice_mask_sha256": "e92a020c54e7628fdc35ef0c99703e40a7110bed473060726fe639f3cd9d29e8"
+      }
+    },
+    "tensor_hashes": {
+      "root.call_ledger.capture_event_counts": "f7e3989740a71d23728b008525d5a329cefdd7aab0d4ee1bee0d7fa78ba603db",
+      "root.call_ledger.projection_event_counts": "c51fed641320bd766d8d1a8cdc4b22de272afe215f26d8a987b05ffa8a08854c",
+      "root.directions": "c7606d539c9a8b885329e1b8e88423b6e960a6f17d74170b32963e0eb1b83e0a",
+      "root.fit_response.document_ids": "0f514805a7615e5ef3fe862eb8bf37bebfe8c57b8b7e781fbb25907c729b808d",
+      "root.fit_response.member_count": "935eb6ee5c7654777659db9b059c04f7a43cbd22e7c210c952a49a4e3909724a",
+      "root.fit_response.off_count": "23ce8b1f0ded217e4a203752dc3179e57599094616291b4b7d5bd17c30898f66",
+      "root.fit_response.row_indices": "6873c2a279bf73fe17c38d72ac25003f4741825efc271ff91b6b783615cdd815",
+      "root.fit_response.statistics.member_abs_sum": "70bb37676bb45adc97485a70beae2a88ee56a3f4ca1ebe04a3daddcb723e31d8",
+      "root.fit_response.statistics.member_signed_sum": "745b47937d4b2e843285173947cd3914869d328364d103e177b25e4037c7925c",
+      "root.fit_response.statistics.off_abs_sum": "d37b13cda39546a283ec33a6e261e8206c2613726d3d97e0fa74d625918f16ca",
+      "root.fit_response.statistics.off_signed_sum": "930bbf666cb906fed3a14da6cc105ab50f471990265e48bebfdc475b01680aaf",
+      "root.fit_write_statistics.r.0.0.0.member_mean": "beae9b82f3b95d7146a2a8a3000bdee5940ffd2ac7e31f957dd2de81a4568125",
+      "root.fit_write_statistics.r.0.0.0.member_sum": "a42988ca57179e39a337c225e210eea8d0874a21ccf504c2e47d65aaf3777036",
+      "root.fit_write_statistics.r.0.0.0.off_mean": "c379978a2c9f970cb5019d44edc6160616e6e95f0ae9ee1b40c0e5688d0ddc0c",
+      "root.fit_write_statistics.r.0.0.0.off_sum": "a9dcea5dff76ee9a990f2e32e7cc9f4552b2a248883a3973889de47756b9c8f1",
+      "root.fit_write_statistics.r.0.0.1.member_mean": "02d83be9953e7980c74d1826a45dcebff5ceb119852e5e31efc51f0b2fe79d98",
+      "root.fit_write_statistics.r.0.0.1.member_sum": "f104e30c3919740ad074884a51d81346d83ca148e57a08be31463c0eb615fb71",
+      "root.fit_write_statistics.r.0.0.1.off_mean": "c379978a2c9f970cb5019d44edc6160616e6e95f0ae9ee1b40c0e5688d0ddc0c",
+      "root.fit_write_statistics.r.0.0.1.off_sum": "a9dcea5dff76ee9a990f2e32e7cc9f4552b2a248883a3973889de47756b9c8f1",
+      "root.fit_write_statistics.r.0.3.0.member_mean": "c7e554b277a18fef190c98d3ac20ed9102297ed74a7d5df76760142007a9af7b",
+      "root.fit_write_statistics.r.0.3.0.member_sum": "4f767ae65191802e6fcfbb6ec98cabbb5f224259e59060c3e34b49c15a6287a2",
+      "root.fit_write_statistics.r.0.3.0.off_mean": "6d1c6c5b2750e4e8964015b468be47e835f38388fc80e62aa666afc65b2a3eb8",
+      "root.fit_write_statistics.r.0.3.0.off_sum": "aa7add3b69c3f56e5f3e2b26977dc146a31fab18df4d94c6cd82bbe962459fbb",
+      "root.fit_write_statistics.r.1.0.0.member_mean": "4342f70836beb39d823541067f486cb9cd5033ac1979245018fc1115d1c6bdaf",
+      "root.fit_write_statistics.r.1.0.0.member_sum": "243ecb15c3fb9a6fb04395e34d9b081532d530dd5e74c6e5d8f180cbe1a8adef",
+      "root.fit_write_statistics.r.1.0.0.off_mean": "3fa850a38c46fcc0f28a19f511d9e6959591f1bffde02f267d6f54c0891f9280",
+      "root.fit_write_statistics.r.1.0.0.off_sum": "3909746746d482fae7381f0e1330ce5583defcbad22f8a0d0759d9c95a1fce0e",
+      "root.fit_write_statistics.r.1.0.1.member_mean": "33c8ddefb1304990b1c811f5fc155ee6c54f75dade40c2a41628290cdb62702b",
+      "root.fit_write_statistics.r.1.0.1.member_sum": "7fa05e745d215e81e83df775892c5cc59a0ad7fab4a3c6144b7a228aecf9b308",
+      "root.fit_write_statistics.r.1.0.1.off_mean": "721a934a25cfef6f4b28b6df81966d01c3d28fc771803ac23dfeb108c4d0e3ae",
+      "root.fit_write_statistics.r.1.0.1.off_sum": "be387f9d5cf208f5dd34cd69e9050b278ad54d8575e9b0f88dfb25cdb6bc8990",
+      "root.fit_write_statistics.r.1.0.2.member_mean": "6b05a555c6378abe1cdc529d1f147570fc0daead81947a4c6f7a93f574e762ee",
+      "root.fit_write_statistics.r.1.0.2.member_sum": "b1768a598d7605b08d0c8620bd0b7e9a37f74680e48e7762bfce15a63d3fbf48",
+      "root.fit_write_statistics.r.1.0.2.off_mean": "721a934a25cfef6f4b28b6df81966d01c3d28fc771803ac23dfeb108c4d0e3ae",
+      "root.fit_write_statistics.r.1.0.2.off_sum": "be387f9d5cf208f5dd34cd69e9050b278ad54d8575e9b0f88dfb25cdb6bc8990",
+      "root.fit_write_statistics.r.1.0.3.member_mean": "de688a63eee3413870484d9723103d3cf17c55c67504bdd084fa41e124e951ab",
+      "root.fit_write_statistics.r.1.0.3.member_sum": "7110aa2781662178bc931e7045705fe125bd9d722df13a107a58a23f07dd7e5f",
+      "root.fit_write_statistics.r.1.0.3.off_mean": "721a934a25cfef6f4b28b6df81966d01c3d28fc771803ac23dfeb108c4d0e3ae",
+      "root.fit_write_statistics.r.1.0.3.off_sum": "be387f9d5cf208f5dd34cd69e9050b278ad54d8575e9b0f88dfb25cdb6bc8990",
+      "root.fit_write_statistics.r.1.0.member_mean": "3c0fe3f6a6cab645f968ff0979a68eb30f12cf689a6d4bf218ce75c33fd69905",
+      "root.fit_write_statistics.r.1.0.member_sum": "8355199080403cfec6af7ed11728fc341bba9eb0597452bd0d52fc0c1727c4d4",
+      "root.fit_write_statistics.r.1.0.off_mean": "65b2f2b9576cacff40cb48d3f644f39bdd26a790f9412e90378b3270c7be1dfb",
+      "root.fit_write_statistics.r.1.0.off_sum": "4f6bad48ccb34f45e108a5776e5092ac8c94660a6cc82ed8aadbb24c662dd05c",
+      "root.fit_write_statistics.r.1.1.0.member_mean": "73d8650f1c54a696102c1f8f9aba17138272a8e88d702b32c009399d8896223b",
+      "root.fit_write_statistics.r.1.1.0.member_sum": "e75b84b040d370cf32797d6a76a35c74202200e81b2040f02f3db66863481f20",
+      "root.fit_write_statistics.r.1.1.0.off_mean": "690b87408e3dcb518ee015fe14c3483b736f9f5f4223d4973f8342e4c3bbc2ce",
+      "root.fit_write_statistics.r.1.1.0.off_sum": "7a22fb18df1ce7c9c4b6ecaf1b09feb175443ca20ef1cc47f91eda905bfa3ac4",
+      "root.fit_write_statistics.r.1.1.1.member_mean": "8e937720a17e89ed86570c99e4858aebab74cdb04fcada0ba2e13dfa6c9779af",
+      "root.fit_write_statistics.r.1.1.1.member_sum": "52ff19c9706025e6eddecbb90f527d2730e9204ce411f2a435e080dc6958d29f",
+      "root.fit_write_statistics.r.1.1.1.off_mean": "7c6725be348be140dd3cb1576402aa6f44787099324729b7507490e2e6f1f679",
+      "root.fit_write_statistics.r.1.1.1.off_sum": "c4fc316297cc0ca285e171e0b58e95009ab56985490750e8f681ccd7d7280aec",
+      "root.fit_write_statistics.r.1.1.2.member_mean": "497b675b336412778c2be3f612d4d0482a998a05dd1f6f957fa530ffd5853825",
+      "root.fit_write_statistics.r.1.1.2.member_sum": "94ec2c09038565f9402686060a9f3f546c055944e9fdbf3d71fff4d3c780c1a3",
+      "root.fit_write_statistics.r.1.1.2.off_mean": "7c6725be348be140dd3cb1576402aa6f44787099324729b7507490e2e6f1f679",
+      "root.fit_write_statistics.r.1.1.2.off_sum": "c4fc316297cc0ca285e171e0b58e95009ab56985490750e8f681ccd7d7280aec",
+      "root.fit_write_statistics.r.1.1.member_mean": "a32524c8602db84cd2a76de7be2943a92dd74a519ef31ff3f77cb6fc430f2e7c",
+      "root.fit_write_statistics.r.1.1.member_sum": "6a9161df0637eeb58aa1f6a18a0334cac854dc12c84940c377dc58be7add4269",
+      "root.fit_write_statistics.r.1.1.off_mean": "8ff1271f485e3a26acb5c8a48be8845f9e0a29a2d046372a137d5725e3054e12",
+      "root.fit_write_statistics.r.1.1.off_sum": "d33ca8fe55c8429c6018acb90a74d5f6dd3b8a2056608415cd5fe971c085080e",
+      "root.fit_write_statistics.r.1.2.0.member_mean": "8a1cc7ae2825a04adbf234b52a2b9b58e3b931cdac2a439065aebb1e91d83749",
+      "root.fit_write_statistics.r.1.2.0.member_sum": "36cb31d2fa127940317499f534e38e7824fa2ef426f78003d4ed86ab50ae755a",
+      "root.fit_write_statistics.r.1.2.0.off_mean": "eba930691f7dbabf92c0f6e7007dd8da1db1ffdc58610819cea8c42ed3de0510",
+      "root.fit_write_statistics.r.1.2.0.off_sum": "2f411720489e5f80fd9702078b5da70ada2267d1c63ed03eb21fb5bcff4626b0",
+      "root.fit_write_statistics.r.1.2.1.member_mean": "a6de4e13878739907c373dfa7fb1da711e3429ccb273b38c5b9f217223bbeca3",
+      "root.fit_write_statistics.r.1.2.1.member_sum": "ff6f55c287a27aa397df8c5a394022f61a6f18e738511ccf90cfca04379483ae",
+      "root.fit_write_statistics.r.1.2.1.off_mean": "eba930691f7dbabf92c0f6e7007dd8da1db1ffdc58610819cea8c42ed3de0510",
+      "root.fit_write_statistics.r.1.2.1.off_sum": "2f411720489e5f80fd9702078b5da70ada2267d1c63ed03eb21fb5bcff4626b0",
+      "root.fit_write_statistics.r.1.2.member_mean": "24b07b618cb2ada46173dfe3a915b976efb328b1606664b2f32e5389558cdf61",
+      "root.fit_write_statistics.r.1.2.member_sum": "e1fd5f1114b574e1ffb6562af1fb74bbc5d5d939401066394d8d48f0ee90200c",
+      "root.fit_write_statistics.r.1.2.off_mean": "6e654a6aac87567be254517d7ee8baa5292766cfb3ca88bf2b3e81a8f96b5b37",
+      "root.fit_write_statistics.r.1.2.off_sum": "b22562393051d03f9abbff0440a0a3dc996c5aca7fd6177d886fb5ffa93557c6",
+      "root.fit_write_statistics.r.1.3.0.member_mean": "91b197b32134e4e7e29a9fa893057bd1c21a5ba35158ef8e66f5fdff1ba93776",
+      "root.fit_write_statistics.r.1.3.0.member_sum": "f21888feabccafd18452a291c2d23fe90b764ee59bab42c1b160a6cb2b9c0345",
+      "root.fit_write_statistics.r.1.3.0.off_mean": "b6986d254dacf38f8d14d90a5d427e65c740f24075b00ff9a09f0663c51d7125",
+      "root.fit_write_statistics.r.1.3.0.off_sum": "0f6ed120b0c75e7c593cacb572792f186f58859ef7c1f99a750a3c73ff834804",
+      "root.fit_write_statistics.r.1.3.1.member_mean": "035eeb96ed76c2ba509d4084372a20fc23ed0c369c2ea26b985bf79bce1aaf5a",
+      "root.fit_write_statistics.r.1.3.1.member_sum": "0a24929402cfcfc65d7abc3ef993a9169f9f68c939a8a522a942183283dc846b",
+      "root.fit_write_statistics.r.1.3.1.off_mean": "b6986d254dacf38f8d14d90a5d427e65c740f24075b00ff9a09f0663c51d7125",
+      "root.fit_write_statistics.r.1.3.1.off_sum": "0f6ed120b0c75e7c593cacb572792f186f58859ef7c1f99a750a3c73ff834804",
+      "root.fit_write_statistics.r.1.3.member_mean": "6aa943cb7290b45b9db35fd4080583a6861fb73b033f4e3b4fe1559937e98752",
+      "root.fit_write_statistics.r.1.3.member_sum": "cdb9899af4c77860b362abf976c5356c0eeac4a7435c66ed1aa018199d547bb3",
+      "root.fit_write_statistics.r.1.3.off_mean": "8ff1271f485e3a26acb5c8a48be8845f9e0a29a2d046372a137d5725e3054e12",
+      "root.fit_write_statistics.r.1.3.off_sum": "d33ca8fe55c8429c6018acb90a74d5f6dd3b8a2056608415cd5fe971c085080e",
+      "root.fit_write_statistics.r.11.1.1.member_mean": "bb0e23b0fa6cffb4886de33d8c388896818dc3e48755f6f5c9ce863662ca2f02",
+      "root.fit_write_statistics.r.11.1.1.member_sum": "06e7a429771337ad4d1c3aceec29ed5beef14055f8f26cac65c8d1c969232c86",
+      "root.fit_write_statistics.r.11.1.1.off_mean": "c390847505fdd0694fb95299eae63735ec80861ab56748b05392ec5e77fb80bc",
+      "root.fit_write_statistics.r.11.1.1.off_sum": "b869433c329438c792477c4ced1adf2789868bfa8e700bc440f63b80f7f8f1d7",
+      "root.fit_write_statistics.r.11.1.2.member_mean": "c34d2aa08694929aae1ba91289deaf2db20cfcf32135eecb8f90b92d02ea595d",
+      "root.fit_write_statistics.r.11.1.2.member_sum": "6529d98d24243df1a1970667911cd9effd20249eb8f04396cd2daf84842adde5",
+      "root.fit_write_statistics.r.11.1.2.off_mean": "c390847505fdd0694fb95299eae63735ec80861ab56748b05392ec5e77fb80bc",
+      "root.fit_write_statistics.r.11.1.2.off_sum": "b869433c329438c792477c4ced1adf2789868bfa8e700bc440f63b80f7f8f1d7",
+      "root.fit_write_statistics.r.11.3.1.member_mean": "e0726cbbeab6e7c6e4ef604a9573c5a605d3813f4db71998e72b6830f0dfea51",
+      "root.fit_write_statistics.r.11.3.1.member_sum": "dda973fb98ec04afa64b857f49787dbd3c60ae8cfdc38c8612659e9201b4c4e6",
+      "root.fit_write_statistics.r.11.3.1.off_mean": "9683abb49addf475c050a19bdaf66a2cc3016b16d788362b98fa37c4f014b608",
+      "root.fit_write_statistics.r.11.3.1.off_sum": "93ebb1b7f0325020a77f0126ee545aee4ad83d1d9c456d7dab69e1a03a559539",
+      "root.fit_write_statistics.r.13.2.1.member_mean": "1481dac63db72632b4b1f7b8fb7d3c2b1af2034a9874796939a91d31579d0abb",
+      "root.fit_write_statistics.r.13.2.1.member_sum": "ec1819b9a8ea224fa88d920978d0debe544e71f6a5f8d6fb63a72382454125c1",
+      "root.fit_write_statistics.r.13.2.1.off_mean": "8767dfc7fddafd928797cabdd8118894dcea727509a9191282c2f84555bb58a8",
+      "root.fit_write_statistics.r.13.2.1.off_sum": "3ca7ccee380bcbc13805b4a69121d17f5cb3f775260a3104b02ca0d76d96e231",
+      "root.fit_write_statistics.r.2.0.0.member_mean": "da9f30cff37f5285c2d9656129e63dc6053cb2028fc2218263794941e58fea9c",
+      "root.fit_write_statistics.r.2.0.0.member_sum": "8daa7ef578933248464dae6a299d04b1cc0e9c5f38717b8385ee244fe983f5fc",
+      "root.fit_write_statistics.r.2.0.0.off_mean": "c31a84be484f402e4bb554a41dbaba8d3b9011e575bc6e09976fd82203589d92",
+      "root.fit_write_statistics.r.2.0.0.off_sum": "8889759ca34e21016967c903c456e2199e3e6c65292ba5bfcb872bac6cef50c2",
+      "root.fit_write_statistics.r.2.0.1.member_mean": "0a2c4130bb6cdd44553109933a7e51772ae5c99c02bd8ad79bf0d72cbc458fbf",
+      "root.fit_write_statistics.r.2.0.1.member_sum": "3c7d0658c6ee8d74a49e8bf5701379dbae30753e67b6734d1497e0de7416c055",
+      "root.fit_write_statistics.r.2.0.1.off_mean": "c31a84be484f402e4bb554a41dbaba8d3b9011e575bc6e09976fd82203589d92",
+      "root.fit_write_statistics.r.2.0.1.off_sum": "8889759ca34e21016967c903c456e2199e3e6c65292ba5bfcb872bac6cef50c2",
+      "root.fit_write_statistics.r.2.0.2.member_mean": "d4fb21bb23bb466f280a12283fc97dff08f76de7f4f0c12d701e8d1467b32476",
+      "root.fit_write_statistics.r.2.0.2.member_sum": "cd7e23cac1fb3b47d349b0d114ef46945b05503689157d58037ce9ff3700766f",
+      "root.fit_write_statistics.r.2.0.2.off_mean": "c31a84be484f402e4bb554a41dbaba8d3b9011e575bc6e09976fd82203589d92",
+      "root.fit_write_statistics.r.2.0.2.off_sum": "8889759ca34e21016967c903c456e2199e3e6c65292ba5bfcb872bac6cef50c2",
+      "root.fit_write_statistics.r.2.0.member_mean": "ce698d3f6b6da95a4a3ac552c829b40243b9899e24ab5174d287107c96154e0c",
+      "root.fit_write_statistics.r.2.0.member_sum": "23848fc9d3f4f0995485a48f468c4f6fdc28f07b83d181a6cf1a134004d66f95",
+      "root.fit_write_statistics.r.2.0.off_mean": "ed08f06201b7c927ed1cee4cb18770490175250b7cc4cc3d82dc872fb6f0bc95",
+      "root.fit_write_statistics.r.2.0.off_sum": "fae800d2d410c1f7e67c581292c7147d777e65d9d60540e7912a2ef5a4443318",
+      "root.fit_write_statistics.r.2.1.0.member_mean": "ccb090a0df394237283f66df29b30008db40989da394c570a244d40e19d2694b",
+      "root.fit_write_statistics.r.2.1.0.member_sum": "6ae34686b960000ecf2b712058b4685d4bc556d87182a790a01c3839c85ca96a",
+      "root.fit_write_statistics.r.2.1.0.off_mean": "5ed99bc739433f5a7635c794e9f1df746222c59d1af9b48bd8205d90d0fffc3c",
+      "root.fit_write_statistics.r.2.1.0.off_sum": "b8440566025cb98354fe694534e7c7fa95dc475f9e2f0a5472b04d9028be8299",
+      "root.fit_write_statistics.r.2.1.1.member_mean": "023f4457384cc7772742e4c6882f5a5e113445935a5e68d1da175cc1225946b1",
+      "root.fit_write_statistics.r.2.1.1.member_sum": "c32158ec0362af990586af60774db949be93a4909f1b9b395f833b4d1137b135",
+      "root.fit_write_statistics.r.2.1.1.off_mean": "5ed99bc739433f5a7635c794e9f1df746222c59d1af9b48bd8205d90d0fffc3c",
+      "root.fit_write_statistics.r.2.1.1.off_sum": "b8440566025cb98354fe694534e7c7fa95dc475f9e2f0a5472b04d9028be8299",
+      "root.fit_write_statistics.r.2.1.member_mean": "e3996f8f8983f4ddae538a72b82b08be5c504855aef24eae0eae7f4a99a2447e",
+      "root.fit_write_statistics.r.2.1.member_sum": "b7a92486e36fd9a94e9ad1894d522061170e1bb8ad726ac788a0aa7b937edd50",
+      "root.fit_write_statistics.r.2.1.off_mean": "ed08f06201b7c927ed1cee4cb18770490175250b7cc4cc3d82dc872fb6f0bc95",
+      "root.fit_write_statistics.r.2.1.off_sum": "fae800d2d410c1f7e67c581292c7147d777e65d9d60540e7912a2ef5a4443318",
+      "root.fit_write_statistics.r.2.2.0.member_mean": "82d408884c9f87c66c39c181c43b9146f0ec99e0d1fa49a219f334c5d552fc34",
+      "root.fit_write_statistics.r.2.2.0.member_sum": "3dc1c8790f93c36ad8f296cd0e6a0167f291fc54dc0f662761af787647860306",
+      "root.fit_write_statistics.r.2.2.0.off_mean": "f437734209ea077d0d303befb15101209243caa21e56ff0be0831adae1d4c27e",
+      "root.fit_write_statistics.r.2.2.0.off_sum": "84824c3f45f6102e9a5cd03a8aab6d2f9a1bdfa7055f86636f5dc4682c5c9a0c",
+      "root.fit_write_statistics.r.2.2.1.member_mean": "c9898b31d22dac214d7a6868548945da46fc6a6e94b291c942ff82662b1bf437",
+      "root.fit_write_statistics.r.2.2.1.member_sum": "a8b20799fa9e30ad6d14cc62c525dc679c9f38ec682ca962f1b72c4291466616",
+      "root.fit_write_statistics.r.2.2.1.off_mean": "f437734209ea077d0d303befb15101209243caa21e56ff0be0831adae1d4c27e",
+      "root.fit_write_statistics.r.2.2.1.off_sum": "84824c3f45f6102e9a5cd03a8aab6d2f9a1bdfa7055f86636f5dc4682c5c9a0c",
+      "root.fit_write_statistics.r.2.2.member_mean": "ea0432ff343707ec53ba7a1035fe9c5d6588e0d5d4bde7fe28a99fc6a4b2b1ef",
+      "root.fit_write_statistics.r.2.2.member_sum": "f5c7d7f094e7e0cdce1e264fff13b6340b157aaaa473b0c1332274734d444888",
+      "root.fit_write_statistics.r.2.2.off_mean": "ed08f06201b7c927ed1cee4cb18770490175250b7cc4cc3d82dc872fb6f0bc95",
+      "root.fit_write_statistics.r.2.2.off_sum": "fae800d2d410c1f7e67c581292c7147d777e65d9d60540e7912a2ef5a4443318",
+      "root.fit_write_statistics.r.2.3.member_mean": "dc23d1081f0eec273ef4088a6ee581b1d3689c945bb0311638679f06fc372ce8",
+      "root.fit_write_statistics.r.2.3.member_sum": "ba7932603d5f6b9fdea68fb1adfac727ad1db97ce10c1aa8b011deb998b89661",
+      "root.fit_write_statistics.r.2.3.off_mean": "ed08f06201b7c927ed1cee4cb18770490175250b7cc4cc3d82dc872fb6f0bc95",
+      "root.fit_write_statistics.r.2.3.off_sum": "fae800d2d410c1f7e67c581292c7147d777e65d9d60540e7912a2ef5a4443318",
+      "root.fit_write_statistics.r.23.2.1.member_mean": "c9e95abcac0cb80df0e221892dcb767600ff7ddbfecd2ad7412db86b953f4de1",
+      "root.fit_write_statistics.r.23.2.1.member_sum": "bdbec79b1aad09ea3516e8a573ddc397b1680982db144d9e4b401bcf93f8283d",
+      "root.fit_write_statistics.r.23.2.1.off_mean": "20e8c1e9a3f657141ed72081a6af58b590e19a51574f527483cf44124c761a80",
+      "root.fit_write_statistics.r.23.2.1.off_sum": "0cfdf4bf24768fcd375dc09e8056d2a7c8d09799fba5e60e7a4457bbcaf22105",
+      "root.fit_write_statistics.r.23.2.3.member_mean": "0545f98892308d82979b6385399dc2400e56c43c5039811961e3607885c46d5b",
+      "root.fit_write_statistics.r.23.2.3.member_sum": "945e2f1f0122bc6e143f8e0f47260b70748621331fde2cd454f2d26678ce3f8a",
+      "root.fit_write_statistics.r.23.2.3.off_mean": "20e8c1e9a3f657141ed72081a6af58b590e19a51574f527483cf44124c761a80",
+      "root.fit_write_statistics.r.23.2.3.off_sum": "0cfdf4bf24768fcd375dc09e8056d2a7c8d09799fba5e60e7a4457bbcaf22105",
+      "root.fit_write_statistics.r.3.0.0.member_mean": "ba3066d64f306858b72190afafb9ef730598db06e500b9316e7579a1f8bc8007",
+      "root.fit_write_statistics.r.3.0.0.member_sum": "7ef8a654ea1b7731f4afcd87c1ec0b9710bc182b1ab39e5ff165d2ff75b466ad",
+      "root.fit_write_statistics.r.3.0.0.off_mean": "13c5f84904f217b2d660f3d3c7aedc45a4a330a5d1b7c09ac9cb1aea9efb3c13",
+      "root.fit_write_statistics.r.3.0.0.off_sum": "3927a3a611fa3c873204e170087c8fd5eefdd351985a17d4bb2a9c4d6ed29693",
+      "root.fit_write_statistics.r.3.0.1.member_mean": "0c63d840307ec26cf7153224463af3d38509e3b7994a462fd03669604885289d",
+      "root.fit_write_statistics.r.3.0.1.member_sum": "d987e39515f0331cc2406d0977842503727a0ddc43d2be15252d1385838758f3",
+      "root.fit_write_statistics.r.3.0.1.off_mean": "13c5f84904f217b2d660f3d3c7aedc45a4a330a5d1b7c09ac9cb1aea9efb3c13",
+      "root.fit_write_statistics.r.3.0.1.off_sum": "3927a3a611fa3c873204e170087c8fd5eefdd351985a17d4bb2a9c4d6ed29693",
+      "root.fit_write_statistics.r.3.0.2.member_mean": "08efd50392307fdfaff59264769a7384bb431a99191f8acf7c81c64975b59003",
+      "root.fit_write_statistics.r.3.0.2.member_sum": "e8a8669ec4043fc19b6889379d473fade4412ef678745ac034e1444979be5f80",
+      "root.fit_write_statistics.r.3.0.2.off_mean": "13c5f84904f217b2d660f3d3c7aedc45a4a330a5d1b7c09ac9cb1aea9efb3c13",
+      "root.fit_write_statistics.r.3.0.2.off_sum": "3927a3a611fa3c873204e170087c8fd5eefdd351985a17d4bb2a9c4d6ed29693",
+      "root.fit_write_statistics.r.3.0.member_mean": "4310d40db6ee8b8a6dc69451000d7bfd5b58ae418e860b18e00b2f3c2572a6cd",
+      "root.fit_write_statistics.r.3.0.member_sum": "57d32dfed4e7ff1155c1caa02beec84855285444a7c883f6eaf20ec3cc9522c8",
+      "root.fit_write_statistics.r.3.0.off_mean": "431e047c788e59025ffb767bddead885d13ad012caf26f6213b8d63cae3cecb9",
+      "root.fit_write_statistics.r.3.0.off_sum": "6ee42ecb01d41f9364ac9e55a92331a89cc681600c6d82b3d75029e9d85aefc2",
+      "root.fit_write_statistics.r.4.1.0.member_mean": "f3b44d5028f957c6b4c80765a60ee1f400bc52402a0e3be9a8925486c5ea47d7",
+      "root.fit_write_statistics.r.4.1.0.member_sum": "557dd983c59522d6f099b8089c316ba38dd48e690f96fb31b5b9224b368f9fa4",
+      "root.fit_write_statistics.r.4.1.0.off_mean": "adfd823975cece59f12bee4a42b5f918be993be7d140f7a225b2ded85657039d",
+      "root.fit_write_statistics.r.4.1.0.off_sum": "98661739fbda513f2516dfd493e11404f265d4292012a63e569fed1d2ab0991e",
+      "root.fit_write_statistics.r.4.1.1.member_mean": "d3df0c9449aa38ec7c892427a444a2c8a470fb85175bf403273f3ce4b6da2426",
+      "root.fit_write_statistics.r.4.1.1.member_sum": "c747e8844d03da7aa2171dd178e8f64c28f727693bf888d91b5a3a8ff399a403",
+      "root.fit_write_statistics.r.4.1.1.off_mean": "adfd823975cece59f12bee4a42b5f918be993be7d140f7a225b2ded85657039d",
+      "root.fit_write_statistics.r.4.1.1.off_sum": "98661739fbda513f2516dfd493e11404f265d4292012a63e569fed1d2ab0991e",
+      "root.fit_write_statistics.r.5.0.1.member_mean": "04ec11dfcf031ca92e3f793f040661fc687c7f760843f984bcf8d3d33870925e",
+      "root.fit_write_statistics.r.5.0.1.member_sum": "945bd8dd196fe1464e0dbe89866c7634fe8cd214f34b7b9beaf576de76706ace",
+      "root.fit_write_statistics.r.5.0.1.off_mean": "35a767260cecdcde76f7194945857119cb8b54bbbb1b9a034f7452c6fe5f7062",
+      "root.fit_write_statistics.r.5.0.1.off_sum": "733d14811251621e3ae4d8355565e1981aa509f3bf9bc94673ef6433110e4765",
+      "root.fit_write_statistics.r.6.0.0.member_mean": "d39e8f175a3592db966e2b45ef4248c6cf4bd5f658a731df4fc343cae1437aba",
+      "root.fit_write_statistics.r.6.0.0.member_sum": "ee838c5047ddc51fa1b6567e23c2d6e445ac20c9c8e86a9e8ddf74c6a63be563",
+      "root.fit_write_statistics.r.6.0.0.off_mean": "59f8197bb478e29aac90d4480ce7df0b0a90225619c6d49a2881842c7ba03884",
+      "root.fit_write_statistics.r.6.0.0.off_sum": "670ca70c5658decadd9facef5081edbe9684da3419ef492aabc222cd96f3fe1f",
+      "root.fit_write_statistics.r.6.1.1.member_mean": "c133c8c39e93d7915d4a2d83c1b10e2676ab0dcfef26d6495ad42aa6a67d67a8",
+      "root.fit_write_statistics.r.6.1.1.member_sum": "27e3825f7ee729fee9fb025dc4592ee496c792c2774826e745fd3124192eec6b",
+      "root.fit_write_statistics.r.6.1.1.off_mean": "b299b9ad317cdd54c987c5150116f137aceeaa4e274d06aa951aed442522117b",
+      "root.fit_write_statistics.r.6.1.1.off_sum": "b523e94d4d7a5f7718394ff43b2928df0b28c55817e859aa389e2c8da03dc057",
+      "root.fit_write_statistics.r.6.2.0.member_mean": "5844bf9a778251232b947d730602f99b6b22ed5a870ab1027784bbdd07f10a07",
+      "root.fit_write_statistics.r.6.2.0.member_sum": "cb602bbbd1cd2a8444011e1bf408cb71af6fe67413342ab9665c50fbf21df278",
+      "root.fit_write_statistics.r.6.2.0.off_mean": "defd27a03152a831ef46f3d6b17d0a1c122ae07972dc78e2fe8db16938ddfc97",
+      "root.fit_write_statistics.r.6.2.0.off_sum": "1e4389ba67f084c79eede0365317a22436d7219da70c27e4b1d218a8b41ee6d2",
+      "root.fit_write_statistics.r.6.2.2.member_mean": "660131810168e69bd019178e4f4737597495438ee7e4bb8593a183bdd2838618",
+      "root.fit_write_statistics.r.6.2.2.member_sum": "ad1b7243c11f8f70f83328ea8d25fc1f7be41a7685a52b982d7b7eea55acd8ac",
+      "root.fit_write_statistics.r.6.2.2.off_mean": "824f9f94fc96ef12e9e78da21314b5ecc27f1e50cba334d9efa9d8f1d6d45161",
+      "root.fit_write_statistics.r.6.2.2.off_sum": "c950224422f2759941d5b5d795d75d44b227718fecc92a68e4d34d1001e17784",
+      "root.fit_write_statistics.r.6.3.0.member_mean": "bd2236f7f9da2e988299bad9935cb3424d81556ac34d7d174e685ee4eb565740",
+      "root.fit_write_statistics.r.6.3.0.member_sum": "9fea31e11db8eed5ca2b4468552fd5c86f1a61772613ca0caababd0e8f1b36bb",
+      "root.fit_write_statistics.r.6.3.0.off_mean": "a71f162f3d5b090170e54e523c8711cbf3477c68738dc9473b1c3b6b40cf4a5d",
+      "root.fit_write_statistics.r.6.3.0.off_sum": "bae59595b3cfc5497383608c2cf5a1af963346de7ac26a9131cf636d2bf12b78",
+      "root.fit_write_statistics.r.6.3.1.member_mean": "80a5964080caf01981667a991c4c4f4e528185c7a8e1032f98d4ac50d5636c4e",
+      "root.fit_write_statistics.r.6.3.1.member_sum": "6b739359f82bc96be297fe42344a47434d5ccece8c08e8eb5773c9c46f9c8fa0",
+      "root.fit_write_statistics.r.6.3.1.off_mean": "a71f162f3d5b090170e54e523c8711cbf3477c68738dc9473b1c3b6b40cf4a5d",
+      "root.fit_write_statistics.r.6.3.1.off_sum": "bae59595b3cfc5497383608c2cf5a1af963346de7ac26a9131cf636d2bf12b78",
+      "root.fit_write_statistics.r.8.1.0.member_mean": "9fb59dd037e4ec13ea3b945ca72a7f9d68505c47c5dc493b1a6b1f0d7d353665",
+      "root.fit_write_statistics.r.8.1.0.member_sum": "31f9c37622c457c44cfed1736e538a98dc135375def4c9234427f8f66097f401",
+      "root.fit_write_statistics.r.8.1.0.off_mean": "b417d8e421b4f1257097b850ea0167e8b84737263190871af3360714c2414768",
+      "root.fit_write_statistics.r.8.1.0.off_sum": "6d6fe87801be0497ee0b34607fb844844bc5cc613565e7fe0146ecb2b2c3a442",
+      "root.shared_directions.a16": "7fa4e9e68b8832db449b4d16036686abd6d1a63c0453f0f310633ac5914842d1",
+      "root.shared_directions.a3": "007d0e239d70c6978713bafe960821259ddc49f18e9b0aa7de80389a89e82697",
+      "root.shared_directions.a8": "79fb47578de6b5ae8a9d9d0c41bd6ad41e90b93bf8205a09d94c4b9a26b1a946",
+      "root.shared_directions.m13": "15b23c7679dd8cc6831fb2e2a07ae8adadf224df68faa838669b6f540d435a9f",
+      "root.shared_directions.m14": "2db8b9ef425a0143ffc88ea2a74fd08979b1f3625aeccdfedb28879edaf32889",
+      "root.shared_directions.m16": "ecdbe5646de6dab8f6e89060edd6bafebac26faf3794f63aced644ba46526bd1",
+      "root.singular_spectra.a16": "0fe90d553f0ccee2ab2c6276c5a7333db850bf6dc136f04066ead52637827695",
+      "root.singular_spectra.a3": "78735169ccbd15a7b3d17d3add15f018b9e7a7546820c9f82245624aa0a3153c",
+      "root.singular_spectra.a8": "30c119f4dd6a3a8ee89f1033d55f3b6325ee3720e4fd172fb9a0987da983e056",
+      "root.singular_spectra.m13": "5bea3cb5ffd65cb5d8d3ab25d29f3f9dd31392ea81d03a99c4f93487e95775c5",
+      "root.singular_spectra.m14": "11f2f3ae2032a382c71ec634c157db73e477aa11ab66b032d4884a9cbeb74bb9",
+      "root.singular_spectra.m16": "78b30ec0ef7abd65618aa86c491cc48aaac0ab5963d46f3464e5139886b5559a"
+    }
+  },
+  "manifest_sha256": "e0f007b5df2965a4574e9fddd003dfc5db8d4cb5e0857f36db59a0c06de8794e",
+  "protocol": {
+    "artifact_order": [
+      "authority_before_parent_tensor_or_model_load",
+      "bundle",
+      "manifest",
+      "shared_terminal_claim",
+      "receipt_last"
+    ],
+    "authorized_for_eval": false,
+    "authorized_for_factor_selection": false,
+    "batch_size": 4,
+    "batches": 124,
+    "capture_event_shape": [
+      6,
+      124
+    ],
+    "fit_arithmetic": "CPU torch.float64 then one deploy cast",
+    "fit_document_ids_sha256": "0f514805a7615e5ef3fe862eb8bf37bebfe8c57b8b7e781fbb25907c729b808d",
+    "fit_role_sha256": "6873c2a279bf73fe17c38d72ac25003f4741825efc271ff91b6b783615cdd815",
+    "model_dtype": "torch.float32",
+    "model_rows_sha256": "1786a30bc0d27d26324486e582a539cc292428c2f3f4f1ed7594014390a437ce",
+    "outer_forwards": 12400,
+    "phases": [
+      "full",
+      "residual"
+    ],
+    "positions": 256,
+    "projection_event_shape": [
+      2,
+      49,
+      124
+    ],
+    "role": "FIT",
+    "rows": 496,
+    "source_documents": 343,
+    "sources": 49,
+    "spec_order_sha256": "86d0bd7250102fc8dcdee517562fcadda74f2f6bf6d026582bcab71a33f24ca0",
+    "support_hashes_sha256": "a8e033d981e82b5e39404ed5ee705119897e1d5d5a1cceaf80ea12c0b711a5aa",
+    "targets": 49
+  },
+  "schema": "causal_response_tensor_v1_fit_manifest",
+  "status": "complete_fit_bundle_semantically_replayed"
+}
