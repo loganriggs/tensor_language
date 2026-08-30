@@ -47,13 +47,19 @@ then hashes the ordered list. Equal model states therefore compare equal even if
 serialization library changes irrelevant container bytes. A one-element mutation in
 a tiny model changes the digest; restoring the same state reproduces it.
 
-## Running work and new evidence
+## Concurrent GPU result
 
-The GPU is occupied by the independent ten-circuit a8/a16 DAS seed-stability job. One
-seed completed in 694 seconds and the second is in progress. Partial rows are not
-banked as conclusions. This is useful because the prior M16 test showed that
-single-seed selectivity margins can vary by 0.046–0.319, much larger than several
-reported threshold clearances.
+The independent ten-circuit a8/a16 DAS seed-stability job completed in **2,089
+seconds** over three seeds. Its prediction that at least half of direction overlaps
+would have standard deviation at least 0.05 was false: only **1/10** did; eight were
+between 0.007 and 0.047. The earlier result that DAS and closed-form mean-difference
+directions are distinct survived averaging: every mean absolute overlap stayed below
+0.50, with maximum 0.3437.
+
+This sharpens the seed lesson. M16 selectivity margins are noisy ratios of intervention
+ratios; simple direction inner products at a8/a16 were substantially more stable. It
+does not add causal selectivity, a terminal circuit, or strict-ledger credit. The GPU
+is now free, but FIT remains unsafe to launch until the canonical owner is complete.
 
 The expired eight-hour entrypoint deadline was 2026-08-29 12:00 UTC; it no longer
 controls this review. No plan or unrun runner is counted as evidence.

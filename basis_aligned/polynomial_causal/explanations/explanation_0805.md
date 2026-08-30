@@ -253,3 +253,11 @@ parts are bundle-to-manifest validation, one no-argument production entrypoint, 
 protected final pre-forward guard, and a hash-bound failure/receipt transaction around
 the one-use collector. FIT stays NO-GO until those parts and their independent audit
 are complete.
+
+The concurrent a8/a16 seed-stability run also finished after 2,089 seconds. Only one
+of ten direction-overlap measurements had seed standard deviation at least 0.05, and
+all three-seed mean overlaps stayed below 0.50. Thus the earlier conclusion that DAS
+and closed-form directions differ survives, but the broader warning “all learned
+direction quantities are highly seed-unstable” was too strong. Intervention-margin
+ratios were much noisier than simple direction inner products. This result does not
+establish selective causal edits and does not change the strict ledger.
