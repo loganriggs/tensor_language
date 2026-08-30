@@ -63522,3 +63522,26 @@ pred_a FAILED (−0.0021 vs +0.02) | pred_b FAILED (3/8) | pred_d FAILED (shift 
   correctly. No certified number was ever exposed to the label-inheritance quirk.
 - **The conditioning chapter closes:** conditioned metric for the frontier (certified +0.0481), either metric on
   cfgE (equivalent), nothing at c6–c9 anywhere (§2131), price question open only as rung 39 (running).
+
+## §2133 — RUNG 39: HALF PRICE WINS OUTRIGHT. Conditioned-1152 doesn't just match norm-2304 — it beats it by +0.0861 median (≥ −0.01 on 8/8) and beats conditioned-2304 by ~+0.04 everywhere: the frontier best is now +2.8190 fresh / +2.5461 C with HALF the mlp4/mlp5 units (~7.96M fewer stored values)
+
+`ops/frontier_cond_halfprice.py`, **359s**, BACKLOG rung 39. **ALL THREE HELD: pred_a (+0.0861 ≥ 0) | pred_b
+(8/8 ≥ −0.01) | pred_c (cond-2304 repro +0.0476 vs 0.0481).**
+
+```
+  window                 0        1        2        3        4        5        6        7      median
+  cond2304 − norm     +0.096   +0.061   +0.034   −0.032   +0.034   +0.062   +0.018   +0.073   +0.0476
+  cond1152 − norm     +0.146   +0.091   +0.074   −0.001   +0.082   +0.093   +0.052   +0.105   +0.0861
+```
+
+- **Selection quality dominates capacity, decisively.** §2118 withdrew half-price under the real-model metric on
+  cfgE (median −0.028, the stated null); under the conditioned metric on the frontier, dropping the *bottom half
+  of the conditioned ranking* improves every single window relative to keeping it — including window 3, the one
+  weak window at 2304 (−0.032 → −0.001). The units the conditioned metric ranks 1153–2304 are net *harmful* in
+  the deployed assembly: they write into directions the deployed readers turn into error.
+- **Frontier ledger state:** +2.6735 (§312) → +2.7707 (§2129, equal price) → **+2.8190 fresh / +2.5461 C at
+  2×1152 fewer CP units** (the 8×1152-per-site selector unchanged, label-free). Cumulative certified move:
+  **+0.146 nat fresh at lower price** than the published §312 config.
+- Cross-run wobble note: cond-2304 median +0.0476 here vs +0.0481 (§2129) vs +0.0452 (§2131) — the ~0.003
+  CUDA-atomics band, third sighting; all inside the registered tolerance.
+- The price curve is now open downward: does the gain survive K = 576 or 288? → rung 40.

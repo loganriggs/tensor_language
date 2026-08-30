@@ -527,4 +527,18 @@ later per-rung backlog edits had silently anchored on text that was not here.
     stored units (~7.96M values) if it holds.
     pred_a median [L2_F_w(cond1152) - L2_F_w(norm2304)] >= 0; pred_b
     >= -0.01 on >= 6/8; pred_c cond-2304 reproduces §2129 within 0.015.
-    -> ops/frontier_cond_halfprice.py [QUEUED 21:22Z]
+    -> ops/frontier_cond_halfprice.py
+    RUN 2026-08-30, §2133: ALL THREE HELD — cond-1152 beats norm-2304 by
+    +0.0861 median (8/8) and cond-2304 by ~+0.04 everywhere. Frontier
+    best now +2.8190 fresh / +2.5461 C at HALF the mlp4/mlp5 units. The
+    bottom half of the conditioned ranking is net HARMFUL when deployed.
+
+40. THE CONDITIONED PRICE CURVE, DOWNWARD. §2133: cond-1152 beats
+    cond-2304 everywhere — how far down does it go? Arms: norm (Fisher
+    collection) / cond-1152 (§2133 reproduction) / cond-576 / cond-288,
+    eight windows. §2107's capacity result (metric gain halves at K=4608)
+    says the curve must turn; the question is where.
+    pred_a median [L2_F_w(cond576) - L2_F_w(cond1152)] >= -0.01 (quarter
+    price no loss); pred_b that difference >= -0.02 on >= 6/8; pred_c
+    cond-1152 reproduces §2133 (median vs norm +0.0861 within 0.015).
+    -> ops/frontier_cond_ksweep.py [QUEUED]
