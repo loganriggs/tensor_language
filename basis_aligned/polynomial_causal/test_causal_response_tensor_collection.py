@@ -51,13 +51,15 @@ def test_document_aggregation_is_signed_additive_and_marks_missing_support() -> 
 
 def test_dense_response_validator_enforces_triangle_inequality() -> None:
     stats = {
-        "member_signed_sum": torch.ones(2, 3, 1, 2),
-        "member_abs_sum": torch.ones(2, 3, 1, 2),
-        "off_signed_sum": torch.zeros(2, 3, 1, 2),
-        "off_abs_sum": torch.zeros(2, 3, 1, 2),
+        "member_signed_sum": torch.ones(2, 3, 1, 2, dtype=torch.float64),
+        "member_abs_sum": torch.ones(2, 3, 1, 2, dtype=torch.float64),
+        "off_signed_sum": torch.zeros(2, 3, 1, 2, dtype=torch.float64),
+        "off_abs_sum": torch.zeros(2, 3, 1, 2, dtype=torch.float64),
     }
     counts = torch.tensor([[2, 0]])
     off_counts = torch.tensor([[4, 4]])
+    stats["member_signed_sum"][..., 1] = 0
+    stats["member_abs_sum"][..., 1] = 0
     summary = validate_response_tensors(
         stats, counts, off_counts, expected_prefix=(2, 3, 1)
     )
@@ -73,3 +75,37 @@ def test_create_only_json_refuses_overwrite(tmp_path: Path) -> None:
     with pytest.raises(FileExistsError):
         atomic_create_json(path, {"second": True})
     assert path.read_text().strip().endswith("}")
+
+
+def test_dense_response_validator_rejects_schema_dtype_and_unsupported_attacks() -> None:
+    stats = {
+        "member_signed_sum": torch.zeros(1, 1, 1, 2, dtype=torch.float64),
+        "member_abs_sum": torch.zeros(1, 1, 1, 2, dtype=torch.float64),
+        "off_signed_sum": torch.zeros(1, 1, 1, 2, dtype=torch.float64),
+        "off_abs_sum": torch.zeros(1, 1, 1, 2, dtype=torch.float64),
+    }
+    counts = torch.tensor([[1, 0]], dtype=torch.int64)
+    off_counts = torch.tensor([[2, 2]], dtype=torch.int64)
+
+    extra = dict(stats, surprise=torch.zeros(1, dtype=torch.float64))
+    with pytest.raises(ValueError, match="unexpected"):
+        validate_response_tensors(extra, counts, off_counts, expected_prefix=(1, 1, 1))
+
+    wrong_dtype = dict(stats)
+    wrong_dtype["off_abs_sum"] = wrong_dtype["off_abs_sum"].float()
+    with pytest.raises(ValueError, match="float64"):
+        validate_response_tensors(
+            wrong_dtype, counts, off_counts, expected_prefix=(1, 1, 1)
+        )
+
+    polluted = {name: value.clone() for name, value in stats.items()}
+    polluted["member_signed_sum"][0, 0, 0, 1] = 1e-12
+    with pytest.raises(ValueError, match="exactly zero"):
+        validate_response_tensors(
+            polluted, counts, off_counts, expected_prefix=(1, 1, 1)
+        )
+
+    with pytest.raises(ValueError, match="int64"):
+        validate_response_tensors(
+            stats, counts.int(), off_counts, expected_prefix=(1, 1, 1)
+        )

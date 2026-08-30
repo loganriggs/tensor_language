@@ -2,3 +2,21 @@ DAS at m16 on all 6 circuits localised there: ['r.1.1.1', 'r.1.1.2', 'r.1.2', 'r
 /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/das_m16_one_mechanism.py:220: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
 Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:836.)
   losses.append(float(loss))
+  r.1.1.1      m16  rank 1: members 4.2903 off 0.8370 conc 5.126 recovered 2.631 | moved 0.999 loss -0.30151->-3.33011 healthy True (55s)
+  r.1.1.2      m16  rank 1: members 1.8480 off 0.4828 conc 3.828 recovered 1.22 | moved 1.000 loss -0.01420->-2.39556 healthy True (110s)
+  r.1.2        m16  rank 1: members 4.6778 off 1.0368 conc 4.512 recovered 3.064 | moved 0.999 loss -0.02979->-2.95503 healthy True (165s)
+  r.1.2.0      m16  rank 1: members 8.8873 off 1.0785 conc 8.24 recovered 3.881 | moved 0.999 loss -0.24200->-6.73962 healthy True (220s)
+  r.1.2.1      m16  rank 1: members 6.0028 off 1.0783 conc 5.567 recovered 2.993 | moved 1.000 loss -0.13302->-6.21545 healthy True (274s)
+  r.6.2.2      m16  rank 1: members 0.9478 off 0.2337 conc 4.056 recovered 0.614 | moved 1.000 loss +0.02829->-1.25611 healthy True (329s)
+  DAS dir of r.1.1.1   : own  2.015  mean(others)  1.776  selective(10%)=True
+  DAS dir of r.1.1.2   : own  1.558  mean(others)  1.622  selective(10%)=False
+  DAS dir of r.1.2     : own  1.644  mean(others)  1.809  selective(10%)=False
+  DAS dir of r.1.2.0   : own  1.610  mean(others)  1.639  selective(10%)=False
+  DAS dir of r.1.2.1   : own  1.190  mean(others)  1.167  selective(10%)=False
+  DAS dir of r.6.2.2   : own  1.787  mean(others)  1.939  selective(10%)=False
+
+wrote circuits/DAS_M16.json (375s)
+pred_c  CONTROL -- every fit passed the optimiser health gate: True
+pred_a  DAS directions stay entangled: mean pairwise |cos| 0.3976 (bar >=0.50; closed-form residual 0.5185) : False
+pred_b  and are not individually selective: 1/6 at a 10% margin (bar <4; closed-form residual 2/6) : True
+        -> m16 is ONE MECHANISM survives its best challenge: False

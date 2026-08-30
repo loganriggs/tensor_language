@@ -107,6 +107,21 @@ def canonicalize_sign(vector: torch.Tensor) -> torch.Tensor:
     return -vector if vector[pivot] < 0 else vector
 
 
+def leading_shared_direction(matrix: torch.Tensor) -> tuple[torch.Tensor, torch.Tensor]:
+    """Return a sign-fixed leading direction, rejecting an unstable top subspace."""
+    if type(matrix) is not torch.Tensor or matrix.dtype != torch.float64 or (
+        matrix.device.type != "cpu" or matrix.ndim != 2 or matrix.shape[0] < 2
+    ):
+        raise TypeError("shared-direction matrix must be a 2D CPU float64 tensor")
+    _left, singular_values, right = torch.linalg.svd(matrix, full_matrices=False)
+    if not torch.isfinite(singular_values).all() or singular_values[0] <= 0:
+        raise RuntimeError("shared-direction singular spectrum is invalid")
+    relative_gap = (singular_values[0] - singular_values[1]) / singular_values[0]
+    if relative_gap <= 1e-6:
+        raise RuntimeError("shared-direction top singular value is tied")
+    return canonicalize_sign(right[0]).to(torch.float32), singular_values
+
+
 class ObservedResponseCollector:
     """One-run owner around a frozen model and an exact row/mask grid."""
 
@@ -122,10 +137,40 @@ class ObservedResponseCollector:
     ) -> None:
         if batch_size != 4:
             raise ValueError("production collector uses the facade's four-row batch")
+        if type(rows) is not torch.Tensor or rows.dtype != torch.int64 or (
+            rows.device.type != "cpu" or not rows.is_contiguous()
+        ):
+            raise TypeError("rows must be an exact contiguous CPU int64 tensor")
+        if type(row_document_ids) is not torch.Tensor or (
+            row_document_ids.dtype != torch.int64
+            or row_document_ids.device.type != "cpu"
+            or not row_document_ids.is_contiguous()
+        ):
+            raise TypeError(
+                "row document IDs must be an exact contiguous CPU int64 tensor"
+            )
         self.model = model
-        self.rows = torch.as_tensor(rows, dtype=torch.int64).cpu()
-        self.row_document_ids = torch.as_tensor(row_document_ids, dtype=torch.int64).cpu()
-        self.specs = tuple(specs)
+        self.rows = rows.clone()
+        self.row_document_ids = row_document_ids.clone()
+        owned_specs: list[CircuitSpec] = []
+        for spec in specs:
+            if type(spec) is not CircuitSpec or type(spec.member_mask) is not torch.Tensor or (
+                type(spec.slice_mask) is not torch.Tensor
+                or spec.member_mask.dtype != torch.bool
+                or spec.slice_mask.dtype != torch.bool
+                or spec.member_mask.device.type != "cpu"
+                or spec.slice_mask.device.type != "cpu"
+                or not spec.member_mask.is_contiguous()
+                or not spec.slice_mask.is_contiguous()
+            ):
+                raise TypeError("circuit masks must be exact contiguous CPU bool tensors")
+            owned_specs.append(CircuitSpec(
+                tag=spec.tag,
+                component=spec.component,
+                member_mask=spec.member_mask.clone(),
+                slice_mask=spec.slice_mask.clone(),
+            ))
+        self.specs = tuple(owned_specs)
         self.batch_size = batch_size
         self.require_production = require_production
         self.layer_count = len(model.transformer.h)
@@ -133,6 +178,7 @@ class ObservedResponseCollector:
         self.width = model.config.n_embd
         self.device = next(model.parameters()).device
         self.ledger = PhysicalCallLedger()
+        self._spent = False
         if self.rows.ndim != 2 or self.positions <= 0 or (
             self.row_document_ids.shape != (self.rows.shape[0],)
         ):
@@ -144,11 +190,38 @@ class ObservedResponseCollector:
         grid_size = self.rows.shape[0] * self.positions
         for spec in self.specs:
             spec.validate(grid_size=grid_size, layer_count=self.layer_count)
+        self._require_hook_free()
+
+    def _require_hook_free(self) -> None:
+        global_hook_names = (
+            "_global_forward_hooks",
+            "_global_forward_pre_hooks",
+            "_global_backward_hooks",
+            "_global_backward_pre_hooks",
+        )
+        module_state = torch.nn.modules.module
+        if any(getattr(module_state, name, {}) for name in global_hook_names):
+            raise RuntimeError("process contains a global module hook")
+        for module in self.model.modules():
+            if module._forward_hooks or module._forward_pre_hooks or (
+                module._backward_hooks
+            ):
+                raise RuntimeError("model contains a preexisting module hook")
+
+    def _validate_role(self, selected_rows: torch.Tensor, *, label: str) -> torch.Tensor:
+        if type(selected_rows) is not torch.Tensor or selected_rows.dtype != torch.int64 or (
+            selected_rows.device.type != "cpu" or not selected_rows.is_contiguous()
+        ):
+            raise TypeError(f"{label} rows must be an exact contiguous CPU int64 tensor")
+        if selected_rows.ndim != 1 or selected_rows.numel() == 0:
+            raise ValueError(f"{label} row role is empty or malformed")
+        if selected_rows.min() < 0 or selected_rows.max() >= self.rows.shape[0]:
+            raise ValueError(f"{label} row role contains an out-of-range index")
+        if torch.unique(selected_rows).numel() != selected_rows.numel():
+            raise ValueError(f"{label} row role contains a duplicate index")
+        return selected_rows.clone()
 
     def _batches(self, selected_rows: torch.Tensor):
-        selected_rows = torch.as_tensor(selected_rows, dtype=torch.int64).cpu()
-        if selected_rows.ndim != 1 or selected_rows.numel() == 0:
-            raise ValueError("selected row role is empty")
         for start in range(0, selected_rows.numel(), self.batch_size):
             indices = selected_rows[start : start + self.batch_size]
             real = int(indices.numel())
@@ -166,6 +239,7 @@ class ObservedResponseCollector:
         direction: torch.Tensor | None = None,
         capture: Callable[[str, torch.Tensor], None] | None = None,
     ) -> torch.Tensor:
+        self._require_hook_free()
         attention_sites: list[int] = []
         mlp_sites: list[int] = []
         source = None if source_component is None else parse_component(
@@ -218,11 +292,11 @@ class ObservedResponseCollector:
         self.ledger.record(
             attention_sites, mlp_sites, layer_count=self.layer_count
         )
+        self._require_hook_free()
         return logits
 
     @torch.no_grad()
-    def fit_directions(self, fit_rows: torch.Tensor) -> dict[str, object]:
-        fit_rows = torch.as_tensor(fit_rows, dtype=torch.int64).cpu()
+    def _fit_directions(self, fit_rows: torch.Tensor) -> dict[str, object]:
         local_member = {
             spec.tag: local_mask_from_global(
                 spec.member_mask, fit_rows, positions_per_row=self.positions
@@ -288,9 +362,7 @@ class ObservedResponseCollector:
         residual: dict[str, torch.Tensor] = {}
         for component, component_specs in specs_by_component.items():
             matrix = torch.stack([full[spec.tag] for spec in component_specs]).double()
-            shared_direction = canonicalize_sign(
-                torch.linalg.svd(matrix, full_matrices=False).Vh[0]
-            ).float()
+            shared_direction, _singular_values = leading_shared_direction(matrix)
             shared[component] = shared_direction
             for spec in component_specs:
                 remainder = full[spec.tag] - (
@@ -335,8 +407,11 @@ class ObservedResponseCollector:
         fit_rows: torch.Tensor,
         eval_rows: torch.Tensor,
     ) -> dict[str, object]:
-        fit_rows = torch.as_tensor(fit_rows, dtype=torch.int64).cpu()
-        eval_rows = torch.as_tensor(eval_rows, dtype=torch.int64).cpu()
+        if self._spent:
+            raise RuntimeError("response collector is already spent")
+        self._spent = True
+        fit_rows = self._validate_role(fit_rows, label="FIT")
+        eval_rows = self._validate_role(eval_rows, label="EVAL")
         if set(fit_rows.tolist()) & set(eval_rows.tolist()):
             raise ValueError("FIT/EVAL row roles overlap")
         fit_documents = set(self.row_document_ids[fit_rows].tolist())
@@ -344,7 +419,7 @@ class ObservedResponseCollector:
         if fit_documents & eval_documents_set:
             raise ValueError("FIT/EVAL source documents overlap")
 
-        directions = self.fit_directions(fit_rows)
+        directions = self._fit_directions(fit_rows)
         document_ids, position_documents = document_position_index(
             self.row_document_ids,
             eval_rows,

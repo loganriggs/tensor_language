@@ -60823,3 +60823,51 @@ strengthens their conclusion beyond what their three components could show.
 everywhere it has been measured.** Codex's recommendation — select shared/private structure on held-out
 causal response and literal price, not on cosine or reconstruction — is supported by this lane's
 instrument as well as theirs.
+
+## §2067 — DAS separates m16's circuits GEOMETRICALLY and not CAUSALLY; "one mechanism" survives the causal test and fails the geometric one
+
+`ops/das_m16_one_mechanism.py`, **375s**, **DISCOVERY ONLY**, RUNG 3 (§2064's open question).
+**pred_a FALSE | pred_b True | pred_c True.** I registered pred_a in the direction that would CONFIRM
+§2064, so that the load-bearing negative carried the risk rather than being protected. **It failed, and I
+am not rescuing it.**
+
+```
+  DAS rank-1 at m16, all six circuits, trained rows 0-600
+    mean pairwise |cos| of the learned directions   0.3976     closed-form residual 0.5185
+    selective for own circuit at a >=10% margin      1/6        closed-form residual 2/6
+    optimiser health: 6/6 moved 0.999-1.000 from init, loss decreased on every fit
+```
+
+**pred_c is the predicate that makes the rest readable, and it passed.** LESSON 108 exists because a DAS
+run whose subspace never moved produced ten circuits of clean numbers. Here every fit moved essentially
+all the way from its initialisation (0.999-1.000) and every loss fell, several by an order of magnitude.
+**A null from this optimiser is a real null.**
+
+**pred_a FAILED: gradient descent DOES separate the directions the closed form left entangled** — 0.3976
+against 0.5185, comfortably inside the 0.50 bar. §2064's geometric claim that m16's circuits do not
+separate is therefore wrong as stated: they separate, once you look with an instrument that optimises for
+it rather than one that takes a mean difference.
+
+**pred_b passed, and it points the other way: the separated directions are LESS causally selective, not
+more — 1 of 6 against the closed form's 2 of 6.** So the two predicates disagree, and the disagreement is
+the finding. **DAS buys geometric separation at m16 and buys nothing causal.**
+
+> **Which to weight is not a free choice here, and §2066 settled it independently.** At m16 the
+> correlation between direction geometry and causal concentration is **−0.5411** — m16 is one of the two
+> components where geometry *inverts* causality. **A geometric separation at m16 is precisely the kind of
+> evidence that component has already been shown not to convert into causal structure.** So the honest
+> summary is that **m16's "one mechanism" reading survives the causal challenge and fails the geometric
+> one**, and on this component the causal side is the one with a track record. **That is an
+> interpretation, not a rescue: pred_a is scored FALSE.**
+
+**A metric caveat I have to raise against my own numbers.** `fraction_of_full_recovered` came out **above
+1.0** for five of the six circuits (up to 3.881), meaning a rank-1 interchange does MORE damage to
+members than replacing the component's entire output. **The quantity is not a "fraction" at m16 and
+should not be read as one** — a single-direction substitution can push activations further off
+distribution than swapping in another position's whole valid output. §2060 and §2063 quoted it at a8/a16
+where it stayed well below 1; at m16 the denominator is not an upper bound and the measure breaks down.
+
+**Open.** The one m16 circuit whose learned direction IS selective is `r.1.1.1` (2.015 against 1.776).
+It is also the only m16 circuit §2059 did not flag as band-localised. Whether m16 is five entangled
+circuits plus one genuine outlier, rather than six of anything, is a five-circuit rerun of this same
+script away.

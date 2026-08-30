@@ -138,15 +138,27 @@ def validate_response_tensors(
     tolerance: float = 1e-5,
 ) -> dict[str, int | float]:
     """Validate dense ``[phase, source, target, document]`` response arrays."""
-    member_count = torch.as_tensor(member_count, dtype=torch.int64)
-    off_count = torch.as_tensor(off_count, dtype=torch.int64)
+    if set(statistics) != set(STATISTIC_NAMES):
+        raise ValueError("response statistics have missing or unexpected keys")
+    if not torch.is_tensor(member_count) or member_count.dtype != torch.int64 or (
+        member_count.device.type != "cpu"
+    ):
+        raise ValueError("member counts must be CPU int64 without coercion")
+    if not torch.is_tensor(off_count) or off_count.dtype != torch.int64 or (
+        off_count.device.type != "cpu"
+    ):
+        raise ValueError("off counts must be CPU int64 without coercion")
     if member_count.ndim != 2 or off_count.shape != member_count.shape:
         raise ValueError("member/off counts must be aligned [target, document] arrays")
     expected_shape = expected_prefix + (member_count.shape[1],)
     if expected_prefix[2] != member_count.shape[0]:
         raise ValueError("target count does not align with statistics")
     for name in STATISTIC_NAMES:
-        value = torch.as_tensor(statistics[name])
+        value = statistics[name]
+        if not torch.is_tensor(value) or value.dtype != torch.float64 or (
+            value.device.type != "cpu"
+        ):
+            raise ValueError(f"{name} must be CPU float64 without coercion")
         if tuple(value.shape) != expected_shape:
             raise ValueError(f"{name} has shape {tuple(value.shape)}, expected {expected_shape}")
         if not torch.isfinite(value).all():
@@ -157,10 +169,17 @@ def validate_response_tensors(
     expanded_valid = valid[None, None, :, :].expand(expected_shape)
     if not expanded_valid.any():
         raise ValueError("no valid member-supported response cells")
-    member_abs = torch.as_tensor(statistics["member_abs_sum"], dtype=torch.float64)
-    member_signed = torch.as_tensor(statistics["member_signed_sum"], dtype=torch.float64)
-    off_abs = torch.as_tensor(statistics["off_abs_sum"], dtype=torch.float64)
-    off_signed = torch.as_tensor(statistics["off_signed_sum"], dtype=torch.float64)
+    member_abs = statistics["member_abs_sum"]
+    member_signed = statistics["member_signed_sum"]
+    off_abs = statistics["off_abs_sum"]
+    off_signed = statistics["off_signed_sum"]
+    if torch.any(member_abs < 0) or torch.any(off_abs < 0):
+        raise ValueError("absolute response sums must be nonnegative")
+    unsupported = ~expanded_valid
+    if torch.any(member_abs[unsupported] != 0) or torch.any(
+        member_signed[unsupported] != 0
+    ):
+        raise ValueError("unsupported member response slots must be exactly zero")
     if torch.any(member_abs[expanded_valid] + tolerance < member_signed[expanded_valid].abs()):
         raise ValueError("member absolute sums violate the triangle inequality")
     if torch.any(off_abs + tolerance < off_signed.abs()):

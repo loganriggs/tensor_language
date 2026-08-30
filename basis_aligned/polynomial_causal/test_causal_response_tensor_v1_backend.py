@@ -1,7 +1,12 @@
+import pytest
 import torch
 
 import bilin18_observed_model_facade as facade
-from causal_response_tensor_v1_backend import CircuitSpec, ObservedResponseCollector
+from causal_response_tensor_v1_backend import (
+    CircuitSpec,
+    ObservedResponseCollector,
+    leading_shared_direction,
+)
 from test_bilin18_observed_model_facade import tiny_model
 
 
@@ -75,3 +80,89 @@ def test_backend_rejects_document_leakage_even_when_rows_differ() -> None:
         assert "source documents overlap" in str(error)
     else:
         raise AssertionError("document leakage was accepted")
+
+
+def test_backend_owns_inputs_rejects_coercion_and_is_one_use() -> None:
+    torch.manual_seed(11)
+    model = tiny_model()
+    with torch.no_grad():
+        for parameter in model.parameters():
+            parameter.normal_(mean=0.0, std=0.03)
+    rows = torch.randint(0, 32, (8, 5), dtype=torch.int64)
+    documents = torch.arange(8, dtype=torch.int64)
+    member_one = list(range(0, 32, 4))
+    member_two = list(range(1, 32, 4))
+    slice_positions = [
+        position for position in range(32) if position % 4 in (0, 1)
+    ]
+    specs = (
+        _spec("a.one", "a1", member_one, slice_positions, 32),
+        _spec("a.two", "a1", member_two, slice_positions, 32),
+    )
+    collector = ObservedResponseCollector(
+        model, rows, documents, specs, require_production=False
+    )
+    rows.fill_(31)
+    documents.fill_(99)
+    specs[0].member_mask.zero_()
+    assert not torch.all(collector.rows == 31)
+    assert collector.row_document_ids.tolist() == list(range(8))
+    assert collector.specs[0].member_mask.any()
+
+    fit = torch.tensor([0, 1, 2, 3], dtype=torch.int64)
+    evaluate = torch.tensor([4, 5, 6, 7], dtype=torch.int64)
+    collector.collect(fit, evaluate)
+    with pytest.raises(RuntimeError, match="spent"):
+        collector.collect(fit, evaluate)
+
+    with pytest.raises(TypeError, match="int64"):
+        ObservedResponseCollector(
+            model, rows.int(), torch.arange(8), specs, require_production=False
+        )
+
+
+def test_backend_rejects_bad_roles_and_preexisting_hooks() -> None:
+    model = tiny_model()
+    rows = torch.randint(0, 32, (8, 5), dtype=torch.int64)
+    documents = torch.arange(8, dtype=torch.int64)
+    specs = (
+        _spec(
+            "a.one", "a1", list(range(0, 32, 4)),
+            [position for position in range(32) if position % 4 in (0, 1)], 32,
+        ),
+        _spec(
+            "a.two", "a1", list(range(1, 32, 4)),
+            [position for position in range(32) if position % 4 in (0, 1)], 32,
+        ),
+    )
+    handle = model.transformer.h[0].register_forward_pre_hook(
+        lambda _module, _inputs: None
+    )
+    try:
+        with pytest.raises(RuntimeError, match="hook"):
+            ObservedResponseCollector(
+                model, rows, documents, specs, require_production=False
+            )
+    finally:
+        handle.remove()
+
+    for bad, message in (
+        (torch.tensor([0, 0, 1, 2]), "duplicate"),
+        (torch.tensor([-1, 0, 1, 2]), "out-of-range"),
+        (torch.tensor([0, 1, 2, 8]), "out-of-range"),
+    ):
+        collector = ObservedResponseCollector(
+            model, rows, documents, specs, require_production=False
+        )
+        with pytest.raises(ValueError, match=message):
+            collector.collect(bad, torch.tensor([4, 5, 6, 7]))
+
+
+def test_shared_direction_rejects_tie_and_accepts_above_frozen_gap() -> None:
+    with pytest.raises(RuntimeError, match="tied"):
+        leading_shared_direction(torch.eye(2, dtype=torch.float64))
+    matrix = torch.diag(torch.tensor([1.0 + 1.1e-6, 1.0], dtype=torch.float64))
+    direction, spectrum = leading_shared_direction(matrix)
+    assert direction.dtype == torch.float32
+    assert direction.tolist() == [1.0, 0.0]
+    assert float((spectrum[0] - spectrum[1]) / spectrum[0]) > 1e-6
