@@ -62724,3 +62724,27 @@ mlp4/mlp5 units at K ∈ {1152, 2304, 4608}; everything else as cfgE), two windo
 **Frontier statement for this window family (certified on two windows, self-reviewed):** the certified empirical arm's
 mlp4/mlp5 CP stand-ins can be halved in stored values (2,304 → 1,152 units each) at equal CE by selecting units under
 the block-5/6 first-order observability metric; at equal stored values the same selector buys 0.124 / 0.075 nat.
+
+## §2108 — RUNG 15: the swapped-in units do NOT point into the r90 observable subspace any more than the swapped-out ones (0.685 vs 0.670 — every unit is ~0.68); the registered mechanism FAILED. The selection gain must live in the Gramian's heavy top directions, not in its 90 % span
+
+`ops/metric_units_mechanism.py`, **6s** (weights + two Gramians, no fits), BACKLOG rung 15. **pred_a FAILED | pred_b HELD
+| pred_c HELD.**
+
+```
+  layer  site  r90   K=2304: shared   obs-fraction of Down columns (median)  IN     OUT    BOTH   all 4608 (p10/median/p90)
+  mlp4    5    712          0.750                                           0.685  0.670  0.684  0.650 / 0.680 / 0.712
+  mlp5    6    749          0.749                                           0.701  0.682  0.697  0.661 / 0.694 / 0.726
+  raw importance (median): mlp4 IN 194 vs OUT 207; mlp5 IN 236 vs OUT 251    -> OUT louder, as constructed (b HELD)
+  swap size: 25 % of the kept set at K=2304 (c HELD), 38 % at K=1152
+```
+
+- **pred_a FAILED, and not marginally: IN/OUT = 1.02, against a bar of 2.** The r90 observable subspace is two-thirds
+  of the stream (depth profile), and *every* unit's Down column has ~68 % of its energy in it — the distribution across
+  4,608 units is 0.65–0.71. The projector I registered the mechanism on cannot distinguish units. **"The metric keeps
+  units that write into the observable subspace" is refuted as stated.**
+- **What the metric actually ranks on** is ||G^{1/2} Down_u||, which is dominated by G's top eigenvalues — the Gramian
+  has r50 = 70 at block 5 and 176 at block 9 (depth profile): half the loss's sensitivity sits in a few dozen
+  directions. The 25 % of units the metric swaps in are those whose columns load on that **heavy head**, not on the
+  broad 90 % span. That is the registered next check (rung 15b): energy fraction in the top-r50 and top-8 eigen-
+  directions, IN vs OUT.
+- Scope: this is the weights-side statement only; the CE gain (§2105–§2107) stands on its own two windows.

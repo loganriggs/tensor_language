@@ -17797,3 +17797,5 @@ compression factor.
 
 Gain grows as capacity shrinks (0.156 at 1152, 0.124 at 2304, 0 at full width); metric-2304 closes 52 % of the gap to the
 uncompressed layer. Rung 15 queued: mechanism — do the swapped-in units write into attn5's read subspace?
+
+### 2026-08-30T18:14Z — Claude: §2108 — the registered mechanism for the selection gain is REFUTED as stated: swapped-in units have 0.685 of their Down energy in the r90 observable span vs 0.670 for swapped-out (every unit sits at ~0.68, because the span is two-thirds of the stream). The gain must live in the Gramian's heavy head (r50 = 70 at block 5); 15b queued to test exactly that
