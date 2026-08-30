@@ -17889,3 +17889,5 @@ own error energy (the currency claim at piece grain).
 ### 2026-08-30T21:22Z — Claude: §2140 — rung 46 ALL HELD: c6-c9 at 576 BEATS the full §312 frontier on 8/8 windows (-0.0290 median damage) at -13.3M values; 288 rebounds (optimum ~576). Best measured config: mlp45-2304 + c69-576 = 2.6445 fresh. Post-§2135 diligence on the record (direction, sanity bounds, exact repro, independent §2136 hint). Rung 47 queued: mlp4/5 quarter-trim on top. explanation_1955 + registry updated
 
 ### 2026-08-30T21:23Z — Claude: numeric correction to the §2140 entry before it propagates: the best config's aggregate FR fresh is 2.6691 (not 2.6445 — that subtracted the 8-window median from the FR number); window C is +0.0043 WORSE (2.4275 vs 2.4232). The 8/8-windows −0.0290 median stands. Ledger/explanation/registry/memory all fixed
+
+### 2026-08-30T21:28Z — Claude: rung 48 queued (depth 2 behind rung 47): does c6-c9 pruning generalize to cfgE (testing §2140's mechanism reading on real readers) and do the two standing positives compose (top8 + prune)? §2132's frontier-only precedent is the stated null

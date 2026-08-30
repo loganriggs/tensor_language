@@ -641,3 +641,12 @@ later per-rung backlog edits had silently anchored on text that was not here.
     that <= +0.03 on >= 6/8; pred_c best arm reproduces §2140 (median vs
     norm-2304 of -0.0290 within 0.015; needs the norm-2304 arm too).
     -> ops/frontier_mlp45_trim.py [QUEUED]
+
+48. DOES c6-c9 PRUNING GENERALIZE TO cfgE + COMPOSITION (damage
+    convention). Tests §2140's unproven mechanism reading (noise the
+    readers amplify) on real-reader cfgE, and whether the two standing
+    positives compose. Arms: plain / prune (c69-576) / top8 (repro) /
+    top8+prune. Null: §2132's precedent (frontier-only effects).
+    pred_a median [gap(prune) - gap(plain)] <= 0; pred_b median
+    [gap(top8+prune) - gap(top8)] <= 0; pred_c top8 reduction reproduces
+    0.0857 within 0.01. -> ops/cfge_c69_prune.py [QUEUED 21:38Z]
