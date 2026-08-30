@@ -676,6 +676,13 @@ def _freeze_fit_authority_under_claim(claim: RunClaim) -> dict[str, Any]:
     authority = {**body, "authority_sha256": logical_sha256(body)}
     temporary, digest = _stage_json(authority, AUTHORITY)
     try:
+        # Namespace absence is part of the protected preimage, but every lookup must
+        # occur before the final audit/source/parent replay.  A hostile lookup can
+        # mutate a parent; the replay below must see and reject that drift.
+        if any(path.exists() for path in (
+            AUTHORITY, BUNDLE, MANIFEST, RECEIPT, FAILURE, TERMINAL,
+        )):
+            raise RuntimeError("FIT authority namespace raced publication")
         require_claim(claim)
         replay_audit, replay_audit_sha256 = _stable_audit()
         if (
@@ -685,10 +692,8 @@ def _freeze_fit_authority_under_claim(claim: RunClaim) -> dict[str, Any]:
             or parent_snapshot_without_tensor_load() != parents
         ):
             raise RuntimeError("FIT authority protected state changed")
-        if any(path.exists() for path in (
-            AUTHORITY, BUNDLE, MANIFEST, RECEIPT, FAILURE, TERMINAL,
-        )):
-            raise RuntimeError("FIT authority namespace raced publication")
+        # No path lookup or callback follows this final protected replay.  Claim
+        # verification and the create-only authority link are the only operations.
         require_claim(claim)
         os.link(temporary, AUTHORITY)
         _fsync_parent_best_effort(AUTHORITY)

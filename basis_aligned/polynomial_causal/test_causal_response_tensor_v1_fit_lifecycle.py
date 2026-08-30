@@ -130,7 +130,9 @@ def test_freeze_publishes_authority_create_only_before_parent_tensor_load(
         lifecycle.freeze_fit_authority()
 
 
-def test_late_terminal_race_prevents_authority_publication(monkeypatch, tmp_path):
+def test_terminal_race_during_absence_scan_prevents_authority_publication(
+    monkeypatch, tmp_path
+):
     _redirect_namespace(monkeypatch, tmp_path)
     closure = {"commit": "1" * 40, "paths": {"a": "b" * 64}, "sha256": "c" * 64}
     parents = {"weights_sha256": "d" * 64}
@@ -138,21 +140,70 @@ def test_late_terminal_race_prevents_authority_publication(monkeypatch, tmp_path
         "reviewer": "independent-test-auditor",
         "audited_source_commit": closure["commit"],
     }
+    original_exists = Path.exists
+    attacked = False
     parent_calls = 0
 
     def replay_parents():
         nonlocal parent_calls
         parent_calls += 1
-        if parent_calls == 2:
-            lifecycle.FAILURE.write_text("injected concurrent failure\n")
         return parents
+
+    def inject_failure_during_scan(path):
+        nonlocal attacked
+        if path == lifecycle.AUTHORITY and parent_calls == 1 and not attacked:
+            attacked = True
+            lifecycle.FAILURE.write_text("injected concurrent failure\n")
+        return original_exists(path)
+
+    monkeypatch.setattr(lifecycle, "source_closure", lambda *_args: closure)
+    monkeypatch.setattr(
+        lifecycle, "parent_snapshot_without_tensor_load", replay_parents
+    )
+    monkeypatch.setattr(lifecycle, "_stable_audit", lambda: (audit, "e" * 64))
+    monkeypatch.setattr(Path, "exists", inject_failure_during_scan)
+    with pytest.raises(RuntimeError, match="raced publication"):
+        lifecycle.freeze_fit_authority()
+    assert attacked
+    assert lifecycle.FAILURE.exists()
+    assert not lifecycle.AUTHORITY.exists()
+
+
+def test_authority_absence_lookup_precedes_final_parent_replay(
+    monkeypatch, tmp_path
+):
+    _redirect_namespace(monkeypatch, tmp_path)
+    closure = {"commit": "1" * 40, "paths": {"a": "b" * 64}, "sha256": "c" * 64}
+    audit = {
+        "reviewer": "independent-test-auditor",
+        "audited_source_commit": closure["commit"],
+    }
+    live_parents = {"weights_sha256": "d" * 64}
+    parent_calls = 0
+    original_exists = Path.exists
+    attacked = False
+
+    def replay_parents():
+        nonlocal parent_calls
+        parent_calls += 1
+        return dict(live_parents)
+
+    def mutate_parent_from_authority_lookup(path):
+        nonlocal attacked
+        # require_pristine_namespace scans before the first parent snapshot; attack
+        # only the publication scan after the staged authority has bound d...d.
+        if path == lifecycle.AUTHORITY and parent_calls == 1 and not attacked:
+            attacked = True
+            live_parents["weights_sha256"] = "f" * 64
+        return original_exists(path)
 
     monkeypatch.setattr(lifecycle, "source_closure", lambda *_args: closure)
     monkeypatch.setattr(lifecycle, "parent_snapshot_without_tensor_load", replay_parents)
     monkeypatch.setattr(lifecycle, "_stable_audit", lambda: (audit, "e" * 64))
-    with pytest.raises(RuntimeError, match="raced publication"):
+    monkeypatch.setattr(Path, "exists", mutate_parent_from_authority_lookup)
+    with pytest.raises(RuntimeError, match="protected state changed"):
         lifecycle.freeze_fit_authority()
-    assert lifecycle.FAILURE.exists()
+    assert attacked and parent_calls == 2
     assert not lifecycle.AUTHORITY.exists()
 
 
