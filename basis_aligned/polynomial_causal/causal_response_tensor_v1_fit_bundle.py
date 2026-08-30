@@ -588,6 +588,65 @@ def semantic_replay_fit_bundle(
     return digest
 
 
+def fit_bundle_manifest_summary(
+    path: Path,
+    *,
+    expected_authority_sha256: str,
+    expected_artifact_sha256: str,
+    require_production: bool = True,
+) -> dict[str, Any]:
+    """Derive a JSON-only manifest summary from the exact validated bundle bytes.
+
+    The returned object deliberately excludes directions, rows, responses, and every
+    other tensor value.  It contains only identities and tensor digests, so deriving a
+    manifest cannot create a second program capability.
+    """
+    if not _is_sha256(expected_artifact_sha256):
+        raise ValueError("expected FIT bundle hash is malformed")
+    before = file_sha256(path)
+    raw = path.read_bytes()
+    after = file_sha256(path)
+    digest = hashlib.sha256(raw).hexdigest()
+    if before != after or digest != expected_artifact_sha256:
+        raise RuntimeError("FIT bundle changed during manifest derivation")
+    payload = torch.load(io.BytesIO(raw), map_location="cpu", weights_only=True)
+    validate_fit_bundle_payload(payload, require_production=require_production)
+    if payload["binding"]["authority_sha256"] != expected_authority_sha256:
+        raise RuntimeError("FIT manifest authority differs from the bundle")
+    ledger = payload["call_ledger"]
+    return {
+        "schema": "causal_response_tensor_v1_fit_bundle_summary",
+        "binding": dict(payload["binding"]),
+        "scientific_contract": {
+            "claim_boundary": payload["claim_boundary"],
+            "sign_convention": payload["sign_convention"],
+            "off_mask": payload["off_mask"],
+            "forbidden_payload_contract": dict(payload["forbidden_payload_contract"]),
+        },
+        "axes": {
+            "phases": list(payload["phases"]),
+            "source_tags": list(payload["source_tags"]),
+            "source_components": list(payload["source_components"]),
+            "target_tags": list(payload["target_tags"]),
+            "model_layer_count": payload["model_layer_count"],
+            "model_width": payload["model_width"],
+            "batch_size": payload["batch_size"],
+            "spec_order_sha256": payload["spec_order_sha256"],
+        },
+        "support_hashes": {
+            tag: dict(value) for tag, value in payload["support_hashes"].items()
+        },
+        "tensor_hashes": dict(payload["tensor_hashes"]),
+        "ledger": {
+            "outer_forwards": ledger["outer_forwards"],
+            "attention_native_calls": ledger["attention_native_calls"],
+            "mlp_native_calls": ledger["mlp_native_calls"],
+            "projection_calls": dict(ledger["projection_calls"]),
+            "capture_calls": dict(ledger["capture_calls"]),
+        },
+    }
+
+
 def publish_fit_bundle(
     path: Path,
     payload: Mapping[str, Any],

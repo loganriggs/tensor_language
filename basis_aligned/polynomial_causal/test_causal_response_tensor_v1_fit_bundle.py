@@ -90,6 +90,46 @@ def test_build_publish_replays_exact_bytes_without_minting_program(tmp_path):
     ) == artifact_sha256
 
 
+def test_manifest_summary_is_derived_from_exact_bytes_and_contains_no_tensors(tmp_path):
+    payload = _payload()
+    path = tmp_path / "fit_bundle.pt"
+    artifact_sha256 = bundle.publish_fit_bundle(
+        path, payload, expected_authority_sha256="a" * 64,
+        require_production=False,
+    )
+    summary = bundle.fit_bundle_manifest_summary(
+        path,
+        expected_authority_sha256="a" * 64,
+        expected_artifact_sha256=artifact_sha256,
+        require_production=False,
+    )
+    assert summary["binding"] == payload["binding"]
+    assert summary["tensor_hashes"] == payload["tensor_hashes"]
+    assert summary["ledger"]["outer_forwards"] == payload["call_ledger"][
+        "outer_forwards"
+    ]
+
+    def contains_tensor(value):
+        if type(value) is torch.Tensor:
+            return True
+        if type(value) is dict:
+            return any(contains_tensor(item) for item in value.values())
+        if type(value) is list:
+            return any(contains_tensor(item) for item in value)
+        return False
+
+    assert not contains_tensor(summary)
+    with path.open("ab") as sink:
+        sink.write(b"mutation")
+    with pytest.raises(RuntimeError, match="changed during manifest derivation"):
+        bundle.fit_bundle_manifest_summary(
+            path,
+            expected_authority_sha256="a" * 64,
+            expected_artifact_sha256=artifact_sha256,
+            require_production=False,
+        )
+
+
 def test_no_eval_capability_surface_exists_before_receipt():
     assert not hasattr(bundle, "FitProgramCapability")
     assert not hasattr(bundle, "load_fit_program")

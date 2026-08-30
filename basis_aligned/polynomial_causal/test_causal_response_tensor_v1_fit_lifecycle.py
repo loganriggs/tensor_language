@@ -1,8 +1,11 @@
 import hashlib
+import inspect
 import json
 from pathlib import Path
+from types import SimpleNamespace
 
 import pytest
+import torch
 
 import causal_response_tensor_v1_fit_lifecycle as lifecycle
 from test_bilin18_observed_model_facade import tiny_model
@@ -471,3 +474,160 @@ def test_target_absence_check_cannot_mutate_terminal_after_final_replay(
         assert not original_exists(lifecycle.FAILURE)
     finally:
         lifecycle.release_claim(claim)
+
+
+def _install_owner_fakes(monkeypatch, tmp_path, *, collector_failure=False):
+    _redirect_namespace(monkeypatch, tmp_path)
+    events = []
+    authority = {
+        "authority_sha256": "a" * 64,
+        "source_closure": {"sha256": "b" * 64},
+        "parents": {
+            "config_sha256": "c" * 64,
+            "weights_sha256": "d" * 64,
+        },
+    }
+
+    def freeze(claim):
+        lifecycle.require_claim(claim)
+        events.append("authority")
+        lifecycle.AUTHORITY.write_text('{"frozen":true}\n')
+        return authority
+
+    monkeypatch.setattr(lifecycle, "_freeze_fit_authority_under_claim", freeze)
+    monkeypatch.setattr(
+        lifecycle, "validate_fit_authority",
+        lambda: (authority, lifecycle.file_sha256(lifecycle.AUTHORITY)),
+    )
+    inputs = SimpleNamespace(
+        rows=torch.zeros((1, 2), dtype=torch.int64),
+        row_document_ids=torch.zeros(1, dtype=torch.int64),
+        fit_row_indices=torch.zeros(1, dtype=torch.int64),
+        specs=(),
+        parent_sha256s={
+            "census_state_diverse": "1" * 64,
+            "curated_rows": "2" * 64,
+            "battery": "3" * 64,
+            "split": "4" * 64,
+        },
+        model_rows_sha256="5" * 64,
+        fit_role_sha256="6" * 64,
+        fit_document_ids_sha256="7" * 64,
+        support_hashes={},
+    )
+
+    def reconstruct(guard):
+        events.append("inputs")
+        guard()
+        guard()
+        return inputs
+
+    monkeypatch.setattr(
+        lifecycle.fit_inputs, "_reconstruct_production_fit_inputs_after_authority",
+        reconstruct,
+    )
+    model = tiny_model().eval()
+    for parameter in model.parameters():
+        parameter.requires_grad_(False)
+    checkpoint = lifecycle.facade.CheckpointReceipt(
+        revision="revision", snapshot="snapshot",
+        config_sha256="c" * 64, weights_sha256="d" * 64,
+        weights_bytes=123, tokenizer_vocab=32, logit_vocab=32,
+    )
+
+    def load_model(**kwargs):
+        assert kwargs == {
+            "device": "cuda", "dtype": torch.float32,
+            "snapshot": lifecycle.facade.DEFAULT_SNAPSHOT,
+            "verify_weights_sha256": True,
+        }
+        events.append("model")
+        return model, checkpoint
+
+    monkeypatch.setattr(lifecycle.facade, "load_bilin18", load_model)
+    monkeypatch.setattr(lifecycle.facade, "validate_snapshot", lambda: checkpoint)
+    monkeypatch.setattr(lifecycle, "model_state_sha256", lambda _model: "8" * 64)
+
+    class Collector:
+        def __init__(self, *args, **kwargs):
+            assert kwargs == {"batch_size": 4, "require_production": True}
+            events.append("collector")
+
+        def fit_stage(self, rows):
+            assert rows is inputs.fit_row_indices
+            events.append("fit")
+            if collector_failure:
+                raise RuntimeError("injected preregistered fit failure")
+            return {"preimage": True}
+
+    monkeypatch.setattr(lifecycle, "ObservedResponseCollector", Collector)
+    payload = {"call_ledger": {"outer_forwards": 12_400}}
+    monkeypatch.setattr(
+        lifecycle.fit_bundle, "build_fit_bundle_payload",
+        lambda preimage, binding, require_production: payload,
+    )
+
+    def publish_bundle(path, value, **kwargs):
+        assert path == lifecycle.BUNDLE and value is payload
+        assert kwargs["require_production"] is True
+        events.append("bundle")
+        kwargs["before_link"]()
+        path.write_bytes(b"exact bundle bytes")
+        return lifecycle.file_sha256(path)
+
+    monkeypatch.setattr(lifecycle.fit_bundle, "publish_fit_bundle", publish_bundle)
+
+    def replay_bundle(path, **kwargs):
+        assert path == lifecycle.BUNDLE
+        assert kwargs["expected_artifact_sha256"] == lifecycle.file_sha256(path)
+        return kwargs["expected_artifact_sha256"]
+
+    monkeypatch.setattr(
+        lifecycle.fit_bundle, "semantic_replay_fit_bundle", replay_bundle
+    )
+    summary = {
+        "schema": "causal_response_tensor_v1_fit_bundle_summary",
+        "binding": {}, "scientific_contract": {}, "axes": {},
+        "support_hashes": {}, "tensor_hashes": {}, "ledger": {},
+    }
+    monkeypatch.setattr(
+        lifecycle.fit_bundle, "fit_bundle_manifest_summary", lambda *args, **kwargs: summary
+    )
+    return events
+
+
+def test_production_owner_has_no_arguments_and_publishes_receipt_last(
+    monkeypatch, tmp_path
+):
+    assert not inspect.signature(
+        lifecycle.execute_causal_response_fit_v1
+    ).parameters
+    events = _install_owner_fakes(monkeypatch, tmp_path)
+    digest = lifecycle.execute_causal_response_fit_v1()
+    assert events[:5] == ["authority", "inputs", "model", "collector", "fit"]
+    assert events[5] == "bundle"
+    assert digest == lifecycle.file_sha256(lifecycle.RECEIPT)
+    assert lifecycle.TERMINAL.stat().st_ino == lifecycle.RECEIPT.stat().st_ino
+    assert lifecycle.BUNDLE.exists() and lifecycle.MANIFEST.exists()
+    assert not lifecycle.FAILURE.exists() and not lifecycle.LOCK.exists()
+    receipt = json.loads(lifecycle.RECEIPT.read_text())
+    assert receipt["payload"]["outer_forwards"] == 12_400
+    assert receipt["payload"]["authorized_for_eval"] is False
+    assert receipt["aggregate"]["bundle"]["sha256"] == lifecycle.file_sha256(
+        lifecycle.BUNDLE
+    )
+
+
+def test_production_owner_preserves_collector_failure_as_terminal(
+    monkeypatch, tmp_path
+):
+    _install_owner_fakes(monkeypatch, tmp_path, collector_failure=True)
+    with pytest.raises(RuntimeError, match="injected preregistered fit failure"):
+        lifecycle.execute_causal_response_fit_v1()
+    assert lifecycle.TERMINAL.stat().st_ino == lifecycle.FAILURE.stat().st_ino
+    assert not lifecycle.RECEIPT.exists()
+    failure = json.loads(lifecycle.FAILURE.read_text())
+    assert failure["payload"]["error_type"] == "RuntimeError"
+    assert failure["payload"]["authorized_for_eval"] is False
+    assert not failure["aggregate"]["bundle"]["present"]
+    assert not lifecycle.LOCK.exists()

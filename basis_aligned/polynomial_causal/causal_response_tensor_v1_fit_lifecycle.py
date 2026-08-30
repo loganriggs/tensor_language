@@ -1,9 +1,9 @@
-"""Authority and source-closure layer for causal-response tensor v1 FIT.
+"""Single-owner source-closed lifecycle for causal-response tensor v1 FIT.
 
-This module intentionally stops before model execution.  It can construct a
-nonauthorizing draft and, after an exact source-bound independent GO exists, publish
-the FIT authority before any parent tensor or model is loaded.  Bundle/model/receipt
-execution is a later source-closed layer.
+The public production entrypoint accepts no arguments.  It freezes authority before
+any parent tensor or model load, reconstructs the canonical FIT inputs, owns exactly
+one collector, and publishes bundle -> manifest -> one terminal receipt/failure.  It
+returns only the terminal digest and cannot mint an EVAL-capable object.
 """
 
 from __future__ import annotations
@@ -16,12 +16,15 @@ import secrets
 import subprocess
 import tempfile
 from collections.abc import Callable
+from dataclasses import asdict
 from typing import Any, Mapping, NamedTuple
 
 import torch
 
 import bilin18_observed_model_facade as facade
+import causal_response_tensor_v1_fit_bundle as fit_bundle
 import causal_response_tensor_v1_fit_inputs as fit_inputs
+from causal_response_tensor_v1_backend import ObservedResponseCollector
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -534,62 +537,452 @@ def _stage_json(value: Mapping[str, Any], target: Path) -> tuple[Path, str]:
             os.close(descriptor)
 
 
+MANIFEST_KEYS = {
+    "schema", "status", "authority_artifact_sha256", "authority_logical_sha256",
+    "bundle", "bundle_summary", "protocol", "authorized_for_eval",
+    "manifest_sha256",
+}
+
+
+def build_fit_manifest(
+    *, authority: Mapping[str, Any], authority_artifact_sha256: str,
+    bundle_artifact_sha256: str,
+) -> dict[str, Any]:
+    """Derive the JSON manifest from the exact published bundle, never from a caller."""
+    if type(authority) is not dict or not all(
+        isinstance(value, str) and len(value) == 64
+        for value in (authority_artifact_sha256, bundle_artifact_sha256)
+    ):
+        raise TypeError("FIT manifest bindings are malformed")
+    summary = fit_bundle.fit_bundle_manifest_summary(
+        BUNDLE,
+        expected_authority_sha256=authority["authority_sha256"],
+        expected_artifact_sha256=bundle_artifact_sha256,
+        require_production=True,
+    )
+    body = {
+        "schema": "causal_response_tensor_v1_fit_manifest",
+        "status": "complete_fit_bundle_semantically_replayed",
+        "authority_artifact_sha256": authority_artifact_sha256,
+        "authority_logical_sha256": authority["authority_sha256"],
+        "bundle": {
+            "path": str(BUNDLE),
+            "sha256": bundle_artifact_sha256,
+            "bytes": BUNDLE.stat().st_size,
+        },
+        "bundle_summary": summary,
+        "protocol": protocol(),
+        "authorized_for_eval": False,
+    }
+    return {**body, "manifest_sha256": logical_sha256(body)}
+
+
+def validate_fit_manifest(
+    *, expected_authority: Mapping[str, Any],
+    expected_authority_artifact_sha256: str,
+    expected_bundle_artifact_sha256: str,
+    expected_manifest_artifact_sha256: str | None = None,
+) -> tuple[dict[str, Any], str]:
+    """Replay a manifest and rederive its summary from the exact bundle bytes."""
+    manifest, artifact_sha256 = stable_json(
+        MANIFEST, expected_manifest_artifact_sha256
+    )
+    if set(manifest) != MANIFEST_KEYS or manifest.get("schema") != (
+        "causal_response_tensor_v1_fit_manifest"
+    ) or manifest.get("status") != "complete_fit_bundle_semantically_replayed" or (
+        manifest.get("authorized_for_eval") is not False
+    ):
+        raise RuntimeError("FIT manifest schema or status changed")
+    body = {key: value for key, value in manifest.items() if key != "manifest_sha256"}
+    if manifest["manifest_sha256"] != logical_sha256(body):
+        raise RuntimeError("FIT manifest logical identity does not replay")
+    expected_bundle = {
+        "path": str(BUNDLE),
+        "sha256": expected_bundle_artifact_sha256,
+        "bytes": BUNDLE.stat().st_size,
+    }
+    if (
+        manifest["authority_artifact_sha256"]
+        != expected_authority_artifact_sha256
+        or manifest["authority_logical_sha256"]
+        != expected_authority["authority_sha256"]
+        or manifest["bundle"] != expected_bundle
+        or manifest["protocol"] != protocol()
+    ):
+        raise RuntimeError("FIT manifest protected binding changed")
+    expected_summary = fit_bundle.fit_bundle_manifest_summary(
+        BUNDLE,
+        expected_authority_sha256=expected_authority["authority_sha256"],
+        expected_artifact_sha256=expected_bundle_artifact_sha256,
+        require_production=True,
+    )
+    if manifest["bundle_summary"] != expected_summary:
+        raise RuntimeError("FIT manifest bundle summary does not replay")
+    return manifest, artifact_sha256
+
+
+def publish_fit_manifest(
+    manifest: Mapping[str, Any], *, claim: RunClaim,
+    final_guard: Callable[[], None],
+) -> str:
+    """Publish a complete manifest create-only after one adjacent owner guard."""
+    if type(manifest) is not dict or set(manifest) != MANIFEST_KEYS or not callable(
+        final_guard
+    ):
+        raise TypeError("FIT manifest publication input is malformed")
+    temporary, digest = _stage_json(manifest, MANIFEST)
+    try:
+        final_guard()
+        if MANIFEST.exists() or TERMINAL.exists() or RECEIPT.exists() or FAILURE.exists():
+            raise RuntimeError("FIT manifest namespace is already spent")
+        require_claim(claim)
+        os.link(temporary, MANIFEST)
+        _fsync_parent_best_effort(MANIFEST)
+        replay, replay_sha256 = stable_json(MANIFEST, digest)
+        if replay != manifest or replay_sha256 != digest:
+            raise RuntimeError("published FIT manifest does not replay")
+        return digest
+    finally:
+        temporary.unlink(missing_ok=True)
+
+
+def _freeze_fit_authority_under_claim(claim: RunClaim) -> dict[str, Any]:
+    """Freeze authority while a sole outer owner retains the run claim."""
+    audit, audit_sha256 = _stable_audit()
+    closure = source_closure(str(audit["audited_source_commit"]))
+    parents = parent_snapshot_without_tensor_load()
+    body = {
+        "schema": "causal_response_tensor_v1_fit_authority",
+        "status": "frozen_before_any_parent_tensor_or_bilin18_model_load",
+        "source_closure": closure,
+        "independent_audit": {
+            "path": str(AUDIT), "sha256": audit_sha256,
+            "reviewer": audit["reviewer"],
+        },
+        "parents": parents,
+        "protocol": protocol(),
+        "output_paths": output_paths(),
+        "outcome_access_before_authority": {
+            "parent_tensors_loaded": False, "model_loaded": False,
+            "model_forward_calls": 0, "scientific_outcomes_read": False,
+        },
+        "authorized_for_fit_execution": True,
+        "authorized_for_eval": False,
+    }
+    authority = {**body, "authority_sha256": logical_sha256(body)}
+    temporary, digest = _stage_json(authority, AUTHORITY)
+    try:
+        require_claim(claim)
+        replay_audit, replay_audit_sha256 = _stable_audit()
+        if (
+            replay_audit != audit
+            or replay_audit_sha256 != audit_sha256
+            or source_closure(closure["commit"]) != closure
+            or parent_snapshot_without_tensor_load() != parents
+        ):
+            raise RuntimeError("FIT authority protected state changed")
+        if any(path.exists() for path in (
+            AUTHORITY, BUNDLE, MANIFEST, RECEIPT, FAILURE, TERMINAL,
+        )):
+            raise RuntimeError("FIT authority namespace raced publication")
+        require_claim(claim)
+        os.link(temporary, AUTHORITY)
+        _fsync_parent_best_effort(AUTHORITY)
+        replay, replay_sha = stable_json(AUTHORITY, digest)
+        if replay != authority or replay_sha != digest:
+            raise RuntimeError("published FIT authority does not replay")
+    finally:
+        temporary.unlink(missing_ok=True)
+    return authority
+
+
 def freeze_fit_authority() -> dict[str, Any]:
     """Publish FIT-only authority; does not load parent tensors or the model."""
     require_pristine_namespace()
     claim = acquire_claim()
     try:
-        audit, audit_sha256 = _stable_audit()
-        closure = source_closure(str(audit["audited_source_commit"]))
-        parents = parent_snapshot_without_tensor_load()
-        body = {
-            "schema": "causal_response_tensor_v1_fit_authority",
-            "status": "frozen_before_any_parent_tensor_or_bilin18_model_load",
-            "source_closure": closure,
-            "independent_audit": {
-                "path": str(AUDIT), "sha256": audit_sha256,
-                "reviewer": audit["reviewer"],
-            },
-            "parents": parents,
-            "protocol": protocol(),
-            "output_paths": output_paths(),
-            "outcome_access_before_authority": {
-                "parent_tensors_loaded": False, "model_loaded": False,
-                "model_forward_calls": 0, "scientific_outcomes_read": False,
-            },
-            "authorized_for_fit_execution": True,
-            "authorized_for_eval": False,
-        }
-        authority = {**body, "authority_sha256": logical_sha256(body)}
-        temporary, digest = _stage_json(authority, AUTHORITY)
-        try:
-            require_claim(claim)
-            replay_audit, replay_audit_sha256 = _stable_audit()
-            if (
-                replay_audit != audit
-                or replay_audit_sha256 != audit_sha256
-                or source_closure(closure["commit"]) != closure
-                or parent_snapshot_without_tensor_load() != parents
-            ):
-                raise RuntimeError("FIT authority protected state changed")
-            # Protected-state replay is fallible and can be slow.  Terminal absence
-            # must therefore be checked only after it, immediately next to the final
-            # claim check and create-only authority link.
-            if any(path.exists() for path in (AUTHORITY, BUNDLE, MANIFEST, RECEIPT,
-                                               FAILURE, TERMINAL)):
-                raise RuntimeError("FIT authority namespace raced publication")
-            require_claim(claim)
-            os.link(temporary, AUTHORITY)
-            directory_descriptor = os.open(AUTHORITY.parent, os.O_DIRECTORY)
-            try:
-                os.fsync(directory_descriptor)
-            finally:
-                os.close(directory_descriptor)
-            replay, replay_sha = stable_json(AUTHORITY, digest)
-            if replay != authority or replay_sha != digest:
-                raise RuntimeError("published FIT authority does not replay")
-        finally:
-            temporary.unlink(missing_ok=True)
-        return authority
+        return _freeze_fit_authority_under_claim(claim)
     finally:
         release_claim(claim)
+
+
+def _require_exact_owner_state(
+    *, claim: RunClaim, authority: Mapping[str, Any],
+    authority_artifact_sha256: str,
+    bundle_artifact_sha256: str | None,
+    manifest_artifact_sha256: str | None,
+    model: torch.nn.Module | None = None,
+    model_state_sha256_expected: str | None = None,
+    checkpoint_expected: Mapping[str, Any] | None = None,
+) -> None:
+    """Replay every state the sole owner is expected to have published so far."""
+    require_claim(claim)
+    replay_authority, replay_authority_artifact = validate_fit_authority()
+    if replay_authority != authority or (
+        replay_authority_artifact != authority_artifact_sha256
+    ):
+        raise RuntimeError("FIT owner authority changed")
+    if bundle_artifact_sha256 is None:
+        if BUNDLE.exists():
+            raise RuntimeError("FIT bundle appeared before its publication boundary")
+    elif fit_bundle.semantic_replay_fit_bundle(
+        BUNDLE,
+        expected_authority_sha256=authority["authority_sha256"],
+        expected_artifact_sha256=bundle_artifact_sha256,
+        require_production=True,
+    ) != bundle_artifact_sha256:
+        raise RuntimeError("FIT owner bundle changed")
+    if manifest_artifact_sha256 is None:
+        if MANIFEST.exists():
+            raise RuntimeError("FIT manifest appeared before its publication boundary")
+    else:
+        validate_fit_manifest(
+            expected_authority=authority,
+            expected_authority_artifact_sha256=authority_artifact_sha256,
+            expected_bundle_artifact_sha256=bundle_artifact_sha256,
+            expected_manifest_artifact_sha256=manifest_artifact_sha256,
+        )
+    if any(path.exists() for path in (TERMINAL, RECEIPT, FAILURE)):
+        raise RuntimeError("FIT terminal namespace appeared before owner completion")
+    if checkpoint_expected is not None:
+        replay_checkpoint = asdict(facade.validate_snapshot())
+        if replay_checkpoint != dict(checkpoint_expected):
+            raise RuntimeError("FIT checkpoint changed during owner execution")
+    if (model is None) != (model_state_sha256_expected is None):
+        raise TypeError("FIT owner model guard is incomplete")
+    if model is not None and model_state_sha256(model) != model_state_sha256_expected:
+        raise RuntimeError("FIT model state changed during owner execution")
+    require_claim(claim)
+
+
+def _artifact_record(path: Path) -> dict[str, Any]:
+    if not path.exists():
+        return {"path": str(path), "present": False, "sha256": None, "bytes": None}
+    return {
+        "path": str(path), "present": True,
+        "sha256": file_sha256(path), "bytes": path.stat().st_size,
+    }
+
+
+def _failure_guard(
+    *, claim: RunClaim, authority: Mapping[str, Any],
+    authority_artifact_sha256: str, aggregate: Mapping[str, Any],
+    model: torch.nn.Module | None, model_state_after: str | None,
+) -> None:
+    """Bind a failed attempt's exact surviving bytes without treating them as valid."""
+    require_claim(claim)
+    replay, replay_digest = validate_fit_authority()
+    if replay != authority or replay_digest != authority_artifact_sha256:
+        raise RuntimeError("FIT failure authority changed")
+    for name, path in (("bundle", BUNDLE), ("manifest", MANIFEST)):
+        if aggregate[name] != _artifact_record(path):
+            raise RuntimeError(f"FIT failure {name} bytes changed")
+    if model is not None:
+        if model_state_after is None or model_state_sha256(model) != model_state_after:
+            raise RuntimeError("FIT failure model state changed before publication")
+    require_claim(claim)
+
+
+def execute_causal_response_fit_v1() -> str:
+    """Run the canonical production FIT transaction and return only its terminal hash.
+
+    There are intentionally no parameters: device, dtype, checkpoint, inputs, roles,
+    masks, batch size, collector, and publication paths are all source-closed.
+    """
+    require_pristine_namespace()
+    claim = acquire_claim()
+    authority: dict[str, Any] | None = None
+    authority_artifact_sha256: str | None = None
+    model: torch.nn.Module | None = None
+    model_state_before: str | None = None
+    model_state_after: str | None = None
+    checkpoint: dict[str, Any] | None = None
+    bundle_artifact_sha256: str | None = None
+    manifest_artifact_sha256: str | None = None
+    try:
+        authority = _freeze_fit_authority_under_claim(claim)
+        authority, authority_artifact_sha256 = validate_fit_authority()
+
+        def inputs_guard() -> None:
+            _require_exact_owner_state(
+                claim=claim, authority=authority,
+                authority_artifact_sha256=authority_artifact_sha256,
+                bundle_artifact_sha256=None, manifest_artifact_sha256=None,
+            )
+
+        inputs = fit_inputs._reconstruct_production_fit_inputs_after_authority(
+            inputs_guard
+        )
+        inputs_guard()
+        model, checkpoint_receipt = facade.load_bilin18(
+            device="cuda", dtype=torch.float32,
+            snapshot=facade.DEFAULT_SNAPSHOT, verify_weights_sha256=True,
+        )
+        checkpoint = asdict(checkpoint_receipt)
+        if checkpoint["config_sha256"] != authority["parents"]["config_sha256"] or (
+            checkpoint["weights_sha256"] != authority["parents"]["weights_sha256"]
+        ):
+            raise RuntimeError("loaded FIT checkpoint differs from authority")
+        model_state_before = model_state_sha256(model)
+        collector = ObservedResponseCollector(
+            model, inputs.rows, inputs.row_document_ids, inputs.specs,
+            batch_size=4, require_production=True,
+        )
+        preimage = collector.fit_stage(inputs.fit_row_indices)
+        model_state_after = model_state_sha256(model)
+        if model_state_after != model_state_before:
+            raise RuntimeError("model state changed across FIT collection")
+        binding = fit_bundle.FitBundleBinding(
+            authority_sha256=authority["authority_sha256"],
+            source_closure_sha256=authority["source_closure"]["sha256"],
+            census_state_diverse_sha256=inputs.parent_sha256s["census_state_diverse"],
+            curated_rows_sha256=inputs.parent_sha256s["curated_rows"],
+            battery_sha256=inputs.parent_sha256s["battery"],
+            document_split_sha256=inputs.parent_sha256s["split"],
+            config_sha256=checkpoint["config_sha256"],
+            weights_sha256=checkpoint["weights_sha256"],
+            model_state_sha256_before=model_state_before,
+            model_state_sha256_after=model_state_after,
+            model_rows_sha256=inputs.model_rows_sha256,
+            fit_role_sha256=inputs.fit_role_sha256,
+            fit_document_ids_sha256=inputs.fit_document_ids_sha256,
+            support_hashes_sha256=fit_inputs.logical_sha256(inputs.support_hashes),
+        )
+        payload = fit_bundle.build_fit_bundle_payload(
+            preimage, binding, require_production=True
+        )
+
+        def before_bundle_link() -> None:
+            _require_exact_owner_state(
+                claim=claim, authority=authority,
+                authority_artifact_sha256=authority_artifact_sha256,
+                bundle_artifact_sha256=None, manifest_artifact_sha256=None,
+                model=model, model_state_sha256_expected=model_state_after,
+                checkpoint_expected=checkpoint,
+            )
+
+        bundle_artifact_sha256 = fit_bundle.publish_fit_bundle(
+            BUNDLE, payload,
+            expected_authority_sha256=authority["authority_sha256"],
+            require_production=True, before_link=before_bundle_link,
+        )
+        manifest = build_fit_manifest(
+            authority=authority,
+            authority_artifact_sha256=authority_artifact_sha256,
+            bundle_artifact_sha256=bundle_artifact_sha256,
+        )
+
+        def before_manifest_link() -> None:
+            _require_exact_owner_state(
+                claim=claim, authority=authority,
+                authority_artifact_sha256=authority_artifact_sha256,
+                bundle_artifact_sha256=bundle_artifact_sha256,
+                manifest_artifact_sha256=None,
+                model=model, model_state_sha256_expected=model_state_after,
+                checkpoint_expected=checkpoint,
+            )
+
+        manifest_artifact_sha256 = publish_fit_manifest(
+            manifest, claim=claim, final_guard=before_manifest_link
+        )
+        aggregate = {
+            "authority": _artifact_record(AUTHORITY),
+            "bundle": _artifact_record(BUNDLE),
+            "manifest": _artifact_record(MANIFEST),
+        }
+        receipt_payload = {
+            "status": "complete",
+            "authorized_for_eval": False,
+            "checkpoint": checkpoint,
+            "model_state_sha256_before": model_state_before,
+            "model_state_sha256_after": model_state_after,
+            "outer_forwards": payload["call_ledger"]["outer_forwards"],
+            "projection_event_shape": protocol()["projection_event_shape"],
+            "capture_event_shape": protocol()["capture_event_shape"],
+        }
+        receipt = {
+            "schema": "causal_response_tensor_v1_fit_terminal",
+            "kind": "receipt",
+            "authority_artifact_sha256": authority_artifact_sha256,
+            "authority_logical_sha256": authority["authority_sha256"],
+            "aggregate": aggregate,
+            "payload": receipt_payload,
+        }
+
+        def before_receipt_link() -> None:
+            _require_exact_owner_state(
+                claim=claim, authority=authority,
+                authority_artifact_sha256=authority_artifact_sha256,
+                bundle_artifact_sha256=bundle_artifact_sha256,
+                manifest_artifact_sha256=manifest_artifact_sha256,
+                model=model, model_state_sha256_expected=model_state_after,
+                checkpoint_expected=checkpoint,
+            )
+            if aggregate != {
+                "authority": _artifact_record(AUTHORITY),
+                "bundle": _artifact_record(BUNDLE),
+                "manifest": _artifact_record(MANIFEST),
+            }:
+                raise RuntimeError("FIT receipt aggregate changed")
+
+        return _publish_terminal_record(
+            receipt, kind="receipt", claim=claim, final_guard=before_receipt_link
+        )
+    except Exception as error:
+        # Authority publication is the point after which every attempted execution must
+        # become externally observable.  Preserve exact partial bytes; never relabel a
+        # malformed partial bundle or manifest as a valid scientific artifact.
+        if authority is not None and authority_artifact_sha256 is not None and not (
+            TERMINAL.exists() or RECEIPT.exists() or FAILURE.exists()
+        ):
+            try:
+                if model is not None:
+                    model_state_after = model_state_sha256(model)
+                aggregate = {
+                    "authority": _artifact_record(AUTHORITY),
+                    "bundle": _artifact_record(BUNDLE),
+                    "manifest": _artifact_record(MANIFEST),
+                }
+                failure = {
+                    "schema": "causal_response_tensor_v1_fit_terminal",
+                    "kind": "failure",
+                    "authority_artifact_sha256": authority_artifact_sha256,
+                    "authority_logical_sha256": authority["authority_sha256"],
+                    "aggregate": aggregate,
+                    "payload": {
+                        "status": "failed",
+                        "error_type": type(error).__name__,
+                        "error_message": str(error),
+                        "checkpoint": checkpoint,
+                        "model_state_sha256_before": model_state_before,
+                        "model_state_sha256_after": model_state_after,
+                        "authorized_for_eval": False,
+                    },
+                }
+                _publish_terminal_record(
+                    failure, kind="failure", claim=claim,
+                    final_guard=lambda: _failure_guard(
+                        claim=claim, authority=authority,
+                        authority_artifact_sha256=authority_artifact_sha256,
+                        aggregate=aggregate, model=model,
+                        model_state_after=model_state_after,
+                    ),
+                )
+            except Exception as publication_error:
+                raise RuntimeError(
+                    "FIT execution and failure publication both failed"
+                ) from ExceptionGroup(
+                    "causal-response FIT double failure", [error, publication_error]
+                )
+        raise
+    finally:
+        release_claim(claim)
+
+
+def main() -> None:
+    """CLI surface: execute the fixed transaction and print only its terminal digest."""
+    print(execute_causal_response_fit_v1())
+
+
+if __name__ == "__main__":
+    main()
