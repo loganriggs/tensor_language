@@ -11,11 +11,13 @@ from __future__ import annotations
 
 from dataclasses import asdict, dataclass
 import hashlib
+import io
 import json
 import math
 import os
 from pathlib import Path
 import tempfile
+from collections.abc import Callable
 from typing import Any, Mapping
 
 import torch
@@ -73,6 +75,9 @@ class FitBundleBinding:
     weights_sha256: str
     model_state_sha256_before: str
     model_state_sha256_after: str
+    model_rows_sha256: str
+    fit_role_sha256: str
+    support_hashes_sha256: str
 
     def validate(self, *, require_production: bool) -> None:
         values = asdict(self)
@@ -177,6 +182,10 @@ def _validate_response(
         torch.unique(documents).numel() != document_count
     ):
         raise RuntimeError("FIT row or document identity is duplicated")
+    if rows.min() < 0 or documents.min() < 0 or not torch.equal(
+        rows, torch.sort(rows).values
+    ) or not torch.equal(documents, torch.sort(documents).values):
+        raise RuntimeError("FIT row and document identities must be nonnegative and sorted")
     counts_shape = (source_count, document_count)
     member_count = _require_exact_tensor(
         response["member_count"], dtype=torch.int64, shape=counts_shape,
@@ -510,6 +519,8 @@ def validate_fit_bundle_payload(
             _is_sha256(value) for value in item.values()
         ):
             raise RuntimeError("FIT support hash is malformed")
+    if logical_sha256(support) != binding.support_hashes_sha256:
+        raise RuntimeError("FIT support hashes do not match the authority binding")
     row_count = FIT_ROWS if require_production else int(
         payload["fit_response"]["row_indices"].numel()
     )
@@ -520,6 +531,12 @@ def validate_fit_bundle_payload(
         payload["fit_response"], source_count=len(tags), row_count=row_count,
         document_count=document_count,
     )
+    if tensor_sha256(payload["fit_response"]["row_indices"]) != (
+        binding.fit_role_sha256
+    ):
+        raise RuntimeError("FIT row role does not match the authority binding")
+    if require_production and payload["model_width"] != 1_152:
+        raise RuntimeError("FIT production model width changed")
     _validate_directions_and_statistics(payload, tags, components)
     _validate_ledger(
         payload["call_ledger"], tags=tags, components=components, rows=row_count,
@@ -527,70 +544,32 @@ def validate_fit_bundle_payload(
     )
 
 
-_CAPABILITY_SEAL = object()
-
-
-class FitProgramCapability:
-    """Opaque, immutable-in-practice EVAL input minted only by semantic reload."""
-
-    __slots__ = (
-        "_directions", "_fit_document_ids", "source_tags", "source_components",
-        "authority_sha256", "artifact_sha256",
-    )
-
-    def __init__(
-        self, seal: object, *, directions: torch.Tensor,
-        fit_document_ids: torch.Tensor, source_tags: tuple[str, ...],
-        source_components: tuple[str, ...], authority_sha256: str,
-        artifact_sha256: str,
-    ) -> None:
-        if seal is not _CAPABILITY_SEAL:
-            raise RuntimeError("FIT program capability cannot be constructed externally")
-        self._directions = directions.clone()
-        self._fit_document_ids = fit_document_ids.clone()
-        self.source_tags = source_tags
-        self.source_components = source_components
-        self.authority_sha256 = authority_sha256
-        self.artifact_sha256 = artifact_sha256
-
-    def clone_direction_map(self) -> dict[str, dict[str, torch.Tensor]]:
-        return {
-            phase: {
-                tag: self._directions[phase_index, tag_index].clone()
-                for tag_index, tag in enumerate(self.source_tags)
-            }
-            for phase_index, phase in enumerate(PHASES)
-        }
-
-    def clone_fit_document_ids(self) -> torch.Tensor:
-        return self._fit_document_ids.clone()
-
-
-def load_fit_program(
+def semantic_replay_fit_bundle(
     path: Path,
     *,
     expected_authority_sha256: str,
+    expected_artifact_sha256: str | None = None,
     require_production: bool = True,
-) -> FitProgramCapability:
+) -> str:
+    """Validate the exact stable bytes and return only their digest, never a program."""
     if not _is_sha256(expected_authority_sha256):
         raise ValueError("expected FIT authority hash is malformed")
     before = file_sha256(path)
-    payload = torch.load(path, map_location="cpu", weights_only=True)
+    raw = path.read_bytes()
     after = file_sha256(path)
-    if before != after:
+    digest = hashlib.sha256(raw).hexdigest()
+    if before != after or digest != before:
         raise RuntimeError("FIT bundle changed during semantic reload")
+    if expected_artifact_sha256 is not None and (
+        not _is_sha256(expected_artifact_sha256)
+        or digest != expected_artifact_sha256
+    ):
+        raise RuntimeError("FIT bundle artifact hash differs from the receipt binding")
+    payload = torch.load(io.BytesIO(raw), map_location="cpu", weights_only=True)
     validate_fit_bundle_payload(payload, require_production=require_production)
     if payload["binding"]["authority_sha256"] != expected_authority_sha256:
         raise RuntimeError("FIT bundle authority binding changed")
-    return FitProgramCapability(
-        _CAPABILITY_SEAL,
-        directions=payload["directions"],
-        fit_document_ids=payload["fit_response"]["document_ids"],
-        source_tags=tuple(payload["source_tags"]),
-        source_components=tuple(payload["source_components"]),
-        authority_sha256=expected_authority_sha256,
-        artifact_sha256=before,
-    )
+    return digest
 
 
 def publish_fit_bundle(
@@ -599,12 +578,15 @@ def publish_fit_bundle(
     *,
     expected_authority_sha256: str,
     require_production: bool = True,
-) -> FitProgramCapability:
+    before_link: Callable[[], None] | None = None,
+) -> str:
     """Prepare, fsync, and replay privately before create-only publication."""
     path = path.resolve()
     validate_fit_bundle_payload(payload, require_production=require_production)
     if payload["binding"]["authority_sha256"] != expected_authority_sha256:
         raise RuntimeError("FIT publication authority does not match the bundle")
+    if require_production and not callable(before_link):
+        raise RuntimeError("production FIT publication requires an adjacent guard")
     path.parent.mkdir(parents=True, exist_ok=True)
     descriptor, temporary_name = tempfile.mkstemp(
         prefix=f".{path.name}.", dir=path.parent
@@ -616,20 +598,23 @@ def publish_fit_bundle(
             handle.flush()
             os.fsync(handle.fileno())
         # No terminal claim or final path exists before this complete semantic replay.
-        load_fit_program(
+        temporary_sha256 = semantic_replay_fit_bundle(
             temporary,
             expected_authority_sha256=expected_authority_sha256,
             require_production=require_production,
         )
+        if before_link is not None:
+            before_link()
         os.link(temporary, path)
         directory_descriptor = os.open(path.parent, os.O_DIRECTORY)
         try:
             os.fsync(directory_descriptor)
         finally:
             os.close(directory_descriptor)
-        return load_fit_program(
+        return semantic_replay_fit_bundle(
             path,
             expected_authority_sha256=expected_authority_sha256,
+            expected_artifact_sha256=temporary_sha256,
             require_production=require_production,
         )
     finally:

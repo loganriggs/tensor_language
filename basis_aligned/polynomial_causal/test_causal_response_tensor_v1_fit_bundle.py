@@ -37,7 +37,7 @@ def _preimage():
     return collector.fit_stage(torch.arange(4, dtype=torch.int64))
 
 
-def _binding():
+def _binding(preimage):
     return bundle.FitBundleBinding(
         authority_sha256="a" * 64,
         source_closure_sha256="b" * 64,
@@ -49,46 +49,47 @@ def _binding():
         weights_sha256="2" * 64,
         model_state_sha256_before="3" * 64,
         model_state_sha256_after="3" * 64,
+        model_rows_sha256="4" * 64,
+        fit_role_sha256=bundle.tensor_sha256(
+            preimage["fit_response"]["row_indices"]
+        ),
+        support_hashes_sha256=bundle.logical_sha256(preimage["support_hashes"]),
     )
 
 
 def _payload():
+    preimage = _preimage()
     return bundle.build_fit_bundle_payload(
-        _preimage(), _binding(), require_production=False
+        preimage, _binding(preimage), require_production=False
     )
 
 
-def test_build_publish_reload_returns_sealed_cloned_program(tmp_path):
+def test_build_publish_replays_exact_bytes_without_minting_program(tmp_path):
     preimage = _preimage()
     payload = bundle.build_fit_bundle_payload(
-        preimage, _binding(), require_production=False
+        preimage, _binding(preimage), require_production=False
     )
     preimage["directions"].zero_()
     assert payload["directions"].abs().sum() > 0
     path = tmp_path / "fit_bundle.pt"
-    capability = bundle.publish_fit_bundle(
+    artifact_sha256 = bundle.publish_fit_bundle(
         path,
         payload,
         expected_authority_sha256="a" * 64,
         require_production=False,
     )
-    directions = capability.clone_direction_map()
-    fit_documents = capability.clone_fit_document_ids()
-    assert tuple(directions) == ("full", "residual")
-    assert tuple(directions["full"]) == tuple(payload["source_tags"])
-    assert fit_documents.tolist() == [0, 1, 2, 3]
-    directions["full"][payload["source_tags"][0]].zero_()
-    assert capability.clone_direction_map()["full"][payload["source_tags"][0]].norm() > 0
+    assert artifact_sha256 == bundle.file_sha256(path)
+    assert bundle.semantic_replay_fit_bundle(
+        path,
+        expected_authority_sha256="a" * 64,
+        expected_artifact_sha256=artifact_sha256,
+        require_production=False,
+    ) == artifact_sha256
 
 
-def test_capability_cannot_be_constructed_externally():
-    with pytest.raises(RuntimeError, match="cannot be constructed"):
-        bundle.FitProgramCapability(
-            object(), directions=torch.zeros(2, 1, 2),
-            fit_document_ids=torch.zeros(1, dtype=torch.int64),
-            source_tags=("a",), source_components=("a1",),
-            authority_sha256="a" * 64, artifact_sha256="b" * 64,
-        )
+def test_no_eval_capability_surface_exists_before_receipt():
+    assert not hasattr(bundle, "FitProgramCapability")
+    assert not hasattr(bundle, "load_fit_program")
 
 
 @pytest.mark.parametrize("attack", ["direction", "response", "ledger", "support", "state"])
@@ -142,12 +143,33 @@ def test_publication_is_create_only(tmp_path):
     assert path.read_bytes() == original
 
 
+def test_semantic_reload_deserializes_the_exact_hashed_bytes(monkeypatch, tmp_path):
+    payload = _payload()
+    path = tmp_path / "fit_bundle.pt"
+    artifact_sha256 = bundle.publish_fit_bundle(
+        path, payload, expected_authority_sha256="a" * 64,
+        require_production=False,
+    )
+    original_load = bundle.torch.load
+
+    def require_bytes(source, *args, **kwargs):
+        assert isinstance(source, bundle.io.BytesIO)
+        return original_load(source, *args, **kwargs)
+
+    monkeypatch.setattr(bundle.torch, "load", require_bytes)
+    assert bundle.semantic_replay_fit_bundle(
+        path, expected_authority_sha256="a" * 64,
+        expected_artifact_sha256=artifact_sha256,
+        require_production=False,
+    ) == artifact_sha256
+
+
 def test_failed_private_replay_never_publishes(monkeypatch, tmp_path):
     payload = _payload()
     path = tmp_path / "fit_bundle.pt"
     monkeypatch.setattr(
         bundle,
-        "load_fit_program",
+        "semantic_replay_fit_bundle",
         lambda *args, **kwargs: (_ for _ in ()).throw(RuntimeError("injected replay")),
     )
     with pytest.raises(RuntimeError, match="injected replay"):
