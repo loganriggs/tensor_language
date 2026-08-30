@@ -1,0 +1,414 @@
+"""Source-closed transaction publishing the 229-document FIT training input.
+
+The no-argument production entrypoint binds the completed FIT receipt as opaque
+bytes, freezes independently audited analysis authority, spends one exact-byte loader
+capability, and publishes a sanitized training-only artifact -> manifest -> one shared
+terminal receipt/failure. It cannot open validation or EVAL.
+"""
+
+from __future__ import annotations
+
+import hashlib
+import json
+import os
+from pathlib import Path
+import secrets
+import subprocess
+import tempfile
+from typing import Any, Mapping, NamedTuple
+
+import causal_response_factorization_v1_parent_binding as parent
+import causal_response_factorization_v1_training_input as training_input
+from causal_response_factorization_v1_training_loader import OneUseFitTrainingLoader
+
+
+ROOT = Path(__file__).resolve().parents[2]
+HERE = Path(__file__).resolve().parent
+AUTHORITY = HERE / "causal_response_factorization_v1_training_authority.json"
+INPUT = HERE / "causal_response_factorization_v1_training_input.pt"
+MANIFEST = HERE / "causal_response_factorization_v1_training_manifest.json"
+RECEIPT = HERE / "causal_response_factorization_v1_training_receipt.json"
+FAILURE = HERE / "causal_response_factorization_v1_training_failure.json"
+TERMINAL = HERE / "causal_response_factorization_v1_training_terminal.json"
+AUDIT = HERE / "causal_response_factorization_v1_training_lifecycle_independent_audit.json"
+LOCK = Path("/workspace/runs/.causal_response_factorization_v1_training.lock")
+
+SOURCE_PATHS = tuple(ROOT / path for path in (
+    "basis_aligned/polynomial_causal/CAUSAL_RESPONSE_FACTORIZATION_V1_PREREGISTRATION.md",
+    "basis_aligned/polynomial_causal/CAUSAL_RESPONSE_FACTORIZATION_V1_AMENDMENT_1.md",
+    "basis_aligned/polynomial_causal/CAUSAL_RESPONSE_FACTORIZATION_V1_AMENDMENT_2.md",
+    "basis_aligned/polynomial_causal/CAUSAL_RESPONSE_FACTORIZATION_V1_AMENDMENT_3.md",
+    "basis_aligned/polynomial_causal/CAUSAL_RESPONSE_FACTORIZATION_V1_AMENDMENT_4.md",
+    "basis_aligned/polynomial_causal/causal_response_factorization_v1.py",
+    "basis_aligned/polynomial_causal/causal_response_factorization_v1_accelerated.py",
+    "basis_aligned/polynomial_causal/causal_response_factorization_v1_fit_adapter.py",
+    "basis_aligned/polynomial_causal/causal_response_factorization_v1_parent_binding.py",
+    "basis_aligned/polynomial_causal/causal_response_factorization_v1_training_loader.py",
+    "basis_aligned/polynomial_causal/causal_response_factorization_v1_training_input.py",
+    "basis_aligned/polynomial_causal/causal_response_factorization_v1_training_lifecycle.py",
+    "basis_aligned/polynomial_causal/causal_response_tensor_collection.py",
+    "basis_aligned/polynomial_causal/causal_response_tensor_v1_backend.py",
+    "basis_aligned/polynomial_causal/causal_response_tensor_v1_fit_bundle.py",
+    "basis_aligned/polynomial_causal/test_causal_response_factorization_v1.py",
+    "basis_aligned/polynomial_causal/test_causal_response_factorization_v1_accelerated.py",
+    "basis_aligned/polynomial_causal/test_causal_response_factorization_v1_fit_adapter.py",
+    "basis_aligned/polynomial_causal/test_causal_response_factorization_v1_parent_binding.py",
+    "basis_aligned/polynomial_causal/test_causal_response_factorization_v1_training_loader.py",
+    "basis_aligned/polynomial_causal/test_causal_response_factorization_v1_training_input.py",
+    "basis_aligned/polynomial_causal/test_causal_response_factorization_v1_training_lifecycle.py",
+    "basis_aligned/polynomial_causal/test_causal_response_tensor_v1_fit_bundle.py",
+))
+
+
+def file_sha256(path: Path) -> str:
+    digest = hashlib.sha256()
+    with path.open("rb") as source:
+        for chunk in iter(lambda: source.read(8 << 20), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
+
+
+def logical_sha256(value: object) -> str:
+    return hashlib.sha256(json.dumps(
+        value, sort_keys=True, separators=(",", ":"), allow_nan=False,
+    ).encode()).hexdigest()
+
+
+def stable_json(path: Path) -> tuple[dict[str, Any], str]:
+    before = file_sha256(path)
+    raw = path.read_bytes()
+    after = file_sha256(path)
+    if before != after or hashlib.sha256(raw).hexdigest() != before:
+        raise RuntimeError(f"factor training JSON changed during read: {path}")
+    value = json.loads(raw)
+    if type(value) is not dict:
+        raise RuntimeError(f"factor training JSON is not a plain object: {path}")
+    return value, before
+
+
+def protocol() -> dict[str, Any]:
+    return {
+        "role": "FIT_TRAINING",
+        "training_documents": 229,
+        "validation_documents_exposed": 0,
+        "eval_documents_exposed": 0,
+        "response_shape": [2, 49, 49, 229],
+        "response_dtype": "torch.float64",
+        "valid_dtype": "torch.bool",
+        "artifact_order": ["authority", "training_input", "manifest", "terminal_receipt"],
+        "authorized_for_candidate_fitting_parent": True,
+        "authorized_for_validation": False,
+        "authorized_for_eval": False,
+    }
+
+
+def output_paths() -> dict[str, str]:
+    return {
+        "authority": str(AUTHORITY), "input": str(INPUT),
+        "manifest": str(MANIFEST), "receipt": str(RECEIPT),
+        "failure": str(FAILURE), "terminal": str(TERMINAL), "lock": str(LOCK),
+    }
+
+
+def source_closure(commit: str) -> dict[str, Any]:
+    resolved = subprocess.check_output(
+        ["git", "rev-parse", "--verify", f"{commit}^{{commit}}"],
+        cwd=ROOT, text=True,
+    ).strip()
+    if resolved != commit or subprocess.run(
+        ["git", "merge-base", "--is-ancestor", commit, "origin/main"], cwd=ROOT,
+    ).returncode != 0:
+        raise RuntimeError("factor training source commit is not published ancestry")
+    hashes: dict[str, str] = {}
+    for path in SOURCE_PATHS:
+        relative = str(path.relative_to(ROOT))
+        completed = subprocess.run(
+            ["git", "show", f"{commit}:{relative}"], cwd=ROOT,
+            stdout=subprocess.PIPE, stderr=subprocess.DEVNULL,
+        )
+        digest = hashlib.sha256(completed.stdout).hexdigest()
+        if completed.returncode != 0 or not path.is_file() or file_sha256(path) != digest:
+            raise RuntimeError(f"factor training source does not replay: {relative}")
+        hashes[relative] = digest
+    body = {"commit": commit, "paths": hashes}
+    return {**body, "sha256": logical_sha256(body)}
+
+
+def stable_audit() -> tuple[dict[str, Any], str]:
+    audit, digest = stable_json(AUDIT)
+    if set(audit) != {
+        "schema", "status", "approved", "outcome_access", "reviewer",
+        "audited_source_commit", "audited_source_hashes", "tests_passed",
+        "remaining_execution_blockers",
+    } or audit.get("schema") != (
+        "causal_response_factorization_v1_training_lifecycle_independent_audit"
+    ) or audit.get("status") != "GO" or audit.get("approved") is not True or (
+        audit.get("outcome_access") is not False or not audit.get("reviewer")
+        or not isinstance(audit.get("tests_passed"), int) or audit["tests_passed"] < 1
+        or audit.get("remaining_execution_blockers") != []
+    ):
+        raise RuntimeError("factor training lifecycle lacks an exact independent GO")
+    closure = source_closure(audit["audited_source_commit"])
+    if audit["audited_source_hashes"] != closure["paths"]:
+        raise RuntimeError("factor training audit source binding changed")
+    return audit, digest
+
+
+class Claim(NamedTuple):
+    descriptor: int
+    device: int
+    inode: int
+    nonce: str
+
+
+def acquire_claim() -> Claim:
+    LOCK.parent.mkdir(parents=True, exist_ok=True)
+    nonce = secrets.token_hex(32)
+    try:
+        descriptor = os.open(LOCK, os.O_RDWR | os.O_CREAT | os.O_EXCL, 0o600)
+    except FileExistsError as error:
+        raise RuntimeError("factor training lifecycle is already locked") from error
+    os.write(descriptor, (nonce + "\n").encode())
+    os.fsync(descriptor)
+    value = os.fstat(descriptor)
+    return Claim(descriptor, value.st_dev, value.st_ino, nonce)
+
+
+def require_claim(claim: Claim) -> None:
+    current = os.fstat(claim.descriptor)
+    flags = os.O_RDONLY | getattr(os, "O_NOFOLLOW", 0)
+    descriptor = os.open(LOCK, flags)
+    try:
+        observed = os.fstat(descriptor)
+        raw = os.read(descriptor, 4096)
+        overflow = os.read(descriptor, 1)
+    finally:
+        os.close(descriptor)
+    path_stat = LOCK.stat(follow_symlinks=False)
+    identity = (claim.device, claim.inode)
+    if any((value.st_dev, value.st_ino) != identity for value in (
+        current, observed, path_stat
+    )) or overflow or raw != (claim.nonce + "\n").encode():
+        raise RuntimeError("factor training owner claim changed")
+
+
+def release_claim(claim: Claim) -> None:
+    try:
+        try:
+            require_claim(claim)
+        except Exception:
+            pass
+        else:
+            LOCK.unlink()
+    finally:
+        os.close(claim.descriptor)
+
+
+def _stage_json(value: Mapping[str, Any], target: Path) -> tuple[Path, str]:
+    normalized = json.loads(json.dumps(value, sort_keys=True, allow_nan=False))
+    target.parent.mkdir(parents=True, exist_ok=True)
+    descriptor, name = tempfile.mkstemp(prefix=f".{target.name}.", dir=target.parent)
+    temporary = Path(name)
+    try:
+        with os.fdopen(descriptor, "w") as sink:
+            descriptor = -1
+            json.dump(normalized, sink, sort_keys=True, indent=2, allow_nan=False)
+            sink.write("\n"); sink.flush(); os.fsync(sink.fileno())
+        replay, digest = stable_json(temporary)
+        if replay != normalized:
+            raise RuntimeError("staged factor training JSON does not replay")
+        return temporary, digest
+    except BaseException:
+        temporary.unlink(missing_ok=True)
+        raise
+    finally:
+        if descriptor >= 0:
+            os.close(descriptor)
+
+
+def _publish_json(value: Mapping[str, Any], target: Path, guard) -> str:
+    temporary, digest = _stage_json(value, target)
+    try:
+        if target.exists():
+            raise RuntimeError(f"factor training target is already spent: {target}")
+        guard()
+        os.link(temporary, target)
+        replay, observed = stable_json(target)
+        if replay != value or observed != digest:
+            raise RuntimeError("published factor training JSON does not replay")
+        return digest
+    finally:
+        temporary.unlink(missing_ok=True)
+
+
+def _freeze_authority(claim: Claim) -> tuple[dict[str, Any], str, dict[str, Any]]:
+    audit, audit_digest = stable_audit()
+    closure = source_closure(audit["audited_source_commit"])
+    fit_parent = parent.fit_parent_binding_without_tensor_load()
+    body = {
+        "schema": "causal_response_factorization_v1_training_authority",
+        "status": "frozen_before_fit_bundle_tensor_deserialization",
+        "source_closure": closure,
+        "independent_audit": {
+            "path": str(AUDIT), "sha256": audit_digest, "reviewer": audit["reviewer"],
+        },
+        "parent_binding_sha256": fit_parent["binding_sha256"],
+        "protocol": protocol(),
+        "output_paths": output_paths(),
+        "outcome_access_before_authority": {
+            "fit_bundle_deserialized": False,
+            "fit_response_values_read": False,
+            "validation_values_read": False,
+            "eval_values_read": False,
+        },
+        "authorized_for_training_input": True,
+        "authorized_for_validation": False,
+        "authorized_for_eval": False,
+    }
+    authority = {**body, "authority_sha256": logical_sha256(body)}
+
+    def guard() -> None:
+        if stable_audit() != (audit, audit_digest) or source_closure(
+            closure["commit"]
+        ) != closure or parent.fit_parent_binding_without_tensor_load() != fit_parent:
+            raise RuntimeError("factor training authority protected state changed")
+        require_claim(claim)
+
+    digest = _publish_json(authority, AUTHORITY, guard)
+    return authority, digest, fit_parent
+
+
+def execute_training_input_v1() -> str:
+    """Publish the fixed training-only artifact and return terminal digest only."""
+
+    if any(path.exists() for path in (
+        AUTHORITY, INPUT, MANIFEST, RECEIPT, FAILURE, TERMINAL, LOCK,
+    )):
+        raise RuntimeError("factor training output namespace is spent")
+    claim = acquire_claim()
+    authority = None
+    authority_digest = None
+    try:
+        authority, authority_digest, fit_parent = _freeze_authority(claim)
+        capability = OneUseFitTrainingLoader()
+        value = capability.load_once(
+            parent_binding=fit_parent, analysis_authority=authority
+        )
+        payload = training_input.build_training_input_payload(
+            value, analysis_authority_sha256=authority["authority_sha256"]
+        )
+
+        def input_guard() -> None:
+            replay, replay_digest = stable_json(AUTHORITY)
+            if replay != authority or replay_digest != authority_digest or (
+                parent.fit_parent_binding_without_tensor_load() != fit_parent
+                or source_closure(authority["source_closure"]["commit"])
+                != authority["source_closure"]
+            ):
+                raise RuntimeError("factor training input protected state changed")
+            require_claim(claim)
+
+        input_digest = training_input.publish_training_input(
+            INPUT, payload,
+            expected_analysis_authority_sha256=authority["authority_sha256"],
+            require_production=True, before_link=input_guard,
+        )
+        manifest_body = {
+            "schema": "causal_response_factorization_v1_training_manifest",
+            "status": "complete_training_only_input_semantically_replayed",
+            "authority_artifact_sha256": authority_digest,
+            "authority_logical_sha256": authority["authority_sha256"],
+            "fit_parent_binding_sha256": fit_parent["binding_sha256"],
+            "input": {
+                "path": str(INPUT), "sha256": input_digest,
+                "bytes": INPUT.stat().st_size,
+            },
+            "tensor_hashes": dict(payload["tensor_hashes"]),
+            "protocol": protocol(),
+            "authorized_for_validation": False,
+            "authorized_for_eval": False,
+        }
+        manifest = {
+            **manifest_body, "manifest_sha256": logical_sha256(manifest_body)
+        }
+
+        def manifest_guard() -> None:
+            replay, observed = training_input.replay_training_input(
+                INPUT,
+                expected_analysis_authority_sha256=authority["authority_sha256"],
+                expected_artifact_sha256=input_digest, require_production=True,
+            )
+            del replay
+            if observed != input_digest or parent.fit_parent_binding_without_tensor_load() != fit_parent:
+                raise RuntimeError("factor training manifest protected state changed")
+            require_claim(claim)
+
+        manifest_digest = _publish_json(manifest, MANIFEST, manifest_guard)
+        receipt = {
+            "schema": "causal_response_factorization_v1_training_terminal",
+            "kind": "receipt",
+            "authority_artifact_sha256": authority_digest,
+            "authority_logical_sha256": authority["authority_sha256"],
+            "payload": {
+                "status": "complete_training_only_receipt_last",
+                "fit_parent_binding_sha256": fit_parent["binding_sha256"],
+                "input_sha256": input_digest,
+                "manifest_sha256": manifest_digest,
+                "training_documents": 229,
+                "validation_values_read": False,
+                "eval_values_read": False,
+                "authorized_for_candidate_fitting_parent": True,
+                "authorized_for_validation": False,
+                "authorized_for_eval": False,
+            },
+        }
+        temporary, terminal_digest = _stage_json(receipt, TERMINAL)
+        try:
+            if any(path.exists() for path in (TERMINAL, RECEIPT, FAILURE)):
+                raise RuntimeError("factor training terminal namespace is spent")
+            manifest_replay, observed_manifest = stable_json(MANIFEST)
+            if manifest_replay != manifest or observed_manifest != manifest_digest:
+                raise RuntimeError("factor training manifest changed before receipt")
+            require_claim(claim)
+            os.link(temporary, TERMINAL)
+            os.link(temporary, RECEIPT)
+        finally:
+            temporary.unlink(missing_ok=True)
+        return terminal_digest
+    except Exception as error:
+        if authority is not None and authority_digest is not None and not any(
+            path.exists() for path in (TERMINAL, RECEIPT, FAILURE)
+        ):
+            failure = {
+                "schema": "causal_response_factorization_v1_training_terminal",
+                "kind": "failure",
+                "authority_artifact_sha256": authority_digest,
+                "authority_logical_sha256": authority["authority_sha256"],
+                "payload": {
+                    "status": "failed_no_training_receipt",
+                    "error_type": type(error).__name__,
+                    "error_message": str(error),
+                    "input_exists": INPUT.exists(),
+                    "manifest_exists": MANIFEST.exists(),
+                    "authorized_for_validation": False,
+                    "authorized_for_eval": False,
+                },
+            }
+            temporary, _ = _stage_json(failure, TERMINAL)
+            try:
+                require_claim(claim)
+                os.link(temporary, TERMINAL)
+                os.link(temporary, FAILURE)
+            finally:
+                temporary.unlink(missing_ok=True)
+        raise
+    finally:
+        release_claim(claim)
+
+
+def main() -> None:
+    print(execute_training_input_v1())
+
+
+if __name__ == "__main__":
+    main()

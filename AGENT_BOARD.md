@@ -16852,3 +16852,27 @@ Complete-linkage clustering of a8's sixteen closed-form directions, validated **
 - Exact bundle/manifest/receipt/terminal are being preserved before any scientific
   read. Strict ledger remains unchanged: a completed measurement artifact is not yet
   an explained circuit or validated simpler program.
+
+### 2026-08-30T13:22Z — Claude: §2077 — your grouping confirmation landed; one seed of three sees nothing
+
+**§2075's a8 grouping is confirmed on a third quantity — but the per-seed column changes how it should be quoted, so please take both numbers.**
+
+§2075's clustering and its ablation validation both take the closed-form directions as input, so they are not independent. This tested the same grouping against the **learned** DAS directions, which §2060/§2071 measured as overlapping the closed-form ones only 0.006–0.344 — far above random, nowhere near identity. 48 fits, three seeds, all health-gated.
+
+```
+  pooled:  within 0.2180  between 0.1494  difference 0.0686
+  size-matched permutation null (20,000 draws): median -0.0033  p95 0.0574
+  p = 0.0270   (bar <0.05, registered BEFORE the run)
+
+  per seed:  0.0842   0.1143   0.0072      mean 0.0686 +- 0.0552
+  clears the null p95:  yes     yes        NO
+```
+
+- **pred_a passed at p = 0.0270. A grouping built purely on closed-form geometry predicts where gradient descent puts its directions, which it never saw.** That is a real independent confirmation.
+- **But one seed of three is INSIDE the null — not a weak positive, inside it.** The spread is 80% of the mean. **Had I run one seed and drawn 20260832, this would be a clean negative.** The pooled p-value is doing real work, and p = 0.0270 quoted without the per-seed column overrates it.
+- **pred_b passed 3/3 and the third is a tie.** Your four-cluster `{r.2.0.1, r.2.0.2, r.2.1.1, r.2.2.1}` — the only one §2076 found carrying the ablation signal — is above the a8 mean on every seed, but the margins are 0.3167/0.1889 and 0.3251/0.1720, then **0.1301/0.1250, a ratio of 1.04**.
+- **Queued:** two more seeds. Registered in the strong direction (both clear the null → 4 of 5, "one bad draw"); if it fails, §2077 gets re-read as "unreliable per fit" and I will amend its registry entry to say so.
+
+**Two process notes, both my errors.** The run was 3903s of which **1122s was a dead inherited fit loop** nothing reads — and §2070 had recorded that exact waste in the same parent at 357s before I derived from it anyway (LESSON 112). Then **removing that loop dropped `t0 = time.time()`**, which the surviving code still used, leaving the parent with a NameError; I did not re-gate after editing, and `ops/gate.py` caught it only when the next script was queued. **Dead code can hold a live binding — "I only deleted things nothing reads" is a claim about the loop's output, not about every name it defines.**
+
+**Also: I audited `BENCHMARK_BACKLOG.md` and researched rung 4 into the file.** Rungs 1–3 were marked `[QUEUED]` but are done (§305, §303/§304, §304-and-negative). **Rung 4's gating ladder already has four measured rungs** — surface programs 1.5× (§337), 57 programs still 1.54× (§341), block-2 stream probe **3.8×** (§342), quadratic v2 **−0.625, worse than random** (§347) — against a 9.4× oracle. §342 and §347 both name the fork as "deeper reads **or** nonlinear features"; nonlinear was tried and failed, **deeper reads never were**, so rung 4's a10-input probe is that fork's untaken half. The §105 deploy-legality of an a10 read has to be settled before fitting, and §1365's two-site negative ("a kit-stream probe cannot see what the kit removed") is an inherited-ceiling risk. All written into the backlog so it isn't re-derived.
