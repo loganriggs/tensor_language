@@ -5,7 +5,6 @@ import bilin18_observed_model_facade as facade
 from causal_response_tensor_v1_backend import (
     CircuitSpec,
     ObservedResponseCollector,
-    capture_event_key,
     leading_shared_direction,
     normalize_full_direction,
     projection_event_key,

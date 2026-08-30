@@ -28,9 +28,8 @@ from causal_response_tensor_v1_backend import (
     PHASES,
     PRODUCTION_COMPONENT_ORDER,
     PRODUCTION_SPEC_ORDER_SHA256,
-    capture_event_key,
     leading_shared_direction,
-    projection_event_key,
+    tensor_sha256,
 )
 
 
@@ -384,7 +383,34 @@ FIT_PAYLOAD_KEYS = {
     "fit_write_statistics", "full_direction_norms", "singular_spectra",
     "relative_singular_gaps",
     "residual_norms", "fit_response", "call_ledger",
+    "tensor_hashes", "forbidden_payload_contract",
 }
+
+FORBIDDEN_PAYLOAD_CONTRACT = {
+    "raw_tokens": False,
+    "targets": False,
+    "component_activations": False,
+    "component_writes": False,
+    "logits": False,
+    "eval_rows": False,
+    "eval_outcomes": False,
+    "aggregate_fit_write_sums_and_means_only": True,
+}
+
+
+def _tensor_hash_map(value: object, *, prefix: str = "root") -> dict[str, str]:
+    result: dict[str, str] = {}
+    if type(value) is torch.Tensor:
+        result[prefix] = tensor_sha256(value)
+    elif type(value) is dict:
+        for key in sorted(value):
+            if type(key) is not str:
+                raise TypeError("FIT bundle dictionary keys must be strings")
+            result.update(_tensor_hash_map(value[key], prefix=f"{prefix}.{key}"))
+    elif type(value) is list:
+        for index, item in enumerate(value):
+            result.update(_tensor_hash_map(item, prefix=f"{prefix}[{index}]"))
+    return result
 
 
 def build_fit_bundle_payload(
@@ -401,7 +427,10 @@ def build_fit_bundle_payload(
     binding.validate(require_production=require_production)
     if "_direction_preimage" not in preimage:
         raise RuntimeError("FIT backend preimage lacks its private direction proof")
-    expected_preimage_keys = (FIT_PAYLOAD_KEYS - {"binding"}) | {"_direction_preimage"}
+    expected_preimage_keys = (
+        FIT_PAYLOAD_KEYS
+        - {"binding", "tensor_hashes", "forbidden_payload_contract"}
+    ) | {"_direction_preimage"}
     if set(preimage) != expected_preimage_keys:
         raise RuntimeError("FIT backend preimage schema changed")
     # torch.save owns tensor storage after this deep clone; no caller alias survives.
@@ -416,6 +445,8 @@ def build_fit_bundle_payload(
         "targets, activations, logits, EVAL rows, or EVAL outcomes."
     )
     payload["binding"] = asdict(binding)
+    payload["forbidden_payload_contract"] = dict(FORBIDDEN_PAYLOAD_CONTRACT)
+    payload["tensor_hashes"] = _tensor_hash_map(payload)
     validate_fit_bundle_payload(payload, require_production=require_production)
     return payload
 
@@ -445,6 +476,14 @@ def validate_fit_bundle_payload(
         raise RuntimeError("FIT binding schema changed")
     binding = FitBundleBinding(**binding_raw)
     binding.validate(require_production=require_production)
+    if payload["forbidden_payload_contract"] != FORBIDDEN_PAYLOAD_CONTRACT:
+        raise RuntimeError("FIT forbidden-payload contract changed")
+    tensor_hashes = _require_plain_dict(payload["tensor_hashes"], label="tensor hashes")
+    replay_hashes = _tensor_hash_map({
+        key: value for key, value in payload.items() if key != "tensor_hashes"
+    })
+    if tensor_hashes != replay_hashes:
+        raise RuntimeError("FIT tensor digest map does not replay")
     if payload["phases"] != list(PHASES) or payload["target_tags"] != (
         payload["source_tags"]
     ):

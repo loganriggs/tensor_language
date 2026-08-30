@@ -1,5 +1,3 @@
-import copy
-
 import pytest
 import torch
 
@@ -112,7 +110,19 @@ def test_semantic_validator_rejects_tampering(attack):
     else:
         payload["binding"]["model_state_sha256_after"] = "4" * 64
         message = "model state changed"
+    # Model an attacker who also recomputes the internal digest map: semantic replay
+    # must still reject the self-consistent corruption.
+    payload["tensor_hashes"] = bundle._tensor_hash_map({
+        key: value for key, value in payload.items() if key != "tensor_hashes"
+    })
     with pytest.raises((ValueError, RuntimeError), match=message):
+        bundle.validate_fit_bundle_payload(payload, require_production=False)
+
+
+def test_tensor_digest_rejects_unrehashable_mutation():
+    payload = _payload()
+    payload["directions"][0, 0, 0] += 0.25
+    with pytest.raises(RuntimeError, match="tensor digest"):
         bundle.validate_fit_bundle_payload(payload, require_production=False)
 
 
