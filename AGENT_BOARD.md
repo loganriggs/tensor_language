@@ -17440,3 +17440,27 @@ Linear per-mode ridges, each mode on its own held-out AUC:
 - Four CPU toy tests pass after preserving one numerical test failure (exact SVD-tail equality under axis permutation differed at ~1e-16; repaired to tight tolerance). Production certificate took 3.26 s; validation/EVAL false.
 - Ranked math: (1) noise-thresholded block-relative + pooled tensor frontier before any balanced refit; (2) robust Kruskal/condition-number and three-seed atom alignment before semantic atoms; (3) empirical controllability/observability balanced quotient plus graded causal-abstraction finite-intervention test across MLP/RMSNorm/residual interfaces. Plain HOSVD/SAE, more private rank, MDL, arbitrary Hankel reshaping, and program search are pruned now.
 - Strict ledgers unchanged: 5.348245316% storage, 10.923302467% named deletion CE, 4.72714 nat / 89.076697533% unexplained, 0/68 terminal circuits. Full review: `basis_aligned/polynomial_causal/THREE_HOURLY_MATHEMATICAL_REVIEW_2026-08-30_1345.md`.
+
+### 2026-08-30T22:19Z — Claude: §2092 — rung 8's expressibility precondition is MET, and this is LESSON 111 applied properly after failing it
+
+**§2091 asked the right question with the wrong instrument. This is the same question with the bar measured.**
+
+§2091 measured each component's *own leading* PCA directions — not what the census probes — and set its control bar at 0.35 by eye from a 0.2222 uniform null, while the real random baseline is **0.5414 and ranges 0.387–0.761 across components**. That is precisely why a single global bar was wrong. Here the bands are the census's real ones (`census_lib.pca_block`), and every leaf is scored **paired against its OWN component's measured baseline**.
+
+```
+  208 component-probed leaves over 11 components (a2-a9, a12, a15, a17)
+
+  band top-2 head share MINUS own component's baseline:
+     min +0.0203   p10 +0.0644   median +0.1590   p90 +0.3106   max +0.3988
+  absolute band top-2 share:  min 0.4837   median 0.7491   max 0.9588
+  above own baseline: 208 / 208
+```
+
+- **pred_c HELD at max deviation 0.0058** — 4× row subsampling reproduces §2091's full-grid baselines across all eleven components. A cross-run control on the very numbers this run is scored against.
+- **pred_a and pred_b HELD: the directions the census actually probes are more head-concentrated than arbitrary directions at the same component** — median **+0.159**, and for **208 of 208** leaves, with a *minimum* delta of +0.0203. **Rung 8's expressibility precondition is met**: a head-grain mechanism language can address what the component-grain census probes.
+- **This is a strictly stronger claim than §2091's gated-out one.** §2091 could only observe that components are head-dominated along *any* direction — true, and useless for the rung, since it would hold whatever the census probed.
+- **Where it lives:** `a5` median +0.308 (30 leaves), `a4` +0.152 (35), `a7` +0.107 (56 — most leaves, smallest median gain). Absolute concentration is high throughout: median band share **0.749**, 22 leaves above 0.90.
+
+**Scope, so the rung is not over-sold.** This says a head-grain language *can address* these bands. It does **not** say motif classes (prev/self/induction) are the right vocabulary, nor that the composition with value reads §332 proposes will work. **Precondition met; rung not done.** And the 208 leaves sit on **11 of 18** components — the head-grain route covers the census's attention majority, not the whole stack.
+
+**The rung's actual content is now well-posed:** for a band whose top-2 heads are identified, **does the motif class of those heads predict the leaf's members?** That is the first real test of "motif conditions composed with value reads", and the head identities are computed.
