@@ -141,9 +141,21 @@ def selection_gates(seed_records: list[Mapping[str, Any]], ce_recovery: float) -
 
 def validate_row_receipt(value: Mapping[str, Any], sources: Mapping[str, str]) -> None:
     expected_roles = {
-        "FIT": {"authorized_for_training": True, "authorized_for_evaluation": False},
-        "SELECT": {"authorized_for_training": True, "authorized_for_evaluation": False},
-        "FINAL": {"authorized_for_training": False, "authorized_for_evaluation": True},
+        "FIT": {
+            "authorized_for_training": True,
+            "authorized_for_selection": False,
+            "authorized_for_final": False,
+        },
+        "SELECT": {
+            "authorized_for_training": False,
+            "authorized_for_selection": True,
+            "authorized_for_final": False,
+        },
+        "FINAL": {
+            "authorized_for_training": False,
+            "authorized_for_selection": False,
+            "authorized_for_final": True,
+        },
     }
     if value.get("schema") != "mlp1_sparse_c512_continue_factorial_v1_rows" \
             or value.get("status") != "fresh_roles_frozen_before_any_model_or_training_access" \
