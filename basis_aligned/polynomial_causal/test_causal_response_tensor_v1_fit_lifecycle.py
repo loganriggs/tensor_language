@@ -348,3 +348,66 @@ def test_fallible_guard_runs_before_any_terminal_link(monkeypatch, tmp_path):
         assert not lifecycle.FAILURE.exists()
     finally:
         lifecycle.release_claim(claim)
+
+
+def test_lock_replacement_during_terminal_aggregate_blocks_both_links(
+    monkeypatch, tmp_path
+):
+    _redirect_namespace(monkeypatch, tmp_path)
+    claim = lifecycle.acquire_claim()
+    original_exists = Path.exists
+    attacked = False
+
+    def replace_lock_on_aggregate(path):
+        nonlocal attacked
+        if path == lifecycle.TERMINAL and not attacked:
+            attacked = True
+            lifecycle.LOCK.unlink()
+            # Preserve the nonce deliberately; only the device/inode check catches it.
+            lifecycle.LOCK.write_text(claim.nonce + "\n")
+        return original_exists(path)
+
+    monkeypatch.setattr(Path, "exists", replace_lock_on_aggregate)
+    try:
+        with pytest.raises(RuntimeError, match="claim changed"):
+            lifecycle._publish_terminal_record(
+                _terminal_record("receipt"), kind="receipt", claim=claim,
+                final_guard=lambda: None,
+            )
+        assert attacked
+        assert not original_exists(lifecycle.TERMINAL)
+        assert not original_exists(lifecycle.RECEIPT)
+        assert not original_exists(lifecycle.FAILURE)
+    finally:
+        lifecycle.release_claim(claim)
+
+
+def test_lock_loss_between_terminal_and_receipt_leaves_complete_terminal_only(
+    monkeypatch, tmp_path
+):
+    _redirect_namespace(monkeypatch, tmp_path)
+    claim = lifecycle.acquire_claim()
+    original_fsync = lifecycle._fsync_parent_best_effort
+    attacked = False
+
+    def replace_lock_after_terminal(path):
+        nonlocal attacked
+        original_fsync(path)
+        if path == lifecycle.TERMINAL and not attacked:
+            attacked = True
+            lifecycle.LOCK.unlink()
+            lifecycle.LOCK.write_text(claim.nonce + "\n")
+
+    monkeypatch.setattr(lifecycle, "_fsync_parent_best_effort", replace_lock_after_terminal)
+    record = _terminal_record("receipt")
+    try:
+        with pytest.raises(RuntimeError, match="claim changed"):
+            lifecycle._publish_terminal_record(
+                record, kind="receipt", claim=claim, final_guard=lambda: None,
+            )
+        assert attacked
+        assert json.loads(lifecycle.TERMINAL.read_text()) == record
+        assert not lifecycle.RECEIPT.exists()
+        assert not lifecycle.FAILURE.exists()
+    finally:
+        lifecycle.release_claim(claim)

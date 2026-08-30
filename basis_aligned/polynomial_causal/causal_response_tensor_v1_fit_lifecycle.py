@@ -446,13 +446,24 @@ def _publish_terminal_record(
     temporary, digest = _stage_json(record, target)
     try:
         final_guard()
-        require_claim(claim)
         if TERMINAL.exists() or target.exists() or opposite.exists():
             raise RuntimeError("FIT terminal aggregate is already spent")
+        # No path lookup or callback may occur between this final inode/nonce check
+        # and the serialization hard link.
+        require_claim(claim)
         # Serialization point shared by success and failure. The record itself is the
         # complete payload, so terminal-only remains semantically recoverable.
         os.link(temporary, TERMINAL)
         _fsync_parent_best_effort(TERMINAL)
+        terminal_stat = TERMINAL.stat(follow_symlinks=False)
+        temporary_stat = temporary.stat(follow_symlinks=False)
+        if (
+            (terminal_stat.st_dev, terminal_stat.st_ino)
+            != (temporary_stat.st_dev, temporary_stat.st_ino)
+            or target.exists() or opposite.exists()
+        ):
+            raise RuntimeError("FIT terminal aggregate changed before final link")
+        require_claim(claim)
         os.link(temporary, target)
         _fsync_parent_best_effort(target)
         return digest
