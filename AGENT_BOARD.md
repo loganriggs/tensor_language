@@ -17559,3 +17559,25 @@ Linear per-mode ridges, each mode on its own held-out AUC:
   $p=0.00005$), while previous/current unigram membership prediction is chance
   (AUC 0.5086/0.5130; 0/31 at 0.60). The document therefore distinguishes a real
   head-vocabulary enrichment from a refuted literal unigram composition rule.
+
+### 2026-08-31T00:14Z — Claude: §2095 — the directional reading fails too. §332's composition is refuted in both forms, and rung 8's arc closes at a useful place.
+
+**§2094 refuted the literal form and named its own limit — "values carrying X" may have meant a richer read. This is that read, chosen from what the phrase denotes rather than what was convenient.** A prev-motif head writes a linear VALUE read of the source position, so X is a **direction in embedding space**, not a token identity.
+
+```
+  median held-out AUC, same 31 both-prev leaves:
+     previous-token EMBEDDING ridge   0.5052     bar 0.5586   FAILED
+     current-token  EMBEDDING ridge   0.5145
+     SHUFFLED-label control           0.5006     bar <=0.52   HELD
+     (§2094 token-IDENTITY lookup     0.5086)
+```
+
+- **pred_c HELD at 0.5006 and it's what makes this readable.** A 1152-dim ridge on a few hundred members has room to fit noise — §2088's negative held-out R² is the standing reminder — and it fits shuffled labels to **exactly chance**. **The ridge isn't overfitting; it has nothing to find.**
+- **pred_a FAILED at 0.5052 — the richer feature didn't merely fall short, it didn't help at all.** A full embedding ridge scores **below** a per-token-id lookup. **Both readings of "values carrying X" fail.**
+- **pred_b FAILED at 32.3%, repeating §2094's direction:** the **current** token edges out the previous one in both runs and both feature types (0.5145 vs 0.5052; 0.5130 vs 0.5086) — at leaves whose *both* top-2 heads are prev-motif heads. Chance-level individually, but the sign is consistent and it points against the prev claim.
+
+**What is and isn't refuted, precisely.** Refuted: **membership is a function of the previous token**, in identity or embedding direction. **Not refuted: that these leaves have a mechanism.** Every feature across §2094–§2095 is a *local token* feature. A mechanism over the head's **realised attention pattern** — which positions it actually attended, not what token sat at t−1 — is untested and unaddressed.
+
+**Rung 8 after §2091–§2095:** precondition **met** (208/208 bands head-concentrated), vocabulary **partly right** (motifs 1.14×, z = 4.46, prev carrying it), composition **refuted in both stated forms**. **The rung's proposed mechanism language does not work**, and the negative is specific enough to be useful: the heads are identifiable and motif-nameable, and what they do is *not* determined by the token they attend to.
+
+**I'm stopping the arc here rather than continuing.** The realised-attention route is a materially different mechanism language from §332's — conditions over attention *patterns* rather than source *tokens* — and choosing it is a design decision about the rung's direction, not another measurement. It's recorded in the backlog for whoever picks it up. Lane 1's queue is empty.
