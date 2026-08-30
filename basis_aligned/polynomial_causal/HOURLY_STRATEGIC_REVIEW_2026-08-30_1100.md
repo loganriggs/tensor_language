@@ -199,3 +199,24 @@ probe-only association.
    reads are still useful as measurements of what early MLP writes become actionable,
    but only frozen-window amplitude/direction interventions and selective removal can
    promote them to circuits. More probe-width sweeps are pruned as redundant.
+
+## 11:37 UTC update — fifth audit and exact trust-boundary repair
+
+The independent Amendment-9 audit is preserved at commit `ab2a4af0`, audit SHA-256
+`5a1c377aad5fd5326871df1504b319e559ce54f08be63c5151870be4412bfa73`.
+It bound all 33 source files at `eade9893`, ran 89 ordinary plus four independent
+integrity tests, and accessed no outcomes. It is a NO-GO for two reasons. A synthetic
+path could change to a production inode after the final pathname check but before
+open. Separately, a mutually consistent substitute directory could appoint its own
+GO audit because no external expected audit identity anchored the internal hashes.
+
+Prospective Amendment 10 compares the inode returned by the descriptor that actually
+supplied bundle/manifest/receipt bytes against every production role. It also derives
+the manifest summary from the already-opened payload, eliminating a redundant 55.5 MB
+bundle reopen. At the consumer boundary, the terminal audit must now byte-match the
+canonical source-controlled audit blob, whose current HEAD must be published. Exact
+audit, authority, manifest, receipt, protocol, role, authorization, and outcome flags
+are enforced, and the returned artifact binding must equal a fresh outcome-blind
+replay of the canonical production FIT parent. Both reproduced failures now have
+direct regression tests; the focused closure passes **38/38 in 17.98 seconds**.
+Production values remain unopened pending another exact-source independent audit.

@@ -61566,3 +61566,51 @@ is quotable. **Gain-at-fraction in nats (`blk2+9`: +0.0517 on FR, +0.0331 on FR2
 the ratio**, because it does not divide by a random baseline that moves 2.6x. §2079 already argued AUC
 was the wrong headline; **this says the efficiency ratio is the wrong headline too, and the raw gain at a
 matched fraction is the candidate that survives both objections.**
+
+## §2082 — the gating arc's "fresh window" is SEVEN DOCUMENTS, and on a more diverse window the ORACLE itself is harmful
+
+`ops/probe_gate6.py`, **328s**, RUNG 2 (guarding §2081's own claim, which rested on n=2 windows).
+**pred_a HELD-for-the-wrong-reason | pred_b FAILED-on-a-malformed-statistic | pred_c HELD.** The two
+registered summary statistics turned out not to survive the data that arrived, and the finding is in a
+diagnostic line I printed almost as an afterthought.
+
+```
+  window   docs   gated frac   oracle gain   random gain   oracle efficiency
+  FR         7      17.25%       +0.0776       +0.0085          9.18x
+  FR2       42      20.84%       +0.0578       +0.0218          2.65x
+  FR3       17      28.23%       -0.1305       -0.0306         meaningless
+```
+
+> **FR — the fresh window every gating number in this arc is quoted on — draws its 120 rows from SEVEN
+> documents.** The construction takes rows until it has 120, and long documents supply ~17 rows each.
+> §337's 9.4x, §342's 3.8x, and my §2079/§2080 ~6x are all measured on seven documents. **That is the
+> concrete defect §2081 was groping at when it said "window-dependent".**
+
+> **And on FR3 the ORACLE gain is NEGATIVE: −0.1305.** Gating with *perfect causal labels* makes the
+> assembly worse there, by 0.13 nats. Random gating is also negative (−0.0306). **This is not a probe
+> failing to find signal; it is the gating construction itself being harmful on a window it was not
+> tuned on.** Every arm is negative on FR3, mine and §342's alike.
+
+**MY TWO REGISTERED STATISTICS WERE MALFORMED FOR THIS DATA, AND I AM SCORING THEM AS WRITTEN ANYWAY.**
+pred_a asked for random-gain max/min >= 2.0 and got **21,800,000** — because the three values are
++0.0085, +0.0218 and **−0.0306**, and a max/min ratio across a sign change is not a spread measure. **It
+is scored HELD and it means nothing.** pred_b compared coefficients of variation, 2.6998 against 1.7911,
+and **both CVs are computed over sign-flipping sets whose means are near zero**, so the comparison is
+equally void. **§2081's recommendation of gain-at-fraction is therefore NOT refuted here — it is
+untested, and the run printed "RECOMMENDATION WITHDRAWN" on the strength of a statistic that cannot
+support it.** I am withdrawing that automated verdict, not the recommendation.
+
+**pred_c HELD for the fourth consecutive run: `blk2` on FR reads 3.861x** against 3.826 (§342), 3.867
+(§2079), 3.849 (§2080), 3.852 (§2081). **The instrument is not what is wrong.** Five independent runs
+agree on FR; the trouble is that FR is seven documents.
+
+**What this does to the record.** §2081 scoped §337, §342, §2079 and §2080 as "correct on their own
+window, not transferable". That scoping stands and now has a mechanism: **their window is seven
+documents**, and on windows of 17 and 42 documents the same gates are weak (2.65x oracle) or harmful
+(negative everywhere). **No gating number in this arc should be quoted without its document count.**
+
+**Open, and it replaces §2081's proposal.** The right next measurement is not another metric but a
+**document-count sweep**: build fresh windows of 7, 20, 50 and 100+ documents at matched row count and
+see where the gate's gain crosses zero. That answers "is FR anomalous or is the gate real only on narrow
+text?" — which is the question under all of §2081 and §2082, and neither has touched it. **A CV over
+three windows was never going to answer it, and I should have seen that before registering it.**

@@ -111,3 +111,18 @@ def test_snapshot_consumer_rejects_receipt_terminal_inode_split(tmp_path):
 def test_snapshot_public_api_has_no_path_or_authority_argument():
     assert snapshot.load_production_training_snapshot.__code__.co_argcount == 0
     assert snapshot.__all__ == ("load_production_training_snapshot",)
+
+
+def test_production_consumer_rejects_noncanonical_self_consistent_audit(
+    tmp_path, monkeypatch,
+):
+    directory = _synthetic_snapshot(tmp_path)
+    original = training_input.replay_training_input
+
+    def replay_without_production_shape(path, **kwargs):
+        kwargs["require_production"] = False
+        return original(path, **kwargs)
+
+    monkeypatch.setattr(training_input, "replay_training_input", replay_without_production_shape)
+    with pytest.raises(RuntimeError, match="not the canonical authorization"):
+        snapshot._load_snapshot(directory, require_production=True)

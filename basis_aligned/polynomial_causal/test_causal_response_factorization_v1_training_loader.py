@@ -267,3 +267,27 @@ def test_synthetic_loader_rechecks_aliases_at_load_boundary(tmp_path, monkeypatc
     with pytest.raises(RuntimeError, match="became production aliases"):
         capability.load_once(parent_binding=binding, analysis_authority=authority)
     assert capability.spent is True
+
+
+def test_synthetic_loader_rejects_production_inode_opened_after_final_lookup(
+    tmp_path, monkeypatch,
+):
+    paths, binding, authority, _ = _fixture(tmp_path, monkeypatch)
+    calls = 0
+
+    def switch_after_final_lookup(candidate_paths):
+        nonlocal calls
+        calls += 1
+        if calls == 3:
+            candidate_paths.bundle.unlink()
+            candidate_paths.bundle.hardlink_to(parent.PRODUCTION_PATHS.bundle)
+        return False
+
+    monkeypatch.setattr(loader, "_touches_production_parent", switch_after_final_lookup)
+    capability = loader.OneUseFitTrainingLoader(
+        paths, require_production=False, train_documents=3
+    )
+    with pytest.raises(RuntimeError, match="opened a production bundle inode"):
+        capability.load_once(parent_binding=binding, analysis_authority=authority)
+    assert calls == 3
+    assert capability.spent is True

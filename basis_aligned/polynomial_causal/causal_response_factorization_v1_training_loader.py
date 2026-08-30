@@ -64,6 +64,27 @@ def _touches_production_parent(paths: parent.FitParentPaths) -> bool:
     )
 
 
+def _opened_record_touches_production(record: Mapping[str, Any]) -> bool:
+    """Compare the inode actually read with every protected production role."""
+
+    identity = (record.get("device"), record.get("inode"))
+    for field in FIT_PARENT_PATH_FIELDS:
+        try:
+            observed = getattr(parent.PRODUCTION_PATHS, field).stat()
+        except OSError:
+            continue
+        if identity == (observed.st_dev, observed.st_ino):
+            return True
+    return False
+
+
+def _reject_synthetic_opened_production(
+    record: Mapping[str, Any], label: str, *, require_production: bool,
+) -> None:
+    if not require_production and _opened_record_touches_production(record):
+        raise RuntimeError(f"synthetic loader opened a production {label} inode")
+
+
 def _artifact_sha256(path: Path) -> str:
     digest = hashlib.sha256()
     with path.open("rb") as source:
@@ -273,6 +294,9 @@ class OneUseFitTrainingLoader:
             raise RuntimeError("synthetic loader paths became production aliases during load")
 
         bundle_record, bundle_raw = parent._stable_record(self._paths.bundle)
+        _reject_synthetic_opened_production(
+            bundle_record, "bundle", require_production=self._require_production
+        )
         if bundle_record["sha256"] != parent_binding["bundle_sha256"] or (
             bundle_record["bytes"] != parent_binding["bundle_bytes"]
         ):
@@ -285,19 +309,24 @@ class OneUseFitTrainingLoader:
         )
 
         manifest_record, manifest_raw = parent._stable_record(self._paths.manifest)
+        _reject_synthetic_opened_production(
+            manifest_record, "manifest", require_production=self._require_production
+        )
         if manifest_record["sha256"] != parent_binding["manifest_artifact_sha256"]:
             raise RuntimeError("training loader manifest differs from authority parent")
         manifest = parent._plain_json(manifest_raw, "factor training FIT manifest")
-        summary = fit_bundle.fit_bundle_manifest_summary(
-            self._paths.bundle,
+        summary = fit_bundle.fit_bundle_manifest_summary_from_payload(
+            payload,
             expected_authority_sha256=parent_binding["authority_logical_sha256"],
-            expected_artifact_sha256=parent_binding["bundle_sha256"],
             require_production=self._require_production,
         )
         if manifest.get("bundle_summary") != summary:
             raise RuntimeError("training loader manifest summary does not replay")
 
         receipt_record, receipt_raw = parent._stable_record(self._paths.receipt)
+        _reject_synthetic_opened_production(
+            receipt_record, "receipt", require_production=self._require_production
+        )
         if receipt_record["sha256"] != parent_binding["receipt_sha256"]:
             raise RuntimeError("training loader receipt differs from authority parent")
         receipt = parent._plain_json(receipt_raw, "factor training FIT receipt")

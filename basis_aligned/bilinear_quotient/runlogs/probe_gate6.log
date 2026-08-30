@@ -1,0 +1,68 @@
+a2-input probe acc 0.69
+fit a2
+fit a3
+fit a4
+fit a5
+fit a6
+fit a7
+fit a8
+fit a9
+fit a10
+fit a11
+fit a12
+fit a13
+fit a14
+fit a15
+fit a16
+fit a17
+FR/FR2/FR3: 120 rows each, document-disjoint (7/42/17 docs)
+L1 (+38 heads): C +1.9801 | fresh +2.2871
+fit a10L
+fit a11L
+fit a12L
+fit a13L
+fit a14L
+fit a15L
+fit a16L
+fit a17L
+probe 0/36
+probe 12/36
+probe 24/36
+gated fraction (fresh): 17.25%
+gated fraction: FR 17.25% | FR2 20.84% | FR3 28.23%
+  arm blk2     dim  1152  AUC 0.6210  gated 17.25%
+  arm blk5     dim  1152  AUC 0.6384  gated 17.25%
+  arm blk9     dim  1152  AUC 0.6545  gated 17.25%
+  arm blk2+5   dim  2304  AUC 0.6323  gated 17.25%
+  arm blk2+9   dim  2304  AUC 0.6382  gated 17.25%
+  arm blk5+9   dim  2304  AUC 0.6457  gated 17.25%
+  [FR ] oracle gain +0.0776 | random gain +0.0085 | oracle eff 9.182x
+     blk2     gain +0.0326  eff 3.861x
+     blk5     gain +0.0463  eff 5.478x
+     blk9     gain +0.0386  eff 4.569x
+     blk2+5   gain +0.0487  eff 5.757x
+     blk2+9   gain +0.0516  eff 6.108x
+     blk5+9   gain +0.0523  eff 6.185x
+  [FR2] oracle gain +0.0578 | random gain +0.0218 | oracle eff 2.653x
+     blk2     gain -0.0020  eff -0.092x
+     blk5     gain +0.0110  eff 0.504x
+     blk9     gain +0.0246  eff 1.129x
+     blk2+5   gain +0.0177  eff 0.814x
+     blk2+9   gain +0.0331  eff 1.520x
+     blk5+9   gain +0.0244  eff 1.120x
+  [FR3] oracle gain -0.1305 | random gain -0.0306 | oracle eff -1304.536x
+     blk2     gain -0.0330  eff -330.086x
+     blk5     gain -0.0749  eff -748.677x
+     blk9     gain -0.0770  eff -769.563x
+     blk2+5   gain -0.0377  eff -376.930x
+     blk2+9   gain -0.0344  eff -343.800x
+     blk5+9   gain -0.0466  eff -466.409x
+
+random gain by window: [0.0085, 0.0218, -0.0306]   max/min 21800000.000
+oracle efficiency by window: [9.129, 2.651, -1305.0]
+blk2+9: gain [0.0516, 0.0331, -0.0344] (CV 2.6998)  eff [6.108, 1.52, -343.8] (CV 1.7911)
+(a) random-gain max/min >= 2.0: HELD
+(b) CV(gain) 2.6998 < CV(efficiency) 1.7911: FAILED
+(c) blk2 on FR reproduces 3.85x within 0.15: HELD
+    S2081 RECOMMENDATION WITHDRAWN: gain-at-fraction is no steadier than the ratio it was proposed to replace.
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/probe_gate6_results.json (328s)

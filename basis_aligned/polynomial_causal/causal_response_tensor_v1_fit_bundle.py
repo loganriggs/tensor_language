@@ -588,28 +588,12 @@ def semantic_replay_fit_bundle(
     return digest
 
 
-def fit_bundle_manifest_summary(
-    path: Path,
-    *,
-    expected_authority_sha256: str,
-    expected_artifact_sha256: str,
+def fit_bundle_manifest_summary_from_payload(
+    payload: Mapping[str, Any], *, expected_authority_sha256: str,
     require_production: bool = True,
 ) -> dict[str, Any]:
-    """Derive a JSON-only manifest summary from the exact validated bundle bytes.
+    """Derive the JSON-only summary from one already-opened validated payload."""
 
-    The returned object deliberately excludes directions, rows, responses, and every
-    other tensor value.  It contains only identities and tensor digests, so deriving a
-    manifest cannot create a second program capability.
-    """
-    if not _is_sha256(expected_artifact_sha256):
-        raise ValueError("expected FIT bundle hash is malformed")
-    before = file_sha256(path)
-    raw = path.read_bytes()
-    after = file_sha256(path)
-    digest = hashlib.sha256(raw).hexdigest()
-    if before != after or digest != expected_artifact_sha256:
-        raise RuntimeError("FIT bundle changed during manifest derivation")
-    payload = torch.load(io.BytesIO(raw), map_location="cpu", weights_only=True)
     validate_fit_bundle_payload(payload, require_production=require_production)
     if payload["binding"]["authority_sha256"] != expected_authority_sha256:
         raise RuntimeError("FIT manifest authority differs from the bundle")
@@ -645,6 +629,35 @@ def fit_bundle_manifest_summary(
             "capture_calls": dict(ledger["capture_calls"]),
         },
     }
+
+
+def fit_bundle_manifest_summary(
+    path: Path,
+    *,
+    expected_authority_sha256: str,
+    expected_artifact_sha256: str,
+    require_production: bool = True,
+) -> dict[str, Any]:
+    """Derive a JSON-only manifest summary from the exact validated bundle bytes.
+
+    The returned object deliberately excludes directions, rows, responses, and every
+    other tensor value.  It contains only identities and tensor digests, so deriving a
+    manifest cannot create a second program capability.
+    """
+    if not _is_sha256(expected_artifact_sha256):
+        raise ValueError("expected FIT bundle hash is malformed")
+    before = file_sha256(path)
+    raw = path.read_bytes()
+    after = file_sha256(path)
+    digest = hashlib.sha256(raw).hexdigest()
+    if before != after or digest != expected_artifact_sha256:
+        raise RuntimeError("FIT bundle changed during manifest derivation")
+    payload = torch.load(io.BytesIO(raw), map_location="cpu", weights_only=True)
+    return fit_bundle_manifest_summary_from_payload(
+        payload,
+        expected_authority_sha256=expected_authority_sha256,
+        require_production=require_production,
+    )
 
 
 def publish_fit_bundle(
