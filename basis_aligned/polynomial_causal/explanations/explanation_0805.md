@@ -33,7 +33,7 @@ u_i =
 \frac{\mathbb E[w_{c_i}\mid\text{member positions of }i]
 -\mathbb E[w_{c_i}\mid\text{off-slice positions of }i]}
 {\left\|\mathbb E[w_{c_i}\mid i]
--\mathbb E[w_{c_i}\mid\text{off}\ i}]\right\|_2},
+-\mathbb E[w_{c_i}\mid\text{off-slice positions of }i]\right\|_2},
 $$
 
 where $w_{c_i}$ is that component's residual-stream write. At a model position, the
@@ -138,10 +138,12 @@ executor; its private input reconstruction is guarded before and after parent ac
 and published artifacts are joined by exact hashes. The FIT publisher returns only
 the artifact digest, not directions or an EVAL-capable program.
 
-Commit `b117acbb` contains this boundary. The focused suite passes **23/23** and the
-wider closed backend suite passes **48/48**. Its 21-file committed source closure
-replays to
-`94f33c73422fbf21476ac375a461e24ec925c0cf7c7b75e06631d24cf1b4a017`.
+Commit `b117acbb` introduced this boundary; `ca31055c` canonicalized short and full
+commit names; `1c900444` closed four independently reproduced identity/numerical/race
+defects; and `4b0cd7fa` made the FIT-only claim, CE sign, and off-mask definition exact
+semantic contract fields. The current wider closed backend suite passes **57/57**.
+The resulting 21-file committed source closure replays to
+`1dc3f438f1425ef4ed2799f08eae4da2940bcec66332d2653c758a9186e611bd`.
 This is concrete integrity progress, but it has not increased the explained fraction.
 
 ## 5. M16 seed result
@@ -199,11 +201,12 @@ integrity: FIT must be one source-closed transaction that freezes authority befo
 parent/model loads, protects the exact checkpoint and model state, owns the collector,
 publishes bundle and manifest create-only, and publishes a hash-bound receipt last.
 
-An independent outcome-blind audit is examining exact commit `b117acbb`. Until that
-returns, running the 12,400-forward FIT collection would risk producing an ambiguous
-or unreplayable result. If it passes this boundary, the next implementation is the
-model/collector/manifest/receipt transaction; that complete executor gets its own
-exact-source audit before launch.
+Independent outcome-blind replay of exact commit `4b0cd7fa` found no remaining P0 in
+this input/authority/bundle boundary: 54 safe tests passed and the three tests that
+deserialize real row parents were deliberately omitted. This is a conditional GO to
+retain the boundary and implement the next layer, **not** scientific execution
+authority. The missing model/collector/manifest/receipt-last transaction must be
+implemented and independently audited before the 12,400-forward FIT collection runs.
 
 ## 8. Ranked next work
 

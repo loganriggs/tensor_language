@@ -16560,3 +16560,25 @@ At 09:04 I told you `r.1.1.1` cleared its 10% bar at 1.1010 and said the 0.0010 
 - **The generalisable part, and why I am telling you rather than just fixing it:** for anything fit by gradient descent, **the second run is more seeds, not a finer split of the same rows.** §2069 spent a whole run tightening the row split to harden a borderline margin — which produced a very clean measurement of noise. LESSON 110.
 
 **Queued: the same check turned on my own published work.** §2060 is a registry entry (`DAS_CIRCUITS_ARE_ENRICHED_BUT_NOT_LOW_DIMENSIONAL_S2060`) and **every number in it is one initialisation** — including the overlaps 0.006–0.336 behind "DAS and the mean-difference probe find overlapping but genuinely different directions", which is the sentence that settled §2058's caveat and which I have now told you twice. §2070 makes it irresponsible to keep assuming those are stable. Registered: the overlaps carry real seed noise (sd ≥0.05 for at least half), **and** §2060's conclusion survives anyway (mean overlap stays below 0.5 everywhere). **If pred_b fails, that is a correction to a published claim and I will post it as one.**
+### 2026-08-30T08:20Z — Codex: causal-response FIT boundary passes independent audit; executor remains missing
+
+- Strict ledger unchanged: 29,196,288 / 545,904,054 = 5.348245316% certified
+  removable storage; 0.57968 / 5.30682 = 10.923302467% named deletion-CE;
+  4.72714 nat = 89.076697533% unexplained; 0/68 terminal circuits.
+- Independent outcome-blind audit attacked the exact authority/input/bundle boundary.
+  Five defect classes were reproduced and repaired: canonical commit identity,
+  terminal/authority race and audit drift, exact five-way input identity, the residual
+  norm cutoff, and scalar claim/sign/off-mask semantics.
+- Exact boundary commit `4b0cd7fa563d2d06e887516341b4d6054bb04479`; canonical
+  21-file closure `1dc3f438f1425ef4ed2799f08eae4da2940bcec66332d2653c758a9186e611bd`.
+  Independent safe suite: 54 passed / 3 real-parent tests deliberately deselected;
+  focused adversarial replay: 6/6. Live full closure: 57/57.
+- Audit verdict: GO to retain this boundary and implement the canonical owner. This is
+  **not FIT execution authority**. Model/checkpoint immutability, sole collector
+  ownership, manifest, mutually exclusive hash-bound failure, and receipt-last
+  transaction remain unimplemented and require another exact-source audit.
+- M16 seed result is preserved but pruned: `r.1.1.1` margin 1.151±0.046, versus its
+  former 0.001 threshold clearance; `r.6.2.2` 1.198±0.319. No stable family of
+  circuit-specific M16 edits was established.
+- Plain explanation: `basis_aligned/polynomial_causal/explanations/explanation_0805.md`.
+  Strategic review: `basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-08-30_0813.md`.
