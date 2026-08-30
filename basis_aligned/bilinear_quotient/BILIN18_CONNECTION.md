@@ -62370,3 +62370,43 @@ stale: rung 4's `probe_gate4.py` control and rung 6's certification both RAN (§
 the ~6x collapses on a second window, the efficiency ratio is seed- and window-dependent), and rung 5 was closed
 at §343 (`head_lowrank.py`: induction heads are intrinsically high-rank at the weight level). Corrected in the
 backlog below rather than re-derived.
+
+## §2097 — RUNG 9 CLOSES: neither a nonlinear nor a context-aggregating read of the realised pattern clears the bar. The head-grain signal at the a3/a4 leaves is exhausted at ~0.54
+
+`ops/pattern_read_nonlinear.py`, **10s**, BACKLOG rung 9 (opened from §2096's own scope line). **pred_c HELD |
+pred_b HELD | pred_a FAILED.** First script run by `bqrunner` as a supervisor service on this box.
+
+§2096 closed rung 8 at 0.5409 and named its two limits: linear, one position. This ran both relaxations on the
+identical 24 features, leaves, split and bar, with a per-arm shuffled control and a replication gate.
+
+```
+  median held-out AUC, 31 both-prev leaves           shuffled   control heads   beats own control   >= 0.60
+     L1   linear, position t (§2096 replicate)  0.5409    0.4926      0.5353          21/31             0
+     NL   RFF-512 ridge, position t             0.5413    0.4925      0.5325          19/31             0
+     CTX  linear, positions t..t-3 (96 feats)   0.5335    0.4979      0.5346          15/31             0
+     NLC  RFF-512 on the 96 context feats       0.5493    0.4948      0.5375          17/31             0
+  bar 0.5586    best richer arm NLC 0.5493 -> FAILED by 0.009    capture max|diff| 0.00e+00
+```
+
+- **pred_c HELD exactly:** L1 reproduces §2096's 0.5409 to four decimals — same capture, same solver, so the
+  arms are comparable.
+- **pred_b HELD:** every shuffled control sits at 0.49–0.50. RFF-512 against a few hundred members did not
+  fit noise; the numbers are signal.
+- **pred_a FAILED at 0.5493.** The nonlinear read adds **+0.0036** median over linear; context aggregation
+  alone *loses* 0.006 (96 features, same ridge — the extra positions dilute); both together add +0.0046 and
+  reach 0.5493, still 0.009 short, with **0 of 31** leaves at 0.60 under any arm. Specificity to the top-2 heads
+  *weakens* as the read gets richer (21 → 19 → 15 → 17 of 31): what the richer reads pick up is partly layer-wide.
+
+**Reading, and the rung closes on it.** Four reads of the realised pattern — linear, nonlinear, aggregated, both —
+land in 0.53–0.55 on the same population against a 0.5586 bar set from a measured prior. The realised routing of
+the identified prev heads is weakly informative about leaf membership and that weakness is not an artefact of the
+read's expressiveness. Combined with §2094–§2096: token identity 0.5086, token direction 0.5052, routing 0.5409,
+richer routing 0.5493. **The head-grain description of the a3/a4 census leaves is exhausted at ~0.54**; they
+remain §348's two-signed activation-space bands. Untested and out of scope for this rung: reads at other layers,
+and reads of the VALUE side conditioned on routing (a joint pattern×value model) — the latter is the only shape
+left that §332's phrase could still denote, and it would need a bar above 0.5493, not 0.5586.
+
+**Candidate 3 of the §2096 board entry is already answered.** §2085's artifact carries the frontier assembly's
+excess on all eight document-disjoint windows: **2.641, 2.674, 2.706, 2.732, 2.836, 2.955, 2.963, 2.970** (mean
+2.81, sd 0.13). The quotable +2.93 sits inside that spread, not at its edge; the frontier number is
+window-stable to about ±0.15 nats. No run needed; recorded in the backlog.

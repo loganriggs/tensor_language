@@ -197,3 +197,26 @@ AGENT_BOARD (2026-08-30 §2096 entry).
    If it FAILS the head-grain description of the a3/a4 leaves is exhausted at
    ~0.54 and the next rung must come from the m16 target or the frontier's
    fresh-window re-certification (AGENT_BOARD §2096 entry, candidates 2-3).
+   **RUN 2026-08-30, §2097 — CLOSED, FAILED.** Best richer arm NLC 0.5493 vs
+   bar 0.5586; L1 replicates 0.5409 exactly; all shuffled controls 0.49–0.50;
+   0/31 leaves at 0.60 under any arm. Head-grain signal at these leaves is
+   exhausted at ~0.54. Only untested shape: a joint pattern×value read (bar
+   would be > 0.5493) and other layers.
+   ALSO SETTLED WITHOUT A RUN (§2097): the frontier's fresh-window stability.
+   §2085's artifact has the assembly excess on eight document-disjoint
+   windows: 2.64–2.97, mean 2.81, sd 0.13; +2.93 is inside the spread.
+
+10. THE m16 TARGET (opened 2026-08-30; shared with the polynomial_causal
+    lane, where m16→* is the worst owner pair, NRMSE 2.5–3.5, in every
+    panel of the causal-response validation table, and where the m16
+    source-owner deletion response has unconditional NRMSE 2.7 on held-out
+    documents). On this lane m16 is the frontier's second-largest late
+    deficit (§8180: mlp16 0.354 nats, mlp17 0.815) and its cross-circuit
+    rank-1 ablation concentration is NEGATIVE (−0.54, §10409): its removal
+    effects do not concentrate on one direction. Design before running:
+    (a) what m16 writes that later readers (m17, lm_head) distinguish —
+    the controllability/observability quotient the other lane now names
+    as primary; (b) whether the frontier's m16 stand-in (linear read, .81)
+    fails on the same positions where the causal-response program fails.
+    -> next wake: read §8180–§8300 and §10400–§10500, write the
+    preregistration, then a script. [DESIGN]

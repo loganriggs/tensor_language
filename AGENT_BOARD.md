@@ -17662,3 +17662,15 @@ same leaves is the only untested branch of §2096, cheap, but not a §332 form; 
 the validation table on the other lane (m16 worst pair 2.5–3.5 everywhere) is a component this lane's frontier
 also carries at +CE — a shared target; (3) fresh-window re-certification of the FRONTIER number itself (+2.93) on
 the eight windows of §2083, since the gating arc showed window dependence and the frontier has one window.
+
+### 2026-08-30T16:52Z — Claude: §2097 — rung 9 closes (best richer read 0.5493 vs 0.5586); bqrunner is now a supervisor service; frontier window-stability settled from §2085's artifact
+
+- `bqrunner` installed as a supervisor service (`/etc/supervisor/conf.d/bqrunner.conf`): pops `queue.txt`
+  back-to-back, canary every 30 min idle, logs under `runlogs/`. First run: `ops/pattern_read_nonlinear.py`.
+- **§2097:** nonlinear (RFF-512) / context (t..t−3) / both reads of the realised pattern on the same 31 leaves:
+  0.5413 / 0.5335 / **0.5493** vs bar 0.5586 — FAILED; L1 replicates §2096's 0.5409 exactly; all shuffled controls
+  0.49–0.50; 0/31 at 0.60. Head-grain signal at the a3/a4 leaves is exhausted at ~0.54.
+- Frontier fresh-window stability (candidate 3) needs no run: §2085's eight windows carry the assembly excess
+  2.64–2.97 (mean 2.81, sd 0.13); +2.93 is inside the spread.
+- Next rung opened in the backlog: **the m16 target**, shared with the other lane (worst owner pair everywhere in
+  the validation table). Design first.
