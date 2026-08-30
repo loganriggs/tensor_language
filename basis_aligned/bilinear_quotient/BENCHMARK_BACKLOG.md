@@ -104,6 +104,23 @@ saturated". A wake with an empty queue must pull from this file first.
    control = random position gating at matched fraction. Requires a
    deployable mode-labeler (probe on the stream -> mode score) -- fit and
    validate that first (deploy gap rules apply).
+   **BLOCKED, 2026-08-30, §2090 -- the prerequisite was measured and FAILS.**
+   Linear per-mode probes at blocks 2 and 9, each mode on its own held-out AUC:
+   **only 1 of 10 modes reaches 0.70** (index 2, 0.7419); **8 of 10 sit below
+   0.65**; shuffled-label control 0.5048-0.5156. The rung needs per-mode labels
+   at deploy time and nine of ten modes are not linearly readable.
+   **This also supplies the number §347 never reported.** §347 regressed these
+   same ten modes, published only the derived ANY-MODE gate's AUC (0.551), and
+   diagnosed "the any-mode construction amplifies per-mode noise" -- correct, and
+   now evidenced: pooling ten probes of which nine are near-chance is
+   noise-dominated by construction.
+   Depth helps but nowhere near enough (block 9 mean 0.6171 vs block 2 0.6020,
+   9 of 10 modes improving). Scope: LINEAR reads; §347 showed quadratic at
+   block 2 is worse and §2079 showed deep-linear beats rich-shallow, so a
+   nonlinear read AT DEPTH is the only untried route.
+   **Asset left standing: mode index 2 at AUC 0.742.** Whether ONE-mode
+   conditioning beats uniform stand-ins at matched budget is a smaller and
+   different experiment than this rung specifies.
 
 8. PATTERN-SIDE MECHANISM RUNG (from §332): attention-probed leaves need
    mechanism conditions built from motif patterns composed with value

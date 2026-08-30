@@ -61975,3 +61975,53 @@ a condition that then failed is why this section reports a plain negative instea
 
 **Open.** Nothing I would spend GPU on. The a1 absorber question is answerable only by the full merge, and
 the measured prize is 0.3% of the assembly's CE gap.
+
+## §2090 — RUNG 7 IS BLOCKED: 9 of 10 damage modes are not linearly readable, and §347's failure now has its missing number
+
+`ops/per_mode_labelability.py`, **207s**, BACKLOG rung 7's prerequisite. **pred_c HELD | pred_a FAILED |
+pred_b HELD.** Linear per-mode ridges at two depths, each mode scored on its own held-out AUC.
+
+```
+        mean AUC   shuffled   per-mode AUC (10 principal damage modes)
+  blk2   0.6020     0.5156    .554 .660 .734 .563 .542 .584 .622 .580 .591 .591
+  blk9   0.6171     0.5048    .570 .692 .742 .566 .563 .613 .633 .615 .610 .565
+```
+
+**pred_c HELD: the control is clean** (shuffled means 0.5156 and 0.5048), so ten ridges are not simply
+fitting noise and a best-of-ten statistic can be read.
+
+> **pred_a FAILED and it blocks the rung. Only ONE mode of ten reaches AUC 0.70** — index 2 at **0.7419**
+> — against a bar of three. **Eight of the ten sit below 0.65.** Rung 7 is "mode-conditioned stand-in
+> selection: at positions of mode M, keep M's implicated components real", and it requires per-mode
+> labels at deploy time. **Nine of the ten modes cannot be labelled from the stream by a linear read at
+> either depth**, so the rung is **blocked on a labeler that does not exist**, not merely unstarted.
+
+**§347's failure now has the number it never reported.** §347 regressed these ten mode scores, built an
+**any-mode** gate from them, published that gate's AUC of **0.551**, and diagnosed the cause as "the
+any-mode gate construction amplifies per-mode noise". **That diagnosis is confirmed here and was
+previously unevidenced**: pooling ten probes of which nine are near-chance is noise-dominated by
+construction, and 0.551 is what that produces. §347 was right about its own failure for a reason it did
+not measure.
+
+**pred_b HELD, and consistently rather than on the mean alone.** Block 9 beats block 2 at **0.6171
+against 0.6020** — a mean gain of only **+0.0151**, but **9 of the 10 modes individually improve**
+(deltas +0.004 to +0.036; one mode falls 0.026). **§2079's "deeper reads help" carries from the binary
+gate label to per-mode labels**, in direction and consistency, while being far too small to rescue the
+rung.
+
+**A naming caution I want on the record.** These ten modes are the top principal components of the
+36-probe damage matrix, **not** the ten token classes the gating scripts also call classes. **Mode index
+2 is "the third principal damage mode", not any nameable linguistic category**, and I am not attaching a
+story to it. What it is, and whether the one labelable mode is worth conditioning on alone, is a separate
+question this run does not answer.
+
+**Scope of the negative.** Linear reads at two depths. §347 already showed quadratic features at block 2
+make things worse, and §2079 showed deeper linear reads beat richer shallow ones — so the two obvious
+escapes are the ones the record has already tried in the other direction. **A nonlinear read at depth is
+untested and is the only route left**; I am not claiming it would fail, only that nothing in the record
+suggests it would succeed.
+
+**Open.** Rung 7 stays blocked. **The single labelable mode (index 2, AUC 0.742) is the one asset here**,
+and the honest question it raises is whether one-mode conditioning — a much weaker rung than the one
+written — beats uniform stand-ins at matched budget. That is a different and smaller experiment than
+rung 7 specifies.
