@@ -59825,3 +59825,43 @@ decisions with Logan — **§1947's price rule** (does a pooled rule authorise a
 concentrated?) and **§1979's architectural fork** — and BENCHMARK_BACKLOG **rung 4**, the deploy gap,
 which has zero completions and zero ledger mentions and is the first open rung needing new machinery
 rather than another arm.
+
+## §2046 — registry audit: 29 of 111 certified claims sit in the selection-noise regime
+
+**Infrastructure, no GPU.** LESSON 106 says a margin below ~1% of the object's scale, selected on the rows
+it is measured on, is not a result until measured elsewhere. The shipped program sits ~2,800–3,300
+milli-nats from the live model, so that threshold is about **30 milli-nats**. This audits every CERTIFIED
+registry entry against it.
+
+```
+  CERTIFIED entries                                       111
+    quoting a milli-nat margin                             34
+    quoting none (mechanism, cost, or structural claims)   77
+  Of the 34:
+    largest quoted margin BELOW 30 milli-nats               29
+    at or above it                                           5
+```
+
+> **The five above the line are the ones that carried the program**: §1972 and §1975's arc headline
+> (69.238), §1976's fallback-versus-coverage result (71.890), and §2037/§2044's own retraction (32.650).
+> **Every claim large enough to be safe by scale is either the original arc's headline or the retraction
+> that tested it.**
+
+> **The 29 below split into three kinds, and only one is exposed.** Ten are **already fresh-window
+> results** (§2029–§2045) — measured on rows that did not select them. Six are **closed negatives**
+> (§1955, §1956, §1966, §1973, §1974, §2027) where a small margin was the reason to stop rather than to
+> act. **The remaining thirteen are in-sample selections that still stand**, and the largest cluster among
+> them is the tilt-and-blend family, §1960 through §1970, with margins of **1.19 to 3.48 milli-nats.**
+
+**What this changes and what it does not.** It does not retract anything: a small margin is not a wrong
+margin, and §2041 showed a +0.696 milli-nat decision surviving out-of-sample cleanly. **It identifies
+where the fresh window should be pointed next**, and by size the answer is the tilt family — which chose,
+on the three roles, that the shipped build uses a **flat** α with no per-token tilt (§1964, §1967, §1970).
+
+**Method note against myself.** This audit is a regex over quoted margins; it will miss any claim whose
+margin was never written as "milli-nats" in its registry entry, and 77 entries quote no margin at all.
+**It is a triage, not a proof, and the number to trust is 29 of 34 — not 29 of 111.**
+
+**Open.** §1964 and §1967 rejected the per-token tilt on margins of 1.92 to 2.94 milli-nats and §1970
+settled α at finer resolution on 1.6. **All three are in the regime §2037 showed does not transfer, and
+all three decided a parameter of the build of record.** The fresh window is wired in and costs one arm.
