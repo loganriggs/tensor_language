@@ -1,0 +1,54 @@
+{
+  "schema": "causal_response_factorization_v1_amendment2_independent_audit",
+  "status": "NO-GO",
+  "outcome_access": false,
+  "audited_source_commit": "10cca1494f6fa9968d0c04de1ca1e1e403a473f4",
+  "audited_source_sha256s": {
+    "basis_aligned/polynomial_causal/CAUSAL_RESPONSE_FACTORIZATION_V1_AMENDMENT_2.md": "9819b5b5486ccdcd57747bf36d3e4862aba827dbc52ff8cc49e6209b938d0017",
+    "basis_aligned/polynomial_causal/CAUSAL_RESPONSE_FACTORIZATION_V1_PREREGISTRATION.md": "2782866d8fdd1ca5abb3de4348534ceefadddb42a19ec17a756dd6017c89ffba",
+    "basis_aligned/polynomial_causal/causal_response_factorization_v1.py": "8af3e8c4987b15d8da5413f2998452ea7064779ad648c17c0d9269fd7ed0f881",
+    "basis_aligned/polynomial_causal/causal_response_factorization_v1_fit_adapter.py": "1f13376dd98266f5f7db7468437034eac3e35374fd4051834092939f353eaf2e",
+    "basis_aligned/polynomial_causal/causal_response_factorization_v1_parent_binding.py": "05ad706d5a5e16264b2acbc42d994a89701841545a052001dac60a0894597821",
+    "basis_aligned/polynomial_causal/causal_response_tensor_v1_fit_bundle.py": "a63ad13a0f23589ca32da7b554ef76cf2338d498badfd14d5f0638c5e4898583",
+    "basis_aligned/polynomial_causal/test_causal_response_factorization_v1.py": "33b29ec7b045fa61d3bd27ec92664103668163f10e60736ea9d3b892589c29b6",
+    "basis_aligned/polynomial_causal/test_causal_response_factorization_v1_fit_adapter.py": "05b16000dd7dca4ae4c97738c3e3737e407a19bb0f7914702a5f61dac8f9eb27",
+    "basis_aligned/polynomial_causal/test_causal_response_factorization_v1_parent_binding.py": "32ec81af9a25f84e64b7a9461bfc409c5c508ed05297325ef8c97dafbab07eba",
+    "basis_aligned/polynomial_causal/test_causal_response_tensor_v1_fit_bundle.py": "e7b041f290882c9cb1d31a152ceb29f8603a1df5cb592a00ddd4e9ece3038e95"
+  },
+  "tests": {
+    "passed": 46,
+    "seconds": 24.68,
+    "scope": "source-isolated synthetic factor core, train adapter, parent binder, and FIT bundle semantics"
+  },
+  "prior_blocker_disposition": {
+    "missing_receipt_bound_loader": "UNRESOLVED: the outcome-blind parent binder exists, but no source-closed analysis authority or one-use exact-byte tensor loader exists.",
+    "provenance_dropped_at_adapter_output": "PARTIALLY_REPAIRED: FitTrainingInput carries all named identities, but their authenticity is not sealed and the parent binding can be stale.",
+    "forgeable_owner_topology": "REPAIRED: canonical owner order and the exact per-source group vector are recomputed and enforced.",
+    "role_capability_not_sealed": "PARTIALLY_REPAIRED: the factory exposes only 229 training documents, but no private one-use capability owns construction and the public dataclasses remain directly constructible."
+  },
+  "blocking_defects": [
+    {
+      "id": "parent_binding_terminal_replay_missing",
+      "finding": "fit_parent_binding_without_tensor_load reads receipt, terminal, authority, bundle, and manifest once, performs later source/audit checks, and returns without terminally replaying those artifact records. A synthetic bundle mutation during historical-source validation produced a returned binding with the old bundle SHA while the live bundle had a different SHA."
+    },
+    {
+      "id": "analysis_authority_and_one_use_loader_missing",
+      "finding": "No source-closed transaction freezes factor-analysis authority before bundle deserialization, stable-loads the exact receipt-bound bundle bytes once, joins full bundle and manifest semantics, calls the train adapter privately, poisons the payload capability, and publishes a receipt-last analysis result or failure."
+    },
+    {
+      "id": "amended_source_closure_not_executable",
+      "finding": "The parent binder and adapter do not bind an exact amended SOURCE_PATHS family or require an independent audit artifact. This audit records hashes, but no production source consumes or validates them."
+    },
+    {
+      "id": "artifact_binding_is_forgeable",
+      "finding": "FitArtifactBinding.from_parent_binding does not recompute binding_sha256 from the parent-binding body, and FitArtifactBinding is publicly constructible. The train adapter checks type and selected joins only, so arbitrary receipt, manifest, and bundle identities can be supplied outside a sealed loader."
+    }
+  ],
+  "required_repairs": [
+    "Terminally re-read exact receipt, terminal, authority, bundle, and manifest records after historical source/audit validation; recheck failure and lock absence immediately before returning the parent binding.",
+    "Make parent-binding logical-hash replay mandatory and mint the artifact binding only inside a closure-private, one-use loader capability.",
+    "Implement and source-close the pre-deserialization analysis authority, exact BytesIO weights-only loader, full semantic joins, train-only adapter call, capability poisoning, and receipt-last/failure lifecycle.",
+    "Bind the amendment, preregistration, core, adapter, parent binder, FIT semantic dependencies, all relied-on tests, and this independent audit in the executable source closure."
+  ],
+  "claim_boundary": "The train-only reducer and canonical owner topology are reusable infrastructure. This audit authorizes neither FIT factor analysis nor validation/EVAL access."
+}
