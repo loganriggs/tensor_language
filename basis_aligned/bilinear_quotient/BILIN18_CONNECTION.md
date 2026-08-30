@@ -63313,3 +63313,21 @@ pred_b HELD (+0.0857 ≥ 0.049) | pred_c HELD (8/8).**
 equal-price improvement of the assembly's mlp4/mlp5 stand-ins; the price structure of stream error by depth, sublayer
 and head; two construction negatives, one withdrawal, one accounting correction — every one preregistered, scored as
 written, and pushed with its artifact.
+
+## §2126 — RUNG 33: THE SINK-HEAD SCALAR BUYS ALMOST NOTHING, AND THE SIGN REFUTES THE §1818 ANALOGY. The fitted scalar is s* = 1.095 — cfgE UNDER-drives head 5.7, where the fully-compiled program of §1818 over-drove it 159× — and it gains only 0.015 nat on the eval rows (bar 0.05), 0.017 median fresh (bar 0.025)
+
+`ops/sink_head_scalar.py`, **124s**, BACKLOG rung 33. One scalar on h7's c_proj input columns, grid + golden-section
+line search on the FIT rows. **pred_d HELD (1.7415) | pred_a FAILED (+0.0154) | pred_b FAILED (s* = 1.0954 > 1) |
+pred_c FAILED (+0.0166 median on two fresh windows: +0.031 and +0.002).**
+
+- **The direction is the finding.** §1818's fully-compiled program drove 5.7's fixed vector 159× too LARGE; the
+  certified arm (attention real, front compressed) drives it ~10 % too SMALL. The sink head's mass is a function of
+  the stream through its q2·k2 pattern; the compiled front of §1818's era inflated that read, cfgE's front deflates
+  it. Same head, same failure family (a scalar on a fixed vector), opposite sign under different substrates — the
+  scale error is a property of the front's stream, not of the head.
+- **And it is nearly free to fix and nearly worthless:** the best scalar recovers 0.015 of §2114's 0.28-nat oracle
+  ceiling for this head. Consistent with §2113–§2114: h7's error is big in energy and cheap in price; the *scalar
+  part* of that cheap error is a twentieth of the head's own oracle. The remaining h7 error is pattern-shaped
+  (which positions get the vector), not scale.
+- Scored as written; the rung closes as a clean negative with one reusable fact: **per-head scale corrections are
+  not a lever for this assembly.**

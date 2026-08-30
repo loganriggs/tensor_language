@@ -423,3 +423,11 @@ later per-rung backlog edits had silently anchored on text that was not here.
     (certify per row before crediting; c6-c9-style was negative), (ii)
     requires covered-energy share for projection/span programs per §2122,
     (iii) records that the ordering stands (§2117 rho 0.81).
+
+34. THE m16 TWO-NUMBER INTERFACE, PRICED (the reviews' candidate C; from
+    §2098-§2100). Rank-2 source basis + rank-1 (phase,target) profiles fit
+    on half A; per-document coefficients (2 numbers) estimated on half B
+    from ALL cells vs TWO physical arms; price 208 persistent + 2/doc +
+    2 calibration arms. -> ops/m16_two_number_interface.py [QUEUED]
+    pred_a median held-out R^2 (all cells) >= 0.5; pred_b two arms >= 0.8 x
+    all-cells; pred_c mean-code and permuted-code baselines <= 0.1.
