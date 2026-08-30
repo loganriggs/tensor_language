@@ -9,6 +9,7 @@ erase completed work.  Validation and EVAL are not imported or represented here.
 from __future__ import annotations
 
 from dataclasses import asdict
+from contextlib import contextmanager
 import fcntl
 import hashlib
 import json
@@ -16,6 +17,7 @@ import math
 import os
 from pathlib import Path
 import subprocess
+import stat
 import tempfile
 import time
 from typing import Callable, Sequence
@@ -35,46 +37,23 @@ from causal_response_factorization_v1_fit_adapter import FitTrainingInput
 from causal_response_factorization_v1_training_snapshot import (
     load_production_training_snapshot,
 )
+import causal_response_factorization_v1_training_lifecycle as training_lifecycle
 
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
 OUTPUT = HERE / "causal_response_factorization_v1_grid_results"
+GRID_AUDIT = HERE / "causal_response_factorization_v1_grid_independent_audit.json"
 STEPS = 2_000
 LEARNING_RATE = 0.03
 MINIMUM_IMPROVEMENT = 1e-4
-SOURCE_PATHS = tuple(HERE / name for name in (
-    "causal_response_factorization_v1.py",
-    "causal_response_factorization_v1_accelerated.py",
-    "causal_response_factorization_v1_candidate_price_audit.py",
-    "causal_response_factorization_v1_fit_adapter.py",
-    "causal_response_factorization_v1_training_snapshot.py",
-    "causal_response_factorization_v1_training_lifecycle.py",
-    "causal_response_factorization_v1_training_input.py",
-    "causal_response_factorization_v1_parent_binding.py",
-    "causal_response_factorization_v1_training_loader.py",
-    "causal_response_tensor_collection.py",
-    "causal_response_tensor_v1_backend.py",
-    "causal_response_tensor_v1_fit_bundle.py",
-    "bilin18_observed_model_facade.py",
-    "__init__.py",
-    "tt_model.py",
-    "causal_response_factorization_v1_grid_runner.py",
-    "CAUSAL_RESPONSE_FACTORIZATION_V1_PREREGISTRATION.md",
-    *((f"CAUSAL_RESPONSE_FACTORIZATION_V1_AMENDMENT_{index}.md") for index in range(1, 13)),
-    "test_causal_response_factorization_v1_grid_runner.py",
-    "test_causal_response_factorization_v1.py",
-    "test_causal_response_factorization_v1_accelerated.py",
-    "test_causal_response_factorization_v1_fit_adapter.py",
-    "test_causal_response_factorization_v1_parent_binding.py",
-    "test_causal_response_factorization_v1_training_loader.py",
-    "test_causal_response_factorization_v1_training_snapshot.py",
-    "test_causal_response_factorization_v1_training_input.py",
-    "test_causal_response_factorization_v1_training_lifecycle.py",
-    "test_causal_response_tensor_v1_fit_bundle.py",
-    "causal_response_factorization_v1_candidate_price_audit.json",
-    "causal_response_factorization_v1_training_lifecycle_independent_audit.json",
-))
+SOURCE_PATHS = tuple(dict.fromkeys((*training_lifecycle.SOURCE_PATHS, *(
+    HERE / "causal_response_factorization_v1_candidate_price_audit.py",
+    HERE / "causal_response_factorization_v1_candidate_price_audit.json",
+    HERE / "causal_response_factorization_v1_grid_runner.py",
+    HERE / "test_causal_response_factorization_v1_grid_runner.py",
+    HERE / "CAUSAL_RESPONSE_FACTORIZATION_V1_AMENDMENT_12.md",
+))))
 
 
 def _sha256(raw: bytes) -> str:
@@ -111,7 +90,8 @@ def _source_closure(*, require_published: bool) -> dict[str, object]:
     ).returncode != 0:
         raise RuntimeError("factor-grid source commit is not published")
     hashes: dict[str, str] = {}
-    for path in SOURCE_PATHS:
+    paths = SOURCE_PATHS + ((GRID_AUDIT,) if require_published else ())
+    for path in paths:
         relative = str(path.relative_to(ROOT))
         raw = path.read_bytes()
         if require_published:
@@ -124,6 +104,69 @@ def _source_closure(*, require_published: bool) -> dict[str, object]:
         hashes[relative] = _sha256(raw)
     body: dict[str, object] = {"commit": head, "paths": hashes}
     return {**body, "sha256": _logical_sha256(body)}
+
+
+def _validate_grid_audit(source: dict[str, object]) -> None:
+    raw = GRID_AUDIT.read_bytes()
+    audit = json.loads(raw)
+    required = {
+        "schema", "status", "approved", "reviewer", "outcome_access",
+        "audited_source_commit", "audited_source_hashes", "tests_passed",
+        "remaining_execution_blockers",
+    }
+    source_hashes = dict(source["paths"])
+    source_hashes.pop(str(GRID_AUDIT.relative_to(ROOT)))
+    if (
+        type(audit) is not dict or set(audit) != required
+        or audit.get("schema") != "causal_response_factorization_v1_grid_independent_audit"
+        or audit.get("status") != "GO" or audit.get("approved") is not True
+        or audit.get("outcome_access") is not False
+        or not isinstance(audit.get("reviewer"), str) or not audit["reviewer"]
+        or not isinstance(audit.get("tests_passed"), int) or audit["tests_passed"] < 1
+        or audit.get("remaining_execution_blockers") != []
+        or audit.get("audited_source_hashes") != source_hashes
+    ):
+        raise RuntimeError("factor-grid independent audit is not exact GO")
+    audited_commit = audit["audited_source_commit"]
+    resolved = subprocess.check_output(
+        ["git", "rev-parse", "--verify", f"{audited_commit}^{{commit}}"],
+        cwd=ROOT, text=True,
+    ).strip()
+    if resolved != audited_commit or subprocess.run(
+        ["git", "merge-base", "--is-ancestor", audited_commit, "origin/main"],
+        cwd=ROOT, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,
+    ).returncode != 0:
+        raise RuntimeError("factor-grid audited commit is not published")
+    for relative, digest in source_hashes.items():
+        committed = subprocess.run(
+            ["git", "show", f"{audited_commit}:{relative}"], cwd=ROOT,
+            stdout=subprocess.PIPE, stderr=subprocess.DEVNULL,
+        )
+        if committed.returncode != 0 or _sha256(committed.stdout) != digest:
+            raise RuntimeError(f"factor-grid audit source mismatch: {relative}")
+
+
+@contextmanager
+def _output_lock(path: Path):
+    flags = os.O_RDWR | os.O_CREAT | getattr(os, "O_NOFOLLOW", 0)
+    descriptor = os.open(path, flags, 0o600)
+    try:
+        opened = os.fstat(descriptor)
+        named = path.stat(follow_symlinks=False)
+        if not stat.S_ISREG(opened.st_mode) or (
+            opened.st_dev, opened.st_ino
+        ) != (named.st_dev, named.st_ino):
+            raise RuntimeError("factor-grid lock is not one stable regular inode")
+        fcntl.flock(descriptor, fcntl.LOCK_EX)
+        named = path.stat(follow_symlinks=False)
+        if (opened.st_dev, opened.st_ino) != (named.st_dev, named.st_ino):
+            raise RuntimeError("factor-grid lock pathname changed during acquisition")
+        yield
+        named = path.stat(follow_symlinks=False)
+        if (opened.st_dev, opened.st_ino) != (named.st_dev, named.st_ino):
+            raise RuntimeError("factor-grid lock pathname changed while owned")
+    finally:
+        os.close(descriptor)
 
 
 def _input_binding(value: FitTrainingInput) -> dict[str, object]:
@@ -177,7 +220,7 @@ def _validated_bytes_create(
     raw: bytes,
     validator: Callable[[Path], object],
     *,
-    before_link: Callable[[], None] | None = None,
+    before_link: Callable[[Path], None] | None = None,
 ) -> object:
     path.parent.mkdir(parents=True, exist_ok=True)
     descriptor, temporary_name = tempfile.mkstemp(prefix=f".{path.name}.", dir=path.parent)
@@ -189,7 +232,7 @@ def _validated_bytes_create(
             os.fsync(sink.fileno())
         validated = validator(temporary)
         if before_link is not None:
-            before_link()
+            before_link(temporary)
         os.link(temporary, path)
         directory = os.open(path.parent, os.O_RDONLY)
         try:
@@ -331,36 +374,46 @@ def _validate_result_cell(
     price_row = {
         (row.global_rank, row.private_rank_each_owner): row for row in audit_rows()
     }.get((global_rank, private_rank))
-    if (
-        replay_mse != receipt.get("final_mse")
-        or initial_mse != receipt.get("initial_mse")
-        or improvement != receipt.get("improvement_fraction")
-        or any(receipt.get(key) != value for key, value in expected_report.items())
-        or receipt.get("persistent_values") != program.persistent_values
-        or receipt.get("per_document_values") != program.code_dimension
-        or receipt.get("amortized_total_values") != (
+    checks = {
+        "final_mse": replay_mse == receipt.get("final_mse"),
+        "initial_mse": initial_mse == receipt.get("initial_mse"),
+        "improvement": improvement == receipt.get("improvement_fraction"),
+        "error_report": all(
+            receipt.get(key) == value for key, value in expected_report.items()
+        ),
+        "persistent_price": receipt.get("persistent_values") == program.persistent_values,
+        "code_price": receipt.get("per_document_values") == program.code_dimension,
+        "amortized_price": receipt.get("amortized_total_values") == (
             program.persistent_values + training.response.shape[-1] * program.code_dimension
-        )
-        or receipt.get("prediction_multiply_adds_per_document") != (
+        ),
+        "prediction_cost": receipt.get("prediction_multiply_adds_per_document") == (
             training.response.shape[0] * training.response.shape[1]
             * training.response.shape[2] * program.code_dimension
-        )
-        or receipt.get("calibration_cells_training_stage") != 0
-        or receipt.get("registered_validation_calibration_arm_budgets") != [2, 4, 8, 16]
-        or receipt.get("minimum_improvement") != MINIMUM_IMPROVEMENT
-        or not isinstance(receipt.get("elapsed_seconds"), (int, float))
-        or not math.isfinite(receipt["elapsed_seconds"])
-        or receipt["elapsed_seconds"] < 0
-        or (price_row is not None and (
-            receipt.get("strict_dense_matched_rank") != price_row.strict_dense_matched_rank
-            or receipt.get("amortized_total_dense_rank_noncontrolling")
-            != price_row.amortized_total_dense_rank
-        ))
-        or receipt.get("healthy") is not (
+        ),
+        "calibration_stage": receipt.get("calibration_cells_training_stage") == 0,
+        "calibration_budgets": (
+            receipt.get("registered_validation_calibration_arm_budgets") == [2, 4, 8, 16]
+        ),
+        "health_threshold": receipt.get("minimum_improvement") == MINIMUM_IMPROVEMENT,
+        "elapsed": (
+            isinstance(receipt.get("elapsed_seconds"), (int, float))
+            and math.isfinite(receipt["elapsed_seconds"])
+            and receipt["elapsed_seconds"] >= 0
+        ),
+        "control_prices": price_row is None or (
+            receipt.get("strict_dense_matched_rank") == price_row.strict_dense_matched_rank
+            and receipt.get("amortized_total_dense_rank_noncontrolling")
+            == price_row.amortized_total_dense_rank
+        ),
+        "health": receipt.get("healthy") is (
             math.isfinite(replay_mse) and improvement >= MINIMUM_IMPROVEMENT
+        ),
+    }
+    failed = sorted(label for label, passed in checks.items() if not passed)
+    if failed:
+        raise RuntimeError(
+            f"grid result semantic replay changed ({','.join(failed)}): {path.name}"
         )
-    ):
-        raise RuntimeError(f"grid result semantic replay changed: {path.name}")
     raw = path.read_bytes()
     return receipt, raw
 
@@ -489,8 +542,7 @@ def run_grid(
         raise RuntimeError("factor-grid output namespace is not a directory")
     output.mkdir(parents=True, exist_ok=True)
     lock_path = output / ".lock"
-    with lock_path.open("a+b") as lock:
-        fcntl.flock(lock.fileno(), fcntl.LOCK_EX)
+    with _output_lock(lock_path):
         return _run_grid_locked(
             training, output, rank_pairs=rank_pairs, seeds=seeds, steps=steps,
             learning_rate=learning_rate, optimizer_device=optimizer_device,
@@ -563,6 +615,14 @@ def _run_grid_locked(
                     optimizer_device=optimizer_device,
                 )
             except Exception as error:
+                numerical_messages = {
+                    "accelerated shared/private optimizer became nonfinite",
+                    "accelerated canonical replay ended nonfinite",
+                }
+                if require_published_source and not (
+                    type(error) is RuntimeError and str(error) in numerical_messages
+                ):
+                    raise
                 failure = {
                     "schema": "causal_response_factorization_v1_grid_failure",
                     "status": "failed_training_only",
@@ -691,8 +751,9 @@ def _run_grid_locked(
                 raise RuntimeError("staged factor-grid terminal did not replay")
             return staged, staged_raw
 
-        def validate_preterminal_census() -> None:
-            if {path.name for path in output.iterdir()} != expected_preterminal_names:
+        def validate_preterminal_census(staged_path: Path) -> None:
+            expected_with_stage = expected_preterminal_names | {staged_path.name}
+            if {path.name for path in output.iterdir()} != expected_with_stage:
                 raise RuntimeError("factor-grid preterminal directory census changed")
 
         _validated_bytes_create(
@@ -705,9 +766,9 @@ def main() -> None:
     if OUTPUT.exists() and not OUTPUT.is_dir():
         raise RuntimeError("production factor-grid namespace is not a directory")
     OUTPUT.mkdir(parents=True, exist_ok=True)
-    with (OUTPUT / ".lock").open("a+b") as lock:
-        fcntl.flock(lock.fileno(), fcntl.LOCK_EX)
+    with _output_lock(OUTPUT / ".lock"):
         source = _source_closure(require_published=True)
+        _validate_grid_audit(source)
         allowed = {".lock", "terminal.json"}
         for global_rank, private_rank in RANK_PAIRS:
             for seed in SEEDS:
