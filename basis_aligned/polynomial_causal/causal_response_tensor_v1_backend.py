@@ -344,6 +344,7 @@ class ObservedResponseCollector:
 
         full: dict[str, torch.Tensor] = {}
         fit_counts: dict[str, dict[str, int]] = {}
+        fit_write_statistics: dict[str, dict[str, torch.Tensor]] = {}
         for spec in self.specs:
             item = sums[spec.tag]
             if item["member_count"] <= 0 or item["off_count"] <= 0:
@@ -357,13 +358,26 @@ class ObservedResponseCollector:
                 "member_count": item["member_count"],
                 "off_count": item["off_count"],
             }
+            fit_write_statistics[spec.tag] = {
+                "member_sum": item["member"].clone(),
+                "off_sum": item["off"].clone(),
+                "member_mean": (item["member"] / item["member_count"]).clone(),
+                "off_mean": (item["off"] / item["off_count"]).clone(),
+            }
 
         shared: dict[str, torch.Tensor] = {}
         residual: dict[str, torch.Tensor] = {}
+        singular_spectra: dict[str, torch.Tensor] = {}
+        relative_singular_gaps: dict[str, float] = {}
+        residual_norms: dict[str, float] = {}
         for component, component_specs in specs_by_component.items():
             matrix = torch.stack([full[spec.tag] for spec in component_specs]).double()
-            shared_direction, _singular_values = leading_shared_direction(matrix)
+            shared_direction, singular_values = leading_shared_direction(matrix)
             shared[component] = shared_direction
+            singular_spectra[component] = singular_values.clone()
+            relative_singular_gaps[component] = float(
+                (singular_values[0] - singular_values[1]) / singular_values[0]
+            )
             for spec in component_specs:
                 remainder = full[spec.tag] - (
                     full[spec.tag] @ shared_direction
@@ -371,12 +385,17 @@ class ObservedResponseCollector:
                 relative_norm = float(remainder.norm())
                 if not math.isfinite(relative_norm) or relative_norm <= 1e-6:
                     raise RuntimeError("residual direction is numerically absent")
+                residual_norms[spec.tag] = relative_norm
                 residual[spec.tag] = (remainder / remainder.norm()).float()
         return {
             "full": full,
             "residual": residual,
             "shared": shared,
             "fit_counts": fit_counts,
+            "fit_write_statistics": fit_write_statistics,
+            "singular_spectra": singular_spectra,
+            "relative_singular_gaps": relative_singular_gaps,
+            "residual_norms": residual_norms,
         }
 
     @torch.no_grad()
