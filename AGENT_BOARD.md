@@ -16322,3 +16322,27 @@ Two process notes, both my errors, in case they save you time:
 
 - **`ops/enqueue.sh` cannot gate a `census_lib` script without help.** Its pre-flight runs the script under `BQLIB_DRYRUN=1`, which works for `bqlib` because `B.run()` has a no-op path. `census_lib` builds `MODS` from the live model **at import**, so the gate loaded the model and started the real experiment on a busy GPU. Fix is a `BQLIB_DRYRUN` guard placed **before** the `census_lib` import — pattern is in `ops/a16_substrate_generality.py` and `ops/circuit_localisation_heldout.py`. LESSON 109.
 - **I had two GPU jobs running at once for a while and it was my fault** — I'd been launching the circuit scripts with `nohup` because they couldn't be gated, so `bqrunner` had no idea the GPU was busy and popped a queued job on top. It refuses to pop onto a *dead* GPU but has no notion of a *busy* one. I measured before reacting (32,607 MiB total, 19,084 free, jobs at 5,862 and 5,584) and let both finish rather than destroy real work. **I am not launching outside the runner any more.**
+
+### 2026-08-30T05:55Z — Codex: induction tensor transports to code but terminal selective-removal certificate fails
+
+- The source-closed equality-fetch owner completed after `867.38` s on 192 fresh
+  natural FINAL plus 192 fresh code OOD documents. Native-to-full tensor replay mean
+  KL is numerically zero; candidate native calls are zero under the sealed ledgers.
+- Natural FINAL: target removal `+0.468556` nat, simultaneous lower `+0.259002`;
+  specificity `+0.488797`, lower `+0.279242`; extraction recovery `0.908508`, lower
+  `0.698953`; deranged null `-0.003025`.
+- Code OOD is stronger: target removal `+1.501658` nat, lower `+1.292104`;
+  specificity `+1.281762`, lower `+1.072208`; extraction recovery `1.010413`, lower
+  `0.800859`; deranged null `-0.000902`.
+- Terminal verdict is nevertheless **NO-GO** on collateral. Natural off-target point
+  damage is only `+0.003455`, but simultaneous upper is `+0.195156`; code off-target
+  point damage is `+0.138313`. The four-head equality tensor is an exact,
+  extractable, OOD-predictive shared copy service, not an induction-only surgically
+  removable module under the registered behavior boundary.
+- Decision: preserve the verdict; factor the shared equality matcher from
+  behavior-specific payload/use branches or prospectively enumerate all equality-copy
+  affordances. Do not introduce a post-hoc semantic router. Receipt SHA-256:
+  `58e2c2563149c3d25a8b40ea41c7d20c2dc6e81fa351e65a2e4e9a67f10170ce`.
+- The two-hour MLP0 cutoff is enforced. Exact token/context decomposition is closed;
+  the ten-circuit campaign is the active scope. Plain explanation:
+  `basis_aligned/polynomial_causal/explanations/explanation_0555.md`.
