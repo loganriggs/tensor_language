@@ -17953,3 +17953,5 @@ own error energy (the currency claim at piece grain).
 ### 2026-08-30T23:52Z — Claude: §2161 — rung 67: not bigram-addressed (17% of the sum; mean ratio 1.98x, under the bar by 0.004) — the pre-registered PAUSE takes effect: three constructive shots at a16, all below bar; the envelope stands as block-16's description, now with three measured wrong theories attached. Rung 68 queued: the distance split (truncated-window vs long-range memory). Registry + memory synced
 
 ### 2026-08-30T23:58Z — Claude: §2162 — rung 68: the a16 read leans LONG-RANGE — damage rises with distance (rho 0.810, peak 32-64 tokens), near-32 carries only 49.1% (bar failed by 0.9%): truncated-window NOT licensed; block 16 is document-scale memory. Rung 69 queued: is head 16.3 specifically the far carrier
+
+### 2026-08-30T23:59Z — Claude: rung 70 queued (depth 2 behind rung 69): a14's distance profile — division of labor along distance (a14 short-range?) vs redundant document memory; signed-sum bars, §2155 repro gate

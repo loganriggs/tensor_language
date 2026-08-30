@@ -968,3 +968,12 @@ later per-rung backlog edits had silently anchored on text that was not here.
     <= 0.005). Tripwire: the zeroed arm's CE must differ from base.
     Null: 16.3's damage has the same ~49/51 profile as the whole module.
     -> ops/a16_head3_distance.py [QUEUED]
+
+70. a14's DISTANCE PROFILE (division of labor or redundancy; signed-sum
+    bars; damage convention). §2162: a16 rises with distance. If the two
+    expensive layers divide labor, a14 is the short-range reader.
+    pred_a near(<=32) carries >= 0.6 of a14L's summed ind damage; pred_b
+    peak mean bin at distance < 16; pred_c skip-a14 reproduces §2155's
+    base per-window (median |delta| <= 0.005). Null: same rising profile
+    (redundant document memory). -> ops/a14_distance_split.py [QUEUED
+    00:02Z]
