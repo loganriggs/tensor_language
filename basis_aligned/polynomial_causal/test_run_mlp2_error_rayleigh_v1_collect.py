@@ -290,3 +290,33 @@ def test_mocked_lock_replacement_and_authority_mutation_fail_closed(tmp_path, mo
     with pytest.raises(RuntimeError, match="authority changed before role access"):
         collect.run("DESIGN")
     assert not paths["receipt"].exists()
+
+
+def test_committed_scorer_source_map_rejects_empty_and_truncated():
+    with pytest.raises(RuntimeError, match="exact canonical set"):
+        collect.committed_hash_map("irrelevant", {})
+    one = {str(collect.SOURCE_PATHS[0].relative_to(collect.ROOT)): "a" * 64}
+    with pytest.raises(RuntimeError, match="exact canonical set"):
+        collect.committed_hash_map("irrelevant", one)
+
+
+def test_mutation_during_program_load_cannot_reach_collect(tmp_path, monkeypatch):
+    paths, _ = mocked_transaction(tmp_path, monkeypatch)
+    reached = {"collect": False}
+
+    def mutate_during_load(_device):
+        changed = json.loads(paths["authority"].read_text())
+        changed["status"] = "mutated_during_program_load"
+        paths["authority"].write_text(json.dumps(changed))
+        return {}
+
+    def forbidden_collect(*_args):
+        reached["collect"] = True
+        raise AssertionError("collect must remain unopened")
+
+    monkeypatch.setattr(collect, "load_programs", mutate_during_load)
+    monkeypatch.setattr(collect, "collect", forbidden_collect)
+    with pytest.raises(RuntimeError, match="JSON parent hash changed|final collection boundary"):
+        collect.run("DESIGN")
+    assert reached["collect"] is False
+    assert not paths["ledger"].exists() and not paths["receipt"].exists()

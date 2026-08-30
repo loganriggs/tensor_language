@@ -301,6 +301,9 @@ def validate_predictor_unlock() -> tuple[dict[str, Any], str]:
 def committed_hash_map(commit: str, values: Mapping[str, str]) -> dict[str, str]:
     if not isinstance(commit, str) or not isinstance(values, Mapping):
         raise RuntimeError("committed source map changed")
+    expected_relatives = {str(path.relative_to(ROOT)) for path in SOURCE_PATHS}
+    if set(values) != expected_relatives:
+        raise RuntimeError("committed scorer source closure is not the exact canonical set")
     subprocess.run(["git", "merge-base", "--is-ancestor", commit, "origin/main"],
                    cwd=ROOT, check=True)
     observed = {}
@@ -739,6 +742,24 @@ def run(role: str) -> None:
         verify_protected(protected, authority, claim, paths)
         programs = load_programs(device)
         c512 = c512_tensors(device)
+
+        def collection_guard():
+            row_life.base.require_claim(claim, paths["lock"])
+            observed, observed_sha = stable_json(paths["authority"], authority_sha)
+            if observed != authority or observed_sha != authority_sha:
+                raise RuntimeError("collector authority changed at final collection boundary")
+            if any(paths[name].exists() for name in ("ledger", "receipt", "failure")):
+                raise RuntimeError("collector terminal appeared before collection")
+            if protected_snapshot(authority) != protected:
+                raise RuntimeError("collector protected state changed before collection")
+            if any(paths[name].exists() for name in ("ledger", "receipt", "failure")):
+                raise RuntimeError("collector terminal raced final collection guard")
+            observed, observed_sha = stable_json(paths["authority"], authority_sha)
+            if observed != authority or observed_sha != authority_sha:
+                raise RuntimeError("collector authority raced final collection guard")
+            row_life.base.require_claim(claim, paths["lock"])
+
+        collection_guard()
         with torch.inference_mode():
             features, finite, control_hashes, calls = collect(
                 model, rows, programs, c512, device, role,
