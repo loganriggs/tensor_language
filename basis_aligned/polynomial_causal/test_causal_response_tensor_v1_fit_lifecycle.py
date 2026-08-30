@@ -5,6 +5,7 @@ from pathlib import Path
 import pytest
 
 import causal_response_tensor_v1_fit_lifecycle as lifecycle
+from test_bilin18_observed_model_facade import tiny_model
 
 
 def _redirect_namespace(monkeypatch, root: Path) -> None:
@@ -195,3 +196,155 @@ def test_independent_audit_must_be_exact_source_bound_go(monkeypatch, tmp_path):
     lifecycle.AUDIT.write_text(json.dumps(bad))
     with pytest.raises(RuntimeError, match="not an exact execution GO"):
         lifecycle._stable_audit()
+
+
+def test_authority_semantic_reload_joins_every_protected_binding(monkeypatch, tmp_path):
+    _redirect_namespace(monkeypatch, tmp_path)
+    closure = {"commit": "1" * 40, "paths": {"a": "b" * 64}, "sha256": "c" * 64}
+    parents = {"weights_sha256": "d" * 64}
+    audit = {
+        "reviewer": "independent-test-auditor",
+        "audited_source_commit": closure["commit"],
+    }
+    monkeypatch.setattr(lifecycle, "verify_source_closure", lambda value: None)
+    monkeypatch.setattr(
+        lifecycle, "parent_snapshot_without_tensor_load", lambda: parents
+    )
+    monkeypatch.setattr(lifecycle, "_stable_audit", lambda: (audit, "e" * 64))
+    body = {
+        "schema": "causal_response_tensor_v1_fit_authority",
+        "status": "frozen_before_any_parent_tensor_or_bilin18_model_load",
+        "source_closure": closure,
+        "independent_audit": {
+            "path": str(lifecycle.AUDIT), "sha256": "e" * 64,
+            "reviewer": audit["reviewer"],
+        },
+        "parents": parents,
+        "protocol": lifecycle.protocol(),
+        "output_paths": lifecycle.output_paths(),
+        "outcome_access_before_authority": {
+            "parent_tensors_loaded": False, "model_loaded": False,
+            "model_forward_calls": 0, "scientific_outcomes_read": False,
+        },
+        "authorized_for_fit_execution": True,
+        "authorized_for_eval": False,
+    }
+    authority = {**body, "authority_sha256": lifecycle.logical_sha256(body)}
+    lifecycle.AUTHORITY.write_text(json.dumps(authority, sort_keys=True))
+    replay, artifact_sha256 = lifecycle.validate_fit_authority()
+    assert replay == authority
+    assert artifact_sha256 == lifecycle.file_sha256(lifecycle.AUTHORITY)
+
+    changed = dict(authority)
+    changed["authorized_for_eval"] = True
+    lifecycle.AUTHORITY.write_text(json.dumps(changed, sort_keys=True))
+    with pytest.raises(RuntimeError, match="schema or role changed"):
+        lifecycle.validate_fit_authority()
+
+
+def test_model_state_logical_hash_detects_and_replays_mutation():
+    model = tiny_model().eval()
+    for parameter in model.parameters():
+        parameter.requires_grad_(False)
+    before = lifecycle.model_state_sha256(model, require_production=False)
+    assert before == lifecycle.model_state_sha256(model, require_production=False)
+    with lifecycle.torch.no_grad():
+        first = next(model.parameters())
+        first.reshape(-1)[0] += 1
+    after = lifecycle.model_state_sha256(model, require_production=False)
+    assert after != before
+
+
+def _terminal_record(kind):
+    return {
+        "schema": "causal_response_tensor_v1_fit_terminal",
+        "kind": kind,
+        "authority_artifact_sha256": "a" * 64,
+        "authority_logical_sha256": "b" * 64,
+        "aggregate": {"bundle_present": kind == "receipt"},
+        "payload": {"status": "complete" if kind == "receipt" else "failed"},
+    }
+
+
+def test_success_terminal_and_receipt_are_one_create_only_inode(monkeypatch, tmp_path):
+    _redirect_namespace(monkeypatch, tmp_path)
+    claim = lifecycle.acquire_claim()
+    try:
+        digest = lifecycle._publish_terminal_record(
+            _terminal_record("receipt"), kind="receipt", claim=claim,
+            final_guard=lambda: None,
+        )
+        assert lifecycle.file_sha256(lifecycle.TERMINAL) == digest
+        assert lifecycle.file_sha256(lifecycle.RECEIPT) == digest
+        assert lifecycle.TERMINAL.stat().st_ino == lifecycle.RECEIPT.stat().st_ino
+        assert not lifecycle.FAILURE.exists()
+        with pytest.raises(RuntimeError, match="already spent"):
+            lifecycle._publish_terminal_record(
+                _terminal_record("failure"), kind="failure", claim=claim,
+                final_guard=lambda: None,
+            )
+    finally:
+        lifecycle.release_claim(claim)
+
+
+def test_failure_terminal_wins_the_same_aggregate(monkeypatch, tmp_path):
+    _redirect_namespace(monkeypatch, tmp_path)
+    claim = lifecycle.acquire_claim()
+    try:
+        digest = lifecycle._publish_terminal_record(
+            _terminal_record("failure"), kind="failure", claim=claim,
+            final_guard=lambda: None,
+        )
+        assert lifecycle.file_sha256(lifecycle.TERMINAL) == digest
+        assert lifecycle.file_sha256(lifecycle.FAILURE) == digest
+        assert lifecycle.TERMINAL.stat().st_ino == lifecycle.FAILURE.stat().st_ino
+        assert not lifecycle.RECEIPT.exists()
+    finally:
+        lifecycle.release_claim(claim)
+
+
+def test_second_link_failure_leaves_complete_recoverable_terminal(
+    monkeypatch, tmp_path
+):
+    _redirect_namespace(monkeypatch, tmp_path)
+    claim = lifecycle.acquire_claim()
+    original_link = lifecycle.os.link
+    calls = 0
+
+    def fail_second_link(source, target):
+        nonlocal calls
+        calls += 1
+        if calls == 2:
+            raise OSError("injected receipt link failure")
+        return original_link(source, target)
+
+    monkeypatch.setattr(lifecycle.os, "link", fail_second_link)
+    record = _terminal_record("receipt")
+    try:
+        with pytest.raises(OSError, match="injected receipt link failure"):
+            lifecycle._publish_terminal_record(
+                record, kind="receipt", claim=claim, final_guard=lambda: None,
+            )
+        assert json.loads(lifecycle.TERMINAL.read_text()) == record
+        assert not lifecycle.RECEIPT.exists()
+        assert not lifecycle.FAILURE.exists()
+    finally:
+        lifecycle.release_claim(claim)
+
+
+def test_fallible_guard_runs_before_any_terminal_link(monkeypatch, tmp_path):
+    _redirect_namespace(monkeypatch, tmp_path)
+    claim = lifecycle.acquire_claim()
+    try:
+        with pytest.raises(RuntimeError, match="late protected drift"):
+            lifecycle._publish_terminal_record(
+                _terminal_record("receipt"), kind="receipt", claim=claim,
+                final_guard=lambda: (_ for _ in ()).throw(
+                    RuntimeError("late protected drift")
+                ),
+            )
+        assert not lifecycle.TERMINAL.exists()
+        assert not lifecycle.RECEIPT.exists()
+        assert not lifecycle.FAILURE.exists()
+    finally:
+        lifecycle.release_claim(claim)

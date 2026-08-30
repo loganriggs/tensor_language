@@ -15,7 +15,10 @@ from pathlib import Path
 import secrets
 import subprocess
 import tempfile
+from collections.abc import Callable
 from typing import Any, Mapping, NamedTuple
+
+import torch
 
 import bilin18_observed_model_facade as facade
 import causal_response_tensor_v1_fit_inputs as fit_inputs
@@ -322,6 +325,142 @@ def build_authority_draft() -> dict[str, Any]:
         "authorized_for_eval": False,
     }
     return {**body, "authority_sha256": logical_sha256(body)}
+
+
+AUTHORITY_KEYS = {
+    "schema", "status", "source_closure", "independent_audit", "parents",
+    "protocol", "output_paths", "outcome_access_before_authority",
+    "authorized_for_fit_execution", "authorized_for_eval", "authority_sha256",
+}
+
+
+def validate_fit_authority() -> tuple[dict[str, Any], str]:
+    """Exact-reload the canonical authority and every protected non-outcome binding."""
+    authority, artifact_sha256 = stable_json(AUTHORITY)
+    if set(authority) != AUTHORITY_KEYS or authority.get("schema") != (
+        "causal_response_tensor_v1_fit_authority"
+    ) or authority.get("status") != (
+        "frozen_before_any_parent_tensor_or_bilin18_model_load"
+    ) or authority.get("authorized_for_fit_execution") is not True or (
+        authority.get("authorized_for_eval") is not False
+    ):
+        raise RuntimeError("FIT authority schema or role changed")
+    body = {key: value for key, value in authority.items() if key != "authority_sha256"}
+    if authority["authority_sha256"] != logical_sha256(body):
+        raise RuntimeError("FIT authority logical identity does not replay")
+    expected_access = {
+        "parent_tensors_loaded": False, "model_loaded": False,
+        "model_forward_calls": 0, "scientific_outcomes_read": False,
+    }
+    if authority["outcome_access_before_authority"] != expected_access or (
+        authority["protocol"] != protocol()
+        or authority["output_paths"] != output_paths()
+    ):
+        raise RuntimeError("FIT authority protocol or output namespace changed")
+    verify_source_closure(authority["source_closure"])
+    if authority["parents"] != parent_snapshot_without_tensor_load():
+        raise RuntimeError("FIT authority parent binding changed")
+    audit = authority["independent_audit"]
+    if type(audit) is not dict or set(audit) != {"path", "sha256", "reviewer"} or (
+        audit["path"] != str(AUDIT)
+    ):
+        raise RuntimeError("FIT authority independent-audit binding changed")
+    replay_audit, replay_audit_sha256 = _stable_audit()
+    if replay_audit_sha256 != audit["sha256"] or (
+        replay_audit["reviewer"] != audit["reviewer"]
+        or replay_audit["audited_source_commit"] != authority["source_closure"]["commit"]
+    ):
+        raise RuntimeError("FIT authority independent audit does not replay")
+    return authority, artifact_sha256
+
+
+def model_state_sha256(
+    model: torch.nn.Module, *, require_production: bool = True,
+) -> str:
+    """Hash the exact named tensor tree, independent of torch serialization bytes."""
+    if not isinstance(model, torch.nn.Module):
+        raise TypeError("FIT model state owner must be a torch module")
+    if require_production:
+        facade.validate_production_model(model)
+    state = model.state_dict()
+    if not state:
+        raise RuntimeError("FIT model state is empty")
+    records: list[list[object]] = []
+    for name in sorted(state):
+        value = state[name]
+        if type(name) is not str or type(value) is not torch.Tensor:
+            raise TypeError("FIT model state contains a noncanonical entry")
+        owned = value.detach().cpu().contiguous()
+        records.append([
+            name, str(owned.dtype), list(owned.shape),
+            fit_inputs.tensor_sha256(owned),
+        ])
+    return logical_sha256(records)
+
+
+def _fsync_parent_best_effort(path: Path) -> None:
+    descriptor: int | None = None
+    try:
+        descriptor = os.open(path.parent, os.O_DIRECTORY)
+        os.fsync(descriptor)
+    except OSError:
+        # The create-only hard link is already the authoritative transition.
+        pass
+    finally:
+        if descriptor is not None:
+            try:
+                os.close(descriptor)
+            except OSError:
+                pass
+
+
+def _publish_terminal_record(
+    record: Mapping[str, Any], *, kind: str, claim: RunClaim,
+    final_guard: Callable[[], None],
+) -> str:
+    """Publish one self-contained terminal record, then its receipt/failure link.
+
+    ``TERMINAL`` and the selected target are hard links to the same fully staged JSON
+    inode. Thus even an exceptional failure of the second link leaves a complete,
+    hash-bound terminal record rather than a claim that points to absent payload bytes.
+    """
+    if kind not in ("receipt", "failure") or not callable(final_guard):
+        raise ValueError("FIT terminal publication kind or guard is malformed")
+    target = RECEIPT if kind == "receipt" else FAILURE
+    opposite = FAILURE if kind == "receipt" else RECEIPT
+    if type(record) is not dict or set(record) != {
+        "schema", "kind", "authority_artifact_sha256",
+        "authority_logical_sha256", "aggregate", "payload",
+    } or record.get("schema") != "causal_response_tensor_v1_fit_terminal" or (
+        record.get("kind") != kind
+    ):
+        raise RuntimeError("FIT terminal record schema or kind changed")
+    for name in ("authority_artifact_sha256", "authority_logical_sha256"):
+        value = record[name]
+        if not isinstance(value, str) or len(value) != 64 or any(
+            character not in "0123456789abcdef" for character in value
+        ):
+            raise RuntimeError("FIT terminal authority binding is malformed")
+    if type(record["aggregate"]) is not dict or type(record["payload"]) is not dict:
+        raise RuntimeError("FIT terminal aggregate or payload is malformed")
+    temporary, digest = _stage_json(record, target)
+    try:
+        final_guard()
+        require_claim(claim)
+        if TERMINAL.exists() or target.exists() or opposite.exists():
+            raise RuntimeError("FIT terminal aggregate is already spent")
+        # Serialization point shared by success and failure. The record itself is the
+        # complete payload, so terminal-only remains semantically recoverable.
+        os.link(temporary, TERMINAL)
+        _fsync_parent_best_effort(TERMINAL)
+        os.link(temporary, target)
+        _fsync_parent_best_effort(target)
+        return digest
+    finally:
+        try:
+            temporary.unlink(missing_ok=True)
+        except OSError:
+            pass
 
 
 def _stage_json(value: Mapping[str, Any], target: Path) -> tuple[Path, str]:
