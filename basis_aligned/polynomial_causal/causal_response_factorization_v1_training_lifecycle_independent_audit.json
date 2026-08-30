@@ -1,9 +1,9 @@
 {
-  "approved": false,
-  "audited_source_commit": "9428c022ed3a1cc0056324c43166164b7f29a2db",
+  "approved": true,
+  "audited_source_commit": "88c21f920ad44bdbf6c12a0ecbe3858320d941f6",
   "audited_source_hashes": {
     "basis_aligned/polynomial_causal/CAUSAL_RESPONSE_FACTORIZATION_V1_AMENDMENT_1.md": "cf8b9e3dce807a94183d8314e4bba14e1f01ff3aa579d8648c680dc385540768",
-    "basis_aligned/polynomial_causal/CAUSAL_RESPONSE_FACTORIZATION_V1_AMENDMENT_10.md": "9ab8407b2dacc13acd4ea4fab109b77fbe6caae68ba850c23294ce5d480d26f5",
+    "basis_aligned/polynomial_causal/CAUSAL_RESPONSE_FACTORIZATION_V1_AMENDMENT_10.md": "5ed5c75422380d68872d5908720604194dd5385cd46cdf93e83743129439388a",
     "basis_aligned/polynomial_causal/CAUSAL_RESPONSE_FACTORIZATION_V1_AMENDMENT_2.md": "9819b5b5486ccdcd57747bf36d3e4862aba827dbc52ff8cc49e6209b938d0017",
     "basis_aligned/polynomial_causal/CAUSAL_RESPONSE_FACTORIZATION_V1_AMENDMENT_3.md": "6ffaf88efe3e5c2711c2c3d136136d2f12d7d0040ca597da06ff3907ff7e3dae",
     "basis_aligned/polynomial_causal/CAUSAL_RESPONSE_FACTORIZATION_V1_AMENDMENT_4.md": "055b7d214df74d428983782a080224bdc44766c8e77d9eb5d79582850f6e8c15",
@@ -17,10 +17,10 @@
     "basis_aligned/polynomial_causal/causal_response_factorization_v1.py": "8af3e8c4987b15d8da5413f2998452ea7064779ad648c17c0d9269fd7ed0f881",
     "basis_aligned/polynomial_causal/causal_response_factorization_v1_accelerated.py": "04ed10232a8b36f5d5e18fe9777539e41201feecea0e6e1a795822ffa0b0ff6d",
     "basis_aligned/polynomial_causal/causal_response_factorization_v1_fit_adapter.py": "5cc4f0ea628e5f9aac6c475517b5c4d7fbc6205e2c4a681bafd90e1e5f7b5c0a",
-    "basis_aligned/polynomial_causal/causal_response_factorization_v1_parent_binding.py": "e3dd090d8c1e4e1b1d1261aae2be7799319bb282e3bb0598b51946a238e7f365",
+    "basis_aligned/polynomial_causal/causal_response_factorization_v1_parent_binding.py": "288d7486dbbe246e27d6596c490dbec47ad52be0232fa73ffe5c067c1ed4109d",
     "basis_aligned/polynomial_causal/causal_response_factorization_v1_training_input.py": "0f87bd4346f086c8299d6a2c55665d658ad1eeda9731d48f4f7d75e4aca1183b",
     "basis_aligned/polynomial_causal/causal_response_factorization_v1_training_lifecycle.py": "ac94e3293ed03428038cb708f39fe80f20e60b1df80722763117f5777f879882",
-    "basis_aligned/polynomial_causal/causal_response_factorization_v1_training_loader.py": "574391906682ba27fa56ee66ecd2e5494acc8bff63a467fd715269cfe76bc264",
+    "basis_aligned/polynomial_causal/causal_response_factorization_v1_training_loader.py": "551a293649e1a17ad0157f75fa1042c78b9c13053637eb1088b7a2708c349fe5",
     "basis_aligned/polynomial_causal/causal_response_factorization_v1_training_snapshot.py": "2b4cf9b889ec5c5587f9910b76d64dae6da31b03fc5eef1517167a7a2128d3b2",
     "basis_aligned/polynomial_causal/causal_response_tensor_collection.py": "a48fa3d35fdd280254563f83b6482bdaa7660d8dcc8a8c649d4b3fe5881bbd8f",
     "basis_aligned/polynomial_causal/causal_response_tensor_v1_backend.py": "bb454120fdbd794b28aaf0416a076d53e268086f330abd822c3f78b955abdcfc",
@@ -31,18 +31,16 @@
     "basis_aligned/polynomial_causal/test_causal_response_factorization_v1_parent_binding.py": "8976ccaaff413628047f5ee15b10096871dcf835740debc77c751f92cb6d02e7",
     "basis_aligned/polynomial_causal/test_causal_response_factorization_v1_training_input.py": "5ce81fcebcc21930484441d1ec52f56d9253f1eeacd7d42fc90824a6ae8fa0ef",
     "basis_aligned/polynomial_causal/test_causal_response_factorization_v1_training_lifecycle.py": "69d18f1a74b759ef750e22de503bd483919dd05c3e954e7296182eef1d45d43e",
-    "basis_aligned/polynomial_causal/test_causal_response_factorization_v1_training_loader.py": "051cc7c775b8c11a2e64f8ef3695855f9fe757ba93cb0eff74b52bd4ff4b93dd",
-    "basis_aligned/polynomial_causal/test_causal_response_factorization_v1_training_snapshot.py": "1dd4fac80cf27800bbb4793c64724e296d0554b18f49f84eeb8d91c3f281e599",
+    "basis_aligned/polynomial_causal/test_causal_response_factorization_v1_training_loader.py": "d814ac446a83d2eb57cea867ad268ce802cf60a8bfefeba0ec2fc7df16613b24",
+    "basis_aligned/polynomial_causal/test_causal_response_factorization_v1_training_snapshot.py": "4c1b8937c8639bb8c053de63beaeb4d7dd5b50267772e29ac2d07bccfd5ac37f",
     "basis_aligned/polynomial_causal/test_causal_response_tensor_v1_fit_bundle.py": "e7b041f290882c9cb1d31a152ceb29f8603a1df5cb592a00ddd4e9ece3038e95",
     "jacclust/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "jacclust/tt_model.py": "49ecdbd6c060ff5b3e57f3134d87ba32841390c891c42e6ae23b71d8627612b2"
   },
-  "remaining_execution_blockers": [
-    "The Amendment-10 opened-inode exclusion is applied only after parent._stable_record has read the complete opened bundle, manifest, or receipt bytes. The protected inode is rejected before torch deserialization, but it is not rejected before the first os.read; therefore a synthetic path switched to a production inode still opens and reads protected production bytes, and the committed regression that proves the late rejection cannot itself be run under the stricter unopened-production audit contract. The descriptor identity must be checked against every protected production role immediately after open/fstat and before the first read."
-  ],
+  "remaining_execution_blockers": [],
   "outcome_access": false,
   "reviewer": "OpenAI Codex independent training-lifecycle auditor /root/balance_sheet_audit",
   "schema": "causal_response_factorization_v1_training_lifecycle_independent_audit",
-  "status": "NO-GO",
-  "tests_passed": 84
+  "status": "GO",
+  "tests_passed": 77
 }
