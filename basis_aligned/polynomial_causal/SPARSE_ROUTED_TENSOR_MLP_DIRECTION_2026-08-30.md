@@ -436,7 +436,81 @@ This order uses tensor similarity for what it certifies best—global, symmetry-
 functional agreement of a tractable multilinear object—while using CE and finite causal
 tests for the distributional and non-multilinear parts it deliberately does not certify.
 
-## 7. Mandatory toy-model gate for this and future mathematics
+## 7. 03:05 UTC update — the first genuinely storage-smaller width frontier
+
+The prospectively frozen $P=512,k=32$ candidate has now completed FIT/SELECT and failed
+its admission gate.  On 96 unseen SELECT documents (18,432 scored positions),
+
+$$
+CE_{native}=2.959766,\qquad CE_{zero}=4.011502,\qquad CE_{512}=3.101662,
+$$
+
+so its recovered fraction of the MLP1-Down loss is
+
+$$
+R_{CE}(512)=
+\frac{CE_{zero}-CE_{512}}{CE_{zero}-CE_{native}}
+=0.865084 < 0.90.
+$$
+
+Here `zero` deletes only the bias-free MLP1 Down action.  The native `Down_bias`,
+Left/Right maps, all 4,608 bilinear products, residual stream, and downstream model stay
+live.  All three seeds converged to SELECT output $R^2\approx0.621$ with standard
+deviation $0.000216$, so random initialization is not the explanation.  FINAL was not
+opened and no MLP0×MLP1×MLP2 factorial was run.
+
+The old $0.9384$ result is not a direct contradiction.  It used $P=2048$, one seed,
+96 fit and 48 adjacent FineWeb evaluation rows, all token positions, and an unpinned
+historical runtime.  More importantly, it stores
+
+$$
+2048(4608+1152)+1152=11,797,632
+$$
+
+reals, or $2.222$ times the native Down matrix.  It is evidence that a large bank can
+be sparse *per token*, not evidence that this bank is a smaller stored program.
+
+To distinguish insufficient capacity from a wrong representation, a discovery-only
+$P=768,k=32$ run reused the already opened FIT/SELECT roles, never touched FINAL, and
+finished in 97.33 seconds.  It obtained
+
+$$
+R^2_{SELECT}=0.639748,\qquad
+CE_{768}=3.080967,\qquad
+R_{CE}(768)=0.884761.
+$$
+
+Thus 50% more atoms improve output $R^2$ by $0.01854$ and CE recovery by $0.01968$,
+removing $0.02070$ nat of the P512 error.  But the program needs 1,474,560 extra stored
+reals and still misses 0.90 by 1.524 percentage points.  Its literal price is:
+
+- 4,424,832 stored reals, leaving only 883,584 reals or 5.548% of complete MLP1 storage
+  removed;
+- 3,575,808 score-plus-sparse-decode multiplies per token, before TopK comparisons,
+  indices, and intercept addition;
+- all native Left/Right and 4,608 Hadamard products still execute.
+
+$P=896$ would leave only 146,304 reals, or 0.919% of full MLP1, removed before router
+metadata.  It may improve fidelity, but it has too little remaining simplicity payoff
+to be the next experiment.  Therefore the width-only Down family is demoted: no fresh
+confirmation or factorial is justified by the present discovery result.
+
+The next tensor-native question moves the compression boundary earlier.  Fold each
+detector $e_a$ into
+
+$$
+Q_a=\tfrac12\left(L^T\operatorname{diag}(e_a)R+
+R^T\operatorname{diag}(e_a)L\right),
+$$
+
+then ask whether the routing score $x^TQ_ax$ has a low-rank bilinear implementation
+that preserves TopK support and CE without first constructing all native products.
+The known-answer toy already verifies this fold exactly, including gauge symmetries,
+amplitude-sensitive tensor distance, hybrid tensor/CE optimization, and the fact that a
+wrong router can fail despite an identical atom bank.  The real-model screen must now
+measure low-rank score error, TopK agreement, physical CE, and complete storage/compute
+at ranks 1/2/4/8 before training any hierarchy or DAG.
+## 8. Mandatory toy-model gate for this and future mathematics
 
 No new mathematical objective should first be debugged on bilin18. Before a method can
 produce real-model evidence it must pass a small known-answer model covering:
