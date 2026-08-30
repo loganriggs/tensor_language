@@ -478,3 +478,15 @@ later per-rung backlog edits had silently anchored on text that was not here.
     Bars when built: pred_a median gain over real-model-metric selection
     >= +0.02; pred_b >= 6/8 windows non-negative; pred_c the real-model
     arm reproduces §2124's +0.086 median within 0.01.
+    -> ops/cfge_conditioned_fisher.py [QUEUED 20:44Z] (also measures the
+    evalT inherited-attnd-label instrument question on window 0)
+
+37. EXTEND THE CONDITIONED SELECTION TO ALL SIX CP MIDDLES. §2129 selects
+    only mlp4/mlp5; c6-c9 stay norm-selected, and §2106/§2107 found
+    REAL-model metric selection there hurts on cfgE (genuine null). Three
+    arms (norm / conditioned mlp45 / conditioned mlp4-9), asm Fisher
+    collected at sites 5-10, eight-window scoring.
+    pred_a median [L2_F_w(all) - L2_F_w(mlp45)] >= +0.02; pred_b >= 6/8
+    non-negative; pred_c mlp45 arm reproduces §2129's +0.0481 within
+    0.015 (CUDA-atomics wobble ~0.003).
+    -> ops/frontier_asm_alllayers.py [QUEUED 20:44Z]
