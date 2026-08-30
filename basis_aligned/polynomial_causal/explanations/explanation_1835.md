@@ -114,3 +114,16 @@ strongest reader of the eight directions that price everything else.
 - **Corrected:** "rel-MSE is wrong by ~4×" holds *inside attn5* (the sink head); across the assembly's thirteen
   compressed pieces, own-output error energy ranks CE recovery at ρ = 0.81 (§2117). The registry's rel-MSE
   priorities are not licensed to be re-ordered by the head-grain result.
+
+## UPDATE 2 — 19:35 UTC (§2125–§2127)
+
+- **The certified selector does not install into the §312 frontier** (§2125): published +2.6735 reproduced
+  exactly; the fisher8 arm is worse (−0.048 fresh, −0.025 C) with matched-context refits throughout. Reading:
+  the eight were computed for the *real* readers; the frontier's deployed readers are dictionaries. The gain
+  stands certified as cfgE-specific; rung 32 (assembly-conditioned Fisher) is the falsifiable repair.
+- **The sink-head scalar closes negative** (§2126): s* = 1.095 — cfgE *under*-drives head 5.7, the opposite
+  sign to §1818's compiled-program 159× — and buys 0.015 of the head's 0.28-nat oracle. Per-head scale
+  corrections are not a lever; the scale error belongs to the front's stream.
+- **The m16 two-number interface fails** (§2127): held-out R² 0.069 against a 0.5 bar — m16's per-document
+  response varies in shape, not two amplitudes. No cheap measured interface; the block stays the priced
+  unexplained remainder.

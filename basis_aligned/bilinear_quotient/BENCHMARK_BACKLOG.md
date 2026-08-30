@@ -431,3 +431,7 @@ later per-rung backlog edits had silently anchored on text that was not here.
     2 calibration arms. -> ops/m16_two_number_interface.py [QUEUED]
     pred_a median held-out R^2 (all cells) >= 0.5; pred_b two arms >= 0.8 x
     all-cells; pred_c mean-code and permuted-code baselines <= 0.1.
+    RUN 2026-08-30, §2127: (a) FAILED 0.069, (b) FAILED 0.044, (c) HELD.
+    Fixed profiles x 2 numbers do not carry the block: m16's per-document
+    response varies in SHAPE. Candidate C CLOSED — no cheap measured
+    interface; the m16 block stays the priced unexplained remainder.

@@ -63331,3 +63331,22 @@ pred_c FAILED (+0.0166 median on two fresh windows: +0.031 and +0.002).**
   (which positions get the vector), not scale.
 - Scored as written; the rung closes as a clean negative with one reusable fact: **per-head scale corrections are
   not a lever for this assembly.**
+
+## §2127 — RUNG 34: THE TWO-NUMBER m16 INTERFACE FAILS AT ITS FIRST BAR. A per-document 2-coefficient code on fixed rank-2 source × rank-1 (phase,target) profiles captures a median held-out R² of 0.069 of the m16 block (bar 0.5); two arms give 0.044; the baselines confirm the code direction is real (mean 0.030, permuted −0.040) and tiny
+
+`ops/m16_two_number_interface.py`, **<1s CPU** after replay, BACKLOG rung 34. **pred_c HELD | pred_a FAILED | pred_b
+FAILED.** Price would have been 208 persistent + 2/document + 2 calibration arms; not earned.
+
+- **What §2098 did and did not establish, now sharp.** The document-stable object is the two-direction *source*
+  subspace of the pooled block. Within that subspace, the per-document (phase, target) structure is NOT a fixed
+  pair of profiles scaled by two numbers: fixing g_k(p,t) across documents leaves 93 % of the held-out block
+  unexplained. m16's per-document response varies in *shape* across its 98 (phase, target) cells, not just in two
+  amplitudes — consistent with §2100 (the two loadings correlate only 0.46) and with the validation table's
+  calibrated-arm failures at m16 even at 16 arms.
+- **The interface that would work is not a compression:** measuring per-document profiles is ~196 numbers per
+  document — the block itself. **Candidate C closes: m16 has no cheap measured interface in this grammar.** The
+  m16→∗ block stays what §2100 left it: the unexplained remainder, priced as such.
+- pred_c's small positives (mean-code 0.030 > permuted −0.040) match §2100's ~10 % shared component.
+
+**Day's closing state for the shared m16 target (rungs 10, 34):** basis stable, code private, no surface feature, no
+cheap measured interface. Every closure is a measured negative with its construction preserved.

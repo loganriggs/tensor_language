@@ -1,0 +1,30 @@
+{
+ "training_input_sha256": "0b359a560850b12427b0e3547e88d5b7e22b066aa0c8c25d92546c702071fafd",
+ "documents_scored": 115,
+ "calibration_arms": [
+  [
+   0,
+   5
+  ],
+  [
+   1,
+   1
+  ]
+ ],
+ "price": {
+  "persistent_values": 208,
+  "per_document_values": 2,
+  "calibration_arms": 2
+ },
+ "median_r2": {
+  "all_cells": 0.0688,
+  "two_arms": 0.0436,
+  "mean_code": 0.0295,
+  "permuted_code": -0.0403
+ },
+ "pred_a_two_numbers_carry_the_block": false,
+ "pred_b_two_arms_suffice": false,
+ "pred_c_code_is_needed": true,
+ "self_reviewed": true,
+ "runtime_s": 0.1
+}
