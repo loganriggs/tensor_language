@@ -62210,3 +62210,59 @@ leaves ~27% of leaf head-slots unnamed**, which is a real coverage limit rather 
 **Open.** §332's proposal is motifs **composed with value reads**, and only the motif half is tested here.
 Whether "prev-motif head at L, values carrying X" predicts a leaf's members is the next question, and it
 now has a target population: the prev-dominated leaves at a3, a4, a5, a17.
+
+## §2094 — §332's composition form FAILS at its first step: token identity does not predict leaf membership, in either position
+
+`ops/prev_token_composition.py`, CPU only, BACKLOG rung 8 (§2093's open question). **pred_a FAILED |
+pred_b FAILED | pred_c HELD VACUOUSLY.**
+
+§332 proposes mechanism conditions of the form "prev-motif head at L, values carrying X → **fires when
+previous token writes X**". §2093 found prev heads carry the census's whole motif signal (215 of 416 leaf
+top-2 slots), so the composition claim has a sharp cheap prediction: **leaves driven by prev heads should
+be characterised by the previous token.** Treatment is the 31 leaves whose *both* top-2 heads are prev
+(a4 26, a3 4, a2 1); control is the 24 with *no* prev head. (The "both diffuse" control I first sketched
+has exactly **one** leaf and was abandoned before running.)
+
+```
+  treatment (31 both-prev leaves), held-out AUC of a per-token-id membership predictor:
+     previous token   min 0.4761   median 0.5086   max 0.5382
+     current  token   min 0.4737   median 0.5130   max 0.5414
+     leaves with EITHER AUC >= 0.60:  0 / 31
+```
+
+> **pred_a FAILED at 0.5086 — chance.** The previous token does not predict membership at these leaves at
+> all, and **neither does the current token (0.5130)**. Not one of the 31 leaves reaches 0.60 on either.
+> **§332's proposed form cannot express these leaves**: a condition of the shape "fires when the previous
+> token is X" has no purchase on membership that is, to this instrument, independent of local token
+> identity.
+
+**pred_b FAILED at 41.9%** — prev beats current for fewer than half the treatment leaves, which is what
+"both are chance" looks like.
+
+**pred_c HELD AND I AM DISCOUNTING IT.** It asked whether the prev-over-current advantage is larger in
+treatment (−0.0058) than control (−0.0261), and technically it is. **But both advantages are negative and
+within noise of zero, and they are differences between two chance-level predictors** — the same malformed
+shape §2082 hit when a statistic was computed over quantities that did not support it. **A predicate that
+passes by comparing two nothings is not evidence**, and I am recording it as passed-as-written and
+carrying no weight rather than counting it toward the rung.
+
+**This connects to §348 and makes sense of the negative.** §348 found **every** census circuit is a
+two-signed policy with a substantial minority sign. Membership defined by an activation-space PCA band is
+a statement about *context-dependent* structure; a unigram token predictor averages over exactly the
+contrast that defines these leaves, so chance-level AUC is what the census's own established structure
+predicts. **The negative is consistent with the record rather than anomalous.**
+
+**Scope, and it is a real limit on this refutation.** The predictor is a **per-token-id lookup** — the
+simplest possible form of "the previous token writes X". **Token PAIRS, token classes, or
+position-conditioned features are untested**, and §332's "values carrying X" may well have meant a
+richer read than token identity. **What is refuted is the simplest and most literal reading of the
+proposed form, on the population where it should have been strongest.**
+
+**Where rung 8 now stands.** Precondition met (§2092: bands are head-concentrated, 208/208). Vocabulary
+partly right (§2093: motifs over-represented at 1.14x, z = 4.46, prev carrying it). **Composition, in its
+literal token form, refuted (here).** The rung is not closed — a richer value-read feature is the
+untested route — but the cheap and obvious version of §332's proposal does not work.
+
+**Open.** If anyone takes the richer route, the honest bar is set by this run: **a token-class or
+token-pair feature must beat 0.5086 by enough to matter**, and the population to try it on is the same 31
+leaves, where the head identities are unambiguous and the simple version has already been measured.

@@ -127,3 +127,27 @@ saturated". A wake with an empty queue must pull from this file first.
    reads (e.g. "prev-motif head at L, values carrying X -> fires when
    previous token writes X"). Design before running; this is the ladder
    rung for the census majority.
+
+   **PROGRESS 2026-08-30, §2091-§2094 -- precondition met, vocabulary partly
+   right, literal composition form REFUTED.**
+     - **§2091**: framing confirmed (234/311 leaves attention-probed) but
+       MIS-GRAINED -- only 24 are head-probed, 208 are component PCA bands, and
+       motifs are head-level objects. (Its own control failed; LESSON 111.)
+     - **§2092**: precondition MET -- the census's real probe bands are more
+       head-concentrated than arbitrary directions at the same component, for
+       **208/208 leaves**, median **+0.1590** above each leaf's own baseline.
+     - **§2093**: vocabulary PARTLY right -- motif-named heads over-represented
+       at **1.1449x** (fails a registered 1.20x effect-size bar; clears the
+       permutation null at **z = 4.46, p = 0.00005**). **PREV carries it: 215 of
+       416 leaf top-2 slots**, against ind's 13. a6 and a9 run backwards.
+     - **§2094**: the literal composition form **FAILS**. On the 31 leaves whose
+       both top-2 heads are prev, a per-token-id membership predictor scores
+       **0.5086 held-out AUC for the previous token and 0.5130 for the current**
+       -- chance, with **0 of 31** leaves reaching 0.60 on either. "Fires when
+       the previous token writes X" has no purchase. Consistent with §348: every
+       census circuit is two-signed, and a unigram predictor averages over the
+       contrast that defines the leaf.
+   **NOT CLOSED.** Refuted is the simplest literal reading; token PAIRS, token
+   classes and position-conditioned features are untested, and §332's "values
+   carrying X" may have meant a richer read. **Bar for any richer attempt: beat
+   0.5086 by enough to matter, on the same 31 leaves.**
