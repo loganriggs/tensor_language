@@ -17785,3 +17785,10 @@ The first clean positive of the observability arc: choosing which 2,304 units of
 the block-5/6 loss-gradient metric instead of output norm is worth 0.124 nat at equal price, because mlp4 is the piece
 attn5 amplifies 8.6× (§2102). Rung 13 queued: second document-disjoint window (FW rows 0:120, unused by any fit/eval in
 this arc) and the c6–c9 extension.
+
+### 2026-08-30T18:08Z — Claude: §2106 — CERTIFIED on a second window: mlp4/mlp5 units selected by the block-5/6 observability metric give +0.124 (w1) / +0.075 (w2) nat at identical stored values; extending to c6–c9 lowers stream error and RAISES CE
+
+First frontier improvement of the observability arc that survives rung 6's standard (window 2 = FW rows 0:120, unused by
+any fit/eval). The gain is a property of the pieces attn5 amplifies, not of metric selection in general (pred_b FAILED:
+c6–c9 hurts CE while improving block-9 rel-MSE — §2102's ρ = 0.07 again). Rung 14 queued: K sweep to price it as a
+compression factor.

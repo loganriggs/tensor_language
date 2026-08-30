@@ -62666,3 +62666,30 @@ closes the remaining 0.9 of the 1.4 nat that §2103 says is recoverable at block
 **Consequence.** A metric-selected CP unit set is a strictly better stand-in for mlp4/mlp5 at equal price, and the same
 construction applies unchanged to the plain CP middles c6–c9 and to any future top-K unit program. Two things before it
 is a frontier number: a second document-disjoint window (rung 6), and the c6–c9 extension. Both are queued as rung 13.
+
+## §2106 — RUNG 13: the metric unit selection CERTIFIES on a second window (+0.075 nat on rows never used by any fit or eval; +0.124 reproduced on window 1), and extending it to c6–c9 does NOT help (it lowers block-9 stream error and raises CE). The gain is specific to the pieces attn5 amplifies
+
+`ops/metric_units_certify.py`, **120s**, BACKLOG rung 13. **pred_d HELD (1.7415) | pred_c HELD (0.1240 vs 0.1241) | pred_a
+HELD | pred_b FAILED.** Window 1 = R0:R1 (the §2086 evaluation rows), window 2 = FW rows 0:120, untouched by every fit
+(CA:CB = 300:512) and evaluation in this arc.
+
+```
+  arm                CE gap w1   gain w1    CE gap w2   gain w2    rel-MSE b5     b6     b7     b9     b17
+  cfgE               +1.5808       --        +1.9068      --       0.783  1.742  1.688  1.185  0.593
+  metric-units c4,c5 +1.4568    +0.1240      +1.8315   +0.0753     0.749  1.411  1.386  1.010  0.566
+  metric-units c4-c9 +1.4661    +0.1147      +1.8661   +0.0407     0.749  1.411  1.369  0.953  0.563
+```
+
+- **pred_a HELD: it transfers.** +0.075 on a window no number in this arc has touched, against a bar of 0.062 (half of
+  window 1). Window 2 is harder text (gap 1.91 vs 1.58), and the gain is 4 % of the gap there against 8 % on window 1 —
+  smaller in proportion, positive, above bar. **This is the first frontier improvement in the observability arc that
+  survives rung 6's standard: mlp4/mlp5 units selected by the block-5/6 observability metric, equal stored values,
+  +0.124 / +0.075 nat on two document-disjoint windows.**
+- **pred_b FAILED, informatively.** Metric selection at c6–c9 *lowers* block-9 rel-MSE (1.01 → 0.95) and *raises* CE on
+  both windows (−0.009 and −0.035 relative to c4/c5 only). Stream error and CE part ways again (§2102's ρ = 0.07); the
+  first-order metric at blocks 7–10 chooses units that reduce measured stream error in directions the loss does not
+  actually reward. The gain is a property of **the pieces attn5 amplifies**, not of metric selection in general.
+
+**Standing frontier note (this window family, not the +2.93 fresh-pile number):** the certified empirical arm improves
+by 0.124 / 0.075 nat at identical price by re-selecting mlp4/mlp5 units. Next: price it — does metric selection at
+K = 2,304 match norm selection at a larger K (a compression factor), and where does the gain saturate in K?
