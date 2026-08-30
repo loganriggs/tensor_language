@@ -1,6 +1,6 @@
 {
   "approved": false,
-  "audited_source_commit": "89b6581600ba500453d96397e889ea3d514d81a4",
+  "audited_source_commit": "cdb7b30ff97c4dd52799b022d68cf3304064ca25",
   "audited_source_hashes": {
     "basis_aligned/polynomial_causal/CAUSAL_RESPONSE_FACTORIZATION_V1_AMENDMENT_1.md": "cf8b9e3dce807a94183d8314e4bba14e1f01ff3aa579d8648c680dc385540768",
     "basis_aligned/polynomial_causal/CAUSAL_RESPONSE_FACTORIZATION_V1_AMENDMENT_2.md": "9819b5b5486ccdcd57747bf36d3e4862aba827dbc52ff8cc49e6209b938d0017",
@@ -8,6 +8,7 @@
     "basis_aligned/polynomial_causal/CAUSAL_RESPONSE_FACTORIZATION_V1_AMENDMENT_4.md": "055b7d214df74d428983782a080224bdc44766c8e77d9eb5d79582850f6e8c15",
     "basis_aligned/polynomial_causal/CAUSAL_RESPONSE_FACTORIZATION_V1_AMENDMENT_5.md": "8902bba99446f05688864668eba29302dbfc35cfb0799568703693f42dfb55e7",
     "basis_aligned/polynomial_causal/CAUSAL_RESPONSE_FACTORIZATION_V1_AMENDMENT_6.md": "5a125a81d6d72111d3903aa9fd3411d1f7ba41482f0c504cf2a966ec822c59ec",
+    "basis_aligned/polynomial_causal/CAUSAL_RESPONSE_FACTORIZATION_V1_AMENDMENT_7.md": "d797e03d2e90ff1d368b54cd26a14c1bdfd67c952a0836e884bc09ab04a74c79",
     "basis_aligned/polynomial_causal/CAUSAL_RESPONSE_FACTORIZATION_V1_PREREGISTRATION.md": "2782866d8fdd1ca5abb3de4348534ceefadddb42a19ec17a756dd6017c89ffba",
     "basis_aligned/polynomial_causal/bilin18_observed_model_facade.py": "b62947f772c807259890a9d09dfcbe5e91ad339a0bffa867ab99177fde4c728c",
     "basis_aligned/polynomial_causal/causal_response_factorization_v1.py": "8af3e8c4987b15d8da5413f2998452ea7064779ad648c17c0d9269fd7ed0f881",
@@ -15,8 +16,8 @@
     "basis_aligned/polynomial_causal/causal_response_factorization_v1_fit_adapter.py": "5cc4f0ea628e5f9aac6c475517b5c4d7fbc6205e2c4a681bafd90e1e5f7b5c0a",
     "basis_aligned/polynomial_causal/causal_response_factorization_v1_parent_binding.py": "e3dd090d8c1e4e1b1d1261aae2be7799319bb282e3bb0598b51946a238e7f365",
     "basis_aligned/polynomial_causal/causal_response_factorization_v1_training_input.py": "0f87bd4346f086c8299d6a2c55665d658ad1eeda9731d48f4f7d75e4aca1183b",
-    "basis_aligned/polynomial_causal/causal_response_factorization_v1_training_lifecycle.py": "5d3957e952a7d9bab11c14a512abefc417ddfc0aaf81347241e9c840319cfe0a",
-    "basis_aligned/polynomial_causal/causal_response_factorization_v1_training_loader.py": "7a9f9894a0e1173988740cdd60df4585358f0d7d1b4e0773cf9b287fe02c2fce",
+    "basis_aligned/polynomial_causal/causal_response_factorization_v1_training_lifecycle.py": "d7f395dd8b98384d796ea75ff5fbd4547753d66793c6849205e8705a18c8a412",
+    "basis_aligned/polynomial_causal/causal_response_factorization_v1_training_loader.py": "61160843a1cdc971b136e97acd31df28635f64d9c170666df024881c65751475",
     "basis_aligned/polynomial_causal/causal_response_tensor_collection.py": "a48fa3d35fdd280254563f83b6482bdaa7660d8dcc8a8c649d4b3fe5881bbd8f",
     "basis_aligned/polynomial_causal/causal_response_tensor_v1_backend.py": "bb454120fdbd794b28aaf0416a076d53e268086f330abd822c3f78b955abdcfc",
     "basis_aligned/polynomial_causal/causal_response_tensor_v1_fit_bundle.py": "a63ad13a0f23589ca32da7b554ef76cf2338d498badfd14d5f0638c5e4898583",
@@ -25,24 +26,22 @@
     "basis_aligned/polynomial_causal/test_causal_response_factorization_v1_fit_adapter.py": "5978a50e0812ce8c71f064adb244039995e4fd5fffd6732d3c347b0dddca24a8",
     "basis_aligned/polynomial_causal/test_causal_response_factorization_v1_parent_binding.py": "8976ccaaff413628047f5ee15b10096871dcf835740debc77c751f92cb6d02e7",
     "basis_aligned/polynomial_causal/test_causal_response_factorization_v1_training_input.py": "5ce81fcebcc21930484441d1ec52f56d9253f1eeacd7d42fc90824a6ae8fa0ef",
-    "basis_aligned/polynomial_causal/test_causal_response_factorization_v1_training_lifecycle.py": "768c31c3ac812364a79c482a620258a353827afd79296b48c25b4e56fe38751c",
-    "basis_aligned/polynomial_causal/test_causal_response_factorization_v1_training_loader.py": "d685264d8c8e6b7eff47f5dd48a81e48a71b481c7a13d04277785b55f5ccff3c",
+    "basis_aligned/polynomial_causal/test_causal_response_factorization_v1_training_lifecycle.py": "c69ce215718c67c2e6c1fbf3b3d2b57b91656fc53b9876f773b347a67cf54eef",
+    "basis_aligned/polynomial_causal/test_causal_response_factorization_v1_training_loader.py": "5fea26119e527397ff024d6ce920e813d168a626f2581b88ba31bfe1cf7198af",
     "basis_aligned/polynomial_causal/test_causal_response_tensor_v1_fit_bundle.py": "e7b041f290882c9cb1d31a152ceb29f8603a1df5cb592a00ddd4e9ece3038e95",
     "jacclust/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "jacclust/tt_model.py": "49ecdbd6c060ff5b3e57f3134d87ba32841390c891c42e6ae23b71d8627612b2"
   },
   "remaining_execution_blockers": [
-    "The receipt guard is a sequential aggregate, not an adjacent frozen snapshot: mutating authority after its final replay while the last FIT-parent replay returns still publishes a receipt bound to the stale authority digest.",
-    "The final publication order is protected replay, claim, claim, terminal-directory lookup, rename. Replacing the lock after the last claim but before rename still publishes a receipt, so claim verification is not adjacent to the serialization point.",
-    "os.rename is not create-only for directories: an empty rival terminal directory created after the existence check is replaced and the candidate receipt is published over it.",
-    "Fallible work remains after terminal-directory rename. An injected exception in the post-rename directory-sync helper makes the lifecycle raise while a complete receipt/terminal pair remains visible and no failure is published.",
-    "If authority publication links successfully but its post-link semantic replay raises, execute_training_input_v1 has not received the authority return value and publishes no failure, leaving an authority-only spent namespace.",
-    "Failure protected observation is sequential and has no terminal aggregate recheck: mutating authority after its final observation still publishes a failure whose protected_observation records stale bytes.",
-    "Synthetic-mode exclusion compares FitParentPaths lexically. Equivalent dot-dot path aliases to the exact production artifacts bypass the equality test and accept a caller-supplied authority mapping."
+    "Two sequential protected-aggregate sweeps are not a frozen terminal snapshot. Restoring authority before sweep two and mutating it again after sweep two observes it makes both sweeps equal the expected aggregate, then publishes a receipt whose bound authority digest differs from the live authority.",
+    "The same repeated-mutation schedule bypasses failure publication and produces a failure whose protected_observation records stale authority bytes.",
+    "Successful execute_training_input_v1 still performs LOCK.unlink in release_claim after renameat2. An injected unlink error propagates to the caller while a complete receipt/terminal pair remains visible and no failure exists, contradicting the no-fallible-operation-after-publication contract.",
+    "Resolved-path comparison does not identify hardlinks. A hardlink alias of the production bundle passes the synthetic loader gate and permits a caller-supplied synthetic authority to deserialize that bundle.",
+    "Synthetic exclusion compares each supplied role only with the corresponding production role. A production artifact supplied in a different FitParentPaths field is accepted instead of failing closed on any touch of the production parent family."
   ],
   "outcome_access": false,
   "reviewer": "OpenAI Codex independent artifact auditor /root/artifact_audit",
   "schema": "causal_response_factorization_v1_training_lifecycle_independent_audit",
   "status": "NO-GO",
-  "tests_passed": 79
+  "tests_passed": 85
 }
