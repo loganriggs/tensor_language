@@ -64165,3 +64165,19 @@ recovery per window +0.0095 … +0.0137).**
   induction form — match the CURRENT token's previous occurrence and read the stream just after it, i.e. where
   the successor token lives — or a multi-occurrence read); and m16 fights that retrieval while carrying subword
   continuation. Rung 66 tests the induction form, the single sharpest v2.
+
+## §2160 — RUNG 66: THE INDUCTION POINTER FAILS OUTRIGHT — slightly WORSE than the plain dictionary (−0.0024 median, negative on 8/8; only 4,293 fit positions vs the target-pointer's 10,348). Both single-pointer linear reads are now measured: attn16's retrieval is neither. pred_a/b FAILED, pred_c HELD. (Convention: L2 = CE above the real model; lower is better; recovery = full-arm damage − pointer-arm damage.)
+
+`ops/a16_induction.py`, **230s**, BACKLOG rung 66. **pred_c HELD (2.6664 vs 2.6662) | pred_a FAILED (−0.0024
+vs ≥ +0.05) | pred_b FAILED (0/8).**
+
+- **The classic induction form is not it:** matching the current token's previous occurrence and reading the
+  successor position's stream — fit on 4,293 positions, fired 53,176 times — makes every window slightly worse
+  than the class-linear map it replaces. Contrast §2158: the target-occurrence read was small but uniformly
+  positive (+0.011). The scoreboard for a16's ind-read: target-last-occurrence-linear +0.011; successor-of-
+  current-token-linear −0.002; per-position class-linear (the incumbent) 0 by definition; the real heads ~+0.21.
+- **What survives the two constructive failures:** the read is multi-occurrence, nonlinear, or addressed by
+  something richer than unigram matches. Registered next (one shot, per the one-v2 discipline extended once by
+  this new evidence): does the ind/other damage concentrate on positions whose current BIGRAM occurred earlier
+  (bigram-addressed copying)? If yes, a bigram pointer is licensed; if no, the constructive program at a16
+  pauses and the envelope stands as block-16's description.

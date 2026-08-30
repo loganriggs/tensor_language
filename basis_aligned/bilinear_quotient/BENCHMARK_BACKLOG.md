@@ -925,4 +925,18 @@ later per-rung backlog edits had silently anchored on text that was not here.
     interface. NULL (§2158): this too recovers ~0.01.
     pred_a median [L2_F_w(full) - L2_F_w(a16ind)] >= +0.05; pred_b
     >= +0.02 on >= 6/8; pred_c full reproduces §2144 (2.6662 within
-    0.01). Tripwire: pointer fires > 0. -> ops/a16_induction.py [QUEUED]
+    0.01). Tripwire: pointer fires > 0. -> ops/a16_induction.py
+    RUN 2026-08-30, §2160: pred_c HELD, pred_a/b FAILED — the induction
+    form is slightly WORSE (-0.0024, 0/8). Neither single-pointer linear
+    read is attn16's retrieval.
+
+67. IS THE a16 DAMAGE BIGRAM-ADDRESSED (attribution; signed-sum bars per
+    §2159's lesson; damage convention). Split the per-position a16L
+    damage (full vs skip-a16, FR) by whether the current bigram
+    (t[p-1],t[p]) occurred earlier in the document.
+    pred_a bigram-matched ind+other positions carry >= 0.6 of the
+    summed ind+other damage; pred_b mean damage on bigram-matched
+    >= 2 x mean on unmatched (within ind+other); pred_c skip-a16 arm
+    reproduces §2146 per-window (median |delta| <= 0.005). If pred_a/b
+    hold, ONE bigram-pointer rung is licensed; else the constructive
+    program at a16 pauses. -> ops/a16_bigram_split.py [QUEUED]
