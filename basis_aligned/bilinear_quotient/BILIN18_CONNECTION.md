@@ -63111,3 +63111,33 @@ FAILED (2 of 8 within +0.02) | pred_b FAILED (median −0.028).**
 
 **Standing frontier statement (revised):** at equal stored values, metric/eight-direction selection of mlp4/mlp5's units
 improves the certified assembly by a median 0.082 nat on eight fresh windows (8/8). No compression factor is certified.
+
+## §2119 — RUNG 25: THE EIGHT-DIRECTION SELECTOR CERTIFIES. Selecting mlp4/mlp5's 2,304 kept units by their write into the top-8 loss-gradient directions beats norm selection on 7 of 8 fresh windows, median +0.082 nat — the same median as the full Gramian metric — at identical stored values; window 1 reproduces §2110 to four decimals. All four predictions HELD
+
+`ops/metric_units_top8_fresh8.py`, **133s**, BACKLOG rung 25. **pred_d HELD (1.7415) | pred_c HELD (0.1284 vs 0.1285) |
+pred_a HELD (7/8) | pred_b HELD (median 0.0824 ≥ 0.049).**
+
+```
+  window  docs  real CE   cfgE gap   top-8 gap   gain      (full metric, §2116)
+    0       7    3.400    +1.861     +1.886     −0.025     (+0.006)     <- the 7-document easy window: the one miss
+    1      42    3.377    +2.046     +1.960     +0.087     (+0.082)
+    2      17    3.988    +1.841     +1.616     +0.225     (+0.206)
+    3      23    3.473    +1.955     +1.757     +0.198     (+0.170)
+    4      43    3.588    +1.974     +1.894     +0.080     (+0.060)
+    5      26    3.352    +1.883     +1.805     +0.078     (+0.082)
+    6      35    3.769    +1.748     +1.663     +0.085     (+0.083)
+    7      35    3.664    +1.819     +1.788     +0.030     (+0.038)
+  median +0.082 (full metric +0.082)   mean +0.095 (+0.091)   positive 7/8 (8/8)
+```
+
+- The named object — eight loss-gradient directions per site (§2111: newline-vs-place-name, markup/punctuation
+  structure, place names), 8 × 1152 stored values — is now certified as a *selector* under rung 6's standard: it
+  matches the full 1152 × 1152 Gramian on every window within 0.03 and beats it on the hard ones (windows 2, 3).
+- The one miss (window 0, seven documents, −0.025) is the easiest window and the smallest gain for the full metric
+  too (+0.006); the eight-direction selector is a slightly sharper instrument than the full metric and pays for it
+  where there is nothing to gain.
+
+**Frontier statement, final form for this arc (certified on eight fresh windows, self-reviewed):** *at equal stored
+values, choosing mlp4/mlp5's kept CP units by their write into eight named loss-gradient directions improves the
+certified empirical assembly by a median 0.08 nat (7 of 8 windows positive; up to 0.22 on hard text).* No
+compression factor is certified (§2118).

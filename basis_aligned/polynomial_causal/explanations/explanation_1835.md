@@ -103,3 +103,14 @@ strongest reader of the eight directions that price everything else.
 - result JSONs: `assembly_error_quotient`, `observable_correction`, `front_piece_amplification`,
   `metric_front_refit{,_split}`, `metric_units_{certify,ksweep,mechanism,mechanism2,top8}`, `name_the_eight`,
   `head7_amplifier`, `attn5_error_by_head`, `head_energy_vs_price` (all under `basis_aligned/bilinear_quotient/`)
+
+## UPDATE — 18:55 UTC (§2116–§2119)
+
+- **Certified on the eight fresh pile-10k windows of §2083:** the equal-price gain holds 8/8 (median +0.082 nat,
+  largest on the hardest text), and the **eight-direction selector** itself certifies at 7/8 with the same median.
+- **Withdrawn:** the "half the price at equal CE" statement in §4 above. On the eight windows, metric-selected units
+  at K = 1,152 are *worse* than norm-selected at 2,304 on six windows (median −0.028); §2107's two-window result
+  reproduced exactly and did not transfer. No compression factor is certified.
+- **Corrected:** "rel-MSE is wrong by ~4×" holds *inside attn5* (the sink head); across the assembly's thirteen
+  compressed pieces, own-output error energy ranks CE recovery at ρ = 0.81 (§2117). The registry's rel-MSE
+  priorities are not licensed to be re-ordered by the head-grain result.

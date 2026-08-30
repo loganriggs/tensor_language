@@ -344,6 +344,20 @@ AGENT_BOARD (2026-08-30 §2096 entry).
     [QUEUED]  pred_a top-8 gain > 0 on >= 7 of 8; pred_b median top-8 gain
     >= 0.6 x §2116's median 0.082; pred_c window-1 top-8 gain reproduces
     §2110's 0.1285 within 0.02; pred_d cfgE reproduces 1.7415.
+    RUN 2026-08-30, §2119: ALL FOUR HELD — 7/8 positive, median +0.082 (=
+    the full metric), window 1 0.1284. The eight-direction selector is
+    CERTIFIED at equal price.
+
+26. METRIC-CHOSEN TAIL SPANS (opened from §2117: the tail spans tie for the
+    largest single lever at 0.158, and the late-block metrics are large and
+    stable unlike blocks 1-4 where the residual bases failed). Choose each
+    tail MLP's rank-8 span as the top-8 directions of its output in the
+    metric-whitened space (site = the block after the MLP), mapped back;
+    random-metric control. -> ops/metric_tail_spans.py [QUEUED]
+    pred_a metric spans beat cfgE by >= 0.05 nat on window 1 (a third of
+    the tail's 0.158 oracle recovery); pred_b random-metric spans gain <=
+    0.02; pred_c the gain transfers to FW rows 0:120 at >= 0.025 (half);
+    pred_d cfgE reproduces 1.7415.
 
 BOOKKEEPING NOTE 2026-08-30 18:40Z: rungs 12-22 above were reconstructed from
 the ledger entries §2103-§2115 after a cwd slip appended §2103 and rung 12's
