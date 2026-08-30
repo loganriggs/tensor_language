@@ -97,6 +97,7 @@ B.run(
         ('pred_d_the_two_roughly_add',
          'and the two effects sum to within 1.0 milli-nat of the total (>=2 roles)', _the_two_roughly_add),
     ],
-    refs=[(S1959, B.PT + 'ops/the_minimal_path_results.json', 'full_program', LO, 0.0005)],
+    refs=[(S1959, B.PT + 'ops/the_converged_build_end_to_end_results.json', 'build_1959',
+           LO, 0.0005)],   # that artifact carries BOTH coverages; the_minimal_path has only 5,419
     paired_pairs=[(CONVERGED, S1959), (TABS, S1959), (MAPCUT, S1959)],
 )

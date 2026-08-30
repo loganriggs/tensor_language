@@ -59278,3 +59278,48 @@ worth 0.71 pooled."
 gain there. skip1200 is the half-sized role (18,432 scored positions against 36,864, §1971) and its
 rowcache is the n96 one. **Whether that deficit is a property of the role or of its size is one arm: the
 same decomposition at 16,110, where the uncovered arm halves.**
+
+## §2031 — the map cut's cost is the one stable thing; the table raise's uncovered effect is not
+
+`ops/uncovered_cost_at_high_coverage.py`, **5.8s** warm, **DISCOVERY ONLY**, 16,110, rung 3 — §2030's open
+question. **pred_a True | pred_b True | pred_c False | pred_d True | derived controls True.** Reference
+deviation 0.000000. No crashed predicates.
+
+```
+  milli-nats over §1959's build at 16,110      [5,419 in brackets]
+              UNCOVERED                                    covered
+              tables            map cut          converged  tables   map cut
+  skip7000   +1.498 [+0.316]   −1.282 [−1.067]   +0.284    +8.811    0.000
+  skip11000  −1.869 [+0.130]   −1.791 [−0.950]   −3.577    +9.247    0.000
+  skip1200   −3.655 [−3.837]   −1.024 [−0.868]   −4.602    +6.691    0.000
+```
+
+> **pred_b PASSED 3/3 again, and the map cut is now the only stable object in this decomposition.** It
+> costs **−1.024 to −1.791** milli-nats at uncovered inputs and **exactly 0.000** at covered ones, on
+> three roles at two coverages — **six cells, six zeros.** Its cost also *grows* with coverage (−0.9/−1.1
+> → −1.0/−1.8), which is the wrong direction for a fallback whose uncovered arm has halved.
+
+> **pred_c FAILED, and it takes my §2030 framing with it. §2020's table raise gives +1.498, −1.869 and
+> −3.655 at uncovered inputs here, against +0.316, +0.130 and −3.837 at 5,419** — the sign **flips at
+> skip11000**. Only one role is positive. **The table raise's effect on the uncovered arm is not a stable
+> quantity at all**, and §2030's "positive on two roles" was a coincidence of coverage.
+
+> **And my registered dichotomy was too clean to be answered.** I asked whether skip1200's deficit is a
+> property of the **role** or of the uncovered arm's **size**. **skip1200 barely moves** (−3.837 → −3.655)
+> when the arm halves, which says *role*; **skip11000 moves by 2.0 milli-nats and changes sign**, which
+> says the question was wrong for the other roles. **The data support neither branch cleanly and I am not
+> picking one.** pred_a passed on the narrowest margin in the run — skip1200's two figures differ by
+> **0.091** against a 0.05 bar.
+
+**What survives, and it is enough to act on.** **The map cut is a uniform, mechanism-exact, ~1–1.8
+milli-nat tax on the uncovered arm, zero elsewhere, at both coverages**, bought for 7.08M values worth
+0.71 milli-nats pooled. **The table raise is a large covered-input gain — +6.7 to +9.2 at 16,110, nearly
+double its 5,419 figure — whose uncovered-input side is unstable in both sign and size.** Those are two
+different kinds of change and §2028 priced them with one rule.
+
+**Open.** §1947's rule is now the only thing standing between these measurements and a build decision, and
+it cannot see either of them: it prices against pooled CE, and **one change has a concentrated cost the
+pool hides while the other has an unstable one the pool averages away.** That is with Logan. **What I can
+do without him is bound the exposure: the map cut is reversible for 7.08M values, and §2024's own ladder
+says layers 0–5 cost 0.24× where 6–7 cost 0.63× — so a partial reversal is available and has never been
+priced against the uncovered arm specifically.**

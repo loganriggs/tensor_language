@@ -904,9 +904,28 @@ def run(name, plan, predicates, coverages=(('c5419', FIT_5419, 5419),), refs=(),
             f'vacuous and would report True having checked nothing. Add an arm sharing (or differing in) '
             f'table rank and site set with an existing one. Same-spec requires: identical rank spec, '
             f'identical site set, ALL 36 SITES, both plain (non-composite, non-whole-table) arms.')
+    # Reference anchors are read only AFTER scoring, so a ref pointing at an artifact that lacks the
+    # coverage or arm it names costs a full run before it raises. S2031 lost one that way: the coverage
+    # was repointed to 16,110 and the ref still named a 5,419-only artifact. Check them here instead --
+    # the files are on disk and the lookup is free.
+    for lab, path, arm, cov, _tol in refs:
+        if not os.path.exists(path):
+            raise ValueError(f'ref {lab!r}: no such artifact {path}')
+        with open(path) as fh:
+            r = json.load(fh)['results']
+        covs = [cov] if cov is not None else list(r)
+        for c in covs:
+            if c not in r:
+                raise ValueError(f'ref {lab!r}: {os.path.basename(path)} has no coverage {c!r} '
+                                 f'(it has {sorted(r)}). Point it at an artifact that ran this coverage.')
+            role0 = next(iter(r[c]))
+            if arm not in r[c][role0]:
+                raise ValueError(f'ref {lab!r}: {os.path.basename(path)} coverage {c!r} has no arm '
+                                 f'{arm!r} (it has {sorted(r[c][role0])}).')
     if DRYRUN:
         print(f'  [bqlib] DRY RUN: plan validated, {len(inert)} inert and {len(differ)} differing '
-              f'pair(s), {len(predicates)} predicate(s). No GPU work done.', flush=True)
+              f'pair(s), {len(predicates)} predicate(s), {len(refs)} ref(s) resolved. No GPU work done.',
+              flush=True)
         return None
 
     res, paired, cost, ncov, chg, pooled, diffs = {}, {}, {}, {}, {}, {}, {}

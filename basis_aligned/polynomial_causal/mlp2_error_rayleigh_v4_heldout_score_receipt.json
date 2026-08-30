@@ -1,0 +1,131 @@
+{
+  "aggregation": {
+    "finite_interaction": "mean over 32 documents separately for each program",
+    "predictor_MSE_and_Spearman": "96 document-program rows; no token pseudo-replication",
+    "tangent_and_Fisher": "mean programs/backgrounds, then 32 source documents"
+  },
+  "decision": "reject_current_adjoint_Fisher_metric_and_do_not_train_from_it",
+  "endpoint_replay": {
+    "all_attention5_exact": true,
+    "all_attention6_exact": true,
+    "all_logits_exact": true,
+    "max_abs_attention5": 0.0,
+    "max_abs_attention6": 0.0,
+    "max_abs_direct_vs_injected_dce": 0.0,
+    "max_abs_logits": 0.0,
+    "passes": true
+  },
+  "frozen_predictor_only_no_heldout_fit": true,
+  "gate_5_negative_controls": {
+    "controls": {
+      "COV_RANDOM": {
+        "fails_corresponding_predictive_gates": true,
+        "finite_interaction_gate": {
+          "absolute_errors": [
+            0.00152722149188869,
+            0.0017475797832243699,
+            0.0009988139589642373
+          ],
+          "passes": true,
+          "signs_correct": [
+            true,
+            true,
+            true
+          ]
+        },
+        "predictor_gate": {
+          "document_spearman": -0.02692620727075421,
+          "final_mse": 0.00010593714211916135,
+          "full_mse": 0.00010582077204669117,
+          "local_mse": 0.00010661147911696599,
+          "passes": false,
+          "relative_gain_over_final": 0.0010984822711121128,
+          "relative_gain_over_local": 0.007416716068701335
+        }
+      },
+      "DERANGED": {
+        "fails_corresponding_predictive_gates": true,
+        "finite_interaction_gate": {
+          "absolute_errors": [
+            0.001162348442615548,
+            0.001703651558067387,
+            0.0012301335100032024
+          ],
+          "passes": true,
+          "signs_correct": [
+            true,
+            true,
+            true
+          ]
+        },
+        "predictor_gate": {
+          "document_spearman": -0.13412913727618017,
+          "final_mse": 0.00011094123910392891,
+          "full_mse": 0.00010981253689104978,
+          "local_mse": 0.00010661149353897754,
+          "passes": false,
+          "relative_gain_over_final": 0.010173874223829186,
+          "relative_gain_over_local": -0.030025311960402562
+        }
+      }
+    },
+    "passes": true
+  },
+  "inputs": {
+    "frozen_predictor_bundle_sha256": "d9c42a542822675997a8711457dbe9e806e6bf515c25a8e7ef4d5f700cbef5bf",
+    "frozen_predictor_receipt_sha256": "7747c25591a6c3779c571e6b7f563c6a06ad46f531911840bc612058c1fd9e7b",
+    "heldout_collection_receipt_sha256": "4c93f9038ddff59656dfed09eb96abbcae4fefa50c54d249124b113e06f0388e",
+    "heldout_ledger_sha256": "da39efdca9c862878b146417e08ca51c1130da129239b17271286c12c43f053a"
+  },
+  "primary_gates": {
+    "gate_1_tangent_scale": {
+      "aggregate_relative_disagreement": 0.45270508584681307,
+      "document_spearman": 0.9186217008797652,
+      "passes": false
+    },
+    "gate_2_fisher_teacher_kl": {
+      "aggregate_ratio": 1.8267909359711896,
+      "document_spearman": 0.8995601173020527,
+      "passes": false
+    },
+    "gate_3_frozen_predictor": {
+      "document_spearman": 0.17219207813347806,
+      "final_mse": 0.00010582593819411563,
+      "full_mse": 0.0001065442074920642,
+      "local_mse": 0.00010661150213636375,
+      "passes": false,
+      "relative_gain_over_final": -0.006787270778843007,
+      "relative_gain_over_local": 0.000631213733518946
+    },
+    "gate_4_finite_interaction": {
+      "absolute_errors": [
+        0.00129932179131089,
+        0.0018538912798578113,
+        0.0014842544689401774
+      ],
+      "observed_mean_by_program": [
+        0.007456362247467041,
+        0.004538744688034058,
+        0.004836186766624451
+      ],
+      "passes": true,
+      "predicted_mean_by_program": [
+        0.006157040456156151,
+        0.006392635967891869,
+        0.006320441235564628
+      ],
+      "programs": [
+        "FULL512",
+        "CONTINUE512",
+        "ROBUST512"
+      ],
+      "signs_correct": [
+        true,
+        true,
+        true
+      ]
+    }
+  },
+  "schema": "mlp2_error_rayleigh_v4_heldout_score_receipt",
+  "status": "FAIL"
+}

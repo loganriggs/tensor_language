@@ -2609,3 +2609,20 @@ the predicate machinery reports False when a bar is missed. I had never tested w
 predicate cannot run — and the answer was "the same thing". **Ask of every failure path: does it produce a
 value that a success could also produce?** If so it is not a failure path, it is a silent one. Compare
 [[LESSON 102]], where the diagnostic existed but arrived after the cost.
+
+## LESSON 104 — the pre-flight should resolve every input the run will need, not just the plan
+
+LESSON 102 taught `run()` to refuse a vacuous control before touching the GPU, and it has held. **§2031
+still lost a run**, to a different input read *after* scoring: a **reference anchor** naming a coverage its
+artifact does not contain. I had derived the script from §2030 by repointing the coverage to 16,110 and
+left the ref aimed at a 5,419-only artifact. `ref()` raised `KeyError: 'c16110'` after every arm had been
+scored.
+
+**Same shape as LESSON 102, one input over.** The artifact is on disk; the coverage and arm it must contain
+are known from the plan; the check is a dict lookup. **The pre-flight now resolves every ref — file exists,
+coverage present, arm present — and names the fix in the error.** Verified against the exact §2031 script:
+**2.2 seconds, and the message says which coverages the artifact actually has.**
+
+**The generalisable form:** ask of a run not "is the plan valid" but **"which inputs will this read, and
+which of them can I resolve now?"** Plan, controls, refs — all three are known before the first forward
+pass. Anything read later that could have been read earlier is a run waiting to be lost.
