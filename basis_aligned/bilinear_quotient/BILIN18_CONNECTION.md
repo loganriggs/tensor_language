@@ -63799,3 +63799,24 @@ positive on 8/8).**
 - **Config guidance, stated by assembly:** cfgE's best remains top8 alone (−0.0855); do not prune there. The
   §312 frontier's best remains mlp45-2304 + c69-576 (§2140/§2141) — no top8 anywhere in that config, so the
   composition failure does not touch it.
+
+## §2143 — RUNG 49: THE 288-REBOUND IS CARRIED BY c6/c7 — c8 AND c9 GO TO 288 FREE OR BETTER (−0.0076, −0.0036), AND THE PER-LAYER COSTS ADD (gap 0.0053). All three bars HELD. (Convention: L2 = CE above the real model; lower is better.)
+
+`ops/frontier_c69_perlayer.py`, **671s**, BACKLOG rung 49. **ALL THREE HELD: pred_a (min −0.0076 ≤ +0.005) |
+pred_b (additivity, |+0.0164 − 0.0217| = 0.0053) | pred_c (best repro −0.0289 vs −0.0290).**
+
+```
+  layer dropped to 288 (others 576)   median damage vs the best config
+  c6                                  +0.0111
+  c7                                  +0.0166      ← the rebound lives here
+  c8                                  −0.0076      ← better on 8/8 windows
+  c9                                  −0.0036      ← better on 6/8
+```
+
+- **The middles are not interchangeable:** c7 (block 7, right after the attn5/attn6 amplification zone) needs
+  its 576; c8/c9's remaining units are still half dead weight. The uniform-288 rebound (+0.0217, §2140)
+  decomposes almost exactly into the four per-layer effects (sum +0.0164, gap 0.0053) — the §2139 additivity
+  precedent extends inside c6–c9.
+- **Additive prediction, registered for rung 50:** c8@288 + c9@288 together should land at −0.0076 − 0.0036 =
+  **−0.0112 vs the best config** (i.e., a new best at 2.658-ish FR fresh, −14.4M values vs §312). Rung 50 tests
+  exactly that number, plus c8/c9@144 as the next floor.

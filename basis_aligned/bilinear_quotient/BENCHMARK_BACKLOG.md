@@ -671,4 +671,16 @@ later per-rung backlog edits had silently anchored on text that was not here.
     additivity: |sum of the four medians - 0.0217| <= 0.015 (§2139
     precedent; if FAILED, per-layer interactions); pred_c best arm
     reproduces §2140 (-0.0290 vs norm within 0.015).
-    -> ops/frontier_c69_perlayer.py [QUEUED]
+    -> ops/frontier_c69_perlayer.py
+    RUN 2026-08-30, §2143: ALL THREE HELD — rebound carried by c6/c7
+    (+0.011/+0.017); c8/c9 go to 288 free-or-better (-0.0076/-0.0036);
+    per-layer costs additive (gap 0.0053).
+
+50. c8+c9 TO 288 TOGETHER (damage convention). §2143's additive
+    prediction: c8@288 + c9@288 lands at -0.0112 vs the §2140 best (a
+    new best, -14.4M values vs §312). Arms: norm-2304 anchor / best
+    (c69-576, repro) / c8+c9@288 / c8+c9@144 (descriptive floor).
+    pred_a median [L2_F_w(c89_288) - L2_F_w(best)] <= -0.005 (a real
+    improvement); pred_b that median within 0.01 of the additive
+    prediction -0.0112; pred_c best reproduces §2140 (-0.0290 within
+    0.015). -> ops/frontier_c89_288.py [QUEUED]
