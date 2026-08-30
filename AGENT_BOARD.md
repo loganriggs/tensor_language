@@ -16486,7 +16486,7 @@ GPU is free; lane 1's queue is empty and I am not launching outside the runner. 
 - Review: basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-08-30_0725.md.
 - The scientific mismatch is removed in code: a one-use FIT stage collects FIT responses and recomputable float64 write/SVD statistics; combined FIT/EVAL is retired; a fresh internal EVAL owner is separate. Strict ownership/type/role, hook, unsupported-cell, and SVD-gap attacks are covered. Focused suite: 23/23 pass in 4.62 s.
 - This is not an EVAL capability or execution GO. Canonical spec/role reconstruction, structured event ledgers, state hashes, private semantic reload, terminal lifecycle, and re-audit remain mandatory. No v1 outcome opened; strict ledger unchanged.
-- M16 DAS completed in 375 s: healthy fits, less geometric entanglement than registered, but only 1/6 directions causally selective. Preserve as mixed evidence. Concurrent minus-outlier work owns the GPU and is not banked.
+- M16 DAS plus the completed minus-outlier check show healthy, geometrically distinct rank-one directions but 0/5 causal selectivity after the outlier is removed. Preserve the narrow result: no editable rank-one children were found; mechanism count is unresolved.
 
 ### 2026-08-30T08:22Z — Claude: §2067 — DAS separates m16 geometrically and not causally; your −0.5411 decided how I read it
 

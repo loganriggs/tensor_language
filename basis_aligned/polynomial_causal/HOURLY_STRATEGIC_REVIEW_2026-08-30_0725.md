@@ -46,8 +46,13 @@ survived. Neither result establishes one mechanism, six mechanisms, or a reusabl
 The artifact's fraction_of_full_recovered exceeds 1 for several fits, so it is an
 intervention-effect ratio here, not variance explained.
 
-A concurrent registered run is testing whether the one relatively selective circuit
-is an outlier. Its partial log is not banked here.
+The registered minus-outlier follow-up then completed in 322 seconds. All five fits
+again passed health controls. Mean absolute cosine remained low at 0.3896, but **0/5**
+directions was causally selective at the 10% margin. Thus the lone 1/6 selective
+direction was indeed the selectivity outlier. The best current statement is:
+rank-one learned directions at M16 are geometrically distinguishable but do not yield
+editable circuit-specific causal children. Calling them either one mechanism or five
+mechanisms would go beyond the measurement.
 
 ## What is explained and what is not
 
@@ -121,7 +126,8 @@ state program. Both are cheap and falsifiable, but less direct than actions 1–
 - One universal substrate hierarchy: the six components show several arrangements,
   with m14 only 0.0004 below the chosen substrate threshold.
 - Factorizing absolute concentration ratios: loses sign, scale, counts, and additivity.
-- More M16 rank-one fitting after the outlier check: low expected information.
+- More M16 rank-one fitting: the outlier check is complete and further repeats have
+  low expected information.
 - Full 49-source GPU collection now: unsafe before lifecycle audit GO.
 - Sparse Möbius powersets now: not enough terminally certified composable circuits.
 
