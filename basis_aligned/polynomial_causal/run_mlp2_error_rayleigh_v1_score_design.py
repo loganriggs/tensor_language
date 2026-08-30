@@ -170,6 +170,21 @@ def protected_snapshot(authority: Mapping[str, Any]) -> dict[str, str]:
     return metadata
 
 
+def pre_open_guard(claim, authority: Mapping[str, Any], authority_sha: str) -> None:
+    """Final cooperative transaction guard before any DESIGN tensor load.
+
+    Keep this ordering exact: replay the already-published scorer authority, reject
+    a rival terminal, and then prove ownership of the lock.  No protected tensor
+    operation is allowed between this function and ``protected_snapshot``.
+    """
+    observed, observed_sha = base.stable_json(AUTHORITY, authority_sha)
+    if observed != authority or observed_sha != authority_sha:
+        raise RuntimeError("DESIGN predictor authority changed at pre-open boundary")
+    if any(path.exists() for path in (BUNDLE, RECEIPT, FAILURE)):
+        raise RuntimeError("DESIGN predictor terminal appeared at pre-open boundary")
+    row_life.base.require_claim(claim, LOCK)
+
+
 def serialize_fit(value: Mapping[str, Any]) -> dict[str, Any]:
     return predictor.serialize_fit(value)
 
@@ -292,6 +307,7 @@ def run() -> None:
         observed_authority, observed_authority_sha = base.stable_json(AUTHORITY, authority_sha)
         if observed_authority != authority or observed_authority_sha != authority_sha:
             raise RuntimeError("DESIGN predictor authority changed before ledger access")
+        pre_open_guard(claim, authority, authority_sha)
         opened = True
         protected = protected_snapshot(authority)
         ledger, _ = base.stable_torch(DESIGN["ledger"], design_ledger_sha)

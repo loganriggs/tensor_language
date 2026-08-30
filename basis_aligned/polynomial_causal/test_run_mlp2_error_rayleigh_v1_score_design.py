@@ -202,6 +202,68 @@ def test_authority_mutation_before_ledger_access_fails_without_tensor_open(tmp_p
     assert paths["failure"].is_file() and not paths["receipt"].exists()
 
 
+def test_authority_drift_at_final_preopen_boundary_never_opens_design_tensor(
+        tmp_path, monkeypatch):
+    paths, design = mocked_scorer_transaction(tmp_path, monkeypatch)
+    original_json = score.base.stable_json
+    original_torch = score.base.stable_torch
+    authority_reads = {"count": 0}
+    design_loads = {"count": 0}
+
+    def drift_after_first_postlink_replay(path, expected=None):
+        value = original_json(path, expected)
+        if path == paths["authority"]:
+            authority_reads["count"] += 1
+            if authority_reads["count"] == 1:
+                changed = json.loads(path.read_text())
+                changed["status"] = "raced-after-first-replay"
+                path.write_text(json.dumps(changed))
+        return value
+
+    def record_torch(path, expected=None):
+        if path == design["ledger"]:
+            design_loads["count"] += 1
+        return original_torch(path, expected)
+
+    monkeypatch.setattr(score.base, "stable_json", drift_after_first_postlink_replay)
+    monkeypatch.setattr(score.base, "stable_torch", record_torch)
+    with pytest.raises(RuntimeError, match="pre-open boundary|JSON parent hash changed"):
+        score.run()
+    assert authority_reads["count"] >= 2
+    assert design_loads["count"] == 0
+    assert not paths["receipt"].exists()
+
+
+def test_rival_terminal_at_final_preopen_boundary_never_opens_design_tensor(
+        tmp_path, monkeypatch):
+    paths, design = mocked_scorer_transaction(tmp_path, monkeypatch)
+    original_json = score.base.stable_json
+    original_torch = score.base.stable_torch
+    authority_reads = {"count": 0}
+    design_loads = {"count": 0}
+
+    def insert_rival_after_first_postlink_replay(path, expected=None):
+        value = original_json(path, expected)
+        if path == paths["authority"]:
+            authority_reads["count"] += 1
+            if authority_reads["count"] == 1:
+                paths["failure"].write_text("{}")
+        return value
+
+    def record_torch(path, expected=None):
+        if path == design["ledger"]:
+            design_loads["count"] += 1
+        return original_torch(path, expected)
+
+    monkeypatch.setattr(score.base, "stable_json", insert_rival_after_first_postlink_replay)
+    monkeypatch.setattr(score.base, "stable_torch", record_torch)
+    with pytest.raises(RuntimeError, match="terminal appeared at pre-open boundary"):
+        score.run()
+    assert authority_reads["count"] >= 2
+    assert design_loads["count"] == 0
+    assert not paths["receipt"].exists()
+
+
 def test_late_rival_terminal_blocks_receipt(tmp_path, monkeypatch):
     paths, _ = mocked_scorer_transaction(tmp_path, monkeypatch)
     original_torch = score.base.atomic_torch
@@ -218,15 +280,24 @@ def test_late_rival_terminal_blocks_receipt(tmp_path, monkeypatch):
 
 
 def test_lock_replacement_fails_closed(tmp_path, monkeypatch):
-    paths, _ = mocked_scorer_transaction(tmp_path, monkeypatch)
+    paths, design = mocked_scorer_transaction(tmp_path, monkeypatch)
     calls = {"count": 0}
+    design_loads = {"count": 0}
+    original_torch = score.base.stable_torch
 
     def replaced(_claim, _path):
         calls["count"] += 1
         if calls["count"] >= 3:
             raise RuntimeError("lock replaced")
 
+    def record_torch(path, expected=None):
+        if path == design["ledger"]:
+            design_loads["count"] += 1
+        return original_torch(path, expected)
+
     monkeypatch.setattr(score.row_life.base, "require_claim", replaced)
+    monkeypatch.setattr(score.base, "stable_torch", record_torch)
     with pytest.raises(RuntimeError, match="lock replaced"):
         score.run()
+    assert design_loads["count"] == 0
     assert not paths["receipt"].exists()

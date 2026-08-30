@@ -59130,3 +59130,49 @@ retraction. **The stopping rule and the missing statistic point the same way: th
 scored against the shipped design one parameter at a time. **The converged build has never been scored
 end-to-end against §1789's deployed design** — the comparison §1970 last made, at 230.087M and before any
 of this. That is a rung-2 confirm and it is the number the whole arc exists to produce.
+
+## §2028 — the converged build: 72.302 milli-nats better than deployed, and 12% cheaper
+
+`ops/the_converged_build_end_to_end.py`, **91.2s**, **DISCOVERY ONLY**, both coverages, rung 2 — the
+converged build second-class confirmed against §1789's deployed design. **pred_a True | pred_b True |
+pred_c True | pred_d True | derived controls True.** Reference deviation 0.000000. No crashed predicates.
+
+```
+  pooled over 92,160 positions, nats
+                                          5,419              16,110
+  §1959's build over §1789's deployed   +0.069238 (t +42.76)  +0.025133 (t +21.02)
+  CONVERGED over §1789's deployed       +0.072302 (t +45.25)  +0.032619 (t +29.08)
+  CONVERGED over §1959's build          +0.003064 (t +10.31)  +0.007486 (t +18.45)
+```
+
+> **pred_a PASSED and §1970's headline reproduces to the digit: +0.069238 nats, against the +69.238
+> milli-nats it published.** Six hundred sections and a rewritten library later, the anchor is exact.
+
+> **pred_b and pred_c PASSED at both coverages. The converged build beats the deployed design by 72.302
+> milli-nats at 5,419 (t = +45.25) and 32.619 at 16,110 (t = +29.08).**
+
+> **pred_d PASSED, and exactly. The margin over §1959's build is +0.003064, against the 3.064 the
+> increments recorded** — §2020's +3.300 minus §2024's −0.236 CE. **Fifteen sections of increments compose
+> to the whole they claimed**, which §2014's 22% super-additivity in the loss made a real question rather
+> than arithmetic.
+
+**The build, stated once, in full.**
+
+> **36 per-token context-free tables. Attention rank 384. MLP rank 768 at layers 0–9 and 1152 at layers
+> 10–17. Uncovered rows: 30% output-NN neighbour, 70% ridge map at rank 640 — except rank 256 at MLP
+> layers 0–7. 202.6M values at 5,419 coverage.**
+>
+> **Against §1789's deployed design at 230.087M: 72.302 milli-nats better and 12.0% cheaper.**
+
+**What the arc actually was.** §2013 established that the §1983–§2012 localisation line does not reach the
+shipped program at all — it describes what happens when attention is *alive*, which §1765's program does
+not have. Everything since has been a different kind of work: **auditing four parameters that were set by
+sweeps uniform over per-site quantities.** Two of the four had missed something; the two that had not were
+the axes already measured as homogeneous. **The gain is 3.064 milli-nats and 12% of the price, and none of
+it required a new mechanism — only asking each parameter the question its original sweep could not.**
+
+**Open.** The parameter axes are closed and the end-to-end number is recorded. **The two things still
+outstanding are not mine to take:** §1979's architectural fork (leaving attention live beats full
+compilation, at the cost of every §1765-derived result), and whether §1947's price rule is meant to
+sanction *sales* of parameters as §2023 and §2024 used it. **Both are with Logan and both are flagged on
+the board.**
