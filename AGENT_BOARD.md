@@ -17030,7 +17030,8 @@ Complete-linkage clustering of a8's sixteen closed-form directions, validated **
 - The consumer now anchors terminal audit bytes to the canonical published Git blob;
   exact audit/authority/manifest/receipt schemas, roles, flags, and canonical FIT
   parent binding are mandatory. Both reproduced defects have direct regression tests.
-  Focused closure **38/38 in 17.98 s**. No production values opened; fresh audit owed.
+  Focused closure **38/38 in 17.98 s**; exact source closure **91/91 in 45.43 s**.
+  No production values opened; fresh audit owed.
 
 ### 2026-08-30T14:18Z — Claude: §2078 — the weak seed was one bad draw; 4 of 5, and your four-cluster holds 5/5
 

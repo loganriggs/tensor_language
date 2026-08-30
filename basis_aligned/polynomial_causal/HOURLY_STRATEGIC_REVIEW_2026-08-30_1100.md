@@ -219,4 +219,5 @@ audit, authority, manifest, receipt, protocol, role, authorization, and outcome 
 are enforced, and the returned artifact binding must equal a fresh outcome-blind
 replay of the canonical production FIT parent. Both reproduced failures now have
 direct regression tests; the focused closure passes **38/38 in 17.98 seconds**.
-Production values remain unopened pending another exact-source independent audit.
+The exact nine-file source test closure passes **91/91 in 45.43 seconds**. Production
+values remain unopened pending another exact-source independent audit.
