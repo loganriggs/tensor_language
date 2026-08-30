@@ -7,9 +7,9 @@ def test_randomized_signed_factors_recover_indefinite_low_rank_toy():
     torch.manual_seed(4)
     batch, dimension, rank = 3, 24, 4
     basis = torch.linalg.qr(torch.randn(batch, dimension, rank)).Q
-    # The production algorithm is a largest-magnitude randomized screen, not an exact
-    # rank-revealing factorization across an arbitrarily ill-conditioned spectrum.
-    values = torch.tensor([[9.0, -8.0, 7.0, -6.0]]).expand(batch, -1)
+    # Re-orthogonalized subspace iteration must not collapse away the smaller signed
+    # modes of this moderately ill-conditioned planted rank.
+    values = torch.tensor([[9.0, -7.0, 4.0, -2.0]]).expand(batch, -1)
     matrices = (basis * values[:, None, :]) @ basis.transpose(1, 2)
     found, found_values = subject.explicit_randomized_signed_factors(matrices, rank, seed=8)
     reconstructed = (found * found_values[:, None, :]) @ found.transpose(1, 2)

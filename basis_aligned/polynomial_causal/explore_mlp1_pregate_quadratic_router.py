@@ -35,7 +35,7 @@ import run_mlp1_sparse_c512_continue_factorial_v1_fit as base
 BUNDLE = HERE / "mlp1_sparse_c512_continue_factorial_v2_fit_bundle.pt"
 P512_RESULT = HERE / "mlp1_sparse_c512_continue_factorial_v2_fit_result.json"
 ROWS_RECEIPT = BQ / "mlp1_sparse_c512_continue_factorial_v1_rows_receipt.json"
-OUTPUT = HERE / "mlp1_pregate_quadratic_router_discovery.json"
+OUTPUT = HERE / "mlp1_pregate_quadratic_router_v2_discovery.json"
 
 RANKS = (1, 2, 4, 8)
 MAX_RANK = max(RANKS)
@@ -100,10 +100,9 @@ def _randomized_signed_factors(
     width = max_rank + OVERSAMPLE
     generator = torch.Generator(device=device).manual_seed(seed)
     probes = torch.randn(batch, dimension, width, device=device, generator=generator)
-    basis = matvec(probes)
+    basis = torch.linalg.qr(matvec(probes), mode="reduced").Q
     for _ in range(POWER_ITERS):
-        basis = matvec(matvec(basis))
-    basis = torch.linalg.qr(basis, mode="reduced").Q
+        basis = torch.linalg.qr(matvec(matvec(basis)), mode="reduced").Q
     projected = basis.transpose(1, 2) @ matvec(basis)
     projected = 0.5 * (projected + projected.transpose(1, 2))
     values, vectors = torch.linalg.eigh(projected)
@@ -403,7 +402,7 @@ def main() -> None:
             or abs(ce["P512_EXACT"] - expected["SPARSE"]) > 2e-6:
         raise RuntimeError("P512 physical CE anchors did not replay")
     output = {
-        "schema": "mlp1_pregate_quadratic_router_discovery_v1",
+        "schema": "mlp1_pregate_quadratic_router_discovery_v2",
         "status": "discovery_complete",
         "claim_boundary": (
             "Weight-space randomized low-rank screen plus reused-SELECT physical CE; "
@@ -412,6 +411,7 @@ def main() -> None:
         "method": {
             "ranks": list(RANKS), "oversample": OVERSAMPLE,
             "power_iterations_on_q_squared": POWER_ITERS,
+            "qr_after_every_subspace_iteration": True,
             "signed_largest_magnitude_eigenmodes": True,
             "grammar": "signed symmetric matrix-eigenrank; one stored vector and eigenvalue per mode",
             "metric": "coefficient Frobenius control, not empirical fourth-moment optimum",

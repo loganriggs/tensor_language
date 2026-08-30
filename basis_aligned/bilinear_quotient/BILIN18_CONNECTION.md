@@ -59946,3 +59946,43 @@ at all, which §2037 confirmed by measuring the first of them at +127.889 on fre
 and were never triaged.** Those are mechanism, cost and structural claims, most of them large — §1985's
 threshold, §2004's ceiling, §1765's premise — but "most" is not a measurement. **A second pass keyed on
 nats rather than milli-nats would say whether any of them sits near a noise floor**, and it costs no GPU.
+
+## §2049 — 53 of 111 certified claims are in the selection-noise regime, and the build lineage is most of them
+
+**Infrastructure, no GPU.** §2048 left 77 certified entries untriaged because they quote no milli-nat
+margin. Re-keyed on nats against the same 0.030-nat threshold:
+
+```
+  of the 77 untriaged
+    largest quoted quantity >= 0.030 nats (safe by scale)   31
+    largest quoted quantity <  0.030 nats (AT RISK)         24
+    quote no numeric quantity at all (cannot triage)        22
+  TOTAL at risk across both passes: 29 + 24 = 53 of 111 certified entries
+```
+
+> **The 24 are dominated by the build lineage itself: §1870, §1880, §1928, §1941, §1943, §1944, §1945,
+> §1946, §1947, §1948, §1949, §1950, §1952, §1954, §1958, §1959.** These are the supersessions that
+> *built* the build of record, at margins of **0.00001 to 0.0244 nats.** §1943's blend optimum rests on
+> **0.00001 nats**; §1959's own map turnover on **0.010**.
+
+**And yet the lineage is validated, which is the finding.** §2037 measured **§1959's build beating §1789's
+deployed design by +127.889 milli-nats on fresh rows** — that margin *is* the net effect of the entire
+§1870–§1959 chain, and it transports at t = +47.73 and again at +98.768 at the second coverage (§2044).
+**The composition holds even though almost every step inside it is individually in the at-risk regime.**
+
+> **That is precisely the property the retracted arc lacked, and it is the cleanest way to state the
+> difference.** §2013–§2035: fifteen small steps, composition **−11.770** on fresh rows. §1870–§1959: a
+> comparable number of small steps, composition **+127.889**. **Small steps are not the problem. Small
+> steps whose composition was never checked are.**
+
+**What the audit cannot reach.** **22 certified entries quote no numeric quantity at all** — §1936's
+inertness, §1981's non-additivity, §2022's attention result, §2039's own untruncation finding among them.
+Some are structural claims with no margin to quote; others simply never had their number written into the
+registry entry. **This method cannot distinguish those two cases**, and saying "53 of 111" already
+overstates the precision: the honest figure is **53 at risk, 36 safe by scale, 22 untriageable.**
+
+**Open.** The lineage's *net* is validated and its *steps* are not, and those are different facts. **The
+largest single at-risk step is §1941's `nn75m512` dominating the deployed design at 0.0244 nats** — it is
+expressible in the current arm grammar and testable on fresh rows in one arm. **If a step that large
+reverses while the net holds, the ledger's per-section claims need reading differently from its
+build claims**, which is worth knowing before anyone mines the registry for mechanism.

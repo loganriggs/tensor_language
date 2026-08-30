@@ -1,0 +1,250 @@
+{
+  "calls": {
+    "capture": {
+      "attention": 432,
+      "forwards": 24,
+      "other_mlp": 408,
+      "site1": 24
+    },
+    "score": {
+      "NATIVE": {
+        "attention": 432,
+        "forwards": 24,
+        "native_down": 24,
+        "native_left": 24,
+        "native_right": 24,
+        "other_mlp": 408,
+        "site1_native": 24,
+        "site1_replacement": 0
+      },
+      "P512_EXACT": {
+        "attention": 432,
+        "forwards": 24,
+        "native_down": 0,
+        "native_left": 24,
+        "native_right": 24,
+        "other_mlp": 408,
+        "site1_native": 0,
+        "site1_replacement": 24
+      },
+      "Q_RANK_1": {
+        "attention": 432,
+        "forwards": 24,
+        "native_down": 0,
+        "native_left": 0,
+        "native_right": 0,
+        "other_mlp": 408,
+        "site1_native": 0,
+        "site1_replacement": 24
+      },
+      "Q_RANK_2": {
+        "attention": 432,
+        "forwards": 24,
+        "native_down": 0,
+        "native_left": 0,
+        "native_right": 0,
+        "other_mlp": 408,
+        "site1_native": 0,
+        "site1_replacement": 24
+      },
+      "Q_RANK_4": {
+        "attention": 432,
+        "forwards": 24,
+        "native_down": 0,
+        "native_left": 0,
+        "native_right": 0,
+        "other_mlp": 408,
+        "site1_native": 0,
+        "site1_replacement": 24
+      },
+      "Q_RANK_8": {
+        "attention": 432,
+        "forwards": 24,
+        "native_down": 0,
+        "native_left": 0,
+        "native_right": 0,
+        "other_mlp": 408,
+        "site1_native": 0,
+        "site1_replacement": 24
+      },
+      "ZERO": {
+        "attention": 432,
+        "forwards": 24,
+        "native_down": 0,
+        "native_left": 0,
+        "native_right": 0,
+        "other_mlp": 408,
+        "site1_native": 0,
+        "site1_replacement": 24
+      }
+    }
+  },
+  "checkpoint": {
+    "config_sha256": "428042bfd807ba36f8b4326395440fbbebe52cd3d040212e6fef14a4fdf2d83c",
+    "logit_vocab": 50304,
+    "revision": "ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240",
+    "snapshot": "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240",
+    "tokenizer_vocab": 50257,
+    "weights_bytes": 2067738635,
+    "weights_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3"
+  },
+  "claim_boundary": "Weight-space randomized low-rank screen plus reused-SELECT physical CE; FINAL never opened, no confirmation/OOD/composition/semantic claim.",
+  "documents": {
+    "FINAL_opened": 0,
+    "SELECT": 96
+  },
+  "factorization_diagnostics": {
+    "maximum_orthogonality_error": 2.086162567138672e-06,
+    "maximum_relative_ritz_residual": 0.6905559301376343
+  },
+  "method": {
+    "grammar": "signed symmetric matrix-eigenrank; one stored vector and eigenvalue per mode",
+    "metric": "coefficient Frobenius control, not empirical fourth-moment optimum",
+    "oversample": 8,
+    "power_iterations_on_q_squared": 3,
+    "qr_after_every_subspace_iteration": true,
+    "quadratics_materialized": false,
+    "ranks": [
+      1,
+      2,
+      4,
+      8
+    ],
+    "signed_largest_magnitude_eigenmodes": true
+  },
+  "parents": {
+    "bundle_sha256": "56af91b832a2cc508e5ae473bb11560de6687ed71e04e2f514fb9f7acf32b430",
+    "p512_result_sha256": "19311954f4a4ccd5a8f6e5aca5ced9f6a16aefa7310f7271fbb57264fa00c83a",
+    "rows_receipt_sha256": "ce4a6f8eeb20840711bb20677ff8310f1a39db55b50106face1157cd2feeef7f",
+    "runner_sha256": "451f443dd77d2615f906b4d7eceda0a57e6bfc347443109f8df6166e906a30ff"
+  },
+  "physical_ce": {
+    "NATIVE": 2.9597663084665933,
+    "P512_EXACT": 3.10166237089369,
+    "P512_EXACT_RECOVERY": 0.8650838603114928,
+    "Q_RANK_1": 3.501362787352668,
+    "Q_RANK_1_RECOVERY": 0.4850448634701251,
+    "Q_RANK_2": 3.383615255355835,
+    "Q_RANK_2_RECOVERY": 0.5970003483731934,
+    "Q_RANK_4": 3.316897405518426,
+    "Q_RANK_4_RECOVERY": 0.6604363211156041,
+    "Q_RANK_8": 3.291200770272149,
+    "Q_RANK_8_RECOVERY": 0.6848689288364317,
+    "ZERO": 4.011501577165392
+  },
+  "prices": {
+    "1": {
+      "bias_folded_stored_reals": 1181312,
+      "bias_folding_is_exact": true,
+      "decoder_reals": 589824,
+      "executed_artifact_stored_reals": 1182464,
+      "full_mlp_dense_map_multiply_saved_fraction": 0.9606159979423868,
+      "full_mlp_storage_saved_fraction": 0.9258268032951578,
+      "full_mlp_storage_saved_reals": 14745088,
+      "intercept_reals": 1152,
+      "native_down_bias_reals_in_executed_artifact": 1152,
+      "native_full_mlp_reals": 15926400,
+      "rank_per_quadratic": 1,
+      "router_score_and_decode_multiplies_per_token": 627200,
+      "router_vector_reals": 589824,
+      "signed_eigenvalue_reals": 512,
+      "topk_comparisons_indices_squares_and_additions_charged_separately": true
+    },
+    "2": {
+      "bias_folded_stored_reals": 1771648,
+      "bias_folding_is_exact": true,
+      "decoder_reals": 589824,
+      "executed_artifact_stored_reals": 1772800,
+      "full_mlp_dense_map_multiply_saved_fraction": 0.9235468106995884,
+      "full_mlp_storage_saved_fraction": 0.8887602973678923,
+      "full_mlp_storage_saved_reals": 14154752,
+      "intercept_reals": 1152,
+      "native_down_bias_reals_in_executed_artifact": 1152,
+      "native_full_mlp_reals": 15926400,
+      "rank_per_quadratic": 2,
+      "router_score_and_decode_multiplies_per_token": 1217536,
+      "router_vector_reals": 1179648,
+      "signed_eigenvalue_reals": 1024,
+      "topk_comparisons_indices_squares_and_additions_charged_separately": true
+    },
+    "4": {
+      "bias_folded_stored_reals": 2952320,
+      "bias_folding_is_exact": true,
+      "decoder_reals": 589824,
+      "executed_artifact_stored_reals": 2953472,
+      "full_mlp_dense_map_multiply_saved_fraction": 0.8494084362139918,
+      "full_mlp_storage_saved_fraction": 0.8146272855133615,
+      "full_mlp_storage_saved_reals": 12974080,
+      "intercept_reals": 1152,
+      "native_down_bias_reals_in_executed_artifact": 1152,
+      "native_full_mlp_reals": 15926400,
+      "rank_per_quadratic": 4,
+      "router_score_and_decode_multiplies_per_token": 2398208,
+      "router_vector_reals": 2359296,
+      "signed_eigenvalue_reals": 2048,
+      "topk_comparisons_indices_squares_and_additions_charged_separately": true
+    },
+    "8": {
+      "bias_folded_stored_reals": 5313664,
+      "bias_folding_is_exact": true,
+      "decoder_reals": 589824,
+      "executed_artifact_stored_reals": 5314816,
+      "full_mlp_dense_map_multiply_saved_fraction": 0.7011316872427984,
+      "full_mlp_storage_saved_fraction": 0.6663612618042998,
+      "full_mlp_storage_saved_reals": 10612736,
+      "intercept_reals": 1152,
+      "native_down_bias_reals_in_executed_artifact": 1152,
+      "native_full_mlp_reals": 15926400,
+      "rank_per_quadratic": 8,
+      "router_score_and_decode_multiplies_per_token": 4759552,
+      "router_vector_reals": 4718592,
+      "signed_eigenvalue_reals": 4096,
+      "topk_comparisons_indices_squares_and_additions_charged_separately": true
+    }
+  },
+  "route_metrics": {
+    "1": {
+      "positive_topk_jaccard": 0.35181982886354807,
+      "positive_topk_precision": 0.5205128987630209,
+      "positive_topk_recall": 0.5205128987630209,
+      "relative_frozen_decoder_write_mse": 0.3250302616732545,
+      "relative_routed_code_mse": 0.43047668268330824,
+      "relative_score_mse": 0.5858519220071043,
+      "top1_agreement": 0.71630859375,
+      "topk_recall": 0.5205128987630209
+    },
+    "2": {
+      "positive_topk_jaccard": 0.3946417952267738,
+      "positive_topk_precision": 0.5659400092230903,
+      "positive_topk_recall": 0.5659400092230903,
+      "relative_frozen_decoder_write_mse": 0.2864324368038,
+      "relative_routed_code_mse": 0.37952423732898755,
+      "relative_score_mse": 0.5399015822672942,
+      "top1_agreement": 0.7524956597222222,
+      "topk_recall": 0.5659400092230903
+    },
+    "4": {
+      "positive_topk_jaccard": 0.424470283083232,
+      "positive_topk_precision": 0.5959693060980903,
+      "positive_topk_recall": 0.5959693060980903,
+      "relative_frozen_decoder_write_mse": 0.25900512148630456,
+      "relative_routed_code_mse": 0.3476872045923599,
+      "relative_score_mse": 0.5039922839668256,
+      "top1_agreement": 0.7750651041666666,
+      "topk_recall": 0.5959693060980903
+    },
+    "8": {
+      "positive_topk_jaccard": 0.4454185551548836,
+      "positive_topk_precision": 0.6163177490234375,
+      "positive_topk_recall": 0.6163177490234375,
+      "relative_frozen_decoder_write_mse": 0.24105844130678739,
+      "relative_routed_code_mse": 0.32619405025234643,
+      "relative_score_mse": 0.47612783812114795,
+      "top1_agreement": 0.7859700520833334,
+      "topk_recall": 0.6163177490234375
+    }
+  },
+  "runtime_seconds": 17.16759443283081,
+  "schema": "mlp1_pregate_quadratic_router_discovery_v2",
+  "status": "discovery_complete"
+}
