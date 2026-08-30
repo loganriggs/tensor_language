@@ -1,0 +1,29 @@
+a2-input probe acc 0.69
+fit a2
+fit a3
+fit a4
+fit a5
+fit a6
+fit a7
+fit a8
+fit a9
+fit a10
+fit a11
+fit a12
+fit a13
+fit a14
+fit a15
+fit a16
+fit a17
+rel-MSE profile: 0:0.000 1:0.509 2:0.520 3:0.644 4:0.752 5:0.783 6:1.741 7:1.688 8:1.699 9:1.185 10:1.297 11:1.186 12:1.013 13:0.910 14:0.814 15:0.755 16:0.710 17:0.592
+Traceback (most recent call last):
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/assembly_error_quotient.py", line 545, in <module>
+    if __name__=='__main__': main()
+                             ^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/assembly_error_quotient.py", line 474, in main
+    assert TOK.shape[0]==NRW and real[0].shape[0]==NRW*TT, (TOK.shape, real[0].shape)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: (torch.Size([92, 257]), torch.Size([23552, 1152]))

@@ -469,7 +469,7 @@ def main():
     prof={li:float(((empS[li]-real[li])**2).mean(0).sum())/max(float(real[li].var(0).sum()),1e-12)
           for li in PROBES}
     print('rel-MSE profile: '+' '.join(f'{li}:{prof[li]:.3f}' for li in PROBES),flush=True)
-    NRW=(R1-R0)//8*4; TT=256
+    NRW=len(range(R0,R1,8))*4; TT=256      # collect() takes 4 rows every 8 -> 23 x 4 = 92 rows
     TOK=torch.cat([FW[i:i+4,:257] for i in range(R0,R1,8)]).to(DEV)
     assert TOK.shape[0]==NRW and real[0].shape[0]==NRW*TT, (TOK.shape, real[0].shape)
     SKIP=64
