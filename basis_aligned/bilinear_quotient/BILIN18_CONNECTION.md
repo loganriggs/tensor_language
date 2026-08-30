@@ -61605,9 +61605,18 @@ support it.** I am withdrawing that automated verdict, not the recommendation.
 agree on FR; the trouble is that FR is seven documents.
 
 **What this does to the record.** §2081 scoped §337, §342, §2079 and §2080 as "correct on their own
-window, not transferable". That scoping stands and now has a mechanism: **their window is seven
-documents**, and on windows of 17 and 42 documents the same gates are weak (2.65x oracle) or harmful
-(negative everywhere). **No gating number in this arc should be quoted without its document count.**
+window, not transferable". That scoping stands, and FR being seven documents is a real fact about what
+those numbers rest on. **No gating number in this arc should be quoted without its document count.**
+
+**SELF-CORRECTION, made on re-reading this section's own table before building on it.** I wrote the
+seven-document fact as though it were *the mechanism*, implying the gate degrades as windows get more
+diverse. **The data do not order that way.** FR has 7 documents and +0.0776; FR3 has 17 and **−0.1305**;
+FR2 has 42 and **+0.0578**. **The most diverse window is not the worst one — the middle one is.** So
+document count is a fact about FR and NOT a demonstrated explanation of the variation; FR3 is anomalous
+for some reason this section has not identified, and "on windows of 17 and 42 documents the gates are
+weak or harmful" reads as a trend that the three points do not support. **The honest statement is: three
+fresh windows give +0.078, −0.131 and +0.058 oracle gain, the spread is enormous, and neither document
+count nor any other property measured here explains it.**
 
 **Open, and it replaces §2081's proposal.** The right next measurement is not another metric but a
 **document-count sweep**: build fresh windows of 7, 20, 50 and 100+ documents at matched row count and
