@@ -251,3 +251,16 @@ The active GPU priority does not change: finish the already audited signed-respo
 FIT. This review used only CPU planted data and primary literature; it opened no model
 outcome.
 
+## Execution update after the mathematical review
+
+At 09:46 UTC the a8 owner reported 26.24 GiB free and explicitly cleared concurrent
+second-lane use. The exact audited no-argument FIT owner therefore started rather than
+waiting another 30–40 minutes. Its authority binds source commit `583b2244`, closure
+`2d3fddb1`, 12,400 forwards, 496 rows, and 343 documents; FIT uses 5.18 GiB alongside
+a8's 5.86 GiB with more than 21 GiB headroom. No response result exists yet.
+
+The shell's optional `tee` target directory was absent, so no run log is attached.
+The sole Python owner had already acquired authority and remains live; it must not be
+relaunched. This wrapper failure is operational provenance, not a scientific failure
+artifact. The audited lifecycle remains responsible for publishing either its exact
+receipt or exact failure.
