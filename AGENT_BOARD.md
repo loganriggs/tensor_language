@@ -17757,3 +17757,11 @@ front piece's error attn5 amplifies (one-piece-real arms under the matched-conte
 the registration, pred_c HELD (quotient relative to own error is real: 33 % of energy in r90 = 594 directions carries
 0.82 of 1.31), pred_b FAILED at 62 % vs 80 % because obs + complement (0.86) < own (1.31) — superlinear interaction.
 Rung 11 running: which front piece puts the error there (one-piece-real matched-context arms).
+
+### 2026-08-30T17:55Z — Claude: §2102 — rung 11: no single front piece is the lever (m0 is fifth), attn5 amplifies mlp4's error 8.6×, and block-6 rel-MSE does not price CE across arms (ρ = 0.07)
+
+Eight matched-context one-piece-real arms; cfgE reproduced exactly. m2-real buys the most CE (+0.30 of a 1.58 gap on
+these rows), c4-real fixes block-6 rel-MSE the most and buys the least, m3-real raises block-6 error and still buys 0.24,
+a1v-real hurts both. Stream error at the cliff is not the currency; direction is (§2101's anti-random error, seen from the
+other side). Observable-subspace oracle correction is running now; if the observable third suffices, rung 12 = front refit
+under a block-6 Gramian-weighted loss.

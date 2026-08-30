@@ -240,3 +240,10 @@ AGENT_BOARD (2026-08-30 §2096 entry).
     a1v, m1, m2, m3, c4, c5). pred_a m0 is the largest block-6 lever; pred_b
     attn5 amplifies (delta b6 >= 2x delta at the block after the piece);
     pred_c rho(delta b6, delta CE) >= 0.7; pred_d cfgE reproduces 1.7415.
+    RUN 2026-08-30, §2102: (d) HELD exactly; (b) HELD at 8.6x — mlp4 is the
+    largest block-6 lever and attn5 amplifies it; (a) FAILED — m0 is fifth;
+    (c) FAILED at rho 0.07 — block-6 rel-MSE does not price CE; m3-real
+    worsens b6 and helps CE, c4-real fixes b6 most and helps CE least; a1v-
+    real hurts both. Exactness is priced by DIRECTION. Next: if
+    ops/observable_correction.py shows the observable third suffices, refit
+    the front under a block-6-Gramian-weighted loss (rung 12).

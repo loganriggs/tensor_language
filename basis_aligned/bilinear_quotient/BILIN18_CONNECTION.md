@@ -62563,3 +62563,45 @@ costs 2–6× the curve. The error the front tables make is concentrated in what
 which is the same statement as §2087's "attention injects it". So the front's exactness must be spent on a specific
 subspace, not on norm: the ~600-dimensional observable part of the block-6 stream. Rung 11 (`front_piece_amplification`,
 queued) asks which front piece puts the error there.
+
+## §2102 — RUNG 11: no front piece is THE lever, attn5 amplifies mlp4's error 8.6×, and block-6 rel-MSE does NOT price CE across arms (ρ = 0.07). Exactness is priced by direction, not by stream error
+
+`ops/front_piece_amplification.py`, **130s**, BACKLOG rung 11. Eight matched-context arms of the certified empirical
+assembly (§2086's chain rebuilt with one front piece left real and every downstream piece refit under it, per §307).
+**pred_d HELD (cfgE block-6 rel-MSE 1.7415, identical to §2086) | pred_b HELD | pred_a FAILED | pred_c FAILED.**
+CE on the §2086 evaluation rows (R0:R1); real base 3.5352, cfgE gap **+1.5808** on this window.
+
+```
+  arm        CE gap   Δgap    rel-MSE  b1     b2     b5     b6     b7     b9     b17    Δb6
+  cfgE      +1.581     --              0.509  0.520  0.783  1.742  1.688  1.185  0.593   --
+  m0-real   +1.314   +0.267           0.000  0.491  0.695  1.526  1.554  1.074  0.522  +0.215
+  a1v-real  +1.632   -0.051           0.509  0.520  0.787  1.927  1.861  1.259  0.606  -0.185   (WORSE on both)
+  m1-real   +1.396   +0.185           0.509  0.360  0.692  1.307  1.426  1.088  0.543  +0.434
+  m2-real   +1.282   +0.299           0.509  0.520  0.688  1.310  1.398  1.009  0.524  +0.432
+  m3-real   +1.340   +0.241           0.509  0.520  0.700  1.847  1.821  1.184  0.542  -0.105   (b6 WORSE, CE better)
+  c4-real   +1.445   +0.136           0.509  0.520  0.719  1.189  1.234  0.951  0.561  +0.552   (b6 best, CE 6th)
+  c5-real   +1.410   +0.171           0.509  0.520  0.783  1.372  1.138  0.889  0.548  +0.370
+  Spearman rho(Δb6, Δgap) over the seven arms = +0.071      (bar 0.7, FAILED)
+```
+
+- **pred_a FAILED: m0 is not the lever** — it is fifth of seven on block-6 rel-MSE (Δ +0.215) although it is the
+  first table and injects the arm's entire 0.509 at block 1. Making m0 real removes all of block 1's error and only
+  a fifth of block 6's: **the block-6 error is mostly not conducted m0 error.**
+- **pred_b HELD at 8.6×:** the largest block-6 lever is **mlp4** (c4-real, Δb6 +0.552) whose own removal changes
+  block 5's input by only 0.064. attn5 multiplies mlp4's error by 8.6 into the expensive regime. That is the
+  amplification the cliff predicted, located: it is mlp4's write that attn5 reads wrongly, more than any table.
+- **pred_c FAILED at ρ = 0.07, and this is the finding.** The arm that fixes block-6 rel-MSE most (c4-real) buys the
+  *least* CE of the six that help; m3-real *raises* block-6 rel-MSE by 0.105 and still buys 0.24 nat; m2-real buys the
+  most CE (0.30) with a middling Δb6. **Stream error at the cliff, measured as rel-MSE, is not the currency of CE** —
+  which is what §2101 said from the other side (the arm's error costs 2.4× a random error of the same norm). Two arms
+  with the same block-6 rel-MSE can differ by 0.16 nat because their errors point in differently priced directions.
+- **a1v-real makes everything worse** (+0.05 nat, +0.185 rel-MSE at block 6): leaving the block-1 value table real
+  and refitting the chain under it drifts the fits — §307's composition effect, now with a sign: some compressed
+  pieces are fitted *around* a neighbour's error and lose when the neighbour is corrected.
+
+**What this closes and opens for the frontier.** "Which piece to make exact" has no single answer at the front, and
+rel-MSE anywhere — including at the cliff — cannot rank the candidates. The seven CE recoveries sum to 1.25 of the
+1.58 gap, so most of the gap *is* front-attributable, but by direction. The next rung follows from §2101 and from the
+queued `observable_correction` run: if oracle-correcting only the observable third of the block-6 stream recovers most
+of the gap, the front should be refit with a loss weighted by the block-6 observability Gramian — the quotient used as
+a training objective — and priced against cfgE at equal stored values.
