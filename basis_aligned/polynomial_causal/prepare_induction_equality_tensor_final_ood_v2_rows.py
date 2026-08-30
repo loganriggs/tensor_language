@@ -187,7 +187,19 @@ def freeze() -> dict[str, Any]:
         for role in ROLES:
             ids = tuple(str(record.get("document_id") or f"code:{record['path']}") for record in role_records[role])
             cells[role] = contract.build_copy_cells(role_rows[role], frequencies, ids)
-        support = base.support_census({"selection_natural": cells["final_natural"], "final_natural": cells["final_natural"], "ood_code": cells["ood_code"]})
+        support = {}
+        for role in ("final_natural", "ood_code"):
+            positive = cells[role].positive
+            matched = cells[role].matched_negative
+            support[role] = {
+                "positive_tokens": int(positive.sum()),
+                "positive_documents": int(positive.any(1).sum()),
+                "matched_tokens": int(matched.sum()),
+                "matched_documents": int(matched.any(1).sum()),
+            }
+            if min(support[role].values()) < 30 or support[role]["positive_tokens"] < 200 \
+                    or support[role]["matched_tokens"] < 200:
+                raise RuntimeError("fresh v2 role support is below preregistered minimum")
         _registry_replay(registry_files, prior, registry_hashes)
         natural.require_claim(claim, LOCK)
         staging = CACHE.with_name(f".{CACHE.name}.tmp.{os.getpid()}.{secrets.token_hex(8)}")
@@ -223,7 +235,7 @@ def freeze() -> dict[str, Any]:
             "candidate_parent_sha256": DISCOVERY_SHA256, "preserved_v1_no_go_audit_sha256": V1_AUDIT_SHA256,
             "metadata_registry_hashes": registry_hashes,
             "metadata_exclusion_counts": {key: len(value) for key, value in prior.items()},
-            "support_census": {"final_natural": support["final_natural"], "ood_code": support["ood_code"]},
+            "support_census": support,
             "old_v1_role_tensors_deserialized": False,
             "outcome_access": False,
         })
@@ -241,7 +253,11 @@ def freeze() -> dict[str, Any]:
         if not RECEIPT.exists() and not FAILURE.exists():
             failure = {"schema": "induction_equality_tensor_final_ood_v2_rows_failure", "status": "terminal_failure_no_receipt", "error_type": type(error).__name__, "error": str(error), "cache_exists": CACHE.exists(), "outcome_access": False}
             try:
-                natural.write_json_create_only(failure, FAILURE, pre_link_check=lambda: natural.require_claim(claim, LOCK))
+                def failure_guard():
+                    if RECEIPT.exists() or FAILURE.exists():
+                        raise RuntimeError("v2 row rival terminal appeared")
+                    natural.require_claim(claim, LOCK)
+                natural.write_json_create_only(failure, FAILURE, pre_link_check=failure_guard)
             except BaseException:
                 pass
         raise

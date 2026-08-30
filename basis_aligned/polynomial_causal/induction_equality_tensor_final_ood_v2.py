@@ -49,7 +49,7 @@ DIRECT_SOURCES = (
     HERE / "test_circuit_induction_tensor.py", HERE / "bilin18_observed_model_facade.py",
     HERE / "test_bilin18_observed_model_facade.py", HERE / "circuit_campaign_runtime.py",
     HERE / "test_circuit_campaign_runtime.py", HERE / "circuit_campaign_statistics.py",
-    HERE / "test_circuit_campaign_statistics.py", rows_v2.Path(rows_v2.__file__).resolve(),
+    HERE / "test_circuit_campaign_statistics.py", Path(rows_v2.__file__).resolve(),
     HERE / "test_prepare_induction_equality_tensor_final_ood_v2_rows.py",
     ROOT / "jacclust/__init__.py", ROOT / "jacclust/tt_model.py",
 )
@@ -193,6 +193,18 @@ def _merge_ledgers(target, batch):
     target.update(batch)
 
 
+def model_state_sha256(model: torch.nn.Module) -> str:
+    digest = hashlib.sha256()
+    state = model.state_dict()
+    for name in sorted(state):
+        value = state[name].detach().cpu().contiguous()
+        digest.update(name.encode()); digest.update(b"\0")
+        digest.update(str(value.dtype).encode()); digest.update(b"\0")
+        digest.update(str(tuple(value.shape)).encode()); digest.update(b"\0")
+        digest.update(value.view(torch.uint8).numpy().tobytes())
+    return digest.hexdigest()
+
+
 @torch.no_grad()
 def score_role(model: torch.nn.Module, role: str, payload: Mapping[str, Any]) -> dict[str, Any]:
     rows = payload["rows"]; records = payload["records"]; cells = payload["copy_cells"]
@@ -251,6 +263,10 @@ def _encode_cell(value: statistics.DocumentCellSums) -> dict[str, Any]:
 
 
 def _decode_cell(value: Mapping[str, Any]) -> statistics.DocumentCellSums:
+    if set(value) != {"n", "support_sha256", "arms", "directed_kls"} \
+            or any(set(item) != {"arm", "nll_sum", "correct_count"} for item in value["arms"]) \
+            or any(set(item) != {"source_arm", "target_arm", "kl_sum"} for item in value["directed_kls"]):
+        raise RuntimeError("v2 ledger cell schema changed or contains extra payload")
     return statistics.DocumentCellSums(
         n=value["n"], support_sha256=value["support_sha256"],
         arms=tuple(statistics.ArmCellSums(**item) for item in value["arms"]),
@@ -268,26 +284,116 @@ def _specs(role: str):
     )
 
 
+def _validate_call_census(value: Mapping[str, Any]) -> None:
+    expected = 48
+    if set(value["outer"]) != set(ARMS) or set(value["sites"]) != set(ARMS):
+        raise RuntimeError("call census arm schema changed")
+    for arm in ARMS:
+        if value["outer"][arm] != {"forwards": expected, "returns": expected, "documents": 192} \
+                or not isinstance(value["sites"][arm], list) or len(value["sites"][arm]) != 18:
+            raise RuntimeError("outer or site call census changed")
+        for site, counts in enumerate(value["sites"][arm]):
+            replaced = arm != "native" and site in SELECTED
+            expected_counts = [0, expected, expected, 0] if replaced else [expected, 0, expected, 0]
+            if counts != expected_counts:
+                raise RuntimeError("native/replacement call census changed")
+
+
+def _validate_support(value: Mapping[str, Any]) -> None:
+    if set(value["support"]) != {"positive", "matched_negative", "off_target", "all"}:
+        raise RuntimeError("support cell schema changed")
+    for cell, report in value["support"].items():
+        if set(report) != {"tokens", "documents"} or type(report["tokens"]) is not int \
+                or type(report["documents"]) is not int:
+            raise RuntimeError("support report schema changed")
+        observed_tokens = sum(document[cell].n for document in value["ledger"].values())
+        observed_documents = sum(document[cell].n > 0 for document in value["ledger"].values())
+        if report != {"tokens": observed_tokens, "documents": observed_documents}:
+            raise RuntimeError("support report differs from document ledger")
+
+
+def _pooled_reports(ledger: Mapping[str, Mapping[str, statistics.DocumentCellSums]]) -> dict[str, Any]:
+    output = {}
+    for arm in ARMS:
+        output[arm] = {}
+        for cell in ("positive", "matched_negative", "off_target", "all"):
+            values = [document[cell] for document in ledger.values()]
+            count = sum(value.n for value in values)
+            if count <= 0:
+                raise RuntimeError("pooled report has zero denominator")
+            arm_values = [
+                next(item for item in value.arms if item.arm == arm) for value in values
+            ]
+            if arm == "native":
+                kl_sum = 0.0
+            else:
+                kl_sum = sum(
+                    next(
+                        item.kl_sum for item in value.directed_kls
+                        if item.source_arm == "native" and item.target_arm == arm
+                    )
+                    for value in values
+                )
+            output[arm][cell] = {
+                "tokens": count,
+                "ce": sum(item.nll_sum for item in arm_values) / count,
+                "native_to_arm_kl": kl_sum / count,
+                "top1_accuracy": sum(item.correct_count for item in arm_values) / count,
+            }
+    return output
+
+
 def analyze(roles: Mapping[str, Mapping[str, Any]]) -> dict[str, Any]:
-    reports = {}
+    if set(roles) != set(ROLES):
+        raise RuntimeError("analysis role schema changed")
     for role in ROLES:
+        _validate_call_census(roles[role]); _validate_support(roles[role])
+    all_specs = tuple(spec for role in ROLES for spec in _specs(role))
+    joint_bootstrap = statistics.simultaneous_document_bootstrap(
+        {role: roles[role]["ledger"] for role in ROLES}, all_specs,
+        repetitions=BOOTSTRAP_DRAWS, seed=BOOTSTRAP_SEED,
+    )
+    reports = {}
+    for role_index, role in enumerate(ROLES):
         ledger = roles[role]["ledger"]; specs = _specs(role)
-        boot = statistics.simultaneous_document_bootstrap({role: ledger}, specs, repetitions=BOOTSTRAP_DRAWS, seed=BOOTSTRAP_SEED)
-        point, low, high = (boot.point_estimates.tolist(), boot.simultaneous_lower_bounds.tolist(), boot.simultaneous_upper_bounds.tolist())
+        start, stop = 5 * role_index, 5 * (role_index + 1)
+        point = joint_bootstrap.point_estimates[start:stop].tolist()
+        low = joint_bootstrap.simultaneous_lower_bounds[start:stop].tolist()
+        high = joint_bootstrap.simultaneous_upper_bounds[start:stop].tolist()
         target, specificity, off, extraction, deranged = point
+        replay_kl = -statistics.evaluate_coordinate(
+            ledger,
+            statistics.CoordinateSpec(
+                f"{role}:replay-kl", statistics.CoordinateKind.KL, role, "all",
+                candidate_arm="full_replay", source_arm="native", limit=0.0,
+            ),
+        )
         if role == "final_natural":
             gates = {"target": low[0] > 0, "specificity": low[1] > 0, "extraction": extraction >= .80 and low[3] >= .60, "collateral": high[2] <= .01 and off <= .10 * target, "deranged": high[4] < .5 * low[3]}
         else:
             gates = {"target": low[0] > 0 and target >= .5 * SELECT_TARGET, "specificity": low[1] > 0, "extraction": extraction >= .60 and low[3] >= .40 and extraction >= .5 * SELECT_EXTRACTION, "collateral": high[2] <= .02 and off <= .20 * target, "deranged": high[4] < .5 * low[3]}
-        gates.update({"support": all(x["tokens"] >= 200 and x["documents"] >= 30 for x in roles[role]["support"].values()), "replay": roles[role]["replay_max_abs"] <= 1e-4, "calls": True})
-        reports[role] = {"coordinate_names": list(boot.coordinate_names), "point": point, "simultaneous_low": low, "simultaneous_high": high, "gates": gates, "passed": all(gates.values())}
-    return {"roles": reports, "passed_both_roles": all(value["passed"] for value in reports.values()), "bootstrap": {"draws": BOOTSTRAP_DRAWS, "seed": BOOTSTRAP_SEED}}
+        gates.update({"support": all(x["tokens"] >= 200 and x["documents"] >= 30 for x in roles[role]["support"].values()), "replay": roles[role]["replay_max_abs"] <= 1e-4 and replay_kl <= 1e-8, "calls": True})
+        reports[role] = {"coordinate_names": [spec.name for spec in specs], "point": point, "simultaneous_low": low, "simultaneous_high": high, "arm_cell_reports": _pooled_reports(ledger), "replay_mean_native_to_full_kl": replay_kl, "gates": gates, "passed": all(gates.values())}
+    return {"roles": reports, "passed_both_roles": all(value["passed"] for value in reports.values()), "bootstrap": {"draws": BOOTSTRAP_DRAWS, "seed": BOOTSTRAP_SEED, "joint_coordinate_names": list(joint_bootstrap.coordinate_names)}}
 
 
 def semantic_validate(ledger_payload: Mapping[str, Any], result: Mapping[str, Any], authority: Mapping[str, Any]) -> None:
+    if set(ledger_payload) != {"schema", "authority_sha256", "raw_payloads_published", "model_state_sha256_before", "model_state_sha256_after", "checkpoint_weights_sha256_before", "checkpoint_weights_sha256_after", "roles"} \
+            or ledger_payload.get("schema") != "induction_equality_tensor_final_ood_v2_ledger" \
+            or ledger_payload.get("authority_sha256") != file_sha256(AUTHORITY) \
+            or ledger_payload.get("raw_payloads_published") is not False \
+            or ledger_payload.get("model_state_sha256_before") != ledger_payload.get("model_state_sha256_after") \
+            or ledger_payload.get("checkpoint_weights_sha256_before") != facade.WEIGHTS_SHA256 \
+            or ledger_payload.get("checkpoint_weights_sha256_after") != facade.WEIGHTS_SHA256 \
+            or set(ledger_payload.get("roles", {})) != set(ROLES):
+        raise RuntimeError("v2 ledger top-level semantic replay failed")
     decoded = {}
     for role in ROLES:
-        decoded[role] = {"support": ledger_payload["roles"][role]["support"], "outer": ledger_payload["roles"][role]["outer"], "sites": ledger_payload["roles"][role]["sites"], "replay_max_abs": ledger_payload["roles"][role]["replay_max_abs"], "ledger": {doc: {cell: _decode_cell(value) for cell, value in cells.items()} for doc, cells in ledger_payload["roles"][role]["ledger"].items()}}
+        role_value = ledger_payload["roles"][role]
+        if set(role_value) != {"documents_sha256", "support", "outer", "sites", "replay_max_abs", "ledger"} \
+                or role_value["documents_sha256"] != hashlib.sha256("\0".join(role_value["ledger"]).encode()).hexdigest():
+            raise RuntimeError("v2 ledger document identity replay failed")
+        decoded[role] = {"support": role_value["support"], "outer": role_value["outer"], "sites": role_value["sites"], "replay_max_abs": role_value["replay_max_abs"], "ledger": {doc: {cell: _decode_cell(value) for cell, value in cells.items()} for doc, cells in role_value["ledger"].items()}}
     expected = analyze(decoded)
     if result != {"schema": "induction_equality_tensor_final_ood_v2_result", "authority_sha256": file_sha256(AUTHORITY), **expected}:
         raise RuntimeError("v2 result semantic replay failed")
@@ -307,8 +413,12 @@ def execute() -> dict[str, Any]:
         model, _ = facade.load_bilin18(device="cuda", dtype=torch.bfloat16, verify_weights_sha256=False)
         if file_sha256(weights) != before or before != facade.WEIGHTS_SHA256:
             raise RuntimeError("checkpoint changed across load")
+        model_before = model_state_sha256(model)
         measured = {role: score_role(model, role, loaded_roles[role]) for role in ROLES}
-        ledger_payload = {"schema": "induction_equality_tensor_final_ood_v2_ledger", "authority_sha256": file_sha256(AUTHORITY), "raw_payloads_published": False, "roles": {role: {"documents_sha256": hashlib.sha256("\0".join(measured[role]["documents"]).encode()).hexdigest(), "support": measured[role]["support"], "outer": measured[role]["outer"], "sites": measured[role]["sites"], "replay_max_abs": measured[role]["replay_max_abs"], "ledger": {doc: {cell: _encode_cell(value) for cell, value in cells.items()} for doc, cells in measured[role]["ledger"].items()}} for role in ROLES}}
+        model_after = model_state_sha256(model); weights_after = file_sha256(weights)
+        if model_after != model_before or weights_after != before or protected_snapshot() != protected:
+            raise RuntimeError("model, checkpoint, or protected inputs changed during collection")
+        ledger_payload = {"schema": "induction_equality_tensor_final_ood_v2_ledger", "authority_sha256": file_sha256(AUTHORITY), "raw_payloads_published": False, "model_state_sha256_before": model_before, "model_state_sha256_after": model_after, "checkpoint_weights_sha256_before": before, "checkpoint_weights_sha256_after": weights_after, "roles": {role: {"documents_sha256": hashlib.sha256("\0".join(measured[role]["documents"]).encode()).hexdigest(), "support": measured[role]["support"], "outer": measured[role]["outer"], "sites": measured[role]["sites"], "replay_max_abs": measured[role]["replay_max_abs"], "ledger": {doc: {cell: _encode_cell(value) for cell, value in cells.items()} for doc, cells in measured[role]["ledger"].items()}} for role in ROLES}}
         atomic.write_json_create_only(ledger_payload, LEDGER)
         ledger_reload = stable_json(LEDGER)
         provisional = {"schema": "induction_equality_tensor_final_ood_v2_result", "authority_sha256": file_sha256(AUTHORITY), **analyze(measured)}

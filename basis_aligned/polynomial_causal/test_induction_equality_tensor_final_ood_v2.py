@@ -1,0 +1,121 @@
+from dataclasses import asdict
+
+import pytest
+
+import circuit_campaign_statistics as stats
+import induction_equality_tensor_final_ood_v2 as subject
+
+
+ARMS = tuple(sorted(subject.ARMS))
+PAIRS = tuple(sorted(("native", arm) for arm in subject.ARMS[1:]))
+
+
+def _cell(cell, *, stake=3.0):
+    ce = {
+        "native": 2.0, "full_replay": 2.0, "heads_deleted": stake,
+        "extract_equality": 2.2, "deranged_equality": 2.9,
+        "remove_equality": 2.5 if cell == "positive" else (
+            2.01 if cell == "matched_negative" else 2.005
+        ),
+    }
+    n = 10
+    return stats.DocumentCellSums(
+        n=n, support_sha256="a" * 64,
+        arms=tuple(stats.ArmCellSums(arm, float(n * ce[arm]), 0) for arm in ARMS),
+        directed_kls=tuple(stats.DirectedKLSums(source, target, 0.0) for source, target in PAIRS),
+    )
+
+
+def _role(*, stake=3.0):
+    ledger = {
+        f"doc-{index}": {cell: _cell(cell, stake=stake) for cell in ("positive", "matched_negative", "off_target", "all")}
+        for index in range(40)
+    }
+    return {
+        "ledger": ledger,
+        "support": {cell: {"tokens": 400, "documents": 40} for cell in ("positive", "matched_negative", "off_target", "all")},
+        "outer": {arm: {"forwards": 48, "returns": 48, "documents": 192} for arm in subject.ARMS},
+        "sites": {arm: [
+            ([0, 48, 48, 0] if arm != "native" and site in subject.SELECTED else [48, 0, 48, 0])
+            for site in range(18)
+        ] for arm in subject.ARMS},
+        "replay_max_abs": 0.0,
+    }
+
+
+def test_observed_points_are_exact_pooled_statistics_not_bootstrap_means():
+    result = subject.analyze({role: _role() for role in subject.ROLES})
+    for role in subject.ROLES:
+        point = result["roles"][role]["point"]
+        assert point == pytest.approx([0.5, 0.49, 0.005, 0.8, 0.1])
+        assert result["roles"][role]["arm_cell_reports"]["remove_equality"]["positive"] == pytest.approx({
+            "tokens": 400, "ce": 2.5, "native_to_arm_kl": 0.0, "top1_accuracy": 0.0,
+        })
+        assert result["roles"][role]["passed"]
+    assert result["passed_both_roles"]
+
+
+def test_nonpositive_point_or_bootstrap_stake_fails_without_clamp():
+    with pytest.raises(ValueError, match="stake is not positive"):
+        subject.analyze({role: _role(stake=2.0) for role in subject.ROLES})
+
+
+def test_plan_replaces_exact_selected_attention_sites_in_every_analytical_arm():
+    plan = subject._plans()
+    assert tuple(arm.name for arm in plan.arms) == subject.ARMS
+    for arm in plan.arms:
+        replaced = {item.site for item in arm.attention if item.action.value == "replace"}
+        assert replaced == (set() if arm.name == "native" else set(subject.SELECTED))
+        assert all(item.action.value == "native" for item in arm.mlp)
+
+
+def test_semantic_validator_rejects_self_consistent_stored_gate_corruption(monkeypatch):
+    roles = {role: _role() for role in subject.ROLES}
+    ledger_payload = {
+        "schema": "induction_equality_tensor_final_ood_v2_ledger",
+        "authority_sha256": "f" * 64,
+        "raw_payloads_published": False,
+        "model_state_sha256_before": "e" * 64, "model_state_sha256_after": "e" * 64,
+        "checkpoint_weights_sha256_before": subject.facade.WEIGHTS_SHA256,
+        "checkpoint_weights_sha256_after": subject.facade.WEIGHTS_SHA256,
+        "roles": {role: {
+            "documents_sha256": subject.hashlib.sha256("\0".join(value["ledger"]).encode()).hexdigest(),
+            "support": value["support"], "outer": value["outer"], "sites": value["sites"],
+            "replay_max_abs": value["replay_max_abs"],
+            "ledger": {doc: {cell: asdict(item) for cell, item in cells.items()} for doc, cells in value["ledger"].items()},
+        } for role, value in roles.items()},
+    }
+    monkeypatch.setattr(subject, "file_sha256", lambda _path: "f" * 64)
+    result = {"schema": "induction_equality_tensor_final_ood_v2_result", "authority_sha256": "f" * 64, **subject.analyze(roles)}
+    subject.semantic_validate(ledger_payload, result, {})
+    result["roles"]["final_natural"]["gates"]["target"] = False
+    with pytest.raises(RuntimeError, match="semantic replay"):
+        subject.semantic_validate(ledger_payload, result, {})
+
+
+def test_semantic_replay_rejects_exact_call_census_corruption(monkeypatch):
+    roles = {role: _role() for role in subject.ROLES}
+    ledger_payload = {
+        "schema": "induction_equality_tensor_final_ood_v2_ledger",
+        "authority_sha256": "f" * 64, "raw_payloads_published": False,
+        "model_state_sha256_before": "e" * 64, "model_state_sha256_after": "e" * 64,
+        "checkpoint_weights_sha256_before": subject.facade.WEIGHTS_SHA256,
+        "checkpoint_weights_sha256_after": subject.facade.WEIGHTS_SHA256,
+        "roles": {role: {
+            "documents_sha256": subject.hashlib.sha256("\0".join(value["ledger"]).encode()).hexdigest(),
+            "support": value["support"], "outer": value["outer"], "sites": value["sites"],
+            "replay_max_abs": value["replay_max_abs"],
+            "ledger": {doc: {cell: asdict(item) for cell, item in cells.items()} for doc, cells in value["ledger"].items()},
+        } for role, value in roles.items()},
+    }
+    result = {"schema": "induction_equality_tensor_final_ood_v2_result", "authority_sha256": "f" * 64, **subject.analyze(roles)}
+    monkeypatch.setattr(subject, "file_sha256", lambda _path: "f" * 64)
+    ledger_payload["roles"]["ood_code"]["sites"]["remove_equality"][5] = [1, 47, 48, 0]
+    with pytest.raises(RuntimeError, match="call census"):
+        subject.semantic_validate(ledger_payload, result, {})
+
+
+def test_v1_no_go_is_preserved_and_old_roles_are_not_runner_inputs():
+    assert subject.rows_v2.V1_AUDIT_SHA256 == "3fae8d163a367c2af600fbe584f457ace7537a9688e3b091c379f7ebc9b043da"
+    assert set(subject.ROLES) == {"final_natural", "ood_code"}
+    assert all("rowcache_terminal_copy_induction_v2" not in str(path) for path in subject.SOURCE_PATHS)
