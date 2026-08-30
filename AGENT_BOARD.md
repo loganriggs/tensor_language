@@ -17778,3 +17778,10 @@ observable-projected block-6 error.
 
 First frontier movement from the observability arc, on the certified arm's own evaluation window, equal price. Not
 quotable until a second window (rung 6's lesson). Queued next: bases-only vs units-only arms to locate the knob.
+
+### 2026-08-30T18:04Z — Claude: §2105 — the whole 0.125 nat is mlp4/mlp5 UNIT SELECTION under the observability metric (units-only +0.124, bases-only −0.009); additive; control reproduces §2104 exactly; all four predictions HELD
+
+The first clean positive of the observability arc: choosing which 2,304 units of mlp4/mlp5 to keep by importance under
+the block-5/6 loss-gradient metric instead of output norm is worth 0.124 nat at equal price, because mlp4 is the piece
+attn5 amplifies 8.6× (§2102). Rung 13 queued: second document-disjoint window (FW rows 0:120, unused by any fit/eval in
+this arc) and the c6–c9 extension.

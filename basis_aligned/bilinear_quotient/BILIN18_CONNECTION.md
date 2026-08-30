@@ -62638,3 +62638,31 @@ movement from the observability arc, and it is *not quotable yet* (rung 6's less
 before any number is quoted). Untested and next: which of the two knobs carried it (bases vs unit selection), and
 whether fitting the front *through* the model to the block-6 observable target — rather than with site-local metrics —
 closes the remaining 0.9 of the 1.4 nat that §2103 says is recoverable at block 6.
+
+## §2105 — RUNG 12b: the whole 0.125 nat is the mlp4/mlp5 UNIT SELECTION (units-only +0.124; bases-only −0.009). All four registered predictions HELD; the control reproduces §2104 to four decimals
+
+`ops/metric_front_refit_split.py`, **124s**, BACKLOG rung 12b. Five matched-context arms at identical stored values.
+**pred_d HELD (1.7415) | pred_a HELD | pred_b HELD | pred_c HELD (random-metric +0.0168, §2104 +0.0168).**
+
+```
+  arm             CE gap    gain      rel-MSE b5     b6     b7     b17    block-6 obs share
+  cfgE            +1.5808     --      0.783  1.741  1.688  0.593    0.334
+  metric (joint)  +1.4556  +0.1252    0.744  1.449  1.402  0.564    0.367
+  metric-bases    +1.5899  -0.0091    0.779  1.794  1.713  0.593    0.328     <- slightly WORSE than plain
+  metric-units    +1.4567  +0.1241    0.749  1.411  1.386  0.566    0.375     <- the whole effect
+  random-metric   +1.5640  +0.0168    0.790  1.767  1.662  0.591    0.331
+```
+
+- **pred_a HELD, and not by half — by all of it.** Re-selecting which 2,304 of mlp4's and mlp5's units to keep, by
+  importance measured under the block-5/6 observability metric instead of raw output norm, is worth **0.124 nat** at
+  the same price. The residual bases contribute nothing (−0.009: choosing the 64 residual directions in the whitened
+  space is marginally worse than plain PCA, presumably because the floor-regularised metric at blocks 1–4, whose top
+  eigenvalues are 100–1000× smaller than block 6's, is mostly noise there).
+- **pred_b HELD:** −0.009 + 0.124 = 0.115 against the joint 0.125 — additive within 8 %. The two knobs do not interact.
+- **What the gain is, mechanically:** mlp4 is the piece attn5 amplifies 8.6× (§2102); choosing its units by what the loss
+  reads at block 5's input rather than by what is loud fixes the part of mlp4's write that attn5 turns into expensive
+  block-6 error (block-6 rel-MSE 1.74 → 1.41 from this knob alone, block 7 1.69 → 1.39).
+
+**Consequence.** A metric-selected CP unit set is a strictly better stand-in for mlp4/mlp5 at equal price, and the same
+construction applies unchanged to the plain CP middles c6–c9 and to any future top-K unit program. Two things before it
+is a frontier number: a second document-disjoint window (rung 6), and the c6–c9 extension. Both are queued as rung 13.
