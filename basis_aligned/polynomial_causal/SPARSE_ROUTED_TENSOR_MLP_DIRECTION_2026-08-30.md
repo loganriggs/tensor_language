@@ -6,16 +6,18 @@ hierarchical set of tensor circuits at each token position?
 
 ## Short answer
 
-Yes. This is a coherent and promising model class, and the repository already contains
-positive discovery evidence for its flat, per-position version. The strongest existing
+Yes, but it is a **hybrid tensor-plus-discrete-router** model class, not a pure tensor
+network. The repository already contains positive discovery evidence for its flat,
+per-position version. The strongest existing
 result is a hard-top-k **weight-action dictionary**: MLP1's globally complicated Down
 action is approximated by a bank of 2,048 atoms while each token position uses only
 8, 32, or 64 atoms. At 32 active atoms it recovers `0.9384` of MLP1's CE contribution,
 versus `0.3101` for the matched rank-32 activation-weighted SVD. At 8 atoms it recovers
 `0.8702`, while the SVD program is worse than deleting the component.
 
-This is already a routed tensor decomposition after an algebraic fold described below.
-It is not yet a complete cheap tensor program: its current implementation computes the
+This is a bank of tensor-decomposed quadratic blocks after the algebraic fold described
+below, followed by a non-tensor TopK router. It is not yet a pure or complete cheap
+tensor program: its current implementation computes the
 full 4,608-dimensional native product vector before routing, and its dense encoder and
 decoder are not fully priced. The next mathematical step is to factor and route the
 quadratic atom bank itself.
@@ -89,14 +91,19 @@ $$
 $$
 
 selected separately at each token position. Globally the bank can have high rank and
-many atoms; locally only $k$ blocks contribute. This is exactly the desired “many
-circuits, sparsely active per datapoint” structure.
+many atoms; locally only $k$ blocks contribute. This realizes “many circuits, sparsely
+active per datapoint” as ordinary executable code, but not as one fixed polynomial
+tensor network.
 
 The hard `TopK` means the complete function is **piecewise quadratic**, not one global
-quadratic polynomial. It is still a tensor network plus a discrete selection node. If
-one insists on a single polynomial tensor network, the scores $x^TQ_ax$ can be merely
-approximately sparse and all blocks remain present; exact conditional execution then
-cannot be obtained without a threshold, discrete index, or other routing operation.
+quadratic polynomial. Functional composition remains possible, and within a region of
+fixed support the function is a tensor contraction. Global tensor contraction and
+polynomial-degree bookkeeping do not remain clean: exact composition must also carry
+the discrete support indicators. If one insists on a single polynomial tensor network,
+the scores $x^TQ_ax$ can be merely approximately sparse and all blocks remain present;
+exact conditional execution cannot be obtained without a threshold, discrete index,
+or other non-polynomial routing operation (or an impractically large polynomial
+encoding of it).
 
 ## 2. What has actually been run
 

@@ -119,7 +119,7 @@ complete MLP1 storage. It still misses the 90% gate.
 The $P=768$ run took **97.33 seconds**. This is why the current plan does not simply
 increase the dictionary width until a threshold happens to pass.
 
-## 5. The new tensor-native pre-gate replacement
+## 5. The new tensor-factorized but hybrid pre-gate replacement
 
 The expensive part left in the previous program is hidden by the notation $Eg(x)$:
 it still computes all 4,608 native bilinear products and then a dense encoder. Because
@@ -156,9 +156,19 @@ $$
 \widehat s_a(x)=\sum_{j=1}^{r}\lambda_{aj}(v_{aj}^Tx)^2.
 $$
 
-This is a small tensor program: linear projections, scalar squares, weighted sums,
-TopK32, and a decoder. It never calls native MLP1 Left, Right, or Down. Exact call
-counters verified zero calls to all three in every candidate arm.
+The quadratic score bank is a small tensor program: linear projections, scalar
+squares, and weighted sums. **The complete replacement is not a pure tensor network,**
+because TopK32 is a discrete comparison-and-selection operation. It is a hybrid
+piecewise-quadratic program. It never calls native MLP1 Left, Right, or Down; exact
+call counters verified zero calls to all three in every candidate arm.
+
+This distinction matters. The hybrid can be composed as ordinary executable code and
+is differentiable away from support boundaries. On any region where the selected 32
+atoms are fixed, it is an ordinary quadratic tensor contraction. But there is no one
+global polynomial coefficient tensor to contract with the downstream model unless we
+also carry the support-indicator logic, whose size can grow combinatorially. It
+therefore does not retain the clean global algebraic compositionality sought by the
+project.
 
 `rank 8` means eight one-dimensional quadratic modes **per one of the 512 routed
 components**. It does not mean that all of MLP1 is an eight-dimensional function.
@@ -184,7 +194,7 @@ and recovers 64.34% of its positive TopK32 support. Its routed-code relative MSE
 
 The result is mixed but useful:
 
-- **Positive:** a program that removes all native bilinear gates and Down computation
+- **Positive:** a hybrid program that removes all native bilinear gates and Down computation
   preserves 73.13% of MLP1's measured CE effect while removing 66.64% of complete
   MLP1 storage. This is a much more genuinely executable simplification than sparse
   activations sitting on top of the full native gate vector.
@@ -199,9 +209,10 @@ SHA-256 is
 
 ## 7. What the mathematics changed
 
-The algebraic folding was directly useful: it turned “SAE on products” into an
-explicit tensor program on the residual stream and made it possible to charge the
-native gates honestly.
+The algebraic folding was directly useful: it turned every pre-selection SAE score
+into an explicit quadratic tensor contraction on the residual stream and made it
+possible to charge the native gates honestly. It did **not** turn TopK itself into a
+tensor contraction.
 
 The experiment also distinguishes two notions of tensor similarity.
 
@@ -237,22 +248,40 @@ coefficient-space control; it is not evidence that all low-rank quadratic router
 
 ## 8. Current plan, ranked by expected return
 
-### 1. Train the same pre-gate tensor program in the real-state norm
+### 1. Split MLP0 exactly into fixed token, context, and interaction tensors
 
-Fit the rank-1/2/4/8 modes on FIT residual states using the fourth-moment score loss,
-freeze the result, and measure SELECT score error, TopK agreement, decoded writes, CE,
-storage, and multiplies. Add CE only after the score-only implementation passes a
-planted toy recovery test. This directly tests whether the gap in section 6 is an
-artifact of the wrong tensor norm.
+Before further optimizing a discrete router, exploit bilinearity directly. If the
+pre-normalization MLP0 input is token-derived state $e_t$ plus attention context $a$,
+then the common RMS scale $\rho(t,a)$ gives
 
-### 2. Identify finite downstream response states
+$$
+L[\rho(e_t+a)]\odot R[\rho(e_t+a)]
+=\rho^2\big[(Le_t)\odot(Re_t)+(Le_t)\odot(Ra)
++(La)\odot(Re_t)+(La)\odot(Ra)\big].
+$$
+
+These are fixed token-token, token-context, context-token, and context-context tensor
+branches. No TopK is required, and the four branches sum exactly to native MLP0. The
+next experiment measures their independent and joint causal effects, then factors each
+branch with the structure appropriate to it: lexical hierarchy for token-token,
+low-rank continuous tensors for context-context, and class-conditioned block terms for
+the cross branches.
+
+### 2. Keep empirical-fourth-moment routing as a hybrid diagnostic
+
+Fit a fixed rank-8 score bank on FIT residual states using the fourth-moment score
+loss, then measure SELECT score error and physical CE. This remains useful for asking
+whether Frobenius was the wrong norm, but even a pass produces a hybrid TopK program,
+not the final tensor-network compiler.
+
+### 3. Identify finite downstream response states
 
 Inject controlled native-minus-compressed MLP1 writes under both native and compressed
 MLP0 backgrounds. Seek a small state that predicts effects on held-out documents,
 amplitudes, consumers, and paired edits. This is system identification rather than
 local reconstruction and targets composition failures directly.
 
-### 3. Establish one clean terminal behavior circuit
+### 4. Establish one clean terminal behavior circuit
 
 Use interaction-resolved interventions on the known copy/induction family or another
 late behavior such as capitalization. A verified terminal reader supplies a concrete
@@ -260,7 +289,7 @@ observable for asking which early MLP0/1 directions matter. More late circuits h
 early-layer interpretation only if they are specific enough to serve as measured
 readers, not merely correlated probes.
 
-### 4. Jointly factor early writers and downstream readers
+### 5. Jointly factor early writers and downstream readers
 
 Learn a shared sparse dictionary or DAG in which MLP0 writes a small set of components
 and multiple later modules read sparse subsets. Charge graph edges and component
@@ -268,7 +297,7 @@ parameters, and require prediction on an unseen reader or a composed edit. This 
 best route to semantic components, but it needs the reader endpoints from step 3 to
 avoid an arbitrary gauge rotation.
 
-### 5. Search consumer-common invariant blocks
+### 6. Search consumer-common invariant blocks
 
 Given several verified downstream quadratic forms, find subspaces they approximately
 preserve together. These would be gauge-robust candidate state variables. This remains
