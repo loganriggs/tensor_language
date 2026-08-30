@@ -1,0 +1,95 @@
+{
+  "schema": "bracket_closure_execution_v1_static_source_audit",
+  "audit_kind": "static_outcome_blind_source_audit_non_authorizing",
+  "status": "NO-GO",
+  "approved": false,
+  "outcome_access": false,
+  "reviewed_source_commit": "f6e083a9ea5fdc28e9c176a8f62f720403869a44",
+  "reviewed_source_sha256s": {
+    "basis_aligned/polynomial_causal/BRACKET_CLOSURE_CANARY_V1_PREREGISTRATION.md": "7000795bda3f0e0c47d37ba1a29d5ddb80d7d44adc0ec831fa9171172230328a",
+    "basis_aligned/polynomial_causal/BRACKET_CLOSURE_ROWS_V1_AMENDMENT.md": "6cb9f6ba7f340eb54ea54e853f4ab6264d22fd68258b1796e8010870b7e647f8",
+    "basis_aligned/polynomial_causal/BRACKET_CLOSURE_EXECUTION_V1_NO_GO.md": "e554a2b9048e80fd893ad20606f8623a9fe2b5c62a8ce5d5b808a98afe143ea9",
+    "basis_aligned/polynomial_causal/BRACKET_CLOSURE_EXECUTION_V1_AMENDMENT.md": "7964c251e334e8d57b960d905a5d0066af3568e59cfc4368109a9fa23d723fac",
+    "basis_aligned/polynomial_causal/bilin18_observed_model_facade.py": "b62947f772c807259890a9d09dfcbe5e91ad339a0bffa867ab99177fde4c728c",
+    "basis_aligned/polynomial_causal/bracket_closure_canary_v1.py": "bc603b1d2106a5a9921739684f78015ec9159904aecd9c1b588ca835e5a94ca8",
+    "basis_aligned/polynomial_causal/bracket_closure_execution_v1.py": "202398b0e2c33d697c227b4c03d6198d0ad6d6e92661f6baba85905767addba2",
+    "basis_aligned/polynomial_causal/bracket_closure_execution_lifecycle_v1.py": "3742a25462c5f827a199bebedbe4b3b036bc65efaa57c1d801a62bc91b56657b",
+    "basis_aligned/polynomial_causal/bracket_closure_masks_v1.py": "d1767e255c15afc6b519012ff18d27f5e168acf8a8893adb54c03f3b89454c66",
+    "basis_aligned/polynomial_causal/bracket_closure_rows_v1.py": "fb07bef1f8409c71d7184c87bd441fff40b027b74d2cd03e8c8d9461f55787e9",
+    "basis_aligned/polynomial_causal/bracket_closure_tensor_v1.py": "bf9906115c70e695efffd06a84c20fb6d0d34ea595334c26358f8060be343efa",
+    "basis_aligned/polynomial_causal/circuit_campaign_runtime.py": "6c00f9cd3ade035a1172327ad729c98ccbbab10c9957de2314d82930d4203a0f",
+    "basis_aligned/polynomial_causal/freeze_bracket_closure_rows_v1.py": "36260cbe8afaf33b88a407b134ba3340111160a53d68db3fcc93960787904c9f",
+    "basis_aligned/polynomial_causal/run_bracket_closure_execution_v1.py": "60b483e5f5098f90a5b02289924ac10110671b155af6cbd5c304f183bd26d077",
+    "basis_aligned/polynomial_causal/tensor_preserving_attention.py": "e2d90035edd660ca2dd582652cbb1d904932cd77aba9ec9d7f5b2620144c0b5e",
+    "basis_aligned/polynomial_causal/test_bracket_closure_canary_v1.py": "5fc55a9611683e3175ec1262ee63eb3354cdb1c13848e8e26a7ea9471a1bf09f",
+    "basis_aligned/polynomial_causal/test_bracket_closure_execution_v1.py": "90050923caa9a23cdd3cc5df352aa73aaa9b0d477f3cf1128b101752b412660d",
+    "basis_aligned/polynomial_causal/test_bracket_closure_execution_lifecycle_v1.py": "be00e40884c0560a303fddf27c7c59632efa8ebb80d02b0c5660f280a35bb622",
+    "basis_aligned/polynomial_causal/test_bracket_closure_masks_v1.py": "5024296847c40da5012ccf4ce21b26c2548504d8183217165b253891f723f066",
+    "basis_aligned/polynomial_causal/test_bracket_closure_rows_v1.py": "5ce28ec07e7a7a2abc3dcbcb9b63c9dcfe9847ba8bb16f9b1dd69a5b23391b6a",
+    "basis_aligned/polynomial_causal/test_bracket_closure_tensor_v1.py": "c236712fdeb74897f8c412be6a6385cead10127b08b3e71b9a30c2613356cfaa",
+    "basis_aligned/polynomial_causal/test_bilin18_observed_model_facade.py": "7ce76de82cba3355abd07dab6a0d3b4d380d39eae43ad064ae4d954878606a71",
+    "basis_aligned/polynomial_causal/test_circuit_campaign_runtime.py": "8d026f0f0c00b6a7e83b894f2e7adc5e7db29833dcf4adb9fb3d0ae276e3f886",
+    "basis_aligned/polynomial_causal/test_run_bracket_closure_execution_v1.py": "71f53f7c2850848599601dd6ff31b157e9b9c12e5776274fc16669757aa029aa",
+    "basis_aligned/polynomial_causal/test_tensor_preserving_attention.py": "bf5baaf7527794d73ec2a5f61422d0840de22bd10fb741c362dabee678bc2a2b",
+    "jacclust/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jacclust/tt_model.py": "49ecdbd6c060ff5b3e57f3134d87ba32841390c891c42e6ae23b71d8627612b2"
+  },
+  "prior_blocker_recheck": [
+    {
+      "id": "incomplete_transitive_source_closure",
+      "status": "CLOSED",
+      "evidence": "The exact 27-file closure now includes jacclust/__init__.py; a fresh adapter import loaded no project Python file outside the declared closure."
+    },
+    {
+      "id": "failure_publication_not_fail_closed",
+      "status": "CLOSED",
+      "evidence": "Failure publication now reruns the complete authority/audit/source/row/program/model guard, binds a partial-result presence/hash aggregate, and wins the shared terminal claim before linking failure."
+    },
+    {
+      "id": "success_terminal_exclusivity_race",
+      "status": "CLOSED",
+      "evidence": "Success and failure now compete for one create-only terminal claim; result, receipt, failure, and terminal absence/presence are rechecked before each link."
+    },
+    {
+      "id": "run_lock_toctou",
+      "status": "STILL_OPEN_AT_ACQUISITION",
+      "evidence": "require_owned uses a stable open descriptor, but __enter__ closes the creator descriptor before statting the path. An injected same-user replacement after close was accepted: created inode 4375245895, replacement/claimed inode 4375245897, and require_owned passed."
+    },
+    {
+      "id": "row_receipt_lineage_not_replayed",
+      "status": "CLOSED",
+      "evidence": "The adapter stably reloads and validates row authority/audit, source closure, candidate identity, delimiter registry, historical registries/exclusion counts, receipt joins, all role hashes, masks/support, and cross-role identities."
+    },
+    {
+      "id": "live_model_and_full_call_evidence_not_terminally_bound",
+      "status": "CLOSED",
+      "evidence": "The exact live state tree is hashed before/after forwards and at terminal guards; the result binds all 18 attention/MLP site counts plus attempted/completed outer forwards, returns, closure, and candidate native-call prohibition."
+    }
+  ],
+  "blockers": [
+    {
+      "id": "run_lock_acquisition_toctou",
+      "severity": "P0",
+      "evidence": "RunLock.__enter__ writes and closes descriptor, then obtains its claim from self.path.stat(). A same-user racer can read the nonce, replace the path after close, and have the replacement inode recorded as the owner's claim. The source-isolated counterexample replaced inode 4375245895 with 4375245897; claim inode was 4375245897 and require_owned accepted it.",
+      "minimum_repair": "Keep the O_EXCL creator descriptor open for the lock lifetime and derive the claim from os.fstat(descriptor); require path lstat to match that original inode and compare stable descriptor bytes. Add an acquisition-boundary replacement regression."
+    },
+    {
+      "id": "post_link_terminal_durability_errors_propagate",
+      "severity": "P0",
+      "evidence": "All three publishers hard-link an authoritative artifact and then propagate directory-fsync/cleanup errors. Injecting the final-receipt directory fsync produced a valid linked receipt while raising OSError. Injecting the success-terminal directory fsync produced linked result+terminal(status success_claimed_before_receipt), no receipt, no failure, and an exception; run suppresses failure whenever terminal exists, so the namespace is irrecoverably stranded.",
+      "minimum_repair": "After each successful hard link, do not propagate directory-fsync or temporary-cleanup errors as transaction failures. Semantically reload the linked object and continue/return its terminal state. Add injected post-link errors separately for result, success claim, final success receipt, failure claim, and final failure receipt, proving no ambiguous or stranded namespace."
+    }
+  ],
+  "tests": {
+    "command_scope": "exact isolated 27-file SOURCE_CLOSURE scientific and lifecycle suite at reviewed commit",
+    "passed": 71,
+    "runtime_seconds": 37.27,
+    "additional_counterexamples": 3
+  },
+  "counterexamples": {
+    "lock_acquisition_replacement_accepted": true,
+    "linked_receipt_then_exception": true,
+    "linked_success_claim_without_receipt_or_failure_then_exception": true
+  },
+  "reviewer": "Codex independent outcome-blind reviewer"
+}
