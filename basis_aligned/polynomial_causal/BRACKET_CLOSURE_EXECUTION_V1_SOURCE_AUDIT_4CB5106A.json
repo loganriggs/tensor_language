@@ -1,0 +1,74 @@
+{
+  "approved": false,
+  "audit_kind": "static_outcome_blind_source_audit_non_authorizing",
+  "blockers": [
+    {
+      "evidence": "bracket_closure_execution_lifecycle_v1.py:18-45 binds jacclust/tt_model.py but omits the import-executed jacclust/__init__.py used by bilin18_observed_model_facade.py.",
+      "id": "incomplete_transitive_source_closure",
+      "severity": "P0"
+    },
+    {
+      "evidence": "run_bracket_closure_execution_v1.py:510-520 publishes failure with only lock.require_owned; it neither replays protected authority/audit/row/program/model inputs nor binds the exact present/absent result/receipt/failure aggregate, so late receipt/result races can yield incompatible terminal artifacts.",
+      "id": "failure_publication_not_fail_closed",
+      "severity": "P0"
+    },
+    {
+      "evidence": "bracket_closure_execution_lifecycle_v1.py:122-161 checks only result/receipt at entry and never checks the failure path in either pre-link guard; run_bracket_closure_execution_v1.py:497-508 likewise omits opposite-terminal checks. A rival failure can coexist with a success result/receipt.",
+      "id": "success_terminal_exclusivity_race",
+      "severity": "P0"
+    },
+    {
+      "evidence": "bracket_closure_execution_lifecycle_v1.py:60-65 stats the lock and then reads it without a stable before/read/after inode check; replacement between those operations can pass using the old inode and copied nonce.",
+      "id": "run_lock_toctou",
+      "severity": "P0"
+    },
+    {
+      "evidence": "run_bracket_closure_execution_v1.py:255-274 accepts row-receipt authority/audit/source/history fields by name but does not semantically join their values to the frozen row authority, audit, source closure, or historical exclusions.",
+      "id": "row_receipt_lineage_not_replayed",
+      "severity": "P0"
+    },
+    {
+      "evidence": "run_bracket_closure_execution_v1.py:431-454 rehashes checkpoint files but never hashes/replays the loaded live model state after load/forward; the persisted call summary also retains only L13 attention counts rather than the validated full 18-site attention/MLP and outer-return closure.",
+      "id": "live_model_and_full_call_evidence_not_terminally_bound",
+      "severity": "P1"
+    }
+  ],
+  "outcome_access": false,
+  "reviewed_source_commit": "4cb5106aee7e78c8c4b6f1cb939e47e2407fbe87",
+  "reviewed_source_sha256s": {
+    "basis_aligned/polynomial_causal/BRACKET_CLOSURE_CANARY_V1_PREREGISTRATION.md": "7000795bda3f0e0c47d37ba1a29d5ddb80d7d44adc0ec831fa9171172230328a",
+    "basis_aligned/polynomial_causal/BRACKET_CLOSURE_EXECUTION_V1_AMENDMENT.md": "44eea5603c0fa8fa136c20bba44787ab0e78bffce2b23debf6b3fdf6c437100d",
+    "basis_aligned/polynomial_causal/BRACKET_CLOSURE_EXECUTION_V1_NO_GO.md": "e554a2b9048e80fd893ad20606f8623a9fe2b5c62a8ce5d5b808a98afe143ea9",
+    "basis_aligned/polynomial_causal/BRACKET_CLOSURE_ROWS_V1_AMENDMENT.md": "6cb9f6ba7f340eb54ea54e853f4ab6264d22fd68258b1796e8010870b7e647f8",
+    "basis_aligned/polynomial_causal/bilin18_observed_model_facade.py": "b62947f772c807259890a9d09dfcbe5e91ad339a0bffa867ab99177fde4c728c",
+    "basis_aligned/polynomial_causal/bracket_closure_canary_v1.py": "bc603b1d2106a5a9921739684f78015ec9159904aecd9c1b588ca835e5a94ca8",
+    "basis_aligned/polynomial_causal/bracket_closure_execution_lifecycle_v1.py": "00621211378c5620181cabdb5288d49c8db8b917f0695802aae4eba755a41a9e",
+    "basis_aligned/polynomial_causal/bracket_closure_execution_v1.py": "202398b0e2c33d697c227b4c03d6198d0ad6d6e92661f6baba85905767addba2",
+    "basis_aligned/polynomial_causal/bracket_closure_masks_v1.py": "d1767e255c15afc6b519012ff18d27f5e168acf8a8893adb54c03f3b89454c66",
+    "basis_aligned/polynomial_causal/bracket_closure_rows_v1.py": "fb07bef1f8409c71d7184c87bd441fff40b027b74d2cd03e8c8d9461f55787e9",
+    "basis_aligned/polynomial_causal/bracket_closure_tensor_v1.py": "bf9906115c70e695efffd06a84c20fb6d0d34ea595334c26358f8060be343efa",
+    "basis_aligned/polynomial_causal/circuit_campaign_runtime.py": "6c00f9cd3ade035a1172327ad729c98ccbbab10c9957de2314d82930d4203a0f",
+    "basis_aligned/polynomial_causal/freeze_bracket_closure_rows_v1.py": "36260cbe8afaf33b88a407b134ba3340111160a53d68db3fcc93960787904c9f",
+    "basis_aligned/polynomial_causal/run_bracket_closure_execution_v1.py": "b9a5b405fd5abdd0c5a7f0e0e1c913865d57c3c03cd0517c2cf13a9d8280c836",
+    "basis_aligned/polynomial_causal/tensor_preserving_attention.py": "e2d90035edd660ca2dd582652cbb1d904932cd77aba9ec9d7f5b2620144c0b5e",
+    "basis_aligned/polynomial_causal/test_bilin18_observed_model_facade.py": "7ce76de82cba3355abd07dab6a0d3b4d380d39eae43ad064ae4d954878606a71",
+    "basis_aligned/polynomial_causal/test_bracket_closure_canary_v1.py": "5fc55a9611683e3175ec1262ee63eb3354cdb1c13848e8e26a7ea9471a1bf09f",
+    "basis_aligned/polynomial_causal/test_bracket_closure_execution_lifecycle_v1.py": "69b9fd5bc59320390cf07c68f850e1e12846d82dd5eb22c4fa4b69f8aa4722b8",
+    "basis_aligned/polynomial_causal/test_bracket_closure_execution_v1.py": "90050923caa9a23cdd3cc5df352aa73aaa9b0d477f3cf1128b101752b412660d",
+    "basis_aligned/polynomial_causal/test_bracket_closure_masks_v1.py": "5024296847c40da5012ccf4ce21b26c2548504d8183217165b253891f723f066",
+    "basis_aligned/polynomial_causal/test_bracket_closure_rows_v1.py": "5ce28ec07e7a7a2abc3dcbcb9b63c9dcfe9847ba8bb16f9b1dd69a5b23391b6a",
+    "basis_aligned/polynomial_causal/test_bracket_closure_tensor_v1.py": "c236712fdeb74897f8c412be6a6385cead10127b08b3e71b9a30c2613356cfaa",
+    "basis_aligned/polynomial_causal/test_circuit_campaign_runtime.py": "8d026f0f0c00b6a7e83b894f2e7adc5e7db29833dcf4adb9fb3d0ae276e3f886",
+    "basis_aligned/polynomial_causal/test_run_bracket_closure_execution_v1.py": "862971cc26f10f70a77702cf2cca726a6bd960809bb97d187fc1a6a0e52ad1cb",
+    "basis_aligned/polynomial_causal/test_tensor_preserving_attention.py": "bf5baaf7527794d73ec2a5f61422d0840de22bd10fb741c362dabee678bc2a2b",
+    "jacclust/tt_model.py": "49ecdbd6c060ff5b3e57f3134d87ba32841390c891c42e6ae23b71d8627612b2"
+  },
+  "reviewer": "artifact_audit_agent",
+  "schema": "bracket_closure_execution_v1_static_source_audit",
+  "status": "NO-GO",
+  "tests": {
+    "command_scope": "exact isolated 26-file SOURCE_CLOSURE test suite at reviewed commit",
+    "passed": 62,
+    "runtime_seconds": 52.88
+  }
+}
