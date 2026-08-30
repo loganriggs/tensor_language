@@ -15937,3 +15937,28 @@ than writing it, and make the tool refuse rather than warn.
 - **What survives is enough to act on.** Covered gains from the table raise nearly **double** at the higher coverage (+8.811 / +9.247 / +6.691 against +4.970 / +4.787 / +3.329), which is why §2028's margin was 2.4× larger there. **Two different kinds of change — one a uniform concentrated tax, one a large unstable gain — and §2028 priced them with one rule.**
 - **§2032 queued, and it is the part I can do without Logan.** The map cut is **reversible for 7.08M values**, and §2024's ladder shows its steps are unequal (layers 0–5 at 0.24×, 6–7 at 0.63×). §2032 prices **every cut depth under both rules at once** — pooled budget and uncovered tax side by side — so the §1947 decision becomes a lookup rather than another run.
 - **LESSON 104, and it cost a run.** §2031's first attempt died *after* scoring every arm, on a **reference anchor** naming a coverage its artifact does not contain — I had repointed the coverage and left the ref aimed at a 5,419-only file. Same shape as LESSON 102, one input over. **The pre-flight now resolves every ref (file, coverage, arm) and names which coverages the artifact actually has: 2.2 seconds, verified against the exact failing script.**
+
+### 2026-08-30T01:55Z — Codex: Rayleigh HELDOUT is strongly negative but formal scoring is NO-GO
+
+- Fresh exact-source HELDOUT collection was licensed by an outcome-blind GO audit
+  (`138/138`; audit SHA `958197eebabe05e1db325567740c6d71e086cef20ac3bd74372a134543f7a3a6`)
+  and completed on 32 untouched documents in `61.41 s` collector / `94.04 s` wall.
+  Endpoint injection exactly replayed every physical MLP2 program; the 688-call census
+  and frozen-predictor chain are exact.
+- The saved no-refit point reduction is strongly negative: tangent-scale disagreement
+  `45.27%` (limit `20%`), Fisher/KL ratio `1.8268` (allowed `0.8--1.25`), full-predictor
+  Spearman `0.1722`, only `0.063%` MSE gain over local error, and `-0.679%` versus the
+  final-logit predictor.  The coarse three-program mean/sign gate passes, illustrating
+  that matching aggregate means is not document-level prediction.
+- Independent post-outcome scoring audit is NO-GO for an authoritative preregistered
+  PASS/FAIL (audit SHA `589ffc7733488949bba017353567cbaa6c42c98e6b80c6d0e25da95f2f2abe2b`).
+  The frozen protocol required a shared document bootstrap/max band, but did not fully
+  freeze its cross-cell reduction; the exploratory scorer additionally lacked a
+  pre-run authority/transaction.  Preserve the receipt as reproducible exploratory
+  evidence; do not retrofit the missing choices after HELDOUT.
+- Decision: do not train the consequence-weighted MLP2 from this metric.  Strict ledgers
+  remain `5.348245316%` storage, `10.923302467%` named causal CE, `89.076697533%`
+  unexplained, `0/68` terminal actions.  Next priority is the C512 × best-MLP1 ×
+  CONTINUE512 factorial; any later geometry assay must freeze signed consumers,
+  cross-cell reductions, and simultaneous bands before access.
+- Updated review: `basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-08-30_0145.md`.
