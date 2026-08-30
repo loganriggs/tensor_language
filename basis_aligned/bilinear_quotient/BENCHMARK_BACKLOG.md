@@ -218,5 +218,13 @@ AGENT_BOARD (2026-08-30 §2096 entry).
     the controllability/observability quotient the other lane now names
     as primary; (b) whether the frontier's m16 stand-in (linear read, .81)
     fails on the same positions where the causal-response program fails.
-    -> next wake: read §8180–§8300 and §10400–§10500, write the
-    preregistration, then a script. [DESIGN]
+    DESIGN MEASUREMENT 2026-08-30 (in-sample, all 229 training docs, NOT
+    registered): m16 source rows RMS 0.4923 vs 0.1803 overall; 6-row
+    unfolding top-1 energy share 0.6565, top-2 0.8775; null random 6-row
+    blocks median 0.63 / p95 0.87. mlp16's rank-1 OUTPUT core does NOT
+    make its deletion-response block rank-1; two source families visible.
+    REGISTERED: does the rank-2 subspace transfer across a prospective
+    document split? -> ops/m16_response_block_split.py  [QUEUED]
+    pred_a transfer >= 0.78 (in-sample 0.8775 - 0.10); pred_b beats the
+    200-draw null p95; pred_c the two-family partition agrees on both
+    halves.
