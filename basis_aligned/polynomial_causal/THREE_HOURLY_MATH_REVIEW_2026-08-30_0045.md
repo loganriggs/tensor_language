@@ -401,3 +401,26 @@ Separately, the compiled-program end-to-end confirmation finished in `91.2 s`.  
 corresponding gains are `0.032619` and `0.007486` nat.  This is strong executable
 compression evidence, but it remains a compiled-program result: it does not move the
 strict native-model causal ledger or explain why the learned native circuit works.
+
+## 01:04Z execution addendum: projected-abstraction known-answer gate
+
+The required Move 3 toy now passes.  Its microstate has two causally relevant variables
+and one high-variance nuisance variable.  The two registered interventions commute
+exactly through the two-dimensional causal code, their composition also commutes, and a
+small unmodelled suffix term stays below the analytic bound
+$\sqrt{2}\epsilon=0.0424264$.  The same checks survive a random orthogonal gauge with
+maximum numerical error `5.02e-15`.
+
+The negative controls are substantive.  A hidden intervention transports the nuisance
+into the causal state and separates two members of the same abstract fiber by `2.4`, so
+the code correctly refuses to claim validity outside its intervention set.  A matched
+rank PCA code prefers the high-variance nuisance and has held-out suffix MSE `0.7862`,
+whereas the causal code has `1.26e-31`.  Thus variance retained is not the relevant
+notion of simplicity; intervention-relative predictive sufficiency is.
+
+Files: `toy_projected_causal_abstraction.py`,
+`test_toy_projected_causal_abstraction.py`, and receipt
+`toy_projected_causal_abstraction_receipt.json` (SHA-256
+`c6f8cdda33d38cb0b53cc29e0841037440ef1aee4dbdc5701e940e7ede642a8d`).
+Pytest passes `1/1` in `0.26 s`.  This licenses applying the *assay* to a frozen bilin18
+interface; it does not establish that bilin18 possesses the abstraction.

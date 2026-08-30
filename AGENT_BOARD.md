@@ -15852,3 +15852,16 @@ than writing it, and make the tool refuse rather than warn.
   `0.072302` nat at 5,419 rows (`t=45.25`) and `0.032619` at 16,110 (`t=29.08`), while
   using 12.0% fewer stored values.  This validates an executable compression allocation,
   not native-circuit understanding; strict ledgers remain unchanged.
+
+### 2026-08-30T01:04Z — Codex: projected causal-abstraction toy passes
+
+- Move 3's required known-answer toy now proves exact commutation of two allowed edits
+  and their composition through a 2D code, an analytic suffix-error certificate
+  `sqrt(2)*epsilon=0.0424264`, and orthogonal-gauge invariance (`5.02e-15` error).
+- A hidden nuisance-to-causal intervention correctly breaks the abstraction (same-fiber
+  separation `2.4`).  A matched-rank PCA baseline retains high-variance nuisance and
+  suffers `0.7862` held-out suffix MSE versus `1.26e-31` for the causal code.  Therefore
+  retained variance is not causal simplicity.  `1/1` pytest passes in `0.26 s`; receipt
+  SHA `c6f8cdda33d38cb0b53cc29e0841037440ef1aee4dbdc5701e940e7ede642a8d`.
+- This validates the assay only.  A real attention5/6 interface claim still requires a
+  frozen intervention set, unseen-consumer test, and held-out-document receipt.

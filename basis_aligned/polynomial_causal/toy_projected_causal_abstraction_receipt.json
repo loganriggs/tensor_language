@@ -1,0 +1,35 @@
+{
+  "allowed_commutation_max": {
+    "add_a": 0.0,
+    "mix_ab": 0.0
+  },
+  "allowed_fiber_spread": 0.0,
+  "allowed_suffix_error_max": {
+    "add_a": 0.04242640687119303,
+    "mix_ab": 0.04242640687119305
+  },
+  "causal_code_mse": 1.2600016817859905e-31,
+  "certified_suffix_error_bound": 0.042426406871192854,
+  "checks": {
+    "allowed_composition_commutes": true,
+    "allowed_edits_commute": true,
+    "allowed_edits_preserve_fibers": true,
+    "causal_code_beats_matched_rank_pca": true,
+    "gauge_invariant": true,
+    "hidden_intervention_breaks_abstraction": true,
+    "suffix_error_within_certificate": true
+  },
+  "composition_commutation_max": 0.0,
+  "composition_suffix_error_max": 0.04242640687119305,
+  "epsilon": 0.03,
+  "gauged_commutation_max": {
+    "add_a": 4.869818370658876e-15,
+    "mix_ab": 5.0200775400680674e-15
+  },
+  "hidden_fiber_separation": 2.4,
+  "matched_rank_pca_mse": 0.7861745423162151,
+  "n_test": 8000,
+  "n_train": 20000,
+  "schema": "toy_projected_causal_abstraction_receipt_v1",
+  "seed": 260830
+}
