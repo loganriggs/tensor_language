@@ -33,6 +33,16 @@
 #           low-dimensional at its own best component and "isolating where it is located" has a floor
 #           that four dimensions do not reach.
 #
+# HARNESS HISTORY. The first version of this script FAILED ITS OWN SANITY PREDICATE and its numbers were
+# discarded, not published. It initialised P as randn(D, r) with |P| ~ 35 and stepped Adam at lr 5e-3, so
+# each step moved P by a relative 1.4e-4; after 120 steps QR returned essentially the random
+# initialisation, and the learned subspace's overlap with the closed-form direction came out at 0.0009 --
+# which is exactly 1/D, the expected overlap of a RANDOM direction in D=1152. The gradient was flowing
+# (measured grad norm 8.1e-3, nonzero); the step was simply too small to rotate a vector of that norm.
+# Fixed here by unit-scale initialisation, lr 5e-2, 400 steps, member-rich batching -- and by the
+# OPTIMISER HEALTH GATE below, which refuses to report a subspace that did not move from its own
+# initialisation. A learned-parameter run must demonstrate that the parameter learned.
+#
 # Writes circuits/DAS.json (read-only artifact; modifies no circuit file -- Codex works the same folder).
 import json
 import time
@@ -43,8 +53,8 @@ import torch.nn.functional as F
 import census_lib as C
 
 RANKS = (1, 4)
-STEPS = 120
-LR = 5e-3
+STEPS = 400
+LR = 5e-2
 BATCH = 4
 SEED = 20260830
 TRAIN_ROWS = (0, 600)
@@ -119,8 +129,16 @@ def capture(key, lo, hi):
     return torch.cat(cap)
 
 
-def batches(lo, hi):
+def batches(lo, hi, mm=None):
+    """row batches; when mm is given, only batches containing at least one circuit member.
+
+    A circuit's members are ~0.3% of the grid, so a blind batch of 4 rows carries about three of them and
+    the member half of the objective is estimated from three positions. Skipping member-free batches puts
+    every gradient step on a batch that can actually see the circuit.
+    """
     for i in range(lo, hi, BATCH):
+        if mm is not None and mm[i:i + BATCH].sum() == 0:
+            continue
         bb = R[i:i + BATCH, :NP + 1].to(C.DEV)
         yield i, bb[:, :-1].contiguous(), bb[:, 1:].contiguous()
 
@@ -167,14 +185,18 @@ for tag in TARGETS:
     rec = {'component': key, 'members': int(mm.sum()), 'ranks': {}}
     for r in RANKS:
         g = torch.Generator(device='cpu').manual_seed(SEED + r)
-        P = torch.randn(C.D, r, generator=g).to(C.DEV).requires_grad_(True)
+        # unit-scale init: |P| ~ 1 so an lr 5e-2 Adam step is a real rotation, not a 1e-4 nudge
+        P0 = (torch.randn(C.D, r, generator=g) / C.D ** 0.5).to(C.DEV)
+        Q_init = torch.linalg.qr(P0)[0].detach().clone()
+        P = P0.clone().requires_grad_(True)
         opt = torch.optim.Adam([P], lr=LR)
         gg = torch.Generator().manual_seed(SEED)
         perm = torch.randperm(acts_tr.shape[0] * NP, generator=gg)
         flat = acts_tr.reshape(-1, C.D)
         step = 0
+        losses = []
         while step < STEPS:
-            for i, idx, tg in batches(*TRAIN_ROWS):
+            for i, idx, tg in batches(*TRAIN_ROWS, mm=mm):
                 if step >= STEPS:
                     break
                 m_, s_ = mm[i:i + idx.shape[0]].to(C.DEV), sl[i:i + idx.shape[0]].to(C.DEV)
@@ -190,15 +212,22 @@ for tag in TARGETS:
                 d = fwd(idx, tg, key, Q, dn) - b0
                 loss = -d[m_].mean() + d[~s_].abs().mean()
                 opt.zero_grad(); loss.backward(); opt.step()
+                losses.append(float(loss))
                 step += 1
         with torch.no_grad():
             Q = torch.linalg.qr(P)[0]
+            moved = 1.0 - float((Q.T @ Q_init).pow(2).sum() / r)      # 0 = never moved, 1 = orthogonal
+        first, last = (sum(losses[:20]) / 20, sum(losses[-20:]) / 20) if len(losses) >= 40 else (0., 0.)
+        healthy = moved > 0.02 and last < first
         qm, qo, fm, fo = evaluate(tag, key, mm, sl, Q, acts_ev, *EVAL_ROWS)
         ent = {'das_dce_members': round(qm, 4), 'das_dce_offslice': round(qo, 4),
                'das_concentration': round(qm / qo, 3) if qo > 0 else None,
                'full_dce_members': round(fm, 4), 'full_dce_offslice': round(fo, 4),
                'full_concentration': round(fm / fo, 3) if fo > 0 else None,
-               'fraction_of_full_recovered': round(qm / fm, 3) if fm > 0 else None}
+               'fraction_of_full_recovered': round(qm / fm, 3) if fm > 0 else None,
+               'subspace_moved_from_init': round(moved, 4),
+               'loss_first20': round(first, 6), 'loss_last20': round(last, 6),
+               'optimiser_healthy': bool(healthy)}
         if r == 1:
             u = closed_form_dir(acts_tr, mm, sl, *TRAIN_ROWS)
             if u is not None:
@@ -209,7 +238,8 @@ for tag in TARGETS:
                 ent['das_beats_closed_form'] = bool(qm > cm)
         rec['ranks'][r] = ent
         print(f'  {tag:12s} {key:4s} rank {r}: members {qm:.4f} off {qo:.4f} conc '
-              f'{ent["das_concentration"]} recovered {ent["fraction_of_full_recovered"]} '
+              f'{ent["das_concentration"]} recovered {ent["fraction_of_full_recovered"]} | '
+              f'moved {moved:.3f} loss {first:+.5f}->{last:+.5f} healthy {healthy} '
               f'({time.time()-t0:.0f}s)', flush=True)
     out[tag] = rec
 
@@ -220,6 +250,14 @@ rep = {'schema_version': 1, 'generated': '2026-08-30 by Claude, circuit task (Lo
        'state': 'census_state_diverse.pt', 'seed': SEED, 'steps': STEPS, 'lr': LR,
        'note': 'read-only artifact; no circuit file was modified', 'by_tag': out}
 json.dump(rep, open('circuits/DAS.json', 'w'), indent=1)
+
+unhealthy = [(t, r) for t, v in out.items() for r, e in v['ranks'].items()
+             if not e.get('optimiser_healthy')]
+print(f'\nOPTIMISER HEALTH GATE: {len(unhealthy)} of {sum(len(v["ranks"]) for v in out.values())} '
+      f'fits did not move from init or did not reduce their loss.')
+if unhealthy:
+    print('  UNHEALTHY -- these fits report nothing:', unhealthy)
+    print('  A learned-subspace number from a subspace that did not learn is not a measurement.')
 
 cf_ok = [t for t, v in out.items() if v['ranks'][1].get('overlap_with_closed_form') is not None]
 a8p = [t for t in A8 if t in out and 'das_beats_closed_form' in out[t]['ranks'][1]]

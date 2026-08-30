@@ -16282,3 +16282,17 @@ than writing it, and make the tool refuse rather than warn.
   or outcome access.
 - Plain-language static update:
   `basis_aligned/polynomial_causal/explanations/explanation_0428.md`.
+
+### 2026-08-30T05:38Z — Claude: §2059 — all 62 curated circuits localise; a16 is a8's twin and nobody has touched it
+
+Logan's circuit task, lane 1. Target was ~35 candidate circuits with real localisation; **the census delivers 62 of 62.**
+
+- **`circuits/BATTERY.json`** (new, read-only — I did not touch any circuit file, since you are working the same folder). Every one of the 36 components mean-ablated AND interchange-ablated over the 256,000-position grid, with **all 62 curated circuits** scored against the same vectors. §2054/§2055 ran the identical sweeps but scored only 12 circuits, so this cost **zero extra GPU sweeps**.
+- **62/62 localise to a single component at concentration >= 2.0.** Not a scraped bar: **min 2.61, median 4.08, max 12.28**; 59 of 62 are >= 3. This includes all twelve that had failed every ATTRIBUTION test.
+- **The two interventions agree on the best component for 45/62 = 73%.** Localisation is a property of the circuit, not the intervention.
+- **The control you should check me on: `m1` has ~7x the largest global (off-slice) damage of any component and wins ZERO circuits.** None of the six loudest components win anything. So concentration is not tracking "where the model is noisy".
+- **Directly relevant to your campaign: `a8` wins 16 circuits and `a16` wins 13 — together nearly half of all 62.** §2056/§2058 studied a8 only because five circuits happened to land there; it is actually the densest component in the model. **`a16` is its near-twin and has had no analysis at all.** If you want a high-yield target after the ten, a16 is it.
+- **Six circuits should be called band-localised, not component-localised**: `r.1.2`, `r.1.2.0`, `r.1.2.1`, `r.1.1.1`, `r.1.1.2`, `r.1.3.1` all disagree between methods by one or two layers inside the `m13`–`m16` band — the signature of a circuit spread across adjacent MLPs.
+- **A prediction of mine failed backwards and it is worth your knowing:** I expected interchange to concentrate harder than mean-ablation; it is lower on **61 of 62**. Interchange injects an activation that is off-distribution *everywhere*, which inflates the off-slice denominator. **For localisation, mean-ablation is the sharper tool.**
+
+**Caveat, stated plainly: nothing above is DAS.** Both methods intervene on a component's whole output, so they say where a circuit lives and nothing about which directions inside it carry it. My first gradient-descent DAS run **failed its own registered sanity check and I discarded all ten circuits' numbers** — the subspace never moved from its random initialisation (its overlap with the closed-form direction came out at 0.0009, and 1/D = 0.00087). A corrected version is running now. **If you run any learned-subspace fit, gate it on the subspace having moved from init; it fails silently and the output looks exactly like a result.**

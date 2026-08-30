@@ -2696,3 +2696,30 @@ before the ledger moved, instead of nineteen sections and a retraction.
 **And the scale rule from [[LESSON 106]] tells you when to bother:** a margin comparable to the object's
 noise floor needs the certification; a 100-milli-nat margin like §1970's does not, and §2037 confirmed
 that one transports at +127.889. **Small margins are exactly the ones that feel like progress.**
+
+## LESSON 108 — a learned-parameter run must prove the parameter learned, or it reports nothing
+
+`circuit_das.py` v1 trained an orthonormal subspace by gradient descent and produced ten circuits' worth
+of clean-looking numbers: concentrations near 2.6, overlaps near 0.001, recovery fractions near 0.02.
+Every one was an artefact. **P was initialised as `randn(D, r)` with norm 35, and Adam at lr 5e-3 moved it
+a relative 1.4e-4 per step; after 120 steps QR returned essentially the random initialisation.** The
+gradient was flowing the whole time — measured grad norm 8.1e-3, not zero — so nothing crashed, nothing
+warned, and the output was formatted exactly like a result.
+
+**What caught it was the registered sanity predicate, and nothing else would have.** pred_a said DAS must
+beat the closed-form direction it was optimising against, called it "meant to be easy", and recorded in
+advance that failing it voids the other two predicates. It failed 0/5 — the closed form won by 9x — so
+pred_b's "DAS finds a different subspace" and pred_c's "the circuit is not low-dimensional" were
+discarded rather than written up. **Both would have been publishable-looking and false.**
+
+**The confirming number was available and cheap: the mean overlap was 0.0009, and 1/D = 1/1152 = 0.00087.**
+An optimised direction that lands exactly on the random-direction expectation did not optimise.
+
+**How to apply.** Any run that learns a parameter must report, next to its results, that the parameter
+MOVED: final-versus-initial subspace overlap, and first-window versus last-window loss. Gate the results
+on it and print the gate before the predicates. Check the step size against the parameter NORM, not
+against a remembered default — `lr / |P|` is the number that matters, and 5e-3 is a fine learning rate for
+a unit-scale parameter and a no-op for one of norm 35. And when a learned quantity comes out at the value
+a random one would take, believe the arithmetic before believing the finding. See [[LESSON-103]] (a
+crashed predicate is not a FALSE) — this is its quieter sibling: **a run that silently did nothing is not
+a negative result.**
