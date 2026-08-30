@@ -7,6 +7,7 @@ from causal_response_factorization_v1 import (
     predict_from_codes,
     prospective_anchor_mask,
     prospective_document_split,
+    score_program_on_validation,
     signed_response_from_sums,
 )
 
@@ -141,3 +142,44 @@ def test_optimizer_recovers_planted_shared_plus_private_toy_and_replays_canonica
     assert fitted.improvement_fraction > 0.9999
     assert fitted.final_mse < 1e-8
     assert torch.allclose(replay, response, atol=5e-4, rtol=5e-4)
+
+
+def test_validation_scorer_separates_unconditional_from_calibrated_and_reports_blocks():
+    generator = torch.Generator().manual_seed(123)
+    groups = torch.tensor([0, 0, 1, 1], dtype=torch.int64)
+    program = make_program_from_factors(
+        tuple(torch.randn(shape, generator=generator, dtype=torch.float64)
+              for shape in ((2, 1), (4, 1), (4, 1))),
+        tuple(
+            tuple(torch.randn(shape, generator=generator, dtype=torch.float64)
+                  for shape in ((2, 1), (2, 1), (4, 1)))
+            for _ in range(2)
+        ),
+        groups,
+    )
+    train_codes = torch.randn((20, 3), generator=generator, dtype=torch.float64)
+    validation_codes = torch.randn((8, 3), generator=generator, dtype=torch.float64)
+    truth = predict_from_codes(program.basis(), validation_codes).reshape(2, 4, 4, 8)
+    valid = torch.ones_like(truth, dtype=torch.bool)
+    # Pick six independent rows, satisfying the frozen two-anchors-per-code rule.
+    basis = program.basis()
+    selected = []
+    for index in range(basis.shape[0]):
+        candidate = selected + [index]
+        if len(selected) >= 3 or torch.linalg.matrix_rank(basis[candidate]) > len(selected):
+            selected.append(index)
+        if len(selected) == 6:
+            break
+    anchors = torch.zeros(basis.shape[0], dtype=torch.bool)
+    anchors[selected] = True
+    report = score_program_on_validation(
+        program, train_codes, truth, valid, anchors,
+        training_rms=float(truth.square().mean().sqrt()),
+    )
+    assert report["support_gate_passes"] is True
+    assert report["supported_documents"] == 8
+    assert report["calibrated"]["pooled"]["mse"] < 1e-10
+    assert report["unconditional"]["pooled"]["mse"] > 1e-4
+    assert len(report["calibrated"]["owner_pairs"]) == 4
+    assert report["calibrated"]["uses_pooled_only"] is False
+    assert report["claim_boundary"]["calibrated_is_zero_shot_ood"] is False

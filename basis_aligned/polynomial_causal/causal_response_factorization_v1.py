@@ -418,6 +418,162 @@ def fit_shared_private_program(
     )
 
 
+def _masked_prediction_score(
+    truth: torch.Tensor,
+    prediction: torch.Tensor,
+    score_mask: torch.Tensor,
+    *,
+    shape: tuple[int, int, int, int],
+    source_groups: torch.Tensor,
+    training_rms: float,
+) -> dict[str, object]:
+    """Score pooled and every owner-pair block without averaging away failures."""
+
+    truth = _exact_cpu_tensor(truth, torch.float64, "truth")
+    prediction = _exact_cpu_tensor(prediction, torch.float64, "prediction")
+    score_mask = _exact_cpu_tensor(score_mask, torch.bool, "score_mask")
+    source_groups = _exact_cpu_tensor(source_groups, torch.int64, "source_groups")
+    p, s, t, d = shape
+    if truth.shape != (p * s * t, d) or prediction.shape != truth.shape or (
+        score_mask.shape != truth.shape or source_groups.shape != (s,)
+    ):
+        raise ValueError("prediction score inputs do not align")
+    if t != s:
+        raise ValueError(
+            "owner-pair scoring requires the frozen identical source/target circuit order"
+        )
+    if not math.isfinite(training_rms) or training_rms <= 0:
+        raise ValueError("training_rms must be finite and positive")
+    if not bool(score_mask.any()):
+        raise ValueError("prediction score has no supported cells")
+
+    def score(mask: torch.Tensor) -> dict[str, float | int]:
+        observed = truth[mask]
+        fitted = prediction[mask]
+        residual = fitted - observed
+        mse = float((residual * residual).mean())
+        centered_observed = observed - observed.mean()
+        centered_fitted = fitted - fitted.mean()
+        denominator = float(centered_observed.norm() * centered_fitted.norm())
+        correlation = (
+            float((centered_observed @ centered_fitted) / denominator)
+            if denominator > 0 else float("nan")
+        )
+        return {
+            "cells": int(mask.sum()),
+            "mse": mse,
+            "nrmse_by_training_rms": math.sqrt(mse) / training_rms,
+            "signed_correlation": correlation,
+        }
+
+    tensor_mask = score_mask.reshape(p, s, t, d)
+    group_count = int(source_groups.max()) + 1
+    owner_pairs: dict[str, dict[str, float | int]] = {}
+    worst = -math.inf
+    for source_group in range(group_count):
+        for target_group in range(group_count):
+            full_local = torch.zeros_like(tensor_mask)
+            source_indices = torch.nonzero(
+                source_groups == source_group, as_tuple=False
+            ).flatten()
+            target_indices = torch.nonzero(
+                source_groups == target_group, as_tuple=False
+            ).flatten()
+            for source_index in source_indices.tolist():
+                full_local[:, source_index, target_indices] = tensor_mask[
+                    :, source_index, target_indices
+                ]
+            report = score(full_local.reshape_as(score_mask))
+            owner_pairs[f"{source_group}->{target_group}"] = report
+            worst = max(worst, float(report["nrmse_by_training_rms"]))
+    return {
+        "pooled": score(score_mask),
+        "owner_pairs": owner_pairs,
+        "worst_owner_pair_nrmse": worst,
+        "uses_pooled_only": False,
+    }
+
+
+def score_program_on_validation(
+    program: ResponseProgram,
+    training_codes: torch.Tensor,
+    validation_response: torch.Tensor,
+    validation_valid: torch.Tensor,
+    anchors: torch.Tensor,
+    *,
+    training_rms: float,
+    minimum_anchor_ratio: int = 2,
+) -> dict[str, object]:
+    """Score zero-response-access transport and anchor-calibrated missing cells.
+
+    The unconditional arm uses only the mean training code. The calibrated arm may
+    infer one low-dimensional code from fixed anchors and is scored only on non-anchor
+    cells. Unsupported documents are explicit and make the candidate ineligible when
+    coverage is below the frozen 90% gate.
+    """
+
+    training_codes = _exact_cpu_tensor(training_codes, torch.float64, "training_codes")
+    validation_response = _exact_cpu_tensor(
+        validation_response, torch.float64, "validation_response"
+    )
+    validation_valid = _exact_cpu_tensor(validation_valid, torch.bool, "validation_valid")
+    anchors = _exact_cpu_tensor(anchors, torch.bool, "anchors")
+    p, s, t = program.shape
+    if validation_response.ndim != 4 or validation_response.shape[:3] != (p, s, t) or (
+        validation_valid.shape != validation_response.shape
+        or training_codes.ndim != 2
+        or training_codes.shape[1] != program.code_dimension
+        or training_codes.shape[0] < 1
+        or anchors.shape != (p * s * t,)
+    ):
+        raise ValueError("validation tensors or training codes do not align with program")
+    d = validation_response.shape[3]
+    response_matrix = validation_response.reshape(p * s * t, d)
+    valid_matrix = validation_valid.reshape(p * s * t, d)
+    basis = program.basis()
+
+    mean_code = training_codes.mean(dim=0, keepdim=True).expand(d, -1).contiguous()
+    unconditional = predict_from_codes(basis, mean_code)
+    unconditional_report = _masked_prediction_score(
+        response_matrix, unconditional, valid_matrix,
+        shape=(p, s, t, d), source_groups=program.source_groups,
+        training_rms=training_rms,
+    )
+
+    inferred, supported = infer_document_codes(
+        basis, response_matrix, valid_matrix, anchors,
+        minimum_anchor_ratio=minimum_anchor_ratio,
+    )
+    calibrated = predict_from_codes(basis, inferred)
+    non_anchor = (~anchors)[:, None].expand_as(valid_matrix)
+    score_mask = valid_matrix & non_anchor & supported[None, :]
+    support_fraction = float(supported.double().mean())
+    calibrated_report = _masked_prediction_score(
+        response_matrix, calibrated, score_mask,
+        shape=(p, s, t, d), source_groups=program.source_groups,
+        training_rms=training_rms,
+    )
+    return {
+        "unconditional": unconditional_report,
+        "calibrated": calibrated_report,
+        "validation_documents": d,
+        "supported_documents": int(supported.sum()),
+        "supported_document_indices": torch.nonzero(
+            supported, as_tuple=False
+        ).flatten().tolist(),
+        "supported_document_fraction": support_fraction,
+        "minimum_supported_document_fraction": 0.90,
+        "support_gate_passes": support_fraction >= 0.90,
+        "anchor_cells": int(anchors.sum()),
+        "code_dimension": program.code_dimension,
+        "claim_boundary": {
+            "unconditional_uses_validation_responses": False,
+            "calibrated_uses_only_anchor_validation_responses": True,
+            "calibrated_is_zero_shot_ood": False,
+        },
+    }
+
+
 def make_program_from_factors(
     global_factors: Sequence[torch.Tensor],
     private_factors: Sequence[Sequence[torch.Tensor]],

@@ -64,7 +64,9 @@ and order the 4,802 cells by SHA-256 of
 `causal-response-factorization-v1-anchor|p|s|t`. The first 384 cells are anchors.
 All valid non-anchor cells are scored. A validation document with fewer than twice the
 candidate code dimension valid anchors is unsupported for that candidate and cannot
-silently enter a pooled score.
+silently enter a pooled score. At least 90% of the 114 validation documents must be
+supported or the candidate is ineligible for the Pareto frontier; the exact supported
+document IDs and fraction are retained.
 
 ## Frozen candidate families
 
@@ -146,4 +148,3 @@ Even EVAL response prediction is insufficient for the project goal. A surviving 
 must next predict a fresh amplitude or direction intervention, enable extraction or
 selective removal with less unrelated-target damage, and transport to a second domain.
 These consequences, not local reconstruction alone, validate the simplicity measure.
-

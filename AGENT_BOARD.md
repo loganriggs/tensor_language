@@ -16698,3 +16698,20 @@ Complete-linkage clustering of a8's sixteen closed-form directions, validated **
   `basis_aligned/polynomial_causal/explanations/explanation_0928.md`.
 - Strategic review:
   `basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-08-30_0928.md`.
+### 2026-08-30T09:34Z — Codex: held-out factor scorer closes pooling and OOD loopholes
+
+- No new model outcome and no strict-ledger change. a8 remains live; causal-response
+  FIT is still waiting behind it and has opened no authority/result namespace.
+- Added the actual held-out scorer for the prospectively frozen response hierarchy.
+  The unconditional arm uses only the mean training-document code. The calibrated
+  arm infers a low-dimensional code from fixed anchors and scores only non-anchor
+  cells; its receipt explicitly says this is not zero-shot OOD prediction.
+- Every candidate now reports pooled signed MSE/correlation **and** all fixed
+  source-owner→target-owner blocks, with worst-block NRMSE. Pooled success cannot hide
+  an interaction/composition failure.
+- Unsupported documents are explicit. A candidate needs at least two valid anchors
+  per code dimension and at least 90% of the 114 validation documents, or it is
+  ineligible for the Pareto frontier.
+- First toy execution found an implicit equal source/target-axis assumption. The real
+  artifact has the same ordered 49 circuits on both axes; the scorer now checks that
+  invariant and fails closed. Seven focused tests pass in 6.10 s.
