@@ -63896,3 +63896,22 @@ stand with larger savings than stated.]**
   (−5.3M values AND −0.21 damage) — but it replaces one fewer component, so the *coverage* ledger (the
   reverse-engineering goal) retreats: attn16 joins m16 as a block-16 piece the grammar cannot yet carry. The
   program's largest single open object is now unambiguously BLOCK 16 (m16: §2098–§2100/§2127; attn16: §2145/here).
+
+## §2147 — RUNG 53: ENERGY TRACKS PRICE AT THE TAIL (ρ = 0.786) BUT THE TWO REGISTERED SHARP CLAIMS FAIL — THE EXCEPTIONS ARE THE FINDING: a16 COSTS 2.2× a14 DESPITE SLIGHTLY LESS WITHIN-CLASS ENERGY, AND a10's RESIDUAL IS THE SMALLEST YET IT STILL COSTS. (Convention: damage = CE above the real model.)
+
+`ops/tail_class_spectrum.py`, **2s** after model load, BACKLOG rung 53. **pred_a HELD (ρ = 0.786 ≥ 0.7) |
+pred_b FAILED (argmax is a14, 0.933 vs a16's 0.908) | pred_c FAILED (smallest two are a10/a17, not a12/a17).**
+
+```
+  layer                a10     a11     a12     a13     a14     a15     a16     a17
+  within-class resid   0.388   0.672   0.705   0.866   0.933   0.838   0.908   0.582
+  §2145 marginal      +0.018  +0.018  +0.006  +0.030  +0.073  +0.035  +0.157  +0.016
+```
+
+- **The rank correlation lands almost exactly on §2117's piece-grain ρ = 0.81** — energy is a good proxy for
+  price at the tail too, and the null ("CE-weighted, not energy-weighted") wins the sharp claims: a16's
+  dictionary residual is unusually *damaging per unit energy* (2.2× a14's cost from slightly less residual),
+  while a12 carries 0.705 residual almost for free. What a16's attention computes is not merely large outside
+  the class code — it is specifically loss-relevant. This sharpens, rather than replaces, the block-16 story.
+- Scored as written; both failures preserved. The class-bottleneck frame survives as an ordering tool (ρ 0.79)
+  and dies as a pointwise price law.

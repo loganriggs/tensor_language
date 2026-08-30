@@ -724,4 +724,19 @@ later per-rung backlog edits had silently anchored on text that was not here.
     vs the §2145 marginals. pred_a Spearman rho >= 0.7 over the 8
     layers; pred_b argmax e = a16; pred_c two smallest e = {a12,a17}.
     Null: CE-weighting beats energy (rho < 0.7). One capture pass.
-    -> ops/tail_class_spectrum.py [QUEUED 22:16Z]
+    -> ops/tail_class_spectrum.py
+    RUN 2026-08-30, §2147: pred_a HELD (rho 0.786), pred_b/c FAILED —
+    argmax is a14 (0.933) not a16 (0.908); smallest are a10/a17. The
+    exceptions are the finding: a16's residual is unusually damaging
+    PER UNIT ENERGY; energy is an ordering tool, not a price law.
+
+54. ALL-LINEAR CLASSES AT a16 (grammar extension at the identified
+    bottleneck; damage convention). a16L currently gives linear maps to
+    the 4 LINK classes and means to the 6 CONSTN classes. Upgrade a16
+    (only) to linear maps for ALL 10 classes: +6 x 1.33M = +8.0M values
+    at one layer. Arms: §2144 best full tail (repro) / a16-all-linear.
+    pred_a median [L2_F_w(a16lin) - L2_F_w(full)] <= -0.05 (recovers a
+    third of the +0.157); pred_b <= 0 on >= 7/8; pred_c full reproduces
+    2.6662 within 0.01. Null: §2147 — the damage is loss-specific, not
+    class-mean sloppiness, and linearity per class buys little.
+    -> ops/frontier_a16_linear.py [QUEUED]
