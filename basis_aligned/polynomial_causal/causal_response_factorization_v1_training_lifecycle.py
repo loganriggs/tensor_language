@@ -39,6 +39,7 @@ SOURCE_PATHS = tuple(ROOT / path for path in (
     "basis_aligned/polynomial_causal/CAUSAL_RESPONSE_FACTORIZATION_V1_AMENDMENT_2.md",
     "basis_aligned/polynomial_causal/CAUSAL_RESPONSE_FACTORIZATION_V1_AMENDMENT_3.md",
     "basis_aligned/polynomial_causal/CAUSAL_RESPONSE_FACTORIZATION_V1_AMENDMENT_4.md",
+    "basis_aligned/polynomial_causal/CAUSAL_RESPONSE_FACTORIZATION_V1_AMENDMENT_5.md",
     "basis_aligned/polynomial_causal/causal_response_factorization_v1.py",
     "basis_aligned/polynomial_causal/causal_response_factorization_v1_accelerated.py",
     "basis_aligned/polynomial_causal/causal_response_factorization_v1_fit_adapter.py",
