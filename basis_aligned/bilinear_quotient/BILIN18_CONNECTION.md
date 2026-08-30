@@ -62456,3 +62456,41 @@ m16 failure is a **per-document gain** problem on a fixed two-direction basis �
 predict if the gain tracks how often the sentence-boundary core fires in the document. That is the next registered
 question (rung 10, step 2) and it needs the documents' tokens, which live behind the other lane's FIT bundle
 lifecycle; the design must find a lawful route to per-document surface features before anything is run.
+
+## §2099 — RUNG 10, step 2: m16's per-document gain tracks NEITHER sentence-boundary density NOR text difficulty. The free surface code for m16 is closed at both features; the coefficient axis stays unexplained
+
+`ops/m16_gain_vs_boundary.py`, **4s CPU**, BACKLOG rung 10 step 2. **pred_a FAILED | pred_b FAILED | pred_c
+FAILED** — all three, and cleanly. Token route: the FIT documents are this lane's own rows (`census_state_diverse.pt`
+and `curated_rows.pt` are the other lane's FIT-authority parents, SHA-verified before use; `curated['docid']` maps
+rows to the 229 training document ids; `basev` supplies per-position base CE). No validation document touched.
+
+§2098 left the shared m16 failure on the coefficient axis: a document-stable two-direction basis whose per-document
+loading the other lane's programs cannot predict. §715's rank-1 output core fires at sentence ends, so the cheapest
+hypothesis was that the loading is *how often the core fires* — a surface feature any program reads for free
+(explanation_1405 §14.3's "observable document feature" in place of a free code).
+
+```
+  229 training documents (1-2 rows each, 256 positions per row); boundary density min 0.014 median 0.047 max 0.133
+  Spearman rho(per-document block RMS, boundary density):   a8 +0.120  a16 -0.064  m16 +0.035  a3 -0.043  m14 +0.097  m13 +0.036
+  Spearman rho(per-document block RMS, base CE):            a8 -0.058  a16 +0.056  m16 +0.140  a3 +0.067  m14 +0.198  m13 +0.002
+  m16 partial rho | base CE  +0.025      families A +0.021  B +0.017      rho(boundary, base CE) +0.076
+  permutation null |rho| (1000 draws): median 0.045  p95 0.131  max 0.273
+  (a) 0.035 >= 0.50 FAILED   (b) m16 is 4th of 6 owners FAILED   (c) below the null p95 AND partial 0.025 < 0.30 FAILED
+```
+
+- **The boundary hypothesis is dead, not merely short.** m16's rho is 0.035 against a null p95 of 0.131 — indistinguishable
+  from a permuted assignment — and neither source family carries it (0.02 / 0.02). Whatever the six m16 circuits'
+  deletion response is, its per-document size is not the count of sentence ends in the document.
+- **Neither is it difficulty.** rho(gain_m16, base CE) is +0.14, and m14 tracks difficulty *more* (+0.20). §2083/§2085's
+  "base CE drives the spread" was a fact about gating windows; it does not transfer to per-document response amplitude.
+- **Scope of the negative.** Two surface features, one summary statistic (block RMS over the document's valid cells),
+  Spearman. Untested: position-level features (the response is a per-document sum over member positions, so a
+  per-*member* count — how many of the document's positions are members of each m16 circuit — is the obvious next
+  covariate, and it is not a surface feature of the text but of the census), and the two families' *signed*
+  coefficients rather than their RMS. Both are cheaper than this run and are the registered next step.
+
+**Standing for the shared target after §2098–§2099.** The m16 block is (i) 2.7× the tensor's amplitude, (ii) a
+document-stable two-direction object with two census families, and (iii) per-document in a way that tracks neither
+sentence boundaries nor difficulty. For the other lane this rules out the two free document features most likely to
+replace a per-document code for m16; the coefficient must be inferred from something the program can see at
+inference, or the m16 interface stays a calibration cost.

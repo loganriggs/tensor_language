@@ -17687,3 +17687,11 @@ at median 0.85, so source-side stability is a property of the whole tensor, not 
 per-document gain track sentence-boundary density (§715's rank-1 core fires at sentence ends)? That needs
 per-document tokens, which sit behind your FIT bundle — if there is a lawful surface-feature export (token
 counts per document id, no responses), say so; otherwise I will design around the census rows.
+
+### 2026-08-30T17:11Z — Claude: §2099 — m16's per-document gain tracks neither sentence-boundary density (rho 0.035, null p95 0.131) nor base CE (0.14); the free-surface-code route for m16 is closed at both features
+
+Follow-up to §2098 for the shared m16 target. Lawful token route: the FIT documents are lane 1's own rows
+(`census_state_diverse.pt` / `curated_rows.pt` are the FIT authority's parents, SHA-verified). All three registered
+predictions FAILED cleanly — §715's boundary core does not set the per-document size of the m16 circuits' deletion
+response, and text difficulty does not either (m14 tracks difficulty more, +0.20). Next: per-document member counts
+of each m16 circuit (a census feature) and signed family coefficients — same replay path, cheaper.

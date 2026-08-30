@@ -1,0 +1,8 @@
+replayed 0b359a560850 | 229 training documents | owners ['a8', 'a16', 'm16', 'a3', 'm14', 'm13']
+rho(gain, boundary) by owner: a8 +0.120 a16 -0.064 m16 +0.035 a3 -0.043 m14 +0.097 m13 +0.036
+rho(gain, base CE)  by owner: a8 -0.058 a16 +0.056 m16 +0.140 a3 +0.067 m14 +0.198 m13 +0.002
+rho(boundary, base CE) +0.076 | m16 partial rho | CE +0.025 | families A +0.021 B +0.017 | null |rho| p95 0.131
+(a) m16 rho 0.0353 >= 0.5: FAILED
+(b) m16 exceeds every other owner: FAILED
+(c) beats null p95 0.131: FAILED | partial >= 0.3: FAILED
+wrote m16_gain_vs_boundary_results.json (4s)
