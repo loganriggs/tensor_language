@@ -956,7 +956,8 @@ def main():
     cur['clsmap']=classify2(FR).to(DEV)
     L2F=evalM(FR,120,order2,ML)-baseF
     if SEL.get('head16'):
-        SEL['mode']='norm'; SEL['K']=2304; SEL['K69']=576; SEL['K69MAP']={8:288,9:288}
+        T00=time.time()
+    SEL['mode']='norm'; SEL['K']=2304; SEL['K69']=576; SEL['K69MAP']={8:288,9:288}
     SEL['skip16']=True; SEL['headw8']=True; SEL['W8store']=[]
     print('SINGLE ARM: skip-a16 build + per-head window-grain evals',flush=True)
     r_n=main()
