@@ -2784,3 +2784,30 @@ carried more information here than the mean did. And when a spread finally arriv
 sections that quoted single fits** — two of mine needed correcting, and one of them had been on the board
 to a peer. See [[LESSON-108]] (a learned-parameter run must prove the parameter learned) — that one makes
 a fit trustworthy, this one makes a NUMBER from it quotable, and 108 passing does not give you 110.
+
+## LESSON 111 — set a validation bar against a null BEFORE the result, or it is decoration
+
+§2075 registered a causal validation gate — within-cluster over between-cluster concentration must exceed
+**1.10** — and passed it at 1.2297. The bar was set by eye. A size-matched permutation null, which I ran
+**only after the gate had passed and because I doubted it**, puts the null median at 0.9958 and its
+**p90 at 1.1407**: a 1.10 bar admits what a random grouping produces more than one time in ten. **The
+registered gate was decoration; the conclusion actually rests on a test I ran afterwards.**
+
+**It happened to survive, and that is luck rather than method.** The observed 1.2297 gives p = 0.0185, so
+the finding stood. Had it landed at 1.15 I would have had a "passed" gate, a published grouping, and a
+null I might never have computed — the §2072 shape exactly, where a claim sat four sections before the
+missing spread caught it.
+
+**Two further traps in the same run, both mine.** The registered predicates **traded against each other**:
+pred_a wanted >= 2 clusters of >= 3 members, pred_b wanted the highest validation ratio, and the ratio was
+*higher* at thresholds giving one blob plus outliers — so my selection rule chose a worse-validating
+threshold to satisfy pred_a. And the aggregate gate said nothing about the parts: §2076's per-cluster
+tests found the significance carried by **one** cluster of four (p = 0.0488, which Bonferroni sends to
+0.146), with the geometrically tightest pair causally *anti*-associated at 0.780.
+
+**How to apply.** For any gate on a statistic with no closed-form distribution, **compute the null first
+and set the bar from it** — a permutation over the same sizes is usually cheap and needs no GPU. **Write
+predicates that cannot be traded against one another**, or state which one wins before running. **And an
+aggregate gate licenses only an aggregate claim**: test the parts before naming them. See
+[[LESSON-110]] (a result needs a spread before another decimal place) — same family, one level up: 110 is
+about the estimate's noise, 111 is about the threshold's.

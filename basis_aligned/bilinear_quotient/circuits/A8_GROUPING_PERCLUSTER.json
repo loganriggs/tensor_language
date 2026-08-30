@@ -1,0 +1,24 @@
+{
+ "per_cluster": {
+  "r.11.1.1,r.11.1.2,r.2.0,r.2.0.0,r.2.2,r.2.3": {
+   "within": 5.7978,
+   "rest": 5.0053,
+   "ratio": 1.1583,
+   "p_value": 0.1853
+  },
+  "r.11.3.1,r.2.1": {
+   "within": 3.9875,
+   "rest": 5.1137,
+   "ratio": 0.7798,
+   "p_value": 0.7478
+  },
+  "r.2.0.1,r.2.0.2,r.2.1.1,r.2.2.1": {
+   "within": 6.9251,
+   "rest": 5.0085,
+   "ratio": 1.3827,
+   "p_value": 0.0488
+  }
+ },
+ "method": "size-matched permutation null, 20000 draws, seed 20260830; POST HOC (S2075 open question)",
+ "note": "read-only; no circuit file modified"
+}

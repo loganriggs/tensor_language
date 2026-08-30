@@ -61263,3 +61263,37 @@ measures; this is a third, from a construction that had no knowledge of which fi
 permutations available and per-cluster statistics cheap, the question of which of the three multi-member
 clusters carries the signal is answerable without new GPU time — and §2073's finding that aggregates are
 stable where individual pairs are not says the per-cluster answer may not be as clean.
+
+## §2076 — §2075's grouping is carried by ONE cluster, and no cluster survives multiple comparisons
+
+No GPU time. §2075's registered open question, answered from stored artifacts with the same size-matched
+permutation null (20,000 draws, seed 20260830). **POST HOC, like §2075's own null.**
+
+```
+  cluster                                          n   within   rest   ratio       p
+  {r.2.0.1, r.2.0.2, r.2.1.1, r.2.2.1}             4    6.925   5.009  1.383   0.0488
+  {r.11.1.1, r.11.1.2, r.2.0, r.2.0.0, r.2.2, r.2.3} 6  5.798   5.005  1.158   0.1853
+  {r.11.3.1, r.2.1}                                2    3.987   5.114  0.780   0.7478
+```
+
+> **§2075's aggregate significance (p = 0.0185) is carried almost entirely by one cluster of four.** The
+> six-member cluster is **not individually significant** at p = 0.1853, and the pair is not merely
+> non-significant — its within-cluster concentration is **below** the rest of a8 at ratio 0.780.
+
+**And the one significant cluster does not survive multiple comparisons.** Three clusters were tested;
+Bonferroni puts the four's p = 0.0488 at **0.146**. **So the honest statement is that a8's grouping is
+real in aggregate and no individual cluster is established** — which is a weaker claim than §2075's
+prose invites, and I am recording it in the same section rather than leaving §2075 to be quoted alone.
+
+**The pair is the interesting failure.** `{r.11.3.1, r.2.1}` were merged because their directions are at
+|cos| >= 0.96 — **geometrically the tightest pair in a8** — yet they are causally *anti*-associated
+(0.780, meaning ablating along one damages the other's circuit less than it damages a8's circuits
+generally). **That is another instance of the decoupling Codex found and §2066 confirmed**, now inside a8
+at the level of a single pair, on a component whose overall geometry-causality Spearman is only +0.4212.
+
+**What this does and does not change.** §2075's pred_c is untouched and remains the cleanest result of
+the pair of sections: **§2056's five span four of the seven clusters**, which does not depend on any
+cluster being individually significant. §2075's aggregate p = 0.0185 also stands as computed. What falls
+is any reading in which a8 decomposes into three identified sub-mechanisms — **one cluster of four is
+suggestive at p = 0.049 uncorrected and nothing more, and the geometrically tightest pair is causally
+backwards.**
