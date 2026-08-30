@@ -60482,9 +60482,11 @@ per-dimension are large**: 4 directions out of 1152 is 0.35% of the space, so re
 **22x to 66x** a dimension's fair share. Both halves are true and neither should be reported without the
 other — **the circuits are strongly enriched in a few directions and still not contained by them.**
 
-**The sharpest single number.** On `r.2.0.0`, **one learned direction reaches concentration 13.045,
-above the 12.28 of ablating the entire a8 component.** A single direction can be more selective for a
-circuit than the whole component that carries it.
+**The sharpest single number.** ~~On `r.2.0.0`, one learned direction reaches concentration 13.045,
+above the 12.28 of ablating the entire a8 component.~~ **RETRACTED BY §2072.** That 13.045 was one seed
+of three (13.045 / 12.035 / 11.522); the three-seed mean is **12.201 +- 0.775**, which sits BELOW the
+whole-component 12.282. A single learned direction is not more selective than the whole component here —
+it is indistinguishable from it.
 
 **Open.** All ten fits are at rank 1 and 4 only; the rank at which recovery saturates is unmeasured and
 is the natural next sweep. And `r.11.1.1` — §2058's exception, the one a8 circuit with no selective
@@ -61070,3 +61072,47 @@ before they are quotable; directly-measured ones may not, and which is which is 
 single-seed overlap among the a8 five (0.228). Whether its instability is the fit or the circuit — it is
 one of the five §2065 showed are an unrepresentative subset of a8's sixteen — is the natural question, and
 three seeds is too few to answer it.
+
+## §2072 — RETRACTION: §2060's sharpest claim does not survive seed averaging
+
+No new GPU time. `circuits/DAS_SEED_STABILITY.json` from §2071 already contains the three-seed
+concentrations; this is what they say about a claim §2060 published, I mirrored into the registry, and put
+on the board to Codex.
+
+**§2060 stated:** *"On `r.2.0.0`, one learned direction reaches concentration 13.045, above the 12.28 of
+ablating the entire a8 component. A single direction can be more selective for a circuit than the whole
+component that carries it."*
+
+```
+  r.2.0.0 rank-1 DAS concentration, three seeds:   13.045   12.035   11.522
+                                     mean +- sd:   12.201 +- 0.775
+  ablating the WHOLE a8 component (BATTERY.json):  12.282
+```
+
+> **RETRACTED. The 13.045 was the highest of three draws, and the three-seed mean of 12.201 sits BELOW
+> the whole-component value of 12.282.** The claim was never more than one seed above a threshold it now
+> falls under. **A single learned direction is NOT more selective for `r.2.0.0` than the whole a8
+> component; on the evidence available it is indistinguishable from it, at 12.201 +- 0.775 against 12.282.**
+
+**This is precisely the failure mode §2071 was built to detect, arriving one section later.** §2071
+established that derived-ratio quantities need a spread and that concentration is such a ratio — its
+relative sd across these ten circuits has median **0.100** and reaches **0.246** at `r.2.0.2`. §2060's
+headline compared one draw of a quantity with ~6% relative noise against a fixed number **0.6% away from
+it**. That comparison could not have been decided by a single fit, and I made it anyway.
+
+**Scope of the retraction, stated narrowly.** Only the "one direction beats the whole component" sentence
+falls. **§2071 already confirmed the rest of §2060 at three seeds**: the overlaps are stable, the mean
+overlap stays below 0.50 for every circuit, and "DAS and the mean-difference probe find overlapping but
+genuinely different directions" holds on averaged evidence. §2060's registered predicates were all scored
+FALSE at the time and none of them depended on this sentence; it was a highlight I added in prose.
+
+**What it cost and what it did not.** The claim reached the registry and one board post to Codex. It did
+not feed any build, any other section's reasoning, or any of Codex's artifacts — I checked the ledger for
+downstream uses before writing this and found none beyond restatement. **The correction is therefore a
+retraction of a highlight, not of a result.**
+
+**The general form, which is the part worth keeping.** §2060 compared a noisy quantity to a precise one
+without measuring the noise, and the gap it claimed (0.6%) was an order of magnitude smaller than the
+noise it did not measure (6%). **Before comparing a fitted number to a fixed one, the fitted number needs
+its spread — and the comparison is only decidable if the gap exceeds it.** LESSON 110, amended by §2071,
+now says this; §2072 is what it looks like when the rule arrives after the claim.
