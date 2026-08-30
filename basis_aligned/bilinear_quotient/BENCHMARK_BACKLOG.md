@@ -50,11 +50,24 @@ Rungs 1-3 are DONE; rung 4 is the first genuinely open one.
    §342 had set the same fork ("deeper reads OR nonlinear features"), and
    **nonlinear was tried and failed; deeper reads were never tried.** An
    a10-input probe IS the deeper read, so rung 4 is that fork's untaken half.
-   **Design constraint to settle first:** §342's block-2 read is deploy-legal
-   "because every frontier config keeps the cheap lexical rungs real". Reading
-   at a10's input requires blocks 0-9 to be computable at deploy; whether the
-   frontier assembly supplies them real or via stand-ins decides whether an
-   a10 probe is §105-legal at all, and that must be checked before fitting.
+   **Design constraint -- SETTLED 2026-08-30, and I had framed it wrong.** I
+   first wrote that an a10 read might not be deploy-legal depending on whether
+   the frontier supplies blocks 0-9 real. That is not the right test, and
+   "§105-legal" was a mis-citation on my part: §105 is the lambda-mixing
+   instrument correction, not a deploy rule; the "§105-legal fit surface"
+   phrasing at ledger line 33640 belongs to the separate route-kit program.
+   **An a10-input probe IS deploy-legal.** The frontier assembly (§304: 26 full
+   components + 38 of 72 middle heads, +2.54 fresh) must COMPUTE the stream
+   entering block 10 in order to run at all, so that stream is available at
+   inference with no oracle label -- the same argument §342 used for block 2.
+   That some of blocks 0-9 are stand-ins does not disqualify the read; it means
+   the probe fits on the stream the deployed assembly actually has, which is
+   the correct surface rather than a compromise.
+   **The real risk is empirical, not legal**, and it is §1365's: if the
+   assembly's stand-ins have removed the values carrying the signal, the probe
+   cannot see what the kit deleted, and AUC will sit near the ~0.61 ceiling
+   that thread measured. That is the thing the experiment tests, so it should
+   be REGISTERED as a predicate rather than treated as a blocker.
    **Related negative worth knowing:** §1365 (`exclaim_probe_gate2.py`) tried
    TWO capture sites (L3 + L8 concatenated) on a different capability and got
    AUC 0.611 vs 0.618 -- no gain -- because "a kit-stream probe cannot see
