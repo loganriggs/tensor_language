@@ -62078,3 +62078,57 @@ control instead of a failed one.** The lesson was recorded four sections ago and
 component-grain probe band be written in head-grain terms — is still open**, and the honest next step is
 the one this run skipped: reconstruct the actual probe bands of the 208 component-probed leaves and
 measure head concentration *along those*, with the bar set from the random baseline now measured (0.5414).
+
+## §2092 — the census's real probe bands ARE head-concentrated: rung 8's expressibility precondition is MET
+
+`ops/band_head_concentration.py`, **477s**, BACKLOG rung 8 (§2091's open question). **pred_c HELD |
+pred_a HELD | pred_b HELD.** This is the run §2091 said was the honest next step, done the way LESSON 111
+prescribes rather than the way §2091 did it.
+
+**What §2091 got wrong and this fixes.** §2091 measured each component's *own leading* PCA directions,
+not what the census probes, and set its control bar at 0.35 by eye from a 0.2222 uniform null — while
+the real random baseline is 0.5414 and **ranges 0.387 to 0.761 across components**, which is exactly why
+a single global bar was the wrong instrument. Here the bands are the census's real ones (via
+`census_lib.pca_block`), and every leaf is scored **paired against its OWN component's measured
+baseline**.
+
+```
+  208 component-probed leaves over 11 components (a2-a9, a12, a15, a17)
+
+  band top-2 head share minus own component's baseline:
+     min +0.0203   p10 +0.0644   median +0.1590   p90 +0.3106   max +0.3988
+  absolute band top-2 share:  min 0.4837   median 0.7491   max 0.9588
+  above own baseline: 208 / 208
+```
+
+**pred_c HELD at max deviation 0.0058** — the 4x row subsampling reproduces §2091's full-grid
+per-component baselines across all eleven components. **That is a cross-run instrument control on a
+number this run is scored against**, and without it the paired comparison would be uninterpretable.
+
+> **pred_a and pred_b HELD: the directions the census actually probes are more head-concentrated than
+> arbitrary directions at the same component — median +0.159, and for 208 of 208 leaves.** The effect is
+> not a tail phenomenon and not a handful of outliers: the *minimum* delta over 208 leaves is **+0.0203**,
+> and only 13 leaves sit below +0.05. **Rung 8's expressibility precondition is met: a head-grain
+> mechanism language can address what the component-grain census probes**, because those probe bands are
+> head-concentrated even though the components they live in are not especially so.
+
+**This is a different and stronger claim than §2091's gated-out one.** §2091 could only observe that
+components are head-dominated along *any* direction — true, and useless for the rung, since it would hold
+whatever the census probed. **The bands beating their own component's baseline is the statement rung 8
+needs**, and §2091's instrument could not make it.
+
+**Where the effect lives.** It varies by component: `a5` median **+0.308** over 30 leaves, `a4` **+0.152**
+over 35, `a7` **+0.107** over 56 — and a7 carries the most leaves while showing the smallest median gain.
+**Absolute concentration is high regardless — median band share 0.749, with 22 leaves above 0.90** — so
+for most leaves two of nine heads carry three-quarters of the probed band.
+
+**Scope, stated so the rung is not over-sold.** This says a head-grain language *can address* these
+bands; it does **not** say motif classes (prev/self/induction) are the right head-grain vocabulary, nor
+that the composition with value reads §332 proposes will work. **The precondition is met; the rung is not
+done.** And 208 leaves sit on only **11 of 18** components, all in a2–a9 plus three deeper ones — the
+head-grain route covers the census's attention majority but not the whole attention stack.
+
+**Open.** The next question is the rung's actual content: for a band whose top-2 heads are identified,
+**does the motif class of those heads predict the leaf's members?** That is the first test of "motif
+conditions composed with value reads" and it is now well-posed, with the head identities this run
+computes.
