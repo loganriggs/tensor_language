@@ -60102,3 +60102,58 @@ chose 768 for reasons that turn out to be right for a reason they did not know.*
 
 **Open.** Nothing further on this axis: the rank is settled, the boundary is bracketed at [3.3, 11.8], and
 the build of record stands. **Lane priority now moves to the circuit task.**
+
+## §2054 — CIRCUIT TASK: the twelve unlocalised circuits localise by ablation, and they land on five components
+
+`circuit_ablation_localise.py`, **281s**, **DISCOVERY ONLY**, census_state_diverse (256,000 positions).
+**pred_a 12/12 | pred_b 5/12 | pred_c 9/11.** New task from Logan; Codex works the same folder on
+mechanism stories.
+
+**Why these twelve.** `circuits/` holds 70 circuits. Twelve carry no `components`, and **not because
+nobody looked**: every one is selectivity-HELD with recorded concentration 4.83–6.84, and every one
+**FAILED the pipeline's attribution tests** — `input_decomp_enrichment`, `mechanism_enrichment`,
+`surface_program`, `behavior_story`. Attribution asks which upstream writer explains a component's input.
+**This asks the direct causal question instead: mean-ablate each of the 36 components and see whether the
+damage lands on the circuit's members or off its slice.**
+
+```
+  tag         best   conc    2nd    conc   margin   own conc
+  r.3.0        a16   9.211   a14   6.957  +32.4%     —
+  r.3.0.2      a16   8.558   a14   5.762  +48.5%    6.10
+  r.4.1.1      a16   5.466   a14   4.202  +30.1%    4.83
+  r.23.2.3      a8   4.931    a6   2.579  +91.2%    5.51
+  r.11.1.2      a8   4.904   a14   4.101  +19.6%    5.82
+  r.11.3.1      a8   4.313   a14   3.224  +33.8%    6.57
+  r.1.3.1      m13   4.098   m14   4.085   +0.3%    6.67
+  r.11.1.1      a8   3.979   a14   3.534  +12.6%    5.70
+  r.23.2.1      a8   3.385    a2   3.026  +11.9%    6.84
+  r.18.2.0      a7   3.104    a9   2.803  +10.7%    5.96
+  r.13.2.1      a3   3.042    a7   3.009   +1.1%    5.59
+  r.7.1.1       a7   2.977   a16   2.785   +6.9%    5.08
+```
+
+> **pred_a PASSED 12/12. Every circuit the attribution machinery could not name localises under direct
+> ablation**, at 2.98× to 9.21× concentration on its own members. **Ablation succeeds where attribution
+> failed**, and that is a fact about the two methods rather than about the circuits.
+
+> **pred_b PASSED only 5/12, and the failure is informative. Seven of the twelve are diffuse** — the best
+> component beats the second by under 20%, and for **r.1.3.1 (+0.3%), r.13.2.1 (+1.1%) and r.7.1.1
+> (+6.9%) the top two are effectively tied.** **For those, ablation and attribution agree: there is no
+> single site.** The twelve split into five localised circuits and seven distributed ones, which the
+> attribution failure alone could not distinguish.
+
+> **pred_c PASSED 9/11, and the two exceptions are the most interesting rows. For r.3.0.2 (own 6.10 vs
+> a16 at 8.558) and r.4.1.1 (own 4.83 vs a16 at 5.466), ablating attention 16 is MORE selective for the
+> circuit than ablating the circuit's own probes.** That should not happen if the circuit's recorded
+> membership is the right slice, and it is the strongest evidence in this run that those two circuits are
+> mis-scoped — they may be sub-parts of something a16 does.
+
+**The structural finding: twelve circuits, five components.** **a8 takes five of them, a16 three, a7 two,
+a3 and m13 one each.** And **a14 is the runner-up six times** without ever winning — a component that is
+broadly involved and never decisive. **The unlocalised residue of a 70-circuit census is not scattered
+over eighteen layers; it concentrates on attention 8 and attention 16.**
+
+**Artifacts, all read-only so they cannot collide with Codex.** `circuits/INVENTORY.json` (gap flags for
+all 70), `circuits/DIGEST.json` (one-file summary: 65 of 70 clear the concentration-3 bar, 45 clear 5, but
+only **7 have any mechanism** — 2 computational and 5 surface), `circuits/LOCALISATION.json` (the full
+36-component profile for each of the twelve). **No circuit file was modified.**

@@ -1,0 +1,1673 @@
+{
+ "schema_version": 1,
+ "generated": "2026-08-30 by Claude, circuit task",
+ "purpose": "one-file digest of every circuit in circuits/ with its causal strength, certification outcomes and localisation state, so a reader does not have to open 70 files",
+ "n_circuits": 70,
+ "summary": {
+  "with_components": 58,
+  "mechanism_level_counts": {
+   "computational": 2,
+   "None": 31,
+   "none": 32,
+   "surface": 5
+  },
+  "concentration_ge_5": 45,
+  "concentration_ge_3": 65
+ },
+ "circuits": [
+  {
+   "tag": "r.1.1.0",
+   "file": "r_1_1_0.json",
+   "n_members": 184,
+   "concentration": 9.31,
+   "abs_dce_members": 0.977,
+   "mechanism_level": "none",
+   "blind_name": "",
+   "program_bacc": 0.735,
+   "program_null": 0.551,
+   "components": [
+    "('pca', 'm14', 'r.1.1', (0, 4))",
+    "('pca', 'm14', 'r.1.1', (48, 64))",
+    "('pca', 'm14', 'r.1.1', (16, 24))",
+    "('pca', 'm12', 'r.1.1', (8, 12))"
+   ],
+   "held_tests": [
+    "|dCE| concentration >=3x corpus"
+   ],
+   "failed_tests": [],
+   "has_mechanism_3M": false,
+   "instance": "212row-v1"
+  },
+  {
+   "tag": "r.2.1.0",
+   "file": "r_2_1_0.json",
+   "n_members": 184,
+   "concentration": 9.23,
+   "abs_dce_members": 3.504,
+   "mechanism_level": "surface",
+   "blind_name": "",
+   "program_bacc": 0.782,
+   "program_null": 0.485,
+   "components": [
+    "('pca', 'a5', 'r.2.1', (4, 10))",
+    "('pca', 'm1', 'r.2.1', (24, 32))",
+    "('pca', 'a5', 'r.2.1', (10, 16))",
+    "('pca', 'm1', 'r.2.1', (16, 24))"
+   ],
+   "held_tests": [
+    "|dCE| concentration >=3x corpus"
+   ],
+   "failed_tests": [],
+   "has_mechanism_3M": false,
+   "instance": "212row-v1"
+  },
+  {
+   "tag": "r.6.0.0",
+   "file": "r_6_0_0.json",
+   "n_members": 184,
+   "concentration": 9.09,
+   "abs_dce_members": 1.636,
+   "mechanism_level": "none",
+   "blind_name": "",
+   "program_bacc": 0.603,
+   "program_null": 0.502,
+   "components": [
+    "('pca', 'a9', 'r.6.0', (0, 4))",
+    "('pca', 'a9', 'r.6.0', (0, 2))",
+    "('pca', 'a9', 'r.6.0', (2, 4))",
+    "('pca', 'a9', 'r.6.0', (4, 16))"
+   ],
+   "held_tests": [
+    "|dCE| concentration >=3x corpus"
+   ],
+   "failed_tests": [
+    "mean-carried channel present"
+   ],
+   "has_mechanism_3M": false,
+   "instance": "212row-v1"
+  },
+  {
+   "tag": "r.1.0.1",
+   "file": "r_1_0_1.json",
+   "n_members": 184,
+   "concentration": 8.79,
+   "abs_dce_members": 1.086,
+   "mechanism_level": "none",
+   "blind_name": "",
+   "program_bacc": 0.626,
+   "program_null": 0.429,
+   "components": [
+    "('pca', 'm11', 'r.1.0', (4, 8))",
+    "('pca', 'm12', 'r.1.0', (4, 8))",
+    "('pca', 'm13', 'r.1.0', (4, 8))",
+    "('pca', 'm13', 'r.1.0', (8, 12))"
+   ],
+   "held_tests": [
+    "|dCE| concentration >=3x corpus"
+   ],
+   "failed_tests": [],
+   "has_mechanism_3M": false,
+   "instance": "212row-v1"
+  },
+  {
+   "tag": "r.3.1.0",
+   "file": "r_3_1_0.json",
+   "n_members": 184,
+   "concentration": 8.37,
+   "abs_dce_members": 2.225,
+   "mechanism_level": "surface",
+   "blind_name": "",
+   "program_bacc": 0.862,
+   "program_null": 0.327,
+   "components": [
+    "('pca', 'a7', 'r.3.1', (0, 2))",
+    "('pca', 'a16', 'r.3.1', (0, 4))",
+    "('pca', 'a16', 'r.3.1', (4, 16))",
+    "('pca', 'a7', 'r.3.1', (2, 4))"
+   ],
+   "held_tests": [
+    "|dCE| concentration >=3x corpus"
+   ],
+   "failed_tests": [],
+   "has_mechanism_3M": false,
+   "instance": "212row-v1"
+  },
+  {
+   "tag": "r.3.0.0",
+   "file": "r_3_0_0.json",
+   "n_members": 184,
+   "concentration": 8.08,
+   "abs_dce_members": 5.146,
+   "mechanism_level": "none",
+   "blind_name": "",
+   "program_bacc": 0.748,
+   "program_null": 0.597,
+   "components": [
+    "('pca', 'a7', 'r.3.0', (0, 2))",
+    "('pca', 'a16', 'r.3.0', (0, 4))",
+    "('pca', 'a6', 'r.3.0', (0, 2))",
+    "('pca', 'a6', 'r.3.0', (2, 4))"
+   ],
+   "held_tests": [
+    "|dCE| concentration >=3x corpus"
+   ],
+   "failed_tests": [],
+   "has_mechanism_3M": false,
+   "instance": "212row-v1"
+  },
+  {
+   "tag": "r.0.0.1",
+   "file": "r_0_0_1.json",
+   "n_members": 184,
+   "concentration": 7.69,
+   "abs_dce_members": 2.674,
+   "mechanism_level": "surface",
+   "blind_name": "",
+   "program_bacc": 0.814,
+   "program_null": 0.55,
+   "components": [
+    "('pca', 'm0', 'r.0.0', (12, 16))",
+    "('pca', 'm3', 'r.0.0', (24, 32))",
+    "('pca', 'm3', 'r.0.0', (16, 24))",
+    "('pca', 'm0', 'r.0.0', (48, 64))"
+   ],
+   "held_tests": [
+    "|dCE| concentration >=3x corpus"
+   ],
+   "failed_tests": [],
+   "has_mechanism_3M": false,
+   "instance": "212row-v1"
+  },
+  {
+   "tag": "r.1.1",
+   "file": "r_1_1.json",
+   "n_members": 1222,
+   "concentration": 7.64,
+   "abs_dce_members": 1.049,
+   "mechanism_level": "none",
+   "blind_name": "",
+   "program_bacc": 0.73,
+   "program_null": 0.704,
+   "components": [
+    "('pca', 'm14', 'r.1', (0, 8))",
+    "('pca', 'm12', 'r.1', (8, 16))",
+    "('pca', 'm14', 'r.1', (32, 64))",
+    "('pca', 'm14', 'r.1', (16, 32))"
+   ],
+   "held_tests": [
+    "|dCE| concentration >=3x corpus"
+   ],
+   "failed_tests": [],
+   "has_mechanism_3M": false,
+   "instance": "212row-v1"
+  },
+  {
+   "tag": "r.9.1.0",
+   "file": "r_9_1_0.json",
+   "n_members": 184,
+   "concentration": 7.58,
+   "abs_dce_members": 0.914,
+   "mechanism_level": "none",
+   "blind_name": "",
+   "program_bacc": 0.638,
+   "program_null": 0.58,
+   "components": [
+    "('pca', 'm7', 'r.9.1', (16, 24))",
+    "('pca', 'a7', 'r.9.1', (4, 10))",
+    "('pca', 'a17', 'r.9.1', (4, 16))",
+    "('pca', 'm7', 'r.9.1', (24, 32))"
+   ],
+   "held_tests": [
+    "|dCE| concentration >=3x corpus"
+   ],
+   "failed_tests": [],
+   "has_mechanism_3M": false,
+   "instance": "212row-v1"
+  },
+  {
+   "tag": "r.1.1.1",
+   "file": "r_1_1_1.json",
+   "n_members": 184,
+   "concentration": 7.53,
+   "abs_dce_members": 0.555,
+   "mechanism_level": "surface",
+   "blind_name": "",
+   "program_bacc": 0.76,
+   "program_null": 0.404,
+   "components": [
+    "('pca', 'm14', 'r.1.1', (4, 8))",
+    "('pca', 'm12', 'r.1.1', (8, 12))",
+    "('pca', 'm14', 'r.1.1', (48, 64))",
+    "('pca', 'm14', 'r.1.1', (24, 32))"
+   ],
+   "held_tests": [
+    "|dCE| concentration >=3x corpus"
+   ],
+   "failed_tests": [],
+   "has_mechanism_3M": false,
+   "instance": "212row-v1"
+  },
+  {
+   "tag": "r.1.0.0",
+   "file": "r_1_0_0.json",
+   "n_members": 184,
+   "concentration": 7.24,
+   "abs_dce_members": 2.219,
+   "mechanism_level": "none",
+   "blind_name": "",
+   "program_bacc": 0.721,
+   "program_null": 0.675,
+   "components": [
+    "('pca', 'm13', 'r.1.0', (0, 4))",
+    "('pca', 'm11', 'r.1.0', (0, 4))",
+    "('pca', 'm12', 'r.1.0', (0, 4))",
+    "('pca', 'm11', 'r.1.0', (4, 8))"
+   ],
+   "held_tests": [
+    "|dCE| concentration >=3x corpus"
+   ],
+   "failed_tests": [],
+   "has_mechanism_3M": false,
+   "instance": "212row-v1"
+  },
+  {
+   "tag": "r.0.0.0",
+   "file": "r_0_0_0.json",
+   "n_members": 184,
+   "concentration": 7.21,
+   "abs_dce_members": 7.584,
+   "mechanism_level": "none",
+   "blind_name": "",
+   "program_bacc": 0.744,
+   "program_null": 0.516,
+   "components": [
+    "('pca', 'm0', 'r.0.0', (4, 8))",
+    "('pca', 'm0', 'r.0.0', (0, 4))",
+    "('pca', 'm0', 'r.0.0', (32, 48))",
+    "('pca', 'm0', 'r.0.0', (8, 12))"
+   ],
+   "held_tests": [
+    "|dCE| concentration >=3x corpus"
+   ],
+   "failed_tests": [],
+   "has_mechanism_3M": false,
+   "instance": "212row-v1"
+  },
+  {
+   "tag": "r.1.3.0",
+   "file": "r_1_3_0.json",
+   "n_members": 184,
+   "concentration": 7.19,
+   "abs_dce_members": 0.536,
+   "mechanism_level": "none",
+   "blind_name": "",
+   "program_bacc": 0.689,
+   "program_null": 0.49,
+   "components": [
+    "('pca', 'm12', 'r.1.3', (16, 24))",
+    "('pca', 'm12', 'r.1.3', (24, 32))",
+    "('pca', 'm11', 'r.1.3', (24, 32))",
+    "('pca', 'm13', 'r.1.3', (16, 24))"
+   ],
+   "held_tests": [
+    "|dCE| concentration >=3x corpus"
+   ],
+   "failed_tests": [],
+   "has_mechanism_3M": false,
+   "instance": "212row-v1"
+  },
+  {
+   "tag": "r.6.0.2",
+   "file": "r_6_0_2.json",
+   "n_members": 184,
+   "concentration": 7.07,
+   "abs_dce_members": 1.272,
+   "mechanism_level": "none",
+   "blind_name": "",
+   "program_bacc": 0.624,
+   "program_null": 0.4,
+   "components": [
+    "('pca', 'a9', 'r.6.0', (2, 4))",
+    "('pca', 'a9', 'r.6.0', (4, 16))",
+    "('pca', 'a9', 'r.6.0', (0, 2))",
+    "('pca', 'a9', 'r.6.0', (0, 4))"
+   ],
+   "held_tests": [
+    "|dCE| concentration >=3x corpus"
+   ],
+   "failed_tests": [],
+   "has_mechanism_3M": false,
+   "instance": "212row-v1"
+  },
+  {
+   "tag": "r.1.1.2",
+   "file": "r_1_1_2.json",
+   "n_members": 184,
+   "concentration": 7.05,
+   "abs_dce_members": 0.732,
+   "mechanism_level": "surface",
+   "blind_name": "",
+   "program_bacc": 0.773,
+   "program_null": 0.512,
+   "components": [
+    "('pca', 'm12', 'r.1.1', (12, 16))",
+    "('pca', 'm14', 'r.1.1', (0, 4))",
+    "('pca', 'm12', 'r.1.1', (8, 12))",
+    "('pca', 'm14', 'r.1.1', (48, 64))"
+   ],
+   "held_tests": [
+    "|dCE| concentration >=3x corpus"
+   ],
+   "failed_tests": [],
+   "has_mechanism_3M": false,
+   "instance": "212row-v1"
+  },
+  {
+   "tag": "r.6.2.2",
+   "file": "r_6_2_2.json",
+   "n_members": 184,
+   "concentration": 6.95,
+   "abs_dce_members": 1.697,
+   "mechanism_level": "none",
+   "blind_name": "",
+   "program_bacc": 0.77,
+   "program_null": 0.662,
+   "components": [
+    "('pca', 'a9', 'r.6.2', (4, 16))",
+    "('pca', 'a9', 'r.6.2', (0, 4))",
+    "('pca', 'a6', 'r.6.2', (2, 4))",
+    "('pca', 'a6', 'r.6.2', (10, 16))"
+   ],
+   "held_tests": [
+    "|dCE| concentration >=3x corpus"
+   ],
+   "failed_tests": [],
+   "has_mechanism_3M": false,
+   "instance": "212row-v1"
+  },
+  {
+   "tag": "r.6.3.0",
+   "file": "r_6_3_0.json",
+   "n_members": 184,
+   "concentration": 6.92,
+   "abs_dce_members": 1.613,
+   "mechanism_level": "none",
+   "blind_name": "Hard-to-predict delimiters (newlines, semicolons) in travel-guide listings/headings; circuit usually pushes the wrong token, raising loss on the majority, helping only a minority.",
+   "program_bacc": 0.677,
+   "program_null": 0.3,
+   "components": [
+    "('pca', 'a6', 'r.6.3', (4, 10))",
+    "('pca', 'a9', 'r.6.3', (4, 16))",
+    "('pca', 'a6', 'r.6.3', (10, 16))",
+    "('pca', 'a9', 'r.6.3', (0, 4))"
+   ],
+   "held_tests": [
+    "|dCE| concentration >=3x corpus",
+    "story red-team on 3 random examples"
+   ],
+   "failed_tests": [
+    "program heldout bacc>=0.75 and null<=0.6"
+   ],
+   "has_mechanism_3M": false,
+   "instance": "212row-v1"
+  },
+  {
+   "tag": "r.1.2.0",
+   "file": "r_1_2_0.json",
+   "n_members": 184,
+   "concentration": 6.914,
+   "abs_dce_members": 0.56,
+   "mechanism_level": "none",
+   "blind_name": "Members are hard-to-predict tokens in venue/address listings; machinery hurts prediction of common words (off, d) but helps rarer proper-noun/genre completions (house, Banqueting, Queen).",
+   "program_bacc": 0.542,
+   "program_null": 0.439,
+   "components": [
+    "('pca', 'm12', 'r.1.2', (32, 48))",
+    "('pca', 'm13', 'r.1.2', (32, 48))",
+    "('pca', 'm11', 'r.1.2', (48, 64))",
+    "('pca', 'm11', 'r.1.2', (32, 48))"
+   ],
+   "held_tests": [
+    "|dCE| concentration >=3x corpus",
+    "causal selectivity (SOP step1)",
+    "story red-team (SOP step5)"
+   ],
+   "failed_tests": [
+    "program heldout (SOP step3)"
+   ],
+   "has_mechanism_3M": false,
+   "instance": "212row-v1"
+  },
+  {
+   "tag": "r.23.2.1",
+   "file": "r_23_2_1.json",
+   "n_members": 864,
+   "concentration": 6.84,
+   "abs_dce_members": 0.826,
+   "mechanism_level": "none",
+   "blind_name": "generic-vs-proper-noun completion push",
+   "program_bacc": 0.517,
+   "program_null": 0.541,
+   "components": null,
+   "held_tests": [
+    "selectivity",
+    "pack-concentration-reproduction",
+    "story red-team"
+   ],
+   "failed_tests": [
+    "surface-program"
+   ],
+   "has_mechanism_3M": false,
+   "instance": "diverse-1000row-v1"
+  },
+  {
+   "tag": "r.6.0.3",
+   "file": "r_6_0_3.json",
+   "n_members": 184,
+   "concentration": 6.75,
+   "abs_dce_members": 1.215,
+   "mechanism_level": null,
+   "blind_name": null,
+   "program_bacc": null,
+   "program_null": null,
+   "components": [
+    "('pca', 'a9', 'r.6.0', (0, 4))",
+    "('pca', 'a9', 'r.6.0', (0, 2))",
+    "('pca', 'a9', 'r.6.0', (2, 4))",
+    "('pca', 'a9', 'r.6.0', (4, 16))"
+   ],
+   "held_tests": [
+    "|dCE| concentration >=3x corpus"
+   ],
+   "failed_tests": [],
+   "has_mechanism_3M": false,
+   "instance": "212row-v1"
+  },
+  {
+   "tag": "r.1.3.1",
+   "file": "r_1_3_1.json",
+   "n_members": 864,
+   "concentration": 6.67,
+   "abs_dce_members": 0.343,
+   "mechanism_level": "none",
+   "blind_name": "Members split near-evenly: pushes CE down for clean word/name completions (cooperate, Koch, shall); pushes CE up for garbled/sub-word fragments (mojibake, angers, ication).",
+   "program_bacc": 0.609,
+   "program_null": 0.47,
+   "components": null,
+   "held_tests": [
+    "|dCE| concentration >=3x corpus (full grid)",
+    "concentration replicated on both corpus halves (identity rule v2)",
+    "pack concentration reproduction",
+    "story red-team on 3 random examples (causal-direction reading)"
+   ],
+   "failed_tests": [
+    "program heldout bacc>=0.75 and null<=0.6"
+   ],
+   "has_mechanism_3M": false,
+   "instance": "diverse-1000row-v1"
+  },
+  {
+   "tag": "r.0.3.0",
+   "file": "r_0_3_0.json",
+   "n_members": 864,
+   "concentration": 6.61,
+   "abs_dce_members": 0.95,
+   "mechanism_level": "none",
+   "blind_name": "Members are rare/proper-noun-like continuation tokens (numbers, name-fragments); machinery helps predict these but wrongly pushes against ordinary common-word completions elsewhere.",
+   "program_bacc": 0.566,
+   "program_null": 0.504,
+   "components": [
+    "('pca', 'm3', 'r.0.3', (12, 16))",
+    "('pca', 'm2', 'r.0.3', (8, 12))",
+    "('pca', 'm2', 'r.0.3', (12, 16))",
+    "('pca', 'm6', 'r.0.3', (4, 8))"
+   ],
+   "held_tests": [
+    "causal selectivity (SOP step1, rerun)",
+    "selectivity replicated both corpus halves (identity rule)",
+    "story red-team (SOP step5)"
+   ],
+   "failed_tests": [
+    "program heldout (SOP step3, demoted)"
+   ],
+   "has_mechanism_3M": false,
+   "instance": "diverse-1000row-v1"
+  },
+  {
+   "tag": "r.11.3.1",
+   "file": "r_11_3_1.json",
+   "n_members": 864,
+   "concentration": 6.57,
+   "abs_dce_members": 0.55,
+   "mechanism_level": "none",
+   "blind_name": "templated-completion vs list/numeric-break selector",
+   "program_bacc": 0.556,
+   "program_null": 0.551,
+   "components": null,
+   "held_tests": [],
+   "failed_tests": [
+    "surface_program_docid_split"
+   ],
+   "has_mechanism_3M": false,
+   "instance": "diverse-1000row-v1"
+  },
+  {
+   "tag": "r.0.0.3",
+   "file": "r_0_0_3.json",
+   "n_members": 184,
+   "concentration": 6.56,
+   "abs_dce_members": 3.695,
+   "mechanism_level": null,
+   "blind_name": null,
+   "program_bacc": null,
+   "program_null": null,
+   "components": [
+    "('pca', 'm0', 'r.0.0', (48, 64))",
+    "('pca', 'm0', 'r.0.0', (4, 8))",
+    "('pca', 'm0', 'r.0.0', (32, 48))",
+    "('pca', 'm0', 'r.0.0', (12, 16))"
+   ],
+   "held_tests": [
+    "|dCE| concentration >=3x corpus"
+   ],
+   "failed_tests": [],
+   "has_mechanism_3M": false,
+   "instance": "212row-v1"
+  },
+  {
+   "tag": "r.1.0",
+   "file": "r_1_0.json",
+   "n_members": 1222,
+   "concentration": 6.48,
+   "abs_dce_members": 2.278,
+   "mechanism_level": null,
+   "blind_name": null,
+   "program_bacc": null,
+   "program_null": null,
+   "components": [
+    "('pca', 'm11', 'r.1', (0, 8))",
+    "('pca', 'm12', 'r.1', (0, 8))",
+    "('pca', 'm13', 'r.1', (0, 8))",
+    "('pca', 'm13', 'r.1', (8, 16))"
+   ],
+   "held_tests": [
+    "|dCE| concentration >=3x corpus"
+   ],
+   "failed_tests": [],
+   "has_mechanism_3M": false,
+   "instance": "212row-v1"
+  },
+  {
+   "tag": "r.4.1.0",
+   "file": "r_4_1_0.json",
+   "n_members": 864,
+   "concentration": 6.45,
+   "abs_dce_members": 1.205,
+   "mechanism_level": "none",
+   "blind_name": "Two-signed circuit: hurts predictable words (said, tying, opener) but helps concrete nouns (restaurants); wrong for short function/number words it also suppresses.",
+   "program_bacc": 0.567,
+   "program_null": 0.456,
+   "components": [
+    "('pca', 'm1', 'r.4.1', (32, 48))",
+    "('pca', 'm1', 'r.4.1', (24, 32))",
+    "('pca', 'm1', 'r.4.1', (16, 24))",
+    "('pca', 'm1', 'r.4.1', (48, 64))"
+   ],
+   "held_tests": [
+    "causal selectivity (SOP step1, rerun)",
+    "selectivity replicated both corpus halves (identity rule)",
+    "story red-team (SOP step5)"
+   ],
+   "failed_tests": [
+    "program heldout (SOP step3, demoted)"
+   ],
+   "has_mechanism_3M": false,
+   "instance": "diverse-1000row-v1"
+  },
+  {
+   "tag": "r.6.2.3",
+   "file": "r_6_2_3.json",
+   "n_members": 184,
+   "concentration": 6.18,
+   "abs_dce_members": 1.761,
+   "mechanism_level": null,
+   "blind_name": null,
+   "program_bacc": null,
+   "program_null": null,
+   "components": [
+    "('pca', 'a6', 'r.6.2', (2, 4))",
+    "('pca', 'a6', 'r.6.2', (10, 16))",
+    "('pca', 'a9', 'r.6.2', (0, 4))",
+    "('pca', 'a6', 'r.6.2', (4, 10))"
+   ],
+   "held_tests": [
+    "|dCE| concentration >=3x corpus"
+   ],
+   "failed_tests": [],
+   "has_mechanism_3M": false,
+   "instance": "212row-v1"
+  },
+  {
+   "tag": "r.3.0.2",
+   "file": "r_3_0_2.json",
+   "n_members": 864,
+   "concentration": 6.1,
+   "abs_dce_members": 0.329,
+   "mechanism_level": "none",
+   "blind_name": "attn-input-writer decomp: a14 dominant writer into a15/16/17",
+   "program_bacc": 0.613,
+   "program_null": 0.593,
+   "components": null,
+   "held_tests": [
+    "concentration >= 3 (leaf_ablate/sign_stats)",
+    "both-halves concentration >= 3",
+    "3M a15 ENRICHED (ratio>=1.3) & BEATS_NULL",
+    "3M a17 ENRICHED & BEATS_NULL",
+    "3M a16 ENRICHED & BEATS_NULL"
+   ],
+   "failed_tests": [
+    "step5 story_test beats_base_rate (any class)"
+   ],
+   "has_mechanism_3M": true,
+   "instance": "diverse-1000row-v1"
+  },
+  {
+   "tag": "r.2.0.2",
+   "file": "r_2_0_2.json",
+   "n_members": 864,
+   "concentration": 6.03,
+   "abs_dce_members": 1.215,
+   "mechanism_level": "none",
+   "blind_name": "input-enrichment for a0 (layer-0 attn) into the a8/a6 double-QK bundle; no surviving behavioral story",
+   "program_bacc": 0.693,
+   "program_null": 0.436,
+   "components": [
+    "('pca', 'a8', 'r.2.0', (0, 4))",
+    "('pca', 'a6', 'r.2.0', (0, 4))",
+    "('pca', 'a8', 'r.2.0', (4, 16))",
+    "('pca', 'a6', 'r.2.0', (4, 16))"
+   ],
+   "held_tests": [
+    "selectivity (concentration)",
+    "selectivity both-halves",
+    "pack reproduction (concentration)",
+    "mechanism ENRICHED (step 3M)"
+   ],
+   "failed_tests": [
+    "surface program (doc-disjoint, docid parity)",
+    "behavioral story base-rate (story_test)"
+   ],
+   "has_mechanism_3M": false,
+   "instance": "diverse-1000row-v1"
+  },
+  {
+   "tag": "r.18.2.0",
+   "file": "r_18_2_0.json",
+   "n_members": 864,
+   "concentration": 5.96,
+   "abs_dce_members": 0.764,
+   "mechanism_level": "none",
+   "blind_name": "no behavioral claim survives base-rate testing except a narrow punctuation-target effect",
+   "program_bacc": 0.555,
+   "program_null": 0.498,
+   "components": null,
+   "held_tests": [
+    "selectivity",
+    "behavioral_story_base_rate"
+   ],
+   "failed_tests": [
+    "mechanism_enrichment"
+   ],
+   "has_mechanism_3M": false,
+   "instance": "diverse-1000row-v1"
+  },
+  {
+   "tag": "r.2.2.0",
+   "file": "r_2_2_0.json",
+   "n_members": 184,
+   "concentration": 5.89,
+   "abs_dce_members": 0.821,
+   "mechanism_level": null,
+   "blind_name": null,
+   "program_bacc": null,
+   "program_null": null,
+   "components": [
+    "('pca', 'm16', 'r.2.2', (24, 32))",
+    "('pca', 'm16', 'r.2.2', (16, 24))",
+    "('pca', 'm15', 'r.2.2', (8, 12))",
+    "('pca', 'm16', 'r.2.2', (32, 48))"
+   ],
+   "held_tests": [
+    "|dCE| concentration >=3x corpus"
+   ],
+   "failed_tests": [],
+   "has_mechanism_3M": false,
+   "instance": "212row-v1"
+  },
+  {
+   "tag": "r.11.1.2",
+   "file": "r_11_1_2.json",
+   "n_members": 864,
+   "concentration": 5.82,
+   "abs_dce_members": 0.795,
+   "mechanism_level": "none",
+   "blind_name": "punctuation-target CE reduction (weak, single mechanism not found)",
+   "program_bacc": 0.587,
+   "program_null": 0.587,
+   "components": null,
+   "held_tests": [
+    "causal_footprint",
+    "behavioral_punct_helps"
+   ],
+   "failed_tests": [
+    "mechanism_enrichment_a8",
+    "mechanism_enrichment_a3",
+    "mechanism_enrichment_a4",
+    "surface_program"
+   ],
+   "has_mechanism_3M": false,
+   "instance": "diverse-1000row-v1"
+  },
+  {
+   "tag": "r.11.1.1",
+   "file": "r_11_1_1.json",
+   "n_members": 864,
+   "concentration": 5.7,
+   "abs_dce_members": 0.823,
+   "mechanism_level": "none",
+   "blind_name": "no surface program; punctuation-target push is the only surviving behavioral claim",
+   "program_bacc": 0.588,
+   "program_null": 0.58,
+   "components": null,
+   "held_tests": [
+    "selectivity",
+    "behavioral_story_punct_hurts"
+   ],
+   "failed_tests": [
+    "input_decomp_enrichment",
+    "surface_program"
+   ],
+   "has_mechanism_3M": true,
+   "instance": "diverse-1000row-v1"
+  },
+  {
+   "tag": "r.8.1.0",
+   "file": "r_8_1_0.json",
+   "n_members": 864,
+   "concentration": 5.68,
+   "abs_dce_members": 1.319,
+   "mechanism_level": "none",
+   "blind_name": null,
+   "program_bacc": 0.574,
+   "program_null": 0.498,
+   "components": [
+    "('pca', 'a4', 'r.8.1', (0, 2))",
+    "('pca', 'a9', 'r.8.1', (4, 10))",
+    "('pca', 'a4', 'r.8.1', (2, 4))",
+    "('pca', 'a7', 'r.8.1', (0, 2))"
+   ],
+   "held_tests": [
+    "selectivity_both_halves"
+   ],
+   "failed_tests": [
+    "input_writer_enrichment_bootstrap",
+    "surface_program_doc_disjoint",
+    "behavioral_story_class_direction_sweep"
+   ],
+   "has_mechanism_3M": false,
+   "instance": "diverse-1000row-v1"
+  },
+  {
+   "tag": "r.13.2.1",
+   "file": "r_13_2_1.json",
+   "n_members": 864,
+   "concentration": 5.59,
+   "abs_dce_members": 0.606,
+   "mechanism_level": "none",
+   "blind_name": "punctuation-target CE reducer (two-signed, ~50/50 elsewhere)",
+   "program_bacc": 0.537,
+   "program_null": 0.484,
+   "components": null,
+   "held_tests": [
+    "behavior_story_punct_help"
+   ],
+   "failed_tests": [
+    "mechanism_input_decomp_a7",
+    "mechanism_input_decomp_a6",
+    "mechanism_input_decomp_a3",
+    "surface_program",
+    "behavior_story_subword_True",
+    "behavior_story_subword_False",
+    "behavior_story_space_word_True",
+    "behavior_story_space_word_False",
+    "behavior_story_digit_True",
+    "behavior_story_digit_False",
+    "behavior_story_punct_False",
+    "behavior_story_capitalized_True",
+    "behavior_story_capitalized_False",
+    "behavior_story_newline_True",
+    "behavior_story_newline_False"
+   ],
+   "has_mechanism_3M": true,
+   "instance": "diverse-1000row-v1"
+  },
+  {
+   "tag": "r.6.0.1",
+   "file": "r_6_0_1.json",
+   "n_members": 184,
+   "concentration": 5.58,
+   "abs_dce_members": 1.004,
+   "mechanism_level": null,
+   "blind_name": null,
+   "program_bacc": null,
+   "program_null": null,
+   "components": [
+    "('pca', 'a9', 'r.6.0', (4, 16))",
+    "('pca', 'a9', 'r.6.0', (0, 2))",
+    "('pca', 'a9', 'r.6.0', (2, 4))",
+    "('pca', 'a9', 'r.6.0', (0, 4))"
+   ],
+   "held_tests": [
+    "|dCE| concentration >=3x corpus"
+   ],
+   "failed_tests": [],
+   "has_mechanism_3M": false,
+   "instance": "212row-v1"
+  },
+  {
+   "tag": "r.23.2.3",
+   "file": "r_23_2_3.json",
+   "n_members": 864,
+   "concentration": 5.51,
+   "abs_dce_members": 0.246,
+   "mechanism_level": "none",
+   "blind_name": "no behavioral claim survives base-rate testing",
+   "program_bacc": 0.531,
+   "program_null": 0.51,
+   "components": null,
+   "held_tests": [],
+   "failed_tests": [
+    "surface_program"
+   ],
+   "has_mechanism_3M": false,
+   "instance": "diverse-1000row-v1"
+  },
+  {
+   "tag": "r.6.2.0",
+   "file": "r_6_2_0.json",
+   "n_members": 184,
+   "concentration": 5.42,
+   "abs_dce_members": 1.97,
+   "mechanism_level": null,
+   "blind_name": null,
+   "program_bacc": null,
+   "program_null": null,
+   "components": [
+    "('pca', 'a6', 'r.6.2', (4, 10))",
+    "('pca', 'a6', 'r.6.2', (0, 2))",
+    "('pca', 'a9', 'r.6.2', (0, 4))",
+    "('pca', 'a9', 'r.6.2', (4, 16))"
+   ],
+   "held_tests": [
+    "|dCE| concentration >=3x corpus"
+   ],
+   "failed_tests": [],
+   "has_mechanism_3M": false,
+   "instance": "212row-v1"
+  },
+  {
+   "tag": "r.6.2.1",
+   "file": "r_6_2_1.json",
+   "n_members": 184,
+   "concentration": 5.42,
+   "abs_dce_members": 2.039,
+   "mechanism_level": null,
+   "blind_name": null,
+   "program_bacc": null,
+   "program_null": null,
+   "components": [
+    "('pca', 'a9', 'r.6.2', (0, 4))",
+    "('pca', 'a6', 'r.6.2', (2, 4))",
+    "('pca', 'a9', 'r.6.2', (4, 16))",
+    "('pca', 'a6', 'r.6.2', (0, 2))"
+   ],
+   "held_tests": [
+    "|dCE| concentration >=3x corpus"
+   ],
+   "failed_tests": [],
+   "has_mechanism_3M": false,
+   "instance": "212row-v1"
+  },
+  {
+   "tag": "r.2.0.1",
+   "file": "r_2_0_1.json",
+   "n_members": 864,
+   "concentration": 5.4,
+   "abs_dce_members": 1.089,
+   "mechanism_level": "none",
+   "blind_name": "r.2.0 double-QK bundle (a6/a8); input writer composition NOT enriched (ENRICHED_STABLE=False both); no surviving behavioral story",
+   "program_bacc": 0.682,
+   "program_null": 0.561,
+   "components": [
+    "('pca', 'a6', 'r.2.0', (4, 16))",
+    "('pca', 'a8', 'r.2.0', (4, 16))",
+    "('pca', 'a8', 'r.2.0', (0, 4))",
+    "('pca', 'a6', 'r.2.0', (0, 4))"
+   ],
+   "held_tests": [
+    "selectivity (concentration)",
+    "selectivity both-halves",
+    "pack reproduction (concentration)"
+   ],
+   "failed_tests": [
+    "mechanism ENRICHED_STABLE (step 3M, bootstrapped 5 draws)",
+    "surface program (doc-disjoint, docid parity)",
+    "behavioral story base-rate sweep (story_test_class, 6 kinds x 2 directions)"
+   ],
+   "has_mechanism_3M": true,
+   "instance": "diverse-1000row-v1"
+  },
+  {
+   "tag": "r.6.3.1",
+   "file": "r_6_3_1.json",
+   "n_members": 184,
+   "concentration": 5.37,
+   "abs_dce_members": 1.252,
+   "mechanism_level": null,
+   "blind_name": null,
+   "program_bacc": null,
+   "program_null": null,
+   "components": [
+    "('pca', 'a9', 'r.6.3', (0, 4))",
+    "('pca', 'a6', 'r.6.3', (10, 16))",
+    "('pca', 'a6', 'r.6.3', (4, 10))",
+    "('pca', 'a9', 'r.6.3', (4, 16))"
+   ],
+   "held_tests": [
+    "|dCE| concentration >=3x corpus"
+   ],
+   "failed_tests": [],
+   "has_mechanism_3M": false,
+   "instance": "212row-v1"
+  },
+  {
+   "tag": "r.5.0.1",
+   "file": "r_5_0_1.json",
+   "n_members": 864,
+   "concentration": 5.2,
+   "abs_dce_members": 0.847,
+   "mechanism_level": "none",
+   "blind_name": null,
+   "program_bacc": 0.556,
+   "program_null": 0.442,
+   "components": [
+    "('pca', 'a4', 'r.5.0', (0, 2))",
+    "('pca', 'a3', 'r.5.0', (10, 16))",
+    "('pca', 'a3', 'r.5.0', (4, 10))",
+    "('pca', 'a2', 'r.5.0', (0, 2))"
+   ],
+   "held_tests": [
+    "selectivity"
+   ],
+   "failed_tests": [
+    "mechanism_input_decomp",
+    "surface_program"
+   ],
+   "has_mechanism_3M": false,
+   "instance": "diverse-1000row-v1"
+  },
+  {
+   "tag": "r.5.3.1",
+   "file": "r_5_3_1.json",
+   "n_members": 864,
+   "concentration": 5.17,
+   "abs_dce_members": 0.91,
+   "mechanism_level": "none",
+   "blind_name": "no behavioral claim survives base-rate testing",
+   "program_bacc": 0.583,
+   "program_null": 0.488,
+   "components": [
+    "a2",
+    "a4"
+   ],
+   "held_tests": [
+    "selectivity_full",
+    "selectivity_half0",
+    "selectivity_half1",
+    "pack_reproduction"
+   ],
+   "failed_tests": [
+    "mechanism_3M_a2",
+    "mechanism_3M_a4",
+    "surface_program",
+    "behavioral_story"
+   ],
+   "has_mechanism_3M": true,
+   "instance": "diverse-1000row-v1"
+  },
+  {
+   "tag": "r.7.1.1",
+   "file": "r_7_1_1.json",
+   "n_members": 864,
+   "concentration": 5.08,
+   "abs_dce_members": 0.909,
+   "mechanism_level": "none",
+   "blind_name": "no STRONG single-writer mechanism into a7; weak capitalized-target CE reduction",
+   "program_bacc": 0.54,
+   "program_null": 0.532,
+   "components": null,
+   "held_tests": [
+    "selectivity_full",
+    "selectivity_half0",
+    "selectivity_half1",
+    "pack_reproduction",
+    "behavioral_capitalized_helps"
+   ],
+   "failed_tests": [
+    "mechanism_enrichment_a7",
+    "downstream_consumer_a17",
+    "surface_program"
+   ],
+   "has_mechanism_3M": true,
+   "instance": "diverse-1000row-v1"
+  },
+  {
+   "tag": "r.1.0.2",
+   "file": "r_1_0_2.json",
+   "n_members": 184,
+   "concentration": 5.0,
+   "abs_dce_members": 0.773,
+   "mechanism_level": null,
+   "blind_name": null,
+   "program_bacc": null,
+   "program_null": null,
+   "components": [
+    "('pca', 'm13', 'r.1.0', (8, 12))",
+    "('pca', 'm13', 'r.1.0', (12, 16))",
+    "('pca', 'm11', 'r.1.0', (4, 8))",
+    "('pca', 'm11', 'r.1.0', (0, 4))"
+   ],
+   "held_tests": [
+    "|dCE| concentration >=3x corpus"
+   ],
+   "failed_tests": [],
+   "has_mechanism_3M": false,
+   "instance": "212row-v1"
+  },
+  {
+   "tag": "r.2.1",
+   "file": "r_2_1.json",
+   "n_members": 1222,
+   "concentration": 4.96,
+   "abs_dce_members": 2.397,
+   "mechanism_level": null,
+   "blind_name": null,
+   "program_bacc": null,
+   "program_null": null,
+   "components": [
+    "('pca', 'a5', 'r.2', (4, 16))",
+    "('pca', 'm1', 'r.2', (16, 32))",
+    "('pca', 'm1', 'r.2', (32, 64))",
+    "('pca', 'm15', 'r.2', (32, 64))"
+   ],
+   "held_tests": [
+    "|dCE| concentration >=3x corpus"
+   ],
+   "failed_tests": [],
+   "has_mechanism_3M": false,
+   "instance": "212row-v1"
+  },
+  {
+   "tag": "r.3.0.1",
+   "file": "r_3_0_1.json",
+   "n_members": 184,
+   "concentration": 4.94,
+   "abs_dce_members": 1.357,
+   "mechanism_level": null,
+   "blind_name": null,
+   "program_bacc": null,
+   "program_null": null,
+   "components": [
+    "('pca', 'a7', 'r.3.0', (2, 4))",
+    "('pca', 'a16', 'r.3.0', (4, 16))",
+    "('pca', 'a16', 'r.3.0', (0, 4))",
+    "('pca', 'a7', 'r.3.0', (0, 2))"
+   ],
+   "held_tests": [
+    "|dCE| concentration >=3x corpus"
+   ],
+   "failed_tests": [],
+   "has_mechanism_3M": false,
+   "instance": "212row-v1"
+  },
+  {
+   "tag": "r.1.0.3",
+   "file": "r_1_0_3.json",
+   "n_members": 184,
+   "concentration": 4.91,
+   "abs_dce_members": 0.654,
+   "mechanism_level": null,
+   "blind_name": null,
+   "program_bacc": null,
+   "program_null": null,
+   "components": [
+    "('pca', 'm13', 'r.1.0', (4, 8))",
+    "('pca', 'm13', 'r.1.0', (12, 16))",
+    "('pca', 'm12', 'r.1.0', (0, 4))",
+    "('pca', 'm11', 'r.1.0', (4, 8))"
+   ],
+   "held_tests": [
+    "|dCE| concentration >=3x corpus"
+   ],
+   "failed_tests": [],
+   "has_mechanism_3M": false,
+   "instance": "212row-v1"
+  },
+  {
+   "tag": "r.3.1.1",
+   "file": "r_3_1_1.json",
+   "n_members": 184,
+   "concentration": 4.91,
+   "abs_dce_members": 1.305,
+   "mechanism_level": null,
+   "blind_name": null,
+   "program_bacc": null,
+   "program_null": null,
+   "components": [
+    "('pca', 'a7', 'r.3.1', (2, 4))",
+    "('pca', 'a16', 'r.3.1', (4, 16))",
+    "('pca', 'a16', 'r.3.1', (0, 4))",
+    "('pca', 'a7', 'r.3.1', (0, 2))"
+   ],
+   "held_tests": [
+    "|dCE| concentration >=3x corpus"
+   ],
+   "failed_tests": [],
+   "has_mechanism_3M": false,
+   "instance": "212row-v1"
+  },
+  {
+   "tag": "r.4.1.1",
+   "file": "r_4_1_1.json",
+   "n_members": 864,
+   "concentration": 4.83,
+   "abs_dce_members": 0.62,
+   "mechanism_level": "none",
+   "blind_name": "No strong single-writer mechanism found (a12/m1 top ratios 1.06/1.01 vs thresholds 1.31/1.30); no behavioral claim survives base-rate testing (12 class/direction pairs).",
+   "program_bacc": 0.559,
+   "program_null": 0.512,
+   "components": null,
+   "held_tests": [],
+   "failed_tests": [
+    "input_decomp_enrichment",
+    "output_decomp_consumer",
+    "behavioral_story_sweep"
+   ],
+   "has_mechanism_3M": false,
+   "instance": "diverse-1000row-v1"
+  },
+  {
+   "tag": "r.9.0.1",
+   "file": "r_9_0_1.json",
+   "n_members": 184,
+   "concentration": 4.66,
+   "abs_dce_members": 0.808,
+   "mechanism_level": null,
+   "blind_name": null,
+   "program_bacc": null,
+   "program_null": null,
+   "components": [
+    "('pca', 'a17', 'r.9.0', (4, 16))",
+    "('pca', 'a17', 'r.9.0', (0, 4))",
+    "('pca', 'a6', 'r.9.0', (4, 10))",
+    "('pca', 'a6', 'r.9.0', (10, 16))"
+   ],
+   "held_tests": [
+    "|dCE| concentration >=3x corpus"
+   ],
+   "failed_tests": [],
+   "has_mechanism_3M": false,
+   "instance": "212row-v1"
+  },
+  {
+   "tag": "r.1.2.1",
+   "file": "r_1_2_1.json",
+   "n_members": 184,
+   "concentration": 4.57,
+   "abs_dce_members": 0.31,
+   "mechanism_level": null,
+   "blind_name": null,
+   "program_bacc": null,
+   "program_null": null,
+   "components": [
+    "('pca', 'm12', 'r.1.2', (12, 16))",
+    "('pca', 'm11', 'r.1.2', (48, 64))",
+    "('pca', 'm12', 'r.1.2', (8, 12))",
+    "('pca', 'm12', 'r.1.2', (32, 48))"
+   ],
+   "held_tests": [
+    "|dCE| concentration >=3x corpus"
+   ],
+   "failed_tests": [],
+   "has_mechanism_3M": false,
+   "instance": "212row-v1"
+  },
+  {
+   "tag": "r.2.2",
+   "file": "r_2_2.json",
+   "n_members": 1222,
+   "concentration": 4.56,
+   "abs_dce_members": 0.708,
+   "mechanism_level": null,
+   "blind_name": null,
+   "program_bacc": null,
+   "program_null": null,
+   "components": [
+    "('pca', 'm16', 'r.2', (16, 32))",
+    "('pca', 'm15', 'r.2', (16, 32))",
+    "('pca', 'm16', 'r.2', (32, 64))",
+    "('pca', 'm15', 'r.2', (8, 16))"
+   ],
+   "held_tests": [
+    "|dCE| concentration >=3x corpus"
+   ],
+   "failed_tests": [],
+   "has_mechanism_3M": false,
+   "instance": "212row-v1"
+  },
+  {
+   "tag": "r.2.1.1",
+   "file": "r_2_1_1.json",
+   "n_members": 184,
+   "concentration": 4.31,
+   "abs_dce_members": 0.87,
+   "mechanism_level": null,
+   "blind_name": null,
+   "program_bacc": null,
+   "program_null": null,
+   "components": [
+    "('pca', 'm15', 'r.2.1', (48, 64))",
+    "('pca', 'm15', 'r.2.1', (32, 48))",
+    "('pca', 'm1', 'r.2.1', (32, 48))",
+    "('pca', 'm1', 'r.2.1', (16, 24))"
+   ],
+   "held_tests": [
+    "|dCE| concentration >=3x corpus"
+   ],
+   "failed_tests": [],
+   "has_mechanism_3M": false,
+   "instance": "212row-v1"
+  },
+  {
+   "tag": "r.9.1.1",
+   "file": "r_9_1_1.json",
+   "n_members": 184,
+   "concentration": 4.24,
+   "abs_dce_members": 0.695,
+   "mechanism_level": null,
+   "blind_name": null,
+   "program_bacc": null,
+   "program_null": null,
+   "components": [
+    "('pca', 'm7', 'r.9.1', (24, 32))",
+    "('pca', 'a17', 'r.9.1', (0, 4))",
+    "('pca', 'a7', 'r.9.1', (10, 16))",
+    "('pca', 'a7', 'r.9.1', (4, 10))"
+   ],
+   "held_tests": [
+    "|dCE| concentration >=3x corpus"
+   ],
+   "failed_tests": [],
+   "has_mechanism_3M": false,
+   "instance": "212row-v1"
+  },
+  {
+   "tag": "r.9.1.2",
+   "file": "r_9_1_2.json",
+   "n_members": 184,
+   "concentration": 3.89,
+   "abs_dce_members": 0.511,
+   "mechanism_level": null,
+   "blind_name": null,
+   "program_bacc": null,
+   "program_null": null,
+   "components": [
+    "('pca', 'a17', 'r.9.1', (4, 16))",
+    "('pca', 'a7', 'r.9.1', (10, 16))",
+    "('pca', 'a7', 'r.9.1', (4, 10))",
+    "('pca', 'm7', 'r.9.1', (16, 24))"
+   ],
+   "held_tests": [
+    "|dCE| concentration >=3x corpus"
+   ],
+   "failed_tests": [],
+   "has_mechanism_3M": false,
+   "instance": "212row-v1"
+  },
+  {
+   "tag": "r.2.2.2",
+   "file": "r_2_2_2.json",
+   "n_members": 184,
+   "concentration": 3.81,
+   "abs_dce_members": 0.479,
+   "mechanism_level": null,
+   "blind_name": null,
+   "program_bacc": null,
+   "program_null": null,
+   "components": [
+    "('pca', 'm15', 'r.2.2', (12, 16))",
+    "('pca', 'm16', 'r.2.2', (32, 48))",
+    "('pca', 'm15', 'r.2.2', (8, 12))",
+    "('pca', 'm15', 'r.2.2', (16, 24))"
+   ],
+   "held_tests": [
+    "|dCE| concentration >=3x corpus"
+   ],
+   "failed_tests": [],
+   "has_mechanism_3M": false,
+   "instance": "212row-v1"
+  },
+  {
+   "tag": "r.9.0.2",
+   "file": "r_9_0_2.json",
+   "n_members": 184,
+   "concentration": 3.77,
+   "abs_dce_members": 0.611,
+   "mechanism_level": null,
+   "blind_name": null,
+   "program_bacc": null,
+   "program_null": null,
+   "components": [
+    "('pca', 'a6', 'r.9.0', (4, 10))",
+    "('pca', 'm7', 'r.9.0', (32, 48))",
+    "('pca', 'a17', 'r.9.0', (0, 4))",
+    "('pca', 'a17', 'r.9.0', (4, 16))"
+   ],
+   "held_tests": [
+    "|dCE| concentration >=3x corpus"
+   ],
+   "failed_tests": [],
+   "has_mechanism_3M": false,
+   "instance": "212row-v1"
+  },
+  {
+   "tag": "r.6.1.0",
+   "file": "r_6_1_0.json",
+   "n_members": 184,
+   "concentration": 3.68,
+   "abs_dce_members": 0.7,
+   "mechanism_level": null,
+   "blind_name": null,
+   "program_bacc": null,
+   "program_null": null,
+   "components": [
+    "('pca', 'a9', 'r.6.1', (4, 16))",
+    "('pca', 'a9', 'r.6.1', (4, 10))",
+    "('pca', 'a9', 'r.6.1', (0, 2))",
+    "('pca', 'a9', 'r.6.1', (0, 4))"
+   ],
+   "held_tests": [
+    "|dCE| concentration >=3x corpus"
+   ],
+   "failed_tests": [],
+   "has_mechanism_3M": false,
+   "instance": "212row-v1"
+  },
+  {
+   "tag": "r.1.2",
+   "file": "r_1_2.json",
+   "n_members": 1222,
+   "concentration": 3.65,
+   "abs_dce_members": 0.415,
+   "mechanism_level": null,
+   "blind_name": null,
+   "program_bacc": null,
+   "program_null": null,
+   "components": [
+    "('pca', 'm11', 'r.1', (32, 64))",
+    "('pca', 'm12', 'r.1', (32, 64))",
+    "('pca', 'm13', 'r.1', (32, 64))",
+    "('pca', 'm12', 'r.1', (8, 16))"
+   ],
+   "held_tests": [
+    "|dCE| concentration >=3x corpus"
+   ],
+   "failed_tests": [],
+   "has_mechanism_3M": false,
+   "instance": "212row-v1"
+  },
+  {
+   "tag": "r.2.2.1",
+   "file": "r_2_2_1.json",
+   "n_members": 184,
+   "concentration": 3.64,
+   "abs_dce_members": 0.352,
+   "mechanism_level": null,
+   "blind_name": null,
+   "program_bacc": null,
+   "program_null": null,
+   "components": [
+    "('pca', 'm16', 'r.2.2', (48, 64))",
+    "('pca', 'm15', 'r.2.2', (24, 32))",
+    "('pca', 'm15', 'r.2.2', (16, 24))",
+    "('pca', 'm16', 'r.2.2', (16, 24))"
+   ],
+   "held_tests": [
+    "|dCE| concentration >=3x corpus"
+   ],
+   "failed_tests": [],
+   "has_mechanism_3M": false,
+   "instance": "212row-v1"
+  },
+  {
+   "tag": "r.9.0.0",
+   "file": "r_9_0_0.json",
+   "n_members": 184,
+   "concentration": 3.56,
+   "abs_dce_members": 0.884,
+   "mechanism_level": null,
+   "blind_name": null,
+   "program_bacc": null,
+   "program_null": null,
+   "components": [
+    "('pca', 'a7', 'r.9.0', (0, 2))",
+    "('pca', 'a7', 'r.9.0', (2, 4))",
+    "('pca', 'a6', 'r.9.0', (10, 16))",
+    "('pca', 'a17', 'r.9.0', (4, 16))"
+   ],
+   "held_tests": [
+    "|dCE| concentration >=3x corpus"
+   ],
+   "failed_tests": [],
+   "has_mechanism_3M": false,
+   "instance": "212row-v1"
+  },
+  {
+   "tag": "r.1.3",
+   "file": "r_1_3.json",
+   "n_members": 1222,
+   "concentration": 3.44,
+   "abs_dce_members": 0.415,
+   "mechanism_level": null,
+   "blind_name": null,
+   "program_bacc": null,
+   "program_null": null,
+   "components": [
+    "('pca', 'm11', 'r.1', (16, 32))",
+    "('pca', 'm12', 'r.1', (16, 32))",
+    "('pca', 'm11', 'r.1', (8, 16))",
+    "('pca', 'm13', 'r.1', (16, 32))"
+   ],
+   "held_tests": [
+    "|dCE| concentration >=3x corpus"
+   ],
+   "failed_tests": [],
+   "has_mechanism_3M": false,
+   "instance": "212row-v1"
+  },
+  {
+   "tag": "r.2.0.0",
+   "file": "r_2_0_0.json",
+   "n_members": 184,
+   "concentration": 3.09,
+   "abs_dce_members": 11.651,
+   "mechanism_level": null,
+   "blind_name": null,
+   "program_bacc": null,
+   "program_null": null,
+   "components": [
+    "('pca', 'a5', 'r.2.0', (0, 2))",
+    "('pca', 'm16', 'r.2.0', (0, 4))",
+    "('pca', 'm16', 'r.2.0', (4, 8))",
+    "('pca', 'a5', 'r.2.0', (2, 4))"
+   ],
+   "held_tests": [
+    "|dCE| concentration >=3x corpus"
+   ],
+   "failed_tests": [],
+   "has_mechanism_3M": false,
+   "instance": "212row-v1"
+  },
+  {
+   "tag": "r.2.3",
+   "file": "r_2_3.json",
+   "n_members": 1222,
+   "concentration": 3.03,
+   "abs_dce_members": 0.93,
+   "mechanism_level": null,
+   "blind_name": null,
+   "program_bacc": null,
+   "program_null": null,
+   "components": [
+    "('pca', 'm16', 'r.2', (32, 64))",
+    "('pca', 'm15', 'r.2', (16, 32))",
+    "('pca', 'm1', 'r.2', (32, 64))",
+    "('pca', 'm1', 'r.2', (16, 32))"
+   ],
+   "held_tests": [
+    "|dCE| concentration >=3x corpus"
+   ],
+   "failed_tests": [],
+   "has_mechanism_3M": false,
+   "instance": "212row-v1"
+  },
+  {
+   "tag": "r.0.0",
+   "file": "r_0_0.json",
+   "n_members": 1222,
+   "concentration": 2.72,
+   "abs_dce_members": 5.451,
+   "mechanism_level": null,
+   "blind_name": null,
+   "program_bacc": null,
+   "program_null": null,
+   "components": [
+    "('pca', 'm0', 'r.0', (0, 8))",
+    "('pca', 'm0', 'r.0', (32, 64))",
+    "('pca', 'm3', 'r.0', (16, 32))",
+    "('pca', 'm0', 'r.0', (8, 16))"
+   ],
+   "held_tests": [],
+   "failed_tests": [
+    "|dCE| concentration >=3x corpus"
+   ],
+   "has_mechanism_3M": false,
+   "instance": "212row-v1"
+  },
+  {
+   "tag": "r.2.0",
+   "file": "r_2_0.json",
+   "n_members": 1222,
+   "concentration": 2.0,
+   "abs_dce_members": 8.011,
+   "mechanism_level": null,
+   "blind_name": null,
+   "program_bacc": null,
+   "program_null": null,
+   "components": [
+    "('pca', 'a5', 'r.2', (0, 4))",
+    "('pca', 'm16', 'r.2', (0, 8))",
+    "('pca', 'm1', 'r.2', (0, 8))",
+    "('pca', 'm15', 'r.2', (32, 64))"
+   ],
+   "held_tests": [],
+   "failed_tests": [
+    "|dCE| concentration >=3x corpus"
+   ],
+   "has_mechanism_3M": false,
+   "instance": "212row-v1"
+  },
+  {
+   "tag": "ind_band",
+   "file": "ind_band.json",
+   "n_members": "match positions (has prior occurrence)",
+   "concentration": null,
+   "abs_dce_members": null,
+   "mechanism_level": "computational",
+   "blind_name": "induction band: top-4 coincidence reads",
+   "program_bacc": null,
+   "program_null": null,
+   "components": [
+    "heads (1,4),(2,5),(3,5),(3,8),(5,5),(6,5),(7,3),(8,3),(8,4)"
+   ],
+   "held_tests": [
+    "top-4 code CE at match positions <= +0.05",
+    "shuffled-key control >= 3x code",
+    "IOI margin >=60% under code"
+   ],
+   "failed_tests": [
+    "textbook match-copy code replicates"
+   ],
+   "has_mechanism_3M": false,
+   "instance": "212row-v1"
+  },
+  {
+   "tag": "r.3.0",
+   "file": "r_3_0.json",
+   "n_members": 1222,
+   "concentration": null,
+   "abs_dce_members": null,
+   "mechanism_level": "computational",
+   "blind_name": null,
+   "program_bacc": null,
+   "program_null": null,
+   "components": null,
+   "held_tests": [
+    "k=8 code <=30% of deletion on members",
+    "shuffled-key >=2.5x code"
+   ],
+   "failed_tests": [
+    "context-freeness (2-token table)"
+   ],
+   "has_mechanism_3M": false,
+   "instance": "212row-v1"
+  },
+  {
+   "tag": "r.6.1.1",
+   "file": "r_6_1_1.json",
+   "n_members": 184,
+   "concentration": null,
+   "abs_dce_members": 1.318,
+   "mechanism_level": "none",
+   "blind_name": "Domain/URL-listing separator token; helps complete website suffixes and prices after 'www.x;' but wrongly raises loss on other post-';' continuations like newlines.",
+   "program_bacc": 0.606,
+   "program_null": 0.454,
+   "components": [
+    "('pca', 'a9', 'r.6.1', (0, 4))",
+    "('pca', 'a9', 'r.6.1', (0, 2))",
+    "('pca', 'a9', 'r.6.1', (4, 16))",
+    "('pca', 'a9', 'r.6.1', (4, 10))"
+   ],
+   "held_tests": [
+    "|dCE| concentration >=3x corpus",
+    "|dCE| concentration >=3x offslice (reproduction)",
+    "story red-team on 3 random examples"
+   ],
+   "failed_tests": [
+    "doc-disjoint program heldout bacc>=0.75 and null<=0.6"
+   ],
+   "has_mechanism_3M": false,
+   "instance": "212row-v1"
+  }
+ ]
+}
