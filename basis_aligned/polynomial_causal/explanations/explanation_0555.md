@@ -162,9 +162,12 @@ Each candidate has its own file and current tier:
 
 The successor row freezer was correctly rejected after `28.06` seconds because the
 frozen demand for all nine digit transitions plus powered controls required more than
-192 documents.  No model was loaded and no outcome was seen.  We are measuring the
-exact minimum and will prospectively raise the default document budget with margin,
-rather than dropping rare transitions or changing support after inspection.
+192 documents.  No model was loaded and no outcome was seen.  A model-free replay now
+shows that the registered greedy rule first passes at 335 documents.  The prospective
+v3 budget is 384 documents, leaving 49 documents (`14.63%`) of margin while preserving
+the exact selection rule.  An exact MILP can satisfy the same support constraints in
+171 documents, but that is diagnostic only: substituting a new optimizer after the v2
+failure would change the preregistered experiment.
 
 The bracket adapter currently remains NO-GO for execution until its independent audit
 defects—source closure, race-proof terminal state, lineage replay, and full model/call
@@ -188,4 +191,3 @@ Behavior-specific residual factors become the editable leaves.  This gives a con
 route from circuit discovery to a smaller whole-model program: store a shared tensor
 once, attach sparse use-specific branches, and validate each branch by extraction,
 selective removal, and OOD transport.
-

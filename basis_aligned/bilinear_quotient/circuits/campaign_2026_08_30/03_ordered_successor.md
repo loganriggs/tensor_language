@@ -62,3 +62,26 @@ slices. No SELECT/OOD result has run and the tier remains 2.
 **Next experiment:** integrate the block-sparse storage-closed backend, then execute the
 already-frozen SELECT rank/source factorial under the terminal lifecycle. Only a
 passing rank may proceed to fresh weekday/month/year OOD.
+
+## 2026-08-30 row-lifecycle result
+
+The block-sparse backend is now storage closed, but the first audited row freezer ended
+in a terminal model-free failure after `28.06` seconds.  The registered support-first
+selection needs **335** distinct documents to obtain at least 200 positions and 30
+documents in each primary cell; the frozen v2 budget was only 192.  At 192 documents
+the three primary position supports were `82`, `171`, and `137`.  No model or
+scientific outcome was opened, so this says nothing negative about the successor
+tensor—it is a row-budget infeasibility.
+
+An exact binary MILP can cover the same constraints in 171 documents, but that is an
+adaptive optimizer and is not substituted for the preregistered greedy rule.  The
+prospective v3 plan instead keeps the exact selection rule and raises the fixed budget
+to **384** documents: the smallest multiple of 192 above 335, leaving 49 documents
+(`14.63%`) of deterministic margin.  All masks, 15 executable arms, thresholds,
+historical exclusions, and one-row-per-document rules stay fixed.
+
+V3 remains NO-GO until a separate source-closed freezer is implemented and
+independently audited.  The amendment is
+[`ORDERED_SUCCESSOR_TENSOR_SELECT_V3_ROWS_AMENDMENT.md`](../../../polynomial_causal/ORDERED_SUCCESSOR_TENSOR_SELECT_V3_ROWS_AMENDMENT.md),
+and the preserved v2 failure is
+[`ordered_successor_tensor_select_v2_rows_failure.json`](../../ordered_successor_tensor_select_v2_rows_failure.json).
