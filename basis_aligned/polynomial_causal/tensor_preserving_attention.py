@@ -288,9 +288,15 @@ class TensorPreservingSquaredAttention(nn.Module):
         ], dim=-1)
         return rotated.to(value.dtype)
 
-    def forward(
+    def contract_heads(
         self, state: torch.Tensor, first_value: torch.Tensor | None = None,
-    ) -> tuple[torch.Tensor, torch.Tensor]:
+    ) -> tuple[torch.Tensor, torch.Tensor, torch.Tensor]:
+        """Return fixed scores, unprojected per-head writes, and the value bus.
+
+        This typed cut is useful for a stored program that replaces one complete
+        head contraction while retaining the other heads.  It never exposes or calls
+        a native attention module.
+        """
         if state.ndim != 3 or state.shape[-1] != self.width:
             raise ValueError("attention state shape changed")
         batch, sequence, _ = state.shape
@@ -340,8 +346,21 @@ class TensorPreservingSquaredAttention(nn.Module):
             output = output * self.head_weights.to(
                 device=output.device, dtype=output.dtype,
             )[None, None, :, None]
-        output = output.reshape(batch, sequence, self.width)
-        return self.projections["proj"](output), bus
+        return pattern, output, bus
+
+    def project_heads(self, output: torch.Tensor) -> torch.Tensor:
+        """Apply the owned output projection to one per-head write tensor."""
+
+        if output.ndim != 4 or output.shape[-2:] != (self.n_head, self.head_dim):
+            raise ValueError("unprojected attention heads have the wrong shape")
+        batch, sequence = output.shape[:2]
+        return self.projections["proj"](output.reshape(batch, sequence, self.width))
+
+    def forward(
+        self, state: torch.Tensor, first_value: torch.Tensor | None = None,
+    ) -> tuple[torch.Tensor, torch.Tensor]:
+        _, output, bus = self.contract_heads(state, first_value)
+        return self.project_heads(output), bus
 
     def cost_receipt(self) -> AttentionCostReceipt:
         prices = {name: layer.stored_values for name, layer in self.projections.items()}
