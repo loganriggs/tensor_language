@@ -280,7 +280,9 @@ def _expected_outputs() -> dict[str, Any]:
     }
 
 
-def validate_authority(payload: Mapping[str, Any]) -> dict[str, Any]:
+def validate_authority(
+    payload: Mapping[str, Any], *, replay_protected: bool = True,
+) -> dict[str, Any]:
     if set(payload) != {
         "schema", "status", "outcome_access", "source_commit", "source_hashes",
         "audit_path", "registry_snapshot", "source_identity", "allocation_seed", "outputs",
@@ -290,14 +292,23 @@ def validate_authority(payload: Mapping[str, Any]) -> dict[str, Any]:
         "outcome_access"
     ) is not False:
         raise RuntimeError("newline row authority schema/status changed")
-    if payload.get("source_hashes") != source_closure(payload.get("source_commit")) or (
+    if not isinstance(payload.get("source_commit"), str) or len(payload["source_commit"]) != 40 \
+            or not isinstance(payload.get("source_hashes"), Mapping) or not payload["source_hashes"] \
+            or any(not isinstance(path, str) or not isinstance(digest, str) or len(digest) != 64
+                   for path, digest in payload["source_hashes"].items()) or (
         payload.get("audit_path") != str(AUDIT) or payload.get("allocation_seed") != ALLOCATION_SEED
         or payload.get("outputs") != _expected_outputs()
     ):
         raise RuntimeError("newline row authority source/namespace changed")
-    if payload.get("registry_snapshot") != registry_snapshot() or payload.get(
-        "source_identity"
-    ) != source_identity(payload["source_commit"]):
+    if not isinstance(payload.get("registry_snapshot"), Mapping) or not payload[
+        "registry_snapshot"
+    ] or not isinstance(payload.get("source_identity"), Mapping):
+        raise RuntimeError("newline row authority protected identity is malformed")
+    if replay_protected and (
+        payload["source_hashes"] != source_closure(payload["source_commit"])
+        or payload["registry_snapshot"] != registry_snapshot()
+        or payload["source_identity"] != source_identity(payload["source_commit"])
+    ):
         raise RuntimeError("newline row authority protected identity changed")
     return dict(payload)
 
@@ -375,6 +386,8 @@ def enumerate_from_sources(
     encode,
     registry: Mapping[str, object],
     exclusions: contract.HistoricalExclusions,
+    *,
+    code_revision: str,
 ) -> tuple[torch.Tensor, tuple[contract.CandidateRecord, ...]]:
     """Pure injectable enumerator used by production and synthetic tests."""
 
@@ -385,13 +398,26 @@ def enumerate_from_sources(
     }
     rows: list[torch.Tensor] = []; records: list[contract.CandidateRecord] = []
     counts = {key: 0 for key in needs}
+    used = {name: set() for name in ("document", "source", "blob", "normalized", "row", "prefix")}
 
     def admit(row_record):
         if row_record is None:
             return
         row, record = row_record; key = (record.role_license, record.domain.value)
+        identities = {
+            "document": record.document_id, "source": record.source_file,
+            "blob": record.source_blob_sha256,
+            "normalized": record.normalized_python_sha256,
+            "row": contract.tensor_sha256(row),
+            "prefix": contract.tensor_sha256(row[:contract.PREFIX_LENGTH].contiguous()),
+        }
+        if any(value is not None and value in used[name] for name, value in identities.items()):
+            return
         if counts[key] < needs[key]:
             rows.append(row); records.append(record); counts[key] += 1
+            for name, value in identities.items():
+                if value is not None:
+                    used[name].add(value)
 
     for document_index, document_id, text in natural_documents:
         domain = contract.NewlineDomain.LIST if is_list_table(text) else contract.NewlineDomain.PROSE
@@ -423,7 +449,7 @@ def enumerate_from_sources(
             continue
         def factory(start, *, _role=role, _blob=blob, _normalized=normalized):
             return contract.CandidateRecord(
-                document_id, document_index, path, "authority_source_commit", _blob, domain,
+                document_id, document_index, path, code_revision, _blob, domain,
                 "repository_source_license", _role,
                 f"{_role.lower()}:code:git-tree-hashfold", _normalized,
             )
@@ -470,7 +496,10 @@ def production_enumeration(
     def code():
         for index, path in enumerate(sorted(path for path in paths if code_path_is_eligible(path))):
             yield index, path, subprocess.check_output(["git", "show", f"{commit}:{path}"], cwd=ROOT)
-    return enumerate_from_sources(natural(), code(), encoding.encode_ordinary, registry, exclusions)
+    return enumerate_from_sources(
+        natural(), code(), encoding.encode_ordinary, registry, exclusions,
+        code_revision=commit,
+    )
 
 
 def _record_payload(record: contract.CandidateRecord) -> dict[str, Any]:
@@ -558,9 +587,13 @@ def require_claim(claim: RunClaim, path: Path = LOCK) -> None:
 
 def release_claim(claim: RunClaim, path: Path = LOCK) -> None:
     try:
-        require_claim(claim, path); path.unlink()
+        try:
+            require_claim(claim, path); path.unlink()
+        except (FileNotFoundError, RuntimeError, OSError):
+            pass
     finally:
-        os.close(claim.descriptor)
+        try: os.close(claim.descriptor)
+        except OSError: pass
 
 
 def _fsync_directory(path: Path) -> None:
@@ -599,9 +632,10 @@ def freeze(authority_path: Path = AUTHORITY, audit_path: Path = AUDIT) -> dict[s
     if authority_path.resolve() != AUTHORITY.resolve() or audit_path.resolve() != AUDIT.resolve():
         raise RuntimeError("newline canonical authority/audit paths changed")
     authority_payload, authority_sha = _stable_json(authority_path)
-    authority = validate_authority(authority_payload)
+    authority = validate_authority(authority_payload, replay_protected=False)
     audit, audit_sha = _stable_json(audit_path)
     validate_audit(audit, authority_sha256=authority_sha, authority=authority)
+    authority = validate_authority(authority, replay_protected=True)
     if CACHE.exists() or RECEIPT.exists() or FAILURE.exists() or LOCK.exists():
         raise RuntimeError("newline row namespace is spent or locked")
     frozen_protected = _protected_snapshot(authority)
