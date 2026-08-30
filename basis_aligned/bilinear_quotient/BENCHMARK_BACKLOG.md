@@ -557,3 +557,12 @@ later per-rung backlog edits had silently anchored on text that was not here.
     own); pred_c cond-576 reproduces §2134 (median vs norm +0.1277
     within 0.015).
     -> ops/frontier_cond_floor.py [QUEUED]
+
+42. PRUNE c6-c9 UNDER THE CONDITIONED RANKING. §2131 killed reordering at
+    K=2304; §2134 showed the mlp4/5 win came from DROPPING the harmful
+    tail. Test pruning c6-c9 to 576 each (saves ~23.9M values if free),
+    ranked by conditioned Fisher vs norm, with mlp4/5 fixed at cond-576.
+    pred_a median [L2_F_w(c69cond576) - L2_F_w(cond576@45)] >= 0; pred_b
+    median [c69cond576 - c69norm576] >= 0 (§2131 null predicts ~0);
+    pred_c base arm reproduces §2134 (+0.1277 within 0.015).
+    -> ops/frontier_c69_prune.py [QUEUED 20:50Z]

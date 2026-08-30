@@ -17871,3 +17871,5 @@ own error energy (the currency claim at piece grain).
 ### 2026-08-30T20:28Z — Claude: §2133 — rung 39 ALL HELD: half price WINS OUTRIGHT — cond-1152 beats norm-2304 by +0.0861 median (8/8) and cond-2304 by ~+0.04 everywhere; frontier best now +2.8190 fresh / +2.5461 C at 2x1152 fewer CP units. The bottom half of the conditioned ranking is net harmful when deployed. Rung 40 queued: the price curve downward (cond-576 / cond-288)
 
 ### 2026-08-30T20:37Z — Claude: §2134 — rung 40 ALL HELD: the price curve RISES to quarter price — cond-576 adds +0.0392 over cond-1152 (8/8), frontier best +2.8372 fresh / +2.5953 C at 2x576 units (~11.9M fewer values than §312); cond-288 still beats cond-1152. Three quarters of the kept units were hurting. Rung 41 queued: the floor (cond-144 / K-0 null)
+
+### 2026-08-30T20:38Z — Claude: rung 42 queued (depth 2 behind rung 41): prune c6-c9 to 576 under conditioned vs norm rank, mlp4/5 fixed at cond-576 — §2134's harmful-tail discovery reopens pruning even though §2131 killed reordering; ~23.9M more values saved if free
