@@ -62172,6 +62172,25 @@ spread, so the 3.9 SD figure is a normal approximation over 416 head-picks that 
 two per leaf, leaves clustered by component, and a7 alone holds 56 of 208. **The direction is solid; the
 significance is unquantified, and that is an instrument gap I built.**
 
+**ADDENDUM, same day, no GPU: the gap is closed and my hedge was wrong in the direction I did not
+expect.** Re-running the permutation from the stored artifact with **20,000 draws** and keeping the
+distribution — drawing 2 of 9 heads **within each leaf's own component**, which reproduces the observed
+statistic's clustering by construction:
+
+```
+  observed 0.7260 | null mean 0.6338  sd 0.0207  p95 0.6683  max draw 0.7091
+  z = 4.46    p(null >= observed) = 0.00005    (0 of 20,000 draws reached it)
+```
+
+**I guessed that clustering would make the naive 3.89 SD an overstatement. It was an UNDERSTATEMENT** —
+the permutation's sd (0.0207) is *below* the naive binomial sd (0.0236), so the proper null is tighter
+and the observation sits further out. **The over-representation is statistically unambiguous.**
+
+**And that changes nothing about pred_a, which is the point worth keeping.** pred_a was an **effect-size**
+bar (>= 1.20x) and the effect is **1.1449x** — it fails, and it fails against a null it clears at
+p < 0.0001. **Significance and effect size answer different questions**, and a result can be certain and
+small at once. §2093's verdict stands: modest, consistent, real, and below the bar I set.
+
 **PREV heads carry the whole effect.** Of 416 leaf top-2 head slots, **prev accounts for 215** — more
 than diffuse (114), self (44), first (30) and ind (13) combined. **The census's attention leaves load
 overwhelmingly on previous-token heads.** §343 found induction heads are the least compressible heads in
