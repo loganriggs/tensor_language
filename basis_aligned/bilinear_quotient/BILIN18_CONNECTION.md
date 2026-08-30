@@ -62025,3 +62025,56 @@ suggests it would succeed.
 and the honest question it raises is whether one-mode conditioning — a much weaker rung than the one
 written — beats uniform stand-ins at matched budget. That is a different and smaller experiment than
 rung 7 specifies.
+
+## §2091 — rung 8's granularity problem, and a control bar I set by eye AGAIN
+
+`ops/head_grain_expressibility.py`, **1833s**, BACKLOG rung 8 design prerequisite.
+**pred_c FAILED | pred_a and pred_b GATED OUT by it.**
+
+**Two facts measured before designing anything, from the census state, no GPU.** §332 sent this rung to
+the backlog saying the deeper census is attention-probed and needs "motif conditions composed with value
+reads". **The framing is confirmed: 234 of 311 leaves (75.2%) are attention-probed by their top probe,
+265 (85.2%) within their top three.** But the breakdown exposes something the design note does not
+mention: **only 24 of those are HEAD-probed; 208 are PCA bands of an attention COMPONENT's output.**
+Motifs are head-level objects. **The rung proposes a head-grain mechanism language for a population that
+is component-grain probed.**
+
+```
+  top-2 of 9 heads, share of output variance:
+    along the component's leading PCA directions   median 0.8115   (18/18 above 0.50)
+    along RANDOM unit directions                   mean   0.5414   (range 0.387-0.761)
+    uniform null (2 of 9 heads)                           0.2222
+```
+
+> **pred_c FAILED, and by my own gate that voids the other two.** I registered "the same top-2 share along
+> RANDOM directions is < 0.35" precisely because "PCA directions are chosen to concentrate variance and
+> could look head-concentrated for that reason alone". **Random directions give 0.5414.** So the
+> registered claim — that the census's probe directions are *specifically* head-concentrated — is not
+> supported by this run, and pred_a (0.8115) and pred_b (18/18) are reported as **gated out, not as
+> passes**.
+
+**What survives is a different fact, and I am labelling it an observation rather than a result.** At every
+attention component, **two of nine heads carry the majority of output variance along essentially any
+direction** — 54% on average for random directions against a 22.2% uniform null, and 81% along the
+leading PCA directions, with PCA above random at all 18 components. **That paired comparison was not
+registered and I am not scoring it.** The architectural reading it suggests for rung 8: **head-grain
+language is plausible because components are head-DOMINATED, not because the probed directions align with
+heads.** Same direction as the rung assumes, different reason, and the difference matters for how a
+mechanism condition would be written.
+
+**A second caveat on my own instrument.** I measured each component's **own top-8 PCA directions**, not
+the census leaves' actual probe bands — which are specific ranges like `(4,16)` computed on specific
+slices. **Even the 0.8115 is not a number about what the census probes**, and closing that gap needs the
+leaves' bands reconstructed, which this run did not do.
+
+**AND I MADE LESSON 111'S MISTAKE AGAIN, IN THE SECTION AFTER WRITING IT.** LESSON 111 says: for a
+statistic with no closed-form distribution, **compute the null first and set the bar from it**. I set
+pred_c's 0.35 by eye, reasoning loosely from the 0.2222 uniform null — and the actual random-direction
+distribution sits at 0.54, half again as high. **Had I spent one cheap run measuring the random baseline
+before registering, the bar would have been ~0.60 and this experiment would have had a meaningful
+control instead of a failed one.** The lesson was recorded four sections ago and did not transfer.
+
+**Open.** Rung 8 is not blocked and not advanced. **The design question it turns on — can a
+component-grain probe band be written in head-grain terms — is still open**, and the honest next step is
+the one this run skipped: reconstruct the actual probe bands of the 208 component-probed leaves and
+measure head concentration *along those*, with the bar set from the random baseline now measured (0.5414).
