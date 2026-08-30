@@ -112,3 +112,30 @@ The independent planted CUDA gate also passed: improvement
 validation, EVAL, and model were unopened. Another agent began a width-control GPU
 job immediately afterward, so real factor fitting remains deferred even apart from
 the audit/control gates.
+
+## 11:15 UTC boundary and downstream-interface update
+
+The independent Amendment-7 audit is another exact NO-GO: 78 ordinary plus seven
+adversarial tests, `outcome_access=false`. Repeating the whole-state sweep did not
+solve simultaneity; a repeated mutation schedule defeated both success and failure
+sweeps. It also reproduced post-success owner-unlink propagation and hardlink/cross-
+role production aliases.
+
+Amendment 8 replaces the impossible simultaneous-live-state claim with a stronger
+usable artifact contract. The atomically installed terminal directory now contains
+content-addressed copies of the authority, independent audit, sanitized training
+input, and manifest. Receipt replay and all future fitting refer only to those copies.
+A later change to a top-level construction path cannot stale the historical snapshot;
+a change to a snapshot copy is detected by its receipt hash. The focused suite passes
+25/25 and the full closure passes **85/85 in 38.54 s**. Exact source `f41ae53c` is in
+a fourth independent audit; FIT values remain sealed.
+
+The concurrent downstream gate width control also corrected the earlier causal
+reading. All three 2,304-dimensional two-read probes beat the best 1,152-dimensional
+single-read probe on gate efficiency, and the pair spread is only 1.074. Thus the
+gain is evidence for **probe width/capacity**, not evidence that block 2 and block 9
+carry complementary information. Block 9 still has the best AUC, but AUC and the
+top-17.25% gate efficiency rank arms differently. This is useful for reverse
+engineering because it says later reads can expose a better global ranking, while
+extraction at a fixed narrow gate may benefit mostly from a wider decoder. It does
+not yet identify or remove a circuit and does not change the strict ledger.

@@ -1,0 +1,172 @@
+{
+  "conclusions": {
+    "amortized_price_is_a_distinct_noncontrolling_view": true,
+    "maximum_structured_persistent_values": 3200,
+    "minimum_dense_rank_one_persistent_values": 4802,
+    "response_values_read": false,
+    "strict_dense_matched_rank_zero_for_every_candidate": true
+  },
+  "dimensions": {
+    "observation_values_per_dense_rank": 4802,
+    "owner_group_sizes": [
+      16,
+      13,
+      6,
+      5,
+      5,
+      4
+    ],
+    "phases": 2,
+    "sources": 49,
+    "targets": 49,
+    "train_documents": 229
+  },
+  "frozen_seeds": [
+    2026083001,
+    2026083002,
+    2026083003
+  ],
+  "rows": [
+    {
+      "amortized_total_dense_rank": 0,
+      "global_rank": 1,
+      "per_document_values": 1,
+      "persistent_values": 100,
+      "private_rank_each_owner": 0,
+      "strict_dense_matched_rank": 0
+    },
+    {
+      "amortized_total_dense_rank": 0,
+      "global_rank": 2,
+      "per_document_values": 2,
+      "persistent_values": 200,
+      "private_rank_each_owner": 0,
+      "strict_dense_matched_rank": 0
+    },
+    {
+      "amortized_total_dense_rank": 0,
+      "global_rank": 4,
+      "per_document_values": 4,
+      "persistent_values": 400,
+      "private_rank_each_owner": 0,
+      "strict_dense_matched_rank": 0
+    },
+    {
+      "amortized_total_dense_rank": 0,
+      "global_rank": 8,
+      "per_document_values": 8,
+      "persistent_values": 800,
+      "private_rank_each_owner": 0,
+      "strict_dense_matched_rank": 0
+    },
+    {
+      "amortized_total_dense_rank": 1,
+      "global_rank": 16,
+      "per_document_values": 16,
+      "persistent_values": 1600,
+      "private_rank_each_owner": 0,
+      "strict_dense_matched_rank": 0
+    },
+    {
+      "amortized_total_dense_rank": 2,
+      "global_rank": 32,
+      "per_document_values": 32,
+      "persistent_values": 3200,
+      "private_rank_each_owner": 0,
+      "strict_dense_matched_rank": 0
+    },
+    {
+      "amortized_total_dense_rank": 0,
+      "global_rank": 0,
+      "per_document_values": 6,
+      "persistent_values": 355,
+      "private_rank_each_owner": 1,
+      "strict_dense_matched_rank": 0
+    },
+    {
+      "amortized_total_dense_rank": 0,
+      "global_rank": 0,
+      "per_document_values": 12,
+      "persistent_values": 710,
+      "private_rank_each_owner": 2,
+      "strict_dense_matched_rank": 0
+    },
+    {
+      "amortized_total_dense_rank": 1,
+      "global_rank": 0,
+      "per_document_values": 24,
+      "persistent_values": 1420,
+      "private_rank_each_owner": 4,
+      "strict_dense_matched_rank": 0
+    },
+    {
+      "amortized_total_dense_rank": 2,
+      "global_rank": 0,
+      "per_document_values": 48,
+      "persistent_values": 2840,
+      "private_rank_each_owner": 8,
+      "strict_dense_matched_rank": 0
+    },
+    {
+      "amortized_total_dense_rank": 0,
+      "global_rank": 1,
+      "per_document_values": 7,
+      "persistent_values": 455,
+      "private_rank_each_owner": 1,
+      "strict_dense_matched_rank": 0
+    },
+    {
+      "amortized_total_dense_rank": 0,
+      "global_rank": 2,
+      "per_document_values": 8,
+      "persistent_values": 555,
+      "private_rank_each_owner": 1,
+      "strict_dense_matched_rank": 0
+    },
+    {
+      "amortized_total_dense_rank": 0,
+      "global_rank": 4,
+      "per_document_values": 10,
+      "persistent_values": 755,
+      "private_rank_each_owner": 1,
+      "strict_dense_matched_rank": 0
+    },
+    {
+      "amortized_total_dense_rank": 0,
+      "global_rank": 4,
+      "per_document_values": 16,
+      "persistent_values": 1110,
+      "private_rank_each_owner": 2,
+      "strict_dense_matched_rank": 0
+    },
+    {
+      "amortized_total_dense_rank": 1,
+      "global_rank": 8,
+      "per_document_values": 20,
+      "persistent_values": 1510,
+      "private_rank_each_owner": 2,
+      "strict_dense_matched_rank": 0
+    },
+    {
+      "amortized_total_dense_rank": 1,
+      "global_rank": 8,
+      "per_document_values": 32,
+      "persistent_values": 2220,
+      "private_rank_each_owner": 4,
+      "strict_dense_matched_rank": 0
+    },
+    {
+      "amortized_total_dense_rank": 2,
+      "global_rank": 16,
+      "per_document_values": 40,
+      "persistent_values": 3020,
+      "private_rank_each_owner": 4,
+      "strict_dense_matched_rank": 0
+    }
+  ],
+  "schema": "causal_response_factorization_v1_candidate_price_audit",
+  "source_sha256": "fc2df7c9dbeceadc0131b5dc36443ef82f51b611060dfcf17568733599981f30",
+  "status": "complete_outcome_blind",
+  "structured_fits": 51,
+  "structured_rank_pairs": 17
+}
