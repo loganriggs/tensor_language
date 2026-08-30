@@ -59784,3 +59784,44 @@ data.**
 concentrated at covered inputs. **The fresh-window loss has never been decomposed the same way.** If the
 harm is in the covered rows, that explains the coverage growth and closes the account of what §2020
 actually did.
+
+## §2045 — the fresh loss is in the covered rows, the same cells that carried the in-sample gain
+
+`ops/where_the_fresh_loss_lives.py`, **9.2s** warm, **DISCOVERY ONLY**, both coverages, rung 3 — §2044's
+open question. **pred_a True | pred_b True | pred_c True | pred_d True | derived controls True.** No
+crashed predicates.
+
+```
+  §2020's table raise over §1959's build, FRESH WINDOW, milli-nats
+              pooled     covered inputs        uncovered inputs
+  5,419      −11.578    −17.432  (150.6%)         +0.943
+  16,110     −32.688    −37.845  (115.8%)         −4.433
+```
+
+> **pred_b, pred_c and pred_d all PASSED, and pred_d passed by more than its bar contemplates. Covered
+> inputs carry 150.6% of the harm at 5,419** — more than the whole of it, because **the uncovered arm
+> actually gains +0.943 and partially offsets the loss.** At 16,110 both arms lose and covered still
+> carries 115.8%.
+
+> **This closes the account of what §2020 did. §2029 measured its in-sample GAIN at covered inputs:
+> +4.970 / +4.787 / +3.329. §2045 measures its out-of-sample LOSS in the same cells: −17.432 and
+> −37.845.** The tables were raised, they fit the covered rows of the selecting set better, and they fit
+> the covered rows of a different set **worse by three to eight times the amount they had gained.**
+> **Same mechanism, same cells, opposite sign — which is what a fitted table is.**
+
+> **And it explains §2044's coverage growth exactly.** More coverage means more positions served by the
+> covered tables; the covered harm grows **−17.432 → −37.845** while the fraction of positions in that arm
+> rises. **The 2.8× is the covered arm getting larger, not the effect changing character.**
+
+**The retraction line, complete.** §2037 found it, §2038 attributed it to one axis, §2039 measured every
+depth of that axis, §2041 showed the restored build's ancestry survives, §2042–§2043 showed its last free
+parameter is unidentifiable, §2044 validated the instrument at a second coverage, and §2045 located the
+harm in the cells that had carried the gain. **Nine sections to retract nineteen, and every step is
+measured rather than argued.**
+
+**Open, and it is not a measurement.** The parameter space is closed: **§1959's build, 189.5M, with every
+parameter either validated out-of-sample or shown to sit in a flat region.** What remains are the two
+decisions with Logan — **§1947's price rule** (does a pooled rule authorise a trade whose cost is
+concentrated?) and **§1979's architectural fork** — and BENCHMARK_BACKLOG **rung 4**, the deploy gap,
+which has zero completions and zero ledger mentions and is the first open rung needing new machinery
+rather than another arm.

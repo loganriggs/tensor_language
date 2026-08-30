@@ -1,0 +1,26 @@
+WHERE THE FRESH LOSS LIVES | 4 arms x 2 coverage(s) | DISCOVERY ONLY
+
+########## COVERAGE 5419 ##########
+  [bqlib] coverage 5419 from fineweb_n96_skip80.pt: 36 tables, neighbour index and map solver built (4s)
+  [bqlib] cache HIT  live     fresh
+  [bqlib] cache HIT  mix30m640 fresh
+  [bqlib] cache HIT  mix30m640 fresh
+  [bqlib] cache HIT  map512   fresh
+  [bqlib] cache HIT  mix30m640 fresh
+
+########## COVERAGE 16110 ##########
+  [bqlib] coverage 16110 from fineweb_n480_skip80.pt: 36 tables, neighbour index and map solver built (5s)
+  [bqlib] cache HIT  live     fresh
+  [bqlib] cache HIT  mix30m640 fresh
+  [bqlib] cache HIT  mix30m640 fresh
+  [bqlib] cache HIT  map512   fresh
+  [bqlib] cache HIT  mix30m640 fresh
+
+  §2038's -11.578 and §2044's -32.687 milli-nat totals rebuild within 0.5  -> True
+  and the harm is negative at covered inputs at both coverages  -> True
+  and the covered-input harm is larger at 16,110 than at 5,419  -> True
+  and covered inputs carry at least 70% of the total harm at both coverages  -> True
+  derived controls -> True   coverage_exact=True  inert_pairs_are_inert=True  some_differing_pair_moves=True  buckets_partition=True  live_identical=True
+
+pred_a True | pred_b True | pred_c True | pred_d True | pred_z True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/where_the_fresh_loss_lives_results.json (9.2s)
