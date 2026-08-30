@@ -1,0 +1,29 @@
+{
+  "schema": "causal_response_factorization_v1_candidate_freeze_v2_independent_audit",
+  "status": "GO",
+  "approved": true,
+  "reviewer": "independent balance-sheet audit agent",
+  "outcome_access": false,
+  "candidate_tensor_deserialized": false,
+  "validation_values_read": false,
+  "eval_values_read": false,
+  "source_hashes": {
+    "CAUSAL_RESPONSE_FACTORIZATION_V1_AMENDMENT_15.md": "b2b8db87de9bd29128aeb43b3fa1c7b3fee2aed0374b5516e4f6985981bbca47",
+    "causal_response_factorization_v1_candidate_freeze_v1_failure.json": "2a4ca16ca9fc566fa959ba9d0538cedec6f72e5ddddbd337d6e5e66732dce509",
+    "causal_response_factorization_v1_candidate_freeze_v2.py": "e4f96402ebddc02965e4a25cdc6b9c571a36f2eb49b1076898515c0e527b7b68",
+    "test_causal_response_factorization_v1_candidate_freeze_v2.py": "4f45f47c59ea1af3cea6467f37f4e712f881843ab550b3dc2766102b200363ed"
+  },
+  "focused_tests_passed": 6,
+  "additional_attacks_passed": [
+    "analysis_mutation_rejected",
+    "terminal_mutation_rejected"
+  ],
+  "candidate_freeze_artifact_sha256": "53f8264228e905ad1a459f32204d1acb07fa044e7753026dbb0bcfb91ac77b98",
+  "candidate_freeze_manifest_sha256": "3b386a38e9bf79f90e01c87ef6471770dfd7bae73ffb89ef3749a182968b5500",
+  "candidate_rank_pairs": 9,
+  "candidate_programs": 27,
+  "seeds_per_rank_pair": 3,
+  "score_fields_present": false,
+  "candidate_selected": false,
+  "remaining_execution_blockers": []
+}

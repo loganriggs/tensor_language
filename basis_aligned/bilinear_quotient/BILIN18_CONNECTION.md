@@ -62132,3 +62132,62 @@ head-grain route covers the census's attention majority but not the whole attent
 **does the motif class of those heads predict the leaf's members?** That is the first test of "motif
 conditions composed with value reads" and it is now well-posed, with the head identities this run
 computes.
+
+## §2093 — motif heads are over-represented, but by 1.14x against a registered 1.20x: a modest claim, and PREV carries it
+
+`ops/motif_vocabulary.py`, **335s**, BACKLOG rung 8's first content test (§2092's open question).
+**pred_b HELD | pred_a FAILED | pred_c HELD.**
+
+§2092 showed the census's probe bands are head-concentrated but said explicitly it did **not** show that
+motif classes are the right head-grain vocabulary. **The null was measured first this time**: of the 99
+heads in the 11 leaf-carrying components, **61 are named-motif — a base rate of 0.6341 when weighted by
+each component's leaf count**. That matters, because an eyeballed bar like "fewer than 40% of leaves have
+both heads diffuse" would have been satisfied by chance (0.366² = 0.134).
+
+```
+  observed named fraction   0.7260
+  component-matched base    0.6341
+  permutation null          0.6336        (|null - base| = 0.0005)
+  over-representation       1.1449        registered bar 1.20  -> FAILED
+  components above own base 8 / 11
+
+  classes of leaf top-2 heads: prev 215 | diffuse 114 | self 44 | first 30 | ind 13
+```
+
+**pred_b HELD at a deviation of 0.0005**, and it is the control §2091 lacked: the permutation null lands
+on the component-matched base rate, so the base rate is computed over the right ensemble. §2091's failure
+was a null for the wrong ensemble, not merely a low bar.
+
+**pred_a FAILED at 1.1449 against 1.20, and I am scoring it as written — a miss by 0.055.**
+
+> **BUT THE SCRIPT'S OWN AUTO-PRINTED READING IS WRONG AND I AM CORRECTING IT.** On a pred_a failure it
+> prints "the census loads on motif and diffuse heads **in proportion to availability**". **That is not
+> what 0.7260 against 0.6341 says.** The elevation is real — 8 of 11 components sit above their own base
+> rate, and a naive normal approximation puts the observation ~3.9 SD above the null. **The registered
+> claim (>= 1.20x) fails; the null claim (= 1.0x) is also false.** The honest verdict is a **modest,
+> consistent over-representation** that does not reach the bar I set.
+
+**I cannot give a p-value and will not imply one.** I stored the permutation null's **mean** and not its
+spread, so the 3.9 SD figure is a normal approximation over 416 head-picks that are **not independent** —
+two per leaf, leaves clustered by component, and a7 alone holds 56 of 208. **The direction is solid; the
+significance is unquantified, and that is an instrument gap I built.**
+
+**PREV heads carry the whole effect.** Of 416 leaf top-2 head slots, **prev accounts for 215** — more
+than diffuse (114), self (44), first (30) and ind (13) combined. **The census's attention leaves load
+overwhelmingly on previous-token heads.** §343 found induction heads are the least compressible heads in
+the model; **ind appears in just 13 of 416 slots here**, so the census's probed structure and the
+model's hardest-to-compress heads are largely disjoint populations.
+
+**Two components run the effect backwards**: `a6` (0.477 observed against 0.667 base) and `a9` (0.522
+against 0.667) load on diffuse heads *more* than availability predicts, over 45 leaves between them.
+**The vocabulary claim is not uniform across the stack**, and any motif-based mechanism language would
+need those two components excluded or handled differently.
+
+**What this does to rung 8.** The precondition (§2092) holds and the vocabulary is **partly** right:
+motif classes name ~73% of the heads the census loads on against ~63% by chance, and one class — prev —
+does most of the naming. **A motif-based mechanism language is viable for the prev-dominated majority and
+leaves ~27% of leaf head-slots unnamed**, which is a real coverage limit rather than a fatal one.
+
+**Open.** §332's proposal is motifs **composed with value reads**, and only the motif half is tested here.
+Whether "prev-motif head at L, values carrying X" predicts a leaf's members is the next question, and it
+now has a target population: the prev-dominated leaves at a3, a4, a5, a17.
