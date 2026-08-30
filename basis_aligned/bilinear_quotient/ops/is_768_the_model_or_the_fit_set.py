@@ -51,7 +51,7 @@ def _beats(x, cov, a, b):
 
 
 def _argmax(x, cov):
-    return max(LADDER, key=lambda l: _beats(x, l, KNEE))
+    return max(LADDER, key=lambda l: _beats(x, cov, l, KNEE))
 
 
 def _the_2052_figure_reproduces(x):
