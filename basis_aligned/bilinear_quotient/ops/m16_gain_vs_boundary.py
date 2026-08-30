@@ -202,8 +202,8 @@ out = {'training_input_sha256': DIGEST, 'documents_scored': len(keep), 'boundary
                         'max': round(null[-1], 4)},
        'bars': {'a': BAR_A, 'c_partial': BAR_C_PARTIAL},
        'pred_a_gain_tracks_boundaries': bool(pa), 'pred_b_specific_to_m16': bool(pb),
-       'pred_c_null_and_confound': bool(pc), 'pred_c_i_beats_null': bool(pc_i),
-       'pred_c_ii_partial_given_ce': bool(pc_ii), 'runtime_s': round(time.time() - T0, 1)}
+       'pred_c_null_and_confound': bool(pc), 'c_i_beats_null': bool(pc_i),
+       'c_ii_partial_given_ce': bool(pc_ii), 'runtime_s': round(time.time() - T0, 1)}
 json.dump(out, open('m16_gain_vs_boundary_results.json', 'w'), indent=1)
 print('rho(gain, boundary) by owner: ' + ' '.join(f'{o} {v:+.3f}' for o, v in rho.items()))
 print('rho(gain, base CE)  by owner: ' + ' '.join(f'{o} {v:+.3f}' for o, v in rho_ce.items()))
