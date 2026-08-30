@@ -162,3 +162,26 @@ saturated". A wake with an empty queue must pull from this file first.
    is untested and is a materially different mechanism language from §332's.
    That is a design decision about the rung's direction, not another
    measurement, so it is recorded here rather than started.
+   **RUN 2026-08-30, §2096, `ops/realised_attention_composition.py` — CLOSED.**
+   The realised-pattern ridge (24 features: signed mass by offset bin, total
+   mass, |mass|, entropy, both top-2 heads) scores median held-out AUC
+   **0.5409** against the 0.5586 bar: FAILED, but the first feature in the
+   arc to move at all (all 31 leaves above §2095's 0.5052; 0/31 at 0.60).
+   Shuffled control 0.4926 HELD; specificity to the top-2 heads HELD at
+   67.7% but the median advantage over same-layer control heads is only
+   +0.0062 (p=0.035). Signal is mostly total/offset-1 MASS (§1108's degree of
+   freedom), not pattern shape. **§332's composition is refuted in all three
+   forms its wording supports. Rung 8 is closed.** Untested and NOT a form of
+   §332: nonlinear/context-aggregating pattern reads, other layers.
+
+STATUS AUDIT 2026-08-30 (§2096): rungs 4 and 6 above are STALE — the rung-4
+control `ops/probe_gate4.py` ran (§2080: the two-site gain is WIDTH), and
+rung-6 certification ran and FAILED (§2081–§2085: the ~6x gate collapses on
+a second window; the "Nx random" ratio is seed- and window-dependent; gating
+tracks the TEXT's difficulty, not the assembly). Rung 5 was closed at §343
+(`head_lowrank.py`: induction heads are intrinsically high-rank in weight
+space; the learned low-rank bilinear stand-in is measured as unpromising).
+Rung 7 is BLOCKED (§2090). Rung 8 is CLOSED (§2096). **No open rung remains
+in this file.** The next wake must open a NEW rung from the frontier
+(34/36 at +2.93 fresh), not re-run a closed one; candidates are recorded in
+AGENT_BOARD (2026-08-30 §2096 entry).

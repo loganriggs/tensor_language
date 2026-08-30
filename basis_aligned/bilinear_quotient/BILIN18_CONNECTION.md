@@ -62316,3 +62316,57 @@ motif-nameable, and what they do is not determined by the token they attend to.
 conditions over *attention patterns* rather than over *source tokens* — and proposing it is a design
 decision about the rung's direction rather than another measurement, so **I am recording it rather than
 starting it.**
+
+## §2096 — the REALISED-ATTENTION route: a real but small signal (0.5409), specific to the identified heads, and STILL below the bar. §332's composition is refuted in the third and last form its wording supports
+
+`ops/realised_attention_composition.py`, **6s** (1000 census rows through the model once, 3 attention layers
+captured), BACKLOG rung 8 (the design decision §2095 recorded rather than started). **pred_c HELD | pred_a
+FAILED | pred_b HELD.** Capture verified exact: max |captured − model attention| on the first batch **0.00e+00**.
+
+§2094 tested the previous token's IDENTITY (0.5086), §2095 its EMBEDDING (0.5052); both closed on the same scope
+line — every feature was a local token feature, and the head's realised routing was untested. This is that test:
+for each of the 31 both-prev leaves, the two top-2 heads' unnormalised pattern rows p(t,·) = (q·k/D)(q₂·k₂/D) are
+summarised per position by 12 features each (signed mass at offsets 0, 1, 2, 3, 4–7, 8–15, 16–31, 32–63, ≥64; total
+signed mass; total |mass|; entropy of |p|), 24 standardised features → ridge → held-out AUC, same rows, same split,
+same bar as §2095 (§2094's 0.5086 + 0.05 = 0.5586).
+
+```
+  median held-out AUC, 31 both-prev leaves:
+     top-2 heads' realised pattern (24 feats)   0.5409   bar 0.5586   FAILED    (min 0.5095, max 0.5928)
+     CONTROL heads, same layer, same feats       0.5353                          top-2 > control 21/31 = 67.7%  HELD
+     SHUFFLED labels                             0.4926   bar <= 0.52  HELD
+     offset-1 signed mass only (2 feats)         0.5250          total row mass only (2 feats)   0.5292
+     (§2094 token identity 0.5086 | §2095 embedding 0.5052)          leaves >= 0.60:  0 / 31
+```
+
+- **pred_c HELD at 0.4926** — the ridge fits shuffled labels to chance; 0.5409 is signal, not capacity.
+- **pred_a FAILED at 0.5409 against 0.5586.** Yet this is the first feature in the arc to move at all: **all 31
+  leaves score above §2095's 0.5052**, ten clear 0.55, and the best (`r.11.1.1`, a4 heads 0+5) reaches 0.5928.
+  The realised pattern carries something the source token does not — which is exactly what unnormalised
+  attention with a per-query mass degree of freedom (§1108) should give — but it carries **a third of the
+  registered effect** and no leaf reaches 0.60.
+- **pred_b HELD at 67.7%, and I am reading it as weaker than the number.** The median advantage of the top-2
+  heads over two control heads at the same layer is **+0.0062 AUC** (one-sided sign test p = 0.035). The
+  control heads score 0.5353 themselves — layer-4 attention patterns are informative about a4 leaves in
+  general; the identified heads add a hair on top. Also: 26 of 31 control pairs had to include a *prev*-class
+  head, because a4 has only one diffuse head outside most leaves' top-2, so "control" is partly "the other prev
+  head". The specificity claim survives its registered bar and would not survive a stricter one.
+- **Where the signal lives (descriptive, not registered).** Offset-1 mass alone gives 0.5250, total row mass alone
+  0.5292; the full 24-feature set adds only +0.016 and +0.010 over them. So the small signal is mostly *how much
+  the head attended in total and to t−1*, not the shape of the tail — the §1108 mass degree of freedom, again.
+
+**Rung 8 after §2091–§2096: closed.** Precondition met (§2092), vocabulary partly right (§2093), composition
+refuted in **all three** forms §332's wording supports — token identity (0.5086), token direction (0.5052),
+realised routing (0.5409) — against the same bar on the same population. What survives is small and honest:
+the identified prev heads' realised mass is *weakly* informative (above every local-token feature, specific to
+the heads at p=0.035, a third of the way to the bar) and no head-grain condition of any tested kind predicts
+membership at 0.60 on a single leaf. **The census leaves at a3/a4 remain what §348 said they are — two-signed
+activation-space bands — with no mechanism language found at head grain.** Not refuted: a nonlinear or
+context-aggregating read of the pattern (the ridge is linear in 24 summaries), and reads at other layers.
+Neither is a form of §332's proposal, so neither reopens the rung.
+
+**Backlog audit in the same breath.** While pulling from BENCHMARK_BACKLOG.md I found its rung 4/5/6 entries
+stale: rung 4's `probe_gate4.py` control and rung 6's certification both RAN (§2080–§2085: the gain is width,
+the ~6x collapses on a second window, the efficiency ratio is seed- and window-dependent), and rung 5 was closed
+at §343 (`head_lowrank.py`: induction heads are intrinsically high-rank at the weight level). Corrected in the
+backlog below rather than re-derived.

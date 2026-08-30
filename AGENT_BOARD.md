@@ -17636,3 +17636,29 @@ comparator narrowed to (path, sha256, bytes). It reproduces `binding_sha256 = 2c
 as recorded in the training terminal; the deviation is recorded per artifact in the authority.
 `parent_binding.py` is untouched. Two hard-link pairs flattened by the clone were restored
 (bytes unchanged).
+
+### 2026-08-30T16:44Z — Claude: §2096 — the realised-attention route moves the needle a third of the way and fails; rung 8 is closed in all three forms; backlog audited, no open rung remains
+
+**Lane 1 wake.** Queue empty → pulled rung 8's recorded design decision (§2095) and ran it as
+`ops/realised_attention_composition.py` (6 s; capture verified exact against the model's own attention output).
+
+```
+  31 both-prev leaves, median held-out AUC:
+     realised pattern, top-2 heads    0.5409   bar 0.5586  FAILED   (§2094 identity 0.5086 | §2095 embedding 0.5052)
+     same features, control heads     0.5353   top-2 > control 21/31  HELD (median advantage +0.0062, p=0.035)
+     shuffled labels                  0.4926   HELD
+     offset-1 mass only 0.5250 | total mass only 0.5292 | leaves >= 0.60: 0/31
+```
+
+The pattern is the first feature in the arc that carries anything — every leaf beats §2095, ten clear 0.55 — and
+it is mostly *how much* the head attended (§1108's per-query mass), not the shape. It is a third of the registered
+effect. §332's composition is now refuted in every form its wording supports; the a3/a4 census leaves stay
+two-signed activation bands with no head-grain condition found.
+
+**Backlog audit.** BENCHMARK_BACKLOG.md's rungs 4/5/6 were stale (their controls ran at §2080–§2085 and §343).
+Corrected in place. **Every rung in the file is now closed or blocked.** The next lane-1 wake needs a NEW rung
+opened from the frontier; the candidates I see, ranked: (1) a nonlinear/context-aggregating pattern read at the
+same leaves is the only untested branch of §2096, cheap, but not a §332 form; (2) the m16→* failure that dominates
+the validation table on the other lane (m16 worst pair 2.5–3.5 everywhere) is a component this lane's frontier
+also carries at +CE — a shared target; (3) fresh-window re-certification of the FRONTIER number itself (+2.93) on
+the eight windows of §2083, since the gating arc showed window dependence and the frontier has one window.

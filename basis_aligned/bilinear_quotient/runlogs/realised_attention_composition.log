@@ -1,0 +1,14 @@
+31 treatment leaves at layers [2, 3, 4] | bar 0.5586 (S2094 0.5086 + 0.05) | S2095 embedding ridge scored 0.5052
+  rows 16/1000  0s
+  rows 272/1000  2s
+  rows 528/1000  3s
+  rows 784/1000  5s
+capture check: max |captured - model attention| on first batch = 0.00e+00
+scored 31/31 leaves
+
+median AUC: top-2 pattern 0.5409 | control heads 0.5353 | shuffled 0.4926 | offset-1 only 0.5250 | mass only 0.5292 | leaves >= 0.60: 0/31
+(c) CAPACITY CONTROL shuffled 0.4926 <= 0.52: HELD
+(a) top-2 pattern 0.5409 >= bar 0.5586: FAILED
+(b) top-2 beats control heads for 67.7% (bar 60%): HELD
+    READING: the realised routing of the identified prev heads does not predict membership either; S332's composition proposal is refuted in every form its wording supports.
+wrote realised_attention_composition_results.json (6s)
