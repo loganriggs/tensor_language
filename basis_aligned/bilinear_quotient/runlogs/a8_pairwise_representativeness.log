@@ -1,0 +1,12 @@
+captured a8 (9s)
+16 usable circuits at a8; the S2056 five are ['r.11.1.1', 'r.11.1.2', 'r.11.3.1', 'r.23.2.1', 'r.23.2.3']
+  r.11.1.1   nearest among all 16: r.11.1.2   (0.9767)   nearest within the five: r.11.1.2
+  r.11.1.2   nearest among all 16: r.2.0      (0.9851)   nearest within the five: r.11.1.1
+  r.11.3.1   nearest among all 16: r.11.1.2   (0.9633)   nearest within the five: r.11.1.2
+  r.23.2.1   nearest among all 16: r.2.1      (0.8533)   nearest within the five: r.23.2.3
+  r.23.2.3   nearest among all 16: r.11.3.1   (0.9308)   nearest within the five: r.11.3.1
+
+wrote circuits/A8_PAIRWISE.json (17s)
+pred_a  mean |cos| five 0.8942 (10 pairs) vs all 16 0.9250 (120 pairs) -- five biased high : False
+pred_b  r.11.1.1 nearest among all is r.11.1.2 : True   (actual: r.11.1.2)
+pred_c  an outsider is closer to the five than they are to each other : True   (r.2.1 at 0.9344 vs internal 0.8942)

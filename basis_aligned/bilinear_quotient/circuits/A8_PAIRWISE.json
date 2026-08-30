@@ -1,0 +1,68 @@
+{
+ "schema_version": 1,
+ "generated": "2026-08-30 by Claude",
+ "component": "a8",
+ "checks": "S2056/S2058 per-pair a8 claims, made on five of the sixteen circuits at a8",
+ "circuits_all": [
+  "r.11.1.1",
+  "r.11.1.2",
+  "r.11.3.1",
+  "r.23.2.1",
+  "r.23.2.3",
+  "r.2.0",
+  "r.2.0.0",
+  "r.2.0.1",
+  "r.2.0.2",
+  "r.2.1",
+  "r.2.1.0",
+  "r.2.1.1",
+  "r.2.2",
+  "r.2.2.0",
+  "r.2.2.1",
+  "r.2.3"
+ ],
+ "circuits_S2056_five": [
+  "r.11.1.1",
+  "r.11.1.2",
+  "r.11.3.1",
+  "r.23.2.1",
+  "r.23.2.3"
+ ],
+ "mean_pairwise_abs_cos_five": 0.8942,
+ "n_pairs_five": 10,
+ "mean_pairwise_abs_cos_all": 0.925,
+ "n_pairs_all": 120,
+ "nearest_neighbour_of_each_of_the_five": {
+  "r.11.1.1": {
+   "argmax_over_all": "r.11.1.2",
+   "argmax_value": 0.9767,
+   "argmax_within_five": "r.11.1.2"
+  },
+  "r.11.1.2": {
+   "argmax_over_all": "r.2.0",
+   "argmax_value": 0.9851,
+   "argmax_within_five": "r.11.1.1"
+  },
+  "r.11.3.1": {
+   "argmax_over_all": "r.11.1.2",
+   "argmax_value": 0.9633,
+   "argmax_within_five": "r.11.1.2"
+  },
+  "r.23.2.1": {
+   "argmax_over_all": "r.2.1",
+   "argmax_value": 0.8533,
+   "argmax_within_five": "r.23.2.3"
+  },
+  "r.23.2.3": {
+   "argmax_over_all": "r.11.3.1",
+   "argmax_value": 0.9308,
+   "argmax_within_five": "r.11.3.1"
+  }
+ },
+ "outsider_closest_to_the_five": "r.2.1",
+ "outsider_mean_cos_to_five": 0.9344,
+ "pred_a_five_biased_high": false,
+ "pred_b_r111_nearest_is_r112_among_all": true,
+ "pred_c_five_are_not_a_cluster": true,
+ "note": "read-only artifact; no circuit file was modified"
+}

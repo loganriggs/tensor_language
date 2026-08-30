@@ -678,6 +678,10 @@ def _install_owner_fakes(monkeypatch, tmp_path, *, collector_failure=False):
     monkeypatch.setattr(lifecycle.facade, "load_bilin18", load_model)
     monkeypatch.setattr(lifecycle.facade, "validate_snapshot", lambda: checkpoint)
     monkeypatch.setattr(lifecycle, "model_state_sha256", lambda _model: "8" * 64)
+    monkeypatch.setattr(
+        lifecycle, "_failure_protected_observation",
+        lambda _model: {"test_protected_state": "stable"},
+    )
 
     class Collector:
         def __init__(self, *args, **kwargs):
@@ -762,3 +766,46 @@ def test_production_owner_preserves_collector_failure_as_terminal(
     assert failure["payload"]["authorized_for_eval"] is False
     assert not failure["aggregate"]["bundle"]["present"]
     assert not lifecycle.LOCK.exists()
+
+
+def test_post_link_authority_drift_is_bound_in_failure_terminal(
+    monkeypatch, tmp_path
+):
+    _install_owner_fakes(monkeypatch, tmp_path)
+    drifted = False
+    original_fsync = lifecycle._fsync_parent_best_effort
+    authority = {
+        "authority_sha256": "a" * 64,
+        "source_closure": {"sha256": "b" * 64},
+        "parents": {
+            "config_sha256": "c" * 64,
+            "weights_sha256": "d" * 64,
+        },
+    }
+
+    def drift_during_authority_fsync(path):
+        nonlocal drifted
+        if path == lifecycle.AUTHORITY:
+            drifted = True
+        original_fsync(path)
+
+    def reject_drifted_authority():
+        if drifted:
+            raise RuntimeError("FIT authority parent binding changed")
+        return authority, lifecycle.file_sha256(lifecycle.AUTHORITY)
+
+    monkeypatch.setattr(
+        lifecycle, "_fsync_parent_best_effort", drift_during_authority_fsync
+    )
+    monkeypatch.setattr(lifecycle, "validate_fit_authority", reject_drifted_authority)
+    monkeypatch.setattr(
+        lifecycle, "_failure_protected_observation",
+        lambda _model: {"test_parent_sha256": ("f" if drifted else "d") * 64},
+    )
+    with pytest.raises(RuntimeError, match="parent binding changed"):
+        lifecycle.execute_causal_response_fit_v1()
+    assert drifted
+    failure = json.loads(lifecycle.FAILURE.read_text())
+    assert failure["aggregate"]["protected_state"]["test_parent_sha256"] == "f" * 64
+    assert lifecycle.TERMINAL.stat().st_ino == lifecycle.FAILURE.stat().st_ino
+    assert not lifecycle.RECEIPT.exists()

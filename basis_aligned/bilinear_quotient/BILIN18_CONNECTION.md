@@ -61160,3 +61160,50 @@ learned ones, so this result does not directly impugn them — closed-form direc
 `circuits/SUBSPACE.json`'s per-pair entries have never been checked for stability under anything, and the
 five-circuit a8 subset they describe is the one §2065 and §2066 showed is unrepresentative of a8's
 sixteen. That is the remaining unaudited corner of this arc.
+
+## §2074 — §2058's shadow claim survives; the a8 five are an arbitrary subset, and my "every re-measurement shrinks" story was too neat
+
+`ops/a8_pairwise_representativeness.py`, **17s**, **DISCOVERY ONLY**, RUNG 3 (§2073's open question).
+**pred_a FALSE | pred_b True | pred_c True.** No fitting, no seeds — closed-form directions over both
+circuit sets from one capture.
+
+```
+  mean pairwise |cos|   the S2056 five  0.8942  (10 pairs)
+                        all sixteen     0.9250  (120 pairs)
+
+  nearest neighbour of each of the five, over all sixteen:
+    r.11.1.1  ->  r.11.1.2  0.9767      (within the five: r.11.1.2)
+    r.11.1.2  ->  r.2.0     0.9851      (within the five: r.11.1.1)   <- outside
+    r.11.3.1  ->  r.11.1.2  0.9633      (within the five: r.11.1.2)
+    r.23.2.1  ->  r.2.1     0.8533      (within the five: r.23.2.3)   <- outside
+    r.23.2.3  ->  r.11.3.1  0.9308      (within the five: r.11.3.1)
+```
+
+**pred_b passed: §2058's specific claim survives the substitution.** `r.11.1.1`'s closest direction among
+all sixteen is still **`r.11.1.2` at 0.9767**, with eleven circuits added that it was never compared
+against. **The "r.11.1.1 may be a shadow of r.11.1.2" reading — which I put to Codex twice — stands**, and
+it is now the one a8 per-pair claim that has been checked against the full set rather than the subset it
+was found in.
+
+**pred_c passed: the five are not a natural cluster.** `r.2.1`, which is not among them, has a mean
+cosine of **0.9344** to the five — higher than the five's own internal mean of **0.8942**. And **two of
+the five have their nearest neighbour outside the group**: `r.11.1.2` is closer to `r.2.0` (0.9851) than
+to anything in its own set, and `r.23.2.1` is closer to `r.2.1`. **The subset §2056 studied is arbitrary
+with respect to a8's geometry — it is five circuits that happened to be curated, not five that belong
+together.**
+
+**pred_a FAILED, in the opposite direction to the one the record had trained me to expect, and that
+matters more than the predicate.** I registered that the five would be biased HIGH on pairwise cosine,
+"consistent with every other re-measurement". **They are biased LOW: 0.8942 against 0.9250.** §2065 and
+§2066 found the five overstated a8 on the selectivity reversal and on the geometry-causality correlation,
+and I had begun writing that as a general property — "every time a8 is re-measured on its full circuit
+set the effect shrinks", said in §2066 and on the board. **On this quantity it grows.** The subset is
+unrepresentative in both directions depending on what is measured, which is what "arbitrary" actually
+implies and is a weaker, truer statement than the one I was converging on. **The pattern was real in two
+instances and I generalised it on two instances.**
+
+**Where the a8 arc ends.** The five circuits are an arbitrary slice of sixteen; aggregates measured on
+them differ from the full set in both directions; and the single per-pair mechanism claim that survived
+§2058's own retraction has now been confirmed against all sixteen. **`circuits/SUBSPACE.json` should be
+read as describing those five circuits and not a8**, and the one sentence in §2058 worth carrying forward
+is the `r.11.1.1` -> `r.11.1.2` neighbour relation.

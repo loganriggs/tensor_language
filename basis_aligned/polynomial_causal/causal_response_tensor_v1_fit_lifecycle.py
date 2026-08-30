@@ -696,10 +696,6 @@ def _freeze_fit_authority_under_claim(claim: RunClaim) -> dict[str, Any]:
         # verification and the create-only authority link are the only operations.
         require_claim(claim)
         os.link(temporary, AUTHORITY)
-        _fsync_parent_best_effort(AUTHORITY)
-        replay, replay_sha = stable_json(AUTHORITY, digest)
-        if replay != authority or replay_sha != digest:
-            raise RuntimeError("published FIT authority does not replay")
     finally:
         temporary.unlink(missing_ok=True)
     return authority
@@ -773,21 +769,58 @@ def _artifact_record(path: Path) -> dict[str, Any]:
     }
 
 
+def _failure_protected_observation(
+    model: torch.nn.Module | None,
+) -> dict[str, Any]:
+    """Observe, rather than require, exact protected state after a failed attempt."""
+    source_files = {
+        str(path.relative_to(ROOT)): _artifact_record(path) for path in SOURCE_PATHS
+    }
+    parent_files = {
+        "census_state_diverse": _artifact_record(fit_inputs.CENSUS),
+        "curated_rows": _artifact_record(fit_inputs.CURATED),
+        "battery": _artifact_record(fit_inputs.BATTERY),
+        "document_split": _artifact_record(fit_inputs.SPLIT),
+        "config": _artifact_record(facade.DEFAULT_SNAPSHOT / "config.json"),
+        "weights": _artifact_record(facade.DEFAULT_SNAPSHOT / "pytorch_model.bin"),
+    }
+    if model is None:
+        model_observation: dict[str, Any] = {"present": False, "sha256": None}
+    else:
+        try:
+            model_observation = {
+                "present": True,
+                "sha256": model_state_sha256(model, require_production=False),
+            }
+        except Exception as error:
+            model_observation = {
+                "present": True, "sha256": None,
+                "observation_error_type": type(error).__name__,
+            }
+    return {
+        "source_files": source_files,
+        "parent_files": parent_files,
+        "independent_audit": _artifact_record(AUDIT),
+        "model_state": model_observation,
+    }
+
+
 def _failure_guard(
     *, claim: RunClaim, authority: Mapping[str, Any],
     authority_artifact_sha256: str, aggregate: Mapping[str, Any],
-    model: torch.nn.Module | None, model_state_after: str | None,
+    model: torch.nn.Module | None,
 ) -> None:
-    """Bind a failed attempt's exact surviving bytes without treating them as valid."""
-    for name, path in (("bundle", BUNDLE), ("manifest", MANIFEST)):
+    """Bind exact failed state; drift is evidence here, not a success invariant."""
+    del authority
+    for name, path in (
+        ("authority", AUTHORITY), ("bundle", BUNDLE), ("manifest", MANIFEST),
+    ):
         if aggregate[name] != _artifact_record(path):
             raise RuntimeError(f"FIT failure {name} bytes changed")
-    if model is not None:
-        if model_state_after is None or model_state_sha256(model) != model_state_after:
-            raise RuntimeError("FIT failure model state changed before publication")
-    replay, replay_digest = validate_fit_authority()
-    if replay != authority or replay_digest != authority_artifact_sha256:
-        raise RuntimeError("FIT failure authority changed")
+    if aggregate["authority"]["sha256"] != authority_artifact_sha256:
+        raise RuntimeError("FIT failure authority digest is inconsistent")
+    if aggregate["protected_state"] != _failure_protected_observation(model):
+        raise RuntimeError("FIT observed protected failure state changed")
     require_claim(claim)
 
 
@@ -809,7 +842,17 @@ def execute_causal_response_fit_v1() -> str:
     manifest_artifact_sha256: str | None = None
     try:
         authority = _freeze_fit_authority_under_claim(claim)
-        authority, authority_artifact_sha256 = validate_fit_authority()
+        # Transfer the linked authority identity to the outer owner before any
+        # fallible post-link operation.  If fsync or semantic validation observes
+        # drift, the catch path can still publish a drift-binding failure terminal.
+        authority_artifact_sha256 = file_sha256(AUTHORITY)
+        _fsync_parent_best_effort(AUTHORITY)
+        replay_authority, replay_authority_artifact_sha256 = validate_fit_authority()
+        if replay_authority != authority or (
+            replay_authority_artifact_sha256 != authority_artifact_sha256
+        ):
+            raise RuntimeError("published FIT authority does not replay")
+        authority = replay_authority
 
         def inputs_guard() -> None:
             _require_exact_owner_state(
@@ -947,11 +990,22 @@ def execute_causal_response_fit_v1() -> str:
         ):
             try:
                 if model is not None:
-                    model_state_after = model_state_sha256(model)
+                    try:
+                        model_state_after = model_state_sha256(
+                            model, require_production=False
+                        )
+                    except Exception:
+                        model_state_after = None
+                # Bind the live authority bytes even when semantic replay failed.
+                live_authority = _artifact_record(AUTHORITY)
+                if not live_authority["present"]:
+                    raise RuntimeError("published FIT authority disappeared")
+                authority_artifact_sha256 = live_authority["sha256"]
                 aggregate = {
-                    "authority": _artifact_record(AUTHORITY),
+                    "authority": live_authority,
                     "bundle": _artifact_record(BUNDLE),
                     "manifest": _artifact_record(MANIFEST),
+                    "protected_state": _failure_protected_observation(model),
                 }
                 failure = {
                     "schema": "causal_response_tensor_v1_fit_terminal",
@@ -975,7 +1029,6 @@ def execute_causal_response_fit_v1() -> str:
                         claim=claim, authority=authority,
                         authority_artifact_sha256=authority_artifact_sha256,
                         aggregate=aggregate, model=model,
-                        model_state_after=model_state_after,
                     ),
                 )
             except Exception as publication_error:
