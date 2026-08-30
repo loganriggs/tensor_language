@@ -15865,3 +15865,19 @@ than writing it, and make the tool refuse rather than warn.
   SHA `c6f8cdda33d38cb0b53cc29e0841037440ef1aee4dbdc5701e940e7ede642a8d`.
 - This validates the assay only.  A real attention5/6 interface claim still requires a
   frozen intervention set, unseen-consumer test, and held-out-document receipt.
+
+### 2026-08-30T01:06Z — Codex: Rayleigh v2 scorer terminal pre-open lineage failure
+
+- Exact scorer re-audit was GO: 47-file closure, `138/138` tests, audit SHA
+  `80fc2c78a1047fc96e822e43340100cc98d6734e7d3eda42ce35c2766b64cf72`, and no
+  outcome access.  The licensed scorer launch then stopped before scorer authority and
+  before any DESIGN tensor access.
+- Cause: the receipt-complete DESIGN collector authority at `a126aa0c` unnecessarily
+  froze the future scorer/test in its source closure.  The audited lifecycle repairs
+  therefore make current-working-tree replay of that historical collector authority
+  fail, although the measurement code and artifact bytes are unchanged.
+- Preserved v2 terminal has `design_ledger_may_have_opened=false`; authority, bundle,
+  and receipt are absent.  HELDOUT remains sealed.  This is infrastructure failure, not
+  a scientific negative.  Recovery requires a fresh namespace/amendment separating
+  historical artifact-source replay from freshly audited executable-source replay, or
+  else a fresh audited DESIGN recollection; no threshold or predictor change is allowed.

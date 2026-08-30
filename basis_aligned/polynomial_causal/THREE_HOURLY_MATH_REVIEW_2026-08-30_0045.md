@@ -424,3 +424,28 @@ Files: `toy_projected_causal_abstraction.py`,
 `c6f8cdda33d38cb0b53cc29e0841037440ef1aee4dbdc5701e940e7ede642a8d`).
 Pytest passes `1/1` in `0.26 s`.  This licenses applying the *assay* to a frozen bilin18
 interface; it does not establish that bilin18 possesses the abstraction.
+
+## 01:06Z execution addendum: receipt-complete DESIGN lineage became spent
+
+The exact-source scorer audit returned GO (`47` source files, `138/138` transitive
+tests, audit SHA-256
+`80fc2c78a1047fc96e822e43340100cc98d6734e7d3eda42ce35c2766b64cf72`) with no
+outcome access.  The scorer was then launched.  It stopped before publishing scorer
+authority and before any DESIGN tensor load because the immutable v2 collector authority
+was frozen at commit `a126aa0c`, while its overly broad source closure included the
+*future scorer itself*.  Repairing the scorer after collection therefore made the
+collector's current-working-tree replay fail even though the measurement code and
+receipt bytes were unchanged.
+
+This is a transaction-design failure, not a negative Rayleigh result.  The create-only
+failure artifact records `design_ledger_may_have_opened=false`, authority absent, bundle
+absent, and receipt absent.  HELDOUT remains sealed.  The v2 scorer namespace is now
+spent and will not be deleted or silently reused.
+
+The principled recovery is a new namespace and amendment that separates historical
+artifact verification from current executable-source verification: immutable DESIGN
+collection artifacts must replay against their own committed source hashes, while the
+new scorer and future HELDOUT execution must separately match fresh exact-source audits.
+The recovery must also bind the exact v2 failure and cannot change predictor features,
+ridge grid, null controls, thresholds, or rows.  Recollecting identical DESIGN model
+responses is the simpler fallback if that separation cannot be independently audited.
