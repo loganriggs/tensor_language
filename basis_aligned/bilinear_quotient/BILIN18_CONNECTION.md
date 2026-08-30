@@ -59323,3 +59323,47 @@ pool hides while the other has an unstable one the pool averages away.** That is
 do without him is bound the exposure: the map cut is reversible for 7.08M values, and §2024's own ladder
 says layers 0–5 cost 0.24× where 6–7 cost 0.63× — so a partial reversal is available and has never been
 priced against the uncovered arm specifically.**
+
+## §2032 — the map cut priced under both rules: pooled says cut deeper, the uncovered arm says stop at layer 5
+
+`ops/price_the_map_cut_against_both_rules.py`, **9.7s** warm, **DISCOVERY ONLY**, both coverages, rung 3 —
+§2031's open question. **pred_a True | pred_b True | pred_c True | pred_d False | derived controls True.**
+Reference deviation 0.000000. No crashed predicates.
+
+```
+  each cut site releases 0.885M values, worth 0.0885 milli-nats at §1947's price
+                    pooled CE   NET (§1947)  |  uncovered tax, per role      per site
+  5,419  cut 0–3     −0.094      +0.260      |  −0.498 −0.315 −0.290         −0.092
+         cut 0–5     −0.125      +0.406      |  −0.566 −0.504 −0.398         −0.082
+         cut 0–7     −0.236      +0.472      |  −1.050 −0.920 −0.856         −0.118
+  16,110 cut 0–3     −0.035      +0.319      |  −0.369 −0.372 −0.300         −0.087
+         cut 0–5     −0.046      +0.485      |  −0.474 −0.557 −0.258         −0.072
+         cut 0–7     −0.135      +0.573      |  −1.214 −1.708 −0.947         −0.161
+```
+
+> **The two rules disagree, and now by how much. Under §1947's pooled rule every depth is net-positive and
+> deeper is strictly better** — +0.260 → +0.406 → +0.472 at 5,419, and +0.319 → +0.485 → +0.573 at 16,110.
+> **§2024's choice of layers 0–7 is what the rule says to do.** Under an uncovered-arm view the same
+> choice costs **0.86 to 1.05 milli-nats** where a stop at layer 5 costs **0.40 to 0.57**.
+
+> **pred_d FAILED, by 0.007 milli-nats.** The bar was that cutting only layers 0–5 costs **under half** the
+> full cut's pooled CE. It costs **0.125 against 0.236** — a ratio of **0.53**, where half of 0.236 is
+> 0.118. **A miss is a miss.** The partial reversal is still available; it simply does not clear the bar I
+> wrote for it.
+
+> **pred_c PASSED and is what makes the reversal predictable: the tax per cut site varies by 2.2× across
+> depths**, so a partial cut can be priced by interpolation. **But the marginal structure is sharper than
+> the average.** Layers 0–5 cost **≈0.082** per site in the uncovered arm; **layers 6–7 cost ≈0.226 per
+> site — 2.8× more** — mirroring §2024's pooled ladder (0.24× against 0.63×) and confirming it on the
+> axis where the cost actually lands.
+
+**The decision, laid out so it needs no further run.** **If §1947's pooled rule stands as written: cut
+layers 0–7, which is the current build, +0.472 milli-nats of budget at 5,419.** **If the uncovered arm is
+to be protected: cut layers 0–5, keep 75% of the released values, and pay 48% of the uncovered tax.** The
+difference between the two builds is **1.77M values and about 0.45 milli-nats in the uncovered arm.**
+**That is the whole exposure, and it is small.**
+
+**Open.** §2029 also found the converged build losing the **unseen-target bucket** at skip1200 by 3.948
+milli-nats, and §2030/§2031 attributed the *coverage* axis without ever decomposing the *frequency* axis.
+**Which of the two changes loses that bucket, and whether it is the same map cut or the table raise, has
+not been measured** — and the unseen bucket is the one cell the fallback exists to serve.

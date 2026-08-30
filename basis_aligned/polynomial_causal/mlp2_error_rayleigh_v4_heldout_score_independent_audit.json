@@ -1,0 +1,54 @@
+{
+  "artifact_hashes": {
+    "frozen_predictor_bundle_sha256": "d9c42a542822675997a8711457dbe9e806e6bf515c25a8e7ef4d5f700cbef5bf",
+    "frozen_predictor_receipt_sha256": "7747c25591a6c3779c571e6b7f563c6a06ad46f531911840bc612058c1fd9e7b",
+    "heldout_authority_sha256": "1746e01bfdc9792897ee13f3134be4aaf99753bd0d11aa5a5ad221b163f023ed",
+    "heldout_collection_receipt_sha256": "4c93f9038ddff59656dfed09eb96abbcae4fefa50c54d249124b113e06f0388e",
+    "heldout_ledger_sha256": "da39efdca9c862878b146417e08ca51c1130da129239b17271286c12c43f053a",
+    "heldout_score_receipt_sha256": "446edafacf709fb2a017dbd6cb1a84cb66f6ce15d09a7a3ed2c98ddbb7f1e3f9",
+    "heldout_scorer_source_sha256": "1c7945622a6d3f9a925dc32249ef21cdc90152d88f3aafa8c84feddaaec25f5b"
+  },
+  "blocking_defects": [
+    {
+      "id": "missing_registered_bootstrap_max_band",
+      "finding": "The frozen protocol requires one shared document bootstrap/max band over programs and backgrounds, but the scorer performs no resampling and publishes no simultaneous band."
+    },
+    {
+      "id": "post_outcome_aggregation_ambiguity",
+      "finding": "The post-outcome scorer averages six program/background cells before gates 1 and 2 and flattens 32 documents by 3 programs for gate 3; those exact reductions were not frozen and do not operationalize the registered document-cluster/max-band language uniquely."
+    },
+    {
+      "id": "scorer_not_preoutcome_source_closed",
+      "finding": "The scorer source and score receipt entered the same post-outcome commit and the scorer was absent from the pre-outcome 46-file HELDOUT authority closure; it has no independent pre-outcome source audit or focused test."
+    },
+    {
+      "id": "score_publication_not_transactional",
+      "finding": "The scorer has no authority artifact, stable input hash-before/load/hash-after equality, guarded receipt-last callback, semantic reload, directory fsync, or failure artifact, and its score receipt does not bind scorer-source bytes."
+    }
+  ],
+  "claim_boundary": {
+    "authoritative_preregistered_decision": false,
+    "permitted_claim": "The saved point estimates strongly disfavor the current adjoint/Fisher metric, and the current post-hoc reducer reproduces exactly.",
+    "prohibited_claim": "The score receipt is the authoritative preregistered bootstrap/max-band ruling."
+  },
+  "outcome_access": true,
+  "reviewer": "Codex independent post-outcome artifact and scientific audit",
+  "schema": "mlp2_error_rayleigh_v4_heldout_score_independent_audit",
+  "status": "NO-GO",
+  "valid_point_estimate_facts": {
+    "all_six_program_background_cells_fail_tangent_and_fisher_gates": true,
+    "call_census_exact": true,
+    "endpoint_replay_exact": true,
+    "frozen_predictor_only_no_heldout_fit": true,
+    "independent_score_receipt_replay_exact": true,
+    "negative_controls_gate_passes": true,
+    "point_decision": "reject_current_adjoint_Fisher_metric_and_do_not_train_from_it",
+    "point_gate_passes": {
+      "finite_interaction": true,
+      "fisher_teacher_kl": false,
+      "frozen_predictor": false,
+      "tangent_scale": false
+    },
+    "point_status": "FAIL"
+  }
+}
