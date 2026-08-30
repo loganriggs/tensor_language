@@ -1,0 +1,23 @@
+grid 256000; 6 of 6 candidates usable at m16: ['r.1.1.1', 'r.1.1.2', 'r.1.2', 'r.1.2.0', 'r.1.2.1', 'r.6.2.2']
+captured m16 over the grid (12s)
+shared direction explains 0.9567; full |cos| 0.9473; residual |cos| 0.5185 (15s)
+  full    along r.1.1.1   : own  2.324  mean(others)  2.104  selective=True (23s)
+  full    along r.1.1.2   : own  1.503  mean(others)  1.634  selective=False (31s)
+  full    along r.1.2     : own  1.537  mean(others)  1.690  selective=False (39s)
+  full    along r.1.2.0   : own  2.108  mean(others)  1.912  selective=True (47s)
+  full    along r.1.2.1   : own  1.752  mean(others)  1.692  selective=True (54s)
+  full    along r.6.2.2   : own  2.087  mean(others)  2.453  selective=False (62s)
+  residual along r.1.1.1   : own  4.652  mean(others)  3.306  selective=True (70s)
+  residual along r.1.1.2   : own  2.580  mean(others)  2.952  selective=False (77s)
+  residual along r.1.2     : own  2.738  mean(others)  3.215  selective=False (85s)
+  residual along r.1.2.0   : own  2.958  mean(others)  3.462  selective=False (94s)
+  residual along r.1.2.1   : own  3.090  mean(others)  2.638  selective=True (101s)
+  residual along r.6.2.2   : own  2.553  mean(others)  2.872  selective=False (109s)
+
+wrote circuits/M16.json (109s)   [6 circuits at m16]
+pred_a  shared direction explains 0.9567 (bar <0.80 = a16-like; a8 0.9161, a16 0.4887) : False
+pred_b  full directions mean |cos| 0.9473 (bar <0.70 = a16-like; a8 0.8942, a16 0.4271) : False
+pred_c  FULL directions already selective before removal at a >=10% margin: 2/6 (bar >= half) : False
+        raw (any margin): full 3/6, residual 2/6
+        at 10% margin   : full 2/6, residual 2/6
+        residual |cos| 0.5185   [a8: full 1/5 -> residual 4/5; a16: full 7/13 -> residual 6/13, both at the 10% margin]

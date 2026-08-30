@@ -60585,7 +60585,14 @@ reader later, a serial chain is if anything the more likely one. **A joint doubl
 them** — under (a) removing both is roughly the sum of removing each, under (b) it is roughly the same as
 removing either — and that is the experiment this open question actually calls for.
 
-## §2062 — §2058's shared substrate is a FACT ABOUT a8, not about circuit-dense components: a16 is its opposite
+## §2062 — ~~§2058's shared substrate is a FACT ABOUT a8~~ **TITLE CORRECTED BY §2064**: a16 is the opposite of a8
+
+**CORRECTION (§2064).** Everything measured below stands, and a16 really is the opposite of a8. **The
+title's inference does not:** m16 was then measured and has the shared substrate MORE strongly than a8
+(0.9567 of variance, |cos| 0.9473), so **the shared substrate is not a8-specific — a16 is the outlier of
+the three.** What is a8-specific, and better supported for it, is §2058's TWO-LEVEL structure: at m16 the
+residuals do not separate either (0.5185, 2/6 selective), so projecting out the shared direction reveals
+separate circuits at a8 and at neither of the others.
 
 `ops/a16_substrate_generality.py`, **408s**, **DISCOVERY ONLY**, RUNG 3 (§2059's named open question).
 **pred_a FALSE | pred_b FALSE | pred_c FALSE.** All three failed, in the same direction, and the negative
@@ -60656,3 +60663,54 @@ the optimiser health gate.
 **Both facts have to be quoted together**, as in §2060: a few directions carry far more than their share,
 AND no tractable number of them carries the circuit. `r.2.0.0` is the clearest case — flat from rank 4 to
 16 (0.141 to 0.144) then jumping at 64 (0.352), which is not the shape of a low-dimensional object.
+
+## §2064 — m16 splits §2062's claim in two: the shared substrate generalises, the two-level structure does not
+
+`ops/m16_substrate_generality.py`, **109s**, **DISCOVERY ONLY**, RUNG 3 (§2062's open question).
+**pred_a FALSE | pred_b FALSE | pred_c FALSE.** I registered m16 to follow a16 and it followed a8 —
+more strongly than a8 does. The pre-committed branch for this outcome said §2062's framing would be the
+thing needing revision, so that is what happens here.
+
+```
+                                        a8        a16       m16      registered bar
+  circuits at the component              5         13         6
+  shared direction explains           0.9161    0.4887     0.9567    <0.80 (a16-like)  FALSE
+  full directions mean |cos|          0.8942    0.4271     0.9473    <0.70 (a16-like)  FALSE
+  FULL selective (>=10% margin)        1 / 5     7 / 13     2 / 6     >= half          FALSE
+  residual directions mean |cos|      0.3587    0.2255     0.5185
+  RESIDUAL selective (>=10% margin)    4 / 5     6 / 13     2 / 6
+```
+
+**§2062's headline was too broad and this corrects it — but the correction splits into two claims that
+must not be run together.**
+
+- **The shared substrate itself GENERALISES.** a8 and m16 both have one direction carrying >91% of their
+  circuits' directional variance, near-parallel directions, and individually non-selective circuits.
+  **Two of the three densest components look like this; a16 is the outlier.** §2062 said the shared
+  substrate was "a fact about a8"; **that is wrong, and m16 has it more strongly than a8.**
+- **The §2058 TWO-LEVEL structure does NOT generalise, and remains a8-only.** The whole content of §2058
+  was that projecting out the shared direction *reveals* separate selective circuits underneath — a8 goes
+  0.894 to 0.359 parallel and 1/5 to 4/5 selective. **At m16 the reversal simply does not happen**:
+  residuals stay entangled at 0.5185, and selectivity goes 2/6 to 2/6 at a 10% margin (3/6 to 2/6 raw).
+  **Removing m16's shared direction reveals nothing.**
+
+> So the corrected picture is three arrangements, not two. **a8**: shared substrate with separable
+> circuits underneath. **m16**: shared substrate with nothing separable underneath — six circuits that may
+> genuinely be one mechanism seen six ways, which is the claim §2058 made for a8 and had to retract.
+> **a16**: no shared substrate, circuits already separate.
+
+**What §2062 keeps and what it loses.** Its measurements stand entirely and a16 really is the odd one.
+What it loses is the inference in its title: "shared substrate is a8-specific" is refuted by m16. What
+survives, and is now better supported, is the narrower and more useful statement — **§2056/§2058's
+two-level result is a single-component result**, because the second half of it has now failed to
+reproduce at both of the other components tested.
+
+**Stated plainly about the sample.** Three components, with 5, 13 and 6 circuits. That is enough to refute
+a universal claim and not enough to establish a typical one. **I am not claiming 2-of-3 is the population
+rate**; the remaining thirteen circuit-winning components are unmeasured, and the honest summary is that
+bilin18 does at least three different things and no single geometry describes it.
+
+**Open.** m16 is the first component where "one mechanism, several census leaves" is live rather than
+retracted: its residuals do not separate and its full directions are non-selective. That is exactly the
+claim §2058 withdrew for a8, and the same residual-DAS test that settled it there (§2060's learned
+subspace, which found overlap far above random but far below identity) has never been run at m16.

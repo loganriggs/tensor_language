@@ -396,14 +396,15 @@ def enumerate_from_sources(
         (role, domain): contract.ROLE_DOMAIN_QUOTAS[role][domain] + EXTRA_CANDIDATES_PER_CELL
         for role in contract.ROLE_ORDER for domain in contract.DOMAIN_ORDER
     }
-    rows: list[torch.Tensor] = []; records: list[contract.CandidateRecord] = []
-    counts = {key: 0 for key in needs}
+    buckets: dict[tuple[str, str], list[tuple[str, torch.Tensor, contract.CandidateRecord]]] = {
+        key: [] for key in needs
+    }
     used = {name: set() for name in ("document", "source", "blob", "normalized", "row", "prefix")}
 
     def admit(row_record):
         if row_record is None:
             return
-        row, record = row_record; key = (record.role_license, record.domain.value)
+        row, record = row_record; cell = (record.role_license, record.domain.value)
         identities = {
             "document": record.document_id, "source": record.source_file,
             "blob": record.source_blob_sha256,
@@ -413,18 +414,23 @@ def enumerate_from_sources(
         }
         if any(value is not None and value in used[name] for name, value in identities.items()):
             return
-        if counts[key] < needs[key]:
-            rows.append(row); records.append(record); counts[key] += 1
-            for name, value in identities.items():
-                if value is not None:
-                    used[name].add(value)
+        for name, value in identities.items():
+            if value is not None:
+                used[name].add(value)
+        key = hashlib.sha256("\0".join((
+            ALLOCATION_SEED, record.role_license, record.domain.value,
+            record.document_id, str(record.source_document_index), identities["row"],
+        )).encode()).hexdigest()
+        bucket = buckets[cell]; bucket.append((key, row, record)); bucket.sort(key=lambda item: item[0])
+        if len(bucket) > needs[cell]:
+            bucket.pop()
 
     for document_index, document_id, text in natural_documents:
         domain = contract.NewlineDomain.LIST if is_list_table(text) else contract.NewlineDomain.PROSE
         role = role_license(document_id, domain); blob = hashlib.sha256(text.encode()).hexdigest()
         logical_file = f"fineweb:{document_id}"
         if document_id in exclusions.document_ids or logical_file in exclusions.source_files or (
-            blob in exclusions.source_blobs or counts[(role, domain.value)] >= needs[(role, domain.value)]
+            blob in exclusions.source_blobs
         ):
             continue
         def factory(start, *, _role=role, _domain=domain, _blob=blob):
@@ -434,9 +440,6 @@ def enumerate_from_sources(
                 f"{_role.lower()}:{_domain.value}:fineweb-hashfold",
             )
         admit(_row_for_document(encode(text), spec, factory, exclusions))
-        if all(counts[(role, domain)] >= needs[(role, domain)]
-               for role in contract.ROLE_ORDER for domain in ("prose", "list")):
-            break
 
     for document_index, path, blob_bytes in code_documents:
         domain = contract.NewlineDomain.CODE; document_id = f"git:{path}"
@@ -444,7 +447,6 @@ def enumerate_from_sources(
         normalized = normalized_python_sha256(blob_bytes)
         if document_id in exclusions.document_ids or path in exclusions.source_files or (
             blob in exclusions.source_blobs or normalized in exclusions.normalized_python_sha256s
-            or counts[(role, domain.value)] >= needs[(role, domain.value)]
         ):
             continue
         def factory(start, *, _role=role, _blob=blob, _normalized=normalized):
@@ -455,12 +457,12 @@ def enumerate_from_sources(
             )
         text = blob_bytes.decode("utf-8", errors="replace")
         admit(_row_for_document([50_256, *encode(text)], spec, factory, exclusions))
-        if all(counts[(role, "code")] >= needs[(role, "code")] for role in contract.ROLE_ORDER):
-            break
-    missing = {f"{role}/{domain}": needs[(role, domain)] - count
-               for (role, domain), count in counts.items() if count < needs[(role, domain)]}
+    missing = {f"{role}/{domain}": needs[(role, domain)] - len(bucket)
+               for (role, domain), bucket in buckets.items() if len(bucket) < needs[(role, domain)]}
     if missing:
         raise RuntimeError(f"newline candidate sources are underpowered: {missing}")
+    rows = [item[1] for cell in needs for item in buckets[cell]]
+    records = [item[2] for cell in needs for item in buckets[cell]]
     tensor = torch.stack(rows).contiguous()
     # Exact identity uniqueness is a property of the admitted candidate universe,
     # not something allocation may repair after seeing it.
@@ -529,6 +531,15 @@ def _role_from_payload(payload: Mapping[str, Any], spec: NewlineMaskSpec) -> con
                 "authorization"
             ) != ROLE_AUTHORIZATIONS.get(payload.get("role")):
         raise RuntimeError("newline installed role schema/license changed")
+    record_keys = {
+        "document_id", "source_document_index", "source_file", "source_revision",
+        "source_blob_sha256", "domain", "license_id", "role_license",
+        "structural_partition", "normalized_python_sha256",
+    }
+    if not isinstance(payload["records"], list) or any(
+        not isinstance(item, Mapping) or set(item) != record_keys for item in payload["records"]
+    ):
+        raise RuntimeError("newline installed role provenance schema changed")
     records = tuple(contract.CandidateRecord(
         item["document_id"], item["source_document_index"], item["source_file"],
         item["source_revision"], item["source_blob_sha256"], contract.NewlineDomain(item["domain"]),
@@ -536,6 +547,12 @@ def _role_from_payload(payload: Mapping[str, Any], spec: NewlineMaskSpec) -> con
         item["normalized_python_sha256"],
     ) for item in payload["records"])
     rows = payload["rows"]
+    expected_rows = sum(contract.ROLE_DOMAIN_QUOTAS[payload["role"]].values())
+    if not torch.is_tensor(rows) or rows.device.type != "cpu" or rows.dtype != torch.long or (
+        tuple(rows.shape) != (expected_rows, contract.ROW_LENGTH) or not rows.is_contiguous()
+        or len(records) != expected_rows
+    ):
+        raise RuntimeError("newline installed role row currency changed")
     replayed = build_newline_masks(rows, spec)
     if set(payload["masks"]) != set(replayed.as_mapping()) or any(
         not torch.equal(payload["masks"][name], replayed.as_mapping()[name])
@@ -628,6 +645,17 @@ def _protected_snapshot(authority: Mapping[str, Any]) -> dict[str, Any]:
     }
 
 
+def _observe_protected(authority: Mapping[str, Any], frozen: Mapping[str, Any]) -> dict[str, Any]:
+    try:
+        current = _protected_snapshot(authority)
+        return {"replayed": True, "equals_frozen": current == frozen, "snapshot": current}
+    except BaseException as error:
+        return {
+            "replayed": False, "equals_frozen": False,
+            "error_type": type(error).__name__, "error": str(error),
+        }
+
+
 def freeze(authority_path: Path = AUTHORITY, audit_path: Path = AUDIT) -> dict[str, Any]:
     if authority_path.resolve() != AUTHORITY.resolve() or audit_path.resolve() != AUDIT.resolve():
         raise RuntimeError("newline canonical authority/audit paths changed")
@@ -717,6 +745,22 @@ def freeze(authority_path: Path = AUTHORITY, audit_path: Path = AUDIT) -> dict[s
                 )} for role in installed_roles
             ]:
                 raise RuntimeError("newline installed role summary changed")
+            def validate_installed() -> None:
+                current_manifest, current_manifest_sha = _stable_json(MANIFEST)
+                if current_manifest != manifest_payload or current_manifest_sha != file_sha256(MANIFEST):
+                    raise RuntimeError("newline installed manifest semantic replay changed")
+                current_roles = tuple(
+                    _stable_role(ROLE_FILES[role], role_entries[role]["file_sha256"], spec)
+                    for role in contract.ROLE_ORDER
+                )
+                contract.validate_role_disjointness(current_roles)
+                if [contract.role_summary(role) for role in current_roles] != [
+                    {key: role_entries[role.role][key] for key in (
+                        "role", "rows_sha256", "records_sha256", "document_ids_sha256",
+                        "support_sha256", "support",
+                    )} for role in current_roles
+                ]:
+                    raise RuntimeError("newline installed role semantic replay changed")
             receipt_payload = {
                 "schema": "newline_l12h6_canary_v1_rows_receipt",
                 "status": "frozen_before_any_newline_model_forward_receipt_last",
@@ -729,34 +773,42 @@ def freeze(authority_path: Path = AUTHORITY, audit_path: Path = AUDIT) -> dict[s
                 receipt_payload, sort_keys=True, indent=2, allow_nan=False,
             ) + "\n").encode()
             def receipt_guard() -> None:
-                guard(expect_installed=True)
+                validate_installed()
                 replayed = json.loads(receipt_bytes)
                 if replayed != receipt_payload or file_sha256(MANIFEST) != receipt_payload["manifest_sha256"]:
                     raise RuntimeError("newline receipt/manifest replay changed")
-                require_claim(claim)
+                # Complete semantic/artifact replay first.  The shared guard then
+                # ends with protected replay, terminal absence, and the claim.
+                guard(expect_installed=True)
             write_create_only(RECEIPT, receipt_bytes, before_link=receipt_guard)
             return receipt_payload
         except BaseException as error:
             if not RECEIPT.exists() and not FAILURE.exists():
                 try:
                     observed = _artifact_snapshot()
+                    protected_observation = _observe_protected(authority, frozen_protected)
                     failure_payload = {
                         "schema": "newline_l12h6_canary_v1_rows_failure",
                         "status": "terminal_failure_without_success_receipt",
                         "authority_sha256": authority_sha, "audit_sha256": audit_sha,
-                        "artifacts": observed, "error_type": type(error).__name__,
+                        "artifacts": observed, "protected_observation": protected_observation,
+                        "error_type": type(error).__name__,
                         "error": str(error), "outcome_access": False,
                     }
                     data = (json.dumps(failure_payload, sort_keys=True, indent=2) + "\n").encode()
                     def failure_guard() -> None:
-                        if _artifact_snapshot() != observed or RECEIPT.exists() or FAILURE.exists():
-                            raise RuntimeError("newline failure inputs/terminals changed")
                         current_authority, current_sha = _stable_json(AUTHORITY)
                         current_audit, current_audit_sha = _stable_json(AUDIT)
                         if current_sha != authority_sha or current_authority != authority or (
                             current_audit_sha != audit_sha or current_audit != audit
                         ):
                             raise RuntimeError("newline failure authority/audit changed")
+                        first_observation = _observe_protected(authority, frozen_protected)
+                        second_observation = _observe_protected(authority, frozen_protected)
+                        if first_observation != protected_observation or second_observation != (
+                            protected_observation
+                        ) or _artifact_snapshot() != observed or RECEIPT.exists() or FAILURE.exists():
+                            raise RuntimeError("newline failure inputs/terminals changed")
                         require_claim(claim)
                     write_create_only(FAILURE, data, before_link=failure_guard)
                 except BaseException:

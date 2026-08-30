@@ -19,15 +19,19 @@ def _fake_encode(text: str) -> list[int]:
 def test_domain_classifier_and_enumerator_are_role_licensed_and_disjoint(monkeypatch) -> None:
     quotas = {role: {domain: 1 for domain in contract.DOMAIN_ORDER} for role in contract.ROLE_ORDER}
     monkeypatch.setattr(contract, "ROLE_DOMAIN_QUOTAS", quotas)
+    monkeypatch.setattr(contract, "MIN_TARGET_DOCUMENTS", 1)
+    monkeypatch.setattr(contract, "MIN_TARGET_POSITIONS", 1)
     monkeypatch.setattr(subject, "EXTRA_CANDIDATES_PER_CELL", 0)
     natural = []
     for index in range(300):
-        natural.append((index, f"prose-{index}", f"prose-{index}\n" + "x" * 600))
+        natural.append((index, f"prose-{index}", f"prose-{index}" + "x" * 100 + "\n" + "x" * 600))
         natural.append((10_000 + index, f"list-{index}", (
-            f"- item {index}\n- second\n- third\n- fourth\n" + "x" * 600
+            f"- item {index}" + "x" * 100 + "\n- second" + "x" * 100
+            + "\n- third" + "x" * 100 + "\n- fourth" + "x" * 300
         )))
     code = [
-        (index, f"pkg/module_{index}.py", f"value_{index} = 1\n".encode() + b"x" * 600)
+        (index, f"pkg/module_{index}.py", f"value_{index} = 1".encode() + b"x" * 100
+         + b"\n" + b"x" * 600)
         for index in range(300)
     ]
     import tiktoken
@@ -47,6 +51,40 @@ def test_domain_classifier_and_enumerator_are_role_licensed_and_disjoint(monkeyp
     contract.validate_role_disjointness(roles)
     assert subject.is_list_table("- a\n- b\n- c\n- d")
     assert not subject.is_list_table("one paragraph\nwith a continuation")
+
+
+def test_enumerator_scans_complete_sources_for_global_cell_minimum(monkeypatch) -> None:
+    quotas = {role: {domain: 0 for domain in contract.DOMAIN_ORDER} for role in contract.ROLE_ORDER}
+    role = contract.ROLE_ORDER[0]
+    quotas[role]["prose"] = 1
+    monkeypatch.setattr(contract, "ROLE_DOMAIN_QUOTAS", quotas)
+    monkeypatch.setattr(contract, "MIN_TARGET_DOCUMENTS", 1)
+    monkeypatch.setattr(contract, "MIN_TARGET_POSITIONS", 1)
+    monkeypatch.setattr(subject, "EXTRA_CANDIDATES_PER_CELL", 0)
+    monkeypatch.setattr(subject, "role_license", lambda *_args: role)
+    documents = [
+        (index, f"doc-{index}", f"doc-{index}" + "x" * 100 + "\n" + "x" * 300)
+        for index in range(40)
+    ]
+    import tiktoken
+    registry = token_registry.build_registry(tiktoken.get_encoding("gpt2"))
+    rows, records = subject.enumerate_from_sources(
+        documents, (), _fake_encode, registry, contract.HistoricalExclusions.empty(),
+        code_revision="a" * 40,
+    )
+    expected = min(documents, key=lambda item: hashlib.sha256("\0".join((
+        subject.ALLOCATION_SEED, role, "prose", item[1], str(item[0]),
+        contract.tensor_sha256(subject._row_for_document(
+            _fake_encode(item[2]), subject.frozen_mask_spec(registry),
+            lambda start, item=item: contract.CandidateRecord(
+                item[1], item[0], f"fineweb:{item[1]}", subject.FINEWEB_REVISION,
+                hashlib.sha256(item[2].encode()).hexdigest(), contract.NewlineDomain.PROSE,
+                "source-license", role, f"{role.lower()}:prose:fineweb-hashfold", None,
+            ), contract.HistoricalExclusions.empty(),
+        )[0]),
+    )).encode()).hexdigest())
+    assert len(rows) == len(records) == 1
+    assert records[0].document_id == expected[1]
 
 
 def test_recursive_registry_replay_is_metadata_only(monkeypatch, tmp_path) -> None:
@@ -187,6 +225,61 @@ def test_late_rival_failure_blocks_success_receipt(monkeypatch, tmp_path) -> Non
     assert not receipt.exists() and failure.exists()
 
 
+def test_installed_role_corruption_blocks_receipt(monkeypatch, tmp_path) -> None:
+    authority, audit, _cache, receipt, failure, _lock = _configure_transaction(monkeypatch, tmp_path)
+    original = subject.write_create_only
+    def corrupt(path, data, *, before_link):
+        if path == receipt:
+            role_path = subject.ROLE_FILES[contract.ROLE_ORDER[0]]
+            role_path.write_bytes(role_path.read_bytes() + b"corrupt")
+        return original(path, data, before_link=before_link)
+    monkeypatch.setattr(subject, "write_create_only", corrupt)
+    with pytest.raises(RuntimeError, match="bytes changed"):
+        subject.freeze(authority, audit)
+    assert not receipt.exists() and failure.exists()
+
+
+def test_protected_drift_during_receipt_guard_blocks_terminal(monkeypatch, tmp_path) -> None:
+    authority, audit, _cache, receipt, failure, _lock = _configure_transaction(monkeypatch, tmp_path)
+    original = subject._protected_snapshot
+    original_write = subject.write_create_only
+    drifted = False
+    def drift(value):
+        nonlocal drifted
+        snapshot = original(value)
+        if drifted:
+            snapshot = {**snapshot, "source_identity": {"identity": "drifted"}}
+        return snapshot
+    def trigger(path, data, *, before_link):
+        nonlocal drifted
+        if path == receipt:
+            drifted = True
+        return original_write(path, data, before_link=before_link)
+    monkeypatch.setattr(subject, "_protected_snapshot", drift)
+    monkeypatch.setattr(subject, "write_create_only", trigger)
+    with pytest.raises(RuntimeError, match="protected inputs changed"):
+        subject.freeze(authority, audit)
+    assert not receipt.exists()
+    # A stable late drift is recordable as a terminal failure; it can never license success.
+    assert failure.exists()
+
+
+def test_late_rival_receipt_blocks_failure(monkeypatch, tmp_path) -> None:
+    authority, audit, _cache, receipt, failure, _lock = _configure_transaction(monkeypatch, tmp_path)
+    monkeypatch.setattr(subject, "production_enumeration", lambda *_args: (_ for _ in ()).throw(
+        RuntimeError("injected failure")
+    ))
+    original = subject.write_create_only
+    def inject(path, data, *, before_link):
+        if path == failure:
+            receipt.write_text("{}")
+        return original(path, data, before_link=before_link)
+    monkeypatch.setattr(subject, "write_create_only", inject)
+    with pytest.raises(RuntimeError, match="injected failure"):
+        subject.freeze(authority, audit)
+    assert receipt.exists() and not failure.exists()
+
+
 def test_lock_replacement_and_adjacent_guard_are_fail_closed(tmp_path) -> None:
     lock = tmp_path / "lock"; claim = subject.acquire_claim(lock)
     try:
@@ -214,4 +307,3 @@ def test_source_closure_is_exact_once_and_contains_transitive_tests() -> None:
         "basis_aligned/polynomial_causal/local_fineweb_harvest.py",
         "jacclust/__init__.py", "jacclust/tt_model.py",
     }.issubset(subject.SOURCE_PATHS)
-

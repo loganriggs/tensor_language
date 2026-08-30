@@ -1,0 +1,94 @@
+{
+  "claim_boundary": "Retrospective CPU discovery analysis of already-opened a8/a16/m16 direction and rank-1 concentration summaries. No model, rows, protected outcomes, decomposition fit, circuit promotion, or confirmatory p-value.",
+  "components": {
+    "a16": {
+      "full": {
+        "matrix_label_permutation_draws": 20000,
+        "matrix_label_two_sided_p": 0.00034998250087495624,
+        "mean_reciprocal_rank": 0.36868131868131865,
+        "mean_within_target_spearman": 0.4825174825174825,
+        "n_circuits": 13,
+        "off_diagonal_pairs": 156,
+        "off_diagonal_spearman": 0.4197961342411082,
+        "top1_source_fraction": 0.07692307692307693,
+        "top1_source_matches": 1
+      },
+      "residual": {
+        "matrix_label_permutation_draws": 20000,
+        "matrix_label_two_sided_p": 0.18659067046647668,
+        "mean_reciprocal_rank": 0.1511016761016761,
+        "mean_within_target_spearman": -0.39866740154957964,
+        "n_circuits": 13,
+        "off_diagonal_pairs": 156,
+        "off_diagonal_spearman": 0.1340291165770333,
+        "top1_source_fraction": 0.0,
+        "top1_source_matches": 0
+      },
+      "shared_variance": 0.4887
+    },
+    "a8": {
+      "full": {
+        "matrix_label_permutation_draws": 20000,
+        "matrix_label_two_sided_p": 0.03434828258587071,
+        "mean_reciprocal_rank": 0.7166666666666667,
+        "mean_within_target_spearman": 0.44000000000000006,
+        "n_circuits": 5,
+        "off_diagonal_pairs": 20,
+        "off_diagonal_spearman": 0.6611367827635202,
+        "top1_source_fraction": 0.6,
+        "top1_source_matches": 3
+      },
+      "residual": {
+        "matrix_label_permutation_draws": 20000,
+        "matrix_label_two_sided_p": 0.8273586320683965,
+        "mean_reciprocal_rank": 0.5166666666666666,
+        "mean_within_target_spearman": -2.2204460492503132e-17,
+        "n_circuits": 5,
+        "off_diagonal_pairs": 20,
+        "off_diagonal_spearman": 0.03622667302813809,
+        "top1_source_fraction": 0.2,
+        "top1_source_matches": 1
+      },
+      "shared_variance": 0.9161
+    },
+    "m16": {
+      "full": {
+        "matrix_label_permutation_draws": 20000,
+        "matrix_label_two_sided_p": 0.03479826008699565,
+        "mean_reciprocal_rank": 0.3666666666666667,
+        "mean_within_target_spearman": -0.48333333333333334,
+        "n_circuits": 6,
+        "off_diagonal_pairs": 30,
+        "off_diagonal_spearman": -0.5410592514857371,
+        "top1_source_fraction": 0.16666666666666666,
+        "top1_source_matches": 1
+      },
+      "residual": {
+        "matrix_label_permutation_draws": 20000,
+        "matrix_label_two_sided_p": 0.6665166741662917,
+        "mean_reciprocal_rank": 0.525,
+        "mean_within_target_spearman": -0.04999999999999999,
+        "n_circuits": 6,
+        "off_diagonal_pairs": 30,
+        "off_diagonal_spearman": -0.09761545197281306,
+        "top1_source_fraction": 0.3333333333333333,
+        "top1_source_matches": 2
+      },
+      "shared_variance": 0.9567
+    }
+  },
+  "parent_sha256": {
+    "a16": "91a96d9fc5c563cc995eaf4587c2c2a9b6b246c5623b525c059d92a071736d71",
+    "a8_full": "6603c6db99a909675d7aa01309f4a091b04dc9a994f8b68b7cb9d76fb78de38a",
+    "a8_residual": "20fb317c7642e49b1264fde94a70c370ad7428ee45c7cab50ed44115f6c40a37",
+    "m16": "961a649f6cf5d8859f3f97b8646c67892df267ffd0e0164193beb7cdd8923a8a"
+  },
+  "question": "Does absolute cosine geometry between fitted circuit directions transport as a predictor of cross-circuit causal damage?",
+  "runtime_seconds": 34.72381102107465,
+  "schema": "component_geometry_causal_transport_v1",
+  "transport_summary": {
+    "full_geometry_spearman_sign_agrees_all_components": false,
+    "interpretation": "Geometry is a proposal mechanism, not a transported causal or hierarchical simplicity metric. Any shared/private tensor fit must be selected on held-out causal response cells.",
+    "residual_max_abs_off_diagonal_spearman": 0.1340291165770333
+  }
+}

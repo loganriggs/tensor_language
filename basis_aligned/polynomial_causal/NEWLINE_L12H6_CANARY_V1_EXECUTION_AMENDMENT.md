@@ -96,6 +96,11 @@ SHA split before token-row eligibility is inspected. Within it, the selected
 nonoverlapping 257-token chunk is the minimum frozen SHA among chunks with a valid
 newline/control mask. Historical document/path/blob/normalized-Python/row/prefix
 identities are excluded recursively without deserializing any prior tensor.
+The enumerator scans the complete pinned FineWeb source and complete eligible code
+tree. After retaining the first representative in canonical source order for any
+duplicate identity, it keeps the globally smallest frozen allocation-SHA candidates
+in every role/domain cell; source traversal order or an early satisfied quota may not
+select a role row.
 
 The publisher creates three physically separate role tensors, so CANARY_SELECT can
 later be loaded without deserializing sealed FINAL/OOD. It replays masks, support,
