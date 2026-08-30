@@ -77,6 +77,20 @@ def validate_audit(commit: str, sources: Mapping[str, str]) -> dict[str, Any]:
     return payload
 
 
+def audited_source_binding() -> tuple[str, dict[str, str], dict[str, Any]]:
+    """Select immutable source identity from the audit, not moving shared HEAD."""
+    before = file_sha256(AUDIT)
+    raw = AUDIT.read_bytes()
+    if file_sha256(AUDIT) != before or hashlib.sha256(raw).hexdigest() != before:
+        raise RuntimeError("v2 row audit changed while selecting its source commit")
+    candidate = json.loads(raw)
+    commit = candidate.get("audited_source_commit")
+    if not isinstance(commit, str) or len(commit) != 40:
+        raise RuntimeError("v2 row audit source commit is malformed")
+    sources = source_closure(commit)
+    return commit, sources, validate_audit(commit, sources)
+
+
 def _walk(value: Any):
     yield value
     if isinstance(value, Mapping):
@@ -155,9 +169,7 @@ def freeze() -> dict[str, Any]:
             raise RuntimeError("v2 row namespace is spent")
         if file_sha256(DISCOVERY) != DISCOVERY_SHA256 or file_sha256(V1_AUDIT) != V1_AUDIT_SHA256:
             raise RuntimeError("fixed candidate or preserved NO-GO audit changed")
-        commit = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip()
-        sources = source_closure(commit)
-        audit = validate_audit(commit, sources)
+        commit, sources, audit = audited_source_binding()
         registry_files = natural.discover_registry_files()
         prior, registry_hashes = metadata_registry_snapshot(registry_files)
         canonical, parquet = natural.BASE.validate_ordered_source()

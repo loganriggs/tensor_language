@@ -116,6 +116,17 @@ def validate_audit(commit: str, sources: Mapping[str, str]) -> dict[str, Any]:
     return value
 
 
+def audited_source_binding() -> tuple[str, dict[str, str], dict[str, Any]]:
+    before = file_sha256(AUDIT); raw = AUDIT.read_bytes()
+    if file_sha256(AUDIT) != before or hashlib.sha256(raw).hexdigest() != before:
+        raise RuntimeError("v2 execution audit changed while selecting source commit")
+    candidate = json.loads(raw); commit = candidate.get("audited_source_commit")
+    if not isinstance(commit, str) or len(commit) != 40:
+        raise RuntimeError("v2 execution audit source commit is malformed")
+    sources = source_closure(commit)
+    return commit, sources, validate_audit(commit, sources)
+
+
 def _clean_before_authority() -> None:
     if any(path.exists() for path in OUTPUTS):
         raise RuntimeError("v2 execution namespace is not pristine")
@@ -125,8 +136,7 @@ def freeze_authority() -> dict[str, Any]:
     _clean_before_authority()
     claim = atomic.acquire_claim(LOCK)
     try:
-        commit = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip()
-        sources = source_closure(commit); audit = validate_audit(commit, sources)
+        commit, sources, audit = audited_source_binding()
         row_receipt = _row_receipt(); snapshot = protected_snapshot()
         authority = {
             "schema": "induction_equality_tensor_final_ood_v2_authority",

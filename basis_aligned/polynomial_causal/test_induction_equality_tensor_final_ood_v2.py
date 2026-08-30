@@ -119,3 +119,12 @@ def test_v1_no_go_is_preserved_and_old_roles_are_not_runner_inputs():
     assert subject.rows_v2.V1_AUDIT_SHA256 == "3fae8d163a367c2af600fbe584f457ace7537a9688e3b091c379f7ebc9b043da"
     assert set(subject.ROLES) == {"final_natural", "ood_code"}
     assert all("rowcache_terminal_copy_induction_v2" not in str(path) for path in subject.SOURCE_PATHS)
+
+
+def test_execution_source_binding_uses_commit_named_by_stable_audit(tmp_path, monkeypatch):
+    commit, sources = "c" * 40, {"runner.py": "d" * 64}
+    audit = {"schema": "induction_equality_tensor_final_ood_v2_independent_audit", "status": "GO", "outcome_access": False, "audited_source_commit": commit, "audited_source_hashes": sources, "tests_passed": 1, "reviewer": "reviewer"}
+    monkeypatch.setattr(subject, "AUDIT", tmp_path / "audit.json")
+    subject.AUDIT.write_text(subject.json.dumps(audit))
+    monkeypatch.setattr(subject, "source_closure", lambda selected: sources if selected == commit else (_ for _ in ()).throw(AssertionError("moving HEAD selected")))
+    assert subject.audited_source_binding() == (commit, sources, audit)

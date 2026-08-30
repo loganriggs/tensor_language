@@ -57,6 +57,15 @@ def test_audit_schema_is_exact_and_outcome_blind(tmp_path, monkeypatch):
         subject.validate_audit(commit, sources)
 
 
+def test_audited_source_binding_uses_frozen_audit_commit_not_moving_head(tmp_path, monkeypatch):
+    monkeypatch.setattr(subject, "AUDIT", tmp_path / "audit.json")
+    commit, sources = "c" * 40, {"source.py": "d" * 64}
+    payload = {"schema": "induction_equality_tensor_final_ood_v2_rows_independent_audit", "status": "GO", "outcome_access": False, "audited_source_commit": commit, "audited_source_hashes": sources, "tests_passed": 1, "reviewer": "reviewer"}
+    subject.AUDIT.write_text(json.dumps(payload))
+    monkeypatch.setattr(subject, "source_closure", lambda selected: sources if selected == commit else (_ for _ in ()).throw(AssertionError("moving HEAD selected")))
+    assert subject.audited_source_binding() == (commit, sources, payload)
+
+
 def test_preserved_v1_no_go_is_a_direct_source_and_exact_parent():
     assert subject.V1_AUDIT in subject.SOURCE_PATHS
     assert subject.file_sha256(subject.V1_AUDIT) == subject.V1_AUDIT_SHA256
