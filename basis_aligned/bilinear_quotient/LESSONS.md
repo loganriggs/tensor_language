@@ -2626,3 +2626,26 @@ coverage present, arm present — and names the fix in the error.** Verified aga
 **The generalisable form:** ask of a run not "is the plan valid" but **"which inputs will this read, and
 which of them can I resolve now?"** Plan, controls, refs — all three are known before the first forward
 pass. Anything read later that could have been read earlier is a run waiting to be lost.
+
+## LESSON 105 — never derive a registered script by string replacement without asserting every match
+
+**MEASURED 2026-08-30: three silent `str.replace` failures in one session.** The §2028 qualification whose
+assertion I omitted, so the ledger was never edited while the commit message said it was. And §2033's first
+version, derived from a sibling script by a dozen replacements, **several of which did not match**: the
+helper read the unseen bucket while **all four registered texts still said "uncovered inputs"**, and pred_a
+compared the new measurement against the old constants. It returned False against a bar describing a
+quantity it was not measuring.
+
+**The two edits that carried `assert s.count(old) == 1` failed loudly and were fixed in seconds. The two
+that did not were found only by reading the output afterwards.**
+
+**A registered script is not refactorable text.** Its docstring, its predicate texts, its constants and its
+helpers are one object, and a replacement that hits three of the four leaves a script that runs, passes the
+gate, passes the plan pre-flight, and reports verdicts against the wrong quantity. **The pre-flight cannot
+catch it: the file is internally consistent, just consistently about the wrong thing.**
+
+**The rule: assert the count on every replacement, and when more than about three are needed, rewrite the
+script instead.** §2033's rewrite took one edit and produced 4/4; the derivation took two runs and produced
+nothing quotable. See [[LESSON 94]] on mis-specified predicates and [[LESSON 82]] on why a static check is
+not the answer here — I measured one, and it flags 0 of 28 scripts including the true positive, because
+the text and the constants agreed with each other and both were stale.

@@ -59367,3 +59367,50 @@ difference between the two builds is **1.77M values and about 0.45 milli-nats in
 milli-nats, and §2030/§2031 attributed the *coverage* axis without ever decomposing the *frequency* axis.
 **Which of the two changes loses that bucket, and whether it is the same map cut or the table raise, has
 not been measured** — and the unseen bucket is the one cell the fallback exists to serve.
+
+## §2033 — the map cut loses the unseen bucket on every role; the table raise loses it only at skip1200
+
+`ops/which_change_loses_the_unseen_bucket.py`, **4.5s** warm, **DISCOVERY ONLY**, 5,419, rung 3 — §2032's
+open question. **pred_a True | pred_b True | pred_c True | pred_d True | derived controls True.**
+Reference deviation 0.000000. **These are the verdicts from a REWRITTEN script; the first attempt was
+mis-specified throughout — see below.**
+
+```
+  milli-nats over §1959's build ON THE UNSEEN-TARGET BUCKET, 5,419
+              tables    map cut     sum      converged
+  skip7000    +2.453    −0.402    +2.051     +2.060
+  skip11000   +3.806    −0.855    +2.951     +2.963
+  skip1200    −2.318    −1.642    −3.960     −3.948
+```
+
+> **pred_b PASSED 3/3: §2024's map cut is negative on the unseen bucket on every role** — −0.402, −0.855,
+> −1.642. **An unseen target is predicted entirely by the fallback**, and the cut makes the shallow map
+> poorer, so the sign is the mechanism's. **pred_d PASSED 3/3 and the two effects add to within 0.012
+> milli-nats**, which §2014's 22% super-additivity made a real question.
+
+> **pred_c PASSED, and the skip1200 story is now one story across two axes.** The table raise is
+> **+2.453 and +3.806** on two roles and **−2.318** at skip1200 — the same 2-of-3 shape §2030 found on the
+> covered/uncovered axis, with the same role dissenting. **§2031 showed that shape was coverage-unstable
+> on the uncovered axis**, so I am **not** claiming it is stable here; what §2033 establishes is that on
+> both axes, at 5,419, the deficit is skip1200's and the table raise carries most of it.
+
+> **The map cut's contribution is the smaller and the steadier one on this bucket too** — −0.4 to −1.6
+> against the table raise's −2.3 at the losing role — matching §2031's finding that the cut is uniform and
+> the raise is not.
+
+**The first version of this script was mis-specified in every registered text, and I am recording that.**
+I derived it from the uncovered-arm script by string replacement. **Several replacements silently did not
+match**: the helper was changed to read the unseen bucket while **all four registered texts still said
+"uncovered inputs"**, and pred_a compared the new measurement against the *old* constants. Scored as
+written it returned pred_a False — **against a bar describing a quantity it was not measuring.** No
+verdict from that run is quotable. **The script above was rewritten from scratch, texts and helper
+together, and it is what §2033 reports.**
+
+**This is the third silent-replacement failure this session** — the §2028 qualification whose assertion
+failed while its commit message claimed success, and now this. **The two that had assertions were caught
+immediately; the two that did not were caught only by later verification.** LESSON 105.
+
+**Open.** Both axes now point at skip1200 and at §2020's table raise, and §2031 showed that pointing is
+coverage-unstable on one axis. **The unseen bucket at 16,110 has not been measured**, and it is the one
+remaining cell where the two axes could be made to agree or disagree — the same decomposition, one
+coverage over, on a cache that is already warm.
