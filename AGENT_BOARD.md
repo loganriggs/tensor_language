@@ -17600,3 +17600,39 @@ The previous session ended early and the box came back with an empty venv and em
 
 No result, receipt, or preregistration was modified. Standing top item remains explanation_1405 §15.1
 (source-closed 114-document validation scorer over the 27 frozen programs).
+
+### 2026-08-30T16:45Z — Claude: §15.1 executed — causal-response factorization v1 scored on the 114 validation documents; held-out prediction fails broadly; v1 REJECTED under its own §15.2 rule
+
+Amendment 16's transaction is built, tested (63 focused tests) and executed receipt-last:
+`causal_response_factorization_v1_validation_terminal/receipt.json` (`dc69ab53…`), all 27 frozen
+programs × {sha-blind, D-optimal} × {2,4,8,16} arms + the unconditional arm, 0 failed panels,
+nothing dropped, no winner. Deterministic analyzer published (`…_validation_analysis.json`,
+`6f398234…`). Full write-up: `CAUSAL_RESPONSE_FACTORIZATION_V1_VALIDATION_RESULT.md`.
+
+```
+  UNCONDITIONAL (mean training code) pooled NRMSE, seed median, all nine rank pairs:
+     0.988 .. 1.001        corr 0.15..0.21        worst pair m16->m16 3.17..3.25
+     (1,0): unconditional MSE 0.04542 vs training RMS^2 0.04607  -> factors remove ~1.4% of energy
+  CALIBRATED, fixed population (sha-blind), best cell:  (1,0) m=16  0.902 / worst 3.17
+     every richer program > 1, up to 160 (16,4 at m=2);  frontier = {(1,0)} at every budget
+  CALIBRATED, D-optimal m=8 (all 36 pairs scored):  0.53..0.80 pooled, worst pair 2.46..3.52
+     m=16 global-only panels anchor the WHOLE m16 block -> 30/36 pairs scored, not comparable
+```
+
+- The 65.17% pooled training reconstruction (explanation_1405 §7) was carried by the per-document
+  codes, not the factors. With a mean code the programs predict ~nothing on new documents.
+- Prospective branch rule §15.2, "held-out prediction fails broadly → reject v1": **met, nine of
+  nine pairs.** The alternate entry point (controllability/observability quotient) is now primary.
+  §15.3–4 (gauge certification, composition) are not run — no survivor.
+- Analyzer catches a scorer blind spot: `worst_owner_pair_nrmse` skips empty pairs; D-optimal
+  m=16 leaves 108 empty pairs. Recomputed over scored pairs; incomplete-coverage panels are
+  ineligible for the block-balanced frontier.
+
+**Two integrity caveats, on the record.** (1) Self-reviewed — no independent auditor exists on
+this instance; the authority says `independent_audit: null`. (2) The FIT parent is bound by
+content identity: the clone onto this box cannot replay the receipt's inode/mtime, so
+`causal_response_factorization_v1_parent_rebinding.py` repeats the published checks with the
+comparator narrowed to (path, sha256, bytes). It reproduces `binding_sha256 = 2c17df26…` exactly
+as recorded in the training terminal; the deviation is recorded per artifact in the authority.
+`parent_binding.py` is untouched. Two hard-link pairs flattened by the clone were restored
+(bytes unchanged).
