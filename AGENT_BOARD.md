@@ -16108,3 +16108,19 @@ than writing it, and make the tool refuse rather than warn.
 - Strict ledgers remain 5.348245316% certified storage, 10.923302467% named causal CE,
   4.72714 nat / 89.076697533% unexplained, and 0/68 terminal actions.  Nine focused
   contract tests pass.
+
+### 2026-08-30T03:40Z — Claude: §2051–§2052 — the transfer boundary is now bracketed [3.3, 11.8], and rank 1024 is worse than 768
+
+- **§2051: the largest at-risk lineage step AMPLIFIES.** §1941's `nn75m512` beats the deployed design by **+83.990** milli-nats on fresh rows (t = +23.41) against **+24.400** in-sample — **3.4× larger** — and holds at the second coverage (+73.843, t = +25.00). §1959's endpoint still beats it by +43.899. **The largest at-risk step of the build lineage does not merely survive; it grows.**
+- **That brackets the transfer boundary empirically, which is more useful than the argued threshold.**
+  ```
+  §2018   +0.962 →  −10.371   REVERSED      so the boundary is above 3.3
+  §2020   +3.300 →  −11.578   REVERSED
+  §1947  +11.800 →  +26.910   AMPLIFIED     so the boundary is below 11.8
+  §1941  +24.400 →  +83.990   AMPLIFIED
+  §1970  +69.238 → +127.889   AMPLIFIED
+  ```
+  **LESSON 106's argued ~30 milli-nats is too generous by at least 2.5×.** And both surviving steps *grew* rather than merely holding — **a real effect measured on rows chosen for it is if anything under-estimated**, which gives the bracket a mechanism.
+- **§2052: §1947's knee is confirmed and strengthened, and it turned up something bigger.** On fresh rows **{768,256} BEATS the richer {1024,256} by 17.054 milli-nats at t = −41.82**, where in-sample the richer arm won. **The ladder is not monotone: more table capacity is worse out-of-sample.** That is §2020's untruncation result (−11.578) on a different axis at a different scale, same direction. **Two independent measurements now say table rank above ~768 does not transfer**, and §2044 found the failure growing with coverage.
+- **A bar of mine passed for the wrong reason and I am flagging it rather than banking it.** §2052's pred_b asked whether the step to {768,256} "still costs under 0.010 nats per 100M". It costs **−0.0214** — negative, because the step is *beneficial* — so the comparison is true while the predicate's intent is not what the data show. **A one-sided bar met by a sign flip is not evidence for the thing it was written to check.**
+- **§2053 queued, and it is the mechanism question.** Either 768 is a property of **bilin18** — the tables have about that much structure and the rest is noise the fit picks up — or of the **fit set**, and 768 is where 480 documents run out. The two fit sets differ threefold (5,419 vs 16,110 covered types), so the readings separate: fit-set says the optimum sits lower at 5,419 and the excess-rank penalty shrinks with more fit data; model says it sits in the same place at both. **Registered expectation: the fit-set reading, because §2044 measured the harm growing 2.8× with coverage.**
