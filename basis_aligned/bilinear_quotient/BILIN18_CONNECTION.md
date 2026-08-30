@@ -63545,3 +63545,26 @@ pred_a FAILED (−0.0021 vs +0.02) | pred_b FAILED (3/8) | pred_d FAILED (shift 
 - Cross-run wobble note: cond-2304 median +0.0476 here vs +0.0481 (§2129) vs +0.0452 (§2131) — the ~0.003
   CUDA-atomics band, third sighting; all inside the registered tolerance.
 - The price curve is now open downward: does the gain survive K = 576 or 288? → rung 40.
+
+## §2134 — RUNG 40: THE PRICE CURVE KEEPS RISING TO QUARTER PRICE. Conditioned-576 adds another +0.0392 median over cond-1152 (8/8) — frontier best now +2.8372 fresh / +2.5953 C at ONE QUARTER of the mlp4/mlp5 units; even cond-288 still beats cond-1152 on 7/8. The curve peaks near K ≈ 576
+
+`ops/frontier_cond_ksweep.py`, **469s**, BACKLOG rung 40. **ALL THREE HELD: pred_a (+0.0392 ≥ −0.01) | pred_b
+(8/8 ≥ −0.02) | pred_c (cond-1152 repro +0.0873 vs 0.0861).**
+
+```
+  window                  0        1        2        3        4        5        6        7      median
+  cond1152 − norm      +0.146   +0.092   +0.075   −0.001   +0.083   +0.095   +0.052   +0.104   +0.0873
+  cond576 − cond1152   +0.018   +0.037   +0.056   +0.060   +0.043   +0.030   +0.041   +0.034   +0.0392
+  cond288 − cond1152   −0.004   +0.026   +0.005   +0.056   +0.022   +0.021   +0.050   +0.012   +0.0213
+```
+
+- **Three quarters of the kept mlp4/mlp5 units were hurting the deployed assembly.** The §312 config stored
+  2×2304 CP units at these layers; the conditioned ranking's top 576 per layer recover MORE CE than any larger
+  set — on every window. cond-288 sits between 576 and 1152: the curve rises to K ≈ 576 and turns gently.
+  Window 3, negative at every larger K, is +0.059 at quarter price — the "hard window" was a symptom of the
+  harmful tail of the ranking, not of the text.
+- **Frontier ledger:** +2.6735 (§312) → +2.7707 (§2129) → +2.8190 (§2133) → **+2.8372 fresh / +2.5953 C at
+  2×576 units (−2×1728 units ≈ −11.9M stored values vs §312)**. Cumulative: **+0.164 nat fresh at one quarter
+  the mlp4/mlp5 price**, selector label-free throughout.
+- The obvious next question is the floor: K = 144, and K = 0 (Down-bias only) as the "do the units matter at
+  all" null → rung 41.

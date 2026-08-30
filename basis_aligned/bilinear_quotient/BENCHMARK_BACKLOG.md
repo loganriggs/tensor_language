@@ -541,4 +541,19 @@ later per-rung backlog edits had silently anchored on text that was not here.
     pred_a median [L2_F_w(cond576) - L2_F_w(cond1152)] >= -0.01 (quarter
     price no loss); pred_b that difference >= -0.02 on >= 6/8; pred_c
     cond-1152 reproduces §2133 (median vs norm +0.0861 within 0.015).
-    -> ops/frontier_cond_ksweep.py [QUEUED]
+    -> ops/frontier_cond_ksweep.py
+    RUN 2026-08-30, §2134: ALL THREE HELD — cond-576 adds +0.0392 over
+    cond-1152 (8/8); frontier best +2.8372 fresh / +2.5953 C at quarter
+    price; cond-288 still beats cond-1152 (7/8). Curve peaks near K~576.
+
+41. THE PRICE FLOOR. §2134: the conditioned curve peaks near K = 576 and
+    cond-288 barely turns down. Find the floor: arms norm (collection) /
+    cond-576 (§2134 reproduction) / cond-144 / K-0 (Down-bias only, the
+    "do the units matter at all" null).
+    pred_a median [L2_F_w(cond144) - L2_F_w(cond576)] >= -0.01; pred_b
+    median [L2_F_w(K0) - L2_F_w(cond576)] <= -0.05 (the kept units DO
+    carry real CE; if FAILED, mlp4/mlp5's CP content is nearly all
+    harmful-or-inert in the deployed assembly - a major finding on its
+    own); pred_c cond-576 reproduces §2134 (median vs norm +0.1277
+    within 0.015).
+    -> ops/frontier_cond_floor.py [QUEUED]
