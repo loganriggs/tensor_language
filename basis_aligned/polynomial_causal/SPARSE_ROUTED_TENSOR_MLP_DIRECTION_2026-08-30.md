@@ -272,3 +272,224 @@ $$
 
 If a hierarchy achieves the same right-hand side with fewer evaluated blocks or a shorter
 description than the flat dictionary, then it has earned the claim of being simpler.
+
+## 6. Addendum: tensor-similarity optimization and interaction tensors
+
+This section incorporates Logan's proposed use of
+[When Are Two Networks the Same? Tensor Similarity for Mechanistic Interpretability](https://arxiv.org/abs/2605.15183).
+The paper's metric is not merely a flattened Frobenius dot product. For tensors $A,B$
+and a positive-semidefinite metric operator $M$, it is the normalized inner product
+
+$$
+\operatorname{sim}_M(A,B)
+=\frac{\langle A,MB\rangle}
+{\lVert A\rVert_M\lVert B\rVert_M},
+\qquad
+\lVert A\rVert_M^2=\langle A,MA\rangle.
+$$
+
+The input legs must first be symmetrized, because permuting copies of the same input
+does not change the represented polynomial. Symmetrization removes antisymmetric
+coefficient pieces that cancel functionally. Hidden-unit permutations and reciprocal
+rescalings disappear for a different reason: they are alternative factorizations of
+the same contracted coefficient tensor. Keeping these two invariances conceptually
+separate matters when regularizing factors rather than the contracted function.
+The paper's Gaussian metric uses the $2n$-th input moment
+
+$$
+\Lambda=\mathbb E_{x\sim\mathcal N(0,I)}[x^{\otimes 2n}],
+$$
+
+so the metric inner product equals expected output inner product under Gaussian input.
+The global tensor need not be materialized: Gram contractions compute the comparison
+recursively. For one bilinear MLP, however, it is much easier and safer to work directly
+with its order-three symmetric tensor $T_{oij}$.
+
+### Similarity alone does not preserve scale
+
+Maximizing tensor cosine alone identifies a positive scalar multiple of the target.
+That is appropriate when asking whether two mechanisms point in the same functional
+direction, but a layer replacement also needs the correct amplitude. A suitable
+one-layer faithfulness loss is the normalized squared metric distance
+
+$$
+\mathcal L_{\mathrm{tensor}}(T,\widehat T)
+=\frac{\lVert T-\widehat T\rVert_M^2}{\lVert T\rVert_M^2}
+=1+\rho^2-2\rho\operatorname{sim}_M(T,\widehat T),
+$$
+
+where $\rho=\lVert\widehat T\rVert_M/\lVert T\rVert_M$. This prices both angular
+misalignment and norm error. An equivalent two-term version is
+
+$$
+1-\operatorname{sim}_M(T,\widehat T)
++\eta\left(\log\frac{\lVert\widehat T\rVert_M}{\lVert T\rVert_M}\right)^2.
+$$
+
+If a global scalar multiplier is considered essentially free, optimize it analytically:
+
+$$
+\alpha^*=\frac{\langle T,M\widehat T\rangle}
+{\lVert\widehat T\rVert_M^2},
+$$
+
+store that scalar, and report both the raw and scale-corrected errors. The affine bias
+must also be stored exactly or included by lifting the input to $\widetilde x=(1,x)$;
+otherwise high homogeneous-tensor similarity can conceal a cheap but important constant
+error.
+
+### Recommended one-layer objective
+
+Let $\widehat T_\theta$ be a flat, tree-routed, or DAG-routed block-term tensor program.
+A practical objective is
+
+$$
+\min_\theta
+\lambda_T\mathcal L_{\mathrm{tensor}}(T,\widehat T_\theta)
++\lambda_{CE}\,\mathbb E_{d\in\mathrm{fit}}
+   [CE_d(\widehat T_\theta)-CE_d(T)]
++\lambda_S\,\mathbb E_x|S_\theta(x)|
++\lambda_G\Omega_{\mathrm{tree/DAG}}(S_\theta)
++\lambda_P\operatorname{Price}(\theta).
+$$
+
+Adam can optimize the factors directly. The experiment should sweep or constrain these
+terms to produce a Pareto curve rather than declare one post-hoc lambda canonical.
+Tensor distance supplies global weight-level faithfulness; CE tells us which remaining
+differences matter for prediction; support and graph penalties ask for conditional
+simplicity; and `Price` prevents a sparse code with a huge dense router from receiving
+false compression credit.
+
+The structural regularizer itself can reintroduce gauge dependence. Before applying
+factor-norm penalties, balance each block or use invariant quantities such as
+$\lVert d_a\rVert\lVert Q_a\rVert_M$ and sparsity of the actual scores $x^TQ_ax$.
+Always symmetrize $Q_a$ and compare the contracted functional tensor, not raw factor
+columns. Atom labels remain permutation-invariant; tied subspaces remain rotatable.
+
+For a hard-top-k routed program, tensor similarity applies exactly to each fixed-support
+piece, while the whole map is piecewise polynomial. A high similarity between the
+ungated atom banks does not certify a correct router. The CE term, held-out route tests,
+and finite interventions are therefore essential rather than optional.
+
+### Decompose the interaction, not only the components
+
+The interaction between two replacements may be substantially simpler than either full
+component. Put the four models into the same lifted tensor space and define the second
+Möbius difference
+
+$$
+T^{\mathrm{int}}_{A,B}
+=T_{A,B}-T_{A,0}-T_{0,B}+T_{0,0}.
+$$
+
+This cancels the baseline and both main effects, retaining only computation that requires
+the joint presence of $A$ and $B$. We can then fit
+
+$$
+\widehat T^{\mathrm{int}}
+=\sum_{a\in S(x)}d_a\otimes Q_a
+$$
+
+with the same normalized tensor-distance, norm, structured-sparsity, price, and CE terms.
+If the interaction tensor has fewer blocks, lower hierarchical ranks, or a smaller active
+support than the component tensors, that gives a direct sparse description of their
+composition failure. Tensor-diff similarity from the paper is especially natural here:
+candidate atoms can be compared or attributed against the interaction difference rather
+than against the large common computation.
+
+There are two distinct interaction targets worth testing:
+
+1. **Local weight-path interaction.** Contract the MLP0 write tensor into the MLP1
+   read tensor (or a specified downstream reader) and factor that contracted object.
+   This is fully weight-based, cheap, and symmetry-controlled.
+2. **Finite whole-suffix interaction.** Use the actual four-arm intervention difference
+   in logits or CE. This captures RMSNorm, attention mixing, and compensation, but is no
+   longer a single data-free bilinear tensor unless those intervening operations are
+   explicitly lifted.
+
+Residual addition is linear and has an exact copy/add tensor representation. RMSNorm can
+be represented as a tensor contraction conditional on its scalar inverse norm, but the
+map $x\mapsto1/\sqrt{\operatorname{mean}(x^2)+\epsilon}$ is not a finite multilinear
+tensor by itself. The clean options are to keep that scalar as an explicit nonlinear
+edge, condition the local tensor comparison on it, or use a certified polynomial/rational
+approximation over a bounded norm range. We should not silently apply the global
+multilinear tensor-similarity theorem through RMSNorm or the final tanh softcap without
+making this treatment explicit.
+
+### Concrete experiment order
+
+1. Start with one native bilinear MLP, preferably MLP1 because its flat routed dictionary
+   already has a positive baseline. Optimize the structured tensor directly under
+   $\mathcal L_{\mathrm{tensor}}+\lambda_S\Omega$, with exact bias and scale correction.
+2. Add a small CE term and measure whether it moves the same-price tensor-similarity/CE
+   frontier outward. Retain an untouched document split because CE is data-dependent even
+   though the tensor term is not.
+3. Compare flat support, rooted tree support, and overlapping-DAG support at identical
+   full price. Initialize from the existing folded $Q_a$ bank so the comparison tests
+   structure rather than optimizer luck.
+4. Separately construct the local MLP0→MLP1 interaction tensor and ask whether its best
+   sparse frontier dominates the full-component frontier.
+5. Only after these one-layer/local-path tests work, include explicit RMSNorm scalar edges
+   and finite suffix CE. Do not begin by optimizing the full 18-layer tensor.
+
+This order uses tensor similarity for what it certifies best—global, symmetry-invariant
+functional agreement of a tractable multilinear object—while using CE and finite causal
+tests for the distributional and non-multilinear parts it deliberately does not certify.
+
+## 7. Mandatory toy-model gate for this and future mathematics
+
+No new mathematical objective should first be debugged on bilin18. Before a method can
+produce real-model evidence it must pass a small known-answer model covering:
+
+1. a planted positive case whose true factors or functional tensor are known;
+2. every claimed symmetry or gauge transformation;
+3. a null case and at least one deliberately false control that must fail;
+4. scale, affine bias, and any lifted constant coordinate;
+5. agreement between the closed form and an independent brute-force or Monte Carlo
+   computation;
+6. gradient flow through the exact objective used in the real fit; and
+7. any boundary where the theorem stops applying, such as hard routing or RMSNorm.
+
+This repository already has unusually strong toys for the tensor-similarity metric in
+`tensor_sim_regularized_bilinear_transcoders/`. In particular:
+
+- `sanity_checks.py` compares the closed form with an explicit tensor contraction and
+  Monte Carlo, checks permutation/rescaling/input-leg-swap invariance, includes a random
+  invertible hidden mixing that **must fail**, and detects the centered-moment bug for a
+  lifted constant coordinate;
+- `e1_synthetic_recovery.py` tests Adam recovery of planted sparse CP factors, including
+  data-subspace versus full-support OOD behavior;
+- `e5_hierarchy_via_depth.py` and `e5b_hierarchy_spectrum_depth.py` plant known shallow
+  and hierarchical functions and test when depth/bottleneck width can recover them; and
+- `e6_pareto.py` explicitly distinguishes similarity of the dense underlying tensor from
+  fidelity of the actually deployed hard-TopK routed function.
+
+Those tests validate the inherited metric implementation; they do not establish the new
+sparse-interaction hypothesis. The missing targeted toy is now
+`toy_sparse_routed_interaction_tensor.py`, with pytest coverage in
+`test_toy_sparse_routed_interaction_tensor.py`. It checks:
+
+$$
+E[(Lx)\odot(Rx)] = \left(x^TQ_1x,\ldots,x^TQ_Px\right)
+$$
+
+after the encoder is folded into the $Q_a$ (where the $E$ on the left denotes the
+encoder matrix, not expectation); exact CP gauges; cosine's blindness to amplitude;
+analytic scalar correction; exact four-arm Möbius cancellation; zero interaction as a
+null; and a wrong-router control. In that control the candidate owns **exactly the same
+atom bank**, so bank similarity is 1, but swaps which atom is active. Its finite output
+error must remain large. This is the smallest counterexample to treating atom similarity
+as routed-program faithfulness.
+
+The runner also fits a planted rank-2 interaction with Adam using
+
+$$
+\mathcal L
+=\mathcal L_{\mathrm{tensor}}
++0.1\,H\!\left(p_{\mathrm{teacher}},p_{\mathrm{candidate}}\right),
+$$
+
+where $H$ is cross-entropy against the original toy function's full softmax distribution.
+Both terms have the same optimum, so failure cannot be excused as an objective conflict.
+The emitted JSON receipt is a code-validation artifact only, not evidence that bilin18's
+real interaction is sparse.

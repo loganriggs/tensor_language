@@ -1,0 +1,51 @@
+{
+  "algebraic_checks": {
+    "fold_exact": true,
+    "identical_bank_similarity": 1.0,
+    "input_leg_swap_exact": true,
+    "mobius_recovery_error": 6.106226635438361e-16,
+    "null_interaction_norm": 9.915154951762564e-16,
+    "optimal_scale": 0.4,
+    "permutation_rescaling_gauge_exact": true,
+    "scale_corrected_error": 6.830600701851083e-33,
+    "scaled_cosine": 1.0,
+    "scaled_relative_error": 2.25,
+    "wrong_router_relative_mse": 2.3393330162347694
+  },
+  "all_passed": true,
+  "optimization_checks": [
+    {
+      "final_teacher_ce": 1.0924041677136216,
+      "final_tensor_cosine": 1.0000000000000002,
+      "final_tensor_error": 1.0621584091378432e-31,
+      "initial_teacher_ce": 1.0979849042336032,
+      "initial_tensor_error": 0.9297146501582173,
+      "passed": true,
+      "seed": 0,
+      "steps": 1200
+    },
+    {
+      "final_teacher_ce": 1.0917712823250694,
+      "final_tensor_cosine": 1.0,
+      "final_tensor_error": 1.3780053855914374e-31,
+      "initial_teacher_ce": 1.0982628114466253,
+      "initial_tensor_error": 0.9432050327716335,
+      "passed": true,
+      "seed": 1,
+      "steps": 1200
+    },
+    {
+      "final_teacher_ce": 1.0917098277878483,
+      "final_tensor_cosine": 0.9999999999999999,
+      "final_tensor_error": 4.9496892658155434e-27,
+      "initial_teacher_ce": 1.0979051453230808,
+      "initial_tensor_error": 0.8719200090098337,
+      "passed": true,
+      "seed": 2,
+      "steps": 1200
+    }
+  ],
+  "purpose": "known-answer code validation only; not real-model evidence",
+  "runtime_s": 6.04693231638521,
+  "schema": "toy_sparse_routed_interaction_tensor_v1"
+}
