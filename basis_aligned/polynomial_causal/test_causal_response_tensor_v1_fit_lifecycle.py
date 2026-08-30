@@ -309,6 +309,41 @@ def test_model_state_logical_hash_detects_and_replays_mutation():
     assert after != before
 
 
+def test_artifact_record_rejects_same_size_mutation_during_final_path_stat(
+    monkeypatch, tmp_path
+):
+    target = tmp_path / "protected.bin"
+    target.write_bytes(b"before!!")
+    original_stat = lifecycle.os.stat
+    attacked = False
+
+    def mutate_during_path_stat(path, *args, **kwargs):
+        nonlocal attacked
+        if Path(path) == target and not attacked:
+            attacked = True
+            target.write_bytes(b"after!!!")  # exactly the same number of bytes
+        return original_stat(path, *args, **kwargs)
+
+    monkeypatch.setattr(lifecycle.os, "stat", mutate_during_path_stat)
+    with pytest.raises(RuntimeError, match="changed during stable observation"):
+        lifecycle._artifact_record(target)
+    assert attacked
+
+
+def test_artifact_record_binds_exact_descriptor_identity(tmp_path):
+    target = tmp_path / "protected.bin"
+    target.write_bytes(b"stable bytes")
+    record = lifecycle._artifact_record(target)
+    observed = target.stat()
+    assert record == {
+        "path": str(target), "present": True,
+        "sha256": hashlib.sha256(b"stable bytes").hexdigest(),
+        "bytes": len(b"stable bytes"), "device": observed.st_dev,
+        "inode": observed.st_ino, "mtime_ns": observed.st_mtime_ns,
+        "ctime_ns": observed.st_ctime_ns,
+    }
+
+
 def _terminal_record(kind):
     return {
         "schema": "causal_response_tensor_v1_fit_terminal",

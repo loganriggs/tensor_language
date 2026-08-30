@@ -13,6 +13,7 @@ import json
 import os
 from pathlib import Path
 import secrets
+import stat
 import subprocess
 import tempfile
 from collections.abc import Callable
@@ -761,11 +762,64 @@ def _require_exact_owner_state(
 
 
 def _artifact_record(path: Path) -> dict[str, Any]:
-    if not path.exists():
-        return {"path": str(path), "present": False, "sha256": None, "bytes": None}
+    """Observe one exact regular-file inode and reject mutation during observation."""
+    flags = os.O_RDONLY | getattr(os, "O_NOFOLLOW", 0)
+    try:
+        descriptor = os.open(path, flags)
+    except FileNotFoundError:
+        # Confirm absence rather than trusting one raced lookup.
+        try:
+            os.stat(path, follow_symlinks=False)
+        except FileNotFoundError:
+            return {
+                "path": str(path), "present": False, "sha256": None,
+                "bytes": None, "device": None, "inode": None,
+                "mtime_ns": None, "ctime_ns": None,
+            }
+        raise RuntimeError(f"FIT artifact appeared during absence observation: {path}")
+    try:
+        before = os.fstat(descriptor)
+        if not stat.S_ISREG(before.st_mode):
+            raise RuntimeError(f"FIT artifact is not a regular file: {path}")
+
+        def digest_descriptor() -> tuple[str, int]:
+            os.lseek(descriptor, 0, os.SEEK_SET)
+            digest = hashlib.sha256()
+            count = 0
+            while chunk := os.read(descriptor, 8 << 20):
+                digest.update(chunk)
+                count += len(chunk)
+            return digest.hexdigest(), count
+
+        first_digest, first_count = digest_descriptor()
+        middle = os.fstat(descriptor)
+        path_stat = os.stat(path, follow_symlinks=False)
+        # A second descriptor read occurs after the path lookup.  Thus an injected
+        # same-size write from stat(), or an in-place write invisible to inode checks,
+        # changes the digest and is rejected.
+        second_digest, second_count = digest_descriptor()
+        after = os.fstat(descriptor)
+    finally:
+        os.close(descriptor)
+    identity = (before.st_dev, before.st_ino)
+    metadata = (before.st_size, before.st_mtime_ns, before.st_ctime_ns)
+    if (
+        (middle.st_dev, middle.st_ino) != identity
+        or (after.st_dev, after.st_ino) != identity
+        or (path_stat.st_dev, path_stat.st_ino) != identity
+        or (middle.st_size, middle.st_mtime_ns, middle.st_ctime_ns) != metadata
+        or (after.st_size, after.st_mtime_ns, after.st_ctime_ns) != metadata
+        or (path_stat.st_size, path_stat.st_mtime_ns, path_stat.st_ctime_ns)
+        != metadata
+        or first_count != before.st_size
+        or second_count != before.st_size
+        or first_digest != second_digest
+    ):
+        raise RuntimeError(f"FIT artifact changed during stable observation: {path}")
     return {
-        "path": str(path), "present": True,
-        "sha256": file_sha256(path), "bytes": path.stat().st_size,
+        "path": str(path), "present": True, "sha256": first_digest,
+        "bytes": before.st_size, "device": before.st_dev, "inode": before.st_ino,
+        "mtime_ns": before.st_mtime_ns, "ctime_ns": before.st_ctime_ns,
     }
 
 
