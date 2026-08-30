@@ -346,6 +346,19 @@ def failure_input_observation(
     }
 
 
+def finish_publication_guard(
+    expected: Mapping[str, Any], commit: str, sources: Mapping[str, str],
+    audit_sha: str, row_receipt_sha: str, claim: Any,
+    absent_paths: tuple[Path, ...], message: str,
+) -> None:
+    """Finish a success guard with replay, then rival check, then claim check."""
+
+    verify_protected(expected, commit, sources, audit_sha, row_receipt_sha, claim)
+    if any(path.exists() for path in absent_paths):
+        raise RuntimeError(message)
+    rows_life.base.require_claim(claim, LOCK)
+
+
 @torch.no_grad()
 def capture_gate_action(
     model: Any, role_rows: torch.Tensor, device: torch.device,
@@ -633,12 +646,11 @@ def main() -> None:
         }
 
         def authority_guard() -> None:
-            if any(path.exists() for path in (AUTHORITY, BUNDLE, RESULT, RECEIPT, FAILURE)):
-                raise RuntimeError("sparse-Down authority namespace raced publication")
-            verify_protected(
+            finish_publication_guard(
                 protected, commit, sources, audit_sha, row_receipt_sha, claim,
+                (AUTHORITY, BUNDLE, RESULT, RECEIPT, FAILURE),
+                "sparse-Down authority namespace raced publication",
             )
-            rows_life.base.require_claim(claim, LOCK)
 
         write_json_create_only(AUTHORITY, authority, pre_link_check=authority_guard)
         authority_sha = file_sha256(AUTHORITY)
@@ -684,12 +696,11 @@ def main() -> None:
 
         def bundle_guard() -> None:
             stable_json(AUTHORITY, authority_sha)
-            if any(path.exists() for path in (BUNDLE, RESULT, RECEIPT, FAILURE)):
-                raise RuntimeError("sparse-Down bundle namespace raced publication")
-            verify_protected(
+            finish_publication_guard(
                 protected, commit, sources, audit_sha, row_receipt_sha, claim,
+                (BUNDLE, RESULT, RECEIPT, FAILURE),
+                "sparse-Down bundle namespace raced publication",
             )
-            rows_life.base.require_claim(claim, LOCK)
 
         write_torch_create_only(BUNDLE, bundle, pre_link_check=bundle_guard)
         bundle_sha = file_sha256(BUNDLE)
@@ -715,12 +726,11 @@ def main() -> None:
             stable_json(AUTHORITY, authority_sha)
             bundle_replay, _ = stable_torch(BUNDLE, bundle_sha)
             validate_bundle(bundle_replay, selected_state, authority_sha, gates["selected_seed"])
-            if any(path.exists() for path in (RESULT, RECEIPT, FAILURE)):
-                raise RuntimeError("sparse-Down result namespace raced publication")
-            verify_protected(
+            finish_publication_guard(
                 protected, commit, sources, audit_sha, row_receipt_sha, claim,
+                (RESULT, RECEIPT, FAILURE),
+                "sparse-Down result namespace raced publication",
             )
-            rows_life.base.require_claim(claim, LOCK)
 
         write_json_create_only(RESULT, result, pre_link_check=result_guard)
         result_sha = file_sha256(RESULT)
@@ -746,12 +756,11 @@ def main() -> None:
             validate_bundle(bundle_again, selected_state, authority_sha, gates["selected_seed"])
             result_again, _ = stable_json(RESULT, result_sha)
             validate_result(result_again, result)
-            if RECEIPT.exists() or FAILURE.exists():
-                raise RuntimeError("sparse-Down terminal raced receipt publication")
-            verify_protected(
+            finish_publication_guard(
                 protected, commit, sources, audit_sha, row_receipt_sha, claim,
+                (RECEIPT, FAILURE),
+                "sparse-Down terminal raced receipt publication",
             )
-            rows_life.base.require_claim(claim, LOCK)
 
         write_json_create_only(RECEIPT, receipt, pre_link_check=receipt_guard)
     except BaseException as error:

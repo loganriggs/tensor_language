@@ -140,3 +140,29 @@ def test_verify_protected_checks_claim_before_and_after_exact_replay(monkeypatch
     monkeypatch.setattr(subject, "protected_snapshot", lambda *args: dict(expected))
     subject.verify_protected(expected, "abc", {}, "a", "r", "claim")
     assert checks == [("claim", subject.LOCK), ("claim", subject.LOCK)]
+
+
+def test_success_guard_rejects_terminal_injected_during_protected_replay(
+    monkeypatch, tmp_path,
+):
+    target = tmp_path / "authority.json"
+    rival = tmp_path / "failure.json"
+    expected = {"source_commit": "exact"}
+    monkeypatch.setattr(subject.rows_life.base, "require_claim", lambda *args: None)
+
+    def inject_rival(*args):
+        rival.write_text("{}\n")
+        return dict(expected)
+
+    monkeypatch.setattr(subject, "protected_snapshot", inject_rival)
+
+    def guard():
+        subject.finish_publication_guard(
+            expected, "abc", {}, "a", "r", "claim", (target, rival),
+            "rival appeared",
+        )
+
+    with pytest.raises(RuntimeError, match="rival appeared"):
+        subject.write_json_create_only(target, {"status": "success"}, pre_link_check=guard)
+    assert rival.is_file()
+    assert not target.exists()
