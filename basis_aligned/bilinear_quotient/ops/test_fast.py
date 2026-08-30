@@ -467,6 +467,25 @@ def test_gate_fixtures():
             os.unlink(path)
 
 
+def test_gate_exempts_generators_but_still_catches_none_returners():
+    """2026-08-30: the LESSONS-18 value-use rule rejected every GENERATOR, because a generator has no
+    `return <value>`. That made any script using one impossible to queue. The exemption must not blunt
+    the rule -- WATCHERS FAIL IN TWO DIRECTIONS, so this asserts both."""
+    import subprocess
+    import tempfile
+    src = ('def helper(x):\n    print(x)\n'
+           'def gen(n):\n    for i in range(n):\n        yield i\n'
+           'v = helper(1)\nw = [i for i in gen(3)]\n')
+    with tempfile.NamedTemporaryFile('w', suffix='.py', delete=False) as f:
+        f.write(src); path = f.name
+    out = subprocess.run([sys.executable, os.path.join(HERE, 'gate.py'), path],
+                         capture_output=True, text=True).stdout + ''
+    check('gate: still catches a None-returning function used as a value',
+          'helper(): called as a value' in out)
+    check('gate: exempts generators from the value-use rule',
+          'gen(): called as a value' not in out)
+
+
 def test_gate_accepts_the_library_itself():
     """bqlib carries the LIBRARY marker and must keep passing; a marker on something that writes
     results must NOT."""
@@ -480,7 +499,8 @@ for fn in (test_run_refuses_an_unknown_role, test_fresh_role_is_available_but_no
            test_inertness_pairs_warns_when_a_side_is_vacuous, test_ref_reads_published_triples,
            test_paired_t_arithmetic, test_cost_matches_the_published_closed_form,
            test_arm_names_parse_the_way_the_grammar_says, test_gate_fixtures,
-           test_gate_accepts_the_library_itself):
+           test_gate_accepts_the_library_itself,
+           test_gate_exempts_generators_but_still_catches_none_returners):
     try:
         fn()
     except Exception as exc:                                  # a crashing test is a failing test

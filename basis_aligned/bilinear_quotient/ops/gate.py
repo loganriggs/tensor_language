@@ -182,6 +182,15 @@ def gate(path):
             value_used.add(n.func.id)
     for fn in [f for f in tree.body if isinstance(f, ast.FunctionDef)]:
         if fn.name in value_used and fn.name != 'main':
+            # 2026-08-30: a GENERATOR is a legitimate value-returning function -- calling it returns a
+            # generator object and `yield` is how it produces values, so it has no `return <value>` and
+            # never will. Before this exemption the rule rejected every generator, which made any script
+            # using one impossible to queue (caught on ops/das_m16_one_mechanism.py, whose `batches()`
+            # yields row batches). LESSONS 18's intent -- catch a function that returns None being used
+            # as a value -- is untouched: a generator does not return None.
+            is_generator = any(isinstance(n, (ast.Yield, ast.YieldFrom)) for n in ast.walk(fn))
+            if is_generator:
+                continue
             if not any(isinstance(n, ast.Return) and n.value is not None
                        for n in ast.walk(fn)):
                 fails.append(f'{fn.name}(): called as a value but has no `return <value>`')
