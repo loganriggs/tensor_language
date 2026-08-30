@@ -2841,3 +2841,27 @@ the second is one command and I skipped it. And when a cost note goes into a led
 penance for the last one — [[LESSON-105]] says never derive a registered script by string replacement
 without asserting; this is its cost-side twin, because the assertion that matters here is about what the
 derived script no longer needs.
+
+## LESSON 113 — a ratio metric certifies nothing until its DENOMINATOR is certified too
+
+The gating arc reported four rungs as multiples of random gating: 1.5x surface programs (§337), 3.8x a
+block-2 stream probe (§342), ~6x a wider probe (§2079/§2080), against a 9.4x causal-label oracle. Every
+one is `gain / random_gain`. **Nobody, myself included, ever checked whether `random_gain` was stable.**
+
+**It is not.** On a second document-disjoint fresh window the random-gating gain is **+0.0218 against
++0.0084 — 2.595x larger** — and the gated fraction moves 17.25% to 20.84%. The consequences are not
+subtle: §342's published configuration scores **−0.093x, worse than random**, and the **oracle itself
+falls from 9.262x to 2.647x**. An entire ladder of certified rungs turned out to be measured against a
+baseline that moves more than the differences between the rungs.
+
+**The numerators were comparatively stable.** `blk2+9` gains +0.0517 nats on one window and +0.0331 on
+the other — a factor of 1.6, against the ratio's factor of 4. **The instability was almost entirely in
+the denominator**, which is the part nobody looks at because it is "just the control".
+
+**How to apply.** When a headline is a ratio, **certify the denominator on the same schedule as the
+numerator** — if the claim is "Nx random on fresh rows", the random arm needs its own fresh-window
+number before N means anything. Prefer the raw quantity (here: gain-at-fraction in nats) as the headline
+and keep the ratio as colour. And when a control arm is cheap, **measure it on every window you report**,
+rather than once. See [[LESSON-111]] (set a validation bar against a null before the result) — same
+family: 111 is about a threshold nobody calibrated, 113 is about a divisor nobody re-measured, and both
+survived several sections because the suspect quantity was the one labelled "control".

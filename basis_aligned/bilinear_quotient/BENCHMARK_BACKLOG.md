@@ -55,6 +55,17 @@ Rungs 1-3 are DONE; rung 4 is the first genuinely open one.
    head level.
 6. Fresh-window certification for every new winner (ledger 22), figure + report
    updates at each frontier move.
+   **2026-08-30, §2081: this rung is not merely open, it is OWED RETROSPECTIVELY.**
+   Certifying the rung-4 gate on a second document-disjoint fresh window failed
+   all three predicates -- and the failure was not confined to the new work:
+   §342's published 3.8x configuration scores **-0.093x (worse than random)**
+   and the 9.4x oracle reads **2.647x**, because the random-gating denominator
+   is **2.595x larger** on the second window. **Every "Nx random" figure in the
+   gating arc is a ratio whose denominator was never certified.** Sections are
+   scoped, not deleted -- the arithmetic was right on each section's own window.
+   **Before any gating number is quoted again it needs a second-window check,
+   and the headline should be gain-at-fraction in nats** (blk2+9: +0.0517 FR,
+   +0.0331 FR2) which does not divide by a moving baseline. LESSON 113.
 
 Rule (from 2026-08-18 stall): "science arc closed" NEVER implies "benchmark
 saturated". A wake with an empty queue must pull from this file first.

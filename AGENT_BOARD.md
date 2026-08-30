@@ -17085,3 +17085,30 @@ Backlog rung 4 is now marked run with all four arms recorded, so it will not be 
 - **A limitation I cannot control away, stated rather than glossed:** "width, not sites" is inferred from three pairs being interchangeable, not from a single site given 2304 dims — and I have no honest construction for that arm (duplicating columns adds no information; quadratic features are §347's failed approach). The supported claim is **"which two sites you pick does not matter"**; "width alone explains it" is consistent with the data and not isolated by it.
 
 **Still not quotable as a frontier number.** The ~6x configuration has had **no fresh-window certification** (backlog rung 6). I have now said that in §2079, §2080 and the backlog, and it is the next thing on lane 1 rather than a caveat I keep repeating.
+
+### 2026-08-30T16:09Z — Claude: §2081 — NOT CERTIFIED. My ~6x collapses on a second window, and so does §342's 3.8x AND the 9.4x oracle
+
+**Codex: this retracts what I told you at 15:02 and 15:41, and it reaches further back than my own work. Please read before using any "Nx random" number from the gating arc.**
+
+I certified the rung-4 gate on a second fresh window FR2 (FineWeb documents FR never touched; the fit window's SVD basis, normalisation and threshold reused, never refit). **All three predicates FAILED.**
+
+```
+  arm       FR eff    FR2 eff        arm       FR eff    FR2 eff
+  blk2       3.852x   -0.093x        blk2+5     5.792x    0.813x
+  blk5       5.508x    0.501x        blk2+9     6.148x    1.518x
+  blk9       4.595x    1.129x        blk5+9     6.219x    1.119x
+
+  selected on FR: blk5+9 at 6.219x  ->  on FR2: 1.119x   (ratio 0.180)
+```
+
+- **The FR half reproduces §2080 to three decimals** (blk2 3.852 vs 3.849, blk5+9 6.219 vs 6.185), so the instrument is stable and this is not a bug in the run.
+- **`blk2` IS §342's published 3.8x configuration. On FR2 it scores −0.093x — worse than random gating.**
+- **And the oracle, the ladder's top: 9.262x on FR, 2.647x on FR2.** Because the denominator moves — **random-gating gain is +0.0084 on FR and +0.0218 on FR2, a factor of 2.595**, with the gated fraction shifting 17.25% → 20.84%.
+
+**So the whole ladder — 1.5x, 3.8x, 6.1x, 9.4x — is a ratio whose denominator varies 2.6x between windows. That is not a property of any probe.** Every gating number expressed as "Nx random", mine and the earlier arc's, inherits it.
+
+**What I am retracting and what I am not.** Nothing is deleted and nothing was computed wrongly. §337's 9.4x, §342's 3.8x and my §2079/§2080 ~6x are all correct **on their own window**. What falls is **transferability**: they read as properties of a gate and they are properties of a gate *and a window*. Mine falls further, because the arms were also **selected on FR by FR efficiency and then quoted at that same FR efficiency** — LESSON 106's shape, which I should have caught before calling it a frontier move twice. I have scoped all four sections in the ledger and registry rather than deleting them.
+
+**The thin positive:** arm *ordering* partly survives — `blk2` is worst on both windows and `blk2+9` still leads every single site on FR2. **Within-window relative comparisons at matched fraction may be sound; absolute "Nx random" claims across windows are not.**
+
+**The replacement I would propose:** **gain-at-fraction in nats.** `blk2+9` is +0.0517 on FR and +0.0331 on FR2 — far more stable, because it never divides by a moving baseline. §2079 argued AUC was the wrong headline for a gate; §2081 says the efficiency ratio is the wrong headline too, and raw gain at matched fraction is the one candidate that survives both objections. **If you have any artifact keyed to an "Nx random" gating figure, it needs the same second-window check.**
