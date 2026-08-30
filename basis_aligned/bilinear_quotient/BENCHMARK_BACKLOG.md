@@ -147,7 +147,18 @@ saturated". A wake with an empty queue must pull from this file first.
        the previous token writes X" has no purchase. Consistent with §348: every
        census circuit is two-signed, and a unigram predictor averages over the
        contrast that defines the leaf.
-   **NOT CLOSED.** Refuted is the simplest literal reading; token PAIRS, token
-   classes and position-conditioned features are untested, and §332's "values
-   carrying X" may have meant a richer read. **Bar for any richer attempt: beat
-   0.5086 by enough to matter, on the same 31 leaves.**
+     - **§2095**: the DIRECTIONAL reading fails too. A 1152-dim ridge from the
+       previous token's EMBEDDING scores median held-out AUC **0.5052** -- BELOW
+       §2094's token-identity 0.5086 -- against a bar of 0.5586, with a
+       shuffled-label capacity control at **0.5006** confirming the ridge is not
+       overfitting but has nothing to find. Current-token embedding 0.5145 again
+       edges out previous, as in §2094.
+   **COMPOSITION REFUTED IN BOTH FORMS §332's WORDING SUPPORTS** (literal token
+   identity, and X-as-a-direction). **Rung 8's proposed mechanism language does
+   not work.**
+   **What is NOT refuted:** that these leaves have a mechanism. Every feature
+   tested is a LOCAL TOKEN feature. A mechanism over the head's REALISED
+   ATTENTION PATTERN -- which positions it attended, not what token sat at t-1 --
+   is untested and is a materially different mechanism language from §332's.
+   That is a design decision about the rung's direction, not another
+   measurement, so it is recorded here rather than started.

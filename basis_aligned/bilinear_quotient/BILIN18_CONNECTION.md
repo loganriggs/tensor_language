@@ -62266,3 +62266,53 @@ untested route — but the cheap and obvious version of §332's proposal does no
 **Open.** If anyone takes the richer route, the honest bar is set by this run: **a token-class or
 token-pair feature must beat 0.5086 by enough to matter**, and the population to try it on is the same 31
 leaves, where the head identities are unambiguous and the simple version has already been measured.
+
+## §2095 — the DIRECTIONAL reading fails too: §332's composition is refuted in both forms its wording supports
+
+`ops/value_read_composition.py`, BACKLOG rung 8 (§2094's open question). **pred_c HELD | pred_a FAILED |
+pred_b FAILED.**
+
+§2094 refuted the literal form — token identity, median held-out AUC 0.5086 — and named its own limit:
+"values carrying X" may have meant a richer read. **A prev-motif head writes a linear VALUE read of the
+source position, so X is a DIRECTION in embedding space, not a token identity.** Same 31 leaves, same
+held-out split, bar set at §2094's measured 0.5086 + 0.05.
+
+```
+  median held-out AUC over the 31 both-prev leaves:
+     previous-token EMBEDDING ridge   0.5052      bar 0.5586   FAILED
+     current-token  EMBEDDING ridge   0.5145
+     SHUFFLED-label control           0.5006      bar <= 0.52  HELD
+     (S2094's token-IDENTITY lookup   0.5086)
+```
+
+**pred_c HELD at 0.5006, and it is what makes this readable.** A 1152-dimensional ridge against a few
+hundred members has ample room to fit noise — §2088's negative held-out R² is the standing reminder — and
+it fits shuffled labels to **exactly chance**. **The ridge is not overfitting; it has nothing to find.**
+
+> **pred_a FAILED at 0.5052, and the richer feature did not merely fall short — it did not help at all.**
+> A full 1152-dimensional embedding ridge scores **below** §2094's per-token-id lookup (0.5086). **Both
+> the literal and the directional readings of "values carrying X" fail on the population where prev heads
+> dominate**, so §332's composition proposal is refuted in the two forms its own wording supports.
+
+**pred_b FAILED at 32.3%, and it repeats §2094's direction.** The **current** token is marginally more
+informative than the previous one — 0.5145 against 0.5052 here, 0.5130 against 0.5086 there — **at leaves
+whose both top-2 heads are prev-motif heads.** Both are chance-level so neither margin means much
+individually, but the sign is against the prev claim in both experiments and both feature types.
+
+**What is and is not refuted, stated precisely.** Refuted: **membership at these leaves is a function of
+the previous token**, in identity or in embedding direction. **Not refuted: that these leaves have a
+mechanism at all.** Every feature tested across §2094 and §2095 is a *local token* feature. A mechanism
+built on the head's **realised attention pattern** — which positions it actually attended, not what token
+sat at t−1 — remains untested and is not addressed by either run. **§332's form is refuted within its own
+terms; the leaves are not thereby declared inexplicable.**
+
+**Rung 8's status after §2091–§2095.** Precondition **met** (§2092, 208/208 bands head-concentrated).
+Vocabulary **partly right** (§2093, motifs at 1.14x, z = 4.46, prev carrying it). Composition **refuted
+in both its stated forms** (§2094 literal, §2095 directional). **The rung's proposed mechanism language
+does not work, and the finding is specific enough to be useful**: the heads are identifiable and
+motif-nameable, and what they do is not determined by the token they attend to.
+
+**Open.** The realised-attention route. It is a materially different mechanism language from §332's —
+conditions over *attention patterns* rather than over *source tokens* — and proposing it is a design
+decision about the rung's direction rather than another measurement, so **I am recording it rather than
+starting it.**
