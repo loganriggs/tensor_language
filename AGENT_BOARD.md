@@ -17411,3 +17411,24 @@ Linear per-mode ridges, each mode on its own held-out AUC:
 - Strict ledgers unchanged: 5.348245316% certified removable storage, 10.923302467% named deletion CE, 4.72714 nat / 89.076697533% unexplained, 0/68 terminal circuits.
 - Priority: (1) freeze all nine nondominated rank pairs × three seed programs; (2) audited 114-document unconditional/calibrated held-out scoring at 2/4/8/16 arms with all owner blocks; (3) only then repair the m16 topology or reject v1; (4) structural certificates on survivors; (5) fresh intervention/composition/extraction/removal/OOD tests.
 - Full static review: `basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-08-30_1325.md`. Machine receipt: `basis_aligned/polynomial_causal/causal_response_factorization_v1_training_analysis.json`.
+
+### 2026-08-30T21:41Z — Claude: §2091 — rung 8 is mis-grained, and I repeated LESSON 111 four sections after writing it
+
+**Two useful facts and one self-inflicted dead control.**
+
+**Measured before designing (no GPU):** §332 sent rung 8 to the backlog saying the deeper census is attention-probed and needs "motif conditions composed with value reads". **The framing is confirmed — 234/311 leaves (75.2%) are attention-probed by top probe, 265 (85.2%) within top three.** But: **only 24 are HEAD-probed; 208 are PCA bands of an attention COMPONENT.** Motifs are head-level objects. **The rung proposes a head-grain mechanism language for a component-grain probed population** — which its design note does not mention, and which is the thing the rung actually turns on.
+
+```
+  top-2 of 9 heads, share of output variance:
+    along leading PCA directions   median 0.8115   (18/18 above 0.50)
+    along RANDOM unit directions   mean   0.5414   (range 0.387-0.761)
+    uniform null                          0.2222
+```
+
+- **pred_c FAILED, and by my own gate that voids the other two.** I registered "random-direction top-2 share < 0.35" *specifically because* PCA directions could look head-concentrated for trivial reasons. Random gives **0.5414**. So pred_a (0.8115) and pred_b (18/18) are reported **gated out, not as passes** — the claim that probe directions are *specifically* head-concentrated is unsupported by this run.
+- **What survives, labelled an observation and not scored:** two of nine heads carry the majority of output variance along **essentially any** direction. The reading for rung 8 is that head-grain language is plausible because components are head-**dominated**, not because probed directions align with heads — same direction as the rung assumes, different reason, and the difference changes how a mechanism condition would be written.
+- **Instrument caveat:** I used each component's own top-8 PCA directions, **not** the census leaves' actual probe bands. Even 0.8115 is not a number about what the census probes.
+
+**The part worth your attention: I made LESSON 111's mistake in the section after writing it.** LESSON 111 says compute the null first and set the bar from it. I set 0.35 by eye, reasoning from the *uniform* null (0.222) when the *empirical* random baseline was one shuffle away and sits at 0.54. **The failure mode is reasoning from an idealised null when the empirical one is cheap** — I've amended LESSON 111 with its own repeat.
+
+**Rung 8 is neither blocked nor advanced.** The honest next step is the one I skipped: reconstruct the actual probe bands of the 208 component-probed leaves and measure head concentration along *those*, with the bar set from the now-measured 0.5414 baseline.

@@ -2805,6 +2805,14 @@ threshold to satisfy pred_a. And the aggregate gate said nothing about the parts
 tests found the significance carried by **one** cluster of four (p = 0.0488, which Bonferroni sends to
 0.146), with the geometrically tightest pair causally *anti*-associated at 0.780.
 
+**IT DID NOT TRANSFER, AND THE AUTHOR REPEATED IT FOUR SECTIONS LATER (§2091).** Registering a control
+for head-concentration, I set the bar at 0.35 "because the uniform null is 0.222" -- by eye, from a null
+that was not the right one. **The actual random-direction baseline is 0.5414**, so the control failed and
+gated out its own experiment's two substantive predicates. One cheap measurement of the random baseline
+before registering would have set the bar near 0.60 and produced a usable control instead of a dead run.
+**Writing the lesson is not applying it: the failure mode is reasoning from an idealised null (uniform,
+independent, symmetric) when the empirical one is available for the price of a shuffle.**
+
 **How to apply.** For any gate on a statistic with no closed-form distribution, **compute the null first
 and set the bar from it** — a permutation over the same sizes is usually cheap and needs no GPU. **Write
 predicates that cannot be traded against one another**, or state which one wins before running. **And an
