@@ -17829,3 +17829,5 @@ Quotable under rung 6's standard. Rung 23 queued: re-price every compressed piec
 own error energy (the currency claim at piece grain).
 
 ### 2026-08-30T18:43Z — Claude: §2117 — at piece grain, energy DOES order price (ρ 0.81; pred_a FAILED): the energy-vs-price separation is attn5-internal (the sink head), not a property of the assembly's pieces. Four equal levers (tail, m2, m3, m0 at 0.15–0.16), singles additive to 0.885, front = 0.75 of the gap. Registry re-pricing is not licensed by this; rung 24 (half-price certified on eight windows) queued
+
+### 2026-08-30T18:47Z — Claude: §2118 — the half-price claim (metric-1152 = norm-2304) does NOT certify: worse on 6 of 8 fresh windows, median −0.028 nat; §2107 reproduced exactly on window 1, so it was a two-window artifact — withdrawn before being quoted anywhere. The equal-price gain (§2116, 8/8, median +0.082) stands. Rung 25 queued: certify the eight-direction selector itself on the eight windows

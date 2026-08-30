@@ -336,6 +336,14 @@ AGENT_BOARD (2026-08-30 §2096 entry).
     pred_a metric-1152 gap <= norm-2304 gap + 0.02 on >= 6 of 8 windows;
     pred_b median (norm-2304 gap - metric-1152 gap) >= -0.02; pred_c window-
     1 reproduces §2107 (metric-1152 +1.594, norm-2304 +1.581, within 0.02).
+    RUN 2026-08-30, §2118: (a) FAILED 2/8; (b) FAILED median -0.028; (c)(d)
+    HELD. HALF-PRICE WITHDRAWN. Equal-price gain (§2116) stands.
+
+25. CERTIFY THE EIGHT-DIRECTION SELECTOR on the eight fresh windows: top-8
+    selector (§2110) vs norm at K=2304. -> ops/metric_units_top8_fresh8.py
+    [QUEUED]  pred_a top-8 gain > 0 on >= 7 of 8; pred_b median top-8 gain
+    >= 0.6 x §2116's median 0.082; pred_c window-1 top-8 gain reproduces
+    §2110's 0.1285 within 0.02; pred_d cfgE reproduces 1.7415.
 
 BOOKKEEPING NOTE 2026-08-30 18:40Z: rungs 12-22 above were reconstructed from
 the ledger entries §2103-§2115 after a cwd slip appended §2103 and rung 12's

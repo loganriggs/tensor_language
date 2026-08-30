@@ -63080,3 +63080,34 @@ dropping its hook (no refit — the in-situ oracle price of its error), CE recov
   doing.
 
 **Next.** (B) from the 18:35 review: certify the half-price claim (metric-1152 = norm-2304) on the eight fresh windows.
+
+## §2118 — RUNG 24: THE HALF-PRICE CLAIM DOES NOT CERTIFY. Metric-selected mlp4/mlp5 at 1,152 units is WORSE than norm-selected at 2,304 on six of the eight fresh windows (median −0.028 nat); §2107's "two-for-one" was a property of its two windows. Window 1 reproduces exactly. The equal-price gain (§2116) stands; the compression statement is withdrawn
+
+`ops/metric_units_halfprice8.py`, **133s**, BACKLOG rung 24. Same eight document-disjoint pile-10k windows as §2116.
+**pred_d HELD (1.7415) | pred_c HELD (window 1: norm-2304 +1.5808, metric-1152 +1.5943 — §2107 to four decimals) | pred_a
+FAILED (2 of 8 within +0.02) | pred_b FAILED (median −0.028).**
+
+```
+  window  docs  real CE   norm-2304 gap   metric-1152 gap   norm − metric
+    0       7    3.400      +1.861          +1.949            −0.088
+    1      42    3.377      +2.046          +2.074            −0.028
+    2      17    3.988      +1.841          +1.762            +0.079     <- the hard window again
+    3      23    3.473      +1.955          +1.934            +0.021
+    4      43    3.588      +1.974          +2.024            −0.050
+    5      26    3.352      +1.883          +1.911            −0.028
+    6      35    3.769      +1.748          +1.777            −0.029
+    7      35    3.664      +1.819          +1.862            −0.043
+```
+
+- **Withdrawn:** "metric selection at half the units matches norm selection at full units" (§2107, this ledger's
+  frontier note). On two windows it held within 0.014 / 0.040; on eight it fails on six, by 0.03–0.09 nat. The
+  §2107 numbers were right on their windows and do not transfer — exactly the shape rung 6 exists to catch, caught
+  before the number was quoted anywhere but here.
+- **Not withdrawn:** the equal-price gain. §2116's 8/8 at K = 2,304 was measured on these same windows with the same
+  builder; it is unaffected.
+- **The hard windows again:** the only clear wins for half-price are windows 2 and 3 (base CE 3.99 and 3.47 — the
+  windows where §2116's equal-price gain was also largest). Metric selection is worth the most where the model is
+  worst, and only there is it worth a factor of two in units.
+
+**Standing frontier statement (revised):** at equal stored values, metric/eight-direction selection of mlp4/mlp5's units
+improves the certified assembly by a median 0.082 nat on eight fresh windows (8/8). No compression factor is certified.
