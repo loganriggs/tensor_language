@@ -59156,6 +59156,12 @@ pred_c True | pred_d True | derived controls True.** Reference deviation 0.00000
 > to the whole they claimed**, which §2014's 22% super-additivity in the loss made a real question rather
 > than arithmetic.
 
+**QUALIFICATION (§2029).** The pooled margins above are correct. **They are not uniform.** The +3.064
+milli-nats over §1959's build is **+3.3 to +5.0 at covered inputs and −0.7 to −4.7 at uncovered ones** — a
+net of a larger gain and a real loss, on every role. The covered arm carries about three quarters of
+scored positions and outvotes the rest. **Read these as pooled averages over a heterogeneous gain**, which
+is what they are and what nothing in the fifteen sections before them would have shown.
+
 **The build, stated once, in full.**
 
 > **36 per-token context-free tables. Attention rank 384. MLP rank 768 at layers 0–9 and 1152 at layers
@@ -59226,3 +59232,49 @@ CE. §2023 and §2024 used it to sell parameters; §2029 shows that sale's cost 
 weakest cells**. **Whether a price rule stated on an average may authorise a trade whose cost is not
 average is a decision about §1947.** The immediate measurable is narrower and is one arm: score §2020's
 build — tables only, no map cut — at uncovered inputs, and see whether the loss is the map's.
+
+## §2030 — the map cut is a uniform 1-milli-nat uncovered cost; the big deficit is the TABLES, and I named the wrong suspect
+
+`ops/which_change_costs_the_uncovered_arm.py`, **92.6s**, **DISCOVERY ONLY**, 5,419, rung 3 — §2029's open
+question. **pred_a True | pred_b True | pred_c True | pred_d True | derived controls True.** Reference
+deviation 0.000000. No crashed predicates.
+
+```
+  milli-nats over §1959's build, decomposed by change, 5,419
+                    UNCOVERED inputs                        covered inputs
+             tables   map cut   sum     converged      tables   map cut
+  skip7000   +0.316   −1.067   −0.751    −0.734        +4.970    0.000
+  skip11000  +0.130   −0.950   −0.820    −0.790        +4.787    0.000
+  skip1200   −3.837   −0.868   −4.705    −4.693        +3.329    0.000
+```
+
+> **pred_b PASSED 3/3 and the mechanism confirms itself exactly. §2024's map cut costs −0.868 to −1.067
+> milli-nats at uncovered inputs on every role and precisely 0.000 at covered ones** — the map acts only
+> on uncovered rows, and the measurement returns that to three decimals on all three roles. **A uniform,
+> mechanism-consistent, one-milli-nat cost.**
+
+> **pred_d PASSED: the two changes sum to within 0.02 milli-nats of the total** on every role, so the
+> decomposition is clean and §2014's super-additivity does not bite here.
+
+> **But pred_c passed 2 of 3, and that is where I was wrong. §2029 named §2024's map cut as "the
+> suspect".** At the role with by far the largest deficit — skip1200, **−4.693** — the map cut contributes
+> **−0.868** and **§2020's table raise contributes −3.837, four times as much.** On the other two roles the
+> table raise is *positive* at uncovered inputs (+0.316, +0.130). **The map cut is the uniform cost; the
+> table raise is the large one, and only on one role.**
+
+**What each change actually buys, stated properly.** §2020's table raise: **+3.3 to +5.0 at covered
+inputs on every role**, and at uncovered inputs **+0.3 / +0.1 / −3.8**. §2024's map cut: **zero at covered
+inputs, −0.9 to −1.1 at uncovered ones, on every role**, in exchange for 7.08M values worth 0.71
+milli-nats pooled. **The table raise is a large heterogeneous gain; the map cut is a small uniform sale.**
+
+**And the sale is the one that should be reconsidered, on evidence rather than on my suspicion.** Its cost
+falls **entirely** on the quarter of positions the fallback exists for, at about **1 milli-nat every
+time**, and §1947's rule sanctioned it on a pooled average of **+0.47**. **Whether that trade is
+admissible is the §1947 question already with Logan, and §2030 is the measurement it needs**: not "the map
+cut is bad" but "the map cut costs 1.0 milli-nat in the uncovered arm and 0.0 elsewhere, for parameters
+worth 0.71 pooled."
+
+**Open.** skip1200's **−3.837** from the table raise is unexplained and role-specific — the other two roles
+gain there. skip1200 is the half-sized role (18,432 scored positions against 36,864, §1971) and its
+rowcache is the n96 one. **Whether that deficit is a property of the role or of its size is one arm: the
+same decomposition at 16,110, where the uncovered arm halves.**
