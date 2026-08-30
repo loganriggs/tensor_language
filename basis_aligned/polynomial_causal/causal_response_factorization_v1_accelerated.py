@@ -21,6 +21,74 @@ from causal_response_factorization_v1 import (
 )
 
 
+def _seeded_initial_factors(
+    shape: tuple[int, int, int, int],
+    source_groups: torch.Tensor,
+    *,
+    global_rank: int,
+    private_rank: int,
+    seed: int,
+) -> tuple[list[torch.Tensor], list[list[torch.Tensor]]]:
+    """Return the one device-independent CPU-float64 optimizer preimage."""
+
+    p, s, t, d = shape
+    group_count = int(source_groups.max()) + 1
+    generator = torch.Generator(device="cpu").manual_seed(seed)
+
+    def master(value_shape: tuple[int, ...]) -> torch.Tensor:
+        return 0.35 * torch.randn(
+            value_shape, generator=generator, dtype=torch.float64,
+        )
+
+    global_factors = [
+        master((p, global_rank)), master((s, global_rank)),
+        master((t, global_rank)), master((d, global_rank)),
+    ] if global_rank else []
+    private_factors = []
+    for group in range(group_count):
+        group_sources = int((source_groups == group).sum())
+        private_factors.append([
+            master((p, private_rank)), master((group_sources, private_rank)),
+            master((t, private_rank)), master((d, private_rank)),
+        ] if private_rank else [])
+    return global_factors, private_factors
+
+
+def seeded_initial_mse(
+    response: torch.Tensor,
+    valid: torch.Tensor,
+    source_groups: torch.Tensor,
+    *,
+    global_rank: int,
+    private_rank: int,
+    seed: int,
+) -> float:
+    """Replay the optimizer initialization loss entirely on CPU float64."""
+
+    response = _exact_cpu_tensor(response, torch.float64, "response")
+    valid = _exact_cpu_tensor(valid, torch.bool, "valid")
+    source_groups = _exact_cpu_tensor(source_groups, torch.int64, "source_groups")
+    if response.ndim != 4 or valid.shape != response.shape or not bool(valid.any()):
+        raise ValueError("initial-loss response and validity are malformed")
+    if source_groups.shape != (response.shape[1],) or source_groups.min() < 0 or (
+        global_rank < 0 or private_rank < 0 or global_rank + private_rank == 0
+    ):
+        raise ValueError("initial-loss topology or ranks are malformed")
+    global_factors, private_factors = _seeded_initial_factors(
+        tuple(response.shape), source_groups, global_rank=global_rank,
+        private_rank=private_rank, seed=seed,
+    )
+    estimate = torch.zeros_like(response)
+    if global_rank:
+        estimate += torch.einsum("pk,sk,tk,dk->pstd", *global_factors)
+    if private_rank:
+        for group, factors in enumerate(private_factors):
+            estimate[:, source_groups == group] += torch.einsum(
+                "pk,sk,tk,dk->pstd", *factors,
+            )
+    return float(((estimate[valid] - response[valid]) ** 2).mean())
+
+
 def fit_shared_private_program_accelerated(
     response: torch.Tensor,
     valid: torch.Tensor,
@@ -62,23 +130,18 @@ def fit_shared_private_program_accelerated(
     valid_work = valid.to(device=device)
     groups_work = source_groups.to(device=device)
     group_masks = tuple(groups_work == group for group in range(group_count))
-    generator = torch.Generator(device="cpu").manual_seed(seed)
+    global_master, private_master = _seeded_initial_factors(
+        (p, s, t, d), source_groups, global_rank=global_rank,
+        private_rank=private_rank, seed=seed,
+    )
 
-    def parameter(shape: tuple[int, ...]) -> torch.nn.Parameter:
-        master = 0.35 * torch.randn(shape, generator=generator, dtype=torch.float64)
+    def parameter(master: torch.Tensor) -> torch.nn.Parameter:
         return torch.nn.Parameter(master.to(device=device, dtype=dtype))
 
-    global_factors = [
-        parameter((p, global_rank)), parameter((s, global_rank)),
-        parameter((t, global_rank)), parameter((d, global_rank)),
-    ] if global_rank else []
-    private_factors: list[list[torch.nn.Parameter]] = []
-    for group in range(group_count):
-        group_sources = int((source_groups == group).sum())
-        private_factors.append([
-            parameter((p, private_rank)), parameter((group_sources, private_rank)),
-            parameter((t, private_rank)), parameter((d, private_rank)),
-        ] if private_rank else [])
+    global_factors = [parameter(value) for value in global_master]
+    private_factors: list[list[torch.nn.Parameter]] = [
+        [parameter(value) for value in block] for block in private_master
+    ]
     parameters = list(global_factors)
     for group in private_factors:
         parameters.extend(group)
@@ -97,9 +160,10 @@ def fit_shared_private_program_accelerated(
                 )
         return estimate
 
-    with torch.no_grad():
-        initial_replay = prediction().detach().to(device="cpu", dtype=torch.float64)
-        initial = float(((initial_replay[valid] - response[valid]) ** 2).mean())
+    initial = seeded_initial_mse(
+        response, valid, source_groups, global_rank=global_rank,
+        private_rank=private_rank, seed=seed,
+    )
     for _ in range(steps):
         optimizer.zero_grad(set_to_none=True)
         estimate = prediction()

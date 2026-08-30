@@ -36,9 +36,15 @@ Rungs 1-3 are DONE; rung 4 is the first genuinely open one.
    from the rung's own input; a nonlinear absorber or a different read site is
    untested, though negative held-out R^2 indicates absent signal rather than
    insufficient capacity.
-   **STANDALONE CANDIDATE LEFT ON THE TABLE: `a1`** -- injection +0.8384,
-   linearly readable at R^2 0.60. Whether recovering that converts into CE or
-   into downstream stream fidelity is unmeasured, and §309 dissociates the two.
+   **THE `a1` CANDIDATE IS ALSO CLOSED, §2089.** Installing its rank-32 absorber
+   (no downstream refit -- the cheap deployment) on held-out rows: block-2
+   rel-MSE **rose 9.79%** while block-6 fell **11.37%**, and CE rose **+0.0033**.
+   The correction hurts where it acts and helps four blocks later, because `m1`
+   was fitted under the un-absorbed `a1` context -- **§307's mismatch, visible in
+   the stream rather than only in CE, and not monotone in depth.** The CE cost is
+   **0.3% of the assembly's +1.19-nat gap**: neither a win nor a disaster.
+   Whether it pays under a FULL matched-context merge is untested and is exactly
+   the expensive machinery this rung was closed to avoid.
 
 3. a8 / COUNTING: symbolic count features from raw tokens (deploy-legal)
    -> a8_symbolic.py

@@ -27,6 +27,7 @@ import torch
 from causal_response_factorization_v1 import FitResult, ResponseProgram, predict_from_codes
 from causal_response_factorization_v1_accelerated import (
     fit_shared_private_program_accelerated,
+    seeded_initial_mse,
 )
 from causal_response_factorization_v1_candidate_price_audit import (
     RANK_PAIRS,
@@ -47,6 +48,10 @@ GRID_AUDIT = HERE / "causal_response_factorization_v1_grid_independent_audit.jso
 STEPS = 2_000
 LEARNING_RATE = 0.03
 MINIMUM_IMPROVEMENT = 1e-4
+NUMERICAL_FAILURE_MESSAGES = {
+    "accelerated shared/private optimizer became nonfinite",
+    "accelerated canonical replay ended nonfinite",
+}
 SOURCE_PATHS = tuple(dict.fromkeys((*training_lifecycle.SOURCE_PATHS, *(
     HERE / "causal_response_factorization_v1_candidate_price_audit.py",
     HERE / "causal_response_factorization_v1_candidate_price_audit.json",
@@ -313,6 +318,7 @@ def _validate_result_cell(
     if type(codes) is not torch.Tensor or codes.dtype != torch.float64 or (
         codes.device.type != "cpu" or not codes.is_contiguous()
         or codes.shape != (training.response.shape[-1], program.code_dimension)
+        or not bool(torch.isfinite(codes).all())
     ):
         raise RuntimeError(f"grid result codes changed: {path.name}")
     if not torch.equal(program.source_groups, training.source_groups):
@@ -363,11 +369,10 @@ def _validate_result_cell(
         raise RuntimeError(f"grid result fixed binding changed: {path.name}")
     replay = predict_from_codes(program.basis(), codes).reshape_as(training.response)
     replay_mse = float(((replay[training.valid] - training.response[training.valid]) ** 2).mean())
-    initial_mse = receipt.get("initial_mse")
-    if not isinstance(initial_mse, (int, float)) or not math.isfinite(initial_mse) or (
-        initial_mse <= 0
-    ):
-        raise RuntimeError(f"grid result initial loss is invalid: {path.name}")
+    initial_mse = seeded_initial_mse(
+        training.response, training.valid, training.source_groups,
+        global_rank=global_rank, private_rank=private_rank, seed=seed,
+    )
     improvement = (initial_mse - replay_mse) / max(
         initial_mse, torch.finfo(torch.float64).tiny,
     )
@@ -376,6 +381,48 @@ def _validate_result_cell(
         final_mse=replay_mse, improvement_fraction=improvement, steps=steps, seed=seed,
     )
     expected_report = _training_error_report(training, fitted)
+    code_offset = 0
+    blocks = []
+    if global_rank:
+        blocks.append((
+            (program.global_phase, program.global_source, program.global_target),
+            codes[:, :global_rank],
+        ))
+    code_offset += global_rank
+    for group in range(len(program.private_phase)):
+        if private_rank:
+            blocks.append((
+                (
+                    program.private_phase[group], program.private_source[group],
+                    program.private_target[group],
+                ),
+                codes[:, code_offset:code_offset + private_rank],
+            ))
+        code_offset += private_rank
+
+    def block_is_canonical(
+        factors: tuple[torch.Tensor, torch.Tensor, torch.Tensor],
+        block_codes: torch.Tensor,
+    ) -> bool:
+        rank = block_codes.shape[1]
+        keys = []
+        for factor in factors:
+            if not bool(torch.allclose(
+                factor.norm(dim=0), torch.ones(rank, dtype=torch.float64),
+                atol=1e-12, rtol=0,
+            )):
+                return False
+            pivots = factor.abs().argmax(dim=0)
+            if not bool((factor[pivots, torch.arange(rank)] > 0).all()):
+                return False
+        for column in range(rank):
+            packed = torch.cat([factor[:, column] for factor in factors])
+            keys.append(hashlib.sha256(packed.numpy().tobytes()).digest())
+        return keys == sorted(keys)
+
+    canonical = all(
+        block_is_canonical(factors, block_codes) for factors, block_codes in blocks
+    )
     price_row = {
         (row.global_rank, row.private_rank_each_owner): row for row in audit_rows()
     }.get((global_rank, private_rank))
@@ -424,6 +471,7 @@ def _validate_result_cell(
         "health": receipt.get("healthy") is (
             math.isfinite(replay_mse) and improvement >= MINIMUM_IMPROVEMENT
         ),
+        "canonical_gauge": canonical,
     }
     failed = sorted(label for label, passed in checks.items() if not passed)
     if failed:
@@ -445,6 +493,7 @@ def _validate_failure_cell(
     steps: int,
     learning_rate: float,
     optimizer_device: str,
+    registered_only: bool,
 ) -> tuple[dict[str, object], bytes]:
     value = json.loads(path.read_bytes())
     required = {
@@ -470,6 +519,11 @@ def _validate_failure_cell(
         or value["elapsed_seconds"] < 0
     ):
         raise RuntimeError(f"grid failure semantic replay changed: {path.name}")
+    if registered_only and (
+        value["error_type"] != "RuntimeError"
+        or value["error_message"] not in NUMERICAL_FAILURE_MESSAGES
+    ):
+        raise RuntimeError(f"grid failure is not a registered numerical outcome: {path.name}")
     raw = path.read_bytes()
     return value, raw
 
@@ -616,6 +670,7 @@ def _run_grid_locked(
                     input_sha256=input_binding["sha256"], global_rank=global_rank,
                     private_rank=private_rank, seed=seed, steps=steps,
                     learning_rate=learning_rate, optimizer_device=optimizer_device,
+                    registered_only=require_published_source,
                 )
                 cells.append({**failure, "kind": "failure", "artifact": failure_path.name,
                               "artifact_sha256": _sha256(raw), "bytes": len(raw)})
@@ -631,12 +686,9 @@ def _run_grid_locked(
                     optimizer_device=optimizer_device,
                 )
             except Exception as error:
-                numerical_messages = {
-                    "accelerated shared/private optimizer became nonfinite",
-                    "accelerated canonical replay ended nonfinite",
-                }
                 if require_published_source and not (
-                    type(error) is RuntimeError and str(error) in numerical_messages
+                    type(error) is RuntimeError
+                    and str(error) in NUMERICAL_FAILURE_MESSAGES
                 ):
                     raise
                 failure = {
@@ -663,6 +715,7 @@ def _run_grid_locked(
                         input_sha256=input_binding["sha256"], global_rank=global_rank,
                         private_rank=private_rank, seed=seed, steps=steps,
                         learning_rate=learning_rate, optimizer_device=optimizer_device,
+                        registered_only=require_published_source,
                     ),
                 )
                 cells.append({**failure, "kind": "failure", "artifact": failure_path.name,

@@ -61924,3 +61924,54 @@ is weak corroboration from a different program, not a substitute for testing it 
 **Whether recovering 60% of its residual variance converts into CE or into stream fidelity downstream is
 unmeasured** — §309's dissociation of the two means neither can be assumed from the other, and that is
 the honest next question if anyone wants the remaining absorber.
+
+## §2089 — a1's absorber hurts where it acts and helps four blocks later; CE regresses. §307's mismatch, now visible in the STREAM
+
+`ops/a1_absorber_effect.py`, **72s**, BACKLOG rung 2's last candidate. **pred_a FAILED | pred_b HELD |
+pred_c FAILED.** Rank-32 read fitted on 11,776 positions, installed at `a1`'s output, measured on the
+held-out 11,776. **Nothing downstream refitted** — the cheap deployment, and deliberately §307's
+off-context case.
+
+```
+  block input      off       on      change
+      2         0.4978   0.5465     +9.79%     <- immediately downstream: WORSE
+      4         0.6870   0.7078     +3.02%
+      6         1.7494   1.5505    -11.37%     <- S2086's peak: BETTER
+     10         1.2351   1.1842     -4.12%
+     17         0.5487   0.5449     -0.68%
+
+  CE   off 4.8275 | on 4.8309 | delta +0.0033      (real model 3.6347)
+```
+
+**pred_a FAILED, and not by falling short — by going the wrong way.** I predicted block 2's rel-MSE would
+drop 30%; it **rose 9.79%**. The absorber recovers 60% of `a1`'s residual variance (§2088, held out) and
+the site immediately downstream gets **worse**.
+
+**pred_b HELD: at §2086's peak the stream is 11.37% better**, and the improvement persists, shrinking,
+through blocks 10 and 17. **So the same correction is harmful at block 2 and helpful at block 6.**
+
+> **The sign flip is the finding, and §307 explains it — in a currency §307 never measured.** `m1` was
+> fitted under the *un-absorbed* `a1` context. Correcting `a1` moves its output toward the real model and
+> simultaneously moves `m1` off the context it was fitted for, and at block 2 the second effect dominates.
+> By block 6 the corrected stream has propagated and the net is positive. **§307 documented this mismatch
+> as a CE cost; here it is visible in the stream itself, and it is not monotone in depth.**
+
+**pred_c FAILED: CE rises 0.0033.** Scale matters for how hard to read that: the assembly sits **+1.19
+nats** over the real model on this slice, so the absorber moves CE by **0.3% of the gap** while moving the
+peak stream error by 11%. **That is §309's dissociation again — a real stream change with essentially no
+CE consequence, in the direction that fails the bar.** Scored FAILED as written; it is not a disaster,
+and it is not a win.
+
+**Verdict on the candidate, and on the rung.** `a1`'s absorber is **not deployable as fitted**: it costs
+CE and damages the stream where it acts. Whether it pays under a **full matched-context merge** — every
+downstream rung refit with the absorber in place — is untested, and that is precisely the expensive
+machinery §2088 closed rung 2 to avoid. **The rung stays closed; the candidate is now closed too unless
+someone wants to spend the merge on a 0.3%-of-gap CE effect.**
+
+**The registered §307 rescue did NOT fire, and that matters.** I wrote the script to print an
+"S307 reading" only if the stream improved locally while CE regressed. The stream got *worse* locally, so
+the branch never triggered and no rescue was claimed. **Registering the excuse in advance and gating it on
+a condition that then failed is why this section reports a plain negative instead of a story.**
+
+**Open.** Nothing I would spend GPU on. The a1 absorber question is answerable only by the full merge, and
+the measured prize is 0.3% of the assembly's CE gap.
