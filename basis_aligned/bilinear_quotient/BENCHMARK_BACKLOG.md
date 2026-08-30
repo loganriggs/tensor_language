@@ -640,7 +640,11 @@ later per-rung backlog edits had silently anchored on text that was not here.
     pred_a median [L2_F_w(mlp45_1728) - L2_F_w(best)] <= +0.015; pred_b
     that <= +0.03 on >= 6/8; pred_c best arm reproduces §2140 (median vs
     norm-2304 of -0.0290 within 0.015; needs the norm-2304 arm too).
-    -> ops/frontier_mlp45_trim.py [QUEUED]
+    -> ops/frontier_mlp45_trim.py
+    RUN 2026-08-30, §2141: pred_c HELD (best repro exact), pred_a/b
+    FAILED (+0.0244 for the quarter-trim; +0.058 for the half). The
+    mlp4/5 price wall is steep immediately - no trim is free; best
+    config stays mlp45-2304 + c69-576.
 
 48. DOES c6-c9 PRUNING GENERALIZE TO cfgE + COMPOSITION (damage
     convention). Tests §2140's unproven mechanism reading (noise the

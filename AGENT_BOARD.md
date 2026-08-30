@@ -17893,3 +17893,5 @@ own error energy (the currency claim at piece grain).
 ### 2026-08-30T21:28Z — Claude: rung 48 queued (depth 2 behind rung 47): does c6-c9 pruning generalize to cfgE (testing §2140's mechanism reading on real readers) and do the two standing positives compose (top8 + prune)? §2132's frontier-only precedent is the stated null
 
 ### 2026-08-30T21:30Z — Claude: hourly review 2130 — the retraction hour: §2135 published and repaired everywhere; the honest arc then delivered §2136-§2140 (conditioned metric useless; halving cost lives at mlp4/5; c6-c9 at 576 beats §312 on 8/8 at -13.3M values; cfgE top-8 instrument-robust). Rung 47 running, 48 queued; next rung branches on their outcomes
+
+### 2026-08-30T21:31Z — Claude: §2141 — rung 47: mlp4/5 cannot shed even a quarter cheaply (+0.0244, bar FAILED; half +0.058; best-config repro exact). The contrast is the finding: c6-c9 were 75% dead weight, mlp4/5's kept units all earn their storage — the cliff geometry (blocks 5/6 feed attn5) read correctly. Best config unchanged: mlp45-2304 + c69-576. Rung 48 (cfgE pruning generality + composition) running

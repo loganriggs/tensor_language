@@ -63754,3 +63754,24 @@ certify the OPPOSITE of their prose intent.
   the bottom three quarters of c6–c9's norm-ranked CP units inject approximation noise that the deployed
   assembly's downstream readers amplify; removing them helps more than their signal was worth. Whether mlp4/5
   can shed anything on top of this config → rung 47.
+
+## §2141 — RUNG 47: mlp4/mlp5 CANNOT SHED EVEN A QUARTER CHEAPLY. Trimming 2304 → 1728 on top of the best config costs +0.0244 median (bar ≤ +0.015 FAILED; ≤ +0.03 on only 5/8); 1152 costs +0.058. The mlp4/5 price wall is steep from the first unit dropped — the best measured config stays mlp45-2304 + c69-576. (Convention: L2 = CE above the real model; lower is better.)
+
+`ops/frontier_mlp45_trim.py`, **448s**, BACKLOG rung 47. **pred_c HELD (best repro −0.0291 vs −0.0290, exact) |
+pred_a FAILED (+0.0244 vs ≤ +0.015) | pred_b FAILED (5/8 vs 6/8).**
+
+```
+  arm (vs the best config, per-window damage added)   median
+  mlp45-1728 on top (−2.2M values)                   +0.0244   (+0.007 … +0.047, all positive)
+  mlp45-1152 on top (−4.4M values)                   +0.0578
+```
+
+- **The contrast with c6–c9 is the finding:** dropping c6–c9's bottom 75% *improved* the assembly (§2140);
+  dropping mlp4/5's bottom 25% costs +0.024 — roughly the §2137 concavity does NOT apply at mlp4/5: the cost
+  per dropped unit there is high immediately (~+0.0244 for 1152 units total) and near-linear to the half
+  (+0.058 for 2304 more... ≈ +0.033 further). Every norm-ranked mlp4/5 unit in the kept 2304 is earning its
+  storage; c6–c9's were 75% dead weight. This matches §2113's cliff geometry read correctly: what matters at
+  the cliff (blocks 5/6 feed attn5's amplification) is exactly where units cannot be spared.
+- **Frontier state (damage, fresh):** best remains **mlp45-2304 + c69-576 = 2.6691 FR / −0.0290 median on the
+  eight windows / −13.3M values vs §312** (reproduced exactly here). The price ladder at mlp4/5 is closed:
+  no trim is free.
