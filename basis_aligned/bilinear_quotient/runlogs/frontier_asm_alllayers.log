@@ -28,3 +28,99 @@ fit a17L
   window 0 (7 docs): L2 fresh +2.6735
   window 1 (42 docs): L2 fresh +2.9704
   window 2 (17 docs): L2 fresh +2.7323
+  window 3 (23 docs): L2 fresh +2.9632
+  window 4 (43 docs): L2 fresh +2.9546
+  window 5 (26 docs): L2 fresh +2.8355
+  window 6 (35 docs): L2 fresh +2.6410
+  window 7 (35 docs): L2 fresh +2.7056
+L2 empirical: C +2.4232 | fresh +2.6735 | tail-attn increment +0.3864
+assembly-conditioned Fisher top-8 collected at site 5
+assembly-conditioned Fisher top-8 collected at site 6
+assembly-conditioned Fisher top-8 collected at site 7
+assembly-conditioned Fisher top-8 collected at site 8
+assembly-conditioned Fisher top-8 collected at site 9
+assembly-conditioned Fisher top-8 collected at site 10
+(a) L2 <= +2.75 fresh: HELD
+(b) increment in [0.30,0.55]: HELD
+ARM 2/3: conditioned selection at mlp4/mlp5 (S2129 reproduction)
+a2-input probe acc 0.69
+fit a2
+fit a3
+fit a4
+fit a5
+fit a6
+fit a7
+fit a8
+fit a9
+fit a10
+fit a11
+fit a12
+fit a13
+fit a14
+fit a15
+fit a16
+fit a17
+L1 (+38 heads): C +2.0577 | fresh +2.3977
+fit a10L
+fit a11L
+fit a12L
+fit a13L
+fit a14L
+fit a15L
+fit a16L
+fit a17L
+  window 0 (7 docs): L2 fresh +2.7682
+  window 1 (42 docs): L2 fresh +3.0288
+  window 2 (17 docs): L2 fresh +2.7631
+  window 3 (23 docs): L2 fresh +2.9298
+  window 4 (43 docs): L2 fresh +2.9866
+  window 5 (26 docs): L2 fresh +2.8948
+  window 6 (35 docs): L2 fresh +2.6575
+  window 7 (35 docs): L2 fresh +2.7764
+L2 empirical: C +2.4826 | fresh +2.7682 | tail-attn increment +0.3705
+(a) L2 <= +2.75 fresh: FAILED
+(b) increment in [0.30,0.55]: HELD
+ARM 3/3: conditioned selection at mlp4-mlp9
+a2-input probe acc 0.69
+fit a2
+fit a3
+fit a4
+fit a5
+fit a6
+fit a7
+fit a8
+fit a9
+fit a10
+fit a11
+fit a12
+fit a13
+fit a14
+fit a15
+fit a16
+fit a17
+L1 (+38 heads): C +2.0848 | fresh +2.4169
+fit a10L
+fit a11L
+fit a12L
+fit a13L
+fit a14L
+fit a15L
+fit a16L
+fit a17L
+  window 0 (7 docs): L2 fresh +2.7692
+  window 1 (42 docs): L2 fresh +3.0243
+  window 2 (17 docs): L2 fresh +2.8070
+  window 3 (23 docs): L2 fresh +2.9068
+  window 4 (43 docs): L2 fresh +3.0156
+  window 5 (26 docs): L2 fresh +2.8893
+  window 6 (35 docs): L2 fresh +2.6628
+  window 7 (35 docs): L2 fresh +2.7922
+L2 empirical: C +2.4859 | fresh +2.7692 | tail-attn increment +0.3523
+(a) L2 <= +2.75 fresh: FAILED
+(b) increment in [0.30,0.55]: HELD
+gain mlp45-norm per window: [0.0947, 0.0584, 0.0308, -0.0334, 0.032, 0.0593, 0.0165, 0.0708]
+gain all-mlp45 per window: [0.001, -0.0045, 0.0439, -0.023, 0.029, -0.0055, 0.0053, 0.0158]
+(a) all-layers median add +0.0032 >= 0.02: FAILED
+(b) non-negative on 5/8 (bar 6): FAILED
+(c) mlp45 median +0.0452 vs 0.0481 (tol 0.015): HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/frontier_asm_alllayers_results.json (397s)

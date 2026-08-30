@@ -63471,3 +63471,25 @@ pred_c HELD (norm FR 2.6735, exact).**
   input is inert at window grain, or the two label sets agree where it matters; a random-label arm would separate
   these. The §2116/§2124/§2129 window evals all inherited labels the same way, and their certified quantities are
   arm DIFFERENCES sharing the labels — unaffected either way.
+
+## §2131 — RUNG 37: THE OTHER FOUR CP MIDDLES ADD NOTHING — CONDITIONED SELECTION IS AN mlp4/mlp5 STORY, LIKE THE REAL-MODEL METRIC BEFORE IT. Extending to c6–c9 buys +0.0032 median (5/8 non-negative); the mlp45 arm reproduces §2129 (+0.0452, within the registered wobble tolerance), so this negative is fully licensed
+
+`ops/frontier_asm_alllayers.py`, **397s**, BACKLOG rung 37. **pred_c HELD (+0.0452 vs +0.0481, tol 0.015) |
+pred_a FAILED (+0.0032 vs +0.02) | pred_b FAILED (5/8 vs 6/8).**
+
+```
+  window                 0        1        2        3        4        5        6        7      median
+  gain(mlp45/norm)    +0.095   +0.058   +0.031   −0.033   +0.032   +0.059   +0.017   +0.071   +0.0452
+  gain(all/mlp45)     +0.001   −0.005   +0.044   −0.023   +0.029   −0.006   +0.005   +0.016   +0.0032
+```
+
+- **The result matches §2106's shape exactly:** real-model metric selection at c6–c9 hurt on cfgE; the
+  assembly-conditioned metric there neither hurts nor helps the frontier (+0.003, noise-level, mixed signs).
+  Whatever mlp6–mlp9's kept units should be, the top-8 loss-reading directions at their following blocks do not
+  improve on loudness — **at both metrics, in both assemblies**. The selection gain lives where the price cliff
+  starts (§2113: attn5's write), at mlp4/mlp5, and nowhere else so far.
+- **The frontier keeps the §2129 configuration.** Cross-run: the mlp45 arm's FR value +2.7682 landed exactly on
+  the first rung-32 run (the §2129 run had +2.7707) — the ~0.003 CUDA-atomics wobble in the Fisher collection,
+  now seen from both sides; the registered 0.015 tolerance absorbed it, per the §2130 lesson.
+- Registered per the §2128 rule (arm-named formulas); scored as written; the null (§2106) was stated in the
+  header before running.

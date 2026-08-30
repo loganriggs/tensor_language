@@ -495,4 +495,20 @@ later per-rung backlog edits had silently anchored on text that was not here.
     pred_a median [L2_F_w(all) - L2_F_w(mlp45)] >= +0.02; pred_b >= 6/8
     non-negative; pred_c mlp45 arm reproduces §2129's +0.0481 within
     0.015 (CUDA-atomics wobble ~0.003).
-    -> ops/frontier_asm_alllayers.py [QUEUED 20:44Z]
+    -> ops/frontier_asm_alllayers.py
+    RUN 2026-08-30, §2131: pred_c HELD (+0.0452 repro), pred_a FAILED
+    (+0.0032), pred_b FAILED (5/8). c6-c9 conditioned selection adds
+    nothing - the selection gain is an mlp4/mlp5 story at both metrics in
+    both assemblies; the frontier keeps the §2129 config.
+
+38. LICENSE RUNG 36 PROPERLY: RNG-MATCHED cfgE CONDITIONING + LABEL BOUND.
+    §2130's conditional reading was unlicensed because SITE_OF restriction
+    moved the genF stream and the reproduction gate missed by 0.0001.
+    Rerun with the FULL rung-29 SITE_OF (stream matched exactly), and add
+    a random-label arm to the window-0 instrument check.
+    pred_a conditioning median [gap(top8) - gap(cond8)] >= +0.02;
+    pred_b conditioning >= 0 on >= 6/8; pred_c top8 arm reproduces
+    §2124's +0.0857 within 0.01 (stream now matched); pred_d RANDOM attnd
+    labels move the window-0 plain gap by >= 0.05 (if FAILED, cfgE's
+    attnd class-label input is certified inert at window grain <= 0.05).
+    -> ops/cfge_conditioned_fisher2.py
