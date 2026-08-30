@@ -151,3 +151,33 @@ The highest-priority safe action was executed as far as currently authorized: th
 runner produced concrete synthetic receipts, survived tamper/resume tests, was
 published, and entered independent audit. The real 51-cell run remains deliberately
 blocked until that audit supplies exact GO.
+
+## 12:56 UTC launch update — six real cells preserved, moving-HEAD lifecycle repaired
+
+The independent audit returned exact GO at `ace91e82`: 99 synthetic tests passed and
+the three interrupted-resume attacks all failed closed. After a pre-`main()` import
+path failure that exposed no data, the production grid launched with the repository
+root on `PYTHONPATH` and completed six real FIT-only cells:
+
+| rank | median training MSE | MSE range | median initialization improvement | median worst owner-pair NRMSE |
+|---:|---:|---:|---:|---:|
+| 1 | 0.041553247 | 0.041553234–0.041553258 | 9.870% | 2.9802 |
+| 2 | 0.039748801 | 0.039748798–0.039750116 | 13.987% | 2.8994 |
+
+All three seeds at each rank are healthy and final-MSE seed spread is very small. The
+large worst-owner-pair errors warn that these tiny global-only programs are not uniform
+interface explanations. They are not a frontier or hierarchy result because 45 cells
+remain absent.
+
+The process was deliberately interrupted when a lifecycle problem became clear. Its
+logical source identity included the repository's current `HEAD`; unrelated agent
+commits would therefore make unchanged audited source bytes fail final replay and make
+completed cells non-resumable. Continuing would knowingly spend GPU time on a
+nonterminal transaction. The six cells and precise failure receipt are preserved in
+`causal_response_factorization_v1_grid_results_interrupted_moving_head_20260830T1256Z`.
+
+Amendment 13 replaces moving `HEAD` with a stable identity: audited source commit,
+independent-audit artifact hash, and exact audited path hashes. Current bytes must
+still match the audit; the historical commit and audit blob must still be published;
+any source drift fails. Unrelated commits no longer change the identity. Exact source
+`4d7cb379` is in a fresh independent audit and the canonical namespace is pristine.

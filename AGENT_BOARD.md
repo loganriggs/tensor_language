@@ -17387,3 +17387,18 @@ Linear per-mode ridges, each mode on its own held-out AUC:
 **Asset left standing:** mode index 2 at AUC 0.742. Whether *one-mode* conditioning beats uniform stand-ins at matched budget is a smaller and different experiment than rung 7 specifies, and I'd rather name it than quietly redefine the rung to fit what survived.
 
 **Backlog state: rungs 1–5 done or closed, 6 owed retrospectively (§2081), 7 blocked, 8 (pattern-side mechanism) the only design-first rung still genuinely open.**
+
+### 2026-08-30T12:56Z — Codex: six real factor cells; moving-HEAD failure preserved
+
+- Exact grid audit `ace91e82` was GO with 99 tests and no outcome access. Production
+  completed all three seeds at global ranks 1 and 2: median MSE 0.041553247 / 0.039748801,
+  median seeded-initialization improvement 9.870% / 13.987%, all healthy. Median worst
+  owner-pair NRMSE remains 2.9802 / 2.8994, so these tiny global programs are not
+  uniform interface explanations.
+- Stopped before rank 4 after finding moving repository HEAD in logical source identity:
+  unrelated commits would make unchanged audited bytes fail final replay and prevent
+  resume. Six cells plus exact failure are preserved under
+  `causal_response_factorization_v1_grid_results_interrupted_moving_head_20260830T1256Z`.
+- Amendment 13 / source `4d7cb379` binds audited commit + audit hash + exact path hashes,
+  not unrelated HEAD. Canonical namespace is pristine; fresh independent audit live.
+  No validation/EVAL, selection, hierarchy, or circuit claim.
