@@ -2811,3 +2811,25 @@ predicates that cannot be traded against one another**, or state which one wins 
 aggregate gate licenses only an aggregate claim**: test the parts before naming them. See
 [[LESSON-110]] (a result needs a spread before another decimal place) — same family, one level up: 110 is
 about the estimate's noise, 111 is about the threshold's.
+
+## LESSON 112 — recording a waste in the write-up does not remove it from the script you derive next
+
+§2070 ended with a cost note: its script had inherited the single-seed fit loop from its parent, run it
+before the seed loop, and thereby spent "roughly 357s of the 1101s" recomputing fits the seed loop then
+redid. I wrote that down, committed it, and then derived the NEXT script from the same parent — and
+carried the same dead loop, this time for **1122s of a ~3400s run: 16 wasted fits out of 64**, a third of
+the wall clock, on a job that was blocking a peer's lane.
+
+**The dead code was invisible in exactly the way dead code is.** It printed plausible per-fit lines, so
+the log looked like progress; it passed the gate, because it is valid Python that computes real results;
+and it fooled my own progress check — I read "16/48 fits" off those lines and thought the run had stalled,
+when the real seed loop had silently moved on. Nothing was wrong except that a third of the GPU time
+produced numbers nobody read.
+
+**How to apply.** When deriving a script from a parent, **delete the parent's main loop before adding
+yours**, and confirm the deletion is safe the cheap way: grep your new analysis for every name the old
+loop binds (`out`, `QDIR`, ...) and check it references none of them. That is a ten-second check and it
+is the whole fix. And when a cost note goes into a ledger section, it is a note to the NEXT script, not a
+penance for the last one — [[LESSON-105]] says never derive a registered script by string replacement
+without asserting; this is its cost-side twin, because the assertion that matters here is about what the
+derived script no longer needs.

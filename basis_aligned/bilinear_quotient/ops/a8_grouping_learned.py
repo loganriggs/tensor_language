@@ -192,79 +192,13 @@ def evaluate(tag, key, mm, sl, Q, acts, lo, hi):
     return f(dq_m), f(dq_o), f(df_m), f(df_o)
 
 
-out = {}
-QDIR = {}
-ACTIVE_SEED = SEEDS[0]
-t0 = time.time()
-for tag in TARGETS:
-    key = BAT['by_tag'][tag]['best_mean']
-    mm, sl = leaf_masks(tag)
-    acts_tr = capture(key, *TRAIN_ROWS)
-    acts_ev = capture(key, *EVAL_ROWS)
-    rec = {'component': key, 'members': int(mm.sum()), 'ranks': {}}
-    for r in RANKS:
-        g = torch.Generator(device='cpu').manual_seed(ACTIVE_SEED + r)
-        # unit-scale init: |P| ~ 1 so an lr 5e-2 Adam step is a real rotation, not a 1e-4 nudge
-        P0 = (torch.randn(C.D, r, generator=g) / C.D ** 0.5).to(C.DEV)
-        Q_init = torch.linalg.qr(P0)[0].detach().clone()
-        P = P0.clone().requires_grad_(True)
-        opt = torch.optim.Adam([P], lr=LR)
-        gg = torch.Generator().manual_seed(SEED)
-        perm = torch.randperm(acts_tr.shape[0] * NP, generator=gg)
-        flat = acts_tr.reshape(-1, C.D)
-        step = 0
-        losses = []
-        while step < STEPS:
-            for i, idx, tg in batches(*TRAIN_ROWS, mm=mm):
-                if step >= STEPS:
-                    break
-                m_, s_ = mm[i:i + idx.shape[0]].to(C.DEV), sl[i:i + idx.shape[0]].to(C.DEV)
-                if m_.sum() == 0:
-                    continue
-                k = (i - TRAIN_ROWS[0]) // BATCH
-                n = idx.shape[0] * NP
-                dn = flat[perm[k * BATCH * NP:k * BATCH * NP + n]].to(C.DEV).view(
-                    idx.shape[0], NP, C.D)
-                Q = torch.linalg.qr(P)[0]
-                with torch.no_grad():
-                    b0 = fwd(idx, tg)
-                d = fwd(idx, tg, key, Q, dn) - b0
-                loss = -d[m_].mean() + d[~s_].abs().mean()
-                opt.zero_grad(); loss.backward(); opt.step()
-                losses.append(float(loss))
-                step += 1
-        with torch.no_grad():
-            Q = torch.linalg.qr(P)[0]
-            moved = 1.0 - float((Q.T @ Q_init).pow(2).sum() / r)      # 0 = never moved, 1 = orthogonal
-        first, last = (sum(losses[:20]) / 20, sum(losses[-20:]) / 20) if len(losses) >= 40 else (0., 0.)
-        healthy = moved > 0.02 and last < first
-        qm, qo, fm, fo = evaluate(tag, key, mm, sl, Q, acts_ev, *EVAL_ROWS)
-        ent = {'das_dce_members': round(qm, 4), 'das_dce_offslice': round(qo, 4),
-               'das_concentration': round(qm / qo, 3) if qo > 0 else None,
-               'full_dce_members': round(fm, 4), 'full_dce_offslice': round(fo, 4),
-               'full_concentration': round(fm / fo, 3) if fo > 0 else None,
-               'fraction_of_full_recovered': round(qm / fm, 3) if fm > 0 else None,
-               'subspace_moved_from_init': round(moved, 4),
-               'loss_first20': round(first, 6), 'loss_last20': round(last, 6),
-               'optimiser_healthy': bool(healthy)}
-        if r == 1:
-            u = closed_form_dir(acts_tr, mm, sl, *TRAIN_ROWS)
-            if u is not None:
-                ent['overlap_with_closed_form'] = round(float((Q[:, 0] @ u) ** 2), 3)
-                cm, co, _fm, _fo = evaluate(tag, key, mm, sl, u.unsqueeze(1), acts_ev, *EVAL_ROWS)
-                ent['closed_form_dce_members'] = round(cm, 4)
-                ent['closed_form_concentration'] = round(cm / co, 3) if co > 0 else None
-                ent['das_beats_closed_form'] = bool(qm > cm)
-        rec['ranks'][r] = ent
-        if r == 1:
-            QDIR[tag] = Q[:, 0].detach().clone()
-        print(f'  {tag:12s} {key:4s} rank {r}: members {qm:.4f} off {qo:.4f} conc '
-              f'{ent["das_concentration"]} recovered {ent["fraction_of_full_recovered"]} | '
-              f'moved {moved:.3f} loss {first:+.5f}->{last:+.5f} healthy {healthy} '
-              f'({time.time()-t0:.0f}s)', flush=True)
-    out[tag] = rec
-
-
+# THE INHERITED SINGLE-SEED FIT LOOP WAS DELETED HERE (2026-08-30, mid-run).
+# It fit all 16 circuits once and printed a "rank 1:" line each, and NOTHING below reads its output --
+# verified: the analysis references neither `out` nor its `QDIR`. On the run that produced this file's
+# results it burned 1122s of a ~3400s run, 16 wasted fits out of 64. §2070 recorded the identical waste
+# in its own parent at 357s and I then derived this script from that parent and carried it anyway.
+# LESSON 112. The results already written are unaffected: the wasted loop's output was discarded either
+# way, so removing it changes cost and not numbers.
 
 # ---- PER-SEED LEARNED DIRECTIONS, THEN THE S2075 GROUPING TESTED AGAINST A NULL
 import random                                                             # noqa: E402
