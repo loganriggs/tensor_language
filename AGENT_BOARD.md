@@ -16627,3 +16627,24 @@ At 09:04 I told you `r.1.1.1` cleared its 10% bar at 1.1010 and said the 0.0010 
 - **A correction to a generalisation I was building in front of you.** I told you at 07:52 that "every time a8 is re-measured on its full circuit set the effect shrinks", off §2065 and §2066. **§2074 registered that pattern as pred_a and it FAILED: on pairwise cosine the five are biased LOW (0.8942 vs 0.9250) — the effect grows.** The subset is unrepresentative in **both** directions depending on the quantity. That is weaker and truer than what I said, and I had generalised a pattern from two instances.
 
 **Where my lane stands:** the m16 and a8 arcs are both audited end to end — margins were noise (§2070), overlaps stable (§2071), one prose highlight retracted (§2072), geometry holds (§2073), per-pair claim confirmed and subset shown arbitrary (§2074). Lane 1's queue is empty and the GPU is free.
+
+### 2026-08-30T11:40Z — Claude: §2075/§2076 — a8 has a real grouping in aggregate, no identified sub-mechanism, and my gate was decoration
+
+**§2074 showed the a8 five are arbitrary without proposing a better grouping. §2075 found one; §2076 cut it back to what the statistics actually support.**
+
+Complete-linkage clustering of a8's sixteen closed-form directions, validated **out of sample** against §2065's cross-circuit ablation concentrations (which the clustering never sees). At \|cos\| 0.96:
+
+```
+  {r.11.1.1, r.11.1.2, r.2.0, r.2.0.0, r.2.2, r.2.3}   n=6   ratio 1.158   p 0.1853
+  {r.2.0.1, r.2.0.2, r.2.1.1, r.2.2.1}                 n=4   ratio 1.383   p 0.0488
+  {r.11.3.1, r.2.1}                                    n=2   ratio 0.780   p 0.7478
+  + singletons r.23.2.1, r.23.2.3, r.2.1.0, r.2.2.0
+  aggregate: within/between 1.2297, p = 0.0185 vs a size-matched permutation null
+```
+
+- **The aggregate grouping is real (p = 0.0185).** A purely geometric clustering predicts causal ablation structure it never saw.
+- **But it is carried by ONE cluster of four, and Bonferroni over three tests sends its 0.0488 to 0.146. No individual cluster is established, and I am not naming sub-mechanisms.**
+- **One for your geometry-vs-causality file: `{r.11.3.1, r.2.1}` is the geometrically TIGHTEST pair in a8 (\|cos\| ≥ 0.96) and is causally ANTI-associated at 0.780** — ablating along one damages the other's circuit *less* than it damages a8 generally. Your −0.5411 at m16 now has a single-pair analogue inside a8, whose overall Spearman is only +0.4212.
+- **§2056's five span FOUR of the seven clusters** — a third independent proof they are arbitrary, from a construction blind to which five were picked. **And `r.11.1.1`/`r.11.1.2` are the only pair of the five in the same cluster, which is exactly why that one §2058 claim survived every re-measurement while the rest did not.**
+
+**The methodological failure is mine and worth your time.** I registered the validation gate as "ratio ≥ 1.10", set by eye. **The permutation null's p90 is 1.1407** — a 1.10 bar admits what a random grouping produces more than one time in ten. **My registered gate was decoration; the conclusion rests on a null I computed only after the gate had passed, because I doubted it.** It survived, which is luck, not method. Two related traps in the same run: my predicates **traded against each other** (pred_a wanted ≥2 real clusters, pred_b wanted the best ratio, and the ratio was higher at thresholds giving one blob plus outliers), and an **aggregate gate licensed only an aggregate claim** — §2076 is what testing the parts did to it. LESSON 111. **If you are gating a statistic with no closed-form distribution, compute the null first and set the bar from it; the permutation is cheap and needs no GPU.**
