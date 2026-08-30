@@ -83,6 +83,8 @@ def test_arm_and_call_census_is_exact():
 def test_role_namespaces_are_disjoint_and_heldout_has_unlock_gate(tmp_path, monkeypatch):
     design, heldout = collect.role_paths("DESIGN"), collect.role_paths("HELDOUT")
     assert set(design.values()).isdisjoint(heldout.values())
+    assert "v3_design" in design["authority"].name
+    assert "v4_heldout" in heldout["authority"].name
     monkeypatch.setattr(collect, "PREDICTOR_RECEIPT", tmp_path / "absent.json")
     monkeypatch.setattr(collect, "role_paths", lambda _role: {
         "authority": tmp_path / "authority", "ledger": tmp_path / "ledger",
@@ -176,6 +178,7 @@ def test_ledger_schema_accepts_exact_replay_and_rejects_nonexact():
 def test_source_closure_contains_direct_science_and_tests():
     for path in (collect.PREREG, collect.ADDENDUM, collect.RUNNER, collect.TEST,
                  collect.CORE, collect.CORE_TEST, collect.RECOVERY_AMENDMENT,
+                 collect.HELDOUT_RECOVERY_AMENDMENT,
                  collect.HERE / "mlp2_error_rayleigh_metrics.py",
                  collect.HERE / "test_mlp2_error_rayleigh_metrics.py",
                  collect.HERE / "mlp2_error_rayleigh_predictor.py",
@@ -341,11 +344,12 @@ def test_mocked_lock_replacement_and_authority_mutation_fail_closed(tmp_path, mo
     assert not paths["receipt"].exists()
 
 
-def test_committed_scorer_source_map_rejects_empty_and_truncated():
-    with pytest.raises(RuntimeError, match="exact canonical set"):
+def test_committed_historical_source_map_rejects_empty_and_malformed():
+    with pytest.raises(RuntimeError, match="empty"):
         collect.committed_hash_map("irrelevant", {})
     one = {str(collect.SOURCE_PATHS[0].relative_to(collect.ROOT)): "a" * 64}
-    with pytest.raises(RuntimeError, match="exact canonical set"):
+    one[next(iter(one))] = "short"
+    with pytest.raises(RuntimeError, match="entry changed"):
         collect.committed_hash_map("irrelevant", one)
 
 

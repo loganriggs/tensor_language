@@ -38,13 +38,15 @@ RUNNER = Path(__file__).resolve()
 TEST = HERE / "test_run_mlp2_error_rayleigh_v1_collect.py"
 CORE = HERE / "mlp2_error_rayleigh_collector_core.py"
 CORE_TEST = HERE / "test_mlp2_error_rayleigh_collector_core.py"
-AUDIT = HERE / "mlp2_error_rayleigh_v3_collector_independent_audit.json"
+AUDIT = HERE / "mlp2_error_rayleigh_v4_heldout_collector_independent_audit.json"
 ROWS_RECEIPT = BQ / "mlp2_error_rayleigh_v1_rows_receipt.json"
-PREDICTOR_RECEIPT = HERE / "mlp2_error_rayleigh_v3_design_predictor_receipt.json"
-PREDICTOR_BUNDLE = HERE / "mlp2_error_rayleigh_v3_design_predictor_bundle.pt"
-PREDICTOR_AUTHORITY = HERE / "mlp2_error_rayleigh_v3_design_predictor_authority.json"
-PREDICTOR_AUDIT = HERE / "mlp2_error_rayleigh_v3_design_scorer_independent_audit.json"
+PREDICTOR_RECEIPT = HERE / "mlp2_error_rayleigh_v4_design_predictor_receipt.json"
+PREDICTOR_BUNDLE = HERE / "mlp2_error_rayleigh_v4_design_predictor_bundle.pt"
+PREDICTOR_AUTHORITY = HERE / "mlp2_error_rayleigh_v4_design_predictor_authority.json"
+PREDICTOR_AUDIT = HERE / "mlp2_error_rayleigh_v4_design_scorer_independent_audit.json"
 RECOVERY_AMENDMENT = HERE / "MLP2_ERROR_RAYLEIGH_DESIGN_V3_RECOVERY_AMENDMENT.md"
+HELDOUT_RECOVERY_AMENDMENT = HERE / "MLP2_ERROR_RAYLEIGH_HELDOUT_V4_RECOVERY_AMENDMENT.md"
+V3_COLLECTOR_AUDIT = HERE / "mlp2_error_rayleigh_v3_collector_independent_audit.json"
 V1_DESIGN_AUTHORITY = HERE / "mlp2_error_rayleigh_v1_design_authority.json"
 V1_DESIGN_FAILURE = HERE / "mlp2_error_rayleigh_v1_design_failure.json"
 V1_DESIGN_LEDGER = HERE / "mlp2_error_rayleigh_v1_design_ledger.pt"
@@ -92,7 +94,8 @@ V2_ABSENT_PATHS = (
     Path("/workspace/runs/.mlp2_error_rayleigh_v2_design_predictor.lock"),
 )
 SOURCE_PATHS = tuple(dict.fromkeys((
-    PREREG, ADDENDUM, RECOVERY_AMENDMENT, RUNNER, TEST, CORE, CORE_TEST,
+    PREREG, ADDENDUM, RECOVERY_AMENDMENT, HELDOUT_RECOVERY_AMENDMENT,
+    RUNNER, TEST, CORE, CORE_TEST,
     HERE / "mlp2_error_rayleigh_metrics.py",
     HERE / "test_mlp2_error_rayleigh_metrics.py",
     HERE / "mlp2_error_rayleigh_predictor.py",
@@ -166,7 +169,7 @@ def validate_audit(sources: Mapping[str, str]) -> tuple[dict[str, Any], str]:
         "audited_source_hashes", "tests_passed", "reviewer",
     }
     if set(value) != required or value.get("schema") != (
-        "mlp2_error_rayleigh_v3_collector_independent_audit"
+        "mlp2_error_rayleigh_v4_heldout_collector_independent_audit"
     ) or value.get("status") != "GO" or value.get("outcome_access") is not False \
             or value.get("audited_source_hashes") != dict(sources) \
             or not isinstance(value.get("tests_passed"), int) \
@@ -181,7 +184,8 @@ def validate_audit(sources: Mapping[str, str]) -> tuple[dict[str, Any], str]:
 def role_paths(role: str) -> dict[str, Path]:
     if role not in ROLE_NAMES:
         raise ValueError("collector role changed")
-    stem = f"mlp2_error_rayleigh_v3_{role.lower()}"
+    version = "v3" if role == "DESIGN" else "v4"
+    stem = f"mlp2_error_rayleigh_{version}_{role.lower()}"
     return {
         "authority": HERE / f"{stem}_authority.json",
         "ledger": HERE / f"{stem}_ledger.pt",
@@ -398,10 +402,9 @@ def validate_predictor_unlock() -> tuple[dict[str, Any], str]:
             or design_authority.get("outcome_access") is not False \
             or authority_sha != design_receipt["authority_sha256"]:
         raise RuntimeError("HELDOUT DESIGN authority semantics changed")
-    # This is deliberately a full semantic replay, not only a hash join.  It binds
-    # the DESIGN ledger to the checkpoint, rows, programs, audit, and sources that
-    # were frozen before the DESIGN responses were opened.
-    protected_snapshot(design_authority)
+    # DESIGN is an immutable completed artifact.  Replay it against the exact source
+    # map and audit frozen in its authority, not against the later HELDOUT executor.
+    historical_completed_design_snapshot(design_authority)
     validate_ledger(design_ledger, design_receipt["authority_sha256"], "DESIGN",
                     design_authority["parent_snapshot"]["checkpoint"])
     bundle, bundle_sha = stable_torch(PREDICTOR_BUNDLE, value["predictor_bundle_sha256"])
@@ -415,11 +418,15 @@ def validate_predictor_unlock() -> tuple[dict[str, Any], str]:
         "schema", "status", "source_commit", "source_hashes", "audit_sha256",
         "audit_reviewer", "design_receipt_sha256", "design_ledger_sha256",
         "design_authority_sha256", "ridge_grid", "families", "heldout_opened",
+        "spent_v3_scorer_failure_sha256",
     }
     if set(scorer_authority) != scorer_required \
             or scorer_authority.get("schema") != "mlp2_error_rayleigh_v1_design_predictor_authority" \
             or scorer_authority.get("status") != "frozen_before_design_ledger_open" \
             or scorer_authority.get("heldout_opened") is not False \
+            or scorer_authority.get("spent_v3_scorer_failure_sha256") != (
+                "d715167e26aec84378d6a48bbcabe8dfd3953cc8d108b959b8b300e88a16c3a6"
+            ) \
             or scorer_authority.get("design_receipt_sha256") != value["design_receipt_sha256"] \
             or scorer_authority.get("design_ledger_sha256") != value["design_ledger_sha256"] \
             or scorer_authority.get("design_authority_sha256") != design_receipt["authority_sha256"] \
@@ -439,7 +446,7 @@ def validate_predictor_unlock() -> tuple[dict[str, Any], str]:
         "audited_source_hashes", "tests_passed", "reviewer",
     }
     if set(scorer_audit) != audit_required \
-            or scorer_audit.get("schema") != "mlp2_error_rayleigh_v3_design_scorer_independent_audit" \
+            or scorer_audit.get("schema") != "mlp2_error_rayleigh_v4_design_scorer_independent_audit" \
             or scorer_audit.get("status") != "GO" or scorer_audit.get("outcome_access") is not False \
             or scorer_audit.get("audited_source_hashes") != scorer_authority["source_hashes"] \
             or scorer_audit.get("reviewer") != scorer_authority["audit_reviewer"] \
@@ -463,20 +470,59 @@ def validate_predictor_unlock() -> tuple[dict[str, Any], str]:
 def committed_hash_map(commit: str, values: Mapping[str, str]) -> dict[str, str]:
     if not isinstance(commit, str) or not isinstance(values, Mapping):
         raise RuntimeError("committed source map changed")
-    expected_relatives = {str(path.relative_to(ROOT)) for path in SOURCE_PATHS}
-    if set(values) != expected_relatives:
-        raise RuntimeError("committed scorer source closure is not the exact canonical set")
+    if not values:
+        raise RuntimeError("committed source map is empty")
+    for relative, expected in values.items():
+        if not isinstance(relative, str) or relative.startswith("/") \
+                or ".." in Path(relative).parts or not isinstance(expected, str) \
+                or len(expected) != 64:
+            raise RuntimeError("committed source entry changed")
     subprocess.run(["git", "merge-base", "--is-ancestor", commit, "origin/main"],
                    cwd=ROOT, check=True)
     observed = {}
     for relative, expected in values.items():
-        path = ROOT / relative
         blob = subprocess.check_output(["git", "show", f"{commit}:{relative}"], cwd=ROOT)
         digest = hashlib.sha256(blob).hexdigest()
-        if digest != expected or not path.is_file() or file_sha256(path) != expected:
+        if digest != expected:
             raise RuntimeError("committed source bytes changed")
         observed[relative] = digest
     return observed
+
+
+def historical_completed_design_snapshot(authority: Mapping[str, Any]) -> dict[str, Any]:
+    """Replay a completed DESIGN authority against its historical committed closure."""
+    if committed_hash_map(authority["source_commit"], authority["source_hashes"]) \
+            != authority["source_hashes"]:
+        raise RuntimeError("historical DESIGN committed source map changed")
+    historical_audit, audit_sha = stable_json(
+        V3_COLLECTOR_AUDIT, authority["audit_sha256"],
+    )
+    required_audit = {
+        "schema", "status", "outcome_access", "audited_source_commit",
+        "audited_source_hashes", "tests_passed", "reviewer",
+    }
+    if set(historical_audit) != required_audit \
+            or historical_audit.get("schema") != (
+                "mlp2_error_rayleigh_v3_collector_independent_audit"
+            ) or historical_audit.get("status") != "GO" \
+            or historical_audit.get("outcome_access") is not False \
+            or historical_audit.get("audited_source_hashes") != authority["source_hashes"] \
+            or historical_audit.get("reviewer") != authority["audit_reviewer"] \
+            or committed_hash_map(
+                historical_audit["audited_source_commit"],
+                historical_audit["audited_source_hashes"],
+            ) != authority["source_hashes"]:
+        raise RuntimeError("historical DESIGN audit chain changed")
+    rows, row_sha = stable_json(ROWS_RECEIPT, authority["row_receipt_sha256"])
+    validate_row_receipt(rows)
+    entry = rows["entries"][authority["role"]]
+    if entry["file_sha256"] != authority["row_file_sha256"]:
+        raise RuntimeError("historical DESIGN role row changed")
+    output = parent_snapshot()
+    if output != authority["parent_snapshot"] or audit_sha != authority["audit_sha256"] \
+            or row_sha != authority["row_receipt_sha256"]:
+        raise RuntimeError("historical DESIGN protected parent changed")
+    return output
 
 
 def parent_snapshot() -> dict[str, Any]:
