@@ -1,0 +1,423 @@
+{
+  "schema": "induction_equality_tensor_final_ood_v2_result",
+  "authority_sha256": "cd1e7e08986c76faf33244911f5044938f4a9153526cd9bd55d2a248d36cbad0",
+  "roles": {
+    "final_natural": {
+      "coordinate_names": [
+        "final_natural:target",
+        "final_natural:specificity",
+        "final_natural:off",
+        "final_natural:extraction",
+        "final_natural:deranged"
+      ],
+      "point": [
+        0.4685564609288556,
+        0.48879650135587577,
+        0.0034549617159214414,
+        0.9085079845263755,
+        -0.0030247771850964427
+      ],
+      "simultaneous_low": [
+        0.25900197566054367,
+        0.2792420160875638,
+        -0.2060995235523905,
+        0.6989534992580635,
+        -0.21257926245340839
+      ],
+      "simultaneous_high": [
+        0.6602570825123321,
+        0.6804971229393522,
+        0.1951555832993979,
+        1.100208606109852,
+        0.18867584439838
+      ],
+      "arm_cell_reports": {
+        "native": {
+          "positive": {
+            "tokens": 225,
+            "ce": 0.5686792382455097,
+            "native_to_arm_kl": 0.0,
+            "top1_accuracy": 0.8977777777777778
+          },
+          "matched_negative": {
+            "tokens": 225,
+            "ce": 2.710591345592437,
+            "native_to_arm_kl": 0.0,
+            "top1_accuracy": 0.5244444444444445
+          },
+          "off_target": {
+            "tokens": 33555,
+            "ce": 3.0941540132075422,
+            "native_to_arm_kl": 0.0,
+            "top1_accuracy": 0.39067203099389064
+          },
+          "all": {
+            "tokens": 36864,
+            "ce": 2.8794222465210386,
+            "native_to_arm_kl": 0.0,
+            "top1_accuracy": 0.4327528211805556
+          }
+        },
+        "full_replay": {
+          "positive": {
+            "tokens": 225,
+            "ce": 0.5686792382455097,
+            "native_to_arm_kl": 0.0,
+            "top1_accuracy": 0.8977777777777778
+          },
+          "matched_negative": {
+            "tokens": 225,
+            "ce": 2.710591345592437,
+            "native_to_arm_kl": 0.0,
+            "top1_accuracy": 0.5244444444444445
+          },
+          "off_target": {
+            "tokens": 33555,
+            "ce": 3.0941540132075422,
+            "native_to_arm_kl": 0.0,
+            "top1_accuracy": 0.39067203099389064
+          },
+          "all": {
+            "tokens": 36864,
+            "ce": 2.8794222465210386,
+            "native_to_arm_kl": 0.0,
+            "top1_accuracy": 0.4327528211805556
+          }
+        },
+        "remove_equality": {
+          "positive": {
+            "tokens": 225,
+            "ce": 1.0372356991743654,
+            "native_to_arm_kl": 0.3632643743943036,
+            "top1_accuracy": 0.7955555555555556
+          },
+          "matched_negative": {
+            "tokens": 225,
+            "ce": 2.6903513051654175,
+            "native_to_arm_kl": 0.05275116364586376,
+            "top1_accuracy": 0.5244444444444445
+          },
+          "off_target": {
+            "tokens": 33555,
+            "ce": 3.097608974923464,
+            "native_to_arm_kl": 0.01642530847114345,
+            "top1_accuracy": 0.3912680673521085
+          },
+          "all": {
+            "tokens": 36864,
+            "ce": 2.9316415487643015,
+            "native_to_arm_kl": 0.052511396605200995,
+            "top1_accuracy": 0.422119140625
+          }
+        },
+        "heads_deleted": {
+          "positive": {
+            "tokens": 225,
+            "ce": 1.1100497329299903,
+            "native_to_arm_kl": 0.41976119273056944,
+            "top1_accuracy": 0.7822222222222223
+          },
+          "matched_negative": {
+            "tokens": 225,
+            "ce": 2.685889539803534,
+            "native_to_arm_kl": 0.07539076426257899,
+            "top1_accuracy": 0.5244444444444445
+          },
+          "off_target": {
+            "tokens": 33555,
+            "ce": 3.113418829970765,
+            "native_to_arm_kl": 0.033635984263288364,
+            "top1_accuracy": 0.3867977946654746
+          },
+          "all": {
+            "tokens": 36864,
+            "ce": 2.9395162823704797,
+            "native_to_arm_kl": 0.062465593229144106,
+            "top1_accuracy": 0.41943359375
+          }
+        },
+        "extract_equality": {
+          "positive": {
+            "tokens": 225,
+            "ce": 0.6182103159221459,
+            "native_to_arm_kl": 0.032464494115297955,
+            "top1_accuracy": 0.8933333333333333
+          },
+          "matched_negative": {
+            "tokens": 225,
+            "ce": 2.7099397356871218,
+            "native_to_arm_kl": 0.013665674678098566,
+            "top1_accuracy": 0.5244444444444445
+          },
+          "off_target": {
+            "tokens": 33555,
+            "ce": 3.1090384603833128,
+            "native_to_arm_kl": 0.01697144548461612,
+            "top1_accuracy": 0.3872150201162271
+          },
+          "all": {
+            "tokens": 36864,
+            "ce": 2.893567132172513,
+            "native_to_arm_kl": 0.01722537656060612,
+            "top1_accuracy": 0.4294704861111111
+          }
+        },
+        "deranged_equality": {
+          "positive": {
+            "tokens": 225,
+            "ce": 1.1116872580509958,
+            "native_to_arm_kl": 0.42082920548424707,
+            "top1_accuracy": 0.7822222222222223
+          },
+          "matched_negative": {
+            "tokens": 225,
+            "ce": 2.689209756157792,
+            "native_to_arm_kl": 0.075334005788421,
+            "top1_accuracy": 0.52
+          },
+          "off_target": {
+            "tokens": 33555,
+            "ce": 3.11327789965769,
+            "native_to_arm_kl": 0.033626018262302666,
+            "top1_accuracy": 0.38655938012218743
+          },
+          "all": {
+            "tokens": 36864,
+            "ce": 2.939391842651989,
+            "native_to_arm_kl": 0.06246034119536544,
+            "top1_accuracy": 0.4193250868055556
+          }
+        }
+      },
+      "replay_mean_native_to_full_kl": -0.0,
+      "gates": {
+        "target": true,
+        "specificity": true,
+        "extraction": true,
+        "collateral": false,
+        "deranged": true,
+        "support": true,
+        "replay": true,
+        "calls": true
+      },
+      "passed": false
+    },
+    "ood_code": {
+      "coordinate_names": [
+        "ood_code:target",
+        "ood_code:specificity",
+        "ood_code:off",
+        "ood_code:extraction",
+        "ood_code:deranged"
+      ],
+      "point": [
+        1.5016582432973757,
+        1.281762239596495,
+        0.1383126062389937,
+        1.0104133749824276,
+        -0.0009021769866765692
+      ],
+      "simultaneous_low": [
+        1.2921037580290637,
+        1.072207754328183,
+        -0.07124187902931825,
+        0.8008588897141156,
+        -0.21045666225498852
+      ],
+      "simultaneous_high": [
+        1.6933588648808522,
+        1.4734628611799714,
+        0.3300132278224701,
+        1.202113996565904,
+        0.19079844459679987
+      ],
+      "arm_cell_reports": {
+        "native": {
+          "positive": {
+            "tokens": 1132,
+            "ce": 0.9778205999234806,
+            "native_to_arm_kl": 0.0,
+            "top1_accuracy": 0.8701413427561837
+          },
+          "matched_negative": {
+            "tokens": 1132,
+            "ce": 6.08470475428593,
+            "native_to_arm_kl": 0.0,
+            "top1_accuracy": 0.16696113074204946
+          },
+          "off_target": {
+            "tokens": 24884,
+            "ce": 4.9722198889042675,
+            "native_to_arm_kl": 0.0,
+            "top1_accuracy": 0.23846648448802443
+          },
+          "all": {
+            "tokens": 36864,
+            "ce": 3.727985877985085,
+            "native_to_arm_kl": 0.0,
+            "top1_accuracy": 0.4327528211805556
+          }
+        },
+        "full_replay": {
+          "positive": {
+            "tokens": 1132,
+            "ce": 0.9778205999234806,
+            "native_to_arm_kl": 0.0,
+            "top1_accuracy": 0.8701413427561837
+          },
+          "matched_negative": {
+            "tokens": 1132,
+            "ce": 6.08470475428593,
+            "native_to_arm_kl": 0.0,
+            "top1_accuracy": 0.16696113074204946
+          },
+          "off_target": {
+            "tokens": 24884,
+            "ce": 4.9722198889042675,
+            "native_to_arm_kl": 0.0,
+            "top1_accuracy": 0.23846648448802443
+          },
+          "all": {
+            "tokens": 36864,
+            "ce": 3.727985877985085,
+            "native_to_arm_kl": 0.0,
+            "top1_accuracy": 0.4327528211805556
+          }
+        },
+        "remove_equality": {
+          "positive": {
+            "tokens": 1132,
+            "ce": 2.479478843220858,
+            "native_to_arm_kl": 1.0426117020514638,
+            "top1_accuracy": 0.5441696113074205
+          },
+          "matched_negative": {
+            "tokens": 1132,
+            "ce": 6.304600757986806,
+            "native_to_arm_kl": 0.4692585813058058,
+            "top1_accuracy": 0.14929328621908128
+          },
+          "off_target": {
+            "tokens": 24884,
+            "ce": 5.1105324951432625,
+            "native_to_arm_kl": 0.23774278989152992,
+            "top1_accuracy": 0.2132695708085517
+          },
+          "all": {
+            "tokens": 36864,
+            "ce": 4.117190434406532,
+            "native_to_arm_kl": 0.408671778542035,
+            "top1_accuracy": 0.3533257378472222
+          }
+        },
+        "heads_deleted": {
+          "positive": {
+            "tokens": 1132,
+            "ce": 2.2917280202740886,
+            "native_to_arm_kl": 0.8847339227309132,
+            "top1_accuracy": 0.5662544169611308
+          },
+          "matched_negative": {
+            "tokens": 1132,
+            "ce": 6.266023190152673,
+            "native_to_arm_kl": 0.492153007137839,
+            "top1_accuracy": 0.13869257950530034
+          },
+          "off_target": {
+            "tokens": 24884,
+            "ce": 5.133701282428087,
+            "native_to_arm_kl": 0.30154165311069764,
+            "top1_accuracy": 0.20483041311686223
+          },
+          "all": {
+            "tokens": 36864,
+            "ce": 4.083074878878957,
+            "native_to_arm_kl": 0.41232742603611766,
+            "top1_accuracy": 0.3554416232638889
+          }
+        },
+        "extract_equality": {
+          "positive": {
+            "tokens": 1132,
+            "ce": 0.9641383892631757,
+            "native_to_arm_kl": 0.06336480207047843,
+            "top1_accuracy": 0.8683745583038869
+          },
+          "matched_negative": {
+            "tokens": 1132,
+            "ce": 6.139136211236906,
+            "native_to_arm_kl": 0.07685466252094521,
+            "top1_accuracy": 0.16166077738515902
+          },
+          "off_target": {
+            "tokens": 24884,
+            "ce": 5.038765058693943,
+            "native_to_arm_kl": 0.09821888341016284,
+            "top1_accuracy": 0.2239189840861598
+          },
+          "all": {
+            "tokens": 36864,
+            "ce": 3.7676035170292854,
+            "native_to_arm_kl": 0.08253267420687636,
+            "top1_accuracy": 0.4251573350694444
+          }
+        },
+        "deranged_equality": {
+          "positive": {
+            "tokens": 1132,
+            "ce": 2.292913397311352,
+            "native_to_arm_kl": 0.8849017965494245,
+            "top1_accuracy": 0.5644876325088339
+          },
+          "matched_negative": {
+            "tokens": 1132,
+            "ce": 6.266182495374955,
+            "native_to_arm_kl": 0.4926299628778477,
+            "top1_accuracy": 0.142226148409894
+          },
+          "off_target": {
+            "tokens": 24884,
+            "ce": 5.133722299569691,
+            "native_to_arm_kl": 0.3017490696363907,
+            "top1_accuracy": 0.2051117183732519
+          },
+          "all": {
+            "tokens": 36864,
+            "ce": 4.083191398700311,
+            "native_to_arm_kl": 0.412484443489677,
+            "top1_accuracy": 0.3556315104166667
+          }
+        }
+      },
+      "replay_mean_native_to_full_kl": -0.0,
+      "gates": {
+        "target": true,
+        "specificity": true,
+        "extraction": true,
+        "collateral": false,
+        "deranged": true,
+        "support": true,
+        "replay": true,
+        "calls": true
+      },
+      "passed": false
+    }
+  },
+  "passed_both_roles": false,
+  "bootstrap": {
+    "draws": 20000,
+    "seed": "induction-equality-final-ood-v2:bootstrap:0",
+    "joint_coordinate_names": [
+      "final_natural:target",
+      "final_natural:specificity",
+      "final_natural:off",
+      "final_natural:extraction",
+      "final_natural:deranged",
+      "ood_code:target",
+      "ood_code:specificity",
+      "ood_code:off",
+      "ood_code:extraction",
+      "ood_code:deranged"
+    ]
+  }
+}
