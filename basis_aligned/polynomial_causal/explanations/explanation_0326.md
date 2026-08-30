@@ -324,3 +324,31 @@ is one of:
 - a small response model that predicts unseen composed interventions;
 - a terminal circuit whose extraction and selective removal transport OOD;
 - or a joint writer/reader basis that predicts an unseen downstream reader.
+
+## 10. Update: the exact MLP0 token/context experiment is complete
+
+The fixed-branch experiment described in section 8 ran in **44.69 seconds** on two
+separate sets of 96 documents. It split MLP0 into token-token (`TT`), symmetric
+token-by-context (`X`), and context-context (`CC`) tensor contractions, then measured
+all eight combinations.
+
+The causal importance order was identical on both sets. On SELECT, averaged over every
+possible background, `CC` improves CE by 1.1778 nats, `TT` by 0.9281, and `X` by
+0.4008. Their 95% document-bootstrap intervals do not include zero. So the earlier
+“mean + lexical code + continuous context refinement” description was directionally
+useful, but incomplete: the continuous context quadratic is actually the largest
+branch, the lexical branch is nearly as large, and the explicit interaction between
+them matters.
+
+The branches do not behave independently. On SELECT the extra effect of having `TT`
+and `X` together is +1.7216 nats beyond their isolated effects, whereas `TT` with `CC`
+and `X` with `CC` overlap by -1.1537 and -1.0328 nats. The three-way remainder is only
++0.0244. This points to a joint pairwise-coupled grammar: a lexical/DAG token structure,
+a continuous context tensor, and shared token-context factors. Fitting three separate
+compressors and merely adding them would ignore the largest observed interaction.
+
+This is an exact algebraic and causal census, not yet compression: each intervention
+uses native MLP0 and subtracts analytical branches. Its result closes this local
+section and supplies the structural target for later joint factorization. Full details
+and definitions are in `MLP0_TOKEN_CONTEXT_TENSOR_FACTORIAL_FINDINGS.md` one directory
+above this explanation.
