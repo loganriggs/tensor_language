@@ -63343,6 +63343,11 @@ exact — the pipeline is deterministic) | pred_b FAILED (−0.0475 vs +0.04) | 
   motif-hybrid frontier as-is. Both statements are certified; neither implies the other. The frontier keeps norm
   selection.
 
+**[CORRECTED BY §2128: the registered gain formula was sign-inverted (norm − fisher, not fisher − norm).
+The table's own arm values show the fisher8 arm is BETTER (+2.7210 vs +2.6735 fresh; +2.4482 vs +2.4232 C). Every
+conclusion here drawn from the signed summary — "does not install", "cfgE-specific", "the frontier keeps norm
+selection" — is WITHDRAWN. The as-written pred scores stand in frontier_fisher8_results.json.]**
+
 ## §2126 — RUNG 33: THE SINK-HEAD SCALAR BUYS ALMOST NOTHING, AND THE SIGN REFUTES THE §1818 ANALOGY. The fitted scalar is s* = 1.095 — cfgE UNDER-drives head 5.7, where the fully-compiled program of §1818 over-drove it 159× — and it gains only 0.015 nat on the eval rows (bar 0.05), 0.017 median fresh (bar 0.025)
 
 `ops/sink_head_scalar.py`, **124s**, BACKLOG rung 33. One scalar on h7's c_proj input columns, grid + golden-section

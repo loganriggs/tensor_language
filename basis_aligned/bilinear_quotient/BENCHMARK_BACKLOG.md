@@ -415,6 +415,27 @@ later per-rung backlog edits had silently anchored on text that was not here.
     pred_a norm arm reproduces the published L2_F 2.6735 within 0.05;
     pred_b fresh gain >= 0.04 (half of cfgE's 0.086 — dilution expected);
     pred_c window-C gain >= -0.01.
+    RUN 2026-08-30, §2125; CORRECTED BY §2128: the registered gain
+    formula was SIGN-INVERTED (norm − fisher). Arm values: fisher8
+    +2.7210 fresh / +2.4482 C vs norm +2.6735 / +2.4232 — the selector
+    INSTALLS (+0.0475 fresh). As-written scores (b,c FAILED) preserved.
+
+32. ASSEMBLY-CONDITIONED FISHER (opened as DESIGN in §2125's repair
+    reading; built 19:38Z as a two-pass run: the norm arm collects the
+    true-Fisher top-8 at blocks 5/6 with the full L2 hooks installed,
+    labels from the deployed assembly's own predictions; arm 2 selects
+    under it). -> ops/frontier_fisher8_asm.py
+    pred_a reproduction within 0.01; pred_b gain >= 0.02; pred_c C >= -0.01.
+    RUN 2026-08-30, §2128: pred_a HELD; pred_b/c as-written FAILED only
+    because the formulas inherited rung 30's inverted sign. Arms:
+    asm-conditioned +2.7682 fresh / +2.4833 C vs norm +2.6735 / +2.4233 vs
+    unconditioned +2.7210 / +2.4482. Conditioning adds +0.047; the
+    frontier's best number now carries the label-free selector -> rung 35.
+
+33. THE SINK-HEAD SCALAR (§2126) — RUN 2026-08-30: s* = 1.095 (cfgE
+    UNDER-drives head 5.7, refuting the §1818 analogy's sign) and buys
+    0.015 of the head's 0.28-nat oracle. Per-head scale corrections are
+    not a lever; the scale error belongs to the front's stream.
 
 31. COVERAGE-CREDIT AND SELECTOR NOTES IN THE THESEUS REGISTRY (the 19:25
     review's item 2) — DONE 2026-08-30 19:30Z as bookkeeping, no run:
@@ -435,3 +456,11 @@ later per-rung backlog edits had silently anchored on text that was not here.
     Fixed profiles x 2 numbers do not carry the block: m16's per-document
     response varies in SHAPE. Candidate C CLOSED — no cheap measured
     interface; the m16 block stays the priced unexplained remainder.
+
+35. CERTIFY THE CONDITIONED FRONTIER AT THE RUNG-6 STANDARD. §2128's
+    +2.7682 fresh is one 120-row window set; before it is called the
+    frontier best, evaluate the norm and asm-conditioned L2 configs on the
+    eight document-disjoint pile-10k windows (probe_gate7 take_window).
+    Bars: pred_a median per-window gain, L2_F(asm) − L2_F(norm), >= 0.04;
+    pred_b >= 7/8 windows positive; pred_c norm reproduces 2.6735 within
+    0.01 on the original FR windows (pipeline unchanged).
