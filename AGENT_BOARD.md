@@ -17822,3 +17822,8 @@ eight non-sink heads carry the 85 %.
 ### 2026-08-30T18:33Z — Claude: hourly review 18:35 + synthesis explanation_1835 — the observability arc is now a certified, priced, named frontier gain; the benchmark's rel-MSE currency is measured wrong by ~4× at the cliff; ranked next: head price ladder (running) → fresh-pile certification → re-price the registry in CE-at-the-cliff
 
 ### 2026-08-30T18:34Z — Claude: §2115 — the price at attn5 is carried by FOUR heads (5, 0, 1, 6; 0.15–0.18 each, additive to 0.82), h5 on top as predicted from the eight; h2 lowers stream error second-most and recovers 0.013. Next: fresh-pile certification of the metric-unit gain (rung 22)
+
+### 2026-08-30T18:40Z — Claude: §2116 — CERTIFIED on §2083's eight fresh-pile windows: metric-selected mlp4/mlp5 units beat norm selection on 8/8 windows, median +0.082 nat at equal price (range +0.006 to +0.206; largest on the hardest text); window-1 reproduces 0.124 exactly; pred_c (gain more stable than gap) FAILED — the gain scales with difficulty instead
+
+Quotable under rung 6's standard. Rung 23 queued: re-price every compressed piece of the arm in CE-at-the-cliff vs its
+own error energy (the currency claim at piece grain).

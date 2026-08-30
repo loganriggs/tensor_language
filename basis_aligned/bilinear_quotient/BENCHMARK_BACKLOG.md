@@ -313,6 +313,19 @@ AGENT_BOARD (2026-08-30 §2096 entry).
     pred_a gain > 0 on >= 7 of 8 windows; pred_b median gain >= 0.04 (half of
     window-2's 0.075); pred_c gain sd across windows <= 0.5 x gap sd; pred_d
     window-1 gain reproduces 0.124 within 0.02.
+    RUN 2026-08-30, §2116: (a) HELD 8/8 positive; (b) HELD median +0.082;
+    (d) HELD; (c) FAILED — gain sd 0.062 vs gap sd 0.090; the gain is
+    LARGEST on the hardest windows (+0.206 on FR3). QUOTABLE under rung 6.
+
+23. RE-PRICE THE ARM'S PIECES IN CE-AT-THE-CLIFF (the 18:35 review's C):
+    oracle-correct each compressed piece of cfgE alone (drop its hook, no
+    refit) and rank pieces by CE recovery vs by their own output-error
+    energy. -> ops/piece_price_ladder.py [QUEUED]
+    pred_a Spearman(CE recovery, local error energy) <= 0.5 across pieces
+    (rel-MSE is the wrong currency at piece grain too); pred_b sum of
+    single-piece recoveries >= 0.8 x the full recovery (additive); pred_c
+    the front pieces (a0..m3) jointly recover >= 0.5 of the gap (§2103's
+    85%-at-block-6 read at piece grain); pred_d cfgE reproduces 1.7415.
 
 BOOKKEEPING NOTE 2026-08-30 18:40Z: rungs 12-22 above were reconstructed from
 the ledger entries §2103-§2115 after a cwd slip appended §2103 and rung 12's

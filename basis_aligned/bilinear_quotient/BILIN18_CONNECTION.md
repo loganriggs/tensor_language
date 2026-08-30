@@ -63003,3 +63003,37 @@ arm. **pred_d HELD (1.7415; all-nine gap +0.7132 = §2114) | pred_b HELD | pred_
 expensive regime; their errors are small in energy, additive in price, and — for the top one — land on the eight
 named directions. The sink head is loud and cheap. The next steps are the ones the 18:35 review ranked: certify the
 metric-unit gain on §2083's eight fresh-pile windows, then re-price the benchmark registry in CE-at-the-cliff.
+
+## §2116 — RUNG 22: CERTIFIED ON EIGHT FRESH-PILE WINDOWS. The metric-selected mlp4/mlp5 units beat norm-selected units on 8 of 8 document-disjoint pile-10k windows, median +0.082 nat (range +0.006 to +0.206), at identical stored values; window-1 reproduces 0.124 exactly. The gain is NOT more stable than the gap across windows (sd 0.062 vs 0.090)
+
+`ops/metric_units_fresh8.py`, **133s**, BACKLOG rung 22. The eight windows are rebuilt with `ops/probe_gate7.py`'s code
+(document-disjoint, 120 rows each, 32-token prefixes disjoint from every FW row; docs per window 7/42/17/23/43/26/35/35,
+identical to §2083). **pred_d HELD (0.1241; 1.7415) | pred_a HELD | pred_b HELD | pred_c FAILED.**
+
+```
+  window  docs  real CE   cfgE gap   metric-units gap   gain
+    0       7    3.400    +1.861      +1.856           +0.006
+    1      42    3.377    +2.046      +1.965           +0.082
+    2      17    3.988    +1.840      +1.635           +0.206     <- the hard-text window (§2082's FR3)
+    3      23    3.473    +1.955      +1.785           +0.170
+    4      43    3.588    +1.974      +1.915           +0.060
+    5      26    3.352    +1.883      +1.802           +0.082
+    6      35    3.769    +1.748      +1.665           +0.083
+    7      35    3.664    +1.819      +1.780           +0.038
+  positive 8/8 (bar 7)   median +0.082 (bar 0.04)   mean +0.091   gain sd 0.062 vs gap sd 0.090 (bar 0.5x -> FAILED)
+```
+
+- **This is a quotable frontier statement under rung 6's standard**, the first from the observability arc: *at equal
+  stored values, selecting mlp4/mlp5's kept units by the block-5/6 loss-gradient metric (equivalently, by their write
+  into eight named directions, §2110–§2111) improves the certified empirical assembly by a median 0.08 nat on eight
+  document-disjoint fresh windows, positive on every window*; and by §2107, the same selector at half the units
+  matches norm selection at full units.
+- **pred_c FAILED, and the sign of the spread is informative:** the gain is *largest on the hardest text* (window 2,
+  base CE 3.99, +0.206; window 3, +0.170) and smallest on the easy seven-document window 0 (+0.006). The metric picks
+  units for the directions the loss is most sensitive to, and those matter most where the model is already
+  struggling. A gain that scales with difficulty is not a "stable" gain in the registered sense, and it is a better
+  property than stability would have been.
+
+**Frontier note (certified, self-reviewed):** metric-selected mlp4/mlp5 units, equal price — +0.124 (R0:R1), +0.075
+(FW 0:120), median +0.082 over eight fresh pile-10k windows (8/8 positive). Half-price at equal CE (§2107) has been
+shown on the first two windows only and is not yet certified on the eight.
