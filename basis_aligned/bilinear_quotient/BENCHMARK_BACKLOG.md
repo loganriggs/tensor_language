@@ -26,9 +26,40 @@ Rungs 1-3 are DONE; rung 4 is the first genuinely open one.
    counting-feature rescue is REFUTED with unusual" force. Closed, not open.
 4. DEPLOY GAP (~0.09): two-probe labeling (a10-input probe acc 0.73 for the
    late rungs) -> two_probe_deploy.py
-   **OPEN, and the first genuinely open rung**: zero completions, zero ledger
-   mentions, and two_probe_deploy.py does not exist. Needs a fitted probe
-   before it can run.
+   **OPEN, but far more advanced than this line suggests -- RESEARCHED
+   2026-08-30, read this before building anything.** `two_probe_deploy.py`
+   does not exist and never ran, but the gating ladder it belongs to has four
+   measured rungs and one failed branch:
+     - **§337** 14 input-only surface programs: efficiency **1.5x** random,
+       both bars FAILED. (`experiments/gating/deploy_gated.py`)
+     - **§341** 57 surface programs: gain 12x larger (+0.171) but efficiency
+       still **1.54x**. Verdict: "the deploy gap is a property of the
+       DESCRIPTION LANGUAGE, not of program count."
+       (`experiments/gating/deploy_gated2.py`)
+     - **§342** `probe_gate.py`, linear ridge on the residual stream after
+       block 2, fitted to fit-window oracle labels: **3.8x random (bar 2.5x
+       HELD)** -- the first deploy-legal gate above the surface ceiling. AUC
+       0.621 (bar 0.75 FAILED), 42% of oracle gain (bar 50% FAILED, close).
+     - **§347** `probe_gate2.py`, quadratic features in mlp3's read directions
+       + per-mode regression: **strictly WORSE than v1** -- AUC 0.551,
+       efficiency **-0.625** (worse than random), all three bars FAILED.
+     - oracle causal labels: **9.4x**, not deploy-legal.
+   **The live branch is named by §347's own closing line:** "the AUC ceiling
+   (~0.62) needs information not linearly-or-quadratically present at block 2
+   -- **later read points** or context aggregation, not fancier features."
+   §342 had set the same fork ("deeper reads OR nonlinear features"), and
+   **nonlinear was tried and failed; deeper reads were never tried.** An
+   a10-input probe IS the deeper read, so rung 4 is that fork's untaken half.
+   **Design constraint to settle first:** §342's block-2 read is deploy-legal
+   "because every frontier config keeps the cheap lexical rungs real". Reading
+   at a10's input requires blocks 0-9 to be computable at deploy; whether the
+   frontier assembly supplies them real or via stand-ins decides whether an
+   a10 probe is §105-legal at all, and that must be checked before fitting.
+   **Related negative worth knowing:** §1365 (`exclaim_probe_gate2.py`) tried
+   TWO capture sites (L3 + L8 concatenated) on a different capability and got
+   AUC 0.611 vs 0.618 -- no gain -- because "a kit-stream probe cannot see
+   what the kit removed". If the a10 probe reads a stream whose relevant
+   values the assembly ablates, it inherits that ceiling by construction.
 5. INDUCTION heads: closed as irreducible-linear, but a *bilinear* stand-in
    (learned low-rank pattern q-k factor + value read) was never tried at the
    head level.
