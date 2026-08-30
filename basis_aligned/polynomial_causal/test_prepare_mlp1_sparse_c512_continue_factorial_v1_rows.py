@@ -98,9 +98,37 @@ def test_source_closure_contains_scientific_sources_and_generic_freezer_closure(
         rows.PROGRAM_TEST,
         rows.FACADE,
         rows.FACADE_TEST,
+        rows.JACCLUST_INIT,
+        rows.JACCLUST_MODEL,
         rows.FREEZER,
         rows.TEST,
     }.issubset(rows.SOURCE_PATHS)
+    assert set(rows.DIRECT_SOURCES) == {
+        rows.PREREG, rows.RUNNER, rows.RUNNER_TEST, rows.PROGRAM, rows.PROGRAM_TEST,
+        rows.FACADE, rows.FACADE_TEST, rows.JACCLUST_INIT, rows.JACCLUST_MODEL,
+        rows.FREEZER, rows.TEST,
+        rows.HERE / "prepare_mlp2_rank512_refit_v1_rows.py",
+    }
+
+
+def test_source_hashes_rejects_transitive_model_source_drift(monkeypatch):
+    monkeypatch.setattr(rows.subprocess, "run", lambda *args, **kwargs: None)
+
+    def committed_blob(command, cwd):
+        relative = command[-1].split(":", 1)[1]
+        return (rows.ROOT / relative).read_bytes()
+
+    monkeypatch.setattr(rows.subprocess, "check_output", committed_blob)
+    actual_hash = rows.file_sha256
+
+    def drifted_hash(path):
+        if path == rows.JACCLUST_MODEL:
+            return "0" * 64
+        return actual_hash(path)
+
+    monkeypatch.setattr(rows, "file_sha256", drifted_hash)
+    with pytest.raises(RuntimeError, match="uncommitted MLP1 factorial row-freezer source"):
+        rows.source_hashes("c" * 40)
 
 
 def test_audit_validation_requires_exact_source_bound_go(tmp_path, monkeypatch):

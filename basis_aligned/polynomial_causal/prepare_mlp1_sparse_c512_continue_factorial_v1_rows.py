@@ -24,6 +24,8 @@ PROGRAM = HERE / "mlp1_sparse_down_program_v1.py"
 PROGRAM_TEST = HERE / "test_mlp1_sparse_down_program_v1.py"
 FACADE = HERE / "bilin18_observed_model_facade.py"
 FACADE_TEST = HERE / "test_bilin18_observed_model_facade.py"
+JACCLUST_INIT = ROOT / "jacclust/__init__.py"
+JACCLUST_MODEL = ROOT / "jacclust/tt_model.py"
 FREEZER = Path(__file__).resolve()
 TEST = HERE / "test_prepare_mlp1_sparse_c512_continue_factorial_v1_rows.py"
 AUDIT = HERE / "mlp1_sparse_c512_continue_factorial_v1_rows_independent_audit.json"
@@ -36,6 +38,8 @@ DIRECT_SOURCES = (
     PROGRAM_TEST,
     FACADE,
     FACADE_TEST,
+    JACCLUST_INIT,
+    JACCLUST_MODEL,
     FREEZER,
     TEST,
     HERE / "prepare_mlp2_rank512_refit_v1_rows.py",
