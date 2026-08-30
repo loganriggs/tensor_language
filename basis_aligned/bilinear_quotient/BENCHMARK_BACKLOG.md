@@ -653,4 +653,7 @@ later per-rung backlog edits had silently anchored on text that was not here.
     top8+prune. Null: §2132's precedent (frontier-only effects).
     pred_a median [gap(prune) - gap(plain)] <= 0; pred_b median
     [gap(top8+prune) - gap(top8)] <= 0; pred_c top8 reduction reproduces
-    0.0857 within 0.01. -> ops/cfge_c69_prune.py [QUEUED 21:38Z]
+    0.0857 within 0.01. -> ops/cfge_c69_prune.py
+    First run CRASHED 21:33Z (KeyError: HEAD[piece][mode] not keyed for
+    the new top8prune mode) - instrument bug, no result; fixed and
+    re-queued 21:41Z. Predictions unchanged.

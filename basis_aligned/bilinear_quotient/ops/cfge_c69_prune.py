@@ -650,7 +650,8 @@ def main():
             if mode in ('plain','metric-bases') or (mode!='plain' and li>=6):
                 imp=Dw.norm(dim=0)*L.norm(dim=1)*Rw.norm(dim=1)
             elif mode in ('top8','topr50','top8prune'):
-                Pk=HEAD[piece][mode]; imp=(Pk.T@Dw).norm(dim=0)*L.norm(dim=1)*Rw.norm(dim=1)
+                Pk=HEAD[piece]['top8' if mode=='top8prune' else mode]
+                imp=(Pk.T@Dw).norm(dim=0)*L.norm(dim=1)*Rw.norm(dim=1)
             else:
                 half,_=MET[('random-metric' if mode=='random-metric' else 'metric',piece)]
                 imp=(half@Dw).norm(dim=0)*L.norm(dim=1)*Rw.norm(dim=1)
