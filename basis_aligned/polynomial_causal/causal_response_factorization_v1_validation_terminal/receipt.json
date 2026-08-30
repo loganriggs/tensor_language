@@ -1,0 +1,48 @@
+{
+  "authority_artifact_sha256": "97fd6b54cb31ce5e5e242ddf00e6463b96fd9e13cc3c19425ec47bb65ef7cf9d",
+  "authority_logical_sha256": "6bfe079c2e147274086b66fb402fcc5151475e09bb19bac9e15809cf12da40d7",
+  "kind": "receipt",
+  "payload": {
+    "authorized_for_eval": false,
+    "authorized_for_pareto_analyzer_parent": true,
+    "candidate_freeze_artifact_sha256": "53f8264228e905ad1a459f32204d1acb07fa044e7753026dbb0bcfb91ac77b98",
+    "candidate_programs_scored": 27,
+    "candidate_selected": false,
+    "candidates_dropped_after_scoring": 0,
+    "eval_values_read": false,
+    "fit_parent_binding_sha256": "2c17df26a5770b8323e589e5d4df7af391d76354eb2f3ee67ea80425097a78d9",
+    "manifest_sha256": "16b1343907d5f634406962066f2d4730664cfca91792b5db617188352583c70d",
+    "status": "complete_all_candidates_receipt_last",
+    "table_sha256": "ee05c9c99bf7b27c25b4476fcd240e1cbb8aabe433d3ebcc58161dd88dba74d8",
+    "validation_documents": 114,
+    "validation_values_read": true
+  },
+  "schema": "causal_response_factorization_v1_validation_terminal",
+  "terminal_snapshot": {
+    "authority.json": {
+      "bytes": 12205,
+      "path_within_terminal_directory": "authority.json",
+      "sha256": "97fd6b54cb31ce5e5e242ddf00e6463b96fd9e13cc3c19425ec47bb65ef7cf9d"
+    },
+    "candidate_freeze_v2.json": {
+      "bytes": 13044,
+      "path_within_terminal_directory": "candidate_freeze_v2.json",
+      "sha256": "53f8264228e905ad1a459f32204d1acb07fa044e7753026dbb0bcfb91ac77b98"
+    },
+    "candidate_freeze_v2_audit.json": {
+      "bytes": 1405,
+      "path_within_terminal_directory": "candidate_freeze_v2_audit.json",
+      "sha256": "41966515f6138fc44a3d0aceacaab9cddf9b4cd83823211f9976a26838361712"
+    },
+    "manifest.json": {
+      "bytes": 2137,
+      "path_within_terminal_directory": "manifest.json",
+      "sha256": "16b1343907d5f634406962066f2d4730664cfca91792b5db617188352583c70d"
+    },
+    "table.json": {
+      "bytes": 3223391,
+      "path_within_terminal_directory": "table.json",
+      "sha256": "ee05c9c99bf7b27c25b4476fcd240e1cbb8aabe433d3ebcc58161dd88dba74d8"
+    }
+  }
+}

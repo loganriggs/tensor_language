@@ -1,0 +1,197 @@
+{
+  "authority_sha256": "6bfe079c2e147274086b66fb402fcc5151475e09bb19bac9e15809cf12da40d7",
+  "authorized_for_candidate_selection": false,
+  "authorized_for_eval": false,
+  "authorized_for_validation_scoring": true,
+  "candidate_freeze": {
+    "artifact_sha256": "53f8264228e905ad1a459f32204d1acb07fa044e7753026dbb0bcfb91ac77b98",
+    "audit_artifact_sha256": "41966515f6138fc44a3d0aceacaab9cddf9b4cd83823211f9976a26838361712",
+    "audit_path": "/workspace/tensor_language/basis_aligned/polynomial_causal/causal_response_factorization_v1_candidate_freeze_v2_independent_audit.json",
+    "candidate_programs": 27,
+    "candidate_rank_pairs": 9,
+    "manifest_sha256": "3b386a38e9bf79f90e01c87ef6471770dfd7bae73ffb89ef3749a182968b5500",
+    "path": "/workspace/tensor_language/basis_aligned/polynomial_causal/causal_response_factorization_v1_candidate_freeze_v2.json"
+  },
+  "grid_terminal": {
+    "artifact_sha256": "aa7425b78f9342ee42113eb5aded7642b2e275e0d77ffe05570e8bbb85d296b9",
+    "path": "/workspace/tensor_language/basis_aligned/polynomial_causal/causal_response_factorization_v1_grid_results/terminal.json"
+  },
+  "outcome_access_before_authority": {
+    "candidate_tensors_deserialized": false,
+    "eval_values_read": false,
+    "fit_bundle_deserialized": false,
+    "training_response_values_read": false,
+    "validation_values_read": false
+  },
+  "output_paths": {
+    "authority": "/workspace/tensor_language/basis_aligned/polynomial_causal/causal_response_factorization_v1_validation_authority.json",
+    "failure": "/workspace/tensor_language/basis_aligned/polynomial_causal/causal_response_factorization_v1_validation_terminal/failure.json",
+    "lock": "/workspace/runs/.causal_response_factorization_v1_validation.lock",
+    "manifest": "/workspace/tensor_language/basis_aligned/polynomial_causal/causal_response_factorization_v1_validation_manifest.json",
+    "receipt": "/workspace/tensor_language/basis_aligned/polynomial_causal/causal_response_factorization_v1_validation_terminal/receipt.json",
+    "table": "/workspace/tensor_language/basis_aligned/polynomial_causal/causal_response_factorization_v1_validation_table.json",
+    "terminal": "/workspace/tensor_language/basis_aligned/polynomial_causal/causal_response_factorization_v1_validation_terminal/terminal.json",
+    "terminal_directory": "/workspace/tensor_language/basis_aligned/polynomial_causal/causal_response_factorization_v1_validation_terminal"
+  },
+  "parent_binding_sha256": "2c17df26a5770b8323e589e5d4df7af391d76354eb2f3ee67ea80425097a78d9",
+  "protocol": {
+    "artifact_order": [
+      "authority",
+      "table",
+      "manifest",
+      "terminal_receipt"
+    ],
+    "authorized_for_eval": false,
+    "authorized_for_pareto_analyzer_parent": true,
+    "calibration_arm_budgets": [
+      2,
+      4,
+      8,
+      16
+    ],
+    "candidate_programs": 27,
+    "candidate_rank_pairs": 9,
+    "candidates_dropped_after_scoring": 0,
+    "designs": [
+      "sha256_outcome_blind_blocks",
+      "training_only_block_d_optimal"
+    ],
+    "eval_documents_exposed": 0,
+    "normalization_currency": "training_response_rms from each frozen grid cell receipt",
+    "response_dtype": "torch.float64",
+    "response_shape": [
+      2,
+      49,
+      49,
+      114
+    ],
+    "role": "FIT_INTERNAL_VALIDATION",
+    "support_gate": 0.9,
+    "training_documents_in_codes": 229,
+    "training_response_values_exposed": 0,
+    "valid_dtype": "torch.bool",
+    "validation_documents": 114,
+    "winner_selected_inside_scorer": false
+  },
+  "schema": "causal_response_factorization_v1_validation_authority",
+  "self_review": {
+    "fit_parent_physical_identity_deviation": {
+      "artifacts": {
+        "authority": {
+          "bytes": 6599,
+          "content_identity_matches": true,
+          "observed": {
+            "ctime_ns": 1788105503303390578,
+            "device": 40,
+            "inode": 553697991,
+            "mtime_ns": 1788105503303390578
+          },
+          "physical_identity_matches": false,
+          "recorded": {
+            "ctime_ns": 1788083199563236298,
+            "device": 50,
+            "inode": 21834436,
+            "mtime_ns": 1788083197423380928
+          },
+          "sha256": "109e1a0fa30cfd210f4a99a386ac0973b119e3de7ecd64673fb9a3d77210aa97"
+        },
+        "bundle": {
+          "bytes": 55475273,
+          "content_identity_matches": true,
+          "observed": {
+            "ctime_ns": 1788105503425392834,
+            "device": 40,
+            "inode": 553697992,
+            "mtime_ns": 1788105503425392834
+          },
+          "physical_identity_matches": false,
+          "recorded": {
+            "ctime_ns": 1788084936327895199,
+            "device": 50,
+            "inode": 65975450,
+            "mtime_ns": 1788084927691955152
+          },
+          "sha256": "f0b23bcb9ce926f19bc680aaccc4cf8c7b2694e6a9f97a46c2e9af57e887218a"
+        },
+        "manifest": {
+          "bytes": 44446,
+          "content_identity_matches": true,
+          "observed": {
+            "ctime_ns": 1788105503428392889,
+            "device": 40,
+            "inode": 553697997,
+            "mtime_ns": 1788105503428392889
+          },
+          "physical_identity_matches": false,
+          "recorded": {
+            "ctime_ns": 1788084945151834255,
+            "device": 50,
+            "inode": 65975452,
+            "mtime_ns": 1788084936919891099
+          },
+          "sha256": "48dfc183f1697b4836142eac1a50016f5c2d3f4a4c6d66466c01e1e11a56548c"
+        }
+      },
+      "comparison_used_for_binding": [
+        "path",
+        "sha256",
+        "bytes"
+      ],
+      "reason": "artifacts re-materialized from git on a fresh instance; content identity (sha256, bytes) replays, physical identity (device, inode, mtime) cannot"
+    },
+    "focused_tests": {
+      "files": [
+        "test_causal_response_factorization_v1_parent_rebinding.py",
+        "test_causal_response_factorization_v1_validation_input.py",
+        "test_causal_response_factorization_v1_validation_loader.py",
+        "test_causal_response_factorization_v1_validation_scorer.py",
+        "test_causal_response_factorization_v1_validation_lifecycle.py"
+      ],
+      "passed": 31,
+      "summary": "31 passed in 2.42s"
+    },
+    "independent_audit": null,
+    "independent_audit_note": "No independent auditor was available on this instance; the focused suites below were run by the owner immediately before authority freeze. This table is therefore self-reviewed and must be labelled as such wherever it is cited."
+  },
+  "source_closure": {
+    "commit": "99758d15b754da4e4daad3d4778621f2da46f4e9",
+    "paths": {
+      "basis_aligned/polynomial_causal/CAUSAL_RESPONSE_FACTORIZATION_V1_AMENDMENT_1.md": "cf8b9e3dce807a94183d8314e4bba14e1f01ff3aa579d8648c680dc385540768",
+      "basis_aligned/polynomial_causal/CAUSAL_RESPONSE_FACTORIZATION_V1_AMENDMENT_10.md": "5ed5c75422380d68872d5908720604194dd5385cd46cdf93e83743129439388a",
+      "basis_aligned/polynomial_causal/CAUSAL_RESPONSE_FACTORIZATION_V1_AMENDMENT_11.md": "c6054f4c9b80d0d7455d3ca8b5282f027bbb02af079ad51ac572b084dce2580c",
+      "basis_aligned/polynomial_causal/CAUSAL_RESPONSE_FACTORIZATION_V1_AMENDMENT_12.md": "d6b714f85a6529e77e4c57d21a3aaa91e15a2bef6f7444621469c32cddb22488",
+      "basis_aligned/polynomial_causal/CAUSAL_RESPONSE_FACTORIZATION_V1_AMENDMENT_13.md": "20890dfa3478545a683439bb94951a98c67d5e0e32ad00110b52c68ae26f90e2",
+      "basis_aligned/polynomial_causal/CAUSAL_RESPONSE_FACTORIZATION_V1_AMENDMENT_14.md": "cb6eedd239275e0394f23458c8b3f471b0383dab4ab3c80c602b56b1dae2aed4",
+      "basis_aligned/polynomial_causal/CAUSAL_RESPONSE_FACTORIZATION_V1_AMENDMENT_15.md": "b2b8db87de9bd29128aeb43b3fa1c7b3fee2aed0374b5516e4f6985981bbca47",
+      "basis_aligned/polynomial_causal/CAUSAL_RESPONSE_FACTORIZATION_V1_AMENDMENT_16.md": "17fc047393c0dd87680d5f0fb9ed08d2a6447df77f8a720a93e524ac89804b35",
+      "basis_aligned/polynomial_causal/CAUSAL_RESPONSE_FACTORIZATION_V1_AMENDMENT_2.md": "9819b5b5486ccdcd57747bf36d3e4862aba827dbc52ff8cc49e6209b938d0017",
+      "basis_aligned/polynomial_causal/CAUSAL_RESPONSE_FACTORIZATION_V1_AMENDMENT_3.md": "6ffaf88efe3e5c2711c2c3d136136d2f12d7d0040ca597da06ff3907ff7e3dae",
+      "basis_aligned/polynomial_causal/CAUSAL_RESPONSE_FACTORIZATION_V1_AMENDMENT_4.md": "055b7d214df74d428983782a080224bdc44766c8e77d9eb5d79582850f6e8c15",
+      "basis_aligned/polynomial_causal/CAUSAL_RESPONSE_FACTORIZATION_V1_AMENDMENT_5.md": "8902bba99446f05688864668eba29302dbfc35cfb0799568703693f42dfb55e7",
+      "basis_aligned/polynomial_causal/CAUSAL_RESPONSE_FACTORIZATION_V1_AMENDMENT_6.md": "5a125a81d6d72111d3903aa9fd3411d1f7ba41482f0c504cf2a966ec822c59ec",
+      "basis_aligned/polynomial_causal/CAUSAL_RESPONSE_FACTORIZATION_V1_AMENDMENT_7.md": "d797e03d2e90ff1d368b54cd26a14c1bdfd67c952a0836e884bc09ab04a74c79",
+      "basis_aligned/polynomial_causal/CAUSAL_RESPONSE_FACTORIZATION_V1_AMENDMENT_8.md": "e828cd47b0df6b3763964b417e9b3fbe5337a8cba9c5558a7ea8123cdddab30c",
+      "basis_aligned/polynomial_causal/CAUSAL_RESPONSE_FACTORIZATION_V1_AMENDMENT_9.md": "30c621986bcedb2d11e6f5d1274329152de4ddf89173bdd80669e152fa6d5183",
+      "basis_aligned/polynomial_causal/CAUSAL_RESPONSE_FACTORIZATION_V1_PREREGISTRATION.md": "2782866d8fdd1ca5abb3de4348534ceefadddb42a19ec17a756dd6017c89ffba",
+      "basis_aligned/polynomial_causal/causal_response_factorization_v1.py": "8af3e8c4987b15d8da5413f2998452ea7064779ad648c17c0d9269fd7ed0f881",
+      "basis_aligned/polynomial_causal/causal_response_factorization_v1_candidate_freeze_v2.py": "e4f96402ebddc02965e4a25cdc6b9c571a36f2eb49b1076898515c0e527b7b68",
+      "basis_aligned/polynomial_causal/causal_response_factorization_v1_fit_adapter.py": "5cc4f0ea628e5f9aac6c475517b5c4d7fbc6205e2c4a681bafd90e1e5f7b5c0a",
+      "basis_aligned/polynomial_causal/causal_response_factorization_v1_parent_binding.py": "cedb4f9326cf2cb057f9e26638f890c8001cd5238a2bbfe5b5e460cfff98014c",
+      "basis_aligned/polynomial_causal/causal_response_factorization_v1_parent_rebinding.py": "665eec3294ec2106e19bc562bfdbef24ce89f630402232380d33d40eb7353891",
+      "basis_aligned/polynomial_causal/causal_response_factorization_v1_training_lifecycle.py": "5c66aaa1843618d086a1c0361dde584a4e851e717861b650500a60aab79d59ec",
+      "basis_aligned/polynomial_causal/causal_response_factorization_v1_training_loader.py": "551a293649e1a17ad0157f75fa1042c78b9c13053637eb1088b7a2708c349fe5",
+      "basis_aligned/polynomial_causal/causal_response_factorization_v1_validation_input.py": "b44f520cbe56338fd63c25796682a22e2cb80e4ae33a03cc105a54dd7f301e90",
+      "basis_aligned/polynomial_causal/causal_response_factorization_v1_validation_lifecycle.py": "e210b5049ddd15195dc0c876fbf1c2ba816bc8e294a83b2f171ebe554932e7d5",
+      "basis_aligned/polynomial_causal/causal_response_factorization_v1_validation_loader.py": "4c9f99f2233a3f0c777c231d08885b6ea283fc2d7e00967822b1fa6af19d4668",
+      "basis_aligned/polynomial_causal/causal_response_factorization_v1_validation_scorer.py": "35de469005a3ac3933f07944bc6771ce4000cfdc232753da5f25a54fa9363838",
+      "basis_aligned/polynomial_causal/causal_response_tensor_v1_fit_bundle.py": "af514bdf45e10defeba0cee9270434d079a7892b7e42cecaf93e646cd2234c0a",
+      "basis_aligned/polynomial_causal/test_causal_response_factorization_v1_parent_rebinding.py": "de6f16544f32aabe312838da03acebd8e5faf80d8e37a8aeb2ebd0778630122d",
+      "basis_aligned/polynomial_causal/test_causal_response_factorization_v1_validation_input.py": "c48343ee3ff6dfd28ba550f3529fc3b54a0f8b3c0cd068aef54988b136a38fb5",
+      "basis_aligned/polynomial_causal/test_causal_response_factorization_v1_validation_lifecycle.py": "227a598a50da9f01ede66d74fda129f40a0260fdb16e95702cee26612abc2feb",
+      "basis_aligned/polynomial_causal/test_causal_response_factorization_v1_validation_loader.py": "89a76b2acef194519fecc8aacd1dc68a5e78422b3838bb76e4ee823e6f80a191",
+      "basis_aligned/polynomial_causal/test_causal_response_factorization_v1_validation_scorer.py": "4d7d99b0d8806a4791a91b7714fd57c27902b6138e2ac5c3eca789db1036eeac"
+    },
+    "sha256": "d2094f6029adf23813703548b8824d479b5126adff1be302f617fdb800eae3ea"
+  },
+  "status": "frozen_before_validation_response_exposure"
+}

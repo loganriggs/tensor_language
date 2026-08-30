@@ -1,0 +1,58 @@
+{
+  "authority_artifact_sha256": "97fd6b54cb31ce5e5e242ddf00e6463b96fd9e13cc3c19425ec47bb65ef7cf9d",
+  "authority_logical_sha256": "6bfe079c2e147274086b66fb402fcc5151475e09bb19bac9e15809cf12da40d7",
+  "authorized_for_eval": false,
+  "candidate_freeze_artifact_sha256": "53f8264228e905ad1a459f32204d1acb07fa044e7753026dbb0bcfb91ac77b98",
+  "candidate_selected": false,
+  "fit_parent_binding_sha256": "2c17df26a5770b8323e589e5d4df7af391d76354eb2f3ee67ea80425097a78d9",
+  "manifest_sha256": "d58c555656a53d79af9a6a79cabaa5368b07a1e704f1691336a2e7c7c466bec1",
+  "protocol": {
+    "artifact_order": [
+      "authority",
+      "table",
+      "manifest",
+      "terminal_receipt"
+    ],
+    "authorized_for_eval": false,
+    "authorized_for_pareto_analyzer_parent": true,
+    "calibration_arm_budgets": [
+      2,
+      4,
+      8,
+      16
+    ],
+    "candidate_programs": 27,
+    "candidate_rank_pairs": 9,
+    "candidates_dropped_after_scoring": 0,
+    "designs": [
+      "sha256_outcome_blind_blocks",
+      "training_only_block_d_optimal"
+    ],
+    "eval_documents_exposed": 0,
+    "normalization_currency": "training_response_rms from each frozen grid cell receipt",
+    "response_dtype": "torch.float64",
+    "response_shape": [
+      2,
+      49,
+      49,
+      114
+    ],
+    "role": "FIT_INTERNAL_VALIDATION",
+    "support_gate": 0.9,
+    "training_documents_in_codes": 229,
+    "training_response_values_exposed": 0,
+    "valid_dtype": "torch.bool",
+    "validation_documents": 114,
+    "winner_selected_inside_scorer": false
+  },
+  "schema": "causal_response_factorization_v1_validation_manifest",
+  "status": "complete_all_candidates_table_semantically_replayed",
+  "table": {
+    "bytes": 3223391,
+    "candidate_count": 27,
+    "path": "/workspace/tensor_language/basis_aligned/polynomial_causal/causal_response_factorization_v1_validation_table.json",
+    "sha256": "ee05c9c99bf7b27c25b4476fcd240e1cbb8aabe433d3ebcc58161dd88dba74d8",
+    "table_sha256": "eb969879252dbf14f570211dad17b2272c0eaca50764c1b764fd7fe0af81e497"
+  },
+  "validation_binding_sha256": "9d8c355de316d756b8c6db324551ca5d9d1ae32b1714fc9c483ec6a0f33306dd"
+}
