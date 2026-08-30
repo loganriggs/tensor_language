@@ -1,0 +1,159 @@
+ARM 1/4: norm-2304 everywhere (S312 reproduction)
+a2-input probe acc 0.69
+fit a2
+fit a3
+fit a4
+fit a5
+fit a6
+fit a7
+fit a8
+fit a9
+fit a10
+fit a11
+fit a12
+fit a13
+fit a14
+fit a15
+fit a16
+fit a17
+L1 (+38 heads): C +1.9801 | fresh +2.2871
+fit a10L
+fit a11L
+fit a12L
+fit a13L
+fit a14L
+fit a15L
+fit a16L
+fit a17L
+  window 0 (7 docs): L2 fresh +2.6735
+  window 1 (42 docs): L2 fresh +2.9704
+  window 2 (17 docs): L2 fresh +2.7324
+  window 3 (23 docs): L2 fresh +2.9633
+  window 4 (43 docs): L2 fresh +2.9546
+  window 5 (26 docs): L2 fresh +2.8355
+  window 6 (35 docs): L2 fresh +2.6407
+  window 7 (35 docs): L2 fresh +2.7055
+L2 empirical: C +2.4233 | fresh +2.6735 | tail-attn increment +0.3864
+(a) L2 <= +2.75 fresh: HELD
+(b) increment in [0.30,0.55]: HELD
+ARM 2/4: c6-c9 at 1152 (S2139 reproduction)
+a2-input probe acc 0.69
+fit a2
+fit a3
+fit a4
+fit a5
+fit a6
+fit a7
+fit a8
+fit a9
+fit a10
+fit a11
+fit a12
+fit a13
+fit a14
+fit a15
+fit a16
+fit a17
+L1 (+38 heads): C +1.9895 | fresh +2.2902
+fit a10L
+fit a11L
+fit a12L
+fit a13L
+fit a14L
+fit a15L
+fit a16L
+fit a17L
+  window 0 (7 docs): L2 fresh +2.6645
+  window 1 (42 docs): L2 fresh +2.9584
+  window 2 (17 docs): L2 fresh +2.7195
+  window 3 (23 docs): L2 fresh +2.9115
+  window 4 (43 docs): L2 fresh +2.9608
+  window 5 (26 docs): L2 fresh +2.8438
+  window 6 (35 docs): L2 fresh +2.6142
+  window 7 (35 docs): L2 fresh +2.6939
+L2 empirical: C +2.4219 | fresh +2.6645 | tail-attn increment +0.3743
+(a) L2 <= +2.75 fresh: HELD
+(b) increment in [0.30,0.55]: HELD
+ARM 3/4: c6-c9 at 576
+a2-input probe acc 0.69
+fit a2
+fit a3
+fit a4
+fit a5
+fit a6
+fit a7
+fit a8
+fit a9
+fit a10
+fit a11
+fit a12
+fit a13
+fit a14
+fit a15
+fit a16
+fit a17
+L1 (+38 heads): C +2.0116 | fresh +2.3163
+fit a10L
+fit a11L
+fit a12L
+fit a13L
+fit a14L
+fit a15L
+fit a16L
+fit a17L
+  window 0 (7 docs): L2 fresh +2.6691
+  window 1 (42 docs): L2 fresh +2.9424
+  window 2 (17 docs): L2 fresh +2.6408
+  window 3 (23 docs): L2 fresh +2.8614
+  window 4 (43 docs): L2 fresh +2.9224
+  window 5 (26 docs): L2 fresh +2.8147
+  window 6 (35 docs): L2 fresh +2.6108
+  window 7 (35 docs): L2 fresh +2.6778
+L2 empirical: C +2.4275 | fresh +2.6691 | tail-attn increment +0.3528
+(a) L2 <= +2.75 fresh: HELD
+(b) increment in [0.30,0.55]: HELD
+ARM 4/4: c6-c9 at 288 (descriptive)
+a2-input probe acc 0.69
+fit a2
+fit a3
+fit a4
+fit a5
+fit a6
+fit a7
+fit a8
+fit a9
+fit a10
+fit a11
+fit a12
+fit a13
+fit a14
+fit a15
+fit a16
+fit a17
+L1 (+38 heads): C +2.0478 | fresh +2.3411
+fit a10L
+fit a11L
+fit a12L
+fit a13L
+fit a14L
+fit a15L
+fit a16L
+fit a17L
+  window 0 (7 docs): L2 fresh +2.6818
+  window 1 (42 docs): L2 fresh +2.9583
+  window 2 (17 docs): L2 fresh +2.6956
+  window 3 (23 docs): L2 fresh +2.8807
+  window 4 (43 docs): L2 fresh +2.9458
+  window 5 (26 docs): L2 fresh +2.8296
+  window 6 (35 docs): L2 fresh +2.6362
+  window 7 (35 docs): L2 fresh +2.6982
+L2 empirical: C +2.4495 | fresh +2.6818 | tail-attn increment +0.3406
+(a) L2 <= +2.75 fresh: HELD
+(b) increment in [0.30,0.55]: HELD
+damage added, c69-1152, per window: [-0.009, -0.012, -0.0129, -0.0518, 0.0062, 0.0083, -0.0265, -0.0116]
+damage added, c69-576, per window: [-0.0044, -0.028, -0.0916, -0.1019, -0.0322, -0.0208, -0.0299, -0.0277]
+damage added, c69-288, per window: [0.0083, -0.0121, -0.0368, -0.0826, -0.0088, -0.0059, -0.0045, -0.0073]
+(a) c69-576 median -0.0290 <= +0.01: HELD
+(b) <= +0.02 on 8/8 (bar 6): HELD
+(c) c69-1152 median -0.0118 vs -0.0118 (tol 0.015): HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/frontier_c69_floor_results.json (449s)

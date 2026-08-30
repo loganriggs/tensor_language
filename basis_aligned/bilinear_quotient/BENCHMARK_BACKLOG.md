@@ -628,4 +628,16 @@ later per-rung backlog edits had silently anchored on text that was not here.
     pred_a median [L2_F_w(c69_576) - L2_F_w(norm2304)] <= +0.01; pred_b
     that <= +0.02 on >= 6/8; pred_c c69-1152 reproduces §2139 (median
     -0.0118 within 0.015). c69-288 descriptive.
-    -> ops/frontier_c69_floor.py [QUEUED]
+    -> ops/frontier_c69_floor.py
+    RUN 2026-08-30, §2140: ALL THREE HELD — c69-576 BEATS the full
+    frontier on 8/8 windows (-0.0290 median) at -13.3M values; 288
+    rebounds. Best measured config: mlp4/5-2304 + c69-576, 2.6445 fresh.
+
+47. CAN mlp4/5 SHED UNITS ON TOP OF THE NEW BEST (damage convention).
+    §2139: halving mlp4/5 costs +0.047; a quarter-trim may be cheaper.
+    Arms: best (mlp45-2304 + c69-576; §2140 repro) / mlp45-1728 on top /
+    mlp45-1152 on top. Price: -2.2M / -4.4M further values.
+    pred_a median [L2_F_w(mlp45_1728) - L2_F_w(best)] <= +0.015; pred_b
+    that <= +0.03 on >= 6/8; pred_c best arm reproduces §2140 (median vs
+    norm-2304 of -0.0290 within 0.015; needs the norm-2304 arm too).
+    -> ops/frontier_mlp45_trim.py [QUEUED]

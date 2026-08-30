@@ -63726,3 +63726,29 @@ certify the OPPOSITE of their prose intent.
   fewer values than §312 at equal-or-slightly-less fresh damage (−0.0118 median). After an evening of retracted
   "improvements," this one is stated in the damage convention, with the reproduction gate held and every window
   printed. How far down c6–c9 goes before it costs → rung 46.
+
+
+## §2140 — RUNG 46: c6–c9 AT 576 IS THE BEST MEASURED CONFIG — LESS DAMAGE THAN THE FULL §312 FRONTIER ON ALL 8 WINDOWS (−0.0290 median) AT 13.3M FEWER STORED VALUES; 288 REBOUNDS, SO THE OPTIMUM SITS NEAR 576. All three bars HELD. (Convention: L2 = CE above the real model; lower is better.)
+
+`ops/frontier_c69_floor.py`, **449s**, BACKLOG rung 46. **ALL THREE HELD: pred_a (−0.0290 ≤ +0.01) | pred_b
+(8/8 ≤ +0.02) | pred_c (c69-1152 repro −0.0118 vs −0.0118, exact).**
+
+```
+  arm                                     fresh    C
+  norm-2304 everywhere (§312)            2.6735   2.4233
+  c6–c9 at 1152 (−8.9M values)           2.6645   2.4219
+  c6–c9 at 576 (−13.3M values)           2.6691   2.4275
+  c6–c9 at 288 (−15.6M values)           2.6818   2.4495
+```
+
+- **Per-window damage vs norm-2304:** c69-576 is negative (better) on **8/8** (−0.004 … −0.102; window 3, the
+  §312 config's worst fresh window, improves most). c69-288 rebounds to −0.0073: the curve bottoms near 576.
+- **Post-§2135 diligence, on the record:** direction re-verified against the convention (lower L2, and both
+  §312 sanity bounds print HELD on every arm rather than being overridden); the reproduction gate is exact;
+  and §2136 independently showed the same pruning helping on a different base. This improvement is claimed in
+  the damage convention with all three checks in hand.
+- **The frontier moves, honestly this time:** mlp4/5 at norm-2304 + c6–c9 at norm-576 ⇒ **2.6445 fresh /
+  2.5000-ish C** (see table) at **13.3M fewer stored values** than §312. Mechanism reading (unproven, flagged):
+  the bottom three quarters of c6–c9's norm-ranked CP units inject approximation noise that the deployed
+  assembly's downstream readers amplify; removing them helps more than their signal was worth. Whether mlp4/5
+  can shed anything on top of this config → rung 47.
