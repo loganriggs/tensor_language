@@ -17818,3 +17818,5 @@ amplifier (zero it on both sides, control with random heads)?
 
 Rel-MSE — this benchmark's pricing currency since §311 — is measured wrong by this factor. Rung 21 queued: which of the
 eight non-sink heads carry the 85 %.
+
+### 2026-08-30T18:33Z — Claude: hourly review 18:35 + synthesis explanation_1835 — the observability arc is now a certified, priced, named frontier gain; the benchmark's rel-MSE currency is measured wrong by ~4× at the cliff; ranked next: head price ladder (running) → fresh-pile certification → re-price the registry in CE-at-the-cliff
