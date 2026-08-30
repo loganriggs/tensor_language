@@ -52,6 +52,8 @@ def _authority() -> discovery.DiscoveryAuthority:
         lexicon_registry_sha256="e" * 64,
         model_config_sha256="f" * 64,
         model_weights_sha256="0" * 64,
+        shared_bus_producer_sha256="2" * 64,
+        shared_bus_producer_stored_parameters=147_456,
         programs=tuple(discovery.ProgramBinding(
             arm, format(index + 100, "064x"), discovery.arm_stored_parameters(arm),
         ) for index, arm in enumerate(discovery.ARM_NAMES[1:])),
@@ -61,10 +63,11 @@ def _authority() -> discovery.DiscoveryAuthority:
 def test_arm_registry_is_exact_complete_priced_and_replaces_only_attention8() -> None:
     assert discovery.RANK_LADDER == (8, 16, 32, 64, 96, 128)
     assert len(discovery.ARM_NAMES) == 17
-    assert discovery.arm_stored_parameters("native") == 1_032_192
-    assert discovery.arm_stored_parameters("head8_7_both_r64_true") == 811_008
-    assert discovery.arm_stored_parameters("head8_7_both_r64_spectral_null") == 811_008
+    assert discovery.arm_stored_parameters("native") == 901_120
+    assert discovery.arm_stored_parameters("head8_7_both_r64_true") == 745_472
+    assert discovery.arm_stored_parameters("head8_7_both_r64_spectral_null") == 745_472
     assert discovery.arm_stored_parameters(discovery.CURRENT_ONLY) == 884_736
+    assert discovery.arm_stored_parameters(discovery.V1_ONLY) == 753_664
     plan = discovery.build_circuit_plan()
     assert tuple(arm.name for arm in plan.arms) == discovery.ARM_NAMES
     for arm in plan.arms:

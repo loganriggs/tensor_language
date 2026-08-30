@@ -92,16 +92,36 @@ def test_folded_rank_certificate_recovers_known_rank_and_factor_price() -> None:
     assert successor.tolerance_rank(
         rank_one, absolute_tolerance=1e-12, relative_tolerance=1e-12,
     ) == 1
-    assert successor.factor_complete_parameter_count(1152, 1152, 128, 1152) == 442_368
+    assert successor.factor_complete_parameter_count(1152, 128, 128, 1152) == 311_296
     assert successor.autonomous_successor_parameter_count(
-        1152, 128, 128, 1152, source_count=2,
-    ) == 1_032_192
+        1152, 128, 128, 128, 1152, include_current=True, include_saved=True,
+    ) == 901_120
     assert successor.autonomous_successor_parameter_count(
-        1152, 128, 64, 1152, source_count=2,
-    ) == 811_008
+        1152, 128, 128, 64, 1152, include_current=True, include_saved=True,
+    ) == 745_472
     assert successor.autonomous_successor_parameter_count(
-        1152, 128, 64, 1152, source_count=1,
+        1152, 128, 128, 64, 1152, include_current=True, include_saved=False,
     ) == 737_280
+    assert successor.autonomous_successor_parameter_count(
+        1152, 128, 128, 64, 1152, include_current=False, include_saved=True,
+    ) == 671_744
+    assert successor.shared_bus_producer_parameter_count(1152, 128) == 147_456
+
+
+def test_production_shaped_saved_bus_is_already_head_projected() -> None:
+    generator = torch.Generator().manual_seed(17)
+    scores = torch.randn(2, 4, 4, generator=generator, dtype=torch.float64)
+    current = torch.randn(2, 4, 1152, generator=generator, dtype=torch.float64)
+    saved_bus = torch.randn(2, 4, 128, generator=generator, dtype=torch.float64)
+    current_right = torch.randn(16, 1152, generator=generator, dtype=torch.float64)
+    saved_right = torch.randn(16, 128, generator=generator, dtype=torch.float64)
+    output = torch.randn(1152, 16, generator=generator, dtype=torch.float64)
+    actual = successor.two_source_preweighted_write(
+        scores, current, saved_bus, current_right, saved_right, output,
+    )
+    expected = scores @ (current @ current_right.T + saved_bus @ saved_right.T)
+    expected = expected @ output.T
+    torch.testing.assert_close(actual, expected, rtol=0, atol=0)
 
 
 def test_spectral_derangement_is_nontrivial_same_rank_same_spectrum_null() -> None:

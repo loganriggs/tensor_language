@@ -1,7 +1,8 @@
 """Pure two-source value tensor for an ordered-successor attention head.
 
 The Bilin18 value bus at a later attention layer mixes a projection of the live
-current state with the corresponding head slice of block 0's saved ``v1`` value.
+current state with the corresponding already-projected head slice of block 0's
+saved ``v1`` value.
 Given an already-computed attention score tensor, the complete value/output map is
 
     sum_k score[q,k] O ((1-lambda) V_current z_current[k]
@@ -257,28 +258,45 @@ def factor_complete_parameter_count(
 
 
 def autonomous_successor_parameter_count(
-    state_dim: int,
+    current_state_dim: int,
+    saved_value_dim: int,
     qk_rank: int,
     value_rank: int,
     output_dim: int,
     *,
-    source_count: int,
+    include_current: bool,
+    include_saved: bool,
 ) -> int:
     """Factor-complete QK+value/output storage for one autonomous bilinear head.
 
-    Four Q/K factors have shape ``[qk_rank, state_dim]``.  Each retained value
-    source has one ``[value_rank, state_dim]`` right factor and the shared output
-    factor is ``[output_dim, value_rank]``.  Fixed mixture scalars are absorbed.
+    Four Q/K factors have shape ``[qk_rank, current_state_dim]``.  The live-state
+    right factor is ``[value_rank, current_state_dim]``; the already-projected v1
+    right factor is ``[value_rank, saved_value_dim]``; the shared output factor is
+    ``[output_dim, value_rank]``. Fixed mixture scalars are absorbed.
     """
 
-    dimensions = (state_dim, qk_rank, value_rank, output_dim)
+    dimensions = (current_state_dim, saved_value_dim, qk_rank, value_rank, output_dim)
     if any(type(value) is not int or value <= 0 for value in dimensions):
         raise ValueError("all factor dimensions must be positive Python integers")
-    if type(source_count) is not int or source_count not in (1, 2):
-        raise ValueError("source_count must be exactly one or two")
-    return 4 * qk_rank * state_dim + value_rank * (
-        source_count * state_dim + output_dim
+    if type(include_current) is not bool or type(include_saved) is not bool or not (
+        include_current or include_saved
+    ):
+        raise ValueError("at least one exact boolean value source must be included")
+    right_values = (
+        current_state_dim * int(include_current)
+        + saved_value_dim * int(include_saved)
     )
+    return 4 * qk_rank * current_state_dim + value_rank * (right_values + output_dim)
+
+
+def shared_bus_producer_parameter_count(state_dim: int, head_dim: int) -> int:
+    """Stored values in block 0's one-head projection that mints the shared bus."""
+
+    if type(state_dim) is not int or state_dim <= 0 or type(head_dim) is not int or (
+        head_dim <= 0
+    ):
+        raise ValueError("shared-bus dimensions must be positive Python integers")
+    return state_dim * head_dim
 
 
 def compose_successor_arm(
@@ -318,6 +336,7 @@ __all__ = [
     "folded_two_source_map",
     "autonomous_successor_parameter_count",
     "spectral_deranged_control",
+    "shared_bus_producer_parameter_count",
     "tolerance_rank",
     "two_source_successor_write",
     "two_source_preweighted_write",

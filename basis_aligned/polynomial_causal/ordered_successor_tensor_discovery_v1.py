@@ -36,6 +36,7 @@ TARGET_HEAD = 7
 STATE_DIM = 1152
 QK_RANK = 128
 NATIVE_VALUE_RANK = 128
+SAVED_VALUE_DIM = 128
 TOKEN_VOCAB = 50_257
 LOGIT_VOCAB = 50_304
 ROW_LENGTH = 257
@@ -83,7 +84,8 @@ class CandidateSpec:
     @property
     def stored_parameters(self) -> int:
         return tensor.autonomous_successor_parameter_count(
-            STATE_DIM, QK_RANK, self.rank, STATE_DIM, source_count=2,
+            STATE_DIM, SAVED_VALUE_DIM, QK_RANK, self.rank, STATE_DIM,
+            include_current=True, include_saved=True,
         )
 
 
@@ -115,13 +117,20 @@ def arm_stored_parameters(arm: str) -> int | None:
 
     if arm == "native" or arm == FULL_REPLAY:
         return tensor.autonomous_successor_parameter_count(
-            STATE_DIM, QK_RANK, NATIVE_VALUE_RANK, STATE_DIM, source_count=2,
+            STATE_DIM, SAVED_VALUE_DIM, QK_RANK, NATIVE_VALUE_RANK, STATE_DIM,
+            include_current=True, include_saved=True,
         )
     if arm == HEAD_DELETED:
         return 0
-    if arm in (CURRENT_ONLY, V1_ONLY):
+    if arm == CURRENT_ONLY:
         return tensor.autonomous_successor_parameter_count(
-            STATE_DIM, QK_RANK, NATIVE_VALUE_RANK, STATE_DIM, source_count=1,
+            STATE_DIM, SAVED_VALUE_DIM, QK_RANK, NATIVE_VALUE_RANK, STATE_DIM,
+            include_current=True, include_saved=False,
+        )
+    if arm == V1_ONLY:
+        return tensor.autonomous_successor_parameter_count(
+            STATE_DIM, SAVED_VALUE_DIM, QK_RANK, NATIVE_VALUE_RANK, STATE_DIM,
+            include_current=False, include_saved=True,
         )
     matches = tuple(candidate for candidate in CANDIDATES if candidate.arm == arm)
     if len(matches) != 1:
@@ -185,6 +194,8 @@ class DiscoveryAuthority:
     lexicon_registry_sha256: str
     model_config_sha256: str
     model_weights_sha256: str
+    shared_bus_producer_sha256: str
+    shared_bus_producer_stored_parameters: int
     programs: tuple[ProgramBinding, ...]
 
     def __post_init__(self) -> None:
@@ -204,11 +215,19 @@ class DiscoveryAuthority:
             self.lexicon_registry_sha256,
             self.model_config_sha256,
             self.model_weights_sha256,
+            self.shared_bus_producer_sha256,
         ):
             if not _is_sha256(value):
                 raise ValueError("authority hash field is malformed")
         if type(self.select_documents) is not int or self.select_documents <= 0:
             raise ValueError("authority SELECT document count must be positive")
+        expected_producer = tensor.shared_bus_producer_parameter_count(
+            STATE_DIM, SAVED_VALUE_DIM,
+        )
+        if type(self.shared_bus_producer_stored_parameters) is not int or (
+            self.shared_bus_producer_stored_parameters != expected_producer
+        ):
+            raise ValueError("authority shared-bus producer price changed")
         if type(self.programs) is not tuple or any(
             type(binding) is not ProgramBinding for binding in self.programs
         ):

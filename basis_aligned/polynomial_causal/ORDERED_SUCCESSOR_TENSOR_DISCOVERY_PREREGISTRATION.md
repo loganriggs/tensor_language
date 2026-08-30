@@ -27,23 +27,26 @@ At L8H7 the autonomous score and delivered write are
 A_qk = (<R_q Q1 z8_q, R_k K1 z8_k>/128)
      * (<R_q Q2 z8_q, R_k K2 z8_k>/128) * 1[k <= q]
 
-w_q = sum_k A_qk O[(1-lambda)V8 z8_k + lambda V0 z0_k].
+w_q = sum_k A_qk O[(1-lambda)V8 z8_k + lambda b0_k].
 ```
 
-`z8` is the live normalized L8 attention state. `z0` is the normalized block-0 state
-whose value projection is retained on the v1 bus. RoPE and causal support are fixed;
+`z8` is the live normalized L8 attention state. `b0` is the already-projected
+`[head=7,dim=128]` slice of block 0's saved first-value bus. The L8 replacement receives
+this bus directly from `AttentionEvent.first_value`; it must not reconstruct a 1152-D
+block-0 state or apply `V0` a second time. RoPE and causal support are fixed;
 the four Q/K RMSNorms are explicit scalar nonlinear edges. No token label, lexicon,
 argmax, top-k, regex, family selector, or successor-context mask enters execution.
 
 The weight-only folded physical OV map is
 
 ```text
-M = O[(1-lambda)V8 | lambda V0], [1152,2304], rank <= 128.
+M = O[(1-lambda)V8 | lambda I_128], [1152,1280], rank <= 128.
 ```
 
 Compute one CPU-float64 SVD before any SELECT forward. For every frozen rank
-`s in {8,16,32,64,96,128}`, serialize/hash `U_s diag(sigma_s)` and the current/v1
-splits of `V_s^T`. The same-price null retains the singular values and mismatches the
+`s in {8,16,32,64,96,128}`, serialize/hash `U_s diag(sigma_s)` and the
+`[s,1152]` current-state plus `[s,128]` saved-bus splits of `V_s^T`. The same-price
+null retains the singular values and mismatches the
 right singular directions by one pre-frozen fixed-point-free cyclic permutation.
 Materialized factors, not an SVD recipe alone, are authority-bound. Repeated-value
 ties therefore cannot change the deployed realization after authority.
@@ -54,24 +57,33 @@ The target head uses four rank-128 Q/K factors plus one rank-`s` output factor a
 two rank-`s` right factors:
 
 ```text
-P_both(s) = 4*128*1152 + 3*s*1152.
+P_shared-bus(s) = 4*128*1152 + s*(1152 + 128 + 1152)
+                = 589,824 + 2,432s.
 ```
 
 | s | stored floats | fraction of native L8H7 |
 |---:|---:|---:|
-| 8 | 617,472 | 0.5982 |
-| 16 | 645,120 | 0.6250 |
-| 32 | 700,416 | 0.6786 |
-| 64 | 811,008 | 0.7857 |
-| 96 | 921,600 | 0.8929 |
-| 128 | 1,032,192 | 1.0000 |
+| 8 | 609,280 | 0.6761 |
+| 16 | 628,736 | 0.6977 |
+| 32 | 667,648 | 0.7409 |
+| 64 | 745,472 | 0.8273 |
+| 96 | 823,296 | 0.9136 |
+| 128 | 901,120 | 1.0000 |
 
-The current-only and v1-only rank-128 diagnostics each cost `884,736` floats. The
-score-conditioned OV map alone costs `442,368`, but is not an autonomous arm and
-receives no executable credit. The other eight L8 heads are replayed identically in
+The current-only and v1-only rank-128 diagnostics cost `884,736` and `753,664`
+floats respectively. The score-conditioned OV map alone costs `311,296`, but is not an
+autonomous arm and receives no executable credit. The other eight L8 heads are replayed identically in
 every nonnative arm and are matched experimental background, not free parts of the
-candidate. Any joint multi-circuit storage claim must separately charge shared v1/QK
-factors once. No MDL-bit claim is made; these are literal unquantized float counts.
+candidate.
+
+These prices are **conditional on the deployed shared first-value bus**. The L0H7
+producer slice that mints that bus costs `1152*128 = 147,456` learned floats and is
+authority-bound but not duplicated in each L8 candidate. An end-to-end standalone
+claim must add that producer once globally: the exact rank-128 total is therefore
+`901,120 + 147,456 = 1,048,576`. A joint multi-consumer ledger may amortize the same
+producer exactly once, but may not call it free. This discovery replaces only L8
+attention and therefore cannot claim standalone extraction. No MDL-bit claim is made;
+these are literal unquantized float counts.
 
 For runtime reporting, count the target head's projection multiply-adds and the
 causal-pair contractions separately. No compute reduction is inferred from storage.
