@@ -1,6 +1,6 @@
 {
   "approved": false,
-  "audited_source_commit": "f41ae53c6b86096b8cdd87a9dea9824c6f5c4b62",
+  "audited_source_commit": "eade989397817c937c03827c7f5c425d4be81c6c",
   "audited_source_hashes": {
     "basis_aligned/polynomial_causal/CAUSAL_RESPONSE_FACTORIZATION_V1_AMENDMENT_1.md": "cf8b9e3dce807a94183d8314e4bba14e1f01ff3aa579d8648c680dc385540768",
     "basis_aligned/polynomial_causal/CAUSAL_RESPONSE_FACTORIZATION_V1_AMENDMENT_2.md": "9819b5b5486ccdcd57747bf36d3e4862aba827dbc52ff8cc49e6209b938d0017",
@@ -10,6 +10,7 @@
     "basis_aligned/polynomial_causal/CAUSAL_RESPONSE_FACTORIZATION_V1_AMENDMENT_6.md": "5a125a81d6d72111d3903aa9fd3411d1f7ba41482f0c504cf2a966ec822c59ec",
     "basis_aligned/polynomial_causal/CAUSAL_RESPONSE_FACTORIZATION_V1_AMENDMENT_7.md": "d797e03d2e90ff1d368b54cd26a14c1bdfd67c952a0836e884bc09ab04a74c79",
     "basis_aligned/polynomial_causal/CAUSAL_RESPONSE_FACTORIZATION_V1_AMENDMENT_8.md": "e828cd47b0df6b3763964b417e9b3fbe5337a8cba9c5558a7ea8123cdddab30c",
+    "basis_aligned/polynomial_causal/CAUSAL_RESPONSE_FACTORIZATION_V1_AMENDMENT_9.md": "30c621986bcedb2d11e6f5d1274329152de4ddf89173bdd80669e152fa6d5183",
     "basis_aligned/polynomial_causal/CAUSAL_RESPONSE_FACTORIZATION_V1_PREREGISTRATION.md": "2782866d8fdd1ca5abb3de4348534ceefadddb42a19ec17a756dd6017c89ffba",
     "basis_aligned/polynomial_causal/bilin18_observed_model_facade.py": "b62947f772c807259890a9d09dfcbe5e91ad339a0bffa867ab99177fde4c728c",
     "basis_aligned/polynomial_causal/causal_response_factorization_v1.py": "8af3e8c4987b15d8da5413f2998452ea7064779ad648c17c0d9269fd7ed0f881",
@@ -17,8 +18,9 @@
     "basis_aligned/polynomial_causal/causal_response_factorization_v1_fit_adapter.py": "5cc4f0ea628e5f9aac6c475517b5c4d7fbc6205e2c4a681bafd90e1e5f7b5c0a",
     "basis_aligned/polynomial_causal/causal_response_factorization_v1_parent_binding.py": "e3dd090d8c1e4e1b1d1261aae2be7799319bb282e3bb0598b51946a238e7f365",
     "basis_aligned/polynomial_causal/causal_response_factorization_v1_training_input.py": "0f87bd4346f086c8299d6a2c55665d658ad1eeda9731d48f4f7d75e4aca1183b",
-    "basis_aligned/polynomial_causal/causal_response_factorization_v1_training_lifecycle.py": "f9a1c375d0e7457ff76b9fee57b9f96bde07f96a66f5de389ef67965fea981ad",
-    "basis_aligned/polynomial_causal/causal_response_factorization_v1_training_loader.py": "e037224b518e2ceb241fb24812801c7aa56dfcec70814c981b17754fed291659",
+    "basis_aligned/polynomial_causal/causal_response_factorization_v1_training_lifecycle.py": "6f0cd255f1e6df5d4f50d2b9bfb13232d5a5b12dd22ff94e60099d58b918a240",
+    "basis_aligned/polynomial_causal/causal_response_factorization_v1_training_loader.py": "7581daa765424895ef9a4a6a1f77981530ecc43af11cb3950b856c2717b3e4a5",
+    "basis_aligned/polynomial_causal/causal_response_factorization_v1_training_snapshot.py": "76da107345fbad22dba6f362bc0a986b5a12a2c16328152cf68640138d323911",
     "basis_aligned/polynomial_causal/causal_response_tensor_collection.py": "a48fa3d35fdd280254563f83b6482bdaa7660d8dcc8a8c649d4b3fe5881bbd8f",
     "basis_aligned/polynomial_causal/causal_response_tensor_v1_backend.py": "bb454120fdbd794b28aaf0416a076d53e268086f330abd822c3f78b955abdcfc",
     "basis_aligned/polynomial_causal/causal_response_tensor_v1_fit_bundle.py": "a63ad13a0f23589ca32da7b554ef76cf2338d498badfd14d5f0638c5e4898583",
@@ -28,21 +30,20 @@
     "basis_aligned/polynomial_causal/test_causal_response_factorization_v1_parent_binding.py": "8976ccaaff413628047f5ee15b10096871dcf835740debc77c751f92cb6d02e7",
     "basis_aligned/polynomial_causal/test_causal_response_factorization_v1_training_input.py": "5ce81fcebcc21930484441d1ec52f56d9253f1eeacd7d42fc90824a6ae8fa0ef",
     "basis_aligned/polynomial_causal/test_causal_response_factorization_v1_training_lifecycle.py": "69d18f1a74b759ef750e22de503bd483919dd05c3e954e7296182eef1d45d43e",
-    "basis_aligned/polynomial_causal/test_causal_response_factorization_v1_training_loader.py": "a522a09c816c55f6d41f8c93e2c4fbfdc42b97f26fff098db3a9ca14f7d71ae6",
+    "basis_aligned/polynomial_causal/test_causal_response_factorization_v1_training_loader.py": "bec4eb2fb6f0263a3f2c426abebe5f2a8453b02eb66d3d82322f41830b91d646",
+    "basis_aligned/polynomial_causal/test_causal_response_factorization_v1_training_snapshot.py": "ebafd6391010a651670f04c824ff36de542461dc5b4c6a867f239c302a27d385",
     "basis_aligned/polynomial_causal/test_causal_response_tensor_v1_fit_bundle.py": "e7b041f290882c9cb1d31a152ceb29f8603a1df5cb592a00ddd4e9ece3038e95",
     "jacclust/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "jacclust/tt_model.py": "49ecdbd6c060ff5b3e57f3134d87ba32841390c891c42e6ae23b71d8627612b2"
   },
   "remaining_execution_blockers": [
-    "The terminal-local snapshot has no final exact-content replay after semantic validation. Mutating staged authority.json after its semantic read but before renameat2 publishes a receipt whose authority record SHA-256 differs from the authoritative terminal-local bytes.",
-    "Receipt snapshot records are trusted after _stage_terminal_snapshot returns. Substituting a record SHA-256 produces a receipt whose declared terminal_snapshot record does not match the copied file.",
-    "The staging directory has no exact entry census immediately before publication. An unrecorded extra file added after snapshot staging is atomically published inside the authoritative terminal directory.",
-    "Synthetic/production alias exclusion is checked only in OneUseFitTrainingLoader.__init__. Constructing on absent synthetic paths and replacing them with hardlinks to production artifacts before load_once bypasses the gate and accepts a caller-supplied synthetic authority.",
-    "The audited closure contains no downstream validator/consumer that requires the receipt/terminal hardlink, exact terminal entry set, recorded hashes and bytes, and semantic replay solely from terminal-local paths. Consequently an altered published snapshot is not yet source-closed rejected by any authorized consumer."
+    "The synthetic loader's second physical-alias check is a lookup followed by a separate bundle open. Replacing the candidate bundle with a production hardlink after that check returns false but before _stable_record opens the bundle still deserializes production bytes under a caller-supplied authority.",
+    "The production snapshot consumer does not enforce the exact authority, audit, manifest, or receipt payload schemas and authorization flags. A self-authored GO audit using the exact historical source map, an attacker authority with authorized_for_eval=true, and self-consistent manifest/input/receipt is accepted with require_production=True and returns a 229-document training value.",
+    "The no-argument consumer has no immutable external expected terminal or independent-audit artifact identity. Replacing the complete canonical snapshot with a self-consistent directory therefore passes its internal content-addressed joins; member hashes and receipt/terminal inode identity alone cannot authenticate who authorized the snapshot."
   ],
   "outcome_access": false,
   "reviewer": "OpenAI Codex independent artifact auditor /root/artifact_audit",
   "schema": "causal_response_factorization_v1_training_lifecycle_independent_audit",
   "status": "NO-GO",
-  "tests_passed": 86
+  "tests_passed": 93
 }
