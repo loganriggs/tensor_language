@@ -1,0 +1,14 @@
+DAS at a8 on all 16 circuits localised there: ['r.11.1.1', 'r.11.1.2', 'r.11.3.1', 'r.23.2.1', 'r.23.2.3', 'r.2.0', 'r.2.0.0', 'r.2.0.1', 'r.2.0.2', 'r.2.1', 'r.2.1.0', 'r.2.1.1', 'r.2.2', 'r.2.2.0', 'r.2.2.1', 'r.2.3']
+/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/a8_grouping_learned.py:234: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:836.)
+  losses.append(float(loss))
+  r.11.1.1     a8   rank 1: members 0.0120 off 0.0046 conc 2.587 recovered 0.017 | moved 1.000 loss +0.00431->-0.00324 healthy True (72s)
+  r.11.1.2     a8   rank 1: members 0.0396 off 0.0091 conc 4.366 recovered 0.043 | moved 0.997 loss +0.00688->-0.02770 healthy True (153s)
+  r.11.3.1     a8   rank 1: members 0.0636 off 0.0170 conc 3.754 recovered 0.084 | moved 1.000 loss +0.00696->-0.08816 healthy True (223s)
+  r.23.2.1     a8   rank 1: members 0.0215 off 0.0070 conc 3.075 recovered 0.036 | moved 0.999 loss +0.00272->+0.00015 healthy True (292s)
+  r.23.2.3     a8   rank 1: members 0.0222 off 0.0063 conc 3.53 recovered 0.027 | moved 0.998 loss +0.00819->-0.01335 healthy True (361s)
+  r.2.0        a8   rank 1: members 0.0464 off 0.0080 conc 5.79 recovered 0.042 | moved 1.000 loss +0.00463->-0.01047 healthy True (430s)
+  r.2.0.0      a8   rank 1: members 0.2345 off 0.0180 conc 13.045 recovered 0.125 | moved 1.000 loss +0.00590->-0.13744 healthy True (498s)
+  r.2.0.1      a8   rank 1: members 0.0897 off 0.0152 conc 5.915 recovered 0.067 | moved 0.999 loss +0.00651->-0.06637 healthy True (567s)
+  r.2.0.2      a8   rank 1: members 0.1319 off 0.0159 conc 8.301 recovered 0.094 | moved 1.000 loss -0.00132->-0.05306 healthy True (637s)
+  r.2.1        a8   rank 1: members 0.0121 off 0.0040 conc 2.995 recovered 0.021 | moved 0.996 loss +0.00421->-0.00216 healthy True (707s)
