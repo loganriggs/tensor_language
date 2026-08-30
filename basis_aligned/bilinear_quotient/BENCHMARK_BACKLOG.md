@@ -892,7 +892,12 @@ later per-rung backlog edits had silently anchored on text that was not here.
     quarter of a16L's 0.21 window cost); pred_b >= +0.02 on >= 6/8;
     pred_c full arm reproduces §2144 (FR L2_F 2.6662 within 0.01).
     In-script tripwire: the pointer branch must fire >0 times.
-    -> ops/a16_pointer.py [QUEUED]
+    -> ops/a16_pointer.py
+    First run 23:30Z: BOTH ARMS COMPLETED (log shows full 2.6662 exact;
+    pointer arm 2.6550; recovery ~+0.011/window on 8/8) but the runner's
+    tripwire referenced main-local `cur` -> NameError before the JSON was
+    written. Fixed (nptr via SEL), re-queued 23:35Z behind rung 65; the
+    scored artifact comes from the rerun.
 
 65. IS m16 RETRIEVAL-SHAPED TOO (cross-object attribution; damage
     convention). m16 cannot read other positions; if deleting it still

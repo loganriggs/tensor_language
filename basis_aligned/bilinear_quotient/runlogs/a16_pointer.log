@@ -1,0 +1,82 @@
+ARM 1/2: full S2144 config (reproduction)
+a2-input probe acc 0.69
+fit a2
+fit a3
+fit a4
+fit a5
+fit a6
+fit a7
+fit a8
+fit a9
+fit a10
+fit a11
+fit a12
+fit a13
+fit a14
+fit a15
+fit a16
+fit a17
+L1 (+38 heads): C +2.0111 | fresh +2.3207
+fit a10L
+fit a11L
+fit a12L
+fit a13L
+fit a14L
+fit a15L
+fit a16L
+fit a17L
+  window 0 (7 docs): L2 fresh +2.6662
+  window 1 (42 docs): L2 fresh +2.9355
+  window 2 (17 docs): L2 fresh +2.6120
+  window 3 (23 docs): L2 fresh +2.8497
+  window 4 (43 docs): L2 fresh +2.9137
+  window 5 (26 docs): L2 fresh +2.7953
+  window 6 (35 docs): L2 fresh +2.5818
+  window 7 (35 docs): L2 fresh +2.6640
+L2 empirical: C +2.4191 | fresh +2.6662 | tail-attn increment +0.3455
+(a) L2 <= +2.75 fresh: HELD
+(b) increment in [0.30,0.55]: HELD
+ARM 2/2: a16L with the pointer-linear ind stand-in
+a2-input probe acc 0.69
+fit a2
+fit a3
+fit a4
+fit a5
+fit a6
+fit a7
+fit a8
+fit a9
+fit a10
+fit a11
+fit a12
+fit a13
+fit a14
+fit a15
+fit a16
+fit a17
+L1 (+38 heads): C +2.0111 | fresh +2.3207
+fit a10L
+fit a11L
+fit a12L
+fit a13L
+fit a14L
+fit a15L
+a16 pointer map fit on 10348 ind positions
+fit a16L
+fit a17L
+  window 0 (7 docs): L2 fresh +2.6550
+  window 1 (42 docs): L2 fresh +2.9231
+  window 2 (17 docs): L2 fresh +2.6021
+  window 3 (23 docs): L2 fresh +2.8361
+  window 4 (43 docs): L2 fresh +2.9007
+  window 5 (26 docs): L2 fresh +2.7850
+  window 6 (35 docs): L2 fresh +2.5723
+  window 7 (35 docs): L2 fresh +2.6535
+L2 empirical: C +2.3996 | fresh +2.6550 | tail-attn increment +0.3343
+(a) L2 <= +2.75 fresh: HELD
+(b) increment in [0.30,0.55]: HELD
+Traceback (most recent call last):
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/a16_pointer.py", line 1129, in <module>
+    if cur.get('nptr',0)<=0:
+       ^^^
+NameError: name 'cur' is not defined. Did you mean: 'chr'?

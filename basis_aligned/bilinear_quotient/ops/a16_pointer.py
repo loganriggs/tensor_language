@@ -510,7 +510,7 @@ def main():
                             q3=int(qs[-1])
                             new[b3*T2+p3]=xx[b3,q3]@Wptr
                             nrep+=1
-                    cur['nptr']=cur.get('nptr',0)+nrep
+                    SEL['nptr']=SEL.get('nptr',0)+nrep
                     return (new.view(y.shape).to(y.dtype),v1)
                 hs.append(m.transformer.h[li].attn
                           .register_forward_hook(h))
@@ -1126,15 +1126,15 @@ if __name__=='__main__':
     print('ARM 2/2: a16L with the pointer-linear ind stand-in',flush=True)
     r_p=main()
     import statistics as stt
-    if cur.get('nptr',0)<=0:
+    if SEL.get('nptr',0)<=0:
         raise SystemExit('INSTRUMENT FAIL: pointer branch never fired')
-    print(f"pointer branch fired {cur.get('nptr',0)} times",flush=True)
+    print(f"pointer branch fired {SEL.get('nptr',0)} times",flush=True)
     d=[round(a-b,4) for a,b in zip(r_f['fresh8'],r_p['fresh8'])]
     md=stt.median(d)
     pa=md>=0.05
     pb=sum(g>=0.02 for g in d)>=6
     pc=abs(r_f['L2_F']-2.6662)<=0.01
-    res={'full':r_f,'a16ptr':r_p,'per_window_recovery':d,'pointer_fires':int(cur.get('nptr',0)),
+    res={'full':r_f,'a16ptr':r_p,'per_window_recovery':d,'pointer_fires':int(SEL.get('nptr',0)),
          'convention':'L2 = CE above the real model; lower is better; recovery = full-arm damage minus pointer-arm damage',
          'pred_a_quarter_back':bool(pa),'pred_b_windows':bool(pb),'pred_c_reproduces_s2144':bool(pc),
          'self_reviewed':True,'runtime_s':round(time.time()-T00,1)}
