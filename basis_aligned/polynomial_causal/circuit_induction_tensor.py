@@ -14,16 +14,40 @@ from __future__ import annotations
 import torch
 
 
-def induction_fetch_mask(tokens: torch.Tensor) -> torch.Tensor:
-    """Return ``[B,Q,K]`` support for keys immediately following equal query tokens."""
+def induction_fetch_mask(
+    tokens: torch.Tensor,
+    *,
+    vocabulary_offset: int = 0,
+    vocabulary_size: int | None = None,
+) -> torch.Tensor:
+    """Return successor-key support under equality or a fixed vocabulary derangement.
+
+    ``vocabulary_offset=0`` is native equality. A nonzero offset compares the key
+    predecessor with ``(query_token + offset) mod vocabulary_size`` and is a fixed
+    permutation-tensor null, not input-dependent routing.
+    """
 
     if not torch.is_tensor(tokens) or tokens.ndim != 2 or tokens.dtype != torch.long:
         raise ValueError("tokens must be a rank-2 int64 tensor")
     if tokens.shape[1] < 2 or bool((tokens < 0).any()):
         raise ValueError("tokens must have nonnegative IDs and length at least two")
+    if type(vocabulary_offset) is not int:
+        raise ValueError("vocabulary_offset must be a Python integer")
+    if vocabulary_offset != 0 and (
+        type(vocabulary_size) is not int or vocabulary_size <= int(tokens.max())
+    ):
+        raise ValueError("a derangement requires a valid vocabulary_size")
+    if vocabulary_offset == 0 and vocabulary_size is not None and (
+        type(vocabulary_size) is not int or vocabulary_size <= int(tokens.max())
+    ):
+        raise ValueError("vocabulary_size does not cover the token IDs")
     batch, length = tokens.shape
     mask = torch.zeros(batch, length, length, dtype=torch.bool, device=tokens.device)
-    query_equals_predecessor = tokens[:, :, None] == tokens[:, None, :-1]
+    query_tokens = tokens
+    if vocabulary_offset != 0:
+        assert vocabulary_size is not None
+        query_tokens = (query_tokens + vocabulary_offset) % vocabulary_size
+    query_equals_predecessor = query_tokens[:, :, None] == tokens[:, None, :-1]
     mask[:, :, 1:] = query_equals_predecessor
     causal = torch.tril(torch.ones(
         length, length, dtype=torch.bool, device=tokens.device,
@@ -35,6 +59,9 @@ def contract_induction_fetch(
     scores: torch.Tensor,
     values: torch.Tensor,
     tokens: torch.Tensor,
+    *,
+    vocabulary_offset: int = 0,
+    vocabulary_size: int | None = None,
 ) -> torch.Tensor:
     """Contract only equality-matched successor edges of one attention head."""
 
@@ -50,7 +77,11 @@ def contract_induction_fetch(
         raise ValueError("scores, values, and tokens must share a device")
     if scores.dtype != values.dtype or not scores.is_floating_point():
         raise ValueError("scores and values must share a floating dtype")
-    support = induction_fetch_mask(tokens).to(scores.dtype)
+    support = induction_fetch_mask(
+        tokens,
+        vocabulary_offset=vocabulary_offset,
+        vocabulary_size=vocabulary_size,
+    ).to(scores.dtype)
     return torch.bmm(scores * support, values)
 
 

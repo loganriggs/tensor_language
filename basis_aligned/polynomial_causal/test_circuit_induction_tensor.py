@@ -37,9 +37,26 @@ def test_multiple_matches_sum_without_nearest_or_argmax_router():
     assert float(output[0, 4, 0]) == 1 + 3
 
 
+def test_fixed_vocabulary_permutation_is_a_same_shape_deranged_null():
+    tokens = torch.tensor([[4, 9, 8, 3, 1]])
+    native = subject.induction_fetch_mask(tokens)
+    deranged = subject.induction_fetch_mask(
+        tokens, vocabulary_offset=1, vocabulary_size=10,
+    )
+    assert native.shape == deranged.shape
+    # The q=0 derangement cannot select a future key because causality is explicit.
+    assert not bool(deranged[0, 0].any())
+    # query token 3 at q=3 deranges to 4, matching predecessor position 0 and
+    # therefore fetching key 1.
+    assert bool(deranged[0, 3, 1])
+    assert not torch.equal(native, deranged)
+
+
 def test_bad_shapes_fail_closed():
     tokens = torch.tensor([[1, 2, 1]])
     with pytest.raises(ValueError):
         subject.contract_induction_fetch(torch.ones(3, 3), torch.ones(1, 3, 2), tokens)
     with pytest.raises(ValueError):
         subject.induction_fetch_mask(tokens.float())
+    with pytest.raises(ValueError):
+        subject.induction_fetch_mask(tokens, vocabulary_offset=1)
