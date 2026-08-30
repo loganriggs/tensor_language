@@ -1,0 +1,20 @@
+IS THE TABLE KNEE ON FRESH ROWS | 6 arms x 1 coverage(s) | DISCOVERY ONLY
+
+########## COVERAGE 16110 ##########
+  [bqlib] coverage 16110 from fineweb_n480_skip80.pt: 36 tables, neighbour index and map solver built (5s)
+  [bqlib] cache HIT  live     fresh
+  [bqlib] cache HIT  mix25m256 fresh
+  [bqlib] cache HIT  mix25m256 fresh
+  [bqlib] cache HIT  mix25m256 fresh
+  [bqlib] cache HIT  mix25m256 fresh
+  [bqlib] cache HIT  map512   fresh
+  [bqlib] cache HIT  mix25m256 fresh
+
+  §1947's ladder still orders monotonically on fresh rows  -> False
+  and the step down to {768,256} still costs under 0.010 nats per 100M  -> True
+  and the next step to {640,160} still crosses it  -> True
+  and the decisive 11.8 milli-nat difference keeps at least a third of its size  -> True
+  derived controls -> True   coverage_exact=True  inert_pairs_are_inert=True  some_differing_pair_moves=True  buckets_partition=True  live_identical=True
+
+pred_a False | pred_b True | pred_c True | pred_d True | pred_z True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/is_the_table_knee_on_fresh_rows_results.json (5.8s)

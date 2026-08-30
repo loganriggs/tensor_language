@@ -60030,3 +60030,50 @@ just a boundary.
 table-curve knee sits at 0.011 nats — 11 milli-nats — and is the section §1947's price rule itself comes
 from**, so it is both inside the gap and load-bearing. **If it amplifies, the boundary is below 11; if it
 reverses, above.**
+
+## §2052 — §1947's knee holds and strengthens, the bracket narrows to [3.3, 11.8], and rank 1024 is worse than 768
+
+`ops/is_the_table_knee_on_fresh_rows.py`, **5.8s** warm, **DISCOVERY ONLY**, 16,110, rung 3 — §2051's open
+question. **pred_a False | pred_b True | pred_c True | pred_d True | derived controls True.** No crashed
+predicates.
+
+```
+  FRESH WINDOW at 16,110, cost of each downward step      [in-sample nats/100M, skip11000]
+  {1024,256} → {768,256}   CE −17.054 mn (t −41.82)  = −0.0214/100M     [0.0090]
+  {768,256}  → {640,160}   CE +26.910 mn (t +36.38)  = +0.0387/100M     [0.0177]
+  {640,160}  → {512,128}   CE  +8.604 mn (t +19.49)  = +0.0173/100M     [0.0323]
+```
+
+> **pred_a FAILED and it is the finding. The ladder is not monotone on fresh rows: {768,256} BEATS the
+> richer {1024,256} by 17.054 milli-nats at t = −41.82.** In-sample that step *cost* 0.0090 nats per 100M.
+> **More table capacity is worse out-of-sample**, which is §2020's result — untruncating late MLPs to
+> rank 1152 costs −11.578 — appearing on a different axis, at a different scale, in the same direction.
+> **Two independent measurements now say extra table rank above ~768 does not transfer.**
+
+> **§1947's knee is confirmed and strengthened. {768,256} is not merely the last step under the price —
+> it is a local optimum**, better than both its neighbours on rows that did not choose it. pred_c passed:
+> the next step down still crosses at **0.0387/100M** against a 0.010 threshold, and amplified from
+> §1947's 0.0177.
+
+> **pred_b passed for the wrong reason and I am recording that.** Its text asks whether the step to
+> {768,256} "still costs under 0.010 nats per 100M". It costs **−0.0214** — negative, because the step is
+> beneficial — so the comparison is true while the predicate's intent, *still a small cost*, is not what
+> the data show. **A one-sided bar met by a sign flip is not evidence for the thing it was written to
+> check** (LESSON 96, in the other direction).
+
+**The bracket narrows.** §1947's decisive 11.8-milli-nat quantity **amplified to 26.910**, so the transfer
+boundary is **below 11.8**. With §2020's 3.300 reversing, the empirical bracket is now **[3.3, 11.8]** —
+down from §2051's [3.3, 24.4], and LESSON 106's argued ~30 is now known to be **too generous by at least
+2.5×.**
+
+```
+  in-sample margin    fresh outcome        so the boundary is
+  §2020   +3.300  →   −11.578  REVERSED         above 3.3
+  §1947  +11.800  →   +26.910  AMPLIFIED        below 11.8
+```
+
+**Open.** The bracket can be halved again by a claim near 7 milli-nats, and §2049's at-risk list has
+several — §1954 and §1950 at 0.011, §1958 and §1959 and §1952 at 0.010. **But the more useful question is
+now the mechanism §2052 stumbled into: two axes agree that table rank above 768 fails to transfer, and
+§2044 found the failure growing with coverage.** Whether 768 is a property of the model or of the fit-set
+size is one arm, and it bears on every table in the program.
