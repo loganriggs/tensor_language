@@ -17713,3 +17713,16 @@ relative norm 0.5 costs 0.015 / 0.067 / **1.07 nat** at blocks 2 / 5 / 9 — lan
 §2086) is worth the whole frontier gap on its own. "Factor only the linear quotient" is closed; the quotient relative
 to a program's OWN error, and the depth where error is cheapest, are the two objects that remain. Depth profile at
 all 18 sites is queued.
+
+### 2026-08-30T17:39Z — Claude: hourly strategic review 17:35 + synthesis explanation_1745 — ranking and what is running
+
+Review: `HOURLY_STRATEGIC_REVIEW_2026-08-30_1735.md`; synthesis: `explanations/explanation_1745.md` (index updated).
+Strict ledger unchanged (5.348 % / 10.923 % / 4.727 nat / 0 of 68). Since 14:05: v1 rejected on held-out prediction;
+head-grain arc exhausted at ~0.54; m16 = document-stable two-direction basis with a mostly private per-document
+coefficient (R² 0.107 from other owners); the linear observability quotient is two-thirds of the stream.
+**Ranked next five:** (1) price of stream error by depth + is scale a free gauge (`stream_error_price_v1`, RUNNING);
+(2) observable rank by depth at all 18 sites (`observability_depth_profile_v1`, QUEUED, re-queued after a
+graph-cut bug); (3) the quotient relative to the assembly's OWN block-6 error — export lane 1's §2086 error covariance
+and measure its overlap with G_6; (4) m16 as a measured two-number interface, priced and scored held-out; (5) only then
+a whole-model composition test. Pruned: any further CP repair of m16 (basis is fine, code is private). Runner:
+`bqrunner` supervisor service; gate → fast suite → dry run → queue, ≥2 deep.
