@@ -939,4 +939,19 @@ later per-rung backlog edits had silently anchored on text that was not here.
     >= 2 x mean on unmatched (within ind+other); pred_c skip-a16 arm
     reproduces §2146 per-window (median |delta| <= 0.005). If pred_a/b
     hold, ONE bigram-pointer rung is licensed; else the constructive
-    program at a16 pauses. -> ops/a16_bigram_split.py [QUEUED]
+    program at a16 pauses. -> ops/a16_bigram_split.py
+    RUN 2026-08-30, §2161: pred_c HELD, pred_a/b FAILED (matched = 17%
+    of the sum; mean ratio 1.98x, under the 2x bar by 0.004). The
+    registered pause takes effect: three constructive shots, all below
+    bar; the envelope stands as block-16's description.
+
+68. IS THE a16 READ SHORT- OR LONG-RANGE (attribution; signed-sum bars;
+    damage convention). Split the per-position a16L damage on ind
+    positions by distance to the target's last occurrence.
+    pred_a NEAR CARRIES: distance <= 32 positions carry >= 0.5 of the
+    summed ind damage (if HELD, a truncated-window 3-4-head attention
+    is the licensed next construction; if FAILED, block 16 is genuine
+    long-range memory); pred_b monotonicity: Spearman |rho|(mean damage
+    per log2-distance bin) >= 0.5 over bins; pred_c skip-a16 arm
+    reproduces §2146 per-window (median |delta| <= 0.005).
+    -> ops/a16_distance_split.py [QUEUED]

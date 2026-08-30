@@ -1,0 +1,59 @@
+{
+ "full": {
+  "L1_F": 2.3208,
+  "L2_C": 2.4191,
+  "L2_F": 2.6662,
+  "increment": 0.3454,
+  "orig_s312_a": true,
+  "orig_s312_b": true,
+  "fresh8": [
+   2.6662,
+   2.9355,
+   2.6121,
+   2.8497,
+   2.9138,
+   2.7954,
+   2.5818,
+   2.6641
+  ],
+  "runtime_s": 113.21181011199951
+ },
+ "skip16": {
+  "L1_F": 2.3207,
+  "L2_C": 2.2391,
+  "L2_F": 2.5091,
+  "increment": 0.1884,
+  "orig_s312_a": true,
+  "orig_s312_b": false,
+  "fresh8": [
+   2.5091,
+   2.7195,
+   2.3786,
+   2.6035,
+   2.6544,
+   2.5863,
+   2.3739,
+   2.4579
+  ],
+  "runtime_s": 110.42243027687073
+ },
+ "sums": {
+  "bigram_matched": 751.5,
+  "unmatched": 3602.5,
+  "all_ind_other": 4354.0
+ },
+ "means": {
+  "bigram_matched": 0.33821,
+  "unmatched": 0.17111
+ },
+ "counts": {
+  "bigram_matched": 2222,
+  "unmatched": 21054
+ },
+ "convention": "per-position CE(full with a16L) - CE(attn16 real) on FR; positive = the dictionary hurts there",
+ "pred_a_bigram_carries": false,
+ "pred_b_concentrated": false,
+ "pred_c_reproduces_s2146": true,
+ "self_reviewed": true,
+ "runtime_s": 223.6
+}

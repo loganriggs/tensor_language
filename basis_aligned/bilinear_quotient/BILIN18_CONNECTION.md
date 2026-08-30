@@ -64181,3 +64181,19 @@ vs ≥ +0.05) | pred_b FAILED (0/8).**
   this new evidence): does the ind/other damage concentrate on positions whose current BIGRAM occurred earlier
   (bigram-addressed copying)? If yes, a bigram pointer is licensed; if no, the constructive program at a16
   pauses and the envelope stands as block-16's description.
+
+## §2161 — RUNG 67: NOT BIGRAM-ADDRESSED EITHER — matched positions' per-position damage is ~2× (0.338 vs 0.171, just under the bar) but they are only ~10% of ind+other and carry 17% of the sum. Per the pre-registered decision rule, THE CONSTRUCTIVE PROGRAM AT a16 PAUSES; the envelope stands as block-16's description. pred_a/b FAILED, pred_c HELD. (Convention: per-position CE(full with a16L) − CE(attn16 real) on FR; positive = the dictionary hurts there.)
+
+`ops/a16_bigram_split.py`, **224s**, BACKLOG rung 67. **pred_c HELD (|Δ| 0.0000) | pred_a FAILED (751.5 of
+4,354 summed = 17% vs ≥ 60%) | pred_b FAILED (0.338 vs 2 × 0.171 = 0.342, by 0.004).**
+
+- **The addressing scoreboard closes for now:** target-occurrence-linear +0.011 (§2158), induction-successor
+  −0.002 (§2160), bigram-context only mildly elevated and rare (here). attn16's ~0.21 read is none of the cheap
+  addressing schemes — it is either genuinely distributed over many occurrences/features or nonlinear in a way
+  no single-pointer linear map captures. Three preregistered constructive shots were taken; all three scored
+  below their bars; the pause was registered in advance and takes effect.
+- **Block 16's standing description (end of 2026-08-30):** attn16 = 3–4 concentrated heads doing an unexplained
+  in-document read (dictionary worse than deletion; four-head trade at +0.0097); m16 = a subword-continuation
+  unit that fights that read (§2159); best coverage config keeps both real only in the envelope ledger. This is
+  the program's sharpest open object, now with three measured wrong theories attached — which is what makes it
+  attackable tomorrow.
