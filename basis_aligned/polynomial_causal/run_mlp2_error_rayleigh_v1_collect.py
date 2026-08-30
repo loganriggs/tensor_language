@@ -49,6 +49,21 @@ V1_DESIGN_AUTHORITY = HERE / "mlp2_error_rayleigh_v1_design_authority.json"
 V1_DESIGN_FAILURE = HERE / "mlp2_error_rayleigh_v1_design_failure.json"
 V1_DESIGN_LEDGER = HERE / "mlp2_error_rayleigh_v1_design_ledger.pt"
 V1_DESIGN_RECEIPT = HERE / "mlp2_error_rayleigh_v1_design_receipt.json"
+V1_ABSENT_PATHS = (
+    V1_DESIGN_LEDGER,
+    V1_DESIGN_RECEIPT,
+    Path("/workspace/runs/.mlp2_error_rayleigh_v1_design.lock"),
+    HERE / "mlp2_error_rayleigh_v1_heldout_authority.json",
+    HERE / "mlp2_error_rayleigh_v1_heldout_ledger.pt",
+    HERE / "mlp2_error_rayleigh_v1_heldout_receipt.json",
+    HERE / "mlp2_error_rayleigh_v1_heldout_failure.json",
+    Path("/workspace/runs/.mlp2_error_rayleigh_v1_heldout.lock"),
+    HERE / "mlp2_error_rayleigh_v1_design_predictor_authority.json",
+    HERE / "mlp2_error_rayleigh_v1_design_predictor_bundle.pt",
+    HERE / "mlp2_error_rayleigh_v1_design_predictor_receipt.json",
+    HERE / "mlp2_error_rayleigh_v1_design_predictor_failure.json",
+    Path("/workspace/runs/.mlp2_error_rayleigh_v1_design_predictor.lock"),
+)
 V1_AUTHORITY_SHA = "d5d6f785a61568ed1aa6979af1eeea76183d1ffb6f080415cc294a68252ae8db"
 V1_FAILURE_SHA = "a8b6a88d342db2f2b2e3720cf87bb40caac4333d240dc27e04498d078585bbba"
 SOURCE_PATHS = tuple(dict.fromkeys((
@@ -153,9 +168,16 @@ def role_paths(role: str) -> dict[str, Path]:
     }
 
 
-def validate_spent_v1_design() -> dict[str, str]:
+def v1_absence_state() -> dict[str, bool]:
+    if len(V1_ABSENT_PATHS) != len(set(V1_ABSENT_PATHS)):
+        raise RuntimeError("spent Rayleigh v1 absence set contains duplicates")
+    return {str(path): path.exists() for path in V1_ABSENT_PATHS}
+
+
+def validate_spent_v1_design() -> dict[str, Any]:
     authority, authority_sha = stable_json(V1_DESIGN_AUTHORITY, V1_AUTHORITY_SHA)
     failure, failure_sha = stable_json(V1_DESIGN_FAILURE, V1_FAILURE_SHA)
+    absences = v1_absence_state()
     if authority_sha != V1_AUTHORITY_SHA or failure_sha != V1_FAILURE_SHA \
             or authority.get("schema") != "mlp2_error_rayleigh_v1_collector_authority" \
             or authority.get("role") != "DESIGN" \
@@ -168,9 +190,26 @@ def validate_spent_v1_design() -> dict[str, str]:
                 "role": "DESIGN",
                 "schema": "mlp2_error_rayleigh_v1_collector_failure",
                 "status": "terminal_failure_no_receipt",
-            } or V1_DESIGN_LEDGER.exists() or V1_DESIGN_RECEIPT.exists():
+            } or any(absences.values()):
         raise RuntimeError("spent Rayleigh DESIGN v1 failure chain changed")
-    return {"authority_sha256": authority_sha, "failure_sha256": failure_sha}
+    # Close the cross-file read window: no authority/failure mutation or late v1
+    # terminal may occur between the first joins and the published snapshot.
+    authority_replay, authority_replay_sha = stable_json(
+        V1_DESIGN_AUTHORITY, V1_AUTHORITY_SHA,
+    )
+    failure_replay, failure_replay_sha = stable_json(
+        V1_DESIGN_FAILURE, V1_FAILURE_SHA,
+    )
+    absences_replay = v1_absence_state()
+    if authority_replay != authority or authority_replay_sha != authority_sha \
+            or failure_replay != failure or failure_replay_sha != failure_sha \
+            or absences_replay != absences or any(absences_replay.values()):
+        raise RuntimeError("spent Rayleigh v1 aggregate lineage raced validation")
+    return {
+        "authority_sha256": authority_sha,
+        "failure_sha256": failure_sha,
+        "absent_paths": absences,
+    }
 
 
 def stable_json(path: Path, expected: str | None = None):

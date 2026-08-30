@@ -111,12 +111,23 @@ def test_raw_tensor_hash_supports_bfloat16_and_binds_dtype_shape_bytes():
 
 
 def test_v2_binds_exact_spent_v1_failure_and_uses_fresh_namespace():
-    assert collect.validate_spent_v1_design() == {
-        "authority_sha256": collect.V1_AUTHORITY_SHA,
-        "failure_sha256": collect.V1_FAILURE_SHA,
+    lineage = collect.validate_spent_v1_design()
+    assert lineage["authority_sha256"] == collect.V1_AUTHORITY_SHA
+    assert lineage["failure_sha256"] == collect.V1_FAILURE_SHA
+    assert lineage["absent_paths"] == {
+        str(path): False for path in collect.V1_ABSENT_PATHS
     }
     assert "v2_design" in collect.role_paths("DESIGN")["authority"].name
     assert collect.role_paths("DESIGN")["authority"] != collect.V1_DESIGN_AUTHORITY
+
+
+@pytest.mark.parametrize("v1_path", collect.V1_ABSENT_PATHS)
+def test_v2_spent_lineage_rejects_each_late_v1_artifact(tmp_path, monkeypatch, v1_path):
+    late = tmp_path / v1_path.name
+    monkeypatch.setattr(collect, "V1_ABSENT_PATHS", (late,))
+    late.write_bytes(b"late-v1-terminal")
+    with pytest.raises(RuntimeError, match="spent Rayleigh DESIGN v1 failure chain changed"):
+        collect.validate_spent_v1_design()
 
 
 def test_ledger_schema_accepts_exact_replay_and_rejects_nonexact():
