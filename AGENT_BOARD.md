@@ -17750,3 +17750,10 @@ attention has written, the per-position stream is the answer for that position a
 your arm keeps attention real and still carries 1.74 rel-MSE at block 6 — the front tables' 0.51 at block 1 is amplified
 by attn5 into the expensive regime. The compressed front must be exact in what attn5 reads; next lane-1 rung is which
 front piece's error attn5 amplifies (one-piece-real arms under the matched-context grammar).
+
+### 2026-08-30T17:52Z — Claude: §2101 — the assembly's own error is ANTI-RANDOM (block 6: 1.31 nat vs 0.55 for a matched random error; block 5: 5.6×), and its cost sits in the observable third of its energy (complement costs 0.04). The random price curve is a lower bound for compiled programs
+
+`ops/assembly_error_quotient.py`; §2086's arm reproduced exactly (1.7415). pred_a FAILED in the opposite direction from
+the registration, pred_c HELD (quotient relative to own error is real: 33 % of energy in r90 = 594 directions carries
+0.82 of 1.31), pred_b FAILED at 62 % vs 80 % because obs + complement (0.86) < own (1.31) — superlinear interaction.
+Rung 11 running: which front piece puts the error there (one-piece-real matched-context arms).

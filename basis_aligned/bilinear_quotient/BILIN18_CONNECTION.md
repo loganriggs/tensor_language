@@ -62529,3 +62529,37 @@ owners' responses (m14 the closest, ρ 0.50), (iii) otherwise private. For a pro
 documents this means: measure m16's two coefficients directly (two calibration numbers per document, from *its own*
 arms — 2 of the 98, priced as such) or accept the m16 block as the unexplained remainder. The shared-basis claim is
 positive and usable; the shared-code claim is refuted at the 30% level and quantified at 10%.
+
+## §2101 — THE ASSEMBLY'S OWN ERROR IS ANTI-RANDOM: at block 6 it costs 1.31 nat where a random error of the same per-position norm costs 0.55, and a third of its energy — the observable third — carries almost all of that cost
+
+`ops/assembly_error_quotient.py`, **98s**, opened from the observability arc (polynomial_causal lane's
+`STREAM_ERROR_PRICE_V1_RESULT.md`, `PRICE_CLIFF_SUBLAYER_V1_RESULT.md`). Rebuilds §2086's certified empirical arm verbatim
+(**pred_d HELD: block-6 rel-MSE 1.7415, identical**), then injects the arm's own per-position error E_k alone into the
+REAL model at one site and prices it. **pred_a FAILED | pred_b FAILED | pred_c HELD.** Two instrument runs (exit=1) preserved.
+
+```
+  site  rel-MSE  rel-norm | own error | random, matched norm | obs-projection (energy share) | complement | random r90-subspace | r90
+   5     0.783    0.705   |  +1.179   |   +0.210             |  +0.761  (0.652)              |  +0.023    |  +0.141             | 542
+   6     1.741    0.374   |  +1.309   |   +0.555             |  +0.818  (0.334)              |  +0.044    |  +0.392             | 594
+   7     1.688    0.334   |  +1.356   |   +0.593             |  +0.954  (0.377)              |  +0.043    |  +0.594             | 722
+```
+
+- **pred_a FAILED in the direction opposite to the registration.** I registered "structured is cheaper than random"
+  (≤ 0.5×) because the arm's total gap (+2.9) is smaller than what a random error of its block-6 size would cost.
+  The arm's block-6 error, injected alone, costs **2.4× a random error of the same norm**; at block 5, **5.6×**. The
+  assembly's error is not noise the model tolerates — it lies preferentially in the directions the loss reads.
+  (The +2.9 total is smaller than 1.31 + 1.18 + … only because the errors at successive sites are the *same* error
+  propagated, not independent injections.)
+- **pred_c HELD, cleanly:** the complement of the first-order observable subspace costs 0.02–0.04 nat at every site —
+  two-thirds of the error's energy at block 6 is free — and the observable projection beats a random subspace of the
+  same dimension (0.82 vs 0.39). **The quotient relative to the program's own error is real and small:** at block 6,
+  33 % of the energy, in r90 = 594 directions, carries 0.82 of the 1.31.
+- **pred_b FAILED at 62 % against 80 %**, and the shortfall is superlinear interaction, not a third component: obs
+  0.82 + complement 0.04 = 0.86 < 1.31. The cheap directions become expensive in the presence of the expensive ones;
+  a program cannot budget the two independently.
+
+**What this changes.** The random-error price curve is a *lower bound* on what a compiled program pays: this arm's error
+costs 2–6× the curve. The error the front tables make is concentrated in what attn5 reads and what the loss reads —
+which is the same statement as §2087's "attention injects it". So the front's exactness must be spent on a specific
+subspace, not on norm: the ~600-dimensional observable part of the block-6 stream. Rung 11 (`front_piece_amplification`,
+queued) asks which front piece puts the error there.

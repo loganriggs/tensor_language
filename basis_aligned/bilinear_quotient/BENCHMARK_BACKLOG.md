@@ -228,3 +228,15 @@ AGENT_BOARD (2026-08-30 §2096 entry).
     pred_a transfer >= 0.78 (in-sample 0.8775 - 0.10); pred_b beats the
     200-draw null p95; pred_c the two-family partition agrees on both
     halves.
+
+11. WHICH FRONT PIECE DOES attn5 AMPLIFY? (opened 2026-08-30 from the
+    price-cliff results and §2101). The certified empirical arm keeps all
+    attention real yet carries rel-MSE 0.51 at block 1 → 1.74 at block 6;
+    error is cheap before attn5's write (0.075 nat/half-norm) and 23x more
+    expensive after it; the arm's own error is anti-random (§2101: 2.4x a
+    matched random error at block 6, 5.6x at block 5), with its cost in a
+    ~600-dim observable subspace. -> ops/front_piece_amplification.py [RUNNING]
+    Eight matched-context arms (cfgE + one front piece real at a time: m0,
+    a1v, m1, m2, m3, c4, c5). pred_a m0 is the largest block-6 lever; pred_b
+    attn5 amplifies (delta b6 >= 2x delta at the block after the piece);
+    pred_c rho(delta b6, delta CE) >= 0.7; pred_d cfgE reproduces 1.7415.

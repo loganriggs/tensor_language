@@ -17,3 +17,10 @@ fit a16
 fit a17
 rel-MSE profile: 0:0.000 1:0.509 2:0.520 3:0.644 4:0.752 5:0.783 6:1.741 7:1.688 8:1.699 9:1.185 10:1.297 11:1.186 12:1.013 13:0.910 14:0.814 15:0.755 16:0.710 17:0.592
 site 5: rel-MSE 0.783 rel-norm 0.705 | own +1.1790 | random +0.2096 | obs +0.7609 (0.652 of energy) cmp +0.0227 rndsub +0.1413 | r90 542
+site 6: rel-MSE 1.741 rel-norm 0.374 | own +1.3091 | random +0.5548 | obs +0.8176 (0.334 of energy) cmp +0.0435 rndsub +0.3923 | r90 594
+site 7: rel-MSE 1.688 rel-norm 0.334 | own +1.3563 | random +0.5934 | obs +0.9539 (0.377 of energy) cmp +0.0425 rndsub +0.5939 | r90 722
+(d) block-6 rel-MSE 1.7415 vs S2086 1.7415 (tol 0.10): HELD
+(a) own +1.3091 <= 0.5 x random +0.5548: FAILED
+(b) observable projection +0.8176 >= 0.8 x own: FAILED
+(c) complement +0.0435 <= 0.3 x own and obs > random-subspace +0.3923: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/assembly_error_quotient_results.json (98s)
