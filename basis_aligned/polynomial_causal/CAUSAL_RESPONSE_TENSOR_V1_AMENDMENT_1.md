@@ -48,9 +48,9 @@ two phases, the exact FIT outer-forward census is
 
 Every outer forward must call each of the 18 native attention and 18 native MLP sites
 exactly once.  Direction capture occurs at each of the six registered owner components
-once per capture batch: (6\times124=744) component-capture events.  Projection occurs
+once per capture batch: $6\times124=744$ component-capture events.  Projection occurs
 at exactly one source component in every intervention batch:
-(2\times49\times124=12{,}152) projection events, keyed by phase, source tag,
+$2\times49\times124=12{,}152$ projection events, keyed by phase, source tag,
 component, and batch—not merely aggregated by component.
 
 ### Stage 2: EVAL responses
@@ -72,7 +72,7 @@ outer-forward census is
 \]
 
 Each native site therefore has exactly 12,474 calls.  There are exactly
-(2\times49\times126=12{,}348) projection events, with the same structured keys as
+$2\times49\times126=12{,}348$ projection events, with the same structured keys as
 FIT.  FIT and EVAL together use 24,874 outer forwards, but their ledgers and terminal
 artifacts remain separate.
 
@@ -94,7 +94,7 @@ price.  EVAL is never used to choose among candidate structures.
   dtype coercion on reload.
 
 For each component SVD, signs are fixed exactly as in the original preregistration.
-If (\sigma_1\) is nonfinite/nonpositive or, for the existing multi-circuit components,
+If $\sigma_1$ is nonfinite/nonpositive or, for the existing multi-circuit components,
 
 \[
 \frac{\sigma_1-\sigma_2}{\sigma_1}\le 10^{-6},

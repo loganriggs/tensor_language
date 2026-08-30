@@ -63,8 +63,8 @@ R_{pstd}=\operatorname{mean}_{i\in M_t}\Delta\mathrm{CE}_{psdi}
 -\operatorname{mean}_{i\in O_t}\Delta\mathrm{CE}_{psdi},
 \]
 
-indexed by phase (p\), source circuit (s\), target circuit (t\), and source document
-(d\).  Each response is computed from additive signed sums and counts.  The full
+indexed by phase $p$, source circuit $s$, target circuit $t$, and source document
+$d$.  Each response is computed from additive signed sums and counts.  The full
 stored object also retains absolute sums as diagnostics.
 
 Fit a hierarchy such as
@@ -73,13 +73,18 @@ Fit a hierarchy such as
 R_{pstd}\approx
 \sum_{k=1}^{K_0} a_{pk}b_{sk}c_{tk}h_{dk}
 +\sum_{g}\sum_{k=1}^{K_g}
-  \mathbf 1[s\in g],a^{(g)}_{pk}b^{(g)}_{sk}c^{(g)}_{tk}h^{(g)}_{dk},
+  \mathbf 1[s\in g]\,a^{(g)}_{pk}b^{(g)}_{sk}c^{(g)}_{tk}h^{(g)}_{dk},
 \]
 
 where the first sum is a global shared library and each group (g) is a component or
 learned branch.  This is a block-term/shared-dictionary tensor program: a factor is
 priced once, while sparse source and target loadings say which circuits use it.  Unlike
 top-k activation routing, its multilinear contractions remain a tensor network.
+The established algebraic reference is De Lathauwer's
+[definition and uniqueness theory for block-term decompositions](https://doi.org/10.1137/070690729),
+which contains CP and Tucker decompositions as special cases.  Its generic uniqueness
+conditions are candidates to test here, not assumptions that bilin18 automatically
+satisfies.
 
 ### Operational definition and assumptions
 
@@ -115,8 +120,8 @@ change under exact regauging/document resampling.  This costs CPU after collecti
 
 ### Exact object
 
-For an early write (z\in\mathbb R^{1152}), let the frozen suffix map it to logits
-(\ell(z)\).  On a data point, let (J=\partial\ell/\partial z), and let
+For an early write $z\in\mathbb R^{1152}$, let the frozen suffix map it to logits
+$\ell(z)$.  On a data point, let $J=\partial\ell/\partial z$, and let
 
 \[
 F_{\rm CE}=\operatorname{diag}(p)-pp^\top
@@ -126,16 +131,21 @@ be the softmax Fisher matrix.  The pullback
 
 \[
 G=\mathbb E[J^\top F_{\rm CE}J]
-
 \]
 
-is a downstream observability seminorm: (\delta z^\top G\delta z) is the local
+is a downstream observability seminorm: $\delta z^\top G\delta z$ is the local
 second-order predictive price of changing the write.  Directions in the numerical
 kernel are locally invisible to next-token behavior.  This is the nonlinear,
 distribution-relative analogue of an observability Gramian and gives an explicit
 quotient of residual space by downstream-null directions.
+The Fisher/generalized-Gauss--Newton relation and its limits are reviewed rigorously by
+Martens in
+[New Insights and Perspectives on the Natural Gradient Method](https://jmlr.org/papers/v21/17-678.html).
+Pulling a decoder's Fisher--Rao metric back through its Jacobian is also used explicitly
+by Arvanitidis et al. in
+[Pulling back information geometry](https://proceedings.mlr.press/v151/arvanitidis22b.html).
 
-Apply (G) to MLP0's exact token-token/token-context/context-context tensor terms and
+Apply $G$ to MLP0's exact token-token/token-context/context-context tensor terms and
 to candidate MLP1/MLP2 factors.  Factorization error should be measured in this metric,
 not unweighted Frobenius norm.  A sparse dictionary or HOSVD can then preserve many
 Euclidean directions only when the suffix distinguishes them.
@@ -150,7 +160,7 @@ selective-removal objective.
 
 ### Prediction beyond reconstruction
 
-At matched parameter count, a (G)-weighted approximation should predict small held-
+At matched parameter count, a $G$-weighted approximation should predict small held-
 out CE changes and preserve terminal-circuit effects better than Frobenius/SVD
 compression.  Its numerical nullspace should tolerate randomized perturbations with
 little CE change; high-eigenvalue directions should have proportionally larger signed
@@ -159,7 +169,7 @@ selectively.
 
 ### Cheapest falsifier
 
-On cached early-layer states, estimate only quadratic forms (v^\top Gv\) with JVPs for
+On cached early-layer states, estimate only quadratic forms $v^\top Gv$ with JVPs for
 the existing SVD/dictionary directions and equal-norm random controls.  Compare the
 predicted local CE curvature with actual central finite differences at two amplitudes.
 Reject the metric if rank ordering does not hold on held-out documents or collapses
@@ -170,18 +180,20 @@ when the sample doubles.  No new factor fit is required for this first test.
 ### Exact object
 
 Bracket closure, quote parity, ordered successor, and equality-copy control plausibly
-compute small discrete states.  For one registered scalar behavior (f(uv)), form a
+compute small discrete states.  For one registered scalar behavior $f(uv)$, form a
 finite Hankel matrix
 
 \[
-H_{u,v}=f(uv),
+H_{u,v}=f(uv)
 
 \]
 
-whose rows are prefixes (u) and columns are suffix probes (v).  For a rational
+whose rows are prefixes $u$ and columns are suffix probes $v$.  For a rational
 weighted language, the rank of the infinite Hankel operator equals the dimension of a
 minimal linear representation.  Empirically stable finite rank therefore proposes a
-small tensor-state update (h_{t+1}=A_{x_t}h_t), with a linear readout.
+small tensor-state update $h_{t+1}=A_{x_t}h_t$, with a linear readout.
+The exact finite-rank/minimal-realization result goes back to Carlyle and Paz,
+[Realizations by stochastic finite automata](https://doi.org/10.1016/S0022-0000(71)80005-3).
 
 This applies to a circuit's extracted response/logit contribution, not the full model.
 The tensor-native program stores transition tensors indexed by token classes.  Shared
