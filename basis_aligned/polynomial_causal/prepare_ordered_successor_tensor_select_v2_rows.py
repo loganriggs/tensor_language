@@ -311,6 +311,43 @@ def _source_identity(
     }
 
 
+def discover_prior_registry_files() -> tuple[Path, ...]:
+    """Return the inherited recursive census minus this transaction's own manifest."""
+
+    own_manifest = (CACHE / "select_manifest.json").resolve()
+    return tuple(
+        path for path in base.discover_registry_files()
+        if path.resolve() != own_manifest
+    )
+
+
+def _verify_prior_registry_snapshot(
+    *, registry_files: tuple[Path, ...], prior: Any,
+    registry_hashes: Mapping[str, str], tensor_hashes: Mapping[str, str],
+    waiver_proofs: list[dict[str, Any]], nonrow_proofs: list[dict[str, Any]],
+    parquet: Path,
+) -> None:
+    current_registry = discover_prior_registry_files()
+    if current_registry != registry_files:
+        raise RuntimeError("successor v2 prior registry membership changed")
+    (
+        current_prior, current_registry_hashes, current_tensor_hashes,
+        current_waiver_proofs, current_nonrow_proofs,
+    ) = base.load_registry_exclusions(current_registry)
+    if discover_prior_registry_files() != current_registry:
+        raise RuntimeError("successor v2 prior registry changed during replay")
+    if current_registry_hashes != dict(registry_hashes):
+        raise RuntimeError("successor v2 prior registry bytes changed")
+    if current_tensor_hashes != dict(tensor_hashes) or current_prior != prior:
+        raise RuntimeError("successor v2 prior row exclusions changed")
+    if current_waiver_proofs != waiver_proofs or current_nonrow_proofs != nonrow_proofs:
+        raise RuntimeError("successor v2 prior registry classifications changed")
+    if parquet.stat().st_size != base.BASE.local.PINNED_SIZE or (
+        file_sha256(parquet) != base.BASE.local.PINNED_SHA256
+    ):
+        raise RuntimeError("successor v2 pinned FineWeb parquet changed")
+
+
 def _protected_replay(
     *, commit: str, sources: Mapping[str, str], audit_sha256: str,
     registry_files: tuple[Path, ...], prior: Any, registry_hashes: Mapping[str, str],
@@ -323,11 +360,7 @@ def _protected_replay(
         raise RuntimeError("successor v2 sources changed")
     if validate_independent_audit()[1] != audit_sha256:
         raise RuntimeError("successor v2 audit changed")
-    base.verify_snapshot(
-        commit=commit, sources={
-            key: value for key, value in sources.items()
-            if key in {str(path.relative_to(ROOT)) for path in base.SOURCE_PATHS}
-        },
+    _verify_prior_registry_snapshot(
         registry_files=registry_files, registry_hashes=registry_hashes,
         tensor_hashes=tensor_hashes, prior=prior, waiver_proofs=waiver_proofs,
         nonrow_proofs=nonrow_proofs, parquet=parquet,
@@ -370,7 +403,7 @@ def freeze_locked(claim: RunClaim) -> dict[str, Any]:
     protocol.validate_registry()
     lexicon, encoding = registry.load_pinned_lexicon()
     canonical, parquet = base.BASE.validate_ordered_source()
-    registry_files = base.discover_registry_files()
+    registry_files = discover_prior_registry_files()
     prior, registry_hashes, tensor_hashes, waiver_proofs, nonrow_proofs = (
         base.load_registry_exclusions(registry_files)
     )

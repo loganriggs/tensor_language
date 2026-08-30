@@ -21,6 +21,7 @@ from tensor_preserving_attention import TensorPreservingSquaredAttention
 BOOTSTRAP_DRAWS = 20_000
 BOOTSTRAP_SEED = 2_026_083_013
 BOOTSTRAP_ORDER_INDEX = 18_999
+BATCH_SIZE = 4
 ROLE_ORDER = ("select", "ood")
 CELL_ORDER = (
     "compatible_closer", "incompatible_closer", "no_opener",
@@ -77,6 +78,7 @@ class ExecutionAuthority:
     row_receipt_sha256: str
     row_role_file_sha256: tuple[tuple[str, str], ...]
     row_support_sha256: tuple[tuple[str, str], ...]
+    row_document_ids_sha256: tuple[tuple[str, str], ...]
     delimiter_family_names: tuple[str, ...]
     model_config_sha256: str
     model_weights_sha256: str
@@ -106,6 +108,12 @@ class ExecutionAuthority:
             item[0] for item in self.row_support_sha256
         ) != ("fit", "select", "ood") or any(not _sha(item[1]) for item in self.row_support_sha256):
             raise ValueError("execution support roles differ from fresh-row authority")
+        if type(self.row_document_ids_sha256) is not tuple or tuple(
+            item[0] for item in self.row_document_ids_sha256
+        ) != ("fit", "select", "ood") or any(
+            not _sha(item[1]) for item in self.row_document_ids_sha256
+        ):
+            raise ValueError("execution document roles differ from fresh-row authority")
         if type(self.delimiter_family_names) is not tuple or len(
             self.delimiter_family_names
         ) < 2 or any(not isinstance(name, str) or not name for name in self.delimiter_family_names) \
@@ -196,6 +204,98 @@ def run_one_batch(
     return logits, owner.closure
 
 
+def _logical_sha(value: object) -> str:
+    return hashlib.sha256(json.dumps(
+        value, sort_keys=True, separators=(",", ":"), ensure_ascii=False,
+    ).encode()).hexdigest()
+
+
+@dataclass(frozen=True)
+class RoleMaterialization:
+    role: str
+    rows: torch.Tensor
+    document_ids: tuple[str, ...]
+    masks: mask_module.BracketMasks
+
+    def validate(self, authority: ExecutionAuthority) -> None:
+        if self.role not in ROLE_ORDER or self.rows.device.type != "cpu" or (
+            self.rows.dtype != torch.long or self.rows.ndim != 2 or self.rows.shape[1] != 257
+            or not self.rows.is_contiguous() or len(self.document_ids) != self.rows.shape[0]
+            or len(set(self.document_ids)) != len(self.document_ids)
+        ):
+            raise ValueError("role materialization currency changed")
+        self.masks.validate()
+        support = dict(authority.row_support_sha256)[self.role]
+        documents = dict(authority.row_document_ids_sha256)[self.role]
+        if canary.support_sha256(self.rows, self.masks) != support or _logical_sha(
+            list(self.document_ids)
+        ) != documents:
+            raise RuntimeError("role materialization differs from authority")
+
+
+def _slice_masks(masks: mask_module.BracketMasks, start: int, stop: int) -> mask_module.BracketMasks:
+    return mask_module.BracketMasks(*(
+        getattr(masks, field)[start:stop].contiguous()
+        for field in (
+            "compatible", "incompatible", "no_opener", "quote_control",
+            "punctuation_control", "family_index", "depth", "distance", "domain_index",
+        )
+    ))
+
+
+def execute_loaded_roles(
+    model: torch.nn.Module, roles: tuple[RoleMaterialization, RoleMaterialization],
+    permutation: torch.Tensor, authority: ExecutionAuthority, *, source_guard,
+) -> tuple[RoleSufficientStatistics, RoleSufficientStatistics, dict[
+    tuple[str, str], tuple[campaign.ForwardClosure, ...]
+]]:
+    """Own the exact two-role/four-arm forward topology after a preflight-only load."""
+    require_launch_ready(authority)
+    if tuple(role.role for role in roles) != ROLE_ORDER or not callable(source_guard):
+        raise ValueError("execution roles/guard differ from frozen topology")
+    for role in roles:
+        role.validate(authority)
+    if set(roles[0].document_ids) & set(roles[1].document_ids):
+        raise RuntimeError("SELECT/OOD documents overlap")
+    try:
+        attention = model.transformer.h[tensor_program.TARGET_SITE].attn
+        device = next(model.parameters()).device
+    except (AttributeError, IndexError, StopIteration) as error:
+        raise ValueError("execution model does not expose exact L13 attention") from error
+    bank = materialize_program_bank(attention, permutation)
+    bank.validate(authority)
+    closures: dict[tuple[str, str], list[campaign.ForwardClosure]] = {
+        (role, arm): [] for role in ROLE_ORDER for arm in canary.ARM_NAMES
+    }
+    output = []
+    for role in roles:
+        source_guard(); bank.validate(authority); role.validate(authority)
+        batches = []
+        for start in range(0, role.rows.shape[0], BATCH_SIZE):
+            stop = min(start + BATCH_SIZE, role.rows.shape[0])
+            tokens = role.rows[start:stop, :-1].to(device=device, non_blocking=False)
+            logits_by_arm: dict[str, torch.Tensor] = {}
+            for arm in canary.ARM_NAMES:
+                logits, closure = run_one_batch(
+                    model, tokens, arm, bank, authority, require_production=True,
+                )
+                logits_by_arm[arm] = logits
+                closures[(role.role, arm)].append(closure)
+            batches.append(collect_role_statistics(
+                role.role, role.rows[start:stop].contiguous(), role.document_ids[start:stop],
+                _slice_masks(role.masks, start, stop), authority.delimiter_family_names,
+                logits_by_arm,
+            ))
+            del logits_by_arm, tokens
+        output.append(merge_role_statistics(tuple(batches)))
+    source_guard(); bank.validate(authority)
+    frozen_closures = {key: tuple(value) for key, value in closures.items()}
+    validate_execution_ledgers(
+        frozen_closures, {role.role: role.rows.shape[0] for role in roles},
+    )
+    return output[0], output[1], frozen_closures
+
+
 @dataclass(frozen=True)
 class RoleSufficientStatistics:
     role: str
@@ -280,13 +380,15 @@ def collect_role_statistics(
            for mask in mask_values):
         raise ValueError("role mask currency changed")
     targets = rows[:, 1:].to(logits_device)
-    native_logp = F.log_softmax(logits_by_arm["native"], dim=-1)
+    # The physical facade returns one float32 30*tanh(logit/30) output.  Convert that
+    # exact published currency to float64 before normalization and every reduction.
+    native_logp = F.log_softmax(logits_by_arm["native"].double(), dim=-1)
     native_p = native_logp.exp()
     counts = torch.stack([mask.sum(1) for mask in mask_values], 1).cpu().to(torch.int64)
     ce, kl, correct = [], [], []
     for arm in canary.ARM_NAMES:
         logits = logits_by_arm[arm]
-        logp = F.log_softmax(logits, dim=-1)
+        logp = F.log_softmax(logits.double(), dim=-1)
         per_ce = -logp.gather(-1, targets.unsqueeze(-1)).squeeze(-1)
         per_kl = (native_p * (native_logp - logp)).sum(-1)
         per_correct = logits.argmax(-1).eq(targets).to(torch.float64)

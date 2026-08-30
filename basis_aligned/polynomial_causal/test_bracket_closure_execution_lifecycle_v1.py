@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import dataclasses
 
 import pytest
 
@@ -12,8 +13,20 @@ def test_transaction_is_no_go_before_backend_access() -> None:
     class Poison:
         def __getattribute__(self, _name):
             raise AssertionError("backend touched")
-    with pytest.raises(RuntimeError, match="prospectively NO-GO"):
+    with pytest.raises(RuntimeError, match="lacks source-bound"):
         lifecycle.run_transaction(_authority(), Poison())
+
+
+def test_ready_transaction_replays_source_before_rejecting_generic_backend(monkeypatch) -> None:
+    authority = dataclasses.replace(
+        _authority(), authorized_for_forward=True,
+        inference_ruling_sha256="a" * 64, independent_audit_sha256="b" * 64,
+    )
+    calls = []
+    monkeypatch.setattr(lifecycle, "verify_source_binding", lambda value: calls.append(value))
+    with pytest.raises(RuntimeError, match="generic backend injection"):
+        lifecycle.run_transaction(authority, object())
+    assert calls == [authority]
 
 
 def test_receipt_is_linked_last_only_after_guard_and_owned_lock(tmp_path) -> None:
@@ -35,6 +48,36 @@ def test_guard_failure_or_lock_swap_cannot_publish(tmp_path) -> None:
                 final_guard=lambda: (_ for _ in ()).throw(RuntimeError("injected")),
             )
     assert not receipt.exists()
+
+
+def test_result_is_bound_then_receipt_is_linked_last(tmp_path) -> None:
+    result, receipt = tmp_path / "result.json", tmp_path / "receipt.json"
+    events = []
+    with lifecycle.RunLock(tmp_path / "result.lock") as lock:
+        lifecycle.publish_result_receipt_last(
+            {"schema": "known", "promoted": False}, result, receipt,
+            authority_sha256="a" * 64, lock=lock,
+            final_guard=lambda: events.append((result.exists(), receipt.exists())),
+        )
+    assert events == [(False, False), (True, False)]
+    assert json.loads(receipt.read_text())["status"] == "complete_nonpromotion"
+
+
+def test_result_mutation_before_receipt_fails_closed(tmp_path) -> None:
+    result, receipt = tmp_path / "result.json", tmp_path / "receipt.json"
+    calls = 0
+    def guard():
+        nonlocal calls
+        calls += 1
+        if calls == 2:
+            result.write_text("{}")
+    with lifecycle.RunLock(tmp_path / "result.lock") as lock:
+        with pytest.raises(RuntimeError, match="result changed"):
+            lifecycle.publish_result_receipt_last(
+                {"schema": "known", "promoted": True}, result, receipt,
+                authority_sha256="a" * 64, lock=lock, final_guard=guard,
+            )
+    assert result.exists() and not receipt.exists()
     lock_path = tmp_path / "lock2"
     with lifecycle.RunLock(lock_path) as lock:
         lock_path.unlink(); lock_path.write_text(lock.claim[2])

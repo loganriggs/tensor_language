@@ -113,6 +113,31 @@ def test_source_closure_is_unique_and_binds_amendment_registry_tests_and_base() 
     )
 
 
+def test_prior_registry_membership_is_identical_before_and_after_self_install(
+    tmp_path, monkeypatch,
+) -> None:
+    cache = tmp_path / ".rowcache_ordered_successor_tensor_select_v2"
+    prior = tmp_path / "prior_receipt.json"
+    other_manifest = tmp_path / "other_manifest.json"
+    prior.write_text("{}")
+    other_manifest.write_text("{}")
+    monkeypatch.setattr(rows_v2, "CACHE", cache)
+
+    def recursive_census():
+        paths = [prior.resolve(), other_manifest.resolve()]
+        own = cache / "select_manifest.json"
+        if own.is_file():
+            paths.append(own.resolve())
+        return tuple(sorted(paths))
+
+    monkeypatch.setattr(rows_v2.base, "discover_registry_files", recursive_census)
+    before = rows_v2.discover_prior_registry_files()
+    cache.mkdir()
+    (cache / "select_manifest.json").write_text('{"schema":"self"}')
+    after = rows_v2.discover_prior_registry_files()
+    assert before == after == tuple(sorted((prior.resolve(), other_manifest.resolve())))
+
+
 def test_exact_independent_audit_schema_and_source_binding(tmp_path, monkeypatch) -> None:
     commit = "a" * 40
     closure = {"source.py": "b" * 64}

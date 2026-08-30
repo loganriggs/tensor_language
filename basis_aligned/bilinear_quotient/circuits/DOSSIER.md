@@ -89,6 +89,9 @@ Sources: `circuits/BATTERY.json` (localisation), `circuits/DAS.json` (learned su
 At `a8`: mean|dCE| on members **1.687**, off slice 0.1374, signed dCE on members 0.4605. Second-best component is `a14` at 4.732 — a 2.60x margin.
 
 
+**DAS (rank 1, held-out):** member dCE 0.2345, concentration 13.045, recovers 0.125 of the full component; overlap with the closed-form direction 0.286.
+
+
 **Top members** (context → target, dCE when the circuit is ablated):
 
 - `…\n\n#### Ramsgate\n\n#### Sandwich\n\n#### Dover` → `\n`  (dCE -25.41, base CE 29.76)
@@ -106,6 +109,9 @@ At `a8`: mean|dCE| on members **1.687**, off slice 0.1374, signed dCE on members
 | interchange | a16 8.888 | a14 5.583 | a15 4.712 |
 
 At `a16`: mean|dCE| on members **0.7896**, off slice 0.0665, signed dCE on members 0.4652. Second-best component is `a14` at 6.816 — a 1.74x margin.
+
+
+**DAS (rank 1, held-out):** member dCE 0.0824, concentration 10.234, recovers 0.105 of the full component; overlap with the closed-form direction 0.133.
 
 
 **Story (from the circuit file):** {'blind_name': '', 'program': [['NOT class_other', 'NOT class_subword', 'NOT class_comma']], 'program_bacc': 0.748, 'program_null': 0.597, 'mechanism_level': 'none'}
@@ -130,6 +136,9 @@ At `a16`: mean|dCE| on members **0.7896**, off slice 0.0665, signed dCE on membe
 At `a16`: mean|dCE| on members **0.5423**, off slice 0.0589, signed dCE on members 0.3359. Second-best component is `a14` at 6.957 — a 1.32x margin.
 
 
+**DAS (rank 1, held-out):** member dCE 0.0539, concentration 6.557, recovers 0.094 of the full component; overlap with the closed-form direction 0.336.
+
+
 **Story (from the circuit file):** {'mechanism_level': 'computational', 'mechanism': {'code': 'heads (16,8),(16,2): z_h(q)=sum over k in top8 |pat_h(q,:)| of pat_h(q,k)*vm_h(k)', 'replication': {'k1': 0.2089, 'k8': 0.1073, 'deletion': 0.5052, 'shuffled_control': 0.358}, 'notes': '79% of named-head function at k=8; a6/a7 bundles not yet coded'}}
 
 
@@ -143,6 +152,9 @@ At `a16`: mean|dCE| on members **0.5423**, off slice 0.0589, signed dCE on membe
 | interchange | a8 7.144 | a6 3.905 | a14 3.407 |
 
 At `a8`: mean|dCE| on members **1.2345**, off slice 0.1374, signed dCE on members 0.269. Second-best component is `a6` at 4.107 — a 2.19x margin.
+
+
+**DAS (rank 1, held-out):** member dCE 0.1319, concentration 8.301, recovers 0.094 of the full component; overlap with the closed-form direction 0.223.
 
 
 **Story (from the circuit file):** {'blind_name': 'input-enrichment for a0 (layer-0 attn) into the a8/a6 double-QK bundle; no surviving behavioral story', 'program': [['NOT class_other', 'NOT prev1_class_other']], 'program_bacc': 0.693, 'program_null': 0.436, 'mechanism_level': 'none', 'mechanism': {'components': ['a8', 'a6'], 'per_component_top_writer': {'a8': {'writer': 'a0', 'ratio': 1.464, 'null_top_ratio': 1.2, 'ENRICHED': True, 'BEATS_NULL': True}, 'a6': {'writer': 'a0', 'ratio': 1.475, 'null_top_ratio': 1.2, 'ENRICHED': True, 'BEATS_NULL': True}}, 'mechanism_line': "a8 and a6 (r.2.0 double-QK bundle) both ENRICHED for writer a0 (layer-0 attn) in their input: ratio 1.464/1.475 vs null 1.20 (BEATS_NULL); a0's absolute share is tiny (~0.0007) vs m0's dominant ~0.42-0.44 (ratio ~0.99, not selective).", 'escalation_status': 'NOT ESCALATED: ENRICHED writer (a0) named but qk_writer_decomp-style writer-pair QK decomposition not run (out of scope for this pass); flagged for ladder follow-up. Note a0 share of input is small in absolute terms (~0.0007) despite ratio enrichment.', 'leaf_mech_file': 'leaf_mech/r.2.0.2.json'}}
@@ -165,6 +177,9 @@ At `a8`: mean|dCE| on members **1.2345**, off slice 0.1374, signed dCE on member
 | interchange | a16 6.515 | a14 4.816 | a15 4.179 |
 
 At `a16`: mean|dCE| on members **0.5694**, off slice 0.0665, signed dCE on members 0.3292. Second-best component is `a14` at 5.762 — a 1.49x margin.
+
+
+**DAS (rank 1, held-out):** member dCE 0.0251, concentration 4.628, recovers 0.041 of the full component; overlap with the closed-form direction 0.094.
 
 
 **Story (from the circuit file):** {'blind_name': 'attn-input-writer decomp: a14 dominant writer into a15/16/17', 'mechanism_level': 'none', 'program': [['class_ind']], 'program_bacc': 0.613, 'program_null': 0.593, 'mechanism': 'a15/a16/a17 attn (r.3.0 PCA bundles, incl. layer-16); top writer a14 enriched 2.85/2.96/2.84x (null ~1.1-1.25) into all three; a16 also feeds a17 (2.58x)', 'behavior': 'no behavioral claim survives base-rate testing (capitalized/space_word/subword/punct/newline all fail; digit nominally passes but n=3, whole population, not credible)'}
@@ -396,6 +411,9 @@ At `a4`: mean|dCE| on members **1.7276**, off slice 0.3488, signed dCE on member
 At `a8`: mean|dCE| on members **0.7349**, off slice 0.149, signed dCE on members 0.0693. Second-best component is `a6` at 2.579 — a 1.91x margin.
 
 
+**DAS (rank 1, held-out):** member dCE 0.0222, concentration 3.53, recovers 0.027 of the full component; overlap with the closed-form direction 0.006.
+
+
 **Story (from the circuit file):** {'blind_name': 'no behavioral claim survives base-rate testing', 'program': [['NOT circ_r_2_1_0', 'prev1_starts_space', 'NOT prev1_class_sentend']], 'program_bacc': 0.531, 'program_null': 0.51, 'mechanism_level': 'none', 'behavioral_tests': {'punct_pred_help_true': {'kind': 'punct', 'pred_help': True, 'n_available': 29, 'per_seed': [{'seed': 1, 'hits': 2, 'n': 5, 'p_value': 0.7493}, {'seed': 2, 'hits': 3, 'n': 5, 'p_value': 0.4137}, {'seed': 3, 'hits': 3, 'n': 5, 'p_value': 0.4137}, {'seed': 4, 'hits': 4, 'n': 5, 'p_value': 0.135}, {'seed': 11, 'hits': 3, 'n': 5, 'p_value': 0.4137}], 'seed_pass_frac': 0.0, 'population': {'n': 29, 'hits': 17, 'base_rate_help': 0.454, 'expected_hits': 13.16, 'p_value': 0.1065, 'beats_base_rate': False}, 'ROBUST': False, 'n_tests': 2, 'alpha': 0.05, 'ROBUST_V2': False, 'gate_note': 'use ROBUST_V2; ROBUST v1 is underpowered'}, 'punct_pred_help_false': {'kind': 'punct', 'pred_help': False, 'n_available': 29, 'per_seed': [{'seed': 1, 'hits': 3, 'n': 5, 'p_value': 0.5863}, {'seed': 2, 'hits': 2, 'n': 5, 'p_value': 0.865}, {'seed': 3, 'hits': 2, 'n': 5, 'p_value': 0.865}, {'seed': 4, 'hits': 1, 'n': 5, 'p_value': 0.9808}, {'seed': 11, 'hits': 2, 'n': 5, 'p_value': 0.865}], 'seed_pass_frac': 0.0, 'population': {'n': 29, 'hits': 12, 'base_rate_help': 0.454, 'expected_hits': 15.84, 'p_value': 0.9472, 'beats_base_rate': False}, 'ROBUST': False, 'n_tests': 2, 'alpha': 0.05, 'ROBUST_V2': False, 'gate_note': 'use ROBUST_V2; ROBUST v1 is underpowered'}, 'n_tests_declared': 2, 'alpha': 0.05, 'note': 'sibling leaves r.13.2.1 and r.18.2.0 carry VERIFIED punctuation claims; tested here as pre-declared hypothesis per assignment; neither direction cleared ROBUST_V2 (p=0.1065 helps-dir vs alpha 0.05, p=0.9472 hurts-dir)'}}
 
 
@@ -416,6 +434,9 @@ At `a8`: mean|dCE| on members **0.7349**, off slice 0.149, signed dCE on members
 | interchange | a8 4.19 | a14 3.556 | a16 2.798 |
 
 At `a8`: mean|dCE| on members **0.7343**, off slice 0.1497, signed dCE on members 0.0819. Second-best component is `a14` at 4.101 — a 1.20x margin.
+
+
+**DAS (rank 1, held-out):** member dCE 0.0396, concentration 4.366, recovers 0.043 of the full component; overlap with the closed-form direction 0.07.
 
 
 **Story (from the circuit file):** {'blind_name': 'punctuation-target CE reduction (weak, single mechanism not found)', 'program': [['prev1_seen_before']], 'program_bacc': 0.587, 'program_null': 0.587, 'mechanism_level': 'none', 'behavior': 'Members at punctuation targets (5.9% of members) get pushed toward lower CE 71% of the time vs 47% base rate (ROBUST_V2, p=0.0007, n=51); at non-punctuation targets the push is near base rate (46%).', 'behavior_test': {'kind': 'punct', 'pred_help': True, 'n_available': 51, 'per_seed': [{'seed': 1, 'hits': 4, 'n': 5, 'p_value': 0.156}, {'seed': 2, 'hits': 5, 'n': 5, 'p_value': 0.0238}, {'seed': 3, 'hits': 4, 'n': 5, 'p_value': 0.156}, {'seed': 4, 'hits': 5, 'n': 5, 'p_value': 0.0238}, {'seed': 11, 'hits': 3, 'n': 5, 'p_value': 0.4502}], 'seed_pass_frac': 0.4, 'population': {'n': 51, 'hits': 36, 'base_rate_help': 0.473, 'expected_hits': 24.14, 'p_value': 0.0007, 'beats_base_rate': True}, 'ROBUST': False, 'n_tests': 12, 'alpha': 0.0083, 'ROBUST_V2': True, 'gate_note': 'use ROBUST_V2; ROBUST v1 is underpowered'}}
@@ -540,6 +561,9 @@ At `m16`: mean|dCE| on members **1.133**, off slice 0.2594, signed dCE on member
 | interchange | a8 3.628 | a14 2.902 | a16 2.705 |
 
 At `a8`: mean|dCE| on members **0.6339**, off slice 0.147, signed dCE on members 0.046. Second-best component is `a14` at 3.224 — a 1.34x margin.
+
+
+**DAS (rank 1, held-out):** member dCE 0.0636, concentration 3.754, recovers 0.084 of the full component; overlap with the closed-form direction 0.228.
 
 
 **Story (from the circuit file):** {'blind_name': 'templated-completion vs list/numeric-break selector', 'text': 'Machinery detects atypical token transitions; pushes toward templated completions -- helps predictable collocations (time units, common verb-noun pairs) but actively hurts unexpected list/numeric continuations.', 'program': [['NOT class_other', 'NOT is_newline']], 'program_bacc': 0.556, 'program_null': 0.551, 'mechanism_level': 'none'}
@@ -814,6 +838,9 @@ At `a8`: mean|dCE| on members **0.594**, off slice 0.1488, signed dCE on members
 | interchange | a8 3.488 | a14 3.096 | a16 2.605 |
 
 At `a8`: mean|dCE| on members **0.5958**, off slice 0.1497, signed dCE on members 0.09. Second-best component is `a14` at 3.534 — a 1.13x margin.
+
+
+**DAS (rank 1, held-out):** member dCE 0.012, concentration 2.587, recovers 0.017 of the full component; overlap with the closed-form direction 0.0.
 
 
 **Story (from the circuit file):** {'blind_name': 'no surface program; punctuation-target push is the only surviving behavioral claim', 'program': [['NOT prev1_class_other', 'NOT prev2_class_other', 'NOT dist_nl_le2']], 'program_bacc': 0.588, 'program_null': 0.58, 'mechanism_level': 'none', 'mechanism_line': 'No STRONG single-writer mechanism in a4, a3, or a8 (top ratios 1.093/1.093/1.144 vs thresholds 1.364/1.300/1.300; headroom -0.321/-0.269/-0.225).', 'behavior_line': "Machinery is a symmetric 50/50 push overall (dce_pos -0.709, dce_neg 0.886, minority_share 0.5) but flips at punctuation targets: on the 63/864 punct-target members ablation LOWERS CE 69.8% of the time vs a 48% base rate (margin +21.8pp, p=0.0004, Bonferroni alpha=0.0083/12), i.e. this leaf's machinery actively hurts punctuation prediction, while on the other 801/864 (non-punct) members the push runs the other way (mean dCE +0.116, helps prediction).", 'story_test_class_pairs': {'subword_help': {'ROBUST_V2': False, 'n_available': 140, 'population': {'n': 140, 'hits': 64, 'base_rate_help': 0.48, 'expected_hits': 67.25, 'p_value': 0.7365, 'beats_base_rate': False}, 'seed_pass_frac': 0.0}, 'subword_hurt': {'ROBUST_V2': False, 'n_available': 140, 'population': {'n': 140, 'hits': 76, 'base_rate_help': 0.48, 'expected_hits': 72.75, 'p_value': 0.3216, 'beats_base_rate': False}, 'seed_pass_frac': 0.0}, 'space_word_help': {'ROBUST_V2': False, 'n_available': 629, 'population': {'n': 629, 'hits': 289, 'base_rate_help': 0.48, 'expected_hits': 302.12, 'p_value': 0.8616, 'beats_base_rate': False}, 'seed_pass_frac': 0.0}, 'space_word_hurt': {'ROBUST_V2': False, 'n_available': 629, 'population': {'n': 629, 'hits': 340, 'base_rate_help': 0.48, 'expected_hits': 326.88, 'p_value': 0.1569, 'beats_base_rate': False}, 'seed_pass_frac': 0.0}, 'digit_help': {'ROBUST_V2': False, 'n_available': 29, 'population': {'n': 29, 'hits': 16, 'base_rate_help': 0.48, 'expected_hits': 13.93, 'p_value': 0.2795, 'beats_base_rate': False}, 'seed_pass_frac': 0.2}, 'digit_hurt': {'ROBUST_V2': False, 'n_available': 29, 'population': {'n': 29, 'hits': 13, 'base_rate_help': 0.48, 'expected_hits': 15.07, 'p_value': 0.8303, 'beats_base_rate': False}, 'seed_pass_frac': 0.0}, 'punct_help': {'ROBUST_V2': True, 'n_available': 63, 'population': {'n': 63, 'hits': 44, 'base_rate_help': 0.48, 'expected_hits': 30.26, 'p_value': 0.0004, 'beats_base_rate': True}, 'seed_pass_frac': 0.2}, 'punct_hurt': {'ROBUST_V2': False, 'n_available': 63, 'population': {'n': 63, 'hits': 19, 'base_rate_help': 0.48, 'expected_hits': 32.74, 'p_value': 0.9999, 'beats_base_rate': False}, 'seed_pass_frac': 0.0}, 'capitalized_help': {'ROBUST_V2': False, 'n_available': 154, 'population': {'n': 154, 'hits': 72, 'base_rate_help': 0.48, 'expected_hits': 73.97, 'p_value': 0.6544, 'beats_base_rate': False}, 'seed_pass_frac': 0.0}, 'capitalized_hurt': {'ROBUST_V2': False, 'n_available': 154, 'population': {'n': 154, 'hits': 82, 'base_rate_help': 0.48, 'expected_hits': 80.03, 'p_value': 0.4067, 'beats_base_rate': False}, 'seed_pass_frac': 0.0}, 'newline_help': {'ROBUST_V2': False, 'n_available': 2, 'population': {'n': 2, 'hits': 2, 'base_rate_help': 0.48, 'expected_hits': 0.96, 'p_value': 0.2307, 'beats_base_rate': False}, 'seed_pass_frac': 0.0}, 'newline_hurt': {'ROBUST_V2': False, 'n_available': 2, 'population': {'n': 2, 'hits': 0, 'base_rate_help': 0.48, 'expected_hits': 1.04, 'p_value': 1.0, 'beats_base_rate': False}, 'seed_pass_frac': 0.0}}, 'n_tests': 12}
@@ -1148,6 +1175,9 @@ At `a16`: mean|dCE| on members **0.2494**, off slice 0.0734, signed dCE on membe
 | interchange | a8 2.908 | a3 2.542 | a6 2.516 |
 
 At `a8`: mean|dCE| on members **0.5044**, off slice 0.149, signed dCE on members 0.0919. Second-best component is `a2` at 3.026 — a 1.12x margin.
+
+
+**DAS (rank 1, held-out):** member dCE 0.0215, concentration 3.075, recovers 0.036 of the full component; overlap with the closed-form direction 0.029.
 
 
 **Story (from the circuit file):** {'blind_name': 'generic-vs-proper-noun completion push', 'text': 'High-loss continuations after named/branded contexts; machinery favors generic common-word completions, suppresses specific proper-noun/brand completions (except some place-name suffixes, e.g. Hungaroring).', 'program': [['NOT prev1_seen_before', 'NOT is_punct'], ['circ_r_0_0_1', 'NOT dist_nl_le2', 'NOT prev1_class_other']], 'program_bacc': 0.517, 'program_null': 0.541, 'mechanism_level': 'none', 'red_team': {'hits': 3, 'total': 3, 'detail': [{'gi': 764, 'target': ' miserable', 'dce': 0.94, 'predicted': 'helps (generic common adjective)', 'actual': 'helps', 'hit': True}, {'gi': 154700, 'target': 'ted', 'dce': -0.54, 'predicted': 'hurts (brand/proper-noun continuation of "Target")', 'actual': 'hurts', 'hit': True, 'note': 'ambiguous: completed word "Targeted" is itself generic; scored as hurts because context token is the brand name Target'}, {'gi': 240197, 'target': ' Ars', 'dce': -1.07, 'predicted': 'hurts (specific proper noun, Arsenal)', 'actual': 'hurts', 'hit': True}], 'caveat': 'top example gi=198076 ("Hungar"->"oring", dce=+2.51) contradicts the suppress-proper-noun claim: machinery HELPS complete a place-name compound there. Story is directional/majority, not exceptionless.'}}

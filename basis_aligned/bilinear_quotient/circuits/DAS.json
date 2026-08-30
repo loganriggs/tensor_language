@@ -1,0 +1,372 @@
+{
+ "schema_version": 1,
+ "generated": "2026-08-30 by Claude, circuit task (Logan)",
+ "method": "gradient-descent DAS (Geiger/Wu): orthonormal Q learned through the frozen model so an interchange restricted to Q maximises damage on the circuit members and minimises it off the circuit slice; trained on rows 0-600, all reported numbers on held-out 600-1000",
+ "state": "census_state_diverse.pt",
+ "seed": 20260830,
+ "steps": 400,
+ "lr": 0.05,
+ "note": "read-only artifact; no circuit file was modified",
+ "by_tag": {
+  "r.11.1.1": {
+   "component": "a8",
+   "members": 864,
+   "ranks": {
+    "1": {
+     "das_dce_members": 0.012,
+     "das_dce_offslice": 0.0046,
+     "das_concentration": 2.587,
+     "full_dce_members": 0.724,
+     "full_dce_offslice": 0.2025,
+     "full_concentration": 3.576,
+     "fraction_of_full_recovered": 0.017,
+     "subspace_moved_from_init": 0.9999,
+     "loss_first20": 0.00431,
+     "loss_last20": -0.003244,
+     "optimiser_healthy": true,
+     "overlap_with_closed_form": 0.0,
+     "closed_form_dce_members": 0.0755,
+     "closed_form_concentration": 3.822,
+     "das_beats_closed_form": false
+    },
+    "4": {
+     "das_dce_members": 0.0545,
+     "das_dce_offslice": 0.0177,
+     "das_concentration": 3.081,
+     "full_dce_members": 0.724,
+     "full_dce_offslice": 0.2025,
+     "full_concentration": 3.576,
+     "fraction_of_full_recovered": 0.075,
+     "subspace_moved_from_init": 0.9943,
+     "loss_first20": 0.015577,
+     "loss_last20": -0.05144,
+     "optimiser_healthy": true
+    }
+   }
+  },
+  "r.11.1.2": {
+   "component": "a8",
+   "members": 864,
+   "ranks": {
+    "1": {
+     "das_dce_members": 0.0396,
+     "das_dce_offslice": 0.0091,
+     "das_concentration": 4.366,
+     "full_dce_members": 0.915,
+     "full_dce_offslice": 0.2025,
+     "full_concentration": 4.519,
+     "fraction_of_full_recovered": 0.043,
+     "subspace_moved_from_init": 0.9969,
+     "loss_first20": 0.006883,
+     "loss_last20": -0.027696,
+     "optimiser_healthy": true,
+     "overlap_with_closed_form": 0.07,
+     "closed_form_dce_members": 0.1211,
+     "closed_form_concentration": 6.178,
+     "das_beats_closed_form": false
+    },
+    "4": {
+     "das_dce_members": 0.0799,
+     "das_dce_offslice": 0.0211,
+     "das_concentration": 3.777,
+     "full_dce_members": 0.915,
+     "full_dce_offslice": 0.2025,
+     "full_concentration": 4.519,
+     "fraction_of_full_recovered": 0.087,
+     "subspace_moved_from_init": 0.9945,
+     "loss_first20": 0.012984,
+     "loss_last20": -0.160043,
+     "optimiser_healthy": true
+    }
+   }
+  },
+  "r.11.3.1": {
+   "component": "a8",
+   "members": 864,
+   "ranks": {
+    "1": {
+     "das_dce_members": 0.0636,
+     "das_dce_offslice": 0.017,
+     "das_concentration": 3.754,
+     "full_dce_members": 0.7603,
+     "full_dce_offslice": 0.2004,
+     "full_concentration": 3.794,
+     "fraction_of_full_recovered": 0.084,
+     "subspace_moved_from_init": 0.9999,
+     "loss_first20": 0.006957,
+     "loss_last20": -0.088164,
+     "optimiser_healthy": true,
+     "overlap_with_closed_form": 0.228,
+     "closed_form_dce_members": 0.0847,
+     "closed_form_concentration": 3.845,
+     "das_beats_closed_form": false
+    },
+    "4": {
+     "das_dce_members": 0.0888,
+     "das_dce_offslice": 0.0229,
+     "das_concentration": 3.886,
+     "full_dce_members": 0.7603,
+     "full_dce_offslice": 0.2004,
+     "full_concentration": 3.794,
+     "fraction_of_full_recovered": 0.117,
+     "subspace_moved_from_init": 0.9922,
+     "loss_first20": 0.011851,
+     "loss_last20": -0.171627,
+     "optimiser_healthy": true
+    }
+   }
+  },
+  "r.23.2.1": {
+   "component": "a8",
+   "members": 864,
+   "ranks": {
+    "1": {
+     "das_dce_members": 0.0215,
+     "das_dce_offslice": 0.007,
+     "das_concentration": 3.075,
+     "full_dce_members": 0.5892,
+     "full_dce_offslice": 0.2034,
+     "full_concentration": 2.898,
+     "fraction_of_full_recovered": 0.036,
+     "subspace_moved_from_init": 0.999,
+     "loss_first20": 0.002721,
+     "loss_last20": 0.000154,
+     "optimiser_healthy": true,
+     "overlap_with_closed_form": 0.029,
+     "closed_form_dce_members": 0.0536,
+     "closed_form_concentration": 2.46,
+     "das_beats_closed_form": false
+    },
+    "4": {
+     "das_dce_members": 0.059,
+     "das_dce_offslice": 0.0198,
+     "das_concentration": 2.971,
+     "full_dce_members": 0.5892,
+     "full_dce_offslice": 0.2034,
+     "full_concentration": 2.898,
+     "fraction_of_full_recovered": 0.1,
+     "subspace_moved_from_init": 0.9954,
+     "loss_first20": 0.007229,
+     "loss_last20": -0.047697,
+     "optimiser_healthy": true
+    }
+   }
+  },
+  "r.23.2.3": {
+   "component": "a8",
+   "members": 864,
+   "ranks": {
+    "1": {
+     "das_dce_members": 0.0222,
+     "das_dce_offslice": 0.0063,
+     "das_concentration": 3.53,
+     "full_dce_members": 0.8371,
+     "full_dce_offslice": 0.2034,
+     "full_concentration": 4.117,
+     "fraction_of_full_recovered": 0.027,
+     "subspace_moved_from_init": 0.9981,
+     "loss_first20": 0.008188,
+     "loss_last20": -0.013352,
+     "optimiser_healthy": true,
+     "overlap_with_closed_form": 0.006,
+     "closed_form_dce_members": 0.0771,
+     "closed_form_concentration": 3.24,
+     "das_beats_closed_form": false
+    },
+    "4": {
+     "das_dce_members": 0.0812,
+     "das_dce_offslice": 0.0224,
+     "das_concentration": 3.627,
+     "full_dce_members": 0.8371,
+     "full_dce_offslice": 0.2034,
+     "full_concentration": 4.117,
+     "fraction_of_full_recovered": 0.097,
+     "subspace_moved_from_init": 0.9948,
+     "loss_first20": 0.006307,
+     "loss_last20": -0.127112,
+     "optimiser_healthy": true
+    }
+   }
+  },
+  "r.2.0.0": {
+   "component": "a8",
+   "members": 864,
+   "ranks": {
+    "1": {
+     "das_dce_members": 0.2345,
+     "das_dce_offslice": 0.018,
+     "das_concentration": 13.045,
+     "full_dce_members": 1.8716,
+     "full_dce_offslice": 0.1884,
+     "full_concentration": 9.933,
+     "fraction_of_full_recovered": 0.125,
+     "subspace_moved_from_init": 1.0,
+     "loss_first20": 0.005895,
+     "loss_last20": -0.137443,
+     "optimiser_healthy": true,
+     "overlap_with_closed_form": 0.286,
+     "closed_form_dce_members": 0.1853,
+     "closed_form_concentration": 10.006,
+     "das_beats_closed_form": true
+    },
+    "4": {
+     "das_dce_members": 0.2637,
+     "das_dce_offslice": 0.0223,
+     "das_concentration": 11.843,
+     "full_dce_members": 1.8716,
+     "full_dce_offslice": 0.1884,
+     "full_concentration": 9.933,
+     "fraction_of_full_recovered": 0.141,
+     "subspace_moved_from_init": 0.9975,
+     "loss_first20": 0.005053,
+     "loss_last20": -1.307606,
+     "optimiser_healthy": true
+    }
+   }
+  },
+  "r.3.0.0": {
+   "component": "a16",
+   "members": 864,
+   "ranks": {
+    "1": {
+     "das_dce_members": 0.0824,
+     "das_dce_offslice": 0.008,
+     "das_concentration": 10.234,
+     "full_dce_members": 0.7847,
+     "full_dce_offslice": 0.0925,
+     "full_concentration": 8.483,
+     "fraction_of_full_recovered": 0.105,
+     "subspace_moved_from_init": 1.0,
+     "loss_first20": -0.003705,
+     "loss_last20": -0.087947,
+     "optimiser_healthy": true,
+     "overlap_with_closed_form": 0.133,
+     "closed_form_dce_members": 0.0257,
+     "closed_form_concentration": 4.601,
+     "das_beats_closed_form": true
+    },
+    "4": {
+     "das_dce_members": 0.1142,
+     "das_dce_offslice": 0.0129,
+     "das_concentration": 8.845,
+     "full_dce_members": 0.7847,
+     "full_dce_offslice": 0.0925,
+     "full_concentration": 8.483,
+     "fraction_of_full_recovered": 0.145,
+     "subspace_moved_from_init": 0.9966,
+     "loss_first20": -0.019086,
+     "loss_last20": -0.298735,
+     "optimiser_healthy": true
+    }
+   }
+  },
+  "r.3.0": {
+   "component": "a16",
+   "members": 5760,
+   "ranks": {
+    "1": {
+     "das_dce_members": 0.0539,
+     "das_dce_offslice": 0.0082,
+     "das_concentration": 6.557,
+     "full_dce_members": 0.5735,
+     "full_dce_offslice": 0.0814,
+     "full_concentration": 7.047,
+     "fraction_of_full_recovered": 0.094,
+     "subspace_moved_from_init": 0.9998,
+     "loss_first20": 0.000427,
+     "loss_last20": -0.022169,
+     "optimiser_healthy": true,
+     "overlap_with_closed_form": 0.336,
+     "closed_form_dce_members": 0.0204,
+     "closed_form_concentration": 3.045,
+     "das_beats_closed_form": true
+    },
+    "4": {
+     "das_dce_members": 0.0634,
+     "das_dce_offslice": 0.0113,
+     "das_concentration": 5.608,
+     "full_dce_members": 0.5735,
+     "full_dce_offslice": 0.0814,
+     "full_concentration": 7.047,
+     "fraction_of_full_recovered": 0.11,
+     "subspace_moved_from_init": 0.9948,
+     "loss_first20": 0.00146,
+     "loss_last20": -0.037024,
+     "optimiser_healthy": true
+    }
+   }
+  },
+  "r.2.0.2": {
+   "component": "a8",
+   "members": 864,
+   "ranks": {
+    "1": {
+     "das_dce_members": 0.1319,
+     "das_dce_offslice": 0.0159,
+     "das_concentration": 8.301,
+     "full_dce_members": 1.4052,
+     "full_dce_offslice": 0.1884,
+     "full_concentration": 7.458,
+     "fraction_of_full_recovered": 0.094,
+     "subspace_moved_from_init": 0.9997,
+     "loss_first20": -0.001322,
+     "loss_last20": -0.053064,
+     "optimiser_healthy": true,
+     "overlap_with_closed_form": 0.223,
+     "closed_form_dce_members": 0.1497,
+     "closed_form_concentration": 7.991,
+     "das_beats_closed_form": false
+    },
+    "4": {
+     "das_dce_members": 0.321,
+     "das_dce_offslice": 0.0208,
+     "das_concentration": 15.438,
+     "full_dce_members": 1.4052,
+     "full_dce_offslice": 0.1884,
+     "full_concentration": 7.458,
+     "fraction_of_full_recovered": 0.228,
+     "subspace_moved_from_init": 0.996,
+     "loss_first20": 0.016124,
+     "loss_last20": -0.106061,
+     "optimiser_healthy": true
+    }
+   }
+  },
+  "r.3.0.2": {
+   "component": "a16",
+   "members": 864,
+   "ranks": {
+    "1": {
+     "das_dce_members": 0.0251,
+     "das_dce_offslice": 0.0054,
+     "das_concentration": 4.628,
+     "full_dce_members": 0.6131,
+     "full_dce_offslice": 0.0925,
+     "full_concentration": 6.628,
+     "fraction_of_full_recovered": 0.041,
+     "subspace_moved_from_init": 0.9989,
+     "loss_first20": 0.002383,
+     "loss_last20": -0.015779,
+     "optimiser_healthy": true,
+     "overlap_with_closed_form": 0.094,
+     "closed_form_dce_members": 0.0207,
+     "closed_form_concentration": 3.215,
+     "das_beats_closed_form": true
+    },
+    "4": {
+     "das_dce_members": 0.0508,
+     "das_dce_offslice": 0.011,
+     "das_concentration": 4.62,
+     "full_dce_members": 0.6131,
+     "full_dce_offslice": 0.0925,
+     "full_concentration": 6.628,
+     "fraction_of_full_recovered": 0.083,
+     "subspace_moved_from_init": 0.9971,
+     "loss_first20": 0.007275,
+     "loss_last20": -0.044071,
+     "optimiser_healthy": true
+    }
+   }
+  }
+ }
+}

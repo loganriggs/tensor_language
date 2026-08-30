@@ -16,6 +16,7 @@ def _authority():
         "a" * 40, (("source.py", "b" * 64),), "c" * 64,
         (("fit", "d" * 64), ("select", "e" * 64), ("ood", "f" * 64)),
         (("fit", "4" * 64), ("select", "5" * 64), ("ood", "6" * 64)),
+        (("fit", "7" * 64), ("select", "8" * 64), ("ood", "9" * 64)),
         ("round", "square"),
         "1" * 64, "2" * 64, "3" * 64,
         tuple(subject.ProgramAuthority(

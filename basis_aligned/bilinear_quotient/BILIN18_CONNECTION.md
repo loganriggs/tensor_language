@@ -60420,3 +60420,73 @@ one. **Those six should be reported as band-localised, not component-localised.*
 **Open.** `circuits/BATTERY.json` carries all 36 components × 62 circuits × 2 methods. Nothing here is
 DAS: both methods intervene on a component's *whole* output, so they locate the circuit to a component
 and say nothing about which directions inside it carry it.
+
+## §2060 — DAS, twice: the first run was a broken optimiser, the second says circuits are enriched but not low-dimensional
+
+`circuit_das.py`, **1120s**, **DISCOVERY ONLY**, 10 circuits at their own best component, trained on rows
+0–600 and every number reported on held-out rows 600–1000. **pred_a FALSE 0/5 | pred_b FALSE 0/10 |
+pred_c FALSE 0/10.** All three registered predicates failed. The run is still informative, and one of the
+three failures is my predicate's fault rather than the model's.
+
+**FIRST, THE RUN THAT DID NOT COUNT.** v1 produced ten circuits of clean-looking numbers and **all of
+them were discarded unpublished**, because pred_a — registered as "the SANITY predicate, and it is meant
+to be easy", with the advance rule that failing it means "no other number here can be trusted" — failed
+0/5 with the closed form winning by **9x**. The cause was mine: `P` was initialised at norm 35 and
+stepped at lr 5e-3, a relative 1.4e-4 per step, so after 120 steps QR handed back the random
+initialisation. **The tell was arithmetic: mean overlap with the closed-form direction came out 0.0009,
+and 1/D = 1/1152 = 0.00087.** A learned direction that lands exactly on the random-direction expectation
+did not learn. The gradient was flowing the whole time (measured norm 8.1e-3), so nothing crashed and
+nothing warned. v2 fixes init scale, lr, step count and member-rich batching, and adds an **optimiser
+health gate** — final-vs-initial subspace overlap and first-vs-last loss window — which now passes
+**0 of 20 fits unhealthy**. LESSON 108.
+
+```
+  circuit    comp | DAS r1 conc  closed-form  whole-comp | DAS mem   CF mem  | overlap
+  r.11.1.1    a8  |     2.587       3.822        3.98    |  0.0120   0.0755  |  0.000
+  r.11.1.2    a8  |     4.366       6.178        4.90    |  0.0396   0.1211  |  0.070
+  r.11.3.1    a8  |     3.754       3.845        4.31    |  0.0636   0.0847  |  0.228
+  r.23.2.1    a8  |     3.075       2.460        3.38    |  0.0215   0.0536  |  0.029
+  r.23.2.3    a8  |     3.530       3.240        4.93    |  0.0222   0.0771  |  0.006
+  r.2.0.0     a8  |    13.045      10.006       12.28    |  0.2345   0.1853  |  0.286
+  r.3.0.0     a16 |    10.234       4.601       11.87    |  0.0824   0.0257  |  0.133
+  r.3.0       a16 |     6.557       3.045        9.21    |  0.0539   0.0204  |  0.336
+  r.2.0.2     a8  |     8.301       7.991        8.99    |  0.1319   0.1497  |  0.223
+  r.3.0.2     a16 |     4.628       3.215        8.56    |  0.0251   0.0207  |  0.094
+```
+
+**pred_a failed 0/5, and the predicate was badly formulated — mine, not the model's.** It asked whether
+DAS beats the closed form on raw **member damage**. That is not what DAS optimises: the objective is
+signed member damage **minus** off-slice damage, i.e. selectivity. On the quantity it actually optimises,
+**DAS beats the closed form on 7 of 10**, and on `r.3.0.0` it more than doubles it (10.234 against
+4.601). I score pred_a FALSE as written and will not rescue it by substituting the criterion after the
+fact; but the conclusion "gradient descent cannot beat a mean difference" would be wrong, and the correct
+statement is that **a direction chosen for selectivity buys less raw damage than a direction chosen for
+mean separation, which is what each was asked for.**
+
+**The three circuits where the closed form wins on selectivity too are `r.11.1.1`, `r.11.1.2` and
+`r.11.3.1` — all at a8, all §2058's.** That is consistent with §2058: a8 carries a dominant shared
+mean-difference direction, and a mean-difference probe is exactly the right instrument for it. **Where
+the closed form is the better tool, it is the better tool for a reason we already measured.**
+
+**pred_b failed 0/10 at the 0.5 bar, but the overlaps are no longer random.** They run 0.006 to 0.336
+against a random-direction expectation of 0.00087 — up to **390x random**, yet nowhere near identity.
+**DAS and the mean-difference probe find overlapping but genuinely different directions.** This settles
+§2058's registered caveat in the direction the caveat feared: the closed-form direction is not the whole
+story, and every §2056/§2058 localisation should be read as a claim about the mean-difference direction
+specifically.
+
+**pred_c failed 0/10 and this is the most interesting failure.** Rank-4 recovers only **8% to 23%** of the
+full component's interchange damage on members, so **the circuits are NOT four-dimensional** and
+"isolating where it is located" has a floor four dimensions do not reach. **But the same numbers read
+per-dimension are large**: 4 directions out of 1152 is 0.35% of the space, so recovering 8–23% is
+**22x to 66x** a dimension's fair share. Both halves are true and neither should be reported without the
+other — **the circuits are strongly enriched in a few directions and still not contained by them.**
+
+**The sharpest single number.** On `r.2.0.0`, **one learned direction reaches concentration 13.045,
+above the 12.28 of ablating the entire a8 component.** A single direction can be more selective for a
+circuit than the whole component that carries it.
+
+**Open.** All ten fits are at rank 1 and 4 only; the rank at which recovery saturates is unmeasured and
+is the natural next sweep. And `r.11.1.1` — §2058's exception, the one a8 circuit with no selective
+direction of its own — is also the one circuit here with **overlap 0.000** and the lowest DAS
+concentration. Three methods now agree it has no direction of its own.

@@ -42,3 +42,14 @@ true-versus-null benefit, spectral margin, the OOD extraction LCB floor, the OOD
 retention contrast, and SELECT family-specific deletion stakes. SELECT family gates
 remain point-positive as originally registered, but their coordinates remain inside
 the joint maximum-error family. No OOD family-specific positivity gate is added.
+
+Execution uses consecutive batches of four rows in exact frozen role order, with a
+short final batch only if the authority-bound row count is not divisible by four.
+Each batch executes the exact arm order native, stored replay, deletion, spectral
+derangement. This batching is numerical/call currency only and cannot select rows,
+programs, masks, thresholds, or bootstrap multiplicities.
+
+“Raw float32 logits” means the exact Bilin18 facade output after its single native
+`30*tanh(raw/30)` output softcap; “uncapped” in the original text forbids any second
+metric-side cap and does not remove that deployed model operation. CE and teacher KL
+convert these float32 facade outputs to float64 before log-softmax and reduction.
