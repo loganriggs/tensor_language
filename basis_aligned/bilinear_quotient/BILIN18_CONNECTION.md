@@ -61545,7 +61545,10 @@ random gating.** And the oracle, which is the ladder's top and is not deploy-leg
 ```
 
 **The 9.4x oracle of §337 is 2.65x on a second window.** The entire ladder — 1.5x, 3.8x, 6.1x, 9.4x — is
-a ratio whose **denominator varies by 2.6x between windows**. That is not a property of any probe. **The
+a ratio whose **denominator varies by 2.6x between windows**. (**§2083 CORRECTION:** that 2.6x is
+CONFOUNDED. The two windows also used different random-mask seeds, and on a single window the random gain
+reads +0.0085 at seed 8 and +0.0178 at seed 100 — 2.094x from the seed alone. The instability is real;
+attributing it to windows was wrong.) That is not a property of any probe. **The
 efficiency metric is window-dependent, and every number in this arc that is expressed as "Nx random"
 inherits that.**
 
@@ -61623,3 +61626,54 @@ count nor any other property measured here explains it.**
 see where the gate's gain crosses zero. That answers "is FR anomalous or is the gate real only on narrow
 text?" — which is the question under all of §2081 and §2082, and neither has touched it. **A CV over
 three windows was never going to answer it, and I should have seen that before registering it.**
+
+## §2083 — eight windows: gating fails on HARD text (r = −0.83 with base CE), FR3 is anomalous not typical, and §2081's mechanism was confounded with a random SEED
+
+`ops/probe_gate7.py`, **637s**, RUNG 2. **pred_a HELD | pred_b HELD | pred_c HELD.** Eight
+document-disjoint fresh windows, 120 rows each, arms cut to `blk2` (§342's published config) and
+`blk2+9` (§2080's best) because the question is about windows.
+
+```
+  base CE   docs   oracle gain   random gain      (sorted by base CE)
+   3.3520    26      +0.0527       +0.0436
+   3.3773    42      +0.0577       +0.0341
+   3.4002     7      +0.0776       +0.0178     <- FR, the arc's window
+   3.4730    23      +0.0440       +0.0581     <- random BEATS oracle here
+   3.5882    43      +0.0829       +0.0499
+   3.6643    35      +0.0317       +0.0161
+   3.7687    35      +0.0188       +0.0138
+   3.9876    17      -0.1305       -0.0134     <- the only negative; hardest window
+```
+
+**pred_a HELD 7/8, and it partly rehabilitates the arc.** §2081 and §2082 read damningly; this says the
+negative window is the **exception**. Gating with causal labels helps on seven of eight fresh windows, so
+§337's and §342's results are the normal case, not a minority outcome dressed up as one. **I said in
+§2082 that "gating is harmful on a window it was not tuned on" — true of that window, and now known to be
+1 in 8.**
+
+**pred_b HELD: r(oracle gain, document count) = +0.295.** Document count does not explain the spread.
+**My §2082 self-correction was right and §2082's original framing would have been wrong** — I corrected it
+before running this on the strength of three points, and eight points agree.
+
+**pred_c HELD and is the explanation: r(oracle gain, base CE) = −0.8295.** **Gating helps on easy text
+and stops helping on hard text**, going negative at the hardest window (base CE 3.9876 against a 3.35–3.99
+range). The two next-hardest windows give the two smallest positive gains (+0.0188, +0.0317). **This is a
+property of the text, not of the probe or the window's diversity.**
+
+> **AND AN UNREGISTERED FINDING THAT CORRECTS §2081'S MECHANISM.** §2081 concluded the efficiency ratio
+> is unstable because "the random-gating denominator is 2.595x larger" on a second window. **On window 0
+> — the same 120 rows — the oracle gain reproduces to four decimals (+0.0776 both runs, it is
+> deterministic) while the RANDOM gain reads +0.0085 with mask seed 8 and +0.0178 with seed 100: a factor
+> of 2.094 from the SEED ALONE.** §2081 compared windows that also differed in seed, so its 2.595x is
+> confounded and most of it may be seed noise. **§2081's conclusion stands and is arguably stronger — the
+> ratio is unstable — but its attribution to WINDOWS was wrong.**
+
+**What the gating arc actually needs, restated once and not repeated.** Report the **oracle gain and the
+probe gain** — both deterministic given a window — and quote the window's **base CE**, which predicts
+them at r = −0.83. **Any "Nx random" figure needs a window AND a mask seed to mean anything**, and with
+the random arm swinging 2x on seed alone, the ratio is the wrong headline for a reason simpler than
+anything in §2081 or §2082: **its denominator is a single draw from a noisy distribution.**
+
+**Open.** Nothing on this thread. The chain §2079 → §2083 began as a benchmark frontier move, became a
+retraction, and ends as a scoped mechanism: **the gate works, on easy text, and the metric used to
+report it was measuring its own noise.** The one thing I would still not quote is any efficiency ratio.
