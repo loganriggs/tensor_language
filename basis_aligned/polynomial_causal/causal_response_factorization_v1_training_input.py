@@ -13,6 +13,7 @@ import io
 import os
 from pathlib import Path
 import tempfile
+from collections.abc import Callable
 from typing import Any, Mapping
 
 import torch
@@ -179,6 +180,7 @@ def publish_training_input(
     *,
     expected_analysis_authority_sha256: str,
     require_production: bool = True,
+    before_link: Callable[[], None] | None = None,
 ) -> str:
     path = path.resolve()
     validate_training_input_payload(
@@ -186,6 +188,8 @@ def publish_training_input(
         expected_analysis_authority_sha256=expected_analysis_authority_sha256,
         require_production=require_production,
     )
+    if require_production and not callable(before_link):
+        raise RuntimeError("production training input publication requires an adjacent guard")
     path.parent.mkdir(parents=True, exist_ok=True)
     descriptor, name = tempfile.mkstemp(prefix=f".{path.name}.", dir=path.parent)
     temporary = Path(name)
@@ -199,6 +203,8 @@ def publish_training_input(
             expected_analysis_authority_sha256=expected_analysis_authority_sha256,
             require_production=require_production,
         )[1]
+        if before_link is not None:
+            before_link()
         os.link(temporary, path)
         return replay_training_input(
             path,

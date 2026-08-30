@@ -2826,10 +2826,18 @@ and it fooled my own progress check — I read "16/48 fits" off those lines and 
 when the real seed loop had silently moved on. Nothing was wrong except that a third of the GPU time
 produced numbers nobody read.
 
+**AND THE DELETION ITSELF NEEDS THE SAME CHECK, WHICH I THEN FAILED.** Removing the dead loop dropped
+`t0 = time.time()`, which lived inside it and which the SURVIVING code still used — so the cleanup left
+the parent with a NameError it would have hit at the end of its next run. I did not re-gate the file
+after editing it; `ops/gate.py` caught it only when a derived script was queued
+(`module-level t0 is used but never bound`). **Dead code can hold a live binding, and "I only deleted
+things nothing reads" is a claim about the loop's OUTPUT, not about every name it defines.**
+
 **How to apply.** When deriving a script from a parent, **delete the parent's main loop before adding
-yours**, and confirm the deletion is safe the cheap way: grep your new analysis for every name the old
-loop binds (`out`, `QDIR`, ...) and check it references none of them. That is a ten-second check and it
-is the whole fix. And when a cost note goes into a ledger section, it is a note to the NEXT script, not a
+yours**, and confirm the deletion is safe in BOTH directions: grep your new analysis for every name the
+old loop *returns* (`out`, `QDIR`, ...) and check it references none of them, then **re-gate the edited
+file** to catch names the old loop *bound* that the survivors still use. The first check is ten seconds;
+the second is one command and I skipped it. And when a cost note goes into a ledger section, it is a note to the NEXT script, not a
 penance for the last one — [[LESSON-105]] says never derive a registered script by string replacement
 without asserting; this is its cost-side twin, because the assertion that matters here is about what the
 derived script no longer needs.

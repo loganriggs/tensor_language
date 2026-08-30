@@ -1,44 +1,36 @@
-# DOES §2075'S a8 GROUPING PREDICT THE *LEARNED* DIRECTIONS TOO? A THIRD, INDEPENDENT QUANTITY.
+# TWO MORE SEEDS: is §2077's weak seed one bad draw, or is the effect two-out-of-three?
 #
-# RUNG 2: second-class confirmation of a just-certified result (house pattern §1595/§1598/§1603).
+# RUNG 3: the open question named at the end of §2077.
 #
-# §2075 clustered a8's sixteen circuits on their CLOSED-FORM directions and validated the grouping against
-# §2065's cross-circuit ABLATION CONCENTRATIONS -- data the clustering never saw, giving p = 0.0185
-# against a size-matched permutation null. §2076 then cut that back: the aggregate signal is carried by
-# ONE cluster of four, the six is not individually significant (p = 0.1853), and the geometrically
-# tightest pair is causally ANTI-associated (0.780). So the grouping is real in aggregate and no
-# sub-mechanism is identified.
+# §2077 confirmed §2075's a8 grouping on the learned DAS directions at a pooled p = 0.0270 against a
+# size-matched permutation null. The per-seed column qualified it hard: the statistic was 0.0842, 0.1143
+# and **0.0072**, and that third value is INSIDE the null (p95 0.0574), not a weak positive. Two seeds
+# cleared individually and one saw nothing, so a single-seed run drawing 20260832 would have reported a
+# clean negative. §2077 recorded that the pooled p-value was doing real work and that a reader taking it
+# without the per-seed column would overrate the result.
 #
-# Both of those tests share an input: the closed-form directions define the clusters, and the ablation
-# concentrations were computed by projecting along those same closed-form directions. A confirmation on a
-# genuinely different quantity is therefore worth having, and gradient-descent DAS supplies one -- §2060
-# and §2071 established that learned directions overlap the closed-form ones only 0.006-0.344, far above
-# random and nowhere near identity. If the §2075 grouping also organises the LEARNED directions, it is a
-# fact about a8 rather than about one construction.
+# The distinguishing question is cheap: seed 20260832 was the weakest on EVERY statistic it appears in
+# (pooled difference 0.0072, four-cluster margin 1.04 against 1.68 and 1.89), which looks like one bad
+# draw rather than a quantity-wide instability. Two more seeds decide it. The per-seed test needs no
+# pooling -- each seed's within-minus-between is compared to the SAME null p95 of 0.0574 that §2077
+# computed, so the two new seeds are directly comparable to the three already measured.
 #
-# EVERY LESSON THIS ARC PRODUCED IS APPLIED HERE, DELIBERATELY:
-#   LESSON 108 -- every fit is gated on having moved from its initialisation and reduced its loss.
-#   LESSON 110 -- three seeds, because a learned-parameter result needs a spread before a decimal place.
-#   LESSON 111 -- the bar is set FROM a 20,000-draw size-matched permutation null computed in the same
-#                 run, not by eye. §2075's registered 1.10 gate was decoration (the null's p90 was 1.1407)
-#                 and its conclusion rested on a null run post hoc; this one is registered up front.
+# The parent's dead inherited fit loop was removed (LESSON 112) before this was derived, so this run does
+# 32 fits rather than 48.
 #
 # REGISTERED PREDICTIONS (written before running):
-#   pred_a  §2075's grouping predicts the learned directions: pooling the three seeds, mean within-cluster
-#           |cos| exceeds between-cluster at p < 0.05 against a size-matched permutation null over a8's
-#           sixteen circuits. No hand-set ratio -- the threshold is the null's own upper tail. If FALSE,
-#           the grouping organises the closed-form directions and the ablations computed from them, and
-#           nothing else, which would make it a property of one construction rather than of a8.
-#   pred_b  The four-circuit cluster {r.2.0.1, r.2.0.2, r.2.1.1, r.2.2.1} -- the ONLY one §2076 found
-#           carrying the ablation signal -- also has within-cluster learned |cos| above the a8-wide mean
-#           in at least 2 of the 3 seeds. If FALSE, the one cluster with causal support does not survive
-#           the change of quantity and §2076's "no sub-mechanism identified" hardens into a negative.
-#   pred_c  CONTROL, two parts, both required before pred_a or pred_b may be read: every one of the 48
-#           fits passes the optimiser health gate, AND the seed-to-seed sd of the pooled within-minus-
-#           between statistic is reported rather than a single draw. A null result from fits that did not
-#           train, or a point estimate with no spread, is what §2070 and §2072 were about.
+#   pred_a  BOTH new seeds exceed the null p95 of 0.0574, making it 4 of 5 and supporting "one bad draw".
+#           Registered in the strong direction on purpose: the weak reading (some seeds work) is what the
+#           data already permits, so the risk belongs on the claim that would change how §2077 is quoted.
+#           If FALSE, at most 3 of 5 seeds show the effect and §2077 should be read as "unreliable per
+#           fit" rather than "real but noisy" -- a distinction I would then apply to its registry entry.
+#   pred_b  The four-circuit cluster {r.2.0.1, r.2.0.2, r.2.1.1, r.2.2.1} is above the a8-wide mean in
+#           both new seeds, continuing §2077's 3/3 to 5/5. §2077's third seed cleared this at a ratio of
+#           1.04, an effective tie, so this asks whether that was the seed or the cluster.
+#   pred_c  CONTROL: every one of the 32 fits passes the optimiser health gate (LESSON 108), and the
+#           five-seed mean and sd of the statistic are reported (LESSON 110) rather than a pooled scalar.
 #
-# Writes circuits/A8_GROUPING_LEARNED.json. DISCOVERY ONLY. No circuit file is modified.
+# Writes circuits/A8_GROUPING_LEARNED_S45.json. DISCOVERY ONLY. No circuit file is modified.
 import json
 import os
 import sys
@@ -83,7 +75,7 @@ STEPS = 400
 LR = 5e-2
 BATCH = 4
 SEED = 20260830
-SEEDS = (20260830, 20260831, 20260832)
+SEEDS = (20260833, 20260834)
 TRAIN_ROWS = (0, 600)
 EVAL_ROWS = (600, 1000)
 C.use_state('census_state_diverse.pt')
@@ -323,24 +315,32 @@ rep = {'schema_version': 1, 'generated': '2026-08-30 by Claude', 'component': CO
        'four_cluster': FOUR, 'four_cluster_detail': four_detail,
        'four_above_a8_mean_in_n_seeds': four_ok,
        'unhealthy_fits': unhealthy,
-       'pred_a_grouping_predicts_learned_directions': bool(pval < 0.05),
-       'pred_b_four_cluster_survives_quantity_change': bool(four_ok >= 2),
+       'S2077_null_p95': 0.0574, 'S2077_per_seed': [0.0842, 0.1143, 0.0072],
+       'new_seeds_exceeding_S2077_null_p95': sum(1 for x in per_seed_stat if x > 0.0574),
+       'pred_a_both_new_seeds_clear_the_null': bool(all(x > 0.0574 for x in per_seed_stat)),
+       'pred_b_four_cluster_above_in_both': bool(four_ok >= 2),
        'pred_c_controls_pass': bool(not unhealthy),
        'note': 'read-only artifact; no circuit file was modified'}
-json.dump(rep, open('circuits/A8_GROUPING_LEARNED.json', 'w'), indent=1)
+json.dump(rep, open('circuits/A8_GROUPING_LEARNED_S45.json', 'w'), indent=1)
 
-print(f'\nwrote circuits/A8_GROUPING_LEARNED.json ({time.time()-t0:.0f}s)')
+print(f'\nwrote circuits/A8_GROUPING_LEARNED_S45.json ({time.time()-t0:.0f}s)')
 print(f'pred_c  CONTROL -- all {len(HEALTH)} fits healthy : {rep["pred_c_controls_pass"]}')
 if unhealthy:
     print(f'        UNHEALTHY {unhealthy} -- reporting nothing (LESSON 108)')
 else:
     print(f'        statistic per seed {[round(x, 4) for x in per_seed_stat]}  '
           f'mean {mstat:.4f} +- {sdstat:.4f}   (LESSON 110)')
-    print(f'pred_a  pooled within {mw:.4f} - between {mb:.4f} = {obs:.4f}; null median '
-          f'{nd[len(nd)//2]:.4f} p95 {nd[int(0.95*len(nd)):][0]:.4f}; p = {pval:.4f} (bar <0.05) : '
-          f'{rep["pred_a_grouping_predicts_learned_directions"]}')
-    print(f'pred_b  the four-cluster is above the a8 mean in {four_ok}/3 seeds (bar >=2) : '
-          f'{rep["pred_b_four_cluster_survives_quantity_change"]}')
+    n_clear = rep['new_seeds_exceeding_S2077_null_p95']
+    allfive = [0.0842, 0.1143, 0.0072] + [round(x, 4) for x in per_seed_stat]
+    m5 = sum(allfive) / 5
+    sd5 = (sum((x - m5) ** 2 for x in allfive) / 4) ** 0.5
+    print(f'pred_a  new seeds clearing S2077 null p95 0.0574: {n_clear}/2 (bar 2) : '
+          f'{rep["pred_a_both_new_seeds_clear_the_null"]}')
+    print(f'        all five seeds: {allfive}   mean {m5:.4f} +- {sd5:.4f}   '
+          f'clearing the null: {sum(1 for x in allfive if x > 0.0574)}/5')
+    print(f'        (this run pooled over its own 2 seeds: {obs:.4f}, p = {pval:.4f})')
+    print(f'pred_b  the four-cluster is above the a8 mean in {four_ok}/2 new seeds (bar 2) : '
+          f'{rep["pred_b_four_cluster_above_in_both"]}')
     for dd in four_detail:
         print(f'        seed {dd["seed"]}: within-four {dd["within_four"]:.4f} vs a8 mean '
               f'{dd["a8_mean"]:.4f}  above={dd["above"]}')
