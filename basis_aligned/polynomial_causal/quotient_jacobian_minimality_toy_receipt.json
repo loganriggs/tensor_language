@@ -1,0 +1,55 @@
+{
+  "claim_boundary": "CPU algebraic known-answer only. This verifies gauge-null and rank accounting for matrix-product and CP programs; it does not establish identifiability, semantic meaning, causal sufficiency, or minimality of any bilin18 replacement.",
+  "relative_rank_tolerance": 1e-10,
+  "results": {
+    "algebraic_matroid_basis": {
+      "all_observable_coordinates": 120,
+      "interpretation": "At this regular CP point, 39 selected physical tensor entries span the differentials of all 120 entries. This is local and first-order, not a global identifiability certificate.",
+      "relative_first_order_reconstruction_error": 1.6621752143953178e-15,
+      "selected_coordinates": 39,
+      "selected_row_rank": 39
+    },
+    "duplicate_component_failure_control": {
+      "duplicate_rank": 26,
+      "interpretation": "Coincident CP components are a singular, non-identifiable point; the Jacobian loses directions beyond the ordinary per-component scaling gauge.",
+      "rank_deficit": 13,
+      "regular_rank": 39
+    },
+    "matrix_product": {
+      "expected_quotient_dimension": 36,
+      "jacobian_nullity": 9,
+      "known_gauge_dimension": 9,
+      "max_abs_gauge_image": 1.9824289544416115e-16,
+      "measured_jacobian_rank": 36,
+      "raw_parameter_count": 45,
+      "shape": [
+        7,
+        3,
+        8
+      ]
+    },
+    "regauge_control": {
+      "jacobian_condition_after": 3.1697347140468275e+17,
+      "jacobian_condition_before": 3.461449173446397e+16,
+      "max_abs_tensor_change": 2.220446049250313e-16,
+      "rank_after": 39,
+      "rank_before": 39
+    },
+    "regular_cp": {
+      "expected_quotient_dimension": 39,
+      "jacobian_nullity": 6,
+      "known_continuous_gauge_dimension": 6,
+      "max_abs_gauge_image": 2.7544031154988857e-16,
+      "measured_jacobian_rank": 39,
+      "raw_parameter_count": 45,
+      "shape": [
+        3,
+        4,
+        5,
+        6
+      ]
+    }
+  },
+  "runtime_seconds": 0.021329866722226143,
+  "schema": "quotient_jacobian_minimality_toy_v1"
+}
