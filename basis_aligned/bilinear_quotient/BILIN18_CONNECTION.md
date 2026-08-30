@@ -63213,3 +63213,41 @@ in the informative direction.**
 **Registered next (rung 28):** across several random 8-of-32 draws, the gain should track the *variance share* the
 chosen span covers (ρ ≤ −0.7): if so, the effect is coverage and closes; the honest tail-span price is then the
 span's cost per unit of covered variance.
+
+## §2122 — RUNG 28: COVERAGE IS THE WHOLE STORY — the tail-span "gain" tracks the covered variance share at ρ = −0.976; the lowest-variance eight (2 % coverage) gain the most (+0.249); and plain variance predicts the gain BETTER than the observable-energy share (|ρ| 0.69). The coverage-stated credit for projection stand-ins is licensed
+
+`ops/tail_span_coverage.py`, **346s**, BACKLOG rung 28. Eight arms (plain top-8, lowest-8-of-32, six random 8-of-32; the
+same draw across the eight tail MLPs per arm). **pred_d HELD (1.7415) | pred_a HELD | pred_b HELD | pred_c FAILED.**
+
+```
+  span (8 of top-32)   gain w1    covered variance share   observable share   fresh median gap
+  plain top-8           0.000          0.374                   0.285              1.872
+  rand0                +0.185          0.130                   0.242              1.655
+  rand4                +0.194          0.132                   0.247              1.666
+  rand3                +0.202          0.122                   0.247              1.636
+  rand1                +0.206          0.052                   0.244              1.658
+  rand2                +0.217          0.037                   0.244              1.625
+  rand5                +0.244          0.026                   0.228              1.612
+  lowest-8             +0.249          0.021                   0.230              1.597
+  Spearman(gain, variance share) = −0.976 (bar −0.7, HELD)    Spearman(gain, observable share) = −0.69 (pred_c FAILED)
+```
+
+- **pred_a HELD at −0.976:** across eight arms the CE "gain" of a tail span is almost exactly a decreasing function
+  of how much of the module's output variance the span covers. §2121's reading is confirmed and quantified: the tail
+  program's cost is the cost of what it replaces, and replacing less costs less. **The 0.2-nat "improvements" of
+  §2121 are coverage reductions, closed as non-moves.**
+- **pred_b HELD:** the limit of doing less (the eight *lowest*-variance directions of the top-32, 2.1 % coverage) is
+  the best "arm" — the reductio the registration asked for.
+- **pred_c FAILED, informatively:** the observable-energy share predicts the gain *worse* than raw variance share
+  (−0.69 vs −0.98) — at the tail, what the intervention costs is set by how much output energy it touches, not by the
+  loss metric. One more place the metric does not apply (§2120's construction negative, sharpened).
+- **Licensed (the 19:05 mathematical review's move 3):** the registry's credit for projection stand-ins must state
+  coverage — credit = fidelity × covered-energy share. The certified arm's tail entries (and the mlp16 §1541 registry
+  row's kin) over-credit by exactly the factor this run measures. The mlp4/mlp5 unit-selection gain (§2116/§2119) is
+  unaffected: full replacement, fixed unit count.
+
+**The observability arc's honest closing balance (rungs 11–28):** one certified equal-price frontier gain with a named
+eight-direction mechanism (§2116/§2119); one certified negative for metric-constructed bases/spans (§2105/§2120); the
+half-price claim withdrawn (§2118); the energy-vs-price separation located inside attn5 (§2114) and bounded at piece
+grain (§2117, ρ = 0.81); and the tail-span accounting corrected (here). Next mathematics on the queue: the Fisher
+identity of the eight (label-freedom, quadratic price, chain-rule composition — `fisher_metric_v1.py`).

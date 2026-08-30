@@ -385,6 +385,10 @@ AGENT_BOARD (2026-08-30 §2096 entry).
     gains >= the random median (the limit of doing less); pred_c the
     observable-energy coverage (via the site Gramian) predicts gain no
     better than variance share (|rho| within 0.1); pred_d cfgE 1.7415.
+    RUN 2026-08-30, §2122: (a) HELD rho -0.976; (b) HELD lowest-8 best
+    (+0.249 at 2% coverage); (c) FAILED — variance predicts BETTER than the
+    observable share; (d) HELD. Coverage-stated credit LICENSED; §2121's
+    0.2-nat 'gains' closed as non-moves. Tail registry entries over-credit.
 
 BOOKKEEPING NOTE 2026-08-30 18:40Z: rungs 12-22 above were reconstructed from
 the ledger entries §2103-§2115 after a cwd slip appended §2103 and rung 12's

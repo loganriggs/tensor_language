@@ -1,0 +1,103 @@
+a2-input probe acc 0.69
+fit a2
+fit a3
+fit a4
+fit a5
+fit a6
+fit a7
+fit a8
+fit a9
+fit a10
+fit a11
+fit a12
+fit a13
+fit a14
+fit a15
+fit a16
+fit a17
+metric for t10 at block 11: top eig 1.185e-06, floor 1.695e-09
+metric for t11 at block 12: top eig 6.562e-07, floor 9.679e-10
+metric for t12 at block 13: top eig 5.317e-07, floor 5.638e-10
+metric for t13 at block 14: top eig 5.372e-07, floor 5.372e-10
+metric for t14 at block 15: top eig 4.745e-07, floor 4.745e-10
+metric for t15 at block 16: top eig 3.021e-07, floor 3.021e-10
+metric for t16 at block 17: top eig 2.127e-07, floor 2.127e-10
+metric for t17 at block 18: top eig 1.904e-07, floor 1.904e-10
+  tail span mlp10 (lowest8): overlap with plain span 0.000
+  tail span mlp11 (lowest8): overlap with plain span 0.000
+  tail span mlp12 (lowest8): overlap with plain span 0.000
+  tail span mlp13 (lowest8): overlap with plain span 0.000
+  tail span mlp14 (lowest8): overlap with plain span 0.000
+  tail span mlp15 (lowest8): overlap with plain span 0.000
+  tail span mlp16 (lowest8): overlap with plain span 0.000
+  tail span mlp17 (lowest8): overlap with plain span 0.000
+  tail span mlp10 (rand0): overlap with plain span 0.375
+  tail span mlp11 (rand0): overlap with plain span 0.375
+  tail span mlp12 (rand0): overlap with plain span 0.375
+  tail span mlp13 (rand0): overlap with plain span 0.375
+  tail span mlp14 (rand0): overlap with plain span 0.375
+  tail span mlp15 (rand0): overlap with plain span 0.375
+  tail span mlp16 (rand0): overlap with plain span 0.375
+  tail span mlp17 (rand0): overlap with plain span 0.375
+  tail span mlp10 (rand1): overlap with plain span 0.375
+  tail span mlp11 (rand1): overlap with plain span 0.375
+  tail span mlp12 (rand1): overlap with plain span 0.375
+  tail span mlp13 (rand1): overlap with plain span 0.375
+  tail span mlp14 (rand1): overlap with plain span 0.375
+  tail span mlp15 (rand1): overlap with plain span 0.375
+  tail span mlp16 (rand1): overlap with plain span 0.375
+  tail span mlp17 (rand1): overlap with plain span 0.375
+  tail span mlp10 (rand2): overlap with plain span 0.125
+  tail span mlp11 (rand2): overlap with plain span 0.125
+  tail span mlp12 (rand2): overlap with plain span 0.125
+  tail span mlp13 (rand2): overlap with plain span 0.125
+  tail span mlp14 (rand2): overlap with plain span 0.125
+  tail span mlp15 (rand2): overlap with plain span 0.125
+  tail span mlp16 (rand2): overlap with plain span 0.125
+  tail span mlp17 (rand2): overlap with plain span 0.125
+  tail span mlp10 (rand3): overlap with plain span 0.125
+  tail span mlp11 (rand3): overlap with plain span 0.125
+  tail span mlp12 (rand3): overlap with plain span 0.125
+  tail span mlp13 (rand3): overlap with plain span 0.125
+  tail span mlp14 (rand3): overlap with plain span 0.125
+  tail span mlp15 (rand3): overlap with plain span 0.125
+  tail span mlp16 (rand3): overlap with plain span 0.125
+  tail span mlp17 (rand3): overlap with plain span 0.125
+  tail span mlp10 (rand4): overlap with plain span 0.250
+  tail span mlp11 (rand4): overlap with plain span 0.250
+  tail span mlp12 (rand4): overlap with plain span 0.250
+  tail span mlp13 (rand4): overlap with plain span 0.250
+  tail span mlp14 (rand4): overlap with plain span 0.250
+  tail span mlp15 (rand4): overlap with plain span 0.250
+  tail span mlp16 (rand4): overlap with plain span 0.250
+  tail span mlp17 (rand4): overlap with plain span 0.250
+  tail span mlp10 (rand5): overlap with plain span 0.000
+  tail span mlp11 (rand5): overlap with plain span 0.000
+  tail span mlp12 (rand5): overlap with plain span 0.000
+  tail span mlp13 (rand5): overlap with plain span 0.000
+  tail span mlp14 (rand5): overlap with plain span 0.000
+  tail span mlp15 (rand5): overlap with plain span 0.000
+  tail span mlp16 (rand5): overlap with plain span 0.000
+  tail span mlp17 (rand5): overlap with plain span 0.000
+8 windows x 120 rows, document-disjoint; docs per window [7, 42, 17, 23, 43, 26, 35, 35]
+plain        : gap w1 +1.5808 | fresh [1.861, 2.047, 1.841, 1.955, 1.974, 1.883, 1.748, 1.819] | b6 1.741 b17 0.593 | 18s
+lowest8      : gap w1 +1.3316 | fresh [1.664, 1.752, 1.552, 1.583, 1.61, 1.615, 1.451, 1.569] | b6 1.741 b17 0.504 | 18s
+rand0        : gap w1 +1.3964 | fresh [1.698, 1.808, 1.588, 1.654, 1.672, 1.656, 1.504, 1.615] | b6 1.741 b17 0.532 | 18s
+rand1        : gap w1 +1.3753 | fresh [1.684, 1.791, 1.629, 1.655, 1.688, 1.661, 1.496, 1.604] | b6 1.741 b17 0.509 | 18s
+rand2        : gap w1 +1.3635 | fresh [1.675, 1.776, 1.601, 1.619, 1.646, 1.632, 1.475, 1.59] | b6 1.741 b17 0.506 | 18s
+rand3        : gap w1 +1.3792 | fresh [1.69, 1.791, 1.57, 1.631, 1.653, 1.641, 1.484, 1.596] | b6 1.741 b17 0.529 | 18s
+rand4        : gap w1 +1.3872 | fresh [1.697, 1.804, 1.591, 1.664, 1.695, 1.667, 1.504, 1.604] | b6 1.741 b17 0.533 | 18s
+rand5        : gap w1 +1.3374 | fresh [1.663, 1.756, 1.57, 1.603, 1.626, 1.621, 1.453, 1.57] | b6 1.741 b17 0.504 | 18s
+plain   : gain w1 +0.0000 | var share 0.3738 | obs share 0.2845 | fresh median gap 1.8723
+lowest8 : gain w1 +0.2493 | var share 0.0210 | obs share 0.2298 | fresh median gap 1.5965
+rand0   : gain w1 +0.1845 | var share 0.1297 | obs share 0.2424 | fresh median gap 1.6550
+rand1   : gain w1 +0.2055 | var share 0.0518 | obs share 0.2437 | fresh median gap 1.6579
+rand2   : gain w1 +0.2174 | var share 0.0369 | obs share 0.2441 | fresh median gap 1.6253
+rand3   : gain w1 +0.2016 | var share 0.1215 | obs share 0.2473 | fresh median gap 1.6360
+rand4   : gain w1 +0.1936 | var share 0.1315 | obs share 0.2465 | fresh median gap 1.6657
+rand5   : gain w1 +0.2435 | var share 0.0261 | obs share 0.2281 | fresh median gap 1.6121
+(d) cfgE b6 1.7415: HELD
+(a) rho(gain, variance share) -0.976 <= -0.7: HELD
+(b) lowest-8 gain +0.2493 >= random median +0.2036: HELD
+(c) |rho obs| 0.690 within 0.1 of |rho var| 0.976: FAILED
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/tail_span_coverage_results.json (346s)
