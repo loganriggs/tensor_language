@@ -49,8 +49,13 @@ OWN_SOURCES = (
     HERE / "test_prepare_ordered_successor_tensor_select_v2_rows.py",
     HERE / "ordered_successor_tensor_select_statistics_v1.py",
     HERE / "test_ordered_successor_tensor_select_statistics_v1.py",
+    ROOT / "jacclust/__init__.py",
+    ROOT / "jacclust/tt_model.py",
 )
-SOURCE_PATHS = tuple(dict.fromkeys((*OWN_SOURCES, *base.SOURCE_PATHS)))
+STATISTICS_SOURCES = tuple(ROOT / relative for relative in statistics.SOURCE_PATHS)
+SOURCE_PATHS = tuple(dict.fromkeys(
+    (*OWN_SOURCES, *STATISTICS_SOURCES, *base.SOURCE_PATHS)
+))
 
 
 def file_sha256(path: Path) -> str:
@@ -267,6 +272,24 @@ def _validate_manifest(path: Path, expected: Mapping[str, Any], digest: str) -> 
         raise RuntimeError("successor v2 row manifest semantic replay failed")
 
 
+def _artifact_snapshot(entry: Mapping[str, Any], manifest_sha256: str) -> dict[str, str]:
+    row_path = Path(str(entry["path"]))
+    manifest_path = CACHE / "select_manifest.json"
+    if not row_path.is_file() or not manifest_path.is_file():
+        raise RuntimeError("successor v2 installed artifact is absent")
+    observed = {
+        "rows": file_sha256(row_path),
+        "manifest": file_sha256(manifest_path),
+    }
+    expected = {
+        "rows": str(entry["file_sha256"]),
+        "manifest": manifest_sha256,
+    }
+    if observed != expected:
+        raise RuntimeError("successor v2 installed artifact hash changed")
+    return observed
+
+
 def _terminal_absent() -> None:
     if RECEIPT.exists() or FAILURE.exists():
         raise RuntimeError("successor v2 row terminal already exists")
@@ -403,6 +426,7 @@ def freeze_locked(claim: RunClaim) -> dict[str, Any]:
         if CACHE.exists():
             raise RuntimeError("successor v2 row cache appeared before install")
         require_claim(claim)
+        base._fsync_directory(staging)
         os.replace(staging, CACHE); base._fsync_directory(CACHE.parent)
     finally:
         if staging.exists(): shutil.rmtree(staging)
@@ -441,6 +465,7 @@ def freeze_locked(claim: RunClaim) -> dict[str, Any]:
         "manifest": {"path": str(installed_manifest), "file_sha256": manifest_sha256},
         "source_identity": identity, "registry_files": registry_hashes,
         "prior_row_tensors": tensor_hashes, "disjointness": disjointness,
+        "historical_max_dataset_document_index": max(prior[1]) if prior[1] else None,
         "powered_census": census, "support_sha256": support_sha256,
         "failed_unmaterialized_registry_waivers": waiver_proofs,
         "exact_nonrow_registry_artifacts": nonrow_proofs,
@@ -450,6 +475,7 @@ def freeze_locked(claim: RunClaim) -> dict[str, Any]:
     }
 
     def final_guard() -> None:
+        before = _artifact_snapshot(entry, manifest_sha256)
         _validate_payload(Path(entry["path"]), entry)
         _validate_manifest(installed_manifest, manifest, manifest_sha256)
         _protected_replay(
@@ -459,6 +485,8 @@ def freeze_locked(claim: RunClaim) -> dict[str, Any]:
             nonrow_proofs=nonrow_proofs, canonical=canonical, parquet=parquet,
             encoding=encoding, source_identity=identity,
         )
+        if _artifact_snapshot(entry, manifest_sha256) != before:
+            raise RuntimeError("successor v2 installed artifacts changed during final replay")
         _terminal_absent()
         require_claim(claim)
 
@@ -479,7 +507,10 @@ def freeze() -> dict[str, Any]:
             }
             try:
                 def failure_guard() -> None:
-                    _terminal_absent(); require_claim(claim)
+                    _terminal_absent()
+                    if CACHE.exists() is not failure["cache_exists"]:
+                        raise RuntimeError("successor v2 failure cache state changed")
+                    require_claim(claim)
                 _write_json_create_only(failure, FAILURE, before_link=failure_guard)
             except BaseException:
                 pass

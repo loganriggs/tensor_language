@@ -102,9 +102,15 @@ def test_source_closure_is_unique_and_binds_amendment_registry_tests_and_base() 
         rows_v2.HERE / "ordered_successor_tensor_select_registry_v2.py",
         rows_v2.HERE / "test_ordered_successor_digit_lexicon_v2.py",
         rows_v2.HERE / "test_prepare_ordered_successor_tensor_select_v2_rows.py",
+        rows_v2.ROOT / "jacclust/__init__.py",
+        rows_v2.ROOT / "jacclust/tt_model.py",
     }
     assert required.issubset(rows_v2.SOURCE_PATHS)
     assert set(rows_v2.base.SOURCE_PATHS).issubset(rows_v2.SOURCE_PATHS)
+    assert set(rows_v2.STATISTICS_SOURCES).issubset(rows_v2.SOURCE_PATHS)
+    assert {rows_v2.ROOT / relative for relative in statistics.SOURCE_PATHS}.issubset(
+        rows_v2.SOURCE_PATHS
+    )
 
 
 def test_exact_independent_audit_schema_and_source_binding(tmp_path, monkeypatch) -> None:
@@ -145,6 +151,26 @@ def test_guarded_writer_is_create_only_and_rival_terminal_wins(tmp_path, monkeyp
     with pytest.raises(RuntimeError, match="terminal already exists"):
         rows_v2._write_json_create_only({"schema": "other"}, other, before_link=rival_guard)
     assert not other.exists()
+
+
+def test_installed_artifact_snapshot_binds_both_payload_and_manifest(
+    tmp_path, monkeypatch,
+) -> None:
+    cache = tmp_path / "cache"
+    cache.mkdir()
+    monkeypatch.setattr(rows_v2, "CACHE", cache)
+    payload = cache / "select_rows.pt"
+    manifest = cache / "select_manifest.json"
+    torch.save(torch.zeros(1, dtype=torch.long), payload)
+    manifest.write_text("{}")
+    entry = {"path": str(payload), "file_sha256": rows_v2.file_sha256(payload)}
+    manifest_sha256 = rows_v2.file_sha256(manifest)
+    assert rows_v2._artifact_snapshot(entry, manifest_sha256) == {
+        "rows": entry["file_sha256"], "manifest": manifest_sha256,
+    }
+    manifest.write_text('{"changed":true}')
+    with pytest.raises(RuntimeError, match="artifact hash changed"):
+        rows_v2._artifact_snapshot(entry, manifest_sha256)
 
 
 def test_inode_nonce_claim_rejects_replacement(tmp_path) -> None:
