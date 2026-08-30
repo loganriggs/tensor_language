@@ -26,17 +26,21 @@ class OrderedLexicon:
     items: tuple[tuple[int, ...], ...]
 
     def __post_init__(self) -> None:
-        if not self.name:
+        if type(self.name) is not str or not self.name:
             raise ValueError("lexicon name must be nonempty")
-        if len(self.items) < 2:
+        if type(self.items) is not tuple or len(self.items) < 2 or any(
+            type(item) is not tuple for item in self.items
+        ):
             raise ValueError("ordered lexicon needs at least two items")
+        if len(self.items) > torch.iinfo(torch.int16).max:
+            raise ValueError("ordered lexicon exceeds pair-index currency")
         seen: set[int] = set()
         for item in self.items:
             if not item:
                 raise ValueError("every lexicon item needs at least one token ID")
             if len(set(item)) != len(item):
                 raise ValueError("duplicate token ID within a lexicon item")
-            if any((not isinstance(token_id, int)) or token_id < 0 for token_id in item):
+            if any(type(token_id) is not int or token_id < 0 for token_id in item):
                 raise ValueError("token IDs must be nonnegative integers")
             overlap = seen.intersection(item)
             if overlap:
@@ -123,10 +127,10 @@ def build_ordered_successor_masks(
         raise TypeError("rows must contain integer token IDs")
     if rows.shape[1] < 2:
         raise ValueError("rows need at least one input and one target token")
-    if window <= 0:
+    if type(window) is not int or window <= 0:
         raise ValueError("window must be positive")
     prediction_count = rows.shape[1] - 1
-    if not 0 <= first_prediction < prediction_count:
+    if type(first_prediction) is not int or not 0 <= first_prediction < prediction_count:
         raise ValueError("first_prediction is outside the prediction columns")
 
     shape = (rows.shape[0], prediction_count)

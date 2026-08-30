@@ -40,6 +40,15 @@ def test_two_source_contraction_recovers_literal_current_and_v1_algebra() -> Non
     torch.testing.assert_close(
         actual, (scores @ concatenated) @ folded.T, rtol=0, atol=0,
     )
+    preweighted = successor.two_source_preweighted_write(
+        scores,
+        current,
+        saved,
+        (1 - mix) * value_current,
+        mix * value_saved,
+        output,
+    )
+    torch.testing.assert_close(preweighted, actual, rtol=0, atol=0)
 
 
 def test_shared_head_gauge_leaves_physical_write_and_folded_map_invariant() -> None:
@@ -84,6 +93,15 @@ def test_folded_rank_certificate_recovers_known_rank_and_factor_price() -> None:
         rank_one, absolute_tolerance=1e-12, relative_tolerance=1e-12,
     ) == 1
     assert successor.factor_complete_parameter_count(1152, 1152, 128, 1152) == 442_368
+    assert successor.autonomous_successor_parameter_count(
+        1152, 128, 128, 1152, source_count=2,
+    ) == 1_032_192
+    assert successor.autonomous_successor_parameter_count(
+        1152, 128, 64, 1152, source_count=2,
+    ) == 811_008
+    assert successor.autonomous_successor_parameter_count(
+        1152, 128, 64, 1152, source_count=1,
+    ) == 737_280
 
 
 def test_spectral_derangement_is_nontrivial_same_rank_same_spectrum_null() -> None:

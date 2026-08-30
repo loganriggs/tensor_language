@@ -101,11 +101,64 @@ def two_source_successor_write(
         raise ValueError("each value factor input must match its state dimension")
 
     weight = _mix_scalar(mix_v1, scores)
-    current_values = torch.matmul(current_states, current_value_factor.T)
-    saved_values = torch.matmul(v1_states, v1_value_factor.T)
-    mixed_values = (1 - weight) * current_values + weight * saved_values
-    routed = torch.matmul(scores, mixed_values)
-    return torch.matmul(routed, output_factor.T)
+    return two_source_preweighted_write(
+        scores,
+        current_states,
+        v1_states,
+        (1 - weight) * current_value_factor,
+        weight * v1_value_factor,
+        output_factor,
+    )
+
+
+def two_source_preweighted_write(
+    scores: torch.Tensor,
+    current_states: torch.Tensor,
+    v1_states: torch.Tensor,
+    current_right_factor: torch.Tensor,
+    v1_right_factor: torch.Tensor,
+    output_factor: torch.Tensor,
+) -> torch.Tensor:
+    """Evaluate a two-source map whose fixed mixture is absorbed into its factors.
+
+    This is the deployment form of a truncated SVD of the physical folded map.  It
+    avoids charging a redundant scalar and makes the current-only and v1-only
+    subfamilies literal by allowing one right factor to be exactly zero.
+    """
+
+    if not torch.is_tensor(scores) or scores.ndim < 2:
+        raise ValueError("scores must have shape [..., query, key]")
+    _finite_tensor("scores", scores, scores.ndim)
+    _finite_tensor("current_states", current_states, scores.ndim)
+    _finite_tensor("v1_states", v1_states, scores.ndim)
+    _finite_tensor("current_right_factor", current_right_factor, 2)
+    _finite_tensor("v1_right_factor", v1_right_factor, 2)
+    _finite_tensor("output_factor", output_factor, 2)
+    tensors = (
+        current_states, v1_states, current_right_factor, v1_right_factor, output_factor,
+    )
+    if any(value.device != scores.device for value in tensors):
+        raise ValueError("all tensors must be on one device")
+    if any(value.dtype != scores.dtype for value in tensors):
+        raise ValueError("all tensors must use one dtype")
+    if current_states.shape[:-2] != scores.shape[:-2] or (
+        v1_states.shape[:-2] != scores.shape[:-2]
+    ):
+        raise ValueError("scores and states must have identical leading axes")
+    key_length = scores.shape[-1]
+    if current_states.shape[-2] != key_length or v1_states.shape[-2] != key_length:
+        raise ValueError("both state key axes must match the score key axis")
+    rank = current_right_factor.shape[0]
+    if v1_right_factor.shape[0] != rank or output_factor.shape[1] != rank:
+        raise ValueError("right and output factors must share one candidate rank")
+    if current_right_factor.shape[1] != current_states.shape[-1] or (
+        v1_right_factor.shape[1] != v1_states.shape[-1]
+    ):
+        raise ValueError("each right factor input must match its state dimension")
+
+    mixed_values = torch.matmul(current_states, current_right_factor.T)
+    mixed_values = mixed_values + torch.matmul(v1_states, v1_right_factor.T)
+    return torch.matmul(torch.matmul(scores, mixed_values), output_factor.T)
 
 
 def folded_two_source_map(
@@ -203,6 +256,31 @@ def factor_complete_parameter_count(
     return head_rank * (current_state_dim + v1_state_dim + output_dim)
 
 
+def autonomous_successor_parameter_count(
+    state_dim: int,
+    qk_rank: int,
+    value_rank: int,
+    output_dim: int,
+    *,
+    source_count: int,
+) -> int:
+    """Factor-complete QK+value/output storage for one autonomous bilinear head.
+
+    Four Q/K factors have shape ``[qk_rank, state_dim]``.  Each retained value
+    source has one ``[value_rank, state_dim]`` right factor and the shared output
+    factor is ``[output_dim, value_rank]``.  Fixed mixture scalars are absorbed.
+    """
+
+    dimensions = (state_dim, qk_rank, value_rank, output_dim)
+    if any(type(value) is not int or value <= 0 for value in dimensions):
+        raise ValueError("all factor dimensions must be positive Python integers")
+    if type(source_count) is not int or source_count not in (1, 2):
+        raise ValueError("source_count must be exactly one or two")
+    return 4 * qk_rank * state_dim + value_rank * (
+        source_count * state_dim + output_dim
+    )
+
+
 def compose_successor_arm(
     residual_without_head: torch.Tensor,
     native_write: torch.Tensor,
@@ -238,7 +316,9 @@ __all__ = [
     "compose_successor_arm",
     "factor_complete_parameter_count",
     "folded_two_source_map",
+    "autonomous_successor_parameter_count",
     "spectral_deranged_control",
     "tolerance_rank",
     "two_source_successor_write",
+    "two_source_preweighted_write",
 ]

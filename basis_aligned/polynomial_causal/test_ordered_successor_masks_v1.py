@@ -87,6 +87,15 @@ class OrderedSuccessorMaskTests(unittest.TestCase):
             build_ordered_successor_masks(
                 torch.zeros((1, 4), dtype=torch.float32), LEXICON, first_prediction=0
             )
+        with self.assertRaisesRegex(ValueError, "at least two"):
+            OrderedLexicon("mutable", [[10], [11]])  # type: ignore[arg-type]
+        with self.assertRaisesRegex(ValueError, "nonnegative integers"):
+            OrderedLexicon("bool-token", ((True,), (11,)))
+        with self.assertRaisesRegex(ValueError, "window"):
+            build_ordered_successor_masks(
+                torch.ones((1, 4), dtype=torch.long), LEXICON,
+                window=True, first_prediction=0,
+            )
 
 
 if __name__ == "__main__":

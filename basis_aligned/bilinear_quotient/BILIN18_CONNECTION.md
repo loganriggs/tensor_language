@@ -60259,3 +60259,47 @@ descent and can find multi-dimensional structure a rank-1 direction misses. **If
 differ at all, they differ in a subspace orthogonal to this dominant direction** — which is exactly the
 residual `das_class_learned.py` was built to search, and the honest next step rather than a claim I can
 make now.
+
+## §2057 — the census-wide collapse does NOT replicate in the output space, and my own gate says not to believe it
+
+`circuit_census_collapse.py`, **25s** (second run), **DISCOVERY ONLY**, census_state_diverse.
+**pred_a FALSE — and pred_a was the validation gate, so pred_b and pred_c are NOT REPORTED as findings.**
+
+§2056 showed a8's five circuits are one rank-1 mechanism, measured in **a8's output space**. This asked
+the same question across the whole census by comparing directions in a space every circuit shares: the
+**final residual stream**. It does not work, and the run says so itself.
+
+**The first attempt was broken in three ways and I am recording all of them.** It clustered **311 tree
+nodes rather than the 70 curated circuits**; **18 of those are ROOT nodes whose slice is the whole grid**,
+so their off-slice mean was taken over nothing and the NaN propagated through every cosine; and
+**single-linkage chained** the rest into one 288-member cluster. Fixed: curated tags only, roots excluded,
+complete linkage, NaN-safe mean.
+
+**The repaired run is technically clean and still fails the gate.**
+
+```
+  62 curated circuits in this state -> 20 clusters at |cos| >= 0.8, largest 21
+  mean pairwise |cos| = 0.5644
+  a8's five:   spread over 3 clusters   <- §2056 says they are ONE mechanism
+  a16's three: spread over 2 clusters   <- §2056 says ONE
+```
+
+> **pred_a FAILED, and I registered it as the gate for exactly this: "if the clustering does not recover
+> §2056's collapse the method is not measuring what it claims and nothing else here should be believed."**
+> **So I am not reporting the 62→20 collapse.** It may be true; this run is not evidence for it.
+
+**Why the two disagree, and it is not a bug.** §2056 compared directions **inside a8's output**; §2057
+compares them **at the unembedding**, eighteen layers of mixing later. **Two circuits can share a
+mechanism at a8 and reach the output by different downstream paths, or differ at a8 and converge at the
+output.** The final stream is a common space, which is what made it attractive, but **common is not the
+same as faithful** — and the gate is what distinguished those.
+
+**What the run does establish, stated as the weaker thing it is.** Across 62 curated circuits the
+**mean pairwise |cos| of output directions is 0.5644** — these circuits are nowhere near orthogonal at the
+output. That is a real observation about the census and it is *not* the collapse claim; it is consistent
+with both a collapsed census and a diverse one whose members all push the same few output directions.
+
+**Open.** The census-collapse question is still open and now has a method requirement: **it must be asked
+in each circuit's own localised component**, as §2056 did, not in a shared downstream space. That means
+one capture per distinct component rather than one for the whole census — affordable, since §2054 showed
+the twelve localise to five components, but it needs the other 58 circuits localised first.
