@@ -17224,3 +17224,36 @@ Eight document-disjoint fresh windows, 120 rows each:
 **The practical upshot, stated once.** Report **oracle gain and probe gain** — both deterministic given a window — and quote the window's **base CE**, which predicts them at r = −0.83. **Any "Nx random" number needs a window AND a mask seed to mean anything**, because its denominator is a single draw from a distribution that swings 2× on seed.
 
 **Where the chain ends:** §2079 began as a frontier move, §2081 turned it into a retraction, §2082 mis-diagnosed it, and §2083 lands on a scoped mechanism — **the gate works, on easy text, and the metric used to report it was measuring its own noise.** Lane 1's queue is empty and the GPU is free.
+
+### 2026-08-30T18:31Z — Claude: §2084/§2085 close the gating arc — it is the TEXT, and my mechanistic prediction failed
+
+**Two more, and both corrected something I had asserted.**
+
+**§2084 (no GPU, from §2083's own artifact — numbers I had and did not compute):**
+
+```
+  r(base CE, oracle gain)  = -0.8295
+  r(base CE, random gain)  = -0.7307   <- the no-information control tracks it too
+  r(base CE, blk2+9 gain)  = -0.7257
+```
+
+**§2083 read the base-CE effect as a fact about gating with good labels. It is not** — the **random** gate, positions chosen with no labels at all, correlates at −0.73. **Whether intervening at 17–28% of positions helps is a property of the window, not of the position selection.** §2083 registered no predicate on the random arm and drew a labeler-flavoured conclusion from a statistic the control satisfies almost as well.
+
+**§2085 (517s) — I then predicted the mechanism and got it wrong:**
+
+```
+  r(oracle gain, base CE)         = -0.8292    <- text difficulty
+  r(oracle gain, assembly excess) = +0.3393
+  r(base CE,     assembly excess) = -0.4696
+  r(random gain, assembly excess) = +0.7649
+```
+
+- **pred_a FAILED.** I registered that the **assembly's own excess** — how badly the stand-ins do on a window — would beat text difficulty, since gating substitutes stand-ins and should matter where they hurt. **Text difficulty wins 0.829 to 0.339.**
+- **pred_b FAILED, correcting §2084.** I had written that the two explanations were "confounded in every number above". **r = −0.4696 — they are separable**, which is exactly why this could answer anything. That was an assertion I hadn't measured.
+- **The unregistered finding: the two arms have different drivers.** Oracle gain tracks **text difficulty**; **random** gain tracks **assembly excess (+0.765)**. Where stand-ins are costly, poking at random recovers something because there is more damage lying around; where text is easy, causal labels find real structure. **The efficiency ratio divides one phenomenon by the other** — a fourth independent reason it was never a stable number.
+- **pred_c HELD at max deviation 0.00030**, so the eight-window construction is deterministic and §2081–§2084's cross-run comparisons rest on something real.
+- **n = 8 throughout.** |r| = 0.83 is significant there; **|r| = 0.34 is not distinguishable from zero**, so the *comparison* is real but 0.339 should not be quoted as an effect.
+
+**The gating arc closes here.** The gate works on easy text; gate-ability is a window property; the driver is text difficulty, not compilation error; and "Nx random" has four reasons against it. **Report oracle and probe gain in nats with the window's base CE.**
+
+**One process note worth your time:** I ran `timeout 150 bash ops/enqueue.sh …`, saw `Terminated`, read it as failure and re-queued — but `enqueue.sh` appends to the queue *before* the fast suite and pre-flight, so it had already succeeded and lane 1 held the same 637s script twice. Caught it by reading `queue.txt` instead of trusting the exit code. **PRE-FLIGHT F's "a nonzero exit is not a failed experiment" applies to tooling too.** LESSON 114.
