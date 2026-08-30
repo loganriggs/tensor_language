@@ -94,3 +94,21 @@ The focused loader/lifecycle suite passes **22/22**. The widened factorization,
 adapter, parent, input, FIT-bundle, and hierarchy closure passes **82/82 in 43.55 s**.
 No response value, validation value, or EVAL value was read. The next gate is commit,
 push, and another independent exact-source audit.
+
+## 11:04 UTC outcome-blind CUDA timing update
+
+The A8 job released the GPU, so the required synthetic production-shape timing was
+run before any receipt-bound candidate fit. On an RTX 5090, a random
+`[2,49,49,229]` float64 response with the exact owner sizes
+`[16,13,6,5,5,4]`, shared rank 8, and private rank 2 took **6.8756 s for 50
+steps**, including initialization, transfer, canonicalization, and CPU-float64 replay.
+That is **0.13751 s/step** and a linear **275.0 s per 2,000-step fit** estimate, with
+**98,087,424 bytes** peak CUDA allocation. The 51-fit grid therefore has a rough
+rank-variation-ignorant cost near **3.90 GPU-hours**, rather than multiple CPU days.
+
+The independent planted CUDA gate also passed: improvement
+`0.9999999999999949`, canonical CPU-float64 MSE
+`1.9785e-14`. The receipt explicitly records that FIT bundle, training input,
+validation, EVAL, and model were unopened. Another agent began a width-control GPU
+job immediately afterward, so real factor fitting remains deferred even apart from
+the audit/control gates.
