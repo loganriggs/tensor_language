@@ -1,0 +1,117 @@
+ARM 1/3: S2144 best, full tail (reproduction)
+a2-input probe acc 0.69
+fit a2
+fit a3
+fit a4
+fit a5
+fit a6
+fit a7
+fit a8
+fit a9
+fit a10
+fit a11
+fit a12
+fit a13
+fit a14
+fit a15
+fit a16
+fit a17
+L1 (+38 heads): C +2.0113 | fresh +2.3208
+fit a10L
+fit a11L
+fit a12L
+fit a13L
+fit a14L
+fit a15L
+fit a16L
+fit a17L
+  window 0 (7 docs): L2 fresh +2.6662
+  window 1 (42 docs): L2 fresh +2.9354
+  window 2 (17 docs): L2 fresh +2.6120
+  window 3 (23 docs): L2 fresh +2.8497
+  window 4 (43 docs): L2 fresh +2.9138
+  window 5 (26 docs): L2 fresh +2.7954
+  window 6 (35 docs): L2 fresh +2.5818
+  window 7 (35 docs): L2 fresh +2.6640
+L2 empirical: C +2.4191 | fresh +2.6662 | tail-attn increment +0.3454
+(a) L2 <= +2.75 fresh: HELD
+(b) increment in [0.30,0.55]: HELD
+ARM 2/3: skip-a16 (S2146 reproduction)
+a2-input probe acc 0.69
+fit a2
+fit a3
+fit a4
+fit a5
+fit a6
+fit a7
+fit a8
+fit a9
+fit a10
+fit a11
+fit a12
+fit a13
+fit a14
+fit a15
+fit a16
+fit a17
+L1 (+38 heads): C +2.0112 | fresh +2.3208
+fit a10L
+fit a11L
+fit a12L
+fit a13L
+fit a14L
+fit a15L
+fit a17L
+  window 0 (7 docs): L2 fresh +2.5091
+  window 1 (42 docs): L2 fresh +2.7195
+  window 2 (17 docs): L2 fresh +2.3789
+  window 3 (23 docs): L2 fresh +2.6034
+  window 4 (43 docs): L2 fresh +2.6545
+  window 5 (26 docs): L2 fresh +2.5863
+  window 6 (35 docs): L2 fresh +2.3739
+  window 7 (35 docs): L2 fresh +2.4579
+L2 empirical: C +2.2392 | fresh +2.5091 | tail-attn increment +0.1883
+(a) L2 <= +2.75 fresh: HELD
+(b) increment in [0.30,0.55]: FAILED
+ARM 3/3: skip-a14+a16
+a2-input probe acc 0.69
+fit a2
+fit a3
+fit a4
+fit a5
+fit a6
+fit a7
+fit a8
+fit a9
+fit a10
+fit a11
+fit a12
+fit a13
+fit a14
+fit a15
+fit a16
+fit a17
+L1 (+38 heads): C +2.0113 | fresh +2.3208
+fit a10L
+fit a11L
+fit a12L
+fit a13L
+fit a15L
+fit a17L
+  window 0 (7 docs): L2 fresh +2.4230
+  window 1 (42 docs): L2 fresh +2.6079
+  window 2 (17 docs): L2 fresh +2.3041
+  window 3 (23 docs): L2 fresh +2.4899
+  window 4 (43 docs): L2 fresh +2.5079
+  window 5 (26 docs): L2 fresh +2.4513
+  window 6 (35 docs): L2 fresh +2.3215
+  window 7 (35 docs): L2 fresh +2.3471
+L2 empirical: C +2.1397 | fresh +2.4230 | tail-attn increment +0.1022
+(a) L2 <= +2.75 fresh: HELD
+(b) increment in [0.30,0.55]: FAILED
+joint - full per window: [-0.2432, -0.3275, -0.3079, -0.3598, -0.4059, -0.3441, -0.2603, -0.3169]  median -0.3222  (naive sum -0.445)
+joint - skip16 per window: [-0.0861, -0.1116, -0.0748, -0.1135, -0.1466, -0.135, -0.0524, -0.1108]
+(a) median -0.3222 <= -0.30: HELD
+(b) <= 0 vs skip16 on 8/8 (bar 7): HELD
+(c) skip16 vs S2146 median |delta| 0.0000 <= 0.005: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/frontier_skip_1416_results.json (327s)

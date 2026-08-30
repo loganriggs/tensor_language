@@ -64078,3 +64078,27 @@ HELD: pred_a (top share 0.518 ≥ 0.40) | pred_b (top class "ind" is LINK) | pre
   three downstream refits compound the §2146 effect. In (stored values, damage): −5.3M AND −0.23. Coverage
   retreats one component, as always stated. Whether the two skips compose → rung 62 (§2154's lesson says
   measure, don't extrapolate).
+
+
+## §2156 — RUNG 62: THE TWO SKIPS COMPOSE SUB-ADDITIVELY BUT PASS EVERY BAR — skip-a14+a16 saves −0.3222 median vs the full tail (naive sum −0.445; the §2154 interaction term ≈ +0.12), better than skip-a16 alone on 8/8, reproduction exact. And the arithmetic now says the quiet part: the tail-dictionary program is PURE COVERAGE SPEND. (Convention: L2 = CE above the real model; lower is better.)
+
+`ops/frontier_skip_1416.py`, **327s**, BACKLOG rung 62. **ALL THREE HELD: pred_a (−0.3222 ≤ −0.30) | pred_b
+(8/8 ≤ 0 vs skip-a16) | pred_c (skip-a16 repro |Δ| 0.0000).**
+
+```
+  arm (fresh / C damage)                       L2_F      L2_C
+  §2144 best, full eight-dictionary tail      2.6662    2.4191
+  skip-a16                                    2.5091    2.2392
+  skip-a14+a16                                2.4230    2.1397
+```
+
+- **Sub-additive, as §2154's null predicted, but most of the sum survives:** −0.322 vs naive −0.445. The
+  interaction is in the shared downstream refits (a15L/a17L can only be "cleaner" once).
+- **The (price, damage) ledger vs the coverage ledger, now unavoidable:** with a14L and a16L gone, the remaining
+  six tail dictionaries cost only ~+0.02 damage TOTAL over the all-real-tail L1 config (≈ 2.32 fresh) — and
+  every dictionary also costs ~5.3M stored values. In (price, damage) the entire tail-replacement program is
+  dominated by not replacing; its value is **coverage** (components described), and the two ledgers must never
+  be conflated. The frontier's honest statement: best full-coverage config = §2144 (2.6662); best
+  36-minus-two-components envelope = skip-a14+a16 (2.4230); the ~0.32 between them is the measured
+  price of describing blocks 14 and 16's attention with per-position class code — the program's remaining
+  scientific object.

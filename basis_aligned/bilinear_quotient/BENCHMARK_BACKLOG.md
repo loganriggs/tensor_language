@@ -861,4 +861,18 @@ later per-rung backlog edits had silently anchored on text that was not here.
     pred_a median [L2_F_w(skip1416) - L2_F_w(full)] <= -0.30; pred_b
     [L2_F_w(skip1416) - L2_F_w(skip16)] <= 0 on >= 7/8; pred_c skip16
     arm reproduces §2146 per-window (median |delta| <= 0.005).
-    -> ops/frontier_skip_1416.py [QUEUED]
+    -> ops/frontier_skip_1416.py
+    RUN 2026-08-30, §2156: ALL THREE HELD — joint -0.3222 (naive -0.445;
+    interaction +0.12 in the shared refits), 8/8 vs skip-a16, repro
+    exact. The tail-dictionary program is pure coverage spend; the ~0.32
+    gap IS the price of describing blocks 14/16's attention per-position.
+
+63. WHICH CLASSES PAY FOR a14L (damage convention; the retrieval-vs-
+    energy dichotomy at the second layer). §2151: a16L's damage is 90%
+    ind+other (retrieval). §2147/§2155: a14 is energy-dominated and
+    diffuse. Per-class CE attribution, full vs skip-a14.
+    pred_a NOT RETRIEVAL-CONCENTRATED: share(ind) <= 0.30 (a16: 0.518);
+    pred_b THE MEAN CLASSES PAY TOO: combined CONSTN share >= 0.20
+    (a16: ~0); pred_c skip-a14 arm reproduces §2155's base per-window
+    (median |delta| <= 0.005). Null: a14 is retrieval-like after all.
+    -> ops/attn14_class_damage.py [QUEUED]
