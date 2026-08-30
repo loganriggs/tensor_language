@@ -59171,6 +59171,15 @@ sweeps uniform over per-site quantities.** Two of the four had missed something;
 the axes already measured as homogeneous. **The gain is 3.064 milli-nats and 12% of the price, and none of
 it required a new mechanism — only asking each parameter the question its original sweep could not.**
 
+**On the backlog's fresh-window rule, honestly.** Rung 6 requires fresh-window certification for every new
+winner. **I have not done one and cannot with what is on disk:** the three eval roles are the only
+rowcaches present, and a genuinely fresh window needs a new one from the FineWeb streamer. **What I can
+say instead is narrower and worth stating exactly.** The build was *selected* by looking at 5,419; the
+**16,110 coverage was never used to choose any of the four parameters**, and there the converged build
+beats §1959's by **+7.486 nats at t = +18.45 — 2.4× the margin it was selected for.** That is an
+out-of-selection confirmation on a different fit set, and it is not the same thing as a fresh evaluation
+window. **Rung 6 stays open and now names what it needs.**
+
 **Open.** The parameter axes are closed and the end-to-end number is recorded. **The two things still
 outstanding are not mine to take:** §1979's architectural fork (leaving attention live beats full
 compilation, at the cost of every §1765-derived result), and whether §1947's price rule is meant to
