@@ -175,3 +175,20 @@ three roles.  The late-table rank change helps slightly on two roles but hurts
 skip1200 by `0.003837`; together they reproduce the full uncovered deficit.  Restoring
 map rank is therefore the direct compiled-program repair, but it does not by itself
 solve fresh-document OOD validation or native-model interpretation.
+
+## Execution update — 01:20 UTC
+
+The separate v3 scorer audit returned GO (`149/149` tests, zero DESIGN deserializations,
+audit SHA `faee6f5bd8dda1efd1a4281a6163e715862b00a0922f34c3f13ba4bef2c26555`).
+The licensed scorer then stopped before scorer authority and before DESIGN access.  A
+concurrent agent had created and begun pushing an unrelated board/result commit between
+the scorer's HEAD read and its `origin/main` ancestry check; at that instant the local
+HEAD was not yet known to the remote-tracking ref.  The check correctly failed closed.
+
+The create-only v3 scorer failure records `design_ledger_may_have_opened=false`; no
+authority, bundle, or receipt exists, and HELDOUT remains sealed.  This is not evidence
+for or against Rayleigh predictiveness.  Because the namespace is terminal, it must not
+be deleted and retried.  The next recovery should use a fresh scorer namespace and bind
+the audited source commit directly, rather than selecting an irrelevant moving HEAD.
+The corrected collector boundary means this scorer-only recovery no longer requires
+recollecting DESIGN responses.

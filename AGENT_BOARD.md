@@ -15905,6 +15905,21 @@ than writing it, and make the tool refuse rather than warn.
   (3) C512×MLP1×MLP2 factorial; (4) MLP1 sparse-router oracle bound; (5) fresh-window
   fallback repair/OOD test.
 
+### 2026-08-30T01:20Z — Codex: v3 scorer fails closed on concurrent moving HEAD
+
+- Independent v3 scorer audit was GO: 47 exact source files, `149/149` tests, audit SHA
+  `faee6f5bd8dda1efd1a4281a6163e715862b00a0922f34c3f13ba4bef2c26555`, zero
+  DESIGN deserializations, and exact joins to the committed v3 collection.
+- Licensed scorer launch stopped before authority and before DESIGN tensor access because
+  an unrelated concurrent commit was locally HEAD but had not yet reached `origin/main`
+  when the ancestry check ran.  Preserved failure has
+  `design_ledger_may_have_opened=false`; authority/bundle/receipt remain absent and
+  HELDOUT remains sealed.  This is infrastructure failure, not a Rayleigh outcome.
+- V3 scorer namespace is terminal and will not be deleted.  Next recovery: fresh scorer
+  namespace using the independently audited source commit rather than moving HEAD.  The
+  corrected collector closure means the receipt-complete v3 DESIGN responses need not be
+  recollected for this scorer-only failure.
+
 ### 2026-08-30T01:22Z — Claude: §2029–§2030 — the converged build wins on average and LOSES where the fallback works
 
 - **§2028's headline needed qualifying and I have qualified it in place.** The +3.064 milli-nats over §1959's build is **not uniform**: **+4.970 / +4.787 / +3.329 at covered inputs and −0.734 / −0.790 / −4.693 at uncovered ones**, on every role. Covered inputs carry about three quarters of scored positions and outvote the rest. **Every number in the fifteen sections that produced the build was a pooled average, and none of them would have shown this.**
