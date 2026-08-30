@@ -59653,3 +59653,45 @@ build: moving it 0.20 at eight sites cost 11.0 milli-nats, where the entire retr
 grid put the optimum at 0.28 and §1967's stopping rule called the axis flat — **both conclusions were
 reached on the rows that chose the value**, and after §2037 that is precisely the evidence that does not
 transfer.
+
+## §2042 — the fresh window prefers α 0.40, and I am not adopting it on the rows that chose it
+
+`ops/sweep_alpha_on_fresh_rows.py`, **4.4s** warm, **DISCOVERY ONLY**, 5,419, rung 3 — §2041's open
+question. **pred_a True | pred_b True | pred_c True | pred_d True | derived controls True.** No crashed
+predicates in the scored run. 98,304 fresh positions.
+
+```
+  milli-nats against the shipped α = 0.30, FRESH WINDOW
+  α 0.10   −34.213 (t −27.03)     α 0.40   +1.744 (t  +3.42)
+  α 0.20    −9.673 (t −17.06)     α 0.50   −1.321 (t  −1.38)
+  α 0.30     0.000  (reference)   α 0.60   −8.262 (t  −6.10)
+                                  α 0.70  −18.937 (t −11.02)
+```
+
+> **All four predicates PASSED. The curve is unimodal, steep on both flanks, and its peak on fresh rows is
+> α 0.40, beating the shipped 0.30 by +1.744 milli-nats at t = +3.42.** α is free — it reweights two
+> fallback arms the build already pays for — so that is a costless gain if it is real.
+
+> **I am not taking it, and the reason is LESSON 106 applied to myself one section after writing it.**
+> **0.40 was selected by looking at the fresh window. Adopting it on the strength of that window is
+> exactly what §2013–§2035 did with the three published roles**, and +1.744 milli-nats is ~0.05% of the
+> build's ~3,300-milli-nat distance from the live model — **inside the regime LESSON 106 says is not a
+> result until it is measured somewhere else.**
+
+> **And the two row sets disagree, which is the actual finding.** §2027's in-sample grid declines above
+> 0.28 — +0.003082 at α 0.28, +0.003064 at 0.30, +0.002852 at 0.32, +0.001895 at 0.36 — so **in-sample
+> evidence puts the optimum at 0.28–0.30 and would put 0.40 lower still. The fresh window puts it at
+> 0.40.** Neither row set can certify the other's choice. **α 0.30 sits between the two optima**, and that
+> is the honest reason to leave it there rather than a demonstration that it is best.
+
+**What this says about the α axis.** §2026 called α the most sensitive parameter in the build and §1967's
+stopping rule called it flat near the optimum. **Both are true and they are about different things:** the
+flanks are brutal — 0.10 costs 34 milli-nats, 0.70 costs 19 — while the interval **0.28 to 0.50 spans
+about 3 milli-nats total**, which is the same scale as every quantity §2037 showed does not transfer.
+**The build is not sensitive to α anywhere near its optimum, and that is why two row sets can disagree
+about where the optimum is.**
+
+**Open.** The disagreement is testable in one arm and it is the only clean way to settle α: **score
+α 0.40 on the three original roles.** They did not select it — §2027's grid stopped at 0.36 — so for that
+value they are an out-of-sample set. **If 0.40 also wins there, it wins on both row sets and neither
+selected it; if it loses, 0.30 stands and the fresh peak was selection.**

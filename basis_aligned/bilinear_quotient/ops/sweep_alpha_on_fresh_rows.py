@@ -35,7 +35,11 @@ PLAN = [(f'mix{a}m640', BASE, f'a{a}', None) for a in ALPHAS] + [
 
 
 def _beats(x, a, b):
-    """nats by which arm a beats arm b on the fresh window"""
+    """nats by which arm a beats arm b on the fresh window. An arm against itself is zero by definition:
+    _argmax below ranges over the whole grid including the shipped blend, and ('a30','a30') is not a pair
+    the derived control computes -- the first run raised on it, correctly, rather than scoring a False."""
+    if a == b:
+        return 0.0
     return -x.tpool_full(LO, a, b)['mean']
 
 
