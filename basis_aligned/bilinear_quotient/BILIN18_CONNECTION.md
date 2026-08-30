@@ -63343,10 +63343,10 @@ exact — the pipeline is deterministic) | pred_b FAILED (−0.0475 vs +0.04) | 
   motif-hybrid frontier as-is. Both statements are certified; neither implies the other. The frontier keeps norm
   selection.
 
-**[CORRECTED BY §2128: the registered gain formula was sign-inverted (norm − fisher, not fisher − norm).
-The table's own arm values show the fisher8 arm is BETTER (+2.7210 vs +2.6735 fresh; +2.4482 vs +2.4232 C). Every
-conclusion here drawn from the signed summary — "does not install", "cfgE-specific", "the frontier keeps norm
-selection" — is WITHDRAWN. The as-written pred scores stand in frontier_fisher8_results.json.]**
+**[NOTICE, twice revised: the §2128 "correction" that withdrew this entry was ITSELF the sign error and is
+retracted by §2135. L2 is CE added above the real model — LOWER is better (§312: "+2.6735 … beating +2.84 and
++2.93"). This entry's original conclusions STAND in full: the fisher8 arm is worse (+0.0475 more damage), the
+selector does not install as-is, the frontier keeps norm selection.]**
 
 ## §2126 — RUNG 33: THE SINK-HEAD SCALAR BUYS ALMOST NOTHING, AND THE SIGN REFUTES THE §1818 ANALOGY. The fitted scalar is s* = 1.095 — cfgE UNDER-drives head 5.7, where the fully-compiled program of §1818 over-drove it 159× — and it gains only 0.015 nat on the eval rows (bar 0.05), 0.017 median fresh (bar 0.025)
 
@@ -63418,6 +63418,9 @@ as-written FAILED — because both formulas inherited rung 30's inverted sign; s
   and a write-up halts when the printed arm values contradict the signed summary — §2125 had both in view and
   followed the wrong one.
 
+**[RETRACTED BY §2135: this "correction" introduced the very sign error it claimed to fix. §2125 stands.
+Every conclusion here that reads higher L2 as better is wrong.]**
+
 ## §2129 — RUNG 35: THE CONDITIONED FRONTIER CERTIFIES AT THE RUNG-6 STANDARD. Median gain +0.0481 over the eight document-disjoint fresh windows, positive on 7 of 8; the deployed §312 frontier's certified best is now +2.7707 fresh / +2.4846 C, at equal stored price, with the label-free assembly-conditioned selector
 
 `ops/frontier_asm_fresh8.py`, **245s**, BACKLOG rung 35. **pred_a HELD (+0.0481 ≥ 0.04) | pred_b HELD (7/8) |
@@ -63443,6 +63446,10 @@ pred_c HELD (norm FR 2.6735, exact).**
   bit-stable. The certified claim is the eight-window median, which absorbs this.
 - **Ledger state for the frontier:** §312's +2.6735 → **+2.7707 fresh** at equal price; §312's registered sanity
   ceiling (L2 ≤ +2.75) retires with the configuration that owned it.
+
+**[RETRACTED BY §2135: "gain" here is a damage INCREASE — L2 is CE above the real model, lower is better.
+The conditioned selection makes the frontier +0.048 median WORSE; the "ceiling retires" sentence is withdrawn
+(the §312 ceiling was correctly flagging the damage).]**
 
 ## §2130 — RUNG 36: CONDITIONING BUYS LITTLE ON cfgE (+0.012 median vs +0.047 on the frontier) — BUT THE REGISTERED CONDITIONAL READING IS NOT LICENSED, BECAUSE THE REPRODUCTION GATE FAILED BY 0.0001 OVER TOLERANCE ON AN UNREGISTERED RNG CHANGE
 
@@ -63494,6 +63501,9 @@ pred_a FAILED (+0.0032 vs +0.02) | pred_b FAILED (5/8 vs 6/8).**
 - Registered per the §2128 rule (arm-named formulas); scored as written; the null (§2106) was stated in the
   header before running.
 
+**[§2135 frame note: the finding stands (c6–c9 conditioned reordering moves damage by ~0.003, nothing), but
+"the frontier keeps the §2129 configuration" is retracted with §2129 — the frontier keeps §312 norm selection.]**
+
 ## §2132 — RUNG 38: WITH THE RNG STREAM MATCHED, THE REPRODUCTION IS EXACT (+0.0857 vs +0.0857) AND CONDITIONING BUYS NOTHING ON cfgE (−0.0021 median, 3/8) — THE LICENSED CONCLUSION: THE CONDITIONING GAIN EXISTS ONLY WHERE THE DEPLOYED READERS ARE REPLACED. AND THE "LABEL INSTRUMENT QUESTION" DISSOLVES: cfgE CONTAINS NO LABEL-CONSUMING PIECE
 
 `ops/cfge_conditioned_fisher2.py`, **215s**, BACKLOG rung 38. **pred_c HELD (+0.0857 vs 0.0857, exact) |
@@ -63523,6 +63533,11 @@ pred_a FAILED (−0.0021 vs +0.02) | pred_b FAILED (3/8) | pred_d FAILED (shift 
 - **The conditioning chapter closes:** conditioned metric for the frontier (certified +0.0481), either metric on
   cfgE (equivalent), nothing at c6–c9 anywhere (§2131), price question open only as rung 39 (running).
 
+**[§2135 frame note: the cfgE measurements stand (conditioning ≈ 0 there; exact reproduction). The framing
+flips: on the frontier, conditioning made selection WORSE (+0.095 damage vs +0.048 unconditioned); the correct
+summary is that Fisher-selection helps cfgE (§2124, −0.086 damage) and hurts the deployed frontier in every
+form tried.]**
+
 ## §2133 — RUNG 39: HALF PRICE WINS OUTRIGHT. Conditioned-1152 doesn't just match norm-2304 — it beats it by +0.0861 median (≥ −0.01 on 8/8) and beats conditioned-2304 by ~+0.04 everywhere: the frontier best is now +2.8190 fresh / +2.5461 C with HALF the mlp4/mlp5 units (~7.96M fewer stored values)
 
 `ops/frontier_cond_halfprice.py`, **359s**, BACKLOG rung 39. **ALL THREE HELD: pred_a (+0.0861 ≥ 0) | pred_b
@@ -63546,6 +63561,9 @@ pred_a FAILED (−0.0021 vs +0.02) | pred_b FAILED (3/8) | pred_d FAILED (shift 
   CUDA-atomics band, third sighting; all inside the registered tolerance.
 - The price curve is now open downward: does the gain survive K = 576 or 288? → rung 40.
 
+**[RETRACTED BY §2135: sign inverted — cond-1152 is +0.086 median MORE damage than norm-2304. §2118's
+withdrawal of half-price is CONFIRMED, not superseded.]**
+
 ## §2134 — RUNG 40: THE PRICE CURVE KEEPS RISING TO QUARTER PRICE. Conditioned-576 adds another +0.0392 median over cond-1152 (8/8) — frontier best now +2.8372 fresh / +2.5953 C at ONE QUARTER of the mlp4/mlp5 units; even cond-288 still beats cond-1152 on 7/8. The curve peaks near K ≈ 576
 
 `ops/frontier_cond_ksweep.py`, **469s**, BACKLOG rung 40. **ALL THREE HELD: pred_a (+0.0392 ≥ −0.01) | pred_b
@@ -63568,6 +63586,9 @@ pred_a FAILED (−0.0021 vs +0.02) | pred_b FAILED (3/8) | pred_d FAILED (shift 
   the mlp4/mlp5 price**, selector label-free throughout.
 - The obvious next question is the floor: K = 144, and K = 0 (Down-bias only) as the "do the units matter at
   all" null → rung 41.
+
+**[RETRACTED BY §2135: sign inverted — cond-576 is the WORST measured config (+0.164 more damage than norm);
+"three quarters of the units were hurting" is exactly backwards.]**
 
 ## §2135 — RETRACTION OF §2128, §2129, §2133, §2134 AND REINSTATEMENT OF §2125: L2 IS CE ADDED ABOVE THE REAL MODEL — LOWER IS BETTER — AND THE EVENING'S "FRONTIER IMPROVEMENTS" WERE CERTIFIED DAMAGE INCREASES. RUNG 41's K-0 NULL IS WHAT CAUGHT IT
 
