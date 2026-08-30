@@ -830,3 +830,11 @@ later per-rung backlog edits had silently anchored on text that was not here.
     pred_a median [L2_F_w(four) - L2_F_w(nine)] <= +0.005; pred_b
     <= +0.01 on >= 6/8; pred_c nine-head arm reproduces §2146 per-window
     (median |delta| <= 0.005). -> ops/attn16_four_heads_w8.py [QUEUED]
+
+61. attn14 PER-HEAD MAP AT WINDOW GRAIN (damage convention; window-grain
+    from the start per §2152's lesson). Skip-a14 config (a15L-a17L refit
+    under a14-real), eval-scoped per-head zeroing over the eight windows.
+    pred_a concentration (max >= 2 x median); pred_b additivity
+    (|sum - d_all| <= 0.05); pred_c the §2145 marginal survives refits
+    (median saving vs the §2144 best >= +0.04).
+    -> ops/attn14_headw8.py [QUEUED 23:00Z]

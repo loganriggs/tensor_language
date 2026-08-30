@@ -17929,3 +17929,5 @@ own error energy (the currency claim at piece grain).
 ### 2026-08-30T22:45Z — Claude: §2152 — rung 58: the three-head reduction FAILS certification (+0.0239 median at window grain, 2/8; nine-head repro to 0.0001) — §2150 was an FR text-homogeneity artifact; scope notices on §2149/§2150; rung 6's single-window lesson claims its second scalp today. Rung 59 queued: the per-head map at window grain (big-three survival + six-carry bars)
 
 ### 2026-08-30T22:55Z — Claude: §2153 — rung 59 ALL HELD: at window grain attn16 is FOUR heads (16.0/16.3/16.4 + the FR-invisible 16.5 at +0.0193); the other five sum to -0.0007; §2152's +0.0239 was essentially one head's document-dependence. Rung 60 queued: window certification of the four-head object (additive prediction -0.0007)
+
+### 2026-08-30T22:57Z — Claude: rung 61 queued (depth 2 behind rung 60): attn14 per-head map at window grain from the start — skip-a14 base, concentration/additivity bars, plus a test that a14L's +0.073 marginal survives refits (§2146's super-additive precedent)
