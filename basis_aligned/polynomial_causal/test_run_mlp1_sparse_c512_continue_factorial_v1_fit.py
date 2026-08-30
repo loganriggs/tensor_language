@@ -114,3 +114,29 @@ def test_failure_input_observation_records_stability_and_explicit_drift(monkeypa
     assert observed["status"] == "protected_input_validation_failed"
     assert observed["error_type"] == "RuntimeError"
     assert "source drift" in observed["error"]
+
+
+def test_verify_protected_rejects_mismatch_between_claim_checks(monkeypatch):
+    checks = []
+    monkeypatch.setattr(
+        subject.rows_life.base, "require_claim", lambda claim, lock: checks.append((claim, lock)),
+    )
+    monkeypatch.setattr(
+        subject, "protected_snapshot", lambda *args: {"source_commit": "changed"},
+    )
+    with pytest.raises(RuntimeError, match="inputs changed"):
+        subject.verify_protected(
+            {"source_commit": "expected"}, "abc", {}, "a", "r", "claim",
+        )
+    assert checks == [("claim", subject.LOCK)]
+
+
+def test_verify_protected_checks_claim_before_and_after_exact_replay(monkeypatch):
+    expected = {"source_commit": "exact"}
+    checks = []
+    monkeypatch.setattr(
+        subject.rows_life.base, "require_claim", lambda claim, lock: checks.append((claim, lock)),
+    )
+    monkeypatch.setattr(subject, "protected_snapshot", lambda *args: dict(expected))
+    subject.verify_protected(expected, "abc", {}, "a", "r", "claim")
+    assert checks == [("claim", subject.LOCK), ("claim", subject.LOCK)]

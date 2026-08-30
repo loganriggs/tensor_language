@@ -315,6 +315,9 @@ def verify_protected(
     audit_sha: str, row_receipt_sha: str, claim: Any,
 ) -> None:
     rows_life.base.require_claim(claim, LOCK)
+    if protected_snapshot(commit, sources, audit_sha, row_receipt_sha) != dict(expected):
+        raise RuntimeError("protected sparse-Down inputs changed during execution")
+    rows_life.base.require_claim(claim, LOCK)
 
 
 def artifact_snapshot(paths: tuple[Path, ...]) -> dict[str, str | None]:
@@ -341,9 +344,6 @@ def failure_input_observation(
         "status": "matches_initial" if current == dict(expected) else "changed",
         "snapshot": current,
     }
-    if protected_snapshot(commit, sources, audit_sha, row_receipt_sha) != dict(expected):
-        raise RuntimeError("protected sparse-Down inputs changed during execution")
-    rows_life.base.require_claim(claim, LOCK)
 
 
 @torch.no_grad()
