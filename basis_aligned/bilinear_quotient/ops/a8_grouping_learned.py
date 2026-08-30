@@ -1,0 +1,408 @@
+# DOES §2075'S a8 GROUPING PREDICT THE *LEARNED* DIRECTIONS TOO? A THIRD, INDEPENDENT QUANTITY.
+#
+# RUNG 2: second-class confirmation of a just-certified result (house pattern §1595/§1598/§1603).
+#
+# §2075 clustered a8's sixteen circuits on their CLOSED-FORM directions and validated the grouping against
+# §2065's cross-circuit ABLATION CONCENTRATIONS -- data the clustering never saw, giving p = 0.0185
+# against a size-matched permutation null. §2076 then cut that back: the aggregate signal is carried by
+# ONE cluster of four, the six is not individually significant (p = 0.1853), and the geometrically
+# tightest pair is causally ANTI-associated (0.780). So the grouping is real in aggregate and no
+# sub-mechanism is identified.
+#
+# Both of those tests share an input: the closed-form directions define the clusters, and the ablation
+# concentrations were computed by projecting along those same closed-form directions. A confirmation on a
+# genuinely different quantity is therefore worth having, and gradient-descent DAS supplies one -- §2060
+# and §2071 established that learned directions overlap the closed-form ones only 0.006-0.344, far above
+# random and nowhere near identity. If the §2075 grouping also organises the LEARNED directions, it is a
+# fact about a8 rather than about one construction.
+#
+# EVERY LESSON THIS ARC PRODUCED IS APPLIED HERE, DELIBERATELY:
+#   LESSON 108 -- every fit is gated on having moved from its initialisation and reduced its loss.
+#   LESSON 110 -- three seeds, because a learned-parameter result needs a spread before a decimal place.
+#   LESSON 111 -- the bar is set FROM a 20,000-draw size-matched permutation null computed in the same
+#                 run, not by eye. §2075's registered 1.10 gate was decoration (the null's p90 was 1.1407)
+#                 and its conclusion rested on a null run post hoc; this one is registered up front.
+#
+# REGISTERED PREDICTIONS (written before running):
+#   pred_a  §2075's grouping predicts the learned directions: pooling the three seeds, mean within-cluster
+#           |cos| exceeds between-cluster at p < 0.05 against a size-matched permutation null over a8's
+#           sixteen circuits. No hand-set ratio -- the threshold is the null's own upper tail. If FALSE,
+#           the grouping organises the closed-form directions and the ablations computed from them, and
+#           nothing else, which would make it a property of one construction rather than of a8.
+#   pred_b  The four-circuit cluster {r.2.0.1, r.2.0.2, r.2.1.1, r.2.2.1} -- the ONLY one §2076 found
+#           carrying the ablation signal -- also has within-cluster learned |cos| above the a8-wide mean
+#           in at least 2 of the 3 seeds. If FALSE, the one cluster with causal support does not survive
+#           the change of quantity and §2076's "no sub-mechanism identified" hardens into a negative.
+#   pred_c  CONTROL, two parts, both required before pred_a or pred_b may be read: every one of the 48
+#           fits passes the optimiser health gate, AND the seed-to-seed sd of the pooled within-minus-
+#           between statistic is reported rather than a single draw. A null result from fits that did not
+#           train, or a point estimate with no spread, is what §2070 and §2072 were about.
+#
+# Writes circuits/A8_GROUPING_LEARNED.json. DISCOVERY ONLY. No circuit file is modified.
+import json
+import os
+import sys
+
+BQ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, BQ)
+sys.path.insert(0, '/workspace/rspd')
+os.chdir(BQ)
+
+# PLAN PRE-FLIGHT (LESSON 109): census_lib builds MODS from the live model at import, so enqueue's
+# BQLIB_DRYRUN gate must be answered BEFORE that import or the gate runs the experiment for real.
+COMPONENT = 'a8'
+if os.environ.get('BQLIB_DRYRUN') == '1':
+    need = ['census_state_diverse.pt', 'circuits/BATTERY.json']
+    missing = [f for f in need if not os.path.exists(os.path.join(BQ, f))]
+    if missing:
+        print(f'DRYRUN FAIL: missing {missing}')
+        raise SystemExit(1)
+    if not os.path.exists(os.path.join(BQ, 'circuits/A8_GROUPING.json')):
+        print('DRYRUN FAIL: circuits/A8_GROUPING.json absent -- S2075 must have run')
+        raise SystemExit(1)
+    g = json.load(open(os.path.join(BQ, 'circuits/A8_GROUPING.json')))
+    b = json.load(open(os.path.join(BQ, 'circuits/BATTERY.json')))
+    n = sum(1 for v in b['by_tag'].values() if v['best_mean'] == COMPONENT)
+    multi = [c for c in g['clusters'] if len(c) >= 2]
+    if n < 3 or not multi:
+        print(f'DRYRUN FAIL: {n} circuits at {COMPONENT}, {len(multi)} multi-member clusters')
+        raise SystemExit(1)
+    print(f'DRYRUN OK: {n} circuits at {COMPONENT}; S2075 grouping has {len(g["clusters"])} clusters '
+          f'({len(multi)} multi-member)')
+    raise SystemExit(0)
+
+import time
+
+import torch
+import torch.nn.functional as F
+
+import census_lib as C
+
+RANKS = (1,)
+STEPS = 400
+LR = 5e-2
+BATCH = 4
+SEED = 20260830
+SEEDS = (20260830, 20260831, 20260832)
+TRAIN_ROWS = (0, 600)
+EVAL_ROWS = (600, 1000)
+C.use_state('census_state_diverse.pt')
+for p in C.m.parameters():
+    p.requires_grad_(False)
+R = C.rows()
+NP = C.T                                                    # scored positions per row
+
+BAT = json.load(open('circuits/BATTERY.json'))
+GRP = json.load(open('circuits/A8_GROUPING.json'))
+TARGETS = [t for t, v in BAT['by_tag'].items() if v['best_mean'] == COMPONENT]
+_RAW_CL = [[t for t in c if t in TARGETS] for c in GRP['clusters']]
+CLUSTERS = [c for c in _RAW_CL if c]                 # single binding; _RAW_CL is the pre-filter form
+FOUR = next((c for c in CLUSTERS if len(c) == 4), None)
+print(f'DAS at {COMPONENT} on all {len(TARGETS)} circuits localised there: {TARGETS}', flush=True)
+assert len(TARGETS) >= 3, 'need at least three circuits to ask whether they separate'
+
+def leaf_masks(tag):
+    lf = C.leaf(tag)
+    mm = torch.zeros(len(R) * NP, dtype=torch.bool); mm[lf['member']] = True
+    sl = torch.zeros(len(R) * NP, dtype=torch.bool); sl[lf['slice']] = True
+    return mm.view(len(R), NP), sl.view(len(R), NP)
+
+
+def fwd(idx, tg, key=None, Q=None, donor=None, full_donor=None):
+    """forward with an optional interchange at `key`; along Q if given, on the whole output if not."""
+    h = None
+    if key is not None:
+        def fh(mo, i_, o_):
+            y = o_[0] if isinstance(o_, tuple) else o_
+            f = y.float()
+            if full_donor is not None:
+                f = full_donor.view_as(f)
+            else:
+                co = f.reshape(-1, C.D) @ Q
+                cd = donor.reshape(-1, C.D) @ Q
+                f = (f.reshape(-1, C.D) + (cd - co) @ Q.T).view_as(f)
+            f = f.to(y.dtype)
+            return (f, o_[1]) if isinstance(o_, tuple) else f
+        h = C.MODS[key].register_forward_hook(fh)
+    x = F.rms_norm(C.m.transformer.wte(idx), (C.D,)); x0 = x; v1 = None
+    for blk in C.m.transformer.h:
+        x, v1 = blk(x, v1, x0)
+    lg = (30 * torch.tanh(C.m.lm_head(F.rms_norm(x, (C.D,))) / 30)).float()
+    if h is not None:
+        h.remove()
+    return F.cross_entropy(lg.view(-1, lg.size(-1)), tg.reshape(-1), reduction='none').view(idx.shape)
+
+
+@torch.no_grad()
+def capture(key, lo, hi):
+    cap = []
+    h = C.MODS[key].register_forward_hook(
+        lambda mo, i_, o_: cap.append(((o_[0] if isinstance(o_, tuple) else o_)
+                                       .detach().float().cpu())))
+    for i in range(lo, hi, BATCH):
+        bb = R[i:i + BATCH, :NP + 1].to(C.DEV)
+        C.m(bb[:, :-1].contiguous(), bb[:, 1:].contiguous())
+    h.remove()
+    return torch.cat(cap)
+
+
+def batches(lo, hi, mm=None):
+    """row batches; when mm is given, only batches containing at least one circuit member.
+
+    A circuit's members are ~0.3% of the grid, so a blind batch of 4 rows carries about three of them and
+    the member half of the objective is estimated from three positions. Skipping member-free batches puts
+    every gradient step on a batch that can actually see the circuit.
+    """
+    for i in range(lo, hi, BATCH):
+        if mm is not None and mm[i:i + BATCH].sum() == 0:
+            continue
+        bb = R[i:i + BATCH, :NP + 1].to(C.DEV)
+        yield i, bb[:, :-1].contiguous(), bb[:, 1:].contiguous()
+
+
+def closed_form_dir(acts, mm, sl, lo, hi):
+    """§2056's probe: unit(mean over members - mean off slice), at this component, on the train rows."""
+    f = acts.reshape(-1, C.D)
+    m_ = mm[lo:hi].reshape(-1); s_ = sl[lo:hi].reshape(-1)
+    if m_.sum() == 0 or (~s_).sum() == 0:
+        return None
+    u = f[m_].mean(0) - f[~s_].mean(0)
+    return (u / u.norm()).to(C.DEV)
+
+
+def evaluate(tag, key, mm, sl, Q, acts, lo, hi):
+    """held-out mean dCE on members and off slice, for a Q-interchange and for the full-output one."""
+    g = torch.Generator().manual_seed(SEED)
+    perm = torch.randperm(acts.shape[0] * NP, generator=g)
+    flat = acts.reshape(-1, C.D)
+    dq_m, dq_o, df_m, df_o = [], [], [], []
+    with torch.no_grad():
+        for i, idx, tg in batches(lo, hi):
+            k = (i - lo) // BATCH
+            n = idx.shape[0] * NP
+            dn = flat[perm[k * BATCH * NP:k * BATCH * NP + n]].to(C.DEV).view(idx.shape[0], NP, C.D)
+            b0 = fwd(idx, tg)
+            m_, s_ = mm[i:i + idx.shape[0]].to(C.DEV), sl[i:i + idx.shape[0]].to(C.DEV)
+            if Q is not None:
+                d = fwd(idx, tg, key, Q, dn) - b0
+                dq_m.append(d[m_]); dq_o.append(d[~s_])
+            d = fwd(idx, tg, key, full_donor=dn) - b0
+            df_m.append(d[m_]); df_o.append(d[~s_])
+    f = lambda L: float(torch.cat(L).abs().mean()) if L and sum(x.numel() for x in L) else float('nan')
+    return f(dq_m), f(dq_o), f(df_m), f(df_o)
+
+
+out = {}
+QDIR = {}
+ACTIVE_SEED = SEEDS[0]
+t0 = time.time()
+for tag in TARGETS:
+    key = BAT['by_tag'][tag]['best_mean']
+    mm, sl = leaf_masks(tag)
+    acts_tr = capture(key, *TRAIN_ROWS)
+    acts_ev = capture(key, *EVAL_ROWS)
+    rec = {'component': key, 'members': int(mm.sum()), 'ranks': {}}
+    for r in RANKS:
+        g = torch.Generator(device='cpu').manual_seed(ACTIVE_SEED + r)
+        # unit-scale init: |P| ~ 1 so an lr 5e-2 Adam step is a real rotation, not a 1e-4 nudge
+        P0 = (torch.randn(C.D, r, generator=g) / C.D ** 0.5).to(C.DEV)
+        Q_init = torch.linalg.qr(P0)[0].detach().clone()
+        P = P0.clone().requires_grad_(True)
+        opt = torch.optim.Adam([P], lr=LR)
+        gg = torch.Generator().manual_seed(SEED)
+        perm = torch.randperm(acts_tr.shape[0] * NP, generator=gg)
+        flat = acts_tr.reshape(-1, C.D)
+        step = 0
+        losses = []
+        while step < STEPS:
+            for i, idx, tg in batches(*TRAIN_ROWS, mm=mm):
+                if step >= STEPS:
+                    break
+                m_, s_ = mm[i:i + idx.shape[0]].to(C.DEV), sl[i:i + idx.shape[0]].to(C.DEV)
+                if m_.sum() == 0:
+                    continue
+                k = (i - TRAIN_ROWS[0]) // BATCH
+                n = idx.shape[0] * NP
+                dn = flat[perm[k * BATCH * NP:k * BATCH * NP + n]].to(C.DEV).view(
+                    idx.shape[0], NP, C.D)
+                Q = torch.linalg.qr(P)[0]
+                with torch.no_grad():
+                    b0 = fwd(idx, tg)
+                d = fwd(idx, tg, key, Q, dn) - b0
+                loss = -d[m_].mean() + d[~s_].abs().mean()
+                opt.zero_grad(); loss.backward(); opt.step()
+                losses.append(float(loss))
+                step += 1
+        with torch.no_grad():
+            Q = torch.linalg.qr(P)[0]
+            moved = 1.0 - float((Q.T @ Q_init).pow(2).sum() / r)      # 0 = never moved, 1 = orthogonal
+        first, last = (sum(losses[:20]) / 20, sum(losses[-20:]) / 20) if len(losses) >= 40 else (0., 0.)
+        healthy = moved > 0.02 and last < first
+        qm, qo, fm, fo = evaluate(tag, key, mm, sl, Q, acts_ev, *EVAL_ROWS)
+        ent = {'das_dce_members': round(qm, 4), 'das_dce_offslice': round(qo, 4),
+               'das_concentration': round(qm / qo, 3) if qo > 0 else None,
+               'full_dce_members': round(fm, 4), 'full_dce_offslice': round(fo, 4),
+               'full_concentration': round(fm / fo, 3) if fo > 0 else None,
+               'fraction_of_full_recovered': round(qm / fm, 3) if fm > 0 else None,
+               'subspace_moved_from_init': round(moved, 4),
+               'loss_first20': round(first, 6), 'loss_last20': round(last, 6),
+               'optimiser_healthy': bool(healthy)}
+        if r == 1:
+            u = closed_form_dir(acts_tr, mm, sl, *TRAIN_ROWS)
+            if u is not None:
+                ent['overlap_with_closed_form'] = round(float((Q[:, 0] @ u) ** 2), 3)
+                cm, co, _fm, _fo = evaluate(tag, key, mm, sl, u.unsqueeze(1), acts_ev, *EVAL_ROWS)
+                ent['closed_form_dce_members'] = round(cm, 4)
+                ent['closed_form_concentration'] = round(cm / co, 3) if co > 0 else None
+                ent['das_beats_closed_form'] = bool(qm > cm)
+        rec['ranks'][r] = ent
+        if r == 1:
+            QDIR[tag] = Q[:, 0].detach().clone()
+        print(f'  {tag:12s} {key:4s} rank {r}: members {qm:.4f} off {qo:.4f} conc '
+              f'{ent["das_concentration"]} recovered {ent["fraction_of_full_recovered"]} | '
+              f'moved {moved:.3f} loss {first:+.5f}->{last:+.5f} healthy {healthy} '
+              f'({time.time()-t0:.0f}s)', flush=True)
+    out[tag] = rec
+
+
+
+# ---- PER-SEED LEARNED DIRECTIONS, THEN THE S2075 GROUPING TESTED AGAINST A NULL
+import random                                                             # noqa: E402
+
+PERSEED = {}
+HEALTH = []
+for sd_ in SEEDS:
+    QD = {}
+    for tag in TARGETS:
+        mm, sl = leaf_masks(tag)
+        acts_tr = capture(COMPONENT, *TRAIN_ROWS)
+        g = torch.Generator(device='cpu').manual_seed(sd_ + 1)
+        P0 = (torch.randn(C.D, 1, generator=g) / C.D ** 0.5).to(C.DEV)
+        Q_init = torch.linalg.qr(P0)[0].detach().clone()
+        P = P0.clone().requires_grad_(True)
+        opt = torch.optim.Adam([P], lr=LR)
+        gg = torch.Generator().manual_seed(sd_)
+        perm = torch.randperm(acts_tr.shape[0] * NP, generator=gg)
+        flat = acts_tr.reshape(-1, C.D)
+        step = 0; losses = []
+        while step < STEPS:
+            for i_, idx, tg in batches(*TRAIN_ROWS, mm=mm):
+                if step >= STEPS:
+                    break
+                m_, s_ = mm[i_:i_ + idx.shape[0]].to(C.DEV), sl[i_:i_ + idx.shape[0]].to(C.DEV)
+                if m_.sum() == 0:
+                    continue
+                k = (i_ - TRAIN_ROWS[0]) // BATCH
+                n = idx.shape[0] * NP
+                dn = flat[perm[k * BATCH * NP:k * BATCH * NP + n]].to(C.DEV).view(
+                    idx.shape[0], NP, C.D)
+                Q = torch.linalg.qr(P)[0]
+                with torch.no_grad():
+                    b0 = fwd(idx, tg)
+                d = fwd(idx, tg, COMPONENT, Q, dn) - b0
+                loss = -d[m_].mean() + d[~s_].abs().mean()
+                opt.zero_grad(); loss.backward(); opt.step()
+                losses.append(float(loss.detach())); step += 1
+        with torch.no_grad():
+            Q = torch.linalg.qr(P)[0]
+            moved = 1.0 - float((Q.T @ Q_init).pow(2).sum())
+        first = sum(losses[:20]) / 20; last = sum(losses[-20:]) / 20
+        HEALTH.append((sd_, tag, bool(moved > 0.02 and last < first)))
+        QD[tag] = Q[:, 0].detach().clone()
+    PERSEED[sd_] = {a: {b: float(abs(QD[a] @ QD[b])) for b in TARGETS} for a in TARGETS}
+    print(f'  seed {sd_}: {len(TARGETS)} directions fit ({time.time()-t0:.0f}s)', flush=True)
+
+
+def within_between(cos, clusters):
+    of = {t: i for i, c in enumerate(clusters) for t in c}
+    win, bet = [], []
+    for a in TARGETS:
+        for b in TARGETS:
+            if a == b or a not in of or b not in of:
+                continue
+            (win if of[a] == of[b] else bet).append(cos[a][b])
+    if not win or not bet:
+        return None, None, None
+    mw = sum(win) / len(win); mb = sum(bet) / len(bet)
+    return mw, mb, mw - mb
+
+
+POOL = {a: {b: sum(PERSEED[s_][a][b] for s_ in SEEDS) / len(SEEDS) for b in TARGETS} for a in TARGETS}
+sizes = [len(c) for c in CLUSTERS]
+rng = random.Random(20260830)
+NDRAW = 20000
+
+
+def null_dist(cos):
+    out = []
+    for _ in range(NDRAW):
+        t = TARGETS[:]; rng.shuffle(t)
+        cl = []; j = 0
+        for s_ in sizes:
+            cl.append(t[j:j + s_]); j += s_
+        _w, _b, dd = within_between(cos, cl)
+        if dd is not None:
+            out.append(dd)
+    out.sort()
+    return out
+
+
+mw, mb, obs = within_between(POOL, CLUSTERS)
+nd = null_dist(POOL)
+pval = sum(1 for x in nd if x >= obs) / len(nd)
+per_seed_stat = []
+for s_ in SEEDS:
+    _w, _b, dd = within_between(PERSEED[s_], CLUSTERS)
+    per_seed_stat.append(dd)
+mstat = sum(per_seed_stat) / len(per_seed_stat)
+sdstat = (sum((x - mstat) ** 2 for x in per_seed_stat) / max(1, len(per_seed_stat) - 1)) ** 0.5
+
+four_ok = 0
+four_detail = []
+if FOUR:
+    for s_ in SEEDS:
+        cs = PERSEED[s_]
+        wf = [cs[a][b] for a in FOUR for b in FOUR if a != b]
+        allp = [cs[a][b] for a in TARGETS for b in TARGETS if a != b]
+        w = sum(wf) / len(wf); g_ = sum(allp) / len(allp)
+        four_detail.append({'seed': s_, 'within_four': round(w, 4), 'a8_mean': round(g_, 4),
+                            'above': bool(w > g_)})
+        four_ok += int(w > g_)
+
+unhealthy = [h for h in HEALTH if not h[2]]
+rep = {'schema_version': 1, 'generated': '2026-08-30 by Claude', 'component': COMPONENT,
+       'seeds': list(SEEDS), 'circuits': TARGETS, 'clusters_from_S2075': CLUSTERS,
+       'confirms': 'S2075 / A8_HAS_A_CAUSALLY_VALIDATED_GROUPING_S2075, on a THIRD quantity',
+       'method': 'rank-1 DAS per circuit at three seeds; pairwise |cos| of the LEARNED directions pooled '
+                 'over seeds; S2075 clustering tested by within-minus-between against a 20,000-draw '
+                 'size-matched permutation null registered BEFORE the run (LESSON 111)',
+       'pooled_within': round(mw, 4), 'pooled_between': round(mb, 4),
+       'pooled_within_minus_between': round(obs, 4),
+       'null_median': round(nd[len(nd) // 2], 4), 'null_p95': round(nd[int(0.95 * len(nd))], 4),
+       'p_value': round(pval, 4),
+       'per_seed_statistic': [round(x, 4) for x in per_seed_stat],
+       'statistic_mean': round(mstat, 4), 'statistic_sd': round(sdstat, 4),
+       'four_cluster': FOUR, 'four_cluster_detail': four_detail,
+       'four_above_a8_mean_in_n_seeds': four_ok,
+       'unhealthy_fits': unhealthy,
+       'pred_a_grouping_predicts_learned_directions': bool(pval < 0.05),
+       'pred_b_four_cluster_survives_quantity_change': bool(four_ok >= 2),
+       'pred_c_controls_pass': bool(not unhealthy),
+       'note': 'read-only artifact; no circuit file was modified'}
+json.dump(rep, open('circuits/A8_GROUPING_LEARNED.json', 'w'), indent=1)
+
+print(f'\nwrote circuits/A8_GROUPING_LEARNED.json ({time.time()-t0:.0f}s)')
+print(f'pred_c  CONTROL -- all {len(HEALTH)} fits healthy : {rep["pred_c_controls_pass"]}')
+if unhealthy:
+    print(f'        UNHEALTHY {unhealthy} -- reporting nothing (LESSON 108)')
+else:
+    print(f'        statistic per seed {[round(x, 4) for x in per_seed_stat]}  '
+          f'mean {mstat:.4f} +- {sdstat:.4f}   (LESSON 110)')
+    print(f'pred_a  pooled within {mw:.4f} - between {mb:.4f} = {obs:.4f}; null median '
+          f'{nd[len(nd)//2]:.4f} p95 {nd[int(0.95*len(nd)):][0]:.4f}; p = {pval:.4f} (bar <0.05) : '
+          f'{rep["pred_a_grouping_predicts_learned_directions"]}')
+    print(f'pred_b  the four-cluster is above the a8 mean in {four_ok}/3 seeds (bar >=2) : '
+          f'{rep["pred_b_four_cluster_survives_quantity_change"]}')
+    for dd in four_detail:
+        print(f'        seed {dd["seed"]}: within-four {dd["within_four"]:.4f} vs a8 mean '
+              f'{dd["a8_mean"]:.4f}  above={dd["above"]}')

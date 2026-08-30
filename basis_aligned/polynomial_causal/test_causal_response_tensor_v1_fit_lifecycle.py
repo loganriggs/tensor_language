@@ -330,6 +330,50 @@ def test_artifact_record_rejects_same_size_mutation_during_final_path_stat(
     assert attacked
 
 
+def test_artifact_record_rejects_path_replacement_after_middle_stat(
+    monkeypatch, tmp_path
+):
+    target = tmp_path / "protected.bin"
+    target.write_bytes(b"old-bytes")
+    original_stat = lifecycle.os.stat
+    attacked = False
+
+    def replace_after_obtaining_old_stat(path, *args, **kwargs):
+        nonlocal attacked
+        observed = original_stat(path, *args, **kwargs)
+        if Path(path) == target and not attacked:
+            attacked = True
+            target.unlink()
+            target.write_bytes(b"new-bytes")  # same size, different inode and content
+        return observed
+
+    monkeypatch.setattr(lifecycle.os, "stat", replace_after_obtaining_old_stat)
+    with pytest.raises(RuntimeError, match="changed during stable observation"):
+        lifecycle._artifact_record(target)
+    assert attacked
+
+
+def test_artifact_record_rejects_creation_after_absence_stat(monkeypatch, tmp_path):
+    target = tmp_path / "absent.bin"
+    original_stat = lifecycle.os.stat
+    attacked = False
+
+    def create_then_preserve_missing_result(path, *args, **kwargs):
+        nonlocal attacked
+        try:
+            return original_stat(path, *args, **kwargs)
+        except FileNotFoundError:
+            if Path(path) == target and not attacked:
+                attacked = True
+                target.write_bytes(b"appeared")
+            raise
+
+    monkeypatch.setattr(lifecycle.os, "stat", create_then_preserve_missing_result)
+    with pytest.raises(RuntimeError, match="appeared during absence observation"):
+        lifecycle._artifact_record(target)
+    assert attacked and target.exists()
+
+
 def test_artifact_record_binds_exact_descriptor_identity(tmp_path):
     target = tmp_path / "protected.bin"
     target.write_bytes(b"stable bytes")
@@ -342,6 +386,47 @@ def test_artifact_record_binds_exact_descriptor_identity(tmp_path):
         "inode": observed.st_ino, "mtime_ns": observed.st_mtime_ns,
         "ctime_ns": observed.st_ctime_ns,
     }
+
+
+def test_failure_guard_rechecks_absent_outputs_after_protected_observation(
+    monkeypatch, tmp_path
+):
+    _redirect_namespace(monkeypatch, tmp_path)
+    lifecycle.AUTHORITY.write_bytes(b"authority")
+    protected = {"observed": "failure state"}
+    monkeypatch.setattr(
+        lifecycle, "_failure_protected_observation", lambda _model: protected
+    )
+    aggregate = {
+        "authority": lifecycle._artifact_record(lifecycle.AUTHORITY),
+        "bundle": lifecycle._artifact_record(lifecycle.BUNDLE),
+        "manifest": lifecycle._artifact_record(lifecycle.MANIFEST),
+        "protected_state": protected,
+    }
+    authority_digest = aggregate["authority"]["sha256"]
+    original_record = lifecycle._artifact_record
+    attacked = False
+
+    def create_bundle_after_its_record(path):
+        nonlocal attacked
+        record = original_record(path)
+        if path == lifecycle.MANIFEST and not attacked:
+            attacked = True
+            lifecycle.BUNDLE.write_bytes(b"late bundle")
+        return record
+
+    monkeypatch.setattr(lifecycle, "_artifact_record", create_bundle_after_its_record)
+    claim = lifecycle.acquire_claim()
+    try:
+        with pytest.raises(RuntimeError, match="bundle appeared"):
+            lifecycle._failure_guard(
+                claim=claim, authority={},
+                authority_artifact_sha256=authority_digest,
+                aggregate=aggregate, model=None,
+            )
+        assert attacked
+    finally:
+        lifecycle.release_claim(claim)
 
 
 def _terminal_record(kind):

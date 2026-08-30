@@ -771,34 +771,51 @@ def _artifact_record(path: Path) -> dict[str, Any]:
         try:
             os.stat(path, follow_symlinks=False)
         except FileNotFoundError:
-            return {
-                "path": str(path), "present": False, "sha256": None,
-                "bytes": None, "device": None, "inode": None,
-                "mtime_ns": None, "ctime_ns": None,
-            }
+            try:
+                verification = os.open(path, flags)
+            except FileNotFoundError:
+                return {
+                    "path": str(path), "present": False, "sha256": None,
+                    "bytes": None, "device": None, "inode": None,
+                    "mtime_ns": None, "ctime_ns": None,
+                }
+            else:
+                os.close(verification)
+                raise RuntimeError(
+                    f"FIT artifact appeared during absence observation: {path}"
+                )
         raise RuntimeError(f"FIT artifact appeared during absence observation: {path}")
     try:
         before = os.fstat(descriptor)
         if not stat.S_ISREG(before.st_mode):
             raise RuntimeError(f"FIT artifact is not a regular file: {path}")
 
-        def digest_descriptor() -> tuple[str, int]:
-            os.lseek(descriptor, 0, os.SEEK_SET)
+        def digest_open_descriptor(open_descriptor: int) -> tuple[str, int]:
+            os.lseek(open_descriptor, 0, os.SEEK_SET)
             digest = hashlib.sha256()
             count = 0
-            while chunk := os.read(descriptor, 8 << 20):
+            while chunk := os.read(open_descriptor, 8 << 20):
                 digest.update(chunk)
                 count += len(chunk)
             return digest.hexdigest(), count
 
-        first_digest, first_count = digest_descriptor()
+        first_digest, first_count = digest_open_descriptor(descriptor)
         middle = os.fstat(descriptor)
         path_stat = os.stat(path, follow_symlinks=False)
         # A second descriptor read occurs after the path lookup.  Thus an injected
         # same-size write from stat(), or an in-place write invisible to inode checks,
         # changes the digest and is rejected.
-        second_digest, second_count = digest_descriptor()
+        second_digest, second_count = digest_open_descriptor(descriptor)
         after = os.fstat(descriptor)
+        verification = os.open(path, flags)
+        try:
+            verification_before = os.fstat(verification)
+            verification_digest, verification_count = digest_open_descriptor(
+                verification
+            )
+            verification_after = os.fstat(verification)
+        finally:
+            os.close(verification)
     finally:
         os.close(descriptor)
     identity = (before.st_dev, before.st_ino)
@@ -814,6 +831,20 @@ def _artifact_record(path: Path) -> dict[str, Any]:
         or first_count != before.st_size
         or second_count != before.st_size
         or first_digest != second_digest
+        or (verification_before.st_dev, verification_before.st_ino) != identity
+        or (verification_after.st_dev, verification_after.st_ino) != identity
+        or (
+            verification_before.st_size,
+            verification_before.st_mtime_ns,
+            verification_before.st_ctime_ns,
+        ) != metadata
+        or (
+            verification_after.st_size,
+            verification_after.st_mtime_ns,
+            verification_after.st_ctime_ns,
+        ) != metadata
+        or verification_count != before.st_size
+        or verification_digest != first_digest
     ):
         raise RuntimeError(f"FIT artifact changed during stable observation: {path}")
     return {
@@ -866,6 +897,10 @@ def _failure_guard(
 ) -> None:
     """Bind exact failed state; drift is evidence here, not a success invariant."""
     del authority
+    # Protected observations can perform many stable reads.  Complete all of them
+    # before the final partial-output records and absence checks.
+    if aggregate["protected_state"] != _failure_protected_observation(model):
+        raise RuntimeError("FIT observed protected failure state changed")
     for name, path in (
         ("authority", AUTHORITY), ("bundle", BUNDLE), ("manifest", MANIFEST),
     ):
@@ -873,8 +908,16 @@ def _failure_guard(
             raise RuntimeError(f"FIT failure {name} bytes changed")
     if aggregate["authority"]["sha256"] != authority_artifact_sha256:
         raise RuntimeError("FIT failure authority digest is inconsistent")
-    if aggregate["protected_state"] != _failure_protected_observation(model):
-        raise RuntimeError("FIT observed protected failure state changed")
+    for name, path in (("bundle", BUNDLE), ("manifest", MANIFEST)):
+        if aggregate[name]["present"] is False:
+            flags = os.O_RDONLY | getattr(os, "O_NOFOLLOW", 0)
+            try:
+                descriptor = os.open(path, flags)
+            except FileNotFoundError:
+                pass
+            else:
+                os.close(descriptor)
+                raise RuntimeError(f"FIT failure {name} appeared before publication")
     require_claim(claim)
 
 
