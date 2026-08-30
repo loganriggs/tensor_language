@@ -757,6 +757,8 @@ def run(role: str) -> None:
             observed, observed_sha = stable_json(paths["authority"], authority_sha)
             if observed != authority or observed_sha != authority_sha:
                 raise RuntimeError("collector authority raced final collection guard")
+            if any(paths[name].exists() for name in ("ledger", "receipt", "failure")):
+                raise RuntimeError("collector terminal raced final authority reload")
             row_life.base.require_claim(claim, paths["lock"])
 
         collection_guard()

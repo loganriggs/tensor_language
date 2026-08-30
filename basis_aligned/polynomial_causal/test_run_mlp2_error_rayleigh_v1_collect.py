@@ -320,3 +320,28 @@ def test_mutation_during_program_load_cannot_reach_collect(tmp_path, monkeypatch
         collect.run("DESIGN")
     assert reached["collect"] is False
     assert not paths["ledger"].exists() and not paths["receipt"].exists()
+
+
+def test_rival_during_final_authority_reload_cannot_reach_collect(tmp_path, monkeypatch):
+    paths, _ = mocked_transaction(tmp_path, monkeypatch)
+    reached = {"collect": False}; calls = {"authority": 0}
+    original_stable = collect.stable_json
+
+    def racing_stable(path, expected=None):
+        value = original_stable(path, expected)
+        if path == paths["authority"]:
+            calls["authority"] += 1
+            if calls["authority"] == 3:
+                paths["failure"].write_text("{}")
+        return value
+
+    def forbidden_collect(*_args):
+        reached["collect"] = True
+        raise AssertionError("collect must remain unopened")
+
+    monkeypatch.setattr(collect, "stable_json", racing_stable)
+    monkeypatch.setattr(collect, "collect", forbidden_collect)
+    with pytest.raises(RuntimeError, match="terminal raced final authority reload"):
+        collect.run("DESIGN")
+    assert reached["collect"] is False
+    assert paths["failure"].is_file() and not paths["ledger"].exists()
