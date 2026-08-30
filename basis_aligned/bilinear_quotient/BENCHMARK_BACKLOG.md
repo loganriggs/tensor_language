@@ -406,3 +406,12 @@ later per-rung backlog edits had silently anchored on text that was not here.
     RUN 2026-08-30, §2124: ALL FOUR HELD — +0.122 w1, +0.086 fresh median,
     8/8 positive. The selector is LABEL-FREE (weights + unlabeled inputs,
     fold-table deploy status). The observability arc closes (rungs 11-29).
+
+30. INSTALL THE SELECTOR INTO THE FRONTIER (opened 2026-08-30 19:25Z; the
+    lane-1 prompt's candidate A). §312's empirical-L2 frontier (+2.6735
+    fresh) uses the same norm-selected top-2304 CP middles as cfgE; rerun
+    its full pipeline with true-Fisher top-8 selection at mlp4/mlp5.
+    -> ops/frontier_fisher8.py [QUEUED]
+    pred_a norm arm reproduces the published L2_F 2.6735 within 0.05;
+    pred_b fresh gain >= 0.04 (half of cfgE's 0.086 — dilution expected);
+    pred_c window-C gain >= -0.01.
