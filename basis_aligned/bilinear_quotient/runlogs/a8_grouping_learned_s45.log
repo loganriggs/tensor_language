@@ -1,1 +1,13 @@
 DAS at a8 on all 16 circuits localised there: ['r.11.1.1', 'r.11.1.2', 'r.11.3.1', 'r.23.2.1', 'r.23.2.3', 'r.2.0', 'r.2.0.0', 'r.2.0.1', 'r.2.0.2', 'r.2.1', 'r.2.1.0', 'r.2.1.1', 'r.2.2', 'r.2.2.0', 'r.2.2.1', 'r.2.3']
+  seed 20260833: 16 directions fit (778s)
+  seed 20260834: 16 directions fit (1563s)
+
+wrote circuits/A8_GROUPING_LEARNED_S45.json (1564s)
+pred_c  CONTROL -- all 32 fits healthy : True
+        statistic per seed [0.0902, 0.0722]  mean 0.0812 +- 0.0128   (LESSON 110)
+pred_a  new seeds clearing S2077 null p95 0.0574: 2/2 (bar 2) : True
+        all five seeds: [0.0842, 0.1143, 0.0072, 0.0902, 0.0722]   mean 0.0736 +- 0.0402   clearing the null: 4/5
+        (this run pooled over its own 2 seeds: 0.0812, p = 0.0031)
+pred_b  the four-cluster is above the a8 mean in 2/2 new seeds (bar 2) : True
+        seed 20260833: within-four 0.2333 vs a8 mean 0.1681  above=True
+        seed 20260834: within-four 0.1781 vs a8 mean 0.1157  above=True

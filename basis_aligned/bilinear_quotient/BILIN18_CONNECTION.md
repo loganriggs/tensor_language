@@ -61354,3 +61354,48 @@ and its pooled difference (0.0072) are both the weakest of the three, which sugg
 than a quantity-wide instability. Whether a fourth and fifth seed pull the mean toward the two strong
 seeds or toward the weak one is the cheap next step, and it is the difference between "real but noisy"
 and "two seeds out of three".
+
+## §2078 — §2077's weak seed was one bad draw: 4 of 5, and the four-cluster's tie was the seed not the cluster
+
+`ops/a8_grouping_learned_s45.py`, **1564s**, **DISCOVERY ONLY**, RUNG 3 (§2077's open question).
+**pred_a True | pred_b True | pred_c True.** 32 fits, all health-gated, no dead loop (LESSON 112).
+
+§2077 confirmed §2075's a8 grouping on the learned DAS directions at a pooled p = 0.0270, then qualified
+itself hard: the per-seed statistic was 0.0842, 0.1143 and **0.0072**, and the third sat *inside* the
+null (p95 0.0574). §2077 recorded that a single-seed run drawing that seed would have reported a clean
+negative, and left the distinguishing question open: one bad draw, or two-out-of-three?
+
+```
+  new seeds:  20260833  0.0902      20260834  0.0722       both > null p95 0.0574
+  all five:   0.0842  0.1143  0.0072  0.0902  0.0722
+              mean 0.0736 +- 0.0402      clearing the null: 4 / 5
+  this run pooled over its own two seeds: 0.0812, p = 0.0031
+```
+
+> **pred_a passed 2/2: it is one bad draw.** Four of five independent initialisations clear the null
+> individually, and the two new ones did so without the pooling that carried §2077. **This run's own
+> two-seed pooled p is 0.0031 — an order of magnitude stronger than §2077's 0.0270, because §2077's pool
+> contained the bad draw.** §2075's grouping predicting the learned directions is now supported on five
+> seeds rather than three.
+
+**pred_b passed 2/2, and it answers the second half of §2077's flag.** §2077 scored the four-circuit
+cluster `{r.2.0.1, r.2.0.2, r.2.1.1, r.2.2.1}` 3/3 but its third seed cleared by a ratio of **1.04** — an
+effective tie I flagged rather than banked. The new seeds give **0.2333 vs 0.1681 (1.39x)** and
+**0.1781 vs 0.1157 (1.54x)**. **The tie was the seed, not the cluster**, and the cluster §2076 identified
+as the only one carrying the ablation signal is now above the a8-wide mean on 5 of 5 seeds.
+
+**What still does not get claimed.** The five-seed spread is **0.0736 ± 0.0402 — a relative sd of 55%**,
+and **one seed in five still sees nothing**. "Real but noisy" is confirmed; "clean" is not, and any single
+future fit of this quantity has roughly a one-in-five chance of showing nothing at all. **§2077's
+insistence on quoting the per-seed column stands, and is now quantified rather than asserted.**
+
+**§2077's registry entry is amended in place** from "real on average, unreliable per fit — a third of
+seeds show nothing" to the measured 4-of-5. The direction of that amendment is toward the stronger claim,
+which is worth stating plainly: §2077 was written conservatively against its own pooled p-value, and the
+extra seeds vindicated the conservatism rather than the caution being wasted.
+
+**Open.** Nothing further on this thread. §2075's grouping is confirmed on three quantities (closed-form
+geometry, ablation concentrations, learned directions), the last across five seeds; §2076's per-cluster
+caveat stands (no individual cluster survives Bonferroni); and the a8 arc's remaining unaudited item —
+`circuits/SUBSPACE.json` describing five arbitrary circuits rather than a8 — is a documentation fix I have
+flagged twice and deliberately not made, because overwriting a shared artifact is Logan's call.
