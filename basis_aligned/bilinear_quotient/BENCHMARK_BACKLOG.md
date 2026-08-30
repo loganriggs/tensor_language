@@ -819,3 +819,14 @@ later per-rung backlog edits had silently anchored on text that was not here.
     must be line-anchored ('\n'-prefixed); the gate should also refuse a
     script with no __main__ executor. Rebuilt from the intact parent,
     re-queued 22:52Z; preds unchanged.
+    VALID RUN 2026-08-30, §2153: ALL THREE HELD — big three survive;
+    16.5 (+0.0193) is the carrier FR missed; the other five sum to
+    -0.0007. attn16 = FOUR heads at window grain.
+
+60. WINDOW CERTIFICATION OF THE FOUR-HEAD attn16 (damage convention;
+    §2152's standard — zeroing active throughout fits and evals, bases
+    excluded). Zero heads {16.1, 16.2, 16.6, 16.7, 16.8}; additive
+    prediction from §2153: -0.0007.
+    pred_a median [L2_F_w(four) - L2_F_w(nine)] <= +0.005; pred_b
+    <= +0.01 on >= 6/8; pred_c nine-head arm reproduces §2146 per-window
+    (median |delta| <= 0.005). -> ops/attn16_four_heads_w8.py [QUEUED]

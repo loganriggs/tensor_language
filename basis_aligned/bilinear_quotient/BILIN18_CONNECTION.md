@@ -64015,3 +64015,22 @@ HELD: pred_a (top share 0.518 ≥ 0.40) | pred_b (top class "ind" is LINK) | pre
   unaffected (both were like-for-like on their own eval sets). The single-window lesson of rung 6 claims its
   second scalp of the day — every reduction claim now needs the eight windows before it enters the ledger as an
   object description.
+
+## §2153 — RUNG 59 (valid run): AT WINDOW GRAIN attn16 IS FOUR HEADS, NOT THREE — the big three survive (16.3 +0.054, 16.4 +0.038, 16.0 +0.034) and head 16.5 (+0.019) is the carrier the FR map missed; the other five sum to −0.0007. All three bars HELD. (Convention: L2 = CE above the real model; lower is better; d_h = window-median damage from zeroing head h, eval-scoped.)
+
+`ops/attn16_headw8.py` (rebuilt after the silent void), **213s**, BACKLOG rung 59. **ALL THREE HELD: pred_a
+(top three = {16.0, 16.3, 16.4}) | pred_b (six summed +0.0187 ≥ +0.015) | pred_c (base repro |Δ| 0.0001).**
+
+```
+  head           16.0     16.1     16.2     16.3     16.4     16.5     16.6     16.7     16.8
+  window-med d  +0.0336  +0.0042  −0.0075  +0.0540  +0.0382  +0.0193  −0.0003  +0.0005  +0.0024
+```
+
+- **§2152's +0.0239 decomposes cleanly:** almost all of it is head 16.5, which FR priced at +0.0041 and the
+  windows price at +0.0193 — the FR/window discrepancy is one head's document-dependence, not diffuse. The
+  remaining five heads sum to **−0.0007**: genuinely free at window grain too.
+- **Revised object, with its registered next test:** attn16 = **heads 16.0/16.3/16.4/16.5** (4/9 of the module);
+  additive prediction for zeroing the other five throughout: −0.0007 → rung 60 (window certification, §2152's
+  standard). Also: window-median d_all ≈ +0.176 vs FR's +0.119 — broader text leans on attn16 harder, consistent
+  with §2151's in-document-retrieval reading (the certification windows have more long-range repeats than FR's
+  window-0-like documents).

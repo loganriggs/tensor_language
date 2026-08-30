@@ -1,0 +1,52 @@
+SINGLE ARM: skip-a16 build + per-head window-grain evals
+a2-input probe acc 0.69
+fit a2
+fit a3
+fit a4
+fit a5
+fit a6
+fit a7
+fit a8
+fit a9
+fit a10
+fit a11
+fit a12
+fit a13
+fit a14
+fit a15
+fit a16
+fit a17
+L1 (+38 heads): C +2.0112 | fresh +2.3207
+fit a10L
+fit a11L
+fit a12L
+fit a13L
+fit a14L
+fit a15L
+fit a17L
+  window 0 (7 docs): L2 fresh +2.5091
+  window 1 (42 docs): L2 fresh +2.7195
+  window 2 (17 docs): L2 fresh +2.3786
+  window 3 (23 docs): L2 fresh +2.6034
+  window 4 (43 docs): L2 fresh +2.6545
+  window 5 (26 docs): L2 fresh +2.5863
+  window 6 (35 docs): L2 fresh +2.3738
+  window 7 (35 docs): L2 fresh +2.4578
+  head 0 zeroed, per-window: [2.5398, 2.7647, 2.3955, 2.6406, 2.7081, 2.619, 2.4044, 2.4923]
+  head 1 zeroed, per-window: [2.5135, 2.7235, 2.3817, 2.6058, 2.6627, 2.5945, 2.3774, 2.4665]
+  head 2 zeroed, per-window: [2.5, 2.7058, 2.3759, 2.6001, 2.644, 2.5861, 2.3679, 2.448]
+  head 3 zeroed, per-window: [2.5582, 2.7779, 2.4335, 2.6667, 2.7226, 2.6341, 2.4267, 2.511]
+  head 4 zeroed, per-window: [2.5421, 2.7653, 2.405, 2.643, 2.6945, 2.6259, 2.41, 2.4947]
+  head 5 zeroed, per-window: [2.5132, 2.7291, 2.413, 2.6267, 2.6728, 2.602, 2.3978, 2.4782]
+  head 6 zeroed, per-window: [2.5085, 2.7191, 2.3781, 2.604, 2.6547, 2.5863, 2.3735, 2.4575]
+  head 7 zeroed, per-window: [2.5095, 2.7204, 2.3789, 2.6039, 2.6551, 2.5873, 2.3742, 2.4587]
+  head 8 zeroed, per-window: [2.5089, 2.7216, 2.381, 2.6102, 2.657, 2.5897, 2.3768, 2.4601]
+  head all zeroed, per-window: [2.6279, 2.8927, 2.5704, 2.8068, 2.8548, 2.7545, 2.5434, 2.6264]
+L2 empirical: C +2.2390 | fresh +2.5091 | tail-attn increment +0.1884
+(a) L2 <= +2.75 fresh: HELD
+(b) increment in [0.30,0.55]: FAILED
+window-median d per head: 16.0:+0.0336 16.1:+0.0042 16.2:-0.0075 16.3:+0.0540 16.4:+0.0382 16.5:+0.0193 16.6:-0.0003 16.7:+0.0005 16.8:+0.0024
+(a) top3 [0, 3, 4] == [0,3,4]: HELD
+(b) six summed median +0.0187 >= +0.015: HELD
+(c) base vs S2146 median |delta| 0.0001 <= 0.005: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/attn16_headw8_results.json (213s)
