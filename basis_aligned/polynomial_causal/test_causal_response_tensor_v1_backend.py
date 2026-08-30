@@ -5,7 +5,9 @@ import bilin18_observed_model_facade as facade
 from causal_response_tensor_v1_backend import (
     CircuitSpec,
     ObservedResponseCollector,
+    capture_event_key,
     leading_shared_direction,
+    projection_event_key,
 )
 from test_bilin18_observed_model_facade import tiny_model
 
@@ -73,6 +75,43 @@ def test_typed_backend_collects_complete_signed_grid_without_hooks() -> None:
     assert eval_payload["call_ledger"]["attention_native_calls"] == 36
     assert sum(fit_payload["call_ledger"]["projection_calls"].values()) == 8
     assert sum(eval_payload["call_ledger"]["projection_calls"].values()) == 8
+    assert fit_payload["call_ledger"]["projection_events"] == {
+        projection_event_key(phase, spec.tag, spec.component, 0): 1
+        for phase in ("full", "residual")
+        for spec in specs
+    }
+    assert fit_payload["call_ledger"]["capture_events"] == {
+        capture_event_key(component, 0): 1 for component in ("a1", "m2")
+    }
+    assert eval_payload["call_ledger"]["projection_events"] == {
+        projection_event_key(phase, spec.tag, spec.component, 0): 1
+        for phase in ("full", "residual")
+        for spec in specs
+    }
+    assert eval_payload["call_ledger"]["capture_events"] == {}
+
+
+def test_structured_ledger_rejects_missing_or_duplicate_event() -> None:
+    torch.manual_seed(17)
+    model = tiny_model()
+    with torch.no_grad():
+        for parameter in model.parameters():
+            parameter.normal_(mean=0.0, std=0.03)
+    rows = torch.randint(0, 32, (4, 5), dtype=torch.int64)
+    documents = torch.arange(4, dtype=torch.int64)
+    slice_positions = [position for position in range(16) if position % 4 in (0, 1)]
+    specs = (
+        _spec("a.one", "a1", [0, 4, 8, 12], slice_positions, 16),
+        _spec("a.two", "a1", [1, 5, 9, 13], slice_positions, 16),
+    )
+    collector = ObservedResponseCollector(
+        model, rows, documents, specs, require_production=False
+    )
+    collector.fit_stage(torch.arange(4, dtype=torch.int64))
+    key = projection_event_key("full", "a.one", "a1", 0)
+    collector.ledger.projection_events[key] = 2
+    with pytest.raises(RuntimeError, match="structured projection"):
+        collector._require_ledger(expected_outer=6, batches=1, expect_capture=True)
 
 
 def test_backend_rejects_document_leakage_even_when_rows_differ() -> None:

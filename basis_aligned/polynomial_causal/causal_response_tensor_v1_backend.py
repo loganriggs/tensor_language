@@ -9,6 +9,7 @@ ledger.  Inputs and masks are supplied by an authority-bound outer transaction.
 from __future__ import annotations
 
 from dataclasses import dataclass, field
+import hashlib
 import math
 from collections.abc import Callable, Mapping, Sequence
 
@@ -26,6 +27,10 @@ from causal_response_tensor_collection import (
 
 
 PHASES = ("full", "residual")
+PRODUCTION_COMPONENT_ORDER = ("a8", "a16", "m16", "a3", "m14", "m13")
+PRODUCTION_SPEC_ORDER_SHA256 = (
+    "86d0bd7250102fc8dcdee517562fcadda74f2f6bf6d026582bcab71a33f24ca0"
+)
 
 
 @dataclass(frozen=True)
@@ -68,6 +73,8 @@ class PhysicalCallLedger:
     mlp_native_calls: list[int] = field(default_factory=list)
     projection_calls: dict[str, int] = field(default_factory=dict)
     capture_calls: dict[str, int] = field(default_factory=dict)
+    projection_events: dict[str, int] = field(default_factory=dict)
+    capture_events: dict[str, int] = field(default_factory=dict)
 
     def record(
         self,
@@ -98,7 +105,35 @@ class PhysicalCallLedger:
             },
             "projection_calls": dict(sorted(self.projection_calls.items())),
             "capture_calls": dict(sorted(self.capture_calls.items())),
+            "projection_events": dict(sorted(self.projection_events.items())),
+            "capture_events": dict(sorted(self.capture_events.items())),
         }
+
+    def record_projection(
+        self, *, phase: str, source_tag: str, component: str, batch_index: int
+    ) -> None:
+        if phase not in PHASES or not source_tag or batch_index < 0:
+            raise RuntimeError("projection event identity is malformed")
+        key = projection_event_key(phase, source_tag, component, batch_index)
+        self.projection_events[key] = self.projection_events.get(key, 0) + 1
+        self.projection_calls[component] = self.projection_calls.get(component, 0) + 1
+
+    def record_capture(self, *, component: str, batch_index: int) -> None:
+        if not component or batch_index < 0:
+            raise RuntimeError("capture event identity is malformed")
+        key = capture_event_key(component, batch_index)
+        self.capture_events[key] = self.capture_events.get(key, 0) + 1
+        self.capture_calls[component] = self.capture_calls.get(component, 0) + 1
+
+
+def projection_event_key(
+    phase: str, source_tag: str, component: str, batch_index: int
+) -> str:
+    return f"{phase}\t{source_tag}\t{component}\t{batch_index}"
+
+
+def capture_event_key(component: str, batch_index: int) -> str:
+    return f"{component}\t{batch_index}"
 
 
 def canonicalize_sign(vector: torch.Tensor) -> torch.Tensor:
@@ -185,12 +220,35 @@ class ObservedResponseCollector:
             raise ValueError("rows/document IDs are malformed")
         if require_production and self.positions != 256:
             raise ValueError("production rows must contain 256 predictions")
+        if require_production and self.rows.shape[0] != 1_000:
+            raise ValueError("production census must contain exactly 1,000 rows")
         if not self.specs or len({spec.tag for spec in self.specs}) != len(self.specs):
             raise ValueError("circuit specs must be nonempty with unique tags")
         grid_size = self.rows.shape[0] * self.positions
         for spec in self.specs:
             spec.validate(grid_size=grid_size, layer_count=self.layer_count)
+        if require_production:
+            self._require_production_spec_order()
         self._require_hook_free()
+
+    def _require_production_spec_order(self) -> None:
+        if len(self.specs) != 49:
+            raise ValueError("production circuit inventory must contain exactly 49 specs")
+        component_rank = {
+            component: index for index, component in enumerate(PRODUCTION_COMPONENT_ORDER)
+        }
+        if any(spec.component not in component_rank for spec in self.specs):
+            raise ValueError("production circuit inventory contains an unknown component")
+        ordered = sorted(
+            self.specs, key=lambda spec: (component_rank[spec.component], spec.tag)
+        )
+        if list(self.specs) != ordered:
+            raise ValueError("production circuit specs are not in the frozen order")
+        serialized = "".join(
+            f"{spec.component}\t{spec.tag}\n" for spec in self.specs
+        ).encode()
+        if hashlib.sha256(serialized).hexdigest() != PRODUCTION_SPEC_ORDER_SHA256:
+            raise ValueError("production circuit ordering hash changed")
 
     def _require_hook_free(self) -> None:
         global_hook_names = (
@@ -238,6 +296,7 @@ class ObservedResponseCollector:
         source_component: str | None = None,
         direction: torch.Tensor | None = None,
         capture: Callable[[str, torch.Tensor], None] | None = None,
+        intervention_event: tuple[str, str, int] | None = None,
     ) -> torch.Tensor:
         self._require_hook_free()
         attention_sites: list[int] = []
@@ -250,6 +309,8 @@ class ObservedResponseCollector:
         )
         if (source is None) != (direction_device is None):
             raise ValueError("source component and direction must be supplied together")
+        if (source is None) != (intervention_event is None):
+            raise ValueError("projection event identity must accompany every intervention")
         if direction_device is not None and (
             direction_device.shape != (self.width,) or not torch.isfinite(direction_device).all()
         ):
@@ -268,7 +329,13 @@ class ObservedResponseCollector:
                 capture(key, write)
             if source == ("a", event.site):
                 write = project(write)
-                self.ledger.projection_calls[key] = self.ledger.projection_calls.get(key, 0) + 1
+                phase, source_tag, batch_index = intervention_event
+                self.ledger.record_projection(
+                    phase=phase,
+                    source_tag=source_tag,
+                    component=key,
+                    batch_index=batch_index,
+                )
             return write, next_value
 
         def mlp(event: facade.EarlyMLPEvent):
@@ -279,7 +346,13 @@ class ObservedResponseCollector:
                 capture(key, write)
             if source == ("m", event.site):
                 write = project(write)
-                self.ledger.projection_calls[key] = self.ledger.projection_calls.get(key, 0) + 1
+                phase, source_tag, batch_index = intervention_event
+                self.ledger.record_projection(
+                    phase=phase,
+                    source_tag=source_tag,
+                    component=key,
+                    batch_index=batch_index,
+                )
             return write
 
         logits = facade.forward_with_dispatch(
@@ -325,6 +398,7 @@ class ObservedResponseCollector:
         }
 
         for start, real, tokens, _targets in self._batches(fit_rows):
+            batch_index = start // self.batch_size
             def capture(component: str, write: torch.Tensor) -> None:
                 if component not in specs_by_component:
                     return
@@ -336,8 +410,8 @@ class ObservedResponseCollector:
                     sums[spec.tag]["off"] += values[off].double().sum(0)
                     sums[spec.tag]["member_count"] += int(member.sum())
                     sums[spec.tag]["off_count"] += int(off.sum())
-                self.ledger.capture_calls[component] = (
-                    self.ledger.capture_calls.get(component, 0) + 1
+                self.ledger.record_capture(
+                    component=component, batch_index=batch_index
                 )
 
             self._forward(tokens, capture=capture)
@@ -405,11 +479,21 @@ class ObservedResponseCollector:
         *,
         source_component: str | None = None,
         direction: torch.Tensor | None = None,
+        phase: str | None = None,
+        source_tag: str | None = None,
     ) -> torch.Tensor:
         values: list[torch.Tensor] = []
-        for _start, real, tokens, targets in self._batches(selected_rows):
+        if (source_component is None) != (phase is None or source_tag is None):
+            raise ValueError("intervention CE requires phase and source-tag identity")
+        for start, real, tokens, targets in self._batches(selected_rows):
+            event = None
+            if source_component is not None:
+                event = (phase, source_tag, start // self.batch_size)
             logits = self._forward(
-                tokens, source_component=source_component, direction=direction
+                tokens,
+                source_component=source_component,
+                direction=direction,
+                intervention_event=event,
             )
             ce = F.cross_entropy(
                 logits[:real].reshape(-1, logits.shape[-1]),
@@ -500,6 +584,8 @@ class ObservedResponseCollector:
                     selected_rows,
                     source_component=source.component,
                     direction=phase_directions[source.tag],
+                    phase=phase,
+                    source_tag=source.tag,
                 )
                 dce = intervened - baseline
                 aggregate = aggregate_document_responses(
@@ -531,7 +617,13 @@ class ObservedResponseCollector:
             "validation": validation,
         }
 
-    def _require_ledger_outer(self, expected_outer: int) -> None:
+    def _require_ledger(
+        self,
+        *,
+        expected_outer: int,
+        batches: int,
+        expect_capture: bool,
+    ) -> None:
         if self.ledger.outer_forwards != expected_outer:
             raise RuntimeError("outer forward ledger does not close")
         for site in range(self.layer_count):
@@ -539,6 +631,29 @@ class ObservedResponseCollector:
                 self.ledger.mlp_native_calls.count(site) != expected_outer
             ):
                 raise RuntimeError("per-site native call ledger does not close")
+        expected_projection_events = {
+            projection_event_key(phase, spec.tag, spec.component, batch_index)
+            for phase in PHASES
+            for spec in self.specs
+            for batch_index in range(batches)
+        }
+        if set(self.ledger.projection_events) != expected_projection_events or any(
+            count != 1 for count in self.ledger.projection_events.values()
+        ):
+            raise RuntimeError("structured projection event ledger does not close")
+        components = {spec.component for spec in self.specs}
+        expected_capture_events = (
+            {
+                capture_event_key(component, batch_index)
+                for component in components
+                for batch_index in range(batches)
+            }
+            if expect_capture else set()
+        )
+        if set(self.ledger.capture_events) != expected_capture_events or any(
+            count != 1 for count in self.ledger.capture_events.values()
+        ):
+            raise RuntimeError("structured capture event ledger does not close")
 
     @torch.no_grad()
     def fit_stage(self, fit_rows: torch.Tensor) -> dict[str, object]:
@@ -549,6 +664,11 @@ class ObservedResponseCollector:
         """
         self._claim_once()
         fit_rows = self._validate_role(fit_rows, label="FIT")
+        if self.require_production and (
+            fit_rows.numel() != 496
+            or torch.unique(self.row_document_ids[fit_rows]).numel() != 343
+        ):
+            raise ValueError("production FIT role must be 496 rows from 343 documents")
         directions = self._fit_directions(fit_rows)
         ordered_tags = [spec.tag for spec in self.specs]
         direction_preimage = {
@@ -561,8 +681,10 @@ class ObservedResponseCollector:
             fit_rows, direction_preimage, role="FIT"
         )
         batches = math.ceil(fit_rows.numel() / self.batch_size)
-        self._require_ledger_outer(
-            batches * (2 + len(PHASES) * len(self.specs))
+        self._require_ledger(
+            expected_outer=batches * (2 + len(PHASES) * len(self.specs)),
+            batches=batches,
+            expect_capture=True,
         )
         return {
             "schema": "causal_response_tensor_v1_fit_preimage",
@@ -616,6 +738,12 @@ class ObservedResponseCollector:
         ):
             raise TypeError("FIT document IDs are not a sealed CPU int64 vector")
         eval_documents = set(self.row_document_ids[eval_rows].tolist())
+        if self.require_production and (
+            eval_rows.numel() != 504
+            or len(eval_documents) != 345
+            or fit_document_ids.numel() != 343
+        ):
+            raise ValueError("production EVAL role must be 504 rows from 345 documents")
         if set(fit_document_ids.tolist()) & eval_documents:
             raise ValueError("FIT/EVAL source documents overlap")
         directions = self._validate_directions(direction_preimage)
@@ -623,8 +751,10 @@ class ObservedResponseCollector:
             eval_rows, directions, role="EVAL"
         )
         batches = math.ceil(eval_rows.numel() / self.batch_size)
-        self._require_ledger_outer(
-            batches * (1 + len(PHASES) * len(self.specs))
+        self._require_ledger(
+            expected_outer=batches * (1 + len(PHASES) * len(self.specs)),
+            batches=batches,
+            expect_capture=False,
         )
         return {
             "schema": "causal_response_tensor_v1_eval_preimage",
