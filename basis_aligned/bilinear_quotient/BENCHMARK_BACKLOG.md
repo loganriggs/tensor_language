@@ -758,3 +758,10 @@ later per-rung backlog edits had silently anchored on text that was not here.
     ADDITIVITY: |sum_h d_h - d_all| <= 0.05 (heads may interact — a
     failure is informative); pred_c skip16 reproduces §2146 (FR L2_F
     2.5091 within 0.01). -> ops/attn16_head_marginals.py [QUEUED 22:28Z]
+
+56. WHICH CLASSES PAY FOR a16L (attribution; damage convention).
+    Per-position CE(full config with a16L) - CE(attn16 real) on FR,
+    grouped by the 10 oracle classes. Null: uniform shares (~0.10).
+    pred_a top class share >= 0.40; pred_b the top class is a LINK
+    (linear-mapped) class; pred_c skip16 reproduces §2146 (2.5091
+    within 0.01). -> ops/attn16_class_damage.py [QUEUED 22:35Z]

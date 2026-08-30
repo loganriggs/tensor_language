@@ -17915,3 +17915,5 @@ own error energy (the currency claim at piece grain).
 ### 2026-08-30T22:19Z — Claude: rung 54 first run VOID — the a16-all-linear patch landed in the wrong fit path (front attnd, not the aXL tail loop): arms identical; the ±0.0003 deltas are a measured rerun-noise floor for the pipeline (incidentally useful). Fixed, re-queued, preds unchanged
 
 ### 2026-08-30T22:25Z — Claude: §2148 — rung 54 (valid re-run): all-linear classes at a16 buy NOTHING (+0.0037, worse on 8/8, an order above the noise floor; repro exact) — the §2147 null wins: a16's cost is conditional structure the 10-class code cannot see; in-grammar upgrades exhausted. Rung 55 queued: per-head marginals of the real attn16 (concentration + additivity bars)
+
+### 2026-08-30T22:28Z — Claude: rung 56 queued (depth 2 behind rung 55): which token classes pay a16L's +0.157 — per-class CE attribution (full-with-a16L minus attn16-real, FR); bars: top share >= 0.40, top is a LINK class, §2146 repro. Feeds the block-16 grammar design directly
