@@ -208,3 +208,30 @@ def test_synthetic_loader_cannot_target_exact_production_paths():
         loader.OneUseFitTrainingLoader(
             parent.PRODUCTION_PATHS, require_production=False, train_documents=3
         )
+
+
+def test_synthetic_loader_rejects_dotdot_aliases_to_production_paths():
+    aliases = parent.FitParentPaths(*(
+        path.parent / "synthetic-looking-subdir" / ".." / path.name
+        for path in (
+            getattr(parent.PRODUCTION_PATHS, field)
+            for field in loader.FIT_PARENT_PATH_FIELDS
+        )
+    ))
+    with pytest.raises(RuntimeError, match="production FIT paths"):
+        loader.OneUseFitTrainingLoader(
+            aliases, require_production=False, train_documents=3
+        )
+
+
+def test_synthetic_loader_rejects_even_one_production_artifact_alias(tmp_path):
+    values = [tmp_path / f"synthetic-{index}" for index in range(7)]
+    values[1] = (
+        parent.PRODUCTION_PATHS.bundle.parent / "alias" / ".."
+        / parent.PRODUCTION_PATHS.bundle.name
+    )
+    mixed = parent.FitParentPaths(*values)
+    with pytest.raises(RuntimeError, match="production FIT paths"):
+        loader.OneUseFitTrainingLoader(
+            mixed, require_production=False, train_documents=3
+        )

@@ -61399,3 +61399,62 @@ geometry, ablation concentrations, learned directions), the last across five see
 caveat stands (no individual cluster survives Bonferroni); and the a8 arc's remaining unaudited item —
 `circuits/SUBSPACE.json` describing five arbitrary circuits rather than a8 — is a documentation fix I have
 flagged twice and deliberately not made, because overwriting a shared artifact is Logan's call.
+
+## §2079 — BACKLOG RUNG 4: deeper reads break §347's ceiling, the two-site arm fails on AUC and wins on efficiency, and AUC turns out to be the wrong headline
+
+`ops/probe_gate3.py`, **251s**, BENCHMARK_BACKLOG **rung 4**. **pred_a HELD | pred_b HELD |
+pred_c FAILED.** Derived from §342's `probe_gate.py`, whose read depth was a single constant.
+
+§342 set the fork as "deeper reads **or** nonlinear features"; §347 took the nonlinear half and came out
+strictly worse (AUC 0.551, efficiency **−0.625**), closing with "the AUC ceiling (~0.62) needs
+information not linearly-or-quadratically present at block 2 — **later read points** or context
+aggregation, not fancier features." **That half had never been run.** Block 9's output is a10's input —
+the read the backlog names.
+
+```
+  arm       dim    AUC      gain     eff vs random   frac of oracle
+  blk2     1152   0.6210   +0.0326      3.867x           0.420      <- v1 replicate
+  blk5     1152   0.6384   +0.0463      5.488x           0.596
+  blk9     1152   0.6545   +0.0386      4.574x           0.497
+  blk2+9   2304   0.6382   +0.0516      6.113x           0.664
+  oracle gain +0.0777    random gain +0.0084    gated fraction 17.25%
+```
+
+**The `blk2` arm reproduces §342 to three decimals** — AUC 0.6210 against v1's 0.621, efficiency 3.867x
+against 3.826x, 0.420 against 0.419. **The instrument is the same one; the depths are the only change.**
+
+**pred_a HELD: depth breaks the ceiling where features could not.** `blk9` reaches **AUC 0.6545** against
+v1's 0.621. §347's prescription was right and §347's own approach was wrong, which is a clean outcome for
+a section that named its successor.
+
+**pred_b HELD, and understates what happened.** `blk9`'s efficiency is 4.574x against v1's 3.826x — but
+**`blk5` reaches 5.488x and the two-site arm 6.113x**, against the 9.4x causal-label oracle that is not
+deploy-legal. **The ladder is now 1.5x (surface) → 3.87x (block 2) → 6.11x (blocks 2+9) → 9.4x
+(oracle).** More: §342's *original* bar (c), "probe recovers >= 50% of the oracle gain", which v1 FAILED
+at 41.9%, is now **HELD by `blk5` (59.6%) and `blk2+9` (66.4%)**. `blk9` sits at **0.497 — a miss of
+0.003**, and by this ledger's standing rule that is a FAIL, recorded as one.
+
+**pred_c FAILED, and §1365 reproduces exactly.** The concatenated `[2;9]` arm gives **AUC 0.6382, BELOW
+`blk9`'s 0.6545**. §1365 concatenated two capture sites on a different capability and got 0.611 against
+0.618 — no gain. **Two sites do not beat one on ranking quality, in a second program, for what is
+plausibly the same reason: the second site adds parameters, not information the first lacked.**
+
+> **THE FINDING I DID NOT REGISTER, and it is the most useful thing here.** The two-site arm is
+> **second-worst on AUC and best on every gating measure** — efficiency 6.113x and 66.4% of oracle
+> against `blk9`'s 4.574x and 49.7%. `blk5` shows the same inversion more mildly. **AUC and gate
+> efficiency do not merely "come apart"; here they rank the arms in nearly opposite orders.** The reason
+> is structural: **AUC scores the whole ranking, and a gate at a fixed 17.25% only ever uses the top of
+> it.** A probe can order its top slice well and the remaining 83% poorly, and AUC will punish it for
+> exactly the part the gate never reads. **§342's bar (a) — AUC >= 0.75 — has been failed by every probe
+> in this arc, and it is now clear it was the wrong bar to set**: the deployable quantity is
+> gain-at-fraction, not global ranking.
+
+**Consequence for the rung, stated as a recommendation rather than a result.** If a gate is the goal, the
+current best deploy-legal configuration is **the two-site `[2;9]` probe at 6.113x random and 66.4% of
+oracle**, not the highest-AUC one. That is a benchmark frontier move on rung 4, and it needs
+fresh-window certification (backlog rung 6) before it is quotable as a frontier number.
+
+**Open.** The two-site arm was the deepest pair tried and the only pair tried; whether the gain is depth
+(2+9 vs 2 alone) or width (2304 vs 1152 dims) is unseparated, and a `[9;9]`-width control or a `[5;9]`
+pair would separate them. **I am not claiming two sites help until that control exists** — the honest
+statement today is that this particular 2304-dim probe gates best.

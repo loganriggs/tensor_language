@@ -36,6 +36,22 @@ PRODUCTION_ANALYSIS_AUDIT = (
 PRODUCTION_TERMINAL_DIRECTORY = (
     HERE / "causal_response_factorization_v1_training_terminal"
 )
+FIT_PARENT_PATH_FIELDS = (
+    "authority", "bundle", "manifest", "receipt", "failure", "terminal", "lock",
+)
+
+
+def _same_physical_path(left: Path, right: Path) -> bool:
+    """Compare canonical path targets, including dot-dot and symlink aliases."""
+
+    return left.resolve(strict=False) == right.resolve(strict=False)
+
+
+def _touches_production_parent(paths: parent.FitParentPaths) -> bool:
+    return any(
+        _same_physical_path(getattr(paths, field), getattr(parent.PRODUCTION_PATHS, field))
+        for field in FIT_PARENT_PATH_FIELDS
+    )
 
 
 def _artifact_sha256(path: Path) -> str:
@@ -181,10 +197,14 @@ class OneUseFitTrainingLoader:
         if not isinstance(paths, parent.FitParentPaths):
             raise TypeError("training loader paths must be an exact FitParentPaths")
         if require_production and (
-            train_documents != 229 or paths != parent.PRODUCTION_PATHS
+            train_documents != 229 or any(
+                not _same_physical_path(
+                    getattr(paths, field), getattr(parent.PRODUCTION_PATHS, field)
+                ) for field in FIT_PARENT_PATH_FIELDS
+            )
         ):
             raise RuntimeError("production training loader requires canonical paths and 229 documents")
-        if not require_production and paths == parent.PRODUCTION_PATHS:
+        if not require_production and _touches_production_parent(paths):
             raise RuntimeError("production FIT paths cannot use the synthetic loader surface")
         self._paths = paths
         self._require_production = require_production

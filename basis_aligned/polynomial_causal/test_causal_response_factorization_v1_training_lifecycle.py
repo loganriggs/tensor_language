@@ -169,11 +169,11 @@ def test_input_drift_after_manifest_cannot_publish_success(monkeypatch, tmp_path
     assert not lifecycle.RECEIPT.exists()
 
 
-def test_failed_success_terminal_rename_falls_back_to_complete_failure_pair(
+def test_failed_success_terminal_install_falls_back_to_complete_failure_pair(
     monkeypatch, tmp_path,
 ):
     _mock_transaction(monkeypatch, tmp_path)
-    original = lifecycle.os.rename
+    original = lifecycle._rename_directory_noreplace
     injected = {"done": False}
 
     def fail_success_once(source, target):
@@ -182,12 +182,61 @@ def test_failed_success_terminal_rename_falls_back_to_complete_failure_pair(
             raise OSError("injected success terminal rename failure")
         return original(source, target)
 
-    monkeypatch.setattr(lifecycle.os, "rename", fail_success_once)
+    monkeypatch.setattr(lifecycle, "_rename_directory_noreplace", fail_success_once)
     with pytest.raises(OSError, match="injected"):
         lifecycle.execute_training_input_v1()
     assert lifecycle.FAILURE.is_file() and lifecycle.TERMINAL.is_file()
     assert os.stat(lifecycle.FAILURE).st_ino == os.stat(lifecycle.TERMINAL).st_ino
     assert not lifecycle.RECEIPT.exists()
+
+
+def test_terminal_install_is_create_only_against_empty_rival_directory(
+    monkeypatch, tmp_path,
+):
+    _redirect(monkeypatch, tmp_path)
+    claim = lifecycle.acquire_claim()
+    lifecycle.TERMINAL_DIR.mkdir()
+    rival_inode = lifecycle.TERMINAL_DIR.stat().st_ino
+    try:
+        with pytest.raises(OSError):
+            lifecycle._publish_terminal_pair(
+                {"kind": "receipt"}, kind="receipt", claim=claim,
+                final_guard=lambda: None,
+            )
+    finally:
+        lifecycle.release_claim(claim)
+    assert lifecycle.TERMINAL_DIR.is_dir()
+    assert lifecycle.TERMINAL_DIR.stat().st_ino == rival_inode
+    assert list(lifecycle.TERMINAL_DIR.iterdir()) == []
+
+
+def test_terminal_success_has_no_post_install_filesystem_work(monkeypatch, tmp_path):
+    _redirect(monkeypatch, tmp_path)
+    claim = lifecycle.acquire_claim()
+    events = []
+    original = lifecycle._rename_directory_noreplace
+
+    def sync(_path):
+        events.append("sync_before")
+
+    def guard():
+        events.append("guard")
+
+    def install(source, target):
+        events.append("install")
+        original(source, target)
+
+    monkeypatch.setattr(lifecycle, "_fsync_directory_best_effort", sync)
+    monkeypatch.setattr(lifecycle, "_rename_directory_noreplace", install)
+    try:
+        lifecycle._publish_terminal_pair(
+            {"kind": "receipt"}, kind="receipt", claim=claim,
+            final_guard=guard,
+        )
+    finally:
+        lifecycle.release_claim(claim)
+    assert events == ["sync_before", "guard", "install"]
+    assert lifecycle.RECEIPT.is_file() and lifecycle.TERMINAL.is_file()
 
 
 def test_mutated_authority_failure_binds_current_bytes_not_stale_digest(
@@ -226,3 +275,47 @@ def test_source_drift_after_input_link_cannot_publish_success(monkeypatch, tmp_p
     with pytest.raises(RuntimeError, match="protected state changed"):
         lifecycle.execute_training_input_v1()
     assert lifecycle.FAILURE.is_file() and not lifecycle.RECEIPT.exists()
+
+
+def test_authority_post_link_replay_failure_still_publishes_failure_pair(
+    monkeypatch, tmp_path,
+):
+    _mock_transaction(monkeypatch, tmp_path)
+    original = lifecycle.stable_json
+    injected = {"done": False}
+
+    def replay_then_fail(path):
+        value = original(path)
+        if path == lifecycle.AUTHORITY and lifecycle.AUTHORITY.exists() and not injected["done"]:
+            injected["done"] = True
+            raise RuntimeError("injected authority post-link replay failure")
+        return value
+
+    monkeypatch.setattr(lifecycle, "stable_json", replay_then_fail)
+    with pytest.raises(RuntimeError, match="post-link replay"):
+        lifecycle.execute_training_input_v1()
+    assert lifecycle.AUTHORITY.is_file()
+    assert lifecycle.FAILURE.is_file() and lifecycle.TERMINAL.is_file()
+    assert not lifecycle.RECEIPT.exists()
+
+
+def test_late_authority_mutation_cannot_publish_stale_success(monkeypatch, tmp_path):
+    _mock_transaction(monkeypatch, tmp_path)
+    original = lifecycle.parent.fit_parent_binding_without_tensor_load
+    calls = {"count": 0, "mutated": False}
+
+    def replay_then_mutate():
+        value = original()
+        calls["count"] += 1
+        # The receipt guard is the first phase with a manifest already installed.
+        if lifecycle.MANIFEST.exists() and not calls["mutated"]:
+            lifecycle.AUTHORITY.write_text('{"late_mutation":true}\n')
+            calls["mutated"] = True
+        return value
+
+    monkeypatch.setattr(
+        lifecycle.parent, "fit_parent_binding_without_tensor_load", replay_then_mutate
+    )
+    with pytest.raises(RuntimeError, match="terminal boundary"):
+        lifecycle.execute_training_input_v1()
+    assert not lifecycle.RECEIPT.exists()

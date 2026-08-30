@@ -11,6 +11,7 @@ from __future__ import annotations
 import hashlib
 import json
 import os
+import ctypes
 from pathlib import Path
 import secrets
 import shutil
@@ -44,6 +45,7 @@ SOURCE_PATHS = tuple(ROOT / path for path in (
     "basis_aligned/polynomial_causal/CAUSAL_RESPONSE_FACTORIZATION_V1_AMENDMENT_4.md",
     "basis_aligned/polynomial_causal/CAUSAL_RESPONSE_FACTORIZATION_V1_AMENDMENT_5.md",
     "basis_aligned/polynomial_causal/CAUSAL_RESPONSE_FACTORIZATION_V1_AMENDMENT_6.md",
+    "basis_aligned/polynomial_causal/CAUSAL_RESPONSE_FACTORIZATION_V1_AMENDMENT_7.md",
     "basis_aligned/polynomial_causal/causal_response_factorization_v1.py",
     "basis_aligned/polynomial_causal/causal_response_factorization_v1_accelerated.py",
     "basis_aligned/polynomial_causal/causal_response_factorization_v1_fit_adapter.py",
@@ -80,6 +82,13 @@ def logical_sha256(value: object) -> str:
     return hashlib.sha256(json.dumps(
         value, sort_keys=True, separators=(",", ":"), allow_nan=False,
     ).encode()).hexdigest()
+
+
+def _normalized_json_bytes(value: Mapping[str, Any]) -> bytes:
+    normalized = json.loads(json.dumps(value, sort_keys=True, allow_nan=False))
+    return (
+        json.dumps(normalized, sort_keys=True, indent=2, allow_nan=False) + "\n"
+    ).encode()
 
 
 def stable_json(path: Path) -> tuple[dict[str, Any], str]:
@@ -210,19 +219,24 @@ def release_claim(claim: Claim) -> None:
         else:
             LOCK.unlink()
     finally:
-        os.close(claim.descriptor)
+        try:
+            os.close(claim.descriptor)
+        except OSError:
+            # Once a terminal directory is visible, owner cleanup is bookkeeping and
+            # may not turn a committed success/failure into a caller-visible error.
+            pass
 
 
 def _stage_json(value: Mapping[str, Any], target: Path) -> tuple[Path, str]:
     normalized = json.loads(json.dumps(value, sort_keys=True, allow_nan=False))
+    raw = _normalized_json_bytes(normalized)
     target.parent.mkdir(parents=True, exist_ok=True)
     descriptor, name = tempfile.mkstemp(prefix=f".{target.name}.", dir=target.parent)
     temporary = Path(name)
     try:
-        with os.fdopen(descriptor, "w") as sink:
+        with os.fdopen(descriptor, "wb") as sink:
             descriptor = -1
-            json.dump(normalized, sink, sort_keys=True, indent=2, allow_nan=False)
-            sink.write("\n"); sink.flush(); os.fsync(sink.fileno())
+            sink.write(raw); sink.flush(); os.fsync(sink.fileno())
         replay, digest = stable_json(temporary)
         if replay != normalized:
             raise RuntimeError("staged factor training JSON does not replay")
@@ -294,6 +308,7 @@ def _raw_protected_observation() -> dict[str, Any]:
         "audit": _artifact_observation(AUDIT),
         "input": _artifact_observation(INPUT),
         "manifest": _artifact_observation(MANIFEST),
+        "owner_claim": _artifact_observation(LOCK),
         "sources": {
             str(path.relative_to(ROOT)): _artifact_observation(path)
             for path in SOURCE_PATHS
@@ -308,6 +323,32 @@ def _raw_protected_observation() -> dict[str, Any]:
     }
 
 
+def _assert_stable_protected_observation(
+    expected: Mapping[str, Any], claim: Claim,
+) -> None:
+    """Replay the whole protected aggregate twice at the final boundary.
+
+    The lifecycle claim is part of the same aggregate, rather than a later callback.
+    Two complete equal sweeps catch a one-shot mutation after any sequential member
+    read.  Publication immediately follows this function with no path lookup.
+    """
+
+    owner = expected.get("owner_claim")
+    expected_lock_raw = (claim.nonce + "\n").encode()
+    if type(owner) is not dict or (
+        owner.get("exists") is not True
+        or owner.get("device") != claim.device
+        or owner.get("inode") != claim.inode
+        or owner.get("sha256") != hashlib.sha256(expected_lock_raw).hexdigest()
+        or owner.get("bytes") != len(expected_lock_raw)
+    ):
+        raise RuntimeError("factor training expected owner claim is malformed")
+    first = _raw_protected_observation()
+    second = _raw_protected_observation()
+    if first != expected or second != expected:
+        raise RuntimeError("factor training protected aggregate changed at terminal boundary")
+
+
 def _fsync_directory_best_effort(path: Path) -> None:
     descriptor = None
     try:
@@ -318,6 +359,28 @@ def _fsync_directory_best_effort(path: Path) -> None:
     finally:
         if descriptor is not None:
             os.close(descriptor)
+
+
+_LIBC = ctypes.CDLL(None, use_errno=True)
+_RENAMEAT2 = _LIBC.renameat2
+_RENAMEAT2.argtypes = (
+    ctypes.c_int, ctypes.c_char_p, ctypes.c_int, ctypes.c_char_p, ctypes.c_uint,
+)
+_RENAMEAT2.restype = ctypes.c_int
+_AT_FDCWD = -100
+_RENAME_NOREPLACE = 1
+
+
+def _rename_directory_noreplace(source: Path, target: Path) -> None:
+    """Atomically install one directory and refuse every existing destination."""
+
+    result = _RENAMEAT2(
+        _AT_FDCWD, os.fsencode(source), _AT_FDCWD, os.fsencode(target),
+        _RENAME_NOREPLACE,
+    )
+    if result != 0:
+        error = ctypes.get_errno()
+        raise OSError(error, os.strerror(error), str(target))
 
 
 def _publish_terminal_pair(
@@ -331,10 +394,8 @@ def _publish_terminal_pair(
     """
     if kind not in ("receipt", "failure"):
         raise ValueError("factor training terminal kind is malformed")
-    if TERMINAL_DIR.exists():
-        raise RuntimeError("factor training terminal namespace is spent")
     normalized = json.loads(json.dumps(value, sort_keys=True, allow_nan=False))
-    raw = (json.dumps(normalized, sort_keys=True, indent=2, allow_nan=False) + "\n").encode()
+    raw = _normalized_json_bytes(normalized)
     digest = hashlib.sha256(raw).hexdigest()
     staging = Path(tempfile.mkdtemp(
         prefix=f".{TERMINAL_DIR.name}.", dir=TERMINAL_DIR.parent
@@ -352,19 +413,18 @@ def _publish_terminal_pair(
             raise RuntimeError("staged factor training terminal pair does not replay")
         _fsync_directory_best_effort(staging)
         final_guard()
-        require_claim(claim)
-        if TERMINAL_DIR.exists():
-            raise RuntimeError("factor training terminal namespace is spent")
-        # No lookup or callback follows this single atomic publication operation.
-        os.rename(staging, TERMINAL_DIR)
-        _fsync_directory_best_effort(TERMINAL_DIR.parent)
-        return digest
-    finally:
-        if staging.exists():
-            shutil.rmtree(staging, ignore_errors=True)
+        # Atomic create-only publication is the final filesystem operation.  There is
+        # no lookup, callback, sync, or cleanup on the success path after this call.
+        _rename_directory_noreplace(staging, TERMINAL_DIR)
+    except BaseException:
+        shutil.rmtree(staging, ignore_errors=True)
+        raise
+    return digest
 
 
-def _freeze_authority(claim: Claim) -> tuple[dict[str, Any], str, dict[str, Any]]:
+def _freeze_authority(
+    claim: Claim, attempt: dict[str, Any],
+) -> tuple[dict[str, Any], str, dict[str, Any]]:
     audit, audit_digest = stable_audit()
     closure = source_closure(audit["audited_source_commit"])
     fit_parent = parent.fit_parent_binding_without_tensor_load()
@@ -389,6 +449,13 @@ def _freeze_authority(claim: Claim) -> tuple[dict[str, Any], str, dict[str, Any]
         "authorized_for_eval": False,
     }
     authority = {**body, "authority_sha256": logical_sha256(body)}
+    attempt.update({
+        "authority": authority,
+        "authority_artifact_sha256": hashlib.sha256(
+            _normalized_json_bytes(authority)
+        ).hexdigest(),
+        "fit_parent": fit_parent,
+    })
 
     def guard() -> None:
         if stable_audit() != (audit, audit_digest) or source_closure(
@@ -411,8 +478,9 @@ def execute_training_input_v1() -> str:
     claim = acquire_claim()
     authority = None
     authority_digest = None
+    attempt: dict[str, Any] = {}
     try:
-        authority, authority_digest, fit_parent = _freeze_authority(claim)
+        authority, authority_digest, fit_parent = _freeze_authority(claim, attempt)
         capability = OneUseFitTrainingLoader()
         value = capability.load_once(
             parent_binding=fit_parent,
@@ -497,6 +565,8 @@ def execute_training_input_v1() -> str:
                 "authorized_for_eval": False,
             },
         }
+        protected_observation = _raw_protected_observation()
+        receipt["protected_observation_sha256"] = logical_sha256(protected_observation)
         def receipt_guard() -> None:
             authority_replay, authority_observed = stable_json(AUTHORITY)
             audit_replay, audit_observed = stable_audit()
@@ -520,19 +590,25 @@ def execute_training_input_v1() -> str:
                 or observed_manifest != manifest_digest
             ):
                 raise RuntimeError("factor training manifest changed before receipt")
-            require_claim(claim)
+            _assert_stable_protected_observation(protected_observation, claim)
 
         return _publish_terminal_pair(
             receipt, kind="receipt", claim=claim, final_guard=receipt_guard
         )
     except Exception as error:
-        if authority is not None and authority_digest is not None and not TERMINAL_DIR.exists():
+        attempt_authority = attempt.get("authority")
+        attempt_digest = attempt.get("authority_artifact_sha256")
+        if (
+            type(attempt_authority) is dict and isinstance(attempt_digest, str)
+            and not TERMINAL_DIR.exists()
+        ):
             protected_observation = _raw_protected_observation()
             failure = {
                 "schema": "causal_response_factorization_v1_training_terminal",
                 "kind": "failure",
-                "attempt_authority_artifact_sha256": authority_digest,
-                "attempt_authority_logical_sha256": authority["authority_sha256"],
+                "attempt_authority_artifact_sha256": attempt_digest,
+                "attempt_authority_logical_sha256": attempt_authority["authority_sha256"],
+                "protected_observation_sha256": logical_sha256(protected_observation),
                 "protected_observation": protected_observation,
                 "payload": {
                     "status": "failed_no_training_receipt",
@@ -544,11 +620,7 @@ def execute_training_input_v1() -> str:
             }
 
             def failure_guard() -> None:
-                if _raw_protected_observation() != protected_observation:
-                    raise RuntimeError(
-                        "factor training protected state changed before failure terminal"
-                    )
-                require_claim(claim)
+                _assert_stable_protected_observation(protected_observation, claim)
 
             _publish_terminal_pair(
                 failure, kind="failure", claim=claim, final_guard=failure_guard

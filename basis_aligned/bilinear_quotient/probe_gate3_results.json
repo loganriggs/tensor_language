@@ -1,0 +1,62 @@
+{
+ "base": 2.6735,
+ "oracle": 2.5958,
+ "random": 2.6651,
+ "fraction": 0.1725,
+ "oracle_gain": 0.0777,
+ "random_gain": 0.0084,
+ "v1_measured": {
+  "auc": 0.621,
+  "eff": 3.826,
+  "frac": 0.419
+ },
+ "arms": {
+  "blk2": {
+   "depths": [
+    2
+   ],
+   "dim": 1152,
+   "auc": 0.621,
+   "gain": 0.0326,
+   "eff_vs_random": 3.867,
+   "frac_of_oracle": 0.42
+  },
+  "blk5": {
+   "depths": [
+    5
+   ],
+   "dim": 1152,
+   "auc": 0.6384,
+   "gain": 0.0463,
+   "eff_vs_random": 5.488,
+   "frac_of_oracle": 0.596
+  },
+  "blk9": {
+   "depths": [
+    9
+   ],
+   "dim": 1152,
+   "auc": 0.6545,
+   "gain": 0.0386,
+   "eff_vs_random": 4.574,
+   "frac_of_oracle": 0.497
+  },
+  "blk2+9": {
+   "depths": [
+    2,
+    9
+   ],
+   "dim": 2304,
+   "auc": 0.6382,
+   "gain": 0.0516,
+   "eff_vs_random": 6.113,
+   "frac_of_oracle": 0.664
+  }
+ },
+ "best_deep_arm": "blk9",
+ "best_single_arm": "blk9",
+ "pred_a_depth_beats_v1_auc": true,
+ "pred_b_depth_beats_v1_efficiency": true,
+ "pred_c_two_sites_beat_one": false,
+ "runtime_s": 250.6311662197113
+}
