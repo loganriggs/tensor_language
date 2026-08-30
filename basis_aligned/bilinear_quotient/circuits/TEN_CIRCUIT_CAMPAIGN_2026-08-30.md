@@ -64,8 +64,17 @@ wrong followers, copied non-targets, entity/capitalization, successor, and globa
 OOD holds out token identities, lag bands, natural versus synthetic rows, and domain.
 The heads overlap copied-entity service, so parameters/effects are not counted twice.
 
-**Next promotion:** recursively replay matchers, payloads, and relays to token/position
-primitives, followed by source-match-gated terminal extraction/removal.
+Fresh natural FINAL and code OOD now confirm exact replay, extraction recovery
+`0.9085/1.0104`, and positive target removal `+0.4686/+1.5017` nat.  The overall
+certificate is nevertheless NO-GO because the frozen collateral gate fails
+(`+0.00345` natural point estimate with a wide simultaneous upper bound, and
+`+0.13831` nat on code).  Equality fetching is broader than the registered
+repeated-bigram target, especially in code.
+
+**Next promotion:** keep the terminal verdict fixed; factor the broad equality matcher
+from behavior-specific payload/use branches or prospectively enumerate all equality
+copy affordances before defining unrelated controls.  Then recursively replay the
+resulting matcher, payloads, and relays to token/position primitives.
 
 ## 3. Ordered successor
 
