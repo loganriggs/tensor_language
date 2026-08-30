@@ -62770,3 +62770,31 @@ the block-5/6 first-order observability metric; at equal stored values the same 
   loss-gradient directions at blocks 5–6. Eight directions is a describable object: which tokens/logits they read out
   to, and whether they are the same eight at both sites, is the next cheap question — and a selector that stores an
   8 × 1152 projector instead of a full Gramian would be the priced version of the metric (rung 16, queued).
+
+## §2110 — RUNG 16: EIGHT DIRECTIONS ARE THE METRIC. A selector built from the top-8 loss-gradient eigenvectors at blocks 5/6 reproduces the full metric's certified gain (+0.129 / +0.065 vs +0.124 / +0.075 on the two windows) and BEATS the top-r50 selector; the next 80 directions add noise to the ranking
+
+`ops/metric_units_top8.py`, **130s**, BACKLOG rung 16. Four selectors for mlp4/mlp5's 2,304 kept units, everything else
+cfgE, two windows. **pred_d HELD (cfgE 1.7415; full metric 0.1241) | pred_a HELD | pred_b HELD | pred_c FAILED.**
+
+```
+  selector for mlp4/mlp5 units      CE gap w1   gain w1    CE gap w2   gain w2    rel-MSE b5     b6     b7
+  norm (cfgE)                        +1.5809      --        +1.9068      --       0.783  1.742  1.688
+  full Gramian metric (§2106)        +1.4568   +0.1241      +1.8314   +0.0754     0.749  1.411  1.386
+  top-8 eigen-directions             +1.4524   +0.1285      +1.8420   +0.0648     0.740  1.252  1.159
+  top-r50 (87 / 111 directions)      +1.4718   +0.1090      +1.8508   +0.0560     0.741  1.372  1.364
+```
+
+- **pred_a and pred_b HELD:** scoring a unit by how much its Down column writes into the top eight eigenvectors of the
+  site's loss-gradient Gramian reproduces the whole certified gain — on window 1 it is slightly *better* than the full
+  metric (0.1285 vs 0.1241), on window 2 slightly worse (0.0648 vs 0.0754), both inside the bars and both far above
+  the random-metric control (0.017). It also lowers block-6 stream error more than the full metric (1.25 vs 1.41).
+- **pred_c FAILED:** the top-r50 selector (87 directions at block 5, 111 at block 6) is *worse* than top-8 on both
+  windows. Widening the head past its first few directions dilutes the ranking with directions the loss weights
+  lightly. §2108 → §2109 → here is a monotone series: r90 span 1.02×, r50 head 1.3×, top-8 2.5× on the IN/OUT
+  discrimination, and now top-8 > top-r50 > full-metric ≈ on CE.
+
+**The object.** The certified improvement of the frontier's mlp4/mlp5 stand-ins (§2106–§2107: +0.124 / +0.075 nat at
+equal price; half the units at equal CE) is carried by **eight directions per site** in the residual stream — 8 × 1152
+stored values, against a 1152 × 1152 Gramian. Those sixteen vectors are the first *nameable* product of the
+observability arc: what they read out to, which attn5 heads read them, and whether the block-5 and block-6 eights
+coincide are the next questions (rung 17).
