@@ -17820,3 +17820,5 @@ Rel-MSE — this benchmark's pricing currency since §311 — is measured wrong 
 eight non-sink heads carry the 85 %.
 
 ### 2026-08-30T18:33Z — Claude: hourly review 18:35 + synthesis explanation_1835 — the observability arc is now a certified, priced, named frontier gain; the benchmark's rel-MSE currency is measured wrong by ~4× at the cliff; ranked next: head price ladder (running) → fresh-pile certification → re-price the registry in CE-at-the-cliff
+
+### 2026-08-30T18:34Z — Claude: §2115 — the price at attn5 is carried by FOUR heads (5, 0, 1, 6; 0.15–0.18 each, additive to 0.82), h5 on top as predicted from the eight; h2 lowers stream error second-most and recovers 0.013. Next: fresh-pile certification of the metric-unit gain (rung 22)

@@ -62936,3 +62936,35 @@ the other attn5 heads' errors, which are small in energy and land on the eight l
 directions. (iv) Rel-MSE, §311's pricing currency for this benchmark, is therefore the wrong currency by a factor that
 this run measures: the head carrying 71 % of it carries 19 % of the price. The next rung asks which of the eight heads
 carry the 85 %.
+
+## §2115 — RUNG 21: the price is carried by FOUR heads, not two — h5, h0, h1, h6 each recover 0.15–0.18 of the arm's gap when corrected alone (sum of singles 0.82 of the other-eight's 0.85: additive). h5 is the top head, as predicted from the eight; h2 lowers block-6 stream error second-most and recovers almost nothing
+
+`ops/attn5_head_price_ladder.py`, **76s**, BACKLOG rung 21. Single-head oracle corrections at attn5 inside the certified
+arm. **pred_d HELD (1.7415; all-nine gap +0.7132 = §2114) | pred_b HELD | pred_c HELD | pred_a FAILED.**
+
+```
+  head corrected alone   CE recovery    rel-MSE b6 (arm 1.742)     head's share of injected energy (§2113)   error fraction on the eight
+  h5                        0.177          1.684                        0.093                                     0.027
+  h0                        0.166          1.754  (worse)               0.035                                     0.020
+  h1                        0.157          1.704                        0.028                                     0.014
+  h6                        0.152          1.650                        0.034                                     0.007
+  h8                        0.075          1.688                        0.018                                     0.005
+  h3                        0.062          1.701                        0.018                                     0.007
+  h4                        0.022          1.721                        0.009                                     0.008
+  h2                        0.013          1.635  (2nd-largest drop)    0.025                                     0.007
+  sum of singles 0.824  vs  other-eight jointly 0.849  (c HELD)     top-2 sum 0.343 vs bar 0.509  (a FAILED)
+```
+
+- **pred_b HELD:** h5 — the head whose injected error had the highest fraction on the eight loss-gradient directions —
+  is the most expensive head to get wrong. The eight rank heads by price at the top of the ladder.
+- **pred_a FAILED:** the price is not concentrated in two heads; **four heads (5, 0, 1, 6) each carry 0.15–0.18** and
+  together 0.65 of the arm's gap. Below them the ladder drops to 0.075 and less.
+- **pred_c HELD:** singles sum to 0.824 against the joint 0.849 — the heads' errors price nearly independently, so
+  a program can budget them one head at a time.
+- **h0 and h2 are the energy-vs-price lesson at single-head grain:** correcting h0 *raises* block-6 rel-MSE (1.754)
+  and recovers 0.166; correcting h2 gives the second-largest block-6 drop (1.635) and recovers 0.013.
+
+**What the arm must get right, now at head grain.** Four of attn5's nine heads read the front's error into the
+expensive regime; their errors are small in energy, additive in price, and — for the top one — land on the eight
+named directions. The sink head is loud and cheap. The next steps are the ones the 18:35 review ranked: certify the
+metric-unit gain on §2083's eight fresh-pile windows, then re-price the benchmark registry in CE-at-the-cliff.
