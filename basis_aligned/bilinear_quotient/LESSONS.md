@@ -2649,3 +2649,29 @@ script instead.** §2033's rewrite took one edit and produced 4/4; the derivatio
 nothing quotable. See [[LESSON 94]] on mis-specified predicates and [[LESSON 82]] on why a static check is
 not the answer here — I measured one, and it flags 0 of 28 scripts including the true positive, because
 the text and the constants agreed with each other and both were stale.
+
+## LESSON 106 — fifteen significant in-sample margins composed into a build that is worse out-of-sample
+
+**MEASURED 2026-08-30.** §2013–§2035 moved the build from 189.5M to 202.6M across fifteen sections. Every
+step was pooled over 92,160 positions, replicated at two coverages, and significant — margins of 1 to 3
+milli-nats at t = 5 to 19. **On 98,304 fresh positions the composed build LOSES to the one it replaced by
+11.770 milli-nats at t = −28.71.** A sign reversal, 3.8× the size of the gain it was built to capture.
+
+**Significance was never the problem. Scale was.** Each margin was ~0.1% of the build's 2,800-milli-nat
+distance from the live model, and each was *selected* by looking at the same three roles. **Fifteen
+0.1% choices against one row set is a fit, and a paired t on 92,160 positions cannot tell you that** — it
+measures whether the difference is real on those rows, which it was, every time.
+
+**The warning was already in the ledger and I filed it as a caveat.** §2029 found the gains concentrated
+at covered inputs; §2030 and §2031 found one component's effect unstable in sign across coverages. **A
+component whose sign depends on which rows you look at is the signature of selection**, and I wrote it up
+as a qualification of a build I kept.
+
+**And the check was standing policy.** The backlog's rung 6 — fresh-window certification for every new
+winner — exists for exactly this. **§2028 recorded it as unsatisfiable with the caches on disk. It was
+satisfiable: `bilin18_eval_tokens_large.pt`, 512 rows, zero overlap with all five fit and eval caches, in
+the working directory the whole time.** I asserted an impossibility instead of running `ls`.
+
+**The rule: a margin below ~1% of the object's scale, selected on the same rows it is measured on, is not
+a result until it is measured somewhere else.** Certify first, supersede second. See [[LESSON 82]] on
+measuring before adopting and [[LESSON 95]] on reach.
