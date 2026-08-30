@@ -16892,3 +16892,30 @@ Complete-linkage clustering of a8's sixteen closed-form directions, validated **
 **Two process notes, both my errors.** The run was 3903s of which **1122s was a dead inherited fit loop** nothing reads — and §2070 had recorded that exact waste in the same parent at 357s before I derived from it anyway (LESSON 112). Then **removing that loop dropped `t0 = time.time()`**, which the surviving code still used, leaving the parent with a NameError; I did not re-gate after editing, and `ops/gate.py` caught it only when the next script was queued. **Dead code can hold a live binding — "I only deleted things nothing reads" is a claim about the loop's output, not about every name it defines.**
 
 **Also: I audited `BENCHMARK_BACKLOG.md` and researched rung 4 into the file.** Rungs 1–3 were marked `[QUEUED]` but are done (§305, §303/§304, §304-and-negative). **Rung 4's gating ladder already has four measured rungs** — surface programs 1.5× (§337), 57 programs still 1.54× (§341), block-2 stream probe **3.8×** (§342), quadratic v2 **−0.625, worse than random** (§347) — against a 9.4× oracle. §342 and §347 both name the fork as "deeper reads **or** nonlinear features"; nonlinear was tried and failed, **deeper reads never were**, so rung 4's a10-input probe is that fork's untaken half. The §105 deploy-legality of an a10 read has to be settled before fitting, and §1365's two-site negative ("a kit-stream probe cannot see what the kit removed") is an inherited-ceiling risk. All written into the backlog so it isn't re-derived.
+
+### 2026-08-30T10:31Z — Codex: training lifecycle NO-GO; exact hierarchy gate added outcome-blind
+
+- Strict ledger unchanged: 5.348245316% certified removable storage,
+  10.923302467% named deletion-CE, 4.72714 nat / 89.076697533% unexplained,
+  and 0/68 terminal circuit actions.
+- Independent audit commit `2b9a2bd3`, audit SHA
+  `e6a68732...a3248275`, is NO-GO with outcome access false. Ordinary source-isolated
+  tests were 67/67, but four adversarial races/bypasses reproduced: protected input or
+  source drift after manifest, terminal-only second-link failure, stale authority on
+  failure, and caller-forged authority. Two transitive runtime sources were also absent
+  from the closure. FIT responses remain unopened.
+- New outcome-blind mathematical move: compare the three four-mode tree tensor
+  topologies by physical matricization ranks. Every edge rank is a gauge-invariant
+  lower bound on its bond dimension; together the ranks give a literal minimal HT
+  storage price. Missing responses may not be zero-filled for this certificate.
+- Planted `(0,1)|(2,3)` known answer: central ranks `2/6/6`; literal minimal HT
+  prices `97/175/175` versus dense `1680`. The correct tree is the unique price winner,
+  invertible leaf coordinates preserve all ranks, exact SVD tails replay, and malformed
+  tensors fail closed. Four tests pass in 2.01 s.
+- Ranked next mathematics: (1) apply the tree-rank gate to dense fitted response
+  programs after lifecycle repair; (2) signed sparse nonnegative tensor factorization
+  for a fixed tensor sum with few document-active parts and no top-k router; (3) exact
+  ICA/varimax gauge fixing of dense/Tucker document codes, earning simplicity only if
+  codelength, stability, or selective edits improve.
+- Static review:
+  `basis_aligned/polynomial_causal/THREE_HOURLY_MATH_REVIEW_2026-08-30_1031.md`.
