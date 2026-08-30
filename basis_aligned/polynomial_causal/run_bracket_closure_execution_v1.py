@@ -29,6 +29,7 @@ import bracket_closure_execution_v1 as execution
 import bracket_closure_masks_v1 as masks_module
 import bracket_closure_rows_v1 as rows_contract
 import bracket_closure_tensor_v1 as tensor_program
+import freeze_bracket_closure_rows_v1 as row_freezer
 
 
 AUTHORITY_SCHEMA = "bracket_closure_execution_v1_authority"
@@ -59,6 +60,21 @@ def _stable_json(path: Path) -> tuple[dict[str, Any], str]:
     return value, before
 
 
+def model_state_sha256(model: torch.nn.Module) -> str:
+    """Hash the exact live model tree, including names, dtype, shape, and bytes."""
+    if not isinstance(model, torch.nn.Module):
+        raise RuntimeError("execution live model is not a torch module")
+    digest = hashlib.sha256()
+    state = model.state_dict()
+    for name in sorted(state):
+        value = state[name].detach().cpu().contiguous()
+        digest.update(name.encode("utf-8"))
+        digest.update(str(value.dtype).encode("ascii"))
+        digest.update(json.dumps(list(value.shape), separators=(",", ":")).encode("ascii"))
+        digest.update(value.reshape(-1).view(torch.uint8).numpy().tobytes())
+    return digest.hexdigest()
+
+
 def _registry(value: Mapping[str, Any]) -> masks_module.DelimiterRegistry:
     if set(value) != {"families", "quote_control_ids", "punctuation_control_ids"} or not (
         isinstance(value["families"], list)
@@ -83,7 +99,8 @@ def validate_authority_payload(
 ) -> execution.ExecutionAuthority:
     keys = {
         "schema", "status", "outcome_access", "source_commit", "source_hashes",
-        "row_receipt", "row_cache", "roles", "delimiter_registry", "model",
+        "row_receipt", "row_authority", "row_audit", "row_cache", "roles",
+        "delimiter_registry", "model",
         "derangement", "programs", "outputs",
     }
     if set(payload) != keys or payload.get("schema") != AUTHORITY_SCHEMA or payload.get(
@@ -101,6 +118,13 @@ def validate_authority_payload(
     ):
         raise RuntimeError("execution row receipt binding changed")
     _path(row_receipt["path"], "row receipt"); _path(payload["row_cache"], "row cache")
+    for label in ("row_authority", "row_audit"):
+        binding = payload[label]
+        if not isinstance(binding, Mapping) or set(binding) != {"path", "sha256"} or not (
+            _sha(binding["sha256"])
+        ):
+            raise RuntimeError(f"execution {label} binding changed")
+        _path(binding["path"], label)
     roles = payload["roles"]
     role_keys = {
         "filename", "file_sha256", "rows_sha256", "records_sha256",
@@ -117,10 +141,11 @@ def validate_authority_payload(
     registry = _registry(payload["delimiter_registry"])
     model = payload["model"]
     if not isinstance(model, Mapping) or set(model) != {
-        "snapshot", "config_sha256", "weights_sha256",
+        "snapshot", "config_sha256", "weights_sha256", "state_sha256",
     } or _path(model["snapshot"], "model snapshot") != facade.DEFAULT_SNAPSHOT or (
         model["config_sha256"] != facade.CONFIG_SHA256
         or model["weights_sha256"] != facade.WEIGHTS_SHA256
+        or not _sha(model["state_sha256"])
     ):
         raise RuntimeError("execution model binding changed")
     derangement = payload["derangement"]
@@ -145,11 +170,13 @@ def validate_authority_payload(
     ) for item in programs)
     outputs = payload["outputs"]
     if not isinstance(outputs, Mapping) or set(outputs) != {
-        "result", "receipt", "failure", "lock",
+        "result", "receipt", "failure", "terminal", "lock",
     }:
         raise RuntimeError("execution output namespace changed")
-    output_paths = tuple(_path(outputs[key], key) for key in ("result", "receipt", "failure", "lock"))
-    if len(set(output_paths)) != 4:
+    output_paths = tuple(_path(outputs[key], key) for key in (
+        "result", "receipt", "failure", "terminal", "lock",
+    ))
+    if len(set(output_paths)) != 5:
         raise RuntimeError("execution output paths overlap")
     family_names = tuple(family.name for family in registry.families)
     return execution.ExecutionAuthority(
@@ -248,6 +275,60 @@ def _load_role(
     return materialization, records
 
 
+def replay_row_parent_lineage(
+    payload: Mapping[str, Any], receipt: Mapping[str, Any],
+) -> None:
+    """Rejoin the frozen receipt to its exact authority, audit, source, and history."""
+    authority_path = _path(payload["row_authority"]["path"], "row authority")
+    audit_path = _path(payload["row_audit"]["path"], "row audit")
+    row_authority, row_authority_sha = _stable_json(authority_path)
+    row_audit, row_audit_sha = _stable_json(audit_path)
+    if row_authority_sha != payload["row_authority"]["sha256"] or (
+        row_audit_sha != payload["row_audit"]["sha256"]
+    ):
+        raise RuntimeError("execution row authority/audit bytes changed")
+    validated = row_freezer.validate_authority(row_authority)
+    row_freezer.validate_independent_audit(
+        row_audit, authority_sha256=row_authority_sha, authority=validated,
+    )
+    if receipt["authority_sha256"] != row_authority_sha or receipt[
+        "audit_sha256"
+    ] != row_audit_sha or receipt["source_commit"] != validated["source_commit"] or receipt[
+        "source_hashes"
+    ] != validated["source_hashes"] or receipt["candidate_sha256"] != validated[
+        "candidate_sha256"
+    ] or receipt["candidate_source_identity_sha256"] != validated[
+        "candidate_source_identity_sha256"
+    ] or receipt["delimiter_registry_sha256"] != validated[
+        "delimiter_registry_sha256"
+    ] or Path(validated["receipt_path"]) != _path(
+        payload["row_receipt"]["path"], "row receipt"
+    ) or Path(validated["cache_path"]) != _path(payload["row_cache"], "row cache"):
+        raise RuntimeError("execution row receipt authority/source join changed")
+    candidate = Path(validated["candidate_path"])
+    if lifecycle.file_sha256(candidate) != validated["candidate_sha256"]:
+        raise RuntimeError("execution row candidate bytes changed")
+    histories = {}
+    history_payloads = []
+    for binding in validated["historical_registries"]:
+        path = Path(binding["path"])
+        value, observed = _stable_json(path)
+        if observed != binding["sha256"]:
+            raise RuntimeError("execution row historical registry changed")
+        histories[str(path)] = observed; history_payloads.append(value)
+    exclusions = rows_contract.historical_exclusions(tuple(history_payloads))
+    counts = {
+        name: len(getattr(exclusions, name)) for name in (
+            "documents", "source_files", "source_blobs", "normalized_python",
+            "row_sha256", "prefix32_sha256",
+        )
+    }
+    if receipt["historical_registry_hashes"] != histories or receipt[
+        "historical_exclusion_counts"
+    ] != counts:
+        raise RuntimeError("execution row historical exclusion replay changed")
+
+
 def load_bound_roles(
     payload: Mapping[str, Any], authority: execution.ExecutionAuthority,
 ) -> tuple[execution.RoleMaterialization, execution.RoleMaterialization]:
@@ -263,6 +344,7 @@ def load_bound_roles(
         "status"
     ] != "frozen_before_any_model_forward_receipt_last" or receipt["outcome_access"] is not False:
         raise RuntimeError("execution row receipt changed")
+    replay_row_parent_lineage(payload, receipt)
     registry = _registry(payload["delimiter_registry"])
     if receipt["delimiter_registry_sha256"] != rows_contract.registry_sha256(registry) or (
         receipt["entries"] != {
@@ -352,11 +434,34 @@ def closure_summary(
         output[role] = {}
         for arm in canary.ARM_NAMES:
             entries = closures[(role, arm)]
-            target = [entry.sites[tensor_program.TARGET_SITE] for entry in entries]
             output[role][arm] = {
                 "batches": len(entries), "documents": sum(entry.document_count for entry in entries),
-                "native_l13_calls": sum(item.native_attention_calls for item in target),
-                "replacement_l13_calls": sum(item.replacement_attention_calls for item in target),
+                "attempted_outer_forwards": sum(
+                    entry.attempted_outer_forwards for entry in entries
+                ),
+                "completed_outer_forwards": sum(
+                    entry.completed_outer_forwards for entry in entries
+                ),
+                "outer_returns": sum(entry.outer_returns for entry in entries),
+                "closed_batches": sum(entry.closed for entry in entries),
+                "candidate_native_call_prohibition_passed_batches": sum(
+                    entry.candidate_native_call_prohibition_passed for entry in entries
+                ),
+                "sites": [{
+                    "site": site,
+                    "native_attention_calls": sum(
+                        entry.sites[site].native_attention_calls for entry in entries
+                    ),
+                    "replacement_attention_calls": sum(
+                        entry.sites[site].replacement_attention_calls for entry in entries
+                    ),
+                    "native_mlp_calls": sum(
+                        entry.sites[site].native_mlp_calls for entry in entries
+                    ),
+                    "replacement_mlp_calls": sum(
+                        entry.sites[site].replacement_mlp_calls for entry in entries
+                    ),
+                } for site in range(18)],
             }
     return output
 
@@ -378,12 +483,15 @@ def _top1_payload(stats: execution.RoleSufficientStatistics) -> dict[str, Any]:
 def build_result_payload(
     authority_sha256: str, select: execution.RoleSufficientStatistics,
     ood: execution.RoleSufficientStatistics, closures: Mapping[tuple[str, str], tuple[Any, ...]],
-    authority: execution.ExecutionAuthority,
+    authority: execution.ExecutionAuthority, *, live_model_state_sha256: str,
 ) -> dict[str, Any]:
+    if not _sha(live_model_state_sha256):
+        raise RuntimeError("execution live model state binding is malformed")
     integrity = execution.ExecutionIntegrity(*(True for _ in range(7)))
     score = execution.score_roles(select, ood, integrity, authority.delimiter_family_names)
     return {
         "schema": RESULT_SCHEMA, "authority_sha256": authority_sha256,
+        "live_model_state_sha256": live_model_state_sha256,
         "raw_statistics": {"select": _stats_payload(select), "ood": _stats_payload(ood)},
         "call_ledger": closure_summary(
             closures, {"select": len(select.document_ids), "ood": len(ood.document_ids)},
@@ -399,14 +507,16 @@ def validate_result_payload(
     payload: Mapping[str, Any], *, authority_sha256: str,
     authority: execution.ExecutionAuthority,
     expected_roles: tuple[execution.RoleMaterialization, execution.RoleMaterialization],
-    expected_call_ledger: Mapping[str, Any],
+    expected_call_ledger: Mapping[str, Any], expected_live_model_state_sha256: str,
 ) -> None:
     if set(payload) != {
         "schema", "authority_sha256", "raw_statistics", "call_ledger",
-        "top1_secondary_no_gate", "score", "promoted",
+        "top1_secondary_no_gate", "score", "promoted", "live_model_state_sha256",
     } or payload.get("schema") != RESULT_SCHEMA or payload.get(
         "authority_sha256"
-    ) != authority_sha256 or payload.get("call_ledger") != expected_call_ledger:
+    ) != authority_sha256 or payload.get("call_ledger") != expected_call_ledger or payload.get(
+        "live_model_state_sha256"
+    ) != expected_live_model_state_sha256:
         raise RuntimeError("execution result envelope changed")
     raw = payload["raw_statistics"]
     if not isinstance(raw, Mapping) or tuple(raw) != ("select", "ood"):
@@ -443,6 +553,8 @@ def _guard_inputs(
     receipt_path = _path(payload["row_receipt"]["path"], "row receipt")
     if lifecycle.file_sha256(receipt_path) != authority.row_receipt_sha256:
         raise RuntimeError("execution row receipt changed")
+    receipt, _ = _stable_json(receipt_path)
+    replay_row_parent_lineage(payload, receipt)
     cache = _path(payload["row_cache"], "row cache")
     for role, binding in payload["roles"].items():
         if lifecycle.file_sha256(cache / binding["filename"]) != binding["file_sha256"]:
@@ -468,6 +580,8 @@ def run(authority_path: Path, audit_path: Path) -> dict[str, Any]:
     if any(path.exists() for path in outputs.values()):
         raise RuntimeError("execution output namespace is spent")
     with lifecycle.RunLock(outputs["lock"]) as lock:
+        model = None
+        bound_model_state = None
         try:
             guard = lambda: _guard_inputs(
                 authority_path, authority_sha256, audit_path, audit_sha256, payload, authority,
@@ -484,38 +598,62 @@ def run(authority_path: Path, audit_path: Path) -> dict[str, Any]:
                 authority.model_config_sha256, authority.model_weights_sha256,
             ):
                 raise RuntimeError("execution loaded model differs from authority")
+            bound_model_state = model_state_sha256(model)
+            if bound_model_state != payload["model"]["state_sha256"]:
+                raise RuntimeError("execution live model state differs from authority")
             select, ood, closures = execution.execute_loaded_roles(
                 model, roles, permutation, authority, source_guard=guard,
             )
-            del model
+            if model_state_sha256(model) != bound_model_state:
+                raise RuntimeError("execution live model state mutated during forwards")
             ledger = closure_summary(
                 closures, {"select": len(select.document_ids), "ood": len(ood.document_ids)},
             )
             result = build_result_payload(
                 authority_sha256, select, ood, closures, authority,
+                live_model_state_sha256=bound_model_state,
             )
             semantic_guard = lambda: (
                 guard(),
+                (_ for _ in ()).throw(RuntimeError("execution live model state changed"))
+                if model_state_sha256(model) != bound_model_state else None,
                 validate_result_payload(
                     result, authority_sha256=authority_sha256, authority=authority,
                     expected_roles=roles, expected_call_ledger=ledger,
+                    expected_live_model_state_sha256=bound_model_state,
                 ),
             )
             semantic_guard()
             lifecycle.publish_result_receipt_last(
                 result, outputs["result"], outputs["receipt"],
+                failure_path=outputs["failure"], terminal_path=outputs["terminal"],
                 authority_sha256=authority_sha256, lock=lock, final_guard=semantic_guard,
             )
             return result
         except BaseException as error:
-            if not outputs["receipt"].exists() and not outputs["failure"].exists():
+            if not outputs["receipt"].exists() and not outputs["failure"].exists() and not (
+                outputs["terminal"].exists()
+            ):
                 try:
-                    lifecycle.publish_json_receipt_last({
+                    failure_guard = lambda: (
+                        _guard_inputs(
+                            authority_path, authority_sha256, audit_path, audit_sha256,
+                            payload, authority,
+                        ),
+                        (_ for _ in ()).throw(RuntimeError(
+                            "execution live model state changed before failure"
+                        )) if model is not None and bound_model_state is not None and (
+                            model_state_sha256(model) != bound_model_state
+                        ) else None,
+                    )
+                    lifecycle.publish_failure_receipt_last({
                         "schema": "bracket_closure_execution_v1_failure",
                         "status": "terminal_failure_without_success_receipt",
                         "authority_sha256": authority_sha256,
                         "error_type": type(error).__name__, "error": str(error),
-                    }, outputs["failure"], lock=lock, final_guard=lock.require_owned)
+                    }, outputs["failure"], result_path=outputs["result"],
+                        receipt_path=outputs["receipt"], terminal_path=outputs["terminal"],
+                        lock=lock, final_guard=failure_guard)
                 except BaseException:
                     pass
             raise
@@ -531,6 +669,6 @@ if __name__ == "__main__":
 
 __all__ = (
     "build_result_payload", "closure_summary", "load_bound_roles", "load_derangement",
-    "run", "validate_authority_payload", "validate_independent_audit",
-    "validate_result_payload",
+    "model_state_sha256", "replay_row_parent_lineage", "run",
+    "validate_authority_payload", "validate_independent_audit", "validate_result_payload",
 )

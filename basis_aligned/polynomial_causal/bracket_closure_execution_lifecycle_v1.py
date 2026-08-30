@@ -189,6 +189,9 @@ def publish_result_receipt_last(
         ):
             raise RuntimeError("execution terminal aggregate changed before success claim")
         os.link(terminal_tmp, terminal_path)
+        directory = os.open(terminal_path.parent, os.O_RDONLY | getattr(os, "O_DIRECTORY", 0))
+        try: os.fsync(directory)
+        finally: os.close(directory)
     finally:
         terminal_tmp.unlink(missing_ok=True)
     terminal_sha256 = hashlib.sha256(terminal_bytes).hexdigest()
@@ -241,6 +244,9 @@ def publish_failure_receipt_last(
         ) or any(path.exists() for path in (receipt_path, failure_path, terminal_path)):
             raise RuntimeError("execution terminal aggregate changed before failure claim")
         os.link(temporary, terminal_path)
+        directory = os.open(terminal_path.parent, os.O_RDONLY | getattr(os, "O_DIRECTORY", 0))
+        try: os.fsync(directory)
+        finally: os.close(directory)
     finally:
         temporary.unlink(missing_ok=True)
     terminal_sha256 = hashlib.sha256(terminal_bytes).hexdigest()

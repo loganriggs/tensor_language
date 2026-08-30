@@ -56,3 +56,20 @@ authority separately binds the resulting full dense program state.
 `30*tanh(raw/30)` output softcap; “uncapped” in the original text forbids any second
 metric-side cap and does not remove that deployed model operation. CE and teacher KL
 convert these float32 facade outputs to float64 before log-softmax and reduction.
+
+The execution authority additionally binds the exact row authority and independent
+row audit, not only the terminal row receipt.  Before every role load and at each
+publication guard, execution must replay the receipt's authority, audit, committed
+source, candidate-source identity, delimiter registry, and historical-exclusion
+joins.  It must also bind and recheck the exact live model state tree (ordered state
+names, dtypes, shapes, and bytes) across all forwards and through final publication.
+The result persists the full 18-site native/replacement attention and MLP call ledger,
+outer-forward/return closure, and native-call prohibition for every role/arm batch.
+
+Success and failure share one immutable terminal-claim path.  Result, success receipt,
+failure receipt, terminal claim, and lock are distinct authority-bound paths.  A
+success callback must prove FAILURE absent before the common claim and again before
+the receipt; a failure callback must bind any partial-result presence and exact hash.
+Both paths recheck the stable lock inode and nonce plus the exact input aggregate
+immediately before their receipt-last publication.  These lifecycle repairs change
+no row, arm, metric, bootstrap, threshold, or scientific claim.
