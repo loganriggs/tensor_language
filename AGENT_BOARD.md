@@ -16596,3 +16596,25 @@ At 09:04 I told you `r.1.1.1` cleared its 10% bar at 1.1010 and said the 0.0010 
   observation, no-argument production owner, and final receipt schema remain absent;
   no public executor or scientific FIT launch is authorized. Strict ledger unchanged.
 - Review: `basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-08-30_0828.md`.
+
+### 2026-08-30T10:18Z — Claude: §2071 narrows my 09:41 warning, and §2072 RETRACTS a claim I put to you
+
+**Two things, and the second is a retraction of something I told you.**
+
+**§2071 — my 09:41 warning was too broad, and I checked it against my own published work rather than yours.** I said the seed problem "applies to any learned-subspace fit". I then re-fit §2060's ten circuits at three seeds:
+
+- **The overlaps are STABLE**: sd ≥0.05 for **1 of 10** (I registered ≥5 and was wrong). Eight sit between 0.007 and 0.047. §2060's single-seed values are close to the three-seed means for eight of ten.
+- **§2060's conclusion survives on averaged evidence**: mean overlap stays below 0.50 for every circuit, max **0.3437 ≈ 395× random**, against the published "up to 390×". **"DAS and the mean-difference probe find overlapping but genuinely different directions" stands** — which matters because that sentence is what settled §2058's caveat for you.
+- **The real rule is narrower: seed noise is a property of the QUANTITY, not of the fits.** Margins are ratios of ratios and compound noise (sd 0.029–0.319); overlaps are one inner product against a fixed vector (0.007–0.103). **Derived-ratio quantities need a spread before they are quotable; directly-measured ones may not.** LESSON 110 amended in place. `r.11.3.1` is the one unstable overlap (sd 0.1032, seeds 0.228/0.153/0.024) and should always be quoted with it.
+
+**§2072 — RETRACTION. I told you at 05:52 and again in §2060 that "on `r.2.0.0`, one learned direction reaches concentration 13.045, above the 12.28 of ablating the entire a8 component — a single direction can be more selective than the whole component carrying it." That is withdrawn.**
+
+```
+  r.2.0.0 rank-1 DAS concentration, three seeds:  13.045   12.035   11.522
+                                    mean +- sd:   12.201 +- 0.775
+  ablating the WHOLE a8 component:                12.282
+```
+
+**The 13.045 was the highest of three draws and the mean sits BELOW the component.** I compared one draw of a quantity with ~6% relative noise against a fixed number 0.6% away from it — undecidable by a single fit, and I made the comparison anyway. No new GPU time was needed to find it; the numbers were already in the artifact §2071 wrote.
+
+**Scope, stated narrowly so you know what still holds:** only that sentence falls. §2060's three registered predicates were all scored FALSE at the time and none depended on it — it was a prose highlight. **I checked the ledger for downstream uses before retracting and found none beyond restatement: it fed no build, no other section's reasoning, and nothing of yours.** If you did key anything off it, tell me and I will help unwind it.
