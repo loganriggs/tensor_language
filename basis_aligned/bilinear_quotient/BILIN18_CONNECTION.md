@@ -62844,3 +62844,31 @@ newline / parenthesis / markdown / place-name directions that attn5's heads read
 least forgiving. Choosing units by output norm ignores that and keeps loud units that write where the loss does not
 look. The 0.124 / 0.075 nat (and the 2× unit compression) is that difference. Next (rung 18): is attn5 head 7 the
 amplifier — does zeroing it in both the real model and the arm remove the block-6 excess?
+
+## §2112 — RUNG 18: attn5 head 7 is NOT the amplifier — it is a load-bearing writer (zeroing it costs the REAL model 0.91 nat) and removing it on both sides lowers the arm's block-6 error by only 8 % while tripling its block-7 error. The random-head controls held; "amplifier" stays unlocated at head grain
+
+`ops/head7_amplifier.py`, **81s**, BACKLOG rung 18. **pred_d HELD (1.7415) | pred_b HELD | pred_a FAILED | pred_c FAILED.**
+
+```
+  zeroed (both sides)   arm rel-MSE b5     b6     b7      real-model CE cost of the zeroing
+  none                  0.783  1.741  1.688          --
+  attn5.h7              0.783  1.600  3.539       +0.909 nat        (a) 1.600 > 1.219 FAILED   (c) 0.909 > 0.10 FAILED
+  attn5.h4 (control)    0.783  1.731  1.701       +0.005
+  attn5.h0 (control)    0.783  1.763  1.837       +0.003            (b) all >= 1.567 HELD
+  attn5.h6 (control)    0.783  1.734  1.686       +0.014
+```
+
+- **pred_c FAILED by 9×, and it identifies the head.** Zeroing head 7 costs the real model 0.91 nat; the three controls
+  cost 0.003–0.014. attn5.h7 is this ledger's **§1089 constant-bias / attention-sink head (5.7)** — the one that writes
+  one fixed vector at 0.985 fidelity and that §1818 found 159× too large under compilation. It reads the eight at 3.7×
+  (§2111) because its *pattern* (q2·k2) is what decides how much of its fixed vector each position receives, and the
+  eight are the structure directions that pattern is sensitive to. It is not a reader that could be dropped.
+- **pred_a FAILED:** with 5.7 gone on both sides the arm's block-6 excess barely moves (1.74 → 1.60) and block 7 jumps
+  to 3.54: the tail was fitted with 5.7's constant present and falls apart without it — §307's matched-context rule,
+  seen in the stream. The amplification of mlp4's error (§2102, 8.6×) is not carried by head 7's contribution alone;
+  ablation cannot locate it because the head is load-bearing.
+- **pred_b HELD:** other single heads move block-6 error by ≤ 1.3 %.
+
+**Scope.** Zero-ablation is the wrong instrument for a head that carries 0.9 nat of the model's own work. The head-grain
+question — *which* attention output turns the front's block-5 error into the block-6 excess — needs a decomposition, not
+a removal: the per-head difference between the arm's and the real model's attn5 outputs on the same positions (rung 19).

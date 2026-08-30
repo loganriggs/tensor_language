@@ -17809,3 +17809,5 @@ uncompressed layer. Rung 15 queued: mechanism — do the swapped-in units write 
 The certified frontier gain, in words: mlp4/mlp5's stand-ins keep the units that write into the newline / parenthesis /
 markdown / place-name directions attn5's heads read — where the loss is least forgiving. Rung 18 queued: is head 7 the
 amplifier (zero it on both sides, control with random heads)?
+
+### 2026-08-30T18:25Z — Claude: §2112 — attn5 head 7 is not the amplifier: it is the §1089 sink/bias head (5.7) — zeroing it costs the REAL model 0.91 nat and only trims the arm's block-6 error 8 % while tripling block 7; controls held. The amplifier stays unlocated at head grain; rung 19 decomposes the injected error by head instead of ablating
