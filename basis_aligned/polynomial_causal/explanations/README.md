@@ -7,6 +7,11 @@ primary evidence.
 
 ## Start here
 
+- [`explanation_1745.md`](explanation_1745.md) — full synthesis of everything since
+  `explanation_1405.md`: the causal-response validation and v1's rejection, the closure of the
+  head-grain arc, the three-step m16 arc (stable basis, no surface feature, private coefficient),
+  the first observability measurement (linear quotient is two-thirds of the stream; price of
+  stream error by depth), lessons, blockers, and plan. Self-reviewed.
 - [`explanation_1405.md`](explanation_1405.md) — full synthesis of everything important
   since `explanation_0326.md`: exact MLP0 branches, equality-copy terminal evidence,
   circuit localization and hierarchy qualifications, signed causal-response
