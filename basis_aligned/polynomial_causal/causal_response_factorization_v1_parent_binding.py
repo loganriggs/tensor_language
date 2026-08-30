@@ -400,4 +400,27 @@ def fit_parent_binding_without_tensor_load(
         "tensor_values_deserialized": False,
         "authorized_for_eval": False,
     }
+    # Expensive git/audit replay above creates a time-of-check/time-of-use window.
+    # Close it by replaying every receipt-bound artifact after all semantic work.
+    final_terminal_record, final_terminal_raw = _stable_record(paths.terminal)
+    final_receipt_record, final_receipt_raw = _stable_record(paths.receipt)
+    if (
+        final_terminal_record != terminal_record
+        or final_receipt_record != receipt_record
+        or final_terminal_raw != terminal_raw
+        or final_receipt_raw != receipt_raw
+    ):
+        raise RuntimeError("FIT terminal or receipt changed during parent validation")
+    for name, path in (
+        ("authority", paths.authority),
+        ("bundle", paths.bundle),
+        ("manifest", paths.manifest),
+    ):
+        final_record, _ = _stable_record(path)
+        if final_record != current[name] or final_record != aggregate[name]:
+            raise RuntimeError(
+                f"FIT receipt-bound {name} changed during terminal replay"
+            )
+    _require_absent(paths.failure, "FIT failure terminal")
+    _require_absent(paths.lock, "FIT owner lock")
     return {**body, "binding_sha256": _logical_sha256(body)}

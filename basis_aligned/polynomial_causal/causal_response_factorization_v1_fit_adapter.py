@@ -10,6 +10,8 @@ values require a different, later source closure after candidates are frozen.
 from __future__ import annotations
 
 from dataclasses import dataclass
+import hashlib
+import json
 from typing import Any, Mapping
 
 import torch
@@ -26,6 +28,12 @@ def _is_sha256(value: object) -> bool:
     return isinstance(value, str) and len(value) == 64 and all(
         character in "0123456789abcdef" for character in value
     )
+
+
+def _logical_sha256(value: object) -> str:
+    return hashlib.sha256(json.dumps(
+        value, sort_keys=True, separators=(",", ":"), allow_nan=False,
+    ).encode()).hexdigest()
 
 
 @dataclass(frozen=True)
@@ -64,6 +72,9 @@ class FitArtifactBinding:
             value.get("authorized_for_eval") is not False
         ):
             raise RuntimeError("FIT parent binding schema or role changed")
+        body = {key: item for key, item in value.items() if key != "binding_sha256"}
+        if value["binding_sha256"] != _logical_sha256(body):
+            raise RuntimeError("FIT parent binding logical identity does not replay")
         return cls(
             parent_binding_sha256=value["binding_sha256"],
             receipt_sha256=value["receipt_sha256"],
@@ -146,14 +157,13 @@ class FitTrainingInput:
 def training_input_from_fit_payload(
     payload: Mapping[str, Any],
     *,
-    artifacts: FitArtifactBinding,
+    parent_binding: Mapping[str, Any],
     require_production: bool = True,
     train_documents: int = FIT_TRAIN_DOCUMENTS,
 ) -> FitTrainingInput:
     """Replay one receipt-loaded payload and expose the training role only."""
 
-    if not isinstance(artifacts, FitArtifactBinding):
-        raise TypeError("FIT artifact binding is required before response exposure")
+    artifacts = FitArtifactBinding.from_parent_binding(parent_binding)
     if require_production and train_documents != FIT_TRAIN_DOCUMENTS:
         raise RuntimeError("production document split differs from the preregistration")
     fit_bundle.validate_fit_bundle_payload(

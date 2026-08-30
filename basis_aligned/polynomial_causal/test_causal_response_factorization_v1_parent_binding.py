@@ -222,6 +222,22 @@ def test_parent_binding_rejects_parent_self_authorizing_selection(tmp_path):
         parent.fit_parent_binding_without_tensor_load(paths)
 
 
+def test_parent_binding_terminal_replay_rejects_bundle_mutation_during_source_check(
+    tmp_path, monkeypatch,
+):
+    paths, _ = _fixture(tmp_path)
+
+    def mutate_during_expensive_check(value):
+        paths.bundle.write_bytes(b"mutated during historical source replay")
+        return value["sha256"]
+
+    monkeypatch.setattr(
+        parent, "_validate_historical_source_closure", mutate_during_expensive_check
+    )
+    with pytest.raises(RuntimeError, match="bundle changed during terminal replay"):
+        parent.fit_parent_binding_without_tensor_load(paths)
+
+
 def test_historical_source_closure_and_independent_go_replay():
     authority = json.loads(parent.PRODUCTION_PATHS.authority.read_text())
     assert parent._validate_historical_source_closure(authority["source_closure"]) == (

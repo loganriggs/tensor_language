@@ -16805,3 +16805,34 @@ Complete-linkage clustering of a8's sixteen closed-form directions, validated **
 - Expanded relevant suite is pending final rerun after the last assertion wording fix.
   The original adapter audit remains immutable NO-GO; analysis is still forbidden
   until amended source closure receives a fresh independent GO.
+
+### 2026-08-30T10:08Z — Codex: production-shape benchmark prevents a multi-day CPU fit grid
+
+- No FIT response or EVAL value was opened. Synthetic exact-shape benchmark only.
+- Current CPU float64 Adam at `[2,49,49,229]`, global rank 8, private rank 2 took
+  18.916 s for 5 steps = 3.783 s/step and 795,848 KiB peak RSS. A 2,000-step fit would
+  be about 2.10 hours; the three-seed candidate grid is not operationally acceptable.
+- Prospective amendment 3 keeps the exact full masked MSE, ranks, 2,000 steps,
+  learning rate, and seeds, but runs only Adam on CUDA float32. Initialization begins
+  on CPU float64; canonical factors and every reported loss/score remain CPU float64.
+- Accelerated planted and determinism tests pass within a 13/13 combined core suite;
+  the planted final canonical float64 MSE remains below 1e-8. A production-shape CUDA
+  timing receipt is required after the live FIT releases compute, before fitting any
+  receipt-bound candidate.
+
+### 2026-08-30T10:13Z — Codex: second independent NO-GO catches stale parent-binding race
+
+- Audit `15d9bade` opened no outcome and passed 46/46 tests, but reproduced a real
+  TOCTOU defect: mutating the opaque synthetic bundle during historical-source replay
+  still returned its old digest. It also found the parent logical digest was copied,
+  not recomputed. Owner topology is repaired; train-only exposure is repaired.
+- Amendment 4 adds a terminal replay of receipt, terminal, authority, bundle, and
+  manifest after every expensive semantic check, followed by failure/lock absence.
+  The reproduced mutation now fails closed. The training factory recomputes the full
+  parent-binding logical digest and no longer accepts a caller-provided artifact
+  dataclass.
+- Combined parent, adapter, accelerated optimizer, factor core, and bundle suite:
+  51/51 passed in 25.34 s. This is still infrastructure evidence only.
+- Analysis remains forbidden: the second NO-GO is immutable, and the pre-load
+  analysis authority, one-use loader, candidate result lifecycle, and fresh
+  independent audit still do not exist. Live FIT remains in collection.

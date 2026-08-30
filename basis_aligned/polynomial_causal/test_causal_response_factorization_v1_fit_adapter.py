@@ -26,11 +26,37 @@ def _artifacts(payload):
     )
 
 
+def _parent_binding(payload):
+    artifacts = _artifacts(payload)
+    body = {
+        "schema": "causal_response_factorization_v1_fit_parent_binding",
+        "receipt_sha256": artifacts.receipt_sha256,
+        "terminal_sha256": artifacts.terminal_sha256,
+        "authority_artifact_sha256": artifacts.authority_artifact_sha256,
+        "authority_logical_sha256": artifacts.authority_logical_sha256,
+        "bundle_sha256": artifacts.bundle_sha256,
+        "bundle_bytes": 123,
+        "manifest_artifact_sha256": artifacts.manifest_artifact_sha256,
+        "manifest_logical_sha256": artifacts.manifest_logical_sha256,
+        "source_closure_sha256": artifacts.source_closure_sha256,
+        "fit_protocol": {},
+        "tensor_values_deserialized": False,
+        "authorized_for_eval": False,
+    }
+    return {**body, "binding_sha256": adapter._logical_sha256(body)}
+
+
+def _replace_binding(value, **updates):
+    body = {key: item for key, item in value.items() if key != "binding_sha256"}
+    body.update(updates)
+    return {**body, "binding_sha256": adapter._logical_sha256(body)}
+
+
 def _analysis_input():
     payload = _payload()
     return payload, adapter.training_input_from_fit_payload(
         payload,
-        artifacts=_artifacts(payload),
+        parent_binding=_parent_binding(payload),
         require_production=False,
         train_documents=3,
     )
@@ -65,37 +91,43 @@ def test_adapter_outputs_do_not_alias_the_validated_payload():
 
 def test_adapter_replays_semantics_before_exposing_response():
     payload = _payload()
-    artifacts = _artifacts(payload)
+    parent_binding = _parent_binding(payload)
     payload["fit_response"]["statistics"]["member_abs_sum"][0, 0, 0, 0] = -1
     payload["tensor_hashes"] = fit_bundle._tensor_hash_map({
         key: value for key, value in payload.items() if key != "tensor_hashes"
     })
     with pytest.raises(ValueError, match="nonnegative"):
         adapter.training_input_from_fit_payload(
-            payload, artifacts=artifacts, require_production=False, train_documents=3
+            payload, parent_binding=parent_binding,
+            require_production=False, train_documents=3
         )
 
 
 def test_adapter_rejects_wrong_authority_source_closure_and_production_split():
     payload = _payload()
-    artifacts = _artifacts(payload)
+    parent_binding = _parent_binding(payload)
     with pytest.raises(RuntimeError, match="authority"):
         adapter.training_input_from_fit_payload(
             payload,
-            artifacts=replace(artifacts, authority_logical_sha256="9" * 64),
+            parent_binding=_replace_binding(
+                parent_binding, authority_logical_sha256="9" * 64
+            ),
             require_production=False,
             train_documents=3,
         )
     with pytest.raises(RuntimeError, match="source closure"):
         adapter.training_input_from_fit_payload(
             payload,
-            artifacts=replace(artifacts, source_closure_sha256="8" * 64),
+            parent_binding=_replace_binding(
+                parent_binding, source_closure_sha256="8" * 64
+            ),
             require_production=False,
             train_documents=3,
         )
     with pytest.raises(RuntimeError, match="preregistration"):
         adapter.training_input_from_fit_payload(
-            payload, artifacts=artifacts, require_production=True, train_documents=228
+            payload, parent_binding=parent_binding,
+            require_production=True, train_documents=228
         )
 
 
@@ -109,10 +141,25 @@ def test_training_input_rejects_forged_owner_topology():
 
 def test_adapter_carries_all_parent_artifact_identities():
     payload, result = _analysis_input()
-    assert result.artifacts == _artifacts(payload)
+    expected = replace(
+        _artifacts(payload),
+        parent_binding_sha256=_parent_binding(payload)["binding_sha256"],
+    )
+    assert result.artifacts == expected
     assert result.artifacts.receipt_sha256 == result.artifacts.terminal_sha256
     with pytest.raises(ValueError, match="terminal"):
         replace(result.artifacts, terminal_sha256="f" * 64)
+
+
+def test_adapter_rejects_parent_binding_with_unreplayed_logical_hash():
+    payload = _payload()
+    parent_binding = _parent_binding(payload)
+    parent_binding["bundle_sha256"] = "f" * 64
+    with pytest.raises(RuntimeError, match="logical identity"):
+        adapter.training_input_from_fit_payload(
+            payload, parent_binding=parent_binding,
+            require_production=False, train_documents=3,
+        )
 
 
 def test_adapter_has_no_file_validation_or_eval_capability_surface():
