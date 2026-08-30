@@ -1,15 +1,20 @@
 import torch
+import json
+from pathlib import Path
 
 from causal_response_factorization_v1 import (
+    block_d_optimal_anchor_mask,
     fit_shared_private_program,
     infer_document_codes,
     make_program_from_factors,
     predict_from_codes,
     prospective_anchor_mask,
+    prospective_anchor_arm_mask,
     prospective_document_split,
     score_program_on_validation,
     signed_response_from_sums,
 )
+from causal_response_block_design_planted_toy_v1 import build_receipt
 
 
 def test_signed_response_uses_member_minus_off_and_masks_unsupported():
@@ -42,6 +47,10 @@ def test_prospective_splits_are_deterministic_and_outcome_blind():
     assert sorted(train1.tolist() + validation1.tolist()) == list(range(6))
     anchors = prospective_anchor_mask(2, 3, 4, anchors=5)
     assert anchors.dtype == torch.bool and int(anchors.sum()) == 5
+    block_anchors, selected = prospective_anchor_arm_mask(2, 3, 4, arms=2)
+    assert len(selected) == 2 and int(block_anchors.sum()) == 8
+    assert bool((block_anchors.reshape(6, 4).all(1)
+                 | (~block_anchors.reshape(6, 4)).all(1)).all())
 
 
 def test_shared_private_program_has_exact_tensor_basis_and_literal_price():
@@ -161,17 +170,12 @@ def test_validation_scorer_separates_unconditional_from_calibrated_and_reports_b
     validation_codes = torch.randn((8, 3), generator=generator, dtype=torch.float64)
     truth = predict_from_codes(program.basis(), validation_codes).reshape(2, 4, 4, 8)
     valid = torch.ones_like(truth, dtype=torch.bool)
-    # Pick six independent rows, satisfying the frozen two-anchors-per-code rule.
+    # Select two complete physical arms, giving eight scalar cells for a 3-D code.
     basis = program.basis()
-    selected = []
-    for index in range(basis.shape[0]):
-        candidate = selected + [index]
-        if len(selected) >= 3 or torch.linalg.matrix_rank(basis[candidate]) > len(selected):
-            selected.append(index)
-        if len(selected) == 6:
-            break
-    anchors = torch.zeros(basis.shape[0], dtype=torch.bool)
-    anchors[selected] = True
+    anchors, selected, path = block_d_optimal_anchor_mask(
+        basis, shape=(2, 4, 4), arms=2
+    )
+    assert len(selected) == 2 and path[1] >= path[0]
     report = score_program_on_validation(
         program, train_codes, truth, valid, anchors,
         training_rms=float(truth.square().mean().sqrt()),
@@ -183,3 +187,50 @@ def test_validation_scorer_separates_unconditional_from_calibrated_and_reports_b
     assert len(report["calibrated"]["owner_pairs"]) == 4
     assert report["calibrated"]["uses_pooled_only"] is False
     assert report["claim_boundary"]["calibrated_is_zero_shot_ood"] is False
+    assert report["anchor_source_arms"] == 2
+
+
+def test_block_d_optimal_selection_is_invariant_to_invertible_code_gauge():
+    generator = torch.Generator().manual_seed(991)
+    basis = torch.randn((2 * 7 * 5, 4), generator=generator, dtype=torch.float64)
+    gauge = torch.randn((4, 4), generator=generator, dtype=torch.float64)
+    gauge = gauge + 3.0 * torch.eye(4, dtype=torch.float64)
+    mask1, arms1, path1 = block_d_optimal_anchor_mask(
+        basis, shape=(2, 7, 5), arms=4
+    )
+    mask2, arms2, path2 = block_d_optimal_anchor_mask(
+        basis @ gauge, shape=(2, 7, 5), arms=4
+    )
+    assert arms1 == arms2
+    assert torch.equal(mask1, mask2)
+    assert torch.allclose(torch.tensor(path1), torch.tensor(path2), atol=1e-10, rtol=0)
+    assert int(mask1.sum()) == 4 * 5
+
+
+def test_validation_scorer_rejects_scattered_cell_mask_as_false_price():
+    groups = torch.tensor([0, 1], dtype=torch.int64)
+    program = make_program_from_factors(
+        (torch.ones((1, 1)), torch.ones((2, 1)), torch.ones((2, 1))),
+        (
+            (torch.empty((1, 0)), torch.empty((1, 0)), torch.empty((2, 0))),
+            (torch.empty((1, 0)), torch.empty((1, 0)), torch.empty((2, 0))),
+        ),
+        groups,
+    )
+    codes = torch.ones((3, 1), dtype=torch.float64)
+    truth = predict_from_codes(program.basis(), codes).reshape(1, 2, 2, 3)
+    scattered = torch.tensor([True, False, True, False])
+    try:
+        score_program_on_validation(
+            program, codes, truth, torch.ones_like(truth, dtype=torch.bool), scattered,
+            training_rms=1.0, minimum_anchor_ratio=1,
+        )
+    except ValueError as error:
+        assert "complete physical target blocks" in str(error)
+    else:
+        raise AssertionError("scattered cell pricing must fail closed")
+
+
+def test_planted_block_design_receipt_replays_exactly():
+    path = Path(__file__).with_name("causal_response_block_design_planted_toy_v1.json")
+    assert build_receipt() == json.loads(path.read_text())

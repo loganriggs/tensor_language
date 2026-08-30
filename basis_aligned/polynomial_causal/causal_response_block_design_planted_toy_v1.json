@@ -1,0 +1,39 @@
+{
+  "claim_boundary": "CPU planted sensor-design known answer only; no bilin18 model, corpus, FIT bundle, EVAL role, or protected outcome was opened",
+  "code_dimension": 8,
+  "d_optimal": {
+    "arms": [38, 39, 37, 34],
+    "code_mse": 8.233097988540247e-05,
+    "condition_number": 8.561414097132724,
+    "logdet_path": [
+      -20.085343444985114,
+      -11.332070145203264,
+      -7.16420359536844,
+      -5.547231250580514
+    ],
+    "minimum_design_singular_value": 8.861631648603593,
+    "mse_nonanchor": 0.0006586048776456234,
+    "nrmse": 0.002977140834842762,
+    "supported_documents": 200
+  },
+  "noise_sd_fraction_of_response_sd": 0.02,
+  "nonanchor_mse_ratio_dopt_over_hash": 0.05231155745276476,
+  "outcome_blind_hash": {
+    "arms": [28, 32, 20, 3],
+    "code_mse": 0.0009686473833650009,
+    "condition_number": 11.409476959273634,
+    "minimum_design_singular_value": 2.460342127608098,
+    "mse_nonanchor": 0.012590045292387199,
+    "nrmse": 0.013016689773855984,
+    "supported_documents": 200
+  },
+  "physical_arm_budget": 4,
+  "schema": "causal_response_block_design_planted_toy_v1",
+  "seed": 20260830,
+  "shape": [2, 20, 10, 200],
+  "source_sha256": {
+    "CAUSAL_RESPONSE_FACTORIZATION_V1_AMENDMENT_1.md": "cf8b9e3dce807a94183d8314e4bba14e1f01ff3aa579d8648c680dc385540768",
+    "causal_response_factorization_v1.py": "8af3e8c4987b15d8da5413f2998452ea7064779ad648c17c0d9269fd7ed0f881",
+    "test_causal_response_factorization_v1.py": "33b29ec7b045fa61d3bd27ec92664103668163f10e60736ea9d3b892589c29b6"
+  }
+}

@@ -20,6 +20,7 @@ DOC_SALT = "causal-response-factorization-v1-doc"
 ANCHOR_SALT = "causal-response-factorization-v1-anchor"
 FIT_TRAIN_DOCUMENTS = 229
 ANCHOR_CELLS = 384
+ARM_SALT = "causal-response-factorization-v1-arm"
 
 
 def _exact_cpu_tensor(value: object, dtype: torch.dtype, label: str) -> torch.Tensor:
@@ -114,6 +115,83 @@ def prospective_anchor_mask(
     mask = torch.zeros(total, dtype=torch.bool)
     mask[torch.tensor([index for _, index in sorted(keyed)[:anchors]])] = True
     return mask
+
+
+def prospective_anchor_arm_mask(
+    phases: int, sources: int, targets: int, *, arms: int
+) -> tuple[torch.Tensor, tuple[int, ...]]:
+    """Select outcome-blind complete target blocks, priced by physical source arms."""
+
+    if min(phases, sources, targets) <= 0 or not 0 < arms < phases * sources:
+        raise ValueError("arm budget must lie strictly inside the phase/source count")
+    keyed = []
+    for phase in range(phases):
+        for source in range(sources):
+            flat_arm = phase * sources + source
+            digest = hashlib.sha256(f"{ARM_SALT}|{phase}|{source}".encode()).digest()
+            keyed.append((digest, flat_arm))
+    selected = tuple(index for _, index in sorted(keyed)[:arms])
+    block_mask = torch.zeros((phases, sources, targets), dtype=torch.bool)
+    for index in selected:
+        block_mask[index // sources, index % sources, :] = True
+    return block_mask.reshape(-1).contiguous(), selected
+
+
+def block_d_optimal_anchor_mask(
+    basis: torch.Tensor,
+    *,
+    shape: tuple[int, int, int],
+    arms: int,
+    ridge: float = 1e-8,
+    tie_tolerance: float = 1e-12,
+) -> tuple[torch.Tensor, tuple[int, ...], tuple[float, ...]]:
+    """Greedy gauge-invariant D-optimal selection of complete target blocks.
+
+    ``basis`` may use any full-column-rank coordinates for the same observation
+    subspace. QR reduces it to an orthonormal span, making the physical selection
+    invariant to invertible code reparameterizations up to numerical tie handling.
+    """
+
+    basis = _exact_cpu_tensor(basis, torch.float64, "basis")
+    phases, sources, targets = shape
+    if basis.ndim != 2 or basis.shape[0] != phases * sources * targets:
+        raise ValueError("basis does not align with the phase/source/target shape")
+    if basis.shape[1] < 1 or not 0 < arms < phases * sources:
+        raise ValueError("basis rank and arm budget must be positive")
+    if not math.isfinite(ridge) or ridge <= 0 or (
+        not math.isfinite(tie_tolerance) or tie_tolerance < 0
+    ):
+        raise ValueError("D-optimal numerical controls are invalid")
+    if int(torch.linalg.matrix_rank(basis)) != basis.shape[1]:
+        raise ValueError("D-optimal candidate basis must have full column rank")
+    q = torch.linalg.qr(basis, mode="reduced").Q.contiguous()
+    rank = q.shape[1]
+    blocks = q.reshape(phases * sources, targets, rank)
+    information = ridge * torch.eye(rank, dtype=torch.float64)
+    selected: list[int] = []
+    logdet_path: list[float] = []
+    available = set(range(phases * sources))
+    for _ in range(arms):
+        best_arm = None
+        best_value = -math.inf
+        for arm in sorted(available):
+            candidate = information + blocks[arm].T @ blocks[arm]
+            sign, logabsdet = torch.linalg.slogdet(candidate)
+            if float(sign) <= 0 or not math.isfinite(float(logabsdet)):
+                raise RuntimeError("D-optimal information matrix is not positive definite")
+            value = float(logabsdet)
+            if value > best_value + tie_tolerance:
+                best_value = value
+                best_arm = arm
+        if best_arm is None:
+            raise RuntimeError("D-optimal arm selection made no progress")
+        selected.append(best_arm)
+        available.remove(best_arm)
+        information = information + blocks[best_arm].T @ blocks[best_arm]
+        logdet_path.append(best_value)
+    mask = torch.zeros((phases * sources, targets), dtype=torch.bool)
+    mask[torch.tensor(selected, dtype=torch.int64)] = True
+    return mask.reshape(-1).contiguous(), tuple(selected), tuple(logdet_path)
 
 
 @dataclass(frozen=True)
@@ -528,6 +606,13 @@ def score_program_on_validation(
     ):
         raise ValueError("validation tensors or training codes do not align with program")
     d = validation_response.shape[3]
+    block_view = anchors.reshape(p * s, t)
+    complete_blocks = block_view.all(dim=1) | (~block_view).all(dim=1)
+    if not bool(complete_blocks.all()):
+        raise ValueError("calibration mask must contain complete physical target blocks")
+    selected_arms = torch.nonzero(block_view.all(dim=1), as_tuple=False).flatten()
+    if selected_arms.numel() == 0:
+        raise ValueError("calibration mask selects no physical source arm")
     response_matrix = validation_response.reshape(p * s * t, d)
     valid_matrix = validation_valid.reshape(p * s * t, d)
     basis = program.basis()
@@ -565,6 +650,8 @@ def score_program_on_validation(
         "minimum_supported_document_fraction": 0.90,
         "support_gate_passes": support_fraction >= 0.90,
         "anchor_cells": int(anchors.sum()),
+        "anchor_source_arms": int(selected_arms.numel()),
+        "anchor_source_arm_indices": selected_arms.tolist(),
         "code_dimension": program.code_dimension,
         "claim_boundary": {
             "unconditional_uses_validation_responses": False,

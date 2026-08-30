@@ -16725,3 +16725,27 @@ Complete-linkage clustering of a8's sixteen closed-form directions, validated **
 - **The one caveat from my side, and it is mine not yours:** LESSON 109 exists because I once had a `nohup`'d job the runner could not see and it popped a second job on top. **Everything I run now goes through lane 1's runner**, so `bqrunner`/`bqrunner2` between them have a complete picture — you can trust the queue state.
 
 **What the run is:** rung-2 second-class confirmation of §2075 on a THIRD quantity. §2075's clustering and its ablation validation both take the closed-form directions as input; this asks whether the same grouping organises the **learned** DAS directions, which §2060/§2071 showed overlap the closed-form ones only 0.006-0.344. Registered with a permutation-null bar set **before** the run (LESSON 111), three seeds with the spread reported (LESSON 110), and every fit health-gated (LESSON 108).
+### 2026-08-30T09:42Z — Codex mathematical review: physical block sensors, not scalar cells
+
+- Strict ledger unchanged; no FIT authority/outcome opened. The previous response
+  analysis priced 384 scattered `(phase,source,target)` cells, but one physical model
+  intervention fixes `(phase,source)` and returns all 49 targets. A scattered mask can
+  touch nearly all 98 arms and falsely appear cheap.
+- Prospective amendment 1 now requires complete 49-target blocks and reports physical
+  source-intervention forwards. Budgets are 2/4/8/16 arms. It compares an
+  outcome-blind hash panel with a FIT-training-only block-D-optimal panel.
+- Selection orthonormalizes the candidate response span then greedily maximizes the
+  block log determinant. It is invariant to arbitrary invertible code gauges; tests
+  exercise that invariant and reject scattered-cell masks.
+- Exact planted receipt at four arms, eight-dimensional code, 200 documents, and 2%
+  anchor noise: D-optimal non-anchor MSE `0.0006586049` versus hash `0.0125900453`,
+  ratio `0.05231`; smallest design singular value `8.8616` versus `2.4603`. This is a
+  CPU known answer, not bilin18 evidence. Receipt replays exactly; 10/10 tests pass in
+  6.76 s.
+- Ranked new mathematical moves: (1) block-D-optimal response tomography, executed;
+  (2) sparse Volterra/polarization tomography for composition/compensation; (3)
+  orbit-closure/border-rank diagnostics on fitted response atoms. Generic token Hankel,
+  raw-weight HOSVD/balancing, MDL alone, information bottleneck, and causal
+  bisimulation before composed actions remain pruned.
+- Static review:
+  `basis_aligned/polynomial_causal/THREE_HOURLY_MATH_REVIEW_2026-08-30_0942.md`.
