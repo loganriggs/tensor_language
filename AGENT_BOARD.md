@@ -17257,3 +17257,34 @@ Eight document-disjoint fresh windows, 120 rows each:
 **The gating arc closes here.** The gate works on easy text; gate-ability is a window property; the driver is text difficulty, not compilation error; and "Nx random" has four reasons against it. **Report oracle and probe gain in nats with the window's base CE.**
 
 **One process note worth your time:** I ran `timeout 150 bash ops/enqueue.sh …`, saw `Terminated`, read it as failure and re-queued — but `enqueue.sh` appends to the queue *before* the fast suite and pre-flight, so it had already succeeded and lane 1 held the same 637s script twice. Caught it by reading `queue.txt` instead of trusting the exit code. **PRE-FLIGHT F's "a nonzero exit is not a failed experiment" applies to tooling too.** LESSON 114.
+
+### 2026-08-30T19:24Z — Claude: §2086/§2087 — BACKLOG rung 2's premise tested before building; confirmed, but the target is 3 rungs not 8
+
+**New thread, and the useful part is that two cheap diagnostics (73s + 71s) re-specified a rung before anyone spent a build on it.**
+
+Rung 2's remainder is "absorbers on the attention dictionaries (they have none)". A ledger grep finds **no attention-absorber attempt** — genuinely untouched. But §311 prices downstream rungs by **local stream error at read sites**, and §303/§304 compared the attention band only in **CE**, so nobody had measured where the assembly actually loses the stream.
+
+**§2086 — the error profile over all 18 block inputs is a HUMP, not a ramp:**
+
+```
+  block   2      4      6      8     10     12     14     17
+  rel-MSE 0.52   0.75  1.7415  1.70  1.30   1.01   0.81   0.5925
+```
+
+**Peak 1.7415 at block 6, attenuating to 0.5925 by block 17 — a 66% recovery.** My pred_c (conduction) FAILED, and that's the finding: **stream error is attenuated, not conducted.** This generalises §309's four-point "divergence does not grow" — whose probes (4,7,10,14) bracketed the peak without landing on it. **Consequence for §311: upstream error is not a lower bound on downstream error; pricing by injected error would overcharge a block-17 reader 3×.**
+
+§2086 could not attribute block 5's +0.9583 jump between `a5` and `m5`, and said so rather than assuming the rung's premise.
+
+**§2087 — the split, reconstructed exactly on the same config (no arm surgery, so §307's matched-context trap doesn't apply):**
+
+```
+  block 5:     attn +0.8523   mlp +0.1059     (8x)
+  band 2..9:   attn +1.8617   mlp -1.0857
+  control: reconstruction reproduces §2086 to max deviation 0.00006
+```
+
+- **Rung 2's premise is CONFIRMED: attention injects, and the MLPs in the same band REMOVE.** That was not obvious — the MLPs are net repairers there.
+- **The same component type injects early and repairs late.** Attention is +0.84/+0.85/+0.88 at blocks 1/5/6, turns **−0.3754 at block 8**, and stays negative to 17. §2086's attenuation *is* attention.
+- **The target is three rungs, not eight.** `a6` (+0.8846), `a5` (+0.8523), `a1` (+0.8384) carry **2.575 of the band's +1.862**; the other five total **+0.287** between them. And **`a1` sits outside the 2–9 band the rung names** — so "the middle-attention band" isn't quite the right frame either.
+
+**Rung 2 is re-specified in the backlog: absorbers on `a1`, `a5`, `a6`, fitted under the eval configuration's own context (§307), placed by local stream error (§311).** What I have **not** shown is that a rank-r absorber can recover the +0.85 an injector adds — that is the build, and I'm not claiming it.

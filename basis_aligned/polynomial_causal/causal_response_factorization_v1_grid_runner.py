@@ -260,6 +260,12 @@ def _validate_result_cell(
     }:
         raise RuntimeError(f"grid result program schema changed: {path.name}")
     program = ResponseProgram(**program_payload)
+    if program.shape != training.response.shape[:3] or (
+        program.global_phase.shape[1] != global_rank
+        or len(program.private_phase) != len(training.owner_components)
+        or any(block.shape[1] != private_rank for block in program.private_phase)
+    ):
+        raise RuntimeError(f"grid result registered ranks changed: {path.name}")
     codes = payload["document_codes"]
     if type(codes) is not torch.Tensor or codes.dtype != torch.float64 or (
         codes.device.type != "cpu" or not codes.is_contiguous()
@@ -274,6 +280,24 @@ def _validate_result_cell(
         "initial_mse", "final_mse", "improvement_fraction", "steps", "seed",
     } or type(receipt) is not dict:
         raise RuntimeError(f"grid result metrics/receipt schema changed: {path.name}")
+    report_keys = {
+        "training_response_rms", "normalized_training_mse", "phase_mse",
+        "source_owner_mse", "target_owner_mse", "owner_pair_nrmse",
+        "worst_owner_pair_nrmse",
+    }
+    receipt_keys = {
+        "source_closure_sha256", "input_binding_sha256", "global_rank",
+        "private_rank_each_owner", "seed", "steps", "learning_rate",
+        "optimizer_device", "persistent_values", "per_document_values",
+        "amortized_total_values", "strict_dense_matched_rank",
+        "amortized_total_dense_rank_noncontrolling",
+        "prediction_multiply_adds_per_document", "calibration_cells_training_stage",
+        "registered_validation_calibration_arm_budgets", "initial_mse", "final_mse",
+        "improvement_fraction", "healthy", "minimum_improvement", "elapsed_seconds",
+        "validation_values_read", "eval_values_read", *report_keys,
+    }
+    if set(receipt) != receipt_keys:
+        raise RuntimeError(f"grid result receipt keys changed: {path.name}")
     fixed = {
         "source_closure_sha256": source_sha256,
         "input_binding_sha256": input_sha256,
@@ -304,6 +328,9 @@ def _validate_result_cell(
         final_mse=replay_mse, improvement_fraction=improvement, steps=steps, seed=seed,
     )
     expected_report = _training_error_report(training, fitted)
+    price_row = {
+        (row.global_rank, row.private_rank_each_owner): row for row in audit_rows()
+    }.get((global_rank, private_rank))
     if (
         replay_mse != receipt.get("final_mse")
         or initial_mse != receipt.get("initial_mse")
@@ -311,6 +338,24 @@ def _validate_result_cell(
         or any(receipt.get(key) != value for key, value in expected_report.items())
         or receipt.get("persistent_values") != program.persistent_values
         or receipt.get("per_document_values") != program.code_dimension
+        or receipt.get("amortized_total_values") != (
+            program.persistent_values + training.response.shape[-1] * program.code_dimension
+        )
+        or receipt.get("prediction_multiply_adds_per_document") != (
+            training.response.shape[0] * training.response.shape[1]
+            * training.response.shape[2] * program.code_dimension
+        )
+        or receipt.get("calibration_cells_training_stage") != 0
+        or receipt.get("registered_validation_calibration_arm_budgets") != [2, 4, 8, 16]
+        or receipt.get("minimum_improvement") != MINIMUM_IMPROVEMENT
+        or not isinstance(receipt.get("elapsed_seconds"), (int, float))
+        or not math.isfinite(receipt["elapsed_seconds"])
+        or receipt["elapsed_seconds"] < 0
+        or (price_row is not None and (
+            receipt.get("strict_dense_matched_rank") != price_row.strict_dense_matched_rank
+            or receipt.get("amortized_total_dense_rank_noncontrolling")
+            != price_row.amortized_total_dense_rank
+        ))
         or receipt.get("healthy") is not (
             math.isfinite(replay_mse) and improvement >= MINIMUM_IMPROVEMENT
         )
@@ -476,6 +521,8 @@ def _run_grid_locked(
         (row.global_rank, row.private_rank_each_owner): row for row in audit_rows()
     }
     cells: list[dict[str, object]] = []
+    terminal_path = output / "terminal.json"
+    terminal_preexists = terminal_path.exists()
     for global_rank, private_rank in rank_pairs:
         if (global_rank, private_rank) not in price_lookup and require_published_source:
             raise RuntimeError("production grid rank pair differs from the frozen audit")
@@ -505,6 +552,8 @@ def _run_grid_locked(
                 cells.append({**failure, "kind": "failure", "artifact": failure_path.name,
                               "artifact_sha256": _sha256(raw), "bytes": len(raw)})
                 continue
+            if terminal_preexists:
+                raise RuntimeError(f"terminal grid is missing registered cell: {stem}")
             started = time.perf_counter()
             try:
                 fitted = fitter(
@@ -531,8 +580,15 @@ def _run_grid_locked(
                     "validation_values_read": False,
                     "eval_values_read": False,
                 }
-                _atomic_create(failure_path, _json_bytes(failure))
-                raw = failure_path.read_bytes()
+                failure, raw = _validated_bytes_create(
+                    failure_path, _json_bytes(failure),
+                    lambda path: _validate_failure_cell(
+                        path, source_sha256=source["sha256"],
+                        input_sha256=input_binding["sha256"], global_rank=global_rank,
+                        private_rank=private_rank, seed=seed, steps=steps,
+                        learning_rate=learning_rate, optimizer_device=optimizer_device,
+                    ),
+                )
                 cells.append({**failure, "kind": "failure", "artifact": failure_path.name,
                               "artifact_sha256": _sha256(raw), "bytes": len(raw)})
                 continue
@@ -585,12 +641,14 @@ def _run_grid_locked(
             receipt.update(_training_error_report(training, fitted))
             payload = _program_payload(fitted)
             payload["receipt"] = receipt
-            _atomic_torch_create(result_path, payload)
-            replay_receipt, raw = _validate_result_cell(
-                result_path, training, source_sha256=source["sha256"],
-                input_sha256=input_binding["sha256"], global_rank=global_rank,
-                private_rank=private_rank, seed=seed, steps=steps,
-                learning_rate=learning_rate, optimizer_device=optimizer_device,
+            replay_receipt, raw = _validated_torch_create(
+                result_path, payload,
+                lambda path: _validate_result_cell(
+                    path, training, source_sha256=source["sha256"],
+                    input_sha256=input_binding["sha256"], global_rank=global_rank,
+                    private_rank=private_rank, seed=seed, steps=steps,
+                    learning_rate=learning_rate, optimizer_device=optimizer_device,
+                ),
             )
             if replay_receipt != receipt:
                 raise RuntimeError("new grid cell did not replay exactly")
@@ -619,20 +677,27 @@ def _run_grid_locked(
         "eval_values_read": False,
     }
     terminal = {**manifest_body, "manifest_sha256": _logical_sha256(manifest_body)}
-    terminal_path = output / "terminal.json"
     raw = _json_bytes(terminal)
     if terminal_path.exists():
         if terminal_path.read_bytes() != raw:
             raise RuntimeError("factor-grid terminal namespace is already spent differently")
     else:
-        _atomic_create(terminal_path, raw)
-    if json.loads(terminal_path.read_bytes()) != terminal:
-        raise RuntimeError("factor-grid terminal receipt did not replay")
-    expected_names = {
-        ".lock", "terminal.json", *(cell["artifact"] for cell in cells),
-    }
-    if {path.name for path in output.iterdir()} != expected_names:
-        raise RuntimeError("factor-grid terminal directory census changed")
+        expected_preterminal_names = {".lock", *(cell["artifact"] for cell in cells)}
+
+        def validate_terminal(path: Path) -> tuple[dict[str, object], bytes]:
+            staged_raw = path.read_bytes()
+            staged = json.loads(staged_raw)
+            if staged != terminal:
+                raise RuntimeError("staged factor-grid terminal did not replay")
+            return staged, staged_raw
+
+        def validate_preterminal_census() -> None:
+            if {path.name for path in output.iterdir()} != expected_preterminal_names:
+                raise RuntimeError("factor-grid preterminal directory census changed")
+
+        _validated_bytes_create(
+            terminal_path, raw, validate_terminal, before_link=validate_preterminal_census,
+        )
     return terminal
 
 
