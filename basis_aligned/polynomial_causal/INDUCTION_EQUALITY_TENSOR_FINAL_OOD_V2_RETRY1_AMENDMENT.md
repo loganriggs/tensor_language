@@ -17,6 +17,8 @@ one dimension before viewing its raw bytes.  This is byte preserving:
 
 The retry has a distinct authority, outcome namespace, and lock.  It reuses the
 already frozen v2 role tensors and requires a new independent source-closed GO
-audit before authority can be created.  The spent v2 namespace is never removed
-or reused.
-
+audit before authority can be created.  The original v2 audit, authority, and
+terminal-failure bytes are part of the retry source closure.  Every other original
+v2 outcome path must remain absent before authority, during collection, and at
+terminal replay.  The spent v2 namespace therefore cannot be removed, rewritten,
+or reused without invalidating the retry.

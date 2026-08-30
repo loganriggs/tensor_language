@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import hashlib
 
+import pytest
 import torch
 
 import induction_equality_tensor_final_ood_v2_retry1 as subject
@@ -47,6 +48,11 @@ def test_retry_uses_fresh_namespace_and_keeps_spent_v2_failure():
     spent = subject.HERE / "induction_equality_tensor_final_ood_v2_failure.json"
     assert spent.is_file()
     assert spent not in subject.v2.OUTPUTS
+    lineage = subject._lineage_snapshot()
+    assert lineage[str(spent.resolve())] == subject.v2.file_sha256(spent)
+    assert all(
+        lineage[str(path.resolve())] is None for path in subject.ORIGINAL_ABSENT
+    )
 
 
 def test_retry_source_closure_includes_wrapper_test_and_amendment():
@@ -54,4 +60,21 @@ def test_retry_source_closure_includes_wrapper_test_and_amendment():
     assert subject.Path(subject.__file__).resolve() in sources
     assert subject.HERE / "test_induction_equality_tensor_final_ood_v2_retry1.py" in sources
     assert subject.AMENDMENT in sources
+    assert set(subject.ORIGINAL_REQUIRED) <= sources
 
+
+def test_lineage_snapshot_rejects_missing_failure_and_reused_receipt(tmp_path, monkeypatch):
+    audit = tmp_path / "audit.json"
+    authority = tmp_path / "authority.json"
+    failure = tmp_path / "failure.json"
+    receipt = tmp_path / "receipt.json"
+    audit.write_text("{}")
+    authority.write_text("{}")
+    monkeypatch.setattr(subject, "ORIGINAL_REQUIRED", (audit, authority, failure))
+    monkeypatch.setattr(subject, "ORIGINAL_ABSENT", (receipt,))
+    with pytest.raises(RuntimeError, match="lineage artifact missing"):
+        subject._lineage_snapshot()
+    failure.write_text("{}")
+    receipt.write_text("{}")
+    with pytest.raises(RuntimeError, match="namespace was reused"):
+        subject._lineage_snapshot()
