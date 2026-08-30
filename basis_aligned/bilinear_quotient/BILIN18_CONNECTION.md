@@ -59564,3 +59564,50 @@ not measurement.**
 **Open.** §2021's marginal ladder found the table raise paying down to layers 10–11 and stopping at 8–9,
 all in-sample. **Whether ANY depth of untruncation survives fresh rows — or whether the whole axis is
 harmful there — is one arm on the ladder that already exists.**
+
+## §2039 — every depth of untruncation is harmful on fresh rows, and §2018/§2019 are now measured, not presumed
+
+`ops/does_any_untruncation_survive_fresh.py`, **264.3s**, **DISCOVERY ONLY**, 5,419, rung 3 — §2038's open
+question. **pred_a True | pred_b True | pred_c False | pred_d True | derived controls True.** No crashed
+predicates. 98,304 fresh positions.
+
+```
+  milli-nats over §1959's build       FRESH WINDOW           [in-sample, §2021]
+  untruncate from layer 16           −10.371 (t −44.12)          +0.962
+  untruncate from layer 14            −6.006 (t −21.44)          +2.132
+  untruncate from layer 12            −5.777 (t −17.08)          +2.768
+  untruncate from layer 10           −11.578 (t −28.36)          +3.300
+```
+
+> **pred_b PASSED: every depth is harmful on fresh rows**, from the two-site arm to the eight-site one,
+> at t = −17 to −44. **There is no safe depth. §2038 falsified an axis, not a choice of depth.**
+
+> **pred_d PASSED, and it settles what §2038 could only presume. Untruncating mlp16 and mlp17 alone —
+> exactly the change §2018 and §2019 made — costs −10.371 milli-nats on fresh rows against +0.962
+> in-sample**, a reversal more than ten times its own measured gain, at t = −44.12. **§2018 and §2019 are
+> now falsified by measurement rather than by presumption**, and I am upgrading the ledger and registry
+> accordingly.
+
+> **pred_c FAILED, and the failure is informative. The harm is NOT monotone in depth**: −10.371, −6.006,
+> −5.777, −11.578. **The two-site arm is the second-worst and the six-site arm the mildest**, where
+> in-sample the gain rose monotonically (+0.962 → +2.132 → +2.768 → +3.300). **On rows that did not choose
+> them, the depths do not even order the same way** — which is what a set of fitted quantities looks like
+> when the fit is removed.
+
+**The untruncation axis, closed.** §2016 through §2021 established a knee at layer 10, a marginal ladder
+that paid down to layers 10–11, and a per-parameter champion at layers 14–17. **On fresh rows every one of
+those arms is harmful, the ordering is scrambled, and the strongest single result — §2020's +3.300 — is
+−11.578.** The correct MLP rank at every late site is **768**, which is what §1947 and §1959 set by
+uniform sweep before any of this began.
+
+**And the uniform sweep is worth defending now.** §2020 characterised §1947's uniform sweep as blind to a
+knee it averaged over. **It was not blind; it was regularised.** A single parameter fitted once across
+eighteen heterogeneous sites cannot chase per-site noise, and the per-site freedom §1996 added — which
+§2020–§2027 used to find four "knees" — is exactly the freedom that let fifteen sections fit the selecting
+rows. **Two of the four axes came back correct (§2022 attention, §2026 α); both were the ones §1989 and
+§1961 had already measured as homogeneous. The two that "found" something are the two now retracted.**
+
+**Open.** The retraction is complete and the build of record is §1959's. **What has not been checked is
+whether §1959's own build survives the fresh window against the earlier designs it superseded** — §2037
+measured it beating §1789's deployed design by +127.889 there, which is one comparison, and the arc from
+§1946 to §1959 made several supersessions by the same in-sample method now shown to fail.

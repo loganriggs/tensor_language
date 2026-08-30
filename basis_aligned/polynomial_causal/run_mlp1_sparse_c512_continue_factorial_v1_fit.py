@@ -199,7 +199,7 @@ def validate_row_receipt(
     if set(value) != ROW_RECEIPT_KEYS \
             or value.get("schema") != "mlp1_sparse_c512_continue_factorial_v1_rows" \
             or value.get("status") != "fresh_roles_frozen_before_any_model_or_training_access" \
-            or not isinstance(value.get("source_commit"), str) \
+            or value.get("source_commit") != audit.get("audited_source_commit") \
             or value.get("source_hashes") != dict(sources) \
             or value.get("selection") != {
                 "start_document_index": 122000,
@@ -315,6 +315,32 @@ def verify_protected(
     audit_sha: str, row_receipt_sha: str, claim: Any,
 ) -> None:
     rows_life.base.require_claim(claim, LOCK)
+
+
+def artifact_snapshot(paths: tuple[Path, ...]) -> dict[str, str | None]:
+    """Bind presence as well as bytes, so an absent artifact cannot appear unnoticed."""
+
+    return {path.name: file_sha256(path) if path.is_file() else None for path in paths}
+
+
+def failure_input_observation(
+    expected: Mapping[str, Any], commit: str, sources: Mapping[str, str],
+    audit_sha: str, row_receipt_sha: str,
+) -> dict[str, Any]:
+    """Return an exact stable-input replay or an explicit, reproducible drift record."""
+
+    try:
+        current = protected_snapshot(commit, sources, audit_sha, row_receipt_sha)
+    except BaseException as error:
+        return {
+            "status": "protected_input_validation_failed",
+            "error_type": type(error).__name__,
+            "error": repr(error),
+        }
+    return {
+        "status": "matches_initial" if current == dict(expected) else "changed",
+        "snapshot": current,
+    }
     if protected_snapshot(commit, sources, audit_sha, row_receipt_sha) != dict(expected):
         raise RuntimeError("protected sparse-Down inputs changed during execution")
     rows_life.base.require_claim(claim, LOCK)
@@ -607,11 +633,12 @@ def main() -> None:
         }
 
         def authority_guard() -> None:
+            if any(path.exists() for path in (AUTHORITY, BUNDLE, RESULT, RECEIPT, FAILURE)):
+                raise RuntimeError("sparse-Down authority namespace raced publication")
             verify_protected(
                 protected, commit, sources, audit_sha, row_receipt_sha, claim,
             )
-            if any(path.exists() for path in (AUTHORITY, BUNDLE, RESULT, RECEIPT, FAILURE)):
-                raise RuntimeError("sparse-Down authority namespace raced publication")
+            rows_life.base.require_claim(claim, LOCK)
 
         write_json_create_only(AUTHORITY, authority, pre_link_check=authority_guard)
         authority_sha = file_sha256(AUTHORITY)
@@ -656,12 +683,13 @@ def main() -> None:
         }
 
         def bundle_guard() -> None:
-            verify_protected(
-                protected, commit, sources, audit_sha, row_receipt_sha, claim,
-            )
             stable_json(AUTHORITY, authority_sha)
             if any(path.exists() for path in (BUNDLE, RESULT, RECEIPT, FAILURE)):
                 raise RuntimeError("sparse-Down bundle namespace raced publication")
+            verify_protected(
+                protected, commit, sources, audit_sha, row_receipt_sha, claim,
+            )
+            rows_life.base.require_claim(claim, LOCK)
 
         write_torch_create_only(BUNDLE, bundle, pre_link_check=bundle_guard)
         bundle_sha = file_sha256(BUNDLE)
@@ -684,14 +712,15 @@ def main() -> None:
         }
 
         def result_guard() -> None:
-            verify_protected(
-                protected, commit, sources, audit_sha, row_receipt_sha, claim,
-            )
             stable_json(AUTHORITY, authority_sha)
             bundle_replay, _ = stable_torch(BUNDLE, bundle_sha)
             validate_bundle(bundle_replay, selected_state, authority_sha, gates["selected_seed"])
             if any(path.exists() for path in (RESULT, RECEIPT, FAILURE)):
                 raise RuntimeError("sparse-Down result namespace raced publication")
+            verify_protected(
+                protected, commit, sources, audit_sha, row_receipt_sha, claim,
+            )
+            rows_life.base.require_claim(claim, LOCK)
 
         write_json_create_only(RESULT, result, pre_link_check=result_guard)
         result_sha = file_sha256(RESULT)
@@ -710,9 +739,6 @@ def main() -> None:
         print(json.dumps(result, indent=2, sort_keys=True))
 
         def receipt_guard() -> None:
-            verify_protected(
-                protected, commit, sources, audit_sha, row_receipt_sha, claim,
-            )
             authority_again, _ = stable_json(AUTHORITY, authority_sha)
             if authority_again != authority:
                 raise RuntimeError("sparse-Down authority replay changed before receipt")
@@ -722,34 +748,45 @@ def main() -> None:
             validate_result(result_again, result)
             if RECEIPT.exists() or FAILURE.exists():
                 raise RuntimeError("sparse-Down terminal raced receipt publication")
+            verify_protected(
+                protected, commit, sources, audit_sha, row_receipt_sha, claim,
+            )
             rows_life.base.require_claim(claim, LOCK)
 
         write_json_create_only(RECEIPT, receipt, pre_link_check=receipt_guard)
     except BaseException as error:
         if not RECEIPT.exists() and not FAILURE.exists():
+            partial_paths = (AUTHORITY, BUNDLE, RESULT)
+            partial_snapshot = artifact_snapshot(partial_paths)
+            has_protected = "protected" in locals()
+            input_observation = failure_input_observation(
+                protected, commit, sources, audit_sha, row_receipt_sha,
+            ) if has_protected else {
+                "status": "initial_protected_snapshot_not_constructed",
+            }
             failure = {
                 "schema": "mlp1_sparse_c512_continue_factorial_v1_fit_failure",
                 "status": "terminal_failure",
                 "error": repr(error),
                 "fit_select_may_have_opened": fit_select_opened,
                 "final_may_have_opened": final_opened,
-                "artifact_hashes": {
-                    path.name: file_sha256(path)
-                    for path in (AUTHORITY, BUNDLE, RESULT) if path.is_file()
-                },
+                "artifact_snapshot": partial_snapshot,
+                "initial_protected_inputs": protected if has_protected else None,
+                "protected_inputs_at_failure": input_observation,
             }
 
             def failure_guard() -> None:
                 rows_life.base.require_claim(claim, LOCK)
                 if RECEIPT.exists() or FAILURE.exists():
                     raise RuntimeError("sparse-Down terminal raced failure publication")
-                for path, expected in (
-                    (AUTHORITY, failure["artifact_hashes"].get(AUTHORITY.name)),
-                    (BUNDLE, failure["artifact_hashes"].get(BUNDLE.name)),
-                    (RESULT, failure["artifact_hashes"].get(RESULT.name)),
-                ):
-                    if expected is not None and file_sha256(path) != expected:
-                        raise RuntimeError("sparse-Down partial artifact changed before failure")
+                if artifact_snapshot(partial_paths) != partial_snapshot:
+                    raise RuntimeError("sparse-Down partial artifact aggregate changed before failure")
+                if has_protected and failure_input_observation(
+                    protected, commit, sources, audit_sha, row_receipt_sha,
+                ) != input_observation:
+                    raise RuntimeError("sparse-Down protected failure state changed before publication")
+                if RECEIPT.exists() or FAILURE.exists():
+                    raise RuntimeError("sparse-Down terminal raced failure publication")
                 rows_life.base.require_claim(claim, LOCK)
 
             write_json_create_only(FAILURE, failure, pre_link_check=failure_guard)

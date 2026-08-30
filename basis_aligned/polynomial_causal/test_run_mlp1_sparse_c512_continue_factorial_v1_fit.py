@@ -86,3 +86,31 @@ def test_bundle_replay_requires_exact_program_and_price():
     bad["price"] = {"stored_float32_reals": 1}
     with pytest.raises(RuntimeError, match="bundle semantics"):
         subject.validate_bundle(bad, state, "a" * 64, 1)
+
+
+def test_artifact_snapshot_binds_absence_and_later_presence(tmp_path):
+    authority = tmp_path / "authority.json"
+    bundle = tmp_path / "bundle.pt"
+    before = subject.artifact_snapshot((authority, bundle))
+    assert before == {authority.name: None, bundle.name: None}
+    authority.write_text("{}\n")
+    after = subject.artifact_snapshot((authority, bundle))
+    assert after != before
+    assert after[bundle.name] is None
+
+
+def test_failure_input_observation_records_stability_and_explicit_drift(monkeypatch):
+    expected = {"source_commit": "abc"}
+    monkeypatch.setattr(subject, "protected_snapshot", lambda *args: dict(expected))
+    assert subject.failure_input_observation(expected, "abc", {}, "a", "r") == {
+        "status": "matches_initial", "snapshot": expected,
+    }
+
+    def drift(*args):
+        raise RuntimeError("source drift")
+
+    monkeypatch.setattr(subject, "protected_snapshot", drift)
+    observed = subject.failure_input_observation(expected, "abc", {}, "a", "r")
+    assert observed["status"] == "protected_input_validation_failed"
+    assert observed["error_type"] == "RuntimeError"
+    assert "source drift" in observed["error"]
