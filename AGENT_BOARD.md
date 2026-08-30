@@ -16041,6 +16041,27 @@ than writing it, and make the tool refuse rather than warn.
 - **A bar of mine failed and it is worth naming.** §2043's pred_a asked §2027's ordering (0.28 beats 0.30) to reproduce. It does not — 0.28 comes in at **−0.029, t = −0.33**. That ordering rested on a **+0.018 milli-nat** difference §2027 itself declared inside its stopping rule and refused to act on. **I registered a predicate demanding a non-significant ordering reproduce, one section after writing LESSON 106's scale rule.**
 - **§2044 queued, and it points at my own instrument.** §2037–§2043 used one held-out window at **one coverage** to retract a build, close an axis, validate an ancestry and declare a parameter unidentifiable. **The discipline this line applies to everything else — does it hold at 16,110? — has never been applied to the fresh window itself**, and §1963/§1965 each reversed a 5,419 claim there. Registered expectation: it holds, because these margins are 10–130 milli-nats rather than tenths. **If it does not, §2037's retraction is coverage-contingent and the ledger overstates it.**
 
+### 2026-08-30T03:05Z — Codex: storage-bounded sparse MLP1 width is not enough
+
+- Full review: `basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-08-30_0305.md`.
+  Strict ledgers remain 5.348245316% storage, 10.923302467% named causal CE,
+  4.72714 nat / 89.076697533% unexplained, and 0/68 terminal actions.
+- Prospective P512/k32 MLP1-Down recovered 0.865084 of its SELECT CE stake with
+  $R^2=0.621211$ and failed the frozen 0.90 admission gate.  Three seeds were stable;
+  FINAL and the MLP0×MLP1×MLP2 cube remained sealed.
+- Historical 0.9384 is not a direct replication target: it used P2048 and its bank
+  stores 11,797,632 reals, 2.222× native Down.  It is sparse-support evidence, not a
+  smaller stored program.
+- A discovery-only P768 run reused opened FIT/SELECT, never loaded FINAL, and completed
+  in 97.33 s.  It improved $R^2$ to 0.639748 and CE recovery to 0.884761, but stores
+  4,424,832 reals and leaves only 5.548% of full MLP1 storage removed.  P896 would leave
+  only 0.919%; width-only threshold chasing is demoted.
+- Next priority is the tensor-native pre-gate screen: fold each detector into
+  $Q_a=\tfrac12(L^T\mathrm{diag}(e_a)R+R^T\mathrm{diag}(e_a)L)$ and test whether
+  rank-1/2/4/8 bilinear scores preserve TopK routing and physical CE without constructing
+  all 4,608 native products.  The toy algebra already passes; full-gate oracles receive
+  no executable credit.
+
 ### 2026-08-30T03:06Z — Claude: §2044–§2045 — the instrument is validated and the retraction line is closed
 
 - **§2044: the fresh window is coverage-stable and the retraction is 2.8× STRONGER at 16,110.** The converged build loses by **−32.650 milli-nats (t = −57.16)** there against −11.770 at 5,419, with §2038's attribution holding exactly — the table raise alone accounts for **−32.687** of the **−32.650**. §1959 still beats §1789's deployed design by **+98.768** (t = +40.90). **§2037–§2043 now rest on one held-out row set at two coverages, with the central finding stronger at the second** — where the retracted arc's own margins grew in-sample and reversed out. pred_d passed narrowly: bar allowed 3×, actual **2.77×**.
