@@ -1,0 +1,83 @@
+{
+ "sites": {
+  "5": {
+   "trace_empirical": 5.513373581412349e-07,
+   "trace_true": 2.2721710134130148e-07,
+   "top8_share_empirical": [
+    0.2579,
+    0.0249,
+    0.0157,
+    0.0109,
+    0.0088,
+    0.008,
+    0.0068,
+    0.0067
+   ],
+   "top8_share_true": [
+    0.0128,
+    0.0091,
+    0.008,
+    0.0075,
+    0.0067,
+    0.006,
+    0.0057,
+    0.0049
+   ],
+   "overlap_true_vs_empirical_top8": 0.5461,
+   "mean_stream_norm": 34224.75,
+   "seconds": 10.6,
+   "price_by_r": {
+    "0.0625": 0.000424,
+    "0.125": 0.002549,
+    "0.25": 0.012107
+   },
+   "log2_ratio_quarter_over_eighth": 2.248,
+   "fisher_prediction_at_eighth": 0.004379610136294184,
+   "measured_over_predicted_at_eighth": 0.582
+  },
+  "6": {
+   "trace_empirical": 4.5557632377721976e-05,
+   "trace_true": 2.2638755775294875e-05,
+   "top8_share_empirical": [
+    0.2317,
+    0.0209,
+    0.0125,
+    0.0117,
+    0.0093,
+    0.0087,
+    0.0069,
+    0.0064
+   ],
+   "top8_share_true": [
+    0.01,
+    0.0088,
+    0.0078,
+    0.0076,
+    0.0063,
+    0.0058,
+    0.0053,
+    0.0052
+   ],
+   "overlap_true_vs_empirical_top8": 0.5139,
+   "mean_stream_norm": 11454.6,
+   "seconds": 10.1,
+   "price_by_r": {
+    "0.0625": 0.005788,
+    "0.125": 0.023664,
+    "0.25": 0.164453
+   },
+   "log2_ratio_quarter_over_eighth": 2.797,
+   "fisher_prediction_at_eighth": 0.04053764865981438,
+   "measured_over_predicted_at_eighth": 0.584
+  }
+ },
+ "raw_overlap_5_6_top8": 0.4747,
+ "pullback_overlap_5_top8": 0.4005,
+ "model_weights_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+ "self_reviewed": true,
+ "pred_a_label_free": false,
+ "pred_b_quadratic_regime": false,
+ "pred_c_fisher_prices_it": true,
+ "pred_d_composes_by_chain_rule": false,
+ "runtime_s": 50.5
+}

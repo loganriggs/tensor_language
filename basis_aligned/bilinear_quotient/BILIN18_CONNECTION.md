@@ -63251,3 +63251,32 @@ eight-direction mechanism (§2116/§2119); one certified negative for metric-con
 half-price claim withdrawn (§2118); the energy-vs-price separation located inside attn5 (§2114) and bounded at piece
 grain (§2117, ρ = 0.81); and the tail-span accounting corrected (here). Next mathematics on the queue: the Fisher
 identity of the eight (label-freedom, quadratic price, chain-rule composition — `fisher_metric_v1.py`).
+
+## §2123 — FISHER IDENTITY OF THE EIGHT: three of four predictions FAILED. The eight are NOT label-free (true-Fisher overlap 0.55/0.51), NOT transported by the block Jacobian (pullback overlap 0.40, below the raw 0.475), and the price is super-quadratic at the cliff (log₂ ratio 2.80 at block 6); only the Fisher's SCALE is right (measured/predicted 0.58 at both sites). The certified selector is an empirical, site-local, label-dependent object
+
+`fisher_metric_v1.py` (polynomial_causal lane, run via bqrunner), **51s**. Registered in
+`MATHEMATICAL_REVIEW_2026-08-30_1905.md`. **pred_c HELD | pred_a FAILED | pred_b FAILED | pred_d FAILED.**
+
+```
+  site  tr(empirical)  tr(true, MC y~p)   true-vs-empirical top-8 overlap    prices r=1/16, 1/8, 1/4      log2(1/4 / 1/8)   measured/Fisher-predicted at 1/8
+   5      5.5e-07        2.3e-07               0.546                          0.00042 0.0025 0.0121            2.25                0.58
+   6      4.6e-05        2.3e-05               0.514                          0.0058  0.0237 0.1645            2.80                0.58
+  G_5 top-8 vs G_6 top-8: raw overlap 0.475; G_6's eight pulled back through block 5 by VJP: 0.401  (pred_d FAILED, below raw)
+```
+
+- **pred_a FAILED at 0.55/0.51:** half the eight's span is shared with the label-free true Fisher; half is the
+  *label-dependent* part of the empirical Fisher — the directions along which the model is systematically *wrong*
+  about the actual next token, not merely uncertain. The certified selector (§2116/§2119) therefore uses error
+  information, and a fully label-free replica is not guaranteed. Kunstner–Balles–Hennig's warning applies at CE ≈ 3.5.
+- **pred_d FAILED, below even the raw overlap:** the mean VJP of the block-6 eight through block 5 does not land on
+  the block-5 eight. First-order transport through one bilinear block does not carry the metric; the per-position
+  Jacobian varies too much for its mean to represent it (the same nonlinearity that makes the price super-quadratic
+  at the cliff, pred_b: exponent 2.80 at block 6 even at r ≤ ¼). **The eight must be measured per site.**
+- **pred_c HELD:** the empirical Fisher's trace prices a small random error to within a factor of 1.7 (measured =
+  0.58 × predicted at both sites, the same factor twice — the ½ δᵀFδ form with a consistent overshoot from the
+  softcap/tanh and the empirical-vs-true gap).
+
+**Standing.** The selector stays certified as measured; its mathematical identity is: the top of the *empirical*
+Fisher at its own site, half labels, half model, priced right in scale, not transportable by first order. The
+label-freedom question that matters operationally — does a TRUE-Fisher top-8 selector still buy the gain? — is the
+registered next run (rung 29): if yes, the deployable selector needs no labels even though the subspaces differ.

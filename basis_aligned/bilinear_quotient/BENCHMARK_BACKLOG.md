@@ -394,3 +394,12 @@ BOOKKEEPING NOTE 2026-08-30 18:40Z: rungs 12-22 above were reconstructed from
 the ledger entries §2103-§2115 after a cwd slip appended §2103 and rung 12's
 opening to the repository-root copies of these two files (reverted); the
 later per-rung backlog edits had silently anchored on text that was not here.
+
+29. LABEL-FREE SELECTOR (opened from §2123): rank mlp4/mlp5 units by the
+    TRUE-Fisher (labels sampled from the model, 2 samples) top-8 at blocks
+    5/6 and certify at K=2304. -> ops/truefisher_top8_fresh.py [QUEUED]
+    pred_a window-1 gain >= 0.6 x 0.1285 (§2110's empirical top-8); pred_b
+    fresh median gain >= 0.6 x 0.082 (§2116); pred_c positive on >= 6 of 8
+    fresh windows; pred_d cfgE reproduces 1.7415. If a/b fail, the gain
+    needs the label-dependent half of the eight and the selector is a
+    fitted object, priced as such.

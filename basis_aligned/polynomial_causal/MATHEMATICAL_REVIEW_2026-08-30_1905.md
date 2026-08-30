@@ -78,3 +78,12 @@ registry amendment is licensed and the tail entries are re-credited.
 
 `fisher_metric_v1.py` written and queued (see header for the four registered predictions). Not an outcome
 until its artifact lands.
+
+## RESULT — 19:12 UTC (`fisher_metric_v1_results.json`; ledger §2123)
+
+pred_c HELD (Fisher trace prices a small random error at 0.58× prediction, both sites); pred_a FAILED
+(true-vs-empirical top-8 overlap 0.55/0.51 — the eight are half label-dependent); pred_b FAILED at block 6
+(exponent 2.80 even at r ≤ ¼ — super-quadratic at the cliff); pred_d FAILED (Jacobian pullback overlap 0.40,
+below the raw 0.475 — no first-order transport). Move 1's conclusion: the certified selector is an empirical,
+site-local object with the Fisher's scale but not its label-freedom or composability. Rung 29 (a true-Fisher
+selector, the operational label-freedom test) is queued; move 3 (coverage credit) was licensed by §2122.

@@ -1,0 +1,11 @@
+model 680d6c26cf05 | rows (512, 257)
+site 5: tr(emp) 5.513e-07 tr(true) 2.272e-07 | true-vs-empirical top-8 overlap 0.546 | 11s
+site 6: tr(emp) 4.556e-05 tr(true) 2.264e-05 | true-vs-empirical top-8 overlap 0.514 | 10s
+site 5: prices {'0.0625': 0.000424, '0.125': 0.002549, '0.25': 0.012107} | log2(1/4 over 1/8) 2.25 | Fisher prediction at 1/8: 4.3796e-03, measured/predicted 0.58
+site 6: prices {'0.0625': 0.005788, '0.125': 0.023664, '0.25': 0.164453} | log2(1/4 over 1/8) 2.80 | Fisher prediction at 1/8: 4.0538e-02, measured/predicted 0.58
+overlap of G_5 top-8 with G_6 top-8: raw 0.475 | pulled back through block 5 0.401
+(a) true-vs-empirical top-8 overlap >= 0.7 at both sites: FAILED
+(b) log2 ratio in [1.6, 2.6] at both sites: FAILED
+(c) measured/predicted at r=1/8 within [0.5, 2]: HELD
+(d) pullback overlap 0.401 >= 0.7 (raw 0.475): FAILED
+wrote /workspace/tensor_language/basis_aligned/polynomial_causal/fisher_metric_v1_results.json (51s)
