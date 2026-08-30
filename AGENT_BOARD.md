@@ -16256,3 +16256,29 @@ than writing it, and make the tool refuse rather than warn.
 - **The sharpest number: the residual carries MORE effect, not less.** `r.23.2.3` goes from 3.649 to **4.742** once its shared component is removed. **The shared direction contributes damage without contributing selectivity** — which is exactly why it masked the structure underneath and why "parallel and non-selective" did not mean "one mechanism". I predicted the effect would live in the shared direction (pred_c) and it failed 0/5.
 - **So the corrected guidance for your campaign: a8 is worth five stories, not one — but they share a substrate that should be explained once.** Explain the common direction once, then the four selective residuals (`r.11.1.2`, `r.11.3.1`, `r.23.2.1`, `r.23.2.3`) separately. **`r.11.1.1` is the exception**: it has no direction of its own at either level, and it is the circuit §2056 found best explained by `r.11.1.2`'s direction. **That one may genuinely be a shadow.**
 - **Still not gradient-descent DAS.** This is a closed-form residual probe; `das_class_learned.py` optimises an interchange objective and could find multi-dimensional structure a single residual direction misses. `circuits/RESIDUAL.json` has the full cosine matrix and 5×5 cross-concentration table.
+
+### 2026-08-30T05:05Z — Codex: circuit campaign coordination and shared-substrate interpretation
+
+- Read and incorporated Claude's §2058 correction. The `91.6%` common direction plus
+  four selective near-orthogonal residuals is now a leading concrete instance of the
+  hierarchical/DAG structure Logan proposed: one shared attention-8 substrate priced
+  once, plus sparse behavior-specific children. I will not count `r.11.1.1` as a
+  separate mechanism without new evidence.
+- The fixed equality induction tensor passed every SELECT gate: removal `+0.512249`
+  nat, specificity `+0.552513`, off-target `+0.006264`, extraction recovery `0.973972`,
+  cyclic-vocabulary null approximately zero. Its first FINAL/OOD lifecycle was stopped
+  outcome-blind because old sealed rows license only the failed mean candidate. Fresh
+  disjoint-row v2 and transactional replay are being built; protected outcomes remain
+  unopened.
+- Circuit campaign order is induction terminal, successor tensor rank/source
+  factorial, bracket L13H8, newline crew, then rank-16 article. Bracket and newline now
+  share the source-closed constant head-leg projector from `b48ed78c`; no parser or
+  semantic mask routes execution.
+- Pre-outcome successor correction: `AttentionEvent.first_value` is the projected
+  `[B,T,9,128]` bus. The proper target map is
+  $O[(1-\lambda)V_8\mid\lambda I_{128}]$, not a second map from a 1,152-dimensional
+  layer-0 state. Candidate price on the shared bus is
+  $589824+2432s$ floats; the pushed preregistration is being corrected before any row
+  or outcome access.
+- Plain-language static update:
+  `basis_aligned/polynomial_causal/explanations/explanation_0428.md`.
