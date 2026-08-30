@@ -11,68 +11,68 @@ Sources: `circuits/BATTERY.json` (localisation), `circuits/DAS.json` (learned su
 
 | # | circuit | best (mean) | conc | best (interchange) | conc | agree | members |
 |---|---------|-------------|------|--------------------|------|-------|---------|
-| 1 | `r.2.0.0` | a8 | 12.28 | a8 | 9.603 | yes | 864 / 5,760 |
-| 2 | `r.3.0.0` | a16 | 11.87 | a16 | 8.888 | yes | 864 / 5,760 |
-| 3 | `r.3.0` | a16 | 9.21 | a16 | 6.999 | yes | 5,760 / 38,400 |
-| 4 | `r.2.0.2` | a8 | 8.99 | a8 | 7.144 | yes | 864 / 5,760 |
-| 5 | `r.3.0.2` | a16 | 8.56 | a16 | 6.515 | yes | 864 / 5,760 |
-| 6 | `r.2.0` | a8 | 8.35 | a8 | 6.437 | yes | 5,760 / 38,400 |
-| 7 | `r.2.0.1` | a8 | 8.35 | a8 | 6.614 | yes | 864 / 5,760 |
-| 8 | `r.3.0.1` | a16 | 7.57 | a16 | 5.929 | yes | 864 / 5,760 |
-| 9 | `r.2.1.1` | a8 | 6.16 | a8 | 5.124 | yes | 864 / 5,760 |
-| 10 | `r.1.2.0` | m16 | 6.12 | m15 | 4.975 | **no** | 864 / 5,760 |
-| 11 | `r.1.0.0` | a16 | 6.06 | a16 | 5.064 | yes | 864 / 5,760 |
-| 12 | `r.2.2.1` | a8 | 5.93 | a8 | 5.067 | yes | 864 / 5,760 |
-| 13 | `r.4.1.1` | a16 | 5.47 | a16 | 4.529 | yes | 864 / 5,760 |
-| 14 | `r.0.0.0` | a3 | 5.07 | a3 | 4.558 | yes | 864 / 5,760 |
-| 15 | `r.0.0` | a4 | 4.95 | a3 | 4.459 | **no** | 5,760 / 38,400 |
-| 16 | `r.23.2.3` | a8 | 4.93 | a8 | 3.971 | yes | 864 / 5,760 |
-| 17 | `r.11.1.2` | a8 | 4.90 | a8 | 4.19 | yes | 864 / 5,760 |
-| 18 | `r.3.1.1` | a17 | 4.80 | a17 | 4.003 | yes | 864 / 5,760 |
-| 19 | `r.0.0.1` | a3 | 4.60 | a3 | 4.194 | yes | 864 / 5,760 |
-| 20 | `r.1.2.1` | m16 | 4.51 | m15 | 4.268 | **no** | 864 / 5,760 |
-| 21 | `r.2.2.2` | a6 | 4.37 | a6 | 3.806 | yes | 864 / 5,760 |
-| 22 | `r.1.2` | m16 | 4.37 | m15 | 3.839 | **no** | 5,760 / 38,400 |
-| 23 | `r.11.3.1` | a8 | 4.31 | a8 | 3.628 | yes | 864 / 5,760 |
-| 24 | `r.4.1.0` | a16 | 4.22 | a16 | 3.618 | yes | 864 / 5,760 |
-| 25 | `r.1.0` | m14 | 4.22 | m14 | 3.308 | yes | 5,760 / 38,400 |
-| 26 | `r.2.3` | a8 | 4.18 | a8 | 3.479 | yes | 5,760 / 38,400 |
-| 27 | `r.1.0.2` | m14 | 4.14 | m14 | 3.191 | yes | 864 / 5,760 |
-| 28 | `r.2.1` | a8 | 4.13 | a8 | 3.401 | yes | 5,760 / 38,400 |
-| 29 | `r.6.3.0` | a16 | 4.11 | a14 | 3.559 | **no** | 864 / 5,760 |
-| 30 | `r.1.3.1` | m13 | 4.10 | m14 | 3.485 | **no** | 864 / 5,760 |
-| 31 | `r.1.1.2` | m16 | 4.08 | m15 | 3.791 | **no** | 864 / 5,760 |
-| 32 | `r.1.1.1` | m16 | 4.08 | m14 | 3.828 | **no** | 864 / 5,760 |
-| 33 | `r.2.2` | a8 | 4.05 | a8 | 3.371 | yes | 5,760 / 38,400 |
-| 34 | `r.1.0.3` | m14 | 4.00 | m14 | 3.227 | yes | 864 / 5,760 |
-| 35 | `r.2.1.0` | a8 | 3.99 | a8 | 3.385 | yes | 864 / 5,760 |
-| 36 | `r.11.1.1` | a8 | 3.98 | a8 | 3.488 | yes | 864 / 5,760 |
-| 37 | `r.6.0.1` | a14 | 3.97 | a14 | 3.93 | yes | 864 / 5,760 |
-| 38 | `r.1.1.0` | m14 | 3.96 | m14 | 3.536 | yes | 864 / 5,760 |
-| 39 | `r.0.3.0` | a3 | 3.91 | a3 | 3.484 | yes | 864 / 5,760 |
-| 40 | `r.6.1.0` | m5 | 3.84 | a14 | 3.062 | **no** | 864 / 5,760 |
-| 41 | `r.1.1` | m13 | 3.81 | m14 | 3.357 | **no** | 5,760 / 38,400 |
-| 42 | `r.1.3` | m13 | 3.77 | m13 | 3.298 | yes | 5,760 / 38,400 |
-| 43 | `r.6.0.3` | m17 | 3.65 | m16 | 3.101 | **no** | 864 / 5,760 |
-| 44 | `r.6.2.2` | m16 | 3.63 | m16 | 3.258 | yes | 864 / 5,760 |
-| 45 | `r.3.1.0` | a2 | 3.63 | a16 | 3.225 | **no** | 864 / 5,760 |
-| 46 | `r.1.0.1` | m14 | 3.60 | a16 | 2.969 | **no** | 864 / 5,760 |
-| 47 | `r.6.2.1` | a9 | 3.59 | a9 | 2.88 | yes | 864 / 5,760 |
-| 48 | `r.2.2.0` | a8 | 3.55 | a8 | 3.099 | yes | 864 / 5,760 |
-| 49 | `r.6.1.1` | a16 | 3.53 | a16 | 3.063 | yes | 864 / 5,760 |
-| 50 | `r.8.1.0` | a3 | 3.50 | a3 | 3.13 | yes | 864 / 5,760 |
-| 51 | `r.5.0.1` | a16 | 3.40 | a16 | 3.034 | yes | 864 / 5,760 |
-| 52 | `r.23.2.1` | a8 | 3.38 | a8 | 2.908 | yes | 864 / 5,760 |
-| 53 | `r.5.3.1` | a15 | 3.33 | a15 | 2.947 | yes | 864 / 5,760 |
-| 54 | `r.1.3.0` | m13 | 3.23 | a16 | 2.703 | **no** | 864 / 5,760 |
-| 55 | `r.6.0.2` | a9 | 3.19 | a16 | 2.892 | **no** | 864 / 5,760 |
-| 56 | `r.6.2.0` | a16 | 3.17 | a16 | 2.965 | yes | 864 / 5,760 |
-| 57 | `r.6.3.1` | a16 | 3.13 | a16 | 2.802 | yes | 864 / 5,760 |
-| 58 | `r.18.2.0` | a7 | 3.10 | a7 | 2.763 | yes | 864 / 5,760 |
-| 59 | `r.13.2.1` | a3 | 3.04 | a7 | 2.771 | **no** | 864 / 5,760 |
-| 60 | `r.7.1.1` | a7 | 2.98 | a7 | 2.679 | yes | 864 / 5,760 |
-| 61 | `r.6.0.0` | a16 | 2.88 | a16 | 2.633 | yes | 864 / 5,760 |
-| 62 | `r.6.2.3` | a9 | 2.61 | a17 | 2.661 | **no** | 864 / 5,760 |
+| 1 | `r.2.0.0` | a8 | 12.28 | a8 | 9.603 | both | 864 / 5,760 |
+| 2 | `r.3.0.0` | a16 | 11.87 | a16 | 8.888 | both | 864 / 5,760 |
+| 3 | `r.3.0` | a16 | 9.21 | a16 | 6.999 | both | 5,760 / 38,400 |
+| 4 | `r.2.0.2` | a8 | 8.99 | a8 | 7.144 | both | 864 / 5,760 |
+| 5 | `r.3.0.2` | a16 | 8.56 | a16 | 6.515 | both | 864 / 5,760 |
+| 6 | `r.2.0` | a8 | 8.35 | a8 | 6.437 | both | 5,760 / 38,400 |
+| 7 | `r.2.0.1` | a8 | 8.35 | a8 | 6.614 | both | 864 / 5,760 |
+| 8 | `r.3.0.1` | a16 | 7.57 | a16 | 5.929 | both | 864 / 5,760 |
+| 9 | `r.2.1.1` | a8 | 6.16 | a8 | 5.124 | both | 864 / 5,760 |
+| 10 | `r.1.2.0` | m16 | 6.12 | m15 | 4.975 | rows-only | 864 / 5,760 |
+| 11 | `r.1.0.0` | a16 | 6.06 | a16 | 5.064 | both | 864 / 5,760 |
+| 12 | `r.2.2.1` | a8 | 5.93 | a8 | 5.067 | both | 864 / 5,760 |
+| 13 | `r.4.1.1` | a16 | 5.47 | a16 | 4.529 | both | 864 / 5,760 |
+| 14 | `r.0.0.0` | a3 | 5.07 | a3 | 4.558 | both | 864 / 5,760 |
+| 15 | `r.0.0` | a4 | 4.95 | a3 | 4.459 | rows-only | 5,760 / 38,400 |
+| 16 | `r.23.2.3` | a8 | 4.93 | a8 | 3.971 | both | 864 / 5,760 |
+| 17 | `r.11.1.2` | a8 | 4.90 | a8 | 4.19 | both | 864 / 5,760 |
+| 18 | `r.3.1.1` | a17 | 4.80 | a17 | 4.003 | both | 864 / 5,760 |
+| 19 | `r.0.0.1` | a3 | 4.60 | a3 | 4.194 | methods-only | 864 / 5,760 |
+| 20 | `r.1.2.1` | m16 | 4.51 | m15 | 4.268 | rows-only | 864 / 5,760 |
+| 21 | `r.2.2.2` | a6 | 4.37 | a6 | 3.806 | both | 864 / 5,760 |
+| 22 | `r.1.2` | m16 | 4.37 | m15 | 3.839 | neither | 5,760 / 38,400 |
+| 23 | `r.11.3.1` | a8 | 4.31 | a8 | 3.628 | both | 864 / 5,760 |
+| 24 | `r.4.1.0` | a16 | 4.22 | a16 | 3.618 | both | 864 / 5,760 |
+| 25 | `r.1.0` | m14 | 4.22 | m14 | 3.308 | both | 5,760 / 38,400 |
+| 26 | `r.2.3` | a8 | 4.18 | a8 | 3.479 | both | 5,760 / 38,400 |
+| 27 | `r.1.0.2` | m14 | 4.14 | m14 | 3.191 | methods-only | 864 / 5,760 |
+| 28 | `r.2.1` | a8 | 4.13 | a8 | 3.401 | both | 5,760 / 38,400 |
+| 29 | `r.6.3.0` | a16 | 4.11 | a14 | 3.559 | neither | 864 / 5,760 |
+| 30 | `r.1.3.1` | m13 | 4.10 | m14 | 3.485 | neither | 864 / 5,760 |
+| 31 | `r.1.1.2` | m16 | 4.08 | m15 | 3.791 | rows-only | 864 / 5,760 |
+| 32 | `r.1.1.1` | m16 | 4.08 | m14 | 3.828 | neither | 864 / 5,760 |
+| 33 | `r.2.2` | a8 | 4.05 | a8 | 3.371 | both | 5,760 / 38,400 |
+| 34 | `r.1.0.3` | m14 | 4.00 | m14 | 3.227 | both | 864 / 5,760 |
+| 35 | `r.2.1.0` | a8 | 3.99 | a8 | 3.385 | both | 864 / 5,760 |
+| 36 | `r.11.1.1` | a8 | 3.98 | a8 | 3.488 | both | 864 / 5,760 |
+| 37 | `r.6.0.1` | a14 | 3.97 | a14 | 3.93 | methods-only | 864 / 5,760 |
+| 38 | `r.1.1.0` | m14 | 3.96 | m14 | 3.536 | methods-only | 864 / 5,760 |
+| 39 | `r.0.3.0` | a3 | 3.91 | a3 | 3.484 | methods-only | 864 / 5,760 |
+| 40 | `r.6.1.0` | m5 | 3.84 | a14 | 3.062 | rows-only | 864 / 5,760 |
+| 41 | `r.1.1` | m13 | 3.81 | m14 | 3.357 | rows-only | 5,760 / 38,400 |
+| 42 | `r.1.3` | m13 | 3.77 | m13 | 3.298 | both | 5,760 / 38,400 |
+| 43 | `r.6.0.3` | m17 | 3.65 | m16 | 3.101 | rows-only | 864 / 5,760 |
+| 44 | `r.6.2.2` | m16 | 3.63 | m16 | 3.258 | both | 864 / 5,760 |
+| 45 | `r.3.1.0` | a2 | 3.63 | a16 | 3.225 | neither | 864 / 5,760 |
+| 46 | `r.1.0.1` | m14 | 3.60 | a16 | 2.969 | neither | 864 / 5,760 |
+| 47 | `r.6.2.1` | a9 | 3.59 | a9 | 2.88 | both | 864 / 5,760 |
+| 48 | `r.2.2.0` | a8 | 3.55 | a8 | 3.099 | both | 864 / 5,760 |
+| 49 | `r.6.1.1` | a16 | 3.53 | a16 | 3.063 | methods-only | 864 / 5,760 |
+| 50 | `r.8.1.0` | a3 | 3.50 | a3 | 3.13 | both | 864 / 5,760 |
+| 51 | `r.5.0.1` | a16 | 3.40 | a16 | 3.034 | methods-only | 864 / 5,760 |
+| 52 | `r.23.2.1` | a8 | 3.38 | a8 | 2.908 | both | 864 / 5,760 |
+| 53 | `r.5.3.1` | a15 | 3.33 | a15 | 2.947 | both | 864 / 5,760 |
+| 54 | `r.1.3.0` | m13 | 3.23 | a16 | 2.703 | rows-only | 864 / 5,760 |
+| 55 | `r.6.0.2` | a9 | 3.19 | a16 | 2.892 | rows-only | 864 / 5,760 |
+| 56 | `r.6.2.0` | a16 | 3.17 | a16 | 2.965 | methods-only | 864 / 5,760 |
+| 57 | `r.6.3.1` | a16 | 3.13 | a16 | 2.802 | both | 864 / 5,760 |
+| 58 | `r.18.2.0` | a7 | 3.10 | a7 | 2.763 | both | 864 / 5,760 |
+| 59 | `r.13.2.1` | a3 | 3.04 | a7 | 2.771 | neither | 864 / 5,760 |
+| 60 | `r.7.1.1` | a7 | 2.98 | a7 | 2.679 | methods-only | 864 / 5,760 |
+| 61 | `r.6.0.0` | a16 | 2.88 | a16 | 2.633 | both | 864 / 5,760 |
+| 62 | `r.6.2.3` | a9 | 2.61 | a17 | 2.661 | neither | 864 / 5,760 |
 
 ## Per-circuit detail
 
@@ -275,6 +275,8 @@ At `a8`: mean|dCE| on members **0.916**, off slice 0.1488, signed dCE on members
 
 864 member positions in a slice of 5,760 (15.0% of the slice).
 
+> **Confidence: rows-only** — stable across a row split, but the two interventions name different components. Its held-out concentration is 5.6996, so the circuit still localises; it is the single component NAME that is not settled (§2061).
+
 > **Band-localised, not component-localised.** The two methods disagree by one or two layers inside the `m13`–`m16` band, which is the signature of a circuit spread across adjacent MLPs rather than sitting on one.
 
 | method | 1st | 2nd | 3rd |
@@ -384,6 +386,8 @@ At `a3`: mean|dCE| on members **1.51**, off slice 0.2977, signed dCE on members 
 
 5,760 member positions in a slice of 38,400 (15.0% of the slice).
 
+> **Confidence: rows-only** — stable across a row split, but the two interventions name different components. Its held-out concentration is 5.0709, so the circuit still localises; it is the single component NAME that is not settled (§2061).
+
 | method | 1st | 2nd | 3rd |
 |--------|-----|-----|-----|
 | mean | a4 4.953 | m6 4.791 | m5 4.779 |
@@ -472,6 +476,8 @@ At `a17`: mean|dCE| on members **0.4446**, off slice 0.0926, signed dCE on membe
 
 864 member positions in a slice of 5,760 (15.0% of the slice).
 
+> **Confidence: methods-only** — both interventions agree, but the argmax moves when the rows are split. On a held-out row split the argmax moves `m5` -> `a3`. Its held-out concentration is 4.4341, so the circuit still localises; it is the single component NAME that is not settled (§2061).
+
 | method | 1st | 2nd | 3rd |
 |--------|-----|-----|-----|
 | mean | a3 4.604 | a4 4.516 | m5 4.475 |
@@ -493,6 +499,8 @@ At `a3`: mean|dCE| on members **1.3709**, off slice 0.2977, signed dCE on member
 ### 20. `r.1.2.1` — m16, concentration 4.51
 
 864 member positions in a slice of 5,760 (15.0% of the slice).
+
+> **Confidence: rows-only** — stable across a row split, but the two interventions name different components. Its held-out concentration is 4.576, so the circuit still localises; it is the single component NAME that is not settled (§2061).
 
 > **Band-localised, not component-localised.** The two methods disagree by one or two layers inside the `m13`–`m16` band, which is the signature of a circuit spread across adjacent MLPs rather than sitting on one.
 
@@ -533,6 +541,8 @@ At `a6`: mean|dCE| on members **0.9663**, off slice 0.221, signed dCE on members
 ### 22. `r.1.2` — m16, concentration 4.37
 
 5,760 member positions in a slice of 38,400 (15.0% of the slice).
+
+> **Confidence: neither** — the named component is not stable across rows and the two interventions disagree. On a held-out row split the argmax moves `m16` -> `m13`. Its held-out concentration is 4.2448, so the circuit still localises; it is the single component NAME that is not settled (§2061).
 
 > **Band-localised, not component-localised.** The two methods disagree by one or two layers inside the `m13`–`m16` band, which is the signature of a circuit spread across adjacent MLPs rather than sitting on one.
 
@@ -640,6 +650,8 @@ At `a8`: mean|dCE| on members **0.4919**, off slice 0.1177, signed dCE on member
 
 864 member positions in a slice of 5,760 (15.0% of the slice).
 
+> **Confidence: methods-only** — both interventions agree, but the argmax moves when the rows are split. On a held-out row split the argmax moves `m12` -> `m14`. Its held-out concentration is 3.7273, so the circuit still localises; it is the single component NAME that is not settled (§2061).
+
 | method | 1st | 2nd | 3rd |
 |--------|-----|-----|-----|
 | mean | m14 4.138 | m12 3.897 | m13 3.876 |
@@ -678,6 +690,8 @@ At `a8`: mean|dCE| on members **0.4859**, off slice 0.1177, signed dCE on member
 
 864 member positions in a slice of 5,760 (15.0% of the slice).
 
+> **Confidence: neither** — the named component is not stable across rows and the two interventions disagree. On a held-out row split the argmax moves `a16` -> `a14`. Its held-out concentration is 4.0277, so the circuit still localises; it is the single component NAME that is not settled (§2061).
+
 | method | 1st | 2nd | 3rd |
 |--------|-----|-----|-----|
 | mean | a16 4.111 | a14 4.035 | a8 3.207 |
@@ -699,6 +713,8 @@ At `a16`: mean|dCE| on members **0.305**, off slice 0.0742, signed dCE on member
 ### 30. `r.1.3.1` — m13, concentration 4.10
 
 864 member positions in a slice of 5,760 (15.0% of the slice).
+
+> **Confidence: neither** — the named component is not stable across rows and the two interventions disagree. On a held-out row split the argmax moves `m14` -> `m13`. Its held-out concentration is 4.0055, so the circuit still localises; it is the single component NAME that is not settled (§2061).
 
 > **Band-localised, not component-localised.** The two methods disagree by one or two layers inside the `m13`–`m16` band, which is the signature of a circuit spread across adjacent MLPs rather than sitting on one.
 
@@ -724,6 +740,8 @@ At `m13`: mean|dCE| on members **0.7196**, off slice 0.1756, signed dCE on membe
 
 864 member positions in a slice of 5,760 (15.0% of the slice).
 
+> **Confidence: rows-only** — stable across a row split, but the two interventions name different components. Its held-out concentration is 3.9925, so the circuit still localises; it is the single component NAME that is not settled (§2061).
+
 > **Band-localised, not component-localised.** The two methods disagree by one or two layers inside the `m13`–`m16` band, which is the signature of a circuit spread across adjacent MLPs rather than sitting on one.
 
 | method | 1st | 2nd | 3rd |
@@ -747,6 +765,8 @@ At `m16`: mean|dCE| on members **1.2798**, off slice 0.3134, signed dCE on membe
 ### 32. `r.1.1.1` — m16, concentration 4.08
 
 864 member positions in a slice of 5,760 (15.0% of the slice).
+
+> **Confidence: neither** — the named component is not stable across rows and the two interventions disagree. On a held-out row split the argmax moves `m15` -> `m16`. Its held-out concentration is 4.008, so the circuit still localises; it is the single component NAME that is not settled (§2061).
 
 > **Band-localised, not component-localised.** The two methods disagree by one or two layers inside the `m13`–`m16` band, which is the signature of a circuit spread across adjacent MLPs rather than sitting on one.
 
@@ -857,6 +877,8 @@ At `a8`: mean|dCE| on members **0.5958**, off slice 0.1497, signed dCE on member
 
 864 member positions in a slice of 5,760 (15.0% of the slice).
 
+> **Confidence: methods-only** — both interventions agree, but the argmax moves when the rows are split. On a held-out row split the argmax moves `a16` -> `a14`. Its held-out concentration is 3.9932, so the circuit still localises; it is the single component NAME that is not settled (§2061).
+
 | method | 1st | 2nd | 3rd |
 |--------|-----|-----|-----|
 | mean | a14 3.973 | a16 3.95 | m17 3.064 |
@@ -875,6 +897,8 @@ At `a14`: mean|dCE| on members **0.4359**, off slice 0.1097, signed dCE on membe
 ### 38. `r.1.1.0` — m14, concentration 3.96
 
 864 member positions in a slice of 5,760 (15.0% of the slice).
+
+> **Confidence: methods-only** — both interventions agree, but the argmax moves when the rows are split. On a held-out row split the argmax moves `m15` -> `m14`. Its held-out concentration is 3.8114, so the circuit still localises; it is the single component NAME that is not settled (§2061).
 
 | method | 1st | 2nd | 3rd |
 |--------|-----|-----|-----|
@@ -898,6 +922,8 @@ At `m14`: mean|dCE| on members **0.6206**, off slice 0.1566, signed dCE on membe
 
 864 member positions in a slice of 5,760 (15.0% of the slice).
 
+> **Confidence: methods-only** — both interventions agree, but the argmax moves when the rows are split. On a held-out row split the argmax moves `m5` -> `a3`. Its held-out concentration is 3.7503, so the circuit still localises; it is the single component NAME that is not settled (§2061).
+
 | method | 1st | 2nd | 3rd |
 |--------|-----|-----|-----|
 | mean | a3 3.907 | m5 3.748 | a2 3.495 |
@@ -920,6 +946,8 @@ At `a3`: mean|dCE| on members **1.1891**, off slice 0.3044, signed dCE on member
 
 864 member positions in a slice of 5,760 (15.0% of the slice).
 
+> **Confidence: rows-only** — stable across a row split, but the two interventions name different components. Its held-out concentration is 3.8558, so the circuit still localises; it is the single component NAME that is not settled (§2061).
+
 | method | 1st | 2nd | 3rd |
 |--------|-----|-----|-----|
 | mean | m5 3.836 | a14 3.447 | m6 3.308 |
@@ -938,6 +966,8 @@ At `m5`: mean|dCE| on members **1.1044**, off slice 0.2879, signed dCE on member
 ### 41. `r.1.1` — m13, concentration 3.81
 
 5,760 member positions in a slice of 38,400 (15.0% of the slice).
+
+> **Confidence: rows-only** — stable across a row split, but the two interventions name different components. Its held-out concentration is 3.7817, so the circuit still localises; it is the single component NAME that is not settled (§2061).
 
 | method | 1st | 2nd | 3rd |
 |--------|-----|-----|-----|
@@ -980,6 +1010,8 @@ At `m13`: mean|dCE| on members **0.5347**, off slice 0.1416, signed dCE on membe
 
 864 member positions in a slice of 5,760 (15.0% of the slice).
 
+> **Confidence: rows-only** — stable across a row split, but the two interventions name different components. Its held-out concentration is 3.5469, so the circuit still localises; it is the single component NAME that is not settled (§2061).
+
 | method | 1st | 2nd | 3rd |
 |--------|-----|-----|-----|
 | mean | m17 3.655 | m16 3.182 | a16 2.596 |
@@ -1021,6 +1053,8 @@ At `m16`: mean|dCE| on members **1.158**, off slice 0.3188, signed dCE on member
 
 864 member positions in a slice of 5,760 (15.0% of the slice).
 
+> **Confidence: neither** — the named component is not stable across rows and the two interventions disagree. On a held-out row split the argmax moves `a14` -> `a2`. Its held-out concentration is 2.7737, so the circuit still localises; it is the single component NAME that is not settled (§2061).
+
 | method | 1st | 2nd | 3rd |
 |--------|-----|-----|-----|
 | mean | a2 3.629 | m5 3.557 | a17 3.512 |
@@ -1042,6 +1076,8 @@ At `a2`: mean|dCE| on members **1.3427**, off slice 0.37, signed dCE on members 
 ### 46. `r.1.0.1` — m14, concentration 3.60
 
 864 member positions in a slice of 5,760 (15.0% of the slice).
+
+> **Confidence: neither** — the named component is not stable across rows and the two interventions disagree. On a held-out row split the argmax moves `m12` -> `m14`. Its held-out concentration is 3.3564, so the circuit still localises; it is the single component NAME that is not settled (§2061).
 
 | method | 1st | 2nd | 3rd |
 |--------|-----|-----|-----|
@@ -1103,6 +1139,8 @@ At `a8`: mean|dCE| on members **0.5293**, off slice 0.149, signed dCE on members
 
 864 member positions in a slice of 5,760 (15.0% of the slice).
 
+> **Confidence: methods-only** — both interventions agree, but the argmax moves when the rows are split. On a held-out row split the argmax moves `a8` -> `a16`. Its held-out concentration is 2.9672, so the circuit still localises; it is the single component NAME that is not settled (§2061).
+
 | method | 1st | 2nd | 3rd |
 |--------|-----|-----|-----|
 | mean | a16 3.531 | a14 3.387 | m5 3.361 |
@@ -1146,6 +1184,8 @@ At `a3`: mean|dCE| on members **1.0746**, off slice 0.3072, signed dCE on member
 ### 51. `r.5.0.1` — a16, concentration 3.40
 
 864 member positions in a slice of 5,760 (15.0% of the slice).
+
+> **Confidence: methods-only** — both interventions agree, but the argmax moves when the rows are split. On a held-out row split the argmax moves `a3` -> `a16`. Its held-out concentration is 3.4141, so the circuit still localises; it is the single component NAME that is not settled (§2061).
 
 | method | 1st | 2nd | 3rd |
 |--------|-----|-----|-----|
@@ -1216,6 +1256,8 @@ At `a15`: mean|dCE| on members **0.222**, off slice 0.0667, signed dCE on member
 
 864 member positions in a slice of 5,760 (15.0% of the slice).
 
+> **Confidence: rows-only** — stable across a row split, but the two interventions name different components. Its held-out concentration is 3.2216, so the circuit still localises; it is the single component NAME that is not settled (§2061).
+
 | method | 1st | 2nd | 3rd |
 |--------|-----|-----|-----|
 | mean | m13 3.228 | m12 3.151 | m15 3.009 |
@@ -1238,6 +1280,8 @@ At `m13`: mean|dCE| on members **0.5668**, off slice 0.1756, signed dCE on membe
 
 864 member positions in a slice of 5,760 (15.0% of the slice).
 
+> **Confidence: rows-only** — stable across a row split, but the two interventions name different components. Its held-out concentration is 3.254, so the circuit still localises; it is the single component NAME that is not settled (§2061).
+
 | method | 1st | 2nd | 3rd |
 |--------|-----|-----|-----|
 | mean | a9 3.185 | a16 2.988 | a14 2.896 |
@@ -1259,6 +1303,8 @@ At `a9`: mean|dCE| on members **0.7357**, off slice 0.231, signed dCE on members
 ### 56. `r.6.2.0` — a16, concentration 3.17
 
 864 member positions in a slice of 5,760 (15.0% of the slice).
+
+> **Confidence: methods-only** — both interventions agree, but the argmax moves when the rows are split. On a held-out row split the argmax moves `m16` -> `a16`. Its held-out concentration is 2.9067, so the circuit still localises; it is the single component NAME that is not settled (§2061).
 
 | method | 1st | 2nd | 3rd |
 |--------|-----|-----|-----|
@@ -1320,6 +1366,8 @@ At `a7`: mean|dCE| on members **0.7248**, off slice 0.2335, signed dCE on member
 
 864 member positions in a slice of 5,760 (15.0% of the slice).
 
+> **Confidence: neither** — the named component is not stable across rows and the two interventions disagree. On a held-out row split the argmax moves `a3` -> `a7`. Its held-out concentration is 3.0512, so the circuit still localises; it is the single component NAME that is not settled (§2061).
+
 | method | 1st | 2nd | 3rd |
 |--------|-----|-----|-----|
 | mean | a3 3.042 | a7 3.009 | a6 2.844 |
@@ -1341,6 +1389,8 @@ At `a3`: mean|dCE| on members **0.9373**, off slice 0.3081, signed dCE on member
 ### 60. `r.7.1.1` — a7, concentration 2.98
 
 864 member positions in a slice of 5,760 (15.0% of the slice).
+
+> **Confidence: methods-only** — both interventions agree, but the argmax moves when the rows are split. On a held-out row split the argmax moves `a7` -> `a16`. Its held-out concentration is 2.9765, so the circuit still localises; it is the single component NAME that is not settled (§2061).
 
 | method | 1st | 2nd | 3rd |
 |--------|-----|-----|-----|
@@ -1385,6 +1435,8 @@ At `a16`: mean|dCE| on members **0.2143**, off slice 0.0743, signed dCE on membe
 ### 62. `r.6.2.3` — a9, concentration 2.61
 
 864 member positions in a slice of 5,760 (15.0% of the slice).
+
+> **Confidence: neither** — the named component is not stable across rows and the two interventions disagree. On a held-out row split the argmax moves `a17` -> `a9`. Its held-out concentration is 2.63, so the circuit still localises; it is the single component NAME that is not settled (§2061).
 
 | method | 1st | 2nd | 3rd |
 |--------|-----|-----|-----|

@@ -60490,3 +60490,97 @@ circuit than the whole component that carries it.
 is the natural next sweep. And `r.11.1.1` — §2058's exception, the one a8 circuit with no selective
 direction of its own — is also the one circuit here with **overlap 0.000** and the lowest DAS
 concentration. Three methods now agree it has no direction of its own.
+
+## §2061 — §2059's headline survives a clean held-out test; its per-circuit component assignments do not
+
+`ops/circuit_localisation_heldout.py`, **755s**, **DISCOVERY ONLY**, RUNG 2 (second-class confirmation,
+house pattern §1595/§1598/§1603). **pred_a FALSE 45/62 | pred_b True | pred_c True 62/62.**
+
+§2059 chose each circuit's best component as the argmax over 36 candidates and reported its
+concentration on the **same** 256,000 positions the argmax was taken over. That is exactly LESSON 106's
+shape and §2059 did not carry the check. Here the census rows are split even/odd — by ROW, since
+positions in a row share a context and would leak, and interleaved so corpus drift hits both halves
+equally — the component is selected on half A, and its concentration is reported on half B.
+
+```
+  pred_a  same component selected on both halves : 45/62 = 73%   (bar >=90%)   FALSE
+  pred_b  median held-out / in-sample ratio      : 1.0217        (bar >=0.80)  True
+          spread: min 0.780   p25 0.983   p75 1.048   max 1.152
+  pred_c  still >= 2.0 on the held-out half alone: 62/62                       True
+          lowest: r.6.2.3 2.63, r.3.1.0 2.77, r.6.2.0 2.91, r.6.1.1 2.97
+```
+
+> **§2059's headline claim survives intact and is not a selection artefact.** All 62 circuits still clear
+> concentration 2.0 when selection and measurement share no position, and **the median held-out/in-sample
+> ratio is 1.0217 — held-out concentration is very slightly HIGHER than in-sample**, with the worst
+> circuit at 0.780. There is no measurable selection inflation to correct for. This is the strongest form
+> of the claim and it is now second-class confirmed.
+
+**pred_a failed, and it qualifies something I said on the board.** For **17 of 62 circuits the argmax
+component is not stable across a row split** — `r.0.0.1` moves m5→a3, `r.1.0.1` m12→m14, `r.3.1.0`
+a14→a2, `r.5.0.1` a3→a16, and so on. §2059's board post said "localisation is a property of the circuit,
+not the intervention". **That is right about localisABILITY and too strong about the ASSIGNMENT**: a
+circuit reliably localises somewhere, but which single component gets named is unstable for a quarter of
+them.
+
+**The two instability tests are NOT the same test, which I had to check rather than assume.** §2059 found
+17 circuits where the two interventions disagree; this finds 17 where the row halves disagree. **The
+overlap is 8, against 4.7 expected if independent** — mildly correlated, not identical. Only
+**36 of 62 circuits are clean on both tests**; **26 of 62 (42%) are flagged by at least one**. The
+identical 73% in both is a coincidence of count, not of identity.
+
+**Unstable circuits are not obviously weaker circuits.** Their held-out concentration median is 3.73
+against 4.25 for the stable ones, and **the lowest among them is 2.63 — every one still clears the bar**.
+So instability of assignment is not a proxy for a weak circuit; it is its own property, consistent with an
+effect spread over adjacent components (§2059 already flagged the `m13`–`m16` band, and 6 of these 17 sit
+in it).
+
+**Consequence, applied.** `circuits/DOSSIER.md` now carries a per-circuit **confidence** field —
+`both` (36 circuits, stable across rows and agreed between methods), `rows-only`, `methods-only`, or
+`neither` — so nobody reads a single best-component name as settled when it is not.
+
+**ANSWERED IN THE SAME SECTION, no new GPU time: the instability is a near-tie, not a mystery.**
+(`HELDOUT.json` stores only the selected component's numbers, so the per-component tables came from
+`BATTERY.json` instead — my first statement of this open question named the wrong file.) Comparing the
+top-two concentration margin between the groups:
+
+```
+  top-two margin      median    min     max     within 5% of a tie
+  row-UNSTABLE (17)    1.019   1.000   1.072       14/17
+  row-STABLE   (45)    1.149   1.017   2.596        9/45
+```
+
+> **Every one of the 17 row-unstable circuits has its top two components within 7.2% of each other, and
+> 14 of 17 within 5%.** The argmax moves across a row split because **two components are very nearly
+> equally good and noise breaks the tie** — not because the circuit failed to localise. The stable group
+> is separated by a median 14.9% and reaches 2.6x.
+
+This is the benign reading of pred_a's failure and it is the one the data supports: for those 17, the
+honest statement is **"this circuit sits at either of two near-equivalent components"**, not "we do not
+know where this circuit is". It also means the fix is a reporting fix, which `circuits/DOSSIER.md`'s
+confidence field now carries, rather than more measurement.
+
+**And that one is answered here too — the 17 split into two populations.**
+
+```
+  ADJACENT (same family, <=2 layers apart)   7/17
+    r.1.0.1 m12<->m14   r.1.0.2 m12<->m14   r.1.1.0 m15<->m14   r.1.1.1 m15<->m16
+    r.1.3.1 m14<->m13   r.6.0.1 a16<->a14   r.6.3.0 a16<->a14
+  DISTANT or cross-family                   10/17
+    r.0.0.1 m5<->a3     r.0.3.0 m5<->a3     r.13.2.1 a3<->a7    r.1.2  m16<->m13
+    r.3.1.0 a14<->a2    r.5.0.1 a3<->a16    r.6.1.1 a8<->a16    r.6.2.0 m16<->a16
+    r.6.2.3 a17<->a9    r.7.1.1 a7<->a16
+```
+
+The 7 adjacent pairs are the smeared-band picture §2059 already suspected, now with the mechanism named:
+neighbouring MLPs in the `m12`–`m16` region are near-interchangeable for those circuits.
+
+**The 10 distant pairs need a caveat I cannot remove with this instrument, and I will not state the
+attractive reading as though I had.** A near-tie between two far-apart sites — `r.0.0.1` at m5 and a3,
+`r.7.1.1` at a7 and a16 — is equally consistent with **(a)** two redundant parallel implementations, and
+**(b)** two links of one serial chain, where ablating either end breaks the same path. **Single-site
+concentration cannot distinguish them**, because both produce the same signature. Redundancy is the more
+interesting reading and is exactly why it should not be asserted: with the writer sitting earlier and the
+reader later, a serial chain is if anything the more likely one. **A joint double-ablation separates
+them** — under (a) removing both is roughly the sum of removing each, under (b) it is roughly the same as
+removing either — and that is the experiment this open question actually calls for.

@@ -10,6 +10,7 @@ import json
 import os
 
 BAT = json.load(open('circuits/BATTERY.json'))
+HEL = json.load(open('circuits/HELDOUT.json')) if os.path.exists('circuits/HELDOUT.json') else None
 DAS = json.load(open('circuits/DAS.json')) if os.path.exists('circuits/DAS.json') else {'by_tag': {}}
 
 import torch
@@ -31,6 +32,21 @@ rows = sorted(((v['mean_ablation']['top'][0]['concentration'], t)
                for t, v in BAT['by_tag'].items() if v['mean_ablation']['top']), reverse=True)
 
 BAND = {'r.1.2', 'r.1.2.0', 'r.1.2.1', 'r.1.1.1', 'r.1.1.2', 'r.1.3.1'}
+
+
+def confidence(tag):
+    """S2061: does the component assignment survive a row split, and do both methods agree on it?"""
+    rows_ok = bool(HEL and (HEL['by_tag'].get(tag) or {}).get('stable'))
+    meth_ok = bool(BAT['by_tag'][tag]['methods_agree'])
+    if HEL is None:
+        return 'unknown', 'held-out test not run'
+    if rows_ok and meth_ok:
+        return 'both', 'stable across a row split AND agreed by both interventions'
+    if rows_ok:
+        return 'rows-only', 'stable across a row split, but the two interventions name different components'
+    if meth_ok:
+        return 'methods-only', 'both interventions agree, but the argmax moves when the rows are split'
+    return 'neither', 'the named component is not stable across rows and the two interventions disagree'
 L = []
 L.append('# Circuit dossier — bilin18\n')
 L.append(f'Assembled {BAT["generated"]}. **{len(rows)} curated circuits**, each localised by two '
@@ -48,9 +64,9 @@ for i, (c, t) in enumerate(rows, 1):
     b = BAT['by_tag'][t]
     ic = b['interchange']['top'][0]['concentration'] if b['interchange']['top'] else None
     nm, ns = NMEM.get(t, (0, 0))
+    cf, _ = confidence(t)
     L.append(f'| {i} | `{t}` | {b["best_mean"]} | {c:.2f} | {b["best_interchange"]} | '
-             f'{ic if ic is not None else "-"} | {"yes" if b["methods_agree"] else "**no**"} | '
-             f'{nm:,} / {ns:,} |')
+             f'{ic if ic is not None else "-"} | {cf} | {nm:,} / {ns:,} |')
 
 L.append('\n## Per-circuit detail\n')
 for i, (c, t) in enumerate(rows, 1):
@@ -60,6 +76,15 @@ for i, (c, t) in enumerate(rows, 1):
     L.append(f'\n### {i}. `{t}` — {b["best_mean"]}, concentration {c:.2f}\n')
     L.append(f'{nm:,} member positions in a slice of {ns:,} '
              f'({100.0*nm/ns if ns else 0:.1f}% of the slice).\n')
+    cf, why = confidence(t)
+    if cf != 'both':
+        hv = (HEL['by_tag'].get(t) or {}) if HEL else {}
+        extra = (f" On a held-out row split the argmax moves "
+                 f"`{hv.get('selected_on_A')}` -> `{hv.get('argmax_on_B')}`."
+                 if hv and not hv.get('stable') else '')
+        L.append(f'> **Confidence: {cf}** — {why}.{extra} Its held-out concentration is '
+                 f'{hv.get("conc_B_of_A_selected", "?")}, so the circuit still localises; it is the '
+                 f'single component NAME that is not settled (§2061).\n')
     if t in BAND:
         L.append('> **Band-localised, not component-localised.** The two methods disagree by one or two '
                  'layers inside the `m13`–`m16` band, which is the signature of a circuit spread across '
