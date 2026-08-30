@@ -38,13 +38,13 @@ RUNNER = Path(__file__).resolve()
 TEST = HERE / "test_run_mlp2_error_rayleigh_v1_collect.py"
 CORE = HERE / "mlp2_error_rayleigh_collector_core.py"
 CORE_TEST = HERE / "test_mlp2_error_rayleigh_collector_core.py"
-AUDIT = HERE / "mlp2_error_rayleigh_v2_collector_independent_audit.json"
+AUDIT = HERE / "mlp2_error_rayleigh_v3_collector_independent_audit.json"
 ROWS_RECEIPT = BQ / "mlp2_error_rayleigh_v1_rows_receipt.json"
-PREDICTOR_RECEIPT = HERE / "mlp2_error_rayleigh_v2_design_predictor_receipt.json"
-PREDICTOR_BUNDLE = HERE / "mlp2_error_rayleigh_v2_design_predictor_bundle.pt"
-PREDICTOR_AUTHORITY = HERE / "mlp2_error_rayleigh_v2_design_predictor_authority.json"
-PREDICTOR_AUDIT = HERE / "mlp2_error_rayleigh_v2_design_scorer_independent_audit.json"
-RECOVERY_AMENDMENT = HERE / "MLP2_ERROR_RAYLEIGH_DESIGN_V2_RECOVERY_AMENDMENT.md"
+PREDICTOR_RECEIPT = HERE / "mlp2_error_rayleigh_v3_design_predictor_receipt.json"
+PREDICTOR_BUNDLE = HERE / "mlp2_error_rayleigh_v3_design_predictor_bundle.pt"
+PREDICTOR_AUTHORITY = HERE / "mlp2_error_rayleigh_v3_design_predictor_authority.json"
+PREDICTOR_AUDIT = HERE / "mlp2_error_rayleigh_v3_design_scorer_independent_audit.json"
+RECOVERY_AMENDMENT = HERE / "MLP2_ERROR_RAYLEIGH_DESIGN_V3_RECOVERY_AMENDMENT.md"
 V1_DESIGN_AUTHORITY = HERE / "mlp2_error_rayleigh_v1_design_authority.json"
 V1_DESIGN_FAILURE = HERE / "mlp2_error_rayleigh_v1_design_failure.json"
 V1_DESIGN_LEDGER = HERE / "mlp2_error_rayleigh_v1_design_ledger.pt"
@@ -66,6 +66,31 @@ V1_ABSENT_PATHS = (
 )
 V1_AUTHORITY_SHA = "d5d6f785a61568ed1aa6979af1eeea76183d1ffb6f080415cc294a68252ae8db"
 V1_FAILURE_SHA = "a8b6a88d342db2f2b2e3720cf87bb40caac4333d240dc27e04498d078585bbba"
+V2_DESIGN_AUTHORITY = HERE / "mlp2_error_rayleigh_v2_design_authority.json"
+V2_DESIGN_LEDGER = HERE / "mlp2_error_rayleigh_v2_design_ledger.pt"
+V2_DESIGN_RECEIPT = HERE / "mlp2_error_rayleigh_v2_design_receipt.json"
+V2_COLLECTOR_AUDIT = HERE / "mlp2_error_rayleigh_v2_collector_independent_audit.json"
+V2_SCORER_AUDIT = HERE / "mlp2_error_rayleigh_v2_design_scorer_independent_audit.json"
+V2_SCORER_FAILURE = HERE / "mlp2_error_rayleigh_v2_design_predictor_failure.json"
+V2_DESIGN_AUTHORITY_SHA = "346fc2a85b195b907e1ca60c3976acb824d46f7ad6b88261df525442fd2e3cd8"
+V2_DESIGN_LEDGER_SHA = "171798a41c450b17302b9907853633daef865fb4bbfd9b9ec0cdaedb6137c8bd"
+V2_DESIGN_RECEIPT_SHA = "16bb0597ed78830a2c166ab68ca2faadc2b077faedf02900df31de822a51b880"
+V2_COLLECTOR_AUDIT_SHA = "1a4ac5a36fd140fc3c2b62fa2dc1f450048c46a7613fa6a496cd2162cf737790"
+V2_SCORER_AUDIT_SHA = "80fc2c78a1047fc96e822e43340100cc98d6734e7d3eda42ce35c2766b64cf72"
+V2_SCORER_FAILURE_SHA = "5a7021bc64ea9d6cfff3d9f6814c7cd626e6a528bbb62f8ba9735939ba188a38"
+V2_ABSENT_PATHS = (
+    Path("/workspace/runs/.mlp2_error_rayleigh_v2_design.lock"),
+    HERE / "mlp2_error_rayleigh_v2_design_failure.json",
+    HERE / "mlp2_error_rayleigh_v2_heldout_authority.json",
+    HERE / "mlp2_error_rayleigh_v2_heldout_ledger.pt",
+    HERE / "mlp2_error_rayleigh_v2_heldout_receipt.json",
+    HERE / "mlp2_error_rayleigh_v2_heldout_failure.json",
+    Path("/workspace/runs/.mlp2_error_rayleigh_v2_heldout.lock"),
+    HERE / "mlp2_error_rayleigh_v2_design_predictor_authority.json",
+    HERE / "mlp2_error_rayleigh_v2_design_predictor_bundle.pt",
+    HERE / "mlp2_error_rayleigh_v2_design_predictor_receipt.json",
+    Path("/workspace/runs/.mlp2_error_rayleigh_v2_design_predictor.lock"),
+)
 SOURCE_PATHS = tuple(dict.fromkeys((
     PREREG, ADDENDUM, RECOVERY_AMENDMENT, RUNNER, TEST, CORE, CORE_TEST,
     HERE / "mlp2_error_rayleigh_metrics.py",
@@ -92,8 +117,6 @@ SOURCE_PATHS = tuple(dict.fromkeys((
     HERE / "test_mlp0_native_down_program.py",
     HERE / "test_mlp2_cmr_v1_physical_program.py",
     HERE / "test_mlp2_rank512_refit_v1.py",
-    HERE / "run_mlp2_error_rayleigh_v1_score_design.py",
-    HERE / "test_run_mlp2_error_rayleigh_v1_score_design.py",
     *prior.row_life.SOURCE_PATHS, *base.SOURCE_PATHS, *refit.SOURCE_PATHS,
     *row_life.SOURCE_PATHS,
     ROOT / "jacclust/__init__.py", ROOT / "jacclust/tt_model.py",
@@ -143,7 +166,7 @@ def validate_audit(sources: Mapping[str, str]) -> tuple[dict[str, Any], str]:
         "audited_source_hashes", "tests_passed", "reviewer",
     }
     if set(value) != required or value.get("schema") != (
-        "mlp2_error_rayleigh_v2_collector_independent_audit"
+        "mlp2_error_rayleigh_v3_collector_independent_audit"
     ) or value.get("status") != "GO" or value.get("outcome_access") is not False \
             or value.get("audited_source_hashes") != dict(sources) \
             or not isinstance(value.get("tests_passed"), int) \
@@ -158,7 +181,7 @@ def validate_audit(sources: Mapping[str, str]) -> tuple[dict[str, Any], str]:
 def role_paths(role: str) -> dict[str, Path]:
     if role not in ROLE_NAMES:
         raise ValueError("collector role changed")
-    stem = f"mlp2_error_rayleigh_v2_{role.lower()}"
+    stem = f"mlp2_error_rayleigh_v3_{role.lower()}"
     return {
         "authority": HERE / f"{stem}_authority.json",
         "ledger": HERE / f"{stem}_ledger.pt",
@@ -208,6 +231,79 @@ def validate_spent_v1_design() -> dict[str, Any]:
     return {
         "authority_sha256": authority_sha,
         "failure_sha256": failure_sha,
+        "absent_paths": absences,
+    }
+
+
+def v2_absence_state() -> dict[str, bool]:
+    if len(V2_ABSENT_PATHS) != len(set(V2_ABSENT_PATHS)):
+        raise RuntimeError("spent Rayleigh v2 absence set contains duplicates")
+    return {str(path): path.exists() for path in V2_ABSENT_PATHS}
+
+
+def validate_spent_v2_design() -> dict[str, Any]:
+    authority, authority_sha = stable_json(V2_DESIGN_AUTHORITY, V2_DESIGN_AUTHORITY_SHA)
+    receipt, receipt_sha = stable_json(V2_DESIGN_RECEIPT, V2_DESIGN_RECEIPT_SHA)
+    collector_audit, collector_audit_sha = stable_json(
+        V2_COLLECTOR_AUDIT, V2_COLLECTOR_AUDIT_SHA,
+    )
+    scorer_audit, scorer_audit_sha = stable_json(V2_SCORER_AUDIT, V2_SCORER_AUDIT_SHA)
+    failure, failure_sha = stable_json(V2_SCORER_FAILURE, V2_SCORER_FAILURE_SHA)
+    ledger_sha = file_sha256(V2_DESIGN_LEDGER)
+    absences = v2_absence_state()
+    if authority_sha != V2_DESIGN_AUTHORITY_SHA \
+            or receipt_sha != V2_DESIGN_RECEIPT_SHA \
+            or ledger_sha != V2_DESIGN_LEDGER_SHA \
+            or collector_audit_sha != V2_COLLECTOR_AUDIT_SHA \
+            or scorer_audit_sha != V2_SCORER_AUDIT_SHA \
+            or failure_sha != V2_SCORER_FAILURE_SHA \
+            or authority.get("schema") != "mlp2_error_rayleigh_v1_collector_authority" \
+            or authority.get("role") != "DESIGN" \
+            or authority.get("audit_sha256") != collector_audit_sha \
+            or receipt.get("schema") != "mlp2_error_rayleigh_v1_collector_receipt" \
+            or receipt.get("role") != "DESIGN" \
+            or receipt.get("authority_sha256") != authority_sha \
+            or receipt.get("ledger_sha256") != ledger_sha \
+            or collector_audit.get("status") != "GO" \
+            or collector_audit.get("outcome_access") is not False \
+            or scorer_audit.get("status") != "GO" \
+            or scorer_audit.get("outcome_access") is not False \
+            or failure != {
+                "artifact_hashes": {},
+                "authority_exists": False,
+                "authority_observation": {"status": "absent"},
+                "design_ledger_may_have_opened": False,
+                "error": "RuntimeError('uncommitted collector source: "
+                         "basis_aligned/polynomial_causal/"
+                         "run_mlp2_error_rayleigh_v1_score_design.py')",
+                "protected_observation": {"status": "not_attempted_preopen_failure"},
+                "schema": "mlp2_error_rayleigh_v1_design_predictor_failure",
+                "status": "terminal_failure_no_receipt",
+            } or any(absences.values()):
+        raise RuntimeError("spent Rayleigh DESIGN v2 chain changed")
+    # Replay every cross-file join and absence after the first complete observation.
+    replay = {
+        "authority": stable_json(V2_DESIGN_AUTHORITY, authority_sha),
+        "receipt": stable_json(V2_DESIGN_RECEIPT, receipt_sha),
+        "collector_audit": stable_json(V2_COLLECTOR_AUDIT, collector_audit_sha),
+        "scorer_audit": stable_json(V2_SCORER_AUDIT, scorer_audit_sha),
+        "failure": stable_json(V2_SCORER_FAILURE, failure_sha),
+    }
+    if replay["authority"] != (authority, authority_sha) \
+            or replay["receipt"] != (receipt, receipt_sha) \
+            or replay["collector_audit"] != (collector_audit, collector_audit_sha) \
+            or replay["scorer_audit"] != (scorer_audit, scorer_audit_sha) \
+            or replay["failure"] != (failure, failure_sha) \
+            or file_sha256(V2_DESIGN_LEDGER) != ledger_sha \
+            or v2_absence_state() != absences or any(absences.values()):
+        raise RuntimeError("spent Rayleigh v2 aggregate lineage raced validation")
+    return {
+        "authority_sha256": authority_sha,
+        "ledger_sha256": ledger_sha,
+        "receipt_sha256": receipt_sha,
+        "collector_audit_sha256": collector_audit_sha,
+        "scorer_audit_sha256": scorer_audit_sha,
+        "scorer_failure_sha256": failure_sha,
         "absent_paths": absences,
     }
 
@@ -343,7 +439,7 @@ def validate_predictor_unlock() -> tuple[dict[str, Any], str]:
         "audited_source_hashes", "tests_passed", "reviewer",
     }
     if set(scorer_audit) != audit_required \
-            or scorer_audit.get("schema") != "mlp2_error_rayleigh_v2_design_scorer_independent_audit" \
+            or scorer_audit.get("schema") != "mlp2_error_rayleigh_v3_design_scorer_independent_audit" \
             or scorer_audit.get("status") != "GO" or scorer_audit.get("outcome_access") is not False \
             or scorer_audit.get("audited_source_hashes") != scorer_authority["source_hashes"] \
             or scorer_audit.get("reviewer") != scorer_authority["audit_reviewer"] \
@@ -390,6 +486,7 @@ def parent_snapshot() -> dict[str, Any]:
         "row_receipt_sha256": file_sha256(ROWS_RECEIPT),
         "checkpoint": facade.validate_snapshot().__dict__,
         "spent_design_v1": validate_spent_v1_design(),
+        "spent_design_v2": validate_spent_v2_design(),
     }
 
 

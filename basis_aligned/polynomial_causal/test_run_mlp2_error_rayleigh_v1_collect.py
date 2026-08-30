@@ -110,14 +110,22 @@ def test_raw_tensor_hash_supports_bfloat16_and_binds_dtype_shape_bytes():
     assert first != collect.tensor_sha256_raw(value.reshape(2, 6))
 
 
-def test_v2_binds_exact_spent_v1_failure_and_uses_fresh_namespace():
+def test_v3_binds_exact_spent_v1_and_v2_lineages_and_uses_fresh_namespace():
     lineage = collect.validate_spent_v1_design()
     assert lineage["authority_sha256"] == collect.V1_AUTHORITY_SHA
     assert lineage["failure_sha256"] == collect.V1_FAILURE_SHA
     assert lineage["absent_paths"] == {
         str(path): False for path in collect.V1_ABSENT_PATHS
     }
-    assert "v2_design" in collect.role_paths("DESIGN")["authority"].name
+    v2 = collect.validate_spent_v2_design()
+    assert v2["authority_sha256"] == collect.V2_DESIGN_AUTHORITY_SHA
+    assert v2["ledger_sha256"] == collect.V2_DESIGN_LEDGER_SHA
+    assert v2["receipt_sha256"] == collect.V2_DESIGN_RECEIPT_SHA
+    assert v2["scorer_failure_sha256"] == collect.V2_SCORER_FAILURE_SHA
+    assert v2["absent_paths"] == {
+        str(path): False for path in collect.V2_ABSENT_PATHS
+    }
+    assert "v3_design" in collect.role_paths("DESIGN")["authority"].name
     assert collect.role_paths("DESIGN")["authority"] != collect.V1_DESIGN_AUTHORITY
 
 
@@ -128,6 +136,15 @@ def test_v2_spent_lineage_rejects_each_late_v1_artifact(tmp_path, monkeypatch, v
     late.write_bytes(b"late-v1-terminal")
     with pytest.raises(RuntimeError, match="spent Rayleigh DESIGN v1 failure chain changed"):
         collect.validate_spent_v1_design()
+
+
+@pytest.mark.parametrize("v2_path", collect.V2_ABSENT_PATHS)
+def test_v3_spent_lineage_rejects_each_late_v2_artifact(tmp_path, monkeypatch, v2_path):
+    late = tmp_path / v2_path.name
+    monkeypatch.setattr(collect, "V2_ABSENT_PATHS", (late,))
+    late.write_bytes(b"late-v2-terminal")
+    with pytest.raises(RuntimeError, match="spent Rayleigh DESIGN v2 chain changed"):
+        collect.validate_spent_v2_design()
 
 
 def test_ledger_schema_accepts_exact_replay_and_rejects_nonexact():
@@ -168,6 +185,10 @@ def test_source_closure_contains_direct_science_and_tests():
                  collect.HERE / "prepare_mlp0_c512_mlp2_full512_composition_v1_rows.py",
                  collect.HERE / "mlp2_cmr_v1_physical_program.py"):
         assert collect.SOURCE_PATHS.count(path) == 1
+    assert collect.HERE / "run_mlp2_error_rayleigh_v1_score_design.py" \
+        not in collect.SOURCE_PATHS
+    assert collect.HERE / "test_run_mlp2_error_rayleigh_v1_score_design.py" \
+        not in collect.SOURCE_PATHS
 
 
 def test_row_receipt_contract_rejects_role_leak():
