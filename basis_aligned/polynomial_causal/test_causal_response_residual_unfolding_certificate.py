@@ -3,7 +3,10 @@ from __future__ import annotations
 import math
 import torch
 
-from causal_response_residual_unfolding_certificate import tensor_certificate
+from causal_response_residual_unfolding_certificate import (
+    common_support_rectangles,
+    tensor_certificate,
+)
 
 
 def _cp_tensor(shape: tuple[int, ...], rank: int, seed: int) -> torch.Tensor:
@@ -35,3 +38,16 @@ def test_certificate_is_invariant_to_axis_permutation_as_a_lower_bound() -> None
             rel_tol=1e-13,
             abs_tol=1e-28,
         )
+
+
+def test_common_support_uses_no_imputed_cells() -> None:
+    valid_td = torch.ones((6, 8), dtype=torch.bool)
+    valid_td[0, 0] = False
+    valid_td[2, 1] = False
+    groups = torch.arange(6, dtype=torch.int64)
+    valid = valid_td[None, None].expand(2, 6, 6, 8).contiguous()
+    rectangles = common_support_rectangles(valid, groups)
+    for targets, documents in rectangles:
+        assert bool(valid[0, 0, targets][:, documents].all())
+    assert int(rectangles[0][1].sum()) == 7
+    assert int(rectangles[2][1].sum()) == 7

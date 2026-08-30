@@ -30,6 +30,7 @@ SOURCE_PATHS = (
     HERE / "causal_response_residual_unfolding_certificate.py",
     HERE / "test_causal_response_residual_unfolding_certificate.py",
     HERE / "CAUSAL_RESPONSE_RESIDUAL_UNFOLDING_CERTIFICATE_PREREGISTRATION.md",
+    HERE / "CAUSAL_RESPONSE_RESIDUAL_UNFOLDING_CERTIFICATE_AMENDMENT_1.md",
 )
 
 
@@ -120,17 +121,37 @@ def _summary(values: list[float]) -> dict[str, float]:
     return {"min": min(values), "median": float(statistics.median(values)), "max": max(values)}
 
 
+def common_support_rectangles(
+    valid: torch.Tensor, groups: torch.Tensor,
+) -> tuple[tuple[torch.Tensor, torch.Tensor], ...]:
+    if type(valid) is not torch.Tensor or valid.dtype != torch.bool or valid.ndim != 4 or type(groups) is not torch.Tensor or groups.dtype != torch.int64 or groups.shape != (valid.shape[1],):
+        raise ValueError("validity geometry is malformed")
+    if not bool((valid == valid[0:1, 0:1].expand_as(valid)).all()):
+        raise ValueError("validity is not broadcast over phase and source")
+    rectangles = []
+    for owner in range(len(OWNER_LABELS)):
+        targets = groups == owner
+        documents = valid[0, 0, targets].all(dim=0)
+        if not bool(targets.any()) or not bool(documents.any()):
+            raise ValueError("target-owner rectangle is empty")
+        rectangles.append((targets, documents))
+    return tuple(rectangles)
+
+
 def build_receipt() -> dict[str, object]:
     started = time.perf_counter()
     training = load_production_training_snapshot()
     if training.response.shape != (2, 49, 49, 229) or tuple(training.owner_components) != OWNER_LABELS:
         raise RuntimeError("FIT training topology changed")
-    if not bool(training.valid.all()):
-        raise RuntimeError("FIT tensor is not complete; preregistration forbids imputation")
-
-    raw_owners = {}
-    for owner, label in enumerate(OWNER_LABELS):
-        raw_owners[label] = tensor_certificate(training.response[:, training.source_groups == owner])
+    rectangles = common_support_rectangles(training.valid, training.source_groups)
+    raw_pairs = {}
+    for source_owner, source_label in enumerate(OWNER_LABELS):
+        raw_pairs[source_label] = {}
+        source_mask = training.source_groups == source_owner
+        for target_owner, target_label in enumerate(OWNER_LABELS):
+            target_mask, documents = rectangles[target_owner]
+            block = training.response[:, source_mask][:, :, target_mask][:, :, :, documents]
+            raw_pairs[source_label][target_label] = tensor_certificate(block.contiguous())
 
     seed_rows = []
     artifacts = []
@@ -138,27 +159,35 @@ def build_receipt() -> dict[str, object]:
         prediction, artifact = _load_rank32_prediction(training, seed)
         artifacts.append(artifact)
         residual = training.response - prediction
-        owners = {}
-        for owner, label in enumerate(OWNER_LABELS):
-            owners[label] = tensor_certificate(residual[:, training.source_groups == owner])
-        seed_rows.append({"seed": seed, "owners": owners})
+        pairs = {}
+        for source_owner, source_label in enumerate(OWNER_LABELS):
+            pairs[source_label] = {}
+            source_mask = training.source_groups == source_owner
+            for target_owner, target_label in enumerate(OWNER_LABELS):
+                target_mask, documents = rectangles[target_owner]
+                block = residual[:, source_mask][:, :, target_mask][:, :, :, documents]
+                pairs[source_label][target_label] = tensor_certificate(block.contiguous())
+        seed_rows.append({"seed": seed, "pairs": pairs})
 
     summaries = {}
-    for label in OWNER_LABELS:
-        owner_rows = [row["owners"][label] for row in seed_rows]
-        summaries[label] = {
-            "residual_energy_per_cell": _summary([row["energy_per_cell"] for row in owner_rows]),
-            "cp_rank_lower_bound_95": _summary([float(row["cp_rank_lower_bound_95"]) for row in owner_rows]),
-            "cp_rank_lower_bound_99": _summary([float(row["cp_rank_lower_bound_99"]) for row in owner_rows]),
-            "rank16_lower_bound_tail_fraction": _summary([
-                row["cp_approximation_error_lower_bound_tail_fraction"]["16"] for row in owner_rows
-            ]),
-        }
+    for source_label in OWNER_LABELS:
+        summaries[source_label] = {}
+        for target_label in OWNER_LABELS:
+            pair_rows = [row["pairs"][source_label][target_label] for row in seed_rows]
+            summaries[source_label][target_label] = {
+                "residual_energy_per_cell": _summary([row["energy_per_cell"] for row in pair_rows]),
+                "cp_rank_lower_bound_95": _summary([float(row["cp_rank_lower_bound_95"]) for row in pair_rows]),
+                "cp_rank_lower_bound_99": _summary([float(row["cp_rank_lower_bound_99"]) for row in pair_rows]),
+                "rank16_lower_bound_tail_fraction": _summary([
+                    row["cp_approximation_error_lower_bound_tail_fraction"]["16"] for row in pair_rows
+                ]),
+            }
 
-    m16_energy = summaries["m16"]["residual_energy_per_cell"]["median"]
-    m16_tail = summaries["m16"]["rank16_lower_bound_tail_fraction"]["median"]
-    other_energy = max(summaries[label]["residual_energy_per_cell"]["median"] for label in OWNER_LABELS if label != "m16")
-    other_tail = max(summaries[label]["rank16_lower_bound_tail_fraction"]["median"] for label in OWNER_LABELS if label != "m16")
+    primary = summaries["m16"]["m16"]
+    m16_energy = primary["residual_energy_per_cell"]["median"]
+    m16_tail = primary["rank16_lower_bound_tail_fraction"]["median"]
+    other_energy = max(summaries[label]["m16"]["residual_energy_per_cell"]["median"] for label in OWNER_LABELS if label != "m16")
+    other_tail = max(summaries[label]["m16"]["rank16_lower_bound_tail_fraction"]["median"] for label in OWNER_LABELS if label != "m16")
     energy_ratio = m16_energy / other_energy
     tail_ratio = m16_tail / other_tail if other_tail > 0 else None
     high_tail = m16_tail > 0 if tail_ratio is None else tail_ratio >= 1.5
@@ -178,10 +207,20 @@ def build_receipt() -> dict[str, object]:
         "fit_artifact_binding": asdict(training.artifacts),
         "grid_terminal_sha256": sha256(grid_terminal.read_bytes()),
         "rank32_artifacts": artifacts,
-        "all_fit_cells_valid": True,
-        "raw_owner_certificates": raw_owners,
-        "residual_seed_owner_certificates": seed_rows,
-        "owner_median_summaries": summaries,
+        "missing_data_handling": {
+            "imputation": False,
+            "mask_broadcast_phase_source": True,
+            "target_owner_rectangles": {
+                label: {
+                    "targets": int(rectangles[index][0].sum()),
+                    "complete_documents": int(rectangles[index][1].sum()),
+                }
+                for index, label in enumerate(OWNER_LABELS)
+            },
+        },
+        "raw_source_target_owner_pair_certificates": raw_pairs,
+        "residual_seed_pair_certificates": seed_rows,
+        "source_target_owner_pair_median_summaries": summaries,
         "registered_decision": {
             "outcome": decision,
             "m16_to_largest_other_residual_energy_ratio": energy_ratio,
