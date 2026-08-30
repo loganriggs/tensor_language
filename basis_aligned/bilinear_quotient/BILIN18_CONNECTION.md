@@ -62748,3 +62748,25 @@ the block-5/6 first-order observability metric; at equal stored values the same 
   broad 90 % span. That is the registered next check (rung 15b): energy fraction in the top-r50 and top-8 eigen-
   directions, IN vs OUT.
 - Scope: this is the weights-side statement only; the CE gain (§2105–§2107) stands on its own two windows.
+
+## §2109 — RUNG 15b: the mechanism is the Gramian's VERY TOP. Units the metric swaps in load 2.5× more on the top-8 loss-gradient directions (0.0109 vs 0.0044 at mlp4; 0.0123 vs 0.0051 at mlp5); the top-r50 version misses its 1.5× bar at 1.3×
+
+`ops/metric_units_mechanism2.py`, **6s**, BACKLOG rung 15b. **pred_b HELD | pred_c HELD | pred_a FAILED.**
+
+```
+  layer  r90   r50   K=2304 swap   energy fraction of Down columns, median IN vs OUT
+                                     top-8         ratio    top-r50        ratio    r90 span     ratio
+  mlp4   712    87   25 %           0.0109/0.0044   2.50    0.105/0.082    1.28     0.685/0.670  1.02
+  mlp5   749   111   25 %           0.0123/0.0051   2.39    0.138/0.106    1.31     0.701/0.682  1.03
+```
+
+- **pred_b HELD at 2.4–2.5×:** the discriminating directions are the top eight eigenvectors of the site's loss-gradient
+  Gramian. They hold ~1 % of a typical unit's output energy — and 2.5× more of a swapped-in unit's. Because G's spectrum
+  is steep (r50 = 87 of 1152 at block 5), a small load on its very top is worth more to the loss than a large load
+  anywhere else, and ||G^{1/2} Down_u|| ranks accordingly.
+- **pred_a FAILED at 1.3× against 1.5×:** the r50 head discriminates, but weakly; the effect concentrates further up.
+  Together with §2108 (r90: 1.02×) the picture is monotone: the narrower the head, the sharper the IN/OUT separation.
+- **What this makes nameable.** The whole certified gain (§2105–§2107) rests on units that write into a handful of
+  loss-gradient directions at blocks 5–6. Eight directions is a describable object: which tokens/logits they read out
+  to, and whether they are the same eight at both sites, is the next cheap question — and a selector that stores an
+  8 × 1152 projector instead of a full Gramian would be the priced version of the metric (rung 16, queued).

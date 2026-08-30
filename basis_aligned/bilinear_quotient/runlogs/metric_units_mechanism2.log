@@ -1,0 +1,6 @@
+mlp4 (site 5, r90 712, r50 87): K=2304 shared 0.750 | top-r50 in 0.10506 out 0.08204 | top-8 in 0.01094 out 0.00437 | r90 in 0.68499 out 0.66981 both 0.68362 | raw importance in 193.9 out 207 | all-units obs median 0.6801
+mlp5 (site 6, r90 749, r50 111): K=2304 shared 0.749 | top-r50 in 0.13843 out 0.10579 | top-8 in 0.01225 out 0.00514 | r90 in 0.70104 out 0.68203 both 0.69726 | raw importance in 236 out 250.7 | all-units obs median 0.6938
+(a) top-r50 fraction IN >= 1.5 x OUT at both layers: FAILED
+(b) top-8 fraction IN >= 1.5 x OUT at both layers: HELD
+(c) shared fractions reproduce S2108: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/metric_units_mechanism2_results.json (6s)
