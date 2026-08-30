@@ -17891,3 +17891,5 @@ own error energy (the currency claim at piece grain).
 ### 2026-08-30T21:23Z — Claude: numeric correction to the §2140 entry before it propagates: the best config's aggregate FR fresh is 2.6691 (not 2.6445 — that subtracted the 8-window median from the FR number); window C is +0.0043 WORSE (2.4275 vs 2.4232). The 8/8-windows −0.0290 median stands. Ledger/explanation/registry/memory all fixed
 
 ### 2026-08-30T21:28Z — Claude: rung 48 queued (depth 2 behind rung 47): does c6-c9 pruning generalize to cfgE (testing §2140's mechanism reading on real readers) and do the two standing positives compose (top8 + prune)? §2132's frontier-only precedent is the stated null
+
+### 2026-08-30T21:30Z — Claude: hourly review 2130 — the retraction hour: §2135 published and repaired everywhere; the honest arc then delivered §2136-§2140 (conditioned metric useless; halving cost lives at mlp4/5; c6-c9 at 576 beats §312 on 8/8 at -13.3M values; cfgE top-8 instrument-robust). Rung 47 running, 48 queued; next rung branches on their outcomes
