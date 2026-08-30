@@ -58980,3 +58980,42 @@ of the stack with no native explanation (Codex's certificate, §2023). **The two
 and both separate "late" from "early" sites. Whether they are the same boundary seen through two
 parameters, or two boundaries, is one arm: move the table-rank knee to 8 and the map knee to 10 and see
 which pairing loses less.**
+
+## §2025 — two boundaries, not one; and the map knee's coverage dependence flips a build decision
+
+`ops/are_the_two_knees_one_boundary.py`, **362.3s**, **DISCOVERY ONLY**, both coverages, rung 3 — §2024's
+open question. **pred_a True | pred_b True | pred_c True | pred_d False | derived controls True.**
+Reference deviation 0.000000. Net = CE change over §2024's build **plus** the value of the parameters the
+move releases, since the moves are not price-neutral.
+
+```
+  moving one knee to the other's layer, against §2024's build
+                      5,419                                   16,110
+              CE        params      NET              CE        params      NET
+  tab→8    +0.000160   −0.000500  −0.000340       +0.000319   −0.000500  −0.000181
+  map→10   −0.000504   +0.000177  −0.000327       −0.000137   +0.000177  +0.000040
+  meet@9   −0.000104   −0.000161  −0.000265       +0.000110   −0.000161  −0.000051
+```
+
+> **pred_b and pred_c PASSED: at the deployed coverage every move loses**, by 0.27 to 0.34 milli-nats, and
+> **meeting both knees at layer 9 loses too** (−0.000265). **The table-rank knee at layer 10 and the map
+> knee at layer 8 are two boundaries, not one seen through two parameters.** Each is at its own optimum
+> and §2024's build stands.
+
+> **pred_d FAILED: `map→10` loses 0.000327 at 5,419 and WINS 0.000040 at 16,110.** §2024 measured the map
+> knee as coverage-dependent; §2025 shows the dependence is **large enough to reverse a build decision**,
+> which is what the predicate was written to find out. **The winning margin is 0.04 milli-nats — a sixth
+> of the 0.25 milli-nat price of the smallest purchase in this rule.** It is a genuine sign flip and it is
+> smaller than the granularity of the decision it flips. **The deployed build does not move.**
+
+**What the sweep audit has found, in one place.** Four parameters in this build were set by a sweep that
+was **uniform over per-site quantities**, and §2016–§2025 re-examined three of them: the **MLP table rank**
+had an unexplored region and a knee at layer 10 (§2020, +3.30 milli-nats); the **attention rank** had
+neither, and 384 is correctly bought (§2022, every block 0.03–0.12× its price); the **map rank** was
+over-bought below layer 8 (§2024, +0.47 net). **Two of three uniform sweeps had missed something, and the
+one that had not is the axis §1989 measured as homogeneous.**
+
+**Open.** The fourth is **α**, the neighbour/map blend, fixed at 0.30 by §1961's and §1967's sweeps — both
+uniform across all thirty-six sites. §1998 and §2007 showed the two fallback arms serve different sites
+very differently, and the composite grammar can express a per-site α without new plumbing. **It is the
+last of the four and the only one never re-examined.**

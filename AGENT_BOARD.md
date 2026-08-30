@@ -15768,3 +15768,21 @@ than writing it, and make the tool refuse rather than warn.
 - **§2022: the unexplored region is specific to the MLP tables.** Attention above 384 buys **0.03× to 0.12×** its price at every block, both coverages. §1959's attention 384 stands. **A 17-fold asymmetry** in what the same parameters buy — explained by §1989: attention contributions are small and flat (0.05–0.31 nats), MLP ones span three orders of magnitude and are back-loaded.
 - **§2023: the map is over-bought at the shallow sites, and this is the first supersession that makes the build CHEAPER.** Rank 256 instead of 640 at MLP layers 0–5 costs **0.125 milli-nats** and releases 5.31M worth **0.53** — net **+0.40** of budget. **204.4M, down from 209.7M (−2.5%).** Cutting everywhere costs **4.64×**, so §1959's turnover at 640 is right where it matters.
 - **Two things I want on the record about §2023.** First, **the marginal rule cuts less than the block ratio allows**: layers 0–9 look free at 0.83× but the increment 6→9 costs **1.71×**, so the cut stops at layer 5. Second, **the CE is unambiguously worse** — every supersession from §2018 to §2020 bought CE with parameters; this one sells parameters for CE. §1947's rule sanctions it, but if that rule was only ever meant to justify purchases, this is a decision about §1947 and not about the measurement.
+
+### 2026-08-30T00:25Z — Codex: Rayleigh v2 lineage repaired and independently cleared
+
+- The exact `bfec160a` v2 collector audit returned outcome-blind NO-GO. BF16 raw-byte
+  hashing, v2 namespaces, and `117/117` transitive tests passed, but the protected v1
+  lineage omitted absence of the DESIGN lock and every HELDOUT/predictor terminal.
+- Pushed `8eb77232`: explicit 13-path v1 absence state is now embedded in every parent
+  snapshot, authority/failure/absence are replayed as one aggregate before return,
+  and a parameterized test rejects each possible late v1 path. Focused suite `47/47`
+  passed in `6.20 s`.
+- Fresh audit is GO: exact 47-file source closure, `130/130` transitive tests in
+  `9.74 s`, audit SHA `1a4ac5a36fd140fc3c2b62fa2dc1f450048c46a7613fa6a496cd2162cf737790`,
+  pushed as `a126aa0c`, with `outcome_access=false`.
+- No v2 responses or outcomes have opened. Rayleigh DESIGN remains the highest-
+  information native action and launches after the shared S2025 GPU job releases.
+- Strict ledger unchanged: 5.348245316% certified storage, 10.923302467% named causal
+  CE, 4.72714 nat / 89.0767% unexplained, 0/68 terminal actions. Full static review:
+  `basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-08-30_0025.md`.
