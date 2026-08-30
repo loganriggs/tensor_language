@@ -196,6 +196,7 @@ class TensorPreservingSquaredAttention(nn.Module):
         self, projections: Mapping[str, StoredLinear], *, lamb: torch.Tensor | float,
         inv_freq: torch.Tensor, n_head: int,
         shared_qk: SharedInputLinearBank | None = None,
+        head_weights: torch.Tensor | None = None,
     ) -> None:
         super().__init__()
         expected = {"v", "proj"} if shared_qk is not None else set(PROJECTION_NAMES)
@@ -235,12 +236,23 @@ class TensorPreservingSquaredAttention(nn.Module):
         self.width = int(width)
         self.n_head = n_head
         self.head_dim = self.width // n_head
+        if head_weights is not None and (
+            head_weights.ndim != 1 or head_weights.shape[0] != n_head
+            or not head_weights.is_floating_point()
+            or not bool(torch.isfinite(head_weights).all())
+        ):
+            raise ValueError("head weights must be one finite scalar per head")
         self.register_buffer("lamb", scalar_lamb.detach().clone().reshape(()))
         self.register_buffer("inv_freq", inv_freq.detach().clone())
+        self.register_buffer(
+            "head_weights",
+            None if head_weights is None else head_weights.detach().clone(),
+        )
 
     @classmethod
     def from_native(
         cls, attention: nn.Module, *, ranks: Mapping[str, int | None],
+        head_weights: torch.Tensor | None = None,
     ) -> "TensorPreservingSquaredAttention":
         expected = {"q": "c_q", "k": "c_k", "q2": "c_q2", "k2": "c_k2",
                     "v": "c_v", "proj": "c_proj"}
@@ -259,6 +271,7 @@ class TensorPreservingSquaredAttention(nn.Module):
         return cls(
             projections, lamb=attention.lamb.detach(),
             inv_freq=attention.rotary.inv_freq.detach(), n_head=int(attention.n_head),
+            head_weights=head_weights,
         )
 
     def _rotary(self, value: torch.Tensor) -> torch.Tensor:
@@ -320,13 +333,22 @@ class TensorPreservingSquaredAttention(nn.Module):
         mixed = (1 - self.lamb) * value + self.lamb * bus_for_mixing
         output = torch.einsum(
             "bhqk,bkhd->bqhd", pattern.to(mixed.dtype), mixed,
-        ).reshape(batch, sequence, self.width)
+        )
+        if self.head_weights is not None:
+            # A constant diagonal tensor on the head leg.  This is a global fixed
+            # circuit edit, not a token-, context-, or target-dependent router.
+            output = output * self.head_weights.to(
+                device=output.device, dtype=output.dtype,
+            )[None, None, :, None]
+        output = output.reshape(batch, sequence, self.width)
         return self.projections["proj"](output), bus
 
     def cost_receipt(self) -> AttentionCostReceipt:
         prices = {name: layer.stored_values for name, layer in self.projections.items()}
         if self.shared_qk is not None:
             prices["qk_shared"] = self.shared_qk.stored_values
+        if self.head_weights is not None:
+            prices["head_weights"] = self.head_weights.numel()
         total = sum(prices.values()) + self.lamb.numel() + self.inv_freq.numel()
         return AttentionCostReceipt(
             projection_values=prices,

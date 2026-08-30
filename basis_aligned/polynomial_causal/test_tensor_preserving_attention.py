@@ -102,6 +102,47 @@ def test_program_retains_no_native_module_and_reports_zero_calls() -> None:
     assert receipt.total_stored_values == 6 * 8 * 8 + 1 + 2
 
 
+def test_fixed_head_slice_projector_is_exact_global_tensor_edit() -> None:
+    native = FakeNative()
+    state = torch.randn(2, 5, 8)
+    first_value = torch.randn(2, 5, 2, 4)
+    weights = torch.tensor([1.0, 0.0])
+    program = TensorPreservingSquaredAttention.from_native(
+        native, ranks={name: None for name in PROJECTION_NAMES},
+        head_weights=weights,
+    )
+
+    batch, sequence, _ = state.shape
+    unprojected = exact_program(native)
+    captured = {}
+    handle = unprojected.projections["proj"].register_forward_pre_hook(
+        lambda _module, args: captured.setdefault("value", args[0].detach().clone())
+    )
+    unprojected(state, first_value)
+    handle.remove()
+    expected_heads = captured["value"].view(batch, sequence, 2, 4)
+    expected_heads[:, :, 1] = 0
+    expected = native.c_proj(expected_heads.reshape(batch, sequence, 8))
+
+    actual, returned_bus = program(state, first_value)
+    assert torch.equal(actual, expected)
+    assert returned_bus.data_ptr() == first_value.data_ptr()
+    receipt = program.cost_receipt()
+    assert receipt.projection_values["head_weights"] == 2
+    assert receipt.total_stored_values == 6 * 8 * 8 + 1 + 2 + 2
+
+
+def test_head_slice_projector_contract_fails_closed() -> None:
+    native = FakeNative()
+    for bad in (torch.ones(3), torch.ones(2, dtype=torch.int64),
+                torch.tensor([1.0, float("nan")])):
+        with pytest.raises(ValueError, match="head weights"):
+            TensorPreservingSquaredAttention.from_native(
+                native, ranks={name: None for name in PROJECTION_NAMES},
+                head_weights=bad,
+            )
+
+
 def test_low_rank_projection_price_and_formula() -> None:
     weight = torch.randn(7, 5)
     layer = StoredLinear.from_weight(weight, rank=3)
