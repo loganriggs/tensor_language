@@ -464,3 +464,4 @@ later per-rung backlog edits had silently anchored on text that was not here.
     Bars: pred_a median per-window gain, L2_F(asm) − L2_F(norm), >= 0.04;
     pred_b >= 7/8 windows positive; pred_c norm reproduces 2.6735 within
     0.01 on the original FR windows (pipeline unchanged).
+    -> ops/frontier_asm_fresh8.py [QUEUED 19:59Z]
