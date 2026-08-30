@@ -85,12 +85,17 @@ planned 36,864, and therefore doubles subsequent SELECT forward work.
 No global optimizer, reranking, randomized search, threshold change, pair balancing,
 or support-dependent budget choice is licensed.
 
-## Remaining launch gates
+## Concrete freezer and remaining launch gates
 
-The accompanying pure CPU module owns only the budget allocator/diagnostic and parent
-lineage check.  A future source-closed v3 freezer must still be written, independently
-audited at an immutable pushed commit, and run create-only.  It must preserve v2, bind
-this amendment and its tests, perform full installed-row/manifest semantic replay,
-and publish its receipt last.  Until that separate audit is GO, v3 row materialization
-and every model forward remain forbidden.
+`prepare_ordered_successor_tensor_select_v3_rows.py` is the prospective concrete
+freezer owner.  It has a fresh cache/lock/audit/failure/manifest/receipt namespace;
+binds this amendment, the pure budget contract, the complete v2 source closure, and
+the exact immutable v2 audit/failure parents; requires the v2 cache and receipt to
+remain absent; recomputes the exact 335-document stopping count; fills exactly 384
+rows; publishes full support and pair occupancy; re-harvests/reallocates after install;
+and uses a guarded receipt-last terminal lifecycle.  Import is model-free.
 
+Those source bytes still require an independent outcome-blind audit at an immutable
+pushed commit.  No exact v3 audit exists in this amendment, and the owner fails before
+corpus access while it is absent.  Only a different reviewer may publish that audit.
+Until it is GO, v3 row materialization and every model forward remain forbidden.
