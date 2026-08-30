@@ -60205,3 +60205,57 @@ was set only where the two methods agree and the field was previously absent.
 **Open.** Ablation and interchange both act on a whole component. **Neither can say whether a8 carries
 five circuits in five different subspaces or one shared one** — that is what DAS is for, and it is the
 third method Logan named. `das_class_learned.py` and `das_class_interchange.py` already exist.
+
+## §2056 — a8's five circuits are ONE mechanism: the directions are 0.89-parallel and no rank-1 direction is selective
+
+`circuit_subspace_separation.py`, **79s**, **DISCOVERY ONLY**, census_state_diverse.
+**pred_a FALSE | pred_b True | pred_c FALSE.** Two of three registered predictions failed and the
+failures are the result.
+
+Per circuit, the direction in a component's output space separating its members from off-slice positions;
+then the pairwise cosines, then rank-1 projection ablation along each direction.
+
+```
+  a8, five circuits:  mean pairwise |cos| = 0.8942   (bar for "separate" was < 0.5)
+  a16, three:         mean pairwise |cos| = 0.7970
+
+  rank-1 projection out of a8, concentration on each circuit
+  direction along     own    r.11.1.1  r.11.1.2  r.11.3.1  r.23.2.1  r.23.2.3
+  r.11.1.1           4.372      —        7.018     4.248     3.070     3.835
+  r.11.1.2           7.279    4.477        —       4.388     3.078     3.793
+  r.11.3.1           4.103    4.103      6.433       —       2.992     3.720
+  r.23.2.1           3.099    3.513      5.162     3.767       —       3.673
+  r.23.2.3           3.649    3.610      5.572     3.776     2.987       —
+```
+
+> **pred_a FAILED decisively, and it is the finding. The five a8 circuit directions are 0.894-parallel**
+> — against a bar of 0.5 for "separate". a16's three are 0.797-parallel. **a8 does not multiplex five
+> circuits. It runs essentially one thing, and five census leaves each see a slice of it.**
+
+> **pred_c FAILED and confirms it causally. No direction is selective for its own circuit.** Removing the
+> direction fitted to r.11.1.1 damages **r.11.1.2 more (7.018) than r.11.1.1 itself (4.372)**. Every row
+> tells the same story: **r.11.1.2's direction is the best single direction for every one of the five**,
+> and four of the five circuits are hit hardest by a direction fitted to a different circuit. **Only
+> r.11.1.2 is its own best direction.** At a16, r.4.1.1's own direction (4.013) is beaten on its own
+> members by both r.3.0's (5.041) and r.3.0.2's (5.591).
+
+> **pred_b PASSED: a single direction out of 1152 reproduces 3.1× to 7.3× concentration** — comparable to
+> ablating the whole component (2.98×–4.93× in §2055). **The mechanism is rank-1, which is why five leaves
+> could all find it.**
+
+**What this means for the census, stated plainly. The 70 circuits are not 70 independent mechanisms.** At
+a8, five of them are one rank-1 direction seen five ways; at a16, three more. **Eight of the twelve
+circuits §2054 localised collapse to two mechanisms.** Nothing here is wrong with the individual circuits
+— each is genuinely selective, and §2055's localisation stands — but **counting them as separate findings
+over-states what has been discovered**, and any mechanism story written for r.11.1.1 will be the same
+story as r.11.3.1's.
+
+**And it names the right unit.** The thing to explain at a8 is **r.11.1.2's direction**, which is the best
+single direction for all five. **r.11.1.2 is the one circuit at a8 that is its own best explanation**, and
+the other four are its shadows.
+
+**Open.** Mean-difference directions are the cheap estimator; true DAS learns the subspace by gradient
+descent and can find multi-dimensional structure a rank-1 direction misses. **If the five a8 circuits
+differ at all, they differ in a subspace orthogonal to this dominant direction** — which is exactly the
+residual `das_class_learned.py` was built to search, and the honest next step rather than a claim I can
+make now.
