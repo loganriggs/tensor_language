@@ -1,0 +1,23 @@
+WAS THE TILT REJECTED ON SELECTION | 9 arms x 1 coverage(s) | DISCOVERY ONLY
+
+########## COVERAGE 5419 ##########
+  [bqlib] coverage 5419 from fineweb_n96_skip80.pt: 36 tables, neighbour index and map solver built (4s)
+  [bqlib] cache HIT  live     fresh
+  [bqlib] cache HIT  mix30m640 fresh
+  [bqlib] computed   pat28_32m640 fresh (3.5s)
+  [bqlib] computed   pat25_35m640 fresh (6.0s)
+  [bqlib] computed   pat22_38m640 fresh (6.0s)
+  [bqlib] computed   pat20_40m640 fresh (6.0s)
+  [bqlib] computed   pat15_45m640 fresh (6.0s)
+  [bqlib] computed   pat10_50m640 fresh (6.0s)
+  [bqlib] cache HIT  map512   fresh
+  [bqlib] cache HIT  mix30m640 fresh
+
+  flat alpha still beats every tilt on the fresh window  -> True
+  and the best tilt's deficit is within a factor of five of §1967's 1.92 milli-nats  -> False
+  and the widest tilt 10->50 is the worst of the six, as it was in-sample  -> True
+  and no tilt comes within a third of a milli-nat of flat  -> False
+  derived controls -> True   coverage_exact=True  inert_pairs_are_inert=True  some_differing_pair_moves=True  buckets_partition=True  live_identical=True
+
+pred_a True | pred_b False | pred_c True | pred_d False | pred_z True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/was_the_tilt_rejected_on_selection_results.json (123.4s)

@@ -59865,3 +59865,46 @@ margin was never written as "milli-nats" in its registry entry, and 77 entries q
 **Open.** §1964 and §1967 rejected the per-token tilt on margins of 1.92 to 2.94 milli-nats and §1970
 settled α at finer resolution on 1.6. **All three are in the regime §2037 showed does not transfer, and
 all three decided a parameter of the build of record.** The fresh window is wired in and costs one arm.
+
+## §2047 — the tilt rejection transports in direction and ordering, but the narrowest tilt is within noise
+
+`ops/was_the_tilt_rejected_on_selection.py`, **123.4s**, **DISCOVERY ONLY**, 5,419, rung 3 — §2046's open
+question. **pred_a True | pred_b False | pred_c True | pred_d False | derived controls True.** No crashed
+predicates. 98,304 fresh positions.
+
+```
+  each tilt against flat α = 0.30, FRESH WINDOW        [in-sample cost 1.92–2.94, all rejected]
+  28→32   −0.123 mn (t  −1.95)          20→40   −1.688 mn (t  −5.37)
+  25→35   −0.502 mn (t  −3.19)          15→45   −3.620 mn (t  −7.73)
+  22→38   −1.128 mn (t  −4.48)          10→50   −6.373 mn (t −10.30)
+```
+
+> **pred_a and pred_c PASSED: flat beats every tilt, and the ordering is exactly monotone in tilt span —
+> the same shape §1967 measured in-sample.** §1964's and §1967's rejection of the tilt family is
+> **confirmed on rows that did not make it**, and the wide tilts lose decisively (−3.620 and −6.373 at
+> t = −7.73 and −10.30).
+
+> **pred_b FAILED: the size does not transport. The best tilt's deficit is −0.123 milli-nats against
+> §1967's 1.92 — a factor of 15.6 smaller**, where my bar allowed a factor of five in either direction.
+> **pred_d FAILED with it: the narrowest tilt 28→32 sits at −0.123 with t = −1.95**, inside the noise
+> band. **"Flat beats 28→32" is not established out-of-sample.**
+
+**Which is the same answer §2043 gave for α's value, and a different one from §2039's.** The tilt
+**family** is rejected on both row sets, decisively at the wide end and with the ordering preserved. The
+tilt **nearest flat** is unidentifiable, exactly as α 0.28 was against α 0.30. **The build's blend shape is
+validated; the last grid step of it is not, and the honest statement is that flat and a 4-point tilt are
+indistinguishable at 98,304 positions.**
+
+**The contrast with §2039 is the structural finding.** On fresh rows the untruncation depths **scrambled**
+— −10.371, −6.006, −5.777, −11.578 against a monotone in-sample gain — while the tilt spans stayed
+**perfectly monotone**, −0.123 through −6.373, matching their in-sample order. **One axis kept its shape
+out-of-sample and one did not.** The tilt varies a free blend parameter; the untruncation varies table
+capacity. **But that distinction does not survive contact with §2038: the map cut is also a capacity
+change and it reproduced almost exactly (−0.206 fresh against −0.236 in-sample). So capacity-versus-blend
+is not the explanation, and I do not have one.**
+
+**Open.** §2046's audit left thirteen in-sample selections standing and the tilt family is now three of
+them. The largest remaining is **§1960's "one build suffices"** — that a single build sits within 0.002
+nats of the coverage-specific optimum at both coverages, decided on a 3.0 milli-nat margin. **§2024 has
+already found one parameter where the two coverages disagree**, so the claim is under pressure from
+inside the ledger as well as from §2037's method.
