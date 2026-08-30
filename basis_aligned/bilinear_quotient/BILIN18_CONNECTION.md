@@ -62410,3 +62410,49 @@ left that §332's phrase could still denote, and it would need a bar above 0.549
 excess on all eight document-disjoint windows: **2.641, 2.674, 2.706, 2.732, 2.836, 2.955, 2.963, 2.970** (mean
 2.81, sd 0.13). The quotable +2.93 sits inside that spread, not at its edge; the frontier number is
 window-stable to about ±0.15 nats. No run needed; recorded in the backlog.
+
+## §2098 — RUNG 10, first measurement: the m16 response block's rank-2 source subspace is DOCUMENT-STABLE (0.878 transferred, equal to in-sample) — so the other lane's m16 failure is not document-specific directions. But the null says the transfer is generic, and the registered specificity bar FAILED
+
+`ops/m16_response_block_split.py`, **1s CPU**, BACKLOG rung 10 (shared m16 target). Reads the other lane's
+training-role artifact by content hash (training input `0b359a56…`, 229 FIT documents; no validation value on
+this path). **pred_a HELD | pred_b FAILED | pred_c HELD.** Second run; the first (exit=1, preserved in
+`runlogs/`) died on a str-vs-Path instrument bug that the dry run cannot reach because it exits before the replay.
+
+Design pass first (in-sample, all 229 documents, not registered): the six m16 source rows have RMS 0.4923 against
+0.1803 overall — the amplitude story of the other lane's 13:50 review, reproduced — and their 6 × (2·49·229)
+unfolding has top-1 energy share 0.6565 / top-2 0.8775 against a random-6-row null at median 0.63 / p95 0.87.
+So mlp16's rank-1 OUTPUT core (§713/§715, one sentence-boundary→continuation direction carrying 90% of its
+0.88-nat benefit) does **not** make its deletion-response block rank-1 across its six census circuits. Two source
+families are visible. The registered question was whether that rank-2 structure survives a prospective document
+split (SHA of `m16-block-split|id`, halves of 114/115).
+
+```
+  owner  n   top-2 share A / B      transfer A->B  top-1 / top-2
+  a8    16   0.8864 / 0.8589        0.8060 / 0.8333
+  a16   13   0.4830 / 0.4841        0.3393 / 0.4717
+  m16    6   0.8770 / 0.8783        0.6533 / 0.8779      bar 0.7775 (in-sample 0.8775 - 0.10)   HELD
+  a3     5   0.6285 / 0.6183        0.3984 / 0.5340
+  m14    5   0.8861 / 0.8637        0.7538 / 0.8630
+  m13    4   0.9608 / 0.9565        0.8999 / 0.9564
+  null: random 6-row blocks from the other 43 sources, 200 draws — transfer top-2 median 0.8529, p95 0.9511  -> (b) FAILED
+  families on A  {r.1.1.1, r.1.2, r.1.2.0, r.1.2.1} | {r.1.1.2, r.6.2.2}  == families on B                    -> (c) HELD
+```
+
+- **pred_a HELD, and not marginally:** the top-2 source subspace fitted on half A captures **0.8779** of half B's
+  m16 energy — the same number as the in-sample share. The two directions are not a within-half artefact.
+- **pred_c HELD exactly:** the sign partition of the second singular vector is identical on both halves. The two
+  families are real: four circuits under `r.1.*` on one side, `r.1.1.2` with `r.6.2.2` on the other.
+- **pred_b FAILED, and it is the null that teaches.** *Any* six source rows transfer their top-2 subspace at a
+  median 0.85; m16 sits at the 60th percentile of that null. Source-side low rank with document stability is a
+  property of the whole response tensor, not of m16. (The null I registered was the right one; my expectation
+  that m16 would stand out was wrong.)
+
+**What this settles for the shared target.** The other lane's candidate programs gave m16 a private rank of 1, 2
+or 4 and still failed m16→∗ on held-out documents (calibrated NRMSE 2.4–3.2, unconditional ~3.2). With the
+source subspace document-stable, that failure cannot be "the directions change per document". What is left is
+the **coefficient axis**: m16's per-document loading on its two stable directions is large (RMS 2.7× the
+tensor's), varies by document, and a mean code or a code inferred from 2–16 anchor arms does not predict it. The
+m16 failure is a **per-document gain** problem on a fixed two-direction basis — which is the shape §715 would
+predict if the gain tracks how often the sentence-boundary core fires in the document. That is the next registered
+question (rung 10, step 2) and it needs the documents' tokens, which live behind the other lane's FIT bundle
+lifecycle; the design must find a lawful route to per-document surface features before anything is run.

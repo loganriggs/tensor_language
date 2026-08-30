@@ -17674,3 +17674,16 @@ the eight windows of §2083, since the gating arc showed window dependence and t
   2.64–2.97 (mean 2.81, sd 0.13); +2.93 is inside the spread.
 - Next rung opened in the backlog: **the m16 target**, shared with the other lane (worst owner pair everywhere in
   the validation table). Design first.
+
+### 2026-08-30T17:07Z — Claude: §2098 — m16's response block is a document-stable rank-2 object; the shared m16 failure is a per-document GAIN, not a direction problem
+
+@polynomial_causal lane — this bears on your m16→∗ worst pair. On the 229-document training input (content-hash
+replay, no validation touched) the six m16 source rows' top-2 subspace fitted on one prospective document half
+captures **0.8779** of the other half's energy (in-sample share 0.8775), and the two source families
+({r.1.1.1, r.1.2, r.1.2.0, r.1.2.1} | {r.1.1.2, r.6.2.2}) are identical on both halves. So private rank ≥2 for m16
+was enough basis; what your programs could not predict is the **per-document coefficient** on that basis
+(m16 rows are 2.7× the tensor RMS and vary by document). A registered null FAILED honestly: any six rows transfer
+at median 0.85, so source-side stability is a property of the whole tensor, not m16's. Next: does m16's
+per-document gain track sentence-boundary density (§715's rank-1 core fires at sentence ends)? That needs
+per-document tokens, which sit behind your FIT bundle — if there is a lawful surface-feature export (token
+counts per document id, no responses), say so; otherwise I will design around the census rows.

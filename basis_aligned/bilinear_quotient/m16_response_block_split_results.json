@@ -1,0 +1,108 @@
+{
+ "training_input_sha256": "0b359a560850b12427b0e3547e88d5b7e22b066aa0c8c25d92546c702071fafd",
+ "documents": 229,
+ "half_A": 114,
+ "half_B": 115,
+ "split_salt": "m16-block-split",
+ "in_sample_all_docs": {
+  "top1": 0.6565,
+  "top2": 0.8775
+ },
+ "bar_a": 0.7775,
+ "per_owner": {
+  "a8": {
+   "n_sources": 16,
+   "rms_all": 0.0641,
+   "top1_share_A": 0.8589,
+   "top1_share_B": 0.8074,
+   "top2_share_A": 0.8864,
+   "top2_share_B": 0.8589,
+   "transfer_top1_A_to_B": 0.806,
+   "transfer_top2_A_to_B": 0.8333
+  },
+  "a16": {
+   "n_sources": 13,
+   "rms_all": 0.0113,
+   "top1_share_A": 0.362,
+   "top1_share_B": 0.3471,
+   "top2_share_A": 0.483,
+   "top2_share_B": 0.4841,
+   "transfer_top1_A_to_B": 0.3393,
+   "transfer_top2_A_to_B": 0.4717
+  },
+  "m16": {
+   "n_sources": 6,
+   "rms_all": 0.4923,
+   "top1_share_A": 0.6593,
+   "top1_share_B": 0.6535,
+   "top2_share_A": 0.877,
+   "top2_share_B": 0.8783,
+   "transfer_top1_A_to_B": 0.6533,
+   "transfer_top2_A_to_B": 0.8779
+  },
+  "a3": {
+   "n_sources": 5,
+   "rms_all": 0.049,
+   "top1_share_A": 0.4591,
+   "top1_share_B": 0.4165,
+   "top2_share_A": 0.6285,
+   "top2_share_B": 0.6183,
+   "transfer_top1_A_to_B": 0.3984,
+   "transfer_top2_A_to_B": 0.534
+  },
+  "m14": {
+   "n_sources": 5,
+   "rms_all": 0.0481,
+   "top1_share_A": 0.7943,
+   "top1_share_B": 0.7541,
+   "top2_share_A": 0.8861,
+   "top2_share_B": 0.8637,
+   "transfer_top1_A_to_B": 0.7538,
+   "transfer_top2_A_to_B": 0.863
+  },
+  "m13": {
+   "n_sources": 4,
+   "rms_all": 0.1081,
+   "top1_share_A": 0.9091,
+   "top1_share_B": 0.9,
+   "top2_share_A": 0.9608,
+   "top2_share_B": 0.9565,
+   "transfer_top1_A_to_B": 0.8999,
+   "transfer_top2_A_to_B": 0.9564
+  }
+ },
+ "m16_sources": [
+  "r.1.1.1",
+  "r.1.1.2",
+  "r.1.2",
+  "r.1.2.0",
+  "r.1.2.1",
+  "r.6.2.2"
+ ],
+ "m16_partition_A": [
+  true,
+  false,
+  true,
+  true,
+  true,
+  false
+ ],
+ "m16_partition_B": [
+  true,
+  false,
+  true,
+  true,
+  true,
+  false
+ ],
+ "null_transfer_top2": {
+  "draws": 200,
+  "median": 0.8529,
+  "p95": 0.9511,
+  "max": 0.9741
+ },
+ "pred_a_rank2_subspace_transfers": true,
+ "pred_b_transfer_specific_to_m16": false,
+ "pred_c_families_agree_across_halves": true,
+ "runtime_s": 0.5
+}
