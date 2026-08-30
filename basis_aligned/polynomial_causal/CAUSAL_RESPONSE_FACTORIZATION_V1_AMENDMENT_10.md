@@ -18,11 +18,13 @@ authorization root.
 
 ## Opened-inode exclusion
 
-For every bundle, manifest, and receipt stable read, the loader now compares the
-device/inode pair returned by the file descriptor that supplied the actual bytes
-against every production parent role. A synthetic load fails before deserialization
-when the opened inode is protected. The manifest summary is derived from the already-
-opened validated payload, removing a second bundle pathname read entirely.
+For every bundle, manifest, and receipt stable read, the loader now passes all known
+production identities into the stable-read primitive. Immediately after opening and
+`fstat`, and **before its first byte read**, the primitive rejects a descriptor whose
+device/inode pair belongs to any production parent role. A synthetic load therefore
+cannot read or deserialize protected production bytes. The manifest summary is
+derived from the already-opened validated payload, removing a second bundle pathname
+read entirely.
 
 Thus there is no check-then-open gap: the object checked is the object read.
 

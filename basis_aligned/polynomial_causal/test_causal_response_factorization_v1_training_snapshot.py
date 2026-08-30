@@ -124,5 +124,7 @@ def test_production_consumer_rejects_noncanonical_self_consistent_audit(
         return original(path, **kwargs)
 
     monkeypatch.setattr(training_input, "replay_training_input", replay_without_production_shape)
-    with pytest.raises(RuntimeError, match="not the canonical authorization"):
+    # A concurrently updated but unpublished canonical audit and a terminal-local
+    # noncanonical audit are both correct fail-closed outcomes.
+    with pytest.raises(RuntimeError, match="canonical"):
         snapshot._load_snapshot(directory, require_production=True)

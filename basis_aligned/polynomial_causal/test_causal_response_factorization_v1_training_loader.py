@@ -284,10 +284,23 @@ def test_synthetic_loader_rejects_production_inode_opened_after_final_lookup(
         return False
 
     monkeypatch.setattr(loader, "_touches_production_parent", switch_after_final_lookup)
+    production_identity = (
+        parent.PRODUCTION_PATHS.bundle.stat().st_dev,
+        parent.PRODUCTION_PATHS.bundle.stat().st_ino,
+    )
+    real_read = parent.os.read
+
+    def forbid_production_byte_read(descriptor, size):
+        observed = parent.os.fstat(descriptor)
+        if (observed.st_dev, observed.st_ino) == production_identity:
+            raise AssertionError("protected production bytes were read")
+        return real_read(descriptor, size)
+
+    monkeypatch.setattr(parent.os, "read", forbid_production_byte_read)
     capability = loader.OneUseFitTrainingLoader(
         paths, require_production=False, train_documents=3
     )
-    with pytest.raises(RuntimeError, match="opened a production bundle inode"):
+    with pytest.raises(RuntimeError, match="forbidden physical file"):
         capability.load_once(parent_binding=binding, analysis_authority=authority)
     assert calls == 3
     assert capability.spent is True

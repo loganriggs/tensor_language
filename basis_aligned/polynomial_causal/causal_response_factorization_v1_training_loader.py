@@ -78,6 +78,17 @@ def _opened_record_touches_production(record: Mapping[str, Any]) -> bool:
     return False
 
 
+def _production_parent_identities() -> frozenset[tuple[int, int]]:
+    identities: set[tuple[int, int]] = set()
+    for field in FIT_PARENT_PATH_FIELDS:
+        try:
+            observed = getattr(parent.PRODUCTION_PATHS, field).stat()
+        except OSError:
+            continue
+        identities.add((observed.st_dev, observed.st_ino))
+    return frozenset(identities)
+
+
 def _reject_synthetic_opened_production(
     record: Mapping[str, Any], label: str, *, require_production: bool,
 ) -> None:
@@ -293,7 +304,10 @@ class OneUseFitTrainingLoader:
         elif _touches_production_parent(self._paths):
             raise RuntimeError("synthetic loader paths became production aliases during load")
 
-        bundle_record, bundle_raw = parent._stable_record(self._paths.bundle)
+        forbidden = frozenset() if self._require_production else _production_parent_identities()
+        bundle_record, bundle_raw = parent._stable_record(
+            self._paths.bundle, forbidden_identities=forbidden
+        )
         _reject_synthetic_opened_production(
             bundle_record, "bundle", require_production=self._require_production
         )
@@ -308,7 +322,9 @@ class OneUseFitTrainingLoader:
             payload, require_production=self._require_production
         )
 
-        manifest_record, manifest_raw = parent._stable_record(self._paths.manifest)
+        manifest_record, manifest_raw = parent._stable_record(
+            self._paths.manifest, forbidden_identities=forbidden
+        )
         _reject_synthetic_opened_production(
             manifest_record, "manifest", require_production=self._require_production
         )
@@ -323,7 +339,9 @@ class OneUseFitTrainingLoader:
         if manifest.get("bundle_summary") != summary:
             raise RuntimeError("training loader manifest summary does not replay")
 
-        receipt_record, receipt_raw = parent._stable_record(self._paths.receipt)
+        receipt_record, receipt_raw = parent._stable_record(
+            self._paths.receipt, forbidden_identities=forbidden
+        )
         _reject_synthetic_opened_production(
             receipt_record, "receipt", require_production=self._require_production
         )

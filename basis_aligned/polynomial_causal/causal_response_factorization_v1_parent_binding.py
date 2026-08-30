@@ -56,7 +56,9 @@ def _is_sha256(value: object) -> bool:
     )
 
 
-def _stable_record(path: Path) -> tuple[dict[str, Any], bytes]:
+def _stable_record(
+    path: Path, *, forbidden_identities: frozenset[tuple[int, int]] = frozenset(),
+) -> tuple[dict[str, Any], bytes]:
     """Return the FIT lifecycle's exact regular-file record and stable bytes."""
 
     flags = os.O_RDONLY | getattr(os, "O_NOFOLLOW", 0)
@@ -65,6 +67,8 @@ def _stable_record(path: Path) -> tuple[dict[str, Any], bytes]:
         before = os.fstat(descriptor)
         if not stat.S_ISREG(before.st_mode):
             raise RuntimeError(f"FIT parent is not a regular file: {path}")
+        if (before.st_dev, before.st_ino) in forbidden_identities:
+            raise RuntimeError(f"FIT parent descriptor names a forbidden physical file: {path}")
         chunks: list[bytes] = []
         while chunk := os.read(descriptor, 8 << 20):
             chunks.append(chunk)

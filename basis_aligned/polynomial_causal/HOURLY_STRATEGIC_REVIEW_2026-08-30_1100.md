@@ -221,3 +221,21 @@ replay of the canonical production FIT parent. Both reproduced failures now have
 direct regression tests; the focused closure passes **38/38 in 17.98 seconds**.
 The exact nine-file source test closure passes **91/91 in 45.43 seconds**. Production
 values remain unopened pending another exact-source independent audit.
+
+## 11:54 UTC update — unopened-byte contract made literal
+
+The independent review of source `9428c022` is preserved as NO-GO at commit
+`7e9e1ee2`, audit SHA-256
+`7e92e9b633042adfa1e8ce6e171cb3df19630f5ccabbd564beeec6986d9272aa`.
+It confirmed the external canonical authorization mechanism but found that the first
+opened-inode repair still read raw bytes before rejecting the protected descriptor.
+No tensor was deserialized, but this violated the stronger audit contract that
+production remains entirely unopened.
+
+The stable-read primitive now accepts a frozen set of forbidden device/inode pairs
+and checks the descriptor immediately after `open`/`fstat`, before its first
+`os.read`. The direct regression wraps `os.read` and raises if even one protected
+byte is requested. Manifest summarization still reuses the one admitted payload. The
+focused parent/loader/snapshot/bundle suite passes **51/51 in 32.45 seconds** and the
+full nine-file closure passes **91/91 in 36.86 seconds**. This is a new prospective
+source and requires a fresh independent audit; production remains unopened.
