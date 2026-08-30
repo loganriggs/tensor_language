@@ -59414,3 +59414,48 @@ immediately; the two that did not were caught only by later verification.** LESS
 coverage-unstable on one axis. **The unseen bucket at 16,110 has not been measured**, and it is the one
 remaining cell where the two axes could be made to agree or disagree — the same decomposition, one
 coverage over, on a cache that is already warm.
+
+## §2035 — the frequency axis is coverage-stable in sign and collapses in size; skip1200's deficit is a low-coverage effect
+
+`ops/the_unseen_bucket_at_high_coverage.py`, **5.8s** warm, **DISCOVERY ONLY**, 16,110, rung 3 — §2033's
+open question. **pred_a True | pred_b True | pred_c True | pred_d False | derived controls True.**
+Reference deviation 0.000000. No crashed predicates. Written fresh, not derived (LESSON 105).
+
+```
+  unseen-target bucket, milli-nats over §1959's build      [5,419 in brackets]
+              tables              map cut            converged
+  skip7000   +4.453 [+2.453]    −0.635 [−0.402]    +3.830 [+2.060]
+  skip11000  +4.683 [+3.806]    −0.753 [−0.855]    +3.945 [+2.963]
+  skip1200   −0.219 [−2.318]    −0.167 [−1.642]    −0.386 [−3.948]
+```
+
+> **pred_b and pred_c PASSED, and this is where the two axes part company. The sign structure is exactly
+> preserved** — table raise positive on skip7000 and skip11000, negative at skip1200; converged build
+> losing only at skip1200 — **where §2031 found the sign FLIPPING on the uncovered-input axis between the
+> same two coverages.** The frequency axis is coverage-stable in sign; the coverage axis is not.
+
+> **But the size collapses, and that is the practical finding. skip1200's deficit goes −3.948 → −0.386, a
+> tenfold reduction**, with both components shrinking (tables −2.318 → −0.219, map cut −1.642 → −0.167).
+> **At 16,110 the converged build loses the unseen bucket at skip1200 by four tenths of a milli-nat.**
+> Meanwhile the two winning roles nearly double. **skip1200's unseen-bucket deficit is a low-coverage
+> phenomenon, not a property that survives more table.**
+
+> **pred_d FAILED, and it contradicts §2031 in a way worth stating precisely.** I registered that the map
+> cut's unseen-bucket tax would grow with coverage, because §2031 measured exactly that on the
+> uncovered-input axis (−0.9/−1.1 becoming −1.0/−1.8). **On this bucket it shrinks on two roles of three**
+> — −0.855 → −0.753 and −1.642 → −0.167 — growing only at skip7000. **The map cut's tax grows on the
+> uncovered-input axis and shrinks on the unseen-target bucket. These are different cells and there is no
+> contradiction, but I predicted one would follow the other and it does not.**
+
+**What §2029's concern amounts to, now that both axes are measured at both coverages.** The converged
+build's losses are **real, concentrated in the uncovered arm and the unseen bucket, worst at the
+half-sized role, and they shrink with coverage** — the unseen-bucket deficit by a factor of ten. **At the
+deployed 5,419 the exposure is what §2032 priced: 1.77M values and about 0.45 milli-nats separate the
+current build from the conservative one.** Nothing here changes that number; it establishes that the
+number does not grow when the program is given more table.
+
+**Open.** Both axes, both coverages, and the price under both rules are now measured, and every remaining
+question about this build is a decision rather than a measurement: **§1947's rule (pooled versus
+concentrated cost) and §1979's architectural fork, both with Logan.** The measurement frontier has moved
+back to the **BENCHMARK_BACKLOG**, whose rung 6 — fresh-window certification for every new winner — §2028
+recorded as unsatisfied and unsatisfiable with the rowcaches on disk.
