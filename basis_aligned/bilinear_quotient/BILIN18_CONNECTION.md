@@ -63865,3 +63865,10 @@ pred_b (all marginals ≥ −0.005; min +0.0057) | pred_c (max +0.1572 ≥ 2 × 
   c8/c9 need 288 (§2143/§2144), tail dictionaries cheap except a14L and above all a16L. The obvious envelope
   point: leave attn16 REAL → rung 52 (stated honestly as a coverage-vs-damage trade, not a free improvement —
   the config replaces one fewer component).
+
+**[STORED-VALUE ACCOUNTING CORRECTION, 22:10Z (math review): the "−4.4M / −8.9M / −13.3M / −14.4M values" figures
+in §2139–§2144 undercounted the per-CP-unit price by a constant factor — a unit stores an L row + R row + Down
+column = 3×1152 = 3,456 values, not 1,920. Corrected: halve mlp4/5 = 7.96M; halve c6–c9 = 15.9M; c6–c9→576 =
+23.9M; c8/c9 576→288 = 2.0M; the §2144 best config stores 25.9M fewer values than §312 (not 14.4M); one aXL
+dictionary ≈ 5.32M (4 LINK maps + class vectors). All DAMAGE numbers are unaffected — the improvement claims
+stand with larger savings than stated.]**

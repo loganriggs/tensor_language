@@ -713,3 +713,11 @@ later per-rung backlog edits had silently anchored on text that was not here.
     marginal was -0.157; refits may reabsorb some); pred_b <= -0.05 on
     >= 7/8; pred_c full arm reproduces §2144 (FR L2_F 2.6662 within
     0.01). -> ops/frontier_skip_a16.py [QUEUED]
+
+53. CLASS-BOTTLENECK SPECTRUM AT THE TAIL (math review 2210; damage
+    convention). Within-class residual energy fraction e_li of the real
+    attention outputs (blocks 10-17, deployed context, oracle classes)
+    vs the §2145 marginals. pred_a Spearman rho >= 0.7 over the 8
+    layers; pred_b argmax e = a16; pred_c two smallest e = {a12,a17}.
+    Null: CE-weighting beats energy (rho < 0.7). One capture pass.
+    -> ops/tail_class_spectrum.py [TO BUILD next driver wake]
