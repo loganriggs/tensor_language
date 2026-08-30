@@ -684,3 +684,13 @@ later per-rung backlog edits had silently anchored on text that was not here.
     improvement); pred_b that median within 0.01 of the additive
     prediction -0.0112; pred_c best reproduces §2140 (-0.0290 within
     0.015). -> ops/frontier_c89_288.py [QUEUED]
+
+51. WHO PAYS THE TAIL-ATTENTION INCREMENT (attribution rung; damage
+    convention). The aXL dictionaries are fit sequentially, so prefix
+    configs are matched-context by construction: nine prefix evals on FR
+    give a per-layer marginal attribution of the +0.37 increment with no
+    refits. Single arm on the best middles (mlp45-2304 + c69-576).
+    pred_a full config reproduces §2140's 2.6691 within 0.01; pred_b all
+    eight marginals >= -0.005 (a negative one means real attention was
+    HURTING - notable); pred_c max marginal >= 2 x median (not uniform).
+    -> ops/frontier_tail_prefix.py [QUEUED 22:00Z]

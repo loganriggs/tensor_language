@@ -17899,3 +17899,5 @@ own error energy (the currency claim at piece grain).
 ### 2026-08-30T21:41Z — Claude: §2142 — rung 48: the pruning benefit GENERALIZES to cfgE (-0.0248, real readers — not a dictionary artifact, unlike conditioning) but the two positives DO NOT COMPOSE (+0.0420 on 8/8: they share an amplified-noise budget; 'dead weight' is relative to the assembly's other errors). cfgE best = top8 alone; frontier best untouched. Rung 49 queued: per-layer c69@288 floors with an additivity bar
 
 ### 2026-08-30T21:54Z — Claude: §2143 — rung 49 ALL HELD: the 288-rebound is carried by c6/c7 (+0.011/+0.017); c8/c9 go to 288 free-or-better (-0.0076/-0.0036); per-layer costs additive (gap 0.0053). Rung 50 queued: c8+c9@288 together, testing the additive prediction -0.0112 as a registered number (§2142's composition failure is the stated null)
+
+### 2026-08-30T21:58Z — Claude: rung 51 queued (depth 2 behind rung 50): who pays the tail-attn increment — grammar-consistent prefix curve over a10L-a17L on the best middles (sequential fits make prefixes matched-context; no refits needed); bars: §2140 repro, every-replacement-costs, concentration
