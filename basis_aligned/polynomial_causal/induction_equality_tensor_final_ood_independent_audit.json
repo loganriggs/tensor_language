@@ -1,0 +1,97 @@
+{
+  "approved": false,
+  "audited_source_commit": "0650fb6157642ce4a4d64126c737e89da4c8741d",
+  "blockers": [
+    {
+      "id": "role_license_not_satisfied",
+      "locations": [
+        "basis_aligned/bilinear_quotient/terminal_copy_induction_v2_rows_receipt.json:role_licenses.final_natural",
+        "basis_aligned/bilinear_quotient/terminal_copy_induction_v2_rows_receipt.json:role_licenses.ood_code",
+        "basis_aligned/polynomial_causal/induction_equality_tensor_final_ood.py:240"
+      ],
+      "severity": "P0",
+      "summary": "Both sealed roles require terminal_copy_induction_v1_selection_passer_receipt, but commit 0650fb61 contains only terminal_copy_selection_v1_attempt2_negative_receipt.json. execute() never validates or binds a role-unlock receipt. FINAL/OOD deserialization is therefore unauthorized."
+    },
+    {
+      "id": "authority_is_not_semantically_source_closed",
+      "locations": [
+        "basis_aligned/polynomial_causal/induction_equality_tensor_final_ood.py:48"
+      ],
+      "severity": "P0",
+      "summary": "validate_authority accepts a loosely keyed JSON by five field lookups. It does not require an exact schema, audited source commit/reachability, the reviewed transitive source map, discovery and row parents, role licenses and role hashes, output namespace, or an authority-before-access minting transaction. It also does not parse and require approved=true in the independent audit; a caller-supplied authority can claim approval independently of this NO-GO audit."
+    },
+    {
+      "id": "inputs_and_sources_are_not_protected_through_execution",
+      "locations": [
+        "basis_aligned/polynomial_causal/induction_equality_tensor_final_ood.py:240",
+        "basis_aligned/polynomial_causal/induction_equality_tensor_final_ood.py:103"
+      ],
+      "severity": "P0",
+      "summary": "The runner has no owned nonce/inode run claim and no protected snapshot. Discovery, receipt, role files, checkpoint, source, audit, and authority are checked at most once before expensive work. Role files lack adjacent hash-before/load/hash-of-loaded-content/hash-after checks, and nothing is revalidated at ledger/result/terminal boundaries. Concurrent drift or a second runner can change the measured transaction."
+    },
+    {
+      "id": "non_atomic_non_receipt_last_terminal_publication",
+      "locations": [
+        "basis_aligned/polynomial_causal/induction_equality_tensor_final_ood.py:287"
+      ],
+      "severity": "P0",
+      "summary": "OUTPUT and FAILURE are written directly with open('x') without staging, fsync, atomic link, adjacent claim/input/terminal guards, or a receipt-last commit. A partial OUTPUT suppresses FAILURE, and rival result/failure writers are not mutually exclusive. Failure does not bind authority, protected inputs, partial artifacts, or the observed drift."
+    },
+    {
+      "id": "registered_point_estimates_are_bootstrap_means",
+      "locations": [
+        "basis_aligned/polynomial_causal/induction_equality_tensor_discovery.py:152",
+        "basis_aligned/polynomial_causal/induction_equality_tensor_final_ood.py:67"
+      ],
+      "severity": "P0",
+      "summary": "bootstrap_effects stores the mean of 20,000 bootstrap replicates as effects[*].mean instead of the observed pooled document/token statistic. role_gates then uses that value for every preregistered point gate and for ratios against SELECT. This can change the scientific decision near a threshold. Recovery also clamps nonpositive resampled stakes to 1e-12 instead of failing closed or applying a frozen singular-draw rule."
+    },
+    {
+      "id": "result_has_no_independent_semantic_replay",
+      "locations": [
+        "basis_aligned/polynomial_causal/induction_equality_tensor_final_ood.py:224",
+        "basis_aligned/polynomial_causal/induction_equality_tensor_final_ood.py:257"
+      ],
+      "severity": "P0",
+      "summary": "The in-memory document ledger is never persisted, hashed, or independently reloaded. No semantic validator reconstructs reports, bootstrap draws, effects, gates, pass status, parent joins, role schema, or call census before publication. Consequently a completed JSON cannot be authenticated or replayed from sufficient statistics."
+    },
+    {
+      "id": "call_census_is_partial_and_gate_is_literal",
+      "locations": [
+        "basis_aligned/polynomial_causal/induction_equality_tensor_final_ood.py:117",
+        "basis_aligned/polynomial_causal/induction_equality_tensor_final_ood.py:206",
+        "basis_aligned/polynomial_causal/induction_equality_tensor_final_ood.py:79"
+      ],
+      "severity": "P1",
+      "summary": "Hooks count only selected attention modules and their projections. They do not record all 18 attention calls, all 18 MLP calls, outer forwards/returns, or exact per-arm totals; zero_native_candidate_calls is emitted as literal true after only the selected-site check. Tests exercise gate helpers but no success, failure, race, lifecycle, semantic replay, or exact-census transaction."
+    }
+  ],
+  "outcome_access": false,
+  "reviewed_parent_sha256s": {
+    "basis_aligned/bilinear_quotient/terminal_copy_induction_v2_rows_receipt.json": "aea52a94c643906ef822a7c6ddb37a371b4315507a1a0a79acd539a19ae7f5c8",
+    "basis_aligned/polynomial_causal/induction_equality_tensor_discovery.json": "0b826952d227c6f2c9e8b0fadf19aeb28edcd4153a52e4b67777a587733e184b",
+    "basis_aligned/polynomial_causal/terminal_copy_selection_v1_attempt2_negative_receipt.json": "9b6557d8a7076eac9177bd6b46aec6cfc8da7049ad0fc33db5906f85f951fe10"
+  },
+  "reviewed_source_sha256s": {
+    "basis_aligned/polynomial_causal/INDUCTION_EQUALITY_TENSOR_DISCOVERY_PREREGISTRATION.md": "5879a32f45803a96f050cfb21d68e52a1711ddcb280442e873cb2946bc3d4daf",
+    "basis_aligned/polynomial_causal/INDUCTION_EQUALITY_TENSOR_FINAL_OOD_PREREGISTRATION.md": "38a189001fee5d285c7033d4f5628d33ebf35b5bd68b7a567ba0a7b6183b3842",
+    "basis_aligned/polynomial_causal/bilin18_observed_model_facade.py": "b62947f772c807259890a9d09dfcbe5e91ad339a0bffa867ab99177fde4c728c",
+    "basis_aligned/polynomial_causal/circuit_induction_tensor.py": "b2d43be8e260bbe4bfece494999d237d93258f676b19e2993eca09655e253e3a",
+    "basis_aligned/polynomial_causal/induction_equality_tensor_discovery.py": "440573992c1fcfd03d290c971c9547d65632a2821c8b7ba3aaef27d3ac521855",
+    "basis_aligned/polynomial_causal/induction_equality_tensor_final_ood.py": "1b770831f27e28e5b6f568dad8fe763a38218010c5eb9e6c9f396653404f6acd",
+    "basis_aligned/polynomial_causal/test_bilin18_observed_model_facade.py": "7ce76de82cba3355abd07dab6a0d3b4d380d39eae43ad064ae4d954878606a71",
+    "basis_aligned/polynomial_causal/test_circuit_induction_tensor.py": "429b8bc3b39ece38978dd0638d7095da1d63f6468741e3278d4389a97e57fb0f",
+    "basis_aligned/polynomial_causal/test_induction_equality_tensor_discovery.py": "8364eb9b2fa459d131592700c5f7cb05ba76fbc9649eba3519b3a83d2d272dbc",
+    "basis_aligned/polynomial_causal/test_induction_equality_tensor_final_ood.py": "1b347f11b266537338c7ce4198843138996247fa1d0bf7846d68695d10487330",
+    "jacclust/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jacclust/tt_model.py": "49ecdbd6c060ff5b3e57f3134d87ba32841390c891c42e6ae23b71d8627612b2"
+  },
+  "reviewer": "Codex /root/artifact_audit",
+  "schema": "induction_equality_tensor_final_ood_independent_audit_v1",
+  "status": "NO-GO",
+  "tests": {
+    "command": "PYTHONPATH=.:basis_aligned/polynomial_causal pytest -q basis_aligned/polynomial_causal/test_induction_equality_tensor_final_ood.py basis_aligned/polynomial_causal/test_induction_equality_tensor_discovery.py basis_aligned/polynomial_causal/test_circuit_induction_tensor.py basis_aligned/polynomial_causal/test_bilin18_observed_model_facade.py",
+    "elapsed_seconds": 3.65,
+    "passed": 17
+  }
+}
