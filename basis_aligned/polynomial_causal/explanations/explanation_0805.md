@@ -233,7 +233,7 @@ The audited input/authority/bundle boundary is no longer the immediate blocker. 
 missing interface is now the single owner that connects that boundary to the model and
 publishes a complete FIT receipt.
 
-Commit `f733bb7e` implements three pieces of that owner:
+Commits through `9d4d835a` implement three pieces of that owner:
 
 - exact authority reload, including source, independent audit, parents, protocol, and
   fixed output paths;
@@ -243,8 +243,10 @@ Commit `f733bb7e` implements three pieces of that owner:
 The last item uses hard links in a deliberate way. The complete JSON record is written
 and replayed first. `TERMINAL` and `RECEIPT` (or `FAILURE`) then point to the same file
 inode. If the receipt link itself fails, `TERMINAL` still contains the complete receipt
-rather than a pointer to missing data. Injected link and late-guard failures test this
-behavior. The expanded suite is 63/63.
+rather than a pointer to missing data. Injected link, lock-replacement, in-place
+same-inode mutation, and late-guard failures test this behavior. Independent
+outcome-blind replay gives this sub-layer GO with **67/67** tests and canonical closure
+`b3c210fc18df76ee956a655a51da5c7d3442c36ef7958f7004049576e8c71ad7`.
 
 This remains implementation progress, not additional interpretation. The next missing
 parts are bundle-to-manifest validation, one no-argument production entrypoint, the

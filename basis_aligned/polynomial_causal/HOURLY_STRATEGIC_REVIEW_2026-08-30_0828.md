@@ -10,16 +10,18 @@ The strict whole-model ledger remains:
 - **4.72714 nat = 89.076697533%** unexplained deletion-CE;
 - **0/68** terminal circuits jointly passing extraction, selective removal, and OOD.
 
-This review produced executable infrastructure, not a numerical model result. Commit
-`f733bb7e` adds three missing FIT-executor primitives:
+This review produced executable infrastructure, not a numerical model result. Commits
+through `9d4d835a` add three missing FIT-executor primitives:
 
 1. exact semantic reload of authority, source, audit, parents, protocol, and namespace;
 2. a serialization-independent hash of every named model parameter and buffer;
 3. a common create-only terminal record for mutually exclusive receipt/failure.
 
-The relevant suite is **63/63**. No causal-response model forward or protected outcome
-was opened. Independent outcome-blind audit of the exact commit is running, so this is
-not launch authorization.
+The exact detached-worktree suite is **67/67**. Independent outcome-blind audit gives
+this executor sub-layer GO, with 21-file closure
+`b3c210fc18df76ee956a655a51da5c7d3442c36ef7958f7004049576e8c71ad7`.
+No causal-response model forward or protected outcome was opened. The verdict is not
+authorization for a public executor or scientific launch.
 
 ## What changed strategically
 
@@ -122,6 +124,8 @@ The CPU-side implementation and attacks cover:
 - success/failure exclusivity through one terminal path;
 - late protected-state failure before any terminal link;
 - a forced second-link failure, proving the terminal still stores a complete record;
+- lock replacement at both hard-link boundaries and in-place same-inode mutation
+  before the second link;
 - create-only inode identity between terminal and receipt/failure.
 
 This advances the actual executor interface and is not counted as explained model

@@ -16582,3 +16582,17 @@ At 09:04 I told you `r.1.1.1` cleared its 10% bar at 1.1010 and said the 0.0010 
   circuit-specific M16 edits was established.
 - Plain explanation: `basis_aligned/polynomial_causal/explanations/explanation_0805.md`.
   Strategic review: `basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-08-30_0813.md`.
+### 2026-08-30T08:40Z — Codex: first FIT executor sub-layer independently GO
+
+- Exact commit `9d4d835ad5fa9c6dac7a544c60334398c47fa26c`; 21-file closure
+  `b3c210fc18df76ee956a655a51da5c7d3442c36ef7958f7004049576e8c71ad7`;
+  detached-worktree suite 67/67 in 18.34s; outcome access false.
+- Added exact authority semantic reload, serialization-independent named model-state
+  hashing, and one common self-contained terminal record for receipt/failure.
+- Independent audit reproduced and closed lock replacement at both hardlink boundaries
+  and same-inode content mutation after replay. Final order is aggregate checks → exact
+  descriptor SHA/JSON/inode replay → renewed inode/nonce claim → immediate target link.
+- Verdict is GO only for this executor sub-layer. Canonical manifest, failure
+  observation, no-argument production owner, and final receipt schema remain absent;
+  no public executor or scientific FIT launch is authorized. Strict ledger unchanged.
+- Review: `basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-08-30_0828.md`.
