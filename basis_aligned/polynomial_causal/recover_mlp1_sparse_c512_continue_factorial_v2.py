@@ -72,7 +72,8 @@ def validate_recovery_audit() -> tuple[dict[str, Any], str]:
     } or value.get("schema") != (
         "mlp1_sparse_c512_continue_factorial_v2_recovery_independent_audit"
     ) or value.get("status") != "GO" or value.get("outcome_access") is not False \
-            or not isinstance(value.get("tests_passed"), int) or value["tests_passed"] < 1:
+            or not isinstance(value.get("tests_passed"), int) or value["tests_passed"] < 1 \
+            or not isinstance(value.get("reviewer"), str) or not value["reviewer"]:
         raise RuntimeError("independent sparse-MLP1 recovery audit is not an exact GO")
     commit = value.get("audited_source_commit")
     sources = value.get("audited_source_hashes")
@@ -98,8 +99,21 @@ def validate_equivalent_row_receipt(
     _BASE_VALIDATE_ROWS(normalized, sources, audit, audit_sha)
 
 
+def v1_path_snapshot() -> dict[str, str | None]:
+    output: dict[str, str | None] = {}
+    for path in V1_PATHS:
+        if not path.exists():
+            output[str(path)] = None
+        elif path.is_file():
+            output[str(path)] = file_sha256(path)
+        else:
+            output[str(path)] = "present_non_file"
+    return output
+
+
 def recovery_lineage_snapshot() -> dict[str, Any]:
-    if any(path.exists() for path in V1_PATHS):
+    v1_before = v1_path_snapshot()
+    if any(value is not None for value in v1_before.values()):
         raise RuntimeError("v1 sparse-MLP1 execution namespace is no longer pristine")
     receipt, receipt_sha = assay.stable_json(assay.ROWS_RECEIPT, ROWS_RECEIPT_SHA256)
     sources = receipt.get("source_hashes")
@@ -108,8 +122,11 @@ def recovery_lineage_snapshot() -> dict[str, Any]:
     audit, audit_sha = assay.rows_life.validate_independent_audit(sources)
     validate_equivalent_row_receipt(receipt, sources, audit, audit_sha)
     recovery_audit, recovery_audit_sha = validate_recovery_audit()
+    v1_after = v1_path_snapshot()
+    if v1_after != v1_before or any(value is not None for value in v1_after.values()):
+        raise RuntimeError("v1 sparse-MLP1 execution namespace raced lineage replay")
     return {
-        "v1_execution_paths_absent": [str(path) for path in V1_PATHS],
+        "v1_execution_path_snapshot": v1_after,
         "rows_receipt_sha256": receipt_sha,
         "rows_audit_sha256": audit_sha,
         "rows_receipt_source_commit": ROWS_RECEIPT_SOURCE_COMMIT,

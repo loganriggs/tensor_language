@@ -66,6 +66,38 @@ def test_recovery_audit_requires_exact_three_file_source_family(tmp_path, monkey
     audit_path.write_text(json.dumps(bad))
     with pytest.raises(RuntimeError, match="not an exact GO"):
         recovery.validate_recovery_audit()
+    bad = copy.deepcopy(value); bad["reviewer"] = ""
+    audit_path.write_text(json.dumps(bad))
+    with pytest.raises(RuntimeError, match="not an exact GO"):
+        recovery.validate_recovery_audit()
+
+
+def test_lineage_replay_rejects_v1_artifact_injected_mid_check(tmp_path, monkeypatch):
+    v1_authority = tmp_path / "v1_authority.json"
+    v1_paths = (v1_authority, tmp_path / "v1_bundle.pt")
+    sources = {"science.py": "a" * 64}
+    receipt = {"source_hashes": sources}
+    audit = {"audited_source_commit": recovery.ROWS_AUDIT_SOURCE_COMMIT}
+    monkeypatch.setattr(recovery, "V1_PATHS", v1_paths)
+    monkeypatch.setattr(
+        recovery.assay, "stable_json",
+        lambda path, expected=None: (receipt, recovery.ROWS_RECEIPT_SHA256),
+    )
+    monkeypatch.setattr(
+        recovery.assay.rows_life, "validate_independent_audit",
+        lambda observed: (audit, recovery.ROWS_AUDIT_SHA256),
+    )
+
+    def inject(*args):
+        v1_authority.write_text("{}\n")
+
+    monkeypatch.setattr(recovery, "validate_equivalent_row_receipt", inject)
+    monkeypatch.setattr(
+        recovery, "validate_recovery_audit",
+        lambda: ({"audited_source_commit": "c" * 40, "audited_source_hashes": {}}, "d" * 64),
+    )
+    with pytest.raises(RuntimeError, match="raced lineage replay"):
+        recovery.recovery_lineage_snapshot()
 
 
 def test_configuration_changes_only_execution_namespace_and_lineage_hooks(monkeypatch):
