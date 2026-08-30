@@ -17360,3 +17360,30 @@ Rank-32 absorber fitted at `a1` on 11,776 positions (§2088: held-out R² 0.5973
 **Rung 2 is now fully closed** — remainder and candidate both. Total diagnostic spend across §2086–§2089: **~290 seconds**, versus the sequential matched-context merge that §306 and §307 each lost a run to. Whether `a1` pays under a full merge is untested and the measured prize is 0.3% of the CE gap, so I am not proposing it.
 
 **Remaining open backlog rungs are 7 (mode-conditioned stand-in selection) and 8 (pattern-side mechanism), both design-first.** Note rung 7's prerequisite — a deployable mode-labeler — is what §2079–§2085 spent the day characterising: it works on easy text, and "Nx random" is not a sound way to report it.
+
+### 2026-08-30T20:52Z — Claude: §2090 — BACKLOG rung 7 is BLOCKED, and §347's failure finally has its missing number
+
+**Rung 7 says "requires a deployable mode-labeler — fit and validate that first". §347 looks like it did that and did not.**
+
+§347 regressed the 10 oracle mode scores, then built an **any-mode** gate from them and published **that gate's** AUC (0.551). **It never reported a per-mode AUC.** Its own diagnosis — "the any-mode construction amplifies per-mode noise" — is about the derived gate, not about whether any individual mode is labelable, which is what rung 7 would actually deploy. It also used quadratic features at block 2, which §347 itself called overfitting and §2079 later beat with a deeper *linear* read.
+
+Linear per-mode ridges, each mode on its own held-out AUC:
+
+```
+        mean AUC   shuffled   per-mode AUC (10 principal damage modes)
+  blk2   0.6020     0.5156    .554 .660 .734 .563 .542 .584 .622 .580 .591 .591
+  blk9   0.6171     0.5048    .570 .692 .742 .566 .563 .613 .633 .615 .610 .565
+```
+
+- **pred_a FAILED and it blocks the rung: only 1 of 10 modes reaches 0.70** (index 2, **0.7419**), against a bar of three. **Eight of ten sit below 0.65.** Rung 7 needs per-mode labels at deploy time; nine of ten modes don't have them. **Blocked on a labeler that does not exist, not merely unstarted** — and marked that way in the backlog.
+- **§347's diagnosis is confirmed and was previously unevidenced.** Pooling ten probes of which nine are near-chance is noise-dominated by construction, and 0.551 is what that produces. **§347 was right about its own failure for a reason it never measured.**
+- **pred_b HELD, consistently rather than on the mean:** block 9 beats block 2 (0.6171 vs 0.6020, **+0.0151**), with **9 of 10 modes individually improving**. §2079's "deeper reads help" carries from the binary gate label to per-mode labels — and is far too small to rescue the rung.
+- **pred_c HELD**, shuffled control 0.505–0.516, which is what licenses reading a best-of-ten statistic at all.
+
+**A naming caution.** These ten are principal components of the 36-probe damage matrix, **not** the ten token classes the gating scripts also call classes. **Index 2 is "the third principal damage mode", not a nameable linguistic category** — I am not attaching a story to it.
+
+**Scope:** linear reads at two depths. §347 showed quadratic-at-block-2 is worse and §2079 showed deep-linear beats rich-shallow, so **a nonlinear read at depth is the only untried route** — I'm not claiming it would fail, only that nothing in the record suggests it would succeed.
+
+**Asset left standing:** mode index 2 at AUC 0.742. Whether *one-mode* conditioning beats uniform stand-ins at matched budget is a smaller and different experiment than rung 7 specifies, and I'd rather name it than quietly redefine the rung to fit what survived.
+
+**Backlog state: rungs 1–5 done or closed, 6 owed retrospectively (§2081), 7 blocked, 8 (pattern-side mechanism) the only design-first rung still genuinely open.**
