@@ -14,10 +14,12 @@ import json
 import os
 from pathlib import Path
 import stat
+import subprocess
 from typing import Any
 
 
 HERE = Path(__file__).resolve().parent
+ROOT = Path(__file__).resolve().parents[2]
 
 
 @dataclass(frozen=True)
@@ -28,6 +30,7 @@ class FitParentPaths:
     receipt: Path
     failure: Path
     terminal: Path
+    lock: Path
 
 
 PRODUCTION_PATHS = FitParentPaths(
@@ -37,6 +40,7 @@ PRODUCTION_PATHS = FitParentPaths(
     receipt=HERE / "causal_response_tensor_v1_fit_receipt.json",
     failure=HERE / "causal_response_tensor_v1_fit_failure.json",
     terminal=HERE / "causal_response_tensor_v1_fit_terminal_claim.json",
+    lock=Path("/workspace/runs/.causal_response_tensor_v1_fit.lock"),
 )
 
 
@@ -133,6 +137,97 @@ def _plain_json(raw: bytes, label: str) -> dict[str, Any]:
     return value
 
 
+def _require_absent(path: Path, label: str) -> None:
+    flags = os.O_RDONLY | getattr(os, "O_NOFOLLOW", 0)
+    for _ in range(2):
+        try:
+            descriptor = os.open(path, flags)
+        except FileNotFoundError:
+            continue
+        else:
+            os.close(descriptor)
+            raise RuntimeError(f"{label} must be absent: {path}")
+
+
+def _validate_historical_source_closure(value: object) -> str:
+    if type(value) is not dict or set(value) != {"commit", "paths", "sha256"}:
+        raise RuntimeError("FIT historical source closure schema changed")
+    commit = value["commit"]
+    paths = value["paths"]
+    if not isinstance(commit, str) or len(commit) != 40 or any(
+        character not in "0123456789abcdef" for character in commit
+    ) or type(paths) is not dict or len(paths) != 21 or any(
+        type(path) is not str or not _is_sha256(digest)
+        for path, digest in paths.items()
+    ):
+        raise RuntimeError("FIT historical source closure is malformed")
+    body = {"commit": commit, "paths": paths}
+    if value["sha256"] != _logical_sha256(body):
+        raise RuntimeError("FIT historical source-closure digest does not replay")
+    resolved = subprocess.check_output(
+        ["git", "rev-parse", "--verify", f"{commit}^{{commit}}"],
+        cwd=ROOT, text=True,
+    ).strip()
+    if resolved != commit or subprocess.run(
+        ["git", "merge-base", "--is-ancestor", commit, "origin/main"],
+        cwd=ROOT,
+    ).returncode != 0:
+        raise RuntimeError("FIT historical source commit is not published ancestry")
+    for path, digest in paths.items():
+        completed = subprocess.run(
+            ["git", "show", f"{commit}:{path}"], cwd=ROOT,
+            stdout=subprocess.PIPE, stderr=subprocess.DEVNULL,
+        )
+        if completed.returncode != 0 or hashlib.sha256(completed.stdout).hexdigest() != digest:
+            raise RuntimeError(f"FIT historical source bytes do not replay: {path}")
+    return value["sha256"]
+
+
+def _validate_independent_audit(value: object, source_closure: dict[str, Any]) -> None:
+    if type(value) is not dict or set(value) != {"path", "sha256", "reviewer"} or (
+        not isinstance(value["path"], str) or not _is_sha256(value["sha256"])
+        or not isinstance(value["reviewer"], str) or not value["reviewer"]
+    ):
+        raise RuntimeError("FIT independent-audit binding changed")
+    record, raw = _stable_record(Path(value["path"]))
+    audit = _plain_json(raw, "FIT independent audit")
+    if record["sha256"] != value["sha256"] or set(audit) != {
+        "schema", "status", "approved", "outcome_access", "reviewer",
+        "audited_source_commit", "audited_source_hashes", "tests_passed",
+        "remaining_execution_blockers",
+    } or audit.get("schema") != (
+        "causal_response_tensor_v1_fit_lifecycle_independent_audit"
+    ) or audit.get("status") != "GO" or audit.get("approved") is not True or (
+        audit.get("outcome_access") is not False
+        or audit.get("reviewer") != value["reviewer"]
+        or audit.get("audited_source_commit") != source_closure["commit"]
+        or audit.get("audited_source_hashes") != source_closure["paths"]
+        or not isinstance(audit.get("tests_passed"), int)
+        or audit["tests_passed"] < 1
+        or audit.get("remaining_execution_blockers") != []
+    ):
+        raise RuntimeError("FIT independent audit does not replay its source-bound GO")
+
+
+def _validate_frozen_parent_hashes(value: object) -> None:
+    expected = {
+        "census_state_diverse_sha256":
+            "c785f3d938091253535aa4f613ab2b4107bf297c8d615da4f7eab4f8282f5e0b",
+        "curated_rows_sha256":
+            "faaf89f38ddf1471234a1d30d978213367a566a9927bb3c73b274ab32afaa9dd",
+        "battery_sha256":
+            "86d7ac72eeb95f9ec80a3e92ef65e28c0df66a36b9291d2d1d2d01f7bb6c5030",
+        "document_split_sha256":
+            "3cb829ce5c9627f787e804e4e2ca44098030c629933f14df2c3a7fb07283317c",
+        "config_sha256":
+            "428042bfd807ba36f8b4326395440fbbebe52cd3d040212e6fef14a4fdf2d83c",
+        "weights_sha256":
+            "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+    }
+    if value != expected:
+        raise RuntimeError("FIT frozen parent identities changed")
+
+
 def _validate_protocol(protocol: object) -> dict[str, Any]:
     if type(protocol) is not dict:
         raise RuntimeError("FIT parent protocol is not a plain object")
@@ -169,8 +264,8 @@ def fit_parent_binding_without_tensor_load(
 
     if not isinstance(paths, FitParentPaths):
         raise TypeError("FIT parent paths must be an exact FitParentPaths value")
-    if paths.failure.exists():
-        raise RuntimeError("FIT parent ended in failure, not a successful receipt")
+    _require_absent(paths.failure, "FIT failure terminal")
+    _require_absent(paths.lock, "FIT owner lock")
     terminal_record, terminal_raw = _stable_record(paths.terminal)
     receipt_record, receipt_raw = _stable_record(paths.receipt)
     if terminal_raw != receipt_raw or (
@@ -228,6 +323,13 @@ def fit_parent_binding_without_tensor_load(
         or authority["authority_sha256"] != terminal["authority_logical_sha256"]
     ):
         raise RuntimeError("FIT authority identity does not replay")
+    source_closure_sha256 = _validate_historical_source_closure(
+        authority["source_closure"]
+    )
+    _validate_independent_audit(
+        authority["independent_audit"], authority["source_closure"]
+    )
+    _validate_frozen_parent_hashes(authority["parents"])
     protocol = _validate_protocol(authority["protocol"])
     expected_paths = {
         "authority": str(paths.authority),
@@ -236,6 +338,7 @@ def fit_parent_binding_without_tensor_load(
         "receipt": str(paths.receipt),
         "failure": str(paths.failure),
         "terminal": str(paths.terminal),
+        "lock": str(paths.lock),
     }
     if any(authority["output_paths"].get(key) != value for key, value in expected_paths.items()):
         raise RuntimeError("FIT authority output namespace differs from the bound parent")
@@ -279,6 +382,8 @@ def fit_parent_binding_without_tensor_load(
         != payload.get("model_state_sha256_after")
     ):
         raise RuntimeError("FIT success receipt payload does not replay")
+    _require_absent(paths.failure, "FIT failure terminal")
+    _require_absent(paths.lock, "FIT owner lock")
 
     body = {
         "schema": "causal_response_factorization_v1_fit_parent_binding",
@@ -290,7 +395,7 @@ def fit_parent_binding_without_tensor_load(
         "bundle_bytes": current["bundle"]["bytes"],
         "manifest_artifact_sha256": current["manifest"]["sha256"],
         "manifest_logical_sha256": manifest["manifest_sha256"],
-        "source_closure_sha256": authority["source_closure"]["sha256"],
+        "source_closure_sha256": source_closure_sha256,
         "fit_protocol": protocol,
         "tensor_values_deserialized": False,
         "authorized_for_eval": False,

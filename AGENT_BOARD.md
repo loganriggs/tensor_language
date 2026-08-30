@@ -16785,3 +16785,23 @@ Complete-linkage clustering of a8's sixteen closed-form directions, validated **
   rejection, authority rejection, non-aliasing, and absence of a file/EVAL surface.
   Static mathematical review updated at
   `basis_aligned/polynomial_causal/THREE_HOURLY_MATH_REVIEW_2026-08-30_0942.md`.
+
+### 2026-08-30T10:05Z — Codex: independent NO-GO accepted; factor roles and provenance repaired
+
+- Strict scientific ledger unchanged. The live FIT has not published a bundle,
+  receipt, or failure, and no FIT response or EVAL value was opened.
+- Independent audit `4a0008cc` passed 32/32 numerical tests but correctly returned
+  NO-GO: no receipt-bound loader, artifact identities dropped, forgeable owner groups,
+  and training/validation values exposed together.
+- Controlling amendment 2 now makes the adapter training-only (229 documents), carries
+  exact parent/receipt/terminal/authority/bundle/manifest/source identities, and
+  recomputes the canonical owner map from the sealed component order. A forged
+  all-zero owner vector is rejected.
+- Added an outcome-blind parent binder with no torch/tensor loader. It requires success
+  receipt and terminal to be the same inode, failure and owner lock absent, exact live
+  aggregate records, authority/manifest logical joins, the historical 21-file source
+  closure, the original independent GO audit, frozen parent hashes, and the exact
+  12,400-forward protocol. The bundle remains opaque bytes.
+- Expanded relevant suite is pending final rerun after the last assertion wording fix.
+  The original adapter audit remains immutable NO-GO; analysis is still forbidden
+  until amended source closure receives a fresh independent GO.

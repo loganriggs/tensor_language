@@ -46,8 +46,10 @@ def _fixture(tmp_path):
         receipt=tmp_path / "receipt.json",
         failure=tmp_path / "failure.json",
         terminal=tmp_path / "terminal.json",
+        lock=tmp_path / "lock",
     )
-    protocol = _protocol()
+    production_authority = json.loads(parent.PRODUCTION_PATHS.authority.read_text())
+    protocol = production_authority["protocol"]
     output_paths = {
         "authority": str(paths.authority),
         "bundle": str(paths.bundle),
@@ -55,31 +57,14 @@ def _fixture(tmp_path):
         "receipt": str(paths.receipt),
         "failure": str(paths.failure),
         "terminal": str(paths.terminal),
-        "lock": str(tmp_path / "lock"),
+        "lock": str(paths.lock),
     }
     authority_body = {
-        "schema": "causal_response_tensor_v1_fit_authority",
-        "status": "frozen_before_any_parent_tensor_or_bilin18_model_load",
-        "source_closure": {
-            "commit": "a" * 40, "paths": {}, "sha256": "b" * 64,
-        },
-        "independent_audit": {
-            "path": str(tmp_path / "audit.json"),
-            "sha256": "c" * 64,
-            "reviewer": "fixture",
-        },
-        "parents": {},
-        "protocol": protocol,
-        "output_paths": output_paths,
-        "outcome_access_before_authority": {
-            "parent_tensors_loaded": False,
-            "model_loaded": False,
-            "model_forward_calls": 0,
-            "scientific_outcomes_read": False,
-        },
-        "authorized_for_fit_execution": True,
-        "authorized_for_eval": False,
+        key: value
+        for key, value in production_authority.items()
+        if key != "authority_sha256"
     }
+    authority_body["output_paths"] = output_paths
     authority = {
         **authority_body,
         "authority_sha256": parent._logical_sha256(authority_body),
@@ -155,7 +140,14 @@ def test_parent_binding_module_has_no_torch_or_tensor_loader_surface():
 def test_parent_binding_rejects_failure_terminal(tmp_path):
     paths, _ = _fixture(tmp_path)
     paths.failure.write_text("failed\n")
-    with pytest.raises(RuntimeError, match="ended in failure"):
+    with pytest.raises(RuntimeError, match="failure terminal must be absent"):
+        parent.fit_parent_binding_without_tensor_load(paths)
+
+
+def test_parent_binding_rejects_live_owner_lock(tmp_path):
+    paths, _ = _fixture(tmp_path)
+    paths.lock.write_text("owner\n")
+    with pytest.raises(RuntimeError, match="owner lock"):
         parent.fit_parent_binding_without_tensor_load(paths)
 
 
@@ -228,3 +220,25 @@ def test_parent_binding_rejects_parent_self_authorizing_selection(tmp_path):
     os.link(paths.terminal, paths.receipt)
     with pytest.raises(RuntimeError, match="protocol"):
         parent.fit_parent_binding_without_tensor_load(paths)
+
+
+def test_historical_source_closure_and_independent_go_replay():
+    authority = json.loads(parent.PRODUCTION_PATHS.authority.read_text())
+    assert parent._validate_historical_source_closure(authority["source_closure"]) == (
+        authority["source_closure"]["sha256"]
+    )
+    parent._validate_independent_audit(
+        authority["independent_audit"], authority["source_closure"]
+    )
+
+
+def test_historical_source_closure_rejects_self_consistent_wrong_bytes():
+    authority = json.loads(parent.PRODUCTION_PATHS.authority.read_text())
+    closure = json.loads(json.dumps(authority["source_closure"]))
+    first = next(iter(closure["paths"]))
+    closure["paths"][first] = "f" * 64
+    closure["sha256"] = parent._logical_sha256({
+        "commit": closure["commit"], "paths": closure["paths"]
+    })
+    with pytest.raises(RuntimeError, match="bytes do not replay"):
+        parent._validate_historical_source_closure(closure)
