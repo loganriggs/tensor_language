@@ -1,0 +1,181 @@
+{
+ "schema_version": 1,
+ "generated": "2026-08-30 by Claude",
+ "component": "m16",
+ "circuits": [
+  "r.1.1.2",
+  "r.1.2",
+  "r.1.2.0",
+  "r.1.2.1",
+  "r.6.2.2"
+ ],
+ "question": "S2064's open question: are m16's circuits genuinely ONE mechanism, or does the closed-form residual simply fail to see the structure that gradient descent can?",
+ "method": "rank-1 DAS per circuit at m16 (interchange restricted to the learned direction, trained on rows 0-600); the learned directions are then compared pairwise and used for rank-1 projection ablation over the full grid, the same instrument as S2062/S2065",
+ "closed_form_reference_S2064": {
+  "residual_mean_abs_cos_all_six": 0.5185,
+  "das_mean_abs_cos_all_six_S2067": 0.3976,
+  "das_selective_all_six_S2067": "1/6",
+  "excluded": "r.1.1.1"
+ },
+ "das_mean_pairwise_abs_cos": 0.3896,
+ "das_selective_10pct": "0/5",
+ "concentration_das_directions": {
+  "r.1.1.2": {
+   "r.1.1.2": 1.558,
+   "r.1.2": 1.545,
+   "r.1.2.0": 1.699,
+   "r.1.2.1": 1.628,
+   "r.6.2.2": 1.531
+  },
+  "r.1.2": {
+   "r.1.1.2": 1.757,
+   "r.1.2": 1.644,
+   "r.1.2.0": 1.709,
+   "r.1.2.1": 1.855,
+   "r.6.2.2": 1.774
+  },
+  "r.1.2.0": {
+   "r.1.1.2": 1.545,
+   "r.1.2": 1.543,
+   "r.1.2.0": 1.61,
+   "r.1.2.1": 1.708,
+   "r.6.2.2": 1.615
+  },
+  "r.1.2.1": {
+   "r.1.1.2": 1.14,
+   "r.1.2": 1.02,
+   "r.1.2.0": 0.921,
+   "r.1.2.1": 1.19,
+   "r.6.2.2": 1.411
+  },
+  "r.6.2.2": {
+   "r.1.1.2": 1.84,
+   "r.1.2": 1.719,
+   "r.1.2.0": 2.018,
+   "r.1.2.1": 1.947,
+   "r.6.2.2": 1.787
+  }
+ },
+ "optimiser_unhealthy_fits": [],
+ "pred_a_das_also_fails_to_separate": false,
+ "pred_b_no_selective_circuit_among_the_five": true,
+ "pred_c_optimiser_healthy": true,
+ "per_circuit": {
+  "r.1.1.2": {
+   "component": "m16",
+   "members": 864,
+   "ranks": {
+    "1": {
+     "das_dce_members": 1.848,
+     "das_dce_offslice": 0.4828,
+     "das_concentration": 3.828,
+     "full_dce_members": 1.5152,
+     "full_dce_offslice": 0.5078,
+     "full_concentration": 2.984,
+     "fraction_of_full_recovered": 1.22,
+     "subspace_moved_from_init": 0.9997,
+     "loss_first20": -0.014197,
+     "loss_last20": -2.395563,
+     "optimiser_healthy": true,
+     "overlap_with_closed_form": 0.265,
+     "closed_form_dce_members": 1.1866,
+     "closed_form_concentration": 3.213,
+     "das_beats_closed_form": true
+    }
+   }
+  },
+  "r.1.2": {
+   "component": "m16",
+   "members": 5760,
+   "ranks": {
+    "1": {
+     "das_dce_members": 4.6778,
+     "das_dce_offslice": 1.0368,
+     "das_concentration": 4.512,
+     "full_dce_members": 1.5269,
+     "full_dce_offslice": 0.4362,
+     "full_concentration": 3.5,
+     "fraction_of_full_recovered": 3.064,
+     "subspace_moved_from_init": 0.9989,
+     "loss_first20": -0.029787,
+     "loss_last20": -2.955025,
+     "optimiser_healthy": true,
+     "overlap_with_closed_form": 0.467,
+     "closed_form_dce_members": 1.0678,
+     "closed_form_concentration": 3.635,
+     "das_beats_closed_form": true
+    }
+   }
+  },
+  "r.1.2.0": {
+   "component": "m16",
+   "members": 864,
+   "ranks": {
+    "1": {
+     "das_dce_members": 8.8873,
+     "das_dce_offslice": 1.0785,
+     "das_concentration": 8.24,
+     "full_dce_members": 2.29,
+     "full_dce_offslice": 0.501,
+     "full_concentration": 4.571,
+     "fraction_of_full_recovered": 3.881,
+     "subspace_moved_from_init": 0.9986,
+     "loss_first20": -0.242,
+     "loss_last20": -6.739624,
+     "optimiser_healthy": true,
+     "overlap_with_closed_form": 0.442,
+     "closed_form_dce_members": 1.5472,
+     "closed_form_concentration": 6.49,
+     "das_beats_closed_form": true
+    }
+   }
+  },
+  "r.1.2.1": {
+   "component": "m16",
+   "members": 864,
+   "ranks": {
+    "1": {
+     "das_dce_members": 6.0028,
+     "das_dce_offslice": 1.0783,
+     "das_concentration": 5.567,
+     "full_dce_members": 2.0059,
+     "full_dce_offslice": 0.501,
+     "full_concentration": 4.004,
+     "fraction_of_full_recovered": 2.993,
+     "subspace_moved_from_init": 0.9998,
+     "loss_first20": -0.133022,
+     "loss_last20": -6.215448,
+     "optimiser_healthy": true,
+     "overlap_with_closed_form": 0.41,
+     "closed_form_dce_members": 1.4443,
+     "closed_form_concentration": 4.687,
+     "das_beats_closed_form": true
+    }
+   }
+  },
+  "r.6.2.2": {
+   "component": "m16",
+   "members": 864,
+   "ranks": {
+    "1": {
+     "das_dce_members": 0.9478,
+     "das_dce_offslice": 0.2337,
+     "das_concentration": 4.056,
+     "full_dce_members": 1.5433,
+     "full_dce_offslice": 0.5134,
+     "full_concentration": 3.006,
+     "fraction_of_full_recovered": 0.614,
+     "subspace_moved_from_init": 0.9998,
+     "loss_first20": 0.028288,
+     "loss_last20": -1.25611,
+     "optimiser_healthy": true,
+     "overlap_with_closed_form": 0.14,
+     "closed_form_dce_members": 0.8526,
+     "closed_form_concentration": 4.647,
+     "das_beats_closed_form": true
+    }
+   }
+  }
+ },
+ "note": "read-only artifact; no circuit file was modified"
+}

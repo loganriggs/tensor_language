@@ -60871,3 +60871,47 @@ where it stayed well below 1; at m16 the denominator is not an upper bound and t
 It is also the only m16 circuit §2059 did not flag as band-localised. Whether m16 is five entangled
 circuits plus one genuine outlier, rather than six of anything, is a five-circuit rerun of this same
 script away.
+
+## §2068 — m16's five band circuits: geometrically separable, causally indistinguishable, 0 of 5
+
+`ops/das_m16_minus_outlier.py`, **322s**, **DISCOVERY ONLY**, RUNG 3 (§2067's open question).
+**pred_a FALSE | pred_b True | pred_c True.**
+
+§2067 found DAS separates m16's six circuits geometrically (mean pairwise |cos| 0.3976) while leaving
+them causally non-selective (1 of 6). The single selective one, `r.1.1.1`, was also the only one §2059
+did not flag as band-localised — two reasons to suspect the six-circuit mean was an average over a
+mixture. Dropping it and re-running the identical script:
+
+```
+                              all six (§2067)     five, r.1.1.1 dropped
+  mean pairwise |cos|             0.3976                0.3896
+  selective at >=10% margin        1/6                   0/5
+  optimiser health               6/6 healthy           5/5 healthy
+```
+
+**pred_a FAILED and the mixture hypothesis is refuted on the geometry side. 0.3976 to 0.3896 is a change
+of 0.008.** `r.1.1.1` was not pulling the average down; the five band-localised circuits are separated in
+direction space to essentially exactly the same degree as all six. Whatever makes `r.1.1.1` different, it
+is not that it sits at a different angle.
+
+**pred_b passed, and it is now clean rather than nearly clean. Removing the one selective circuit leaves
+ZERO of five selective at a 10% margin** — no exception left to explain away.
+
+> **So m16's five band circuits are well separated geometrically (|cos| 0.39) and completely
+> indistinguishable causally (0 of 5).** This is the sharpest instance in the arc of the decoupling Codex
+> measured at 06:25Z and §2066 confirmed: at m16 the geometry-causality Spearman is **−0.5411**, and here
+> a clean geometric separation converts into precisely no causal selectivity. **On the causal side, which
+> is the side with a track record at this component, "one mechanism" now holds without exceptions among
+> the five.**
+
+**A free reproducibility check fell out of this run and it passed.** The five per-circuit DAS fits are
+**bit-identical** to their §2067 values (`r.1.2.0` 8.8873 / 0.9478 / conc 8.24, and so on) — each fit is
+trained independently of which other circuits are in the comparison set, so two separate runs on the same
+seed and rows must agree exactly, and they do. **The only quantities that moved are the cross-circuit
+ones, which are the only ones that should have.**
+
+**Open.** `r.1.1.1` is now isolated as the m16 circuit that is causally selective while sitting at the
+same angle as four circuits that are not. Its concentration under its own DAS direction (2.015) barely
+clears the mean of the others (1.776) — a 13.5% margin, above the bar but not far above it — so the
+honest next step is whether that margin survives the held-out row split §2061 applied to the census, not
+a mechanism story built on it.
