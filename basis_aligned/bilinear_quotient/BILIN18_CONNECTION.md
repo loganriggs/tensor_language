@@ -63843,3 +63843,25 @@ pred_b (additivity, |+0.0164 − 0.0217| = 0.0053) | pred_c (best repro −0.028
   window C 2.4191 vs §312's 2.4233 (-0.0042).
 - The descriptive floor: 144 gives back the improvement (−0.0011 net) — c8/c9's useful content sits in their top
   ~288 norm-ranked units. Tail attribution (rung 51, running) decides where the next cheap price cut lives.
+
+## §2145 — RUNG 51: THE TAIL INCREMENT IS CONCENTRATED AT BLOCK 16 — a16L's dictionary costs +0.1572 of the +0.353 total (45%), a14L +0.073; a12L and a17L are nearly free. All three bars HELD. (Convention: L2 = CE above the real model; lower is better; marginal = damage added by that replacement.)
+
+`ops/frontier_tail_prefix.py`, **124s**, BACKLOG rung 51. **ALL THREE HELD: pred_a (2.6691 vs 2.6691, exact) |
+pred_b (all marginals ≥ −0.005; min +0.0057) | pred_c (max +0.1572 ≥ 2 × median +0.0241).**
+
+```
+  replacement    a10L     a11L     a12L     a13L     a14L     a15L     a16L     a17L
+  marginal      +0.0180  +0.0180  +0.0057  +0.0302  +0.0729  +0.0350  +0.1572  +0.0158
+```
+
+- **Block 16 again.** The single most expensive replacement in the whole assembly is a16's dictionary — the same
+  block whose MLP is the program's unexplained remainder (§2098–§2100, §2127: document-stable basis, private
+  coefficient, no cheap interface). Whatever block 16 computes, neither its MLP nor its attention survives the
+  class-dictionary grammar: attn16 does something the 10-class code cannot carry, at 10× the cost of a12/a17.
+- **Every replacement costs something** (no negative marginals): no tail block's real attention was hurting.
+  The prefix curve is grammar-consistent by construction (sequential fits), and the telescoped sum reproduces
+  the full config exactly.
+- **The price map of the assembly is now complete at piece grain:** mlp4/5 unsheddable (§2141), c6/c7 need 576,
+  c8/c9 need 288 (§2143/§2144), tail dictionaries cheap except a14L and above all a16L. The obvious envelope
+  point: leave attn16 REAL → rung 52 (stated honestly as a coverage-vs-damage trade, not a free improvement —
+  the config replaces one fewer component).

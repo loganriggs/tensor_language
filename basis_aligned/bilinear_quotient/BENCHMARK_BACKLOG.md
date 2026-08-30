@@ -697,4 +697,19 @@ later per-rung backlog edits had silently anchored on text that was not here.
     pred_a full config reproduces §2140's 2.6691 within 0.01; pred_b all
     eight marginals >= -0.005 (a negative one means real attention was
     HURTING - notable); pred_c max marginal >= 2 x median (not uniform).
-    -> ops/frontier_tail_prefix.py [QUEUED 22:00Z]
+    -> ops/frontier_tail_prefix.py
+    RUN 2026-08-30, §2145: ALL THREE HELD — the increment is concentrated
+    at a16L (+0.1572, 45% of the total; a14L +0.073; a12L/a17L ~free).
+    Block 16 again: neither its MLP nor its attention survives the
+    grammar. No negative marginals; telescoping exact.
+
+52. LEAVE attn16 REAL (coverage-vs-damage envelope point; damage
+    convention). §2145: a16L's dictionary costs +0.157. Refit the tail
+    sequence with block 16's attention left real (skip a16L; a17L refit
+    under a16-real — grammar-consistent), on the §2144 best middles.
+    HONEST FRAMING: one fewer replaced component, so this is an envelope
+    point, not a free improvement.
+    pred_a median [L2_F_w(skip16) - L2_F_w(full)] <= -0.10 (the prefix
+    marginal was -0.157; refits may reabsorb some); pred_b <= -0.05 on
+    >= 7/8; pred_c full arm reproduces §2144 (FR L2_F 2.6662 within
+    0.01). -> ops/frontier_skip_a16.py [QUEUED]

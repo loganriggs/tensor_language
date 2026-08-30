@@ -1,0 +1,49 @@
+{
+ "best": {
+  "L1_F": 2.3163,
+  "L2_C": 2.4275,
+  "L2_F": 2.6691,
+  "increment": 0.3528,
+  "orig_s312_a": true,
+  "orig_s312_b": true,
+  "fresh8": [
+   2.6691,
+   2.9423,
+   2.6409,
+   2.8614,
+   2.9224,
+   2.8144,
+   2.6111,
+   2.6778
+  ],
+  "runtime_s": 124.30894160270691
+ },
+ "prefix_L2F": [
+  2.3163,
+  2.3343,
+  2.3523,
+  2.358,
+  2.3882,
+  2.4611,
+  2.4961,
+  2.6533,
+  2.6691
+ ],
+ "marginals_a10L_to_a17L": [
+  0.018,
+  0.018,
+  0.0057,
+  0.0302,
+  0.0729,
+  0.035,
+  0.1572,
+  0.0158
+ ],
+ "median_marginal": 0.0241,
+ "convention": "L2 = CE above the real model; lower is better; marginal = damage added by that replacement",
+ "pred_a_reproduces_s2140": true,
+ "pred_b_every_replacement_costs": true,
+ "pred_c_concentrated": true,
+ "self_reviewed": true,
+ "runtime_s": 124.3
+}

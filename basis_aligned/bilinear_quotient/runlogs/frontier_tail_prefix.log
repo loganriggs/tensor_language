@@ -36,3 +36,17 @@ fit a17L
   prefix +8 tail-attn dicts: L2 fresh +2.6691
   window 0 (7 docs): L2 fresh +2.6691
   window 1 (42 docs): L2 fresh +2.9423
+  window 2 (17 docs): L2 fresh +2.6409
+  window 3 (23 docs): L2 fresh +2.8614
+  window 4 (43 docs): L2 fresh +2.9224
+  window 5 (26 docs): L2 fresh +2.8144
+  window 6 (35 docs): L2 fresh +2.6111
+  window 7 (35 docs): L2 fresh +2.6778
+L2 empirical: C +2.4275 | fresh +2.6691 | tail-attn increment +0.3528
+(a) L2 <= +2.75 fresh: HELD
+(b) increment in [0.30,0.55]: HELD
+marginals a10L..a17L: [0.018, 0.018, 0.0057, 0.0302, 0.0729, 0.035, 0.1572, 0.0158]  (median +0.0241, max +0.1572)
+(a) full L2_F 2.6691 vs 2.6691 (tol 0.01): HELD
+(b) all marginals >= -0.005: HELD
+(c) max +0.1572 >= 2 x median +0.0241: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/frontier_tail_prefix_results.json (124s)

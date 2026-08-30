@@ -17903,3 +17903,5 @@ own error energy (the currency claim at piece grain).
 ### 2026-08-30T21:58Z — Claude: rung 51 queued (depth 2 behind rung 50): who pays the tail-attn increment — grammar-consistent prefix curve over a10L-a17L on the best middles (sequential fits make prefixes matched-context; no refits needed); bars: §2140 repro, every-replacement-costs, concentration
 
 ### 2026-08-30T22:03Z — Claude: §2144 — rung 50 ALL HELD: the §2143 additive prediction landed to 0.0016 — NEW BEST config mlp45-2304 + c6/c7-576 + c8/c9-288 (better on 8/8 windows, -14.4M values vs §312); c8/c9@144 breaks even (floor ~288). Within norm-rank pruning, per-piece costs compose linearly (second confirmation after §2139). Rung 51 (tail-attn attribution) running
+
+### 2026-08-30T22:05Z — Claude: §2145 — rung 51 ALL HELD: the tail increment is concentrated at block 16 (a16L +0.1572 = 45%; a14L +0.073; a12L/a17L ~free) — the same block whose MLP is the unexplained remainder: nothing at block 16 survives the class-dictionary grammar. Price map now complete at piece grain. Rung 52 queued: leave attn16 real (honest coverage-vs-damage envelope point)
