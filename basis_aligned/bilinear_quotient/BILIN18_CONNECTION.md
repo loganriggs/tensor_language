@@ -63644,3 +63644,28 @@ its arm values will be read as damage in its write-up.
    publication — a re-derivation from the same numbers is not enough, because the flip and the re-derivation
    share the premise.
 3. A registered sanity bound printing FAILED is never "retired" in the same entry that benefits from ignoring it.
+
+## §2136 — RUNG 42, READ IN THE CORRECT CONVENTION (L2 = CE above the real model; LOWER is better): THE CONDITIONED RANKING IS WORSE THAN NORM FOR PRUNING TOO — c6–c9 cond-pruning adds +0.047 damage over its base and +0.055 over norm-rank pruning. Norm-rank pruning of c6–c9 to 576 roughly breaks even (−0.013 vs the base it was tested on)
+
+`ops/frontier_c69_prune.py`, **505s**, BACKLOG rung 42. Registered pre-retraction inside the flipped convention:
+**all three preds print HELD as written, and per §2135 the as-written scores are recorded while the readings are
+corrected here.** pred_c is a genuine reproduction (base 2.8375 vs §2134's 2.8372 damage). pred_a/pred_b "held"
+certify the OPPOSITE of their prose intent.
+
+```
+  arm (damage, fresh)                                L2_F      vs base
+  norm-2304 everywhere (§312 frontier)              2.6735     (the frontier)
+  base: cond-576@mlp45, c6–c9 norm-2304 (§2134)     2.8375     —
+  c6–c9 pruned to 576 by NORM rank                  2.8241     −0.013 (slightly better than its damaged base)
+  c6–c9 pruned to 576 by CONDITIONED rank           2.8843     +0.047 (worse; +0.055 worse than norm-rank pruning)
+```
+
+- **The §2135 picture completes:** the assembly-conditioned Fisher ranking is now measured worse than norm at
+  mlp4/mlp5 selection (§2129→§2135), worse for K-reduction there (§2133/§2134 retracted), worthless for
+  reordering c6–c9 (§2131), and worse than norm for pruning c6–c9 (here, on every window: cond-vs-norm-rank
+  +0.023 to +0.104). It has no measured use on this frontier.
+- **The one live lead in the wreckage:** NORM-rank pruning of c6–c9 to 576 cost roughly nothing on the config it
+  was tested on (−0.013, i.e. slightly less damage). But that config had cond-576 at mlp4/5 — not the real
+  frontier. The honest price question — pure norm-rank K reduction on the intact §312 frontier — has never been
+  measured on the eight windows → rung 43.
+- Convention stated per §2135: every number above is CE added above the real model; lower is better.

@@ -570,9 +570,24 @@ later per-rung backlog edits had silently anchored on text that was not here.
     pred_a median [L2_F_w(c69cond576) - L2_F_w(cond576@45)] >= 0; pred_b
     median [c69cond576 - c69norm576] >= 0 (§2131 null predicts ~0);
     pred_c base arm reproduces §2134 (+0.1277 within 0.015).
-    -> ops/frontier_c69_prune.py [QUEUED 20:50Z]
+    -> ops/frontier_c69_prune.py
+    RUN 2026-08-30, §2136 (read in the corrected convention): conditioned
+    ranking worse than norm for pruning too (+0.055/window median); norm
+    pruning of c6-c9 to 576 ~ breaks even on its (damaged) base. The
+    conditioned Fisher has NO measured use on this frontier.
 
     [§2135 NOTE on rungs 30-42: every 'gain' registered after §2128 was
     written in a flipped sign convention (higher L2 read as better).
     The measurements stand as damage numbers; the celebratory readings
     are retracted. Rung 42 (in flight) to be read as damage.]
+
+43. THE HONEST PRICE QUESTION: NORM-RANK K REDUCTION ON THE INTACT §312
+    FRONTIER (never measured on the eight windows). Convention: L2 = CE
+    above the real model, lower is better. Arms: norm-2304 everywhere
+    (§312 reproduction) / norm-1152 at all six middles / norm-576 at all
+    six. Price: -13.3M / -20M values. Null (§2118 family): K reduction
+    adds damage; the question is how little.
+    pred_a median [L2_F_w(norm1152) - L2_F_w(norm2304)] <= +0.02;
+    pred_b that difference <= +0.04 on >= 6/8; pred_c norm-2304
+    reproduces 2.6735 within 0.01. norm-576 descriptive.
+    -> ops/frontier_norm_ksweep.py [QUEUED]
