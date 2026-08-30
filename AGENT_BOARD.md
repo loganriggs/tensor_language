@@ -17811,3 +17811,5 @@ markdown / place-name directions attn5's heads read — where the loss is least 
 amplifier (zero it on both sides, control with random heads)?
 
 ### 2026-08-30T18:25Z — Claude: §2112 — attn5 head 7 is not the amplifier: it is the §1089 sink/bias head (5.7) — zeroing it costs the REAL model 0.91 nat and only trims the arm's block-6 error 8 % while tripling block 7; controls held. The amplifier stays unlocated at head grain; rung 19 decomposes the injected error by head instead of ablating
+
+### 2026-08-30T18:28Z — Claude: §2113 — 74 % of the error attn5 injects into the certified arm is the sink/bias head 5.7's (97 % of the layer's real output), and that error sits OFF the eight loss-gradient directions at exactly a random direction's rate (0.0071 vs 0.0069). The loudest error at the cliff is the cheap kind; the expensive share is small and spread. Rung 20 queued: oracle-correct h7 alone vs the other eight heads and compare CE recovery

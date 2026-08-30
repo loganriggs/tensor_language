@@ -1,0 +1,24 @@
+a2-input probe acc 0.69
+fit a2
+fit a3
+fit a4
+fit a5
+fit a6
+fit a7
+fit a8
+fit a9
+fit a10
+fit a11
+fit a12
+fit a13
+fit a14
+fit a15
+fit a16
+fit a17
+attn5: head error shares [0.035, 0.028, 0.025, 0.018, 0.009, 0.093, 0.034, 0.74, 0.018] | dominant h7 0.740 | top-8 fraction per head [0.02, 0.014, 0.007, 0.007, 0.008, 0.027, 0.007, 0.007, 0.005] | attn injected 1.033e+11 vs mlp5 8.037e+10
+attn6: head error shares [0.006, 0.738, 0.002, 0.09, 0.009, 0.066, 0.013, 0.071, 0.004] | dominant h1 0.738 | top-8 fraction per head [0.01, 0.001, 0.024, 0.004, 0.008, 0.037, 0.015, 0.022, 0.033] | attn injected 4.692e+10 vs mlp6 4.809e+10
+(d) block-6 rel-MSE 1.7415 vs 1.7415: HELD
+(a) dominant attn5 head h7 share 0.740 >= 0.40: HELD
+(b) its top-8 fraction 0.0071 >= 0.0139: FAILED
+(c) attn5 injected 1.033e+11 > mlp5 8.037e+10: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/attn5_error_by_head_results.json (74s)

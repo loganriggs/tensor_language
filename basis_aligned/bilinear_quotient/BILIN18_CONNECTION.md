@@ -62872,3 +62872,36 @@ amplifier — does zeroing it in both the real model and the arm remove the bloc
 **Scope.** Zero-ablation is the wrong instrument for a head that carries 0.9 nat of the model's own work. The head-grain
 question — *which* attention output turns the front's block-5 error into the block-6 excess — needs a decomposition, not
 a removal: the per-head difference between the arm's and the real model's attn5 outputs on the same positions (rung 19).
+
+## §2113 — RUNG 19: the injected error at attn5 is 74 % ONE head — the sink/bias head 5.7, which also carries 97 % of attn5's real output — and that head's error sits OFF the eight loss-gradient directions (0.0071 of its energy, exactly a random direction's 0.0069). Energy and price part ways at head grain: the loudest error is the cheap one
+
+`ops/attn5_error_by_head.py`, **74s**, BACKLOG rung 19. Per-head difference between the arm's and the real model's
+attention contributions on the same positions; no ablation. **pred_d HELD (1.7415) | pred_a HELD | pred_c HELD | pred_b FAILED.**
+
+```
+  attn5   head        0      1      2      3      4      5      6      7      8
+    injected-error share   0.035  0.028  0.025  0.018  0.009  0.093  0.034  0.740  0.018     (a) h7 0.74 >= 0.40 HELD
+    real output energy     0.001  0.002  0.006  0.002  0.001  0.008  0.006  0.972  0.002
+    error fraction in the block-6 top-8   0.020  0.014  0.007  0.007  0.008  0.027  0.007  0.007  0.005   random 0.0069
+    attn5 injected 1.03e11  >  mlp5 injected 8.04e10                                                (c) HELD
+  attn6   injected-error share: h1 0.738 (real output share 0.804), h3 0.090, h7 0.071, h5 0.066
+```
+
+- **pred_a HELD, and the dominant head is the sink.** 74 % of the error attn5 adds to the arm's stream is head 7's —
+  the §1089 constant-bias head that carries 97 % of the layer's real output energy. §1818 found exactly this head 159×
+  too large under compilation; here it is the same object seen in the certified arm: the arm's block-5 stream makes
+  5.7's pattern deliver its fixed vector with the wrong mass.
+- **pred_b FAILED at 0.0071 against 0.0139** — and this is the result. Head 7's injected error lies in the eight
+  loss-gradient directions at the rate of a *random* direction. The single largest error the front produces at the
+  cliff is a scale error on a fixed vector, in directions the loss does not read: **the cheap kind** (scale is a
+  near-free gauge, `STREAM_ERROR_PRICE_V1`; the observable complement costs 0.04, §2101). The heads whose error
+  does land on the eight are small: h5 (0.027 of a 9 % share), h0, h1. In absolute observable energy h7 still leads
+  (0.74 × 0.0071 = 0.0053 vs h5's 0.0025), but it is diluted 100× by its own unobservable bulk.
+- **pred_c HELD:** attn5 injects more energy than mlp5 removes/adds, as §2087 said for the band.
+- attn6 repeats the pattern: head 1 carries 74 % of the injected error and 80 % of the real output.
+
+**What this settles.** The stream-error numbers this ledger has priced downstream rungs by (§311's economics, §2086's
+1.74) are dominated by a sink-head scale error that is nearly free. The expensive part of the block-6 error is the
+small share that lands on the eight, spread over the other heads and the MLP. Rung 20 tests it directly: oracle-
+correct head 7's contribution alone in the arm (74 % of the injected energy) versus the other eight heads' (26 %)
+and compare CE recovery — energy says h7, the price curve says the others.
