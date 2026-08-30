@@ -2,7 +2,7 @@
 
 This module does not load rows, the model, or EVAL data.  It validates the complete
 output of ``ObservedResponseCollector.fit_stage``, publishes it create-only only after
-a private semantic replay, and returns an opaque capability.  Authority acquisition,
+a private semantic replay, and returns only the exact artifact digest. Authority acquisition,
 parent reconstruction, model execution, terminal receipts, and EVAL publication remain
 separate lifecycle responsibilities.
 """
@@ -77,6 +77,7 @@ class FitBundleBinding:
     model_state_sha256_after: str
     model_rows_sha256: str
     fit_role_sha256: str
+    fit_document_ids_sha256: str
     support_hashes_sha256: str
 
     def validate(self, *, require_production: bool) -> None:
@@ -535,6 +536,10 @@ def validate_fit_bundle_payload(
         binding.fit_role_sha256
     ):
         raise RuntimeError("FIT row role does not match the authority binding")
+    if tensor_sha256(payload["fit_response"]["document_ids"]) != (
+        binding.fit_document_ids_sha256
+    ):
+        raise RuntimeError("FIT document role does not match the authority binding")
     if require_production and payload["model_width"] != 1_152:
         raise RuntimeError("FIT production model width changed")
     _validate_directions_and_statistics(payload, tags, components)

@@ -53,6 +53,9 @@ def _binding(preimage):
         fit_role_sha256=bundle.tensor_sha256(
             preimage["fit_response"]["row_indices"]
         ),
+        fit_document_ids_sha256=bundle.tensor_sha256(
+            preimage["fit_response"]["document_ids"]
+        ),
         support_hashes_sha256=bundle.logical_sha256(preimage["support_hashes"]),
     )
 
@@ -124,6 +127,16 @@ def test_tensor_digest_rejects_unrehashable_mutation():
     payload = _payload()
     payload["directions"][0, 0, 0] += 0.25
     with pytest.raises(RuntimeError, match="tensor digest"):
+        bundle.validate_fit_bundle_payload(payload, require_production=False)
+
+
+def test_bundle_binding_rejects_a_different_fit_document_set():
+    payload = _payload()
+    payload["fit_response"]["document_ids"][-1] += 100
+    payload["tensor_hashes"] = bundle._tensor_hash_map({
+        key: value for key, value in payload.items() if key != "tensor_hashes"
+    })
+    with pytest.raises(RuntimeError, match="document role"):
         bundle.validate_fit_bundle_payload(payload, require_production=False)
 
 

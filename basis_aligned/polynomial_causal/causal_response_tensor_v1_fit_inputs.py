@@ -1,9 +1,9 @@
 """Canonical, model-free reconstruction of causal-response v1 FIT inputs.
 
-The public production entry point takes no paths, roles, masks, or circuit specs from a
-caller.  It stable-reads the six frozen parent files, reconstructs the exact FIT role
-and 49 ordered circuit specs, and returns a one-use opaque capability.  It never loads
-bilin18, computes a forward pass, or reads a causal-response outcome.
+There is deliberately no public production executor or Python pseudo-capability here.
+The source-closed lifecycle calls the private helper only after frozen authority, and
+passes an adjacent authority guard that is checked before and after parent access.  The
+helper never loads bilin18, computes a forward pass, or reads a response outcome.
 """
 
 from __future__ import annotations
@@ -12,6 +12,7 @@ import hashlib
 import io
 import json
 from pathlib import Path
+from collections.abc import Callable
 from typing import Any, NamedTuple
 
 import torch
@@ -147,33 +148,18 @@ class FitCollectorInputs(NamedTuple):
     parent_sha256s: dict[str, str]
     model_rows_sha256: str
     fit_role_sha256: str
+    fit_document_ids_sha256: str
     spec_order_sha256: str
     support_hashes: dict[str, dict[str, str]]
 
 
-class FitInputCapability:
-    """One-use owner of canonical FIT rows/specs; external construction is rejected."""
-
-    __slots__ = ("__take",)
-
-    def __init__(self, *_args, **_kwargs) -> None:
-        raise RuntimeError("FIT input capability cannot be constructed externally")
-
-    def __setattr__(self, _name: str, _value: object) -> None:
-        raise RuntimeError("FIT input capability is immutable")
-
-    def __copy__(self):
-        raise RuntimeError("FIT input capability cannot be copied")
-
-    def __deepcopy__(self, _memo):
-        raise RuntimeError("FIT input capability cannot be copied")
-
-    def take_once(self) -> FitCollectorInputs:
-        return self.__take()
-
-
-def reconstruct_production_fit_inputs() -> FitInputCapability:
-    """Reconstruct the frozen FIT role/specs with no caller-controlled inputs."""
+def _reconstruct_production_fit_inputs_after_authority(
+    authority_guard: Callable[[], None],
+) -> FitCollectorInputs:
+    """Reconstruct frozen FIT inputs between two lifecycle authority checks."""
+    if not callable(authority_guard):
+        raise TypeError("FIT reconstruction requires a lifecycle authority guard")
+    authority_guard()
     state = _load_torch_parent(CENSUS, PARENT_SHA256S["census_state_diverse"])
     curated = _load_torch_parent(CURATED, PARENT_SHA256S["curated_rows"])
     battery = _load_json_parent(BATTERY, PARENT_SHA256S["battery"])
@@ -280,34 +266,18 @@ def reconstruct_production_fit_inputs() -> FitInputCapability:
         for spec in specs
     }
     role_sha = tensor_sha256(fit_rows)
-    # Mint locally: there is no module-global seal or caller-accessible factory.
     # The frozen census scores the first 256 next-token positions from columns
     # 0..256; columns 257..512 are outside every registered mask.
     model_rows = rows[:, :257].contiguous()
-    owned_rows = model_rows.clone()
-    owned_documents = documents.clone()
-    owned_fit_rows = fit_rows.clone()
-    owned_specs = tuple(CircuitSpec(
+    fit_document_ids = torch.unique(documents[fit_rows], sorted=True)
+    result = FitCollectorInputs(
+        model_rows.clone(), documents.clone(), fit_rows.clone(),
+        tuple(CircuitSpec(
         spec.tag, spec.component, spec.member_mask.clone(), spec.slice_mask.clone()
-    ) for spec in specs)
-    owned_parents = dict(PARENT_SHA256S)
-    owned_support = {tag: dict(value) for tag, value in support_hashes.items()}
-    spent = False
-
-    def take() -> FitCollectorInputs:
-        nonlocal spent
-        if spent:
-            raise RuntimeError("FIT input capability is already spent")
-        spent = True
-        return FitCollectorInputs(
-            owned_rows.clone(), owned_documents.clone(), owned_fit_rows.clone(),
-            tuple(CircuitSpec(
-                spec.tag, spec.component, spec.member_mask.clone(), spec.slice_mask.clone()
-            ) for spec in owned_specs),
-            dict(owned_parents), tensor_sha256(model_rows), role_sha, order_sha,
-            {tag: dict(value) for tag, value in owned_support.items()},
-        )
-
-    capability = object.__new__(FitInputCapability)
-    object.__setattr__(capability, "_FitInputCapability__take", take)
-    return capability
+        ) for spec in specs),
+        dict(PARENT_SHA256S), tensor_sha256(model_rows), role_sha,
+        tensor_sha256(fit_document_ids), order_sha,
+        {tag: dict(value) for tag, value in support_hashes.items()},
+    )
+    authority_guard()
+    return result
