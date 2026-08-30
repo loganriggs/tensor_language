@@ -481,12 +481,14 @@ def _publish_terminal_record(
         raise RuntimeError("FIT terminal aggregate or payload is malformed")
     temporary, digest = _stage_json(record, target)
     try:
-        final_guard()
         if TERMINAL.exists() or target.exists() or opposite.exists():
             raise RuntimeError("FIT terminal aggregate is already spent")
-        # No path lookup or callback may occur between this final inode/nonce check
-        # and the serialization hard link.
+        # All absence lookups precede the protected-state callback.  The production
+        # callback ends in require_claim(); the create-only serialization link is then
+        # literally the next operation, so a lookup cannot mutate a protected artifact
+        # after it was replayed but before its digest becomes terminal.
         require_claim(claim)
+        final_guard()
         # Serialization point shared by success and failure. The record itself is the
         # complete payload, so terminal-only remains semantically recoverable.
         os.link(temporary, TERMINAL)
@@ -632,10 +634,12 @@ def publish_fit_manifest(
         raise TypeError("FIT manifest publication input is malformed")
     temporary, digest = _stage_json(manifest, MANIFEST)
     try:
-        final_guard()
         if MANIFEST.exists() or TERMINAL.exists() or RECEIPT.exists() or FAILURE.exists():
             raise RuntimeError("FIT manifest namespace is already spent")
         require_claim(claim)
+        # The production callback performs the exact bundle/model/checkpoint replay and
+        # ends in require_claim().  Nothing fallible or path-based may follow it.
+        final_guard()
         os.link(temporary, MANIFEST)
         _fsync_parent_best_effort(MANIFEST)
         replay, replay_sha256 = stable_json(MANIFEST, digest)
@@ -770,16 +774,15 @@ def _failure_guard(
     model: torch.nn.Module | None, model_state_after: str | None,
 ) -> None:
     """Bind a failed attempt's exact surviving bytes without treating them as valid."""
-    require_claim(claim)
-    replay, replay_digest = validate_fit_authority()
-    if replay != authority or replay_digest != authority_artifact_sha256:
-        raise RuntimeError("FIT failure authority changed")
     for name, path in (("bundle", BUNDLE), ("manifest", MANIFEST)):
         if aggregate[name] != _artifact_record(path):
             raise RuntimeError(f"FIT failure {name} bytes changed")
     if model is not None:
         if model_state_after is None or model_state_sha256(model) != model_state_after:
             raise RuntimeError("FIT failure model state changed before publication")
+    replay, replay_digest = validate_fit_authority()
+    if replay != authority or replay_digest != authority_artifact_sha256:
+        raise RuntimeError("FIT failure authority changed")
     require_claim(claim)
 
 
@@ -910,6 +913,14 @@ def execute_causal_response_fit_v1() -> str:
         }
 
         def before_receipt_link() -> None:
+            if aggregate != {
+                "authority": _artifact_record(AUTHORITY),
+                "bundle": _artifact_record(BUNDLE),
+                "manifest": _artifact_record(MANIFEST),
+            }:
+                raise RuntimeError("FIT receipt aggregate changed")
+            # End on the complete semantic replay and claim check; the shared terminal
+            # helper performs no lookup between this return and its hard link.
             _require_exact_owner_state(
                 claim=claim, authority=authority,
                 authority_artifact_sha256=authority_artifact_sha256,
@@ -918,12 +929,6 @@ def execute_causal_response_fit_v1() -> str:
                 model=model, model_state_sha256_expected=model_state_after,
                 checkpoint_expected=checkpoint,
             )
-            if aggregate != {
-                "authority": _artifact_record(AUTHORITY),
-                "bundle": _artifact_record(BUNDLE),
-                "manifest": _artifact_record(MANIFEST),
-            }:
-                raise RuntimeError("FIT receipt aggregate changed")
 
         return _publish_terminal_record(
             receipt, kind="receipt", claim=claim, final_guard=before_receipt_link

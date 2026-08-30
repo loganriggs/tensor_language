@@ -353,6 +353,86 @@ def test_fallible_guard_runs_before_any_terminal_link(monkeypatch, tmp_path):
         lifecycle.release_claim(claim)
 
 
+def test_no_path_lookup_can_mutate_bundle_after_terminal_final_guard(
+    monkeypatch, tmp_path
+):
+    _redirect_namespace(monkeypatch, tmp_path)
+    lifecycle.BUNDLE.write_bytes(b"protected bundle")
+    expected = lifecycle.file_sha256(lifecycle.BUNDLE)
+    claim = lifecycle.acquire_claim()
+    original_exists = Path.exists
+    guarded = False
+    attacked = False
+
+    def mutate_from_post_guard_terminal_lookup(path):
+        nonlocal attacked
+        if path == lifecycle.TERMINAL and guarded and not attacked:
+            attacked = True
+            lifecycle.BUNDLE.write_bytes(b"mutated after guard")
+        return original_exists(path)
+
+    def final_guard():
+        nonlocal guarded
+        assert lifecycle.file_sha256(lifecycle.BUNDLE) == expected
+        lifecycle.require_claim(claim)
+        guarded = True
+
+    monkeypatch.setattr(Path, "exists", mutate_from_post_guard_terminal_lookup)
+    try:
+        lifecycle._publish_terminal_record(
+            _terminal_record("receipt"), kind="receipt", claim=claim,
+            final_guard=final_guard,
+        )
+        assert not attacked
+        assert lifecycle.file_sha256(lifecycle.BUNDLE) == expected
+    finally:
+        lifecycle.release_claim(claim)
+
+
+def test_no_path_lookup_can_mutate_bundle_after_manifest_final_guard(
+    monkeypatch, tmp_path
+):
+    _redirect_namespace(monkeypatch, tmp_path)
+    lifecycle.BUNDLE.write_bytes(b"protected bundle")
+    expected = lifecycle.file_sha256(lifecycle.BUNDLE)
+    claim = lifecycle.acquire_claim()
+    original_exists = Path.exists
+    guarded = False
+    attacked = False
+    body = {
+        "schema": "causal_response_tensor_v1_fit_manifest",
+        "status": "complete_fit_bundle_semantically_replayed",
+        "authority_artifact_sha256": "a" * 64,
+        "authority_logical_sha256": "b" * 64,
+        "bundle": {}, "bundle_summary": {}, "protocol": {},
+        "authorized_for_eval": False,
+    }
+    manifest = {**body, "manifest_sha256": lifecycle.logical_sha256(body)}
+
+    def mutate_from_post_guard_manifest_lookup(path):
+        nonlocal attacked
+        if path == lifecycle.MANIFEST and guarded and not attacked:
+            attacked = True
+            lifecycle.BUNDLE.write_bytes(b"mutated after guard")
+        return original_exists(path)
+
+    def final_guard():
+        nonlocal guarded
+        assert lifecycle.file_sha256(lifecycle.BUNDLE) == expected
+        lifecycle.require_claim(claim)
+        guarded = True
+
+    monkeypatch.setattr(Path, "exists", mutate_from_post_guard_manifest_lookup)
+    try:
+        lifecycle.publish_fit_manifest(
+            manifest, claim=claim, final_guard=final_guard
+        )
+        assert not attacked
+        assert lifecycle.file_sha256(lifecycle.BUNDLE) == expected
+    finally:
+        lifecycle.release_claim(claim)
+
+
 def test_lock_replacement_during_terminal_aggregate_blocks_both_links(
     monkeypatch, tmp_path
 ):
