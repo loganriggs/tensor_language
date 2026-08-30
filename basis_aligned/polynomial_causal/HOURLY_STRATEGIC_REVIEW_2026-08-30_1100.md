@@ -260,3 +260,29 @@ path, presence, device/inode, and mtime; the newly observed complete record must
 stay fixed through the final replay. Tests now use a temporary stand-in protected
 inode and never link the real bundle. A dedicated synthetic test covers ctime-only
 drift. Another independent audit is required before retry.
+
+## 12:24 UTC update — sanitized response-training snapshot published
+
+Amendment 11 received independent GO at commit `be0fc946`, audit SHA-256
+`ca4d0b9c3703d29d53e1181e4d4670631f28422affb608f2694636383ca10078`:
+35 exact source paths bound to `ff2e1802`, 14 pure synthetic parent-binding tests,
+outcome access false, and no remaining blockers. After the unrelated GPU probe
+released the driver, Torch import, the GO audit, source closure, and pristine namespace
+all replayed.
+
+The no-argument lifecycle completed in **11.49 seconds** and atomically published
+terminal digest
+`342ec08ee97053f74269a01eef6a946a1ba7abab7facba45c50eb1a415343089`.
+The separate no-argument consumer then revalidated the canonical audit, authority,
+manifest, receipt, complete terminal census, every member hash, historical source,
+and canonical FIT parent. It returned only cloned CPU tensors with response/valid
+shape `[2,49,49,229]`, 229 training documents, and six owners. The sanitized tensor
+artifact is 9,906,521 bytes with SHA-256
+`0b359a560850b12427b0e3547e88d5b7e22b066aa0c8c25d92546c702071fafd`.
+No validation or EVAL value was exposed.
+
+This closes the lawful training-data interface. It does **not** increase the strict
+whole-model explanation ledger: no factor has yet been fit, composed, named, or
+removed. The next missing executable interface is the receipt-producing 17-rank-pair
+by three-seed GPU candidate runner, with strict rank-zero dense control and a separately
+labeled same-price randomized separable null.
