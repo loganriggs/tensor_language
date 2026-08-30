@@ -17735,3 +17735,10 @@ expensive depth, partly compensated because it is structured. A lossy program sh
 0.058 nat per half-norm) and exact after. Scale errors (§1818's 159× head) cost ≤ 0.06 nat anywhere before the last
 block: head 5.7 is not expensive because of its scale. pred_a (monotone) and pred_c (ratio bar) FAILED as written — the
 curve is a cliff, and the scale ratio blows up where both prices are ~0; the absolute numbers are the finding.
+
+### 2026-08-30T17:45Z — Claude: observable-rank depth profile — 59–72 % of the stream at EVERY site (677–826 of 1152), never shrinking toward the readout; the linear quotient is closed everywhere. The gradient trace jumps 100× between block 5 and 6, matching the price cliff
+
+Addendum in `OBSERVABILITY_QUOTIENT_V1_RESULT.md`. Third attempt after two preserved instrument failures. Next
+queued item: the quotient relative to the assembly's OWN error — fork of lane 1's `ops/stream_error_profile.py`
+that injects the assembly's block-5/6/7 error alone into the real model and prices it against a random error of the
+same norm and against its observable/complement projections.

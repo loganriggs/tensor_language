@@ -1,0 +1,340 @@
+{
+ "model_weights_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+ "rows": 256,
+ "positions_per_row_scored": 192,
+ "sites": [
+  {
+   "site": 0,
+   "gramian": {
+    "r50": 135,
+    "r90": 736,
+    "r99": 1093
+   },
+   "activation": {
+    "r50": 57,
+    "r90": 546,
+    "r99": 1033
+   },
+   "ratio_r90": 1.348,
+   "gradient_trace": 0.6066253895250645,
+   "observable_transfer_A_to_B": 0.8361,
+   "top8_overlap_with_previous_site": null
+  },
+  {
+   "site": 1,
+   "gramian": {
+    "r50": 109,
+    "r90": 677,
+    "r99": 1076
+   },
+   "activation": {
+    "r50": 20,
+    "r90": 425,
+    "r99": 969
+   },
+   "ratio_r90": 1.5929,
+   "gradient_trace": 1.587012936719004e-07,
+   "observable_transfer_A_to_B": 0.7771,
+   "top8_overlap_with_previous_site": 0.2119
+  },
+  {
+   "site": 2,
+   "gramian": {
+    "r50": 142,
+    "r90": 737,
+    "r99": 1092
+   },
+   "activation": {
+    "r50": 3,
+    "r90": 296,
+    "r99": 892
+   },
+   "ratio_r90": 2.4899,
+   "gradient_trace": 1.3733141665093988e-05,
+   "observable_transfer_A_to_B": 0.8273,
+   "top8_overlap_with_previous_site": 0.1549
+  },
+  {
+   "site": 3,
+   "gramian": {
+    "r50": 131,
+    "r90": 732,
+    "r99": 1092
+   },
+   "activation": {
+    "r50": 33,
+    "r90": 472,
+    "r99": 1003
+   },
+   "ratio_r90": 1.5508,
+   "gradient_trace": 5.686082427721218e-07,
+   "observable_transfer_A_to_B": 0.8377,
+   "top8_overlap_with_previous_site": 0.3291
+  },
+  {
+   "site": 4,
+   "gramian": {
+    "r50": 87,
+    "r90": 712,
+    "r99": 1090
+   },
+   "activation": {
+    "r50": 43,
+    "r90": 483,
+    "r99": 1011
+   },
+   "ratio_r90": 1.4741,
+   "gradient_trace": 3.479352516329664e-07,
+   "observable_transfer_A_to_B": 0.8541,
+   "top8_overlap_with_previous_site": 0.366
+  },
+  {
+   "site": 5,
+   "gramian": {
+    "r50": 70,
+    "r90": 712,
+    "r99": 1090
+   },
+   "activation": {
+    "r50": 57,
+    "r90": 528,
+    "r99": 1027
+   },
+   "ratio_r90": 1.3485,
+   "gradient_trace": 5.513372515033329e-07,
+   "observable_transfer_A_to_B": 0.8647,
+   "top8_overlap_with_previous_site": 0.3836
+  },
+  {
+   "site": 6,
+   "gramian": {
+    "r50": 90,
+    "r90": 752,
+    "r99": 1097
+   },
+   "activation": {
+    "r50": 40,
+    "r90": 505,
+    "r99": 1024
+   },
+   "ratio_r90": 1.4891,
+   "gradient_trace": 4.5557615639799635e-05,
+   "observable_transfer_A_to_B": 0.8621,
+   "top8_overlap_with_previous_site": 0.4747
+  },
+  {
+   "site": 7,
+   "gramian": {
+    "r50": 188,
+    "r90": 825,
+    "r99": 1110
+   },
+   "activation": {
+    "r50": 33,
+    "r90": 515,
+    "r99": 1031
+   },
+   "ratio_r90": 1.6019,
+   "gradient_trace": 7.5886733805203e-05,
+   "observable_transfer_A_to_B": 0.8438,
+   "top8_overlap_with_previous_site": 0.5434
+  },
+  {
+   "site": 8,
+   "gramian": {
+    "r50": 181,
+    "r90": 821,
+    "r99": 1109
+   },
+   "activation": {
+    "r50": 50,
+    "r90": 562,
+    "r99": 1047
+   },
+   "ratio_r90": 1.4609,
+   "gradient_trace": 6.895773519484005e-05,
+   "observable_transfer_A_to_B": 0.8411,
+   "top8_overlap_with_previous_site": 0.6383
+  },
+  {
+   "site": 9,
+   "gramian": {
+    "r50": 176,
+    "r90": 816,
+    "r99": 1108
+   },
+   "activation": {
+    "r50": 54,
+    "r90": 595,
+    "r99": 1055
+   },
+   "ratio_r90": 1.3714,
+   "gradient_trace": 2.2582827557319843e-05,
+   "observable_transfer_A_to_B": 0.8378,
+   "top8_overlap_with_previous_site": 0.6729
+  },
+  {
+   "site": 10,
+   "gramian": {
+    "r50": 200,
+    "r90": 826,
+    "r99": 1109
+   },
+   "activation": {
+    "r50": 69,
+    "r90": 619,
+    "r99": 1063
+   },
+   "ratio_r90": 1.3344,
+   "gradient_trace": 1.8806533732977556e-05,
+   "observable_transfer_A_to_B": 0.8254,
+   "top8_overlap_with_previous_site": 0.761
+  },
+  {
+   "site": 11,
+   "gramian": {
+    "r50": 206,
+    "r90": 826,
+    "r99": 1109
+   },
+   "activation": {
+    "r50": 72,
+    "r90": 632,
+    "r99": 1067
+   },
+   "ratio_r90": 1.307,
+   "gradient_trace": 1.774680903466612e-05,
+   "observable_transfer_A_to_B": 0.8219,
+   "top8_overlap_with_previous_site": 0.8195
+  },
+  {
+   "site": 12,
+   "gramian": {
+    "r50": 197,
+    "r90": 817,
+    "r99": 1107
+   },
+   "activation": {
+    "r50": 72,
+    "r90": 632,
+    "r99": 1068
+   },
+   "ratio_r90": 1.2927,
+   "gradient_trace": 9.043323633714059e-06,
+   "observable_transfer_A_to_B": 0.8213,
+   "top8_overlap_with_previous_site": 0.8671
+  },
+  {
+   "site": 13,
+   "gramian": {
+    "r50": 190,
+    "r90": 811,
+    "r99": 1106
+   },
+   "activation": {
+    "r50": 70,
+    "r90": 635,
+    "r99": 1069
+   },
+   "ratio_r90": 1.2772,
+   "gradient_trace": 6.777416547369073e-06,
+   "observable_transfer_A_to_B": 0.8234,
+   "top8_overlap_with_previous_site": 0.8812
+  },
+  {
+   "site": 14,
+   "gramian": {
+    "r50": 177,
+    "r90": 799,
+    "r99": 1104
+   },
+   "activation": {
+    "r50": 71,
+    "r90": 648,
+    "r99": 1074
+   },
+   "ratio_r90": 1.233,
+   "gradient_trace": 6.0115335373228804e-06,
+   "observable_transfer_A_to_B": 0.8261,
+   "top8_overlap_with_previous_site": 0.9157
+  },
+  {
+   "site": 15,
+   "gramian": {
+    "r50": 170,
+    "r90": 788,
+    "r99": 1101
+   },
+   "activation": {
+    "r50": 77,
+    "r90": 670,
+    "r99": 1080
+   },
+   "ratio_r90": 1.1761,
+   "gradient_trace": 4.294092447002905e-06,
+   "observable_transfer_A_to_B": 0.8281,
+   "top8_overlap_with_previous_site": 0.6628
+  },
+  {
+   "site": 16,
+   "gramian": {
+    "r50": 157,
+    "r90": 771,
+    "r99": 1096
+   },
+   "activation": {
+    "r50": 72,
+    "r90": 669,
+    "r99": 1080
+   },
+   "ratio_r90": 1.1525,
+   "gradient_trace": 2.6323357832702773e-06,
+   "observable_transfer_A_to_B": 0.8312,
+   "top8_overlap_with_previous_site": 0.9136
+  },
+  {
+   "site": 17,
+   "gramian": {
+    "r50": 130,
+    "r90": 739,
+    "r99": 1087
+   },
+   "activation": {
+    "r50": 13,
+    "r90": 544,
+    "r99": 1053
+   },
+   "ratio_r90": 1.3585,
+   "gradient_trace": 1.689111674898877e-06,
+   "observable_transfer_A_to_B": 0.8372,
+   "top8_overlap_with_previous_site": 0.6897
+  }
+ ],
+ "anchor_r90_site2_from_three_site_run": 737,
+ "r90_obs_by_site": [
+  736,
+  677,
+  737,
+  732,
+  712,
+  712,
+  752,
+  825,
+  821,
+  816,
+  826,
+  826,
+  817,
+  811,
+  799,
+  788,
+  771,
+  739
+ ],
+ "spearman_depth_vs_r90_obs": 0.517,
+ "self_reviewed": true,
+ "pred_a_quotient_shrinks_toward_readout": false,
+ "pred_b_depth_orders_it": true,
+ "pred_c_document_stable_everywhere": false,
+ "runtime_s": 14.0
+}

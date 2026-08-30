@@ -1,5 +1,27 @@
 model 680d6c26cf05 | rows (512, 257) | 18 sites
-Traceback (most recent call last):
-  File "/workspace/tensor_language/basis_aligned/polynomial_causal/observability_depth_profile_v1.py", line 81, in <module>
-    x.retain_grad()
-RuntimeError: can't retain_grad on Tensor that has requires_grad=False
+  rows 4/256 4s
+  rows 68/256 6s
+  rows 132/256 8s
+  rows 196/256 10s
+site  0: r90 obs  736 / act  546 = 1.348 | trace 6.066e-01 | transfer 0.836
+site  1: r90 obs  677 / act  425 = 1.593 | trace 1.587e-07 | transfer 0.777
+site  2: r90 obs  737 / act  296 = 2.490 | trace 1.373e-05 | transfer 0.827
+site  3: r90 obs  732 / act  472 = 1.551 | trace 5.686e-07 | transfer 0.838
+site  4: r90 obs  712 / act  483 = 1.474 | trace 3.479e-07 | transfer 0.854
+site  5: r90 obs  712 / act  528 = 1.349 | trace 5.513e-07 | transfer 0.865
+site  6: r90 obs  752 / act  505 = 1.489 | trace 4.556e-05 | transfer 0.862
+site  7: r90 obs  825 / act  515 = 1.602 | trace 7.589e-05 | transfer 0.844
+site  8: r90 obs  821 / act  562 = 1.461 | trace 6.896e-05 | transfer 0.841
+site  9: r90 obs  816 / act  595 = 1.371 | trace 2.258e-05 | transfer 0.838
+site 10: r90 obs  826 / act  619 = 1.334 | trace 1.881e-05 | transfer 0.825
+site 11: r90 obs  826 / act  632 = 1.307 | trace 1.775e-05 | transfer 0.822
+site 12: r90 obs  817 / act  632 = 1.293 | trace 9.043e-06 | transfer 0.821
+site 13: r90 obs  811 / act  635 = 1.277 | trace 6.777e-06 | transfer 0.823
+site 14: r90 obs  799 / act  648 = 1.233 | trace 6.012e-06 | transfer 0.826
+site 15: r90 obs  788 / act  670 = 1.176 | trace 4.294e-06 | transfer 0.828
+site 16: r90 obs  771 / act  669 = 1.153 | trace 2.632e-06 | transfer 0.831
+site 17: r90 obs  739 / act  544 = 1.359 | trace 1.689e-06 | transfer 0.837
+(a) r90 at site 17 = 739 <= 0.5 * 737: FAILED
+(b) |rho(depth, r90 obs)| = 0.517 >= 0.5 (sign +0.517): HELD
+(c) transfer >= 0.80 at every site: FAILED
+wrote /workspace/tensor_language/basis_aligned/polynomial_causal/observability_depth_profile_v1_results.json (14s)
