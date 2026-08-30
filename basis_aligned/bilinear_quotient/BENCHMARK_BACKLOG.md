@@ -512,3 +512,13 @@ later per-rung backlog edits had silently anchored on text that was not here.
     labels move the window-0 plain gap by >= 0.05 (if FAILED, cfgE's
     attnd class-label input is certified inert at window grain <= 0.05).
     -> ops/cfge_conditioned_fisher2.py
+
+39. HALF-PRICE UNDER THE CONDITIONED METRIC. §2118 withdrew half-price
+    under the real-model metric on cfgE (median -0.028; stated null); the
+    conditioned metric is the certified right one for the frontier
+    (§2129), so the price question reopens exactly once. Arms norm-2304 /
+    cond-2304 (repro) / cond-1152 at mlp4/mlp5, eight windows; -2x1152
+    stored units (~7.96M values) if it holds.
+    pred_a median [L2_F_w(cond1152) - L2_F_w(norm2304)] >= 0; pred_b
+    >= -0.01 on >= 6/8; pred_c cond-2304 reproduces §2129 within 0.015.
+    -> ops/frontier_cond_halfprice.py [QUEUED 21:22Z]
