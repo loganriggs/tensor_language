@@ -781,4 +781,8 @@ later per-rung backlog edits had silently anchored on text that was not here.
     pred_b NEARLY FREE: d <= +0.01; pred_c skip16 reproduces §2146
     (FR L2_F 2.5091 within 0.01). If held, block-16 attention reduces
     to a 3-head object (16.0/16.3/16.4) for the program's purposes.
-    -> ops/attn16_three_heads.py [QUEUED]
+    -> ops/attn16_three_heads.py
+    RUN 2026-08-30, §2150: ALL THREE HELD — d = -0.0017 vs predicted
+    -0.0012 (gap 0.0005; third consecutive additive confirmation).
+    attn16 = heads 16.0/16.3/16.4 for the program's purposes; the six
+    zeroed heads are marginally better off dead.

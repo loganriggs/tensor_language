@@ -63950,3 +63950,19 @@ pred_b FAILED (argmax is a14, 0.933 vs a16's 0.908) | pred_c FAILED (smallest tw
   additive prediction for zeroing the six together is −0.0012 ± interactions → registered as rung 57's number.
 - (The §312 tail-increment band printed FAILED on the skip-a16 build arm, as in §2146 — inapplicable to the
   seven-dictionary tail, recorded, not retired.)
+
+## §2150 — RUNG 57: attn16 IS A THREE-HEAD OBJECT — ZEROING THE SIX FREE HEADS TOGETHER LANDS ON THE ADDITIVE PREDICTION TO 0.0005 (d = −0.0017, slightly BETTER than keeping them). All three bars HELD; third consecutive additive confirmation. (Convention: L2 = CE above the real model; lower is better.)
+
+`ops/attn16_three_heads.py`, **112s**, BACKLOG rung 57. **ALL THREE HELD: pred_a (|−0.0017 − (−0.0012)| =
+0.0005 ≤ 0.01) | pred_b (−0.0017 ≤ +0.01) | pred_c (skip16 repro 2.5092 vs 2.5091).**
+
+- **Block-16 attention, reduced:** with heads 16.1/2/5/6/7/8 zeroed, the skip-a16 config is marginally *better*
+  (2.5075 vs 2.5092 FR). For the program's purposes attn16 = **heads 16.0, 16.3, 16.4** — one third of the
+  module's description — and the intervention lattice composed additively for the third time running
+  (0.0016, 0.0053, now 0.0005). Within a kind, registered additive predictions are now the cheapest reliable
+  instrument this program has.
+- The §312 tail-band FAILED print is the §2146/§2149 inapplicable-config case again (seven-dictionary tail);
+  recorded, not retired.
+- **Block-16 program state after rungs 51–57:** the target object is three attention heads plus the m16
+  remainder; the failed dictionary is worse than zero; the class-damage map (rung 56, re-running) is the last
+  attribution before a targeted stand-in is designed.

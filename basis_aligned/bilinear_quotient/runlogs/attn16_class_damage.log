@@ -16,23 +16,7 @@ fit a14
 fit a15
 fit a16
 fit a17
-L1 (+38 heads): C +2.0111 | fresh +2.3207
+L1 (+38 heads): C +2.0113 | fresh +2.3208
 fit a10L
 fit a11L
 fit a12L
-fit a13L
-fit a14L
-fit a15L
-fit a16L
-fit a17L
-Traceback (most recent call last):
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/attn16_class_damage.py", line 1045, in <module>
-    r_full=main()
-           ^^^^^^
-  File "/venv/main/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/attn16_class_damage.py", line 961, in main
-    del cur['clsmap']
-        ~~~^^^^^^^^^^
-KeyError: 'clsmap'
