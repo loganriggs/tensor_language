@@ -61116,3 +61116,47 @@ without measuring the noise, and the gap it claimed (0.6%) was an order of magni
 noise it did not measure (6%). **Before comparing a fitted number to a fixed one, the fitted number needs
 its spread — and the comparison is only decidable if the gap exceeds it.** LESSON 110, amended by §2071,
 now says this; §2072 is what it looks like when the rule arrives after the claim.
+
+## §2073 — §2067 and §2068 STAND at three seeds; the mean cosine is stable but individual pairs are not
+
+`ops/das_m16_cos_seeds.py`, **998s**, **DISCOVERY ONLY**, RUNG 3. **pred_a True | pred_b True |
+pred_c True.** The last m16 number resting on a single seed, checked before anyone quotes it further.
+
+```
+  mean pairwise |cos| of m16's six learned directions
+    seed 830   0.3976   (min pair 0.2533   max pair 0.5605)   <- §2067's published value
+    seed 831   0.4430   (min pair 0.2749   max pair 0.9343)
+    seed 832   0.4374   (min pair 0.3326   max pair 0.8120)
+    mean +- sd 0.4260 +- 0.0248                          bar 0.50
+```
+
+**pred_b passed: §2067's and §2068's pred_a failures are real.** The mean stays below 0.50 by 0.074,
+which is about **5 standard errors** of the three-seed mean. **DAS does separate m16's circuits
+geometrically, and the two sections that turn on it stand as written.** Combined with §2071 and §2072,
+the m16 arc is now checked end to end: the margins were noise (§2070), the overlaps were stable (§2071),
+one prose highlight fell (§2072), and the geometry holds (here).
+
+**pred_a passed and extends §2071's rule to a third quantity: sd 0.0248, comfortably inside the 0.05
+bar.** A cosine between two learned directions behaves like an overlap, not like a margin — which is what
+§2071's account predicts, since it is one inner product rather than a ratio of ratios. **Three quantity
+classes have now been measured: margins 0.029-0.319, overlaps 0.007-0.103, mean cosines 0.025.**
+
+**Two caveats I have to attach to my own passing result.**
+
+**First, §2067's 0.3976 was the LOWEST of the three seeds**, and the three-seed mean is 0.4260 — the
+published single draw was optimistic by 0.028, a little over one standard deviation. The conclusion is
+unaffected because the gap to the bar is five standard errors, but **the specific number in §2067 and
+§2068 should be quoted as 0.426 +- 0.025, not as 0.3976.**
+
+**Second, and more useful: the MEAN cosine is stable while INDIVIDUAL PAIRS are not.** The maximum
+pairwise cosine across the six circuits swings **0.5605 / 0.9343 / 0.8120** between seeds — one pair of
+learned directions is nearly parallel on one seed and clearly separated on another. **So an aggregate over
+fifteen pairs is quotable at three seeds and a claim about any specific pair of m16 circuits is not.**
+Nothing in §2067 or §2068 rests on a specific pair, but §2056's and §2058's a8 analysis reads individual
+entries of a cosine matrix, and that style of claim is exactly what this instability would break.
+
+**Open.** The a8 cosine matrices in §2056/§2058 were read pair by pair on closed-form directions, not
+learned ones, so this result does not directly impugn them — closed-form directions have no seed. But
+`circuits/SUBSPACE.json`'s per-pair entries have never been checked for stability under anything, and the
+five-circuit a8 subset they describe is the one §2065 and §2066 showed is unrepresentative of a8's
+sixteen. That is the remaining unaudited corner of this arc.

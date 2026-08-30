@@ -1,0 +1,19 @@
+DAS at m16 on all 6 circuits localised there: ['r.1.1.1', 'r.1.1.2', 'r.1.2', 'r.1.2.0', 'r.1.2.1', 'r.6.2.2']
+/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/das_m16_cos_seeds.py:214: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:836.)
+  losses.append(float(loss))
+  r.1.1.1      m16  rank 1: members 4.2903 off 0.8370 conc 5.126 recovered 2.631 | moved 0.999 loss -0.30151->-3.33011 healthy True (56s)
+  r.1.1.2      m16  rank 1: members 1.8480 off 0.4828 conc 3.828 recovered 1.22 | moved 1.000 loss -0.01420->-2.39556 healthy True (111s)
+  r.1.2        m16  rank 1: members 4.6778 off 1.0368 conc 4.512 recovered 3.064 | moved 0.999 loss -0.02979->-2.95503 healthy True (165s)
+  r.1.2.0      m16  rank 1: members 8.8873 off 1.0785 conc 8.24 recovered 3.881 | moved 0.999 loss -0.24200->-6.73962 healthy True (220s)
+  r.1.2.1      m16  rank 1: members 6.0028 off 1.0783 conc 5.567 recovered 2.993 | moved 1.000 loss -0.13302->-6.21545 healthy True (275s)
+  r.6.2.2      m16  rank 1: members 0.9478 off 0.2337 conc 4.056 recovered 0.614 | moved 1.000 loss +0.02829->-1.25611 healthy True (335s)
+  seed 20260830: mean pairwise |cos| 0.3976  (min 0.2533 max 0.5605)  (563s)
+  seed 20260831: mean pairwise |cos| 0.4430  (min 0.2749 max 0.9343)  (784s)
+  seed 20260832: mean pairwise |cos| 0.4374  (min 0.3326 max 0.8120)  (998s)
+
+wrote circuits/DAS_M16_COS_SEEDS.json (998s)
+pred_a  sd of mean pairwise |cos| 0.0248 (bar <0.05) : True
+pred_b  mean 0.4260 stays below the 0.50 bar (S2067 single seed 0.3976) : True
+pred_c  every fit healthy : True
+        per-seed: [0.3976, 0.443, 0.4374]

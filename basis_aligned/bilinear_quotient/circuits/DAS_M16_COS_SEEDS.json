@@ -1,0 +1,50 @@
+{
+ "schema_version": 1,
+ "generated": "2026-08-30 by Claude",
+ "component": "m16",
+ "seeds": [
+  20260830,
+  20260831,
+  20260832
+ ],
+ "circuits": [
+  "r.1.1.1",
+  "r.1.1.2",
+  "r.1.2",
+  "r.1.2.0",
+  "r.1.2.1",
+  "r.6.2.2"
+ ],
+ "checks": "S2067 pred_a (0.3976) and S2068 pred_a (0.3896), both single-seed against a 0.50 bar",
+ "per_seed": {
+  "20260830": {
+   "mean_pairwise_abs_cos": 0.3976,
+   "min": 0.2533,
+   "max": 0.5605
+  },
+  "20260831": {
+   "mean_pairwise_abs_cos": 0.443,
+   "min": 0.2749,
+   "max": 0.9343
+  },
+  "20260832": {
+   "mean_pairwise_abs_cos": 0.4374,
+   "min": 0.3326,
+   "max": 0.812
+  }
+ },
+ "values": [
+  0.3976,
+  0.443,
+  0.4374
+ ],
+ "mean": 0.426,
+ "sd": 0.0248,
+ "S2067_single_seed": 0.3976,
+ "bar": 0.5,
+ "unhealthy_fits": [],
+ "pred_a_cosine_is_stable": true,
+ "pred_b_S2067_S2068_stand": true,
+ "pred_c_optimiser_healthy": true,
+ "note": "read-only artifact; no circuit file was modified"
+}
