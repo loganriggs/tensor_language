@@ -329,15 +329,27 @@ class RoleSufficientStatistics:
             raise ValueError("replay maximum logit error is malformed")
 
 
+def registered_coordinate_names(family_names: tuple[str, ...]) -> tuple[str, ...]:
+    if type(family_names) is not tuple or len(family_names) < 2 or any(
+        not isinstance(name, str) or not name for name in family_names
+    ) or len(set(family_names)) != len(family_names):
+        raise ValueError("score family registry is malformed")
+    return tuple(
+        name
+        for domain in ("prose", "code")
+        for name in (
+            *(f"{domain}:{cell}" for cell in CELL_ORDER),
+            *(f"{domain}:family:{family}:compatible_closer" for family in family_names),
+        )
+    )
+
+
 def score_coordinate_masks(
     masks: mask_module.BracketMasks, family_names: tuple[str, ...],
 ) -> Mapping[str, torch.Tensor]:
     """Return the exact domain/base/family score registry; never used for execution."""
     masks.validate()
-    if type(family_names) is not tuple or len(family_names) < 2 or any(
-        not isinstance(name, str) or not name for name in family_names
-    ) or len(set(family_names)) != len(family_names):
-        raise ValueError("score family registry is malformed")
+    registered_coordinate_names(family_names)
     observed = masks.family_index[masks.family_index.ge(0)]
     if observed.numel() == 0 or int(observed.max()) >= len(family_names):
         raise ValueError("score masks do not fit authority family registry")
@@ -353,6 +365,8 @@ def score_coordinate_masks(
             output[f"{domain.value}:family:{family_name}:compatible_closer"] = (
                 masks.compatible & masks.family_index.eq(family_index) & in_domain & scored
             )
+    if tuple(output) != registered_coordinate_names(family_names):
+        raise AssertionError("score coordinate construction order changed")
     return output
 
 
@@ -581,13 +595,8 @@ def score_roles(
     """One authoritative joint-family score from unopened role statistics."""
     if (select.role, ood.role) != ROLE_ORDER or select.coordinate_names != ood.coordinate_names:
         raise ValueError("score roles/order/coordinate registry changed")
-    expected_names = tuple(score_coordinate_masks.__name__ for _ in ())  # type anchor only
-    del expected_names
-    if tuple(
-        name.split(":family:")[1].split(":")[0]
-        for name in select.coordinate_names if ":family:" in name
-    ) != tuple(name for _domain in ("prose", "code") for name in family_names):
-        raise ValueError("score family coordinates differ from authority")
+    if select.coordinate_names != registered_coordinate_names(family_names):
+        raise ValueError("score coordinates differ from authority")
     generator = torch.Generator().manual_seed(BOOTSTRAP_SEED)
     role_points, role_replicates = {}, {}
     for stats in (select, ood):
@@ -780,6 +789,7 @@ __all__ = (
     "RoleSufficientStatistics",
     "bootstrap_means", "collect_role_statistics", "document_means",
     "joint_role_bootstrap", "materialize_program_bank", "merge_role_statistics",
-    "require_launch_ready", "run_one_batch", "score_coordinate_masks", "score_roles",
+    "registered_coordinate_names", "require_launch_ready", "run_one_batch",
+    "score_coordinate_masks", "score_roles",
     "validate_execution_ledgers",
 )
