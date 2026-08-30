@@ -70,6 +70,8 @@ if os.environ.get('BQLIB_DRYRUN') == '1':
           f'bar (a) {BAR_A}; {NDRAW} null draws')
     raise SystemExit(0)
 
+from pathlib import Path                                                  # noqa: E402
+
 import torch                                                              # noqa: E402
 
 from causal_response_factorization_v1_training_input import replay_training_input   # noqa: E402
@@ -77,7 +79,7 @@ from causal_response_factorization_v1_training_input import replay_training_inpu
 T0 = time.time()
 TERM = json.load(open(RECEIPT))
 V, DIGEST = replay_training_input(
-    INPUT, expected_analysis_authority_sha256=TERM['authority_logical_sha256'],
+    Path(INPUT), expected_analysis_authority_sha256=TERM['authority_logical_sha256'],
     expected_artifact_sha256=TERM['payload']['input_sha256'], require_production=True)
 R = V.response.clone()
 R[~V.valid] = 0.0
