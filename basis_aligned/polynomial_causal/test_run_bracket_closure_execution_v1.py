@@ -97,6 +97,10 @@ def test_authority_and_independent_audit_are_external_exact(monkeypatch, tmp_pat
     value["programs"][0]["extra"] = 1
     with pytest.raises(RuntimeError, match="program binding schema"):
         subject.validate_authority_payload(value, audit_sha256="5" * 64)
+    value = _payload(tmp_path)
+    value["roles"]["fit"]["filename"] = "../select.pt"
+    with pytest.raises(RuntimeError, match="role bindings"):
+        subject.validate_authority_payload(value, audit_sha256="5" * 64)
 
 
 def _install_roles(tmp_path: Path, authority_payload):
@@ -261,4 +265,6 @@ def test_module_has_no_authority_audit_or_row_mint_and_no_import_io() -> None:
     assert "torch.save" not in source
     assert "write_authority" not in source and "write_independent_audit" not in source
     assert "load_bilin18" in source and "load_bound_roles" in source
-    assert lifecycle.SOURCE_CLOSURE[-1].endswith("test_run_bracket_closure_execution_v1.py")
+    assert "basis_aligned/polynomial_causal/test_run_bracket_closure_execution_v1.py" in (
+        lifecycle.SOURCE_CLOSURE
+    )

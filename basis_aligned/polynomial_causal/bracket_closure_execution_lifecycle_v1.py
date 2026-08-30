@@ -20,6 +20,7 @@ SOURCE_CLOSURE = (
     "basis_aligned/polynomial_causal/BRACKET_CLOSURE_ROWS_V1_AMENDMENT.md",
     "basis_aligned/polynomial_causal/BRACKET_CLOSURE_EXECUTION_V1_NO_GO.md",
     "basis_aligned/polynomial_causal/BRACKET_CLOSURE_EXECUTION_V1_AMENDMENT.md",
+    "basis_aligned/polynomial_causal/bilin18_observed_model_facade.py",
     "basis_aligned/polynomial_causal/bracket_closure_canary_v1.py",
     "basis_aligned/polynomial_causal/bracket_closure_execution_v1.py",
     "basis_aligned/polynomial_causal/bracket_closure_execution_lifecycle_v1.py",
@@ -27,11 +28,20 @@ SOURCE_CLOSURE = (
     "basis_aligned/polynomial_causal/bracket_closure_rows_v1.py",
     "basis_aligned/polynomial_causal/bracket_closure_tensor_v1.py",
     "basis_aligned/polynomial_causal/circuit_campaign_runtime.py",
+    "basis_aligned/polynomial_causal/freeze_bracket_closure_rows_v1.py",
     "basis_aligned/polynomial_causal/run_bracket_closure_execution_v1.py",
     "basis_aligned/polynomial_causal/tensor_preserving_attention.py",
+    "basis_aligned/polynomial_causal/test_bracket_closure_canary_v1.py",
     "basis_aligned/polynomial_causal/test_bracket_closure_execution_v1.py",
     "basis_aligned/polynomial_causal/test_bracket_closure_execution_lifecycle_v1.py",
+    "basis_aligned/polynomial_causal/test_bracket_closure_masks_v1.py",
+    "basis_aligned/polynomial_causal/test_bracket_closure_rows_v1.py",
+    "basis_aligned/polynomial_causal/test_bracket_closure_tensor_v1.py",
+    "basis_aligned/polynomial_causal/test_bilin18_observed_model_facade.py",
+    "basis_aligned/polynomial_causal/test_circuit_campaign_runtime.py",
     "basis_aligned/polynomial_causal/test_run_bracket_closure_execution_v1.py",
+    "basis_aligned/polynomial_causal/test_tensor_preserving_attention.py",
+    "jacclust/tt_model.py",
 )
 
 

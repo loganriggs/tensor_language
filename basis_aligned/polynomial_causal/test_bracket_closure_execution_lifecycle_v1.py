@@ -92,8 +92,10 @@ def test_source_closure_binds_no_go_and_tests() -> None:
     assert "basis_aligned/polynomial_causal/BRACKET_CLOSURE_EXECUTION_V1_NO_GO.md" in (
         lifecycle.SOURCE_CLOSURE
     )
-    assert lifecycle.SOURCE_CLOSURE[-3:] == (
+    assert {
         "basis_aligned/polynomial_causal/test_bracket_closure_execution_v1.py",
         "basis_aligned/polynomial_causal/test_bracket_closure_execution_lifecycle_v1.py",
+        "basis_aligned/polynomial_causal/test_bilin18_observed_model_facade.py",
         "basis_aligned/polynomial_causal/test_run_bracket_closure_execution_v1.py",
-    )
+        "jacclust/tt_model.py",
+    }.issubset(lifecycle.SOURCE_CLOSURE)

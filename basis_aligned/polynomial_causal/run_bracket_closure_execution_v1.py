@@ -105,9 +105,10 @@ def validate_authority_payload(
     if not isinstance(roles, Mapping) or tuple(roles) != ("fit", "select", "ood") or any(
         not isinstance(value, Mapping) or set(value) != role_keys
         or not isinstance(value["filename"], str) or not value["filename"]
+        or Path(value["filename"]).name != value["filename"]
         or any(not _sha(value[key]) for key in role_keys - {"filename"})
         for value in roles.values()
-    ):
+    ) or len({value["filename"] for value in roles.values()}) != 3:
         raise RuntimeError("execution role bindings changed")
     registry = _registry(payload["delimiter_registry"])
     model = payload["model"]
@@ -442,6 +443,10 @@ def _guard_inputs(
     for role, binding in payload["roles"].items():
         if lifecycle.file_sha256(cache / binding["filename"]) != binding["file_sha256"]:
             raise RuntimeError(f"execution {role} role file changed")
+    if lifecycle.file_sha256(
+        _path(payload["derangement"]["path"], "derangement")
+    ) != payload["derangement"]["file_sha256"]:
+        raise RuntimeError("execution derangement file changed")
     facade.validate_snapshot(payload["model"]["snapshot"], verify_weights_sha256=True)
 
 
