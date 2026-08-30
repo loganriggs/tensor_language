@@ -127,3 +127,13 @@ strongest reader of the eight directions that price everything else.
 - **The m16 two-number interface fails** (§2127): held-out R² 0.069 against a 0.5 bar — m16's per-document
   response varies in shape, not two amplitudes. No cheap measured interface; the block stays the priced
   unexplained remainder.
+
+## UPDATE 3 — 19:55 UTC — CORRECTION of UPDATE 2's first bullet (§2128)
+
+Rung 30's registered gain formula was **sign-inverted** (norm − fisher, prose intent fisher − norm); §2125 and
+UPDATE 2 above followed the signed summary against the printed arm values. The truth, from both runs' arms:
+the label-free true-Fisher selector **improves** the deployed §312 frontier (+2.7210 fresh vs +2.6735), and the
+assembly-conditioned metric (rung 32) improves it further to **+2.7682 fresh / +2.4833 C** (+0.0947 / +0.0600
+over norm). "Does not install / cfgE-specific" is withdrawn; what survives of the mechanism story is that
+conditioning on the deployed readers adds +0.047. As-written scores preserved in the JSONs; eight-window
+certification (rung 35) queued before +2.7682 is called the frontier best.

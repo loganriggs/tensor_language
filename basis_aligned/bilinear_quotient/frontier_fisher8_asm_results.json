@@ -1,0 +1,28 @@
+{
+ "norm": {
+  "L1_F": 2.2871,
+  "L2_C": 2.4233,
+  "L2_F": 2.6735,
+  "increment": 0.3864,
+  "orig_s312_a": true,
+  "orig_s312_b": true,
+  "runtime_s": 113.6832184791565
+ },
+ "fisher8": {
+  "L1_F": 2.3983,
+  "L2_C": 2.4833,
+  "L2_F": 2.7682,
+  "increment": 0.3699,
+  "orig_s312_a": false,
+  "orig_s312_b": true,
+  "runtime_s": 93.99252152442932
+ },
+ "published_L2_F": 2.6735,
+ "gain_fresh": -0.0947,
+ "gain_C": -0.06,
+ "pred_a_reproduces_published": true,
+ "pred_b_conditioned_metric_installs": false,
+ "pred_c_no_C_harm": false,
+ "self_reviewed": true,
+ "runtime_s": 207.7
+}

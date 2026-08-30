@@ -63379,3 +63379,36 @@ FAILED.** Price would have been 208 persistent + 2/document + 2 calibration arms
 
 **Day's closing state for the shared m16 target (rungs 10, 34):** basis stable, code private, no surface feature, no
 cheap measured interface. Every closure is a measured negative with its construction preserved.
+
+## §2128 — CORRECTION OF §2125, AND RUNG 32: THE SELECTOR INSTALLS AFTER ALL — RUNG 30's REGISTERED GAIN WAS SIGN-INVERTED. True-Fisher top-8 selection improves the deployed §312 frontier by +0.0475 fresh / +0.0250 C, and conditioning the metric on the deployed assembly improves it further to +2.7682 fresh / +2.4833 C (+0.0947 / +0.0600 over norm) — the frontier's best number now carries a label-free selector
+
+`ops/frontier_fisher8_asm.py`, **208s**, BACKLOG rung 32. **pred_a HELD (2.6735 vs 2.6735) | pred_b, pred_c
+as-written FAILED — because both formulas inherited rung 30's inverted sign; see below.**
+
+```
+  arm                                  L1 (+38 heads) fresh   L2 (full)  C / fresh     vs published +2.6735
+  norm selection (§312, reproduction)        +2.2871           +2.4233 / +2.6735        exact
+  true-Fisher top-8 (rung 30, real model)    +2.3508           +2.4482 / +2.7210        +0.0475 fresh
+  assembly-conditioned Fisher top-8          +2.3983           +2.4833 / +2.7682        +0.0947 fresh, +0.0600 C
+```
+
+- **The error, exactly.** Rung 30 registered `gain_fresh = L2_F(norm) − L2_F(fisher8) ≥ 0.04` — the prose said
+  "the gain installs" but the formula computes the *deficit*. §2125's table printed the correct arm values and the
+  narrative still followed the signed summary; its own L1 bullet ("hurts … +2.351 vs +2.287") contradicts its
+  numbers on its face. Rung 32 copied the formulas, so its as-written pred_b (−0.0947 ≥ 0.02) and pred_c
+  (−0.0600 ≥ −0.01) print FAILED while the substance exceeds the intended bars in the intended direction. **Both
+  as-written scores stand in the JSONs; every §2125 conclusion drawn from the sign is withdrawn** (correction
+  notice appended there). The pa print in the asm script says "tol 0.05" while the scored formula is 0.01.
+- **What is true, read off the arms directly (both runs, deterministic pipeline, matched-context refits):** the
+  label-free selector transfers to the motif-hybrid frontier as-is (+0.0475), and computing the eight directions
+  *through the deployed assembly* (its 38 motif dictionaries and CP middles active, labels sampled from the
+  assembly's own predictions) is worth a further **+0.047**. §2125's mechanism story survives only in this weak
+  form: conditioning the metric on the deployed readers helps — but the unconditioned selector already installs.
+- **Anchor note:** the conditioned arm exceeds §312's registered sanity ceiling (orig pred a: L2 ≤ +2.75 fresh,
+  printed FAILED for arm 2). That ceiling bounded the original config; exceeding it under a better selector is the
+  improvement, not an instrument fault — but it obliges the rung-6 standard before +2.7682 is called a frontier
+  best: **the pipeline's fresh eval is one 120-row window set; certification needs the eight document-disjoint
+  pile-10k windows** → rung 35.
+- **Process rule (adopted):** registered formulas must name the arms in the inequality (`L2_F(asm) − L2_F(norm)`),
+  and a write-up halts when the printed arm values contradict the signed summary — §2125 had both in view and
+  followed the wrong one.
