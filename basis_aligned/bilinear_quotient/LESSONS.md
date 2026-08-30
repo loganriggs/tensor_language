@@ -2723,3 +2723,30 @@ a unit-scale parameter and a no-op for one of norm 35. And when a learned quanti
 a random one would take, believe the arithmetic before believing the finding. See [[LESSON-103]] (a
 crashed predicate is not a FALSE) — this is its quieter sibling: **a run that silently did nothing is not
 a negative result.**
+
+## LESSON 109 — the runner only serializes what the runner started; a nohup'd GPU job is invisible to it
+
+Today's circuit work ran as direct `nohup python3 circuit_*.py` because those scripts use `census_lib`
+rather than `bqlib`, and `ops/enqueue.sh` gates every queued script by executing it under
+`BQLIB_DRYRUN=1`. That works for a bqlib script, whose `B.run()` has a no-op path. **A census_lib script
+has no such path, and census_lib builds `MODS` from the live model AT IMPORT** — so the gate's "dry run"
+loaded the model and began the real experiment. First time it was tried, it started a 36-sweep job onto a
+GPU already running a DAS sweep.
+
+**Then the same gap bit from the other side.** Having gated the script, I queued it; the runner popped it
+immediately and launched it — **concurrently with the nohup'd sweep it could not see.** `ops/bqrunner.sh`
+serializes the queue and refuses to pop onto a *dead* GPU, but it has no notion of a *busy* one, because
+until now every GPU job on this box went through it. Two writers, no shared lock.
+
+**Measured, before deciding anything: 32,607 MiB total, 19,084 MiB free, the two jobs at 5,862 and 5,584
+MiB.** Ample headroom, the runs are independent, so both were left to finish — killing one would have
+destroyed real work to satisfy a convention whose purpose (avoid OOM and contention) was not at risk.
+**"Never launch onto a busy GPU" is a rule about resource exhaustion, not a ritual; check the number
+before paying to obey it.**
+
+**How to apply.** Two fixes, and prefer the second. (1) Any census_lib script intended for the queue must
+carry a `BQLIB_DRYRUN` guard placed **before** the `census_lib` import, checking the files the run needs
+and exiting 0 — `ops/circuit_localisation_heldout.py` has the pattern. (2) **Stop launching GPU work
+outside the runner.** The only reason to bypass it was that census_lib scripts could not be gated, and
+fix (1) removes that reason. One queue, one serialization point. See [[LESSON-61]] (separate commands do
+not inherit each other's failure) — same family: the guard only covers the path it is on.

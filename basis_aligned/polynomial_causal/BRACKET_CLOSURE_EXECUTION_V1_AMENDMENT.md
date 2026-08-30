@@ -48,6 +48,9 @@ short final batch only if the authority-bound row count is not divisible by four
 Each batch executes the exact arm order native, stored replay, deletion, spectral
 derangement. This batching is numerical/call currency only and cannot select rows,
 programs, masks, thresholds, or bootstrap multiplicities.
+The spectral control permutation is contiguous CPU int64 `[128]`; its dtype, shape,
+and exact ordered bytes must match the authority hash before materialization. The
+authority separately binds the resulting full dense program state.
 
 “Raw float32 logits” means the exact Bilin18 facade output after its single native
 `30*tanh(raw/30)` output softcap; “uncapped” in the original text forbids any second

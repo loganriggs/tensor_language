@@ -243,6 +243,18 @@ def _slice_masks(masks: mask_module.BracketMasks, start: int, stop: int) -> mask
     ))
 
 
+def validate_derangement_realization(
+    permutation: torch.Tensor, authority: ExecutionAuthority,
+) -> None:
+    if not torch.is_tensor(permutation) or permutation.device.type != "cpu" or (
+        permutation.dtype != torch.long or tuple(permutation.shape) != (128,)
+        or not permutation.is_contiguous()
+    ):
+        raise ValueError("execution derangement must be contiguous CPU int64[128]")
+    if canary.tensor_sha256(permutation) != authority.derangement_sha256:
+        raise RuntimeError("execution derangement realization differs from authority")
+
+
 def execute_loaded_roles(
     model: torch.nn.Module, roles: tuple[RoleMaterialization, RoleMaterialization],
     permutation: torch.Tensor, authority: ExecutionAuthority, *, source_guard,
@@ -253,6 +265,7 @@ def execute_loaded_roles(
     require_launch_ready(authority)
     if tuple(role.role for role in roles) != ROLE_ORDER or not callable(source_guard):
         raise ValueError("execution roles/guard differ from frozen topology")
+    validate_derangement_realization(permutation, authority)
     for role in roles:
         role.validate(authority)
     if set(roles[0].document_ids) & set(roles[1].document_ids):
@@ -791,5 +804,5 @@ __all__ = (
     "joint_role_bootstrap", "materialize_program_bank", "merge_role_statistics",
     "registered_coordinate_names", "require_launch_ready", "run_one_batch",
     "score_coordinate_masks", "score_roles",
-    "validate_execution_ledgers",
+    "validate_derangement_realization", "validate_execution_ledgers",
 )

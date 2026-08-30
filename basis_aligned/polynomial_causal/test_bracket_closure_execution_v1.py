@@ -6,6 +6,7 @@ import pytest
 import torch
 
 import bracket_closure_execution_v1 as subject
+import bracket_closure_canary_v1 as canary
 from bracket_closure_canary_v1 import ARM_NAMES
 from bracket_closure_masks_v1 import BracketMasks
 from bracket_closure_tensor_v1 import PRODUCTION_STORED_VALUES
@@ -80,6 +81,18 @@ def test_program_authority_price_and_order_fail_closed() -> None:
         subject.ProgramAuthority(ARM_NAMES[1], "a" * 64, 1, 0, 0, True)
     with pytest.raises(ValueError, match="programs"):
         dataclasses.replace(_authority(), programs=_authority().programs[::-1])
+
+
+def test_derangement_realization_is_exact_authority_bound_control() -> None:
+    permutation = torch.roll(torch.arange(128), -1).contiguous()
+    authority = dataclasses.replace(
+        _authority(), derangement_sha256=canary.tensor_sha256(permutation),
+    )
+    subject.validate_derangement_realization(permutation, authority)
+    with pytest.raises(RuntimeError, match="differs from authority"):
+        subject.validate_derangement_realization(torch.roll(permutation, -1), authority)
+    with pytest.raises(ValueError, match=r"CPU int64\[128\]"):
+        subject.validate_derangement_realization(permutation.to(torch.int32), authority)
 
 
 def _masks(documents: int = 8) -> BracketMasks:

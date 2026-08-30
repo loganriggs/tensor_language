@@ -27,9 +27,11 @@ SOURCE_CLOSURE = (
     "basis_aligned/polynomial_causal/bracket_closure_rows_v1.py",
     "basis_aligned/polynomial_causal/bracket_closure_tensor_v1.py",
     "basis_aligned/polynomial_causal/circuit_campaign_runtime.py",
+    "basis_aligned/polynomial_causal/run_bracket_closure_execution_v1.py",
     "basis_aligned/polynomial_causal/tensor_preserving_attention.py",
     "basis_aligned/polynomial_causal/test_bracket_closure_execution_v1.py",
     "basis_aligned/polynomial_causal/test_bracket_closure_execution_lifecycle_v1.py",
+    "basis_aligned/polynomial_causal/test_run_bracket_closure_execution_v1.py",
 )
 
 
