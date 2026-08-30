@@ -58888,3 +58888,53 @@ axis and a fine one for a homogeneous axis**, which is exactly the pattern §202
 **uniformly** and put the turnover at 640. That is the third uniform sweep over a per-site quantity in this
 build, and the only one never re-examined. The composite arm grammar can express a per-site map rank
 without new plumbing.
+
+## §2023 — the map is over-bought at the shallow sites: the first cost REDUCTION in this line
+
+`ops/does_the_map_want_per_site_rank.py`, **213.4s**, **DISCOVERY ONLY**, both coverages, rung 3 —
+§2022's open question. **pred_a True | pred_b True | pred_c True | pred_d True | derived controls True.**
+Reference deviation 0.000000. All figures pooled over 92,160 positions.
+
+```
+  cost of cutting the map from rank 640 to 256 at the named MLP sites, against what the saving is worth
+                  saved     worth      5,419 cost   ratio      16,110 cost   ratio
+  mlp 0–5        5.31M     0.00053     0.000125     0.24×       0.000046     0.09×
+  mlp 0–9        8.85M     0.00089     0.000740     0.83×       0.000272     0.31×
+  mlp 0–17      16.0M      0.00160     0.007423     4.64×       0.002663     1.66×
+```
+
+> **pred_b PASSED: cutting the shallow map is free.** Rank 256 at MLP layers 0–9 costs 0.74 milli-nats
+> against 0.89 of parameters — **0.83×** — and 0.31× at 16,110. **pred_c PASSED and vindicates §1959:**
+> cutting it everywhere costs **4.64×** its saving, so the map turnover at 640 is correctly placed for the
+> sites that need it. **pred_d PASSED:** the shallow cut is free at both coverages, and *more* free at the
+> higher one, where the uncovered arm is half the size.
+
+> **But the marginal rule (LESSON from §2021) says cut less than pred_b allows.** Layers 0–5 cost
+> **0.24×**; the *increment* from there to 0–9 — four more sites, 3.54M, worth 0.36 milli-nats — costs
+> **0.615**, a **1.71×** loss. **Buying every step that clears the bar means stopping at layer 5, not
+> layer 9**, and the block ratio of 0.83× hides a marginal ratio of 1.71×.
+
+**NEW BEST-KNOWN BUILD, and it is the first one in this line that is CHEAPER rather than better.**
+
+> **36 tables at {attn 384; mlp 768 at layers 0–9, mlp 1152 at layers 10–17}; uncovered rows 30%
+> output-NN neighbour, 70% map at rank 640 — except rank 256 at MLP layers 0–5. 204.4M values at 5,419**,
+> down from §2020's 209.7M (**−2.5%**). **CE is 0.125 milli-nats worse; the 5.31M released are worth 0.53
+> at §1947's price. Net +0.40 milli-nats of budget.**
+
+**Recording what kind of result this is.** Every supersession from §2018 to §2020 bought CE with
+parameters. **§2023 sells parameters for CE at a favourable rate**, which the price rule sanctions and this
+ledger has never done. If the rule is meant only to justify purchases and not sales, that is a decision
+about §1947 rather than about this measurement — **the CE number is unambiguously worse and I am not
+hiding it behind the ratio.**
+
+**Codex has independently scoped §2020's knee, and it is worth recording here.** Their exact
+polarization-slice certificate finds all MLP0–17 slices at numerical rank 1152 with **smooth** rank-768
+coefficient tails: **MLP10/MLP9 = 1.0113×** and the median of MLP10–17 over MLP0–9 **= 1.0554×**, both
+failing their frozen 1.20× knee rule. **So the layer-10 knee is not a property of the model's coefficient
+structure — it is a property of what the compiled program's economics ask of each site.** That is a
+sharper statement than §2021 could make from CE alone, and it means §2020's knee is a fact about the
+program, not a discovered fact about bilin18.
+
+**Open.** The map knee is bracketed between layers 5 and 9 by the 1.71× marginal step, and that step
+averages four sites. **Layers 0–7 would halve the bracket**, and §2015's content profile has mlp6 at
+0.00012 and mlp8 at 0.00138 — an order of magnitude apart — so the knee may sit inside it.
