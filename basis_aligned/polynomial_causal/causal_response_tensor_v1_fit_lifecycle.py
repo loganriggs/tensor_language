@@ -93,6 +93,14 @@ def source_closure(commit: str | None = None) -> dict[str, Any]:
         commit = subprocess.check_output(
             ["git", "rev-parse", "HEAD"], cwd=ROOT, text=True
         ).strip()
+    # A short SHA, branch, and full SHA naming the same commit must produce one
+    # authority identity.  Resolve before putting the name inside the hashed body.
+    commit = subprocess.check_output(
+        ["git", "rev-parse", "--verify", f"{commit}^{{commit}}"],
+        cwd=ROOT, text=True,
+    ).strip()
+    if len(commit) != 40 or any(character not in "0123456789abcdef" for character in commit):
+        raise RuntimeError("FIT source commit did not resolve to a full SHA-1")
     subprocess.run(
         ["git", "merge-base", "--is-ancestor", commit, "origin/main"],
         cwd=ROOT, check=True,
@@ -117,6 +125,8 @@ def source_closure(commit: str | None = None) -> dict[str, Any]:
 def verify_source_closure(binding: Mapping[str, Any]) -> None:
     if type(binding) is not dict or set(binding) != {"commit", "paths", "sha256"}:
         raise RuntimeError("FIT source closure schema changed")
+    if type(binding["commit"]) is not str or len(binding["commit"]) != 40:
+        raise RuntimeError("FIT source closure commit is not canonical")
     body = {"commit": binding["commit"], "paths": binding["paths"]}
     if logical_sha256(body) != binding["sha256"] or source_closure(
         str(binding["commit"])

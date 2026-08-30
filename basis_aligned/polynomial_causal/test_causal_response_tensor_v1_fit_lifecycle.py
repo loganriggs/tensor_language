@@ -31,6 +31,14 @@ def test_protocol_is_fit_only_and_binds_every_input_identity():
     )
 
 
+def test_source_closure_canonicalizes_short_and_full_commit_names(monkeypatch):
+    # Isolate commit-name canonicalization from the intentional dirty source under test.
+    monkeypatch.setattr(lifecycle, "SOURCE_PATHS", ())
+    full = lifecycle.source_closure("b117acbb")
+    assert len(full["commit"]) == 40
+    assert lifecycle.source_closure(full["commit"]) == full
+
+
 def test_parent_snapshot_hashes_bytes_without_deserializing(monkeypatch):
     monkeypatch.setattr(
         lifecycle.fit_inputs.torch, "load",

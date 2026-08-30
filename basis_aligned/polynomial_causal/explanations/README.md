@@ -7,8 +7,10 @@ primary evidence.
 
 ## Start here
 
-- [`explanation_0555.md`](explanation_0555.md) — newest synthesis, written 2026-08-30
-  after the MLP0 cutoff and induction FINAL/code-OOD result.
+- [`explanation_0805.md`](explanation_0805.md) — newest synthesis, defining the signed
+  causal-response tensor, current FIT integrity work, M16 seed result, and next plan.
+- [`explanation_0555.md`](explanation_0555.md) — preceding synthesis, written
+  2026-08-30 after the MLP0 cutoff and induction FINAL/code-OOD result.
 - [`explanation_0326.md`](explanation_0326.md) — preceding synthesis, written
   2026-08-30 at 03:26 UTC.
 - [`CURRENT_PROJECT_UPDATE_PLAIN_ENGLISH_2026-08-30_0015.md`](CURRENT_PROJECT_UPDATE_PLAIN_ENGLISH_2026-08-30_0015.md)
