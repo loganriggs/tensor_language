@@ -241,12 +241,23 @@ Each has its own file under
 9. quote parity/closure; and
 10. numeric/unit/date formatting.
 
-These were chosen as distinct endpoints. We are not counting nearby leaves from the
-old circuit census as independent mechanisms: five layer-8 census leaves and three
-layer-16 leaves were found to be nearly parallel within their components. A later
-output-space clustering did not reproduce the same grouping, so it was correctly
-rejected by its preregistered validation gate rather than used to claim a circuit
-count.
+These were chosen as distinct endpoints. The old circuit census has now produced a
+particularly relevant hierarchy/DAG clue, but it is not yet being counted as five
+finished mechanisms. Five layer-8 census directions are `0.894`-parallel and share one
+direction that explains `91.6%` of their variance. Projecting that shared direction
+out leaves near-orthogonal residuals (mean absolute cosine `0.359`), and four of five
+residual directions are causally more selective for their own behavior than for the
+other four. For `r.23.2.3`, residual-direction concentration rises from `3.649` to
+`4.742` after removing the shared part.
+
+This is the structure we hoped a sparse DAG could have: one common attention-8
+substrate plus several smaller behavior-specific children. It also explains why the
+first rank-1 probe was confusing—the large common direction caused damage but little
+selectivity, masking the residual mechanisms. The exception `r.11.1.1` has no selective
+residual yet and may really be a shadow of another leaf. A separate output-space
+clustering did not reproduce the component-space grouping and was correctly rejected
+by its preregistered validation gate. We therefore treat the shared-plus-residual
+factorization as a promising entry point, not as five certified circuits.
 
 ## 8. Next work, in execution order
 
