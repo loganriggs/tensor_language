@@ -53,3 +53,19 @@ Current status is **mechanistic Tier 4; extraction/selective removal SELECT pass
 pending**. It is frozen for natural FINAL and code OOD.
 
 Details: [`INDUCTION_EQUALITY_TENSOR_DISCOVERY_FINDINGS.md`](../../../polynomial_causal/INDUCTION_EQUALITY_TENSOR_DISCOVERY_FINDINGS.md).
+
+## FINAL/OOD execution status
+
+The fresh evaluation rows and the executable owner both passed independent,
+outcome-blind audits.  The first authorized execution nevertheless stopped before
+scoring any row: its integrity checker attempted to reinterpret a scalar bf16 state
+tensor as bytes without flattening it first.  PyTorch rejects that operation.  This is
+an implementation failure, not a negative scientific result, and is preserved in
+[`induction_equality_tensor_final_ood_v2_failure.json`](../../../polynomial_causal/induction_equality_tensor_final_ood_v2_failure.json).
+
+An implementation-only retry changes exactly that byte-hashing operation and uses a
+fresh authority/output namespace.  It does **not** change rows, tensor program, arms,
+metrics, bootstrap, thresholds, or decision rules.  The amendment is
+[`INDUCTION_EQUALITY_TENSOR_FINAL_OOD_V2_RETRY1_AMENDMENT.md`](../../../polynomial_causal/INDUCTION_EQUALITY_TENSOR_FINAL_OOD_V2_RETRY1_AMENDMENT.md).
+Until that retry independently audits and runs, natural FINAL and code OOD remain
+pending and no terminal promotion is claimed.
