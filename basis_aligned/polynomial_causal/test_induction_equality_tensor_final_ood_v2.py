@@ -7,7 +7,7 @@ import induction_equality_tensor_final_ood_v2 as subject
 
 
 ARMS = tuple(sorted(subject.ARMS))
-PAIRS = tuple(sorted(("native", arm) for arm in subject.ARMS[1:]))
+PAIRS = tuple(("native", arm) for arm in subject.ARMS[1:])
 
 
 def _cell(cell, *, stake=3.0):
@@ -26,14 +26,17 @@ def _cell(cell, *, stake=3.0):
     )
 
 
-def _role(*, stake=3.0):
+def _role(*, stake=3.0, documents=192):
     ledger = {
         f"doc-{index}": {cell: _cell(cell, stake=stake) for cell in ("positive", "matched_negative", "off_target", "all")}
-        for index in range(40)
+        for index in range(documents)
     }
     return {
         "ledger": ledger,
-        "support": {cell: {"tokens": 400, "documents": 40} for cell in ("positive", "matched_negative", "off_target", "all")},
+        "support": {
+            cell: {"tokens": 10 * documents, "documents": documents}
+            for cell in ("positive", "matched_negative", "off_target", "all")
+        },
         "outer": {arm: {"forwards": 48, "returns": 48, "documents": 192} for arm in subject.ARMS},
         "sites": {arm: [
             ([0, 48, 48, 0] if arm != "native" and site in subject.SELECTED else [48, 0, 48, 0])
@@ -49,10 +52,28 @@ def test_observed_points_are_exact_pooled_statistics_not_bootstrap_means():
         point = result["roles"][role]["point"]
         assert point == pytest.approx([0.5, 0.49, 0.005, 0.8, 0.1])
         assert result["roles"][role]["arm_cell_reports"]["remove_equality"]["positive"] == pytest.approx({
-            "tokens": 400, "ce": 2.5, "native_to_arm_kl": 0.0, "top1_accuracy": 0.0,
+            "tokens": 1920, "ce": 2.5, "native_to_arm_kl": 0.0, "top1_accuracy": 0.0,
         })
         assert result["roles"][role]["passed"]
     assert result["passed_both_roles"]
+
+
+def test_analysis_rejects_a_self_consistent_shortened_document_ledger():
+    roles = {role: _role() for role in subject.ROLES}
+    roles["final_natural"] = _role(documents=40)
+    with pytest.raises(RuntimeError, match="exactly 192"):
+        subject.analyze(roles)
+
+
+def test_document_cell_requires_exact_arms_and_kl_pairs():
+    cell = _cell("positive")
+    subject._validate_document_cell(cell)
+    corrupted = stats.DocumentCellSums(
+        n=cell.n, support_sha256=cell.support_sha256,
+        arms=cell.arms[:-1], directed_kls=cell.directed_kls,
+    )
+    with pytest.raises(RuntimeError, match="identity schema"):
+        subject._validate_document_cell(corrupted)
 
 
 def test_nonpositive_point_or_bootstrap_stake_fails_without_clamp():

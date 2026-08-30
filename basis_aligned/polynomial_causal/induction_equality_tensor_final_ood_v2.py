@@ -40,6 +40,10 @@ BOOTSTRAP_SEED = "induction-equality-final-ood-v2:bootstrap:0"
 SELECT_TARGET = 0.5122487687425222
 SELECT_EXTRACTION = 0.9739717690344445
 OUTPUTS = (AUTHORITY, LEDGER, RESULT, MANIFEST, RECEIPT, FAILURE)
+ROW_ARTIFACTS = (
+    rows_v2.RECEIPT,
+    *(rows_v2.CACHE / f"{role}.pt" for role in rows_v2.ROLES),
+)
 DIRECT_SOURCES = (
     Path(__file__).resolve(), HERE / "test_induction_equality_tensor_final_ood_v2.py",
     PREREG, HERE / "INDUCTION_EQUALITY_TENSOR_FINAL_OOD_PREREGISTRATION.md",
@@ -51,6 +55,7 @@ DIRECT_SOURCES = (
     HERE / "test_circuit_campaign_runtime.py", HERE / "circuit_campaign_statistics.py",
     HERE / "test_circuit_campaign_statistics.py", Path(rows_v2.__file__).resolve(),
     HERE / "test_prepare_induction_equality_tensor_final_ood_v2_rows.py",
+    *ROW_ARTIFACTS,
     ROOT / "jacclust/__init__.py", ROOT / "jacclust/tt_model.py",
 )
 SOURCE_PATHS = tuple(dict.fromkeys((*DIRECT_SOURCES, *rows_v2.SOURCE_PATHS)))
@@ -85,13 +90,48 @@ def stable_json(path: Path) -> dict[str, Any]:
 
 def _row_receipt() -> dict[str, Any]:
     value = stable_json(rows_v2.RECEIPT)
-    if value.get("schema") != "induction_equality_tensor_final_ood_v2_rows_receipt" \
+    expected_keys = {
+        "audit", "candidate_parent_sha256", "entries", "metadata_exclusion_counts",
+        "metadata_registry_hashes", "old_v1_role_tensors_deserialized", "outcome_access",
+        "preserved_v1_no_go_audit_sha256", "prior_normalized_code_hashes_sha256",
+        "roles", "schema", "source_commit", "source_hashes", "source_identity", "status",
+        "support_census",
+    }
+    if set(value) != expected_keys \
+            or value.get("schema") != "induction_equality_tensor_final_ood_v2_rows_receipt" \
             or value.get("status") != "frozen_before_any_v2_model_forward" \
             or value.get("old_v1_role_tensors_deserialized") is not False \
             or value.get("outcome_access") is not False \
-            or set(value.get("entries", {})) != set(rows_v2.ROLES):
+            or set(value.get("entries", {})) != set(rows_v2.ROLES) \
+            or set(value.get("roles", {})) != set(rows_v2.ROLES) \
+            or value.get("candidate_parent_sha256") != rows_v2.DISCOVERY_SHA256 \
+            or value.get("preserved_v1_no_go_audit_sha256") != rows_v2.V1_AUDIT_SHA256:
         raise RuntimeError("fresh v2 row receipt is not authoritative")
+    for role in rows_v2.ROLES:
+        entry = value["entries"][role]
+        expected_path = (rows_v2.CACHE / f"{role}.pt").resolve()
+        if set(entry) != {
+            "path", "file_sha256", "rows_tensor_sha256", "positive_sha256",
+            "matched_sha256",
+        } or Path(entry["path"]).resolve() != expected_path \
+                or any(
+                    not isinstance(entry[name], str) or len(entry[name]) != 64
+                    for name in (
+                        "file_sha256", "rows_tensor_sha256", "positive_sha256",
+                        "matched_sha256",
+                    )
+                ) or file_sha256(expected_path) != entry["file_sha256"]:
+            raise RuntimeError("fresh v2 role receipt entry is not an exact file binding")
     return value
+
+
+def _checkpoint_receipt() -> facade.CheckpointReceipt:
+    receipt = facade.validate_snapshot(
+        facade.DEFAULT_SNAPSHOT, verify_weights_sha256=True,
+    )
+    if receipt.weights_sha256 != facade.WEIGHTS_SHA256:
+        raise RuntimeError("checkpoint bytes differ from the pinned weight identity")
+    return receipt
 
 
 def protected_snapshot() -> dict[str, str | None]:
@@ -137,7 +177,9 @@ def freeze_authority() -> dict[str, Any]:
     claim = atomic.acquire_claim(LOCK)
     try:
         commit, sources, audit = audited_source_binding()
-        row_receipt = _row_receipt(); snapshot = protected_snapshot()
+        row_receipt = _row_receipt()
+        checkpoint = _checkpoint_receipt()
+        snapshot = protected_snapshot()
         authority = {
             "schema": "induction_equality_tensor_final_ood_v2_authority",
             "status": "frozen_before_fresh_rows_or_model_load", "outcome_access": False,
@@ -145,13 +187,21 @@ def freeze_authority() -> dict[str, Any]:
             "row_receipt_sha256": file_sha256(rows_v2.RECEIPT),
             "role_file_sha256s": {role: row_receipt["entries"][role]["file_sha256"] for role in ROLES},
             "discovery_sha256": rows_v2.DISCOVERY_SHA256,
-            "checkpoint_weights_sha256": facade.WEIGHTS_SHA256,
+            "checkpoint_weights_sha256": checkpoint.weights_sha256,
             "protected_snapshot": snapshot,
             "outputs": {path.stem: str(path.resolve()) for path in OUTPUTS},
         }
         def guard():
             source_closure(commit); validate_audit(commit, sources)
-            if protected_snapshot() != snapshot or any(path.exists() for path in OUTPUTS):
+            current_rows = _row_receipt()
+            current_checkpoint = _checkpoint_receipt()
+            if file_sha256(rows_v2.RECEIPT) != authority["row_receipt_sha256"] \
+                    or {
+                        role: current_rows["entries"][role]["file_sha256"] for role in ROLES
+                    } != authority["role_file_sha256s"] \
+                    or current_checkpoint.weights_sha256 != authority["checkpoint_weights_sha256"] \
+                    or protected_snapshot() != snapshot \
+                    or any(path.exists() for path in OUTPUTS):
                 raise RuntimeError("authority inputs or namespace changed")
             atomic.require_claim(claim, LOCK)
         atomic.write_json_create_only(authority, AUTHORITY, pre_link_check=guard)
@@ -162,12 +212,23 @@ def freeze_authority() -> dict[str, Any]:
 
 def validate_authority() -> dict[str, Any]:
     authority = stable_json(AUTHORITY)
+    row_receipt = _row_receipt()
+    checkpoint = _checkpoint_receipt()
+    expected_role_hashes = {
+        role: row_receipt["entries"][role]["file_sha256"] for role in ROLES
+    }
     expected_keys = {"schema", "status", "outcome_access", "source_commit", "source_hashes", "audit", "row_receipt_sha256", "role_file_sha256s", "discovery_sha256", "checkpoint_weights_sha256", "protected_snapshot", "outputs"}
     if set(authority) != expected_keys or authority["schema"] != "induction_equality_tensor_final_ood_v2_authority" \
             or authority["status"] != "frozen_before_fresh_rows_or_model_load" \
             or authority["outcome_access"] is not False \
             or source_closure(authority["source_commit"]) != authority["source_hashes"] \
             or validate_audit(authority["source_commit"], authority["source_hashes"]) != authority["audit"] \
+            or authority["row_receipt_sha256"] != file_sha256(rows_v2.RECEIPT) \
+            or authority["role_file_sha256s"] != expected_role_hashes \
+            or authority["discovery_sha256"] != file_sha256(discovery.OUTPUT) \
+            or authority["discovery_sha256"] != rows_v2.DISCOVERY_SHA256 \
+            or authority["checkpoint_weights_sha256"] != checkpoint.weights_sha256 \
+            or authority["checkpoint_weights_sha256"] != facade.WEIGHTS_SHA256 \
             or protected_snapshot() != authority["protected_snapshot"] \
             or authority["outputs"] != {path.stem: str(path.resolve()) for path in OUTPUTS}:
         raise RuntimeError("v2 authority semantic replay failed")
@@ -277,11 +338,52 @@ def _decode_cell(value: Mapping[str, Any]) -> statistics.DocumentCellSums:
             or any(set(item) != {"arm", "nll_sum", "correct_count"} for item in value["arms"]) \
             or any(set(item) != {"source_arm", "target_arm", "kl_sum"} for item in value["directed_kls"]):
         raise RuntimeError("v2 ledger cell schema changed or contains extra payload")
-    return statistics.DocumentCellSums(
+    decoded = statistics.DocumentCellSums(
         n=value["n"], support_sha256=value["support_sha256"],
         arms=tuple(statistics.ArmCellSums(**item) for item in value["arms"]),
         directed_kls=tuple(statistics.DirectedKLSums(**item) for item in value["directed_kls"]),
     )
+    _validate_document_cell(decoded)
+    return decoded
+
+
+def _validate_document_cell(value: statistics.DocumentCellSums) -> None:
+    expected_arms = tuple(sorted(ARMS))
+    expected_pairs = tuple(("native", arm) for arm in ARMS[1:])
+    if type(value) is not statistics.DocumentCellSums or type(value.n) is not int \
+            or value.n < 0 or not isinstance(value.support_sha256, str) \
+            or len(value.support_sha256) != 64 \
+            or tuple(item.arm for item in value.arms) != expected_arms \
+            or tuple(
+                (item.source_arm, item.target_arm) for item in value.directed_kls
+            ) != expected_pairs:
+        raise RuntimeError("v2 document cell identity schema changed")
+    if any(
+        type(item) is not statistics.ArmCellSums
+        or type(item.nll_sum) is not float or not math.isfinite(item.nll_sum)
+        or item.nll_sum < 0 or type(item.correct_count) is not int
+        or not 0 <= item.correct_count <= value.n
+        for item in value.arms
+    ) or any(
+        type(item) is not statistics.DirectedKLSums
+        or type(item.kl_sum) is not float or not math.isfinite(item.kl_sum)
+        or item.kl_sum < 0
+        for item in value.directed_kls
+    ):
+        raise RuntimeError("v2 document cell sufficient statistics are malformed")
+
+
+def _validate_role_ledger(value: Mapping[str, Any]) -> None:
+    ledger = value.get("ledger")
+    if not isinstance(ledger, Mapping) or len(ledger) != 192 \
+            or any(not isinstance(document, str) or not document for document in ledger):
+        raise RuntimeError("v2 role ledger must contain exactly 192 named documents")
+    expected_cells = {"positive", "matched_negative", "off_target", "all"}
+    for cells in ledger.values():
+        if not isinstance(cells, Mapping) or set(cells) != expected_cells:
+            raise RuntimeError("v2 document ledger cell schema changed")
+        for cell in cells.values():
+            _validate_document_cell(cell)
 
 
 def _specs(role: str):
@@ -357,6 +459,7 @@ def analyze(roles: Mapping[str, Mapping[str, Any]]) -> dict[str, Any]:
     if set(roles) != set(ROLES):
         raise RuntimeError("analysis role schema changed")
     for role in ROLES:
+        _validate_role_ledger(roles[role])
         _validate_call_census(roles[role]); _validate_support(roles[role])
     all_specs = tuple(spec for role in ROLES for spec in _specs(role))
     joint_bootstrap = statistics.simultaneous_document_bootstrap(
@@ -401,9 +504,18 @@ def semantic_validate(ledger_payload: Mapping[str, Any], result: Mapping[str, An
     for role in ROLES:
         role_value = ledger_payload["roles"][role]
         if set(role_value) != {"documents_sha256", "support", "outer", "sites", "replay_max_abs", "ledger"} \
+                or not isinstance(role_value["ledger"], Mapping) \
+                or len(role_value["ledger"]) != 192 \
                 or role_value["documents_sha256"] != hashlib.sha256("\0".join(role_value["ledger"]).encode()).hexdigest():
             raise RuntimeError("v2 ledger document identity replay failed")
-        decoded[role] = {"support": role_value["support"], "outer": role_value["outer"], "sites": role_value["sites"], "replay_max_abs": role_value["replay_max_abs"], "ledger": {doc: {cell: _decode_cell(value) for cell, value in cells.items()} for doc, cells in role_value["ledger"].items()}}
+        decoded[role] = {
+            "support": role_value["support"], "outer": role_value["outer"],
+            "sites": role_value["sites"], "replay_max_abs": role_value["replay_max_abs"],
+            "ledger": {
+                doc: {cell: _decode_cell(value) for cell, value in cells.items()}
+                for doc, cells in role_value["ledger"].items()
+            },
+        }
     expected = analyze(decoded)
     if result != {"schema": "induction_equality_tensor_final_ood_v2_result", "authority_sha256": file_sha256(AUTHORITY), **expected}:
         raise RuntimeError("v2 result semantic replay failed")
@@ -442,7 +554,7 @@ def execute() -> dict[str, Any]:
             if stable_json(MANIFEST) != manifest or protected_snapshot() != protected or FAILURE.exists() or RECEIPT.exists():
                 raise RuntimeError("v2 receipt terminal replay failed")
             atomic.require_claim(claim, LOCK)
-        atomic.write_json_create_only(receipt, RECEIPT, pre_link_check=guard)
+        rows_v2.write_receipt_create_only(receipt, RECEIPT, pre_link_check=guard)
         return receipt
     except BaseException as error:
         if not RECEIPT.exists() and not FAILURE.exists():
