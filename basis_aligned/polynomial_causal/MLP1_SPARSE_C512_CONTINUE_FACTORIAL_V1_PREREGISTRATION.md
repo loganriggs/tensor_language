@@ -12,6 +12,11 @@ earlier three-layer cubes use exact-write or rank-64 oracle corrections rather t
 executable MLP1 replacement.  Historical MLP1 weight-action TopK fits are positive but
 did not serialize a reusable program and did not cross C512 with CONTINUE512.
 
+The tempting compiler-v2.1 `B_l6_r64` candidate is explicitly excluded.  Its rank-64
+correction requires a frozen token-table/ridge producer, so the complete literal
+program stores 60,707,648 reals (3.812 times native MLP1), not 153,920.  The frozen
+deterministic receipt is `historical_mlp1_candidate_price_audit.json`.
+
 ## Fresh rows and role firewall
 
 Freeze 288 registry-fresh FineWeb source documents beginning at ordered dataset document
