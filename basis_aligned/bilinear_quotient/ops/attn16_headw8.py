@@ -1,4 +1,4 @@
-"""attn16 PER-HEAD MAP AT WINDOW GRAIN (rung 59).
+"""attn16 PER-HEAD MAP AT WINDOW GRAIN (rung 59; rebuilt after the first build spliced into main and never ran).
 
 CONVENTION (S2135): L2 is CE ADDED ABOVE THE REAL MODEL - LOWER IS BETTER; d_h(w) = damage added on window w by
 zeroing head h of the real attn16 (eval-scoped) under the S2146 skip-a16 config.
@@ -956,7 +956,118 @@ def main():
     cur['clsmap']=classify2(FR).to(DEV)
     L2F=evalM(FR,120,order2,ML)-baseF
     if SEL.get('head16'):
-        T00=time.time()
+        HD16=D//9
+        def _zh(hh):
+            def pre(mod,args):
+                x=args[0].clone(); x[...,hh*HD16:(hh+1)*HD16]=0
+                return (x,)+tuple(args[1:])
+            return m.transformer.h[16].attn.c_proj.register_forward_pre_hook(pre)
+        hks=[_zh(k2) for k2 in (1,2,5,6,7,8)]
+        v=evalM(FR,120,order2,ML)-baseF
+        for k3 in hks: k3.remove()
+        SEL['head16_result']={'six_zeroed_L2F':round(v,4),'d':round(v-L2F,4)}
+        print(f'  heads 1,2,5,6,7,8 zeroed: L2 fresh {v:+.4f}  (d={v-L2F:+.4f})',flush=True)
+    del cur['clsmap']
+    if SEL.get('prefix_tail'):
+        cur['clsmap']=classify2(FR).to(DEV)
+        _pl=[]
+        for _kk in range(0,9):
+            _act=order2[:len(order2)-8+_kk]
+            _v=evalM(FR,120,_act,ML)-baseF
+            _pl.append(round(_v,4))
+            print(f'  prefix +{_kk} tail-attn dicts: L2 fresh {_v:+.4f}',flush=True)
+        del cur['clsmap']
+        SEL['prefix_result']={'prefix':_pl,'marginals':[round(_pl[_i+1]-_pl[_i],4) for _i in range(8)]}
+    W8banned=set(); W8RES=[]
+    for wi in range(8):
+        rws=[]; used=set()
+        for di in range(3000,10000):
+            if di in W8banned: continue
+            tkr=enc3.encode_ordinary(dsf[di]['text'])
+            for st0 in range(0,len(tkr)-513,513):
+                row=tkr[st0:st0+513]
+                if tuple(row[:32]) in seen: continue
+                rws.append(row); used.add(di)
+                if len(rws)>=120: break
+            if len(rws)>=120: break
+        assert len(rws)==120, f'window {wi} short: {len(rws)}'
+        W8banned|=used
+        for row in rws: seen.add(tuple(row[:32]))
+        Wt=torch.tensor(rws,dtype=torch.long)
+        bW=evalT(Wt,120,[])
+        cur['clsmap']=classify2(Wt).to(DEV)
+        fW=evalM(Wt,120,order2,ML)-bW
+        if SEL.get('headw8'): SEL['W8store'].append((Wt,bW,cur['clsmap']))
+        del cur['clsmap']
+        W8RES.append(round(fW,4))
+        print(f'  window {wi} ({len(used)} docs): L2 fresh {fW:+.4f}',flush=True)
+    if SEL.get('headw8'):
+        HD16b=D//9
+        def _zz(hh):
+            def pre(mod,args):
+                x=args[0].clone(); x[...,hh*HD16b:(hh+1)*HD16b]=0
+                return (x,)+tuple(args[1:])
+            return m.transformer.h[16].attn.c_proj.register_forward_pre_hook(pre)
+        res_h={}
+        for hh in list(range(9))+['all']:
+            hks=[_zz(k2) for k2 in (range(9) if hh=='all' else [hh])]
+            vals=[]
+            for (Wt2,bW2,cm2) in SEL['W8store']:
+                cur['clsmap']=cm2
+                vals.append(round(evalM(Wt2,120,order2,ML)-bW2,4))
+                del cur['clsmap']
+            for k3 in hks: k3.remove()
+            res_h[str(hh)]=vals
+            print(f'  head {hh} zeroed, per-window: {vals}',flush=True)
+        SEL['headw8_result']=res_h
+    inc=L2F-L1F
+    print(f'L2 empirical: C {L2C:+.4f} | fresh {L2F:+.4f} | tail-attn '
+          f'increment {inc:+.4f}',flush=True)
+    if SEL.get('collect_asm'):
+        genA=torch.Generator(device=DEV).manual_seed(32)
+        TOKS=torch.cat([FW[i:i+4,:257] for i in range(CA,CB,4)]).to(DEV)
+        for site in (5,6,7,8,9,10):
+            Gm=torch.zeros(D,D,device=DEV,dtype=torch.float64)
+            for b0 in range(0,TOKS.shape[0],4):
+                bb=TOKS[b0:b0+4]
+                cur['idx']=bb[:,:-1].contiguous(); cur['mode']='oracle'
+                cur['lab']=clsA.reshape(CB-CA,256)[b0:b0+4].reshape(-1)
+                hs=install(order2)+motif_hooks(ML)
+                try:
+                    with torch.no_grad():
+                        x=F.rms_norm(m.transformer.wte(cur['idx']),(D,)); x0=x; v1=None
+                        for blk in m.transformer.h: x,v1=blk(x,v1,x0)
+                        pdist=torch.softmax((30*torch.tanh(m.lm_head(F.rms_norm(x,(D,)))/30))[:,:-1].float(),-1)
+                    for _sm in range(2):
+                        y=torch.multinomial(pdist.reshape(-1,pdist.shape[-1]),1,generator=genA).view(pdist.shape[0],pdist.shape[1])
+                        with torch.enable_grad():
+                            x=F.rms_norm(m.transformer.wte(cur['idx']),(D,)); x0=x; v1=None; leaf=None
+                            for _li,blk in enumerate(m.transformer.h):
+                                if _li==site:
+                                    x=x.detach().requires_grad_(True); leaf=x
+                                x,v1=blk(x,v1,x0)
+                            lg=(30*torch.tanh(m.lm_head(F.rms_norm(x,(D,)))/30)).float()
+                            lp=F.log_softmax(lg[:,:-1],-1)
+                            (-lp.gather(-1,y[...,None]).squeeze(-1))[:,SKIP8:].sum().backward()
+                        g=leaf.grad[:,SKIP8:-1].reshape(-1,D).double(); Gm+=g.T@g
+                        m.zero_grad(set_to_none=True)
+                finally:
+                    for h in hs: h.remove()
+            _e,Qm=torch.linalg.eigh(Gm)
+            SEL['P8'][site]=Qm.flip(1)[:,:8].float().contiguous()
+            print(f'assembly-conditioned Fisher top-8 collected at site {site}',flush=True)
+    pa=L2F<=2.75; pb=0.30<=inc<=0.55
+    out={'L1_F':round(L1F,4),'L2_C':round(L2C,4),'L2_F':round(L2F,4),
+         'increment':round(inc,4),
+         'orig_s312_a':bool(pa),'orig_s312_b':bool(pb)}
+    print(f"(a) L2 <= +2.75 fresh: {'HELD' if pa else 'FAILED'}")
+    print(f"(b) increment in [0.30,0.55]: {'HELD' if pb else 'FAILED'}")
+    out['fresh8']=W8RES
+    out['runtime_s']=time.time()-t0
+    return out
+
+if __name__=='__main__':
+    T00=time.time()
     SEL['mode']='norm'; SEL['K']=2304; SEL['K69']=576; SEL['K69MAP']={8:288,9:288}
     SEL['skip16']=True; SEL['headw8']=True; SEL['W8store']=[]
     print('SINGLE ARM: skip-a16 build + per-head window-grain evals',flush=True)
@@ -982,4 +1093,4 @@ def main():
     print(f"(a) top3 {sorted(top3)} == [0,3,4]: {'HELD' if pa else 'FAILED'}")
     print(f"(b) six summed median {six_sum:+.4f} >= +0.015: {'HELD' if pb else 'FAILED'}")
     print(f"(c) base vs S2146 median |delta| {stt.median(rp):.4f} <= 0.005: {'HELD' if pc else 'FAILED'}")
-    print(f'wrote {OUT} ({res["runtime_s"]:.0f}s)')
+    print(f'wrote {OUT} ({time.time()-T00:.0f}s)')

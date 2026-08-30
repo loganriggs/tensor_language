@@ -811,4 +811,11 @@ later per-rung backlog edits had silently anchored on text that was not here.
     (the FR big three); pred_b the OTHER six heads' summed window-median
     >= +0.015 (they carry, per §2152); pred_c the base arm reproduces
     §2146's per-window values (median |delta| <= 0.005).
-    -> ops/attn16_headw8.py [QUEUED]
+    -> ops/attn16_headw8.py
+    First build 22:46Z VOID (silent): the runner slice anchor matched a
+    SUBSTRING of an 8-space-indented line inside main(), splicing the
+    runner into main's body and deleting the __main__ guard - the module
+    imported in 5s, ran nothing, exit 0, empty log. LESSON: slice anchors
+    must be line-anchored ('\n'-prefixed); the gate should also refuse a
+    script with no __main__ executor. Rebuilt from the intact parent,
+    re-queued 22:52Z; preds unchanged.
