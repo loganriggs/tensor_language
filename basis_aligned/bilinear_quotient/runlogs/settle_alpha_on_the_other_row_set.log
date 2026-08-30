@@ -1,0 +1,34 @@
+SETTLE ALPHA ON THE OTHER ROW SET | 6 arms x 1 coverage(s) | DISCOVERY ONLY
+
+########## COVERAGE 5419 ##########
+  [bqlib] coverage 5419 from fineweb_n96_skip80.pt: 36 tables, neighbour index and map solver built (18s)
+  [bqlib] cache HIT  live     skip7000
+  [bqlib] cache HIT  live     skip11000
+  [bqlib] cache HIT  live     skip1200
+  [bqlib] computed   mix28m640 skip7000 (3.6s)
+  [bqlib] computed   mix28m640 skip11000 (3.2s)
+  [bqlib] computed   mix28m640 skip1200 (1.7s)
+  [bqlib] cache HIT  mix30m640 skip7000
+  [bqlib] cache HIT  mix30m640 skip11000
+  [bqlib] cache HIT  mix30m640 skip1200
+  [bqlib] computed   mix36m640 skip7000 (6.4s)
+  [bqlib] computed   mix36m640 skip11000 (4.2s)
+  [bqlib] computed   mix36m640 skip1200 (1.7s)
+  [bqlib] computed   mix40m640 skip7000 (6.4s)
+  [bqlib] computed   mix40m640 skip11000 (3.7s)
+  [bqlib] computed   mix40m640 skip1200 (2.3s)
+  [bqlib] cache HIT  map512   skip7000
+  [bqlib] cache HIT  map512   skip11000
+  [bqlib] cache HIT  map512   skip1200
+  [bqlib] computed   mix30m640 skip7000 (1.4s)
+  [bqlib] computed   mix30m640 skip11000 (1.3s)
+  [bqlib] computed   mix30m640 skip1200 (0.7s)
+
+  §2027's ordering rebuilds: 0.28 beats 0.30 beats 0.36 on the three published roles  -> False
+  and alpha 0.40 loses to 0.30 there, as §2027's declining curve implies  -> True
+  and the disagreement exceeds a third of the fresh window's +1.744 milli-nats  -> True
+  and 0.28 to 0.40 spans under 3.300 milli-nats here as it does on the fresh window  -> True
+  derived controls -> True   coverage_exact=True  inert_pairs_are_inert=True  some_differing_pair_moves=True  buckets_partition=True  live_identical=True
+
+pred_a False | pred_b True | pred_c True | pred_d True | pred_z True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/settle_alpha_on_the_other_row_set_results.json (265.7s)

@@ -59695,3 +59695,50 @@ about where the optimum is.**
 α 0.40 on the three original roles.** They did not select it — §2027's grid stopped at 0.36 — so for that
 value they are an out-of-sample set. **If 0.40 also wins there, it wins on both row sets and neither
 selected it; if it loses, 0.30 stands and the fresh peak was selection.**
+
+## §2043 — α 0.40 loses on the other row set by t = −5.95: the disagreement is real and α 0.30 stands
+
+`ops/settle_alpha_on_the_other_row_set.py`, **265.7s**, **DISCOVERY ONLY**, 5,419, rung 3 — §2042's open
+question. **pred_a False | pred_b True | pred_c True | pred_d True | derived controls True.** No crashed
+predicates. 92,160 positions on the three published roles.
+
+```
+  milli-nats against α = 0.30        THREE PUBLISHED ROLES     [FRESH WINDOW, §2042]
+  α 0.28    −0.029 (t −0.33)
+  α 0.36    −1.006 (t −3.96)
+  α 0.40    −2.487 (t −5.95)              +1.744 (t +3.42)
+```
+
+> **pred_b PASSED and settles it. α 0.40 loses on the three published roles by 2.487 milli-nats at
+> t = −5.95, where it WON on the fresh window by 1.744 at t = +3.42.** Neither row set selected 0.40 —
+> §2027's grid stopped at 0.36 — so **both measurements are out-of-selection, they are both significant,
+> and they point in opposite directions.** **α 0.40 is not a validated improvement and I am not taking
+> it.** α 0.30 stands.
+
+> **pred_a FAILED, and the bar was mine to get wrong. I registered that §2027's ordering — 0.28 beats
+> 0.30 — would reproduce.** Here 0.28 comes in at **−0.029 milli-nats, t = −0.33**: indistinguishable
+> from 0.30. **§2027's "optimum at 0.28" rested on a +0.018 milli-nat difference that §2027 itself
+> declared inside its stopping rule and refused to act on.** I then wrote a predicate asking that
+> non-significant ordering to reproduce. **LESSON 106's scale rule should have stopped me registering it,
+> one section after I wrote the lesson.**
+
+> **pred_d PASSED: the whole 0.28-to-0.40 interval spans 2.487 milli-nats here and about 3 on the fresh
+> window.** Both row sets agree the axis is flat across that range; **they disagree only about which point
+> in the flat region is highest, and each says so with t > 3.**
+
+**The α question, closed as far as measurement can close it.** **There is no α in [0.28, 0.40] shown better
+than any other in a way that transfers between row sets.** Every candidate wins on the rows that pick it
+and loses on the rows that do not, at significance, in both directions. **α = 0.30 is retained because it
+is the incumbent and sits between the two optima — not because it is demonstrated best**, and the ledger
+should not claim otherwise.
+
+**What the last seven sections have actually produced.** §2037 retracted a build; §2038 and §2039
+attributed the failure to one axis and measured it at every depth; §2041 showed the restored build's
+ancestry survives; §2042 and §2043 showed its one remaining free parameter is unidentifiable at the scale
+anyone would want to tune it. **The build of record is §1959's, 189.5M, and the honest description of it
+is: every parameter either validated out-of-sample or demonstrated to be inside a flat region where
+row-set choice decides the answer.**
+
+**Open.** Nothing in the parameter space is left that this evidence can settle. **The remaining questions
+are the two with Logan — §1947's price rule and §1979's architectural fork — and the BENCHMARK_BACKLOG,
+whose rung 6 is now satisfiable for any future winner** since §2036 wired the fresh window in.
