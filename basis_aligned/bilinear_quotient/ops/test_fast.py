@@ -153,6 +153,32 @@ def test_composite_arm_grammar():
             check(f'composite: rejects {bad}', True)
 
 
+def test_run_refuses_a_vacuous_control_plan():
+    """MEASURED 2026-08-30: six GPU runs this session died on an ill-formed covered-input control, every
+    one decidable from the plan alone. run() now raises instead of warning-and-proceeding."""
+    def raises(plan, why):
+        try:
+            B.run(name='probe', plan=plan, predicates=[('pred_a_x', 'x', lambda x: True)] * 3)
+            check(f'plan pre-flight refuses {why}', False, 'run() accepted it')
+        except ValueError as e:
+            check(f'plan pre-flight refuses {why}', 'vacuous' in str(e), str(e)[:70])
+        except Exception as e:                      # any other failure means it got past validation
+            check(f'plan pre-flight refuses {why}', False, f'{type(e).__name__}: {e}')
+
+    raises([('mix30m640', {'mlp': 768}, 'a'), ('mix30m640', {'mlp': 512}, 'b')], 'no same-spec pair')
+    raises([('mix30m640', None, 'a'), ('map512', None, 'b')], 'no differing-spec pair')
+    saved = B.DRYRUN
+    try:                                            # and a well-formed plan gets through to the dry run
+        B.DRYRUN = True
+        ok = [('mix30m640', None, 'a'), ('map512', None, 'b'), ('mix30m640', {'mlp': 512}, 'c')]
+        B.run(name='probe', plan=ok, predicates=[('pred_a_x', 'x', lambda x: True)] * 3)
+        check('plan pre-flight passes a well-formed plan', True)
+    except Exception as e:
+        check('plan pre-flight passes a well-formed plan', False, f'{type(e).__name__}: {e}')
+    finally:
+        B.DRYRUN = saved
+
+
 def test_composites_are_never_same_spec():
     """S2014: a composite arm puts different content at different sites, so two composites can share rank,
     site set and whole-table flag while being entirely different interventions. Only PLAIN arms, which
@@ -411,7 +437,7 @@ def test_gate_accepts_the_library_itself():
           out.stdout.strip()[-120:])
 
 
-for fn in (test_composites_are_never_same_spec, test_inertness_requires_all36, test_per_site_table_ranks, test_penalty_accessor, test_composite_arm_grammar, test_whole_table_arms_are_not_fallback_variants, test_inert_side_of_the_control_is_still_strict, test_site_subsets_change_the_cache_key, test_no_build_level_comparison_is_vote_dependent, test_pooled_t_weights_by_evidence, test_every_ref_path_exists, test_ref_refuses_to_guess_a_coverage, test_rk_key_is_order_independent, test_inertness_pairs_splits_by_table_rank,
+for fn in (test_run_refuses_a_vacuous_control_plan, test_composites_are_never_same_spec, test_inertness_requires_all36, test_per_site_table_ranks, test_penalty_accessor, test_composite_arm_grammar, test_whole_table_arms_are_not_fallback_variants, test_inert_side_of_the_control_is_still_strict, test_site_subsets_change_the_cache_key, test_no_build_level_comparison_is_vote_dependent, test_pooled_t_weights_by_evidence, test_every_ref_path_exists, test_ref_refuses_to_guess_a_coverage, test_rk_key_is_order_independent, test_inertness_pairs_splits_by_table_rank,
            test_inertness_pairs_warns_when_a_side_is_vacuous, test_ref_reads_published_triples,
            test_paired_t_arithmetic, test_cost_matches_the_published_closed_form,
            test_arm_names_parse_the_way_the_grammar_says, test_gate_fixtures,

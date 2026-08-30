@@ -102,6 +102,23 @@ def test_control_seeds_are_role_separated_and_coordinate_bound():
         collect.control_seed("DESIGN", 3, 0)
 
 
+def test_raw_tensor_hash_supports_bfloat16_and_binds_dtype_shape_bytes():
+    value = torch.arange(12, dtype=torch.float32).reshape(3, 4).to(torch.bfloat16)
+    first = collect.tensor_sha256_raw(value)
+    assert first == collect.tensor_sha256_raw(value.clone())
+    assert first != collect.tensor_sha256_raw(value.float())
+    assert first != collect.tensor_sha256_raw(value.reshape(2, 6))
+
+
+def test_v2_binds_exact_spent_v1_failure_and_uses_fresh_namespace():
+    assert collect.validate_spent_v1_design() == {
+        "authority_sha256": collect.V1_AUTHORITY_SHA,
+        "failure_sha256": collect.V1_FAILURE_SHA,
+    }
+    assert "v2_design" in collect.role_paths("DESIGN")["authority"].name
+    assert collect.role_paths("DESIGN")["authority"] != collect.V1_DESIGN_AUTHORITY
+
+
 def test_ledger_schema_accepts_exact_replay_and_rejects_nonexact():
     features = torch.ones(3, 2, 3, 32, len(core.FEATURE_NAMES), dtype=torch.float64)
     finite = torch.zeros(3, 2, 32, len(core.FINITE_NAMES), dtype=torch.float64)
@@ -130,7 +147,7 @@ def test_ledger_schema_accepts_exact_replay_and_rejects_nonexact():
 
 def test_source_closure_contains_direct_science_and_tests():
     for path in (collect.PREREG, collect.ADDENDUM, collect.RUNNER, collect.TEST,
-                 collect.CORE, collect.CORE_TEST,
+                 collect.CORE, collect.CORE_TEST, collect.RECOVERY_AMENDMENT,
                  collect.HERE / "mlp2_error_rayleigh_metrics.py",
                  collect.HERE / "test_mlp2_error_rayleigh_metrics.py",
                  collect.HERE / "mlp2_error_rayleigh_predictor.py",

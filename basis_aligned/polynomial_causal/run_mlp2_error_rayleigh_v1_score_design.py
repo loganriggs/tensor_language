@@ -26,12 +26,12 @@ import run_mlp2_error_rayleigh_v1_collect as collector
 
 RUNNER = Path(__file__).resolve()
 TEST = HERE / "test_run_mlp2_error_rayleigh_v1_score_design.py"
-AUDIT = HERE / "mlp2_error_rayleigh_v1_design_scorer_independent_audit.json"
-AUTHORITY = HERE / "mlp2_error_rayleigh_v1_design_predictor_authority.json"
-BUNDLE = HERE / "mlp2_error_rayleigh_v1_design_predictor_bundle.pt"
+AUDIT = collector.PREDICTOR_AUDIT
+AUTHORITY = collector.PREDICTOR_AUTHORITY
+BUNDLE = collector.PREDICTOR_BUNDLE
 RECEIPT = collector.PREDICTOR_RECEIPT
-FAILURE = HERE / "mlp2_error_rayleigh_v1_design_predictor_failure.json"
-LOCK = Path("/workspace/runs/.mlp2_error_rayleigh_v1_design_predictor.lock")
+FAILURE = HERE / "mlp2_error_rayleigh_v2_design_predictor_failure.json"
+LOCK = Path("/workspace/runs/.mlp2_error_rayleigh_v2_design_predictor.lock")
 DESIGN = collector.role_paths("DESIGN")
 SOURCE_PATHS = tuple(dict.fromkeys((
     *collector.SOURCE_PATHS,
@@ -69,7 +69,7 @@ def validate_audit(sources: Mapping[str, str]) -> tuple[dict[str, Any], str]:
         "audited_source_hashes", "tests_passed", "reviewer",
     }
     if set(value) != required or value.get("schema") != (
-        "mlp2_error_rayleigh_v1_design_scorer_independent_audit"
+        "mlp2_error_rayleigh_v2_design_scorer_independent_audit"
     ) or value.get("status") != "GO" or value.get("outcome_access") is not False \
             or value.get("audited_source_hashes") != dict(sources) \
             or not isinstance(value.get("tests_passed"), int) \

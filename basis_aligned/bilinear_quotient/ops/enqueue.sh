@@ -24,6 +24,14 @@ python3 "$D/ops/test_fast.py" >/tmp/bq_test_fast.out 2>&1 || {
   tail -12 /tmp/bq_test_fast.out >&2; exit 1; }
 python3 "$D/ops/gate.py" "$f" >/dev/null 2>&1 || {
   echo "REFUSED: gate FAILED:" >&2; python3 "$D/ops/gate.py" "$f" >&2; exit 1; }
+
+# PRE-FLIGHT the PLAN itself, GPU-free, in about two seconds. MEASURED 2026-08-30: six GPU runs this
+# session were thrown away because a plan's covered-input control was ill-formed, and every one was
+# decidable from the plan alone before the first GPU call. bqlib's run() now refuses such a plan;
+# BQLIB_DRYRUN makes it do so here instead of after a 450-second run.
+BQLIB_DRYRUN=1 BQLIB_NO_MODEL=1 python3 "$f" >/tmp/bq_dryrun.out 2>&1 || {
+  echo "REFUSED: plan pre-flight FAILED (no GPU work was done):" >&2
+  tail -6 /tmp/bq_dryrun.out >&2; exit 1; }
 echo "$f" >> "$D/queue.txt"
 n=$(grep -cve '^[[:space:]]*$' "$D/queue.txt" 2>/dev/null); n=${n:-0}
 if bash "$D/ops/gpu_free.sh" >/dev/null 2>&1; then g="GPU free"; else g="GPU busy"; fi

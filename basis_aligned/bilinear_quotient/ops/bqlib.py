@@ -40,7 +40,10 @@ m, DEV = None, 'cpu'                       # bound unconditionally: a conditiona
 if os.environ.get('BQLIB_NO_MODEL') != '1':  # reader of `m` looking undefined, which the gate flags --
     from bilin18_joint_removal import m, DEV                                # noqa: E402
 
-LIB_VERSION = 3          # bump on ANY change to table building, arm construction or forward_logits
+LIB_VERSION = 3
+# Set BQLIB_DRYRUN=1 to validate a plan and exit before any GPU work. Combined with BQLIB_NO_MODEL=1 this
+# is a sub-second, GPU-free pre-flight; ops/enqueue.sh runs it on every script before queueing.
+DRYRUN = os.environ.get('BQLIB_DRYRUN') == '1'          # bump on ANY change to table building, arm construction or forward_logits
 
 D = 1152
 T = 256
@@ -871,6 +874,26 @@ def run(name, plan, predicates, coverages=(('c5419', FIT_5419, 5419),), refs=(),
     want_t = set(paired_pairs) | set(inert) | set(differ)
     print(f'{name.upper().replace("_", " ")} | {len(labels)} arms x {len(coverages)} coverage(s) | '
           f'DISCOVERY ONLY', flush=True)
+
+    # PRE-FLIGHT. MEASURED 2026-08-30: six GPU runs this session were thrown away because a plan's
+    # covered-input control was ill-formed -- no same-spec pair at all (S1996 run 1, S2013 run 1), a
+    # fallback partner at a PARTIAL site set where inertness does not hold (S1996 run 2), two different
+    # composite arms paired as same-spec (S2014 run 1), a whole-table arm paired with a fallback variant
+    # (S1983 run 1). Every one was decidable from `plan` alone, eight lines above the first GPU call, and
+    # every one instead cost a full run plus two or three turns to diagnose. inertness_pairs already
+    # printed a WARNING for the vacuous cases and the run proceeded anyway; a warning nobody can act on
+    # before the results land is not a control. This refuses the plan instead.
+    if not inert or not differ:
+        which = 'same-spec (inert)' if not inert else 'differing-spec (must move)'
+        raise ValueError(
+            f'plan for {name!r} has NO {which} pairs, so that half of the covered-input control is '
+            f'vacuous and would report True having checked nothing. Add an arm sharing (or differing in) '
+            f'table rank and site set with an existing one. Same-spec requires: identical rank spec, '
+            f'identical site set, ALL 36 SITES, both plain (non-composite, non-whole-table) arms.')
+    if DRYRUN:
+        print(f'  [bqlib] DRY RUN: plan validated, {len(inert)} inert and {len(differ)} differing '
+              f'pair(s), {len(predicates)} predicate(s). No GPU work done.', flush=True)
+        return None
 
     res, paired, cost, ncov, chg, pooled, diffs = {}, {}, {}, {}, {}, {}, {}
     for tag, fit, nc in coverages:

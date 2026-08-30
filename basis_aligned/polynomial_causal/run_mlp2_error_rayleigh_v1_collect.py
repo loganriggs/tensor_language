@@ -38,14 +38,21 @@ RUNNER = Path(__file__).resolve()
 TEST = HERE / "test_run_mlp2_error_rayleigh_v1_collect.py"
 CORE = HERE / "mlp2_error_rayleigh_collector_core.py"
 CORE_TEST = HERE / "test_mlp2_error_rayleigh_collector_core.py"
-AUDIT = HERE / "mlp2_error_rayleigh_v1_collector_independent_audit.json"
+AUDIT = HERE / "mlp2_error_rayleigh_v2_collector_independent_audit.json"
 ROWS_RECEIPT = BQ / "mlp2_error_rayleigh_v1_rows_receipt.json"
-PREDICTOR_RECEIPT = HERE / "mlp2_error_rayleigh_v1_design_predictor_receipt.json"
-PREDICTOR_BUNDLE = HERE / "mlp2_error_rayleigh_v1_design_predictor_bundle.pt"
-PREDICTOR_AUTHORITY = HERE / "mlp2_error_rayleigh_v1_design_predictor_authority.json"
-PREDICTOR_AUDIT = HERE / "mlp2_error_rayleigh_v1_design_scorer_independent_audit.json"
+PREDICTOR_RECEIPT = HERE / "mlp2_error_rayleigh_v2_design_predictor_receipt.json"
+PREDICTOR_BUNDLE = HERE / "mlp2_error_rayleigh_v2_design_predictor_bundle.pt"
+PREDICTOR_AUTHORITY = HERE / "mlp2_error_rayleigh_v2_design_predictor_authority.json"
+PREDICTOR_AUDIT = HERE / "mlp2_error_rayleigh_v2_design_scorer_independent_audit.json"
+RECOVERY_AMENDMENT = HERE / "MLP2_ERROR_RAYLEIGH_DESIGN_V2_RECOVERY_AMENDMENT.md"
+V1_DESIGN_AUTHORITY = HERE / "mlp2_error_rayleigh_v1_design_authority.json"
+V1_DESIGN_FAILURE = HERE / "mlp2_error_rayleigh_v1_design_failure.json"
+V1_DESIGN_LEDGER = HERE / "mlp2_error_rayleigh_v1_design_ledger.pt"
+V1_DESIGN_RECEIPT = HERE / "mlp2_error_rayleigh_v1_design_receipt.json"
+V1_AUTHORITY_SHA = "d5d6f785a61568ed1aa6979af1eeea76183d1ffb6f080415cc294a68252ae8db"
+V1_FAILURE_SHA = "a8b6a88d342db2f2b2e3720cf87bb40caac4333d240dc27e04498d078585bbba"
 SOURCE_PATHS = tuple(dict.fromkeys((
-    PREREG, ADDENDUM, RUNNER, TEST, CORE, CORE_TEST,
+    PREREG, ADDENDUM, RECOVERY_AMENDMENT, RUNNER, TEST, CORE, CORE_TEST,
     HERE / "mlp2_error_rayleigh_metrics.py",
     HERE / "test_mlp2_error_rayleigh_metrics.py",
     HERE / "mlp2_error_rayleigh_predictor.py",
@@ -121,7 +128,7 @@ def validate_audit(sources: Mapping[str, str]) -> tuple[dict[str, Any], str]:
         "audited_source_hashes", "tests_passed", "reviewer",
     }
     if set(value) != required or value.get("schema") != (
-        "mlp2_error_rayleigh_v1_collector_independent_audit"
+        "mlp2_error_rayleigh_v2_collector_independent_audit"
     ) or value.get("status") != "GO" or value.get("outcome_access") is not False \
             or value.get("audited_source_hashes") != dict(sources) \
             or not isinstance(value.get("tests_passed"), int) \
@@ -136,7 +143,7 @@ def validate_audit(sources: Mapping[str, str]) -> tuple[dict[str, Any], str]:
 def role_paths(role: str) -> dict[str, Path]:
     if role not in ROLE_NAMES:
         raise ValueError("collector role changed")
-    stem = f"mlp2_error_rayleigh_v1_{role.lower()}"
+    stem = f"mlp2_error_rayleigh_v2_{role.lower()}"
     return {
         "authority": HERE / f"{stem}_authority.json",
         "ledger": HERE / f"{stem}_ledger.pt",
@@ -144,6 +151,26 @@ def role_paths(role: str) -> dict[str, Path]:
         "failure": HERE / f"{stem}_failure.json",
         "lock": Path(f"/workspace/runs/.{stem}.lock"),
     }
+
+
+def validate_spent_v1_design() -> dict[str, str]:
+    authority, authority_sha = stable_json(V1_DESIGN_AUTHORITY, V1_AUTHORITY_SHA)
+    failure, failure_sha = stable_json(V1_DESIGN_FAILURE, V1_FAILURE_SHA)
+    if authority_sha != V1_AUTHORITY_SHA or failure_sha != V1_FAILURE_SHA \
+            or authority.get("schema") != "mlp2_error_rayleigh_v1_collector_authority" \
+            or authority.get("role") != "DESIGN" \
+            or failure != {
+                "artifact_hashes": {"authority": V1_AUTHORITY_SHA},
+                "authority_exists": True,
+                "error": "TypeError('Got unsupported ScalarType BFloat16')",
+                "model_or_response_may_have_opened": True,
+                "protected_observation": {"status": "matches"},
+                "role": "DESIGN",
+                "schema": "mlp2_error_rayleigh_v1_collector_failure",
+                "status": "terminal_failure_no_receipt",
+            } or V1_DESIGN_LEDGER.exists() or V1_DESIGN_RECEIPT.exists():
+        raise RuntimeError("spent Rayleigh DESIGN v1 failure chain changed")
+    return {"authority_sha256": authority_sha, "failure_sha256": failure_sha}
 
 
 def stable_json(path: Path, expected: str | None = None):
@@ -277,7 +304,7 @@ def validate_predictor_unlock() -> tuple[dict[str, Any], str]:
         "audited_source_hashes", "tests_passed", "reviewer",
     }
     if set(scorer_audit) != audit_required \
-            or scorer_audit.get("schema") != "mlp2_error_rayleigh_v1_design_scorer_independent_audit" \
+            or scorer_audit.get("schema") != "mlp2_error_rayleigh_v2_design_scorer_independent_audit" \
             or scorer_audit.get("status") != "GO" or scorer_audit.get("outcome_access") is not False \
             or scorer_audit.get("audited_source_hashes") != scorer_authority["source_hashes"] \
             or scorer_audit.get("reviewer") != scorer_authority["audit_reviewer"] \
@@ -323,6 +350,7 @@ def parent_snapshot() -> dict[str, Any]:
         "program_integrity": prior.expected_program_integrity(),
         "row_receipt_sha256": file_sha256(ROWS_RECEIPT),
         "checkpoint": facade.validate_snapshot().__dict__,
+        "spent_design_v1": validate_spent_v1_design(),
     }
 
 
@@ -458,6 +486,16 @@ def control_seed(role: str, program_index: int, background_index: int) -> int:
         + 10*background_index
 
 
+def tensor_sha256_raw(value: torch.Tensor) -> str:
+    """Hash dtype, shape, and exact raw bytes without NumPy dtype conversion."""
+    tensor = value.detach().cpu().contiguous()
+    digest = hashlib.sha256()
+    digest.update(str(tensor.dtype).encode())
+    digest.update(json.dumps(list(tensor.shape), separators=(",", ":")).encode())
+    digest.update(tensor.view(torch.uint8).numpy().tobytes())
+    return digest.hexdigest()
+
+
 def expected_calls() -> dict[str, int]:
     batches = DOCUMENTS // BATCH_SIZE
     outer = 2*batches + 3*2*3*4*batches + 3*2*2*batches
@@ -496,14 +534,14 @@ def collect(model, rows: torch.Tensor, programs, c512, device, role: str):
             control_hashes[f"{program_name}|{background}"] = {
                 "seed": seed,
                 "bindings": {
-                    "mlp2_state": row_life.base.tensor_sha256(bank["state"]),
-                    "native_write": row_life.base.tensor_sha256(bank["native"]),
-                    "candidate_write": row_life.base.tensor_sha256(
+                    "mlp2_state": tensor_sha256_raw(bank["state"]),
+                    "native_write": tensor_sha256_raw(bank["native"]),
+                    "candidate_write": tensor_sha256_raw(
                         bank["candidate"][program_name]
                     ),
                 },
                 "errors": {
-                    name: row_life.base.tensor_sha256(value) for name, value in controls.items()
+                    name: tensor_sha256_raw(value) for name, value in controls.items()
                 },
             }
             for ci, control_name in enumerate(core.CONTROL_NAMES):

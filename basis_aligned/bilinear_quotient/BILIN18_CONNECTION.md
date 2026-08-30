@@ -58938,3 +58938,45 @@ program, not a discovered fact about bilin18.
 **Open.** The map knee is bracketed between layers 5 and 9 by the 1.71× marginal step, and that step
 averages four sites. **Layers 0–7 would halve the bracket**, and §2015's content profile has mlp6 at
 0.00012 and mlp8 at 0.00138 — an order of magnitude apart — so the knee may sit inside it.
+
+## §2024 — the map knee is at layer 8 at the deployed coverage and absent at the other
+
+`ops/where_is_the_map_knee.py`, **207.9s**, **DISCOVERY ONLY**, both coverages, rung 3 — §2023's open
+question. **pred_a True | pred_b True | pred_c True | pred_d False | derived controls True.** Reference
+deviation 0.000000. Steps normalised to two sites, against the 0.000177 nats two sites' map cut releases.
+
+```
+  cost of extending the rank-256 map cut, per two sites            5,419            16,110
+  layers 4→5                                                  +0.000031  0.18×   +0.000011  0.06×
+  layer  6                                                    +0.000105  0.59×   +0.000059  0.33×
+  layer  7                                                    +0.000117  0.66×   +0.000119  0.67×
+  layers 8–9                                                  +0.000504  2.85×   +0.000137  0.78×
+```
+
+> **pred_b and pred_c PASSED: at the deployed coverage the cut runs to layer 7 and stops at 8.** Every
+> step through layer 7 costs 0.18× to 0.66× what it releases; layers 8–9 cost **2.85×**. **§2023 stopped
+> at layer 5 on a four-site average; two more sites are free.**
+
+> **pred_d FAILED, and the failure is a real coverage dependence rather than noise. At 16,110 no step
+> fails — layers 8–9 cost 0.78×, still free.** The knee is at layer 8 at 5,419 and beyond layer 9 at
+> 16,110. **The map acts only on uncovered rows, and 16,110 halves that arm, so a poorer map costs less
+> there; the knee moving outward with coverage is the expected direction and it is the first parameter in
+> this build measured to move at all.**
+
+**BUILD REFINED, superseding §2023's map cut.**
+
+> **36 tables at {attn 384; mlp 768 at layers 0–9, mlp 1152 at layers 10–17}; uncovered rows 30%
+> output-NN neighbour, 70% map at rank 640 — except rank 256 at MLP layers 0–7. 202.6M values at 5,419**,
+> against §2023's 204.4M and §2020's 209.7M. **CE cost 0.236 milli-nats, parameters released worth 0.71 —
+> net +0.47 of budget, against §2023's +0.40.**
+
+**Two coverages now want different builds, and I am shipping the deployed one.** At 16,110 the cut should
+run at least to layer 9 (net +0.62). §1960 asked exactly this question for the allocation and found one
+build within 0.002 nats of both optima; **the map cut is the first parameter where that no longer holds**,
+and the disagreement is 1.8M values — small, but it is a disagreement rather than a shared optimum.
+
+**Open.** Every knee found since §2020 — table rank at layer 10, map rank at layer 8 — sits in the middle
+of the stack with no native explanation (Codex's certificate, §2023). **The two knees are two layers apart
+and both separate "late" from "early" sites. Whether they are the same boundary seen through two
+parameters, or two boundaries, is one arm: move the table-rank knee to 8 and the map knee to 10 and see
+which pairing loses less.**

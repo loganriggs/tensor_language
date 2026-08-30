@@ -2565,3 +2565,24 @@ pooled test decides.**
 recommendation was wrong. See [[LESSON 91]] and [[LESSON 93]] on unit errors in bars, and [[LESSON 99]] on
 naming the quantity a number is a share of — three versions of the same failure to check what the number
 in front of me actually was.
+
+## LESSON 102 — a warning the runner cannot act on before results land is not a control
+
+**MEASURED 2026-08-30: six GPU runs in one session were thrown away because a plan's covered-input control
+was ill-formed.** No same-spec pair at all (§1996 run 1, §2013 run 1); a fallback partner at a *partial*
+site set, where the §1765/§1936 inertness guarantee does not hold (§1996 run 2); two different composite
+arms paired as same-spec (§2014 run 1); a whole-table `meanrow` arm paired with a fallback variant (§1983
+run 1). **Every one was decidable from the plan alone, eight lines above the first GPU call.**
+
+`inertness_pairs` already printed a WARNING for the vacuous cases — and the run proceeded, spent 44 to 450
+seconds, and reported `control_is_two_sided=False` at the end. **The information existed before the cost
+and was spent after it.**
+
+**The fix is not a better warning, it is an earlier refusal.** `run()` now raises on a vacuous control side
+before constructing the `Program`, and `BQLIB_DRYRUN=1` makes it validate and exit — which
+`ops/enqueue.sh` runs on every script at queue time, GPU-free, in **2.0 seconds**. All 38 existing scripts
+pass it unchanged.
+
+**The general shape:** when a check can run before the expensive step, a warning at that point is a bug in
+the check, not a courtesy. Ask of every diagnostic: *could this have refused instead?* See [[LESSON 98]] —
+the same control, failing for the same reason, three times before I made it cheap to fail early.
