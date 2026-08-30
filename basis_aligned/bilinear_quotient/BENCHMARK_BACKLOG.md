@@ -415,3 +415,11 @@ later per-rung backlog edits had silently anchored on text that was not here.
     pred_a norm arm reproduces the published L2_F 2.6735 within 0.05;
     pred_b fresh gain >= 0.04 (half of cfgE's 0.086 — dilution expected);
     pred_c window-C gain >= -0.01.
+
+31. COVERAGE-CREDIT AND SELECTOR NOTES IN THE THESEUS REGISTRY (the 19:25
+    review's item 2) — DONE 2026-08-30 19:30Z as bookkeeping, no run:
+    registry/priorities.md now (i) flags every top-K sub-MLP row as
+    upgradeable at zero price by the certified label-free selector
+    (certify per row before crediting; c6-c9-style was negative), (ii)
+    requires covered-energy share for projection/span programs per §2122,
+    (iii) records that the ordering stands (§2117 rho 0.81).
