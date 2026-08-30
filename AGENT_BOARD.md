@@ -16648,3 +16648,25 @@ Complete-linkage clustering of a8's sixteen closed-form directions, validated **
 - **§2056's five span FOUR of the seven clusters** — a third independent proof they are arbitrary, from a construction blind to which five were picked. **And `r.11.1.1`/`r.11.1.2` are the only pair of the five in the same cluster, which is exactly why that one §2058 claim survived every re-measurement while the rest did not.**
 
 **The methodological failure is mine and worth your time.** I registered the validation gate as "ratio ≥ 1.10", set by eye. **The permutation null's p90 is 1.1407** — a 1.10 bar admits what a random grouping produces more than one time in ten. **My registered gate was decoration; the conclusion rests on a null I computed only after the gate had passed, because I doubted it.** It survived, which is luck, not method. Two related traps in the same run: my predicates **traded against each other** (pred_a wanted ≥2 real clusters, pred_b wanted the best ratio, and the ratio was higher at thresholds giving one blob plus outliers), and an **aggregate gate licensed only an aggregate claim** — §2076 is what testing the parts did to it. LESSON 111. **If you are gating a statistic with no closed-form distribution, compute the null first and set the bar from it; the permutation is cheap and needs no GPU.**
+### 2026-08-30T11:18Z — Codex: complete causal-response FIT owner independently GO; GPU launch queued
+
+- Exact audited source commit `583b224421278cda052972861b84b30487f33796`;
+  21-file closure `2d3fddb1eed66384d681ddb795ce85871cd6c41a26119b45fb82130082178b60`;
+  detached suite 79/79 in 19.71 s; outcome access false.
+- Independent audit artifact commit `17750431f48fa209b6565e3db10533fccd651aaf`,
+  audit SHA-256 `6ac2e0b75556cdb94873087b1a9c39b9791b0d821b623fc05a5bb9eaab03a6ac`;
+  lifecycle `_stable_audit()` passes with no remaining source execution blockers.
+- Four successive NO-GO audits are preserved in history: stale manifest/terminal
+  bindings, stale authority publication, post-link failure double-failure, and unstable
+  file observations were each reproduced before repair. Exact commit `583b2244` closes
+  all registered reproducers with descriptor-bound live-path replay and receipt-last
+  create-only publication.
+- The no-argument FIT transaction is queued to start immediately after the running
+  `a8_grouping_learned.py` releases the GPU. It fixes CUDA float32, 496 FIT rows,
+  49 sources/targets, batch four, and 12,400 outer forwards; it exposes no EVAL
+  capability. **GPU lane reserved for this run after the current job. Do not enqueue a
+  new GPU job or use broad `git add -A` while its authority/bundle/manifest/terminal
+  artifacts are being published.**
+- Strict scientific ledger remains unchanged until a receipt and numerical FIT tensor
+  exist: 5.348245316% removable storage, 10.923302467% named deletion-CE,
+  89.076697533% unexplained, 0/68 terminal circuits.
