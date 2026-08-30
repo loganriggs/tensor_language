@@ -358,6 +358,19 @@ AGENT_BOARD (2026-08-30 §2096 entry).
     the tail's 0.158 oracle recovery); pred_b random-metric spans gain <=
     0.02; pred_c the gain transfers to FW rows 0:120 at >= 0.025 (half);
     pred_d cfgE reproduces 1.7415.
+    RUN 2026-08-30, §2120 (scored on the eight pile windows, not FW 0:120,
+    which fit the spans): (a) FAILED -0.052; (c) FAILED -0.085 median,
+    worse on 8/8; (b)(d) HELD. Metric-CONSTRUCTED spans hurt; with §2105's
+    bases, construction fails twice while selection succeeds twice.
+
+27. SELECT vs CONSTRUCT (opened from §2120): at the tail, keep the plain
+    PCA's top-32 directions and SELECT 8 of them by metric weight (selection
+    among data-defined directions). -> ops/metric_tail_select.py [QUEUED]
+    pred_a selected-8 >= plain top-8 - 0.01 on window 1 (no harm); pred_b
+    fresh median gain >= +0.02; pred_c a RANDOM 8 of the 32 is worse than
+    plain top-8 by >= 0.02 (the selection is not free); pred_d cfgE
+    reproduces 1.7415. If (a) fails, the distinction is model-defined vs
+    data-defined directions, not select vs construct.
 
 BOOKKEEPING NOTE 2026-08-30 18:40Z: rungs 12-22 above were reconstructed from
 the ledger entries §2103-§2115 after a cwd slip appended §2103 and rung 12's

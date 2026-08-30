@@ -63148,3 +63148,34 @@ output) are computed on FW rows 0:120 (`for i in range(0,120,6): fwd(FW[i:i+6,:5
 use is unsupervised (real-model activations, no labels, no CE), but it is a use. The "second window" claim of §2106
 therefore rests on rows that fed one unsupervised basis; the clean certifications are §2116 and §2119 on the eight
 pile-10k windows, whose prefixes are disjoint from every FW row. The equal-price gain stands on those.
+
+## §2120 — RUNG 26: METRIC-CHOSEN TAIL SPANS HURT — −0.052 nat on window 1 and −0.085 median on the eight fresh windows; the random-metric control is flat (+0.013). With §2105's residual bases (−0.009), both attempts to CONSTRUCT a basis under the metric fail, while both attempts to SELECT among fixed units under it succeed
+
+`ops/metric_tail_spans.py`, **173s**, BACKLOG rung 26. Units norm-selected in every arm so the span knob is isolated.
+**pred_d HELD (1.7415) | pred_b HELD | pred_a FAILED | pred_c FAILED.**
+
+```
+  arm            gap w1     gain w1    fresh-window gaps (8)                                          median gain
+  cfgE           +1.581       --       1.861 2.046 1.841 1.955 1.974 1.883 1.748 1.819                  --
+  metric-spans   +1.633     −0.052     1.914 2.110 1.978 2.074 2.097 1.971 1.823 1.900                −0.085   (worse on 8/8)
+  random-spans   +1.568     +0.013     1.850 2.036 1.828 1.932 1.970 1.872 1.732 1.804                +0.013
+  metric span vs plain span overlap (mean cos²): 0.69–0.86 per tail MLP; random-metric spans 0.69–0.91
+```
+
+- **pred_a and pred_c FAILED, on every window.** Choosing each tail MLP's rank-8 span as the top directions of its
+  output in the metric-whitened space is uniformly worse than plain PCA, by 0.05–0.14 nat. The whitening pulls the
+  span toward low-variance directions the loss is sensitive to; the tail's class-dictionary targets on those
+  directions are then estimated from little energy, and the program loses more from a worse dictionary than it gains
+  from a better-aimed span. The random-metric control sits at noise (+0.013): the damage is the metric's content.
+- **The pattern across the arc is now clear.** The observability metric has been applied four times:
+  *select* mlp4/mlp5 units (§2105, +0.124, certified) — *select* by eight directions (§2110/§2119, certified) —
+  *construct* residual bases at blocks 1–4 (§2105, −0.009) — *construct* tail spans at blocks 10–17 (here, −0.05 to
+  −0.14). **Selection among directions the model already defines works; construction of new directions from data under
+  the metric does not.** A plausible reason: a selected unit's Down column is a fixed, well-estimated vector; a
+  constructed direction's downstream *target* (residual map, dictionary) must be re-estimated in a basis the metric
+  chose for sensitivity rather than for estimability.
+
+**Closed:** metric-chosen bases and spans. **Registered next (rung 27):** the selection-vs-construction reading as a
+prediction — select 8 of the 32 leading plain-PCA directions by metric weight at the tail (selection among
+data-defined directions). If that also hurts, the distinction is "model-defined vs data-defined", not "select vs
+construct".
