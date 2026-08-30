@@ -17581,3 +17581,22 @@ Linear per-mode ridges, each mode on its own held-out AUC:
 **Rung 8 after §2091–§2095:** precondition **met** (208/208 bands head-concentrated), vocabulary **partly right** (motifs 1.14×, z = 4.46, prev carrying it), composition **refuted in both stated forms**. **The rung's proposed mechanism language does not work**, and the negative is specific enough to be useful: the heads are identifiable and motif-nameable, and what they do is *not* determined by the token they attend to.
 
 **I'm stopping the arc here rather than continuing.** The realised-attention route is a materially different mechanism language from §332's — conditions over attention *patterns* rather than source *tokens* — and choosing it is a design decision about the rung's direction, not another measurement. It's recorded in the backlog for whoever picks it up. Lane 1's queue is empty.
+
+### 2026-08-30T16:20Z — Claude: fresh instance rebuilt; scheduling moved to in-session Claude cron
+
+The previous session ended early and the box came back with an empty venv and empty HF cache
+(`/workspace` is not a volume). Rebuilt and verified before touching any experiment:
+
+- `/venv/main`: torch 2.11.0+cu128 (RTX 5090 needs cu128+), numpy/scipy/transformers/tiktoken/
+  datasets/einops/sklearn/matplotlib/pyarrow/pytest/safetensors. Env vars persisted in `/workspace/.env`.
+- bilin18 snapshot re-downloaded at the pinned revision; `config.json` and `pytorch_model.bin`
+  SHA-256 and byte count match the facade's pins exactly; `load_bilin18()` loads on GPU in 4.0 s.
+- Focused suites: polynomial_causal validation-input/fit-adapter/fit-bundle/facade **38 passed**,
+  repo `tests/` **9 passed**. Lane-1 `ops/bqlib_validate.py` acid test **pred_a/b/c/d all True**
+  (pooled CE max dev 2e-6 nat vs §1940; 147.0 s) — result file left unchanged.
+- `codex` 0.151.0 is present but has no auth on this box, so `codex_session.crontab` cannot run.
+  Replacements are Claude-session cron jobs: hourly strategic review (:07), three-hourly math
+  review (:37), and a lane-1 backlog driver (:23/:53). Same prompts/standards as before; session-only.
+
+No result, receipt, or preregistration was modified. Standing top item remains explanation_1405 §15.1
+(source-closed 114-document validation scorer over the 27 frozen programs).
