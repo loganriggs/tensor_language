@@ -7,8 +7,10 @@ primary evidence.
 
 ## Start here
 
-- [`explanation_0326.md`](explanation_0326.md) — newest synthesis, written 2026-08-30
-  at 03:26 UTC.
+- [`explanation_0555.md`](explanation_0555.md) — newest synthesis, written 2026-08-30
+  after the MLP0 cutoff and induction FINAL/code-OOD result.
+- [`explanation_0326.md`](explanation_0326.md) — preceding synthesis, written
+  2026-08-30 at 03:26 UTC.
 - [`CURRENT_PROJECT_UPDATE_PLAIN_ENGLISH_2026-08-30_0015.md`](CURRENT_PROJECT_UPDATE_PLAIN_ENGLISH_2026-08-30_0015.md)
   — previous detailed update, including the layer-10 rank result and downstream-error
   experiment.

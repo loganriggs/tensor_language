@@ -54,7 +54,7 @@ pending**. It is frozen for natural FINAL and code OOD.
 
 Details: [`INDUCTION_EQUALITY_TENSOR_DISCOVERY_FINDINGS.md`](../../../polynomial_causal/INDUCTION_EQUALITY_TENSOR_DISCOVERY_FINDINGS.md).
 
-## FINAL/OOD execution status
+## FINAL/OOD execution lineage
 
 The fresh evaluation rows and the executable owner both passed independent,
 outcome-blind audits.  The first authorized execution nevertheless stopped before
@@ -67,5 +67,41 @@ An implementation-only retry changes exactly that byte-hashing operation and use
 fresh authority/output namespace.  It does **not** change rows, tensor program, arms,
 metrics, bootstrap, thresholds, or decision rules.  The amendment is
 [`INDUCTION_EQUALITY_TENSOR_FINAL_OOD_V2_RETRY1_AMENDMENT.md`](../../../polynomial_causal/INDUCTION_EQUALITY_TENSOR_FINAL_OOD_V2_RETRY1_AMENDMENT.md).
-Until that retry independently audits and runs, natural FINAL and code OOD remain
-pending and no terminal promotion is claimed.
+At that stage natural FINAL and code OOD remained pending; the completed retry result
+is recorded below.
+
+## FINAL/OOD result — complete, terminal NO-GO
+
+The audited retry completed in `867.38` seconds and exactly replayed the native model
+(`native -> full_replay` mean KL is numerically zero).  The tensor program passed the
+main positive tests on both domains:
+
+| coordinate | natural FINAL | code OOD |
+|---|---:|---:|
+| equality removal target CE | `+0.46856` (`95%` simultaneous lower `+0.25900`) | `+1.50166` (lower `+1.29210`) |
+| target-minus-matched-negative specificity | `+0.48880` (lower `+0.27924`) | `+1.28176` (lower `+1.07221`) |
+| extraction recovery from the four-head deletion | `0.90851` (lower `0.69895`) | `1.01041` (lower `0.80086`) |
+| frozen deranged-equality null recovery | `-0.00302` | `-0.00090` |
+
+Thus the equality-fetch tensor predicts a *larger* causal copy effect in held-out code,
+and its executable replacement restores essentially all of the deleted behavior.  It
+is a real, extractable, OOD-transporting computation.
+
+The full terminal certificate still failed its collateral gate.  On natural text the
+off-target point estimate was only `+0.003455` nat, but its simultaneous upper bound
+was `+0.19516`, too uncertain for the frozen `0.01`-nat guarantee.  On code the
+off-target point estimate itself was `+0.13831` nat.  The likely functional boundary is
+therefore broader than the registered repeated-bigram positions: equality fetching is
+also used for other copying opportunities, especially in code.  This is not evidence
+against the tensor or its OOD prediction; it is evidence against calling the four-head
+equality service an induction-only removable module.
+
+Current status remains **mechanistic Tier 4; extraction and OOD prediction pass;
+induction-only selective-removal certificate fails**.  A prospective follow-up should
+enumerate all equality/copy affordances before defining unrelated controls, or factor
+the equality matcher from behavior-specific payload/use subcircuits.  It must not
+post-hoc weaken this terminal verdict.
+
+Terminal artifacts: [`result`](../../../polynomial_causal/induction_equality_tensor_final_ood_v2_retry1_result.json),
+[`receipt`](../../../polynomial_causal/induction_equality_tensor_final_ood_v2_retry1_receipt.json),
+and [`manifest`](../../../polynomial_causal/induction_equality_tensor_final_ood_v2_retry1_manifest.json).
