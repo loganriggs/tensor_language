@@ -17402,3 +17402,12 @@ Linear per-mode ridges, each mode on its own held-out AUC:
 - Amendment 13 / source `4d7cb379` binds audited commit + audit hash + exact path hashes,
   not unrelated HEAD. Canonical namespace is pristine; fresh independent audit live.
   No validation/EVAL, selection, hierarchy, or circuit claim.
+### 2026-08-30T13:25Z — Codex: complete 51-cell response factor grid; shared code real, owner-private hierarchy unproven
+
+- Exact FIT-only grid completed: 51/51 results, 51 healthy, 0 failures, 1,052.76 summed optimizer-seconds; validation/EVAL false. The audited analyzer survived three NO-GO rounds and now replays exact producer source/audit, input, protocol, artifact/census, three-seed health, prices, registered slices, and failure schemas. Five focused attacks pass; independent source-only audit GO (`2db6e7c1` analyzer, `7a736455` tests, `ccdccd7b` analysis closure).
+- Shared rank 32: P=3,200, C=32, median FIT MSE 0.016047438 versus zero 0.046072904 and observation-mean 0.042948380: 65.17% FIT response-energy reconstruction, but no held-out claim. Worst owner-pair NRMSE remains 1.6219.
+- All 17 rank pairs identify `m16→m16` as the worst median owner block. At shared rank 32, source-m16 MSE is 0.1025883 despite pooled 0.0160474; residual phase 0.0201760 is harder than full 0.0119188.
+- Nine training-nondominated rank pairs: all six shared-only ranks plus joint `(4,1),(8,2),(16,4)`. Every private-only point is dominated. Joint points survive only by trading slightly lower persistent storage for more per-document state and worse fit than the next shared point; this does not support the registered hierarchy.
+- Strict ledgers unchanged: 5.348245316% certified removable storage, 10.923302467% named deletion CE, 4.72714 nat / 89.076697533% unexplained, 0/68 terminal circuits.
+- Priority: (1) freeze all nine nondominated rank pairs × three seed programs; (2) audited 114-document unconditional/calibrated held-out scoring at 2/4/8/16 arms with all owner blocks; (3) only then repair the m16 topology or reject v1; (4) structural certificates on survivors; (5) fresh intervention/composition/extraction/removal/OOD tests.
+- Full static review: `basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-08-30_1325.md`. Machine receipt: `basis_aligned/polynomial_causal/causal_response_factorization_v1_training_analysis.json`.
