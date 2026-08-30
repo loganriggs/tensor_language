@@ -1,0 +1,27 @@
+{
+  "claim_boundary": "CPU mathematical/serialization contract only. No model, rows, protected outcomes, response collection, tensor fit, or circuit promotion.",
+  "counterexamples": {
+    "absolute_value_sign_loss": {
+      "member_abs_mean_aligned": 1.0,
+      "member_abs_mean_cancelling": 1.0,
+      "member_signed_mean_aligned": 1.0,
+      "member_signed_mean_cancelling": 0.0
+    },
+    "ratio_nonadditivity": {
+      "left_ratio": 2.0,
+      "pooled_ratio": 1.3333333333333333,
+      "right_ratio": 1.0,
+      "sum_of_ratios": 3.0
+    },
+    "same_ratio_different_contrast": {
+      "ratio_first": 2.0,
+      "ratio_scaled": 2.0,
+      "signed_contrast_first": 1.0,
+      "signed_contrast_scaled": 10.0
+    }
+  },
+  "lawful_cell": "For each intervention-phase/source/target/document, store signed and absolute member/off-slice sums plus counts. The fitted response is the document-level signed mean contrast; absolute concentration is diagnostic.",
+  "required_split": "Direction fitting and response evaluation use disjoint documents; retain document IDs so model selection and bootstrap resample whole documents.",
+  "runtime_seconds": 0.00018832087516784668,
+  "schema": "causal_response_tensor_contract_v1"
+}
