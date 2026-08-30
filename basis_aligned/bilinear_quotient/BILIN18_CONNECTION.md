@@ -59611,3 +59611,45 @@ rows. **Two of the four axes came back correct (§2022 attention, §2026 α); bo
 whether §1959's own build survives the fresh window against the earlier designs it superseded** — §2037
 measured it beating §1789's deployed design by +127.889 there, which is one comparison, and the arc from
 §1946 to §1959 made several supersessions by the same in-sample method now shown to fail.
+
+## §2041 — the restored build's ancestry holds out-of-sample, except that α 0.30 cannot be separated from 0.50
+
+`ops/does_the_1959_build_survive_fresh.py`, **194.3s**, **DISCOVERY ONLY**, 5,419, rung 3 — §2039's open
+question. **pred_a True | pred_b True | pred_c True | pred_d False | derived controls True.** No crashed
+predicates. 98,304 fresh positions.
+
+```
+  §1959's build beats each superseded alternative, FRESH WINDOW
+  §1947 attention 256   (§1957 chose 384)    +16.561 mn   t +38.96
+  §1961 α 0.10          (rejected end)       +34.213 mn   t +27.03
+  §1949 map rank 512    (§1959 chose 640)     +0.696 mn   t  +6.45
+  §1961 α 0.50          (rejected end)        +1.321 mn   t  +1.38
+```
+
+> **pred_a, pred_b and pred_c PASSED: every §1946–§1959 decision points the same way on rows that had no
+> say.** The restored build of record has a validated ancestry, which is what §2039's open question asked
+> and the answer that keeps the retraction from cascading.
+
+> **But pred_d FAILED, and one of the four margins is inside the noise. §1961's α 0.30 beats the rejected
+> 0.50 end by +1.321 milli-nats at t = +1.38** — **|t| < 2, indistinguishable from zero on 98,304
+> positions.** §1961 chose 0.30 over 0.50 on the three selecting roles; **on fresh rows that particular
+> comparison is not established.** α 0.30 is not shown *worse* than 0.50 — it is not shown better.
+
+> **And §1959's namesake decision is small. The rank-640 map beats rank-512 by +0.696 milli-nats** —
+> significant at t = +6.45, but in the same 0.1%-of-scale regime LESSON 106 was written about. **The
+> difference from the retracted arc is decisive though: this margin is positive and significant on rows
+> that did not choose it, where every arc margin reversed.** Small and validated is not the same as small
+> and fitted, and §2040 is the run that distinguishes them.
+
+**Where the build of record stands, stated completely.** **§1959's build — {mlp 768, attn 384}, uncovered
+rows 30% output-NN neighbour / 70% rank-640 map, 189.5M values.** Out-of-sample it beats §1789's deployed
+design by **+127.889** (§2037), its allocation beats the superseded one by **+16.561**, its blend beats the
+low end by **+34.213**, and its map rank beats the previous by **+0.696**. **One parameter — α against its
+high end — rests on in-sample evidence only.**
+
+**Open, and it is the largest remaining lever.** §2026 measured α as the most sensitive parameter in the
+build: moving it 0.20 at eight sites cost 11.0 milli-nats, where the entire retracted arc claimed 3.3.
+**The fresh window cannot separate 0.30 from 0.50, and α has never been swept on it.** §2027's in-sample
+grid put the optimum at 0.28 and §1967's stopping rule called the axis flat — **both conclusions were
+reached on the rows that chose the value**, and after §2037 that is precisely the evidence that does not
+transfer.

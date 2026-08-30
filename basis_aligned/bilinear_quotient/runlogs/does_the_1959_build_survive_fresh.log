@@ -1,0 +1,21 @@
+DOES THE 1959 BUILD SURVIVE FRESH | 7 arms x 1 coverage(s) | DISCOVERY ONLY
+
+########## COVERAGE 5419 ##########
+  [bqlib] coverage 5419 from fineweb_n96_skip80.pt: 36 tables, neighbour index and map solver built (4s)
+  [bqlib] cache HIT  live     fresh
+  [bqlib] cache HIT  mix30m640 fresh
+  [bqlib] computed   mix30m512 fresh (3.5s)
+  [bqlib] cache HIT  mix30m640 fresh
+  [bqlib] computed   mix10m640 fresh (6.0s)
+  [bqlib] computed   mix50m640 fresh (6.3s)
+  [bqlib] cache HIT  map512   fresh
+  [bqlib] computed   mix30m640 fresh (3.5s)
+
+  §1959's rank-640 map still beats §1949's rank-512 on fresh rows  -> True
+  and §1957's attention 384 still beats §1947's attention 256 there  -> True
+  and §1961's alpha 0.30 still beats both rejected ends  -> True
+  and every margin exceeds 3.300 milli-nats, the largest gain the retracted arc claimed  -> False
+  derived controls -> True   coverage_exact=True  inert_pairs_are_inert=True  some_differing_pair_moves=True  buckets_partition=True  live_identical=True
+
+pred_a True | pred_b True | pred_c True | pred_d False | pred_z True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/does_the_1959_build_survive_fresh_results.json (194.3s)
