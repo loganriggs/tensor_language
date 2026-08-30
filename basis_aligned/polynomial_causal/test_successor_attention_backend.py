@@ -46,6 +46,9 @@ def test_rank_full_shared_bus_candidate_exactly_replays_native_attention() -> No
     assert receipt.candidate_rank == 4
     assert receipt.candidate_stored_values == 4 * (8 + 4 + 8)
     assert receipt.native_calls_per_forward == 0 and receipt.shared_value_bus
+    assert receipt.target_qk_values_used_from_background == 4 * 4 * 8
+    assert receipt.unused_target_vo_values_still_stored == 2 * 4 * 8
+    assert not receipt.storage_closed
 
 
 def test_deleted_head_matches_literal_zero_of_unprojected_head() -> None:
@@ -79,6 +82,7 @@ def test_full_replay_remains_bit_exact_and_calls_no_native_projection() -> None:
             )
     actual, _ = program(state, None)
     assert torch.equal(actual, expected)
+    assert program.receipt().storage_closed
 
 
 def test_backend_rejects_wrong_saved_dimension_and_inconsistent_arm() -> None:

@@ -25,8 +25,11 @@ class SuccessorBackendReceipt:
     candidate_rank: int
     candidate_stored_values: int
     background_stored_values: int
+    target_qk_values_used_from_background: int
+    unused_target_vo_values_still_stored: int
     native_calls_per_forward: int
     shared_value_bus: bool
+    storage_closed: bool
 
 
 class StoredSuccessorFactors(nn.Module):
@@ -138,14 +141,22 @@ class StoredSuccessorAttention(nn.Module):
     def receipt(self) -> SuccessorBackendReceipt:
         background_values = self.background.cost_receipt().total_stored_values
         candidate_values = 0 if self.candidate is None else self.candidate.stored_values
+        target_qk = 4 * self.background.head_dim * self.background.width
+        unused_vo = (
+            0 if self.arm is SuccessorAttentionArm.FULL_REPLAY
+            else 2 * self.background.head_dim * self.background.width
+        )
         return SuccessorBackendReceipt(
             arm=self.arm.value,
             target_head=self.target_head,
             candidate_rank=0 if self.candidate is None else self.candidate.rank,
             candidate_stored_values=candidate_values,
             background_stored_values=background_values,
+            target_qk_values_used_from_background=target_qk,
+            unused_target_vo_values_still_stored=unused_vo,
             native_calls_per_forward=0,
             shared_value_bus=True,
+            storage_closed=unused_vo == 0,
         )
 
 
