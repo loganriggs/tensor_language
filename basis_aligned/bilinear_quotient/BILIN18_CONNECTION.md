@@ -58848,3 +58848,43 @@ is precisely the conflation that produced §2020's wrong registered direction.
 same uniform sweep that set mlp at 768 — averaging over eighteen attention sites whose contributions
 §1989 already showed differ by 6× (0.05 to 0.31 nats). **The attention rank axis above 384 has never been
 tested per-site, and it is the same instrument, the same failure mode, and one arm away.**
+
+## §2022 — the unexplored region was specific to the MLP tables: attention 384 is correctly bought
+
+`ops/does_attention_want_rank_too.py`, **525.3s**, **DISCOVERY ONLY**, both coverages, rung 3 — §2021's
+open question. **pred_a True | pred_b True | pred_c False | pred_d True | derived controls True.**
+Reference deviation 0.000000. All gains pooled over 92,160 positions.
+
+```
+  increment over §2020's build from untruncating attention sites to rank 1152 (each site adds 5.05M)
+                       5,419                          16,110
+              increment   price    ratio    increment   price    ratio
+  attn 14–17  +0.000053  0.00202   0.03×    +0.000240  0.00202   0.12×
+  attn 10–17  +0.000235  0.00404   0.06×    +0.000397  0.00404   0.10×
+  attn  0–17  +0.000570  0.00909   0.06×    +0.000710  0.00909   0.08×
+```
+
+> **pred_c FAILED, and it is a clean negative rather than a near miss. The late four attention sites buy
+> 0.03× their price at 5,419 and 0.12× at 16,110**, against a bar of 1.0. **Every attention block tested
+> returns between 0.03× and 0.12×, at both coverages.** pred_b passed — the gains are strictly positive,
+> 0.000053 to 0.000710 — so attention tables do carry *something* above 384; it is worth an order of
+> magnitude less than it costs.
+
+> **So §1959's attention 384 was correctly set, and the uniform sweep did not fail on that axis.** The
+> unexplored region §2016–§2021 found is **specific to the MLP tables.** Normalising for price, extra rank
+> at the best MLP block returns **2.1×** and at the best attention block **0.12×** — a **17-fold**
+> difference in what the same parameters buy.
+
+**Which closes the rank line on both axes.** MLP: buy rank 1152 at layers 10–17 (§2020, confirmed §2021),
+worth 3.30 milli-nats pooled at 5,419 for 20.2M. Attention: 384 stands, and going higher anywhere loses
+money by 8× to 30×. **The best-known build is unchanged from §2020**, and §2022 is the arm that says so.
+
+**Why the two axes differ, as far as the ledger can say.** §1989 measured lone attention sites at 0.05–0.31
+nats and lone MLP sites at 0.03–10.67 — attention contributions are small and flat, MLP contributions span
+three orders of magnitude and are back-loaded (§2015). **A uniform rank is a bad fit for a heterogeneous
+axis and a fine one for a homogeneous axis**, which is exactly the pattern §2020 and §2022 report.
+
+**Open.** §1870's **map** is also fit per site — thirty-six of them — and §1959 swept `MAP_RANK`
+**uniformly** and put the turnover at 640. That is the third uniform sweep over a per-site quantity in this
+build, and the only one never re-examined. The composite arm grammar can express a per-site map rank
+without new plumbing.
