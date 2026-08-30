@@ -1,0 +1,410 @@
+{
+  "arms": [
+    "native",
+    "full_replay",
+    "remove_equality",
+    "heads_deleted",
+    "extract_equality",
+    "deranged_equality"
+  ],
+  "bootstrap": {
+    "draws": 20000,
+    "seed": 2026083011
+  },
+  "call_census": {
+    "deranged_equality": {
+      "L5:attention": 0,
+      "L5:k": 0,
+      "L5:k2": 0,
+      "L5:o": 0,
+      "L5:q": 0,
+      "L5:q2": 0,
+      "L5:v": 0,
+      "L7:attention": 0,
+      "L7:k": 0,
+      "L7:k2": 0,
+      "L7:o": 0,
+      "L7:q": 0,
+      "L7:q2": 0,
+      "L7:v": 0,
+      "L8:attention": 0,
+      "L8:k": 0,
+      "L8:k2": 0,
+      "L8:o": 0,
+      "L8:q": 0,
+      "L8:q2": 0,
+      "L8:v": 0
+    },
+    "extract_equality": {
+      "L5:attention": 0,
+      "L5:k": 0,
+      "L5:k2": 0,
+      "L5:o": 0,
+      "L5:q": 0,
+      "L5:q2": 0,
+      "L5:v": 0,
+      "L7:attention": 0,
+      "L7:k": 0,
+      "L7:k2": 0,
+      "L7:o": 0,
+      "L7:q": 0,
+      "L7:q2": 0,
+      "L7:v": 0,
+      "L8:attention": 0,
+      "L8:k": 0,
+      "L8:k2": 0,
+      "L8:o": 0,
+      "L8:q": 0,
+      "L8:q2": 0,
+      "L8:v": 0
+    },
+    "full_replay": {
+      "L5:attention": 0,
+      "L5:k": 0,
+      "L5:k2": 0,
+      "L5:o": 0,
+      "L5:q": 0,
+      "L5:q2": 0,
+      "L5:v": 0,
+      "L7:attention": 0,
+      "L7:k": 0,
+      "L7:k2": 0,
+      "L7:o": 0,
+      "L7:q": 0,
+      "L7:q2": 0,
+      "L7:v": 0,
+      "L8:attention": 0,
+      "L8:k": 0,
+      "L8:k2": 0,
+      "L8:o": 0,
+      "L8:q": 0,
+      "L8:q2": 0,
+      "L8:v": 0
+    },
+    "heads_deleted": {
+      "L5:attention": 0,
+      "L5:k": 0,
+      "L5:k2": 0,
+      "L5:o": 0,
+      "L5:q": 0,
+      "L5:q2": 0,
+      "L5:v": 0,
+      "L7:attention": 0,
+      "L7:k": 0,
+      "L7:k2": 0,
+      "L7:o": 0,
+      "L7:q": 0,
+      "L7:q2": 0,
+      "L7:v": 0,
+      "L8:attention": 0,
+      "L8:k": 0,
+      "L8:k2": 0,
+      "L8:o": 0,
+      "L8:q": 0,
+      "L8:q2": 0,
+      "L8:v": 0
+    },
+    "native": {
+      "L5:attention": 48,
+      "L5:k": 48,
+      "L5:k2": 48,
+      "L5:o": 48,
+      "L5:q": 48,
+      "L5:q2": 48,
+      "L5:v": 48,
+      "L7:attention": 48,
+      "L7:k": 48,
+      "L7:k2": 48,
+      "L7:o": 48,
+      "L7:q": 48,
+      "L7:q2": 48,
+      "L7:v": 48,
+      "L8:attention": 48,
+      "L8:k": 48,
+      "L8:k2": 48,
+      "L8:o": 48,
+      "L8:q": 48,
+      "L8:q2": 48,
+      "L8:v": 48
+    },
+    "remove_equality": {
+      "L5:attention": 0,
+      "L5:k": 0,
+      "L5:k2": 0,
+      "L5:o": 0,
+      "L5:q": 0,
+      "L5:q2": 0,
+      "L5:v": 0,
+      "L7:attention": 0,
+      "L7:k": 0,
+      "L7:k2": 0,
+      "L7:o": 0,
+      "L7:q": 0,
+      "L7:q2": 0,
+      "L7:v": 0,
+      "L8:attention": 0,
+      "L8:k": 0,
+      "L8:k2": 0,
+      "L8:o": 0,
+      "L8:q": 0,
+      "L8:q2": 0,
+      "L8:v": 0
+    }
+  },
+  "cells": {
+    "all": {
+      "documents": 192,
+      "powered": true,
+      "tokens": 36864
+    },
+    "matched_negative": {
+      "documents": 154,
+      "powered": true,
+      "tokens": 303
+    },
+    "off_target": {
+      "documents": 192,
+      "powered": true,
+      "tokens": 33570
+    },
+    "positive": {
+      "documents": 137,
+      "powered": true,
+      "tokens": 303
+    }
+  },
+  "checkpoint": {
+    "config_sha256": "428042bfd807ba36f8b4326395440fbbebe52cd3d040212e6fef14a4fdf2d83c",
+    "logit_vocab": 50304,
+    "revision": "ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240",
+    "snapshot": "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240",
+    "tokenizer_vocab": 50257,
+    "weights_bytes": 2067738635,
+    "weights_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3"
+  },
+  "claim_boundary": "Already-opened SELECT discovery only; FINAL natural, OOD code, and synthetic outcomes unopened; no terminal, uniqueness, compression, or strict-ledger credit.",
+  "documents": 192,
+  "effects": {
+    "deranged_recovery": {
+      "bootstrap_95_high": 0.006170817606720673,
+      "bootstrap_95_low": -0.010839881437146766,
+      "mean": -0.0021626473610845734
+    },
+    "extraction_recovery": {
+      "bootstrap_95_high": 0.9947916418966124,
+      "bootstrap_95_low": 0.9478866002577329,
+      "mean": 0.9739717690344445
+    },
+    "off_target_damage": {
+      "bootstrap_95_high": 0.009824404752947657,
+      "bootstrap_95_low": 0.0029861007371270176,
+      "mean": 0.006263679655359434
+    },
+    "specificity": {
+      "bootstrap_95_high": 0.8066725260403756,
+      "bootstrap_95_low": 0.3403670930048447,
+      "mean": 0.5525127163982794
+    },
+    "target_damage": {
+      "bootstrap_95_high": 0.7605148025677835,
+      "bootstrap_95_low": 0.30746081599360964,
+      "mean": 0.5122487687425222
+    }
+  },
+  "eligible_for_fresh_terminal_run": true,
+  "gates": {
+    "all_named_cells_powered": true,
+    "collateral": true,
+    "deranged_null": true,
+    "extraction": true,
+    "removal_necessity": true,
+    "replay": true,
+    "specificity": true,
+    "zero_native_candidate_calls": true
+  },
+  "heads": {
+    "5": [
+      5
+    ],
+    "7": [
+      3
+    ],
+    "8": [
+      3,
+      4
+    ]
+  },
+  "parents": {
+    "preregistration_sha256": "5879a32f45803a96f050cfb21d68e52a1711ddcb280442e873cb2946bc3d4daf",
+    "rows_receipt_sha256": "aea52a94c643906ef822a7c6ddb37a371b4315507a1a0a79acd539a19ae7f5c8",
+    "runner_sha256": "440573992c1fcfd03d290c971c9547d65632a2821c8b7ba3aaef27d3ac521855",
+    "selection_rows_sha256": "cc8e1c3e468b7bc249e0cf8fc00640955ae17251c7f0c7640350f65a86202cac",
+    "tensor_primitive_sha256": "b2d43be8e260bbe4bfece494999d237d93258f676b19e2993eca09655e253e3a"
+  },
+  "replay": {
+    "maximum_absolute_logit_error": 0.0,
+    "mean_native_to_replay_kl": 0.0,
+    "passed": true
+  },
+  "reports": {
+    "deranged_equality": {
+      "all": {
+        "ce": 3.064194510380427,
+        "native_to_arm_kl": 0.07013644192193169,
+        "tokens": 36864,
+        "top1_change_fraction": 0.0810275607638889
+      },
+      "matched_negative": {
+        "ce": 2.4009689059194557,
+        "native_to_arm_kl": 0.0683730440840537,
+        "tokens": 303,
+        "top1_change_fraction": 0.10231023102310231
+      },
+      "off_target": {
+        "ce": 3.2375636796493916,
+        "native_to_arm_kl": 0.036537456288734005,
+        "tokens": 33570,
+        "top1_change_fraction": 0.07396484956806673
+      },
+      "positive": {
+        "ce": 1.118018455543765,
+        "native_to_arm_kl": 0.38319187089047185,
+        "tokens": 303,
+        "top1_change_fraction": 0.10891089108910891
+      }
+    },
+    "extract_equality": {
+      "all": {
+        "ce": 3.0087949285904565,
+        "native_to_arm_kl": 0.018477674628633797,
+        "tokens": 36864,
+        "top1_change_fraction": 0.05213758680555555
+      },
+      "matched_negative": {
+        "ce": 2.4483129141403506,
+        "native_to_arm_kl": 0.02023430303073021,
+        "tokens": 303,
+        "top1_change_fraction": 0.04950495049504951
+      },
+      "off_target": {
+        "ce": 3.2307480208391515,
+        "native_to_arm_kl": 0.01848234801481336,
+        "tokens": 33570,
+        "top1_change_fraction": 0.054959785522788206
+      },
+      "positive": {
+        "ce": 0.6859668595252905,
+        "native_to_arm_kl": 0.008578396829911995,
+        "tokens": 303,
+        "top1_change_fraction": 0.009900990099009901
+      }
+    },
+    "full_replay": {
+      "all": {
+        "ce": 2.992300182580948,
+        "native_to_arm_kl": 0.0,
+        "tokens": 36864,
+        "top1_change_fraction": 0.0
+      },
+      "matched_negative": {
+        "ce": 2.4180063560801766,
+        "native_to_arm_kl": 0.0,
+        "tokens": 303,
+        "top1_change_fraction": 0.0
+      },
+      "off_target": {
+        "ce": 3.213296516061646,
+        "native_to_arm_kl": 0.0,
+        "tokens": 33570,
+        "top1_change_fraction": 0.0
+      },
+      "positive": {
+        "ce": 0.6747843805950541,
+        "native_to_arm_kl": 0.0,
+        "tokens": 303,
+        "top1_change_fraction": 0.0
+      }
+    },
+    "heads_deleted": {
+      "all": {
+        "ce": 3.064082805481222,
+        "native_to_arm_kl": 0.0702072331300264,
+        "tokens": 36864,
+        "top1_change_fraction": 0.08146158854166667
+      },
+      "matched_negative": {
+        "ce": 2.39923955141121,
+        "native_to_arm_kl": 0.06815418575101966,
+        "tokens": 303,
+        "top1_change_fraction": 0.10231023102310231
+      },
+      "off_target": {
+        "ce": 3.2374628161901087,
+        "native_to_arm_kl": 0.03659764020116975,
+        "tokens": 33570,
+        "top1_change_fraction": 0.07441167709264224
+      },
+      "positive": {
+        "ce": 1.117127831943219,
+        "native_to_arm_kl": 0.38320050720327953,
+        "tokens": 303,
+        "top1_change_fraction": 0.10231023102310231
+      }
+    },
+    "native": {
+      "all": {
+        "ce": 2.992300182580948,
+        "native_to_arm_kl": 0.0,
+        "tokens": 36864,
+        "top1_change_fraction": 0.0
+      },
+      "matched_negative": {
+        "ce": 2.4180063560801766,
+        "native_to_arm_kl": 0.0,
+        "tokens": 303,
+        "top1_change_fraction": 0.0
+      },
+      "off_target": {
+        "ce": 3.213296516061646,
+        "native_to_arm_kl": 0.0,
+        "tokens": 33570,
+        "top1_change_fraction": 0.0
+      },
+      "positive": {
+        "ce": 0.6747843805950541,
+        "native_to_arm_kl": 0.0,
+        "tokens": 303,
+        "top1_change_fraction": 0.0
+      }
+    },
+    "remove_equality": {
+      "all": {
+        "ce": 3.052960745162434,
+        "native_to_arm_kl": 0.058012460981747914,
+        "tokens": 36864,
+        "top1_change_fraction": 0.05284288194444445
+      },
+      "matched_negative": {
+        "ce": 2.3779661369697487,
+        "native_to_arm_kl": 0.04924651561117625,
+        "tokens": 303,
+        "top1_change_fraction": 0.07260726072607261
+      },
+      "off_target": {
+        "ce": 3.2195582403751724,
+        "native_to_arm_kl": 0.017933210221862454,
+        "tokens": 33570,
+        "top1_change_fraction": 0.042597557342865654
+      },
+      "positive": {
+        "ce": 1.1844691563881484,
+        "native_to_arm_kl": 0.45415214937656556,
+        "tokens": 303,
+        "top1_change_fraction": 0.09570957095709572
+      }
+    }
+  },
+  "runtime_seconds": 38.04857349395752,
+  "schema": "induction_equality_tensor_discovery_v1",
+  "status": "discovery_complete"
+}

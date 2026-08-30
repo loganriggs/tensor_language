@@ -149,5 +149,35 @@
  },
  "members": {
   "n": 864
+ },
+ "localisation": {
+  "method": "direct causal ablation, two counterfactuals, 36 components over census_state_diverse (256,000 positions). concentration = mean|dCE| on members / mean|dCE| off slice.",
+  "mean_ablation": {
+   "component": "m13",
+   "concentration": 4.098
+  },
+  "interchange_ablation": {
+   "component": "m14",
+   "concentration": 3.485,
+   "runner_up": "m13",
+   "runner_up_concentration": 3.458,
+   "top2_margin": 0.0078,
+   "seed": 20260830
+  },
+  "methods_agree": false,
+  "verdict": "ambiguous between two components",
+  "caveat": "the two counterfactuals name different components; S2054 had already flagged this circuit as effectively tied, so treat the site as undetermined",
+  "provenance": {
+   "scripts": [
+    "circuit_ablation_localise.py",
+    "circuit_interchange_localise.py"
+   ],
+   "sections": [
+    "2054",
+    "2055"
+   ],
+   "agent": "claude",
+   "date": "2026-08-30"
+  }
  }
 }

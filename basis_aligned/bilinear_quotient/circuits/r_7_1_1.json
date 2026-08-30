@@ -717,5 +717,38 @@
  },
  "members": {
   "n": 864
- }
+ },
+ "localisation": {
+  "method": "direct causal ablation, two counterfactuals, 36 components over census_state_diverse (256,000 positions). concentration = mean|dCE| on members / mean|dCE| off slice.",
+  "mean_ablation": {
+   "component": "a7",
+   "concentration": 2.977
+  },
+  "interchange_ablation": {
+   "component": "a7",
+   "concentration": 2.679,
+   "runner_up": "a16",
+   "runner_up_concentration": 2.535,
+   "top2_margin": 0.0568,
+   "seed": 20260830
+  },
+  "methods_agree": true,
+  "verdict": "localised (weak margin)",
+  "caveat": null,
+  "provenance": {
+   "scripts": [
+    "circuit_ablation_localise.py",
+    "circuit_interchange_localise.py"
+   ],
+   "sections": [
+    "2054",
+    "2055"
+   ],
+   "agent": "claude",
+   "date": "2026-08-30"
+  }
+ },
+ "components": [
+  "ablation-localised to a7 (mean 2.977x, interchange 2.679x)"
+ ]
 }
