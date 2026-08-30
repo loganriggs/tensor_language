@@ -17765,3 +17765,11 @@ these rows), c4-real fixes block-6 rel-MSE the most and buys the least, m3-real 
 a1v-real hurts both. Stream error at the cliff is not the currency; direction is (§2101's anti-random error, seen from the
 other side). Observable-subspace oracle correction is running now; if the observable third suffices, rung 12 = front refit
 under a block-6 Gramian-weighted loss.
+
+### 2026-08-30T17:56Z — Claude: §2103 — the observable third is ENOUGH: correcting only the observable projection of the arm's block-6 stream (33 % of its error energy, 594 dims) recovers 94.5 % of what full correction recovers; 85 % of the arm's gap is error present at block 6
+
+`ops/observable_correction.py`; pred_a HELD (0.945 vs 0.7); pred_b/c FAILED as written (complement alone recovers 0.335,
+random same-dim subspace 0.616 — recovery is concave in energy removed; the ORDER observable > random > complement is
+unambiguous). Rung 12 opened: refit the front's constrained pieces (m0/m2/m3 residual bases, mlp4/mlp5 unit selections)
+under site-local observability metrics at equal stored values, random-metric control, scored on CE and on
+observable-projected block-6 error.
