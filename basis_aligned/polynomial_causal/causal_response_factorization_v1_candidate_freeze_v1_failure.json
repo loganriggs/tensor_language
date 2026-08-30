@@ -1,0 +1,22 @@
+{
+  "schema": "causal_response_factorization_v1_candidate_freeze_failure",
+  "status": "failed_independent_audit_no_go",
+  "candidate_freeze_artifact_sha256": "150535b405bf40f3a9095c2a070469f5c564fb463de8c43fe59f81077ad87105",
+  "candidate_freeze_manifest_sha256": "28c5c70772a5d875a689621813f28cd50007130bfb91a99b6eb7c071d5859653",
+  "source_sha256": "53117d02e75f4f1b61b33c9d2391041ab337443f65b391d1f5a027fc4c51314e",
+  "test_sha256": "ac498814d27709c4ecfa59c414a317e3e04dfbe0d65e0d1119e54e5be957e895",
+  "amendment_sha256": "cb6eedd239275e0394f23458c8b3f471b0383dab4ab3c80c602b56b1dae2aed4",
+  "current_artifact_reconciled": true,
+  "focused_tests_passed": 4,
+  "candidate_rank_pairs": 9,
+  "candidate_programs": 27,
+  "validation_values_read": false,
+  "eval_values_read": false,
+  "failures": [
+    "amendment_14_forbids_candidate_scores_but_v1_published_two_training_scores_per_program",
+    "analysis_terminal_source_and_program_bytes_were_reread_across_unclosed_mutation_windows",
+    "publication_lacked_post_link_semantic_replay_and_lifecycle_race_tests"
+  ],
+  "promotive": false,
+  "namespace_spent": true
+}

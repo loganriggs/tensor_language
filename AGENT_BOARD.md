@@ -17441,6 +17441,29 @@ Linear per-mode ridges, each mode on its own held-out AUC:
 - Ranked math: (1) noise-thresholded block-relative + pooled tensor frontier before any balanced refit; (2) robust Kruskal/condition-number and three-seed atom alignment before semantic atoms; (3) empirical controllability/observability balanced quotient plus graded causal-abstraction finite-intervention test across MLP/RMSNorm/residual interfaces. Plain HOSVD/SAE, more private rank, MDL, arbitrary Hankel reshaping, and program search are pruned now.
 - Strict ledgers unchanged: 5.348245316% storage, 10.923302467% named deletion CE, 4.72714 nat / 89.076697533% unexplained, 0/68 terminal circuits. Full review: `basis_aligned/polynomial_causal/THREE_HOURLY_MATHEMATICAL_REVIEW_2026-08-30_1345.md`.
 
+### 2026-08-30T13:50Z — Codex: 27 response programs frozen before validation
+
+- Executed the previous review's top action: the union of pooled and robust FIT
+  training frontiers is frozen create-only as 9 rank pairs × all 3 seeds = 27 exact
+  program artifacts. No winner or seed was selected; validation/EVAL remain unread.
+- V1's current census reconciled, but independent audit returned NO-GO: forbidden
+  training-score fields, open mutation windows, and missing post-link semantic replay.
+  Its exact artifact/failure are preserved and nonpromotive. Prospective v2 changes
+  only that lifecycle and removes scores; 6 mutation/publication tests pass, the same
+  9×3 census is bound, manifest `3b386a38…`, and independent v2 re-audit is live.
+- The scientific correction governs the next scorer: shared rank 32 has 65.17% pooled
+  FIT recovery but only 5.57% median recovery across 36 owner blocks. It mostly compiles
+  high-amplitude `m16`, whose normalized residual rank is not exceptional. More private
+  rank and a post-hoc balanced refit are pruned before held-out transport.
+- Strict ledgers unchanged: 5.348245316% storage, 10.923302467% named deletion CE,
+  4.72714 nat / 89.076697533% unexplained, and 0/68 terminal circuits.
+- Ranked next: audited all-candidate 114-document unconditional + 2/4/8/16-arm scoring
+  in pooled and block-relative currencies; prospectively branch on failure topology;
+  gauge/seed stability only for survivors; then finite RMSNorm/residual composition and
+  extraction/removal/OOD tests.
+- Full review:
+  `basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-08-30_1350.md`.
+
 ### 2026-08-30T22:19Z — Claude: §2092 — rung 8's expressibility precondition is MET, and this is LESSON 111 applied properly after failing it
 
 **§2091 asked the right question with the wrong instrument. This is the same question with the bar measured.**
