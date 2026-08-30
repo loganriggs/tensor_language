@@ -61677,3 +61677,46 @@ anything in §2081 or §2082: **its denominator is a single draw from a noisy di
 **Open.** Nothing on this thread. The chain §2079 → §2083 began as a benchmark frontier move, became a
 retraction, and ends as a scoped mechanism: **the gate works, on easy text, and the metric used to
 report it was measuring its own noise.** The one thing I would still not quote is any efficiency ratio.
+
+## §2084 — the base-CE effect is not about LABEL QUALITY: random gating tracks it almost as strongly
+
+No GPU time. Computed from `probe_gate7_results.json`, which §2083 wrote — **these correlations were
+available when I wrote §2083 and I did not compute them.**
+
+```
+  r(base CE, oracle gain )  = -0.8295
+  r(base CE, random gain )  = -0.7307     <- the control tracks it too
+  r(base CE, blk2+9 gain )  = -0.7257
+  r(base CE, blk2 gain   )  = -0.4759
+
+  mean blk2+9 gain, base CE < 3.6 (n=5):  +0.0410
+  mean blk2+9 gain, base CE >= 3.6 (n=3): -0.0083
+```
+
+> **§2083 read this as a fact about gating with good labels. It is not.** The **random** gate — positions
+> chosen with no labels at all — correlates with base CE at **−0.7307**, nearly as strongly as the oracle's
+> −0.8295. **Whether an intervention at 17–28% of positions helps is a property of the text, not of the
+> quality of the position selection.** On hard text, substituting stand-ins at *any* positions stops
+> paying, and the oracle's advantage over random is not what the correlation is measuring.
+
+**This is a control I had and skipped.** §2083 registered three predicates about the oracle and none about
+the random arm, so the section drew a labeler-flavoured conclusion — "gating helps on easy text" — from a
+statistic that the no-information control satisfies almost as well. **The finding survives in a weaker and
+more honest form: gate-ability is a property of the window.**
+
+**What it costs the efficiency ratio, on top of §2081 and §2083.** Numerator and denominator **both**
+track base CE at −0.73 to −0.83, so the ratio partially cancels the strongest effect in the data — which
+is why the ratio looked stable within a window and exploded across windows. **Three separate reasons have
+now accumulated to stop quoting "Nx random": its denominator is a single noisy draw (§2083, 2.09x on seed
+alone), it varies across windows (§2081), and it co-varies with the numerator against the one variable
+that predicts both (here).**
+
+**The deployable form, stated as a rule rather than a number.** A CE threshold separates the windows
+cleanly — below 3.6 the best probe gate averages **+0.0410**, at or above it **−0.0083**. **If gating is
+deployed at all, it should be conditioned on the window's own difficulty**, which is measurable at
+inference without labels.
+
+**Open.** `base_ce` here is the REAL model's cross-entropy on the window — text difficulty. The competing
+explanation is the ASSEMBLY's excess over real on that window (how badly the stand-ins do there), which
+`probe_gate7` computed internally as the base-config offset and did not record. **The two are confounded
+in every number above**, and separating them is one recorded field away.

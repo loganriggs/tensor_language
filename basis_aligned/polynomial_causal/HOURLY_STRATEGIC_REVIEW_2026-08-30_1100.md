@@ -239,3 +239,24 @@ byte is requested. Manifest summarization still reuses the one admitted payload.
 focused parent/loader/snapshot/bundle suite passes **51/51 in 32.45 seconds** and the
 full nine-file closure passes **91/91 in 36.86 seconds**. This is a new prospective
 source and requires a fresh independent audit; production remains unopened.
+
+## 12:08 UTC update — exact GO, fail-closed launch, and ctime diagnosis
+
+Source `88c21f92` received independent GO at commit `cd3f6fc0`, audit SHA-256
+`73ce57c156520b5c66141f6257083982b25aa15212969884b7764f363954e811`:
+34 exact source paths, 77 unopened synthetic tests, outcome access false, and no
+remaining blockers. The first import command failed before lifecycle execution because
+the repository root was not on Python's module path. With import resolution corrected,
+the no-argument lifecycle reached the outcome-blind parent binder and failed before
+tensor deserialization because the bundle record differed from its receipt.
+
+The bundle bytes did **not** change: SHA-256, 55,475,273-byte size, device, inode, and
+mtime are identical. Only ctime changed. The cause is our own integrity tests creating
+and deleting hardlinks to the real bundle, which changes inode link metadata without
+changing content. The namespace remains completely pristine.
+
+Prospective Amendment 11 makes ctime noncontrolling while retaining exact hash, size,
+path, presence, device/inode, and mtime; the newly observed complete record must then
+stay fixed through the final replay. Tests now use a temporary stand-in protected
+inode and never link the real bundle. A dedicated synthetic test covers ctime-only
+drift. Another independent audit is required before retry.

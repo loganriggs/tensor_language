@@ -14,6 +14,20 @@ def _write_json(path, value):
     path.write_text(json.dumps(value, sort_keys=True, indent=2) + "\n")
 
 
+def _standin_production_bundle(tmp_path, monkeypatch):
+    """Use a protected synthetic inode; never change the real production link count."""
+
+    protected = tmp_path / "standin-production-bundle.pt"
+    protected.write_bytes(b"standin protected bytes")
+    values = [
+        getattr(parent.PRODUCTION_PATHS, field)
+        for field in loader.FIT_PARENT_PATH_FIELDS
+    ]
+    values[1] = protected
+    monkeypatch.setattr(parent, "PRODUCTION_PATHS", parent.FitParentPaths(*values))
+    return protected
+
+
 def _fixture(tmp_path, monkeypatch):
     paths = parent.FitParentPaths(
         authority=tmp_path / "fit_authority.json",
@@ -224,11 +238,13 @@ def test_synthetic_loader_rejects_dotdot_aliases_to_production_paths():
         )
 
 
-def test_synthetic_loader_rejects_even_one_production_artifact_alias(tmp_path):
+def test_synthetic_loader_rejects_even_one_production_artifact_alias(
+    tmp_path, monkeypatch,
+):
+    protected = _standin_production_bundle(tmp_path, monkeypatch)
     values = [tmp_path / f"synthetic-{index}" for index in range(7)]
     values[1] = (
-        parent.PRODUCTION_PATHS.bundle.parent / "alias" / ".."
-        / parent.PRODUCTION_PATHS.bundle.name
+        protected.parent / "alias" / ".." / protected.name
     )
     mixed = parent.FitParentPaths(*values)
     with pytest.raises(RuntimeError, match="production FIT paths"):
@@ -237,9 +253,12 @@ def test_synthetic_loader_rejects_even_one_production_artifact_alias(tmp_path):
         )
 
 
-def test_synthetic_loader_rejects_hardlink_alias_to_production_bundle(tmp_path):
+def test_synthetic_loader_rejects_hardlink_alias_to_production_bundle(
+    tmp_path, monkeypatch,
+):
+    protected = _standin_production_bundle(tmp_path, monkeypatch)
     alias = tmp_path / "innocent-looking-bundle.pt"
-    alias.hardlink_to(parent.PRODUCTION_PATHS.bundle)
+    alias.hardlink_to(protected)
     values = [tmp_path / f"synthetic-{index}" for index in range(7)]
     values[1] = alias
     with pytest.raises(RuntimeError, match="production FIT paths"):
@@ -248,9 +267,10 @@ def test_synthetic_loader_rejects_hardlink_alias_to_production_bundle(tmp_path):
         )
 
 
-def test_synthetic_loader_rejects_cross_role_production_path(tmp_path):
+def test_synthetic_loader_rejects_cross_role_production_path(tmp_path, monkeypatch):
+    protected = _standin_production_bundle(tmp_path, monkeypatch)
     values = [tmp_path / f"synthetic-{index}" for index in range(7)]
-    values[0] = parent.PRODUCTION_PATHS.bundle
+    values[0] = protected
     with pytest.raises(RuntimeError, match="production FIT paths"):
         loader.OneUseFitTrainingLoader(
             parent.FitParentPaths(*values), require_production=False, train_documents=3
@@ -259,11 +279,12 @@ def test_synthetic_loader_rejects_cross_role_production_path(tmp_path):
 
 def test_synthetic_loader_rechecks_aliases_at_load_boundary(tmp_path, monkeypatch):
     paths, binding, authority, _ = _fixture(tmp_path, monkeypatch)
+    protected = _standin_production_bundle(tmp_path, monkeypatch)
     capability = loader.OneUseFitTrainingLoader(
         paths, require_production=False, train_documents=3
     )
     paths.bundle.unlink()
-    paths.bundle.hardlink_to(parent.PRODUCTION_PATHS.bundle)
+    paths.bundle.hardlink_to(protected)
     with pytest.raises(RuntimeError, match="became production aliases"):
         capability.load_once(parent_binding=binding, analysis_authority=authority)
     assert capability.spent is True
@@ -273,6 +294,7 @@ def test_synthetic_loader_rejects_production_inode_opened_after_final_lookup(
     tmp_path, monkeypatch,
 ):
     paths, binding, authority, _ = _fixture(tmp_path, monkeypatch)
+    protected = _standin_production_bundle(tmp_path, monkeypatch)
     calls = 0
 
     def switch_after_final_lookup(candidate_paths):
@@ -280,13 +302,13 @@ def test_synthetic_loader_rejects_production_inode_opened_after_final_lookup(
         calls += 1
         if calls == 3:
             candidate_paths.bundle.unlink()
-            candidate_paths.bundle.hardlink_to(parent.PRODUCTION_PATHS.bundle)
+            candidate_paths.bundle.hardlink_to(protected)
         return False
 
     monkeypatch.setattr(loader, "_touches_production_parent", switch_after_final_lookup)
     production_identity = (
-        parent.PRODUCTION_PATHS.bundle.stat().st_dev,
-        parent.PRODUCTION_PATHS.bundle.stat().st_ino,
+        protected.stat().st_dev,
+        protected.stat().st_ino,
     )
     real_read = parent.os.read
 
