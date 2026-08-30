@@ -893,3 +893,12 @@ later per-rung backlog edits had silently anchored on text that was not here.
     pred_c full arm reproduces §2144 (FR L2_F 2.6662 within 0.01).
     In-script tripwire: the pointer branch must fire >0 times.
     -> ops/a16_pointer.py [QUEUED]
+
+65. IS m16 RETRIEVAL-SHAPED TOO (cross-object attribution; damage
+    convention). m16 cannot read other positions; if deleting it still
+    damages ind/other positions predominantly, block 16 is a coupled
+    retrieval unit (attn reads, MLP transforms) — unifying the m16
+    remainder with the retrieval price. Null: class-uniform damage.
+    pred_a ind+other+subword >= 0.60; pred_b ind >= 0.25; pred_c full
+    arm reproduces §2144 (2.6662 within 0.01).
+    -> ops/m16_class_damage.py [QUEUED 23:32Z]

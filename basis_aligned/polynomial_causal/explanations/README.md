@@ -7,6 +7,7 @@ primary evidence.
 
 ## Start here
 
+- [`explanation_2335.md`](explanation_2335.md) — 2026-08-30 23:35: the block-16 arc, the two ledgers (coverage vs price), and the discovery that the whole tail price is an in-document-retrieval price (§2136–§2157)
 - [`explanation_1955.md`](explanation_1955.md) — 2026-08-30 19:55 update **with a glossary of terms**: the §2128 sign-inversion correction, the certified conditioned frontier (+2.7707 fresh, §2129), closed negatives (§2126/§2127)
 - [`explanation_1835.md`](explanation_1835.md) — the observability arc end to end: how error is priced
   in bilin18 (the block-5→6 cliff at attn5's write; scale free, direction not), where the certified
