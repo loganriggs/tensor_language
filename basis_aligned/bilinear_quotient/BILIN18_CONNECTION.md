@@ -63314,6 +63314,35 @@ equal-price improvement of the assembly's mlp4/mlp5 stand-ins; the price structu
 and head; two construction negatives, one withdrawal, one accounting correction — every one preregistered, scored as
 written, and pushed with its artifact.
 
+
+## §2125 — RUNG 30: THE CERTIFIED GAIN DOES NOT INSTALL INTO THE §312 FRONTIER. The norm arm reproduces the published +2.6735 to four decimals; the true-Fisher selector makes the frontier WORSE (fresh −0.048, window C −0.025). The gain is a property of the all-attention-real configuration it was certified on
+
+`ops/frontier_fisher8.py`, **204s**, BACKLOG rung 30. §312's full pipeline rerun twice, matched-context fits
+throughout (motif gains and tail dictionaries refit under each arm's own middles). **pred_a HELD (2.6735 vs 2.6735,
+exact — the pipeline is deterministic) | pred_b FAILED (−0.0475 vs +0.04) | pred_c FAILED (−0.0250 vs −0.01).**
+
+```
+  arm                          L1 (+38 heads)  C / fresh      L2 (full)  C / fresh       vs published
+  norm selection (§312)          +1.980 / +2.287               +2.423 / +2.6735          exact
+  true-Fisher top-8 at mlp4/5    +2.017 / +2.351               +2.448 / +2.7210          fresh −0.048, C −0.025
+```
+
+- **The dilution is not a refit artifact:** every downstream piece (motif gains, tail-attention dictionaries) was
+  refit under the fisher8 middles inside the pipeline, per §307's grammar. The selector genuinely hurts this
+  configuration — already at L1, before the tail dictionaries (+2.351 vs +2.287).
+- **Why, mechanically (the reading, not yet a measurement):** the eight directions were computed as what the loss
+  reads *through the real model* — in cfgE, attention is real, and the selector's certified +0.08 is what that
+  reader rewards. In the §312 config, 38 motif heads are replaced by fixed-pattern dictionaries and the tail
+  attention by class dictionaries: the deployed readers differ from the real ones, and units chosen for the real
+  readers' eight directions are not the units the deployed readers use. **The metric must be conditioned on the
+  configuration it serves.** That is a falsifiable repair — recompute the Fisher through the deployed assembly and
+  re-select — but it needs the pipeline restructured so the metric is computed under the arm's own hooks
+  (recorded as rung 32, DESIGN; a splice cannot order selection before the config that defines the metric).
+- **Scope of the certified result, final:** *on the all-attention-real certified arm* (cfgE), the label-free
+  selector is worth +0.082–0.086 median on eight fresh windows (§2116/§2119/§2124). It does not transfer to the
+  motif-hybrid frontier as-is. Both statements are certified; neither implies the other. The frontier keeps norm
+  selection.
+
 ## §2126 — RUNG 33: THE SINK-HEAD SCALAR BUYS ALMOST NOTHING, AND THE SIGN REFUTES THE §1818 ANALOGY. The fitted scalar is s* = 1.095 — cfgE UNDER-drives head 5.7, where the fully-compiled program of §1818 over-drove it 159× — and it gains only 0.015 nat on the eval rows (bar 0.05), 0.017 median fresh (bar 0.025)
 
 `ops/sink_head_scalar.py`, **124s**, BACKLOG rung 33. One scalar on h7's c_proj input columns, grid + golden-section
