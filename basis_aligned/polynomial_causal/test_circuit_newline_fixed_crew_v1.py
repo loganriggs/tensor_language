@@ -221,6 +221,10 @@ def test_masks_fail_closed_on_token_overlap_and_insufficient_controls() -> None:
             (10,), (11,), (12,), (13,), first_prediction=0,
             jitter_offsets=(1, -1),
         ))
+    for invalid in (-1, 50_304):
+        bad = torch.tensor([[0, 1, invalid, 3]], dtype=torch.long)
+        with pytest.raises(ValueError, match="vocabulary"):
+            build_newline_masks(bad, _mask_spec())
 
 
 def test_invalid_head_and_price_contracts_fail_closed() -> None:

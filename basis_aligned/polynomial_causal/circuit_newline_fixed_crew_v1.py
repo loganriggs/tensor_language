@@ -22,6 +22,7 @@ from tensor_preserving_attention import PROJECTION_NAMES, TensorPreservingSquare
 PRODUCTION_SITES = 18
 PRODUCTION_HEADS = 9
 PRODUCTION_WIDTH = 1152
+PRODUCTION_VOCAB = 50_304
 CANARY_HEAD = (12, 6)
 FIVE_HEAD_CREW = ((7, 2), (8, 2), (10, 2), (11, 0), (12, 6))
 FIVE_HEAD_CONTROL = tuple((site, (head + 1) % PRODUCTION_HEADS) for site, head in FIVE_HEAD_CREW)
@@ -356,6 +357,8 @@ class NewlineMaskSpec:
             raise ValueError("every mask token group must be nonempty and unique")
         if any(type(token) is not int or token < 0 for group in groups for token in group):
             raise ValueError("mask token IDs must be nonnegative integers")
+        if any(token >= PRODUCTION_VOCAB for group in groups for token in group):
+            raise ValueError("mask token IDs exceed the production vocabulary")
         flattened = [token for group in groups for token in group]
         if len(flattened) != len(set(flattened)):
             raise ValueError("named newline mask token groups must be disjoint")
@@ -379,6 +382,23 @@ class NewlineMasks:
     quote_bracket: torch.Tensor
     global_off_target: torch.Tensor
 
+    def validate(self) -> None:
+        values = tuple(self.as_mapping().values())
+        if not values or any(
+            not torch.is_tensor(value) or value.device.type != "cpu"
+            or value.dtype != torch.bool or value.ndim != 2
+            or tuple(value.shape) != tuple(values[0].shape)
+            for value in values
+        ):
+            raise ValueError("newline masks must share one rank-2 CPU-bool currency")
+        named = torch.stack(values[:6]).to(torch.int8).sum(0)
+        if bool((named > 1).any()) or not torch.equal(
+            self.position_jitter.sum(1), self.newline_target.sum(1)
+        ) or not torch.equal(self.matched_random.sum(1), self.newline_target.sum(1)):
+            raise RuntimeError("newline named masks overlap or controls are not count matched")
+        if bool((self.global_off_target & self.newline_target).any()):
+            raise RuntimeError("newline global off-target mask contains target positions")
+
     def as_mapping(self) -> Mapping[str, torch.Tensor]:
         return MappingProxyType({
             "newline_target": self.newline_target,
@@ -392,10 +412,10 @@ class NewlineMasks:
 
 
 def _member(values: torch.Tensor, token_ids: Sequence[int]) -> torch.Tensor:
-    result = torch.zeros_like(values, dtype=torch.bool)
-    for token in token_ids:
-        result |= values.eq(token)
-    return result
+    maximum = max((*token_ids, int(values.max()) if values.numel() else 0))
+    lookup = torch.zeros(maximum + 1, dtype=torch.bool, device=values.device)
+    lookup[torch.tensor(tuple(token_ids), dtype=torch.long, device=values.device)] = True
+    return lookup[values]
 
 
 def _matched_controls(
@@ -438,6 +458,8 @@ def build_newline_masks(rows: torch.Tensor, spec: NewlineMaskSpec) -> NewlineMas
         rows.ndim != 2 or rows.shape[1] < 2
     ):
         raise ValueError("rows must be a rank-2 CPU int64 tensor")
+    if bool((rows < 0).any()) or int(rows.max()) >= PRODUCTION_VOCAB:
+        raise ValueError("rows exceed the production token vocabulary")
     prediction_count = rows.shape[1] - 1
     if spec.first_prediction >= prediction_count:
         raise ValueError("first_prediction is outside the row")
@@ -461,16 +483,7 @@ def build_newline_masks(rows: torch.Tensor, spec: NewlineMaskSpec) -> NewlineMas
         quote_bracket=quote_bracket,
         global_off_target=scored & ~newline,
     )
-    disjoint = torch.stack([
-        masks.newline_target, masks.position_jitter, masks.matched_random,
-        masks.punctuation, masks.capitalized, masks.quote_bracket,
-    ]).to(torch.int8).sum(0)
-    if bool((disjoint > 1).any()):
-        raise AssertionError("named newline score cells overlap")
-    if not torch.equal(masks.position_jitter.sum(1), masks.newline_target.sum(1)) or not (
-        torch.equal(masks.matched_random.sum(1), masks.newline_target.sum(1))
-    ):
-        raise AssertionError("newline controls are not document-count matched")
+    masks.validate()
     return masks
 
 
