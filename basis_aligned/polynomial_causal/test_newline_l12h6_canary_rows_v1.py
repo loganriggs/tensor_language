@@ -32,6 +32,8 @@ def _pool(extra_per_domain: int = 4):
                     source_blob_sha256=f"{counter + 1:064x}", domain=domain,
                     license_id="permissive", role_license=role,
                     structural_partition=f"{role.lower()}-{domain.value}-{local % 3}",
+                    normalized_python_sha256=(f"{counter + 10_000:064x}"
+                                              if domain is subject.NewlineDomain.CODE else None),
                 ))
                 counter += 1
     return torch.stack(rows).contiguous(), tuple(records)
@@ -62,7 +64,7 @@ def test_exact_deterministic_fresh_roles_and_support() -> None:
 def test_historical_exclusions_are_applied_before_sha_allocation() -> None:
     rows, records = _pool(extra_per_domain=8)
     excluded = subject.HistoricalExclusions(
-        frozenset({records[0].document_id}), frozenset(), frozenset(),
+        frozenset({records[0].document_id}), frozenset(), frozenset(), frozenset(),
         frozenset({subject.tensor_sha256(rows[1].contiguous())}),
         frozenset({subject.tensor_sha256(rows[2, :32].contiguous())}),
     )

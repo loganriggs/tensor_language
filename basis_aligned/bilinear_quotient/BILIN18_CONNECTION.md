@@ -60584,3 +60584,75 @@ interesting reading and is exactly why it should not be asserted: with the write
 reader later, a serial chain is if anything the more likely one. **A joint double-ablation separates
 them** — under (a) removing both is roughly the sum of removing each, under (b) it is roughly the same as
 removing either — and that is the experiment this open question actually calls for.
+
+## §2062 — §2058's shared substrate is a FACT ABOUT a8, not about circuit-dense components: a16 is its opposite
+
+`ops/a16_substrate_generality.py`, **408s**, **DISCOVERY ONLY**, RUNG 3 (§2059's named open question).
+**pred_a FALSE | pred_b FALSE | pred_c FALSE.** All three failed, in the same direction, and the negative
+is the result.
+
+§2056/§2058 measured at a8 alone, on five circuits that happened to be there. §2059 found a8 is the
+densest component in the model (16 circuits) and a16 its near-twin (13), giving the first independent
+test. The 13 circuits come from `BATTERY.json`, not hand-picked.
+
+```
+                                        a8 (§2056/§2058)      a16 (here)
+  shared direction explains                 0.9161              0.4887      pred_a bar >=0.80  FAIL
+  full directions, mean pairwise |cos|      0.8942              0.4271      pred_b bar >=0.70  FAIL
+  residual directions, mean |cos|           0.3587              0.2255      (passes <0.50)
+  FULL directions selective                  1 / 5              11 / 13
+  RESIDUAL directions selective              4 / 5               7 / 13     pred_c bar >=60%   FAIL
+```
+
+> **a16 is not a8 with more circuits. It is the opposite arrangement.** At a8 the circuits' directions are
+> strongly parallel, individually non-selective, dominated by one shared direction carrying 92% of the
+> variance, and they only separate once that direction is removed. **At a16 there is no dominant shared
+> direction (48.9%), the directions are not parallel (0.427), and the circuits are ALREADY individually
+> selective before anything is removed — 11 of 13 against 1 of 5.**
+
+**Removing the shared direction at a16 does not help; it slightly hurts.** Selectivity goes from 11/13 to
+7/13. That is the mirror image of §2058, where the same operation took a8 from 1/5 to 4/5 — and it is
+what should happen when you project out a direction that was never a shared substrate in the first place.
+
+**A correction to my own headline, applied before anyone quotes it.** "11 of 13 selective" is true by the
+letter and overstates the case: **4 of those 11 are within 5% of a tie** (`r.4.1.0` own 3.634 against
+others 3.626 — a margin of 0.2%; also `r.6.3.0`, `r.6.3.1`, `r.1.0.0`). At a **10% margin** the honest
+counts are **full 7/13, residual 6/13** — still the same story, since 7 versus 6 is no improvement, but
+the raw 11 should not be quoted. This is §2061's near-tie lesson recurring in a different measurement,
+and it is why the margins are tabulated rather than the booleans.
+
+**What this costs and what it buys.** It costs the generalisation: **§2056 and §2058 are single-component
+results and must be read that way** — I said as much to Codex when handing over §2058, and this confirms
+it rather than excusing it. It buys a real dichotomy: **two comparably circuit-dense components implement
+their circuits in opposite geometries**, one sharing a substrate and one not. That is a sharper fact about
+bilin18 than "circuits share substrates" would have been.
+
+**Open.** Whether a8 or a16 is the typical case is unmeasured — those are two of the sixteen components
+that win circuits, and the next densest (m16 with 6, a3 with 5, m14 with 5) would decide it. The
+experiment is `ops/a16_substrate_generality.py` with `KEY` changed and no other edit.
+
+## §2063 — the DAS rank sweep: recovery keeps climbing to rank 64 and enrichment falls the whole way
+
+`circuit_das_ranksweep.py`, **~1580s**, **DISCOVERY ONLY**, §2060's registered open question.
+**pred_c FALSE.** Rank 64 is 5.6% of the component's 1152 dimensions and recovers **21% to 35%** of its
+held-out interchange damage on members, against a registered bar of 80%. Every one of the 16 fits passed
+the optimiser health gate.
+
+```
+  fraction of the full component recovered      per-dimension enrichment
+  circuit    r=1     r=4     r=16    r=64        r=4      r=64
+  r.11.1.2  0.043   0.087   0.121   0.209       25.1x     3.8x
+  r.23.2.3  0.027   0.097   0.149   0.248       27.9x     4.5x
+  r.2.0.0   0.125   0.141   0.144   0.352       40.6x     6.3x
+  r.3.0.0   0.105   0.145   0.195   0.318       41.8x     5.7x
+```
+
+> **Recovery rises monotonically and is nowhere near saturating at rank 64**, so §2060's "not
+> four-dimensional" was not a threshold effect — there is no small rank at which these circuits are
+> contained. **Meanwhile per-dimension enrichment falls by roughly six-fold from rank 4 to rank 64**
+> (25-42x down to 3.8-6.3x). The leading directions are dramatically richer than the ones after them, and
+> the effect has a long, thin tail rather than a sharp cutoff.
+
+**Both facts have to be quoted together**, as in §2060: a few directions carry far more than their share,
+AND no tractable number of them carries the circuit. `r.2.0.0` is the clearest case — flat from rank 4 to
+16 (0.141 to 0.144) then jumping at 64 (0.352), which is not the shape of a low-dimensional object.

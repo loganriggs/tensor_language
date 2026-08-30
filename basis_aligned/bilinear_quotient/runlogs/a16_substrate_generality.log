@@ -18,3 +18,18 @@ shared direction explains 0.4887; full |cos| 0.4271; residual |cos| 0.2255 (37s)
   residual along r.3.0     : own  2.951  mean(others)  2.157  selective=True (284s)
   residual along r.3.0.0   : own  6.633  mean(others)  2.314  selective=True (299s)
   residual along r.3.0.1   : own  4.219  mean(others)  2.438  selective=True (315s)
+  residual along r.3.0.2   : own  4.160  mean(others)  2.333  selective=True (330s)
+  residual along r.4.1.0   : own  2.051  mean(others)  2.661  selective=False (345s)
+  residual along r.4.1.1   : own  3.234  mean(others)  2.634  selective=True (362s)
+  residual along r.5.0.1   : own  3.270  mean(others)  2.915  selective=True (370s)
+  residual along r.6.0.0   : own  2.543  mean(others)  2.368  selective=True (377s)
+  residual along r.6.1.1   : own  1.853  mean(others)  2.785  selective=False (385s)
+  residual along r.6.2.0   : own  1.419  mean(others)  2.533  selective=False (392s)
+  residual along r.6.3.0   : own  1.731  mean(others)  2.715  selective=False (400s)
+  residual along r.6.3.1   : own  2.781  mean(others)  2.861  selective=False (408s)
+
+wrote circuits/A16.json (408s)   [13 circuits at a16]
+pred_a  shared direction explains 0.4887 of variance (bar >=0.80, a8 0.9161) : False
+pred_b  full directions mean |cos| 0.4271 (bar >=0.70, a8 0.8942) : False
+pred_c  residual |cos| 0.2255 (bar <0.50, a8 0.3587) AND residual selective 7/13 (bar >=60%, a8 4/5) : False
+        for contrast, FULL directions were selective 11/13 (a8: 1/5)

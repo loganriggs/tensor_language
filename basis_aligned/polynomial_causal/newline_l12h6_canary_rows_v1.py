@@ -70,6 +70,7 @@ class CandidateRecord:
     license_id: str
     role_license: str
     structural_partition: str
+    normalized_python_sha256: str | None = None
 
     def __post_init__(self) -> None:
         if any(not isinstance(value, str) or not value for value in (
@@ -81,6 +82,11 @@ class CandidateRecord:
             raise ValueError("newline candidate source/domain identity is malformed")
         if self.role_license not in ROLE_ORDER:
             raise ValueError("newline candidate role license is outside the frozen registry")
+        if self.domain is NewlineDomain.CODE:
+            if not _sha(self.normalized_python_sha256):
+                raise ValueError("newline code candidate lacks normalized source identity")
+        elif self.normalized_python_sha256 is not None:
+            raise ValueError("newline natural candidate cannot carry normalized Python identity")
 
 
 @dataclass(frozen=True)
@@ -88,12 +94,13 @@ class HistoricalExclusions:
     document_ids: frozenset[str]
     source_files: frozenset[str]
     source_blobs: frozenset[str]
+    normalized_python_sha256s: frozenset[str]
     row_sha256s: frozenset[str]
     prefix_sha256s: frozenset[str]
 
     @classmethod
     def empty(cls) -> "HistoricalExclusions":
-        return cls(*(frozenset() for _ in range(5)))
+        return cls(*(frozenset() for _ in range(6)))
 
 
 @dataclass(frozen=True)
@@ -116,6 +123,10 @@ def _eligible(
     ) or record.source_blob_sha256 in exclusions.source_blobs or row_hash in (
         exclusions.row_sha256s
     ) or prefix_hash in exclusions.prefix_sha256s:
+        return False
+    if record.normalized_python_sha256 is not None and record.normalized_python_sha256 in (
+        exclusions.normalized_python_sha256s
+    ):
         return False
     try:
         masks = build_newline_masks(row.unsqueeze(0).contiguous(), spec)
@@ -223,6 +234,10 @@ def validate_role_disjointness(roles: tuple[FrozenRole, ...]) -> None:
             "source": {record.source_file for record in role.records},
             "blob": {record.source_blob_sha256 for record in role.records},
             "partition": {record.structural_partition for record in role.records},
+            "normalized_python": {
+                record.normalized_python_sha256 for record in role.records
+                if record.normalized_python_sha256 is not None
+            },
             "row": {tensor_sha256(row.contiguous()) for row in role.rows},
             "prefix": {tensor_sha256(row[:PREFIX_LENGTH].contiguous()) for row in role.rows},
         })
@@ -248,6 +263,7 @@ def role_summary(role: FrozenRole) -> dict[str, object]:
         "license_id": record.license_id,
         "role_license": record.role_license,
         "structural_partition": record.structural_partition,
+        "normalized_python_sha256": record.normalized_python_sha256,
     } for record in role.records]
     return {
         "role": role.role,

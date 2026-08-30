@@ -36,6 +36,7 @@ def _materialized():
                     f"doc-{counter}", counter, f"source-{counter}", "revision",
                     f"{counter + 1:064x}", domain, "permissive", role,
                     f"{role.lower()}-{domain.value}-heldout-{local % 3}",
+                    f"{counter + 10_000:064x}" if domain is rows_contract.NewlineDomain.CODE else None,
                 ))
                 counter += 1
     roles = rows_contract.allocate_roles(
