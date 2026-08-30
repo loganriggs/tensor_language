@@ -1,0 +1,70 @@
+{
+ "full": {
+  "L1_F": 2.3208,
+  "L2_C": 2.4192,
+  "L2_F": 2.6664,
+  "increment": 0.3455,
+  "orig_s312_a": true,
+  "orig_s312_b": true,
+  "fresh8": [
+   2.6664,
+   2.9356,
+   2.6121,
+   2.8498,
+   2.9141,
+   2.7955,
+   2.582,
+   2.664
+  ],
+  "runtime_s": 113.17586755752563
+ },
+ "skip14": {
+  "L1_F": 2.3207,
+  "L2_C": 2.2264,
+  "L2_F": 2.5085,
+  "increment": 0.1878,
+  "orig_s312_a": true,
+  "orig_s312_b": false,
+  "fresh8": [
+   2.5085,
+   2.7085,
+   2.3573,
+   2.6147,
+   2.6417,
+   2.5496,
+   2.4134,
+   2.4336
+  ],
+  "runtime_s": 110.44534945487976
+ },
+ "total_damage_sum": 4849.31,
+ "class_shares": {
+  "digit": -0.0016,
+  "bclose": -0.0,
+  "newline": 0.0153,
+  "sentend": -0.0191,
+  "comma": 0.0212,
+  "name": 0.0174,
+  "rep": -0.0033,
+  "subword": 0.0804,
+  "ind": 0.5709,
+  "other": 0.3189
+ },
+ "constn_combined_share": 0.0145,
+ "per_window_skip14_vs_s2155_absdelta": [
+  0.0002,
+  0.0,
+  0.0002,
+  0.0,
+  0.0001,
+  0.0,
+  0.0,
+  0.0
+ ],
+ "convention": "per-position CE(full with a14L) - CE(attn14 real) on FR; positive = the dictionary hurts there",
+ "pred_a_not_retrieval": false,
+ "pred_b_constn_pay": false,
+ "pred_c_reproduces_s2155": true,
+ "self_reviewed": true,
+ "runtime_s": 223.6
+}

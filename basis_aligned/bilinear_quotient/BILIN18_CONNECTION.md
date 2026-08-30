@@ -64102,3 +64102,23 @@ HELD: pred_a (top share 0.518 ≥ 0.40) | pred_b (top class "ind" is LINK) | pre
   36-minus-two-components envelope = skip-a14+a16 (2.4230); the ~0.32 between them is the measured
   price of describing blocks 14 and 16's attention with per-position class code — the program's remaining
   scientific object.
+
+## §2157 — RUNG 63: THE DICHOTOMY DIES — a14L's DAMAGE IS RETRIEVAL-CONCENTRATED TOO (ind 0.571 + other 0.319 + subword 0.080 ≈ 97%; the six mean classes combined: 0.015). pred_a/b FAILED as registered, pred_c HELD — the null wins, and it unifies the tail. (Convention: per-position CE(full with a14L) − CE(attn14 real) on FR; positive = the dictionary hurts there.)
+
+`ops/attn14_class_damage.py`, **224s**, BACKLOG rung 63. **pred_c HELD (skip-a14 repro |Δ| 0.0000) | pred_a
+FAILED (ind 0.571 vs ≤ 0.30) | pred_b FAILED (CONSTN 0.015 vs ≥ 0.20).**
+
+```
+  class    digit   bclose  newline sentend comma   name    rep     subword  ind     other
+  share   −0.002  −0.000  +0.015  −0.019  +0.021  +0.017  −0.003  +0.080  +0.571  +0.319
+```
+
+- **Both expensive tail dictionaries fail on the SAME classes** — in-document retrieval — even though their head
+  structures differ completely (a16: three-four concentrated heads; a14: six diffuse heads, one negative). The
+  §2147 energy profile predicted a14's damage would be spread onto the mean classes; it is not. **The whole tail
+  price is a retrieval price:** wherever context must be read, the per-position class code fails; the layers
+  differ only in HOW they read (concentrated vs diffuse), not in what the failure costs.
+- Design consequence, now with two independent confirmations: the missing grammar element is a *retrieval
+  primitive* — something that reads the stream at the earlier occurrence — not more classes, not per-class
+  linearity (§2148), not head reduction (§2154). Registered next: rung 64, a pointer-linear stand-in for the
+  ind class at a16.

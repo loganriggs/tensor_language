@@ -875,4 +875,21 @@ later per-rung backlog edits had silently anchored on text that was not here.
     pred_b THE MEAN CLASSES PAY TOO: combined CONSTN share >= 0.20
     (a16: ~0); pred_c skip-a14 arm reproduces §2155's base per-window
     (median |delta| <= 0.005). Null: a14 is retrieval-like after all.
-    -> ops/attn14_class_damage.py [QUEUED]
+    -> ops/attn14_class_damage.py
+    RUN 2026-08-30, §2157: pred_c HELD, pred_a/b FAILED — the null wins:
+    a14L's damage is ALSO ~97% retrieval classes (ind 0.571); the whole
+    tail price is a retrieval price; layers differ in HOW they read.
+
+64. POINTER-LINEAR STAND-IN FOR THE ind CLASS AT a16 (the first
+    constructive retrieval primitive; damage convention). For ind-class
+    positions, a16's stand-in outputs (stream at the last occurrence of
+    the target token) @ W_ptr (ridge-fit on FW ind positions) instead of
+    the class-linear map; other classes unchanged. PRICE: +1.33M values
+    (W_ptr) + the pointer itself is computed from the token sequence
+    (same oracle interface as the class labels). NULL (§2148/§2151):
+    retrieval needs more than the previous-occurrence stream.
+    pred_a median [L2_F_w(full) - L2_F_w(a16ptr)] >= +0.05 (recovers a
+    quarter of a16L's 0.21 window cost); pred_b >= +0.02 on >= 6/8;
+    pred_c full arm reproduces §2144 (FR L2_F 2.6662 within 0.01).
+    In-script tripwire: the pointer branch must fire >0 times.
+    -> ops/a16_pointer.py [QUEUED]
