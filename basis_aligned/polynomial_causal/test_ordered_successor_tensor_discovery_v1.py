@@ -56,6 +56,15 @@ def _authority() -> discovery.DiscoveryAuthority:
         shared_bus_producer_stored_parameters=147_456,
         programs=tuple(discovery.ProgramBinding(
             arm, format(index + 100, "064x"), discovery.arm_stored_parameters(arm),
+            (7_962_689 if arm == discovery.FULL_REPLAY else 7_667_777) + (
+                0 if arm in (discovery.FULL_REPLAY, discovery.HEAD_DELETED)
+                else discovery.arm_stored_parameters(arm) - 589_824
+            ),
+            7_962_689 if arm == discovery.FULL_REPLAY else 7_667_777,
+            0 if arm in (discovery.FULL_REPLAY, discovery.HEAD_DELETED)
+            else discovery.arm_stored_parameters(arm) - 589_824,
+            0,
+            True,
         ) for index, arm in enumerate(discovery.ARM_NAMES[1:])),
     )
 
@@ -63,7 +72,8 @@ def _authority() -> discovery.DiscoveryAuthority:
 def test_arm_registry_is_exact_complete_priced_and_replaces_only_attention8() -> None:
     assert discovery.RANK_LADDER == (8, 16, 32, 64, 96, 128)
     assert len(discovery.ARM_NAMES) == 17
-    assert discovery.arm_stored_parameters("native") == 901_120
+    assert discovery.arm_stored_parameters("native") == 884_736
+    assert discovery.arm_stored_parameters(discovery.FULL_REPLAY) == 884_736
     assert discovery.arm_stored_parameters("head8_7_both_r64_true") == 745_472
     assert discovery.arm_stored_parameters("head8_7_both_r64_spectral_null") == 745_472
     assert discovery.arm_stored_parameters(discovery.CURRENT_ONLY) == 884_736
@@ -92,6 +102,16 @@ def test_authority_is_select_only_exact_order_and_price_fail_closed() -> None:
         replace(authority, programs=authority.programs[::-1])
     with pytest.raises(ValueError, match="git hash"):
         replace(authority, source_commit="short")
+    binding = authority.programs[2]
+    with pytest.raises(ValueError, match="compact executable"):
+        discovery.ProgramBinding(
+            binding.arm, binding.sha256, binding.stored_parameters,
+            binding.executable_stored_parameters + 294_912,
+            binding.background_stored_parameters + 294_912,
+            binding.candidate_stored_parameters,
+            binding.unused_target_vo_values,
+            binding.storage_closed,
+        )
 
 
 def test_closure_requires_zero_native_attention8_and_literal_other_components() -> None:

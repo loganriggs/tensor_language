@@ -37,6 +37,12 @@ STATE_DIM = 1152
 QK_RANK = 128
 NATIVE_VALUE_RANK = 128
 SAVED_VALUE_DIM = 128
+TARGET_QK_STORED_VALUES = 4 * QK_RANK * STATE_DIM
+TARGET_VO_STORED_VALUES = 2 * NATIVE_VALUE_RANK * STATE_DIM
+FULL_BACKGROUND_STORED_VALUES = 6 * STATE_DIM * STATE_DIM + 1 + 64
+COMPACT_BACKGROUND_STORED_VALUES = (
+    FULL_BACKGROUND_STORED_VALUES - TARGET_VO_STORED_VALUES
+)
 TOKEN_VOCAB = 50_257
 LOGIT_VOCAB = 50_304
 ROW_LENGTH = 257
@@ -53,6 +59,9 @@ SOURCE_CLOSURE = (
     "basis_aligned/polynomial_causal/circuit_successor_tensor.py",
     "basis_aligned/polynomial_causal/ordered_successor_masks_v1.py",
     "basis_aligned/polynomial_causal/ordered_successor_tensor_discovery_v1.py",
+    "basis_aligned/polynomial_causal/ordered_successor_tensor_backend_adapter_v1.py",
+    "basis_aligned/polynomial_causal/successor_attention_backend.py",
+    "basis_aligned/polynomial_causal/tensor_preserving_attention.py",
 )
 
 FULL_REPLAY = "full_attention8_replay"
@@ -116,9 +125,8 @@ def arm_stored_parameters(arm: str) -> int | None:
     """Return target-component storage; controls without a deployed target return None."""
 
     if arm == "native" or arm == FULL_REPLAY:
-        return tensor.autonomous_successor_parameter_count(
-            STATE_DIM, SAVED_VALUE_DIM, QK_RANK, NATIVE_VALUE_RANK, STATE_DIM,
-            include_current=True, include_saved=True,
+        return tensor.native_shared_bus_head_parameter_count(
+            STATE_DIM, QK_RANK, NATIVE_VALUE_RANK, STATE_DIM,
         )
     if arm == HEAD_DELETED:
         return 0
@@ -171,6 +179,11 @@ class ProgramBinding:
     arm: str
     sha256: str
     stored_parameters: int
+    executable_stored_parameters: int
+    background_stored_parameters: int
+    candidate_stored_parameters: int
+    unused_target_vo_values: int
+    storage_closed: bool
 
     def __post_init__(self) -> None:
         if self.arm not in ARM_NAMES[1:]:
@@ -180,6 +193,35 @@ class ProgramBinding:
         expected = arm_stored_parameters(self.arm)
         if type(self.stored_parameters) is not int or self.stored_parameters != expected:
             raise ValueError("program binding stored price differs from the frozen formula")
+        integers = (
+            self.executable_stored_parameters, self.background_stored_parameters,
+            self.candidate_stored_parameters, self.unused_target_vo_values,
+        )
+        if any(type(value) is not int or value < 0 for value in integers) or (
+            self.executable_stored_parameters
+            != self.background_stored_parameters + self.candidate_stored_parameters
+        ):
+            raise ValueError("program binding executable storage ledger is malformed")
+        if type(self.storage_closed) is not bool:
+            raise ValueError("program binding storage_closed must be an exact boolean")
+        if self.storage_closed != (self.unused_target_vo_values == 0):
+            raise ValueError("program binding storage-closure flag disagrees with unused values")
+        expected_background = (
+            FULL_BACKGROUND_STORED_VALUES
+            if self.arm == FULL_REPLAY else COMPACT_BACKGROUND_STORED_VALUES
+        )
+        expected_candidate = (
+            0 if self.arm in (FULL_REPLAY, HEAD_DELETED)
+            else expected - TARGET_QK_STORED_VALUES
+        )
+        if (
+            self.background_stored_parameters != expected_background
+            or self.candidate_stored_parameters != expected_candidate
+            or self.executable_stored_parameters != expected_background + expected_candidate
+            or self.unused_target_vo_values != 0
+            or not self.storage_closed
+        ):
+            raise ValueError("program binding differs from exact compact executable ledger")
 
 
 @dataclass(frozen=True)
@@ -493,9 +535,13 @@ __all__ = (
     "PROMOTIVE_ARMS",
     "ProgramBinding",
     "RANK_LADDER",
+    "COMPACT_BACKGROUND_STORED_VALUES",
+    "FULL_BACKGROUND_STORED_VALUES",
     "SCHEMA",
     "SOURCE_CLOSURE",
     "V1_ONLY",
+    "TARGET_QK_STORED_VALUES",
+    "TARGET_VO_STORED_VALUES",
     "arm_stored_parameters",
     "build_circuit_plan",
     "document_cell_statistics",

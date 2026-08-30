@@ -106,6 +106,9 @@ def test_folded_rank_certificate_recovers_known_rank_and_factor_price() -> None:
         1152, 128, 128, 64, 1152, include_current=False, include_saved=True,
     ) == 671_744
     assert successor.shared_bus_producer_parameter_count(1152, 128) == 147_456
+    assert successor.native_shared_bus_head_parameter_count(
+        1152, 128, 128, 1152,
+    ) == 884_736
 
 
 def test_production_shaped_saved_bus_is_already_head_projected() -> None:

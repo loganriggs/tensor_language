@@ -61,14 +61,18 @@ P_shared-bus(s) = 4*128*1152 + s*(1152 + 128 + 1152)
                 = 589,824 + 2,432s.
 ```
 
+The exact native shared-bus head stores four Q/K factors, `V8`, and `O`; its saved
+bus enters through a fixed identity and does not add a learned `128*128` factor.
+Thus `P_native = 589,824 + 147,456 + 147,456 = 884,736` learned floats.
+
 | s | stored floats | fraction of native L8H7 |
 |---:|---:|---:|
-| 8 | 609,280 | 0.6761 |
-| 16 | 628,736 | 0.6977 |
-| 32 | 667,648 | 0.7409 |
-| 64 | 745,472 | 0.8273 |
-| 96 | 823,296 | 0.9136 |
-| 128 | 901,120 | 1.0000 |
+| 8 | 609,280 | 0.6887 |
+| 16 | 628,736 | 0.7106 |
+| 32 | 667,648 | 0.7546 |
+| 64 | 745,472 | 0.8426 |
+| 96 | 823,296 | 0.9306 |
+| 128 | 901,120 | 1.0185 |
 
 The current-only and v1-only rank-128 diagnostics cost `884,736` and `753,664`
 floats respectively. The score-conditioned OV map alone costs `311,296`, but is not an
@@ -84,6 +88,18 @@ claim must add that producer once globally: the exact rank-128 total is therefor
 producer exactly once, but may not call it free. This discovery replaces only L8
 attention and therefore cannot claim standalone extraction. No MDL-bit claim is made;
 these are literal unquantized float counts.
+
+The executable backend reports full serialized storage separately from the conditional
+target-circuit price. Full replay stores `7,962,689` values. Candidate and deletion
+arms use a block-structured background that physically omits the target H7 native V
+rows and c_proj columns, so their common background stores `7,667,777` values and an
+executable rank-`s` candidate stores `7,667,777 + 2,432s`. Exact tensor shapes certify
+that the omitted `294,912` values are absent; all three backend modes report
+`storage_closed=true`. This whole-site executable price is not the target-circuit
+price and is never hidden in a compression comparison. The current factor class still
+cannot materialize the lower source-omission prices without storing zero-valued unused
+factors; CURRENT_ONLY and V1_ONLY remain launch-blocking until an omission-aware
+factor backend is source-closed.
 
 For runtime reporting, count the target head's projection multiply-adds and the
 causal-pair contractions separately. No compute reduction is inferred from storage.

@@ -299,6 +299,21 @@ def shared_bus_producer_parameter_count(state_dim: int, head_dim: int) -> int:
     return state_dim * head_dim
 
 
+def native_shared_bus_head_parameter_count(
+    state_dim: int, qk_rank: int, head_dim: int, output_dim: int,
+) -> int:
+    """Learned target-head values in the native shared-bus parameterization.
+
+    The saved ``[head_dim]`` bus is mixed by a fixed identity before the native
+    output projection.  It therefore adds no learned ``head_dim**2`` matrix.
+    """
+
+    dimensions = (state_dim, qk_rank, head_dim, output_dim)
+    if any(type(value) is not int or value <= 0 for value in dimensions):
+        raise ValueError("native head dimensions must be positive Python integers")
+    return 4 * qk_rank * state_dim + head_dim * state_dim + output_dim * head_dim
+
+
 def compose_successor_arm(
     residual_without_head: torch.Tensor,
     native_write: torch.Tensor,
@@ -337,6 +352,7 @@ __all__ = [
     "autonomous_successor_parameter_count",
     "spectral_deranged_control",
     "shared_bus_producer_parameter_count",
+    "native_shared_bus_head_parameter_count",
     "tolerance_rank",
     "two_source_successor_write",
     "two_source_preweighted_write",
