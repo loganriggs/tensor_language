@@ -255,3 +255,15 @@ def test_synthetic_loader_rejects_cross_role_production_path(tmp_path):
         loader.OneUseFitTrainingLoader(
             parent.FitParentPaths(*values), require_production=False, train_documents=3
         )
+
+
+def test_synthetic_loader_rechecks_aliases_at_load_boundary(tmp_path, monkeypatch):
+    paths, binding, authority, _ = _fixture(tmp_path, monkeypatch)
+    capability = loader.OneUseFitTrainingLoader(
+        paths, require_production=False, train_documents=3
+    )
+    paths.bundle.unlink()
+    paths.bundle.hardlink_to(parent.PRODUCTION_PATHS.bundle)
+    with pytest.raises(RuntimeError, match="became production aliases"):
+        capability.load_once(parent_binding=binding, analysis_authority=authority)
+    assert capability.spent is True

@@ -61509,3 +61509,60 @@ consistent with the data and not isolated by it.**
 **Open.** Rung 4's remaining debt is unchanged and is now the only thing between this and a quotable
 frontier move: **fresh-window certification (backlog rung 6) of the ~6x configuration**, which no arm in
 §2079 or §2080 has had.
+
+## §2081 — NOT CERTIFIED: the ~6x gate collapses on a second fresh window, and so does the ORACLE — the efficiency metric is window-dependent
+
+`ops/probe_gate5.py`, **301s**, BENCHMARK_BACKLOG **rung 6**. **pred_a FAILED | pred_b FAILED |
+pred_c FAILED.** All three, and the failure is larger than the thing I was certifying.
+
+§2079 and §2080 both refused to quote ~6x pending this, and there was a sharper reason than ritual: the
+six arms were **selected on FR by their FR efficiency and then quoted at that same FR efficiency** —
+LESSON 106's shape, sitting unremarked in a number I twice called a frontier move. FR2 is built from
+FineWeb documents FR never touched; the fit window's SVD basis, normalisation and threshold are reused,
+never refit.
+
+```
+  arm       FR eff    FR2 eff        arm       FR eff    FR2 eff
+  blk2       3.852x   -0.093x        blk2+5     5.792x    0.813x
+  blk5       5.508x    0.501x        blk2+9     6.148x    1.518x
+  blk9       4.595x    1.129x        blk5+9     6.219x    1.119x
+
+  selected on FR: blk5+9 at 6.219x  ->  on FR2: 1.119x   (ratio 0.180)
+```
+
+> **NOT CERTIFIED. §2079 and §2080 may not be quoted as a frontier move, and I am saying so in the same
+> place I claimed it.** The FR half reproduces §2080 to three decimals (blk2 3.852 vs 3.849, blk5+9 6.219
+> vs 6.185), so the instrument is stable and the collapse is not a bug in this run.
+
+**THE FAILURE IS NOT MINE ALONE, AND THIS IS THE PART THAT MATTERS.** `blk2` is §342's published
+configuration — the 3.8x that has stood as a certified rung since. **On FR2 it scores −0.093x: worse than
+random gating.** And the oracle, which is the ladder's top and is not deploy-legal:
+
+```
+  FR :  oracle gain +0.0778   random gain +0.0084   ->  oracle efficiency 9.262x
+  FR2:  oracle gain +0.0577   random gain +0.0218   ->  oracle efficiency 2.647x
+        random-gating gain is 2.595x LARGER on FR2; gated fraction 17.25% -> 20.84%
+```
+
+**The 9.4x oracle of §337 is 2.65x on a second window.** The entire ladder — 1.5x, 3.8x, 6.1x, 9.4x — is
+a ratio whose **denominator varies by 2.6x between windows**. That is not a property of any probe. **The
+efficiency metric is window-dependent, and every number in this arc that is expressed as "Nx random"
+inherits that.**
+
+**What I am and am not retracting.** §337's and §342's measurements stand on their own window; nothing
+here says they were computed wrongly. **What falls is their transferability** — "3.8x random" and "9.4x
+random" read as properties of a gate, and they are properties of a gate *and a window*. §2079/§2080's
+~6x falls the same way and further, since it was also selection-inflated. **I am scoping three sections
+rather than deleting them, because the arithmetic was right and the generalisation was not.**
+
+**The honest positive, and it is thin.** The arm ORDERING partly survives: `blk2` is worst on both
+windows, and 2 of 3 pairs still beat 2 of 3 singles on FR2. **Relative comparisons at matched fraction
+within one window may be sound; absolute "Nx random" claims across windows are not.** §2080's "width, not
+site choice" was a within-window relative claim, and its pred_c failed here only on the strict all-pairs
+form — `blk2+9` (1.518x) still leads every single.
+
+**Open, and it is now the rung that matters.** A window-robust gating metric is needed before any of this
+is quotable. **Gain-at-fraction in nats (`blk2+9`: +0.0517 on FR, +0.0331 on FR2) is far more stable than
+the ratio**, because it does not divide by a random baseline that moves 2.6x. §2079 already argued AUC
+was the wrong headline; **this says the efficiency ratio is the wrong headline too, and the raw gain at a
+matched fraction is the candidate that survives both objections.**

@@ -1,0 +1,124 @@
+{
+ "FR_oracle_gain": 0.0778,
+ "FR_random_gain": 0.0084,
+ "FR2_oracle_gain": 0.0577,
+ "FR2_random_gain": 0.0218,
+ "gated_fraction_FR": 0.1725,
+ "gated_fraction_FR2": 0.2084,
+ "arms": {
+  "blk2": {
+   "depths": [
+    2
+   ],
+   "dim": 1152,
+   "auc": 0.621,
+   "FR": {
+    "gain": 0.0324,
+    "eff_vs_random": 3.852,
+    "frac_of_oracle": 0.417
+   },
+   "FR2": {
+    "gain": -0.002,
+    "eff_vs_random": -0.093,
+    "frac_of_oracle": -0.035
+   }
+  },
+  "blk5": {
+   "depths": [
+    5
+   ],
+   "dim": 1152,
+   "auc": 0.6384,
+   "FR": {
+    "gain": 0.0463,
+    "eff_vs_random": 5.508,
+    "frac_of_oracle": 0.596
+   },
+   "FR2": {
+    "gain": 0.0109,
+    "eff_vs_random": 0.501,
+    "frac_of_oracle": 0.189
+   }
+  },
+  "blk9": {
+   "depths": [
+    9
+   ],
+   "dim": 1152,
+   "auc": 0.6545,
+   "FR": {
+    "gain": 0.0387,
+    "eff_vs_random": 4.595,
+    "frac_of_oracle": 0.497
+   },
+   "FR2": {
+    "gain": 0.0246,
+    "eff_vs_random": 1.129,
+    "frac_of_oracle": 0.426
+   }
+  },
+  "blk2+5": {
+   "depths": [
+    2,
+    5
+   ],
+   "dim": 2304,
+   "auc": 0.6323,
+   "FR": {
+    "gain": 0.0487,
+    "eff_vs_random": 5.792,
+    "frac_of_oracle": 0.627
+   },
+   "FR2": {
+    "gain": 0.0177,
+    "eff_vs_random": 0.813,
+    "frac_of_oracle": 0.307
+   }
+  },
+  "blk2+9": {
+   "depths": [
+    2,
+    9
+   ],
+   "dim": 2304,
+   "auc": 0.6382,
+   "FR": {
+    "gain": 0.0517,
+    "eff_vs_random": 6.148,
+    "frac_of_oracle": 0.665
+   },
+   "FR2": {
+    "gain": 0.0331,
+    "eff_vs_random": 1.518,
+    "frac_of_oracle": 0.573
+   }
+  },
+  "blk5+9": {
+   "depths": [
+    5,
+    9
+   ],
+   "dim": 2304,
+   "auc": 0.6457,
+   "FR": {
+    "gain": 0.0523,
+    "eff_vs_random": 6.219,
+    "frac_of_oracle": 0.673
+   },
+   "FR2": {
+    "gain": 0.0244,
+    "eff_vs_random": 1.119,
+    "frac_of_oracle": 0.422
+   }
+  }
+ },
+ "selected_on_FR": "blk5+9",
+ "selected_eff_FR": 6.219,
+ "selected_eff_FR2": 1.119,
+ "FR2_over_FR_ratio": 0.1799,
+ "best_single_on_FR2": "blk9",
+ "pred_a_survives_on_FR2": false,
+ "pred_b_selection_inflation_small": false,
+ "pred_c_width_replicates_on_FR2": false,
+ "runtime_s": 301.39258074760437
+}

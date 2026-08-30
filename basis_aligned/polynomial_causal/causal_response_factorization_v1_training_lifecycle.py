@@ -47,11 +47,13 @@ SOURCE_PATHS = tuple(ROOT / path for path in (
     "basis_aligned/polynomial_causal/CAUSAL_RESPONSE_FACTORIZATION_V1_AMENDMENT_6.md",
     "basis_aligned/polynomial_causal/CAUSAL_RESPONSE_FACTORIZATION_V1_AMENDMENT_7.md",
     "basis_aligned/polynomial_causal/CAUSAL_RESPONSE_FACTORIZATION_V1_AMENDMENT_8.md",
+    "basis_aligned/polynomial_causal/CAUSAL_RESPONSE_FACTORIZATION_V1_AMENDMENT_9.md",
     "basis_aligned/polynomial_causal/causal_response_factorization_v1.py",
     "basis_aligned/polynomial_causal/causal_response_factorization_v1_accelerated.py",
     "basis_aligned/polynomial_causal/causal_response_factorization_v1_fit_adapter.py",
     "basis_aligned/polynomial_causal/causal_response_factorization_v1_parent_binding.py",
     "basis_aligned/polynomial_causal/causal_response_factorization_v1_training_loader.py",
+    "basis_aligned/polynomial_causal/causal_response_factorization_v1_training_snapshot.py",
     "basis_aligned/polynomial_causal/causal_response_factorization_v1_training_input.py",
     "basis_aligned/polynomial_causal/causal_response_factorization_v1_training_lifecycle.py",
     "basis_aligned/polynomial_causal/causal_response_tensor_collection.py",
@@ -65,6 +67,7 @@ SOURCE_PATHS = tuple(ROOT / path for path in (
     "basis_aligned/polynomial_causal/test_causal_response_factorization_v1_fit_adapter.py",
     "basis_aligned/polynomial_causal/test_causal_response_factorization_v1_parent_binding.py",
     "basis_aligned/polynomial_causal/test_causal_response_factorization_v1_training_loader.py",
+    "basis_aligned/polynomial_causal/test_causal_response_factorization_v1_training_snapshot.py",
     "basis_aligned/polynomial_causal/test_causal_response_factorization_v1_training_input.py",
     "basis_aligned/polynomial_causal/test_causal_response_factorization_v1_training_lifecycle.py",
     "basis_aligned/polynomial_causal/test_causal_response_tensor_v1_fit_bundle.py",
@@ -401,6 +404,45 @@ def _rename_directory_noreplace(source: Path, target: Path) -> None:
         raise OSError(error, os.strerror(error), str(target))
 
 
+def _validate_staged_terminal(
+    staging: Path,
+    *,
+    kind: str,
+    snapshot_records: Mapping[str, Mapping[str, Any]],
+    terminal_sha256: str,
+) -> None:
+    """Exact final census and byte replay immediately before serialization."""
+
+    expected_names = set(snapshot_records) | {f"{kind}.json", "terminal.json"}
+    observed_names = {path.name for path in staging.iterdir()}
+    if observed_names != expected_names:
+        raise RuntimeError("factor training staged terminal file census changed")
+    payload = staging / f"{kind}.json"
+    terminal = staging / "terminal.json"
+    payload_stat = payload.stat(follow_symlinks=False)
+    terminal_stat = terminal.stat(follow_symlinks=False)
+    if (
+        not stat.S_ISREG(payload_stat.st_mode)
+        or not stat.S_ISREG(terminal_stat.st_mode)
+        or (payload_stat.st_dev, payload_stat.st_ino)
+        != (terminal_stat.st_dev, terminal_stat.st_ino)
+        or file_sha256(payload) != terminal_sha256
+        or file_sha256(terminal) != terminal_sha256
+    ):
+        raise RuntimeError("factor training staged terminal pair changed")
+    for name, record in snapshot_records.items():
+        path = staging / name
+        observed = path.stat(follow_symlinks=False)
+        if (
+            set(record) != {"path_within_terminal_directory", "sha256", "bytes"}
+            or record["path_within_terminal_directory"] != name
+            or not stat.S_ISREG(observed.st_mode)
+            or observed.st_size != record["bytes"]
+            or file_sha256(path) != record["sha256"]
+        ):
+            raise RuntimeError(f"factor training staged snapshot record changed: {name}")
+
+
 def _publish_terminal_pair(
     value: Mapping[str, Any], *, kind: str, claim: Claim, final_guard,
     snapshot_sources: Mapping[str, tuple[Path, str | None]] | None = None,
@@ -441,6 +483,12 @@ def _publish_terminal_pair(
         _fsync_directory_best_effort(staging)
         require_claim(claim)
         final_guard(snapshot_paths, snapshot_records)
+        _validate_staged_terminal(
+            staging,
+            kind=kind,
+            snapshot_records=snapshot_records,
+            terminal_sha256=digest,
+        )
         # Atomic create-only publication is the final filesystem operation.  There is
         # no lookup, callback, sync, or cleanup on the success path after this call.
         _rename_directory_noreplace(staging, TERMINAL_DIR)

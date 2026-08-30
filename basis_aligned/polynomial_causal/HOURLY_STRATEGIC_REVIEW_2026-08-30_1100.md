@@ -139,3 +139,63 @@ top-17.25% gate efficiency rank arms differently. This is useful for reverse
 engineering because it says later reads can expose a better global ranking, while
 extraction at a fixed narrow gate may benefit mostly from a wider decoder. It does
 not yet identify or remove a circuit and does not change the strict ledger.
+
+## 11:22 UTC update — use-time authority repair and fresh-window falsification
+
+The fourth independent transaction audit is an exact **NO-GO**, preserved at commit
+`3c965efe` with audit SHA-256
+`32d213cafc1573bbc3286c8124ac5d8bee71f94c5c41c7d5594274237702fc6d`.
+It ran 81 ordinary and five adversarial tests without reading outcomes. It reproduced
+five remaining attacks: mutating staged bytes after semantic replay, substituting a
+snapshot record, adding an unrecorded staging file, swapping a loader path to a
+production hardlink at the load boundary, and the absence of any downstream consumer
+that revalidates the published object. This means Amendment 8's receipt is a useful
+cryptographic commitment, but is not on its own permission to use writable files.
+
+Prospective Amendment 9 repairs the boundary in two places. Immediately before the
+create-only directory rename, the publisher rechecks the exact file census, the
+receipt/terminal inode, and every recorded byte count and SHA-256. More importantly,
+the new no-argument consumer independently rechecks those facts *at use time*, joins
+authority, audit, manifest, sanitized input, and historical source closure, replays
+the 229-document FIT-only role, then repeats the full census and hashes before
+returning cloned CPU tensors. The FIT loader also repeats physical path and inode
+alias checks after its one-use capability is irreversibly spent. The focused suite
+passes 33/33 and the full closure passes **97/97 in 37.46 seconds**. These tests do
+not authorize production access; exact Amendment-9 source now requires a fresh
+independent audit.
+
+The fresh-window gate certification also completed in **301.39 seconds**. The arm
+chosen on the first fresh window, block 5+9, scored 6.219 times random there but only
+1.119 times random on a disjoint second window. Its retained efficiency was therefore
+only **0.1799**, and all three preregistered survival predictions failed. Block 9 was
+best on the second window at 1.129 times random, still far below the first-window
+numbers. Thus the apparent roughly-sixfold downstream gate is selection inflation,
+not an OOD-certified circuit. No terminal circuit is added.
+
+### Current fraction explained and largest gaps
+
+The strict ledger remains **5.348245316%** certified removable storage and
+**10.923302467%** named deletion cross-entropy, leaving **4.72714 nat =
+89.076697533%** of the deletion gap unexplained and **0/68** terminal circuits.
+The largest gaps are now: lawful access to the already-collected response tensor;
+a structured factorization that beats its nulls under an explicit price; joint
+MLP0/MLP1/MLP2 composition under RMSNorm and residual interfaces; semantic and sparse
+meaning for learned atoms; and OOD-predictive selective extraction/removal rather than
+probe-only association.
+
+### Re-ranked actions
+
+1. **Independently audit Amendment 9.** Highest information gain and negligible GPU
+   cost; it either unlocks the exact FIT object or supplies another concrete attack.
+2. **On exact GO only, atomically publish and reload the sanitized training snapshot.**
+   This is the sole lawful interface to the already-paid-for 55.5 MB response tensor.
+3. **Run the frozen 51 structured response fits on GPU.** Keep literal matched-price
+   dense SVD rank zero as the strict control; label amortized ranks separately rather
+   than changing the simplicity definition. The measured rough cost is 3.90 GPU-hours.
+4. **Test hierarchy/sparse use and whole-model composition on factor survivors.** Tree
+   cut ranks, owner-private atoms, quotient nullity, and sparse usage only matter if
+   they improve intervention, pair composition, OOD transport, or executable price.
+5. **Replace the failed wide-probe branch with causal downstream interfaces.** Later
+   reads are still useful as measurements of what early MLP writes become actionable,
+   but only frozen-window amplitude/direction interventions and selective removal can
+   promote them to circuits. More probe-width sweeps are pruned as redundant.

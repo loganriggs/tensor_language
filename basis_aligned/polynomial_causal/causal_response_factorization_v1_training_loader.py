@@ -236,6 +236,16 @@ class OneUseFitTrainingLoader:
             raise RuntimeError("FIT training loader capability is already spent")
         # Poison before the first file lookup. Failure cannot turn into a second try.
         self._spent = True
+        if self._require_production:
+            if any(
+                not _same_physical_path(
+                    getattr(self._paths, field), getattr(parent.PRODUCTION_PATHS, field)
+                )
+                for field in FIT_PARENT_PATH_FIELDS
+            ):
+                raise RuntimeError("production training loader paths changed before load")
+        elif _touches_production_parent(self._paths):
+            raise RuntimeError("synthetic loader paths became production aliases before load")
         replay_parent = parent.fit_parent_binding_without_tensor_load(self._paths)
         if replay_parent != parent_binding:
             raise RuntimeError("FIT parent changed before training tensor access")
@@ -250,6 +260,17 @@ class OneUseFitTrainingLoader:
         elif analysis_authority is None or expected_analysis_authority_artifact_sha256 is not None:
             raise RuntimeError("synthetic loader authority surface is malformed")
         _validate_analysis_authority(analysis_authority, parent_binding)
+
+        if self._require_production:
+            if any(
+                not _same_physical_path(
+                    getattr(self._paths, field), getattr(parent.PRODUCTION_PATHS, field)
+                )
+                for field in FIT_PARENT_PATH_FIELDS
+            ):
+                raise RuntimeError("production training loader paths changed during authority replay")
+        elif _touches_production_parent(self._paths):
+            raise RuntimeError("synthetic loader paths became production aliases during load")
 
         bundle_record, bundle_raw = parent._stable_record(self._paths.bundle)
         if bundle_record["sha256"] != parent_binding["bundle_sha256"] or (
