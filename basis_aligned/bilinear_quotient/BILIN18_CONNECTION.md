@@ -60280,9 +60280,12 @@ complete linkage, NaN-safe mean.
 ```
   62 curated circuits in this state -> 20 clusters at |cos| >= 0.8, largest 21
   mean pairwise |cos| = 0.5644
-  a8's five:   spread over 3 clusters   <- §2056 says they are ONE mechanism
-  a16's three: spread over 2 clusters   <- §2056 says ONE
+  a8's five:   spread over FIVE clusters, one each   <- §2056 says they are ONE mechanism
+  a16's three: spread over two (r.3.0 with r.4.1.1; r.3.0.2 alone)
 ```
+
+> **The disagreement is total, not partial: at the output the a8 five land in five separate clusters,
+> one each — the maximum possible disagreement with §2056's finding that they are one mechanism.**
 
 > **pred_a FAILED, and I registered it as the gate for exactly this: "if the clustering does not recover
 > §2056's collapse the method is not measuring what it claims and nothing else here should be believed."**

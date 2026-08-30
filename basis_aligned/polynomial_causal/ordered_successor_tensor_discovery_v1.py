@@ -13,10 +13,16 @@ from enum import Enum
 import hashlib
 import json
 import math
+from pathlib import Path
+import sys
 from typing import Mapping, Sequence
 
 import torch
 import torch.nn.functional as F
+
+ROOT = Path(__file__).resolve().parents[2]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
 
 import circuit_campaign_runtime as campaign
 import circuit_successor_tensor as tensor

@@ -5,9 +5,10 @@ from dataclasses import replace
 import pytest
 import torch
 
-import circuit_campaign_runtime as campaign
 from ordered_successor_masks_v1 import OrderedLexicon, build_ordered_successor_masks
 import ordered_successor_tensor_discovery_v1 as discovery
+
+campaign = discovery.campaign
 
 
 HEX = "a" * 64
@@ -158,8 +159,12 @@ def test_document_statistics_match_direct_ce_kl_top1_and_margin_sums() -> None:
     assert torch.equal(stats.count, torch.tensor([1, 2]))
     torch.testing.assert_close(stats.ce_sum, (direct_ce * weight).sum(-1))
     torch.testing.assert_close(stats.native_kl_sum, (direct_kl * weight).sum(-1))
-    torch.testing.assert_close(stats.top1_change_sum, torch.tensor([1.0, 0.0]))
-    torch.testing.assert_close(stats.successor_margin_sum, torch.tensor([1.0, 3.0]))
+    torch.testing.assert_close(
+        stats.top1_change_sum, torch.tensor([1.0, 0.0], dtype=torch.float64),
+    )
+    torch.testing.assert_close(
+        stats.successor_margin_sum, torch.tensor([1.0, 3.0], dtype=torch.float64),
+    )
 
 
 def test_item_margin_is_recomputed_from_pair_index_and_multitoken_items() -> None:
