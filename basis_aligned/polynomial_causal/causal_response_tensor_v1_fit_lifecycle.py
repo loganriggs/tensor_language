@@ -455,10 +455,15 @@ def _publish_terminal_record(
         # complete payload, so terminal-only remains semantically recoverable.
         os.link(temporary, TERMINAL)
         _fsync_parent_best_effort(TERMINAL)
+        terminal_replay, terminal_digest = stable_json(TERMINAL, digest)
         terminal_stat = TERMINAL.stat(follow_symlinks=False)
         temporary_stat = temporary.stat(follow_symlinks=False)
         if (
-            (terminal_stat.st_dev, terminal_stat.st_ino)
+            terminal_digest != digest
+            or terminal_replay != json.loads(json.dumps(
+                record, sort_keys=True, allow_nan=False
+            ))
+            or (terminal_stat.st_dev, terminal_stat.st_ino)
             != (temporary_stat.st_dev, temporary_stat.st_ino)
             or target.exists() or opposite.exists()
         ):

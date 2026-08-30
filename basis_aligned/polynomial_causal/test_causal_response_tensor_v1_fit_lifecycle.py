@@ -411,3 +411,34 @@ def test_lock_loss_between_terminal_and_receipt_leaves_complete_terminal_only(
         assert not lifecycle.FAILURE.exists()
     finally:
         lifecycle.release_claim(claim)
+
+
+def test_in_place_terminal_mutation_blocks_final_receipt_link(monkeypatch, tmp_path):
+    _redirect_namespace(monkeypatch, tmp_path)
+    claim = lifecycle.acquire_claim()
+    original_fsync = lifecycle._fsync_parent_best_effort
+    attacked = False
+
+    def mutate_terminal_after_first_link(path):
+        nonlocal attacked
+        original_fsync(path)
+        if path == lifecycle.TERMINAL and not attacked:
+            attacked = True
+            # TERMINAL and the staged temporary are hard links to this same inode.
+            lifecycle.TERMINAL.write_text('{"mutated":true}\n')
+
+    monkeypatch.setattr(
+        lifecycle, "_fsync_parent_best_effort", mutate_terminal_after_first_link
+    )
+    try:
+        with pytest.raises(RuntimeError, match="JSON hash changed"):
+            lifecycle._publish_terminal_record(
+                _terminal_record("receipt"), kind="receipt", claim=claim,
+                final_guard=lambda: None,
+            )
+        assert attacked
+        assert json.loads(lifecycle.TERMINAL.read_text()) == {"mutated": True}
+        assert not lifecycle.RECEIPT.exists()
+        assert not lifecycle.FAILURE.exists()
+    finally:
+        lifecycle.release_claim(claim)
