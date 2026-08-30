@@ -110,3 +110,15 @@ the queue as a supervisor service.
   after §2122 showed span "gains" were coverage artifacts).
 - **bqrunner / enqueue / gate** — the supervisor service that pops `queue.txt` and runs experiments serially;
   `ops/enqueue.sh` refuses scripts that fail static checks + a no-GPU dry run.
+
+## RETRACTION — 20:55 UTC (§2135)
+
+**The "frontier improvements" reported in this document's update sections (+2.7707, then +2.8190, +2.8372) were
+sign errors and are retracted.** The L2 numbers are CE *added above the real model* — lower is better (§312's own
+text: "+2.6735 … beating +2.84 and +2.93"). §2125 was correct all along: Fisher-based selection does not install
+into the §312 frontier (it adds +0.048–0.164 damage in every form tried); the frontier is, and was all evening,
+**norm-2304 at +2.6735**. What caught it: rung 41's registered K-0 control — bias-only at mlp4/mlp5 landed at
++3.24, which the flipped reading would call the best config ever measured. What stands: the label-free top-8
+selector's certified −0.086 damage reduction **on cfgE** (§2116/§2124), all closed negatives, and the price-
+structure results. The glossary's "nats recovered" phrasing applies to cfgE's base/oracle framing, NOT to the
+frontier L2 numbers, which are damage. Full account, evidence, and new process rules: ledger §2135.

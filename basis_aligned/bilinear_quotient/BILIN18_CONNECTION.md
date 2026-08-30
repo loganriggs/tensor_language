@@ -63568,3 +63568,58 @@ pred_a FAILED (−0.0021 vs +0.02) | pred_b FAILED (3/8) | pred_d FAILED (shift 
   the mlp4/mlp5 price**, selector label-free throughout.
 - The obvious next question is the floor: K = 144, and K = 0 (Down-bias only) as the "do the units matter at
   all" null → rung 41.
+
+## §2135 — RETRACTION OF §2128, §2129, §2133, §2134 AND REINSTATEMENT OF §2125: L2 IS CE ADDED ABOVE THE REAL MODEL — LOWER IS BETTER — AND THE EVENING'S "FRONTIER IMPROVEMENTS" WERE CERTIFIED DAMAGE INCREASES. RUNG 41's K-0 NULL IS WHAT CAUGHT IT
+
+`ops/frontier_cond_floor.py` landed (469s) with: **pred_c HELD (cond-576 repro) | pred_a, pred_b FAILED as
+written** — and the K-0 arm at "+0.50 over cond-576" is the smoking gun that forced this audit.
+
+**The convention, proved three independent ways:**
+1. **The code.** `baseF = evalT(FR,120,[])` — `install([])` installs no hooks: the base is the REAL model. L2 is
+   the CE the assembly adds above it. An assembly cannot "recover" nats against the real model; it can only cost.
+2. **§312's own text.** "+2.6735 fresh … **beating** the fold-L2 (+2.84) and the old 34-component frontier
+   (+2.93)"; elsewhere "improves +2.6735 → +2.5029, a +0.171 nat gain." Progress is DOWNWARD. The registered
+   ceiling L2 ≤ +2.75 is a damage bound, and it was flagging every "improved" arm all evening (printed FAILED on
+   each — overridden by me as "the ceiling retires").
+3. **The K-0 control (rung 41).** Down-bias-only at mlp4/mlp5 lands at +3.2390. Under the flipped reading, that
+   is "the best mlp4/5 stand-in ever measured, +0.57 beyond the §312 frontier" — absurd; deleting two MLPs is
+   catastrophic. Under the correct reading it is +0.50 more damage: the units carry ~0.5 nat of real CE, which is
+   what pred_b intended to (and in substance does) confirm.
+
+**What actually happened, in order.** §2125 (rung 30) correctly measured that true-Fisher top-8 selection makes
+the §312 frontier worse (+0.0475 damage) and correctly kept norm selection. §2128 — written by me as a
+"correction" — misread higher L2 as better, "withdrew" the correct entry, and every subsequent registration
+(§2129, §2133, §2134, and rungs 41–42's formulas) was written inside the flipped convention, each "certifying"
+larger damage as larger gain. The §2129/§2133/§2134 measurements themselves are sound and stay in the record as
+damage numbers.
+
+**The corrected state of the frontier (fresh CE above the real model; lower is better):**
+```
+  norm-2304 (§312)          2.6735   ← the frontier; unchanged all evening
+  fisher8-2304 (§2125)      2.7210   +0.048 damage — does not install (§2125 stands)
+  asm-cond-2304 (§2129)     2.7707   +0.097
+  asm-cond-1152 (§2133)     2.8190   +0.146
+  asm-cond-576 (§2134)      2.8372   +0.164   ← worst measured
+  asm-cond-288              2.8155
+  asm-cond-144 (rung 41)    2.7660   (partial recovery toward norm as the conditioned rank's influence shrinks)
+  K-0 bias only (rung 41)   3.2390   the control that broke the spell
+```
+**What stands:** §2116/§2119/§2124 — the label-free top-8 selector reduces **cfgE's** damage by 0.086 median,
+8/8 windows (those scripts' gain formulas subtract in the correct direction; their arms were re-reproduced
+exactly in §2132). §2125's scope statement is again the true summary: certified on cfgE, does not transfer to
+the motif-hybrid frontier. §2130/§2132's cfgE-side null (conditioning ≈ 0 there) stands. §2131's "reordering
+c6–c9 does nothing" stands. §2126/§2127 (sink scalar, m16) are untouched.
+
+**What is retracted:** every "frontier best" claim from this evening (+2.7707, +2.8190, +2.8372), the §2118
+"supersession" (§2118 is CONFIRMED), "three quarters of the units were hurting" (§2134 — backwards), and the
+§2128 correction itself. The theseus-bench registry notes and explanation docs carrying these claims are being
+corrected in the same push. Rung 42 (c6–c9 pruning, in flight) was registered inside the flipped convention;
+its arm values will be read as damage in its write-up.
+
+**Process rules adopted (replacing §2128's misapplied one):**
+1. Every ledger entry making a directional claim states the convention inline ("L2 = CE above the real model;
+   lower is better").
+2. A correction that FLIPS a prior conclusion requires an independent physical control (like K-0) before
+   publication — a re-derivation from the same numbers is not enough, because the flip and the re-derivation
+   share the premise.
+3. A registered sanity bound printing FAILED is never "retired" in the same entry that benefits from ignoring it.

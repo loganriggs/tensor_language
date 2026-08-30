@@ -556,7 +556,12 @@ later per-rung backlog edits had silently anchored on text that was not here.
     harmful-or-inert in the deployed assembly - a major finding on its
     own); pred_c cond-576 reproduces §2134 (median vs norm +0.1277
     within 0.015).
-    -> ops/frontier_cond_floor.py [QUEUED]
+    -> ops/frontier_cond_floor.py
+    RUN 2026-08-30, §2135: pred_c HELD; a/b FAILED as written — and the
+    K-0 arm (+3.239) exposed that the WHOLE K-sweep arc was sign-flipped:
+    L2 is damage above the real model, LOWER is better. RETRACTION §2135:
+    §2125 reinstated, §2128/§2129/§2133/§2134 retracted; frontier is and
+    was norm-2304 at 2.6735. Units carry ~0.5 nat (K-0 control).
 
 42. PRUNE c6-c9 UNDER THE CONDITIONED RANKING. §2131 killed reordering at
     K=2304; §2134 showed the mlp4/5 win came from DROPPING the harmful
@@ -566,3 +571,8 @@ later per-rung backlog edits had silently anchored on text that was not here.
     median [c69cond576 - c69norm576] >= 0 (§2131 null predicts ~0);
     pred_c base arm reproduces §2134 (+0.1277 within 0.015).
     -> ops/frontier_c69_prune.py [QUEUED 20:50Z]
+
+    [§2135 NOTE on rungs 30-42: every 'gain' registered after §2128 was
+    written in a flipped sign convention (higher L2 read as better).
+    The measurements stand as damage numbers; the celebratory readings
+    are retracted. Rung 42 (in flight) to be read as damage.]
