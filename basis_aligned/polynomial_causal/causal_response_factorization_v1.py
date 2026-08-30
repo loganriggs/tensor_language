@@ -10,6 +10,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 import hashlib
+import math
 from typing import Mapping, Sequence
 
 import torch
@@ -247,6 +248,176 @@ def predict_from_codes(basis: torch.Tensor, codes: torch.Tensor) -> torch.Tensor
     return (basis @ codes.T).contiguous()
 
 
+@dataclass(frozen=True)
+class FitResult:
+    program: ResponseProgram
+    document_codes: torch.Tensor
+    initial_mse: float
+    final_mse: float
+    improvement_fraction: float
+    steps: int
+    seed: int
+
+
+def _canonicalize_block(
+    factors: Sequence[torch.Tensor], codes: torch.Tensor
+) -> tuple[tuple[torch.Tensor, torch.Tensor, torch.Tensor], torch.Tensor]:
+    """Fix continuous scale/sign and discrete permutation without changing output."""
+
+    normalized = [factor.detach().clone() for factor in factors]
+    canonical_codes = codes.detach().clone()
+    rank = canonical_codes.shape[1]
+    for factor_index, factor in enumerate(normalized):
+        norms = factor.norm(dim=0)
+        if bool((~torch.isfinite(norms)).any()) or bool((norms == 0).any()):
+            raise RuntimeError("a fitted CP factor column is zero or nonfinite")
+        normalized[factor_index] = factor / norms
+        canonical_codes = canonical_codes * norms
+        factor = normalized[factor_index]
+        pivots = factor.abs().argmax(dim=0)
+        signs = factor[pivots, torch.arange(rank)].sign()
+        signs[signs == 0] = 1
+        normalized[factor_index] = factor * signs
+        canonical_codes = canonical_codes * signs
+    keys = []
+    for column in range(rank):
+        payload = torch.cat([factor[:, column] for factor in normalized]).numpy().tobytes()
+        keys.append((hashlib.sha256(payload).digest(), column))
+    order = torch.tensor([column for _, column in sorted(keys)], dtype=torch.int64)
+    return (
+        tuple(factor[:, order].contiguous() for factor in normalized),  # type: ignore[return-value]
+        canonical_codes[:, order].contiguous(),
+    )
+
+
+def fit_shared_private_program(
+    response: torch.Tensor,
+    valid: torch.Tensor,
+    source_groups: torch.Tensor,
+    *,
+    global_rank: int,
+    private_rank: int,
+    seed: int,
+    steps: int = 2_000,
+    learning_rate: float = 0.03,
+) -> FitResult:
+    """Fit the frozen shared-parent/component-private CP family with Adam.
+
+    This is a deterministic CPU float64 optimizer given its inputs and seed. It is a
+    mathematical fitter only: it performs no candidate selection or artifact I/O.
+    """
+
+    response = _exact_cpu_tensor(response, torch.float64, "response")
+    valid = _exact_cpu_tensor(valid, torch.bool, "valid")
+    source_groups = _exact_cpu_tensor(source_groups, torch.int64, "source_groups")
+    if response.ndim != 4 or valid.shape != response.shape:
+        raise ValueError("response and validity must align as [phase,source,target,document]")
+    p, s, t, d = response.shape
+    if source_groups.shape != (s,) or source_groups.min() < 0:
+        raise ValueError("source_groups must assign every source")
+    if global_rank < 0 or private_rank < 0 or global_rank + private_rank == 0:
+        raise ValueError("at least one nonnegative shared/private rank is required")
+    if steps < 1 or not math.isfinite(learning_rate) or learning_rate <= 0:
+        raise ValueError("optimizer controls are invalid")
+    if not bool(valid.any()):
+        raise ValueError("at least one response cell must be valid")
+    group_count = int(source_groups.max()) + 1
+    if set(source_groups.tolist()) != set(range(group_count)):
+        raise ValueError("source group labels must be contiguous")
+
+    generator = torch.Generator().manual_seed(seed)
+
+    def parameter(shape: tuple[int, ...]) -> torch.nn.Parameter:
+        value = 0.35 * torch.randn(shape, generator=generator, dtype=torch.float64)
+        return torch.nn.Parameter(value)
+
+    global_factors = [
+        parameter((p, global_rank)), parameter((s, global_rank)),
+        parameter((t, global_rank)), parameter((d, global_rank)),
+    ] if global_rank else []
+    private_factors: list[list[torch.nn.Parameter]] = []
+    for group in range(group_count):
+        group_sources = int((source_groups == group).sum())
+        private_factors.append([
+            parameter((p, private_rank)), parameter((group_sources, private_rank)),
+            parameter((t, private_rank)), parameter((d, private_rank)),
+        ] if private_rank else [])
+    parameters = list(global_factors)
+    for group in private_factors:
+        parameters.extend(group)
+    optimizer = torch.optim.Adam(parameters, lr=learning_rate)
+
+    def prediction() -> torch.Tensor:
+        estimate = torch.zeros_like(response)
+        if global_rank:
+            estimate = estimate + torch.einsum(
+                "pk,sk,tk,dk->pstd", *global_factors
+            )
+        if private_rank:
+            for group, factors in enumerate(private_factors):
+                estimate[:, source_groups == group] += torch.einsum(
+                    "pk,sk,tk,dk->pstd", *factors
+                )
+        return estimate
+
+    with torch.no_grad():
+        initial = float(((prediction()[valid] - response[valid]) ** 2).mean())
+    for _ in range(steps):
+        optimizer.zero_grad(set_to_none=True)
+        estimate = prediction()
+        loss = ((estimate[valid] - response[valid]) ** 2).mean()
+        if not bool(torch.isfinite(loss)):
+            raise RuntimeError("shared/private optimizer became nonfinite")
+        loss.backward()
+        optimizer.step()
+    with torch.no_grad():
+        final = float(((prediction()[valid] - response[valid]) ** 2).mean())
+    if not math.isfinite(final):
+        raise RuntimeError("shared/private optimizer ended nonfinite")
+
+    if global_rank:
+        global_block, global_codes = _canonicalize_block(
+            global_factors[:3], global_factors[3]
+        )
+    else:
+        global_block = (
+            torch.empty((p, 0), dtype=torch.float64),
+            torch.empty((s, 0), dtype=torch.float64),
+            torch.empty((t, 0), dtype=torch.float64),
+        )
+        global_codes = torch.empty((d, 0), dtype=torch.float64)
+    private_blocks = []
+    private_codes = []
+    for group, factors in enumerate(private_factors):
+        if private_rank:
+            block, codes = _canonicalize_block(factors[:3], factors[3])
+        else:
+            block = (
+                torch.empty((p, 0), dtype=torch.float64),
+                torch.empty((int((source_groups == group).sum()), 0), dtype=torch.float64),
+                torch.empty((t, 0), dtype=torch.float64),
+            )
+            codes = torch.empty((d, 0), dtype=torch.float64)
+        private_blocks.append(block)
+        private_codes.append(codes)
+    program = make_program_from_factors(global_block, private_blocks, source_groups)
+    all_codes = torch.cat([global_codes, *private_codes], dim=1).contiguous()
+    replay = predict_from_codes(program.basis(), all_codes).reshape(p, s, t, d)
+    replay_final = float(((replay[valid] - response[valid]) ** 2).mean())
+    if not math.isclose(replay_final, final, rel_tol=1e-10, abs_tol=1e-12):
+        raise RuntimeError("canonical factor program does not replay fitted loss")
+    improvement = (initial - final) / max(initial, torch.finfo(torch.float64).tiny)
+    return FitResult(
+        program=program,
+        document_codes=all_codes,
+        initial_mse=initial,
+        final_mse=final,
+        improvement_fraction=float(improvement),
+        steps=steps,
+        seed=seed,
+    )
+
+
 def make_program_from_factors(
     global_factors: Sequence[torch.Tensor],
     private_factors: Sequence[Sequence[torch.Tensor]],
@@ -264,4 +435,3 @@ def make_program_from_factors(
         private_target=tuple(group[2].detach().double().cpu().contiguous() for group in private_factors),
         source_groups=source_groups.detach().to(dtype=torch.int64, device="cpu").contiguous(),
     )
-

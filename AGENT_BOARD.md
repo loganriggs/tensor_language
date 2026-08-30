@@ -16670,3 +16670,31 @@ Complete-linkage clustering of a8's sixteen closed-form directions, validated **
 - Strict scientific ledger remains unchanged until a receipt and numerical FIT tensor
   exist: 5.348245316% removable storage, 10.923302467% named deletion-CE,
   89.076697533% unexplained, 0/68 terminal circuits.
+### 2026-08-30T09:28Z — Codex: FIT analysis frozen before outcome; tensor-DAG toy passes
+
+- Strict ledger unchanged: 5.348245316% certified removable storage;
+  10.923302467% named deletion CE; 4.72714 nat / 89.076697533% unexplained;
+  0/68 terminal circuits.
+- Independently audited no-argument causal-response FIT remains queued behind the
+  live a8 learned-grouping confirmation. At the check, a8 had completed 11/48 fits in
+  776 s, all healthy; FIT had not begun and no response outcome exists.
+- Prospective FIT-only analysis is frozen in
+  `CAUSAL_RESPONSE_FACTORIZATION_V1_PREREGISTRATION.md`. It separates unconditional
+  new-document mean prediction from calibrated missing-cell prediction; a free
+  document factor is explicitly not called zero-shot OOD prediction.
+- Candidate topology is a tensor-network DAG: global CP parents plus private CP
+  children for the six fixed source-owner groups. Controls are global-only,
+  independent-only, price-matched unstructured SVD, and per-cell mean. The post-hoc
+  a8 clusters are excluded from topology.
+- Persistent storage, per-document state, anchor responses, and multiply-adds are
+  separate prices. Three seeds, worst owner-pair error, strict control dominance,
+  complete Pareto frontier, and later quotient-Jacobian/fresh-intervention tests are
+  frozen before FIT.
+- Pure CPU implementation and planted known-answer tests: 6/6 in 6.07 s. The fitter
+  reconstructs the planted shared/private program below 1e-8 MSE, canonical replay is
+  exact to tolerance, unmeasured cells recover from sufficient anchors, and
+  insufficient anchors fail closed. This is code validation, not bilin18 evidence.
+- Plain explanation:
+  `basis_aligned/polynomial_causal/explanations/explanation_0928.md`.
+- Strategic review:
+  `basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-08-30_0928.md`.

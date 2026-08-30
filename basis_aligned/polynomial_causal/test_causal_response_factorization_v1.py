@@ -1,6 +1,7 @@
 import torch
 
 from causal_response_factorization_v1 import (
+    fit_shared_private_program,
     infer_document_codes,
     make_program_from_factors,
     predict_from_codes,
@@ -112,3 +113,31 @@ def test_missing_anchor_support_fails_closed_per_document():
     assert supported.tolist() == [True, False]
     assert torch.equal(codes[1], torch.zeros(3, dtype=torch.float64))
 
+
+def test_optimizer_recovers_planted_shared_plus_private_toy_and_replays_canonical_form():
+    generator = torch.Generator().manual_seed(88)
+    groups = torch.tensor([0, 0, 1, 1], dtype=torch.int64)
+    planted = make_program_from_factors(
+        tuple(torch.randn(shape, generator=generator, dtype=torch.float64)
+              for shape in ((2, 1), (4, 1), (3, 1))),
+        tuple(
+            tuple(torch.randn(shape, generator=generator, dtype=torch.float64)
+                  for shape in ((2, 1), (2, 1), (3, 1)))
+            for _ in range(2)
+        ),
+        groups,
+    )
+    codes = torch.randn((12, planted.code_dimension), generator=generator,
+                        dtype=torch.float64)
+    response = predict_from_codes(planted.basis(), codes).reshape(2, 4, 3, 12)
+    valid = torch.ones_like(response, dtype=torch.bool)
+    fitted = fit_shared_private_program(
+        response, valid, groups, global_rank=1, private_rank=1,
+        seed=2026083001, steps=2_000, learning_rate=0.04,
+    )
+    replay = predict_from_codes(
+        fitted.program.basis(), fitted.document_codes
+    ).reshape_as(response)
+    assert fitted.improvement_fraction > 0.9999
+    assert fitted.final_mse < 1e-8
+    assert torch.allclose(replay, response, atol=5e-4, rtol=5e-4)

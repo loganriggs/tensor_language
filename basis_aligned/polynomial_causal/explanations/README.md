@@ -7,8 +7,12 @@ primary evidence.
 
 ## Start here
 
+- [`explanation_0928.md`](explanation_0928.md) — newest synthesis, defining the
+  signed response computation, current GPU/FIT queue, shared-parent/private-child
+  tensor program, honest new-document tests, simplicity prices, toy validation, and
+  current blockers.
 - [`explanation_0805.md`](explanation_0805.md) — newest synthesis, defining the signed
-  causal-response tensor, current FIT integrity work, M16 seed result, and next plan.
+  causal-response tensor, preceding FIT integrity work, M16 seed result, and next plan.
 - [`explanation_0555.md`](explanation_0555.md) — preceding synthesis, written
   2026-08-30 after the MLP0 cutoff and induction FINAL/code-OOD result.
 - [`explanation_0326.md`](explanation_0326.md) — preceding synthesis, written
