@@ -377,13 +377,20 @@ def freeze_fit_authority() -> dict[str, Any]:
         temporary, digest = _stage_json(authority, AUTHORITY)
         try:
             require_claim(claim)
+            replay_audit, replay_audit_sha256 = _stable_audit()
+            if (
+                replay_audit != audit
+                or replay_audit_sha256 != audit_sha256
+                or source_closure(closure["commit"]) != closure
+                or parent_snapshot_without_tensor_load() != parents
+            ):
+                raise RuntimeError("FIT authority protected state changed")
+            # Protected-state replay is fallible and can be slow.  Terminal absence
+            # must therefore be checked only after it, immediately next to the final
+            # claim check and create-only authority link.
             if any(path.exists() for path in (AUTHORITY, BUNDLE, MANIFEST, RECEIPT,
                                                FAILURE, TERMINAL)):
                 raise RuntimeError("FIT authority namespace raced publication")
-            if source_closure(closure["commit"]) != closure or (
-                parent_snapshot_without_tensor_load() != parents
-            ):
-                raise RuntimeError("FIT authority protected state changed")
             require_claim(claim)
             os.link(temporary, AUTHORITY)
             directory_descriptor = os.open(AUTHORITY.parent, os.O_DIRECTORY)

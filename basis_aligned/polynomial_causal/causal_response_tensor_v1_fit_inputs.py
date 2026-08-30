@@ -45,6 +45,14 @@ PARENT_SHA256S = {
     "split":
         "3cb829ce5c9627f787e804e4e2ca44098030c629933f14df2c3a7fb07283317c",
 }
+MODEL_ROWS_SHA256 = "1786a30bc0d27d26324486e582a539cc292428c2f3f4f1ed7594014390a437ce"
+FIT_ROLE_SHA256 = "6873c2a279bf73fe17c38d72ac25003f4741825efc271ff91b6b783615cdd815"
+FIT_DOCUMENT_IDS_SHA256 = (
+    "0f514805a7615e5ef3fe862eb8bf37bebfe8c57b8b7e781fbb25907c729b808d"
+)
+SUPPORT_HASHES_SHA256 = (
+    "a8e033d981e82b5e39404ed5ee705119897e1d5d5a1cceaf80ea12c0b711a5aa"
+)
 
 
 def file_sha256(path: Path) -> str:
@@ -53,6 +61,12 @@ def file_sha256(path: Path) -> str:
         for chunk in iter(lambda: source.read(8 << 20), b""):
             digest.update(chunk)
     return digest.hexdigest()
+
+
+def logical_sha256(value: object) -> str:
+    return hashlib.sha256(json.dumps(
+        value, sort_keys=True, separators=(",", ":"), allow_nan=False,
+    ).encode()).hexdigest()
 
 
 def _stable_bytes(path: Path, expected_sha256: str) -> bytes:
@@ -270,13 +284,27 @@ def _reconstruct_production_fit_inputs_after_authority(
     # 0..256; columns 257..512 are outside every registered mask.
     model_rows = rows[:, :257].contiguous()
     fit_document_ids = torch.unique(documents[fit_rows], sorted=True)
+    observed_identities = {
+        "model_rows_sha256": tensor_sha256(model_rows),
+        "fit_role_sha256": role_sha,
+        "fit_document_ids_sha256": tensor_sha256(fit_document_ids),
+        "support_hashes_sha256": logical_sha256(support_hashes),
+    }
+    expected_identities = {
+        "model_rows_sha256": MODEL_ROWS_SHA256,
+        "fit_role_sha256": FIT_ROLE_SHA256,
+        "fit_document_ids_sha256": FIT_DOCUMENT_IDS_SHA256,
+        "support_hashes_sha256": SUPPORT_HASHES_SHA256,
+    }
+    if observed_identities != expected_identities:
+        raise RuntimeError("canonical FIT input identity does not match amendment 2")
     result = FitCollectorInputs(
         model_rows.clone(), documents.clone(), fit_rows.clone(),
         tuple(CircuitSpec(
         spec.tag, spec.component, spec.member_mask.clone(), spec.slice_mask.clone()
         ) for spec in specs),
-        dict(PARENT_SHA256S), tensor_sha256(model_rows), role_sha,
-        tensor_sha256(fit_document_ids), order_sha,
+        dict(PARENT_SHA256S), observed_identities["model_rows_sha256"], role_sha,
+        observed_identities["fit_document_ids_sha256"], order_sha,
         {tag: dict(value) for tag, value in support_hashes.items()},
     )
     authority_guard()

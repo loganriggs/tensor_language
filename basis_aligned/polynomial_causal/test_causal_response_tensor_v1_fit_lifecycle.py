@@ -126,6 +126,59 @@ def test_freeze_publishes_authority_create_only_before_parent_tensor_load(
         lifecycle.freeze_fit_authority()
 
 
+def test_late_terminal_race_prevents_authority_publication(monkeypatch, tmp_path):
+    _redirect_namespace(monkeypatch, tmp_path)
+    closure = {"commit": "1" * 40, "paths": {"a": "b" * 64}, "sha256": "c" * 64}
+    parents = {"weights_sha256": "d" * 64}
+    audit = {
+        "reviewer": "independent-test-auditor",
+        "audited_source_commit": closure["commit"],
+    }
+    parent_calls = 0
+
+    def replay_parents():
+        nonlocal parent_calls
+        parent_calls += 1
+        if parent_calls == 2:
+            lifecycle.FAILURE.write_text("injected concurrent failure\n")
+        return parents
+
+    monkeypatch.setattr(lifecycle, "source_closure", lambda *_args: closure)
+    monkeypatch.setattr(lifecycle, "parent_snapshot_without_tensor_load", replay_parents)
+    monkeypatch.setattr(lifecycle, "_stable_audit", lambda: (audit, "e" * 64))
+    with pytest.raises(RuntimeError, match="raced publication"):
+        lifecycle.freeze_fit_authority()
+    assert lifecycle.FAILURE.exists()
+    assert not lifecycle.AUTHORITY.exists()
+
+
+def test_late_independent_audit_change_prevents_authority_publication(
+    monkeypatch, tmp_path
+):
+    _redirect_namespace(monkeypatch, tmp_path)
+    closure = {"commit": "1" * 40, "paths": {"a": "b" * 64}, "sha256": "c" * 64}
+    parents = {"weights_sha256": "d" * 64}
+    audit = {
+        "reviewer": "independent-test-auditor",
+        "audited_source_commit": closure["commit"],
+    }
+    calls = 0
+
+    def changing_audit():
+        nonlocal calls
+        calls += 1
+        return audit, ("e" if calls == 1 else "f") * 64
+
+    monkeypatch.setattr(lifecycle, "source_closure", lambda *_args: closure)
+    monkeypatch.setattr(
+        lifecycle, "parent_snapshot_without_tensor_load", lambda: parents
+    )
+    monkeypatch.setattr(lifecycle, "_stable_audit", changing_audit)
+    with pytest.raises(RuntimeError, match="protected state changed"):
+        lifecycle.freeze_fit_authority()
+    assert not lifecycle.AUTHORITY.exists()
+
+
 def test_independent_audit_must_be_exact_source_bound_go(monkeypatch, tmp_path):
     _redirect_namespace(monkeypatch, tmp_path)
     bad = {

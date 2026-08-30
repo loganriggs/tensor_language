@@ -140,6 +140,48 @@ def test_bundle_binding_rejects_a_different_fit_document_set():
         bundle.validate_fit_bundle_payload(payload, require_production=False)
 
 
+def test_semantic_validator_enforces_preregistered_residual_cutoff():
+    payload = _payload()
+    tags = payload["source_tags"][:2]
+    indices = [0, 1]
+    epsilon = 1e-7
+    first = torch.zeros(payload["model_width"], dtype=torch.float64)
+    first[0] = 1
+    second = first.clone()
+    second[1] = epsilon
+    second /= second.norm()
+    masters = [first, second]
+    for tag, index, master in zip(tags, indices, masters):
+        count = payload["fit_counts"][tag]
+        count["member_count"] = 1
+        count["off_count"] = 1
+        stats = payload["fit_write_statistics"][tag]
+        stats["member_sum"] = master.clone()
+        stats["member_mean"] = master.clone()
+        stats["off_sum"] = torch.zeros_like(master)
+        stats["off_mean"] = torch.zeros_like(master)
+        payload["full_direction_norms"][tag] = float(master.norm())
+        payload["directions"][0, index] = master.float()
+    matrix = torch.stack(masters)
+    shared, spectrum = bundle.leading_shared_direction(matrix)
+    component = payload["source_components"][0]
+    payload["shared_directions"][component] = shared.float()
+    payload["singular_spectra"][component] = spectrum
+    payload["relative_singular_gaps"][component] = float(
+        (spectrum[0] - spectrum[1]) / spectrum[0]
+    )
+    for tag, index, master in zip(tags, indices, masters):
+        remainder = master - (master @ shared) * shared
+        payload["residual_norms"][tag] = float(remainder.norm())
+        payload["directions"][1, index] = (remainder / remainder.norm()).float()
+    payload["tensor_hashes"] = bundle._tensor_hash_map({
+        key: value for key, value in payload.items() if key != "tensor_hashes"
+    })
+    assert max(payload["residual_norms"][tag] for tag in tags) <= 1e-6
+    with pytest.raises(RuntimeError, match="residual direction is numerically absent"):
+        bundle.validate_fit_bundle_payload(payload, require_production=False)
+
+
 def test_publication_is_create_only(tmp_path):
     payload = _payload()
     path = tmp_path / "fit_bundle.pt"

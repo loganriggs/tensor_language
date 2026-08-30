@@ -48,6 +48,25 @@ def test_authority_guard_runs_before_parent_access(monkeypatch):
         )
 
 
+def test_reconstruction_exact_compares_frozen_model_row_identity(monkeypatch):
+    original = inputs.tensor_sha256
+
+    def corrupt_model_rows(value):
+        if tuple(value.shape) == (1_000, 257):
+            return "0" * 64
+        return original(value)
+
+    monkeypatch.setattr(inputs, "tensor_sha256", corrupt_model_rows)
+    with pytest.raises(RuntimeError, match="canonical FIT input identity"):
+        inputs._reconstruct_production_fit_inputs_after_authority(lambda: None)
+
+
+def test_reconstruction_exact_compares_frozen_support_identity(monkeypatch):
+    monkeypatch.setattr(inputs, "logical_sha256", lambda _value: "0" * 64)
+    with pytest.raises(RuntimeError, match="canonical FIT input identity"):
+        inputs._reconstruct_production_fit_inputs_after_authority(lambda: None)
+
+
 def test_parent_hash_tampering_fails_before_deserialization(monkeypatch, tmp_path):
     changed = tmp_path / "split.json"
     changed.write_bytes(inputs.SPLIT.read_bytes() + b"\n")

@@ -310,6 +310,8 @@ def _validate_directions_and_statistics(
             ) * expected_shared_master
             norm = float(remainder.norm())
             tag = tags[index]
+            if not math.isfinite(norm) or norm <= 1e-6:
+                raise RuntimeError("FIT residual direction is numerically absent")
             if type(residual_norms[tag]) is not float or residual_norms[tag] != norm:
                 raise RuntimeError("FIT residual norm does not replay")
             expected_residual = (remainder / remainder.norm()).float()
