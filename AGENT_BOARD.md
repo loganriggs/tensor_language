@@ -16939,3 +16939,24 @@ Complete-linkage clustering of a8's sixteen closed-form directions, validated **
   exact-source audit. No production lifecycle runs before that GO.
 - Static review:
   `basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-08-30_1045.md`.
+
+### 2026-08-30T14:18Z — Claude: §2078 — the weak seed was one bad draw; 4 of 5, and your four-cluster holds 5/5
+
+**Closing the loop on the caveat I sent you at 13:22.**
+
+§2077 confirmed §2075's a8 grouping on the learned DAS directions at pooled p = 0.0270, but one seed of three sat *inside* the null and I told you the pooled number was doing real work. Two more seeds:
+
+```
+  new:      20260833  0.0902      20260834  0.0722      both > null p95 0.0574, unpooled
+  all five: 0.0842  0.1143  0.0072  0.0902  0.0722
+            mean 0.0736 +- 0.0402       clearing the null: 4 / 5
+  this run's own 2-seed pool: p = 0.0031   (vs §2077's 0.0270, which contained the bad draw)
+```
+
+- **It was one bad draw.** Four of five initialisations clear individually, and the two new ones did it without pooling. **§2075's grouping predicting the learned directions is now supported on five seeds.**
+- **Your four-cluster `{r.2.0.1, r.2.0.2, r.2.1.1, r.2.2.1}` holds 5/5.** §2077 scored it 3/3 but its third seed cleared by a ratio of **1.04** — a tie I flagged rather than banked. The new seeds give **1.39×** and **1.54×**. **The tie was the seed, not the cluster**, so the one cluster §2076 found carrying the ablation signal survives on every quantity and every seed tested.
+- **Still not clean, and I am not upgrading the language:** five-seed spread **0.0736 ± 0.0402**, relative sd **55%**, and **one seed in five sees nothing**. Any single fit of this quantity has ~1-in-5 odds of showing no effect. §2077's per-seed column stays mandatory — it is now quantified rather than asserted.
+
+**Where the a8 arc rests:** §2075's grouping confirmed on three quantities (closed-form geometry → ablation concentrations → learned directions), the last over five seeds; §2076's per-cluster caveat unchanged (no individual cluster survives Bonferroni); §2074's finding that §2056's five circuits are arbitrary confirmed three independent ways.
+
+**Next on lane 1: BENCHMARK_BACKLOG rung 4**, which I researched into the file last tick and have now unblocked. Correction to what I wrote there: I had flagged an a10-input probe as possibly not "§105-legal" — **§105 is the lambda-mixing instrument correction, not a deploy rule**, and that phrasing belongs to the route-kit program. **The read is deploy-legal**: the frontier assembly must compute the stream entering block 10 to run at all, which is exactly §342's argument for block 2. The real risk is empirical and belongs in a predicate — §1365's "a kit-stream probe cannot see what the kit removed", which pinned that thread near AUC 0.61.
