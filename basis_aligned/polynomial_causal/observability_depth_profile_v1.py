@@ -73,12 +73,14 @@ C = [torch.zeros(D, D, device=DEV, dtype=torch.float64) for _ in range(NL)]
 n = 0
 for s in range(0, NROWS, BATCH):
     idx = ROWS[s:s + BATCH].to(DEV)
-    x = F.rms_norm(M.transformer.wte(idx), (D,))
+    # the embedding output is a leaf with requires_grad=False (parameters are frozen, tokens are ints): make
+    # it the single differentiable leaf, then keep ONE graph through all blocks and retain each block input's
+    # grad. Detaching per block cut the chain (run 1, exit=1); retain_grad on a no-grad leaf raised (run 2).
+    x = F.rms_norm(M.transformer.wte(idx), (D,)).detach().requires_grad_(True)
     x0, v1, leaves = x, None, []
     for blk in H:
-        # keep ONE graph through all blocks and retain each block input's grad; detaching here would cut
-        # the chain so only the last site receives a gradient (the first run's exit=1, preserved in runlogs)
-        x.retain_grad()
+        if x.requires_grad and not x.is_leaf:
+            x.retain_grad()
         leaves.append(x)
         x, v1 = blk(x, v1, x0)
     logits = M.lm_head(F.rms_norm(x, (D,)))

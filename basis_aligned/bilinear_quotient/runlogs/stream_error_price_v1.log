@@ -1,1 +1,23 @@
 model 680d6c26cf05 | rows (64, 257) | 18 sites
+site  0: r0.25: rnd -0.0006 scale -0.0003 | r0.5: rnd +0.0001 scale +0.0009 | r1.0: rnd +0.0124 scale +0.0085 | flip +0.1518 | 15s
+site  1: r0.25: rnd +0.0048 scale +0.0018 | r0.5: rnd +0.0277 scale +0.0060 | r1.0: rnd +0.3398 scale +0.0198 | flip +3.2320 | 15s
+site  2: r0.25: rnd +0.0038 scale +0.0010 | r0.5: rnd +0.0236 scale +0.0052 | r1.0: rnd +0.2733 scale +0.0205 | flip +0.7792 | 15s
+site  3: r0.25: rnd +0.0042 scale +0.0024 | r0.5: rnd +0.0217 scale +0.0070 | r1.0: rnd +0.2202 scale +0.0210 | flip +0.2456 | 15s
+site  4: r0.25: rnd +0.0059 scale -0.0015 | r0.5: rnd +0.0268 scale +0.0014 | r1.0: rnd +0.2120 scale +0.0173 | flip +0.2793 | 15s
+site  5: r0.25: rnd +0.0109 scale -0.0072 | r0.5: rnd +0.0577 scale -0.0059 | r1.0: rnd +0.8759 scale +0.0180 | flip +0.5233 | 15s
+site  6: r0.25: rnd +0.1620 scale -0.0106 | r0.5: rnd +1.4842 scale +0.0039 | r1.0: rnd +3.6137 scale +0.0828 | flip +0.4575 | 15s
+site  7: r0.25: rnd +0.2798 scale -0.0057 | r0.5: rnd +1.8085 scale +0.0150 | r1.0: rnd +4.0818 scale +0.1128 | flip +0.7592 | 15s
+site  8: r0.25: rnd +0.2297 scale +0.0032 | r0.5: rnd +1.3091 scale +0.0326 | r1.0: rnd +3.5286 scale +0.1446 | flip +1.4554 | 15s
+site  9: r0.25: rnd +0.1627 scale +0.0052 | r0.5: rnd +0.9558 scale +0.0331 | r1.0: rnd +3.1162 scale +0.1311 | flip +1.2823 | 15s
+site 10: r0.25: rnd +0.1727 scale +0.0124 | r0.5: rnd +0.9580 scale +0.0460 | r1.0: rnd +3.1275 scale +0.1548 | flip +1.7606 | 15s
+site 11: r0.25: rnd +0.1554 scale +0.0155 | r0.5: rnd +0.8051 scale +0.0541 | r1.0: rnd +2.7915 scale +0.1751 | flip +1.7578 | 15s
+site 12: r0.25: rnd +0.1530 scale +0.0084 | r0.5: rnd +0.7389 scale +0.0433 | r1.0: rnd +2.6397 scale +0.1679 | flip +1.9096 | 15s
+site 13: r0.25: rnd +0.1254 scale -0.0069 | r0.5: rnd +0.6401 scale +0.0184 | r1.0: rnd +2.4375 scale +0.1340 | flip +2.0332 | 15s
+site 14: r0.25: rnd +0.1071 scale -0.0147 | r0.5: rnd +0.5313 scale +0.0067 | r1.0: rnd +2.2451 scale +0.1266 | flip +2.0585 | 15s
+site 15: r0.25: rnd +0.0900 scale -0.0081 | r0.5: rnd +0.4344 scale +0.0207 | r1.0: rnd +1.9433 scale +0.1619 | flip +2.0023 | 15s
+site 16: r0.25: rnd +0.0744 scale +0.0027 | r0.5: rnd +0.3533 scale +0.0619 | r1.0: rnd +1.6779 scale +0.2863 | flip +1.9297 | 15s
+site 17: r0.25: rnd +0.1058 scale +0.0761 | r0.5: rnd +0.4529 scale +0.1863 | r1.0: rnd +1.7867 scale +0.3830 | flip +2.6368 | 15s
+(a) rho(depth, price r=0.5) +0.406 >= 0.8: FAILED
+(b) price(1.0) >= 2 price(0.5) at every site: HELD  min ratio 2.26
+(c) rescale <= 0.2 random at r=0.5 every site: FAILED  max ratio 7.583
+wrote /workspace/tensor_language/basis_aligned/polynomial_causal/stream_error_price_v1_results.json (282s)

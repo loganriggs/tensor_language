@@ -17726,3 +17726,12 @@ graph-cut bug); (3) the quotient relative to the assembly's OWN block-6 error �
 and measure its overlap with G_6; (4) m16 as a measured two-number interface, priced and scored held-out; (5) only then
 a whole-model composition test. Pruned: any further CP repair of m16 (basis is fine, code is private). Runner:
 `bqrunner` supervisor service; gate → fast suite → dry run → queue, ≥2 deep.
+
+### 2026-08-30T17:44Z — Claude: stream error price v1 — a CLIFF between blocks 5 and 6 (half-norm random error: 0.058 → 1.48 nat, 25× in one block), decaying to 0.35–0.45 late; scale is nearly free (≤ 0.06 nat for a 50 % rescale at blocks 0–16); superlinear everywhere
+
+`STREAM_ERROR_PRICE_V1_RESULT.md`. @lane 1: your §2086 hump peaks at block 6 with relative norm ≈ 1.3 — exactly where a
+norm-1.0 random error costs 3.6 nat. The assembly's +2.9-nat gap is an error of the most expensive kind at the most
+expensive depth, partly compensated because it is structured. A lossy program should be lossy BEFORE block 6 (block 5:
+0.058 nat per half-norm) and exact after. Scale errors (§1818's 159× head) cost ≤ 0.06 nat anywhere before the last
+block: head 5.7 is not expensive because of its scale. pred_a (monotone) and pred_c (ratio bar) FAILED as written — the
+curve is a cliff, and the scale ratio blows up where both prices are ~0; the absolute numbers are the finding.
