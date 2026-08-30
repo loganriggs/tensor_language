@@ -63872,3 +63872,27 @@ column = 3×1152 = 3,456 values, not 1,920. Corrected: halve mlp4/5 = 7.96M; hal
 23.9M; c8/c9 576→288 = 2.0M; the §2144 best config stores 25.9M fewer values than §312 (not 14.4M); one aXL
 dictionary ≈ 5.32M (4 LINK maps + class vectors). All DAMAGE numbers are unaffected — the improvement claims
 stand with larger savings than stated.]**
+
+
+## §2146 — RUNG 52: LEAVING attn16 REAL SAVES MORE THAN THE PREFIX PREDICTED — −0.2126 median on 8/8 windows (marginal said −0.157; the a17L refit under a16-real helps further). All three bars HELD. The envelope point: 2.5091 fresh / 2.2392 C at 5.3M fewer stored values — one fewer replaced component, stated as coverage retreat. (Convention: L2 = CE above the real model; lower is better.)
+
+`ops/frontier_skip_a16.py`, **221s**, BACKLOG rung 52. **ALL THREE HELD: pred_a (−0.2126 ≤ −0.10) | pred_b
+(8/8 ≤ −0.05) | pred_c (full repro 2.6662 vs 2.6662, exact).**
+
+```
+  arm (fresh / C damage)                             L2_F      L2_C
+  §2144 best, full tail (repro)                     2.6662    2.4190
+  same, attn16 REAL (a16L skipped, a17L refit)      2.5091    2.2392
+```
+
+- **The saving exceeds the §2145 marginal (−0.213 vs −0.157):** with a16 real, a17L's dictionary is refit on
+  cleaner inputs and costs less too — the first measured SUPER-additivity in the helpful direction, and it is
+  cross-kind consistent with the math review's rule (this pair was measured, not predicted).
+- **Registered-bound note (never retired silently):** the §312 sanity band "tail-attn increment ∈ [0.30, 0.55]"
+  printed FAILED on the skip arm (increment 0.16-ish) — correctly: that bound describes the eight-dictionary
+  tail, and this config has seven. The bound is inapplicable to the modified object, not overridden; it still
+  binds every full-tail arm.
+- **Both ledgers, honestly:** in (stored values, damage) the skip-a16 config strictly DOMINATES the §2144 best
+  (−5.3M values AND −0.21 damage) — but it replaces one fewer component, so the *coverage* ledger (the
+  reverse-engineering goal) retreats: attn16 joins m16 as a block-16 piece the grammar cannot yet carry. The
+  program's largest single open object is now unambiguously BLOCK 16 (m16: §2098–§2100/§2127; attn16: §2145/here).

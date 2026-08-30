@@ -712,7 +712,11 @@ later per-rung backlog edits had silently anchored on text that was not here.
     pred_a median [L2_F_w(skip16) - L2_F_w(full)] <= -0.10 (the prefix
     marginal was -0.157; refits may reabsorb some); pred_b <= -0.05 on
     >= 7/8; pred_c full arm reproduces §2144 (FR L2_F 2.6662 within
-    0.01). -> ops/frontier_skip_a16.py [QUEUED]
+    0.01). -> ops/frontier_skip_a16.py
+    RUN 2026-08-30, §2146: ALL THREE HELD — saving -0.2126 on 8/8 (MORE
+    than the -0.157 marginal: a17L refit on cleaner inputs). Strict
+    (price,damage) dominance; coverage retreats by one component.
+    BLOCK 16 is now the program's largest single open object.
 
 53. CLASS-BOTTLENECK SPECTRUM AT THE TAIL (math review 2210; damage
     convention). Within-class residual energy fraction e_li of the real
@@ -720,4 +724,4 @@ later per-rung backlog edits had silently anchored on text that was not here.
     vs the §2145 marginals. pred_a Spearman rho >= 0.7 over the 8
     layers; pred_b argmax e = a16; pred_c two smallest e = {a12,a17}.
     Null: CE-weighting beats energy (rho < 0.7). One capture pass.
-    -> ops/tail_class_spectrum.py [TO BUILD next driver wake]
+    -> ops/tail_class_spectrum.py [QUEUED 22:16Z]
