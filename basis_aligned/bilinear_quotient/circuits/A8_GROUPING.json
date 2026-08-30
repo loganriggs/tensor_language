@@ -1,0 +1,187 @@
+{
+ "schema_version": 1,
+ "generated": "2026-08-30 by Claude",
+ "component": "a8",
+ "circuits": [
+  "r.11.1.1",
+  "r.11.1.2",
+  "r.11.3.1",
+  "r.23.2.1",
+  "r.23.2.3",
+  "r.2.0",
+  "r.2.0.0",
+  "r.2.0.1",
+  "r.2.0.2",
+  "r.2.1",
+  "r.2.1.0",
+  "r.2.1.1",
+  "r.2.2",
+  "r.2.2.0",
+  "r.2.2.1",
+  "r.2.3"
+ ],
+ "method": "complete-linkage clustering of closed-form per-circuit directions by |cos|; validated OUT OF SAMPLE against S2065's stored cross-circuit ablation concentrations, which the clustering never sees",
+ "sweep": [
+  {
+   "threshold": 0.8,
+   "n_clusters": 2,
+   "sizes": [
+    15,
+    1
+   ],
+   "n_clusters_ge3": 1,
+   "within": 5.1649,
+   "between": 4.6803,
+   "ratio": 1.1035
+  },
+  {
+   "threshold": 0.85,
+   "n_clusters": 3,
+   "sizes": [
+    14,
+    1,
+    1
+   ],
+   "n_clusters_ge3": 1,
+   "within": 5.3826,
+   "between": 4.2312,
+   "ratio": 1.2721
+  },
+  {
+   "threshold": 0.88,
+   "n_clusters": 4,
+   "sizes": [
+    13,
+    1,
+    1,
+    1
+   ],
+   "n_clusters_ge3": 1,
+   "within": 5.5921,
+   "between": 4.1984,
+   "ratio": 1.332
+  },
+  {
+   "threshold": 0.9,
+   "n_clusters": 5,
+   "sizes": [
+    12,
+    1,
+    1,
+    1,
+    1
+   ],
+   "n_clusters_ge3": 1,
+   "within": 5.829,
+   "between": 4.2186,
+   "ratio": 1.3817
+  },
+  {
+   "threshold": 0.92,
+   "n_clusters": 5,
+   "sizes": [
+    12,
+    1,
+    1,
+    1,
+    1
+   ],
+   "n_clusters_ge3": 1,
+   "within": 5.829,
+   "between": 4.2186,
+   "ratio": 1.3817
+  },
+  {
+   "threshold": 0.94,
+   "n_clusters": 5,
+   "sizes": [
+    12,
+    1,
+    1,
+    1,
+    1
+   ],
+   "n_clusters_ge3": 1,
+   "within": 5.829,
+   "between": 4.2186,
+   "ratio": 1.3817
+  },
+  {
+   "threshold": 0.95,
+   "n_clusters": 7,
+   "sizes": [
+    10,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "n_clusters_ge3": 1,
+   "within": 6.0157,
+   "between": 4.5575,
+   "ratio": 1.32
+  },
+  {
+   "threshold": 0.96,
+   "n_clusters": 7,
+   "sizes": [
+    6,
+    4,
+    2,
+    1,
+    1,
+    1,
+    1
+   ],
+   "n_clusters_ge3": 2,
+   "within": 6.023,
+   "between": 4.8981,
+   "ratio": 1.2297
+  }
+ ],
+ "chosen_threshold": 0.96,
+ "clusters": [
+  [
+   "r.11.1.1",
+   "r.11.1.2",
+   "r.2.0",
+   "r.2.0.0",
+   "r.2.2",
+   "r.2.3"
+  ],
+  [
+   "r.11.3.1",
+   "r.2.1"
+  ],
+  [
+   "r.23.2.1"
+  ],
+  [
+   "r.23.2.3"
+  ],
+  [
+   "r.2.0.1",
+   "r.2.0.2",
+   "r.2.1.1",
+   "r.2.2.1"
+  ],
+  [
+   "r.2.1.0"
+  ],
+  [
+   "r.2.2.0"
+  ]
+ ],
+ "n_clusters": 7,
+ "n_clusters_ge3": 2,
+ "within_cluster_concentration": 6.023,
+ "between_cluster_concentration": 4.8981,
+ "validation_ratio": 1.2297,
+ "S2056_five_span_n_clusters": 4,
+ "pred_a_not_one_blob": true,
+ "pred_b_causally_validated": true,
+ "pred_c_five_are_split": true,
+ "note": "read-only artifact; no circuit file modified, SUBSPACE.json untouched"
+}

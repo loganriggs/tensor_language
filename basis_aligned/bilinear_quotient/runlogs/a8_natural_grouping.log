@@ -1,0 +1,15 @@
+16 circuits at a8, directions finite (15s)
+  thr 0.80: 2 clusters sizes [15, 1]  within 5.1649 between 4.6803 ratio 1.1035
+  thr 0.85: 3 clusters sizes [14, 1, 1]  within 5.3826 between 4.2312 ratio 1.2721
+  thr 0.88: 4 clusters sizes [13, 1, 1, 1]  within 5.5921 between 4.1984 ratio 1.3320
+  thr 0.90: 5 clusters sizes [12, 1, 1, 1, 1]  within 5.8290 between 4.2186 ratio 1.3817
+  thr 0.92: 5 clusters sizes [12, 1, 1, 1, 1]  within 5.8290 between 4.2186 ratio 1.3817
+  thr 0.94: 5 clusters sizes [12, 1, 1, 1, 1]  within 5.8290 between 4.2186 ratio 1.3817
+  thr 0.95: 7 clusters sizes [10, 1, 1, 1, 1, 1, 1]  within 6.0157 between 4.5575 ratio 1.3200
+  thr 0.96: 7 clusters sizes [6, 4, 2, 1, 1, 1, 1]  within 6.0230 between 4.8981 ratio 1.2297
+
+wrote circuits/A8_GROUPING.json (15s)
+  chosen threshold 0.96; clusters: [['r.11.1.1', 'r.11.1.2', 'r.2.0', 'r.2.0.0', 'r.2.2', 'r.2.3'], ['r.11.3.1', 'r.2.1'], ['r.23.2.1'], ['r.23.2.3'], ['r.2.0.1', 'r.2.0.2', 'r.2.1.1', 'r.2.2.1'], ['r.2.1.0'], ['r.2.2.0']]
+pred_a  >=2 clusters of >=3 members: 2 such clusters : True
+pred_b  THE GATE -- within/between cross-concentration 1.2297 (6.0230 vs 4.8981, bar >=1.10) : True
+pred_c  the S2056 five span 4 clusters (bar >=2) : True

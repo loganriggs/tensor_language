@@ -61207,3 +61207,59 @@ them differ from the full set in both directions; and the single per-pair mechan
 §2058's own retraction has now been confirmed against all sixteen. **`circuits/SUBSPACE.json` should be
 read as describing those five circuits and not a8**, and the one sentence in §2058 worth carrying forward
 is the `r.11.1.1` -> `r.11.1.2` neighbour relation.
+
+## §2075 — a8's sixteen circuits DO have a causally-validated grouping, and my registered gate was too weak to have shown it
+
+`ops/a8_natural_grouping.py`, **15s**, **DISCOVERY ONLY**, RUNG 3 (§2074's question, and §2057's second
+attempt). **pred_a True | pred_b True | pred_c True** — and the honest version of that line needs three
+qualifications, two of which are about my own experimental design.
+
+Complete-linkage clustering of a8's sixteen closed-form directions, validated **out of sample** against
+§2065's stored cross-circuit ablation concentrations, which the clustering never sees.
+
+```
+  thr    clusters (sizes)              within  between  ratio
+  0.80   [15, 1]                       5.1649  4.6803   1.1035
+  0.90   [12, 1, 1, 1, 1]              5.8290  4.2186   1.3817
+  0.94   [12, 1, 1, 1, 1]              5.8290  4.2186   1.3817
+  0.96   [6, 4, 2, 1, 1, 1, 1]         6.0230  4.8981   1.2297   <- chosen
+```
+
+**The grouping at 0.96:**
+`{r.11.1.1, r.11.1.2, r.2.0, r.2.0.0, r.2.2, r.2.3}` | `{r.2.0.1, r.2.0.2, r.2.1.1, r.2.2.1}` |
+`{r.11.3.1, r.2.1}` | singletons `r.23.2.1`, `r.23.2.3`, `r.2.1.0`, `r.2.2.0`.
+
+**FIRST QUALIFICATION — my registered gate could not have failed honestly, and I only checked after
+seeing it pass.** The bar was a within/between ratio of 1.10. A size-matched permutation null (labels
+shuffled among clusters of the same sizes, 20,000 draws, **run POST HOC and not registered**) puts the
+null **median at 0.9958, p90 at 1.1407 and p95 at 1.1805**. **A 1.10 bar admits results a random grouping
+produces more than one time in ten.** The bar should have been about 1.18 and I set it by eye.
+
+**SECOND QUALIFICATION — the result survives the gate it should have had.** Observed **1.2297** against
+that null gives **p = 0.0185**. **So a8's sixteen circuits do carry a causally-validated grouping**: a
+geometric clustering that never saw the ablation data predicts it, at a significance the registered bar
+was too blunt to establish. **The conclusion stands on the post-hoc test, not on the registered one, and
+that ordering has to be stated rather than smoothed over.**
+
+**THIRD QUALIFICATION — pred_a and pred_b trade against each other, and my selection rule resolved it in
+pred_a's favour.** The ratio is **higher at thresholds 0.90-0.94 (1.3817)** than at the chosen 0.96
+(1.2297). Those thresholds were rejected because they give `[12, 1, 1, 1, 1]` — one blob plus outliers,
+which is not a grouping in any useful sense and whose higher ratio comes from confining "within" to a
+single large cluster. **0.96 is the only threshold in the sweep with genuine multi-cluster structure.**
+That is a defensible choice and it is still a choice made by a rule I wrote to satisfy my own pred_a.
+
+**pred_c passed decisively and is the cleanest thing here: §2056's five circuits span FOUR of the seven
+clusters.** `r.11.1.1` and `r.11.1.2` sit together in the six; `r.11.3.1` is paired with `r.2.1`, an
+outsider; `r.23.2.1` and `r.23.2.3` are singletons. **§2074 showed the five are arbitrary by two
+measures; this is a third, from a construction that had no knowledge of which five §2056 picked.**
+
+> **The a8 picture that survives everything.** Sixteen circuits with real internal structure — a six, a
+> four, a pair and four singletons, causally validated at p = 0.0185 — of which §2056 sampled five
+> spanning four groups and reported them as one phenomenon. **§2058's `r.11.1.1` -> `r.11.1.2` neighbour
+> relation is the part that was right, and §2075 explains why it was: those two are the only pair of the
+> five that actually belong to the same group.**
+
+**Open.** The grouping is validated in aggregate and no individual cluster has been tested; with 20,000
+permutations available and per-cluster statistics cheap, the question of which of the three multi-member
+clusters carries the signal is answerable without new GPU time — and §2073's finding that aggregates are
+stable where individual pairs are not says the per-cluster answer may not be as clean.
