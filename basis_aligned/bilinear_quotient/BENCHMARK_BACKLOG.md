@@ -19,17 +19,27 @@ Rungs 1-3 are DONE; rung 4 is the first genuinely open one.
    **DONE** -- ledger **§303** (both bars HELD, +2.3644 on window C, 0.27
    BETTER than the all-dictionary band) and **§304** for head_hybrid_fresh
    (certified on never-seen text).
-   **THE ABSORBER REMAINDER IS NOW SPECIFIED, 2026-08-30, §2086 + §2087.**
-   The premise was tested before building and CONFIRMED: attention sublayers
-   inject the assembly's stream error (band 2..9 total **+1.8617**) while the
-   MLP sublayers in the same band **remove** it (**-1.0857**). But the target
-   is far smaller than "the band": **`a6` (+0.8846), `a5` (+0.8523) and `a1`
-   (+0.8384) carry 2.575 of the +1.862; the other five attention rungs total
-   +0.287 between them.** So the remainder is **absorbers on a1, a5, a6** --
-   three rungs, not eight -- and note **`a1` is OUTSIDE the 2-9 band this rung
-   names**. Fit under the eval configuration's own context (**§307**); place by
-   local stream error at read sites (**§311**). Whether a rank-r read can
-   recover the +0.85 an injector adds is UNMEASURED and is the build.
+   **THE ABSORBER REMAINDER IS CLOSED, 2026-08-30, §2086 + §2087 + §2088.**
+   Three diagnostics totalling **219 seconds** settled it without building the
+   sequential matched-context merge that §306 and §307 each lost a run to:
+     - **§2086**: the assembly's stream error is a HUMP -- peak 1.7415 at block
+       6, attenuating to 0.5925 by block 17. Error is ATTENUATED, not conducted.
+     - **§2087**: attention sublayers INJECT it (band 2..9 total +1.8617) while
+       the MLPs in the same band REMOVE it (-1.0857). Target narrowed from eight
+       rungs to three: a6 +0.8846, a5 +0.8523, a1 +0.8384 carry 2.575 of +1.862.
+     - **§2088**: held-out rank-32 linear readability of the injected residual
+       from the rung's own input -- **a5 R^2 -0.0645, a6 R^2 +0.0657** (shuffled
+       control max 0.0148). **The two largest injectors cannot be absorbed
+       linearly.** Only **a1 clears, at R^2 0.5973** -- and a1 is OUTSIDE the
+       2-9 band this rung names.
+   **VERDICT: closed as unpromising.** Scope of the negative: rank-32 LINEAR read
+   from the rung's own input; a nonlinear absorber or a different read site is
+   untested, though negative held-out R^2 indicates absent signal rather than
+   insufficient capacity.
+   **STANDALONE CANDIDATE LEFT ON THE TABLE: `a1`** -- injection +0.8384,
+   linearly readable at R^2 0.60. Whether recovering that converts into CE or
+   into downstream stream fidelity is unmeasured, and §309 dissociates the two.
+
 3. a8 / COUNTING: symbolic count features from raw tokens (deploy-legal)
    -> a8_symbolic.py
    **DONE, and the result was NEGATIVE** -- ledger **§304**: "the

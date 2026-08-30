@@ -61876,3 +61876,51 @@ a rank-r read at `a5`/`a6` can recover the +0.85 it injects is exactly what `abs
 machinery answers for MLP rungs, and porting it to an attention rung is the remainder. **I have not
 built it and am not claiming the recovery is achievable** — only that the injection is localised and
 named.
+
+## §2088 — RUNG 2 CLOSES: the two largest injectors are NOT linearly recoverable, and the one that is sits outside the band
+
+`ops/absorber_recoverability.py`, **75s**, BACKLOG rung 2 (§2087's open question).
+**pred_c HELD | pred_a FAILED | pred_b FAILED.**
+
+§2087 named the target and stated what it had not shown: "whether a rank-r absorber can recover the
++0.85 an injector adds is unmeasured — that is the build, and I am not claiming it." This measures the
+prior question: **is the injected error linearly readable from the stream the rung already sees?** If it
+is not, no linear absorber of any rank recovers it and the merge is not worth building.
+
+```
+  rung   injected rel-var   held-out R^2 (rank 32)   shuffled control
+  a1          1.7919              +0.5973                +0.0148
+  a5          1.8337              -0.0645                -0.2643
+  a6          0.9995              +0.0657                -0.0547
+```
+
+**pred_c HELD: the control is clean** (max shuffled R² **0.0148**), so a rank-32 read is not simply
+fitting noise on this much data and the numbers can be read.
+
+> **pred_a FAILED and it is decisive. At `a5` the held-out R² is −0.0645 — NEGATIVE**, meaning a rank-32
+> ridge fitted on half the rows does worse than predicting the residual's mean on the other half. At `a6`
+> it is **+0.0657**, effectively nothing. **The two largest injectors — `a6` at +0.8846 and `a5` at
+> +0.8523, together 1.737 of the band's +1.862 — inject error that is not linearly readable from what the
+> rung sees.** An absorber there has nothing to read.
+
+**pred_b FAILED, and the exception is the interesting part.** Only **`a1` clears, at R² 0.5973** against
+a 0.0148 control — genuinely recoverable. **And `a1` is the rung §2087 flagged as sitting OUTSIDE the
+2–9 band that rung 2 names.** So the rung as written — absorbers on the middle-attention dictionaries —
+**closes**, while the single viable absorber target in the model is the one the rung does not cover.
+
+**BACKLOG rung 2's remainder is closed as unpromising**, with `a1` recorded as a standalone candidate.
+Two cheap diagnostics and this one — **219 seconds total** — took the rung from "build absorbers on eight
+attention dictionaries" through "the target is three" to "two of the three cannot be absorbed linearly
+and the third is out of scope", **without building the sequential matched-context merge that §306 and
+§307 each lost a run to.**
+
+**Scope of the negative, stated narrowly.** This tests a **rank-32 linear** read from **the rung's own
+input**. It does not refute a nonlinear absorber, nor a read from a different site, nor a higher rank —
+though rank is unlikely to help when held-out R² is *negative*, which indicates no generalising signal
+rather than insufficient capacity. §347's finding that quadratic features overfit at a fixed read point
+is weak corroboration from a different program, not a substitute for testing it here.
+
+**Open.** `a1` at R² 0.5973 is a real, isolated candidate: one rung, injection +0.8384, linearly readable.
+**Whether recovering 60% of its residual variance converts into CE or into stream fidelity downstream is
+unmeasured** — §309's dissociation of the two means neither can be assumed from the other, and that is
+the honest next question if anyone wants the remaining absorber.
