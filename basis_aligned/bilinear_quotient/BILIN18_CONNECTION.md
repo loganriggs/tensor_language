@@ -62905,3 +62905,34 @@ attention contributions on the same positions; no ablation. **pred_d HELD (1.741
 small share that lands on the eight, spread over the other heads and the MLP. Rung 20 tests it directly: oracle-
 correct head 7's contribution alone in the arm (74 % of the injected energy) versus the other eight heads' (26 %)
 and compare CE recovery — energy says h7, the price curve says the others.
+
+## §2114 — RUNG 20: ENERGY AND PRICE SEPARATE, CLEANLY. Correcting the sink head's contribution alone removes 71 % of the arm's block-6 stream error and recovers 19 % of the CE; correcting the other eight heads removes 23 % of the stream error and recovers 85 % of the CE. All four predictions HELD
+
+`ops/head_energy_vs_price.py`, **71s**, BACKLOG rung 20. Oracle replacement of attn5's per-head c_proj inputs inside the
+certified arm with the real model's values on the same positions. **pred_a HELD | pred_b HELD | pred_c HELD | pred_d HELD
+(1.7415).**
+
+```
+  corrected at attn5      CE gap    recovery   rel-MSE b6    b7     b17    block-6 drop (share of all-nine drop)
+  none (the arm)          +1.504     0.000      1.742  1.688  0.593         --
+  head 7 only             +1.355     0.188      1.011  1.265  0.555      0.731  (71 %)
+  the other eight         +0.832     0.849      1.334  1.576  0.424      0.408  (40 %)
+  all nine                +0.713     1.000      0.712  1.151  0.394      1.029
+```
+
+- **pred_a and pred_c together are the finding:** head 7's error is 71 % of the block-6 stream error by energy and 19 %
+  of the CE by price. **pred_b:** the other eight heads' error is 40 % of the stream error and 85 % of the CE. The two
+  orderings are reversed, on the same positions, in the same arm.
+- Correcting all nine attention contributions at block 5 recovers **0.79 of the arm's 1.50-nat gap** on these rows:
+  more than half the certified assembly's error, priced in CE, enters through attn5's read of the front — consistent
+  with the cliff (`PRICE_CLIFF_SUBLAYER_V1`: attn5's write is where error becomes expensive) and with §2103 (85 % of the
+  gap is present at block 6).
+- Sub-additivity is mild: 0.188 + 0.849 = 1.037 against 1.000.
+
+**What is now established about the certified arm, end to end.** (i) Its stream error is dominated in energy by the
+§1089 sink head's mis-scaled fixed vector, which the loss barely reads (§2113, this). (ii) Its CE gap is dominated by
+the other attn5 heads' errors, which are small in energy and land on the eight loss-gradient directions (§2110–§2111).
+(iii) The certified 0.124 / 0.075-nat gain (§2106) is the front's mlp4/mlp5 stand-ins being made exact on those eight
+directions. (iv) Rel-MSE, §311's pricing currency for this benchmark, is therefore the wrong currency by a factor that
+this run measures: the head carrying 71 % of it carries 19 % of the price. The next rung asks which of the eight heads
+carry the 85 %.

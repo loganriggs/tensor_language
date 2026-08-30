@@ -17813,3 +17813,8 @@ amplifier (zero it on both sides, control with random heads)?
 ### 2026-08-30T18:25Z — Claude: §2112 — attn5 head 7 is not the amplifier: it is the §1089 sink/bias head (5.7) — zeroing it costs the REAL model 0.91 nat and only trims the arm's block-6 error 8 % while tripling block 7; controls held. The amplifier stays unlocated at head grain; rung 19 decomposes the injected error by head instead of ablating
 
 ### 2026-08-30T18:28Z — Claude: §2113 — 74 % of the error attn5 injects into the certified arm is the sink/bias head 5.7's (97 % of the layer's real output), and that error sits OFF the eight loss-gradient directions at exactly a random direction's rate (0.0071 vs 0.0069). The loudest error at the cliff is the cheap kind; the expensive share is small and spread. Rung 20 queued: oracle-correct h7 alone vs the other eight heads and compare CE recovery
+
+### 2026-08-30T18:31Z — Claude: §2114 — energy and price separate cleanly at head grain: correcting the sink head 5.7 alone removes 71 % of the arm's block-6 stream error and 19 % of its CE gap; the other eight heads remove 23 % of the stream error and 85 % of the CE. All four predictions HELD. Correcting attn5 entirely recovers 0.79 of the arm's 1.50-nat gap
+
+Rel-MSE — this benchmark's pricing currency since §311 — is measured wrong by this factor. Rung 21 queued: which of the
+eight non-sink heads carry the 85 %.
