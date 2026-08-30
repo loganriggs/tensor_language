@@ -10,7 +10,7 @@ from pathlib import Path
 import secrets
 import shutil
 import subprocess
-from typing import Any, Mapping
+from typing import Any, Callable, Mapping
 
 import torch
 
@@ -103,7 +103,7 @@ def _walk(value: Any):
 
 def metadata_registry_snapshot(registry_files: tuple[Path, ...]) -> tuple[dict[str, Any], dict[str, str]]:
     """Collect exclusion identities without opening any registered tensor."""
-    documents, indices, code_paths, normalized = set(), set(), set(), set()
+    documents, indices, code_paths, normalized, code_sources = set(), set(), set(), set(), set()
     hashes = {}
     forbidden_references = set()
     for path in registry_files:
@@ -113,6 +113,7 @@ def metadata_registry_snapshot(registry_files: tuple[Path, ...]) -> tuple[dict[s
             raise RuntimeError("registry changed during metadata-only read")
         hashes[str(path.resolve())] = before
         payload = json.loads(raw)
+        registry_commit = payload.get("source_commit")
         for value in _walk(payload):
             if isinstance(value, str) and Path(value).name in FORBIDDEN_V1_ROLE_NAMES:
                 forbidden_references.add(str(Path(value).resolve()))
@@ -129,10 +130,43 @@ def metadata_registry_snapshot(registry_files: tuple[Path, ...]) -> tuple[dict[s
                 code_paths.add(candidate)
                 if isinstance(value.get("normalized_python_sha256"), str):
                     normalized.add(value["normalized_python_sha256"])
+                else:
+                    if not isinstance(registry_commit, str) or len(registry_commit) != 40:
+                        raise RuntimeError(
+                            "prior code record lacks both normalized hash and source commit"
+                        )
+                    code_sources.add((registry_commit, candidate, value["blob_sha256"]))
     return ({
         "documents": documents, "indices": indices, "code_paths": code_paths,
         "normalized": normalized, "forbidden_v1_role_references": forbidden_references,
+        "code_sources_missing_normalized": code_sources,
     }, hashes)
+
+
+def recover_prior_normalized_hashes(
+    code_sources: set[tuple[str, str, str]],
+) -> set[str]:
+    """Recover historical normalized hashes from authority-bound commit/path/blob triples."""
+
+    if type(code_sources) is not set:
+        raise TypeError("historical code sources must be one exact set")
+    output = set()
+    for item in sorted(code_sources):
+        if type(item) is not tuple or len(item) != 3:
+            raise ValueError("historical code source triple is malformed")
+        commit, path, expected_blob_sha256 = item
+        if len(commit) != 40 or not path.endswith(".py") or len(expected_blob_sha256) != 64:
+            raise ValueError("historical code source identity is malformed")
+        completed = subprocess.run(
+            ["git", "show", f"{commit}:{path}"], cwd=ROOT,
+            stdout=subprocess.PIPE, stderr=subprocess.DEVNULL,
+        )
+        if completed.returncode != 0 or hashlib.sha256(completed.stdout).hexdigest() != (
+            expected_blob_sha256
+        ):
+            raise RuntimeError("historical code blob cannot be recovered exactly")
+        output.add(base.normalized_python_sha256(completed.stdout))
+    return output
 
 
 def _registry_replay(files, expected, hashes):
@@ -162,6 +196,73 @@ def _validate_payload(path: Path, expected: Mapping[str, Any], entry: Mapping[st
         raise RuntimeError("v2 role semantic replay failed")
 
 
+def scored_support_census(
+    masks: Mapping[str, torch.Tensor], *, min_tokens: int = 200, min_documents: int = 30,
+) -> dict[str, dict[str, int]]:
+    """Bind and gate every scorer-exposed cell, including collateral and all positions."""
+
+    if tuple(masks) != ("positive", "matched_negative", "off_target", "all"):
+        raise ValueError("v2 support masks must exactly follow the scorer cell order")
+    shape = masks["positive"].shape
+    if any(
+        not torch.is_tensor(mask) or mask.dtype != torch.bool or mask.device.type != "cpu"
+        or mask.shape != shape for mask in masks.values()
+    ) or len(shape) != 2:
+        raise ValueError("v2 support masks must share one CPU boolean matrix currency")
+    if type(min_tokens) is not int or type(min_documents) is not int or (
+        min_tokens <= 0 or min_documents <= 0
+    ):
+        raise ValueError("v2 support thresholds must be positive integers")
+    output = {
+        name: {
+            "tokens": int(mask.sum()),
+            "documents": int(mask.any(1).sum()),
+        }
+        for name, mask in masks.items()
+    }
+    if any(
+        value["tokens"] < min_tokens or value["documents"] < min_documents
+        for value in output.values()
+    ):
+        raise RuntimeError("fresh v2 role support is below preregistered minimum")
+    return output
+
+
+def write_receipt_create_only(
+    payload: Mapping[str, Any], path: Path, *, pre_link_check: Callable[[], None],
+) -> None:
+    """Publish a semantically replayed receipt; the hard link is the terminal action."""
+
+    normalized = base.json_normalize(payload)
+    temporary = path.with_name(f".{path.name}.tmp.{os.getpid()}.{secrets.token_hex(8)}")
+    descriptor: int | None = None
+    try:
+        descriptor = os.open(temporary, os.O_WRONLY | os.O_CREAT | os.O_EXCL, 0o600)
+        with os.fdopen(descriptor, "w") as sink:
+            descriptor = None
+            sink.write(json.dumps(normalized, indent=2, allow_nan=False) + "\n")
+            sink.flush()
+            os.fsync(sink.fileno())
+        replay = json.loads(temporary.read_bytes())
+        if replay != normalized or base.json_normalize(replay) != normalized:
+            raise RuntimeError("v2 row receipt temporary semantic replay failed")
+        pre_link_check()
+        os.link(temporary, path)
+        directory = os.open(path.parent, os.O_RDONLY | getattr(os, "O_DIRECTORY", 0))
+        try:
+            os.fsync(directory)
+        finally:
+            os.close(directory)
+    finally:
+        if descriptor is not None:
+            os.close(descriptor)
+        temporary.unlink(missing_ok=True)
+
+
+def failure_is_still_publishable() -> bool:
+    return not RECEIPT.exists() and not FAILURE.exists()
+
+
 def freeze() -> dict[str, Any]:
     claim = natural.acquire_claim(LOCK)
     try:
@@ -175,6 +276,14 @@ def freeze() -> dict[str, Any]:
         canonical, parquet = natural.BASE.validate_ordered_source()
         import tiktoken
         encoding = tiktoken.get_encoding("gpt2")
+        frozen_source_identity = base.source_identity(
+            canonical, parquet, registry_hashes, encoding,
+        )
+        prior_normalized = set(prior["normalized"]) | recover_prior_normalized_hashes(
+            prior["code_sources_missing_normalized"],
+        )
+        if not prior_normalized:
+            raise RuntimeError("historical normalized-code exclusion is unexpectedly empty")
         empty_rows: set[tuple[int, ...]] = set()
         natural_rows, natural_records = natural.harvest_fresh_documents(
             natural.BASE.local.parquet_texts([parquet]), encoding.encode_ordinary,
@@ -189,7 +298,7 @@ def freeze() -> dict[str, Any]:
             base.ordered_code_blobs(commit), encoding.encode_ordinary,
             (set(prior["documents"]), set(prior["indices"]), natural_full,
              {row[:natural.PREFIX_LENGTH] for row in natural_full}),
-            set(prior["code_paths"]), excluded_normalized=set(prior["normalized"]), n_rows=N,
+            set(prior["code_paths"]), excluded_normalized=prior_normalized, n_rows=N,
         )
         for record in code_records:
             record["role"] = "ood_code"
@@ -201,17 +310,14 @@ def freeze() -> dict[str, Any]:
             cells[role] = contract.build_copy_cells(role_rows[role], frequencies, ids)
         support = {}
         for role in ("final_natural", "ood_code"):
-            positive = cells[role].positive
-            matched = cells[role].matched_negative
-            support[role] = {
-                "positive_tokens": int(positive.sum()),
-                "positive_documents": int(positive.any(1).sum()),
-                "matched_tokens": int(matched.sum()),
-                "matched_documents": int(matched.any(1).sum()),
-            }
-            if min(support[role].values()) < 30 or support[role]["positive_tokens"] < 200 \
-                    or support[role]["matched_tokens"] < 200:
-                raise RuntimeError("fresh v2 role support is below preregistered minimum")
+            all_scored = torch.zeros_like(cells[role].positive)
+            all_scored[:, contract.SCORE_START:contract.SCORE_STOP] = True
+            support[role] = scored_support_census({
+                "positive": cells[role].positive,
+                "matched_negative": cells[role].matched_negative,
+                "off_target": cells[role].off_target,
+                "all": all_scored,
+            })
         _registry_replay(registry_files, prior, registry_hashes)
         natural.require_claim(claim, LOCK)
         staging = CACHE.with_name(f".{CACHE.name}.tmp.{os.getpid()}.{secrets.token_hex(8)}")
@@ -247,22 +353,34 @@ def freeze() -> dict[str, Any]:
             "candidate_parent_sha256": DISCOVERY_SHA256, "preserved_v1_no_go_audit_sha256": V1_AUDIT_SHA256,
             "metadata_registry_hashes": registry_hashes,
             "metadata_exclusion_counts": {key: len(value) for key, value in prior.items()},
+            "prior_normalized_code_hashes_sha256": hashlib.sha256(json.dumps(
+                sorted(prior_normalized), separators=(",", ":"),
+            ).encode()).hexdigest(),
+            "source_identity": frozen_source_identity,
             "support_census": support,
             "old_v1_role_tensors_deserialized": False,
             "outcome_access": False,
         })
         def guard():
             _registry_replay(registry_files, prior, registry_hashes)
+            if base.source_identity(canonical, parquet, registry_hashes, encoding) != (
+                frozen_source_identity
+            ) or hashlib.sha256(json.dumps(
+                sorted(set(prior["normalized"]) | recover_prior_normalized_hashes(
+                    prior["code_sources_missing_normalized"],
+                )), separators=(",", ":"),
+            ).encode()).hexdigest() != receipt["prior_normalized_code_hashes_sha256"]:
+                raise RuntimeError("source identity or historical code exclusion changed")
             source_closure(commit); validate_audit(commit, sources)
             for role in ROLES:
                 _validate_payload(Path(entries[role]["path"]), payloads[role], entries[role])
             if RECEIPT.exists() or FAILURE.exists():
                 raise RuntimeError("v2 row terminal appeared")
             natural.require_claim(claim, LOCK)
-        natural.write_json_create_only(receipt, RECEIPT, pre_link_check=guard)
+        write_receipt_create_only(receipt, RECEIPT, pre_link_check=guard)
         return receipt
     except BaseException as error:
-        if not RECEIPT.exists() and not FAILURE.exists():
+        if failure_is_still_publishable():
             failure = {"schema": "induction_equality_tensor_final_ood_v2_rows_failure", "status": "terminal_failure_no_receipt", "error_type": type(error).__name__, "error": str(error), "cache_exists": CACHE.exists(), "outcome_access": False}
             try:
                 def failure_guard():
