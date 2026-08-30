@@ -739,4 +739,9 @@ later per-rung backlog edits had silently anchored on text that was not here.
     third of the +0.157); pred_b <= 0 on >= 7/8; pred_c full reproduces
     2.6662 within 0.01. Null: §2147 — the damage is loss-specific, not
     class-mean sloppiness, and linearity per class buys little.
-    -> ops/frontier_a16_linear.py [QUEUED]
+    -> ops/frontier_a16_linear.py
+    First run 22:17Z VOID (instrument bug): the all-linear patch landed
+    in fit_attnd (front pieces) instead of the aXL tail loop - arm 2 was
+    IDENTICAL to arm 1. The +/-0.0003 per-window deltas are therefore a
+    measured RERUN-NOISE FLOOR for this pipeline (useful: future window
+    tolerances can cite it). Fixed and re-queued 22:20Z; preds unchanged.

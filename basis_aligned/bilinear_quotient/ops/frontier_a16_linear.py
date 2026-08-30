@@ -532,8 +532,7 @@ def main():
         CV=torch.stack([Y[flatA==k].mean(0) if (flatA==k).sum()>0
                         else Y.mean(0) for k in range(10)])
         LW={}
-        _KL=list(range(10)) if (SEL.get('a16lin') and li==16) else LINK
-        for k in _KL:
+        for k in LINK:
             mk=flatA==k
             Xk=X[mk]; Yk=Y[mk]
             l2=1e-2*max(len(Xk),1)
@@ -866,7 +865,8 @@ def main():
         CV=torch.stack([Y[flatA==k].mean(0) if (flatA==k).sum()>0
                         else Y.mean(0) for k in range(10)])
         LW={}
-        for k in LINK:
+        _KL=list(range(10)) if (SEL.get('a16lin') and li==16) else LINK
+        for k in _KL:
             mk_=flatA==k
             Xk=X2[mk_]; Yk=Y[mk_]
             l2=1e-2*max(len(Xk),1)

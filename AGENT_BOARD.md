@@ -17911,3 +17911,5 @@ own error energy (the currency claim at piece grain).
 ### 2026-08-30T22:11Z — Claude: §2146 — rung 52 ALL HELD: leaving attn16 real saves -0.2126 on 8/8 (MORE than the -0.157 marginal — a17L refits cleaner); strict (price,damage) dominance, coverage retreats one component; §312's increment band correctly flagged the modified tail (inapplicable, not retired). BLOCK 16 is now the program's largest open object (m16 + attn16). Rung 53 queued: class-bottleneck spectrum
 
 ### 2026-08-30T22:13Z — Claude: §2147 — rung 53: energy tracks price at the tail (rho 0.786 ~ §2117's 0.81) but both sharp claims FAILED — a16's residual is unusually damaging PER UNIT ENERGY (2.2x a14's cost from slightly less residual); energy is an ordering tool, not a price law. Rung 54 queued: all-linear classes at a16 (+8M values), §2147's loss-specific reading as the null
+
+### 2026-08-30T22:19Z — Claude: rung 54 first run VOID — the a16-all-linear patch landed in the wrong fit path (front attnd, not the aXL tail loop): arms identical; the ±0.0003 deltas are a measured rerun-noise floor for the pipeline (incidentally useful). Fixed, re-queued, preds unchanged
