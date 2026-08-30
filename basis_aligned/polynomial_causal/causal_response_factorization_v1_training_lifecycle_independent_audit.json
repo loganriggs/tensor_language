@@ -1,0 +1,42 @@
+{
+  "approved": false,
+  "audited_source_commit": "5ec0393715b0b9c9161d26859985d818ab84035c",
+  "audited_source_hashes": {
+    "basis_aligned/polynomial_causal/CAUSAL_RESPONSE_FACTORIZATION_V1_AMENDMENT_1.md": "cf8b9e3dce807a94183d8314e4bba14e1f01ff3aa579d8648c680dc385540768",
+    "basis_aligned/polynomial_causal/CAUSAL_RESPONSE_FACTORIZATION_V1_AMENDMENT_2.md": "9819b5b5486ccdcd57747bf36d3e4862aba827dbc52ff8cc49e6209b938d0017",
+    "basis_aligned/polynomial_causal/CAUSAL_RESPONSE_FACTORIZATION_V1_AMENDMENT_3.md": "6ffaf88efe3e5c2711c2c3d136136d2f12d7d0040ca597da06ff3907ff7e3dae",
+    "basis_aligned/polynomial_causal/CAUSAL_RESPONSE_FACTORIZATION_V1_AMENDMENT_4.md": "055b7d214df74d428983782a080224bdc44766c8e77d9eb5d79582850f6e8c15",
+    "basis_aligned/polynomial_causal/CAUSAL_RESPONSE_FACTORIZATION_V1_AMENDMENT_5.md": "8902bba99446f05688864668eba29302dbfc35cfb0799568703693f42dfb55e7",
+    "basis_aligned/polynomial_causal/CAUSAL_RESPONSE_FACTORIZATION_V1_PREREGISTRATION.md": "2782866d8fdd1ca5abb3de4348534ceefadddb42a19ec17a756dd6017c89ffba",
+    "basis_aligned/polynomial_causal/causal_response_factorization_v1.py": "8af3e8c4987b15d8da5413f2998452ea7064779ad648c17c0d9269fd7ed0f881",
+    "basis_aligned/polynomial_causal/causal_response_factorization_v1_accelerated.py": "04ed10232a8b36f5d5e18fe9777539e41201feecea0e6e1a795822ffa0b0ff6d",
+    "basis_aligned/polynomial_causal/causal_response_factorization_v1_fit_adapter.py": "5cc4f0ea628e5f9aac6c475517b5c4d7fbc6205e2c4a681bafd90e1e5f7b5c0a",
+    "basis_aligned/polynomial_causal/causal_response_factorization_v1_parent_binding.py": "e3dd090d8c1e4e1b1d1261aae2be7799319bb282e3bb0598b51946a238e7f365",
+    "basis_aligned/polynomial_causal/causal_response_factorization_v1_training_input.py": "0f87bd4346f086c8299d6a2c55665d658ad1eeda9731d48f4f7d75e4aca1183b",
+    "basis_aligned/polynomial_causal/causal_response_factorization_v1_training_lifecycle.py": "9cbbf24865cbe7c1925dc4471c988ed3da8d6f04e87dedf010688217ab515ba1",
+    "basis_aligned/polynomial_causal/causal_response_factorization_v1_training_loader.py": "74ac463ed05c96f0b30014c11ccd674b41b02cacced4552ff835b6e404a18a51",
+    "basis_aligned/polynomial_causal/causal_response_tensor_collection.py": "a48fa3d35fdd280254563f83b6482bdaa7660d8dcc8a8c649d4b3fe5881bbd8f",
+    "basis_aligned/polynomial_causal/causal_response_tensor_v1_backend.py": "bb454120fdbd794b28aaf0416a076d53e268086f330abd822c3f78b955abdcfc",
+    "basis_aligned/polynomial_causal/causal_response_tensor_v1_fit_bundle.py": "a63ad13a0f23589ca32da7b554ef76cf2338d498badfd14d5f0638c5e4898583",
+    "basis_aligned/polynomial_causal/test_causal_response_factorization_v1.py": "33b29ec7b045fa61d3bd27ec92664103668163f10e60736ea9d3b892589c29b6",
+    "basis_aligned/polynomial_causal/test_causal_response_factorization_v1_accelerated.py": "fa2c948e489a54aaf2f45887d22e2aa7c85723fdd2e8af21667afa75301b3e02",
+    "basis_aligned/polynomial_causal/test_causal_response_factorization_v1_fit_adapter.py": "5978a50e0812ce8c71f064adb244039995e4fd5fffd6732d3c347b0dddca24a8",
+    "basis_aligned/polynomial_causal/test_causal_response_factorization_v1_parent_binding.py": "8976ccaaff413628047f5ee15b10096871dcf835740debc77c751f92cb6d02e7",
+    "basis_aligned/polynomial_causal/test_causal_response_factorization_v1_training_input.py": "5ce81fcebcc21930484441d1ec52f56d9253f1eeacd7d42fc90824a6ae8fa0ef",
+    "basis_aligned/polynomial_causal/test_causal_response_factorization_v1_training_lifecycle.py": "d8c2b5b7b2a6798d51b748864807d9ebdb189c23550facb07aaad38ff1b8890d",
+    "basis_aligned/polynomial_causal/test_causal_response_factorization_v1_training_loader.py": "b38d4f03451307df8c9b568f64f0daa0950239491fd1e335fdd910602c2fd6e4",
+    "basis_aligned/polynomial_causal/test_causal_response_tensor_v1_fit_bundle.py": "e7b041f290882c9cb1d31a152ceb29f8603a1df5cb592a00ddd4e9ece3038e95"
+  },
+  "remaining_execution_blockers": [
+    "The success terminal guard replays only the manifest, so authority, audit, source, FIT parent, and training-input drift after manifest publication can still produce a receipt.",
+    "The two success hardlinks are not a crash-safe terminal transaction: failure of the receipt link after the terminal link leaves an unpaired receipt-kind terminal and no failure artifact.",
+    "Failure publication binds only partial-output booleans and does not replay or record exact authority, audit, source, parent, input, and manifest observations; a mutated authority can produce a failure carrying its stale digest.",
+    "The public OneUseFitTrainingLoader accepts a caller-supplied self-consistent authority object without requiring the exact published authority, audit, source closure, or canonical output namespace, so authority-before-bundle-deserialization is not structurally enforced.",
+    "The declared 24-file source closure omits imported runtime dependencies bilin18_observed_model_facade.py, jacclust/__init__.py, and jacclust/tt_model.py."
+  ],
+  "outcome_access": false,
+  "reviewer": "OpenAI Codex independent artifact auditor /root/artifact_audit",
+  "schema": "causal_response_factorization_v1_training_lifecycle_independent_audit",
+  "status": "NO-GO",
+  "tests_passed": 71
+}
