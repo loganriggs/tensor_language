@@ -11,6 +11,11 @@ incompatible closer, no opener, quote control, and punctuation control. Primary
 stratum is the earliest scored occurrence (positions 64:256), breaking equal-position
 ties in that fixed order. Allocation uses a fixed SHA256 order and never model output.
 
+This role definition explicitly supersedes every role in the original canary,
+including `select_prose`, `select_code`, and `synthetic_canary`. FIT is metadata-only
+and is never forwarded; SELECT and OOD are mixed-domain forward roles. There is no
+synthetic role or synthetic behavioral claim in v1.
+
 After allocation, every role/domain must have at least 30 distinct documents and 30
 positions in each of the five score cells; `all` covers every position 64:256. Empty
 or underpowered cells fail before publication. FIT may only finalize delimiter/token
