@@ -1,0 +1,163 @@
+"""One-use, receipt-bound loader for the factorization v1 training role.
+
+This module may deserialize the FIT bundle only after a separate source-closed
+analysis authority is frozen. It exposes only the training adapter output, never the
+payload, validation role, model, corpus, or EVAL. The capability is poisoned before
+its first fallible read and cannot be retried.
+"""
+
+from __future__ import annotations
+
+import io
+from typing import Any, Mapping
+
+import torch
+
+import causal_response_factorization_v1_parent_binding as parent
+from causal_response_factorization_v1_fit_adapter import (
+    FitTrainingInput,
+    training_input_from_fit_payload,
+)
+import causal_response_tensor_v1_fit_bundle as fit_bundle
+
+
+def _validate_analysis_authority(
+    authority: Mapping[str, Any], parent_binding: Mapping[str, Any]
+) -> None:
+    if type(authority) is not dict or set(authority) != {
+        "schema", "status", "source_closure", "independent_audit",
+        "parent_binding_sha256", "protocol", "output_paths",
+        "outcome_access_before_authority", "authorized_for_training_input",
+        "authorized_for_validation", "authorized_for_eval", "authority_sha256",
+    } or authority.get("schema") != (
+        "causal_response_factorization_v1_training_authority"
+    ) or authority.get("status") != (
+        "frozen_before_fit_bundle_tensor_deserialization"
+    ) or authority.get("authorized_for_training_input") is not True or (
+        authority.get("authorized_for_validation") is not False
+        or authority.get("authorized_for_eval") is not False
+    ):
+        raise RuntimeError("factor training authority schema or role changed")
+    body = {key: value for key, value in authority.items() if key != "authority_sha256"}
+    if authority["authority_sha256"] != parent._logical_sha256(body):
+        raise RuntimeError("factor training authority logical identity does not replay")
+    if authority["parent_binding_sha256"] != parent_binding["binding_sha256"]:
+        raise RuntimeError("factor training authority binds a different FIT parent")
+    if authority["outcome_access_before_authority"] != {
+        "fit_bundle_deserialized": False,
+        "fit_response_values_read": False,
+        "validation_values_read": False,
+        "eval_values_read": False,
+    }:
+        raise RuntimeError("factor training authority outcome boundary changed")
+    protocol = authority["protocol"]
+    if type(protocol) is not dict or protocol.get("role") != "FIT_TRAINING" or (
+        protocol.get("training_documents") != 229
+        or protocol.get("validation_documents_exposed") != 0
+        or protocol.get("eval_documents_exposed") != 0
+    ):
+        raise RuntimeError("factor training authority protocol changed")
+
+
+class OneUseFitTrainingLoader:
+    """A source-closed owner must construct one instance and call it exactly once."""
+
+    def __init__(
+        self,
+        paths: parent.FitParentPaths = parent.PRODUCTION_PATHS,
+        *,
+        require_production: bool = True,
+        train_documents: int = 229,
+    ) -> None:
+        if not isinstance(paths, parent.FitParentPaths):
+            raise TypeError("training loader paths must be an exact FitParentPaths")
+        if require_production and train_documents != 229:
+            raise RuntimeError("production training role must contain 229 documents")
+        self._paths = paths
+        self._require_production = require_production
+        self._train_documents = train_documents
+        self._spent = False
+
+    @property
+    def spent(self) -> bool:
+        return self._spent
+
+    def load_once(
+        self,
+        *,
+        parent_binding: Mapping[str, Any],
+        analysis_authority: Mapping[str, Any],
+    ) -> FitTrainingInput:
+        if self._spent:
+            raise RuntimeError("FIT training loader capability is already spent")
+        # Poison before the first file lookup. Failure cannot turn into a second try.
+        self._spent = True
+        replay_parent = parent.fit_parent_binding_without_tensor_load(self._paths)
+        if replay_parent != parent_binding:
+            raise RuntimeError("FIT parent changed before training tensor access")
+        _validate_analysis_authority(analysis_authority, parent_binding)
+
+        bundle_record, bundle_raw = parent._stable_record(self._paths.bundle)
+        if bundle_record["sha256"] != parent_binding["bundle_sha256"] or (
+            bundle_record["bytes"] != parent_binding["bundle_bytes"]
+        ):
+            raise RuntimeError("training loader bundle bytes differ from authority parent")
+        payload = torch.load(
+            io.BytesIO(bundle_raw), map_location="cpu", weights_only=True
+        )
+        fit_bundle.validate_fit_bundle_payload(
+            payload, require_production=self._require_production
+        )
+
+        manifest_record, manifest_raw = parent._stable_record(self._paths.manifest)
+        if manifest_record["sha256"] != parent_binding["manifest_artifact_sha256"]:
+            raise RuntimeError("training loader manifest differs from authority parent")
+        manifest = parent._plain_json(manifest_raw, "factor training FIT manifest")
+        summary = fit_bundle.fit_bundle_manifest_summary(
+            self._paths.bundle,
+            expected_authority_sha256=parent_binding["authority_logical_sha256"],
+            expected_artifact_sha256=parent_binding["bundle_sha256"],
+            require_production=self._require_production,
+        )
+        if manifest.get("bundle_summary") != summary:
+            raise RuntimeError("training loader manifest summary does not replay")
+
+        receipt_record, receipt_raw = parent._stable_record(self._paths.receipt)
+        if receipt_record["sha256"] != parent_binding["receipt_sha256"]:
+            raise RuntimeError("training loader receipt differs from authority parent")
+        receipt = parent._plain_json(receipt_raw, "factor training FIT receipt")
+        receipt_payload = receipt.get("payload")
+        binding = payload["binding"]
+        if type(receipt_payload) is not dict or (
+            receipt_payload.get("status") != "complete"
+            or receipt_payload.get("authorized_for_eval") is not False
+            or receipt_payload.get("model_state_sha256_before")
+            != binding["model_state_sha256_before"]
+            or receipt_payload.get("model_state_sha256_after")
+            != binding["model_state_sha256_after"]
+            or receipt_payload.get("outer_forwards")
+            != payload["call_ledger"]["outer_forwards"]
+            or receipt_payload.get("projection_event_shape") != [2, 49, 124]
+            or receipt_payload.get("capture_event_shape") != [6, 124]
+        ):
+            raise RuntimeError("training loader receipt does not join the bundle")
+        checkpoint = receipt_payload.get("checkpoint")
+        if type(checkpoint) is not dict or (
+            checkpoint.get("config_sha256") != binding["config_sha256"]
+            or checkpoint.get("weights_sha256") != binding["weights_sha256"]
+        ):
+            raise RuntimeError("training loader checkpoint does not join the bundle")
+
+        # Terminal replay after every semantic and deserialization check. The adapter
+        # receives a private payload once; no payload or full-role alias is returned.
+        if parent.fit_parent_binding_without_tensor_load(self._paths) != parent_binding:
+            raise RuntimeError("FIT parent changed during training tensor load")
+        result = training_input_from_fit_payload(
+            payload,
+            parent_binding=parent_binding,
+            require_production=self._require_production,
+            train_documents=self._train_documents,
+        )
+        del payload
+        del bundle_raw
+        return result
