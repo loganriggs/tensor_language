@@ -591,3 +591,13 @@ later per-rung backlog edits had silently anchored on text that was not here.
     pred_b that difference <= +0.04 on >= 6/8; pred_c norm-2304
     reproduces 2.6735 within 0.01. norm-576 descriptive.
     -> ops/frontier_norm_ksweep.py [QUEUED]
+
+44. MC-SAMPLE ROBUSTNESS OF THE cfgE TOP-8 SELECTOR (instrument rung;
+    damage convention stated inline). The standing positive (-0.0857
+    median cfgE damage, §2116/§2124) uses a 2-sample MC Fisher with
+    ~0.01 cross-stream sensitivity (§2130/§2132). Arms: plain / top8-2s
+    (stream-matched repro) / top8-4s (fresh generator, seed 44).
+    pred_a overlap(2s,4s eight) >= 0.7 at both sites; pred_b
+    |median reduction(4s) - median reduction(2s)| <= 0.01; pred_c 2s arm
+    reproduces 0.0857 within 0.01. If pred_b fails, the certified number
+    carries a stated MC error bar. -> ops/cfge_top8_samples.py [QUEUED]
