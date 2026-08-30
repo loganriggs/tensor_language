@@ -26,20 +26,17 @@ metric for c8 at block 9: top eig 2.048e-07, floor 1.485e-09
 metric for c9 at block 10: top eig 1.895e-07, floor 1.722e-09
 eval-row block-6 observable r90 852
 8 windows x 120 rows, document-disjoint; docs per window [7, 42, 17, 23, 43, 26, 35, 35]
-Traceback (most recent call last):
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/cfge_c69_prune.py", line 803, in <module>
-    if __name__=='__main__': main()
-                             ^^^^^^
-  File "/venv/main/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/cfge_c69_prune.py", line 767, in main
-    cfg=build_arm(mode,2304)
-        ^^^^^^^^^^^^^^^^^^^^
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/cfge_c69_prune.py", line 665, in build_arm
-    for li in (4,5,6,7,8,9): S[f'c{li}{tag}']=cp_piece(li,f'c{li}')
-                                              ^^^^^^^^^^^^^^^^^^^^^
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/cfge_c69_prune.py", line 653, in cp_piece
-    Pk=HEAD[piece][mode]; imp=(Pk.T@Dw).norm(dim=0)*L.norm(dim=1)*Rw.norm(dim=1)
-       ~~~~~~~~~~~^^^^^^
-KeyError: 'top8prune'
+window 0: docs   7 base 3.4002 | gaps plain +1.8613 prune +1.9458 top8 +1.8586 top8+prune +1.9530
+window 1: docs  42 base 3.3773 | gaps plain +2.0464 prune +2.0069 top8 +1.9577 top8+prune +2.0008
+window 2: docs  17 base 3.9876 | gaps plain +1.8408 prune +1.7179 top8 +1.6388 top8+prune +1.6776
+window 3: docs  23 base 3.4730 | gaps plain +1.9550 prune +1.9058 top8 +1.7657 top8+prune +1.7907
+window 4: docs  43 base 3.5882 | gaps plain +1.9742 prune +1.9538 top8 +1.8881 top8+prune +1.9092
+window 5: docs  26 base 3.3520 | gaps plain +1.8833 prune +1.8691 top8 +1.8023 top8+prune +1.8527
+window 6: docs  35 base 3.7687 | gaps plain +1.7480 prune +1.7187 top8 +1.6630 top8+prune +1.7039
+window 7: docs  35 base 3.6643 | gaps plain +1.8187 prune +1.8392 top8 +1.7888 top8+prune +1.8405
+prune - plain per window: [0.08452, -0.03952, -0.1229, -0.04918, -0.02047, -0.01429, -0.02923, 0.02052]
+top8+prune - top8 per window: [0.09439, 0.04315, 0.03883, 0.02492, 0.02113, 0.05034, 0.04086, 0.05173]
+(a) pruning effect median -0.0248 <= 0: HELD
+(b) composition effect median +0.0420 <= 0: FAILED
+(c) top8 reduction +0.0855 vs 0.0857 (tol 0.01): HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/cfge_c69_prune_results.json (213s)

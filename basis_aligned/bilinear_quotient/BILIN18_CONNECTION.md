@@ -63775,3 +63775,27 @@ pred_a FAILED (+0.0244 vs ≤ +0.015) | pred_b FAILED (5/8 vs 6/8).**
 - **Frontier state (damage, fresh):** best remains **mlp45-2304 + c69-576 = 2.6691 FR / −0.0290 median on the
   eight windows / −13.3M values vs §312** (reproduced exactly here). The price ladder at mlp4/5 is closed:
   no trim is free.
+
+## §2142 — RUNG 48: THE PRUNING BENEFIT GENERALIZES TO cfgE (−0.0248 median, real readers) — BUT THE TWO STANDING POSITIVES DO NOT COMPOSE: pruning on top of top8 selection is worse on ALL 8 windows (+0.0420). (Convention: gaps are CE above the real model; lower is better.)
+
+`ops/cfge_c69_prune.py`, **213s** (after a KeyError crash-and-fix, recorded in the backlog), BACKLOG rung 48.
+**pred_a HELD (−0.0248 ≤ 0; negative on 6/8) | pred_c HELD (+0.0855 vs 0.0857) | pred_b FAILED (+0.0420 vs ≤ 0,
+positive on 8/8).**
+
+```
+  cfgE arm (gap vs real model, median-ish)   plain 1.87 | prune 1.89w0/1.72w2… | top8 −0.0855 vs plain | top8+prune
+  prune − plain per window:   +0.085  −0.040  −0.123  −0.049  −0.020  −0.014  −0.029  +0.021   median −0.0248
+  top8+prune − top8:          +0.094  +0.043  +0.039  +0.025  +0.021  +0.050  +0.041  +0.052   median +0.0420
+```
+
+- **The mechanism reading survives its cross-assembly test:** c6–c9's norm-ranked bottom units hurt cfgE too —
+  with REAL attention downstream — so the §2140 pruning benefit is not a dictionary-reader artifact (unlike
+  conditioning, §2132). Two windows (0, 7) pay even alone; the median stands.
+- **But the fixes share a budget:** once mlp4/5 is top8-selected, cutting c6–c9 costs +0.042 on every window.
+  The natural reading (flagged as interpretation): both interventions drain the same amplified-noise channel;
+  after top8 selection has cleaned what the readers amplify, c6–c9's bottom units are net signal, and removing
+  them only removes function. "Dead weight" is relative to the errors the rest of the assembly injects — it is
+  not a property of the units.
+- **Config guidance, stated by assembly:** cfgE's best remains top8 alone (−0.0855); do not prune there. The
+  §312 frontier's best remains mlp45-2304 + c69-576 (§2140/§2141) — no top8 anywhere in that config, so the
+  composition failure does not touch it.

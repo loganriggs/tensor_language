@@ -657,3 +657,18 @@ later per-rung backlog edits had silently anchored on text that was not here.
     First run CRASHED 21:33Z (KeyError: HEAD[piece][mode] not keyed for
     the new top8prune mode) - instrument bug, no result; fixed and
     re-queued 21:41Z. Predictions unchanged.
+    RUN 2026-08-30, §2142: pred_a HELD (-0.0248 — pruning generalizes to
+    real readers), pred_c HELD (repro), pred_b FAILED (+0.0420 on 8/8 —
+    the two positives share a budget and do NOT compose; 'dead weight'
+    is relative to the assembly's other errors). cfgE best: top8 alone.
+
+49. PER-LAYER c6-c9 FLOORS ON THE FRONTIER BEST (damage convention).
+    §2140: uniform 288 rebounds by +0.0217 vs the 576 optimum. Which
+    layer carries it? Arms: norm-2304 anchor / best (c69-576, §2140
+    repro) / c6@288 / c7@288 / c8@288 / c9@288 (others at 576).
+    pred_a min over layers of median [L2_F_w(cX@288) - L2_F_w(best)]
+    <= +0.005 (at least one layer can go to 288 nearly free); pred_b
+    additivity: |sum of the four medians - 0.0217| <= 0.015 (§2139
+    precedent; if FAILED, per-layer interactions); pred_c best arm
+    reproduces §2140 (-0.0290 vs norm within 0.015).
+    -> ops/frontier_c69_perlayer.py [QUEUED]
