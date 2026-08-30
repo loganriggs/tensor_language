@@ -349,9 +349,15 @@ abstraction.  That toy is the gate; no real-model abstraction claim is licensed 
 1. **Completed CPU toy for Move 1.**  One pytest passed in `2.16 s`; the numerical
    receipt runner took `0.31 s`.  All positive, gauge, perturbation, null, and edit
    controls pass.  This is the executed highest-priority new mathematical action.
-2. **Repair the Rayleigh DESIGN scorer lifecycle.**  Separate metadata-only binding from
-   post-authority tensor access; add transaction-order/race/drift/failure toys; request a
-   fresh independent audit.  Do not run the scorer or HELDOUT before exact GO.
+2. **Rayleigh DESIGN scorer lifecycle repaired, not run.**  Metadata-only hashing and
+   JSON joins now precede authority; scorer authority is published and exactly re-read
+   before the first DESIGN tensor deserialization.  Protected or authority drift remains
+   publishable as an exact-byte-bound failure instead of requiring the input to become
+   healthy again.  New toys cover success ordering, pre-authority drift, post-authority
+   drift, authority mutation, rival terminals, lock replacement, and receipt-last
+   publication.  The complete relevant transitive suite passes `140/140` in `16.65 s`.
+   A fresh independent exact-source audit is still required.  Do not run the scorer or
+   HELDOUT before exact GO.
 3. **If Rayleigh HELDOUT passes,** use its validated consumers to seed Move 1's pullback
    family.  If it fails, do not train a Fisher-weighted MLP2; broaden the signed consumer
    bank and test common blocks directly.

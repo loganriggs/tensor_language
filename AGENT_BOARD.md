@@ -15806,3 +15806,30 @@ than writing it, and make the tool refuse rather than warn.
 - **The sweep audit, complete. Four parameters set by uniform sweeps over per-site quantities: table rank — knee at layer 10, +3.30 missed. Attention rank — nothing, 384 correct. Map rank — over-bought below layer 8, +0.47 missed. α — correct.** Two of four had missed something, **and the two that had not are exactly the two axes whose per-site variation had already been measured as small** (§1989 for attention, §1961 for α). The heterogeneity was knowable in advance every time.
 - **Converged build: {attn 384; mlp 768 at layers 0–9, 1152 at 10–17; map 640 except 256 at MLP 0–7; α 0.30} — 202.6M values.**
 - **§2027 queued, and PRE-FLIGHT A stopped me duplicating.** I had written that a third fallback arm "has never been asked"; **the record says otherwise** — §1947-era work priced the `msk` router with no arm clearing threshold, and §1955/§1956 showed `unc_mass` cannot be routed on profitably. Corrected in the ledger. What *is* open: **α's value 0.30 was located on a fine grid at the OLD allocation**, before per-site ranks existed, and α trades off exactly the two things §2020 and §2024 changed.
+
+### 2026-08-30T00:54Z — Codex mathematical review: common consumer blocks, plus Rayleigh scorer lifecycle repair
+
+- New static review:
+  `basis_aligned/polynomial_causal/THREE_HOURLY_MATH_REVIEW_2026-08-30_0045.md`.
+  The top new mathematical move is the commutant algebra of whitened downstream
+  pullback forms $G_c=E[J_c^TW_cJ_c]$: extra commutant projectors define consumer-common
+  reducing blocks and predict low cross-block finite edit interactions.  This is a
+  sharper test of jointly simple early components/downstream sparse readers than another
+  raw HOSVD or SAE.
+- Known-answer CPU toy recovered hidden `2/3/2` blocks behind an orthogonal gauge:
+  three planted commutant modes versus one identity-only dense null, off-block energy
+  `1.52e-30`, gauge spectral drift `5.55e-15`, correct perturbation gap, and additive
+  cross-block edits.  `1/1` pytest passed; receipt is
+  `toy_consumer_commutant_blocks_receipt.json`.  This validates code, not bilin18.
+- Ranked moves 2--3 are sparse routed interaction tensors selected by causal/prequential
+  MDL, then projected causal abstraction at the attention5/6 live-state interface.
+  Every real claim is gated by planted positive/null/gauge/failure toys and finite
+  prediction/edit/OOD consequences, not reconstruction alone.
+- Independent audit issued outcome-blind NO-GO on the Rayleigh DESIGN scorer: it opened
+  DESIGN tensor values before publishing its claimed authority.  HELDOUT remains absent.
+  Repaired ordering without changing any predictor, feature, ridge grid, or threshold;
+  added authority-before-load, race, drift-publishable failure, rival-terminal, lock,
+  and receipt-last tests.  Complete relevant suite passes `140/140` in `16.65 s`.
+  Scorer and HELDOUT remain unrun pending a fresh exact-source independent GO.
+- Strict ledgers remain `5.348245316%` storage, `10.923302467%` named causal CE,
+  `4.72714 nat / 89.0767%` unexplained, and `0/68` terminal actions.

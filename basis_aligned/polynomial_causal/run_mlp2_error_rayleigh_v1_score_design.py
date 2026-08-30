@@ -116,12 +116,27 @@ def validate_design_authority(value: Any, authority_sha: str) -> dict[str, Any]:
     return value
 
 
-def protected_snapshot(authority: Mapping[str, Any]) -> dict[str, str]:
+def stable_file_sha(path: Path, expected: str | None = None) -> str:
+    """Hash a file twice without parsing or deserializing it."""
+    first = file_sha256(path)
+    if expected is not None and first != expected:
+        raise RuntimeError("DESIGN scorer protected file hash changed")
+    if not path.is_file() or file_sha256(path) != first:
+        raise RuntimeError("DESIGN scorer protected file raced hash")
+    return first
+
+
+def metadata_snapshot(authority: Mapping[str, Any]) -> dict[str, str]:
+    """Bind scorer inputs without opening the DESIGN tensor ledger.
+
+    This is the only protected replay allowed before scorer authority publication.
+    JSON metadata may be parsed, but DESIGN tensor values must remain unopened.
+    """
     if source_hashes(authority["source_commit"]) != authority["source_hashes"]:
         raise RuntimeError("DESIGN scorer sources changed")
     _, audit_sha = validate_audit(authority["source_hashes"])
     receipt, receipt_sha = base.stable_json(DESIGN["receipt"], authority["design_receipt_sha256"])
-    ledger, ledger_sha = base.stable_torch(DESIGN["ledger"], authority["design_ledger_sha256"])
+    ledger_sha = stable_file_sha(DESIGN["ledger"], authority["design_ledger_sha256"])
     validate_design_receipt(receipt, ledger_sha)
     design_authority, design_authority_sha = base.stable_json(
         DESIGN["authority"], authority["design_authority_sha256"],
@@ -129,16 +144,30 @@ def protected_snapshot(authority: Mapping[str, Any]) -> dict[str, str]:
     if receipt["authority_sha256"] != design_authority_sha:
         raise RuntimeError("DESIGN receipt-to-authority join changed")
     validate_design_authority(design_authority, design_authority_sha)
-    collector.validate_ledger(
-        ledger, design_authority_sha, "DESIGN",
-        design_authority["parent_snapshot"]["checkpoint"],
-    )
     if audit_sha != authority["audit_sha256"] or receipt_sha != authority["design_receipt_sha256"]:
         raise RuntimeError("DESIGN scorer protected hashes changed")
     return {
         "audit": audit_sha, "receipt": receipt_sha, "ledger": ledger_sha,
         "design_authority": design_authority_sha,
     }
+
+
+def protected_snapshot(authority: Mapping[str, Any]) -> dict[str, str]:
+    """Post-authority semantic replay, including DESIGN tensor deserialization."""
+    metadata = metadata_snapshot(authority)
+    ledger, ledger_sha = base.stable_torch(
+        DESIGN["ledger"], authority["design_ledger_sha256"],
+    )
+    design_authority, design_authority_sha = base.stable_json(
+        DESIGN["authority"], authority["design_authority_sha256"],
+    )
+    collector.validate_ledger(
+        ledger, design_authority_sha, "DESIGN",
+        design_authority["parent_snapshot"]["checkpoint"],
+    )
+    if ledger_sha != metadata["ledger"]:
+        raise RuntimeError("DESIGN scorer ledger raced semantic replay")
+    return metadata
 
 
 def serialize_fit(value: Mapping[str, Any]) -> dict[str, Any]:
@@ -160,28 +189,58 @@ def artifact_snapshot() -> dict[str, str]:
 
 def publish_failure(claim, exc: BaseException, authority,
                     protected: Mapping[str, str] | None, opened: bool) -> None:
+    def observe_authority() -> dict[str, Any]:
+        if not AUTHORITY.is_file():
+            return {"status": "absent"}
+        try:
+            observed, observed_sha = base.stable_json(AUTHORITY)
+            return {
+                "status": "matches" if authority is not None and observed == authority else "mismatch",
+                "sha256": observed_sha,
+            }
+        except BaseException as observation_error:
+            return {"status": "replay_error", "error": repr(observation_error)}
+
+    def observe_protected(authority_status: str) -> dict[str, Any]:
+        if authority_status != "matches":
+            return {"status": "not_attempted_authority_untrusted"}
+        if authority is None or not AUTHORITY.is_file():
+            return {"status": "not_available"}
+        try:
+            current = protected_snapshot(authority)
+            if protected is None:
+                return {"status": "baseline_unavailable_replay_succeeded",
+                        "current": dict(current)}
+            return {"status": "matches" if current == protected else "mismatch"}
+        except BaseException as replay_error:
+            return {"status": "replay_error", "error": repr(replay_error)}
+
     frozen_artifacts = artifact_snapshot()
+    authority_observation = observe_authority()
+    protected_observation = observe_protected(authority_observation["status"])
     failure = {
         "schema": "mlp2_error_rayleigh_v1_design_predictor_failure",
         "status": "terminal_failure_no_receipt", "error": repr(exc),
         "authority_exists": AUTHORITY.exists(), "design_ledger_may_have_opened": opened,
         "artifact_hashes": frozen_artifacts,
+        "authority_observation": authority_observation,
+        "protected_observation": protected_observation,
     }
 
     def failure_guard():
         row_life.base.require_claim(claim, LOCK)
         if RECEIPT.exists() or FAILURE.exists() or artifact_snapshot() != frozen_artifacts:
             raise RuntimeError("DESIGN scorer failure terminal or artifacts raced")
-        if authority is not None and AUTHORITY.is_file():
-            observed, observed_sha = base.stable_json(
-                AUTHORITY, frozen_artifacts.get("authority"),
-            )
-            if observed != authority or observed_sha != frozen_artifacts.get("authority"):
-                raise RuntimeError("DESIGN scorer failure authority join changed")
-            if protected is not None and protected_snapshot(authority) != protected:
-                raise RuntimeError("DESIGN scorer failure protected state changed")
+        if AUTHORITY.is_file() and stable_file_sha(
+            AUTHORITY, frozen_artifacts.get("authority"),
+        ) != frozen_artifacts.get("authority"):
+            raise RuntimeError("DESIGN scorer failure authority bytes changed")
+        # Protected drift and even authority semantic drift are themselves terminal
+        # failure classes.  The observations above preserve them; publication binds
+        # the exact bytes present on the failure path rather than requiring them to
+        # become healthy again.
         if RECEIPT.exists() or FAILURE.exists() or artifact_snapshot() != frozen_artifacts:
-            raise RuntimeError("DESIGN scorer failure terminal raced protected replay")
+            raise RuntimeError("DESIGN scorer failure terminal raced observation")
         row_life.base.require_claim(claim, LOCK)
 
     if RECEIPT.exists() or FAILURE.exists():
@@ -216,20 +275,25 @@ def run() -> None:
             "families": {name: list(features) for name, features in predictor.FAMILIES.items()},
             "heldout_opened": False,
         }
-        protected = protected_snapshot(authority)
+        metadata = metadata_snapshot(authority)
 
         def authority_guard():
             row_life.base.require_claim(claim, LOCK)
             if any(path.exists() for path in (AUTHORITY, BUNDLE, RECEIPT, FAILURE)):
                 raise RuntimeError("DESIGN predictor authority terminal appeared")
-            if protected_snapshot(authority) != protected:
+            if metadata_snapshot(authority) != metadata:
                 raise RuntimeError("DESIGN predictor authority inputs changed")
             if any(path.exists() for path in (AUTHORITY, BUNDLE, RECEIPT, FAILURE)):
-                raise RuntimeError("DESIGN predictor authority terminal raced replay")
+                raise RuntimeError("DESIGN predictor authority terminal raced metadata replay")
             row_life.base.require_claim(claim, LOCK)
 
         base.atomic_json(AUTHORITY, authority, pre_link_check=authority_guard)
-        authority_sha = file_sha256(AUTHORITY); opened = True
+        authority_sha = file_sha256(AUTHORITY)
+        observed_authority, observed_authority_sha = base.stable_json(AUTHORITY, authority_sha)
+        if observed_authority != authority or observed_authority_sha != authority_sha:
+            raise RuntimeError("DESIGN predictor authority changed before ledger access")
+        opened = True
+        protected = protected_snapshot(authority)
         ledger, _ = base.stable_torch(DESIGN["ledger"], design_ledger_sha)
         design_receipt, _ = base.stable_json(DESIGN["receipt"], design_receipt_sha)
         replay = collector.validate_ledger(
