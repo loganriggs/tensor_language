@@ -95,6 +95,27 @@ def test_no_eval_capability_surface_exists_before_receipt():
     assert not hasattr(bundle, "load_fit_program")
 
 
+@pytest.mark.parametrize(
+    ("field", "replacement", "message"),
+    [
+        ("claim_boundary", "this bundle authorizes EVAL", "claim boundary"),
+        (
+            "sign_convention",
+            "dCE = native CE - rank-one-projection intervention CE",
+            "sign convention",
+        ),
+        ("off_mask", "all nonmember positions", "off-target mask"),
+    ],
+)
+def test_scalar_scientific_contract_is_exact(field, replacement, message):
+    payload = _payload()
+    payload[field] = replacement
+    # Scalar strings are deliberately not hidden behind tensor hashes; the semantic
+    # validator itself must know and enforce their exact scientific meaning.
+    with pytest.raises(RuntimeError, match=message):
+        bundle.validate_fit_bundle_payload(payload, require_production=False)
+
+
 @pytest.mark.parametrize("attack", ["direction", "response", "ledger", "support", "state"])
 def test_semantic_validator_rejects_tampering(attack):
     payload = _payload()

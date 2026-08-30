@@ -408,6 +408,12 @@ FORBIDDEN_PAYLOAD_CONTRACT = {
     "eval_outcomes": False,
     "aggregate_fit_write_sums_and_means_only": True,
 }
+FIT_CLAIM_BOUNDARY = (
+    "FIT-only program and causal-response bundle. It contains no raw tokens, "
+    "targets, activations, logits, EVAL rows, or EVAL outcomes."
+)
+SIGN_CONVENTION = "dCE = rank-one-projection intervention CE - native CE"
+OFF_MASK = "exact complement of the target circuit's frozen slice mask"
 
 
 def _tensor_hash_map(value: object, *, prefix: str = "root") -> dict[str, str]:
@@ -452,10 +458,7 @@ def build_fit_bundle_payload(
         if key != "_direction_preimage"
     }
     payload["schema"] = "causal_response_tensor_v1_fit_bundle"
-    payload["claim_boundary"] = (
-        "FIT-only program and causal-response bundle. It contains no raw tokens, "
-        "targets, activations, logits, EVAL rows, or EVAL outcomes."
-    )
+    payload["claim_boundary"] = FIT_CLAIM_BOUNDARY
     payload["binding"] = asdict(binding)
     payload["forbidden_payload_contract"] = dict(FORBIDDEN_PAYLOAD_CONTRACT)
     payload["tensor_hashes"] = _tensor_hash_map(payload)
@@ -490,6 +493,12 @@ def validate_fit_bundle_payload(
     binding.validate(require_production=require_production)
     if payload["forbidden_payload_contract"] != FORBIDDEN_PAYLOAD_CONTRACT:
         raise RuntimeError("FIT forbidden-payload contract changed")
+    if payload["claim_boundary"] != FIT_CLAIM_BOUNDARY:
+        raise RuntimeError("FIT claim boundary changed")
+    if payload["sign_convention"] != SIGN_CONVENTION:
+        raise RuntimeError("FIT response sign convention changed")
+    if payload["off_mask"] != OFF_MASK:
+        raise RuntimeError("FIT off-target mask definition changed")
     tensor_hashes = _require_plain_dict(payload["tensor_hashes"], label="tensor hashes")
     replay_hashes = _tensor_hash_map({
         key: value for key, value in payload.items() if key != "tensor_hashes"
