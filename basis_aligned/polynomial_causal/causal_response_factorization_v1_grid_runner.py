@@ -336,6 +336,7 @@ def _validate_result_cell(
         "amortized_total_dense_rank_noncontrolling",
         "prediction_multiply_adds_per_document", "calibration_cells_training_stage",
         "registered_validation_calibration_arm_budgets", "initial_mse", "final_mse",
+        "registered_validation_calibration_costs",
         "improvement_fraction", "healthy", "minimum_improvement", "elapsed_seconds",
         "validation_values_read", "eval_values_read", *report_keys,
     }
@@ -362,7 +363,11 @@ def _validate_result_cell(
         raise RuntimeError(f"grid result fixed binding changed: {path.name}")
     replay = predict_from_codes(program.basis(), codes).reshape_as(training.response)
     replay_mse = float(((replay[training.valid] - training.response[training.valid]) ** 2).mean())
-    initial_mse = float((training.response[training.valid] ** 2).mean())
+    initial_mse = receipt.get("initial_mse")
+    if not isinstance(initial_mse, (int, float)) or not math.isfinite(initial_mse) or (
+        initial_mse <= 0
+    ):
+        raise RuntimeError(f"grid result initial loss is invalid: {path.name}")
     improvement = (initial_mse - replay_mse) / max(
         initial_mse, torch.finfo(torch.float64).tiny,
     )
@@ -394,6 +399,17 @@ def _validate_result_cell(
         "calibration_budgets": (
             receipt.get("registered_validation_calibration_arm_budgets") == [2, 4, 8, 16]
         ),
+        "calibration_costs": receipt.get("registered_validation_calibration_costs") == [
+            {
+                "arms": arms,
+                "cells": arms * training.response.shape[2],
+                "normal_equation_multiply_add_upper_bound": (
+                    arms * training.response.shape[2] * program.code_dimension
+                    * (program.code_dimension + 1) + program.code_dimension ** 3
+                ),
+            }
+            for arms in (2, 4, 8, 16)
+        ],
         "health_threshold": receipt.get("minimum_improvement") == MINIMUM_IMPROVEMENT,
         "elapsed": (
             isinstance(receipt.get("elapsed_seconds"), (int, float))
@@ -689,6 +705,17 @@ def _run_grid_locked(
                 ),
                 "calibration_cells_training_stage": 0,
                 "registered_validation_calibration_arm_budgets": [2, 4, 8, 16],
+                "registered_validation_calibration_costs": [
+                    {
+                        "arms": arms,
+                        "cells": arms * training.response.shape[2],
+                        "normal_equation_multiply_add_upper_bound": (
+                            arms * training.response.shape[2] * code * (code + 1)
+                            + code ** 3
+                        ),
+                    }
+                    for arms in (2, 4, 8, 16)
+                ],
                 "initial_mse": fitted.initial_mse,
                 "final_mse": fitted.final_mse,
                 "improvement_fraction": fitted.improvement_fraction,

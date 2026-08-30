@@ -1,5 +1,6 @@
 from pathlib import Path
 
+import pytest
 import torch
 
 from causal_response_factorization_v1_fit_adapter import (
@@ -67,3 +68,27 @@ def test_failure_is_a_preserved_terminal_cell(tmp_path: Path) -> None:
     assert terminal["failure_cells"] == 1
     assert terminal["cells"][0]["error_type"] == "ArithmeticError"
     assert "planted failure" in terminal["cells"][0]["error_message"]
+
+
+def test_resume_semantically_replays_factor_tensors(tmp_path: Path) -> None:
+    kwargs = dict(
+        rank_pairs=((1, 0),), seeds=(21,), steps=20, learning_rate=0.03,
+        optimizer_device="cpu", require_published_source=False,
+    )
+    output = tmp_path / "tampered"
+    run_grid(_tiny_input(), output, **kwargs)
+    cell = next(output.glob("*.pt"))
+    payload = torch.load(cell, map_location="cpu", weights_only=True)
+    payload["document_codes"][0, 0] += 1.0
+    torch.save(payload, cell)
+    with pytest.raises(RuntimeError, match="semantic replay changed"):
+        run_grid(_tiny_input(), output, **kwargs)
+
+
+def test_published_surface_cannot_accept_caller_protocol(tmp_path: Path) -> None:
+    with pytest.raises(RuntimeError, match="only through main"):
+        run_grid(
+            _tiny_input(), tmp_path / "not-production", rank_pairs=((1, 0),),
+            seeds=(1,), steps=1, learning_rate=0.03, optimizer_device="cpu",
+            require_published_source=True,
+        )

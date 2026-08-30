@@ -31,22 +31,41 @@ values. Thus neither control is mislabelled as matched under the original order.
 ## Immutable resumable training grid
 
 The production entrypoint has no caller-selected input, output, ranks, seeds, device,
-or role. It loads only the independently authorized training snapshot and runs the 17
+fitter, or role. Before opening the training snapshot it must acquire one stable
+non-symlink lock inode, verify an exact published source closure, verify a canonical
+independent GO audit of those bytes, and reject an unexpected output census. It then
+loads only the independently authorized training snapshot and runs the 17
 frozen rank pairs at the three frozen seeds with CUDA float32 Adam for 2,000 steps at
 learning rate 0.03. Validation and EVAL are absent.
 
-Each rank/seed cell is published atomically and create-only. A result contains the
+Each rank/seed cell is staged, semantically replayed in full, then published atomically
+and create-only with a directory fsync. No fallible verification follows visibility.
+A result contains the
 canonical CPU-float64 factors, document codes, exact canonical replay loss, health,
 literal prices, multiply-add count, phase/owner errors, and worst owner-pair normalized
-RMSE. A numerical failure becomes a create-only failure cell. Process interruption is
+RMSE. Only the optimizer's two registered nonfinite outcomes become scientific failure
+cells; integrity, I/O, protocol, and CUDA-resource errors abort nonzero. Process interruption is
 not converted into a scientific failure and already completed cells are replayed, not
 refit. A directory lock forbids concurrent owners.
 
-Only after all 51 cells have result-or-failure terminals is a create-only manifest
-published. It binds the exact source closure, training artifact and tensor identities,
+Only after all 51 cells have result-or-failure terminals is a manifest staged and fully
+replayed, the exact preterminal census checked, and the manifest linked receipt-last.
+It binds the exact source closure, training artifact and tensor identities,
 complete cell hashes, training response RMS, strict rank-zero control, per-cell mean,
 and false validation/EVAL flags. Source closure is replayed again after fitting and the
-terminal directory census must be exact.
+terminal directory census must be exact. An existing terminal is replayed read-only and
+can never trigger filling a missing cell.
+
+For later validation, every receipt freezes calibration arm budgets
+$m\in\{2,4,8,16\}$, the literal calibration-cell count $n=49m$, and the conservative
+normal-equation multiply-add proxy
+
+$$
+nK(K+1)+K^3,
+$$
+
+separately from the per-document prediction cost $4802K$. Training uses zero
+calibration cells; these counts authorize no validation access.
 
 The synthetic acceptance gate is: successful multi-cell fit, byte-identical resume,
 preserved planted failure, exact census, and no validation/EVAL fields or capability.
