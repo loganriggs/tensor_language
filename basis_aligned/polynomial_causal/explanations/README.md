@@ -7,6 +7,12 @@ primary evidence.
 
 ## Start here
 
+- [`explanation_1835.md`](explanation_1835.md) — the observability arc end to end: how error is priced
+  in bilin18 (the block-5→6 cliff at attn5's write; scale free, direction not), where the certified
+  assembly's error comes from and what it costs by head (energy ≠ price: the sink head is 71 % of the
+  stream error and 19 % of the CE), and the first certified, priced, mechanistically named frontier
+  improvement (mlp4/mlp5 units selected by eight loss-gradient directions: +0.124 / +0.075 nat at equal
+  price, or half the price at equal CE). Self-reviewed.
 - [`explanation_1745.md`](explanation_1745.md) — full synthesis of everything since
   `explanation_1405.md`: the causal-response validation and v1's rejection, the closure of the
   head-grain arc, the three-step m16 arc (stable basis, no surface feature, private coefficient),
