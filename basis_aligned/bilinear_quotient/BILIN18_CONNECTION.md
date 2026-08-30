@@ -63747,8 +63747,10 @@ certify the OPPOSITE of their prose intent.
   §312 sanity bounds print HELD on every arm rather than being overridden); the reproduction gate is exact;
   and §2136 independently showed the same pruning helping on a different base. This improvement is claimed in
   the damage convention with all three checks in hand.
-- **The frontier moves, honestly this time:** mlp4/5 at norm-2304 + c6–c9 at norm-576 ⇒ **2.6445 fresh /
-  2.5000-ish C** (see table) at **13.3M fewer stored values** than §312. Mechanism reading (unproven, flagged):
+- **The frontier moves, honestly this time — with the exact numbers:** mlp4/5 at norm-2304 + c6–c9 at norm-576
+  ⇒ **2.6691 on the FR fresh set** (vs 2.6735) and **−0.0290 median across the eight certification windows**, at
+  **13.3M fewer stored values** than §312. One caveat stated plainly: window C is **+0.0043 worse** (2.4275 vs
+  2.4232) — the improvement is a fresh-text result; the same-distribution check pays a whisker. Mechanism reading (unproven, flagged):
   the bottom three quarters of c6–c9's norm-ranked CP units inject approximation noise that the deployed
   assembly's downstream readers amplify; removing them helps more than their signal was worth. Whether mlp4/5
   can shed anything on top of this config → rung 47.

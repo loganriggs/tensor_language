@@ -130,6 +130,7 @@ the assembly-conditioned Fisher ranking has no measured use on the frontier (§2
 costs +0.029, all of it at mlp4/mlp5 (§2137/§2139, additive to 0.006); and c6–c9's norm-ranked bottom units are
 pure noise to the deployed assembly — **cutting c6–c9 from 2304 to 576 units each beats the full §312 frontier on
 8/8 windows (−0.029 median damage) at 13.3M fewer stored values** (§2140; optimum near 576, 288 rebounds). Best
-measured config: mlp4/5 at norm-2304 + c6–c9 at norm-576 → **2.6445 fresh**. Also: the standing cfgE top-8 result
+measured config: mlp4/5 at norm-2304 + c6–c9 at norm-576 → **2.6691 on the FR fresh set** (vs 2.6735;
+window C pays +0.004). Also: the standing cfgE top-8 result
 is instrument-robust (0.086 ± ~0.003 MC; 2s/4s subspace overlap 0.986, §2138). Each claim above was preregistered
 with arm-named bars, a reproduction gate, and the convention stated inline, per §2135's rules.
