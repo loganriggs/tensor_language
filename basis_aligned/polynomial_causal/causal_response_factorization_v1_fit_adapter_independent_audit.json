@@ -1,0 +1,55 @@
+{
+  "schema": "causal_response_factorization_v1_fit_adapter_independent_audit",
+  "status": "NO-GO",
+  "outcome_access": false,
+  "audited_source_commit": "abd9c44027c85d0d730b4b271c95ea957515ca4b",
+  "audited_source_sha256s": {
+    "basis_aligned/polynomial_causal/CAUSAL_RESPONSE_FACTORIZATION_V1_PREREGISTRATION.md": "2782866d8fdd1ca5abb3de4348534ceefadddb42a19ec17a756dd6017c89ffba",
+    "basis_aligned/polynomial_causal/causal_response_factorization_v1.py": "8af3e8c4987b15d8da5413f2998452ea7064779ad648c17c0d9269fd7ed0f881",
+    "basis_aligned/polynomial_causal/causal_response_factorization_v1_fit_adapter.py": "227804db49fdcd22f11ec17b5a985973b1dcacb08f0fe150dc53608a5693e5e5",
+    "basis_aligned/polynomial_causal/test_causal_response_factorization_v1.py": "33b29ec7b045fa61d3bd27ec92664103668163f10e60736ea9d3b892589c29b6",
+    "basis_aligned/polynomial_causal/test_causal_response_factorization_v1_fit_adapter.py": "45e8c9e35ca6b703bcd9b39b8743f5f7ed1a3eb41abcc82e18697a14d429a47c"
+  },
+  "tests": {
+    "command_scope": "adapter, factorization core, and FIT-bundle synthetic CPU tests",
+    "passed": 32,
+    "seconds": 18.03
+  },
+  "adapter_assessment": {
+    "pure_factory_reducer_reusable": true,
+    "independent_output_clones": true,
+    "fit_only": true,
+    "analysis_execution_authorized": false
+  },
+  "blocking_defects": [
+    {
+      "id": "missing_receipt_bound_loader",
+      "finding": "The adapter accepts an in-memory payload and a logical authority SHA only. No source-closed owner proves that the payload bytes are the bundle named by a completed receipt before exposing response values."
+    },
+    {
+      "id": "provenance_dropped_at_adapter_output",
+      "finding": "FitFactorizationInput retains only the logical authority SHA. It does not retain the exact bundle artifact SHA, manifest artifact SHA, receipt SHA, or terminal SHA needed to join the numerical input to one completed FIT transaction."
+    },
+    {
+      "id": "forgeable_owner_topology",
+      "finding": "FitFactorizationInput.__post_init__ does not require source_groups[i] to equal the index of source_components[i] in owner_components, nor require an exact contiguous group range. A synthetic all-zero group vector was accepted for sources owned by two components."
+    },
+    {
+      "id": "role_capability_not_sealed",
+      "finding": "The returned object contains both training and validation responses plus mutable role-index tensors. A downstream owner must enforce train-only optimization and validation-only scoring; the adapter alone cannot prevent validation leakage."
+    }
+  ],
+  "required_loader_checks": [
+    "Freeze a source-bound FIT-analysis authority before deserializing the FIT bundle or exposing any response value.",
+    "Stable-read the receipt and terminal; require exact byte/hash equality, the same terminal inode, kind receipt, status complete, FAILURE absent, and the FIT lock released.",
+    "Require the receipt aggregate to exact-equal stable live authority, bundle, and manifest records, including path, presence, SHA-256, bytes, device, inode, mtime_ns, and ctime_ns.",
+    "Exact-replay the authority schema, logical SHA, independent audit, 21-file historical source closure, protocol, output namespace, parent hashes, authorized_for_fit_execution true, and authorized_for_eval false.",
+    "Stable-read the manifest and require its artifact SHA from the receipt, logical manifest SHA, authority artifact/logical joins, exact bundle path/hash/bytes, protocol, authorized_for_eval false, and bundle-summary equality.",
+    "Stable-read the exact bundle bytes named by both receipt and manifest, deserialize only those bytes with torch.load(BytesIO(...), map_location='cpu', weights_only=true), and run validate_fit_bundle_payload(require_production=true).",
+    "Require the bundle binding logical authority SHA, source-closure SHA, all parent hashes, checkpoint hashes, identical before/after model-state hashes, FIT row/document/support hashes, production dimensions, and exact 12400-forward structured ledger.",
+    "Require the receipt checkpoint, model-state hashes, outer-forward count, projection shape, and capture shape to exact-join the validated bundle and frozen protocol.",
+    "Give the private payload to the adapter once, retain no caller alias, and poison the loader capability after use.",
+    "Carry bundle, manifest, receipt, terminal, and authority identities in the downstream analysis input envelope; enforce exact owner topology and role-scoped optimizer/scorer access."
+  ],
+  "claim_boundary": "This audit opens no FIT artifact and no EVAL role. It does not authorize factor fitting or scientific claims."
+}
