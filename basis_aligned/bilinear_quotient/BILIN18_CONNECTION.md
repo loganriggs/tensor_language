@@ -63669,3 +63669,25 @@ certify the OPPOSITE of their prose intent.
   frontier. The honest price question — pure norm-rank K reduction on the intact §312 frontier — has never been
   measured on the eight windows → rung 43.
 - Convention stated per §2135: every number above is CE added above the real model; lower is better.
+
+## §2137 — RUNG 43: THE HONEST PRICE CURVE IS SHALLOW BUT NOT FREE. Halving all six CP middles (norm rank, intact §312 frontier) adds +0.0292 median damage — over the registered 0.02 bar — but stays ≤ +0.04 on 6/8; quartering adds only +0.008 more. (Convention: L2 = CE above the real model; lower is better.)
+
+`ops/frontier_norm_ksweep.py`, **336s**, BACKLOG rung 43. **pred_c HELD (2.6735 exact) | pred_b HELD (6/8 ≤ +0.04)
+| pred_a FAILED (+0.0292 vs ≤ +0.02).**
+
+```
+  arm (damage, fresh / C)         L2_F     L2_C     added vs norm-2304 (median, 8 windows)
+  norm-2304 (§312)               2.6735   2.4232    —
+  norm-1152 at all six           2.7007   2.4667    +0.0292   [+0.010 … +0.050 across windows]
+  norm-576 at all six            2.7051   2.5251    +0.0384
+```
+
+- **Scored as written: the half-price bar fails.** Halving the middles' stored units (−13.3M values) costs a real
+  +0.029 nat on fresh text — small, but half again the registered bar, and every window pays (min +0.010). The
+  §2118-family null ("K reduction adds damage") holds on the intact frontier too.
+- **The curve's shape is the useful part:** the second halving (1152→576, −6.6M more values) adds only +0.008
+  further on fresh — the marginal price per dropped unit falls steeply. On window C the second halving costs more
+  (+0.058 total) than on fresh. Anyone trading size for CE on this assembly should know the curve is concave:
+  the first units dropped are nearly free per-value, and there is no cliff down to 576.
+- With §2136: norm-rank pruning is the only ranking that reduces price at tolerable cost; every Fisher-derived
+  ranking tried makes the frontier strictly worse at any K.

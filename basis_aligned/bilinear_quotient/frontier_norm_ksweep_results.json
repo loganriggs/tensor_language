@@ -1,0 +1,85 @@
+{
+ "norm2304": {
+  "L1_F": 2.2871,
+  "L2_C": 2.4232,
+  "L2_F": 2.6735,
+  "increment": 0.3864,
+  "orig_s312_a": true,
+  "orig_s312_b": true,
+  "fresh8": [
+   2.6735,
+   2.9704,
+   2.7324,
+   2.9633,
+   2.9546,
+   2.8355,
+   2.6407,
+   2.7056
+  ],
+  "runtime_s": 113.37880229949951
+ },
+ "norm1152": {
+  "L1_F": 2.3316,
+  "L2_C": 2.4667,
+  "L2_F": 2.7007,
+  "increment": 0.3691,
+  "orig_s312_a": true,
+  "orig_s312_b": true,
+  "fresh8": [
+   2.7007,
+   3.0035,
+   2.7632,
+   2.9737,
+   2.9691,
+   2.8782,
+   2.6909,
+   2.7333
+  ],
+  "runtime_s": 111.51974248886108
+ },
+ "norm576": {
+  "L1_F": 2.3673,
+  "L2_C": 2.5251,
+  "L2_F": 2.7051,
+  "increment": 0.3378,
+  "orig_s312_a": true,
+  "orig_s312_b": true,
+  "fresh8": [
+   2.7051,
+   3.0012,
+   2.8042,
+   2.9744,
+   2.9945,
+   2.8824,
+   2.7195,
+   2.7445
+  ],
+  "runtime_s": 110.94436430931091
+ },
+ "per_window_damage_added_1152": [
+  0.0272,
+  0.0331,
+  0.0308,
+  0.0104,
+  0.0145,
+  0.0427,
+  0.0502,
+  0.0277
+ ],
+ "per_window_damage_added_576": [
+  0.0316,
+  0.0308,
+  0.0718,
+  0.0111,
+  0.0399,
+  0.0469,
+  0.0788,
+  0.0389
+ ],
+ "convention": "L2 = CE above the real model; lower is better; positive entries = damage added",
+ "pred_a_half_units_cheap": false,
+ "pred_b_windows_floor": true,
+ "pred_c_reproduces_s312": true,
+ "self_reviewed": true,
+ "runtime_s": 335.9
+}

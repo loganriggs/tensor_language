@@ -590,7 +590,11 @@ later per-rung backlog edits had silently anchored on text that was not here.
     pred_a median [L2_F_w(norm1152) - L2_F_w(norm2304)] <= +0.02;
     pred_b that difference <= +0.04 on >= 6/8; pred_c norm-2304
     reproduces 2.6735 within 0.01. norm-576 descriptive.
-    -> ops/frontier_norm_ksweep.py [QUEUED]
+    -> ops/frontier_norm_ksweep.py
+    RUN 2026-08-30, §2137: pred_a FAILED (+0.0292 > 0.02), pred_b HELD
+    (6/8), pred_c HELD (exact). Halving costs a real +0.029; quartering
+    only +0.008 more - the price curve is concave, no cliff to 576.
+    Norm rank is the only ranking that cuts price at tolerable cost.
 
 44. MC-SAMPLE ROBUSTNESS OF THE cfgE TOP-8 SELECTOR (instrument rung;
     damage convention stated inline). The standing positive (-0.0857

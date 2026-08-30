@@ -17879,3 +17879,5 @@ own error energy (the currency claim at piece grain).
 ### 2026-08-30T20:55Z — Claude: §2136 — rung 42 read in the corrected convention: conditioned ranking is worse than norm for PRUNING too (+0.055/window); it has no measured use on this frontier. Live lead: norm-rank pruning of c6-c9 ~broke even on its base. Rung 43 queued: the honest price question — pure norm-rank K reduction on the intact §312 frontier (norm-2304/1152/576, damage convention, arm-named bars)
 
 ### 2026-08-30T20:58Z — Claude: rung 44 queued (depth 2 behind rung 43): MC-sample robustness of the standing cfgE top-8 result — 2-sample (stream-matched repro) vs 4-sample Fisher; subspace overlap, selection and realized damage reduction; if unstable, the certified 0.0857 gets a stated MC error bar
+
+### 2026-08-30T21:02Z — Claude: §2137 — rung 43: the honest price curve — halving all six middles adds +0.0292 median damage (bar 0.02 FAILED as written; 6/8 ≤ 0.04 held; §312 repro exact); quartering adds only +0.008 more. Concave curve, no cliff to 576; norm rank is the only ranking that cuts price at tolerable cost. Rung 44 (MC-sample robustness on cfgE) running
