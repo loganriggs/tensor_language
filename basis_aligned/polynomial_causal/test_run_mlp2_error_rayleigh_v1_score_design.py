@@ -45,7 +45,8 @@ def mocked_scorer_transaction(tmp_path, monkeypatch):
     monkeypatch.setattr(score, "validate_spent_v3_scorer", lambda: score.V3_FAILURE_SHA)
     monkeypatch.setattr(score, "source_hashes", lambda _commit: {})
     monkeypatch.setattr(score, "validate_audit", lambda _sources: (
-        {"reviewer": "mock-independent-auditor"}, "a" * 64,
+        {"reviewer": "mock-independent-auditor", "audited_source_commit": "audited-commit"},
+        "a" * 64,
     ))
     monkeypatch.setattr(score, "validate_design_authority", lambda value, _sha: value)
     monkeypatch.setattr(score.collector, "protected_snapshot", lambda _authority: {})
@@ -171,6 +172,33 @@ def test_preauthority_metadata_failure_never_opens_design_tensor(tmp_path, monke
     assert not paths["authority"].exists()
     failure = json.loads(paths["failure"].read_text())
     assert failure["design_ledger_may_have_opened"] is False
+
+
+def test_same_source_map_different_audit_commit_swap_never_opens_design_tensor(
+        tmp_path, monkeypatch):
+    paths, design = mocked_scorer_transaction(tmp_path, monkeypatch)
+    original_torch = score.base.stable_torch
+    design_loads = {"count": 0}
+
+    def swapped_audit(_sources):
+        return {
+            "reviewer": "mock-independent-auditor",
+            "audited_source_commit": "different-final-audit-commit",
+        }, "a" * 64
+
+    def record_torch(path, expected=None):
+        if path == design["ledger"]:
+            design_loads["count"] += 1
+        return original_torch(path, expected)
+
+    monkeypatch.setattr(score, "validate_audit", swapped_audit)
+    monkeypatch.setattr(score.base, "stable_torch", record_torch)
+    with pytest.raises(RuntimeError, match="audit commit swapped after selection"):
+        score.run()
+    assert design_loads["count"] == 0
+    assert not paths["authority"].exists()
+    assert paths["failure"].is_file()
+    assert json.loads(paths["failure"].read_text())["design_ledger_may_have_opened"] is False
 
 
 def test_protected_drift_after_authority_is_publishable(tmp_path, monkeypatch):

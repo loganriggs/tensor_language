@@ -323,6 +323,8 @@ def run() -> None:
     try:
         commit = audited_source_commit()
         sources = source_hashes(commit); audit, audit_sha = validate_audit(sources)
+        if audit.get("audited_source_commit") != commit:
+            raise RuntimeError("DESIGN scorer audit commit swapped after selection")
         design_receipt_sha = file_sha256(DESIGN["receipt"])
         design_ledger_sha = file_sha256(DESIGN["ledger"])
         design_authority_sha = file_sha256(DESIGN["authority"])
