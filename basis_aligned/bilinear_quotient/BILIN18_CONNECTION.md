@@ -59091,3 +59091,42 @@ found uniform best; **§1961 and §1967 located 0.30 itself on a fine grid at th
 per-site table ranks existed. §2026 also showed α is the most sensitive parameter in the build — 11
 milli-nats for a 0.20 move — so **if the optimum shifted even one grid step with the new ranks, that is
 larger than everything §2020–§2024 bought put together.**
+
+## §2027 — α's optimum moved one grid step and §1967's rule says to ignore it; the axis is settled
+
+`ops/did_the_alpha_optimum_move.py`, **241.9s**, **DISCOVERY ONLY**, both coverages, rung 3 — §2026's
+corrected open question. **pred_a True | pred_b True | pred_c True | pred_d True | derived controls True.**
+Reference deviation 0.000000. No crashed predicates.
+
+```
+  nats bought over the shipped build, pooled over 92,160 positions, at §2024's build
+          a24        a26        a28        a30        a32        a34        a36
+  5,419  +0.002488  +0.002894  +0.003082  +0.003064  +0.002852  +0.002459  +0.001895
+  16,110 +0.007361  +0.007492  +0.007533  +0.007486  +0.007356  +0.007145  +0.006857
+```
+
+> **All four predicates PASSED. The optimum sits at α = 0.28 at BOTH coverages** — one grid step below the
+> shipped 0.30, and pred_d's agreement is exact rather than within tolerance. **pred_b passed because one
+> step is the tolerance it allowed**, so the honest reading is that the optimum moved and the bar was
+> written wide enough not to notice.
+
+> **And §1967's stopping rule says to ignore it. The three points around the optimum span 0.000188 nats at
+> 5,419 and 0.000047 at 16,110, against a 0.0005 bar** — the axis is flat at the resolution of a marginal
+> purchase. **α = 0.28 buys 0.018 milli-nats over 0.30 at the deployed coverage and 0.047 at the other.**
+
+**I am not moving the build, and the reason is a gap in my own plan.** α is free, so 0.018 milli-nats is a
+free gain and the temptation is to bank it. **But I registered paired pairs for a24, a26, a34 and a36
+against a30 — and not for a28, the only comparison that matters.** I cannot quote a paired t for the
+decision, and §2019 is the section where taking a build decision on an unquantified margin cost me a
+retraction. **The stopping rule and the missing statistic point the same way: the axis is settled at
+α = 0.30 and the nominal 0.28 sits inside the flat region.**
+
+**Which closes the parameter work.** Four axes audited (§2020, §2022, §2024, §2026), two knees located
+(§2021, §2024), two boundaries distinguished (§2025), and α re-checked at the new ranks and left alone.
+**The build is converged: {attn 384; mlp 768 at layers 0–9, 1152 at 10–17; map 640 except 256 at MLP 0–7;
+α 0.30} — 202.6M values at 5,419.**
+
+**Open.** The arc from §2013 to §2027 has moved the build from 189.5M to 202.6M in fifteen sections, each
+scored against the shipped design one parameter at a time. **The converged build has never been scored
+end-to-end against §1789's deployed design** — the comparison §1970 last made, at 230.087M and before any
+of this. That is a rung-2 confirm and it is the number the whole arc exists to produce.
