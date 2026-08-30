@@ -10,7 +10,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass, field
 import math
-from collections.abc import Callable, Sequence
+from collections.abc import Callable, Mapping, Sequence
 
 import torch
 import torch.nn.functional as F
@@ -420,45 +420,66 @@ class ObservedResponseCollector:
             del logits, ce
         return torch.cat(values)
 
-    @torch.no_grad()
-    def collect(
-        self,
-        fit_rows: torch.Tensor,
-        eval_rows: torch.Tensor,
-    ) -> dict[str, object]:
+    def _claim_once(self) -> None:
         if self._spent:
             raise RuntimeError("response collector is already spent")
         self._spent = True
-        fit_rows = self._validate_role(fit_rows, label="FIT")
-        eval_rows = self._validate_role(eval_rows, label="EVAL")
-        if set(fit_rows.tolist()) & set(eval_rows.tolist()):
-            raise ValueError("FIT/EVAL row roles overlap")
-        fit_documents = set(self.row_document_ids[fit_rows].tolist())
-        eval_documents_set = set(self.row_document_ids[eval_rows].tolist())
-        if fit_documents & eval_documents_set:
-            raise ValueError("FIT/EVAL source documents overlap")
 
-        directions = self._fit_directions(fit_rows)
+    def _validate_directions(
+        self, directions: Mapping[str, Mapping[str, torch.Tensor]]
+    ) -> dict[str, dict[str, torch.Tensor]]:
+        ordered_tags = [spec.tag for spec in self.specs]
+        if set(directions) != set(PHASES):
+            raise ValueError("direction phases do not match the frozen phases")
+        owned: dict[str, dict[str, torch.Tensor]] = {}
+        for phase in PHASES:
+            phase_directions = directions[phase]
+            if list(phase_directions) != ordered_tags:
+                raise ValueError("direction tags do not match the frozen order")
+            owned[phase] = {}
+            for tag in ordered_tags:
+                value = phase_directions[tag]
+                if type(value) is not torch.Tensor or value.dtype != torch.float32 or (
+                    value.device.type != "cpu"
+                    or not value.is_contiguous()
+                    or value.shape != (self.width,)
+                    or not torch.isfinite(value).all()
+                ):
+                    raise TypeError("directions must be owned CPU float32 vectors")
+                norm = float(value.double().norm())
+                if not math.isfinite(norm) or abs(norm - 1.0) > 1e-5:
+                    raise ValueError("direction is not unit normalized")
+                owned[phase][tag] = value.clone()
+        return owned
+
+    @torch.no_grad()
+    def _collect_response_role(
+        self,
+        selected_rows: torch.Tensor,
+        directions: Mapping[str, Mapping[str, torch.Tensor]],
+        *,
+        role: str,
+    ) -> dict[str, object]:
         document_ids, position_documents = document_position_index(
             self.row_document_ids,
-            eval_rows,
+            selected_rows,
             positions_per_row=self.positions,
         )
         member_masks = {
             spec.tag: local_mask_from_global(
-                spec.member_mask, eval_rows, positions_per_row=self.positions
+                spec.member_mask, selected_rows, positions_per_row=self.positions
             )
             for spec in self.specs
         }
         off_masks = {
             spec.tag: local_mask_from_global(
                 ~torch.as_tensor(spec.slice_mask, dtype=torch.bool),
-                eval_rows,
+                selected_rows,
                 positions_per_row=self.positions,
             )
             for spec in self.specs
         }
-        zeros = torch.zeros(eval_rows.numel() * self.positions, dtype=torch.float64)
+        zeros = torch.zeros(selected_rows.numel() * self.positions, dtype=torch.float64)
         static = aggregate_document_responses(
             zeros,
             position_documents,
@@ -471,12 +492,12 @@ class ObservedResponseCollector:
         statistics = {
             name: torch.zeros(shape, dtype=torch.float64) for name in STATISTIC_NAMES
         }
-        baseline = self._ce_vector(eval_rows)
+        baseline = self._ce_vector(selected_rows)
         for phase_index, phase in enumerate(PHASES):
             phase_directions = directions[phase]
             for source_index, source in enumerate(self.specs):
                 intervened = self._ce_vector(
-                    eval_rows,
+                    selected_rows,
                     source_component=source.component,
                     direction=phase_directions[source.tag],
                 )
@@ -498,11 +519,19 @@ class ObservedResponseCollector:
             expected_prefix=(len(PHASES), source_count, target_count),
             tolerance=1e-8,
         )
-        expected_fit_batches = math.ceil(fit_rows.numel() / self.batch_size)
-        expected_eval_batches = math.ceil(eval_rows.numel() / self.batch_size)
-        expected_outer = expected_fit_batches + expected_eval_batches * (
-            1 + len(PHASES) * source_count
-        )
+        return {
+            "schema": "causal_response_tensor_v1_role_preimage",
+            "role": role,
+            "row_indices": selected_rows.clone(),
+            "document_ids": document_ids,
+            "member_count": static["member_count"],
+            "off_count": static["off_count"],
+            "statistics": statistics,
+            "baseline_ce_mean": float(baseline.mean()),
+            "validation": validation,
+        }
+
+    def _require_ledger_outer(self, expected_outer: int) -> None:
         if self.ledger.outer_forwards != expected_outer:
             raise RuntimeError("outer forward ledger does not close")
         for site in range(self.layer_count):
@@ -511,30 +540,104 @@ class ObservedResponseCollector:
             ):
                 raise RuntimeError("per-site native call ledger does not close")
 
+    @torch.no_grad()
+    def fit_stage(self, fit_rows: torch.Tensor) -> dict[str, object]:
+        """Return an unpublished FIT preimage for the lifecycle owner.
+
+        This is not a serializable program capability.  The lifecycle must publish and
+        semantically reload it before a fresh EVAL process can mint a program.
+        """
+        self._claim_once()
+        fit_rows = self._validate_role(fit_rows, label="FIT")
+        directions = self._fit_directions(fit_rows)
         ordered_tags = [spec.tag for spec in self.specs]
+        direction_preimage = {
+            phase: {
+                tag: directions[phase][tag].clone() for tag in ordered_tags
+            }
+            for phase in PHASES
+        }
+        response = self._collect_response_role(
+            fit_rows, direction_preimage, role="FIT"
+        )
+        batches = math.ceil(fit_rows.numel() / self.batch_size)
+        self._require_ledger_outer(
+            batches * (2 + len(PHASES) * len(self.specs))
+        )
         return {
-            "schema": "causal_response_tensor_v1_payload",
+            "schema": "causal_response_tensor_v1_fit_preimage",
+            "claim_boundary": (
+                "Unpublished internal FIT preimage. It is not an EVAL capability; "
+                "a create-only lifecycle must serialize and semantically reload it."
+            ),
             "sign_convention": "dCE = rank-one-projection intervention CE - native CE",
             "off_mask": "exact complement of the target circuit's frozen slice mask",
             "phases": list(PHASES),
             "source_tags": ordered_tags,
             "source_components": [spec.component for spec in self.specs],
             "target_tags": ordered_tags,
-            "fit_row_indices": fit_rows,
-            "eval_row_indices": eval_rows,
-            "eval_document_ids": document_ids,
+            "_direction_preimage": direction_preimage,
             "directions": {
-                phase: torch.stack([directions[phase][tag] for tag in ordered_tags])
+                phase: torch.stack(
+                    [direction_preimage[phase][tag] for tag in ordered_tags]
+                )
                 for phase in PHASES
             },
             "shared_directions": {
-                component: value for component, value in directions["shared"].items()
+                component: value.clone()
+                for component, value in directions["shared"].items()
             },
             "fit_counts": directions["fit_counts"],
-            "member_count": static["member_count"],
-            "off_count": static["off_count"],
-            "statistics": statistics,
-            "baseline_eval_ce_mean": float(baseline.mean()),
-            "validation": validation,
+            "fit_write_statistics": directions["fit_write_statistics"],
+            "singular_spectra": directions["singular_spectra"],
+            "relative_singular_gaps": directions["relative_singular_gaps"],
+            "residual_norms": directions["residual_norms"],
+            "fit_response": response,
             "call_ledger": self.ledger.payload(),
         }
+
+    @torch.no_grad()
+    def _evaluate_stage_preimage(
+        self,
+        eval_rows: torch.Tensor,
+        *,
+        direction_preimage: Mapping[str, Mapping[str, torch.Tensor]],
+        fit_document_ids: torch.Tensor,
+    ) -> dict[str, object]:
+        """Internal EVAL computation surface; only a semantic loader may call this."""
+        self._claim_once()
+        eval_rows = self._validate_role(eval_rows, label="EVAL")
+        if type(fit_document_ids) is not torch.Tensor or (
+            fit_document_ids.dtype != torch.int64
+            or fit_document_ids.device.type != "cpu"
+            or fit_document_ids.ndim != 1
+            or not fit_document_ids.is_contiguous()
+            or torch.unique(fit_document_ids).numel() != fit_document_ids.numel()
+        ):
+            raise TypeError("FIT document IDs are not a sealed CPU int64 vector")
+        eval_documents = set(self.row_document_ids[eval_rows].tolist())
+        if set(fit_document_ids.tolist()) & eval_documents:
+            raise ValueError("FIT/EVAL source documents overlap")
+        directions = self._validate_directions(direction_preimage)
+        response = self._collect_response_role(
+            eval_rows, directions, role="EVAL"
+        )
+        batches = math.ceil(eval_rows.numel() / self.batch_size)
+        self._require_ledger_outer(
+            batches * (1 + len(PHASES) * len(self.specs))
+        )
+        return {
+            "schema": "causal_response_tensor_v1_eval_preimage",
+            "claim_boundary": (
+                "Internal EVAL preimage; publication remains lifecycle-owned."
+            ),
+            "source_tags": [spec.tag for spec in self.specs],
+            "source_components": [spec.component for spec in self.specs],
+            "eval_response": response,
+            "call_ledger": self.ledger.payload(),
+        }
+
+    def collect(self, *_args, **_kwargs):
+        raise RuntimeError(
+            "combined FIT/EVAL collection is retired; use the sealed two-stage lifecycle"
+        )

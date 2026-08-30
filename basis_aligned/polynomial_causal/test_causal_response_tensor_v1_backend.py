@@ -39,7 +39,7 @@ def test_typed_backend_collects_complete_signed_grid_without_hooks() -> None:
         _spec("m.one", "m2", list(range(2, grid, positions)), m_slice, grid),
         _spec("m.two", "m2", list(range(3, grid, positions)), m_slice, grid),
     )
-    collector = ObservedResponseCollector(
+    fit_collector = ObservedResponseCollector(
         model,
         rows,
         documents,
@@ -47,19 +47,32 @@ def test_typed_backend_collects_complete_signed_grid_without_hooks() -> None:
         require_production=False,
     )
     before_hooks = sum(len(module._forward_hooks) for module in model.modules())
-    payload = collector.collect(torch.tensor([0, 1, 2, 3]), torch.tensor([4, 5, 6, 7]))
+    fit_payload = fit_collector.fit_stage(torch.tensor([0, 1, 2, 3]))
+    eval_collector = ObservedResponseCollector(
+        model, rows, documents, specs, require_production=False
+    )
+    eval_payload = eval_collector._evaluate_stage_preimage(
+        torch.tensor([4, 5, 6, 7]),
+        direction_preimage=fit_payload["_direction_preimage"],
+        fit_document_ids=fit_payload["fit_response"]["document_ids"],
+    )
     after_hooks = sum(len(module._forward_hooks) for module in model.modules())
     assert before_hooks == after_hooks == 0
-    assert payload["phases"] == ["full", "residual"]
-    assert payload["source_tags"] == [spec.tag for spec in specs]
-    assert payload["eval_document_ids"].tolist() == [4, 5, 6, 7]
-    assert payload["statistics"]["member_signed_sum"].shape == (2, 4, 4, 4)
-    assert payload["validation"]["valid_cells"] == 2 * 4 * 4 * 4
-    # One FIT batch + one native EVAL batch + eight intervention EVAL batches.
-    assert payload["call_ledger"]["outer_forwards"] == 10
-    assert payload["call_ledger"]["attention_native_calls"] == 40
-    assert payload["call_ledger"]["mlp_native_calls"] == 40
-    assert sum(payload["call_ledger"]["projection_calls"].values()) == 8
+    assert fit_payload["phases"] == ["full", "residual"]
+    assert fit_payload["source_tags"] == [spec.tag for spec in specs]
+    assert fit_payload["fit_response"]["document_ids"].tolist() == [0, 1, 2, 3]
+    assert eval_payload["eval_response"]["document_ids"].tolist() == [4, 5, 6, 7]
+    assert fit_payload["fit_response"]["statistics"]["member_signed_sum"].shape == (
+        2, 4, 4, 4,
+    )
+    assert eval_payload["eval_response"]["validation"]["valid_cells"] == 2 * 4 * 4 * 4
+    # FIT: capture + native response + eight interventions. EVAL: native + eight.
+    assert fit_payload["call_ledger"]["outer_forwards"] == 10
+    assert fit_payload["call_ledger"]["attention_native_calls"] == 40
+    assert eval_payload["call_ledger"]["outer_forwards"] == 9
+    assert eval_payload["call_ledger"]["attention_native_calls"] == 36
+    assert sum(fit_payload["call_ledger"]["projection_calls"].values()) == 8
+    assert sum(eval_payload["call_ledger"]["projection_calls"].values()) == 8
 
 
 def test_backend_rejects_document_leakage_even_when_rows_differ() -> None:
@@ -74,8 +87,18 @@ def test_backend_rejects_document_leakage_even_when_rows_differ() -> None:
     collector = ObservedResponseCollector(
         model, rows, documents, specs, require_production=False
     )
+    direction = torch.zeros(model.config.n_embd, dtype=torch.float32)
+    direction[0] = 1
+    directions = {
+        phase: {spec.tag: direction.clone() for spec in specs}
+        for phase in ("full", "residual")
+    }
     try:
-        collector.collect(torch.tensor([0, 1, 2, 3]), torch.tensor([4, 5, 6, 7]))
+        collector._evaluate_stage_preimage(
+            torch.tensor([4, 5, 6, 7]),
+            direction_preimage=directions,
+            fit_document_ids=torch.tensor([0, 1, 2, 3]),
+        )
     except ValueError as error:
         assert "source documents overlap" in str(error)
     else:
@@ -111,9 +134,9 @@ def test_backend_owns_inputs_rejects_coercion_and_is_one_use() -> None:
 
     fit = torch.tensor([0, 1, 2, 3], dtype=torch.int64)
     evaluate = torch.tensor([4, 5, 6, 7], dtype=torch.int64)
-    collector.collect(fit, evaluate)
+    collector.fit_stage(fit)
     with pytest.raises(RuntimeError, match="spent"):
-        collector.collect(fit, evaluate)
+        collector.fit_stage(fit)
 
     with pytest.raises(TypeError, match="int64"):
         ObservedResponseCollector(
@@ -155,7 +178,7 @@ def test_backend_rejects_bad_roles_and_preexisting_hooks() -> None:
             model, rows, documents, specs, require_production=False
         )
         with pytest.raises(ValueError, match=message):
-            collector.collect(bad, torch.tensor([4, 5, 6, 7]))
+            collector.fit_stage(bad)
 
 
 def test_shared_direction_rejects_tie_and_accepts_above_frozen_gap() -> None:
