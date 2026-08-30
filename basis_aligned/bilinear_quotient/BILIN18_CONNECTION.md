@@ -59986,3 +59986,47 @@ largest single at-risk step is §1941's `nn75m512` dominating the deployed desig
 expressible in the current arm grammar and testable on fresh rows in one arm. **If a step that large
 reverses while the net holds, the ledger's per-section claims need reading differently from its
 build claims**, which is worth knowing before anyone mines the registry for mechanism.
+
+## §2051 — the largest at-risk lineage step amplifies 3.4× on fresh rows, and the transfer boundary is now bracketed
+
+`ops/the_largest_lineage_step_on_fresh_rows.py`, **193.9s**, **DISCOVERY ONLY**, both coverages, rung 3 —
+§2049's open question. **pred_a True | pred_b True | pred_c True | pred_d True | derived controls True.**
+No crashed predicates.
+
+```
+  FRESH WINDOW, milli-nats                      5,419              16,110      [in-sample]
+  §1941's nn75m512 over the deployed design   +83.990 (t +23.41)  +73.843 (t +25.00)   +24.400
+  §1959's endpoint over the deployed design  +127.889 (t +47.73)  +98.768 (t +40.90)
+  endpoint over the step                      +43.899 (t +19.64)  +24.925 (t +16.71)
+```
+
+> **All four predicates PASSED. §1941's step is 3.4× LARGER on fresh rows than in-sample** — +83.990
+> against +24.400 — at t = +23.41, and it holds at the second coverage. **The largest at-risk step of the
+> build lineage does not merely survive; it amplifies.** pred_d passed too: the chain kept improving after
+> it, by +43.899 and +24.925.
+
+**Which brackets the transfer boundary empirically, and that is the useful output.** LESSON 106 set the
+at-risk threshold at ~1% of the program's scale, about **30 milli-nats**, by argument. The measurements now
+bound it from both sides:
+
+```
+  in-sample margin    fresh-window outcome
+  §2018   +0.962  →   −10.371   REVERSED
+  §2020   +3.300  →   −11.578   REVERSED
+  §1941  +24.400  →   +83.990   AMPLIFIED 3.4x
+  §1970  +69.238  →  +127.889   AMPLIFIED 1.8x
+```
+
+> **Everything measured at or below 3.3 milli-nats in-sample reversed. Everything at or above 24.4
+> amplified.** The boundary lies in that gap, and **30 was a guess that happens to sit inside it.** No
+> claim in this ledger has been tested between 3.3 and 24.4 milli-nats.
+
+**And the amplification is itself worth noting.** Both surviving steps grew on fresh rows — 3.4× and 1.8×
+— rather than merely holding. **A real effect measured on rows chosen for it is if anything
+under-estimated**, which is the opposite of the fitted case and gives the bracket a mechanism rather than
+just a boundary.
+
+**Open, and it is one arm.** The bracket [3.3, 24.4] can be halved by testing a claim inside it. **§1947's
+table-curve knee sits at 0.011 nats — 11 milli-nats — and is the section §1947's price rule itself comes
+from**, so it is both inside the gap and load-bearing. **If it amplifies, the boundary is below 11; if it
+reverses, above.**

@@ -4,7 +4,7 @@
 **Deadline audit:** 2026-08-29 12:00 UTC  
 **Scope:** finish the already-preregistered Block-3 Family-F experiment and run at
 least three cheap, falsifiable probes for each of the first four alternative entry
-points in `CURRENT_PROJECT_EXPLANATION_2026-08-29_0334.md`.
+points in `explanations/CURRENT_PROJECT_EXPLANATION_2026-08-29_0334.md`.
 
 This is a work queue, not a promise that all twelve pilots will be positive or that a
 failed pilot will be silently enlarged.  A completed negative result counts if its
@@ -583,7 +583,7 @@ process. Only the authority exists: no lock, selection value, model outcome, led
 result, receipt, or failure has been opened. Accordingly all E4 checkboxes remain open.
 
 Weak branches are pruned exactly as stated in
-`CURRENT_BEST_UNDERSTANDING_PLAIN_ENGLISH_2026-08-29_DEADLINE.md`. The next full
+`explanations/CURRENT_BEST_UNDERSTANDING_PLAIN_ENGLISH_2026-08-29_DEADLINE.md`. The next full
 experiment is the E4 copy transaction and, conditionally on a passer, its registered
 final/OOD extraction-removal sequence. The second is a new prospective Family-F K512
 native-Down finite behavioral port on fresh documents. Strict ledgers remain 36/36

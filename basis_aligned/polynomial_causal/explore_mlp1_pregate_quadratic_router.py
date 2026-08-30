@@ -35,12 +35,12 @@ import run_mlp1_sparse_c512_continue_factorial_v1_fit as base
 BUNDLE = HERE / "mlp1_sparse_c512_continue_factorial_v2_fit_bundle.pt"
 P512_RESULT = HERE / "mlp1_sparse_c512_continue_factorial_v2_fit_result.json"
 ROWS_RECEIPT = BQ / "mlp1_sparse_c512_continue_factorial_v1_rows_receipt.json"
-OUTPUT = HERE / "mlp1_pregate_quadratic_router_v2_discovery.json"
+OUTPUT = HERE / "mlp1_pregate_quadratic_router_v3_discovery.json"
 
 RANKS = (1, 2, 4, 8)
 MAX_RANK = max(RANKS)
-OVERSAMPLE = 8
-POWER_ITERS = 3
+OVERSAMPLE = 56
+POWER_ITERS = 5
 ATOM_BATCH = 16
 STATE_CHUNK = 256
 DOCUMENT_BATCH = 4
@@ -108,7 +108,8 @@ def _randomized_signed_factors(
     values, vectors = torch.linalg.eigh(projected)
     order = values.abs().argsort(dim=1, descending=True)[:, :max_rank]
     values = values.gather(1, order)
-    vectors = vectors.gather(2, order[:, None, :].expand(-1, width, -1))
+    basis_width = basis.shape[2]
+    vectors = vectors.gather(2, order[:, None, :].expand(-1, basis_width, -1))
     factors = basis @ vectors
     return factors, values
 
@@ -126,6 +127,22 @@ def explicit_randomized_signed_factors(
     )
 
 
+def folded_quadratic_matvec(
+    left: torch.Tensor, right: torch.Tensor, weights: torch.Tensor,
+    vectors: torch.Tensor,
+) -> torch.Tensor:
+    """Apply batched sym(L' diag(weights) R) to batched vector blocks."""
+
+    if left.shape != right.shape or weights.shape[1] != left.shape[0] \
+            or vectors.shape[:2] != (len(weights), left.shape[1]):
+        raise ValueError("folded quadratic matvec shapes disagree")
+    rv = torch.matmul(right, vectors)
+    lv = torch.matmul(left, vectors)
+    first = torch.matmul(left.T, weights[:, :, None] * rv)
+    second = torch.matmul(right.T, weights[:, :, None] * lv)
+    return 0.5 * (first + second)
+
+
 def implicit_quadratic_factors(
     left: torch.Tensor, right: torch.Tensor, encoder: torch.Tensor,
 ) -> tuple[torch.Tensor, torch.Tensor, dict[str, float]]:
@@ -138,11 +155,7 @@ def implicit_quadratic_factors(
         weights = encoder[start:start + ATOM_BATCH]
 
         def matvec(vectors: torch.Tensor) -> torch.Tensor:
-            rv = torch.matmul(right, vectors)
-            lv = torch.matmul(left, vectors)
-            first = torch.matmul(left.T, weights[:, :, None] * rv)
-            second = torch.matmul(right.T, weights[:, :, None] * lv)
-            return 0.5 * (first + second)
+            return folded_quadratic_matvec(left, right, weights, vectors)
 
         u, lam = _randomized_signed_factors(
             matvec, len(weights), D, MAX_RANK, left.device, 31_000 + start,
@@ -367,6 +380,11 @@ def physical_ce(
     for arm in arms:
         if arm not in ("NATIVE", "ZERO"):
             ce[f"{arm}_RECOVERY"] = (ce["ZERO"] - ce[arm]) / benefit
+    exact_stake = ce["ZERO"] - ce["P512_EXACT"]
+    for rank in RANKS:
+        arm = f"Q_RANK_{rank}"
+        ce[f"{arm}_RETENTION_OF_P512"] = (ce["ZERO"] - ce[arm]) / exact_stake
+        ce[f"{arm}_DELTA_VS_P512"] = ce[arm] - ce["P512_EXACT"]
     return ce, calls
 
 
@@ -402,7 +420,7 @@ def main() -> None:
             or abs(ce["P512_EXACT"] - expected["SPARSE"]) > 2e-6:
         raise RuntimeError("P512 physical CE anchors did not replay")
     output = {
-        "schema": "mlp1_pregate_quadratic_router_discovery_v2",
+        "schema": "mlp1_pregate_quadratic_router_discovery_v3",
         "status": "discovery_complete",
         "claim_boundary": (
             "Weight-space randomized low-rank screen plus reused-SELECT physical CE; "

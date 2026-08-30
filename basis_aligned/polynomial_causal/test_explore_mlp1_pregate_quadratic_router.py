@@ -58,6 +58,20 @@ def test_quadratic_score_axis_contract_is_not_hidden_by_square_toy():
     assert torch.equal(subject.quadratic_scores(states, factors, values, 2), expected)
 
 
+def test_implicit_folded_matvec_matches_explicit_symmetric_quadratic():
+    torch.manual_seed(11)
+    batch, hidden, dimension, probes = 3, 7, 5, 4
+    left = torch.randn(hidden, dimension)
+    right = torch.randn(hidden, dimension)
+    weights = torch.randn(batch, hidden)
+    vectors = torch.randn(batch, dimension, probes)
+    raw = torch.einsum("ah,hi,hj->aij", weights, left, right)
+    explicit = 0.5 * (raw + raw.transpose(1, 2))
+    expected = explicit @ vectors
+    actual = subject.folded_quadratic_matvec(left, right, weights, vectors)
+    assert torch.allclose(actual, expected, atol=2e-5, rtol=2e-5)
+
+
 def test_rank8_price_is_a_genuine_full_mlp_simplification():
     price = subject.router_price(8)
     assert price["bias_folded_stored_reals"] == 5_313_664

@@ -298,4 +298,3 @@ complete attention shell; polynomial structure tells us exactly what the MLP ato
 causal tangent geometry tells us which combinations the downstream model can observe;
 and joint gauge/description-length optimization is the route from compressibility to
 human-readable, editable programs.
-

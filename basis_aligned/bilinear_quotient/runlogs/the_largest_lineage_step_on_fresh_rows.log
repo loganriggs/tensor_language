@@ -1,0 +1,28 @@
+THE LARGEST LINEAGE STEP ON FRESH ROWS | 5 arms x 2 coverage(s) | DISCOVERY ONLY
+
+########## COVERAGE 5419 ##########
+  [bqlib] coverage 5419 from fineweb_n96_skip80.pt: 36 tables, neighbour index and map solver built (4s)
+  [bqlib] cache HIT  live     fresh
+  [bqlib] cache HIT  map64    fresh
+  [bqlib] computed   nn75m512 fresh (3.5s)
+  [bqlib] cache HIT  mix30m640 fresh
+  [bqlib] cache HIT  map512   fresh
+  [bqlib] cache HIT  mix30m640 fresh
+
+########## COVERAGE 16110 ##########
+  [bqlib] coverage 16110 from fineweb_n480_skip80.pt: 36 tables, neighbour index and map solver built (5s)
+  [bqlib] cache HIT  live     fresh
+  [bqlib] cache HIT  map64    fresh
+  [bqlib] computed   nn75m512 fresh (3.5s)
+  [bqlib] cache HIT  mix30m640 fresh
+  [bqlib] cache HIT  map512   fresh
+  [bqlib] cache HIT  mix30m640 fresh
+
+  §2037's +127.889 milli-nat endpoint rebuilds within 2 milli-nats at 5,419  -> True
+  and §1941's nn75m512 still beats the deployed design at both coverages  -> True
+  and its margin is within a factor of five of §1941's 0.0244 nats  -> True
+  and §1959's build still beats §1941's fallback at both coverages  -> True
+  derived controls -> True   coverage_exact=True  inert_pairs_are_inert=True  some_differing_pair_moves=True  buckets_partition=True  live_identical=True
+
+pred_a True | pred_b True | pred_c True | pred_d True | pred_z True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/the_largest_lineage_step_on_fresh_rows_results.json (193.9s)
