@@ -61023,3 +61023,50 @@ was waste, and deriving a script from a parent whose main loop you no longer nee
 **Open.** Three seeds gives a standard error of 0.027 on `r.1.1.1`'s mean, which places it about 1.9
 standard errors above the bar — suggestive, not settled, and the honest way to close it is more seeds
 rather than more analysis of these three. `r.6.2.2` at sd 0.319 needs them more than `r.1.1.1` does.
+
+## §2071 — §2060's published numbers ARE seed-stable; seed noise is quantity-specific, not a property of the fits
+
+`ops/das_seed_stability.py`, **2089s**, **DISCOVERY ONLY**, RUNG 2 (second-class confirmation of a
+certified result — my own). **pred_a FALSE | pred_b True | pred_c True.** Thirty fits, all healthy.
+
+§2070 found DAS margins at m16 with seed sd 0.029 to 0.319, and concluded no single-seed DAS margin
+should be treated as decisive. §2060 is a registry entry every number of which comes from one
+initialisation, so it was checked rather than assumed — including the overlaps behind the sentence that
+settled §2058's caveat and that I put to Codex twice.
+
+```
+  overlap with the closed-form direction:  §2060 single seed  ->  mean +- sd over 3 seeds
+    r.3.0        0.336  ->  0.3437 +- 0.0067        r.11.1.2   0.070  ->  0.0997 +- 0.0355
+    r.2.0.0      0.286  ->  0.2833 +- 0.0281        r.3.0.2    0.094  ->  0.0443 +- 0.0451
+    r.2.0.2      0.223  ->  0.2117 +- 0.0188        r.23.2.3   0.006  ->  0.0420 +- 0.0312
+    r.3.0.0      0.133  ->  0.1370 +- 0.0173        r.23.2.1   0.029  ->  0.0287 +- 0.0205
+    r.11.3.1     0.228  ->  0.1350 +- 0.1032        r.11.1.1   0.000  ->  0.0273 +- 0.0473
+```
+
+**pred_a FAILED, and failing it is the useful outcome. I predicted the overlaps would carry seed noise
+comparable to §2070's margins and they do not: sd >= 0.05 for 1 of 10, not the 5 I registered.** Eight of
+ten sit between 0.007 and 0.047. **`r.11.3.1` is the exception at sd 0.1032** (seeds 0.228 / 0.153 /
+0.024), and it should be quoted with that spread from now on.
+
+**pred_b passed: the mean overlap stays below 0.50 for every circuit, the highest being 0.3437.**
+**§2060's conclusion survives on averaged evidence** — DAS and the mean-difference probe find overlapping
+but genuinely different directions — and so does its headline arithmetic: the largest mean overlap is
+about **395x** the random-direction expectation of 1/1152, against the "up to 390x" §2060 published.
+**The registry entry stands, and the single-seed values sit close to the three-seed means for eight of the
+ten circuits.**
+
+> **The real finding is that seed noise here is a property of the QUANTITY, not of the fits.** The same
+> optimiser, at the same rank, on overlapping circuit sets, gives overlaps with sd 0.007-0.103 and margins
+> with sd 0.029-0.319. **A selectivity margin is a ratio of two concentrations, each itself a ratio of
+> means — noise compounds through every level.** An overlap is one inner product against a fixed vector.
+> §2070's warning was right about margins and would have been wrong applied to overlaps, which is exactly
+> what I did apply it to when registering pred_a.
+
+**LESSON 110 is amended in place because of this.** As written it said the second run should be more
+seeds, full stop. The accurate rule is narrower and more useful: **derived-ratio quantities need a spread
+before they are quotable; directly-measured ones may not, and which is which is measurable in one run.**
+
+**Open.** Only `r.11.3.1` is unstable, and it is also the circuit §2060 flagged as having the highest
+single-seed overlap among the a8 five (0.228). Whether its instability is the fit or the circuit — it is
+one of the five §2065 showed are an unrepresentative subset of a8's sixteen — is the natural question, and
+three seeds is too few to answer it.

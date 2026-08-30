@@ -2766,8 +2766,18 @@ running **0.885 / 1.522 / 1.188**. And §2069's *conclusion* survived on complet
 than §2069 offered: `r.1.1.1` clears the bar on **3 of 3** seeds, which is a consistent sign across
 independent initialisations rather than a point estimate a thousandth above a threshold.
 
-**How to apply.** For anything fit by gradient descent, **the second run is more seeds, not a finer
-split of the same rows.** A margin without a spread cannot be compared to a bar, and the instinct to
+**AMENDED BY §2071 — the rule is narrower than first written.** §2071 re-fit §2060's ten circuits at
+three seeds and found the OVERLAP quantities stable: sd >= 0.05 for 1 of 10, eight of them between 0.007
+and 0.047, against the margins' 0.029-0.319. Same optimiser, same rank, overlapping circuit sets.
+**Seed noise is a property of the QUANTITY, not of the fits: a selectivity margin is a ratio of two
+concentrations, each itself a ratio of means, so noise compounds at every level, while an overlap is one
+inner product against a fixed vector.** I registered §2071's pred_a expecting the blanket version of this
+lesson to hold and it failed. **Derived-ratio quantities need a spread before they are quotable;
+directly-measured ones may not — and which is which is measurable in a single run, so measure it rather
+than assuming either way.**
+
+**How to apply.** For anything fit by gradient descent whose headline is a RATIO, **the second run is
+more seeds, not a finer split of the same rows.** A margin without a spread cannot be compared to a bar, and the instinct to
 harden a borderline number by improving the *other* controls will happily produce a very clean
 measurement of noise. Report `mean ± sd` and the count of seeds crossing the bar; the crossing count
 carried more information here than the mean did. And when a spread finally arrives, **re-read the earlier

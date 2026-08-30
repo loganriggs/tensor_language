@@ -2,3 +2,53 @@ DAS targets (10): ['r.11.1.1', 'r.11.1.2', 'r.11.3.1', 'r.23.2.1', 'r.23.2.3', '
 /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/das_seed_stability.py:222: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
 Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:836.)
   losses.append(float(loss))
+  r.11.1.1     a8   rank 1: members 0.0120 off 0.0046 conc 2.587 recovered 0.017 | moved 1.000 loss +0.00431->-0.00324 healthy True (70s)
+  r.11.1.2     a8   rank 1: members 0.0396 off 0.0091 conc 4.366 recovered 0.043 | moved 0.997 loss +0.00688->-0.02770 healthy True (136s)
+  r.11.3.1     a8   rank 1: members 0.0636 off 0.0170 conc 3.754 recovered 0.084 | moved 1.000 loss +0.00696->-0.08816 healthy True (211s)
+  r.23.2.1     a8   rank 1: members 0.0215 off 0.0070 conc 3.075 recovered 0.036 | moved 0.999 loss +0.00272->+0.00015 healthy True (280s)
+  r.23.2.3     a8   rank 1: members 0.0222 off 0.0063 conc 3.53 recovered 0.027 | moved 0.998 loss +0.00819->-0.01335 healthy True (352s)
+  r.2.0.0      a8   rank 1: members 0.2345 off 0.0180 conc 13.045 recovered 0.125 | moved 1.000 loss +0.00590->-0.13744 healthy True (435s)
+  r.3.0.0      a16  rank 1: members 0.0824 off 0.0080 conc 10.234 recovered 0.105 | moved 1.000 loss -0.00370->-0.08795 healthy True (499s)
+  r.3.0        a16  rank 1: members 0.0539 off 0.0082 conc 6.557 recovered 0.094 | moved 1.000 loss +0.00043->-0.02217 healthy True (559s)
+  r.2.0.2      a8   rank 1: members 0.1319 off 0.0159 conc 8.301 recovered 0.094 | moved 1.000 loss -0.00132->-0.05306 healthy True (632s)
+  r.3.0.2      a16  rank 1: members 0.0251 off 0.0054 conc 4.628 recovered 0.041 | moved 0.999 loss +0.00238->-0.01578 healthy True (694s)
+  --- seed 20260830 done (694s)
+  r.11.1.1     a8   rank 1: members 0.0308 off 0.0101 conc 3.043 recovered 0.042 | moved 1.000 loss +0.01026->-0.00149 healthy True (769s)
+  r.11.1.2     a8   rank 1: members 0.0433 off 0.0104 conc 4.175 recovered 0.047 | moved 1.000 loss -0.00112->-0.00902 healthy True (840s)
+  r.11.3.1     a8   rank 1: members 0.0455 off 0.0130 conc 3.491 recovered 0.06 | moved 0.999 loss +0.00333->-0.02064 healthy True (911s)
+  r.23.2.1     a8   rank 1: members 0.0148 off 0.0059 conc 2.489 recovered 0.025 | moved 0.997 loss +0.00776->-0.00539 healthy True (989s)
+  r.23.2.3     a8   rank 1: members 0.0298 off 0.0093 conc 3.198 recovered 0.036 | moved 0.995 loss +0.00479->-0.04449 healthy True (1059s)
+  r.2.0.0      a8   rank 1: members 0.2198 off 0.0183 conc 12.035 recovered 0.117 | moved 0.999 loss -0.00603->-0.15626 healthy True (1127s)
+  r.3.0.0      a16  rank 1: members 0.0955 off 0.0093 conc 10.228 recovered 0.122 | moved 1.000 loss -0.00432->-0.07238 healthy True (1184s)
+  r.3.0        a16  rank 1: members 0.0536 off 0.0082 conc 6.563 recovered 0.093 | moved 0.999 loss +0.00198->-0.01982 healthy True (1249s)
+  r.2.0.2      a8   rank 1: members 0.1767 off 0.0140 conc 12.629 recovered 0.126 | moved 0.999 loss +0.00460->-0.05152 healthy True (1320s)
+  r.3.0.2      a16  rank 1: members 0.0158 off 0.0036 conc 4.415 recovered 0.026 | moved 0.999 loss +0.00160->-0.00576 healthy True (1385s)
+  --- seed 20260831 done (1385s)
+  r.11.1.1     a8   rank 1: members 0.0115 off 0.0045 conc 2.559 recovered 0.016 | moved 0.993 loss +0.00635->-0.00339 healthy True (1456s)
+  r.11.1.2     a8   rank 1: members 0.0440 off 0.0123 conc 3.585 recovered 0.048 | moved 0.996 loss +0.00899->-0.03862 healthy True (1525s)
+  r.11.3.1     a8   rank 1: members 0.0234 off 0.0080 conc 2.923 recovered 0.031 | moved 0.996 loss +0.01241->-0.02489 healthy True (1604s)
+  r.23.2.1     a8   rank 1: members 0.0240 off 0.0094 conc 2.563 recovered 0.041 | moved 0.999 loss +0.00445->-0.01773 healthy True (1674s)
+  r.23.2.3     a8   rank 1: members 0.0285 off 0.0087 conc 3.272 recovered 0.034 | moved 0.999 loss +0.00326->-0.00872 healthy True (1760s)
+  r.2.0.0      a8   rank 1: members 0.1992 off 0.0173 conc 11.522 recovered 0.106 | moved 0.998 loss +0.00393->-0.05883 healthy True (1829s)
+  r.3.0.0      a16  rank 1: members 0.0845 off 0.0082 conc 10.246 recovered 0.108 | moved 1.000 loss +0.00355->-0.04648 healthy True (1892s)
+  r.3.0        a16  rank 1: members 0.0561 off 0.0086 conc 6.545 recovered 0.098 | moved 0.998 loss +0.00126->-0.01989 healthy True (1948s)
+  r.2.0.2      a8   rank 1: members 0.1337 off 0.0156 conc 8.592 recovered 0.095 | moved 0.999 loss +0.00521->-0.05543 healthy True (2024s)
+  r.3.0.2      a16  rank 1: members 0.0182 off 0.0043 conc 4.211 recovered 0.03 | moved 0.999 loss +0.00317->-0.01718 healthy True (2089s)
+  --- seed 20260832 done (2089s)
+
+wrote circuits/DAS_SEED_STABILITY.json (2089s)
+pred_a  overlap sd >=0.05 for 1/10 circuits (bar >= half) : False   ['r.11.3.1']
+pred_b  mean overlap stays <0.50 for every circuit (bar none over) : True   over: []
+pred_c  every fit healthy : True
+
+  overlap with closed form (S2060 single-seed -> mean +- sd over 3 seeds):
+    r.11.1.1     S2060 0.0  ->  0.0273 +- 0.0473   [0.0, 0.082, 0.0]
+    r.11.1.2     S2060 0.07  ->  0.0997 +- 0.0355   [0.07, 0.09, 0.139]
+    r.11.3.1     S2060 0.228  ->  0.1350 +- 0.1032   [0.228, 0.153, 0.024]
+    r.23.2.1     S2060 0.029  ->  0.0287 +- 0.0205   [0.029, 0.008, 0.049]
+    r.23.2.3     S2060 0.006  ->  0.0420 +- 0.0312   [0.006, 0.062, 0.058]
+    r.2.0.0      S2060 0.286  ->  0.2833 +- 0.0281   [0.286, 0.31, 0.254]
+    r.3.0.0      S2060 0.133  ->  0.1370 +- 0.0173   [0.133, 0.156, 0.122]
+    r.3.0        S2060 0.336  ->  0.3437 +- 0.0067   [0.336, 0.348, 0.347]
+    r.2.0.2      S2060 0.223  ->  0.2117 +- 0.0188   [0.223, 0.19, 0.222]
+    r.3.0.2      S2060 0.094  ->  0.0443 +- 0.0451   [0.094, 0.006, 0.033]

@@ -226,3 +226,28 @@ implemented and independently audited before the 12,400-forward FIT collection r
 Further M16 rank-one fitting, geometry-only HOSVD/SAE selection, and factorizing
 unsigned concentration ratios are pruned for now. They either repeat completed work
 or do not predict the causal properties needed for extraction and selective editing.
+
+## UPDATE — 08:28 UTC
+
+The audited input/authority/bundle boundary is no longer the immediate blocker. The
+missing interface is now the single owner that connects that boundary to the model and
+publishes a complete FIT receipt.
+
+Commit `f733bb7e` implements three pieces of that owner:
+
+- exact authority reload, including source, independent audit, parents, protocol, and
+  fixed output paths;
+- a stable digest of every named parameter and buffer before and after collection;
+- a mutually exclusive success/failure terminal record.
+
+The last item uses hard links in a deliberate way. The complete JSON record is written
+and replayed first. `TERMINAL` and `RECEIPT` (or `FAILURE`) then point to the same file
+inode. If the receipt link itself fails, `TERMINAL` still contains the complete receipt
+rather than a pointer to missing data. Injected link and late-guard failures test this
+behavior. The expanded suite is 63/63.
+
+This remains implementation progress, not additional interpretation. The next missing
+parts are bundle-to-manifest validation, one no-argument production entrypoint, the
+protected final pre-forward guard, and a hash-bound failure/receipt transaction around
+the one-use collector. FIT stays NO-GO until those parts and their independent audit
+are complete.
