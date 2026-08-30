@@ -13,9 +13,14 @@ import argparse
 import hashlib
 import json
 from pathlib import Path
+import sys
 from typing import Any, Mapping
 
 import torch
+
+ROOT = Path(__file__).resolve().parents[2]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
 
 import bilin18_observed_model_facade as facade
 import bracket_closure_canary_v1 as canary
@@ -26,7 +31,6 @@ import bracket_closure_rows_v1 as rows_contract
 import bracket_closure_tensor_v1 as tensor_program
 
 
-ROOT = Path(__file__).resolve().parents[2]
 AUTHORITY_SCHEMA = "bracket_closure_execution_v1_authority"
 AUDIT_SCHEMA = "bracket_closure_execution_v1_independent_audit"
 RESULT_SCHEMA = "bracket_closure_execution_v1_result_bundle"
