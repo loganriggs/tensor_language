@@ -403,3 +403,6 @@ later per-rung backlog edits had silently anchored on text that was not here.
     fresh windows; pred_d cfgE reproduces 1.7415. If a/b fail, the gain
     needs the label-dependent half of the eight and the selector is a
     fitted object, priced as such.
+    RUN 2026-08-30, §2124: ALL FOUR HELD — +0.122 w1, +0.086 fresh median,
+    8/8 positive. The selector is LABEL-FREE (weights + unlabeled inputs,
+    fold-table deploy status). The observability arc closes (rungs 11-29).

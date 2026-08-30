@@ -63280,3 +63280,36 @@ identity of the eight (label-freedom, quadratic price, chain-rule composition �
 Fisher at its own site, half labels, half model, priced right in scale, not transportable by first order. The
 label-freedom question that matters operationally — does a TRUE-Fisher top-8 selector still buy the gain? — is the
 registered next run (rung 29): if yes, the deployable selector needs no labels even though the subspaces differ.
+
+## §2124 — RUNG 29: THE SELECTOR IS LABEL-FREE AFTER ALL. Ranking mlp4/mlp5's units by the TRUE-Fisher top-8 (labels sampled from the model, no data labels) reproduces the certified gain — window-1 +0.122, fresh median +0.086, 8 of 8 windows positive — despite the subspaces sharing only half their span with the empirical eight. ALL FOUR PREDICTIONS HELD
+
+`ops/truefisher_top8_fresh.py`, **178s**, BACKLOG rung 29. **pred_d HELD (1.7415) | pred_a HELD (+0.1218 ≥ 0.077) |
+pred_b HELD (+0.0857 ≥ 0.049) | pred_c HELD (8/8).**
+
+```
+  window  gain (true-Fisher top-8)   gain (empirical top-8, §2119)   gain (full empirical metric, §2116)
+    0            +0.003                      −0.025                          +0.006
+    1            +0.089                      +0.087                          +0.082
+    2            +0.202                      +0.225                          +0.206
+    3            +0.190                      +0.198                          +0.170
+    4            +0.086                      +0.080                          +0.060
+    5            +0.081                      +0.078                          +0.082
+    6            +0.085                      +0.085                          +0.083
+    7            +0.030                      +0.030                          +0.038
+  median         +0.086                      +0.082                          +0.082      window 1: +0.122 vs +0.128 vs +0.124
+```
+
+- **All three selectors — empirical Fisher, empirical top-8, true-Fisher top-8 — are equivalent to within noise on
+  every window.** §2123's 0.55 subspace overlap coexists with identical selection behaviour: the unit ranking
+  ||P₈ᵀ Down_u|| is insensitive to which half of the top-8 span moves, because the units that load on the heavy head
+  load on both halves.
+- **What this upgrades.** The certified frontier gain is now a **weights-plus-unlabeled-inputs object**: sample labels
+  from the model itself, take eight eigenvectors at blocks 5/6, rank units. No data labels anywhere in the pipeline —
+  the same deploy-legal status as the fold tables (§283, §305). The eight named directions (§2111) and the gain
+  (§2116/§2119) survive with the label-free construction, 8/8 positive including the easy window 0 where the
+  empirical top-8 had its one miss.
+
+**The observability arc closes here (rungs 11–29, one day):** a certified, label-free, mechanistically named,
+equal-price improvement of the assembly's mlp4/mlp5 stand-ins; the price structure of stream error by depth, sublayer
+and head; two construction negatives, one withdrawal, one accounting correction — every one preregistered, scored as
+written, and pushed with its artifact.
