@@ -2865,3 +2865,25 @@ and keep the ratio as colour. And when a control arm is cheap, **measure it on e
 rather than once. See [[LESSON-111]] (set a validation bar against a null before the result) — same
 family: 111 is about a threshold nobody calibrated, 113 is about a divisor nobody re-measured, and both
 survived several sections because the suspect quantity was the one labelled "control".
+
+## LESSON 114 — a timeout that kills the wrapper does not undo what the wrapper did
+
+I ran `timeout 150 bash ops/enqueue.sh <script>`; the timeout fired and the shell printed `Terminated`,
+so I read it as "the enqueue did not complete" and ran it again. **It had completed.** `enqueue.sh`
+appends to the queue near the start and then runs the fast suite and the GPU-free plan pre-flight, which
+is where the remaining time goes — so the visible failure happened strictly AFTER the side effect. Lane 1
+ended up holding the same 637-second script twice, and the runner had already popped one copy by the time
+I looked.
+
+**Nothing was lost because I checked the queue before assuming**, but the instinct that nearly cost the
+run was "the command failed, so re-run it". **For any command with a side effect, a non-zero exit or a
+kill says nothing about whether the side effect happened** — it says only that the process did not reach
+its end. PRE-FLIGHT F already says this for experiments ("A NONZERO EXIT IS NOT A FAILED EXPERIMENT ...
+check for the result artifact before requeueing"); this is the same rule for *tooling*, which I had not
+generalised it to.
+
+**How to apply.** Before re-running anything that mutates state after a timeout or non-zero exit,
+**inspect the state it mutates** — `cat queue.txt`, check for the artifact, look at the log — rather than
+inferring from the exit code. And give `enqueue.sh` a timeout above its real cost (the fast suite plus a
+model-free pre-flight runs to a few minutes on a busy box), or none at all; a timeout tuned to the
+happy path turns a slow success into a phantom failure.
