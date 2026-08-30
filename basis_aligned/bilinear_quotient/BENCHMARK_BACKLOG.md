@@ -768,7 +768,11 @@ later per-rung backlog edits had silently anchored on text that was not here.
     grouped by the 10 oracle classes. Null: uniform shares (~0.10).
     pred_a top class share >= 0.40; pred_b the top class is a LINK
     (linear-mapped) class; pred_c skip16 reproduces §2146 (2.5091
-    within 0.01). -> ops/attn16_class_damage.py [QUEUED 22:35Z]
+    within 0.01). -> ops/attn16_class_damage.py
+    First run CRASHED 22:30Z (double del of cur['clsmap'] - my inserted
+    capture block deleted it and the parent's trailing del hit KeyError
+    after the arm-1 build; no result). Fixed, re-queued 22:33Z behind
+    rung 57; preds unchanged.
 
 57. attn16 AS THREE HEADS (damage convention). §2149's additive
     prediction: zeroing heads {1,2,5,6,7,8} together costs -0.0012.

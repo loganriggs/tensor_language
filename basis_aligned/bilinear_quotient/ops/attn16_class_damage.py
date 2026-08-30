@@ -942,7 +942,6 @@ def main():
         cur['clsmap']=classify2(FR).to(DEV)
         SEL['cev']=evalV(FR,120,order2,ML).detach().cpu()
         SEL['clsflat']=cur['clsmap'].reshape(-1).cpu()
-        del cur['clsmap']
     if SEL.get('head16'):
         HD16=D//9
         def _zh(hh):

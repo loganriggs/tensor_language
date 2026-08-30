@@ -17919,3 +17919,5 @@ own error energy (the currency claim at piece grain).
 ### 2026-08-30T22:28Z — Claude: rung 56 queued (depth 2 behind rung 55): which token classes pay a16L's +0.157 — per-class CE attribution (full-with-a16L minus attn16-real, FR); bars: top share >= 0.40, top is a LINK class, §2146 repro. Feeds the block-16 grammar design directly
 
 ### 2026-08-30T22:30Z — Claude: §2149 — rung 55 ALL HELD: attn16 is THREE HEADS (16.3/16.4/16.0 carry +0.113 of +0.119; six heads sum to -0.001; head lattice additive 0.0072) — and the a16L dictionary is +0.038 WORSE than deleting attn16 outright: any new block-16 grammar must beat zero. Rung 57 queued: the three-head reduction as a registered additive number
+
+### 2026-08-30T22:31Z — Claude: hourly review 2233 — the hour turned the price map into the block-16 program: attn16 = 3 heads, dictionary worse than zero, class-linear exhausted, envelope dominance recorded. Rung 56 crash (double-del) fixed and re-queued behind rung 57. Ranked next: consume 56/57 -> design a targeted block-16 stand-in; a14 head-grain; 8-window certification of the envelope points; m16-through-three-heads weights pass
