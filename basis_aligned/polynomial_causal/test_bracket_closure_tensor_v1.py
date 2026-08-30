@@ -20,52 +20,46 @@ from bracket_closure_tensor_v1 import (
 class FakeRotary(nn.Module):
     def __init__(self) -> None:
         super().__init__()
-        self.register_buffer("inv_freq", torch.tensor([1.0, 0.25]))
+        self.register_buffer("inv_freq", torch.tensor([1.0]))
 
 
 class FakeAttention(nn.Module):
     def __init__(self) -> None:
         super().__init__()
         torch.manual_seed(20260830)
-        self.n_embd = 8
-        self.n_head = 2
-        self.c_q = nn.Linear(8, 8, bias=False)
-        self.c_k = nn.Linear(8, 8, bias=False)
-        self.c_q2 = nn.Linear(8, 8, bias=False)
-        self.c_k2 = nn.Linear(8, 8, bias=False)
-        self.c_v = nn.Linear(8, 8, bias=False)
-        self.c_proj = nn.Linear(8, 8, bias=False)
+        # Production-shaped head topology: H8 exists without mutating a module global.
+        self.n_embd = 18
+        self.n_head = 9
+        self.c_q = nn.Linear(18, 18, bias=False)
+        self.c_k = nn.Linear(18, 18, bias=False)
+        self.c_q2 = nn.Linear(18, 18, bias=False)
+        self.c_k2 = nn.Linear(18, 18, bias=False)
+        self.c_v = nn.Linear(18, 18, bias=False)
+        self.c_proj = nn.Linear(18, 18, bias=False)
         self.lamb = nn.Parameter(torch.tensor(0.3))
         self.rotary = FakeRotary()
 
 
 def _program(attention: FakeAttention, arm: BracketTensorArm):
-    # The production target is H8; this tiny known-answer maps that target to H1.
-    import bracket_closure_tensor_v1 as module
-    old = module.TARGET_HEAD
-    module.TARGET_HEAD = 1
-    try:
-        return build_bracket_tensor_program(
-            attention,
-            arm,
-            permutation=(cyclic_derangement(4) if arm is BracketTensorArm.DERANGED_H8 else None),
-        )
-    finally:
-        module.TARGET_HEAD = old
+    return build_bracket_tensor_program(
+        attention,
+        arm,
+        permutation=(cyclic_derangement(2) if arm is BracketTensorArm.DERANGED_H8 else None),
+    )
 
 
 def test_stored_all_head_replay_is_owned_and_deletion_is_constant_global_projector() -> None:
     native = FakeAttention()
     full = _program(native, BracketTensorArm.STORED_ALL_HEADS)
     deleted = _program(native, BracketTensorArm.DELETE_H8)
-    state = torch.randn(2, 5, 8)
-    first_value = torch.randn(2, 5, 2, 4)
+    state = torch.randn(2, 5, 18)
+    first_value = torch.randn(2, 5, 9, 2)
     full_write, full_bus = full(state, first_value)
     deleted_write, deleted_bus = deleted(state, first_value)
     assert full_write.shape == deleted_write.shape == state.shape
     assert full_bus is deleted_bus is first_value
-    assert torch.equal(full.head_weights, torch.ones(2))
-    assert torch.equal(deleted.head_weights, torch.tensor([1.0, 0.0]))
+    assert torch.equal(full.head_weights, torch.ones(9))
+    assert torch.equal(deleted.head_weights, torch.tensor([1.0] * 8 + [0.0]))
     assert not torch.equal(full_write, deleted_write)
     native_copy = copy.deepcopy(native)
     for module in (native, native_copy):
@@ -92,7 +86,7 @@ def test_spectral_derangement_preserves_target_slice_singular_values_and_price()
     native = FakeAttention()
     programs = tuple(_program(native, arm) for arm in BracketTensorArm)
     prices = tuple(program.cost_receipt().total_stored_values for program in programs)
-    assert prices == (6 * 8 * 8 + 1 + 2 + 2,) * 3
+    assert prices == (6 * 18 * 18 + 1 + 1 + 9,) * 3
     assert len({program_state_sha256(program) for program in programs}) == 3
 
 
@@ -105,6 +99,4 @@ def test_price_formula_and_derangement_fail_closed() -> None:
             permutation=torch.tensor([0, 2, 3, 1]),
         )
     with pytest.raises(ValueError, match="requires"):
-        _program(FakeAttention(), BracketTensorArm.STORED_ALL_HEADS) if False else (
-            build_bracket_tensor_program(FakeAttention(), BracketTensorArm.DERANGED_H8)
-        )
+        build_bracket_tensor_program(FakeAttention(), BracketTensorArm.DERANGED_H8)
