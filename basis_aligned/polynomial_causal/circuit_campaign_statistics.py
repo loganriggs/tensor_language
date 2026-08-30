@@ -166,15 +166,18 @@ def reduce_document_batch(
 
     if (
         not torch.is_tensor(rows) or rows.device.type != "cpu" or rows.dtype != torch.long
-        or rows.ndim != 2 or rows.shape[1] < 2 or len(document_ids) != len(rows)
+        or rows.ndim != 2 or len(rows) == 0 or rows.shape[1] < 2
+        or len(document_ids) != len(rows)
         or any(not isinstance(value, str) or not value for value in document_ids)
         or not logits_by_arm or not masks
     ):
         raise ValueError("rows, document IDs, arms, or masks are malformed")
+    if any(not isinstance(name, str) or not name for name in logits_by_arm) or any(
+        not isinstance(name, str) or not name for name in masks
+    ):
+        raise ValueError("arm and cell names must be nonempty strings")
     arm_names = tuple(sorted(logits_by_arm))
     cell_names = tuple(sorted(masks))
-    if any(not isinstance(name, str) or not name for name in (*arm_names, *cell_names)):
-        raise ValueError("arm and cell names must be nonempty strings")
     expected = (len(rows), rows.shape[1] - 1)
     if any(
         not torch.is_tensor(mask) or mask.device.type != "cpu" or mask.dtype != torch.bool
@@ -294,6 +297,7 @@ def _validate_role_ledger(
             if (
                 type(value.n) is not int or value.n < 0
                 or not isinstance(value.support_sha256, str) or len(value.support_sha256) != 64
+                or any(character not in "0123456789abcdef" for character in value.support_sha256)
                 or len(set(arm_names)) != len(arm_names)
                 or len(set(kl_names)) != len(kl_names)
             ):
@@ -407,18 +411,118 @@ def evaluate_coordinates(
     """Evaluate an ordered coordinate family, optionally with shared draw weights."""
 
     specs = tuple(specs)
-    if not specs or len({spec.name for spec in specs}) != len(specs):
+    if not specs or any(type(spec) is not CoordinateSpec for spec in specs):
+        raise ValueError("coordinate family must contain exact CoordinateSpec values")
+    if len({spec.name for spec in specs}) != len(specs):
         raise ValueError("coordinate family must be nonempty with unique names")
     if set(role_ledgers) != {spec.role for spec in specs}:
         raise ValueError("role ledgers must exactly equal coordinate roles")
     values = []
     for spec in specs:
-        if type(spec) is not CoordinateSpec:
-            raise ValueError("coordinate family contains a non-CoordinateSpec")
         group = spec.draw_group or spec.role
         weights = None if multiplicities_by_group is None else multiplicities_by_group[group]
         values.append(evaluate_coordinate(role_ledgers[spec.role], spec, weights))
     return torch.tensor(values, dtype=torch.float64)
+
+
+def _document_vectors(
+    ledger: Mapping[str, Mapping[str, DocumentCellSums]], cell: str,
+) -> tuple[
+    torch.Tensor, dict[str, torch.Tensor], dict[str, torch.Tensor],
+    dict[tuple[str, str], torch.Tensor],
+]:
+    documents = tuple(sorted(ledger))
+    if any(cell not in ledger[document] for document in documents):
+        raise ValueError(f"coordinate cell is absent: {cell}")
+    values = [ledger[document][cell] for document in documents]
+    counts = torch.tensor([value.n for value in values], dtype=torch.float64)
+    arms = tuple(item.arm for item in values[0].arms)
+    pairs = tuple(
+        (item.source_arm, item.target_arm) for item in values[0].directed_kls
+    )
+    nll = {
+        arm: torch.tensor([
+            next(item.nll_sum for item in value.arms if item.arm == arm)
+            for value in values
+        ], dtype=torch.float64)
+        for arm in arms
+    }
+    correct = {
+        arm: torch.tensor([
+            next(item.correct_count for item in value.arms if item.arm == arm)
+            for value in values
+        ], dtype=torch.float64)
+        for arm in arms
+    }
+    kl = {
+        pair: torch.tensor([
+            next(
+                item.kl_sum for item in value.directed_kls
+                if (item.source_arm, item.target_arm) == pair
+            )
+            for value in values
+        ], dtype=torch.float64)
+        for pair in pairs
+    }
+    return counts, nll, correct, kl
+
+
+def _bootstrap_coordinate(
+    ledger: Mapping[str, Mapping[str, DocumentCellSums]],
+    spec: CoordinateSpec,
+    weights: torch.Tensor,
+) -> torch.Tensor:
+    counts, nll, correct, kl = _document_vectors(ledger, spec.cell)
+    required_arms = {spec.native_arm, spec.candidate_arm}
+    if not required_arms <= set(nll):
+        raise ValueError("coordinate references an absent arm")
+    denominator = weights @ counts
+    if bool((denominator <= 0).any()):
+        raise ZeroDivisionError("coordinate has zero token denominator")
+    delta = (weights @ (nll[spec.candidate_arm] - nll[spec.native_arm])) / denominator
+    if spec.kind is CoordinateKind.TARGET_DAMAGE:
+        result = delta
+    elif spec.kind is CoordinateKind.SPECIFICITY:
+        other_counts, other_nll, _, _ = _document_vectors(
+            ledger, spec.comparison_cell or "",
+        )
+        if not required_arms <= set(other_nll):
+            raise ValueError("specificity references an absent arm")
+        other_denominator = weights @ other_counts
+        if bool((other_denominator <= 0).any()):
+            raise ZeroDivisionError("coordinate has zero token denominator")
+        result = delta - (
+            weights @ (other_nll[spec.candidate_arm] - other_nll[spec.native_arm])
+        ) / other_denominator
+    elif spec.kind is CoordinateKind.COLLATERAL:
+        assert spec.limit is not None
+        result = spec.limit - delta
+    elif spec.kind in (CoordinateKind.EXTRACTION_RECOVERY, CoordinateKind.OOD_RETENTION):
+        assert spec.stake_arm is not None
+        if spec.stake_arm not in nll:
+            raise ValueError("recovery/retention references an absent stake arm")
+        stake = weights @ (nll[spec.stake_arm] - nll[spec.native_arm])
+        if bool((stake <= 0).any()):
+            raise ValueError("recovery/retention stake is not positive")
+        result = (
+            weights @ (nll[spec.stake_arm] - nll[spec.candidate_arm])
+        ) / stake
+    elif spec.kind is CoordinateKind.KL:
+        assert spec.source_arm is not None and spec.limit is not None
+        pair = (spec.source_arm, spec.candidate_arm)
+        if pair not in kl:
+            raise ValueError("coordinate references an absent directed KL pair")
+        result = spec.limit - (weights @ kl[pair]) / denominator
+    elif spec.kind is CoordinateKind.TOP1:
+        assert spec.limit is not None
+        result = spec.limit + (
+            weights @ (correct[spec.candidate_arm] - correct[spec.native_arm])
+        ) / denominator
+    else:  # pragma: no cover
+        raise AssertionError(spec.kind)
+    if not bool(torch.isfinite(result).all()):
+        raise RuntimeError("bootstrap coordinate evaluation is not finite")
+    return result
 
 
 def simultaneous_document_bootstrap(
@@ -455,22 +559,16 @@ def simultaneous_document_bootstrap(
         draws = torch.randint(
             len(documents), (repetitions, len(documents)), generator=generator,
         )
-        weights = torch.zeros(repetitions, len(documents), dtype=torch.int64)
-        weights.scatter_add_(1, draws, torch.ones_like(draws, dtype=torch.int64))
+        weights = torch.zeros(repetitions, len(documents), dtype=torch.float64)
+        weights.scatter_add_(1, draws, torch.ones_like(draws, dtype=torch.float64))
         group_weights[group] = weights
 
-    replicates = torch.empty((repetitions, len(specs)), dtype=torch.float64)
-    for draw_index in range(repetitions):
-        multiplicities = {
-            group: {
-                document: int(group_weights[group][draw_index, index])
-                for index, document in enumerate(documents)
-            }
-            for group, documents in groups.items()
-        }
-        replicates[draw_index] = evaluate_coordinates(
-            role_ledgers, specs, multiplicities,
+    replicates = torch.stack([
+        _bootstrap_coordinate(
+            role_ledgers[spec.role], spec, group_weights[spec.draw_group or spec.role],
         )
+        for spec in specs
+    ], dim=1)
     maxima = (replicates - point).max(dim=1).values.sort().values
     critical = float(maxima[math.ceil(confidence * repetitions) - 1])
     lower = point - critical

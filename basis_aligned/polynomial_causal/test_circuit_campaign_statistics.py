@@ -136,6 +136,58 @@ def test_coordinate_schema_is_typed_and_rejects_ambiguous_formulas():
         )
 
 
+def test_coordinate_known_answers_include_recovery_kl_and_top1_currencies():
+    def cell(n, native, removal, extracted, native_correct, extracted_correct, kl):
+        return stats.DocumentCellSums(
+            n=n,
+            support_sha256="a" * 64,
+            arms=(
+                stats.ArmCellSums("extracted", float(extracted), extracted_correct),
+                stats.ArmCellSums("native", float(native), native_correct),
+                stats.ArmCellSums("removal", float(removal), 0),
+            ),
+            directed_kls=(stats.DirectedKLSums("native", "extracted", float(kl)),),
+        )
+
+    ledger = {"doc": {
+        "target": cell(10, 10, 30, 15, 8, 7, 2.5),
+        "matched": cell(5, 5, 10, 6, 4, 4, 0.5),
+    }}
+    specs = (
+        stats.CoordinateSpec(
+            "damage", stats.CoordinateKind.TARGET_DAMAGE, "fit", "target",
+            candidate_arm="removal",
+        ),
+        stats.CoordinateSpec(
+            "specificity", stats.CoordinateKind.SPECIFICITY, "fit", "target",
+            candidate_arm="removal", comparison_cell="matched",
+        ),
+        stats.CoordinateSpec(
+            "collateral", stats.CoordinateKind.COLLATERAL, "fit", "target",
+            candidate_arm="extracted", limit=1.0,
+        ),
+        stats.CoordinateSpec(
+            "recovery", stats.CoordinateKind.EXTRACTION_RECOVERY, "fit", "target",
+            candidate_arm="extracted", stake_arm="removal",
+        ),
+        stats.CoordinateSpec(
+            "ood", stats.CoordinateKind.OOD_RETENTION, "fit", "target",
+            candidate_arm="extracted", stake_arm="removal",
+        ),
+        stats.CoordinateSpec(
+            "kl", stats.CoordinateKind.KL, "fit", "target",
+            candidate_arm="extracted", source_arm="native", limit=0.5,
+        ),
+        stats.CoordinateSpec(
+            "top1", stats.CoordinateKind.TOP1, "fit", "target",
+            candidate_arm="extracted", limit=0.15,
+        ),
+    )
+    assert stats.evaluate_coordinates({"fit": ledger}, specs).tolist() == pytest.approx(
+        [2.0, 1.0, 0.5, 0.75, 0.75, 0.25, 0.05],
+    )
+
+
 def _manual_cell(n: int, native: float, candidate: float, support: str):
     return stats.DocumentCellSums(
         n=n,
