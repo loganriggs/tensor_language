@@ -59185,3 +59185,44 @@ outstanding are not mine to take:** §1979's architectural fork (leaving attenti
 compilation, at the cost of every §1765-derived result), and whether §1947's price rule is meant to
 sanction *sales* of parameters as §2023 and §2024 used it. **Both are with Logan and both are flagged on
 the board.**
+
+## §2029 — the converged build's gain is entirely at covered inputs, and it LOSES at uncovered ones
+
+`ops/where_does_the_converged_build_win.py`, **4.3s** warm, **DISCOVERY ONLY**, 5,419, rung 3 — §2028's
+implicit open question. **pred_a True | pred_b False | pred_c False | pred_d True | derived controls
+True.** Reference deviation 0.000000. No crashed predicates.
+
+```
+  milli-nats by which the converged build beats §1959's, decomposed, 5,419
+              overall   covered   UNCOVERED  |  unseen   1-4     5-24    25-124   125+
+  skip7000    +3.594    +4.970     −0.734    |  +2.060  +6.164  +2.527  +4.098   +3.484
+  skip11000   +3.370    +4.787     −0.790    |  +2.963  +4.878  +4.795  +0.657   +3.566
+  skip1200    +1.388    +3.329     −4.693    |  −3.948  +2.893  +5.735  +4.333   +1.289
+```
+
+> **pred_c FAILED 0 of 3, and this is the finding. The converged build is a net LOSS at uncovered inputs
+> on every role** — −0.734, −0.790 and **−4.693** milli-nats. **pred_b FAILED 2 of 3:** it loses the
+> unseen-target bucket at skip1200 by **3.948**.
+
+> **The pooled win is real and it is bought.** Covered inputs carry about three quarters of scored
+> positions and gain **+3.3 to +5.0**; the uncovered quarter pays **−0.7 to −4.7**. **§2028's +3.064
+> milli-nats is the net of a larger gain and a real loss, not a uniform improvement**, and nothing in the
+> fifteen sections that produced it would have shown that — every number in the arc was a pooled average.
+
+> **pred_a and pred_d PASSED**, so the picture is not simply "wins on frequent targets": all five buckets
+> gain on ≥2 roles and the unseen bucket carries at least a fifth of the frequent bucket's win. **The
+> concentration is on the covered/uncovered axis, not the frequency axis** — which is the opposite of what
+> I registered pred_d to look for.
+
+**The suspect is §2024's map cut, and I am naming it before testing it.** §2024 cut the map from rank 640
+to 256 at MLP layers 0–7 and recorded it as **net +0.47 milli-nats of budget** under §1947's price rule —
+a *sale* of parameters, priced on a pooled average. **The map acts only on uncovered rows.** A cut whose CE
+cost lands entirely in the quarter of positions the map serves is exactly what §2029 measures, and the
+pooled rule cannot see it. §2020's table ranks act on covered rows too, so they are not the obvious cause,
+**but I have not attributed the loss and will not assert which change caused it.**
+
+**Open, and it bears on a question already with Logan.** §1947's rule prices parameters against *pooled*
+CE. §2023 and §2024 used it to sell parameters; §2029 shows that sale's cost is **concentrated in the
+weakest cells**. **Whether a price rule stated on an average may authorise a trade whose cost is not
+average is a decision about §1947.** The immediate measurable is narrower and is one arm: score §2020's
+build — tables only, no map cut — at uncovered inputs, and see whether the loss is the map's.
