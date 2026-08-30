@@ -188,6 +188,11 @@ linked manifest, and passes six focused mutation/publication tests. It published
 `causal_response_factorization_v1_candidate_freeze_v2.json` with logical manifest
 SHA256 `3b386a38e9bf79f90e01c87ef6471770dfd7bae73ffb89ef3749a182968b5500`.
 
-This is the candidate freeze proposed by the previous review; independent v2 re-audit
-is in progress. Validation remains sealed; candidate selection, semantic claims,
-ledger promotion, and terminal-circuit credit remain false.
+Independent v2 re-audit returned **GO**. It reran all six tests plus separate synthetic
+analysis- and terminal-mutation attacks; verified the same nine rank pairs, all three
+registered seeds per pair, every current artifact byte/hash/size, source closure, and
+v1 failure lineage; and found no score field or candidate selection. V2 artifact
+SHA256 is `53f8264228e905ad1a459f32204d1acb07fa044e7753026dbb0bcfb91ac77b98`.
+
+This closes the previous review's first priority. Validation remains sealed; candidate
+selection, semantic claims, ledger promotion, and terminal-circuit credit remain false.

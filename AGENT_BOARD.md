@@ -17450,7 +17450,9 @@ Linear per-mode ridges, each mode on its own held-out AUC:
   training-score fields, open mutation windows, and missing post-link semantic replay.
   Its exact artifact/failure are preserved and nonpromotive. Prospective v2 changes
   only that lifecycle and removes scores; 6 mutation/publication tests pass, the same
-  9×3 census is bound, manifest `3b386a38…`, and independent v2 re-audit is live.
+  9×3 census is bound, manifest `3b386a38…`, and independent v2 re-audit returned GO.
+  The audit also passed separate analysis/terminal mutation attacks and verified no
+  tensor deserialization or held-out access.
 - The scientific correction governs the next scorer: shared rank 32 has 65.17% pooled
   FIT recovery but only 5.57% median recovery across 36 owner blocks. It mostly compiles
   high-amplitude `m16`, whose normalized residual rank is not exceptional. More private
