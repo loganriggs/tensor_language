@@ -1,0 +1,44 @@
+{
+ "training_input_sha256": "0b359a560850b12427b0e3547e88d5b7e22b066aa0c8c25d92546c702071fafd",
+ "documents": 229,
+ "features": 15,
+ "targets": [
+  "m16_loading_1",
+  "m16_loading_2",
+  "m16_block_rms"
+ ],
+ "heldout_r2": {
+  "m16_loading_1": -0.0475,
+  "m16_loading_2": 0.0676,
+  "m16_block_rms": 0.1074
+ },
+ "null_r2_block_rms": {
+  "draws": 200,
+  "median": -0.1602,
+  "p95": 0.0258,
+  "max": 0.1075
+ },
+ "m16_loading_correlation": 0.4599,
+ "reverse_r2_owner_rms_from_m16": {
+  "a8": 0.0864,
+  "a16": 0.0829,
+  "a3": -0.0043,
+  "m14": 0.1327,
+  "m13": 0.0898
+ },
+ "univariate_spearman_owner_rms_vs_m16_rms": {
+  "a8": 0.3145,
+  "a16": 0.2618,
+  "a3": 0.3608,
+  "m14": 0.5001,
+  "m13": 0.3973
+ },
+ "bars": {
+  "a": 0.3,
+  "b_null_p95": 0.05
+ },
+ "pred_a_code_not_private": false,
+ "pred_b_not_capacity": true,
+ "pred_c_two_dimensional_code": true,
+ "runtime_s": 0.1
+}

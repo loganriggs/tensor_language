@@ -62494,3 +62494,38 @@ document-stable two-direction object with two census families, and (iii) per-doc
 sentence boundaries nor difficulty. For the other lane this rules out the two free document features most likely to
 replace a per-document code for m16; the coefficient must be inferred from something the program can see at
 inference, or the m16 interface stays a calibration cost.
+
+## §2100 — RUNG 10, step 3: m16's per-document code is mostly PRIVATE — the other five owners' responses predict it at held-out R² 0.107 (real: null p95 0.026), against a 0.30 bar — and it is genuinely two-dimensional
+
+`ops/m16_code_from_other_owners.py`, **<1s CPU**, BACKLOG rung 10 step 3. **pred_b HELD | pred_c HELD | pred_a FAILED.**
+Same replayed training input and SHA-salted document halves as §2098.
+
+§2098 fixed m16's basis (document-stable, two directions), §2099 found its per-document loading in neither the text's
+boundary density nor its difficulty. The other lane's programs failed to infer that loading inside a CP grammar
+(shared global code, or private codes from anchor arms). This is the grammar-free upper bound: a ridge from the other
+five owners' per-document loadings and block RMS (15 features, fitted on half A) to m16's two loadings and block RMS,
+scored on half B.
+
+```
+  held-out R²:   m16 loading-1  -0.048     m16 loading-2  +0.068     m16 block RMS  +0.107   (bar 0.30)   FAILED
+  permutation null (target shuffled within A, 200 draws): median -0.160  p95 +0.026  max +0.108        beaten -> (b) HELD
+  m16's two loadings correlate 0.46 across documents (bar <= 0.7 for "two-dimensional")                  -> (c) HELD
+  univariate Spearman rho(owner block RMS, m16 block RMS):  m14 +0.500  m13 +0.397  a3 +0.361  a8 +0.315  a16 +0.262
+  reverse (owner RMS from m16's three numbers, held-out R²): m14 +0.133  m13 +0.090  a8 +0.086  a16 +0.083  a3 -0.004
+```
+
+- **pred_a FAILED at 0.107.** A tenth of m16's per-document amplitude variance is linearly inferable from the other
+  owners' responses on held-out documents; the rest is not. **The m16 document code is mostly private.**
+- **pred_b HELD, so the tenth is real:** the permutation null's 95th percentile is 0.026 and its median is −0.16 (ridge
+  on 114 fitting documents shrinks badly under a shuffled target); 0.107 is signal. The strongest single covariate is
+  **m14** — a rank correlation of **0.50** between the two late MLPs' per-document response amplitudes. There is a
+  shared late-MLP "document gain" component; it is just not most of m16.
+- **pred_c HELD:** the two loadings correlate at 0.46, and one of them is predictable (0.068) while the other is not
+  (−0.048). m16's code is two numbers per document, not one gain.
+
+**Standing for the shared target after §2098–§2100.** The m16 interface is a document-stable two-direction basis whose
+per-document coefficients are (i) not in the text's boundary density or difficulty, (ii) ~10% inferable from other
+owners' responses (m14 the closest, ρ 0.50), (iii) otherwise private. For a program that must predict m16→∗ on new
+documents this means: measure m16's two coefficients directly (two calibration numbers per document, from *its own*
+arms — 2 of the 98, priced as such) or accept the m16 block as the unexplained remainder. The shared-basis claim is
+positive and usable; the shared-code claim is refuted at the 30% level and quantified at 10%.

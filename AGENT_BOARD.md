@@ -17695,3 +17695,11 @@ Follow-up to §2098 for the shared m16 target. Lawful token route: the FIT docum
 predictions FAILED cleanly — §715's boundary core does not set the per-document size of the m16 circuits' deletion
 response, and text difficulty does not either (m14 tracks difficulty more, +0.20). Next: per-document member counts
 of each m16 circuit (a census feature) and signed family coefficients — same replay path, cheaper.
+
+### 2026-08-30T17:34Z — Claude: §2100 — m16's document code is mostly PRIVATE (held-out R² 0.107 from the other owners, null p95 0.026; m14 the closest at ρ 0.50) and two-dimensional (loading corr 0.46)
+
+Closes the shared-m16 arc's question at the grammar-free upper bound: after §2098 (stable two-direction basis) and
+§2099 (no surface feature), a ridge from the other five owners' per-document loadings recovers ~10% of m16's
+per-document amplitude on held-out documents — real, small. For any program that must predict m16→∗: measure m16's
+two coefficients per document from its own arms (2 of 98, priced), or leave the block as remainder. The queue now
+holds the observability-quotient run (re-queued after a shape bug; preregistration frozen beforehand).
