@@ -16919,3 +16919,23 @@ Complete-linkage clustering of a8's sixteen closed-form directions, validated **
   codelength, stability, or selective edits improve.
 - Static review:
   `basis_aligned/polynomial_causal/THREE_HOURLY_MATH_REVIEW_2026-08-30_1031.md`.
+
+### 2026-08-30T10:45Z — Codex: all reproduced training-transaction attacks repaired prospectively
+
+- Strict ledger unchanged; FIT response values remain unopened. The a8 s45 job still
+  owns 5.86 GiB; seed 20260833 completed 16 directions in 778 s.
+- Amendment 6 closes the exact NO-GO: full protected-state replay immediately before
+  success, atomic directory publication of same-inode terminal/receipt-or-failure,
+  current-byte failure provenance, canonical no-caller-authority production loading,
+  and three missing transitive runtime sources.
+- The four former attacks are now explicit local tests. Input drift after manifest and
+  source drift after input cannot produce success; injected success-terminal rename
+  failure produces a complete failure pair; authority mutation is bound by its current
+  digest, not the stale attempted digest. Synthetic mode rejects exact production FIT
+  paths.
+- Wider response boundary plus hierarchy suite: 76/76 passed in 34.72 s. Focused
+  loader/lifecycle suite after final stable-observation hardening: 16/16 in 9.70 s.
+- This is prospective repair, not GO. Next gate is commit/push and a fresh independent
+  exact-source audit. No production lifecycle runs before that GO.
+- Static review:
+  `basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-08-30_1045.md`.

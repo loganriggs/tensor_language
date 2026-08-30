@@ -13,6 +13,8 @@ import json
 import os
 from pathlib import Path
 import secrets
+import shutil
+import stat
 import subprocess
 import tempfile
 from typing import Any, Mapping, NamedTuple
@@ -27,9 +29,10 @@ HERE = Path(__file__).resolve().parent
 AUTHORITY = HERE / "causal_response_factorization_v1_training_authority.json"
 INPUT = HERE / "causal_response_factorization_v1_training_input.pt"
 MANIFEST = HERE / "causal_response_factorization_v1_training_manifest.json"
-RECEIPT = HERE / "causal_response_factorization_v1_training_receipt.json"
-FAILURE = HERE / "causal_response_factorization_v1_training_failure.json"
-TERMINAL = HERE / "causal_response_factorization_v1_training_terminal.json"
+TERMINAL_DIR = HERE / "causal_response_factorization_v1_training_terminal"
+RECEIPT = TERMINAL_DIR / "receipt.json"
+FAILURE = TERMINAL_DIR / "failure.json"
+TERMINAL = TERMINAL_DIR / "terminal.json"
 AUDIT = HERE / "causal_response_factorization_v1_training_lifecycle_independent_audit.json"
 LOCK = Path("/workspace/runs/.causal_response_factorization_v1_training.lock")
 
@@ -40,6 +43,7 @@ SOURCE_PATHS = tuple(ROOT / path for path in (
     "basis_aligned/polynomial_causal/CAUSAL_RESPONSE_FACTORIZATION_V1_AMENDMENT_3.md",
     "basis_aligned/polynomial_causal/CAUSAL_RESPONSE_FACTORIZATION_V1_AMENDMENT_4.md",
     "basis_aligned/polynomial_causal/CAUSAL_RESPONSE_FACTORIZATION_V1_AMENDMENT_5.md",
+    "basis_aligned/polynomial_causal/CAUSAL_RESPONSE_FACTORIZATION_V1_AMENDMENT_6.md",
     "basis_aligned/polynomial_causal/causal_response_factorization_v1.py",
     "basis_aligned/polynomial_causal/causal_response_factorization_v1_accelerated.py",
     "basis_aligned/polynomial_causal/causal_response_factorization_v1_fit_adapter.py",
@@ -50,6 +54,9 @@ SOURCE_PATHS = tuple(ROOT / path for path in (
     "basis_aligned/polynomial_causal/causal_response_tensor_collection.py",
     "basis_aligned/polynomial_causal/causal_response_tensor_v1_backend.py",
     "basis_aligned/polynomial_causal/causal_response_tensor_v1_fit_bundle.py",
+    "basis_aligned/polynomial_causal/bilin18_observed_model_facade.py",
+    "jacclust/__init__.py",
+    "jacclust/tt_model.py",
     "basis_aligned/polynomial_causal/test_causal_response_factorization_v1.py",
     "basis_aligned/polynomial_causal/test_causal_response_factorization_v1_accelerated.py",
     "basis_aligned/polynomial_causal/test_causal_response_factorization_v1_fit_adapter.py",
@@ -107,7 +114,8 @@ def output_paths() -> dict[str, str]:
     return {
         "authority": str(AUTHORITY), "input": str(INPUT),
         "manifest": str(MANIFEST), "receipt": str(RECEIPT),
-        "failure": str(FAILURE), "terminal": str(TERMINAL), "lock": str(LOCK),
+        "failure": str(FAILURE), "terminal": str(TERMINAL),
+        "terminal_directory": str(TERMINAL_DIR), "lock": str(LOCK),
     }
 
 
@@ -242,6 +250,120 @@ def _publish_json(value: Mapping[str, Any], target: Path, guard) -> str:
         temporary.unlink(missing_ok=True)
 
 
+def _artifact_observation(path: Path) -> dict[str, Any]:
+    if not path.exists():
+        return {"path": str(path), "exists": False, "sha256": None, "bytes": None}
+    flags = os.O_RDONLY | getattr(os, "O_NOFOLLOW", 0)
+    descriptor = os.open(path, flags)
+    try:
+        before = os.fstat(descriptor)
+        if not stat.S_ISREG(before.st_mode):
+            return {"path": str(path), "exists": True, "sha256": None, "bytes": None,
+                    "regular_file": False}
+        first_chunks: list[bytes] = []
+        while chunk := os.read(descriptor, 8 << 20):
+            first_chunks.append(chunk)
+        middle = os.fstat(descriptor)
+        path_stat = path.stat(follow_symlinks=False)
+        os.lseek(descriptor, 0, os.SEEK_SET)
+        second_chunks: list[bytes] = []
+        while chunk := os.read(descriptor, 8 << 20):
+            second_chunks.append(chunk)
+        after = os.fstat(descriptor)
+    finally:
+        os.close(descriptor)
+    first, second = b"".join(first_chunks), b"".join(second_chunks)
+    identity = (before.st_dev, before.st_ino, before.st_size, before.st_mtime_ns)
+    if any(
+        (value.st_dev, value.st_ino, value.st_size, value.st_mtime_ns) != identity
+        for value in (middle, after, path_stat)
+    ) or first != second:
+        raise RuntimeError(f"factor training artifact changed during observation: {path}")
+    return {
+        "path": str(path), "exists": True, "regular_file": True,
+        "sha256": hashlib.sha256(first).hexdigest(), "bytes": after.st_size,
+        "device": after.st_dev, "inode": after.st_ino,
+    }
+
+
+def _raw_protected_observation() -> dict[str, Any]:
+    """Exact bytes-only snapshot usable even when semantic replay is already broken."""
+    fit_paths = parent.PRODUCTION_PATHS
+    return {
+        "authority": _artifact_observation(AUTHORITY),
+        "audit": _artifact_observation(AUDIT),
+        "input": _artifact_observation(INPUT),
+        "manifest": _artifact_observation(MANIFEST),
+        "sources": {
+            str(path.relative_to(ROOT)): _artifact_observation(path)
+            for path in SOURCE_PATHS
+        },
+        "fit_parent_artifacts": {
+            name: _artifact_observation(getattr(fit_paths, name))
+            for name in (
+                "authority", "bundle", "manifest", "receipt",
+                "failure", "terminal", "lock",
+            )
+        },
+    }
+
+
+def _fsync_directory_best_effort(path: Path) -> None:
+    descriptor = None
+    try:
+        descriptor = os.open(path, os.O_RDONLY | getattr(os, "O_DIRECTORY", 0))
+        os.fsync(descriptor)
+    except OSError:
+        pass
+    finally:
+        if descriptor is not None:
+            os.close(descriptor)
+
+
+def _publish_terminal_pair(
+    value: Mapping[str, Any], *, kind: str, claim: Claim, final_guard,
+) -> str:
+    """Atomically publish terminal plus receipt/failure as one directory rename.
+
+    Both names are hard links prepared inside a private staging directory.  The sole
+    externally visible serialization point is the directory rename, so no state can
+    expose only one of the two names.
+    """
+    if kind not in ("receipt", "failure"):
+        raise ValueError("factor training terminal kind is malformed")
+    if TERMINAL_DIR.exists():
+        raise RuntimeError("factor training terminal namespace is spent")
+    normalized = json.loads(json.dumps(value, sort_keys=True, allow_nan=False))
+    raw = (json.dumps(normalized, sort_keys=True, indent=2, allow_nan=False) + "\n").encode()
+    digest = hashlib.sha256(raw).hexdigest()
+    staging = Path(tempfile.mkdtemp(
+        prefix=f".{TERMINAL_DIR.name}.", dir=TERMINAL_DIR.parent
+    ))
+    payload = staging / f"{kind}.json"
+    terminal = staging / "terminal.json"
+    try:
+        descriptor = os.open(payload, os.O_WRONLY | os.O_CREAT | os.O_EXCL, 0o600)
+        with os.fdopen(descriptor, "wb") as sink:
+            sink.write(raw); sink.flush(); os.fsync(sink.fileno())
+        os.link(payload, terminal)
+        if file_sha256(payload) != digest or file_sha256(terminal) != digest or (
+            os.stat(payload).st_ino != os.stat(terminal).st_ino
+        ):
+            raise RuntimeError("staged factor training terminal pair does not replay")
+        _fsync_directory_best_effort(staging)
+        final_guard()
+        require_claim(claim)
+        if TERMINAL_DIR.exists():
+            raise RuntimeError("factor training terminal namespace is spent")
+        # No lookup or callback follows this single atomic publication operation.
+        os.rename(staging, TERMINAL_DIR)
+        _fsync_directory_best_effort(TERMINAL_DIR.parent)
+        return digest
+    finally:
+        if staging.exists():
+            shutil.rmtree(staging, ignore_errors=True)
+
+
 def _freeze_authority(claim: Claim) -> tuple[dict[str, Any], str, dict[str, Any]]:
     audit, audit_digest = stable_audit()
     closure = source_closure(audit["audited_source_commit"])
@@ -283,7 +405,7 @@ def execute_training_input_v1() -> str:
     """Publish the fixed training-only artifact and return terminal digest only."""
 
     if any(path.exists() for path in (
-        AUTHORITY, INPUT, MANIFEST, RECEIPT, FAILURE, TERMINAL, LOCK,
+        AUTHORITY, INPUT, MANIFEST, TERMINAL_DIR, LOCK,
     )):
         raise RuntimeError("factor training output namespace is spent")
     claim = acquire_claim()
@@ -293,7 +415,8 @@ def execute_training_input_v1() -> str:
         authority, authority_digest, fit_parent = _freeze_authority(claim)
         capability = OneUseFitTrainingLoader()
         value = capability.load_once(
-            parent_binding=fit_parent, analysis_authority=authority
+            parent_binding=fit_parent,
+            expected_analysis_authority_artifact_sha256=authority_digest,
         )
         payload = training_input.build_training_input_payload(
             value, analysis_authority_sha256=authority["authority_sha256"]
@@ -334,13 +457,24 @@ def execute_training_input_v1() -> str:
         }
 
         def manifest_guard() -> None:
+            authority_replay, authority_observed = stable_json(AUTHORITY)
+            audit_replay, audit_observed = stable_audit()
             replay, observed = training_input.replay_training_input(
                 INPUT,
                 expected_analysis_authority_sha256=authority["authority_sha256"],
                 expected_artifact_sha256=input_digest, require_production=True,
             )
             del replay
-            if observed != input_digest or parent.fit_parent_binding_without_tensor_load() != fit_parent:
+            if (
+                authority_replay != authority or authority_observed != authority_digest
+                or audit_replay.get("audited_source_commit")
+                != authority["source_closure"]["commit"]
+                or audit_observed != authority["independent_audit"]["sha256"]
+                or source_closure(authority["source_closure"]["commit"])
+                != authority["source_closure"]
+                or observed != input_digest
+                or parent.fit_parent_binding_without_tensor_load() != fit_parent
+            ):
                 raise RuntimeError("factor training manifest protected state changed")
             require_claim(claim)
 
@@ -363,45 +497,62 @@ def execute_training_input_v1() -> str:
                 "authorized_for_eval": False,
             },
         }
-        temporary, terminal_digest = _stage_json(receipt, TERMINAL)
-        try:
-            if any(path.exists() for path in (TERMINAL, RECEIPT, FAILURE)):
-                raise RuntimeError("factor training terminal namespace is spent")
+        def receipt_guard() -> None:
+            authority_replay, authority_observed = stable_json(AUTHORITY)
+            audit_replay, audit_observed = stable_audit()
+            input_replay, observed_input = training_input.replay_training_input(
+                INPUT,
+                expected_analysis_authority_sha256=authority["authority_sha256"],
+                expected_artifact_sha256=input_digest, require_production=True,
+            )
+            del input_replay
             manifest_replay, observed_manifest = stable_json(MANIFEST)
-            if manifest_replay != manifest or observed_manifest != manifest_digest:
+            if (
+                authority_replay != authority or authority_observed != authority_digest
+                or audit_replay.get("audited_source_commit")
+                != authority["source_closure"]["commit"]
+                or audit_observed != authority["independent_audit"]["sha256"]
+                or source_closure(authority["source_closure"]["commit"])
+                != authority["source_closure"]
+                or parent.fit_parent_binding_without_tensor_load() != fit_parent
+                or observed_input != input_digest
+                or manifest_replay != manifest
+                or observed_manifest != manifest_digest
+            ):
                 raise RuntimeError("factor training manifest changed before receipt")
             require_claim(claim)
-            os.link(temporary, TERMINAL)
-            os.link(temporary, RECEIPT)
-        finally:
-            temporary.unlink(missing_ok=True)
-        return terminal_digest
+
+        return _publish_terminal_pair(
+            receipt, kind="receipt", claim=claim, final_guard=receipt_guard
+        )
     except Exception as error:
-        if authority is not None and authority_digest is not None and not any(
-            path.exists() for path in (TERMINAL, RECEIPT, FAILURE)
-        ):
+        if authority is not None and authority_digest is not None and not TERMINAL_DIR.exists():
+            protected_observation = _raw_protected_observation()
             failure = {
                 "schema": "causal_response_factorization_v1_training_terminal",
                 "kind": "failure",
-                "authority_artifact_sha256": authority_digest,
-                "authority_logical_sha256": authority["authority_sha256"],
+                "attempt_authority_artifact_sha256": authority_digest,
+                "attempt_authority_logical_sha256": authority["authority_sha256"],
+                "protected_observation": protected_observation,
                 "payload": {
                     "status": "failed_no_training_receipt",
                     "error_type": type(error).__name__,
                     "error_message": str(error),
-                    "input_exists": INPUT.exists(),
-                    "manifest_exists": MANIFEST.exists(),
                     "authorized_for_validation": False,
                     "authorized_for_eval": False,
                 },
             }
-            temporary, _ = _stage_json(failure, TERMINAL)
-            try:
+
+            def failure_guard() -> None:
+                if _raw_protected_observation() != protected_observation:
+                    raise RuntimeError(
+                        "factor training protected state changed before failure terminal"
+                    )
                 require_claim(claim)
-                os.link(temporary, TERMINAL)
-                os.link(temporary, FAILURE)
-            finally:
-                temporary.unlink(missing_ok=True)
+
+            _publish_terminal_pair(
+                failure, kind="failure", claim=claim, final_guard=failure_guard
+            )
         raise
     finally:
         release_claim(claim)

@@ -9,6 +9,10 @@ its first fallible read and cannot be retried.
 from __future__ import annotations
 
 import io
+import hashlib
+import json
+from pathlib import Path
+import subprocess
 from typing import Any, Mapping
 
 import torch
@@ -19,6 +23,111 @@ from causal_response_factorization_v1_fit_adapter import (
     training_input_from_fit_payload,
 )
 import causal_response_tensor_v1_fit_bundle as fit_bundle
+
+
+ROOT = Path(__file__).resolve().parents[2]
+HERE = Path(__file__).resolve().parent
+PRODUCTION_ANALYSIS_AUTHORITY = (
+    HERE / "causal_response_factorization_v1_training_authority.json"
+)
+PRODUCTION_ANALYSIS_AUDIT = (
+    HERE / "causal_response_factorization_v1_training_lifecycle_independent_audit.json"
+)
+PRODUCTION_TERMINAL_DIRECTORY = (
+    HERE / "causal_response_factorization_v1_training_terminal"
+)
+
+
+def _artifact_sha256(path: Path) -> str:
+    digest = hashlib.sha256()
+    with path.open("rb") as source:
+        for chunk in iter(lambda: source.read(8 << 20), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
+
+
+def _stable_plain_json(path: Path, label: str) -> tuple[dict[str, Any], str]:
+    before = _artifact_sha256(path)
+    raw = path.read_bytes()
+    after = _artifact_sha256(path)
+    if before != after or hashlib.sha256(raw).hexdigest() != before:
+        raise RuntimeError(f"{label} changed during exact read")
+    value = json.loads(raw)
+    if type(value) is not dict:
+        raise RuntimeError(f"{label} is not a plain object")
+    return value, before
+
+
+def _production_authority(
+    expected_artifact_sha256: str, parent_binding: Mapping[str, Any],
+) -> dict[str, Any]:
+    """Replay the canonical published authority, audit, sources, and namespace."""
+    authority, observed = _stable_plain_json(
+        PRODUCTION_ANALYSIS_AUTHORITY, "factor training production authority"
+    )
+    if observed != expected_artifact_sha256:
+        raise RuntimeError("factor training production authority artifact changed")
+    _validate_analysis_authority(authority, parent_binding)
+    audit, audit_digest = _stable_plain_json(
+        PRODUCTION_ANALYSIS_AUDIT, "factor training production audit"
+    )
+    independent = authority.get("independent_audit")
+    closure = authority.get("source_closure")
+    if (
+        type(independent) is not dict
+        or independent.get("path") != str(PRODUCTION_ANALYSIS_AUDIT)
+        or independent.get("sha256") != audit_digest
+        or audit.get("schema")
+        != "causal_response_factorization_v1_training_lifecycle_independent_audit"
+        or audit.get("status") != "GO"
+        or audit.get("approved") is not True
+        or audit.get("outcome_access") is not False
+        or audit.get("remaining_execution_blockers") != []
+        or type(closure) is not dict
+        or closure.get("commit") != audit.get("audited_source_commit")
+        or closure.get("paths") != audit.get("audited_source_hashes")
+    ):
+        raise RuntimeError("factor training production authority provenance changed")
+    commit = closure["commit"]
+    resolved = subprocess.check_output(
+        ["git", "rev-parse", "--verify", f"{commit}^{{commit}}"], cwd=ROOT, text=True,
+    ).strip()
+    if resolved != commit or subprocess.run(
+        ["git", "merge-base", "--is-ancestor", commit, "origin/main"], cwd=ROOT,
+        stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,
+    ).returncode != 0:
+        raise RuntimeError("factor training production authority source is unpublished")
+    for relative, expected in closure["paths"].items():
+        if type(relative) is not str or type(expected) is not str:
+            raise RuntimeError("factor training production source closure is malformed")
+        path = ROOT / relative
+        historical = subprocess.run(
+            ["git", "show", f"{commit}:{relative}"], cwd=ROOT,
+            stdout=subprocess.PIPE, stderr=subprocess.DEVNULL,
+        )
+        if (
+            historical.returncode != 0
+            or hashlib.sha256(historical.stdout).hexdigest() != expected
+            or not path.is_file()
+            or _artifact_sha256(path) != expected
+        ):
+            raise RuntimeError(f"factor training production source changed: {relative}")
+    closure_body = {"commit": commit, "paths": closure["paths"]}
+    if closure.get("sha256") != parent._logical_sha256(closure_body):
+        raise RuntimeError("factor training production source closure identity changed")
+    expected_outputs = {
+        "authority": str(PRODUCTION_ANALYSIS_AUTHORITY),
+        "input": str(HERE / "causal_response_factorization_v1_training_input.pt"),
+        "manifest": str(HERE / "causal_response_factorization_v1_training_manifest.json"),
+        "receipt": str(PRODUCTION_TERMINAL_DIRECTORY / "receipt.json"),
+        "failure": str(PRODUCTION_TERMINAL_DIRECTORY / "failure.json"),
+        "terminal": str(PRODUCTION_TERMINAL_DIRECTORY / "terminal.json"),
+        "terminal_directory": str(PRODUCTION_TERMINAL_DIRECTORY),
+        "lock": "/workspace/runs/.causal_response_factorization_v1_training.lock",
+    }
+    if authority.get("output_paths") != expected_outputs:
+        raise RuntimeError("factor training production output namespace changed")
+    return authority
 
 
 def _validate_analysis_authority(
@@ -71,8 +180,12 @@ class OneUseFitTrainingLoader:
     ) -> None:
         if not isinstance(paths, parent.FitParentPaths):
             raise TypeError("training loader paths must be an exact FitParentPaths")
-        if require_production and train_documents != 229:
-            raise RuntimeError("production training role must contain 229 documents")
+        if require_production and (
+            train_documents != 229 or paths != parent.PRODUCTION_PATHS
+        ):
+            raise RuntimeError("production training loader requires canonical paths and 229 documents")
+        if not require_production and paths == parent.PRODUCTION_PATHS:
+            raise RuntimeError("production FIT paths cannot use the synthetic loader surface")
         self._paths = paths
         self._require_production = require_production
         self._train_documents = train_documents
@@ -86,7 +199,8 @@ class OneUseFitTrainingLoader:
         self,
         *,
         parent_binding: Mapping[str, Any],
-        analysis_authority: Mapping[str, Any],
+        analysis_authority: Mapping[str, Any] | None = None,
+        expected_analysis_authority_artifact_sha256: str | None = None,
     ) -> FitTrainingInput:
         if self._spent:
             raise RuntimeError("FIT training loader capability is already spent")
@@ -95,6 +209,16 @@ class OneUseFitTrainingLoader:
         replay_parent = parent.fit_parent_binding_without_tensor_load(self._paths)
         if replay_parent != parent_binding:
             raise RuntimeError("FIT parent changed before training tensor access")
+        if self._require_production:
+            if analysis_authority is not None or not isinstance(
+                expected_analysis_authority_artifact_sha256, str
+            ):
+                raise RuntimeError("production loader requires the canonical authority artifact")
+            analysis_authority = _production_authority(
+                expected_analysis_authority_artifact_sha256, parent_binding
+            )
+        elif analysis_authority is None or expected_analysis_authority_artifact_sha256 is not None:
+            raise RuntimeError("synthetic loader authority surface is malformed")
         _validate_analysis_authority(analysis_authority, parent_binding)
 
         bundle_record, bundle_raw = parent._stable_record(self._paths.bundle)

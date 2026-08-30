@@ -12,13 +12,17 @@ from test_causal_response_factorization_v1_fit_adapter import (
 
 
 def _redirect(monkeypatch, tmp_path):
+    terminal_directory = tmp_path / "terminal"
+    monkeypatch.setattr(lifecycle, "TERMINAL_DIR", terminal_directory)
     for name, filename in {
         "AUTHORITY": "authority.json", "INPUT": "input.pt",
-        "MANIFEST": "manifest.json", "RECEIPT": "receipt.json",
-        "FAILURE": "failure.json", "TERMINAL": "terminal.json",
+        "MANIFEST": "manifest.json",
         "AUDIT": "audit.json", "LOCK": "lock",
     }.items():
         monkeypatch.setattr(lifecycle, name, tmp_path / filename)
+    monkeypatch.setattr(lifecycle, "RECEIPT", terminal_directory / "receipt.json")
+    monkeypatch.setattr(lifecycle, "FAILURE", terminal_directory / "failure.json")
+    monkeypatch.setattr(lifecycle, "TERMINAL", terminal_directory / "terminal.json")
 
 
 def test_training_lifecycle_protocol_exposes_no_validation_or_eval():
@@ -46,7 +50,10 @@ def test_claim_rejects_replacement_and_preserves_attacker_file(monkeypatch, tmp_
     assert lifecycle.LOCK.read_text() == "attacker\n"
 
 
-def _mock_transaction(monkeypatch, tmp_path, *, loader_error=None):
+def _mock_transaction(
+    monkeypatch, tmp_path, *, loader_error=None,
+    before_loader_error=None, after_input_publish=None,
+):
     _redirect(monkeypatch, tmp_path)
     payload, value = _analysis_input()
     fit_parent = _parent_binding(payload)
@@ -67,12 +74,18 @@ def _mock_transaction(monkeypatch, tmp_path, *, loader_error=None):
     events = []
 
     class FakeLoader:
-        def load_once(self, *, parent_binding, analysis_authority):
+        def load_once(
+            self, *, parent_binding, expected_analysis_authority_artifact_sha256
+        ):
             assert lifecycle.AUTHORITY.exists()
             assert parent_binding == fit_parent
-            assert analysis_authority["authorized_for_training_input"] is True
+            assert expected_analysis_authority_artifact_sha256 == lifecycle.file_sha256(
+                lifecycle.AUTHORITY
+            )
             events.append("loader_after_authority")
             if loader_error is not None:
+                if before_loader_error is not None:
+                    before_loader_error()
                 raise loader_error
             return value
 
@@ -81,6 +94,8 @@ def _mock_transaction(monkeypatch, tmp_path, *, loader_error=None):
     def fake_publish(path, built, *, before_link, **_kwargs):
         before_link()
         path.write_bytes(b"synthetic training input")
+        if after_input_publish is not None:
+            after_input_publish()
         return hashlib.sha256(path.read_bytes()).hexdigest()
 
     def fake_replay(path, **_kwargs):
@@ -135,3 +150,79 @@ def test_spent_namespace_prevents_second_execution(monkeypatch, tmp_path):
     lifecycle.execute_training_input_v1()
     with pytest.raises(RuntimeError, match="namespace is spent"):
         lifecycle.execute_training_input_v1()
+
+
+def test_input_drift_after_manifest_cannot_publish_success(monkeypatch, tmp_path):
+    _mock_transaction(monkeypatch, tmp_path)
+    original = lifecycle._publish_json
+
+    def publish_then_mutate(value, target, guard):
+        digest = original(value, target, guard)
+        if target == lifecycle.MANIFEST:
+            lifecycle.INPUT.write_bytes(b"mutated after manifest")
+        return digest
+
+    monkeypatch.setattr(lifecycle, "_publish_json", publish_then_mutate)
+    with pytest.raises(RuntimeError, match="changed before receipt"):
+        lifecycle.execute_training_input_v1()
+    assert lifecycle.FAILURE.is_file() and lifecycle.TERMINAL.is_file()
+    assert not lifecycle.RECEIPT.exists()
+
+
+def test_failed_success_terminal_rename_falls_back_to_complete_failure_pair(
+    monkeypatch, tmp_path,
+):
+    _mock_transaction(monkeypatch, tmp_path)
+    original = lifecycle.os.rename
+    injected = {"done": False}
+
+    def fail_success_once(source, target):
+        if target == lifecycle.TERMINAL_DIR and not injected["done"]:
+            injected["done"] = True
+            raise OSError("injected success terminal rename failure")
+        return original(source, target)
+
+    monkeypatch.setattr(lifecycle.os, "rename", fail_success_once)
+    with pytest.raises(OSError, match="injected"):
+        lifecycle.execute_training_input_v1()
+    assert lifecycle.FAILURE.is_file() and lifecycle.TERMINAL.is_file()
+    assert os.stat(lifecycle.FAILURE).st_ino == os.stat(lifecycle.TERMINAL).st_ino
+    assert not lifecycle.RECEIPT.exists()
+
+
+def test_mutated_authority_failure_binds_current_bytes_not_stale_digest(
+    monkeypatch, tmp_path,
+):
+    def mutate_authority():
+        lifecycle.AUTHORITY.write_text('{"mutated":true}\n')
+
+    _mock_transaction(
+        monkeypatch, tmp_path,
+        loader_error=RuntimeError("synthetic post-authority failure"),
+        before_loader_error=mutate_authority,
+    )
+    with pytest.raises(RuntimeError, match="post-authority"):
+        lifecycle.execute_training_input_v1()
+    failure, _ = lifecycle.stable_json(lifecycle.FAILURE)
+    current = lifecycle.file_sha256(lifecycle.AUTHORITY)
+    assert failure["protected_observation"]["authority"]["sha256"] == current
+    assert failure["attempt_authority_artifact_sha256"] != current
+
+
+def test_source_drift_after_input_link_cannot_publish_success(monkeypatch, tmp_path):
+    state = {"drifted": False}
+    _mock_transaction(
+        monkeypatch, tmp_path, after_input_publish=lambda: state.update(drifted=True)
+    )
+    original = lifecycle.source_closure
+
+    def drifting_closure(commit):
+        value = original(commit)
+        if not state["drifted"]:
+            return value
+        return {**value, "sha256": "f" * 64}
+
+    monkeypatch.setattr(lifecycle, "source_closure", drifting_closure)
+    with pytest.raises(RuntimeError, match="protected state changed"):
+        lifecycle.execute_training_input_v1()
+    assert lifecycle.FAILURE.is_file() and not lifecycle.RECEIPT.exists()

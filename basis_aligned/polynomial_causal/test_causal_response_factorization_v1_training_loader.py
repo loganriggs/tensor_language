@@ -201,3 +201,10 @@ def test_loader_has_no_validation_eval_model_or_corpus_surface():
     assert not any("validation" in name for name in public)
     assert not any("eval" in name for name in public)
     assert not any("model" in name or "corpus" in name for name in public)
+
+
+def test_synthetic_loader_cannot_target_exact_production_paths():
+    with pytest.raises(RuntimeError, match="production FIT paths"):
+        loader.OneUseFitTrainingLoader(
+            parent.PRODUCTION_PATHS, require_production=False, train_documents=3
+        )
