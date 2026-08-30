@@ -1,0 +1,391 @@
+{
+  "arms": [
+    "EMPTY",
+    "TT",
+    "X",
+    "TT+X",
+    "CC",
+    "TT+CC",
+    "X+CC",
+    "TT+X+CC"
+  ],
+  "branches": {
+    "CC": "context-context numerator",
+    "TT": "token-token numerator with shared RMS scale",
+    "X": "token-context plus context-token cross numerator"
+  },
+  "checkpoint": {
+    "config_sha256": "428042bfd807ba36f8b4326395440fbbebe52cd3d040212e6fef14a4fdf2d83c",
+    "logit_vocab": 50304,
+    "revision": "ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240",
+    "snapshot": "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240",
+    "tokenizer_vocab": 50257,
+    "weights_bytes": 2067738635,
+    "weights_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3"
+  },
+  "claim_boundary": "No-fit algebraic and causal branch census on already-opened FIT/SELECT; native MLP0 oracle used in every arm; no executable compression, FINAL, OOD, semantic, extraction, removal, or promotion claim.",
+  "documents": {
+    "FINAL_opened": 0,
+    "FIT": 96,
+    "SELECT": 96
+  },
+  "parents": {
+    "preregistration_sha256": "a94a1d74bab4a40fa2eac3784c998c08fd4f25b78b1dce34d909466a00e047ce",
+    "rows_receipt_sha256": "ce4a6f8eeb20840711bb20677ff8310f1a39db55b50106face1157cd2feeef7f",
+    "runner_sha256": "0d47c559824d4d42c0b09e681d2965b8a4d2c0c389995fb4777b766d7d8c1545"
+  },
+  "positions_per_document": 192,
+  "roles": {
+    "FIT": {
+      "branch_gram_correlations": [
+        [
+          1.0,
+          -0.33862390148815363,
+          0.4078982144207729
+        ],
+        [
+          -0.33862390148815363,
+          1.0000000000000002,
+          -0.3857972303683237
+        ],
+        [
+          0.4078982144207729,
+          -0.3857972303683237,
+          1.0
+        ]
+      ],
+      "branch_gram_per_token": [
+        [
+          1579235839.837177,
+          -402770412.1293537,
+          396218377.02919644
+        ],
+        [
+          -402770412.1293537,
+          895845071.9012189,
+          -282250600.62541395
+        ],
+        [
+          396218377.02919644,
+          -282250600.62541395,
+          597473475.153749
+        ]
+      ],
+      "calls": {
+        "CC": {
+          "attention": 432,
+          "forwards": 24,
+          "native_down": 24,
+          "native_left": 24,
+          "native_right": 24,
+          "other_mlp": 408,
+          "site0": 24
+        },
+        "EMPTY": {
+          "attention": 432,
+          "forwards": 24,
+          "native_down": 24,
+          "native_left": 24,
+          "native_right": 24,
+          "other_mlp": 408,
+          "site0": 24
+        },
+        "TT": {
+          "attention": 432,
+          "forwards": 24,
+          "native_down": 24,
+          "native_left": 24,
+          "native_right": 24,
+          "other_mlp": 408,
+          "site0": 24
+        },
+        "TT+CC": {
+          "attention": 432,
+          "forwards": 24,
+          "native_down": 24,
+          "native_left": 24,
+          "native_right": 24,
+          "other_mlp": 408,
+          "site0": 24
+        },
+        "TT+X": {
+          "attention": 432,
+          "forwards": 24,
+          "native_down": 24,
+          "native_left": 24,
+          "native_right": 24,
+          "other_mlp": 408,
+          "site0": 24
+        },
+        "TT+X+CC": {
+          "attention": 432,
+          "forwards": 24,
+          "native_down": 24,
+          "native_left": 24,
+          "native_right": 24,
+          "other_mlp": 408,
+          "site0": 24
+        },
+        "X": {
+          "attention": 432,
+          "forwards": 24,
+          "native_down": 24,
+          "native_left": 24,
+          "native_right": 24,
+          "other_mlp": 408,
+          "site0": 24
+        },
+        "X+CC": {
+          "attention": 432,
+          "forwards": 24,
+          "native_down": 24,
+          "native_left": 24,
+          "native_right": 24,
+          "other_mlp": 408,
+          "site0": 24
+        }
+      },
+      "diagnostics": {
+        "analytical_branch_sum_relative_mse_vs_deployed_bf16": 5.472943779653854e-06,
+        "analytical_branch_sum_relative_mse_vs_float32_direct": 3.1069833894174883e-13,
+        "maximum_state_collinearity_relative_mse": 1.0316976840840653e-05,
+        "mean_state_collinearity_relative_mse": 5.889218338476591e-06
+      },
+      "document_shapley_ce_benefit": {
+        "CC": {
+          "bootstrap_95_high": 1.216515480230252,
+          "bootstrap_95_low": 1.1142180270204942,
+          "documents": 96,
+          "draws": 20000,
+          "mean": 1.1650524915506442
+        },
+        "TT": {
+          "bootstrap_95_high": 0.994817642805477,
+          "bootstrap_95_low": 0.8755899723619223,
+          "documents": 96,
+          "draws": 20000,
+          "mean": 0.934767311749359
+        },
+        "X": {
+          "bootstrap_95_high": 0.4493512676563114,
+          "bootstrap_95_low": 0.3759425775303195,
+          "documents": 96,
+          "draws": 20000,
+          "mean": 0.4124289049844568
+        }
+      },
+      "full_minus_empty_ce_benefit": 2.5122487097978596,
+      "mobius_dividends_of_negative_ce": {
+        "CC": 2.2386686975757284,
+        "EMPTY": -5.576495627562205,
+        "TT": 0.6440318996707601,
+        "TT+CC": -1.1359986811876301,
+        "TT+X": 1.7064039682348566,
+        "TT+X+CC": 0.01659830411275376,
+        "X": 0.06484378377596567,
+        "X+CC": -1.022299262384574
+      },
+      "pooled_ce": {
+        "CC": 3.337826929986477,
+        "EMPTY": 5.576495627562205,
+        "TT": 4.932463727891445,
+        "TT+CC": 3.829793711503347,
+        "TT+X": 3.161215975880623,
+        "TT+X+CC": 3.0642469177643457,
+        "X": 5.51165184378624,
+        "X+CC": 4.295282408595085
+      },
+      "pooled_shapley_ce_benefit": {
+        "CC": 1.1650524938272107,
+        "TT": 0.9347673112319577,
+        "X": 0.4124289047386913
+      }
+    },
+    "SELECT": {
+      "branch_gram_correlations": [
+        [
+          1.0,
+          -0.3392533915082504,
+          0.40777483631372335
+        ],
+        [
+          -0.3392533915082504,
+          1.0,
+          -0.38708605944295577
+        ],
+        [
+          0.40777483631372335,
+          -0.38708605944295577,
+          1.0
+        ]
+      ],
+      "branch_gram_per_token": [
+        [
+          1564735173.2225676,
+          -403786150.90196735,
+          395823262.2101273
+        ],
+        [
+          -403786150.90196735,
+          905343937.506824,
+          -285808275.10615313
+        ],
+        [
+          395823262.2101273,
+          -285808275.10615313,
+          602172527.8018916
+        ]
+      ],
+      "calls": {
+        "CC": {
+          "attention": 432,
+          "forwards": 24,
+          "native_down": 24,
+          "native_left": 24,
+          "native_right": 24,
+          "other_mlp": 408,
+          "site0": 24
+        },
+        "EMPTY": {
+          "attention": 432,
+          "forwards": 24,
+          "native_down": 24,
+          "native_left": 24,
+          "native_right": 24,
+          "other_mlp": 408,
+          "site0": 24
+        },
+        "TT": {
+          "attention": 432,
+          "forwards": 24,
+          "native_down": 24,
+          "native_left": 24,
+          "native_right": 24,
+          "other_mlp": 408,
+          "site0": 24
+        },
+        "TT+CC": {
+          "attention": 432,
+          "forwards": 24,
+          "native_down": 24,
+          "native_left": 24,
+          "native_right": 24,
+          "other_mlp": 408,
+          "site0": 24
+        },
+        "TT+X": {
+          "attention": 432,
+          "forwards": 24,
+          "native_down": 24,
+          "native_left": 24,
+          "native_right": 24,
+          "other_mlp": 408,
+          "site0": 24
+        },
+        "TT+X+CC": {
+          "attention": 432,
+          "forwards": 24,
+          "native_down": 24,
+          "native_left": 24,
+          "native_right": 24,
+          "other_mlp": 408,
+          "site0": 24
+        },
+        "X": {
+          "attention": 432,
+          "forwards": 24,
+          "native_down": 24,
+          "native_left": 24,
+          "native_right": 24,
+          "other_mlp": 408,
+          "site0": 24
+        },
+        "X+CC": {
+          "attention": 432,
+          "forwards": 24,
+          "native_down": 24,
+          "native_left": 24,
+          "native_right": 24,
+          "other_mlp": 408,
+          "site0": 24
+        }
+      },
+      "diagnostics": {
+        "analytical_branch_sum_relative_mse_vs_deployed_bf16": 5.479347258844788e-06,
+        "analytical_branch_sum_relative_mse_vs_float32_direct": 3.1113248520608713e-13,
+        "maximum_state_collinearity_relative_mse": 1.0563462637946941e-05,
+        "mean_state_collinearity_relative_mse": 5.88669954974345e-06
+      },
+      "document_shapley_ce_benefit": {
+        "CC": {
+          "bootstrap_95_high": 1.2287034541368484,
+          "bootstrap_95_low": 1.1277074882139762,
+          "documents": 96,
+          "draws": 20000,
+          "mean": 1.177809111153086
+        },
+        "TT": {
+          "bootstrap_95_high": 0.9816288224731883,
+          "bootstrap_95_low": 0.8761162351196011,
+          "documents": 96,
+          "draws": 20000,
+          "mean": 0.9280737275257707
+        },
+        "X": {
+          "bootstrap_95_high": 0.43899746883350116,
+          "bootstrap_95_low": 0.3633568996253113,
+          "documents": 96,
+          "draws": 20000,
+          "mean": 0.4007757963457455
+        }
+      },
+      "full_minus_empty_ce_benefit": 2.5066586335500083,
+      "mobius_dividends_of_negative_ce": {
+        "CC": 2.262918258706729,
+        "EMPTY": -5.4662592361370725,
+        "TT": 0.635995003084342,
+        "TT+CC": -1.15367811669906,
+        "TT+X": 1.7215755743285013,
+        "TT+X+CC": 0.024389988432328646,
+        "X": 0.048258100946744875,
+        "X+CC": -1.0328001752495775
+      },
+      "pooled_ce": {
+        "CC": 3.2033409774303436,
+        "EMPTY": 5.4662592361370725,
+        "TT": 4.830264233052731,
+        "TT+CC": 3.7210240910450616,
+        "TT+X": 3.0604305577774844,
+        "TT+X+CC": 2.9596006025870643,
+        "X": 5.418001135190328,
+        "X+CC": 4.187883051733176
+      },
+      "pooled_shapley_ce_benefit": {
+        "CC": 1.17780910887652,
+        "TT": 0.9280737280431721,
+        "X": 0.4007757966303163
+      }
+    }
+  },
+  "runtime_seconds": 44.69419622421265,
+  "schema": "mlp0_token_context_tensor_factorial_discovery_v1",
+  "status": "discovery_complete",
+  "transport": {
+    "shapley_rank_order_fit": [
+      "CC",
+      "TT",
+      "X"
+    ],
+    "shapley_rank_order_matches": true,
+    "shapley_rank_order_select": [
+      "CC",
+      "TT",
+      "X"
+    ],
+    "shapley_sign_matches": {
+      "CC": true,
+      "TT": true,
+      "X": true
+    }
+  }
+}

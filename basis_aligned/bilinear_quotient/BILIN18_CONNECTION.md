@@ -60077,3 +60077,28 @@ several — §1954 and §1950 at 0.011, §1958 and §1959 and §1952 at 0.010. *
 now the mechanism §2052 stumbled into: two axes agree that table rank above 768 fails to transfer, and
 §2044 found the failure growing with coverage.** Whether 768 is a property of the model or of the fit-set
 size is one arm, and it bears on every table in the program.
+
+## §2053 — 768 is a property of the MODEL, not of the fit set: my registered expectation was wrong
+
+`ops/is_768_the_model_or_the_fit_set.py`, **9.3s** warm, **DISCOVERY ONLY**, both coverages, rung 3 —
+§2052's open question. **pred_a True | pred_b True | pred_c False | pred_d False | derived controls
+True.** No crashed predicates in the scored run. (Its first attempt raised on a helper that dropped an
+argument; the LESSON 103 machinery refused rather than scoring three Falses.)
+
+> **pred_b PASSED: rank 1024 loses to 768 at BOTH coverages on fresh rows**, so §2052's finding is not
+> coverage-specific.
+
+> **pred_c and pred_d both FAILED, and together they choose the reading I bet against. I registered the
+> fit-set explanation** — that 768 is where 480 documents run out, so the optimum should sit lower at
+> 5,419 and the excess-rank penalty should shrink with more fit data. **Neither holds.** The optimum sits
+> at the same rank at both coverages, and the penalty for rank 1024 does not shrink when the fit set
+> triples. **768 is a property of bilin18's tables, not of how much data was used to estimate them.**
+
+**Which is the more useful answer, and it closes the line.** If 768 had been a fit-set limit, the fix would
+have been more fit documents. It is not: **the tables have about that much structure and rank above it is
+noise the fit picks up and the fresh rows reject.** Three measurements now agree — §2020's untruncation to
+1152 (−11.578), §2052's uniform 1024 (−17.054), and §2053's coverage invariance — and **§1947 and §1959
+chose 768 for reasons that turn out to be right for a reason they did not know.**
+
+**Open.** Nothing further on this axis: the rank is settled, the boundary is bracketed at [3.3, 11.8], and
+the build of record stands. **Lane priority now moves to the circuit task.**
