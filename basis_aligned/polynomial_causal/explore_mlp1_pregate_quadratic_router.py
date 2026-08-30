@@ -129,10 +129,12 @@ def explicit_randomized_signed_factors(
 
 def implicit_quadratic_factors(
     left: torch.Tensor, right: torch.Tensor, encoder: torch.Tensor,
-) -> tuple[torch.Tensor, torch.Tensor]:
+) -> tuple[torch.Tensor, torch.Tensor, dict[str, float]]:
     """Factor Q_a=.5(L' diag(e_a) R + R' diag(e_a) L) without materializing Q."""
 
     factors, values = [], []
+    maximum_relative_residual = 0.0
+    maximum_orthogonality_error = 0.0
     for start in range(0, len(encoder), ATOM_BATCH):
         weights = encoder[start:start + ATOM_BATCH]
 
@@ -146,9 +148,22 @@ def implicit_quadratic_factors(
         u, lam = _randomized_signed_factors(
             matvec, len(weights), D, MAX_RANK, left.device, 31_000 + start,
         )
+        qu = matvec(u)
+        residual = (qu - u * lam[:, None, :]).norm(dim=(1, 2)) \
+            / qu.norm(dim=(1, 2)).clamp_min(1e-30)
+        gram = u.transpose(1, 2) @ u
+        identity = torch.eye(MAX_RANK, device=u.device)[None]
+        orthogonality = (gram - identity).abs().amax(dim=(1, 2))
+        maximum_relative_residual = max(maximum_relative_residual, float(residual.max()))
+        maximum_orthogonality_error = max(
+            maximum_orthogonality_error, float(orthogonality.max()),
+        )
         factors.append(u.cpu()); values.append(lam.cpu())
         print(f"factored atoms {start}:{start + len(weights)}", flush=True)
-    return torch.cat(factors), torch.cat(values)
+    return torch.cat(factors), torch.cat(values), {
+        "maximum_relative_ritz_residual": maximum_relative_residual,
+        "maximum_orthogonality_error": maximum_orthogonality_error,
+    }
 
 
 def quadratic_scores(
@@ -156,7 +171,10 @@ def quadratic_scores(
 ) -> torch.Tensor:
     """Evaluate all signed low-rank x'Q_a x scores."""
 
-    projections = torch.einsum("nd,ard->nar", states.float(), factors[:, :rank])
+    if factors.ndim != 3 or factors.shape[1] != states.shape[1] \
+            or values.shape != (factors.shape[0], factors.shape[2]):
+        raise ValueError("quadratic factor/state/value shapes disagree")
+    projections = torch.einsum("nd,adr->nar", states.float(), factors[:, :, :rank])
     return (projections.square() * values[:, :rank]).sum(-1)
 
 
@@ -199,30 +217,60 @@ def capture_states(
 def route_metrics(
     states: torch.Tensor, left: torch.Tensor, right: torch.Tensor,
     encoder: torch.Tensor, factors: torch.Tensor, values: torch.Tensor,
-    device: torch.device,
+    decoder: torch.Tensor, intercept: torch.Tensor, device: torch.device,
 ) -> dict[str, dict[str, float]]:
-    accum = {rank: {"sse": 0.0, "den": 0.0, "intersection": 0, "top1": 0, "rows": 0}
+    accum = {rank: {
+        "sse": 0.0, "den": 0.0, "intersection": 0, "top1": 0, "rows": 0,
+        "positive_exact": 0, "positive_approximate": 0, "positive_intersection": 0,
+        "code_sse": 0.0, "code_den": 0.0, "write_sse": 0.0, "write_den": 0.0,
+    }
              for rank in RANKS}
     for start in range(0, len(states), STATE_CHUNK):
         x = states[start:start + STATE_CHUNK].to(device)
         exact = ((x @ left.T) * (x @ right.T)) @ encoder.T
-        exact_top = exact.topk(K, dim=1).indices
+        exact_values, exact_top = exact.topk(K, dim=1)
         exact_top1 = exact.argmax(1)
+        exact_code = sparse.topk_relu(exact)
+        exact_write = exact_code @ decoder.T + intercept
         for rank in RANKS:
             approximate = quadratic_scores(x, factors, values, rank)
-            top = approximate.topk(K, dim=1).indices
+            approximate_values, top = approximate.topk(K, dim=1)
             intersection = (top[:, :, None] == exact_top[:, None, :]).any(2).sum()
+            exact_positive = exact_values > 0
+            approximate_positive = approximate_values > 0
+            positive_matches = (
+                (top[:, :, None] == exact_top[:, None, :])
+                & approximate_positive[:, :, None]
+                & exact_positive[:, None, :]
+            ).any(2).sum()
+            approximate_code = sparse.topk_relu(approximate)
+            approximate_write = approximate_code @ decoder.T + intercept
             item = accum[rank]
             item["sse"] += float((approximate.double() - exact.double()).square().sum())
             item["den"] += float(exact.double().square().sum())
             item["intersection"] += int(intersection)
             item["top1"] += int((approximate.argmax(1) == exact_top1).sum())
+            item["positive_exact"] += int(exact_positive.sum())
+            item["positive_approximate"] += int(approximate_positive.sum())
+            item["positive_intersection"] += int(positive_matches)
+            item["code_sse"] += float((approximate_code.double() - exact_code.double()).square().sum())
+            item["code_den"] += float(exact_code.double().square().sum())
+            item["write_sse"] += float((approximate_write.double() - exact_write.double()).square().sum())
+            item["write_den"] += float(exact_write.double().square().sum())
             item["rows"] += len(x)
     return {
         str(rank): {
             "relative_score_mse": item["sse"] / max(item["den"], 1e-30),
             "topk_recall": item["intersection"] / (item["rows"] * K),
             "top1_agreement": item["top1"] / item["rows"],
+            "positive_topk_recall": item["positive_intersection"] / max(item["positive_exact"], 1),
+            "positive_topk_precision": item["positive_intersection"] / max(item["positive_approximate"], 1),
+            "positive_topk_jaccard": item["positive_intersection"] / max(
+                item["positive_exact"] + item["positive_approximate"]
+                - item["positive_intersection"], 1,
+            ),
+            "relative_routed_code_mse": item["code_sse"] / max(item["code_den"], 1e-30),
+            "relative_frozen_decoder_write_mse": item["write_sse"] / max(item["write_den"], 1e-30),
         }
         for rank, item in accum.items()
     }
@@ -237,45 +285,69 @@ def physical_ce(
     arms = ("NATIVE", "ZERO", "P512_EXACT", *(f"Q_RANK_{rank}" for rank in RANKS))
     sums = {arm: 0.0 for arm in arms}; counts = {arm: 0 for arm in arms}
     calls = {arm: {"forwards": 0, "attention": 0, "site1_native": 0,
-                   "site1_replacement": 0, "other_mlp": 0} for arm in arms}
+                   "site1_replacement": 0, "other_mlp": 0,
+                   "native_left": 0, "native_right": 0, "native_down": 0}
+             for arm in arms}
     factors = factors.to(device); values = values.to(device)
-    for start in range(0, len(rows), DOCUMENT_BATCH):
-        batch = rows[start:start + DOCUMENT_BATCH]
-        tokens = batch[:, :-1].to(device); targets = batch[:, 1:].to(device)
-        for arm in arms:
-            def attention(event: facade.AttentionEvent, arm=arm):
-                calls[arm]["attention"] += 1
-                return event.block.attn(event.state, event.first_value)
+    current_arm = {"name": None}
 
-            def mlp(event: facade.EarlyMLPEvent, arm=arm):
-                if event.site != 1:
-                    calls[arm]["other_mlp"] += 1
-                    return event.block.mlp(event.state)
-                if arm == "NATIVE":
-                    calls[arm]["site1_native"] += 1
-                    return event.block.mlp(event.state)
-                calls[arm]["site1_replacement"] += 1
-                if arm == "ZERO":
-                    action = torch.zeros_like(event.state)
-                elif arm == "P512_EXACT":
-                    gate = event.block.mlp.Left(event.state) * event.block.mlp.Right(event.state)
-                    action = exact_program(gate)
-                else:
-                    rank = int(arm.rsplit("_", 1)[1])
-                    flat = event.state.float().reshape(-1, D)
-                    scores = quadratic_scores(flat, factors, values, rank)
-                    action = (
-                        sparse.topk_relu(scores) @ decoder.T + intercept
-                    ).reshape_as(event.state).to(event.state.dtype)
-                return action + event.block.mlp.Down_bias
+    def count_submodule(name: str):
+        def hook(_module, _inputs, _output):
+            arm = current_arm["name"]
+            if arm is None:
+                raise RuntimeError("native MLP1 submodule called outside a scored arm")
+            calls[arm][name] += 1
+        return hook
 
-            logits = facade.forward_with_dispatch(model, tokens, attention, mlp)
-            loss = F.cross_entropy(
-                logits[:, SCORING].reshape(-1, logits.shape[-1]),
-                targets[:, SCORING].reshape(-1), reduction="sum",
-            )
-            sums[arm] += float(loss); counts[arm] += targets[:, SCORING].numel()
-            calls[arm]["forwards"] += 1
+    hooks = [
+        model.transformer.h[1].mlp.Left.register_forward_hook(count_submodule("native_left")),
+        model.transformer.h[1].mlp.Right.register_forward_hook(count_submodule("native_right")),
+        model.transformer.h[1].mlp.Down.register_forward_hook(count_submodule("native_down")),
+    ]
+    try:
+        for start in range(0, len(rows), DOCUMENT_BATCH):
+            batch = rows[start:start + DOCUMENT_BATCH]
+            tokens = batch[:, :-1].to(device); targets = batch[:, 1:].to(device)
+            for arm in arms:
+                current_arm["name"] = arm
+                def attention(event: facade.AttentionEvent, arm=arm):
+                    calls[arm]["attention"] += 1
+                    return event.block.attn(event.state, event.first_value)
+
+                def mlp(event: facade.EarlyMLPEvent, arm=arm):
+                    if event.site != 1:
+                        calls[arm]["other_mlp"] += 1
+                        return event.block.mlp(event.state)
+                    if arm == "NATIVE":
+                        calls[arm]["site1_native"] += 1
+                        return event.block.mlp(event.state)
+                    calls[arm]["site1_replacement"] += 1
+                    if arm == "ZERO":
+                        action = torch.zeros_like(event.state)
+                    elif arm == "P512_EXACT":
+                        gate = event.block.mlp.Left(event.state) * event.block.mlp.Right(event.state)
+                        action = exact_program(gate)
+                    else:
+                        rank = int(arm.rsplit("_", 1)[1])
+                        flat = event.state.float().reshape(-1, D)
+                        scores = quadratic_scores(flat, factors, values, rank)
+                        action = (
+                            sparse.topk_relu(scores) @ decoder.T + intercept
+                        ).reshape_as(event.state).to(event.state.dtype)
+                    return action + event.block.mlp.Down_bias
+
+                logits = facade.forward_with_dispatch(model, tokens, attention, mlp)
+                loss = F.cross_entropy(
+                    logits[:, SCORING].reshape(-1, logits.shape[-1]),
+                    targets[:, SCORING].reshape(-1), reduction="sum",
+                )
+                sums[arm] += float(loss); counts[arm] += targets[:, SCORING].numel()
+                calls[arm]["forwards"] += 1
+                current_arm["name"] = None
+    finally:
+        current_arm["name"] = None
+        for hook in hooks:
+            hook.remove()
     expected = len(rows) // DOCUMENT_BATCH
     for arm in arms:
         wanted = {
@@ -283,6 +355,9 @@ def physical_ce(
             "site1_native": expected if arm == "NATIVE" else 0,
             "site1_replacement": 0 if arm == "NATIVE" else expected,
             "other_mlp": 17 * expected,
+            "native_left": expected if arm in ("NATIVE", "P512_EXACT") else 0,
+            "native_right": expected if arm in ("NATIVE", "P512_EXACT") else 0,
+            "native_down": expected if arm == "NATIVE" else 0,
         }
         if calls[arm] != wanted:
             raise RuntimeError(f"physical CE census changed for {arm}: {calls[arm]}")
@@ -310,11 +385,14 @@ def main() -> None:
     encoder = state["encoder"].to(device)
     decoder = state["decoder"].to(device)
     intercept = state["intercept"].to(device)
-    factors, values = implicit_quadratic_factors(left, right, encoder)
+    factors, values, factorization_diagnostics = implicit_quadratic_factors(
+        left, right, encoder,
+    )
     exact_program = sparse.SparseDownProgram(state, device).eval()
     states, capture_calls = capture_states(model, rows, device)
     metrics = route_metrics(
-        states, left, right, encoder, factors.to(device), values.to(device), device,
+        states, left, right, encoder, factors.to(device), values.to(device),
+        decoder, intercept, device,
     )
     ce, score_calls = physical_ce(
         model, rows, exact_program, factors, values, decoder, intercept, device,
@@ -335,10 +413,13 @@ def main() -> None:
             "ranks": list(RANKS), "oversample": OVERSAMPLE,
             "power_iterations_on_q_squared": POWER_ITERS,
             "signed_largest_magnitude_eigenmodes": True,
+            "grammar": "signed symmetric matrix-eigenrank; one stored vector and eigenvalue per mode",
+            "metric": "coefficient Frobenius control, not empirical fourth-moment optimum",
             "quadratics_materialized": False,
         },
         "documents": {"SELECT": len(rows), "FINAL_opened": 0},
         "route_metrics": metrics,
+        "factorization_diagnostics": factorization_diagnostics,
         "physical_ce": ce,
         "prices": {str(rank): router_price(rank) for rank in RANKS},
         "calls": {"capture": capture_calls, "score": score_calls},

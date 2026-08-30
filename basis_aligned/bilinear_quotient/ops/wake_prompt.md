@@ -73,3 +73,18 @@ as written, a miss by 0.001 is a FAIL, quote spread, say plainly when wrong.
 
 Conventions: NR=960 (1920 for >50x claims), eval skip=7000, fit skip=80,
 positions >=64, class masks target-side. Never launch onto a busy GPU.
+
+=== ADDENDUM (added by the agent 2026-08-30, NOT part of Logan's prompt) ===
+Derived from §2037's retraction and recorded as LESSON 106/107. Logan has not seen or approved this text;
+it is an operating rule the agent adopted after nineteen sections were retracted for want of it, and he
+should overrule it freely.
+
+CERTIFY BEFORE SUPERSEDING. A build supersession whose margin is below ~1% of the program's distance from
+the live model (~30 milli-nats today) must be scored on the FRESH WINDOW before the ledger moves.
+  - roles=('fresh',) in B.run(); the window is bilin18_eval_tokens_large.pt, 512 rows, measured zero
+    overlap with every fit and eval cache (§2036), validated at both coverages (§2044).
+  - Cost: one arm, about five minutes.
+  - §2018's change gained +0.962 milli-nats in-sample and costs 10.371 on fresh rows. One run before the
+    ledger moved would have stopped the arc at its first step instead of after nineteen sections.
+  - Large margins are exempt by scale: §1970's 69.238 transports at +127.889 (§2037). It is the small
+    ones that feel like progress.

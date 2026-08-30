@@ -1,0 +1,28 @@
+DOES ONE BUILD STILL SUFFICE FRESH | 5 arms x 2 coverage(s) | DISCOVERY ONLY
+
+########## COVERAGE 5419 ##########
+  [bqlib] coverage 5419 from fineweb_n96_skip80.pt: 36 tables, neighbour index and map solver built (4s)
+  [bqlib] cache HIT  live     fresh
+  [bqlib] cache HIT  mix30m640 fresh
+  [bqlib] cache HIT  mix30m640 fresh
+  [bqlib] cache HIT  mix30m512 fresh
+  [bqlib] cache HIT  map512   fresh
+  [bqlib] cache HIT  mix30m640 fresh
+
+########## COVERAGE 16110 ##########
+  [bqlib] coverage 16110 from fineweb_n480_skip80.pt: 36 tables, neighbour index and map solver built (5s)
+  [bqlib] cache HIT  live     fresh
+  [bqlib] cache HIT  mix30m640 fresh
+  [bqlib] computed   mix30m640 fresh (3.5s)
+  [bqlib] computed   mix30m512 fresh (3.5s)
+  [bqlib] cache HIT  map512   fresh
+  [bqlib] cache HIT  mix30m640 fresh
+
+  §1959's build beats both alternatives at 5,419 on fresh rows  -> True
+  and beats both at 16,110 too -- where §2024 found the coverages disagreeing  -> True
+  and it is within §1960's own 0.002-nat bar of the best arm at both coverages  -> True
+  and its margin over the better alternative exceeds a third of a milli-nat at both coverages  -> False
+  derived controls -> True   coverage_exact=True  inert_pairs_are_inert=True  some_differing_pair_moves=True  buckets_partition=True  live_identical=True
+
+pred_a True | pred_b True | pred_c True | pred_d False | pred_z True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/does_one_build_still_suffice_fresh_results.json (200.5s)

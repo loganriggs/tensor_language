@@ -1,0 +1,14 @@
+{
+  "schema": "mlp1_pregate_quadratic_router_discovery_v1_failure",
+  "status": "implementation_failure_preserved",
+  "timestamp_utc": "2026-08-30T03:13:22Z",
+  "runner_sha256": "8a6e5269d84c698210970f97f245babc9558a03d41e4d6e6fc017f6e504c9eb4",
+  "stage": "after all 512 implicit coefficient-Frobenius factorizations and SELECT-state capture, before route metrics or physical CE",
+  "error_type": "RuntimeError",
+  "error": "einsum subscript d had factor-axis size 8 instead of state-axis size 1152",
+  "cause": "quadratic_scores labeled factors [atom,state,rank] as [atom,rank,state]",
+  "scientific_outcome": null,
+  "final_opened": false,
+  "result_published": false,
+  "recovery_scope": "one-axis-label correction plus a non-square known-answer test; no rank, metric, data, or model change"
+}

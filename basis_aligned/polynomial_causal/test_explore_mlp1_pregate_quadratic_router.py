@@ -46,6 +46,18 @@ def test_quadratic_score_uses_signed_modes():
     assert torch.equal(score, torch.tensor([[2.0 - 12.0 + 8.0]]))
 
 
+def test_quadratic_score_axis_contract_is_not_hidden_by_square_toy():
+    factors = torch.tensor([
+        [[1.0, 0.0], [0.0, 1.0], [2.0, -1.0]],
+        [[0.5, 1.0], [1.0, 0.0], [0.0, 2.0]],
+    ])  # [atom=2,state=3,rank=2]
+    values = torch.tensor([[2.0, -1.0], [3.0, 0.5]])
+    states = torch.tensor([[1.0, 2.0, -1.0]])
+    projected = torch.einsum("nd,adr->nar", states, factors)
+    expected = (projected.square() * values).sum(-1)
+    assert torch.equal(subject.quadratic_scores(states, factors, values, 2), expected)
+
+
 def test_rank8_price_is_a_genuine_full_mlp_simplification():
     price = subject.router_price(8)
     assert price["bias_folded_stored_reals"] == 5_313_664

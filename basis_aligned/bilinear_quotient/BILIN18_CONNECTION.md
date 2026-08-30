@@ -59908,3 +59908,41 @@ them. The largest remaining is **§1960's "one build suffices"** — that a sing
 nats of the coverage-specific optimum at both coverages, decided on a 3.0 milli-nat margin. **§2024 has
 already found one parameter where the two coverages disagree**, so the claim is under pressure from
 inside the ledger as well as from §2037's method.
+
+## §2048 — one build does suffice on fresh rows, but its map-rank margin at 16,110 is +0.115 milli-nats
+
+`ops/does_one_build_still_suffice_fresh.py`, **200.5s**, **DISCOVERY ONLY**, both coverages, rung 3 —
+§2047's open question. **pred_a True | pred_b True | pred_c True | pred_d False | derived controls True.**
+No crashed predicates.
+
+```
+  §1959's build beats, FRESH WINDOW           5,419                 16,110
+  attention 256, map 640                +16.561 (t +38.96)    +20.397 (t +39.31)
+  attention 384, map 512                 +0.696 (t  +6.45)     +0.115 (t  +2.08)
+```
+
+> **pred_a, pred_b and pred_c PASSED. §1960's claim survives: one build beats both coverage-specific
+> alternatives at both coverages on rows that did not choose it**, and it clears §1960's own 0.002-nat
+> bar trivially by being the best arm at each. **The allocation half is decisive** — attention 384 over
+> 256 by 16.6 and 20.4 milli-nats at t ≈ 39 on both.
+
+> **pred_d FAILED, on the map-rank half at high coverage. §1959's rank-640 map beats rank-512 by +0.115
+> milli-nats at 16,110, t = +2.08** — barely past the noise floor and below the third-of-a-milli-nat bar
+> I registered. **At 5,419 the same comparison is +0.696 at t = +6.45.**
+
+> **The pattern is the one §2032 predicted from the mechanism.** The map acts only on uncovered rows, and
+> tripling coverage halves that arm — so **the map-rank decision should matter less at 16,110, and it
+> does, by a factor of six.** §1960's "one build suffices" is therefore **true, and partly true because at
+> high coverage the map alternatives are nearly indistinguishable** rather than because the compromise is
+> strongly best on that axis.
+
+**Where §2046's audit stands after two ticks of checking.** Thirteen in-sample selections were flagged.
+**§2047 cleared three** (the tilt family, confirmed in direction and ordering). **§2048 clears §1960**,
+with the caveat above. **The remaining nine are smaller or already superseded**, and the two largest
+findings of the whole line — §1972/§1975's 69.238 headline and §1976's 71.890 — were never in the regime
+at all, which §2037 confirmed by measuring the first of them at +127.889 on fresh rows.
+
+**Open.** The audit's own method note applies here: **77 of 111 certified entries quote no milli-nat margin
+and were never triaged.** Those are mechanism, cost and structural claims, most of them large — §1985's
+threshold, §2004's ceiling, §1765's premise — but "most" is not a measurement. **A second pass keyed on
+nats rather than milli-nats would say whether any of them sits near a noise floor**, and it costs no GPU.
