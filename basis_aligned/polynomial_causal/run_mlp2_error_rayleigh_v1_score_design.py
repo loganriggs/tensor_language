@@ -34,11 +34,10 @@ FAILURE = HERE / "mlp2_error_rayleigh_v1_design_predictor_failure.json"
 LOCK = Path("/workspace/runs/.mlp2_error_rayleigh_v1_design_predictor.lock")
 DESIGN = collector.role_paths("DESIGN")
 SOURCE_PATHS = tuple(dict.fromkeys((
-    collector.PREREG, collector.ADDENDUM,
+    *collector.SOURCE_PATHS,
     HERE / "mlp2_error_rayleigh_predictor.py",
     HERE / "test_mlp2_error_rayleigh_predictor.py",
     RUNNER, TEST,
-    collector.CORE, collector.CORE_TEST, collector.RUNNER, collector.TEST,
 )))
 
 
@@ -97,6 +96,26 @@ def validate_design_receipt(value: Any, ledger_sha: str) -> dict[str, Any]:
     return value
 
 
+def validate_design_authority(value: Any, authority_sha: str) -> dict[str, Any]:
+    required = {
+        "schema", "status", "role", "source_commit", "source_hashes",
+        "audit_sha256", "audit_reviewer", "row_receipt_sha256", "row_file_sha256",
+        "parent_snapshot", "predictor_unlock_sha256", "programs", "backgrounds",
+        "controls", "amplitudes", "control_seed", "scored_slice",
+        "attention_capture_sites", "outcome_access",
+    }
+    if not isinstance(value, dict) or set(value) != required \
+            or value.get("schema") != "mlp2_error_rayleigh_v1_collector_authority" \
+            or value.get("status") != "frozen_before_role_response_open" \
+            or value.get("role") != "DESIGN" \
+            or value.get("predictor_unlock_sha256") is not None \
+            or value.get("outcome_access") is not False \
+            or not isinstance(authority_sha, str) or len(authority_sha) != 64:
+        raise RuntimeError("DESIGN collector authority changed")
+    collector.protected_snapshot(value)
+    return value
+
+
 def protected_snapshot(authority: Mapping[str, Any]) -> dict[str, str]:
     if source_hashes(authority["source_commit"]) != authority["source_hashes"]:
         raise RuntimeError("DESIGN scorer sources changed")
@@ -104,40 +123,70 @@ def protected_snapshot(authority: Mapping[str, Any]) -> dict[str, str]:
     receipt, receipt_sha = base.stable_json(DESIGN["receipt"], authority["design_receipt_sha256"])
     ledger, ledger_sha = base.stable_torch(DESIGN["ledger"], authority["design_ledger_sha256"])
     validate_design_receipt(receipt, ledger_sha)
-    collector.validate_ledger(ledger, receipt["authority_sha256"], "DESIGN")
+    design_authority, design_authority_sha = base.stable_json(
+        DESIGN["authority"], authority["design_authority_sha256"],
+    )
+    if receipt["authority_sha256"] != design_authority_sha:
+        raise RuntimeError("DESIGN receipt-to-authority join changed")
+    validate_design_authority(design_authority, design_authority_sha)
+    collector.validate_ledger(
+        ledger, design_authority_sha, "DESIGN",
+        design_authority["parent_snapshot"]["checkpoint"],
+    )
     if audit_sha != authority["audit_sha256"] or receipt_sha != authority["design_receipt_sha256"]:
         raise RuntimeError("DESIGN scorer protected hashes changed")
-    return {"audit": audit_sha, "receipt": receipt_sha, "ledger": ledger_sha}
+    return {
+        "audit": audit_sha, "receipt": receipt_sha, "ledger": ledger_sha,
+        "design_authority": design_authority_sha,
+    }
 
 
 def serialize_fit(value: Mapping[str, Any]) -> dict[str, Any]:
-    models = {}
-    for name, model in value["models"].items():
-        models[name] = {
-            "ridge_selected": model["ridge"]["selected"],
-            "clustered_lodo_mse": model["ridge"]["clustered_lodo_mse"],
-            "mean": model["mean"].clone(), "scale": model["scale"].clone(),
-            "coefficients": model["coefficients"].clone(),
-            "design_prediction": model["design_prediction"].clone(),
-        }
-    return {
-        "schema": "mlp2_error_rayleigh_v1_design_predictor_bundle",
-        "target": value["target"].clone(), "models": models,
-        "null_predictions": {
-            control: {family: prediction.clone() for family, prediction in families.items()}
-            for control, families in value["null_predictions"].items()
-        },
-        "families": {name: list(features) for name, features in predictor.FAMILIES.items()},
-        "ridge_grid": list(predictor.RIDGE_GRID),
-        "unit": "source_document_by_program",
-        "program_identity_feature": False,
-        "directional_amplitude_reduction": "arithmetic_mean_h16_h8",
-    }
+    return predictor.serialize_fit(value)
 
 
 def validate_bundle(value: Any) -> dict[str, Any]:
     predictor.validate_frozen_bundle(value)
     return value
+
+
+def artifact_snapshot() -> dict[str, str]:
+    return {
+        name: file_sha256(path) for name, path in {
+            "authority": AUTHORITY, "bundle": BUNDLE,
+        }.items() if path.is_file()
+    }
+
+
+def publish_failure(claim, exc: BaseException, authority,
+                    protected: Mapping[str, str] | None, opened: bool) -> None:
+    frozen_artifacts = artifact_snapshot()
+    failure = {
+        "schema": "mlp2_error_rayleigh_v1_design_predictor_failure",
+        "status": "terminal_failure_no_receipt", "error": repr(exc),
+        "authority_exists": AUTHORITY.exists(), "design_ledger_may_have_opened": opened,
+        "artifact_hashes": frozen_artifacts,
+    }
+
+    def failure_guard():
+        row_life.base.require_claim(claim, LOCK)
+        if RECEIPT.exists() or FAILURE.exists() or artifact_snapshot() != frozen_artifacts:
+            raise RuntimeError("DESIGN scorer failure terminal or artifacts raced")
+        if authority is not None and AUTHORITY.is_file():
+            observed, observed_sha = base.stable_json(
+                AUTHORITY, frozen_artifacts.get("authority"),
+            )
+            if observed != authority or observed_sha != frozen_artifacts.get("authority"):
+                raise RuntimeError("DESIGN scorer failure authority join changed")
+            if protected is not None and protected_snapshot(authority) != protected:
+                raise RuntimeError("DESIGN scorer failure protected state changed")
+        if RECEIPT.exists() or FAILURE.exists() or artifact_snapshot() != frozen_artifacts:
+            raise RuntimeError("DESIGN scorer failure terminal raced protected replay")
+        row_life.base.require_claim(claim, LOCK)
+
+    if RECEIPT.exists() or FAILURE.exists():
+        return
+    base.atomic_json(FAILURE, failure, pre_link_check=failure_guard)
 
 
 def run() -> None:
@@ -147,13 +196,14 @@ def run() -> None:
     if not DESIGN["receipt"].is_file() or not DESIGN["ledger"].is_file():
         raise RuntimeError("DESIGN measurements are not receipt-complete")
     claim = row_life.base.acquire_claim(LOCK)
-    authority = None; opened = False
+    authority = None; protected = None; opened = False
     try:
         commit = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT,
                                          text=True).strip()
         sources = source_hashes(commit); audit, audit_sha = validate_audit(sources)
         design_receipt_sha = file_sha256(DESIGN["receipt"])
         design_ledger_sha = file_sha256(DESIGN["ledger"])
+        design_authority_sha = file_sha256(DESIGN["authority"])
         authority = {
             "schema": "mlp2_error_rayleigh_v1_design_predictor_authority",
             "status": "frozen_before_design_ledger_open", "source_commit": commit,
@@ -161,6 +211,7 @@ def run() -> None:
             "audit_reviewer": audit["reviewer"],
             "design_receipt_sha256": design_receipt_sha,
             "design_ledger_sha256": design_ledger_sha,
+            "design_authority_sha256": design_authority_sha,
             "ridge_grid": list(predictor.RIDGE_GRID),
             "families": {name: list(features) for name, features in predictor.FAMILIES.items()},
             "heldout_opened": False,
@@ -169,9 +220,12 @@ def run() -> None:
 
         def authority_guard():
             row_life.base.require_claim(claim, LOCK)
-            if any(path.exists() for path in (AUTHORITY, BUNDLE, RECEIPT, FAILURE)) \
-                    or protected_snapshot(authority) != protected:
+            if any(path.exists() for path in (AUTHORITY, BUNDLE, RECEIPT, FAILURE)):
+                raise RuntimeError("DESIGN predictor authority terminal appeared")
+            if protected_snapshot(authority) != protected:
                 raise RuntimeError("DESIGN predictor authority inputs changed")
+            if any(path.exists() for path in (AUTHORITY, BUNDLE, RECEIPT, FAILURE)):
+                raise RuntimeError("DESIGN predictor authority terminal raced replay")
             row_life.base.require_claim(claim, LOCK)
 
         base.atomic_json(AUTHORITY, authority, pre_link_check=authority_guard)
@@ -187,8 +241,15 @@ def run() -> None:
         validate_bundle(bundle)
 
         def bundle_guard():
-            if protected_snapshot(authority) != protected or BUNDLE.exists() \
-                    or RECEIPT.exists() or FAILURE.exists():
+            row_life.base.require_claim(claim, LOCK)
+            if BUNDLE.exists() or RECEIPT.exists() or FAILURE.exists():
+                raise RuntimeError("DESIGN predictor terminal appeared before bundle")
+            if protected_snapshot(authority) != protected:
+                raise RuntimeError("DESIGN predictor protected state changed")
+            observed, observed_sha = base.stable_json(AUTHORITY, authority_sha)
+            if observed != authority or observed_sha != authority_sha:
+                raise RuntimeError("DESIGN predictor authority semantic join changed")
+            if BUNDLE.exists() or RECEIPT.exists() or FAILURE.exists():
                 raise RuntimeError("DESIGN predictor terminal raced bundle")
             row_life.base.require_claim(claim, LOCK)
 
@@ -200,27 +261,33 @@ def run() -> None:
             "status": "design_predictor_frozen_receipt_last",
             "design_ledger_sha256": design_ledger_sha,
             "design_receipt_sha256": design_receipt_sha,
+            "predictor_authority_sha256": authority_sha,
+            "scorer_audit_sha256": audit_sha,
             "predictor_bundle_sha256": bundle_sha, "heldout_unlocked": True,
         }
 
         def receipt_guard():
+            row_life.base.require_claim(claim, LOCK)
             if protected_snapshot(authority) != protected:
                 raise RuntimeError("DESIGN predictor protected state changed")
-            base.stable_json(AUTHORITY, authority_sha); base.stable_torch(BUNDLE, bundle_sha)
+            observed_authority, observed_sha = base.stable_json(AUTHORITY, authority_sha)
+            replay_bundle, replay_sha = base.stable_torch(BUNDLE, bundle_sha)
+            if observed_authority != authority or observed_sha != authority_sha \
+                    or replay_sha != bundle_sha:
+                raise RuntimeError("DESIGN predictor receipt semantic join changed")
+            validate_bundle(replay_bundle)
             if RECEIPT.exists() or FAILURE.exists():
                 raise RuntimeError("DESIGN predictor terminal raced receipt")
             row_life.base.require_claim(claim, LOCK)
 
+        rendered_receipt = json.dumps(receipt, sort_keys=True, indent=2, allow_nan=False)
+        print(rendered_receipt)
         base.atomic_json(RECEIPT, receipt, pre_link_check=receipt_guard)
-        print(json.dumps(receipt, sort_keys=True, indent=2))
     except BaseException as exc:
-        failure = {
-            "schema": "mlp2_error_rayleigh_v1_design_predictor_failure",
-            "status": "terminal_failure_no_receipt", "error": repr(exc),
-            "authority_exists": AUTHORITY.exists(), "design_ledger_may_have_opened": opened,
-        }
-        if not RECEIPT.exists() and not FAILURE.exists():
-            base.atomic_json(FAILURE, failure)
+        try:
+            publish_failure(claim, exc, authority, protected, opened)
+        except BaseException:
+            pass
         raise
     finally:
         row_life.base.release_claim(claim, LOCK)

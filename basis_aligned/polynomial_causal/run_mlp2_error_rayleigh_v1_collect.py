@@ -42,6 +42,8 @@ AUDIT = HERE / "mlp2_error_rayleigh_v1_collector_independent_audit.json"
 ROWS_RECEIPT = BQ / "mlp2_error_rayleigh_v1_rows_receipt.json"
 PREDICTOR_RECEIPT = HERE / "mlp2_error_rayleigh_v1_design_predictor_receipt.json"
 PREDICTOR_BUNDLE = HERE / "mlp2_error_rayleigh_v1_design_predictor_bundle.pt"
+PREDICTOR_AUTHORITY = HERE / "mlp2_error_rayleigh_v1_design_predictor_authority.json"
+PREDICTOR_AUDIT = HERE / "mlp2_error_rayleigh_v1_design_scorer_independent_audit.json"
 SOURCE_PATHS = tuple(dict.fromkeys((
     PREREG, ADDENDUM, RUNNER, TEST, CORE, CORE_TEST,
     HERE / "mlp2_error_rayleigh_metrics.py",
@@ -58,6 +60,19 @@ SOURCE_PATHS = tuple(dict.fromkeys((
     HERE / "prepare_mlp0_c512_mlp2_full512_composition_v2_rows.py",
     HERE / "prepare_mlp0_c512_mlp2_full512_composition_v1_rows.py",
     HERE / "mlp2_cmr_v1_physical_program.py",
+    HERE / "MLP2_TRAJECTORY_ROBUST_R512_V1_PHYSICAL_EVALUATION_ADDENDUM.md",
+    HERE / "MLP2_TRAJECTORY_ROBUST_R512_V1_PREREGISTRATION.md",
+    HERE / "MLP0_C512_MLP2_FULL512_COMPOSITION_V1_PREREGISTRATION.md",
+    HERE / "MLP0_C512_MLP2_FULL512_COMPOSITION_V2_ROW_RECOVERY_AMENDMENT.md",
+    HERE / "MLP2_RANK512_REFIT_V1_PREREGISTRATION.md",
+    HERE / "test_bilin18_observed_model_facade.py",
+    HERE / "test_mlp0_c512_mlp2_full512_composition_v1.py",
+    HERE / "test_mlp0_native_down_program.py",
+    HERE / "test_mlp2_cmr_v1_physical_program.py",
+    HERE / "test_mlp2_rank512_refit_v1.py",
+    HERE / "run_mlp2_error_rayleigh_v1_score_design.py",
+    HERE / "test_run_mlp2_error_rayleigh_v1_score_design.py",
+    *prior.row_life.SOURCE_PATHS, *base.SOURCE_PATHS, *refit.SOURCE_PATHS,
     *row_life.SOURCE_PATHS,
     ROOT / "jacclust/__init__.py", ROOT / "jacclust/tt_model.py",
 )))
@@ -178,6 +193,7 @@ def validate_predictor_unlock() -> tuple[dict[str, Any], str]:
     value, digest = stable_json(PREDICTOR_RECEIPT)
     required = {
         "schema", "status", "design_ledger_sha256", "design_receipt_sha256",
+        "predictor_authority_sha256", "scorer_audit_sha256",
         "predictor_bundle_sha256", "heldout_unlocked",
     }
     design = role_paths("DESIGN")
@@ -230,7 +246,72 @@ def validate_predictor_unlock() -> tuple[dict[str, Any], str]:
     predictor.validate_frozen_bundle(bundle)
     if bundle_sha != value["predictor_bundle_sha256"]:
         raise RuntimeError("HELDOUT predictor bundle hash changed")
+    scorer_authority, scorer_authority_sha = stable_json(
+        PREDICTOR_AUTHORITY, value["predictor_authority_sha256"],
+    )
+    scorer_required = {
+        "schema", "status", "source_commit", "source_hashes", "audit_sha256",
+        "audit_reviewer", "design_receipt_sha256", "design_ledger_sha256",
+        "design_authority_sha256", "ridge_grid", "families", "heldout_opened",
+    }
+    if set(scorer_authority) != scorer_required \
+            or scorer_authority.get("schema") != "mlp2_error_rayleigh_v1_design_predictor_authority" \
+            or scorer_authority.get("status") != "frozen_before_design_ledger_open" \
+            or scorer_authority.get("heldout_opened") is not False \
+            or scorer_authority.get("design_receipt_sha256") != value["design_receipt_sha256"] \
+            or scorer_authority.get("design_ledger_sha256") != value["design_ledger_sha256"] \
+            or scorer_authority.get("design_authority_sha256") != design_receipt["authority_sha256"] \
+            or scorer_authority.get("audit_sha256") != value["scorer_audit_sha256"] \
+            or scorer_authority.get("ridge_grid") != list(predictor.RIDGE_GRID) \
+            or scorer_authority.get("families") != {
+                name: list(features) for name, features in predictor.FAMILIES.items()
+            } \
+            or scorer_authority_sha != value["predictor_authority_sha256"]:
+        raise RuntimeError("HELDOUT scorer authority chain changed")
+    if committed_hash_map(scorer_authority["source_commit"], scorer_authority["source_hashes"]) \
+            != scorer_authority["source_hashes"]:
+        raise RuntimeError("HELDOUT scorer source closure changed")
+    scorer_audit, scorer_audit_sha = stable_json(PREDICTOR_AUDIT, value["scorer_audit_sha256"])
+    audit_required = {
+        "schema", "status", "outcome_access", "audited_source_commit",
+        "audited_source_hashes", "tests_passed", "reviewer",
+    }
+    if set(scorer_audit) != audit_required \
+            or scorer_audit.get("schema") != "mlp2_error_rayleigh_v1_design_scorer_independent_audit" \
+            or scorer_audit.get("status") != "GO" or scorer_audit.get("outcome_access") is not False \
+            or scorer_audit.get("audited_source_hashes") != scorer_authority["source_hashes"] \
+            or scorer_audit.get("reviewer") != scorer_authority["audit_reviewer"] \
+            or not isinstance(scorer_audit.get("tests_passed"), int) \
+            or scorer_audit["tests_passed"] < 1 \
+            or scorer_audit_sha != scorer_authority["audit_sha256"]:
+        raise RuntimeError("HELDOUT scorer audit chain changed")
+    if committed_hash_map(
+        scorer_audit["audited_source_commit"], scorer_audit["audited_source_hashes"],
+    ) != scorer_authority["source_hashes"]:
+        raise RuntimeError("HELDOUT scorer audit source closure changed")
+    recomputed = predictor.serialize_fit(
+        predictor.fit_design(design_ledger["features"], design_ledger["finite"]),
+    )
+    predictor.validate_frozen_bundle(recomputed)
+    if not predictor.exact_nested_equal(recomputed, bundle):
+        raise RuntimeError("HELDOUT predictor does not reproduce from DESIGN ledger")
     return value, digest
+
+
+def committed_hash_map(commit: str, values: Mapping[str, str]) -> dict[str, str]:
+    if not isinstance(commit, str) or not isinstance(values, Mapping):
+        raise RuntimeError("committed source map changed")
+    subprocess.run(["git", "merge-base", "--is-ancestor", commit, "origin/main"],
+                   cwd=ROOT, check=True)
+    observed = {}
+    for relative, expected in values.items():
+        path = ROOT / relative
+        blob = subprocess.check_output(["git", "show", f"{commit}:{relative}"], cwd=ROOT)
+        digest = hashlib.sha256(blob).hexdigest()
+        if digest != expected or not path.is_file() or file_sha256(path) != expected:
+            raise RuntimeError("committed source bytes changed")
+        observed[relative] = digest
+    return observed
 
 
 def parent_snapshot() -> dict[str, Any]:
@@ -550,13 +631,24 @@ def artifact_snapshot(paths: Mapping[str, Path]) -> dict[str, str]:
 
 def publish_failure(paths, claim, exc: BaseException, authority,
                     protected: Mapping[str, Any] | None, opened: bool):
+    def observe_protected() -> dict[str, Any]:
+        if authority is None or protected is None or not paths["authority"].is_file():
+            return {"status": "not_available"}
+        try:
+            current = protected_snapshot(authority)
+            return {"status": "matches" if current == protected else "mismatch"}
+        except BaseException as replay_error:
+            return {"status": "replay_error", "error": repr(replay_error)}
+
     frozen_artifacts = artifact_snapshot(paths)
+    frozen_protected_observation = observe_protected()
     failure = {
         "schema": "mlp2_error_rayleigh_v1_collector_failure",
         "status": "terminal_failure_no_receipt", "role": authority.get("role") if authority else None,
         "error": repr(exc), "authority_exists": paths["authority"].exists(),
         "model_or_response_may_have_opened": opened,
         "artifact_hashes": frozen_artifacts,
+        "protected_observation": frozen_protected_observation,
     }
 
     def failure_guard():
@@ -570,8 +662,9 @@ def publish_failure(paths, claim, exc: BaseException, authority,
             )
             if observed != authority or observed_sha != frozen_artifacts.get("authority"):
                 raise RuntimeError("collector failure authority semantic join changed")
-            if protected is not None and protected_snapshot(authority) != protected:
-                raise RuntimeError("collector failure protected state changed")
+            # Protected input drift is itself a failure class that must remain
+            # publishable.  The observation above records it, while the authority
+            # and any partial owned artifacts remain hash- and semantics-bound.
         if paths["receipt"].exists() or paths["failure"].exists() \
                 or artifact_snapshot(paths) != frozen_artifacts:
             raise RuntimeError("collector failure terminal raced protected replay")
@@ -629,6 +722,11 @@ def run(role: str) -> None:
 
         base.atomic_json(paths["authority"], authority, pre_link_check=authority_guard)
         authority_sha = file_sha256(paths["authority"])
+        observed_authority, observed_authority_sha = stable_json(
+            paths["authority"], authority_sha,
+        )
+        if observed_authority != authority or observed_authority_sha != authority_sha:
+            raise RuntimeError("collector authority changed before role access")
         opened = True; started = time.time()
         rows, observed_sha = stable_torch(Path(entry["path"]), entry["file_sha256"])
         if observed_sha != entry["file_sha256"] or tuple(rows.shape) != (DOCUMENTS, 257) \
@@ -636,6 +734,8 @@ def run(role: str) -> None:
             raise RuntimeError(f"{role} row tensor changed")
         device = torch.device("cuda")
         model, checkpoint = facade.load_bilin18(device=device, dtype=torch.bfloat16)
+        if checkpoint.__dict__ != authority["parent_snapshot"]["checkpoint"]:
+            raise RuntimeError("collector loaded checkpoint differs from frozen authority")
         verify_protected(protected, authority, claim, paths)
         programs = load_programs(device)
         c512 = c512_tensors(device)
@@ -688,7 +788,12 @@ def run(role: str) -> None:
         # Receipt publication is the final fallible action in the success path.
         base.atomic_json(paths["receipt"], receipt, pre_link_check=receipt_guard)
     except BaseException as exc:
-        publish_failure(paths, claim, exc, authority, protected, opened)
+        try:
+            publish_failure(paths, claim, exc, authority, protected, opened)
+        except BaseException:
+            # A lost claim or semantically mutated authority must fail closed, but a
+            # secondary publication error must not replace the scientific root cause.
+            pass
         raise
     finally:
         row_life.base.release_claim(claim, paths["lock"])

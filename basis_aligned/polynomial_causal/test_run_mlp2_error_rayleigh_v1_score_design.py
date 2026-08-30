@@ -34,15 +34,18 @@ def test_source_closure_contains_scorer_predictor_and_collector_contracts():
                  score.HERE / "test_mlp2_error_rayleigh_predictor.py",
                  score.collector.RUNNER, score.collector.TEST, score.collector.ADDENDUM):
         assert score.SOURCE_PATHS.count(path) == 1
+    assert set(score.collector.SOURCE_PATHS).issubset(score.SOURCE_PATHS)
 
 
 def test_receipt_shape_matches_heldout_unlock_exactly():
     required = {
         "schema", "status", "design_ledger_sha256", "design_receipt_sha256",
+        "predictor_authority_sha256", "scorer_audit_sha256",
         "predictor_bundle_sha256", "heldout_unlocked",
     }
     assert required == {
         "schema", "status", "design_ledger_sha256", "design_receipt_sha256",
+        "predictor_authority_sha256", "scorer_audit_sha256",
         "predictor_bundle_sha256", "heldout_unlocked",
     }
     assert score.RECEIPT == score.collector.PREDICTOR_RECEIPT

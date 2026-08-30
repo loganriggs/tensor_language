@@ -97,14 +97,18 @@ def ridge_fit(matrix: torch.Tensor, target: torch.Tensor, penalty: float) -> tor
             or penalty not in RIDGE_GRID:
         raise ValueError("ridge fit inputs changed")
     design = torch.cat((torch.ones(len(matrix), 1, dtype=torch.float64), matrix), dim=1)
+    if penalty == 0:
+        # The unregularized design can be rank-deficient.  ``solve(X.T @ X)`` may
+        # return an unstable answer without raising, so use the declared SVD least-
+        # squares solution directly.  ``gelsd`` is CPU-only and deterministic here.
+        return torch.linalg.lstsq(
+            design, target.unsqueeze(1), driver="gelsd",
+        ).solution[:, 0]
     gram = design.T @ design
     regularizer = torch.eye(design.shape[1], dtype=torch.float64) * float(penalty)
     regularizer[0, 0] = 0.0
     rhs = design.T @ target
-    try:
-        return torch.linalg.solve(gram + regularizer, rhs)
-    except torch.linalg.LinAlgError:
-        return torch.linalg.lstsq(gram + regularizer, rhs.unsqueeze(1)).solution[:, 0]
+    return torch.linalg.solve(gram + regularizer, rhs)
 
 
 def predict(matrix: torch.Tensor, coefficients: torch.Tensor) -> torch.Tensor:
@@ -165,6 +169,47 @@ def fit_design(features: torch.Tensor, finite: torch.Tensor) -> Mapping[str, Any
                 normalize(matrix, model["mean"], model["scale"]), model["coefficients"],
             )
     return {"target": target, "models": models, "null_predictions": null_predictions}
+
+
+def serialize_fit(value: Mapping[str, Any]) -> dict[str, Any]:
+    """Canonical, deployable representation of a DESIGN fit."""
+    models = {}
+    for name, model in value["models"].items():
+        models[name] = {
+            "ridge_selected": model["ridge"]["selected"],
+            "clustered_lodo_mse": model["ridge"]["clustered_lodo_mse"],
+            "mean": model["mean"].clone(), "scale": model["scale"].clone(),
+            "coefficients": model["coefficients"].clone(),
+            "design_prediction": model["design_prediction"].clone(),
+        }
+    return {
+        "schema": "mlp2_error_rayleigh_v1_design_predictor_bundle",
+        "target": value["target"].clone(), "models": models,
+        "null_predictions": {
+            control: {family: prediction.clone() for family, prediction in families.items()}
+            for control, families in value["null_predictions"].items()
+        },
+        "families": {name: list(features) for name, features in FAMILIES.items()},
+        "ridge_grid": list(RIDGE_GRID),
+        "unit": "source_document_by_program",
+        "program_identity_feature": False,
+        "directional_amplitude_reduction": "arithmetic_mean_h16_h8",
+    }
+
+
+def exact_nested_equal(left: Any, right: Any) -> bool:
+    if isinstance(left, torch.Tensor) or isinstance(right, torch.Tensor):
+        return isinstance(left, torch.Tensor) and isinstance(right, torch.Tensor) \
+            and left.dtype == right.dtype and left.shape == right.shape \
+            and torch.equal(left, right)
+    if isinstance(left, Mapping) or isinstance(right, Mapping):
+        return isinstance(left, Mapping) and isinstance(right, Mapping) \
+            and set(left) == set(right) \
+            and all(exact_nested_equal(left[key], right[key]) for key in left)
+    if isinstance(left, (list, tuple)) or isinstance(right, (list, tuple)):
+        return type(left) is type(right) and len(left) == len(right) \
+            and all(exact_nested_equal(a, b) for a, b in zip(left, right))
+    return type(left) is type(right) and left == right
 
 
 def validate_frozen_bundle(value: Any) -> Mapping[str, Any]:

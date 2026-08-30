@@ -104,3 +104,18 @@ Each directional predictor feature is the arithmetic mean of its independently
 stored `1/16` and `1/8` estimates. The two estimates remain separate for the frozen
 tangent-scale gate; averaging for regression cannot turn a failed scale gate into a
 pass.
+
+## Pre-outcome numerical reproducibility clarification (2026-08-30 00:05 UTC)
+
+No DESIGN or HELDOUT response has been opened.  Independent lifecycle audit exposed
+that solving the unregularized normal equations can silently return an unstable
+answer when the DESIGN matrix is rank-deficient.  The ridge grid and selection rule
+are unchanged.  Penalty zero is now defined operationally as the minimum-norm
+float64 least-squares solution computed directly from the design matrix by the CPU
+SVD `gelsd` driver.  Positive penalties use the unique float64 regularized normal-
+equation solve.  The held-out unlock recomputes the complete fit from the frozen
+DESIGN ledger and requires exact agreement of metadata, selected penalties, losses,
+normalizers, coefficients, DESIGN predictions, and null predictions with the
+receipt-bound bundle.  This clarification fixes the numerical realization of the
+already-frozen model family; it does not add a feature, change a gate, or read an
+outcome.

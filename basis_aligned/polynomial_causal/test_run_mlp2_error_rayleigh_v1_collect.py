@@ -1,10 +1,72 @@
 from pathlib import Path
+import json
+from types import SimpleNamespace
 
 import pytest
 import torch
 
 import mlp2_error_rayleigh_collector_core as core
 import run_mlp2_error_rayleigh_v1_collect as collect
+
+
+def valid_control_hashes(role="DESIGN"):
+    output = {}
+    for pi, program in enumerate(collect.PROGRAM_NAMES):
+        for bi, background in enumerate(collect.BACKGROUND_NAMES):
+            output[f"{program}|{background}"] = {
+                "seed": collect.control_seed(role, pi, bi),
+                "bindings": {name: "a" * 64 for name in (
+                    "mlp2_state", "native_write", "candidate_write",
+                )},
+                "errors": {name: "b" * 64 for name in core.CONTROL_NAMES},
+            }
+    return output
+
+
+def mocked_transaction(tmp_path, monkeypatch, *, checkpoint="checkpoint"):
+    paths = {
+        name: tmp_path / f"{name}.artifact" for name in (
+            "authority", "ledger", "receipt", "failure", "lock",
+        )
+    }
+    rows = torch.zeros(32, 257, dtype=torch.long)
+    row_path = tmp_path / "rows.pt"; torch.save(rows, row_path)
+    row_receipt_path = tmp_path / "rows.json"
+    row_receipt = {"entries": {"DESIGN": {
+        "path": str(row_path), "file_sha256": collect.file_sha256(row_path),
+        "tensor_sha256": collect.row_life.base.tensor_sha256(rows),
+    }}}
+    row_receipt_path.write_text(json.dumps(row_receipt))
+    checkpoint_value = {"name": "checkpoint"}
+    parent = {
+        "parents": {}, "program_integrity": {},
+        "row_receipt_sha256": collect.file_sha256(row_receipt_path),
+        "checkpoint": checkpoint_value,
+    }
+    features = torch.ones(3, 2, 3, 32, len(core.FEATURE_NAMES), dtype=torch.float64)
+    finite = torch.zeros(3, 2, 32, len(core.FINITE_NAMES), dtype=torch.float64)
+    finite[..., 5:] = 1
+    monkeypatch.setattr(collect, "role_paths", lambda _role: paths)
+    monkeypatch.setattr(collect, "ROWS_RECEIPT", row_receipt_path)
+    monkeypatch.setattr(collect, "source_hashes", lambda _commit: {})
+    monkeypatch.setattr(collect, "validate_audit", lambda _sources: (
+        {"reviewer": "mock-independent-audit"}, "c" * 64,
+    ))
+    monkeypatch.setattr(collect, "validate_row_receipt", lambda value: value)
+    monkeypatch.setattr(collect, "parent_snapshot", lambda: parent)
+    monkeypatch.setattr(collect, "protected_snapshot", lambda authority: authority["parent_snapshot"])
+    monkeypatch.setattr(collect.row_life.base, "acquire_claim", lambda _path: object())
+    monkeypatch.setattr(collect.row_life.base, "require_claim", lambda _claim, _path: None)
+    monkeypatch.setattr(collect.row_life.base, "release_claim", lambda _claim, _path: None)
+    monkeypatch.setattr(collect.facade, "load_bilin18", lambda **_kwargs: (
+        object(), SimpleNamespace(name=checkpoint),
+    ))
+    monkeypatch.setattr(collect, "load_programs", lambda _device: {})
+    monkeypatch.setattr(collect, "c512_tensors", lambda _device: {})
+    monkeypatch.setattr(collect, "collect", lambda *_args: (
+        features, finite, valid_control_hashes(), collect.expected_calls(),
+    ))
+    return paths, parent
 
 
 def test_arm_and_call_census_is_exact():
@@ -44,16 +106,7 @@ def test_ledger_schema_accepts_exact_replay_and_rejects_nonexact():
     features = torch.ones(3, 2, 3, 32, len(core.FEATURE_NAMES), dtype=torch.float64)
     finite = torch.zeros(3, 2, 32, len(core.FINITE_NAMES), dtype=torch.float64)
     finite[..., 5:] = 1
-    control_hashes = {}
-    for pi, program in enumerate(collect.PROGRAM_NAMES):
-        for bi, background in enumerate(collect.BACKGROUND_NAMES):
-            control_hashes[f"{program}|{background}"] = {
-                "seed": collect.control_seed("DESIGN", pi, bi),
-                "bindings": {name: "a" * 64 for name in (
-                    "mlp2_state", "native_write", "candidate_write",
-                )},
-                "errors": {name: "b" * 64 for name in core.CONTROL_NAMES},
-            }
+    control_hashes = valid_control_hashes()
     value = {
         "schema": "mlp2_error_rayleigh_v1_role_ledger", "role": "DESIGN",
         "features": features, "finite": finite,
@@ -143,3 +196,97 @@ def test_forward_capture_calls_attention_once_and_edits_complete_mlp2_write(monk
     assert calls["c512_calls"] == 1
     assert calls["native_mlp2_calls"] == 1
     assert calls["injected_calls"] == 1
+
+
+def test_mocked_success_transaction_publishes_authority_ledger_receipt_in_order(
+        tmp_path, monkeypatch):
+    paths, _ = mocked_transaction(tmp_path, monkeypatch)
+    order = []
+    original_json, original_torch = collect.base.atomic_json, collect.base.atomic_torch
+
+    def atomic_json(path, value, *, pre_link_check=None):
+        original_json(path, value, pre_link_check=pre_link_check); order.append(path)
+
+    def atomic_torch(path, value, *, pre_link_check=None):
+        original_torch(path, value, pre_link_check=pre_link_check); order.append(path)
+
+    monkeypatch.setattr(collect.base, "atomic_json", atomic_json)
+    monkeypatch.setattr(collect.base, "atomic_torch", atomic_torch)
+    collect.run("DESIGN")
+    assert order == [paths["authority"], paths["ledger"], paths["receipt"]]
+    assert paths["receipt"].is_file() and not paths["failure"].exists()
+
+
+def test_mocked_checkpoint_mismatch_is_terminal_before_collection(tmp_path, monkeypatch):
+    paths, _ = mocked_transaction(tmp_path, monkeypatch, checkpoint="wrong-checkpoint")
+    with pytest.raises(RuntimeError, match="differs from frozen authority"):
+        collect.run("DESIGN")
+    failure = json.loads(paths["failure"].read_text())
+    assert failure["model_or_response_may_have_opened"] is True
+    assert not paths["ledger"].exists() and not paths["receipt"].exists()
+
+
+def test_mocked_protected_drift_after_authority_is_preserved_as_failure(tmp_path, monkeypatch):
+    paths, _ = mocked_transaction(tmp_path, monkeypatch)
+    calls = {"count": 0}
+
+    def drifting(authority):
+        calls["count"] += 1
+        if calls["count"] >= 3:
+            raise RuntimeError("protected parent drift")
+        return authority["parent_snapshot"]
+
+    monkeypatch.setattr(collect, "protected_snapshot", drifting)
+    with pytest.raises(RuntimeError, match="protected parent drift"):
+        collect.run("DESIGN")
+    failure = json.loads(paths["failure"].read_text())
+    assert failure["protected_observation"]["status"] == "replay_error"
+    assert not paths["receipt"].exists()
+
+
+def test_mocked_late_rival_terminal_blocks_receipt(tmp_path, monkeypatch):
+    paths, _ = mocked_transaction(tmp_path, monkeypatch)
+    calls = {"count": 0}
+    original = collect.verify_protected
+
+    def rival(expected, authority, claim, role_paths):
+        calls["count"] += 1
+        original(expected, authority, claim, role_paths)
+        if calls["count"] == 3:
+            role_paths["failure"].write_text("{}")
+
+    monkeypatch.setattr(collect, "verify_protected", rival)
+    with pytest.raises(RuntimeError, match="terminal raced receipt"):
+        collect.run("DESIGN")
+    assert paths["failure"].is_file() and not paths["receipt"].exists()
+
+
+def test_mocked_lock_replacement_and_authority_mutation_fail_closed(tmp_path, monkeypatch):
+    paths, _ = mocked_transaction(tmp_path, monkeypatch)
+    calls = {"count": 0}
+
+    def replaced(_claim, _path):
+        calls["count"] += 1
+        if calls["count"] >= 3:
+            raise RuntimeError("lock replaced")
+
+    monkeypatch.setattr(collect.row_life.base, "require_claim", replaced)
+    with pytest.raises(RuntimeError, match="lock replaced"):
+        collect.run("DESIGN")
+    assert paths["authority"].is_file() and not paths["receipt"].exists()
+
+    # A fresh namespace exercises semantic mutation immediately after authority link.
+    other = tmp_path / "other"; other.mkdir()
+    paths, _ = mocked_transaction(other, monkeypatch)
+    original_json = collect.base.atomic_json
+
+    def mutate_authority(path, value, *, pre_link_check=None):
+        original_json(path, value, pre_link_check=pre_link_check)
+        if path == paths["authority"]:
+            changed = json.loads(path.read_text()); changed["status"] = "mutated"
+            path.write_text(json.dumps(changed))
+
+    monkeypatch.setattr(collect.base, "atomic_json", mutate_authority)
+    with pytest.raises(RuntimeError, match="authority changed before role access"):
+        collect.run("DESIGN")
+    assert not paths["receipt"].exists()

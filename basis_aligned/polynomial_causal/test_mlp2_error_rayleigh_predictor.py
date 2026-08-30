@@ -44,6 +44,17 @@ def test_clustered_ridge_fits_without_program_identity():
         assert model["coefficients"].numel() <= 5
 
 
+def test_canonical_bundle_recomputes_exactly_and_detects_tensor_mutation():
+    features, finite = synthetic_collector()
+    first = predictor.serialize_fit(predictor.fit_design(features, finite))
+    second = predictor.serialize_fit(predictor.fit_design(features, finite))
+    assert predictor.validate_frozen_bundle(first) is first
+    assert predictor.exact_nested_equal(first, second)
+    family = next(iter(predictor.FAMILIES))
+    second["models"][family]["coefficients"][0] += torch.finfo(torch.float64).eps
+    assert not predictor.exact_nested_equal(first, second)
+
+
 def test_ridge_tie_breaks_toward_larger_penalty_for_intercept_only_signal():
     # With exactly zero features all ridge values have the same intercept-only fit.
     # Directly verify the declared ordering rule without fitting a zero-variance normalizer.
