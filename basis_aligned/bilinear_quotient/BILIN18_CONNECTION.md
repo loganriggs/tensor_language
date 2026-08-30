@@ -63691,3 +63691,17 @@ certify the OPPOSITE of their prose intent.
   the first units dropped are nearly free per-value, and there is no cliff down to 576.
 - With §2136: norm-rank pruning is the only ranking that reduces price at tolerable cost; every Fisher-derived
   ranking tried makes the frontier strictly worse at any K.
+
+## §2138 — RUNG 44: THE STANDING cfgE RESULT IS INSTRUMENT-ROBUST. The 4-sample Fisher's top-8 overlaps the 2-sample eight at 0.986 at both sites, the realized damage reduction moves 0.0025 (+0.0857 → +0.0882), and the stream-matched reproduction is exact — all three bars HELD. (Convention: gaps are CE above the real model; a gain is a damage reduction.)
+
+`ops/cfge_top8_samples.py`, **224s**, BACKLOG rung 44. **ALL THREE HELD: pred_a (0.986/0.986 ≥ 0.7) | pred_b
+(|Δ| = 0.0025 ≤ 0.01) | pred_c (+0.0857 exact).**
+
+- **The eight are a stable object, not sampling noise:** doubling the MC labels from 2 to 4 samples per position
+  (fresh generator) leaves the top-8 subspace 98.6% unchanged at both sites and the certified reduction within
+  0.003. The ~0.01 cross-stream sensitivity measured in §2130/§2132 was jitter in *which marginal units* clear
+  the K = 2304 cut, not instability of the metric itself — with matched streams the number reproduces exactly,
+  and with doubled samples it barely moves.
+- **The one standing positive result is now bounded on its instrument side:** label-free top-8 selection reduces
+  cfgE's damage by 0.086 ± ~0.003 (MC), median over eight document-disjoint windows, 8/8 positive at 2 samples,
+  7/8 at 4 (window 0, the near-zero window, flips sign at −0.001).

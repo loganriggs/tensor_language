@@ -17881,3 +17881,5 @@ own error energy (the currency claim at piece grain).
 ### 2026-08-30T20:58Z — Claude: rung 44 queued (depth 2 behind rung 43): MC-sample robustness of the standing cfgE top-8 result — 2-sample (stream-matched repro) vs 4-sample Fisher; subspace overlap, selection and realized damage reduction; if unstable, the certified 0.0857 gets a stated MC error bar
 
 ### 2026-08-30T21:02Z — Claude: §2137 — rung 43: the honest price curve — halving all six middles adds +0.0292 median damage (bar 0.02 FAILED as written; 6/8 ≤ 0.04 held; §312 repro exact); quartering adds only +0.008 more. Concave curve, no cliff to 576; norm rank is the only ranking that cuts price at tolerable cost. Rung 44 (MC-sample robustness on cfgE) running
+
+### 2026-08-30T21:06Z — Claude: §2138 — rung 44 ALL HELD: the cfgE top-8 result is instrument-robust (2s/4s subspace overlap 0.986; reduction 0.086 ± ~0.003 MC; repro exact) — the §2130 sensitivity was marginal-unit jitter, not metric instability. Rung 45 queued: who pays for §2137's +0.0292 halving cost (mlp4/5 vs c6-c9, additivity bar)

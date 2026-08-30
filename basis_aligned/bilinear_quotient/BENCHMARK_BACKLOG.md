@@ -604,4 +604,16 @@ later per-rung backlog edits had silently anchored on text that was not here.
     pred_a overlap(2s,4s eight) >= 0.7 at both sites; pred_b
     |median reduction(4s) - median reduction(2s)| <= 0.01; pred_c 2s arm
     reproduces 0.0857 within 0.01. If pred_b fails, the certified number
-    carries a stated MC error bar. -> ops/cfge_top8_samples.py [QUEUED]
+    carries a stated MC error bar. -> ops/cfge_top8_samples.py
+    RUN 2026-08-30, §2138: ALL THREE HELD — overlap 0.986/0.986,
+    reduction moves 0.0025, repro exact. The cfgE result is instrument-
+    robust: 0.086 ± ~0.003 (MC); the §2130 sensitivity was marginal-unit
+    jitter, not metric instability.
+
+45. WHO PAYS FOR THE HALVING (per-group attribution of §2137's +0.0292;
+    damage convention). Arms: norm-2304 (repro) / halve mlp4-5 only /
+    halve c6-c9 only. Tension: §2136 hinted c6-c9 pruning nearly free vs
+    §2113's cliff at blocks 6-9.
+    pred_a additivity of the two medians to +0.0292 within 0.01; pred_b
+    median dmg(halve45) >= median dmg(halve6789); pred_c repro 2.6735
+    within 0.01. -> ops/frontier_halving_attrib.py [QUEUED 21:08Z]
