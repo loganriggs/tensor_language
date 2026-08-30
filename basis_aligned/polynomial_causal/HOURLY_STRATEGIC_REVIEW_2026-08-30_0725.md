@@ -99,12 +99,20 @@ Then use quotient-Jacobian rank to reject factors with unexplained non-gauge nul
 This turns the proposed DAG simplicity definition into a prediction rather than a
 geometric story.
 
-### 3. Re-audit and, only on GO, run bracket closure
+### 3. Repair and re-audit bracket closure receipt atomicity
 
 Bracket closure has an exact dense adapter and repaired lifecycle, so its marginal
 path to a terminal extraction/removal/OOD result is shorter than new discovery. It
-also tests whether L13H8 is a reusable parent shared with quote closure. An independent
-outcome-blind re-audit is running.
+also tests whether L13H8 is a reusable parent shared with quote closure.
+
+The independent outcome-blind re-audit completed after this ranking and returned
+**NO-GO**, despite 74/74 tests passing. Success and failure both link their terminal
+claim before fallible receipt construction, fsync, replay, and final guards. A late
+failure can therefore leave terminal=true with neither a receipt nor a hash-bound
+failure artifact. The minimum repair is to prepare, fsync, and semantically replay the
+receipt temporary before claiming the terminal; after the claim, only final adjacent
+guards and hard-link publication may remain. Both success and failure need injected
+late-failure tests proving that terminal-only state is impossible.
 
 ### 4. Complete ordered-successor v3
 
@@ -149,3 +157,7 @@ The backend and validator now:
 
 Focused result: **23/23 tests pass**. This advances the critical path but is not a
 lifecycle GO, model result, factorization, terminal circuit, or strict-ledger gain.
+
+Independent coordination also produced a concrete bracket NO-GO without opening rows,
+the model, or outcomes. Its 27-file source closure remained unchanged and 74/74 tests
+passed in 37.28 seconds, but the terminal/receipt ordering defect above is launch-fatal.
