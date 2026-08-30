@@ -151,7 +151,7 @@ for site in SITES:
         rec = {'observable': [], 'complement': [], 'random_r90': []}
         atten = {'observable': None, 'complement': None}
         for draw in range(NDRAW):
-            z = torch.randn(NPERT_ROWS, T, D, generator=gen).to(DEV)
+            z = torch.randn(NPERT_ROWS, idxp.shape[1], D, generator=gen).to(DEV)
             d_obs = z @ P_obs @ P_obs.T
             d_cmp = z - d_obs
             Rr = torch.linalg.qr(torch.randn(D, r90, generator=gen))[0].to(DEV)

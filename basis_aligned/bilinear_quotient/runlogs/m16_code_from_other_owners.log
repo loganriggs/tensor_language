@@ -1,0 +1,9 @@
+replayed 0b359a560850 | 229 documents | halves 114/115
+held-out R^2: m16_loading_1 -0.0475 | m16_loading_2 +0.0676 | m16_block_rms +0.1074
+null R^2 (permuted target) median -0.1602 p95 +0.0258 | loading corr +0.460
+reverse (owner RMS from m16): a8 +0.086 a16 +0.083 a3 -0.004 m14 +0.133 m13 +0.090
+univariate rho(owner RMS, m16 RMS): a8 +0.315 a16 +0.262 a3 +0.361 m14 +0.500 m13 +0.397
+(a) R^2 +0.1074 >= 0.3: FAILED
+(b) null p95 +0.0258 <= 0.05 and beaten: HELD
+(c) two-dimensional code: HELD
+wrote m16_code_from_other_owners_results.json (0s)
