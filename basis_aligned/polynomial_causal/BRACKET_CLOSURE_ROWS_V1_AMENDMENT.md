@@ -29,4 +29,3 @@ hashes, and authority hash with `status=GO` and `outcome_access=false`. The free
 cannot mint that audit. Installed role files are semantically replayed, source and
 history are rechecked, the owned lock is rechecked, and the success receipt is linked
 last. Any failure is terminal and cannot coexist with a success receipt.
-
