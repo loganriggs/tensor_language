@@ -773,6 +773,10 @@ later per-rung backlog edits had silently anchored on text that was not here.
     capture block deleted it and the parent's trailing del hit KeyError
     after the arm-1 build; no result). Fixed, re-queued 22:33Z behind
     rung 57; preds unchanged.
+    RE-RUN 2026-08-30, §2151: ALL THREE HELD — ind 0.518 + other 0.384
+    + subword 0.099 = ~100% of the damage, all LINK classes; mean classes
+    unhurt. a16 = document-memory read; per-position grammars cannot
+    carry it (explains §2148/§2149).
 
 57. attn16 AS THREE HEADS (damage convention). §2149's additive
     prediction: zeroing heads {1,2,5,6,7,8} together costs -0.0012.
@@ -786,3 +790,12 @@ later per-rung backlog edits had silently anchored on text that was not here.
     -0.0012 (gap 0.0005; third consecutive additive confirmation).
     attn16 = heads 16.0/16.3/16.4 for the program's purposes; the six
     zeroed heads are marginally better off dead.
+
+58. WINDOW CERTIFICATION OF THE THREE-HEAD ENVELOPE (damage convention).
+    §2150's three-head result is FR-only. Arms: skip-a16 nine-head
+    (§2146 window repro) / skip-a16 with heads 16.1/2/5/6/7/8 zeroed
+    THROUGHOUT (bases excluded; fits matched under the three-head a16).
+    pred_a median [L2_F_w(three) - L2_F_w(nine)] <= +0.005; pred_b
+    <= +0.01 on >= 6/8; pred_c the nine-head arm reproduces §2146's
+    per-window values (median |delta| <= 0.005).
+    -> ops/attn16_three_heads_w8.py [QUEUED]

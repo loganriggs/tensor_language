@@ -63966,3 +63966,25 @@ pred_b FAILED (argmax is a14, 0.933 vs a16's 0.908) | pred_c FAILED (smallest tw
 - **Block-16 program state after rungs 51–57:** the target object is three attention heads plus the m16
   remainder; the failed dictionary is worse than zero; the class-damage map (rung 56, re-running) is the last
   attribution before a targeted stand-in is designed.
+
+## §2151 — RUNG 56 (valid re-run): a16L's DAMAGE IS IN-DOCUMENT RETRIEVAL — the "ind" class (target token seen earlier in the document) carries 51.8% of the cost and "other" 38.4%; with "subword" that is ~100%, all LINK classes. The six mean classes are unhurt. All three bars HELD. (Convention: per-position CE(full with a16L) − CE(attn16 real) on FR; positive = the dictionary hurts there.)
+
+`ops/attn16_class_damage.py` (re-run after the voided double-del crash), **224s**, BACKLOG rung 56. **ALL THREE
+HELD: pred_a (top share 0.518 ≥ 0.40) | pred_b (top class "ind" is LINK) | pred_c (skip16 repro 2.5092).**
+
+```
+  class    digit   bclose  newline sentend comma   name    rep     subword  ind     other
+  share   −0.002  +0.003  +0.026  −0.023  −0.022  +0.013  +0.004  +0.099  +0.518  +0.384
+```
+
+- **The 10-class code fails exactly where context matters:** ~90% of a16L's damage sits on "ind" (in-document
+  repeats) and "other", both classes whose stand-in is already a full D×D linear map of the current stream —
+  and the map still fails, because predicting a repeated token requires *reading the earlier occurrence*, which
+  no function of the current position's stream alone can do. The CONSTN mean classes lose nothing.
+- **Synthesis (flagged as interpretation):** attn16's three heads (§2150) look like the model's document-memory
+  read at the tail — coherent with m16's document-stable-basis/private-coefficient structure (§2098–§2100,
+  §2127). Block 16 = where per-document context re-enters the prediction; a per-position grammar cannot carry
+  it, which is why every class-code upgrade failed (§2148) and why deletion beats the dictionary (§2149).
+- Design consequence for any future block-16 stand-in: it must be an attention-shaped object (read over
+  context), plausibly only for the three heads and only on LINK positions. The certified cheap description
+  today: three real heads → window certification next (rung 58).
