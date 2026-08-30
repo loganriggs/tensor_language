@@ -1,13 +1,16 @@
 from dataclasses import asdict
+import json
+import os
 
 import pytest
+import torch
 
 import circuit_campaign_statistics as stats
 import induction_equality_tensor_final_ood_v2 as subject
 
 
 ARMS = tuple(sorted(subject.ARMS))
-PAIRS = tuple(("native", arm) for arm in subject.ARMS[1:])
+PAIRS = tuple(sorted(("native", arm) for arm in subject.ARMS[1:]))
 
 
 def _cell(cell, *, stake=3.0):
@@ -74,6 +77,42 @@ def test_document_cell_requires_exact_arms_and_kl_pairs():
     )
     with pytest.raises(RuntimeError, match="identity schema"):
         subject._validate_document_cell(corrupted)
+
+
+def test_reducer_directed_kl_order_is_accepted_by_document_validator():
+    rows = torch.tensor([[0, 1, 2]], dtype=torch.long)
+    logits = {
+        arm: torch.zeros(1, 2, 5, dtype=torch.float32)
+        for arm in subject.ARMS
+    }
+    masks = {"positive": torch.ones(1, 2, dtype=torch.bool)}
+    reduced = stats.reduce_document_batch(
+        logits, rows, masks, ("doc",),
+        kl_pairs=tuple(("native", arm) for arm in subject.ARMS[1:]),
+    )
+    subject._validate_document_cell(reduced["doc"]["positive"])
+
+
+def test_terminal_receipt_treats_post_link_directory_fsync_error_as_success(
+    tmp_path, monkeypatch,
+):
+    target = tmp_path / "receipt.json"
+    real_fsync = os.fsync
+    calls = {"count": 0}
+
+    def fail_directory_fsync(descriptor):
+        calls["count"] += 1
+        if calls["count"] == 2:
+            raise OSError("injected post-link directory fsync failure")
+        return real_fsync(descriptor)
+
+    monkeypatch.setattr(subject.os, "fsync", fail_directory_fsync)
+    subject.write_terminal_receipt(
+        {"schema": "test", "value": 7}, target,
+        pre_link_check=lambda: None,
+    )
+    assert json.loads(target.read_text()) == {"schema": "test", "value": 7}
+    assert not tuple(tmp_path.glob(".receipt.json.tmp.*"))
 
 
 def test_nonpositive_point_or_bootstrap_stake_fails_without_clamp():

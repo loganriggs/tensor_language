@@ -7,7 +7,9 @@ from dataclasses import asdict
 import hashlib
 import json
 import math
+import os
 from pathlib import Path
+import secrets
 import subprocess
 from typing import Any, Mapping
 
@@ -86,6 +88,60 @@ def stable_json(path: Path) -> dict[str, Any]:
     if not isinstance(value, dict):
         raise RuntimeError("expected JSON object")
     return value
+
+
+def write_terminal_receipt(
+    payload: Mapping[str, Any], path: Path, *, pre_link_check,
+) -> None:
+    """Create one replayed receipt and never report failure after its link exists.
+
+    The temporary file is fsynced and semantically reloaded before the guarded hard
+    link.  Directory durability is attempted afterwards, but every post-link cleanup
+    or fsync error is non-propagating: the create-only link is the last action capable
+    of changing transaction success into failure.
+    """
+
+    normalized = rows_v2.base.json_normalize(payload)
+    temporary = path.with_name(
+        f".{path.name}.tmp.{os.getpid()}.{secrets.token_hex(8)}"
+    )
+    descriptor: int | None = None
+    published = False
+    try:
+        descriptor = os.open(temporary, os.O_WRONLY | os.O_CREAT | os.O_EXCL, 0o600)
+        with os.fdopen(descriptor, "w") as sink:
+            descriptor = None
+            sink.write(json.dumps(normalized, indent=2, allow_nan=False) + "\n")
+            sink.flush()
+            os.fsync(sink.fileno())
+        replay = json.loads(temporary.read_bytes())
+        if replay != normalized or rows_v2.base.json_normalize(replay) != normalized:
+            raise RuntimeError("v2 terminal receipt temporary semantic replay failed")
+        pre_link_check()
+        os.link(temporary, path)
+        published = True
+        directory: int | None = None
+        try:
+            directory = os.open(path.parent, os.O_RDONLY | getattr(os, "O_DIRECTORY", 0))
+            os.fsync(directory)
+        except BaseException:
+            # The exact linked inode is already the terminal receipt.  A durability
+            # warning cannot reopen failure publication or invalidate that receipt.
+            pass
+        finally:
+            if directory is not None:
+                try:
+                    os.close(directory)
+                except BaseException:
+                    pass
+    finally:
+        if descriptor is not None:
+            os.close(descriptor)
+        try:
+            temporary.unlink(missing_ok=True)
+        except BaseException:
+            if not published:
+                raise
 
 
 def _row_receipt() -> dict[str, Any]:
@@ -349,7 +405,7 @@ def _decode_cell(value: Mapping[str, Any]) -> statistics.DocumentCellSums:
 
 def _validate_document_cell(value: statistics.DocumentCellSums) -> None:
     expected_arms = tuple(sorted(ARMS))
-    expected_pairs = tuple(("native", arm) for arm in ARMS[1:])
+    expected_pairs = tuple(sorted(("native", arm) for arm in ARMS[1:]))
     if type(value) is not statistics.DocumentCellSums or type(value.n) is not int \
             or value.n < 0 or not isinstance(value.support_sha256, str) \
             or len(value.support_sha256) != 64 \
@@ -554,7 +610,7 @@ def execute() -> dict[str, Any]:
             if stable_json(MANIFEST) != manifest or protected_snapshot() != protected or FAILURE.exists() or RECEIPT.exists():
                 raise RuntimeError("v2 receipt terminal replay failed")
             atomic.require_claim(claim, LOCK)
-        rows_v2.write_receipt_create_only(receipt, RECEIPT, pre_link_check=guard)
+        write_terminal_receipt(receipt, RECEIPT, pre_link_check=guard)
         return receipt
     except BaseException as error:
         if not RECEIPT.exists() and not FAILURE.exists():
