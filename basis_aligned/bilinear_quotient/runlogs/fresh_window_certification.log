@@ -1,0 +1,19 @@
+FRESH WINDOW CERTIFICATION | 5 arms x 1 coverage(s) | DISCOVERY ONLY
+
+########## COVERAGE 5419 ##########
+  [bqlib] coverage 5419 from fineweb_n96_skip80.pt: 36 tables, neighbour index and map solver built (4s)
+  [bqlib] computed   live     fresh (3.4s)
+  [bqlib] computed   map64    fresh (3.5s)
+  [bqlib] computed   mix30m640 fresh (3.5s)
+  [bqlib] computed   mix30m256@mlp0,mlp1,mlp2,mlp3,mlp4,mlp5,mlp6,mlp7+mix30m640@mlp8,mlp9,mlp10,mlp11,mlp12,mlp13,mlp14,mlp15,mlp16,mlp17,attn0,attn1,attn2,attn3,attn4,attn5,attn6,attn7,attn8,attn9,attn10,attn11,attn12,attn13,attn14,attn15,attn16,attn17 fresh (3.5s)
+  [bqlib] computed   map512   fresh (6.0s)
+  [bqlib] computed   mix30m640 fresh (3.5s)
+
+  the converged build beats §1789's deployed design on the fresh window  -> True
+  and it still beats §1959's build there  -> False
+  and §1970's 69.238 milli-nat anchor transports within a factor of two  -> True
+  and the arc's margin keeps more than half its in-sample 3.064 milli-nats  -> False
+  derived controls -> True   coverage_exact=True  inert_pairs_are_inert=True  some_differing_pair_moves=True  buckets_partition=True  live_identical=True
+
+pred_a True | pred_b False | pred_c True | pred_d False | pred_z True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/fresh_window_certification_results.json (315.6s)

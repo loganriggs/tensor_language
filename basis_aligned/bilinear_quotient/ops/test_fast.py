@@ -153,6 +153,20 @@ def test_composite_arm_grammar():
             check(f'composite: rejects {bad}', True)
 
 
+def test_run_refuses_an_unknown_role():
+    """S2036: run(roles=...) was never threaded into scoring, so an unregistered role died only after
+    every arm had been scored. The pre-flight now refuses it."""
+    plan = [('mix30m640', None, 'a'), ('map512', None, 'b'), ('mix30m640', {'mlp': 512}, 'c')]
+    preds = [('pred_a_x', 'x', lambda x: True)] * 3
+    try:
+        B.run(name='probe', plan=plan, predicates=preds, roles=('no_such_role',))
+        check('pre-flight refuses an unknown role', False, 'run() accepted it')
+    except ValueError as e:
+        check('pre-flight refuses an unknown role', 'unknown role' in str(e), str(e)[:70])
+    except Exception as e:
+        check('pre-flight refuses an unknown role', False, f'{type(e).__name__}: {e}')
+
+
 def test_fresh_role_is_available_but_not_default():
     """S2036: the fresh window is registered in EVAL_SETS so a script can ask for it, and deliberately NOT
     in ROLES, so no existing script's default set of roles changes."""
@@ -462,7 +476,7 @@ def test_gate_accepts_the_library_itself():
           out.stdout.strip()[-120:])
 
 
-for fn in (test_fresh_role_is_available_but_not_default, test_pooled_lookup_is_orientation_agnostic, test_run_refuses_a_vacuous_control_plan, test_composites_are_never_same_spec, test_inertness_requires_all36, test_per_site_table_ranks, test_penalty_accessor, test_composite_arm_grammar, test_whole_table_arms_are_not_fallback_variants, test_inert_side_of_the_control_is_still_strict, test_site_subsets_change_the_cache_key, test_no_build_level_comparison_is_vote_dependent, test_pooled_t_weights_by_evidence, test_every_ref_path_exists, test_ref_refuses_to_guess_a_coverage, test_rk_key_is_order_independent, test_inertness_pairs_splits_by_table_rank,
+for fn in (test_run_refuses_an_unknown_role, test_fresh_role_is_available_but_not_default, test_pooled_lookup_is_orientation_agnostic, test_run_refuses_a_vacuous_control_plan, test_composites_are_never_same_spec, test_inertness_requires_all36, test_per_site_table_ranks, test_penalty_accessor, test_composite_arm_grammar, test_whole_table_arms_are_not_fallback_variants, test_inert_side_of_the_control_is_still_strict, test_site_subsets_change_the_cache_key, test_no_build_level_comparison_is_vote_dependent, test_pooled_t_weights_by_evidence, test_every_ref_path_exists, test_ref_refuses_to_guess_a_coverage, test_rk_key_is_order_independent, test_inertness_pairs_splits_by_table_rank,
            test_inertness_pairs_warns_when_a_side_is_vacuous, test_ref_reads_published_triples,
            test_paired_t_arithmetic, test_cost_matches_the_published_closed_form,
            test_arm_names_parse_the_way_the_grammar_says, test_gate_fixtures,

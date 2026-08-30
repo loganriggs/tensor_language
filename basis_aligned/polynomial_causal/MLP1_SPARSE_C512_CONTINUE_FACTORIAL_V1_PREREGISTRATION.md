@@ -42,9 +42,10 @@ $$
 \widehat D_1(g)=c + A\,\operatorname{TopK}_{32}(E g),
 $$
 
-where $E\in\mathbb R^{512\times4608}$ has unit-normalized rows, TopK selects by
-absolute score and retains sign, $A\in\mathbb R^{1152\times512}$, and $c$ is one
-explicit compressor intercept.  Use three seeds `[0,1,2]`, Adam, 2,400 steps, batch
+where $E\in\mathbb R^{512\times4608}$ has unit-normalized rows, TopK keeps the 32
+largest scores and applies ReLU exactly as in the earlier successful weight-action
+assay, $A\in\mathbb R^{1152\times512}$, and $c$ is one explicit compressor intercept.
+Use three seeds `[0,1,2]`, Adam, 2,400 steps, batch
 size 1,024 token positions, learning rate `0.003` with cosine decay, and an evaluation
 curve every 200 steps.  There is no input noise and no CE term.
 

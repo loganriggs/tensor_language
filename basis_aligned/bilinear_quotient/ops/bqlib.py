@@ -914,6 +914,10 @@ def run(name, plan, predicates, coverages=(('c5419', FIT_5419, 5419),), refs=(),
     # coverage or arm it names costs a full run before it raises. S2031 lost one that way: the coverage
     # was repointed to 16,110 and the ref still named a 5,419-only artifact. Check them here instead --
     # the files are on disk and the lookup is free.
+    unknown = [r for r in roles if r not in EVAL_SETS]
+    if unknown:
+        raise ValueError(f'unknown role(s) {unknown} -- EVAL_SETS has {sorted(EVAL_SETS)}. A role must be '
+                         f'registered there before run() can score it.')
     for lab, path, arm, cov, _tol in refs:
         if not os.path.exists(path):
             raise ValueError(f'ref {lab!r}: no such artifact {path}')
@@ -938,8 +942,12 @@ def run(name, plan, predicates, coverages=(('c5419', FIT_5419, 5419),), refs=(),
     for tag, fit, nc in coverages:
         print(f'\n########## COVERAGE {nc} ##########', flush=True)
         P = Program(fit, expect_ncov=nc)
-        live = score_roles(P, None)
-        arms = {lab: score_roles(P, spec[lab][0], table_rank=spec[lab][1],
+        # `roles` is a parameter of run() and was never threaded here: both calls took the default
+        # ROLES, so every arm and the live model were scored on the three published roles no matter what
+        # the caller asked for, and only the results loop iterated the requested set. S2036 is the first
+        # run to pass a role outside ROLES and it died on KeyError 'fresh' after scoring everything.
+        live = score_roles(P, None, roles=roles)
+        arms = {lab: score_roles(P, spec[lab][0], roles=roles, table_rank=spec[lab][1],
                                  sites=spec[lab][2]) for lab in labels}
         res[tag], paired[tag], chg[tag] = {}, {}, {}
         for role in roles:

@@ -59459,3 +59459,57 @@ question about this build is a decision rather than a measurement: **§1947's ru
 concentrated cost) and §1979's architectural fork, both with Logan.** The measurement frontier has moved
 back to the **BENCHMARK_BACKLOG**, whose rung 6 — fresh-window certification for every new winner — §2028
 recorded as unsatisfied and unsatisfiable with the rowcaches on disk.
+
+## §2037 — RETRACTION: on a fresh window the converged build LOSES to §1959's by 11.8 milli-nats. The arc was selection.
+
+`ops/fresh_window_certification.py`, **315.6s**, **DISCOVERY ONLY**, 5,419, rung 4 — BENCHMARK_BACKLOG
+rung 6. **pred_a True | pred_b False | pred_c True | pred_d False | derived controls True.**
+No crashed predicates. **512 rows, 98,304 scored positions, ZERO overlap with any fit or eval set.**
+
+```
+  pooled, milli-nats                        FRESH WINDOW        [in-sample, §2028]
+  §1959's build over §1789's deployed      +127.889 (t +47.73)      +69.238
+  CONVERGED over §1789's deployed          +116.120 (t +44.02)      +72.302
+  CONVERGED over §1959's build              −11.770 (t −28.71)       +3.064
+```
+
+> **pred_b FAILED, and it is a sign reversal, not a shrinkage. The converged build is WORSE than §1959's
+> on rows it was not selected on, by 11.770 milli-nats at t = −28.71 on 98,304 positions** — against
+> **+3.064** in-sample. **The loss is 3.8× larger than the gain the entire §2013–§2035 arc was built to
+> capture.** pred_d failed with it.
+
+> **And the window is not the explanation. pred_c PASSED: §1970's anchor transports and grows** —
+> §1959's build beats the deployed design by **+127.889** here against **+69.238** in-sample, same sign,
+> same order, t = +47.73. **A window that could not support this comparison would not reproduce the large
+> margin so cleanly.** pred_a passed too: the converged build still beats §1789's deployed design by
+> +116.120. **What fails is specifically the 3-milli-nat margin the arc bought.**
+
+**RETRACTION.** **§2028's "build of record" is withdrawn. The build of record reverts to §1959's:
+{mlp 768, attn 384}, uncovered rows 30% output-NN neighbour / 70% rank-640 map, 189.5M values.** Every
+supersession from §2018 onward — §2018 (mlp17), §2019 (mlp16), §2020 (layers 10–17), §2023 and §2024 (the
+map cut) — **was chosen by looking at the three published roles and does not survive rows that had no
+say.** The individual measurements stand; **the build they were composed into is worse than the one it
+replaced.**
+
+**What went wrong, precisely.** Fifteen sections each measured a real, significant, pooled margin on
+92,160 positions — and each margin was **1 to 3 milli-nats on a build whose distance from the live model
+is ~2,800**. **A 0.1% effect selected fifteen times over on the same rows is a fitted quantity.** §2029
+and §2030 had already shown these gains were concentrated at covered inputs, the cells most sensitive to
+which rows are looked at; **I read that as a qualification when it was a warning.**
+
+**And I recorded the check that would have caught it as impossible.** §2028 stated that the backlog's
+fresh-window rung "cannot be satisfied with what is on disk". **That was wrong.**
+`bilin18_eval_tokens_large.pt` — 512 rows, 510 distinct prefixes, **zero overlap with all five fit and
+eval caches** — has been in the working directory the whole time. **The rule existed, named this exact
+failure, and I certified a build without it while asserting it could not be done.**
+
+**A library bug on the way, and it is the reason the window was never used.** `run(roles=...)` never
+threaded `roles` into `score_roles`: both the live model and every arm were scored on the default three
+roles regardless of what the caller asked for, and only the results loop iterated the requested set. **The
+parameter has existed since §1988 and §2036 is the first run to pass anything but the default.** Fixed,
+and the pre-flight now refuses an unregistered role.
+
+**Open.** §1959's build is restored and is the only build in this line ever validated out-of-sample.
+**What the arc's fifteen sections actually established is a method failure, not a build**, and the
+question it leaves is whether ANY of the four parameter findings survives fresh rows individually —
+§2020's table raise is the largest and is one arm.
