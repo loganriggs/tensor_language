@@ -59081,6 +59081,13 @@ two runs affected, four predicates in total.**
 
 **Open.** The sweep audit is complete and the build is converged on all four parameters it examined:
 **{attn 384; mlp 768 at layers 0–9, 1152 at 10–17; map 640 except 256 at MLP 0–7; α 0.30}, 202.6M.** The
-next thing the ledger has never priced is not a parameter but a **structure**: every arm since §1789 has
-used the same two-arm fallback — output-NN neighbour blended with a ridge map — and §1998/§2007 showed the
-two serve different sites very differently. **Whether a third arm earns its place has never been asked.**
+next question is **not** a third fallback arm. I wrote that it "has never been asked"; **the record says
+otherwise and I checked before queueing it.** §1947-era work priced the `msk` router and found no arm
+clearing the 0.010-nat threshold on any role, and §1955/§1956 established that `unc_mass` predicts the
+uncovered mass well but **cannot be routed on profitably**. That line is closed and I nearly re-opened it.
+
+**What is genuinely open is α's VALUE, not its uniformity.** §2026 tested 0.10 / 0.30 / 0.50 per-site and
+found uniform best; **§1961 and §1967 located 0.30 itself on a fine grid at the OLD allocation**, before
+per-site table ranks existed. §2026 also showed α is the most sensitive parameter in the build — 11
+milli-nats for a 0.20 move — so **if the optimum shifted even one grid step with the new ranks, that is
+larger than everything §2020–§2024 bought put together.**
