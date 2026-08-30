@@ -478,8 +478,14 @@ later per-rung backlog edits had silently anchored on text that was not here.
     Bars when built: pred_a median gain over real-model-metric selection
     >= +0.02; pred_b >= 6/8 windows non-negative; pred_c the real-model
     arm reproduces §2124's +0.086 median within 0.01.
-    -> ops/cfge_conditioned_fisher.py [QUEUED 20:44Z] (also measures the
-    evalT inherited-attnd-label instrument question on window 0)
+    -> ops/cfge_conditioned_fisher.py
+    RUN 2026-08-30, §2130: pred_b HELD (7/8), pred_a FAILED (+0.0123 vs
+    0.02), pred_c FAILED by 0.0001 over tol on an unregistered RNG-stream
+    change (SITE_OF restriction moved genF; ~0.01 MC-sample sensitivity
+    of the top8 gain is the instrument fact). Observation (unlicensed):
+    conditioning buys ~1/4 on cfgE of what it buys on the frontier,
+    direction matching §2128's reader-mechanism. Label check: window-0
+    gap identical to 4dp under stale vs classified attnd labels.
 
 37. EXTEND THE CONDITIONED SELECTION TO ALL SIX CP MIDDLES. §2129 selects
     only mlp4/mlp5; c6-c9 stay norm-selected, and §2106/§2107 found

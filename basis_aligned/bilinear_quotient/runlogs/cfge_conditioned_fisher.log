@@ -1,0 +1,38 @@
+a2-input probe acc 0.69
+fit a2
+fit a3
+fit a4
+fit a5
+fit a6
+fit a7
+fit a8
+fit a9
+fit a10
+fit a11
+fit a12
+fit a13
+fit a14
+fit a15
+fit a16
+fit a17
+metric for c4 at block 5: top eig 3.537e-09, floor 3.942e-11
+metric for c5 at block 6: top eig 3.162e-07, floor 3.373e-10
+eval-row block-6 observable r90 854
+8 windows x 120 rows, document-disjoint; docs per window [7, 42, 17, 23, 43, 26, 35, 35]
+conditioned top-8 for c4 (site 5): overlap with real-model eight 0.559
+conditioned top-8 for c5 (site 6): overlap with real-model eight 0.655
+window 0: docs   7 base 3.4002 | gap plain +1.8613 top8 +1.8657 cond8 +1.8743 | gain(top8) -0.0044 gain(cond) -0.0086
+window 1: docs  42 base 3.3773 | gap plain +2.0465 top8 +1.9703 cond8 +1.9558 | gain(top8) +0.0762 gain(cond) +0.0145
+window 2: docs  17 base 3.9876 | gap plain +1.8408 top8 +1.6583 cond8 +1.6376 | gain(top8) +0.1825 gain(cond) +0.0207
+window 3: docs  23 base 3.4730 | gap plain +1.9548 top8 +1.7815 cond8 +1.7507 | gain(top8) +0.1733 gain(cond) +0.0309
+window 4: docs  43 base 3.5882 | gap plain +1.9742 top8 +1.8975 cond8 +1.8974 | gain(top8) +0.0768 gain(cond) +0.0000
+window 5: docs  26 base 3.3520 | gap plain +1.8832 top8 +1.8145 cond8 +1.8045 | gain(top8) +0.0687 gain(cond) +0.0100
+window 6: docs  35 base 3.7687 | gap plain +1.7480 top8 +1.6729 cond8 +1.6539 | gain(top8) +0.0750 gain(cond) +0.0190
+window 7: docs  35 base 3.6643 | gap plain +1.8186 top8 +1.8011 cond8 +1.7915 | gain(top8) +0.0174 gain(cond) +0.0096
+instrument: window-0 plain gap, inherited attnd labels +1.8613 vs classified labels +1.8613
+per-window gain(top8 over plain): [-0.00436, 0.07616, 0.18251, 0.17331, 0.07675, 0.06866, 0.07505, 0.01743]
+per-window gain(cond8 over top8): [-0.00862, 0.01453, 0.02075, 0.03085, 4e-05, 0.01001, 0.01897, 0.00964]
+(a) conditioning median +0.0123 >= 0.02: FAILED
+(b) non-negative on 7/8 (bar 6): HELD
+(c) top8 median +0.0756 vs 0.0857 (tol 0.01): FAILED
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/cfge_conditioned_fisher_results.json (160s)

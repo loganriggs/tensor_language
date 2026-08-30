@@ -63443,3 +63443,31 @@ pred_c HELD (norm FR 2.6735, exact).**
   bit-stable. The certified claim is the eight-window median, which absorbs this.
 - **Ledger state for the frontier:** §312's +2.6735 → **+2.7707 fresh** at equal price; §312's registered sanity
   ceiling (L2 ≤ +2.75) retires with the configuration that owned it.
+
+## §2130 — RUNG 36: CONDITIONING BUYS LITTLE ON cfgE (+0.012 median vs +0.047 on the frontier) — BUT THE REGISTERED CONDITIONAL READING IS NOT LICENSED, BECAUSE THE REPRODUCTION GATE FAILED BY 0.0001 OVER TOLERANCE ON AN UNREGISTERED RNG CHANGE
+
+`ops/cfge_conditioned_fisher.py`, **160s**, BACKLOG rung 36. **pred_b HELD (7/8 ≥ 0) | pred_a FAILED (+0.0123 vs
++0.02) | pred_c FAILED (+0.0756 vs 0.0857, tol 0.01 — off by 0.0101).**
+
+```
+  window                0        1        2        3        4        5        6        7      median
+  gain(top8/plain)   −0.004   +0.076   +0.183   +0.173   +0.077   +0.069   +0.075   +0.017   +0.0756
+  gain(cond8/top8)   −0.009   +0.015   +0.021   +0.031   +0.000   +0.010   +0.019   +0.010   +0.0123
+```
+
+- **Why (c) failed, exactly:** restricting SITE_OF to c4/c5 moved the shared `genF` RNG stream — in rung 29 the
+  c4/c5 Gramians consumed draws after m0/m2/m3's calls; here they draw first. Different 2-sample MC labels →
+  slightly different eight → every window's top8 gain shifted down 0.007–0.019 with the §2124 shape intact.
+  **An unregistered instrument change; scored as written.** Instrument fact worth keeping: the true-Fisher top-8
+  selection gain has **~0.01 nat MC-sample sensitivity** at 2 samples/position — pred bars near 0.01 must fix the
+  RNG stream or raise samples.
+- **What the numbers say (stated as observation, not a licensed scoring):** conditioning the metric on cfgE buys
+  +0.0123 median, positive on 7/8 — one quarter of the frontier's +0.047, in an assembly whose post-site readers
+  (attention, lm_head) are real. Direction matches §2128's mechanism reading — conditioning matters in proportion
+  to how much the deployed readers differ from the real ones — but rung 36 as registered cannot certify it.
+  Overlap of the conditioned eight with the real-model eight: 0.559 (site 5) / 0.655 (site 6).
+- **Instrument check (descriptive, registered):** window-0 plain gap is **identical to 4 decimals** under
+  inherited stale attnd labels vs properly classified labels (+1.8613 both). Either cfgE's attnd class-label
+  input is inert at window grain, or the two label sets agree where it matters; a random-label arm would separate
+  these. The §2116/§2124/§2129 window evals all inherited labels the same way, and their certified quantities are
+  arm DIFFERENCES sharing the labels — unaffected either way.

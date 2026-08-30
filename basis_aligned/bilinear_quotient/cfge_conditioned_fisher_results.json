@@ -1,0 +1,162 @@
+{
+ "windows": [
+  {
+   "window": 0,
+   "docs": 7,
+   "base_ce": 3.40016,
+   "gap_plain": 1.86129,
+   "gap_top8": 1.86565,
+   "gap_cond8": 1.87427,
+   "gain_top8": -0.00436,
+   "gain_cond": -0.00862
+  },
+  {
+   "window": 1,
+   "docs": 42,
+   "base_ce": 3.37728,
+   "gap_plain": 2.04647,
+   "gap_top8": 1.97032,
+   "gap_cond8": 1.95579,
+   "gain_top8": 0.07616,
+   "gain_cond": 0.01453
+  },
+  {
+   "window": 2,
+   "docs": 17,
+   "base_ce": 3.98759,
+   "gap_plain": 1.84082,
+   "gap_top8": 1.6583,
+   "gap_cond8": 1.63755,
+   "gain_top8": 0.18251,
+   "gain_cond": 0.02075
+  },
+  {
+   "window": 3,
+   "docs": 23,
+   "base_ce": 3.47304,
+   "gap_plain": 1.95482,
+   "gap_top8": 1.78152,
+   "gap_cond8": 1.75066,
+   "gain_top8": 0.17331,
+   "gain_cond": 0.03085
+  },
+  {
+   "window": 4,
+   "docs": 43,
+   "base_ce": 3.58815,
+   "gap_plain": 1.97421,
+   "gap_top8": 1.89746,
+   "gap_cond8": 1.89742,
+   "gain_top8": 0.07675,
+   "gain_cond": 4e-05
+  },
+  {
+   "window": 5,
+   "docs": 26,
+   "base_ce": 3.35198,
+   "gap_plain": 1.88317,
+   "gap_top8": 1.81452,
+   "gap_cond8": 1.80451,
+   "gain_top8": 0.06866,
+   "gain_cond": 0.01001
+  },
+  {
+   "window": 6,
+   "docs": 35,
+   "base_ce": 3.76872,
+   "gap_plain": 1.74797,
+   "gap_top8": 1.67292,
+   "gap_cond8": 1.65395,
+   "gain_top8": 0.07505,
+   "gain_cond": 0.01897
+  },
+  {
+   "window": 7,
+   "docs": 35,
+   "base_ce": 3.66431,
+   "gap_plain": 1.81856,
+   "gap_top8": 1.80113,
+   "gap_cond8": 1.79149,
+   "gain_top8": 0.01743,
+   "gain_cond": 0.00964
+  }
+ ],
+ "gain_cond_median": 0.0123,
+ "gain_top8_median": 0.0756,
+ "cond_windows_nonneg": 7,
+ "overlap_cond_vs_real_top8": {
+  "c4": 0.5592,
+  "c5": 0.6554
+ },
+ "instrument_label_check_w0": {
+  "inherited_gap": 1.8613,
+  "classified_gap": 1.8613
+ },
+ "profiles": {
+  "plain": [
+   0.0,
+   0.5093,
+   0.5203,
+   0.6436,
+   0.7523,
+   0.7832,
+   1.7415,
+   1.688,
+   1.6989,
+   1.185,
+   1.2966,
+   1.1857,
+   1.0128,
+   0.91,
+   0.8139,
+   0.7546,
+   0.7102,
+   0.5925
+  ],
+  "top8": [
+   0.0,
+   0.5093,
+   0.5203,
+   0.6436,
+   0.7523,
+   0.7414,
+   1.2836,
+   1.1602,
+   1.224,
+   0.9129,
+   1.077,
+   1.0063,
+   0.9176,
+   0.841,
+   0.7589,
+   0.7086,
+   0.6693,
+   0.5578
+  ],
+  "cond8": [
+   0.0,
+   0.5093,
+   0.5203,
+   0.6436,
+   0.7523,
+   0.7323,
+   1.2384,
+   1.1334,
+   1.2005,
+   0.9111,
+   1.0836,
+   1.0164,
+   0.9355,
+   0.8574,
+   0.7738,
+   0.7217,
+   0.6805,
+   0.5636
+  ]
+ },
+ "pred_a_conditioning_installs": false,
+ "pred_b_windows_nonneg": true,
+ "pred_c_reproduces_top8": false,
+ "self_reviewed": true,
+ "runtime_s": 159.6
+}
