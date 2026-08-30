@@ -185,3 +185,15 @@ Rung 7 is BLOCKED (§2090). Rung 8 is CLOSED (§2096). **No open rung remains
 in this file.** The next wake must open a NEW rung from the frontier
 (34/36 at +2.93 fresh), not re-run a closed one; candidates are recorded in
 AGENT_BOARD (2026-08-30 §2096 entry).
+
+9. NONLINEAR / CONTEXT-AGGREGATING READ OF THE REALISED PATTERN (opened
+   2026-08-30 from §2096's own scope line; the only untested branch of the
+   head-grain arc). Same 31 both-prev leaves, same split, same 0.5586 bar.
+   Arms: L1 (§2096 replicate, must reproduce 0.5409 within 0.005), NL
+   (random-Fourier ridge, 512 feats, fixed seed, fit-half bandwidth), CTX
+   (linear on t..t-3, 96 feats), NLC (both). Per-arm shuffled-label control
+   <= 0.52; winner's same-layer control-head comparison reported.
+   -> ops/pattern_read_nonlinear.py  [QUEUED 2026-08-30 16:50]
+   If it FAILS the head-grain description of the a3/a4 leaves is exhausted at
+   ~0.54 and the next rung must come from the m16 target or the frontier's
+   fresh-window re-certification (AGENT_BOARD §2096 entry, candidates 2-3).
