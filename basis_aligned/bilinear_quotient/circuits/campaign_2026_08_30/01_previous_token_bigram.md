@@ -38,3 +38,20 @@ cannot be credited again to induction.
 
 **Next experiment:** fresh-role terminal certification of exact extraction,
 offset-conditioned removal, and unseen-bigram OOD.
+
+## 2026-08-30 discovery update
+
+The preregistered 96-document SELECT assay completed. Full analytical replay was
+bit-exact and candidate arms made zero native layer-0 attention/Q/K/V/O calls.
+Extraction recovered `0.9421` of the deleted head's effect on previous-top positions
+(95% interval `[0.9133, 0.9707]`) and transported essentially unchanged to unseen
+bigrams (`0.9417`, versus `0.9442` seen). The shift-minus-two null recovered `0.1529`.
+
+The terminal removal claim **failed**. Previous-top removal damage was `+0.06249` nat,
+but self-top damage was approximately `+0.06321`, making specificity `-0.00071` with
+95% interval `[-0.01311, +0.01156]`. Global collateral was `+0.06191` nat. Therefore
+this entry remains mechanistic Tier 5 but has **extraction/OOD: discovery pass** and
+**selective removal: discovery fail**. It is not eligible for fresh terminal promotion
+under this endpoint, and no post-hoc argmax gate will be added.
+
+Details: [`PREVIOUS_TOKEN_TENSOR_DISCOVERY_FINDINGS.md`](../../../polynomial_causal/PREVIOUS_TOKEN_TENSOR_DISCOVERY_FINDINGS.md).

@@ -1,0 +1,256 @@
+{
+  "analysis": {
+    "effects": {
+      "all_removal": {
+        "bootstrap_95_high": 0.06897111733754491,
+        "bootstrap_95_low": 0.05503116713629863,
+        "mean": 0.06190541326784425
+      },
+      "extraction_recovery_previous_top": {
+        "bootstrap_95_high": 0.970672723754173,
+        "bootstrap_95_low": 0.9133351959575718,
+        "mean": 0.9421395130863912
+      },
+      "extraction_recovery_seen": {
+        "bootstrap_95_high": 1.0069064101457734,
+        "bootstrap_95_low": 0.884225035647773,
+        "mean": 0.9441568771788803
+      },
+      "extraction_recovery_unseen": {
+        "bootstrap_95_high": 0.973971951615809,
+        "bootstrap_95_low": 0.9081143632970011,
+        "mean": 0.9417172748824374
+      },
+      "null_minus_2_recovery": {
+        "bootstrap_95_high": 0.17722464217467312,
+        "bootstrap_95_low": 0.12925750200115657,
+        "mean": 0.15286322701797445
+      },
+      "null_plus_2_recovery": {
+        "bootstrap_95_high": 0.0,
+        "bootstrap_95_low": 0.0,
+        "mean": 0.0
+      },
+      "removal_previous_top": {
+        "bootstrap_95_high": 0.07058694144185651,
+        "bootstrap_95_low": 0.054430652126479906,
+        "mean": 0.06249410393747381
+      },
+      "specificity_previous_minus_self": {
+        "bootstrap_95_high": 0.011555050838773617,
+        "bootstrap_95_low": -0.013106347397088047,
+        "mean": -0.0007116126758998212
+      }
+    },
+    "pooled_ce": {
+      "deranged_minus_2": {
+        "all": 3.0281119611528187,
+        "other_top": 2.404200022405302,
+        "previous_top": 2.840833348154232,
+        "previous_top_seen_bigram": 3.271622617087261,
+        "previous_top_unseen_bigram": 2.681671065147431,
+        "self_top": 3.587544270477961
+      },
+      "deranged_plus_2": {
+        "all": 3.0424950089719562,
+        "other_top": 2.4487091471611615,
+        "previous_top": 2.8532217525601276,
+        "previous_top_seen_bigram": 3.2832447533576827,
+        "previous_top_unseen_bigram": 2.694342606424436,
+        "self_top": 3.602703474589216
+      },
+      "extract_previous": {
+        "all": 2.9666134185261197,
+        "other_top": 2.3853690329571844,
+        "previous_top": 2.77682021498041,
+        "previous_top_seen_bigram": 3.217767926143109,
+        "previous_top_unseen_bigram": 2.613904758190599,
+        "self_top": 3.5263634379206312
+      },
+      "full_replay": {
+        "all": 2.9596005313926272,
+        "other_top": 2.354534273584124,
+        "previous_top": 2.7721112160154866,
+        "previous_top_seen_bigram": 3.213823798941563,
+        "previous_top_unseen_bigram": 2.608913124264046,
+        "self_top": 3.5169074394344193
+      },
+      "head_deleted": {
+        "all": 3.0424950089719562,
+        "other_top": 2.4487091471611615,
+        "previous_top": 2.8532217525601276,
+        "previous_top_seen_bigram": 3.2832447533576827,
+        "previous_top_unseen_bigram": 2.694342606424436,
+        "self_top": 3.602703474589216
+      },
+      "native": {
+        "all": 2.9596005313926272,
+        "other_top": 2.354534273584124,
+        "previous_top": 2.7721112160154866,
+        "previous_top_seen_bigram": 3.213823798941563,
+        "previous_top_unseen_bigram": 2.608913124264046,
+        "self_top": 3.5169074394344193
+      },
+      "remove_previous": {
+        "all": 3.0215236710177527,
+        "other_top": 2.396526957061929,
+        "previous_top": 2.834631209793019,
+        "previous_top_seen_bigram": 3.2652325811335943,
+        "previous_top_unseen_bigram": 2.6755383532084855,
+        "self_top": 3.580136555440372
+      }
+    }
+  },
+  "arms": [
+    "native",
+    "full_replay",
+    "remove_previous",
+    "head_deleted",
+    "extract_previous",
+    "deranged_minus_2",
+    "deranged_plus_2"
+  ],
+  "bootstrap": {
+    "draws": 20000,
+    "seed": 2026083003
+  },
+  "call_census": {
+    "deranged_minus_2": {
+      "attention0": 0,
+      "k": 0,
+      "k2": 0,
+      "o": 0,
+      "q": 0,
+      "q2": 0,
+      "v": 0
+    },
+    "deranged_plus_2": {
+      "attention0": 0,
+      "k": 0,
+      "k2": 0,
+      "o": 0,
+      "q": 0,
+      "q2": 0,
+      "v": 0
+    },
+    "extract_previous": {
+      "attention0": 0,
+      "k": 0,
+      "k2": 0,
+      "o": 0,
+      "q": 0,
+      "q2": 0,
+      "v": 0
+    },
+    "full_replay": {
+      "attention0": 0,
+      "k": 0,
+      "k2": 0,
+      "o": 0,
+      "q": 0,
+      "q2": 0,
+      "v": 0
+    },
+    "head_deleted": {
+      "attention0": 0,
+      "k": 0,
+      "k2": 0,
+      "o": 0,
+      "q": 0,
+      "q2": 0,
+      "v": 0
+    },
+    "native": {
+      "attention0": 24,
+      "k": 24,
+      "k2": 24,
+      "o": 24,
+      "q": 24,
+      "q2": 24,
+      "v": 24
+    },
+    "remove_previous": {
+      "attention0": 0,
+      "k": 0,
+      "k2": 0,
+      "o": 0,
+      "q": 0,
+      "q2": 0,
+      "v": 0
+    }
+  },
+  "cells": {
+    "all": {
+      "documents": 96,
+      "powered": true,
+      "tokens": 18432
+    },
+    "other_top": {
+      "documents": 95,
+      "powered": true,
+      "tokens": 710
+    },
+    "previous_top": {
+      "documents": 96,
+      "powered": true,
+      "tokens": 12684
+    },
+    "previous_top_seen_bigram": {
+      "documents": 96,
+      "powered": true,
+      "tokens": 3422
+    },
+    "previous_top_unseen_bigram": {
+      "documents": 96,
+      "powered": true,
+      "tokens": 9262
+    },
+    "self_top": {
+      "documents": 96,
+      "powered": true,
+      "tokens": 5038
+    }
+  },
+  "checkpoint": {
+    "config_sha256": "428042bfd807ba36f8b4326395440fbbebe52cd3d040212e6fef14a4fdf2d83c",
+    "logit_vocab": 50304,
+    "revision": "ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240",
+    "snapshot": "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240",
+    "tokenizer_vocab": 50257,
+    "weights_bytes": 2067738635,
+    "weights_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3"
+  },
+  "claim_boundary": "Already-opened FIT/SELECT discovery only; no fresh FINAL, terminal, strict-ledger, uniqueness, full-price, or whole-model circuit credit.",
+  "documents": {
+    "FIT": 96,
+    "SELECT": 96
+  },
+  "eligible_for_fresh_terminal_run": false,
+  "fit_distinct_bigrams": 18632,
+  "gates": {
+    "all_named_cells_powered": true,
+    "collateral": false,
+    "extraction": true,
+    "null_minus_2": true,
+    "null_plus_2": true,
+    "removal_necessity": true,
+    "replay": true,
+    "specificity": false,
+    "unseen_transport": true,
+    "zero_native_candidate_calls": true
+  },
+  "parents": {
+    "preregistration_sha256": "b1433fa847da5146ef2a09fca33d52407899ce619fabb76dad00009b2243f82f",
+    "rows_receipt_sha256": "ce4a6f8eeb20840711bb20677ff8310f1a39db55b50106face1157cd2feeef7f",
+    "runner_sha256": "44831e6aa3a7d9f03ef8b3adf81bafd352b4b6b597b0f0cba03bb4b0a3fe11a8",
+    "tensor_primitive_sha256": "07a23574c1df6c024d8cd60d79a0c0286eaddfe701744a7d3b7310dc267b097e"
+  },
+  "replay": {
+    "maximum_absolute_logit_error": 0.0,
+    "mean_native_to_replay_kl": 0.0,
+    "passed": true
+  },
+  "runtime_seconds": 77.78968214988708,
+  "schema": "previous_token_tensor_discovery_v1",
+  "status": "discovery_complete"
+}
