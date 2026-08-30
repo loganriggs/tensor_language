@@ -241,6 +241,7 @@ def test_bootstrap_is_deterministic_and_shares_draws_across_paired_roles():
     assert first.coordinate_names == ("left", "right")
     assert torch.equal(first.point_estimates, second.point_estimates)
     assert torch.equal(first.simultaneous_lower_bounds, second.simultaneous_lower_bounds)
+    assert torch.equal(first.simultaneous_upper_bounds, second.simultaneous_upper_bounds)
     assert first.critical_value == second.critical_value
     # Every right-role deviation is exactly twice the paired left-role deviation;
     # its point and confidence bound therefore preserve that relation.

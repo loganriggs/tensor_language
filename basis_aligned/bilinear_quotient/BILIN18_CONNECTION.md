@@ -60206,7 +60206,13 @@ was set only where the two methods agree and the field was previously absent.
 five circuits in five different subspaces or one shared one** — that is what DAS is for, and it is the
 third method Logan named. `das_class_learned.py` and `das_class_interchange.py` already exist.
 
-## §2056 — a8's five circuits are ONE mechanism: the directions are 0.89-parallel and no rank-1 direction is selective
+## §2056 — ~~a8's five circuits are ONE mechanism~~ **STRONG FORM RETRACTED BY §2058**
+
+**CORRECTION (§2058).** The measurements below stand: the five full directions are 0.894-parallel and no
+full direction is selective. **The inference from that to "one mechanism" was wrong.** Projecting out the
+shared direction (91.6% of the directional variance) leaves five **near-orthogonal** residuals (0.359)
+that ARE selective, **4 of 5** against §2056's 1 of 5 — and they carry *more* effect, not less. **a8 runs
+five circuits on a common substrate, not one circuit seen five ways.**
 
 `circuit_subspace_separation.py`, **79s**, **DISCOVERY ONLY**, census_state_diverse.
 **pred_a FALSE | pred_b True | pred_c FALSE.** Two of three registered predictions failed and the
@@ -60306,3 +60312,53 @@ with both a collapsed census and a diverse one whose members all push the same f
 in each circuit's own localised component**, as §2056 did, not in a shared downstream space. That means
 one capture per distinct component rather than one for the whole census — affordable, since §2054 showed
 the twelve localise to five components, but it needs the other 58 circuits localised first.
+
+## §2058 — QUALIFIES §2056: a8's five circuits share a dominant direction but DO differ, selectively, in the residual
+
+`circuit_residual_subspace.py`, **48s**, **DISCOVERY ONLY**, census_state_diverse.
+**pred_a True | pred_b True | pred_c FALSE 0/5.** §2056's open question, answered — and the answer
+requires correcting §2056's headline.
+
+```
+  the shared direction explains 0.9161 of the five directions' variance
+  residual directions: mean pairwise |cos| = 0.3587   (§2056's full directions: 0.8942)
+
+  residual along     own    mean(others)  selective?   §2056 full-direction own
+  r.11.1.1          3.646      3.978         NO               4.372
+  r.11.1.2          4.564      3.318         yes              7.279
+  r.11.3.1          4.036      3.118         yes              4.103
+  r.23.2.1          2.802      2.786         yes              3.099
+  r.23.2.3          4.742      2.539         yes              3.649
+```
+
+> **pred_b PASSED 4/5, where §2056 got 1/5. Once the shared direction is projected out, each circuit's
+> residual direction IS selective for its own circuit.** The five are near-orthogonal in the residual
+> (0.359 against 0.894 before). **They are not one mechanism. They share a dominant substrate and differ
+> in identifiable, selective directions on top of it.**
+
+> **pred_c FAILED 0/5, and that is the sharpest number here. The residual does NOT carry less effect —
+> it carries as much or more.** `r.23.2.3` goes from **3.649 to 4.742** when its shared component is
+> removed. **The shared direction contributes damage without contributing selectivity**, so removing it
+> makes each circuit's own direction look *better*, not worse. I predicted the effect lived in the shared
+> direction; it does not.
+
+**CORRECTION TO §2056.** §2056 concluded "a8's five circuits are ONE mechanism… five census leaves each
+see a slice of it" and I posted that to the board as a warning to Codex mid-campaign, saying that writing
+five mechanism stories at a8 would be writing one story five times. **That was too strong and §2058
+retracts the strong form.** §2056's measurements stand exactly — the full directions *are* 0.894-parallel
+and no full direction *is* selective — but **the inference from "parallel and non-selective" to "one
+mechanism" was wrong, because a large shared component can mask selective structure underneath it, and
+here it does.**
+
+**The corrected statement.** a8 carries a **dominant shared direction (91.6% of the five circuits'
+directional variance) that is not selective for any of them**, plus **five near-orthogonal residual
+directions that are selective for four of five**. **Five circuits on a common substrate, not five views of
+one circuit.** A mechanism story at a8 should explain the shared substrate once and the residuals
+separately.
+
+**Open.** Four of five are selective in the residual; **r.11.1.1 is not** (own 3.646 against others 3.978).
+It is the one a8 circuit with no direction of its own at either level, and it is the circuit whose full
+direction §2056 found best explained by r.11.1.2's. **And this is still closed-form, not
+gradient-descent DAS** — `das_class_learned.py` optimises an interchange objective and could find
+multi-dimensional structure a single residual direction misses, which is now the obvious next step rather
+than a speculation.

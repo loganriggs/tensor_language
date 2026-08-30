@@ -127,6 +127,7 @@ class BootstrapResult:
     coordinate_names: tuple[str, ...]
     point_estimates: torch.Tensor
     simultaneous_lower_bounds: torch.Tensor
+    simultaneous_upper_bounds: torch.Tensor
     critical_value: float
     confidence: float
     repetitions: int
@@ -572,10 +573,14 @@ def simultaneous_document_bootstrap(
     maxima = (replicates - point).max(dim=1).values.sort().values
     critical = float(maxima[math.ceil(confidence * repetitions) - 1])
     lower = point - critical
+    upper_errors = (point - replicates).max(dim=1).values.sort().values
+    upper_critical = float(upper_errors[math.ceil(confidence * repetitions) - 1])
+    upper = point + upper_critical
     return BootstrapResult(
         coordinate_names=tuple(spec.name for spec in specs),
         point_estimates=point,
         simultaneous_lower_bounds=lower,
+        simultaneous_upper_bounds=upper,
         critical_value=critical,
         confidence=confidence,
         repetitions=repetitions,

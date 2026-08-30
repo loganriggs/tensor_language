@@ -1,0 +1,12 @@
+shared direction explains 0.9161 of the five directions' variance
+residual directions: mean pairwise |cos| = 0.3587  (bar for separate < 0.5)
+  residual along r.11.1.1: own 3.646  mean(others) 3.978  selective=False  (full was 4.372)  (18s)
+  residual along r.11.1.2: own 4.564  mean(others) 3.318  selective=True  (full was 7.279)  (25s)
+  residual along r.11.3.1: own 4.036  mean(others) 3.118  selective=True  (full was 4.103)  (33s)
+  residual along r.23.2.1: own 2.802  mean(others) 2.786  selective=True  (full was 3.099)  (40s)
+  residual along r.23.2.3: own 4.742  mean(others) 2.539  selective=True  (full was 3.649)  (48s)
+
+pred_a residual mean |cos| 0.3587 < 0.5 : True
+pred_b selective for own circuit: 4/5  (bar >=3; §2056 had 1/5)
+pred_c residual concentration below half the full: 0/5
+wrote circuits/RESIDUAL.json (48s)

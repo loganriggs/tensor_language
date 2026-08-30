@@ -185,19 +185,40 @@ one exact intervention implementation instead of writing new hooks for every hea
 ## 6. Ordered successor status
 
 The successor program targets layer-8 head 7. Its exact value/output map has two
-sources: the current residual stream and the saved layer-0 value stream. For fixed
-attention scores $A$, it computes
+sources: the 1,152-dimensional current residual stream and the saved **already
+projected 128-dimensional** layer-0 H7 value bus. For fixed attention scores $A$, it
+computes
 
 $$
-y_q=O\sum_k A_{qk}\left[(1-\lambda)Vx_k+\lambda V_0x_k^{(0)}\right].
+y_q=O\sum_k A_{qk}\left[(1-\lambda)Vx_k+\lambda b_k^{(0)}\right],
 $$
 
-The source-closed discovery now has 17 frozen arms: ranks
+where $b_k^{(0)}=V_0x_k^{(0)}$ is the shared bus. A pre-outcome audit of the interface
+caught that the first successor scaffold unnecessarily treated this bus as another
+1,152-dimensional state. The correct folded map is
+
+$$
+O\left[(1-\lambda)V\mid\lambda I_{128}\right],
+$$
+
+not a map that re-applies $V_0$. This matters both mathematically and for price. With
+the layer-0 value producer charged once as shared model infrastructure, a rank-$s$
+successor head costs
+
+$$
+4(128)(1152)+s(1152+128+1152)=589{,}824+2{,}432s
+$$
+
+stored floats. That is 609,280 at rank 8 and 901,120 at rank 128. The structured native
+head itself costs 884,736 floats on the same shared bus, so rank 128 is an exact control,
+not a compression; ranks below roughly 122 are cheaper. A standalone end-to-end claim
+must additionally charge the shared layer-0 value producer once, not once per consumer.
+
+The source-closed discovery has 17 frozen arms: ranks
 `8,16,32,64,96,128`, same-price spectral nulls, and rank-128 source omissions. Prices
-range from 617,472 stored floats at rank 8 to 1,032,192 at rank 128; the latter equals
-the native autonomous per-head price. A cheaper 442,368-float value-only object is
-conditional on teacher attention scores and is explicitly not counted as an
-executable extraction.
+in the original scaffold are being corrected to the shared-bus currency before any
+outcome is opened. A value-only object conditional on teacher attention scores is
+explicitly not counted as an executable extraction.
 
 Nineteen toy/source tests pass. No SELECT or OOD outcome has been opened. The remaining
 implementation work is a source-closed layer-8 executor, transactional result owner,
