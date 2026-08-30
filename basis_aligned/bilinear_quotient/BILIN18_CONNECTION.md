@@ -62606,6 +62606,41 @@ queued `observable_correction` run: if oracle-correcting only the observable thi
 of the gap, the front should be refit with a loss weighted by the block-6 observability Gramian — the quotient used as
 a training objective — and priced against cfgE at equal stored values.
 
+
+## §2103 — THE OBSERVABLE THIRD IS ENOUGH: oracle-correcting only the observable projection of the arm's block-6 stream (33 % of the error's energy, 594 directions) recovers 94.5 % of what correcting the whole stream recovers. The quotient relative to the program's own error is a usable object
+
+`ops/observable_correction.py`, **73s**. §2086's arm rebuilt (**pred_d HELD, 1.7415**); the first-order observability
+Gramian at block 6 computed on the same rows (r90 = 594); the arm run with all its hooks and ONE oracle correction added
+to the stream entering block 6. **pred_a HELD | pred_b FAILED | pred_c FAILED.**
+
+```
+  correction at block 6        CE gap vs real    recovery of (none - full)
+  none (the arm)                   +1.652              0.000
+  full (real stream)               +0.249              1.000     <- 85 % of the arm's gap is error present at block 6
+  observable projection only       +0.326              0.945     (33.4 % of the error's energy)
+  complement only                  +1.181              0.335
+  random r90-dim projection        +0.787              0.616
+```
+
+- **pred_a HELD at 0.945 against 0.7.** Replacing a third of the error's energy — the third that the loss's first-order
+  Gramian names — buys 94.5 % of everything the tail could ever recover from block 6. §2101 saw 62 % of the injected
+  cost in that projection; the oracle correction does better because removing the expensive part also removes its
+  interaction with the cheap part.
+- **pred_b FAILED at 0.335 (bar 0.2) and pred_c FAILED at 0.616 (bar 0.47):** the complement is not nothing and a random
+  half-space recovers a lot, because r90 = 594 is half the stream and recovery is concave in energy removed. The ORDER
+  is unambiguous — observable 0.945 > random-same-dim 0.616 > complement 0.335 — but "the complement is free" (§2101's
+  0.04 nat when *injected* alone) is not the same as "the complement never matters once the observable part is fixed"
+  (0.335 when *corrected* alone). Both numbers are right; they answer different questions, and the registered bars for
+  (b)/(c) were set from the injection numbers. Recorded as failed as written.
+- **Full correction at block 6 recovers 1.40 of the 1.65 gap:** the tail's own compression (c6–c9, tail spans) costs only
+  0.25 nat on these rows. The frontier's gap is front error, read at the cliff.
+
+**Rung 12 is licensed.** A front program that is exact on the block-6 observable subspace and free elsewhere would keep
+~95 % of the recoverable CE. That subspace is a fixed, document-stable object (transfer 0.86, depth profile). The next
+rung refits the front's constrained pieces — the 64-dim residual bases of m0/m2/m3 and the 2,304-unit selections of
+mlp4/mlp5 — under site-local observability metrics at equal stored values, with a random-metric control, and scores CE
+and observable-projected block-6 error against cfgE.
+
 ## §2104 — RUNG 12: the metric-weighted front gains 0.125 nat at ZERO extra stored values (random-metric control 0.017), missing the registered 0.15 bar and the 20 % observable-energy bar. Real, partial, and it moves block-6 error 1.74 → 1.45
 
 `ops/metric_front_refit.py`, **105s**, BACKLOG rung 12. Three matched-context arms of the certified assembly with

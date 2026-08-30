@@ -247,3 +247,74 @@ AGENT_BOARD (2026-08-30 §2096 entry).
     real hurts both. Exactness is priced by DIRECTION. Next: if
     ops/observable_correction.py shows the observable third suffices, refit
     the front under a block-6-Gramian-weighted loss (rung 12).
+
+12. METRIC-WEIGHTED FRONT (opened 2026-08-30 from §2103: oracle-correcting the
+    observable third of the block-6 stream recovers 94.5% of what full
+    correction recovers). Refit the front's CONSTRAINED pieces under site-local
+    first-order observability metrics at EQUAL stored values (m0/m2/m3 residual
+    bases; mlp4/mlp5 unit selection); random-metric control.
+    -> ops/metric_front_refit.py  RUN §2104: +0.125 nat at equal price (bar 0.15
+    FAILED by 0.025); random-metric +0.017 (HELD); block-6 rel-MSE 1.74 -> 1.45
+    but observable share ROSE (pred_b FAILED). Real, mechanism not as registered.
+    12b -> ops/metric_front_refit_split.py  RUN §2105: units-only +0.124, bases-
+    only -0.009 — the whole gain is mlp4/mlp5 UNIT SELECTION; additive; control
+    reproduces §2104 exactly. All four HELD.
+
+13. SECOND WINDOW + c6-c9 EXTENSION -> ops/metric_units_certify.py  RUN §2106:
+    (a) HELD +0.075 on FW rows 0:120 (never used by any fit/eval); (c) HELD
+    0.124 reproduced; (b) FAILED — metric selection at c6-c9 lowers block-9
+    rel-MSE and RAISES CE. CERTIFIED at mlp4/mlp5 only.
+
+14. PRICE THE GAIN: K SWEEP -> ops/metric_units_ksweep.py  RUN §2107: metric-
+    1152 matches norm-2304 on both windows (HALF the stored values at equal
+    CE); gain 0.156/0.124/0 at K=1152/2304/4608; pred_a FAILED as written
+    because K=4608 is the whole layer (instrument fact missed at registration).
+
+15. MECHANISM -> ops/metric_units_mechanism.py  RUN §2108: swapped-in vs
+    swapped-out units have 0.685 vs 0.670 of Down energy in the r90 span (every
+    unit ~0.68) — refuted AS STATED. 15b -> ops/metric_units_mechanism2.py  RUN
+    §2109: top-8 loss-gradient directions discriminate at 2.4-2.5x (HELD);
+    top-r50 1.3x (FAILED at 1.5x). The mechanism is the Gramian's very top.
+
+16. THE 8-DIRECTION SELECTOR -> ops/metric_units_top8.py  RUN §2110: top-8
+    selector gives +0.1285/+0.0648 (reproduces the full metric; a/b/d HELD) and
+    BEATS top-r50 (+0.109; pred_c FAILED). Eight directions per site ARE the
+    metric (8x1152 stored values).
+
+17. NAME THE EIGHT -> ops/name_the_eight.py  RUN §2111: dominant newline-vs-
+    place-name direction (18% of block-5 gradient energy), five markup/
+    punctuation structure directions, two place-name directions; attn5 head 7
+    reads them at 3.7x via q2 (HELD); lm_head overlap 0.10 (HELD); block-5/6
+    eights overlap 0.472 (FAILED by 0.028).
+
+18. IS attn5 HEAD 7 THE AMPLIFIER? -> ops/head7_amplifier.py  RUN §2112: NO —
+    h7 is the §1089 sink/bias head (zeroing it costs the REAL model 0.91 nat,
+    pred_c FAILED 9x); zeroing on both sides trims block-6 error 8% and triples
+    block 7 (pred_a FAILED); random-head controls HELD.
+
+19. DECOMPOSE THE INJECTED ERROR BY HEAD -> ops/attn5_error_by_head.py  RUN
+    §2113: h7 carries 74% of attn5's injected error (97% of real output; pred_a
+    HELD) but it lies OFF the eight at a random direction's rate (0.0071;
+    pred_b FAILED); attn5 injects more than mlp5 (HELD).
+
+20. ENERGY vs PRICE AT HEAD GRAIN -> ops/head_energy_vs_price.py  RUN §2114:
+    ALL FOUR HELD — h7-only oracle correction removes 71% of block-6 stream
+    error and 19% of CE; the other eight heads 40% / 85%; all nine recover 0.79
+    of the 1.50-nat gap. Rel-MSE is the wrong currency, measured.
+
+21. WHICH OF THE EIGHT HEADS CARRY THE 85%? -> ops/attn5_head_price_ladder.py
+    RUN §2115: four heads (5,0,1,6) at 0.15-0.18 each, additive to 0.82 (pred_c
+    HELD); h5 top as predicted from the eight (pred_b HELD); not concentrated
+    in two (pred_a FAILED).
+
+22. FRESH-PILE CERTIFICATION of the metric-unit gain: cfgE vs metric-units
+    (c4,c5, K=2304) on the eight document-disjoint pile-10k windows of §2083
+    (probe_gate7's builder). -> ops/metric_units_fresh8.py [QUEUED]
+    pred_a gain > 0 on >= 7 of 8 windows; pred_b median gain >= 0.04 (half of
+    window-2's 0.075); pred_c gain sd across windows <= 0.5 x gap sd; pred_d
+    window-1 gain reproduces 0.124 within 0.02.
+
+BOOKKEEPING NOTE 2026-08-30 18:40Z: rungs 12-22 above were reconstructed from
+the ledger entries §2103-§2115 after a cwd slip appended §2103 and rung 12's
+opening to the repository-root copies of these two files (reverted); the
+later per-rung backlog edits had silently anchored on text that was not here.
