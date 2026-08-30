@@ -63037,3 +63037,46 @@ identical to §2083). **pred_d HELD (0.1241; 1.7415) | pred_a HELD | pred_b HELD
 **Frontier note (certified, self-reviewed):** metric-selected mlp4/mlp5 units, equal price — +0.124 (R0:R1), +0.075
 (FW 0:120), median +0.082 over eight fresh pile-10k windows (8/8 positive). Half-price at equal CE (§2107) has been
 shown on the first two windows only and is not yet certified on the eight.
+
+## §2117 — RUNG 23: at PIECE grain, energy DOES order price (ρ = 0.81) — the head-grain separation of §2114 does not transfer to the assembly's pieces. Four pieces tie at the top (tail, m2, m3, m0 at 0.15–0.16 each), singles sum to 0.885, the front is 0.75 of the gap
+
+`ops/piece_price_ladder.py`, **112s**, BACKLOG rung 23. Each compressed piece of the certified arm made real alone by
+dropping its hook (no refit — the in-situ oracle price of its error), CE recovery vs the piece's own output-error energy.
+**pred_d HELD (1.7415) | pred_b HELD | pred_c HELD | pred_a FAILED.**
+
+```
+  piece   made real alone: gap     recovery     own output error energy      ladder by CE  |  ladder by energy
+  tailE        +1.331          0.158          3.40e13                          tailE 0.158  |  tailE
+  m2E          +1.333          0.157          4.59e12                          m2E   0.157  |  m0E
+  m3E          +1.334          0.156          8.43e12                          m3E   0.156  |  m3E
+  m0E          +1.337          0.154          1.43e13                          m0E   0.154  |  c4
+  m1           +1.410          0.108          4.34e11                          m1    0.108  |  m2E
+  c5           +1.450          0.083          1.06e11                          c5    0.083  |  m1
+  c4           +1.451          0.082          6.23e12                          c4    0.082  |  c9
+  c6           +1.551          0.019          6.07e10                          c6    0.019  |  c5
+  c7           +1.559          0.014          4.06e10                          c7    0.014  |  c8
+  a0           +1.581          0.000          2.14e02   (the token c_v table is exact)   a0 |  c6
+  c9           +1.583         -0.001          1.31e11                          c9   -0.001  |  c7
+  c8           +1.600         -0.012          1.01e11                          c8   -0.012  |  a1v
+  a1v          +1.632         -0.032          2.59e10                          a1v  -0.032  |  a0
+  Spearman rho(recovery, energy) = +0.808  (bar <= 0.5, FAILED)    singles sum 0.885 (HELD)    front jointly real 0.746 (HELD)
+```
+
+- **pred_a FAILED, and it corrects the arc's narrative.** §2114 found the sink head carrying 71 % of the stream error
+  and 19 % of the CE; I registered that rel-MSE would be the wrong currency at piece grain too. It is not: across the
+  arm's thirteen compressed pieces, own-output error energy ranks CE recovery at ρ = 0.81. The exceptions are the ones
+  §2102 already saw — c4 is 4th by energy and 7th by CE (its error is amplified rather than costly in itself), c9/c8
+  have energy and *negative* recovery — but the bulk ordering holds. **Energy and price separate inside attn5 (one
+  head's fixed-vector scale error); they agree across pieces.** The registry's rel-MSE priorities are not licensed to
+  be re-ordered wholesale by this result.
+- **pred_c HELD at 0.746:** the six front pieces made real together recover three-quarters of the gap — §2103's "85 %
+  of the gap is present at block 6", read at piece grain.
+- **pred_b HELD at 0.885:** single-piece recoveries nearly add up; the pieces price independently.
+- Four pieces tie at the top: the tail spans and the three front table+residual programs, at 0.15–0.16 each. There is
+  no single lever; there are four equal ones and one (m1) at two-thirds.
+- **a1v, c8, c9 made real HURT** (−0.03, −0.01): pieces fitted around a neighbour's error lose when the neighbour is
+  corrected without refit — §307, again, and the reason the 18:35 review's (A) (re-price the registry by in-situ
+  oracle CE) would need matched-context arms per piece, i.e. §2102's construction at 13× the cost, before it is worth
+  doing.
+
+**Next.** (B) from the 18:35 review: certify the half-price claim (metric-1152 = norm-2304) on the eight fresh windows.

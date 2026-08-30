@@ -1,0 +1,110 @@
+{
+ "base_ce": 3.53524,
+ "gap_arm": 1.58085,
+ "pieces": {
+  "a0": {
+   "gap_with_piece_real": 1.5808,
+   "recovery": 0.0,
+   "own_output_error_energy": 213.93792724609375
+  },
+  "m0E": {
+   "gap_with_piece_real": 1.33718,
+   "recovery": 0.1541,
+   "own_output_error_energy": 14336095420416.0
+  },
+  "a1v": {
+   "gap_with_piece_real": 1.63158,
+   "recovery": -0.0321,
+   "own_output_error_energy": 25905158144.0
+  },
+  "m1": {
+   "gap_with_piece_real": 1.4098,
+   "recovery": 0.1082,
+   "own_output_error_energy": 433700864000.0
+  },
+  "m2E": {
+   "gap_with_piece_real": 1.33272,
+   "recovery": 0.157,
+   "own_output_error_energy": 4591453208576.0
+  },
+  "m3E": {
+   "gap_with_piece_real": 1.33412,
+   "recovery": 0.1561,
+   "own_output_error_energy": 8432825401344.0
+  },
+  "c4": {
+   "gap_with_piece_real": 1.4511,
+   "recovery": 0.0821,
+   "own_output_error_energy": 6228423475200.0
+  },
+  "c5": {
+   "gap_with_piece_real": 1.45039,
+   "recovery": 0.0825,
+   "own_output_error_energy": 105976061952.0
+  },
+  "c6": {
+   "gap_with_piece_real": 1.55123,
+   "recovery": 0.0187,
+   "own_output_error_energy": 60715626496.0
+  },
+  "c7": {
+   "gap_with_piece_real": 1.55899,
+   "recovery": 0.0138,
+   "own_output_error_energy": 40619180032.0
+  },
+  "c8": {
+   "gap_with_piece_real": 1.60038,
+   "recovery": -0.0124,
+   "own_output_error_energy": 101179998208.0
+  },
+  "c9": {
+   "gap_with_piece_real": 1.58311,
+   "recovery": -0.0014,
+   "own_output_error_energy": 130565677056.0
+  },
+  "tailE": {
+   "gap_with_piece_real": 1.33112,
+   "recovery": 0.158,
+   "own_output_error_energy": 34010323484672.0
+  }
+ },
+ "ladder_by_ce": [
+  "tailE",
+  "m2E",
+  "m3E",
+  "m0E",
+  "m1",
+  "c5",
+  "c4",
+  "c6",
+  "c7",
+  "a0",
+  "c9",
+  "c8",
+  "a1v"
+ ],
+ "ladder_by_energy": [
+  "tailE",
+  "m0E",
+  "m3E",
+  "c4",
+  "m2E",
+  "m1",
+  "c9",
+  "c5",
+  "c8",
+  "c6",
+  "c7",
+  "a1v",
+  "a0"
+ ],
+ "spearman_recovery_vs_energy": 0.8077,
+ "sum_single_recoveries": 0.8846,
+ "front_recovery": 0.7459,
+ "pred_a_energy_is_wrong_currency": false,
+ "pred_b_additive": true,
+ "pred_c_front_is_the_price": true,
+ "pred_d_reproduces_S2086": true,
+ "self_reviewed": true,
+ "runtime_s": 112.3
+}

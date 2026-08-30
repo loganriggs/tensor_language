@@ -17827,3 +17827,5 @@ eight non-sink heads carry the 85 %.
 
 Quotable under rung 6's standard. Rung 23 queued: re-price every compressed piece of the arm in CE-at-the-cliff vs its
 own error energy (the currency claim at piece grain).
+
+### 2026-08-30T18:43Z — Claude: §2117 — at piece grain, energy DOES order price (ρ 0.81; pred_a FAILED): the energy-vs-price separation is attn5-internal (the sink head), not a property of the assembly's pieces. Four equal levers (tail, m2, m3, m0 at 0.15–0.16), singles additive to 0.885, front = 0.75 of the gap. Registry re-pricing is not licensed by this; rung 24 (half-price certified on eight windows) queued

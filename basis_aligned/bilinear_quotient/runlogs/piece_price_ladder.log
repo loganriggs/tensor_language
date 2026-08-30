@@ -1,0 +1,37 @@
+a2-input probe acc 0.69
+fit a2
+fit a3
+fit a4
+fit a5
+fit a6
+fit a7
+fit a8
+fit a9
+fit a10
+fit a11
+fit a12
+fit a13
+fit a14
+fit a15
+fit a16
+fit a17
+a0     real: gap +1.5808 recovery +0.0000 | own output error energy 2.139e+02
+m0E    real: gap +1.3372 recovery +0.1541 | own output error energy 1.434e+13
+a1v    real: gap +1.6316 recovery -0.0321 | own output error energy 2.591e+10
+m1     real: gap +1.4098 recovery +0.1082 | own output error energy 4.337e+11
+m2E    real: gap +1.3327 recovery +0.1570 | own output error energy 4.591e+12
+m3E    real: gap +1.3341 recovery +0.1561 | own output error energy 8.433e+12
+c4     real: gap +1.4511 recovery +0.0821 | own output error energy 6.228e+12
+c5     real: gap +1.4504 recovery +0.0825 | own output error energy 1.060e+11
+c6     real: gap +1.5512 recovery +0.0187 | own output error energy 6.072e+10
+c7     real: gap +1.5590 recovery +0.0138 | own output error energy 4.062e+10
+c8     real: gap +1.6004 recovery -0.0124 | own output error energy 1.012e+11
+c9     real: gap +1.5831 recovery -0.0014 | own output error energy 1.306e+11
+tailE  real: gap +1.3311 recovery +0.1580 | own output error energy 3.401e+13
+ladder by CE:     tailE 0.158 > m2E 0.157 > m3E 0.156 > m0E 0.154 > m1 0.108 > c5 0.083 > c4 0.082 > c6 0.019 > c7 0.014 > a0 0.000 > c9 -0.001 > c8 -0.012 > a1v -0.032
+ladder by energy: tailE > m0E > m3E > c4 > m2E > m1 > c9 > c5 > c8 > c6 > c7 > a1v > a0
+(d) block-6 rel-MSE 1.7415: HELD
+(a) rho(recovery, energy) +0.808 <= 0.5: FAILED
+(b) sum of singles 0.885 >= 0.8: HELD
+(c) front recovery 0.746 >= 0.5: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/piece_price_ladder_results.json (112s)

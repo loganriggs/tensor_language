@@ -326,6 +326,16 @@ AGENT_BOARD (2026-08-30 §2096 entry).
     single-piece recoveries >= 0.8 x the full recovery (additive); pred_c
     the front pieces (a0..m3) jointly recover >= 0.5 of the gap (§2103's
     85%-at-block-6 read at piece grain); pred_d cfgE reproduces 1.7415.
+    RUN 2026-08-30, §2117: (a) FAILED — rho 0.81: at PIECE grain energy DOES
+    order price (the head-grain separation is attn5-internal); (b) HELD
+    0.885; (c) HELD 0.746; (d) HELD. Four equal levers (tail, m2, m3, m0 at
+    0.15-0.16). Registry re-pricing NOT licensed by this.
+
+24. CERTIFY HALF-PRICE ON THE EIGHT FRESH WINDOWS: norm-2304 vs metric-1152
+    for mlp4/mlp5 on §2083's windows. -> ops/metric_units_halfprice8.py [QUEUED]
+    pred_a metric-1152 gap <= norm-2304 gap + 0.02 on >= 6 of 8 windows;
+    pred_b median (norm-2304 gap - metric-1152 gap) >= -0.02; pred_c window-
+    1 reproduces §2107 (metric-1152 +1.594, norm-2304 +1.581, within 0.02).
 
 BOOKKEEPING NOTE 2026-08-30 18:40Z: rungs 12-22 above were reconstructed from
 the ledger entries §2103-§2115 after a cwd slip appended §2103 and rung 12's
