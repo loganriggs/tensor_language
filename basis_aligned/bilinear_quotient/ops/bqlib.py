@@ -59,7 +59,13 @@ FIT_5419 = PT + '.rowcache/fineweb_n96_skip80.pt'      # 5,419 types at T=256 --
 FIT_16110 = PT + '.rowcache/fineweb_n480_skip80.pt'    # 16,110 types at T=256 (measured, S1923)
 EVAL_SETS = {'skip7000': PT + '.rowcache/fineweb_n192_skip7000.pt',
              'skip11000': PT + '.rowcache/fineweb_n192_skip11000.pt',
-             'skip1200': PT + '.rowcache/fineweb_n96_skip1200.pt'}
+             'skip1200': PT + '.rowcache/fineweb_n96_skip1200.pt',
+             # S2036: 512 rows x 513 tokens, MEASURED 2026-08-30 as having ZERO overlap (by 24-token
+             # prefix) with any of the three eval roles or either fit set -- 510 distinct prefixes, none
+             # of them used anywhere. S2028 recorded the backlog's fresh-window rung as unsatisfiable
+             # with the caches on disk; that was wrong, and this is the window it needs. NOT in ROLES,
+             # so no existing script's default changes: pass roles=('fresh',) to use it.
+             'fresh': PT + 'bilin18_eval_tokens_large.pt'}
 ROLES = ('skip7000', 'skip11000', 'skip1200')
 BUCKETS = ((0, 0), (1, 4), (5, 24), (25, 124), (125, 10 ** 9))
 SKIP = 64                # positions >= 64 are scored (house convention)
