@@ -829,7 +829,12 @@ later per-rung backlog edits had silently anchored on text that was not here.
     prediction from §2153: -0.0007.
     pred_a median [L2_F_w(four) - L2_F_w(nine)] <= +0.005; pred_b
     <= +0.01 on >= 6/8; pred_c nine-head arm reproduces §2146 per-window
-    (median |delta| <= 0.005). -> ops/attn16_four_heads_w8.py [QUEUED]
+    (median |delta| <= 0.005). -> ops/attn16_four_heads_w8.py
+    RUN 2026-08-30, §2154: pred_c HELD, pred_a/b FAILED (+0.0097 median,
+    4/8; FR-like windows ~0). Joint-throughout removal picks up a ~+0.01
+    interaction/refit term the individual eval-scoped marginals lack —
+    additive predictions licensed only for individual eval-scoped
+    marginals. Four-head attn16 = a trade (+0.0097), not free.
 
 61. attn14 PER-HEAD MAP AT WINDOW GRAIN (damage convention; window-grain
     from the start per §2152's lesson). Skip-a14 config (a15L-a17L refit

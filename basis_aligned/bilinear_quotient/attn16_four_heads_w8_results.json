@@ -1,0 +1,67 @@
+{
+ "nine": {
+  "L1_F": 2.3207,
+  "L2_C": 2.239,
+  "L2_F": 2.5092,
+  "increment": 0.1885,
+  "orig_s312_a": true,
+  "orig_s312_b": false,
+  "fresh8": [
+   2.5092,
+   2.7194,
+   2.3793,
+   2.6034,
+   2.6546,
+   2.5863,
+   2.3738,
+   2.4579
+  ],
+  "runtime_s": 109.37119722366333
+ },
+ "three": {
+  "L1_F": 2.3133,
+  "L2_C": 2.2426,
+  "L2_F": 2.5051,
+  "increment": 0.1918,
+  "orig_s312_a": true,
+  "orig_s312_b": false,
+  "fresh8": [
+   2.5096,
+   2.7197,
+   2.3881,
+   2.6143,
+   2.6652,
+   2.6053,
+   2.3843,
+   2.4658
+  ],
+  "runtime_s": 109.03193473815918
+ },
+ "per_window_three_minus_nine": [
+  0.0004,
+  0.0003,
+  0.0088,
+  0.0109,
+  0.0106,
+  0.019,
+  0.0105,
+  0.0079
+ ],
+ "per_window_nine_vs_s2146_absdelta": [
+  0.0001,
+  0.0001,
+  0.0001,
+  0.0,
+  0.0,
+  0.0,
+  0.0001,
+  0.0
+ ],
+ "convention": "L2 = CE above the real model; lower is better",
+ "additive_prediction": -0.0007,
+ "pred_a_window_grain": false,
+ "pred_b_windows": false,
+ "pred_c_reproduces_s2146": true,
+ "self_reviewed": true,
+ "runtime_s": 218.4
+}

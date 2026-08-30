@@ -64034,3 +64034,25 @@ HELD: pred_a (top share 0.518 ≥ 0.40) | pred_b (top class "ind" is LINK) | pre
   standard). Also: window-median d_all ≈ +0.176 vs FR's +0.119 — broader text leans on attn16 harder, consistent
   with §2151's in-document-retrieval reading (the certification windows have more long-range repeats than FR's
   window-0-like documents).
+
+## §2154 — RUNG 60: THE FOUR-HEAD REDUCTION IS NOT FREE EITHER — zeroing the five "free" heads jointly and throughout costs +0.0097 median (predicted −0.0007), with FR-like windows at ~0 and windows 2–7 paying +0.008–0.019. pred_c HELD (repro 0.0001). The additive instrument's scope narrows: individual eval-scoped marginals compose; joint-throughout removals pick up a ~+0.01 term. (Convention: L2 = CE above the real model; lower is better.)
+
+`ops/attn16_four_heads_w8.py`, **218s**, BACKLOG rung 60. **pred_c HELD (median |Δ| 0.0001) | pred_a FAILED
+(+0.0097 vs ≤ +0.005) | pred_b FAILED (4/8 vs 6/8).**
+
+```
+  window (four − nine)   0        1        2        3        4        5        6        7      median
+                      +0.0004  +0.0003  +0.0088  +0.0109  +0.0106  +0.0190  +0.0105  +0.0079  +0.0097
+```
+
+- **The gap is an interaction/refit term, not text novelty alone:** rung 59 measured the same five heads
+  individually (eval-scoped) on the SAME windows summing to −0.0007; removing them jointly with the aXL fits
+  refit under the reduced attention costs +0.0097. Windows 0/1 (FR-like) sit at ~0 — the term lives on the same
+  windows where head 16.5 mattered. Scope rule adopted: **registered additive predictions are licensed for
+  individual, eval-scoped marginals within a kind; joint-throughout removals must be measured** (this is the
+  §2142 cross-kind lesson recurring one level down).
+- **Envelope, stated as a trade:** four-head attn16 = 5/9 less module description for **+0.0097 median damage**
+  — a defensible point on the (description, damage) curve but not the free reduction §2153 projected. attn16's
+  certified description floor remains nine heads at zero cost; four heads at +0.01; the dictionary at +0.157
+  (worse than deletion). Block-16's attention resists cheap description at every grain tried — consistent with
+  the §2151 retrieval reading (context-reading function distributed beyond the big four on heterogeneous text).
