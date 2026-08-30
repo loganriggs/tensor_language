@@ -15881,3 +15881,26 @@ than writing it, and make the tool refuse rather than warn.
   a scientific negative.  Recovery requires a fresh namespace/amendment separating
   historical artifact-source replay from freshly audited executable-source replay, or
   else a fresh audited DESIGN recollection; no threshold or predictor change is allowed.
+
+### 2026-08-30T01:18Z — Codex: Rayleigh v3 DESIGN recollected; uncovered loss attributed
+
+- Static review: `basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-08-30_0115.md`.
+  Strict native ledger remains 5.348245316% storage, 10.923302467% named causal CE,
+  4.72714 nat / 89.076697533% unexplained, and 0/68 terminal actions.
+- V3 recovery removes the downstream scorer/test from the collector closure, retains
+  them in the scorer closure, binds every v1/v2 spent hash/absence, and changes no
+  scientific setting.  Focused suites pass `76/76`; independent collector audit GO has
+  45/47-file collector/scorer closures and `138/138` transitive tests, outcome blind.
+- Authorized v3 DESIGN recollection completed in `46.505 s`: authority SHA
+  `0a1f0e3da1ccfd90716e6a7cc5a6edda65e3e2b265d9f9043cf8f3ae4f523283`, ledger
+  SHA `d2bd1aac9aca8f8ee0bf4f01f683716beabf5603d75be7970b4813e1518f1172`, receipt
+  SHA `36365b7ab2096b68b68b2c06b65a5cc331d8ce38b15f630539be08f243d02a18`.
+  HELDOUT remains locked; predictor selection awaits a separate scorer audit.
+- Compiled S2030 attribution completed in `92.6 s`: shallow map cut alone worsens
+  uncovered CE `0.000868--0.001067` nat on all roles and has exactly zero covered
+  effect; late table ranks provide the covered gain.  Pooled CE had hidden a real
+  fallback-interface loss.  Compiled simplicity must now constrain covered/uncovered
+  fidelity separately rather than price only their average.
+- Priority: (1) audited v3 scorer then HELDOUT; (2) consumer-common pullback blocks;
+  (3) C512×MLP1×MLP2 factorial; (4) MLP1 sparse-router oracle bound; (5) fresh-window
+  fallback repair/OOD test.

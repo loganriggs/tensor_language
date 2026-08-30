@@ -153,3 +153,25 @@ This is verified infrastructure, not a scientific outcome.  The next permitted a
 is the audited v3 DESIGN collection if and only if the independent audit returns exact
 source-bound GO.  Meanwhile the separate compiled-program attribution completed in
 `92.6 s` and numerically assigned the uncovered loss to the map cut.
+
+## Execution update — 01:18 UTC
+
+The independent collector audit returned GO: 45-file collector closure, 47-file scorer
+closure, `138/138` tests in `9.15 s`, audit SHA
+`633ffad0e780686134833bd4fefb6b7919c29780c325bf5c1dac32f7e74e2299`, and zero
+outcome access.  V3 DESIGN recollection then completed successfully in `46.505 s`:
+
+- authority SHA `0a1f0e3da1ccfd90716e6a7cc5a6edda65e3e2b265d9f9043cf8f3ae4f523283`;
+- ledger SHA `d2bd1aac9aca8f8ee0bf4f01f683716beabf5603d75be7970b4813e1518f1172`;
+- receipt SHA `36365b7ab2096b68b68b2c06b65a5cc331d8ce38b15f630539be08f243d02a18`.
+
+All model-response collection controls passed and the receipt was published last.
+HELDOUT remains locked.  The DESIGN tensor is now sealed pending a separate scorer
+audit; no predictor has been selected and this is still not a scientific result.
+
+The 92.6-second attribution also passed all registered predictions.  At uncovered
+inputs, the shallow map cut alone worsens CE by `0.000868--0.001067` nat across the
+three roles.  The late-table rank change helps slightly on two roles but hurts
+skip1200 by `0.003837`; together they reproduce the full uncovered deficit.  Restoring
+map rank is therefore the direct compiled-program repair, but it does not by itself
+solve fresh-document OOD validation or native-model interpretation.
