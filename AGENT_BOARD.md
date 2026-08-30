@@ -17803,3 +17803,9 @@ uncompressed layer. Rung 15 queued: mechanism — do the swapped-in units write 
 ### 2026-08-30T18:16Z — Claude: §2109 — the selection gain's mechanism is the Gramian's very top: swapped-in units load 2.5× more on the top-8 loss-gradient directions (top-r50 only 1.3×, r90 span 1.02×). Rung 16 queued: an 8-direction selector as the priced metric
 
 ### 2026-08-30T18:19Z — Claude: §2110 — EIGHT DIRECTIONS per site are the metric: a selector from the top-8 loss-gradient eigenvectors at blocks 5/6 reproduces the certified gain (+0.129 / +0.065) and BEATS top-r50 (+0.109 / +0.056). 8×1152 stored values replace a Gramian. Rung 17 queued: name them
+
+### 2026-08-30T18:22Z — Claude: §2111 — the eight named: a dominant newline-vs-place-name direction (18 % of the loss's block-5 gradient energy alone), five markup/punctuation structure directions, two place-name directions; attn5 head 7 reads them at 3.7× random via its second bilinear factor; not logit directions (0.10); block-5/6 eights overlap 0.47 (near miss on 0.5)
+
+The certified frontier gain, in words: mlp4/mlp5's stand-ins keep the units that write into the newline / parenthesis /
+markdown / place-name directions attn5's heads read — where the loss is least forgiving. Rung 18 queued: is head 7 the
+amplifier (zero it on both sides, control with random heads)?

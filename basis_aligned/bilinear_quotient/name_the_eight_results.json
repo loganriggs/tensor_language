@@ -1,0 +1,579 @@
+{
+ "eigen_share_top8_block5": [
+  0.1783,
+  0.0286,
+  0.0163,
+  0.0129,
+  0.0112,
+  0.0091,
+  0.0084,
+  0.0075
+ ],
+ "eigen_share_top8_block6": [
+  0.1439,
+  0.021,
+  0.0132,
+  0.0119,
+  0.0098,
+  0.0088,
+  0.0083,
+  0.0075
+ ],
+ "overlap_block5_block6_top8": 0.4716,
+ "lm_head_top64_overlap_block5_top8": 0.0995,
+ "attn5_head_read_ratio_eight_over_random": {
+  "q": [
+   1.963,
+   2.615,
+   2.556,
+   2.493,
+   1.68,
+   3.176,
+   2.79,
+   2.985,
+   2.04
+  ],
+  "k": [
+   1.417,
+   1.674,
+   1.693,
+   1.961,
+   1.169,
+   1.291,
+   2.085,
+   1.776,
+   1.717
+  ],
+  "q2": [
+   2.189,
+   1.93,
+   1.654,
+   1.292,
+   2.323,
+   2.633,
+   1.812,
+   3.671,
+   1.3
+  ],
+  "k2": [
+   1.621,
+   1.361,
+   1.016,
+   1.101,
+   1.57,
+   1.191,
+   1.591,
+   2.428,
+   1.065
+  ],
+  "v": [
+   1.002,
+   1.293,
+   1.349,
+   0.632,
+   0.828,
+   1.996,
+   1.404,
+   2.966,
+   0.703
+  ]
+ },
+ "best_read": {
+  "proj": "q2",
+  "head": 7,
+  "ratio": 3.671
+ },
+ "dc_direction_overlap_per_direction": [
+  0.0017,
+  0.0007,
+  0.0,
+  0.0,
+  0.0138,
+  0.0087,
+  0.0018,
+  0.0086
+ ],
+ "top_tokens_block5": {
+  "0": [
+   {
+    "tok": "\n",
+    "count": 81,
+    "mean_proj": -4055.694
+   },
+   {
+    "tok": " ",
+    "count": 63,
+    "mean_proj": 3754.483
+   },
+   {
+    "tok": " St",
+    "count": 29,
+    "mean_proj": 4351.071
+   },
+   {
+    "tok": " London",
+    "count": 11,
+    "mean_proj": 4806.285
+   },
+   {
+    "tok": " Rd",
+    "count": 11,
+    "mean_proj": 4157.106
+   },
+   {
+    "tok": " Lane",
+    "count": 6,
+    "mean_proj": 4324.993
+   },
+   {
+    "tok": " Museum",
+    "count": 6,
+    "mean_proj": 3895.219
+   },
+   {
+    "tok": " Gate",
+    "count": 5,
+    "mean_proj": 3701.906
+   },
+   {
+    "tok": " G",
+    "count": 5,
+    "mean_proj": 3568.387
+   },
+   {
+    "tok": " England",
+    "count": 4,
+    "mean_proj": 4382.922
+   },
+   {
+    "tok": " Hall",
+    "count": 4,
+    "mean_proj": 4025.515
+   },
+   {
+    "tok": " Palace",
+    "count": 4,
+    "mean_proj": 3909.048
+   }
+  ],
+  "1": [
+   {
+    "tok": " ;",
+    "count": 80,
+    "mean_proj": 4579.321
+   },
+   {
+    "tok": " MAP",
+    "count": 76,
+    "mean_proj": 4774.797
+   },
+   {
+    "tok": " ",
+    "count": 37,
+    "mean_proj": 5303.308
+   },
+   {
+    "tok": " )",
+    "count": 35,
+    "mean_proj": 4262.715
+   },
+   {
+    "tok": " G",
+    "count": 21,
+    "mean_proj": 4628.733
+   },
+   {
+    "tok": " h",
+    "count": 17,
+    "mean_proj": 4599.94
+   },
+   {
+    "tok": " %",
+    "count": 11,
+    "mean_proj": 5077.434
+   },
+   {
+    "tok": " Hotel",
+    "count": 5,
+    "mean_proj": 4337.473
+   },
+   {
+    "tok": " London",
+    "count": 4,
+    "mean_proj": 4811.407
+   },
+   {
+    "tok": " Museum",
+    "count": 4,
+    "mean_proj": 4390.934
+   },
+   {
+    "tok": "**",
+    "count": 4,
+    "mean_proj": 4388.393
+   },
+   {
+    "tok": " INFORMATION",
+    "count": 3,
+    "mean_proj": 4923.537
+   }
+  ],
+  "2": [
+   {
+    "tok": "pm",
+    "count": 135,
+    "mean_proj": -7361.336
+   },
+   {
+    "tok": "**",
+    "count": 83,
+    "mean_proj": -7303.175
+   },
+   {
+    "tok": "uk",
+    "count": 57,
+    "mean_proj": -7063.012
+   },
+   {
+    "tok": "3",
+    "count": 16,
+    "mean_proj": -7037.135
+   },
+   {
+    "tok": "com",
+    "count": 10,
+    "mean_proj": -6669.43
+   },
+   {
+    "tok": "4",
+    "count": 9,
+    "mean_proj": -7002.929
+   },
+   {
+    "tok": "am",
+    "count": 9,
+    "mean_proj": -7121.102
+   },
+   {
+    "tok": "2",
+    "count": 8,
+    "mean_proj": -6798.008
+   },
+   {
+    "tok": "5",
+    "count": 5,
+    "mean_proj": -6913.344
+   },
+   {
+    "tok": " London",
+    "count": 3,
+    "mean_proj": -6487.126
+   },
+   {
+    "tok": " )",
+    "count": 3,
+    "mean_proj": -6462.655
+   },
+   {
+    "tok": "et",
+    "count": 2,
+    "mean_proj": -7975.138
+   }
+  ],
+  "3": [
+   {
+    "tok": "(",
+    "count": 99,
+    "mean_proj": -5927.709
+   },
+   {
+    "tok": " **",
+    "count": 56,
+    "mean_proj": -5228.642
+   },
+   {
+    "tok": " ",
+    "count": 35,
+    "mean_proj": -4466.652
+   },
+   {
+    "tok": " ;",
+    "count": 29,
+    "mean_proj": -4101.782
+   },
+   {
+    "tok": " _",
+    "count": 26,
+    "mean_proj": -5371.313
+   },
+   {
+    "tok": "####",
+    "count": 21,
+    "mean_proj": -4860.282
+   },
+   {
+    "tok": " %",
+    "count": 13,
+    "mean_proj": -4927.603
+   },
+   {
+    "tok": "###",
+    "count": 12,
+    "mean_proj": -4185.251
+   },
+   {
+    "tok": "_",
+    "count": 8,
+    "mean_proj": -6345.413
+   },
+   {
+    "tok": ")",
+    "count": 8,
+    "mean_proj": -4151.929
+   },
+   {
+    "tok": "life",
+    "count": 6,
+    "mean_proj": 4752.704
+   },
+   {
+    "tok": " Museum",
+    "count": 5,
+    "mean_proj": 4283.355
+   }
+  ],
+  "4": [
+   {
+    "tok": " \u00a3",
+    "count": 32,
+    "mean_proj": -6619.248
+   },
+   {
+    "tok": " Rd",
+    "count": 31,
+    "mean_proj": -6690.432
+   },
+   {
+    "tok": "####",
+    "count": 27,
+    "mean_proj": -7881.019
+   },
+   {
+    "tok": "###",
+    "count": 18,
+    "mean_proj": -7158.298
+   },
+   {
+    "tok": " www",
+    "count": 17,
+    "mean_proj": -6572.828
+   },
+   {
+    "tok": " %",
+    "count": 13,
+    "mean_proj": -7507.884
+   },
+   {
+    "tok": " **",
+    "count": 11,
+    "mean_proj": -6580.982
+   },
+   {
+    "tok": " adult",
+    "count": 10,
+    "mean_proj": -6590.616
+   },
+   {
+    "tok": " tours",
+    "count": 9,
+    "mean_proj": -6826.538
+   },
+   {
+    "tok": " admission",
+    "count": 6,
+    "mean_proj": -6947.829
+   },
+   {
+    "tok": " snacks",
+    "count": 4,
+    "mean_proj": -7652.206
+   },
+   {
+    "tok": " rooms",
+    "count": 4,
+    "mean_proj": -6713.214
+   }
+  ],
+  "5": [
+   {
+    "tok": " ",
+    "count": 99,
+    "mean_proj": 5723.06
+   },
+   {
+    "tok": " t",
+    "count": 31,
+    "mean_proj": 5677.869
+   },
+   {
+    "tok": "\n",
+    "count": 12,
+    "mean_proj": 5558.083
+   },
+   {
+    "tok": " W",
+    "count": 11,
+    "mean_proj": 5471.087
+   },
+   {
+    "tok": " 11",
+    "count": 9,
+    "mean_proj": 5721.278
+   },
+   {
+    "tok": ".",
+    "count": 7,
+    "mean_proj": 5545.629
+   },
+   {
+    "tok": " 1",
+    "count": 6,
+    "mean_proj": 5905.711
+   },
+   {
+    "tok": "'s",
+    "count": 5,
+    "mean_proj": 5587.404
+   },
+   {
+    "tok": " 5",
+    "count": 5,
+    "mean_proj": 5709.157
+   },
+   {
+    "tok": "7",
+    "count": 4,
+    "mean_proj": 5844.894
+   },
+   {
+    "tok": " 9",
+    "count": 4,
+    "mean_proj": 5463.852
+   },
+   {
+    "tok": " 63",
+    "count": 3,
+    "mean_proj": 7089.728
+   }
+  ],
+  "6": [
+   {
+    "tok": "\n",
+    "count": 232,
+    "mean_proj": 8032.266
+   },
+   {
+    "tok": "(",
+    "count": 147,
+    "mean_proj": 8414.289
+   },
+   {
+    "tok": "**",
+    "count": 9,
+    "mean_proj": 9346.09
+   },
+   {
+    "tok": "####",
+    "count": 4,
+    "mean_proj": 8143.241
+   },
+   {
+    "tok": " ",
+    "count": 3,
+    "mean_proj": 8943.482
+   },
+   {
+    "tok": "7",
+    "count": 2,
+    "mean_proj": 7729.288
+   },
+   {
+    "tok": "1",
+    "count": 2,
+    "mean_proj": 7669.771
+   },
+   {
+    "tok": "a",
+    "count": 1,
+    "mean_proj": 8620.488
+   }
+  ],
+  "7": [
+   {
+    "tok": " Museum",
+    "count": 15,
+    "mean_proj": -7794.728
+   },
+   {
+    "tok": "house",
+    "count": 8,
+    "mean_proj": -7781.212
+   },
+   {
+    "tok": "####",
+    "count": 8,
+    "mean_proj": 7341.839
+   },
+   {
+    "tok": " House",
+    "count": 8,
+    "mean_proj": -7343.93
+   },
+   {
+    "tok": " Palace",
+    "count": 7,
+    "mean_proj": -7489.419
+   },
+   {
+    "tok": "ant",
+    "count": 5,
+    "mean_proj": -7958.153
+   },
+   {
+    "tok": " Abbey",
+    "count": 4,
+    "mean_proj": -7979.121
+   },
+   {
+    "tok": "el",
+    "count": 4,
+    "mean_proj": -7762.485
+   },
+   {
+    "tok": " Hall",
+    "count": 4,
+    "mean_proj": -7683.032
+   },
+   {
+    "tok": " London",
+    "count": 4,
+    "mean_proj": -7770.505
+   },
+   {
+    "tok": "**",
+    "count": 4,
+    "mean_proj": 7259.928
+   },
+   {
+    "tok": "ways",
+    "count": 4,
+    "mean_proj": -7364.676
+   }
+  ]
+ },
+ "pred_a_one_object": false,
+ "pred_b_attn5_reads_them": true,
+ "pred_c_not_logit_directions": true,
+ "self_reviewed": true,
+ "runtime_s": 6.5
+}

@@ -62798,3 +62798,49 @@ equal price; half the units at equal CE) is carried by **eight directions per si
 stored values, against a 1152 × 1152 Gramian. Those sixteen vectors are the first *nameable* product of the
 observability arc: what they read out to, which attn5 heads read them, and whether the block-5 and block-6 eights
 coincide are the next questions (rung 17).
+
+## §2111 — RUNG 17, the eight named: a dominant STRUCTURE direction (newline / open-paren / markdown: 18 % of the loss's block-5 gradient energy by itself), place-name and punctuation directions; attn5's head 7 reads them through its second bilinear factor at 3.7× random; the block-5 and block-6 eights overlap 0.47 (a near miss on the 0.5 bar); not logit directions
+
+`ops/name_the_eight.py`, **6s**, BACKLOG rung 17. **pred_b HELD | pred_c HELD | pred_a FAILED (0.472 vs 0.5).**
+
+```
+  eigenvalue share of the loss-gradient Gramian, top 8:   block 5  0.178 0.029 0.016 0.013 0.011 0.009 0.008 0.008
+                                                            block 6  0.144 0.021 0.013 0.012 0.010 0.009 0.008 0.008
+  block-5 vs block-6 top-8 subspace overlap (mean cos^2 of principal angles)   0.472       bar 0.5    FAILED
+  lm_head top-64 row-space overlap of the block-5 eight                        0.100       bar 0.2    HELD
+  attn5 head reads of the eight vs random unit directions (best head per projection):
+       q 3.18x   k 2.08x   q2 3.67x (head 7)   k2 2.43x   v 2.97x                            bar 2x     HELD
+  DC (mean-stream) overlap per direction: <= 0.014 -- none of the eight is the massive direction
+```
+
+Token loadings of the block-5 stream on each direction (top by |projection| over the FIT rows, positions ≥ 64):
+
+```
+  dir 0  (17.8 %)   '\n' (−) vs ' ', ' St', ' London', ' Rd', ' Lane', ' Museum', ' Gate' (+)     newline vs place-name
+  dir 1             ' ;', ' MAP', ' )', ' G', ' %', ' Hotel'                                        markup / list punctuation
+  dir 2             'pm', '**', 'uk', digits, 'com', 'am'                                           suffixes and markdown
+  dir 3             '(', ' **', ' ;', ' _', '####', '###', ' %'                                     open-paren / markdown headers
+  dir 4             ' £', ' Rd', '####', '###', ' www', ' %', ' adult'                              currency, URL, headers
+  dir 5             ' ', ' t', '\n', ' W', ' 11', '.', ' 1', "'s"                                   whitespace / short tokens
+  dir 6             '\n' ×232, '(' ×147, '**', '####'                                                newline and open-paren
+  dir 7             ' Museum', 'house', ' House', ' Palace', ' Abbey', 'ant', 'el' (−) vs '####' (+) place-name suffixes vs header
+```
+
+- **The first direction is a single object worth a sixth of the loss's sensitivity at block 5.** It separates newline
+  from the tokens that begin place names and street addresses. Six of the eight are *structure* directions — newlines,
+  parentheses, markdown markers, list punctuation, currency and URL fragments — the positions where the next token is
+  nearly determined by format and the loss gradient is therefore largest. Two are proper-noun/place directions. None
+  is the massive activation direction, and none is an unembedding direction (lm overlap 0.10).
+- **pred_b HELD: attn5 reads them, and one head most.** Head 7's second query factor (q2) has 3.7× the energy on the
+  eight that it has on random directions; q, v and k2 also read them at 2–3×. This is the head-level form of §2102's
+  "attn5 amplifies mlp4's error 8.6×": what the front's mlp4 stand-in gets wrong in these eight directions is read by
+  head 7 (and others) and written on at the cliff.
+- **pred_a FAILED by 0.028:** the block-5 and block-6 eights share about half their span. The dominant direction is
+  probably common (both sites' top eigenvalue is an outlier); the tail of the eight differs. "One object" is not
+  supported as registered; "one dominant direction plus site-specific structure directions" is what the numbers say.
+
+**What the frontier gain is, in words.** mlp4/mlp5's compressed stand-ins keep the units whose writes land on the
+newline / parenthesis / markdown / place-name directions that attn5's heads read — the directions where the loss is
+least forgiving. Choosing units by output norm ignores that and keeps loud units that write where the loss does not
+look. The 0.124 / 0.075 nat (and the 2× unit compression) is that difference. Next (rung 18): is attn5 head 7 the
+amplifier — does zeroing it in both the real model and the arm remove the block-6 excess?
