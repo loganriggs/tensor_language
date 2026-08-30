@@ -1,2 +1,11 @@
 model 680d6c26cf05 | rows (64, 257) | prior block5/6 r=0.5 prices 0.0577/1.4842
 b5.in   : r0.25 +0.0155 | r0.5 +0.0750 | r1.0 +1.0444 | 18s
+b5.attn : r0.25 +0.2502 | r0.5 +1.7220 | r1.0 +3.4815 | 31s
+b6.in   : r0.25 +0.1934 | r0.5 +1.6932 | r1.0 +3.9431 | 44s
+b6.attn : r0.25 +0.3928 | r0.5 +2.2937 | r1.0 +4.2421 | 57s
+b7.in   : r0.25 +0.3094 | r0.5 +2.0219 | r1.0 +4.4646 | 70s
+single position @ b6.in r=0.5: own +0.8240 | later (sum) +0.1322 | ratio 0.160
+(a) b5.attn +1.7220 >= 5 x b5.in +0.0750: HELD
+(b) b6.in +1.6932 <= 2 x b5.attn: HELD
+(c) later/own 0.160 >= 0.5: FAILED
+wrote /workspace/tensor_language/basis_aligned/polynomial_causal/price_cliff_sublayer_v1_results.json (74s)

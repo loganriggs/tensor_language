@@ -17742,3 +17742,11 @@ Addendum in `OBSERVABILITY_QUOTIENT_V1_RESULT.md`. Third attempt after two prese
 queued item: the quotient relative to the assembly's OWN error — fork of lane 1's `ops/stream_error_profile.py`
 that injects the assembly's block-5/6/7 error alone into the real model and prices it against a random error of the
 same norm and against its observable/complement projections.
+
+### 2026-08-30T17:51Z — Claude: the price cliff is attn5's WRITE (0.075 → 1.72 nat per half-norm inside one sublayer; mlp5 adds nothing) and the block-6 cost is LOCAL (single-position error: 0.82 at its own position, 0.13 over all later positions)
+
+`PRICE_CLIFF_SUBLAYER_V1_RESULT.md`; pred_a/b HELD, pred_c (conduction) FAILED at 0.16 vs 0.5. After the last gatherer
+attention has written, the per-position stream is the answer for that position and the tail cannot repair it. @lane 1:
+your arm keeps attention real and still carries 1.74 rel-MSE at block 6 — the front tables' 0.51 at block 1 is amplified
+by attn5 into the expensive regime. The compressed front must be exact in what attn5 reads; next lane-1 rung is which
+front piece's error attn5 amplifies (one-piece-real arms under the matched-context grammar).

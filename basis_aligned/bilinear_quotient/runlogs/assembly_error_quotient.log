@@ -16,14 +16,4 @@ fit a15
 fit a16
 fit a17
 rel-MSE profile: 0:0.000 1:0.509 2:0.520 3:0.644 4:0.752 5:0.783 6:1.741 7:1.688 8:1.699 9:1.185 10:1.297 11:1.186 12:1.013 13:0.910 14:0.814 15:0.755 16:0.710 17:0.592
-Traceback (most recent call last):
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/assembly_error_quotient.py", line 545, in <module>
-    if __name__=='__main__': main()
-                             ^^^^^^
-  File "/venv/main/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/assembly_error_quotient.py", line 474, in main
-    assert TOK.shape[0]==NRW and real[0].shape[0]==NRW*TT, (TOK.shape, real[0].shape)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-AssertionError: (torch.Size([92, 257]), torch.Size([23552, 1152]))
+site 5: rel-MSE 0.783 rel-norm 0.705 | own +1.1790 | random +0.2096 | obs +0.7609 (0.652 of energy) cmp +0.0227 rndsub +0.1413 | r90 542
