@@ -266,7 +266,7 @@ def _validate_directions_and_statistics(
             raise RuntimeError("FIT write means do not replay from sums and counts")
         contrast = stats["member_mean"] - stats["off_mean"]
         contrast_norm = float(contrast.norm())
-        if contrast_norm <= 1e-12:
+        if contrast_norm == 0:
             raise RuntimeError("FIT direction contrast is absent")
         if type(full_norms[tag]) is not float or full_norms[tag] != contrast_norm:
             raise RuntimeError("FIT full-direction norm does not replay")

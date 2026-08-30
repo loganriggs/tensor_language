@@ -7,6 +7,7 @@ from causal_response_tensor_v1_backend import (
     ObservedResponseCollector,
     capture_event_key,
     leading_shared_direction,
+    normalize_full_direction,
     projection_event_key,
 )
 from test_bilin18_observed_model_facade import tiny_model
@@ -233,3 +234,14 @@ def test_shared_direction_rejects_tie_and_accepts_above_frozen_gap() -> None:
     assert direction.dtype == torch.float64
     assert direction.tolist() == [1.0, 0.0]
     assert float((spectrum[0] - spectrum[1]) / spectrum[0]) > 1e-6
+
+
+def test_full_direction_uses_frozen_zero_only_boundary_in_float64() -> None:
+    tiny = torch.tensor([1e-160, 0.0], dtype=torch.float64)
+    normalized, norm = normalize_full_direction(tiny)
+    assert norm > 0
+    assert torch.allclose(
+        normalized, torch.tensor([1.0, 0.0], dtype=torch.float64), atol=1e-4, rtol=0
+    )
+    with pytest.raises(RuntimeError, match="zero or nonfinite"):
+        normalize_full_direction(torch.zeros(2, dtype=torch.float64))

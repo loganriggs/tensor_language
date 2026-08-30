@@ -212,6 +212,18 @@ def leading_shared_direction(matrix: torch.Tensor) -> tuple[torch.Tensor, torch.
     return canonicalize_sign(right[0]), singular_values
 
 
+def normalize_full_direction(vector: torch.Tensor) -> tuple[torch.Tensor, float]:
+    """Apply the frozen zero-only failure rule in CPU float64."""
+    if type(vector) is not torch.Tensor or vector.dtype != torch.float64 or (
+        vector.device.type != "cpu" or vector.ndim != 1 or not vector.is_contiguous()
+    ):
+        raise TypeError("full-direction contrast must be a contiguous CPU float64 vector")
+    norm = vector.norm()
+    if not torch.isfinite(vector).all() or not torch.isfinite(norm) or norm == 0:
+        raise RuntimeError("FIT direction is zero or nonfinite")
+    return vector / norm, float(norm)
+
+
 class ObservedResponseCollector:
     """One-run owner around a frozen model and an exact row/mask grid."""
 
@@ -481,12 +493,9 @@ class ObservedResponseCollector:
             if item["member_count"] <= 0 or item["off_count"] <= 0:
                 raise RuntimeError("FIT role lacks member/off support")
             vector = item["member"] / item["member_count"] - item["off"] / item["off_count"]
-            norm = vector.norm()
-            if not torch.isfinite(vector).all() or norm <= 1e-12:
-                raise RuntimeError("FIT direction is zero or nonfinite")
-            full_master[spec.tag] = vector / norm
+            full_master[spec.tag], full_norm = normalize_full_direction(vector)
             full[spec.tag] = full_master[spec.tag].float()
-            full_norms[spec.tag] = float(norm)
+            full_norms[spec.tag] = full_norm
             fit_counts[spec.tag] = {
                 "member_count": item["member_count"],
                 "off_count": item["off_count"],
