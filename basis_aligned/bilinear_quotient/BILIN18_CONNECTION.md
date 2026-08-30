@@ -59742,3 +59742,45 @@ row-set choice decides the answer.**
 **Open.** Nothing in the parameter space is left that this evidence can settle. **The remaining questions
 are the two with Logan — §1947's price rule and §1979's architectural fork — and the BENCHMARK_BACKLOG,
 whose rung 6 is now satisfiable for any future winner** since §2036 wired the fresh window in.
+
+## §2044 — the fresh window is coverage-stable and the retraction is 2.8× stronger at 16,110
+
+`ops/is_the_fresh_window_itself_coverage_stable.py`, **344.8s**, **DISCOVERY ONLY**, 16,110, rung 3 —
+checking the instrument that §2037–§2043 rest on. **pred_a True | pred_b True | pred_c True | pred_d
+True | derived controls True.** No crashed predicates.
+
+```
+  FRESH WINDOW at 16,110                                    [same window at 5,419]
+  converged   over §1959's build     −32.650 mn (t −57.16)        −11.770
+  table raise over §1959's build     −32.687 mn (t −57.25)        −11.578
+  §1959       over §1789's deployed  +98.768 mn (t +40.90)       +127.889
+  converged   over §1789's deployed  +66.118 mn (t +28.20)       +116.120
+```
+
+> **All four predicates PASSED and §2037's retraction is confirmed on a second, independent axis. The
+> converged build loses by 32.650 milli-nats at t = −57.16 here against 11.770 at 5,419 — the deficit
+> nearly triples**, and §2038's attribution holds exactly: the table raise alone accounts for **−32.687**
+> of the **−32.650** total, so the map cut's contribution is again a rounding term.
+
+> **pred_d passed narrowly and I am quoting the margin: the bar allowed a factor of three and the actual
+> ratio is 2.77.** Had the deficit grown just 8% more it would have failed a bar I wrote to catch an
+> effect that did not travel in magnitude. **It travels, and it grows.**
+
+> **pred_c PASSED: §1959's build still beats §1789's deployed design by +98.768 milli-nats**, against
+> +127.889 at 5,419 — smaller, same sign, same order, t = +40.90. **The window measures the same kind of
+> thing at both coverages.**
+
+**Which settles the standing of §2037 through §2043.** They rested on one held-out row set at one
+coverage. **They now rest on that row set at two coverages, with the central finding stronger at the
+second** — and the retracted arc's own margins had the opposite property, growing in-sample and reversing
+out. **The retraction is not coverage-contingent and the ledger does not overstate it.**
+
+**And the direction of the growth is itself a finding.** The table raise hurts **2.8× more when the
+program has three times the coverage**. More coverage means more positions served by the covered tables,
+which is exactly what untruncating changes. **That is a testable mechanism and it is one arm on cached
+data.**
+
+**Open.** §2029 decomposed the *in-sample* loss into covered and uncovered arms and found the gain
+concentrated at covered inputs. **The fresh-window loss has never been decomposed the same way.** If the
+harm is in the covered rows, that explains the coverage growth and closes the account of what §2020
+actually did.

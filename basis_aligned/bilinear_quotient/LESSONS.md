@@ -2675,3 +2675,24 @@ the working directory the whole time.** I asserted an impossibility instead of r
 **The rule: a margin below ~1% of the object's scale, selected on the same rows it is measured on, is not
 a result until it is measured somewhere else.** Certify first, supersede second. See [[LESSON 82]] on
 measuring before adopting and [[LESSON 95]] on reach.
+
+## LESSON 107 — certify before superseding, and the instrument for it now exists
+
+§2037 retracted fifteen sections because a build was superseded five times on the rows that chose it.
+**§2044 has now validated the instrument that caught it:** the held-out window gives the same verdict at
+both coverages, and the central finding is **2.8× stronger** at the second — where every retracted margin
+had the opposite property, growing in-sample and reversing out.
+
+**So the rule has no excuse left.** The backlog's rung 6 — fresh-window certification for every new winner
+— is satisfiable in one arm on data that has been on disk the whole time, wired in since §2036, and costs
+about five minutes. **A build supersession that has not been scored on rows that did not select it is not
+a supersession; it is a hypothesis.**
+
+**The order matters and it is cheap to get right.** §2018 through §2028 each superseded first and never
+certified. Certifying first would have stopped the arc at its first step: **untruncating mlp16 and mlp17
+— §2018's change — costs 10.371 milli-nats on fresh rows against the +0.962 that justified it.** One run,
+before the ledger moved, instead of nineteen sections and a retraction.
+
+**And the scale rule from [[LESSON 106]] tells you when to bother:** a margin comparable to the object's
+noise floor needs the certification; a 100-milli-nat margin like §1970's does not, and §2037 confirmed
+that one transports at +127.889. **Small margins are exactly the ones that feel like progress.**

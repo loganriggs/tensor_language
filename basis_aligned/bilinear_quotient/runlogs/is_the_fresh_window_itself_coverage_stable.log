@@ -1,0 +1,21 @@
+IS THE FRESH WINDOW ITSELF COVERAGE STABLE | 6 arms x 1 coverage(s) | DISCOVERY ONLY
+
+########## COVERAGE 16110 ##########
+  [bqlib] coverage 16110 from fineweb_n480_skip80.pt: 36 tables, neighbour index and map solver built (5s)
+  [bqlib] computed   live     fresh (3.4s)
+  [bqlib] computed   map64    fresh (3.5s)
+  [bqlib] computed   mix30m640 fresh (3.5s)
+  [bqlib] computed   mix30m256@mlp0,mlp1,mlp2,mlp3,mlp4,mlp5,mlp6,mlp7+mix30m640@mlp8,mlp9,mlp10,mlp11,mlp12,mlp13,mlp14,mlp15,mlp16,mlp17,attn0,attn1,attn2,attn3,attn4,attn5,attn6,attn7,attn8,attn9,attn10,attn11,attn12,attn13,attn14,attn15,attn16,attn17 fresh (3.5s)
+  [bqlib] computed   mix30m640 fresh (5.4s)
+  [bqlib] computed   map512   fresh (5.4s)
+  [bqlib] computed   mix30m640 fresh (3.5s)
+  [bqlib] note: 1 differing-spec pair(s) flip no covered-input top-1 -- legal for a site-subset difference, e.g. ('converged', 'tables_only')
+
+  the converged build still loses to §1959's on fresh rows at 16,110  -> True
+  and §2020's table raise alone is still negative there  -> True
+  and §1959 still beats §1789's deployed design by more than half its 127.889 milli-nats  -> True
+  and the deficit is within a factor of three of its -11.770 milli-nat figure at 5,419  -> True
+  derived controls -> True   coverage_exact=True  inert_pairs_are_inert=True  some_differing_pair_moves=True  buckets_partition=True  live_identical=True
+
+pred_a True | pred_b True | pred_c True | pred_d True | pred_z True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/is_the_fresh_window_itself_coverage_stable_results.json (344.8s)
