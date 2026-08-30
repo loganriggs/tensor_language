@@ -10,10 +10,11 @@ compressed terms are not newline-specific.
 Endpoint: newline-token CE.  Controls are position-jitter, count-matched random, other
 punctuation, and all remaining positions.
 
-Fixed tensor form: five heads' double-bilinear QK scores and OV payloads.  Router: each
-native QK score selects source positions; no external newline-label router is allowed.
-Extraction retains the crew plus a frozen writer-pair reconstruction rank; removal
-deletes all five.
+Fixed tensor form: five heads' complete double-bilinear QK scores and OV payloads.
+Each native continuous QK score weights source positions; no external newline-label
+router is allowed. The known writer-pair compression is nonspecific, so the current
+extraction retains the exact stored heads rather than claiming a compressed TopK
+program. Removal uses constant global head-index projectors.
 
 ## Evidence
 
@@ -34,5 +35,20 @@ addition to default gates.
 Shared-owner caveat: late structural heads/writers overlap punctuation and
 capitalization services.
 
-**Next experiment:** recursively test whether a shared tensor grammar beats the known
-dense 200-pair requirement on fresh target/control roles.
+## 2026-08-30 source-closed update
+
+The outcome-blind scaffold now freezes an L12H6 canary followed by the full crew
+`{L7H2,L8H2,L10H2,L11H0,L12H6}`. Arms are native, exact stored reconstruction,
+constant global removal, and fixed +1 head-label control. Evaluation masks cover
+newline, jitter, count-matched random, punctuation, capitalization, and quote cells;
+tests prove token IDs cannot route execution. The canary stores 7,962,698 values and
+the five exact head programs store 39,813,490; candidate calls at replaced sites are
+zero-native by contract. Forty focused/shared tests pass.
+
+This is infrastructure, not a new numerical result, and does not raise the tier.
+Launch remains NO-GO until fresh disjoint CANARY_SELECT/FINAL/OOD rows, tokenizer-ID
+and program authority, terminal owner/publication, and independent review exist.
+
+**Next experiment:** source-close and run the cheap L12H6 canary. If identity, call,
+target-removal, and collateral gates pass, freeze the five-head exact terminal without
+retesting the failed adaptive writer TopK.
