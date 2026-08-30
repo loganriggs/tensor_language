@@ -63929,3 +63929,24 @@ pred_b FAILED (argmax is a14, 0.933 vs a16's 0.908) | pred_c FAILED (smallest tw
 - Block-16 program state: m16 — no cheap interface (§2127); a16L — most expensive replacement (§2145), immune to
   class-linear upgrades (here); leaving attn16 real dominates in (price, damage) (§2146). The next instrument is
   attribution INSIDE attn16 → rung 55 (per-head marginals of the real attn16 under the deployed config).
+
+## §2149 — RUNG 55: attn16 IS THREE HEADS — 16.3 (+0.049), 16.4 (+0.033), 16.0 (+0.031) CARRY THE BLOCK; THE OTHER SIX SUM TO −0.001. And a like-for-like comparison shows THE a16L DICTIONARY IS WORSE THAN DELETING THE ATTENTION OUTRIGHT (+0.038). All three bars HELD. (Convention: L2 = CE above the real model; lower is better; d_h = damage from zeroing head h.)
+
+`ops/attn16_head_marginals.py`, **122s**, BACKLOG rung 55. **ALL THREE HELD: pred_a (max +0.0491 ≥ 2 × median
++0.0041) | pred_b (|Σd_h − d_all| = 0.0072 ≤ 0.05) | pred_c (skip16 repro 2.5092 vs 2.5091).**
+
+```
+  head        16.0     16.1     16.2     16.3     16.4     16.5     16.6     16.7     16.8
+  d_h       +0.0306  +0.0043  −0.0091  +0.0491  +0.0330  +0.0041  −0.0006  +0.0003  −0.0002
+  all nine zeroed: +0.1187   |   Σd_h = +0.1115   (additive to 0.0072 — the head lattice composes too)
+```
+
+- **The dictionary is worse than nothing, like-for-like on the §2144 config:** full-with-a16L = 2.6662 (§2148
+  repro); attn16 zeroed entirely = 2.5092 + 0.1187 = **2.6279**; attn16 real = 2.5092. So a16L's class code sits
+  **+0.038 above simple deletion** — it actively injects harm beyond failing to reproduce the attention. Any
+  future block-16 grammar must beat *zero*, not just beat the current dictionary.
+- **Three heads are the object.** 16.3/16.4/16.0 carry +0.113 of the +0.119; six heads are free (their sum is
+  −0.001, three individually negative). The block-16 attention program shrinks from nine heads to three — the
+  additive prediction for zeroing the six together is −0.0012 ± interactions → registered as rung 57's number.
+- (The §312 tail-increment band printed FAILED on the skip-a16 build arm, as in §2146 — inapplicable to the
+  seven-dictionary tail, recorded, not retired.)

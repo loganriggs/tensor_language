@@ -757,7 +757,11 @@ later per-rung backlog edits had silently anchored on text that was not here.
     pred_a CONCENTRATION: max_h d_h >= 2 x median_h d_h; pred_b
     ADDITIVITY: |sum_h d_h - d_all| <= 0.05 (heads may interact — a
     failure is informative); pred_c skip16 reproduces §2146 (FR L2_F
-    2.5091 within 0.01). -> ops/attn16_head_marginals.py [QUEUED 22:28Z]
+    2.5091 within 0.01). -> ops/attn16_head_marginals.py
+    RUN 2026-08-30, §2149: ALL THREE HELD — heads 16.3/16.4/16.0 carry
+    +0.113 of +0.119; six heads sum to -0.001; head lattice additive
+    (0.0072). AND: the a16L dictionary is +0.038 WORSE than deleting
+    attn16 outright — any new grammar must beat zero.
 
 56. WHICH CLASSES PAY FOR a16L (attribution; damage convention).
     Per-position CE(full config with a16L) - CE(attn16 real) on FR,
@@ -765,3 +769,12 @@ later per-rung backlog edits had silently anchored on text that was not here.
     pred_a top class share >= 0.40; pred_b the top class is a LINK
     (linear-mapped) class; pred_c skip16 reproduces §2146 (2.5091
     within 0.01). -> ops/attn16_class_damage.py [QUEUED 22:35Z]
+
+57. attn16 AS THREE HEADS (damage convention). §2149's additive
+    prediction: zeroing heads {1,2,5,6,7,8} together costs -0.0012.
+    Single build (§2146 skip-a16 config), joint-six-zero eval on FR.
+    pred_a THE ADDITIVE NUMBER: |d(six zeroed) - (-0.0012)| <= 0.01;
+    pred_b NEARLY FREE: d <= +0.01; pred_c skip16 reproduces §2146
+    (FR L2_F 2.5091 within 0.01). If held, block-16 attention reduces
+    to a 3-head object (16.0/16.3/16.4) for the program's purposes.
+    -> ops/attn16_three_heads.py [QUEUED]
