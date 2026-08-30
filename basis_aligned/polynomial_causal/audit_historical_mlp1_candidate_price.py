@@ -10,6 +10,7 @@ frozen artifacts and reports both prices without loading bilin18 or any evaluati
 from __future__ import annotations
 
 import hashlib
+import io
 import json
 import os
 from pathlib import Path
@@ -58,10 +59,12 @@ def tensor_reals(value: Any) -> int:
 
 def stable_torch(path: Path) -> tuple[Any, str]:
     before = file_sha256(path)
-    value = torch.load(path, map_location="cpu", weights_only=True)
+    raw = path.read_bytes()
+    middle = hashlib.sha256(raw).hexdigest()
     after = file_sha256(path)
-    if before != after:
+    if before != middle or middle != after:
         raise RuntimeError(f"tensor parent raced read: {path}")
+    value = torch.load(io.BytesIO(raw), map_location="cpu", weights_only=True)
     return value, before
 
 

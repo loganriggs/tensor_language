@@ -1,5 +1,11 @@
 from __future__ import annotations
 
+import hashlib
+from pathlib import Path
+
+import pytest
+import torch
+
 import audit_historical_mlp1_candidate_price as subject
 
 
@@ -23,3 +29,24 @@ def test_frozen_historical_candidate_price_is_complete_and_not_correction_only()
     )
     assert len(result["parents"]["external_rank64_basis"]["site1_tensor_sha256"]) == 64
     assert result["source_binding"] is None
+
+
+def test_stable_torch_rejects_a_to_b_to_a_swap(tmp_path: Path, monkeypatch):
+    path = tmp_path / "parent.pt"
+    torch.save({"value": torch.tensor([1.0])}, path)
+    original = path.read_bytes()
+    alternate_path = tmp_path / "alternate.pt"
+    torch.save({"value": torch.tensor([2.0])}, alternate_path)
+    alternate = alternate_path.read_bytes()
+    assert hashlib.sha256(original).digest() != hashlib.sha256(alternate).digest()
+
+    real_read_bytes = Path.read_bytes
+
+    def swapped_read_bytes(candidate: Path) -> bytes:
+        if candidate == path:
+            return alternate
+        return real_read_bytes(candidate)
+
+    monkeypatch.setattr(Path, "read_bytes", swapped_read_bytes)
+    with pytest.raises(RuntimeError, match="tensor parent raced read"):
+        subject.stable_torch(path)
