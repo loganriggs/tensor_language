@@ -1,0 +1,48 @@
+a2-input probe acc 0.69
+fit a2
+fit a3
+fit a4
+fit a5
+fit a6
+fit a7
+fit a8
+fit a9
+fit a10
+fit a11
+fit a12
+fit a13
+fit a14
+fit a15
+fit a16
+fit a17
+L1 (+38 heads): C +1.9801 | fresh +2.2871
+fit a10L
+fit a11L
+fit a12L
+fit a13L
+fit a14L
+fit a15L
+fit a16L
+fit a17L
+probe 0/36
+probe 12/36
+probe 24/36
+gated fraction (fresh): 17.25%
+  arm blk2     dim  1152  AUC 0.6210  gated 17.25%
+  arm blk5     dim  1152  AUC 0.6384  gated 17.25%
+  arm blk9     dim  1152  AUC 0.6545  gated 17.25%
+  arm blk2+5   dim  2304  AUC 0.6323  gated 17.25%
+  arm blk2+9   dim  2304  AUC 0.6382  gated 17.25%
+  arm blk5+9   dim  2304  AUC 0.6457  gated 17.25%
+  arm blk2     gain +0.0326  eff 3.849x  frac_of_oracle 0.420
+  arm blk5     gain +0.0464  eff 5.479x  frac_of_oracle 0.597
+  arm blk9     gain +0.0387  eff 4.568x  frac_of_oracle 0.498
+  arm blk2+5   gain +0.0487  eff 5.759x  frac_of_oracle 0.628
+  arm blk2+9   gain +0.0517  eff 6.112x  frac_of_oracle 0.666
+  arm blk5+9   gain +0.0524  eff 6.185x  frac_of_oracle 0.674
+base +2.6736 | oracle +2.5959 (gain +0.0777) | random +2.6651 (gain +0.0085)
+(a) all 2304-dim pairs > 5.488x (best 1152-dim single): {'blk2+5': 5.759, 'blk2+9': 6.112, 'blk5+9': 6.185} : HELD
+(b) pair spread max/min = 1.074 < 1.20 : HELD
+(c) blk2 3.849x reproduces S2079's 3.867x within 0.15 : HELD
+    READING: width, not site choice -- S2079 must not be quoted as evidence that two SITES carry complementary information.
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/probe_gate4_results.json (250s)

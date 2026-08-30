@@ -61450,11 +61450,62 @@ plausibly the same reason: the second site adds parameters, not information the 
 > gain-at-fraction, not global ranking.
 
 **Consequence for the rung, stated as a recommendation rather than a result.** If a gate is the goal, the
-current best deploy-legal configuration is **the two-site `[2;9]` probe at 6.113x random and 66.4% of
-oracle**, not the highest-AUC one. That is a benchmark frontier move on rung 4, and it needs
+current best deploy-legal configuration is **a 2304-dim probe at ~6x random and ~66% of oracle**, not the
+highest-AUC one. (**§2080 CORRECTION:** this section wrote that as "the two-site `[2;9]` probe". Its own
+queued control found all three 2304-dim pairs interchangeable at spread 1.074, so the gain is the doubled
+feature count and not that blocks 2 and 9 are complementary.) That is a benchmark frontier move on rung 4, and it needs
 fresh-window certification (backlog rung 6) before it is quotable as a frontier number.
 
 **Open.** The two-site arm was the deepest pair tried and the only pair tried; whether the gain is depth
 (2+9 vs 2 alone) or width (2304 vs 1152 dims) is unseparated, and a `[9;9]`-width control or a `[5;9]`
 pair would separate them. **I am not claiming two sites help until that control exists** — the honest
 statement today is that this particular 2304-dim probe gates best.
+
+## §2080 — the two-site gain is WIDTH, not site choice: §2079's headline framing corrected by its own control
+
+`ops/probe_gate4.py`, **250s**, BENCHMARK_BACKLOG rung 4 control. **pred_a HELD | pred_b HELD |
+pred_c HELD.** §2079 declined to claim two sites help and queued this; the control says the caution was
+right.
+
+```
+  arm       dim    AUC      eff vs random   frac of oracle
+  blk2     1152   0.6210      3.849x           0.420
+  blk5     1152   0.6384      5.479x           0.597
+  blk9     1152   0.6545      4.568x           0.498
+  blk2+5   2304   0.6323      5.759x           0.628
+  blk2+9   2304   0.6382      6.112x           0.666
+  blk5+9   2304   0.6457      6.185x           0.674
+```
+
+**All three 2304-dim pairs beat the best 1152-dim single site (5.479x), and their spread is 1.074 —
+they are interchangeable.** `blk2+5`, which contains neither of §2079's chosen depths in combination,
+reaches 5.759x. **So §2079's `[2;9]` result is NOT evidence that two SITES carry complementary
+information; the gain is the doubled feature count.** §2079's own words were "I am not claiming two sites
+help until that control exists", and the control has now made that refusal the correct call rather than
+mere caution.
+
+**§2079's framing is corrected in place.** Its ladder entry should read **"a 2304-dim probe reaches ~6x,
+whichever two of {2,5,9} supply the features"**, not "blocks 2+9 reach 6.11x". The frontier number is
+unchanged; what it is evidence FOR is narrower.
+
+**pred_c held and matters more than it looks: the `blk2` baseline has now reproduced three times across
+three independent runs — 3.826x (§342), 3.867x (§2079), 3.849x (here).** That is what licenses comparing
+arms between runs at all; without it every cross-run number in §2079 and here would be uncontrolled.
+
+> **The AUC/efficiency decoupling is now sharper than §2079 could show.** `blk9` alone still has the
+> **highest AUC of all six arms (0.6545)** — beating every pair — while **every pair beats every single
+> on efficiency**. Best-AUC is a single site; best-gate is any pair. **The two metrics do not merely rank
+> differently, they rank in opposite directions across the single/pair split**, which makes §2079's
+> reading concrete: AUC scores a whole ranking and a 17.25% gate reads only its head, so more capacity
+> sharpens the head while leaving the global order no better.
+
+**A limitation I cannot control away.** "Width, not sites" is inferred from three pairs being
+interchangeable, not from a single site given 2304 dimensions — and I do not have an honest construction
+for that arm. Duplicating a site's features adds columns without information (singular), and adding
+quadratic features is exactly §347's approach, which failed at a fixed depth. **The claim this run
+supports is "which two sites you pick does not matter"; the stronger "width alone explains it" is
+consistent with the data and not isolated by it.**
+
+**Open.** Rung 4's remaining debt is unchanged and is now the only thing between this and a quotable
+frontier move: **fresh-window certification (backlog rung 6) of the ~6x configuration**, which no arm in
+§2079 or §2080 has had.

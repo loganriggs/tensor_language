@@ -1,0 +1,89 @@
+{
+ "base": 2.6736,
+ "oracle": 2.5959,
+ "random": 2.6651,
+ "fraction": 0.1725,
+ "oracle_gain": 0.0777,
+ "random_gain": 0.0085,
+ "S2079_measured": {
+  "blk2": 3.867,
+  "blk5": 5.488,
+  "blk9": 4.574,
+  "blk2+9": 6.113
+ },
+ "arms": {
+  "blk2": {
+   "depths": [
+    2
+   ],
+   "dim": 1152,
+   "auc": 0.621,
+   "gain": 0.0326,
+   "eff_vs_random": 3.849,
+   "frac_of_oracle": 0.42
+  },
+  "blk5": {
+   "depths": [
+    5
+   ],
+   "dim": 1152,
+   "auc": 0.6384,
+   "gain": 0.0464,
+   "eff_vs_random": 5.479,
+   "frac_of_oracle": 0.597
+  },
+  "blk9": {
+   "depths": [
+    9
+   ],
+   "dim": 1152,
+   "auc": 0.6545,
+   "gain": 0.0387,
+   "eff_vs_random": 4.568,
+   "frac_of_oracle": 0.498
+  },
+  "blk2+5": {
+   "depths": [
+    2,
+    5
+   ],
+   "dim": 2304,
+   "auc": 0.6323,
+   "gain": 0.0487,
+   "eff_vs_random": 5.759,
+   "frac_of_oracle": 0.628
+  },
+  "blk2+9": {
+   "depths": [
+    2,
+    9
+   ],
+   "dim": 2304,
+   "auc": 0.6382,
+   "gain": 0.0517,
+   "eff_vs_random": 6.112,
+   "frac_of_oracle": 0.666
+  },
+  "blk5+9": {
+   "depths": [
+    5,
+    9
+   ],
+   "dim": 2304,
+   "auc": 0.6457,
+   "gain": 0.0524,
+   "eff_vs_random": 6.185,
+   "frac_of_oracle": 0.674
+  }
+ },
+ "pair_efficiencies": {
+  "blk2+5": 5.759,
+  "blk2+9": 6.112,
+  "blk5+9": 6.185
+ },
+ "best_single_site_efficiency": 5.479,
+ "pred_a_all_pairs_beat_best_single": true,
+ "pred_b_pairs_are_interchangeable": true,
+ "pred_c_blk2_reproduces_S2079": true,
+ "runtime_s": 249.9778847694397
+}
