@@ -26,18 +26,27 @@ import run_mlp2_error_rayleigh_v1_collect as collector
 
 RUNNER = Path(__file__).resolve()
 TEST = HERE / "test_run_mlp2_error_rayleigh_v1_score_design.py"
-AUDIT = collector.PREDICTOR_AUDIT
-AUTHORITY = collector.PREDICTOR_AUTHORITY
-BUNDLE = collector.PREDICTOR_BUNDLE
-RECEIPT = collector.PREDICTOR_RECEIPT
-FAILURE = HERE / "mlp2_error_rayleigh_v3_design_predictor_failure.json"
-LOCK = Path("/workspace/runs/.mlp2_error_rayleigh_v3_design_predictor.lock")
+AUDIT = HERE / "mlp2_error_rayleigh_v4_design_scorer_independent_audit.json"
+AUTHORITY = HERE / "mlp2_error_rayleigh_v4_design_predictor_authority.json"
+BUNDLE = HERE / "mlp2_error_rayleigh_v4_design_predictor_bundle.pt"
+RECEIPT = HERE / "mlp2_error_rayleigh_v4_design_predictor_receipt.json"
+FAILURE = HERE / "mlp2_error_rayleigh_v4_design_predictor_failure.json"
+LOCK = Path("/workspace/runs/.mlp2_error_rayleigh_v4_design_predictor.lock")
 DESIGN = collector.role_paths("DESIGN")
+RECOVERY_AMENDMENT = HERE / "MLP2_ERROR_RAYLEIGH_SCORER_V4_RECOVERY_AMENDMENT.md"
+V3_FAILURE = HERE / "mlp2_error_rayleigh_v3_design_predictor_failure.json"
+V3_FAILURE_SHA = "d715167e26aec84378d6a48bbcabe8dfd3953cc8d108b959b8b300e88a16c3a6"
+V3_ABSENT_PATHS = (
+    HERE / "mlp2_error_rayleigh_v3_design_predictor_authority.json",
+    HERE / "mlp2_error_rayleigh_v3_design_predictor_bundle.pt",
+    HERE / "mlp2_error_rayleigh_v3_design_predictor_receipt.json",
+    Path("/workspace/runs/.mlp2_error_rayleigh_v3_design_predictor.lock"),
+)
 SOURCE_PATHS = tuple(dict.fromkeys((
     *collector.SOURCE_PATHS,
     HERE / "mlp2_error_rayleigh_predictor.py",
     HERE / "test_mlp2_error_rayleigh_predictor.py",
-    RUNNER, TEST,
+    RUNNER, TEST, RECOVERY_AMENDMENT,
 )))
 
 
@@ -69,7 +78,7 @@ def validate_audit(sources: Mapping[str, str]) -> tuple[dict[str, Any], str]:
         "audited_source_hashes", "tests_passed", "reviewer",
     }
     if set(value) != required or value.get("schema") != (
-        "mlp2_error_rayleigh_v3_design_scorer_independent_audit"
+        "mlp2_error_rayleigh_v4_design_scorer_independent_audit"
     ) or value.get("status") != "GO" or value.get("outcome_access") is not False \
             or value.get("audited_source_hashes") != dict(sources) \
             or not isinstance(value.get("tests_passed"), int) \
@@ -79,6 +88,40 @@ def validate_audit(sources: Mapping[str, str]) -> tuple[dict[str, Any], str]:
     if not isinstance(commit, str) or source_hashes(commit) != dict(sources):
         raise RuntimeError("DESIGN scorer audit binding changed")
     return value, digest
+
+
+def audited_source_commit() -> str:
+    raw = AUDIT.read_bytes()
+    digest = hashlib.sha256(raw).hexdigest()
+    if file_sha256(AUDIT) != digest:
+        raise RuntimeError("DESIGN scorer audit raced source-commit selection")
+    value = json.loads(raw)
+    commit = value.get("audited_source_commit")
+    if not isinstance(commit, str):
+        raise RuntimeError("DESIGN scorer audited source commit is absent")
+    return commit
+
+
+def validate_spent_v3_scorer() -> str:
+    value, digest = base.stable_json(V3_FAILURE, V3_FAILURE_SHA)
+    absences = {str(path): path.exists() for path in V3_ABSENT_PATHS}
+    if digest != V3_FAILURE_SHA or value != {
+        "artifact_hashes": {},
+        "authority_exists": False,
+        "authority_observation": {"status": "absent"},
+        "design_ledger_may_have_opened": False,
+        "error": "CalledProcessError(1, ['git', 'merge-base', '--is-ancestor', "
+                 "'25c7681c6321c89e4460195123dd99cc0fcdd9dc', 'origin/main'])",
+        "protected_observation": {"status": "not_attempted_preopen_failure"},
+        "schema": "mlp2_error_rayleigh_v1_design_predictor_failure",
+        "status": "terminal_failure_no_receipt",
+    } or any(absences.values()):
+        raise RuntimeError("spent Rayleigh v3 scorer chain changed")
+    replay, replay_digest = base.stable_json(V3_FAILURE, V3_FAILURE_SHA)
+    if replay != value or replay_digest != digest \
+            or {str(path): path.exists() for path in V3_ABSENT_PATHS} != absences:
+        raise RuntimeError("spent Rayleigh v3 scorer lineage raced validation")
+    return digest
 
 
 def validate_design_receipt(value: Any, ledger_sha: str) -> dict[str, Any]:
@@ -146,9 +189,13 @@ def metadata_snapshot(authority: Mapping[str, Any]) -> dict[str, str]:
     validate_design_authority(design_authority, design_authority_sha)
     if audit_sha != authority["audit_sha256"] or receipt_sha != authority["design_receipt_sha256"]:
         raise RuntimeError("DESIGN scorer protected hashes changed")
+    spent_v3_sha = validate_spent_v3_scorer()
+    if authority["spent_v3_scorer_failure_sha256"] != spent_v3_sha:
+        raise RuntimeError("DESIGN scorer spent-v3 lineage changed")
     return {
         "audit": audit_sha, "receipt": receipt_sha, "ledger": ledger_sha,
         "design_authority": design_authority_sha,
+        "spent_v3_scorer_failure": spent_v3_sha,
     }
 
 
@@ -274,8 +321,7 @@ def run() -> None:
     claim = row_life.base.acquire_claim(LOCK)
     authority = None; protected = None; opened = False
     try:
-        commit = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT,
-                                         text=True).strip()
+        commit = audited_source_commit()
         sources = source_hashes(commit); audit, audit_sha = validate_audit(sources)
         design_receipt_sha = file_sha256(DESIGN["receipt"])
         design_ledger_sha = file_sha256(DESIGN["ledger"])
@@ -291,6 +337,7 @@ def run() -> None:
             "ridge_grid": list(predictor.RIDGE_GRID),
             "families": {name: list(features) for name, features in predictor.FAMILIES.items()},
             "heldout_opened": False,
+            "spent_v3_scorer_failure_sha256": V3_FAILURE_SHA,
         }
         metadata = metadata_snapshot(authority)
 

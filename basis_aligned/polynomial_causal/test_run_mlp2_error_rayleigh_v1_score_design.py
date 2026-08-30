@@ -41,6 +41,8 @@ def mocked_scorer_transaction(tmp_path, monkeypatch):
     monkeypatch.setattr(score, "FAILURE", paths["failure"])
     monkeypatch.setattr(score, "LOCK", paths["lock"])
     monkeypatch.setattr(score, "DESIGN", design)
+    monkeypatch.setattr(score, "audited_source_commit", lambda: "audited-commit")
+    monkeypatch.setattr(score, "validate_spent_v3_scorer", lambda: score.V3_FAILURE_SHA)
     monkeypatch.setattr(score, "source_hashes", lambda _commit: {})
     monkeypatch.setattr(score, "validate_audit", lambda _sources: (
         {"reviewer": "mock-independent-auditor"}, "a" * 64,
@@ -102,7 +104,16 @@ def test_source_closure_contains_scorer_predictor_and_collector_contracts():
                  score.HERE / "test_mlp2_error_rayleigh_predictor.py",
                  score.collector.RUNNER, score.collector.TEST, score.collector.ADDENDUM):
         assert score.SOURCE_PATHS.count(path) == 1
+    assert score.SOURCE_PATHS.count(score.RECOVERY_AMENDMENT) == 1
     assert set(score.collector.SOURCE_PATHS).issubset(score.SOURCE_PATHS)
+
+
+def test_v4_namespace_is_fresh_and_v3_terminal_is_bound():
+    assert "v4_design_predictor" in score.AUTHORITY.name
+    assert "v4_design_predictor" in score.BUNDLE.name
+    assert "v4_design_predictor" in score.RECEIPT.name
+    assert score.validate_spent_v3_scorer() == score.V3_FAILURE_SHA
+    assert all(not path.exists() for path in score.V3_ABSENT_PATHS)
 
 
 def test_receipt_shape_matches_heldout_unlock_exactly():
@@ -116,7 +127,7 @@ def test_receipt_shape_matches_heldout_unlock_exactly():
         "predictor_authority_sha256", "scorer_audit_sha256",
         "predictor_bundle_sha256", "heldout_unlocked",
     }
-    assert score.RECEIPT == score.collector.PREDICTOR_RECEIPT
+    assert "v4_design_predictor" in score.RECEIPT.name
 
 
 def test_success_publishes_authority_before_any_design_tensor_access(tmp_path, monkeypatch):
