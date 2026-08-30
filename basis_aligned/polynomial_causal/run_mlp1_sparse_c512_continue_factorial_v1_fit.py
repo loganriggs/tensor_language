@@ -18,7 +18,7 @@ import secrets
 import subprocess
 import sys
 import time
-from typing import Any, Mapping
+from typing import Any, Callable, Mapping
 
 import torch
 import torch.nn.functional as F
@@ -52,6 +52,21 @@ LEARNING_RATE = 0.003
 CURVE_EVERY = 200
 DOCUMENT_BATCH = 4
 SCORING = slice(64, 256)
+SCORING_POSITIONS = SCORING.stop - SCORING.start
+ROLE_DOCUMENTS = 96
+EXPECTED_FORWARDS = ROLE_DOCUMENTS // DOCUMENT_BATCH
+ROW_RECEIPT_KEYS = {
+    "schema", "status", "source_commit", "source_hashes", "independent_audit",
+    "selection", "roles", "entries", "provenance", "disjointness",
+    "ordered_manifest_gate", "registry_hashes", "prior_tensor_hashes",
+    "waiver_proofs", "nonrow_proofs", "outcome_access",
+}
+DISJOINTNESS_KEYS = {
+    "unique_source_documents", "unique_dataset_indices", "unique_full_rows",
+    "unique_prefix32", "source_documents_disjoint_from_registry",
+    "dataset_indices_disjoint_from_registry", "full_rows_disjoint_from_registry",
+    "prefix32_disjoint_from_registry",
+}
 
 
 def file_sha256(path: Path) -> str:
@@ -85,24 +100,42 @@ def stable_torch(path: Path, expected: str | None = None) -> tuple[Any, str]:
     return torch.load(io.BytesIO(raw), map_location="cpu", weights_only=True), before
 
 
-def write_json_create_only(path: Path, value: Any) -> None:
+def fsync_directory(path: Path) -> None:
+    descriptor = os.open(path, os.O_RDONLY | getattr(os, "O_DIRECTORY", 0))
+    try:
+        os.fsync(descriptor)
+    finally:
+        os.close(descriptor)
+
+
+def write_json_create_only(
+    path: Path, value: Any, *, pre_link_check: Callable[[], None] | None = None,
+) -> None:
     temporary = path.with_name(f".{path.name}.tmp.{os.getpid()}.{secrets.token_hex(8)}")
     try:
         with temporary.open("x") as sink:
             json.dump(value, sink, indent=2, sort_keys=True, allow_nan=False)
             sink.write("\n"); sink.flush(); os.fsync(sink.fileno())
+        if pre_link_check is not None:
+            pre_link_check()
         os.link(temporary, path)
+        fsync_directory(path.parent)
     finally:
         temporary.unlink(missing_ok=True)
 
 
-def write_torch_create_only(path: Path, value: Any) -> None:
+def write_torch_create_only(
+    path: Path, value: Any, *, pre_link_check: Callable[[], None] | None = None,
+) -> None:
     temporary = path.with_name(f".{path.name}.tmp.{os.getpid()}.{secrets.token_hex(8)}")
     try:
         torch.save(value, temporary)
         with temporary.open("rb") as source:
             os.fsync(source.fileno())
+        if pre_link_check is not None:
+            pre_link_check()
         os.link(temporary, path)
+        fsync_directory(path.parent)
     finally:
         temporary.unlink(missing_ok=True)
 
@@ -129,6 +162,8 @@ def convergence_metrics(curve: list[Mapping[str, Any]]) -> dict[str, Any]:
 def selection_gates(seed_records: list[Mapping[str, Any]], ce_recovery: float) -> dict[str, Any]:
     selected = select_seed(seed_records)
     finals = torch.tensor([float(row["final_select_r2"]) for row in seed_records], dtype=torch.float64)
+    if not bool(torch.isfinite(finals).all()) or not math.isfinite(float(ce_recovery)):
+        raise RuntimeError("non-finite sparse-Down selection metric")
     return {
         "selected_seed": int(selected["seed"]),
         "executable_select_ce_recovery_ge_0p90": ce_recovery >= 0.90,
@@ -139,7 +174,10 @@ def selection_gates(seed_records: list[Mapping[str, Any]], ce_recovery: float) -
     }
 
 
-def validate_row_receipt(value: Mapping[str, Any], sources: Mapping[str, str]) -> None:
+def validate_row_receipt(
+    value: Mapping[str, Any], sources: Mapping[str, str], audit: Mapping[str, Any],
+    audit_sha: str,
+) -> None:
     expected_roles = {
         "FIT": {
             "authorized_for_training": True,
@@ -157,8 +195,11 @@ def validate_row_receipt(value: Mapping[str, Any], sources: Mapping[str, str]) -
             "authorized_for_final": True,
         },
     }
-    if value.get("schema") != "mlp1_sparse_c512_continue_factorial_v1_rows" \
+    audit_entry = value.get("independent_audit", {})
+    if set(value) != ROW_RECEIPT_KEYS \
+            or value.get("schema") != "mlp1_sparse_c512_continue_factorial_v1_rows" \
             or value.get("status") != "fresh_roles_frozen_before_any_model_or_training_access" \
+            or not isinstance(value.get("source_commit"), str) \
             or value.get("source_hashes") != dict(sources) \
             or value.get("selection") != {
                 "start_document_index": 122000,
@@ -166,14 +207,117 @@ def validate_row_receipt(value: Mapping[str, Any], sources: Mapping[str, str]) -
                 "token_length": 257,
                 "scored_slice": [64, 256],
             } or value.get("roles") != expected_roles \
+            or value.get("outcome_access") != {"model_loaded": False, "training_run": False} \
+            or set(audit_entry) != {
+                "path", "file_sha256", "audited_source_commit", "reviewer", "tests_passed",
+            } or audit_entry.get("file_sha256") != audit_sha \
+            or audit_entry.get("audited_source_commit") != audit.get("audited_source_commit") \
+            or audit_entry.get("reviewer") != audit.get("reviewer") \
+            or audit_entry.get("tests_passed") != audit.get("tests_passed") \
             or set(value.get("entries", {})) != set(expected_roles) \
-            or not all(value.get("disjointness", {}).values()):
+            or set(value.get("provenance", {})) != set(expected_roles) \
+            or set(value.get("disjointness", {})) != DISJOINTNESS_KEYS \
+            or not all(item is True for item in value["disjointness"].values()):
         raise RuntimeError("sparse-Down row receipt semantics changed")
+    documents: set[str] = set()
+    indices: set[int] = set()
     for role, entry in value["entries"].items():
+        records = value["provenance"][role]
         path = Path(entry["path"])
-        if entry.get("shape") != [96, 257] or entry.get("dtype") != "torch.int64" \
+        if set(entry) != {"path", "file_sha256", "tensor_sha256", "shape", "dtype"} \
+                or entry.get("shape") != [ROLE_DOCUMENTS, 257] \
+                or entry.get("dtype") != "torch.int64" \
                 or not path.is_file() or file_sha256(path) != entry.get("file_sha256"):
             raise RuntimeError(f"sparse-Down {role} row entry changed")
+        if not isinstance(records, list) or len(records) != ROLE_DOCUMENTS:
+            raise RuntimeError(f"sparse-Down {role} provenance changed")
+        role_documents, role_indices = [], []
+        for record in records:
+            if set(record) != {
+                "document_id", "dataset_document_index", "row_index",
+                "source_document_ordinal", "chunk_id", "token_start",
+            } or not isinstance(record["document_id"], str) \
+                    or not record["document_id"] \
+                    or any(type(record[key]) is not int for key in (
+                        "dataset_document_index", "row_index", "source_document_ordinal",
+                        "chunk_id", "token_start",
+                    )):
+                raise RuntimeError(f"sparse-Down {role} provenance record changed")
+            role_documents.append(record["document_id"])
+            role_indices.append(record["dataset_document_index"])
+        if len(set(role_documents)) != ROLE_DOCUMENTS \
+                or len(set(role_indices)) != ROLE_DOCUMENTS \
+                or documents.intersection(role_documents) or indices.intersection(role_indices):
+            raise RuntimeError("sparse-Down role provenance overlaps")
+        documents.update(role_documents); indices.update(role_indices)
+
+
+def load_role(entry: Mapping[str, Any]) -> torch.Tensor:
+    path = Path(entry["path"])
+    value, _ = stable_torch(path, str(entry["file_sha256"]))
+    if not isinstance(value, torch.Tensor) or value.dtype != torch.int64 \
+            or tuple(value.shape) != (ROLE_DOCUMENTS, 257) \
+            or rows_life.base.tensor_sha256(value) != entry["tensor_sha256"]:
+        raise RuntimeError(f"row tensor semantics changed: {path}")
+    return value
+
+
+def checkpoint_snapshot() -> dict[str, Any]:
+    snapshot = Path(facade.DEFAULT_SNAPSHOT)
+    config = snapshot / "config.json"
+    weights = snapshot / "pytorch_model.bin"
+    value = {
+        "config_sha256": file_sha256(config),
+        "weights_sha256": file_sha256(weights),
+        "weights_bytes": weights.stat().st_size,
+    }
+    if value != {
+        "config_sha256": facade.CONFIG_SHA256,
+        "weights_sha256": facade.WEIGHTS_SHA256,
+        "weights_bytes": facade.WEIGHTS_BYTES,
+    }:
+        raise RuntimeError("pinned bilin18 checkpoint changed")
+    return value
+
+
+def protected_snapshot(
+    commit: str, sources: Mapping[str, str], audit_sha: str, row_receipt_sha: str,
+) -> dict[str, Any]:
+    if rows_life.source_hashes(commit) != dict(sources):
+        raise RuntimeError("protected sparse-Down source closure changed")
+    audit, current_audit_sha = rows_life.validate_independent_audit(sources)
+    if current_audit_sha != audit_sha:
+        raise RuntimeError("protected sparse-Down audit changed")
+    receipt, current_receipt_sha = stable_json(ROWS_RECEIPT, row_receipt_sha)
+    validate_row_receipt(receipt, sources, audit, audit_sha)
+    row_hashes = {
+        role: file_sha256(Path(receipt["entries"][role]["path"]))
+        for role in ("FIT", "SELECT", "FINAL")
+    }
+    expected_rows = {
+        role: receipt["entries"][role]["file_sha256"]
+        for role in ("FIT", "SELECT", "FINAL")
+    }
+    if row_hashes != expected_rows:
+        raise RuntimeError("protected sparse-Down row bytes changed")
+    return {
+        "source_commit": commit,
+        "source_hashes": dict(sources),
+        "audit_sha256": current_audit_sha,
+        "row_receipt_sha256": current_receipt_sha,
+        "row_hashes": row_hashes,
+        "checkpoint": checkpoint_snapshot(),
+    }
+
+
+def verify_protected(
+    expected: Mapping[str, Any], commit: str, sources: Mapping[str, str],
+    audit_sha: str, row_receipt_sha: str, claim: Any,
+) -> None:
+    rows_life.base.require_claim(claim, LOCK)
+    if protected_snapshot(commit, sources, audit_sha, row_receipt_sha) != dict(expected):
+        raise RuntimeError("protected sparse-Down inputs changed during execution")
+    rows_life.base.require_claim(claim, LOCK)
 
 
 @torch.no_grad()
@@ -181,19 +325,29 @@ def capture_gate_action(
     model: Any, role_rows: torch.Tensor, device: torch.device,
 ) -> tuple[torch.Tensor, torch.Tensor, dict[str, int]]:
     gates, actions = [], []
-    calls = {"forwards": 0, "site1_captures": 0, "native_mlp_calls": 0}
+    calls = {
+        "forwards": 0, "outer_returns": 0, "attention_calls": 0,
+        "attention_returns": 0, "site1_captures": 0, "native_mlp_calls": 0,
+    }
     for start in range(0, len(role_rows), DOCUMENT_BATCH):
         tokens = role_rows[start:start + DOCUMENT_BATCH, :-1].to(device)
 
         def attention(event: facade.AttentionEvent):
-            return event.block.attn(event.state, event.first_value)
+            calls["attention_calls"] += 1
+            value = event.block.attn(event.state, event.first_value)
+            calls["attention_returns"] += 1
+            return value
 
         def mlp(event: facade.EarlyMLPEvent):
             if event.site == 1:
                 gate = event.block.mlp.Left(event.state) * event.block.mlp.Right(event.state)
                 action = event.block.mlp.Down(gate)
-                gates.append(gate.detach().float().cpu().reshape(-1, sparse.GATE_DIM))
-                actions.append(action.detach().float().cpu().reshape(-1, sparse.OUTPUT_DIM))
+                gates.append(
+                    gate[:, SCORING].detach().float().cpu().reshape(-1, sparse.GATE_DIM)
+                )
+                actions.append(
+                    action[:, SCORING].detach().float().cpu().reshape(-1, sparse.OUTPUT_DIM)
+                )
                 calls["site1_captures"] += 1
                 return action + event.block.mlp.Down_bias
             calls["native_mlp_calls"] += 1
@@ -201,14 +355,24 @@ def capture_gate_action(
 
         facade.forward_with_dispatch(model, tokens, attention, mlp)
         calls["forwards"] += 1
+        calls["outer_returns"] += 1
     expected = len(role_rows) // DOCUMENT_BATCH
-    if calls != {
+    expected_calls = {
         "forwards": expected,
+        "outer_returns": expected,
+        "attention_calls": expected * 18,
+        "attention_returns": expected * 18,
         "site1_captures": expected,
         "native_mlp_calls": expected * 17,
-    }:
+    }
+    if calls != expected_calls:
         raise RuntimeError(f"sparse-Down capture call census changed: {calls}")
-    return torch.cat(gates), torch.cat(actions), calls
+    gate_tensor, action_tensor = torch.cat(gates), torch.cat(actions)
+    expected_positions = len(role_rows) * SCORING_POSITIONS
+    if tuple(gate_tensor.shape) != (expected_positions, sparse.GATE_DIM) \
+            or tuple(action_tensor.shape) != (expected_positions, sparse.OUTPUT_DIM):
+        raise RuntimeError("sparse-Down scored-position capture changed")
+    return gate_tensor, action_tensor, calls
 
 
 @torch.no_grad()
@@ -288,7 +452,11 @@ def score_select_ce(
 ) -> tuple[dict[str, float], dict[str, Any]]:
     sums = {arm: 0.0 for arm in ("NATIVE", "ZERO", "SPARSE")}
     counts = {arm: 0 for arm in sums}
-    calls = {arm: {"forwards": 0, "native_mlp1": 0, "sparse_mlp1": 0, "zero_mlp1": 0}
+    calls = {arm: {
+        "forwards": 0, "outer_returns": 0, "attention_calls": 0,
+        "attention_returns": 0, "other_native_mlp": 0, "native_mlp1": 0,
+        "sparse_mlp1": 0, "zero_mlp1": 0,
+    }
              for arm in sums}
     for start in range(0, len(role_rows), DOCUMENT_BATCH):
         batch = role_rows[start:start + DOCUMENT_BATCH]
@@ -296,10 +464,14 @@ def score_select_ce(
         targets = batch[:, 1:].to(device)
         for arm in sums:
             def attention(event: facade.AttentionEvent):
-                return event.block.attn(event.state, event.first_value)
+                calls[arm]["attention_calls"] += 1
+                value = event.block.attn(event.state, event.first_value)
+                calls[arm]["attention_returns"] += 1
+                return value
 
             def mlp(event: facade.EarlyMLPEvent, arm=arm):
                 if event.site != 1:
+                    calls[arm]["other_native_mlp"] += 1
                     return event.block.mlp(event.state)
                 if arm == "NATIVE":
                     calls[arm]["native_mlp1"] += 1
@@ -318,10 +490,87 @@ def score_select_ce(
             )
             sums[arm] += float(ce); counts[arm] += targets[:, SCORING].numel()
             calls[arm]["forwards"] += 1
+            calls[arm]["outer_returns"] += 1
+    expected_common = {
+        "forwards": EXPECTED_FORWARDS,
+        "outer_returns": EXPECTED_FORWARDS,
+        "attention_calls": EXPECTED_FORWARDS * 18,
+        "attention_returns": EXPECTED_FORWARDS * 18,
+        "other_native_mlp": EXPECTED_FORWARDS * 17,
+    }
+    for arm in sums:
+        expected = {
+            **expected_common,
+            "native_mlp1": EXPECTED_FORWARDS if arm == "NATIVE" else 0,
+            "sparse_mlp1": EXPECTED_FORWARDS if arm == "SPARSE" else 0,
+            "zero_mlp1": EXPECTED_FORWARDS if arm == "ZERO" else 0,
+        }
+        if calls[arm] != expected:
+            raise RuntimeError(f"sparse-Down SELECT call census changed for {arm}: {calls[arm]}")
     result = {arm: sums[arm] / counts[arm] for arm in sums}
     denominator = result["ZERO"] - result["NATIVE"]
+    if not all(math.isfinite(value) for value in result.values()) \
+            or not math.isfinite(denominator) or denominator <= 0:
+        raise RuntimeError("sparse-Down SELECT CE baseline is non-finite or non-positive")
     result["recovery"] = (result["ZERO"] - result["SPARSE"]) / denominator
+    if not math.isfinite(result["recovery"]):
+        raise RuntimeError("sparse-Down SELECT CE recovery is non-finite")
     return result, calls
+
+
+def assert_state_equal(actual: Mapping[str, Any], expected: Mapping[str, Any]) -> None:
+    actual_state = sparse.validate_state(actual)
+    expected_state = sparse.validate_state(expected)
+    if any(not torch.equal(actual_state[key], expected_state[key]) for key in actual_state):
+        raise RuntimeError("serialized sparse-Down state changed")
+
+
+def validate_bundle(
+    value: Any, expected_state: Mapping[str, Any], authority_sha: str,
+    selected_seed: int,
+) -> None:
+    if not isinstance(value, dict) or set(value) != {
+        "schema", "status", "authority_sha256", "program", "selected_seed",
+        "price", "final_opened",
+    } or value.get("schema") != "mlp1_sparse_c512_continue_factorial_v1_fit_bundle" \
+            or value.get("status") != "selected_program_frozen_before_final" \
+            or value.get("authority_sha256") != authority_sha \
+            or value.get("selected_seed") != selected_seed \
+            or value.get("price") != sparse.SparseDownProgram.price() \
+            or value.get("final_opened") is not False:
+        raise RuntimeError("serialized sparse-Down bundle semantics changed")
+    assert_state_equal(value["program"], expected_state)
+
+
+def validate_result(value: Mapping[str, Any], expected: Mapping[str, Any]) -> None:
+    if dict(value) != dict(expected):
+        raise RuntimeError("serialized sparse-Down result changed")
+    if set(value) != {
+        "schema", "status", "runtime_seconds", "documents", "captured_positions",
+        "seed_records", "select_ce", "selection_gates", "price", "calls", "parents",
+        "checkpoint", "claim_boundary",
+    } or value.get("documents") != {"FIT": 96, "SELECT": 96, "FINAL_opened": 0} \
+            or value.get("captured_positions") != {
+                "FIT": ROLE_DOCUMENTS * SCORING_POSITIONS,
+                "SELECT": ROLE_DOCUMENTS * SCORING_POSITIONS,
+            } or value.get("price") != sparse.SparseDownProgram.price():
+        raise RuntimeError("sparse-Down result schema changed")
+    ce = value["select_ce"]
+    if set(ce) != {"NATIVE", "ZERO", "SPARSE", "recovery"} \
+            or not all(math.isfinite(float(item)) for item in ce.values()) \
+            or float(ce["ZERO"]) - float(ce["NATIVE"]) <= 0:
+        raise RuntimeError("sparse-Down result CE semantics changed")
+    recomputed_recovery = (
+        (float(ce["ZERO"]) - float(ce["SPARSE"]))
+        / (float(ce["ZERO"]) - float(ce["NATIVE"]))
+    )
+    if recomputed_recovery != float(ce["recovery"]):
+        raise RuntimeError("sparse-Down result recovery replay changed")
+    gates = selection_gates(value["seed_records"], recomputed_recovery)
+    if gates != value["selection_gates"] or value["status"] != (
+        "admitted_to_final" if gates["admitted_to_final"] else "selection_gate_failed"
+    ):
+        raise RuntimeError("sparse-Down result decision replay changed")
 
 
 def main() -> None:
@@ -337,7 +586,8 @@ def main() -> None:
         sources = rows_life.source_hashes(commit)
         audit, audit_sha = rows_life.validate_independent_audit(sources)
         row_receipt, row_receipt_sha = stable_json(ROWS_RECEIPT)
-        validate_row_receipt(row_receipt, sources)
+        validate_row_receipt(row_receipt, sources, audit, audit_sha)
+        protected = protected_snapshot(commit, sources, audit_sha, row_receipt_sha)
         authority = {
             "schema": "mlp1_sparse_c512_continue_factorial_v1_fit_authority",
             "status": "frozen_before_fit_select_open",
@@ -353,19 +603,33 @@ def main() -> None:
             "batch_size": BATCH_SIZE,
             "learning_rate": LEARNING_RATE,
             "selection_variable": "final SELECT output R2 only",
+            "protected_inputs": protected,
         }
-        write_json_create_only(AUTHORITY, authority)
+
+        def authority_guard() -> None:
+            verify_protected(
+                protected, commit, sources, audit_sha, row_receipt_sha, claim,
+            )
+            if any(path.exists() for path in (AUTHORITY, BUNDLE, RESULT, RECEIPT, FAILURE)):
+                raise RuntimeError("sparse-Down authority namespace raced publication")
+
+        write_json_create_only(AUTHORITY, authority, pre_link_check=authority_guard)
         authority_sha = file_sha256(AUTHORITY)
+        authority_replay, _ = stable_json(AUTHORITY, authority_sha)
+        if authority_replay != authority:
+            raise RuntimeError("serialized sparse-Down authority changed")
         entries = row_receipt["entries"]
-        fit, _ = stable_torch(Path(entries["FIT"]["path"]), entries["FIT"]["file_sha256"])
-        select, _ = stable_torch(
-            Path(entries["SELECT"]["path"]), entries["SELECT"]["file_sha256"],
-        )
+        fit = load_role(entries["FIT"])
+        select = load_role(entries["SELECT"])
         fit_select_opened = True
-        if tuple(fit.shape) != (96, 257) or tuple(select.shape) != (96, 257):
-            raise RuntimeError("FIT/SELECT row shape changed")
         device = torch.device("cuda")
         model, checkpoint = facade.load_bilin18(device=device, dtype=torch.bfloat16)
+        if {
+            "config_sha256": checkpoint.config_sha256,
+            "weights_sha256": checkpoint.weights_sha256,
+            "weights_bytes": checkpoint.weights_bytes,
+        } != protected["checkpoint"]:
+            raise RuntimeError("loaded checkpoint differs from protected checkpoint")
         fit_gate, fit_target, fit_calls = capture_gate_action(model, fit, device)
         select_gate, select_target, select_calls = capture_gate_action(model, select, device)
         seed_states = []
@@ -390,10 +654,19 @@ def main() -> None:
             "price": sparse.SparseDownProgram.price(),
             "final_opened": False,
         }
-        write_torch_create_only(BUNDLE, bundle)
+
+        def bundle_guard() -> None:
+            verify_protected(
+                protected, commit, sources, audit_sha, row_receipt_sha, claim,
+            )
+            stable_json(AUTHORITY, authority_sha)
+            if any(path.exists() for path in (BUNDLE, RESULT, RECEIPT, FAILURE)):
+                raise RuntimeError("sparse-Down bundle namespace raced publication")
+
+        write_torch_create_only(BUNDLE, bundle, pre_link_check=bundle_guard)
         bundle_sha = file_sha256(BUNDLE)
         replay, _ = stable_torch(BUNDLE, bundle_sha)
-        sparse.validate_state(replay["program"])
+        validate_bundle(replay, selected_state, authority_sha, gates["selected_seed"])
         result = {
             "schema": "mlp1_sparse_c512_continue_factorial_v1_fit_result",
             "status": "admitted_to_final" if gates["admitted_to_final"] else "selection_gate_failed",
@@ -409,8 +682,21 @@ def main() -> None:
             "checkpoint": checkpoint.__dict__,
             "claim_boundary": "FIT/SELECT candidate admission only; no FINAL or composition claim",
         }
-        write_json_create_only(RESULT, result)
+
+        def result_guard() -> None:
+            verify_protected(
+                protected, commit, sources, audit_sha, row_receipt_sha, claim,
+            )
+            stable_json(AUTHORITY, authority_sha)
+            bundle_replay, _ = stable_torch(BUNDLE, bundle_sha)
+            validate_bundle(bundle_replay, selected_state, authority_sha, gates["selected_seed"])
+            if any(path.exists() for path in (RESULT, RECEIPT, FAILURE)):
+                raise RuntimeError("sparse-Down result namespace raced publication")
+
+        write_json_create_only(RESULT, result, pre_link_check=result_guard)
         result_sha = file_sha256(RESULT)
+        result_replay, _ = stable_json(RESULT, result_sha)
+        validate_result(result_replay, result)
         receipt = {
             "schema": "mlp1_sparse_c512_continue_factorial_v1_fit_receipt",
             "status": "fit_select_complete_receipt_last",
@@ -421,11 +707,27 @@ def main() -> None:
             "final_opened": final_opened,
             "admitted_to_final": gates["admitted_to_final"],
         }
-        write_json_create_only(RECEIPT, receipt)
         print(json.dumps(result, indent=2, sort_keys=True))
+
+        def receipt_guard() -> None:
+            verify_protected(
+                protected, commit, sources, audit_sha, row_receipt_sha, claim,
+            )
+            authority_again, _ = stable_json(AUTHORITY, authority_sha)
+            if authority_again != authority:
+                raise RuntimeError("sparse-Down authority replay changed before receipt")
+            bundle_again, _ = stable_torch(BUNDLE, bundle_sha)
+            validate_bundle(bundle_again, selected_state, authority_sha, gates["selected_seed"])
+            result_again, _ = stable_json(RESULT, result_sha)
+            validate_result(result_again, result)
+            if RECEIPT.exists() or FAILURE.exists():
+                raise RuntimeError("sparse-Down terminal raced receipt publication")
+            rows_life.base.require_claim(claim, LOCK)
+
+        write_json_create_only(RECEIPT, receipt, pre_link_check=receipt_guard)
     except BaseException as error:
         if not RECEIPT.exists() and not FAILURE.exists():
-            write_json_create_only(FAILURE, {
+            failure = {
                 "schema": "mlp1_sparse_c512_continue_factorial_v1_fit_failure",
                 "status": "terminal_failure",
                 "error": repr(error),
@@ -435,7 +737,22 @@ def main() -> None:
                     path.name: file_sha256(path)
                     for path in (AUTHORITY, BUNDLE, RESULT) if path.is_file()
                 },
-            })
+            }
+
+            def failure_guard() -> None:
+                rows_life.base.require_claim(claim, LOCK)
+                if RECEIPT.exists() or FAILURE.exists():
+                    raise RuntimeError("sparse-Down terminal raced failure publication")
+                for path, expected in (
+                    (AUTHORITY, failure["artifact_hashes"].get(AUTHORITY.name)),
+                    (BUNDLE, failure["artifact_hashes"].get(BUNDLE.name)),
+                    (RESULT, failure["artifact_hashes"].get(RESULT.name)),
+                ):
+                    if expected is not None and file_sha256(path) != expected:
+                        raise RuntimeError("sparse-Down partial artifact changed before failure")
+                rows_life.base.require_claim(claim, LOCK)
+
+            write_json_create_only(FAILURE, failure, pre_link_check=failure_guard)
         raise
     finally:
         rows_life.base.release_claim(claim, LOCK)

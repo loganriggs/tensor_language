@@ -1,4 +1,7 @@
+import math
+
 import pytest
+import torch
 
 import run_mlp1_sparse_c512_continue_factorial_v1_fit as subject
 
@@ -38,3 +41,48 @@ def test_convergence_rejects_late_instability_and_wrong_cadence():
     assert unstable["convergence"]["converged"] is False
     with pytest.raises(RuntimeError, match="cadence"):
         subject.convergence_metrics(unstable["curve"][:-1])
+
+
+@pytest.mark.parametrize("value", [math.nan, math.inf, -math.inf])
+def test_selection_rejects_nonfinite_ce_recovery(value):
+    rows = [record(0, 0.79), record(1, 0.80), record(2, 0.81)]
+    with pytest.raises(RuntimeError, match="non-finite"):
+        subject.selection_gates(rows, value)
+
+
+def test_create_only_writer_runs_guard_adjacent_to_publication(tmp_path):
+    target = tmp_path / "artifact.json"
+    observed = []
+
+    def guard():
+        assert not target.exists()
+        observed.append("guarded")
+
+    subject.write_json_create_only(target, {"finite": 1.0}, pre_link_check=guard)
+    assert observed == ["guarded"]
+    assert target.is_file()
+    with pytest.raises(FileExistsError):
+        subject.write_json_create_only(target, {"finite": 2.0})
+
+
+def test_bundle_replay_requires_exact_program_and_price():
+    state = {
+        "encoder": torch.zeros(512, 4608),
+        "decoder": torch.zeros(1152, 512),
+        "intercept": torch.zeros(1152),
+    }
+    state["encoder"][:, 0] = 1.0
+    bundle = {
+        "schema": "mlp1_sparse_c512_continue_factorial_v1_fit_bundle",
+        "status": "selected_program_frozen_before_final",
+        "authority_sha256": "a" * 64,
+        "program": state,
+        "selected_seed": 1,
+        "price": subject.sparse.SparseDownProgram.price(),
+        "final_opened": False,
+    }
+    subject.validate_bundle(bundle, state, "a" * 64, 1)
+    bad = dict(bundle)
+    bad["price"] = {"stored_float32_reals": 1}
+    with pytest.raises(RuntimeError, match="bundle semantics"):
+        subject.validate_bundle(bad, state, "a" * 64, 1)
