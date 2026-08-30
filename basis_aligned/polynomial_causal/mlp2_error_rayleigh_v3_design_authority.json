@@ -1,0 +1,205 @@
+{
+  "amplitudes": [
+    0.0625,
+    0.125
+  ],
+  "attention_capture_sites": [
+    5,
+    6
+  ],
+  "audit_reviewer": "Codex independent outcome-blind source audit",
+  "audit_sha256": "633ffad0e780686134833bd4fefb6b7919c29780c325bf5c1dac32f7e74e2299",
+  "backgrounds": [
+    "NATIVE",
+    "C512"
+  ],
+  "control_seed": 2026082951,
+  "controls": [
+    "ACTUAL",
+    "DERANGED",
+    "COV_RANDOM"
+  ],
+  "outcome_access": false,
+  "parent_snapshot": {
+    "checkpoint": {
+      "config_sha256": "428042bfd807ba36f8b4326395440fbbebe52cd3d040212e6fef14a4fdf2d83c",
+      "logit_vocab": 50304,
+      "revision": "ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240",
+      "snapshot": "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240",
+      "tokenizer_vocab": 50257,
+      "weights_bytes": 2067738635,
+      "weights_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3"
+    },
+    "parents": {
+      "/workspace/tensor_language/basis_aligned/bilinear_quotient/mlp0_native_down_hierarchy_v1_fit_receipt.json": "79d0069864e9df521a99fc36531dd86c7ed31106f58f029d681fb1788a269f82",
+      "/workspace/tensor_language/basis_aligned/bilinear_quotient/mlp0_native_down_hierarchy_v1_programs/C512_at_C512.bin": "3ecf43b485d343bc5413e817dbd4236e5ce6cdaa7a3e0e653214e812b84ce470",
+      "/workspace/tensor_language/basis_aligned/polynomial_causal/mlp2_rank512_refit_v2_recovery_bundle.pt": "d0ad8aedcfec5097e2791d64281f5cc4b644af450968456fc64dc7312123078e",
+      "/workspace/tensor_language/basis_aligned/polynomial_causal/mlp2_rank512_refit_v2_recovery_receipt.json": "3578a68b4e8c20ea95f55a62cf9ff4e59e628bd69dbbad995f17a20f5265a7b2",
+      "/workspace/tensor_language/basis_aligned/polynomial_causal/mlp2_trajectory_robust_r512_v1_fit_bundle.pt": "79d13685a1e0f53aecc3ea1d34e0c332a55149bf6de510daab519712b6ed5856",
+      "/workspace/tensor_language/basis_aligned/polynomial_causal/mlp2_trajectory_robust_r512_v1_fit_receipt.json": "89badf901caec5fdecbe2ff2d1d49559dbf6eac19735486c11e4b7e2a4355323"
+    },
+    "program_integrity": {
+      "CONTINUE512": {
+        "price": {
+          "coefficient_count": 1770624,
+          "dense_matrix_multiplies_per_token": 3,
+          "execution_dtype": "state_dtype_bfloat16_in_deployment",
+          "input_width": 1152,
+          "native_mlp_calls_per_forward": 0,
+          "output_width": 1152,
+          "products": 512,
+          "stored_bytes_float32": 7082496,
+          "stored_dtype": "torch.float32",
+          "stored_scalar_values": 1770624,
+          "support_metadata_values": 0
+        },
+        "probe_finite": true,
+        "probe_input_dtype": "torch.bfloat16",
+        "probe_output_dtype": "torch.bfloat16",
+        "serialized_state_dtype": "torch.float32"
+      },
+      "FULL512": {
+        "price": {
+          "coefficient_count": 1770624,
+          "dense_matrix_multiplies_per_token": 3,
+          "execution_dtype": "state_dtype_bfloat16_in_deployment",
+          "input_width": 1152,
+          "native_mlp_calls_per_forward": 0,
+          "output_width": 1152,
+          "products": 512,
+          "stored_bytes_float32": 7082496,
+          "stored_dtype": "torch.float32",
+          "stored_scalar_values": 1770624,
+          "support_metadata_values": 0
+        },
+        "probe_finite": true,
+        "probe_input_dtype": "torch.bfloat16",
+        "probe_output_dtype": "torch.bfloat16",
+        "serialized_state_dtype": "torch.float32"
+      },
+      "ROBUST512": {
+        "price": {
+          "coefficient_count": 1770624,
+          "dense_matrix_multiplies_per_token": 3,
+          "execution_dtype": "state_dtype_bfloat16_in_deployment",
+          "input_width": 1152,
+          "native_mlp_calls_per_forward": 0,
+          "output_width": 1152,
+          "products": 512,
+          "stored_bytes_float32": 7082496,
+          "stored_dtype": "torch.float32",
+          "stored_scalar_values": 1770624,
+          "support_metadata_values": 0
+        },
+        "probe_finite": true,
+        "probe_input_dtype": "torch.bfloat16",
+        "probe_output_dtype": "torch.bfloat16",
+        "serialized_state_dtype": "torch.float32"
+      }
+    },
+    "row_receipt_sha256": "3c5faae3d0660ffc0caafb21881c4da0bceab2af09b371686629740ab6bc5300",
+    "spent_design_v1": {
+      "absent_paths": {
+        "/workspace/runs/.mlp2_error_rayleigh_v1_design.lock": false,
+        "/workspace/runs/.mlp2_error_rayleigh_v1_design_predictor.lock": false,
+        "/workspace/runs/.mlp2_error_rayleigh_v1_heldout.lock": false,
+        "/workspace/tensor_language/basis_aligned/polynomial_causal/mlp2_error_rayleigh_v1_design_ledger.pt": false,
+        "/workspace/tensor_language/basis_aligned/polynomial_causal/mlp2_error_rayleigh_v1_design_predictor_authority.json": false,
+        "/workspace/tensor_language/basis_aligned/polynomial_causal/mlp2_error_rayleigh_v1_design_predictor_bundle.pt": false,
+        "/workspace/tensor_language/basis_aligned/polynomial_causal/mlp2_error_rayleigh_v1_design_predictor_failure.json": false,
+        "/workspace/tensor_language/basis_aligned/polynomial_causal/mlp2_error_rayleigh_v1_design_predictor_receipt.json": false,
+        "/workspace/tensor_language/basis_aligned/polynomial_causal/mlp2_error_rayleigh_v1_design_receipt.json": false,
+        "/workspace/tensor_language/basis_aligned/polynomial_causal/mlp2_error_rayleigh_v1_heldout_authority.json": false,
+        "/workspace/tensor_language/basis_aligned/polynomial_causal/mlp2_error_rayleigh_v1_heldout_failure.json": false,
+        "/workspace/tensor_language/basis_aligned/polynomial_causal/mlp2_error_rayleigh_v1_heldout_ledger.pt": false,
+        "/workspace/tensor_language/basis_aligned/polynomial_causal/mlp2_error_rayleigh_v1_heldout_receipt.json": false
+      },
+      "authority_sha256": "d5d6f785a61568ed1aa6979af1eeea76183d1ffb6f080415cc294a68252ae8db",
+      "failure_sha256": "a8b6a88d342db2f2b2e3720cf87bb40caac4333d240dc27e04498d078585bbba"
+    },
+    "spent_design_v2": {
+      "absent_paths": {
+        "/workspace/runs/.mlp2_error_rayleigh_v2_design.lock": false,
+        "/workspace/runs/.mlp2_error_rayleigh_v2_design_predictor.lock": false,
+        "/workspace/runs/.mlp2_error_rayleigh_v2_heldout.lock": false,
+        "/workspace/tensor_language/basis_aligned/polynomial_causal/mlp2_error_rayleigh_v2_design_failure.json": false,
+        "/workspace/tensor_language/basis_aligned/polynomial_causal/mlp2_error_rayleigh_v2_design_predictor_authority.json": false,
+        "/workspace/tensor_language/basis_aligned/polynomial_causal/mlp2_error_rayleigh_v2_design_predictor_bundle.pt": false,
+        "/workspace/tensor_language/basis_aligned/polynomial_causal/mlp2_error_rayleigh_v2_design_predictor_receipt.json": false,
+        "/workspace/tensor_language/basis_aligned/polynomial_causal/mlp2_error_rayleigh_v2_heldout_authority.json": false,
+        "/workspace/tensor_language/basis_aligned/polynomial_causal/mlp2_error_rayleigh_v2_heldout_failure.json": false,
+        "/workspace/tensor_language/basis_aligned/polynomial_causal/mlp2_error_rayleigh_v2_heldout_ledger.pt": false,
+        "/workspace/tensor_language/basis_aligned/polynomial_causal/mlp2_error_rayleigh_v2_heldout_receipt.json": false
+      },
+      "authority_sha256": "346fc2a85b195b907e1ca60c3976acb824d46f7ad6b88261df525442fd2e3cd8",
+      "collector_audit_sha256": "1a4ac5a36fd140fc3c2b62fa2dc1f450048c46a7613fa6a496cd2162cf737790",
+      "ledger_sha256": "171798a41c450b17302b9907853633daef865fb4bbfd9b9ec0cdaedb6137c8bd",
+      "receipt_sha256": "16bb0597ed78830a2c166ab68ca2faadc2b077faedf02900df31de822a51b880",
+      "scorer_audit_sha256": "80fc2c78a1047fc96e822e43340100cc98d6734e7d3eda42ce35c2766b64cf72",
+      "scorer_failure_sha256": "5a7021bc64ea9d6cfff3d9f6814c7cd626e6a528bbb62f8ba9735939ba188a38"
+    }
+  },
+  "predictor_unlock_sha256": null,
+  "programs": [
+    "FULL512",
+    "CONTINUE512",
+    "ROBUST512"
+  ],
+  "role": "DESIGN",
+  "row_file_sha256": "05f2e03bf92d78727b14be05f30be54c423af12d40c2d0d3a30e396222750ca2",
+  "row_receipt_sha256": "3c5faae3d0660ffc0caafb21881c4da0bceab2af09b371686629740ab6bc5300",
+  "schema": "mlp2_error_rayleigh_v1_collector_authority",
+  "scored_slice": [
+    64,
+    256
+  ],
+  "source_commit": "db350b0c7b9f3686f4be4ad04d1bc0d753a01b93",
+  "source_hashes": {
+    "basis_aligned/polynomial_causal/BLOCK3_NATIVE_DOWN_BEHAVIORAL_PORT_V1_EXECUTION_ADDENDUM.md": "19a59ab85a85a1ab7b398ecfba42dc684dc17a9066cfb64b0b1bceed1196bea0",
+    "basis_aligned/polynomial_causal/BLOCK3_NATIVE_DOWN_BEHAVIORAL_PORT_V1_PREREGISTRATION.md": "8801b6cdfc0bf2f586a4e7462abf51b0213697eff27af4b8260a3aa4e8c9e6bb",
+    "basis_aligned/polynomial_causal/MLP0_C512_MLP2_FULL512_COMPOSITION_V1_PREREGISTRATION.md": "fe45d545efe7d9bd007cdda524490476c6bfd916366273eac05e47c7e87f6f7a",
+    "basis_aligned/polynomial_causal/MLP0_C512_MLP2_FULL512_COMPOSITION_V2_ROW_RECOVERY_AMENDMENT.md": "e071dc6dbf88d4c3da2062d7f9cd9f949c416dc258495f91f6c58151e7f7ba14",
+    "basis_aligned/polynomial_causal/MLP2_ERROR_RAYLEIGH_DESIGN_V3_RECOVERY_AMENDMENT.md": "502dc0607de11af79f305a7fd007675dd2417c95d1b17007abf6a6c3ce6dfe11",
+    "basis_aligned/polynomial_causal/MLP2_ERROR_RAYLEIGH_V1_EXECUTION_ADDENDUM.md": "adc61b598c897aa7929fe5384ae0b9c0e1f6f790a452ab5e269e1f069bb5f6c8",
+    "basis_aligned/polynomial_causal/MLP2_ERROR_RAYLEIGH_VALIDITY_PILOT_PREREGISTRATION.md": "f414b6f4c5bb9383a25bc2362e6b8718633eb9be109dde76ba3aead3554428e3",
+    "basis_aligned/polynomial_causal/MLP2_RANK512_REFIT_V1_PREREGISTRATION.md": "92303790c2c6ccc54887892779ddbbe14c1ae05918b1ba521a39c4426a409d68",
+    "basis_aligned/polynomial_causal/MLP2_TRAJECTORY_ROBUST_R512_V1_PHYSICAL_EVALUATION_ADDENDUM.md": "f37911ce38a6be8f4f30c472f51d69ba1b6c4cb31bb3f401684a54e11824e2c7",
+    "basis_aligned/polynomial_causal/MLP2_TRAJECTORY_ROBUST_R512_V1_PREREGISTRATION.md": "98dba8083ae47b5fafa2fd9295a6f90acd0d743c152d95f2d749f22b0cb22b78",
+    "basis_aligned/polynomial_causal/bilin18_observed_model_facade.py": "b62947f772c807259890a9d09dfcbe5e91ad339a0bffa867ab99177fde4c728c",
+    "basis_aligned/polynomial_causal/local_fineweb_harvest.py": "87d9abeaf1182811650c35bcae25b0373687d2e87aede895bc9f2bc440b90b04",
+    "basis_aligned/polynomial_causal/mlp0_native_down_program.py": "2cf7094fa0d3a41b9c2cd795597c1b83ef937f05b665ef49fe3340c52fadbc66",
+    "basis_aligned/polynomial_causal/mlp2_cmr_v1_physical_program.py": "8352d69b630e78934b623dd868a2191ab061772350a7e469a355b6ff91901ecf",
+    "basis_aligned/polynomial_causal/mlp2_error_rayleigh_collector_core.py": "e950aa99d17c9ef09ca547d754b392d11692e8eaf4d36333b0a3cfec4c539cb4",
+    "basis_aligned/polynomial_causal/mlp2_error_rayleigh_metrics.py": "256634115072f174e3aff8f6849857bcf035e3ddc89bbd1ad49aff9bd234b1f2",
+    "basis_aligned/polynomial_causal/mlp2_error_rayleigh_predictor.py": "66bcbfc8f373dcdb66c57a0b65d554800799b247c67b2d2be369d383ebf88c17",
+    "basis_aligned/polynomial_causal/prepare_block3_native_down_behavioral_port_v1_rows.py": "e168fa1c9c58e9970475b55ae39951232158075b112b8fda473794cd4238f450",
+    "basis_aligned/polynomial_causal/prepare_mlp0_c512_mlp2_compensation_v1_rows.py": "0885ac954ae7f2dce2f035d760443f79d9ff3afc434f6b1335940024ef84988e",
+    "basis_aligned/polynomial_causal/prepare_mlp0_c512_mlp2_full512_composition_v1_rows.py": "de02e073e269f46b4dbc62be7d4b75ce54c31a3f07ba49684d679a1b687ca55e",
+    "basis_aligned/polynomial_causal/prepare_mlp0_c512_mlp2_full512_composition_v2_rows.py": "95bb1fd4d3b0d7e34185064951080b0b1b190026aa652a4e430a4816d35e52d2",
+    "basis_aligned/polynomial_causal/prepare_mlp0_native_down_hierarchy_v1_rows.py": "f7eee860ef40a6301d78461c5d677394757014b6096ecbb853b8e8d48990ab83",
+    "basis_aligned/polynomial_causal/prepare_mlp2_error_rayleigh_v1_rows.py": "57dfffb7a4fdbbc50bbf0bacb4279e28480dd52a33d1cb21fca31b9460febb5e",
+    "basis_aligned/polynomial_causal/prepare_mlp2_rank512_refit_v1_rows.py": "aa2c4ff03ae9928bf01bbb4a6e0c7296576d84f88454daae0fef0f5bfc8be758",
+    "basis_aligned/polynomial_causal/prepare_mlp2_trajectory_robust_r512_v1_eval_rows.py": "d7d30e15ebdc83769e0f5198e42597cf7e38f0acc58335133619793c6b6cad64",
+    "basis_aligned/polynomial_causal/run_block3_native_down_behavioral_port_v1.py": "c51ef40c3d6516a176bde3ba7d6904672fbe5b975e3ed23bf665f51f003c2b62",
+    "basis_aligned/polynomial_causal/run_mlp0_c512_mlp2_full512_composition_v1.py": "45270a0f9b0e13f35e7b9a7ec533826e1f4f816e142d6a0cb54c8546a8ef1093",
+    "basis_aligned/polynomial_causal/run_mlp2_error_rayleigh_v1_collect.py": "4f837d881772ebd0dd6faddf8a0c7abfc8a6db5b5cce43c550cb5abdec9aac53",
+    "basis_aligned/polynomial_causal/run_mlp2_rank512_refit_v1.py": "b9ef3c6ad1151405bd3aeb4f27a2194ba9f7b202f068961b0ce78ab3038188bf",
+    "basis_aligned/polynomial_causal/run_mlp2_trajectory_robust_r512_v1_physical_eval.py": "6370671fda41857dccfbedfedf892e9f669ac362ecfe919ee29b97bf52f9e38c",
+    "basis_aligned/polynomial_causal/test_bilin18_observed_model_facade.py": "7ce76de82cba3355abd07dab6a0d3b4d380d39eae43ad064ae4d954878606a71",
+    "basis_aligned/polynomial_causal/test_mlp0_c512_mlp2_full512_composition_v1.py": "219261a88570255d028a4fb3847a9e037d97b1b34004213db663028ad64fbdb1",
+    "basis_aligned/polynomial_causal/test_mlp0_native_down_program.py": "66bec13d4ff2742eac7b00d297c85ee8c2e0a9d74caac00397416b6540c4922e",
+    "basis_aligned/polynomial_causal/test_mlp2_cmr_v1_physical_program.py": "7631ead45f3d9e6ede00edb159619dc86d78e762b6f9ad2addb3abf98cad5d8f",
+    "basis_aligned/polynomial_causal/test_mlp2_error_rayleigh_collector_core.py": "8e99173b0b21002a9209f6e50c680253cebd2d797ca1bb70171e5fb9d7b72a36",
+    "basis_aligned/polynomial_causal/test_mlp2_error_rayleigh_metrics.py": "54ff6e8eda0f1e58280399dd2e4f607a24484e0839b8ea6d33419598de776667",
+    "basis_aligned/polynomial_causal/test_mlp2_error_rayleigh_predictor.py": "d2d22e07b1cdace131dbce33dda3350d66d8756a2e841e8f421491dee307734b",
+    "basis_aligned/polynomial_causal/test_mlp2_rank512_refit_v1.py": "32f15f92af19316cb9000cbeeba71b238446782c48105fa4fd9751a7d9946501",
+    "basis_aligned/polynomial_causal/test_mlp2_trajectory_robust_r512_v1_physical_eval.py": "271244736554b6dbd490a2f40f55b68d6b2e732b22eb0ca2e252acd72d54c293",
+    "basis_aligned/polynomial_causal/test_prepare_block3_native_down_behavioral_port_v1_rows.py": "755ce451cc869afaa0257dacec1c36bc58fb656f252f02f139e89490c9c381a2",
+    "basis_aligned/polynomial_causal/test_prepare_mlp2_error_rayleigh_v1_rows.py": "81c05a8ec5c757635f201e142a668ea08c42a083698c2a6b6315f139a65ae5b1",
+    "basis_aligned/polynomial_causal/test_run_block3_native_down_behavioral_port_v1.py": "c266cc66f0d1b758ad540d07d2672b1d6ce92d721186022bebb1c864648d403c",
+    "basis_aligned/polynomial_causal/test_run_mlp2_error_rayleigh_v1_collect.py": "d944e7ab217f19e01692f161ccc3dc3ffc7a620f07422120e59f292dde63b05e",
+    "jacclust/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "jacclust/tt_model.py": "49ecdbd6c060ff5b3e57f3134d87ba32841390c891c42e6ae23b71d8627612b2"
+  },
+  "status": "frozen_before_role_response_open"
+}
