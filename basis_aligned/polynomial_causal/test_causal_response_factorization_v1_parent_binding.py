@@ -166,6 +166,15 @@ def test_parent_binding_rejects_bundle_mutation(tmp_path):
         parent.fit_parent_binding_without_tensor_load(paths)
 
 
+def test_parent_binding_allows_ctime_only_link_count_drift(tmp_path):
+    paths, _ = _fixture(tmp_path)
+    alias = tmp_path / "temporary-bundle-hardlink.pt"
+    alias.hardlink_to(paths.bundle)
+    alias.unlink()
+    value = parent.fit_parent_binding_without_tensor_load(paths)
+    assert value["bundle_sha256"] == parent._stable_record(paths.bundle)[0]["sha256"]
+
+
 def test_parent_binding_rejects_authority_semantic_mutation(tmp_path):
     paths, terminal = _fixture(tmp_path)
     authority = json.loads(paths.authority.read_text())

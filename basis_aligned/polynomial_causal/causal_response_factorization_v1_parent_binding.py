@@ -134,6 +134,19 @@ def _stable_record(
     }, raw)
 
 
+def _same_receipt_bound_artifact(
+    expected: object, observed: object, *, allow_ctime_drift: bool = False,
+) -> bool:
+    """Compare an artifact record; ctime is metadata, never content identity."""
+
+    if type(expected) is not dict or type(observed) is not dict or set(expected) != set(
+        observed
+    ):
+        return False
+    ignored = {"ctime_ns"} if allow_ctime_drift else set()
+    return all(expected[key] == observed[key] for key in expected if key not in ignored)
+
+
 def _plain_json(raw: bytes, label: str) -> dict[str, Any]:
     value = json.loads(raw)
     if type(value) is not dict:
@@ -302,7 +315,9 @@ def fit_parent_binding_without_tensor_load(
         ("manifest", paths.manifest),
     ):
         record, raw = _stable_record(path)
-        if aggregate[name] != record:
+        if not _same_receipt_bound_artifact(
+            aggregate[name], record, allow_ctime_drift=True
+        ):
             raise RuntimeError(f"FIT receipt-bound {name} artifact changed")
         current[name] = record
         raw_json[name] = raw
@@ -421,7 +436,9 @@ def fit_parent_binding_without_tensor_load(
         ("manifest", paths.manifest),
     ):
         final_record, _ = _stable_record(path)
-        if final_record != current[name] or final_record != aggregate[name]:
+        if final_record != current[name] or not _same_receipt_bound_artifact(
+            aggregate[name], final_record, allow_ctime_drift=True
+        ):
             raise RuntimeError(
                 f"FIT receipt-bound {name} changed during terminal replay"
             )
