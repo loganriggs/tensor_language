@@ -745,3 +745,16 @@ later per-rung backlog edits had silently anchored on text that was not here.
     IDENTICAL to arm 1. The +/-0.0003 per-window deltas are therefore a
     measured RERUN-NOISE FLOOR for this pipeline (useful: future window
     tolerances can cite it). Fixed and re-queued 22:20Z; preds unchanged.
+    RE-RUN 2026-08-30, §2148: pred_c HELD, pred_a/b FAILED (+0.0037,
+    worse on 8/8 — an order above the noise floor). The §2147 null wins:
+    a16's cost is conditional structure the 10-class code cannot see;
+    in-grammar upgrades at a16 are exhausted.
+
+55. PER-HEAD MARGINALS OF THE REAL attn16 (attribution inside the
+    block-16 bottleneck; damage convention). On the §2146 skip-a16
+    config (attn16 real), zero each of attn16's 9 heads (c_proj input
+    slice) and eval FR; plus an all-heads-zeroed arm.
+    pred_a CONCENTRATION: max_h d_h >= 2 x median_h d_h; pred_b
+    ADDITIVITY: |sum_h d_h - d_all| <= 0.05 (heads may interact — a
+    failure is informative); pred_c skip16 reproduces §2146 (FR L2_F
+    2.5091 within 0.01). -> ops/attn16_head_marginals.py [QUEUED 22:28Z]
