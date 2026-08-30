@@ -1,0 +1,45 @@
+{
+  "schema": "causal_response_factorization_v1_amendments34_independent_audit",
+  "status": "GO",
+  "approved": true,
+  "outcome_access": false,
+  "audited_source_commit": "b9a436e94f12dea691ebf88d0cfb71e4ab1f4870",
+  "audited_source_sha256s": {
+    "basis_aligned/polynomial_causal/CAUSAL_RESPONSE_FACTORIZATION_V1_AMENDMENT_2.md": "9819b5b5486ccdcd57747bf36d3e4862aba827dbc52ff8cc49e6209b938d0017",
+    "basis_aligned/polynomial_causal/CAUSAL_RESPONSE_FACTORIZATION_V1_AMENDMENT_3.md": "6ffaf88efe3e5c2711c2c3d136136d2f12d7d0040ca597da06ff3907ff7e3dae",
+    "basis_aligned/polynomial_causal/CAUSAL_RESPONSE_FACTORIZATION_V1_AMENDMENT_4.md": "055b7d214df74d428983782a080224bdc44766c8e77d9eb5d79582850f6e8c15",
+    "basis_aligned/polynomial_causal/CAUSAL_RESPONSE_FACTORIZATION_V1_PREREGISTRATION.md": "2782866d8fdd1ca5abb3de4348534ceefadddb42a19ec17a756dd6017c89ffba",
+    "basis_aligned/polynomial_causal/causal_response_factorization_v1.py": "8af3e8c4987b15d8da5413f2998452ea7064779ad648c17c0d9269fd7ed0f881",
+    "basis_aligned/polynomial_causal/causal_response_factorization_v1_accelerated.py": "04ed10232a8b36f5d5e18fe9777539e41201feecea0e6e1a795822ffa0b0ff6d",
+    "basis_aligned/polynomial_causal/causal_response_factorization_v1_fit_adapter.py": "5cc4f0ea628e5f9aac6c475517b5c4d7fbc6205e2c4a681bafd90e1e5f7b5c0a",
+    "basis_aligned/polynomial_causal/causal_response_factorization_v1_parent_binding.py": "e3dd090d8c1e4e1b1d1261aae2be7799319bb282e3bb0598b51946a238e7f365",
+    "basis_aligned/polynomial_causal/causal_response_tensor_v1_fit_bundle.py": "a63ad13a0f23589ca32da7b554ef76cf2338d498badfd14d5f0638c5e4898583",
+    "basis_aligned/polynomial_causal/test_causal_response_factorization_v1.py": "33b29ec7b045fa61d3bd27ec92664103668163f10e60736ea9d3b892589c29b6",
+    "basis_aligned/polynomial_causal/test_causal_response_factorization_v1_accelerated.py": "fa2c948e489a54aaf2f45887d22e2aa7c85723fdd2e8af21667afa75301b3e02",
+    "basis_aligned/polynomial_causal/test_causal_response_factorization_v1_fit_adapter.py": "5978a50e0812ce8c71f064adb244039995e4fd5fffd6732d3c347b0dddca24a8",
+    "basis_aligned/polynomial_causal/test_causal_response_factorization_v1_parent_binding.py": "8976ccaaff413628047f5ee15b10096871dcf835740debc77c751f92cb6d02e7",
+    "basis_aligned/polynomial_causal/test_causal_response_tensor_v1_fit_bundle.py": "e7b041f290882c9cb1d31a152ceb29f8603a1df5cb592a00ddd4e9ece3038e95"
+  },
+  "tests": {
+    "passed": 51,
+    "seconds": 23.41,
+    "scope": "source-isolated synthetic parent binding, train adapter, accelerated fitter, factor core, and FIT bundle semantics"
+  },
+  "targeted_repair_results": {
+    "prior_bundle_mutation_race": "PASS: mutation during historical-source validation is rejected by the final receipt/terminal/authority/bundle/manifest replay.",
+    "parent_binding_logical_hash": "PASS: changed parent fields under the old binding_sha256 are rejected before response exposure.",
+    "caller_artifact_object": "PASS: the training factory accepts only a complete parent-binding mapping and privately constructs FitArtifactBinding after logical replay.",
+    "mixed_device_replay": "PASS: initialization is generated on CPU float64 and cast once; Adam uses float32 on the selected compute device; fitted factors return to CPU float64 for canonicalization, prediction, final MSE, and improvement reporting."
+  },
+  "component_findings": {
+    "parent_binding": "GO as an outcome-blind parent validator for a future authority freezer; that freezer must still perform its own adjacent final replay.",
+    "training_adapter": "GO as a private train-only reducer behind a one-use loader; it exposes no validation or EVAL role.",
+    "accelerated_fitter": "GO as pure numerical infrastructure under amendments 3 and 4; CPU-float32 known-answer and exact same-seed replay pass."
+  },
+  "remaining_full_lifecycle_requirements": [
+    "Implement and independently audit the pre-deserialization factor-analysis authority, one-use exact-byte BytesIO loader, payload poisoning, candidate-result publication, and receipt/failure transaction.",
+    "Bind this complete source family and audit in that lifecycle's exact source closure.",
+    "Before production fitting, preserve the preregistered synthetic production-shape CUDA timing and memory receipt and verify the CUDA planted/replay gates."
+  ],
+  "claim_boundary": "GO applies only to the repaired parent-binding, train-adapter, and accelerated-fitter components. It does not authorize opening the FIT bundle, fitting real responses, validation access, EVAL access, or a scientific claim."
+}
