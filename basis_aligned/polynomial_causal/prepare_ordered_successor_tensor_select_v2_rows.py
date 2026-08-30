@@ -17,8 +17,6 @@ import torch
 import ordered_successor_digit_lexicon_v2 as registry
 import ordered_successor_tensor_select_registry_v2 as protocol
 from ordered_successor_masks_v1 import OrderedLexicon, SuccessorMasks, build_ordered_successor_masks
-import ordered_successor_tensor_discovery_v1 as v1
-import ordered_successor_tensor_select_statistics_v1 as statistics
 import prepare_block3_native_down_behavioral_port_v1_rows as base
 
 
@@ -52,7 +50,7 @@ OWN_SOURCES = (
     ROOT / "jacclust/__init__.py",
     ROOT / "jacclust/tt_model.py",
 )
-STATISTICS_SOURCES = tuple(ROOT / relative for relative in statistics.SOURCE_PATHS)
+STATISTICS_SOURCES = tuple(ROOT / relative for relative in protocol.SCORER_SOURCE_PATHS)
 SOURCE_PATHS = tuple(dict.fromkeys(
     (*OWN_SOURCES, *STATISTICS_SOURCES, *base.SOURCE_PATHS)
 ))
@@ -163,12 +161,56 @@ def powered_census(masks: SuccessorMasks) -> dict[str, dict[str, int]]:
         name: {"positions": int(mask.sum()), "documents": int(mask.any(1).sum())}
         for name, mask in masks.named_cells().items()
     }
-    for name in statistics.POWERED_CELLS:
+    for name in protocol.POWERED_CELLS:
         value = answer[name]
         value["passed"] = (
             value["positions"] >= MIN_POSITIONS and value["documents"] >= MIN_DOCUMENTS
         )
     return answer
+
+
+PAIR_NAMES = tuple(f"{value}->{value + 1}" for value in range(9))
+
+
+def pair_occupancy(masks: SuccessorMasks) -> dict[str, dict[str, int]]:
+    masks.validate_partition()
+    answer = {}
+    for index, name in enumerate(PAIR_NAMES):
+        member = masks.pair_index.eq(index)
+        answer[name] = {
+            "positions": int(member.sum()),
+            "documents": int(member.any(1).sum()),
+        }
+    if sum(value["positions"] for value in answer.values()) != int(
+        masks.eligible_target.sum()
+    ):
+        raise RuntimeError("successor pair occupancy does not close eligible support")
+    return answer
+
+
+def support_sha256(
+    rows: torch.Tensor, lexicon: OrderedLexicon, masks: SuccessorMasks,
+) -> str:
+    if (
+        not torch.is_tensor(rows) or rows.device.type != "cpu"
+        or rows.dtype != torch.long or tuple(rows.shape) != (N_SELECT, ROW_LENGTH)
+        or not rows.is_contiguous() or bool((rows < 0).any())
+        or bool((rows >= 50_257).any())
+    ):
+        raise ValueError("successor v2 support rows are malformed")
+    if lexicon.name != "decimal_digits_v2" or lexicon.items != registry.DIGIT_TOKEN_IDS:
+        raise ValueError("successor v2 support lexicon changed")
+    masks.validate_partition()
+    digest = hashlib.sha256()
+    digest.update(tensor_sha256(rows).encode("ascii"))
+    digest.update(registry.REGISTRY_SHA256.encode("ascii"))
+    digest.update(lexicon.name.encode("utf-8"))
+    digest.update(tensor_sha256(masks.eligible_target.contiguous()).encode("ascii"))
+    for name, mask in masks.named_cells().items():
+        digest.update(name.encode("ascii"))
+        digest.update(tensor_sha256(mask.contiguous()).encode("ascii"))
+    digest.update(tensor_sha256(masks.pair_index.contiguous()).encode("ascii"))
+    return digest.hexdigest()
 
 
 def allocate_powered_select(
@@ -191,19 +233,19 @@ def allocate_powered_select(
     masks = mask_builder(candidate_rows, lexicon)
     masks.validate_partition()
     chosen: list[int] = []
-    positions = {name: 0 for name in statistics.POWERED_CELLS}
-    documents = {name: 0 for name in statistics.POWERED_CELLS}
+    positions = {name: 0 for name in protocol.POWERED_CELLS}
+    documents = {name: 0 for name in protocol.POWERED_CELLS}
     named = masks.named_cells()
     for index in range(len(candidate_rows)):
         contributes = False
-        for name in statistics.POWERED_CELLS:
+        for name in protocol.POWERED_CELLS:
             amount = int(named[name][index].sum())
             if amount and (positions[name] < MIN_POSITIONS or documents[name] < MIN_DOCUMENTS):
                 contributes = True
         if not contributes:
             continue
         chosen.append(index)
-        for name in statistics.POWERED_CELLS:
+        for name in protocol.POWERED_CELLS:
             amount = int(named[name][index].sum())
             positions[name] += amount
             documents[name] += int(amount > 0)
@@ -211,12 +253,12 @@ def allocate_powered_select(
             raise RuntimeError("powered successor support requires more than 192 documents")
         if all(
             positions[name] >= MIN_POSITIONS and documents[name] >= MIN_DOCUMENTS
-            for name in statistics.POWERED_CELLS
+            for name in protocol.POWERED_CELLS
         ):
             break
     if not all(
         positions[name] >= MIN_POSITIONS and documents[name] >= MIN_DOCUMENTS
-        for name in statistics.POWERED_CELLS
+        for name in protocol.POWERED_CELLS
     ):
         raise RuntimeError("candidate scan cannot power every successor cell")
     selected = set(chosen)
@@ -238,7 +280,7 @@ def allocate_powered_select(
         records.append(record)
     selected_masks = mask_builder(rows, lexicon)
     census = powered_census(selected_masks)
-    if any(census[name]["passed"] is not True for name in statistics.POWERED_CELLS):
+    if any(census[name]["passed"] is not True for name in protocol.POWERED_CELLS):
         raise RuntimeError("selected successor role failed its powered census")
     return rows, records, selected_masks, census
 
@@ -386,11 +428,21 @@ def _write_json_create_only(
             raise RuntimeError("successor v2 terminal JSON replay failed")
         before_link()
         os.link(temporary, path)
-        base._fsync_directory(path.parent)
+        try:
+            base._fsync_directory(path.parent)
+        except OSError:
+            # The exact hard-linked terminal is already authoritative.  A late
+            # durability warning cannot turn it back into a failed transaction.
+            pass
     finally:
         if descriptor >= 0:
             os.close(descriptor)
-        temporary.unlink(missing_ok=True)
+        try:
+            temporary.unlink(missing_ok=True)
+        except OSError:
+            # Temporary cleanup is non-authoritative, both before and after link.
+            # Preserve the primary exception or the already-linked terminal.
+            pass
 
 
 def freeze_locked(claim: RunClaim) -> dict[str, Any]:
@@ -420,12 +472,14 @@ def freeze_locked(claim: RunClaim) -> dict[str, Any]:
         candidates, candidate_records, lexicon,
     )
     disjointness = base.validate_disjointness(rows, records, prior)
-    support_sha256 = v1.support_sha256(rows, (lexicon,), {lexicon.name: masks})
+    support_digest = support_sha256(rows, lexicon, masks)
+    pair_census = pair_occupancy(masks)
     manifest = {
         "schema": "ordered_successor_tensor_select_v2_rows_manifest",
         "role": "SELECT", "document_records": records,
         "powered_census": census, "mask_hashes": _mask_hashes(masks),
-        "support_sha256": support_sha256,
+        "support_sha256": support_digest,
+        "pair_names": list(PAIR_NAMES), "pair_occupancy": pair_census,
         "lexicon_registry_sha256": registry.REGISTRY_SHA256,
         "protocol_registry_sha256": protocol.REGISTRY_SHA256,
         "v2_arm_names": list(V2_ARM_NAMES),
@@ -477,6 +531,7 @@ def freeze_locked(claim: RunClaim) -> dict[str, Any]:
     if (
         not torch.equal(replay_rows, installed_rows) or replay_selected_records != records
         or replay_census != census or _mask_hashes(replay_masks) != manifest["mask_hashes"]
+        or pair_occupancy(replay_masks) != pair_census
     ):
         raise RuntimeError("successor v2 deterministic allocation replay changed")
     receipt = {
@@ -486,7 +541,8 @@ def freeze_locked(claim: RunClaim) -> dict[str, Any]:
         "source_commit": commit, "source_hashes": sources,
         "independent_audit": {"path": str(AUDIT), "file_sha256": audit_sha256},
         "v1_status_preserved": "PROSPECTIVE_NO_GO",
-        "v2_arm_names": list(V2_ARM_NAMES), "omitted_v1_diagnostics": [v1.CURRENT_ONLY, v1.V1_ONLY],
+        "v2_arm_names": list(V2_ARM_NAMES),
+        "omitted_v1_diagnostics": list(protocol.OMITTED_V1_DIAGNOSTICS),
         "protocol_registry_sha256": protocol.REGISTRY_SHA256,
         "selection": {
             "start_dataset_document_index": START_DOCUMENT_INDEX,
@@ -499,7 +555,8 @@ def freeze_locked(claim: RunClaim) -> dict[str, Any]:
         "source_identity": identity, "registry_files": registry_hashes,
         "prior_row_tensors": tensor_hashes, "disjointness": disjointness,
         "historical_max_dataset_document_index": max(prior[1]) if prior[1] else None,
-        "powered_census": census, "support_sha256": support_sha256,
+        "powered_census": census, "pair_names": list(PAIR_NAMES),
+        "pair_occupancy": pair_census, "support_sha256": support_digest,
         "failed_unmaterialized_registry_waivers": waiver_proofs,
         "exact_nonrow_registry_artifacts": nonrow_proofs,
         "outcome_access": {"model_imported": False, "checkpoint_loaded": False,

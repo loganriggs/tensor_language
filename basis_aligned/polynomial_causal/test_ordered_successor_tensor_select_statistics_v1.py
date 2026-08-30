@@ -6,6 +6,7 @@ import pytest
 import torch
 
 import ordered_successor_tensor_discovery_v1 as discovery
+import ordered_successor_tensor_select_registry_v2 as v2_registry
 import ordered_successor_tensor_select_statistics_v1 as stats
 
 
@@ -79,9 +80,10 @@ def test_readiness_is_exact_three_blocker_pre_authority_no_go() -> None:
 def test_source_paths_bind_frozen_science_backend_and_new_assurance_tests_once() -> None:
     assert len(stats.SOURCE_PATHS) == len(set(stats.SOURCE_PATHS))
     assert tuple(stats.SOURCE_PATHS[:len(discovery.SOURCE_CLOSURE)]) == discovery.SOURCE_CLOSURE
-    assert stats.SOURCE_PATHS[-2:] == (
+    assert stats.SOURCE_PATHS[-3:] == (
         "basis_aligned/polynomial_causal/ordered_successor_tensor_select_statistics_v1.py",
         "basis_aligned/polynomial_causal/test_ordered_successor_tensor_select_statistics_v1.py",
+        "basis_aligned/polynomial_causal/ordered_successor_tensor_select_registry_v2.py",
     )
 
 
@@ -95,6 +97,45 @@ def test_ledger_is_sufficient_statistics_only_and_binds_exact_frozen_arm_order()
             ledger.document_ids, ledger.pair_names, ledger.count, ledger.pair_count,
             ledger.ce_sum.float(), ledger.native_kl_sum, ledger.top1_change_sum,
             ledger.successor_margin_sum,
+        )
+
+
+def test_versioned_v2_currency_scores_exactly_15_arms_and_rejects_other_shapes() -> None:
+    v1_ledger = _ledger()
+    v2_ledger = dataclasses.replace(
+        v1_ledger,
+        ce_sum=v1_ledger.ce_sum[:, :15].contiguous(),
+        native_kl_sum=v1_ledger.native_kl_sum[:, :15].contiguous(),
+        top1_change_sum=v1_ledger.top1_change_sum[:, :15].contiguous(),
+        successor_margin_sum=v1_ledger.successor_margin_sum[:, :15].contiguous(),
+        arm_names=v2_registry.ARM_NAMES,
+    )
+    v1_score = stats.score_select_ledger(v1_ledger)
+    v2_score = stats.score_select_ledger(v2_ledger)
+    assert v2_ledger.ce_sum.shape[1] == 15
+    assert v2_score.coordinate_names == v1_score.coordinate_names
+    assert torch.equal(v2_score.point, v1_score.point)
+    assert torch.equal(v2_score.lower, v1_score.lower)
+    assert torch.equal(v2_score.upper, v1_score.upper)
+    assert len(stats.point_metric_table(v2_ledger)) == 15 * len(stats.CELL_NAMES)
+    for width in (14, 16):
+        names = tuple(f"arm-{index}" for index in range(width))
+        with pytest.raises(ValueError, match="registry"):
+            dataclasses.replace(
+                v2_ledger,
+                arm_names=names,
+                ce_sum=torch.zeros(32, width, 7, dtype=torch.float64),
+                native_kl_sum=torch.zeros(32, width, 7, dtype=torch.float64),
+                top1_change_sum=torch.zeros(32, width, 7, dtype=torch.float64),
+                successor_margin_sum=torch.zeros(32, width, 7, dtype=torch.float64),
+            )
+    with pytest.raises(ValueError, match="metric ledger"):
+        dataclasses.replace(
+            v2_ledger,
+            ce_sum=v1_ledger.ce_sum,
+            native_kl_sum=v1_ledger.native_kl_sum,
+            top1_change_sum=v1_ledger.top1_change_sum,
+            successor_margin_sum=v1_ledger.successor_margin_sum,
         )
 
 

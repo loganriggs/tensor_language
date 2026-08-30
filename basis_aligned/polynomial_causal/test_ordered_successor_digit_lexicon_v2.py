@@ -7,6 +7,7 @@ import ordered_successor_digit_lexicon_v2 as digits
 from ordered_successor_masks_v1 import build_ordered_successor_masks
 import ordered_successor_tensor_discovery_v1 as v1
 import ordered_successor_tensor_select_registry_v2 as protocol
+import ordered_successor_tensor_select_statistics_v1 as statistics
 
 
 def test_exact_gpt2_digit_forms_ids_and_hashes() -> None:
@@ -70,6 +71,7 @@ def test_v2_protocol_registry_is_exact_15_arm_projection() -> None:
     assert len(protocol.ARM_NAMES) == 15
     assert protocol.OMITTED_V1_DIAGNOSTICS == (v1.CURRENT_ONLY, v1.V1_ONLY)
     assert protocol.PROMOTIVE_ARMS == v1.PROMOTIVE_ARMS
+    assert protocol.SCORER_SOURCE_PATHS == statistics.SOURCE_PATHS
     payload = protocol.registry_payload()
     assert payload["statistical_procedure"] == {
         "source": "ordered_successor_tensor_select_statistics_v1.py",

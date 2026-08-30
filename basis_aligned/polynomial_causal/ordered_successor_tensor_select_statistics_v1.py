@@ -17,6 +17,7 @@ from typing import Mapping
 import torch
 
 import ordered_successor_tensor_discovery_v1 as discovery
+import ordered_successor_tensor_select_registry_v2 as v2_registry
 from successor_attention_backend import StoredSuccessorFactors
 
 
@@ -26,8 +27,13 @@ SOURCE_PATHS = (
     "basis_aligned/polynomial_causal/test_ordered_successor_tensor_discovery_v1.py",
     "basis_aligned/polynomial_causal/test_ordered_successor_tensor_backend_adapter_v1.py",
     "basis_aligned/polynomial_causal/test_successor_attention_backend.py",
+    "basis_aligned/polynomial_causal/test_bilin18_observed_model_facade.py",
+    "basis_aligned/polynomial_causal/test_circuit_campaign_runtime.py",
+    "basis_aligned/polynomial_causal/test_circuit_successor_tensor.py",
+    "basis_aligned/polynomial_causal/test_tensor_preserving_attention.py",
     "basis_aligned/polynomial_causal/ordered_successor_tensor_select_statistics_v1.py",
     "basis_aligned/polynomial_causal/test_ordered_successor_tensor_select_statistics_v1.py",
+    "basis_aligned/polynomial_causal/ordered_successor_tensor_select_registry_v2.py",
 )
 CELL_NAMES = (
     "all_positions",
@@ -53,6 +59,7 @@ class SelectDocumentLedger:
     native_kl_sum: torch.Tensor
     top1_change_sum: torch.Tensor
     successor_margin_sum: torch.Tensor
+    arm_names: tuple[str, ...] = discovery.ARM_NAMES
 
     def __post_init__(self) -> None:
         documents = len(self.document_ids)
@@ -76,7 +83,11 @@ class SelectDocumentLedger:
             or not self.pair_count.is_contiguous() or bool((self.pair_count < 0).any())
         ):
             raise ValueError("successor support ledger is malformed")
-        expected = (documents, len(discovery.ARM_NAMES), len(CELL_NAMES))
+        if type(self.arm_names) is not tuple or self.arm_names not in (
+            discovery.ARM_NAMES, v2_registry.ARM_NAMES,
+        ):
+            raise ValueError("successor arm registry is not an exact supported version")
+        expected = (documents, len(self.arm_names), len(CELL_NAMES))
         values = (
             self.ce_sum, self.native_kl_sum, self.top1_change_sum,
             self.successor_margin_sum,
@@ -96,7 +107,7 @@ class SelectDocumentLedger:
         zero = expanded == 0
         if any(bool((value.masked_select(zero.expand_as(value)) != 0).any()) for value in values):
             raise ValueError("zero-support metric sums must be exactly zero")
-        native = discovery.ARM_NAMES.index("native")
+        native = self.arm_names.index("native")
         if not torch.equal(
             self.native_kl_sum[:, native], torch.zeros_like(self.native_kl_sum[:, native]),
         ) or not torch.equal(
@@ -197,9 +208,13 @@ class SelectV1Readiness:
     promotive_arm_count: int
 
 
-def _arm_index(name: str) -> int:
+def _arm_index(name: str, arm_count: int) -> int:
+    arm_names = (
+        v2_registry.ARM_NAMES if arm_count == len(v2_registry.ARM_NAMES)
+        else discovery.ARM_NAMES
+    )
     try:
-        return discovery.ARM_NAMES.index(name)
+        return arm_names.index(name)
     except ValueError as error:
         raise ValueError(f"unknown frozen successor arm: {name}") from error
 
@@ -215,7 +230,7 @@ def _pooled(
     values: torch.Tensor, counts: torch.Tensor, arm: str, cell: str,
     weights: torch.Tensor,
 ) -> torch.Tensor:
-    numerator = weights @ values[:, _arm_index(arm), _cell_index(cell)]
+    numerator = weights @ values[:, _arm_index(arm, values.shape[1]), _cell_index(cell)]
     denominator = weights @ counts[:, _cell_index(cell)].to(torch.float64)
     if bool((denominator <= 0).any()):
         raise ZeroDivisionError(f"zero token denominator for {cell}")
@@ -345,7 +360,7 @@ def point_metric_table(ledger: SelectDocumentLedger) -> tuple[ArmCellPoint, ...]
     """Report every frozen arm/cell point metric without exposing row-level values."""
 
     answer = []
-    for arm_index, arm in enumerate(discovery.ARM_NAMES):
+    for arm_index, arm in enumerate(ledger.arm_names):
         for cell_index, cell in enumerate(CELL_NAMES):
             count = int(ledger.count[:, cell_index].sum())
             if count <= 0:

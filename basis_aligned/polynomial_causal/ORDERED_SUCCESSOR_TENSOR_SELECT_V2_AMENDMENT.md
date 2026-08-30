@@ -9,6 +9,10 @@ remains `PROSPECTIVE_NO_GO`; nothing here reinterprets or cures a v1 transaction
 V2 preserves every v1 tensor formula, rank in `{8,16,32,64,96,128}`, spectral-null
 construction, mask definition, sufficient statistic, 20,000-draw seed `2026083013`,
 simultaneous order index `18999`, threshold, gate, and lowest-price selection rule.
+The existing scorer accepts an exact versioned `arm_names` currency: v1 remains the
+17-arm default, while v2 requires exactly the 15 registered arms. No 14-, 16-, or
+17-arm metric tensor is accepted under the v2 currency, and no placeholder metrics
+are synthesized for the omitted diagnostics.
 It changes only the three prospectively recorded readiness blockers:
 
 1. The nonpromotive `CURRENT_ONLY` and `V1_ONLY` source-omission diagnostics are
@@ -38,8 +42,9 @@ It changes only the three prospectively recorded readiness blockers:
 
 The powered cells remain `positive_clean`, `wrong_source_clean`, and
 `no_source_clean`. Copy/overlap/exclusion and pair occupancy remain mandatory
-descriptive outputs. Scored positions remain `64:256`. Rows and masks never gate a
-model write.
+descriptive outputs. Pair occupancy is reported in exact non-cyclic order
+`0->1,...,8->9` with position and document counts and exact closure to eligible
+support. Scored positions remain `64:256`. Rows and masks never gate a model write.
 
 ## Frozen row lifecycle
 

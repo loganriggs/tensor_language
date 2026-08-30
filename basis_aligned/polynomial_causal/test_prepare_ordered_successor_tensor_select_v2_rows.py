@@ -1,13 +1,16 @@
 from __future__ import annotations
 
 import json
+import os
 from pathlib import Path
+import subprocess
+import sys
 
 import pytest
 import torch
 
 from ordered_successor_masks_v1 import OrderedLexicon, SuccessorMasks
-import ordered_successor_tensor_select_statistics_v1 as statistics
+import ordered_successor_tensor_discovery_v1 as v1
 import prepare_ordered_successor_tensor_select_v2_rows as rows_v2
 
 
@@ -72,8 +75,15 @@ def test_support_first_allocation_is_deterministic_and_powered() -> None:
     assert [item["candidate_scan_ordinal"] for item in selected_records] == list(range(192))
     assert [item["source_document_ordinal"] for item in selected_records] == list(range(192))
     assert tuple(masks.eligible_target.shape) == (192, 256)
-    for name in statistics.POWERED_CELLS:
+    for name in rows_v2.protocol.POWERED_CELLS:
         assert census[name] == {"positions": 210, "documents": 30, "passed": True}
+    assert rows_v2.pair_occupancy(masks) == {
+        "0->1": {"positions": 630, "documents": 90},
+        **{
+            f"{index}->{index + 1}": {"positions": 0, "documents": 0}
+            for index in range(1, 9)
+        },
+    }
 
 
 def test_underpowered_candidate_scan_fails_without_allocation() -> None:
@@ -87,15 +97,20 @@ def test_underpowered_candidate_scan_fails_without_allocation() -> None:
 
 def test_arm_registry_omits_only_nonpromotive_diagnostics() -> None:
     rows_v2.protocol.validate_registry()
-    assert rows_v2.V2_ARM_NAMES == rows_v2.v1.ARM_NAMES[:-2]
+    assert rows_v2.V2_ARM_NAMES == v1.ARM_NAMES[:-2]
     assert len(rows_v2.V2_ARM_NAMES) == 15
-    assert rows_v2.v1.CURRENT_ONLY not in rows_v2.V2_ARM_NAMES
-    assert rows_v2.v1.V1_ONLY not in rows_v2.V2_ARM_NAMES
-    assert rows_v2.protocol.PROMOTIVE_ARMS == rows_v2.v1.PROMOTIVE_ARMS
+    assert v1.CURRENT_ONLY not in rows_v2.V2_ARM_NAMES
+    assert v1.V1_ONLY not in rows_v2.V2_ARM_NAMES
+    assert rows_v2.protocol.PROMOTIVE_ARMS == v1.PROMOTIVE_ARMS
 
 
 def test_source_closure_is_unique_and_binds_amendment_registry_tests_and_base() -> None:
-    assert len(rows_v2.SOURCE_PATHS) == len(set(rows_v2.SOURCE_PATHS))
+    expected = tuple(dict.fromkeys((
+        *rows_v2.OWN_SOURCES,
+        *(rows_v2.ROOT / relative for relative in rows_v2.protocol.SCORER_SOURCE_PATHS),
+        *rows_v2.base.SOURCE_PATHS,
+    )))
+    assert rows_v2.SOURCE_PATHS == expected
     required = {
         rows_v2.AMENDMENT,
         rows_v2.HERE / "ordered_successor_digit_lexicon_v2.py",
@@ -107,10 +122,29 @@ def test_source_closure_is_unique_and_binds_amendment_registry_tests_and_base() 
     }
     assert required.issubset(rows_v2.SOURCE_PATHS)
     assert set(rows_v2.base.SOURCE_PATHS).issubset(rows_v2.SOURCE_PATHS)
-    assert set(rows_v2.STATISTICS_SOURCES).issubset(rows_v2.SOURCE_PATHS)
-    assert {rows_v2.ROOT / relative for relative in statistics.SOURCE_PATHS}.issubset(
-        rows_v2.SOURCE_PATHS
+    assert rows_v2.STATISTICS_SOURCES == tuple(
+        rows_v2.ROOT / relative for relative in rows_v2.protocol.SCORER_SOURCE_PATHS
     )
+
+
+def test_freezer_import_surface_is_model_free_in_fresh_process() -> None:
+    names = (
+        "ordered_successor_tensor_discovery_v1", "circuit_campaign_runtime",
+        "bilin18_observed_model_facade", "jacclust.tt_model",
+        "successor_attention_backend", "ordered_successor_tensor_select_statistics_v1",
+    )
+    code = (
+        "import json,sys; import prepare_ordered_successor_tensor_select_v2_rows; "
+        f"print(json.dumps({names!r})); "
+        f"print(json.dumps([name for name in {names!r} if name in sys.modules]))"
+    )
+    environment = dict(os.environ)
+    environment["PYTHONPATH"] = str(rows_v2.HERE)
+    result = subprocess.run(
+        [sys.executable, "-c", code], cwd=rows_v2.ROOT, env=environment,
+        check=True, capture_output=True, text=True,
+    )
+    assert json.loads(result.stdout.splitlines()[-1]) == []
 
 
 def test_prior_registry_membership_is_identical_before_and_after_self_install(
@@ -176,6 +210,26 @@ def test_guarded_writer_is_create_only_and_rival_terminal_wins(tmp_path, monkeyp
     with pytest.raises(RuntimeError, match="terminal already exists"):
         rows_v2._write_json_create_only({"schema": "other"}, other, before_link=rival_guard)
     assert not other.exists()
+
+
+def test_postlink_fsync_and_temporary_cleanup_are_nonterminal_warnings(
+    tmp_path, monkeypatch,
+) -> None:
+    receipt = tmp_path / "receipt.json"
+    monkeypatch.setattr(
+        rows_v2.base, "_fsync_directory",
+        lambda _path: (_ for _ in ()).throw(OSError("late fsync")),
+    )
+    real_unlink = Path.unlink
+
+    def cleanup_fails(path, *args, **kwargs):
+        if path.name.startswith(".receipt.json.tmp."):
+            raise OSError("late cleanup")
+        return real_unlink(path, *args, **kwargs)
+
+    monkeypatch.setattr(Path, "unlink", cleanup_fails)
+    rows_v2._write_json_create_only({"schema": "terminal"}, receipt, before_link=lambda: None)
+    assert json.loads(receipt.read_text()) == {"schema": "terminal"}
 
 
 def test_installed_artifact_snapshot_binds_both_payload_and_manifest(
