@@ -26,3 +26,21 @@ metric for c8 at block 9: top eig 2.048e-07, floor 1.485e-09
 metric for c9 at block 10: top eig 1.895e-07, floor 1.722e-09
 eval-row block-6 observable r90 852
 8 windows x 120 rows, document-disjoint; docs per window [7, 42, 17, 23, 43, 26, 35, 35]
+conditioned top-8 for c4 (site 5): overlap with real-model eight 0.555
+conditioned top-8 for c5 (site 6): overlap with real-model eight 0.654
+window 0: docs   7 base 3.4002 | gap plain +1.8613 top8 +1.8586 cond8 +1.8761 | gain(top8) +0.0027 gain(cond) -0.0175
+window 1: docs  42 base 3.3773 | gap plain +2.0465 top8 +1.9577 cond8 +1.9573 | gain(top8) +0.0888 gain(cond) +0.0004
+window 2: docs  17 base 3.9876 | gap plain +1.8408 top8 +1.6390 cond8 +1.6394 | gain(top8) +0.2017 gain(cond) -0.0004
+window 3: docs  23 base 3.4730 | gap plain +1.9549 top8 +1.7656 cond8 +1.7517 | gain(top8) +0.1893 gain(cond) +0.0139
+window 4: docs  43 base 3.5882 | gap plain +1.9744 top8 +1.8881 cond8 +1.8976 | gain(top8) +0.0863 gain(cond) -0.0095
+window 5: docs  26 base 3.3520 | gap plain +1.8832 top8 +1.8024 cond8 +1.8062 | gain(top8) +0.0808 gain(cond) -0.0039
+window 6: docs  35 base 3.7687 | gap plain +1.7480 top8 +1.6629 cond8 +1.6549 | gain(top8) +0.0850 gain(cond) +0.0080
+window 7: docs  35 base 3.6643 | gap plain +1.8186 top8 +1.7887 cond8 +1.7925 | gain(top8) +0.0299 gain(cond) -0.0038
+instrument: window-0 plain gap, inherited +1.8613 | classified +1.8613 | RANDOM labels +1.8613
+per-window gain(top8 over plain): [0.00269, 0.08883, 0.20174, 0.18928, 0.0863, 0.08078, 0.08504, 0.0299]
+per-window gain(cond8 over top8): [-0.0175, 0.0004, -0.00042, 0.01395, -0.00946, -0.00386, 0.00803, -0.00381]
+(a) conditioning median -0.0021 >= 0.02: FAILED
+(b) non-negative on 3/8 (bar 6): FAILED
+(c) top8 median +0.0857 vs 0.0857 (tol 0.01): HELD
+(d) random-label shift 0.0000 >= 0.05: FAILED
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/cfge_conditioned_fisher2_results.json (215s)

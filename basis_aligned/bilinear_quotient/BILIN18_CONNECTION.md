@@ -63493,3 +63493,32 @@ pred_a FAILED (+0.0032 vs +0.02) | pred_b FAILED (5/8 vs 6/8).**
   now seen from both sides; the registered 0.015 tolerance absorbed it, per the §2130 lesson.
 - Registered per the §2128 rule (arm-named formulas); scored as written; the null (§2106) was stated in the
   header before running.
+
+## §2132 — RUNG 38: WITH THE RNG STREAM MATCHED, THE REPRODUCTION IS EXACT (+0.0857 vs +0.0857) AND CONDITIONING BUYS NOTHING ON cfgE (−0.0021 median, 3/8) — THE LICENSED CONCLUSION: THE CONDITIONING GAIN EXISTS ONLY WHERE THE DEPLOYED READERS ARE REPLACED. AND THE "LABEL INSTRUMENT QUESTION" DISSOLVES: cfgE CONTAINS NO LABEL-CONSUMING PIECE
+
+`ops/cfge_conditioned_fisher2.py`, **215s**, BACKLOG rung 38. **pred_c HELD (+0.0857 vs 0.0857, exact) |
+pred_a FAILED (−0.0021 vs +0.02) | pred_b FAILED (3/8) | pred_d FAILED (shift 0.0000).**
+
+```
+  window                0        1        2        3        4        5        6        7      median
+  gain(top8/plain)   +0.003   +0.089   +0.202   +0.189   +0.086   +0.081   +0.085   +0.030   +0.0857
+  gain(cond8/top8)   −0.018   +0.000   −0.000   +0.014   −0.009   −0.004   +0.008   −0.004   −0.0021
+```
+
+- **§2130's diagnosis confirmed to the fourth decimal:** with the full rung-29 SITE_OF restoring the genF
+  stream, every per-window top8 gain matches §2124 and the median reproduces exactly. The 0.0101 miss was purely
+  the MC sample; the ~0.01 sensitivity instrument fact stands.
+- **And §2130's +0.0123 "conditioning gain on cfgE" was itself MC noise:** under the matched stream the
+  conditioned eight buy **−0.0021 median, positive on 3/8**. The licensed conclusion — registered as the (a)-FAILED
+  /(c)-HELD branch — is now sharper than the header's own guess (~1/4): **conditioning the metric matters only
+  where the deployed readers are replaced.** Frontier (38 motif dictionaries + tail attention dictionaries):
+  +0.047 (§2128/§2129). cfgE (real attention, real lm_head): **zero.** The §2128 reader mechanism is certified in
+  both directions. Overlap of conditioned vs real eight: 0.555/0.654 — half the subspace moves, none of it
+  matters when the real readers do the reading.
+- **pred_d was registered on a false premise, and its failure is structural, not empirical:** cfgE's build stack
+  is a0/m0/a1v/m1/m2/m3 + CP middles + tail — **no attnd piece**; nothing in the config reads `cur['lab']`, so
+  inherited, classified and RANDOM labels give bit-identical gaps (+1.8613 all three). The §2130 "instrument
+  question" dissolves: cfgE window evals never consumed labels, and the frontier scripts set `clsmap` per window
+  correctly. No certified number was ever exposed to the label-inheritance quirk.
+- **The conditioning chapter closes:** conditioned metric for the frontier (certified +0.0481), either metric on
+  cfgE (equivalent), nothing at c6–c9 anywhere (§2131), price question open only as rung 39 (running).

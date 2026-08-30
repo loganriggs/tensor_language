@@ -512,6 +512,12 @@ later per-rung backlog edits had silently anchored on text that was not here.
     labels move the window-0 plain gap by >= 0.05 (if FAILED, cfgE's
     attnd class-label input is certified inert at window grain <= 0.05).
     -> ops/cfge_conditioned_fisher2.py
+    RUN 2026-08-30, §2132: pred_c HELD (EXACT +0.0857 repro - the §2130
+    miss was purely the RNG stream), pred_a/b FAILED (-0.0021, 3/8:
+    §2130's +0.012 was MC noise - conditioning buys ZERO on cfgE; the
+    reader mechanism is certified in both directions), pred_d FAILED
+    structurally (cfgE has no label-consuming piece; the instrument
+    question dissolves, no certified number was exposed).
 
 39. HALF-PRICE UNDER THE CONDITIONED METRIC. §2118 withdrew half-price
     under the real-model metric on cfgE (median -0.028; stated null); the
