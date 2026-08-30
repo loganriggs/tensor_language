@@ -133,7 +133,7 @@ import json, sys, time, os
 sys.path.insert(0,'/workspace/tensor_language/basis_aligned/bilinear_quotient')
 if os.environ.get('BQLIB_DRYRUN')=='1':
     _bq='/workspace/tensor_language/basis_aligned/bilinear_quotient/'
-    _need=['frontier_cond_floor_results.json','empirical_L2_results.json']
+    _need=['frontier_cond_ksweep_results.json','empirical_L2_results.json']
     _miss=[f for f in _need if not os.path.exists(_bq+f)]
     if _miss:
         print(f'DRYRUN FAIL: missing {_miss}'); raise SystemExit(1)
