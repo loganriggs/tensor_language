@@ -842,4 +842,10 @@ later per-rung backlog edits had silently anchored on text that was not here.
     pred_a concentration (max >= 2 x median); pred_b additivity
     (|sum - d_all| <= 0.05); pred_c the §2145 marginal survives refits
     (median saving vs the §2144 best >= +0.04).
-    -> ops/attn14_headw8.py [QUEUED 23:00Z]
+    -> ops/attn14_headw8.py
+    First run 23:02Z: preds a/b VOID — the hook-retarget rep landed on a
+    DORMANT duplicate block; the active block still zeroed h[16], whose
+    output the installed a16L overrides → inert hooks, bit-identical
+    evals. pred_c VALID and striking: skip-a14 saves +0.2326 median vs
+    the §2144 best (three downstream refits compound; cf. §2146). Fixed
+    (+ an inert-hook tripwire in-script), re-queued 23:06Z.

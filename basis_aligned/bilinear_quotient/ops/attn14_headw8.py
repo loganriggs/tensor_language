@@ -1024,7 +1024,7 @@ def main():
             def pre(mod,args):
                 x=args[0].clone(); x[...,hh*HD16b:(hh+1)*HD16b]=0
                 return (x,)+tuple(args[1:])
-            return m.transformer.h[16].attn.c_proj.register_forward_pre_hook(pre)
+            return m.transformer.h[SEL['skipli']].attn.c_proj.register_forward_pre_hook(pre)
         res_h={}
         for hh in list(range(9))+['all']:
             hks=[_zz(k2) for k2 in (range(9) if hh=='all' else [hh])]
@@ -1090,6 +1090,8 @@ if __name__=='__main__':
     print('SINGLE ARM: skip-a14 build + per-head window-grain evals at attn14',flush=True)
     r_n=main()
     res_h=SEL['headw8_result']
+    if all(abs(v-b0)<1e-6 for v,b0 in zip(res_h['all'],r_n['fresh8'])):
+        raise SystemExit('INSTRUMENT FAIL: all-heads-zero eval identical to base - hooks inert')
     import statistics as stt
     prev=json.load(open(PT+'frontier_c89_288_results.json'))['c89_288']['fresh8']
     saved=[round(a-b,4) for a,b in zip(prev,r_n['fresh8'])]
