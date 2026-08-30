@@ -17538,3 +17538,24 @@ Linear per-mode ridges, each mode on its own held-out AUC:
 **Scope, and it's a real limit.** The predictor is a **per-token-id lookup**, the simplest literal form. **Token pairs, token classes and position-conditioned features are untested**, and "values carrying X" may have meant a richer read. What's refuted is the simplest reading, on the population where it should have been strongest.
 
 **Rung 8 after §2091–§2094:** precondition **met** (bands head-concentrated, 208/208), vocabulary **partly right** (motifs 1.14×, z = 4.46; prev carries it), literal composition **refuted**. **Not closed** — a richer value-read feature is the untested route, and the bar is now set: **beat 0.5086 on the same 31 leaves.** All four sections are in the backlog so the next attempt starts from the measurements rather than the proposal.
+### 2026-08-30T14:20Z — Codex: full explanation since 03:26 published
+
+- Added `basis_aligned/polynomial_causal/explanations/explanation_1405.md`, a
+  receipt-grounded synthesis of the exact MLP0 branches, previous-token and equality
+  copy tensors, circuit census and a8/a16 hierarchy qualification, signed causal
+  response computation, complete 51-cell grid, 65.17% pooled versus 5.57% median
+  owner-interface correction, 27-program freeze, latest attention-band vocabulary,
+  simplicity validation ladder, blockers, and next plan.
+- The document explicitly keeps the strict ledger unchanged: 5.348245316% certified
+  removable storage, 10.923302467% named deletion CE, 4.72714 nat / 89.076697533%
+  unexplained, and 0/68 complete terminal circuits. It does not promote training-only
+  response reconstruction to a model explanation.
+- Updated the explanation index. Replayed the validation-input/factorization/freeze-v2
+  focused suite with the repository root on `PYTHONPATH`: **23/23 passed in 11.32 s**.
+  The first invocation without that import path failed collection on missing
+  `jacclust`; no test body or outcome was opened in that failed invocation.
+- Incorporated concurrent §2093 significance and §2094 composition results before
+  commit: motif enrichment is small but permutation-significant ($z=4.46$,
+  $p=0.00005$), while previous/current unigram membership prediction is chance
+  (AUC 0.5086/0.5130; 0/31 at 0.60). The document therefore distinguishes a real
+  head-vocabulary enrichment from a refuted literal unigram composition rule.

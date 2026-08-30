@@ -124,7 +124,23 @@ low-rank tensor basis, and some factors may be shared across `TT` and `X`. We ha
 yet found and validated that joint semantic decomposition. The exact split tells us
 what object it must reproduce.
 
-## 4. The strongest executable circuit: equality copying
+## 4. Two exact attention primitives
+
+### 4.1 Previous-token lookup
+
+Layer-0 head 3 has a strong fixed previous-position service. Its candidate replaces
+the head's learned attention pattern by the fixed offset $k=q-1$ while preserving the
+head's continuous value/output tensor. After deleting the native head, this one-offset
+program recovered **0.9421** of its target CE effect. Recovery was almost identical on
+unseen and seen bigrams—0.9417 versus 0.9442—while moving the same tensor to wrong
+offsets recovered only 0.1529 or zero.
+
+This is excellent evidence for a reusable previous-token transport primitive. It is
+not a selectively removable semantic circuit: removal damage was about +0.0625 nat on
+the nominated target and +0.0632 on a matched self-attention control. The head provides
+a broad low-level service used by many behaviors.
+
+### 4.2 The strongest executable circuit: equality copying
 
 Four heads—`L5H5`, `L7H3`, `L8H3`, and `L8H4`—implement a broad equality-fetch
 service. For query position $q$ and key position $k$, define
@@ -532,11 +548,26 @@ those heads:
 - `previous-token` supplies 215 of 416 top-head slots, while named induction supplies
   only 13.
 
-The permutation null matches the component-matched base rate within 0.0005. The honest
-conclusion is that circuit bands are concentrated in heads and motif heads are mildly
-overrepresented, but the current named motif set is not yet a sufficient mechanism
-language. The strongest reusable attention primitive currently looks more like broad
-previous-token transport than a collection of already named induction heads.
+The permutation null matches the component-matched base rate within 0.0005. A later
+20,000-draw permutation that preserved component clustering gave null mean 0.6338,
+standard deviation 0.0207, $z=4.46$, and $p=0.00005$; none of 20,000 draws reached the
+observed 0.7260. Thus the enrichment is statistically clear even though its magnitude
+misses the registered 1.20 effect-size bar. Statistical certainty and practical effect
+size answer different questions.
+
+The simplest proposed composition was then tested on the 31 leaves whose two leading
+heads are both previous-token heads: can a per-token-identity lookup predict leaf
+membership? Held-out AUC was 0.5086 using the previous token and 0.5130 using the
+current token; 0/31 leaves reached 0.60 with either. An AUC of 0.5 is chance. This
+refutes the literal rule “the circuit fires when the previous token is token X.” It
+does not refute token pairs, token classes, position-conditioned features, or richer
+value reads.
+
+The honest conclusion is that circuit bands are concentrated in heads and motif heads
+are modestly but certainly overrepresented, while the current motif-plus-unigram
+language is insufficient. The strongest reusable attention primitive looks more like
+broad previous-token transport whose **contextual use** remains to be decomposed than
+a collection of already named induction heads.
 
 ## 13. What the mathematics contributed
 
@@ -668,20 +699,11 @@ alternative to another local MLP fit.
 
 ## 17. Primary artifacts behind this explanation
 
-- MLP0 exact branch findings:
-  `MLP0_TOKEN_CONTEXT_TENSOR_FACTORIAL_FINDINGS.md`
-- induction terminal result:
-  `induction_equality_tensor_final_ood_v2_retry1_result.json`
-- signed FIT response receipt:
-  `causal_response_tensor_v1_fit_receipt.json`
-- factor training analysis:
-  `causal_response_factorization_v1_training_analysis.json`
-- residual unfolding certificate:
-  `causal_response_residual_unfolding_certificate_receipt.json`
-- frozen candidate library:
-  `causal_response_factorization_v1_candidate_freeze_v2.json`
-- current validation amendment:
-  `CAUSAL_RESPONSE_FACTORIZATION_V1_AMENDMENT_16.md`
-- latest full strategic review before this explanation:
-  `HOURLY_STRATEGIC_REVIEW_2026-08-30_1350.md`
-
+- [MLP0 exact branch findings](../MLP0_TOKEN_CONTEXT_TENSOR_FACTORIAL_FINDINGS.md)
+- [induction terminal result](../induction_equality_tensor_final_ood_v2_retry1_result.json)
+- [signed FIT response receipt](../causal_response_tensor_v1_fit_receipt.json)
+- [factor training analysis](../causal_response_factorization_v1_training_analysis.json)
+- [residual unfolding certificate](../causal_response_residual_unfolding_certificate_receipt.json)
+- [frozen candidate library](../causal_response_factorization_v1_candidate_freeze_v2.json)
+- [current validation amendment](../CAUSAL_RESPONSE_FACTORIZATION_V1_AMENDMENT_16.md)
+- [latest full strategic review before this explanation](../HOURLY_STRATEGIC_REVIEW_2026-08-30_1350.md)

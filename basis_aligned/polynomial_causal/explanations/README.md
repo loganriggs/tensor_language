@@ -12,7 +12,7 @@ primary evidence.
   circuit localization and hierarchy qualifications, signed causal-response
   computation, the complete factor grid, the 65.17% versus 5.57% weighting correction,
   frozen validation candidates, current mathematical lessons, blockers, and plan.
-- [`explanation_0928.md`](explanation_0928.md) — newest synthesis, defining the
+- [`explanation_0928.md`](explanation_0928.md) — preceding synthesis, defining the
   signed response computation, current GPU/FIT queue, shared-parent/private-child
   tensor program, honest new-document tests, simplicity prices, toy validation, and
   current blockers.
