@@ -2750,3 +2750,27 @@ and exiting 0 — `ops/circuit_localisation_heldout.py` has the pattern. (2) **S
 outside the runner.** The only reason to bypass it was that census_lib scripts could not be gated, and
 fix (1) removes that reason. One queue, one serialization point. See [[LESSON-61]] (separate commands do
 not inherit each other's failure) — same family: the guard only covers the path it is on.
+
+## LESSON 110 — a learned-parameter result needs a SPREAD before it needs another decimal place
+
+§2067, §2068 and §2069 each turned on a single DAS margin from a single initialisation. §2069 reported
+`r.1.1.1` clearing a 10% selectivity bar at **1.1010** — by **0.0010** — flagged it as carrying no
+conclusion, and then spent the next run splitting rows more carefully to firm it up. **That was the wrong
+next measurement.** §2070 finally fit the same circuits at three seeds: the standard deviation of that
+margin is **0.0461, forty-six times the quantity being argued about**, with spreads across six circuits
+running 0.029 to 0.319.
+
+**Two things fell out that no amount of extra care on the row split would have found.** §2068's clean
+"0 of 5 selective" became seed-dependent — `r.6.2.2`'s three-seed mean is 1.198, above the bar, on seeds
+running **0.885 / 1.522 / 1.188**. And §2069's *conclusion* survived on completely different evidence
+than §2069 offered: `r.1.1.1` clears the bar on **3 of 3** seeds, which is a consistent sign across
+independent initialisations rather than a point estimate a thousandth above a threshold.
+
+**How to apply.** For anything fit by gradient descent, **the second run is more seeds, not a finer
+split of the same rows.** A margin without a spread cannot be compared to a bar, and the instinct to
+harden a borderline number by improving the *other* controls will happily produce a very clean
+measurement of noise. Report `mean ± sd` and the count of seeds crossing the bar; the crossing count
+carried more information here than the mean did. And when a spread finally arrives, **re-read the earlier
+sections that quoted single fits** — two of mine needed correcting, and one of them had been on the board
+to a peer. See [[LESSON-108]] (a learned-parameter run must prove the parameter learned) — that one makes
+a fit trustworthy, this one makes a NUMBER from it quotable, and 108 passing does not give you 110.

@@ -1,0 +1,4 @@
+DAS targets (10): ['r.11.1.1', 'r.11.1.2', 'r.11.3.1', 'r.23.2.1', 'r.23.2.3', 'r.2.0.0', 'r.3.0.0', 'r.3.0', 'r.2.0.2', 'r.3.0.2']
+/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/das_seed_stability.py:222: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:836.)
+  losses.append(float(loss))
