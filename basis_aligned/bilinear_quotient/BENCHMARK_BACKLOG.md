@@ -1818,9 +1818,27 @@ later per-rung backlog edits had silently anchored on text that was not here.
     L1F invariant, census >= 1.4. Null: class structure already captures
     sensitivity (< 0.01). Price: none.
     -> ops/frontier_sensw.py [QUEUED 10:12Z]
+    RUN 2026-08-31, S2229: null wins with interest (census +1.9774,
+    worse by 0.03). Class structure already captures sensitivity;
+    branch CLOSED at the tail dicts.
 
 136. Exact-front class attribution: rung-127 build at front K=4608, class
     table saved. pred_a name <= 1.6 (halves); pred_b subword <= 1.2;
     pred_c census in [1.6, 1.9]. Null: name/subword persist >= 80%
     (assembly damage is motif/tail-caused). Price: diagnostic 63.7M front.
     -> ops/frontier_front4608_classes.py [QUEUED 10:12Z]
+    RUN 2026-08-31, S2230: pred_a/b FAILED (name -9%, subword -14% -
+    null holds at 91%/86%): assembly bill is MOTIF/TAIL-caused. Bonus
+    Pareto point L2F +1.6599 at 63.7M front -> registered as rung 137.
+
+137. Registered exact-front Pareto claim: identical rung-136 build, claim
+    bars registered. pred_a L2_F <= 1.70; pred_b census repro +/- 0.015;
+    pred_c valid <= 5 (failure = news). Null: 136's print was noise.
+    Price: front 63.7M values (second Pareto point; does not replace the
+    47.8M S2221 line). -> ops/frontier_claim4608.py [QUEUED 10:30Z]
+
+138. Motifs-real class attribution: rung-127 build with attention 2-9
+    REAL (tail dicts refit under it). pred_a name <= 1.8 (motif-caused);
+    pred_b subword <= 1.5; pred_c census in [1.1, 1.7]. Null: name/
+    subword persist >= 80% (tail dicts are the assembly bill). Price:
+    diagnostic. -> ops/frontier_motifreal_classes.py [QUEUED 10:30Z]

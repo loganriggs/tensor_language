@@ -65250,3 +65250,16 @@ VOID-AS-DESIGNED; corrected control = rung 133 (offline real-module targets, the
   feature assemblers, the least prunable). The suspicion is the CP-3456 front pruning pays on assembly-heavy
   classes — rung 136 (queued) tests it directly with an exact-front (K=4608) arm: if name/subword collapse,
   the next structural move is class-aware front capacity; if they persist, the damage is motif/tail-caused.
+
+## §2229 — RUNG 135: SENSITIVITY WEIGHTING HURTS — the null wins with interest: census +1.9774 (vs +1.9474) and increment +0.3606 (vs +0.3256). The 10-class structure already captures what per-position |dCE/dh| weighting knows, and distorting the class means/maps for high-sensitivity positions costs the rest. pred_a/b FAILED, pred_c HELD (L1F invariant — clean isolation). The sensitivity-weighted-estimation branch closes at the tail dictionaries. (Convention: CE added above the real model; lower is better.)
+
+`ops/frontier_sensw.py`, **129s**, BACKLOG rung 135.
+
+## §2230 — RUNG 136: THE ASSEMBLY BILL IS NOT THE FRONT'S — with the front EXACT (K=4608), name falls only 3.13 → 2.86 (−9%) and subword 2.32 → 2.00 (−14%): the registered null (persist ≥ 80%) holds almost exactly (91%/86%). The name/subword damage is MOTIF/TAIL-caused. pred_a/b FAILED, pred_c HELD (census +1.7202 ∈ [1.6, 1.9]). Descriptive bonus: the exact-front arm prints L2_F fresh +1.6599 — a genuine second Pareto point (63.7M front values vs the frontier's 47.8M) — registered as a claim in rung 137, not here. (Convention: CE added above the real model; lower is better.)
+
+`ops/frontier_front4608_classes.py`, **129s**, BACKLOG rung 136.
+
+- Attribution ladder for name/subword now has one rung left: rung 138 (queued) runs the frontier build with
+  MOTIFS REAL (attention 2–9 real, tail dicts refit under it). If name/subword collapse there, the motif
+  heads' α·v_prev/self approximation is the assembly killer (plausible: copying names needs real attention);
+  if they persist, the tail dictionaries are the bill.
