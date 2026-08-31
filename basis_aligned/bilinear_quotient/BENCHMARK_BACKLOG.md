@@ -2224,6 +2224,9 @@ later per-rung backlog edits had silently anchored on text that was not here.
     pred_a median AUC >= 0.78; pred_b no family regresses; pred_c shuffle
     control. Null: <= 0.72 (gate oracle-bound; gating thread closes).
     -> ops/probe_gate2.py [QUEUED 16:35Z]
+    RUN 2026-08-31, S2269: pred_a FAILED (0.708), b/c HELD. Gating
+    thread CLOSED: gate not linear, not class, not composed - oracle-
+    bound; surgery stays diagnostic.
 
 173. Minimal-set trajectory splice (the RECONNECT rung): in the frontier
     build, splice each of 5 circuits' top-5 components to real-pass
@@ -2232,3 +2235,19 @@ later per-rung backlog edits had silently anchored on text that was not here.
     rung-132 in [0.85, 1.15]. Null: indiscriminate recovery (kill is
     stream-wide; per-circuit repair impossible at component grain).
     -> ops/minset_splice.py [QUEUED 16:35Z]
+    RUN 2026-08-31, S2270: pred_a FAILED by 0.096 (median rec 0.404),
+    pred_c HELD, pred_b PARTIALLY VOID (f16-capture overflow NaN in 3/5
+    rand5 arms - new bug class; sets unsaved). Fix + rescore = rung 174.
+    Valid comparisons show specificity (1.6x, 1.5x).
+
+174. Minset splice v2 (bf16 captures, rand5 sets logged, NaN tripwire):
+    rescoring 173's half-void specificity pred. pred_a median minset
+    recovery within 0.05 of 0.404 (repro); pred_b minset >= 1.3 x rand5
+    for >= 3/5; pred_c plain repro. Null (b): generic stream fidelity.
+    -> ops/minset_splice2.py [QUEUED 17:00Z]
+
+175. Per-leaf probes (was the union the problem?): 10 largest leaves,
+    individual ridge probes at their top component's input. pred_a
+    median AUC >= 0.85; pred_b >= 0.75 for >= 8/10; pred_c shuffle
+    control. Null: < 0.7 (gating oracle-bound at every grain).
+    -> ops/probe_leaf.py [QUEUED 17:00Z]

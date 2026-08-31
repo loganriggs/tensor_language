@@ -63,3 +63,4 @@ primary evidence.
 - [explanation_1135.md](explanation_1135.md) — the name mystery: compositional damage, the corrupted-library hypothesis
 - [explanation_1335.md](explanation_1335.md) — corruption economy done; bias-vs-dispersion verdict; three-property program running
 - [explanation_1534.md](explanation_1534.md) — the circuits program: 5-component circuits, interchange as the knife, rank-32 carriers
+- [explanation_1700.md](explanation_1700.md) — circuits day-1 conclusions: necessity without sufficiency; positional identity; partial repair

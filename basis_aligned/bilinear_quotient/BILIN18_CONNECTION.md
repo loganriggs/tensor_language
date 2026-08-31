@@ -65571,3 +65571,16 @@ VOID-AS-DESIGNED; corrected control = rung 133 (offline real-module targets, the
 - Rung 173 (queued) now carries sharpened stakes: its splice context is far gentler (the other components
   are the frontier's replacements, not mean-ablations), so nonzero recovery is still possible — but after
   this rung, indiscriminate recovery (its null) is the expected outcome.
+
+## §2269 — RUNG 172: THE GATING THREAD CLOSES — stream ⊕ class lifts the median AUC only 0.702 → 0.708 (pred_a bar 0.78 FAILED; the null's ≤ 0.72 essentially holds). pred_b HELD (no family regresses), pred_c HELD (controls clean). With §2267 and the class-alone CPU check (0.581), the verdict is three-way complete: the member gate is NOT cheaply computable — not linear-on-stream, not class lookup, not their composition. **Position gating is oracle-bound; surgical per-circuit intervention remains a diagnostic instrument, not a deployable one.** (Convention: AUC on the test half; train rows 0–499.)
+
+`ops/probe_gate2.py`, **11s**, BACKLOG rung 172.
+
+## §2270 — RUNG 173: MINSET SPLICING RECOVERS 0.30–0.56 OF EACH CIRCUIT — REAL BUT PARTIAL — AND THE CONTROL ARM IS HALF-VOID ON A NEW INSTRUMENT BUG. pred_a FAILED by 0.096 (median minset recovery 0.404, bar 0.5; all five minset arms finite and valid). pred_c HELD (plain reproduces rung-132 exactly). pred_b is PARTIALLY VOID: three of five random-5 arms produced NaN member damage — the real-pass captures are stored float16 and some components' outputs overflow the f16 range, poisoning the splice (a NEW instrument class: f16-capture overflow; the rand5 component sets were also not saved in the receipt — both fixed in rung 174, which stores bf16 and logs the sets). Where the comparison IS valid, specificity shows: 0.56 vs 0.35 and 0.37 vs 0.25 (ratios 1.6 and 1.5, both above the 1.3 bar) — suggestive, unscored. (Convention: recovery = (plain − spliced)/plain member damage; frontier build; census rows.)
+
+`ops/minset_splice.py`, **255s**, BACKLOG rung 173.
+
+- Read against §2268: mean-ablating 11 components destroys circuits regardless of what is kept, but inside
+  the GENTLER frontier config, restoring a circuit's own ~5 components to real trajectories buys back a
+  reproducible 30–56% of its damage. Per-circuit repair at component grain is neither impossible (§2268's
+  grain) nor sufficient (this rung) — it is PARTIAL, consistent with half the kill being stream-wide.

@@ -1,1 +1,61 @@
 ARMS: plain + 10 splice arms
+a2-input probe acc 0.69
+fit a2
+fit a3
+fit a4
+fit a5
+fit a6
+fit a7
+fit a8
+fit a9
+fit a10
+fit a11
+fit a12
+fit a13
+fit a14
+fit a15
+fit a16
+fit a17
+  cp_swap: front MLPs m0-m3 -> CP top-3456 in place (tailE remains table-front-fit)
+L1 (+38 heads): C +1.4822 | fresh +1.5509
+  captured real-trajectory tail-attention targets
+fit a10L
+fit a11L
+fit a12L
+fit a13L
+fit a14L
+fit a15L
+fit a16L
+fit a17L
+  real-pass captures at ['a13', 'a14', 'a15', 'a16', 'a17', 'a3', 'a4', 'a5', 'a6', 'a7', 'a8', 'a9', 'm12', 'm13', 'm14', 'm15', 'm16', 'm17', 'm5', 'm6']
+  plain done
+  splice r.2.0:minset done
+  splice r.2.0:rand5 done
+  splice r.3.0:minset done
+  splice r.3.0:rand5 done
+  splice r.0.0:minset done
+  splice r.0.0:rand5 done
+  splice r.1.2:minset done
+  splice r.1.2:rand5 done
+  splice r.6.2.2:minset done
+  splice r.6.2.2:rand5 done
+  window 0 (7 docs): L2 fresh +1.8764
+  window 1 (42 docs): L2 fresh +2.1855
+  window 2 (17 docs): L2 fresh +2.2065
+  window 3 (23 docs): L2 fresh +2.2184
+  window 4 (43 docs): L2 fresh +2.4206
+  window 5 (26 docs): L2 fresh +2.0762
+  window 6 (35 docs): L2 fresh +1.9654
+  window 7 (35 docs): L2 fresh +1.9407
+L2 empirical: C +1.8845 | fresh +1.8764 | tail-attn increment +0.3255
+(a) L2 <= +2.75 fresh: HELD
+(b) increment in [0.30,0.55]: HELD
+  r.2.0: plain 2.954 | minset rec 0.47 | rand5 rec nan
+  r.3.0: plain 4.252 | minset rec 0.56 | rand5 rec 0.35
+  r.0.0: plain 3.321 | minset rec 0.30 | rand5 rec nan
+  r.1.2: plain 2.948 | minset rec 0.40 | rand5 rec nan
+  r.6.2.2: plain 2.693 | minset rec 0.37 | rand5 rec 0.25
+(a) median minset recovery 0.404 >= 0.5: FAILED
+(b) minset >= 1.3 x rand5 for 2 >= 3: FAILED
+(c) plain vs rung-132 median ratio 1.000 in [0.85, 1.15]: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/minset_splice_results.json (255s)

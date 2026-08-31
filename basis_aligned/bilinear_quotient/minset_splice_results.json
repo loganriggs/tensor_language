@@ -1,0 +1,81 @@
+{
+ "rows": [
+  {
+   "tag": "r.2.0",
+   "plain_member": 2.9541,
+   "r132": 2.9541,
+   "recovery_minset": 0.472,
+   "recovery_rand5": NaN,
+   "minset": [
+    "a8",
+    "a6",
+    "a14",
+    "a16",
+    "a7"
+   ]
+  },
+  {
+   "tag": "r.3.0",
+   "plain_member": 4.2519,
+   "r132": 4.2519,
+   "recovery_minset": 0.558,
+   "recovery_rand5": 0.351,
+   "minset": [
+    "a16",
+    "a14",
+    "a15",
+    "a17",
+    "a13"
+   ]
+  },
+  {
+   "tag": "r.0.0",
+   "plain_member": 3.321,
+   "r132": 3.321,
+   "recovery_minset": 0.303,
+   "recovery_rand5": NaN,
+   "minset": [
+    "a4",
+    "m6",
+    "m5",
+    "a3",
+    "a5"
+   ]
+  },
+  {
+   "tag": "r.1.2",
+   "plain_member": 2.9478,
+   "r132": 2.9478,
+   "recovery_minset": 0.404,
+   "recovery_rand5": NaN,
+   "minset": [
+    "m16",
+    "m13",
+    "m15",
+    "m14",
+    "m12"
+   ]
+  },
+  {
+   "tag": "r.6.2.2",
+   "plain_member": 2.6931,
+   "r132": 2.6931,
+   "recovery_minset": 0.37,
+   "recovery_rand5": 0.248,
+   "minset": [
+    "m16",
+    "a17",
+    "m15",
+    "m13",
+    "m12"
+   ]
+  }
+ ],
+ "median_minset_recovery": 0.404,
+ "convention": "recovery = (plain - spliced)/plain member damage; frontier build; census rows",
+ "pred_a_minset_repairs": false,
+ "pred_b_specific": false,
+ "pred_c_repro": true,
+ "self_reviewed": true,
+ "runtime_s": 255.1
+}
