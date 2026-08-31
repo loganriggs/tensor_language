@@ -1,0 +1,33 @@
+{
+ "arms": {
+  "K_288": {
+   "agg": 1.5925,
+   "valid": 0
+  },
+  "K_576": {
+   "agg": 1.1081,
+   "valid": 0
+  },
+  "K_1152": {
+   "agg": 0.4978,
+   "valid": 1
+  },
+  "K_2304": {
+   "agg": 0.0647,
+   "valid": 9
+  },
+  "K_4608": {
+   "agg": 0.0,
+   "valid": 62
+  }
+ },
+ "table_anchor_prefix_m0E": 0.2485,
+ "values_cp576": 1990656,
+ "values_table": 57896064,
+ "convention": "per-position dCE = CE(single m0 CP-K, weights-only) - CE(real model) on census rows; lower is better",
+ "pred_a_grammar_beats_table": false,
+ "pred_b_validity_moves": false,
+ "pred_c_sane": true,
+ "self_reviewed": true,
+ "runtime_s": 134.2
+}

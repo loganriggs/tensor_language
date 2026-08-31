@@ -64976,3 +64976,38 @@ sanity passes).**
 - **Chapter verdict:** capacity (§2201) dead, objective (§2202) dead → grammar change is forced. Rung 109
   (queued): m2 replaced by its OWN top-K bilinear units (the c4–c9 CP grammar, weights-only, no fit rows at
   all) — CP-576 stores 29× fewer values than the table it would replace.
+
+## §2203 — RUNG 109: THE GRAMMAR CHANGE WINS AT m2 — ALL THREE PREDS HELD. m2's own top-K bilinear units (weights-only, no fit rows) crush the table: CP-576 costs +0.0822 (valid 7/62) vs the table's +0.3072 (1/62) at 29× fewer stored values; CP-2304 reaches +0.0207 with 29/62 valid; the curve is monotone and EXACT at full K (+0.0000, 62/62). The front-table problem at m2 dissolves into the same CP-prune economics as the middles. (Convention: per-position dCE = CE(single m2 CP-K) − CE(real model) on the census rows; lower is better.)
+
+`ops/frontier_m2_cp.py`, **134s**, BACKLOG rung 109. **pred_a HELD (+0.0822 ≤ 0.5×table +0.1536) | pred_b
+HELD (valid(1152) = 11 ≥ 10) | pred_c HELD (monotone; K4608 +0.0000).**
+
+```
+  K      agg dCE   valid      vs table (+0.3072, 1/62, 57.9M values)
+  288    +0.1093    4/62      2.6x less damage at 58x fewer values
+  576    +0.0822    7/62      3.7x less damage at 29x fewer values
+  1152   +0.0504   11/62
+  2304   +0.0207   29/62
+  4608   +0.0000   62/62      (exactness check passes)
+```
+
+## §2204 — RUNG 110: m0 IS THE HARD SITE — the registered bars FAIL (CP-576 is 4.5× WORSE than m0's table: +1.1081 vs +0.2485; CP-1152 still worse at +0.4978) — but the unregistered K=2304 point still DOMINATES the table: +0.0647 with 9/62 valid at 7× fewer values. m0 is only half-prunable by norm importance where m2 prunes to an eighth: the first MLP uses far more of its units. pred_a/b FAILED, pred_c HELD. (Convention: per-position dCE = CE(single m0 CP-K) − CE(real model) on the census rows; lower is better.)
+
+`ops/frontier_m0_cp.py`, **134s**, BACKLOG rung 110. **pred_a FAILED (+1.1081 > +0.1242) | pred_b FAILED
+(valid(1152) = 1 < 10) | pred_c HELD (monotone; K4608 +0.0000).**
+
+```
+  K      agg dCE   valid      table anchor +0.2485, 1/62
+  288    +1.5925    0/62
+  576    +1.1081    0/62      the registered null (site-hardness at small K) wins here
+  1152   +0.4978    1/62
+  2304   +0.0647    9/62      ← the grammar still beats the table: 3.8x less damage, 7x fewer values
+  4608   +0.0000   62/62
+```
+
+- Scored as registered: the null "front damage is site-hardness at matched K" wins at 576/1152. The K=2304
+  dominance is recorded as an observation, not a registered result — but it fixes the config choice: m0 wants
+  K=2304 where m2 wants 576–1152. Depth story inverted at the unit level: the SHALLOWEST MLP is the least
+  prunable (dense token-feature construction), opposite to the table-damage ordering.
+- Next: rung 111 (m1/m3 K-maps) and rung 112 (the CP-FRONT CONFIG: m0–m3 as CP + exact a0 + a1v table — the
+  first multi-site config with a chance at nonzero certificates), both queued.

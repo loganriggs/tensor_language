@@ -1518,6 +1518,9 @@ later per-rung backlog edits had silently anchored on text that was not here.
     K4608 exact in [-0.01, 0.02]. Null: front damage is site-hardness,
     not grammar. Price: CP-576 = 2.0M values vs table 57.9M (29x).
     -> ops/frontier_m2_cp.py [QUEUED 05:44Z]
+    RUN 2026-08-31, S2203: ALL THREE HELD. CP crushes the table at m2:
+    576 -> +0.0822/7 valid (29x fewer values); 2304 -> +0.0207/29;
+    4608 exact 62/62. Front-table problem dissolves at m2.
 
 110. CP-vs-table at m0 (the certificate-killer site): same design at
     h[0].mlp; anchor single m0E +0.2485 / valid 1 of 62 (S2198/S2200).
@@ -1525,3 +1528,22 @@ later per-rung backlog edits had silently anchored on text that was not here.
     pred_c monotone + K4608 exact in [-0.01, 0.02]. Null: site-hardness.
     Price: as rung 109.
     -> ops/frontier_m0_cp.py [QUEUED 05:47Z]
+    RUN 2026-08-31, S2204: pred_a/b FAILED (576 is 4.5x WORSE than the
+    table), pred_c HELD. But K=2304 dominates: +0.0647/9 valid at 7x
+    fewer values. m0 = hard site, half-prunable; depth inverted.
+
+
+111. CP-vs-table at m1 and m3 (K maps for the CP front): single-site top-K,
+    K in 288/576/1152/2304/4608, census certificates. pred_a agg(2304) <=
+    0.5 x singles anchor at BOTH (m1 .2628, m3 .4850); pred_b valid(2304)
+    >= 5 at both; pred_c monotone + 4608 exact. Null: m0-like hardness +
+    grammar loses somewhere. Price: 7.96M values/site at 2304.
+    -> ops/frontier_m13_cp.py [QUEUED 05:59Z]
+
+112. THE CP-FRONT CONFIG: m0-m3 as CP (K from rung 111 at run time: smallest
+    K with agg <= 0.10, else 2304; defaults m0 2304/m1 2304/m2 1152/m3
+    2304) + exact a0 + a1v table, all else real. pred_a agg <= 0.5 (vs
+    table front +1.7474); pred_b valid >= 5/62 (first multi-site config
+    above 0); pred_c agg in [0.05, 1.0]. Null: superadditive compounding
+    destroys single-site gains. Price: ~27.9M values vs 231.6M (8.3x).
+    -> ops/frontier_cp_front.py [QUEUED 05:59Z]
