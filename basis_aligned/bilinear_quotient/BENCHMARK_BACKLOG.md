@@ -2543,8 +2543,20 @@ later per-rung backlog edits had silently anchored on text that was not here.
     pred_a own <= 0.9 x NEUR; pred_b census <= 1.1 x EIG; pred_c
     monotone + HOSVD128 <= 0.5. Null: shared basis no better than
     neurons. -> ops/m16_hosvd.py [QUEUED 22:12Z]
+    RUN 2026-08-31, S2310: ALL FAILED - HOSVD34 own 1.73 (worse than
+    neurons), census 1.09; rin 34->128 changes nothing (plateau).
+    Diagnosis = rung 214 (flat spectrum vs bug).
 
 213. Sketch-gated top-k (rank-64 gate scores units, exact compute on
     selected 1152; 16x cheaper selection): pred_a census <= 0.30;
     pred_b valid >= 1; pred_c range + double inert. Null: selection
     needs full products (>= 1.76). -> ops/cp_sketch64.py [QUEUED 22:15Z]
+
+214. HOSVD plateau diagnosis (identity check hook-path vs direct
+    projection; capture curve rin 34/128/512): pred_a no bug (<=1e-3);
+    pred_b flatness (cap128-cap34 <= 0.10); pred_c cap512 rises. Null:
+    bug, or Frobenius-CE mismatch. -> ops/m16_hosvd_diag.py [QUEUED 22:18Z]
+
+215. Eigenbasis generalization at m14 (identical S2309 instrument):
+    pred_a exactness; pred_b own ratio <= 0.9; pred_c census <= 0.8.
+    Null: m16-specific. -> ops/m14_eigenbasis.py [QUEUED 22:18Z]
