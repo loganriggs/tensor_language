@@ -1628,3 +1628,12 @@ later per-rung backlog edits had silently anchored on text that was not here.
     pred_c every pair agg in [max single - 0.015, quad + 0.015], quad in
     [0.7, 1.1]. Null: >= 3-way terms dominate; pair calculus dies.
     Price: none. -> ops/frontier_cp_pairs.py [QUEUED 07:10Z]
+
+
+119. Triples — Möbius lattice completion: the four 3-subsets at mixed Ks;
+    pred2(ijk) = sum singles + sum J (J from rung 118 receipt at run
+    time; runner order guarantees it). pred_a median |K3| <= 0.05
+    (order-2 predicts an order it wasn't fit on); pred_b tri_123 largest;
+    pred_c triples in [max pair - 0.015, quad + 0.015]. Null: cubic
+    terms material (then K_ijk are measured). Price: none.
+    -> ops/frontier_cp_triples.py [QUEUED 07:12Z]
