@@ -2421,13 +2421,31 @@ later per-rung backlog edits had silently anchored on text that was not here.
 197. Registered claim: cheap-end combo. pred_a L2_F <= 1.33; pred_b census
     repro; pred_c L2F repro. Price: 56.9M.
     -> ops/frontier_claim_cheap.py [QUEUED 20:29Z]
+    RUN 2026-08-31, S2295: ALL HELD - cheap point registered (1.31
+    fresh / 1.22 census at 56.9M).
 
 198. Day-close circuit ledger (rung-196 rebuild + rows + tau-margins +
     era Spearman): pred_a census repro; pred_b median member/ref <= 1.5
     (was 5.44); pred_c Spearman >= 0.85. Null (b): circuits closed slower
     than aggregate again. -> ops/frontier_combo_rows.py [QUEUED 20:34Z]
+    RUN 2026-08-31, S2296: pred_a HELD, b/c FAILED - circuits close
+    slower (margin 2.40 vs 1.5 bar); era Spearman 0.767 (profile
+    finally budges). tau-curve 0/3/11/22/43.
 
 199. Exact middles decomposition (K=4608 on the day-close config;
     diagnostic, +74M): pred_a census <= 0.50; pred_b >= 0.30 (pattern
     truncation real); pred_c floor + inert. Null: middles marginal
     shrank. -> ops/exact_middles.py [QUEUED 20:34Z]
+    RUN 2026-08-31, S2297: FIRST CERTIFICATES EVER - valid 2/62 at
+    census +0.1492 (fresh +0.1440). Middles marginal amplified (0.47).
+    rep NEGATIVE. Claim = rung 200; r64 endgame = rung 201.
+
+200. MILESTONE CLAIM: exact-middles config with the first certificate bar
+    (valid >= 2). pred_a census repro; pred_b valid >= 2; pred_c L2F
+    repro. Null: 199's print was noise. Price: ~162M (patterns are the
+    only compressed objects). -> ops/frontier_claim_exact.py [QUEUED 21:00Z]
+
+201. Rank-64 endgame (confound-free pattern curve, rows saved): pred_a
+    census <= 0.10; pred_b valid >= 4; pred_c census in [0.02, 0.13] +
+    inert. Null: interaction floor dominates (>= 0.12; certs stuck).
+    Price: 48.5M patterns. -> ops/exact_qk64.py [QUEUED 21:00Z]

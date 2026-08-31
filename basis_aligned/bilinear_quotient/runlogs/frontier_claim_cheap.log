@@ -23,3 +23,18 @@ fit a17
 L1 (+38 heads): C +1.8985 | fresh +1.4803
   window 0 (7 docs): L2 fresh +1.1951
   window 1 (42 docs): L2 fresh +1.3217
+  window 2 (17 docs): L2 fresh +1.4030
+  window 3 (23 docs): L2 fresh +1.3691
+  window 4 (43 docs): L2 fresh +1.2930
+  window 5 (26 docs): L2 fresh +1.4836
+  window 6 (35 docs): L2 fresh +1.2754
+  window 7 (35 docs): L2 fresh +1.1424
+L2 empirical: C +1.5295 | fresh +1.3089 | tail-attn increment -0.1714
+(a) L2 <= +2.75 fresh: HELD
+(b) increment in [0.30,0.55]: FAILED
+  per-class dCE: digit:+0.937 bclose:+0.773 newline:+0.750 sentend:+0.724 comma:+0.479 name:+1.728 rep:+1.091 subword:+1.550 ind:+1.127 other:+1.298
+L2 fresh +1.3089 (was +1.8765); census +1.2219 (was +1.9474); increment -0.1714; valid 0/62
+(a) L2F +1.3089 <= 1.33: HELD
+(b) |census +1.2219 - 1.2219| <= 0.015: HELD
+(c) |L2F - 1.3089| <= 0.015: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/frontier_claim_cheap_results.json (120s)

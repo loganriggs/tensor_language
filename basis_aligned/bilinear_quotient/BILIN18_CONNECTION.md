@@ -65709,3 +65709,21 @@ Phase-2 selection belongs to the next strategic review.
 ## §2294 — RUNG 196: THE QUALITY-END CLAIM HOLDS — ALL THREE PREDS, ridge-exact. **The registered frontier is now L2_F fresh +0.6412 / census +0.6201** (exact front + rank-32 QK patterns at all 148 replaced heads + no tailE; ~88M values). The day's registered fresh-window path: 2.6662 → 2.0553 → 1.8765 → 1.8222 → 1.6428 → 1.3497 → **0.6412** — a 4.2× reduction in one day, every step preregistered with bars and reproduced. Certificates 0/62 (the two-ledger split persists even here; rung 198 documents how close the circuits now are to τ). (Convention: frontier L2 = CE added above the real model on the §312 fresh windows; LOWER IS BETTER.)
 
 `ops/frontier_claim_combo.py`, **119s**, BACKLOG rung 196.
+
+## §2295 — RUNG 197: THE CHEAP POINT IS REGISTERED — ALL THREE PREDS HELD: L2_F +1.3089 / census +1.2219 at 56.9M values. The registered Pareto set: {57M → 1.31 fresh} and {88M → 0.64 fresh}. (Convention: frontier L2 = CE added above the real model on the §312 fresh windows; LOWER IS BETTER.)
+
+`ops/frontier_claim_cheap.py`, **120s**, BACKLOG rung 197.
+
+## §2296 — RUNG 198: CIRCUITS STILL CLOSE SLOWER THAN AGGREGATE — AND THE PROFILE FINALLY BUDGES. pred_a HELD (repro exact); pred_b FAILED as the null predicted (median member/ref 2.403 vs bar 1.5: aggregate fell 4.6× since census 2.855 but the circuit margin only 2.26× — the §2275 pattern persists into the fourth era); pred_c FAILED (era Spearman 0.7674 < 0.85 — after three grammar eras of near-perfect invariance, the combo grammar has begun RE-SHAPING which circuits pay, though the profile remains substantially correlated). τ-curve at census +0.62: {0.5×: 0, 1×: 3, 1.5×: 11, 2×: 22, 3×: 43} — three circuits within 2× of passing. (Convention: member abs-dCE / battery ref; census rows.)
+
+`ops/frontier_combo_rows.py`, **120s**, BACKLOG rung 198.
+
+## §2297 — RUNG 199: THE FIRST CERTIFICATES IN PROGRAM HISTORY — exact middles takes census to **+0.1492** (fresh +0.1440) and **valid 2/62 — nonzero for the first time across ~50 certified configs**. pred_a HELD (≤ 0.50, blown through: the middles-K marginal is AMPLIFIED to ~0.47, like the front's was), pred_b FAILED (census < 0.30 — pattern truncation is NOT the dominant residual), pred_c FAILED on the lower sanity floor (third occurrence of the effect-outran-the-floor artifact; and rep is NEGATIVE −0.013 — the config beats the real model on that class). The config: exact front + exact middles + real tail MLPs + rank-32 patterns — everything weights-only, the ONLY compressed objects being the 148 attention patterns (3.6× smaller than full QK). The residual +0.15 is pattern truncation + interactions alone. (Convention: CE added above the real model; lower is better. Value note: ~162M — the high-fidelity end, a legitimate config despite its "diagnostic" registration.)
+
+`ops/exact_middles.py`, **124s**, BACKLOG rung 199.
+
+- The structural lesson of the evening: at low-damage regimes every MLP pruning marginal AMPLIFIES (front
+  0.23→0.30, middles 0.15→0.47) while the attention patterns compress benignly — the compressible part of
+  bilin18 is the ATTENTION PATTERN, and nearly nothing else at certificate grade. Rung 200 (queued)
+  registers the milestone claim INCLUDING the first-ever certificate bar (valid ≥ 2); rung 201 runs the
+  clean pattern-rank endgame (r=64) with certificate rows.
