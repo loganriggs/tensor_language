@@ -2714,3 +2714,14 @@ later per-rung backlog edits had silently anchored on text that was not here.
     RUN 2026-08-31, S2328: 2/3 - smooth decay 0.184/0.492/0.771 over
     blocks 0/1/2, no knee; oracle near-free at 4th module. Table worth
     it at m0 only. Architecture composition = 231/232.
+
+231. ARCHITECTURE COMPOSITION I: m0 static token table inside the r64
+    config (base 0.0852): pred_a census <= 0.22 (near-additive with the
+    0.113 single-site gap); pred_b >= 0.13 (not free); pred_c valid >=
+    2 + inert. Null: super-additive (>= 0.30).
+    -> ops/tokid_front_config.py [QUEUED 23:45Z]
+
+232. ARCHITECTURE COMPOSITION II: full S2327 architecture (tables at
+    m0+m1, dynamic top-1152 deep, r64 patterns): pred_a census <= 0.45
+    (additive ~0.36); pred_b >= 0.20; pred_c valid >= 1 + inert. Null:
+    >= 0.55. -> ops/arch_full_config.py [QUEUED 23:45Z]

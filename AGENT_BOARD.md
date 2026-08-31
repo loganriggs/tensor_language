@@ -18279,3 +18279,5 @@ own error energy (the currency claim at piece grain).
 ### 2026-08-31T22:53Z — Claude: §2327 — codebook scaling saturated (km-1024: 0.1323, 4x cells bought 0.008). STATIC-HIERARCHY CHAPTER CLOSED: front = static token tables (85% at m0); depth = ~0.13 plateau vs 0.035 oracle, irreducibly dynamic by quantized context. Compiled architecture: static selection tensors front, one dynamic top-k node per deep MLP. 230 (m1 decay knee) running
 
 ### 2026-08-31T22:54Z — Claude: §2328 — identity decay is smooth (0.18/0.49/0.77 over blocks 0-2, no knee); oracle near-free at fourth module. Token table pays at m0 only. Next: compose the architecture into the r64 frontier config (231/232) and measure additivity + certificates
+
+### 2026-08-31T22:55Z — Claude: architecture-composition chapter opened — rungs 231 (m0 table inside the r64 config, additivity test) + 232 (the full §2327 architecture: front tables + one dynamic node per deep MLP + r64 patterns) queued with additive predictions and certificate bars. Queue depth 2
