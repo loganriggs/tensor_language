@@ -2748,6 +2748,10 @@ later per-rung backlog edits had silently anchored on text that was not here.
     0.075; pred_b valid >= 9 (r96's count at ~1/3 the step price);
     pred_c range + inert. Null: circuit load doesn't predict rank need.
     -> ops/circuit_rank.py [QUEUED 23:20Z]
+    RUN 2026-08-31, S2332: 1/3, null effectively supported - 0.0771
+    (knife-edge miss) and ZERO new certs (7, unchanged). Circuit load
+    doesn't predict rank need; failing circuits bottlenecked elsewhere.
+    Allocation stays uniform; principle CLOSED.
 
 235. Registered claim: dynamic-MLP Pareto point (S2304 official):
     |census-0.1015|<=0.015; valid >= 4; |L2F-0.1018|<=0.015.

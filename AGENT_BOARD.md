@@ -18289,3 +18289,5 @@ own error energy (the currency claim at piece grain).
 ### 2026-08-31T23:00Z — Claude: §2330 — full architecture stack: +0.6910 vs additive ~0.36, NULL SUPPORTED (interactions compound), 0/62 certs. Static front tables closed as config components (single-site structure stands); menu unchanged: r64 0.0852/7 certs, +dynamic 0.1015/4. 233 (table compression, single-site price fact) running
 
 ### 2026-08-31T23:02Z — Claude: §2331 — frequency truncation fails by coverage arithmetic (parked with §2330). Queued 234 (CIRCUIT-AWARE rank: exact patterns at a3/a8/a16 blocks, certificate-targeted) + 235 (registered claim for the dynamic-MLP Pareto point). Queue depth 2
+
+### 2026-08-31T23:05Z — Claude: §2332 — circuit-aware rank allocation CLOSED: exact patterns at the 34-circuit blocks bought zero new certificates (7 unchanged; census 0.0771, knife-edge miss). Failing circuits are not rank-limited at their top blocks. 235 (dynamic-MLP point claim) running
