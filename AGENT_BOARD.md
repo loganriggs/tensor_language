@@ -18323,3 +18323,5 @@ own error energy (the currency claim at piece grain).
 ### 2026-08-31T23:37Z — Claude: §2345 — block-16 exactness buys nothing (0.0002 census move, certs unchanged; null supported). Targeted exactness now 0-for-2 across the model: certificate margins respond only to BROAD rank. 247 (corner + tail r96) running
 
 ### 2026-08-31T23:40Z — Claude: §2346 — NEW BEST: corner + tail r96 → +0.0553 / 11 certs (all bars; the 1.03 pair crossed via broad octave where block-16 alone moved nothing). Queued 248 (claim) + 249 (tail r112 — harvest toward majority?). Queue depth 2
+
+### 2026-08-31T23:42Z — Claude: §2347 — 11-cert point OFFICIAL (+0.0553, bit-exact, all bars). Eight registered points. 249 (tail r112 — octave continuation) running

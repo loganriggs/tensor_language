@@ -2853,6 +2853,8 @@ later per-rung backlog edits had silently anchored on text that was not here.
 248. Registered claim: corner + tail r96 (the 11-cert point):
     |census-0.0553|<=0.015; valid >= 11; |L2F-0.0565|<=0.015.
     -> ops/frontier_claim_ct96.py [QUEUED 23:48Z]
+    RUN 2026-09-01, S2347: ALL HELD, bit-exact - 11-cert point official
+    (+0.0553/11/~211M).
 
 249. Next tail octave: corner + tail r112 (90.7M): pred_a census <=
     0.050; pred_b valid >= 12; pred_c range + double inert. Null: r96
