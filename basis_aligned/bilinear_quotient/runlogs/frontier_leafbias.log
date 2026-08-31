@@ -28,3 +28,20 @@ fit a15L
 fit a16L
 fit a17L
   leaf biases fit for 62 circuits; 42166 biased positions; 60362 overlaps
+  window 0 (7 docs): L2 fresh +1.8764
+  window 1 (42 docs): L2 fresh +2.1854
+  window 2 (17 docs): L2 fresh +2.2064
+  window 3 (23 docs): L2 fresh +2.2184
+  window 4 (43 docs): L2 fresh +2.4204
+  window 5 (26 docs): L2 fresh +2.0763
+  window 6 (35 docs): L2 fresh +1.9654
+  window 7 (35 docs): L2 fresh +1.9407
+L2 empirical: C +1.8845 | fresh +1.8764 | tail-attn increment +0.3255
+(a) L2 <= +2.75 fresh: HELD
+(b) increment in [0.30,0.55]: HELD
+  TEST-half certificates: 0/62 valid
+L2 fresh +1.8764 (was +1.8765); census +2.1337 (was +1.9474); increment +0.3255; valid 0/62
+(a) TEST-half valid 0/62 >= 5: FAILED
+(b) census +2.1337 <= 1.93 via L2F +1.8764: FAILED
+(c) L1F invariant, census >= 1.4: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/frontier_leafbias_results.json (138s)

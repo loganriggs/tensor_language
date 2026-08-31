@@ -65414,3 +65414,12 @@ VOID-AS-DESIGNED; corrected control = rung 133 (offline real-module targets, the
 - Consequence for the audit chain: rung 154 (running next) now reads as the necessity half of a question
   this rung half-answered — if top-1 shares are high AND selectivity is low, the circuits are near-minimal
   labels on a SHARED mechanism, and the right object of study is the substrate, not the 62 labels.
+
+## §2249 — RUNG 152: PER-CIRCUIT BIASES FAIL EXACTLY THE WAY THE OPERATOR PREDICTED — 0/62 test-half certificates AND the census WORSENS by 0.19 (1.9474 → 2.1337). pred_a/b FAILED, pred_c HELD. The 62 leaf-conditioned h17 bias vectors (train-half fit) not only fail to restore any circuit, they actively damage aggregate — per-circuit patches are the wrong OBJECT: they are lookup corrections tied to census positions, not simplifications of the computation, and they don't even transfer to the same leaves' test members. Recorded with its methodological lesson (raised independently by the operator while the run was in flight): conditional parameters are admissible only if they turn out to be SHARED — i.e., collapse toward a global, component-level object. (Convention: CE added above the real model; lower is better.)
+
+`ops/frontier_leafbias.py`, **138s**, BACKLOG rung 152.
+
+- The bias branch of §2246 is NOT dead — it is re-aimed: the legitimate versions are (i) the global
+  "optimal bias on all data" at a component (the §2190 DC stand-in, now rung 156 at h17), and (ii) global
+  graded simplifications per component scored for BREADTH across circuits (rung 155 — the simplification-
+  ladder × circuits matrix, with "preserves many circuits" as the registered faithfulness criterion).

@@ -2023,6 +2023,10 @@ later per-rung backlog edits had silently anchored on text that was not here.
     Null: member damage is not leaf-DC at h17. Price: 71,424 values
     (diagnostic-grade: leaf membership census-indexed). Tripwire: inert
     if census within 1e-3. -> ops/frontier_leafbias.py [QUEUED 13:36Z]
+    RUN 2026-08-31, S2249: pred_a/b FAILED - 0/62 AND census WORSE by
+    0.19. Per-circuit patches are the wrong object (operator's point,
+    vindicated in-flight). Re-aimed: rung 155 (ladder x circuits,
+    breadth criterion) + rung 156 (global h17 bias).
 
 154. Minimality audit v1 (user request): necessity depth on 12 stratified
     circuits (4 a8-family, 4 a16-family, 4 singleton) — member damage
@@ -2031,3 +2035,19 @@ later per-rung backlog edits had silently anchored on text that was not here.
     top123/top1 <= 1.5; pred_c battery repro in [0.67, 1.5]. Null:
     share < 0.5 (genuinely multi-component). Price: none.
     -> ops/minimality_v1.py [QUEUED 13:35Z]
+
+155. Simplification ladder x circuits (operator's program): a8/a16/m16
+    x {mean, linear, clsdict, +CP-2304 at m16}, all GLOBAL fits (train
+    half), member damage per circuit, breadth on test half. pred_a best
+    non-constant rung <= 0.8 x mean at all comps; pred_b a8 breadth >= 8
+    of 16 own circuits at 0.5 x ref; pred_c 153-protocol repro in [0.8,
+    1.25]. Null: breadth < 3 (irreducibly complex at circuit grain).
+    Prices: linear 1.33M, clsdict 11.5k, CP 7.96M values.
+    -> ops/ladder_matrix.py [QUEUED 13:40Z]
+
+156. Global h17 bias (the legitimate "optimal bias on all data"): ONE
+    drift-mean vector (1,152 values), train-half fit. pred_a |census -
+    1.9474| <= 0.02 (near-null by design); pred_b <= 1.9524 (no harm -
+    the per-circuit version added +0.19); pred_c guards. Null: even the
+    global bias hurts. Inertness tripwire waived (near-null IS pred_a).
+    -> ops/frontier_globalbias.py [QUEUED 13:40Z]
