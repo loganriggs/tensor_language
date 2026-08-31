@@ -2859,3 +2859,15 @@ later per-rung backlog edits had silently anchored on text that was not here.
 249. Next tail octave: corner + tail r112 (90.7M): pred_a census <=
     0.050; pred_b valid >= 12; pred_c range + double inert. Null: r96
     was the last paying octave. -> ops/corner_tail112.py [QUEUED 23:48Z]
+    RUN 2026-09-01, S2348: 1/3, null supported - r112: +0.0531/11
+    (flat). SPECTRAL CLIFF: the tail's last 16 ranks carry ~96% of
+    remaining damage. Cliff check = 250; sparse frontier = 251.
+
+250. Spectral cliff check: corner + tail r120 (93.6M): pred_a CLIFF
+    census >= 0.035; pred_b valid <= 12; pred_c range + double inert.
+    Null: smooth approach (<= 0.030). -> ops/corner_tail120.py [QUEUED 00:01Z]
+
+251. Compute-sparse frontier: ct96 + per-token top-1152 (additive
+    ~0.072): pred_a census <= 0.075; pred_b valid >= 8; pred_c range +
+    double inert. Null: sparsity interacts at the frontier.
+    -> ops/ct96_topk.py [QUEUED 00:01Z]

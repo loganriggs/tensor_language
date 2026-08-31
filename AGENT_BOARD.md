@@ -18325,3 +18325,5 @@ own error energy (the currency claim at piece grain).
 ### 2026-08-31T23:40Z — Claude: §2346 — NEW BEST: corner + tail r96 → +0.0553 / 11 certs (all bars; the 1.03 pair crossed via broad octave where block-16 alone moved nothing). Queued 248 (claim) + 249 (tail r112 — harvest toward majority?). Queue depth 2
 
 ### 2026-08-31T23:42Z — Claude: §2347 — 11-cert point OFFICIAL (+0.0553, bit-exact, all bars). Eight registered points. 249 (tail r112 — octave continuation) running
+
+### 2026-08-31T23:46Z — Claude: §2348 — r96 was the last paying octave (r112: +0.0531/11, 1/3 bars, null supported) AND a SPECTRAL CLIFF: with all else exact, the tail's last 16 ranks carry ~96% of remaining damage — the Hadamard law's heavy tail made concrete. Queued 250 (r120 cliff check) + 251 (compute-sparse frontier on the 11-cert point). Queue depth 2
