@@ -2894,3 +2894,17 @@ later per-rung backlog edits had silently anchored on text that was not here.
     (52.9M, cheaper than economical): pred_a census <= 0.030 (motif
     cliff too); pred_b valid >= 12; pred_c range + double inert. Null:
     cliff is tail-specific. -> ops/all_last8.py [QUEUED 00:14Z]
+    RUN 2026-09-01, S2352: preds failed as written, null supported -
+    BUT +0.0573/11 at 52.9M supersedes the economical shape on every
+    axis. Claim = 254. S2353 (analysis): profile Spearman 0.993-0.999
+    across band truncations - ONE shared mechanism; direction-subset
+    engineering closed.
+
+254. Registered claim: mixed-spectrum point (supersedes economical):
+    |census-0.0573|<=0.015; valid >= 11; |L2F-0.0584|<=0.015.
+    -> ops/frontier_claim_mixed.py [QUEUED 00:28Z]
+
+255. OV CHAPTER OPENS: value maps r64 at all replaced heads on the
+    mixed base (+~9.0M factors): pred_a census <= 0.075; pred_b valid
+    >= 9; pred_c range + inert. Null: values as rank-hungry as patterns
+    (>= 0.10). -> ops/value_r64.py [QUEUED 00:28Z]
