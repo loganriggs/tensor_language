@@ -65649,3 +65649,14 @@ Phase-2 selection belongs to the next strategic review.
 ## §2281 — RUNG 183: THE TAIL AT RANK 8 CONFIRMS THE THRESHOLD FROM THE OTHER SIDE — QK-8 tail patterns lose to the trajectory dictionaries (census +2.0241 vs +1.8950; name +3.426). pred_a/b FAILED, pred_c HELD. Read with §2279/§2280: not "dictionaries stand" but "rank 8 is sub-critical everywhere" — the decisive tail test is rank 16, folded into rung 185 (the ALL-QK-16 consolidation: motif AND tail heads at rank 16, dictionaries retired — the uniform-grammar candidate). (Convention: CE added above the real model; lower is better.)
 
 `ops/qk_tail.py`, **120s**, BACKLOG rung 183.
+
+## §2282 — RUNG 184: THE MOTIF-QK-16 CLAIM HOLDS — ALL THREE PREDS, ridge-exact. The 48M-class Pareto point moves **+1.8222 → L2_F +1.6428 / census +1.6507** at +6.23M values — and now DOMINATES the 63.7M exact-front point (+1.6599 fresh) at 16M fewer values: the registered Pareto set effectively collapses to one point plus a dominated legacy entry. (Convention: frontier L2 = CE added above the real model on the §312 fresh windows; LOWER IS BETTER.)
+
+`ops/frontier_claim_qk16.py`, **132s**, BACKLOG rung 184.
+
+## §2283 — RUNG 185: THE UNIFORM GRAMMAR WINS — ALL-QK-16 lands census **+1.2673** and fresh **+1.3498** (descriptive), the LARGEST single move in program history: retiring the tail dictionaries for rank-16 real patterns IMPROVES census by 0.38 over the dictionary config. pred_a HELD (bar 1.75, beaten by 0.48), pred_b HELD (name +2.204 — best ever by 0.78), pred_c FAILED on the LOWER sanity floor (census 1.2673 < 1.3 — the deployable config outran its own registered sanity range; the §2199/§2241 artifact class, now on a non-oracle arm; floors henceforth 0.5 everywhere). Every replaced attention head (148 of them, blocks 2–17) now runs ONE grammar: z = pat₁₆ @ v_real, y = c_proj(z), at 12.1M values replacing the dictionary store. The registered claim is rung 188 (queued first). (Convention: CE added above the real model; lower is better.)
+
+`ops/all_qk16.py`, **121s**, BACKLOG rung 185.
+
+- The day's full frontier path (fresh windows, all registered except the last pending rung 188):
+  2.6662 → 2.0553 → 1.8765 → 1.8222 → 1.6428 → [1.3498 pending claim]. Census: 2.8553 → 1.2673.

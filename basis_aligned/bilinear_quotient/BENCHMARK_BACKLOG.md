@@ -2334,9 +2334,27 @@ later per-rung backlog edits had silently anchored on text that was not here.
     L2_F <= 1.67; pred_b census repro; pred_c L2F repro + increment band.
     Null: 182's print was noise. Price: 47.8M + 6.23M.
     -> ops/frontier_claim_qk16.py [QUEUED 18:59Z]
+    RUN 2026-08-31, S2282: ALL HELD - Pareto point moves to L2F +1.6428
+    / census +1.6507; dominates the 63.7M point.
 
 185. ALL-QK-16 (uniform grammar; dicts retired; 148 heads at rank 16):
     pred_a census <= 1.75 (the tail crosses too); pred_b name <= 3.2;
     pred_c census >= 1.3 + inert guard. Null: retrieval patterns sharper
     than composition patterns (dicts stand at the tail). Price: 12.1M
     values replacing the dict store. -> ops/all_qk16.py [QUEUED 18:59Z]
+    RUN 2026-08-31, S2283: pred_a/b HELD (census +1.2673, name +2.204),
+    pred_c FAILED on the lower floor (outran sanity range). UNIFORM
+    GRAMMAR WINS - dicts retired. Claim = rung 188.
+
+188. Registered claim: ALL-QK-16 (identical rebuild). pred_a L2_F <= 1.37;
+    pred_b census repro; pred_c L2F repro. Null: 185's print was noise.
+    -> ops/frontier_claim_allqk.py [QUEUED 19:10Z]
+
+186. All-QK-12 (Hadamard-rank law, above-knee: r*=sqrt(128)~11.3): pred_a
+    census <= 1.55; pred_b plateau (<= 1.4673); pred_c floor 0.5 + inert.
+    Null: r12 breaks (law constant wrong). Price: 9.1M (25% cheaper than
+    r16 if plateau). -> ops/all_qk12.py [QUEUED 19:10Z]
+
+187. All-QK-10 (below-knee arm; reads r12 receipt at run time): pred_a
+    census >= 1.55; pred_b >= r12 + 0.10; pred_c range + inert. Null:
+    r10 crosses (knee in [8,10]). -> ops/all_qk10.py [QUEUED 19:10Z]
