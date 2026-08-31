@@ -65697,3 +65697,11 @@ Phase-2 selection belongs to the next strategic review.
   the ladder lore says interactions will eat some. Rung 194 (queued) runs the QUALITY-END combination
   (front 4608 + r32 + no tailE); rung 195 the CHEAP-END (front 3456 + r12 + no tailE). Registered claims
   follow whichever holds.
+
+## §2292 — RUNG 194: THE QUALITY-END COMBINATION HOLDS EVERYTHING — ALL THREE PREDS HELD, and for once the interactions ate almost nothing: census **+0.6201** (naive-additive estimate ~0.57; ~92% of the arm gains retained), fresh +0.6412 (descriptive), name +0.868 — every class now below 0.9 except name. Config: exact front (K=4608) + rank-32 QK patterns at all 148 replaced heads + no tailE, ~88M values. Against the morning's +2.8553 census this is a 4.6× reduction in one day. Registered claim = rung 196 (queued). (Convention: CE added above the real model; lower is better.)
+
+`ops/combo_max.py`, **119s**, BACKLOG rung 194.
+
+## §2293 — RUNG 195: THE CHEAP END COMPOSES TOO — ALL THREE PREDS HELD (name by 0.022): census +1.2219 at 56.9M total values (front 3456 + rank-12 + no tailE) — better than the registered r16 frontier (+1.2673) at 3M fewer values. Registered claim = rung 197 (queued). (Convention: CE added above the real model; lower is better.)
+
+`ops/combo_cheap.py`, **120s**, BACKLOG rung 195.

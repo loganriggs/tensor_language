@@ -1,0 +1,40 @@
+ARM: rank-16 QK patterns at ALL replaced heads, blocks 2-17 (dicts retired)
+a2-input probe acc 0.69
+fit a2
+fit a3
+fit a4
+fit a5
+fit a6
+fit a7
+fit a8
+fit a9
+fit a10
+fit a11
+fit a12
+fit a13
+fit a14
+fit a15
+fit a16
+fit a17
+  cp_swap: front MLPs m0-m3 -> CP top-3456 in place (tailE remains table-front-fit)
+  QK rank-12 factors built for all motif heads
+  QK rank-12 factors built for tail blocks 10-17
+  tail QK hooks registered (gated)
+L1 (+38 heads): C +1.8986 | fresh +1.4803
+  window 0 (7 docs): L2 fresh +1.1951
+  window 1 (42 docs): L2 fresh +1.3217
+  window 2 (17 docs): L2 fresh +1.4030
+  window 3 (23 docs): L2 fresh +1.3691
+  window 4 (43 docs): L2 fresh +1.2930
+  window 5 (26 docs): L2 fresh +1.4836
+  window 6 (35 docs): L2 fresh +1.2754
+  window 7 (35 docs): L2 fresh +1.1424
+L2 empirical: C +1.5295 | fresh +1.3089 | tail-attn increment -0.1714
+(a) L2 <= +2.75 fresh: HELD
+(b) increment in [0.30,0.55]: FAILED
+  per-class dCE: digit:+0.937 bclose:+0.773 newline:+0.750 sentend:+0.724 comma:+0.479 name:+1.728 rep:+1.091 subword:+1.550 ind:+1.127 other:+1.298
+L2 fresh +1.3089 (was +1.8765); census +1.2219 (was +1.9474); increment -0.1714; valid 0/62
+(a) census +1.2219 <= 1.28: HELD
+(b) name +1.7282 <= 1.75: HELD
+(c) census >= 0.5: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/combo_cheap_results.json (120s)

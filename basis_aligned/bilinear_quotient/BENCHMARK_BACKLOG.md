@@ -2403,7 +2403,19 @@ later per-rung backlog edits had silently anchored on text that was not here.
     <= 0.80 (retains 2/3 of naive-additive ~0.57); pred_b name <= 1.35;
     pred_c floor 0.4 + inert. Null: interactions eat >= half (> 0.92).
     Price: ~88M. -> ops/combo_max.py [QUEUED 20:00Z]
+    RUN 2026-08-31, S2292: ALL HELD - census +0.6201 (92% of additive
+    gains retained), name +0.868, fresh +0.6412 descr. Claim = 196.
 
 195. Cheap-end combination (front 3456 + r12 + no tailE): pred_a census
     <= 1.28; pred_b name <= 1.75; pred_c floor + inert. Null: non-
     additive at r12. Price: 56.9M. -> ops/combo_cheap.py [QUEUED 20:00Z]
+    RUN 2026-08-31, S2293: ALL HELD (name by 0.022) - census +1.2219
+    at 56.9M, beats the r16 frontier cheaper. Claim = 197.
+
+196. Registered claim: quality-end combo (identical rebuild). pred_a L2_F
+    <= 0.66; pred_b census repro; pred_c L2F repro. Null: noise. Price:
+    ~88M. -> ops/frontier_claim_combo.py [QUEUED 20:29Z]
+
+197. Registered claim: cheap-end combo. pred_a L2_F <= 1.33; pred_b census
+    repro; pred_c L2F repro. Price: 56.9M.
+    -> ops/frontier_claim_cheap.py [QUEUED 20:29Z]
