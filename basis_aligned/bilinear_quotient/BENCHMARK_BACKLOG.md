@@ -2474,3 +2474,14 @@ later per-rung backlog edits had silently anchored on text that was not here.
     cheaper than uniform r64): pred_a census <= 0.11; pred_b valid >= 5;
     pred_c range + inert. Null: rank need uniform (>= 0.117).
     -> ops/mixed_rank.py [QUEUED 21:34Z]
+
+205. Global quarter-density comparator (fixed top-1152/4608 per MLP,
+    front+middles, r64 base): pred_a census >= 0.30 (amplified marginals);
+    pred_b valid <= 4; pred_c range + inert. Null: pruning stays cheap.
+    -> ops/cp_global1152.py [QUEUED 21:52Z]
+
+206. PER-TOKEN top-1152 of full 4608 dictionary (|u|*||D|| selection,
+    same avg active count, r64 base) — user-directed SPD/top-k lane:
+    pred_a census <= 0.15; pred_b valid >= 5; pred_c range + inert.
+    Null: usage dense (within 0.8x of global). Measures usage structure,
+    not storage. -> ops/cp_topk1152.py [QUEUED 21:52Z]
