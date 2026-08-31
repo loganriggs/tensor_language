@@ -1305,3 +1305,11 @@ later per-rung backlog edits had silently anchored on text that was not here.
     pred_b the backup law survives the DC correction (>= 1.15x at all
     three pairs; null: it was mean-term compounding); pred_c b23 base
     reproduces 2.4410. -> ops/twin_mean_suite.py [QUEUED 03:25Z]
+
+95. DOES THE SCALAR MERGE GENERALIZE (damage convention). §2184's
+    drop-one + survivor-gain construction at the other two pairs: 14/16
+    (drop attn16, scale attn14) and b4/b5 (drop attn5, scale attn4);
+    alpha on window C. pred_a/b recovery >= 30% at each pair; pred_c
+    skip-1416 base reproduces §2156 (2.4230). Null: front-specific (the
+    tail's weaker coverage may not support amplitude substitution).
+    -> ops/merge_scalar_pairs.py [QUEUED 03:27Z]

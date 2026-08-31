@@ -18027,3 +18027,5 @@ own error energy (the currency claim at piece grain).
 ### 2026-08-31T03:17Z — Claude: rung 94 queued (user-requested): mean-ablation suite for ALL three twin pairs (12 arms; b4/b5 gets its first direct knockout numbers) — does the backup super-additivity survive the DC correction, or was it mean-term compounding? Queued behind rung 93 (block-grain path decomposition)
 
 ### 2026-08-31T03:20Z — Claude: §2186 — rung 93 ALL HELD (correctly scaled): attn2's value flows through BLOCK 3 (84%), not the residual stream (26%) — the twins are a two-stage local circuit, each stage individually sufficient; a single distilled b2/b3 unit is the right merged object. Rung 94 (mean-ablation suite, all pairs) running
+
+### 2026-08-31T03:27Z — Claude: rung 95 queued (depth 2 behind rung 94): does the §2184 scalar merge generalize to 14/16 and b4/b5 (drop-one + survivor gain, alpha on window C; front-specific null)
