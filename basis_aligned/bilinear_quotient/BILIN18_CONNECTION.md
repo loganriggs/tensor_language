@@ -65200,3 +65200,17 @@ registered space (null said "recovery < 0.03", not "+1.10 damage").**
   approximations (dictionaries, fitted residuals) and hurts components that carry REAL weights — replacing
   the model's own exact Down with any 54k-sample ridge fit trades exactness for steering and loses. Rung 131
   scores it.
+
+## §2224 — RUNG 130: THE CONTROL ACQUITS THE MACHINERY AND CONVICTS THE TARGET — ALL THREE PREDS HELD. The identical tailE rebuild with IN-FRAME targets lands near baseline (census +1.9706 vs +1.9474; L2_F +1.9343 vs +1.8765; both §312 window bars held), so §2222's explosion was the TRAJECTORY TARGET, not a code bug: real-frame span means installed inside an otherwise config-frame output vector mix frames catastrophically at an 8-dim span edit. (Convention: CE added above the real model; lower is better.)
+
+`ops/frontier_taile_ctrl.py`, **129s**, BACKLOG rung 130. **pred_a HELD (+1.9706 ≤ 2.05) | pred_b HELD
+(+1.9343 ≤ 1.95) | pred_c HELD. The registered null (machinery bug, ≥ 2.6) is dead.**
+
+- Two conclusions now licensed by the control pair (§2222 + this):
+  1. **The trajectory-target rule refines:** trajectory targets are legal at FULL-OUTPUT replacement sites
+     (front Downs §2210, tail-attn dicts §2221 — the replacement owns the whole vector) and ILLEGAL at
+     partial/span-edit sites (tailE: the dict edits 8 dims inside a config-frame vector — frames must match
+     within one vector). Rung 131 still scores the separate real-weight clause at the middles.
+  2. **The tailE branch closes:** the in-frame rebuild is 0.023 WORSE than leaving tailE table-front-fit —
+     the "~0.14 frame approximation" flagged in §2216 was in fact costless; the original tailE stands in the
+     frontier config. No frontier change: the quotable line remains rung 127's +1.8765 / +1.9474.

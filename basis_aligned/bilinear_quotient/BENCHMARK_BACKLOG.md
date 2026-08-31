@@ -1753,6 +1753,10 @@ later per-rung backlog edits had silently anchored on text that was not here.
     1.95; pred_c increment in [0.20, 0.70], census >= 1.4. Null: still
     exploded (>= 2.6) = machinery bug -> code audit. Price: none.
     -> ops/frontier_taile_ctrl.py [QUEUED 09:30Z]
+    RUN 2026-08-31, S2224: ALL HELD - machinery acquitted, trajectory
+    TARGET convicted (frame mixing at a span-edit site). Law refines:
+    trajectory targets legal only at full-output replacements. tailE
+    branch closes (original table-front-fit tailE was costless).
 
 131. Middles refit CONTROL (in-frame targets): pred_a census >= 2.10 (the
     exactness-vs-steering law stands: any refit of real weights loses);
