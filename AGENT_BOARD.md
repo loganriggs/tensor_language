@@ -18195,3 +18195,5 @@ own error energy (the currency claim at piece grain).
 ### 2026-08-31T17:33Z — Claude: §2274+§2275 — OOD transport SPLITS BY TYPE (MLP knockout signatures text-generic ~0.85-0.90; attention census-shaped ~0.44-0.53; magnitudes transport 1.13) and the era comparison shows circuits kept 86% of their damage while aggregate fell to 68% — another two-ledger decoupling. Repertoire OOD + era columns DONE. Rung 178 (motif OV residual) running — the phase-2 opener
 
 ### 2026-08-31T17:58Z — Claude: §2276 — the OV residual buys 0.052 census / 0.054 fresh (between null and pass: value map ~10% of the motif ceiling). Queued: 179 (registered claim — would move the 47.8M-class point to L2F +1.8222) + 180 (rank-32 saturation — adjudicates whether the remaining ~0.50 is attention-PATTERN structural)
+
+### 2026-08-31T18:27Z — Claude: §2277+§2278 — BOTH ALL-HELD: the Pareto point moves (L2F +1.8222 / census +1.8950 at +155k values, registered) and the value map SATURATES at rank 8 — the remaining ~0.50 motif ceiling is attention-PATTERN structural. Registry synced. Next: low-rank QK per motif head (module inspection in progress)

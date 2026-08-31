@@ -65629,3 +65629,11 @@ Phase-2 selection belongs to the next strategic review.
 ## §2276 — RUNG 178: THE VALUE MAP HOLDS ~10% OF THE MOTIF CEILING — the rank-8 OV residual buys 0.0524 census (1.9474 → 1.8950) and 0.054 fresh (L2_F +1.8222, descriptive), landing BETWEEN the registered outcomes: pred_a FAILED by 0.025 (bar 1.87), pred_b FAILED (subword 2.197 vs 2.15; rep 1.630 vs 1.55 — both moved, neither to bar), pred_c HELD. The null said < 0.02; the measured 0.052 says value-map capacity is real but small — **most of the +0.55 motif ceiling is elsewhere, presumptively the ATTENTION PATTERN.** Rung 180 (queued) adjudicates: if the gain saturates at rank 8, the pattern reading stands and low-rank QK becomes the next lever; if rank 32 keeps yielding, the value map was underfit. Rung 179 (queued) registers the consolidation claim — rung-127 + OV residual as a frontier point at 47.8M + 155,648 values. (Convention: CE added above the real model; lower is better.)
 
 `ops/motif_ovres.py`, **128s**, BACKLOG rung 178.
+
+## §2277 — RUNG 179: THE CONSOLIDATION CLAIM HOLDS — ALL THREE PREDS HELD, ridge-exact. The 47.8M-class Pareto point moves: **L2_F fresh +1.8765 → +1.8222, census +1.9474 → +1.8950, at +155,648 values (rank-8 OV residuals on the 76 motif heads).** Quotable Pareto set now: {47.8M+0.16M → +1.8222 (this rung)} and {63.7M → +1.6599 (§2231)}; certificates 0/62 at both. (Convention: frontier L2 = CE added above the real model on the §312 fresh windows; LOWER IS BETTER.)
+
+`ops/frontier_claim_ovres.py`, **127s**, BACKLOG rung 179.
+
+## §2278 — RUNG 180: THE VALUE MAP SATURATES AT RANK 8 — ALL THREE PREDS HELD. Rank-32 buys only 0.0074 more census (1.8950 → 1.8876) for 4× the values: the OV capacity is exhausted, and **the remaining ~0.50 of the motif ceiling is ATTENTION-PATTERN structural** — the fixed prev/self patterns, not the value maps, are what the motif grammar cannot express. The last structural lever is low-rank QK per motif head (weights-only SVD of each head's pattern form), queued next after module inspection. (Convention: CE added above the real model; lower is better.)
+
+`ops/motif_ovres32.py`, **128s**, BACKLOG rung 180.
