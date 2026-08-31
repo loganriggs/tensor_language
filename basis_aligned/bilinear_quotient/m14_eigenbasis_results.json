@@ -1,0 +1,42 @@
+{
+ "arms": {
+  "NEUR": {
+   "agg": 0.0187,
+   "aggabs": 0.1287,
+   "own_members": {
+    "r.1.0": 0.3286,
+    "r.1.0.1": 0.3394,
+    "r.1.0.2": 0.4062,
+    "r.1.0.3": 0.3895,
+    "r.1.1.0": 0.4205
+   },
+   "own_mean": 0.3768
+  },
+  "EIG": {
+   "agg": 0.0273,
+   "aggabs": 0.1569,
+   "own_members": {
+    "r.1.0": 0.4284,
+    "r.1.0.1": 0.4302,
+    "r.1.0.2": 0.5155,
+    "r.1.0.3": 0.496,
+    "r.1.1.0": 0.5115
+   },
+   "own_mean": 0.4763
+  }
+ },
+ "ratio_own": 1.2641,
+ "ratio_census": 1.2191,
+ "frob": 0.0005348952836357057,
+ "max_over_rms": 0.007713997736573219,
+ "values": {
+  "NEUR": 3981312,
+  "EIG": 1328256
+ },
+ "convention": "dCE = CE(m16 replaced, all else real) - CE(real); lower is better",
+ "pred_a_circuits": true,
+ "pred_b_global": false,
+ "pred_c_exactness": false,
+ "self_reviewed": true,
+ "runtime_s": 30.5
+}

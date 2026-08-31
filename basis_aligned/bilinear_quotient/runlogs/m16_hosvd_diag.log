@@ -1,0 +1,5 @@
+identity check rel-Frobenius 2.49e-07; capture {34: 0.006449306406326133, 128: 0.04618443883014335, 512: 0.39411629024054806}
+(a) identity 2.49e-07 <= 1e-3: HELD
+(b) cap128-cap34 0.040 <= 0.10: HELD
+(c) cap512 0.394 >= cap128 0.046 + 0.10: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/m16_hosvd_diag_results.json (1s)

@@ -26,3 +26,17 @@ L1 (+38 heads): C +1.3012 | fresh +1.1812
   window 2 (17 docs): L2 fresh +1.0129
   window 3 (23 docs): L2 fresh +1.1206
   window 4 (43 docs): L2 fresh +1.2626
+  window 5 (26 docs): L2 fresh +1.0025
+  window 6 (35 docs): L2 fresh +1.0015
+  window 7 (35 docs): L2 fresh +0.9370
+L2 empirical: C +1.0331 | fresh +0.9891 | tail-attn increment -0.1922
+(a) L2 <= +2.75 fresh: HELD
+(b) increment in [0.30,0.55]: FAILED
+  per-class dCE: digit:+1.152 bclose:+0.638 newline:+0.505 sentend:+0.484 comma:+0.576 name:+1.642 rep:+0.866 subword:+1.362 ind:+0.881 other:+1.224
+  era Spearman vs rung-132: 0.6297 over 62
+  median member/ref ratio 3.033; tau-curve {'0.5': 0, '1.0': 1, '1.5': 5, '2.0': 14, '3.0': 30}
+L2 fresh +0.9891 (was +1.8765); census +1.0858 (was +1.9474); increment -0.1922; valid 0/62
+(a) census +1.0858 <= 0.30: FAILED
+(b) valid 0 >= 1; margin 3.033: FAILED
+(c) census in [0.02, 2.5]; era rho 0.6297: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/cp_sketch64_results.json (129s)

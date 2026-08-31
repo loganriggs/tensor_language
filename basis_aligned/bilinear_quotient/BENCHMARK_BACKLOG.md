@@ -2551,12 +2551,31 @@ later per-rung backlog edits had silently anchored on text that was not here.
     selected 1152; 16x cheaper selection): pred_a census <= 0.30;
     pred_b valid >= 1; pred_c range + double inert. Null: selection
     needs full products (>= 1.76). -> ops/cp_sketch64.py [QUEUED 22:15Z]
+    RUN 2026-08-31, S2311: 1/3 - sketch64 +1.0858: bar failed AND null
+    failed (in between: half the gap recovered, certificates dead).
+    Rank-256 gate = rung 217.
 
 214. HOSVD plateau diagnosis (identity check hook-path vs direct
     projection; capture curve rin 34/128/512): pred_a no bug (<=1e-3);
     pred_b flatness (cap128-cap34 <= 0.10); pred_c cap512 rises. Null:
     bug, or Frobenius-CE mismatch. -> ops/m16_hosvd_diag.py [QUEUED 22:18Z]
+    RUN 2026-08-31, S2312: ALL HELD - no bug (2.5e-7); capture
+    0.6%/4.6%/39% at 34/128/512. Full multilinear rank; Tucker CLOSED
+    at m16.
 
 215. Eigenbasis generalization at m14 (identical S2309 instrument):
     pred_a exactness; pred_b own ratio <= 0.9; pred_c census <= 0.8.
     Null: m16-specific. -> ops/m14_eigenbasis.py [QUEUED 22:18Z]
+    RUN 2026-08-31, S2313: 1/3 - advantage does NOT transfer (1.264
+    own / 1.219 census; neuron wins at m14). Module-dependent; m13
+    test = rung 216.
+
+216. Basis competition at m13 (identical instrument; 1-1 so far):
+    pred_a exactness; pred_b NEURON HOLDS (own ratio >= 0.95); pred_c
+    census ratio >= 0.9. Null: eigen wins again (split needs a
+    predictor). -> ops/m13_eigenbasis.py [QUEUED 22:28Z]
+
+217. Sketch-gate rank curve: rank-256 gate (4x cheaper selection):
+    pred_a census <= 0.35; pred_b valid >= 1; pred_c range + inert vs
+    ORACLE/SKETCH64. Null: gate fidelity saturates (>= 0.8).
+    -> ops/cp_sketch256.py [QUEUED 22:28Z]

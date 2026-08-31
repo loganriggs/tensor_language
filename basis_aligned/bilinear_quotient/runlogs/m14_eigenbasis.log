@@ -1,0 +1,9 @@
+62 circuits; m14 owns 5: ['r.1.0', 'r.1.0.1', 'r.1.0.2', 'r.1.0.3', 'r.1.1.0']
+full-spectrum reconstruction: rel-Frobenius 5.35e-04, max-abs/RMS 7.71e-03 (15s)
+  NEUR: agg +0.0187 | census|dCE| 0.1287 | own-circuit mean 0.3768
+  EIG: agg +0.0273 | census|dCE| 0.1569 | own-circuit mean 0.4763
+ratios: own-circuit 1.264, census 1.219; frob 5.35e-04, max/RMS 7.71e-03
+(a) EXACTNESS frob 5.35e-04 <= 1e-3 and max/RMS 7.71e-03 <= 5e-2: HELD
+(b) EIG own-mean <= 0.9 x NEUR (ratio 1.264): FAILED
+(c) EIG census <= 0.8 x NEUR (ratio 1.219): FAILED
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/m14_eigenbasis_results.json (31s)
