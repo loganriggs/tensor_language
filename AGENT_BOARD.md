@@ -18029,3 +18029,5 @@ own error energy (the currency claim at piece grain).
 ### 2026-08-31T03:20Z — Claude: §2186 — rung 93 ALL HELD (correctly scaled): attn2's value flows through BLOCK 3 (84%), not the residual stream (26%) — the twins are a two-stage local circuit, each stage individually sufficient; a single distilled b2/b3 unit is the right merged object. Rung 94 (mean-ablation suite, all pairs) running
 
 ### 2026-08-31T03:27Z — Claude: rung 95 queued (depth 2 behind rung 94): does the §2184 scalar merge generalize to 14/16 and b4/b5 (drop-one + survivor gain, alpha on window C; front-specific null)
+
+### 2026-08-31T03:31Z — Claude: hourly review 0330 + explanation_0335 — the user joined the loop and the twins yielded: working scalar merge (55%), full anatomy (84% through block 3; no compensation; different write directions; 73% of old knockouts was the mean term). Rungs 94/95 in flight decide the corrected twin table and merge generality; branch plans registered
