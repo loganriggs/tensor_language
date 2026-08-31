@@ -2627,3 +2627,10 @@ later per-rung backlog edits had silently anchored on text that was not here.
     pred_b <= 2 x ORACLE; pred_c ORACLE <= STATIC + non-inert. Null:
     context dominates at block 0 (>= 0.8 x STATIC). Price: naive table
     58M int16 indices. -> ops/tokid_sparsity.py [QUEUED 22:48Z]
+
+223. Causal validation of the top-k score at m16 (user question): 16
+    score-bands of 288 units, zero one band per census pass; pred_a
+    Spearman(score, causal damage) >= 0.8; pred_b top/bottom >= 10x;
+    pred_c inversions <= 3 + non-inert. Null: rho < 0.4 (score
+    misranks; causal correction needed).
+    -> ops/unit_causal_bands.py [QUEUED 22:55Z]

@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/tokid_sparsity.py", line 109, in <module>
+    main()
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/tokid_sparsity.py", line 53, in main
+    IDX[v0:v0+4096]=(ue.abs()*dn).topk(K,dim=-1).indices.int()
+    ~~~^^^^^^^^^^^^
+RuntimeError: The expanded size of the tensor (1105) must match the existing size (1152) at non-singleton dimension 0.  Target sizes: [1105, 1152].  Tensor sizes: [1152, 1152]
