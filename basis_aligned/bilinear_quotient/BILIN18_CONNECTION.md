@@ -65672,3 +65672,7 @@ Phase-2 selection belongs to the next strategic review.
 ## §2286 — RUNG 187: THE KNEE IS A STEEP RAMP, BRACKETING √128 — pred_a FAILED by 0.03 (census +1.5204 vs the ≥ 1.55 bar: r10 degrades, but less than predicted), pred_b HELD (monotone knee: r10 ≥ r12 + 0.10), pred_c HELD. The full rank curve: **r8 +2.02 → r10 +1.52 → r12 +1.38 → r16 +1.27** — a steep ramp through [8, 12] then plateau, with the Hadamard-rank prediction r\* ≈ √128 ≈ 11.3 sitting inside the ramp. The law's qualitative shape is confirmed; its sharp-threshold form is not (the transition is a ramp, not a cliff — expected once per-head effective ranks vary). Scored as written; the sizing rule stands as "r ≥ 12 for this head dim." (Convention: CE added above the real model; lower is better.)
 
 `ops/all_qk10.py`, **120s**, BACKLOG rung 187.
+
+## §2287 — RUNG 189: RANK 24 KEEPS YIELDING — ALL THREE PREDS HELD: census +1.1287 (from +1.2673), fresh +1.1966 (descriptive). The §2285 "plateau" reading was premature — the rank curve continues: **r8 2.02 / r10 1.52 / r12 1.38 / r16 1.27 / r24 1.13**, diminishing but nonzero returns above the knee. The operating point becomes a value-per-nat choice (r24 = +6.1M pattern values over r16 for −0.14 census). Rung 193 (queued) completes the curve at r32. (Convention: CE added above the real model; lower is better.)
+
+`ops/all_qk24.py`, **120s**, BACKLOG rung 189.

@@ -18209,3 +18209,5 @@ own error energy (the currency claim at piece grain).
 ### 2026-08-31T19:28Z — Claude: §2284+§2285+§2286 — THE REGISTERED FRONTIER IS THE UNIFORM GRAMMAR (L2F +1.3497 / census +1.2673; day path 2.6662→1.3497, HALVED). Rank curve mapped: r8 2.02 / r10 1.52 / r12 1.38 / r16 1.27 — ramp through [8,12] with √128 inside it; sizing rule r ≥ 12. Registry synced. Queued: 189 (r24 top-of-curve), 190 (drop tailE — +0.14 for zero compression, coverage note stated), 191 (exact front re-priced)
 
 ### 2026-08-31T19:31Z — Claude: HOURLY REVIEW 1935 — frontier bookkeeping: rung 192 queued (uniform grammar's circuit rows + era profile). 189/190/191 in flight (r24, drop-tailE, exact front). If 190+191 hold: day-closing consolidation claim next review. explanation_1935 published (the day in plain English: error halved, one grammar, the rank theorem)
+
+### 2026-08-31T19:32Z — Claude: §2287 — r24 keeps yielding (+1.1287; curve r8 2.02 → r24 1.13, no plateau yet). Rung 193 queued (r32, curve top). In flight: 190 (drop tailE), 191 (exact front), 192 (two-ledger row). Day-closing consolidation claim once the structure arms land

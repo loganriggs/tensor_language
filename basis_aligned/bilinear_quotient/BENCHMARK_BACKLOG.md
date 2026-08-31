@@ -2369,6 +2369,8 @@ later per-rung backlog edits had silently anchored on text that was not here.
 189. All-QK-24 (rank curve top): pred_a census <= 1.22 (still yielding);
     pred_b monotone; pred_c floor + inert. Null: plateau (r16 is the
     operating point). Price: 18.2M. -> ops/all_qk24.py [QUEUED 19:30Z]
+    RUN 2026-08-31, S2287: ALL HELD - r24 census +1.1287 (curve still
+    descending; plateau reading premature). r32 = rung 193.
 
 190. Drop tailE (legacy span-dicts: +0.14 cost, zero compression; name
     holds 0.55 per S2237; coverage note stated): pred_a census <= 1.16;
@@ -2384,3 +2386,7 @@ later per-rung backlog edits had silently anchored on text that was not here.
     <= 5 (failure = news); pred_c Spearman >= 0.85. Null (c): the
     grammar moved which circuits pay. Price: none.
     -> ops/frontier_uniform_rows.py [QUEUED 19:35Z]
+
+193. All-QK-32 (curve top): pred_a census <= 1.08 (still yielding); pred_b
+    monotone; pred_c floor + inert. Null: plateau at last. Price: 24.2M.
+    -> ops/all_qk32.py [QUEUED 19:38Z]
