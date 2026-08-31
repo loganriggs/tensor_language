@@ -1,0 +1,42 @@
+{
+ "L2F_fresh": 1.8764,
+ "L1F": 1.5509,
+ "increment": 0.3256,
+ "census_agg": 1.9474,
+ "n_valid": 0,
+ "per_class": {
+  "digit": 1.2505,
+  "bclose": 1.0115,
+  "newline": 0.3888,
+  "sentend": 0.3392,
+  "comma": 0.2852,
+  "name": 3.1339,
+  "rep": 1.7077,
+  "subword": 2.3193,
+  "ind": 1.9939,
+  "other": 2.1158
+ },
+ "name_recovery_by_site": {
+  "skip_a10L": 0.1338,
+  "skip_a11L": 0.2857,
+  "skip_a12L": 0.1544,
+  "skip_a13L": 0.2103,
+  "skip_a14L": 0.3488,
+  "skip_a15L": 0.129,
+  "skip_a16L": 0.4023,
+  "skip_a17L": -0.003
+ },
+ "link_mean": 2.0549,
+ "const_mean": 1.288,
+ "anchor_rung127": {
+  "L2F": 1.8765,
+  "census": 1.9474,
+  "increment": 0.3256
+ },
+ "convention": "CE added above the real model; LOWER IS BETTER",
+ "pred_a_census_recovery": true,
+ "pred_b_frontier_moves": true,
+ "pred_c_sane": true,
+ "self_reviewed": true,
+ "runtime_s": 217.6
+}

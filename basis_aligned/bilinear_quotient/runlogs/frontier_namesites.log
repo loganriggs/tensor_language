@@ -35,13 +35,21 @@ fit a17L
   skip a15L done
   skip a16L done
   skip a17L done
-Traceback (most recent call last):
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/frontier_namesites.py", line 860, in <module>
-    main()
-  File "/venv/main/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/frontier_namesites.py", line 766, in main
-    del cur['clsmap']
-        ~~~^^^^^^^^^^
-KeyError: 'clsmap'
+  window 0 (7 docs): L2 fresh +1.8764
+  window 1 (42 docs): L2 fresh +2.1855
+  window 2 (17 docs): L2 fresh +2.2063
+  window 3 (23 docs): L2 fresh +2.2184
+  window 4 (43 docs): L2 fresh +2.4204
+  window 5 (26 docs): L2 fresh +2.0762
+  window 6 (35 docs): L2 fresh +1.9654
+  window 7 (35 docs): L2 fresh +1.9408
+L2 empirical: C +1.8845 | fresh +1.8764 | tail-attn increment +0.3256
+(a) L2 <= +2.75 fresh: HELD
+(b) increment in [0.30,0.55]: HELD
+  name recovery by site: skip_a10L:+0.134 skip_a11L:+0.286 skip_a12L:+0.154 skip_a13L:+0.210 skip_a14L:+0.349 skip_a15L:+0.129 skip_a16L:+0.402 skip_a17L:-0.003
+  per-class dCE: digit:+1.250 bclose:+1.012 newline:+0.389 sentend:+0.339 comma:+0.285 name:+3.134 rep:+1.708 subword:+2.319 ind:+1.994 other:+2.116
+L2 fresh +1.8764 (was +1.8765); census +1.9474 (was +1.9474); increment +0.3256; valid 0/62
+(a) max site recovery +0.4023 >= 0.4: HELD
+(b) owner skip_a16L in (a14L, a16L): HELD
+(c) |census +1.9474 - 1.9474| <= 0.015: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/frontier_namesites_results.json (218s)

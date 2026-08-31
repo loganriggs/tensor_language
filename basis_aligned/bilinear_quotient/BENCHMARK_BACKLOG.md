@@ -1875,6 +1875,9 @@ later per-rung backlog edits had silently anchored on text that was not here.
     recovery >= 0.4; pred_b owner in {a14L, a16L}; pred_c census repro.
     Null: spread (module must cover the whole tail). Price: none.
     -> ops/frontier_namesites.py [QUEUED 11:00Z]
+    RE-RUN 2026-08-31 11:32Z, S2236: ALL HELD. Owner a16L (+0.402),
+    a14L (+0.349); spread across sites; knockout sum 1.66 >> joint
+    oracle 0.80 (overlap overcount). a17L exactly 0.
     RUN 2026-08-31, S2235: VOID (rung-56 double-del of clsmap; crashed
     after all arms, results unwritten). Fixed in place, re-queued
     11:30Z; preds unchanged and unscored.

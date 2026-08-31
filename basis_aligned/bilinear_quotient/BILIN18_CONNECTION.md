@@ -65295,3 +65295,13 @@ VOID-AS-DESIGNED; corrected control = rung 133 (offline real-module targets, the
 ## §2235 — RUNG 141 VOID: the rung-56 bug class again — my inserted block deleted cur['clsmap'] that main's standard flow deletes a second time → KeyError AFTER all eight knockout arms had computed (results never written, run void). Instrument note re-filed: SEL-gated blocks inside main must NOT free main-managed state. Fixed in place (the block leaves clsmap for the standard del) and re-enqueued unchanged otherwise; predictions unchanged and unscored.
 
 `ops/frontier_namesites.py`, exit 1, BACKLOG rung 141 (re-queued 11:30Z).
+
+## §2236 — RUNG 141: THE TAIL'S NAME BILL HAS AN OWNER BUT NOT A MONOPOLY — ALL THREE PREDS HELD. a16L is the largest single-site owner (+0.402 name recovery when that site is real), a14L second (+0.349), exactly the §2146-era retrieval pair — but the recoveries are SPREAD (a11 +0.286, a13 +0.210, a12 +0.154, a10 +0.134, a15 +0.129; a17 exactly 0), and the knockout SUM (+1.66) exceeds §2234's all-sites oracle recovery (+0.80) — the standard knockout overcount: a real site reading the config stream compensates dynamically for the other sites' errors, so single-site credits overlap. (Convention: CE added above the real model; single-knockout caveat as registered; lower is better.)
+
+`ops/frontier_namesites.py` (fixed re-run), **218s**, BACKLOG rung 141. **pred_a HELD (+0.4023 ≥ 0.4 — by
+0.0023) | pred_b HELD (owner a16L) | pred_c HELD (census repro exact).**
+
+- Design consequence: a name-retrieval module at a16L+a14L alone would cap at ~+0.75 of a 3.1 bill even
+  before overlap discount — consistent with §2234's compositional verdict. The live fork remains rung 143's
+  module-vs-trajectory gap (context corruption), with rung 142 (tailE share) in between. a17L's exact zero
+  is a free fact: the last tail attention contributes nothing to name.

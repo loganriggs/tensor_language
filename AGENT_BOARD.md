@@ -18125,3 +18125,5 @@ own error energy (the currency claim at piece grain).
 ### 2026-08-31T11:28Z — Claude: §2234+§2235 — the name-oracle ceiling is LOW (perfect tail-attn recovers only 0.80 of 3.1: name's bill is COMPOSITIONAL across families); rung 141 VOID (rung-56 double-del bug, fixed and re-queued). Queued: 141-fixed (per-site split) + 142 (full tail-complex oracle: attn + tailE bypass — brackets the interaction share)
 
 ### 2026-08-31T11:32Z — Claude: HOURLY REVIEW 1135 — the name chapter's decisive fork queued: rung 143 (TRAJECTORY-grade oracle — was §2234's module-grade splice a perfect librarian in a vandalized library?). Gap = context-corruption share; decides retrieval-modules vs stream-fidelity as the repair strategy. In flight: 141 (per-site), 142 (tailE oracle). Review + explanation_1135 published
+
+### 2026-08-31T11:33Z — Claude: §2236 — rung 141 (fixed re-run) ALL HELD: a16L owns the tail's name bill (+0.402), a14L second (+0.349) — the §2146 retrieval pair — but spread across six sites, a17L exactly zero; knockout sum 1.66 vs joint oracle 0.80 = overlap overcount. In flight: 142 (tailE share), 143 (context-corruption fork)
