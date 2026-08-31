@@ -1845,6 +1845,9 @@ later per-rung backlog edits had silently anchored on text that was not here.
     pred_b subword <= 1.5; pred_c census in [1.1, 1.7]. Null: name/
     subword persist >= 80% (tail dicts are the assembly bill). Price:
     diagnostic. -> ops/frontier_motifreal_classes.py [QUEUED 10:30Z]
+    RUN 2026-08-31, S2232: pred_b/c HELD, pred_a FAILED. Subword partly
+    motif-caused (-36%); NAME NOT (-18%) -> tail complex by elimination.
+    Motifs carry ind/other/rep retrieval.
 
 139. Name-class linear maps in the tail dicts: name moves CONSTN -> LINK
     (fitted D x D map at each of 8 tail sites) in the rung-127 build.
@@ -1852,3 +1855,19 @@ later per-rung backlog edits had silently anchored on text that was not here.
     invariant, increment <= 0.36. Null: name's bill is upstream (cross-
     checks rung 138). Price: +10.6M values (8 maps).
     -> ops/frontier_namelw.py [QUEUED 10:33Z]
+    RUN 2026-08-31, S2233: pred_a/b FAILED (name -0.05, census -0.0015)
+    - class-map hypothesis DEAD. Name = irreducible retrieval; no local-
+    stream function suffices. Arm rejected on price and performance.
+
+140. Name-oracle ceiling: real attention output spliced in for name-class
+    positions at all tail-attn dict sites (config-consistent fits).
+    pred_a name <= 1.0 (ceiling high); pred_b census <= 1.85; pred_c L1F
+    invariant, increment in [0.15, 0.36]. Null: name's bill is in tailE/
+    front interactions (oracle < 0.5). Price: none (oracle diagnostic).
+    -> ops/frontier_nameoracle.py [QUEUED 11:00Z]
+
+141. Per-site name attribution (single-knockout, caveat stated): eight
+    skip-a_liL arms; recovery = name(full) - name(skip). pred_a max
+    recovery >= 0.4; pred_b owner in {a14L, a16L}; pred_c census repro.
+    Null: spread (module must cover the whole tail). Price: none.
+    -> ops/frontier_namesites.py [QUEUED 11:00Z]

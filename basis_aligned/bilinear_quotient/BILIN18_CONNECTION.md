@@ -65274,3 +65274,16 @@ VOID-AS-DESIGNED; corrected control = rung 133 (offline real-module targets, the
   membership heuristic for table-front configs; the registered claim bars above are the operative ones.
 - The morning's full frontier path (fresh windows): 2.6662 → 2.0553 → 1.8765 → 1.6599 (the last at a stated
   +15.9M value price over the 47.8M point; both points stand).
+
+## §2232 — RUNG 138: THE ASSEMBLY BILL SPLITS — subword is (partly) the MOTIFS' (2.32 → 1.50, −36%, pred_b HELD at the bar), but NAME IS NOT (3.13 → 2.56, −18%, pred_a FAILED). With §2230 (not front-caused either), name's bill lands on the TAIL COMPLEX by elimination. Also visible: the motifs carry much of the retrieval classes (ind 1.99→1.51, other 2.12→1.31, rep 1.71→0.83). pred_c HELD (census +1.2842 ∈ [1.1, 1.7] — the motifs-real diagnostic config also quietly prints L2_F +1.3004, not a claim, real attention isn't deployable). (Convention: CE added above the real model; lower is better.)
+
+`ops/frontier_motifreal_classes.py`, **121s**, BACKLOG rung 138.
+
+## §2233 — RUNG 139: THE CLASS-MAP HYPOTHESIS DIES — giving name a fitted D×D linear map at ALL EIGHT tail sites moves name by only 3.134 → 3.081 (−0.05) and census by −0.0015 (noise). pred_a/b FAILED, pred_c HELD. Combined with §2232, the verdict is sharp: **name's bill is the tail-attention dictionaries' FUNDAMENTAL limitation — no function of the local stream x (constant OR linear) can retrieve a name; the information is irreducibly in the attended context.** The §2145 retrieval price survives after all, relocated and sharpened to its purest class. The +10.6M-value arm is rejected on price AND performance. (Convention: CE added above the real model; lower is better.)
+
+`ops/frontier_namelw.py`, **129s**, BACKLOG rung 139.
+
+- The designated next design (math review 1008, move 3) now has a precise target: a RETRIEVAL module for
+  name-class positions at tail attention. First, two measurements queued: rung 140 (the ORACLE ceiling —
+  real attention output spliced in for name positions only: what would a perfect name-retriever buy?) and
+  rung 141 (which tail site owns name's bill — single-knockout approximation, stated).

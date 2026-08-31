@@ -21,3 +21,26 @@ L1 (+38 heads): C +0.9240 | fresh +0.8474
   captured real-trajectory tail-attention targets
 fit a10L
 fit a11L
+fit a12L
+fit a13L
+fit a14L
+fit a15L
+fit a16L
+fit a17L
+  window 0 (7 docs): L2 fresh +1.3004
+  window 1 (42 docs): L2 fresh +1.5660
+  window 2 (17 docs): L2 fresh +1.5810
+  window 3 (23 docs): L2 fresh +1.6305
+  window 4 (43 docs): L2 fresh +1.8641
+  window 5 (26 docs): L2 fresh +1.4624
+  window 6 (35 docs): L2 fresh +1.4845
+  window 7 (35 docs): L2 fresh +1.3866
+L2 empirical: C +1.3827 | fresh +1.3004 | tail-attn increment +0.4530
+(a) L2 <= +2.75 fresh: HELD
+(b) increment in [0.30,0.55]: HELD
+  per-class dCE: digit:+0.639 bclose:+0.413 newline:+0.073 sentend:-0.063 comma:-0.017 name:+2.560 rep:+0.828 subword:+1.496 ind:+1.509 other:+1.314
+L2 fresh +1.3004 (was +1.8765); census +1.2842 (was +1.9474); increment +0.4530; valid 0/62
+(a) name +2.5602 <= 1.8: FAILED
+(b) subword +1.4964 <= 1.5: HELD
+(c) census +1.2842 in [1.1, 1.7]: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/frontier_motifreal_classes_results.json (121s)
