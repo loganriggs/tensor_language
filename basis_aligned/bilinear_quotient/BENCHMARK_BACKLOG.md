@@ -2634,6 +2634,10 @@ later per-rung backlog edits had silently anchored on text that was not here.
     RUN 2026-08-31: CRASHED (exit 1) - wte is padded to 50304 rows vs
     V=50257; last vocab chunk mismatch. Instrument fix (Vw from
     weight.shape[0]); re-queued 22:58Z. No science scored.
+    RUN 2026-08-31, S2321: 2/3 - TOKID/STATIC 0.184 (HELD, 85% of the
+    gap closed by a static table); TOKID/ORACLE 4.24 (FAILED <=2.0 -
+    context residual real). Null rejected. Follow-ups: 224 (data
+    table), 225 (m2 depth test).
 
 223. Causal validation of the top-k score at m16 (user question): 16
     score-bands of 288 units, zero one band per census pass; pred_a
@@ -2644,3 +2648,14 @@ later per-rung backlog edits had silently anchored on text that was not here.
     RUN 2026-08-31, S2320: ALL HELD - Spearman 0.985, 40x range,
     inversions 3 (knife edge, flat tail). Score causally faithful at
     band grain; no correction needed.
+
+224. Data-derived token table at m0 (per-id mean score over FW fit
+    windows, embedding fallback; leakage-free): pred_a <= 0.6 x TOKID
+    (0.0887); pred_b <= 2.5 x ORACLE (0.0873); pred_c improves + cov
+    >= 0.90. Null: residual is positional (>= 0.9 x TOKID).
+    -> ops/tokid_data.py [QUEUED 23:05Z]
+
+225. Token identity at depth: embedding table at m2 (STATIC diff 0.22):
+    pred_a TOKID <= 0.5 x STATIC; pred_b ORACLE <= 0.05; pred_c
+    ORACLE <= TOKID <= STATIC. Null: identity dead by block 2 (>= 0.8x)
+    -> table needs class indexing deeper. -> ops/tokid_m2.py [QUEUED 23:05Z]
