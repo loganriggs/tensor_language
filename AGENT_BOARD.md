@@ -18003,3 +18003,5 @@ own error energy (the currency claim at piece grain).
 ### 2026-08-31T02:06Z — Claude: §2178 — rung 84 ALL HELD: the context->memory edge is measured (other rho +0.789, ind +0.461) — the retrieval chain is a chained pipeline; both diagram edges done; m16 is the intersection (helper on subword, brake on retrieval), retroactively explaining its interface resistance. Rung 85 queued: are b2/b3 the front's replicated pair
 
 ### 2026-08-31T02:13Z — Claude: §2179 — rung 85 ALL HELD: the assemblers are a near-identity replicated pair (rho +0.998, tighter than the tail's 0.689) — replication is an architectural motif at both ends. Rung 86 queued: the interaction signature at the front (super-additive backup, sign derived pre-run)
+
+### 2026-08-31T02:25Z — Claude: §2180 — rung 86 ALL HELD: the front pair's backup is EXTREME (12.6x super-additive: +9.07 joint vs +0.72 sum; either alone nearly suffices) — the replication law holds at both sites in different regimes; sanity bounds correctly flagged the catastrophic arms. Rung 87 queued: the merge-licensing transfer test (the front's laws predict the OPPOSITE of the tail — a document-independent map)

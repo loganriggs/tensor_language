@@ -64517,3 +64517,20 @@ pred_b (ind ρ +0.461 ≥ 0.3) | pred_c (2.6663 vs 2.6662).**
   signatures; the interaction signature (mutual backup ⇒ super-additive joint removal, sign derived per §2165's
   rule) is the registered next test → rung 86. If it holds, "bilin18 replicates its critical attention
   functions in adjacent-block pairs" becomes a three-measurement architectural law at both sites.
+
+
+## §2180 — RUNG 86: THE FRONT PAIR'S BACKUP IS EXTREME — zeroing both assemblers costs +9.07 vs +0.72 for the sum of singles (12.6× super-additive; the tail pair's was 1.4×): either assembler alone nearly suffices, both gone destroys word assembly outright. Same-position ρ 0.993. ALL THREE BARS HELD. (Convention: damage on the motifs-2/3-real base, L2_F 2.4410; bases excluded; lower is better.)
+
+`ops/assembler_backup.py`, **560s, five arms**, BACKLOG rung 86. **ALL THREE HELD: pred_a (+9.0718 ≥ 1.15 ×
++0.7206) | pred_b (ρ +0.993) | pred_c (full repro 2.6663 vs 2.6662).**
+
+- **The replication motif is now a measured law at both sites, with different regimes:** tail readers — backup
+  with moderate coverage (singles +0.05–0.09, joint +0.20); front assemblers — near-total mutual coverage
+  (z3 alone +0.24, z2 alone +0.48, both +9.07: the model cannot assemble words at all without at least one).
+  The front pair is the more perfect replica (ρ 0.993–0.998 everywhere measured).
+- **Sanity bounds behaved correctly and are recorded, not retired:** the §312 ceiling printed FAILED on the
+  both-zeroed arms (L2 ≈ 9–11 ≫ 2.75) — flagging exactly the catastrophic configs it was designed to flag.
+- **Open caveat, stated:** the tail pair's third signature (document-bound, non-transferring representations,
+  §2171) is UNTESTED at the front — and the front's distance-flat, local function (§2168) predicts the OPPOSITE
+  there: a transferring map, which would make b2/b3 the first pair the program can legitimately MERGE. That is
+  the registered next test (rung 87), and the first compilation opportunity of the new architecture chapter.

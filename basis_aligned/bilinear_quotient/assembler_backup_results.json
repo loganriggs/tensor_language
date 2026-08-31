@@ -1,0 +1,32 @@
+{
+ "full": {
+  "L2_F": 2.6663
+ },
+ "arms": {
+  "base": {
+   "L2_F": 2.441
+  },
+  "z2": {
+   "L2_F": 2.9247
+  },
+  "z3": {
+   "L2_F": 2.6779
+  },
+  "both": {
+   "L2_F": 11.5128
+  }
+ },
+ "fr_damage": {
+  "z2": 0.4837,
+  "z3": 0.2369,
+  "both": 9.0718,
+  "sum": 0.7206
+ },
+ "spearman_binned_subword": 0.993,
+ "convention": "damage on the motifs-2/3-real base; bases excluded; lower L2 better",
+ "pred_a_superadditive": true,
+ "pred_b_same_positions": true,
+ "pred_c_reproduces_s2144": true,
+ "self_reviewed": true,
+ "runtime_s": 559.6
+}

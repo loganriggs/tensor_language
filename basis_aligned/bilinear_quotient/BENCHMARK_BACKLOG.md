@@ -1185,3 +1185,21 @@ later per-rung backlog edits had silently anchored on text that was not here.
     full arm reproduces §2144 (2.6662 within 0.01). Null: additive
     (independent functions despite identical coverage).
     -> ops/assembler_backup.py [QUEUED 02:16Z]
+
+    RUN 2026-08-31, §2180: ALL THREE HELD — 12.6x super-additive (+9.07
+    vs +0.72 sum; z3 alone only +0.24): near-total mutual coverage; the
+    replication law holds at both sites in different regimes. Sanity
+    bounds correctly flagged the catastrophic arms. Transfer test (the
+    tail's third signature) -> rung 87: the first merge opportunity.
+
+87. DOES THE FRONT PAIR'S MAP TRANSFER (the merge-licensing test;
+    alignment rung). §2171: the tail pair's cross-output map does NOT
+    transfer (document-bound). The front's function is distance-flat and
+    local (§2168) — prediction derived from the laws: the attn2->attn3
+    output map IS document-independent. On the motifs-2/3-real base,
+    capture attn2/attn3 outputs; pred_a subword CCA >= 0.6; pred_b the
+    half-A linear map keeps >= 0.8 of its R^2 on half B (TRANSFER — the
+    opposite of the tail); pred_c the base reproduces rung 86's base
+    L2_F within 0.01. If pred_b holds, b2/b3 is the program's first
+    legitimately MERGEABLE pair. Null: document-bound like the tail.
+    -> ops/assembler_transfer.py [QUEUED 02:28Z]
