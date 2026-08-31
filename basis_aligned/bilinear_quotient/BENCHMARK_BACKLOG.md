@@ -991,6 +991,11 @@ later per-rung backlog edits had silently anchored on text that was not here.
     x min single); pred_c base reproduces §2156 (|delta| <= 0.005).
     Null: near-additive independent reads.
     -> ops/attn1416_interaction.py [QUEUED 00:25Z]
+    RUN 2026-08-31, §2165: pred_c HELD, pred_a/b FAILED AS WRITTEN — the
+    bars encoded the wrong interaction sign for 'redundant'. Measured:
+    strongly SUPER-additive (+0.058 FR / +895 ind) = the ACTIVE-BACKUP
+    signature; cross-base corroboration (z16 costs less with a real
+    attn14). Rule: derive the predicted interaction sign in the header.
 
 72. IS m16's ANTI-RETRIEVAL COUPLED TO attn16 (interaction; damage
     convention). A = m16's ind effect with attn16; B = without.

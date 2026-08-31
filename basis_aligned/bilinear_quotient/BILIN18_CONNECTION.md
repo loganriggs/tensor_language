@@ -64258,3 +64258,29 @@ pred_a FAILED (55.2% vs ≥ 60%).**
   unigram/bigram pointer addressing and to truncation, whose block-16 copy is partially cancelled by m16.
   Sixteen preregistered attributions, every bar scored as written, four constructive theories measured wrong —
   that is the shape of the object tomorrow's grammar has to hit. The hourly review picks the next chapter.
+
+## §2165 — RUNG 71: STRONGLY SUPER-ADDITIVE — zeroing both attentions costs +0.2044 vs +0.1464 for the sum of singles (interaction +0.058 FR; +895 summed nats on ind). Scored as written, pred_a/b FAILED — because the bars encoded the WRONG interaction sign for "redundant": super-additivity is the classic ACTIVE-BACKUP signature, and that is what the data shows. pred_c HELD. (Convention: damage on the skip-1416 config; bases excluded; lower L2 better.)
+
+`ops/attn1416_interaction.py`, **432s**, BACKLOG rung 71. **pred_c HELD (|Δ| 0.0001) | pred_a FAILED (+0.2044
+vs ≤ 0.85 × 0.1464) | pred_b FAILED (I_ind +895.2 vs ≤ −181.8).**
+
+```
+  zeroed (throughout, bases excluded)   FR damage    Σ ind damage
+  attn16 alone                          +0.0918        +1994.8
+  attn14 alone                          +0.0546        +1817.9
+  both                                  +0.2044        +4707.9    interaction: +0.058 FR / +895 ind
+```
+
+- **The registration error, owned precisely:** "redundant" admits two interaction signatures — (i) parallel
+  backups feeding a common consumer (singles cheap because the other covers; joint expensive → SUPER-additive)
+  and (ii) duplicated delivery with diminishing returns (→ sub-additive). The bars encoded (ii); §2164's
+  "read the same structure twice" plus these numbers demonstrate (i). Scored as written, both fail; the
+  measured structure is the *backup* form of redundancy. New rule: a concept's predicted interaction SIGN must
+  be derived and stated in the header before the run.
+- **Corroboration across bases:** zeroing attn16 costs +0.0918 here (attn14 REAL) vs +0.1187 on the skip-a16
+  base where attn14 was the dictionary (§2149) — a real attn14 covers for a missing attn16 better than a14L
+  can, exactly as backup predicts.
+- **Block 14/16, current skeleton:** two attention modules performing the same mid-to-long-range document read
+  (§2162/§2164), acting as mutual backups (here), with m16 partially cancelling block-16's copy (§2159; the
+  coupling test is rung 72, running). The pair is one functional unit with internal redundancy — the strongest
+  structural statement the program owns about the tail.
