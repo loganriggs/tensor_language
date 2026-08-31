@@ -2839,6 +2839,9 @@ later per-rung backlog edits had silently anchored on text that was not here.
     a16/m16 failure family; +2.9M): pred_a census <= 0.058; pred_b
     valid >= 10 (r.6.2.2 at 1.03 crosses); pred_c range + inert. Null:
     family not block-16-rank-limited. -> ops/corner_b16.py [QUEUED 23:38Z]
+    RUN 2026-09-01, S2345: 1/3, null supported - block-16 exact moved
+    census 0.0002 (wobble), valid unchanged. Targeted exactness 0-for-2;
+    margins respond to broad rank only.
 
 247. Top of the Pareto: corner + tail r96 (+12.4M): pred_a census <=
     0.058; pred_b valid >= 9; pred_c range + double inert. Null: tail

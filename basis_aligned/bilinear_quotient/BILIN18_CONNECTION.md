@@ -65915,3 +65915,7 @@ Receipts: motif_{exact,early,late,r96} + frontier_claim_qk64 + BATTERY. BACKLOG 
 ## §2344 — RUNG 245: THE ECONOMICAL SHAPE REGISTERS — ALL THREE PREDS, bit-exact: census +0.0676 / fresh +0.0660 / valid 8 of 62 at ~187M values ({motifs r96, tail r64}, 60.3M pattern values). The two-tier allocation menu is now fully official: economical {187M → 0.0676, 8 certs} and the corner {199M → 0.0608, 9 certs}, both carrying the halves law. (Convention: CE added above the real model; lower is better.)
 
 `ops/frontier_claim_motif96.py`, **126s**, BACKLOG rung 245.
+
+## §2345 — RUNG 246: BLOCK-16 EXACTNESS BUYS NOTHING — 1/3 bars; the null is supported, and the targeted-exactness verdict is now uniform across the model. Corner + block-16 exact patterns: census +0.0606 (vs the corner's 0.0608 — a 0.0002 move, inside wobble; pred_a ≤ 0.058 FAILED) and valid 9, unchanged (pred_b ≥ 10 FAILED); sanity held, inert tripwire passed (the map did change the computation). The 1.03-margin thresholds (r.6.2.2, r.2.0) did NOT cross: the a16/m16 failure family is not limited by block 16's pattern rank, exactly as the a3/a8/a16-loaded blocks were not the lever in §2332. TARGETED EXACTNESS IS NOW 0-FOR-2 at both ends of the model: certificate margins respond to BROAD rank (whole halves, whole octaves), never to the top-component block alone — one more face of the spread/threshold structure of §2340/§2342. (Convention: CE added above the real model; lower is better.)
+
+`ops/corner_b16.py`, **133s**, BACKLOG rung 246.

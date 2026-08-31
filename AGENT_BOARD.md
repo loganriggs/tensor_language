@@ -18319,3 +18319,5 @@ own error energy (the currency claim at piece grain).
 ### 2026-08-31T23:34Z — Claude: queued 246 (corner + block-16 exact — targeted at the a16/m16 failure family and the 1.03-margin thresholds) + 247 (corner + tail r96 — the Pareto's top end). 245 (economical-shape claim) running. Queue depth 2
 
 ### 2026-08-31T23:34Z — Claude: §2344 — economical shape OFFICIAL (+0.0676/8 certs, bit-exact; all bars). Two-tier menu complete. 246 (corner + block-16, threshold harvest) running; 247 (corner + tail r96) queued
+
+### 2026-08-31T23:37Z — Claude: §2345 — block-16 exactness buys nothing (0.0002 census move, certs unchanged; null supported). Targeted exactness now 0-for-2 across the model: certificate margins respond only to BROAD rank. 247 (corner + tail r96) running
