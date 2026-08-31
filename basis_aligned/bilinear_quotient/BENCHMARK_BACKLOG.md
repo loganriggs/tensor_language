@@ -1505,3 +1505,23 @@ later per-rung backlog edits had silently anchored on text that was not here.
     agg(unw) and plain within 0.10 of S2198 anchor. Null: weighting moves
     nothing (capacity-limited). Tripwire: bitwise-equal cev = inert.
     -> ops/frontier_m0_repair.py [QUEUED 05:36Z]
+    RUN 2026-08-31, S2202: pred_a/b FAILED (weighting no-op: ratio
+    0.995, valid 3/62 both refits), pred_c HELD. Side finding: census
+    refit halves m0 damage (.2499->.1244). Objective branch DEAD;
+    with S2201 the table+featmap grammar is falsified at the front.
+
+
+109. CP-vs-table at m2 (grammar change, model's own units): single-site
+    top-K bilinear units (norm importance, weights-only), K in
+    288/576/1152/2304/4608, census certificates. pred_a agg(576) <= 0.5 x
+    table anchor 0.3072; pred_b valid(1152) >= 10/62; pred_c monotone +
+    K4608 exact in [-0.01, 0.02]. Null: front damage is site-hardness,
+    not grammar. Price: CP-576 = 2.0M values vs table 57.9M (29x).
+    -> ops/frontier_m2_cp.py [QUEUED 05:44Z]
+
+110. CP-vs-table at m0 (the certificate-killer site): same design at
+    h[0].mlp; anchor single m0E +0.2485 / valid 1 of 62 (S2198/S2200).
+    pred_a agg(CP-576) <= 0.5 x 0.2485; pred_b valid(1152) >= 10/62;
+    pred_c monotone + K4608 exact in [-0.01, 0.02]. Null: site-hardness.
+    Price: as rung 109.
+    -> ops/frontier_m0_cp.py [QUEUED 05:47Z]

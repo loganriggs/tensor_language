@@ -64959,3 +64959,20 @@ FAILED (m2E single +0.3072 < 1.5×m0E +0.3728 — only 1.24×) | pred_c HELD.**
 - Branch status: CAPACITY dead (this rung). OBJECTIVE (rung 108, member-weighted refit) is running. If its
   null also wins, the "token table + static feature-map residual" grammar is falsified at the front sites and
   the next chapter is a grammar change (features that see context, not just the current stream vector).
+
+## §2202 — RUNG 108: THE OBJECTIVE BRANCH DIES TOO — member-weighting is a NO-OP (median memberabs ratio unw/wt 0.995; both refits valid 3/62) — but the fit POPULATION is not: refitting m0's residual on census rows HALVES its damage (+0.2499 → +0.1244) and triples validity (1→3). With §2201, both registered repair branches are dead: the "token table + static feature-map residual" grammar is now FALSIFIED at the front sites. pred_a/b FAILED, pred_c HELD. (Convention: per-position dCE = CE(single m0 variant + exact a0) − CE(real model) on the census TEST half, rows 500–999; refs are full-census battery refs.)
+
+`ops/frontier_m0_repair.py`, **111s**, BACKLOG rung 108. **pred_a FAILED (0.995 < 1.5) | pred_b FAILED (3 <
+10) | pred_c HELD (+0.1264 ≤ 2×+0.1244; plain +0.2499 within 0.10 of the §2198 anchor +0.2485 — population
+sanity passes).**
+
+- The registered null wins exactly: 10× weight on every circuit-member position moves the fit nowhere the
+  members can feel (ratio 0.995, validity identical). The residual's feature span, not its objective, is the
+  binding constraint — the same verdict §2201 reached from the capacity side.
+- **The unregistered but honest side finding:** the FW fit rows (300–512, the §312-era fit set) are a worse
+  population than census rows for m0's residual — same grammar, same rank, same λ, damage halves. Recorded as
+  a candidate cheap win for the aggregate ledger (refit all front residuals on census-train), NOT as a circuit
+  repair (3/62 is still failure).
+- **Chapter verdict:** capacity (§2201) dead, objective (§2202) dead → grammar change is forced. Rung 109
+  (queued): m2 replaced by its OWN top-K bilinear units (the c4–c9 CP grammar, weights-only, no fit rows at
+  all) — CP-576 stores 29× fewer values than the table it would replace.
