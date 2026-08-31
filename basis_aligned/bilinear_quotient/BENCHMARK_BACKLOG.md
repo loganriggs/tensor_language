@@ -1291,3 +1291,12 @@ later per-rung backlog edits had silently anchored on text that was not here.
     Null: residual path dominates. Sanity: both path arms must lie in
     [0, mean2 + 0.05].
     -> ops/twin_anatomy2.py [QUEUED 03:15Z]
+
+94. MEAN-ABLATION SUITE FOR ALL THREE PAIRS (user-requested; damage
+    convention). §2185: 73% of attn2's zero-ablation damage was the mean
+    term. Redo all knockout interactions with mean-ablation: b2/b3,
+    b4/b5 (previously unmeasured directly), 14/16 — 12 arms. pred_a the
+    mean term dominated the old numbers (mean-both <= 0.5 x zero-both);
+    pred_b the backup law survives the DC correction (>= 1.15x at all
+    three pairs; null: it was mean-term compounding); pred_c b23 base
+    reproduces 2.4410. -> ops/twin_mean_suite.py [QUEUED 03:25Z]
