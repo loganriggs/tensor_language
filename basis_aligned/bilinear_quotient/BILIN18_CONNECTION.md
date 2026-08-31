@@ -65617,3 +65617,11 @@ The structural conclusion the operator's questions drove toward: **the 62 circui
 coupled, positionally-organized computation.** The program's two honest paths forward: (i) whole-substrate
 fidelity (the frontier lane) with the circuit-cost ledger attached; (ii) intervention below component grain.
 Phase-2 selection belongs to the next strategic review.
+
+## §2274 — RUNG 176: OOD TRANSPORT SPLITS BY COMPONENT TYPE — magnitudes transport (median fresh/census ratio 1.13; pred_b HELD), shapes only partially (median ρ 0.679; pred_a's 0.8 bar FAILED, though well above the 0.5 null). The split is the finding: **MLP knockout signatures are text-generic (m14 0.90, m5 0.89, a9 0.89, m13 0.83) while attention signatures are census-shaped (a8 0.44, a16 0.49, a14 0.53)** — consistent with attention doing contextual/retrieval work whose class incidence varies by corpus, and MLPs doing corpus-invariant transformation. pred_c HELD (fresh base 3.413). The repertoire's OOD column records: partial, type-split. (Convention: per-position dCE = CE(mean-ablation) − CE(real model); 10-class profiles, census vs 120 fresh pile rows.)
+
+`ops/ood_transport.py`, **149s**, BACKLOG rung 176.
+
+## §2275 — RUNG 177: THE GRAMMAR CHANGE MOSTLY PRESERVED WHICH CIRCUITS PAY — AND RELIEVED THEM LESS THAN THE AGGREGATE. Era Spearman 0.781 (pred_a's 0.9 bar FAILED; above the 0.7 null), and the median per-circuit damage ratio (CP era / table era) is 0.859 — missing pred_b's [0.4, 0.85] band by 0.009 on the HIGH side: circuits kept ~86% of their table-era damage while the aggregate fell to 68% (2.855 → 1.947). One more clean two-ledger decoupling datum: aggregate improvements under-deliver at circuit grain, uniformly enough that the profile barely moves. pred_c HELD. (Convention: member abs-dCE per circuit from the rung-99 and rung-132 receipts.)
+
+`ops/pareto_profile.py`, CPU, BACKLOG rung 177.

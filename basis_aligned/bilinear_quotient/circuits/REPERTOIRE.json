@@ -18,8 +18,8 @@
   ]
  },
  "pending": {
-  "ood_component_grain": "rung 176",
-  "pareto_profile_invariance": "rung 177",
+  "ood_component_grain": "DONE (S2274): magnitudes transport, shapes split by type",
+  "pareto_profile_invariance": "DONE (S2275): rho 0.781, ratio 0.859",
   "phase2": "next strategic review"
  },
  "circuits": {
@@ -71,7 +71,13 @@
     "family_share_r32": 0.528,
     "label": "principal-variance basis (member-agnostic, S2266); NOT a dedicated causal direction"
    },
-   "ood_transfer": null,
+   "ood_transfer": {
+    "component_grain": {
+     "rho": 0.588,
+     "mag_ratio": 1.063
+    },
+    "verdict": "partial; type-split (S2274)"
+   },
    "interchange_validated": {
     "member_absdce": 0.4782,
     "selectivity": 27.051,
@@ -138,7 +144,13 @@
     "family_share_r32": 0.548,
     "label": "principal-variance basis (member-agnostic, S2266); NOT a dedicated causal direction"
    },
-   "ood_transfer": null
+   "ood_transfer": {
+    "component_grain": {
+     "rho": 0.673,
+     "mag_ratio": 1.129
+    },
+    "verdict": "partial; type-split (S2274)"
+   }
   },
   "r.0.0.1": {
    "top_component": "a3",
@@ -188,7 +200,13 @@
     "family_share_r32": 0.543,
     "label": "principal-variance basis (member-agnostic, S2266); NOT a dedicated causal direction"
    },
-   "ood_transfer": null
+   "ood_transfer": {
+    "component_grain": {
+     "rho": 0.673,
+     "mag_ratio": 1.129
+    },
+    "verdict": "partial; type-split (S2274)"
+   }
   },
   "r.0.3.0": {
    "top_component": "a3",
@@ -238,7 +256,13 @@
     "family_share_r32": 0.563,
     "label": "principal-variance basis (member-agnostic, S2266); NOT a dedicated causal direction"
    },
-   "ood_transfer": null
+   "ood_transfer": {
+    "component_grain": {
+     "rho": 0.673,
+     "mag_ratio": 1.129
+    },
+    "verdict": "partial; type-split (S2274)"
+   }
   },
   "r.11.1.1": {
    "top_component": "a8",
@@ -292,7 +316,13 @@
     "family_share_r32": 0.312,
     "label": "principal-variance basis (member-agnostic, S2266); NOT a dedicated causal direction"
    },
-   "ood_transfer": null,
+   "ood_transfer": {
+    "component_grain": {
+     "rho": 0.442,
+     "mag_ratio": 1.54
+    },
+    "verdict": "partial; type-split (S2274)"
+   },
    "sufficiency": {
     "keep_top5_damage": 3.3168,
     "keep_rand5": 3.2378,
@@ -352,7 +382,13 @@
     "family_share_r32": 0.352,
     "label": "principal-variance basis (member-agnostic, S2266); NOT a dedicated causal direction"
    },
-   "ood_transfer": null,
+   "ood_transfer": {
+    "component_grain": {
+     "rho": 0.442,
+     "mag_ratio": 1.54
+    },
+    "verdict": "partial; type-split (S2274)"
+   },
    "sufficiency": {
     "keep_top5_damage": 3.4146,
     "keep_rand5": 4.1656,
@@ -412,7 +448,13 @@
     "family_share_r32": 0.299,
     "label": "principal-variance basis (member-agnostic, S2266); NOT a dedicated causal direction"
    },
-   "ood_transfer": null,
+   "ood_transfer": {
+    "component_grain": {
+     "rho": 0.442,
+     "mag_ratio": 1.54
+    },
+    "verdict": "partial; type-split (S2274)"
+   },
    "sufficiency": {
     "keep_top5_damage": 2.974,
     "keep_rand5": 2.8171,
@@ -468,7 +510,13 @@
     "family_share_r32": 0.675,
     "label": "principal-variance basis (member-agnostic, S2266); NOT a dedicated causal direction"
    },
-   "ood_transfer": null,
+   "ood_transfer": {
+    "component_grain": {
+     "rho": 0.673,
+     "mag_ratio": 1.129
+    },
+    "verdict": "partial; type-split (S2274)"
+   },
    "interchange_validated": {
     "member_absdce": 0.6516,
     "selectivity": 447.359,
@@ -521,7 +569,13 @@
     "family_share_r32": 0.769,
     "label": "principal-variance basis (member-agnostic, S2266); NOT a dedicated causal direction"
    },
-   "ood_transfer": null
+   "ood_transfer": {
+    "component_grain": {
+     "rho": 0.564,
+     "mag_ratio": 1.086
+    },
+    "verdict": "partial; type-split (S2274)"
+   }
   },
   "r.1.0": {
    "top_component": "m14",
@@ -571,7 +625,13 @@
     "family_share_r32": 0.371,
     "label": "principal-variance basis (member-agnostic, S2266); NOT a dedicated causal direction"
    },
-   "ood_transfer": null,
+   "ood_transfer": {
+    "component_grain": {
+     "rho": 0.903,
+     "mag_ratio": 1.051
+    },
+    "verdict": "partial; type-split (S2274)"
+   },
    "interchange_validated": {
     "member_absdce": 0.6007,
     "selectivity": 407.057,
@@ -631,7 +691,13 @@
     "family_share_r32": 0.305,
     "label": "principal-variance basis (member-agnostic, S2266); NOT a dedicated causal direction"
    },
-   "ood_transfer": null,
+   "ood_transfer": {
+    "component_grain": {
+     "rho": 0.491,
+     "mag_ratio": 1.455
+    },
+    "verdict": "partial; type-split (S2274)"
+   },
    "sufficiency": {
     "keep_top5_damage": 3.3776,
     "keep_rand5": 3.1415,
@@ -687,7 +753,13 @@
     "family_share_r32": 0.317,
     "label": "principal-variance basis (member-agnostic, S2266); NOT a dedicated causal direction"
    },
-   "ood_transfer": null
+   "ood_transfer": {
+    "component_grain": {
+     "rho": 0.903,
+     "mag_ratio": 1.051
+    },
+    "verdict": "partial; type-split (S2274)"
+   }
   },
   "r.1.0.2": {
    "top_component": "m14",
@@ -737,7 +809,13 @@
     "family_share_r32": 0.386,
     "label": "principal-variance basis (member-agnostic, S2266); NOT a dedicated causal direction"
    },
-   "ood_transfer": null
+   "ood_transfer": {
+    "component_grain": {
+     "rho": 0.903,
+     "mag_ratio": 1.051
+    },
+    "verdict": "partial; type-split (S2274)"
+   }
   },
   "r.1.0.3": {
    "top_component": "m14",
@@ -787,7 +865,13 @@
     "family_share_r32": 0.393,
     "label": "principal-variance basis (member-agnostic, S2266); NOT a dedicated causal direction"
    },
-   "ood_transfer": null
+   "ood_transfer": {
+    "component_grain": {
+     "rho": 0.903,
+     "mag_ratio": 1.051
+    },
+    "verdict": "partial; type-split (S2274)"
+   }
   },
   "r.1.1": {
    "top_component": "m13",
@@ -837,7 +921,13 @@
     "family_share_r32": 0.451,
     "label": "principal-variance basis (member-agnostic, S2266); NOT a dedicated causal direction"
    },
-   "ood_transfer": null,
+   "ood_transfer": {
+    "component_grain": {
+     "rho": 0.83,
+     "mag_ratio": 1.075
+    },
+    "verdict": "partial; type-split (S2274)"
+   },
    "gate_auc_leaf": 0.6823
   },
   "r.1.1.0": {
@@ -888,7 +978,13 @@
     "family_share_r32": 0.479,
     "label": "principal-variance basis (member-agnostic, S2266); NOT a dedicated causal direction"
    },
-   "ood_transfer": null
+   "ood_transfer": {
+    "component_grain": {
+     "rho": 0.903,
+     "mag_ratio": 1.051
+    },
+    "verdict": "partial; type-split (S2274)"
+   }
   },
   "r.1.1.1": {
    "top_component": "m16",
@@ -942,7 +1038,13 @@
     "family_share_r32": 0.516,
     "label": "principal-variance basis (member-agnostic, S2266); NOT a dedicated causal direction"
    },
-   "ood_transfer": null
+   "ood_transfer": {
+    "component_grain": {
+     "rho": 0.794,
+     "mag_ratio": 1.243
+    },
+    "verdict": "partial; type-split (S2274)"
+   }
   },
   "r.1.1.2": {
    "top_component": "m16",
@@ -996,7 +1098,13 @@
     "family_share_r32": 0.556,
     "label": "principal-variance basis (member-agnostic, S2266); NOT a dedicated causal direction"
    },
-   "ood_transfer": null
+   "ood_transfer": {
+    "component_grain": {
+     "rho": 0.794,
+     "mag_ratio": 1.243
+    },
+    "verdict": "partial; type-split (S2274)"
+   }
   },
   "r.1.2": {
    "top_component": "m16",
@@ -1050,7 +1158,13 @@
     "family_share_r32": 0.499,
     "label": "principal-variance basis (member-agnostic, S2266); NOT a dedicated causal direction"
    },
-   "ood_transfer": null,
+   "ood_transfer": {
+    "component_grain": {
+     "rho": 0.794,
+     "mag_ratio": 1.243
+    },
+    "verdict": "partial; type-split (S2274)"
+   },
    "interchange_validated": {
     "member_absdce": 0.7193,
     "selectivity": 353.807,
@@ -1113,7 +1227,13 @@
     "family_share_r32": 0.498,
     "label": "principal-variance basis (member-agnostic, S2266); NOT a dedicated causal direction"
    },
-   "ood_transfer": null
+   "ood_transfer": {
+    "component_grain": {
+     "rho": 0.794,
+     "mag_ratio": 1.243
+    },
+    "verdict": "partial; type-split (S2274)"
+   }
   },
   "r.1.2.1": {
    "top_component": "m16",
@@ -1167,7 +1287,13 @@
     "family_share_r32": 0.581,
     "label": "principal-variance basis (member-agnostic, S2266); NOT a dedicated causal direction"
    },
-   "ood_transfer": null
+   "ood_transfer": {
+    "component_grain": {
+     "rho": 0.794,
+     "mag_ratio": 1.243
+    },
+    "verdict": "partial; type-split (S2274)"
+   }
   },
   "r.1.3": {
    "top_component": "m13",
@@ -1217,7 +1343,13 @@
     "family_share_r32": 0.421,
     "label": "principal-variance basis (member-agnostic, S2266); NOT a dedicated causal direction"
    },
-   "ood_transfer": null,
+   "ood_transfer": {
+    "component_grain": {
+     "rho": 0.83,
+     "mag_ratio": 1.075
+    },
+    "verdict": "partial; type-split (S2274)"
+   },
    "interchange_validated": {
     "member_absdce": 0.6731,
     "selectivity": 210.804,
@@ -1273,7 +1405,13 @@
     "family_share_r32": 0.33,
     "label": "principal-variance basis (member-agnostic, S2266); NOT a dedicated causal direction"
    },
-   "ood_transfer": null
+   "ood_transfer": {
+    "component_grain": {
+     "rho": 0.83,
+     "mag_ratio": 1.075
+    },
+    "verdict": "partial; type-split (S2274)"
+   }
   },
   "r.1.3.1": {
    "top_component": "m13",
@@ -1323,7 +1461,13 @@
     "family_share_r32": 0.356,
     "label": "principal-variance basis (member-agnostic, S2266); NOT a dedicated causal direction"
    },
-   "ood_transfer": null
+   "ood_transfer": {
+    "component_grain": {
+     "rho": 0.83,
+     "mag_ratio": 1.075
+    },
+    "verdict": "partial; type-split (S2274)"
+   }
   },
   "r.23.2.1": {
    "top_component": "a8",
@@ -1375,7 +1519,13 @@
     "family_share_r32": 0.274,
     "label": "principal-variance basis (member-agnostic, S2266); NOT a dedicated causal direction"
    },
-   "ood_transfer": null
+   "ood_transfer": {
+    "component_grain": {
+     "rho": 0.442,
+     "mag_ratio": 1.54
+    },
+    "verdict": "partial; type-split (S2274)"
+   }
   },
   "r.23.2.3": {
    "top_component": "a8",
@@ -1429,7 +1579,13 @@
     "family_share_r32": 0.309,
     "label": "principal-variance basis (member-agnostic, S2266); NOT a dedicated causal direction"
    },
-   "ood_transfer": null
+   "ood_transfer": {
+    "component_grain": {
+     "rho": 0.442,
+     "mag_ratio": 1.54
+    },
+    "verdict": "partial; type-split (S2274)"
+   }
   },
   "r.2.0": {
    "top_component": "a8",
@@ -1483,7 +1639,13 @@
     "family_share_r32": 0.295,
     "label": "principal-variance basis (member-agnostic, S2266); NOT a dedicated causal direction"
    },
-   "ood_transfer": null,
+   "ood_transfer": {
+    "component_grain": {
+     "rho": 0.442,
+     "mag_ratio": 1.54
+    },
+    "verdict": "partial; type-split (S2274)"
+   },
    "interchange_validated": {
     "member_absdce": 1.1609,
     "selectivity": 226.214,
@@ -1554,7 +1716,13 @@
     "family_share_r32": 0.399,
     "label": "principal-variance basis (member-agnostic, S2266); NOT a dedicated causal direction"
    },
-   "ood_transfer": null
+   "ood_transfer": {
+    "component_grain": {
+     "rho": 0.442,
+     "mag_ratio": 1.54
+    },
+    "verdict": "partial; type-split (S2274)"
+   }
   },
   "r.2.0.1": {
    "top_component": "a8",
@@ -1606,7 +1774,13 @@
     "family_share_r32": 0.412,
     "label": "principal-variance basis (member-agnostic, S2266); NOT a dedicated causal direction"
    },
-   "ood_transfer": null
+   "ood_transfer": {
+    "component_grain": {
+     "rho": 0.442,
+     "mag_ratio": 1.54
+    },
+    "verdict": "partial; type-split (S2274)"
+   }
   },
   "r.2.0.2": {
    "top_component": "a8",
@@ -1660,7 +1834,13 @@
     "family_share_r32": 0.397,
     "label": "principal-variance basis (member-agnostic, S2266); NOT a dedicated causal direction"
    },
-   "ood_transfer": null
+   "ood_transfer": {
+    "component_grain": {
+     "rho": 0.442,
+     "mag_ratio": 1.54
+    },
+    "verdict": "partial; type-split (S2274)"
+   }
   },
   "r.2.1": {
    "top_component": "a8",
@@ -1714,7 +1894,13 @@
     "family_share_r32": 0.308,
     "label": "principal-variance basis (member-agnostic, S2266); NOT a dedicated causal direction"
    },
-   "ood_transfer": null,
+   "ood_transfer": {
+    "component_grain": {
+     "rho": 0.442,
+     "mag_ratio": 1.54
+    },
+    "verdict": "partial; type-split (S2274)"
+   },
    "gate_auc_leaf": 0.6441
   },
   "r.2.1.0": {
@@ -1767,7 +1953,13 @@
     "family_share_r32": 0.34,
     "label": "principal-variance basis (member-agnostic, S2266); NOT a dedicated causal direction"
    },
-   "ood_transfer": null
+   "ood_transfer": {
+    "component_grain": {
+     "rho": 0.442,
+     "mag_ratio": 1.54
+    },
+    "verdict": "partial; type-split (S2274)"
+   }
   },
   "r.2.1.1": {
    "top_component": "a8",
@@ -1821,7 +2013,13 @@
     "family_share_r32": 0.337,
     "label": "principal-variance basis (member-agnostic, S2266); NOT a dedicated causal direction"
    },
-   "ood_transfer": null
+   "ood_transfer": {
+    "component_grain": {
+     "rho": 0.442,
+     "mag_ratio": 1.54
+    },
+    "verdict": "partial; type-split (S2274)"
+   }
   },
   "r.2.2": {
    "top_component": "a8",
@@ -1875,7 +2073,13 @@
     "family_share_r32": 0.293,
     "label": "principal-variance basis (member-agnostic, S2266); NOT a dedicated causal direction"
    },
-   "ood_transfer": null,
+   "ood_transfer": {
+    "component_grain": {
+     "rho": 0.442,
+     "mag_ratio": 1.54
+    },
+    "verdict": "partial; type-split (S2274)"
+   },
    "gate_auc_leaf": 0.6558
   },
   "r.2.2.0": {
@@ -1930,7 +2134,13 @@
     "family_share_r32": 0.347,
     "label": "principal-variance basis (member-agnostic, S2266); NOT a dedicated causal direction"
    },
-   "ood_transfer": null
+   "ood_transfer": {
+    "component_grain": {
+     "rho": 0.442,
+     "mag_ratio": 1.54
+    },
+    "verdict": "partial; type-split (S2274)"
+   }
   },
   "r.2.2.1": {
    "top_component": "a8",
@@ -1984,7 +2194,13 @@
     "family_share_r32": 0.325,
     "label": "principal-variance basis (member-agnostic, S2266); NOT a dedicated causal direction"
    },
-   "ood_transfer": null
+   "ood_transfer": {
+    "component_grain": {
+     "rho": 0.442,
+     "mag_ratio": 1.54
+    },
+    "verdict": "partial; type-split (S2274)"
+   }
   },
   "r.2.2.2": {
    "top_component": "a6",
@@ -2034,7 +2250,13 @@
     "family_share_r32": 0.635,
     "label": "principal-variance basis (member-agnostic, S2266); NOT a dedicated causal direction"
    },
-   "ood_transfer": null,
+   "ood_transfer": {
+    "component_grain": {
+     "rho": 0.527,
+     "mag_ratio": 1.253
+    },
+    "verdict": "partial; type-split (S2274)"
+   },
    "interchange_validated": {
     "member_absdce": 0.8737,
     "selectivity": 442.481,
@@ -2099,7 +2321,13 @@
     "family_share_r32": 0.315,
     "label": "principal-variance basis (member-agnostic, S2266); NOT a dedicated causal direction"
    },
-   "ood_transfer": null,
+   "ood_transfer": {
+    "component_grain": {
+     "rho": 0.442,
+     "mag_ratio": 1.54
+    },
+    "verdict": "partial; type-split (S2274)"
+   },
    "gate_auc_leaf": 0.6602
   },
   "r.3.0": {
@@ -2154,7 +2382,13 @@
     "family_share_r32": 0.335,
     "label": "principal-variance basis (member-agnostic, S2266); NOT a dedicated causal direction"
    },
-   "ood_transfer": null,
+   "ood_transfer": {
+    "component_grain": {
+     "rho": 0.491,
+     "mag_ratio": 1.455
+    },
+    "verdict": "partial; type-split (S2274)"
+   },
    "interchange_validated": {
     "member_absdce": 0.5736,
     "selectivity": 1456.32,
@@ -2225,7 +2459,13 @@
     "family_share_r32": 0.545,
     "label": "principal-variance basis (member-agnostic, S2266); NOT a dedicated causal direction"
    },
-   "ood_transfer": null,
+   "ood_transfer": {
+    "component_grain": {
+     "rho": 0.491,
+     "mag_ratio": 1.455
+    },
+    "verdict": "partial; type-split (S2274)"
+   },
    "sufficiency": {
     "keep_top5_damage": 3.1488,
     "keep_rand5": 2.8746,
@@ -2285,7 +2525,13 @@
     "family_share_r32": 0.344,
     "label": "principal-variance basis (member-agnostic, S2266); NOT a dedicated causal direction"
    },
-   "ood_transfer": null
+   "ood_transfer": {
+    "component_grain": {
+     "rho": 0.491,
+     "mag_ratio": 1.455
+    },
+    "verdict": "partial; type-split (S2274)"
+   }
   },
   "r.3.0.2": {
    "top_component": "a16",
@@ -2339,7 +2585,13 @@
     "family_share_r32": 0.402,
     "label": "principal-variance basis (member-agnostic, S2266); NOT a dedicated causal direction"
    },
-   "ood_transfer": null
+   "ood_transfer": {
+    "component_grain": {
+     "rho": 0.491,
+     "mag_ratio": 1.455
+    },
+    "verdict": "partial; type-split (S2274)"
+   }
   },
   "r.3.1.0": {
    "top_component": "a2",
@@ -2389,7 +2641,13 @@
     "family_share_r32": 0.341,
     "label": "principal-variance basis (member-agnostic, S2266); NOT a dedicated causal direction"
    },
-   "ood_transfer": null,
+   "ood_transfer": {
+    "component_grain": {
+     "rho": 0.855,
+     "mag_ratio": 1.129
+    },
+    "verdict": "partial; type-split (S2274)"
+   },
    "sufficiency": {
     "keep_top5_damage": 3.9957,
     "keep_rand5": 3.5816,
@@ -2445,7 +2703,13 @@
     "family_share_r32": 0.835,
     "label": "principal-variance basis (member-agnostic, S2266); NOT a dedicated causal direction"
    },
-   "ood_transfer": null,
+   "ood_transfer": {
+    "component_grain": {
+     "rho": 0.77,
+     "mag_ratio": 1.125
+    },
+    "verdict": "partial; type-split (S2274)"
+   },
    "interchange_validated": {
     "member_absdce": 0.5047,
     "selectivity": 504660427.57,
@@ -2504,7 +2768,13 @@
     "family_share_r32": 0.352,
     "label": "principal-variance basis (member-agnostic, S2266); NOT a dedicated causal direction"
    },
-   "ood_transfer": null
+   "ood_transfer": {
+    "component_grain": {
+     "rho": 0.491,
+     "mag_ratio": 1.455
+    },
+    "verdict": "partial; type-split (S2274)"
+   }
   },
   "r.4.1.1": {
    "top_component": "a16",
@@ -2558,7 +2828,13 @@
     "family_share_r32": 0.356,
     "label": "principal-variance basis (member-agnostic, S2266); NOT a dedicated causal direction"
    },
-   "ood_transfer": null
+   "ood_transfer": {
+    "component_grain": {
+     "rho": 0.491,
+     "mag_ratio": 1.455
+    },
+    "verdict": "partial; type-split (S2274)"
+   }
   },
   "r.5.0.1": {
    "top_component": "a16",
@@ -2610,7 +2886,13 @@
     "family_share_r32": 0.348,
     "label": "principal-variance basis (member-agnostic, S2266); NOT a dedicated causal direction"
    },
-   "ood_transfer": null
+   "ood_transfer": {
+    "component_grain": {
+     "rho": 0.491,
+     "mag_ratio": 1.455
+    },
+    "verdict": "partial; type-split (S2274)"
+   }
   },
   "r.5.3.1": {
    "top_component": "a15",
@@ -2660,7 +2942,13 @@
     "family_share_r32": 0.677,
     "label": "principal-variance basis (member-agnostic, S2266); NOT a dedicated causal direction"
    },
-   "ood_transfer": null,
+   "ood_transfer": {
+    "component_grain": {
+     "rho": 0.685,
+     "mag_ratio": 1.181
+    },
+    "verdict": "partial; type-split (S2274)"
+   },
    "interchange_validated": {
     "member_absdce": 0.2626,
     "selectivity": 2415.797,
@@ -2717,7 +3005,13 @@
     "family_share_r32": 0.354,
     "label": "principal-variance basis (member-agnostic, S2266); NOT a dedicated causal direction"
    },
-   "ood_transfer": null
+   "ood_transfer": {
+    "component_grain": {
+     "rho": 0.491,
+     "mag_ratio": 1.455
+    },
+    "verdict": "partial; type-split (S2274)"
+   }
   },
   "r.6.0.1": {
    "top_component": "a14",
@@ -2767,7 +3061,13 @@
     "family_share_r32": 0.401,
     "label": "principal-variance basis (member-agnostic, S2266); NOT a dedicated causal direction"
    },
-   "ood_transfer": null
+   "ood_transfer": {
+    "component_grain": {
+     "rho": 0.527,
+     "mag_ratio": 1.634
+    },
+    "verdict": "partial; type-split (S2274)"
+   }
   },
   "r.6.0.2": {
    "top_component": "a9",
@@ -2817,7 +3117,13 @@
     "family_share_r32": 0.367,
     "label": "principal-variance basis (member-agnostic, S2266); NOT a dedicated causal direction"
    },
-   "ood_transfer": null
+   "ood_transfer": {
+    "component_grain": {
+     "rho": 0.891,
+     "mag_ratio": 0.963
+    },
+    "verdict": "partial; type-split (S2274)"
+   }
   },
   "r.6.0.3": {
    "top_component": "m17",
@@ -2865,7 +3171,13 @@
     "family_share_r32": 0.885,
     "label": "principal-variance basis (member-agnostic, S2266); NOT a dedicated causal direction"
    },
-   "ood_transfer": null
+   "ood_transfer": {
+    "component_grain": {
+     "rho": 0.6,
+     "mag_ratio": 1.4
+    },
+    "verdict": "partial; type-split (S2274)"
+   }
   },
   "r.6.1.0": {
    "top_component": "m5",
@@ -2913,7 +3225,13 @@
     "family_share_r32": 0.31,
     "label": "principal-variance basis (member-agnostic, S2266); NOT a dedicated causal direction"
    },
-   "ood_transfer": null
+   "ood_transfer": {
+    "component_grain": {
+     "rho": 0.891,
+     "mag_ratio": 1.094
+    },
+    "verdict": "partial; type-split (S2274)"
+   }
   },
   "r.6.1.1": {
    "top_component": "a16",
@@ -2967,7 +3285,13 @@
     "family_share_r32": 0.311,
     "label": "principal-variance basis (member-agnostic, S2266); NOT a dedicated causal direction"
    },
-   "ood_transfer": null
+   "ood_transfer": {
+    "component_grain": {
+     "rho": 0.491,
+     "mag_ratio": 1.455
+    },
+    "verdict": "partial; type-split (S2274)"
+   }
   },
   "r.6.2.0": {
    "top_component": "a16",
@@ -3019,7 +3343,13 @@
     "family_share_r32": 0.384,
     "label": "principal-variance basis (member-agnostic, S2266); NOT a dedicated causal direction"
    },
-   "ood_transfer": null
+   "ood_transfer": {
+    "component_grain": {
+     "rho": 0.491,
+     "mag_ratio": 1.455
+    },
+    "verdict": "partial; type-split (S2274)"
+   }
   },
   "r.6.2.1": {
    "top_component": "a9",
@@ -3069,7 +3399,13 @@
     "family_share_r32": 0.701,
     "label": "principal-variance basis (member-agnostic, S2266); NOT a dedicated causal direction"
    },
-   "ood_transfer": null
+   "ood_transfer": {
+    "component_grain": {
+     "rho": 0.891,
+     "mag_ratio": 0.963
+    },
+    "verdict": "partial; type-split (S2274)"
+   }
   },
   "r.6.2.2": {
    "top_component": "m16",
@@ -3123,7 +3459,13 @@
     "family_share_r32": 0.823,
     "label": "principal-variance basis (member-agnostic, S2266); NOT a dedicated causal direction"
    },
-   "ood_transfer": null,
+   "ood_transfer": {
+    "component_grain": {
+     "rho": 0.794,
+     "mag_ratio": 1.243
+    },
+    "verdict": "partial; type-split (S2274)"
+   },
    "minset_repair": {
     "recovery_minset": 0.37,
     "recovery_rand5": 0.248,
@@ -3178,7 +3520,13 @@
     "family_share_r32": 0.814,
     "label": "principal-variance basis (member-agnostic, S2266); NOT a dedicated causal direction"
    },
-   "ood_transfer": null
+   "ood_transfer": {
+    "component_grain": {
+     "rho": 0.891,
+     "mag_ratio": 0.963
+    },
+    "verdict": "partial; type-split (S2274)"
+   }
   },
   "r.6.3.0": {
    "top_component": "a16",
@@ -3232,7 +3580,13 @@
     "family_share_r32": 0.369,
     "label": "principal-variance basis (member-agnostic, S2266); NOT a dedicated causal direction"
    },
-   "ood_transfer": null
+   "ood_transfer": {
+    "component_grain": {
+     "rho": 0.491,
+     "mag_ratio": 1.455
+    },
+    "verdict": "partial; type-split (S2274)"
+   }
   },
   "r.6.3.1": {
    "top_component": "a16",
@@ -3286,7 +3640,13 @@
     "family_share_r32": 0.346,
     "label": "principal-variance basis (member-agnostic, S2266); NOT a dedicated causal direction"
    },
-   "ood_transfer": null
+   "ood_transfer": {
+    "component_grain": {
+     "rho": 0.491,
+     "mag_ratio": 1.455
+    },
+    "verdict": "partial; type-split (S2274)"
+   }
   },
   "r.7.1.1": {
    "top_component": "a7",
@@ -3336,7 +3696,13 @@
     "family_share_r32": 0.723,
     "label": "principal-variance basis (member-agnostic, S2266); NOT a dedicated causal direction"
    },
-   "ood_transfer": null
+   "ood_transfer": {
+    "component_grain": {
+     "rho": 0.564,
+     "mag_ratio": 1.086
+    },
+    "verdict": "partial; type-split (S2274)"
+   }
   },
   "r.8.1.0": {
    "top_component": "a3",
@@ -3386,7 +3752,13 @@
     "family_share_r32": 0.572,
     "label": "principal-variance basis (member-agnostic, S2266); NOT a dedicated causal direction"
    },
-   "ood_transfer": null
+   "ood_transfer": {
+    "component_grain": {
+     "rho": 0.673,
+     "mag_ratio": 1.129
+    },
+    "verdict": "partial; type-split (S2274)"
+   }
   }
  },
  "carrier_summary": {

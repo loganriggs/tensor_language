@@ -2262,6 +2262,9 @@ later per-rung backlog edits had silently anchored on text that was not here.
     pile rows. pred_a median Spearman >= 0.8; pred_b magnitude ratio in
     [0.6, 1.6]; pred_c fresh base sane. Null: signatures census-specific.
     -> ops/ood_transport.py [QUEUED 17:32Z]
+    RUN 2026-08-31, S2274: pred_a FAILED (median rho 0.679), b/c HELD.
+    Type split: MLP signatures text-generic (~0.85-0.90), attention
+    census-shaped (~0.44-0.53). Magnitudes transport (1.13).
 
 177. Era circuit-profile invariance (CPU, receipts; v2 - the rung-137
     receipt has no rows, discovered at build; gate also caught a module-
@@ -2270,6 +2273,9 @@ later per-rung backlog edits had silently anchored on text that was not here.
     >= 0.9; pred_b median ratio 132/99 in [0.4, 0.85]; pred_c coverage.
     Null: the grammar change moved which circuits pay.
     -> ops/pareto_profile.py [QUEUED 17:35Z]
+    RUN 2026-08-31, S2275: pred_a FAILED (rho 0.781), pred_b FAILED by
+    0.009 high (ratio 0.859: circuits relieved less than aggregate),
+    c HELD. Profile mostly era-invariant.
 
 178. Motif OV residual rank-8 (phase-2 opener): z = alpha.v + v@R8 per
     motif head, ridge-fit to real z on the alpha captures, SVD rank-8.
