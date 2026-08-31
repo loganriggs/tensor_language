@@ -65112,3 +65112,27 @@ again, recorded like §2206's; the rule stands) | pred_b FAILED (0.1361 < 0.35×
 - Bar-luck note for the pair of scoring calls (§2212 pred_a missed by 0.0045; §2206's K-rule missed by
   0.0001): registered bars are knife-edges by design; the running fix is to derive next-rung bars from
   measured quantities plus the wobble tolerance, as done here.
+
+## §2214 — RUNG 120: CROSS-TYPE INTERACTIONS ARE NEAR-ZERO — BUT ORDER-2 STILL MISSES, AND THE MEASURED LATTICE CLOSES THE GAP. pred_a FAILED as registered (order-2 pred +0.7766 vs measured +0.9427, miss 0.166): the miss is NOT cross-type (J(a1v,cf): −0.008/+0.003/+0.025/+0.027, summing +0.048; J(a0,cf3) = +0.0000 EXACTLY — pred_b HELD, exactness extends to interactions). Plugging the IN-SAMPLE measured lattice in — quad +0.8302 + a1v +0.0520 + ΣJ(a1v,cf) +0.0477 — predicts +0.9299, within 0.0128 of the measured 6-front. The calculus survives at order-measured, not order-2. pred_c HELD. (Convention: per-position dCE = CE(config) − CE(real model) on the census rows; lower is better.)
+
+`ops/frontier_lattice_oos.py`, **133s**, BACKLOG rung 120. **pred_a FAILED (0.1661 > 0.10) | pred_b HELD
+(+0.0000 ≤ 0.01) | pred_c HELD.**
+
+## §2215 — RUNG 121: VALIDITY DIES AT PAIRS, UNIFORMLY — every one of the six CP pairs keeps EXACTLY 2 of 62 circuits (singles keep 8–12). pred_a HELD (median 2 ≤ 0.5×min single 4), pred_b FAILED (max 2 < 6), pred_c HELD (all six aggs reproduce §2212 within tolerance). ANY two front sites together already corrupt the directions nearly every certified circuit needs; which two circuits survive (and whether it is the same two everywhere) is not recoverable from counts alone — per-circuit rows now need saving (rung 124). (Convention: per-position dCE = CE(config) − CE(real model) on the census rows; τ = 0.5×battery ref.)
+
+`ops/frontier_pair_certs.py`, **142s**, BACKLOG rung 121.
+
+## §2216 — RUNG 122: THE GLOBAL SWAP RECOVERS 0.72 OF 2.86 — INTERACTIONS EAT 56% OF THE FRONT'S SOLO GAIN — BUT THE DESCRIPTIVE FRESH-WINDOW L2 PRINTS +2.0553, WHICH WOULD BEAT THE §312-FAMILY FRONTIER (2.6662 FR, §2144) BY ~0.61. pred_a FAILED (+2.1358 > 1.6 census; anchor +2.8553), pred_b FAILED (0/62 — §2208's lesson at global grain), pred_c HELD. The L2 print is DESCRIPTIVE — no frontier claim is made here; rung 123 (queued) registers it with the §312 bars as predictions. (Convention: all numbers are CE added above the real model; LOWER IS BETTER.)
+
+`ops/frontier_global_cp.py`, **126s**, BACKLOG rung 122. **pred_a FAILED | pred_b FAILED | pred_c HELD.**
+
+- The arithmetic of the eaten gain: front tables ≈ +1.75 solo, CP-3456 front ≈ +0.12 solo → naive swap gain
+  ≈ 1.63; realized census gain 2.8553 − 2.1358 = 0.72. The ~0.9 difference is front×motif/tail interaction —
+  the motif heads and refit tail dictionaries read a CP-drifted stream, exactly the ladder physics of §2207
+  now acting on the replaced (not real) downstream. Note the tail-attn increment printed +0.5045, inside its
+  historical [0.30, 0.55] band: the tail refit absorbed the new frame; the motifs (weights-only, no refit)
+  could not.
+- Both §312-family window bars HELD for the first time in the CP series — the swapped config is a legitimate
+  member of the frontier family, pending rung 123's registered claim.
+- Values economics: the config stores 47.8M front values vs 231.6M — cheaper by 184M AND (descriptively)
+  ~0.6 better on fresh windows.

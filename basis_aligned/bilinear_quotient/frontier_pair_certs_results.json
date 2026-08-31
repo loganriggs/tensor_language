@@ -1,0 +1,42 @@
+{
+ "arms": {
+  "pair_01": {
+   "agg": 0.1675,
+   "valid": 2
+  },
+  "pair_02": {
+   "agg": 0.15,
+   "valid": 2
+  },
+  "pair_03": {
+   "agg": 0.1933,
+   "valid": 2
+  },
+  "pair_12": {
+   "agg": 0.1822,
+   "valid": 2
+  },
+  "pair_13": {
+   "agg": 0.1929,
+   "valid": 2
+  },
+  "pair_23": {
+   "agg": 0.261,
+   "valid": 2
+  }
+ },
+ "single_valids": {
+  "0": 9,
+  "1": 12,
+  "2": 11,
+  "3": 8
+ },
+ "median_pair_valid": 2.0,
+ "max_pair_valid": 2,
+ "convention": "per-position dCE = CE(config) - CE(real model) on census rows; tau = 0.5 x battery ref",
+ "pred_a_pairwise_fragile": true,
+ "pred_b_retention": false,
+ "pred_c_repro": true,
+ "self_reviewed": true,
+ "runtime_s": 142.3
+}

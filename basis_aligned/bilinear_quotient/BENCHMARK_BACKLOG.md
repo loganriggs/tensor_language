@@ -1651,6 +1651,9 @@ later per-rung backlog edits had silently anchored on text that was not here.
     <= 0.01 (exactness extends to interactions); pred_c pair sanity.
     Null: calculus is MLP-only. Price: none.
     -> ops/frontier_lattice_oos.py [QUEUED 07:29Z]
+    RUN 2026-08-31, S2214: pred_a FAILED (order-2 misses by 0.166) but
+    cross-type J tiny (+0.048 total; J(a0,cf3) exactly 0, pred_b HELD);
+    measured lattice predicts 6-front to 0.0128. pred_c HELD.
 
 121. Pair-grain certificates: six pairs rerun with tau-certificates (aggs
     double as rung-118 repro). pred_a median pair valid <= 0.5 x min
@@ -1658,6 +1661,9 @@ later per-rung backlog edits had silently anchored on text that was not here.
     pred_c all aggs within 0.015 of rung 118. Nulls: validity survives
     pairing / total collapse. Price: none.
     -> ops/frontier_pair_certs.py [QUEUED 07:29Z]
+    RUN 2026-08-31, S2215: pred_a/c HELD, pred_b FAILED. Every pair
+    keeps EXACTLY 2/62 (singles 8-12): validity dies at pairs,
+    uniformly. Survivor identity unrecoverable from counts -> rung 124.
 
 122. CP-front GLOBAL config: full S2144 config (motifs, K middles, tail
     dicts refit in-frame) with front MLPs swapped in place to CP-3456
@@ -1667,3 +1673,7 @@ later per-rung backlog edits had silently anchored on text that was not here.
     (anti-inertness). Null: front-motif/tail interactions eat the gain;
     certs stay 0-2. Price: front 47.8M vs 231.6M values.
     -> ops/frontier_global_cp.py [QUEUED 07:33Z]
+    RUN 2026-08-31, S2216: pred_a/b FAILED, pred_c HELD. Census
+    2.8553 -> 2.1358 (interactions ate 56% of solo gain); 0/62. BUT
+    descriptive FR fresh L2 +2.0553 vs frontier 2.6662 - registered
+    claim = rung 123. Both S312 window bars HELD.
