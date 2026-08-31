@@ -1,0 +1,47 @@
+ARM: rung-127 build + all-position trajectory splice at motif layers 2-9
+a2-input probe acc 0.69
+fit a2
+fit a3
+fit a4
+fit a5
+fit a6
+fit a7
+fit a8
+fit a9
+fit a10
+fit a11
+fit a12
+fit a13
+fit a14
+fit a15
+fit a16
+fit a17
+  cp_swap: front MLPs m0-m3 -> CP top-3456 in place (tailE remains table-front-fit)
+L1 (+38 heads): C +1.4823 | fresh +1.5509
+  captured real-trajectory tail-attention targets
+fit a10L
+fit a11L
+fit a12L
+fit a13L
+fit a14L
+fit a15L
+fit a16L
+fit a17L
+  captured real-trajectory motif-layer attn outputs (250 batches)
+  window 0 (7 docs): L2 fresh +1.8764
+  window 1 (42 docs): L2 fresh +2.1855
+  window 2 (17 docs): L2 fresh +2.2064
+  window 3 (23 docs): L2 fresh +2.2184
+  window 4 (43 docs): L2 fresh +2.4206
+  window 5 (26 docs): L2 fresh +2.0761
+  window 6 (35 docs): L2 fresh +1.9654
+  window 7 (35 docs): L2 fresh +1.9407
+L2 empirical: C +1.8845 | fresh +1.8764 | tail-attn increment +0.3255
+(a) L2 <= +2.75 fresh: HELD
+(b) increment in [0.30,0.55]: HELD
+  per-class dCE: digit:+0.408 bclose:+0.181 newline:+0.170 sentend:-0.163 comma:-0.181 name:+2.185 rep:+0.884 subword:+1.083 ind:+1.145 other:+0.806
+L2 fresh +1.8764 (was +1.8765); census +0.8758 (was +1.9474); increment +0.3255; valid 0/62
+(a) census-bar-1.55; name +2.1854 <= 1.0: HELD
+(b) name-bar-2.2 via census +0.8758: HELD
+(c) L1F invariant, census >= 1.4: FAILED
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/frontier_motiftraj_results.json (138s)

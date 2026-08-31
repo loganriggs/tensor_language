@@ -1933,6 +1933,9 @@ later per-rung backlog edits had silently anchored on text that was not here.
     credit); pred_b census <= 1.87; pred_c guards. Null: tailE credit
     redundant with context corruption (name >= 1.15). Price: none.
     -> ops/frontier_namefloor.py [QUEUED 12:30Z]
+    RUN 2026-08-31, S2242: pred_a/c HELD, pred_b FAILED by 0.0089.
+    Name floor +0.717; tailE credit roughly additive (0.604). Remainder
+    = front/motif direct share.
 
 147. Trajectory splice at the motif grain (blocks 2-9, all positions,
     li default-bound, counter at li=9): does front corruption transit
@@ -1940,3 +1943,20 @@ later per-rung backlog edits had silently anchored on text that was not here.
     pred_c L1F invariant, census >= 1.4. Null: recovery < 0.15 (motif
     cost is direct approximation). Price: none.
     -> ops/frontier_motiftraj.py [QUEUED 12:34Z]
+    RUN 2026-08-31, S2243: pred_a/b HELD, pred_c FAILED on the lower
+    sanity floor (second S2199-class artifact; oracle floors -> 0.5
+    henceforth). Census 1.9474 -> 0.8758: motif grain carries ~1.07.
+    sentend/comma go NEGATIVE. 0/62 under both splices.
+
+148. Class-conditioned motif alphas (9 heads x 10 classes/layer; fallback
+    to scalar alpha when labels absent - window prints mixed-frame, not
+    scored; li default-bound). pred_a census <= 1.87; pred_b subword <=
+    2.15; pred_c increment in [0.25, 0.45], census >= 1.4. Null: alpha
+    class-invariant (< 0.02). Price: +1,368 scalars. Tripwire: inert if
+    census within 1e-3. -> ops/frontier_clsalpha.py [QUEUED 13:00Z]
+
+149. Block-5 attention real (the attn5 cliff in the modern frontier):
+    motif_off={5}, tail dicts refit under it. pred_a census <= 1.80;
+    pred_b subword <= 2.05; pred_c increment in [0.25, 0.45], census >=
+    1.4. Null: the cliff was a table-era phenomenon (< 0.05). Price:
+    ~5.3M values. -> ops/frontier_attn5real.py [QUEUED 13:00Z]

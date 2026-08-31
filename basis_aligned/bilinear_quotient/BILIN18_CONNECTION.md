@@ -65349,3 +65349,28 @@ VOID-AS-DESIGNED; corrected control = rung 133 (offline real-module targets, the
   tail-attn family. Filed for the 13:07 math review.
 - The corruption economy so far: tail-attn reads carry ~1.01 of the frontier's +1.95; rung 146 (name floor)
   and rung 147 (motif-grain transit) complete the map.
+
+## §2242 — RUNG 146: THE NAME FLOOR IS +0.717 — trajectory attention + tailE bypass together, and the tailE credit is ROUGHLY ADDITIVE on top of the trajectory splice (ladder: 3.134 → 1.321 → 0.717; tailE credit 0.604 here vs 0.555 at module grade). pred_a HELD (≤ 0.9), pred_b FAILED by 0.0089 (census +1.8789 > 1.87 — knife-edge), pred_c HELD. What remains of name (~0.72) is the front/motif DIRECT share — the part no tail-complex idealization can touch. (Convention: CE added above the real model; lower is better; oracle diagnostic.)
+
+`ops/frontier_namefloor.py`, **138s**, BACKLOG rung 146.
+
+## §2243 — RUNG 147: THE MOTIF GRAIN CARRIES EVEN MORE THAN THE TAIL — the all-position trajectory splice at blocks 2–9 takes census +1.9474 → +0.8758 (recovery 1.072, vs the tail splice's 1.007). pred_a HELD (far beyond its 1.55 bar), pred_b HELD (name +2.185 ≤ 2.2 — name transits mostly through TAIL attention, consistent with §2239), pred_c FAILED on the lower sanity floor exactly as §2241's did (census 0.876 < 1.4; the effect outran the registered sanity range — same §2199 artifact class, and the second occurrence in two rungs: floors on oracle arms are now to be set at 0.5, noted for future preregistrations). (Convention: CE added above the real model; lower is better; oracle diagnostic.)
+
+`ops/frontier_motiftraj.py`, **138s**, BACKLOG rung 147.
+
+```
+  per-class under the motif-grain splice (frontier value in parens):
+  subword +1.083 (2.319)  ind +1.145 (1.994)  other +0.806 (2.116)  rep +0.884 (1.708)
+  name +2.185 (3.134)     digit +0.408 (1.250)  bclose +0.181 (1.012)
+  sentend −0.163 (0.339)  comma −0.181 (0.285)   ← NEGATIVE: the spliced config BEATS the real model here
+```
+
+- **The corruption economy, complete:** motif-grain reads carry ~1.07 and tail-grain reads ~1.01 of the
+  frontier's +1.95 — overlapping chunks (fixing either family cleans much of what the other reads). Subword
+  transits BOTH families; name transits mainly the tail; the cheap classes pay small frame-mixing penalties
+  (and go NEGATIVE under the motif splice — the tail dictionaries fit on a cleaner stream overshoot the real
+  model on punctuation).
+- Certificates: 0/62 under BOTH oracle splices — the direction problem is upstream of all attention reads.
+- Deployable consequences queued: rung 148 (class-conditioned motif α — the untested cheap structure; §2220
+  only tested frame-REFIT of scalar α) and rung 149 (block-5 attention real — the attn5 price cliff finally
+  priced inside the modern frontier).
