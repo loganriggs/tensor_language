@@ -65486,3 +65486,15 @@ VOID-AS-DESIGNED; corrected control = rung 133 (offline real-module targets, the
   interchange validated as the surgical instrument (selectivity 425 vs removal's 1.7), and rank-8/32
   counterfactual carriers found at every sampled circuit. The repertoire now carries k*, validated
   interchange refs, and first subspace shares.
+
+## §2259 — RUNG 162: DAS-PROPER v1 FAILS WITH AN OPTIMIZATION-PATHOLOGY SIGNATURE — all three preds FAILED, but the null ("learning adds < 0.05; PCA is the ceiling") is NOT cleanly won: the training loss ROSE at 2 of 3 circuits (0.434 → 0.504; 0.052 → 0.108) and the CONTROL circuit's learned share REGRESSED from its own warm start (pca8 0.57 → learned 0.32) — an optimizer that degrades a warm start it should at worst preserve is a broken instrument (Adam steps + naive QR retraction fighting each other at lr 1e-2), not a physics verdict. Scored as written; arm marked SUSPECT-INSTRUMENT; v2 queued (rung 164) with lr 3e-3, 300 steps with cosine decay, best-loss checkpointing, and an optimizer-sanity clause (final loss ≤ initial) as a registered pred. (Convention: share = member |dCE| of subspace patch / full swap; census rows.)
+
+`ops/dasproper.py`, **109s**, BACKLOG rung 162. Orthogonality itself was clean (residuals ~7e-7).
+
+## §2260 — RUNG 163: MINIMAL SETS SATURATE BY SIX — ALL THREE PREDS HELD. For the 47 capped circuits: median 5-of-6 saturation 0.909, median k* = 5, protocol repro 1.000. The full minimality picture across all 62: k* ≈ {2: 3, 3: 12, 4: 6, 5–6: ~41} — the typical circuit needs FIVE components (of 16 measured) to reach 90% of its knockout damage. (Cosmetic print bug recorded: the k* histogram line still binned 1–4 from the base script; the receipt's per-circuit k* values are correct and the repertoire uses those.) (Convention: per-position dCE = CE(joint mean-ablation) − CE(real model) on the census rows.)
+
+`ops/minimality6.py`, **1042s**, BACKLOG rung 163.
+
+- Repertoire consequence: the k* column is now final at grain-6 for all 62. The operator's non-minimality
+  intuition lands at its measured value: circuits are ~5-component objects on a 16-component shared
+  substrate — neither one-component labels nor substrate-wide smears.

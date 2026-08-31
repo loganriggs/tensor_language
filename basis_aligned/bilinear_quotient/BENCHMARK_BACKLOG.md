@@ -2125,8 +2125,26 @@ later per-rung backlog edits had silently anchored on text that was not here.
     pca8+0.15 at both low; pred_b median learned >= 0.55; pred_c
     orthonormal + control no-regress. Null: learning adds < 0.05. Price:
     9,216 values per passing subspace. -> ops/dasproper.py [QUEUED 15:03Z]
+    RUN 2026-08-31, S2259: all FAILED - SUSPECT INSTRUMENT (loss rose
+    2/3; control regressed from warm start). v2 = rung 164 (lr 3e-3,
+    cosine, best-loss checkpoint, optimizer-sanity pred).
 
 163. Minimality extension to 6: the 47 capped circuits, top-1..6. pred_a
     median 5-of-6 saturation >= 0.85; pred_b median k* <= 5; pred_c
     protocol repro. Null: no saturation by 6 (substrate-wide circuits).
     -> ops/minimality6.py [QUEUED 15:03Z]
+    RUN 2026-08-31, S2260: ALL HELD. Median k* = 5, saturation by 6
+    (0.909). Full picture: circuits are ~5-component objects. Histogram
+    print bug (1-4 bins) recorded; receipt values correct.
+
+164. DAS-proper v2 (optimizer fixed: lr 3e-3 cosine, 300 steps, best-loss
+    checkpoint). pred_a control no-regress (>= pca8 - 0.02); pred_b
+    learned >= pca8 + 0.10 at >= 1 low circuit; pred_c orthonormal +
+    best loss <= initial at all 3. Null: healthy optimizer still adds
+    < 0.05 (PCA is the rank-8 ceiling). -> ops/dasproper2.py [QUEUED 15:31Z]
+
+165. Carrier necessity (DAS-lite dual): comp32 = patch the complement of
+    pca32; per-circuit sum check. pred_a median complement share <= 0.5;
+    pred_b median |sum - 1| <= 0.35; pred_c full-swap repro. Null:
+    basis-insensitive damage (the carrier is a dimension-counting
+    illusion). -> ops/carrier_necessity.py [QUEUED 15:31Z]

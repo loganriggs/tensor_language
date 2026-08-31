@@ -1,5 +1,5 @@
 {
- "built": "2026-08-31T15:00Z",
+ "built": "2026-08-31T15:30Z",
  "n_circuits": 62,
  "provenance": {
   "battery": "circuits/BATTERY.json",
@@ -18,8 +18,7 @@
   ]
  },
  "pending": {
-  "kstar_extension": "rung 163 (47 capped circuits)",
-  "das_learned": "rung 162 (DAS-proper)",
+  "das_learned": "rung 164 (v2, optimizer fixed)",
   "ood_transfer": "designed, not yet queued"
  },
  "circuits": {
@@ -55,14 +54,16 @@
    },
    "simplification_breadth": {},
    "minimality": {
-    "necessity_curve": [
+    "necessity_curve_6": [
      1.7276,
      2.2262,
      2.5142,
-     2.813
+     2.813,
+     2.7398,
+     2.8827
     ],
-    "top1_share": 0.614,
-    "capped": true
+    "top1_share": 0.599,
+    "grain": 6
    },
    "kstar": 4,
    "das_subspace": {
@@ -258,16 +259,18 @@
     "motif": true
    },
    "minimality": {
-    "necessity_curve": [
+    "necessity_curve_6": [
      0.5958,
      0.8993,
      1.3409,
-     1.5167
+     1.5167,
+     2.2322,
+     2.2147
     ],
-    "top1_share": 0.393,
-    "capped": true
+    "top1_share": 0.269,
+    "grain": 6
    },
-   "kstar": 4,
+   "kstar": 5,
    "das_subspace": null,
    "ood_transfer": null
   },
@@ -307,16 +310,18 @@
     "motif": true
    },
    "minimality": {
-    "necessity_curve": [
+    "necessity_curve_6": [
      0.7343,
      1.1333,
      1.4051,
-     1.7484
+     1.7484,
+     1.8765,
+     2.4961
     ],
-    "top1_share": 0.42,
-    "capped": true
+    "top1_share": 0.294,
+    "grain": 6
    },
-   "kstar": 4,
+   "kstar": 6,
    "das_subspace": null,
    "ood_transfer": null
   },
@@ -356,16 +361,18 @@
     "motif": false
    },
    "minimality": {
-    "necessity_curve": [
+    "necessity_curve_6": [
      0.6339,
      0.8633,
      1.3158,
-     1.4678
+     1.4678,
+     2.2384,
+     2.4017
     ],
-    "top1_share": 0.432,
-    "capped": true
+    "top1_share": 0.264,
+    "grain": 6
    },
-   "kstar": 4,
+   "kstar": 5,
    "das_subspace": null,
    "ood_transfer": null
   },
@@ -506,16 +513,18 @@
    },
    "simplification_breadth": {},
    "minimality": {
-    "necessity_curve": [
+    "necessity_curve_6": [
      0.5403,
      1.0401,
      1.4422,
-     1.7655
+     1.7655,
+     2.0344,
+     1.9826
     ],
-    "top1_share": 0.306,
-    "capped": true
+    "top1_share": 0.273,
+    "grain": 6
    },
-   "kstar": 4,
+   "kstar": 5,
    "das_subspace": {
     "fixed_shares": {
      "pca1": 0.079,
@@ -568,16 +577,18 @@
     "tail_dict": false
    },
    "minimality": {
-    "necessity_curve": [
+    "necessity_curve_6": [
      0.4508,
      1.0389,
      1.2312,
-     1.5179
+     1.5179,
+     1.8146,
+     2.0782
     ],
-    "top1_share": 0.297,
-    "capped": true
+    "top1_share": 0.217,
+    "grain": 6
    },
-   "kstar": 4,
+   "kstar": 6,
    "das_subspace": null,
    "ood_transfer": null
   },
@@ -613,16 +624,18 @@
    },
    "simplification_breadth": {},
    "minimality": {
-    "necessity_curve": [
+    "necessity_curve_6": [
      0.5588,
      1.0589,
      1.4523,
-     1.778
+     1.778,
+     1.692,
+     1.9854
     ],
-    "top1_share": 0.314,
-    "capped": true
+    "top1_share": 0.281,
+    "grain": 6
    },
-   "kstar": 4,
+   "kstar": 6,
    "das_subspace": null,
    "ood_transfer": null
   },
@@ -658,16 +671,18 @@
    },
    "simplification_breadth": {},
    "minimality": {
-    "necessity_curve": [
+    "necessity_curve_6": [
      0.6422,
      1.1929,
      1.593,
-     1.9401
+     1.9401,
+     2.2115,
+     2.4074
     ],
-    "top1_share": 0.331,
-    "capped": true
+    "top1_share": 0.267,
+    "grain": 6
    },
-   "kstar": 4,
+   "kstar": 5,
    "das_subspace": null,
    "ood_transfer": null
   },
@@ -703,14 +718,16 @@
    },
    "simplification_breadth": {},
    "minimality": {
-    "necessity_curve": [
+    "necessity_curve_6": [
      0.6202,
      1.1895,
      1.6214,
-     1.9769
+     1.9769,
+     2.2379,
+     2.161
     ],
-    "top1_share": 0.314,
-    "capped": true
+    "top1_share": 0.287,
+    "grain": 6
    },
    "kstar": 4,
    "das_subspace": null,
@@ -748,16 +765,18 @@
    },
    "simplification_breadth": {},
    "minimality": {
-    "necessity_curve": [
+    "necessity_curve_6": [
      0.5404,
      0.9488,
      1.3843,
-     1.7582
+     1.7582,
+     2.3037,
+     2.5576
     ],
-    "top1_share": 0.307,
-    "capped": true
+    "top1_share": 0.211,
+    "grain": 6
    },
-   "kstar": 4,
+   "kstar": 5,
    "das_subspace": null,
    "ood_transfer": null
   },
@@ -793,16 +812,18 @@
    },
    "simplification_breadth": {},
    "minimality": {
-    "necessity_curve": [
+    "necessity_curve_6": [
      0.6206,
      1.1812,
      1.677,
-     2.367
+     2.367,
+     2.6283,
+     2.8761
     ],
-    "top1_share": 0.262,
-    "capped": true
+    "top1_share": 0.216,
+    "grain": 6
    },
-   "kstar": 4,
+   "kstar": 5,
    "das_subspace": null,
    "ood_transfer": null
   },
@@ -842,16 +863,18 @@
     "cp2304": false
    },
    "minimality": {
-    "necessity_curve": [
+    "necessity_curve_6": [
      1.2793,
      1.8675,
      2.1623,
-     2.4284
+     2.4284,
+     2.7319,
+     2.9941
     ],
-    "top1_share": 0.527,
-    "capped": true
+    "top1_share": 0.427,
+    "grain": 6
    },
-   "kstar": 4,
+   "kstar": 5,
    "das_subspace": null,
    "ood_transfer": null
   },
@@ -891,16 +914,18 @@
     "cp2304": false
    },
    "minimality": {
-    "necessity_curve": [
+    "necessity_curve_6": [
      1.2798,
      1.6351,
      2.0769,
-     2.5381
+     2.5381,
+     2.8527,
+     3.1317
     ],
-    "top1_share": 0.504,
-    "capped": true
+    "top1_share": 0.409,
+    "grain": 6
    },
-   "kstar": 4,
+   "kstar": 5,
    "das_subspace": null,
    "ood_transfer": null
   },
@@ -940,16 +965,18 @@
     "cp2304": false
    },
    "minimality": {
-    "necessity_curve": [
+    "necessity_curve_6": [
      1.133,
      1.4804,
      2.0084,
-     2.4398
+     2.4398,
+     2.8211,
+     3.1486
     ],
-    "top1_share": 0.464,
-    "capped": true
+    "top1_share": 0.36,
+    "grain": 6
    },
-   "kstar": 4,
+   "kstar": 6,
    "das_subspace": {
     "fixed_shares": {
      "pca1": 0.262,
@@ -1051,16 +1078,18 @@
     "cp2304": false
    },
    "minimality": {
-    "necessity_curve": [
+    "necessity_curve_6": [
      1.3873,
      1.9906,
      2.2018,
-     2.6233
+     2.6233,
+     3.0179,
+     2.979
     ],
-    "top1_share": 0.529,
-    "capped": true
+    "top1_share": 0.466,
+    "grain": 6
    },
-   "kstar": 4,
+   "kstar": 5,
    "das_subspace": null,
    "ood_transfer": null
   },
@@ -1096,16 +1125,18 @@
    },
    "simplification_breadth": {},
    "minimality": {
-    "necessity_curve": [
+    "necessity_curve_6": [
      0.5347,
      0.927,
      1.3847,
-     1.8002
+     1.8002,
+     2.1721,
+     2.6294
     ],
-    "top1_share": 0.297,
-    "capped": true
+    "top1_share": 0.203,
+    "grain": 6
    },
-   "kstar": 4,
+   "kstar": 6,
    "das_subspace": {
     "fixed_shares": {
      "pca1": 0.196,
@@ -1154,16 +1185,18 @@
    },
    "simplification_breadth": {},
    "minimality": {
-    "necessity_curve": [
+    "necessity_curve_6": [
      0.5668,
      0.9984,
      1.3452,
-     1.7189
+     1.7189,
+     1.9875,
+     1.9532
     ],
-    "top1_share": 0.33,
-    "capped": true
+    "top1_share": 0.29,
+    "grain": 6
    },
-   "kstar": 4,
+   "kstar": 5,
    "das_subspace": null,
    "ood_transfer": null
   },
@@ -1199,16 +1232,18 @@
    },
    "simplification_breadth": {},
    "minimality": {
-    "necessity_curve": [
+    "necessity_curve_6": [
      0.7196,
      1.2311,
      1.7015,
-     2.1758
+     2.1758,
+     2.6126,
+     3.1229
     ],
-    "top1_share": 0.331,
-    "capped": true
+    "top1_share": 0.23,
+    "grain": 6
    },
-   "kstar": 4,
+   "kstar": 6,
    "das_subspace": null,
    "ood_transfer": null
   },
@@ -1297,16 +1332,18 @@
     "motif": false
    },
    "minimality": {
-    "necessity_curve": [
+    "necessity_curve_6": [
      0.7349,
      1.0269,
      1.1975,
-     1.3807
+     1.3807,
+     1.5281,
+     1.7846
     ],
-    "top1_share": 0.532,
-    "capped": true
+    "top1_share": 0.412,
+    "grain": 6
    },
-   "kstar": 4,
+   "kstar": 6,
    "das_subspace": null,
    "ood_transfer": null
   },
@@ -1346,16 +1383,18 @@
     "motif": true
    },
    "minimality": {
-    "necessity_curve": [
+    "necessity_curve_6": [
      0.9828,
      1.4626,
      1.778,
-     1.9867
+     1.9867,
+     2.2808,
+     2.4971
     ],
-    "top1_share": 0.495,
-    "capped": true
+    "top1_share": 0.394,
+    "grain": 6
    },
-   "kstar": 4,
+   "kstar": 5,
    "das_subspace": {
     "fixed_shares": {
      "pca1": 0.065,
@@ -1408,16 +1447,18 @@
     "motif": true
    },
    "minimality": {
-    "necessity_curve": [
+    "necessity_curve_6": [
      1.687,
      2.2451,
      2.6016,
-     2.8973
+     2.8973,
+     3.0205,
+     3.3223
     ],
-    "top1_share": 0.582,
-    "capped": true
+    "top1_share": 0.508,
+    "grain": 6
    },
-   "kstar": 4,
+   "kstar": 5,
    "das_subspace": null,
    "ood_transfer": null
   },
@@ -1506,16 +1547,18 @@
     "motif": true
    },
    "minimality": {
-    "necessity_curve": [
+    "necessity_curve_6": [
      1.2345,
      1.7736,
      2.1086,
-     2.4487
+     2.4487,
+     2.6122,
+     2.8674
     ],
-    "top1_share": 0.504,
-    "capped": true
+    "top1_share": 0.431,
+    "grain": 6
    },
-   "kstar": 4,
+   "kstar": 5,
    "das_subspace": null,
    "ood_transfer": null
   },
@@ -1555,16 +1598,18 @@
     "motif": false
    },
    "minimality": {
-    "necessity_curve": [
+    "necessity_curve_6": [
      0.4859,
      0.9931,
      1.1348,
-     1.2852
+     1.2852,
+     1.6145,
+     1.7972
     ],
-    "top1_share": 0.378,
-    "capped": true
+    "top1_share": 0.27,
+    "grain": 6
    },
-   "kstar": 4,
+   "kstar": 6,
    "das_subspace": null,
    "ood_transfer": null
   },
@@ -1653,16 +1698,18 @@
     "motif": true
    },
    "minimality": {
-    "necessity_curve": [
+    "necessity_curve_6": [
      0.916,
      1.2754,
      1.7769,
-     2.1454
+     2.1454,
+     2.2963,
+     2.5257
     ],
-    "top1_share": 0.427,
-    "capped": true
+    "top1_share": 0.363,
+    "grain": 6
    },
-   "kstar": 4,
+   "kstar": 5,
    "das_subspace": null,
    "ood_transfer": null
   },
@@ -1702,16 +1749,18 @@
     "motif": true
    },
    "minimality": {
-    "necessity_curve": [
+    "necessity_curve_6": [
      0.4774,
      0.9757,
      1.132,
-     1.2777
+     1.2777,
+     1.5427,
+     1.7904
     ],
-    "top1_share": 0.374,
-    "capped": true
+    "top1_share": 0.267,
+    "grain": 6
    },
-   "kstar": 4,
+   "kstar": 6,
    "das_subspace": null,
    "ood_transfer": null
   },
@@ -1751,16 +1800,18 @@
     "motif": true
    },
    "minimality": {
-    "necessity_curve": [
+    "necessity_curve_6": [
      0.5293,
      0.7607,
      1.1008,
-     1.3746
+     1.3746,
+     1.5426,
+     1.8113
     ],
-    "top1_share": 0.385,
-    "capped": true
+    "top1_share": 0.292,
+    "grain": 6
    },
-   "kstar": 4,
+   "kstar": 6,
    "das_subspace": null,
    "ood_transfer": null
   },
@@ -1800,16 +1851,18 @@
     "motif": true
    },
    "minimality": {
-    "necessity_curve": [
+    "necessity_curve_6": [
      0.8839,
      1.6149,
      1.8596,
-     2.2358
+     2.2358,
+     2.4037,
+     2.619
     ],
-    "top1_share": 0.395,
-    "capped": true
+    "top1_share": 0.337,
+    "grain": 6
    },
-   "kstar": 4,
+   "kstar": 5,
    "das_subspace": null,
    "ood_transfer": null
   },
@@ -1845,16 +1898,18 @@
    },
    "simplification_breadth": {},
    "minimality": {
-    "necessity_curve": [
+    "necessity_curve_6": [
      0.9663,
      1.3086,
      1.4649,
-     1.7017
+     1.7017,
+     1.8313,
+     1.9529
     ],
-    "top1_share": 0.568,
-    "capped": true
+    "top1_share": 0.495,
+    "grain": 6
    },
-   "kstar": 4,
+   "kstar": 5,
    "das_subspace": {
     "fixed_shares": {
      "pca1": 0.107,
@@ -1907,16 +1962,18 @@
     "motif": true
    },
    "minimality": {
-    "necessity_curve": [
+    "necessity_curve_6": [
      0.4919,
      0.9915,
      1.1402,
-     1.3068
+     1.3068,
+     1.5229,
+     1.83
     ],
-    "top1_share": 0.376,
-    "capped": true
+    "top1_share": 0.269,
+    "grain": 6
    },
-   "kstar": 4,
+   "kstar": 6,
    "das_subspace": null,
    "ood_transfer": null
   },
@@ -1956,16 +2013,18 @@
     "tail_dict": false
    },
    "minimality": {
-    "necessity_curve": [
+    "necessity_curve_6": [
      0.5423,
      1.3513,
      1.8409,
-     2.2634
+     2.2634,
+     3.0887,
+     3.2975
     ],
-    "top1_share": 0.24,
-    "capped": true
+    "top1_share": 0.164,
+    "grain": 6
    },
-   "kstar": 4,
+   "kstar": 5,
    "das_subspace": {
     "fixed_shares": {
      "pca1": 0.052,
@@ -2018,16 +2077,18 @@
     "tail_dict": false
    },
    "minimality": {
-    "necessity_curve": [
+    "necessity_curve_6": [
      0.7896,
      1.77,
      2.4727,
-     3.0446
+     3.0446,
+     3.8829,
+     4.0794
     ],
-    "top1_share": 0.259,
-    "capped": true
+    "top1_share": 0.194,
+    "grain": 6
    },
-   "kstar": 4,
+   "kstar": 5,
    "das_subspace": null,
    "ood_transfer": null
   },
@@ -2067,16 +2128,18 @@
     "tail_dict": false
    },
    "minimality": {
-    "necessity_curve": [
+    "necessity_curve_6": [
      0.5036,
      1.1333,
      1.6084,
-     2.0485
+     2.0485,
+     2.7518,
+     3.0784
     ],
-    "top1_share": 0.246,
-    "capped": true
+    "top1_share": 0.164,
+    "grain": 6
    },
-   "kstar": 4,
+   "kstar": 6,
    "das_subspace": null,
    "ood_transfer": null
   },
@@ -2116,16 +2179,18 @@
     "tail_dict": false
    },
    "minimality": {
-    "necessity_curve": [
+    "necessity_curve_6": [
      0.5694,
      1.3163,
      1.8355,
-     2.3059
+     2.3059,
+     3.0412,
+     3.2305
     ],
-    "top1_share": 0.247,
-    "capped": true
+    "top1_share": 0.176,
+    "grain": 6
    },
-   "kstar": 4,
+   "kstar": 5,
    "das_subspace": null,
    "ood_transfer": null
   },
@@ -2161,14 +2226,16 @@
    },
    "simplification_breadth": {},
    "minimality": {
-    "necessity_curve": [
+    "necessity_curve_6": [
      1.3427,
      1.8333,
      1.7572,
-     2.6471
+     2.6471,
+     2.7133,
+     2.7878
     ],
-    "top1_share": 0.507,
-    "capped": true
+    "top1_share": 0.482,
+    "grain": 6
    },
    "kstar": 4,
    "das_subspace": null,
@@ -2206,16 +2273,18 @@
    },
    "simplification_breadth": {},
    "minimality": {
-    "necessity_curve": [
+    "necessity_curve_6": [
      0.4446,
      0.7408,
      0.9979,
-     1.411
+     1.411,
+     1.644,
+     2.3815
     ],
-    "top1_share": 0.315,
-    "capped": true
+    "top1_share": 0.187,
+    "grain": 6
    },
-   "kstar": 4,
+   "kstar": 6,
    "das_subspace": {
     "fixed_shares": {
      "pca1": 0.249,
@@ -2268,16 +2337,18 @@
     "tail_dict": false
    },
    "minimality": {
-    "necessity_curve": [
+    "necessity_curve_6": [
      0.3081,
      0.7589,
      0.7959,
-     1.4321
+     1.4321,
+     1.7545,
+     2.4478
     ],
-    "top1_share": 0.215,
-    "capped": true
+    "top1_share": 0.126,
+    "grain": 6
    },
-   "kstar": 4,
+   "kstar": 6,
    "das_subspace": null,
    "ood_transfer": null
   },
@@ -2317,16 +2388,18 @@
     "tail_dict": false
    },
    "minimality": {
-    "necessity_curve": [
+    "necessity_curve_6": [
      0.3993,
      0.9283,
      0.949,
-     1.5329
+     1.5329,
+     1.9081,
+     2.2262
     ],
-    "top1_share": 0.261,
-    "capped": true
+    "top1_share": 0.179,
+    "grain": 6
    },
-   "kstar": 4,
+   "kstar": 6,
    "das_subspace": null,
    "ood_transfer": null
   },
@@ -2411,14 +2484,16 @@
    },
    "simplification_breadth": {},
    "minimality": {
-    "necessity_curve": [
+    "necessity_curve_6": [
      0.222,
      0.4287,
      1.1726,
-     1.9923
+     1.9923,
+     2.0948,
+     2.1975
     ],
-    "top1_share": 0.111,
-    "capped": true
+    "top1_share": 0.101,
+    "grain": 6
    },
    "kstar": 4,
    "das_subspace": {
@@ -2518,14 +2593,16 @@
    },
    "simplification_breadth": {},
    "minimality": {
-    "necessity_curve": [
+    "necessity_curve_6": [
      0.4359,
      0.807,
      2.8346,
-     4.5339
+     4.5339,
+     4.9392,
+     4.679
     ],
-    "top1_share": 0.096,
-    "capped": true
+    "top1_share": 0.093,
+    "grain": 6
    },
    "kstar": 4,
    "das_subspace": null,
@@ -2563,16 +2640,18 @@
    },
    "simplification_breadth": {},
    "minimality": {
-    "necessity_curve": [
+    "necessity_curve_6": [
      0.7357,
      0.7361,
      0.9334,
-     1.2558
+     1.2558,
+     1.6153,
+     1.855
     ],
-    "top1_share": 0.586,
-    "capped": true
+    "top1_share": 0.397,
+    "grain": 6
    },
-   "kstar": 4,
+   "kstar": 6,
    "das_subspace": null,
    "ood_transfer": null
   },
@@ -2702,16 +2781,18 @@
     "tail_dict": false
    },
    "minimality": {
-    "necessity_curve": [
+    "necessity_curve_6": [
      0.2636,
      0.6473,
      1.3232,
-     1.5162
+     1.5162,
+     1.8511,
+     2.4234
     ],
-    "top1_share": 0.174,
-    "capped": true
+    "top1_share": 0.109,
+    "grain": 6
    },
-   "kstar": 4,
+   "kstar": 6,
    "das_subspace": null,
    "ood_transfer": null
   },
@@ -2796,14 +2877,16 @@
    },
    "simplification_breadth": {},
    "minimality": {
-    "necessity_curve": [
+    "necessity_curve_6": [
      0.8202,
      1.1217,
      1.3114,
-     1.6034
+     1.6034,
+     1.5906,
+     1.7465
     ],
-    "top1_share": 0.512,
-    "capped": true
+    "top1_share": 0.47,
+    "grain": 6
    },
    "kstar": 4,
    "das_subspace": null,
@@ -2845,16 +2928,18 @@
     "cp2304": false
    },
    "minimality": {
-    "necessity_curve": [
+    "necessity_curve_6": [
      1.158,
      1.2974,
      1.6892,
-     1.8986
+     1.8986,
+     2.2557,
+     3.6353
     ],
-    "top1_share": 0.61,
-    "capped": true
+    "top1_share": 0.319,
+    "grain": 6
    },
-   "kstar": 4,
+   "kstar": 6,
    "das_subspace": null,
    "ood_transfer": null
   },
@@ -2890,16 +2975,18 @@
    },
    "simplification_breadth": {},
    "minimality": {
-    "necessity_curve": [
+    "necessity_curve_6": [
      0.5961,
      0.6435,
      0.7001,
-     1.1887
+     1.1887,
+     1.3064,
+     1.5686
     ],
-    "top1_share": 0.501,
-    "capped": true
+    "top1_share": 0.38,
+    "grain": 6
    },
-   "kstar": 4,
+   "kstar": 6,
    "das_subspace": null,
    "ood_transfer": null
   },
@@ -2939,16 +3026,18 @@
     "tail_dict": false
    },
    "minimality": {
-    "necessity_curve": [
+    "necessity_curve_6": [
      0.305,
      0.7812,
      1.1099,
-     1.5248
+     1.5248,
+     1.6804,
+     1.9879
     ],
-    "top1_share": 0.2,
-    "capped": true
+    "top1_share": 0.153,
+    "grain": 6
    },
-   "kstar": 4,
+   "kstar": 6,
    "das_subspace": null,
    "ood_transfer": null
   },
@@ -2988,16 +3077,18 @@
     "tail_dict": false
    },
    "minimality": {
-    "necessity_curve": [
+    "necessity_curve_6": [
      0.2324,
      0.7188,
      0.9317,
-     1.2305
+     1.2305,
+     1.4974,
+     1.8056
     ],
-    "top1_share": 0.189,
-    "capped": true
+    "top1_share": 0.129,
+    "grain": 6
    },
-   "kstar": 4,
+   "kstar": 6,
    "das_subspace": null,
    "ood_transfer": null
   },
@@ -3033,16 +3124,18 @@
    },
    "simplification_breadth": {},
    "minimality": {
-    "necessity_curve": [
+    "necessity_curve_6": [
      0.6911,
      0.7412,
      1.0329,
-     1.2193
+     1.2193,
+     1.4845,
+     1.7115
     ],
-    "top1_share": 0.567,
-    "capped": true
+    "top1_share": 0.404,
+    "grain": 6
    },
-   "kstar": 4,
+   "kstar": 6,
    "das_subspace": null,
    "ood_transfer": null
   },

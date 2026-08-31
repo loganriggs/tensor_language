@@ -1,0 +1,21 @@
+picked (2 low + control): ['r.2.0', 'r.3.0', 'r.3.1.1']
+outputs captured
+/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/dasproper.py:165: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:836.)
+  if step%50==0: print(f'  {t} step {step} loss {float(loss):.4f}',flush=True)
+  r.2.0 step 0 loss 0.4338
+  r.2.0 step 50 loss 0.4208
+  r.2.0 step 100 loss 0.5036
+  r.2.0: full 1.153 | pca8 0.13 -> learned 0.13 (orth 7.2e-07)
+  r.3.0 step 0 loss 0.0521
+  r.3.0 step 50 loss 0.0638
+  r.3.0 step 100 loss 0.1077
+  r.3.0: full 0.572 | pca8 0.14 -> learned 0.12 (orth 6.0e-07)
+  r.3.1.1 step 0 loss 0.0269
+  r.3.1.1 step 50 loss 0.0205
+  r.3.1.1 step 100 loss 0.0114
+  r.3.1.1: full 0.513 | pca8 0.57 -> learned 0.32 (orth 7.2e-07)
+(a) learned >= pca8+0.15 at both low circuits: FAILED
+(b) median learned 0.126 >= 0.55: FAILED
+(c) orthonormal + control no-regress: FAILED
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/dasproper_results.json (109s)
