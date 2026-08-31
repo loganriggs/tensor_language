@@ -1,1 +1,46 @@
 ARM: rung-127 build + rank-8 OV residuals at all 76 motif heads
+a2-input probe acc 0.69
+fit a2
+fit a3
+fit a4
+fit a5
+fit a6
+fit a7
+fit a8
+fit a9
+fit a10
+fit a11
+fit a12
+fit a13
+fit a14
+fit a15
+fit a16
+fit a17
+  cp_swap: front MLPs m0-m3 -> CP top-3456 in place (tailE remains table-front-fit)
+L1 (+38 heads): C +1.2771 | fresh +1.4498
+  captured real-trajectory tail-attention targets
+fit a10L
+fit a11L
+fit a12L
+fit a13L
+fit a14L
+fit a15L
+fit a16L
+fit a17L
+  window 0 (7 docs): L2 fresh +1.8222
+  window 1 (42 docs): L2 fresh +2.0643
+  window 2 (17 docs): L2 fresh +1.9500
+  window 3 (23 docs): L2 fresh +2.0459
+  window 4 (43 docs): L2 fresh +2.2957
+  window 5 (26 docs): L2 fresh +1.9347
+  window 6 (35 docs): L2 fresh +1.8577
+  window 7 (35 docs): L2 fresh +1.8463
+L2 empirical: C +1.7041 | fresh +1.8222 | tail-attn increment +0.3724
+(a) L2 <= +2.75 fresh: HELD
+(b) increment in [0.30,0.55]: HELD
+  per-class dCE: digit:+1.177 bclose:+0.919 newline:+0.325 sentend:+0.268 comma:+0.165 name:+3.021 rep:+1.630 subword:+2.197 ind:+1.971 other:+2.075
+L2 fresh +1.8222 (was +1.8765); census +1.8950 (was +1.9474); increment +0.3724; valid 0/62
+(a) census +1.8950 <= 1.87: FAILED
+(b) subword +2.1967 <= 2.15 and rep +1.6298 <= 1.55: FAILED
+(c) increment +0.3724 in [0.25, 0.45], census >= 1.4: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/motif_ovres_results.json (128s)

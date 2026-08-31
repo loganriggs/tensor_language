@@ -2283,3 +2283,17 @@ later per-rung backlog edits had silently anchored on text that was not here.
     pred_c increment in [0.25, 0.45], census >= 1.4. Null: the damage is
     in the attention PATTERN (value-map capacity futile, < 0.02). Price:
     155,648 values. -> ops/motif_ovres.py [QUEUED 17:36Z]
+    RUN 2026-08-31, S2276: pred_a FAILED by 0.025, pred_b FAILED, c
+    HELD. OV residual buys 0.052 census / 0.054 fresh (L2F +1.8222
+    descriptive) - between null and pass: value map ~10% of the motif
+    ceiling. -> 179 (claim) + 180 (rank saturation).
+
+179. Registered claim: rung-127 + OV residual (identical rebuild, claim
+    bars). pred_a L2_F <= 1.84; pred_b census repro +/- 0.015; pred_c
+    L2F repro + increment band. Null: 178's print was noise. Price:
+    47.8M + 155,648. -> ops/frontier_claim_ovres.py [QUEUED 17:59Z]
+
+180. OV rank-32 saturation check: same build at rank 32. pred_a
+    |census - 1.8950| <= 0.02 (saturated -> pattern reading stands);
+    pred_b no worsening; pred_c guards. Null: <= 1.86 (capacity still
+    yielding). -> ops/motif_ovres32.py [QUEUED 17:59Z]
