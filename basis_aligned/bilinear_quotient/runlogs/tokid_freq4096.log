@@ -1,0 +1,8 @@
+token table built (0s)
+frequency-truncated to 4096 rows; census coverage 0.7391
+  TOKID: agg +0.1219 | census|dCE| 0.3348
+ratios: TOKID/STATIC 2.265 | TOKID/ORACLE 0.418
+(a) TOK4096 <= 1.3 x full-table TOKID (2.265): FAILED
+(b) TOK4096 <= 0.5 x STATIC (0.418): HELD
+(c) coverage 0.739 >= 0.90 + non-degenerate: FAILED
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/tokid_freq4096_results.json (8s)

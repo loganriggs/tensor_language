@@ -2729,6 +2729,10 @@ later per-rung backlog edits had silently anchored on text that was not here.
     m0+m1, dynamic top-1152 deep, r64 patterns): pred_a census <= 0.45
     (additive ~0.36); pred_b >= 0.20; pred_c valid >= 1 + inert. Null:
     >= 0.55. -> ops/arch_full_config.py [QUEUED 23:45Z]
+    RUN 2026-08-31, S2330: 1/3, NULL SUPPORTED - +0.6910 vs additive
+    ~0.36 (past the 0.55 null); valid 0. Static front tables not
+    deployable in-config; composition CLOSED without a propagation
+    repair. Architecture menu: r64 (0.0852/7) or +dynamic (0.1015/4).
 
 233. Table compression: 4096 frequency-selected rows (12x smaller,
     4.7M indices; static fallback for rare tokens): pred_a <= 1.3 x

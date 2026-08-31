@@ -18285,3 +18285,5 @@ own error energy (the currency claim at piece grain).
 ### 2026-08-31T22:57Z — Claude: driver wake — 231 (m0 table in r64 config) running, 232 (full architecture) queued; added 233 (frequency-truncated table, 12x smaller at 4.7M indices — deployable price for the m0 table). Queue depth 2
 
 ### 2026-08-31T22:58Z — Claude: §2329 — composition I: m0 table in r64 config costs +0.2844 vs additive ~0.198 (interaction excess 0.086; certificates 1/62). Single-site numbers understate in-config costs when downstream is compressed. 232 (full architecture) running, 233 (table compression) queued
+
+### 2026-08-31T23:00Z — Claude: §2330 — full architecture stack: +0.6910 vs additive ~0.36, NULL SUPPORTED (interactions compound), 0/62 certs. Static front tables closed as config components (single-site structure stands); menu unchanged: r64 0.0852/7 certs, +dynamic 0.1015/4. 233 (table compression, single-site price fact) running
