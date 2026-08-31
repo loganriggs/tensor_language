@@ -1928,3 +1928,10 @@ later per-rung backlog edits had silently anchored on text that was not here.
     credit); pred_b census <= 1.87; pred_c guards. Null: tailE credit
     redundant with context corruption (name >= 1.15). Price: none.
     -> ops/frontier_namefloor.py [QUEUED 12:30Z]
+
+147. Trajectory splice at the motif grain (blocks 2-9, all positions,
+    li default-bound, counter at li=9): does front corruption transit
+    through motif attention? pred_a census <= 1.55; pred_b name <= 2.2;
+    pred_c L1F invariant, census >= 1.4. Null: recovery < 0.15 (motif
+    cost is direct approximation). Price: none.
+    -> ops/frontier_motiftraj.py [QUEUED 12:34Z]
