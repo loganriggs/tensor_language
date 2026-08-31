@@ -65327,3 +65327,25 @@ VOID-AS-DESIGNED; corrected control = rung 133 (offline real-module targets, the
   context-corruption share of the tail-attn family, with per-class recoveries free) and rung 146 (trajectory
   attn + tailE bypass for name — the name floor with the whole tail complex idealized; the remainder is the
   front/motif direct share).
+
+## §2241 — RUNG 145: OVER HALF THE FRONTIER'S CENSUS DAMAGE FLOWS THROUGH CORRUPTED TAIL-ATTENTION READS — the all-class trajectory splice takes census +1.9474 → +0.9400 (recovery 1.007). pred_a HELD (far beyond its 1.70 bar), pred_b HELD (name +1.3207, identical to the name-only splice within 0.0001 — no cross-class interference), pred_c FAILED on its LOWER sanity bound (census 0.94 < 1.4): the registered sanity floor assumed a modest effect and the genuine effect blew through it — the §2199 bar-design artifact class, recorded, not celebrated away (L1F itself was invariant as required). (Convention: CE added above the real model; lower is better; oracle diagnostic, not deployable.)
+
+`ops/frontier_trajall.py`, **137s**, BACKLOG rung 145.
+
+```
+  per-class dCE under the all-class trajectory splice (frontier value in parens):
+  ind   +0.641 (1.994)   other +1.060 (2.116)   rep  +0.929 (1.708)   name    +1.321 (3.134)
+  sub   +1.426 (2.319)   digit +1.019 (1.250)   bclose +0.249 (1.012) newline +0.419 (0.389)
+  sentend +0.470 (0.339)   comma +0.670 (0.285)
+```
+
+- **Three findings in one table:** (1) the retrieval classes (ind/other/rep/name) carry the bulk of the
+  corruption share — ind alone recovers 1.353; (2) SUBWORD also recovers 0.89 at trajectory grade despite a
+  module-grade share of only 0.198 (§2240) — its assembly damage transits attention too; (3) the CHEAP
+  classes get WORSE (comma +0.285 → +0.670, sentend, newline): real-frame values mixed into a config-frame
+  stream cost where the in-frame dictionary was already near-optimal — §2224's frame-mixing physics, milder.
+- **The free certificate verdict: 0/62 EVEN UNDER ORACLE STREAM FIDELITY at all tail attention.** Certificate
+  damage is upstream of (or orthogonal to) tail-attention reads — the direction problem does not live in the
+  tail-attn family. Filed for the 13:07 math review.
+- The corruption economy so far: tail-attn reads carry ~1.01 of the frontier's +1.95; rung 146 (name floor)
+  and rung 147 (motif-grain transit) complete the map.

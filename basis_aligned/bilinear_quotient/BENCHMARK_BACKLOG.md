@@ -1922,6 +1922,11 @@ later per-rung backlog edits had silently anchored on text that was not here.
     pred_c L1F invariant, census >= 1.4. Null: non-name content is
     local (< 0.10 beyond name-only). Price: none.
     -> ops/frontier_trajall.py [QUEUED 12:30Z]
+    RUN 2026-08-31, S2241: pred_a/b HELD (census 1.9474 -> 0.9400!),
+    pred_c FAILED on the lower sanity floor (effect outran the bar -
+    S2199 artifact class). Retrieval classes carry the bulk; subword
+    transits too; cheap classes pay frame-mixing. 0/62 even under
+    oracle stream fidelity - certificates upstream of tail attn.
 
 146. The name floor: trajectory attn splice + tailE bypass together for
     name rows. pred_a name <= 0.9 (rough additivity of the 0.555 tailE
