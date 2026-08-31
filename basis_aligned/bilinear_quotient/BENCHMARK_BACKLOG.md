@@ -2784,3 +2784,15 @@ later per-rung backlog edits had silently anchored on text that was not here.
 239. Registered claim: motif-exact point (r96 price, better census):
     |census-0.0608|<=0.015; valid >= 9; |L2F-0.0601|<=0.015.
     -> ops/frontier_claim_motif.py [QUEUED 23:44Z]
+    RUN 2026-08-31, S2337: ALL HELD, bit-exact - motif-exact point
+    official (+0.0608/9 certs/~199M); supersedes r96.
+
+240. Cheapen the saturated half: motifs exact + tail r48 (65.9M, 9%
+    below the registered point): pred_a census <= 0.075; pred_b valid
+    >= 8; pred_c range + double inert. Null: r64 was the tail knee.
+    -> ops/motif_tail48.py [QUEUED 23:57Z]
+
+241. Quarter test: early motifs (2-5) exact only: pred_a census <=
+    0.075; pred_b valid >= 8; pred_c range + double inert. Null:
+    spread evenly within the motif half.
+    -> ops/motif_early.py [QUEUED 23:57Z]
