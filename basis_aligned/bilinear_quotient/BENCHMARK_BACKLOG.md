@@ -2875,3 +2875,17 @@ later per-rung backlog edits had silently anchored on text that was not here.
     ~0.072): pred_a census <= 0.075; pred_b valid >= 8; pred_c range +
     double inert. Null: sparsity interacts at the frontier.
     -> ops/ct96_topk.py [QUEUED 00:01Z]
+    RUN 2026-09-01, S2350: ALL HELD - +0.0718 (additive dead-on);
+    top-k surcharge ~+0.016 at all three anchors. Sparsity composes
+    additively everywhere; static tables don't.
+
+252. LAST-8 HYBRID: tail = top-96 + smallest-8 directions (104/128,
+    74.2M — cheaper than the 11-cert point): pred_a census <= 0.015
+    (cliff mass is literally the last 8); pred_b valid >= 15; pred_c
+    range + double inert. Null: 97-128 band matters jointly (>= 0.045).
+    -> ops/tail_last8.py [QUEUED 00:14Z]
+
+253. ALL-MIXED spectrum: top-96 + last-8 at every head incl motifs
+    (52.9M, cheaper than economical): pred_a census <= 0.030 (motif
+    cliff too); pred_b valid >= 12; pred_c range + double inert. Null:
+    cliff is tail-specific. -> ops/all_last8.py [QUEUED 00:14Z]

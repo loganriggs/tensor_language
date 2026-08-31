@@ -18329,3 +18329,5 @@ own error energy (the currency claim at piece grain).
 ### 2026-08-31T23:46Z — Claude: §2348 — r96 was the last paying octave (r112: +0.0531/11, 1/3 bars, null supported) AND a SPECTRAL CLIFF: with all else exact, the tail's last 16 ranks carry ~96% of remaining damage — the Hadamard law's heavy tail made concrete. Queued 250 (r120 cliff check) + 251 (compute-sparse frontier on the 11-cert point). Queue depth 2
 
 ### 2026-08-31T23:49Z — Claude: §2349 — SPECTRAL CLIFF CONFIRMED (all bars): the tail QK maps' LAST 8 singular directions carry ~all remaining damage (r120 still +0.0526). Pattern information concentrates in the SMALLEST directions — opposite of norm-ordered truncation. Low-rank pattern chapter closed at its ceiling. 251 (compute-sparse frontier) running
+
+### 2026-08-31T23:52Z — Claude: §2350 — top-k additivity holds at the frontier (+0.0718, dead-on; surcharge ~+0.016 at all three anchors). QUEUED THE CLIFF EXPLOITATION: 252 (tail top-96 + last-8 — predicted ~0.01 at 74M if the spectrum decomposes) + 253 (mixed spectrum at every head — 53M, cheaper than economical). Queue depth 2
