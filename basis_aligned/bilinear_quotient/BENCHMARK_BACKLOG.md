@@ -1991,3 +1991,10 @@ later per-rung backlog edits had silently anchored on text that was not here.
     factor; pred_c repro both arms. Null: BIAS-dominated -> per-circuit
     bias correction (~62 scalars) becomes the cheapest certificate
     candidate. Price: none. -> ops/frontier_biasdisp.py [QUEUED 13:16Z]
+
+151. Bootstrap-averaged aXL dictionary fits (B=4, seeded per site; math
+    review 1307 move 2): is certificate dispersion estimation noise?
+    pred_a median member-absdce ratio vs rung-132 <= 0.97; pred_b census
+    <= 1.97; pred_c increment in [0.25, 0.45], census >= 1.4. Null:
+    ratio > 0.99 (dispersion intrinsic; move 2 closes). Price: none.
+    -> ops/frontier_bootavg.py [QUEUED 13:20Z]
