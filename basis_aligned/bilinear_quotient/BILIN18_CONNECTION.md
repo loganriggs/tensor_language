@@ -65660,3 +65660,15 @@ Phase-2 selection belongs to the next strategic review.
 
 - The day's full frontier path (fresh windows, all registered except the last pending rung 188):
   2.6662 → 2.0553 → 1.8765 → 1.8222 → 1.6428 → [1.3498 pending claim]. Census: 2.8553 → 1.2673.
+
+## §2284 — RUNG 188: THE ALL-QK-16 CLAIM HOLDS — ALL THREE PREDS, ridge-exact. **The registered frontier is now the uniform grammar: L2_F fresh +1.3497 / census +1.2673** — rank-16 QK patterns at all 148 replaced heads, dictionaries retired, 47.8M front + 12.1M pattern values. The day's registered fresh-window path completes: 2.6662 → 2.0553 → 1.8765 → 1.8222 → 1.6428 → **1.3497** (halved in one day). Certificates 0/62 (the two-ledger split persists at every point). (Convention: frontier L2 = CE added above the real model on the §312 fresh windows; LOWER IS BETTER.)
+
+`ops/frontier_claim_allqk.py`, **120s**, BACKLOG rung 188.
+
+## §2285 — RUNG 186: RANK 12 CROSSES — ALL THREE PREDS HELD. Census +1.3784 at 9.1M pattern values (25% cheaper than r16, within 0.111 of it): the plateau above the knee is real. (Convention: CE added above the real model; lower is better.)
+
+`ops/all_qk12.py`, **121s**, BACKLOG rung 186.
+
+## §2286 — RUNG 187: THE KNEE IS A STEEP RAMP, BRACKETING √128 — pred_a FAILED by 0.03 (census +1.5204 vs the ≥ 1.55 bar: r10 degrades, but less than predicted), pred_b HELD (monotone knee: r10 ≥ r12 + 0.10), pred_c HELD. The full rank curve: **r8 +2.02 → r10 +1.52 → r12 +1.38 → r16 +1.27** — a steep ramp through [8, 12] then plateau, with the Hadamard-rank prediction r\* ≈ √128 ≈ 11.3 sitting inside the ramp. The law's qualitative shape is confirmed; its sharp-threshold form is not (the transition is a ramp, not a cliff — expected once per-head effective ranks vary). Scored as written; the sizing rule stands as "r ≥ 12 for this head dim." (Convention: CE added above the real model; lower is better.)
+
+`ops/all_qk10.py`, **120s**, BACKLOG rung 187.

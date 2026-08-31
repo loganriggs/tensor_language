@@ -2349,12 +2349,32 @@ later per-rung backlog edits had silently anchored on text that was not here.
 188. Registered claim: ALL-QK-16 (identical rebuild). pred_a L2_F <= 1.37;
     pred_b census repro; pred_c L2F repro. Null: 185's print was noise.
     -> ops/frontier_claim_allqk.py [QUEUED 19:10Z]
+    RUN 2026-08-31, S2284: ALL HELD - REGISTERED FRONTIER = uniform
+    grammar, L2F +1.3497 / census +1.2673. Day path 2.6662 -> 1.3497.
 
 186. All-QK-12 (Hadamard-rank law, above-knee: r*=sqrt(128)~11.3): pred_a
     census <= 1.55; pred_b plateau (<= 1.4673); pred_c floor 0.5 + inert.
     Null: r12 breaks (law constant wrong). Price: 9.1M (25% cheaper than
     r16 if plateau). -> ops/all_qk12.py [QUEUED 19:10Z]
+    RUN 2026-08-31, S2285: ALL HELD - r12 crosses (+1.3784, 9.1M,
+    25% cheaper). Plateau real.
 
 187. All-QK-10 (below-knee arm; reads r12 receipt at run time): pred_a
     census >= 1.55; pred_b >= r12 + 0.10; pred_c range + inert. Null:
     r10 crosses (knee in [8,10]). -> ops/all_qk10.py [QUEUED 19:10Z]
+    RUN 2026-08-31, S2286: pred_a FAILED by 0.03 (r10 +1.5204 - ramp
+    not cliff), b/c HELD. Curve r8 2.02 -> r10 1.52 -> r12 1.38 -> r16
+    1.27; sqrt(128) inside the ramp. Sizing rule: r >= 12.
+
+189. All-QK-24 (rank curve top): pred_a census <= 1.22 (still yielding);
+    pred_b monotone; pred_c floor + inert. Null: plateau (r16 is the
+    operating point). Price: 18.2M. -> ops/all_qk24.py [QUEUED 19:30Z]
+
+190. Drop tailE (legacy span-dicts: +0.14 cost, zero compression; name
+    holds 0.55 per S2237; coverage note stated): pred_a census <= 1.16;
+    pred_b name <= 2.05; pred_c floor + inert. Null: non-additive here.
+    -> ops/drop_taile.py [QUEUED 19:30Z]
+
+191. Exact front on the uniform grammar: pred_a census <= 1.10; pred_b
+    digit <= 0.80; pred_c floor + inert. Null: front marginal shrank.
+    Price: +15.9M. -> ops/front4608_qk.py [QUEUED 19:30Z]
