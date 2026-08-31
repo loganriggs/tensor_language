@@ -44,10 +44,11 @@ def main():
     L=mlp.Left.weight.detach().float(); Rw=mlp.Right.weight.detach().float()
     Dw=mlp.Down.weight.detach().float(); db=mlp.Down_bias.detach().float()
     dn=Dw.norm(dim=0); K=1152
-    # token-indexed table from pure embeddings
-    IDX=torch.empty(V,K,dtype=torch.int32,device=DEV)
+    # token-indexed table from pure embeddings (wte may be padded past V)
     W=m.transformer.wte.weight.detach().float()
-    for v0 in range(0,V,4096):
+    Vw=W.shape[0]
+    IDX=torch.empty(Vw,K,dtype=torch.int32,device=DEV)
+    for v0 in range(0,Vw,4096):
         xe=F.rms_norm(W[v0:v0+4096],(D,))
         ue=(xe@L.T)*(xe@Rw.T)
         IDX[v0:v0+4096]=(ue.abs()*dn).topk(K,dim=-1).indices.int()

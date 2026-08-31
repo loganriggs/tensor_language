@@ -2620,6 +2620,10 @@ later per-rung backlog edits had silently anchored on text that was not here.
     violations; pred_c 9-pt Spearman(diff) <= -0.5. Null: depth rules
     (Spearman(block) <= -0.8 while c fails).
     -> ops/basis_sweep.py [QUEUED 22:45Z]
+    RUN 2026-08-31, S2319: 2/3 - threshold holds (0 violations, 9
+    pts); graded law dead (rho_diff -0.433, rho_block -0.750, both
+    miss). Eigen regime = {m16,m17} = high-diff AND terminal; confound
+    unresolvable naturally. Operational rule fixed.
 
 222. TOKEN-INDEXED SPARSITY at m0 (user directive: install sparsity as
     a static selection tensor indexed by token id, derived from pure
@@ -2627,6 +2631,9 @@ later per-rung backlog edits had silently anchored on text that was not here.
     pred_b <= 2 x ORACLE; pred_c ORACLE <= STATIC + non-inert. Null:
     context dominates at block 0 (>= 0.8 x STATIC). Price: naive table
     58M int16 indices. -> ops/tokid_sparsity.py [QUEUED 22:48Z]
+    RUN 2026-08-31: CRASHED (exit 1) - wte is padded to 50304 rows vs
+    V=50257; last vocab chunk mismatch. Instrument fix (Vw from
+    weight.shape[0]); re-queued 22:58Z. No science scored.
 
 223. Causal validation of the top-k score at m16 (user question): 16
     score-bands of 288 units, zero one band per census pass; pred_a
