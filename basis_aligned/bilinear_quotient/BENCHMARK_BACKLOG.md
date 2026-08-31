@@ -1705,6 +1705,9 @@ later per-rung backlog edits had silently anchored on text that was not here.
     pred_b FM >= M + F + 0.30; pred_c front repro +/- 0.015. Null:
     additive (eater is the tail complex). Price: none.
     -> ops/frontier_motif_interact.py [QUEUED 08:33Z]
+    RUN 2026-08-31, S2219: pred_a/b FAILED, pred_c HELD. J_FM only
+    +0.2279; motifs ALONE +0.5530 census (new). Tail complex ~+1.24 was
+    already dominant; S2216 interpretation sharpened.
 
 126. Motif-alpha refit inside the frontier config: rung-123 build with the
     76 motif gains refit by the same projection on the CP-front stream
@@ -1712,6 +1715,8 @@ later per-rung backlog edits had silently anchored on text that was not here.
     L2_F <= 1.95 (was 2.0553); pred_c increment in [0.25, 0.60], census
     >= 1.0. Null: alpha frame-insensitive (recovery < 0.05). Price:
     none (same 76 scalars). -> ops/frontier_motif_refit.py [QUEUED 08:33Z]
+    RUN 2026-08-31, S2220: null wins exactly - alpha refit a no-op
+    (within wobble). Motif repair must be structural.
 
 127. Trajectory-target tail dictionaries in the frontier config: rung-123
     build with a10L-a17L CV/LW targets taken from a real-model pass
@@ -1720,3 +1725,6 @@ later per-rung backlog edits had silently anchored on text that was not here.
     1.95 (was +2.0553); pred_c |L1F - anchor| <= 0.02, census in
     [1.4, 2.2]. Null: the 10-class dictionary map binds, not the target
     frame. Price: none. -> ops/frontier_tail_traj.py [QUEUED 08:34Z]
+    RUN 2026-08-31, S2221: ALL HELD - NEW FRONTIER L2_F +1.8765,
+    census +1.9474, increment 0.5045->0.3256, L1F invariant. The
+    trajectory-teacher move is 2-for-2 across families.

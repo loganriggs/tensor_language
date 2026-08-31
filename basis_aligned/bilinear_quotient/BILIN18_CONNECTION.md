@@ -65157,3 +65157,25 @@ again, recorded like §2206's; the rule stands) | pred_b FAILED (0.1361 < 0.35×
   chapter. Open questions it sets up: is the shared profile just "small-ref circuits are fragile"
   (normalization test), and which mechanism downstream reads the common subspace (motif/tail decomposition —
   rung 125).
+
+## §2219 — RUNG 125: THE MOTIFS' OWN COST WAS HIDING IN §2216's "EATEN" NARRATIVE — motifs ALONE cost +0.5530 on census (never before measured in this frame), and the front×motif interaction is only J_FM = +0.2279. pred_a/b FAILED (the registered "motifs are the eater" story is wrong at the interaction level), pred_c HELD. §2216's numbers stand, but its interpretation sharpens: of the global config's +2.1359, front+motifs account for +0.9002, leaving ~+1.236 for the tail complex (aXL dicts + tailE + their interactions) — the tail was ALREADY the dominant cost before rung 127 attacked it. (Convention: per-position dCE = CE(config) − CE(real model) on the census rows; lower is better.)
+
+`ops/frontier_motif_interact.py`, **124s**, BACKLOG rung 125. **pred_a FAILED (+0.2279 < 0.45) | pred_b
+FAILED (+0.9002 < +0.9723) | pred_c HELD (front repro exact).**
+
+## §2220 — RUNG 126: THE α-REFIT NULL WINS EXACTLY — refitting the 76 motif gains under the CP-front stream moves NOTHING (L2_F +2.0563 vs +2.0553; census +2.1378 vs +2.1359 — inside wobble). The projection ratios z·v/v·v are frame-insensitive, as the null predicted. Motif repair, if any, must be structural (head selection/class structure), not scalar. pred_a/b FAILED, pred_c HELD. (Convention: CE added above the real model; lower is better.)
+
+`ops/frontier_motif_refit.py`, **128s**, BACKLOG rung 126.
+
+## §2221 — RUNG 127: THE FRONTIER MOVES AGAIN — ALL THREE PREDS HELD. Trajectory-target tail dictionaries cut the tail-attn increment from +0.5045 to +0.3256 and set a NEW REGISTERED FRONTIER: **L2_F fresh +1.8765** (was +2.0553; the §2144 table-front era's +2.6662 is now beaten by 0.79), census +1.9474 (was +2.1359), L1F invariant to 4 decimals (the front/motifs untouched — clean isolation). Zero price: same dictionary shapes, different values. (Convention: frontier L2 = CE added above the real model on the §312 fresh windows; LOWER IS BETTER.)
+
+`ops/frontier_tail_traj.py`, **128s**, BACKLOG rung 127. **pred_a HELD (+0.3256 ≤ 0.38) | pred_b HELD
+(+1.8765 ≤ 1.95) | pred_c HELD (L1F +1.5509 exact; census in range).**
+
+- **Quotable frontier now: CP-3456 front + motif heads + §2144 CP middles + TRAJECTORY-TARGET tail
+  dictionaries = L2_F fresh +1.8765, census +1.9474** (registered bars, §312 family bands held). The §2210
+  trajectory-teacher principle is now 2-for-2 across component families (front Downs, tail dicts) while both
+  scalar/in-frame alternatives failed — steering back to the real trajectory is the general repair move.
+- The morning's frontier path: 2.6662 (tables) → 2.0553 (CP front, §2217) → 1.8765 (trajectory tails), at
+  184M fewer stored values than where it started.
+- Certificates for this config not yet rowed (the rung saved aggregates only) — rung 128 carries the rows.
