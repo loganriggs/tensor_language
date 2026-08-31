@@ -1229,9 +1229,22 @@ later per-rung backlog edits had silently anchored on text that was not here.
     median in-doc held-out R^2 >= 0.5; pred_c base reproduces rung 86's
     base (2.4410 within 0.01). Null: different functions per doc
     (spectra decorrelate too). -> ops/gauge_quotient.py [QUEUED 02:33Z]
+    VALID RERUN, §2183: pred_a HELD (0.986/0.078) but DISQUALIFIED by
+    pred_b's failure (pooled held-out R^2 -0.727: unvalidated maps ->
+    shrinkage look-alike spectra). INCONCLUSIVE at row grain; the gauge
+    question stays open on two transfer collapses. -> rung 90 DESIGN.
 
     First run 02:35Z VOID at the tripwire (the grouping unit is FR ROWS,
     ~28 subword positions each — the >=100 'document' threshold passed 1
     row; no measurement made). Fixed BEFORE any valid run: row grain
     (conservative for the document law), threshold 25, heavier ridge,
     pooled held-out R^2 bar 0.4, tripwire 30 rows. Re-queued 02:38Z.
+
+90. DOCUMENT-GRAIN GAUGE TEST (DESIGN; the decisive conjugation
+    instrument). Needs a capture that carries DOCUMENT ids and pools
+    same-document rows (hundreds of subword positions per document) so
+    per-document 64x64 maps are identifiable (held-out R^2 validation
+    bar first, spectra second). Build: modify the FR/window construction
+    to record doc ids, or capture over a handful of long documents in
+    513-token strides. To be built at the next driver wake with fresh
+    care (five splice bugs tonight).

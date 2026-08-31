@@ -31,3 +31,15 @@ with backup semantics and a signed correction at m16 — plus, at the front, a d
 element. Both ledgers stand: best full-coverage config 2.6662 (§2144); envelope 2.4230 with blocks 14/16's
 attention real (§2156). The strict whole-model fractions are unchanged; the day's yield is the skeleton and
 the price maps, all preregistered, failures preserved.
+
+## UPDATE — 02:45 UTC: the architecture chapter closes (§2171–§2183)
+
+Measured tonight, every claim preregistered: bilin18 organizes its critical attention as three adjacent-block
+DUOS (assemblers 2/3, mixers 4/5, readers 14/16; same-position ρ 0.998/0.949/0.689) with mutual backup (the
+front pair 12.6× super-additive — either alone nearly suffices); two pipelines thread the depth (b2/b3→m16
+subword assembly, ρ 0.85; b4/b5→14/16 retrieval, ρ 0.79) with m16 at the intersection (helper on one, routed
+brake on the other). Both pairs' cross-output maps COLLAPSE across documents (0.106; −1.03) — the candidate law
+"representations are document-gauged; function transfers, coordinates do not" — but the direct conjugation test
+came back inconclusive at row grain (its own validation bar failed, and we scored it that way rather than
+claiming the pretty spectra). The decisive document-grain instrument is designed (rung 90). No merge, no shared
+read, and no per-position grammar is licensed; the compression frontier and envelope stand unchanged.

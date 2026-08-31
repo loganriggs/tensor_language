@@ -16,7 +16,7 @@ fit a14
 fit a15
 fit a16
 fit a17
-L1 (+38 heads): C +1.7715 | fresh +2.1028
+L1 (+38 heads): C +1.7715 | fresh +2.1027
 fit a10L
 fit a11L
 fit a12L
@@ -32,8 +32,12 @@ fit a17L
   window 4 (43 docs): L2 fresh +2.7082
   window 5 (26 docs): L2 fresh +2.5084
   window 6 (35 docs): L2 fresh +2.3803
-  window 7 (35 docs): L2 fresh +2.4269
-L2 empirical: C +2.1953 | fresh +2.4411 | tail-attn increment +0.3383
+  window 7 (35 docs): L2 fresh +2.4270
+L2 empirical: C +2.1953 | fresh +2.4411 | tail-attn increment +0.3385
 (a) L2 <= +2.75 fresh: HELD
 (b) increment in [0.30,0.55]: HELD
-INSTRUMENT FAIL: only 1 qualifying docs
+63 docs; spectrum cosine 0.986 | raw-entry corr 0.078 | pooled held-out R^2 -0.727
+(a) spectra >= 0.95 AND raw <= 0.5: HELD
+(b) pooled held-out R^2 -0.727 >= 0.4: FAILED
+(c) base FR L2_F 2.4411 vs 2.4410 (tol 0.01): HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/gauge_quotient_results.json (113s)

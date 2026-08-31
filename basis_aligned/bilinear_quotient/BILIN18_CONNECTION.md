@@ -64573,3 +64573,22 @@ lesson) | pred_c HELD (base repro exact) | pred_b FAILED (−1.027 vs ≥ 0.8 ×
   member computing in its own document-gauged coordinates (§2171/§2181), the tail pair with measured mutual
   backup and the front pair with near-total mutual coverage (§2165/§2180). Rung 89 (running) decides whether
   one shared latent map underlies each pair.
+
+## §2183 — RUNG 89 (valid rerun): THE CONJUGATION SIGNATURE APPEARED (spectra 0.986, raw entries 0.078) BUT pred_b's FAILURE DISQUALIFIES IT — pooled held-out R² = −0.727: the per-row maps don't predict even within their own rows, so their matching spectra are ridge-shrinkage geometry, not evidence of one shared machine. Scored as written: a HELD, b FAILED, c HELD; licensed conclusion: INCONCLUSIVE AT THIS GRAIN. (Alignment rung; 63 qualifying rows.)
+
+`ops/gauge_quotient.py` (rerun after the void), **113s**, BACKLOG rung 89. **pred_a HELD (0.986 / 0.078) |
+pred_c HELD (2.4411 vs 2.4410) | pred_b FAILED (−0.727 vs ≥ 0.4).**
+
+- **The §2171 discipline applies to our own favored hypothesis:** without validated maps (pred_b), the held
+  conjugation signature is confounded — heavily-ridged small-n regressions generically produce look-alike
+  spectra with decorrelated entries. Registering pred_b as the qualifier is what keeps this from becoming a
+  §2128-style self-deception: the gauge-quotient question is OPEN, not answered. ~17–20 training positions per
+  row cannot identify a 64×64 map.
+- **The document-gauge law's evidential state:** supported by two independent transfer collapses (§2171 tail
+  0.106; §2181 front −1.03), untested at the conjugation level. A decisive test needs DOCUMENT-grain samples
+  (hundreds of positions per unit) — FR's 120 independent rows cannot provide it; the capture must carry
+  document ids and pool same-document rows. Registered as rung 90 (DESIGN).
+- **The architecture chapter closes here** (rungs 71–89): wiring diagram (2 pipelines), replication motif
+  (3 duos, graded 0.998/0.949/0.689), backup interactions (1.4× and 12.6× super-additive), document-bound
+  coordinates (2 collapses), gauge question open with a designed next instrument. Every claim preregistered;
+  five instrument voids caught by tripwires; zero unscored results.
