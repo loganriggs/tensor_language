@@ -1,14 +1,47 @@
 {
- "base": 2.6736,
- "oracle": 2.5958,
- "probe": 2.641,
- "random": 2.6651,
- "fraction": 0.1725,
- "auc": 0.621,
- "probe_eff_vs_random": 3.826,
- "probe_frac_of_oracle": 0.419,
- "pred_a": false,
- "pred_b": true,
- "pred_c": false,
- "runtime_s": 212.176931142807
+ "rows": [
+  {
+   "component": "a16",
+   "auc": 0.7096,
+   "auc_shuffled": 0.4843,
+   "n_test_members": 5628
+  },
+  {
+   "component": "a3",
+   "auc": 0.5971,
+   "auc_shuffled": 0.5031,
+   "n_test_members": 1806
+  },
+  {
+   "component": "a8",
+   "auc": 0.7088,
+   "auc_shuffled": 0.4964,
+   "n_test_members": 9329
+  },
+  {
+   "component": "m13",
+   "auc": 0.695,
+   "auc_shuffled": 0.4984,
+   "n_test_members": 4953
+  },
+  {
+   "component": "m14",
+   "auc": 0.6567,
+   "auc_shuffled": 0.4948,
+   "n_test_members": 3107
+  },
+  {
+   "component": "m16",
+   "auc": 0.7235,
+   "auc_shuffled": 0.5137,
+   "n_test_members": 3765
+  }
+ ],
+ "median_auc": 0.7019,
+ "convention": "ridge probe on component INPUT; train rows 0-499, AUC on test half",
+ "pred_a_gates_cheap": false,
+ "pred_b_a8": false,
+ "pred_c_shuffle_control": true,
+ "self_reviewed": true,
+ "runtime_s": 9.3
 }

@@ -2204,6 +2204,9 @@ later per-rung backlog edits had silently anchored on text that was not here.
     0.90; pred_c shuffled in [0.45, 0.55]. Null: AUC < 0.7 (gate needs
     the oracle). Price: 1,152 values/gate.
     -> ops/probe_gate.py [QUEUED 16:32Z]
+    RUN 2026-08-31, S2267: pred_a/b FAILED, c HELD. Median AUC 0.702 -
+    between pass (0.85) and null (0.7): gate not cheaply linear; class-
+    feature follow-up -> rung 172.
 
 171. Sufficiency (missing half of minimality): keep battery top-5 real,
     mean-ablate the rest of the 16-set; controls keep-random-5 and
@@ -2211,3 +2214,17 @@ later per-rung backlog edits had silently anchored on text that was not here.
     ref; pred_b top5 <= 0.5 x rand5 for >= 7/10; pred_c top5 <= 0.7 x
     none for >= 8/10. Null: members die regardless (substrate-wide).
     -> ops/sufficiency.py [QUEUED 16:32Z]
+
+172. Stream + class probe (gate composition): [component input (+) classify2
+    one-hot]; class-alone CPU check gave median 0.581, stream-only 0.702.
+    pred_a median AUC >= 0.78; pred_b no family regresses; pred_c shuffle
+    control. Null: <= 0.72 (gate oracle-bound; gating thread closes).
+    -> ops/probe_gate2.py [QUEUED 16:35Z]
+
+173. Minimal-set trajectory splice (the RECONNECT rung): in the frontier
+    build, splice each of 5 circuits' top-5 components to real-pass
+    outputs vs seeded random-5 controls. pred_a median minset recovery >=
+    0.5; pred_b minset >= 1.3 x rand5 for >= 3/5; pred_c plain repro vs
+    rung-132 in [0.85, 1.15]. Null: indiscriminate recovery (kill is
+    stream-wide; per-circuit repair impossible at component grain).
+    -> ops/minset_splice.py [QUEUED 16:35Z]

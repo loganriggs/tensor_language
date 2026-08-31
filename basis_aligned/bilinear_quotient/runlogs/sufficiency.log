@@ -1,0 +1,15 @@
+sample ['r.11.1.1', 'r.11.1.2', 'r.11.3.1', 'r.2.0', 'r.1.0.0', 'r.3.0', 'r.3.0.0', 'r.0.0', 'r.2.2.2', 'r.3.1.0']; 16-set ['a14', 'a15', 'a16', 'a17', 'a2', 'a3', 'a4', 'a6', 'a7', 'a8', 'a9', 'm13', 'm14', 'm16', 'm17', 'm5']
+  r.11.1.1: keep-top5 3.317 | keep-rand5 3.238 | keep-none 4.614 (ref 0.60)
+  r.11.1.2: keep-top5 3.415 | keep-rand5 4.166 | keep-none 4.636 (ref 0.73)
+  r.11.3.1: keep-top5 2.974 | keep-rand5 2.817 | keep-none 4.239 (ref 0.63)
+  r.2.0: keep-top5 4.505 | keep-rand5 3.901 | keep-none 5.318 (ref 0.98)
+  r.1.0.0: keep-top5 3.378 | keep-rand5 3.142 | keep-none 4.529 (ref 0.45)
+  r.3.0: keep-top5 3.560 | keep-rand5 3.352 | keep-none 5.394 (ref 0.54)
+  r.3.0.0: keep-top5 3.149 | keep-rand5 2.875 | keep-none 5.492 (ref 0.79)
+  r.0.0: keep-top5 3.597 | keep-rand5 3.567 | keep-none 4.099 (ref 1.73)
+  r.2.2.2: keep-top5 4.328 | keep-rand5 4.567 | keep-none 4.695 (ref 0.97)
+  r.3.1.0: keep-top5 3.996 | keep-rand5 3.582 | keep-none 4.500 (ref 1.34)
+(a) median top5/ref 4.617 <= 1.0: FAILED
+(b) top5 <= 0.5 x rand5 for 0 >= 7: FAILED
+(c) top5 <= 0.7 x none for 2 >= 8: FAILED
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/sufficiency_results.json (146s)

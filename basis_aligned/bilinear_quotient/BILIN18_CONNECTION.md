@@ -65550,3 +65550,7 @@ VOID-AS-DESIGNED; corrected control = rung 133 (offline real-module targets, the
   low-variance directions carry ~2.7× more damage per unit variance than principal ones. So damage is not a
   single isotropic quadratic form: the bulk tracks variance, and the low-variance floor is disproportionately
   fragile. Recorded as a nuance, not a correction (the § quotes the raw densities).
+
+## §2267 — RUNG 170: THE POSITION GATE IS NOT CHEAPLY LINEAR — median probe AUC 0.702 (a8 0.709; bar 0.85), landing BETWEEN the pass and the registered null's < 0.7: far above chance (shuffle controls 0.48–0.51, pred_c HELD), far below surgical. pred_a/b FAILED. Linear-on-local-stream does not compute the member gate; whether "class features + linear" does is the immediate follow-up (the census leaves plausibly refine the 10-class taxonomy, which IS deployable — classify2 runs on raw tokens). (Convention: AUC of a ridge probe on the component input; train rows 0–499, AUC on the test half.)
+
+`ops/probe_gate.py`, **9s**, BACKLOG rung 170.
