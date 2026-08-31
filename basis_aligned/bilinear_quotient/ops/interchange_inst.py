@@ -160,49 +160,6 @@ def main():
     print(f"(c) ratio in [0.5, 2.0]: {'HELD' if pc else 'FAILED'}")
     print(f'wrote {OUT} ({time.time()-T00:.0f}s)')
     return
-    Mrows={}
-    for c in comps:
-        mod,kind=module_of(c)
-        def abl(mo,i_,o_,c=c,kind=kind):
-            if kind=='attn':
-                y,v1=o_
-                return (MU[c].expand_as(y).to(y.dtype),v1)
-            return MU[c].expand_as(o_).to(o_.dtype)
-        h=mod.register_forward_hook(abl)
-        cev=evalce([])
-        h.remove()
-        d=cev-CBASE
-        if float(d.abs().max())<1e-6:
-            raise SystemExit(f'INSTRUMENT FAIL: knockout {c} bitwise equal to base')
-        Mrows[c]={t:round(float(d[info['mask']].abs().mean()),4) for t,info in CINFO.items()}
-        own=[t for t,info in CINFO.items() if info['top']==c]
-        print(f'  {c}: own-mean {sum(Mrows[c][t] for t in own)/max(len(own),1):.3f} '
-              f'({len(own)} own circuits)',flush=True)
-    import statistics as stt
-    sel=[]
-    for c in comps:
-        own=[Mrows[c][t] for t,info in CINFO.items() if info['top']==c]
-        oth=[Mrows[c][t] for t,info in CINFO.items() if info['top']!=c]
-        if own and oth: sel.append((sum(own)/len(own))/max(stt.median(oth),1e-9))
-    medsel=stt.median(sel)
-    a8=sum(1 for t,info in CINFO.items()
-           if info['top']!='a8' and Mrows.get('a8',{}).get(t,0)>0.25*info['ref'])
-    reps=[Mrows[info['top']][t]/max(info['ref'],1e-9) for t,info in CINFO.items()]
-    medrep=stt.median(reps)
-    pa=medsel>=3
-    pb=a8>=20
-    pc=0.67<=medrep<=1.5
-    res={'matrix':Mrows,'median_selectivity':round(medsel,3),'a8_collateral_count':a8,
-         'median_battery_repro_ratio':round(medrep,3),
-         'convention':'per-position dCE = CE(knockout) - CE(real model) on census rows',
-         'pred_a_selective':bool(pa),'pred_b_substrate_sharing':bool(pb),'pred_c_battery_repro':bool(pc),
-         'self_reviewed':True,'runtime_s':round(time.time()-T00,1)}
-    json.dump(res,open(OUT,'w'),indent=1)
-    print(f'median selectivity {medsel:.3f}; a8 collateral {a8}; battery repro ratio {medrep:.3f}')
-    print(f"(a) selectivity {medsel:.3f} >= 3: {'HELD' if pa else 'FAILED'}")
-    print(f"(b) a8 collateral {a8} >= 20: {'HELD' if pb else 'FAILED'}")
-    print(f"(c) repro ratio {medrep:.3f} in [0.67, 1.5]: {'HELD' if pc else 'FAILED'}")
-    print(f'wrote {OUT} ({time.time()-T00:.0f}s)')
 
 if __name__=='__main__':
     main()
