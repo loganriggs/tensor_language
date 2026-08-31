@@ -1291,6 +1291,11 @@ later per-rung backlog edits had silently anchored on text that was not here.
     Null: residual path dominates. Sanity: both path arms must lie in
     [0, mean2 + 0.05].
     -> ops/twin_anatomy2.py [QUEUED 03:15Z]
+    RUN 2026-08-31, §2186: ALL THREE HELD — the 2->3 path carries 84%
+    of attn2's per-position value (path_only +0.0205 vs mean2 +0.1295;
+    residual path 26%; near-additive). The twins are a two-stage local
+    circuit, each stage individually sufficient — a single distilled
+    b2/b3 unit is the right merged object.
 
 94. MEAN-ABLATION SUITE FOR ALL THREE PAIRS (user-requested; damage
     convention). §2185: 73% of attn2's zero-ablation damage was the mean

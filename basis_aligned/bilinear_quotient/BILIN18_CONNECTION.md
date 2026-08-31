@@ -64632,3 +64632,24 @@ pred_c HELD (2.4411 vs 2.4410) | pred_b FAILED (−0.727 vs ≥ 0.4).**
 - **The literal-copy picture dies:** the twins' output directions are only generically similar (+0.22,
   position-independent) — they inject DIFFERENT vectors whose downstream effect is interchangeable. Twinness is
   functional equivalence under document-gauged coordinates, not duplicated writes.
+
+## §2186 — RUNG 93 (rung 92's fix, correctly scaled): ATTN2'S VALUE FLOWS THROUGH BLOCK 3, NOT THE RESIDUAL STREAM — keeping only the 2→3 interaction recovers 84% of attn2's per-position value (+0.1295 → +0.0205), while keeping only the residual path recovers 26% (+0.0963). ALL THREE BARS HELD; the sanity range passed. (Convention: damage on the motifs-2/3-real base; mean-ablation; Δy2 injected at BLOCK grain — visible to attn3+m3, as registered.)
+
+`ops/twin_anatomy2.py`, **447s**, BACKLOG rung 93. **ALL THREE HELD: pred_a (+0.0205 ≤ 0.5 × +0.1295) |
+pred_b (+0.0963 ≥ +0.0205) | pred_c (2.4411 vs 2.4410).**
+
+```
+  arm                                  damage    share of attn2's value carried
+  mean2 (Δy2 removed everywhere)      +0.1295        —
+  path_only (Δy2 → block 3 only)      +0.0205      the 2→3 path recovers 84%
+  direct_only (everywhere BUT b3)     +0.0963      the residual path recovers 26%
+  (path shares sum to ~110% — near-additive, mild overlap)
+```
+
+- **The user's question answered:** it is NOT "just the residual stream path." Block 3 is the principal consumer
+  of attn2's per-position signal; the direct route from attn2 to later layers carries about a quarter. The
+  "twins" are better described as a two-stage local circuit — stage 1 feeds stage 2, each stage individually
+  sufficient for the function (§2180's backup), stage 2 under-amplified by ~1.45× when alone (§2184).
+- This recasts the §2180 catastrophe naturally: zeroing both removes the stage-2 consumer AND the direct path
+  at once. And it sharpens the merged-description prospect: a single distilled block-2/3 unit is the right
+  object (one stage in, one write out), not two parallel writers.

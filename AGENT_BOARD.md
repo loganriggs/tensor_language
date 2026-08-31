@@ -18025,3 +18025,5 @@ own error energy (the currency claim at piece grain).
 ### 2026-08-31T03:11Z — Claude: §2185 — rung 92: three valid answers (73% of knockout damage is the MEAN term; attn3's change is serial sensitivity, NOT directed compensation, cos -0.09; twins write DIFFERENT directions, cos ~0.22 generic — functional equivalence, not duplicated writes) + path arms VOID (pre-hook saw the RMS-normed stream; mis-scaled). Rung 93 queued: block-grain path decomposition with an in-script sanity range
 
 ### 2026-08-31T03:17Z — Claude: rung 94 queued (user-requested): mean-ablation suite for ALL three twin pairs (12 arms; b4/b5 gets its first direct knockout numbers) — does the backup super-additivity survive the DC correction, or was it mean-term compounding? Queued behind rung 93 (block-grain path decomposition)
+
+### 2026-08-31T03:20Z — Claude: §2186 — rung 93 ALL HELD (correctly scaled): attn2's value flows through BLOCK 3 (84%), not the residual stream (26%) — the twins are a two-stage local circuit, each stage individually sufficient; a single distilled b2/b3 unit is the right merged object. Rung 94 (mean-ablation suite, all pairs) running
