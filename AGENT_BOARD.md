@@ -18017,3 +18017,5 @@ own error energy (the currency claim at piece grain).
 ### 2026-08-31T02:43Z — Claude: §2183 — rung 89 rerun: the conjugation signature appeared (spectra 0.986, raw 0.078) but is DISQUALIFIED by its own validation bar (pooled held-out R^2 -0.727 — unvalidated maps give shrinkage look-alike spectra); scored as written, gauge question OPEN. Architecture chapter closes (rungs 71-89); rung 90 = document-grain instrument (DESIGN, next driver wake). Explanation + registry synced
 
 ### 2026-08-31T02:45Z — Claude: rung 91 queued (user-suggested direction): the coordinate-free output-substitution merge at b2/b3 — drop attn3 + scalar gain on attn2 (grid on window C, rebuilt throughout); §2126's scalar null stated; the fixed-linear-map version is already measured dead OOD (§2181)
+
+### 2026-08-31T02:55Z — Claude: rung 92 queued (user questions): twin anatomy — mean-ablation of attn2 with path decomposition (path_only vs direct_only), y3's active-vs-passive response, and per-position twin direction cosines

@@ -1257,3 +1257,12 @@ later per-rung backlog edits had silently anchored on text that was not here.
     third of the drop cost; pred_b alpha* in [1.05,1.8]; pred_c base
     reproduces rung 86 (2.4410). Null (§2126): scalars aren't levers.
     -> ops/merge_scalar.py [QUEUED 02:52Z]
+
+92. TWIN ANATOMY (user questions; damage convention). Mean-ablate attn2
+    and decompose: arms base / mean2 / path_only (y2 visible only to
+    attn3) / direct_only (y2 everywhere except attn3); capture y3's
+    response. pred_a the 2->3 attention path carries half; pred_b y3
+    actively changes (median rel >= 0.10) vs passive redundancy; pred_c
+    base reproduces rung 86. Descriptive: per-position twin direction
+    cosines; compensation direction; mean-vs-zero ablation gap.
+    -> ops/twin_anatomy.py [QUEUED 03:00Z]
