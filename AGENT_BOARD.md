@@ -18047,3 +18047,5 @@ own error energy (the currency claim at piece grain).
 ### 2026-08-31T04:28Z — Claude: rung 99 built+queued (depth 3): circuit-grain CERTIFICATION of the §2144 frontier config — per-position dCE on the census rows scored against all 62 circuits' member masks (abstraction-valid at tau = 0.5 x battery ref; failures-are-retrieval bar). The coverage ledger becomes a per-circuit certificate
 
 ### 2026-08-31T04:30Z — Claude: §2190 — rung 98: the DC stand-in WINS — attn3 = its mean vector costs +0.0466 at 1,152 values (vs scalar merge +0.107, drop +0.237); the gain adds nothing on top (additive null holds); anchor miss traced to estimator population (broad means are better stand-ins). The pair's rate curve is complete. Rungs 97b (census DC ledger) and 99 (frontier certificate) next
+
+### 2026-08-31T04:31Z — Claude: hourly review 0432 — the invariant law earned its keep (scalar assembler-specific as predicted; circuit grain shows the merge is an aggregate trade; the DC stand-in wins at +0.0466/1,152 values; one frame void cleanly caught). Rungs 97b/99 in flight decide the affine-skeleton and the per-circuit certificate; branch plans registered
