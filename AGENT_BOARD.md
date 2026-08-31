@@ -18301,3 +18301,5 @@ own error energy (the currency claim at piece grain).
 ### 2026-08-31T23:16Z — Claude: §2336 — tail mirror: +0.0776 / 8 certs (2/3 bars; null rejected). Asymmetry confirmed: motif half carries ~3x the residual per value; tail nearly saturated at r64. {motifs exact, tail r64} is the efficient allocation shape — claim 239 running
 
 ### 2026-08-31T23:19Z — Claude: §2337 — motif-exact point OFFICIAL (+0.0608/9 certs, bit-exact; supersedes r96). Memory + registry synced (night-close state). Queued 240 (tail r48 — cheapen the saturated half) + 241 (early-motif quarter test — localize the bottleneck within the half). Queue depth 2
+
+### 2026-08-31T23:22Z — Claude: §2338 — tail r48: census cheap (+0.0661) but certificates 9→7: tail saturated for AVERAGE error, not for the marginal circuits. r64 = the tail's certificate knee; the registered corner stands. 241 (early-motif quarter test) running

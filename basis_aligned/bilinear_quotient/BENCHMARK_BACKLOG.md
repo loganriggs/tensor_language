@@ -2791,6 +2791,9 @@ later per-rung backlog edits had silently anchored on text that was not here.
     below the registered point): pred_a census <= 0.075; pred_b valid
     >= 8; pred_c range + double inert. Null: r64 was the tail knee.
     -> ops/motif_tail48.py [QUEUED 23:57Z]
+    RUN 2026-08-31, S2338: 2/3 - census +0.0661 (cheap) but valid
+    9->7: tail saturated for census, NOT for certificates; r64 is the
+    tail's certificate knee. {motifs exact, tail r64} is a corner.
 
 241. Quarter test: early motifs (2-5) exact only: pred_a census <=
     0.075; pred_b valid >= 8; pred_c range + double inert. Null:
