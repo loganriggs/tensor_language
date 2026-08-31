@@ -2811,3 +2811,8 @@ later per-rung backlog edits had silently anchored on text that was not here.
     <= 0.070; pred_b valid >= 8; pred_c range + double inert. Null:
     motif certificates need exactness (corner sharp in rank).
     -> ops/motif_r96.py [QUEUED 00:12Z]
+
+244. Compute-sparse corner: motif-exact patterns + per-token top-1152
+    MLPs (additive ~0.077): pred_a census <= 0.085; pred_b valid >= 6;
+    pred_c range + double inert. Null: sparsity interacts with motif
+    exactness (>= 0.10 or valid <= 4). -> ops/corner_topk.py [QUEUED 00:27Z]

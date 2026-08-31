@@ -18305,3 +18305,5 @@ own error energy (the currency claim at piece grain).
 ### 2026-08-31T23:22Z — Claude: §2338 — tail r48: census cheap (+0.0661) but certificates 9→7: tail saturated for AVERAGE error, not for the marginal circuits. r64 = the tail's certificate knee; the registered corner stands. 241 (early-motif quarter test) running
 
 ### 2026-08-31T23:25Z — Claude: §2339 — early motifs (2-5) carry 71% of the motif-half gain + 1 cert at half the spend (all bars held). Queued 242 (late-motif complement) + 243 (graded: motifs r96 — is the corner sharp in rank?). Queue depth 2
+
+### 2026-08-31T23:27Z — Claude: driver wake — 242 (late-motif quarter) running, 243 (graded motif r96) queued; added 244 (compute-sparse corner: motif-exact + per-token top-k MLPs, additivity + certificate bars). Queue depth 2
