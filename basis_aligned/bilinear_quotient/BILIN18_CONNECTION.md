@@ -64374,3 +64374,20 @@ pred_c HELD (2.6663 vs 2.6662) | pred_b FAILED.**
   pred_b's failure is the finding: the registered "context accumulation everywhere" was wrong for the front.
 - The front/tail comparison table is complete on three axes now: class ordering (other-led vs ind-led, §2167),
   distance law (flat vs rising, §2168), position law (early vs late, here). One architecture, two regimes.
+
+## §2171 — RUNG 77: INDEPENDENT DUPLICATES, NOT A SHARED READ — the cross-output linear map fits half A at R² 0.926 and collapses to 0.106 on half B; and the 0.93 CCA alignment is generic (non-ind 0.927), not retrieval-specific. The registered null wins: no shared-read compilation is licensed for the 14/16 pair. pred_a HELD (but uninformative — see control), pred_b/c FAILED. (Alignment rung; damage convention n/a.)
+
+`ops/backup_pair_cca.py`, **109s**, BACKLOG rung 77. **pred_a HELD (0.933 ≥ 0.6) | pred_b FAILED (0.106 vs
+≥ 0.8 × 0.926) | pred_c FAILED (ind − non-ind = 0.006 vs ≥ 0.2).**
+
+- **The pre-derived signature came back with the null's sign:** alignment without map transfer = two modules
+  computing their own document-dependent versions of the same function — an ENSEMBLE of independent readers,
+  which is precisely what makes §2165's backup possible without sharing. The minimal-realization hypothesis
+  (one read, two couplings) is refuted; a compiled grammar cannot merge 14/16 by linear identification.
+- **pred_c's failure disciplines pred_a:** CCA between top-64-whitened outputs of two modules driven by the
+  same stream is generically ~0.93; the retrieval-specificity control (registered for exactly this reason)
+  shows the "alignment" carries no retrieval information. Instrument note for future alignment rungs: subspace
+  correlation without a transfer or specificity test is not evidence.
+- Assumption flagged at registration (a per-document gauge rotation could also break transfer) remains a
+  logically open alternative, but it would equally block any linear shared-read compilation — the practical
+  conclusion stands either way.

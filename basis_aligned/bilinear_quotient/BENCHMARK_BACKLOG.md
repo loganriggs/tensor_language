@@ -1067,10 +1067,14 @@ later per-rung backlog edits had silently anchored on text that was not here.
     pred_c non-ind alignment lower by >= 0.2. Null: aligned but
     non-transferring (independent duplicates).
     -> ops/backup_pair_cca.py [QUEUED 01:25Z]
+    RUN 2026-08-31, §2171: pred_a HELD (0.933, but generic — control
+    failed at 0.927 non-ind), pred_b FAILED (transfer 0.106 vs 0.926):
+    INDEPENDENT DUPLICATES — no shared-read compilation licensed; the
+    backup is an ensemble of independent readers.
 
 78. THE SUPPRESSOR AS AN OPPONENT PROCESS (math review 0140). Same
     captures + m16 output: cos(logit-effect of m16, logit-effect of
     attn14+attn16) on ind positions. pred_a cos <= -0.3 on ind; pred_b
     |cos| <= 0.15 on non-ind; pred_c repro gate. Null: suppression is
     routed, not direct logit opposition.
-    -> [TO BUILD with rung 77's captures]
+    -> ops/m16_opponent.py [QUEUED 01:28Z]
