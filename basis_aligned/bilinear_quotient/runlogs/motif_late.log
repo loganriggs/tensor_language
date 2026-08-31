@@ -25,3 +25,18 @@ L1 (+38 heads): C +0.2507 | fresh +0.2280
   window 1 (42 docs): L2 fresh +0.0734
   window 2 (17 docs): L2 fresh +0.0610
   window 3 (23 docs): L2 fresh +0.0706
+  window 4 (43 docs): L2 fresh +0.0999
+  window 5 (26 docs): L2 fresh +0.0816
+  window 6 (35 docs): L2 fresh +0.0535
+  window 7 (35 docs): L2 fresh +0.0585
+L2 empirical: C +0.0568 | fresh +0.0739 | tail-attn increment -0.1541
+(a) L2 <= +2.75 fresh: HELD
+(b) increment in [0.30,0.55]: FAILED
+  per-class dCE: digit:+0.051 bclose:+0.031 newline:+0.040 sentend:+0.033 comma:+0.017 name:+0.138 rep:-0.067 subword:+0.072 ind:+0.046 other:+0.104
+  era Spearman vs rung-132: 0.3843 over 62
+  median member/ref ratio 0.962; tau-curve {'0.5': 7, '1.0': 36, '1.5': 51, '2.0': 54, '3.0': 58}
+L2 fresh +0.0739 (was +1.8765); census +0.0768 (was +1.9474); increment -0.1541; valid 7/62
+(a) census +0.0768 <= 0.080: HELD
+(b) valid 7 >= 8; margin 0.962: FAILED
+(c) census in [0.01, 0.12]; era rho 0.3843: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/motif_late_results.json (127s)

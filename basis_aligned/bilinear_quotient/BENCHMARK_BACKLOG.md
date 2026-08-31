@@ -2806,6 +2806,9 @@ later per-rung backlog edits had silently anchored on text that was not here.
 242. Quarter test II: late motifs (6-9) exact only: pred_a census <=
     0.080; pred_b valid >= 8; pred_c range + double inert. Null: late
     motifs carry nothing distinct. -> ops/motif_late.py [QUEUED 00:12Z]
+    RUN 2026-09-01, S2340: 2/3 - late quarter: +0.0768, ZERO new certs.
+    Quarter ledger: early 0.0680/8, late 0.0768/7, half 0.0608/9 -
+    certificate #9 is super-modular (joint property of the stack).
 
 243. Graded motif rank: motifs r96 + tail r64 (60.3M): pred_a census
     <= 0.070; pred_b valid >= 8; pred_c range + double inert. Null:
