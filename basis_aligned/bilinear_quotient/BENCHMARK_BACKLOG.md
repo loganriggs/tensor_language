@@ -2701,6 +2701,11 @@ later per-rung backlog edits had silently anchored on text that was not here.
     improving); pred_b >= 0.08 (plateau short of oracle); pred_c
     consistency + inert vs km-256. Null: saturated at 256 (>= 0.135).
     -> ops/kmid1024_m2.py [QUEUED 23:32Z]
+    RUN 2026-08-31, S2327: 2/3 - km-1024 0.1323 (missed 0.125 by
+    0.007); 4x cells bought 0.008. Saturated. CHAPTER CLOSED: front
+    static (85%), depth irreducibly dynamic (~0.13 plateau vs 0.035
+    oracle); index blends dilute. No more index variants without a
+    new mechanism.
 
 230. Token table at m1 (decay curve middle point; 0.184 at m0 vs
     0.771 at m2): pred_a TOKID <= 0.35 x STATIC; pred_b ORACLE <=

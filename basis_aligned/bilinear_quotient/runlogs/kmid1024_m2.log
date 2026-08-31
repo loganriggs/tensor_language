@@ -1,0 +1,7 @@
+k-means fit: 1024/1024 cells occupied (2s)
+  KM256: agg +0.0192 | census|dCE| 0.1323
+  KMHIER: agg +0.0221 | census|dCE| 0.1412
+(a) KM1024 0.1323 <= 0.125: FAILED
+(b) plateau floor - KM1024 0.1323 >= 0.08: HELD
+(c) ORACLE <= KM256 <= STATIC: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/kmid1024_m2_results.json (18s)
