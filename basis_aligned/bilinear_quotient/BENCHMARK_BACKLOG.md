@@ -2502,8 +2502,23 @@ later per-rung backlog edits had silently anchored on text that was not here.
     ratio <= 0.7; pred_c exactness relerr <= 1e-3 + non-inert. Null:
     neuron basis already aligned (ratios >= 0.9).
     -> ops/m16_eigenbasis.py [QUEUED 22:02Z]
+    RUN 2026-08-31, S2305: 1/3 bars, INSTRUMENT-FLAGGED - exactness
+    tripwire failed (max relerr 7.36; suspected denominator-floor bar
+    mis-design + fp16 eigvecs). Ratios 0.770 own / 0.655 census
+    QUARANTINED. v2 = rung 209.
 
 208. Per-token top-k density sweep k=576 (1/8 density, r64 base):
     pred_a census <= 0.20; pred_b valid >= 2; pred_c range + double
     inert. Null: quarter was the knee (>= 0.14).
     -> ops/cp_topk576.py [QUEUED 22:06Z]
+
+209. m16 eigenbasis v2 (fixed exactness instrument: rel-Frobenius +
+    max/RMS; fp32 eigvecs) — the S2305 quarantine lifter: pred_a
+    exactness certifies; pred_b own-ratio <= 0.9; pred_c census ratio
+    <= 0.8. Null: quarantined advantage was artifact, or real bug
+    (pred_a fails -> publish nothing, hunt).
+    -> ops/m16_eigenbasis_v2.py [QUEUED 22:08Z]
+
+210. Per-token top-k density k=288 (1/16, curve completion): pred_a
+    census <= 0.45; pred_b valid >= 1; pred_c range + inert. Null: knee
+    above 1/16 (>= 0.5). -> ops/cp_topk288.py [QUEUED 22:08Z]
