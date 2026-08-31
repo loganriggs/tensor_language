@@ -1343,6 +1343,11 @@ later per-rung backlog edits had silently anchored on text that was not here.
     DC share = 1 - d(mean)/d(zero). pred_a median share >= 0.5; pred_b
     a8 >= 0.5; pred_c base reproduces §2144. Null: b2/b3-specific.
     -> ops/dc_ledger.py [QUEUED 03:55Z]
+    First run 04:20Z VOID at the tripwire — and the a8/a5 arms were
+    structurally inert: on the S2144 base those attentions are REPLACED
+    by motif hooks, so ablating the real modules does ~nothing (a8 zero
+    -0.008!). Lesson: DC ledgers belong in the REAL-model census frame
+    (the battery's frame). Rebuilt as dc_ledger2 (census, ~16s/arm).
 
 98. THE DC STAND-IN (damage convention; §2187-licensed). Replace attn3
     with its MEAN VECTOR (price: 1,152 values) instead of zero, with an
@@ -1363,3 +1368,10 @@ later per-rung backlog edits had silently anchored on text that was not here.
     and positive (sanity). Null: broad breakage beyond retrieval.
     [TO BUILD next driver wake — needs the assembly install() ported
     into the census frame with care.]
+
+97b. THE DC LEDGER, CENSUS FRAME (rebuild). Real-model zero- vs mean-
+    ablation for a8/a5/m13/m14/m15/m16 over the census grid; DC share =
+    1 - d(mean)/d(zero) on aggregate |dCE|... using signed mean dCE per
+    arm. pred_a median DC share >= 0.5; pred_b a8 >= 0.5; pred_c
+    anti-inertness: every zero-arm aggregate mean dCE >= +0.02.
+    -> ops/dc_ledger2.py [QUEUED 04:45Z]
