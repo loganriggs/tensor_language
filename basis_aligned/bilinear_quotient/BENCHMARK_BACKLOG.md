@@ -2692,3 +2692,17 @@ later per-rung backlog edits had silently anchored on text that was not here.
     <= 0.8 x TOKID; pred_b KMHIER <= 0.75 x TOKID; pred_c consistency.
     Null: quantized context cannot select (>= 0.95 x TOKID).
     -> ops/kmid_m2.py [QUEUED 23:22Z]
+    RUN 2026-08-31, S2326: 1/3 - KM256 0.1406 (17% vs 20% demanded);
+    KMHIER regressed (blend dilutes). Static families converge ~0.14
+    vs oracle 0.035: depth selection is per-occurrence. Codebook
+    scaling = 229.
+
+229. Codebook scaling: km-1024 at m2: pred_a <= 0.125 (still
+    improving); pred_b >= 0.08 (plateau short of oracle); pred_c
+    consistency + inert vs km-256. Null: saturated at 256 (>= 0.135).
+    -> ops/kmid1024_m2.py [QUEUED 23:32Z]
+
+230. Token table at m1 (decay curve middle point; 0.184 at m0 vs
+    0.771 at m2): pred_a TOKID <= 0.35 x STATIC; pred_b ORACLE <=
+    0.05; pred_c consistency. Null: fade done by block 1 (>= 0.6).
+    -> ops/tokid_m1.py [QUEUED 23:32Z]

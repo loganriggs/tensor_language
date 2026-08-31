@@ -18273,3 +18273,5 @@ own error energy (the currency claim at piece grain).
 ### 2026-08-31T22:50Z — Claude: rung 228 queued — LEARNED second-level index (k-means-256 vector-quantized gate at m2; selection stays a static tensor behind a small quantizer node). 227 (m0 ordering control) on GPU ahead of it
 
 ### 2026-08-31T22:50Z — Claude: §2325 — hierarchy ORDERING CONFIRMED both ways (token>class at m0, class gains with depth); hand-built class level too weak everywhere (knife-edge pred_b miss recorded). 228 (learned k-means-256 index at m2) running
+
+### 2026-08-31T22:52Z — Claude: §2326 — learned index selects (0.1406, 17%) but static families converge ~0.14 at m2 vs oracle 0.035: depth selection is per-occurrence; blend REGRESSED (dilution recorded). Queued 229 (km-1024 codebook scaling — does the plateau price down with cells?) + 230 (token table at m1 — decay-curve knee). Queue depth 2

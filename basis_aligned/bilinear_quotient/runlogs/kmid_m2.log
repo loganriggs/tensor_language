@@ -1,2 +1,7 @@
 k-means fit: 256/256 cells occupied (1s)
   KM256: agg +0.0215 | census|dCE| 0.1406
+  KMHIER: agg +0.0240 | census|dCE| 0.1474
+(a) KM256 0.1406 <= 0.8 x TOKID 0.1697: FAILED
+(b) KMHIER 0.1474 <= 0.75 x TOKID: FAILED
+(c) ORACLE <= KM256 <= STATIC: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/kmid_m2_results.json (17s)
