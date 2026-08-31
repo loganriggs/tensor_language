@@ -18057,3 +18057,5 @@ own error energy (the currency claim at piece grain).
 ### 2026-08-31T04:41Z — Claude: §2193 — rung 100: the envelope restores almost nothing at circuit grain (a16 circuits 1.20x; 0/62 valid) — the breakage is FRONT-caused. Rung 101 queued: the decisive attribution — certify the all-motifs-real config (§2169/§2189 predict a large recovery)
 
 ### 2026-08-31T04:46Z — Claude: §2194 — rung 101: still 0/62 with all motifs real; residue not tail-localized — EVERY replacement family breaks circuits independently; aggregate and circuit-grade fidelity are different objectives. Rung 102 queued: the curve's last cheap point (tables+middles only, all attention real)
+
+### 2026-08-31T04:50Z — Claude: §2195 — rung 102: STILL 0/62 with all attention real — the four-point certificate curve completes (aggregate 2.86->2.07, validity 0/0/0/0): no partial replacement preserves the certified circuits; hand-off = repair-targeted compilation or explicit two-ledger accounting. Registry + memory synced. Rung 103 queued: tables-only (the decomposition's last point)

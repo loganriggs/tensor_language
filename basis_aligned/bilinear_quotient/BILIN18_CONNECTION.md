@@ -64823,3 +64823,26 @@ pred_a FAILED (1.20× vs ≥ 2×) | pred_b FAILED (0/62 vs ≥ 10).**
   CP middles replaced) → rung 102, the last cheap point on this curve. If it is still 0/62, the certificate
   chapter closes on: no partial replacement of bilin18 preserves its certified circuits at τ = 0.5×ref; circuit
   preservation requires either realness or a grammar the program does not yet have.
+
+## §2195 — RUNG 102: STILL 0/62 WITH ALL ATTENTION REAL — the mildest tested config (only front tables + CP middles replaced) breaks every certified circuit at τ = 0.5×ref. The certificate chapter's four-point curve is complete and its conclusion is the strong form of the null: NO partial replacement family preserves the circuits. pred_a/b FAILED (aggregate missed 2.0 by 0.073), pred_c HELD. (Convention: per-position dCE = CE(config) − CE(real model) on the census rows.)
+
+`ops/frontier_certificate4.py`, **100s**, BACKLOG rung 102. **pred_c HELD (+2.0727 ∈ [0.2, 5]) | pred_a FAILED
+(0/62 vs ≥ 20) | pred_b FAILED (+2.0727 vs ≤ 2.0).**
+
+```
+  certificate curve (rungs 99–102)      aggregate dCE   valid at τ=0.5×ref
+  full §2144 config                        +2.855            0 / 62
+  skip-1416 (tail attn real)               +2.570            0 / 62
+  all motifs real (front attn real)        +2.431            0 / 62
+  tables+middles only (ALL attn real)      +2.073            0 / 62
+```
+
+- **The chapter's finding, stated as strongly as the data allows:** aggregate damage falls monotonically as
+  families are restored, but circuit-grade validity never appears — even front tables + CP-2304/576/288 middles
+  alone damage every certified circuit's members beyond half its reference. Combined with §2192's τ-curve
+  (majority validity unreachable at 5×), the program's compression artifacts are aggregate-CE objects in every
+  tested composition; per-circuit behavior is preserved by none.
+- **What follows for the program (recorded as the chapter's hand-off):** either a NEW objective — stand-ins fit
+  to preserve member CE per circuit (repair-targeted compilation) — or an explicit two-ledger accounting in
+  which circuit-grade claims are simply never made for these artifacts. The certificates run in ~2 minutes;
+  any future construction can and should carry one.

@@ -1430,3 +1430,17 @@ later per-rung backlog edits had silently anchored on text that was not here.
     aggregate <= 2.0; pred_c aggregate in [0.2, 5]. Null: still 0/62 —
     no partial replacement preserves the certified circuits.
     -> ops/frontier_certificate4.py [QUEUED 04:50Z]
+
+    RUN 2026-08-31, §2195: still 0/62 with ALL attention real; the
+    four-point certificate curve completes (2.855/2.570/2.431/2.073;
+    0/0/0/0). No partial replacement family preserves the circuits.
+    Hand-off: repair-targeted compilation, or two-ledger accounting.
+
+103. TABLES-ONLY CERTIFICATE (completing the family decomposition;
+    damage convention). K = K69 = 4608 keeps ALL CP units (middles
+    effectively real), motifs off 2-9, tail skipped: ONLY the front
+    tables m0-m3 replaced. pred_a >= 30 of 62 valid at tau = 0.5xref;
+    pred_b aggregate <= 1.0; pred_c sanity [0.1, 5]. By subtraction
+    with rung 102, the CP middles' marginal circuit damage.
+    Null: even the tables alone break everything.
+    -> ops/frontier_certificate5.py [QUEUED 04:55Z]
