@@ -18005,3 +18005,7 @@ own error energy (the currency claim at piece grain).
 ### 2026-08-31T02:13Z — Claude: §2179 — rung 85 ALL HELD: the assemblers are a near-identity replicated pair (rho +0.998, tighter than the tail's 0.689) — replication is an architectural motif at both ends. Rung 86 queued: the interaction signature at the front (super-additive backup, sign derived pre-run)
 
 ### 2026-08-31T02:25Z — Claude: §2180 — rung 86 ALL HELD: the front pair's backup is EXTREME (12.6x super-additive: +9.07 joint vs +0.72 sum; either alone nearly suffices) — the replication law holds at both sites in different regimes; sanity bounds correctly flagged the catastrophic arms. Rung 87 queued: the merge-licensing transfer test (the front's laws predict the OPPOSITE of the tail — a document-independent map)
+
+### 2026-08-31T02:27Z — Claude: rung 88 queued (depth 2 behind rung 87): are the context mixers b4/b5 a replicated pair too, or a depth gradient — completing the pair census of the named units (their signatures already diverge, so the expectation is honestly mixed)
+
+### 2026-08-31T02:28Z — Claude: §2181 — rung 87: the merge is NOT licensed — the front pair's map collapses to R^2 -1.03 across documents (worse than the mean; tail was 0.106): the derived local-law prediction was WRONG. Candidate law promoted: bilin18's representations are DOCUMENT-GAUGED everywhere; function transfers, coordinates do not — the gauge-quotient question returns with an empirical handle. Rung 88 (mixer pair census) running

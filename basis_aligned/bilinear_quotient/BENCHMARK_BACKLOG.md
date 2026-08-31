@@ -1203,3 +1203,16 @@ later per-rung backlog edits had silently anchored on text that was not here.
     L2_F within 0.01. If pred_b holds, b2/b3 is the program's first
     legitimately MERGEABLE pair. Null: document-bound like the tail.
     -> ops/assembler_transfer.py [QUEUED 02:28Z]
+    RUN 2026-08-31, §2181: pred_a/c HELD, pred_b FAILED hard (transfer
+    R^2 = -1.03, worse than the mean; tail was 0.106) — the front is MORE
+    document-bound. Candidate law: representations are DOCUMENT-GAUGED
+    everywhere (function transfers, coordinates do not); every raw-
+    coordinate linear compilation is doomed. Next math target: estimate
+    the per-document rotation and test the QUOTIENTED map.
+
+88. ARE THE CONTEXT MIXERS A PAIR TOO (pair census; damage convention).
+    b4/b5's signatures already diverge (§2174/§2167), so the honest
+    expectation is mixed. pred_a binned rho(d4,d5) >= 0.5 on other;
+    pred_b top-half concentration >= 0.6; pred_c full reproduces §2144.
+    Null: a depth GRADIENT, not a copy.
+    -> ops/mixer_pair.py [QUEUED 02:28Z]

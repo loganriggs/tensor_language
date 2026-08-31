@@ -64534,3 +64534,23 @@ pred_b (ind ρ +0.461 ≥ 0.3) | pred_c (2.6663 vs 2.6662).**
   §2171) is UNTESTED at the front — and the front's distance-flat, local function (§2168) predicts the OPPOSITE
   there: a transferring map, which would make b2/b3 the first pair the program can legitimately MERGE. That is
   the registered next test (rung 87), and the first compilation opportunity of the new architecture chapter.
+
+## §2181 — RUNG 87: THE MERGE IS NOT LICENSED — the attn2→attn3 map fits half A at R² 0.898 and collapses to −1.027 on half B (WORSE than predicting the mean): the front pair is even more aggressively document-bound than the tail's (0.106). The derived prediction was WRONG; the surprise is the finding. pred_a/c HELD, pred_b FAILED. (Alignment rung; motifs-2/3-real base, repro 2.4411 vs 2.4410.)
+
+`ops/assembler_transfer.py`, **112s**, BACKLOG rung 87. **pred_a HELD (CCA 0.913 — generic, per §2171's
+lesson) | pred_c HELD (base repro exact) | pred_b FAILED (−1.027 vs ≥ 0.8 × 0.898).**
+
+- **The distance-flat/local law predicted a document-independent map here, and the data refused:** even the
+  front's subword assembly — local in distance, early-and-late in position — runs in document-DEPENDENT
+  coordinates. A linear map fit on one half of the documents is actively harmful on the other half.
+- **Two data points promote a caveat to a candidate law:** both replicated pairs' cross-output maps collapse
+  across documents (tail 0.106, front −1.03). §2171 flagged "per-document gauge rotation" as a logically-open
+  alternative; it is now the leading hypothesis at model scale: **bilin18's internal representations are
+  document-gauged — function transfers, coordinates do not.** If true, EVERY linear-identification compilation
+  (shared reads, merges, cross-block dictionaries) is doomed in raw coordinates and must first quotient out a
+  per-document gauge — precisely the object §2098's "document-stable basis + private coefficient" found at m16,
+  now seen at attention pairs at both ends. Registered as the next mathematical target (the gauge-quotient
+  question returns, but now with an empirical handle: estimate the per-document rotation between pair members
+  and test whether the QUOTIENTED map transfers).
+- No pair merge is licensed; the replication law (§2177–§2180) stands as functional redundancy without
+  coordinate shareability.
