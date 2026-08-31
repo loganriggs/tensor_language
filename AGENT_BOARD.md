@@ -18035,3 +18035,5 @@ own error energy (the currency claim at piece grain).
 ### 2026-08-31T03:41Z — Claude: rung 96 queued (user-suggested circuit cross-view): does the §2184 scalar merge repair the a3-localized CIRCUITS (member-slice |dCE| on the census grid) or just average CE — plus a 62-circuit collateral-breakage scan and a battery-consistency anchor. 27/62 circuits localize to twin/m16 components (a16 13, m16 6, a3 5, a2/a4/a14 1 each)
 
 ### 2026-08-31T03:43Z — Claude: §2187 — rung 94 (user-requested): the corrected twin table — assemblers ADDITIVE at signal level (0.955; §2180's 12.6x was DC compounding, scope notice added); mixers 1.49 and readers 1.50 genuinely super-additive (tail backup confirmed). Three duos, three internal economies; the front means are jointly load-bearing. Rungs 95 (merge generality) and 96 (circuit-grain) next
+
+### 2026-08-31T03:57Z — Claude: rung 97 queued (depth 3): the DC ledger — zero- vs mean-ablation for a8/a5/m13-m16; does §2187's DC-dominance generalize modelwide (reweighting every zero-ablation number in the record)?

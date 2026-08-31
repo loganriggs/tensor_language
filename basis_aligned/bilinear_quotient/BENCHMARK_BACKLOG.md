@@ -1327,3 +1327,10 @@ later per-rung backlog edits had silently anchored on text that was not here.
     (>= 0.5 x its battery reference); pred_c drop >= 0.8 x battery
     mean-ablation refs (consistency anchor). Null: aggregate recovery
     without circuit repair. -> ops/merge_circuit_grain.py [QUEUED 03:48Z]
+
+97. THE DC LEDGER (damage convention). §2187: the assemblers' DC terms
+    carried ~98% of joint knockout damage. Generalize: zero- vs mean-
+    ablation for a8 (most circuit-dense), a5 (cliff), m13-m16 (band);
+    DC share = 1 - d(mean)/d(zero). pred_a median share >= 0.5; pred_b
+    a8 >= 0.5; pred_c base reproduces §2144. Null: b2/b3-specific.
+    -> ops/dc_ledger.py [QUEUED 03:55Z]
