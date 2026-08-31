@@ -65544,3 +65544,9 @@ VOID-AS-DESIGNED; corrected control = rung 133 (offline real-module targets, the
   causal-specificity question moves to POSITIONS — hence rung 170 (queued): are members cheaply detectable
   from the local stream (probe AUC per family)? If yes, gated removal/extraction becomes deployable; if
   not, the oracle gate is irreplaceable and per-circuit surgery stays diagnostic-only.
+
+- §2266 addendum (same receipt, precision on the density claim): the quadratic-form statement holds cleanly
+  between member- and offslice-PCA (density 1.4 = 1.4) but the RANDOM basis runs at density 3.8 —
+  low-variance directions carry ~2.7× more damage per unit variance than principal ones. So damage is not a
+  single isotropic quadratic form: the bulk tracks variance, and the low-variance floor is disproportionately
+  fragile. Recorded as a nuance, not a correction (the § quotes the raw densities).
