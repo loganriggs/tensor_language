@@ -1735,9 +1735,28 @@ later per-rung backlog edits had silently anchored on text that was not here.
     (was 1.8765); pred_c increment in [0.20, 0.55], census >= 1.4. Null:
     tailE frame immaterial (recovery < 0.03). Price: none.
     -> ops/frontier_taile_rebuild.py [QUEUED 09:03Z]
+    RUN 2026-08-31, S2222: ALL FAILED, beyond both registered outcomes
+    (census +3.0503, increment +1.3689) - SUSPECT INSTRUMENT. Control
+    = rung 130 (in-frame targets). No conclusion drawn.
 
 129. Middles trajectory Down-refit (c4-c9, sequential, config frame, real-
     trajectory targets) in the rung-127 build. pred_a census <= 1.87;
     pred_b L2_F <= 1.85; pred_c increment in [0.20, 0.55], census >= 1.4.
     Null: middle K-cost is unit-capacity (recovery < 0.03). Price: none.
     -> ops/frontier_mid_traj.py [QUEUED 09:03Z]
+    RUN 2026-08-31, S2223: ALL FAILED (census +2.3052). Trajectory
+    move 2-for-2 at dictionary sites, 0-for-2 at real-weight sites.
+    Control = rung 131 (in-frame target) scores the candidate law.
+
+130. tailE rebuild CONTROL (in-frame targets, identical machinery): pred_a
+    census <= 2.05 (trajectory target was the destroyer); pred_b L2_F <=
+    1.95; pred_c increment in [0.20, 0.70], census >= 1.4. Null: still
+    exploded (>= 2.6) = machinery bug -> code audit. Price: none.
+    -> ops/frontier_taile_ctrl.py [QUEUED 09:30Z]
+
+131. Middles refit CONTROL (in-frame targets): pred_a census >= 2.10 (the
+    exactness-vs-steering law stands: any refit of real weights loses);
+    pred_b census <= 2.3052 (in-frame loses less than trajectory);
+    pred_c L2_F in [1.7, 2.6], increment in [0.2, 0.8]. Null: recovery
+    <= 2.00 (trajectory target was the harm). Price: none.
+    -> ops/frontier_mid_ctrl.py [QUEUED 09:30Z]

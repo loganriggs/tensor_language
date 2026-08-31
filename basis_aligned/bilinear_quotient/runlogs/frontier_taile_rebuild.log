@@ -1,0 +1,46 @@
+ARM: rung-127 build + tailE rebuilt (config-frame inputs, trajectory targets)
+a2-input probe acc 0.69
+fit a2
+fit a3
+fit a4
+fit a5
+fit a6
+fit a7
+fit a8
+fit a9
+fit a10
+fit a11
+fit a12
+fit a13
+fit a14
+fit a15
+fit a16
+fit a17
+  cp_swap: front MLPs m0-m3 -> CP top-3456 in place (tailE remains table-front-fit)
+L1 (+38 heads): C +1.4822 | fresh +1.5509
+  captured real-trajectory tail-attention targets
+  tailE rebuilt under the CP-front+motif frame with trajectory targets
+fit a10L
+fit a11L
+fit a12L
+fit a13L
+fit a14L
+fit a15L
+fit a16L
+fit a17L
+  window 0 (7 docs): L2 fresh +2.9197
+  window 1 (42 docs): L2 fresh +3.0798
+  window 2 (17 docs): L2 fresh +2.7144
+  window 3 (23 docs): L2 fresh +2.8841
+  window 4 (43 docs): L2 fresh +3.1730
+  window 5 (26 docs): L2 fresh +2.9353
+  window 6 (35 docs): L2 fresh +2.7558
+  window 7 (35 docs): L2 fresh +2.8279
+L2 empirical: C +2.7402 | fresh +2.9197 | tail-attn increment +1.3689
+(a) L2 <= +2.75 fresh: FAILED
+(b) increment in [0.30,0.55]: FAILED
+L2 fresh +2.9197 (was +1.8765); census +3.0503 (was +1.9474); increment +1.3689; valid 0/62
+(a) census +3.0503 <= 1.85: FAILED
+(b) L2F +2.9197 <= 1.83: FAILED
+(c) increment in [0.20, 0.55] and census >= 1.4: FAILED
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/frontier_taile_rebuild_results.json (130s)

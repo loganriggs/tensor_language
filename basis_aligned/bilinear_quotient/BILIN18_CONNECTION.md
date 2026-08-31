@@ -65179,3 +65179,24 @@ FAILED (+0.9002 < +0.9723) | pred_c HELD (front repro exact).**
 - The morning's frontier path: 2.6662 (tables) → 2.0553 (CP front, §2217) → 1.8765 (trajectory tails), at
   184M fewer stored values than where it started.
 - Certificates for this config not yet rowed (the rung saved aggregates only) — rung 128 carries the rows.
+
+## §2222 — RUNG 128: THE tailE REBUILD EXPLODED — census +3.0503 and increment +1.3689 (baselines +1.9474 / +0.3256): WORSE THAN BOTH REGISTERED OUTCOMES, so this entry records a FAILURE WITH SUSPECT-INSTRUMENT STATUS, not a physics conclusion. All three preds FAILED; both §312 family window bars FAILED for the first time in the CP series. (Convention: CE added above the real model; lower is better.)
+
+`ops/frontier_taile_rebuild.py`, **130s**, BACKLOG rung 128. **pred_a/b/c ALL FAILED; outcome outside the
+registered space (null said "recovery < 0.03", not "+1.10 damage").**
+
+- Leading hypotheses, recorded WITHOUT adjudication pending the rung-130 control: (i) the trajectory TARGET
+  is the destroyer — real-frame span means installed into a config-frame stream mix frames inside the 8-dim
+  span replacement; (ii) the rebuild frame is wrong — tailE was rebuilt before the aXL dictionaries exist,
+  so blocks 11–17 inputs were captured with REAL tail attention that the final config replaces; (iii) a
+  plain code bug in the cloned fit. Rung 130 (queued) isolates (i): the identical rebuild with IN-FRAME
+  targets (tailE_traj off). Per the §2135 rule, no conclusion is drawn until that control lands.
+
+## §2223 — RUNG 129: THE MIDDLES TRAJECTORY REFIT ALSO LOST — census +2.3052, L2_F +2.2205 (baselines +1.9474 / +1.8765): the trajectory-teacher move is NOT universal — it is 2-for-2 at DICTIONARY-class replacements (front Downs over fitted features §2210, tail dicts §2221) and now 0-for-2 at REAL-WEIGHT sites (motif α §2220 no-op, middles Down refit HARMFUL). All preds FAILED; outcome beyond the registered null ("recovery < 0.03"), so rung 131's in-frame control discriminates "any Down refit loses to the model's own Down at 54k samples" from a frame bug. (Convention: CE added above the real model; lower is better.)
+
+`ops/frontier_mid_traj.py`, **143s**, BACKLOG rung 129. **pred_a/b/c ALL FAILED.**
+
+- The candidate law worth testing (not yet claimed): trajectory-teaching helps components that were ALREADY
+  approximations (dictionaries, fitted residuals) and hurts components that carry REAL weights — replacing
+  the model's own exact Down with any 54k-sample ridge fit trades exactness for steering and loses. Rung 131
+  scores it.
