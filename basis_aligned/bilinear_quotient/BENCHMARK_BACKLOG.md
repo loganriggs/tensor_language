@@ -2641,3 +2641,6 @@ later per-rung backlog edits had silently anchored on text that was not here.
     pred_c inversions <= 3 + non-inert. Null: rho < 0.4 (score
     misranks; causal correction needed).
     -> ops/unit_causal_bands.py [QUEUED 22:55Z]
+    RUN 2026-08-31, S2320: ALL HELD - Spearman 0.985, 40x range,
+    inversions 3 (knife edge, flat tail). Score causally faithful at
+    band grain; no correction needed.
