@@ -65584,3 +65584,36 @@ VOID-AS-DESIGNED; corrected control = rung 133 (offline real-module targets, the
   the GENTLER frontier config, restoring a circuit's own ~5 components to real trajectories buys back a
   reproducible 30–56% of its damage. Per-circuit repair at component grain is neither impossible (§2268's
   grain) nor sufficient (this rung) — it is PARTIAL, consistent with half the kill being stream-wide.
+
+## §2271 — RUNG 175: THE UNION WAS NOT THE PROBLEM — individual leaves are also not cheaply separable (median per-leaf AUC 0.671; only 2 of 10 clear 0.75 — r.2.0 at 0.841 and r.3.0 at 0.779 are the near-gateable exceptions). pred_a/b FAILED, pred_c HELD. **The gating verdict is now final across every tested grain: family unions (0.702), stream⊕class (0.708), single leaves (0.671) — the member gate is weakly separable everywhere and surgically separable nowhere.** Deployable per-circuit surgery is closed; the oracle-gated instruments remain diagnostic. (Convention: AUC on the test half; train rows 0–499.)
+
+`ops/probe_leaf.py`, **10s**, BACKLOG rung 175.
+
+## §2272 — RUNG 174: THE BUG-FIX RESCORES SPECIFICITY AND IT HOLDS AT THE KNIFE-EDGE — ALL THREE PREDS HELD. bf16 captures eliminate the NaNs; 173's valid half reproduces exactly (median minset recovery 0.404); and minset ≥ 1.3× rand5 for exactly 3 of 5 circuits (0.47/0.35, 0.56/0.35, 0.37/0.25). The two exceptions are instructive: r.0.0 and r.1.2 get MORE from random component fidelity than from their own top-5 (0.30 vs 0.35; 0.40 vs 0.47) — repair specificity is circuit-dependent, not universal. (Convention: recovery = (plain − spliced)/plain member damage; frontier build; census rows.)
+
+`ops/minset_splice2.py`, **254s**, BACKLOG rung 174.
+
+## §2273 — PHASE-1 SYNTHESIS OF THE CIRCUITS PROGRAM (§2255 directive; rungs 153–175, one day). The question list is answered:
+
+```
+  MINIMALITY    k* median 5 of 16 components (S2256/S2260); necessity WITHOUT sufficiency (S2268:
+                keep-top5 rescues nothing — median 4.6x ref; random-5 as good).
+  IDENTITY      positional/contextual, not directional (S2264/S2266: carriers = principal variance,
+                member-agnostic; selectivity lives in the member gate).
+  REMOVAL       capped ~2x by substrate sharing for ANY position-independent operator (S2248/S2264);
+                425x only with the oracle gate (S2257).
+  GATING        oracle-bound at every grain (S2267/S2269/S2271: 0.702 / 0.708 / 0.671).
+  EXTRACTION    FALSE at component grain (S2268); certificates 0/62 at every global config.
+  REPAIR        partial and semi-specific (S2270/S2272: minset splicing recovers 0.30–0.56, specific for
+                3 of 5) — but the deployable levers for the specific components are already exhausted
+                (motifs structural, tail dicts trajectory-refit), so minset-targeted repair is BLOCKED
+                pending a new component-fidelity lever.
+  OOD           per-circuit blocked at leaf recomputation; component-grain transport testable (rung 176).
+  ASSETS        circuits/REPERTOIRE.json (62 circuits, all columns); ~10 family variance-bases (0.37M
+                values); the interchange instrument; 23 preregistered receipts.
+```
+
+The structural conclusion the operator's questions drove toward: **the 62 circuits are facets of one deeply
+coupled, positionally-organized computation.** The program's two honest paths forward: (i) whole-substrate
+fidelity (the frontier lane) with the circuit-cost ledger attached; (ii) intervention below component grain.
+Phase-2 selection belongs to the next strategic review.

@@ -2245,9 +2245,26 @@ later per-rung backlog edits had silently anchored on text that was not here.
     recovery within 0.05 of 0.404 (repro); pred_b minset >= 1.3 x rand5
     for >= 3/5; pred_c plain repro. Null (b): generic stream fidelity.
     -> ops/minset_splice2.py [QUEUED 17:00Z]
+    RUN 2026-08-31, S2272: ALL HELD - bf16 fix clean, 173 reproduces
+    (0.404), specificity holds 3/5 at the knife-edge; r.0.0/r.1.2
+    prefer random fidelity. S2273 = phase-1 synthesis.
 
 175. Per-leaf probes (was the union the problem?): 10 largest leaves,
     individual ridge probes at their top component's input. pred_a
     median AUC >= 0.85; pred_b >= 0.75 for >= 8/10; pred_c shuffle
     control. Null: < 0.7 (gating oracle-bound at every grain).
     -> ops/probe_leaf.py [QUEUED 17:00Z]
+    RUN 2026-08-31, S2271: pred_a/b FAILED (median 0.671; 2/10 over
+    0.75). Gating final: oracle-bound at every grain.
+
+176. OOD component-grain transport (the feasible OOD column): 16 mean-
+    ablation knockouts, 10-class damage profiles on census vs 120 fresh
+    pile rows. pred_a median Spearman >= 0.8; pred_b magnitude ratio in
+    [0.6, 1.6]; pred_c fresh base sane. Null: signatures census-specific.
+    -> ops/ood_transport.py [QUEUED 17:32Z]
+
+177. Pareto circuit-profile invariance (CPU, receipts): Spearman between
+    the two registered configs' 62-circuit damage profiles. pred_a rho >=
+    0.95; pred_b median ratio in [0.7, 1.0]; pred_c coverage. Null:
+    config choice matters at circuit grain.
+    -> ops/pareto_profile.py [QUEUED 17:32Z]

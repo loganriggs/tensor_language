@@ -1,0 +1,81 @@
+{
+ "rows": [
+  {
+   "component": "r.0.0",
+   "leaf": "r.0.0",
+   "auc": 0.6076,
+   "auc_shuffled": 0.5001,
+   "n_test_members": 2897
+  },
+  {
+   "component": "r.1.0",
+   "leaf": "r.1.0",
+   "auc": 0.6441,
+   "auc_shuffled": 0.4933,
+   "n_test_members": 2791
+  },
+  {
+   "component": "r.1.1",
+   "leaf": "r.1.1",
+   "auc": 0.6823,
+   "auc_shuffled": 0.4988,
+   "n_test_members": 2885
+  },
+  {
+   "component": "r.1.2",
+   "leaf": "r.1.2",
+   "auc": 0.7185,
+   "auc_shuffled": 0.4907,
+   "n_test_members": 2892
+  },
+  {
+   "component": "r.1.3",
+   "leaf": "r.1.3",
+   "auc": 0.6815,
+   "auc_shuffled": 0.4963,
+   "n_test_members": 2755
+  },
+  {
+   "component": "r.2.0",
+   "leaf": "r.2.0",
+   "auc": 0.8409,
+   "auc_shuffled": 0.4891,
+   "n_test_members": 3106
+  },
+  {
+   "component": "r.2.1",
+   "leaf": "r.2.1",
+   "auc": 0.6441,
+   "auc_shuffled": 0.5025,
+   "n_test_members": 2982
+  },
+  {
+   "component": "r.2.2",
+   "leaf": "r.2.2",
+   "auc": 0.6558,
+   "auc_shuffled": 0.5036,
+   "n_test_members": 2924
+  },
+  {
+   "component": "r.2.3",
+   "leaf": "r.2.3",
+   "auc": 0.6602,
+   "auc_shuffled": 0.4949,
+   "n_test_members": 2928
+  },
+  {
+   "component": "r.3.0",
+   "leaf": "r.3.0",
+   "auc": 0.7788,
+   "auc_shuffled": 0.4935,
+   "n_test_members": 2908
+  }
+ ],
+ "median_auc": 0.6708,
+ "convention": "ridge probe on component INPUT; train rows 0-499, AUC on test half",
+ "pred_a_leaves_cheap": false,
+ "pred_b_broad": false,
+ "pred_c_shuffle_control": true,
+ "self_reviewed": true,
+ "runtime_s": 9.9
+}

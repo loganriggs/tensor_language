@@ -18,11 +18,9 @@
   ]
  },
  "pending": {
-  "das_learned": "CLOSED (S2261)",
-  "ood_transfer": "BLOCKED at leaf recomputation: census_state_diverse.pt stores precomputed leaves on fixed rows; census_lib has no builder; per-circuit OOD needs the upstream leaf taxonomy. Feasible fallback: component-grain OOD via the 10-class classify2 taxonomy (transfers to any text).",
-  "family_bases": "DONE (S2265)",
-  "gated_removal": "rung 170 (probe separability)",
-  "sufficiency": "DONE (S2268): none at component grain"
+  "ood_component_grain": "rung 176",
+  "pareto_profile_invariance": "rung 177",
+  "phase2": "next strategic review"
  },
  "circuits": {
   "r.0.0": {
@@ -84,7 +82,13 @@
     "keep_rand5": 3.5668,
     "keep_none": 4.0992,
     "verdict": "NOT sufficient (S2268)"
-   }
+   },
+   "minset_repair": {
+    "recovery_minset": 0.303,
+    "recovery_rand5": 0.347,
+    "specific": false
+   },
+   "gate_auc_leaf": 0.6076
   },
   "r.0.0.0": {
    "top_component": "a3",
@@ -572,7 +576,8 @@
     "member_absdce": 0.6007,
     "selectivity": 407.057,
     "ratio_to_battery": 0.964
-   }
+   },
+   "gate_auc_leaf": 0.6441
   },
   "r.1.0.0": {
    "top_component": "a16",
@@ -832,7 +837,8 @@
     "family_share_r32": 0.451,
     "label": "principal-variance basis (member-agnostic, S2266); NOT a dedicated causal direction"
    },
-   "ood_transfer": null
+   "ood_transfer": null,
+   "gate_auc_leaf": 0.6823
   },
   "r.1.1.0": {
    "top_component": "m14",
@@ -1049,7 +1055,13 @@
     "member_absdce": 0.7193,
     "selectivity": 353.807,
     "ratio_to_battery": 0.873
-   }
+   },
+   "minset_repair": {
+    "recovery_minset": 0.404,
+    "recovery_rand5": 0.465,
+    "specific": false
+   },
+   "gate_auc_leaf": 0.7185
   },
   "r.1.2.0": {
    "top_component": "m16",
@@ -1210,7 +1222,8 @@
     "member_absdce": 0.6731,
     "selectivity": 210.804,
     "ratio_to_battery": 0.946
-   }
+   },
+   "gate_auc_leaf": 0.6815
   },
   "r.1.3.0": {
    "top_component": "m13",
@@ -1481,7 +1494,13 @@
     "keep_rand5": 3.9008,
     "keep_none": 5.3178,
     "verdict": "NOT sufficient (S2268)"
-   }
+   },
+   "minset_repair": {
+    "recovery_minset": 0.472,
+    "recovery_rand5": 0.349,
+    "specific": true
+   },
+   "gate_auc_leaf": 0.8409
   },
   "r.2.0.0": {
    "top_component": "a8",
@@ -1695,7 +1714,8 @@
     "family_share_r32": 0.308,
     "label": "principal-variance basis (member-agnostic, S2266); NOT a dedicated causal direction"
    },
-   "ood_transfer": null
+   "ood_transfer": null,
+   "gate_auc_leaf": 0.6441
   },
   "r.2.1.0": {
    "top_component": "a8",
@@ -1855,7 +1875,8 @@
     "family_share_r32": 0.293,
     "label": "principal-variance basis (member-agnostic, S2266); NOT a dedicated causal direction"
    },
-   "ood_transfer": null
+   "ood_transfer": null,
+   "gate_auc_leaf": 0.6558
   },
   "r.2.2.0": {
    "top_component": "a8",
@@ -2078,7 +2099,8 @@
     "family_share_r32": 0.315,
     "label": "principal-variance basis (member-agnostic, S2266); NOT a dedicated causal direction"
    },
-   "ood_transfer": null
+   "ood_transfer": null,
+   "gate_auc_leaf": 0.6602
   },
   "r.3.0": {
    "top_component": "a16",
@@ -2143,7 +2165,13 @@
     "keep_rand5": 3.3525,
     "keep_none": 5.3939,
     "verdict": "NOT sufficient (S2268)"
-   }
+   },
+   "minset_repair": {
+    "recovery_minset": 0.558,
+    "recovery_rand5": 0.351,
+    "specific": true
+   },
+   "gate_auc_leaf": 0.7788
   },
   "r.3.0.0": {
    "top_component": "a16",
@@ -3095,7 +3123,12 @@
     "family_share_r32": 0.823,
     "label": "principal-variance basis (member-agnostic, S2266); NOT a dedicated causal direction"
    },
-   "ood_transfer": null
+   "ood_transfer": null,
+   "minset_repair": {
+    "recovery_minset": 0.37,
+    "recovery_rand5": 0.248,
+    "specific": true
+   }
   },
   "r.6.2.3": {
    "top_component": "a9",
@@ -3365,5 +3398,7 @@
    "rand32": 3.8
   }
  },
- "extraction_verdict": "FALSE at component grain for all tested circuits (S2268); circuits are facets of one coupled computation"
+ "extraction_verdict": "FALSE at component grain for all tested circuits (S2268); circuits are facets of one coupled computation",
+ "gating_verdict": "oracle-bound at every grain (S2267/S2269/S2271: family 0.702, +class 0.708, per-leaf 0.671)",
+ "phase1_complete": "2026-08-31T17:30Z (S2273 synthesis)"
 }
