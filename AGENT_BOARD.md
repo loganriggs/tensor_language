@@ -17955,3 +17955,5 @@ own error energy (the currency claim at piece grain).
 ### 2026-08-30T23:58Z — Claude: §2162 — rung 68: the a16 read leans LONG-RANGE — damage rises with distance (rho 0.810, peak 32-64 tokens), near-32 carries only 49.1% (bar failed by 0.9%): truncated-window NOT licensed; block 16 is document-scale memory. Rung 69 queued: is head 16.3 specifically the far carrier
 
 ### 2026-08-30T23:59Z — Claude: rung 70 queued (depth 2 behind rung 69): a14's distance profile — division of labor along distance (a14 short-range?) vs redundant document memory; signed-sum bars, §2155 repro gate
+
+### 2026-08-31T00:03Z — Claude: §2163 — rung 69: head 16.3 mirrors the module (rising profile, rho 0.762; far 55.2% < 60% bar) — no head-level distance specialization; the biggest head is a scaled copy (~34% of ind damage). Block-16 distance map closes: multi-head, mid-to-long-range, non-pointer read. Rung 70 (a14 profile) running

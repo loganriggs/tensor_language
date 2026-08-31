@@ -64218,3 +64218,22 @@ pred_a FAILED (49.1% vs ≥ 50%).**
   addressing theories measured wrong, §2158/§2160/§2161) with a distance profile peaking at 32–64 tokens, paired
   with an MLP that fights it (§2159). The constructive pause (§2161) stands; the distance profile is the first
   positive structural constraint for tomorrow's grammar.
+
+## §2163 — RUNG 69: HEAD 16.3 MIRRORS THE MODULE, IT DOES NOT SPECIALIZE — its profile rises with distance (ρ 0.762, peak 32–64) exactly like the whole of attn16, but far(>32) carries 55.2% (465.2 of 843.4), under the 0.6 bar. The null wins: no head-level division of labor by distance. pred_b/c HELD, pred_a FAILED. (Convention: per-position CE(head 16.3 zeroed) − CE(skip-a16 base) on FR; positive = the head was helping.)
+
+`ops/a16_head3_distance.py`, **221s**, BACKLOG rung 69. **pred_b HELD (ρ 0.762) | pred_c HELD (|Δ| 0.0001) |
+pred_a FAILED (55.2% vs ≥ 60%).**
+
+```
+  log2-distance bin      1       2–3     4–7     8–15    16–31   32–63   64–127  128–255
+  16.3 mean damage    +0.028  −0.005  +0.023  +0.074  +0.111  +0.134  +0.120  +0.083
+```
+
+- **The long-range mass is not concentrated in one head:** 16.3 carries the biggest single share of the ind
+  damage (843 of 2,501 summed, ~34%, matching §2153's window-median ranking) with the same rising, 32–64-peaked
+  shape as the module — a scaled copy, not a specialist. Combined with §2153's four-carrier map, attn16's
+  document-scale read is spread across its carrying heads in similar distance proportions.
+- **The distance map of block 16 closes for the day:** module-level rising profile (§2162), no per-head distance
+  specialization (here). What tomorrow's grammar must produce: a multi-head, mid-to-long-range, non-pointer
+  read whose output m16 partially cancels (§2159). Rung 70 (a14's profile, running) completes the two-layer
+  comparison.

@@ -1,0 +1,83 @@
+{
+ "base": {
+  "L1_F": 2.3207,
+  "L2_C": 2.239,
+  "L2_F": 2.5091,
+  "increment": 0.1884,
+  "orig_s312_a": true,
+  "orig_s312_b": false,
+  "fresh8": [
+   2.5091,
+   2.7195,
+   2.3793,
+   2.6036,
+   2.6545,
+   2.5863,
+   2.3739,
+   2.4578
+  ],
+  "runtime_s": 110.69363355636597
+ },
+ "head3_zeroed": {
+  "L1_F": 2.336,
+  "L2_C": 2.2982,
+  "L2_F": 2.5643,
+  "increment": 0.2283,
+  "orig_s312_a": true,
+  "orig_s312_b": false,
+  "fresh8": [
+   2.5597,
+   2.7806,
+   2.4335,
+   2.6677,
+   2.7251,
+   2.6352,
+   2.4282,
+   2.5125
+  ],
+  "runtime_s": 110.34876894950867
+ },
+ "sum_far32": 465.2,
+ "sum_all_ind": 843.4,
+ "bins_log2": {
+  "0": {
+   "n": 105,
+   "mean": 0.02837
+  },
+  "1": {
+   "n": 479,
+   "mean": -0.00482
+  },
+  "2": {
+   "n": 829,
+   "mean": 0.02344
+  },
+  "3": {
+   "n": 1624,
+   "mean": 0.07385
+  },
+  "4": {
+   "n": 2051,
+   "mean": 0.11072
+  },
+  "5": {
+   "n": 1959,
+   "mean": 0.13404
+  },
+  "6": {
+   "n": 1433,
+   "mean": 0.11951
+  },
+  "7": {
+   "n": 509,
+   "mean": 0.0834
+  }
+ },
+ "spearman": 0.762,
+ "convention": "per-position CE(head 16.3 zeroed) - CE(skip-a16 base) on FR; positive = the head was helping",
+ "pred_a_far_carries": false,
+ "pred_b_rising": true,
+ "pred_c_reproduces_s2146": true,
+ "self_reviewed": true,
+ "runtime_s": 221.1
+}

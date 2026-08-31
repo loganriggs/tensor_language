@@ -967,7 +967,10 @@ later per-rung backlog edits had silently anchored on text that was not here.
     pred_c the skip-a16 arm reproduces §2146 per-window (median |delta|
     <= 0.005). Tripwire: the zeroed arm's CE must differ from base.
     Null: 16.3's damage has the same ~49/51 profile as the whole module.
-    -> ops/a16_head3_distance.py [QUEUED]
+    -> ops/a16_head3_distance.py
+    RUN 2026-08-31, §2163: pred_b/c HELD, pred_a FAILED (far = 55.2%) —
+    the null wins: 16.3 is a scaled copy of the module's profile (~34%
+    of the ind damage), not a distance specialist.
 
 70. a14's DISTANCE PROFILE (division of labor or redundancy; signed-sum
     bars; damage convention). §2162: a16 rises with distance. If the two
