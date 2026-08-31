@@ -2444,8 +2444,22 @@ later per-rung backlog edits had silently anchored on text that was not here.
     (valid >= 2). pred_a census repro; pred_b valid >= 2; pred_c L2F
     repro. Null: 199's print was noise. Price: ~162M (patterns are the
     only compressed objects). -> ops/frontier_claim_exact.py [QUEUED 21:00Z]
+    RUN 2026-08-31, S2298: ALL HELD - first certificate claim
+    registered (valid 2/62 at census +0.1492). Era rho 0.43 (profile
+    reorganizes near the floor).
 
 201. Rank-64 endgame (confound-free pattern curve, rows saved): pred_a
     census <= 0.10; pred_b valid >= 4; pred_c census in [0.02, 0.13] +
     inert. Null: interaction floor dominates (>= 0.12; certs stuck).
     Price: 48.5M patterns. -> ops/exact_qk64.py [QUEUED 21:00Z]
+    RUN 2026-08-31, S2299: ALL HELD - r64: census +0.0852, valid 7/62,
+    median margin 1.006. Certificates are a function of pattern rank.
+    Claim = 202; r96 = 203.
+
+202. Registered claim r64 (census/L2F repro + valid >= 7): the second
+    certificate claim. -> ops/frontier_claim_qk64.py [QUEUED 21:30Z]
+
+203. Rank-96 (curve's last point; 25% compression, science end): pred_a
+    census <= 0.055; pred_b valid >= 12; pred_c floor + inert. Null:
+    interaction floor / certificate stall.
+    -> ops/exact_qk96.py [QUEUED 21:30Z]

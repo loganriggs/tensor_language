@@ -65727,3 +65727,11 @@ Phase-2 selection belongs to the next strategic review.
   bilin18 is the ATTENTION PATTERN, and nearly nothing else at certificate grade. Rung 200 (queued)
   registers the milestone claim INCLUDING the first-ever certificate bar (valid ≥ 2); rung 201 runs the
   clean pattern-rank endgame (r=64) with certificate rows.
+
+## §2298 — RUNG 200: THE MILESTONE CLAIM HOLDS — ALL THREE PREDS, ridge-exact, including the FIRST REGISTERED CERTIFICATE BAR (valid ≥ 2). Official: census +0.1492 / fresh +0.1440 / valid 2/62 at ~162M values (rank-32 patterns are the only compressed objects). Descriptive extras from the rows: median member/ref 1.326; τ-curve {0.5×: 2, 1×: 17, 1.5×: 40, 2×: 51}; era Spearman vs the old frontier 0.4264 — the damage profile, invariant through three high-damage eras, reorganizes substantially as damage approaches the floor. (Convention: CE added above the real model; lower is better.)
+
+`ops/frontier_claim_exact.py`, **124s**, BACKLOG rung 200.
+
+## §2299 — RUNG 201: RANK 64 — CERTIFICATES CLIMB TO 7/62 — ALL THREE PREDS HELD: census +0.0852, fresh +0.0809, valid 7, median member/ref 1.006 (the MEDIAN circuit now sits at its full knockout reference; passing needs 0.5). rep at −0.065 (further below the real model). The clean pattern-rank curve: r32 0.149 → r64 0.085 — still yielding; the interaction floor, if any, is below 0.085. τ-curve {0.5×: 7, 1×: 30, 1.5×: 49}. The certificate count is now a FUNCTION OF PATTERN RANK — the two ledgers finally move together, at the low-compression end. Claim = rung 202; r96 completes the curve = rung 203 (both queued). (Convention: CE added above the real model; lower is better.)
+
+`ops/exact_qk64.py`, **125s**, BACKLOG rung 201.
