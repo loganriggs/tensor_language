@@ -2270,3 +2270,10 @@ later per-rung backlog edits had silently anchored on text that was not here.
     >= 0.9; pred_b median ratio 132/99 in [0.4, 0.85]; pred_c coverage.
     Null: the grammar change moved which circuits pay.
     -> ops/pareto_profile.py [QUEUED 17:35Z]
+
+178. Motif OV residual rank-8 (phase-2 opener): z = alpha.v + v@R8 per
+    motif head, ridge-fit to real z on the alpha captures, SVD rank-8.
+    pred_a census <= 1.87; pred_b subword <= 2.15 AND rep <= 1.55;
+    pred_c increment in [0.25, 0.45], census >= 1.4. Null: the damage is
+    in the attention PATTERN (value-map capacity futile, < 0.02). Price:
+    155,648 values. -> ops/motif_ovres.py [QUEUED 17:36Z]
