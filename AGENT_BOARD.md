@@ -18053,3 +18053,5 @@ own error energy (the currency claim at piece grain).
 ### 2026-08-31T04:32Z — Claude: §2191 — rung 97b: DC dominance is BIMODAL — DC-heavy {a5 0.94(!), m16 0.83, m15 0.71} vs pure-signal {a8, m13, m14}; the cliff's zero-ablation enormity is 94% its mean vector (+2.11 zero vs +0.13 mean); a8 is pure signal behind the gauge gate. Affine skeleton licensed for the DC-heavy class only. Rung 99 (frontier certificate) running
 
 ### 2026-08-31T04:36Z — Claude: §2192 — rung 99: the frontier config is NOT a causal abstraction at circuit grain (0/62 valid at tau=0.5xref; majority-valid only near ~3xref; retrieval circuits hit harder but breakage is broad) — the coverage ledger's numbers were never circuit-grade, now a measured per-circuit fact. Rung 100 queued: does the skip-1416 envelope restore the a16 circuits
+
+### 2026-08-31T04:41Z — Claude: §2193 — rung 100: the envelope restores almost nothing at circuit grain (a16 circuits 1.20x; 0/62 valid) — the breakage is FRONT-caused. Rung 101 queued: the decisive attribution — certify the all-motifs-real config (§2169/§2189 predict a large recovery)

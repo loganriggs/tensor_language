@@ -1403,3 +1403,17 @@ later per-rung backlog edits had silently anchored on text that was not here.
     aggregate in [0.5, 5]. Null: the breakage is front-caused and the
     tail retreat restores little.
     -> ops/frontier_certificate2.py [QUEUED 04:40Z]
+
+    RUN 2026-08-31, §2193: pred_c HELD, pred_a/b FAILED — the envelope
+    restores almost nothing (a16 circuits 1.20x; 0/62 valid): the
+    breakage is FRONT-caused (motif dictionaries), consistent with
+    §2169/§2189. -> rung 101: certify the all-motifs-real config.
+
+101. CERTIFICATE FOR THE ALL-MOTIFS-REAL CONFIG (the decisive front
+    attribution; damage convention). Front attention real, tail
+    dictionaries in place. pred_a >= 30 of 62 circuits valid at tau =
+    0.5xref (large recovery, per §2169/§2189); pred_b the still-failing
+    circuits are majority a16/m16-localized; pred_c aggregate in
+    [0.3, 5]. Null: breakage persists (the CP middles/front tables are
+    also circuit-breaking). -> ops/frontier_certificate3.py [QUEUED
+    04:45Z]

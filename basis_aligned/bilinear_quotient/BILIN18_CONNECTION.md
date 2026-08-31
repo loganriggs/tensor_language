@@ -64785,3 +64785,19 @@ all-circuit median retrieval fraction" is ≈ 0.5 by construction (§2159 ill-po
   Spearman +0.40 — retrieval circuits are hit harder, but the breakage is broad, not retrieval-exclusive.
   Least-broken: r.6.0.3 (1.27x), r.1.2.0 (1.99x), r.0.0 (2.11x), r.2.0.0 (2.35x), r.0.0.0 (2.57x). Worst: r.5.0.1 (14x), r.6.3.1 (15x), r.5.3.1 (15x).
 - Whether the deepest envelope (skip-1416) restores the a16-localized circuits → rung 100 (running).
+
+## §2193 — RUNG 100: THE ENVELOPE RESTORES ALMOST NOTHING AT CIRCUIT GRAIN — keeping both tail attentions real improves the a16-localized circuits by only 1.20× (bar: 2×) and leaves 0/62 valid; the null wins: THE BREAKAGE IS FRONT-CAUSED. pred_a/b FAILED, pred_c HELD. (Convention: per-position dCE = CE(skip-1416 config) − CE(real model) on the census rows.)
+
+`ops/frontier_certificate2.py`, **118s**, BACKLOG rung 100. **pred_c HELD (aggregate +2.5699 ∈ [0.5, 5]) |
+pred_a FAILED (1.20× vs ≥ 2×) | pred_b FAILED (0/62 vs ≥ 10).**
+
+- **The certificate chapter closes with a clean attribution:** even the deepest tail retreat — both document-
+  memory attentions real — barely moves the per-circuit damage (aggregate improves 2.855 → 2.570, but the
+  a16-localized circuits recover only 20%). The circuits are broken upstream: the motif dictionaries at blocks
+  2–9, whose replacement price is front-loaded (§2169) and whose single-block drop already breaks 77% of
+  circuits (§2189). Whatever the census circuits compute, they consume the FRONT's real attention outputs;
+  replacing those outputs poisons every circuit's members regardless of what happens at the tail.
+- **Standing conclusion for the program:** no existing config is a causal abstraction at circuit grain; the
+  binding constraint is the front replacement, not the tail. The decisive next attribution — certify the
+  all-motifs-real config (front real, tail dictionaries in place) — is rung 101; §2169/§2189 predict a large
+  recovery there, which would localize circuit-grade fidelity entirely to the front's realness.
