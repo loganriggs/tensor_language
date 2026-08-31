@@ -1,0 +1,9 @@
+62 circuits; m17 owns 1: ['r.6.0.3']
+full-spectrum reconstruction: rel-Frobenius 3.40e-04, max-abs/RMS 1.53e-02 (15s)
+  NEUR: agg +0.6390 | census|dCE| 1.0102 | own-circuit mean 2.7904
+  EIG: agg +0.1962 | census|dCE| 0.4706 | own-circuit mean 1.1109
+ratios: own-circuit 0.398, census 0.466; frob 3.40e-04, max/RMS 1.53e-02
+(a) EXACTNESS frob 3.40e-04 <= 1e-3 and max/RMS 1.53e-02 <= 5e-2: HELD
+(b) EIG own-mean <= 0.9 x NEUR (ratio 0.398): HELD
+(c) EIG census <= 0.85 x NEUR (ratio 0.466): HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/m17_eigenbasis_results.json (31s)
