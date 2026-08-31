@@ -2378,3 +2378,9 @@ later per-rung backlog edits had silently anchored on text that was not here.
 191. Exact front on the uniform grammar: pred_a census <= 1.10; pred_b
     digit <= 0.80; pred_c floor + inert. Null: front marginal shrank.
     Price: +15.9M. -> ops/front4608_qk.py [QUEUED 19:30Z]
+
+192. Uniform grammar two-ledger row: rung-188 rebuild with circuit rows
+    saved + era Spearman vs rung-132. pred_a census repro; pred_b valid
+    <= 5 (failure = news); pred_c Spearman >= 0.85. Null (c): the
+    grammar moved which circuits pay. Price: none.
+    -> ops/frontier_uniform_rows.py [QUEUED 19:35Z]
