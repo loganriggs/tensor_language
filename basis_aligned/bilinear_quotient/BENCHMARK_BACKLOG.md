@@ -2485,3 +2485,12 @@ later per-rung backlog edits had silently anchored on text that was not here.
     pred_a census <= 0.15; pred_b valid >= 5; pred_c range + inert.
     Null: usage dense (within 0.8x of global). Measures usage structure,
     not storage. -> ops/cp_topk1152.py [QUEUED 21:52Z]
+
+207. GAUGE-FREE BASIS AT m16 (user directive: the neuron h-dimension is
+    gauge). Eigenfeatures of the invariant bilinear tensor (output basis
+    = SVD of Down; per-direction interaction eigenpairs; exact at full
+    spectrum) vs neuron top-1152 at matched component count (EIG 3x
+    fewer stored values). pred_a own-circuit ratio <= 0.5; pred_b census
+    ratio <= 0.7; pred_c exactness relerr <= 1e-3 + non-inert. Null:
+    neuron basis already aligned (ratios >= 0.9).
+    -> ops/m16_eigenbasis.py [QUEUED 22:02Z]
