@@ -1572,3 +1572,12 @@ later per-rung backlog edits had silently anchored on text that was not here.
     pred_c agg(all3456) < agg(all2304) and <= 0.20. Null: compounding
     regime persists. Price: 31.9M / 47.8M values (vs tables 231.6M).
     -> ops/frontier_cp_front2.py [QUEUED 06:28Z]
+
+115. Stream-drift ledger of the CP front: r_li = rms(h_cfg - h_real)/
+    rms(h_real) at blocks 0-9, 200 census rows; arms cp_front (S2206 Ks)
+    + four CP singles. pred_a r3(front) >= 1.5 x sum r3(singles) (drift
+    superadditive); pred_b r9 >= 0.8 x r3 (persists into middles); pred_c
+    singles <= front at block 3, all r in [0.0005, 2]. Null: drift
+    additive (excess lives in CE curvature -> K-escalation should work).
+    Price: none. Tripwire: r3(front) < 0.005 inert.
+    -> ops/frontier_cp_drift.py [QUEUED 06:32Z]
