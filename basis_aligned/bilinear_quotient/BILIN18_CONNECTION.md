@@ -64362,3 +64362,15 @@ pred_c HELD (2.6663 vs 2.6662) | pred_b FAILED.**
   (removing one replacement helps a lot only while the others are still broken); the joint all-motifs-real
   number is not in this run and stays an open number for the front chapter.
 - Registry-relevant: motif rows at blocks 2–4 are the expensive coverage purchases; blocks 7–9 are nearly free.
+
+## §2170 — RUNG 76: THE POSITION LAW IS SHARPER THAN REGISTERED — the tail's other-damage is LATE-concentrated (0.619) and the cliff's is EARLY-concentrated (0.393, failing the ≥0.5 bar): front context-mixing matters most while context is still scarce; tail memory matters once it has accumulated. pred_a HELD, pred_b FAILED, pred_c HELD. (Convention: per-position CE differences on FR; positive = the replacement hurts there; late = position ≥ 128.)
+
+`ops/other_position_law.py`, **337s**, BACKLOG rung 76. **pred_a HELD (0.619 ≥ 0.393 + 0.10) | pred_c HELD
+(2.6663 vs 2.6662) | pred_b FAILED (cliff 0.393 < 0.50).**
+
+- **Depth-adds-range becomes a position law:** the front's other-damage sits in the document's FIRST half (+558
+  early vs +361 late) — generic mixing carries prediction precisely when little context exists; the tail's sits
+  in the SECOND half (+1147 late vs +705 early) — document memory pays once there is a document to remember.
+  pred_b's failure is the finding: the registered "context accumulation everywhere" was wrong for the front.
+- The front/tail comparison table is complete on three axes now: class ordering (other-led vs ind-led, §2167),
+  distance law (flat vs rising, §2168), position law (early vs late, here). One architecture, two regimes.
