@@ -1565,6 +1565,9 @@ later per-rung backlog edits had silently anchored on text that was not here.
     prefix reproduces +0.9427 +/- 0.015. Null: excess distributed
     (~2-3x uniformly). Price: none.
     -> ops/frontier_cp_prefix.py [QUEUED 06:28Z]
+    RUN 2026-08-31, S2207: ALL HELD (pred_a by the letter). Excess
+    ladder -0.008/+0.068/+0.240/+0.357; marginal multipliers 1.0/2.5/
+    5.8/5.8x singles. Progressive, not one entry point.
 
 114. K-escalation (does K buy back the compounding): all four sites at
     K=2304 and at K=3456. pred_a agg(all2304) <= 0.4 (collapse ~0.2 vs
@@ -1572,6 +1575,9 @@ later per-rung backlog edits had silently anchored on text that was not here.
     pred_c agg(all3456) < agg(all2304) and <= 0.20. Null: compounding
     regime persists. Price: 31.9M / 47.8M values (vs tables 231.6M).
     -> ops/frontier_cp_front2.py [QUEUED 06:28Z]
+    RUN 2026-08-31, S2208: pred_a/b FAILED, pred_c HELD. all-2304
+    +0.4887/1; all-3456 +0.1193/2. Aggregate K-buyable, certificates
+    not. CP price curve strictly dominates tables at every point.
 
 115. Stream-drift ledger of the CP front: r_li = rms(h_cfg - h_real)/
     rms(h_real) at blocks 0-9, 200 census rows; arms cp_front (S2206 Ks)
@@ -1581,3 +1587,27 @@ later per-rung backlog edits had silently anchored on text that was not here.
     additive (excess lives in CE curvature -> K-escalation should work).
     Price: none. Tripwire: r3(front) < 0.005 inert.
     -> ops/frontier_cp_drift.py [QUEUED 06:32Z]
+    RUN 2026-08-31, S2209: all FAILED; null stronger than registered.
+    Drift QUADRATURE (0.862 pred vs 0.833 obs) - orthogonal site
+    drifts; middles contract 2.6x while CE persists. CE excess =
+    loss-surface geometry. pred_c range clause = instrument artifact
+    (pre-site zeros below floor).
+
+
+116. Sequential-conditioning refit of the CP front (the tables' 1.29x
+    regime vs CP's 3.3x): Down+bias refit per site in the drifted prefix
+    frame, chained, census train rows 0-499/2; arms plain / seq_traj
+    (real-trajectory target) / seq_frame (in-frame target), TEST-half
+    certificates. pred_a agg(seq_traj) <= 0.45 x agg(plain); pred_b
+    valid(seq_traj) >= 5; pred_c seq_frame <= plain AND plain within
+    0.05 of +0.9427. Null: error lives in unit activations, not the
+    readout. Price: none (Down swap + D-bias/site).
+    -> ops/frontier_cp_seqfit.py [QUEUED 06:59Z]
+
+117. Attention-splice mechanism test: a2/a3 fed REAL position-aligned
+    input streams (symmetric pre-hook capture, rung-92 lesson), rest =
+    mixed-K cp_front. pred_a agg(spliced) <= 0.6 x agg(plain); pred_b
+    valid(spliced) >= 3; pred_c |agg(plain) - 0.9427| <= 0.015. Null:
+    attention is a bystander (residual stream transmits the drift).
+    Price: none (mechanism test). Tripwire: bitwise-equal arms.
+    -> ops/frontier_attn_splice.py [QUEUED 06:59Z]

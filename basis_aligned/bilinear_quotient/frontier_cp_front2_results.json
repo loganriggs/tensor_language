@@ -1,0 +1,22 @@
+{
+ "arms": {
+  "all_2304": {
+   "agg": 0.4887,
+   "valid": 1
+  },
+  "all_3456": {
+   "agg": 0.1193,
+   "valid": 2
+  }
+ },
+ "values": {
+  "all_2304": 31850496,
+  "all_3456": 47775744
+ },
+ "convention": "per-position dCE = CE(config) - CE(real model) on census rows; lower is better",
+ "pred_a_k_buys_back": false,
+ "pred_b_validity_appears": false,
+ "pred_c_monotone": true,
+ "self_reviewed": true,
+ "runtime_s": 111.6
+}

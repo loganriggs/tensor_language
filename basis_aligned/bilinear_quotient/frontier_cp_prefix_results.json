@@ -1,0 +1,50 @@
+{
+ "arms": {
+  "base_a0a1v": {
+   "agg": 0.052,
+   "valid": 11
+  },
+  "pfx_cf0": {
+   "agg": 0.1085,
+   "valid": 4
+  },
+  "pfx_cf1": {
+   "agg": 0.2215,
+   "valid": 1
+  },
+  "pfx_cf2": {
+   "agg": 0.5114,
+   "valid": 1
+  },
+  "pfx_cf3": {
+   "agg": 0.9427,
+   "valid": 0
+  }
+ },
+ "marginals": {
+  "0": 0.0565,
+  "1": 0.113,
+  "2": 0.2899,
+  "3": 0.4313
+ },
+ "singles": {
+  "0": 0.0647,
+  "1": 0.0454,
+  "2": 0.0504,
+  "3": 0.0745
+ },
+ "excess": {
+  "0": -0.0082,
+  "1": 0.0676,
+  "2": 0.2395,
+  "3": 0.3568
+ },
+ "total_excess": 0.6557,
+ "anchor_s2206": 0.9427,
+ "convention": "per-position dCE = CE(config) - CE(real model) on census rows; lower is better",
+ "pred_a_concentrated": true,
+ "pred_b_enters_at_m1": true,
+ "pred_c_repro": true,
+ "self_reviewed": true,
+ "runtime_s": 133.3
+}

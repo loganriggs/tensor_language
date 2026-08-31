@@ -1,0 +1,49 @@
+ARMS: base(a0,a1v) + cumulative CP prefixes cf0..cf3 - census rows
+a2-input probe acc 0.69
+fit a2
+fit a3
+fit a4
+fit a5
+fit a6
+fit a7
+fit a8
+fit a9
+fit a10
+fit a11
+fit a12
+fit a13
+fit a14
+fit a15
+fit a16
+fit a17
+L1 (+38 heads): C +1.3231 | fresh +1.7582
+  base done
+  prefix +cf0 done
+  prefix +cf1 done
+  prefix +cf2 done
+  prefix +cf3 done
+  window 0 (7 docs): L2 fresh +1.7582
+  window 1 (42 docs): L2 fresh +1.8578
+  window 2 (17 docs): L2 fresh +1.5881
+  window 3 (23 docs): L2 fresh +1.6497
+  window 4 (43 docs): L2 fresh +1.8177
+  window 5 (26 docs): L2 fresh +1.6989
+  window 6 (35 docs): L2 fresh +1.5813
+  window 7 (35 docs): L2 fresh +1.7011
+L2 empirical: C +1.3231 | fresh +1.7582 | tail-attn increment +0.0000
+(a) L2 <= +2.75 fresh: HELD
+(b) increment in [0.30,0.55]: FAILED
+  base_a0a1v  agg +0.0520  valid 11/62
+  pfx_cf0     agg +0.1085  valid 4/62
+  pfx_cf1     agg +0.2215  valid 1/62
+  pfx_cf2     agg +0.5114  valid 1/62
+  pfx_cf3     agg +0.9427  valid 0/62
+  cf0: marginal +0.0565  single +0.0647  excess -0.0082
+  cf1: marginal +0.1130  single +0.0454  excess +0.0676
+  cf2: marginal +0.2899  single +0.0504  excess +0.2395
+  cf3: marginal +0.4313  single +0.0745  excess +0.3568
+total excess +0.6557; max site excess +0.3568
+(a) max excess >= 0.5 x total (+0.3278): HELD
+(b) marginal(cf1) +0.1130 >= 2 x single(m1) (+0.0908): HELD
+(c) |+0.9427 - +0.9427| <= 0.015: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/frontier_cp_prefix_results.json (133s)

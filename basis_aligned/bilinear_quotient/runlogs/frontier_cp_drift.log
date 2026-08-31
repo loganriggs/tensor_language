@@ -1,0 +1,40 @@
+ARMS: stream drift r_li (blocks 0-9) for cp_front + four CP singles, 200 census rows
+a2-input probe acc 0.69
+fit a2
+fit a3
+fit a4
+fit a5
+fit a6
+fit a7
+fit a8
+fit a9
+fit a10
+fit a11
+fit a12
+fit a13
+fit a14
+fit a15
+fit a16
+fit a17
+L1 (+38 heads): C +1.3232 | fresh +1.7582
+  cp_front  r: 0.6171 0.6651 0.7445 0.8331 0.7500 0.2941 0.2676 0.2865 0.3160 0.3243
+  single_m0 r: 0.6171 0.7971 0.4943 0.3800 0.3075 0.1076 0.0888 0.0908 0.1033 0.1005
+  single_m1 r: 0.0002 0.4903 0.4385 0.3648 0.2904 0.1019 0.0919 0.0916 0.1004 0.0948
+  single_m2 r: 0.0002 0.0002 0.4886 0.4076 0.3165 0.1159 0.1057 0.1034 0.1122 0.1033
+  single_m3 r: 0.0002 0.0002 0.0002 0.5477 0.4187 0.1895 0.1593 0.1526 0.1609 0.1419
+  window 0 (7 docs): L2 fresh +1.7582
+  window 1 (42 docs): L2 fresh +1.8578
+  window 2 (17 docs): L2 fresh +1.5878
+  window 3 (23 docs): L2 fresh +1.6498
+  window 4 (43 docs): L2 fresh +1.8177
+  window 5 (26 docs): L2 fresh +1.6988
+  window 6 (35 docs): L2 fresh +1.5813
+  window 7 (35 docs): L2 fresh +1.7011
+L2 empirical: C +1.3232 | fresh +1.7582 | tail-attn increment +0.0000
+(a) L2 <= +2.75 fresh: HELD
+(b) increment in [0.30,0.55]: FAILED
+r3(cp_front) 0.8331 vs singles sum 1.7001; r9 0.3243
+(a) r3 0.8331 >= 1.5 x sum (2.5501): FAILED
+(b) r9 0.3243 >= 0.8 x r3 (0.6665): FAILED
+(c) singles<=front + range: FAILED
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/frontier_cp_drift_results.json (99s)

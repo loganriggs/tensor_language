@@ -65034,3 +65034,34 @@ HELD (valid(1152) = 11 ≥ 10) | pred_c HELD (monotone; K4608 +0.0000).**
   1.29× from §2200).
 - Hand-off: rung 113 (compounding anatomy — where does the excess enter?) and rung 114 (does raising K buy it
   back — all-2304 and all-3456 arms discriminate "excess scales with per-site damage" from "regime persists").
+
+## §2207 — RUNG 113: THE EXCESS IS A PROGRESSIVE LADDER — each CP site's in-config marginal is 1.0× / 2.5× / 5.8× / 5.8× its single (excess: cf0 −0.008, cf1 +0.068, cf2 +0.240, cf3 +0.357; total +0.656). ALL THREE PREDS HELD — pred_a by the letter (max excess 0.357 = 54% of total ≥ 50%), but the honest reading is NOT one entry point: the multiplier grows with how much drifted prefix a site inherits. (Convention: per-position dCE = CE(config) − CE(real model) on the census rows; lower is better.)
+
+`ops/frontier_cp_prefix.py`, **133s**, BACKLOG rung 113. **pred_a HELD (+0.3568 ≥ +0.3278) | pred_b HELD
+(marginal(cf1) +0.1130 ≥ 2×single +0.0908) | pred_c HELD (full prefix reproduces §2206's +0.9427 exactly).**
+
+- Letter-vs-spirit recorded: pred_a's 50% bar was meant to detect a single entry point; a monotone ladder that
+  happens to put 54% in its last step also passes it. The registered formula scored HELD; the mechanism claim
+  "concentrated at one site" is NOT licensed.
+
+## §2208 — RUNG 114: AGGREGATE IS K-BUYABLE, CERTIFICATES ARE NOT — all-2304 lands at +0.4887 (missing the 0.4 bar) with 1/62 valid; all-3456 collapses the aggregate to +0.1193 but still only 2/62 valid. pred_a/b FAILED, pred_c HELD. The §2198 lesson repeats at config grain: circuit validity dies long before aggregate damage looks bad. (Convention: per-position dCE = CE(config) − CE(real model) on the census rows; lower is better.)
+
+`ops/frontier_cp_front2.py`, **112s**, BACKLOG rung 114. **pred_a FAILED (+0.4887 > 0.4) | pred_b FAILED
+(1 < 5) | pred_c HELD (+0.1193 < +0.4887 and ≤ 0.20).**
+
+- The aggregate ledger now has a clean price curve for the CP front: mixed-K +0.943 (21.9M values), all-2304
+  +0.489 (31.9M), all-3456 +0.119 (47.8M) — every point strictly dominates the table front (+1.747, 231.6M).
+  The certificate ledger is unmoved at ~0–2 of 62. Two-ledger accounting is now unavoidable.
+
+## §2209 — RUNG 115: THE DRIFT COMPOSES IN QUADRATURE — state space is SUBadditive while CE is superadditive. All three preds FAILED and the null wins in a stronger form than registered: r₃(cp_front) = 0.833 vs linear singles sum 1.700, but the quadrature sum √(0.380²+0.365²+0.408²+0.548²) = 0.862 matches within 4% — the four sites' drift directions are nearly ORTHOGONAL. And the real middles CONTRACT the drift ~2.6× (0.833 → 0.294 entering block 5; r₉ = 0.324) while the CE damage persists. The 3.3× CE excess is loss-surface geometry, not state amplification. (Convention: r_li = rms(h_config − h_real)/rms(h_real) at block outputs, 200 census rows; CE numbers remain damage-above-real, lower better.)
+
+`ops/frontier_cp_drift.py`, **99s**, BACKLOG rung 115. **pred_a FAILED (0.833 < 1.5×1.700) | pred_b FAILED
+(0.324 < 0.8×0.833) | pred_c FAILED — on the range clause: pre-site drifts are exactly 0 < the 0.0005 floor,
+an instrument artifact of the same class as §2199's a0 floor (a floor must exempt positions that are zero by
+construction). Scored as written.**
+
+- Consequences: (i) K-escalation shrinks each orthogonal drift and buys aggregate linearly (§2208 confirms);
+  (ii) certificates need DIRECTION-preserving repair, not magnitude reduction; (iii) the compounding ladder
+  (§2207) must come from downstream modules READING the drifted directions — mechanism test = rung 117
+  (attention splice), repair test = rung 116 (sequential-conditioning refit, the tables' 1.29× regime), both
+  queued.
