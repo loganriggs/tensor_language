@@ -1,0 +1,154 @@
+ARM base: skip-1416 with attn zeroed at ()
+a2-input probe acc 0.69
+fit a2
+fit a3
+fit a4
+fit a5
+fit a6
+fit a7
+fit a8
+fit a9
+fit a10
+fit a11
+fit a12
+fit a13
+fit a14
+fit a15
+fit a16
+fit a17
+L1 (+38 heads): C +2.0113 | fresh +2.3207
+fit a10L
+fit a11L
+fit a12L
+fit a13L
+fit a15L
+fit a17L
+  window 0 (7 docs): L2 fresh +2.4230
+  window 1 (42 docs): L2 fresh +2.6078
+  window 2 (17 docs): L2 fresh +2.3042
+  window 3 (23 docs): L2 fresh +2.4899
+  window 4 (43 docs): L2 fresh +2.5079
+  window 5 (26 docs): L2 fresh +2.4511
+  window 6 (35 docs): L2 fresh +2.3214
+  window 7 (35 docs): L2 fresh +2.3470
+L2 empirical: C +2.1395 | fresh +2.4230 | tail-attn increment +0.1022
+(a) L2 <= +2.75 fresh: HELD
+(b) increment in [0.30,0.55]: FAILED
+ARM z16: skip-1416 with attn zeroed at (16,)
+a2-input probe acc 0.69
+fit a2
+fit a3
+fit a4
+fit a5
+fit a6
+fit a7
+fit a8
+fit a9
+fit a10
+fit a11
+fit a12
+fit a13
+fit a14
+fit a15
+fit a16
+fit a17
+attn16 zeroed for this arm (bases excluded)
+L1 (+38 heads): C +2.0419 | fresh +2.3671
+fit a10L
+fit a11L
+fit a12L
+fit a13L
+fit a15L
+fit a17L
+  window 0 (7 docs): L2 fresh +2.5057
+  window 1 (42 docs): L2 fresh +2.6961
+  window 2 (17 docs): L2 fresh +2.3400
+  window 3 (23 docs): L2 fresh +2.5825
+  window 4 (43 docs): L2 fresh +2.6134
+  window 5 (26 docs): L2 fresh +2.5373
+  window 6 (35 docs): L2 fresh +2.4005
+  window 7 (35 docs): L2 fresh +2.4242
+L2 empirical: C +2.2428 | fresh +2.5148 | tail-attn increment +0.1476
+(a) L2 <= +2.75 fresh: HELD
+(b) increment in [0.30,0.55]: FAILED
+ARM z14: skip-1416 with attn zeroed at (14,)
+a2-input probe acc 0.69
+fit a2
+fit a3
+fit a4
+fit a5
+fit a6
+fit a7
+fit a8
+fit a9
+fit a10
+fit a11
+fit a12
+fit a13
+fit a14
+fit a15
+fit a16
+fit a17
+attn14 zeroed for this arm (bases excluded)
+L1 (+38 heads): C +1.9962 | fresh +2.3386
+fit a10L
+fit a11L
+fit a12L
+fit a13L
+fit a15L
+fit a17L
+  window 0 (7 docs): L2 fresh +2.4642
+  window 1 (42 docs): L2 fresh +2.6553
+  window 2 (17 docs): L2 fresh +2.2972
+  window 3 (23 docs): L2 fresh +2.5216
+  window 4 (43 docs): L2 fresh +2.5989
+  window 5 (26 docs): L2 fresh +2.5245
+  window 6 (35 docs): L2 fresh +2.3577
+  window 7 (35 docs): L2 fresh +2.3928
+L2 empirical: C +2.1821 | fresh +2.4776 | tail-attn increment +0.1390
+(a) L2 <= +2.75 fresh: HELD
+(b) increment in [0.30,0.55]: FAILED
+ARM both: skip-1416 with attn zeroed at (14, 16)
+a2-input probe acc 0.69
+fit a2
+fit a3
+fit a4
+fit a5
+fit a6
+fit a7
+fit a8
+fit a9
+fit a10
+fit a11
+fit a12
+fit a13
+fit a14
+fit a15
+fit a16
+fit a17
+attn14 zeroed for this arm (bases excluded)
+attn16 zeroed for this arm (bases excluded)
+L1 (+38 heads): C +2.0840 | fresh +2.4367
+fit a10L
+fit a11L
+fit a12L
+fit a13L
+fit a15L
+fit a17L
+  window 0 (7 docs): L2 fresh +2.5768
+  window 1 (42 docs): L2 fresh +2.8201
+  window 2 (17 docs): L2 fresh +2.4936
+  window 3 (23 docs): L2 fresh +2.7077
+  window 4 (43 docs): L2 fresh +2.7978
+  window 5 (26 docs): L2 fresh +2.6939
+  window 6 (35 docs): L2 fresh +2.5188
+  window 7 (35 docs): L2 fresh +2.5572
+L2 empirical: C +2.3717 | fresh +2.6274 | tail-attn increment +0.1906
+(a) L2 <= +2.75 fresh: HELD
+(b) increment in [0.30,0.55]: FAILED
+FR damage: z16 +0.0918 z14 +0.0546 both +0.2044 (sum +0.1464)
+ind sums: z16 +1994.8 z14 +1817.9 both +4707.9 -> interaction +895.2
+(a) both +0.2044 <= 0.85 x sum +0.1244: FAILED
+(b) I_ind +895.2 <= -181.8: FAILED
+(c) base vs S2156 median |delta| 0.0001 <= 0.005: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/attn1416_interaction_results.json (432s)
