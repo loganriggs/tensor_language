@@ -65554,3 +65554,20 @@ VOID-AS-DESIGNED; corrected control = rung 133 (offline real-module targets, the
 ## §2267 — RUNG 170: THE POSITION GATE IS NOT CHEAPLY LINEAR — median probe AUC 0.702 (a8 0.709; bar 0.85), landing BETWEEN the pass and the registered null's < 0.7: far above chance (shuffle controls 0.48–0.51, pred_c HELD), far below surgical. pred_a/b FAILED. Linear-on-local-stream does not compute the member gate; whether "class features + linear" does is the immediate follow-up (the census leaves plausibly refine the 10-class taxonomy, which IS deployable — classify2 runs on raw tokens). (Convention: AUC of a ridge probe on the component input; train rows 0–499, AUC on the test half.)
 
 `ops/probe_gate.py`, **9s**, BACKLOG rung 170.
+
+## §2268 — RUNG 171: SUFFICIENCY DOES NOT EXIST AT COMPONENT GRAIN — ALL THREE PREDS FAILED, and the substrate-wide null wins in its strongest form. Keeping a circuit's battery top-5 components real while mean-ablating the other 11 leaves member damage at a median 4.6× the circuit's OWN ref (pred_a bar: 1.0×); keep-top5 beats keep-RANDOM-5 for 0 of 10 circuits (several random sets do BETTER); and keeping the top-5 barely beats keeping NOTHING (2 of 10 clear the 0.7× bar). (Convention: per-position dCE = CE(keep-set real, rest of the 16 mean-ablated) − CE(real model); census rows; scope = the 16-component measured set.)
+
+`ops/sufficiency.py`, **146s**, BACKLOG rung 171.
+
+- **The necessity/sufficiency asymmetry is now the circuits chapter's central structural fact:** removing a
+  circuit's top ~5 components produces ~90% of its knockout damage (§2260, necessity), yet keeping exactly
+  those components rescues essentially nothing (this rung, no sufficiency). The 62 circuits are NOT modular
+  subprograms extractable at component grain — they are facets of one deeply coupled computation, consistent
+  with §2266 (identity is positional) and §2248/§2264 (substrate sharing caps removal). The operator's
+  original minimality concern lands at its strongest measured form.
+- Extraction-property verdict for the repertoire: at component grain, extraction = FALSE for all tested
+  circuits. Any extraction story must operate at a different grain (positions/contexts, or subcomponent
+  structure), or accept the whole 16-component substrate as the minimal extractable unit.
+- Rung 173 (queued) now carries sharpened stakes: its splice context is far gentler (the other components
+  are the frontier's replacements, not mean-ablations), so nonzero recovery is still possible — but after
+  this rung, indiscriminate recovery (its null) is the expected outcome.

@@ -1,0 +1,145 @@
+{
+ "rows": [
+  {
+   "tag": "r.11.1.1",
+   "keep": [
+    "a14",
+    "a16",
+    "a2",
+    "a3",
+    "a8"
+   ],
+   "ref": 0.596,
+   "d_keeptop5": 3.3168,
+   "d_keeprand5": 3.2378,
+   "d_keepnone": 4.6138
+  },
+  {
+   "tag": "r.11.1.2",
+   "keep": [
+    "a14",
+    "a16",
+    "a3",
+    "a6",
+    "a8"
+   ],
+   "ref": 0.734,
+   "d_keeptop5": 3.4146,
+   "d_keeprand5": 4.1656,
+   "d_keepnone": 4.6357
+  },
+  {
+   "tag": "r.11.3.1",
+   "keep": [
+    "a14",
+    "a16",
+    "a2",
+    "a3",
+    "a8"
+   ],
+   "ref": 0.634,
+   "d_keeptop5": 2.974,
+   "d_keeprand5": 2.8171,
+   "d_keepnone": 4.2386
+  },
+  {
+   "tag": "r.2.0",
+   "keep": [
+    "a14",
+    "a16",
+    "a6",
+    "a7",
+    "a8"
+   ],
+   "ref": 0.983,
+   "d_keeptop5": 4.5047,
+   "d_keeprand5": 3.9008,
+   "d_keepnone": 5.3178
+  },
+  {
+   "tag": "r.1.0.0",
+   "keep": [
+    "a14",
+    "a16",
+    "m13",
+    "m14"
+   ],
+   "ref": 0.451,
+   "d_keeptop5": 3.3776,
+   "d_keeprand5": 3.1415,
+   "d_keepnone": 4.5289
+  },
+  {
+   "tag": "r.3.0",
+   "keep": [
+    "a14",
+    "a15",
+    "a16",
+    "a17"
+   ],
+   "ref": 0.542,
+   "d_keeptop5": 3.5597,
+   "d_keeprand5": 3.3525,
+   "d_keepnone": 5.3939
+  },
+  {
+   "tag": "r.3.0.0",
+   "keep": [
+    "a14",
+    "a15",
+    "a16",
+    "a17"
+   ],
+   "ref": 0.79,
+   "d_keeptop5": 3.1488,
+   "d_keeprand5": 2.8746,
+   "d_keepnone": 5.492
+  },
+  {
+   "tag": "r.0.0",
+   "keep": [
+    "a3",
+    "a4",
+    "m5"
+   ],
+   "ref": 1.728,
+   "d_keeptop5": 3.5975,
+   "d_keeprand5": 3.5668,
+   "d_keepnone": 4.0992
+  },
+  {
+   "tag": "r.2.2.2",
+   "keep": [
+    "a14",
+    "a16",
+    "a6",
+    "a7",
+    "a8"
+   ],
+   "ref": 0.966,
+   "d_keeptop5": 4.328,
+   "d_keeprand5": 4.5674,
+   "d_keepnone": 4.6952
+  },
+  {
+   "tag": "r.3.1.0",
+   "keep": [
+    "a17",
+    "a2",
+    "a3",
+    "m5"
+   ],
+   "ref": 1.343,
+   "d_keeptop5": 3.9957,
+   "d_keeprand5": 3.5816,
+   "d_keepnone": 4.5004
+  }
+ ],
+ "median_top5_over_ref": 4.617,
+ "convention": "per-position dCE = CE(keep-set real, rest of 16 mean-ablated) - CE(real model); census rows",
+ "pred_a_suffices": false,
+ "pred_b_specific": false,
+ "pred_c_keeping_helps": false,
+ "self_reviewed": true,
+ "runtime_s": 145.6
+}

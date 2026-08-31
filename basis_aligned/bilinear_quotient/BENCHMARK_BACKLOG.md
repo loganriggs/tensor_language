@@ -2214,6 +2214,10 @@ later per-rung backlog edits had silently anchored on text that was not here.
     ref; pred_b top5 <= 0.5 x rand5 for >= 7/10; pred_c top5 <= 0.7 x
     none for >= 8/10. Null: members die regardless (substrate-wide).
     -> ops/sufficiency.py [QUEUED 16:32Z]
+    RUN 2026-08-31, S2268: ALL FAILED - no sufficiency at component
+    grain (median 4.6x ref; top5 beats random5 for 0/10; barely beats
+    keep-none). Necessity/sufficiency asymmetry = circuits are facets
+    of one coupled computation; extraction FALSE at this grain.
 
 172. Stream + class probe (gate composition): [component input (+) classify2
     one-hot]; class-alone CPU check gave median 0.581, stream-only 0.702.

@@ -22,7 +22,7 @@
   "ood_transfer": "BLOCKED at leaf recomputation: census_state_diverse.pt stores precomputed leaves on fixed rows; census_lib has no builder; per-circuit OOD needs the upstream leaf taxonomy. Feasible fallback: component-grain OOD via the 10-class classify2 taxonomy (transfers to any text).",
   "family_bases": "DONE (S2265)",
   "gated_removal": "rung 170 (probe separability)",
-  "sufficiency": "rung 171"
+  "sufficiency": "DONE (S2268): none at component grain"
  },
  "circuits": {
   "r.0.0": {
@@ -78,6 +78,12 @@
     "member_absdce": 0.4782,
     "selectivity": 27.051,
     "ratio_to_battery": 0.295
+   },
+   "sufficiency": {
+    "keep_top5_damage": 3.5975,
+    "keep_rand5": 3.5668,
+    "keep_none": 4.0992,
+    "verdict": "NOT sufficient (S2268)"
    }
   },
   "r.0.0.0": {
@@ -282,7 +288,13 @@
     "family_share_r32": 0.312,
     "label": "principal-variance basis (member-agnostic, S2266); NOT a dedicated causal direction"
    },
-   "ood_transfer": null
+   "ood_transfer": null,
+   "sufficiency": {
+    "keep_top5_damage": 3.3168,
+    "keep_rand5": 3.2378,
+    "keep_none": 4.6138,
+    "verdict": "NOT sufficient (S2268)"
+   }
   },
   "r.11.1.2": {
    "top_component": "a8",
@@ -336,7 +348,13 @@
     "family_share_r32": 0.352,
     "label": "principal-variance basis (member-agnostic, S2266); NOT a dedicated causal direction"
    },
-   "ood_transfer": null
+   "ood_transfer": null,
+   "sufficiency": {
+    "keep_top5_damage": 3.4146,
+    "keep_rand5": 4.1656,
+    "keep_none": 4.6357,
+    "verdict": "NOT sufficient (S2268)"
+   }
   },
   "r.11.3.1": {
    "top_component": "a8",
@@ -390,7 +408,13 @@
     "family_share_r32": 0.299,
     "label": "principal-variance basis (member-agnostic, S2266); NOT a dedicated causal direction"
    },
-   "ood_transfer": null
+   "ood_transfer": null,
+   "sufficiency": {
+    "keep_top5_damage": 2.974,
+    "keep_rand5": 2.8171,
+    "keep_none": 4.2386,
+    "verdict": "NOT sufficient (S2268)"
+   }
   },
   "r.13.2.1": {
    "top_component": "a3",
@@ -602,7 +626,13 @@
     "family_share_r32": 0.305,
     "label": "principal-variance basis (member-agnostic, S2266); NOT a dedicated causal direction"
    },
-   "ood_transfer": null
+   "ood_transfer": null,
+   "sufficiency": {
+    "keep_top5_damage": 3.3776,
+    "keep_rand5": 3.1415,
+    "keep_none": 4.5289,
+    "verdict": "NOT sufficient (S2268)"
+   }
   },
   "r.1.0.1": {
    "top_component": "m14",
@@ -1445,6 +1475,12 @@
     "member_absdce": 1.1609,
     "selectivity": 226.214,
     "ratio_to_battery": 1.114
+   },
+   "sufficiency": {
+    "keep_top5_damage": 4.5047,
+    "keep_rand5": 3.9008,
+    "keep_none": 5.3178,
+    "verdict": "NOT sufficient (S2268)"
    }
   },
   "r.2.0.0": {
@@ -1982,6 +2018,12 @@
     "member_absdce": 0.8737,
     "selectivity": 442.481,
     "ratio_to_battery": 0.793
+   },
+   "sufficiency": {
+    "keep_top5_damage": 4.328,
+    "keep_rand5": 4.5674,
+    "keep_none": 4.6952,
+    "verdict": "NOT sufficient (S2268)"
    }
   },
   "r.2.3": {
@@ -2095,6 +2137,12 @@
     "member_absdce": 0.5736,
     "selectivity": 1456.32,
     "ratio_to_battery": 1.009
+   },
+   "sufficiency": {
+    "keep_top5_damage": 3.5597,
+    "keep_rand5": 3.3525,
+    "keep_none": 5.3939,
+    "verdict": "NOT sufficient (S2268)"
    }
   },
   "r.3.0.0": {
@@ -2149,7 +2197,13 @@
     "family_share_r32": 0.545,
     "label": "principal-variance basis (member-agnostic, S2266); NOT a dedicated causal direction"
    },
-   "ood_transfer": null
+   "ood_transfer": null,
+   "sufficiency": {
+    "keep_top5_damage": 3.1488,
+    "keep_rand5": 2.8746,
+    "keep_none": 5.492,
+    "verdict": "NOT sufficient (S2268)"
+   }
   },
   "r.3.0.1": {
    "top_component": "a16",
@@ -2307,7 +2361,13 @@
     "family_share_r32": 0.341,
     "label": "principal-variance basis (member-agnostic, S2266); NOT a dedicated causal direction"
    },
-   "ood_transfer": null
+   "ood_transfer": null,
+   "sufficiency": {
+    "keep_top5_damage": 3.9957,
+    "keep_rand5": 3.5816,
+    "keep_none": 4.5004,
+    "verdict": "NOT sufficient (S2268)"
+   }
   },
   "r.3.1.1": {
    "top_component": "a17",
@@ -3304,5 +3364,6 @@
    "offpca32": 1.4,
    "rand32": 3.8
   }
- }
+ },
+ "extraction_verdict": "FALSE at component grain for all tested circuits (S2268); circuits are facets of one coupled computation"
 }
