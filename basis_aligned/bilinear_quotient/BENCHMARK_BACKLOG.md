@@ -2590,9 +2590,17 @@ later per-rung backlog edits had silently anchored on text that was not here.
     eigen wins at concentrated modules): pred_a exactness; pred_b EIG
     own ratio <= 0.9; pred_c census <= 0.85. Null: neuron holds -
     hypothesis dies. -> ops/m17_eigenbasis.py [QUEUED 22:31Z]
+    RUN 2026-08-31, S2316: ALL HELD - eigen wins m17 by 2.5x (0.398
+    own / 0.466 census). Monotone predictor across 4 modules; m5
+    midpoint + Spearman prereg = rung 220.
 
 219. Usage concentration by basis at m16 (dict 4608 both bases,
     per-token 1152 active): pred_a NEURTK <= 0.5 x static 1.0146;
     pred_b EIGTK <= 0.9 x NEURTK; pred_c EIGTK <= E4608 + 0.02 + non-
     inert. Null: concentration basis-independent (>= 0.95).
     -> ops/m16_eig_topk.py [QUEUED 22:33Z]
+
+220. Basis law quantified: m5 midpoint + five-module Spearman
+    (difficulty vs eigen advantage): pred_a exactness; pred_b rho
+    <= -0.75; pred_c m5 ratio in [0.3, 2.0]. Null: |rho| < 0.5 (late-
+    layer effect, not concentration). -> ops/m5_eigenbasis.py [QUEUED 22:36Z]

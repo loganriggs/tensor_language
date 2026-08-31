@@ -1,0 +1,8 @@
+eigen dictionary built (15s)
+  E4608: agg +0.4119 | census|dCE| 0.6511 | own 1.2453
+  EIGTK: agg +0.4026 | census|dCE| 0.6415 | own 1.2260
+  NEURTK: agg +0.0017 | census|dCE| 0.0379 | own 0.0999
+(a) NEURTK 0.0379 <= 0.5 x 1.0146: HELD
+(b) EIGTK/NEURTK 16.926 <= 0.9: FAILED
+(c) EIGTK 0.6415 <= E4608 0.6511 + 0.02: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/m16_eig_topk_results.json (39s)
