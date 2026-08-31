@@ -978,5 +978,8 @@ later per-rung backlog edits had silently anchored on text that was not here.
     pred_a near(<=32) carries >= 0.6 of a14L's summed ind damage; pred_b
     peak mean bin at distance < 16; pred_c skip-a14 reproduces §2155's
     base per-window (median |delta| <= 0.005). Null: same rising profile
-    (redundant document memory). -> ops/a14_distance_split.py [QUEUED
-    00:02Z]
+    (redundant document memory). -> ops/a14_distance_split.py
+    RUN 2026-08-31, §2164: pred_c HELD, pred_a/b FAILED — the null wins:
+    a14's profile is the SAME rising shape as a16's (peak 32-64; near
+    49.2%). Redundant document memory at two layers; the tail
+    attribution program closes (rungs 55-70).

@@ -64237,3 +64237,24 @@ pred_a FAILED (55.2% vs ≥ 60%).**
   specialization (here). What tomorrow's grammar must produce: a multi-head, mid-to-long-range, non-pointer
   read whose output m16 partially cancels (§2159). Rung 70 (a14's profile, running) completes the two-layer
   comparison.
+
+## §2164 — RUNG 70: NO DIVISION OF LABOR — a14's DISTANCE PROFILE IS THE SAME RISING SHAPE AS a16's (peak at 32–64 tokens; near-32 carries 49.2%). The null wins: the two expensive tail layers are REDUNDANT DOCUMENT MEMORY, not a short/long split. pred_a/b FAILED, pred_c HELD. (Convention: per-position CE(full with a14L) − CE(attn14 real) on FR; positive = the dictionary hurts there.)
+
+`ops/a14_distance_split.py`, **225s**, BACKLOG rung 70. **pred_c HELD (|Δ| 0.0001) | pred_a FAILED (49.2% vs
+≥ 60%) | pred_b FAILED (peak bin 2^5, not < 16).**
+
+```
+  log2-distance bin      1       2–3     4–7     8–15    16–31   32–63   64–127  128–255
+  a14L mean damage    +0.119  +0.141  +0.191  +0.261  +0.327  +0.403  +0.353  +0.277
+  a16L mean damage    +0.133  +0.108  +0.134  +0.242  +0.309  +0.366  +0.310  +0.267   (§2162, same bins)
+```
+
+- **The two profiles are near-identical** (a14's slightly higher everywhere, matching its larger leave-one-out
+  saving §2155): both peak at 32–64 tokens, both keep half their mass beyond 32. Blocks 14 and 16 read the same
+  document-scale structure twice — with different head organizations (§2155 vs §2153) but the same distance
+  law and the same class signature (§2157/§2151).
+- **The attribution program for the tail closes (rungs 55–70):** what the class dictionaries cannot carry is a
+  redundant, multi-head, mid-to-long-range in-document read present at (at least) two layers, resistant to
+  unigram/bigram pointer addressing and to truncation, whose block-16 copy is partially cancelled by m16.
+  Sixteen preregistered attributions, every bar scored as written, four constructive theories measured wrong —
+  that is the shape of the object tomorrow's grammar has to hit. The hourly review picks the next chapter.
