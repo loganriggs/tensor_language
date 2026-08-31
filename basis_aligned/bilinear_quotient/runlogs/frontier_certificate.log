@@ -17,3 +17,28 @@ fit a14
 fit a15
 fit a16
 fit a17
+L1 (+38 heads): C +2.0113 | fresh +2.3208
+fit a10L
+fit a11L
+fit a12L
+fit a13L
+fit a14L
+fit a15L
+fit a16L
+fit a17L
+  window 0 (7 docs): L2 fresh +2.6662
+  window 1 (42 docs): L2 fresh +2.9355
+  window 2 (17 docs): L2 fresh +2.6120
+  window 3 (23 docs): L2 fresh +2.8499
+  window 4 (43 docs): L2 fresh +2.9138
+  window 5 (26 docs): L2 fresh +2.7954
+  window 6 (35 docs): L2 fresh +2.5818
+  window 7 (35 docs): L2 fresh +2.6640
+L2 empirical: C +2.4191 | fresh +2.6662 | tail-attn increment +0.3454
+(a) L2 <= +2.75 fresh: HELD
+(b) increment in [0.30,0.55]: HELD
+aggregate dCE +2.8553; valid 0/62; failing retrieval-frac 0.50
+(a) valid 0 >= 40: FAILED
+(b) failing retrieval fraction 0.50 >= 0.7: FAILED
+(c) aggregate +2.8553 in [0.5, 5.0]: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/frontier_certificate_results.json (124s)

@@ -1376,6 +1376,11 @@ later per-rung backlog edits had silently anchored on text that was not here.
     directly (no port of install needed); census_lib supplies rows,
     base CE and member masks in-process.
     -> ops/frontier_certificate.py [QUEUED 04:55Z]
+    RUN 2026-08-31, §2192: pred_c HELD, pred_a FAILED (0/62 valid at
+    tau=0.5xref; majority-valid only near ~3xref), pred_b DEGENERATE
+    (universal failure set; §2159 precedent). The frontier config is an
+    aggregate approximation, not a causal abstraction — now a measured
+    per-circuit fact with a tau-curve.
 
 97b. THE DC LEDGER, CENSUS FRAME (rebuild). Real-model zero- vs mean-
     ablation for a8/a5/m13/m14/m15/m16 over the census grid; DC share =
@@ -1389,3 +1394,12 @@ later per-rung backlog edits had silently anchored on text that was not here.
     m13 -0.42, m14 -0.03}. The cliff's knockout is 94% its mean; a8 is
     pure signal (behind the gauge gate). Affine skeleton licensed for
     the DC-heavy class only.
+
+100. DOES THE ENVELOPE RESTORE THE a16 CIRCUITS (certificate for
+    skip-1416; damage convention). Rerun the certificate with the
+    skip-1416 config (both tail attentions real). pred_a the
+    a16-localized circuits' median damage ratio improves >= 2x vs rung
+    99; pred_b >= 10 circuits become valid at tau = 0.5xref; pred_c
+    aggregate in [0.5, 5]. Null: the breakage is front-caused and the
+    tail retreat restores little.
+    -> ops/frontier_certificate2.py [QUEUED 04:40Z]
