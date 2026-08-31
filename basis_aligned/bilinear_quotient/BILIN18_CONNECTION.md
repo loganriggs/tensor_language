@@ -64408,3 +64408,17 @@ pred_c HELD (2.6663 vs 2.6662) | pred_b FAILED.**
   interactions — the compiled grammar will need per-document binding (echoing §2098's private coefficient) and
   at least one downstream composition step. Recorded as the constraint set for the next design cycle; no new
   construction licensed tonight.
+
+## §2173 — RUNG 79: THE JOINT MOTIF NUMBER IS +0.4122 — sub-additive (56% of the +0.741 marginal sum, interaction −0.329) but NOT below the registered 0.5× bar. pred_a FAILED by 0.042, pred_b/c HELD. The 38-motif-head replacement is now the frontier's largest measured damage component. (Convention: d(all) = L2_F(full) − L2_F(all motifs real) on FR; positive = the replacement costs damage.)
+
+`ops/motif_joint.py`, **219s**, BACKLOG rung 79. **pred_b HELD (+0.4122 ≥ +0.1888) | pred_c HELD (2.6662
+exact) | pred_a FAILED (+0.4122 vs ≤ +0.3705).**
+
+- **The front's accounting closes:** joint +0.412 vs marginals summing +0.741 — a −0.329 interaction spread over
+  eight replacements (moderately, not strongly, sub-additive; the registered 0.5× bar was a guess and failed
+  honestly). The frontier's damage budget now reads, all measured on the same config: **motif heads +0.412**,
+  tail-attn dictionaries ~+0.35 (§312's increment band), middles' pruning −0.007 net (§2140/§2144) — the two
+  attention-replacement programs carry essentially the whole price, split front/tail, both retrieval-class.
+- Coverage-ledger corollary: the all-motifs-real envelope point is L2_F 2.2540 (2.6662 − 0.4122) at 38 fewer
+  replaced heads — the deepest envelope retreat measured; recorded for the two-ledger table, not claimed as an
+  improvement.

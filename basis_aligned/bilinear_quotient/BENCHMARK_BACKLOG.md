@@ -1091,6 +1091,10 @@ later per-rung backlog edits had silently anchored on text that was not here.
     pred_b d(all) >= max single (+0.1888); pred_c full reproduces
     §2144. Null: additive (~+0.741).
     -> ops/motif_joint.py [QUEUED 01:56Z]
+    RUN 2026-08-31, §2173: pred_b/c HELD, pred_a FAILED by 0.042 —
+    joint +0.4122 (56% of the marginal sum; interaction -0.329):
+    moderately sub-additive. The motif program (+0.412) and the tail
+    dictionaries (~+0.35) carry essentially the whole frontier price.
 
 80. THE PRICE LEADER'S SIGNATURE (block-2 motif class+position map;
     damage convention). §2169: block 2 leads the motif price (+0.189).
