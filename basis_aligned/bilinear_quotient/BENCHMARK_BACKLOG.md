@@ -1366,8 +1366,10 @@ later per-rung backlog edits had silently anchored on text that was not here.
     concentrate on retrieval-class circuits (ind/other member
     majorities); pred_c the assembly's aggregate census dCE is finite
     and positive (sanity). Null: broad breakage beyond retrieval.
-    [TO BUILD next driver wake — needs the assembly install() ported
-    into the census frame with care.]
+    BUILT 04:55Z: the frontier evalV machinery evaluates the census ROWS
+    directly (no port of install needed); census_lib supplies rows,
+    base CE and member masks in-process.
+    -> ops/frontier_certificate.py [QUEUED 04:55Z]
 
 97b. THE DC LEDGER, CENSUS FRAME (rebuild). Real-model zero- vs mean-
     ablation for a8/a5/m13/m14/m15/m16 over the census grid; DC share =
