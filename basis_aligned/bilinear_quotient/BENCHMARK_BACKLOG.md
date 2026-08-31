@@ -2822,3 +2822,7 @@ later per-rung backlog edits had silently anchored on text that was not here.
     MLPs (additive ~0.077): pred_a census <= 0.085; pred_b valid >= 6;
     pred_c range + double inert. Null: sparsity interacts with motif
     exactness (>= 0.10 or valid <= 4). -> ops/corner_topk.py [QUEUED 00:27Z]
+
+245. Registered claim: economical shape {motifs r96, tail r64}:
+    |census-0.0676|<=0.015; valid >= 8; |L2F-0.0660|<=0.015.
+    -> ops/frontier_claim_motif96.py [QUEUED 23:33Z]

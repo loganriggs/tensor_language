@@ -66,3 +66,4 @@ primary evidence.
 - [explanation_1700.md](explanation_1700.md) — circuits day-1 conclusions: necessity without sufficiency; positional identity; partial repair
 - [explanation_1935.md](explanation_1935.md) — the uniform grammar: one SVD rule retires the patchwork; error halved in a day
 - [explanation_2134.md](explanation_2134.md) — day close: error 33x down, first certificates, one grammar
+- [explanation_2333.md](explanation_2333.md) — allocation night: early blocks carry it, super-modular certificate
