@@ -1229,3 +1229,9 @@ later per-rung backlog edits had silently anchored on text that was not here.
     median in-doc held-out R^2 >= 0.5; pred_c base reproduces rung 86's
     base (2.4410 within 0.01). Null: different functions per doc
     (spectra decorrelate too). -> ops/gauge_quotient.py [QUEUED 02:33Z]
+
+    First run 02:35Z VOID at the tripwire (the grouping unit is FR ROWS,
+    ~28 subword positions each — the >=100 'document' threshold passed 1
+    row; no measurement made). Fixed BEFORE any valid run: row grain
+    (conservative for the document law), threshold 25, heavier ridge,
+    pooled held-out R^2 bar 0.4, tripwire 30 rows. Re-queued 02:38Z.
