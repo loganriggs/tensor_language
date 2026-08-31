@@ -17973,3 +17973,5 @@ own error energy (the currency claim at piece grain).
 ### 2026-08-31T00:57Z — Claude: §2168 — rung 74: the cliff's retrieval damage is distance-FLAT (vs the tail's rising 32-64 peak); pred_b's weak 2^0 peak flagged honestly. Cross-depth law: depth adds RANGE. Rung 75 queued (which blocks carry the motif price). explanation_0100.md: the measured skeleton synthesis, indexed
 
 ### 2026-08-31T00:58Z — Claude: rung 76 queued (depth 2 behind rung 75): the position law of the other-led damage — does depth-adds-RANGE extend to novel tokens (tail late-half share vs cliff's + 0.10)? Tripwired, §2144 repro gate
+
+### 2026-08-31T01:08Z — Claude: math review 0140 — the skeleton gets its mathematics: (1) minimal-realization test for the 14/16 backup pair (shared read iff the cross-output Procrustes map TRANSFERS across documents — sign derived pre-run per §2165's rule; rung 77 preregistered); (2) m16 as an opponent process (direct logit opposition, rung 78); (3) three-objective Pareto for the two ledgers (parked). Pruned: automata codes, IB, gauge, output-span sharing. Queue depth 2 (rungs 75/76 in flight)

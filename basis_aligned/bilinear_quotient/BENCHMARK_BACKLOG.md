@@ -1051,3 +1051,19 @@ later per-rung backlog edits had silently anchored on text that was not here.
     (tail late-half share >= cliff's + 0.10); pred_b both late shares
     >= 0.50; pred_c full reproduces §2144. Null: both position-flat.
     -> ops/other_position_law.py [QUEUED 01:25Z]
+
+77. MINIMAL REALIZATION TEST FOR THE BACKUP PAIR (math review 0140;
+    damage convention n/a - alignment test). Capture attn14/attn16
+    outputs on FR ind positions (skip-1416 config, both real). pred_a
+    mean top-8 canonical correlation >= 0.6 on ind; pred_b the half-A
+    Procrustes map keeps >= 0.8 of its R^2 on half B (SHARED read);
+    pred_c non-ind alignment lower by >= 0.2. Null: aligned but
+    non-transferring (independent duplicates).
+    -> ops/backup_pair_cca.py [TO BUILD next driver wake]
+
+78. THE SUPPRESSOR AS AN OPPONENT PROCESS (math review 0140). Same
+    captures + m16 output: cos(logit-effect of m16, logit-effect of
+    attn14+attn16) on ind positions. pred_a cos <= -0.3 on ind; pred_b
+    |cos| <= 0.15 on non-ind; pred_c repro gate. Null: suppression is
+    routed, not direct logit opposition.
+    -> [TO BUILD with rung 77's captures]
