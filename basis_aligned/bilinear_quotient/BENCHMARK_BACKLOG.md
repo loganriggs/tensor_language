@@ -1002,3 +1002,16 @@ later per-rung backlog edits had silently anchored on text that was not here.
     pred_a A <= -100 (S2159 replicates on this base); pred_b B - A >=
     0.5|A| (coupling); pred_c base reproduces §2156. Null: B ~ A.
     -> ops/m16_attn16_coupling.py [QUEUED 00:25Z]
+
+    RUN 2026-08-31, §2166: pred_a/c HELD, pred_b FAILED in REVERSE —
+    m16's anti-retrieval GROWS without attn16 (A=-395, B=-670): a
+    general retrieval suppressor, not a coupled pair. The interaction
+    chapter closes; the tail's skeleton is fully measured.
+
+73. WHICH CLASSES PAY AT THE CLIFF (the tail instrument moves to the
+    front; damage convention). Per-class attribution of the block-5
+    motif replacement (full vs block-5-motifs-real, leave-one-real).
+    pred_a NOT retrieval (ind <= 0.30); pred_b structural classes
+    {newline,sentend,comma,bclose} >= 0.30; pred_c full reproduces
+    §2144 (2.6662 within 0.01). Null: retrieval again.
+    -> ops/attn5_motif_class.py [QUEUED 00:48Z]

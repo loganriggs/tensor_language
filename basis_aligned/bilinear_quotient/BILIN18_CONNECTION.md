@@ -64284,3 +64284,20 @@ vs ≤ 0.85 × 0.1464) | pred_b FAILED (I_ind +895.2 vs ≤ −181.8).**
   (§2162/§2164), acting as mutual backups (here), with m16 partially cancelling block-16's copy (§2159; the
   coupling test is rung 72, running). The pair is one functional unit with internal redundancy — the strongest
   structural statement the program owns about the tail.
+
+## §2166 — RUNG 72: NOT COUPLED — THE OPPOSITE. m16's anti-retrieval effect GROWS by 70% when attn16 is removed (A = −395.4 with attn16, B = −670.2 without): m16 suppresses the retrieval function wherever it comes from, not attn16's specific output. pred_a/c HELD, pred_b FAILED in the reverse direction. (Convention: damage on the skip-1416 config; bases excluded; negative sum = m16 was hurting ind positions.)
+
+`ops/m16_attn16_coupling.py`, **433s**, BACKLOG rung 72. **pred_a HELD (A = −395.4 ≤ −100: §2159 replicates on
+this base) | pred_c HELD (|Δ| 0.0001) | pred_b FAILED (B − A = −274.8 vs ≥ +197.7 — the wrong sign entirely).**
+
+- **m16 is a general retrieval suppressor, not attn16's partner-antagonist:** with attn16 gone, attn14 carries
+  more of the read (§2165's backup), and m16 hurts ind positions MORE (−670 vs −395). The "coupled pair" story
+  dies; what replaces it is cleaner: the block-14/16 unit = two mutually-backing attention readers + one MLP
+  that (i) carries subword continuation (+830, §2159) and (ii) suppresses the retrieval channel generally, at
+  whichever layer supplies it.
+- **The interaction chapter closes (rungs 71–72) and the tail's measured skeleton is:** READ (attn14 ∥ attn16,
+  same distance law, active backup, super-additive +0.058) → SUPPRESS/TRANSFORM (m16, general, −0.4 to −0.7k
+  summed on ind) → the class dictionaries can carry none of it (worse than deletion at 16). Every clause above
+  is an interaction or attribution measurement, not an inference — the first fully-measured mechanistic
+  skeleton in the program. What a grammar for it must now provide: a shared mid-to-long-range read primitive
+  with backup semantics, plus a signed correction at m16.
