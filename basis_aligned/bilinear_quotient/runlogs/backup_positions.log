@@ -1,0 +1,115 @@
+ARM base: attn zeroed at ()
+a2-input probe acc 0.69
+fit a2
+fit a3
+fit a4
+fit a5
+fit a6
+fit a7
+fit a8
+fit a9
+fit a10
+fit a11
+fit a12
+fit a13
+fit a14
+fit a15
+fit a16
+fit a17
+L1 (+38 heads): C +2.0112 | fresh +2.3208
+fit a10L
+fit a11L
+fit a12L
+fit a13L
+fit a15L
+fit a17L
+  window 0 (7 docs): L2 fresh +2.4230
+  window 1 (42 docs): L2 fresh +2.6079
+  window 2 (17 docs): L2 fresh +2.3045
+  window 3 (23 docs): L2 fresh +2.4899
+  window 4 (43 docs): L2 fresh +2.5079
+  window 5 (26 docs): L2 fresh +2.4513
+  window 6 (35 docs): L2 fresh +2.3214
+  window 7 (35 docs): L2 fresh +2.3470
+L2 empirical: C +2.1397 | fresh +2.4230 | tail-attn increment +0.1021
+(a) L2 <= +2.75 fresh: HELD
+(b) increment in [0.30,0.55]: FAILED
+ARM z16: attn zeroed at (16,)
+a2-input probe acc 0.69
+fit a2
+fit a3
+fit a4
+fit a5
+fit a6
+fit a7
+fit a8
+fit a9
+fit a10
+fit a11
+fit a12
+fit a13
+fit a14
+fit a15
+fit a16
+fit a17
+attn16 zeroed for this arm (bases excluded)
+L1 (+38 heads): C +2.0420 | fresh +2.3671
+fit a10L
+fit a11L
+fit a12L
+fit a13L
+fit a15L
+fit a17L
+  window 0 (7 docs): L2 fresh +2.5057
+  window 1 (42 docs): L2 fresh +2.6961
+  window 2 (17 docs): L2 fresh +2.3399
+  window 3 (23 docs): L2 fresh +2.5824
+  window 4 (43 docs): L2 fresh +2.6133
+  window 5 (26 docs): L2 fresh +2.5374
+  window 6 (35 docs): L2 fresh +2.4005
+  window 7 (35 docs): L2 fresh +2.4242
+L2 empirical: C +2.2428 | fresh +2.5147 | tail-attn increment +0.1476
+(a) L2 <= +2.75 fresh: HELD
+(b) increment in [0.30,0.55]: FAILED
+ARM z14: attn zeroed at (14,)
+a2-input probe acc 0.69
+fit a2
+fit a3
+fit a4
+fit a5
+fit a6
+fit a7
+fit a8
+fit a9
+fit a10
+fit a11
+fit a12
+fit a13
+fit a14
+fit a15
+fit a16
+fit a17
+attn14 zeroed for this arm (bases excluded)
+L1 (+38 heads): C +1.9963 | fresh +2.3386
+fit a10L
+fit a11L
+fit a12L
+fit a13L
+fit a15L
+fit a17L
+  window 0 (7 docs): L2 fresh +2.4642
+  window 1 (42 docs): L2 fresh +2.6553
+  window 2 (17 docs): L2 fresh +2.2970
+  window 3 (23 docs): L2 fresh +2.5216
+  window 4 (43 docs): L2 fresh +2.5989
+  window 5 (26 docs): L2 fresh +2.5246
+  window 6 (35 docs): L2 fresh +2.3577
+  window 7 (35 docs): L2 fresh +2.3927
+L2 empirical: C +2.1820 | fresh +2.4776 | tail-attn increment +0.1390
+(a) L2 <= +2.75 fresh: HELD
+(b) increment in [0.30,0.55]: FAILED
+ind n=8989; binned Spearman(d16,d14) +0.689; top-half share 0.914
+(a) rho +0.689 >= 0.5: HELD
+(b) top-half share 0.914 >= 0.6: HELD
+(c) base vs S2156 median |delta| 0.0000 <= 0.005: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/backup_positions_results.json (326s)

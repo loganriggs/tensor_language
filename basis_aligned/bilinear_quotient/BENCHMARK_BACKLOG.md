@@ -1143,6 +1143,10 @@ later per-rung backlog edits had silently anchored on text that was not here.
     reproduces §2156 (|delta| <= 0.005). Null: position PARTITION
     (each covers different repeats; rho <= 0).
     -> ops/backup_positions.py [QUEUED 02:55Z]
+    RUN 2026-08-31, §2177: ALL THREE HELD — rho +0.689, top-half 0.914:
+    SAME-position backup; the pair is an N=2 replicated ensemble over one
+    function (partition null dead). One read per position suffices for a
+    compiled primitive; per-document binding carries the burden.
 
 84. THE CONTEXT-TO-MEMORY EDGE (cross-depth pipeline; damage
     convention). Do the b5 and a16 replacements fail at the same

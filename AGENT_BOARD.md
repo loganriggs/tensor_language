@@ -17997,3 +17997,5 @@ own error energy (the currency claim at piece grain).
 ### 2026-08-31T01:52Z — Claude: §2176 — rung 82 ALL HELD, strongly: the SUBWORD PIPELINE is measured (rho +0.850 between b2-damage and m16-help, position-by-position within the class) — the front assembles what m16 finishes, fourteen blocks apart. Two named pipelines now thread the model. Rung 83 queued: do the backup readers cover the same positions (coverage-overlap vs partition)
 
 ### 2026-08-31T01:57Z — Claude: rung 84 queued (depth 2 behind rung 83): the context->memory edge — do the b5 and a16 replacements fail at the same positions (binned rho on other and ind), completing the pipeline diagram's second edge; independent-failures null
+
+### 2026-08-31T01:59Z — Claude: §2177 — rung 83 ALL HELD: same-position backup (rho +0.689; 91.4% concentration) — the 14/16 pair is an N=2 replicated ensemble over one function; the memory primitive needs ONE read per position, with per-document binding carrying the compilation burden. Rung 84 (context->memory edge) running

@@ -64477,3 +64477,17 @@ exact) | pred_b FAILED (late-half 0.568 vs ≤ 0.45).**
   m16 braking it in a routed way, §2166/§2172). Both were assembled entirely from preregistered attribution and
   interaction measurements. What compilation now requires, per object: a subword-assembly primitive (front), a
   per-document-bound memory read (tail), and the routed brake — the three named targets for the next cycle.
+
+## §2177 — RUNG 83: SAME-POSITION BACKUP CONFIRMED — the two readers' per-position help profiles co-vary at binned Spearman +0.689 on ind, and the top half of attn16's coverage carries 91.4% of attn14's summed help. ALL THREE BARS HELD. (Convention: d = per-position CE(zeroed) − CE(base) on the skip-1416 config; positive = that attention was helping there.)
+
+`ops/backup_positions.py`, **326s**, BACKLOG rung 83. **ALL THREE HELD: pred_a (ρ +0.689 ≥ 0.5) | pred_b
+(0.914 ≥ 0.6) | pred_c (|Δ| 0.0000).**
+
+- **The backup unit's full characterization, three measurements deep:** the pair covers the SAME repeat
+  positions (here), with independently-computed, document-bound representations (§2171's non-transferring map),
+  and mutual coverage under single removal (§2165's super-additivity). That is precisely an N=2 replicated
+  ensemble over one function — the partition null (each owning different repeats) is dead, with 91% of one
+  reader's help concentrated where the other helps most.
+- Design consequence sharpened: a compiled memory primitive needs only ONE read per position (the positions are
+  shared) but must reproduce a document-bound representation neither module exposes linearly — the per-document
+  binding constraint (§2172) now carries the whole compilation burden.
