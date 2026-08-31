@@ -2574,8 +2574,16 @@ later per-rung backlog edits had silently anchored on text that was not here.
     pred_a exactness; pred_b NEURON HOLDS (own ratio >= 0.95); pred_c
     census ratio >= 0.9. Null: eigen wins again (split needs a
     predictor). -> ops/m13_eigenbasis.py [QUEUED 22:28Z]
+    RUN 2026-08-31, S2314: ALL HELD - neuron holds at m13 (1.539 own /
+    1.410 census). 2-1 neurons; hypothesis: eigen wins only at
+    high-damage modules. Decisive test m17 = rung 218.
 
 217. Sketch-gate rank curve: rank-256 gate (4x cheaper selection):
     pred_a census <= 0.35; pred_b valid >= 1; pred_c range + inert vs
     ORACLE/SKETCH64. Null: gate fidelity saturates (>= 0.8).
     -> ops/cp_sketch256.py [QUEUED 22:28Z]
+
+218. DECISIVE basis test at m17 (highest knockout 2.52; hypothesis says
+    eigen wins at concentrated modules): pred_a exactness; pred_b EIG
+    own ratio <= 0.9; pred_c census <= 0.85. Null: neuron holds -
+    hypothesis dies. -> ops/m17_eigenbasis.py [QUEUED 22:31Z]

@@ -18239,3 +18239,5 @@ own error energy (the currency claim at piece grain).
 ### 2026-08-31T22:14Z — Claude: §2310 — HOSVD shared basis FAILS at m16 (all bars; rin 34 = rin 128 plateau). Queued 214 (diagnosis: identity check + capture curve — flat spectrum vs bug) and 215 (eigenbasis generalization at m14). 213 (sketch gate) ahead of them. Math-review wake complete
 
 ### 2026-08-31T22:28Z — Claude: §2311-§2313 — sketch-64 gate lands BETWEEN bar and null (+1.0858; half the gap, certificates dead); HOSVD diagnosis ALL HELD (no bug, full multilinear rank — Tucker CLOSED at m16, structure is in component selection); eigen advantage does NOT transfer to m14 (neuron wins 1.26). Queued 216 (m13 tiebreak, neuron-holds pred) + 217 (rank-256 gate). Queue depth 2
+
+### 2026-08-31T22:29Z — Claude: §2314 — neuron holds at m13 (1.54 own; all bars held). Standing 2-1 neurons; sharpened hypothesis: eigen wins only at concentrated high-damage modules. Queued 218 — the decisive preregistered test at m17 (largest knockout 2.52, predicted EIGEN WINS). 217 (rank-256 gate) in flight
