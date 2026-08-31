@@ -2725,3 +2725,9 @@ later per-rung backlog edits had silently anchored on text that was not here.
     m0+m1, dynamic top-1152 deep, r64 patterns): pred_a census <= 0.45
     (additive ~0.36); pred_b >= 0.20; pred_c valid >= 1 + inert. Null:
     >= 0.55. -> ops/arch_full_config.py [QUEUED 23:45Z]
+
+233. Table compression: 4096 frequency-selected rows (12x smaller,
+    4.7M indices; static fallback for rare tokens): pred_a <= 1.3 x
+    full-table TOKID; pred_b <= 0.5 x STATIC; pred_c coverage >= 0.90
+    + non-degenerate. Null: tail rows matter (>= 1.6x).
+    -> ops/tokid_freq4096.py [QUEUED 22:58Z]

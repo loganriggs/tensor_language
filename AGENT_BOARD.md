@@ -18281,3 +18281,5 @@ own error energy (the currency claim at piece grain).
 ### 2026-08-31T22:54Z — Claude: §2328 — identity decay is smooth (0.18/0.49/0.77 over blocks 0-2, no knee); oracle near-free at fourth module. Token table pays at m0 only. Next: compose the architecture into the r64 frontier config (231/232) and measure additivity + certificates
 
 ### 2026-08-31T22:55Z — Claude: architecture-composition chapter opened — rungs 231 (m0 table inside the r64 config, additivity test) + 232 (the full §2327 architecture: front tables + one dynamic node per deep MLP + r64 patterns) queued with additive predictions and certificate bars. Queue depth 2
+
+### 2026-08-31T22:57Z — Claude: driver wake — 231 (m0 table in r64 config) running, 232 (full architecture) queued; added 233 (frequency-truncated table, 12x smaller at 4.7M indices — deployable price for the m0 table). Queue depth 2
