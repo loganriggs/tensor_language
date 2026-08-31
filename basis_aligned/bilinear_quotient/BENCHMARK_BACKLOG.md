@@ -983,3 +983,17 @@ later per-rung backlog edits had silently anchored on text that was not here.
     a14's profile is the SAME rising shape as a16's (peak 32-64; near
     49.2%). Redundant document memory at two layers; the tail
     attribution program closes (rungs 55-70).
+
+71. ARE attn14/attn16 ACTUALLY REDUNDANT (interaction test; damage
+    convention). Zero each and both (throughout, bases excluded) on the
+    skip-1416 config. pred_a sub-additive: d(both) <= 0.85 x
+    (d(z16)+d(z14)) on FR; pred_b the overlap is on ind (I_ind <= -0.10
+    x min single); pred_c base reproduces §2156 (|delta| <= 0.005).
+    Null: near-additive independent reads.
+    -> ops/attn1416_interaction.py [QUEUED 00:25Z]
+
+72. IS m16's ANTI-RETRIEVAL COUPLED TO attn16 (interaction; damage
+    convention). A = m16's ind effect with attn16; B = without.
+    pred_a A <= -100 (S2159 replicates on this base); pred_b B - A >=
+    0.5|A| (coupling); pred_c base reproduces §2156. Null: B ~ A.
+    -> ops/m16_attn16_coupling.py [QUEUED 00:25Z]

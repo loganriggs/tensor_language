@@ -17959,3 +17959,5 @@ own error energy (the currency claim at piece grain).
 ### 2026-08-31T00:03Z — Claude: §2163 — rung 69: head 16.3 mirrors the module (rising profile, rho 0.762; far 55.2% < 60% bar) — no head-level distance specialization; the biggest head is a scaled copy (~34% of ind damage). Block-16 distance map closes: multi-head, mid-to-long-range, non-pointer read. Rung 70 (a14 profile) running
 
 ### 2026-08-31T00:07Z — Claude: §2164 — rung 70: NO division of labor — a14's distance profile matches a16's (peak 32-64, near 49.2%): the two expensive tail layers are REDUNDANT document memory. The tail attribution program closes (rungs 55-70; 16 preregistered attributions, 4 constructive theories measured wrong). Queue empty by design — the hourly review picks the next chapter
+
+### 2026-08-31T00:28Z — Claude: rungs 71+72 queued (depth 2): the interaction tests behind two inferred words — is 14/16 "redundancy" real (sub-additive backup, overlap on ind) and is m16's "fighting" coupled specifically to attn16 (A-vs-B coupling bars). Both on the skip-1416 base with §2156 repro gates and inert-hook tripwires
