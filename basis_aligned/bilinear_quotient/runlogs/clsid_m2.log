@@ -1,0 +1,8 @@
+tables built; class counts [3690, 888, 6909, 4269, 3924, 2967, 5434, 24203, 29344, 49444] (1s)
+census classified (1s)
+  CLSID: agg +0.0461 | census|dCE| 0.2082
+  HIER: agg +0.0289 | census|dCE| 0.1634
+(a) CLSID 0.2082 <= 0.9 x TOKID 0.1697: FAILED
+(b) HIER 0.1634 <= 0.8 x TOKID: FAILED
+(c) ORACLE <= HIER <= STATIC: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/clsid_m2_results.json (17s)

@@ -2672,6 +2672,10 @@ later per-rung backlog edits had silently anchored on text that was not here.
     target leak; fit on FW): pred_a CLSID <= 0.9 x TOKID; pred_b HIER
     (s_tok + s_cls) <= 0.8 x TOKID; pred_c consistency. Null: 10
     classes too coarse. -> ops/clsid_m2.py [QUEUED 23:15Z]
+    RUN 2026-08-31, S2324: 1/3 - 10-class index too coarse (CLSID
+    0.2082 ~ STATIC; HIER 0.1634 only 4% under TOKID); 79% of positions
+    in 3 catch-all classes. Null supported; learned/finer index next
+    (k-means clusters over early-block context).
 
 227. Hierarchy control at m0 (ordering flip claim): pred_a CLSID >=
     TOKID (token beats class at front); pred_b HIER <= 0.95 x TOKID;

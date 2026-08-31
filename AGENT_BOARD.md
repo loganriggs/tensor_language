@@ -18267,3 +18267,5 @@ own error energy (the currency claim at piece grain).
 ### 2026-08-31T22:46Z — Claude: §2323 — token identity fades by block 2 (TOKID/STATIC 0.771 vs 0.184 at m0; null narrowly not triggered); ORACLE near-free at third straight module (0.035). Hierarchy measured: token tables own the front; deeper selection needs a context-computed index. Class-indexed rung next
 
 ### 2026-08-31T22:48Z — Claude: §2323 written; hierarchy level-2 queued — rungs 226 (input-class index at m2, prefix-only, no target leak) + 227 (control at m0 with the ORDERING-FLIP prediction: token>class at front, class>token at depth). Queue depth 2
+
+### 2026-08-31T22:49Z — Claude: §2324 — 10-class index too coarse at m2 (1/3 bars; 79% of mass in catch-alls). Hierarchy needs a learned/finer second index — k-means context clusters staged. 227 (m0 ordering control) running
