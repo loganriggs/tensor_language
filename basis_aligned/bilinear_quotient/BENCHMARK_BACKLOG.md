@@ -2011,6 +2011,10 @@ later per-rung backlog edits had silently anchored on text that was not here.
     non-own circuits above 0.25 x ref (substrate sharing); pred_c battery
     repro ratio in [0.67, 1.5] (protocol control). Nulls: selectivity < 2
     / sharing < 10. Price: none. -> ops/removal_matrix.py [QUEUED 13:31Z]
+    RUN 2026-08-31, S2248: pred_a FAILED (matrix-grain selectivity
+    1.695 vs concentration's 4.08 - offslice flattered removal),
+    pred_b HELD (a8 collateral 43!), pred_c PERFECT (repro 1.000).
+    Removal = weakly selective; substrate sharing heavy.
 
 152. Leaf-conditioned final-stream bias vectors (bias-branch certificate
     candidate): 62 per-circuit h17 biases = mean (real - config) drift

@@ -65397,3 +65397,20 @@ VOID-AS-DESIGNED; corrected control = rung 133 (offline real-module targets, the
   census-indexed) and rung 153 (the removal COLLATERAL MATRIX — the 8 distinct battery top components
   mean-ablated on the REAL model, all 62 circuits' member damage per knockout: the missing cross-circuit
   removal table, and a battery-protocol reproduction control in one).
+
+## §2248 — RUNG 153: REMOVAL IS WEAKLY SELECTIVE AT MATRIX GRAIN — median own/other selectivity is only 1.695 (bar 3; the registered null "< 2" essentially wins), and a8's knockout collaterally damages 43 of the 46 non-a8 circuits above a quarter of their refs. pred_a FAILED, pred_b HELD (massively), pred_c HELD PERFECTLY (battery repro ratio 1.000 — the mean-ablation protocol matches the battery exactly, so this is physics, not protocol). (Convention: per-position dCE = CE(knockout) − CE(real model) on the census rows.)
+
+`ops/removal_matrix.py`, **130s**, BACKLOG rung 153. The full 16×62 matrix is saved
+(removal_matrix_results.json).
+
+- **Scorecard correction (conversational, not a ledger retraction):** the battery's concentration statistic
+  (median 4.08× member-vs-OFFSLICE) flattered removal — "off-slice" positions are not other circuits'
+  members. At the grain that matters for selective removal (my circuits vs YOUR circuits), the median is
+  1.695×. The removal property drops from "decently selective" to "weakly selective, heavy substrate
+  sharing" — strengthening both the ρ0.961 shared-vulnerability finding (§2218) and the operator's
+  non-minimality concern. Sixteen distinct top components serve 62 circuits, with 13 components owning ≤ 3
+  circuits each — the long tail is thinner than the census-era count suggested (a2/a4/a6/m5/m17/a14/a15/a17
+  each own one).
+- Consequence for the audit chain: rung 154 (running next) now reads as the necessity half of a question
+  this rung half-answered — if top-1 shares are high AND selectivity is low, the circuits are near-minimal
+  labels on a SHARED mechanism, and the right object of study is the substrate, not the 62 labels.
