@@ -65313,3 +65313,17 @@ VOID-AS-DESIGNED; corrected control = rung 133 (offline real-module targets, the
 ## §2238 — RUNG 143 VOID: the rung-61 LATE-BINDING class, in my own splice — the trajectory hook read `li` from the enclosing loop instead of a bound default, so ALL EIGHT tail hooks saw li=17: wrong-site indexing everywhere and 8× counter increments per forward → IndexError at batch ~31 (the tripwire never reached; the crash IS the tripwire). The original attnd hook binds CV/LW/Wp2/first as defaults for exactly this reason; my addition didn't. Fixed (li bound as default), dryrun clean, re-enqueued; predictions unchanged and unscored. Instrument rule re-filed: ANY loop-variable used inside a hook body must be bound as a default argument.
 
 `ops/frontier_nametraj.py`, exit 1, BACKLOG rung 143 (re-queued 12:00Z).
+
+## §2239 — RUNG 143: THE CORRUPTED-LIBRARY HYPOTHESIS CONFIRMS — ALL THREE PREDS HELD. The TRAJECTORY-grade splice (real-pass tail-attn outputs for name positions) takes name to +1.321 — vs +2.285 for the module-grade splice: the CONTEXT-CORRUPTION share at tail attention alone is 0.96, LARGER than the module-replacement share (0.85). The repair-strategy fork resolves: **stream fidelity is the dominant lever for retrieval classes** — the retrieval mechanisms mostly work; the values they fetch are corrupted upstream. Name ladder: 3.134 → 2.285 (module) → 1.730 (module + tailE) → 1.321 (trajectory, attn only). pred_a HELD (≤ 1.6; print label again showed the stale inherited bar text — scored bars are the code's, recorded), pred_b HELD (census +1.8960 ≤ 1.90), pred_c HELD. (Convention: CE added above the real model; lower is better.)
+
+`ops/frontier_nametraj.py` (fixed re-run), **137s**, BACKLOG rung 143.
+
+## §2240 — RUNG 144: SUBWORD'S TAIL-ATTENTION SHARE IS NEGLIGIBLE — the module-grade subword splice recovers only 0.198 (2.319 → 2.121), and the registered null ("share < 0.2") holds by 0.002. Assembly damage is upstream (motifs/front), consistent with §2232's −36% motif share. pred_a FAILED (2.121 > 1.9), pred_b FAILED by 0.0046, pred_c HELD. (Convention: CE added above the real model; lower is better. Print-label staleness noted as in §2239.)
+
+`ops/frontier_subworacle.py`, **129s**, BACKLOG rung 144.
+
+- The two classes now have OPPOSITE diagnoses: name = corrupted-context retrieval (fix the stream); subword =
+  upstream assembly (fix motifs/front composition). Queued: rung 145 (all-class trajectory splice — the total
+  context-corruption share of the tail-attn family, with per-class recoveries free) and rung 146 (trajectory
+  attn + tailE bypass for name — the name floor with the whole tail complex idealized; the remainder is the
+  front/motif direct share).

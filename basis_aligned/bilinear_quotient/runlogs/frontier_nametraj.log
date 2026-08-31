@@ -28,37 +28,20 @@ fit a15L
 fit a16L
 fit a17L
   captured real-trajectory tail-attn outputs (250 batches)
-Traceback (most recent call last):
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/frontier_nametraj.py", line 882, in <module>
-    main()
-  File "/venv/main/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/frontier_nametraj.py", line 770, in main
-    SEL['cev']=evalV(_ROWS,_ROWS.shape[0],order2,ML).detach().cpu()
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/frontier_nametraj.py", line 582, in evalV
-    x,v1=blk(x,v1,x0)
-         ^^^^^^^^^^^^
-  File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1779, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1790, in _call_impl
-    return forward_call(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/workspace/tensor_language/jacclust/tt_model.py", line 214, in forward
-    x1, v1 = self.attn(F.rms_norm(x, (x.size(-1),)), v1)
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1779, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1885, in _call_impl
-    return inner()
-           ^^^^^^^
-  File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1846, in inner
-    hook_result = hook(self, args, result)
-                  ^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/frontier_nametraj.py", line 188, in h
-    _bt=SEL['_NTJ'][li][cur['nbi']].to(new.device).float()
-        ~~~~~~~~~~~~~~~^^^^^^^^^^^^
-IndexError: list index out of range
+  window 0 (7 docs): L2 fresh +1.8764
+  window 1 (42 docs): L2 fresh +2.1855
+  window 2 (17 docs): L2 fresh +2.2063
+  window 3 (23 docs): L2 fresh +2.2184
+  window 4 (43 docs): L2 fresh +2.4206
+  window 5 (26 docs): L2 fresh +2.0763
+  window 6 (35 docs): L2 fresh +1.9654
+  window 7 (35 docs): L2 fresh +1.9406
+L2 empirical: C +1.8845 | fresh +1.8764 | tail-attn increment +0.3255
+(a) L2 <= +2.75 fresh: HELD
+(b) increment in [0.30,0.55]: HELD
+  per-class dCE: digit:+1.250 bclose:+1.012 newline:+0.389 sentend:+0.339 comma:+0.285 name:+1.321 rep:+1.708 subword:+2.319 ind:+1.994 other:+2.116
+L2 fresh +1.8764 (was +1.8765); census +1.8960 (was +1.9474); increment +0.3255; valid 0/62
+(a) [bar 1.6] name +1.3207 <= 1.0: HELD
+(b) census +1.8960 <= 1.90: HELD
+(c) L1F invariant, census >= 1.4: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/frontier_nametraj_results.json (137s)

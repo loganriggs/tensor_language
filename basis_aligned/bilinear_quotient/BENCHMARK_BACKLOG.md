@@ -1899,6 +1899,9 @@ later per-rung backlog edits had silently anchored on text that was not here.
     name <= 1.6; pred_b census <= 1.90; pred_c L1F invariant, census >=
     1.4. Null: gap < 0.2 (remainder is elsewhere). Price: none.
     -> ops/frontier_nametraj.py [QUEUED 11:35Z]
+    RE-RUN 2026-08-31 12:02Z, S2239: ALL HELD. Trajectory splice ->
+    name +1.321 (vs module-grade +2.285): context corruption 0.96 >
+    module share 0.85. STREAM FIDELITY is the lever. Fork resolved.
     RUN 2026-08-31, S2238: VOID (late-binding li in the splice hook -
     all sites saw li=17; rung-61 class). Fixed (li=li default),
     re-queued 12:00Z; preds unchanged and unscored.
@@ -1909,3 +1912,19 @@ later per-rung backlog edits had silently anchored on text that was not here.
     increment in [0.15, 0.36]. Null: subword's tail-attn share < 0.2
     (assembly is upstream). Price: none.
     -> ops/frontier_subworacle.py [QUEUED 12:01Z]
+    RUN 2026-08-31, S2240: pred_a/b FAILED (recovery 0.198; null holds
+    by 0.002). Subword is upstream assembly - opposite diagnosis to
+    name.
+
+145. All-class trajectory splice at tail attention: total context-
+    corruption share of the family, per-class recoveries free. pred_a
+    census <= 1.70; pred_b name <= 1.37 (consistency with S2239);
+    pred_c L1F invariant, census >= 1.4. Null: non-name content is
+    local (< 0.10 beyond name-only). Price: none.
+    -> ops/frontier_trajall.py [QUEUED 12:30Z]
+
+146. The name floor: trajectory attn splice + tailE bypass together for
+    name rows. pred_a name <= 0.9 (rough additivity of the 0.555 tailE
+    credit); pred_b census <= 1.87; pred_c guards. Null: tailE credit
+    redundant with context corruption (name >= 1.15). Price: none.
+    -> ops/frontier_namefloor.py [QUEUED 12:30Z]
