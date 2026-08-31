@@ -1,0 +1,54 @@
+{
+ "arms": {
+  "m1_K288": {
+   "agg": 0.4714,
+   "valid": 1
+  },
+  "m1_K576": {
+   "agg": 0.2799,
+   "valid": 1
+  },
+  "m1_K1152": {
+   "agg": 0.1346,
+   "valid": 2
+  },
+  "m1_K2304": {
+   "agg": 0.0454,
+   "valid": 12
+  },
+  "m1_K4608": {
+   "agg": -0.0,
+   "valid": 62
+  },
+  "m3_K288": {
+   "agg": 0.1001,
+   "valid": 6
+  },
+  "m3_K576": {
+   "agg": 0.0745,
+   "valid": 8
+  },
+  "m3_K1152": {
+   "agg": 0.047,
+   "valid": 11
+  },
+  "m3_K2304": {
+   "agg": 0.0223,
+   "valid": 24
+  },
+  "m3_K4608": {
+   "agg": 0.0,
+   "valid": 62
+  }
+ },
+ "anchors_singles": {
+  "1": 0.2628,
+  "3": 0.485
+ },
+ "convention": "per-position dCE = CE(single-site CP-K, weights-only) - CE(real model) on census rows; lower is better",
+ "pred_a_dominates_by_2304": true,
+ "pred_b_validity_moves": true,
+ "pred_c_sane": true,
+ "self_reviewed": true,
+ "runtime_s": 171.9
+}

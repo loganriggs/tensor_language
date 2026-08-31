@@ -1539,6 +1539,9 @@ later per-rung backlog edits had silently anchored on text that was not here.
     >= 5 at both; pred_c monotone + 4608 exact. Null: m0-like hardness +
     grammar loses somewhere. Price: 7.96M values/site at 2304.
     -> ops/frontier_m13_cp.py [QUEUED 05:59Z]
+    RUN 2026-08-31, S2205: ALL THREE HELD. m1 hard (2304: .0454/12),
+    m3 easy (288: .1001/6). Depth law: hardness falls monotonically
+    with depth (576: m0 1.108 > m1 .280 > m2 .082 > m3 .075).
 
 112. THE CP-FRONT CONFIG: m0-m3 as CP (K from rung 111 at run time: smallest
     K with agg <= 0.10, else 2304; defaults m0 2304/m1 2304/m2 1152/m3
@@ -1547,3 +1550,25 @@ later per-rung backlog edits had silently anchored on text that was not here.
     above 0); pred_c agg in [0.05, 1.0]. Null: superadditive compounding
     destroys single-site gains. Price: ~27.9M values vs 231.6M (8.3x).
     -> ops/frontier_cp_front.py [QUEUED 05:59Z]
+    RUN 2026-08-31, S2206: pred_a/b FAILED, pred_c HELD. Combined
+    +0.9427/0 valid = 3.3x singles sum (+0.2870); compounding is the
+    new enemy. Ks used: m0/m1 2304, m2 1152, m3 576 (288 missed the
+    0.10 bar by 0.0001). Still 1.85x better than tables at 10.6x fewer
+    values.
+
+
+113. Compounding anatomy (CP-front prefixes): arms base(a0,a1v), then
+    cumulative +cf0/+cf1/+cf2/+cf3 at the S2206 Ks (2304/2304/1152/576).
+    excess_i = marginal_i - single_i (singles from rung 109-111 JSONs).
+    pred_a max excess_i >= 0.5 x total excess; pred_b marginal(cf1) >=
+    2 x single(m1) (+0.0908) - compounding enters at m1; pred_c full
+    prefix reproduces +0.9427 +/- 0.015. Null: excess distributed
+    (~2-3x uniformly). Price: none.
+    -> ops/frontier_cp_prefix.py [QUEUED 06:28Z]
+
+114. K-escalation (does K buy back the compounding): all four sites at
+    K=2304 and at K=3456. pred_a agg(all2304) <= 0.4 (collapse ~0.2 vs
+    persist ~0.68 = 3.3x singles sum); pred_b valid(all2304) >= 5;
+    pred_c agg(all3456) < agg(all2304) and <= 0.20. Null: compounding
+    regime persists. Price: 31.9M / 47.8M values (vs tables 231.6M).
+    -> ops/frontier_cp_front2.py [QUEUED 06:28Z]

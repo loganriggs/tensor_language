@@ -65011,3 +65011,26 @@ HELD (valid(1152) = 11 ≥ 10) | pred_c HELD (monotone; K4608 +0.0000).**
   prunable (dense token-feature construction), opposite to the table-damage ordering.
 - Next: rung 111 (m1/m3 K-maps) and rung 112 (the CP-FRONT CONFIG: m0–m3 as CP + exact a0 + a1v table — the
   first multi-site config with a chance at nonzero certificates), both queued.
+
+## §2205 — RUNG 111: THE FRONT K-MAP COMPLETES AND A CLEAN DEPTH LAW APPEARS — hardness DECREASES monotonically with depth. ALL THREE PREDS HELD. m1 is m0-like (needs K=2304: +0.0454, 12/62), m3 prunes like m2 (already +0.1001 at K=288, 6/62 valid; +0.0223, 24/62 at 2304). At K=576 the site ordering is m0 +1.108 > m1 +0.280 > m2 +0.082 > m3 +0.075: the shallower the MLP, the denser its unit usage — token-feature construction saturates the early layers, context ops thin out with depth. (Convention: per-position dCE = CE(single-site CP-K, weights-only) − CE(real model) on the census rows; lower is better.)
+
+`ops/frontier_m13_cp.py`, **172s**, BACKLOG rung 111. **pred_a HELD (m1 +0.0454 ≤ +0.1314; m3 +0.0223 ≤
++0.2425) | pred_b HELD (12 and 24 ≥ 5) | pred_c HELD (monotone; both exact at 4608).**
+
+- With §2203/§2204: CP-K beats the incumbent replacement at EVERY front MLP by K=2304 — the table grammar is
+  dominated across the whole front, at 7–29× fewer stored values per site.
+
+## §2206 — RUNG 112: THE COMPOUNDING NULL WINS — the CP-front config costs +0.9427 with 0/62 valid, 3.3× the sum of its parts (singles sum +0.2870: m0 .0647 + m1 .0454 + m2 .0504 + m3 .0745 + a1v .0520 + a0 0). Every single-site validity gain (9/12/11/8 circuits) is destroyed in combination. pred_a/b FAILED, pred_c HELD (+0.9427 ∈ [0.05, 1.0] — barely). (Convention: per-position dCE = CE(CP-front config: m0@2304, m1@2304, m2@1152, m3@576 + exact a0 + a1v table, all else real) − CE(real model) on the census rows; lower is better.)
+
+`ops/frontier_cp_front.py`, **103s**, BACKLOG rung 112. **pred_a FAILED (+0.9427 > 0.5) | pred_b FAILED
+(0 < 5) | pred_c HELD.**
+
+- The registered K-choice rule fired as written and dealt m3 a near-miss: m3_K288's +0.1001 missed the
+  "agg ≤ 0.10" bar by 0.0001, so m3 got K=576. Recorded; the rule is kept (bar luck is what registered rules
+  cost, and re-picking after seeing results is what they prevent).
+- Still a strict improvement on the table front — +0.9427 vs +1.7474 (1.85× less damage) at 21.9M vs 231.6M
+  values (10.6×) — but the certificate goal is unmet, and the enemy has moved: it is no longer the sites
+  (each is cheap alone) but the COMPOUNDING of their drifts through depth (3.3× excess, vs the table front's
+  1.29× from §2200).
+- Hand-off: rung 113 (compounding anatomy — where does the excess enter?) and rung 114 (does raising K buy it
+  back — all-2304 and all-3456 arms discriminate "excess scales with per-site damage" from "regime persists").
