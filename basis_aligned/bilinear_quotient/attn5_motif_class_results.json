@@ -1,0 +1,60 @@
+{
+ "full": {
+  "L1_F": 2.3207,
+  "L2_C": 2.419,
+  "L2_F": 2.6663,
+  "increment": 0.3456,
+  "orig_s312_a": true,
+  "orig_s312_b": true,
+  "fresh8": [
+   2.6663,
+   2.9354,
+   2.6118,
+   2.8499,
+   2.9137,
+   2.7954,
+   2.5818,
+   2.6641
+  ],
+  "runtime_s": 112.99953842163086
+ },
+ "block5_motifs_real": {
+  "L1_F": 2.272,
+  "L2_C": 2.3692,
+  "L2_F": 2.6019,
+  "increment": 0.3299,
+  "orig_s312_a": true,
+  "orig_s312_b": true,
+  "fresh8": [
+   2.6019,
+   2.8876,
+   2.5386,
+   2.8073,
+   2.8393,
+   2.7323,
+   2.5354,
+   2.6068
+  ],
+  "runtime_s": 112.18878698348999
+ },
+ "total_damage_sum": 1979.35,
+ "class_shares": {
+  "digit": -0.0108,
+  "bclose": 0.0023,
+  "newline": 0.0291,
+  "sentend": 0.0397,
+  "comma": 0.0772,
+  "name": 0.0149,
+  "rep": 0.0021,
+  "subword": 0.0592,
+  "ind": 0.3222,
+  "other": 0.4639
+ },
+ "struct_combined_share": 0.1484,
+ "convention": "per-position CE(full) - CE(block-5 motifs real) on FR; positive = the replacement hurts there",
+ "pred_a_not_retrieval": false,
+ "pred_b_structural": false,
+ "pred_c_reproduces_s2144": true,
+ "self_reviewed": true,
+ "runtime_s": 225.2
+}

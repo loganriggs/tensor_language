@@ -1015,3 +1015,18 @@ later per-rung backlog edits had silently anchored on text that was not here.
     {newline,sentend,comma,bclose} >= 0.30; pred_c full reproduces
     §2144 (2.6662 within 0.01). Null: retrieval again.
     -> ops/attn5_motif_class.py [QUEUED 00:48Z]
+
+    RUN 2026-08-31, §2167: pred_c HELD, pred_a FAILED by 0.022, pred_b
+    FAILED — the null wins: 84.5% retrieval-class at the cliff too, but
+    OTHER-led (0.464) where the tail was ind-led. Ordering differs, kind
+    does not. Distance law at the cliff -> rung 74.
+
+74. THE DISTANCE LAW AT THE CLIFF (damage convention; signed-sum bars).
+    Split the block-5 motif damage's ind portion by distance to the
+    target's last occurrence. Motif heads are fixed-pattern and
+    plausibly LOCAL: pred_a near(<=32) carries >= 0.6 of the summed ind
+    damage; pred_b peak mean bin at distance < 16; pred_c full arm
+    reproduces §2144 (2.6662 within 0.01). Null: the same rising 32-64
+    profile as the tail (no depth separation). If pred_a/b hold, the
+    model divides retrieval by DEPTH — the first cross-depth
+    architectural law. -> ops/attn5_motif_distance.py [QUEUED]

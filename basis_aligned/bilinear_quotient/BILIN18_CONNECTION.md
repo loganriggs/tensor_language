@@ -64301,3 +64301,23 @@ this base) | pred_c HELD (|Δ| 0.0001) | pred_b FAILED (B − A = −274.8 vs �
   is an interaction or attribution measurement, not an inference — the first fully-measured mechanistic
   skeleton in the program. What a grammar for it must now provide: a shared mid-to-long-range read primitive
   with backup semantics, plus a signed correction at m16.
+
+## §2167 — RUNG 73: THE NULL WINS AT THE CLIFF TOO — the block-5 motif damage is 84.5% retrieval-class (other 0.464 + ind 0.322 + subword 0.059); structural classes carry only 0.148 despite §2111's newline/markup directions. pred_a FAILED by 0.022, pred_b FAILED, pred_c HELD. "Everything is retrieval" — but with the front's tilt toward OTHER, the reverse of the tail's ordering. (Convention: per-position CE(full) − CE(block-5 motifs real) on FR; positive = the replacement hurts there; total +1979, sign-definite.)
+
+`ops/attn5_motif_class.py`, **225s**, BACKLOG rung 73. **pred_c HELD (2.6663 vs 2.6662) | pred_a FAILED (ind
+0.322 vs ≤ 0.30) | pred_b FAILED (structural 0.148 vs ≥ 0.30).**
+
+```
+  class    digit   bclose  newline sentend comma   name    rep     subword  ind     other
+  share   −0.011  +0.002  +0.029  +0.040  +0.077  +0.015  +0.002  +0.059  +0.322  +0.464
+```
+
+- **The front/tail difference is in the ORDERING, not the kind:** the tail's damage was ind-led (0.52–0.57 ind,
+  0.32–0.38 other); the cliff's is other-led (0.464 other, 0.322 ind). Both are ~85–97% context-reading
+  positions. §2111's certified eight directions (newline vs place-name, markup) name what the loss READS at
+  blocks 5/6 — but the price of replacing attn5's motif heads still lands on positions where context must be
+  consulted, only tilted toward novel tokens rather than repeats.
+- The distance law at the cliff — the front's motif heads are fixed-pattern and plausibly LOCAL — is the sharp
+  registered follow-up: if the front's ind damage is near-dominated where the tail's rose to 32–64, the model
+  divides retrieval by DEPTH (front = short-range, tail = long-range), which would be the program's first
+  cross-depth architectural law → rung 74.
