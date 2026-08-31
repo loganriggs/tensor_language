@@ -2769,3 +2769,15 @@ later per-rung backlog edits had silently anchored on text that was not here.
     census <= 0.070; pred_b valid >= 8; pred_c range + double inert.
     Null: bottleneck is tail-half (valid <= 7). Tail mirror = 238.
     -> ops/motif_exact.py [QUEUED 23:33Z]
+    RUN 2026-08-31, S2335: ALL HELD - +0.0608 / 9 certs; motif half is
+    the bottleneck (spread, not concentrated); same price as r96,
+    better census. Tail mirror = 238; claim = 239.
+
+238. HALVES TEST II: tail (10-17) exact, motifs r64 (mirror): pred_a
+    census <= 0.075; pred_b valid <= 8 (tail buys little); pred_c range
+    + double inert. Null: both halves unlock equally (>= 9).
+    -> ops/tail_exact.py [QUEUED 23:44Z]
+
+239. Registered claim: motif-exact point (r96 price, better census):
+    |census-0.0608|<=0.015; valid >= 9; |L2F-0.0601|<=0.015.
+    -> ops/frontier_claim_motif.py [QUEUED 23:44Z]
