@@ -64491,3 +64491,16 @@ exact) | pred_b FAILED (late-half 0.568 vs ≤ 0.45).**
 - Design consequence sharpened: a compiled memory primitive needs only ONE read per position (the positions are
   shared) but must reproduce a document-bound representation neither module exposes linearly — the per-document
   binding constraint (§2172) now carries the whole compilation burden.
+
+## §2178 — RUNG 84: THE CONTEXT→MEMORY EDGE IS MEASURED — the b5 and a16 replacements fail at the same positions (binned ρ +0.789 on other, +0.461 on ind). ALL THREE BARS HELD. Both edges of the pipeline diagram are now measured. (Convention: d5 = CE(full) − CE(no5); d16 = CE(full) − CE(skip-a16); positive = the replacement hurts there.)
+
+`ops/context_memory_edge.py`, **337s**, BACKLOG rung 84. **ALL THREE HELD: pred_a (other ρ +0.789 ≥ 0.3) |
+pred_b (ind ρ +0.461 ≥ 0.3) | pred_c (2.6663 vs 2.6662).**
+
+- **The retrieval chain is a chained pipeline, not parallel services:** positions that need b5's context mixing
+  are the positions that need 14/16's memory — strongest on novel tokens (0.789), present on repeats (0.461).
+  With §2176's subword edge (ρ 0.850), the model's measured wiring diagram reads:
+  **b2/b3 assemble → m16 finishes (subword);  b4/b5 mix context → 14/16 remember (retrieval), m16 braking.**
+- Every edge and node label in that diagram is a preregistered measurement from the last five hours; the two
+  pipelines share m16 as their point of intersection (helper on one, brake on the other) — which retroactively
+  explains why m16 resisted every simple interface (§2127, §2148): it sits on both.

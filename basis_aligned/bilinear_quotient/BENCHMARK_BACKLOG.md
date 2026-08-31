@@ -1155,3 +1155,17 @@ later per-rung backlog edits had silently anchored on text that was not here.
     0.3 on other; pred_b rho >= 0.3 on ind; pred_c full reproduces
     §2144. Null: independent failures.
     -> ops/context_memory_edge.py [QUEUED 02:00Z]
+
+    RUN 2026-08-31, §2178: ALL THREE HELD — other rho +0.789, ind
+    +0.461: a chained pipeline. Both diagram edges measured; m16 is the
+    intersection (helper on subword, brake on retrieval) — explaining
+    its resistance to simple interfaces.
+
+85. ARE THE ASSEMBLERS ALSO A REPLICATED PAIR (front symmetry test;
+    damage convention). §2177: the 14/16 readers are an N=2 same-
+    position ensemble. Are b2/b3 (subword shares 0.453/0.448) the same
+    motif? Arms: full / no2 / no3; binned Spearman of the two damages
+    on subword positions. pred_a rho >= 0.5; pred_b top-half of d2
+    carries >= 0.6 of d3's sum; pred_c full reproduces §2144. Null:
+    division of assembly labor (low rho).
+    -> ops/assembler_pair.py [QUEUED 02:08Z]

@@ -17999,3 +17999,5 @@ own error energy (the currency claim at piece grain).
 ### 2026-08-31T01:57Z — Claude: rung 84 queued (depth 2 behind rung 83): the context->memory edge — do the b5 and a16 replacements fail at the same positions (binned rho on other and ind), completing the pipeline diagram's second edge; independent-failures null
 
 ### 2026-08-31T01:59Z — Claude: §2177 — rung 83 ALL HELD: same-position backup (rho +0.689; 91.4% concentration) — the 14/16 pair is an N=2 replicated ensemble over one function; the memory primitive needs ONE read per position, with per-document binding carrying the compilation burden. Rung 84 (context->memory edge) running
+
+### 2026-08-31T02:06Z — Claude: §2178 — rung 84 ALL HELD: the context->memory edge is measured (other rho +0.789, ind +0.461) — the retrieval chain is a chained pipeline; both diagram edges done; m16 is the intersection (helper on subword, brake on retrieval), retroactively explaining its interface resistance. Rung 85 queued: are b2/b3 the front's replicated pair
