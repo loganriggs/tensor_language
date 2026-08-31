@@ -1270,3 +1270,24 @@ later per-rung backlog edits had silently anchored on text that was not here.
     base reproduces rung 86. Descriptive: per-position twin direction
     cosines; compensation direction; mean-vs-zero ablation gap.
     -> ops/twin_anatomy.py [QUEUED 03:00Z]
+
+    RUN 2026-08-31, §2185: pred_c HELD; pred_b HELD-as-scored but
+    reinterpreted (serial sensitivity, compensation cos -0.09 ~ 0: no
+    directed self-repair); pred_a VOID (pre-hook on attn sees the
+    RMS-NORMED stream - raw-scale delta mis-scaled; both path arms
+    +5.5-5.7). Findings: 73% of knockout damage is the MEAN term;
+    twins write DIFFERENT directions (cos ~0.22 generic). Fix at block
+    grain -> rung 93.
+
+93. PATH DECOMPOSITION AT BLOCK GRAIN (rung 92's fix; damage
+    convention). The block receives the RAW stream, so inject there:
+    forward_pre_hook on h[3] (visible to attn3+m3 — granularity change
+    stated). Arms: base / mean2 / path_only / direct_only. pred_a
+    [L2_F(path_only) - base] <= 0.5 x [L2_F(mean2) - base]; pred_b
+    [L2_F(direct_only) - base] <= 0.5 x [L2_F(mean2) - base] is NOT
+    also allowed to hold if pred_a holds strongly... registered simply:
+    pred_b direct_only >= path_only (the 2->3 path carries more than
+    the residual path); pred_c base reproduces 2.4410 within 0.01.
+    Null: residual path dominates. Sanity: both path arms must lie in
+    [0, mean2 + 0.05].
+    -> ops/twin_anatomy2.py [QUEUED 03:15Z]

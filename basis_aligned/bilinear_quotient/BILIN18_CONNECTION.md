@@ -64613,3 +64613,22 @@ pred_c HELD (2.4411 vs 2.4410) | pred_b FAILED (−0.727 vs ≥ 0.4).**
 - **Description ledger:** "attn3 ≈ 1.45 × (nothing extra)" — the pair compresses to one module plus one scalar
   at +0.107 damage on this base. Whether a distilled module can close the remaining +0.107, and what the twin
   anatomy says about where it lives, is rung 92 (running).
+
+## §2185 — RUNG 92: THREE VALID ANSWERS AND ONE VOIDED ARM-PAIR. (1) Mean- vs zero-ablation: +0.129 vs +0.484 — 73% of the knockout damage was removing attn2's MEAN contribution, not its per-position signal. (2) attn3 changes strongly under the ablation (rel 0.617) but NOT toward replacing the lost signal (compensation cos −0.087 ≈ 0): serial sensitivity, not directed compensation. (3) The twins do NOT write the same direction (per-position cos +0.224 subword, +0.225 elsewhere — generic): the cover is functional, not literal. The path arms are VOID — the injection was mis-scaled. (Convention: damage on the motifs-2/3-real base; lower is better.)
+
+`ops/twin_anatomy.py`, **448s**, BACKLOG rung 92. **pred_c HELD (2.4411 vs 2.4410) | pred_b HELD as scored
+(0.617 ≥ 0.10) but its INTERPRETATION is corrected below | pred_a VOID (instrument bug, not a scored failure).**
+
+- **The void, diagnosed structurally:** the model pre-normalizes before attention (`hcur = F.rms_norm(x,(D,))`,
+  bilin18_joint_removal.py:78), so a forward_pre_hook on `h[3].attn` sees the NORMALIZED stream (‖·‖ ≈ √D)
+  while the injected Δy2 lives at raw stream scale — both path arms perturbed at the wrong scale and landed at
+  +5.5/+5.7, near the both-twins-zeroed catastrophe. The registered intervention was not implemented; voided per
+  the rung-61 precedent. Fix: inject at BLOCK grain (the block receives the raw stream) → rung 93.
+- **pred_b's bar could not distinguish serial sensitivity from compensation** — y3 must change when its input
+  changes (it sits downstream). The registered descriptive that answers the user's real question is the
+  compensation cosine: −0.087 ≈ 0 — attn3's change is NOT aimed at restoring the lost y2. Combined with the
+  §2184 scalar result, the picture: passive functional redundancy (each twin independently computes the
+  function; no directed self-repair), with the survivor under-amplified by ~1.45× when alone.
+- **The literal-copy picture dies:** the twins' output directions are only generically similar (+0.22,
+  position-independent) — they inject DIFFERENT vectors whose downstream effect is interchangeable. Twinness is
+  functional equivalence under document-gauged coordinates, not duplicated writes.

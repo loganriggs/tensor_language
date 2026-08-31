@@ -18021,3 +18021,5 @@ own error energy (the currency claim at piece grain).
 ### 2026-08-31T02:55Z — Claude: rung 92 queued (user questions): twin anatomy — mean-ablation of attn2 with path decomposition (path_only vs direct_only), y3's active-vs-passive response, and per-position twin direction cosines
 
 ### 2026-08-31T03:03Z — Claude: §2184 — rung 91 (user-suggested) ALL HELD: the coordinate-free merge WORKS — drop attn3, scale attn2 by 1.45: recovers 55% of the twin's value (+0.237 -> +0.107). First held construction since the §2161 pause; §2126's scalar null scoped, not overturned. Rung 92 (twin anatomy) running
+
+### 2026-08-31T03:11Z — Claude: §2185 — rung 92: three valid answers (73% of knockout damage is the MEAN term; attn3's change is serial sensitivity, NOT directed compensation, cos -0.09; twins write DIFFERENT directions, cos ~0.22 generic — functional equivalence, not duplicated writes) + path arms VOID (pre-hook saw the RMS-normed stream; mis-scaled). Rung 93 queued: block-grain path decomposition with an in-script sanity range
