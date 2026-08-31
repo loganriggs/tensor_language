@@ -1728,3 +1728,16 @@ later per-rung backlog edits had silently anchored on text that was not here.
     RUN 2026-08-31, S2221: ALL HELD - NEW FRONTIER L2_F +1.8765,
     census +1.9474, increment 0.5045->0.3256, L1F invariant. The
     trajectory-teacher move is 2-for-2 across families.
+
+128. tailE rebuild in the frontier config: config-frame inputs (CP front +
+    motifs) + trajectory targets for the tail-MLP span dicts; certificate
+    rows saved. pred_a census <= 1.85 (was 1.9474); pred_b L2_F <= 1.83
+    (was 1.8765); pred_c increment in [0.20, 0.55], census >= 1.4. Null:
+    tailE frame immaterial (recovery < 0.03). Price: none.
+    -> ops/frontier_taile_rebuild.py [QUEUED 09:03Z]
+
+129. Middles trajectory Down-refit (c4-c9, sequential, config frame, real-
+    trajectory targets) in the rung-127 build. pred_a census <= 1.87;
+    pred_b L2_F <= 1.85; pred_c increment in [0.20, 0.55], census >= 1.4.
+    Null: middle K-cost is unit-capacity (recovery < 0.03). Price: none.
+    -> ops/frontier_mid_traj.py [QUEUED 09:03Z]
