@@ -64846,3 +64846,27 @@ pred_a FAILED (1.20× vs ≥ 2×) | pred_b FAILED (0/62 vs ≥ 10).**
   to preserve member CE per circuit (repair-targeted compilation) — or an explicit two-ledger accounting in
   which circuit-grade claims are simply never made for these artifacts. The certificates run in ~2 minutes;
   any future construction can and should carry one.
+
+## §2196 — RUNG 103: THE ELEPHANT WAS THE BASE — the front TABLES alone (all attention real, all 4608 CP units kept) still cost +1.924 aggregate and break every circuit (0/62). The certificate decomposition completes, and the fold-table base — the program's oldest, most-trusted replacement — is its largest damage source, previously invisible because every experiment measured increments ABOVE it. pred_a/b FAILED, pred_c HELD. (Convention: per-position dCE = CE(config) − CE(real model) on the census rows.)
+
+`ops/frontier_certificate5.py`, **104s**, BACKLOG rung 103. **pred_c HELD (+1.9240 ∈ [0.1, 5]) | pred_a FAILED
+(0/62 vs ≥ 30) | pred_b FAILED (+1.9240 vs ≤ 1.0).**
+
+```
+  family attribution by subtraction (census frame, aggregate dCE)
+  front tables m0–m3            ≈ +1.92   ← dominant, and 0/62 circuits survive them alone
+  CP middles (§2144 K's)        ≈ +0.15   (2.073 − 1.924)
+  motif heads (38, blocks 2–9)  ≈ +0.36   (2.431 → 2.073 step)
+  tail attn dictionaries        ≈ +0.29   (2.855 → 2.570 step)
+```
+
+- **A day-one assumption falls:** the "empirical base" (fold tables + middles) was the floor every increment was
+  measured above — its own ~1.9-nat cost and total circuit breakage were never itemized until now. The fold
+  tables, the deploy-legal gold standard (§283/§305), are the single largest reason no config is a causal
+  abstraction: blocks 0–3's MLPs replaced by lookup tables destroy what every certified circuit's members need,
+  before any attention replacement enters.
+- **The certificate chapter closes (rungs 99–103) with its ledger:** five configs, five 0/62 verdicts, one
+  monotone aggregate curve (2.855 → 1.924), and a family attribution that inverts the program's damage
+  intuitions — the front tables first, then motifs, then tail dictionaries, with the pruned middles nearly
+  free. Every future construction carries a 2-minute certificate; the next chapter's obvious question is
+  whether ANY table grammar for m0–m3 can pass one.

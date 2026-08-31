@@ -1444,3 +1444,9 @@ later per-rung backlog edits had silently anchored on text that was not here.
     with rung 102, the CP middles' marginal circuit damage.
     Null: even the tables alone break everything.
     -> ops/frontier_certificate5.py [QUEUED 04:55Z]
+
+    RUN 2026-08-31, §2196: pred_c HELD, pred_a/b FAILED — the TABLES
+    alone cost +1.924 and break every circuit: the fold-table base was
+    the elephant, invisible because everything was measured above it.
+    Family attribution: tables ~1.92 >> motifs ~0.36 > tail ~0.29 >>
+    middles ~0.15. Certificate chapter closes (99-103; five 0/62s).
