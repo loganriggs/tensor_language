@@ -1797,9 +1797,30 @@ later per-rung backlog edits had silently anchored on text that was not here.
     exactness beats compensation (>= 1.95). Tripwire: rung-131 self-
     target signature. Price: none.
     -> ops/frontier_mid_real.py [QUEUED 10:03Z]
+    RUN 2026-08-31, S2227: all preds FAILED, NULL HELD - exactness
+    beats compensation (+2.148 vs +1.947). Law stands on clean
+    instruments; ordering exact < in-frame refit < trajectory refit.
+    Middle-refit branch CLOSED.
 
 134. Per-class table of the frontier: exact rung-127 build, 10-class
     census breakdown saved. pred_a retrieval law survives (link >= 2 x
     const); pred_b subword <= aggregate; pred_c census repro +/- 0.015.
     Null: class structure flattened. Price: none.
     -> ops/frontier_classes.py [QUEUED 10:03Z]
+    RUN 2026-08-31, S2228: pred_a/b FAILED, c HELD. Class map INVERTED:
+    name 3.13 and subword 2.32 top payers; punctuation nearly free.
+    Retrieval law dead in old form; front-assembly suspicion -> 136.
+
+135. Sensitivity-weighted tail-dict fits (math review 1008): per-position
+    w_t = |dCE/dh| at block-10 input weighting the aXL CV means + LW
+    ridges; closed-list distinction stated (not Fisher selection, not
+    metric-K). pred_a census <= 1.92; pred_b increment <= 0.30; pred_c
+    L1F invariant, census >= 1.4. Null: class structure already captures
+    sensitivity (< 0.01). Price: none.
+    -> ops/frontier_sensw.py [QUEUED 10:12Z]
+
+136. Exact-front class attribution: rung-127 build at front K=4608, class
+    table saved. pred_a name <= 1.6 (halves); pred_b subword <= 1.2;
+    pred_c census in [1.6, 1.9]. Null: name/subword persist >= 80%
+    (assembly damage is motif/tail-caused). Price: diagnostic 63.7M front.
+    -> ops/frontier_front4608_classes.py [QUEUED 10:12Z]

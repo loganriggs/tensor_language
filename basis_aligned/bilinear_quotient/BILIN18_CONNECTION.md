@@ -65231,3 +65231,22 @@ VOID-AS-DESIGNED; corrected control = rung 133 (offline real-module targets, the
 - The two-ledger table's head row now reads: **aggregate +1.8765 fresh / +1.9474 census (best ever, −184M
   values) | certificates 0/62 (unchanged since the battery existed).** The direction problem is the whole
   remaining distance between the two ledgers.
+
+## §2227 — RUNG 133: EXACTNESS BEATS COMPENSATION ON A CLEAN INSTRUMENT — the corrected control (offline real-module targets, all 4608 units, no self-target signature) LOSES 0.20 census (+2.1482 vs +1.9474; L2_F +2.0784 vs +1.8765). All three preds FAILED; the registered NULL (census ≥ 1.95) HELD. With §2223's trajectory arm (−0.36) the ordering is: exact pruned Down (+1.947) < in-frame-real refit (+2.148) < trajectory refit (+2.305). **The exactness-vs-steering law now stands on clean instruments: never refit real weights — refit only fitted objects (dictionaries), and only with full-output trajectory targets (§2224's clause).** The middle-refit branch closes. (Convention: CE added above the real model; lower is better.)
+
+`ops/frontier_mid_real.py`, **142s**, BACKLOG rung 133. **pred_a/b/c FAILED; null HELD; tripwire clean.**
+
+## §2228 — RUNG 134: THE CLASS MAP INVERTED AT THE NEW FRONTIER — the §2145 retrieval-price law does NOT survive in its old form: pred_a FAILED (link {ind,other} mean +2.05 < 2×const +2.58) and pred_b FAILED (subword +2.32 > aggregate +1.95 — ASSEMBLY IS NO LONGER CHEAP). The new top payers are **name +3.13 and subword +2.32**, with rep +1.71, ind +1.99, other +2.12; punctuation/newline/sentend are nearly free (+0.29–0.39). pred_c HELD (exact repro). (Convention: per-position dCE = CE(frontier config) − CE(real model) on the census rows; lower is better.)
+
+`ops/frontier_classes.py`, **128s**, BACKLOG rung 134.
+
+```
+  per-class dCE at the frontier (+1.9474 aggregate):
+  name 3.134 | subword 2.319 | other 2.116 | ind 1.994 | rep 1.708 | digit 1.250 | bclose 1.012
+  newline 0.389 | sentend 0.339 | comma 0.285
+```
+
+- Reading: name/subword are exactly what the DENSE EARLY MLPs build (§2205's depth law: m0/m1 are token-
+  feature assemblers, the least prunable). The suspicion is the CP-3456 front pruning pays on assembly-heavy
+  classes — rung 136 (queued) tests it directly with an exact-front (K=4608) arm: if name/subword collapse,
+  the next structural move is class-aware front capacity; if they persist, the damage is motif/tail-caused.
