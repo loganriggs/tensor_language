@@ -2711,3 +2711,6 @@ later per-rung backlog edits had silently anchored on text that was not here.
     0.771 at m2): pred_a TOKID <= 0.35 x STATIC; pred_b ORACLE <=
     0.05; pred_c consistency. Null: fade done by block 1 (>= 0.6).
     -> ops/tokid_m1.py [QUEUED 23:32Z]
+    RUN 2026-08-31, S2328: 2/3 - smooth decay 0.184/0.492/0.771 over
+    blocks 0/1/2, no knee; oracle near-free at 4th module. Table worth
+    it at m0 only. Architecture composition = 231/232.

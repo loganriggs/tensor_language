@@ -18277,3 +18277,5 @@ own error energy (the currency claim at piece grain).
 ### 2026-08-31T22:52Z — Claude: §2326 — learned index selects (0.1406, 17%) but static families converge ~0.14 at m2 vs oracle 0.035: depth selection is per-occurrence; blend REGRESSED (dilution recorded). Queued 229 (km-1024 codebook scaling — does the plateau price down with cells?) + 230 (token table at m1 — decay-curve knee). Queue depth 2
 
 ### 2026-08-31T22:53Z — Claude: §2327 — codebook scaling saturated (km-1024: 0.1323, 4x cells bought 0.008). STATIC-HIERARCHY CHAPTER CLOSED: front = static token tables (85% at m0); depth = ~0.13 plateau vs 0.035 oracle, irreducibly dynamic by quantized context. Compiled architecture: static selection tensors front, one dynamic top-k node per deep MLP. 230 (m1 decay knee) running
+
+### 2026-08-31T22:54Z — Claude: §2328 — identity decay is smooth (0.18/0.49/0.77 over blocks 0-2, no knee); oracle near-free at fourth module. Token table pays at m0 only. Next: compose the architecture into the r64 frontier config (231/232) and measure additivity + certificates
