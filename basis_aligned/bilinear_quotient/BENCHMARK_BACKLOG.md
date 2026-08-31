@@ -2582,6 +2582,9 @@ later per-rung backlog edits had silently anchored on text that was not here.
     pred_a census <= 0.35; pred_b valid >= 1; pred_c range + inert vs
     ORACLE/SKETCH64. Null: gate fidelity saturates (>= 0.8).
     -> ops/cp_sketch256.py [QUEUED 22:28Z]
+    RUN 2026-08-31, S2315: 2/3 - +0.4075 (missed 0.35 by 0.057; null
+    rejected). Gate curve 64->1.086, 256->0.408, oracle 0.102: rank-
+    dependent, not saturating; sketches pay a fidelity tax.
 
 218. DECISIVE basis test at m17 (highest knockout 2.52; hypothesis says
     eigen wins at concentrated modules): pred_a exactness; pred_b EIG

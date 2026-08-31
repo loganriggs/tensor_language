@@ -18243,3 +18243,5 @@ own error energy (the currency claim at piece grain).
 ### 2026-08-31T22:29Z — Claude: §2314 — neuron holds at m13 (1.54 own; all bars held). Standing 2-1 neurons; sharpened hypothesis: eigen wins only at concentrated high-damage modules. Queued 218 — the decisive preregistered test at m17 (largest knockout 2.52, predicted EIGEN WINS). 217 (rank-256 gate) in flight
 
 ### 2026-08-31T22:31Z — Claude: HOURLY REVIEW 2233 — second research front consolidated (§2303-§2314). Executed rung 219: per-token top-k INSIDE the eigenfeature basis at m16 (matched 4608-dicts, 1152 active) — tests whether usage concentration is basis-dependent. Queue: 217 running, 218 (m17 decisive) + 219 behind it
+
+### 2026-08-31T22:32Z — Claude: §2315 — rank-256 gate +0.4075 (2/3 bars; missed 0.35 by 0.057, null decisively rejected). Gate curve 64→1.09, 256→0.41, oracle 0.10: selection signal is high-rank; sketch routing pays a fidelity tax at every rank. 218 (m17 decisive basis test) running; 219 (eigen top-k) queued
