@@ -1,0 +1,33 @@
+{
+ "arms": {
+  "single_m0E": {
+   "agg": 0.2485,
+   "valid": 1
+  },
+  "single_a1v": {
+   "agg": 0.052,
+   "valid": 11
+  },
+  "single_m1": {
+   "agg": 0.2628,
+   "valid": 2
+  },
+  "single_m2E": {
+   "agg": 0.3072,
+   "valid": 1
+  },
+  "single_m3E": {
+   "agg": 0.485,
+   "valid": 1
+  }
+ },
+ "sum": 1.3555,
+ "front_full_anchor": 1.7474,
+ "ratio_sum_over_full": 0.7757,
+ "convention": "per-position dCE = CE(config) - CE(real model) on census rows; lower is better",
+ "pred_a_additivity_band": true,
+ "pred_b_depth_law": false,
+ "pred_c_sane": true,
+ "self_reviewed": true,
+ "runtime_s": 132.6
+}

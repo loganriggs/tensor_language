@@ -1479,6 +1479,10 @@ later per-rung backlog edits had silently anchored on text that was not here.
     all singles in [0.02, 1.2]. Null: prefix marginals were mostly input
     drift (sum << full). Tripwire: pstdev >= 0.005.
     -> ops/frontier_front_singles.py [QUEUED 05:32Z]
+    RUN 2026-08-31, S2200: pred_a/c HELD, pred_b FAILED. Singles:
+    m0E .2485/1, a1v .0520/11, m1 .2628/2, m2E .3072/1, m3E .4850/1
+    (agg/valid). Depth law was input drift; ~22% superadditive; every
+    MLP table alone kills 60+/62 certificates.
 
 107. m2 residual-rank capacity curve: tableres refit in the m2 prefix frame
     at residual ranks 0/16/64/256/512, each as a SINGLE-site arm on census
@@ -1487,3 +1491,13 @@ later per-rung backlog edits had silently anchored on text that was not here.
     monotone + all in [0.05, 1.5]. Null: capacity path OPEN (repair =
     bigger residual). Price: rank-512 at one site ~= 512 x ~1850 values.
     -> ops/frontier_m2_rank.py [QUEUED 05:32Z]
+
+
+108. m0 certificate-targeted repair (S2195 hand-off, objective branch):
+    refit m0 residual (same quadfeat rank-64 grammar) on census TRAIN half,
+    unweighted vs member-weighted (w=10 on any-circuit members); three
+    single-site arms scored on TEST half. pred_a median memberabs ratio
+    unw/wt >= 1.5; pred_b refit_wt valid >= 10; pred_c agg(wt) <= 2 x
+    agg(unw) and plain within 0.10 of S2198 anchor. Null: weighting moves
+    nothing (capacity-limited). Tripwire: bitwise-equal cev = inert.
+    -> ops/frontier_m0_repair.py [QUEUED 05:36Z]

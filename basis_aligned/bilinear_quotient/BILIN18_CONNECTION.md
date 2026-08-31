@@ -64929,3 +64929,18 @@ FAILED (0.809 < 1.3×0.851) | pred_c FAILED — on the LOWER bound at a0 (0.0003
   grammar for m1–m3 must either grow its residual capacity (the current quadres is 64-dim) or change feature
   class; §2199 predicts class-conditional and DC repairs are dead ends.
 - Routine: bilin18_canary2 GREEN at 05:03 (all five checks OK, 13s).
+
+## §2200 — RUNG 106: THE DEPTH LAW WAS MOSTLY INPUT DRIFT — installed alone, the front tables are comparable (m0E +0.2485, m1 +0.2628, m2E +0.3072, m3E +0.4850; a1v only +0.0520), and EVERY single MLP table caps validity at 1–2/62 (a1v alone: 11/62). Sum/full = 0.776: ~22% superadditive compounding. pred_a/c HELD, pred_b FAILED. (Convention: per-position dCE = CE(single replacement + exact a0) − CE(real model) on the census rows; lower is better.)
+
+`ops/frontier_front_singles.py`, **133s**, BACKLOG rung 106. **pred_a HELD (0.776 ∈ [0.6, 1.0]) | pred_b
+FAILED (m2E single +0.3072 < 1.5×m0E +0.3728 — only 1.24×) | pred_c HELD.**
+
+- §2198's in-prefix marginal for m2E (+0.63) halves to +0.31 alone: the apparent depth-growth of table damage
+  was largely each table receiving a DRIFTED input from the tables before it. Alone, m3E is the worst site
+  (+0.4850), not m2E.
+- **Free consistency check:** single m0E = prefix m0E to 4 decimals (+0.2485) — as it must be, since a0 is
+  exact; the instrument reproduces itself across scripts.
+- **The certificate implication is harsh and clean:** there is NO single-site culprit — each of the four MLP
+  tables alone destroys 60+ of 62 certificates. Repair must fix every front MLP site (or change the grammar);
+  the two live branches are exactly rung 107 (capacity: residual rank at m2) and rung 108 (objective:
+  member-weighted refit at m0), both in flight.
