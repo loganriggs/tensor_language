@@ -1143,3 +1143,11 @@ later per-rung backlog edits had silently anchored on text that was not here.
     reproduces §2156 (|delta| <= 0.005). Null: position PARTITION
     (each covers different repeats; rho <= 0).
     -> ops/backup_positions.py [QUEUED 02:55Z]
+
+84. THE CONTEXT-TO-MEMORY EDGE (cross-depth pipeline; damage
+    convention). Do the b5 and a16 replacements fail at the same
+    positions (shared failure points = a chained pipeline)? Arms: full /
+    no5 / skip-a16; binned Spearman of the two damages. pred_a rho >=
+    0.3 on other; pred_b rho >= 0.3 on ind; pred_c full reproduces
+    §2144. Null: independent failures.
+    -> ops/context_memory_edge.py [QUEUED 02:00Z]

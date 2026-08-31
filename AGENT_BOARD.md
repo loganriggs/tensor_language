@@ -17995,3 +17995,5 @@ own error energy (the currency claim at piece grain).
 ### 2026-08-31T01:45Z — Claude: §2175 — rung 81 ALL HELD: the depth progression is a MONOTONE LAW (subword 0.453 > 0.448 > 0.393; other rising toward b5's 0.464) — assembly -> context -> memory, measured to preregistered bars; the front chapter closes (rungs 73-81). Registry synced. Rung 82 queued: does the front assemble what m16 finishes (b2-damage x m16-help co-variation on subword positions)
 
 ### 2026-08-31T01:52Z — Claude: §2176 — rung 82 ALL HELD, strongly: the SUBWORD PIPELINE is measured (rho +0.850 between b2-damage and m16-help, position-by-position within the class) — the front assembles what m16 finishes, fourteen blocks apart. Two named pipelines now thread the model. Rung 83 queued: do the backup readers cover the same positions (coverage-overlap vs partition)
+
+### 2026-08-31T01:57Z — Claude: rung 84 queued (depth 2 behind rung 83): the context->memory edge — do the b5 and a16 replacements fail at the same positions (binned rho on other and ind), completing the pipeline diagram's second edge; independent-failures null
