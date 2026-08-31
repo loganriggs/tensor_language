@@ -2608,6 +2608,15 @@ later per-rung backlog edits had silently anchored on text that was not here.
     (difficulty vs eigen advantage): pred_a exactness; pred_b rho
     <= -0.75; pred_c m5 ratio in [0.3, 2.0]. Null: |rho| < 0.5 (late-
     layer effect, not concentration). -> ops/m5_eigenbasis.py [QUEUED 22:36Z]
+    RUN 2026-08-31, S2318: 2/3 - Spearman -0.600 missed -0.75; smooth
+    law dead, two-regime threshold survives (easy->neuron 3/3,
+    hard->eigen 2/2). Depth confound standing; sweep = rung 221.
     BUILDER NOTE: first build failed an assert (_need anchor differs
     across script generations); rebuilt + enqueued 22:39Z. Rule: verify
     dryrun-header anchors per file, they are not lineage-stable.
+
+221. Basis-law disambiguation sweep (m2/m7/m9/m11, in-run difficulty +
+    ratio; 9 points total): pred_a exactness x4; pred_b two-regime no
+    violations; pred_c 9-pt Spearman(diff) <= -0.5. Null: depth rules
+    (Spearman(block) <= -0.8 while c fails).
+    -> ops/basis_sweep.py [QUEUED 22:45Z]

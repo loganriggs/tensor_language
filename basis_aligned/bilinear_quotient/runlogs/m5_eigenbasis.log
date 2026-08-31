@@ -1,3 +1,9 @@
 62 circuits; m5 owns 1: ['r.6.1.0']
 full-spectrum reconstruction: rel-Frobenius 4.21e-04, max-abs/RMS 4.57e-03 (15s)
   NEUR: agg +0.0420 | census|dCE| 0.1957 | own-circuit mean 0.5500
+  EIG: agg +0.0657 | census|dCE| 0.2491 | own-circuit mean 0.8684
+ratios: own-circuit 1.579, census 1.273; frob 4.21e-04, max/RMS 4.57e-03
+(a) EXACTNESS frob 4.21e-04 <= 1e-3 and max/RMS 4.57e-03 <= 5e-2: HELD
+(b) 5-module predictor Spearman -0.600 <= -0.75: FAILED
+(c) m5 own ratio 1.579 in [0.3, 2.0]: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/m5_eigenbasis_results.json (30s)
