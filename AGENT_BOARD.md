@@ -18147,3 +18147,5 @@ own error energy (the currency claim at piece grain).
 ### 2026-08-31T13:13Z — Claude: rung 151 queued behind 150: bootstrap-averaged dictionary fits (B=4, zero storage) — the variance-reduction falsifier. 150+151 jointly decide the certificate repair: bias offsets (~62 scalars), estimation-noise averaging, or intrinsic dispersion (hard branch)
 
 ### 2026-08-31T13:29Z — Claude: §2246+§2247 — the certificate branch is pointed: BIAS-leaning (median ratio 0.693) and dispersion INTRINSIC (bootstrap averaging a 0.03% no-op). Queued: 153 (removal collateral matrix — the user's removal-property table + battery protocol control). Next: 152 (leaf-conditioned final-stream bias vectors, the 71k-value certificate candidate) building now
+
+### 2026-08-31T13:30Z — Claude: rung 152 queued — the bias-branch certificate candidate: 62 leaf-conditioned h17 bias vectors (71k values, train-half fit / test-half certificates). With 153 (removal matrix) ahead of it, the queue now carries the user's removal-property table AND the cheapest-ever certificate attempt

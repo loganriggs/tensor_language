@@ -2011,3 +2011,11 @@ later per-rung backlog edits had silently anchored on text that was not here.
     non-own circuits above 0.25 x ref (substrate sharing); pred_c battery
     repro ratio in [0.67, 1.5] (protocol control). Nulls: selectivity < 2
     / sharing < 10. Price: none. -> ops/removal_matrix.py [QUEUED 13:31Z]
+
+152. Leaf-conditioned final-stream bias vectors (bias-branch certificate
+    candidate): 62 per-circuit h17 biases = mean (real - config) drift
+    over TRAIN-half members; TEST-half certificates. pred_a test valid
+    >= 5; pred_b census <= 1.93; pred_c L1F invariant, census >= 1.4.
+    Null: member damage is not leaf-DC at h17. Price: 71,424 values
+    (diagnostic-grade: leaf membership census-indexed). Tripwire: inert
+    if census within 1e-3. -> ops/frontier_leafbias.py [QUEUED 13:36Z]
