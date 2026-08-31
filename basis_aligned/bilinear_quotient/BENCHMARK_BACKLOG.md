@@ -2739,3 +2739,16 @@ later per-rung backlog edits had silently anchored on text that was not here.
     full-table TOKID; pred_b <= 0.5 x STATIC; pred_c coverage >= 0.90
     + non-degenerate. Null: tail rows matter (>= 1.6x).
     -> ops/tokid_freq4096.py [QUEUED 22:58Z]
+    RUN 2026-08-31, S2331: 1/3, null supported - 0.3348 = 2.27x full
+    table; coverage 0.739 explains it arithmetically (mixing predicts
+    0.318). Tail rows not special; thread parked with S2330.
+
+234. CIRCUIT-AWARE rank allocation (exact patterns at blocks 3/8/16 —
+    34 circuits' top components; r64 elsewhere): pred_a census <=
+    0.075; pred_b valid >= 9 (r96's count at ~1/3 the step price);
+    pred_c range + inert. Null: circuit load doesn't predict rank need.
+    -> ops/circuit_rank.py [QUEUED 23:20Z]
+
+235. Registered claim: dynamic-MLP Pareto point (S2304 official):
+    |census-0.1015|<=0.015; valid >= 4; |L2F-0.1018|<=0.015.
+    -> ops/frontier_claim_topk.py [QUEUED 23:20Z]

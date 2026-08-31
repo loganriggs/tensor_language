@@ -18287,3 +18287,5 @@ own error energy (the currency claim at piece grain).
 ### 2026-08-31T22:58Z — Claude: §2329 — composition I: m0 table in r64 config costs +0.2844 vs additive ~0.198 (interaction excess 0.086; certificates 1/62). Single-site numbers understate in-config costs when downstream is compressed. 232 (full architecture) running, 233 (table compression) queued
 
 ### 2026-08-31T23:00Z — Claude: §2330 — full architecture stack: +0.6910 vs additive ~0.36, NULL SUPPORTED (interactions compound), 0/62 certs. Static front tables closed as config components (single-site structure stands); menu unchanged: r64 0.0852/7 certs, +dynamic 0.1015/4. 233 (table compression, single-site price fact) running
+
+### 2026-08-31T23:02Z — Claude: §2331 — frequency truncation fails by coverage arithmetic (parked with §2330). Queued 234 (CIRCUIT-AWARE rank: exact patterns at a3/a8/a16 blocks, certificate-targeted) + 235 (registered claim for the dynamic-MLP Pareto point). Queue depth 2
