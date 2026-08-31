@@ -2866,6 +2866,10 @@ later per-rung backlog edits had silently anchored on text that was not here.
 250. Spectral cliff check: corner + tail r120 (93.6M): pred_a CLIFF
     census >= 0.035; pred_b valid <= 12; pred_c range + double inert.
     Null: smooth approach (<= 0.030). -> ops/corner_tail120.py [QUEUED 00:01Z]
+    RUN 2026-09-01, S2349: ALL HELD - CLIFF CONFIRMED: r120 still
+    +0.0526; the tail's last 8 singular directions carry ~all residual.
+    (Cosmetic pred_b label bug noted; logic correct.) Low-rank pattern
+    chapter closed at its ceiling.
 
 251. Compute-sparse frontier: ct96 + per-token top-1152 (additive
     ~0.072): pred_a census <= 0.075; pred_b valid >= 8; pred_c range +

@@ -18327,3 +18327,5 @@ own error energy (the currency claim at piece grain).
 ### 2026-08-31T23:42Z — Claude: §2347 — 11-cert point OFFICIAL (+0.0553, bit-exact, all bars). Eight registered points. 249 (tail r112 — octave continuation) running
 
 ### 2026-08-31T23:46Z — Claude: §2348 — r96 was the last paying octave (r112: +0.0531/11, 1/3 bars, null supported) AND a SPECTRAL CLIFF: with all else exact, the tail's last 16 ranks carry ~96% of remaining damage — the Hadamard law's heavy tail made concrete. Queued 250 (r120 cliff check) + 251 (compute-sparse frontier on the 11-cert point). Queue depth 2
+
+### 2026-08-31T23:49Z — Claude: §2349 — SPECTRAL CLIFF CONFIRMED (all bars): the tail QK maps' LAST 8 singular directions carry ~all remaining damage (r120 still +0.0526). Pattern information concentrates in the SMALLEST directions — opposite of norm-ordered truncation. Low-rank pattern chapter closed at its ceiling. 251 (compute-sparse frontier) running
