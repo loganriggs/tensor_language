@@ -1842,3 +1842,10 @@ later per-rung backlog edits had silently anchored on text that was not here.
     pred_b subword <= 1.5; pred_c census in [1.1, 1.7]. Null: name/
     subword persist >= 80% (tail dicts are the assembly bill). Price:
     diagnostic. -> ops/frontier_motifreal_classes.py [QUEUED 10:30Z]
+
+139. Name-class linear maps in the tail dicts: name moves CONSTN -> LINK
+    (fitted D x D map at each of 8 tail sites) in the rung-127 build.
+    pred_a name <= 2.6 (was 3.134); pred_b census <= 1.92; pred_c L1F
+    invariant, increment <= 0.36. Null: name's bill is upstream (cross-
+    checks rung 138). Price: +10.6M values (8 maps).
+    -> ops/frontier_namelw.py [QUEUED 10:33Z]
