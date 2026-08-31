@@ -1677,3 +1677,18 @@ later per-rung backlog edits had silently anchored on text that was not here.
     2.8553 -> 2.1358 (interactions ate 56% of solo gain); 0/62. BUT
     descriptive FR fresh L2 +2.0553 vs frontier 2.6662 - registered
     claim = rung 123. Both S312 window bars HELD.
+
+123. REGISTERED FRONTIER CLAIM: identical rung-122 build rerun with the
+    frontier bars as predictions. pred_a L2_F fresh <= 2.30 (table-front
+    frontier 2.6662; LOWER IS BETTER); pred_b increment in [0.30, 0.55];
+    pred_c census within 0.015 of 2.1358. Null: 2.0553 was noise (>= 2.60).
+    Price: none new (front 47.8M vs 231.6M values).
+    -> ops/frontier_claim.py [QUEUED 08:00Z]
+
+124. Per-circuit damage matrix: four CP singles + quad, saving the 5x62
+    member |dCE| rows + valid sets (survivor identity). pred_a monotone
+    destruction (quad valid subset of every single's); pred_b median
+    pairwise Spearman across singles' damage vectors >= 0.7 (shared
+    targets); pred_c quad agg within 0.015 of +0.8302. Null: site-
+    specific damage / non-monotone. Price: none.
+    -> ops/frontier_damage_matrix.py [QUEUED 08:00Z]
