@@ -2474,17 +2474,25 @@ later per-rung backlog edits had silently anchored on text that was not here.
     cheaper than uniform r64): pred_a census <= 0.11; pred_b valid >= 5;
     pred_c range + inert. Null: rank need uniform (>= 0.117).
     -> ops/mixed_rank.py [QUEUED 21:34Z]
+    RUN 2026-08-31, S2302: 1/3 bars - +0.1375, valid 2; null supported
+    (rank need uniform across blocks). Block-grain allocation dead.
 
 205. Global quarter-density comparator (fixed top-1152/4608 per MLP,
     front+middles, r64 base): pred_a census >= 0.30 (amplified marginals);
     pred_b valid <= 4; pred_c range + inert. Null: pruning stays cheap.
     -> ops/cp_global1152.py [QUEUED 21:52Z]
+    RUN 2026-08-31, S2303: ALL HELD - fixed top-1152 collapses: +2.2048,
+    valid 0/62, margin 4.25x; era rho 0.79 (recreates old-era profile).
 
 206. PER-TOKEN top-1152 of full 4608 dictionary (|u|*||D|| selection,
     same avg active count, r64 base) — user-directed SPD/top-k lane:
     pred_a census <= 0.15; pred_b valid >= 5; pred_c range + inert.
     Null: usage dense (within 0.8x of global). Measures usage structure,
     not storage. -> ops/cp_topk1152.py [QUEUED 21:52Z]
+    RUN 2026-08-31, S2304: 2/3 bars - per-token top-1152: +0.1015,
+    21.7x better than fixed subset at matched density; +0.016 above
+    full base; valid 4 (missed 5 by one). Sparse usage CONFIRMED;
+    the sparse set rotates per token.
 
 207. GAUGE-FREE BASIS AT m16 (user directive: the neuron h-dimension is
     gauge). Eigenfeatures of the invariant bilinear tensor (output basis
@@ -2494,3 +2502,8 @@ later per-rung backlog edits had silently anchored on text that was not here.
     ratio <= 0.7; pred_c exactness relerr <= 1e-3 + non-inert. Null:
     neuron basis already aligned (ratios >= 0.9).
     -> ops/m16_eigenbasis.py [QUEUED 22:02Z]
+
+208. Per-token top-k density sweep k=576 (1/8 density, r64 base):
+    pred_a census <= 0.20; pred_b valid >= 2; pred_c range + double
+    inert. Null: quarter was the knee (>= 0.14).
+    -> ops/cp_topk576.py [QUEUED 22:06Z]

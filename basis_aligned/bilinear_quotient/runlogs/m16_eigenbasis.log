@@ -1,0 +1,9 @@
+62 circuits; m16 owns 6: ['r.1.1.1', 'r.1.1.2', 'r.1.2', 'r.1.2.0', 'r.1.2.1', 'r.6.2.2']
+full-spectrum reconstruction max rel err 7.36e+00 (13s)
+  NEUR: agg +0.7739 | census|dCE| 1.0146 | own-circuit mean 1.6259
+  EIG: agg +0.4257 | census|dCE| 0.6650 | own-circuit mean 1.2518
+ratios: own-circuit 0.770, census 0.655; relerr 7.36e+00
+(a) EIG own-mean <= 0.5 x NEUR (ratio 0.770): FAILED
+(b) EIG census <= 0.7 x NEUR (ratio 0.655): HELD
+(c) full-spectrum relerr 7.36e+00 <= 1e-3: FAILED
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/m16_eigenbasis_results.json (29s)
