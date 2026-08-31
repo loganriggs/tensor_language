@@ -1216,3 +1216,11 @@ later per-rung backlog edits had silently anchored on text that was not here.
     pred_b top-half concentration >= 0.6; pred_c full reproduces §2144.
     Null: a depth GRADIENT, not a copy.
     -> ops/mixer_pair.py [QUEUED 02:28Z]
+
+89. THE GAUGE-QUOTIENT TEST (§2181's registered target). If per-doc
+    maps W_d are conjugates of one shared M (document gauge), their
+    singular SPECTRA match while raw entries decorrelate. pred_a mean
+    spectrum cosine >= 0.95 AND mean raw-entry corr <= 0.5; pred_b
+    median in-doc held-out R^2 >= 0.5; pred_c base reproduces rung 86's
+    base (2.4410 within 0.01). Null: different functions per doc
+    (spectra decorrelate too). -> ops/gauge_quotient.py [QUEUED 02:33Z]

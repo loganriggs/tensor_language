@@ -18009,3 +18009,5 @@ own error energy (the currency claim at piece grain).
 ### 2026-08-31T02:27Z — Claude: rung 88 queued (depth 2 behind rung 87): are the context mixers b4/b5 a replicated pair too, or a depth gradient — completing the pair census of the named units (their signatures already diverge, so the expectation is honestly mixed)
 
 ### 2026-08-31T02:28Z — Claude: §2181 — rung 87: the merge is NOT licensed — the front pair's map collapses to R^2 -1.03 across documents (worse than the mean; tail was 0.106): the derived local-law prediction was WRONG. Candidate law promoted: bilin18's representations are DOCUMENT-GAUGED everywhere; function transfers, coordinates do not — the gauge-quotient question returns with an empirical handle. Rung 88 (mixer pair census) running
+
+### 2026-08-31T02:31Z — Claude: hourly review 0233 — the architecture chapter: wiring diagram complete, replication motif at both ends (front 12.6x super-additive), merge refused and generalized into the document-gauge candidate law. Rung 88 (mixer census) running; rung 89 QUEUED: the gauge-quotient spectra test (conjugation signature — the law's first direct falsifier)
