@@ -1888,6 +1888,9 @@ later per-rung backlog edits had silently anchored on text that was not here.
     increment in [0.10, 0.36]. Null: tailE adds nothing for name (>=
     2.18) - remainder is middles/front interactions. Price: none.
     -> ops/frontier_nameoracle2.py [QUEUED 11:30Z]
+    RUN 2026-08-31, S2237: pred_a/c HELD, pred_b FAILED by 0.0076.
+    tailE adds +0.555 name recovery; module-grade ladder 3.134 ->
+    2.285 -> 1.730. ~55% of name's bill still outside the tail complex.
 
 143. Trajectory-grade name oracle: real-model tail-attn outputs captured
     position-aligned on census rows, spliced for name positions in the
@@ -1896,3 +1899,13 @@ later per-rung backlog edits had silently anchored on text that was not here.
     name <= 1.6; pred_b census <= 1.90; pred_c L1F invariant, census >=
     1.4. Null: gap < 0.2 (remainder is elsewhere). Price: none.
     -> ops/frontier_nametraj.py [QUEUED 11:35Z]
+    RUN 2026-08-31, S2238: VOID (late-binding li in the splice hook -
+    all sites saw li=17; rung-61 class). Fixed (li=li default),
+    re-queued 12:00Z; preds unchanged and unscored.
+
+144. Subword module-grade oracle: rung-140 splice for subword rows
+    (oracle class 7) at all tail-attn sites. pred_a subword <= 1.9
+    (>= 0.4 recovery); pred_b census <= 1.92; pred_c L1F invariant,
+    increment in [0.15, 0.36]. Null: subword's tail-attn share < 0.2
+    (assembly is upstream). Price: none.
+    -> ops/frontier_subworacle.py [QUEUED 12:01Z]

@@ -65305,3 +65305,11 @@ VOID-AS-DESIGNED; corrected control = rung 133 (offline real-module targets, the
   before overlap discount — consistent with §2234's compositional verdict. The live fork remains rung 143's
   module-vs-trajectory gap (context corruption), with rung 142 (tailE share) in between. a17L's exact zero
   is a free fact: the last tail attention contributes nothing to name.
+
+## §2237 — RUNG 142: tailE IS A MATERIAL NAME HOLDER — adding the tailE bypass to the attention oracle takes name 2.285 → 1.730 (+0.555 recovery). pred_a HELD (1.730 ≤ 1.9; cosmetic note: the print label still showed the inherited "≤ 1.0" text while the scored bar was 1.9 — the code's pa comparison, recorded), pred_b FAILED by 0.0076 (census +1.9076 > 1.90), pred_c HELD. The name ladder at module grade now reads: **3.134 (frontier) → 2.285 (tail-attn oracle) → 1.730 (+ tailE oracle)** — the whole tail complex at module grade still leaves ~55% of name's bill, pointing at context corruption and front/motif interactions. (Convention: CE added above the real model; lower is better.)
+
+`ops/frontier_nameoracle2.py`, **129s**, BACKLOG rung 142.
+
+## §2238 — RUNG 143 VOID: the rung-61 LATE-BINDING class, in my own splice — the trajectory hook read `li` from the enclosing loop instead of a bound default, so ALL EIGHT tail hooks saw li=17: wrong-site indexing everywhere and 8× counter increments per forward → IndexError at batch ~31 (the tripwire never reached; the crash IS the tripwire). The original attnd hook binds CV/LW/Wp2/first as defaults for exactly this reason; my addition didn't. Fixed (li bound as default), dryrun clean, re-enqueued; predictions unchanged and unscored. Instrument rule re-filed: ANY loop-variable used inside a hook body must be bound as a default argument.
+
+`ops/frontier_nametraj.py`, exit 1, BACKLOG rung 143 (re-queued 12:00Z).

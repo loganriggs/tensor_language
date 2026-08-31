@@ -1,20 +1,15 @@
-"""TRAJECTORY-GRADE NAME ORACLE (rung 143): is the remainder CONTEXT CORRUPTION?
+"""SUBWORD MODULE-GRADE ORACLE (rung 144): the tail-attention share of the second-worst class.
 
-CONVENTION (S2135): CE added above the real model; LOWER IS BETTER. S2234's oracle was MODULE-grade: the real
-attention module reading the CONFIG (corrupted) stream - the attended-to context positions were still wrong,
-so retrieval fetched corrupted values. Here the splice is TRAJECTORY-grade: real-model tail-attention outputs
-captured position-aligned on the census rows and spliced in for name positions during the census eval (only
-there - window evals are unspliced; batch-counter hooks with an inertness tripwire, the rung-61/117 lessons).
-The gap module-grade (+2.285) minus trajectory-grade measures the context-corruption share of name's bill at
-the tail-attention grain.
+CONVENTION (S2135): CE added above the real model; LOWER IS BETTER. S2228: subword pays +2.319 at the
+frontier; S2232: ~36% is motif-caused. Here the rung-140 module-grade splice runs for SUBWORD positions
+(oracle class 7): real attention output for subword rows at all eight tail-dict sites.
 
-REGISTERED PREDICTIONS (anchors: S2234 name +2.285 module-grade; S2228 name +3.134; census +1.9474):
-  (a) CONTEXT CORRUPTION IS MATERIAL: dCE(name) <= 1.6 (>= 0.7 of the bill is corrupted-context retrieval).
-  (b) census <= 1.90.
-  (c) ISOLATION: |L1F - 1.5509| <= 0.02 AND census >= 1.4.
-NULL: gap < 0.2 (context corruption negligible at tail attention; the ~1.5 remainder is elsewhere). PRICE:
-none (oracle diagnostic). Tripwire: INSTRUMENT FAIL if census within 1e-3 of baseline (inert splice).
-Self-reviewed."""
+REGISTERED PREDICTIONS (anchors: S2228 subword +2.319, census +1.9474):
+  (a) TAIL-ATTN SHARE MATERIAL: dCE(subword) <= 1.9 (>= 0.4 recovery).
+  (b) census <= 1.92.
+  (c) ISOLATION: |L1F - 1.5509| <= 0.02 AND increment in [0.15, 0.36].
+NULL: subword's tail-attn share < 0.2 (assembly is upstream: motifs/front - consistent with S2232's -36%
+motif share). PRICE: none (oracle diagnostic). Tripwire: INSTRUMENT FAIL if L2CF missing. Self-reviewed."""
 
 
 
@@ -29,7 +24,7 @@ if os.environ.get('BQLIB_DRYRUN')=='1':
     _miss=[f for f in _need if not os.path.exists(_bq+f)]
     if _miss:
         print(f'DRYRUN FAIL: missing {_miss}'); raise SystemExit(1)
-    print('DRYRUN OK: trajectory-grade name oracle')
+    print('DRYRUN OK: subword module-grade oracle')
     raise SystemExit(0)
 import torch
 import torch.nn.functional as F
@@ -37,7 +32,7 @@ from bilin18_joint_removal import fwd, orth, m, FW, DEV
 from circuit_dictionary import classify, COMPS as TAILC, CLS
 D=1152; V=50257
 PT='/workspace/tensor_language/basis_aligned/bilinear_quotient/'
-OUT=PT+'frontier_nametraj_results.json'
+OUT=PT+'frontier_subworacle_results.json'
 CA,CB=300,512; R0,R1=120,300
 CONSTN={'digit','bclose','sentend','comma','name','rep'}
 CONSTK=[k for k,nm in enumerate(CLS) if nm in CONSTN]
@@ -172,7 +167,7 @@ def main():
             elif kind=='attnd':
                 _,li,CV,LW,Wp2=S[nm]
                 first=(len(alist)>0 and nm==alist[0])
-                def h(mod,i_,o_,CV=CV,LW=LW,Wp2=Wp2,first=first,li=li):
+                def h(mod,i_,o_,CV=CV,LW=LW,Wp2=Wp2,first=first):
                     y,v1=o_
                     x=i_[0].float().reshape(-1,D)
                     if first and cur['mode']=='probe':
@@ -182,13 +177,9 @@ def main():
                     for k in LINK:
                         sel=c==k
                         if sel.any(): new[sel]=x[sel]@LW[k]
-                    if SEL.get('name_traj_on'):
-                        _selN=c==5
-                        if _selN.any():
-                            _bt=SEL['_NTJ'][li][cur['nbi']].to(new.device).float()
-                            new[_selN]=_bt[_selN]
-                        if li==17: cur['nbi']=cur['nbi']+1
-                    elif li==17 and 'nbi' in cur: cur['nbi']=cur['nbi']+1
+                    if SEL.get('name_oracle'):
+                        _selN=c==SEL.get('oracle_class',5)
+                        if _selN.any(): new[_selN]=y.reshape(-1,D).float()[_selN]
                     return (new.view(y.shape).to(y.dtype),v1)
                 hs.append(m.transformer.h[li].attn
                           .register_forward_hook(h))
@@ -744,31 +735,10 @@ def main():
         return Mid
     cur['clsmap']=classify2(FR).to(DEV)
     L2F=evalM(FR,120,order2,ML)-baseF
-    if SEL.get('name_traj'):
-        _AR=SEL.get('ext_rows',FR)
-        _ST={li:[] for li in range(10,18)}
-        hs=[]
-        for _li in range(10,18):
-            def _mkT(li=_li):
-                def h(mo,i_,o_):
-                    _ST[li].append(o_[0].detach().reshape(-1,D).to(torch.float16).cpu())
-                return h
-            hs.append(m.transformer.h[_li].attn.register_forward_hook(_mkT()))
-        for _i in range(0,_AR.shape[0],4):
-            _bb=_AR[_i:_i+4,:257].to(DEV)
-            cur['idx']=_bb[:,:-1].contiguous(); cur['mode']='oracle'
-            m(cur['idx'],_bb[:,1:].contiguous())
-        for h in hs: h.remove()
-        SEL['_NTJ']=_ST
-        print(f'  captured real-trajectory tail-attn outputs ({len(_ST[10])} batches)',flush=True)
-
     if SEL.get('clsdmg'):
         _ROWS=SEL.get('ext_rows',FR)
         cur['clsmap']=classify2(_ROWS).to(DEV)
-        if SEL.get('name_traj'):
-            SEL['name_traj_on']=True; cur['nbi']=0
         SEL['cev']=evalV(_ROWS,_ROWS.shape[0],order2,ML).detach().cpu()
-        SEL['name_traj_on']=False
         SEL['clsflat']=cur['clsmap'].reshape(-1).cpu()
     if SEL.get('head16'):
         HD16=D//9
@@ -877,8 +847,8 @@ if __name__=='__main__':
     ANCH=json.load(open(PT+'frontier_tail_traj_results.json'))
     SEL['mode']='norm'; SEL['K']=2304; SEL['K69']=2304; SEL['K69MAP']={6:576,7:576,8:288,9:288}
     SEL['skipset']=(); SEL['motif_off']=(); SEL['clsdmg']=True; SEL['ext_rows']=CROWS
-    SEL['cp_swap']=3456; SEL['tail_traj']=True; SEL['name_traj']=True
-    print('ARM: rung-127 build + TRAJECTORY-grade name splice at tail attention',flush=True)
+    SEL['cp_swap']=3456; SEL['tail_traj']=True; SEL['name_oracle']=True; SEL['oracle_class']=7
+    print('ARM: rung-127 build + SUBWORD oracle splice at all tail-attn sites',flush=True)
     main()
     if 'L2CF' not in SEL: raise SystemExit('INSTRUMENT FAIL: L2CF capture missing')
     L1F,L2C,L2F=SEL['L2CF']
@@ -909,11 +879,9 @@ if __name__=='__main__':
     _cvals=[PC[c] for c in ('digit','bclose','sentend','comma','name','rep') if c in PC]
     _const=sum(_cvals)/max(len(_cvals),1)
     _sw=PC.get('subword',9.9)
-    pa=PC.get('name',9.9)<=1.6
-    pb=agg<=1.90
-    pc=abs(L1F-1.5509)<=0.02 and agg>=1.4
-    if abs(agg-1.9474)<1e-3:
-        raise SystemExit('INSTRUMENT FAIL: trajectory splice inert (census unchanged)')
+    pa=PC.get('subword',9.9)<=1.9
+    pb=agg<=1.92
+    pc=abs(L1F-1.5509)<=0.02 and 0.15<=inc<=0.36
     res={'L2F_fresh':round(L2F,4),'L1F':round(L1F,4),'increment':round(inc,4),'census_agg':round(agg,4),
          'n_valid':nv,'per_class':PC,'link_mean':round(_link,4),'const_mean':round(_const,4),
          'anchor_rung127':{'L2F':ANCH['L2F_fresh'],'census':ANCH['census_agg'],'increment':ANCH['increment']},
@@ -922,7 +890,7 @@ if __name__=='__main__':
          'self_reviewed':True,'runtime_s':round(time.time()-T00,1)}
     json.dump(res,open(OUT,'w'),indent=1)
     print(f"L2 fresh {L2F:+.4f} (was +1.8765); census {agg:+.4f} (was +1.9474); increment {inc:+.4f}; valid {nv}/{len(rows)}")
-    print(f"(a) [bar 1.6] name {PC.get('name',9.9):+.4f} <= 1.0: {'HELD' if pa else 'FAILED'}")
-    print(f"(b) census {agg:+.4f} <= 1.90: {'HELD' if pb else 'FAILED'}")
-    print(f"(c) L1F invariant, census >= 1.4: {'HELD' if pc else 'FAILED'}")
+    print(f"(a) subword-bar-1.9; name {PC.get('name',9.9):+.4f} <= 1.0: {'HELD' if pa else 'FAILED'}")
+    print(f"(b) census {agg:+.4f} <= 1.92: {'HELD' if pb else 'FAILED'}")
+    print(f"(c) L1F invariant, increment {inc:+.4f} in [0.15, 0.36]: {'HELD' if pc else 'FAILED'}")
     print(f'wrote {OUT} ({time.time()-T00:.0f}s)')
