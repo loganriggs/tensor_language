@@ -12,3 +12,12 @@ arm m14/zero
 arm m14/mean
 m14: zero +0.0312 mean +0.0322 dc_share -0.032
 arm m15/zero
+arm m15/mean
+m15: zero +0.1399 mean +0.0410 dc_share 0.707
+arm m16/zero
+arm m16/mean
+m16: zero +0.8875 mean +0.1534 dc_share 0.827
+(a) median DC share 0.347 >= 0.5: FAILED
+(b) a8 -0.013 >= 0.5: FAILED
+(c) all zero-arms >= +0.02: HELD
+wrote dc_ledger2_results.json (101s)

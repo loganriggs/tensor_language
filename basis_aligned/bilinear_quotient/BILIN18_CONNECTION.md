@@ -64738,3 +64738,28 @@ pred_a FAILED (+0.0466 vs the §2187 anchor +0.0655, off by 0.019).**
   vector) replaces a twin at a fifth of the knockout cost. Descriptive note kept honestly: on FR alone the
   1.1× arm scored +0.0423, but the registered selection (window C) chose α = 1.0 — the FR number is recorded,
   not selected on.
+
+## §2191 — RUNG 97b: DC DOMINANCE DOES NOT GENERALIZE — IT IS BIMODAL. On the real model, a5 (0.94), m16 (0.83) and m15 (0.71) are DC-heavy, while a8 (−0.01), m13 (−0.42) and m14 (−0.03) are pure-signal — and the cliff's famous knockout cost is mostly its MEAN (zero +2.11 vs mean +0.13). pred_a/b FAILED, pred_c HELD. (Convention: mean dCE over the census grid vs the real model; DC share = 1 − d(mean)/d(zero).)
+
+`ops/dc_ledger2.py`, **101s**, BACKLOG rung 97b. **pred_c HELD (all zero-arms ≥ +0.02; anti-inertness clean) |
+pred_a FAILED (median share 0.347 vs ≥ 0.5) | pred_b FAILED (a8 −0.013).**
+
+```
+  component      a8       a5       m13      m14      m15      m16
+  zero         +0.037   +2.108   +0.029   +0.031   +0.140   +0.888
+  mean         +0.038   +0.126   +0.042   +0.032   +0.041   +0.153
+  DC share     −0.013    0.94    −0.42    −0.03     0.71     0.83
+```
+
+- **The components split into two clean classes:** DC-HEAVY (a5, m15, m16 — their knockout enormity is mostly
+  the missing mean vector) and PURE-SIGNAL (a8, m13, m14 — mean-ablation costs the same as zeroing, or MORE:
+  m13's mean actively misleads, share −0.42). The affine-skeleton grammar (μ-terms as first-class citizens)
+  is licensed for the DC-heavy class only.
+- **Two reframings of old results:** (i) attn5's celebrated zero-ablation cost (+2.11 here) is 94% its mean —
+  the cliff's *signal* is worth +0.13 on the census rows; §2113's stream-error cliff and this are different
+  quantities, but every zero-ablation-derived intuition about a5 needs the DC caveat. (ii) a8 — the most
+  circuit-dense component (16 circuits) — is pure signal: nothing about it can be captured by invariant
+  stand-ins; it sits squarely behind the gauge gate.
+- Bimodality is itself the finding: bilin18 mixes bias-like modules and computation-like modules at the same
+  architectural positions; the DC ledger for the remaining 30 components is now a priced, cheap (~30 s each)
+  completion whenever a rung needs it.

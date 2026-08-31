@@ -1383,3 +1383,9 @@ later per-rung backlog edits had silently anchored on text that was not here.
     arm. pred_a median DC share >= 0.5; pred_b a8 >= 0.5; pred_c
     anti-inertness: every zero-arm aggregate mean dCE >= +0.02.
     -> ops/dc_ledger2.py [QUEUED 04:45Z]
+
+    RUN 2026-08-31, §2191: pred_c HELD, pred_a/b FAILED — BIMODAL:
+    DC-heavy {a5 0.94, m16 0.83, m15 0.71} vs pure-signal {a8 -0.01,
+    m13 -0.42, m14 -0.03}. The cliff's knockout is 94% its mean; a8 is
+    pure signal (behind the gauge gate). Affine skeleton licensed for
+    the DC-heavy class only.

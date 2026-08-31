@@ -1,0 +1,41 @@
+{
+ "components": {
+  "a8": {
+   "zero": 0.0372,
+   "mean": 0.0377,
+   "dc_share": -0.013
+  },
+  "a5": {
+   "zero": 2.1077,
+   "mean": 0.1263,
+   "dc_share": 0.94
+  },
+  "m13": {
+   "zero": 0.0294,
+   "mean": 0.0416,
+   "dc_share": -0.415
+  },
+  "m14": {
+   "zero": 0.0312,
+   "mean": 0.0322,
+   "dc_share": -0.032
+  },
+  "m15": {
+   "zero": 0.1399,
+   "mean": 0.041,
+   "dc_share": 0.707
+  },
+  "m16": {
+   "zero": 0.8875,
+   "mean": 0.1534,
+   "dc_share": 0.827
+  }
+ },
+ "median_dc_share": 0.347,
+ "convention": "mean dCE over the census grid vs the real model; dc_share = 1 - d(mean)/d(zero)",
+ "pred_a_dc_dominates": false,
+ "pred_b_a8_too": false,
+ "pred_c_anti_inert": true,
+ "self_reviewed": true,
+ "runtime_s": 100.5
+}
