@@ -1712,3 +1712,11 @@ later per-rung backlog edits had silently anchored on text that was not here.
     L2_F <= 1.95 (was 2.0553); pred_c increment in [0.25, 0.60], census
     >= 1.0. Null: alpha frame-insensitive (recovery < 0.05). Price:
     none (same 76 scalars). -> ops/frontier_motif_refit.py [QUEUED 08:33Z]
+
+127. Trajectory-target tail dictionaries in the frontier config: rung-123
+    build with a10L-a17L CV/LW targets taken from a real-model pass
+    (config-frame inputs, real-trajectory outputs — the S2210 move at
+    the tail). pred_a increment <= 0.38 (was +0.5045); pred_b L2_F <=
+    1.95 (was +2.0553); pred_c |L1F - anchor| <= 0.02, census in
+    [1.4, 2.2]. Null: the 10-class dictionary map binds, not the target
+    frame. Price: none. -> ops/frontier_tail_traj.py [QUEUED 08:34Z]
