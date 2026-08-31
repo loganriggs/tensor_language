@@ -2179,3 +2179,14 @@ later per-rung backlog edits had silently anchored on text that was not here.
     3x mean-abl's; pred_c agg <= 0.5x AND S2248 repro. Null: projection
     as blunt as ablation. Price: 38,016 values for the removal operator.
     -> ops/carrier_removal.py [QUEUED 16:00Z]
+    RUN 2026-08-31, S2264: pred_a/b FAILED (sel ratio 1.02 - projection
+    as blunt as ablation; carrier holds 27%), pred_c HELD (8x cheaper,
+    repro exact). Removal selectivity capped ~2x by substrate sharing;
+    interchange's 425x was the member gating.
+
+169. Variance-vs-causal null battery (math review 1607): member-PCA vs
+    offslice-PCA vs random rank-32 bases at 10 circuits; varfracs
+    recorded. pred_a member >= 1.5 x offslice (causal beyond variance);
+    pred_b offslice >= 2 x random; pred_c repro + random <= 0.3. Null:
+    member ~ offslice (carrier = variance patching; honest downgrade).
+    -> ops/carrier_null.py [QUEUED 16:10Z]

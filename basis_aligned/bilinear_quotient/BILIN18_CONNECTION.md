@@ -65526,3 +65526,7 @@ VOID-AS-DESIGNED; corrected control = rung 133 (offline real-module targets, the
   queued: 167 (family bases for ALL 62 — the das_subspace column filled in one run) and 168 (carrier-
   projection REMOVAL: deployable, position-independent, scored against mean-ablation on the operator's
   removal property).
+
+## §2264 — RUNG 168: REMOVAL SELECTIVITY IS CAPPED BY THE SUBSTRATE, NOT THE TOOL — carrier-projection removal is exactly as blunt as mean-ablation (selectivity 1.98 vs 1.94; pred_b's 3× bar FAILED at ratio 1.02) and holds only 27% of the family function (0.186 vs the 0.342 bar; pred_a FAILED). pred_c HELD (aggregate 8× cheaper: +0.0046 vs +0.0377; §2248 repro exact 1.000). The lesson: §2257's spectacular interchange selectivity (425×) came from the MEMBER-POSITION GATING, not from the subspace — any position-independent removal operator at a8, subspace or full, hits the ~2× substrate-sharing ceiling. Selective removal on this substrate requires either position gating (not deployable without an oracle) or removing at a grain finer than components. (Convention: per-position dCE = CE(intervention) − CE(real model) on the census rows.)
+
+`ops/carrier_removal.py`, **23s**, BACKLOG rung 168.
