@@ -1458,6 +1458,9 @@ later per-rung backlog edits had silently anchored on text that was not here.
     [0.5, 2.2]. Null: damage spread AND tailE material. Tripwire: prefix
     pstdev >= 0.01.
     -> ops/frontier_front_prefix.py [QUEUED 05:04Z]
+    RUN 2026-08-31, S2198: pred_a/c HELD, pred_b FAILED. Control holds:
+    tables alone +1.7474 (0/62), tailE-only +0.1440 (5/62). a0 EXACT
+    (62/62); m0E alone breaks 61/62; marginals spread with depth.
 
 105. Front error anatomy (repair-targeted diagnostic): E = replaced - real
     module on the same input, full-front frame, 200 census rows; rel, dcfrac,
@@ -1466,3 +1469,6 @@ later per-rung backlog edits had silently anchored on text that was not here.
     rel in [0.02, 1.5]. Null: DC-contaminated and class-uniform. Tripwire:
     max rel < 0.02 = inert.
     -> ops/frontier_front_anatomy.py [QUEUED 05:04Z]
+    RUN 2026-08-31, S2199: all three preds FAILED (nulls carry it):
+    rel errors 0.51-0.81 at m0E-m3E vs a0 0.0003; dcfrac <= 0.19;
+    class-uniform. Repair must be context-signal; DC/class routes dead.

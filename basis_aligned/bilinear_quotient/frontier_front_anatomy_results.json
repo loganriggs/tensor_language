@@ -1,0 +1,115 @@
+{
+ "sites": {
+  "a0": {
+   "rel": 0.0003,
+   "dcfrac": 0.071,
+   "per_class_rel": {
+    "digit": 0.0003,
+    "bclose": 0.0003,
+    "newline": 0.0003,
+    "sentend": 0.0003,
+    "comma": 0.0003,
+    "name": 0.0003,
+    "rep": 0.0003,
+    "subword": 0.0003,
+    "ind": 0.0003,
+    "other": 0.0003
+   },
+   "n": 51200
+  },
+  "m0E": {
+   "rel": 0.5134,
+   "dcfrac": 0.1162,
+   "per_class_rel": {
+    "digit": 0.4527,
+    "bclose": 0.6037,
+    "newline": 0.4082,
+    "sentend": 0.5717,
+    "comma": 0.5923,
+    "name": 0.5499,
+    "rep": 0.5748,
+    "subword": 0.5258,
+    "ind": 0.5338,
+    "other": 0.4919
+   },
+   "n": 51200
+  },
+  "a1v": {
+   "rel": 0.3221,
+   "dcfrac": 0.1912,
+   "per_class_rel": {
+    "digit": 0.285,
+    "bclose": 0.4281,
+    "newline": 0.3125,
+    "sentend": 0.3664,
+    "comma": 0.3814,
+    "name": 0.4057,
+    "rep": 0.4721,
+    "subword": 0.3813,
+    "ind": 0.3191,
+    "other": 0.2946
+   },
+   "n": 51200
+  },
+  "m1": {
+   "rel": 0.6377,
+   "dcfrac": 0.1591,
+   "per_class_rel": {
+    "digit": 0.6167,
+    "bclose": 0.7199,
+    "newline": 0.6123,
+    "sentend": 0.6685,
+    "comma": 0.677,
+    "name": 0.6317,
+    "rep": 0.8473,
+    "subword": 0.6538,
+    "ind": 0.6525,
+    "other": 0.6228
+   },
+   "n": 51200
+  },
+  "m2E": {
+   "rel": 0.8074,
+   "dcfrac": 0.1343,
+   "per_class_rel": {
+    "digit": 0.7946,
+    "bclose": 0.8798,
+    "newline": 0.7558,
+    "sentend": 0.8527,
+    "comma": 0.845,
+    "name": 0.8309,
+    "rep": 0.9031,
+    "subword": 0.7905,
+    "ind": 0.8235,
+    "other": 0.7944
+   },
+   "n": 51200
+  },
+  "m3E": {
+   "rel": 0.7438,
+   "dcfrac": 0.1942,
+   "per_class_rel": {
+    "digit": 0.7037,
+    "bclose": 0.7511,
+    "newline": 0.7517,
+    "sentend": 0.7501,
+    "comma": 0.7559,
+    "name": 0.7697,
+    "rep": 0.8488,
+    "subword": 0.7041,
+    "ind": 0.7589,
+    "other": 0.743
+   },
+   "n": 51200
+  }
+ },
+ "max_rel_site": "m2E",
+ "link_mean_rel": 0.809,
+ "const_mean_rel": 0.851,
+ "convention": "E = replaced - real(same input), full-front frame, 200 census rows; rel=rms(E)/rms(real)",
+ "pred_a_dc_clean": false,
+ "pred_b_retrieval_concentration": false,
+ "pred_c_sane": false,
+ "self_reviewed": true,
+ "runtime_s": 97.1
+}

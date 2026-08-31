@@ -64885,3 +64885,47 @@ pred_a FAILED (1.20× vs ≥ 2×) | pred_b FAILED (0/62 vs ≥ 10).**
   "§2196 survives" bar; if it FAILS, §2196's table gets a published correction citing this section.
 - How this was caught: not by a run but by the rung-design code read — the same channel that caught the §2189
   inert-hook class. Config labels must be derived from install()'s active list, not from intent.
+
+## §2198 — RUNG 104: THE CONTROL HOLDS — §2196's headline SURVIVES with refined numbers. The TRUE tables-only config (cfgF minus tailE) costs +1.7474 and is still 0/62: the front tables carry 91% of rung 103's +1.924, the tail-MLP span dicts only +0.1440 (5/62 alone), interaction ~+0.033. And the prefix decomposition says the damage is SPREAD across depth, not concentrated: pred_b FAILED. pred_a/c HELD. (Convention: per-position dCE = CE(config) − CE(real model) on the census rows; lower is better.)
+
+`ops/frontier_front_prefix.py`, **158s**, BACKLOG rung 104. **pred_a HELD (+1.7474 ≥ 1.4 — no §2196
+correction needed beyond §2197's label fix) | pred_b FAILED (max marginal +0.6333 < 0.5×full +0.8737) |
+pred_c HELD (+1.7474 ∈ [0.5, 2.2]).**
+
+```
+  arm              agg dCE    valid     front marginals (cumulative prefixes)
+  ctrl_no_tailE    +1.7474    0/62      a0   −0.0000   (EXACT)
+  tailE_only       +0.1440    5/62      m0E  +0.2485
+  prefix_a0        −0.0000   62/62      a1v  +0.0884
+  prefix_m0E       +0.2485    1/62      m1   +0.4474
+  prefix_m1        +0.7843    0/62      m2E  +0.6333   (largest, 36% of full)
+  prefix_m2E       +1.4176    0/62      m3E  +0.3298
+  prefix_m3E       +1.7474    0/62
+```
+
+- **a0 is the program's first 62/62-certified replacement** — trivially: layer-0 c_v is a pure token function,
+  so its token table is exact (−0.0000 aggregate). The certificate machinery passes a genuinely faithful
+  replacement, confirming τ = 0.5×ref is passable at all.
+- **The first MLP table breaks 61 of 62 circuits.** Validity collapses 62 → 1 at m0E alone (+0.2485 aggregate).
+  Circuit validity is destroyed by the SHALLOWEST table long before aggregate damage is large.
+- **Damage grows with depth and is spread** (0.25/0.09/0.45/0.63/0.33) — no single-site repair target; the
+  registered null wins pred_b.
+- front-full (no middles) = ctrl (middles at K=4608) to 4 decimals: the CP form at full K is exactly the real
+  MLPs, confirming §2196's "middles ≈ +0.15" was purely the K-reduction 4608 → §2144's K's.
+- **Corrected §2196 family table:** front tables ≈ +1.75, motifs ≈ +0.36, tail-attn dicts ≈ +0.29, tail-MLP
+  span dicts ≈ +0.14, K-reduction ≈ +0.15 (interactions ~+0.03).
+
+## §2199 — RUNG 105: FRONT TABLE ERRORS ARE LARGE, CLASS-UNIFORM, CONTEXT-SIGNAL — the repair space narrows to context-dependent terms. Module-level rel error (replaced vs real on the same input): m0E 0.51, a1v 0.32, m1 0.64, m2E 0.81, m3E 0.74 — versus a0 0.0003 (exact). dcfrac ≤ 0.19 everywhere (mean-repair won't fix tables — the twins' §2191 DC route is CLOSED here); per-class error uniform (link 0.809 vs const 0.851 — the retrieval-price law is a TAIL phenomenon, absent at front sites in output space). pred_a/b/c all FAILED — the nulls carry the finding. (Convention: E = replaced − real(same input), full-front frame, 200 census rows.)
+
+`ops/frontier_front_anatomy.py`, **97s**, BACKLOG rung 105. **pred_a FAILED (dc-clean 3/6, bar 5) | pred_b
+FAILED (0.809 < 1.3×0.851) | pred_c FAILED — on the LOWER bound at a0 (0.0003 < 0.02).**
+
+- The pred_c failure is a bar-design error worth recording, not a physics surprise: I let the sanity floor
+  double as the inertness tripwire, and a0 is LEGITIMATELY near-exact (independently confirmed by §2198's
+  prefix_a0 = −0.0000, 62/62). Scored as written. Rule: an inertness floor must not span sites that can be
+  exactly representable.
+- **Repair implications (what rung 106+ should try):** the error is high-rank context SIGNAL — not means
+  (dcfrac ≤ 0.19), not class structure (uniform), growing with depth as token identity explains less. A table
+  grammar for m1–m3 must either grow its residual capacity (the current quadres is 64-dim) or change feature
+  class; §2199 predicts class-conditional and DC repairs are dead ends.
+- Routine: bilin18_canary2 GREEN at 05:03 (all five checks OK, 13s).
