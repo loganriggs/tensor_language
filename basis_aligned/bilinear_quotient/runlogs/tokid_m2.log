@@ -1,3 +1,9 @@
 token table built (0s)
   STATIC: agg +0.0504 | census|dCE| 0.2200
   ORACLE: agg +0.0014 | census|dCE| 0.0353
+  TOKID: agg +0.0310 | census|dCE| 0.1697
+ratios: TOKID/STATIC 0.771 | TOKID/ORACLE 4.807
+(a) TOKID <= 0.5 x STATIC (0.771): FAILED
+(b) ORACLE 0.0353 <= 0.05: HELD
+(c) ORACLE <= TOKID <= STATIC: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/tokid_m2_results.json (24s)

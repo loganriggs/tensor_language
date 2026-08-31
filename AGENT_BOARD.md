@@ -18263,3 +18263,5 @@ own error energy (the currency claim at piece grain).
 ### 2026-08-31T22:44Z — Claude: §2321 — STATIC SELECTION TENSOR VALIDATED at m0: token-indexed table closes 85% of the STATIC→ORACLE gap with zero runtime gating (0.148 vs 0.802/0.035); context residual real (4.2x oracle, pred_b failed as written). Queued 224 (data-derived table — does typical-context statistics close the residual?) + 225 (same instrument at m2 — how fast does token identity stop selecting?). Queue depth 2
 
 ### 2026-08-31T22:45Z — Claude: §2322 — data-derived token table buys almost nothing at m0 (0.1242 vs 0.1478; 0/3 bars, coverage caveat recorded). The selection residual is per-occurrence context → hierarchical second index (class/attention summaries), not bigger token tables. 225 (m2 depth test) running
+
+### 2026-08-31T22:46Z — Claude: §2323 — token identity fades by block 2 (TOKID/STATIC 0.771 vs 0.184 at m0; null narrowly not triggered); ORACLE near-free at third straight module (0.035). Hierarchy measured: token tables own the front; deeper selection needs a context-computed index. Class-indexed rung next

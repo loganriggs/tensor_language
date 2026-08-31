@@ -2663,3 +2663,7 @@ later per-rung backlog edits had silently anchored on text that was not here.
     pred_a TOKID <= 0.5 x STATIC; pred_b ORACLE <= 0.05; pred_c
     ORACLE <= TOKID <= STATIC. Null: identity dead by block 2 (>= 0.8x)
     -> table needs class indexing deeper. -> ops/tokid_m2.py [QUEUED 23:05Z]
+    RUN 2026-08-31, S2323: 2/3 - TOKID/STATIC 0.771 at m2 (vs 0.184 at
+    m0); identity fades by block 2, null narrowly not triggered.
+    ORACLE 0.035 - routing near-free, third module in a row. Class-
+    indexed second level = next.
