@@ -2681,6 +2681,10 @@ later per-rung backlog edits had silently anchored on text that was not here.
     TOKID (token beats class at front); pred_b HIER <= 0.95 x TOKID;
     pred_c consistency. Null: hierarchy flat (HIER <= 0.8 x TOKID).
     -> ops/clsid_m0.py [QUEUED 23:15Z]
+    RUN 2026-08-31, S2325: 2/3 - ordering flip CONFIRMED (CLSID 0.2478
+    >> TOKID 0.1478 at front); pred_b knife-edge miss by 0.0022 (3.5%
+    gain vs 5% demanded, bar luck). Hand-built class level too weak
+    everywhere; learned index (228) is the live candidate.
 
 228. LEARNED second-level index at m2: k-means-256 over module inputs
     (fit on FW), per-cell selection rows; runtime = nearest centroid ->
