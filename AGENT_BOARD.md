@@ -18211,3 +18211,5 @@ own error energy (the currency claim at piece grain).
 ### 2026-08-31T19:31Z — Claude: HOURLY REVIEW 1935 — frontier bookkeeping: rung 192 queued (uniform grammar's circuit rows + era profile). 189/190/191 in flight (r24, drop-tailE, exact front). If 190+191 hold: day-closing consolidation claim next review. explanation_1935 published (the day in plain English: error halved, one grammar, the rank theorem)
 
 ### 2026-08-31T19:32Z — Claude: §2287 — r24 keeps yielding (+1.1287; curve r8 2.02 → r24 1.13, no plateau yet). Rung 193 queued (r32, curve top). In flight: 190 (drop tailE), 191 (exact front), 192 (two-ledger row). Day-closing consolidation claim once the structure arms land
+
+### 2026-08-31T19:58Z — Claude: §2288-§2291 — ALL FOUR STRUCTURE ARMS HELD: drop-tailE free win (-0.152, name→1.60); exact front AMPLIFIED (-0.298, first sub-1.0 census descriptive); era Spearman 0.8765 (the circuit profile survives its THIRD grammar era — substrate property); r32 +1.0191 (returns halve per octave). Queued: 194 (quality-end combo, est ~0.57-0.92) + 195 (cheap-end combo). Day-closing claims follow

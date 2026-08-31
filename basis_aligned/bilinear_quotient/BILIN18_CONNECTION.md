@@ -65676,3 +65676,24 @@ Phase-2 selection belongs to the next strategic review.
 ## §2287 — RUNG 189: RANK 24 KEEPS YIELDING — ALL THREE PREDS HELD: census +1.1287 (from +1.2673), fresh +1.1966 (descriptive). The §2285 "plateau" reading was premature — the rank curve continues: **r8 2.02 / r10 1.52 / r12 1.38 / r16 1.27 / r24 1.13**, diminishing but nonzero returns above the knee. The operating point becomes a value-per-nat choice (r24 = +6.1M pattern values over r16 for −0.14 census). Rung 193 (queued) completes the curve at r32. (Convention: CE added above the real model; lower is better.)
 
 `ops/all_qk24.py`, **120s**, BACKLOG rung 189.
+
+## §2288 — RUNG 190: DROPPING tailE IS THE PREDICTED FREE WIN — ALL THREE PREDS HELD: census +1.1153 (−0.152) and name +1.604 (from +2.204 — §2237's 0.55 tailE-name share cashes out almost exactly). The legacy span-dicts cost 0.15 census while compressing nothing; they leave the config (coverage note stands: m10–17 now unreplaced). (Convention: CE added above the real model; lower is better.)
+
+`ops/drop_taile.py`, **120s**, BACKLOG rung 190.
+
+## §2289 — RUNG 191: THE FRONT STILL PAYS AT THE NEW FRONTIER — ALL THREE PREDS HELD: exact front takes census +1.2673 → +0.9693 (−0.298, MORE than the old config's 0.23 — the better downstream amplifies front fidelity), digit +0.730. First sub-1.0 census in program history (descriptive; fresh +1.0257). (Convention: CE added above the real model; lower is better.)
+
+`ops/front4608_qk.py`, **139s**, BACKLOG rung 191.
+
+## §2290 — RUNG 192: THE TWO-LEDGER ROW FILES CLEAN — ALL THREE PREDS HELD: census reproduces exactly, valid 0/62 (stagnation as registered), and era Spearman vs the rung-132 profile = **0.8765** — the uniform grammar still damages the same circuits. The circuit-damage profile has now survived THREE grammar eras (tables → CP+dicts → uniform QK) essentially unchanged; it is a property of the substrate coupling, not of any replacement choice. (Convention: member abs-dCE per circuit; census rows.)
+
+`ops/frontier_uniform_rows.py`, **121s**, BACKLOG rung 192.
+
+## §2291 — RUNG 193: RANK 32 STILL YIELDS, DIMINISHING — ALL THREE PREDS HELD: census +1.0191. The curve: r8 2.02 / r10 1.52 / r12 1.38 / r16 1.27 / r24 1.13 / r32 1.02 — returns halve per octave above the knee. (Convention: CE added above the real model; lower is better.)
+
+`ops/all_qk32.py`, **121s**, BACKLOG rung 193.
+
+- The structure arms compose on paper to ~+0.57 census (1.2673 − 0.152 − 0.298 − 0.248, naive-additive) —
+  the ladder lore says interactions will eat some. Rung 194 (queued) runs the QUALITY-END combination
+  (front 4608 + r32 + no tailE); rung 195 the CHEAP-END (front 3456 + r12 + no tailE). Registered claims
+  follow whichever holds.

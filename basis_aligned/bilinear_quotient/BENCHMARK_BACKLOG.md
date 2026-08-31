@@ -2376,17 +2376,34 @@ later per-rung backlog edits had silently anchored on text that was not here.
     holds 0.55 per S2237; coverage note stated): pred_a census <= 1.16;
     pred_b name <= 2.05; pred_c floor + inert. Null: non-additive here.
     -> ops/drop_taile.py [QUEUED 19:30Z]
+    RUN 2026-08-31, S2288: ALL HELD - free win confirmed (census
+    +1.1153; name 2.204 -> 1.604). tailE leaves the config.
 
 191. Exact front on the uniform grammar: pred_a census <= 1.10; pred_b
     digit <= 0.80; pred_c floor + inert. Null: front marginal shrank.
     Price: +15.9M. -> ops/front4608_qk.py [QUEUED 19:30Z]
+    RUN 2026-08-31, S2289: ALL HELD - exact front buys 0.298 here
+    (amplified); census +0.9693, first sub-1.0 (descriptive).
 
 192. Uniform grammar two-ledger row: rung-188 rebuild with circuit rows
     saved + era Spearman vs rung-132. pred_a census repro; pred_b valid
     <= 5 (failure = news); pred_c Spearman >= 0.85. Null (c): the
     grammar moved which circuits pay. Price: none.
     -> ops/frontier_uniform_rows.py [QUEUED 19:35Z]
+    RUN 2026-08-31, S2290: ALL HELD - era Spearman 0.8765; the circuit
+    profile survives its THIRD grammar era; 0/62.
 
 193. All-QK-32 (curve top): pred_a census <= 1.08 (still yielding); pred_b
     monotone; pred_c floor + inert. Null: plateau at last. Price: 24.2M.
     -> ops/all_qk32.py [QUEUED 19:38Z]
+    RUN 2026-08-31, S2291: ALL HELD - r32 +1.0191; returns halve per
+    octave above the knee.
+
+194. Quality-end combination (front 4608 + r32 + no tailE): pred_a census
+    <= 0.80 (retains 2/3 of naive-additive ~0.57); pred_b name <= 1.35;
+    pred_c floor 0.4 + inert. Null: interactions eat >= half (> 0.92).
+    Price: ~88M. -> ops/combo_max.py [QUEUED 20:00Z]
+
+195. Cheap-end combination (front 3456 + r12 + no tailE): pred_a census
+    <= 1.28; pred_b name <= 1.75; pred_c floor + inert. Null: non-
+    additive at r12. Price: 56.9M. -> ops/combo_cheap.py [QUEUED 20:00Z]

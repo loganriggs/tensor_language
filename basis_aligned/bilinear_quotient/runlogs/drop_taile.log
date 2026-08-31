@@ -21,3 +21,20 @@ fit a17
   QK rank-16 factors built for tail blocks 10-17
   tail QK hooks registered (gated)
 L1 (+38 heads): C +1.7006 | fresh +1.3498
+  window 0 (7 docs): L2 fresh +1.0936
+  window 1 (42 docs): L2 fresh +1.2376
+  window 2 (17 docs): L2 fresh +1.3930
+  window 3 (23 docs): L2 fresh +1.4855
+  window 4 (43 docs): L2 fresh +1.2256
+  window 5 (26 docs): L2 fresh +1.4008
+  window 6 (35 docs): L2 fresh +1.1857
+  window 7 (35 docs): L2 fresh +1.0649
+L2 empirical: C +1.3633 | fresh +1.1832 | tail-attn increment -0.1666
+(a) L2 <= +2.75 fresh: HELD
+(b) increment in [0.30,0.55]: FAILED
+  per-class dCE: digit:+0.869 bclose:+0.456 newline:+0.577 sentend:+0.570 comma:+0.412 name:+1.604 rep:+0.977 subword:+1.449 ind:+1.020 other:+1.196
+L2 fresh +1.1832 (was +1.8765); census +1.1153 (was +1.9474); increment -0.1666; valid 0/62
+(a) census +1.1153 <= 1.16: HELD
+(b) name +1.6038 <= 2.05: HELD
+(c) census >= 0.5: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/drop_taile_results.json (120s)
