@@ -1078,6 +1078,12 @@ later per-rung backlog edits had silently anchored on text that was not here.
     |cos| <= 0.15 on non-ind; pred_c repro gate. Null: suppression is
     routed, not direct logit opposition.
     -> ops/m16_opponent.py [QUEUED 01:28Z]
+    RUN 2026-08-31, §2172: pred_c HELD, pred_a/b FAILED — anti-alignment
+    mild and GENERIC (-0.143 ind vs -0.152 non-ind): no direct logit
+    brake; the suppression is ROUTED. Both math-review compilations
+    (77-78) returned their nulls: the tail resists linear identification
+    and logit-local opposition — per-document binding + routed
+    composition are the recorded design constraints.
 
 79. THE JOINT MOTIF NUMBER (accounting; damage convention). §2169
     flagged the joint all-motifs-real value as open (marginals sum

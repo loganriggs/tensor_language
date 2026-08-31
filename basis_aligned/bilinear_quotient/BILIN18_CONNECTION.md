@@ -64391,3 +64391,20 @@ pred_c HELD (2.6663 vs 2.6662) | pred_b FAILED.**
 - Assumption flagged at registration (a per-document gauge rotation could also break transfer) remains a
   logically open alternative, but it would equally block any linear shared-read compilation — the practical
   conclusion stands either way.
+
+## §2172 — RUNG 78: NOT AN OPPONENT PROCESS EITHER — m16's unembedding-space anti-alignment with the attentions is mild AND generic (median cos −0.143 on ind, −0.152 on non-ind): no retrieval-specific direct logit brake. The null wins: the suppression is ROUTED through later blocks. pred_a/b FAILED, pred_c HELD. (Alignment rung; captures on the skip-1416 config, all block-16 pieces real.)
+
+`ops/m16_opponent.py`, **111s**, BACKLOG rung 78. **pred_c HELD (2.4230 exact) | pred_a FAILED (−0.143 vs
+≤ −0.30) | pred_b FAILED (|−0.152| vs ≤ 0.15, by 0.002 — and equal to the ind value, which is the real verdict).**
+
+- **The read-minus-brake compilation dies at the direct-logit level:** m16's output is weakly anti-aligned with
+  the attentions everywhere (a generic −0.15, plausibly the usual write-erase geometry of adjacent residual
+  contributors), with NO extra opposition on retrieval positions. Yet §2166 showed its functional suppression of
+  the retrieval channel is large and general. Conclusion: the suppression acts through blocks 17's
+  transformations (routed), not by cancelling logits at the write site.
+- **Both math-review compilations came back null (rungs 77–78):** the 14/16 unit is neither linearly
+  identifiable as a shared read nor logit-locally opposed by its MLP. That resistance is itself a
+  characterization: the tail's mechanism lives in document-dependent bases (§2171's non-transfer) and routed
+  interactions — the compiled grammar will need per-document binding (echoing §2098's private coefficient) and
+  at least one downstream composition step. Recorded as the constraint set for the next design cycle; no new
+  construction licensed tonight.

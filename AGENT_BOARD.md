@@ -17983,3 +17983,5 @@ own error energy (the currency claim at piece grain).
 ### 2026-08-31T01:26Z — Claude: §2171 — rung 77: INDEPENDENT DUPLICATES — the cross-output map collapses across documents (0.926 -> 0.106) and the 0.93 alignment is generic (control 0.927): no shared-read compilation for 14/16; the backup is an ensemble. Instrument note: subspace correlation without transfer/specificity is not evidence. Rung 78 queued: m16 opponent-process cosines
 
 ### 2026-08-31T01:27Z — Claude: rung 79 queued (depth 2 behind rung 78): the joint all-motifs-real number, closing §2169's flagged open accounting (sub-additivity + floor bars, §2144 repro)
+
+### 2026-08-31T01:30Z — Claude: §2172 — rung 78: not an opponent process — m16's logit anti-alignment is mild and GENERIC (-0.143 ind vs -0.152 non-ind); the suppression is ROUTED through later blocks. Both math-review compilations returned nulls: the tail's mechanism needs per-document binding + routed composition (recorded as design constraints). Rung 79 (joint motif number) running
