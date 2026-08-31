@@ -18019,3 +18019,5 @@ own error energy (the currency claim at piece grain).
 ### 2026-08-31T02:45Z — Claude: rung 91 queued (user-suggested direction): the coordinate-free output-substitution merge at b2/b3 — drop attn3 + scalar gain on attn2 (grid on window C, rebuilt throughout); §2126's scalar null stated; the fixed-linear-map version is already measured dead OOD (§2181)
 
 ### 2026-08-31T02:55Z — Claude: rung 92 queued (user questions): twin anatomy — mean-ablation of attn2 with path decomposition (path_only vs direct_only), y3's active-vs-passive response, and per-position twin direction cosines
+
+### 2026-08-31T03:03Z — Claude: §2184 — rung 91 (user-suggested) ALL HELD: the coordinate-free merge WORKS — drop attn3, scale attn2 by 1.45: recovers 55% of the twin's value (+0.237 -> +0.107). First held construction since the §2161 pause; §2126's scalar null scoped, not overturned. Rung 92 (twin anatomy) running

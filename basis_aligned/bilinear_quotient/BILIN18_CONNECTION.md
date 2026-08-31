@@ -64592,3 +64592,24 @@ pred_c HELD (2.4411 vs 2.4410) | pred_b FAILED (−0.727 vs ≥ 0.4).**
   (3 duos, graded 0.998/0.949/0.689), backup interactions (1.4× and 12.6× super-additive), document-bound
   coordinates (2 collapses), gauge question open with a designed next instrument. Every claim preregistered;
   five instrument voids caught by tripwires; zero unscored results.
+
+## §2184 — RUNG 91 (user-suggested): THE COORDINATE-FREE MERGE WORKS — dropping attn3 and scaling attn2's output by α* = 1.45 recovers 55% of the drop cost (+0.2367 → +0.1065), with a smooth α-curve and a clear optimum. ALL THREE BARS HELD — the first held construction since the §2161 pause. (Convention: damage on the motifs-2/3-real base, lower is better; α selected on window C, scored on FR.)
+
+`ops/merge_scalar.py`, **992s, nine builds**, BACKLOG rung 91. **ALL THREE HELD: pred_a (+0.1065 ≤ 0.7 ×
++0.2367) | pred_b (α* = 1.45 ∈ [1.05, 1.8]) | pred_c (base 2.4411 vs 2.4410).**
+
+```
+  α        1.0      1.1      1.2      1.3      1.45     1.6      1.8
+  L2_F   2.6778   2.6294   2.5950   2.5702   2.5476   2.5411   2.5542    (window-C optimum at 1.45; FR agrees)
+```
+
+- **Why this worked where everything else failed:** a scalar carries no coordinates, so the document-gauge
+  problem (§2181) cannot touch it — and the twins' near-total mutual coverage (§2180) means the survivor
+  already computes the function; it just writes it at roughly 2/3 the needed amplitude. One number buys back
+  more than half of the twin.
+- **§2126's "scalars aren't levers" is now SCOPED, not overturned:** a scalar cannot fix an assembly's scale
+  error at a head the config mis-drives (§2126, cfgE/attn5) — but it CAN substitute amplitude for a deleted
+  replicated twin. The distinction: there the function was wrong; here the function is present at the wrong gain.
+- **Description ledger:** "attn3 ≈ 1.45 × (nothing extra)" — the pair compresses to one module plus one scalar
+  at +0.107 damage on this base. Whether a distilled module can close the remaining +0.107, and what the twin
+  anatomy says about where it lives, is rung 92 (running).

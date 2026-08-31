@@ -1257,6 +1257,10 @@ later per-rung backlog edits had silently anchored on text that was not here.
     third of the drop cost; pred_b alpha* in [1.05,1.8]; pred_c base
     reproduces rung 86 (2.4410). Null (§2126): scalars aren't levers.
     -> ops/merge_scalar.py [QUEUED 02:52Z]
+    RUN 2026-08-31, §2184: ALL THREE HELD — alpha*=1.45 recovers 55%
+    (+0.2367 -> +0.1065; smooth curve). First held construction since
+    the §2161 pause; §2126's scalar null SCOPED (amplitude substitution
+    for a replicated twin works; fixing a mis-driven head does not).
 
 92. TWIN ANATOMY (user questions; damage convention). Mean-ablate attn2
     and decompose: arms base / mean2 / path_only (y2 visible only to
