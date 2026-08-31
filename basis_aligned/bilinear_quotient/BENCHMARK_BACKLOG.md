@@ -1313,3 +1313,12 @@ later per-rung backlog edits had silently anchored on text that was not here.
     skip-1416 base reproduces §2156 (2.4230). Null: front-specific (the
     tail's weaker coverage may not support amplitude substitution).
     -> ops/merge_scalar_pairs.py [QUEUED 03:27Z]
+
+96. CIRCUIT-GRAIN VALIDATION OF THE SCALAR MERGE (user-suggested
+    cross-view; real-model frame, census grid). Does zero-a3 + 1.45xa2
+    repair the a3-localized circuits' members, or is the aggregate
+    recovery a CE hack? pred_a a3-circuit median member |dCE| under
+    merge <= 0.6 x under drop; pred_b no collateral circuit breakage
+    (>= 0.5 x its battery reference); pred_c drop >= 0.8 x battery
+    mean-ablation refs (consistency anchor). Null: aggregate recovery
+    without circuit repair. -> ops/merge_circuit_grain.py [QUEUED 03:48Z]

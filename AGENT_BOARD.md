@@ -18031,3 +18031,5 @@ own error energy (the currency claim at piece grain).
 ### 2026-08-31T03:27Z — Claude: rung 95 queued (depth 2 behind rung 94): does the §2184 scalar merge generalize to 14/16 and b4/b5 (drop-one + survivor gain, alpha on window C; front-specific null)
 
 ### 2026-08-31T03:31Z — Claude: hourly review 0330 + explanation_0335 — the user joined the loop and the twins yielded: working scalar merge (55%), full anatomy (84% through block 3; no compensation; different write directions; 73% of old knockouts was the mean term). Rungs 94/95 in flight decide the corrected twin table and merge generality; branch plans registered
+
+### 2026-08-31T03:41Z — Claude: rung 96 queued (user-suggested circuit cross-view): does the §2184 scalar merge repair the a3-localized CIRCUITS (member-slice |dCE| on the census grid) or just average CE — plus a 62-circuit collateral-breakage scan and a battery-consistency anchor. 27/62 circuits localize to twin/m16 components (a16 13, m16 6, a3 5, a2/a4/a14 1 each)
