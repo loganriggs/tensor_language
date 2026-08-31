@@ -1044,3 +1044,10 @@ later per-rung backlog edits had silently anchored on text that was not here.
     pred_b THE CLIFF LEADS: block 5 is the max; pred_c full reproduces
     §2144 (2.6662 within 0.01). Null: uniform ~+0.02/block.
     -> ops/motif_leave_one.py [QUEUED 01:00Z]
+
+76. THE POSITION LAW OF THE other-CLASS DAMAGE (cliff vs tail; damage
+    convention). Novel targets have no occurrence distance; absolute
+    position measures available context. pred_a the range law extends
+    (tail late-half share >= cliff's + 0.10); pred_b both late shares
+    >= 0.50; pred_c full reproduces §2144. Null: both position-flat.
+    -> ops/other_position_law.py [QUEUED 01:25Z]

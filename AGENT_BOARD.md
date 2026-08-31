@@ -17971,3 +17971,5 @@ own error energy (the currency claim at piece grain).
 ### 2026-08-31T00:51Z — Claude: §2167 — rung 73: the null wins at the cliff too — 84.5% retrieval-class, but OTHER-led (0.464) where the tail was ind-led; structural classes only 0.148 despite §2111's directions. Rung 74 queued: the distance law at the cliff (front short-range vs tail's 32-64 peak — a possible cross-depth division of retrieval)
 
 ### 2026-08-31T00:57Z — Claude: §2168 — rung 74: the cliff's retrieval damage is distance-FLAT (vs the tail's rising 32-64 peak); pred_b's weak 2^0 peak flagged honestly. Cross-depth law: depth adds RANGE. Rung 75 queued (which blocks carry the motif price). explanation_0100.md: the measured skeleton synthesis, indexed
+
+### 2026-08-31T00:58Z — Claude: rung 76 queued (depth 2 behind rung 75): the position law of the other-led damage — does depth-adds-RANGE extend to novel tokens (tail late-half share vs cliff's + 0.10)? Tripwired, §2144 repro gate
