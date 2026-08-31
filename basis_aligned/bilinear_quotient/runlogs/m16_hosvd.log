@@ -1,0 +1,8 @@
+HOSVD built (1s)
+  HOSVD34: agg +0.8547 | census|dCE| 1.0928 | own 1.7335
+  HOSVD128: agg +0.8545 | census|dCE| 1.0944 | own 1.7366
+ratios: own-vs-NEUR 1.066; census-vs-EIG 1.643
+(a) HOSVD34 own <= 0.9 x NEUR (ratio 1.066): FAILED
+(b) HOSVD34 census <= 1.1 x EIG (ratio 1.643): FAILED
+(c) monotone + HOSVD128 <= 0.5 (1.0944 < 1.0928): FAILED
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/m16_hosvd_results.json (17s)

@@ -1,0 +1,44 @@
+{
+ "arms": {
+  "HOSVD34": {
+   "agg": 0.8547,
+   "aggabs": 1.0928,
+   "own_mean": 1.7335,
+   "own_members": {
+    "r.1.1.1": 1.7769,
+    "r.1.1.2": 1.5894,
+    "r.1.2": 1.5712,
+    "r.1.2.0": 2.0083,
+    "r.1.2.1": 1.7948,
+    "r.6.2.2": 1.6603
+   },
+   "values": 1370880
+  },
+  "HOSVD128": {
+   "agg": 0.8545,
+   "aggabs": 1.0944,
+   "own_mean": 1.7366,
+   "own_members": {
+    "r.1.1.1": 1.7857,
+    "r.1.1.2": 1.5929,
+    "r.1.2": 1.5732,
+    "r.1.2.0": 2.0155,
+    "r.1.2.1": 1.7955,
+    "r.6.2.2": 1.6565
+   },
+   "values": 19021824
+  }
+ },
+ "anchors": {
+  "NEUR_own": 1.6259,
+  "NEUR_census": 1.0146,
+  "EIG_census": 0.665
+ },
+ "ratio_own_vs_neur": 1.0662,
+ "ratio_census_vs_eig": 1.6433,
+ "pred_a_beats_neurons": false,
+ "pred_b_matches_eig": false,
+ "pred_c_monotone": false,
+ "self_reviewed": true,
+ "runtime_s": 16.7
+}

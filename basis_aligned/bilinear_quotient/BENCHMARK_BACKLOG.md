@@ -2533,9 +2533,18 @@ later per-rung backlog edits had silently anchored on text that was not here.
     pred_a FP64 max/RMS <= 1e-6; pred_b FP64 frob <= 1e-9; pred_c FP32
     repro in [0.5e-2, 5e-2]. Null: fp64 residual >= 1e-4 = real bug.
     -> ops/m16_exact_fp64.py [QUEUED 22:09Z]
+    RUN 2026-08-31, S2309: ALL HELD - fp64 at machine precision
+    (4.33e-11); fp32 floor reproduced. QUARANTINE LIFTED: eigenbasis
+    beats neurons 0.770 own / 0.655 census at 3x fewer values.
+    Instrument rule filed (rel-Frobenius + fp64 control).
 
 212. HOSVD shared multilinear basis at m16 (W = eigvecs of sum QQ^T;
     cores W^T Q_d W; rin 34 matched to EIG values, rin 128 headroom):
     pred_a own <= 0.9 x NEUR; pred_b census <= 1.1 x EIG; pred_c
     monotone + HOSVD128 <= 0.5. Null: shared basis no better than
     neurons. -> ops/m16_hosvd.py [QUEUED 22:12Z]
+
+213. Sketch-gated top-k (rank-64 gate scores units, exact compute on
+    selected 1152; 16x cheaper selection): pred_a census <= 0.30;
+    pred_b valid >= 1; pred_c range + double inert. Null: selection
+    needs full products (>= 1.76). -> ops/cp_sketch64.py [QUEUED 22:15Z]
