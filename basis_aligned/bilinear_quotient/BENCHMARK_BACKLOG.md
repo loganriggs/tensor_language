@@ -2101,3 +2101,11 @@ later per-rung backlog edits had silently anchored on text that was not here.
     to battery interchange refs. pred_a median ratio-to-iref >= 0.5;
     pred_b selectivity >= 3; pred_c ratio in [0.5, 2.0]. Null: swap
     protocol too weak. -> ops/interchange_inst.py [QUEUED 14:30Z]
+
+161. DAS-lite (C3): fixed low-rank subspaces (member-PCA r=1/8/32,
+    diff-in-means) patched in the rung-160 interchange protocol; share =
+    subspace effect / full swap. pred_a median share(32) >= 0.5; pred_b
+    pca8 >= 0.4 for >= 3/10; pred_c 2-circuit full repro within 10% +
+    monotone 8/10. Null: shares < 0.25 (distributed carrier; DAS-proper
+    or nothing). Reads 160's receipt at run time (runner order).
+    -> ops/daslite.py [QUEUED 14:35Z]
