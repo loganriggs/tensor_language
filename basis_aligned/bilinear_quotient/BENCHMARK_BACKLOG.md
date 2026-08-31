@@ -1954,9 +1954,40 @@ later per-rung backlog edits had silently anchored on text that was not here.
     2.15; pred_c increment in [0.25, 0.45], census >= 1.4. Null: alpha
     class-invariant (< 0.02). Price: +1,368 scalars. Tripwire: inert if
     census within 1e-3. -> ops/frontier_clsalpha.py [QUEUED 13:00Z]
+    RUN 2026-08-31, S2244: pred_a/b FAILED, c HELD. Class-alpha nets
+    +0.0115 (rep -0.28 but digit +0.12). Motif cost is STRUCTURAL
+    (the alpha.v form), not parametric.
 
 149. Block-5 attention real (the attn5 cliff in the modern frontier):
     motif_off={5}, tail dicts refit under it. pred_a census <= 1.80;
     pred_b subword <= 2.05; pred_c increment in [0.25, 0.45], census >=
     1.4. Null: the cliff was a table-era phenomenon (< 0.05). Price:
     ~5.3M values. -> ops/frontier_attn5real.py [QUEUED 13:00Z]
+    RUN 2026-08-31, S2245: pred_a FAILED by 0.026 (recovery 0.122 at
+    5.3M values), pred_b FAILED, c HELD. The attn5 cliff is modest in
+    the modern frontier.
+
+150. Bias-dispersion decomposition of certificate failure (math review
+    1307): base + all-class-splice census evals; per-circuit signed vs
+    abs member means. pred_a median |signed|/abs <= 0.5 (dispersion-
+    dominated); pred_b median circuit abs-improvement <= 0.8 x census
+    factor (dispersion sticky); pred_c repro both arms. Null: BIAS-
+    dominated -> per-circuit bias correction (~62 scalars) becomes the
+    cheapest certificate candidate. Price: none.
+    -> ops/frontier_biasdisp.py [QUEUED 13:10Z]
+
+150. Bias-dispersion decomposition of certificate failure (math review
+    1307): base + all-class-splice census evals; per-circuit signed vs
+    abs member means. pred_a median |signed|/abs <= 0.5 (dispersion-
+    dominated); pred_b median circuit abs-improvement <= 0.8 x census
+    factor; pred_c repro both arms. Null: BIAS-dominated -> per-circuit
+    bias correction (~62 scalars) becomes the cheapest certificate
+    candidate. Price: none. -> ops/frontier_biasdisp.py [QUEUED 13:12Z]
+
+150. Bias-dispersion decomposition of certificate failure (math review
+    1307): base + all-class-splice census evals; per-circuit signed vs
+    abs member means. pred_a median |signed|/abs <= 0.5 (dispersion-
+    dominated); pred_b median circuit abs-improvement <= 0.8 x census
+    factor; pred_c repro both arms. Null: BIAS-dominated -> per-circuit
+    bias correction (~62 scalars) becomes the cheapest certificate
+    candidate. Price: none. -> ops/frontier_biasdisp.py [QUEUED 13:16Z]

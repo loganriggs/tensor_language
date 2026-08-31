@@ -65374,3 +65374,11 @@ VOID-AS-DESIGNED; corrected control = rung 133 (offline real-module targets, the
 - Deployable consequences queued: rung 148 (class-conditioned motif α — the untested cheap structure; §2220
   only tested frame-REFIT of scalar α) and rung 149 (block-5 attention real — the attn5 price cliff finally
   priced inside the modern frontier).
+
+## §2244 — RUNG 148: MOTIF α IS CLASS-INVARIANT TO FIRST ORDER — class-conditioning (760 per-class gains) buys only 0.0115 census (1.9474 → 1.9359). pred_a/b FAILED, pred_c HELD. One real sub-finding inside the null: rep improves 1.708 → 1.426 (self-copy positions like a rep-specific gain) while digit worsens 1.250 → 1.371 — the class structure exists but nets out. With §2220 (frame-refit no-op), the motif family's cost is now firmly STRUCTURAL: the α·v form itself, not its parameters. (Convention: CE added above the real model; lower is better.)
+
+`ops/frontier_clsalpha.py`, **127s**, BACKLOG rung 148.
+
+## §2245 — RUNG 149: THE ATTN5 CLIFF IS MODEST IN THE MODERN FRONTIER — block-5 attention real buys 0.122 census (1.9474 → 1.8257), missing its 0.15 bar; subword barely moves (−0.05). pred_a FAILED by 0.026, pred_b FAILED, pred_c HELD. The table-era cliff lore does not transfer at full strength: one real block's attention is a mediocre spend at 5.3M values (descriptive L2_F +1.7621 — no claim registered). The deployable-lever list for the motif family shrinks to structural redesign. (Convention: CE added above the real model; lower is better.)
+
+`ops/frontier_attn5real.py`, **127s**, BACKLOG rung 149.
