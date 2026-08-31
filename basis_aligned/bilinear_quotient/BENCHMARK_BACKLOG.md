@@ -1472,3 +1472,18 @@ later per-rung backlog edits had silently anchored on text that was not here.
     RUN 2026-08-31, S2199: all three preds FAILED (nulls carry it):
     rel errors 0.51-0.81 at m0E-m3E vs a0 0.0003; dcfrac <= 0.19;
     class-uniform. Repair must be context-signal; DC/class routes dead.
+
+106. Front singles: each of m0E/a1v/m1/m2E/m3E installed ALONE (all else
+    real), census certificates per arm. pred_a sum(singles)/front-full in
+    [0.6, 1.0]; pred_b agg(m2E single) >= 1.5 x agg(m0E single); pred_c
+    all singles in [0.02, 1.2]. Null: prefix marginals were mostly input
+    drift (sum << full). Tripwire: pstdev >= 0.005.
+    -> ops/frontier_front_singles.py [QUEUED 05:32Z]
+
+107. m2 residual-rank capacity curve: tableres refit in the m2 prefix frame
+    at residual ranks 0/16/64/256/512, each as a SINGLE-site arm on census
+    rows. pred_a rank wall: gain(0->64) >= 2 x gain(64->512); pred_b
+    agg(512) >= 0.5 x agg(64) (grammar cannot buy its way out); pred_c
+    monotone + all in [0.05, 1.5]. Null: capacity path OPEN (repair =
+    bigger residual). Price: rank-512 at one site ~= 512 x ~1850 values.
+    -> ops/frontier_m2_rank.py [QUEUED 05:32Z]
