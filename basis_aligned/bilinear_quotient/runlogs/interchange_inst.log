@@ -1,0 +1,19 @@
+picked ['r.0.0', 'r.1.0', 'r.1.2', 'r.1.3', 'r.2.0', 'r.3.0', 'r.13.2.1', 'r.2.2.2', 'r.3.1.1', 'r.5.3.1']
+62 circuits; 10 distinct top components: ['a15', 'a16', 'a17', 'a3', 'a6', 'a7', 'a8', 'm13', 'm14', 'm15']
+component means captured
+outputs captured
+  r.0.0 @ a3: member 0.478 (iref 1.621), selectivity 27.1
+  r.1.0 @ m14: member 0.601 (iref 0.623), selectivity 407.1
+  r.1.2 @ m15: member 0.719 (iref 0.824), selectivity 353.8
+  r.1.3 @ m13: member 0.673 (iref 0.712), selectivity 210.8
+  r.2.0 @ a8: member 1.161 (iref 1.042), selectivity 226.2
+  r.3.0 @ a16: member 0.574 (iref 0.568), selectivity 1456.3
+  r.13.2.1 @ a7: member 0.652 (iref 0.856), selectivity 447.4
+  r.2.2.2 @ a6: member 0.874 (iref 1.101), selectivity 442.5
+  r.3.1.1 @ a17: member 0.505 (iref 0.524), selectivity 504660427.6
+  r.5.3.1 @ a15: member 0.263 (iref 0.278), selectivity 2415.8
+median member 0.626; ratio-to-iref 0.946; selectivity 424.8
+(a) ratio 0.946 >= 0.5: HELD
+(b) selectivity 424.8 >= 3: HELD
+(c) ratio in [0.5, 2.0]: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/interchange_inst_results.json (96s)

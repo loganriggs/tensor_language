@@ -2095,12 +2095,18 @@ later per-rung backlog edits had silently anchored on text that was not here.
     0.55; pred_b median 3-of-4 saturation >= 0.85; pred_c battery repro
     in [0.8, 1.25]. Null: no saturation by 4 (greedy must extend).
     ~40-60 min run. -> ops/minimality62.py [QUEUED 14:30Z]
+    RUN 2026-08-31, S2256: pred_a/c HELD, pred_b FAILED by 0.014 -
+    47/62 circuits hit the k*=4 cap; minimal sets >= 4; greedy extends
+    (rung 163). Median top-1 share 0.389.
 
 160. Interchange instrument (C2, the DAS foundation): member-permutation
     activation swap at 10 circuits' interchange-top components; compare
     to battery interchange refs. pred_a median ratio-to-iref >= 0.5;
     pred_b selectivity >= 3; pred_c ratio in [0.5, 2.0]. Null: swap
     protocol too weak. -> ops/interchange_inst.py [QUEUED 14:30Z]
+    RUN 2026-08-31, S2257: ALL HELD. Protocol agrees with battery
+    (0.946); interchange selectivity 425 vs removal 1.7 - the surgical
+    tool. a17 offslice ~0.
 
 161. DAS-lite (C3): fixed low-rank subspaces (member-PCA r=1/8/32,
     diff-in-means) patched in the rung-160 interchange protocol; share =
@@ -2109,3 +2115,18 @@ later per-rung backlog edits had silently anchored on text that was not here.
     monotone 8/10. Null: shares < 0.25 (distributed carrier; DAS-proper
     or nothing). Reads 160's receipt at run time (runner order).
     -> ops/daslite.py [QUEUED 14:35Z]
+    RUN 2026-08-31, S2258: ALL HELD. Low-rank carriers exist: median
+    share(32) 0.512, pca8 >= 0.4 for 4/10, monotone 10/10, repro clean.
+    dmean1 weak. -> DAS-proper rung 162.
+
+162. DAS-proper (C4): learned rank-8 subspaces (Adam 150 steps, QR
+    retraction, KL to full-swap logits, warm start pca8) at the 2 lowest-
+    pca8 circuits + 1 control; within-script arms. pred_a learned >=
+    pca8+0.15 at both low; pred_b median learned >= 0.55; pred_c
+    orthonormal + control no-regress. Null: learning adds < 0.05. Price:
+    9,216 values per passing subspace. -> ops/dasproper.py [QUEUED 15:03Z]
+
+163. Minimality extension to 6: the 47 capped circuits, top-1..6. pred_a
+    median 5-of-6 saturation >= 0.85; pred_b median k* <= 5; pred_c
+    protocol repro. Null: no saturation by 6 (substrate-wide circuits).
+    -> ops/minimality6.py [QUEUED 15:03Z]

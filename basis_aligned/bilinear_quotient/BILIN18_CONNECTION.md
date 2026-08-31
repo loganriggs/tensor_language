@@ -65469,3 +65469,20 @@ VOID-AS-DESIGNED; corrected control = rung 133 (offline real-module targets, the
   operator's program has traction.
 
 ## §2255 — PROGRAM DIRECTIVE (operator, 14:20Z): FINISH IN-FLIGHT WORK, THEN FOCUS ON CIRCUITS. The goals: (1) minimal component sets for ALL 62 circuits; (2) low-rank COUNTERFACTUAL circuits via DAS (Distributed Alignment Search, Geiger et al.) — learned small-rank subspaces whose interchange carries the circuit's causal variable; (3) a durable REPERTOIRE artifact (circuits/REPERTOIRE.json) accumulating per-circuit: members, refs, minimal sets, subspace ranks, transfer scores — the asset for downstream prediction/extraction/removal. Phasing registered: C1 = minimality for all 62 (rung 159, greedy necessity, queued); C2 = interchange instrument reproduction (rung 160, queued — the foundation DAS needs); C3 = DAS-lite (fixed candidate subspaces scored by interchange transfer); C4 = DAS proper (learned rank-r orthogonal subspaces by gradient on interchange loss).
+
+## §2256 — RUNG 159: THE 62 CIRCUITS ARE DEEP — median top-1 share of top-4 damage is 0.389 (even below the pilot's 0.464; pred_a HELD), and the saturation null WINS by 0.014: median 3-of-4 saturation 0.836 < 0.85 (pred_b FAILED), with the k* histogram {k*=2: 3, k*=3: 12, k*=4: 47} — 47 of 62 circuits hit the audit's cap. Minimal component sets are typically ≥ 4; the greedy must extend (rung 163, queued). pred_c HELD (battery protocol repro 1.000). (Convention: per-position dCE = CE(joint mean-ablation) − CE(real model) on the census rows.)
+
+`ops/minimality62.py`, **894s**, BACKLOG rung 159. The full necessity curves are in the repertoire.
+
+## §2257 — RUNG 160: THE INTERCHANGE INSTRUMENT VALIDATES — ALL THREE PREDS HELD, and it reveals the sharpest instrument contrast of the program: median ratio to the battery's interchange refs 0.946 (protocols agree), and median SELECTIVITY 425 — versus mean-ablation removal's 1.7 (§2248). Swapping a component's output WITHIN the member population is ~250× more circuit-selective than removing it: counterfactual interchange, not ablation, is the right surgical tool on this substrate. (a17's selectivity is effectively infinite — its off-member effect is ~0, consistent with §2236's zero name share.) (Convention: per-position dCE = CE(member-permutation interchange) − CE(real model) on the census rows.)
+
+`ops/interchange_inst.py`, **96s**, BACKLOG rung 160.
+
+## §2258 — RUNG 161: LOW-RANK COUNTERFACTUAL CARRIERS EXIST — ALL THREE PREDS HELD. Fixed member-PCA subspaces carry the interchange effect: median share at rank 32 = 0.512 of the full 1152-dim swap; rank 8 already carries ≥ 0.4 for 4 of 10 circuits; monotone in rank 10/10; two-circuit cross-script reproduction clean. The difference-in-means direction is weak (share 0.09 at a15) — the carrier is a subspace, not a single direction. DAS-proper (learned rank-8 rotations, warm-started from PCA) is now warranted and queued (rung 162) to push shares up and ranks down. (Convention: share = member |dCE| of the subspace patch / the full swap; census rows.)
+
+`ops/daslite.py`, **344s**, BACKLOG rung 161.
+
+- The circuits program's first afternoon: necessity depth measured for all 62 (deep, ≥4 components),
+  interchange validated as the surgical instrument (selectivity 425 vs removal's 1.7), and rank-8/32
+  counterfactual carriers found at every sampled circuit. The repertoire now carries k*, validated
+  interchange refs, and first subspace shares.

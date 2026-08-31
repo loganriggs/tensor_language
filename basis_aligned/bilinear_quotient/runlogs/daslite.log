@@ -1,0 +1,51 @@
+picked ['r.0.0', 'r.1.0', 'r.1.2', 'r.1.3', 'r.2.0', 'r.3.0', 'r.13.2.1', 'r.2.2.2', 'r.3.1.1', 'r.5.3.1']
+62 circuits; 10 distinct top components: ['a15', 'a16', 'a17', 'a3', 'a6', 'a7', 'a8', 'm13', 'm14', 'm15']
+component means captured
+outputs captured
+  r.0.0 @ a3 [pca1]: member 0.057 share 0.12
+  r.0.0 @ a3 [pca8]: member 0.147 share 0.31
+  r.0.0 @ a3 [pca32]: member 0.246 share 0.52
+  r.0.0 @ a3 [dmean1]: member 0.030 share 0.06
+  r.0.0 full-swap repro 0.478 vs 160's 0.478
+  r.1.0 @ m14 [pca1]: member 0.048 share 0.08
+  r.1.0 @ m14 [pca8]: member 0.160 share 0.27
+  r.1.0 @ m14 [pca32]: member 0.229 share 0.38
+  r.1.0 @ m14 [dmean1]: member 0.054 share 0.09
+  r.1.0 full-swap repro 0.615 vs 160's 0.601
+  r.1.2 @ m15 [pca1]: member 0.189 share 0.26
+  r.1.2 @ m15 [pca8]: member 0.305 share 0.42
+  r.1.2 @ m15 [pca32]: member 0.367 share 0.51
+  r.1.2 @ m15 [dmean1]: member 0.182 share 0.25
+  r.1.3 @ m13 [pca1]: member 0.132 share 0.20
+  r.1.3 @ m13 [pca8]: member 0.212 share 0.32
+  r.1.3 @ m13 [pca32]: member 0.287 share 0.43
+  r.1.3 @ m13 [dmean1]: member 0.130 share 0.19
+  r.2.0 @ a8 [pca1]: member 0.075 share 0.07
+  r.2.0 @ a8 [pca8]: member 0.155 share 0.13
+  r.2.0 @ a8 [pca32]: member 0.346 share 0.30
+  r.2.0 @ a8 [dmean1]: member 0.071 share 0.06
+  r.3.0 @ a16 [pca1]: member 0.030 share 0.05
+  r.3.0 @ a16 [pca8]: member 0.083 share 0.14
+  r.3.0 @ a16 [pca32]: member 0.194 share 0.34
+  r.3.0 @ a16 [dmean1]: member 0.023 share 0.04
+  r.13.2.1 @ a7 [pca1]: member 0.116 share 0.18
+  r.13.2.1 @ a7 [pca8]: member 0.293 share 0.45
+  r.13.2.1 @ a7 [pca32]: member 0.439 share 0.67
+  r.13.2.1 @ a7 [dmean1]: member 0.125 share 0.19
+  r.2.2.2 @ a6 [pca1]: member 0.093 share 0.11
+  r.2.2.2 @ a6 [pca8]: member 0.296 share 0.34
+  r.2.2.2 @ a6 [pca32]: member 0.542 share 0.62
+  r.2.2.2 @ a6 [dmean1]: member 0.209 share 0.24
+  r.3.1.1 @ a17 [pca1]: member 0.126 share 0.25
+  r.3.1.1 @ a17 [pca8]: member 0.291 share 0.58
+  r.3.1.1 @ a17 [pca32]: member 0.439 share 0.87
+  r.3.1.1 @ a17 [dmean1]: member 0.161 share 0.32
+  r.5.3.1 @ a15 [pca1]: member 0.057 share 0.22
+  r.5.3.1 @ a15 [pca8]: member 0.127 share 0.48
+  r.5.3.1 @ a15 [pca32]: member 0.178 share 0.68
+  r.5.3.1 @ a15 [dmean1]: member 0.024 share 0.09
+median share(r=32) 0.512; pca8>=0.4 count 4; monotone 10/10; repro True
+(a) median share(32) 0.512 >= 0.5: HELD
+(b) pca8 >= 0.4 for 4 >= 3: HELD
+(c) repro + monotone 10 >= 8: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/daslite_results.json (344s)
