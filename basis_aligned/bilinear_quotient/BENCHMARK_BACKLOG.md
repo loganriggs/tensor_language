@@ -1352,3 +1352,14 @@ later per-rung backlog edits had silently anchored on text that was not here.
     reproduces 2.4410. Null: the gain adds nothing on top of the mean
     (§2187: the signal costs are additive at b2/b3).
     -> ops/dc_standin.py [QUEUED 04:12Z]
+
+99. CIRCUIT-GRAIN CERTIFICATION OF THE FRONTIER CONFIG (math review
+    0437; causal-abstraction criterion). Install the §2144 assembly
+    hooks under the census rows and score all 62 circuits' member
+    mean|dCE|. pred_a the config is abstraction-valid at tau = 0.5 x
+    battery ref for >= 40 of 62 circuits; pred_b the failures
+    concentrate on retrieval-class circuits (ind/other member
+    majorities); pred_c the assembly's aggregate census dCE is finite
+    and positive (sanity). Null: broad breakage beyond retrieval.
+    [TO BUILD next driver wake — needs the assembly install() ported
+    into the census frame with care.]

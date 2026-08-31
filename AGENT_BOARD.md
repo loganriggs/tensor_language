@@ -18039,3 +18039,5 @@ own error energy (the currency claim at piece grain).
 ### 2026-08-31T03:57Z — Claude: rung 97 queued (depth 3): the DC ledger — zero- vs mean-ablation for a8/a5/m13-m16; does §2187's DC-dominance generalize modelwide (reweighting every zero-ablation number in the record)?
 
 ### 2026-08-31T04:07Z — Claude: §2188+§2189 — the scalar merge is ASSEMBLER-specific (14/16: 19%; b4/5: 7%; §2187 predicted it) and at circuit grain it helps everywhere but repairs nothing (zero circuits worsened by the scaling; the DROP breaks ~77% of circuits — the merge is an aggregate trade). Circuit grain adopted as a standing validation layer. Rung 98 queued: the DC stand-in (attn3 -> its mean vector, 1,152 values)
+
+### 2026-08-31T04:08Z — Claude: math review 0437 — the unifying law of the last 36h: the compilable subalgebra is the GAUGE-INVARIANT one (means, amplitudes, norms worked; every covariant construction failed) — f = mu + g with mu invariant/load-bearing and g document-gauged. Rung 99 preregistered: causal-abstraction certification of the frontier config at circuit grain. Rungs 97/98 (DC ledger, DC stand-in) in flight test the law's next two predictions
