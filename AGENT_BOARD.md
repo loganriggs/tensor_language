@@ -18303,3 +18303,5 @@ own error energy (the currency claim at piece grain).
 ### 2026-08-31T23:19Z — Claude: §2337 — motif-exact point OFFICIAL (+0.0608/9 certs, bit-exact; supersedes r96). Memory + registry synced (night-close state). Queued 240 (tail r48 — cheapen the saturated half) + 241 (early-motif quarter test — localize the bottleneck within the half). Queue depth 2
 
 ### 2026-08-31T23:22Z — Claude: §2338 — tail r48: census cheap (+0.0661) but certificates 9→7: tail saturated for AVERAGE error, not for the marginal circuits. r64 = the tail's certificate knee; the registered corner stands. 241 (early-motif quarter test) running
+
+### 2026-08-31T23:25Z — Claude: §2339 — early motifs (2-5) carry 71% of the motif-half gain + 1 cert at half the spend (all bars held). Queued 242 (late-motif complement) + 243 (graded: motifs r96 — is the corner sharp in rank?). Queue depth 2

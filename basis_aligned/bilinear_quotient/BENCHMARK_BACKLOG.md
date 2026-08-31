@@ -2799,3 +2799,15 @@ later per-rung backlog edits had silently anchored on text that was not here.
     0.075; pred_b valid >= 8; pred_c range + double inert. Null:
     spread evenly within the motif half.
     -> ops/motif_early.py [QUEUED 23:57Z]
+    RUN 2026-09-01, S2339: ALL HELD - early quarter (2-5) captures 71%
+    of the motif census gain + 1 of 2 certs at half the spend. Need
+    concentrates early. Late complement = 242; graded r96 = 243.
+
+242. Quarter test II: late motifs (6-9) exact only: pred_a census <=
+    0.080; pred_b valid >= 8; pred_c range + double inert. Null: late
+    motifs carry nothing distinct. -> ops/motif_late.py [QUEUED 00:12Z]
+
+243. Graded motif rank: motifs r96 + tail r64 (60.3M): pred_a census
+    <= 0.070; pred_b valid >= 8; pred_c range + double inert. Null:
+    motif certificates need exactness (corner sharp in rank).
+    -> ops/motif_r96.py [QUEUED 00:12Z]
