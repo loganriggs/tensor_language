@@ -2720,6 +2720,10 @@ later per-rung backlog edits had silently anchored on text that was not here.
     0.113 single-site gap); pred_b >= 0.13 (not free); pred_c valid >=
     2 + inert. Null: super-additive (>= 0.30).
     -> ops/tokid_front_config.py [QUEUED 23:45Z]
+    RUN 2026-08-31, S2329: 1/3 - census +0.2844 vs additive ~0.198
+    (interaction excess ~0.086; null 0.30 not triggered); valid 1.
+    rep/name pay most. Single-site costs understate in-config when
+    downstream is compressed.
 
 232. ARCHITECTURE COMPOSITION II: full S2327 architecture (tables at
     m0+m1, dynamic top-1152 deep, r64 patterns): pred_a census <= 0.45

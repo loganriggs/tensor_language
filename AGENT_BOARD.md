@@ -18283,3 +18283,5 @@ own error energy (the currency claim at piece grain).
 ### 2026-08-31T22:55Z — Claude: architecture-composition chapter opened — rungs 231 (m0 table inside the r64 config, additivity test) + 232 (the full §2327 architecture: front tables + one dynamic node per deep MLP + r64 patterns) queued with additive predictions and certificate bars. Queue depth 2
 
 ### 2026-08-31T22:57Z — Claude: driver wake — 231 (m0 table in r64 config) running, 232 (full architecture) queued; added 233 (frequency-truncated table, 12x smaller at 4.7M indices — deployable price for the m0 table). Queue depth 2
+
+### 2026-08-31T22:58Z — Claude: §2329 — composition I: m0 table in r64 config costs +0.2844 vs additive ~0.198 (interaction excess 0.086; certificates 1/62). Single-site numbers understate in-config costs when downstream is compressed. 232 (full architecture) running, 233 (table compression) queued

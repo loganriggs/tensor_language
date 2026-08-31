@@ -22,3 +22,22 @@ fit a17
   QK rank-64 factors built for tail blocks 10-17
   tail QK hooks registered (gated)
 L1 (+38 heads): C +0.5219 | fresh +0.4550
+  window 0 (7 docs): L2 fresh +0.2769
+  window 1 (42 docs): L2 fresh +0.2803
+  window 2 (17 docs): L2 fresh +0.2726
+  window 3 (23 docs): L2 fresh +0.3054
+  window 4 (43 docs): L2 fresh +0.2537
+  window 5 (26 docs): L2 fresh +0.3218
+  window 6 (35 docs): L2 fresh +0.2275
+  window 7 (35 docs): L2 fresh +0.2500
+L2 empirical: C +0.2736 | fresh +0.2855 | tail-attn increment -0.1695
+(a) L2 <= +2.75 fresh: HELD
+(b) increment in [0.30,0.55]: FAILED
+  per-class dCE: digit:+0.240 bclose:+0.110 newline:+0.128 sentend:+0.110 comma:+0.154 name:+0.397 rep:+0.362 subword:+0.297 ind:+0.163 other:+0.379
+  era Spearman vs rung-132: 0.4227 over 62
+  median member/ref ratio 1.697; tau-curve {'0.5': 1, '1.0': 11, '1.5': 24, '2.0': 42, '3.0': 54}
+L2 fresh +0.2855 (was +1.8765); census +0.2844 (was +1.9474); increment -0.1695; valid 1/62
+(a) census +0.2844 <= 0.22: FAILED
+(b) additive floor - census +0.2844 >= 0.13; margin 1.697: HELD
+(c) valid 1 >= 2; era rho 0.4227: FAILED
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/tokid_front_results.json (124s)
