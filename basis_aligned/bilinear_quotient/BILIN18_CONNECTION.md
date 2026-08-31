@@ -64870,3 +64870,18 @@ pred_a FAILED (1.20× vs ≥ 2×) | pred_b FAILED (0/62 vs ≥ 10).**
   intuitions — the front tables first, then motifs, then tail dictionaries, with the pruned middles nearly
   free. Every future construction carries a 2-minute certificate; the next chapter's obvious question is
   whether ANY table grammar for m0–m3 can pass one.
+
+## §2197 — CONFIG-DESCRIPTION CORRECTION to §2195/§2196 (no conclusion flipped yet; the physical control is registered as rung 104). Reading the code while designing the next rung: cfgF = build_arm(False) returns stack + ['tailE'] — the span-projected class dictionaries on ALL EIGHT tail MLPs (m10–m17) — and no SEL flag removes it. So rung 102's arm was NOT "tables + middles only" and rung 103's arm was NOT "tables only": both ALSO carried the tail-MLP span dictionaries.
+
+- **What changes:** §2195's and §2196's config labels, and §2196's family-attribution line "front tables ≈
+  +1.92" — which is, as measured, "front tables **+ tail-MLP span dicts** ≈ +1.92". The split between those
+  two ingredients is UNKNOWN as of this section.
+- **What does not change:** every 0/62 verdict (those are about the configs as run); §2192–§2194, whose config
+  descriptions ("the §2144 config", "skip-1416", "all-motifs-real with tail dictionaries in place") are
+  accurate — tailE is a defined part of those configs.
+- **Process:** per the §2135 rule, no attribution is corrected before an independent physical control. Rung 104
+  (queued) carries two: `ctrl_no_tailE` (cfgF minus tailE — the TRUE tables-only config) and `tailE_only`
+  (only the tail-MLP span dicts installed, everything else real). Its pred_a (agg(ctrl) ≥ 1.4) is exactly the
+  "§2196 survives" bar; if it FAILS, §2196's table gets a published correction citing this section.
+- How this was caught: not by a run but by the rung-design code read — the same channel that caught the §2189
+  inert-hook class. Config labels must be derived from install()'s active list, not from intent.

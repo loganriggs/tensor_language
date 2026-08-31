@@ -1450,3 +1450,19 @@ later per-rung backlog edits had silently anchored on text that was not here.
     the elephant, invisible because everything was measured above it.
     Family attribution: tables ~1.92 >> motifs ~0.36 > tail ~0.29 >>
     middles ~0.15. Certificate chapter closes (99-103; five 0/62s).
+104. Front prefix decomposition + tailE control (census certificates). Arms:
+    ctrl_no_tailE (cfgF minus tailE = TRUE tables-only), tailE_only, and six
+    cumulative front prefixes a0/m0E/a1v/m1/m2E/m3E. pred_a agg(ctrl) >= 1.4
+    (tables carry the bulk — guards S2196; FAIL => published correction);
+    pred_b max front marginal >= 0.5 x front-full; pred_c front-full in
+    [0.5, 2.2]. Null: damage spread AND tailE material. Tripwire: prefix
+    pstdev >= 0.01.
+    -> ops/frontier_front_prefix.py [QUEUED 05:04Z]
+
+105. Front error anatomy (repair-targeted diagnostic): E = replaced - real
+    module on the same input, full-front frame, 200 census rows; rel, dcfrac,
+    per-class rel per site. pred_a dcfrac <= 0.15 on >= 5/6 sites; pred_b at
+    max-rel site link {ind,other} rel >= 1.3 x const-class rel; pred_c all
+    rel in [0.02, 1.5]. Null: DC-contaminated and class-uniform. Tripwire:
+    max rel < 0.02 = inert.
+    -> ops/frontier_front_anatomy.py [QUEUED 05:04Z]
