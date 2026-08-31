@@ -1760,3 +1760,9 @@ later per-rung backlog edits had silently anchored on text that was not here.
     pred_c L2_F in [1.7, 2.6], increment in [0.2, 0.8]. Null: recovery
     <= 2.00 (trajectory target was the harm). Price: none.
     -> ops/frontier_mid_ctrl.py [QUEUED 09:30Z]
+
+132. Certificate rows for the standing frontier: exact rung-127 build,
+    62-circuit rows saved. pred_a |census - 1.9474| <= 0.015; pred_b
+    valid <= 5 (S2208 stagnation; FAILURE = news); pred_c |L2_F -
+    1.8765| <= 0.015, increment in [0.25, 0.40]. Price: none.
+    -> ops/frontier_rows.py [QUEUED 09:33Z]
