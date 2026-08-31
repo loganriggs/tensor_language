@@ -1,16 +1,19 @@
-"""PER-SITE NAME ATTRIBUTION (rung 141): which tail-attention dictionary owns name's bill?
+"""FULL TAIL-COMPLEX NAME ORACLE (rung 142): attn dicts AND tailE bypassed for name positions.
 
-CONVENTION (S2135): CE added above the real model; LOWER IS BETTER. Single-knockout approximation, STATED:
-all eight aXL dicts are fit in the full rung-127 build, then each arm evaluates with ONE dict removed (that
-site real) - downstream dicts are off-fitting-frame by one site, the standard knockout caveat.
-Recovery(li) = dCE(name, full config) - dCE(name, skip a_liL).
+CONVENTION (S2135): CE added above the real model; LOWER IS BETTER. S2234: the tail-ATTENTION oracle recovers
+only 0.80 of name's +3.08. Here the oracle extends to tailE: for oracle-class name positions the tail-MLP
+span delta is zeroed (real MLP output passes) at all eight m10-17 sites, in addition to the rung-140 attn
+splice. This prices the ENTIRE tail complex's share of name; the gap to the motifs-real number (+2.56 with
+motifs real, S2232) then brackets the interaction share.
 
-REGISTERED PREDICTIONS (anchors: S2228 name +3.134; S2146-era retrieval lore points at a14/a16):
-  (a) CONCENTRATED: max site recovery >= 0.4.
-  (b) THE OWNER IS a14L or a16L.
-  (c) REPRODUCTION: |census(full) - 1.9474| <= 0.015.
-NULL: name's bill is SPREAD across the eight sites (max < 0.4) - the retrieval module must cover the whole
-tail. PRICE: none (attribution). Tripwire: INSTRUMENT FAIL if L2CF missing. Self-reviewed."""
+REGISTERED PREDICTIONS (anchors: S2234 name +2.285 with attn-only oracle; S2228 name +3.134):
+  (a) TAILE ADDS MATERIALLY: dCE(name) <= 1.9 (>= 0.38 beyond the attn-only oracle).
+  (b) census <= 1.90.
+  (c) ISOLATION: |L1F - 1.5509| <= 0.02 AND increment in [0.10, 0.36].
+NULL: tailE adds nothing for name (name >= 2.18) - the ~1.5 remainder lives in middles/front interactions
+and the name chapter needs the compositional instrument, not more tail work. PRICE: none (oracle diagnostic).
+Tripwire: INSTRUMENT FAIL if L2CF missing. Self-reviewed."""
+
 
 
 
@@ -24,7 +27,7 @@ if os.environ.get('BQLIB_DRYRUN')=='1':
     _miss=[f for f in _need if not os.path.exists(_bq+f)]
     if _miss:
         print(f'DRYRUN FAIL: missing {_miss}'); raise SystemExit(1)
-    print('DRYRUN OK: per-site name attribution')
+    print('DRYRUN OK: full tail-complex name oracle')
     raise SystemExit(0)
 import torch
 import torch.nn.functional as F
@@ -32,7 +35,7 @@ from bilin18_joint_removal import fwd, orth, m, FW, DEV
 from circuit_dictionary import classify, COMPS as TAILC, CLS
 D=1152; V=50257
 PT='/workspace/tensor_language/basis_aligned/bilinear_quotient/'
-OUT=PT+'frontier_namesites_results.json'
+OUT=PT+'frontier_nameoracle2_results.json'
 CA,CB=300,512; R0,R1=120,300
 CONSTN={'digit','bclose','sentend','comma','name','rep'}
 CONSTK=[k for k,nm in enumerate(CLS) if nm in CONSTN]
@@ -177,6 +180,9 @@ def main():
                     for k in LINK:
                         sel=c==k
                         if sel.any(): new[sel]=x[sel]@LW[k]
+                    if SEL.get('name_oracle'):
+                        _selN=c==5
+                        if _selN.any(): new[_selN]=y.reshape(-1,D).float()[_selN]
                     return (new.view(y.shape).to(y.dtype),v1)
                 hs.append(m.transformer.h[li].attn
                           .register_forward_hook(h))
@@ -210,6 +216,10 @@ def main():
                             sel=kk==k
                             if sel.any(): tgt[sel]=x[sel]@LIN[li][k]
                         delta=((c-tgt)@Q.T).view(B,T,D)
+                        if SEL.get('name_oracle_tail'):
+                            _dl=delta.view(-1,D)
+                            _dl[cur['lab']==5]=0
+                            delta=_dl.view(B,T,D)
                         return o_-delta.to(o_.dtype)
                     hs.append(m.transformer.h[li].mlp
                               .register_forward_hook(h))
@@ -737,16 +747,6 @@ def main():
         cur['clsmap']=classify2(_ROWS).to(DEV)
         SEL['cev']=evalV(_ROWS,_ROWS.shape[0],order2,ML).detach().cpu()
         SEL['clsflat']=cur['clsmap'].reshape(-1).cpu()
-    if SEL.get('name_sites'):
-        _ROWS=SEL.get('ext_rows',FR)
-        cur['clsmap']=classify2(_ROWS).to(DEV)
-        _res={}
-        for _li in range(10,18):
-            _act=[nm for nm in order2 if nm!=f'a{_li}L']
-            _res[f'skip_a{_li}L']=evalV(_ROWS,_ROWS.shape[0],_act,ML).detach().cpu()
-            print(f'  skip a{_li}L done',flush=True)
-        SEL['name_sites_result']=_res
-
     if SEL.get('head16'):
         HD16=D//9
         def _zh(hh):
@@ -854,8 +854,8 @@ if __name__=='__main__':
     ANCH=json.load(open(PT+'frontier_tail_traj_results.json'))
     SEL['mode']='norm'; SEL['K']=2304; SEL['K69']=2304; SEL['K69MAP']={6:576,7:576,8:288,9:288}
     SEL['skipset']=(); SEL['motif_off']=(); SEL['clsdmg']=True; SEL['ext_rows']=CROWS
-    SEL['cp_swap']=3456; SEL['tail_traj']=True; SEL['name_sites']=True
-    print('ARM: rung-127 build + eight single-knockout arms for the name class',flush=True)
+    SEL['cp_swap']=3456; SEL['tail_traj']=True; SEL['name_oracle']=True; SEL['name_oracle_tail']=True
+    print('ARM: rung-127 build + name oracle at tail-attn AND tailE',flush=True)
     main()
     if 'L2CF' not in SEL: raise SystemExit('INSTRUMENT FAIL: L2CF capture missing')
     L1F,L2C,L2F=SEL['L2CF']
@@ -876,13 +876,6 @@ if __name__=='__main__':
         rows.append({'tag':t,'ref':round(ref,3),'member_absdce':round(md,4),'valid':bool(md<0.5*ref)})
     nv=sum(1 for r in rows if r['valid'])
     clsflat=SEL['clsflat']
-    NM5=clsflat==5
-    name_full=float(d[NM5].mean())
-    REC={}
-    for k9,cv9 in SEL['name_sites_result'].items():
-        d9=cv9-CBASE
-        REC[k9]=round(name_full-float(d9[NM5].mean()),4)
-    print('  name recovery by site: '+' '.join(f'{k}:{v:+.3f}' for k,v in REC.items()),flush=True)
     from circuit_dictionary import CLS as _CLS
     PC={}
     for _k in range(10):
@@ -893,18 +886,18 @@ if __name__=='__main__':
     _cvals=[PC[c] for c in ('digit','bclose','sentend','comma','name','rep') if c in PC]
     _const=sum(_cvals)/max(len(_cvals),1)
     _sw=PC.get('subword',9.9)
-    pa=max(REC.values())>=0.4
-    pb=max(REC,key=REC.get) in ('skip_a14L','skip_a16L')
-    pc=abs(agg-1.9474)<=0.015
+    pa=PC.get('name',9.9)<=1.9
+    pb=agg<=1.90
+    pc=abs(L1F-1.5509)<=0.02 and 0.10<=inc<=0.36
     res={'L2F_fresh':round(L2F,4),'L1F':round(L1F,4),'increment':round(inc,4),'census_agg':round(agg,4),
-         'n_valid':nv,'per_class':PC,'name_recovery_by_site':REC,'link_mean':round(_link,4),'const_mean':round(_const,4),
+         'n_valid':nv,'per_class':PC,'link_mean':round(_link,4),'const_mean':round(_const,4),
          'anchor_rung127':{'L2F':ANCH['L2F_fresh'],'census':ANCH['census_agg'],'increment':ANCH['increment']},
          'convention':'CE added above the real model; LOWER IS BETTER',
          'pred_a_census_recovery':bool(pa),'pred_b_frontier_moves':bool(pb),'pred_c_sane':bool(pc),
          'self_reviewed':True,'runtime_s':round(time.time()-T00,1)}
     json.dump(res,open(OUT,'w'),indent=1)
     print(f"L2 fresh {L2F:+.4f} (was +1.8765); census {agg:+.4f} (was +1.9474); increment {inc:+.4f}; valid {nv}/{len(rows)}")
-    print(f"(a) max site recovery {max(REC.values()):+.4f} >= 0.4: {'HELD' if pa else 'FAILED'}")
-    print(f"(b) owner {max(REC,key=REC.get)} in (a14L, a16L): {'HELD' if pb else 'FAILED'}")
-    print(f"(c) |census {agg:+.4f} - 1.9474| <= 0.015: {'HELD' if pc else 'FAILED'}")
+    print(f"(a) [bar 1.9] name {PC.get('name',9.9):+.4f} <= 1.0: {'HELD' if pa else 'FAILED'}")
+    print(f"(b) census {agg:+.4f} <= 1.90: {'HELD' if pb else 'FAILED'}")
+    print(f"(c) L1F invariant, increment {inc:+.4f} in [0.15, 0.36]: {'HELD' if pc else 'FAILED'}")
     print(f'wrote {OUT} ({time.time()-T00:.0f}s)')

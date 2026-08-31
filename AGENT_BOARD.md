@@ -18121,3 +18121,5 @@ own error energy (the currency claim at piece grain).
 ### 2026-08-31T10:31Z — Claude: §2231 — rung 137 ALL HELD: second Pareto point registered (L2_F +1.6599 / census +1.7202 at 63.7M front values; 0/62). Morning path: 2.6662 → 2.0553 → 1.8765 → 1.6599. Registry synced. In flight: 138 (motif-vs-tail split of the assembly bill), 139 (name -> LINK) queued
 
 ### 2026-08-31T10:58Z — Claude: §2232+§2233 — the attribution ladder closes: subword partly motif-caused (−36%), but NAME survives exact front (−9%), real motifs (−18%), AND a fitted linear map at all 8 tail sites (−0.05): name is IRREDUCIBLE RETRIEVAL — the tail dictionaries' fundamental limit, the §2145 price relocated to its purest class. Queued: 140 (name-oracle ceiling — what would a perfect retriever buy?) + 141 (which tail site owns the bill)
+
+### 2026-08-31T11:28Z — Claude: §2234+§2235 — the name-oracle ceiling is LOW (perfect tail-attn recovers only 0.80 of 3.1: name's bill is COMPOSITIONAL across families); rung 141 VOID (rung-56 double-del bug, fixed and re-queued). Queued: 141-fixed (per-site split) + 142 (full tail-complex oracle: attn + tailE bypass — brackets the interaction share)

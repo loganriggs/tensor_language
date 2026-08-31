@@ -65287,3 +65287,11 @@ VOID-AS-DESIGNED; corrected control = rung 133 (offline real-module targets, the
   name-class positions at tail attention. First, two measurements queued: rung 140 (the ORACLE ceiling —
   real attention output spliced in for name positions only: what would a perfect name-retriever buy?) and
   rung 141 (which tail site owns name's bill — single-knockout approximation, stated).
+
+## §2234 — RUNG 140: THE ORACLE CEILING IS LOW — even REAL attention output for every name position at all eight tail-dict sites leaves name at +2.285 (from +3.081; recovery 0.80 of a 3.1 bill). pred_a FAILED (bar 1.0), pred_b FAILED (census +1.9233 > 1.85), pred_c HELD. The registered null wins in its compositional form: name's damage is DISTRIBUTED — no single family owns it. The family shares now measured: front ≈ 0.27 (§2230), motifs ≈ 0.57 (§2232), tail-attn ≈ 0.80 (this rung, oracle-grade), remainder ≈ 1.5 in tailE/middles/interactions. A name-retrieval module at tail attention alone is NOT the fix. (Convention: CE added above the real model; lower is better.)
+
+`ops/frontier_nameoracle.py`, **128s**, BACKLOG rung 140.
+
+## §2235 — RUNG 141 VOID: the rung-56 bug class again — my inserted block deleted cur['clsmap'] that main's standard flow deletes a second time → KeyError AFTER all eight knockout arms had computed (results never written, run void). Instrument note re-filed: SEL-gated blocks inside main must NOT free main-managed state. Fixed in place (the block leaves clsmap for the standard del) and re-enqueued unchanged otherwise; predictions unchanged and unscored.
+
+`ops/frontier_namesites.py`, exit 1, BACKLOG rung 141 (re-queued 11:30Z).

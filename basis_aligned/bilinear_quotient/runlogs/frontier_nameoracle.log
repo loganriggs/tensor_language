@@ -1,0 +1,46 @@
+ARM: rung-127 build + name-oracle splice at all tail-attn sites
+a2-input probe acc 0.69
+fit a2
+fit a3
+fit a4
+fit a5
+fit a6
+fit a7
+fit a8
+fit a9
+fit a10
+fit a11
+fit a12
+fit a13
+fit a14
+fit a15
+fit a16
+fit a17
+  cp_swap: front MLPs m0-m3 -> CP top-3456 in place (tailE remains table-front-fit)
+L1 (+38 heads): C +1.4822 | fresh +1.5508
+  captured real-trajectory tail-attention targets
+fit a10L
+fit a11L
+fit a12L
+fit a13L
+fit a14L
+fit a15L
+fit a16L
+fit a17L
+  window 0 (7 docs): L2 fresh +1.8731
+  window 1 (42 docs): L2 fresh +2.1763
+  window 2 (17 docs): L2 fresh +2.2011
+  window 3 (23 docs): L2 fresh +2.2126
+  window 4 (43 docs): L2 fresh +2.4114
+  window 5 (26 docs): L2 fresh +2.0683
+  window 6 (35 docs): L2 fresh +1.9534
+  window 7 (35 docs): L2 fresh +1.9349
+L2 empirical: C +1.8766 | fresh +1.8731 | tail-attn increment +0.3223
+(a) L2 <= +2.75 fresh: HELD
+(b) increment in [0.30,0.55]: HELD
+  per-class dCE: digit:+1.251 bclose:+1.012 newline:+0.389 sentend:+0.339 comma:+0.285 name:+2.285 rep:+1.708 subword:+2.319 ind:+1.994 other:+2.116
+L2 fresh +1.8731 (was +1.8765); census +1.9233 (was +1.9474); increment +0.3223; valid 0/62
+(a) name +2.2848 <= 1.0: FAILED
+(b) census +1.9233 <= 1.85: FAILED
+(c) L1F invariant, increment +0.3223 in [0.15, 0.36]: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/frontier_nameoracle_results.json (128s)

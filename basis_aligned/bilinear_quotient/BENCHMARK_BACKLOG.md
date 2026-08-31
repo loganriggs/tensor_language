@@ -1865,9 +1865,23 @@ later per-rung backlog edits had silently anchored on text that was not here.
     invariant, increment in [0.15, 0.36]. Null: name's bill is in tailE/
     front interactions (oracle < 0.5). Price: none (oracle diagnostic).
     -> ops/frontier_nameoracle.py [QUEUED 11:00Z]
+    RUN 2026-08-31, S2234: pred_a/b FAILED, c HELD. Oracle recovers
+    only 0.80 of name's 3.1 - the bill is COMPOSITIONAL (front .27 /
+    motifs .57 / tail-attn .80 / remainder ~1.5). Tail-attn module
+    alone is not the fix.
 
 141. Per-site name attribution (single-knockout, caveat stated): eight
     skip-a_liL arms; recovery = name(full) - name(skip). pred_a max
     recovery >= 0.4; pred_b owner in {a14L, a16L}; pred_c census repro.
     Null: spread (module must cover the whole tail). Price: none.
     -> ops/frontier_namesites.py [QUEUED 11:00Z]
+    RUN 2026-08-31, S2235: VOID (rung-56 double-del of clsmap; crashed
+    after all arms, results unwritten). Fixed in place, re-queued
+    11:30Z; preds unchanged and unscored.
+
+142. Full tail-complex name oracle: rung-140 attn splice + tailE span-
+    delta zeroed for name positions at m10-17. pred_a name <= 1.9
+    (tailE adds >= 0.38); pred_b census <= 1.90; pred_c L1F invariant,
+    increment in [0.10, 0.36]. Null: tailE adds nothing for name (>=
+    2.18) - remainder is middles/front interactions. Price: none.
+    -> ops/frontier_nameoracle2.py [QUEUED 11:30Z]
