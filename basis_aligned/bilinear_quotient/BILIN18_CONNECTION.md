@@ -65637,3 +65637,15 @@ Phase-2 selection belongs to the next strategic review.
 ## §2278 — RUNG 180: THE VALUE MAP SATURATES AT RANK 8 — ALL THREE PREDS HELD. Rank-32 buys only 0.0074 more census (1.8950 → 1.8876) for 4× the values: the OV capacity is exhausted, and **the remaining ~0.50 of the motif ceiling is ATTENTION-PATTERN structural** — the fixed prev/self patterns, not the value maps, are what the motif grammar cannot express. The last structural lever is low-rank QK per motif head (weights-only SVD of each head's pattern form), queued next after module inspection. (Convention: CE added above the real model; lower is better.)
 
 `ops/motif_ovres32.py`, **128s**, BACKLOG rung 180.
+
+## §2279 — RUNG 181: RANK-8 PATTERNS ARE BELOW THE CRITICAL RANK — QK-8 motif heads are WORSE than the fixed α·v grammar (census +2.0577 vs the +1.8950 baseline; subword +2.789). pred_a/b FAILED, pred_c HELD. Alone this reads as the null ("irreducible below full QK") — rung 182 falsifies that reading within the hour. (Convention: CE added above the real model; lower is better.)
+
+`ops/motif_qkr.py`, **132s**, BACKLOG rung 181.
+
+## §2280 — RUNG 182: RANK 16 CROSSES THE THRESHOLD — ALL THREE PREDS HELD, SPECTACULARLY. QK-16 motif heads land census **+1.6507** (from +1.8950; the fixed-motif ceiling FALLS) with L2_F fresh +1.6428 (descriptive — better than BOTH registered Pareto points), at +6.23M values. The squared-attention pattern has a sharp critical rank between 8 and 16: r8 breaks it (+2.06), r16 beats every grammar tried. Class table transforms: sentend +0.049 and comma +0.055 (nearly free), rep 1.630 → 1.134, subword 2.197 → 2.011, name below 3.0 for the first time (2.985). The registered claim is rung 184 (queued). (Convention: CE added above the real model; lower is better.)
+
+`ops/motif_qkr16.py`, **133s**, BACKLOG rung 182.
+
+## §2281 — RUNG 183: THE TAIL AT RANK 8 CONFIRMS THE THRESHOLD FROM THE OTHER SIDE — QK-8 tail patterns lose to the trajectory dictionaries (census +2.0241 vs +1.8950; name +3.426). pred_a/b FAILED, pred_c HELD. Read with §2279/§2280: not "dictionaries stand" but "rank 8 is sub-critical everywhere" — the decisive tail test is rank 16, folded into rung 185 (the ALL-QK-16 consolidation: motif AND tail heads at rank 16, dictionaries retired — the uniform-grammar candidate). (Convention: CE added above the real model; lower is better.)
+
+`ops/qk_tail.py`, **120s**, BACKLOG rung 183.

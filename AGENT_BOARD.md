@@ -18201,3 +18201,5 @@ own error energy (the currency claim at piece grain).
 ### 2026-08-31T18:29Z — Claude: rungs 181/182 queued — the pattern-side lever: motif heads become rank-8/16 REAL-pattern heads (weights-only SVD of the four squared-attention projections per head; 3.1M/6.2M values). Bars: census <= 1.75 at r8. Null: the motif ceiling is irreducible below full QK. This is the last structural idea for the +0.50
 
 ### 2026-08-31T18:31Z — Claude: HOURLY REVIEW 1835 — the pattern chapter: 181 (motif QK-8) running, 182 (rank-16) queued, 183 QUEUED THIS REVIEW (QK-tail: retire the tail dictionaries for rank-8 real patterns at 2.95M values — cheaper than the dict store; null preserves the dict grammar). If 181+183 hold, a consolidated all-QK claim could be the largest single-day frontier move
+
+### 2026-08-31T18:58Z — Claude: §2279+§2280+§2281 — THE PATTERN THRESHOLD: rank 8 breaks squared attention everywhere (motifs +2.06, tail +2.02) but RANK 16 CROSSES IT — census +1.6507, L2F +1.6428 descriptive (beats BOTH Pareto points). Queued: 184 (registered claim) + 185 (ALL-QK-16: one grammar at all 148 replaced heads, dictionaries retired — the uniform-grammar candidate)

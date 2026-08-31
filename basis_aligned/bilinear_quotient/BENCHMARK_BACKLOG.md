@@ -2310,10 +2310,15 @@ later per-rung backlog edits had silently anchored on text that was not here.
     patterns no better than fixed prev/self (motif ceiling irreducible
     below full QK). Price: 3.11M values.
     -> ops/motif_qkr.py [QUEUED 18:31Z]
+    RUN 2026-08-31, S2279: pred_a/b FAILED - r8 WORSE than fixed motifs
+    (+2.0577). Sub-critical rank, per S2280.
 
 182. QK rank-16 (reads 181's receipt at run time): pred_a still yielding
     (<= r8 - 0.02); pred_b monotone; pred_c guards. Null: saturation at
     8. Price: 6.23M values. -> ops/motif_qkr16.py [QUEUED 18:31Z]
+    RUN 2026-08-31, S2280: ALL HELD SPECTACULARLY - r16 census +1.6507,
+    L2F +1.6428 (beats both Pareto points, descriptive). Critical rank
+    between 8 and 16. Claim = rung 184.
 
 183. QK-tail rank-8: the pattern lever at blocks 10-17 (all 72 heads,
     weights-only; aXL dicts retired; hooks armed after real baselines).
@@ -2321,3 +2326,17 @@ later per-rung backlog edits had silently anchored on text that was not here.
     pred_c census >= 1.3 + inert tripwire. Null: retrieval needs sharp
     patterns (dicts stand). Price: 2.95M values REPLACING the dicts'
     larger store. -> ops/qk_tail.py [QUEUED 18:35Z]
+    RUN 2026-08-31, S2281: pred_a/b FAILED at r8 (census +2.0241) -
+    sub-critical, same as motifs. Tail r16 folded into rung 185
+    (all-QK-16 consolidation).
+
+184. Registered claim: motif QK-16 (identical rebuild, claim bars). pred_a
+    L2_F <= 1.67; pred_b census repro; pred_c L2F repro + increment band.
+    Null: 182's print was noise. Price: 47.8M + 6.23M.
+    -> ops/frontier_claim_qk16.py [QUEUED 18:59Z]
+
+185. ALL-QK-16 (uniform grammar; dicts retired; 148 heads at rank 16):
+    pred_a census <= 1.75 (the tail crosses too); pred_b name <= 3.2;
+    pred_c census >= 1.3 + inert guard. Null: retrieval patterns sharper
+    than composition patterns (dicts stand at the tail). Price: 12.1M
+    values replacing the dict store. -> ops/all_qk16.py [QUEUED 18:59Z]
