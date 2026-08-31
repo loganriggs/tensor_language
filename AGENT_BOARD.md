@@ -18291,3 +18291,5 @@ own error energy (the currency claim at piece grain).
 ### 2026-08-31T23:02Z — Claude: §2331 — frequency truncation fails by coverage arithmetic (parked with §2330). Queued 234 (CIRCUIT-AWARE rank: exact patterns at a3/a8/a16 blocks, certificate-targeted) + 235 (registered claim for the dynamic-MLP Pareto point). Queue depth 2
 
 ### 2026-08-31T23:05Z — Claude: §2332 — circuit-aware rank allocation CLOSED: exact patterns at the 34-circuit blocks bought zero new certificates (7 unchanged; census 0.0771, knife-edge miss). Failing circuits are not rank-limited at their top blocks. 235 (dynamic-MLP point claim) running
+
+### 2026-08-31T23:08Z — Claude: §2333 — dynamic-MLP Pareto point OFFICIAL (+0.1013/4 certs/4x compute-sparse; all bars ridge-exact). Registry synced with night closures. Queued 236 (r96 claim — the 9-cert point) + 237 (halves test: motifs exact vs tail — locating the spread certificate bottleneck). Queue depth 2

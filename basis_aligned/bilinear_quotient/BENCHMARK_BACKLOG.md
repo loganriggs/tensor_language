@@ -2756,3 +2756,14 @@ later per-rung backlog edits had silently anchored on text that was not here.
 235. Registered claim: dynamic-MLP Pareto point (S2304 official):
     |census-0.1015|<=0.015; valid >= 4; |L2F-0.1018|<=0.015.
     -> ops/frontier_claim_topk.py [QUEUED 23:20Z]
+    RUN 2026-08-31, S2333: ALL HELD - dynamic-MLP point official
+    (+0.1013 / 4 certs / 4x compute-sparse MLPs).
+
+236. Registered claim r96 (the 9-certificate point): |census-0.0622|
+    <=0.015; valid >= 9; |L2F-0.0626|<=0.015.
+    -> ops/frontier_claim_qk96.py [QUEUED 23:33Z]
+
+237. HALVES TEST I: all motif blocks (2-9) exact, tail r64: pred_a
+    census <= 0.070; pred_b valid >= 8; pred_c range + double inert.
+    Null: bottleneck is tail-half (valid <= 7). Tail mirror = 238.
+    -> ops/motif_exact.py [QUEUED 23:33Z]
