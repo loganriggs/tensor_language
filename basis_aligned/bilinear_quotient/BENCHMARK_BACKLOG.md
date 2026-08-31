@@ -1091,3 +1091,9 @@ later per-rung backlog edits had silently anchored on text that was not here.
     pred_b d(all) >= max single (+0.1888); pred_c full reproduces
     §2144. Null: additive (~+0.741).
     -> ops/motif_joint.py [QUEUED 01:56Z]
+
+80. THE PRICE LEADER'S SIGNATURE (block-2 motif class+position map;
+    damage convention). §2169: block 2 leads the motif price (+0.189).
+    pred_a retrieval classes >= 0.60; pred_b early-concentrated (late
+    share <= 0.45); pred_c full reproduces §2144. Nulls: block-5-like.
+    -> ops/attn2_motif_class.py [QUEUED 02:10Z]
