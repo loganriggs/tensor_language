@@ -2066,6 +2066,9 @@ later per-rung backlog edits had silently anchored on text that was not here.
     pred_b a3 breadth >= 2/5; pred_c aggs in sane bands. Null: breadth 0
     (the deployed grammar is circuit-unfaithful bottom-up). Price: none.
     -> ops/motif_single.py [QUEUED 14:00Z]
+    RUN 2026-08-31, S2253: ALL HELD - motif grammar circuit-faithful
+    at own comps (a8 11/16, a3 5/5). Config 0/62 is compositional,
+    not grammar-intrinsic, for motifs.
 
 158. Deployed tail-dict grammar real-frame at a16 (fit_frame_real flag):
     a16L dictionary single-site, circuit rows. pred_a breadth >= 4/13;
@@ -2084,3 +2087,17 @@ later per-rung backlog edits had silently anchored on text that was not here.
     breadth >= 4/13; pred_b agg in [0.005, 0.10]; pred_c coverage >= 8.
     Null: breadth 0 (class-dict grammar unfaithful even in real frame).
     Price: none. -> ops/a16_single.py [QUEUED 14:05Z]
+    RUN 2026-08-31, S2254: pred_a FAILED (breadth 0/13 real-frame) -
+    the a16 class-dict grammar is intrinsically circuit-unfaithful.
+
+159. Minimality for ALL 62 (C1): cumulative top-1..4 necessity curves,
+    k* per circuit (repertoire column 1). pred_a median top-1 share <=
+    0.55; pred_b median 3-of-4 saturation >= 0.85; pred_c battery repro
+    in [0.8, 1.25]. Null: no saturation by 4 (greedy must extend).
+    ~40-60 min run. -> ops/minimality62.py [QUEUED 14:30Z]
+
+160. Interchange instrument (C2, the DAS foundation): member-permutation
+    activation swap at 10 circuits' interchange-top components; compare
+    to battery interchange refs. pred_a median ratio-to-iref >= 0.5;
+    pred_b selectivity >= 3; pred_c ratio in [0.5, 2.0]. Null: swap
+    protocol too weak. -> ops/interchange_inst.py [QUEUED 14:30Z]

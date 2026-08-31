@@ -65454,3 +65454,18 @@ VOID-AS-DESIGNED; corrected control = rung 133 (offline real-module targets, the
 ## §2252 — RUNG 156: THE GLOBAL h17 BIAS EXPLODES — census +3.0155 (from +1.9474): the registered null holds in its STRONGEST form. pred_a/b FAILED, pred_c HELD (L1F invariant — the harm is entirely the bias). One added vector (the train-half drift mean, applied everywhere) does +1.07 damage — worse per intervention than the per-circuit version (+0.19 at member positions only). The §2224/§2227 type system gains a confirmed clause: **additive real-frame statistics injected into a config-frame stream are illegal at ANY grain** — the final norm + head are co-adapted to the config's h17 distribution, and DC shifts break them. §2246's bias-leaning certificate statistic must be repaired through upstream fidelity, never through additive correction at the read-out. (Convention: CE added above the real model; lower is better.)
 
 `ops/frontier_globalbias.py`, **138s**, BACKLOG rung 156.
+
+## §2253 — RUNG 157: THE MOTIF GRAMMAR IS CIRCUIT-FAITHFUL AT ITS OWN COMPONENTS — ALL THREE PREDS HELD, decisively: single-site motif replacement keeps 11/16 of a8's circuits and 5/5 of a3's below half their refs (aggs +0.0138 / +0.0184). The deployed non-local grammar passes the operator's breadth criterion in the real frame — so the config's 0/62 is NOT because the motif grammar is intrinsically circuit-unfaithful; it is the COMPOSITION (drift into the motif reads) that kills circuits, consistent with §2243's corruption transit. (Convention: per-position dCE = CE(single-site motif, all else real) − CE(real model) on census rows; breadth on test-half members.)
+
+`ops/motif_single.py`, **110s**, BACKLOG rung 157.
+
+## §2254 — RUNG 158: THE a16 DICTIONARY IS INTRINSICALLY CIRCUIT-UNFAITHFUL — real-frame, single-site, everything else real: breadth 0/13 at agg +0.0090. pred_a FAILED (null wins), pred_b/c HELD. The class-dictionary grammar fails its own component's circuits even with zero upstream drift and near-zero aggregate cost — matching §2251's a16:clsdict 0/13 and isolating the failure to the GRAMMAR (probe + 10-class CV + LW buys nothing at circuit grain), not the frame. (Convention: as §2253.)
+
+`ops/a16_single.py`, **105s**, BACKLOG rung 158.
+
+- The simplification scoreboard at circuit grain now reads: **motifs PASS at a8/a3 (11/16, 5/5); m16:linear
+  PASSES (6/6); class-dictionaries FAIL everywhere (0/13 at a16 even real-frame); CP-2304 FAILS at m16;
+  position-local rungs FAIL at attention.** Faithful simplifications exist and are grammar-specific — the
+  operator's program has traction.
+
+## §2255 — PROGRAM DIRECTIVE (operator, 14:20Z): FINISH IN-FLIGHT WORK, THEN FOCUS ON CIRCUITS. The goals: (1) minimal component sets for ALL 62 circuits; (2) low-rank COUNTERFACTUAL circuits via DAS (Distributed Alignment Search, Geiger et al.) — learned small-rank subspaces whose interchange carries the circuit's causal variable; (3) a durable REPERTOIRE artifact (circuits/REPERTOIRE.json) accumulating per-circuit: members, refs, minimal sets, subspace ranks, transfer scores — the asset for downstream prediction/extraction/removal. Phasing registered: C1 = minimality for all 62 (rung 159, greedy necessity, queued); C2 = interchange instrument reproduction (rung 160, queued — the foundation DAS needs); C3 = DAS-lite (fixed candidate subspaces scored by interchange transfer); C4 = DAS proper (learned rank-r orthogonal subspaces by gradient on interchange loss).
