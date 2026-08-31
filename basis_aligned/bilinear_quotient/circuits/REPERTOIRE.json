@@ -19,7 +19,7 @@
  },
  "pending": {
   "das_learned": "rung 164 (v2, optimizer fixed)",
-  "ood_transfer": "designed, not yet queued"
+  "ood_transfer": "BLOCKED at leaf recomputation: census_state_diverse.pt stores precomputed leaves on fixed rows; census_lib has no builder; per-circuit OOD needs the upstream leaf taxonomy. Feasible fallback: component-grain OOD via the 10-class classify2 taxonomy (transfers to any text)."
  },
  "circuits": {
   "r.0.0": {
