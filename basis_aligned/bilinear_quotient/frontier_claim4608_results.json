@@ -1,0 +1,32 @@
+{
+ "L2F_fresh": 1.6599,
+ "L1F": 1.364,
+ "increment": 0.2958,
+ "census_agg": 1.7202,
+ "n_valid": 0,
+ "per_class": {
+  "digit": 1.0482,
+  "bclose": 0.8791,
+  "newline": 0.2383,
+  "sentend": 0.2801,
+  "comma": 0.2165,
+  "name": 2.8648,
+  "rep": 1.374,
+  "subword": 2.0049,
+  "ind": 1.7901,
+  "other": 1.8675
+ },
+ "link_mean": 1.8288,
+ "const_mean": 1.1104,
+ "anchor_rung127": {
+  "L2F": 1.8765,
+  "census": 1.9474,
+  "increment": 0.3256
+ },
+ "convention": "CE added above the real model; LOWER IS BETTER",
+ "pred_a_census_recovery": true,
+ "pred_b_frontier_moves": true,
+ "pred_c_sane": true,
+ "self_reviewed": true,
+ "runtime_s": 127.4
+}

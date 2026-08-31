@@ -1836,6 +1836,9 @@ later per-rung backlog edits had silently anchored on text that was not here.
     pred_c valid <= 5 (failure = news). Null: 136's print was noise.
     Price: front 63.7M values (second Pareto point; does not replace the
     47.8M S2221 line). -> ops/frontier_claim4608.py [QUEUED 10:30Z]
+    RUN 2026-08-31, S2231: ALL HELD - second Pareto point registered:
+    L2_F +1.6599 / census +1.7202 at 63.7M front values; 0/62. Path
+    today: 2.6662 -> 2.0553 -> 1.8765 -> 1.6599.
 
 138. Motifs-real class attribution: rung-127 build with attention 2-9
     REAL (tail dicts refit under it). pred_a name <= 1.8 (motif-caused);

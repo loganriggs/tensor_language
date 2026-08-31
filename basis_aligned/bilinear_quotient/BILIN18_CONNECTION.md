@@ -65263,3 +65263,14 @@ VOID-AS-DESIGNED; corrected control = rung 133 (offline real-module targets, the
   MOTIFS REAL (attention 2–9 real, tail dicts refit under it). If name/subword collapse there, the motif
   heads' α·v_prev/self approximation is the assembly killer (plausible: copying names needs real attention);
   if they persist, the tail dictionaries are the bill.
+
+## §2231 — RUNG 137: THE SECOND PARETO POINT IS REGISTERED — ALL THREE PREDS HELD. The exact-front config lands L2_F fresh +1.6599 / census +1.7202 (ridge-exact reproduction of rung 136's descriptive print), valid 0/62 (stagnation as registered). The program's quotable Pareto set is now TWO registered points: **{47.8M front values → +1.8765 fresh (§2221)} and {63.7M front values → +1.6599 fresh (this rung)}** — both dominated tables at 231.6M → +2.6662. (Convention: frontier L2 = CE added above the real model on the §312 fresh windows; LOWER IS BETTER.)
+
+`ops/frontier_claim4608.py`, **127s**, BACKLOG rung 137. **pred_a HELD (+1.6599 ≤ 1.70) | pred_b HELD
+(census exact) | pred_c HELD (0 ≤ 5).**
+
+- Family-bar note, recorded not hidden: the tail-attn increment here is +0.2958, just BELOW the historical
+  §312 band [0.30, 0.55] — the exact front leaves the tail dictionaries less residual work. The band was a
+  membership heuristic for table-front configs; the registered claim bars above are the operative ones.
+- The morning's full frontier path (fresh windows): 2.6662 → 2.0553 → 1.8765 → 1.6599 (the last at a stated
+  +15.9M value price over the 47.8M point; both points stand).
