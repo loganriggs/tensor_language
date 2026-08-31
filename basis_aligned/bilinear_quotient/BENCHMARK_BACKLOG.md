@@ -1169,3 +1169,19 @@ later per-rung backlog edits had silently anchored on text that was not here.
     carries >= 0.6 of d3's sum; pred_c full reproduces §2144. Null:
     division of assembly labor (low rho).
     -> ops/assembler_pair.py [QUEUED 02:08Z]
+
+    RUN 2026-08-31, §2179: ALL THREE HELD — rho +0.998 (near-identity;
+    tighter than the tail's 0.689). Replication is an architectural
+    motif: N=2 same-position pairs at both ends. Interaction signature
+    -> rung 86.
+
+86. IS THE FRONT PAIR ALSO MUTUAL BACKUP (interaction signature; damage
+    convention; sign derived pre-run per §2165: replicated backup =>
+    SUPER-additive joint removal). Base: §2144 config with blocks 2/3
+    motifs REAL; zero real attn2, attn3, both (bases excluded). Plus a
+    full arm for the §2144 repro. pred_a super-additive:
+    [L2_F(both) - base] >= 1.15 x ([z2 - base] + [z3 - base]); pred_b
+    same-position: binned rho(dz2, dz3) >= 0.5 on subword; pred_c the
+    full arm reproduces §2144 (2.6662 within 0.01). Null: additive
+    (independent functions despite identical coverage).
+    -> ops/assembler_backup.py [QUEUED 02:16Z]

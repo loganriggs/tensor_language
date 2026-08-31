@@ -64504,3 +64504,16 @@ pred_b (ind ρ +0.461 ≥ 0.3) | pred_c (2.6663 vs 2.6662).**
 - Every edge and node label in that diagram is a preregistered measurement from the last five hours; the two
   pipelines share m16 as their point of intersection (helper on one, brake on the other) — which retroactively
   explains why m16 resisted every simple interface (§2127, §2148): it sits on both.
+
+## §2179 — RUNG 85: THE ASSEMBLERS ARE A REPLICATED PAIR, ALMOST EXACTLY — binned Spearman(d2, d3) = +0.998 on subword positions (top-half share 1.058: the bottom half nets slightly negative). ALL THREE BARS HELD. Replication is an architectural MOTIF: N=2 same-position pairs at both ends of the model. (Convention: d = CE(full) − CE(block-b motifs real) on FR; positive = the replacement hurts there.)
+
+`ops/assembler_pair.py`, **338s**, BACKLOG rung 85. **ALL THREE HELD: pred_a (ρ +0.998 ≥ 0.5) | pred_b
+(1.058 ≥ 0.6) | pred_c (2.6662 exact).**
+
+- **ρ = 0.998 is near-identity:** blocks 2 and 3's replacement damages rank subword positions virtually
+  identically — a tighter pairing than the tail readers' 0.689. The model duplicates its subword assembler
+  (b2/b3) and its document reader (14/16); two independently-discovered N=2 ensembles.
+- **What makes the motif claim complete for the front:** same positions (here) is one of §2177's three
+  signatures; the interaction signature (mutual backup ⇒ super-additive joint removal, sign derived per §2165's
+  rule) is the registered next test → rung 86. If it holds, "bilin18 replicates its critical attention
+  functions in adjacent-block pairs" becomes a three-measurement architectural law at both sites.
