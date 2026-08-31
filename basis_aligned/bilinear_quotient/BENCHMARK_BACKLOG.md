@@ -2620,3 +2620,10 @@ later per-rung backlog edits had silently anchored on text that was not here.
     violations; pred_c 9-pt Spearman(diff) <= -0.5. Null: depth rules
     (Spearman(block) <= -0.8 while c fails).
     -> ops/basis_sweep.py [QUEUED 22:45Z]
+
+222. TOKEN-INDEXED SPARSITY at m0 (user directive: install sparsity as
+    a static selection tensor indexed by token id, derived from pure
+    embeddings — no runtime gate): pred_a TOKID <= 0.25 x STATIC;
+    pred_b <= 2 x ORACLE; pred_c ORACLE <= STATIC + non-inert. Null:
+    context dominates at block 0 (>= 0.8 x STATIC). Price: naive table
+    58M int16 indices. -> ops/tokid_sparsity.py [QUEUED 22:48Z]
