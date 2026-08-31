@@ -1684,6 +1684,9 @@ later per-rung backlog edits had silently anchored on text that was not here.
     pred_c census within 0.015 of 2.1358. Null: 2.0553 was noise (>= 2.60).
     Price: none new (front 47.8M vs 231.6M values).
     -> ops/frontier_claim.py [QUEUED 08:00Z]
+    RUN 2026-08-31, S2217: ALL THREE HELD - NEW FRONTIER L2_F fresh
+    +2.0553 (was 2.6662), increment in band, census repro to 0.0001.
+    Quotable line updated; 184M fewer values.
 
 124. Per-circuit damage matrix: four CP singles + quad, saving the 5x62
     member |dCE| rows + valid sets (survivor identity). pred_a monotone
@@ -1692,3 +1695,6 @@ later per-rung backlog edits had silently anchored on text that was not here.
     targets); pred_c quad agg within 0.015 of +0.8302. Null: site-
     specific damage / non-monotone. Price: none.
     -> ops/frontier_damage_matrix.py [QUEUED 08:00Z]
+    RUN 2026-08-31, S2218: ALL HELD (pred_a vacuous - quad survivors
+    empty). Median pairwise Spearman 0.961: the four sites damage the
+    SAME circuits; shared vulnerable subspace. 5x62 matrix saved.

@@ -1,0 +1,46 @@
+ARMS: four CP singles + quad, per-circuit damage rows saved
+a2-input probe acc 0.69
+fit a2
+fit a3
+fit a4
+fit a5
+fit a6
+fit a7
+fit a8
+fit a9
+fit a10
+fit a11
+fit a12
+fit a13
+fit a14
+fit a15
+fit a16
+fit a17
+L1 (+38 heads): C +1.3230 | fresh +1.7582
+  single cf0 done
+  single cf1 done
+  single cf2 done
+  single cf3 done
+  quad done
+  window 0 (7 docs): L2 fresh +1.7582
+  window 1 (42 docs): L2 fresh +1.8578
+  window 2 (17 docs): L2 fresh +1.5881
+  window 3 (23 docs): L2 fresh +1.6498
+  window 4 (43 docs): L2 fresh +1.8177
+  window 5 (26 docs): L2 fresh +1.6987
+  window 6 (35 docs): L2 fresh +1.5813
+  window 7 (35 docs): L2 fresh +1.7011
+L2 empirical: C +1.3230 | fresh +1.7582 | tail-attn increment +0.0000
+(a) L2 <= +2.75 fresh: HELD
+(b) increment in [0.30,0.55]: FAILED
+  single_cf0  agg +0.0647  valid 9/62
+  single_cf1  agg +0.0454  valid 12/62
+  single_cf2  agg +0.0504  valid 11/62
+  single_cf3  agg +0.0745  valid 8/62
+  quad        agg +0.8302  valid 0/62
+quad survivors: []
+pairwise spearman [0.966, 0.963, 0.959, 0.951, 0.957, 0.971]; median 0.961
+(a) monotone destruction: HELD
+(b) median rho 0.961 >= 0.7: HELD
+(c) |quad +0.8302 - +0.8302| <= 0.015: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/frontier_damage_matrix_results.json (134s)

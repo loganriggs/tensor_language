@@ -65136,3 +65136,24 @@ again, recorded like §2206's; the rule stands) | pred_b FAILED (0.1361 < 0.35×
   member of the frontier family, pending rung 123's registered claim.
 - Values economics: the config stores 47.8M front values vs 231.6M — cheaper by 184M AND (descriptively)
   ~0.6 better on fresh windows.
+
+## §2217 — RUNG 123: THE REGISTERED FRONTIER CLAIM HOLDS — ALL THREE PREDS HELD. The program has a NEW §312-FAMILY FRONTIER: the CP-front global config at L2_F fresh +2.0553 (previous frontier: the §2144 table-front config at +2.6662; LOWER IS BETTER — an 0.61-nat improvement), with the tail-attn increment +0.5045 inside the family band [0.30, 0.55] and the census aggregate reproducing to 0.0001. And it is CHEAPER: the front stores 47.8M values vs the tables' 231.6M. (Convention: frontier L2 = CE added above the real model on the §312 fresh windows; lower is better.)
+
+`ops/frontier_claim.py`, **125s**, BACKLOG rung 123. **pred_a HELD (+2.0553 ≤ 2.30) | pred_b HELD (+0.5045 ∈
+[0.30, 0.55]) | pred_c HELD (census +2.1359 vs +2.1358).**
+
+- **The quotable frontier is now: CP-3456 front + motif heads + §2144 CP middles + tail dictionaries =
+  L2_F fresh +2.0553** (census aggregate +2.1359, certificates 0/62 — the two-ledger split stands). The old
+  quotable line (§312 norm-2304 at +2.6735; §2144 best at +2.6662) is superseded on the aggregate ledger.
+- Determinism note: the rerun reproduced rung 122 to 0.0001 census and 0.0000 L2 — the build is ridge-exact;
+  the claim's null (noise) is dead.
+
+## §2218 — RUNG 124: THE DAMAGE MATRIX SAYS THE FOUR SITES HURT THE SAME CIRCUITS — median pairwise Spearman across the singles' 62-circuit damage profiles is 0.961 (bar 0.7). ALL THREE PREDS HELD — with pred_a's monotone-destruction clause holding VACUOUSLY (quad survivors = ∅, so "quad ⊆ singles" is empty-set-true; recorded, not celebrated). Combined with §2209 (the four drifts are ORTHOGONAL in state space), this is the direction chapter's founding fact: four orthogonal perturbations produce one shared circuit-damage profile — the certified circuits share a common vulnerable subspace. (Convention: per-position dCE = CE(config) − CE(real model) on the census rows; τ = 0.5×battery ref.)
+
+`ops/frontier_damage_matrix.py`, **134s**, BACKLOG rung 124. **pred_a HELD (vacuous) | pred_b HELD (0.961 ≥
+0.7; all six pairwise ρ ∈ [0.951, 0.971]) | pred_c HELD (quad +0.8302 exact).**
+
+- The 5×62 damage matrix is saved (frontier_damage_matrix_results.json) — the first artifact of the direction
+  chapter. Open questions it sets up: is the shared profile just "small-ref circuits are fragile"
+  (normalization test), and which mechanism downstream reads the common subspace (motif/tail decomposition —
+  rung 125).
