@@ -1129,3 +1129,17 @@ later per-rung backlog edits had silently anchored on text that was not here.
     damage is above-median (top-half carries >= 0.6); pred_c full
     reproduces §2144. Null: independent subword services.
     -> ops/front_m16_pipeline.py [QUEUED 02:50Z]
+
+    RUN 2026-08-31, §2176: ALL THREE HELD — rho +0.850, top-half 0.683:
+    the subword pipeline (b2 assembles, m16 finishes) is measured. Two
+    named pipelines now thread the model (subword; retrieval+brake).
+
+83. DO THE BACKUP READERS COVER THE SAME POSITIONS (ind-position
+    co-variation; damage convention). §2171: independent duplicates by
+    map non-transfer. Complementary question: per-position damage
+    profiles of z16 vs z14 on ind (arms: skip-1416 base / z16 / z14).
+    pred_a binned Spearman(d16, d14) >= 0.5 (same-position backup);
+    pred_b top-half of d16 carries >= 0.6 of d14's sum; pred_c base
+    reproduces §2156 (|delta| <= 0.005). Null: position PARTITION
+    (each covers different repeats; rho <= 0).
+    -> ops/backup_positions.py [QUEUED 02:55Z]

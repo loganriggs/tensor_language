@@ -64462,3 +64462,18 @@ exact) | pred_b FAILED (late-half 0.568 vs ≤ 0.45).**
   subword assemblers, b4/b5 = context mixers, 14/16 = document memory (backed-up ensemble, §2165/§2171).
 - The front chapter (rungs 73–81) closes with its maps complete: price (§2169), joint (§2173), signatures
   (§2167/§2174/here), laws (distance-flat §2168; position b5-early/b2-late §2170/§2174).
+
+## §2176 — RUNG 82: THE SUBWORD PIPELINE IS REAL — b2's replacement damage and m16's deletion help co-vary at binned Spearman +0.850 on subword positions, with the top half of b2-damage carrying 68.3% of m16's help. ALL THREE BARS HELD. The front assembles what m16 finishes. (Convention: b2 damage = CE(full) − CE(no2); m16 help = CE(m16 zeroed) − CE(full); subword positions on FR.)
+
+`ops/front_m16_pipeline.py`, **339s**, BACKLOG rung 82. **ALL THREE HELD: pred_a (ρ +0.850 ≥ 0.3) | pred_b
+(0.683 ≥ 0.6) | pred_c (2.6664 vs 2.6662).**
+
+- **The first measured cross-depth PIPELINE:** the positions where block 2's attention is hardest to replace are
+  the positions where m16 contributes most — fourteen blocks apart, one function: word assembly begins at b2/b3
+  (§2174/§2175) and is finished by m16 (§2159). The ρ = 0.85 is far above the bar; this is not a class-level
+  coincidence (the co-variation is WITHIN the subword class, position by position).
+- **The night's mechanistic picture completes:** two named pipelines thread the model — the SUBWORD pipeline
+  (b2/b3 attention → … → m16) and the RETRIEVAL chain (b4/b5 context → 14/16 backed-up document memory, with
+  m16 braking it in a routed way, §2166/§2172). Both were assembled entirely from preregistered attribution and
+  interaction measurements. What compilation now requires, per object: a subword-assembly primitive (front), a
+  per-document-bound memory read (tail), and the routed brake — the three named targets for the next cycle.
