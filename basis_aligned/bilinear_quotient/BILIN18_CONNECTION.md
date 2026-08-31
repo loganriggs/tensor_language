@@ -64554,3 +64554,22 @@ lesson) | pred_c HELD (base repro exact) | pred_b FAILED (−1.027 vs ≥ 0.8 ×
   and test whether the QUOTIENTED map transfers).
 - No pair merge is licensed; the replication law (§2177–§2180) stands as functional redundancy without
   coordinate shareability.
+
+## §2182 — RUNG 88: THE MIXERS ARE A SAME-POSITION PAIR TOO — binned ρ(d4, d5) = +0.949 on other positions (top-half share 0.867). ALL THREE BARS HELD; the pair census completes: every expensive attention function is an adjacent-block same-position duo. (Convention: d = CE(full) − CE(block-b motifs real) on FR; positive = the replacement hurts there. Instrument note: the run's print label says "subword" but the class variable was repointed to OTHER — n = 14,287 matches the other class; measurement correct, label cosmetic.)
+
+`ops/mixer_pair.py`, **338s**, BACKLOG rung 88. **ALL THREE HELD: pred_a (ρ +0.949 ≥ 0.5) | pred_b (0.867 ≥
+0.6) | pred_c (2.6662 exact).**
+
+```
+  pair census (same-position binned ρ):   b2/b3 0.998   |   b4/b5 0.949   |   14/16 0.689
+```
+
+- **The gradient-vs-copy null dies for position coverage:** despite b4 and b5's diverging class signatures
+  (§2174/§2167), they cover the same other-positions almost identically. Position coverage and class emphasis
+  DISSOCIATE — pairs share *where* they matter while differing in *what mixture* they serve there. The
+  same-position strength is graded by depth (0.998 → 0.949 → 0.689).
+- **Architecture statement, end of census:** bilin18 organizes its critical attention computation as three
+  adjacent-block duos (assemblers 2/3, mixers 4/5, readers 14/16), each pair covering shared positions, each
+  member computing in its own document-gauged coordinates (§2171/§2181), the tail pair with measured mutual
+  backup and the front pair with near-total mutual coverage (§2165/§2180). Rung 89 (running) decides whether
+  one shared latent map underlies each pair.

@@ -1216,6 +1216,11 @@ later per-rung backlog edits had silently anchored on text that was not here.
     pred_b top-half concentration >= 0.6; pred_c full reproduces §2144.
     Null: a depth GRADIENT, not a copy.
     -> ops/mixer_pair.py [QUEUED 02:28Z]
+    RUN 2026-08-31, §2182: ALL THREE HELD — rho +0.949 on other (label
+    in the print says subword; variable was repointed — cosmetic).
+    Census complete: three adjacent-block same-position duos (0.998 /
+    0.949 / 0.689, graded by depth); coverage and class emphasis
+    dissociate.
 
 89. THE GAUGE-QUOTIENT TEST (§2181's registered target). If per-doc
     maps W_d are conjugates of one shared M (document gauge), their
