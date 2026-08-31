@@ -64342,3 +64342,23 @@ evidence of a near peak — the profile is FLAT).**
 - Honest scoring note: pred_b's bar ("peak < 16") is met by a 105-position bin 0.03 above its neighbors; the
   registered wording is satisfied but the intended claim (a near-dominated profile) is NOT supported — recorded
   per the ill-posed-bar precedent (§2159) without voiding, since the flat profile answers the question anyway.
+
+## §2169 — RUNG 75: THE MOTIF PRICE IS FRONT-LOADED AT BLOCKS 2–4, NOT AT THE CLIFF — b2 +0.189, b3 +0.170, b4 +0.179 vs the cliff-adjacent b5's +0.065 and single-digit costs at b7–b9. pred_a HELD (concentrated, max ≥ 3× median), pred_b FAILED (argmax is block 2, not 5), pred_c HELD. The cliff and the price live at different blocks. (Convention: d(b) = L2_F(full) − L2_F(block-b motifs real) on FR; positive = that block's replacement costs damage.)
+
+`ops/motif_leave_one.py`, **999s, nine arms**, BACKLOG rung 75. **pred_a HELD (+0.1888 ≥ 2 × 0.0611) |
+pred_c HELD (2.6663 vs 2.6662) | pred_b FAILED.**
+
+```
+  block          2        3        4        5        6        7        8        9
+  d(b)        +0.1888  +0.1695  +0.1793  +0.0645  +0.0576  +0.0399  +0.0135  +0.0278
+```
+
+- **A clean dissociation:** §2113's price CLIFF (where stream error gets amplified) sits at attn5's write — but
+  the cost of REPLACING attention with motif dictionaries is 3× larger at blocks 2–4, where the early
+  context-mixing that everything downstream consumes is built. Amplification sensitivity and replacement
+  difficulty are different maps. The cheap motif blocks are 7–9 (+0.014–0.040 each).
+- **Accounting note (recorded, not scored):** the eight leave-one-real marginals sum to +0.741 — far more than
+  any plausible joint motif increment — so the motif lattice is strongly SUB-additive in the §2142 sense
+  (removing one replacement helps a lot only while the others are still broken); the joint all-motifs-real
+  number is not in this run and stays an open number for the front chapter.
+- Registry-relevant: motif rows at blocks 2–4 are the expensive coverage purchases; blocks 7–9 are nearly free.

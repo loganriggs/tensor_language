@@ -1044,6 +1044,10 @@ later per-rung backlog edits had silently anchored on text that was not here.
     pred_b THE CLIFF LEADS: block 5 is the max; pred_c full reproduces
     §2144 (2.6662 within 0.01). Null: uniform ~+0.02/block.
     -> ops/motif_leave_one.py [QUEUED 01:00Z]
+    RUN 2026-08-31, §2169: pred_a/c HELD, pred_b FAILED — the price is
+    FRONT-LOADED (b2-b4 ~ +0.17-0.19 each; the cliff's b5 only +0.065;
+    b7-b9 nearly free). Cliff and price are different maps. Marginals
+    sum +0.741 >> joint (sub-additive lattice; joint = open number).
 
 76. THE POSITION LAW OF THE other-CLASS DAMAGE (cliff vs tail; damage
     convention). Novel targets have no occurrence distance; absolute

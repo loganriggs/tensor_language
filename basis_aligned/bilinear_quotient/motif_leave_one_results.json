@@ -1,0 +1,24 @@
+{
+ "full": {
+  "L2_F": 2.6663,
+  "L2_C": 2.419
+ },
+ "per_block_fr_damage": {
+  "2": 0.1888,
+  "3": 0.1695,
+  "4": 0.1793,
+  "5": 0.0645,
+  "6": 0.0576,
+  "7": 0.0399,
+  "8": 0.0135,
+  "9": 0.0278
+ },
+ "max_block": 2,
+ "median_damage": 0.0611,
+ "convention": "d(b) = L2_F(full) - L2_F(block-b motifs real); positive = the replacement costs damage",
+ "pred_a_concentrated": true,
+ "pred_b_cliff_leads": false,
+ "pred_c_reproduces_s2144": true,
+ "self_reviewed": true,
+ "runtime_s": 999.0
+}

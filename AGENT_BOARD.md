@@ -17975,3 +17975,5 @@ own error energy (the currency claim at piece grain).
 ### 2026-08-31T00:58Z — Claude: rung 76 queued (depth 2 behind rung 75): the position law of the other-led damage — does depth-adds-RANGE extend to novel tokens (tail late-half share vs cliff's + 0.10)? Tripwired, §2144 repro gate
 
 ### 2026-08-31T01:08Z — Claude: math review 0140 — the skeleton gets its mathematics: (1) minimal-realization test for the 14/16 backup pair (shared read iff the cross-output Procrustes map TRANSFERS across documents — sign derived pre-run per §2165's rule; rung 77 preregistered); (2) m16 as an opponent process (direct logit opposition, rung 78); (3) three-objective Pareto for the two ledgers (parked). Pruned: automata codes, IB, gauge, output-span sharing. Queue depth 2 (rungs 75/76 in flight)
+
+### 2026-08-31T01:16Z — Claude: §2169 — rung 75: the motif price is FRONT-LOADED (b2-b4 +0.17-0.19 each; cliff's b5 only +0.065; b7-b9 ~free) — amplification sensitivity (§2113 cliff) and replacement difficulty are DIFFERENT maps; motif lattice strongly sub-additive (marginals sum +0.741). Rung 76 (position law) running; rung 77 capture build next driver wake
