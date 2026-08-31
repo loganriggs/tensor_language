@@ -1357,6 +1357,12 @@ later per-rung backlog edits had silently anchored on text that was not here.
     reproduces 2.4410. Null: the gain adds nothing on top of the mean
     (§2187: the signal costs are additive at b2/b3).
     -> ops/dc_standin.py [QUEUED 04:12Z]
+    RUN 2026-08-31, §2190: pred_b/c HELD — the DC stand-in costs only
+    +0.0466 at 1,152 values (beats the scalar merge and the drop); the
+    a2-gain adds nothing (alpha*=1.0 on window C; §2187 null holds).
+    pred_a's anchor FAILED: the mean is estimator-dependent (~0.02) —
+    broad-population means are better stand-ins; state the estimation
+    population henceforth.
 
 99. CIRCUIT-GRAIN CERTIFICATION OF THE FRONTIER CONFIG (math review
     0437; causal-abstraction criterion). Install the §2144 assembly

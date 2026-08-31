@@ -16,3 +16,190 @@ fit a14
 fit a15
 fit a16
 fit a17
+L1 (+38 heads): C +1.7714 | fresh +2.1027
+fit a10L
+fit a11L
+fit a12L
+fit a13L
+fit a14L
+fit a15L
+fit a16L
+fit a17L
+  window 0 (7 docs): L2 fresh +2.4411
+  window 1 (42 docs): L2 fresh +2.6620
+  window 2 (17 docs): L2 fresh +2.4264
+  window 3 (23 docs): L2 fresh +2.4884
+  window 4 (43 docs): L2 fresh +2.7082
+  window 5 (26 docs): L2 fresh +2.5084
+  window 6 (35 docs): L2 fresh +2.3803
+  window 7 (35 docs): L2 fresh +2.4270
+L2 empirical: C +2.1952 | fresh +2.4411 | tail-attn increment +0.3385
+(a) L2 <= +2.75 fresh: HELD
+(b) increment in [0.30,0.55]: HELD
+ARM mean3
+a2-input probe acc 0.69
+fit a2
+fit a3
+fit a4
+fit a5
+fit a6
+fit a7
+fit a8
+fit a9
+fit a10
+fit a11
+fit a12
+fit a13
+fit a14
+fit a15
+fit a16
+fit a17
+a3 ablated (mean) for this arm
+L1 (+38 heads): C +1.8605 | fresh +2.1087
+fit a10L
+fit a11L
+fit a12L
+fit a13L
+fit a14L
+fit a15L
+fit a16L
+fit a17L
+  window 0 (7 docs): L2 fresh +2.3664
+  window 1 (42 docs): L2 fresh +2.7037
+  window 2 (17 docs): L2 fresh +2.5308
+  window 3 (23 docs): L2 fresh +2.6139
+  window 4 (43 docs): L2 fresh +2.7072
+  window 5 (26 docs): L2 fresh +2.5715
+  window 6 (35 docs): L2 fresh +2.4420
+  window 7 (35 docs): L2 fresh +2.4479
+L2 empirical: C +2.3414 | fresh +2.4877 | tail-attn increment +0.3790
+(a) L2 <= +2.75 fresh: HELD
+(b) increment in [0.30,0.55]: HELD
+ARM mean3 + 1.1 x a2
+a2-input probe acc 0.69
+fit a2
+fit a3
+fit a4
+fit a5
+fit a6
+fit a7
+fit a8
+fit a9
+fit a10
+fit a11
+fit a12
+fit a13
+fit a14
+fit a15
+fit a16
+fit a17
+a3 ablated (mean) for this arm
+a2 ablated (mean) for this arm
+L1 (+38 heads): C +1.8606 | fresh +2.1044
+fit a10L
+fit a11L
+fit a12L
+fit a13L
+fit a14L
+fit a15L
+fit a16L
+fit a17L
+  window 0 (7 docs): L2 fresh +2.3811
+  window 1 (42 docs): L2 fresh +2.7119
+  window 2 (17 docs): L2 fresh +2.5317
+  window 3 (23 docs): L2 fresh +2.6188
+  window 4 (43 docs): L2 fresh +2.7225
+  window 5 (26 docs): L2 fresh +2.5806
+  window 6 (35 docs): L2 fresh +2.4479
+  window 7 (35 docs): L2 fresh +2.4568
+L2 empirical: C +2.3433 | fresh +2.4834 | tail-attn increment +0.3790
+(a) L2 <= +2.75 fresh: HELD
+(b) increment in [0.30,0.55]: HELD
+  alpha 1.1: L2_C +2.3433 | L2_F +2.4834
+ARM mean3 + 1.2 x a2
+a2-input probe acc 0.69
+fit a2
+fit a3
+fit a4
+fit a5
+fit a6
+fit a7
+fit a8
+fit a9
+fit a10
+fit a11
+fit a12
+fit a13
+fit a14
+fit a15
+fit a16
+fit a17
+a3 ablated (mean) for this arm
+a2 ablated (mean) for this arm
+L1 (+38 heads): C +1.8653 | fresh +2.1054
+fit a10L
+fit a11L
+fit a12L
+fit a13L
+fit a14L
+fit a15L
+fit a16L
+fit a17L
+  window 0 (7 docs): L2 fresh +2.3951
+  window 1 (42 docs): L2 fresh +2.7190
+  window 2 (17 docs): L2 fresh +2.5304
+  window 3 (23 docs): L2 fresh +2.6220
+  window 4 (43 docs): L2 fresh +2.7344
+  window 5 (26 docs): L2 fresh +2.5892
+  window 6 (35 docs): L2 fresh +2.4529
+  window 7 (35 docs): L2 fresh +2.4623
+L2 empirical: C +2.3504 | fresh +2.4858 | tail-attn increment +0.3804
+(a) L2 <= +2.75 fresh: HELD
+(b) increment in [0.30,0.55]: HELD
+  alpha 1.2: L2_C +2.3504 | L2_F +2.4858
+ARM mean3 + 1.3 x a2
+a2-input probe acc 0.69
+fit a2
+fit a3
+fit a4
+fit a5
+fit a6
+fit a7
+fit a8
+fit a9
+fit a10
+fit a11
+fit a12
+fit a13
+fit a14
+fit a15
+fit a16
+fit a17
+a3 ablated (mean) for this arm
+a2 ablated (mean) for this arm
+L1 (+38 heads): C +1.8735 | fresh +2.1116
+fit a10L
+fit a11L
+fit a12L
+fit a13L
+fit a14L
+fit a15L
+fit a16L
+fit a17L
+  window 0 (7 docs): L2 fresh +2.4077
+  window 1 (42 docs): L2 fresh +2.7238
+  window 2 (17 docs): L2 fresh +2.5341
+  window 3 (23 docs): L2 fresh +2.6263
+  window 4 (43 docs): L2 fresh +2.7457
+  window 5 (26 docs): L2 fresh +2.5983
+  window 6 (35 docs): L2 fresh +2.4645
+  window 7 (35 docs): L2 fresh +2.4683
+L2 empirical: C +2.3614 | fresh +2.4920 | tail-attn increment +0.3804
+(a) L2 <= +2.75 fresh: HELD
+(b) increment in [0.30,0.55]: HELD
+  alpha 1.3: L2_C +2.3614 | L2_F +2.4920
+mean3 d=+0.0466; + alpha*=1.0 -> d=+0.0466
+(a) mean3 +0.0466 vs +0.0655 (tol 0.01): FAILED
+(b) best +0.0466 <= +0.05: HELD
+(c) base 2.4411 vs 2.4410 (tol 0.01): HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/dc_standin_results.json (552s)

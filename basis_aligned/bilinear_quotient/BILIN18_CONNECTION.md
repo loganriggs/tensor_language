@@ -64716,3 +64716,25 @@ their battery reference under the merge).**
   member masks make it a 16-second check).
 - Next constructive step, licensed by §2187: replace attn3 with its MEAN VECTOR (1152 values) instead of zero —
   the DC term was ~72% of the drop's aggregate cost — with an optional small gain on attn2 → rung 98.
+
+## §2190 — RUNG 98: THE DC STAND-IN WINS — "attn3 = its mean vector" costs only +0.0466 (1,152 values), beating the scalar merge (+0.1065) and the raw drop (+0.2367); the a2-gain adds nothing on top (α* = 1.0 by the registered window-C selection — §2187's additive-signals null holds for the gain clause). pred_b/c HELD; pred_a's cross-run anchor FAILED for an instrument reason worth keeping. (Convention: damage on the motifs-2/3-real base; lower is better.)
+
+`ops/dc_standin.py`, **552s**, BACKLOG rung 98. **pred_b HELD (+0.0466 ≤ +0.05) | pred_c HELD (2.4411 exact) |
+pred_a FAILED (+0.0466 vs the §2187 anchor +0.0655, off by 0.019).**
+
+```
+  attn3 stand-in            price          damage       (the pair's rate curve)
+  full module               ~1.6M values   0
+  its MEAN vector           1,152 values   +0.0466   ← this rung
+  nothing + 1.45×attn2      1 value        +0.1065   (§2184)
+  nothing                   0              +0.2367   (§2180)
+```
+
+- **Why the anchor missed (recorded, not waved off):** §2187's mean was estimated from the FR evaluation
+  captures; this rung's was captured across the base arm's ENTIRE forward history (FW fits + FR + windows) — a
+  broader-population mean, and a measurably BETTER stand-in (+0.0466 vs +0.0655). The "DC term" is estimator-
+  dependent at the 0.02 level; future mean stand-ins should state their estimation population.
+- **The invariant law's second confirmation in substance:** a purely gauge-invariant object (a single mean
+  vector) replaces a twin at a fifth of the knockout cost. Descriptive note kept honestly: on FR alone the
+  1.1× arm scored +0.0423, but the registered selection (window C) chose α = 1.0 — the FR number is recorded,
+  not selected on.
