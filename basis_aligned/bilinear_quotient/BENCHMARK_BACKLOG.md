@@ -2884,6 +2884,11 @@ later per-rung backlog edits had silently anchored on text that was not here.
     (cliff mass is literally the last 8); pred_b valid >= 15; pred_c
     range + double inert. Null: 97-128 band matters jointly (>= 0.045).
     -> ops/tail_last8.py [QUEUED 00:14Z]
+    RUN 2026-09-01, S2351: 1/3, NULL WINS - hybrid 0.0539 (vs ~0.01
+    additive prediction). Damages of disjoint fine-band subsets overlap
+    (~0.05 each): binary in rank deficiency; one shared cancellation
+    mechanism. S2348/S2349 attribution corrected (numbers stand).
+    Mixed spectrum dead; ceiling stands at 0.0553/11.
 
 253. ALL-MIXED spectrum: top-96 + last-8 at every head incl motifs
     (52.9M, cheaper than economical): pred_a census <= 0.030 (motif
