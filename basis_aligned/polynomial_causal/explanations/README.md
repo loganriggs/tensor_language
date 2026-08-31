@@ -7,6 +7,7 @@ primary evidence.
 
 ## Start here
 
+- [`explanation_0100.md`](explanation_0100.md) — 2026-08-31 01:00: the measured skeleton of the retrieval system (backup readers at 14/16, the general suppressor m16, four defeated theories, the cross-depth range law)
 - [`explanation_2335.md`](explanation_2335.md) — 2026-08-30 23:35: the block-16 arc, the two ledgers (coverage vs price), and the discovery that the whole tail price is an in-document-retrieval price (§2136–§2157)
 - [`explanation_1955.md`](explanation_1955.md) — 2026-08-30 19:55 update **with a glossary of terms**: the §2128 sign-inversion correction, the certified conditioned frontier (+2.7707 fresh, §2129), closed negatives (§2126/§2127)
 - [`explanation_1835.md`](explanation_1835.md) — the observability arc end to end: how error is priced

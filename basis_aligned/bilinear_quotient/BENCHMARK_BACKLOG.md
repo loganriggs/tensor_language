@@ -1030,3 +1030,17 @@ later per-rung backlog edits had silently anchored on text that was not here.
     profile as the tail (no depth separation). If pred_a/b hold, the
     model divides retrieval by DEPTH — the first cross-depth
     architectural law. -> ops/attn5_motif_distance.py [QUEUED]
+
+    RUN 2026-08-31, §2168: pred_c HELD, pred_a FAILED (56.5%), pred_b
+    held on a weak 2^0 bin (flagged). The profile is FLAT — the front
+    pays uniformly at every distance; the tail rises. Law: depth adds
+    RANGE (generic context-mixing in front, document-scale read at
+    14/16).
+
+75. WHICH BLOCKS CARRY THE MOTIF PRICE (leave-one-real sweep; damage
+    convention). §2167: block 5's motif replacement costs ~+0.064 FR.
+    Sweep motif_off=(b,) for b in 2..9 (nine arms incl. full).
+    pred_a CONCENTRATION: max-block FR damage >= 2 x median-block;
+    pred_b THE CLIFF LEADS: block 5 is the max; pred_c full reproduces
+    §2144 (2.6662 within 0.01). Null: uniform ~+0.02/block.
+    -> ops/motif_leave_one.py [QUEUED 01:00Z]

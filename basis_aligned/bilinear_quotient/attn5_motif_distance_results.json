@@ -1,0 +1,83 @@
+{
+ "full": {
+  "L1_F": 2.3208,
+  "L2_C": 2.4191,
+  "L2_F": 2.6662,
+  "increment": 0.3454,
+  "orig_s312_a": true,
+  "orig_s312_b": true,
+  "fresh8": [
+   2.6662,
+   2.9357,
+   2.6124,
+   2.8499,
+   2.9139,
+   2.7955,
+   2.5819,
+   2.664
+  ],
+  "runtime_s": 113.12243366241455
+ },
+ "block5_motifs_real": {
+  "L1_F": 2.272,
+  "L2_C": 2.3692,
+  "L2_F": 2.6018,
+  "increment": 0.3298,
+  "orig_s312_a": true,
+  "orig_s312_b": true,
+  "fresh8": [
+   2.6018,
+   2.8873,
+   2.5384,
+   2.8074,
+   2.839,
+   2.7324,
+   2.5353,
+   2.6068
+  ],
+  "runtime_s": 112.19121170043945
+ },
+ "sum_near32": 360.4,
+ "sum_all_ind": 637.5,
+ "bins_log2": {
+  "0": {
+   "n": 105,
+   "mean": 0.10616
+  },
+  "1": {
+   "n": 479,
+   "mean": 0.05679
+  },
+  "2": {
+   "n": 829,
+   "mean": 0.06789
+  },
+  "3": {
+   "n": 1624,
+   "mean": 0.07806
+  },
+  "4": {
+   "n": 2051,
+   "mean": 0.06483
+  },
+  "5": {
+   "n": 1959,
+   "mean": 0.07125
+  },
+  "6": {
+   "n": 1433,
+   "mean": 0.08098
+  },
+  "7": {
+   "n": 509,
+   "mean": 0.05401
+  }
+ },
+ "peak_bin_log2": 0,
+ "convention": "per-position CE(full) - CE(block-5 motifs real) on FR; positive = the replacement hurts there",
+ "pred_a_near_carries": false,
+ "pred_b_peak_near": true,
+ "pred_c_reproduces_s2144": true,
+ "self_reviewed": true,
+ "runtime_s": 225.4
+}

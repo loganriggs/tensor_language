@@ -64321,3 +64321,24 @@ this base) | pred_c HELD (|Δ| 0.0001) | pred_b FAILED (B − A = −274.8 vs �
   registered follow-up: if the front's ind damage is near-dominated where the tail's rose to 32–64, the model
   divides retrieval by DEPTH (front = short-range, tail = long-range), which would be the program's first
   cross-depth architectural law → rung 74.
+
+## §2168 — RUNG 74: THE CLIFF'S RETRIEVAL DAMAGE IS DISTANCE-FLAT — means +0.05…+0.11 across all bins with no trend, where the tail ROSE to a 32–64 peak. pred_a FAILED (near-32 = 56.5%), pred_b technically HELD on a weak 2^0 peak (n=105, barely above the rest — flagged), pred_c HELD. The depth law that IS supported: the tail specializes in long range; the front pays uniformly at every distance. (Convention: per-position CE(full) − CE(block-5 motifs real) on FR; positive = the replacement hurts there.)
+
+`ops/attn5_motif_distance.py`, **225s**, BACKLOG rung 74. **pred_c HELD (2.6662 exact) | pred_a FAILED (360.4 of
+637.5 = 56.5% vs ≥ 60%) | pred_b HELD-BUT-WEAK (max bin 2^0, mean +0.106 vs neighbors +0.05–0.08; flagged as not
+evidence of a near peak — the profile is FLAT).**
+
+```
+  log2-distance bin        1       2–3     4–7     8–15    16–31   32–63   64–127  128–255
+  cliff (block-5 motifs) +0.106  +0.057  +0.068  +0.078  +0.065  +0.071  +0.081  +0.054   ← flat
+  tail (a16L, §2162)     +0.133  +0.108  +0.134  +0.242  +0.309  +0.366  +0.310  +0.267   ← rising
+```
+
+- **The cross-depth comparison completes, and the law is asymmetric:** the front's retrieval-class damage is
+  distance-INDEPENDENT (its fixed-pattern heads fail uniformly wherever context is consulted), while the tail's
+  is distance-INCREASING (its heads are the long-range specialists). Not the registered "front = short-range"
+  division — something cleaner: depth adds RANGE. Front context-mixing is generic; blocks 14/16 add the
+  document-scale read (backed up, m16-moderated, §2165/§2166).
+- Honest scoring note: pred_b's bar ("peak < 16") is met by a 105-position bin 0.03 above its neighbors; the
+  registered wording is satisfied but the intended claim (a near-dominated profile) is NOT supported — recorded
+  per the ill-posed-bar precedent (§2159) without voiding, since the flat profile answers the question anyway.
