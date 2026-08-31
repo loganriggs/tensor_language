@@ -1603,6 +1603,9 @@ later per-rung backlog edits had silently anchored on text that was not here.
     0.05 of +0.9427. Null: error lives in unit activations, not the
     readout. Price: none (Down swap + D-bias/site).
     -> ops/frontier_cp_seqfit.py [QUEUED 06:59Z]
+    RUN 2026-08-31, S2210: pred_a FAILED by 0.016 (seq_traj 0.467x vs
+    bar 0.45x), pred_b FAILED (1/62), pred_c HELD. traj > frame target;
+    Pareto win on aggregate (matches all-2304 at 0 extra values).
 
 117. Attention-splice mechanism test: a2/a3 fed REAL position-aligned
     input streams (symmetric pre-hook capture, rung-92 lesson), rest =
@@ -1611,3 +1614,17 @@ later per-rung backlog edits had silently anchored on text that was not here.
     attention is a bystander (residual stream transmits the drift).
     Price: none (mechanism test). Tripwire: bitwise-equal arms.
     -> ops/frontier_attn_splice.py [QUEUED 06:59Z]
+    RUN 2026-08-31, S2211: pred_a/b FAILED, pred_c HELD. Splice removes
+    31% - attention is a partial conduit; residual stream carries the
+    majority. Neither mediator nor bystander bar held.
+
+
+118. Pairwise interaction expansion (order-2 composition calculus; math
+    review 0707): arms = six pairs {cf_i,cf_j} alone + quad {cf0..cf3}
+    alone, mixed Ks; J_ij = agg(pair) - single_i - single_j (singles from
+    rung 109-111 receipts). pred_a |excess(quad) - sum J_ij| <= 0.25 x
+    excess(quad) (order-2 suffices -> predict-before-run for all 2^4
+    subsets); pred_b J_23 = max and >= 0.35 x sum J (ladder shape);
+    pred_c every pair agg in [max single - 0.015, quad + 0.015], quad in
+    [0.7, 1.1]. Null: >= 3-way terms dominate; pair calculus dies.
+    Price: none. -> ops/frontier_cp_pairs.py [QUEUED 07:10Z]

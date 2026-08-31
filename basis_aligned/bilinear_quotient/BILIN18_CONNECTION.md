@@ -65065,3 +65065,22 @@ construction). Scored as written.**
   (§2207) must come from downstream modules READING the drifted directions — mechanism test = rung 117
   (attention splice), repair test = rung 116 (sequential-conditioning refit, the tables' 1.29× regime), both
   queued.
+
+## §2210 — RUNG 116: SEQUENTIAL CONDITIONING HALVES THE COMPOUNDING BUT MISSES ITS BAR BY 0.016 — seq_traj +0.4367 vs plain +0.9342 (ratio 0.467, bar 0.45); trajectory-teaching beats in-frame conditioning (+0.5582); certificates unmoved at 1/62. pred_a FAILED (narrowly), pred_b FAILED, pred_c HELD. (Convention: per-position dCE = CE(config) − CE(real model) on the census TEST half; lower is better.)
+
+`ops/frontier_cp_seqfit.py`, **123s**, BACKLOG rung 116. **pred_a FAILED (+0.4367 > +0.4204) | pred_b FAILED
+(1 < 5) | pred_c HELD (seq_frame +0.5582 ≤ plain; plain +0.9342 within 0.05 of +0.9427).**
+
+- Notable economics even in failure: seq_traj reaches all-2304's aggregate (+0.4367 vs +0.4887) at ZERO extra
+  stored values (21.9M vs 31.9M) — a strict Pareto improvement on the aggregate ledger. The direction problem
+  is untouched: validity stays 1/62 under every repair tried.
+
+## §2211 — RUNG 117: ATTENTION IS A PARTIAL CONDUIT, NOT THE MEDIATOR — feeding a2/a3 their real input streams removes only 31% of the CP-front damage (+0.9427 → +0.6526, bar was ≤ 60%); validity stays 0/62. NEITHER registered outcome held cleanly: not mediator (≥ 40% removed), not bystander (≤ 10%). The residual stream itself carries the majority of the drifted-direction damage. pred_a/b FAILED, pred_c HELD. (Convention: per-position dCE = CE(config) − CE(real model) on the census rows; lower is better; the splice is a mechanism probe, not a deployable replacement.)
+
+`ops/frontier_attn_splice.py`, **119s**, BACKLOG rung 117. **pred_a FAILED (+0.6526 > +0.5656) | pred_b
+FAILED (0 < 3) | pred_c HELD (plain reproduces +0.9427 exactly).**
+
+- Repair scoreboard for the mixed-K CP front (aggregate / valid): plain +0.943/0 → attention-splice +0.653/0
+  (not deployable) → seq_traj +0.437/1 → all-3456 +0.119/2. Aggregate keeps yielding; the certificate ledger
+  has not moved past 2/62 for ANY multi-site config. Direction-preserving repair is still unformalized — the
+  07:07 math review takes exactly that up (order-2 composition calculus, rung 118).
