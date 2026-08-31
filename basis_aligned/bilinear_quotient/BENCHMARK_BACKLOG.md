@@ -2035,6 +2035,8 @@ later per-rung backlog edits had silently anchored on text that was not here.
     top123/top1 <= 1.5; pred_c battery repro in [0.67, 1.5]. Null:
     share < 0.5 (genuinely multi-component). Price: none.
     -> ops/minimality_v1.py [QUEUED 13:35Z]
+    RUN 2026-08-31, S2250: null CONFIRMED (top-1 share 0.464; top-3
+    doubles damage). Circuits are multi-component on shared substrate.
 
 155. Simplification ladder x circuits (operator's program): a8/a16/m16
     x {mean, linear, clsdict, +CP-2304 at m16}, all GLOBAL fits (train
@@ -2044,6 +2046,10 @@ later per-rung backlog edits had silently anchored on text that was not here.
     1.25]. Null: breadth < 3 (irreducibly complex at circuit grain).
     Prices: linear 1.33M, clsdict 11.5k, CP 7.96M values.
     -> ops/ladder_matrix.py [QUEUED 13:40Z]
+    RUN 2026-08-31, S2251: pred_a/b FAILED, c HELD - but m16:LINEAR is
+    the FIRST breadth pass (6/6 own circuits, +0.0286 agg, 1.33M
+    values); attention comps fail all position-local rungs; cp2304 at
+    m16 fails (0/6). Non-local rungs -> 157/158.
 
 156. Global h17 bias (the legitimate "optimal bias on all data"): ONE
     drift-mean vector (1,152 values), train-half fit. pred_a |census -
@@ -2051,3 +2057,24 @@ later per-rung backlog edits had silently anchored on text that was not here.
     the per-circuit version added +0.19); pred_c guards. Null: even the
     global bias hurts. Inertness tripwire waived (near-null IS pred_a).
     -> ops/frontier_globalbias.py [QUEUED 13:40Z]
+    RUN 2026-08-31, S2252: null in strongest form - global bias
+    EXPLODES (+3.0155). Additive real-frame stats into config streams
+    illegal at any grain; h17 bias branch CLOSED.
+
+157. Deployed motif grammar circuit-scored at its own components: motif@8
+    and motif@3 single-site (all else real). pred_a a8 breadth >= 4/16;
+    pred_b a3 breadth >= 2/5; pred_c aggs in sane bands. Null: breadth 0
+    (the deployed grammar is circuit-unfaithful bottom-up). Price: none.
+    -> ops/motif_single.py [QUEUED 14:00Z]
+
+158. Deployed tail-dict grammar real-frame at a16 (fit_frame_real flag):
+    a16L dictionary single-site, circuit rows. pred_a breadth >= 4/13;
+    pred_b agg in [0.005, 0.10]; pred_c coverage >= 8. Null: breadth 0
+    (class-dict grammar unfaithful even in real frame). Price: none.
+    -> ops/a16_single.py [QUEUED 14:00Z]
+
+157. Deployed motif grammar circuit-scored at its own components: motif@8
+    and motif@3 single-site (all else real). pred_a a8 breadth >= 4/16;
+    pred_b a3 breadth >= 2/5; pred_c aggs in sane bands. Null: breadth 0
+    (the deployed grammar is circuit-unfaithful bottom-up). Price: none.
+    -> ops/motif_single.py [QUEUED 14:00Z]

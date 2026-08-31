@@ -65423,3 +65423,34 @@ VOID-AS-DESIGNED; corrected control = rung 133 (offline real-module targets, the
   "optimal bias on all data" at a component (the §2190 DC stand-in, now rung 156 at h17), and (ii) global
   graded simplifications per component scored for BREADTH across circuits (rung 155 — the simplification-
   ladder × circuits matrix, with "preserves many circuits" as the registered faithfulness criterion).
+
+## §2250 — RUNG 154: NON-MINIMALITY CONFIRMED — the registered null wins: median top-1 share of the top-3 knockout damage is 0.464 (bar 0.7), and adding the 2nd+3rd components DOUBLES member damage (median top123/top1 = 2.160, bar 1.5). pred_a/b FAILED, pred_c HELD (battery repro 1.000). The circuits are multi-component mechanisms: the a16-family runs deep (top-1 shares 0.29–0.32), singletons shallower (0.45–0.76). With §2248's weak selectivity: the picture is OVERLAPPING MULTI-COMPONENT CIRCUITS ON A SHARED SUBSTRATE — the operator's concern, now measured twice. (Convention: per-position dCE = CE(joint mean-ablation) − CE(real model) on the census rows.)
+
+`ops/minimality_v1.py`, **170s**, BACKLOG rung 154.
+
+## §2251 — RUNG 155: THE FIRST BREADTH-PASSING SIMPLIFICATION — AND A CLEAN SPLIT BY COMPONENT TYPE. pred_a/b FAILED as registered (a8 breadth 0/16 — the null "irreducibly complex" wins AT THE ATTENTION COMPONENTS), pred_c HELD (153-protocol repro 1.000). But the full matrix holds the finding of the day, extracted post-hoc from the saved receipt (CPU, no new run):
+
+```
+  own-circuit breadth (test-half members, < 0.5 x ref):
+  a8:  mean 0/16  linear 0/16  clsdict 0/16          (position-local rungs ALL fail)
+  a16: mean 0/13  linear 0/13  clsdict 0/13          (same)
+  m16: mean 0/6   LINEAR 6/6   clsdict 0/6  cp2304 0/6   <- the first PASS in program history
+```
+
+- **m16:linear is the first simplification ever to satisfy the operator's faithfulness criterion** — a single
+  global affine map (1.33M values, fit on all-data train half, no circuit conditioning) keeps ALL SIX of
+  m16's own circuits below half their refs, at +0.0286 aggregate. m16 is the DC-heavy cliff component
+  (§2191: DC share 0.83) — a component whose circuit-relevant computation is genuinely affine. Note
+  m16:cp2304 FAILS breadth (0/6) at agg +0.7275 — the model's own pruned units are WORSE than a linear fit
+  here (§2127's m16 lore, now at circuit grain).
+- The attention components fail every POSITION-LOCAL rung — fairly: attention's work is non-local, and no
+  function of the same-position stream can do it. The fair ladder needs non-local rungs: rung 157 (queued)
+  scores the DEPLOYED motif grammar single-site at a8/a3, and rung 158 the deployed tail-dict grammar
+  (real-frame) at a16, both at circuit grain — the frontier's own replacements, finally certificate-scored
+  at their own components. (Convention: CE added above the real model; lower is better.)
+
+`ops/ladder_matrix.py`, **89s**, BACKLOG rung 155.
+
+## §2252 — RUNG 156: THE GLOBAL h17 BIAS EXPLODES — census +3.0155 (from +1.9474): the registered null holds in its STRONGEST form. pred_a/b FAILED, pred_c HELD (L1F invariant — the harm is entirely the bias). One added vector (the train-half drift mean, applied everywhere) does +1.07 damage — worse per intervention than the per-circuit version (+0.19 at member positions only). The §2224/§2227 type system gains a confirmed clause: **additive real-frame statistics injected into a config-frame stream are illegal at ANY grain** — the final norm + head are co-adapted to the config's h17 distribution, and DC shifts break them. §2246's bias-leaning certificate statistic must be repaired through upstream fidelity, never through additive correction at the read-out. (Convention: CE added above the real model; lower is better.)
+
+`ops/frontier_globalbias.py`, **138s**, BACKLOG rung 156.
