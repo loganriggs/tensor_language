@@ -1101,3 +1101,16 @@ later per-rung backlog edits had silently anchored on text that was not here.
     pred_a retrieval classes >= 0.60; pred_b early-concentrated (late
     share <= 0.45); pred_c full reproduces §2144. Nulls: block-5-like.
     -> ops/attn2_motif_class.py [QUEUED 02:10Z]
+
+    RUN 2026-08-31, §2174: pred_a/c HELD, pred_b FAILED — SUBWORD-led
+    (0.453; ind 0.198, other 0.205), mildly late (0.568). Third
+    signature; depth progression: b2 subword -> b5 other -> tail ind
+    (assembly -> context -> memory). §2170's early law was b5-specific.
+
+81. DO b3/b4 INTERPOLATE (front signature map; damage convention).
+    Class shares of the block-3 and block-4 motif replacements (arms:
+    full / no3 / no4). pred_a b3's top class in {subword, other};
+    pred_b subword share declines monotonically b2 > b3 > b4 (the
+    assembly->context progression); pred_c full reproduces §2144.
+    Null: no ordering (idiosyncratic signatures).
+    -> ops/attn34_motif_class.py [QUEUED 02:20Z]

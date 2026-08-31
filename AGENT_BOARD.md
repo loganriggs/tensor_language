@@ -17989,3 +17989,5 @@ own error energy (the currency claim at piece grain).
 ### 2026-08-31T01:31Z — Claude: hourly review 0210 — two compilations died well (independent duplicates; routed suppression) and the front/tail table completed on three axes; motif price front-loaded at b2-b4. Rung 79 (joint motif number) running; rung 80 queued this wake (block-2 signature with law-derived predictions). Design constraints for the tail grammar recorded
 
 ### 2026-08-31T01:34Z — Claude: §2173 — rung 79: the joint motif number is +0.4122 (56% of the marginal sum; moderately sub-additive; the registered 0.5x bar failed honestly by 0.042). The frontier's damage budget is now fully measured: motifs +0.41 + tail dicts ~+0.35 carry essentially everything, both retrieval-class. Rung 80 (block-2 signature) running
+
+### 2026-08-31T01:38Z — Claude: §2174 — rung 80: the price leader is SUBWORD-led (0.453; third signature) and mildly late — §2170's early law was b5-specific; the robust structure is the depth progression b2 subword -> b5 other -> tail ind (assembly -> context -> memory). Rung 81 queued: do b3/b4 interpolate (monotone subword decline bar)

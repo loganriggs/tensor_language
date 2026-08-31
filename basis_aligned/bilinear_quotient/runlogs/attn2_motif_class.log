@@ -25,3 +25,57 @@ fit a14L
 fit a15L
 fit a16L
 fit a17L
+  window 0 (7 docs): L2 fresh +2.6662
+  window 1 (42 docs): L2 fresh +2.9355
+  window 2 (17 docs): L2 fresh +2.6120
+  window 3 (23 docs): L2 fresh +2.8498
+  window 4 (43 docs): L2 fresh +2.9138
+  window 5 (26 docs): L2 fresh +2.7954
+  window 6 (35 docs): L2 fresh +2.5818
+  window 7 (35 docs): L2 fresh +2.6641
+L2 empirical: C +2.4190 | fresh +2.6662 | tail-attn increment +0.3455
+(a) L2 <= +2.75 fresh: HELD
+(b) increment in [0.30,0.55]: HELD
+ARM 2/2: block-2 motifs REAL, per-position CE captured
+a2-input probe acc 0.69
+fit a2
+fit a3
+fit a4
+fit a5
+fit a6
+fit a7
+fit a8
+fit a9
+fit a10
+fit a11
+fit a12
+fit a13
+fit a14
+fit a15
+fit a16
+fit a17
+L1 (+38 heads): C +1.8239 | fresh +2.1247
+fit a10L
+fit a11L
+fit a12L
+fit a13L
+fit a14L
+fit a15L
+fit a16L
+fit a17L
+  window 0 (7 docs): L2 fresh +2.4776
+  window 1 (42 docs): L2 fresh +2.7259
+  window 2 (17 docs): L2 fresh +2.4426
+  window 3 (23 docs): L2 fresh +2.5659
+  window 4 (43 docs): L2 fresh +2.7683
+  window 5 (26 docs): L2 fresh +2.5606
+  window 6 (35 docs): L2 fresh +2.3990
+  window 7 (35 docs): L2 fresh +2.4674
+L2 empirical: C +2.2362 | fresh +2.4776 | tail-attn increment +0.3529
+(a) L2 <= +2.75 fresh: HELD
+(b) increment in [0.30,0.55]: HELD
+total +5795.9; shares: digit:+0.026 bclose:+0.004 newline:+0.016 sentend:+0.036 comma:+0.042 name:+0.023 rep:-0.003 subword:+0.453 ind:+0.198 other:+0.205; late-half 0.568
+(a) ind+other+subword +0.856 >= 0.60: HELD
+(b) late-half 0.568 <= 0.45: FAILED
+(c) full FR L2_F 2.6662 vs 2.6662 (tol 0.01): HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/attn2_motif_class_results.json (226s)

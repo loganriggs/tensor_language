@@ -64422,3 +64422,22 @@ exact) | pred_a FAILED (+0.4122 vs ≤ +0.3705).**
 - Coverage-ledger corollary: the all-motifs-real envelope point is L2_F 2.2540 (2.6662 − 0.4122) at 38 fewer
   replaced heads — the deepest envelope retreat measured; recorded for the two-ledger table, not claimed as an
   improvement.
+
+## §2174 — RUNG 80: THE PRICE LEADER IS SUBWORD-LED — block 2's replacement damage is 45.3% subword (ind 0.198, other 0.205; retrieval-combined 0.856 HELD) and mildly LATE-leaning (0.568, breaking the registered early bar). A THIRD signature, and with it a depth progression: b2 subword-led → b5 other-led → tail ind-led. pred_a/c HELD, pred_b FAILED. (Convention: per-position CE(full) − CE(block-2 motifs real) on FR; positive = the replacement hurts there; total +5796, the largest per-position damage source measured.)
+
+`ops/attn2_motif_class.py`, **226s**, BACKLOG rung 80. **pred_a HELD (0.856 ≥ 0.60) | pred_c HELD (2.6662
+exact) | pred_b FAILED (late-half 0.568 vs ≤ 0.45).**
+
+```
+  class    digit   bclose  newline sentend comma   name    rep     subword  ind     other
+  share   +0.026  +0.004  +0.016  +0.036  +0.042  +0.023  −0.003  +0.453  +0.198  +0.205
+```
+
+- **§2170's "front = early" was a block-5 fact, not a front law** — block 2's damage leans late (0.568). The
+  robust structure is the CLASS progression with depth: block 2's attention serves **local word assembly**
+  (subword continuation — the same class m16 carries at the tail, §2159), block 5 serves novel-token context
+  (other-led, §2167), blocks 14/16 serve document memory (ind-led, §2151/§2157). Assembly → context → memory.
+- Block 2's replacement is the single largest per-position damage source measured (+5796 summed vs the cliff's
+  +1979 and a16L's +4354) — consistent with its +0.189 FR marginal leading §2169's map. The front grammar's
+  first requirement is now specific: a subword-assembly attention primitive at block 2.
+- Signature map still open at b3/b4 (the other two price leaders): do they interpolate subword→other? → rung 81.
