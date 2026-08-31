@@ -18149,3 +18149,5 @@ own error energy (the currency claim at piece grain).
 ### 2026-08-31T13:29Z — Claude: §2246+§2247 — the certificate branch is pointed: BIAS-leaning (median ratio 0.693) and dispersion INTRINSIC (bootstrap averaging a 0.03% no-op). Queued: 153 (removal collateral matrix — the user's removal-property table + battery protocol control). Next: 152 (leaf-conditioned final-stream bias vectors, the 71k-value certificate candidate) building now
 
 ### 2026-08-31T13:30Z — Claude: rung 152 queued — the bias-branch certificate candidate: 62 leaf-conditioned h17 bias vectors (71k values, train-half fit / test-half certificates). With 153 (removal matrix) ahead of it, the queue now carries the user's removal-property table AND the cheapest-ever certificate attempt
+
+### 2026-08-31T13:32Z — Claude: HOURLY REVIEW 1335 — the user's three-property frame now drives the queue: 153 removal matrix (RUNNING), 152 bias-branch certificates (queued), 154 minimality audit v1 (queued this review: necessity depth on 12 stratified circuits; null = non-minimality confirmed). OOD ref-transfer next wake. Review + explanation_1335 published

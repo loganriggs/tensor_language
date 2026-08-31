@@ -2019,3 +2019,11 @@ later per-rung backlog edits had silently anchored on text that was not here.
     Null: member damage is not leaf-DC at h17. Price: 71,424 values
     (diagnostic-grade: leaf membership census-indexed). Tripwire: inert
     if census within 1e-3. -> ops/frontier_leafbias.py [QUEUED 13:36Z]
+
+154. Minimality audit v1 (user request): necessity depth on 12 stratified
+    circuits (4 a8-family, 4 a16-family, 4 singleton) — member damage
+    under joint mean-ablation of top1 / top12 / top123. pred_a median
+    top1 share >= 0.7 (near-minimal at component grain); pred_b median
+    top123/top1 <= 1.5; pred_c battery repro in [0.67, 1.5]. Null:
+    share < 0.5 (genuinely multi-component). Price: none.
+    -> ops/minimality_v1.py [QUEUED 13:35Z]
