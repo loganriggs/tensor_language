@@ -65498,3 +65498,16 @@ VOID-AS-DESIGNED; corrected control = rung 133 (offline real-module targets, the
 - Repertoire consequence: the k* column is now final at grain-6 for all 62. The operator's non-minimality
   intuition lands at its measured value: circuits are ~5-component objects on a 16-component shared
   substrate — neither one-component labels nor substrate-wide smears.
+
+## §2261 — RUNG 164: WITH A HEALTHY OPTIMIZER, LEARNING ADDS NOTHING — THE NULL WINS LEGITIMATELY. pred_c HELD (best loss ≤ initial at all 3, orthonormality ~7e-7 — the §2259 pathology is gone), and under that sane instrument: pred_a FAILED (control 0.57 → 0.53, a 0.04 regression just outside the 0.02 tolerance) and pred_b FAILED (best low-circuit gain +0.02 vs the +0.10 bar). Verdict: **fixed member-PCA is the rank-8 carrier ceiling** under the KL-to-full-swap objective at this budget — DAS-proper closes in favor of the cheap construction; the repertoire stores PCA bases. (Convention: share = member |dCE| of subspace patch / full swap; census rows.)
+
+`ops/dasproper2.py`, **141s**, BACKLOG rung 164.
+
+- Instrument note kept: the best-TRAINING-loss checkpoint does not track the census share metric (the
+  control's best-loss iterate still evaluates 0.53 < its warm start's 0.57) — the KL-on-train-batches proxy
+  and the member-|dCE| share are correlated but not aligned; any future learned-subspace attempt should
+  validate on the share metric directly.
+- Early tell from rung 165 (mid-run, unscored): complement shares are HIGH (0.58/0.83/0.76 at the first
+  three circuits) — the necessity pred is heading for its null. If it lands that way, the carrier story
+  gets its honest caveat: rank-32 sufficiency ~0.5 coexists with a damaging complement; the meaningful
+  statistic will be per-dimension concentration (0.5 in 32 dims vs 0.8 in 1120), scored when it lands.

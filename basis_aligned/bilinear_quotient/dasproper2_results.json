@@ -1,0 +1,43 @@
+{
+ "rows": [
+  {
+   "tag": "r.2.0",
+   "comp": "a8",
+   "full": 1.1532,
+   "share_pca8": 0.134,
+   "share_learned": 0.155,
+   "orth_resid": 3.5762786865234375e-07,
+   "is_control": false,
+   "loss0": 0.4338,
+   "loss_best": 0.0828
+  },
+  {
+   "tag": "r.3.0",
+   "comp": "a16",
+   "full": 0.5723,
+   "share_pca8": 0.144,
+   "share_learned": 0.167,
+   "orth_resid": 4.76837158203125e-07,
+   "is_control": false,
+   "loss0": 0.0521,
+   "loss_best": 0.0168
+  },
+  {
+   "tag": "r.3.1.1",
+   "comp": "a17",
+   "full": 0.5132,
+   "share_pca8": 0.572,
+   "share_learned": 0.533,
+   "orth_resid": 6.556510925292969e-07,
+   "is_control": true,
+   "loss0": 0.0269,
+   "loss_best": 0.0054
+  }
+ ],
+ "convention": "share = member |dCE| subspace patch / full swap; within-script arms",
+ "pred_a_control_noregress": false,
+ "pred_b_learning_gains": false,
+ "pred_c_optimizer_sane": true,
+ "self_reviewed": true,
+ "runtime_s": 140.7
+}

@@ -2142,6 +2142,10 @@ later per-rung backlog edits had silently anchored on text that was not here.
     learned >= pca8 + 0.10 at >= 1 low circuit; pred_c orthonormal +
     best loss <= initial at all 3. Null: healthy optimizer still adds
     < 0.05 (PCA is the rank-8 ceiling). -> ops/dasproper2.py [QUEUED 15:31Z]
+    RUN 2026-08-31, S2261: pred_c HELD (optimizer sane), pred_a/b
+    FAILED - learning adds ~0.02; fixed member-PCA is the rank-8
+    ceiling. DAS-proper closes; repertoire stores PCA bases. Train-KL
+    vs share-metric gap noted.
 
 165. Carrier necessity (DAS-lite dual): comp32 = patch the complement of
     pca32; per-circuit sum check. pred_a median complement share <= 0.5;

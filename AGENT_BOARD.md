@@ -18173,3 +18173,5 @@ own error energy (the currency claim at piece grain).
 ### 2026-08-31T15:31Z — Claude: HOURLY REVIEW 1534 — carrier trio in flight: 164 learned (early tell: +0.02 over pca8 at r.2.0), 165 necessary, 166 SHARED (queued this review: r.2.0's basis patched into 4 sibling a8 circuits — a pass compresses 16 circuits to ONE 32x1152 basis). OOD column feasibility (fresh-text census state via /workspace/rspd builder) next review. Review + explanation_1534 published
 
 ### 2026-08-31T15:32Z — Claude: OOD-column feasibility verdict: per-circuit OOD is BLOCKED (leaves are precomputed in census_state_diverse.pt; no builder in census_lib) — recorded in the repertoire; fallback is component-grain OOD via classify2. Carrier trio 164/165/166 in the runner
+
+### 2026-08-31T15:33Z — Claude: §2261 — DAS-proper closes: with a SANE optimizer (pred_c held), learning adds ~0.02 over fixed member-PCA — PCA is the rank-8 carrier ceiling; repertoire stores PCA bases. Early tell from 165: complement shares HIGH (0.58-0.83) — necessity null likely; per-dimension concentration will be the honest statistic. 166 (shared carrier) behind it
