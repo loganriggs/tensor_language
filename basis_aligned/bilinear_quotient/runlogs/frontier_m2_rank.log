@@ -20,3 +20,26 @@ L1 (+38 heads): C +1.3232 | fresh +1.7582
   m2 residual rank 0 done
   m2 residual rank 16 done
   m2 residual rank 64 done
+  m2 residual rank 256 done
+  m2 residual rank 512 done
+  window 0 (7 docs): L2 fresh +1.7582
+  window 1 (42 docs): L2 fresh +1.8578
+  window 2 (17 docs): L2 fresh +1.5880
+  window 3 (23 docs): L2 fresh +1.6497
+  window 4 (43 docs): L2 fresh +1.8178
+  window 5 (26 docs): L2 fresh +1.6988
+  window 6 (35 docs): L2 fresh +1.5813
+  window 7 (35 docs): L2 fresh +1.7011
+L2 empirical: C +1.3232 | fresh +1.7582 | tail-attn increment +0.0000
+(a) L2 <= +2.75 fresh: HELD
+(b) increment in [0.30,0.55]: FAILED
+  rank_0    agg +0.3141  valid 1/62
+  rank_16   agg +0.3366  valid 1/62
+  rank_64   agg +0.3072  valid 1/62
+  rank_256  agg +0.2869  valid 1/62
+  rank_512  agg +0.2842  valid 1/62
+gains: 0->64 +0.0069 | 64->512 +0.0230
+(a) rank wall +0.0069 >= 2 x +0.0230: FAILED
+(b) agg(512) +0.2842 >= 0.5 x agg(64) (+0.1536): HELD
+(c) monotone + all in [0.05, 1.5]: FAILED
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/frontier_m2_rank_results.json (136s)

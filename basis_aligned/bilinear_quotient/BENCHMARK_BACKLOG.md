@@ -1491,6 +1491,10 @@ later per-rung backlog edits had silently anchored on text that was not here.
     monotone + all in [0.05, 1.5]. Null: capacity path OPEN (repair =
     bigger residual). Price: rank-512 at one site ~= 512 x ~1850 values.
     -> ops/frontier_m2_rank.py [QUEUED 05:32Z]
+    RUN 2026-08-31, S2201: pred_b HELD, pred_a/c FAILED. Rank curve
+    FLAT (.314/.337/.307/.287/.284 at 0/16/64/256/512; valid 1/62 all).
+    Capacity branch DEAD - feature wall, not rank wall: the residual
+    carries ~0.03 of m2's +0.31 at any rank.
 
 
 108. m0 certificate-targeted repair (S2195 hand-off, objective branch):

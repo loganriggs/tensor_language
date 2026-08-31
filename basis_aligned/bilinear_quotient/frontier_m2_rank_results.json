@@ -1,0 +1,32 @@
+{
+ "arms": {
+  "rank_0": {
+   "agg": 0.3141,
+   "valid": 1
+  },
+  "rank_16": {
+   "agg": 0.3366,
+   "valid": 1
+  },
+  "rank_64": {
+   "agg": 0.3072,
+   "valid": 1
+  },
+  "rank_256": {
+   "agg": 0.2869,
+   "valid": 1
+  },
+  "rank_512": {
+   "agg": 0.2842,
+   "valid": 1
+  }
+ },
+ "gain_0_to_64": 0.0069,
+ "gain_64_to_512": 0.023,
+ "convention": "per-position dCE = CE(config) - CE(real model) on census rows; lower is better",
+ "pred_a_rank_wall": false,
+ "pred_b_no_capacity_path": true,
+ "pred_c_sane": false,
+ "self_reviewed": true,
+ "runtime_s": 135.7
+}

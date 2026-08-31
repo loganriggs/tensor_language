@@ -64944,3 +64944,18 @@ FAILED (m2E single +0.3072 < 1.5×m0E +0.3728 — only 1.24×) | pred_c HELD.**
   tables alone destroys 60+ of 62 certificates. Repair must fix every front MLP site (or change the grammar);
   the two live branches are exactly rung 107 (capacity: residual rank at m2) and rung 108 (objective:
   member-weighted refit at m0), both in flight.
+
+## §2201 — RUNG 107: THE CAPACITY BRANCH DIES — NOT AT A RANK WALL BUT AT A FEATURE WALL. m2's single-site damage is FLAT in residual rank: +0.3141 / +0.3366 / +0.3072 / +0.2869 / +0.2842 at ranks 0/16/64/256/512, validity pinned at 1/62 at EVERY rank. Even rank 0 (the bare token table, no residual at all) is within 10% of rank 512. pred_b HELD (the grammar cannot buy its way out); pred_a FAILED (no wall shape — the gains are tiny everywhere, and 0→64 gains LESS than 64→512); pred_c FAILED (non-monotone 0→16 blip, +0.022). (Convention: per-position dCE = CE(single m2 variant + exact a0-frame prefix fits) − CE(real model) on the census rows; lower is better.)
+
+`ops/frontier_m2_rank.py`, **136s**, BACKLOG rung 107. **pred_a FAILED (+0.0069 < 2×+0.0230) | pred_b HELD
+(+0.2842 ≥ 0.5×+0.3072) | pred_c FAILED (rank 16 +0.3366 > rank 0 +0.3141).**
+
+- The registered null was "capacity path OPEN — repair = bigger residual." The truth is stronger than either
+  registered outcome: residual capacity is nearly IRRELEVANT. The whole +0.31 is the table itself; the
+  quadfeat residual carries ~0.03 of it at any rank. Combined with §2199 (the error is high-rank context
+  signal), the quadfeat FEATURES don't span the signal — more rank on the wrong features buys nothing.
+- The 0→16 non-monotone blip (+0.022) looks like train-row overfit of the first residual directions
+  (fit rows are FW[300:512], eval is census); recorded, not explained further.
+- Branch status: CAPACITY dead (this rung). OBJECTIVE (rung 108, member-weighted refit) is running. If its
+  null also wins, the "token table + static feature-map residual" grammar is falsified at the front sites and
+  the next chapter is a grammar change (features that see context, not just the current stream vector).
