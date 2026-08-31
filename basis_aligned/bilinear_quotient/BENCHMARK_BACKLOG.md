@@ -2148,3 +2148,10 @@ later per-rung backlog edits had silently anchored on text that was not here.
     pred_b median |sum - 1| <= 0.35; pred_c full-swap repro. Null:
     basis-insensitive damage (the carrier is a dimension-counting
     illusion). -> ops/carrier_necessity.py [QUEUED 15:31Z]
+
+166. Shared-carrier test: r.2.0's pca32 basis patched into 4 other
+    a8-family circuits' interchanges vs their OWN bases. pred_a median
+    ref/own ratio >= 0.7; pred_b ref-share >= 0.3 for >= 3/4; pred_c
+    population guard (full within 2x battery ref). Null: carriers
+    circuit-specific (< 0.2). A shared carrier = ONE 32x1152 basis for
+    16 circuits. -> ops/shared_carrier.py [QUEUED 15:34Z]

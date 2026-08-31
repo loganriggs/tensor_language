@@ -62,3 +62,4 @@ primary evidence.
 - [explanation_0933.md](explanation_0933.md) — frontier falls twice (1.88 nats, smaller model); trajectory-teaching law forming; certificates still stuck
 - [explanation_1135.md](explanation_1135.md) — the name mystery: compositional damage, the corrupted-library hypothesis
 - [explanation_1335.md](explanation_1335.md) — corruption economy done; bias-vs-dispersion verdict; three-property program running
+- [explanation_1534.md](explanation_1534.md) — the circuits program: 5-component circuits, interchange as the knife, rank-32 carriers
