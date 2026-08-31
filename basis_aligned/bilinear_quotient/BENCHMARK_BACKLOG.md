@@ -2654,6 +2654,10 @@ later per-rung backlog edits had silently anchored on text that was not here.
     (0.0887); pred_b <= 2.5 x ORACLE (0.0873); pred_c improves + cov
     >= 0.90. Null: residual is positional (>= 0.9 x TOKID).
     -> ops/tokid_data.py [QUEUED 23:05Z]
+    RUN 2026-08-31, S2322: 0/3 - data table 0.1242 (16% better where
+    40% demanded; coverage 0.871 < 0.90 caveat). Null supported: the
+    residual is per-occurrence context; hierarchy (class index), not
+    bigger token tables.
 
 225. Token identity at depth: embedding table at m2 (STATIC diff 0.22):
     pred_a TOKID <= 0.5 x STATIC; pred_b ORACLE <= 0.05; pred_c

@@ -1,0 +1,6 @@
+data table built; seen ids 15264; census coverage 0.8706 (1s)
+  TOKID2: agg +0.0205 | census|dCE| 0.1242
+(a) TOKID2 0.1242 <= 0.6 x TOKID 0.1478: FAILED
+(b) TOKID2 0.1242 <= 2.5 x ORACLE 0.0349: FAILED
+(c) improves on TOKID and coverage 0.871 >= 0.90: FAILED
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/tokid_data_results.json (8s)
