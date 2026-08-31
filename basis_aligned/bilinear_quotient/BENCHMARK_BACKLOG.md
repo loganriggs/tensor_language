@@ -2172,6 +2172,9 @@ later per-rung backlog edits had silently anchored on text that was not here.
     population guard >= 50. Null: family bases don't generalize (< 0.25).
     Price: ~0.37M values for the whole column.
     -> ops/family_carriers.py [QUEUED 16:00Z]
+    RUN 2026-08-31, S2265: pred_a FAILED by 0.015 (median 0.385),
+    pred_b/c HELD (58/62 >= 0.3). Column filled: ~10 family bases,
+    0.37M values, every circuit covered.
 
 168. Carrier-projection removal at a8 (deployable, position-independent:
     y - PPT(y-mu) everywhere): vs in-script mean-ablation baseline.
@@ -2190,3 +2193,21 @@ later per-rung backlog edits had silently anchored on text that was not here.
     pred_b offslice >= 2 x random; pred_c repro + random <= 0.3. Null:
     member ~ offslice (carrier = variance patching; honest downgrade).
     -> ops/carrier_null.py [QUEUED 16:10Z]
+    RUN 2026-08-31, S2266: NULL WINS - member-pca 0.519 vs offslice
+    0.484 (1.07x): carrier = principal VARIANCE, member-agnostic.
+    Damage tracks variance (quadratic form). Circuit identity is
+    POSITIONAL. DAS thread closes; -> gated removal (rung 170).
+
+170. Member-probe separability (gated removal feasibility): ridge probe on
+    component INPUT predicting family membership; 6 families; train half /
+    test AUC + shuffle control. pred_a median AUC >= 0.85; pred_b a8 >=
+    0.90; pred_c shuffled in [0.45, 0.55]. Null: AUC < 0.7 (gate needs
+    the oracle). Price: 1,152 values/gate.
+    -> ops/probe_gate.py [QUEUED 16:32Z]
+
+171. Sufficiency (missing half of minimality): keep battery top-5 real,
+    mean-ablate the rest of the 16-set; controls keep-random-5 and
+    keep-none; 10 stratified circuits. pred_a median top5-damage <= 1.0 x
+    ref; pred_b top5 <= 0.5 x rand5 for >= 7/10; pred_c top5 <= 0.7 x
+    none for >= 8/10. Null: members die regardless (substrate-wide).
+    -> ops/sufficiency.py [QUEUED 16:32Z]

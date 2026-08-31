@@ -65530,3 +65530,17 @@ VOID-AS-DESIGNED; corrected control = rung 133 (offline real-module targets, the
 ## §2264 — RUNG 168: REMOVAL SELECTIVITY IS CAPPED BY THE SUBSTRATE, NOT THE TOOL — carrier-projection removal is exactly as blunt as mean-ablation (selectivity 1.98 vs 1.94; pred_b's 3× bar FAILED at ratio 1.02) and holds only 27% of the family function (0.186 vs the 0.342 bar; pred_a FAILED). pred_c HELD (aggregate 8× cheaper: +0.0046 vs +0.0377; §2248 repro exact 1.000). The lesson: §2257's spectacular interchange selectivity (425×) came from the MEMBER-POSITION GATING, not from the subspace — any position-independent removal operator at a8, subspace or full, hits the ~2× substrate-sharing ceiling. Selective removal on this substrate requires either position gating (not deployable without an oracle) or removing at a grain finer than components. (Convention: per-position dCE = CE(intervention) − CE(real model) on the census rows.)
 
 `ops/carrier_removal.py`, **23s**, BACKLOG rung 168.
+
+
+## §2265 — RUNG 167: FAMILY BASES GENERALIZE BROADLY, MISSING THE MEDIAN BAR BY 0.015 — pred_a FAILED (median family share 0.385 vs 0.4), pred_b HELD (58 of 62 circuits ≥ 0.3), pred_c HELD (population 57/62). The das_subspace column is FILLED: ~10 family bases (~0.37M values total) give every circuit a working counterfactual handle, with heterogeneous strength (a7/m16/a17 families 0.7–0.8; a8/a14/a16 families 0.3–0.4). Scored as written; the product stands, its label is revised by §2266. (Convention: share = member |dCE| of family-basis patch / full swap; census rows.)
+
+`ops/family_carriers.py`, **971s**, BACKLOG rung 167.
+
+## §2266 — RUNG 169: THE CARRIER IS VARIANCE, NOT MEMBER-SPECIFIC CAUSALITY — the registered null WINS: member-PCA 0.519 vs offslice-PCA 0.484 (ratio 1.07, bar 1.5×; pred_a FAILED), while variance beats dimension-counting (offslice 0.484 ≥ 2×random 0.106; pred_b HELD) and the instrument is clean (pred_c HELD). Damage-per-variance density (medians, share/varfrac): member 1.4, offslice 1.4, random 3.8 — damage tracks captured variance to first order, the quadratic-form picture. **The honest downgrade, recorded: the repertoire's subspaces are the component's PRINCIPAL-VARIANCE bases (member-agnostic — offslice data builds them almost as well), not dedicated causal directions. With §2264 (selectivity lives in position gating, not subspaces), the two-rung conclusion is: at component grain, WHICH SUBSPACE barely matters; WHICH POSITIONS is everything. Circuit identity is positional/contextual.** (Convention: as §2265.)
+
+`ops/carrier_null.py`, **268s**, BACKLOG rung 169.
+
+- Program consequence: the DAS thread closes honestly (fixed variance bases, family-generic, cheap); the
+  causal-specificity question moves to POSITIONS — hence rung 170 (queued): are members cheaply detectable
+  from the local stream (probe AUC per family)? If yes, gated removal/extraction becomes deployable; if
+  not, the oracle gate is irreplaceable and per-circuit surgery stays diagnostic-only.

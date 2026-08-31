@@ -1,0 +1,41 @@
+picked ['r.0.0', 'r.1.0', 'r.1.2', 'r.1.3', 'r.2.0', 'r.3.0', 'r.13.2.1', 'r.2.2.2', 'r.3.1.1', 'r.5.3.1']
+62 circuits; 10 distinct top components: ['a15', 'a16', 'a17', 'a3', 'a6', 'a7', 'a8', 'm13', 'm14', 'm15']
+component means captured
+outputs captured
+  r.0.0 @ a3 [mempca32]: member 0.246 share 0.52
+  r.0.0 @ a3 [offpca32]: member 0.238 share 0.50
+  r.0.0 @ a3 [rand32]: member 0.037 share 0.08
+  r.0.0 full-swap repro 0.478 vs 160's 0.478
+  r.1.0 @ m14 [mempca32]: member 0.226 share 0.38
+  r.1.0 @ m14 [offpca32]: member 0.212 share 0.35
+  r.1.0 @ m14 [rand32]: member 0.062 share 0.10
+  r.1.0 full-swap repro 0.607 vs 160's 0.601
+  r.1.2 @ m15 [mempca32]: member 0.376 share 0.52
+  r.1.2 @ m15 [offpca32]: member 0.356 share 0.49
+  r.1.2 @ m15 [rand32]: member 0.084 share 0.12
+  r.1.3 @ m13 [mempca32]: member 0.283 share 0.42
+  r.1.3 @ m13 [offpca32]: member 0.277 share 0.41
+  r.1.3 @ m13 [rand32]: member 0.079 share 0.12
+  r.2.0 @ a8 [mempca32]: member 0.347 share 0.30
+  r.2.0 @ a8 [offpca32]: member 0.220 share 0.19
+  r.2.0 @ a8 [rand32]: member 0.068 share 0.06
+  r.3.0 @ a16 [mempca32]: member 0.197 share 0.34
+  r.3.0 @ a16 [offpca32]: member 0.163 share 0.28
+  r.3.0 @ a16 [rand32]: member 0.035 share 0.06
+  r.13.2.1 @ a7 [mempca32]: member 0.421 share 0.65
+  r.13.2.1 @ a7 [offpca32]: member 0.404 share 0.62
+  r.13.2.1 @ a7 [rand32]: member 0.074 share 0.11
+  r.2.2.2 @ a6 [mempca32]: member 0.532 share 0.61
+  r.2.2.2 @ a6 [offpca32]: member 0.414 share 0.47
+  r.2.2.2 @ a6 [rand32]: member 0.103 share 0.12
+  r.3.1.1 @ a17 [mempca32]: member 0.431 share 0.85
+  r.3.1.1 @ a17 [offpca32]: member 0.427 share 0.84
+  r.3.1.1 @ a17 [rand32]: member 0.056 share 0.11
+  r.5.3.1 @ a15 [mempca32]: member 0.177 share 0.68
+  r.5.3.1 @ a15 [offpca32]: member 0.168 share 0.64
+  r.5.3.1 @ a15 [rand32]: member 0.027 share 0.10
+medians: member-pca 0.519 | offslice-pca 0.484 | random 0.106; repro True
+(a) member 0.519 >= 1.5 x offslice (0.727): FAILED
+(b) offslice 0.484 >= 2 x random (0.213): HELD
+(c) repro + random <= 0.3: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/carrier_null_results.json (268s)
