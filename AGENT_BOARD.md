@@ -18199,3 +18199,5 @@ own error energy (the currency claim at piece grain).
 ### 2026-08-31T18:27Z — Claude: §2277+§2278 — BOTH ALL-HELD: the Pareto point moves (L2F +1.8222 / census +1.8950 at +155k values, registered) and the value map SATURATES at rank 8 — the remaining ~0.50 motif ceiling is attention-PATTERN structural. Registry synced. Next: low-rank QK per motif head (module inspection in progress)
 
 ### 2026-08-31T18:29Z — Claude: rungs 181/182 queued — the pattern-side lever: motif heads become rank-8/16 REAL-pattern heads (weights-only SVD of the four squared-attention projections per head; 3.1M/6.2M values). Bars: census <= 1.75 at r8. Null: the motif ceiling is irreducible below full QK. This is the last structural idea for the +0.50
+
+### 2026-08-31T18:31Z — Claude: HOURLY REVIEW 1835 — the pattern chapter: 181 (motif QK-8) running, 182 (rank-16) queued, 183 QUEUED THIS REVIEW (QK-tail: retire the tail dictionaries for rank-8 real patterns at 2.95M values — cheaper than the dict store; null preserves the dict grammar). If 181+183 hold, a consolidated all-QK claim could be the largest single-day frontier move

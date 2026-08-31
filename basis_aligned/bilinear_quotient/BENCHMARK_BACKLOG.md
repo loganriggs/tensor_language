@@ -2314,3 +2314,10 @@ later per-rung backlog edits had silently anchored on text that was not here.
 182. QK rank-16 (reads 181's receipt at run time): pred_a still yielding
     (<= r8 - 0.02); pred_b monotone; pred_c guards. Null: saturation at
     8. Price: 6.23M values. -> ops/motif_qkr16.py [QUEUED 18:31Z]
+
+183. QK-tail rank-8: the pattern lever at blocks 10-17 (all 72 heads,
+    weights-only; aXL dicts retired; hooks armed after real baselines).
+    pred_a census <= 1.78; pred_b increment <= 0.25 AND name <= 3.0;
+    pred_c census >= 1.3 + inert tripwire. Null: retrieval needs sharp
+    patterns (dicts stand). Price: 2.95M values REPLACING the dicts'
+    larger store. -> ops/qk_tail.py [QUEUED 18:35Z]
