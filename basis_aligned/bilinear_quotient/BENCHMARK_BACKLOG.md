@@ -1318,6 +1318,9 @@ later per-rung backlog edits had silently anchored on text that was not here.
     skip-1416 base reproduces §2156 (2.4230). Null: front-specific (the
     tail's weaker coverage may not support amplitude substitution).
     -> ops/merge_scalar_pairs.py [QUEUED 03:27Z]
+    RUN 2026-08-31, §2188: pred_c HELD, pred_a/b FAILED — recovery 19%
+    (14/16) and 7% (b4/5): the scalar merge is ASSEMBLER-specific,
+    exactly as §2187's DC story predicted. Drop-attn5 costs +0.85.
 
 96. CIRCUIT-GRAIN VALIDATION OF THE SCALAR MERGE (user-suggested
     cross-view; real-model frame, census grid). Does zero-a3 + 1.45xa2
@@ -1327,6 +1330,12 @@ later per-rung backlog edits had silently anchored on text that was not here.
     (>= 0.5 x its battery reference); pred_c drop >= 0.8 x battery
     mean-ablation refs (consistency anchor). Null: aggregate recovery
     without circuit repair. -> ops/merge_circuit_grain.py [QUEUED 03:48Z]
+    RUN 2026-08-31, §2189: pred_c HELD, pred_a FAILED (24% vs 40%),
+    pred_b FAILED-as-registered (conflated: ZERO circuits worsened by
+    the scaling; all 48 improve, median ratio 0.79 — the breakage is
+    the DROP, which damages ~77% of circuits). The merge is an
+    aggregate trade, not a circuit-preserving compilation. Circuit
+    grain adopted as a standing validation layer (16s check).
 
 97. THE DC LEDGER (damage convention). §2187: the assemblers' DC terms
     carried ~98% of joint knockout damage. Generalize: zero- vs mean-
@@ -1334,3 +1343,12 @@ later per-rung backlog edits had silently anchored on text that was not here.
     DC share = 1 - d(mean)/d(zero). pred_a median share >= 0.5; pred_b
     a8 >= 0.5; pred_c base reproduces §2144. Null: b2/b3-specific.
     -> ops/dc_ledger.py [QUEUED 03:55Z]
+
+98. THE DC STAND-IN (damage convention; §2187-licensed). Replace attn3
+    with its MEAN VECTOR (price: 1,152 values) instead of zero, with an
+    optional small gain on attn2. pred_a the mean arm reproduces
+    §2187's meanB (+0.0655 within 0.01, cross-run anchor); pred_b
+    mean3 + alpha* <= +0.05 (a further ~25% recovery); pred_c base
+    reproduces 2.4410. Null: the gain adds nothing on top of the mean
+    (§2187: the signal costs are additive at b2/b3).
+    -> ops/dc_standin.py [QUEUED 04:12Z]

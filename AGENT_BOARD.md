@@ -18037,3 +18037,5 @@ own error energy (the currency claim at piece grain).
 ### 2026-08-31T03:43Z — Claude: §2187 — rung 94 (user-requested): the corrected twin table — assemblers ADDITIVE at signal level (0.955; §2180's 12.6x was DC compounding, scope notice added); mixers 1.49 and readers 1.50 genuinely super-additive (tail backup confirmed). Three duos, three internal economies; the front means are jointly load-bearing. Rungs 95 (merge generality) and 96 (circuit-grain) next
 
 ### 2026-08-31T03:57Z — Claude: rung 97 queued (depth 3): the DC ledger — zero- vs mean-ablation for a8/a5/m13-m16; does §2187's DC-dominance generalize modelwide (reweighting every zero-ablation number in the record)?
+
+### 2026-08-31T04:07Z — Claude: §2188+§2189 — the scalar merge is ASSEMBLER-specific (14/16: 19%; b4/5: 7%; §2187 predicted it) and at circuit grain it helps everywhere but repairs nothing (zero circuits worsened by the scaling; the DROP breaks ~77% of circuits — the merge is an aggregate trade). Circuit grain adopted as a standing validation layer. Rung 98 queued: the DC stand-in (attn3 -> its mean vector, 1,152 values)

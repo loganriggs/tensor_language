@@ -64681,3 +64681,38 @@ pred_b (+0.0963 ≥ +0.0205) | pred_c (2.4411 vs 2.4410).**
   economies: additive assemblers with shared load-bearing DC, backing mixers, backing readers.
 - **Cheap-description corollary (registered as an observation):** two 1152-value mean vectors carry most of
   what zero-ablation attributed to the assembler modules — DC terms belong in any compiled front grammar.
+
+## §2188 — RUNG 95: THE SCALAR MERGE IS ASSEMBLER-SPECIFIC — 14/16 recovers only 19% (α* = 1.3), b4/b5 only 7% (α* = 1.45); both bars FAILED, the registered null wins, and §2187 predicted it: amplitude substitution works where the twin's value is DC/amplitude (b2/b3), not where it is signal-level backup (mixers 1.49, readers 1.50). pred_c HELD. (Convention: damage on each leave-pair-real base; α on window C; lower is better.)
+
+`ops/merge_scalar_pairs.py`, **1302s**, BACKLOG rung 95. **pred_c HELD (2.4230 exact) | pred_a FAILED (14/16:
++0.0741 vs ≤ 0.7 × +0.0918) | pred_b FAILED (b4/5: +0.7943 vs ≤ 0.7 × +0.8516).**
+
+- **The three-economies picture (§2187) now has its constructive corollary:** one module + one scalar compresses
+  the ASSEMBLER pair only. The mixers and readers carry genuine per-position signal in each member — no
+  amplitude trick substitutes for it. Also measured en route: dropping attn5 on its own base costs +0.85 (the
+  cliff head-block is nothing like redundant), and dropping attn16 costs +0.092 (matching §2165's zeroing).
+
+## §2189 — RUNG 96 (the circuit cross-view): AT CIRCUIT GRAIN THE MERGE HELPS EVERYWHERE AND REPAIRS NOTHING — every one of the 48 flagged circuits improves under the scalar (median merge/drop = 0.79; zero made worse by the 1.45× scaling), but dropping a3 leaves ~77% of the battery's circuits above half their reference damage. pred_a FAILED (24% median improvement vs the 40% bar), pred_b FAILED AS REGISTERED (with its conflation recorded), pred_c HELD. (Convention: per-position dCE vs the real model on the census grid; positive = damage.)
+
+`ops/merge_circuit_grain.py`, **16s after load**, BACKLOG rung 96. **pred_c HELD (drop ≥ 0.8 × battery refs on
+all five a3 circuits) | pred_a FAILED (median 0.989 vs ≤ 0.6 × 1.296) | pred_b FAILED (48 circuits ≥ 0.5 ×
+their battery reference under the merge).**
+
+```
+  a3 circuits          r.0.0.0   r.0.0.1   r.0.3.0   r.13.2.1  r.8.1.0
+  battery ref (mean)    1.51      1.37      1.19      0.94      1.08
+  drop a3 (zero)        1.65      1.53      1.30      1.02      1.22
+  drop + 1.45×a2        1.22      1.13      0.99      0.85      0.94     ← ~24% better than drop, all five
+```
+
+- **pred_b's design conflated two things, and the artifact separates them:** of the 48 "collaterally broken"
+  circuits, the number made WORSE by the 1.45× scaling is ZERO — all 48 improve (median ratio 0.79). The
+  breakage is the DROP: zeroing a3 damages three quarters of the model's certified circuits above the
+  half-reference level, because a3 is an assembler most circuits pass through (§2186: 84% of even attn2's value
+  routes via block 3). The scaling itself is benign and mildly beneficial everywhere.
+- **The verdict the user's cross-view was built to give:** the scalar merge is an AGGREGATE trade, not a
+  circuit-preserving compilation — the a3-localized circuits remain ~65–80% as damaged as under the raw drop.
+  Circuit grain is now a standing validation layer for every future merged/compiled config (the battery's
+  member masks make it a 16-second check).
+- Next constructive step, licensed by §2187: replace attn3 with its MEAN VECTOR (1152 values) instead of zero —
+  the DC term was ~72% of the drop's aggregate cost — with an optional small gain on attn2 → rung 98.
