@@ -65705,3 +65705,7 @@ Phase-2 selection belongs to the next strategic review.
 ## §2293 — RUNG 195: THE CHEAP END COMPOSES TOO — ALL THREE PREDS HELD (name by 0.022): census +1.2219 at 56.9M total values (front 3456 + rank-12 + no tailE) — better than the registered r16 frontier (+1.2673) at 3M fewer values. Registered claim = rung 197 (queued). (Convention: CE added above the real model; lower is better.)
 
 `ops/combo_cheap.py`, **120s**, BACKLOG rung 195.
+
+## §2294 — RUNG 196: THE QUALITY-END CLAIM HOLDS — ALL THREE PREDS, ridge-exact. **The registered frontier is now L2_F fresh +0.6412 / census +0.6201** (exact front + rank-32 QK patterns at all 148 replaced heads + no tailE; ~88M values). The day's registered fresh-window path: 2.6662 → 2.0553 → 1.8765 → 1.8222 → 1.6428 → 1.3497 → **0.6412** — a 4.2× reduction in one day, every step preregistered with bars and reproduced. Certificates 0/62 (the two-ledger split persists even here; rung 198 documents how close the circuits now are to τ). (Convention: frontier L2 = CE added above the real model on the §312 fresh windows; LOWER IS BETTER.)
+
+`ops/frontier_claim_combo.py`, **119s**, BACKLOG rung 196.

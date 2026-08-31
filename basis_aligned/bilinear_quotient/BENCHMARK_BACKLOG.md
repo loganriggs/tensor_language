@@ -2415,7 +2415,19 @@ later per-rung backlog edits had silently anchored on text that was not here.
 196. Registered claim: quality-end combo (identical rebuild). pred_a L2_F
     <= 0.66; pred_b census repro; pred_c L2F repro. Null: noise. Price:
     ~88M. -> ops/frontier_claim_combo.py [QUEUED 20:29Z]
+    RUN 2026-08-31, S2294: ALL HELD - REGISTERED FRONTIER L2F +0.6412
+    / census +0.6201. Day path 2.6662 -> 0.6412 (4.2x).
 
 197. Registered claim: cheap-end combo. pred_a L2_F <= 1.33; pred_b census
     repro; pred_c L2F repro. Price: 56.9M.
     -> ops/frontier_claim_cheap.py [QUEUED 20:29Z]
+
+198. Day-close circuit ledger (rung-196 rebuild + rows + tau-margins +
+    era Spearman): pred_a census repro; pred_b median member/ref <= 1.5
+    (was 5.44); pred_c Spearman >= 0.85. Null (b): circuits closed slower
+    than aggregate again. -> ops/frontier_combo_rows.py [QUEUED 20:34Z]
+
+199. Exact middles decomposition (K=4608 on the day-close config;
+    diagnostic, +74M): pred_a census <= 0.50; pred_b >= 0.30 (pattern
+    truncation real); pred_c floor + inert. Null: middles marginal
+    shrank. -> ops/exact_middles.py [QUEUED 20:34Z]
