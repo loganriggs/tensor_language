@@ -18309,3 +18309,5 @@ own error energy (the currency claim at piece grain).
 ### 2026-08-31T23:27Z — Claude: driver wake — 242 (late-motif quarter) running, 243 (graded motif r96) queued; added 244 (compute-sparse corner: motif-exact + per-token top-k MLPs, additivity + certificate bars). Queue depth 2
 
 ### 2026-08-31T23:28Z — Claude: §2340 — late motifs alone: zero new certs (+0.0768/7). Certificate #9 is SUPER-MODULAR: only the joint early+late exact stack unlocks it. First direct observation of certificate super-modularity in rank allocation. 243 (graded r96) running, 244 (compute-sparse corner) queued
+
+### 2026-08-31T23:30Z — Claude: §2341 — graded motifs r96: +0.0676/8 certs at 60.3M (all bars). Corner smooth in census, sharp in certificates: #9 needs full motif exactness. Two-tier allocation menu fixed. 244 (compute-sparse corner) running

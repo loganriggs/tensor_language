@@ -2814,6 +2814,9 @@ later per-rung backlog edits had silently anchored on text that was not here.
     <= 0.070; pred_b valid >= 8; pred_c range + double inert. Null:
     motif certificates need exactness (corner sharp in rank).
     -> ops/motif_r96.py [QUEUED 00:12Z]
+    RUN 2026-09-01, S2341: ALL HELD - +0.0676/8 at 60.3M: smooth in
+    census (72% of gain at 84% price), sharp in certificates (#9 needs
+    full exactness). Two-tier menu fixed.
 
 244. Compute-sparse corner: motif-exact patterns + per-token top-1152
     MLPs (additive ~0.077): pred_a census <= 0.085; pred_b valid >= 6;
