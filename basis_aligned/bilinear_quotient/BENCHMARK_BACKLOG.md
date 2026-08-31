@@ -2777,6 +2777,9 @@ later per-rung backlog edits had silently anchored on text that was not here.
     census <= 0.075; pred_b valid <= 8 (tail buys little); pred_c range
     + double inert. Null: both halves unlock equally (>= 9).
     -> ops/tail_exact.py [QUEUED 23:44Z]
+    RUN 2026-08-31, S2336: 2/3 - +0.0776 (knife-edge miss), valid 8;
+    null rejected. Asymmetry confirmed: motif half ~3x residual per
+    value; tail nearly saturated at r64.
 
 239. Registered claim: motif-exact point (r96 price, better census):
     |census-0.0608|<=0.015; valid >= 9; |L2F-0.0601|<=0.015.

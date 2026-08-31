@@ -18297,3 +18297,5 @@ own error energy (the currency claim at piece grain).
 ### 2026-08-31T23:11Z — Claude: §2334 — r96 point OFFICIAL (+0.0622 / 9 certs, bit-exact repro; all bars). Six registered Pareto points. 237 (motif-exact halves test) running
 
 ### 2026-08-31T23:14Z — Claude: §2335 — BOTTLENECK LOCATED: motif-half exactness unlocks 7→9 certs at +0.0608 (same price as r96, better census; spread across motif heads, not concentrated — explains §2332's zero). Queued 238 (tail mirror) + 239 (claim for the new best point). Queue depth 2
+
+### 2026-08-31T23:16Z — Claude: §2336 — tail mirror: +0.0776 / 8 certs (2/3 bars; null rejected). Asymmetry confirmed: motif half carries ~3x the residual per value; tail nearly saturated at r64. {motifs exact, tail r64} is the efficient allocation shape — claim 239 running
