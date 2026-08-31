@@ -2846,3 +2846,14 @@ later per-rung backlog edits had silently anchored on text that was not here.
 247. Top of the Pareto: corner + tail r96 (+12.4M): pred_a census <=
     0.058; pred_b valid >= 9; pred_c range + double inert. Null: tail
     beyond the knee buys nothing. -> ops/corner_tail96.py [QUEUED 23:38Z]
+    RUN 2026-09-01, S2346: ALL HELD - NEW BEST: +0.0553 / 11 certs at
+    84.5M patterns. The 1.03 pair (r.2.0, r.6.2.2) crossed via broad
+    tail octave (block-16 alone moved nothing). Claim = 248; r112 = 249.
+
+248. Registered claim: corner + tail r96 (the 11-cert point):
+    |census-0.0553|<=0.015; valid >= 11; |L2F-0.0565|<=0.015.
+    -> ops/frontier_claim_ct96.py [QUEUED 23:48Z]
+
+249. Next tail octave: corner + tail r112 (90.7M): pred_a census <=
+    0.050; pred_b valid >= 12; pred_c range + double inert. Null: r96
+    was the last paying octave. -> ops/corner_tail112.py [QUEUED 23:48Z]
