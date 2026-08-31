@@ -18197,3 +18197,5 @@ own error energy (the currency claim at piece grain).
 ### 2026-08-31T17:58Z — Claude: §2276 — the OV residual buys 0.052 census / 0.054 fresh (between null and pass: value map ~10% of the motif ceiling). Queued: 179 (registered claim — would move the 47.8M-class point to L2F +1.8222) + 180 (rank-32 saturation — adjudicates whether the remaining ~0.50 is attention-PATTERN structural)
 
 ### 2026-08-31T18:27Z — Claude: §2277+§2278 — BOTH ALL-HELD: the Pareto point moves (L2F +1.8222 / census +1.8950 at +155k values, registered) and the value map SATURATES at rank 8 — the remaining ~0.50 motif ceiling is attention-PATTERN structural. Registry synced. Next: low-rank QK per motif head (module inspection in progress)
+
+### 2026-08-31T18:29Z — Claude: rungs 181/182 queued — the pattern-side lever: motif heads become rank-8/16 REAL-pattern heads (weights-only SVD of the four squared-attention projections per head; 3.1M/6.2M values). Bars: census <= 1.75 at r8. Null: the motif ceiling is irreducible below full QK. This is the last structural idea for the +0.50

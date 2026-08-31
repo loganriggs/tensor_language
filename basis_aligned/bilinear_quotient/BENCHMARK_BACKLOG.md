@@ -2302,3 +2302,15 @@ later per-rung backlog edits had silently anchored on text that was not here.
     RUN 2026-08-31, S2278: ALL HELD - saturation at rank 8 (r32 buys
     0.0074). Remaining ~0.50 motif ceiling is attention-PATTERN
     structural. -> low-rank QK next.
+
+181. Low-rank QK motif heads (the pattern lever, weights-only SVD of the
+    four per-head projections; squared-attention pattern reimplemented
+    per head, real values): pred_a census <= 1.75; pred_b subword <=
+    2.05; pred_c increment in [0.25, 0.50], census >= 1.3. Null: rank-8
+    patterns no better than fixed prev/self (motif ceiling irreducible
+    below full QK). Price: 3.11M values.
+    -> ops/motif_qkr.py [QUEUED 18:31Z]
+
+182. QK rank-16 (reads 181's receipt at run time): pred_a still yielding
+    (<= r8 - 0.02); pred_b monotone; pred_c guards. Null: saturation at
+    8. Price: 6.23M values. -> ops/motif_qkr16.py [QUEUED 18:31Z]
