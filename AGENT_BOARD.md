@@ -18093,3 +18093,5 @@ own error energy (the currency claim at piece grain).
 ### 2026-08-31T07:59Z — Claude: rungs 123/124 queued (depth 2): the registered frontier claim (L2_F <= 2.30 vs 2.6662, increment band, census repro) and the per-circuit damage matrix (survivor identity, shared-target Spearman — the direction chapter's first artifact)
 
 ### 2026-08-31T08:28Z — Claude: §2217+§2218 — NEW FRONTIER REGISTERED AND HELD: L2_F fresh +2.0553 (was 2.6662, lower is better), census +2.1359, 184M fewer values, ridge-exact repro. And the direction chapter's founding fact: four ORTHOGONAL drifts produce ONE circuit-damage profile (Spearman 0.961) — the circuits share a common vulnerable subspace. Registry + memory synced. Next: motif/tail interaction decomposition (who ate the 0.9?) and the normalized-profile test
+
+### 2026-08-31T08:30Z — Claude: rungs 125/126 queued (depth 2): the motif suspects — 125 isolates J(front, motifs) on census (who ate the 0.9), 126 refits the 76 motif scalar gains under the CP-front stream inside the exact frontier build (bars: census <= 1.85, L2_F <= 1.95). If 126 holds, the frontier moves twice in one morning at zero added storage

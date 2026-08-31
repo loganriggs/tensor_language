@@ -1698,3 +1698,17 @@ later per-rung backlog edits had silently anchored on text that was not here.
     RUN 2026-08-31, S2218: ALL HELD (pred_a vacuous - quad survivors
     empty). Median pairwise Spearman 0.961: the four sites damage the
     SAME circuits; shared vulnerable subspace. 5x62 matrix saved.
+
+125. Motif x front interaction (who ate the 0.9): arms motifs_alone /
+    front_alone (CP-3456 + a0/a1v, repro of +0.1193) / front_motifs;
+    middles real, no tail. J_FM = FM - M - F. pred_a J_FM >= 0.45;
+    pred_b FM >= M + F + 0.30; pred_c front repro +/- 0.015. Null:
+    additive (eater is the tail complex). Price: none.
+    -> ops/frontier_motif_interact.py [QUEUED 08:33Z]
+
+126. Motif-alpha refit inside the frontier config: rung-123 build with the
+    76 motif gains refit by the same projection on the CP-front stream
+    (before tail refits). pred_a census <= 1.85 (was 2.1359); pred_b
+    L2_F <= 1.95 (was 2.0553); pred_c increment in [0.25, 0.60], census
+    >= 1.0. Null: alpha frame-insensitive (recovery < 0.05). Price:
+    none (same 76 scalars). -> ops/frontier_motif_refit.py [QUEUED 08:33Z]
