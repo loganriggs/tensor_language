@@ -2667,3 +2667,13 @@ later per-rung backlog edits had silently anchored on text that was not here.
     m0); identity fades by block 2, null narrowly not triggered.
     ORACLE 0.035 - routing near-free, third module in a row. Class-
     indexed second level = next.
+
+226. LEVEL-2 HIERARCHY at m2: input-class index (prefix-only, no
+    target leak; fit on FW): pred_a CLSID <= 0.9 x TOKID; pred_b HIER
+    (s_tok + s_cls) <= 0.8 x TOKID; pred_c consistency. Null: 10
+    classes too coarse. -> ops/clsid_m2.py [QUEUED 23:15Z]
+
+227. Hierarchy control at m0 (ordering flip claim): pred_a CLSID >=
+    TOKID (token beats class at front); pred_b HIER <= 0.95 x TOKID;
+    pred_c consistency. Null: hierarchy flat (HIER <= 0.8 x TOKID).
+    -> ops/clsid_m0.py [QUEUED 23:15Z]

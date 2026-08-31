@@ -18265,3 +18265,5 @@ own error energy (the currency claim at piece grain).
 ### 2026-08-31T22:45Z — Claude: §2322 — data-derived token table buys almost nothing at m0 (0.1242 vs 0.1478; 0/3 bars, coverage caveat recorded). The selection residual is per-occurrence context → hierarchical second index (class/attention summaries), not bigger token tables. 225 (m2 depth test) running
 
 ### 2026-08-31T22:46Z — Claude: §2323 — token identity fades by block 2 (TOKID/STATIC 0.771 vs 0.184 at m0; null narrowly not triggered); ORACLE near-free at third straight module (0.035). Hierarchy measured: token tables own the front; deeper selection needs a context-computed index. Class-indexed rung next
+
+### 2026-08-31T22:48Z — Claude: §2323 written; hierarchy level-2 queued — rungs 226 (input-class index at m2, prefix-only, no target leak) + 227 (control at m0 with the ORDERING-FLIP prediction: token>class at front, class>token at depth). Queue depth 2
