@@ -65735,3 +65735,11 @@ Phase-2 selection belongs to the next strategic review.
 ## §2299 — RUNG 201: RANK 64 — CERTIFICATES CLIMB TO 7/62 — ALL THREE PREDS HELD: census +0.0852, fresh +0.0809, valid 7, median member/ref 1.006 (the MEDIAN circuit now sits at its full knockout reference; passing needs 0.5). rep at −0.065 (further below the real model). The clean pattern-rank curve: r32 0.149 → r64 0.085 — still yielding; the interaction floor, if any, is below 0.085. τ-curve {0.5×: 7, 1×: 30, 1.5×: 49}. The certificate count is now a FUNCTION OF PATTERN RANK — the two ledgers finally move together, at the low-compression end. Claim = rung 202; r96 completes the curve = rung 203 (both queued). (Convention: CE added above the real model; lower is better.)
 
 `ops/exact_qk64.py`, **125s**, BACKLOG rung 201.
+
+## §2300 — RUNG 202: THE SECOND CERTIFICATE CLAIM REGISTERS — ALL THREE PREDS, ridge-exact: **census +0.0852 / fresh +0.0809 / valid 7 of 62** at ~186M values (rank-64 patterns the only compression). The registered set now spans four points with certificates on the last two: {57M → 1.31, 0}, {88M → 0.64, 0}, {162M → 0.149, 2}, {186M → 0.085, 7}. (Convention: CE added above the real model; lower is better.)
+
+`ops/frontier_claim_qk64.py`, **124s**, BACKLOG rung 202.
+
+## §2301 — RUNG 203: RANK 96 — THE CURVE BENDS: census +0.0622 / fresh +0.0626 / valid 9 of 62. Scored as written: pred_a FAILED (0.0622 > 0.055, by 0.007), pred_b FAILED (9 < 12), pred_c held. The stated null (hard interaction floor at ≥ 0.07) also did not hold — the truth is between: r32→r64 bought 0.064, r64→r96 only 0.023; returns per rank increment are collapsing, but there is no hard floor yet. Two milestones inside the miss: the MEDIAN circuit is now BELOW its knockout reference for the first time (member/ref 0.857), and 41/62 circuits sit under 1× (τ-curve {0.5×: 9, 1×: 41, 1.5×: 53}). Certificates rose 7→9, not 12 — the remaining failures are the stubborn few, not the bulk. Uniform rank is now clearly the wrong spend — the allocation question (rung 204, queued) and per-token sparse usage (rung 205) are the live moves. (Convention: CE added above the real model; lower is better.)
+
+`ops/exact_qk96.py`, **128s**, BACKLOG rung 203.

@@ -2458,8 +2458,19 @@ later per-rung backlog edits had silently anchored on text that was not here.
 
 202. Registered claim r64 (census/L2F repro + valid >= 7): the second
     certificate claim. -> ops/frontier_claim_qk64.py [QUEUED 21:30Z]
+    RUN 2026-08-31, S2300: ALL HELD - second certificate claim
+    (valid 7/62 at census +0.0852). Four-point registered set.
 
 203. Rank-96 (curve's last point; 25% compression, science end): pred_a
     census <= 0.055; pred_b valid >= 12; pred_c floor + inert. Null:
     interaction floor / certificate stall.
     -> ops/exact_qk96.py [QUEUED 21:30Z]
+    RUN 2026-08-31, S2301: 1/3 bars - census +0.0622 (missed 0.055 by
+    0.007), valid 9 (missed 12); null floor (>=0.07) also wrong. Curve
+    bends: octave gains 0.064 -> 0.023. Median circuit below 1x ref
+    (0.857) for the first time.
+
+204. Mixed-rank allocation (tail r64 / motifs r32, 36.0M patterns, 26%
+    cheaper than uniform r64): pred_a census <= 0.11; pred_b valid >= 5;
+    pred_c range + inert. Null: rank need uniform (>= 0.117).
+    -> ops/mixed_rank.py [QUEUED 21:34Z]
