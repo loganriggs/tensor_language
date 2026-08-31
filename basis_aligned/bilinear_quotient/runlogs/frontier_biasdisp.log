@@ -1,0 +1,48 @@
+ARM: base + spliced census evals; per-circuit signed and abs member means
+a2-input probe acc 0.69
+fit a2
+fit a3
+fit a4
+fit a5
+fit a6
+fit a7
+fit a8
+fit a9
+fit a10
+fit a11
+fit a12
+fit a13
+fit a14
+fit a15
+fit a16
+fit a17
+  cp_swap: front MLPs m0-m3 -> CP top-3456 in place (tailE remains table-front-fit)
+L1 (+38 heads): C +1.4822 | fresh +1.5509
+  captured real-trajectory tail-attention targets
+fit a10L
+fit a11L
+fit a12L
+fit a13L
+fit a14L
+fit a15L
+fit a16L
+fit a17L
+  captured real-trajectory tail-attn outputs (250 batches)
+  window 0 (7 docs): L2 fresh +1.8764
+  window 1 (42 docs): L2 fresh +2.1854
+  window 2 (17 docs): L2 fresh +2.2063
+  window 3 (23 docs): L2 fresh +2.2184
+  window 4 (43 docs): L2 fresh +2.4204
+  window 5 (26 docs): L2 fresh +2.0762
+  window 6 (35 docs): L2 fresh +1.9654
+  window 7 (35 docs): L2 fresh +1.9407
+L2 empirical: C +1.8845 | fresh +1.8764 | tail-attn increment +0.3255
+(a) L2 <= +2.75 fresh: HELD
+(b) increment in [0.30,0.55]: HELD
+  per-class dCE: digit:+1.019 bclose:+0.249 newline:+0.419 sentend:+0.470 comma:+0.670 name:+1.321 rep:+0.929 subword:+1.426 ind:+0.641 other:+1.060
+  median |signed|/abs ratio 0.693; median circuit abs-improvement 1.684x vs census 2.072x
+L2 fresh +1.8764 (was +1.8765); census +0.9400 (was +1.9474); increment +0.3255; valid 0/62
+(a) median bias ratio 0.693 <= 0.5: FAILED
+(b) median circuit improvement 1.684x <= 0.8 x census factor (1.657x): FAILED
+(c) base +1.9474 ~ 1.9474, spliced +0.9400 ~ 0.9400: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/frontier_biasdisp_results.json (148s)

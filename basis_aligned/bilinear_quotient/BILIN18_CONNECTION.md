@@ -65382,3 +65382,18 @@ VOID-AS-DESIGNED; corrected control = rung 133 (offline real-module targets, the
 ## §2245 — RUNG 149: THE ATTN5 CLIFF IS MODEST IN THE MODERN FRONTIER — block-5 attention real buys 0.122 census (1.9474 → 1.8257), missing its 0.15 bar; subword barely moves (−0.05). pred_a FAILED by 0.026, pred_b FAILED, pred_c HELD. The table-era cliff lore does not transfer at full strength: one real block's attention is a mediocre spend at 5.3M values (descriptive L2_F +1.7621 — no claim registered). The deployable-lever list for the motif family shrinks to structural redesign. (Convention: CE added above the real model; lower is better.)
 
 `ops/frontier_attn5real.py`, **127s**, BACKLOG rung 149.
+
+## §2246 — RUNG 150: THE CERTIFICATE STATISTIC IS BIAS-LEANING — median |signed member mean| / member abs-mean = 0.693: at the median circuit, ~69% of the certificate statistic is SIGNED BIAS, not dispersion. pred_a FAILED as registered (the dispersion-dominance bar was 0.5), and its null branch is the live one: per-circuit bias correction becomes a serious, dirt-cheap certificate candidate. pred_b FAILED by a hair (median circuit abs-improvement 1.684× vs bar 1.657×): circuits improve almost PROPORTIONALLY with census under the splice — dispersion is only mildly sticky. pred_c HELD (both arms reproduce exactly). (Convention: CE added above the real model; lower is better.)
+
+`ops/frontier_biasdisp.py`, **148s**, BACKLOG rung 150.
+
+## §2247 — RUNG 151: ESTIMATION NOISE IS NOT THE DISPERSION — bootstrap-averaging the dictionary fits (B=4) changes per-circuit member damage by 0.03% (median ratio 0.9997) and census by +0.0016. pred_a FAILED decisively; pred_b/c HELD. The 1307 review's move 2 CLOSES: the damage is intrinsic (drift-induced), not fit noise — and averaging is aggregate-neutral, so there is nothing to harvest here at any price. (Convention: CE added above the real model; lower is better.)
+
+`ops/frontier_bootavg.py`, **128s**, BACKLOG rung 151.
+
+- Joint verdict of 150+151: the certificate path is BIAS-side. Queued: rung 152 (leaf-conditioned final-
+  stream DC correction — 62 per-circuit bias vectors fit on the census TRAIN half from real-vs-config h17
+  drift, certificates scored on the TEST half; 71,424 values; diagnostic-grade since leaf membership is
+  census-indexed) and rung 153 (the removal COLLATERAL MATRIX — the 8 distinct battery top components
+  mean-ablated on the REAL model, all 62 circuits' member damage per knockout: the missing cross-circuit
+  removal table, and a battery-protocol reproduction control in one).

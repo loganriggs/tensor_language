@@ -1991,6 +1991,9 @@ later per-rung backlog edits had silently anchored on text that was not here.
     factor; pred_c repro both arms. Null: BIAS-dominated -> per-circuit
     bias correction (~62 scalars) becomes the cheapest certificate
     candidate. Price: none. -> ops/frontier_biasdisp.py [QUEUED 13:16Z]
+    RUN 2026-08-31, S2246: pred_a FAILED (median bias ratio 0.693 -
+    BIAS-leaning, null branch live), pred_b FAILED by a hair (near-
+    proportional improvement), pred_c HELD. -> leaf-bias rung 152.
 
 151. Bootstrap-averaged aXL dictionary fits (B=4, seeded per site; math
     review 1307 move 2): is certificate dispersion estimation noise?
@@ -1998,3 +2001,13 @@ later per-rung backlog edits had silently anchored on text that was not here.
     <= 1.97; pred_c increment in [0.25, 0.45], census >= 1.4. Null:
     ratio > 0.99 (dispersion intrinsic; move 2 closes). Price: none.
     -> ops/frontier_bootavg.py [QUEUED 13:20Z]
+    RUN 2026-08-31, S2247: pred_a FAILED decisively (ratio 0.9997) -
+    dispersion intrinsic, not estimation noise. Move 2 closes.
+
+153. Removal collateral matrix (user request: the removal property at
+    matrix grain): the 8 distinct battery top components mean-ablated on
+    the REAL model; M[c][t] = every circuit's member damage per knockout.
+    pred_a median own/other selectivity >= 3; pred_b a8 collateral >= 20
+    non-own circuits above 0.25 x ref (substrate sharing); pred_c battery
+    repro ratio in [0.67, 1.5] (protocol control). Nulls: selectivity < 2
+    / sharing < 10. Price: none. -> ops/removal_matrix.py [QUEUED 13:31Z]
