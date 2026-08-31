@@ -64535,6 +64535,11 @@ pred_b (ind ρ +0.461 ≥ 0.3) | pred_c (2.6663 vs 2.6662).**
   there: a transferring map, which would make b2/b3 the first pair the program can legitimately MERGE. That is
   the registered next test (rung 87), and the first compilation opportunity of the new architecture chapter.
 
+**[SCOPE, from §2187: this 12.6× super-additivity is a ZERO-ablation fact dominated by the DC/mean term.
+Under mean-ablation (signals removed, means kept) the b2/b3 pair is ADDITIVE (ratio 0.955): no signal-level
+mutual coverage at the assemblers. The measurement stands; the "near-total mutual coverage" reading is
+withdrawn at signal level.]**
+
 ## §2181 — RUNG 87: THE MERGE IS NOT LICENSED — the attn2→attn3 map fits half A at R² 0.898 and collapses to −1.027 on half B (WORSE than predicting the mean): the front pair is even more aggressively document-bound than the tail's (0.106). The derived prediction was WRONG; the surprise is the finding. pred_a/c HELD, pred_b FAILED. (Alignment rung; motifs-2/3-real base, repro 2.4411 vs 2.4410.)
 
 `ops/assembler_transfer.py`, **112s**, BACKLOG rung 87. **pred_a HELD (CCA 0.913 — generic, per §2171's
@@ -64653,3 +64658,26 @@ pred_b (+0.0963 ≥ +0.0205) | pred_c (2.4411 vs 2.4410).**
 - This recasts the §2180 catastrophe naturally: zeroing both removes the stage-2 consumer AND the direct path
   at once. And it sharpens the merged-description prospect: a single distilled block-2/3 unit is the right
   object (one stage in, one write out), not two parallel writers.
+
+## §2187 — RUNG 94 (user-requested): THE CORRECTED TWIN TABLE — under mean-ablation the front pair's spectacular backup VANISHES (ratio 0.955, additive: §2180's 12.6× was DC compounding), while genuine signal-level backup appears at the mixers (1.49) and readers (1.50). pred_a FAILED (the mean term did NOT dominate at the tail), pred_b FAILED (the null won exactly where the effect was most dramatic), pred_c HELD. (Convention: damage on each leave-pair-real base; mean-ablation; bases excluded; lower is better.)
+
+`ops/twin_mean_suite.py`, **1313s, twelve arms**, BACKLOG rung 94. **pred_c HELD (2.4411 exact) | pred_a FAILED
+(p1416 mean-both 0.1153 > 0.5 × zero-both 0.2044, by 0.013) | pred_b FAILED (b23 ratio 0.955 < 1.15).**
+
+```
+  pair (mean-ablation)   d(A)      d(B)      d(both)   ratio    zero-both ref
+  b2/b3  (assemblers)   +0.1294   +0.0655   +0.1862    0.955      +9.0718   ← DC compounding exposed
+  b4/b5  (mixers)       +0.1946   +0.0447   +0.3565    1.49       (first direct numbers)
+  14/16  (readers)      +0.0373   +0.0396   +0.1153    1.50       +0.2044   ← backup CONFIRMED at signal level
+```
+
+- **The assembler pair's mutual coverage was a DC story:** their MEAN output vectors are jointly load-bearing
+  (+9 nats when both go), but their per-position SIGNALS are additive contributions — each carries its own
+  share, no coverage. §2180 carries a scope notice; §2184's scalar merge now reads naturally as mostly
+  restoring the deleted twin's amplitude/DC, which is exactly what a scalar can do.
+- **The backup law survives — at the other two pairs:** mixers and readers show clean signal-level
+  super-additivity (1.49 / 1.50), the readers' matching their zero-ablation ratio (~1.4, §2165) — the tail's
+  backup was never a DC artifact. The architecture statement is now three duos with three DIFFERENT internal
+  economies: additive assemblers with shared load-bearing DC, backing mixers, backing readers.
+- **Cheap-description corollary (registered as an observation):** two 1152-value mean vectors carry most of
+  what zero-ablation attributed to the assembler modules — DC terms belong in any compiled front grammar.

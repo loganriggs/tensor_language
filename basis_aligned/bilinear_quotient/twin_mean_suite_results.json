@@ -1,0 +1,35 @@
+{
+ "pairs": {
+  "b23": {
+   "base_L2F": 2.4411,
+   "meanA": 0.1294,
+   "meanB": 0.0655,
+   "meanBoth": 0.1862,
+   "ratio": 0.955
+  },
+  "b45": {
+   "base_L2F": 2.4466,
+   "meanA": 0.1946,
+   "meanB": 0.0447,
+   "meanBoth": 0.3565,
+   "ratio": 1.49
+  },
+  "p1416": {
+   "base_L2F": 2.423,
+   "meanA": 0.0373,
+   "meanB": 0.0396,
+   "meanBoth": 0.1153,
+   "ratio": 1.499
+  }
+ },
+ "zero_refs": {
+  "b23": 9.0718,
+  "p1416": 0.2044
+ },
+ "convention": "damage on each leave-pair-real base; bases excluded; lower L2 better",
+ "pred_a_mean_term_dominated": false,
+ "pred_b_backup_survives": false,
+ "pred_c_reproduces_r86_base": true,
+ "self_reviewed": true,
+ "runtime_s": 1313.3
+}

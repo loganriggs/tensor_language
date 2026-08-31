@@ -13,3 +13,458 @@ fit a11
 fit a12
 fit a13
 fit a14
+fit a15
+fit a16
+fit a17
+L1 (+38 heads): C +1.7715 | fresh +2.1027
+fit a10L
+fit a11L
+fit a12L
+fit a13L
+fit a14L
+fit a15L
+fit a16L
+fit a17L
+  window 0 (7 docs): L2 fresh +2.4411
+  window 1 (42 docs): L2 fresh +2.6620
+  window 2 (17 docs): L2 fresh +2.4263
+  window 3 (23 docs): L2 fresh +2.4884
+  window 4 (43 docs): L2 fresh +2.7083
+  window 5 (26 docs): L2 fresh +2.5084
+  window 6 (35 docs): L2 fresh +2.3802
+  window 7 (35 docs): L2 fresh +2.4269
+L2 empirical: C +2.1952 | fresh +2.4411 | tail-attn increment +0.3385
+(a) L2 <= +2.75 fresh: HELD
+(b) increment in [0.30,0.55]: HELD
+== PAIR b23: meanA ==
+a2-input probe acc 0.69
+fit a2
+fit a3
+fit a4
+fit a5
+fit a6
+fit a7
+fit a8
+fit a9
+fit a10
+fit a11
+fit a12
+fit a13
+fit a14
+fit a15
+fit a16
+fit a17
+attn2 MEAN-ablated for this arm (bases excluded)
+L1 (+38 heads): C +1.9584 | fresh +2.2436
+fit a10L
+fit a11L
+fit a12L
+fit a13L
+fit a14L
+fit a15L
+fit a16L
+fit a17L
+  window 0 (7 docs): L2 fresh +2.4193
+  window 1 (42 docs): L2 fresh +2.7399
+  window 2 (17 docs): L2 fresh +2.4075
+  window 3 (23 docs): L2 fresh +2.6045
+  window 4 (43 docs): L2 fresh +2.6383
+  window 5 (26 docs): L2 fresh +2.5852
+  window 6 (35 docs): L2 fresh +2.3963
+  window 7 (35 docs): L2 fresh +2.4314
+L2 empirical: C +2.3402 | fresh +2.5705 | tail-attn increment +0.3269
+(a) L2 <= +2.75 fresh: HELD
+(b) increment in [0.30,0.55]: HELD
+== PAIR b23: meanB ==
+a2-input probe acc 0.69
+fit a2
+fit a3
+fit a4
+fit a5
+fit a6
+fit a7
+fit a8
+fit a9
+fit a10
+fit a11
+fit a12
+fit a13
+fit a14
+fit a15
+fit a16
+fit a17
+attn3 MEAN-ablated for this arm (bases excluded)
+L1 (+38 heads): C +1.9022 | fresh +2.1545
+fit a10L
+fit a11L
+fit a12L
+fit a13L
+fit a14L
+fit a15L
+fit a16L
+fit a17L
+  window 0 (7 docs): L2 fresh +2.3911
+  window 1 (42 docs): L2 fresh +2.6897
+  window 2 (17 docs): L2 fresh +2.4783
+  window 3 (23 docs): L2 fresh +2.5811
+  window 4 (43 docs): L2 fresh +2.7236
+  window 5 (26 docs): L2 fresh +2.5639
+  window 6 (35 docs): L2 fresh +2.4279
+  window 7 (35 docs): L2 fresh +2.4355
+L2 empirical: C +2.3421 | fresh +2.5066 | tail-attn increment +0.3521
+(a) L2 <= +2.75 fresh: HELD
+(b) increment in [0.30,0.55]: HELD
+== PAIR b23: meanBoth ==
+a2-input probe acc 0.69
+fit a2
+fit a3
+fit a4
+fit a5
+fit a6
+fit a7
+fit a8
+fit a9
+fit a10
+fit a11
+fit a12
+fit a13
+fit a14
+fit a15
+fit a16
+fit a17
+attn2 MEAN-ablated for this arm (bases excluded)
+attn3 MEAN-ablated for this arm (bases excluded)
+L1 (+38 heads): C +2.1444 | fresh +2.3002
+fit a10L
+fit a11L
+fit a12L
+fit a13L
+fit a14L
+fit a15L
+fit a16L
+fit a17L
+  window 0 (7 docs): L2 fresh +1.7390
+  window 1 (42 docs): L2 fresh +2.1528
+  window 2 (17 docs): L2 fresh +1.8688
+  window 3 (23 docs): L2 fresh +2.1618
+  window 4 (43 docs): L2 fresh +2.1489
+  window 5 (26 docs): L2 fresh +2.0344
+  window 6 (35 docs): L2 fresh +1.9049
+  window 7 (35 docs): L2 fresh +1.9318
+L2 empirical: C +2.5024 | fresh +2.6273 | tail-attn increment +0.3271
+(a) L2 <= +2.75 fresh: HELD
+(b) increment in [0.30,0.55]: HELD
+b23: A +0.1294 B +0.0655 both +0.1862 ratio 0.955
+== PAIR b45: base (capture means) ==
+a2-input probe acc 0.69
+fit a2
+fit a3
+fit a4
+fit a5
+fit a6
+fit a7
+fit a8
+fit a9
+fit a10
+fit a11
+fit a12
+fit a13
+fit a14
+fit a15
+fit a16
+fit a17
+L1 (+38 heads): C +1.7659 | fresh +2.1637
+fit a10L
+fit a11L
+fit a12L
+fit a13L
+fit a14L
+fit a15L
+fit a16L
+fit a17L
+  window 0 (7 docs): L2 fresh +2.4466
+  window 1 (42 docs): L2 fresh +2.6416
+  window 2 (17 docs): L2 fresh +2.3585
+  window 3 (23 docs): L2 fresh +2.5275
+  window 4 (43 docs): L2 fresh +2.5937
+  window 5 (26 docs): L2 fresh +2.4477
+  window 6 (35 docs): L2 fresh +2.3111
+  window 7 (35 docs): L2 fresh +2.3973
+L2 empirical: C +2.1783 | fresh +2.4466 | tail-attn increment +0.2829
+(a) L2 <= +2.75 fresh: HELD
+(b) increment in [0.30,0.55]: FAILED
+== PAIR b45: meanA ==
+a2-input probe acc 0.69
+fit a2
+fit a3
+fit a4
+fit a5
+fit a6
+fit a7
+fit a8
+fit a9
+fit a10
+fit a11
+fit a12
+fit a13
+fit a14
+fit a15
+fit a16
+fit a17
+attn4 MEAN-ablated for this arm (bases excluded)
+L1 (+38 heads): C +2.1287 | fresh +2.3423
+fit a10L
+fit a11L
+fit a12L
+fit a13L
+fit a14L
+fit a15L
+fit a16L
+fit a17L
+  window 0 (7 docs): L2 fresh +2.2963
+  window 1 (42 docs): L2 fresh +2.6723
+  window 2 (17 docs): L2 fresh +2.4024
+  window 3 (23 docs): L2 fresh +2.5788
+  window 4 (43 docs): L2 fresh +2.5489
+  window 5 (26 docs): L2 fresh +2.4736
+  window 6 (35 docs): L2 fresh +2.3431
+  window 7 (35 docs): L2 fresh +2.3611
+L2 empirical: C +2.4897 | fresh +2.6412 | tail-attn increment +0.2989
+(a) L2 <= +2.75 fresh: HELD
+(b) increment in [0.30,0.55]: FAILED
+== PAIR b45: meanB ==
+a2-input probe acc 0.69
+fit a2
+fit a3
+fit a4
+fit a5
+fit a6
+fit a7
+fit a8
+fit a9
+fit a10
+fit a11
+fit a12
+fit a13
+fit a14
+fit a15
+fit a16
+fit a17
+attn5 MEAN-ablated for this arm (bases excluded)
+L1 (+38 heads): C +1.9212 | fresh +2.2467
+fit a10L
+fit a11L
+fit a12L
+fit a13L
+fit a14L
+fit a15L
+fit a16L
+fit a17L
+  window 0 (7 docs): L2 fresh +2.0261
+  window 1 (42 docs): L2 fresh +2.3257
+  window 2 (17 docs): L2 fresh +2.0820
+  window 3 (23 docs): L2 fresh +2.2626
+  window 4 (43 docs): L2 fresh +2.2822
+  window 5 (26 docs): L2 fresh +2.1596
+  window 6 (35 docs): L2 fresh +2.0518
+  window 7 (35 docs): L2 fresh +2.0187
+L2 empirical: C +2.2805 | fresh +2.4913 | tail-attn increment +0.2446
+(a) L2 <= +2.75 fresh: HELD
+(b) increment in [0.30,0.55]: FAILED
+== PAIR b45: meanBoth ==
+a2-input probe acc 0.69
+fit a2
+fit a3
+fit a4
+fit a5
+fit a6
+fit a7
+fit a8
+fit a9
+fit a10
+fit a11
+fit a12
+fit a13
+fit a14
+fit a15
+fit a16
+fit a17
+attn4 MEAN-ablated for this arm (bases excluded)
+attn5 MEAN-ablated for this arm (bases excluded)
+L1 (+38 heads): C +2.3887 | fresh +2.5165
+fit a10L
+fit a11L
+fit a12L
+fit a13L
+fit a14L
+fit a15L
+fit a16L
+fit a17L
+  window 0 (7 docs): L2 fresh +1.6564
+  window 1 (42 docs): L2 fresh +2.1826
+  window 2 (17 docs): L2 fresh +2.0757
+  window 3 (23 docs): L2 fresh +2.2318
+  window 4 (43 docs): L2 fresh +2.1813
+  window 5 (26 docs): L2 fresh +2.0458
+  window 6 (35 docs): L2 fresh +1.9587
+  window 7 (35 docs): L2 fresh +1.8418
+L2 empirical: C +2.7496 | fresh +2.8031 | tail-attn increment +0.2866
+(a) L2 <= +2.75 fresh: FAILED
+(b) increment in [0.30,0.55]: FAILED
+b45: A +0.1946 B +0.0447 both +0.3565 ratio 1.49
+== PAIR p1416: base (capture means) ==
+a2-input probe acc 0.69
+fit a2
+fit a3
+fit a4
+fit a5
+fit a6
+fit a7
+fit a8
+fit a9
+fit a10
+fit a11
+fit a12
+fit a13
+fit a14
+fit a15
+fit a16
+fit a17
+L1 (+38 heads): C +2.0112 | fresh +2.3207
+fit a10L
+fit a11L
+fit a12L
+fit a13L
+fit a15L
+fit a17L
+  window 0 (7 docs): L2 fresh +2.4230
+  window 1 (42 docs): L2 fresh +2.6080
+  window 2 (17 docs): L2 fresh +2.3037
+  window 3 (23 docs): L2 fresh +2.4899
+  window 4 (43 docs): L2 fresh +2.5081
+  window 5 (26 docs): L2 fresh +2.4513
+  window 6 (35 docs): L2 fresh +2.3216
+  window 7 (35 docs): L2 fresh +2.3471
+L2 empirical: C +2.1397 | fresh +2.4230 | tail-attn increment +0.1023
+(a) L2 <= +2.75 fresh: HELD
+(b) increment in [0.30,0.55]: FAILED
+== PAIR p1416: meanA ==
+a2-input probe acc 0.69
+fit a2
+fit a3
+fit a4
+fit a5
+fit a6
+fit a7
+fit a8
+fit a9
+fit a10
+fit a11
+fit a12
+fit a13
+fit a14
+fit a15
+fit a16
+fit a17
+attn14 MEAN-ablated for this arm (bases excluded)
+L1 (+38 heads): C +2.0345 | fresh +2.3325
+fit a10L
+fit a11L
+fit a12L
+fit a13L
+fit a15L
+fit a17L
+  window 0 (7 docs): L2 fresh +2.4527
+  window 1 (42 docs): L2 fresh +2.6928
+  window 2 (17 docs): L2 fresh +2.3235
+  window 3 (23 docs): L2 fresh +2.5465
+  window 4 (43 docs): L2 fresh +2.6414
+  window 5 (26 docs): L2 fresh +2.5573
+  window 6 (35 docs): L2 fresh +2.3766
+  window 7 (35 docs): L2 fresh +2.4237
+L2 empirical: C +2.2291 | fresh +2.4603 | tail-attn increment +0.1278
+(a) L2 <= +2.75 fresh: HELD
+(b) increment in [0.30,0.55]: FAILED
+== PAIR p1416: meanB ==
+a2-input probe acc 0.69
+fit a2
+fit a3
+fit a4
+fit a5
+fit a6
+fit a7
+fit a8
+fit a9
+fit a10
+fit a11
+fit a12
+fit a13
+fit a14
+fit a15
+fit a16
+fit a17
+attn16 MEAN-ablated for this arm (bases excluded)
+L1 (+38 heads): C +2.0641 | fresh +2.3330
+fit a10L
+fit a11L
+fit a12L
+fit a13L
+fit a15L
+fit a17L
+  window 0 (7 docs): L2 fresh +2.4685
+  window 1 (42 docs): L2 fresh +2.7150
+  window 2 (17 docs): L2 fresh +2.3472
+  window 3 (23 docs): L2 fresh +2.5884
+  window 4 (43 docs): L2 fresh +2.6406
+  window 5 (26 docs): L2 fresh +2.5618
+  window 6 (35 docs): L2 fresh +2.4042
+  window 7 (35 docs): L2 fresh +2.4407
+L2 empirical: C +2.2586 | fresh +2.4626 | tail-attn increment +0.1295
+(a) L2 <= +2.75 fresh: HELD
+(b) increment in [0.30,0.55]: FAILED
+== PAIR p1416: meanBoth ==
+a2-input probe acc 0.69
+fit a2
+fit a3
+fit a4
+fit a5
+fit a6
+fit a7
+fit a8
+fit a9
+fit a10
+fit a11
+fit a12
+fit a13
+fit a14
+fit a15
+fit a16
+fit a17
+attn14 MEAN-ablated for this arm (bases excluded)
+attn16 MEAN-ablated for this arm (bases excluded)
+L1 (+38 heads): C +2.1741 | fresh +2.3860
+fit a10L
+fit a11L
+fit a12L
+fit a13L
+fit a15L
+fit a17L
+  window 0 (7 docs): L2 fresh +2.5083
+  window 1 (42 docs): L2 fresh +2.8599
+  window 2 (17 docs): L2 fresh +2.5218
+  window 3 (23 docs): L2 fresh +2.7233
+  window 4 (43 docs): L2 fresh +2.8488
+  window 5 (26 docs): L2 fresh +2.7376
+  window 6 (35 docs): L2 fresh +2.5350
+  window 7 (35 docs): L2 fresh +2.5912
+L2 empirical: C +2.4388 | fresh +2.5383 | tail-attn increment +0.1523
+(a) L2 <= +2.75 fresh: HELD
+(b) increment in [0.30,0.55]: FAILED
+p1416: A +0.0373 B +0.0396 both +0.1153 ratio 1.499
+b23: {'base_L2F': 2.4411, 'meanA': 0.1294, 'meanB': 0.0655, 'meanBoth': 0.1862, 'ratio': 0.955}
+b45: {'base_L2F': 2.4466, 'meanA': 0.1946, 'meanB': 0.0447, 'meanBoth': 0.3565, 'ratio': 1.49}
+p1416: {'base_L2F': 2.423, 'meanA': 0.0373, 'meanB': 0.0396, 'meanBoth': 0.1153, 'ratio': 1.499}
+(a) mean-both <= 0.5 x zero-both (b23, 1416): FAILED
+(b) super-additivity survives at all three pairs: FAILED
+(c) b23 base 2.4411 vs 2.4410 (tol 0.01): HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/twin_mean_suite_results.json (1313s)

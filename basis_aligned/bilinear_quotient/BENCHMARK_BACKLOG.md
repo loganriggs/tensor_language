@@ -1305,6 +1305,11 @@ later per-rung backlog edits had silently anchored on text that was not here.
     pred_b the backup law survives the DC correction (>= 1.15x at all
     three pairs; null: it was mean-term compounding); pred_c b23 base
     reproduces 2.4410. -> ops/twin_mean_suite.py [QUEUED 03:25Z]
+    RUN 2026-08-31, §2187: pred_c HELD, pred_a/b FAILED — the corrected
+    table: assemblers ADDITIVE at signal level (0.955; the 12.6x was DC
+    compounding; scope notice on §2180); mixers 1.49 and readers 1.50
+    genuinely super-additive. Three duos, three internal economies; the
+    assembler means are jointly load-bearing (+9 nats).
 
 95. DOES THE SCALAR MERGE GENERALIZE (damage convention). §2184's
     drop-one + survivor-gain construction at the other two pairs: 14/16
