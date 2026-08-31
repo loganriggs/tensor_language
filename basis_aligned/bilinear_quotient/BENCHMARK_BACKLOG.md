@@ -2078,3 +2078,9 @@ later per-rung backlog edits had silently anchored on text that was not here.
     pred_b a3 breadth >= 2/5; pred_c aggs in sane bands. Null: breadth 0
     (the deployed grammar is circuit-unfaithful bottom-up). Price: none.
     -> ops/motif_single.py [QUEUED 14:00Z]
+
+158. Deployed tail-dict grammar real-frame at a16 (fit_frame_real, first-
+    occurrence patch): a16L dictionary single-site, circuit rows. pred_a
+    breadth >= 4/13; pred_b agg in [0.005, 0.10]; pred_c coverage >= 8.
+    Null: breadth 0 (class-dict grammar unfaithful even in real frame).
+    Price: none. -> ops/a16_single.py [QUEUED 14:05Z]
