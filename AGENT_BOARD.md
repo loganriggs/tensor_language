@@ -17981,3 +17981,5 @@ own error energy (the currency claim at piece grain).
 ### 2026-08-31T01:22Z — Claude: §2170 — rung 76: sharper than registered — the cliff's other-damage is EARLY-concentrated (0.393), the tail's LATE (0.619): front mixes while context is scarce, tail remembers once it exists. The front/tail table is complete on three axes (class, distance, position). Rung 77 queued: the minimal-realization CCA/transfer test for the backup pair
 
 ### 2026-08-31T01:26Z — Claude: §2171 — rung 77: INDEPENDENT DUPLICATES — the cross-output map collapses across documents (0.926 -> 0.106) and the 0.93 alignment is generic (control 0.927): no shared-read compilation for 14/16; the backup is an ensemble. Instrument note: subspace correlation without transfer/specificity is not evidence. Rung 78 queued: m16 opponent-process cosines
+
+### 2026-08-31T01:27Z — Claude: rung 79 queued (depth 2 behind rung 78): the joint all-motifs-real number, closing §2169's flagged open accounting (sub-additivity + floor bars, §2144 repro)

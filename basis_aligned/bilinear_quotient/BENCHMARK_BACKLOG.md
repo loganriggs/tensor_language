@@ -1078,3 +1078,10 @@ later per-rung backlog edits had silently anchored on text that was not here.
     |cos| <= 0.15 on non-ind; pred_c repro gate. Null: suppression is
     routed, not direct logit opposition.
     -> ops/m16_opponent.py [QUEUED 01:28Z]
+
+79. THE JOINT MOTIF NUMBER (accounting; damage convention). §2169
+    flagged the joint all-motifs-real value as open (marginals sum
+    +0.741, strongly sub-additive). pred_a d(all) <= 0.5 x 0.741;
+    pred_b d(all) >= max single (+0.1888); pred_c full reproduces
+    §2144. Null: additive (~+0.741).
+    -> ops/motif_joint.py [QUEUED 01:56Z]
