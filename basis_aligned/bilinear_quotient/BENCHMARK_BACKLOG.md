@@ -1885,3 +1885,11 @@ later per-rung backlog edits had silently anchored on text that was not here.
     increment in [0.10, 0.36]. Null: tailE adds nothing for name (>=
     2.18) - remainder is middles/front interactions. Price: none.
     -> ops/frontier_nameoracle2.py [QUEUED 11:30Z]
+
+143. Trajectory-grade name oracle: real-model tail-attn outputs captured
+    position-aligned on census rows, spliced for name positions in the
+    census eval only (batch-counter hooks + inertness tripwire). Gap vs
+    S2234's module-grade (+2.285) = context-corruption share. pred_a
+    name <= 1.6; pred_b census <= 1.90; pred_c L1F invariant, census >=
+    1.4. Null: gap < 0.2 (remainder is elsewhere). Price: none.
+    -> ops/frontier_nametraj.py [QUEUED 11:35Z]

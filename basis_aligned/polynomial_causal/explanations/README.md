@@ -60,3 +60,4 @@ primary evidence.
 - [explanation_0537.md](explanation_0537.md) — certificate chapter closed: the tables were the elephant; a0 exact (62/62); repair dichotomy running
 - [explanation_0733.md](explanation_0733.md) — table grammar falsified; CP pruning wins per-site; compounding is directional; Möbius composition calculus built
 - [explanation_0933.md](explanation_0933.md) — frontier falls twice (1.88 nats, smaller model); trajectory-teaching law forming; certificates still stuck
+- [explanation_1135.md](explanation_1135.md) — the name mystery: compositional damage, the corrupted-library hypothesis
