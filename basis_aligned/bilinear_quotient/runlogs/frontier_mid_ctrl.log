@@ -16,3 +16,36 @@ fit a14
 fit a15
 fit a16
 fit a17
+  cp_swap: front MLPs m0-m3 -> CP top-3456 in place (tailE remains table-front-fit)
+L1 (+38 heads): C +1.4822 | fresh +1.5509
+  captured real-trajectory tail-attention targets
+  mid_traj: refit c4 Down (trajectory target)
+  mid_traj: refit c5 Down (trajectory target)
+  mid_traj: refit c6 Down (trajectory target)
+  mid_traj: refit c7 Down (trajectory target)
+  mid_traj: refit c8 Down (trajectory target)
+  mid_traj: refit c9 Down (trajectory target)
+fit a10L
+fit a11L
+fit a12L
+fit a13L
+fit a14L
+fit a15L
+fit a16L
+fit a17L
+  window 0 (7 docs): L2 fresh +1.8765
+  window 1 (42 docs): L2 fresh +2.1855
+  window 2 (17 docs): L2 fresh +2.2064
+  window 3 (23 docs): L2 fresh +2.2184
+  window 4 (43 docs): L2 fresh +2.4206
+  window 5 (26 docs): L2 fresh +2.0763
+  window 6 (35 docs): L2 fresh +1.9655
+  window 7 (35 docs): L2 fresh +1.9408
+L2 empirical: C +1.8846 | fresh +1.8765 | tail-attn increment +0.3256
+(a) L2 <= +2.75 fresh: HELD
+(b) increment in [0.30,0.55]: HELD
+L2 fresh +1.8765 (was +1.8765); census +1.9475 (was +1.9474); increment +0.3256
+(a) census +1.9475 >= 2.10: FAILED
+(b) census +1.9475 <= 2.3052 via L2F line +1.8765: HELD
+(c) L2F in [1.7, 2.6], increment in [0.2, 0.8]: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/frontier_mid_ctrl_results.json (142s)

@@ -65214,3 +65214,20 @@ registered space (null said "recovery < 0.03", not "+1.10 damage").**
   2. **The tailE branch closes:** the in-frame rebuild is 0.023 WORSE than leaving tailE table-front-fit —
      the "~0.14 frame approximation" flagged in §2216 was in fact costless; the original tailE stands in the
      frontier config. No frontier change: the quotable line remains rung 127's +1.8765 / +1.9474.
+
+## §2225 — RUNG 131: THE IN-FRAME CONTROL WAS VOID BY CONSTRUCTION — a §2189-class instrument artifact caught by its own numbers: L2_F came back BIT-IDENTICAL (+1.8765) and census within 0.0001 of baseline. Cause (code-read, post-hoc): the capture hook registered AFTER install() receives the output ALREADY MODIFIED by the installed cp hook, so the "in-frame target" was the pruned replacement's OWN output — a self-target, and the ridge fit trivially reproduces the pruned Down (the target is exactly in the span of G). pred_a FAILED / pred_b,c HELD as written, but the arm scores NOTHING about the exactness-vs-steering law: the real-weight clause remains UNSCORED. (Convention: CE added above the real model; lower is better.)
+
+`ops/frontier_mid_ctrl.py`, **142s**, BACKLOG rung 131. **Scored as written (a FAILED, b/c HELD); arm marked
+VOID-AS-DESIGNED; corrected control = rung 133 (offline real-module targets, the §2199 capture pattern).**
+
+- Instrument rule added to the §2189 family: a capture hook that shares a module with an installed
+  replacement hook captures the REPLACED output — in-frame targets must be computed OFFLINE (module called
+  directly on captured inputs, hooks removed).
+
+## §2226 — RUNG 132: THE FRONTIER'S TWO-LEDGER ROW IS FILED — ALL THREE PREDS HELD. The standing frontier (rung 127: L2_F +1.8764, census +1.9474, both reproduced exactly) is valid for 0 of 62 circuits — certificate stagnation exactly as registered (§2208's lesson at the frontier). The 62-circuit rows are saved (frontier_rows_results.json). (Convention: CE added above the real model; τ = 0.5×battery ref; lower is better.)
+
+`ops/frontier_rows.py`, **128s**, BACKLOG rung 132. **pred_a/b/c ALL HELD.**
+
+- The two-ledger table's head row now reads: **aggregate +1.8765 fresh / +1.9474 census (best ever, −184M
+  values) | certificates 0/62 (unchanged since the battery existed).** The direction problem is the whole
+  remaining distance between the two ledgers.

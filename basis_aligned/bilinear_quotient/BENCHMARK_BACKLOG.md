@@ -1764,9 +1764,42 @@ later per-rung backlog edits had silently anchored on text that was not here.
     pred_c L2_F in [1.7, 2.6], increment in [0.2, 0.8]. Null: recovery
     <= 2.00 (trajectory target was the harm). Price: none.
     -> ops/frontier_mid_ctrl.py [QUEUED 09:30Z]
+    RUN 2026-08-31, S2225: VOID-AS-DESIGNED (self-target: capture hook
+    downstream of installed cp hook; bit-identical L2F). Scored as
+    written (a FAILED, b/c HELD). Corrected control = rung 133.
 
 132. Certificate rows for the standing frontier: exact rung-127 build,
     62-circuit rows saved. pred_a |census - 1.9474| <= 0.015; pred_b
     valid <= 5 (S2208 stagnation; FAILURE = news); pred_c |L2_F -
     1.8765| <= 0.015, increment in [0.25, 0.40]. Price: none.
     -> ops/frontier_rows.py [QUEUED 09:33Z]
+    RUN 2026-08-31, S2226: ALL HELD. Frontier two-ledger row filed:
+    +1.8765/+1.9474 aggregate, 0/62 certificates. Rows saved.
+
+133. Corrected middles control (offline real targets, S2199 capture rule):
+    Down refit to real mlp(Xd) with all 4608 units = least-squares pruning
+    compensation. pred_a census <= 1.92 (compensation wins); pred_b L2_F
+    <= 1.86; pred_c increment in [0.25, 0.45], census >= 1.4. Null:
+    exactness beats compensation (>= 1.95). Tripwire: rung-131 self-
+    target signature. Price: none.
+    -> ops/frontier_mid_real.py [QUEUED 10:00Z]
+
+134. Per-class table of the frontier: exact rung-127 build, 10-class
+    census breakdown saved. pred_a retrieval law survives (link >= 2 x
+    const); pred_b subword <= aggregate; pred_c census repro +/- 0.015.
+    Null: class structure flattened. Price: none.
+    -> ops/frontier_classes.py [QUEUED 10:00Z]
+
+133. Corrected middles control (offline real targets, S2199 capture rule):
+    Down refit to real mlp(Xd) with all 4608 units = least-squares pruning
+    compensation. pred_a census <= 1.92 (compensation wins); pred_b L2_F
+    <= 1.86; pred_c increment in [0.25, 0.45], census >= 1.4. Null:
+    exactness beats compensation (>= 1.95). Tripwire: rung-131 self-
+    target signature. Price: none.
+    -> ops/frontier_mid_real.py [QUEUED 10:03Z]
+
+134. Per-class table of the frontier: exact rung-127 build, 10-class
+    census breakdown saved. pred_a retrieval law survives (link >= 2 x
+    const); pred_b subword <= aggregate; pred_c census repro +/- 0.015.
+    Null: class structure flattened. Price: none.
+    -> ops/frontier_classes.py [QUEUED 10:03Z]

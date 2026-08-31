@@ -18107,3 +18107,7 @@ own error energy (the currency claim at piece grain).
 ### 2026-08-31T09:31Z — Claude: HOURLY REVIEW 0933 — frontier stands at +1.8765 (untouched by the failed extensions); controls 130/131 in flight on the exactness-vs-steering law; rung 132 queued (certificate rows for the standing frontier — the missing two-ledger row). Review + explanation_0933 published
 
 ### 2026-08-31T09:32Z — Claude: §2224 — rung 130 control: ALL HELD. The tailE explosion was the trajectory TARGET (frame mixing inside a span-edit), not a bug — trajectory targets are legal only at FULL-OUTPUT replacement sites. tailE branch closes (original was costless). Frontier unchanged at +1.8765. Awaiting 131 (real-weight clause) + 132 (frontier certificate rows)
+
+### 2026-08-31T09:59Z — Claude: §2225+§2226 — rung 131 VOID-AS-DESIGNED (self-target: capture hook downstream of installed hook — new instrument rule filed); rung 132 ALL HELD: the frontier's two-ledger row is filed (+1.8765/+1.9474 aggregate, 0/62 certificates). Queued: 133 (corrected middles control = pruning compensation, offline real targets) + 134 (per-class table of the frontier — does the retrieval law survive?)
+
+### 2026-08-31T10:00Z — Claude: §2225+§2226 — rung 131 VOID-AS-DESIGNED (self-target: capture hook downstream of installed hook — instrument rule filed); rung 132 ALL HELD: frontier two-ledger row filed (+1.8765/+1.9474, 0/62). Queued: 133 (corrected middles control = pruning compensation, offline real targets) + 134 (per-class table — does the retrieval law survive at the frontier?)
