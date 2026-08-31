@@ -65911,3 +65911,7 @@ Receipts: motif_{exact,early,late,r96} + frontier_claim_qk64 + BATTERY. BACKLOG 
 ## §2343 — RUNG 244: THE COMPUTE-SPARSE CORNER IS NEAR-ADDITIVE — ALL THREE PREDS HELD, and BETTER than the additive estimate. {Motifs exact, tail r64, per-token top-1152 MLPs}: census +0.0776 / fresh +0.0798 / valid 7 — the sparsity surcharge over the corner is +0.0168 (vs +0.0161 on the r64 base: additivity within wobble; the §2329/§2330 composition super-additivity does NOT afflict the top-k mechanism, because dynamic selection tracks its input wherever it lands, unlike static tables). Certificates 9 → 7, echoing the r64-base pattern (7 → 4 there; here the corner's margin cushion saves two). The compute-sparse menu now has a quality tier: {corner storage, 4× MLP compute-sparse → +0.0776, 7 certs}. (Convention: CE added above the real model; lower is better.)
 
 `ops/corner_topk.py`, **133s**, BACKLOG rung 244.
+
+## §2344 — RUNG 245: THE ECONOMICAL SHAPE REGISTERS — ALL THREE PREDS, bit-exact: census +0.0676 / fresh +0.0660 / valid 8 of 62 at ~187M values ({motifs r96, tail r64}, 60.3M pattern values). The two-tier allocation menu is now fully official: economical {187M → 0.0676, 8 certs} and the corner {199M → 0.0608, 9 certs}, both carrying the halves law. (Convention: CE added above the real model; lower is better.)
+
+`ops/frontier_claim_motif96.py`, **126s**, BACKLOG rung 245.

@@ -2832,6 +2832,8 @@ later per-rung backlog edits had silently anchored on text that was not here.
 245. Registered claim: economical shape {motifs r96, tail r64}:
     |census-0.0676|<=0.015; valid >= 8; |L2F-0.0660|<=0.015.
     -> ops/frontier_claim_motif96.py [QUEUED 23:33Z]
+    RUN 2026-09-01, S2344: ALL HELD, bit-exact - economical shape
+    official (+0.0676/8 certs/~187M).
 
 246. Targeted tail exactness: corner + block 16 exact (aimed at the
     a16/m16 failure family; +2.9M): pred_a census <= 0.058; pred_b
