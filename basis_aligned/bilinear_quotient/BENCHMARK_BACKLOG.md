@@ -2599,8 +2599,15 @@ later per-rung backlog edits had silently anchored on text that was not here.
     pred_b EIGTK <= 0.9 x NEURTK; pred_c EIGTK <= E4608 + 0.02 + non-
     inert. Null: concentration basis-independent (>= 0.95).
     -> ops/m16_eig_topk.py [QUEUED 22:33Z]
+    RUN 2026-08-31, S2317: 2/3, pred_b failed by 19x REVERSED - usage
+    sparsity is a NEURON-basis phenomenon (NEURTK 0.038 nearly free;
+    eigen dict barely responds to selection). Mechanisms factorize by
+    basis: static->eigen, routing->neurons.
 
 220. Basis law quantified: m5 midpoint + five-module Spearman
     (difficulty vs eigen advantage): pred_a exactness; pred_b rho
     <= -0.75; pred_c m5 ratio in [0.3, 2.0]. Null: |rho| < 0.5 (late-
     layer effect, not concentration). -> ops/m5_eigenbasis.py [QUEUED 22:36Z]
+    BUILDER NOTE: first build failed an assert (_need anchor differs
+    across script generations); rebuilt + enqueued 22:39Z. Rule: verify
+    dryrun-header anchors per file, they are not lineage-stable.
