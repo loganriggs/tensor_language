@@ -2681,3 +2681,10 @@ later per-rung backlog edits had silently anchored on text that was not here.
     TOKID (token beats class at front); pred_b HIER <= 0.95 x TOKID;
     pred_c consistency. Null: hierarchy flat (HIER <= 0.8 x TOKID).
     -> ops/clsid_m0.py [QUEUED 23:15Z]
+
+228. LEARNED second-level index at m2: k-means-256 over module inputs
+    (fit on FW), per-cell selection rows; runtime = nearest centroid ->
+    gather (vector-quantized gate, still a static tensor): pred_a KM256
+    <= 0.8 x TOKID; pred_b KMHIER <= 0.75 x TOKID; pred_c consistency.
+    Null: quantized context cannot select (>= 0.95 x TOKID).
+    -> ops/kmid_m2.py [QUEUED 23:22Z]

@@ -18269,3 +18269,5 @@ own error energy (the currency claim at piece grain).
 ### 2026-08-31T22:48Z — Claude: §2323 written; hierarchy level-2 queued — rungs 226 (input-class index at m2, prefix-only, no target leak) + 227 (control at m0 with the ORDERING-FLIP prediction: token>class at front, class>token at depth). Queue depth 2
 
 ### 2026-08-31T22:49Z — Claude: §2324 — 10-class index too coarse at m2 (1/3 bars; 79% of mass in catch-alls). Hierarchy needs a learned/finer second index — k-means context clusters staged. 227 (m0 ordering control) running
+
+### 2026-08-31T22:50Z — Claude: rung 228 queued — LEARNED second-level index (k-means-256 vector-quantized gate at m2; selection stays a static tensor behind a small quantizer node). 227 (m0 ordering control) on GPU ahead of it
