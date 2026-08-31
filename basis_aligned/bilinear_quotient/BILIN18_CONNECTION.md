@@ -65511,3 +65511,18 @@ VOID-AS-DESIGNED; corrected control = rung 133 (offline real-module targets, the
   three circuits) — the necessity pred is heading for its null. If it lands that way, the carrier story
   gets its honest caveat: rank-32 sufficiency ~0.5 coexists with a damaging complement; the meaningful
   statistic will be per-dimension concentration (0.5 in 32 dims vs 0.8 in 1120), scored when it lands.
+
+
+## §2262 — RUNG 165: THE CARRIER IS CONCENTRATION, NOT EXCLUSIVE SUPPORT — pred_a FAILED as registered (median complement share 0.626 > 0.5: the 1120-dim complement also damages members), pred_b HELD (rough additivity, median |sum−1| = 0.208), pred_c HELD (repro exact). Scored as written; the pre-registered honest statistic (§2261's note) is PER-DIMENSION CONCENTRATION: the pca32 subspace carries 0.51 with 32 dims vs the complement's 0.63 with 1120 — **29× denser per dimension**. Heterogeneity recorded: a17's circuit is genuinely concentrated (pca32 0.87 / comp 0.33) while a14's is the reverse (0.38 / 0.83). The counterfactual variable is distributed-but-concentrated, and its concentration varies by component. (Convention: share = member |dCE| of subspace patch / full swap; census rows.)
+
+`ops/carrier_necessity.py`, **189s**, BACKLOG rung 165.
+
+## §2263 — RUNG 166: CARRIERS ARE SUBSTANTIALLY SHARED WITHIN THE FAMILY — pred_a HELD: the r.2.0 reference basis does a median 0.85× as well as each sibling circuit's OWN basis at four a8-family circuits. pred_b FAILED on its absolute bar (no ref-share ≥ 0.3) — but the miss is a CALIBRATION artifact recorded honestly: these targets' own-basis shares are themselves only 0.32–0.41 (weaker circuits than the rung-161 sample the bar was set from); the RATIO is the sharing signal and it held. pred_c HELD. Repertoire verdict: store ONE pca32 basis per component family plus per-circuit shares — the compressed counterfactual-circuit product the §2255 directive wanted. (Convention: as §2262.)
+
+`ops/shared_carrier.py`, **101s**, BACKLOG rung 166.
+
+- The carrier picture, complete: real as ~29×-per-dim concentration (§2262), ~85% shared within family
+  (§2263), PCA-optimal at small rank (§2261), surgically applied via interchange (§2257). Two payoff rungs
+  queued: 167 (family bases for ALL 62 — the das_subspace column filled in one run) and 168 (carrier-
+  projection REMOVAL: deployable, position-independent, scored against mean-ablation on the operator's
+  removal property).

@@ -18,8 +18,9 @@
   ]
  },
  "pending": {
-  "das_learned": "rung 164 (v2, optimizer fixed)",
-  "ood_transfer": "BLOCKED at leaf recomputation: census_state_diverse.pt stores precomputed leaves on fixed rows; census_lib has no builder; per-circuit OOD needs the upstream leaf taxonomy. Feasible fallback: component-grain OOD via the 10-class classify2 taxonomy (transfers to any text)."
+  "das_learned": "CLOSED (S2261)",
+  "ood_transfer": "BLOCKED at leaf recomputation: census_state_diverse.pt stores precomputed leaves on fixed rows; census_lib has no builder; per-circuit OOD needs the upstream leaf taxonomy. Feasible fallback: component-grain OOD via the 10-class classify2 taxonomy (transfers to any text).",
+  "family_bases": "rung 167 (all 62)"
  },
  "circuits": {
   "r.0.0": {
@@ -68,12 +69,11 @@
    "kstar": 4,
    "das_subspace": {
     "fixed_shares": {
-     "pca1": 0.119,
-     "pca8": 0.308,
      "pca32": 0.515,
-     "dmean1": 0.064
+     "comp32": 0.576
     },
-    "learned": null
+    "learned": "closed: PCA is ceiling (S2261)",
+    "sum_check": 1.091
    },
    "ood_transfer": null,
    "interchange_validated": {
@@ -422,12 +422,11 @@
    "kstar": 3,
    "das_subspace": {
     "fixed_shares": {
-     "pca1": 0.179,
-     "pca8": 0.449,
      "pca32": 0.674,
-     "dmean1": 0.192
+     "comp32": 0.563
     },
-    "learned": null
+    "learned": "closed: PCA is ceiling (S2261)",
+    "sum_check": 1.237
    },
    "ood_transfer": null,
    "interchange_validated": {
@@ -527,12 +526,11 @@
    "kstar": 5,
    "das_subspace": {
     "fixed_shares": {
-     "pca1": 0.079,
-     "pca8": 0.267,
      "pca32": 0.382,
-     "dmean1": 0.091
+     "comp32": 0.829
     },
-    "learned": null
+    "learned": "closed: PCA is ceiling (S2261)",
+    "sum_check": 1.211
    },
    "ood_transfer": null,
    "interchange_validated": {
@@ -979,12 +977,11 @@
    "kstar": 6,
    "das_subspace": {
     "fixed_shares": {
-     "pca1": 0.262,
-     "pca8": 0.424,
      "pca32": 0.51,
-     "dmean1": 0.253
+     "comp32": 0.759
     },
-    "learned": null
+    "learned": "closed: PCA is ceiling (S2261)",
+    "sum_check": 1.269
    },
    "ood_transfer": null,
    "interchange_validated": {
@@ -1139,12 +1136,11 @@
    "kstar": 6,
    "das_subspace": {
     "fixed_shares": {
-     "pca1": 0.196,
-     "pca8": 0.315,
      "pca32": 0.426,
-     "dmean1": 0.194
+     "comp32": 0.803
     },
-    "learned": null
+    "learned": "closed: PCA is ceiling (S2261)",
+    "sum_check": 1.229
    },
    "ood_transfer": null,
    "interchange_validated": {
@@ -1397,12 +1393,11 @@
    "kstar": 5,
    "das_subspace": {
     "fixed_shares": {
-     "pca1": 0.065,
-     "pca8": 0.134,
      "pca32": 0.298,
-     "dmean1": 0.062
+     "comp32": 0.668
     },
-    "learned": null
+    "learned": "closed: PCA is ceiling (S2261)",
+    "sum_check": 0.966
    },
    "ood_transfer": null,
    "interchange_validated": {
@@ -1912,12 +1907,11 @@
    "kstar": 5,
    "das_subspace": {
     "fixed_shares": {
-     "pca1": 0.107,
-     "pca8": 0.339,
      "pca32": 0.621,
-     "dmean1": 0.239
+     "comp32": 0.584
     },
-    "learned": null
+    "learned": "closed: PCA is ceiling (S2261)",
+    "sum_check": 1.205
    },
    "ood_transfer": null,
    "interchange_validated": {
@@ -2027,12 +2021,11 @@
    "kstar": 5,
    "das_subspace": {
     "fixed_shares": {
-     "pca1": 0.052,
-     "pca8": 0.145,
      "pca32": 0.339,
-     "dmean1": 0.04
+     "comp32": 0.718
     },
-    "learned": null
+    "learned": "closed: PCA is ceiling (S2261)",
+    "sum_check": 1.057
    },
    "ood_transfer": null,
    "interchange_validated": {
@@ -2287,12 +2280,11 @@
    "kstar": 6,
    "das_subspace": {
     "fixed_shares": {
-     "pca1": 0.249,
-     "pca8": 0.577,
      "pca32": 0.871,
-     "dmean1": 0.319
+     "comp32": 0.332
     },
-    "learned": null
+    "learned": "closed: PCA is ceiling (S2261)",
+    "sum_check": 1.203
    },
    "ood_transfer": null,
    "interchange_validated": {
@@ -2498,12 +2490,11 @@
    "kstar": 4,
    "das_subspace": {
     "fixed_shares": {
-     "pca1": 0.218,
-     "pca8": 0.485,
      "pca32": 0.679,
-     "dmean1": 0.091
+     "comp32": 0.584
     },
-    "learned": null
+    "learned": "closed: PCA is ceiling (S2261)",
+    "sum_check": 1.263
    },
    "ood_transfer": null,
    "interchange_validated": {
@@ -3186,5 +3177,11 @@
    "das_subspace": null,
    "ood_transfer": null
   }
+ },
+ "carrier_summary": {
+  "per_dim_concentration": 28.7,
+  "family_sharing_ratio": 0.847,
+  "learned_verdict": "PCA optimal at rank 8 (S2261)",
+  "necessity": "distributed-but-concentrated (S2262)"
  }
 }

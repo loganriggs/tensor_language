@@ -15,3 +15,17 @@ outputs captured
   r.2.0 @ a8 [pca32]: member 0.346 share 0.30
   r.2.0 @ a8 [comp32]: member 0.775 share 0.67
   r.3.0 @ a16 [pca32]: member 0.194 share 0.34
+  r.3.0 @ a16 [comp32]: member 0.412 share 0.72
+  r.13.2.1 @ a7 [pca32]: member 0.439 share 0.67
+  r.13.2.1 @ a7 [comp32]: member 0.367 share 0.56
+  r.2.2.2 @ a6 [pca32]: member 0.542 share 0.62
+  r.2.2.2 @ a6 [comp32]: member 0.510 share 0.58
+  r.3.1.1 @ a17 [pca32]: member 0.439 share 0.87
+  r.3.1.1 @ a17 [comp32]: member 0.168 share 0.33
+  r.5.3.1 @ a15 [pca32]: member 0.178 share 0.68
+  r.5.3.1 @ a15 [comp32]: member 0.153 share 0.58
+median complement share 0.626; median |sum-1| 0.208; repro True
+(a) median complement 0.626 <= 0.5 (carrier necessary): FAILED
+(b) median |sum-1| 0.208 <= 0.35: HELD
+(c) full-swap repro: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/carrier_necessity_results.json (189s)

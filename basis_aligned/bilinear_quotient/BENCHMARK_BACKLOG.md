@@ -2152,6 +2152,9 @@ later per-rung backlog edits had silently anchored on text that was not here.
     pred_b median |sum - 1| <= 0.35; pred_c full-swap repro. Null:
     basis-insensitive damage (the carrier is a dimension-counting
     illusion). -> ops/carrier_necessity.py [QUEUED 15:31Z]
+    RUN 2026-08-31, S2262: pred_a FAILED (complement 0.626), b/c HELD.
+    Carrier = concentration (~28x per-dim), not exclusive support;
+    heterogeneous (a17 concentrated, a14 reversed).
 
 166. Shared-carrier test: r.2.0's pca32 basis patched into 4 other
     a8-family circuits' interchanges vs their OWN bases. pred_a median
@@ -2159,3 +2162,20 @@ later per-rung backlog edits had silently anchored on text that was not here.
     population guard (full within 2x battery ref). Null: carriers
     circuit-specific (< 0.2). A shared carrier = ONE 32x1152 basis for
     16 circuits. -> ops/shared_carrier.py [QUEUED 15:34Z]
+    RUN 2026-08-31, S2263: pred_a HELD (ratio 0.847 - shared), pred_b
+    FAILED (calibration artifact: targets' own shares 0.32-0.41), c
+    HELD. Repertoire stores ONE basis per family.
+
+167. Family carriers for ALL 62: one pooled pca32 basis per interchange-
+    top component, scored against every circuit (62 x 2 evals, ~50 min).
+    pred_a median family share >= 0.4; pred_b >= 0.3 for >= 60%; pred_c
+    population guard >= 50. Null: family bases don't generalize (< 0.25).
+    Price: ~0.37M values for the whole column.
+    -> ops/family_carriers.py [QUEUED 16:00Z]
+
+168. Carrier-projection removal at a8 (deployable, position-independent:
+    y - PPT(y-mu) everywhere): vs in-script mean-ablation baseline.
+    pred_a proj family-median >= 0.5 x mean-abl; pred_b selectivity >=
+    3x mean-abl's; pred_c agg <= 0.5x AND S2248 repro. Null: projection
+    as blunt as ablation. Price: 38,016 values for the removal operator.
+    -> ops/carrier_removal.py [QUEUED 16:00Z]

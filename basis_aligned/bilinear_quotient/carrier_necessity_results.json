@@ -1,0 +1,114 @@
+{
+ "rows": [
+  {
+   "tag": "r.0.0",
+   "comp": "a3",
+   "full_member_160": 0.4782,
+   "shares": {
+    "pca32": 0.515,
+    "comp32": 0.576
+   },
+   "sum_check": 1.091,
+   "full_repro": 0.4782
+  },
+  {
+   "tag": "r.1.0",
+   "comp": "m14",
+   "full_member_160": 0.6007,
+   "shares": {
+    "pca32": 0.382,
+    "comp32": 0.829
+   },
+   "sum_check": 1.211,
+   "full_repro": 0.615
+  },
+  {
+   "tag": "r.1.2",
+   "comp": "m15",
+   "full_member_160": 0.7193,
+   "shares": {
+    "pca32": 0.51,
+    "comp32": 0.759
+   },
+   "sum_check": 1.269
+  },
+  {
+   "tag": "r.1.3",
+   "comp": "m13",
+   "full_member_160": 0.6731,
+   "shares": {
+    "pca32": 0.426,
+    "comp32": 0.803
+   },
+   "sum_check": 1.229
+  },
+  {
+   "tag": "r.2.0",
+   "comp": "a8",
+   "full_member_160": 1.1609,
+   "shares": {
+    "pca32": 0.298,
+    "comp32": 0.668
+   },
+   "sum_check": 0.966
+  },
+  {
+   "tag": "r.3.0",
+   "comp": "a16",
+   "full_member_160": 0.5736,
+   "shares": {
+    "pca32": 0.339,
+    "comp32": 0.718
+   },
+   "sum_check": 1.057
+  },
+  {
+   "tag": "r.13.2.1",
+   "comp": "a7",
+   "full_member_160": 0.6516,
+   "shares": {
+    "pca32": 0.674,
+    "comp32": 0.563
+   },
+   "sum_check": 1.237
+  },
+  {
+   "tag": "r.2.2.2",
+   "comp": "a6",
+   "full_member_160": 0.8737,
+   "shares": {
+    "pca32": 0.621,
+    "comp32": 0.584
+   },
+   "sum_check": 1.205
+  },
+  {
+   "tag": "r.3.1.1",
+   "comp": "a17",
+   "full_member_160": 0.5047,
+   "shares": {
+    "pca32": 0.871,
+    "comp32": 0.332
+   },
+   "sum_check": 1.203
+  },
+  {
+   "tag": "r.5.3.1",
+   "comp": "a15",
+   "full_member_160": 0.2626,
+   "shares": {
+    "pca32": 0.679,
+    "comp32": 0.584
+   },
+   "sum_check": 1.263
+  }
+ ],
+ "median_complement_share": 0.626,
+ "median_sum_dev": 0.208,
+ "convention": "share = member |dCE| of subspace patch / rung-160 full swap; comp32 = complement of pca32",
+ "pred_a_carrier_necessary": false,
+ "pred_b_rough_additivity": true,
+ "pred_c_repro": true,
+ "self_reviewed": true,
+ "runtime_s": 189.2
+}

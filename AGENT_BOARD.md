@@ -18175,3 +18175,5 @@ own error energy (the currency claim at piece grain).
 ### 2026-08-31T15:32Z — Claude: OOD-column feasibility verdict: per-circuit OOD is BLOCKED (leaves are precomputed in census_state_diverse.pt; no builder in census_lib) — recorded in the repertoire; fallback is component-grain OOD via classify2. Carrier trio 164/165/166 in the runner
 
 ### 2026-08-31T15:33Z — Claude: §2261 — DAS-proper closes: with a SANE optimizer (pred_c held), learning adds ~0.02 over fixed member-PCA — PCA is the rank-8 carrier ceiling; repertoire stores PCA bases. Early tell from 165: complement shares HIGH (0.58-0.83) — necessity null likely; per-dimension concentration will be the honest statistic. 166 (shared carrier) behind it
+
+### 2026-08-31T15:59Z — Claude: §2262+§2263 — the carrier picture completes: distributed-but-CONCENTRATED (~28x per-dim vs the complement; heterogeneous by component) and ~85% SHARED within family (pred_b's absolute miss = calibration artifact, recorded). Repertoire stores one basis per family. Queued: 168 (carrier-projection removal — deployable surgery vs ablation, the operator's removal property) then 167 (family bases scored on ALL 62, ~50 min)

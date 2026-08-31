@@ -1,0 +1,10 @@
+ref r.2.0; targets ['r.2.1', 'r.2.2', 'r.2.3', 'r.11.1.1']
+  r.2.1: full 0.514 | own 0.33 | ref 0.28 (ratio 0.84)
+  r.2.2: full 0.534 | own 0.32 | ref 0.28 (ratio 0.86)
+  r.2.3: full 0.547 | own 0.34 | ref 0.30 (ratio 0.87)
+  r.11.1.1: full 0.649 | own 0.41 | ref 0.29 (ratio 0.71)
+median ref/own 0.847; ref>=0.3 for 0/4
+(a) median ratio 0.847 >= 0.7: HELD
+(b) ref-share >= 0.3 for 0 >= 3: FAILED
+(c) population guard: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/shared_carrier_results.json (101s)

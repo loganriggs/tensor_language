@@ -1,0 +1,44 @@
+{
+ "rows": [
+  {
+   "tag": "r.2.1",
+   "full": 0.5142,
+   "battery_ref": 0.486,
+   "own_share": 0.33,
+   "ref_share": 0.276,
+   "ratio": 0.837
+  },
+  {
+   "tag": "r.2.2",
+   "full": 0.5338,
+   "battery_ref": 0.477,
+   "own_share": 0.321,
+   "ref_share": 0.275,
+   "ratio": 0.856
+  },
+  {
+   "tag": "r.2.3",
+   "full": 0.5469,
+   "battery_ref": 0.492,
+   "own_share": 0.342,
+   "ref_share": 0.296,
+   "ratio": 0.866
+  },
+  {
+   "tag": "r.11.1.1",
+   "full": 0.6495,
+   "battery_ref": 0.596,
+   "own_share": 0.413,
+   "ref_share": 0.293,
+   "ratio": 0.708
+  }
+ ],
+ "median_ref_over_own": 0.847,
+ "n_refshare_over_0.3": 0,
+ "convention": "share = member |dCE| of subspace patch / full swap; ref basis = r.2.0 pca32",
+ "pred_a_shared": true,
+ "pred_b_useful": false,
+ "pred_c_population": true,
+ "self_reviewed": true,
+ "runtime_s": 101.3
+}
