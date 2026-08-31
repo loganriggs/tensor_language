@@ -65871,3 +65871,7 @@ Phase-2 selection belongs to the next strategic review.
 ## §2333 — RUNG 235: THE DYNAMIC-MLP POINT REGISTERS — ALL THREE PREDS, ridge-exact: census +0.1013 / fresh +0.1016 / valid 4 of 62 at r64 storage with QUARTER ACTIVE UNITS per token in every swapped MLP. The registered set now carries a compute axis alongside storage: {57M → 1.31, 0}, {88M → 0.64, 0}, {162M → 0.149, 2}, {186M → 0.085, 7}, and {186M storage / 4× MLP-compute-sparse → 0.101, 4}. (Convention: CE added above the real model; lower is better.)
 
 `ops/frontier_claim_topk.py`, **128s**, BACKLOG rung 235.
+
+## §2334 — RUNG 236: THE r96 POINT REGISTERS — ALL THREE PREDS, bit-exact reproduction: census +0.0622 / fresh +0.0626 / valid 9 of 62 at ~200M values. The registered storage curve now reads {57M → 1.31, 0 certs}, {88M → 0.64, 0}, {162M → 0.149, 2}, {186M → 0.085, 7}, {200M → 0.062, 9}, plus the compute-sparse point {186M, 4× MLP-sparse → 0.101, 4} (§2333). (Convention: CE added above the real model; lower is better.)
+
+`ops/frontier_claim_qk96.py`, **127s**, BACKLOG rung 236.

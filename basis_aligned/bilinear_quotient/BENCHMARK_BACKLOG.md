@@ -2762,6 +2762,8 @@ later per-rung backlog edits had silently anchored on text that was not here.
 236. Registered claim r96 (the 9-certificate point): |census-0.0622|
     <=0.015; valid >= 9; |L2F-0.0626|<=0.015.
     -> ops/frontier_claim_qk96.py [QUEUED 23:33Z]
+    RUN 2026-08-31, S2334: ALL HELD, bit-exact - r96 point official
+    (+0.0622 / 9 certs / ~200M).
 
 237. HALVES TEST I: all motif blocks (2-9) exact, tail r64: pred_a
     census <= 0.070; pred_b valid >= 8; pred_c range + double inert.
