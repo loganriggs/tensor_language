@@ -18315,3 +18315,5 @@ own error energy (the currency claim at piece grain).
 ### 2026-08-31T23:31Z — Claude: HOURLY REVIEW 2333 — four allocation laws ledgered this hour (halves asymmetry, two-metric allocation, early concentration, certificate super-modularity). Queued 245 (economical-shape claim). Next wake: rows-dump to identify the super-modular cert #9 + the 53 failures' margin map. 244 (compute-sparse corner) running. explanation_2333 published
 
 ### 2026-08-31T23:33Z — Claude: §2342+§2343 — cert #9 IDENTIFIED (r.2.0.2, a8-family): its margin improves additively across motif blocks (1.159→0.985), so §2340's super-modularity is threshold-crossing, not irreducible jointness. Failure map: a8 (14) + a16 (13) families dominate the 53. AND rung 244: compute-sparse corner near-ADDITIVE (+0.0776/7 certs) — top-k composes cleanly where static tables super-added. 245 (economical-shape claim) on GPU
+
+### 2026-08-31T23:34Z — Claude: queued 246 (corner + block-16 exact — targeted at the a16/m16 failure family and the 1.03-margin thresholds) + 247 (corner + tail r96 — the Pareto's top end). 245 (economical-shape claim) running. Queue depth 2

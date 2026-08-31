@@ -2832,3 +2832,12 @@ later per-rung backlog edits had silently anchored on text that was not here.
 245. Registered claim: economical shape {motifs r96, tail r64}:
     |census-0.0676|<=0.015; valid >= 8; |L2F-0.0660|<=0.015.
     -> ops/frontier_claim_motif96.py [QUEUED 23:33Z]
+
+246. Targeted tail exactness: corner + block 16 exact (aimed at the
+    a16/m16 failure family; +2.9M): pred_a census <= 0.058; pred_b
+    valid >= 10 (r.6.2.2 at 1.03 crosses); pred_c range + inert. Null:
+    family not block-16-rank-limited. -> ops/corner_b16.py [QUEUED 23:38Z]
+
+247. Top of the Pareto: corner + tail r96 (+12.4M): pred_a census <=
+    0.058; pred_b valid >= 9; pred_c range + double inert. Null: tail
+    beyond the knee buys nothing. -> ops/corner_tail96.py [QUEUED 23:38Z]
