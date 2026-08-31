@@ -1248,3 +1248,12 @@ later per-rung backlog edits had silently anchored on text that was not here.
     to record doc ids, or capture over a handful of long documents in
     513-token strides. To be built at the next driver wake with fresh
     care (five splice bugs tonight).
+
+91. OUTPUT-SUBSTITUTION MERGE, COORDINATE-FREE VERSION (user-suggested
+    direction; damage convention). Fixed linear output maps are dead OOD
+    (§2181, gauge); dropping attn3 costs +0.237 (§2180). Test the
+    gauge-immune substitute: a scalar gain on attn2's output, grid-fit
+    on window C under the drop-attn3 build. pred_a the scalar recovers a
+    third of the drop cost; pred_b alpha* in [1.05,1.8]; pred_c base
+    reproduces rung 86 (2.4410). Null (§2126): scalars aren't levers.
+    -> ops/merge_scalar.py [QUEUED 02:52Z]
