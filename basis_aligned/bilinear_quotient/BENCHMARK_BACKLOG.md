@@ -1658,3 +1658,12 @@ later per-rung backlog edits had silently anchored on text that was not here.
     pred_c all aggs within 0.015 of rung 118. Nulls: validity survives
     pairing / total collapse. Price: none.
     -> ops/frontier_pair_certs.py [QUEUED 07:29Z]
+
+122. CP-front GLOBAL config: full S2144 config (motifs, K middles, tail
+    dicts refit in-frame) with front MLPs swapped in place to CP-3456
+    before the tail fits; tailE stays table-front-fit (stated ~0.14
+    approximation). pred_a agg <= 1.6 (vs rung-99 anchor +2.8553);
+    pred_b valid >= 3/62; pred_c agg in [0.8, 2.2] and >= 0.62
+    (anti-inertness). Null: front-motif/tail interactions eat the gain;
+    certs stay 0-2. Price: front 47.8M vs 231.6M values.
+    -> ops/frontier_global_cp.py [QUEUED 07:33Z]

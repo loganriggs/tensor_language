@@ -58,3 +58,4 @@ primary evidence.
 - [`CURRENT_BEST_UNDERSTANDING_PLAIN_ENGLISH_2026-08-28.md`](CURRENT_BEST_UNDERSTANDING_PLAIN_ENGLISH_2026-08-28.md)
 - [`CURRENT_STRATEGIC_UPDATE_2026-08-28.md`](CURRENT_STRATEGIC_UPDATE_2026-08-28.md)
 - [explanation_0537.md](explanation_0537.md) — certificate chapter closed: the tables were the elephant; a0 exact (62/62); repair dichotomy running
+- [explanation_0733.md](explanation_0733.md) — table grammar falsified; CP pruning wins per-site; compounding is directional; Möbius composition calculus built
