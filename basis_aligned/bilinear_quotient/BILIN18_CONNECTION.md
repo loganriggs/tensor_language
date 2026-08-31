@@ -64763,3 +64763,25 @@ pred_a FAILED (median share 0.347 vs ≥ 0.5) | pred_b FAILED (a8 −0.013).**
 - Bimodality is itself the finding: bilin18 mixes bias-like modules and computation-like modules at the same
   architectural positions; the DC ledger for the remaining 30 components is now a priced, cheap (~30 s each)
   completion whenever a rung needs it.
+
+
+## §2192 — RUNG 99: THE FRONTIER CONFIG IS NOT A CAUSAL ABSTRACTION AT CIRCUIT GRAIN — 0 of 62 circuits valid at τ = 0.5×ref, and majority validity is reached NOT EVEN AT 5xref (median damage ratio 5.44× the battery reference). pred_a FAILED; pred_b DEGENERATE (recorded, not scored as informative); pred_c HELD. (Convention: per-position dCE = CE(§2144 config) − CE(real model) on the census rows.)
+
+`ops/frontier_certificate.py`, **124s**, BACKLOG rung 99. **pred_c HELD (aggregate +2.8553 ∈ [0.5, 5]) |
+pred_a FAILED (0/62 vs ≥ 40) | pred_b FAILED-AS-DEGENERATE: with a universal failure set, "failures above the
+all-circuit median retrieval fraction" is ≈ 0.5 by construction (§2159 ill-posed-bar precedent).**
+
+```
+  τ (× battery ref)    0.5   1.0   1.5   2.0   3.0   5.0
+  circuits valid         0     0     1     2    11    27    (of 62; majority = 31 never reached)
+```
+
+- **The headline the user's cross-view was built to deliver:** the best full-coverage compression preserves
+  aggregate CE structure while damaging EVERY certified circuit's members — median ratio 5.44× the
+  reference (being inside the §2144 config hurts a typical circuit MORE than mean-ablating its own top
+  component), and even a 5× tolerance passes only 27 of 62. The coverage ledger's numbers were never
+  circuit-grade; that is now a measured per-circuit fact with a τ-curve.
+- **Descriptive (replacing the degenerate pred_b):** damage ratio vs retrieval-member fraction correlates at
+  Spearman +0.40 — retrieval circuits are hit harder, but the breakage is broad, not retrieval-exclusive.
+  Least-broken: r.6.0.3 (1.27x), r.1.2.0 (1.99x), r.0.0 (2.11x), r.2.0.0 (2.35x), r.0.0.0 (2.57x). Worst: r.5.0.1 (14x), r.6.3.1 (15x), r.5.3.1 (15x).
+- Whether the deepest envelope (skip-1416) restores the a16-localized circuits → rung 100 (running).
