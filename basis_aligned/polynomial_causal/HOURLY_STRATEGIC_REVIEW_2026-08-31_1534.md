@@ -14,8 +14,9 @@ optimizer failure (§2259), v2 running with best-loss checkpointing (early tell:
 ## Largest gaps (circuits-program form)
 1. Carrier structure: shared vs circuit-specific (rung 166, EXECUTED this review) and necessary vs
    merely sufficient (rung 165, queued).
-2. OOD column: blocked on leaf computability off-census — /workspace/rspd holds the census builder; a
-   fresh-text census state is the clean path (next review's feasibility decision; honest fallback = report
+2. OOD column: blocked on leaf computability off-census. CORRECTION (post-write check): /workspace/rspd
+   does NOT exist as a directory — census_lib resolves from the local package path; whether it carries a
+   state BUILDER for fresh text is checked this review and recorded on the board (honest fallback = report
    the column as not-computable-off-census).
 3. das_learned column (rung 164, running).
 4. Reconnecting circuits → frontier: §2253 says the motif grammar is circuit-faithful in the real frame and
