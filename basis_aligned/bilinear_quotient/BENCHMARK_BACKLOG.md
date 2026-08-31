@@ -2263,8 +2263,10 @@ later per-rung backlog edits had silently anchored on text that was not here.
     [0.6, 1.6]; pred_c fresh base sane. Null: signatures census-specific.
     -> ops/ood_transport.py [QUEUED 17:32Z]
 
-177. Pareto circuit-profile invariance (CPU, receipts): Spearman between
-    the two registered configs' 62-circuit damage profiles. pred_a rho >=
-    0.95; pred_b median ratio in [0.7, 1.0]; pred_c coverage. Null:
-    config choice matters at circuit grain.
-    -> ops/pareto_profile.py [QUEUED 17:32Z]
+177. Era circuit-profile invariance (CPU, receipts; v2 - the rung-137
+    receipt has no rows, discovered at build; gate also caught a module-
+    level var reuse in v1): Spearman between the TABLE-era config (rung
+    99) and CP-era frontier (rung 132) 62-circuit profiles. pred_a rho
+    >= 0.9; pred_b median ratio 132/99 in [0.4, 0.85]; pred_c coverage.
+    Null: the grammar change moved which circuits pay.
+    -> ops/pareto_profile.py [QUEUED 17:35Z]
