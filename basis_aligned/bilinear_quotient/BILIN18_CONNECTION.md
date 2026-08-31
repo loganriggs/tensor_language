@@ -65084,3 +65084,31 @@ FAILED (0 < 3) | pred_c HELD (plain reproduces +0.9427 exactly).**
   (not deployable) → seq_traj +0.437/1 → all-3456 +0.119/2. Aggregate keeps yielding; the certificate ledger
   has not moved past 2/62 for ANY multi-site config. Direction-preserving repair is still unformalized — the
   07:07 math review takes exactly that up (order-2 composition calculus, rung 118).
+
+## §2212 — RUNG 118: THE PAIR LATTICE IS MEASURED — pairs explain 74% of the quad excess (ΣJ = +0.4419 vs +0.5952), so order-2 alone misses its 25% bar BY 0.0045; and the interactions are SPREAD (J_23 = +0.1361 is the max but only 31% of ΣJ). pred_a/b FAILED, pred_c HELD. (Convention: per-position dCE = CE(config) − CE(real model) on the census rows; lower is better.)
+
+`ops/frontier_cp_pairs.py`, **149s**, BACKLOG rung 118. **pred_a FAILED (miss 0.1533 > 0.1488 — bar luck
+again, recorded like §2206's; the rule stands) | pred_b FAILED (0.1361 < 0.35×ΣJ = 0.1547) | pred_c HELD.**
+
+```
+  J_ij (order-2 Möbius coefficients, mixed-K CP front):
+        cf1      cf2      cf3
+  cf0  +0.0574  +0.0349  +0.0541
+  cf1           +0.0864  +0.0730
+  cf2                    +0.1361     later pairs interact harder, but no pair dominates
+```
+
+## §2213 — RUNG 119: ORDER-2 PREDICTS THE TRIPLES — ALL THREE PREDS HELD (median |K₃| = 0.0428 ≤ 0.05) — and the full Möbius ledger of the CP front is now MEASURED: singles +0.2350, pairs +0.4419, triples +0.2210, quartic −0.0677 (= quad +0.8302 by telescoping). The program gains its composition calculus: order-3 predicts any front subset to ~±0.07. (Convention: per-position dCE = CE(config) − CE(real model) on the census rows; lower is better.)
+
+`ops/frontier_cp_triples.py`, **127s**, BACKLOG rung 119. **pred_a HELD (0.0428 ≤ 0.05) | pred_b HELD
+(tri_123 +0.5977 largest) | pred_c HELD.**
+
+- K₃ is CONCENTRATED where the ladder said the compounding lives: K₃(123) = +0.1319 and K₃(012) = +0.0695
+  carry it; K₃(013) and K₃(023) are ~0. The cubic structure follows adjacency — contiguous site runs
+  interact beyond pairs, gapped ones don't.
+- With §2212: the 15-config lattice {singles, pairs, triples, quad} is complete. Two immediate uses queued:
+  rung 120 (out-of-sample test ACROSS element types — a1v/a0 cross pairs predicting the 6-front +0.9427) and
+  rung 121 (pair-grain certificates — where does validity die: singles hold 8–12/62, quad holds 0).
+- Bar-luck note for the pair of scoring calls (§2212 pred_a missed by 0.0045; §2206's K-rule missed by
+  0.0001): registered bars are knife-edges by design; the running fix is to derive next-rung bars from
+  measured quantities plus the wobble tolerance, as done here.

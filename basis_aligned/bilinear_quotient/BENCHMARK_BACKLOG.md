@@ -1628,6 +1628,9 @@ later per-rung backlog edits had silently anchored on text that was not here.
     pred_c every pair agg in [max single - 0.015, quad + 0.015], quad in
     [0.7, 1.1]. Null: >= 3-way terms dominate; pair calculus dies.
     Price: none. -> ops/frontier_cp_pairs.py [QUEUED 07:10Z]
+    RUN 2026-08-31, S2212: pred_a FAILED by 0.0045 (pairs explain 74%
+    of quad excess), pred_b FAILED (J spread; J_23 max at 31% of sumJ),
+    pred_c HELD. J matrix measured.
 
 
 119. Triples — Möbius lattice completion: the four 3-subsets at mixed Ks;
@@ -1637,3 +1640,21 @@ later per-rung backlog edits had silently anchored on text that was not here.
     pred_c triples in [max pair - 0.015, quad + 0.015]. Null: cubic
     terms material (then K_ijk are measured). Price: none.
     -> ops/frontier_cp_triples.py [QUEUED 07:12Z]
+    RUN 2026-08-31, S2213: ALL HELD. median |K3| 0.0428; K3 follows
+    adjacency (123 +.132, 012 +.070, gapped ~0). Full Mobius ledger:
+    .235/.442/.221/-.068. Composition calculus at order 3, ~+/-0.07.
+
+
+120. Out-of-sample lattice extension (cross element types): four {a1v,cf_i}
+    pairs + {a0,cf3} control; order-2 predicts the 6-front (+0.9427) from
+    singles + all J. pred_a |pred2 - 0.9427| <= 0.10; pred_b |J(a0,cf3)|
+    <= 0.01 (exactness extends to interactions); pred_c pair sanity.
+    Null: calculus is MLP-only. Price: none.
+    -> ops/frontier_lattice_oos.py [QUEUED 07:29Z]
+
+121. Pair-grain certificates: six pairs rerun with tau-certificates (aggs
+    double as rung-118 repro). pred_a median pair valid <= 0.5 x min
+    single valid (pairwise fragility); pred_b max pair valid >= 6;
+    pred_c all aggs within 0.015 of rung 118. Nulls: validity survives
+    pairing / total collapse. Price: none.
+    -> ops/frontier_pair_certs.py [QUEUED 07:29Z]

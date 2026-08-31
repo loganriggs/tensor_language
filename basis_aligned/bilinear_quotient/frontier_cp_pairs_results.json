@@ -1,0 +1,33 @@
+{
+ "aggs": {
+  "pair_01": 0.1675,
+  "pair_02": 0.15,
+  "pair_03": 0.1933,
+  "pair_12": 0.1822,
+  "pair_13": 0.1929,
+  "pair_23": 0.261,
+  "quad": 0.8302
+ },
+ "singles": {
+  "0": 0.0647,
+  "1": 0.0454,
+  "2": 0.0504,
+  "3": 0.0745
+ },
+ "J": {
+  "01": 0.0574,
+  "02": 0.0349,
+  "03": 0.0541,
+  "12": 0.0864,
+  "13": 0.073,
+  "23": 0.1361
+ },
+ "sum_J": 0.4419,
+ "quad_excess": 0.5952,
+ "convention": "per-position dCE = CE(config) - CE(real model) on census rows; lower is better",
+ "pred_a_order2_suffices": false,
+ "pred_b_late_pair_dominance": false,
+ "pred_c_sane": true,
+ "self_reviewed": true,
+ "runtime_s": 149.3
+}

@@ -1,0 +1,32 @@
+{
+ "triples": {
+  "tri_012": {
+   "agg": 0.4087,
+   "pred2": 0.3392,
+   "K3": 0.0695
+  },
+  "tri_013": {
+   "agg": 0.3853,
+   "pred2": 0.3691,
+   "K3": 0.0162
+  },
+  "tri_023": {
+   "agg": 0.4181,
+   "pred2": 0.4147,
+   "K3": 0.0034
+  },
+  "tri_123": {
+   "agg": 0.5977,
+   "pred2": 0.4658,
+   "K3": 0.1319
+  }
+ },
+ "median_abs_K3": 0.0428,
+ "quad_118": 0.8302,
+ "convention": "per-position dCE = CE(config) - CE(real model) on census rows; lower is better",
+ "pred_a_order2_predicts": true,
+ "pred_b_ladder": true,
+ "pred_c_sane": true,
+ "self_reviewed": true,
+ "runtime_s": 127.0
+}

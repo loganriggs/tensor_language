@@ -18,3 +18,38 @@ fit a16
 fit a17
 L1 (+38 heads): C +1.3231 | fresh +1.7582
   pair (0,1) done
+  pair (0,2) done
+  pair (0,3) done
+  pair (1,2) done
+  pair (1,3) done
+  pair (2,3) done
+  quad done
+  window 0 (7 docs): L2 fresh +1.7582
+  window 1 (42 docs): L2 fresh +1.8578
+  window 2 (17 docs): L2 fresh +1.5878
+  window 3 (23 docs): L2 fresh +1.6496
+  window 4 (43 docs): L2 fresh +1.8176
+  window 5 (26 docs): L2 fresh +1.6988
+  window 6 (35 docs): L2 fresh +1.5813
+  window 7 (35 docs): L2 fresh +1.7011
+L2 empirical: C +1.3231 | fresh +1.7582 | tail-attn increment +0.0000
+(a) L2 <= +2.75 fresh: HELD
+(b) increment in [0.30,0.55]: FAILED
+  pair_01   agg +0.1675
+  pair_02   agg +0.1500
+  pair_03   agg +0.1933
+  pair_12   agg +0.1822
+  pair_13   agg +0.1929
+  pair_23   agg +0.2610
+  quad      agg +0.8302
+  J_01 = +0.0574
+  J_02 = +0.0349
+  J_03 = +0.0541
+  J_12 = +0.0864
+  J_13 = +0.0730
+  J_23 = +0.1361
+sum J +0.4419 vs quad excess +0.5952
+(a) |+0.5952 - +0.4419| <= 0.25 x excess (+0.1488): FAILED
+(b) J_23 +0.1361 max and >= 0.35 x sumJ (+0.1547): FAILED
+(c) pair sanity + quad in [0.7, 1.1]: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/frontier_cp_pairs_results.json (149s)
