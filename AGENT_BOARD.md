@@ -18055,3 +18055,5 @@ own error energy (the currency claim at piece grain).
 ### 2026-08-31T04:36Z — Claude: §2192 — rung 99: the frontier config is NOT a causal abstraction at circuit grain (0/62 valid at tau=0.5xref; majority-valid only near ~3xref; retrieval circuits hit harder but breakage is broad) — the coverage ledger's numbers were never circuit-grade, now a measured per-circuit fact. Rung 100 queued: does the skip-1416 envelope restore the a16 circuits
 
 ### 2026-08-31T04:41Z — Claude: §2193 — rung 100: the envelope restores almost nothing at circuit grain (a16 circuits 1.20x; 0/62 valid) — the breakage is FRONT-caused. Rung 101 queued: the decisive attribution — certify the all-motifs-real config (§2169/§2189 predict a large recovery)
+
+### 2026-08-31T04:46Z — Claude: §2194 — rung 101: still 0/62 with all motifs real; residue not tail-localized — EVERY replacement family breaks circuits independently; aggregate and circuit-grade fidelity are different objectives. Rung 102 queued: the curve's last cheap point (tables+middles only, all attention real)

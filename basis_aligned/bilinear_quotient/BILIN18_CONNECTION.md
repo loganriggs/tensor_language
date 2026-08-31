@@ -64801,3 +64801,25 @@ pred_a FAILED (1.20× vs ≥ 2×) | pred_b FAILED (0/62 vs ≥ 10).**
   binding constraint is the front replacement, not the tail. The decisive next attribution — certify the
   all-motifs-real config (front real, tail dictionaries in place) — is rung 101; §2169/§2189 predict a large
   recovery there, which would localize circuit-grade fidelity entirely to the front's realness.
+
+## §2194 — RUNG 101: THE FRONT WAS NOT THE SOLE BREAKER EITHER — with ALL motifs real, still 0/62 circuits valid (aggregate 2.855 → 2.431), and the residue is NOT tail-localized (0.32 vs ≥ 0.6). The registered null wins again: EVERY replacement family independently breaks the circuits. pred_a/b FAILED, pred_c HELD. (Convention: per-position dCE = CE(config) − CE(real model) on the census rows.)
+
+`ops/frontier_certificate3.py`, **117s**, BACKLOG rung 101. **pred_c HELD (+2.4307 ∈ [0.3, 5]) | pred_a FAILED
+(0/62 vs ≥ 30) | pred_b FAILED (0.32 vs ≥ 0.6).**
+
+```
+  certificate series           aggregate dCE   valid at τ=0.5×ref
+  §2144 full config (r.99)        +2.855            0 / 62
+  skip-1416 envelope (r.100)      +2.570            0 / 62
+  all-motifs-real (r.101)         +2.431            0 / 62
+```
+
+- **The attribution regress bottoms out on a universal:** removing the tail dictionaries didn't restore the
+  circuits; removing the motif heads didn't either; the failures aren't tail-localized. The remaining
+  replacement families (front tables m0–m3, CP middles c4–c9, tail attn dictionaries — each still present in
+  some tested config) all break circuit members on their own. Aggregate CE and circuit-grade fidelity are
+  simply DIFFERENT objectives, and every artifact this program has built optimizes the first.
+- One config remains testable with existing switches — front real AND all tail attention real (only tables +
+  CP middles replaced) → rung 102, the last cheap point on this curve. If it is still 0/62, the certificate
+  chapter closes on: no partial replacement of bilin18 preserves its certified circuits at τ = 0.5×ref; circuit
+  preservation requires either realness or a grammar the program does not yet have.

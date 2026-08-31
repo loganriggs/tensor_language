@@ -1417,3 +1417,16 @@ later per-rung backlog edits had silently anchored on text that was not here.
     [0.3, 5]. Null: breakage persists (the CP middles/front tables are
     also circuit-breaking). -> ops/frontier_certificate3.py [QUEUED
     04:45Z]
+
+    RUN 2026-08-31, §2194: pred_c HELD, pred_a/b FAILED — still 0/62
+    with all motifs real; residue not tail-localized (0.32). EVERY
+    replacement family breaks circuits independently. Last cheap point:
+    rung 102 (tables+CP-middles only).
+
+102. CERTIFICATE FOR TABLES+MIDDLES ONLY (the curve's last cheap point;
+    damage convention). Front attention real AND all tail attention
+    real (motif_off 2-9, skipset 10-17): only front tables and CP
+    middles replaced. pred_a >= 20 of 62 valid at tau = 0.5xref; pred_b
+    aggregate <= 2.0; pred_c aggregate in [0.2, 5]. Null: still 0/62 —
+    no partial replacement preserves the certified circuits.
+    -> ops/frontier_certificate4.py [QUEUED 04:50Z]
