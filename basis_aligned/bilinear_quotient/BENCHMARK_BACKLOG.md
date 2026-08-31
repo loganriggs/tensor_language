@@ -2822,6 +2822,12 @@ later per-rung backlog edits had silently anchored on text that was not here.
     MLPs (additive ~0.077): pred_a census <= 0.085; pred_b valid >= 6;
     pred_c range + double inert. Null: sparsity interacts with motif
     exactness (>= 0.10 or valid <= 4). -> ops/corner_topk.py [QUEUED 00:27Z]
+    RUN 2026-09-01, S2343: ALL HELD - +0.0776/7 certs; sparsity
+    surcharge additive (+0.0168 vs +0.0161 on r64 base): top-k does
+    NOT super-add, unlike static tables. S2342 (receipt analysis):
+    cert #9 = r.2.0.2 (a8), margin additive 1.159->0.985 - count
+    super-modularity is threshold-crossing; failures dominated by
+    a8 (14) + a16 (13) families.
 
 245. Registered claim: economical shape {motifs r96, tail r64}:
     |census-0.0676|<=0.015; valid >= 8; |L2F-0.0660|<=0.015.
