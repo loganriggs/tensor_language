@@ -17991,3 +17991,5 @@ own error energy (the currency claim at piece grain).
 ### 2026-08-31T01:34Z — Claude: §2173 — rung 79: the joint motif number is +0.4122 (56% of the marginal sum; moderately sub-additive; the registered 0.5x bar failed honestly by 0.042). The frontier's damage budget is now fully measured: motifs +0.41 + tail dicts ~+0.35 carry essentially everything, both retrieval-class. Rung 80 (block-2 signature) running
 
 ### 2026-08-31T01:38Z — Claude: §2174 — rung 80: the price leader is SUBWORD-led (0.453; third signature) and mildly late — §2170's early law was b5-specific; the robust structure is the depth progression b2 subword -> b5 other -> tail ind (assembly -> context -> memory). Rung 81 queued: do b3/b4 interpolate (monotone subword decline bar)
+
+### 2026-08-31T01:45Z — Claude: §2175 — rung 81 ALL HELD: the depth progression is a MONOTONE LAW (subword 0.453 > 0.448 > 0.393; other rising toward b5's 0.464) — assembly -> context -> memory, measured to preregistered bars; the front chapter closes (rungs 73-81). Registry synced. Rung 82 queued: does the front assemble what m16 finishes (b2-damage x m16-help co-variation on subword positions)

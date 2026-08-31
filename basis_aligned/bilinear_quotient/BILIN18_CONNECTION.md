@@ -64441,3 +64441,24 @@ exact) | pred_b FAILED (late-half 0.568 vs ≤ 0.45).**
   +1979 and a16L's +4354) — consistent with its +0.189 FR marginal leading §2169's map. The front grammar's
   first requirement is now specific: a subword-assembly attention primitive at block 2.
 - Signature map still open at b3/b4 (the other two price leaders): do they interpolate subword→other? → rung 81.
+
+## §2175 — RUNG 81: THE DEPTH PROGRESSION IS A MONOTONE LAW — subword share falls 0.453 (b2) > 0.448 (b3) > 0.393 (b4) while other rises 0.205 → 0.186 → 0.333 toward b5's 0.464. ALL THREE BARS HELD. Assembly → context → memory is now measured across four front blocks and the tail. (Convention: per-position CE(full) − CE(block-b motifs real) on FR; positive = the replacement hurts there.)
+
+`ops/attn34_motif_class.py`, **338s**, BACKLOG rung 81. **ALL THREE HELD: pred_a (b3 top = subword) | pred_b
+(monotone 0.453 > 0.448 > 0.393) | pred_c (2.6662 exact).**
+
+```
+  block          b2       b3       b4       b5      …tail (a14L/a16L)
+  subword      0.453    0.448    0.393    0.059         0.08–0.10
+  other        0.205    0.186    0.333    0.464         0.32–0.38
+  ind          0.198    0.200    0.143    0.322         0.52–0.57
+  (totals: b2 +5796, b3 +5204, b4 +5503, b5 +1979 — the price map §2169 in per-position form)
+```
+
+- **A registered prediction derived from the law, confirmed at both points:** the front's attention stack hands
+  off from word assembly (subword) through novel-token context (other) to document memory (ind) as depth grows —
+  monotone in every column across b2→b5, continuing into the tail. This is the program's first cross-depth
+  functional ordering held to preregistered bars, and it gives each expensive replacement a NAME: b2/b3 =
+  subword assemblers, b4/b5 = context mixers, 14/16 = document memory (backed-up ensemble, §2165/§2171).
+- The front chapter (rungs 73–81) closes with its maps complete: price (§2169), joint (§2173), signatures
+  (§2167/§2174/here), laws (distance-flat §2168; position b5-early/b2-late §2170/§2174).

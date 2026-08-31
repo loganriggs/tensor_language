@@ -1114,3 +1114,18 @@ later per-rung backlog edits had silently anchored on text that was not here.
     assembly->context progression); pred_c full reproduces §2144.
     Null: no ordering (idiosyncratic signatures).
     -> ops/attn34_motif_class.py [QUEUED 02:20Z]
+
+    RUN 2026-08-31, §2175: ALL THREE HELD — monotone subword decline
+    0.453 > 0.448 > 0.393, other rising toward b5. Assembly -> context
+    -> memory is a measured cross-depth law; the front chapter closes
+    (rungs 73-81).
+
+82. DOES THE FRONT ASSEMBLE WHAT m16 FINISHES (cross-depth pipeline
+    test; damage convention). Per-position: b2's replacement damage vs
+    m16's deletion help, on subword positions (arms: full / block-2
+    motifs real / m16 zeroed). pred_a Spearman rho >= 0.3 between b2
+    damage and m16 help across subword positions (binned by 200);
+    pred_b m16's subword help concentrates on positions where b2's
+    damage is above-median (top-half carries >= 0.6); pred_c full
+    reproduces §2144. Null: independent subword services.
+    -> ops/front_m16_pipeline.py [QUEUED 02:50Z]
