@@ -1,0 +1,6 @@
+  FP32: rel-Frobenius 4.02e-04, max-abs/RMS 1.54e-02
+  FP64: rel-Frobenius 7.99e-13, max-abs/RMS 4.33e-11
+(a) FP64 max/RMS 4.33e-11 <= 1e-6: HELD
+(b) FP64 frob 7.99e-13 <= 1e-9: HELD
+(c) FP32 max/RMS 1.54e-02 in [0.5e-2, 5e-2]: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/m16_exact_fp64_results.json (10s)

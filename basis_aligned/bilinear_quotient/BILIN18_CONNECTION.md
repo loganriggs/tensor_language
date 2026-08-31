@@ -65759,3 +65759,15 @@ Phase-2 selection belongs to the next strategic review.
 ## §2305 — RUNG 207: GAUGE-FREE EIGENBASIS AT m16 — INSTRUMENT-FLAGGED, COMPARISON QUARANTINED. Scored as written: 1/3 bars. The headline numbers — EIG/NEUR own-circuit ratio 0.770 (pred_a ≤ 0.5 FAILED), census ratio 0.655 (pred_b ≤ 0.7 HELD) — are NOT publishable because pred_c, the exactness gauge check, FAILED: full-spectrum reconstruction max rel err 7.36 vs the 1e-3 bar. The decomposition is mathematically exact (U U^T = I), so a 7.36 means either a real pipeline bug or a mis-designed bar: max over 295k entries with a 1e-3 denominator floor amplifies near-zero outputs — an absolute error of ~7e-3 at a near-zero entry prints as 7.36. Suspected bar mis-design plus fp16 eigenvector storage, but per the flip-control rule the benign reading is NOT assumed: rung 209 (queued) re-runs with scale-honest exactness metrics (relative Frobenius ≤ 1e-3; max abs ≤ 1e-2 × output RMS) and full-fp32 eigenvectors. Until it certifies, the observed modest EIG advantage stands quarantined. (Convention: CE added above the real model; lower is better.)
 
 `ops/m16_eigenbasis.py`, **29s**, BACKLOG rung 207.
+
+## §2306 — RUNG 208: PER-TOKEN DENSITY 1/8 — ALL THREE PREDS HELD: k=576 costs census +0.1495 (fresh +0.1541), valid 2/62. Excess over the full-dictionary base (+0.0852): k=1152 → +0.016, k=576 → +0.064. (Convention: CE added above the real model; lower is better.)
+
+`ops/cp_topk576.py`, **126s**, BACKLOG rung 208.
+
+## §2307 — RUNG 209: EXACTNESS SPLITS — QUARANTINE HOLDS BY THE LETTER; fp16 EXONERATED. Scored as written: pred_a FAILED on its second clause only — relative Frobenius CERTIFIES at 4.02e-4 (≤ 1e-3) but max-abs/output-RMS lands 1.54e-2 vs the 1e-2 bar. preds b and c HELD: own-circuit ratio 0.770 (≤ 0.9), census ratio 0.655 (≤ 0.8) — bit-identical to the fp16 run, so eigenvector precision was NOT the cause; the residual is in the fp32 Q-build/reconstruction path (4608-term cancellations) or a real bug. Per the rules the failing registered bound is not retired in the entry that benefits: the EIG advantage stays UNPUBLISHED until rung 211 (queued) — a pure fp64 exactness control with no census arms — either certifies (max/RMS collapses to fp64 roundoff → precision explanation confirmed, §2307's ratios publish) or fails (real bug, hunt begins, nothing publishes). (Convention: CE added above the real model; lower is better.)
+
+`ops/m16_eigenbasis_v2.py`, **31s**, BACKLOG rung 209.
+
+## §2308 — RUNG 210: PER-TOKEN DENSITY 1/16 — ALL THREE PREDS HELD, curve complete: k=288 costs census +0.2692, valid 1/62. THE USAGE-SPARSITY CURVE (excess over +0.0852 base): 1/4 → +0.016, 1/8 → +0.064, 1/16 → +0.184 — roughly tripling per halving below 1/4, no hard knee; quarter density is nearly free, and even 1/16 of the units per token sits 8× below the FIXED quarter-density subset (+2.2048, §2303). Per-datapoint component usage is sparse, rotating, and smoothly priced. (Convention: CE added above the real model; lower is better.)
+
+`ops/cp_topk288.py`, **128s**, BACKLOG rung 210.

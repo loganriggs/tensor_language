@@ -2511,6 +2511,7 @@ later per-rung backlog edits had silently anchored on text that was not here.
     pred_a census <= 0.20; pred_b valid >= 2; pred_c range + double
     inert. Null: quarter was the knee (>= 0.14).
     -> ops/cp_topk576.py [QUEUED 22:06Z]
+    RUN 2026-08-31, S2306: ALL HELD - +0.1495, valid 2.
 
 209. m16 eigenbasis v2 (fixed exactness instrument: rel-Frobenius +
     max/RMS; fp32 eigvecs) — the S2305 quarantine lifter: pred_a
@@ -2518,7 +2519,23 @@ later per-rung backlog edits had silently anchored on text that was not here.
     <= 0.8. Null: quarantined advantage was artifact, or real bug
     (pred_a fails -> publish nothing, hunt).
     -> ops/m16_eigenbasis_v2.py [QUEUED 22:08Z]
+    RUN 2026-08-31, S2307: pred_a FAILED (max/RMS 1.54e-2 vs 1e-2;
+    frob certifies 4e-4); b,c HELD (0.770/0.655, bit-identical to fp16
+    run). Quarantine holds; fp64 control = rung 211.
 
 210. Per-token top-k density k=288 (1/16, curve completion): pred_a
     census <= 0.45; pred_b valid >= 1; pred_c range + inert. Null: knee
     above 1/16 (>= 0.5). -> ops/cp_topk288.py [QUEUED 22:08Z]
+    RUN 2026-08-31, S2308: ALL HELD - +0.2692, valid 1. Curve complete:
+    excess +0.016/+0.064/+0.184 at 1/4, 1/8, 1/16 density.
+
+211. fp64 exactness control at m16 (no census; S2307 quarantine lifter):
+    pred_a FP64 max/RMS <= 1e-6; pred_b FP64 frob <= 1e-9; pred_c FP32
+    repro in [0.5e-2, 5e-2]. Null: fp64 residual >= 1e-4 = real bug.
+    -> ops/m16_exact_fp64.py [QUEUED 22:09Z]
+
+212. HOSVD shared multilinear basis at m16 (W = eigvecs of sum QQ^T;
+    cores W^T Q_d W; rin 34 matched to EIG values, rin 128 headroom):
+    pred_a own <= 0.9 x NEUR; pred_b census <= 1.1 x EIG; pred_c
+    monotone + HOSVD128 <= 0.5. Null: shared basis no better than
+    neurons. -> ops/m16_hosvd.py [QUEUED 22:12Z]
