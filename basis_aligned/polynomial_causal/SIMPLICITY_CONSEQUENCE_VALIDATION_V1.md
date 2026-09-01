@@ -99,3 +99,53 @@ The early-MLP suffix L/R/T experiment is the first planned consequence-tested
 frontier slice. L and R have matched program size but different objectives; T adds a
 priced typed edge $p_0A$. Their suffix, transport, OOD, composition, gauge, and edit
 tests directly ask whether the extra structure buys the capabilities it claims.
+
+## Learning and then optimizing a simplicity rule
+
+Solved circuits may supervise a small predictor from candidate measures to useful
+consequences. This is an admissible bootstrap only under a nested family-level split:
+
+1. **teaching circuit families** fit the measure-to-consequence predictor;
+2. **development circuit families** select its inputs, hyperparameters, search
+   procedure, and acceptance thresholds;
+3. **sealed confirmation circuit families** remain unopened until the rule is frozen
+   and has been used to construct a new candidate program.
+
+Each circuit family also retains disjoint program-fit and consequence-test data.
+At least one intervention type and one composition partner are held out by kind, not
+only by row. A failure on sealed families is recorded; changing the rule creates a new
+generation that requires a new sealed set.
+
+For consequence $j$, compare candidate pairs at matched validation causal distortion:
+
+$$
+A_j = \Pr\!\left[
+ \operatorname{sign}(S_j(P)-S_j(Q))
+ = \operatorname{sign}(Y_j(P)-Y_j(Q))
+ \;\middle|\;
+ |D_{\rm val}(P)-D_{\rm val}(Q)|\le\epsilon
+\right].
+$$
+
+Prospective pairwise accuracy $A_j$, held-family rank correlation, and calibration are
+the evidence. A better optimized surrogate score is not evidence by itself. Separate
+predictors are retained for OOD transport, extraction, selective editing, and
+composition until untouched families justify a scalar combination.
+
+Once frozen, $S_j$ may guide program search as a constraint or regularizer. The search
+may use only program-training data and the frozen predictor. The resulting candidate
+is evaluated against ordinary rank, complete bytes, sparse-edge, and randomized-search
+baselines at matched causal distortion and literal price.
+
+Because optimization actively searches for loopholes in $S_j$, candidates outside the
+support of its teaching/development examples require either rejection or a prespecified
+uncertainty penalty. Adversarial candidates must include equal-price gauge rotations,
+shuffled circuit labels, low-local-error but causally wrong programs, inactive sparse
+edges, duplicated modules presented as reuse, hidden native calls, and collateral moved
+outside the measured target set. Reuse is credited only when identical parameters and
+intervention semantics serve multiple held-out consumers.
+
+The first cheap screen may use a chronological split of the existing ledger, with whole
+module and grammar families excluded from training. Because those historical experiments
+were adaptively selected, this is only a filter. Any positive claim requires a newly
+registered prospective family split and sealed consequence labels.

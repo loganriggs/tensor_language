@@ -177,3 +177,28 @@ denominators do not combine into one bilinear form. Each squared denominator is 
 `rms(x W_h)^2 = x^T(W_h W_h^T / 128)x`, so the next tensor-network object is explicit: jointly factor the numerator
 maps and the 36 query/key quadratic normalizers, then apply reciprocal square root. This is preferable to a blind
 rank or optimizer sweep and remains separate from the archetypal score-profile identifiability experiment.
+
+## 21:07 addendum — optimize the learned simplicity rule, but give it a sealed judge
+
+The user sharpened the bootstrap proposal: after learning which definitions of simplicity predict useful circuit
+consequences, use those definitions as objectives to search for new programs. This is adopted as an independent
+research direction. It is more discriminating than scoring a fixed archive because an optimizer will actively expose
+loopholes in the proposed rule.
+
+The anti-Goodhart design now has three whole-circuit roles: teaching families fit the consequence predictor,
+development families choose the predictor and search, and sealed confirmation families judge a program constructed
+under the frozen rule. Each retains separate program-fit and consequence-test data; at least one intervention kind
+and composition partner are held out. The primary result is pairwise consequence-ordering accuracy at matched causal
+distortion, not the optimized surrogate value. A failed sealed test ends that rule generation rather than becoming
+more training data for the same claim.
+
+The search must remain inside the predictor's calibrated support or pay a prespecified ensemble-uncertainty penalty.
+Otherwise it can manufacture out-of-distribution program structures that the score rates highly for accidental
+reasons. Complete artifact accounting, hidden-native-call tests, fake-reuse controls, causally wrong low-MSE decoys,
+gauge rotations, and off-target collateral tests remain mandatory. A chronological ledger split is a cheap first
+screen, but adaptive historical selection prevents it from licensing the rule; the first positive claim needs a new
+prospective family split.
+
+At future checkpoints, treat this as a genuine alternative to choosing decompositions by hand: ask whether the
+ledger is large enough to fit and falsify a consequence predictor, and whether one sealed circuit family can be
+reserved before any score or program search is run.
