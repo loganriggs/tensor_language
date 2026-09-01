@@ -4168,3 +4168,12 @@ later per-rung backlog edits had silently anchored on text that was not here.
 - RUN 2026-09-01: A/D held, B/C failed, strong null fired. Consumer spectra differ at r64 (attention-aware gains
   .106 attention R2 over MLP-aware; MLP-aware gains .069 MLP R2), but joint response-aware R2 at16/64/256/512 is
   .189/.375/.665/.827 versus PCA .207/.398/.698/.865. No response-aware rank beats PCA. No confirmation; exact Q.
+
+### Rung 400 — centered token/context/normalization causal ANOVA — QUEUED
+
+- Reuse exact MLP0 bilinear algebra but change to an independently crossed product-reference decomposition of the
+  unnormalized numerator: constant, token main, context main, centered token×context, and explicit RMS-gain residual.
+- Estimate reference moments on FIT only; run the complete 16-arm T/C/I/S factorial through FIT and SELECT CE while
+  retaining the constant, native bias, and bf16 residual.
+- Identify whether continuous context meaning is primarily centered CC, centered X, or normalization modulation.
+  Diagnostic only; no compression/adoption or token-only tuning.
