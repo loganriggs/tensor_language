@@ -351,12 +351,11 @@ def main() -> None:
         return
 
     started = time.time()
-    sys.path.insert(0, str(QK))
-    sys.path.insert(0, str(BQ))
+    sys.path[:0] = [str(POLY), str(OPS), str(QK), str(BQ)]
     import run_mlp1_sparse_c512_continue_factorial_v1_fit as rows_parent
     import scoring
     from tier2_model import apply_rot, rope_tables
-    import facade
+    import bilin18_observed_model_facade as facade
 
     edge_mod = _load_module("r433_edge", EDGE_PATH)
     base = _load_module("r433_ov", OV_BASE)
