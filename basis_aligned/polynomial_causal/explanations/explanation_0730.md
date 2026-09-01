@@ -137,6 +137,47 @@ The immediate plan is:
 5. run that single candidate through census, certificates, non-overlapping shifted text, identity/price, and—only
    after those pass—the signed intervention gate.
 
+### First result from that plan
+
+The scale bridge has now been tested without training on any Q/K+MLP composition. The fitted law is
+
+`log s = 4.21237 + 0.464992 log D`.
+
+On the four held-out Q/K+MLP programs it achieves log-scale R2 `.952`, median relative scale error `4.4%`, and
+certificate-count mean error `.5` when supplied measured damage. Going end to end—singular-tail component damage,
+the preregistered cross-family interaction interval, then the intensity law—predicts all four held-out certificate
+counts exactly on average.
+
+The conservative exact-price enumeration has an equally useful negative answer. Among 42 calibrated Q/K-rank and
+MLP0-rank allocations, no program smaller than the current 512,561,462-scalar rank56 point has a conservative
+lower bound of 43 certificates. The closest cheaper configurations are predicted to retain substantially fewer:
+
+- Q/K64 + MLP0-p512: 511,758,646 scalars, central/conservative 38/35 certificates;
+- Q/K56 + MLP0-p640: 508,580,150 scalars, central/conservative 36/29 certificates.
+
+Therefore no physical composition run is licensed under the existing 43-certificate frontier goal. This is a
+discrete calibrated-grid result, not a proof about new metrics, untested intermediate ranks, or other component
+families. It redirects effort toward changing the representation—especially the vocabulary sparse-residual and
+vector-valued downstream routes—rather than rearranging the same Q/K and MLP0 rank budget.
+
+### The staircase is deployment-dependent, not redundant
+
+We also put storage and future prediction error into one minimum-description-length calculation. If a program has
+`S` scalars and adds `D` nats per future token, its incremental description length relative to native is
+
+`L_b(N) = b(S-S_native) + N D/ln(2)` bits,
+
+under a hypothetical uniform `b` bits per scalar. Every fully gated Q/K point owns a nonempty interval on the
+exact lower envelope. At 16 bits/scalar, the preferred program changes from Q/K56 to 64,72,80,88,96 and finally
+native at approximately **11.6B, 16.9B, 26.3B, 43.8B, 64.0B, and 84.7B deployed tokens**. Eight-bit thresholds are
+half as large and 32-bit thresholds double. The literal current tensor-byte ledger exactly matches the 32-bit
+schedule for these Q/K factors.
+
+This explains why there is no single best staircase point: small deployments favor storage; enormous deployments
+amortize the higher-fidelity model. The 8/16-bit calculations assume quantization leaves loss unchanged and are
+not physical claims. Rank48 is also MDL-optimal at sufficiently small token counts if circuit utility is ignored,
+but its 29 certificates keep it outside the adopted set.
+
 The independent alternatives remain alive but ranked behind this bridge: an explicitly priced sparse-row repair
 for the promising shared vocabulary code; a vector-valued suffix-Jacobian objective for MLP0 tails; and a
 task-conditioned folded-MLP contraction/router whose state is named before fitting. The important methodological

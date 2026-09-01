@@ -3821,3 +3821,16 @@ later per-rung backlog edits had silently anchored on text that was not here.
     hold out every QK+MLP construction; combine with measured tail-law
     components/tax envelope and enumerate exact-price calibrated-rank grid.
     -> ops/certificate_constrained_waterfilling_allocator.py
+    NO-RECEIPT REPAIR: shifted-OOD baseline receipt changed to paired census
+    receipt; no analysis or bar changed. RUN 2026-09-01: substantive pred_a/b
+    held, null false. Heldout log-scale R2 .951685, scale median error4.42%,
+    measured-damage count MAE .5, end-to-end count MAE0. No <512,561,462
+    grid point conservatively retains43; no physical run. pred_c procedural.
+
+358. [CODEX, board-claimed 07:39Z] MDL DEPLOYMENT CROSSOVER LAW:
+    exact lower envelope for native + six fully gated QK ranks, uniform
+    32/16/8-bit scalar hypotheses and literal raw bytes; mapped r48 separate.
+    -> ops/qk_frontier_mdl_crossover.py
+    RUN 2026-09-01: ALL HELD, null false. Every adopted point has a nonempty
+    interval. Uniform16 transitions at 11.581/16.909/26.272/43.840/64.004/
+    84.732B tokens from qk56 through native; literal bytes equal uniform32.
