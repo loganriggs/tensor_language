@@ -85,7 +85,7 @@
   "branch_identity": {
     "native_relative_mse": 2.8783411697118187e-13,
     "compact_relative_mse": 3.388489416895091e-13,
-    "closure_max_abs": 1.52587890625e-05
+    "closure_max_abs": 0.0
   },
   "basis_diagnostics": {
     "orthogonality_max_abs": {
@@ -267,12 +267,12 @@
   },
   "b0_full_gain_over_p448": 0.0013484405591870363,
   "b0_ti_share_of_full_gain": 1.3170376908635546,
-  "pred_a_authority_programs_branches_and_physical_paths_are_exact": false,
+  "pred_a_authority_programs_branches_and_physical_paths_are_exact": true,
   "pred_b_frozen_causal_interface_contains_current_p448_error": false,
   "pred_c_frozen_interface_gain_is_token_grammar_led": true,
   "pred_d_separate_token_and_interaction_output_bases_win": false,
-  "null_rank64_output_repair_has_no_specific_heldout_gain": true,
-  "next_object": null,
+  "null_rank64_output_repair_has_no_specific_heldout_gain": false,
+  "next_object": "shared_rank64_output_producer",
   "executable_repair_or_adoption_licensed": false,
-  "runtime_s": 51.5739369392395
+  "runtime_s": 51.48352909088135
 }

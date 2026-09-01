@@ -1,0 +1,279 @@
+{
+  "status": "mlp0_p448_causal_output_interface_oracle_complete",
+  "rung": 409,
+  "claim_level": "heldout_future_native_output_repair_ceiling_not_executable",
+  "convention": "CE added above native; lower is better",
+  "authority": {
+    "source_documents": 384,
+    "train_documents_half_open": [
+      0,
+      192
+    ],
+    "evaluation_documents_half_open": [
+      192,
+      384
+    ],
+    "evaluation_waves": [
+      [
+        192,
+        288
+      ],
+      [
+        288,
+        384
+      ]
+    ],
+    "scoring_positions_half_open": [
+      64,
+      256
+    ],
+    "population_exact": true,
+    "basis_file_sha256": "0eee01f39087548a479486d068404f78c4bdc2fd930932add162212da31fe4d9",
+    "b0_basis_sha256": "cb57c81a5b5ecbe8a1ad0f13f0f8b9e9df20d01ea237399db40659da75ab4b52",
+    "basis_authority_exact": true,
+    "loss_tensor_sha256": "e6d92614ad4fbe5b6e63aa2939e7df6ecb197281c114aae9696baf3bc68ab082",
+    "loss_authority_exact": true,
+    "baseline_saved_loss_max_abs_error": {
+      "NATIVE": 0.0,
+      "P448": 0.0,
+      "P640": 0.0,
+      "P768": 0.0
+    },
+    "FINAL_opened": 0
+  },
+  "programs": {
+    "source_checkpoint": {
+      "revision": "ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240",
+      "snapshot": "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240",
+      "config_sha256": "428042bfd807ba36f8b4326395440fbbebe52cd3d040212e6fef14a4fdf2d83c",
+      "weights_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+      "weights_bytes": 2067738635,
+      "tokenizer_vocab": 50257,
+      "logit_vocab": 50304
+    },
+    "evaluation_checkpoint": {
+      "revision": "ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240",
+      "snapshot": "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240",
+      "config_sha256": "428042bfd807ba36f8b4326395440fbbebe52cd3d040212e6fef14a4fdf2d83c",
+      "weights_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+      "weights_bytes": 2067738635,
+      "tokenizer_vocab": 50257,
+      "logit_vocab": 50304
+    },
+    "diagnostics": {
+      "448": {
+        "context_cov_retained_energy": 0.9011108875274658,
+        "rank": 448,
+        "context_cov_condition_after_floor": 3212.24560546875,
+        "covariance_floor": 8.654058837890625e-05
+      },
+      "640": {
+        "context_cov_retained_energy": 0.9522833228111267,
+        "rank": 640,
+        "context_cov_condition_after_floor": 3212.24560546875,
+        "covariance_floor": 8.654058837890625e-05
+      },
+      "768": {
+        "context_cov_retained_energy": 0.9727116823196411,
+        "rank": 768,
+        "context_cov_condition_after_floor": 3212.24560546875,
+        "covariance_floor": 8.654058837890625e-05
+      }
+    },
+    "exact": true
+  },
+  "branch_identity": {
+    "native_relative_mse": 2.8783411697118187e-13,
+    "compact_relative_mse": 3.388489416895091e-13,
+    "closure_max_abs": 0.0
+  },
+  "basis_diagnostics": {
+    "orthogonality_max_abs": {
+      "B0_64": 5.900859832763672e-05,
+      "JOINT_TI_64": 5.960464477539062e-07,
+      "SPLIT_T32": 8.344650268554688e-07,
+      "SPLIT_I32": 7.152557373046875e-07,
+      "TOTAL_ERROR_64": 8.093193173408508e-07,
+      "RANDOM_64": 3.5762786865234375e-07
+    },
+    "training_retained_energy": {
+      "JOINT_TI_64": 0.31728870618366545,
+      "SPLIT_T32": 0.3148834430155896,
+      "SPLIT_I32": 0.21726036454814845,
+      "TOTAL_ERROR_64": 0.36661841744898277
+    },
+    "heldout_branch_relative_mse": {
+      "joint_T": 0.653118580096157,
+      "joint_I": 0.7678945924689848,
+      "split_T": 0.6988135790716054,
+      "split_I": 0.8053575686031593
+    },
+    "joint_geometric_mse": 0.708185163567312,
+    "split_geometric_mse": 0.7501965108876338,
+    "split_relative_gain": -0.05932254653387514
+  },
+  "physical": {
+    "native_ce": 3.029153713290476,
+    "damage": {
+      "NATIVE": 0.0,
+      "P448": 0.007946509265893464,
+      "P640": 0.00286791017503063,
+      "P768": 0.0014020785533999103,
+      "B0_T": 0.007640858839704556,
+      "B0_I": 0.007038388224535286,
+      "B0_TI": 0.00617056222555501,
+      "B0_FULL": 0.006598068706706428,
+      "JOINT_TI_64": 0.004838489034867166,
+      "SPLIT_T32_I32": 0.0058758709917889895,
+      "TOTAL_ERROR_64": 0.004769479165072976,
+      "RANDOM_64": 0.006927985757938959
+    },
+    "wave_damage": {
+      "NATIVE": [
+        0.0,
+        0.0
+      ],
+      "P448": [
+        0.008612539082635262,
+        0.007280479449151667
+      ],
+      "P640": [
+        0.002970703612074743,
+        0.0027651167379869612
+      ],
+      "P768": [
+        0.001792879815599946,
+        0.0010112772911998746
+      ],
+      "B0_T": [
+        0.008194456769690994,
+        0.007087260909718562
+      ],
+      "B0_I": [
+        0.007500187474262177,
+        0.006576588974808839
+      ],
+      "B0_TI": [
+        0.006544302045018657,
+        0.005796822406091806
+      ],
+      "B0_FULL": [
+        0.00716565619769538,
+        0.006030481215717032
+      ],
+      "JOINT_TI_64": [
+        0.005685260129970171,
+        0.003991717939764161
+      ],
+      "SPLIT_T32_I32": [
+        0.006783709440911334,
+        0.004968032542667089
+      ],
+      "TOTAL_ERROR_64": [
+        0.005497735227142808,
+        0.004041223103003144
+      ],
+      "RANDOM_64": [
+        0.007424714388181375,
+        0.0064312571276965436
+      ]
+    },
+    "calls": {
+      "NATIVE": {
+        "forwards": 48,
+        "attention": 864,
+        "site0": 48,
+        "other_mlp": 816
+      },
+      "P448": {
+        "forwards": 48,
+        "attention": 864,
+        "site0": 48,
+        "other_mlp": 816
+      },
+      "P640": {
+        "forwards": 48,
+        "attention": 864,
+        "site0": 48,
+        "other_mlp": 816
+      },
+      "P768": {
+        "forwards": 48,
+        "attention": 864,
+        "site0": 48,
+        "other_mlp": 816
+      },
+      "B0_T": {
+        "forwards": 48,
+        "attention": 864,
+        "site0": 48,
+        "other_mlp": 816
+      },
+      "B0_I": {
+        "forwards": 48,
+        "attention": 864,
+        "site0": 48,
+        "other_mlp": 816
+      },
+      "B0_TI": {
+        "forwards": 48,
+        "attention": 864,
+        "site0": 48,
+        "other_mlp": 816
+      },
+      "B0_FULL": {
+        "forwards": 48,
+        "attention": 864,
+        "site0": 48,
+        "other_mlp": 816
+      },
+      "JOINT_TI_64": {
+        "forwards": 48,
+        "attention": 864,
+        "site0": 48,
+        "other_mlp": 816
+      },
+      "SPLIT_T32_I32": {
+        "forwards": 48,
+        "attention": 864,
+        "site0": 48,
+        "other_mlp": 816
+      },
+      "TOTAL_ERROR_64": {
+        "forwards": 48,
+        "attention": 864,
+        "site0": 48,
+        "other_mlp": 816
+      },
+      "RANDOM_64": {
+        "forwards": 48,
+        "attention": 864,
+        "site0": 48,
+        "other_mlp": 816
+      }
+    },
+    "calls_live": true,
+    "training_site0_calls": 48,
+    "state_replay_max_abs_error": 0.0
+  },
+  "literal_price": {
+    "p448_values": 9954432,
+    "historical_b0_interface_values": 153920,
+    "optimistic_p448_plus_b0_values": 10108352,
+    "p640_values": 11945088,
+    "p768_values": 13272192,
+    "oracle_reads_native_error_and_is_not_executable": true,
+    "new_basis_producers_and_operations_not_priced": true
+  },
+  "b0_full_gain_over_p448": 0.0013484405591870363,
+  "b0_ti_share_of_full_gain": 1.3170376908635546,
+  "pred_a_authority_programs_branches_and_physical_paths_are_exact": true,
+  "pred_b_frozen_causal_interface_contains_current_p448_error": false,
+  "pred_c_frozen_interface_gain_is_token_grammar_led": true,
+  "pred_d_separate_token_and_interaction_output_bases_win": false,
+  "null_rank64_output_repair_has_no_specific_heldout_gain": false,
+  "next_object": "shared_rank64_output_producer",
+  "executable_repair_or_adoption_licensed": false,
+  "runtime_s": 51.48352909088135
+}
+MLP0 p448 CAUSAL OUTPUT INTERFACE ORACLE DONE
