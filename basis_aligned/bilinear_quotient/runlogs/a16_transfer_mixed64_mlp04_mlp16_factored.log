@@ -1,0 +1,128 @@
+ARM: QK64 + MLP04 + factored-MLP16 with a16 mean ablated
+a2-input probe acc 0.69
+fit a2
+fit a3
+fit a4
+fit a5
+fit a6
+fit a7
+fit a8
+fit a9
+fit a10
+fit a11
+fit a12
+fit a13
+fit a14
+fit a15
+fit a16
+fit a17
+  cp_swap: front MLPs m0-m3 -> CP top-4608 in place (tailE remains table-front-fit)
+  QK rank-64 factors built for all motif heads
+  QK rank-64 factors built for tail blocks 10-17
+  tail QK hooks registered (gated)
+L1 (+38 heads): C +0.2461 | fresh +0.2192
+  window 0 (7 docs): L2 fresh +0.0050
+  window 1 (42 docs): L2 fresh +0.0097
+  window 2 (17 docs): L2 fresh +0.0125
+  window 3 (23 docs): L2 fresh +0.0097
+  window 4 (43 docs): L2 fresh +0.0095
+  window 5 (26 docs): L2 fresh +0.0110
+  window 6 (35 docs): L2 fresh -0.0004
+  window 7 (35 docs): L2 fresh +0.0086
+L2 empirical: C +0.0005 | fresh +0.0090 | tail-attn increment -0.2102
+(a) L2 <= +2.75 fresh: HELD
+(b) increment in [0.30,0.55]: FAILED
+{
+  "status": "a16_transfer_mixed64_mlp04_mlp16_factored_complete",
+  "rung": 393,
+  "claim_level": "original_native_signed_gate_for_physical_three_family_composite",
+  "convention": "signed effect = KO CE minus unablated CE within original-native and candidate models",
+  "native_ko_measured_before_candidate_installation": true,
+  "unablated_census_damage": 0.05285390093922615,
+  "unablated_certificates_valid": 17,
+  "unablated_shifted_damage_max": 0.12713873572647572,
+  "live_conditional_fresh_damage": 0.009,
+  "effect_cosine": 0.9657116532325745,
+  "effect_normalized_error": 0.31714898347854614,
+  "effect_norm_ratio": 1.1477916240692139,
+  "effect_candidate_mean_abs": 0.09292758256196976,
+  "collateral_spearman": 0.9895918369293213,
+  "own_effect_median_ratio": 1.1354281280907732,
+  "hook_calls": {
+    "factor": 2341,
+    "ablation": 250
+  },
+  "qk_metric": "context_rrr",
+  "qk_context_layers": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17
+  ],
+  "qk_rank": 64,
+  "qk_factorized_maps": 440,
+  "qk_factor_widths": [
+    64
+  ],
+  "mlp_input_program_observed": {
+    "0": 768,
+    "4": 768
+  },
+  "active_replacements": [
+    "m0E",
+    "m1",
+    "m2E",
+    "m3E",
+    "c4",
+    "c5",
+    "c6",
+    "c7",
+    "c8",
+    "c9"
+  ],
+  "mlp16_factor_shapes": {
+    "output_directions": [
+      4,
+      1152
+    ],
+    "form_vectors": [
+      4,
+      2,
+      1152
+    ],
+    "form_values": [
+      4,
+      2
+    ],
+    "constant": [
+      1152
+    ]
+  },
+  "mlp16_factor_scalars": 14984,
+  "mlp16_factor_dtypes": [
+    "torch.float32"
+  ],
+  "mlp16_no_dense_form": true,
+  "literal_standalone_scalars": 495847230,
+  "literal_source_format_bytes": 1867449228,
+  "saved_candidate_ko_cev": "cev_a16ko_mixed64_mlp04_mlp16_factored.pt",
+  "pred_a_baseline_physical_identity_and_hooks_hold": true,
+  "pred_b_original_native_signed_effect_holds": true,
+  "pred_c_circuit_profile_holds": true,
+  "null_signed_composite_transport_fails": false,
+  "physical_composite_adopted_as_lower_fidelity_tier": true,
+  "runtime_s": 130.47155690193176
+}
+A16 PHYSICAL THREE-FAMILY COMPOSITE DONE

@@ -1,0 +1,108 @@
+{
+  "status": "a16_transfer_mixed64_mlp04_mlp16_factored_complete",
+  "rung": 393,
+  "claim_level": "original_native_signed_gate_for_physical_three_family_composite",
+  "convention": "signed effect = KO CE minus unablated CE within original-native and candidate models",
+  "native_ko_measured_before_candidate_installation": true,
+  "unablated_census_damage": 0.05285390093922615,
+  "unablated_certificates_valid": 17,
+  "unablated_shifted_damage_max": 0.12713873572647572,
+  "live_conditional_fresh_damage": 0.009,
+  "effect_cosine": 0.9657116532325745,
+  "effect_normalized_error": 0.31714898347854614,
+  "effect_norm_ratio": 1.1477916240692139,
+  "effect_candidate_mean_abs": 0.09292758256196976,
+  "collateral_spearman": 0.9895918369293213,
+  "own_effect_median_ratio": 1.1354281280907732,
+  "own_effect_ratios": [
+    1.0980691308421697,
+    1.1128591670025187,
+    1.1218410527439966,
+    1.125265386991001,
+    1.1262912971393617,
+    1.1351691092926761,
+    1.1354281280907732,
+    1.1370391446188342,
+    1.1446486277628602,
+    1.1533437331271452,
+    1.1565704945514133,
+    1.1716170542842708,
+    1.1827972576054593
+  ],
+  "hook_calls": {
+    "factor": 2341,
+    "ablation": 250
+  },
+  "qk_metric": "context_rrr",
+  "qk_context_layers": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17
+  ],
+  "qk_rank": 64,
+  "qk_factorized_maps": 440,
+  "qk_factor_widths": [
+    64
+  ],
+  "mlp_input_program_observed": {
+    "0": 768,
+    "4": 768
+  },
+  "active_replacements": [
+    "m0E",
+    "m1",
+    "m2E",
+    "m3E",
+    "c4",
+    "c5",
+    "c6",
+    "c7",
+    "c8",
+    "c9"
+  ],
+  "mlp16_factor_shapes": {
+    "output_directions": [
+      4,
+      1152
+    ],
+    "form_vectors": [
+      4,
+      2,
+      1152
+    ],
+    "form_values": [
+      4,
+      2
+    ],
+    "constant": [
+      1152
+    ]
+  },
+  "mlp16_factor_scalars": 14984,
+  "mlp16_factor_dtypes": [
+    "torch.float32"
+  ],
+  "mlp16_no_dense_form": true,
+  "literal_standalone_scalars": 495847230,
+  "literal_source_format_bytes": 1867449228,
+  "saved_candidate_ko_cev": "cev_a16ko_mixed64_mlp04_mlp16_factored.pt",
+  "pred_a_baseline_physical_identity_and_hooks_hold": true,
+  "pred_b_original_native_signed_effect_holds": true,
+  "pred_c_circuit_profile_holds": true,
+  "null_signed_composite_transport_fails": false,
+  "physical_composite_adopted_as_lower_fidelity_tier": true,
+  "runtime_s": 130.47155690193176
+}
