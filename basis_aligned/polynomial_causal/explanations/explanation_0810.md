@@ -118,3 +118,9 @@ The remaining bottleneck is semantic scalar count, not bytes. The ranked plan is
 The main methodological outcome is as important as the artifact: future GPU runs should confirm one program
 selected by induced-metric tails, composition tax, and certificate margins. They should not search ranks or relax
 a certificate bar after seeing the answer.
+
+The all-layer screen has now landed and the law is broad: every layer qualifies at both p512 and p768, every p768
+fit is split-stable, and the worst p768 damage on either corpus is `.011604`. The preregistered matched-control bars
+also hold. The frozen rule selects layers4 and0 at p768, using fit-A only to rank layers and split-B to build the
+physical maps. Composing those two maps with Q/K64 costs **511,758,646 scalars**, 802,816 fewer than Q/K56. That
+single census/certificate/OOD experiment is now the final structural exploit; no subset or rank sweep follows it.

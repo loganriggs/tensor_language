@@ -3892,3 +3892,19 @@ later per-rung backlog edits had silently anchored on text that was not here.
 366. [CODEX, board-claim 08:11Z] ALL-LAYER CONTEXT-METRIC MLP INPUT RANK:
     independently fit paired-Left/Right context-RRR p512/p768 at all18 layers
     on two splits; two untouched corpora; historical matched weight-SVD control.
+    RUN 2026-09-01: ALL HELD, null false. All18 qualify at both ranks; all18
+    p768 split-stable; max .011604; 15/18 beat weight SVD by20%, late3 by50%.
+
+367. [CODEX, board-claim 08:13Z] QK64 + SELECTED MLP{0,4}@p768:
+    frozen screen rule selects layers4,0; install split-B programs with
+    context-QK64; census/certs/fresh and WT103 tokens209712:240552; exact
+    511,758,646-scalar / 1,931,092,588-byte structural price.
+
+368. [CODEX, conditional board-claim 08:17Z] TWO-BYTE QK64+MLP{0,4}:
+    only after rung367 full pass; global source-aware BF16, fp16 QK factors,
+    original-native census/certs/fresh and WT103 tokens240552:271392;
+    exact 511,758,646 scalars / 1,023,517,292 bytes.
+
+369. [CODEX, conditional board-claim 08:17Z] FINAL ORIGINAL-NATIVE SIGNED GATE:
+    only after rung368 full pass; identical a16 mean KO with .98/.30/.98
+    tightened bars and exact final selection/storage/scalar/byte identities.
