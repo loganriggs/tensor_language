@@ -3790,3 +3790,17 @@ later per-rung backlog edits had silently anchored on text that was not here.
     -> ops/mlp0_consequence_weighted_context_metric_screen.py
     RUN 2026-09-01: pred_b/c held, pred_a failed, null false. WT p384 tail
     improves strongly but FW max only 4.2%; no clip/rank tuning or promotion.
+
+354. [CODEX, board-claimed 07:16Z] FINITE FOUR-STATE MLP0 SUBSPACE ROUTER:
+    exact folded-token PCA32 states, four context-RRR p128 experts, literal
+    route table; equal-price global p517 and balanced-random controls.
+    -> ops/mlp0_finite_moe_subspace_router_screen.py
+    NO-RECEIPT REPAIR: ambient-D sample guard corrected to registered >=500
+    and >=expert-rank condition; all states/ranks/bars/seeds unchanged.
+
+355. [CODEX, board-claimed 07:20Z] CONTEXT-METRIC TAIL/WATER-FILLING LAW:
+    exact QK/MLP0 omitted singular energies versus measured rank ladders;
+    log fits, LOOCV, shared-vs-family gain discriminator.
+    -> ops/context_metric_tail_waterfilling_law.py
+    RUN 2026-09-01: ALL HELD, null false. QK/MLP R2 .9951/.9947,
+    LOOCV medians 7.86%/6.85%; joint R2 .394, family gain ratio3.297.

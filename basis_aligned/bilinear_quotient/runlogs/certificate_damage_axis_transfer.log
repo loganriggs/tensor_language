@@ -1,0 +1,32 @@
+{
+  "qk_r2": 0.9994516853623302,
+  "qk_loocv_cert_mae": 0.0,
+  "targets": {
+    "qk56_mlp0_p512": {
+      "projection_scale": 11.325449856589552,
+      "cosine": 0.9985232096285978,
+      "vector_r2": 0.9898007479470169,
+      "actual_certificates": 29,
+      "predicted_certificates": 27,
+      "certificate_count_error": 2,
+      "reported_certificates": 29
+    },
+    "qk80_value96": {
+      "projection_scale": 8.436091343557246,
+      "cosine": 0.9977340031491194,
+      "vector_r2": 0.9835485450993355,
+      "actual_certificates": 46,
+      "predicted_certificates": 45,
+      "certificate_count_error": 1,
+      "reported_certificates": 46
+    }
+  },
+  "predicates": [
+    true,
+    true,
+    true
+  ],
+  "null": false,
+  "runtime_s": 3.4970285892486572
+}
+CERTIFICATE DAMAGE AXIS TRANSFER DONE
