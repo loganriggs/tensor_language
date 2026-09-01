@@ -79,7 +79,8 @@ def freeze_pairs(values: torch.Tensor) -> list[dict[str, object]]:
     for left in range(len(IDS)):
         for right in range(left + 1, len(IDS)):
             difference = values[:, left] - values[:, right]
-            low, high = torch.quantile(difference, torch.tensor([ALPHA / 2, 1 - ALPHA / 2])).tolist()
+            quantiles = torch.tensor([ALPHA / 2, 1 - ALPHA / 2], dtype=difference.dtype)
+            low, high = torch.quantile(difference, quantiles).tolist()
             if low > 0 or high < 0:
                 pairs.append({
                     "left": IDS[left], "right": IDS[right],
