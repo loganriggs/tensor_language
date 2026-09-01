@@ -3538,3 +3538,19 @@ later per-rung backlog edits had silently anchored on text that was not here.
     compare {0,7} and {0,14}@p768 at the common 534,286,646-scalar price;
     frozen selection by certificates then census; no further subset/rank search.
     -> ops/mixed104_shared_input_svd_front_mid_pairs.py
+    RUN 2026-09-01: pred_b/c held, pred_a failed by one certificate, null false.
+    {0,7} +.019408/34; {0,14} +.015880/37. Close subset/rank search; retain
+    {0,14} only as the strongest labeled tier at this price.
+
+321. [CODEX, board-claimed 05:04Z] LATE CONTEXT-METRIC SHARED INPUT:
+    fit p768 paired-map RRR under two independent contextual input covariances;
+    compare matched weight SVD on untouched FineWeb/WikiText.
+    -> ops/mlp_late_context_metric_shared_input_screen.py
+    RUN 2026-09-01: ALL HELD, null false. RRR damage is at most +.0115 across
+    all late layers/corpora versus weight SVD up to +1.0874. Split overlaps
+    .763-.773 and both halves reproduce. Promote fixed late triple physically.
+
+322. [CODEX, board-claimed 05:07Z] PHYSICAL LATE CONTEXT-RRR TRIPLE:
+    compose {15,16,17}@p768 fit on frozen contextual covariance with mixed104;
+    census, 62 certificates, fresh8, fit/map/QK identities, exact 531,632,438 bill.
+    -> ops/mixed104_late_context_metric_input_triple.py

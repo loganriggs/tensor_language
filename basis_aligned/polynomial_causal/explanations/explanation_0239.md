@@ -543,3 +543,23 @@ An arm must reach `<=+.020` and at least 38 certificates. Selection is frozen as
 damage; no further pair, subset, or rank search follows. Separately, the late-depth counterexample motivates a
 new metric family—context-weighted shared-input rank rather than Frobenius weight rank—but it cannot rescue or
 reinterpret this composition gate.
+
+The final pair result is close but negative: `{0,7}` is `+.019408/34`, while `{0,14}` is `+.015880/37` at the
+common 534,286,646-scalar price. Both lie on the predicted monotone segment and all identities hold, but neither
+reaches 38 certificates. Do not relax the one-certificate miss. `{0,14}` is retained as the strongest labeled
+compression tier at that price, and all front/middle subset/rank search closes.
+
+## A different metric changes the late-layer conclusion (05:05 UTC)
+
+Ordinary SVD said layers 15--17 needed almost full rank. Context-weighted RRR at the identical p768 price says
+otherwise. Fit on FineWeb contextual MLP inputs, it scores on untouched FineWeb/WikiText:
+
+- layer 15: `+.01131/-.00019` versus weight SVD `+.12984/+.13015`;
+- layer 16: `+.00396/+.00205` versus `+.79598/+1.08741`;
+- layer 17: `+.01146/+.00407` versus `+.12907/+.25736`.
+
+An independent fit half reproduces every result; whitened-subspace overlaps are `.763--.773`, and contextual
+inputs concentrate 98.1--98.7% of their energy in 768 dimensions. All frozen predictions hold. The corrected
+structural statement is not “late MLPs are full rank”: their paired weights are Frobenius-full-rank but have a
+stable low-rank action under the actual input distribution. Promote the fixed `{15,16,17}@p768` context-metric
+triple to a physical mixed104 census/certificate/fresh/price gate at 531,632,438 scalars.

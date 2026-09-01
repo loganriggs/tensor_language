@@ -446,3 +446,22 @@ Full ranking and adoption gates: `SIX_DIRECTION_COMPARISON_2026-09-01.md`.
   but certificate loss remains the binding constraint even though its exchange rate is better than output PCA.
 - Decision: one final common-rebuild capacity decrement compares fixed `{0,7}` and `{0,14}` at identical price.
   Require <=+.020 and >=38 certificates; then close all subset/rank search regardless of outcome.
+
+### `05:04 UTC` — exploit checkpoint `320`
+
+- Result: `{0,7}` is `+.019408/34`; `{0,14}` is `+.015880/37`, both at 534,286,646 scalars. pred_b/c hold,
+  pred_a misses by one certificate, null false.
+- Information gained: returning one p768 layer buys 9--12 certificates, but the front/middle family remains on
+  the same smooth certificate curve. `{0,14}` dominates the same-price p512-MLP0 tier but is not adoption-grade.
+- Decision: preserve the frozen bar and close all front/middle subset/rank search.
+
+### `05:05 UTC` — exploit checkpoint `321`
+
+- Result: contextual-covariance RRR p768 at layers15/16/17 scores
+  `+.0113/-.0002`, `+.0040/+.0021`, `+.0115/+.0041` FineWeb/WikiText, versus weight-SVD as high as
+  `+.796/+1.087`. Independent halves reproduce; overlap `.763--.773`. All predictions hold, null false.
+- Information gained: the late spectral tail is important only in the Frobenius metric. Under the empirical input
+  distribution, the same paired bilinear maps have stable rank-768 action. Metric choice, not rank alone, resolves
+  the apparent depth cliff.
+- Decision: physically compose fixed context-RRR `{15,16,17}@p768` with mixed104 and require census,
+  certificates, fresh transfer, exact fit identity, maps, and 531,632,438-scalar bill before OOD.
