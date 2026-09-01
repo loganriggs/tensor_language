@@ -4247,3 +4247,13 @@ later per-rung backlog edits had silently anchored on text that was not here.
   `I=.00479`, `T=.00334`; their gap `.001448` misses the frozen `.0015`, and I's positive named share `.544`
   misses `.60`. The stable statement is token-grammar-led `T+I`, not interaction-only. Do not build the licensed
   I-only projection; compare joint T+I, I-only, T-only, and covariance objectives at equal rank/price.
+
+### Rung 405 — global T+I active-subspace rank448 screen — CLAIMED
+
+- Estimate exact output-Jacobian Grams for T and I with deterministic probes on the unchanged24 program-fit docs.
+- In the same normalized-input whitening frame, build equal-price T-only, I-only, equal-trace T+I, covariance, and
+  random p448 programs; evaluate exact branch reconstruction and physical CE on rung404's four96-document waves.
+- Require branch-specificity, pooled and per-wave predictive improvement, balance, exact endpoints, and fixed price.
+  Full registration: `MLP0_RANK448_TOKEN_GRAMMAR_ACTIVE_SUBSPACE_PREREGISTRATION.md`.
+- Screen only. Failure closes first-order active metrics and routes to direct nonlinear T+I fitting or a registered
+  document-conditional state; no interaction-only or head-label tuning.
