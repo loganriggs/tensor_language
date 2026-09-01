@@ -28,6 +28,11 @@ WikiText population, and matches the original-native signed a16 intervention wit
 Spearman `.995306`.  This is a 6.2546% semantic-scalar reduction and 50.4990% byte reduction.  Compute remains fp32
 after dequantization, so no runtime or activation-memory claim is being made.
 
+A fully gated middle tier now fills the fidelity gap: QK72 with the same two MLP cuts uses **516,264,246 scalars /
+1,032,528,492 bytes**, adds `.009301` census CE, retains 50/62 certificates, and has signed cosine `.990600` and
+collateral Spearman `.996633`.  Together with source-aware BF16 native (`62/62`, 1.0918GB, essentially zero damage),
+the artifacts form a three-point 62/50/43-certificate dial rather than a single compression setting.
+
 ## Common scorecard
 
 Scores are evidence-weighted, not estimates of an untested best case.  Compute cost is the cost of the next

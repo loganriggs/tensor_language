@@ -44,8 +44,10 @@ drops to 38. CE and OOD alone would have promoted it; the causal battery correct
 
 The reverse trade gives a useful middle tier. Q/K rank72 with the same two MLP cuts has 516,264,246 scalars,
 `.009227` census damage, and 50/62 certificates. Its shifted WikiText mean/p95/max is
-`.002260/.024200/.036493`. It is mapped structurally; its generic harness carries stale rung/prose labels, so those
-metadata strings should be repaired before a polished deployment artifact is cut.
+`.002260/.024200/.036493`. The final two-byte rebuild and signed gate also pass: **1,032,528,492 bytes**, census
+`+.009301`, signed cosine/error/norm `.990600/.153655/1.060392`, and collateral Spearman `.996633`. Its rebuilt
+receipt uses corrected rung/status/claim labels. The fully gated fidelity dial is therefore 62 certificates at
+1.0918GB, 50 at 1.0325GB, and 43 at 1.0235GB.
 
 **A final alternative failed informatively.** We computed exact contextual tail curves for every MLP layer at
 ranks 512/640/768/896, fixed the independently learned tail exponent, calibrated layer gains on fit A, and predicted

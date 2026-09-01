@@ -3999,3 +3999,6 @@ later per-rung backlog edits had silently anchored on text that was not here.
 378. [CODEX, conditional board-claim 09:09Z] MID-TIER SIGNED GATE:
     only after every377 positive; original-native a16 KO, >=.985 cosine,
     <=.25 error, .98 collateral rho, exact tier identities. No tuning.
+    RUN 2026-09-01: ALL HELD, null false. Baseline+.00930063/50; signed
+    cosine/error/norm.990600/.153655/1.060392, rho.996633, own1.065080;
+    exact516,264,246 /1,032,528,492. Formally adopt 50-cert middle tier.

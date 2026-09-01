@@ -1,0 +1,66 @@
+ARM: a16 mixed64 BF16 QK fp16 MLP04 p768 vs original native
+a2-input probe acc 0.69
+fit a2
+fit a3
+fit a4
+fit a5
+fit a6
+fit a7
+fit a8
+fit a9
+fit a10
+fit a11
+fit a12
+fit a13
+fit a14
+fit a15
+fit a16
+fit a17
+  cp_swap: front MLPs m0-m3 -> CP top-4608 in place (tailE remains table-front-fit)
+  QK rank-72 factors built for all motif heads
+  QK rank-72 factors built for tail blocks 10-17
+  tail QK hooks registered (gated)
+L1 (+38 heads): C +0.2102 | fresh +0.2094
+  window 0 (7 docs): L2 fresh +0.0041
+  window 1 (42 docs): L2 fresh +0.0086
+  window 2 (17 docs): L2 fresh +0.0118
+  window 3 (23 docs): L2 fresh +0.0077
+  window 4 (43 docs): L2 fresh +0.0089
+  window 5 (26 docs): L2 fresh +0.0093
+  window 6 (35 docs): L2 fresh -0.0013
+  window 7 (35 docs): L2 fresh +0.0075
+L2 empirical: C -0.0033 | fresh +0.0063 | tail-attn increment -0.2031
+(a) L2 <= +2.75 fresh: HELD
+(b) increment in [0.30,0.55]: FAILED
+{
+  "status": "a16_transfer_mixed72_bf16_qk_fp16_mlp04_p768_complete",
+  "rung": 378,
+  "claim_level": "original_native_signed_two_byte_qk72_mlp04_mid_fidelity_gate",
+  "convention": "signed effect = KO CE minus unablated CE within original-native and compiled models",
+  "native_ko_measured_before_global_rounding": true,
+  "unablated_census_damage": 0.009300626814365387,
+  "unablated_certificates_valid": 50,
+  "unablated_shifted_damage_row_max": 0.035265859216451645,
+  "live_unablated_fresh_damage": 0.0063,
+  "effect_cosine": 0.9905995726585388,
+  "effect_normalized_error": 0.153654545545578,
+  "effect_norm_ratio": 1.0603923797607422,
+  "collateral_spearman": 0.9966326355934143,
+  "own_effect_median_ratio": 1.0650804822330806,
+  "global_storage_dtype": "source-fp32_to_bfloat16; source-bfloat16_exact",
+  "qk_storage_dtype": "float16",
+  "qk_rank": 72,
+  "qk_factorized_maps": 440,
+  "mlp_input_program_observed": {
+    "0": 768,
+    "4": 768
+  },
+  "literal_standalone_scalars": 516264246,
+  "literal_raw_tensor_bytes": 1032528492,
+  "pred_a_final_baseline_identity_and_bill_hold": true,
+  "pred_b_final_original_native_signed_effect_holds": true,
+  "pred_c_final_circuit_profile_holds": true,
+  "null_final_signed_transport_fails": false,
+  "runtime_s": 132.04036355018616
+}
+A16 MIXED64 BF16 QK FP16 MLP04 P768 FINAL GATE DONE
