@@ -1,0 +1,99 @@
+{
+  "status": "mlp0_signed_response_rank_screen_complete",
+  "rung": 301,
+  "claim_level": "empirical_signed_response_two_corpus_screen_only",
+  "populations": {
+    "fit_rows": 32,
+    "fit_positions": 8192,
+    "fineweb_eval_rows": 16,
+    "wikitext_eval_rows": 16,
+    "wikitext_fingerprint": "a46124b21ac53738"
+  },
+  "native": {
+    "mlp0_scalars": 15926400,
+    "fineweb_ce": 2.9421068131923676,
+    "wikitext_ce": 3.9850006997585297
+  },
+  "response_geometry": {
+    "rank128_abs_eigenvalue_fraction": 0.41142478585243225,
+    "rank128_split_projector_overlap": 0.2834044098854065,
+    "rank128_random_overlap_expectation": 0.1111111111111111,
+    "activation_pca_rank128_split_overlap": 0.6827797293663025
+  },
+  "arms": {
+    "64": {
+      "rank": 64,
+      "literal_mlp0_scalars": 10986624,
+      "storage_fraction_native_mlp0": 0.6898372513562387,
+      "response": {
+        "fineweb_ce": 3.117220938205719,
+        "fineweb_damage": 0.17511412501335144,
+        "wikitext_ce": 4.131390392780304,
+        "wikitext_damage": 0.1463896930217743
+      },
+      "activation_pca": {
+        "fineweb_ce": 3.046717345714569,
+        "fineweb_damage": 0.10461053252220154,
+        "wikitext_ce": 4.063251823186874,
+        "wikitext_damage": 0.07825112342834473
+      },
+      "weight_svd": {
+        "fineweb_ce": 3.076461911201477,
+        "fineweb_damage": 0.1343550980091095,
+        "wikitext_ce": 4.0950648188591,
+        "wikitext_damage": 0.11006411910057068
+      }
+    },
+    "128": {
+      "rank": 128,
+      "literal_mlp0_scalars": 11355264,
+      "storage_fraction_native_mlp0": 0.7129837251356239,
+      "response": {
+        "fineweb_ce": 3.0296513736248016,
+        "fineweb_damage": 0.08754456043243408,
+        "wikitext_ce": 4.046610474586487,
+        "wikitext_damage": 0.06160977482795715
+      },
+      "activation_pca": {
+        "fineweb_ce": 2.992120146751404,
+        "fineweb_damage": 0.050013333559036255,
+        "wikitext_ce": 4.01517790555954,
+        "wikitext_damage": 0.030177205801010132
+      },
+      "weight_svd": {
+        "fineweb_ce": 3.004169851541519,
+        "fineweb_damage": 0.06206303834915161,
+        "wikitext_ce": 4.034503251314163,
+        "wikitext_damage": 0.049502551555633545
+      }
+    },
+    "256": {
+      "rank": 256,
+      "literal_mlp0_scalars": 12092544,
+      "storage_fraction_native_mlp0": 0.7592766726943943,
+      "response": {
+        "fineweb_ce": 2.984378010034561,
+        "fineweb_damage": 0.042271196842193604,
+        "wikitext_ce": 4.005805820226669,
+        "wikitext_damage": 0.02080512046813965
+      },
+      "activation_pca": {
+        "fineweb_ce": 2.963028222322464,
+        "fineweb_damage": 0.020921409130096436,
+        "wikitext_ce": 3.9963718950748444,
+        "wikitext_damage": 0.011371195316314697
+      },
+      "weight_svd": {
+        "fineweb_ce": 2.9656655192375183,
+        "fineweb_damage": 0.023558706045150757,
+        "wikitext_ce": 4.006657600402832,
+        "wikitext_damage": 0.021656900644302368
+      }
+    }
+  },
+  "pred_a_response_beats_noncausal_bases": false,
+  "pred_b_response_rank_is_predictive_and_priced": true,
+  "pred_c_response_basis_is_split_stable": false,
+  "null_no_stable_response_advantage": true,
+  "runtime_s": 10.943296194076538
+}

@@ -3342,3 +3342,13 @@ later per-rung backlog edits had silently anchored on text that was not here.
     RUN 2026-09-01, S2397: ALL THREE HELD, null false. Shared count-weighted
     +.1930 FW/+.2249 WT vs independent +.5518/+.7781 at 73.88% vocab
     storage. Advance; sparse rare residual rows are the exploit-phase test.
+
+301. [CODEX, board-claimed 03:15Z] MLP0 SIGNED RESPONSE RANK: exact
+    suffix-loss gradient paired with native MLP0 output; rank abs eigenmodes of
+    sym(E[(y-mu)^T g]); compare literal factorized-Down replacements to PCA and
+    Down SVD on disjoint FW/Wiki; split stability.
+    -> ops/mlp0_signed_response_rank_screen.py
+    RUN 2026-09-01, S2398: pred_b only; null triggered. Response r128
+    +.0875 FW/+.0616 WT at 71.3% MLP0 price, but PCA +.0500/+.0302 and
+    weight SVD +.0621/+.0495; response split overlap .283 vs PCA .683.
+    Kill response rank allocator; retain ordinary PCA baseline.

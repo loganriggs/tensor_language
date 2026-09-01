@@ -17,8 +17,8 @@ only explicitly priced small finite router states count as a structural decompos
 | 02:40–03:40 | Embedding-folded MLP0 block/tree/DAG/finite-router recovery | Planted recovery receipt plus real-MLP0 screen design/result | COMPLETED 03:02 |
 | 03:40–04:40 | Direct shared bilinear-MLP tensor compression | Price-matched rank/share screen and literal replacement hypothesis | COMPLETED 03:06 |
 | 04:40–05:40 | Joint untied-vocabulary factorization | Shared-code spectrum with rare-token/OOD falsifier | COMPLETED 03:15 |
-| 05:40–06:40 | Causal-response rank coordinates | Held-out response-per-scalar comparison against SVD | IN PROGRESS (early start 03:15) |
-| 06:40–07:40 | Predictive causal-state quotient | Hankel/observable-rank screen with corpus/intervention stability | PENDING |
+| 05:40–06:40 | Causal-response rank coordinates | Held-out response-per-scalar comparison against SVD | COMPLETED 03:20 |
+| 06:40–07:40 | Predictive causal-state quotient | Hankel/observable-rank screen with corpus/intervention stability | IN PROGRESS (early start 03:20) |
 | 07:40–08:40 | Executable error contracts/lower bounds | Bound calibration against known rungs plus useful/impossible verdict | PENDING |
 | 08:40–09:40 | Common comparison | Completed scorecard and confound audit | PENDING |
 | 09:40–10:40 | Exploit best one or two | Decisive follow-up receipt and morning synthesis | PENDING |
@@ -43,7 +43,7 @@ only explicitly priced small finite router states count as a structural decompos
 | Embedding-folded MLP0 structure | conditional toy-prior signal; real small-state weak | at most 15.9M for exact MLP0, unearned | toy R2 is non-discriminating; real best legal R2 -0.052 | none yet | poor without external prior | low for intervention/OOD discriminator | kill raw-support and fixed-K512 router; park structured MDL |
 | Shared MLP tensor | coefficient sharing indistinguishable from orthogonal null | 71.7M at 25%, but capacity absent | coefficient screen only | none | planted instrument valid; real null | high for arbitrary joint CP, low for reuse | kill native-atom reuse/layer mixing; leave changed-metric CP open |
 | Joint vocabulary maps | strong shared-code + frequency-metric signal | 30.28M at tested point (26.1% of vocab) | +.193 FW / +.225 Wiki screen | none | external two-corpus discriminator; fit/eval split | moderate: full census + sparse rare residual | advance; exploit hybrid rare-row correction |
-| Causal-response coordinates | — | — | — | — | — | — | pending |
+| Causal-response coordinates | predictive but dominated and split-unstable | 4.57M on MLP0 Down at r128, already beaten | response +.0875/.0616 vs PCA +.0500/.0302 | empirical suffix gradient only | overlap .283 vs PCA .683 | low | kill signed-response ranking; retain ordinary PCA baseline |
 | Predictive causal state | — | — | — | — | — | — | pending |
 | Error contracts/lower bounds | — | — | — | — | — | — | pending |
 
@@ -146,3 +146,30 @@ only explicitly priced small finite router states count as a structural decompos
   on fit data, targeting the rare/unseen failure without disturbing the common-token win.
 - Next direction started: an error-relative causal-response basis for MLP0 output rank, compared at literal
   factorized-Down price with activation PCA and weight SVD on held-out FineWeb/WikiText.
+
+### `03:20 UTC` — direction `3`
+
+- Full goal restated: use causal consequence only if it yields a smaller, more predictive and ultimately
+  manipulable executable program than noncausal compression at the same literal price.
+- Exact object and literal price: the signed response operator
+  `S=sym(E[(y-mean(y))^T dL/dy])` for native MLP0 outputs and complete suffix loss. A rank-r projector is
+  realized by factorizing Down at price `2*4608*1152 + r*(4608+1152) + 1152`. Rank 128 costs **11,355,264**
+  scalars, 71.3% of native MLP0, saving **4,571,136** scalars.
+- Opposing predictions and frozen bars: response rank <=128 needed >=25% lower damage than both activation
+  PCA and Down-weight SVD on both corpora; response r128 needed <=+.10 FW/+.12 Wiki at <=72% price; split
+  projector overlap needed >=.60. Null: no matched-control win or overlap <=.25.
+- Result/receipt: response r128 was predictively acceptable at `+.0875` FineWeb / `+.0616` WikiText, so the
+  absolute priced bar held. But activation PCA was `+.0500/+.0302` and weight SVD `+.0621/+.0495`; response
+  was worse at every tested rank 64/128/256. Its top-128 absolute response eigenvalues held only 41.1% of the
+  signed spectrum. Split-projector overlap was `.283`, versus PCA `.683` and random expectation `.111`.
+- Null, confound, or identifiability limit: response overlap narrowly exceeded the null's `.25` instability
+  clause, but the independent no-control-win clause triggered. The empirical-label gradient is a local signed
+  response, not a finite intervention; any apparent absolute success is explained by ordinary low output rank.
+- Information gained: conditioning rank allocation on this signed consequence operator adds noise rather than
+  useful coordinates. The prior global observability spectrum was large; the error-relative refinement is
+  smaller enough to predict, but not stable or better than noncausal bases.
+- Continue/kill/park decision: **kill** this signed-response eigenbasis as a rank allocator. Keep activation PCA
+  as the honest MLP0 Down baseline; do not describe its low-rank success as causal structure.
+- Next direction started: a behavior-anchored finite-state/Hankel screen rather than repeating the rejected
+  unnatural token-splice Hankel. The target is a known sequential delimiter/quote state with an identified
+  consumer, corpus/template transfer, and a causal-head control.

@@ -1,0 +1,19 @@
+r=64 price=0.690 | FW resp/pca/wsvd +0.1751/+0.1046/+0.1344 | WT +0.1464/+0.0783/+0.1101
+r=128 price=0.713 | FW resp/pca/wsvd +0.0875/+0.0500/+0.0621 | WT +0.0616/+0.0302/+0.0495
+r=256 price=0.759 | FW resp/pca/wsvd +0.0423/+0.0209/+0.0236 | WT +0.0208/+0.0114/+0.0217
+{
+  "response_geometry": {
+    "rank128_abs_eigenvalue_fraction": 0.41142478585243225,
+    "rank128_split_projector_overlap": 0.2834044098854065,
+    "rank128_random_overlap_expectation": 0.1111111111111111,
+    "activation_pca_rank128_split_overlap": 0.6827797293663025
+  },
+  "predicates": [
+    false,
+    true,
+    false
+  ],
+  "null": true,
+  "runtime_s": 10.943296194076538
+}
+MLP0 SIGNED RESPONSE RANK SCREEN DONE

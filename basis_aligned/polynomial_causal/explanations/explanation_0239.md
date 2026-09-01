@@ -220,3 +220,17 @@ failure: count>=10 targets are slightly better than native, but unseen targets c
 WikiText. The 25%-saving ceiling leaves room for about 1,129 explicitly indexed residual rows beyond rank 512.
 A fit-selected rare-row correction is therefore the natural exploit-phase test. Before that, the rotation moves
 to causal-response coordinates, asking whether the same consequence-weighting lesson improves MLP rank allocation.
+
+## Fourth live checkpoint: causal-response rank coordinates (03:20 UTC)
+
+The tested coordinate was deliberately error-relative, not the already-rejected global observability quotient.
+For native MLP0 outputs `y` and exact suffix-loss gradients `g`, the symmetric operator
+`sym(E[(y-mean(y))^T g])` ranks directions by the signed first-order consequence of deleting the output component.
+A rank-128 basis has a literal factorized-Down realization: `11,355,264` scalars for MLP0, 71.3% of native.
+
+The response program cleared its absolute two-corpus bar (`+.0875` FineWeb, `+.0616` WikiText), but that result
+was not causal-coordinate evidence. At the same rank and price, activation PCA scored `+.0500/+.0302` and Down
+weight SVD `+.0621/+.0495`; response ranking lost at every tested rank. Its split-projector overlap was only
+`.283`, versus PCA `.683` and random expectation `.111`. Thus ordinary low output rank explains the predictive
+result, while the signed response basis is comparatively noisy and unstable. This direction is stopped. The
+next probe uses a genuinely sequential, behavior-anchored finite state instead of another generic token splice.
