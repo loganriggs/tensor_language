@@ -4292,3 +4292,12 @@ later per-rung backlog edits had silently anchored on text that was not here.
   p768 is `.001173` at13,272,192 values versus at least14,599,296 for two p448 experts, so document routing is
   dominated. Position oracle is `-.02107` for the pair / `-.03928` all-five, leaving only the preregistered
   token-state feasibility study open; it must be prefix-observable, physical, heldout, and beat p768 after price.
+
+### Rung 408 — heldout four-state prefix-token router feasibility — CLAIMED
+
+- Fix I-active/Fisher experts and saved rung407 losses; train docs0:192, evaluate192:384 in two96-doc waves.
+- Freeze a max4-leaf/min2048 tree over position, GPT2-byte morphology, prefix repetition distance, and training-only
+  token frequency; compare constant, quartile, morphology4, and repeat-distance4 states.
+- Require25% oracle recovery, `.001` gain over I, `.0002` over cheaper p768, both-wave transport, expert balance,
+  exact hashes/no leakage, and frozen nulls in `MLP0_PREFIX_TOKEN_STATE_ROUTER_FEASIBILITY_PREREGISTRATION.md`.
+- Off-policy feasibility only. Pass licenses one exact physical router; miss closes cheap prefix-state routing.
