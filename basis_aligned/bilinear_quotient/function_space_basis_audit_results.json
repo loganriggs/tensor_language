@@ -1,0 +1,72 @@
+{
+  "convention": "signed per-position CE added above real; lower aggregate is better",
+  "registered_before_purevalue_landed": true,
+  "n_positions": 256000,
+  "damage_means": {
+    "ct96": 0.0552961,
+    "t120": 0.0525935,
+    "v96": 0.0762801,
+    "kom16": 0.2428748,
+    "purevalue": 0.0699235
+  },
+  "screen_band_pair_cosine": 0.9839793,
+  "pure_value_vs_contained_value_residual_cosine": 0.4389943,
+  "pure_value_vs_band_cosine": 0.8703773,
+  "vector_additivity_relative_error": 0.9022966,
+  "family_names": [
+    "band",
+    "pure_value",
+    "m16_ko_residual"
+  ],
+  "family_cosine_gram": [
+    [
+      1.0,
+      0.8703773,
+      0.0396253
+    ],
+    [
+      0.8703773,
+      1.0,
+      0.0415243
+    ],
+    [
+      0.0396253,
+      0.0415243,
+      1.0
+    ]
+  ],
+  "max_abs_family_offdiagonal": 0.8703773,
+  "difficulty_residualized_band_cosine": 0.9837996,
+  "document_band_cosine_quantiles": [
+    0.958377,
+    0.976073,
+    0.982666,
+    0.987235,
+    0.993848
+  ],
+  "document_pure_value_cosine_quantiles": [
+    0.693279,
+    0.79779,
+    0.843829,
+    0.878067,
+    0.934811
+  ],
+  "document_band_advantage_quantiles": [
+    0.058112,
+    0.107405,
+    0.137469,
+    0.179607,
+    0.269454
+  ],
+  "document_band_advantage_positive_fraction": 1.0,
+  "document_band_advantage_bootstrap_mean_ci95": [
+    0.1424454,
+    0.1457804,
+    0.1493448
+  ],
+  "pred_a_clean_replication": false,
+  "pred_b_vector_additivity": false,
+  "pred_c_low_rank_family_algebra": false,
+  "null_triggered": true,
+  "decision_level": "identification screen; adoption requires a legal held-out repair"
+}

@@ -3133,3 +3133,17 @@ later per-rung backlog edits had silently anchored on text that was not here.
     pred_b valid >= 10; pred_c offline cosine bars per S2378 (spec
     < 0.3, norm within 25% of 109.7). Null: shares the band direction
     or inert edit. -> ops/cev_purevalue.py [QUEUED 01:45Z]
+    RUN 2026-09-01, S2380: FAILED config check (0.0699; cosine 0.858)
+    - FLIP-CANDIDATE: the full-rank replacement path may itself cost
+    ~0.05 (never physically run before). Decisive controls = 280/281
+    (full rank, values real, both lineages).
+
+280. PATH CONTROL I (mixed lineage): all patterns full rank, values
+    real: pred_a census <= 0.01 (path exact, floor law preserved);
+    pred_b valid >= 12; pred_c range + cev saved. NULL (the flip):
+    census >= 0.04 - the "mechanism" is path cost.
+    -> ops/path_full.py [QUEUED 02:00Z]
+
+281. PATH CONTROL II (corner lineage, independent implementation):
+    same bars; disagreement with 280 by > 0.01 = lineage bug.
+    -> ops/path_full2.py [QUEUED 02:00Z]
