@@ -4145,7 +4145,7 @@ later per-rung backlog edits had silently anchored on text that was not here.
   recoveries are 73.51%/63.52%, exposing a consumer split. Wrong-token full write R2 .91539. Route to validated
   consumer-effect token interchange; no live context transfer.
 
-### Rung 398 — far-action downstream-equivalence physical interchange — QUEUED
+### Rung 398 — far-action downstream-equivalence physical interchange — COMPLETE
 
 - Use mod5 fitting tokens only as donors and heldout tokens as receivers. For L and Q separately, select donors by
   conditional attention1/MLP1 effect while requiring component cosine <=.50, then physically swap the component.
@@ -4153,3 +4153,7 @@ later per-rung backlog edits had silently anchored on text that was not here.
   action-nearest, and random donor controls. Report widespread both-consumer preservation and decoded examples.
 - Pass identifies token-effect equivalence despite different storage directions. Failure keeps exact token identity
   and routes to reader-weighted quadratic spectra. No context or compression license.
+- RUN 2026-09-01: A/D held, B/C failed, null false. Far-action L cross-consumer cosines .651/.683 beat random but
+  not raw/action neighbors; 5.30% of one route preserves both consumers >=.80 across7,000 donors. Q cross-consumer
+  transfer .338/.697 is asymmetric with negative selected MLP R2, and only .43%–1.44% preserve both consumers.
+  Local semantic pairs exist, but global equivalence is unsupported. Retain exact identity; route to Q spectra.

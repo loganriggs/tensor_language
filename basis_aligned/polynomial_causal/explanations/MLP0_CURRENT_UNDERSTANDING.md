@@ -1068,6 +1068,20 @@ nonlinear—large pair and triple Möbius terms cancel—so component roles must
 write. This is exact causal attribution, not compression: Q is an exact heldout residual. The next legal token-only
 test is downstream-effect equivalence by cross-consumer physical interchange, not another activation sparse code.
 
+Rung398 tested that interchange prospectively. Donors came only from the fitting set, receivers only from the heldout
+set, and far-effect donors were forced to have component cosine <=.50. For L, attention-selected donors preserve
+physical attention1/MLP1 conditional-effect cosines .837/.651 and MLP-selected donors .683/.719, far above random
+.193/.166. But simple L-action neighbors score .880/.835 and raw neighbors .656/.691; the frozen cross-consumer and
+control-margin bars fail. One L route nevertheless preserves both consumers above .80 for 5.30% of receivers across
+7,000 donors. For Q, cross-consumer transfer is only .338 or .492 in the selected consumer pairing and global R² is
+negative; only .43%–1.44% of swaps preserve both consumers above .80. Pred_a/d held, b/c failed, null false.
+
+Therefore there are local far-direction semantic niches—decoded examples include `primarily`/`largely`,
+`Although`/`While`, and several year-token pairs—but no supported whole-vocabulary equivalence code. L has weak
+many-to-one structure already tracked by action geometry; Q is predominantly token-private. Retain exact identity.
+The next object is a consumer-aware quadratic spectrum, which can seek a small set of Q directions read by each
+consumer without asserting token interchangeability.
+
 ## Related authoritative write-ups
 
 - `MLP0_QUOTIENT_STAGE0_V2_FINDINGS.md`
@@ -1080,3 +1094,4 @@ test is downstream-effect equivalence by cross-consumer physical interchange, no
 - `explanation_2026-09-01_1406.md`
 - `explanation_2026-09-01_1415.md`
 - `explanation_2026-09-01_1421.md`
+- `explanation_2026-09-01_1432.md`
