@@ -4278,3 +4278,12 @@ later per-rung backlog edits had silently anchored on text that was not here.
   covariance `.007107` in all4 waves, T/I relative MSE both worsen, and SELECT T+I Shapley damage rises
   `.007710 -> .010280`. Close fixed first-order p448 metrics; do not clip/interpolate/tune. Measure heldout oracle
   headroom before any small-state router, and compare that route with direct nonlinear CE fitting.
+
+### Rung 407 — price-aware two-state p448 router oracle ceiling — CLAIMED
+
+- Rebuild the five outcome-frozen p448 programs from rungs403/405/406 plus covariance p640/p768 controls.
+- Save physical per-document/per-position losses on the 384-document authority; enumerate all10 two-expert future-
+  loss oracles and an all-five oracle without fitting a state.
+- Compare optimistic two-p448 price14,599,296 against cheaper p76813,272,192 and p64011,945,088, with frozen
+  headroom, balance, wave, identity, and strong-null bars in `MLP0_P448_ROUTER_ORACLE_CEILING_PREREGISTRATION.md`.
+- Diagnostic ceiling only. A null kills router-state search among these experts before code is spent on it.
