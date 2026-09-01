@@ -36,23 +36,24 @@ written separately and joined only by hash-bound candidate IDs.
 
 ## Ordered experiment queue
 
-1. **Candidate-bank freezer and leakage audit.** Select at least eight priced candidates in each of three physical
-   families, freeze candidate IDs and structure, and verify that no removal or composition outcome is present in the
-   structural file. This is CPU-only and must complete before any consequence label is generated.
-2. **MLP0 folded-program bank.** Use the existing token/state-complete compiler grammar, but score prospectively
-   frozen token-only, token-by-context, and context-only signed interventions and preselected candidate pairs. The
-   fold is the microscope; the shipped object is still the candidate program, not the folded embedding table.
-3. **Attention0 continuous-response bank.** Use the supported rung424/425 continuous response quotient, not the
-   rejected convex atoms. Remove registered response coordinates and execute registered pairs through routed U16,
-   the six downstream consumers, and suffix cross-entropy. This asks whether continuous coordinates support clean
-   edits and predictable interactions.
-4. **Late-MLP quadratic bank.** Reuse the MLP16/MLP17 module dossiers to avoid duplicating old quadratic results.
-   Select priced quadratic/rank controls and measure the same signed-removal and pair-composition contract on fresh
-   rows.
-5. **Three-family frozen-score test.** Only after at least 20 candidates across all three families have each outcome,
-   test whether the already-frozen structural score orders removal and composition better than bytes, rank, sparse
-   edge count, measured selection distortion, and shuffled scores. Do not refit on these labels.
-6. **Score-guided new-program search.** Conditional on step5. Search one genuinely new grammar using only training
+1. **Candidate-bank freezer and leakage audit — complete at rung445.** The existing outcome-free rung441 structural
+   manifest supplies35 teaching candidates across vocabulary, MLP-PCA, and MLP0-context families, plus10 sparse-Q/K
+   attention0 candidates in a sealed fourth family. All45 map to hash-pinned rebuild sources; candidate IDs and
+   whole-family roles are frozen before new consequence generation.
+2. **Teaching-family consequence generation.** On new frozen rows, measure one common distant attention16 signed
+   knockout and composition with the physical MLP16 rank2 program for the35 teaching candidates. Keep labels in a
+   physically separate file.
+3. **Consequence-specific rule fitting.** Fit removal and composition predictors only on the three teaching families,
+   choose regularization by leave-one-whole-family-out validation, and freeze coefficients, feature transforms,
+   uncertainty rule, and hashes before the attention0 label file exists.
+4. **Sealed attention0 confirmation.** Generate the same consequences for the10 sparse-Q/K candidates and controls,
+   then test the frozen consequence-specific rules against bytes, rank, sparse edge count, validation distortion,
+   shuffled labels, and the already-frozen rung443 recovery score. Rung443 is a baseline because it was trained for
+   reconstruction recovery, not silently renamed a causal-simplicity rule.
+5. **Continuous-response causal semantics.** Independently use the supported rung424/425 quotient—not the rejected
+   convex atoms—to test whether registered continuous coordinates support selective removal and predictable pair
+   interactions through routed U16 and downstream readers.
+6. **Score-guided new-program search.** Conditional on step4. Search one genuinely new grammar using only training
    data and the frozen score, then compare its sealed consequences with ordinary loss-, rank-, and byte-guided
    searches at matched causal distortion and complete price.
 
@@ -63,6 +64,5 @@ written separately and joined only by hash-bound candidate IDs.
   control reconstructs better and the archetypal atoms are less restart-stable than unconstrained atoms.
 - Archetypal-atom extraction/removal was conditional on identification and is therefore closed without execution;
   it is not an unfulfilled queued run.
-- Optimizing a program under learned simplicity remains queued but conditional on the prospective three-family
-  ordering test. Running it earlier would expose the answer key to the objective.
-
+- Optimizing a program under learned simplicity remains queued but conditional on the sealed fourth-family ordering
+  test. Running it earlier would expose the answer key to the objective.

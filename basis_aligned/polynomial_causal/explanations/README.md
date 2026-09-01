@@ -11,6 +11,9 @@ state what was actually measured and what unit is being used.
 
 ## Start here
 
+- [explanation_2026-09-01_2259.md](explanation_2026-09-01_2259.md) — reports the clean45-candidate prospective-bank
+  freeze, defines the35-candidate teaching/10-candidate sealed-family split, and corrects rung443 to a fixed
+  reconstruction baseline rather than relabeling it a removal/composition rule
 - [explanation_2026-09-01_2249.md](explanation_2026-09-01_2249.md) — clarifies that “dropped” means proposed but
   unexecuted, reports the response-metric Archetypal-SAE strong null, and restores the remaining20:54 work as a
   six-step prospective removal/composition and learned-simplicity queue
