@@ -54,6 +54,12 @@ all 18 layers. But water-filling at the current price chooses exactly the existi
 same saving over more p896 cuts is not better, and the next cheaper allocation predicts 1.369x the damage. This
 closes both manual layer-prefix and variable-rank variants around the current frontier.
 
+One last vector-valued alternative found a real but non-specific second mode. After subtracting the universal ray,
+three MLP-bearing programs share a residual direction (rank-one R2 `.935`), and that direction predicts a held-out
+program well enough to improve full-vector R2 `.99316 -> .99910` and certificate count `49 -> 50` (actual 50).
+However, the value-family control aligns at `.526`, just above the frozen `.50` specificity limit. We therefore map
+this as curvature of the universal damage path rather than claim an MLP-specific causal axis or tune another mode.
+
 **How the six independent directions rank now.** The winning route is the executable error-contract machinery,
 because it became a reliable rank-and-certificate calculator. Second is contextual bilinear MLP input compression,
 which supplied the actual new frontier. Joint input/output vocabulary geometry is real but remains too damaging,

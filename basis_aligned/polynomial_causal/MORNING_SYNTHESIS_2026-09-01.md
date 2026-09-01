@@ -91,6 +91,10 @@ point in that grid below 512,561,462 scalars conservatively retains 43 certifica
 not contradict the certificate: it moved outside its stated grid and then won in one preregistered physical build.
 The same fixed ray subsequently predicts the selected two-layer, third-layer, and QK72 mid-tier programs with
 certificate-count errors `2/1/1`, so it is now a measured cross-family allocator rather than a Q/K-only curiosity.
+A preregistered second-mode test finds stable residual curvature and improves a held-out distributed program from
+R2 `.99316` to `.99910` with exact count prediction, but its value-family specificity control narrowly fails
+(`.5257` cosine versus a frozen `.50` ceiling).  It is therefore mapped as universal curvature, not promoted as an
+MLP-specific causal coordinate; the one-ray model remains the conservative allocator.
 
 ## Negative results that should remain closed
 

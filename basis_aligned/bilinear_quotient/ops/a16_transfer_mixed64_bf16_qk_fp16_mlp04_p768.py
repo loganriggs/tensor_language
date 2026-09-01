@@ -47,6 +47,16 @@ QK_RANK = 64
 MLP_RANK = 768
 SCALARS = 511_758_646
 BYTES = 1_023_517_292
+RUNG = 369
+STATUS = "a16_transfer_mixed64_bf16_qk_fp16_mlp04_p768_complete"
+CLAIM_LEVEL = "final_original_native_signed_two_byte_selected_mlp_qk64_adoption_gate"
+CENSUS_MAX = .015
+CERTIFICATE_MIN = 43
+SHIFTED_MAX = .120
+FRESH_MAX = .030
+COSINE_MIN = .98
+ERROR_MAX = .30
+RHO_MIN = .98
 
 
 def _spearman(left, right):
@@ -220,19 +230,19 @@ def main() -> None:
                 and widths == {QK_RANK} and factor_dtypes == {"torch.float16"}
                 and len(factor_pairs) == 440 and observed == {0: MLP_RANK, 4: MLP_RANK}
                 and not any(name in active for name in ("a0", "a1v", "tailE"))
-                and SCALARS == 511_758_646 and BYTES == 1_023_517_292)
-    pred_a = (baseline_result["census_damage"] <= .015
-              and baseline_result["certificates_valid"] >= 43
-              and baseline_result["shifted_damage_row_max"] <= .120
-              and run["L2_F"] <= .030 and identity)
-    pred_b = (cosine >= .98 and normalized_error <= .30
+                and BYTES == 2 * SCALARS)
+    pred_a = (baseline_result["census_damage"] <= CENSUS_MAX
+              and baseline_result["certificates_valid"] >= CERTIFICATE_MIN
+              and baseline_result["shifted_damage_row_max"] <= SHIFTED_MAX
+              and run["L2_F"] <= FRESH_MAX and identity)
+    pred_b = (cosine >= COSINE_MIN and normalized_error <= ERROR_MAX
               and .90 <= norm_ratio <= 1.15)
-    pred_c = collateral_rho >= .98 and .90 <= own_median <= 1.15
+    pred_c = collateral_rho >= RHO_MIN and .90 <= own_median <= 1.15
     null = cosine < .70 or collateral_rho < .75
     result = {
-        "status": "a16_transfer_mixed64_bf16_qk_fp16_mlp04_p768_complete",
-        "rung": 369,
-        "claim_level": "final_original_native_signed_two_byte_selected_mlp_qk64_adoption_gate",
+        "status": STATUS,
+        "rung": RUNG,
+        "claim_level": CLAIM_LEVEL,
         "convention": "signed effect = KO CE minus unablated CE within original-native and compiled models",
         "native_ko_measured_before_global_rounding": True,
         "unablated_census_damage": baseline_result["census_damage"],

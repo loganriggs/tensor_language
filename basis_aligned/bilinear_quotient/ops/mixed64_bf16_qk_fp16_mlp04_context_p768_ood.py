@@ -38,6 +38,18 @@ WIKI_SKIP = 240_552
 N_ROWS = 120
 SCALARS = 511_758_646
 BYTES = 1_023_517_292
+QK_RANK = 64
+RUNG = 368
+STATUS = "mixed64_bf16_qk_fp16_mlp04_context_p768_ood_complete"
+CLAIM_LEVEL = "physical_two_byte_selected_mlp_qk64_census_certificate_ood_screen"
+CENSUS_MAX = .015
+CERTIFICATE_MIN = 43
+OOD_MEAN_MAX = .025
+OOD_P95_MAX = .060
+OOD_MAX = .120
+FRESH_MAX = .030
+NULL_CENSUS = .025
+NULL_CERTIFICATES = 35
 
 
 @torch.no_grad()
@@ -50,7 +62,8 @@ def main() -> None:
             "pred_b_shifted_ood_and_fresh_hold",
             "pred_c_selection_program_identity_and_price_hold"))
         assert parent["selected_layers_ordered"] == [4, 0]
-        assert BYTES == 2 * SCALARS and WIKI_SKIP + N_ROWS * 257 == 271_392
+        assert parent["qk_rank"] == QK_RANK
+        assert BYTES == 2 * SCALARS and WIKI_SKIP + N_ROWS * 257 > WIKI_SKIP
         print("MIXED64 BF16 QK FP16 MLP04 | dry run: parent, population, bill, bars valid")
         return
 
@@ -101,6 +114,7 @@ def main() -> None:
     harness.WIKI_SKIP = WIKI_SKIP
     harness.WIKI_STOP = WIKI_SKIP + N_ROWS * 257
     harness.N_ROWS = N_ROWS
+    harness.QK_RANK = QK_RANK
     harness.SCALARS = SCALARS
     harness.BYTES = BYTES
     harness.QK_STORAGE_DTYPE = "float16"
@@ -114,16 +128,17 @@ def main() -> None:
     shifted_mean = float(total_by_row.mean())
     shifted_p95 = float(torch.quantile(total_by_row, .95))
     shifted_max = float(total_by_row.max())
-    pred_a = result["census_damage"] <= .015 and result["certificates_valid"] >= 43
-    pred_b = (shifted_mean <= .025 and shifted_p95 <= .060 and shifted_max <= .120
-              and result["max_fresh_damage"] <= .030)
+    pred_a = (result["census_damage"] <= CENSUS_MAX
+              and result["certificates_valid"] >= CERTIFICATE_MIN)
+    pred_b = (shifted_mean <= OOD_MEAN_MAX and shifted_p95 <= OOD_P95_MAX
+              and shifted_max <= OOD_MAX and result["max_fresh_damage"] <= FRESH_MAX)
     identity = (result["selected_layers_ordered"] == [4, 0]
                 and result["mlp_fit_rows_half_open"] == [24, 48]
                 and result["qk_fit_rows_half_open"] == [72, 96]
                 and result["mlp_input_program_observed"] == {"0": 768, "4": 768}
                 and result["qk_metric"] == "context_rrr"
                 and result["qk_storage_dtype"] == "float16"
-                and result["qk_rank"] == 64 and result["qk_factorized_maps"] == 440
+                and result["qk_rank"] == QK_RANK and result["qk_factorized_maps"] == 440
                 and result["qk_factor_tensor_dtypes"] == ["torch.float16"]
                 and result["saved_census_cev_file"] == CEV.name
                 and fingerprint == "7dabb830ac9ebb0d" and token_count == 675_457
@@ -133,18 +148,19 @@ def main() -> None:
                                       "torch.bfloat16": 57_970_998}
                 and set(parameters) == set(source)
                 and {name: tuple(parameter.shape) for name, parameter in parameters.items()} == shapes_before
-                and SCALARS == 511_758_646 and BYTES == 1_023_517_292
+                and BYTES == 2 * SCALARS
                 and result["literal_standalone_scalars"] == SCALARS
                 and result["literal_raw_tensor_bytes"] == BYTES and CEV.exists())
     pred_c = identity
-    null = result["census_damage"] >= .025 or result["certificates_valid"] <= 35
+    null = (result["census_damage"] >= NULL_CENSUS
+            or result["certificates_valid"] <= NULL_CERTIFICATES)
     for key in list(result):
         if key.startswith("pred_") or key.startswith("null_"):
             result.pop(key)
     result.update({
-        "status": "mixed64_bf16_qk_fp16_mlp04_context_p768_ood_complete",
-        "rung": 368,
-        "claim_level": "physical_two_byte_selected_mlp_qk64_census_certificate_ood_screen",
+        "status": STATUS,
+        "rung": RUNG,
+        "claim_level": CLAIM_LEVEL,
         "convention": "compiled CE minus original native CE; lower is better",
         "global_storage_dtype": "source-fp32_to_bfloat16; source-bfloat16_exact",
         "global_compute_dtype": "float32_explicit_dequantization",

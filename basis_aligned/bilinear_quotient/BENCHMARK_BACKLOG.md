@@ -3983,3 +3983,19 @@ later per-rung backlog edits had silently anchored on text that was not here.
     subtract fixed rung356 ray from three MLP-bearing saved-CEV vectors, fit
     one residual direction, and test it on held-out QK72+MLP04; value96 is a
     specificity control. Exact counts/tags/thresholds; no heldout refit.
+    RUN 2026-09-01: pred_a/b held, pred_c failed narrowly, null false. Train
+    residual R2.9352/LOO cosines.893-.916; held cosine.9319 improves full R2
+    .99316->.99910 and count49->50(actual50), but value residual cosine.5257
+    exceeds frozen<=.50. Map universal curvature; no MLP-specific allocator.
+
+377. [CODEX, conditional board-claim 09:09Z] TWO-BYTE QK72+MLP04 TIER:
+    identical rung373 program under global source-aware BF16 + FP16 QK;
+    original-native census/all62/fresh and WT103 tokens347464:378304; exact
+    516,264,246 scalars / 1,032,528,492 bytes. Requires <=.012/>=48.
+    RUN 2026-09-01: ALL HELD, null false. +.00930063/50; OOD
+    .003228/.025150/.035266, fresh.0118; all identities and corrected
+    rung/status/claim labels exact. Advances only frozen signed rung378.
+
+378. [CODEX, conditional board-claim 09:09Z] MID-TIER SIGNED GATE:
+    only after every377 positive; original-native a16 KO, >=.985 cosine,
+    <=.25 error, .98 collateral rho, exact tier identities. No tuning.
