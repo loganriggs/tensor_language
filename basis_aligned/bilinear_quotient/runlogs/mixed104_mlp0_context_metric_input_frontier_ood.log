@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/mixed104_mlp0_context_metric_input_frontier_ood.py", line 228, in <module>
+    main()
+  File "/venv/main/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/mixed104_mlp0_context_metric_input_frontier_ood.py", line 82, in main
+    from mixed104_mlp0_svd768_ood import wikitext_rows
+ImportError: cannot import name 'wikitext_rows' from 'mixed104_mlp0_svd768_ood' (/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/mixed104_mlp0_svd768_ood.py)

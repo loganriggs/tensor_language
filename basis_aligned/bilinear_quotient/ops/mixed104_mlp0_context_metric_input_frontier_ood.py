@@ -79,7 +79,7 @@ def main() -> None:
     sys.path.insert(0, "/workspace/rspd")
     import census_lib as CN
     import cevdump_ct96 as C
-    from mixed104_mlp0_svd768_ood import wikitext_rows
+    from mixed104_online_cv0_ood import wikitext_rows
     from mlp0_context_metric_shared_input_frontier import _covariance
     from mlp_late_context_metric_shared_input_screen import _rrr_program
     from mlp_shared_input_svd_all_layers_screen import _manual_logits
