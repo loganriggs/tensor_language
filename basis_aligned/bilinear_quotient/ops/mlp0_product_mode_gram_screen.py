@@ -171,10 +171,10 @@ def main() -> None:
         "split_top2304_overlap": split_overlap,
         "frozen_grid_corner_prices": CORNER_PRICES,
         "license_determination": license_rule,
-        "pred_a_gram_instrument_identities_hold": bool(pred_a),
-        "pred_b_spectrum_decreasing_and_split_stable": bool(pred_b),
-        "pred_c_product_mode_flatter_than_output_mode": bool(pred_c),
-        "null_product_gram_instrument_fails": bool(null),
+        'pred_a_gram_instrument_identities_hold': bool(pred_a),
+        'pred_b_spectrum_decreasing_and_split_stable': bool(pred_b),
+        'pred_c_product_mode_flatter_than_output_mode': bool(pred_c),
+        'null_product_gram_instrument_fails': bool(null),
     }
     OUT.write_text(json.dumps(result, indent=2) + "\n")
     print(json.dumps(result, indent=2), flush=True)
