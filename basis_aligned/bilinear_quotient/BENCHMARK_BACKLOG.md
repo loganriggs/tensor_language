@@ -3124,6 +3124,9 @@ later per-rung backlog edits had silently anchored on text that was not here.
     (intervention family; bars = S2364 preds unchanged). Same control
     bar vs d_ct96; also feeds the signed-composition test (math review
     move 2). -> ops/cevdump_kom16.py [QUEUED 01:35Z]
+    RUN 2026-09-01, S2379: ALL HELD + residual bar dead center (0.041
+    in [-0.3,0.3]). Three damage families mutually orthogonal (KO vs
+    value residuals: 0.053). Awaiting 279 for full publication.
 
 279. CLEAN band-free control: value r96 on EXACT patterns (pure value
     direction): pred_a census in [0.005,0.06] (live config check);
