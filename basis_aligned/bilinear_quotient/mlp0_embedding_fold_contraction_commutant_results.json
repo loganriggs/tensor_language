@@ -1,0 +1,78 @@
+{
+  "status": "mlp0_embedding_fold_contraction_commutant_complete",
+  "rung": 340,
+  "claim_level": "gauge_invariant_planted_to_real_structural_screen",
+  "object": "output contractions of exact MLP0 quadratic function tensor",
+  "identity": {
+    "embedding_rows": 50304,
+    "embedding_pca_rank": 32,
+    "embedding_variance_explained": 0.1704840064048767,
+    "output_contractions": 12
+  },
+  "toy": {
+    "commutant_dimension": 3,
+    "recovered_block_sizes": [
+      3,
+      4,
+      5
+    ],
+    "offblock_energy_fraction": 7.831673477312167e-31,
+    "dense_null_commutant_dimension": 1,
+    "smallest_singular_values": [
+      4.480540901375165e-16,
+      6.667340041244942e-16,
+      8.426080200844241e-16,
+      0.2958106038415853,
+      0.5440155542590513,
+      0.6103386576130478
+    ],
+    "dense_smallest_singular_values": [
+      4.388927916714826e-16,
+      0.5675380694537703,
+      0.5977302709223445,
+      0.6151670670992302
+    ]
+  },
+  "real": {
+    "normalized_second_singular_full": 0.5641922354698181,
+    "spectral_null_normalized_second_full": 0.5485626459121704,
+    "real_to_null_ratio_full": 1.0284918954546354,
+    "real_to_null_ratio_split_a": 0.9755551237360953,
+    "real_to_null_ratio_split_b": 1.0470735949642818,
+    "split_projector_overlap": 0.1376923769712448,
+    "full_projector_rank": 4,
+    "split_projector_ranks": [
+      4,
+      5
+    ],
+    "real_offblock_energy_fraction": 0.04407988116145134,
+    "null_offblock_energy_fraction": 0.06693277508020401,
+    "null_projector_rank": 4,
+    "common_gauge_spectrum_relative_max_difference": 8.311226702062413e-05,
+    "smallest_singular_values_full": [
+      1.6467080854454252e-07,
+      0.35641705989837646,
+      0.36332857608795166,
+      0.3678305149078369,
+      0.36906152963638306,
+      0.3737092614173889,
+      0.37460288405418396,
+      0.3762323260307312
+    ],
+    "smallest_singular_values_null": [
+      1.6672237279635738e-07,
+      0.44020769000053406,
+      0.4522048532962799,
+      0.4584808051586151,
+      0.4657844305038452,
+      0.46886759996414185,
+      0.4724206030368805,
+      0.47471389174461365
+    ]
+  },
+  "pred_a_planted_blocks_and_dense_null_are_identified": true,
+  "pred_b_real_mlp0_has_nontrivial_approximate_commutant_signal": false,
+  "pred_c_real_signal_is_split_stable_and_block_reducing": false,
+  "null_real_mlp0_is_as_irreducible_as_spectral_null": true,
+  "runtime_s": 4.2234954833984375
+}
