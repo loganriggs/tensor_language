@@ -1,0 +1,138 @@
+SHARED BILINEAR ATOM REUSE | rung 299 planted controls
+{
+  "shared_atom_match": {
+    "nearest_quantiles": {
+      "q10": 0.9999998211860657,
+      "q25": 0.9999998807907104,
+      "q50": 1.0,
+      "q75": 1.0000001192092896,
+      "q90": 1.0000001192092896,
+      "q99": 1.000000238418579
+    },
+    "fraction_over_threshold": {
+      "0.8": 1.0,
+      "0.9": 1.0,
+      "0.95": 1.0,
+      "0.99": 1.0
+    },
+    "greedy_one_to_one_fraction": {
+      "0.8": 1.0,
+      "0.9": 1.0,
+      "0.95": 1.0,
+      "0.99": 1.0
+    }
+  },
+  "independent_negative_match": {
+    "nearest_quantiles": {
+      "q10": 0.012557906098663807,
+      "q25": 0.014579230919480324,
+      "q50": 0.017650892958045006,
+      "q75": 0.02173915132880211,
+      "q90": 0.027676250785589218,
+      "q99": 0.03739594295620918
+    },
+    "fraction_over_threshold": {
+      "0.8": 0.0,
+      "0.9": 0.0,
+      "0.95": 0.0,
+      "0.99": 0.0
+    },
+    "greedy_one_to_one_fraction": {
+      "0.8": 0.0,
+      "0.9": 0.0,
+      "0.95": 0.0,
+      "0.99": 0.0
+    }
+  },
+  "shared_layer_spectrum": {
+    "raw_energy_curve": {
+      "1": 0.8441609144210815,
+      "3": 1.0,
+      "6": 1.0
+    },
+    "row_normalized_energy_curve": {
+      "1": 0.6014649868011475,
+      "3": 1.0,
+      "6": 1.0
+    },
+    "row_norm_min": 33.503334045410156,
+    "row_norm_max": 466.7021179199219
+  },
+  "positive_control_valid": true
+}
+SHARED BILINEAR ATOM REUSE | rung 299 real invariant coefficient tensors
+{
+  "price": {
+    "native_18_mlp_scalars": 286675200,
+    "target_25pct_saving_scalars": 215006400,
+    "common_bank_rank_ceiling": 61884,
+    "pooled_native_atoms": 82944,
+    "required_pooled_atom_reuse_fraction": 0.25390625,
+    "common_bank_formula": "R*(3*1152+18)+18*1152"
+  },
+  "best_pair": "0-1",
+  "best_pair_receipt": {
+    "real": {
+      "nearest_quantiles": {
+        "q10": 0.0003620182687882334,
+        "q25": 0.00041912507731467485,
+        "q50": 0.0005162751767784357,
+        "q75": 0.000757091271225363,
+        "q90": 0.0011985996970906854,
+        "q99": 0.015792114660143852
+      },
+      "fraction_over_threshold": {
+        "0.8": 0.0,
+        "0.9": 0.0,
+        "0.95": 0.0,
+        "0.99": 0.0
+      },
+      "greedy_one_to_one_fraction": {
+        "0.8": 0.0,
+        "0.9": 0.0,
+        "0.95": 0.0,
+        "0.99": 0.0
+      }
+    },
+    "coordinate_null": {
+      "nearest_quantiles": {
+        "q10": 0.0003051579697057605,
+        "q25": 0.0003474886470939964,
+        "q50": 0.0003926632343791425,
+        "q75": 0.0004530935257207602,
+        "q90": 0.0005124507588334382,
+        "q99": 0.0007708985358476639
+      },
+      "fraction_over_threshold": {
+        "0.8": 0.0,
+        "0.9": 0.0,
+        "0.95": 0.0,
+        "0.99": 0.0
+      },
+      "greedy_one_to_one_fraction": {
+        "0.8": 0.0,
+        "0.9": 0.0,
+        "0.95": 0.0,
+        "0.99": 0.0
+      }
+    },
+    "median_gap": 0.00012361194239929318
+  },
+  "mean_adjacent_greedy_095": 0.0,
+  "top13_real": [
+    0.7724255323410034,
+    0.7683397531509399
+  ],
+  "top13_null": [
+    0.7716032266616821,
+    0.7728376984596252
+  ],
+  "predicates": [
+    false,
+    false,
+    false
+  ],
+  "instrument_valid": true,
+  "runtime_s": 4.038987636566162
+}
+SHARED BILINEAR ATOM REUSE SCREEN DONE

@@ -3316,3 +3316,14 @@ later per-rung backlog edits had silently anchored on text that was not here.
     (R2/Jaccard/F1 .999927/.820/.775) but missed its frozen bar; wrong
     pair-only fit better (R2 .999999) with wrong graph (F1 .245). R2 cannot
     identify the prior; require compression/intervention/OOD discrimination.
+
+299. [CODEX, board-claimed 03:02Z] DIRECT SHARED BILINEAR TENSORS:
+    exact gauge-invariant native-atom matches across 35 layer pairs plus a
+    randomized polarized full-tensor layer spectrum; signed-coordinate null,
+    planted shared-bank positive and independent-bank negative. Native all-MLP
+    price 286,675,200; 25% common-bank saving requires 25.390625% pooled reuse.
+    -> ops/shared_bilinear_atom_reuse_screen.py
+    RUN 2026-09-01, S2396: ALL POSITIVE PREDS FAILED, null won. Zero
+    atom matches even at cosine .80; best median .000516 vs null .000393;
+    top-13 layer energy .7724/.7683 vs null .7716/.7728. Kill native-atom
+    reuse and whole-layer mixing; newly fitted changed-metric joint CP remains open.

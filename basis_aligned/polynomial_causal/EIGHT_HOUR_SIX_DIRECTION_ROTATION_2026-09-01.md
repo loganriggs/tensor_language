@@ -15,8 +15,8 @@ only explicitly priced small finite router states count as a structural decompos
 | Window (UTC) | Direction | Required checkpoint artifact | Status |
 |---|---|---|---|
 | 02:40–03:40 | Embedding-folded MLP0 block/tree/DAG/finite-router recovery | Planted recovery receipt plus real-MLP0 screen design/result | COMPLETED 03:02 |
-| 03:40–04:40 | Direct shared bilinear-MLP tensor compression | Price-matched rank/share screen and literal replacement hypothesis | IN PROGRESS (early start 03:02) |
-| 04:40–05:40 | Joint untied-vocabulary factorization | Shared-code spectrum with rare-token/OOD falsifier | PENDING |
+| 03:40–04:40 | Direct shared bilinear-MLP tensor compression | Price-matched rank/share screen and literal replacement hypothesis | COMPLETED 03:06 |
+| 04:40–05:40 | Joint untied-vocabulary factorization | Shared-code spectrum with rare-token/OOD falsifier | IN PROGRESS (early start 03:06) |
 | 05:40–06:40 | Causal-response rank coordinates | Held-out response-per-scalar comparison against SVD | PENDING |
 | 06:40–07:40 | Predictive causal-state quotient | Hankel/observable-rank screen with corpus/intervention stability | PENDING |
 | 07:40–08:40 | Executable error contracts/lower bounds | Bound calibration against known rungs plus useful/impossible verdict | PENDING |
@@ -41,7 +41,7 @@ only explicitly priced small finite router states count as a structural decompos
 | Direction | Signal | Max plausible storage win | Predictive evidence | Causal evidence | Identifiability | Next-test cost | Verdict |
 |---|---:|---:|---:|---:|---:|---:|---|
 | Embedding-folded MLP0 structure | conditional toy-prior signal; real small-state weak | at most 15.9M for exact MLP0, unearned | toy R2 is non-discriminating; real best legal R2 -0.052 | none yet | poor without external prior | low for intervention/OOD discriminator | kill raw-support and fixed-K512 router; park structured MDL |
-| Shared MLP tensor | — | — | — | — | — | — | pending |
+| Shared MLP tensor | coefficient sharing indistinguishable from orthogonal null | 71.7M at 25%, but capacity absent | coefficient screen only | none | planted instrument valid; real null | high for arbitrary joint CP, low for reuse | kill native-atom reuse/layer mixing; leave changed-metric CP open |
 | Joint vocabulary maps | — | — | — | — | — | — | pending |
 | Causal-response coordinates | — | — | — | — | — | — | pending |
 | Predictive causal state | — | — | — | — | — | — | pending |
@@ -87,3 +87,32 @@ only explicitly priced small finite router states count as a structural decompos
 - Next direction started: direct cross-layer sharing of the invariant bilinear coefficient tensors, with
   planted shared-factor recovery, orthogonal-coordinate nulls, literal reuse prices, and no repeat of the
   already-pruned within-layer Euclidean Tucker screen.
+
+### `03:06 UTC` — direction `1`
+
+- Full goal restated: replace large native tensors with a smaller executable program that preserves prediction,
+  composition, and interventions; raw-weight elegance without literal reusable capacity is not progress.
+- Exact object and literal price: all eighteen invariant symmetric tensors
+  `T_j=sum_u d_ju⊗sym(l_ju⊗r_ju)`. Native price is `286,675,200` scalars. A common `R`-atom bank with
+  per-layer coefficients costs `R*(3*1152+18)+18*1152`; a 25% saving requires `R<=61,884`, hence reuse of
+  at least `25.390625%` of the pooled 82,944 native atoms.
+- Opposing predictions and frozen bars: a real pair needed >=10% one-to-one atom matches at invariant cosine
+  >=.95 and a median gap >=.15 over an orthogonal-coordinate null; or the full stack needed normalized
+  top-13 layer energy >=.95 and >=.10 above null; the optimistic adjacent reuse proxy needed >=25.390625%.
+- Result/receipt: the gauge/permutation/swap-scrambled shared toy recovered 100% matches and exact top-3 energy
+  `1.0`; its independent-bank negative had zero matches. On the real bank, every tested pair had zero matches
+  even at cosine `.80`. The best pair (MLP0–1) had median nearest cosine `.000516` versus null `.000393`, a gap
+  `.000124`. Mean adjacent >=.95 reuse was zero. Normalized top-13 energy was `.7724/.7683` across two seeds,
+  against null `.7716/.7728`. All three predictions failed; the registered null won.
+- Null, confound, or identifiability limit: signed coordinate permutations preserve each target layer's norms
+  and within-layer atom geometry while destroying cross-layer alignment. The real whole-tensor spectrum is
+  quantitatively indistinguishable from this null. Sampling 128 source atoms per pair can miss a rare reused
+  population, but it cannot hide the required 25.4% reuse fraction with zero matches across 35 pairs.
+- Information gained: native CP atoms are layer-private and whole tensors have no useful low-rank layer axis
+  in coefficient space. The direct reuse story is much more strongly negative than merely lacking a visible
+  semantic clustering.
+- Continue/kill/park decision: **kill** native-atom reuse and low-rank whole-layer mixing. **Leave open** a new
+  joint CP factorization under natural-activation or Fisher/causal metrics, because this screen did not fit new
+  atoms or change the metric.
+- Next direction started: joint factorization of the untied input embedding and output head, beginning with the
+  exact shared-code/independent-code price frontier and token-frequency/OOD residual diagnostics.

@@ -183,3 +183,20 @@ R2 `-0.052`, versus `0.754` for unconstrained per-token top-k. This kills the te
 model and strengthens the distinction between a small tensor network and a combinatorial execution policy.
 Raw support recovery and this router are stopped; structured minimum-description fitting is parked until an
 external discriminator exists. The rotation now tests direct cross-layer bilinear-tensor sharing.
+
+## Second live checkpoint: direct shared MLP tensors (03:06 UTC)
+
+The invariant atom comparison used the actual symmetric bilinear tensors, so permutation, reciprocal scaling,
+Left/Right swaps, and coefficient signs could not hide reuse. The planted shared-factor control recovered every
+atom and its rank-3 layer structure; an independent-bank negative recovered none. In the real model, however,
+all 35 frozen layer pairs had zero matches even at invariant atom cosine `0.80`. The best median nearest cosine
+was only `0.000516`, nearly the signed-coordinate null's `0.000393`. A separate polarization sketch put the
+top-13 normalized layer-mode energy at `0.7724/0.7683`, indistinguishable from null `0.7716/0.7728`, far below
+the frozen `0.95` bar.
+
+This closes two attractive but unsupported raw-coefficient stories: sharing the native CP atoms between layers,
+and representing the stack with a small number of whole-layer tensor templates. A 25% joint-bank saving would
+require reusing at least `25.390625%` of 82,944 pooled native atoms; the observed adjacent-pair reuse proxy was
+zero. This does not close newly fitted joint CP atoms under an activation or causal-response metric. It says
+that such a method must genuinely refactor the functions; it cannot discover a large pre-existing common bank
+by aligning the native factors. The rotation now moves to the two untied vocabulary matrices.
