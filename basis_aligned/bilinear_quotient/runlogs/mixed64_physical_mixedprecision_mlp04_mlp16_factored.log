@@ -1,0 +1,380 @@
+ARM: context-QK64 + split-B context-MLP{0,4}@p768
+a2-input probe acc 0.69
+fit a2
+fit a3
+fit a4
+fit a5
+fit a6
+fit a7
+fit a8
+fit a9
+fit a10
+fit a11
+fit a12
+fit a13
+fit a14
+fit a15
+fit a16
+fit a17
+  cp_swap: front MLPs m0-m3 -> CP top-4608 in place (tailE remains table-front-fit)
+  QK rank-64 factors built for all motif heads
+  QK rank-64 factors built for tail blocks 10-17
+  tail QK hooks registered (gated)
+L1 (+38 heads): C +0.2469 | fresh +0.2197
+  extra eval wikitext-103-raw-v1-train-skip470824: native 3.829350 compiled 3.841650 damage +0.01230017
+  window 0 (7 docs): L2 fresh +0.0050
+  window 1 (42 docs): L2 fresh +0.0098
+  window 2 (17 docs): L2 fresh +0.0125
+  window 3 (23 docs): L2 fresh +0.0097
+  window 4 (43 docs): L2 fresh +0.0095
+  window 5 (26 docs): L2 fresh +0.0109
+  window 6 (35 docs): L2 fresh -0.0003
+  window 7 (35 docs): L2 fresh +0.0086
+L2 empirical: C +0.0008 | fresh +0.0092 | tail-attn increment -0.2105
+(a) L2 <= +2.75 fresh: HELD
+(b) increment in [0.30,0.55]: FAILED
+{
+  "status": "mixed64_context_qk_mlp04_context_p768_ood_complete",
+  "rung": 367,
+  "claim_level": "physical_selected_two_mlp_context_qk64_census_certificate_ood_screen",
+  "convention": "compiled CE minus original native CE; lower is better",
+  "selection_rule": "two smallest fit-A max among overlap>=.80 and fit-B max<=.010",
+  "selection_ranking": [
+    [
+      0.0010136663913726807,
+      4
+    ],
+    [
+      0.002253890037536621,
+      0
+    ],
+    [
+      0.0029458999633789062,
+      2
+    ],
+    [
+      0.003434509038925171,
+      5
+    ],
+    [
+      0.003966778516769409,
+      1
+    ],
+    [
+      0.004573702812194824,
+      7
+    ],
+    [
+      0.006230056285858154,
+      3
+    ],
+    [
+      0.008353978395462036,
+      6
+    ]
+  ],
+  "selected_layers_ordered": [
+    4,
+    0
+  ],
+  "mlp_fit_cache": "fineweb_n192_skip11000.pt",
+  "mlp_fit_rows_half_open": [
+    24,
+    48
+  ],
+  "mlp_fit_diagnostics": {
+    "0": {
+      "context_cov_retained_energy": 0.9689933061599731,
+      "rank": 768,
+      "context_cov_condition_after_floor": 2537.660400390625,
+      "covariance_floor": 8.177100372314453e-05
+    },
+    "4": {
+      "context_cov_retained_energy": 0.9769415259361267,
+      "rank": 768,
+      "context_cov_condition_after_floor": 14867.033203125,
+      "covariance_floor": 0.0004155037841796875
+    }
+  },
+  "mlp_rank": 768,
+  "mlp_input_program_observed": {
+    "0": 768,
+    "4": 768
+  },
+  "qk_fit_rows_half_open": [
+    72,
+    96
+  ],
+  "qk_metric": "context_rrr",
+  "qk_storage_dtype": "float16",
+  "qk_context_layers": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17
+  ],
+  "qk_rank": 64,
+  "qk_factorized_maps": 440,
+  "qk_factor_tensor_dtypes": [
+    "torch.float16"
+  ],
+  "dataset_fingerprint": "7dabb830ac9ebb0d",
+  "row_construction": {
+    "skip_tokens": 470824,
+    "n_rows": 120,
+    "tokens_per_row": 257
+  },
+  "census_damage": 0.052968546748161316,
+  "certificates_valid": 17,
+  "shifted_damage_mean": 0.012300169095396996,
+  "shifted_damage_row_p95": 0.036708352714776994,
+  "shifted_damage_row_max": 0.07771378755569458,
+  "max_fresh_damage": 0.0125,
+  "active_replacements": [
+    "m0E",
+    "m1",
+    "m2E",
+    "m3E",
+    "c4",
+    "c5",
+    "c6",
+    "c7",
+    "c8",
+    "c9"
+  ],
+  "saved_census_cev_file": "cev_mixed64_physical_mixedprecision_mlp04_mlp16_factored.pt",
+  "literal_standalone_scalars": 495847230,
+  "literal_raw_tensor_bytes": 991724428,
+  "saving_vs_native_scalars": 50055672,
+  "pred_a_census_and_certificate_frontier_improves": true,
+  "pred_b_shifted_ood_and_fresh_hold": true,
+  "pred_c_selection_program_identity_and_price_hold": false,
+  "null_selected_two_mlp_context_qk64_not_useful": false,
+  "runtime_s": 130.5625865459442
+}
+CONTEXT-QK64 + SELECTED MLP{0,4}@P768 DONE
+{
+  "status": "mixed64_mlp04_mlp16_factored_composition_complete",
+  "rung": 392,
+  "claim_level": "physical_structural_composition_census_certificate_ood_screen",
+  "convention": "compiled CE minus original native CE; lower is better",
+  "selection_rule": "two smallest fit-A max among overlap>=.80 and fit-B max<=.010",
+  "selection_ranking": [
+    [
+      0.0010136663913726807,
+      4
+    ],
+    [
+      0.002253890037536621,
+      0
+    ],
+    [
+      0.0029458999633789062,
+      2
+    ],
+    [
+      0.003434509038925171,
+      5
+    ],
+    [
+      0.003966778516769409,
+      1
+    ],
+    [
+      0.004573702812194824,
+      7
+    ],
+    [
+      0.006230056285858154,
+      3
+    ],
+    [
+      0.008353978395462036,
+      6
+    ]
+  ],
+  "selected_layers_ordered": [
+    4,
+    0
+  ],
+  "mlp_fit_cache": "fineweb_n192_skip11000.pt",
+  "mlp_fit_rows_half_open": [
+    24,
+    48
+  ],
+  "mlp_fit_diagnostics": {
+    "0": {
+      "context_cov_retained_energy": 0.9689933061599731,
+      "rank": 768,
+      "context_cov_condition_after_floor": 2537.660400390625,
+      "covariance_floor": 8.177100372314453e-05
+    },
+    "4": {
+      "context_cov_retained_energy": 0.9769415259361267,
+      "rank": 768,
+      "context_cov_condition_after_floor": 14867.033203125,
+      "covariance_floor": 0.0004155037841796875
+    }
+  },
+  "mlp_rank": 768,
+  "mlp_input_program_observed": {
+    "0": 768,
+    "4": 768
+  },
+  "qk_fit_rows_half_open": [
+    72,
+    96
+  ],
+  "qk_metric": "context_rrr",
+  "qk_storage_dtype": "float16",
+  "qk_context_layers": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17
+  ],
+  "qk_rank": 64,
+  "qk_factorized_maps": 440,
+  "qk_factor_tensor_dtypes": [
+    "torch.float16"
+  ],
+  "dataset_fingerprint": "7dabb830ac9ebb0d",
+  "row_construction": {
+    "skip_tokens": 470824,
+    "n_rows": 120,
+    "tokens_per_row": 257
+  },
+  "census_damage": 0.052968546748161316,
+  "certificates_valid": 17,
+  "shifted_damage_mean": 0.012300169095396996,
+  "shifted_damage_row_p95": 0.036708352714776994,
+  "shifted_damage_row_max": 0.07771378755569458,
+  "max_fresh_damage": 0.0125,
+  "active_replacements": [
+    "m0E",
+    "m1",
+    "m2E",
+    "m3E",
+    "c4",
+    "c5",
+    "c6",
+    "c7",
+    "c8",
+    "c9"
+  ],
+  "saved_census_cev_file": "cev_mixed64_physical_mixedprecision_mlp04_mlp16_factored.pt",
+  "literal_standalone_scalars": 495847230,
+  "literal_raw_tensor_bytes": 991724428,
+  "saving_vs_native_scalars": 50055672,
+  "runtime_s": 130.5625865459442,
+  "mlp16_factored_program": "mlp16_rank2_quadratic_factored_fp32_physical.pt",
+  "mlp16_factor_shapes": {
+    "output_directions": [
+      4,
+      1152
+    ],
+    "form_vectors": [
+      4,
+      2,
+      1152
+    ],
+    "form_values": [
+      4,
+      2
+    ],
+    "constant": [
+      1152
+    ]
+  },
+  "mlp16_factor_scalars": 14984,
+  "mlp16_factor_dtypes": [
+    "torch.float32"
+  ],
+  "mlp16_no_dense_form": true,
+  "mlp16_hook_calls": 2545,
+  "additive_prediction": {
+    "census_damage": 0.051222238689661026,
+    "certificates": 17,
+    "ray_cosine": 0.9873176723414765
+  },
+  "physical_census_damage": 0.052968546748161316,
+  "physical_certificates": 17,
+  "composition_tax_ratio": 1.0340927710926617,
+  "composition_interaction_damage": 0.00174630805850029,
+  "physical_vs_additive_normalized_vector_cosine": 0.9999594734245552,
+  "physical_vs_additive_certificate_difference": 0,
+  "shifted_full_native_relative_mean": 0.06621640431209623,
+  "shifted_full_native_relative_p95": 0.11285080350935459,
+  "shifted_full_native_relative_max": 0.1626642346382141,
+  "shifted_l16_only_mean": 0.05391623377799988,
+  "shifted_conditional_qk_mlp04_mean": 0.012300170534096348,
+  "conditional_fresh8_max": 0.0125,
+  "literal_source_format_bytes": 991724428,
+  "saving_vs_native_source_bytes": 1075945184,
+  "pred_a_physical_lower_fidelity_holds": true,
+  "pred_b_additive_composition_law_holds": true,
+  "pred_c_shifted_and_conditional_fresh_hold": true,
+  "pred_d_shipped_program_identity_and_bills_hold": false,
+  "null_composition_breaks_prediction_or_identity": true,
+  "signed_composite_gate_licensed": false,
+  "runtime_s_total": 136.24866342544556
+}
+QK64 + MLP04 + FACTORED MLP16 COMPOSITION DONE
+{
+  "census_certificates": [
+    0.052968546748161316,
+    17
+  ],
+  "parent_delta_mean_max": [
+    0.006753504276275635,
+    0.11646652221679688
+  ],
+  "composition": [
+    1.0340927710926617,
+    0.9999594734245552,
+    0
+  ],
+  "shifted": [
+    0.06527695961121935,
+    0.11196284927427769,
+    0.16136056184768677
+  ],
+  "fresh_max": 0.0125,
+  "bill": [
+    495847230,
+    991724428,
+    0.9236153475940228
+  ],
+  "predicates": [
+    true,
+    false,
+    true,
+    true
+  ],
+  "null": false
+}
+MIXED64 PHYSICAL MIXEDPRECISION REPAIR DONE
