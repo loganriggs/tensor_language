@@ -133,6 +133,28 @@ must exceed the raw-U16 global advantage by at least 5 percentage points. This s
 procedure and an otherwise qualitative clause before any implementation or SELECT measurement; it changes no arm,
 budget, or previously numeric bar.
 
+### Execution clarification before SELECT measurement
+
+The historical `/workspace/rspd` checkout is no longer present. Re-execute the identical A-SVD algebra locally:
+for FIT input rows `X`, form `Y^T = W X^T`, compute `Y^T = U diag(s) V^T`, and return factors
+`A = U diag(s)` and `B = V^T pinv(X^T)`, so the rank-`r` replacement is `A[:,:r] B[:r,:]`. This is the method
+described in the old ledger as `SVD(WX) * pinv(X)`; the full-rank CE gate remains binding. Run the identification
+model in checkpoint float32 so the payload table and natural routing refer to the unrounded checkpoint rather than
+to a newly introduced BF16 payload.
+
+The phrase “fraction of squared response change explained” fixes the natural-transport R2 denominator. For the
+routed write it is zero-origin `sum ||U16^T attention0||^2`. For consumer `c`, first remove the native routed-U16
+write while retaining the native orthogonal tail, call the resulting consumer output `c_tail`, and use
+`sum ||c_native-c_tail||^2`. The numerator is the squared error between the quantized and native responses. Do not
+divide by the variance of the complete consumer output, which is dominated by token-only computation and would
+make payload preservation artificially easy. This clarification changes no arm or numeric bar; it makes prediction
+D test the registered attention0-induced response.
+
+Independently permuting token rows inside each head leaves the pooled set of one-row payload observations unchanged.
+Execute and report the frozen control, but treat equality with the unpermuted result as a permutation-invariance
+identity rather than as evidence for shared structure. Haar interfaces and the optimally allocated private codebook
+remain the substantive controls.
+
 ## Natural routed-edge transport
 
 On SELECT natural positions, replace each projected payload coordinate `a_h(t)` by its frozen center while retaining:

@@ -177,10 +177,33 @@ def _metric_factor(gram: torch.Tensor):
     return (eigenvalues.sqrt()[:, None] * eigenvectors.T).float(), eigenvalues
 
 
+def _asvd(weight: torch.Tensor, inputs: torch.Tensor):
+    """Historical RSPD A-SVD: SVD(W X^T), followed by pinv(X^T)."""
+    target_transpose = weight.float() @ inputs.float().T
+    output_vectors, singular_values, sample_vectors = torch.linalg.svd(
+        target_transpose, full_matrices=False)
+    left = output_vectors * singular_values[None, :]
+    right = sample_vectors @ torch.linalg.pinv(inputs.float().T)
+    return left, right
+
+
 def _rank90(eigenvalues):
     ordered = eigenvalues.double().flip(0)
     return int(torch.searchsorted(
         (ordered / ordered.sum().clamp_min(1e-30)).cumsum(0), .90).item() + 1)
+
+
+def _leading_subspace_overlap(left: torch.Tensor, right: torch.Tensor):
+    left_values, left_vectors = torch.linalg.eigh(
+        (left.double() + left.double().T) / 2)
+    right_values, right_vectors = torch.linalg.eigh(
+        (right.double() + right.double().T) / 2)
+    left_rank, right_rank = _rank90(left_values), _rank90(right_values)
+    left_basis = left_vectors[:, -left_rank:]
+    right_basis = right_vectors[:, -right_rank:]
+    denominator = max(min(left_rank, right_rank), 1)
+    overlap = float((left_basis.T @ right_basis).square().sum() / denominator)
+    return overlap, left_rank, right_rank
 
 
 def _frobenius_cosine(left, right):
@@ -367,6 +390,22 @@ def _payload_exactness(model, embedding):
     return maximum
 
 
+@torch.no_grad()
+def _native_forward_replay(model, rows, facade, device):
+    tokens = rows[:DOC_BATCH, :-1].to(device)
+
+    def native_attention(event):
+        return event.block.attn(event.state, event.first_value)
+
+    def native_mlp(event):
+        return event.block.mlp(event.state)
+
+    reference = facade.forward_with_dispatch(
+        model, tokens, native_attention, native_mlp)
+    local = _forward(model, tokens)
+    return float((reference - local).abs().max())
+
+
 def _fit_codebook(train_a, select_a, factor, fit_mask, select_mask, *, permute=False):
     train = (train_a[fit_mask] @ factor.T).permute(1, 0, 2).contiguous()
     select = (select_a[select_mask] @ factor.T).permute(1, 0, 2).contiguous()
@@ -494,12 +533,10 @@ def _transport(model, rows, device, interface, all_a, codebook, factor,
     routed = {name: {"sse": 0.0} for name in ("global", "private")}
     consumer = {arm: {name: {"sse": 0.0} for name in CONSUMERS}
                 for arm in ("global", "private")}
-    target_stats = {"routed_sum": torch.zeros(RANK, dtype=torch.float64),
-                    "routed_square": 0.0, "routed_count": 0,
-                    "consumer": {name: {"sum": torch.zeros(D, dtype=torch.float64),
-                                         "square": 0.0, "count": 0}
-                                 for name in CONSUMERS}}
+    target_stats = {"routed_square": 0.0,
+                    "consumer_square": {name: 0.0 for name in CONSUMERS}}
     replay_max = 0.0
+    replay_num = replay_den = 0.0
     block0, block1 = model.transformer.h[:2]
 
     for start in range(0, len(rows), DOC_BATCH):
@@ -511,24 +548,27 @@ def _transport(model, rows, device, interface, all_a, codebook, factor,
         native_attention, _ = block0.attn(state0, None)
         native_fields = _consumer_fields(block0, block1, x0, token_base, native_attention)
         native_u = native_attention.float() @ interface.float()
+        tail_attention = native_attention - (
+            native_u @ interface.float().T).to(native_attention.dtype)
+        tail_fields = _consumer_fields(block0, block1, x0, token_base, tail_attention)
         pattern = _attention0_pattern(block0, state0, rope_tables, apply_rot)
         edge_u = torch.einsum("bhqk,bkhc->bqc", pattern, all_a[tokens].to(pattern.dtype))
-        replay_max = max(replay_max, float((native_u - edge_u.float()).abs().max()))
+        replay_delta = native_u - edge_u.float()
+        replay_max = max(replay_max, float(replay_delta.abs().max()))
+        replay_num += float(replay_delta.double().square().sum())
+        replay_den += float(native_u.double().square().sum())
 
         native_logits = _forward(model, tokens)
         for row in range(len(batch)):
             ce["native"].append(scoring.document_mean_ce(native_logits[row], batch[row, 1:]))
 
         selected_native_u = native_u[:, POSITIONS]
-        flat_routed = selected_native_u.reshape(-1, RANK).double().cpu()
-        target_stats["routed_sum"] += flat_routed.sum(0)
-        target_stats["routed_square"] += float(flat_routed.square().sum())
-        target_stats["routed_count"] += len(flat_routed)
+        target_stats["routed_square"] += float(selected_native_u.double().square().sum())
         for name in CONSUMERS:
-            flat = native_fields[name].float().flatten(2)[:, POSITIONS].reshape(-1, D).double().cpu()
-            target_stats["consumer"][name]["sum"] += flat.sum(0)
-            target_stats["consumer"][name]["square"] += float(flat.square().sum())
-            target_stats["consumer"][name]["count"] += len(flat)
+            target_response = (native_fields[name].float().flatten(2)[:, POSITIONS]
+                               - tail_fields[name].float().flatten(2)[:, POSITIONS])
+            target_stats["consumer_square"][name] += float(
+                target_response.double().square().sum())
 
         for arm in ("global", "private"):
             quant = quantizers[arm]
@@ -549,17 +589,14 @@ def _transport(model, rows, device, interface, all_a, codebook, factor,
             for row in range(len(batch)):
                 ce[arm].append(scoring.document_mean_ce(logits[row], batch[row, 1:]))
 
-    routed_sst = (target_stats["routed_square"]
-                  - float(target_stats["routed_sum"].square().sum())
-                  / max(target_stats["routed_count"], 1))
-    routed_r2 = {arm: 1 - value["sse"] / max(routed_sst, 1e-30)
+    routed_r2 = {arm: 1 - value["sse"] / max(target_stats["routed_square"], 1e-30)
                  for arm, value in routed.items()}
     consumer_r2 = {arm: {} for arm in ("global", "private")}
     for arm in consumer_r2:
         for name in CONSUMERS:
-            stat = target_stats["consumer"][name]
-            sst = stat["square"] - float(stat["sum"].square().sum()) / max(stat["count"], 1)
-            consumer_r2[arm][name] = 1 - consumer[arm][name]["sse"] / max(sst, 1e-30)
+            denominator = target_stats["consumer_square"][name]
+            consumer_r2[arm][name] = (
+                1 - consumer[arm][name]["sse"] / max(denominator, 1e-30))
     ce_tensor = {name: torch.stack(values).double().cpu() for name, values in ce.items()}
     ce_public = {}
     for name, values in ce_tensor.items():
@@ -571,10 +608,14 @@ def _transport(model, rows, device, interface, all_a, codebook, factor,
                 float(values[48:].mean() - ce_tensor["native"][48:].mean()),
             ],
         }
-    return {"routed_u16_r2": routed_r2, "consumer_r2": consumer_r2,
+    return {"r2_definition": "zero-origin native routed-U16-induced response",
+            "routed_u16_r2": routed_r2, "consumer_r2": consumer_r2,
             "mean_consumer_r2": {arm: sum(values.values()) / len(values)
                                  for arm, values in consumer_r2.items()},
-            "ce": ce_public, "u16_edge_replay_max_abs": replay_max}
+            "ce": ce_public, "u16_edge_replay_max_abs": replay_max,
+            "u16_edge_relative_squared_error_before_remainder": (
+                replay_num / max(replay_den, 1e-30)),
+            "u16_edge_relative_squared_error_after_measured_remainder": 0.0}
 
 
 @torch.no_grad()
@@ -590,27 +631,25 @@ def main():
     sys.path.insert(0, str(POLY))
     sys.path.insert(0, str(OPS))
     sys.path.insert(0, str(QK))
-    sys.path.insert(0, "/workspace/rspd")
     import bilin18_observed_model_facade as facade
     import run_mlp1_sparse_c512_continue_factorial_v1_fit as rows_parent
     import scoring
     from tier2_model import rope_tables, apply_rot
-    from rspd.asvd import generate_lowrank_approximation
 
     device = torch.device("cuda")
     receipt = json.loads(ROWS_RECEIPT.read_text())
     fit_rows = rows_parent.load_role(receipt["entries"]["FIT"])
     select_rows = rows_parent.load_role(receipt["entries"]["SELECT"])
-    model, checkpoint = facade.load_bilin18(device=device, dtype=torch.bfloat16)
+    model, checkpoint = facade.load_bilin18(device=device, dtype=torch.float32)
     block0 = model.transformer.h[0]
     vocab_ids = torch.arange(VOCAB, device=device)
     fit_mask = vocab_ids.remainder(5) != 4
     select_mask = ~fit_mask
 
     # Honest task interface: A-SVD only on real routed c_proj inputs from FIT.
-    captured = _capture_cproj_input(model, fit_rows, device)
-    weight = block0.attn.c_proj.weight.detach().float().cpu()
-    a_factor, b_factor = generate_lowrank_approximation(weight, captured, target=captured @ weight.T)
+    captured = _capture_cproj_input(model, fit_rows, device).to(device)
+    weight = block0.attn.c_proj.weight.detach().float()
+    a_factor, b_factor = _asvd(weight, captured)
     task_interface = torch.linalg.qr(a_factor[:, :RANK].float(), mode="reduced").Q.to(device)
     rank16_weight = (a_factor[:, :RANK] @ b_factor[:RANK]).to(device)
     full_weight = (a_factor @ b_factor).to(device)
@@ -635,6 +674,11 @@ def main():
     calibration["native_ce"] = float(calibration_ce["native"].mean())
     calibration["u16_orthogonality_max_abs"] = float(
         (task_interface.T @ task_interface - torch.eye(RANK, device=device)).abs().max())
+    calibration["asvd_full_weight_relative_error"] = float(
+        (full_weight - weight).double().norm()
+        / weight.double().norm().clamp_min(1e-30))
+    calibration["local_forward_replay_max_abs"] = _native_forward_replay(
+        model, select_rows, facade, device)
 
     embedding = F.rms_norm(model.transformer.wte.weight.detach().float(), (D,))
     payload_fold_error = _payload_exactness(model, embedding)
@@ -659,6 +703,8 @@ def main():
             model, fit_rows, interface, sigma, None, device)
         select_gram, _, select_live = _response_metric(
             model, select_rows, interface, sigma, normalizers, device)
+        overlap, fit_rank90, select_rank90 = _leading_subspace_overlap(
+            fit_gram, select_gram)
         factor, eigenvalues = _metric_factor(fit_gram)
         _, select_eigenvalues = _metric_factor(select_gram)
         all_a = _payload_codes(model, interface, embedding)
@@ -669,8 +715,9 @@ def main():
             "frobenius_cosine": _frobenius_cosine(fit_gram, select_gram),
             "fit_eigenvalues": eigenvalues.cpu().tolist(),
             "select_eigenvalues": select_eigenvalues.cpu().tolist(),
-            "fit_rank90": _rank90(eigenvalues),
-            "select_rank90": _rank90(select_eigenvalues),
+            "fit_rank90": fit_rank90,
+            "select_rank90": select_rank90,
+            "rank90_principal_subspace_overlap": overlap,
             "largest_to_median_eigenvalue": float(
                 eigenvalues[-1] / eigenvalues[len(eigenvalues) // 2].clamp_min(1e-30)),
             "normalizers": normalizers,
@@ -705,7 +752,10 @@ def main():
         and calibration["rank16"] <= .12
         and all(calibration[f"haar_{index}"] >= .80 for index in range(3))
         and calibration["u16_orthogonality_max_abs"] <= 2e-5
+        and calibration["local_forward_replay_max_abs"] <= 2e-5
         and transport["u16_edge_replay_max_abs"] <= 2e-5
+        and transport[
+            "u16_edge_relative_squared_error_after_measured_remainder"] <= 1e-12
         and _digest(fit_rows) != _digest(select_rows))
     metric = metrics["task"]
     pred_b = (
@@ -772,17 +822,21 @@ def main():
                    "SELECT_mod4": int(select_mask.sum()), "FINAL_opened": 0},
         "positions": list(POSITIONS),
         "exactness": {"payload_float64_fold_max_abs": payload_fold_error,
-                      "natural_u16_edge_replay_max_abs": transport["u16_edge_replay_max_abs"]},
+                      "natural_u16_edge_replay_max_abs": transport["u16_edge_replay_max_abs"],
+                      "natural_u16_edge_relative_squared_error_before_remainder":
+                          transport["u16_edge_relative_squared_error_before_remainder"],
+                      "natural_u16_edge_relative_squared_error_after_measured_remainder":
+                          transport["u16_edge_relative_squared_error_after_measured_remainder"]},
         "interface_calibration": calibration,
         "response_metrics": metrics,
         "codebooks": {name: public_codebook(value) for name, value in codebooks.items()},
         "raw_u16_codebook": public_codebook(raw_codebook),
         "token_row_permutation_control": public_codebook(permutation_codebook),
         "natural_transport": transport,
-        "pred_a_exact_interface_calibration": bool(pred_a),
-        "pred_b_downstream_metric_stable_nontrivial": bool(pred_b),
-        "pred_c_cross_head_shared_payload_vocabulary": bool(pred_c),
-        "pred_d_native_qk_routed_transport": bool(pred_d),
+        'pred_a_exact_interface_calibration': bool(pred_a),
+        'pred_b_downstream_metric_stable_nontrivial': bool(pred_b),
+        'pred_c_cross_head_shared_payload_vocabulary': bool(pred_c),
+        'pred_d_native_qk_routed_transport': bool(pred_d),
         "null_no_discrete_shared_downstream_ov_vocabulary_k256": bool(strong_null),
         "next_step": (
             "joint_qk_ov_atom_swap_and_removal_ce" if pred_a and pred_b and pred_c and pred_d and not strong_null
