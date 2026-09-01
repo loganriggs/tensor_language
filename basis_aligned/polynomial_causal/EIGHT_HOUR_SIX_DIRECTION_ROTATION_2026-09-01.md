@@ -492,3 +492,12 @@ Full ranking and adoption gates: `SIX_DIRECTION_COMPARISON_2026-09-01.md`.
   substantially stronger shared Left/Right rank than both Frobenius weights and the position-zero token metric.
 - Decision: physically compose both p512/p640 with mixed104 in one rebuild. Require p512 <=+.012/>=47 certs and
   p640 <=+.010/>=49, plus monotonicity, fresh, fit/map/QK identity, and exact bills.
+
+### `05:27 UTC` — exploit checkpoint `325`
+
+- Result: p512 is `+.0107277/48` at 534,286,646 scalars; p640 is `+.0082647/52` at 535,613,750. Primary fresh
+  max `+.0109`; all fit/map/QK/active/bill checks hold. All predicates true, null false.
+- Information gained: contextual metric improvement survives physical mixed104 composition at MLP0. p640
+  dominates adopted weight-SVD p768, while p512 extends the literal Pareto frontier with twice its MLP0 saving.
+- Decision: evaluate both variants on common WikiText skip100000 n120, reproduce census/certificates, and save
+  exact CEVs. Only OOD-passing variants receive direct signed a16 gates.

@@ -3578,3 +3578,11 @@ later per-rung backlog edits had silently anchored on text that was not here.
     compose p512/p640 context-RRR variants with mixed104 in one rebuild;
     census, 62 certificates, fresh8, fit/map/QK identities, exact bills.
     -> ops/mixed104_mlp0_context_metric_input_frontier.py
+    RUN 2026-09-01: ALL HELD, null false. p512 +.0107277/48 at 534,286,646;
+    p640 +.0082647/52 at 535,613,750; primary fresh max +.0109 and identities
+    exact. Advance both to common shifted OOD and save exact CEVs.
+
+326. [CODEX, board-claimed 05:28Z] MLP0 CONTEXT-RRR SHIFTED OOD:
+    rebuild p512/p640 variants, evaluate WikiText skip100000 n120, reproduce
+    census/certs, exact identities/bills, save both unablated CEVs.
+    -> ops/mixed104_mlp0_context_metric_input_frontier_ood.py

@@ -1023,7 +1023,18 @@ def main():
             SEL['qk_tail_on']=False
             _xb=evalV(_XR,_XN,[],[]).float().cpu()
             SEL['qk_tail_on']=_old_tail
-            _xc=evalV(_XR,_XN,order2,ML).float().cpu()
+            _extra_input_variants=SEL.get('final_mlp_input_program_variants')
+            if _extra_input_variants:
+                _extra_primary=str(SEL.get('final_mlp_input_primary_variant'))
+                SEL['extra_eval_variant_cevs']={}
+                for _extra_name,_extra_programs in _extra_input_variants.items():
+                    SEL['final_mlp_input_programs']=_extra_programs
+                    SEL['extra_eval_variant_cevs'][str(_extra_name)]=evalV(
+                        _XR,_XN,order2,ML).float().cpu()
+                SEL['final_mlp_input_programs']=_extra_input_variants[_extra_primary]
+                _xc=SEL['extra_eval_variant_cevs'][_extra_primary]
+            else:
+                _xc=evalV(_XR,_XN,order2,ML).float().cpu()
         finally:
             SEL['qk_tail_on']=_old_tail
             del cur['clsmap']
@@ -1037,6 +1048,19 @@ def main():
             'damage_mean_abs_position':float(_xd.abs().mean()),
             'damage_by_row':[float(v) for v in _xd.mean(1)],
         }
+        if SEL.get('extra_eval_variant_cevs'):
+            SEL['extra_eval_variants']={}
+            for _extra_name,_extra_cev in SEL['extra_eval_variant_cevs'].items():
+                _extra_damage=(_extra_cev-_xb).reshape(_XN,-1)
+                SEL['extra_eval_variants'][_extra_name]={
+                    'name':str(SEL.get('extra_eval_name','unnamed')),
+                    'n_rows':_XN,
+                    'native_ce':float(_xb.mean()),
+                    'compiled_ce':float(_extra_cev.mean()),
+                    'damage_mean':float(_extra_damage.mean()),
+                    'damage_mean_abs_position':float(_extra_damage.abs().mean()),
+                    'damage_by_row':[float(v) for v in _extra_damage.mean(1)],
+                }
         print(f"  extra eval {SEL['extra_eval']['name']}: native {_xb.mean():.6f} "
               f"compiled {_xc.mean():.6f} damage {_xd.mean():+.8f}",flush=True)
     W8banned=set(); W8RES=[]

@@ -595,3 +595,12 @@ Promote p512 and p640 together in one physical mixed104 rebuild. Their proposed 
 535,613,750 scalars. p512 is the key candidate: it saves twice as much MLP0 input storage as adopted p768 while
 its external screen is lower-damage than p768 weight SVD. Census, all certificates, fresh windows, fit identity,
 map identity, and literal bills now decide whether it becomes a new adopted point.
+
+Both physical arms pass. p512 is **`+.0107277`, 48/62 certificates** at 534,286,646 scalars; p640 is
+**`+.0082647`, 52/62** at 535,613,750 scalars. Primary fresh max is `+.0109`; fit split, maps, QK program, active
+objects, and both bills are exact. All frozen predicates hold. p640 already strictly improves the adopted p768
+point in size, census loss, and certificates; p512 is a smaller Pareto candidate.
+
+Advance both unchanged to 120 shifted WikiText rows after token 100,000 in one rebuild. Save the exact census CE
+vectors for direct signed intervention comparisons. Adoption still requires shifted mean/tail transport and signed
+causal fidelity; this physical frontier alone is not enough.
