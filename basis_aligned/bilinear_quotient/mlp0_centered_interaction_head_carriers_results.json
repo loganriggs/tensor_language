@@ -1,0 +1,495 @@
+{
+  "status": "mlp0_centered_interaction_head_carriers_complete",
+  "rung": 402,
+  "claim_level": "head_resolved_interaction_identification_not_compression",
+  "definition": {
+    "semantic_head": "I_h from centered output-projected attention0 head write",
+    "numerical": "BF16 head-sum and float arithmetic remainder, never assigned to a semantic head",
+    "singleton_benefit": "CE(NUMERIC)-CE(SINGLE_h)",
+    "removal_benefit": "CE(DROP_h)-CE(FULL)",
+    "endpoint_average": "half the singleton plus removal benefits; not Shapley"
+  },
+  "documents": {
+    "FIT": 96,
+    "SELECT": 96,
+    "FINAL_opened": 0
+  },
+  "positions_per_document": 192,
+  "arms": [
+    "FULL",
+    "ZERO_I",
+    "NUMERIC",
+    "SINGLE_0",
+    "SINGLE_1",
+    "SINGLE_2",
+    "SINGLE_3",
+    "SINGLE_4",
+    "SINGLE_5",
+    "SINGLE_6",
+    "SINGLE_7",
+    "SINGLE_8",
+    "DROP_0",
+    "DROP_1",
+    "DROP_2",
+    "DROP_3",
+    "DROP_4",
+    "DROP_5",
+    "DROP_6",
+    "DROP_7",
+    "DROP_8"
+  ],
+  "literal_diagnostic_storage": {
+    "native_mlp0_values_reused": 15926400,
+    "head_mean_values_added": 10368,
+    "compression_claim": false
+  },
+  "reference_diagnostics": {
+    "fit_head_write_bf16_remainder_relative_squared_energy": 2.7484472074965447e-06,
+    "fit_head_mean_closure_relative_mse": 5.9400647640895706e-15,
+    "fit_head_reference_positions": 24576
+  },
+  "historical_direct_head_cost": [
+    0.002,
+    0.0001,
+    0.0007,
+    0.0877,
+    0.0004,
+    0.0008,
+    0.0039,
+    0.0074,
+    0.0046
+  ],
+  "historical_direct_head_top2_share": 0.883,
+  "roles": {
+    "FIT": {
+      "pooled_ce": {
+        "FULL": 3.0642469177643457,
+        "ZERO_I": 3.1803124099969864,
+        "NUMERIC": 3.1804680625597634,
+        "SINGLE_0": 3.1635962376991906,
+        "SINGLE_1": 3.1721761350830397,
+        "SINGLE_2": 3.174546390771866,
+        "SINGLE_3": 3.0858486741781235,
+        "SINGLE_4": 3.1642304187019668,
+        "SINGLE_5": 3.1744504099090896,
+        "SINGLE_6": 3.1683216492335,
+        "SINGLE_7": 3.1479858284195266,
+        "SINGLE_8": 3.1492251033584275,
+        "DROP_0": 3.064881347119808,
+        "DROP_1": 3.0644837394356728,
+        "DROP_2": 3.0645501216252646,
+        "DROP_3": 3.1052648971478143,
+        "DROP_4": 3.0647824183106422,
+        "DROP_5": 3.064634551604589,
+        "DROP_6": 3.0663263077537217,
+        "DROP_7": 3.064940276245276,
+        "DROP_8": 3.066900312900543
+      },
+      "conditional_full_interaction_benefit": 0.11606549223264073,
+      "numerical_interaction_ce_effect": -0.0001556525627770533,
+      "singleton_benefit": [
+        0.016871824860572815,
+        0.008291927476723693,
+        0.005921671787897598,
+        0.09461938838163997,
+        0.01623764385779669,
+        0.006017652650673888,
+        0.012146413326263428,
+        0.032482234140236876,
+        0.031242959201335907
+      ],
+      "removal_benefit": [
+        0.0006344293554625402,
+        0.0002368216713271032,
+        0.0003032038609189769,
+        0.04101797938346863,
+        0.0005355005462965856,
+        0.0003876338402433177,
+        0.002079389989376068,
+        0.0006933584809303284,
+        0.002653395136197556
+      ],
+      "endpoint_average_benefit": [
+        0.008753127108017678,
+        0.004264374574025398,
+        0.0031124378244082873,
+        0.0678186838825543,
+        0.008386572202046638,
+        0.003202643245458603,
+        0.007112901657819748,
+        0.016587796310583602,
+        0.01694817716876673
+      ],
+      "top_head": 3,
+      "positive_top2_share": 0.6224312091684862,
+      "diagnostics": {
+        "interaction_sum_relative_mse": 2.255448519053844e-18,
+        "interaction_preclosing_relative_mse": 4.551422500738503e-13,
+        "interaction_arithmetic_closing_relative_energy": 4.551422500738447e-13,
+        "head_write_bf16_remainder_relative_squared_energy": 2.7484472074965447e-06,
+        "state_max_abs_error": 0.0,
+        "live_census": true
+      },
+      "calls": {
+        "FULL": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "ZERO_I": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "NUMERIC": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "SINGLE_0": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "SINGLE_1": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "SINGLE_2": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "SINGLE_3": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "SINGLE_4": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "SINGLE_5": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "SINGLE_6": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "SINGLE_7": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "SINGLE_8": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "DROP_0": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "DROP_1": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "DROP_2": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "DROP_3": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "DROP_4": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "DROP_5": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "DROP_6": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "DROP_7": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "DROP_8": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        }
+      }
+    },
+    "SELECT": {
+      "pooled_ce": {
+        "FULL": 2.9596006025870643,
+        "ZERO_I": 3.0852453485131264,
+        "NUMERIC": 3.085436979929606,
+        "SINGLE_0": 3.067693696667751,
+        "SINGLE_1": 3.078416104118029,
+        "SINGLE_2": 3.0800816553334394,
+        "SINGLE_3": 2.9858708046376705,
+        "SINGLE_4": 3.06867391243577,
+        "SINGLE_5": 3.0751157850027084,
+        "SINGLE_6": 3.0668843127787113,
+        "SINGLE_7": 3.0529261231422424,
+        "SINGLE_8": 3.0545212849974632,
+        "DROP_0": 2.960999491314093,
+        "DROP_1": 2.959855935225884,
+        "DROP_2": 2.9599843360483646,
+        "DROP_3": 3.0008780335386596,
+        "DROP_4": 2.960380144417286,
+        "DROP_5": 2.959946752836307,
+        "DROP_6": 2.9617680410544076,
+        "DROP_7": 2.9602845956881843,
+        "DROP_8": 2.96260816603899
+      },
+      "conditional_full_interaction_benefit": 0.12564474592606212,
+      "numerical_interaction_ce_effect": -0.00019163141647959847,
+      "singleton_benefit": [
+        0.017743283261855147,
+        0.007020875811576843,
+        0.005355324596166611,
+        0.09956617529193545,
+        0.016763067493835937,
+        0.010321194926897537,
+        0.018552667150894653,
+        0.03251085678736354,
+        0.030915694932142745
+      ],
+      "removal_benefit": [
+        0.0013988887270288686,
+        0.00025533263881971635,
+        0.000383733461300384,
+        0.041277430951595306,
+        0.0007795418302216639,
+        0.0003461502492427826,
+        0.002167438467343352,
+        0.0006839931011199951,
+        0.0030075634519257655
+      ],
+      "endpoint_average_benefit": [
+        0.009571085994442008,
+        0.00363810422519828,
+        0.0028695290287334974,
+        0.07042180312176538,
+        0.0087713046620288,
+        0.00533367258807016,
+        0.010360052809119003,
+        0.016597424944241768,
+        0.016961629192034255
+      ],
+      "top_head": 3,
+      "positive_top2_share": 0.6046266749331443,
+      "diagnostics": {
+        "interaction_sum_relative_mse": 2.2379502449534156e-18,
+        "interaction_preclosing_relative_mse": 4.521690959437876e-13,
+        "interaction_arithmetic_closing_relative_energy": 4.521690959437949e-13,
+        "head_write_bf16_remainder_relative_squared_energy": 2.7502224833881904e-06,
+        "state_max_abs_error": 0.0,
+        "live_census": true
+      },
+      "calls": {
+        "FULL": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "ZERO_I": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "NUMERIC": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "SINGLE_0": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "SINGLE_1": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "SINGLE_2": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "SINGLE_3": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "SINGLE_4": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "SINGLE_5": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "SINGLE_6": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "SINGLE_7": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "SINGLE_8": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "DROP_0": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "DROP_1": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "DROP_2": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "DROP_3": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "DROP_4": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "DROP_5": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "DROP_6": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "DROP_7": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "DROP_8": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        }
+      }
+    }
+  },
+  "transport": {
+    "fit_select_endpoint_spearman": 0.9333333333333332,
+    "select_vs_historical_direct_cost_spearman": 0.8999999999999999,
+    "fit_top_head": 3,
+    "select_top_head": 3
+  },
+  "parent_pooled_ce_absolute_differences": {
+    "FIT": {
+      "FULL_vs_parent_full": 0.0,
+      "ZERO_I_vs_parent_no_I": 6.429105997085571e-05
+    },
+    "SELECT": {
+      "FULL_vs_parent_full": 0.0,
+      "ZERO_I_vs_parent_no_I": 0.00010428577661514282
+    }
+  },
+  "pred_a_exact_live_parent_and_numerical_controls": false,
+  "pred_b_old_head_map_predicts_isolated_interaction": true,
+  "pred_c_sparse_split_stable_carrier": false,
+  "pred_d_individually_material_head_route": true,
+  "null_head_attribution_invalid_or_unstructured": true,
+  "next_step": "instrument_repair_only",
+  "compression_or_adoption_licensed": false,
+  "FINAL_opened": 0,
+  "checkpoint": {
+    "revision": "ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240",
+    "snapshot": "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240",
+    "config_sha256": "428042bfd807ba36f8b4326395440fbbebe52cd3d040212e6fef14a4fdf2d83c",
+    "weights_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+    "weights_bytes": 2067738635,
+    "tokenizer_vocab": 50257,
+    "logit_vocab": 50304
+  },
+  "runtime_s": 76.02433896064758
+}
