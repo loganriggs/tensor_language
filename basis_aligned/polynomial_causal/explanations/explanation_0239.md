@@ -234,3 +234,18 @@ weight SVD `+.0621/+.0495`; response ranking lost at every tested rank. Its spli
 `.283`, versus PCA `.683` and random expectation `.111`. Thus ordinary low output rank explains the predictive
 result, while the signed response basis is comparatively noisy and unstable. This direction is stopped. The
 next probe uses a genuinely sequential, behavior-anchored finite state instead of another generic token splice.
+
+## Fifth live checkpoint: predictive causal state (03:26 UTC)
+
+The screen used natural 64-token prefixes, not unrelated prefix/suffix splices. Quote parity and open-parenthesis
+state were asked to predict a nested bank of one- to three-action continuation log probabilities on both FineWeb
+and WikiText. Quote parity had a real transferable signal: heldout and cross-corpus accuracy were `.875`. But it
+explained only `.191/.239` of response variance, and parenthesis transfer was `.625`. Interaction ranks were 4–5,
+not uniformly within the four-dimensional bar. Deleting delimiter head 13.8 reduced state separation by just
+6–7%, while the matched head13.1 control was inert. All three positive predictions failed.
+
+There is an additional scope warning: the short fixed suffix bank averaged 10–12 nats/token, so the behavior-
+anchored object is still not a broad natural-continuation interface. The result supports quote parity as a weak,
+distributed circuit classifier, not a small causal state capable of replacing native computation. It is parked;
+generic Hankel expansion remains closed. The last independent direction now tests whether empirical error bounds
+can cheaply rule compression candidates in or out.

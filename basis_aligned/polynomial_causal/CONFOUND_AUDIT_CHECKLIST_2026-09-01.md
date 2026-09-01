@@ -20,3 +20,17 @@ Standing rules distilled from tonight's failures — each scorecard row gets che
 
 Cross-references for the scorecard's "identifiability" column: km-codebook saturation (§2326/§2327),
 router-state negatives (298), support-index information cost (explanation_0239).
+
+## Draft per-direction audit (pre-filled 03:30Z from the five screens landed; final pass at 08:40)
+
+| Direction | Screens | Checks passed | Open confounds | Draft verdict |
+|---|---|---|---|---|
+| 1. MLP0 structure | 298/298B | pos+neg controls ✓, student control ✓ | R²-cannot-discriminate (298B) applies to ANY future positive | KILL (weight-support route); functional question moved to D5 |
+| 2. Shared MLP atoms | 299 | pos ~1.0 / neg ~0.02 controls ✓ | none | KILL (coefficient grain; agrees with §2312) |
+| 3. Vocab factorization | 300/300B | two-corpus ✓, label-free ✓, priced ✓ | TAIL TRANSFER (rare-token damage rises under freq weighting); post-result metric — bars must re-freeze | LIVE with conditions (hybrid head/tail pricing; certificate battery unchecked) |
+| 4. Causal-response coords | 301 | two-corpus ✓, priced ✓ | none | KILL as proposed; SEED: activation-PCA r256 (MLP0 76% @ +0.021) — composition + full-bill checks required before any extrapolation |
+| 5. Predictive state | 302 | toy control ✓, transfer ✓ | INERT SHUFFLE CONTROL (state_r2 == shuffled, bit-exact) — fix before rerun; no price constructed | PARK (state real at head 13.8; small-state form unproven) |
+| 6. Error contracts | pending | — | — | — |
+
+Standing cross-refs: composition super-additivity (§2329/§2330) applies to ANY multi-module extrapolation;
+full standalone bills (rule 3) for every candidate; certificate battery is the tail-sensitivity detector.

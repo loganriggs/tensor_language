@@ -18,8 +18,8 @@ only explicitly priced small finite router states count as a structural decompos
 | 03:40–04:40 | Direct shared bilinear-MLP tensor compression | Price-matched rank/share screen and literal replacement hypothesis | COMPLETED 03:06 |
 | 04:40–05:40 | Joint untied-vocabulary factorization | Shared-code spectrum with rare-token/OOD falsifier | COMPLETED 03:15 |
 | 05:40–06:40 | Causal-response rank coordinates | Held-out response-per-scalar comparison against SVD | COMPLETED 03:20 |
-| 06:40–07:40 | Predictive causal-state quotient | Hankel/observable-rank screen with corpus/intervention stability | IN PROGRESS (early start 03:20) |
-| 07:40–08:40 | Executable error contracts/lower bounds | Bound calibration against known rungs plus useful/impossible verdict | PENDING |
+| 06:40–07:40 | Predictive causal-state quotient | Hankel/observable-rank screen with corpus/intervention stability | COMPLETED 03:26 |
+| 07:40–08:40 | Executable error contracts/lower bounds | Bound calibration against known rungs plus useful/impossible verdict | IN PROGRESS (early start 03:26) |
 | 08:40–09:40 | Common comparison | Completed scorecard and confound audit | PENDING |
 | 09:40–10:40 | Exploit best one or two | Decisive follow-up receipt and morning synthesis | PENDING |
 
@@ -44,7 +44,7 @@ only explicitly priced small finite router states count as a structural decompos
 | Shared MLP tensor | coefficient sharing indistinguishable from orthogonal null | 71.7M at 25%, but capacity absent | coefficient screen only | none | planted instrument valid; real null | high for arbitrary joint CP, low for reuse | kill native-atom reuse/layer mixing; leave changed-metric CP open |
 | Joint vocabulary maps | strong shared-code + frequency-metric signal | 30.28M at tested point (26.1% of vocab) | +.193 FW / +.225 Wiki screen | none | external two-corpus discriminator; fit/eval split | moderate: full census + sparse rare residual | advance; exploit hybrid rare-row correction |
 | Causal-response coordinates | predictive but dominated and split-unstable | 4.57M on MLP0 Down at r128, already beaten | response +.0875/.0616 vs PCA +.0500/.0302 | empirical suffix gradient only | overlap .283 vs PCA .683 | low | kill signed-response ranking; retain ordinary PCA baseline |
-| Predictive causal state | — | — | — | — | — | — | pending |
+| Predictive causal state | weak quote signal; joint bars all fail | tiny circuit interface only; no native replacement | quote acc .875, R2 .19–.24; paren transfer .625 | head13.8 separation drop only 6–7% | suffix NLL 10–12 confound | low to refine, low storage upside | park delimiter classifier; kill as compiler route |
 | Error contracts/lower bounds | — | — | — | — | — | — | pending |
 
 ## Invariants
@@ -173,3 +173,30 @@ only explicitly priced small finite router states count as a structural decompos
 - Next direction started: a behavior-anchored finite-state/Hankel screen rather than repeating the rejected
   unnatural token-splice Hankel. The target is a known sequential delimiter/quote state with an identified
   consumer, corpus/template transfer, and a causal-head control.
+
+### `03:26 UTC` — direction `4`
+
+- Full goal restated: a predictive state matters only if it is small, transfers, has causal consumers, and can
+  replace priced native machinery; a behavior classifier alone is not a tensor-program compression.
+- Exact object and literal price: natural 64-token FineWeb/WikiText prefixes labeled by quote parity or open-
+  parenthesis state; Hankel entries are log probabilities of 16 fixed action suffixes of lengths 1–3. A binary
+  interface needs one state bit, 12 transition entries for six actions, and 32 emission values, but parser/router
+  and native replacement were not constructed and receive zero price credit.
+- Opposing predictions and frozen bars: for both tasks/corpora, double-centered full-block r90<=4 and state
+  R2>=.40; heldout accuracy>=.80 and FW->Wiki>=.70; head13.8 deletion reduces separation>=25% on both corpora
+  for a task while control head13.1 changes <=15%. Null poles were R2<=.10, transfer<=.60, or no head specificity.
+- Result/receipt: quote heldout accuracy was `.875` on both corpora and FW->Wiki `.875`, but state R2 only
+  `.191/.239` and interaction r90 `5/4`. Parenthesis accuracy was `.750/.625`, transfer `.625`, R2 `.147/.140`,
+  and r90 `5/5`. Head13.8 reduced state separation only 5.7–7.2%; head13.1 was inert. All three predictions failed.
+  The strong null poles narrowly did not trigger.
+- Null, confound, or identifiability limit: action-suffix mean NLL was 10–12 nats/token, so even this natural-
+  prefix construction has a low-probability suffix bank. The weak quote classifier is real, above shuffled labels,
+  but cannot establish a compact generative state or causal sufficiency.
+- Information gained: quote parity is visible in future delimiter probabilities across corpora, yet most response
+  variance is lexical/contextual and the known delimiter head carries only a small redundant share. A two-state
+  automaton would underfit the actual interface.
+- Continue/kill/park decision: **park** quote parity as a circuit-level classifier; **kill** this finite-state
+  object as a whole-model compression route. Do not expand generic Hankel rank.
+- Next direction started: calibrate a literal empirical error interval on actual MLP0 low-rank replacements,
+  fit on one fresh window and validate on another. Test whether local omitted energy provides a transferable,
+  nonvacuous upper contract and an empirical rank lower bound.

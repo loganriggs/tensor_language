@@ -1,0 +1,48 @@
+fineweb quote native: r90=5 stateR2=0.191 acc=0.875 sep=12.517 nll=11.612
+fineweb quote head13_8_zero: r90=5 stateR2=0.171 acc=0.875 sep=11.615 nll=11.629
+fineweb quote head13_1_zero: r90=5 stateR2=0.192 acc=0.875 sep=12.540 nll=11.604
+fineweb parenthesis native: r90=5 stateR2=0.147 acc=0.750 sep=9.912 nll=12.090
+fineweb parenthesis head13_8_zero: r90=5 stateR2=0.133 acc=0.750 sep=9.303 nll=12.068
+fineweb parenthesis head13_1_zero: r90=5 stateR2=0.148 acc=0.750 sep=9.969 nll=12.085
+wikitext quote native: r90=4 stateR2=0.239 acc=0.875 sep=9.456 nll=10.286
+wikitext quote head13_8_zero: r90=4 stateR2=0.216 acc=0.875 sep=8.921 nll=10.286
+wikitext quote head13_1_zero: r90=4 stateR2=0.239 acc=0.875 sep=9.447 nll=10.284
+wikitext parenthesis native: r90=5 stateR2=0.140 acc=0.625 sep=7.307 nll=10.525
+wikitext parenthesis head13_8_zero: r90=5 stateR2=0.125 acc=0.625 sep=6.808 nll=10.489
+wikitext parenthesis head13_1_zero: r90=5 stateR2=0.140 acc=0.625 sep=7.301 nll=10.524
+{
+  "transfer": {
+    "quote": 0.875,
+    "parenthesis": 0.625
+  },
+  "head_effect": {
+    "quote": {
+      "fineweb": {
+        "head13_8_reduction": 0.07209500625163912,
+        "head13_1_reduction": -0.001826497945322636
+      },
+      "wikitext": {
+        "head13_8_reduction": 0.05656182937583243,
+        "head13_1_reduction": 0.000954870824918741
+      }
+    },
+    "parenthesis": {
+      "fineweb": {
+        "head13_8_reduction": 0.06138728321961451,
+        "head13_1_reduction": -0.005730058899449331
+      },
+      "wikitext": {
+        "head13_8_reduction": 0.06818987443305591,
+        "head13_1_reduction": 0.0008034275470203411
+      }
+    }
+  },
+  "predicates": [
+    false,
+    false,
+    false
+  ],
+  "null": false,
+  "runtime_s": 11.96228837966919
+}
+DELIMITER PREDICTIVE STATE HANKEL DONE

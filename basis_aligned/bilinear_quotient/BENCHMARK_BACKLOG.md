@@ -3352,3 +3352,13 @@ later per-rung backlog edits had silently anchored on text that was not here.
     +.0875 FW/+.0616 WT at 71.3% MLP0 price, but PCA +.0500/+.0302 and
     weight SVD +.0621/+.0495; response split overlap .283 vs PCA .683.
     Kill response rank allocator; retain ordinary PCA baseline.
+
+302. [CODEX, board-claimed 03:20Z] DELIMITER PREDICTIVE-STATE HANKEL:
+    natural FW/Wiki prefixes; quote/open-paren binary states; nested action
+    suffix log-probability blocks; cross-corpus transfer; head13.8 deletion vs
+    head13.1 control. No generic token splice.
+    -> ops/delimiter_predictive_state_hankel.py
+    RUN 2026-09-01, S2399: all positive preds failed; strong null poles absent.
+    Quote transfer .875 but R2 .191/.239 and r90 5/4; paren transfer .625,
+    R2 .147/.140, r90 5/5; head13.8 effect only 6-7%. Suffix NLL 10-12
+    is a scope confound. Park quote classifier; kill as compression route.
