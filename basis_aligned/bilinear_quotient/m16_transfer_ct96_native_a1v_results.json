@@ -1,0 +1,400 @@
+{
+  "convention": "signed effect = KO CE minus unablated CE within each model",
+  "unablated_fresh_damage": 0.0033,
+  "unablated_census_damage": 0.0034195,
+  "compiled_ko_census_damage": 0.2072682,
+  "native_ko_census_damage": 0.189126,
+  "effect_cosine": 0.9963241,
+  "effect_normalized_error": 0.103727,
+  "effect_norm_ratio": 1.0545249,
+  "collateral_spearman": 0.9982228,
+  "own_effect_median_ratio": 1.037211,
+  "own_effect_ratios": [
+    1.033071,
+    1.0335196,
+    1.0344709,
+    1.037211,
+    1.0385517,
+    1.0388032
+  ],
+  "circuits": [
+    {
+      "tag": "r.0.0",
+      "native_abs_effect": 0.5625602,
+      "compiled_abs_effect": 0.5811051,
+      "own": false
+    },
+    {
+      "tag": "r.0.0.0",
+      "native_abs_effect": 0.6417226,
+      "compiled_abs_effect": 0.6587216,
+      "own": false
+    },
+    {
+      "tag": "r.0.0.1",
+      "native_abs_effect": 0.6369103,
+      "compiled_abs_effect": 0.6571892,
+      "own": false
+    },
+    {
+      "tag": "r.0.3.0",
+      "native_abs_effect": 0.7624458,
+      "compiled_abs_effect": 0.7877101,
+      "own": false
+    },
+    {
+      "tag": "r.11.1.1",
+      "native_abs_effect": 0.603196,
+      "compiled_abs_effect": 0.6248903,
+      "own": false
+    },
+    {
+      "tag": "r.11.1.2",
+      "native_abs_effect": 0.5669277,
+      "compiled_abs_effect": 0.5881935,
+      "own": false
+    },
+    {
+      "tag": "r.11.3.1",
+      "native_abs_effect": 0.5980244,
+      "compiled_abs_effect": 0.6107581,
+      "own": false
+    },
+    {
+      "tag": "r.13.2.1",
+      "native_abs_effect": 0.6418689,
+      "compiled_abs_effect": 0.6584011,
+      "own": false
+    },
+    {
+      "tag": "r.18.2.0",
+      "native_abs_effect": 0.5821921,
+      "compiled_abs_effect": 0.6004114,
+      "own": false
+    },
+    {
+      "tag": "r.1.0",
+      "native_abs_effect": 0.7277308,
+      "compiled_abs_effect": 0.7485619,
+      "own": false
+    },
+    {
+      "tag": "r.1.0.0",
+      "native_abs_effect": 0.7893372,
+      "compiled_abs_effect": 0.8127464,
+      "own": false
+    },
+    {
+      "tag": "r.1.0.1",
+      "native_abs_effect": 0.7677661,
+      "compiled_abs_effect": 0.7899662,
+      "own": false
+    },
+    {
+      "tag": "r.1.0.2",
+      "native_abs_effect": 0.8754296,
+      "compiled_abs_effect": 0.8884373,
+      "own": false
+    },
+    {
+      "tag": "r.1.0.3",
+      "native_abs_effect": 0.8479134,
+      "compiled_abs_effect": 0.8750892,
+      "own": false
+    },
+    {
+      "tag": "r.1.1",
+      "native_abs_effect": 0.9227023,
+      "compiled_abs_effect": 0.951951,
+      "own": false
+    },
+    {
+      "tag": "r.1.1.0",
+      "native_abs_effect": 1.1630652,
+      "compiled_abs_effect": 1.2004187,
+      "own": false
+    },
+    {
+      "tag": "r.1.1.1",
+      "native_abs_effect": 1.3838996,
+      "compiled_abs_effect": 1.4375993,
+      "own": true
+    },
+    {
+      "tag": "r.1.1.2",
+      "native_abs_effect": 1.3539191,
+      "compiled_abs_effect": 1.399302,
+      "own": true
+    },
+    {
+      "tag": "r.1.2",
+      "native_abs_effect": 1.2251122,
+      "compiled_abs_effect": 1.2706999,
+      "own": true
+    },
+    {
+      "tag": "r.1.2.0",
+      "native_abs_effect": 2.0104733,
+      "compiled_abs_effect": 2.079776,
+      "own": true
+    },
+    {
+      "tag": "r.1.2.1",
+      "native_abs_effect": 1.4942197,
+      "compiled_abs_effect": 1.5518243,
+      "own": true
+    },
+    {
+      "tag": "r.1.3",
+      "native_abs_effect": 0.9441444,
+      "compiled_abs_effect": 0.9775684,
+      "own": false
+    },
+    {
+      "tag": "r.1.3.0",
+      "native_abs_effect": 0.936325,
+      "compiled_abs_effect": 0.9746479,
+      "own": false
+    },
+    {
+      "tag": "r.1.3.1",
+      "native_abs_effect": 1.1111361,
+      "compiled_abs_effect": 1.1449077,
+      "own": false
+    },
+    {
+      "tag": "r.23.2.1",
+      "native_abs_effect": 0.6845918,
+      "compiled_abs_effect": 0.7064134,
+      "own": false
+    },
+    {
+      "tag": "r.23.2.3",
+      "native_abs_effect": 0.7177952,
+      "compiled_abs_effect": 0.7438839,
+      "own": false
+    },
+    {
+      "tag": "r.2.0",
+      "native_abs_effect": 0.5692495,
+      "compiled_abs_effect": 0.5848671,
+      "own": false
+    },
+    {
+      "tag": "r.2.0.0",
+      "native_abs_effect": 0.6767123,
+      "compiled_abs_effect": 0.6914662,
+      "own": false
+    },
+    {
+      "tag": "r.2.0.1",
+      "native_abs_effect": 0.8478103,
+      "compiled_abs_effect": 0.8680011,
+      "own": false
+    },
+    {
+      "tag": "r.2.0.2",
+      "native_abs_effect": 0.7662014,
+      "compiled_abs_effect": 0.7841914,
+      "own": false
+    },
+    {
+      "tag": "r.2.1",
+      "native_abs_effect": 0.6273999,
+      "compiled_abs_effect": 0.646978,
+      "own": false
+    },
+    {
+      "tag": "r.2.1.0",
+      "native_abs_effect": 0.7461585,
+      "compiled_abs_effect": 0.762448,
+      "own": false
+    },
+    {
+      "tag": "r.2.1.1",
+      "native_abs_effect": 0.7868371,
+      "compiled_abs_effect": 0.804675,
+      "own": false
+    },
+    {
+      "tag": "r.2.2",
+      "native_abs_effect": 0.6189737,
+      "compiled_abs_effect": 0.6368229,
+      "own": false
+    },
+    {
+      "tag": "r.2.2.0",
+      "native_abs_effect": 0.6848052,
+      "compiled_abs_effect": 0.7027644,
+      "own": false
+    },
+    {
+      "tag": "r.2.2.1",
+      "native_abs_effect": 0.8564597,
+      "compiled_abs_effect": 0.8790691,
+      "own": false
+    },
+    {
+      "tag": "r.2.2.2",
+      "native_abs_effect": 0.8237112,
+      "compiled_abs_effect": 0.8433804,
+      "own": false
+    },
+    {
+      "tag": "r.2.3",
+      "native_abs_effect": 0.669055,
+      "compiled_abs_effect": 0.6922176,
+      "own": false
+    },
+    {
+      "tag": "r.3.0",
+      "native_abs_effect": 0.5484962,
+      "compiled_abs_effect": 0.5618738,
+      "own": false
+    },
+    {
+      "tag": "r.3.0.0",
+      "native_abs_effect": 0.6148043,
+      "compiled_abs_effect": 0.6270683,
+      "own": false
+    },
+    {
+      "tag": "r.3.0.1",
+      "native_abs_effect": 0.6462013,
+      "compiled_abs_effect": 0.6673047,
+      "own": false
+    },
+    {
+      "tag": "r.3.0.2",
+      "native_abs_effect": 0.5572374,
+      "compiled_abs_effect": 0.5712168,
+      "own": false
+    },
+    {
+      "tag": "r.3.1.0",
+      "native_abs_effect": 0.819307,
+      "compiled_abs_effect": 0.8455414,
+      "own": false
+    },
+    {
+      "tag": "r.3.1.1",
+      "native_abs_effect": 0.6062057,
+      "compiled_abs_effect": 0.6263158,
+      "own": false
+    },
+    {
+      "tag": "r.4.1.0",
+      "native_abs_effect": 0.6558675,
+      "compiled_abs_effect": 0.680933,
+      "own": false
+    },
+    {
+      "tag": "r.4.1.1",
+      "native_abs_effect": 0.6439336,
+      "compiled_abs_effect": 0.6598545,
+      "own": false
+    },
+    {
+      "tag": "r.5.0.1",
+      "native_abs_effect": 0.5680742,
+      "compiled_abs_effect": 0.581286,
+      "own": false
+    },
+    {
+      "tag": "r.5.3.1",
+      "native_abs_effect": 0.630532,
+      "compiled_abs_effect": 0.6507369,
+      "own": false
+    },
+    {
+      "tag": "r.6.0.0",
+      "native_abs_effect": 0.8030705,
+      "compiled_abs_effect": 0.8498782,
+      "own": false
+    },
+    {
+      "tag": "r.6.0.1",
+      "native_abs_effect": 0.9839186,
+      "compiled_abs_effect": 1.0164255,
+      "own": false
+    },
+    {
+      "tag": "r.6.0.2",
+      "native_abs_effect": 0.6585674,
+      "compiled_abs_effect": 0.6858445,
+      "own": false
+    },
+    {
+      "tag": "r.6.0.3",
+      "native_abs_effect": 1.0307084,
+      "compiled_abs_effect": 1.0637481,
+      "own": false
+    },
+    {
+      "tag": "r.6.1.0",
+      "native_abs_effect": 0.6615864,
+      "compiled_abs_effect": 0.6767314,
+      "own": false
+    },
+    {
+      "tag": "r.6.1.1",
+      "native_abs_effect": 0.6726402,
+      "compiled_abs_effect": 0.695695,
+      "own": false
+    },
+    {
+      "tag": "r.6.2.0",
+      "native_abs_effect": 0.9959497,
+      "compiled_abs_effect": 1.0420011,
+      "own": false
+    },
+    {
+      "tag": "r.6.2.1",
+      "native_abs_effect": 0.6917781,
+      "compiled_abs_effect": 0.720717,
+      "own": false
+    },
+    {
+      "tag": "r.6.2.2",
+      "native_abs_effect": 1.1656816,
+      "compiled_abs_effect": 1.2042319,
+      "own": true
+    },
+    {
+      "tag": "r.6.2.3",
+      "native_abs_effect": 0.8052762,
+      "compiled_abs_effect": 0.8351406,
+      "own": false
+    },
+    {
+      "tag": "r.6.3.0",
+      "native_abs_effect": 0.6885243,
+      "compiled_abs_effect": 0.7087345,
+      "own": false
+    },
+    {
+      "tag": "r.6.3.1",
+      "native_abs_effect": 0.5659894,
+      "compiled_abs_effect": 0.5906597,
+      "own": false
+    },
+    {
+      "tag": "r.7.1.1",
+      "native_abs_effect": 0.5559633,
+      "compiled_abs_effect": 0.5726656,
+      "own": false
+    },
+    {
+      "tag": "r.8.1.0",
+      "native_abs_effect": 0.5874839,
+      "compiled_abs_effect": 0.602288,
+      "own": false
+    }
+  ],
+  "pred_a_live_config": true,
+  "pred_b_signed_effect": true,
+  "pred_c_circuits": true,
+  "null_triggered": false,
+  "decision_level": "adoption sentinel for corrected ct96",
+  "runtime_s": 140.4
+}

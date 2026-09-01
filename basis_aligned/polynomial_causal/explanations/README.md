@@ -7,7 +7,7 @@ primary evidence.
 
 ## Start here
 
-- [`explanation_0143.md`](explanation_0143.md) — 2026-09-01 correction: the 0.055 "attention floor" was the context-blind `a1v` table; removing it is bit-near-exact, keeps 62/62 certificates, saves 56.6M values, and redirects the plan to a corrected compressed frontier plus intervention revalidation
+- [`explanation_0143.md`](explanation_0143.md) — 2026-09-01 correction and verified milestone: the 0.055 "attention floor" was the context-blind `a1v` table; corrected ct96 reaches +0.00342 CE, 56/62 certificates and near-native signed m16 effects at ~154.4M values
 - [`explanation_0112.md`](explanation_0112.md) — 2026-09-01 research plan: the full predictive/composable/manipulable/simplicity goal, the current function-space rank-one repair test, and four independent mathematical routes (tangent compiler, predictive-state quotient, shared invariant, causal-response basis)
 - [`explanation_0335.md`](explanation_0335.md) — 2026-08-31 03:35: the twins give way — anatomy (84% flows through block 3; no compensation; different write directions), the working scalar merge (55% recovery), and the corrected knockout numbers in flight
 - [`explanation_0100.md`](explanation_0100.md) — 2026-08-31 01:00: the measured skeleton of the retrieval system (backup readers at 14/16, the general suppressor m16, four defeated theories, the cross-depth range law)

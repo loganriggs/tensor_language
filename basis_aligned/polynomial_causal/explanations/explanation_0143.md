@@ -131,3 +131,32 @@ The project should not return to arbitrary rank and head sweeps. Four materially
 The lesson from this turn is methodological as much as architectural: an elegant low-rank law can be the
 fingerprint of a shared instrument. Exact-path controls and live configuration checks must precede any
 mechanistic interpretation of a compression curve.
+
+## Result update: the corrected ct96 milestone passed
+
+The queued corrected ct96 run subsequently landed at `+0.0034195` census damage with `56/62`
+certificates and `0.0000` damage on each of the eight fresh windows. Its literal storage change is
+`-56,568,960` values, giving an approximate total of 154.4M values from the old 211M anchor.
+
+The strong vector-subtraction prediction was close but failed as registered: cosine between the new
+damage vector and `cev_ct96-cev_pathfull` was `0.94857` against a `0.95` bar, and relative error was
+`0.3227` against a `0.25` bar. Thus subtraction predicted the aggregate and certificate recovery well,
+but the nonlinear program is not an exact additive vector system.
+
+The signed m16 intervention sentinel then passed every adoption bar. Comparing the full 256,000-position
+causal effects within each model gave:
+
+- effect cosine: `0.996324`;
+- normalized effect-vector error: `0.103727`;
+- compiled/native effect-norm ratio: `1.054525`;
+- collateral circuit Spearman: `0.998223`;
+- median own-circuit magnitude ratio: `1.037211`.
+
+These numbers use `CE(model+KO)-CE(model)` directly for both native and compiled models, rather than a
+difference of unsigned damage summaries. The receipt was independently recomputed from the three saved CE
+vectors and matched the recorded metrics. The corrected ct96 point therefore clears the next verified
+milestone across prediction, fresh transfer, certificates, literal price, and signed intervention fidelity.
+
+The next research milestone is no longer “break the 0.055 floor.” It is to rebuild the whole Pareto set on
+the faithful path, extend signed intervention validation beyond the m16 sentinel, and decide whether the
+approximately 154M-value ct96 point or a cheaper corrected mixed-spectrum point is the best adoption base.
