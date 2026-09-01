@@ -3069,7 +3069,22 @@ later per-rung backlog edits had silently anchored on text that was not here.
     own in [0.24, 0.74]; pred_b subtracted rho >= 0.85; pred_c census
     [0.08, 0.5]. Null: baseline-dependent - no correction publishes.
     -> ops/ko_m13_corner.py [QUEUED 01:05Z]
+    RUN 2026-09-01, S2371: INSTRUMENT-INVALID - qk_r/qk_rmap are dead
+    knobs in the all_last8 lineage (mixed selection hard-coded); the
+    run re-measured the mixed baseline. Bars VOID. 272 pre-declared
+    invalid. Rule: live config tripwires mandatory. Valid controls =
+    273/274 (corner lineage + L2F tripwire).
 
 272. ADDITIVITY CONTROL: m16 on corner (mixed subtracted 0.755/0.934):
     pred_a in [0.50, 1.00]; pred_b >= 0.85; pred_c [0.2, 5.0].
     -> ops/ko_m16_corner.py [QUEUED 01:05Z]
+
+273. ADDITIVITY CONTROL v2: m13 on the TRUE corner config (corner
+    lineage + live L2F tripwire): pred_a subtracted own in [0.24,0.74];
+    pred_b subtracted rho >= 0.85; pred_c census [0.08,0.5]. Null:
+    baseline-dependent - S2370 correction does not publish.
+    -> ops/ko_m13_corner2.py [QUEUED 01:20Z]
+
+274. ADDITIVITY CONTROL v2: m16 on corner (mixed subtracted 0.755/
+    0.934): pred_a in [0.50,1.00]; pred_b >= 0.85; pred_c [0.2,5.0].
+    -> ops/ko_m16_corner2.py [QUEUED 01:20Z]
