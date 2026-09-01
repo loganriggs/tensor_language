@@ -7,6 +7,9 @@ primary evidence.
 
 ## Start here
 
+- [`explanation_2026-09-01_1406.md`](explanation_2026-09-01_1406.md) — 2026-09-01 14:06 UTC MLP0 token-identity
+  result: exact token retrieval is 90.4%, and the 39.7%-energy token-predictable slice preserves 97.2% of immediate
+  causal response despite the failure of a simple linear/rotated-copy model
 - [`explanation_2026-09-01_1358.md`](explanation_2026-09-01_1358.md) — 2026-09-01 13:58 UTC exhaustive
   MLP0 token-only causal-response result: the write dominates rather than copies the raw token, attention1 is compact,
   MLP1 is broad, and one shared sparse downstream-equivalence code is rejected

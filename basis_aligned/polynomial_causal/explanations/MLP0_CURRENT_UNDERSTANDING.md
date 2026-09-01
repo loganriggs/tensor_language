@@ -1033,6 +1033,19 @@ orthogonally recoverable. If so, the token-private component can be explained as
 residual becomes the honest target for shared lexical features. If not, the token-specific quadratic map itself is
 the object that must be described.
 
+Rung395 answered this more sharply. A simple global linear/orthogonal copy fails its registered reconstruction bars
+(write→raw R² .227, raw→write .397, Procrustes cosine .387), but nearest-vocabulary decoding recovers the exact
+heldout token 90.4% top1 and 96.2% top5, versus zero under shuffled pairing. More importantly, physical injection of
+the raw-token-predicted write component reproduces the native attention1/MLP1 joint response at R² .972 and cosine
+.986 despite explaining only .397 of write variation. The exact residual is four times broader in participation
+rank and has only .247 response R² alone.
+
+Thus the supported token-only account is not “a rotated embedding” and not “a compact universal sparse quotient.”
+It is a nonlinearly warped token-identity code with a token-predictable slice that is almost sufficient for immediate
+causal use, plus a large downstream-misaligned residual. The next legal object is the exact quadratic token kernel:
+the empirical orthogonal-polynomial split of the bilinear function into constant, best degree-one token component,
+and orthogonal quadratic residual, followed by a frozen rank/cause analysis of the degree-one component.
+
 ## Related authoritative write-ups
 
 - `MLP0_QUOTIENT_STAGE0_V2_FINDINGS.md`
@@ -1042,3 +1055,4 @@ the object that must be described.
 - `MLP0_C512_MLP2_COMPENSATION_SPEC.md`
 - `MLP0_C512_MLP2_COMPENSATION_V2_FINDINGS.md`
 - `explanation_2026-09-01_1358.md`
+- `explanation_2026-09-01_1406.md`

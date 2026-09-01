@@ -4109,7 +4109,7 @@ later per-rung backlog edits had silently anchored on text that was not here.
 - Joint sparse heldout R2 .3308 is only +.0107 over activation-only and +.0415 over shuffled, near dense-PCA256's
   .3535 ceiling; seeds are stable but neighbor margins and discordant-pair test fail. No TT/X promotion or tuning.
 
-### Rung 395 — exact-token identity transport and causal component split — QUEUED
+### Rung 395 — exact-token identity transport and causal component split — COMPLETE
 
 - Fit heldout full linear+intercept raw-x0↔MLP0-write and orthogonal maps, retrieve each predicted raw vector from
   all 50,257 embeddings, and compare with shuffled token pairing.
@@ -4117,3 +4117,7 @@ later per-rung backlog edits had silently anchored on text that was not here.
   attention1/MLP1 response reproduction and residual dimension. Diagnostic identity test, not compression.
 - A/B/C identify a private transformed-token component; D additionally licenses shared-residual work. A strong
   miss pivots to the exact quadratic token kernel. No rung394 sparse-rank tuning.
+- RUN 2026-09-01: pred_c held; a/b/d failed; null false. Linear write→raw/raw→write R2 .227/.397 and Procrustes
+  cosine .387 reject a simple linear copy, but exact token retrieval is 90.4% top1/96.2% top5 versus shuffle 0%.
+  The raw-token-predicted component reproduces attention1/MLP1/joint response R2 .926/.972/.972 despite only .397
+  write R2. Residual PR is 3.98x native and residual-only joint R2 .247. Pivot to exact quadratic token kernel.
