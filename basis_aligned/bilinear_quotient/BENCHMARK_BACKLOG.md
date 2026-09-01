@@ -4073,3 +4073,20 @@ later per-rung backlog edits had silently anchored on text that was not here.
   sum to14,984 with no dense form. Form/output errors 4.89e-8/4.65e-7; CEV max/mean differences
   1.24e-5/1.09e-6; +.038978/27 exact; native signed cosine/error/norm .979722/.213062/1.052011.
   Literal price, Tucker dominance, and one QK64+MLP0/4 composition license restored.
+
+### Rung 392 — physical QK64 + MLP0/4 + factored-MLP16 composition — COMPLETE
+
+- Installed the exact fp32 structural QK64/440 maps, split-B MLP{0,4}@p768, and the shipped four-tensor
+  14,984-value/no-dense MLP16 program at 495,847,230 scalars and 1,867,449,228 source-format bytes.
+- Physical census/checks are +.05285390/17 versus additive +.05122224/17: 1.03185x tax, normalized-vector cosine
+  .99996594, and zero certificate-count error.
+- Full native-relative WT103 mean/p95/max .055836/.110016/.127139; conditional fresh max .0126. All registered
+  predictions held, strong null false, and all hooks/maps/fits/bills were live and exact.
+- Licensed successor: one original-native signed a16 composite gate, then stop the short L16 adoption chain.
+
+### Rung 393 — original-native signed gate for physical three-family composite — QUEUED
+
+- Apply the fixed original-native attention-16 mean knockout to the exact rung392 physical program.
+- Require exact rung392 identity and live factor/ablation hooks; signed cosine >=.95, normalized error <=.40,
+  norm ratio [.70,1.30], collateral Spearman >=.95, and a16-own median ratio [.70,1.30].
+- A full pass adopts a lower-fidelity manipulable tier; a miss keeps rung392 predictive+composable only. No tuning.
