@@ -3106,3 +3106,16 @@ later per-rung backlog edits had silently anchored on text that was not here.
 
 276. cev-dump repro: corner+tail-r120 (bars = S2349 cliff preds,
     unchanged). -> ops/cevdump_t120.py [QUEUED 01:10Z]
+    RUN 2026-09-01, S2376+S2377: ALL HELD; COLLINEARITY BAR HELD -
+    cosine 0.9840 (>= 0.95): mechanism rank-one in function space.
+    Specificity controls (red-team) = 277/278.
+
+277. RED-TEAM specificity control: cev dump of the value-r96 config
+    (non-band damage family; bars = the S2356 preds unchanged).
+    Registered control bar: cosine(d_v96, d_ct96) < 0.8 (band
+    specificity). -> ops/cevdump_v96.py [QUEUED 01:35Z]
+
+278. RED-TEAM specificity control: cev dump of the m16-knockout config
+    (intervention family; bars = S2364 preds unchanged). Same control
+    bar vs d_ct96; also feeds the signed-composition test (math review
+    move 2). -> ops/cevdump_kom16.py [QUEUED 01:35Z]

@@ -66039,3 +66039,11 @@ Receipts: corner_tail{96,112,120}, tail_last8, frontier_claim_motif. BACKLOG run
 ## §2375 — RUNG 275: FRONTIER cev DUMP — ALL THREE PREDS HELD, bit-exact repro of the §2347 claim (census +0.0553 / fresh +0.0565 / valid 11), with the per-position damage vector saved to cev_ct96.pt. Instrumentation rung; the science lands with rung 276's pair and the preregistered collinearity bar (cosine(d_ct96, d_t120) ≥ 0.95, math review 0107). (Convention: CE added above the real model; lower is better.)
 
 `ops/cevdump_ct96.py`, **133s**, BACKLOG rung 275.
+
+## §2376 — RUNG 276: r120 cev DUMP — ALL THREE PREDS HELD (repro of the §2349 cliff point: census +0.0526 / valid 11), damage vector saved to cev_t120.pt. Instrumentation rung; pairs with §2375. (Convention: CE added above the real model; lower is better.)
+
+`ops/cevdump_t120.py`, **132s**, BACKLOG rung 276.
+
+## §2377 — RECEIPT ANALYSIS (preregistered in MATH REVIEW 0107): THE MECHANISM IS RANK-ONE IN FUNCTION SPACE — THE COLLINEARITY BAR HOLDS. cosine(d_ct96, d_t120) = **0.9840** vs the registered ≥ 0.95 bar (positive-part cosine 0.9864; norm ratio 0.973). Two DIFFERENT fine-band deficiencies (missing 32 directions vs missing 8, at every tail head) produce per-position damage vectors over 256k positions that are 98.4% collinear — the model-wide cancellation mechanism is, to first order, a SINGLE direction in function space: δCE ≈ α·v with α ≈ constant across deficiency geometry (norms within 3%). CONSEQUENCE (the legal route below the 0.055 floor, flagged for the DIRECTION-holder per the role split): one fitted correction along v at the output site — an in-frame refit at a fitted-full-output site, legal under the exactness type system — could repair most of the floor in a single move. RED-TEAM CAVEAT (mine, controls claimed on the board as rungs 277/278): high cosine could be partially generic (damage concentrates on hard positions); specificity controls = cev dumps of a NON-band config (value-r96) and a knockout config, predicted to cosine LOW (< 0.8) against d_ct96. The rank-one claim publishes only if the controls separate. (Convention: CE added above the real model; lower is better.)
+
+Receipts: cev_ct96.pt, cev_t120.pt, census base. BACKLOG rungs 275/276 addendum.
