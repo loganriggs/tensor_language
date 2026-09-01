@@ -120,9 +120,14 @@ def main() -> None:
         p = data["unablated"]["candidate_ce"][name].float()
         pko = data["knockout"]["candidate_ce"][name].float()
         pq = data["partner"]["candidate_ce"][name].float()
-        removal_stats[name] = document_sums((pko - p) - (native_ko - native), native_ko - native)
-        additive = (p - native) + (partner - native)
-        composition_stats[name] = document_sums((pq - native) - additive, additive)
+        # Match rung450's promotion points exactly: each effect is formed in float32,
+        # promoted to float64, and only then are the two effects subtracted.
+        native_effect = (native_ko - native).double()
+        candidate_effect = (pko - p).double()
+        removal_stats[name] = document_sums(candidate_effect - native_effect, native_effect)
+        physical = (pq - native).double()
+        additive = ((p - native) + (partner - native)).double()
+        composition_stats[name] = document_sums(physical - additive, additive)
         full["removal"][name] = float((removal_stats[name][0].sum() /
                                         removal_stats[name][1].sum()).sqrt())
         full["composition"][name] = float((composition_stats[name][0].sum() /
