@@ -385,15 +385,27 @@ def main() -> None:
 
     phase_generator = torch.Generator(device="cpu").manual_seed(439_300)
     theta = (2 * torch.pi * torch.rand(
-        N_ENTRY, HD // 2, generator=phase_generator)).cuda()
-    rotated_q_anchor = _phase_rotate(q_anchor, theta, apply_rot)
-    rotated_k_anchor = _phase_rotate(k_anchor, theta, apply_rot)
-    rotated_primary_q = _phase_rotate(primary_q, theta, apply_rot)
-    rotated_primary_k = _phase_rotate(primary_k, theta, apply_rot)
-    gauge_q = _query_profiles(rotated_primary_q, rotated_k_anchor, cos, sin, apply_rot)
-    gauge_k = _key_profiles(rotated_primary_k, rotated_q_anchor, cos, sin, apply_rot)
-    gauge_max = max(float((gauge_q - profiles["U54"]["q"]).abs().max()),
-                    float((gauge_k - profiles["U54"]["k"]).abs().max()))
+        N_ENTRY, HD // 2, generator=phase_generator, dtype=torch.float64)).cuda()
+    exact_cos, exact_sin = rope_tables(
+        max(PROFILE_OFFSETS) + 1, HD, "cuda", torch.float64, "exact")
+    exact_primary_q = primary_q.double()
+    exact_primary_k = primary_k.double()
+    exact_q_anchor = q_anchor.double()
+    exact_k_anchor = k_anchor.double()
+    gauge_reference_q = _query_profiles(
+        exact_primary_q, exact_k_anchor, exact_cos, exact_sin, apply_rot)
+    gauge_reference_k = _key_profiles(
+        exact_primary_k, exact_q_anchor, exact_cos, exact_sin, apply_rot)
+    rotated_q_anchor = _phase_rotate(exact_q_anchor, theta, apply_rot)
+    rotated_k_anchor = _phase_rotate(exact_k_anchor, theta, apply_rot)
+    rotated_primary_q = _phase_rotate(exact_primary_q, theta, apply_rot)
+    rotated_primary_k = _phase_rotate(exact_primary_k, theta, apply_rot)
+    gauge_q = _query_profiles(
+        rotated_primary_q, rotated_k_anchor, exact_cos, exact_sin, apply_rot)
+    gauge_k = _key_profiles(
+        rotated_primary_k, rotated_q_anchor, exact_cos, exact_sin, apply_rot)
+    gauge_max = max(float((gauge_q - gauge_reference_q).abs().max()),
+                    float((gauge_k - gauge_reference_k).abs().max()))
 
     encoded = {
         "U54": _materialize(parent_bundle, primary_q, primary_k),

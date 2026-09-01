@@ -111,3 +111,17 @@ is at least `1.50` times U54.
 - C false: anchoring selects a convention that damages the computation; close it regardless of stability.
 
 No threshold, hull step count, relaxation, token role, active count, atom count, or objective is tuned after outcome.
+
+## Instrument addendum — rung439b, 2026-09-01T22:09Z
+
+The first receipt is preserved as instrument-invalid. Every hull certificate, parent bridge, physical identity, row
+hash, and no-native replay passed, but the legal rotary-gauge profile check measured `5.7972e-5`, above the frozen
+`2e-5` bar. The implementation built the unrotated reference profiles with the model's BF16 rotary lookup table,
+then compared them with phase-rotated profiles whose extra arithmetic followed a different rounding path. This tested
+BF16 pathwise equality rather than the registered exact mathematical gauge identity.
+
+Rung439b changes only that instrument calculation: build *both* unrotated and phase-rotated gauge-check profiles in
+float64 with exact (non-BF16) rotary tables. The scientific observable profiles remain the model-real BF16 profiles;
+all hulls, token rows, arms, seeds, FINAL outcomes, prices, A/B/C/D/null bars, and routing remain frozen. The first
+receipt cannot retro-pass. The rerun must reproduce its scientific metrics; any change outside ordinary deterministic
+roundoff invalidates the repair.
