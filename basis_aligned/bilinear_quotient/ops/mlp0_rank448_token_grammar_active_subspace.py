@@ -226,11 +226,12 @@ def _manual_logits(model, index):
 
 @torch.no_grad()
 def _score_wave(model, rows, programs, rung403, device):
-    totals = {"native": 0.0, **{name: 0.0 for name in programs}}
+    # Match rung403/404 exactly: mean token CE inside each document in float32,
+    # convert each document mean to a Python float, then pool in float64.
+    document_ce = {"native": [], **{name: [] for name in programs}}
     calls = {name: 0 for name in programs}
     state_error = {name: 0.0 for name in programs}
     endpoint_error = {name: 0.0 for name in programs}
-    count = 0
     for start in range(0, len(rows), DOCUMENT_BATCH):
         batch = rows[start:start + DOCUMENT_BATCH]
         index = batch[:, :-1].to(device)
@@ -244,10 +245,10 @@ def _score_wave(model, rows, programs, rung403, device):
         handle = model.transformer.h[0].mlp.register_forward_hook(native_hook)
         logits = _manual_logits(model, index)
         handle.remove()
-        totals["native"] += float(F.cross_entropy(
-            logits[:, SCORING].reshape(-1, logits.shape[-1]).float(),
-            target[:, SCORING].reshape(-1), reduction="sum"))
-        count += target[:, SCORING].numel()
+        losses = F.cross_entropy(
+            logits[:, SCORING].transpose(1, 2), target[:, SCORING], reduction="none"
+        ).mean(1)
+        document_ce["native"].extend(float(loss) for loss in losses)
         for name, program in programs.items():
             def compact_hook(_module, args, output, name=name, program=program):
                 calls[name] += 1
@@ -262,17 +263,21 @@ def _score_wave(model, rows, programs, rung403, device):
             handle = model.transformer.h[0].mlp.register_forward_hook(compact_hook)
             logits = _manual_logits(model, index)
             handle.remove()
-            totals[name] += float(F.cross_entropy(
-                logits[:, SCORING].reshape(-1, logits.shape[-1]).float(),
-                target[:, SCORING].reshape(-1), reduction="sum"))
-    ce = {name: value / count for name, value in totals.items()}
+            losses = F.cross_entropy(
+                logits[:, SCORING].transpose(1, 2), target[:, SCORING], reduction="none"
+            ).mean(1)
+            document_ce[name].extend(float(loss) for loss in losses)
+    ce = {
+        name: float(torch.tensor(values, dtype=torch.float64).mean())
+        for name, values in document_ce.items()
+    }
     return {
         "ce": ce,
         "damage": {name: ce[name] - ce["native"] for name in programs},
         "calls": calls,
         "pre_mlp0_state_replay_max_abs_error": state_error,
         "compact_endpoint_duplicate_max_abs_error": endpoint_error,
-        "scored_positions": count,
+        "scored_positions": len(rows) * 192,
     }
 
 
