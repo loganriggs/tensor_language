@@ -1,0 +1,210 @@
+TRAIN MODE96 direct composite generator
+TRAIN HEAD64 matched-price headwise generator
+TRAIN PERMUTED source-identity control
+{
+  "status": "attention0_direct_composite_score_generator_complete",
+  "instrument": {
+    "checks": {
+      "role_hashes": true,
+      "document_disjoint": true,
+      "native_score_fold": true,
+      "r424_edge_bridge": true,
+      "r424_routed_bridge": true,
+      "finite_training": true,
+      "frequency_shapes": true,
+      "literal_price": true,
+      "poisoned_native_qk": true,
+      "literal_native_qk_calls": true
+    },
+    "native_score_fold_max_abs_by_branch": {
+      "1": 1.1102230246251565e-15,
+      "2": 8.881784197001252e-16
+    },
+    "r424_bridge_summed_edge_relative_mse": 0.009718029422911471,
+    "r424_bridge_routed_u16_r2": 0.9852544170556766,
+    "poisoned_native_qk_logits_relative_squared_error": 0.0,
+    "permuted_source_sha256": "bbdd5d75e1e507508b3aa07aaa57f2853c7f1115888dadb252400c02a6b07801"
+  },
+  "training": {
+    "MODE96": {
+      "initial_loss": 22.49709969997406,
+      "final_loss": 6.812390489578247,
+      "decrease_fraction": 0.69718805621926,
+      "gradient_max": 36645.8515625
+    },
+    "HEAD64": {
+      "initial_loss": 1.4815825986862183,
+      "final_loss": 1185198.8715527344,
+      "decrease_fraction": -799953.6381036738,
+      "gradient_max": 7909393.5
+    },
+    "PERMUTED": {
+      "initial_loss": 11.55216207742691,
+      "final_loss": 112.6327476119995,
+      "decrease_fraction": -8.749927923196775,
+      "gradient_max": 158046.0
+    }
+  },
+  "edge": {
+    "MODE96": {
+      "all": {
+        "mean_branch_relative_squared_error": 3.468233575367639,
+        "product_relative_squared_error": 10.390459528283136,
+        "individual_edge_relative_squared_error": 8.748210947155599,
+        "summed_edge_relative_squared_error": 7.1307268992445305
+      },
+      "heldout_token": {
+        "mean_branch_relative_squared_error": 2.630293932136785,
+        "product_relative_squared_error": 3.143225083111247,
+        "individual_edge_relative_squared_error": 3.919569956600339,
+        "summed_edge_relative_squared_error": 3.198414996534981
+      }
+    },
+    "HEAD64": {
+      "all": {
+        "mean_branch_relative_squared_error": 78.163381604736,
+        "product_relative_squared_error": 11649286.42016126,
+        "individual_edge_relative_squared_error": 1512894.2425695802,
+        "summed_edge_relative_squared_error": 1175168.8763405846
+      },
+      "heldout_token": {
+        "mean_branch_relative_squared_error": 25.62039274140071,
+        "product_relative_squared_error": 30007.14411079668,
+        "individual_edge_relative_squared_error": 4731.45838844344,
+        "summed_edge_relative_squared_error": 3580.567623457373
+      }
+    },
+    "MODE96_DERANGED": {
+      "all": {
+        "mean_branch_relative_squared_error": 3.4736596218512483,
+        "product_relative_squared_error": 16.539189060235476,
+        "individual_edge_relative_squared_error": 41.37771096171667,
+        "summed_edge_relative_squared_error": 32.640966689209385
+      },
+      "heldout_token": {
+        "mean_branch_relative_squared_error": 2.647969881467226,
+        "product_relative_squared_error": 3.2270082101476625,
+        "individual_edge_relative_squared_error": 4.599563689598435,
+        "summed_edge_relative_squared_error": 3.7379983644445245
+      }
+    },
+    "PERMUTED": {
+      "all": {
+        "mean_branch_relative_squared_error": 8.342862667605623,
+        "product_relative_squared_error": 234.8519100622069,
+        "individual_edge_relative_squared_error": 653.7961262803027,
+        "summed_edge_relative_squared_error": 523.3579031853875
+      },
+      "heldout_token": {
+        "mean_branch_relative_squared_error": 5.2565943212359505,
+        "product_relative_squared_error": 44.79062801620047,
+        "individual_edge_relative_squared_error": 64.79408628934713,
+        "summed_edge_relative_squared_error": 48.46826564235441
+      }
+    }
+  },
+  "document": {
+    "full_attention0_write_relative_squared_error": {
+      "MODE96": 4.864138389205007,
+      "HEAD64": 5144322.067483848,
+      "MODE96_DERANGED": 10.761197628523277,
+      "PERMUTED": 283.94804204875
+    },
+    "routed_u16_r2": {
+      "MODE96": -4.616666785973055,
+      "HEAD64": -1127374.3310043074,
+      "MODE96_DERANGED": -17.494074926989075,
+      "PERMUTED": -488.0595640620362
+    },
+    "consumer_r2": {
+      "MODE96": {
+        "mlp0": -0.1628169150324683,
+        "q1": -0.3591496124410878,
+        "k1": -0.5155694253205452,
+        "q2": -0.3833260969465069,
+        "k2": -0.5707407314544968,
+        "fresh_v": -0.524018699235413
+      },
+      "HEAD64": {
+        "mlp0": -0.8532137264211019,
+        "q1": -1.2518625791291402,
+        "k1": -2.6247870606140546,
+        "q2": -1.617329546876162,
+        "k2": -2.477502502635433,
+        "fresh_v": -1.9960687613919466
+      },
+      "MODE96_DERANGED": {
+        "mlp0": -0.3378425491946566,
+        "q1": -0.4856038958855735,
+        "k1": -0.6696885299531301,
+        "q2": -0.5009739204690122,
+        "k2": -0.7009768294174823,
+        "fresh_v": -0.6895533273696097
+      },
+      "PERMUTED": {
+        "mlp0": -0.5337605470730271,
+        "q1": -0.5599483907940421,
+        "k1": -1.4763727381910137,
+        "q2": -0.8181203272324773,
+        "k2": -1.5864321068651792,
+        "fresh_v": -1.2727320110511653
+      }
+    },
+    "mean_consumer_r2": {
+      "MODE96": -0.41927024673841967,
+      "HEAD64": -1.803460696177973,
+      "MODE96_DERANGED": -0.5641065087149107,
+      "PERMUTED": -1.0412276868678174
+    },
+    "ce": {
+      "native": {
+        "mean": 3.051129925996065,
+        "damage": 0.0,
+        "wave_damage": [
+          0.0,
+          0.0
+        ]
+      },
+      "MODE96": {
+        "mean": 4.08284351726373,
+        "damage": 1.031713591267665,
+        "wave_damage": [
+          1.0600477357705431,
+          1.0033794467647867
+        ]
+      },
+      "HEAD64": {
+        "mean": 5.142727653185527,
+        "damage": 2.0915977271894617,
+        "wave_damage": [
+          2.1234961599111557,
+          2.059699294467767
+        ]
+      },
+      "MODE96_DERANGED": {
+        "mean": 4.206395499408245,
+        "damage": 1.15526557341218,
+        "wave_damage": [
+          1.2212298214435577,
+          1.0893013253808022
+        ]
+      },
+      "PERMUTED": {
+        "mean": 4.592111083368461,
+        "damage": 1.5409811573723955,
+        "wave_damage": [
+          1.5847752441962557,
+          1.4971870705485344
+        ]
+      }
+    }
+  },
+  "pred_a": true,
+  "pred_b": false,
+  "pred_c": true,
+  "pred_d": true,
+  "strong_null": true,
+  "next_step": "explicit_shared_nonlinear_head_norm_generator",
+  "runtime_s": 26.996570110321045
+}
+ATTENTION0 DIRECT COMPOSITE SCORE GENERATOR DONE
