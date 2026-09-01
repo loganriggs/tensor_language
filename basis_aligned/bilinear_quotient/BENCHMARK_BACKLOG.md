@@ -4392,3 +4392,13 @@ later per-rung backlog edits had silently anchored on text that was not here.
   .047773/.086460/.134243; fresh.0125.
 - A/C/D held, B failed, strong null false. Parent-r392 CEV mean/max delta .006527/.117641; maximum exceeded frozen
   .100. No signed gate, rerun, threshold relaxation, or adoption. Move to L17 current-harness screen.
+### Rung 415 — physical current-harness MLP17 four-output/eight-square surrogate — COMPLETE / STRONG NULL
+
+- Dossier-controlled port of the old whole-layer object, distinct from output projection and activation-conditioned
+  Down rank. Fit-B only; fit-A/function-fresh/census/FineWeb/WikiText transfer; seed415 random-output same-price control.
+- Historical overlap CE3.55755478 reproduces exactly. Clean/random artifacts are exact14,984-value four-tensor
+  programs with no dense forms; factorization errors≈2.5e-8 and hooks/splits are live.
+- RUN: clean heldout/fresh R2 -29.685/-32.076; census+.303140/0; WT103 mean/p95/max.3920/.5511/.6915; fresh
+  mean/max.3145/.4747. Random census+.6013 but local R2≈-.05. A/D held, B/C failed, strong null true.
+- Close the clean whole-layer R4k2 L17 surrogate. No signed gate, composition, or rank/output tuning; retain only
+  the older Down-map/frequency-direction causal facts.

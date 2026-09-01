@@ -73,3 +73,19 @@ Do not run “L17 is low rank” again. A new L17 experiment must state exactly 
 The highest-information late-layer action is first to port the much stronger old L16 corrected-14,984-number surrogate to
 the current harness. Its outcome will tell us whether the old quadratic-form representation is a viable modern
 baseline or whether its apparent advantage was evaluation-specific.
+
+## Current-harness resolution — rung 415
+
+That prerequisite is now complete. L16 generalized, but the same clean-split physical object at L17 did not.
+The historical overlapping-row L17 CE reproduces exactly at3.55755478, and the executable factorization is exact:
+four output directions, eight signed squared projections, one constant,14,984 retained float32 values,no dense forms,
+and dense-to-factor error about2.5e-8.
+
+Fit only on FineWeb rows24:48, however, the clean L17 program has heldout/fresh local R2 of -29.685/-32.076,
+census damage+.303140 with0/62 certificates, WikiText mean damage+.3920, and FineWeb-fresh mean+.3145. A same-price
+random-output control is still worse in census (+.6013) but has local R2 near-.05, showing that the selected rank2
+forms are specifically distribution-fragile. The strong null fired.
+
+Therefore the overlap result is not evidence that MLP17 is a generalizing four-quadratic-function compiler. Close
+this whole-layer R4k2 family without rank or output tuning. The older activation-conditioned Down-map rank and its
+frequency-calibration causal direction remain valid narrower facts; they do not license a whole-layer replacement.
