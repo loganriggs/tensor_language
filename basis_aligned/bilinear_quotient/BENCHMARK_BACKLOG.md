@@ -4248,7 +4248,7 @@ later per-rung backlog edits had silently anchored on text that was not here.
   misses `.60`. The stable statement is token-grammar-led `T+I`, not interaction-only. Do not build the licensed
   I-only projection; compare joint T+I, I-only, T-only, and covariance objectives at equal rank/price.
 
-### Rung 405 — global T+I active-subspace rank448 screen — CLAIMED
+### Rung 405 — global T+I active-subspace rank448 screen — COMPLETE / STRONG NULL
 
 - Estimate exact output-Jacobian Grams for T and I with deterministic probes on the unchanged24 program-fit docs.
 - In the same normalized-input whitening frame, build equal-price T-only, I-only, equal-trace T+I, covariance, and
@@ -4257,3 +4257,9 @@ later per-rung backlog edits had silently anchored on text that was not here.
   Full registration: `MLP0_RANK448_TOKEN_GRAMMAR_ACTIVE_SUBSPACE_PREREGISTRATION.md`.
 - Screen only. Failure closes first-order active metrics and routes to direct nonlinear T+I fitting or a registered
   document-conditional state; no interaction-only or head-label tuning.
+- FINAL RUN 2026-09-01: after preserving two scoring-path-invalid receipts, the float32-logit/per-document/float64
+  repair reproduces every rung404 baseline wave exactly; A/D hold, B/C fail, null true. T-only lowers exact T MSE
+  6.9%, I-only lowers exact I MSE2.4%, and joint lowers their geometric mean4.56% (bar5%), but physical pooled CE is
+  covariance `.007107`, T `.007280`, I `.007106`, joint `.007357`; joint improves only2/4 waves. Random costs `.1956`.
+  Close these Euclidean T/I derivative metrics. Do not claim all p448 subspaces impossible; CE-Fisher weighting,
+  direct nonlinear fitting, and observable-state routing are mathematically different candidates.
