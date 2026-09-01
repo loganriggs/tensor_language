@@ -3690,3 +3690,9 @@ later per-rung backlog edits had silently anchored on text that was not here.
     fixed split-B context rank80 at all 440 maps, census/certs/fresh, untouched
     Wiki skip220000 tails, exact 526,078,262 bill and saved CEV.
     -> ops/mixed80_context_metric_qk_ood.py
+
+340. [CODEX, board-claimed 06:36Z] MLP0 QUADRATIC CONTRACTION COMMUTANT:
+    gauge-invariant planted-to-real screen on exact MLP0 quadratic function
+    tensor, exhaustive embedding PCA32, 12 output contractions, common-gauge
+    check and independent-conjugation spectral null; block/split/offblock bars.
+    -> ops/mlp0_embedding_fold_contraction_commutant.py
