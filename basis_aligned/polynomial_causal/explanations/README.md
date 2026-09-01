@@ -78,3 +78,4 @@ primary evidence.
 - [explanation_0033.md](explanation_0033.md) — the floor law: one delicate all-or-nothing trick in the small directions
 - [explanation_0130.md](explanation_0130.md) — the crooked measuring stick: path error may explain the floor
 - [explanation_0427.md](explanation_0427.md) — full-night wrap: one adopted artifact, mapped cliffs, two laws
+- [explanation_0530.md](explanation_0530.md) — context-metric law, ~1.3x tax constant, p640 dominance candidate
