@@ -5,6 +5,10 @@ negative at the registered joint-composition gate. The dossier below incorporate
 that result and motivates the matched local-loss versus suffix-loss transport test;
 no whole-model executable claim is made.*
 
+*2026-09-01 addendum: rung394 exhaustively measured the token-only bias-free-write removal response for all
+50,257 tokens. The new result is summarized in §13 below and supersedes the “small correction” intuition without
+changing the earlier contextual/compiler receipts.*
+
 ## Short version
 
 MLP0 is not best understood as assigning every token to one discrete class.
@@ -1005,6 +1009,30 @@ the operational definition of which MLP0 coordinates matter. Do not return to ML
 unless a downstream composition failure identifies a missing interface that MLP0's
 current program cannot express.
 
+## 13. Exhaustive token-only downstream-equivalence result (2026-09-01)
+
+Rung394 enumerated all 50,257 real tokens at sequence length one and removed only MLP0's bias-free write while
+holding the raw token vector, attention0 value, MLP0 bias, and block1 remix fixed. This is the first exhaustive test
+of what MLP0 adds beyond the architecture's explicit raw-token reinjection.
+
+Block1's raw-token coefficient is 8.0 while its incoming-state coefficient is .012695, but MLP0's output scale
+reverses the naive implication: after both coefficients are applied, the MLP0 term has 2.257 times the median norm
+of the raw term. Their median absolute cosine is only .21495. MLP0 therefore contributes a large distinct nonlinear
+token transform, not a small same-direction token copy.
+
+The exact causal response separates by consumer. Attention1 has rank90 156 and participation rank 17.36; MLP1 has
+rank90 734 and participation rank 121.83. A joined P256/k16 sparse code reaches only .3308 heldout response R²,
+near the dense write-PCA256 ceiling .3535 and only .0107 above an activation-only code. It is seed-stable, but it
+does not create the registered response-neighbor equivalence and no high-response/low-write pair crosses the frozen
+threshold. All four positives failed and the strong null stayed false.
+
+This result rejects one universal sparse token quotient for attention1 plus MLP1 and forbids immediate sparse-rank
+tuning or TT/X promotion. It does not prove the token-only write is uninterpretable. The next distinct question is
+whether that large write is a transformed representation from which exact token identity is linearly or
+orthogonally recoverable. If so, the token-private component can be explained as a coordinate conversion and the
+residual becomes the honest target for shared lexical features. If not, the token-specific quadratic map itself is
+the object that must be described.
+
 ## Related authoritative write-ups
 
 - `MLP0_QUOTIENT_STAGE0_V2_FINDINGS.md`
@@ -1013,3 +1041,4 @@ current program cannot express.
 - `MLP0_C512_MLP1_INTERCHANGE_V3_FINDINGS.md`
 - `MLP0_C512_MLP2_COMPENSATION_SPEC.md`
 - `MLP0_C512_MLP2_COMPENSATION_V2_FINDINGS.md`
+- `explanation_2026-09-01_1358.md`

@@ -4094,7 +4094,7 @@ later per-rung backlog edits had silently anchored on text that was not here.
 - Formally adopt the 495,847,230-scalar program only as a 17/62 lower-fidelity predictive, composable, and
   manipulable tier. Close the L16 chain and prioritize MLP0 token/downstream-equivalence work.
 
-### Rung 394 — exhaustive exact-token MLP0 downstream sparse code — QUEUED
+### Rung 394 — exhaustive exact-token MLP0 downstream sparse code — COMPLETE
 
 - Enumerate all 50,257 length-one token paths; delete only the bias-free MLP0 write while retaining identical raw
   x0, attention0 value, bias, and block1 remix; measure causal attention1+MLP1 response.
@@ -4102,3 +4102,9 @@ later per-rung backlog edits had silently anchored on text that was not here.
   score the untouched fifth against dense MLP0-write PCA and raw-x0 linear controls.
 - Require raw-token remix dominance, lower response than write effective rank, heldout joint response R2 advantage,
   seed/subspace stability, and response-neighbor advantage. Screen only; a full pass licenses live TT/TT-X transfer.
+- First attempt stopped at the first backward call because `main` was under `no_grad`; mechanical decorator repair
+  preserved all choices and reran. Final: all four predictions failed, null false. The scaled MLP0 term is 2.257x
+  the raw term at median norm, not a small copy; attention1 response is compact (rank90 156/PR17.36) but MLP1 is
+  broad (734/121.83), making the joined response rank90 841 versus write 601.
+- Joint sparse heldout R2 .3308 is only +.0107 over activation-only and +.0415 over shuffled, near dense-PCA256's
+  .3535 ceiling; seeds are stable but neighbor margins and discordant-pair test fail. No TT/X promotion or tuning.

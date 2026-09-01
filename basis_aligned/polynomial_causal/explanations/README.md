@@ -7,6 +7,9 @@ primary evidence.
 
 ## Start here
 
+- [`explanation_2026-09-01_1358.md`](explanation_2026-09-01_1358.md) — 2026-09-01 13:58 UTC exhaustive
+  MLP0 token-only causal-response result: the write dominates rather than copies the raw token, attention1 is compact,
+  MLP1 is broad, and one shared sparse downstream-equivalence code is rejected
 - [`explanation_2026-09-01_1319.md`](explanation_2026-09-01_1319.md) — 2026-09-01 13:19 UTC signed causal
   validation of the 14,984-value layer-16 quadratic program and the exact one-composition next step
 - [`explanation_2026-09-01_1241.md`](explanation_2026-09-01_1241.md) — 2026-09-01 12:41 UTC restart and
