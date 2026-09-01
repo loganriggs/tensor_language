@@ -1,4 +1,4 @@
-"""RUNG 284: remove the hidden block-1 value-table approximation from the full-rank path.
+"""RUNG 285: remove the hidden block-1 value-table approximation from the full-rank path.
 
 CONFOUND: the registered ct96/t120 CE vectors were nearly collinear, but the first full-rank path control
 itself costs +0.0520 CE and its vector has cosine 0.971/0.995 with ct96/t120. After path subtraction the
@@ -41,7 +41,7 @@ if os.environ.get('BQLIB_DRYRUN') == '1':
     if missing:
         print(f'DRYRUN FAIL: missing {missing}')
         raise SystemExit(1)
-    print('DRYRUN OK: rung 284 full QK path with a1v restored to native')
+    print('DRYRUN OK: rung 285 full QK path with a1v restored to native')
     raise SystemExit(0)
 
 sys.path.insert(0, str(ROOT))
