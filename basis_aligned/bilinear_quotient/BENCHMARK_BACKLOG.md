@@ -4205,3 +4205,9 @@ later per-rung backlog edits had silently anchored on text that was not here.
   inertness of the always-retained BF16 remainder are testable.
 - Exact diagnostic only. Sparse, stable carriage licenses source-position resolution of the fixed top heads;
   distributed/redundant carriage pivots to branch-resolved auditing of the adopted rank448 MLP0 context projection.
+- FIRST RUN 2026-09-01: instrument predicate A failed and the strong null fired, so head content is withheld pending
+  a same-rung mechanical repair. `FULL` reproduces the parent exactly and the semantic-plus-numerical interaction sum
+  has relMSE `2.24e-18`, but `ZERO_I` formed the same float interaction by summing ten terms before BF16 conversion;
+  it differed from the parent's one-tensor BF16 subtraction by `6.43e-5/1.04e-4` CE, above the frozen `1e-6` bar.
+  Repair only `ZERO_I` to subtract the already computed parent `I` tensor directly. No semantic arm, row, score, or
+  threshold changes. Preserve the first receipt/log and FORCE-rerun after gates.
