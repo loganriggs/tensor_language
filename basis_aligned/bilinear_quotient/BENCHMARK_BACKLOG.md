@@ -3017,6 +3017,10 @@ later per-rung backlog edits had silently anchored on text that was not here.
     ratio in [0.7,1.6]; pred_b Spearman in [0.45,0.85); pred_c census
     in [0.08,0.8]. Null: attn knockouts don't transfer.
     -> ops/ko_transfer_a16.py [QUEUED 01:22Z]
+    RUN 2026-09-01, S2368: 1/3, NULL TRIGGERED (overshoot): own ratio
+    2.404 (>2), census +0.0665 (below band), fingerprint compression-
+    like (rho 0.727). Frame-mixing confound flagged (real-frame mean at
+    a replaced site). Attn manipulability unproven pending diagnosis.
 
 269. Attn-side: a14 (1 own circuit). Same structure, census band
     [0.08,0.6]. -> ops/ko_transfer_a14.py [QUEUED 01:22Z]
