@@ -680,7 +680,7 @@ def main():
     calibration["local_forward_replay_max_abs"] = _native_forward_replay(
         model, select_rows, facade, device)
 
-    embedding = F.rms_norm(model.transformer.wte.weight.detach().float(), (D,))
+    embedding = F.rms_norm(model.transformer.wte.weight.detach().float(), (D,))[:VOCAB]
     payload_fold_error = _payload_exactness(model, embedding)
     interfaces = [("task", task_interface), *[
         (f"haar_{index}", interface) for index, interface in enumerate(haar_interfaces)]]
