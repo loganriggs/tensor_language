@@ -1,0 +1,326 @@
+{
+  "status": "mlp0_p448_joint_tucker_quadratic_producer_complete",
+  "rung": 411,
+  "claim_level": "heldout_executable_joint_tensor_price_screen_not_adoption",
+  "convention": "CE added above native; lower is better",
+  "authority": {
+    "source_documents": 384,
+    "train_documents_half_open": [
+      0,
+      192
+    ],
+    "evaluation_documents_half_open": [
+      192,
+      384
+    ],
+    "evaluation_waves": [
+      [
+        192,
+        288
+      ],
+      [
+        288,
+        384
+      ]
+    ],
+    "scoring_positions_half_open": [
+      64,
+      256
+    ],
+    "population_exact": true,
+    "loss_authority_exact": true,
+    "loss_tensor_sha256": "e6d92614ad4fbe5b6e63aa2939e7df6ecb197281c114aae9696baf3bc68ab082",
+    "baseline_saved_loss_max_abs_error": {
+      "NATIVE": 0.0,
+      "P448": 0.0,
+      "P640": 0.0
+    },
+    "FINAL_opened": 0
+  },
+  "programs": {
+    "source_checkpoint": {
+      "revision": "ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240",
+      "snapshot": "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240",
+      "config_sha256": "428042bfd807ba36f8b4326395440fbbebe52cd3d040212e6fef14a4fdf2d83c",
+      "weights_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+      "weights_bytes": 2067738635,
+      "tokenizer_vocab": 50257,
+      "logit_vocab": 50304
+    },
+    "evaluation_checkpoint": {
+      "revision": "ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240",
+      "snapshot": "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240",
+      "config_sha256": "428042bfd807ba36f8b4326395440fbbebe52cd3d040212e6fef14a4fdf2d83c",
+      "weights_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+      "weights_bytes": 2067738635,
+      "tokenizer_vocab": 50257,
+      "logit_vocab": 50304
+    },
+    "diagnostics": {
+      "448": {
+        "context_cov_retained_energy": 0.9011108875274658,
+        "rank": 448,
+        "context_cov_condition_after_floor": 3212.24560546875,
+        "covariance_floor": 8.654058837890625e-05
+      },
+      "494": {
+        "context_cov_retained_energy": 0.9164207577705383,
+        "rank": 494,
+        "context_cov_condition_after_floor": 3212.24560546875,
+        "covariance_floor": 8.654058837890625e-05
+      },
+      "552": {
+        "context_cov_retained_energy": 0.9326937794685364,
+        "rank": 552,
+        "context_cov_condition_after_floor": 3212.24560546875,
+        "covariance_floor": 8.654058837890625e-05
+      },
+      "638": {
+        "context_cov_retained_energy": 0.9518950581550598,
+        "rank": 638,
+        "context_cov_condition_after_floor": 3212.24560546875,
+        "covariance_floor": 8.654058837890625e-05
+      },
+      "640": {
+        "context_cov_retained_energy": 0.9522833228111267,
+        "rank": 640,
+        "context_cov_condition_after_floor": 3212.24560546875,
+        "covariance_floor": 8.654058837890625e-05
+      }
+    },
+    "exact": true
+  },
+  "output_basis": {
+    "sha256": "9367ae3cd67bf2369fbeacd6d62855223d2c60376f0fd4147f0b5b7779d742d3",
+    "training_retained_error_energy": 0.36661841744898277,
+    "orthogonality_max_abs": 8.093193173408508e-07
+  },
+  "joint_tensor": {
+    "uncentered_covariance_floor": 8.701451110839843e-05,
+    "square_inverse_max_abs_error": 2.2649765014648438e-06,
+    "full_form_sample_relative_mse": 3.3743469502812054e-12,
+    "one_mode_energy_retained": {
+      "96": 0.44172940083561385,
+      "160": 0.5576906548960688,
+      "226": 0.6465794503020245
+    },
+    "tied_two_mode_energy_retained": {
+      "96": 0.20942025939745773,
+      "160": 0.3296964781154578,
+      "226": 0.4361431316449012
+    },
+    "shared_directions_sha256": "c5f8880617e9b621d3b23eed9b2aa8a723dd65b884d6af4f72815497b73f2ff3",
+    "core_sha256": "8c01fbb3740b25744b42250bb5fac496fbef56921f42f292e155b6723736669a",
+    "haar_directions_sha256": "ec97c3af92ca0db923091290d409ee1279f32953551c88db6de8c09d068626d7"
+  },
+  "physical": {
+    "native_ce": 3.029153713290476,
+    "damage": {
+      "NATIVE": 0.0,
+      "P448": 0.007946509265893464,
+      "P494": 0.006051031033431187,
+      "P552": 0.004365235416227797,
+      "P638": 0.002820220940434215,
+      "P640": 0.00286791017503063,
+      "ORACLE64": 0.004769479165072976,
+      "FULL_ANALYTIC": 0.004963027594568459,
+      "TUCKER96": 0.007237970986498254,
+      "TUCKER160": 0.007152616936169753,
+      "TUCKER226": 0.006988561572412344,
+      "HAAR226": 0.007339010288556214,
+      "R24": 0.006928635183113929
+    },
+    "wave_damage": {
+      "NATIVE": [
+        0.0,
+        0.0
+      ],
+      "P448": [
+        0.008612539082635262,
+        0.007280479449151667
+      ],
+      "P494": [
+        0.0068134130811694504,
+        0.005288648985692923
+      ],
+      "P552": [
+        0.005036041620928966,
+        0.0036944292115270727
+      ],
+      "P638": [
+        0.0028863241814693907,
+        0.0027541176993999272
+      ],
+      "P640": [
+        0.002970703612074743,
+        0.0027651167379869612
+      ],
+      "ORACLE64": [
+        0.005497735227142808,
+        0.004041223103003144
+      ],
+      "FULL_ANALYTIC": [
+        0.005736136940715397,
+        0.004189918248421076
+      ],
+      "TUCKER96": [
+        0.00816613906774144,
+        0.006309802905255513
+      ],
+      "TUCKER160": [
+        0.007903652401318517,
+        0.006401581471020545
+      ],
+      "TUCKER226": [
+        0.0077502816465586655,
+        0.006226841498266467
+      ],
+      "HAAR226": [
+        0.00847410896075429,
+        0.0062039116163576935
+      ],
+      "R24": [
+        0.007630305673566262,
+        0.006226964692661152
+      ]
+    },
+    "coefficient_relative_mse_vs_deployed_oracle": {
+      "TUCKER96": 0.6368004045594243,
+      "TUCKER160": 0.485124013505158,
+      "TUCKER226": 0.3752856645880779,
+      "HAAR226": 0.8524162550732687,
+      "R24": 0.6004446913691205
+    },
+    "matched_covariance_minus_tucker_damage": {
+      "96": -0.0011869399530670677,
+      "160": -0.002787381519941956,
+      "226": -0.004168340631978129
+    },
+    "oracle_gain_recovery": {
+      "96": 0.2230190640032732,
+      "160": 0.2498850512995402,
+      "226": 0.3015230146021356
+    },
+    "calls": {
+      "NATIVE": {
+        "forwards": 48,
+        "attention": 864,
+        "site0": 48,
+        "other_mlp": 816
+      },
+      "P448": {
+        "forwards": 48,
+        "attention": 864,
+        "site0": 48,
+        "other_mlp": 816
+      },
+      "P494": {
+        "forwards": 48,
+        "attention": 864,
+        "site0": 48,
+        "other_mlp": 816
+      },
+      "P552": {
+        "forwards": 48,
+        "attention": 864,
+        "site0": 48,
+        "other_mlp": 816
+      },
+      "P638": {
+        "forwards": 48,
+        "attention": 864,
+        "site0": 48,
+        "other_mlp": 816
+      },
+      "P640": {
+        "forwards": 48,
+        "attention": 864,
+        "site0": 48,
+        "other_mlp": 816
+      },
+      "ORACLE64": {
+        "forwards": 48,
+        "attention": 864,
+        "site0": 48,
+        "other_mlp": 816
+      },
+      "FULL_ANALYTIC": {
+        "forwards": 48,
+        "attention": 864,
+        "site0": 48,
+        "other_mlp": 816
+      },
+      "TUCKER96": {
+        "forwards": 48,
+        "attention": 864,
+        "site0": 48,
+        "other_mlp": 816
+      },
+      "TUCKER160": {
+        "forwards": 48,
+        "attention": 864,
+        "site0": 48,
+        "other_mlp": 816
+      },
+      "TUCKER226": {
+        "forwards": 48,
+        "attention": 864,
+        "site0": 48,
+        "other_mlp": 816
+      },
+      "HAAR226": {
+        "forwards": 48,
+        "attention": 864,
+        "site0": 48,
+        "other_mlp": 816
+      },
+      "R24": {
+        "forwards": 48,
+        "attention": 864,
+        "site0": 48,
+        "other_mlp": 816
+      }
+    },
+    "calls_live": true,
+    "training_site0_calls": 48,
+    "state_replay_max_abs_error": 0.0,
+    "r410_r24_damage_reproduction_error": 0.0
+  },
+  "literal_price": {
+    "p448_values": 9954432,
+    "tucker_producer_values": {
+      "96": 482368,
+      "160": 1082432,
+      "226": 1975808
+    },
+    "p448_plus_tucker_values": {
+      "96": 10436800,
+      "160": 11036864,
+      "226": 11930240
+    },
+    "matched_covariance_total_values": {
+      "96": 10431360,
+      "160": 11032704,
+      "226": 11924352
+    },
+    "matched_covariance_ranks": {
+      "96": 494,
+      "160": 552,
+      "226": 638
+    },
+    "p640_values": 11945088,
+    "rank227_exceeds_p640_by_values": 832,
+    "symmetric_core_storage": true
+  },
+  "oracle_gain": 0.003177030100820488,
+  "selected_screen_rank": null,
+  "pred_a_authority_tensor_identity_and_prices_are_exact": true,
+  "pred_b_tucker226_enters_matched_price_contention": false,
+  "pred_c_shared_input_structure_is_more_efficient": false,
+  "pred_d_joint_tucker_is_specific_vs_haar_and_independent": false,
+  "null_no_joint_tucker_producer_beats_matched_covariance_rank": true,
+  "next_object": "close_low_rank_u64_quadratic_producer_family",
+  "adoption_licensed": false,
+  "runtime_s": 54.575682163238525
+}
+MLP0 p448 JOINT TUCKER QUADRATIC PRODUCER DONE
