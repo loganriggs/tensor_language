@@ -3978,3 +3978,8 @@ later per-rung backlog edits had silently anchored on text that was not here.
     error1.223, rho.9521, order18/18, so the model is identified—but exact4
     chooses the existing `{0:768,4:768}` at ratio1.000, and exact5 deepens
     layer4 to640 at ratio1.369. No build; current local rank grid is closed.
+
+376. [CODEX, board-claim 09:03Z] HELD-OUT SECOND CERTIFICATE MODE:
+    subtract fixed rung356 ray from three MLP-bearing saved-CEV vectors, fit
+    one residual direction, and test it on held-out QK72+MLP04; value96 is a
+    specificity control. Exact counts/tags/thresholds; no heldout refit.

@@ -1,0 +1,38 @@
+{
+  "status": "mlp_second_certificate_mode_transfer_complete",
+  "rung": 376,
+  "claim_level": "heldout_vector_valued_certificate_residual_screen",
+  "mode1_source": "frozen rung356 QK-only certificate ray",
+  "mode2_fit_programs": [
+    "qk56_mlp0_p512",
+    "qk64_mlp04_p768",
+    "qk64_mlp042_p768"
+  ],
+  "mode2_refit_on_heldout": false,
+  "train_residual_rank1_r2": 0.9351863540382478,
+  "train_leave_one_residual_cosines_abs": [
+    0.8927374842442415,
+    0.9155487331940608,
+    0.9132547131700437
+  ],
+  "heldout_residual_cosine_abs": 0.9319449938076417,
+  "heldout_fixed_ray": {
+    "r2": 0.9931609406061644,
+    "actual_certificates": 50,
+    "predicted_certificates": 49,
+    "certificate_count_error": 1
+  },
+  "heldout_two_mode": {
+    "r2": 0.999100810534459,
+    "actual_certificates": 50,
+    "predicted_certificates": 50,
+    "certificate_count_error": 0
+  },
+  "heldout_full_vector_r2_gain": 0.005939869928294539,
+  "value_control_residual_cosine_abs": 0.5256862743176612,
+  "tags_exact": true,
+  "pred_a_mlp_residual_has_stable_second_mode": true,
+  "pred_b_second_mode_predicts_heldout_mlp_vector": true,
+  "pred_c_second_mode_is_value_family_specific": false,
+  "null_no_useful_second_certificate_mode": false
+}
