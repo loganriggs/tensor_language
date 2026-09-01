@@ -265,10 +265,10 @@ def main():
     oracle_damage = float(eval_oracle.mean() - native_eval_ce)
     oracle_gain = i_damage - oracle_damage
     feature_used = set(int(value) for value in tree.tree_.feature if value >= 0)
-    internal_nodes = tree.tree_.node_count - tree.get_n_leaves()
+    internal_nodes = int(tree.tree_.node_count - tree.get_n_leaves())
     frequency_table_values = REAL_V if 3 in feature_used else 0
-    tree_values = 4 * internal_nodes + tree.get_n_leaves()
-    router_price = TWO_P448_VALUES + frequency_table_values + tree_values
+    tree_values = int(4 * internal_nodes + tree.get_n_leaves())
+    router_price = int(TWO_P448_VALUES + frequency_table_values + tree_values)
     tree_live = (
         0 < tree_summary["expert_use_fraction"]["I_active_p448"] < 1
         and not np.array_equal(tree_loss, eval_i))
