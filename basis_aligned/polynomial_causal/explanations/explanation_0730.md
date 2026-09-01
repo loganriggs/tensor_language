@@ -191,6 +191,25 @@ independent-fit WikiText mean was unstable. We therefore close simple four-state
 routers without tuning their state count or rank. A behavior-named state remains logically possible, but it needs
 an independent mechanistic reason for its state variable and expert grammar.
 
+### A different kind of win: physically storing Q/K factors in fp16
+
+The MDL calculation suggested changing precision, so we tested it rather than assuming it. The exact Q/K56 rank
+program was kept fixed, but its 31,539,200 factor scalars were stored as IEEE fp16 and explicitly converted to
+fp32 for the existing contractions. There are no learned quantization scales or extra tensors.
+
+The result is effectively identical to fp32 at every measured decision scale:
+
+- census damage `.0125043` versus `.0125078`;
+- census-vector mean absolute difference `.0001366`;
+- the same 43/62 certificates;
+- new shifted-text mean/p95/max `.00885/.03615/.07033`; and
+- every dtype, map-count, fit, active-set, scalar, and byte assertion passed.
+
+The scalar count remains 512,561,462, but literal storage falls to **1,871,225,452 bytes**, a **196,444,160-byte
+(9.50%)** saving from native and 63.1 MB more saving than fp32-Q/K56. This is now undergoing the signed intervention
+gate whose bars were frozen before the physical receipt landed. It improves storage, not execution latency: the
+current implementation dequantizes to fp32 for computation.
+
 The independent alternatives remain alive but ranked behind this bridge: an explicitly priced sparse-row repair
 for the promising shared vocabulary code; a vector-valued suffix-Jacobian objective for MLP0 tails; and a
 task-conditioned folded-MLP contraction/router whose state is named before fitting. The important methodological

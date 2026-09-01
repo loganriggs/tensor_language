@@ -3847,6 +3847,9 @@ later per-rung backlog edits had silently anchored on text that was not here.
     fixed gated QK56; store all 31,539,200 factor scalars fp16, dequantize for
     contractions; census/certs/fresh/CEV and WT103 tokens133640:164480.
     -> ops/mixed56_context_qk_fp16_storage_ood.py
+    RUN 2026-09-01: ALL HELD, null false. +.01250427/43, quant increment
+    -.00000352, CEV MAD .00013663, OOD .008849/.036152/.070332; exact
+    fp16 factors and 1,871,225,452 bytes. Advances frozen signed gate361.
 
 361. [CODEX, conditional board-claim 07:50Z] TIGHT SIGNED FP16-QK56 GATE:
     only after full rung360 pass; identical a16 intervention, fp16 storage
