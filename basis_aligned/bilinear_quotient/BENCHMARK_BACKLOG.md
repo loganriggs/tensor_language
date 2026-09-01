@@ -3038,11 +3038,38 @@ later per-rung backlog edits had silently anchored on text that was not here.
     RUN 2026-09-01: CRASHED on a malformed f-string key (chr(39)
     construction quoted the dict key) - print-line bug, no science.
     Fixed, re-queued 01:47Z.
+    RUN 2026-09-01, S2370: 0/3, null supported - config-frame mean
+    changed nothing (means nearly equal by arithmetic). PROVISIONAL
+    baseline-subtraction re-analysis flags a possible flip of the
+    two-regime law; physical control = 271/272 (different baseline).
+    Additivity receipt-check:
+    m16: additivity rho 0.970, median obs/(BL+real) 0.759
+    m13: additivity rho 0.970, median obs/(BL+real) 0.753
+    m14: additivity rho 0.965, median obs/(BL+real) 0.769
+    m17: additivity rho 0.920, median obs/(BL+real) 0.846
+    a16: additivity rho 0.957, median obs/(BL+real) 0.792
+    a14: additivity rho 0.957, median obs/(BL+real) 0.755
 
 271. Frame-rule replication: a14 config-frame knockout: pred_a own in
     [0.7,1.6]; pred_b era rho <= 0.45; pred_c census [0.08,0.6] +
     collateral >= 0.4. Null: overshoot persists.
     -> ops/ko_a14_cfgmean.py [QUEUED 00:58Z]
+    SUPERSEDED UNRUN (S2370: frame variable dead; builder had also
+    refused on an anchor). Rung numbers repurposed for the baseline
+    controls.
 
 272. Frame-rule replication: a17 config-frame knockout (fresh point):
     same bars, census band [0.08,1.0]. -> ops/ko_a17_cfgmean.py [QUEUED 00:58Z]
+    SUPERSEDED UNRUN (S2370: frame variable dead; builder had also
+    refused on an anchor). Rung numbers repurposed for the baseline
+    controls.
+
+271. ADDITIVITY CONTROL: m13 knockout on the CORNER baseline (mixed
+    subtracted values: own 0.486, collateral 0.903): pred_a subtracted
+    own in [0.24, 0.74]; pred_b subtracted rho >= 0.85; pred_c census
+    [0.08, 0.5]. Null: baseline-dependent - no correction publishes.
+    -> ops/ko_m13_corner.py [QUEUED 01:05Z]
+
+272. ADDITIVITY CONTROL: m16 on corner (mixed subtracted 0.755/0.934):
+    pred_a in [0.50, 1.00]; pred_b >= 0.85; pred_c [0.2, 5.0].
+    -> ops/ko_m16_corner.py [QUEUED 01:05Z]
