@@ -1,0 +1,678 @@
+{
+  "status": "mlp0_rank448_branch_error_factorial_complete",
+  "rung": 403,
+  "claim_level": "exact_fixed_compressor_branch_attribution_not_new_compression",
+  "convention": "CE added above native; lower is better",
+  "definition": {
+    "T": "compact-minus-native fixed-gain token-main branch",
+    "C": "compact-minus-native fixed-gain context-main branch",
+    "I": "compact-minus-native fixed-gain centered token-context interaction",
+    "S": "compact-minus-native normalization-gain modulation",
+    "A": "changed constant plus explicit vector-normalization residual plus BF16 closure"
+  },
+  "documents": {
+    "FIT": 96,
+    "SELECT": 96,
+    "FINAL_opened": 0
+  },
+  "positions_per_document": 192,
+  "program_identity": {
+    "fit_cache": "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache/fineweb_n192_skip11000.pt",
+    "fit_rows_half_open": [
+      0,
+      24
+    ],
+    "rank": 448,
+    "shapes": {
+      "encoder": [
+        448,
+        1152
+      ],
+      "left": [
+        4608,
+        448
+      ],
+      "right": [
+        4608,
+        448
+      ],
+      "down": [
+        1152,
+        4608
+      ],
+      "bias": [
+        1152
+      ]
+    },
+    "fit_diagnostic": {
+      "context_cov_retained_energy": 0.9010940194129944,
+      "rank": 448,
+      "context_cov_condition_after_floor": 3210.93798828125,
+      "covariance_floor": 8.654803466796874e-05
+    },
+    "rung328_retained_energy_target": 0.9011108875274658,
+    "literal_mlp0_values": 9954432,
+    "native_mlp0_values": 15926400,
+    "saving_values": 5971968
+  },
+  "parent_rung401_result": "/workspace/tensor_language/basis_aligned/bilinear_quotient/mlp0_centered_context_anova_exact_residual_results.json",
+  "parent_native_ce_difference": {
+    "FIT": 0.0,
+    "SELECT": 0.0
+  },
+  "roles": {
+    "FIT": {
+      "pooled_ce": {
+        "EMPTY": 3.0642469177643457,
+        "T": 3.06773200382789,
+        "C": 3.0656084244449935,
+        "T+C": 3.0694606378674507,
+        "I": 3.0695525457461676,
+        "T+I": 3.074265000720819,
+        "C+I": 3.0717429916063943,
+        "T+C+I": 3.076608163615068,
+        "S": 3.0650225778420768,
+        "T+S": 3.0685726379354796,
+        "C+S": 3.0654191548625627,
+        "T+C+S": 3.0688877205053964,
+        "I+S": 3.068370006978512,
+        "T+I+S": 3.072354984780153,
+        "C+I+S": 3.0694634740551314,
+        "T+C+I+S": 3.073310566445192,
+        "A": 3.0656640777985253,
+        "T+A": 3.068978250026703,
+        "C+A": 3.067046937843164,
+        "T+C+A": 3.0699084475636482,
+        "I+A": 3.0689181238412857,
+        "T+I+A": 3.0722865040103593,
+        "C+I+A": 3.070890076458454,
+        "T+C+I+A": 3.0741520673036575,
+        "S+A": 3.0663969293236732,
+        "T+S+A": 3.069891740878423,
+        "C+S+A": 3.0668438598513603,
+        "T+C+S+A": 3.069240480661392,
+        "I+S+A": 3.067722144226233,
+        "T+I+S+A": 3.0697818050781884,
+        "C+I+S+A": 3.068741845587889,
+        "T+C+I+S+A": 3.0710716396570206
+      },
+      "total_compact_ce_damage": 0.006824721892674912,
+      "shapley_ce_damage": {
+        "T": 0.003247469870580666,
+        "C": 0.0012113665127092557,
+        "I": 0.003695228447516797,
+        "S": -0.0010567282636959978,
+        "A": -0.000272614674435808
+      },
+      "mobius_ce_damage": {
+        "EMPTY": 3.0642469177643457,
+        "T": 0.0034850860635442515,
+        "C": 0.0013615066806478282,
+        "T+C": 0.00036712735891297754,
+        "I": 0.005305627981821992,
+        "T+I": 0.0012273689111070851,
+        "C+I": 0.0008289391795788248,
+        "T+C+I": -0.00021441032489066814,
+        "S": 0.0007756600777311107,
+        "T+S": 6.4974029858611e-05,
+        "C+S": -0.0009649296601619284,
+        "T+C+S": -0.0004486218094821304,
+        "I+S": -0.001958198845386949,
+        "T+I+S": -0.0007924512028689712,
+        "C+I+S": -0.00013204912344511044,
+        "T+C+I+S": 0.00015801936387838111,
+        "A": 0.0014171600341796875,
+        "T+A": -0.000170913835366715,
+        "C+A": 2.135336399078369e-05,
+        "T+C+A": -0.0008197898666062464,
+        "I+A": -0.0020515819390616308,
+        "T+I+A": -0.001173160970211029,
+        "C+I+A": -0.00023984660704901017,
+        "T+C+I+A": 0.0005606835087128559,
+        "S+A": -4.2808552583206705e-05,
+        "T+S+A": 0.00011566529671380721,
+        "C+S+A": 2.900014321038924e-05,
+        "T+C+S+A": -0.0001969064275435528,
+        "I+S+A": 2.936770518635612e-05,
+        "T+I+S+A": -0.0006969074408198495,
+        "C+I+S+A": 0.00011572738488396794,
+        "T+C+I+S+A": 0.000864031414190336
+      },
+      "named_positive_top_share": 0.45317624083094415,
+      "named_rank_order": [
+        "I",
+        "T",
+        "C",
+        "S"
+      ],
+      "factor_relative_squared_output_energy": {
+        "T": 0.026060215326666195,
+        "C": 0.012999800517069171,
+        "I": 0.029077130625972895,
+        "S": 0.004181510612667028,
+        "A": 0.004940533165792116
+      },
+      "diagnostics": {
+        "native_analytical_identity_relative_mse": 2.883668341101606e-13,
+        "compact_analytical_identity_relative_mse": 3.343819849611387e-13,
+        "native_endpoint_state_max_abs_error": 0.0,
+        "compact_endpoint_state_max_abs_error": 0.0,
+        "pre_mlp0_state_replay_max_abs_error": 0.0,
+        "live_census": true,
+        "scored_positions": 18432
+      },
+      "calls": {
+        "EMPTY": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "T": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "C": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "T+C": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "I": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "T+I": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "C+I": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "T+C+I": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "S": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "T+S": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "C+S": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "T+C+S": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "I+S": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "T+I+S": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "C+I+S": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "T+C+I+S": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "A": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "T+A": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "C+A": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "T+C+A": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "I+A": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "T+I+A": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "C+I+A": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "T+C+I+A": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "S+A": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "T+S+A": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "C+S+A": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "T+C+S+A": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "I+S+A": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "T+I+S+A": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "C+I+S+A": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "T+C+I+S+A": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        }
+      }
+    },
+    "SELECT": {
+      "pooled_ce": {
+        "EMPTY": 2.9596006025870643,
+        "T": 2.962100327014923,
+        "C": 2.9597233658035598,
+        "T+C": 2.9624544059236846,
+        "I": 2.967294342815876,
+        "T+I": 2.9706833784778914,
+        "C+I": 2.9690690798064074,
+        "T+C+I": 2.971738719691833,
+        "S": 2.9599112421274185,
+        "T+S": 2.9622838807602725,
+        "C+S": 2.959342082341512,
+        "T+C+S": 2.9618971732755504,
+        "I+S": 2.9655483228464923,
+        "T+I+S": 2.9672513753175735,
+        "C+I+S": 2.9650307819247246,
+        "T+C+I+S": 2.966642295320829,
+        "A": 2.9609245906273522,
+        "T+A": 2.9628858553866544,
+        "C+A": 2.9614053753515086,
+        "T+C+A": 2.9632238261401653,
+        "I+A": 2.9672506464024386,
+        "T+I+A": 2.9689724668860435,
+        "C+I+A": 2.9685287612179914,
+        "T+C+I+A": 2.969563774764538,
+        "S+A": 2.9613116110364595,
+        "T+S+A": 2.9627516667048135,
+        "C+S+A": 2.9607935398817062,
+        "T+C+S+A": 2.962146849681934,
+        "I+S+A": 2.96521437416474,
+        "T+I+S+A": 2.9662125930190086,
+        "C+I+S+A": 2.9644375244776406,
+        "T+C+I+S+A": 2.965098841736714
+      },
+      "total_compact_ce_damage": 0.005498239149649642,
+      "shapley_ce_damage": {
+        "T": 0.0018017470836639408,
+        "C": -0.00012451060530209722,
+        "I": 0.005768349580466674,
+        "S": -0.0019202484024896179,
+        "A": -2.7098506689256772e-05
+      },
+      "mobius_ce_damage": {
+        "EMPTY": 2.9596006025870643,
+        "T": 0.0024997244278588404,
+        "C": 0.00012276321649551392,
+        "T+C": 0.00023131569226597648,
+        "I": 0.007693740228811752,
+        "T+I": 0.0008893112341565867,
+        "C+I": 0.0016519737740359197,
+        "T+C+I": -0.000950711468855836,
+        "S": 0.0003106395403542628,
+        "T+S": -0.0001270857950048665,
+        "C+S": -0.0006919230024018397,
+        "T+C+S": -4.8863391081788166e-05,
+        "I+S": -0.0020566595097379903,
+        "T+I+S": -0.001558897395929737,
+        "C+I+S": -0.0016003549098972947,
+        "T+C+I+S": 0.000676720092695593,
+        "A": 0.0013239880402879933,
+        "T+A": -0.0005384596685567011,
+        "C+A": 0.00035802150766084395,
+        "T+C+A": -0.00037412966291183736,
+        "I+A": -0.0013676844537253707,
+        "T+I+A": -0.0011287555098538071,
+        "C+I+A": -0.0008546436826399884,
+        "T+C+I+A": 0.00040671850244367036,
+        "S+A": 7.638086875294547e-05,
+        "T+S+A": -0.00039412329594323836,
+        "C+S+A": -0.00030693287650818135,
+        "T+C+S+A": 0.00010493149360213394,
+        "I+S+A": -0.00036663313706775114,
+        "T+I+S+A": 0.0013565048575432392,
+        "C+I+S+A": 0.0005442462861551256,
+        "T+C+I+S+A": -0.00038288285335230654
+      },
+      "named_positive_top_share": 0.7619915354316203,
+      "named_rank_order": [
+        "I",
+        "T",
+        "C",
+        "S"
+      ],
+      "factor_relative_squared_output_energy": {
+        "T": 0.026482069197393272,
+        "C": 0.013952446756952876,
+        "I": 0.0305655583179361,
+        "S": 0.004694660319736236,
+        "A": 0.0049635227550919895
+      },
+      "diagnostics": {
+        "native_analytical_identity_relative_mse": 2.8937913862172505e-13,
+        "compact_analytical_identity_relative_mse": 3.3506595751667887e-13,
+        "native_endpoint_state_max_abs_error": 0.0,
+        "compact_endpoint_state_max_abs_error": 0.0,
+        "pre_mlp0_state_replay_max_abs_error": 0.0,
+        "live_census": true,
+        "scored_positions": 18432
+      },
+      "calls": {
+        "EMPTY": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "T": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "C": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "T+C": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "I": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "T+I": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "C+I": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "T+C+I": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "S": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "T+S": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "C+S": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "T+C+S": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "I+S": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "T+I+S": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "C+I+S": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "T+C+I+S": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "A": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "T+A": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "C+A": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "T+C+A": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "I+A": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "T+I+A": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "C+I+A": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "T+C+I+A": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "S+A": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "T+S+A": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "C+S+A": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "T+C+S+A": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "I+S+A": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "T+I+S+A": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "C+I+S+A": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        },
+        "T+C+I+S+A": {
+          "forwards": 24,
+          "attention": 432,
+          "site0": 24,
+          "other_mlp": 408
+        }
+      }
+    }
+  },
+  "named_fit_select_spearman": 0.9999999999999998,
+  "fit_total_damage": 0.006824721892674912,
+  "select_total_damage": 0.005498239149649642,
+  "select_top_named_branch": "I",
+  "auxiliary_dominates_named_magnitude": false,
+  "pred_a_exact_instrument_and_fixed_program_identity": false,
+  "pred_b_fixed_p448_remains_useful_on_grammar_rows": true,
+  "pred_c_token_main_is_leading_named_obstruction": false,
+  "pred_d_named_grammar_localizes_error_not_auxiliary": true,
+  "null_branch_audit_is_invalid_or_uninformative": true,
+  "next_object": null,
+  "rank_tuning_licensed": false,
+  "compression_or_adoption_licensed": false,
+  "checkpoint": {
+    "revision": "ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240",
+    "snapshot": "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240",
+    "config_sha256": "428042bfd807ba36f8b4326395440fbbebe52cd3d040212e6fef14a4fdf2d83c",
+    "weights_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+    "weights_bytes": 2067738635,
+    "tokenizer_vocab": 50257,
+    "logit_vocab": 50304
+  },
+  "runtime_s": 114.94395184516907
+}
