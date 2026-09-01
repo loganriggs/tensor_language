@@ -1,39 +1,3 @@
-ARM: context-QK80 + context-value96 + new shifted WikiText
-a2-input probe acc 0.69
-fit a2
-fit a3
-fit a4
-fit a5
-fit a6
-fit a7
-fit a8
-fit a9
-fit a10
-fit a11
-fit a12
-fit a13
-fit a14
-fit a15
-fit a16
-fit a17
-  cp_swap: front MLPs m0-m3 -> CP top-4608 in place (tailE remains table-front-fit)
-  value rank-96 context factors built for 144 heads
-  QK rank-80 factors built for all motif heads
-  QK rank-80 factors built for tail blocks 10-17
-  tail QK hooks registered (gated)
-L1 (+38 heads): C +0.2142 | fresh +0.2223
-  extra eval wikitext-2-raw-v1-test-skip270840: native 4.025893 compiled 4.035744 damage +0.00985114
-  window 0 (7 docs): L2 fresh +0.0086
-  window 1 (42 docs): L2 fresh +0.0109
-  window 2 (17 docs): L2 fresh +0.0146
-  window 3 (23 docs): L2 fresh +0.0113
-  window 4 (43 docs): L2 fresh +0.0108
-  window 5 (26 docs): L2 fresh +0.0128
-  window 6 (35 docs): L2 fresh -0.0111
-  window 7 (35 docs): L2 fresh +0.0096
-L2 empirical: C +0.0076 | fresh +0.0129 | tail-attn increment -0.2094
-(a) L2 <= +2.75 fresh: HELD
-(b) increment in [0.30,0.55]: FAILED
 {
   "status": "mixed80_context_qk_value96_context_ood_complete",
   "rung": 343,
@@ -57,6 +21,74 @@ L2 empirical: C +0.0076 | fresh +0.0129 | tail-attn increment -0.2094
   "shifted_damage_row_p50": 0.0076146917417645454,
   "shifted_damage_row_p95": 0.0314069464802742,
   "shifted_damage_row_max": 0.03717208653688431,
+  "shifted_damage_by_row": [
+    -0.013082802295684814,
+    0.011257746256887913,
+    0.007206373382359743,
+    0.0064717428758740425,
+    0.004405716899782419,
+    0.0002504021394997835,
+    0.01382489688694477,
+    0.010372588410973549,
+    0.0030809110030531883,
+    0.01336296834051609,
+    0.005121130030602217,
+    0.027168704196810722,
+    0.002140848897397518,
+    -0.008955471217632294,
+    -0.006070544011890888,
+    0.0021659391932189465,
+    0.02932346612215042,
+    0.006734292954206467,
+    0.002452131826430559,
+    0.023209188133478165,
+    0.03084726072847843,
+    -0.005563158541917801,
+    0.020242271944880486,
+    0.004347807727754116,
+    0.009664677083492279,
+    0.003435255493968725,
+    -0.007772669196128845,
+    0.008206488564610481,
+    0.026252789422869682,
+    0.03497465327382088,
+    0.03717208653688431,
+    0.007025549188256264,
+    0.014259274117648602,
+    0.0008309967815876007,
+    0.01975828967988491,
+    -0.0022167565766721964,
+    0.026080332696437836,
+    0.003983933944255114,
+    0.0002337342593818903,
+    0.00802300963550806,
+    0.004429068882018328,
+    0.004500076174736023,
+    0.009636767208576202,
+    -0.0023482926189899445,
+    0.0015744306147098541,
+    0.008301801048219204,
+    0.013843557797372341,
+    0.01759636588394642,
+    0.011785022914409637,
+    0.021403035148978233,
+    -0.00514159444719553,
+    0.005629576742649078,
+    0.015622945502400398,
+    0.013270486146211624,
+    0.018248604610562325,
+    0.03308600187301636
+  ],
+  "fresh8": [
+    0.0086,
+    0.0109,
+    0.0146,
+    0.0113,
+    0.0108,
+    0.0128,
+    -0.0111,
+    0.0096
+  ],
   "max_fresh_damage": 0.0146,
   "qk_metric": "context_rrr",
   "qk_context_layers": [
@@ -121,4 +153,3 @@ L2 empirical: C +0.0076 | fresh +0.0129 | tail-attn increment -0.2094
   "null_context_value96_is_not_useful": false,
   "runtime_s": 136.0673384666443
 }
-wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/mixed80_context_qk_value96_context_ood_results.json and /workspace/tensor_language/basis_aligned/bilinear_quotient/cev_mixed80_context_qk_value96_context.pt
