@@ -4144,3 +4144,12 @@ later per-rung backlog edits had silently anchored on text that was not here.
   remaining joined error versus -0.17% shuffled; aligned Q|M recovers 47.95% versus 4.26% shuffled. Attention1
   recoveries are 73.51%/63.52%, exposing a consumer split. Wrong-token full write R2 .91539. Route to validated
   consumer-effect token interchange; no live context transfer.
+
+### Rung 398 — far-action downstream-equivalence physical interchange — QUEUED
+
+- Use mod5 fitting tokens only as donors and heldout tokens as receivers. For L and Q separately, select donors by
+  conditional attention1/MLP1 effect while requiring component cosine <=.50, then physically swap the component.
+- Cross-validate attention-selected donors in MLP1 and MLP-selected donors in attention1; compare raw-embedding,
+  action-nearest, and random donor controls. Report widespread both-consumer preservation and decoded examples.
+- Pass identifies token-effect equivalence despite different storage directions. Failure keeps exact token identity
+  and routes to reader-weighted quadratic spectra. No context or compression license.
