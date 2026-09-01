@@ -399,16 +399,25 @@ def main():
     fit_rows = rows_parent.load_role(receipt["entries"]["FIT"])
     select_rows = rows_parent.load_role(receipt["entries"]["SELECT"])
     device = torch.device("cuda")
-    model, checkpoint = facade.load_bilin18(device=device, dtype=torch.bfloat16)
 
     cached = torch.load(FIT_CACHE, map_location="cpu")
     cached = cached["rows"] if isinstance(cached, dict) else cached
     program_fit_rows = cached[FIT_SLICE[0]:FIT_SLICE[1], :257].long().contiguous()
-    covariance = _covariance(model, program_fit_rows, _manual_logits)
+    # Rung328 built the adopted factors from the float32 reference model.  The
+    # grammar evaluation below is BF16, matching rung401, but refitting the map
+    # from that BF16 model changes both its covariance and weights.  Rebuild
+    # from the original float32 source, clone the physical factors, then free
+    # that source model before loading the unchanged BF16 evaluation model.
+    program_model, program_checkpoint = facade.load_bilin18(
+        device=device, dtype=torch.float32)
+    covariance = _covariance(program_model, program_fit_rows, _manual_logits)
     program, _basis, program_diagnostic = _rrr_program(
-        model.transformer.h[0].mlp, covariance, rank=RANK)
-    del covariance, _basis
+        program_model.transformer.h[0].mlp, covariance, rank=RANK)
+    program = {name: value.detach().clone() for name, value in program.items()}
+    del covariance, _basis, program_model
     torch.cuda.empty_cache()
+
+    model, checkpoint = facade.load_bilin18(device=device, dtype=torch.bfloat16)
 
     native_factors = {
         "left": model.transformer.h[0].mlp.Left.weight.detach().float(),
@@ -518,6 +527,9 @@ def main():
         "program_identity": {
             "fit_cache": str(FIT_CACHE),
             "fit_rows_half_open": list(FIT_SLICE),
+            "program_source_dtype": "float32_as_in_rung328",
+            "grammar_evaluation_dtype": "bfloat16_as_in_rung401",
+            "program_source_checkpoint": program_checkpoint.__dict__,
             "rank": RANK,
             "shapes": {name: list(shape) for name, shape in observed_shapes.items()},
             "fit_diagnostic": program_diagnostic,

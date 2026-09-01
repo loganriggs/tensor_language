@@ -4225,3 +4225,8 @@ later per-rung backlog edits had silently anchored on text that was not here.
 - Exact endpoints, map identity, live census, price, transported Shapley damage, concentration, and strong null are
   frozen in `MLP0_RANK448_BRANCH_ERROR_FACTORIAL_PREREGISTRATION.md`.
 - Diagnostic only. The winning stable branch selects a new object; no rank tuning or compressor/adoption license.
+- FIRST RUN 2026-09-01: A failed and strong null fired solely because p448 was inadvertently rebuilt from the BF16
+  grammar model: covariance retained energy `.9010940` misses rung328's float32 `.9011109` by `1.69e-5`. Native and
+  compact analytical identities were `2.9e-13/3.3e-13`, both endpoints and parent CEs exact, and all calls live, but
+  content remains unpublished. Same-rung repair reconstructs factors from the original pinned float32 source model,
+  then evaluates unchanged BF16 arms. No stored historical factor tensor exists; first receipt is commit `e40f9f57`.
