@@ -4157,3 +4157,11 @@ later per-rung backlog edits had silently anchored on text that was not here.
   not raw/action neighbors; 5.30% of one route preserves both consumers >=.80 across7,000 donors. Q cross-consumer
   transfer .338/.697 is asymmetric with negative selected MLP R2, and only .43%–1.44% preserve both consumers.
   Local semantic pairs exist, but global equivalence is unsupported. Retain exact identity; route to Q spectra.
+
+### Rung 399 — consumer-aware quadratic-residual action spectra — QUEUED
+
+- Fit mod5-train-only Q-whitened action directions from attention1, MLP1, balanced joint, and shuffled-joint
+  conditional effects. Reconstruct heldout Q at frozen ranks16/64/256/512 and physically inject after M+L.
+- Compare equal-rank ordinary Q-PCA, require full-rank exactness, and price literal per-token codes plus decoder.
+- A response-aware win licenses one fixed Q-table rank confirmation. Failure retains exact Q or ordinary PCA as
+  measured; no token grouping or context transfer.
