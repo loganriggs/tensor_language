@@ -504,11 +504,17 @@ def main():
     mod2=sys.modules[type(m.transformer.h[0].attn).__module__]
     are=mod2.apply_rotary_emb
     T=256
-    def head_z(at,X2,v1):
+    def head_z(at,X2,v1,li=None):
         B=X2.shape[0]
         q=at.c_q(X2).view(B,T,9,128); k=at.c_k(X2).view(B,T,9,128)
         q2=at.c_q2(X2).view(B,T,9,128); k2=at.c_k2(X2).view(B,T,9,128)
-        v=at.c_v(X2).view(B,T,9,128)
+        if li is not None and li in SEL.get('_VR',{}):
+            v=torch.zeros(B,T,9,128,device=DEV,dtype=X2.dtype)
+            Xf=X2.float()
+            for hd,(left_v,right_v) in SEL['_VR'][li].items():
+                v[:,:,hd]=((Xf@right_v.T)@left_v.T).to(X2.dtype)
+        else:
+            v=at.c_v(X2).view(B,T,9,128)
         if v1 is None: v1=v
         vm=(1-at.lamb)*v+at.lamb*v1.view_as(v)
         cos,sin=at.rotary(q)
@@ -543,7 +549,7 @@ def main():
         num=torch.zeros(9,device=DEV); den=torch.zeros(9,device=DEV)
         nums=torch.zeros(9,device=DEV); dens=torch.zeros(9,device=DEV)
         for X2,v1 in zip(caps[li]['x'],caps[li]['v1']):
-            z,vm=head_z(at,X2,v1)
+            z,vm=head_z(at,X2,v1,li)
             vp=torch.zeros_like(vm); vp[:,1:]=vm[:,:-1]
             vp=vp.permute(0,2,1,3); vs=vm.permute(0,2,1,3)
             num+=(z*vp).sum((0,2,3)); den+=(vp*vp).sum((0,2,3))
@@ -555,7 +561,7 @@ def main():
             _AG={('p',hd):None for hd in _ph9}; _AG.update({('s',hd):None for hd in _sh9})
             _BG={k:None for k in _AG}
             for X2,v1 in zip(caps[li]['x'],caps[li]['v1']):
-                z,vm=head_z(at,X2,v1)
+                z,vm=head_z(at,X2,v1,li)
                 vp=torch.zeros_like(vm); vp[:,1:]=vm[:,:-1]
                 vp=vp.permute(0,2,1,3); vs=vm.permute(0,2,1,3)
                 _HDim=z.shape[3]
@@ -576,6 +582,36 @@ def main():
                 _WR[_k9]=(_U[:,:8]*_S9[:8])@_Vh9[:8]
             SEL.setdefault('_WR',{})[li]=_WR
         caps[li]=None
+    if SEL.get('value_r'):
+        _value_rank=int(SEL['value_r'])
+        _value_context=SEL.get('value_context_covariances')
+        if not _value_context:
+            raise ValueError('value_r requires value_context_covariances')
+        SEL['_VR']={}
+        SEL['_VALUE_METRIC']='context_rrr'
+        SEL['_VALUE_CONTEXT_LAYERS']=tuple(sorted(int(x) for x in _value_context))
+        for _li,_cov0 in sorted(_value_context.items()):
+            if int(_li) not in range(2,18):
+                raise ValueError(f'bad value context layer {_li}')
+            _cov=_cov0.to(DEV).float()
+            if _cov.shape != (D,D):
+                raise ValueError(f'bad value context covariance layer {_li}: {_cov.shape}')
+            _ev,_evec=torch.linalg.eigh(0.5*(_cov+_cov.T))
+            _ord=torch.argsort(_ev,descending=True); _ev=_ev[_ord]; _evec=_evec[:,_ord]
+            _floor=float(_ev[0])*1e-6; _safe=_ev.clamp_min(_floor)
+            _sqrt=(_evec*_safe.sqrt())@_evec.T
+            _invsqrt=(_evec*_safe.rsqrt())@_evec.T
+            _weight=m.transformer.h[int(_li)].attn.c_v.weight.detach().float()
+            _heads={}
+            for _hd in range(9):
+                _map=_weight[_hd*128:(_hd+1)*128]
+                _u,_s,_vh=torch.linalg.svd(_map@_sqrt,full_matrices=False)
+                _heads[_hd]=((_u[:,:_value_rank]*_s[:_value_rank]).contiguous(),
+                             (_vh[:_value_rank]@_invsqrt).contiguous())
+            SEL['_VR'][int(_li)]=_heads
+        print(f'  value rank-{_value_rank} context factors built for '
+              f'{sum(len(x) for x in SEL["_VR"].values())} heads',flush=True)
+
     if SEL.get('qk_r'):
         _r=int(SEL['qk_r'])
         SEL['_QKR']={}
@@ -681,7 +717,7 @@ def main():
                     if not SEL.get('qk_tail_on'): return None
                     y,v1r=out
                     X2=args[0]; v1=args[1] if args[1] is not None else v1r
-                    z,vm=head_z(at,X2,v1)
+                    z,vm=head_z(at,X2,v1,li)
                     zq=qkz(at,X2,li,vm)
                     B=X2.shape[0]
                     ynew=at.c_proj(zq.transpose(1,2).contiguous().view(B,T,-1).to(X2.dtype))
@@ -699,7 +735,7 @@ def main():
             def h(mo_,args,out,at=at,ph=ph,sh=sh,ap=ap,asf=asf,li=li):
                 y,v1r=out
                 X2=args[0]; v1=args[1] if args[1] is not None else v1r
-                z,vm=head_z(at,X2,v1)
+                z,vm=head_z(at,X2,v1,li)
                 vp=torch.zeros_like(vm); vp[:,1:]=vm[:,:-1]
                 vp=vp.permute(0,2,1,3); vs=vm.permute(0,2,1,3)
                 if SEL.get('qk_r'):
