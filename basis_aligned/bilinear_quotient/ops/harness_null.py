@@ -1,13 +1,17 @@
-"""REGISTERED CLAIM: CORNER + TAIL r96 (rung 248) - the 11-certificate point becomes official.
+"""HARNESS NULL (rung 283): NO replacements installed at all - the instrument's own baseline.
 
-CONVENTION (S2135): CE added above the real model; LOWER IS BETTER. S2346 measured {motifs exact, tail
-r96} at census +0.0553 / fresh +0.0565 / valid 11 (84.5M pattern values). Identical rebuild; claim bars
-registered, including the certificate count.
-REGISTERED PREDICTIONS (anchors: the S2346 receipt):
-  (a) REPRODUCTION: |census - 0.0553| <= 0.015.
-  (b) CERTIFICATES: valid >= 11.
-  (c) REPRODUCTION: |L2_F - 0.0565| <= 0.015.
-NULL: noise. PRICE: ~211M values. Self-reviewed."""
+CONVENTION (S2135): CE added above the real model; LOWER IS BETTER. Companion to the path controls
+(281/282): with skipset empty, motifs off, tail hooks off, exact MLPs, the config IS the real model run
+through the harness. Any nonzero census here is harness leakage, bounding what 281/282 can attribute to
+the factor path itself.
+REGISTERED PREDICTIONS: (a) |census| <= 0.003 (wobble); (b) valid >= 55 (zero damage -> members trivially
+inside their certificates); (c) |L2F| <= 0.005; cev saved.
+NULL: harness leaks (|census| > 0.01) - then the path controls measure harness + path jointly and the
+attribution needs a third design. DEAD-KNOB CAVEAT (S2371): if the off-knobs are silently dead, this run
+reproduces 282 instead - the preds themselves detect that (census would land at 282's value).
+PRICE: probe. Self-reviewed."""
+
+
 
 
 
@@ -33,7 +37,7 @@ if os.environ.get('BQLIB_DRYRUN')=='1':
     _miss=[f for f in _need if not os.path.exists(_bq+f)]
     if _miss:
         print(f'DRYRUN FAIL: missing {_miss}'); raise SystemExit(1)
-    print('DRYRUN OK: registered claim corner+tail96')
+    print('DRYRUN OK: harness null (no replacements)')
     raise SystemExit(0)
 import torch
 import torch.nn.functional as F
@@ -41,7 +45,7 @@ from bilin18_joint_removal import fwd, orth, m, FW, DEV
 from circuit_dictionary import classify, COMPS as TAILC, CLS
 D=1152; V=50257
 PT='/workspace/tensor_language/basis_aligned/bilinear_quotient/'
-OUT=PT+'cevdump_ct96_results.json'
+OUT=PT+'harness_null_results.json'
 CA,CB=300,512; R0,R1=120,300
 CONSTN={'digit','bclose','sentend','comma','name','rep'}
 CONSTK=[k for k,nm in enumerate(CLS) if nm in CONSTN]
@@ -669,7 +673,7 @@ def main():
         return hs2
     def evalV(TOK,N,active,mlayers):
         hs=install(active)+motif_hooks(mlayers)
-        ces=[]; final_states=[]
+        ces=[]
         for i in range(0,N,4):
             bb=TOK[i:i+4,:257].to(DEV)
             cur['idx']=bb[:,:-1].contiguous(); tg=bb[:,1:].reshape(-1)
@@ -680,15 +684,10 @@ def main():
             x0=x; v1=None
             for blk in m.transformer.h:
                 x,v1=blk(x,v1,x0)
-            hfinal=F.rms_norm(x,(D,))
-            if SEL.get('capture_final_state'):
-                final_states.append(hfinal.detach().to(torch.float16).cpu())
-            lg=(30*torch.tanh(m.lm_head(hfinal)/30)).float()
+            lg=(30*torch.tanh(m.lm_head(F.rms_norm(x,(D,)))/30)).float()
             ces.append(F.cross_entropy(lg.view(-1,lg.size(-1)),tg,
                                        reduction='none'))
         for h in hs: h.remove()
-        if SEL.get('capture_final_state'):
-            SEL['final_state']=torch.cat(final_states).reshape(-1,D).contiguous()
         return torch.cat(ces)
     def evalM(TOK,N,active,mlayers):
         hs=install(active)+motif_hooks(mlayers)
@@ -960,15 +959,15 @@ if __name__=='__main__':
     NFLAT=CN.nflat()
     ANCH=json.load(open(PT+'frontier_tail_traj_results.json'))
     SEL['mode']='norm'; SEL['K']=4608; SEL['K69']=4608; SEL['K69MAP']={}
-    SEL['skipset']=tuple(range(10,18)); SEL['motif_off']=(); SEL['clsdmg']=True; SEL['ext_rows']=CROWS
-    SEL['cp_swap']=4608; SEL['qk_r']=96; SEL['qk_rmap']={li:128 for li in range(2,10)}; SEL['qk_tail']=True; SEL['drop_tailE']=True
+    SEL['skipset']=(); SEL['motif_off']=tuple(range(2,10)); SEL['clsdmg']=True; SEL['ext_rows']=CROWS
+    SEL['cp_swap']=4608; SEL['qk_r']=128; SEL['qk_rmap']={li:128 for li in range(2,10)}; SEL['qk_tail']=False; SEL['drop_tailE']=True
     print('ARM: rank-16 QK patterns at ALL replaced heads, blocks 2-17 (dicts retired)',flush=True)
     main()
     if 'L2CF' not in SEL: raise SystemExit('INSTRUMENT FAIL: L2CF capture missing')
     L1F,L2C,L2F=SEL['L2CF']
     cev=SEL['cev']
-    torch.save(cev,PT+'cev_ct96.pt')
-    print('cev saved: cev_ct96.pt',flush=True)
+    torch.save(cev,PT+'cev_harnessnull.pt')
+    print('cev saved: cev_harnessnull.pt',flush=True)
     if cev.shape[0]!=NFLAT: raise SystemExit(f'INSTRUMENT FAIL: cev {cev.shape[0]} != {NFLAT}')
     d=cev.cpu()-CBASE
     agg=float(d.mean())
@@ -1010,9 +1009,9 @@ if __name__=='__main__':
               '1.5':sum(1 for x in ratios if x<1.5),'2.0':sum(1 for x in ratios if x<2.0),
               '3.0':sum(1 for x in ratios if x<3.0)}
     print(f'  median member/ref ratio {medrat:.3f}; tau-curve {taucurve}',flush=True)
-    pa=abs(agg-0.0553)<=0.015
-    pb=nv>=11
-    pc=abs(L2F-0.0565)<=0.015
+    pa=abs(agg)<=0.003
+    pb=nv>=55
+    pc=abs(L2F)<=0.005
     if abs(agg-1.9474)<1e-3:
         raise SystemExit('INSTRUMENT FAIL: OV residual inert (census unchanged)')
     res={'L2F_fresh':round(L2F,4),'L1F':round(L1F,4),'increment':round(inc,4),'census_agg':round(agg,4),
@@ -1023,7 +1022,7 @@ if __name__=='__main__':
          'self_reviewed':True,'runtime_s':round(time.time()-T00,1)}
     json.dump(res,open(OUT,'w'),indent=1)
     print(f"L2 fresh {L2F:+.4f} (was +1.8765); census {agg:+.4f} (was +1.9474); increment {inc:+.4f}; valid {nv}/{len(rows)}")
-    print(f"(a) |census {agg:+.4f} - 0.0553| <= 0.015: {'HELD' if pa else 'FAILED'}")
-    print(f"(b) valid {nv} >= 11; margin {medrat:.3f}: {'HELD' if pb else 'FAILED'}")
-    print(f"(c) |L2F {L2F:+.4f} - 0.0565| <= 0.015: {'HELD' if pc else 'FAILED'}")
+    print(f"(a) HARNESS NULL - |census {agg:+.4f}| <= 0.003: {'HELD' if pa else 'FAILED'}")
+    print(f"(b) valid {nv} >= 55; margin {medrat:.3f}: {'HELD' if pb else 'FAILED'}")
+    print(f"(c) |L2F {L2F:+.4f}| <= 0.005: {'HELD' if pc else 'FAILED'}")
     print(f'wrote {OUT} ({time.time()-T00:.0f}s)')

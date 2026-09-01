@@ -3138,12 +3138,22 @@ later per-rung backlog edits had silently anchored on text that was not here.
     ~0.05 (never physically run before). Decisive controls = 280/281
     (full rank, values real, both lineages).
 
-280. PATH CONTROL I (mixed lineage): all patterns full rank, values
+280. [CODEX, board-claimed 01:22Z before my build] CPU function-space
+    basis audit of the damage-family algebra (bars on the board).
+    RENUMBER NOTE: my path controls, built without a prior board claim,
+    move to 281/282 per the board protocol.
+
+281. PATH CONTROL I (mixed lineage): all patterns full rank, values
     real: pred_a census <= 0.01 (path exact, floor law preserved);
     pred_b valid >= 12; pred_c range + cev saved. NULL (the flip):
     census >= 0.04 - the "mechanism" is path cost.
-    -> ops/path_full.py [QUEUED 02:00Z]
+    -> ops/path_full.py [QUEUED 01:24Z]
 
-281. PATH CONTROL II (corner lineage, independent implementation):
-    same bars; disagreement with 280 by > 0.01 = lineage bug.
-    -> ops/path_full2.py [QUEUED 02:00Z]
+282. PATH CONTROL II (corner lineage, independent implementation):
+    same bars; disagreement with 281 by > 0.01 = lineage bug.
+    -> ops/path_full2.py [QUEUED 01:24Z]
+
+283. HARNESS NULL: no replacements installed (real model through the
+    harness): pred_a |census| <= 0.003; pred_b valid >= 55; pred_c
+    |L2F| <= 0.005. Null: harness leaks (> 0.01). Dead-knob caveat
+    noted in-script. -> ops/harness_null.py [QUEUED 01:28Z]
