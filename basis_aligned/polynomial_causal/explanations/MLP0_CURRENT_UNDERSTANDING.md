@@ -1127,6 +1127,32 @@ to audit prior attention0 work, then resolve `I` into attention-head/source-posi
 largest terms physically; a complementary adoption link is to measure which branch the already adopted rank448
 MLP0 context projection preserves or damages.
 
+## 15. Attention-head carriers of the centered interaction (2026-09-01)
+
+Rung402 uses the exact additivity of attention0's output projection. If `y_h` is head h's 128-coordinate pre-output
+state and `O_h` the corresponding output-projection column block, then `a_h=O_h y_h` and the context write is the sum
+of nine `a_h`, plus a separately retained BF16 arithmetic remainder. Since centered `I` is linear in context
+deviation, it decomposes exactly as `I=sum_h I_h+I_eps` without fitting a probe or choosing a basis.
+
+The repaired 21-arm assay keeps T/C/S and every numerical residual fixed and evaluates FULL, ZERO_I, NUMERIC,
+SINGLE_h, and DROP_h arms. Its first run is preserved as an instrument failure: summing ten float terms before BF16
+conversion made ZERO_I differ from the parent no-I boundary by `6.43e-5/1.04e-4` CE. The same-rung repair changed
+only ZERO_I to subtract the identical parent I tensor. The repaired FULL and ZERO_I parent differences are exactly
+0.0; I reconstruction relMSE is `2.24e-18`; BF16 head-write remainder relative squared energy is `2.75e-6`; the
+numerical-only interaction effect is `-.00030` nat on SELECT; and all live calls/states hold.
+
+Head3 is dominant and individually material: SELECT singleton/removal/endpoint-average benefits are
+`.09957/.04128/.07042` nat. Heads8 and7 follow at endpoint averages `.01696/.01660`; heads6,0,4 are smaller but
+nontrivial. The new ranking is stable across FIT/SELECT (Spearman `.9333`) and matches the old whole-head direct-cost
+ranking (Spearman `.9000`). Pred_a/b/d hold and the strong null is false.
+
+Pred_c honestly fails: positive top-two endpoint-average share is `.6224/.6046` on FIT/SELECT, below the frozen `.65`
+bar and far below the old whole-head map's `.883`. The exact mechanism is therefore not licensed as a two-head sparse
+router. Whole-head deletion overstated concentration because it changes every use of the attention write; isolated I
+has one dominant local head plus a stable distributed supporting tail. Per the frozen rule, do not expand only head3
+by source position. Next perform a branch-resolved physical audit of the rank448 MLP0 context program: determine
+whether its error lies in T, C, I, S, or their downstream composition before designing another compressor.
+
 ## Related authoritative write-ups
 
 - `MLP0_QUOTIENT_STAGE0_V2_FINDINGS.md`
@@ -1142,3 +1168,4 @@ MLP0 context projection preserves or damages.
 - `explanation_2026-09-01_1432.md`
 - `explanation_2026-09-01_1441.md`
 - `explanation_2026-09-01_1502.md`
+- `explanation_2026-09-01_1518.md`

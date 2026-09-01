@@ -5,8 +5,15 @@ project. Experimental protocols, numerical receipts, preregistrations, and strat
 review logs remain one directory above so that an explanation cannot be mistaken for
 primary evidence.
 
+House style: define every specialized term on first use, give its computational formula or procedure, expand
+abbreviations, and distinguish a diagnostic attribution from an executable compression. Numerical headlines should
+state what was actually measured and what unit is being used.
+
 ## Start here
 
+- [`explanation_2026-09-01_1518.md`](explanation_2026-09-01_1518.md) — 2026-09-01 15:18 UTC exact interaction-head
+  update with computational definitions: head3 is dominant and stable, but the two-head sparsity bar fails; the next
+  bridge to compression is a T/C/I/S-resolved audit of the rank448 shared-input program
 - [`explanation_2026-09-01_1502.md`](explanation_2026-09-01_1502.md) — 2026-09-01 15:02 UTC exact natural-context
   MLP0 grammar: token×context interaction is the largest causal role, combined context exceeds the token main
   effect, the normalization-residual repair closes at 2.9e-13, and the next object is a head/source-resolved interaction

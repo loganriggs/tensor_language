@@ -4193,7 +4193,7 @@ later per-rung backlog edits had silently anchored on text that was not here.
   SELECT roles are `I=1.53753 > T=1.49833 > C=.41773 > S=.06749`, with combined context `2.02275`. Exact causal
   attribution only; route to centered interaction `I`.
 
-### Rung 402 — centered token×context interaction head carriers — QUEUED
+### Rung 402 — centered token×context interaction head carriers — COMPLETE
 
 - Split attention0's native write exactly into nine output-projected head writes plus an always-retained BF16
   arithmetic remainder. By bilinearity, split rung401's centered `I` into nine semantic `I_h` terms plus a retained
@@ -4211,3 +4211,8 @@ later per-rung backlog edits had silently anchored on text that was not here.
   it differed from the parent's one-tensor BF16 subtraction by `6.43e-5/1.04e-4` CE, above the frozen `1e-6` bar.
   Repair only `ZERO_I` to subtract the already computed parent `I` tensor directly. No semantic arm, row, score, or
   threshold changes. Preserve the first receipt/log and FORCE-rerun after gates.
+- REPAIRED RUN 2026-09-01: A/B/D held, C failed, null false. FULL and ZERO_I now reproduce both parent boundaries
+  exactly; I sum relMSE `2.24e-18`, BF16 head remainder energy `2.75e-6`, numerical-only SELECT effect `-.00030`,
+  live census. Head3 is top on both roles, with SELECT singleton/removal/average `.09957/.04128/.07042`; split rho
+  `.9333`, old-direct-map rho `.9000`. But positive top2 share `.6224/.6046` misses the frozen `.65`: one dominant
+  head plus distributed tail, not a two-head program. Route to branch-resolved p448 MLP0 audit, not source positions.

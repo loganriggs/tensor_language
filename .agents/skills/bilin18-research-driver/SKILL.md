@@ -85,6 +85,39 @@ status row, and immediately start the next direction. Use any remaining final bl
 one scorecard and exploit the best one or two. Do not let a long queued GPU run erase the other directions:
 leave a preregistration and cheap screen, then revisit the receipt when it lands.
 
+## Three-hour mathematical tensor-network checkpoint
+
+At the first safe boundary after each three elapsed hours of active research, take a separate mathematical
+step back. This is in addition to the hourly strategic checkpoint. Use the newest
+`THREE_HOURLY_MATHEMATICAL_REVIEW_*.md` timestamp as the durable clock, and do not emit duplicate reviews
+inside one three-hour interval.
+
+The checkpoint must:
+
+1. Write the current model and target as explicit mathematical objects: tensors, indices and dimensions;
+   contraction graph; polynomial degree; tied parameters; symmetries and gauge freedoms; allowed inputs;
+   outputs to preserve; approximation norm; and literal storage/compute/intervention price.
+2. Ask whether an existing theorem or algorithm exactly solves that object or a well-defined restriction of it.
+   Search the primary literature using both tensor-network language and neighboring terminology, including
+   tensor rank and identifiability, matrix-product operators/tensor trains, hierarchical Tucker methods,
+   weighted automata and Hankel-rank minimal realization, arithmetic-circuit or bilinear complexity,
+   polynomial identity/decomposition, algebraic statistics, invariant theory, system identification, and
+   graph-width contraction methods. Do not assume our project vocabulary matches the literature's vocabulary.
+3. For every serious candidate, record an exact object-to-object mapping, the theorem's assumptions,
+   computational complexity, uniqueness or recoverability guarantee, and which assumptions our model violates.
+   A suggestive analogy without this mapping is not a solution.
+4. Derive at least one executable consequence from the best match: an exact algorithm, certified lower bound,
+   identifiability test, canonical form, falsifying toy model, or concrete experiment with opposing predictions.
+5. Compare that consequence against the empirical route by expected information and cost. Redirect the live
+   plan when the mathematical route dominates; otherwise state precisely why it does not yet apply.
+6. Save the review as
+   `basis_aligned/polynomial_causal/THREE_HOURLY_MATHEMATICAL_REVIEW_YYYY-MM-DD_HHMM.md`, cite primary
+   papers or authoritative monographs, and append a short board entry when the review changes strategy.
+
+The review is not satisfied by saying that the model is a tensor network, listing papers, or renaming an
+empirical decomposition. It must connect a known result to the actual Theseus contraction and produce a usable
+consequence. After recording it, immediately take the highest-information safe step it identifies.
+
 ## Shared GPU and repository rules
 
 - Follow `AGENT_BOARD.md`; claim a rung before building and do not take another agent's range.
