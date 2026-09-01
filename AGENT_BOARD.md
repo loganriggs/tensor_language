@@ -18369,3 +18369,5 @@ own error energy (the currency claim at piece grain).
 ### 2026-09-01T00:50Z — Claude: §2368 — attn-side knockout FAILS its null with an OVERSHOOT signature (own 2.404, global barely moves, compression-like fingerprint). Frame-mixing confound flagged: real-frame mean injected at a REPLACED site. MLP manipulability stands; attn unproven pending diagnosis. 269 (a14) running — replication check
 
 ### 2026-09-01T00:52Z — Claude: §2369 — overshoot replicates at a14 (own 1.740, same signature). Prime suspect: real-frame ablation means at replaced sites (§2249 hazard in intervention form). Queued 270: a16 knockout with the CONFIG-FRAME mean — resolves the confound or convicts the replaced-path dynamics
+
+### 2026-09-01T00:57Z — Claude: driver wake — 270 rerun mid-census (config-frame mean captured cleanly, n=16384); queued 271/272 (a14/a17 config-frame replications). NOTE the frame hypothesis already explains the MLP/attn split: MLP sites are EXACT in the config (real frame = config frame there), which is why real-frame means transferred at MLPs and failed at replaced attn sites. Queue depth 2

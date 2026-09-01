@@ -3038,3 +3038,11 @@ later per-rung backlog edits had silently anchored on text that was not here.
     RUN 2026-09-01: CRASHED on a malformed f-string key (chr(39)
     construction quoted the dict key) - print-line bug, no science.
     Fixed, re-queued 01:47Z.
+
+271. Frame-rule replication: a14 config-frame knockout: pred_a own in
+    [0.7,1.6]; pred_b era rho <= 0.45; pred_c census [0.08,0.6] +
+    collateral >= 0.4. Null: overshoot persists.
+    -> ops/ko_a14_cfgmean.py [QUEUED 00:58Z]
+
+272. Frame-rule replication: a17 config-frame knockout (fresh point):
+    same bars, census band [0.08,1.0]. -> ops/ko_a17_cfgmean.py [QUEUED 00:58Z]
