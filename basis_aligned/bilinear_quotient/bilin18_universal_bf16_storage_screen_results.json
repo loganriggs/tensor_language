@@ -1,0 +1,58 @@
+{
+  "status": "bilin18_universal_bf16_storage_screen_complete",
+  "rung": 362,
+  "claim_level": "two_corpus_global_precision_storage_screen_only",
+  "program": {
+    "storage": "all semantic tensors bfloat16",
+    "compute": "explicitly dequantized fp32 parameters",
+    "scales_or_codebooks": 0,
+    "semantic_scalars": 545902902,
+    "literal_raw_tensor_bytes": 1091805804,
+    "byte_saving_vs_native": 975863808,
+    "byte_saving_fraction_vs_native": 0.4719631232845144
+  },
+  "checkpoint": {
+    "entries": 218,
+    "native_scalars": 545902902,
+    "native_raw_tensor_bytes": 2067669612,
+    "source_dtype_scalars": {
+      "torch.float32": 487931904,
+      "torch.bfloat16": 57970998
+    },
+    "source_bfloat16_tensors_bit_exact": true,
+    "rounded_fp32_tensors_changed": 163,
+    "rounded_fp32_scalars_changed": 487924449,
+    "mean_abs_rounding_over_source_fp32_scalars": 0.00021042906984675096,
+    "names_and_shapes_exact": true
+  },
+  "evaluation": {
+    "fineweb_cache": "fineweb_n192_skip7000.pt",
+    "fineweb_rows_half_open": [
+      120,
+      160
+    ],
+    "wikitext103_train_token_span_half_open": [
+      164480,
+      174760
+    ],
+    "dataset_fingerprint": "7dabb830ac9ebb0d",
+    "source_token_count": 675457
+  },
+  "row_damage_summaries": {
+    "fineweb": {
+      "mean": 9.306073188781738e-05,
+      "p95": 0.0011044144630432125,
+      "max": 0.0014712810516357422
+    },
+    "wikitext": {
+      "mean": -0.0011334896087646484,
+      "p95": -0.00023277997970581126,
+      "max": 0.0001575946807861328
+    }
+  },
+  "pred_a_bf16_storage_preserves_mean_on_both_corpora": true,
+  "pred_b_bf16_storage_preserves_tails_and_transfers": true,
+  "pred_c_checkpoint_identity_and_two_byte_bill_hold": true,
+  "null_universal_bf16_storage_breaks_prediction": false,
+  "runtime_s": 9.433077812194824
+}

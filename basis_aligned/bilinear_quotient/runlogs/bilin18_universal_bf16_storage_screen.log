@@ -1,0 +1,28 @@
+universal_bf16 fineweb: {'mean': 9.306073188781738e-05, 'p95': 0.0011044144630432125, 'max': 0.0014712810516357422}
+universal_bf16 wikitext: {'mean': -0.0011334896087646484, 'p95': -0.00023277997970581126, 'max': 0.0001575946807861328}
+{
+  "summaries": {
+    "fineweb": {
+      "mean": 9.306073188781738e-05,
+      "p95": 0.0011044144630432125,
+      "max": 0.0014712810516357422
+    },
+    "wikitext": {
+      "mean": -0.0011334896087646484,
+      "p95": -0.00023277997970581126,
+      "max": 0.0001575946807861328
+    }
+  },
+  "dtype_scalars": {
+    "torch.float32": 487931904,
+    "torch.bfloat16": 57970998
+  },
+  "predicates": [
+    true,
+    true,
+    true
+  ],
+  "null": false,
+  "runtime_s": 9.433077812194824
+}
+BILIN18 UNIVERSAL BF16 STORAGE SCREEN DONE

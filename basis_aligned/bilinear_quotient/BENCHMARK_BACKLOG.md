@@ -3855,3 +3855,11 @@ later per-rung backlog edits had silently anchored on text that was not here.
     only after full rung360 pass; identical a16 intervention, fp16 storage
     identity/byte bill, and frozen rank56 .98/.30/.98 signed bars.
     -> ops/a16_transfer_mixed56_context_qk_fp16_storage.py
+    RUN 2026-09-01: ALL TIGHT BARS HELD, null false. cosine/error/norm
+    .981648/.236577/1.121547, rho .993469, own1.117394; exact fp16 bill.
+    Formally adopt 512,561,462 scalars / 1,871,225,452 bytes / +.01250427 /43.
+
+362. [CODEX, board-claimed 07:57Z] UNIVERSAL BF16-STORAGE/FP32-COMPUTE:
+    round every source-fp32 checkpoint tensor through bf16, preserve original
+    bf16 tensors; exact 2-byte/scalar bill; 40 FW + 40 new WT103 rows.
+    -> ops/bilin18_universal_bf16_storage_screen.py

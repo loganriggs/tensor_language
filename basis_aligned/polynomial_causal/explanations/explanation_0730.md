@@ -210,6 +210,12 @@ The scalar count remains 512,561,462, but literal storage falls to **1,871,225,4
 gate whose bars were frozen before the physical receipt landed. It improves storage, not execution latency: the
 current implementation dequantizes to fp32 for computation.
 
+That signed gate has now passed. The fp16 artifact's effect cosine/error/norm ratio is
+`.981648/.236577/1.121547`, collateral Spearman `.993469`, and a16-own median ratio `1.117394`. These are
+essentially the fp32-Q/K56 values and clear the same prospectively tightened bars. It is therefore formally adopted
+as the new **byte frontier**: 512,561,462 semantic scalars, 1,871,225,452 literal bytes, 43/62 certificates,
+shifted-text transfer, and preserved signed causal action. No int8 result or execution-speed gain is implied.
+
 The independent alternatives remain alive but ranked behind this bridge: an explicitly priced sparse-row repair
 for the promising shared vocabulary code; a vector-valued suffix-Jacobian objective for MLP0 tails; and a
 task-conditioned folded-MLP contraction/router whose state is named before fitting. The important methodological
