@@ -67,3 +67,4 @@ primary evidence.
 - [explanation_1935.md](explanation_1935.md) — the uniform grammar: one SVD rule retires the patchwork; error halved in a day
 - [explanation_2134.md](explanation_2134.md) — day close: error 33x down, first certificates, one grammar
 - [explanation_2333.md](explanation_2333.md) — allocation night: early blocks carry it, super-modular certificate
+- [explanation_0033.md](explanation_0033.md) — the floor law: one delicate all-or-nothing trick in the small directions

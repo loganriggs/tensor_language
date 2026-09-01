@@ -2974,3 +2974,7 @@ later per-rung backlog edits had silently anchored on text that was not here.
     0.012 (independent mechanisms); pred_b valid >= 20 (margins were
     tail-pinned); pred_c range. Null: cross-half overlap (>= 0.03) or
     ceiling stays. -> ops/motif_band_iso.py [QUEUED 00:30Z]
+    RUN 2026-09-01, S2363: 0/3, null dramatic - motif band alone costs
+    0.0589 (overlap ~0.047 with tail's 0.0553; both 0.0676). Mechanism
+    is MODEL-WIDE; ceiling pinned at ~11 regardless of deficiency
+    location. Floor law reframed.
