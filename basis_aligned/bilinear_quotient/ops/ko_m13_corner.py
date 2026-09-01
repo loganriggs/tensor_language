@@ -947,7 +947,7 @@ def main():
          'increment':round(inc,4),
          'orig_s312_a':bool(pa),'orig_s312_b':bool(pb)}
     print(f"(a) L2 <= +2.75 fresh: {'HELD' if pa else 'FAILED'}")
-    print(f"(b) subtracted collateral Spearman {_rhoK:.3f} >= 0.85: {'HELD' if pb else 'FAILED'}")
+    print(f"(b) increment in [0.30,0.55]: {'HELD' if pb else 'FAILED'}")
     out['fresh8']=W8RES
     out['runtime_s']=time.time()-t0
     return out
@@ -1054,6 +1054,6 @@ if __name__=='__main__':
     json.dump(res,open(OUT,'w'),indent=1)
     print(f"L2 fresh {L2F:+.4f} (was +1.8765); census {agg:+.4f} (was +1.9474); increment {inc:+.4f}; valid {nv}/{len(rows)}")
     print(f"(a) BASELINE-INDEPENDENT - subtracted own {_omed:.3f} in [0.24, 0.74]: {'HELD' if pa else 'FAILED'}")
-    print(f"(b) collateral Spearman {_rhoK:.3f} >= 0.8; margin {medrat:.3f}: {'HELD' if pb else 'FAILED'}")
+    print(f"(b) subtracted collateral Spearman {_rhoK:.3f} >= 0.85: {'HELD' if pb else 'FAILED'}")
     print(f"(c) ablated census {agg:+.4f} in [0.08, 0.5]: {'HELD' if pc else 'FAILED'}")
     print(f'wrote {OUT} ({time.time()-T00:.0f}s)')
