@@ -21,7 +21,7 @@ only explicitly priced small finite router states count as a structural decompos
 | 06:40–07:40 | Predictive causal-state quotient | Hankel/observable-rank screen with corpus/intervention stability | COMPLETED 03:26 |
 | 07:40–08:40 | Executable error contracts/lower bounds | Bound calibration against known rungs plus useful/impossible verdict | COMPLETED 03:31 |
 | 08:40–09:40 | Common comparison | Completed scorecard and confound audit | COMPLETED 03:42 |
-| 09:40–10:40 | Exploit best one or two | Decisive follow-up receipt and morning synthesis | IN PROGRESS (early start 03:42) |
+| 09:40–10:40 | Exploit best one or two | Decisive follow-up receipt and morning synthesis | COMPLETED 09:25 (early start 03:42) |
 
 ## Hourly checkpoint template
 
@@ -55,6 +55,17 @@ only explicitly priced small finite router states count as a structural decompos
 - Require planted-toy recovery before interpreting a real hierarchy or DAG.
 - Use only the managed GPU runner; claim board rungs before new GPU work.
 - At every boundary, write the checkpoint and take the next concrete step; a reminder alone is not progress.
+
+## Final rotation outcome — 09:25 UTC
+
+The six decision budgets, common scorecard, and exploit block are complete.  Error-contract/ray machinery and
+contextual bilinear input compression won.  Their exploit produced a fully gated three-point fidelity dial at
+62/50/43 certificates; the smallest point is511,758,646 semantic scalars /1,023,517,292 bytes.  Manual prefix,
+variable-rank MLP, value-rank, finite-router, native-sharing, and vocabulary adoption routes are prospectively
+closed at their stated scope.  A gauge-invariant Tucker toy passed; the real MLP0 invariant output mode is stable
+but missed its absolute compression bar, so the next session begins with a new joint core rather than a tuned rank.
+See `MORNING_SYNTHESIS_2026-09-01.md`, `explanations/explanation_0900.md`, and
+`NEXT_REPRESENTATION_DIRECTIONS_2026-09-01.md`.
 
 ### `03:02 UTC` — direction `6`
 
