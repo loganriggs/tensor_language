@@ -34,3 +34,9 @@ router-state negatives (298), support-index information cost (explanation_0239).
 
 Standing cross-refs: composition super-additivity (§2329/§2330) applies to ANY multi-module extrapolation;
 full standalone bills (rule 3) for every candidate; certificate battery is the tail-sensitivity detector.
+
+## Final compare-phase pass (03:47Z, run early to match Codex's early compare)
+Scorecard SIX_DIRECTION_COMPARISON_2026-09-01.md: CONFOUND AUDIT PASS. Rankings match the independent
+draft table; adoption gates subsume all seven checklist rules. Post-compare addendum: rung 304's null
+(rare-row residual dead; tail is diffuse, selections near-random-overlap) reverts the top route to
+shared-512 without tail patch — certificate battery (gate 2) is now decisive for direction 3.
