@@ -3086,6 +3086,9 @@ later per-rung backlog edits had silently anchored on text that was not here.
     pred_b subtracted rho >= 0.85; pred_c census [0.08,0.5]. Null:
     baseline-dependent - S2370 correction does not publish.
     -> ops/ko_m13_corner2.py [QUEUED 01:20Z]
+    RUN 2026-09-01, S2373: ALL HELD - tripwire passed (L2F 0.0601);
+    subtracted own 0.442 (mixed 0.486), rho 0.910 (mixed 0.903).
+    Baseline-independent at m13; m16 (274) decides publication.
 
 274. ADDITIVITY CONTROL v2: m16 on corner (mixed subtracted 0.755/
     0.934): pred_a in [0.50,1.00]; pred_b >= 0.85; pred_c [0.2,5.0].
