@@ -4365,3 +4365,21 @@ later per-rung backlog edits had silently anchored on text that was not here.
   p494/p552/p638 `.006051/.004365/.002820`; margins are negative by`.001187/.002787/.004168`. Tucker226 retains
   `.4361` tied energy, recovers30.2% oracle gain, barely beats Haar by`.000350`, and is worse than independent r24
   by`.000060`. No promotion or tuning; close fixed low-rank U64 quadratic producers.
+### Rung 412 — physical BF16 derived-MLP repair of the 43-certificate byte tier — COMPLETE / ALL HELD
+
+- Audited rungs368/369 against retained program tensors: their generated MLP0/4 p768 programs were float32 despite
+  the all-two-byte receipt field. Correct old executed bill to1,076,606,060 bytes; semantic results remain valid.
+- Rebuilt the identical source-BF16/QK64-fp16/MLP0/4-p768 artifact with all ten generated program tensors stored BF16
+  on CPU and dequantized fp32 by the existing runtime hook.
+- RUN: exact generated object26,544,384 values/53,088,768 bytes; exact whole bill511,758,646/1,023,517,292.
+  Census+.012331/43; new WT103 mean/p95/max+.008688/.035301/.063097; fresh max.0122; parent CEV mean/max change
+  .000563/.024158. A/B/C/D held, null false. Signed gate licensed.
+
+### Rung 413 — original-native signed gate for physical BF16 43-certificate tier — COMPLETE / ADOPTED
+
+- Apply the fixed original-native attention16 mean knockout to the exact rung412 artifact; freeze baseline,
+  source/QK/MLP physical identities, cosine/error/norm, collateral rank, own magnitude, and strong null.
+- RUN: baseline+.012331/43; signed cosine/error/norm .986522/.191608/1.086071; collateral Spearman.995714; own
+  median1.085469; exact MLP BF16 and whole bill identities. A/B/C held, null false.
+- Formal adoption restored at511,758,646 scalar values /1,023,517,292 bytes. Scope is stored tensors plus fp32
+  dequantized compute, not latency or native BF16 kernels.

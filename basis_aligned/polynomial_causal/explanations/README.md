@@ -11,6 +11,9 @@ state what was actually measured and what unit is being used.
 
 ## Start here
 
+- [explanation_2026-09-01_1743.md](explanation_2026-09-01_1743.md) — 2026-09-01 17:43 UTC answers the five
+  branch/decomposition/rank448/head-gauge/document-budget questions separately, records the low-rank quadratic
+  producer closure, and repairs the physical1.0235GB byte tier through prediction, OOD, and signed causal gates
 - [`explanation_2026-09-01_1643.md`](explanation_2026-09-01_1643.md) — 2026-09-01 16:43 UTC separates branch
   deletion, singleton, and Shapley CE importance; resolves the T/I/C/S priorities and rotary-constrained gauge;
   records the router null; shows one shared T+I output basis beats separate token/interaction bases; and closes
