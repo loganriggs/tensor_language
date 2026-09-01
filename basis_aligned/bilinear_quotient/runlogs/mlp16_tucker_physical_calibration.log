@@ -1,0 +1,92 @@
+{
+  "local_function_r2": {
+    "tucker": {
+      "heldout_r2": 0.8145577907562256,
+      "fresh_r2": 0.830626368522644
+    },
+    "product": {
+      "heldout_r2": -1.2160346508026123,
+      "fresh_r2": -1.351872444152832
+    },
+    "random_product": {
+      "heldout_r2": -1.4256000518798828,
+      "fresh_r2": -1.6094963550567627
+    }
+  },
+  "prices": {
+    "native_layer_scalars": 15926400,
+    "tucker_layer_scalars": 2065536,
+    "product_layer_scalars": 1991808,
+    "native_model_scalars": 545902902,
+    "tucker_model_scalars": 532042038,
+    "product_model_scalars": 531968310
+  },
+  "census": {
+    "tucker": {
+      "damage": 0.047796186059713364,
+      "mean_absolute_position_damage": 0.19357293844223022,
+      "certificates": 22,
+      "ray_projection_scale": 12.292380357317242,
+      "ray_cosine": 0.9815696149672866,
+      "ray_vector_r2": 0.8379125711368476,
+      "ray_predicted_certificates": 24,
+      "ray_certificate_count_error": 2
+    },
+    "product": {
+      "damage": 0.7523046135902405,
+      "mean_absolute_position_damage": 0.9959532618522644,
+      "certificates": 0,
+      "ray_projection_scale": 41.84240479523542,
+      "ray_cosine": 0.9688861485754595,
+      "ray_vector_r2": 0.7902700276451305,
+      "ray_predicted_certificates": 1,
+      "ray_certificate_count_error": 1
+    },
+    "random_product": {
+      "damage": 0.7515877485275269,
+      "mean_absolute_position_damage": 0.9900807738304138,
+      "certificates": 0,
+      "ray_projection_scale": 41.61442023851332,
+      "ray_cosine": 0.9722923835024406,
+      "ray_vector_r2": 0.8109302605900717,
+      "ray_predicted_certificates": 1,
+      "ray_certificate_count_error": 1
+    }
+  },
+  "transfer": {
+    "tucker": {
+      "wikitext103": {
+        "mean": 0.05451490116583434,
+        "p95": 0.08366618870250023,
+        "max": 0.09695755313805421
+      },
+      "fineweb_fresh": {
+        "mean": 0.053955847918276824,
+        "p95": 0.0819889210065412,
+        "max": 0.08306550351699116
+      }
+    },
+    "product": {
+      "wikitext103": {
+        "mean": 1.0739485148916288,
+        "p95": 1.3242570637899918,
+        "max": 1.3940388564806199
+      },
+      "fineweb_fresh": {
+        "mean": 0.7562806347879037,
+        "p95": 1.0743430270835574,
+        "max": 1.1210089624173634
+      }
+    }
+  },
+  "predicates": [
+    false,
+    false,
+    true,
+    true
+  ],
+  "product_pivot": false,
+  "strong_null": false,
+  "runtime_s": 42.9439902305603
+}
+L16 TUCKER PHYSICAL CALIBRATION DONE
