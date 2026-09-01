@@ -854,7 +854,11 @@ def main():
     if SEL.get('clsdmg'):
         _ROWS=SEL.get('ext_rows',FR)
         cur['clsmap']=classify2(_ROWS).to(DEV)
+        if SEL.get('ablate_on_census'):
+            SEL['abl_on']=True
         SEL['cev']=evalV(_ROWS,_ROWS.shape[0],order2,ML).detach().cpu()
+        if SEL.get('ablate_on_census'):
+            SEL['abl_on']=False
         SEL['clsflat']=cur['clsmap'].reshape(-1).cpu()
     if SEL.get('head16'):
         HD16=D//9
