@@ -1,0 +1,52 @@
+{
+  "status": "mlp_shared_input_svd_late_depth_control_complete",
+  "rung": "318B",
+  "claim_level": "late_depth_full_rank_instrument_and_capacity_diagnosis_only",
+  "convention": "CE added above native; lower is better",
+  "parent_result": "mlp_shared_input_svd_all_layers_screen_results.json",
+  "native_ce": {
+    "fineweb": 3.034735163052877,
+    "wikitext": 4.080948988596599
+  },
+  "wikitext_fingerprint": "a46124b21ac53738",
+  "arms": {
+    "15": {
+      "1024": {
+        "fineweb_damage": 0.09766189257303859,
+        "wikitext_damage": 0.12607192993164062
+      },
+      "1152": {
+        "fineweb_damage": 3.973642970223068e-08,
+        "wikitext_damage": 0.0
+      }
+    },
+    "16": {
+      "1024": {
+        "fineweb_damage": 0.6763383547465005,
+        "wikitext_damage": 1.1256670951843262
+      },
+      "1152": {
+        "fineweb_damage": -3.973643014631989e-08,
+        "wikitext_damage": 3.973642925814147e-08
+      }
+    },
+    "17": {
+      "1024": {
+        "fineweb_damage": 0.06086373329162598,
+        "wikitext_damage": 0.21704506874084473
+      },
+      "1152": {
+        "fineweb_damage": 0.0,
+        "wikitext_damage": 0.0
+      }
+    }
+  },
+  "p1024_layers_repaired_by_at_least_25pct": [],
+  "p1024_qualifying_layers": [],
+  "pred_a_full_rank_reconstruction_is_inert": true,
+  "pred_b_p1024_repairs_each_late_layer_materially": false,
+  "pred_c_two_late_layers_have_a_p1024_regime": false,
+  "null_late_depth_screen_invalid_or_irreducibly_sensitive": true,
+  "decision_rule": "diagnosis_only_no_late_layer_selection_for_composition",
+  "runtime_s": 8.300941944122314
+}
