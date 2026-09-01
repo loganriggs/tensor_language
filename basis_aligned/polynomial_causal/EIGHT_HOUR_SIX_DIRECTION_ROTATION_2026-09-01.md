@@ -465,3 +465,12 @@ Full ranking and adoption gates: `SIX_DIRECTION_COMPARISON_2026-09-01.md`.
   the apparent depth cliff.
 - Decision: physically compose fixed context-RRR `{15,16,17}@p768` with mixed104 and require census,
   certificates, fresh transfer, exact fit identity, maps, and 531,632,438-scalar bill before OOD.
+
+### `05:10 UTC` — exploit checkpoint `322`
+
+- Result: the physical late triple is `+.039485`, 28/62 certificates, fresh max `+.0536`; all positive predicates
+  fail, strong null false, maps/fit/bill identities exact.
+- Information gained: individual context metrics are not closed under serial composition. Each downstream factor
+  was fit on native inputs that its upstream replacements change; open-loop fitting is now the leading confound.
+- Decision: no pair/subset search. Refit causally in execution order—15 native, 16 under fitted15, 17 under
+  fitted15+16—then rerun the unchanged full triple and price. Require >=30% damage repair and +8 certificates.

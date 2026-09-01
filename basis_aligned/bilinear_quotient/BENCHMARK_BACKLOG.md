@@ -3554,3 +3554,11 @@ later per-rung backlog edits had silently anchored on text that was not here.
     compose {15,16,17}@p768 fit on frozen contextual covariance with mixed104;
     census, 62 certificates, fresh8, fit/map/QK identities, exact 531,632,438 bill.
     -> ops/mixed104_late_context_metric_input_triple.py
+    RUN 2026-09-01: all positive preds failed, null false. +.039485, 28 certs,
+    fresh max +.0536; identities/bill exact. Diagnose open-loop covariance:
+    downstream maps were fit before upstream replacements shifted their inputs.
+
+323. [CODEX, board-claimed 05:11Z] SEQUENTIAL CONTEXT-RRR LATE TRIPLE:
+    fit L15 on native contexts, L16 under fitted L15, L17 under fitted L15+16;
+    physically rerun unchanged {15,16,17}@p768 and 531,632,438 bill.
+    -> ops/mixed104_late_context_metric_input_triple_sequential.py

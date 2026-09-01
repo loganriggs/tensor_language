@@ -563,3 +563,14 @@ inputs concentrate 98.1--98.7% of their energy in 768 dimensions. All frozen pre
 structural statement is not “late MLPs are full rank”: their paired weights are Frobenius-full-rank but have a
 stable low-rank action under the actual input distribution. Promote the fixed `{15,16,17}@p768` context-metric
 triple to a physical mixed104 census/certificate/fresh/price gate at 531,632,438 scalars.
+
+The naive physical triple does not preserve that individual-site result. It lands `+.039485`, 28/62 certificates,
+and fresh max `+.0536`; all positive predicates fail, though the strong null does not. The likely confound is
+precise and testable: every covariance was fitted on native contexts, but replacing layer 15 changes the inputs
+on which the layer-16 map must act, and replacing 15+16 changes layer 17 again.
+
+Do not respond by searching late subsets. Keep `{15,16,17}` and the same literal price, but fit in execution order:
+fit 15 on native contexts, capture/factor 16 with the fitted 15 program active, then capture/factor 17 with 15+16
+active. A physical rerun must reduce census damage by at least 30% and recover eight certificates, as well as hit
+the absolute `<=+.025`/`>=38` screen. This distinguishes an open-loop metric error from irreducible nonlinear
+composition tax.
