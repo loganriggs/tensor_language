@@ -1,6 +1,24 @@
 {
   "status": "attention0_realized_edge_block_term_complete",
   "instrument": {
+    "checks": {
+      "u16_orthogonality": true,
+      "full_interface_ce": true,
+      "rank16_ce": true,
+      "haar_ce": true,
+      "local_forward_replay": true,
+      "payload_fold": true,
+      "response_gram_reproduction": true,
+      "edge_replay_max": true,
+      "edge_replay_relative": true,
+      "model_orthogonality": true,
+      "literal_price": true,
+      "fit_hash": true,
+      "select_hash": true,
+      "equal_edge_counts": true,
+      "disjoint_role_tensors": true
+    },
+    "model_orthogonality_max_abs": 3.5762786865234375e-07,
     "calibration": {
       "full": -3.8494666565469515e-08,
       "rank16": 0.10707569991548871,
@@ -27,65 +45,65 @@
     "edge_replay_relative_squared_after_remainder": 0.0
   },
   "fit_half_overlap": {
-    "score1": 0.9459691047668457,
-    "score2": 0.986024022102356,
-    "payload": 0.9059898853302002
+    "score1": 0.9415168762207031,
+    "score2": 0.9885551929473877,
+    "payload": 0.9022383093833923
   },
   "edge_metrics": {
     "marginal": {
-      "individual_relative_mse": 0.352593064343975,
-      "summed_relative_mse": 0.3167502001474989,
-      "summed_r2_zero_origin": 0.6832497998525011
+      "individual_relative_mse": 0.35259428377333885,
+      "summed_relative_mse": 0.3167531661393847,
+      "summed_r2_zero_origin": 0.6832468338606152
     },
     "joint": {
-      "individual_relative_mse": 0.014068434006758362,
-      "summed_relative_mse": 0.009717026309047362,
-      "summed_r2_zero_origin": 0.9902829736909526
+      "individual_relative_mse": 0.014221097907091949,
+      "summed_relative_mse": 0.009718029422911471,
+      "summed_r2_zero_origin": 0.9902819705770886
     },
     "deranged": {
-      "individual_relative_mse": 1.6323875353845847,
-      "summed_relative_mse": 1.630659340331758,
-      "summed_r2_zero_origin": -0.630659340331758
+      "individual_relative_mse": 1.6315117710114975,
+      "summed_relative_mse": 1.629768680959497,
+      "summed_r2_zero_origin": -0.6297686809594969
     }
   },
-  "joint_gain_over_marginal": 0.9693227461118493,
-  "joint_gain_over_deranged": 0.9940410445831865,
+  "joint_gain_over_marginal": 0.9693198665025021,
+  "joint_gain_over_deranged": 0.9940371725531072,
   "transport": {
     "routed_u16_r2": {
-      "marginal": 0.7078741712284853,
-      "joint": 0.9849729793659919,
-      "deranged": -0.7168447728223304
+      "marginal": 0.70787015066422,
+      "joint": 0.9852544170556766,
+      "deranged": -0.7181166138964059
     },
     "consumer_r2": {
       "marginal": {
-        "mlp0": 0.7506139321958745,
-        "q1": 0.7803228909765392,
-        "k1": 0.7647409258702498,
-        "q2": 0.7479446795460143,
-        "k2": 0.7497494109093349,
-        "fresh_v": 0.7590961682841807
+        "mlp0": 0.7506114196685308,
+        "q1": 0.7803203679667379,
+        "k1": 0.7647382999669475,
+        "q2": 0.7479420403553241,
+        "k2": 0.7497466543567846,
+        "fresh_v": 0.7590932423038607
       },
       "joint": {
-        "mlp0": 0.9926104194820918,
-        "q1": 0.9943148722488273,
-        "k1": 0.9927124861352591,
-        "q2": 0.9928179673774216,
-        "k2": 0.991684528077383,
-        "fresh_v": 0.9919986911220022
+        "mlp0": 0.9927814611411214,
+        "q1": 0.9944519779581448,
+        "k1": 0.992839905898063,
+        "q2": 0.9929946401555422,
+        "k2": 0.9918697891878537,
+        "fresh_v": 0.9921750401840731
       },
       "deranged": {
-        "mlp0": -0.43160775450521105,
-        "q1": -0.38102549639177297,
-        "k1": -0.5958689576891183,
-        "q2": -0.41737321483685674,
-        "k2": -0.5781720974524731,
-        "fresh_v": -0.5279560758830459
+        "mlp0": -0.4315878206584114,
+        "q1": -0.3806865043322296,
+        "k1": -0.5953727916419707,
+        "q2": -0.41703527291761855,
+        "k2": -0.5782260622436373,
+        "fresh_v": -0.5284278329913716
       }
     },
     "mean_consumer_r2": {
-      "marginal": 0.758744667963699,
-      "joint": 0.9926898274071642,
-      "deranged": -0.48866726612641304
+      "marginal": 0.7587420041030309,
+      "joint": 0.992852135754133,
+      "deranged": -0.4885560474642065
     },
     "ce": {
       "native": {
@@ -97,37 +115,37 @@
         ]
       },
       "marginal": {
-        "mean": 3.055485484500726,
-        "damage": 0.004355558504661072,
+        "mean": 3.0554855888088546,
+        "damage": 0.004355662812789429,
         "wave_damage": [
-          0.005020355184873093,
-          0.0036907618244490514
+          0.005020429690679062,
+          0.003690895934899796
         ]
       },
       "joint": {
-        "mean": 3.0513292526205382,
-        "damage": 0.00019932662447308402,
+        "mean": 3.0513299567004046,
+        "damage": 0.00020003070433949333,
         "wave_damage": [
-          0.0001268188158669581,
-          0.00027183443307876587
+          7.887681325291496e-05,
+          0.0003211845954260717
         ]
       },
       "deranged": {
-        "mean": 3.6016791872680187,
-        "damage": 0.5505492612719536,
+        "mean": 3.6018067821860313,
+        "damage": 0.5506768561899662,
         "wave_damage": [
-          0.6836394419272742,
-          0.41745908061663295
+          0.6839640190203986,
+          0.4173896933595338
         ]
       }
     }
   },
-  "pred_a": false,
+  "pred_a": true,
   "pred_b": true,
   "pred_c": true,
   "pred_d": true,
-  "strong_null": true,
-  "next_step": "instrument_repair_only",
-  "runtime_s": 18.78262710571289
+  "strong_null": false,
+  "next_step": "physical_latent_score_payload_generator_factorization",
+  "runtime_s": 18.740784883499146
 }
 ATTENTION0 REALIZED EDGE BLOCK TERM DONE
