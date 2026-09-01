@@ -1,0 +1,5589 @@
+{
+  "ambiguous_rungs": [
+    {
+      "reason": "multiple_nonexcluded_receipts_for_rung",
+      "receipts": [
+        "mixed64_context_qk_mlp042_context_p768_ood_results.json",
+        "mixed64_context_qk_mlp04_context_p768_ood_results.json",
+        "mixed72_context_qk_mlp04_context_p768_ood_results.json"
+      ],
+      "rung": 367
+    }
+  ],
+  "excluded_receipts": [
+    {
+      "reason": "excluded_name_fragment:initial",
+      "receipt": "attention0_realized_edge_block_term_initial_hash_mismatch_results.json",
+      "rung": 424
+    },
+    {
+      "reason": "excluded_name_fragment:diagnostic",
+      "receipt": "attention0_realized_edge_block_term_orthogonality_diagnostic_results.json",
+      "rung": 424
+    },
+    {
+      "reason": "excluded_name_fragment:semantic_hash_repaired",
+      "receipt": "attention0_realized_edge_block_term_semantic_hash_repaired_results.json",
+      "rung": 424
+    }
+  ],
+  "rows": [
+    {
+      "declared_arm_count": 4,
+      "declared_arm_names": [
+        "0",
+        "128",
+        "256",
+        "512"
+      ],
+      "grammar_family": "sparse_or_dictionary",
+      "has_machine_readable_price": true,
+      "join_key": "r300:e7f4db2a837379c5",
+      "module_family": "vocabulary",
+      "receipt_first_add_unix": 1788232305,
+      "receipt_path": "basis_aligned/bilinear_quotient/joint_vocab_shared_code_screen_results.json",
+      "receipt_sha256": "e7f4db2a837379c5cc7d2ab242c30d96a08089bab01da4522227aabb4f0d8b3d",
+      "rung": 300,
+      "source_ast": {
+        "branches": 5,
+        "calls": 152,
+        "functions": 12,
+        "loops": 8,
+        "nodes": 2679
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/joint_vocab_shared_code_screen.py",
+      "source_sha256": "8eb17993fda6e284b512ad86519f3729e3bd59d38bee251d4da195dc7dc0ed5b",
+      "structural_summaries": {
+        "best_eligible_shared_rank_by_fineweb": {
+          "count": 1,
+          "maximum": 512.0,
+          "minimum": 512.0,
+          "sum_abs": 512.0
+        },
+        "price": {
+          "count": 3,
+          "maximum": 115900416.0,
+          "minimum": 537.0,
+          "sum_abs": 202826265.0
+        },
+        "runtime_s": {
+          "count": 1,
+          "maximum": 7.473639249801636,
+          "minimum": 7.473639249801636,
+          "sum_abs": 7.473639249801636
+        }
+      }
+    },
+    {
+      "declared_arm_count": 3,
+      "declared_arm_names": [
+        "128",
+        "256",
+        "64"
+      ],
+      "grammar_family": "low_rank",
+      "has_machine_readable_price": false,
+      "join_key": "r301:cf9d88a57a536be3",
+      "module_family": "mlp0_or_early_mlp",
+      "receipt_first_add_unix": 1788232790,
+      "receipt_path": "basis_aligned/bilinear_quotient/mlp0_signed_response_rank_screen_results.json",
+      "receipt_sha256": "cf9d88a57a536be3c39b8c9d13b09eb8438dc789f364ec8b0f8c7573974dcd8b",
+      "rung": 301,
+      "source_ast": {
+        "branches": 5,
+        "calls": 141,
+        "functions": 10,
+        "loops": 6,
+        "nodes": 2403
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/mlp0_signed_response_rank_screen.py",
+      "source_sha256": "0c0019d88a1f3d27e15bf7242a14d338e830ba56d5a8fa63034e449c085aa197",
+      "structural_summaries": {
+        "runtime_s": {
+          "count": 1,
+          "maximum": 10.943296194076538,
+          "minimum": 10.943296194076538,
+          "sum_abs": 10.943296194076538
+        }
+      }
+    },
+    {
+      "declared_arm_count": 0,
+      "declared_arm_names": [],
+      "grammar_family": "state_or_continuous",
+      "has_machine_readable_price": true,
+      "join_key": "r302:aeba876ff6048809",
+      "module_family": "predictive_state",
+      "receipt_first_add_unix": 1788233234,
+      "receipt_path": "basis_aligned/bilinear_quotient/delimiter_predictive_state_hankel_results.json",
+      "receipt_sha256": "aeba876ff6048809c4bd4f5aabd3faddfbc9298606842bb0c8802151ccc66b72",
+      "rung": 302,
+      "source_ast": {
+        "branches": 8,
+        "calls": 177,
+        "functions": 13,
+        "loops": 16,
+        "nodes": 3243
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/delimiter_predictive_state_hankel.py",
+      "source_sha256": "69698c772656712724c3799d073c9a48785ce5f3224c17325834f0d27b22c4f6",
+      "structural_summaries": {
+        "literal_interface_price": {
+          "count": 3,
+          "maximum": 32.0,
+          "minimum": 1.0,
+          "sum_abs": 45.0
+        },
+        "runtime_s": {
+          "count": 1,
+          "maximum": 11.96228837966919,
+          "minimum": 11.96228837966919,
+          "sum_abs": 11.96228837966919
+        }
+      }
+    },
+    {
+      "declared_arm_count": 9,
+      "declared_arm_names": [
+        "activation_pca_r128",
+        "activation_pca_r256",
+        "activation_pca_r64",
+        "response_r128",
+        "response_r256",
+        "response_r64",
+        "weight_svd_r128",
+        "weight_svd_r256",
+        "weight_svd_r64"
+      ],
+      "grammar_family": "other",
+      "has_machine_readable_price": false,
+      "join_key": "r303:c46f754dbc9a90fa",
+      "module_family": "mlp0_or_early_mlp",
+      "receipt_first_add_unix": 1788233486,
+      "receipt_path": "basis_aligned/bilinear_quotient/mlp0_projection_error_contract_results.json",
+      "receipt_sha256": "c46f754dbc9a90fab9a5a9246f2ae3ceaf5ae1f9b7770cc2cc04c24c34e93f3f",
+      "rung": 303,
+      "source_ast": {
+        "branches": 3,
+        "calls": 137,
+        "functions": 10,
+        "loops": 7,
+        "nodes": 2390
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/mlp0_projection_error_contract.py",
+      "source_sha256": "fe2e50c786968eb709d6670dfea8041cb294261d511c1f13fc3a8e2a80b8dc4c",
+      "structural_summaries": {
+        "runtime_s": {
+          "count": 1,
+          "maximum": 6.043759822845459,
+          "minimum": 6.043759822845459,
+          "sum_abs": 6.043759822845459
+        }
+      }
+    },
+    {
+      "declared_arm_count": 3,
+      "declared_arm_names": [
+        "fisher_rare",
+        "norm_rare",
+        "random_rare"
+      ],
+      "grammar_family": "sparse_or_dictionary",
+      "has_machine_readable_price": true,
+      "join_key": "r304:c6e782015c3fad47",
+      "module_family": "vocabulary",
+      "receipt_first_add_unix": 1788233972,
+      "receipt_path": "basis_aligned/bilinear_quotient/joint_vocab_sparse_rare_residual_results.json",
+      "receipt_sha256": "c6e782015c3fad47a49818f7a453878f46716875a1f10e06f72d160b17f5ea48",
+      "rung": 304,
+      "source_ast": {
+        "branches": 2,
+        "calls": 119,
+        "functions": 7,
+        "loops": 5,
+        "nodes": 2175
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/joint_vocab_sparse_rare_residual.py",
+      "source_sha256": "18c38fdbc6849dd4aa33ff30b58471a02c0427dfcf6bf16d842b6cb9c9a83532",
+      "structural_summaries": {
+        "price": {
+          "count": 7,
+          "maximum": 115900416.0,
+          "minimum": 0.2500068248245114,
+          "sum_abs": 288450004.0
+        },
+        "runtime_s": {
+          "count": 1,
+          "maximum": 8.12872052192688,
+          "minimum": 8.12872052192688,
+          "sum_abs": 8.12872052192688
+        }
+      }
+    },
+    {
+      "declared_arm_count": 6,
+      "declared_arm_names": [
+        "count_plus_1_s512",
+        "count_plus_1_s640",
+        "count_plus_1_s768",
+        "sqrt_count_plus_1_s512",
+        "sqrt_count_plus_1_s640",
+        "sqrt_count_plus_1_s768"
+      ],
+      "grammar_family": "sparse_or_dictionary",
+      "has_machine_readable_price": true,
+      "join_key": "r305:ada2c09bd990f0c1",
+      "module_family": "vocabulary",
+      "receipt_first_add_unix": 1788234330,
+      "receipt_path": "basis_aligned/bilinear_quotient/joint_vocab_distributed_rank_frontier_results.json",
+      "receipt_sha256": "ada2c09bd990f0c18c6d1bf1e4248301411816ca22ef077a30107da666e91fb6",
+      "rung": 305,
+      "source_ast": {
+        "branches": 2,
+        "calls": 78,
+        "functions": 8,
+        "loops": 5,
+        "nodes": 1942
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/joint_vocab_distributed_rank_frontier.py",
+      "source_sha256": "76a6525b67e6128d733c62343741d79f058072966b38a06af4ad2add6c4421de",
+      "structural_summaries": {
+        "price": {
+          "count": 2,
+          "maximum": 115900416.0,
+          "minimum": 25.0,
+          "sum_abs": 115900441.0
+        },
+        "runtime_s": {
+          "count": 1,
+          "maximum": 8.483073711395264,
+          "minimum": 8.483073711395264,
+          "sum_abs": 8.483073711395264
+        }
+      }
+    },
+    {
+      "declared_arm_count": 0,
+      "declared_arm_names": [],
+      "grammar_family": "low_rank",
+      "has_machine_readable_price": true,
+      "join_key": "r306:a6c54bd223233ee1",
+      "module_family": "other_mlp",
+      "receipt_first_add_unix": 1788234674,
+      "receipt_path": "basis_aligned/bilinear_quotient/mlp_activation_pca_four_layer_composition_results.json",
+      "receipt_sha256": "a6c54bd223233ee1a4f2fd579a3c6e4ff02fb5ca9ebebdea74bf58c82a089437",
+      "rung": 306,
+      "source_ast": {
+        "branches": 3,
+        "calls": 155,
+        "functions": 9,
+        "loops": 10,
+        "nodes": 2521
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/mlp_activation_pca_four_layer_composition.py",
+      "source_sha256": "d4ae6d01c5a3afd7cfc938a8d2c5ebebb5af9ebb4dfff6da592db288be257213",
+      "structural_summaries": {
+        "price": {
+          "count": 5,
+          "maximum": 15926400.0,
+          "minimum": 4.0,
+          "sum_abs": 47188228.0
+        },
+        "runtime_s": {
+          "count": 1,
+          "maximum": 11.713285446166992,
+          "minimum": 11.713285446166992,
+          "sum_abs": 11.713285446166992
+        }
+      }
+    },
+    {
+      "declared_arm_count": 0,
+      "declared_arm_names": [],
+      "grammar_family": "low_rank",
+      "has_machine_readable_price": true,
+      "join_key": "r307:e4dec177e2ccf12a",
+      "module_family": "other_mlp",
+      "receipt_first_add_unix": 1788234871,
+      "receipt_path": "basis_aligned/bilinear_quotient/mlp_pca_pair_interaction_allocator_results.json",
+      "receipt_sha256": "e4dec177e2ccf12ab252c5a42a610fc5c3a00ecf8cc2b3b11fda73948cb80071",
+      "rung": 307,
+      "source_ast": {
+        "branches": 3,
+        "calls": 86,
+        "functions": 2,
+        "loops": 6,
+        "nodes": 1866
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/mlp_pca_pair_interaction_allocator.py",
+      "source_sha256": "b76ad09299060fcc01518c5e74e13fdec0ed28ce84d1c2ad5c7fbe83d8e841cd",
+      "structural_summaries": {
+        "price": {
+          "count": 4,
+          "maximum": 15926400.0,
+          "minimum": 4.0,
+          "sum_abs": 43354372.0
+        },
+        "runtime_s": {
+          "count": 1,
+          "maximum": 34.92486071586609,
+          "minimum": 34.92486071586609,
+          "sum_abs": 34.92486071586609
+        }
+      }
+    },
+    {
+      "declared_arm_count": 0,
+      "declared_arm_names": [],
+      "grammar_family": "low_rank",
+      "has_machine_readable_price": true,
+      "join_key": "r308:fad5ac4d5d469718",
+      "module_family": "other_mlp",
+      "receipt_first_add_unix": 1788235039,
+      "receipt_path": "basis_aligned/bilinear_quotient/mlp_pca_interaction_selected_triple_results.json",
+      "receipt_sha256": "fad5ac4d5d4697180834976ddbf4ad5e01ca538b55effaa1b24d1a1474a611dc",
+      "rung": 308,
+      "source_ast": {
+        "branches": 2,
+        "calls": 64,
+        "functions": 2,
+        "loops": 3,
+        "nodes": 1373
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/mlp_pca_interaction_selected_triple.py",
+      "source_sha256": "5250b0b6605108c7c889ed1bf8f3cc8c4634e45fa7554d71a7415b2d3e95c6de",
+      "structural_summaries": {
+        "price": {
+          "count": 4,
+          "maximum": 15926400.0,
+          "minimum": 3.0,
+          "sum_abs": 39520515.0
+        },
+        "runtime_s": {
+          "count": 1,
+          "maximum": 9.632307052612305,
+          "minimum": 9.632307052612305,
+          "sum_abs": 9.632307052612305
+        }
+      }
+    },
+    {
+      "declared_arm_count": 0,
+      "declared_arm_names": [],
+      "grammar_family": "low_rank",
+      "has_machine_readable_price": true,
+      "join_key": "r309:d872ea5c70579b55",
+      "module_family": "other_mlp",
+      "receipt_first_add_unix": 1788235333,
+      "receipt_path": "basis_aligned/bilinear_quotient/mlp_pca_fixed_triple_stability_results.json",
+      "receipt_sha256": "d872ea5c70579b557956c74515752bbb8e3a55a5b3e3d1448e6f645f168a5e8d",
+      "rung": 309,
+      "source_ast": {
+        "branches": 2,
+        "calls": 91,
+        "functions": 4,
+        "loops": 5,
+        "nodes": 1268
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/mlp_pca_fixed_triple_stability.py",
+      "source_sha256": "95c302e7787e84d991b91f1f9ac88f98fb0ed165e3ea5143a0f23c869a38015e",
+      "structural_summaries": {
+        "price": {
+          "count": 6,
+          "maximum": 15926400.0,
+          "minimum": 0.0,
+          "sum_abs": 39520537.0
+        },
+        "runtime_s": {
+          "count": 1,
+          "maximum": 37.40243124961853,
+          "minimum": 37.40243124961853,
+          "sum_abs": 37.40243124961853
+        }
+      }
+    },
+    {
+      "declared_arm_count": 0,
+      "declared_arm_names": [],
+      "grammar_family": "low_rank",
+      "has_machine_readable_price": true,
+      "join_key": "r310:ce5ff37226fe59bc",
+      "module_family": "whole_program",
+      "receipt_first_add_unix": 1788235658,
+      "receipt_path": "basis_aligned/bilinear_quotient/mixed104_online_cv0_pca_fixed_triple_results.json",
+      "receipt_sha256": "ce5ff37226fe59bcd5965a6b440ce68efda02da6077a7790719b429e0a4e8607",
+      "rung": 310,
+      "source_ast": {
+        "branches": 8,
+        "calls": 97,
+        "functions": 1,
+        "loops": 2,
+        "nodes": 1243
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/mixed104_online_cv0_pca_fixed_triple.py",
+      "source_sha256": "010555ecaba72e233e57efcb763f9af900dec463e50cea2764de4c75f6749497",
+      "structural_summaries": {
+        "price": {
+          "count": 5,
+          "maximum": 2042438252.0,
+          "minimum": 11501568.0,
+          "sum_abs": 5118060356.0
+        },
+        "qk_factor_widths": {
+          "count": 1,
+          "maximum": 104.0,
+          "minimum": 104.0,
+          "sum_abs": 104.0
+        },
+        "runtime_s": {
+          "count": 1,
+          "maximum": 130.44509029388428,
+          "minimum": 130.44509029388428,
+          "sum_abs": 130.44509029388428
+        }
+      }
+    },
+    {
+      "declared_arm_count": 3,
+      "declared_arm_names": [
+        "p0_17",
+        "p0_8",
+        "p8_17"
+      ],
+      "grammar_family": "low_rank",
+      "has_machine_readable_price": true,
+      "join_key": "r311:e6aacdaecc11e169",
+      "module_family": "whole_program",
+      "receipt_first_add_unix": 1788236051,
+      "receipt_path": "basis_aligned/bilinear_quotient/mixed104_pca_fixed_pair_frontier_results.json",
+      "receipt_sha256": "e6aacdaecc11e1693c73b5638f75e197a79676e5b288a4cbb42e57d25eb45ce1",
+      "rung": 311,
+      "source_ast": {
+        "branches": 6,
+        "calls": 108,
+        "functions": 2,
+        "loops": 3,
+        "nodes": 1448
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/mixed104_pca_fixed_pair_frontier.py",
+      "source_sha256": "82af814e73d7321b981ba520e7df75d4f8452213c1c75af70a15c809a50aa6b2",
+      "structural_summaries": {
+        "price": {
+          "count": 3,
+          "maximum": 2011767404.0,
+          "minimum": 7667712.0,
+          "sum_abs": 2551362466.0
+        },
+        "runtime_s": {
+          "count": 1,
+          "maximum": 163.39270424842834,
+          "minimum": 163.39270424842834,
+          "sum_abs": 163.39270424842834
+        }
+      }
+    },
+    {
+      "declared_arm_count": 3,
+      "declared_arm_names": [
+        "256",
+        "384",
+        "512"
+      ],
+      "grammar_family": "low_rank",
+      "has_machine_readable_price": false,
+      "join_key": "r312:1f2a47b6d493d1f5",
+      "module_family": "whole_program",
+      "receipt_first_add_unix": 1788236496,
+      "receipt_path": "basis_aligned/bilinear_quotient/mixed104_pca_fixed_pair_rank_frontier_results.json",
+      "receipt_sha256": "1f2a47b6d493d1f555ad6331c8ef352bb9cb795f933df48f6d060de5092827da",
+      "rung": 312,
+      "source_ast": {
+        "branches": 6,
+        "calls": 144,
+        "functions": 5,
+        "loops": 8,
+        "nodes": 1903
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/mixed104_pca_fixed_pair_rank_frontier.py",
+      "source_sha256": "df52ecc8b7183a9e1a55524a987e806fc6b616d511df05c6ee6da91c7d25bbbd",
+      "structural_summaries": {
+        "runtime_s": {
+          "count": 1,
+          "maximum": 163.37266397476196,
+          "minimum": 163.37266397476196,
+          "sum_abs": 163.37266397476196
+        }
+      }
+    },
+    {
+      "declared_arm_count": 3,
+      "declared_arm_names": [
+        "grad32",
+        "grad64",
+        "pca256"
+      ],
+      "grammar_family": "low_rank",
+      "has_machine_readable_price": true,
+      "join_key": "r313:b458d81abf0bc956",
+      "module_family": "whole_program",
+      "receipt_first_add_unix": 1788236839,
+      "receipt_path": "basis_aligned/bilinear_quotient/mixed104_pca_certificate_gradient_hybrid_results.json",
+      "receipt_sha256": "b458d81abf0bc9561f71d93991cd7120b6b9db030f68395a5720065bf58d3890",
+      "rung": 313,
+      "source_ast": {
+        "branches": 8,
+        "calls": 255,
+        "functions": 10,
+        "loops": 16,
+        "nodes": 3459
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/mixed104_pca_certificate_gradient_hybrid.py",
+      "source_sha256": "9b7959e1be07545de99d51d13d279b18fd470a4f385d8a127f17381920eb9c46",
+      "structural_summaries": {
+        "price_each": {
+          "count": 3,
+          "maximum": 2011767404.0,
+          "minimum": 7667712.0,
+          "sum_abs": 2551362466.0
+        },
+        "runtime_s": {
+          "count": 1,
+          "maximum": 164.0248041152954,
+          "minimum": 164.0248041152954,
+          "sum_abs": 164.0248041152954
+        }
+      }
+    },
+    {
+      "declared_arm_count": 6,
+      "declared_arm_names": [
+        "input_pca_512",
+        "input_pca_768",
+        "token_rrr_512",
+        "token_rrr_768",
+        "weight_svd_512",
+        "weight_svd_768"
+      ],
+      "grammar_family": "sparse_or_dictionary",
+      "has_machine_readable_price": false,
+      "join_key": "r314:399f7ebeb9862101",
+      "module_family": "mlp0_or_early_mlp",
+      "receipt_first_add_unix": 1788237064,
+      "receipt_path": "basis_aligned/bilinear_quotient/mlp0_exact_token_shared_input_encoder_results.json",
+      "receipt_sha256": "399f7ebeb986210127190bb340f0d55f74ecf6c4abcd89df46548f50c98d0ed0",
+      "rung": 314,
+      "source_ast": {
+        "branches": 6,
+        "calls": 184,
+        "functions": 10,
+        "loops": 12,
+        "nodes": 2963
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/mlp0_exact_token_shared_input_encoder.py",
+      "source_sha256": "a6d73023905a528874106750fa02e4bd9ed420191e1489e48a662173743a11c7",
+      "structural_summaries": {
+        "runtime_s": {
+          "count": 1,
+          "maximum": 8.862271308898926,
+          "minimum": 8.862271308898926,
+          "sum_abs": 8.862271308898926
+        }
+      }
+    },
+    {
+      "declared_arm_count": 2,
+      "declared_arm_names": [
+        "512",
+        "768"
+      ],
+      "grammar_family": "low_rank",
+      "has_machine_readable_price": false,
+      "join_key": "r315:bd034f4edb78a2b8",
+      "module_family": "mlp0_or_early_mlp",
+      "receipt_first_add_unix": 1788237480,
+      "receipt_path": "basis_aligned/bilinear_quotient/mixed104_mlp0_shared_input_svd_frontier_results.json",
+      "receipt_sha256": "bd034f4edb78a2b80e689a04817bec0c17d6055a4ca71ff37bd105301fc9869b",
+      "rung": 315,
+      "source_ast": {
+        "branches": 7,
+        "calls": 123,
+        "functions": 4,
+        "loops": 4,
+        "nodes": 1718
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/mixed104_mlp0_shared_input_svd_frontier.py",
+      "source_sha256": "7f8937693b2af8612b65296329e695c4f39103671db62772300c5a1746d0cedc",
+      "structural_summaries": {
+        "runtime_s": {
+          "count": 1,
+          "maximum": 147.03760433197021,
+          "minimum": 147.03760433197021,
+          "sum_abs": 147.03760433197021
+        }
+      }
+    },
+    {
+      "declared_arm_count": 0,
+      "declared_arm_names": [],
+      "grammar_family": "low_rank",
+      "has_machine_readable_price": true,
+      "join_key": "r316:43b1a35c43b55e11",
+      "module_family": "mlp0_or_early_mlp",
+      "receipt_first_add_unix": 1788237786,
+      "receipt_path": "basis_aligned/bilinear_quotient/mixed104_mlp0_svd768_ood_results.json",
+      "receipt_sha256": "43b1a35c43b55e111ce9cbbcc275e456aed01b4d5922656ca4e0262c4d3e12e3",
+      "rung": 316,
+      "source_ast": {
+        "branches": 4,
+        "calls": 107,
+        "functions": 2,
+        "loops": 1,
+        "nodes": 1300
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/mixed104_mlp0_svd768_ood.py",
+      "source_sha256": "b284b095be377c763d20fafb0473322fe9edcba7024be208e370a60ede759cc9",
+      "structural_summaries": {
+        "literal_raw_tensor_bytes": {
+          "count": 1,
+          "maximum": 2031821420.0,
+          "minimum": 2031821420.0,
+          "sum_abs": 2031821420.0
+        },
+        "literal_standalone_scalars": {
+          "count": 1,
+          "maximum": 536940854.0,
+          "minimum": 536940854.0,
+          "sum_abs": 536940854.0
+        },
+        "qk_factor_widths": {
+          "count": 1,
+          "maximum": 104.0,
+          "minimum": 104.0,
+          "sum_abs": 104.0
+        },
+        "runtime_s": {
+          "count": 1,
+          "maximum": 136.61227321624756,
+          "minimum": 136.61227321624756,
+          "sum_abs": 136.61227321624756
+        }
+      }
+    },
+    {
+      "declared_arm_count": 0,
+      "declared_arm_names": [],
+      "grammar_family": "low_rank",
+      "has_machine_readable_price": true,
+      "join_key": "r317:0ddd171b18091506",
+      "module_family": "mlp0_or_early_mlp",
+      "receipt_first_add_unix": 1788237995,
+      "receipt_path": "basis_aligned/bilinear_quotient/a16_transfer_mixed104_mlp0_svd768_results.json",
+      "receipt_sha256": "0ddd171b1809150674c6b405c44d37f85128e4ae909fabef00ecbd68e299c0f6",
+      "rung": 317,
+      "source_ast": {
+        "branches": 7,
+        "calls": 171,
+        "functions": 5,
+        "loops": 6,
+        "nodes": 2054
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/a16_transfer_mixed104_mlp0_svd768.py",
+      "source_sha256": "7d321329dae29828fa85f03d7dd7195d35b8849f97cf6bd07dc5565f8f034635",
+      "structural_summaries": {
+        "literal_standalone_scalars": {
+          "count": 1,
+          "maximum": 536940854.0,
+          "minimum": 536940854.0,
+          "sum_abs": 536940854.0
+        },
+        "qk_factor_widths": {
+          "count": 1,
+          "maximum": 104.0,
+          "minimum": 104.0,
+          "sum_abs": 104.0
+        },
+        "runtime_s": {
+          "count": 1,
+          "maximum": 139.1114227771759,
+          "minimum": 139.1114227771759,
+          "sum_abs": 139.1114227771759
+        }
+      }
+    },
+    {
+      "declared_arm_count": 18,
+      "declared_arm_names": [
+        "0",
+        "1",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15",
+        "16",
+        "17",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9"
+      ],
+      "grammar_family": "low_rank",
+      "has_machine_readable_price": false,
+      "join_key": "r318:17935d0c968b1a03",
+      "module_family": "other_mlp",
+      "receipt_first_add_unix": 1788238420,
+      "receipt_path": "basis_aligned/bilinear_quotient/mlp_shared_input_svd_all_layers_screen_results.json",
+      "receipt_sha256": "17935d0c968b1a03bd5509a96b7645e6fab7bb661ff560b8f721d5116c2172b4",
+      "rung": 318,
+      "source_ast": {
+        "branches": 5,
+        "calls": 127,
+        "functions": 8,
+        "loops": 6,
+        "nodes": 1921
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/mlp_shared_input_svd_all_layers_screen.py",
+      "source_sha256": "5437188f5e6c57b96038adcb719958f320d9f7d975bd248cb528b053a18f5fa6",
+      "structural_summaries": {
+        "runtime_s": {
+          "count": 1,
+          "maximum": 15.295558452606201,
+          "minimum": 15.295558452606201,
+          "sum_abs": 15.295558452606201
+        }
+      }
+    },
+    {
+      "declared_arm_count": 0,
+      "declared_arm_names": [],
+      "grammar_family": "low_rank",
+      "has_machine_readable_price": true,
+      "join_key": "r319:64c1ed1f441fe28a",
+      "module_family": "whole_program",
+      "receipt_first_add_unix": 1788238799,
+      "receipt_path": "basis_aligned/bilinear_quotient/mixed104_shared_input_svd_front_mid_triple_results.json",
+      "receipt_sha256": "64c1ed1f441fe28a5f55d5a5ca597693abbf14b491180fb756fb10ccb5aae0bd",
+      "rung": 319,
+      "source_ast": {
+        "branches": 5,
+        "calls": 114,
+        "functions": 4,
+        "loops": 3,
+        "nodes": 1470
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/mixed104_shared_input_svd_front_mid_triple.py",
+      "source_sha256": "aa123972d4f1d0ed4ab6fec0ad0615f3babf98ba81036ecf0d8abd9dbbefd395",
+      "structural_summaries": {
+        "literal_raw_tensor_bytes": {
+          "count": 1,
+          "maximum": 2010587756.0,
+          "minimum": 2010587756.0,
+          "sum_abs": 2010587756.0
+        },
+        "literal_standalone_scalars": {
+          "count": 1,
+          "maximum": 531632438.0,
+          "minimum": 531632438.0,
+          "sum_abs": 531632438.0
+        },
+        "qk_factor_widths": {
+          "count": 1,
+          "maximum": 104.0,
+          "minimum": 104.0,
+          "sum_abs": 104.0
+        },
+        "rank": {
+          "count": 1,
+          "maximum": 768.0,
+          "minimum": 768.0,
+          "sum_abs": 768.0
+        },
+        "runtime_s": {
+          "count": 1,
+          "maximum": 131.46811199188232,
+          "minimum": 131.46811199188232,
+          "sum_abs": 131.46811199188232
+        },
+        "saving_vs_native_scalars": {
+          "count": 1,
+          "maximum": 14270464.0,
+          "minimum": 14270464.0,
+          "sum_abs": 14270464.0
+        }
+      }
+    },
+    {
+      "declared_arm_count": 2,
+      "declared_arm_names": [
+        "pair_0_14",
+        "pair_0_7"
+      ],
+      "grammar_family": "low_rank",
+      "has_machine_readable_price": false,
+      "join_key": "r320:61d313923074b63a",
+      "module_family": "whole_program",
+      "receipt_first_add_unix": 1788239128,
+      "receipt_path": "basis_aligned/bilinear_quotient/mixed104_shared_input_svd_front_mid_pairs_results.json",
+      "receipt_sha256": "61d313923074b63ad01836443da9fbc138a96d74488b7fe6a41cd488a974fc9c",
+      "rung": 320,
+      "source_ast": {
+        "branches": 7,
+        "calls": 134,
+        "functions": 3,
+        "loops": 4,
+        "nodes": 1719
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/mixed104_shared_input_svd_front_mid_pairs.py",
+      "source_sha256": "37bac063f338192988823849cf8aae47b70c68beb5c623cce2f76c4937c92376",
+      "structural_summaries": {
+        "qk_factor_widths": {
+          "count": 1,
+          "maximum": 104.0,
+          "minimum": 104.0,
+          "sum_abs": 104.0
+        },
+        "runtime_s": {
+          "count": 1,
+          "maximum": 148.00979328155518,
+          "minimum": 148.00979328155518,
+          "sum_abs": 148.00979328155518
+        }
+      }
+    },
+    {
+      "declared_arm_count": 3,
+      "declared_arm_names": [
+        "15",
+        "16",
+        "17"
+      ],
+      "grammar_family": "other",
+      "has_machine_readable_price": true,
+      "join_key": "r321:931a560fab669a04",
+      "module_family": "other_mlp",
+      "receipt_first_add_unix": 1788239128,
+      "receipt_path": "basis_aligned/bilinear_quotient/mlp_late_context_metric_shared_input_screen_results.json",
+      "receipt_sha256": "931a560fab669a04457411d82056bb42d5c8d4c31928b3b782096e5f07b08e07",
+      "rung": 321,
+      "source_ast": {
+        "branches": 6,
+        "calls": 140,
+        "functions": 6,
+        "loops": 7,
+        "nodes": 2128
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/mlp_late_context_metric_shared_input_screen.py",
+      "source_sha256": "70583caf565a9d25956dafe239cd2cbb6825d0f81fe7c101eb4822af6d6cc2ba",
+      "structural_summaries": {
+        "rank": {
+          "count": 1,
+          "maximum": 768.0,
+          "minimum": 768.0,
+          "sum_abs": 768.0
+        },
+        "runtime_s": {
+          "count": 1,
+          "maximum": 9.678802728652954,
+          "minimum": 9.678802728652954,
+          "sum_abs": 9.678802728652954
+        },
+        "saving_scalars_per_installed_layer": {
+          "count": 1,
+          "maximum": 2654208.0,
+          "minimum": 2654208.0,
+          "sum_abs": 2654208.0
+        }
+      }
+    },
+    {
+      "declared_arm_count": 0,
+      "declared_arm_names": [],
+      "grammar_family": "composite_program",
+      "has_machine_readable_price": true,
+      "join_key": "r322:f5d5c6b3869b30dc",
+      "module_family": "whole_program",
+      "receipt_first_add_unix": 1788239442,
+      "receipt_path": "basis_aligned/bilinear_quotient/mixed104_late_context_metric_input_triple_results.json",
+      "receipt_sha256": "f5d5c6b3869b30dc2cb079a8f66bac2aba7b608adb2844ee12ad295dc0f6316c",
+      "rung": 322,
+      "source_ast": {
+        "branches": 6,
+        "calls": 106,
+        "functions": 2,
+        "loops": 3,
+        "nodes": 1450
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/mixed104_late_context_metric_input_triple.py",
+      "source_sha256": "cbd014784d3bfc049f9aee6aececa02a16210a486288c31dbed9a1af5affd363",
+      "structural_summaries": {
+        "literal_raw_tensor_bytes": {
+          "count": 1,
+          "maximum": 2010587756.0,
+          "minimum": 2010587756.0,
+          "sum_abs": 2010587756.0
+        },
+        "literal_standalone_scalars": {
+          "count": 1,
+          "maximum": 531632438.0,
+          "minimum": 531632438.0,
+          "sum_abs": 531632438.0
+        },
+        "qk_factor_widths": {
+          "count": 1,
+          "maximum": 104.0,
+          "minimum": 104.0,
+          "sum_abs": 104.0
+        },
+        "rank": {
+          "count": 1,
+          "maximum": 768.0,
+          "minimum": 768.0,
+          "sum_abs": 768.0
+        },
+        "runtime_s": {
+          "count": 1,
+          "maximum": 131.92440104484558,
+          "minimum": 131.92440104484558,
+          "sum_abs": 131.92440104484558
+        },
+        "saving_vs_native_scalars": {
+          "count": 1,
+          "maximum": 14270464.0,
+          "minimum": 14270464.0,
+          "sum_abs": 14270464.0
+        }
+      }
+    },
+    {
+      "declared_arm_count": 0,
+      "declared_arm_names": [],
+      "grammar_family": "composite_program",
+      "has_machine_readable_price": true,
+      "join_key": "r323:db0599965b3e7706",
+      "module_family": "whole_program",
+      "receipt_first_add_unix": 1788239755,
+      "receipt_path": "basis_aligned/bilinear_quotient/mixed104_late_context_metric_input_triple_sequential_results.json",
+      "receipt_sha256": "db0599965b3e770666b58daa176546871f414a6df9b854829f20f3ce0cc0a250",
+      "rung": 323,
+      "source_ast": {
+        "branches": 5,
+        "calls": 138,
+        "functions": 6,
+        "loops": 4,
+        "nodes": 1771
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/mixed104_late_context_metric_input_triple_sequential.py",
+      "source_sha256": "ed6a8c86c6bbe682055a38829f6508bb7e9370cdad7a09a839fe7e7112dd9a5a",
+      "structural_summaries": {
+        "literal_raw_tensor_bytes": {
+          "count": 1,
+          "maximum": 2010587756.0,
+          "minimum": 2010587756.0,
+          "sum_abs": 2010587756.0
+        },
+        "literal_standalone_scalars": {
+          "count": 1,
+          "maximum": 531632438.0,
+          "minimum": 531632438.0,
+          "sum_abs": 531632438.0
+        },
+        "qk_factor_widths": {
+          "count": 1,
+          "maximum": 104.0,
+          "minimum": 104.0,
+          "sum_abs": 104.0
+        },
+        "rank": {
+          "count": 1,
+          "maximum": 768.0,
+          "minimum": 768.0,
+          "sum_abs": 768.0
+        },
+        "runtime_s": {
+          "count": 1,
+          "maximum": 132.20846486091614,
+          "minimum": 132.20846486091614,
+          "sum_abs": 132.20846486091614
+        }
+      }
+    },
+    {
+      "declared_arm_count": 2,
+      "declared_arm_names": [
+        "512",
+        "640"
+      ],
+      "grammar_family": "composite_program",
+      "has_machine_readable_price": false,
+      "join_key": "r324:aa627ce4640b9c2f",
+      "module_family": "mlp0_or_early_mlp",
+      "receipt_first_add_unix": 1788239982,
+      "receipt_path": "basis_aligned/bilinear_quotient/mlp0_context_metric_shared_input_frontier_results.json",
+      "receipt_sha256": "aa627ce4640b9c2f46934451e4ba1607daef6f8a238abe523662c7e9a151a6c7",
+      "rung": 324,
+      "source_ast": {
+        "branches": 4,
+        "calls": 108,
+        "functions": 6,
+        "loops": 3,
+        "nodes": 1657
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/mlp0_context_metric_shared_input_frontier.py",
+      "source_sha256": "d83338e03483ee21f729f803122051f5eb75bec855bfe2ba19b23adb8088ac1d",
+      "structural_summaries": {
+        "ranks_improving_weight_svd_by_20pct": {
+          "count": 2,
+          "maximum": 640.0,
+          "minimum": 512.0,
+          "sum_abs": 1152.0
+        },
+        "runtime_s": {
+          "count": 1,
+          "maximum": 8.871025085449219,
+          "minimum": 8.871025085449219,
+          "sum_abs": 8.871025085449219
+        }
+      }
+    },
+    {
+      "declared_arm_count": 2,
+      "declared_arm_names": [
+        "512",
+        "640"
+      ],
+      "grammar_family": "composite_program",
+      "has_machine_readable_price": false,
+      "join_key": "r325:b80419147bba16b8",
+      "module_family": "mlp0_or_early_mlp",
+      "receipt_first_add_unix": 1788240280,
+      "receipt_path": "basis_aligned/bilinear_quotient/mixed104_mlp0_context_metric_input_frontier_results.json",
+      "receipt_sha256": "b80419147bba16b884593ed9a0214c5ef0fa3cb4e45fc6f85340799941b4d745",
+      "rung": 325,
+      "source_ast": {
+        "branches": 7,
+        "calls": 118,
+        "functions": 2,
+        "loops": 4,
+        "nodes": 1649
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/mixed104_mlp0_context_metric_input_frontier.py",
+      "source_sha256": "25eb8c265dcbb43d50e9648768ae4bc862f0575793a08ae422a5693d007e6ebc",
+      "structural_summaries": {
+        "qk_factor_widths": {
+          "count": 1,
+          "maximum": 104.0,
+          "minimum": 104.0,
+          "sum_abs": 104.0
+        },
+        "runtime_s": {
+          "count": 1,
+          "maximum": 147.15084195137024,
+          "minimum": 147.15084195137024,
+          "sum_abs": 147.15084195137024
+        }
+      }
+    },
+    {
+      "declared_arm_count": 2,
+      "declared_arm_names": [
+        "512",
+        "640"
+      ],
+      "grammar_family": "composite_program",
+      "has_machine_readable_price": false,
+      "join_key": "r326:51b82144d57a02a9",
+      "module_family": "mlp0_or_early_mlp",
+      "receipt_first_add_unix": 1788240685,
+      "receipt_path": "basis_aligned/bilinear_quotient/mixed104_mlp0_context_metric_input_frontier_ood_results.json",
+      "receipt_sha256": "51b82144d57a02a98bcf4671a8eab26ba024db9b1a9ab16b1d01e39c996ed3c7",
+      "rung": 326,
+      "source_ast": {
+        "branches": 7,
+        "calls": 140,
+        "functions": 2,
+        "loops": 3,
+        "nodes": 1898
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/mixed104_mlp0_context_metric_input_frontier_ood.py",
+      "source_sha256": "c7766ec33572ca0a04956c6717f67d87138c29b10d465502aaabb95df42732a9",
+      "structural_summaries": {
+        "qk_factor_widths": {
+          "count": 1,
+          "maximum": 104.0,
+          "minimum": 104.0,
+          "sum_abs": 104.0
+        },
+        "runtime_s": {
+          "count": 1,
+          "maximum": 154.7765769958496,
+          "minimum": 154.7765769958496,
+          "sum_abs": 154.7765769958496
+        }
+      }
+    },
+    {
+      "declared_arm_count": 2,
+      "declared_arm_names": [
+        "512",
+        "640"
+      ],
+      "grammar_family": "composite_program",
+      "has_machine_readable_price": false,
+      "join_key": "r327:31428fc9b2061a28",
+      "module_family": "mlp0_or_early_mlp",
+      "receipt_first_add_unix": 1788241058,
+      "receipt_path": "basis_aligned/bilinear_quotient/a16_transfer_mixed104_mlp0_context_metric_frontier_results.json",
+      "receipt_sha256": "31428fc9b2061a28d7f4bb1919c0e5f2063ae69f13eaa50a59728fea4d0487f6",
+      "rung": 327,
+      "source_ast": {
+        "branches": 10,
+        "calls": 211,
+        "functions": 5,
+        "loops": 8,
+        "nodes": 2640
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/a16_transfer_mixed104_mlp0_context_metric_frontier.py",
+      "source_sha256": "0933f31b3d663f3a16323dc88d0dbabce60b6f6ce87005407679e4544b334802",
+      "structural_summaries": {
+        "qk_factor_widths": {
+          "count": 1,
+          "maximum": 104.0,
+          "minimum": 104.0,
+          "sum_abs": 104.0
+        },
+        "runtime_s": {
+          "count": 1,
+          "maximum": 155.8919517993927,
+          "minimum": 155.8919517993927,
+          "sum_abs": 155.8919517993927
+        }
+      }
+    },
+    {
+      "declared_arm_count": 3,
+      "declared_arm_names": [
+        "256",
+        "384",
+        "448"
+      ],
+      "grammar_family": "low_rank",
+      "has_machine_readable_price": false,
+      "join_key": "r328:12decd6a209e53eb",
+      "module_family": "mlp0_or_early_mlp",
+      "receipt_first_add_unix": 1788241504,
+      "receipt_path": "basis_aligned/bilinear_quotient/mixed104_mlp0_context_metric_lower_rank_frontier_results.json",
+      "receipt_sha256": "12decd6a209e53eb49bd50df407e8f1f0989671ed2a83cf57383abaa150c83c8",
+      "rung": 328,
+      "source_ast": {
+        "branches": 7,
+        "calls": 119,
+        "functions": 2,
+        "loops": 4,
+        "nodes": 1601
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/mixed104_mlp0_context_metric_lower_rank_frontier.py",
+      "source_sha256": "3c89d48ca99b8e18f5bb99b78cdb07ed71e85aded057279374ba7a193991a6d9",
+      "structural_summaries": {
+        "qk_factor_widths": {
+          "count": 1,
+          "maximum": 104.0,
+          "minimum": 104.0,
+          "sum_abs": 104.0
+        },
+        "runtime_s": {
+          "count": 1,
+          "maximum": 163.492938041687,
+          "minimum": 163.492938041687,
+          "sum_abs": 163.492938041687
+        }
+      }
+    },
+    {
+      "declared_arm_count": 3,
+      "declared_arm_names": [
+        "256",
+        "384",
+        "448"
+      ],
+      "grammar_family": "low_rank",
+      "has_machine_readable_price": false,
+      "join_key": "r329:b060525f82dcfc60",
+      "module_family": "mlp0_or_early_mlp",
+      "receipt_first_add_unix": 1788241860,
+      "receipt_path": "basis_aligned/bilinear_quotient/mixed104_mlp0_context_metric_lower_rank_ood_results.json",
+      "receipt_sha256": "b060525f82dcfc60ad311134c05dc69295cfba535ddf8807034bddc98398657f",
+      "rung": 329,
+      "source_ast": {
+        "branches": 7,
+        "calls": 147,
+        "functions": 2,
+        "loops": 3,
+        "nodes": 1931
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/mixed104_mlp0_context_metric_lower_rank_ood.py",
+      "source_sha256": "a96cf09fd4907113e5eb33af026d94f1958cfad92c891d8ff485962858f76993",
+      "structural_summaries": {
+        "qk_factor_widths": {
+          "count": 1,
+          "maximum": 104.0,
+          "minimum": 104.0,
+          "sum_abs": 104.0
+        },
+        "runtime_s": {
+          "count": 1,
+          "maximum": 173.16729545593262,
+          "minimum": 173.16729545593262,
+          "sum_abs": 173.16729545593262
+        }
+      }
+    },
+    {
+      "declared_arm_count": 0,
+      "declared_arm_names": [],
+      "grammar_family": "composite_program",
+      "has_machine_readable_price": true,
+      "join_key": "r330:810fa2bbf6e8ff21",
+      "module_family": "mlp0_or_early_mlp",
+      "receipt_first_add_unix": 1788242144,
+      "receipt_path": "basis_aligned/bilinear_quotient/a16_transfer_mixed104_mlp0_context_metric_p448_results.json",
+      "receipt_sha256": "810fa2bbf6e8ff216f9576c4ba479fe418b922dd7409753d76e07bd5119c8b16",
+      "rung": 330,
+      "source_ast": {
+        "branches": 6,
+        "calls": 165,
+        "functions": 5,
+        "loops": 6,
+        "nodes": 2136
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/a16_transfer_mixed104_mlp0_context_metric_p448.py",
+      "source_sha256": "bb39072e0d215ff992f82a518fa18093125562bc06c9ca9c7b274ddea4fa3eef",
+      "structural_summaries": {
+        "literal_raw_tensor_bytes": {
+          "count": 1,
+          "maximum": 2018550380.0,
+          "minimum": 2018550380.0,
+          "sum_abs": 2018550380.0
+        },
+        "literal_standalone_scalars": {
+          "count": 1,
+          "maximum": 533623094.0,
+          "minimum": 533623094.0,
+          "sum_abs": 533623094.0
+        },
+        "qk_factor_widths": {
+          "count": 1,
+          "maximum": 104.0,
+          "minimum": 104.0,
+          "sum_abs": 104.0
+        },
+        "runtime_s": {
+          "count": 1,
+          "maximum": 139.38080620765686,
+          "minimum": 139.38080620765686,
+          "sum_abs": 139.38080620765686
+        }
+      }
+    },
+    {
+      "declared_arm_count": 0,
+      "declared_arm_names": [],
+      "grammar_family": "composite_program",
+      "has_machine_readable_price": true,
+      "join_key": "r331:cd5c3cd478a23242",
+      "module_family": "other_attention",
+      "receipt_first_add_unix": 1788242532,
+      "receipt_path": "basis_aligned/bilinear_quotient/mixed96_context_metric_qk_results.json",
+      "receipt_sha256": "cd5c3cd478a2324283688b08d1feb73aa7a9df3c520614eb9aa284fad03df2e8",
+      "rung": 331,
+      "source_ast": {
+        "branches": 5,
+        "calls": 109,
+        "functions": 4,
+        "loops": 5,
+        "nodes": 1437
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/mixed96_context_metric_qk.py",
+      "source_sha256": "65734aabc371a053ab3774f71a1c04099303b8ad8c22a41b9427e2b18aadc711",
+      "structural_summaries": {
+        "literal_raw_tensor_bytes": {
+          "count": 1,
+          "maximum": 2024415852.0,
+          "minimum": 2024415852.0,
+          "sum_abs": 2024415852.0
+        },
+        "literal_standalone_scalars": {
+          "count": 1,
+          "maximum": 535089462.0,
+          "minimum": 535089462.0,
+          "sum_abs": 535089462.0
+        },
+        "qk_factor_widths": {
+          "count": 1,
+          "maximum": 96.0,
+          "minimum": 96.0,
+          "sum_abs": 96.0
+        },
+        "qk_rank": {
+          "count": 1,
+          "maximum": 96.0,
+          "minimum": 96.0,
+          "sum_abs": 96.0
+        },
+        "runtime_s": {
+          "count": 1,
+          "maximum": 130.26115131378174,
+          "minimum": 130.26115131378174,
+          "sum_abs": 130.26115131378174
+        }
+      }
+    },
+    {
+      "declared_arm_count": 0,
+      "declared_arm_names": [],
+      "grammar_family": "composite_program",
+      "has_machine_readable_price": true,
+      "join_key": "r332:5731f20cbb56b82c",
+      "module_family": "other_attention",
+      "receipt_first_add_unix": 1788242795,
+      "receipt_path": "basis_aligned/bilinear_quotient/mixed96_context_metric_qk_split_ood_results.json",
+      "receipt_sha256": "5731f20cbb56b82ce53936ebf6c81ddf88c8e2922b361810e82dfac2a4955565",
+      "rung": 332,
+      "source_ast": {
+        "branches": 5,
+        "calls": 108,
+        "functions": 2,
+        "loops": 1,
+        "nodes": 1417
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/mixed96_context_metric_qk_split_ood.py",
+      "source_sha256": "5d41e2526c71df805dc50a3ba5fda7ece1d44ebb27509ee4d04740497f58185c",
+      "structural_summaries": {
+        "literal_raw_tensor_bytes": {
+          "count": 1,
+          "maximum": 2024415852.0,
+          "minimum": 2024415852.0,
+          "sum_abs": 2024415852.0
+        },
+        "literal_standalone_scalars": {
+          "count": 1,
+          "maximum": 535089462.0,
+          "minimum": 535089462.0,
+          "sum_abs": 535089462.0
+        },
+        "qk_rank": {
+          "count": 1,
+          "maximum": 96.0,
+          "minimum": 96.0,
+          "sum_abs": 96.0
+        },
+        "runtime_s": {
+          "count": 1,
+          "maximum": 135.99575471878052,
+          "minimum": 135.99575471878052,
+          "sum_abs": 135.99575471878052
+        }
+      }
+    },
+    {
+      "declared_arm_count": 0,
+      "declared_arm_names": [],
+      "grammar_family": "composite_program",
+      "has_machine_readable_price": true,
+      "join_key": "r333:1a5092c94185a364",
+      "module_family": "other_attention",
+      "receipt_first_add_unix": 1788243211,
+      "receipt_path": "basis_aligned/bilinear_quotient/a16_transfer_mixed96_context_metric_qk_results.json",
+      "receipt_sha256": "1a5092c94185a364696d0b73fdf3e4b5a4938763fb3d9e21e64b913ac86dab1e",
+      "rung": 333,
+      "source_ast": {
+        "branches": 6,
+        "calls": 164,
+        "functions": 5,
+        "loops": 6,
+        "nodes": 2092
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/a16_transfer_mixed96_context_metric_qk.py",
+      "source_sha256": "6cc7260f5cbb123e2231df2c72a1b1372afe01e64e8d8fe374405beab1c29999",
+      "structural_summaries": {
+        "literal_raw_tensor_bytes": {
+          "count": 1,
+          "maximum": 2024415852.0,
+          "minimum": 2024415852.0,
+          "sum_abs": 2024415852.0
+        },
+        "literal_standalone_scalars": {
+          "count": 1,
+          "maximum": 535089462.0,
+          "minimum": 535089462.0,
+          "sum_abs": 535089462.0
+        },
+        "qk_factor_widths": {
+          "count": 1,
+          "maximum": 96.0,
+          "minimum": 96.0,
+          "sum_abs": 96.0
+        },
+        "qk_rank": {
+          "count": 1,
+          "maximum": 96.0,
+          "minimum": 96.0,
+          "sum_abs": 96.0
+        },
+        "runtime_s": {
+          "count": 1,
+          "maximum": 139.15869140625,
+          "minimum": 139.15869140625,
+          "sum_abs": 139.15869140625
+        }
+      }
+    },
+    {
+      "declared_arm_count": 0,
+      "declared_arm_names": [],
+      "grammar_family": "composite_program",
+      "has_machine_readable_price": true,
+      "join_key": "r334:24f0deb7167035e7",
+      "module_family": "mlp0_or_early_mlp",
+      "receipt_first_add_unix": 1788243342,
+      "receipt_path": "basis_aligned/bilinear_quotient/mixed96_context_qk_mlp0_context_p448_ood_results.json",
+      "receipt_sha256": "24f0deb7167035e79e05c0043a57ef98302fb73d52cf87fe71170b28504c1a9c",
+      "rung": 334,
+      "source_ast": {
+        "branches": 5,
+        "calls": 124,
+        "functions": 2,
+        "loops": 2,
+        "nodes": 1689
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/mixed96_context_qk_mlp0_context_p448_ood.py",
+      "source_sha256": "4bc4465b97b2761dcc3f4c212a8925899d3d2e656223574ed9d71ccc4037a6a9",
+      "structural_summaries": {
+        "literal_raw_tensor_bytes": {
+          "count": 1,
+          "maximum": 2000527980.0,
+          "minimum": 2000527980.0,
+          "sum_abs": 2000527980.0
+        },
+        "literal_standalone_scalars": {
+          "count": 1,
+          "maximum": 529117494.0,
+          "minimum": 529117494.0,
+          "sum_abs": 529117494.0
+        },
+        "mlp0_rank": {
+          "count": 1,
+          "maximum": 448.0,
+          "minimum": 448.0,
+          "sum_abs": 448.0
+        },
+        "qk_rank": {
+          "count": 1,
+          "maximum": 96.0,
+          "minimum": 96.0,
+          "sum_abs": 96.0
+        },
+        "runtime_s": {
+          "count": 1,
+          "maximum": 137.39551067352295,
+          "minimum": 137.39551067352295,
+          "sum_abs": 137.39551067352295
+        }
+      }
+    },
+    {
+      "declared_arm_count": 0,
+      "declared_arm_names": [],
+      "grammar_family": "composite_program",
+      "has_machine_readable_price": true,
+      "join_key": "r335:0d135491a5fd9cf6",
+      "module_family": "mlp0_or_early_mlp",
+      "receipt_first_add_unix": 1788243730,
+      "receipt_path": "basis_aligned/bilinear_quotient/a16_transfer_mixed96_context_qk_mlp0_p448_results.json",
+      "receipt_sha256": "0d135491a5fd9cf6b0523806aa283c89d104d36c99a417d802544871aac5838b",
+      "rung": 335,
+      "source_ast": {
+        "branches": 6,
+        "calls": 175,
+        "functions": 5,
+        "loops": 6,
+        "nodes": 2255
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/a16_transfer_mixed96_context_qk_mlp0_p448.py",
+      "source_sha256": "4a2cb8b795ff6c0412c944aa50f7ea958706ad703c9c6bad13176e2a5fa6de93",
+      "structural_summaries": {
+        "literal_raw_tensor_bytes": {
+          "count": 1,
+          "maximum": 2000527980.0,
+          "minimum": 2000527980.0,
+          "sum_abs": 2000527980.0
+        },
+        "literal_standalone_scalars": {
+          "count": 1,
+          "maximum": 529117494.0,
+          "minimum": 529117494.0,
+          "sum_abs": 529117494.0
+        },
+        "mlp0_rank": {
+          "count": 1,
+          "maximum": 448.0,
+          "minimum": 448.0,
+          "sum_abs": 448.0
+        },
+        "qk_rank": {
+          "count": 1,
+          "maximum": 96.0,
+          "minimum": 96.0,
+          "sum_abs": 96.0
+        },
+        "runtime_s": {
+          "count": 1,
+          "maximum": 139.89535212516785,
+          "minimum": 139.89535212516785,
+          "sum_abs": 139.89535212516785
+        }
+      }
+    },
+    {
+      "declared_arm_count": 0,
+      "declared_arm_names": [],
+      "grammar_family": "composite_program",
+      "has_machine_readable_price": true,
+      "join_key": "r336:d30560a7101f2bc2",
+      "module_family": "other_attention",
+      "receipt_first_add_unix": 1788243859,
+      "receipt_path": "basis_aligned/bilinear_quotient/mixed88_context_metric_qk_ood_results.json",
+      "receipt_sha256": "d30560a7101f2bc25311af67323a215ba508876331a5c43193d41aeb20da71a9",
+      "rung": 336,
+      "source_ast": {
+        "branches": 5,
+        "calls": 107,
+        "functions": 2,
+        "loops": 1,
+        "nodes": 1429
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/mixed88_context_metric_qk_ood.py",
+      "source_sha256": "f128e33867edeb572161698632dd130ec703118443bd514e29d274cfcad0b765",
+      "structural_summaries": {
+        "literal_raw_tensor_bytes": {
+          "count": 1,
+          "maximum": 2006393452.0,
+          "minimum": 2006393452.0,
+          "sum_abs": 2006393452.0
+        },
+        "literal_standalone_scalars": {
+          "count": 1,
+          "maximum": 530583862.0,
+          "minimum": 530583862.0,
+          "sum_abs": 530583862.0
+        },
+        "qk_rank": {
+          "count": 1,
+          "maximum": 88.0,
+          "minimum": 88.0,
+          "sum_abs": 88.0
+        },
+        "runtime_s": {
+          "count": 1,
+          "maximum": 136.1205756664276,
+          "minimum": 136.1205756664276,
+          "sum_abs": 136.1205756664276
+        }
+      }
+    },
+    {
+      "declared_arm_count": 2,
+      "declared_arm_names": [
+        "512",
+        "640"
+      ],
+      "grammar_family": "composite_program",
+      "has_machine_readable_price": false,
+      "join_key": "r337:537c951753ad7d4a",
+      "module_family": "mlp0_or_early_mlp",
+      "receipt_first_add_unix": 1788244028,
+      "receipt_path": "basis_aligned/bilinear_quotient/mixed96_context_qk_mlp0_context_p512_p640_ood_results.json",
+      "receipt_sha256": "537c951753ad7d4a3865b68b2ed61e1524c59e883e5f60f3bd2e44c7ce3a382d",
+      "rung": 337,
+      "source_ast": {
+        "branches": 7,
+        "calls": 151,
+        "functions": 2,
+        "loops": 4,
+        "nodes": 2107
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/mixed96_context_qk_mlp0_context_p512_p640_ood.py",
+      "source_sha256": "d1d3f00a3158132de389d815cba2e94f198ccfd4faedfcc58e624a64956ef06f",
+      "structural_summaries": {
+        "qk_rank": {
+          "count": 1,
+          "maximum": 96.0,
+          "minimum": 96.0,
+          "sum_abs": 96.0
+        },
+        "runtime_s": {
+          "count": 1,
+          "maximum": 155.53459286689758,
+          "minimum": 155.53459286689758,
+          "sum_abs": 155.53459286689758
+        }
+      }
+    },
+    {
+      "declared_arm_count": 0,
+      "declared_arm_names": [],
+      "grammar_family": "composite_program",
+      "has_machine_readable_price": true,
+      "join_key": "r338:17692c59c24a7dfa",
+      "module_family": "other_attention",
+      "receipt_first_add_unix": 1788244202,
+      "receipt_path": "basis_aligned/bilinear_quotient/a16_transfer_mixed88_context_metric_qk_results.json",
+      "receipt_sha256": "17692c59c24a7dfab86f759d752f21aa6def3b2ffc2dc31fcea6af670ac46cf5",
+      "rung": 338,
+      "source_ast": {
+        "branches": 8,
+        "calls": 168,
+        "functions": 5,
+        "loops": 6,
+        "nodes": 2177
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/a16_transfer_mixed88_context_metric_qk.py",
+      "source_sha256": "3de40b381a27e0ac053d0325af2c5dac14bb7e106e925643a8d2d8e862a84465",
+      "structural_summaries": {
+        "literal_raw_tensor_bytes": {
+          "count": 1,
+          "maximum": 2006393452.0,
+          "minimum": 2006393452.0,
+          "sum_abs": 2006393452.0
+        },
+        "literal_standalone_scalars": {
+          "count": 1,
+          "maximum": 530583862.0,
+          "minimum": 530583862.0,
+          "sum_abs": 530583862.0
+        },
+        "qk_rank": {
+          "count": 1,
+          "maximum": 88.0,
+          "minimum": 88.0,
+          "sum_abs": 88.0
+        },
+        "runtime_s": {
+          "count": 1,
+          "maximum": 139.36581945419312,
+          "minimum": 139.36581945419312,
+          "sum_abs": 139.36581945419312
+        }
+      }
+    },
+    {
+      "declared_arm_count": 0,
+      "declared_arm_names": [],
+      "grammar_family": "composite_program",
+      "has_machine_readable_price": true,
+      "join_key": "r339:ea67f32b7716c9e5",
+      "module_family": "other_attention",
+      "receipt_first_add_unix": 1788244326,
+      "receipt_path": "basis_aligned/bilinear_quotient/mixed80_context_metric_qk_ood_results.json",
+      "receipt_sha256": "ea67f32b7716c9e5569d4b5fe0dc757bddcc3a95879e98983b5bef6faf0b969b",
+      "rung": 339,
+      "source_ast": {
+        "branches": 3,
+        "calls": 35,
+        "functions": 1,
+        "loops": 1,
+        "nodes": 689
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/mixed80_context_metric_qk_ood.py",
+      "source_sha256": "078d0b759b9509bfa3a538d30f452fc8a4d1efd4cc3eb3de7d732e3f99669666",
+      "structural_summaries": {
+        "literal_raw_tensor_bytes": {
+          "count": 1,
+          "maximum": 1988371052.0,
+          "minimum": 1988371052.0,
+          "sum_abs": 1988371052.0
+        },
+        "literal_standalone_scalars": {
+          "count": 1,
+          "maximum": 526078262.0,
+          "minimum": 526078262.0,
+          "sum_abs": 526078262.0
+        },
+        "qk_rank": {
+          "count": 1,
+          "maximum": 80.0,
+          "minimum": 80.0,
+          "sum_abs": 80.0
+        },
+        "runtime_s": {
+          "count": 1,
+          "maximum": 136.0532968044281,
+          "minimum": 136.0532968044281,
+          "sum_abs": 136.0532968044281
+        }
+      }
+    },
+    {
+      "declared_arm_count": 0,
+      "declared_arm_names": [],
+      "grammar_family": "other",
+      "has_machine_readable_price": false,
+      "join_key": "r340:b36ec37e4ec45900",
+      "module_family": "mlp0_or_early_mlp",
+      "receipt_first_add_unix": 1788244443,
+      "receipt_path": "basis_aligned/bilinear_quotient/mlp0_embedding_fold_contraction_commutant_results.json",
+      "receipt_sha256": "b36ec37e4ec45900c9690b6b9a2de3ed4043f57cae3d563ac6db20e2501dcea6",
+      "rung": 340,
+      "source_ast": {
+        "branches": 4,
+        "calls": 167,
+        "functions": 11,
+        "loops": 5,
+        "nodes": 2573
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/mlp0_embedding_fold_contraction_commutant.py",
+      "source_sha256": "74a1b432dbcb1de863b10ba1cf5d616f6d20ce2a6204279007dd9c5a159337c0",
+      "structural_summaries": {
+        "runtime_s": {
+          "count": 1,
+          "maximum": 4.2234954833984375,
+          "minimum": 4.2234954833984375,
+          "sum_abs": 4.2234954833984375
+        }
+      }
+    },
+    {
+      "declared_arm_count": 0,
+      "declared_arm_names": [],
+      "grammar_family": "composite_program",
+      "has_machine_readable_price": true,
+      "join_key": "r341:195dac4e5da91cfb",
+      "module_family": "other_attention",
+      "receipt_first_add_unix": 1788244661,
+      "receipt_path": "basis_aligned/bilinear_quotient/a16_transfer_mixed80_context_metric_qk_results.json",
+      "receipt_sha256": "195dac4e5da91cfb6c9af4e152369b7e26d86ee779ac69e67d528b60e0bcc1e4",
+      "rung": 341,
+      "source_ast": {
+        "branches": 3,
+        "calls": 30,
+        "functions": 1,
+        "loops": 2,
+        "nodes": 601
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/a16_transfer_mixed80_context_metric_qk.py",
+      "source_sha256": "4b1f6c95998cb4c6adce453625a7c500b6ceb7d3794734e365235c9083576fec",
+      "structural_summaries": {
+        "literal_raw_tensor_bytes": {
+          "count": 1,
+          "maximum": 1988371052.0,
+          "minimum": 1988371052.0,
+          "sum_abs": 1988371052.0
+        },
+        "literal_standalone_scalars": {
+          "count": 1,
+          "maximum": 526078262.0,
+          "minimum": 526078262.0,
+          "sum_abs": 526078262.0
+        },
+        "qk_rank": {
+          "count": 1,
+          "maximum": 80.0,
+          "minimum": 80.0,
+          "sum_abs": 80.0
+        },
+        "runtime_s": {
+          "count": 1,
+          "maximum": 138.4749891757965,
+          "minimum": 138.4749891757965,
+          "sum_abs": 138.4749891757965
+        }
+      }
+    },
+    {
+      "declared_arm_count": 0,
+      "declared_arm_names": [],
+      "grammar_family": "composite_program",
+      "has_machine_readable_price": true,
+      "join_key": "r342:78620af55df48b1f",
+      "module_family": "other_attention",
+      "receipt_first_add_unix": 1788244793,
+      "receipt_path": "basis_aligned/bilinear_quotient/mixed72_context_metric_qk_ood_results.json",
+      "receipt_sha256": "78620af55df48b1fcb067c1469cb6499561f931031cf8f7bb4177adfebb99e80",
+      "rung": 342,
+      "source_ast": {
+        "branches": 3,
+        "calls": 35,
+        "functions": 1,
+        "loops": 1,
+        "nodes": 689
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/mixed72_context_metric_qk_ood.py",
+      "source_sha256": "d2c232b462fd4a46457f17f883839c65d967be0271a80d88806bfafdf18a7cbd",
+      "structural_summaries": {
+        "literal_raw_tensor_bytes": {
+          "count": 1,
+          "maximum": 1970348652.0,
+          "minimum": 1970348652.0,
+          "sum_abs": 1970348652.0
+        },
+        "literal_standalone_scalars": {
+          "count": 1,
+          "maximum": 521572662.0,
+          "minimum": 521572662.0,
+          "sum_abs": 521572662.0
+        },
+        "qk_rank": {
+          "count": 1,
+          "maximum": 72.0,
+          "minimum": 72.0,
+          "sum_abs": 72.0
+        },
+        "runtime_s": {
+          "count": 1,
+          "maximum": 135.7734363079071,
+          "minimum": 135.7734363079071,
+          "sum_abs": 135.7734363079071
+        }
+      }
+    },
+    {
+      "declared_arm_count": 0,
+      "declared_arm_names": [],
+      "grammar_family": "composite_program",
+      "has_machine_readable_price": true,
+      "join_key": "r343:49a1a09f1d2dc2be",
+      "module_family": "other_attention",
+      "receipt_first_add_unix": 1788245351,
+      "receipt_path": "basis_aligned/bilinear_quotient/mixed80_context_qk_value96_context_ood_results.json",
+      "receipt_sha256": "49a1a09f1d2dc2be32f01d9d0ecbadd596ce838aa82d8ea60f98f85be49f63ef",
+      "rung": 343,
+      "source_ast": {
+        "branches": 5,
+        "calls": 116,
+        "functions": 2,
+        "loops": 1,
+        "nodes": 1604
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/mixed80_context_qk_value96_context_ood.py",
+      "source_sha256": "2a62f84eb7bd018763ead740668a2adddaabe8b3fbc7c32fe279dba66e968f27",
+      "structural_summaries": {
+        "literal_raw_tensor_bytes": {
+          "count": 1,
+          "maximum": 1974215276.0,
+          "minimum": 1974215276.0,
+          "sum_abs": 1974215276.0
+        },
+        "literal_standalone_scalars": {
+          "count": 1,
+          "maximum": 522539318.0,
+          "minimum": 522539318.0,
+          "sum_abs": 522539318.0
+        },
+        "qk_rank": {
+          "count": 1,
+          "maximum": 80.0,
+          "minimum": 80.0,
+          "sum_abs": 80.0
+        },
+        "runtime_s": {
+          "count": 1,
+          "maximum": 136.0673384666443,
+          "minimum": 136.0673384666443,
+          "sum_abs": 136.0673384666443
+        },
+        "value_rank": {
+          "count": 1,
+          "maximum": 96.0,
+          "minimum": 96.0,
+          "sum_abs": 96.0
+        }
+      }
+    },
+    {
+      "declared_arm_count": 0,
+      "declared_arm_names": [],
+      "grammar_family": "composite_program",
+      "has_machine_readable_price": true,
+      "join_key": "r344:c69a65ff3b439596",
+      "module_family": "other_attention",
+      "receipt_first_add_unix": 1788245128,
+      "receipt_path": "basis_aligned/bilinear_quotient/a16_transfer_mixed72_context_metric_qk_results.json",
+      "receipt_sha256": "c69a65ff3b4395960af89040f906631d8638bd42fa99b7bc2291df89cef7d81f",
+      "rung": 344,
+      "source_ast": {
+        "branches": 3,
+        "calls": 30,
+        "functions": 1,
+        "loops": 2,
+        "nodes": 601
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/a16_transfer_mixed72_context_metric_qk.py",
+      "source_sha256": "7f827c47fb6ed2cca2126b03964e448fdbfffd12f493e2f2ddd76523f1d1aa78",
+      "structural_summaries": {
+        "literal_raw_tensor_bytes": {
+          "count": 1,
+          "maximum": 1970348652.0,
+          "minimum": 1970348652.0,
+          "sum_abs": 1970348652.0
+        },
+        "literal_standalone_scalars": {
+          "count": 1,
+          "maximum": 521572662.0,
+          "minimum": 521572662.0,
+          "sum_abs": 521572662.0
+        },
+        "qk_rank": {
+          "count": 1,
+          "maximum": 72.0,
+          "minimum": 72.0,
+          "sum_abs": 72.0
+        },
+        "runtime_s": {
+          "count": 1,
+          "maximum": 138.03823161125183,
+          "minimum": 138.03823161125183,
+          "sum_abs": 138.03823161125183
+        }
+      }
+    },
+    {
+      "declared_arm_count": 0,
+      "declared_arm_names": [],
+      "grammar_family": "composite_program",
+      "has_machine_readable_price": true,
+      "join_key": "r345:1766dbff81263404",
+      "module_family": "other_attention",
+      "receipt_first_add_unix": 1788245492,
+      "receipt_path": "basis_aligned/bilinear_quotient/mixed64_context_metric_qk_ood_results.json",
+      "receipt_sha256": "1766dbff81263404c36cf4c29e1bdc47c46a9cc1626dbe653d5ed08421f5ac0b",
+      "rung": 345,
+      "source_ast": {
+        "branches": 3,
+        "calls": 35,
+        "functions": 1,
+        "loops": 1,
+        "nodes": 689
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/mixed64_context_metric_qk_ood.py",
+      "source_sha256": "e4956b54fb8696bbd2fb1943d3d5862035c18e66da244965caa082a9b8512dbc",
+      "structural_summaries": {
+        "literal_raw_tensor_bytes": {
+          "count": 1,
+          "maximum": 1952326252.0,
+          "minimum": 1952326252.0,
+          "sum_abs": 1952326252.0
+        },
+        "literal_standalone_scalars": {
+          "count": 1,
+          "maximum": 517067062.0,
+          "minimum": 517067062.0,
+          "sum_abs": 517067062.0
+        },
+        "qk_rank": {
+          "count": 1,
+          "maximum": 64.0,
+          "minimum": 64.0,
+          "sum_abs": 64.0
+        },
+        "runtime_s": {
+          "count": 1,
+          "maximum": 133.3064260482788,
+          "minimum": 133.3064260482788,
+          "sum_abs": 133.3064260482788
+        }
+      }
+    },
+    {
+      "declared_arm_count": 0,
+      "declared_arm_names": [],
+      "grammar_family": "other",
+      "has_machine_readable_price": false,
+      "join_key": "r346:10daf3dc497976f0",
+      "module_family": "mlp0_or_early_mlp",
+      "receipt_first_add_unix": 1788245492,
+      "receipt_path": "basis_aligned/bilinear_quotient/mlp0_full_fold_contraction_graph_results.json",
+      "receipt_sha256": "10daf3dc497976f03b8abc597ab6613db507d9a3f0de5332420330c65c4e942d",
+      "rung": 346,
+      "source_ast": {
+        "branches": 5,
+        "calls": 179,
+        "functions": 12,
+        "loops": 8,
+        "nodes": 2602
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/mlp0_full_fold_contraction_graph.py",
+      "source_sha256": "6917830e370529aebd23af3fc49388a0146e4b1f9d15d75f968d6e8b6c295bf5",
+      "structural_summaries": {
+        "runtime_s": {
+          "count": 1,
+          "maximum": 3.8804752826690674,
+          "minimum": 3.8804752826690674,
+          "sum_abs": 3.8804752826690674
+        }
+      }
+    },
+    {
+      "declared_arm_count": 0,
+      "declared_arm_names": [],
+      "grammar_family": "composite_program",
+      "has_machine_readable_price": true,
+      "join_key": "r347:9f4989c6c721b9d9",
+      "module_family": "other_attention",
+      "receipt_first_add_unix": 1788245778,
+      "receipt_path": "basis_aligned/bilinear_quotient/a16_transfer_mixed64_context_metric_qk_results.json",
+      "receipt_sha256": "9f4989c6c721b9d9cab36e4123a3012aa952b5121aa93be63126487a13e409b3",
+      "rung": 347,
+      "source_ast": {
+        "branches": 3,
+        "calls": 30,
+        "functions": 1,
+        "loops": 2,
+        "nodes": 601
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/a16_transfer_mixed64_context_metric_qk.py",
+      "source_sha256": "6401f63b7dbd237f71bab2929744857c1df2fe5777144fb96b35eadce2393cd3",
+      "structural_summaries": {
+        "literal_raw_tensor_bytes": {
+          "count": 1,
+          "maximum": 1952326252.0,
+          "minimum": 1952326252.0,
+          "sum_abs": 1952326252.0
+        },
+        "literal_standalone_scalars": {
+          "count": 1,
+          "maximum": 517067062.0,
+          "minimum": 517067062.0,
+          "sum_abs": 517067062.0
+        },
+        "qk_rank": {
+          "count": 1,
+          "maximum": 64.0,
+          "minimum": 64.0,
+          "sum_abs": 64.0
+        },
+        "runtime_s": {
+          "count": 1,
+          "maximum": 137.34641480445862,
+          "minimum": 137.34641480445862,
+          "sum_abs": 137.34641480445862
+        }
+      }
+    },
+    {
+      "declared_arm_count": 0,
+      "declared_arm_names": [],
+      "grammar_family": "composite_program",
+      "has_machine_readable_price": true,
+      "join_key": "r348:128900372850fd58",
+      "module_family": "other_attention",
+      "receipt_first_add_unix": 1788245934,
+      "receipt_path": "basis_aligned/bilinear_quotient/mixed56_context_metric_qk_newcorpus_ood_results.json",
+      "receipt_sha256": "128900372850fd588abd04c04d28fd2dffdb2176463c8c0b1d112bd09d4f66ca",
+      "rung": 348,
+      "source_ast": {
+        "branches": 4,
+        "calls": 56,
+        "functions": 2,
+        "loops": 1,
+        "nodes": 1003
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/mixed56_context_metric_qk_newcorpus_ood.py",
+      "source_sha256": "2fd3c4b91c5ebaef821ee1634bafbee456dd5ea1fefce869f21bf45ee1cdad34",
+      "structural_summaries": {
+        "literal_raw_tensor_bytes": {
+          "count": 1,
+          "maximum": 1934303852.0,
+          "minimum": 1934303852.0,
+          "sum_abs": 1934303852.0
+        },
+        "literal_standalone_scalars": {
+          "count": 1,
+          "maximum": 512561462.0,
+          "minimum": 512561462.0,
+          "sum_abs": 512561462.0
+        },
+        "qk_rank": {
+          "count": 1,
+          "maximum": 56.0,
+          "minimum": 56.0,
+          "sum_abs": 56.0
+        },
+        "runtime_s": {
+          "count": 1,
+          "maximum": 130.6561300754547,
+          "minimum": 130.6561300754547,
+          "sum_abs": 130.6561300754547
+        }
+      }
+    },
+    {
+      "declared_arm_count": 0,
+      "declared_arm_names": [],
+      "grammar_family": "composite_program",
+      "has_machine_readable_price": true,
+      "join_key": "r349:938238a761aa17ca",
+      "module_family": "other_attention",
+      "receipt_first_add_unix": 1788246241,
+      "receipt_path": "basis_aligned/bilinear_quotient/a16_transfer_mixed56_context_metric_qk_results.json",
+      "receipt_sha256": "938238a761aa17cacd8deda3869ddbc1950cd254a76a26777bde284d803f4d73",
+      "rung": 349,
+      "source_ast": {
+        "branches": 3,
+        "calls": 30,
+        "functions": 1,
+        "loops": 2,
+        "nodes": 611
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/a16_transfer_mixed56_context_metric_qk.py",
+      "source_sha256": "658f5398a56ce17886999e6973aa2491b62ba60ed13ddb0d7b061dc3b94f22e6",
+      "structural_summaries": {
+        "literal_raw_tensor_bytes": {
+          "count": 1,
+          "maximum": 1934303852.0,
+          "minimum": 1934303852.0,
+          "sum_abs": 1934303852.0
+        },
+        "literal_standalone_scalars": {
+          "count": 1,
+          "maximum": 512561462.0,
+          "minimum": 512561462.0,
+          "sum_abs": 512561462.0
+        },
+        "qk_rank": {
+          "count": 1,
+          "maximum": 56.0,
+          "minimum": 56.0,
+          "sum_abs": 56.0
+        },
+        "runtime_s": {
+          "count": 1,
+          "maximum": 137.32941722869873,
+          "minimum": 137.32941722869873,
+          "sum_abs": 137.32941722869873
+        }
+      }
+    },
+    {
+      "declared_arm_count": 0,
+      "declared_arm_names": [],
+      "grammar_family": "other",
+      "has_machine_readable_price": false,
+      "join_key": "r350:bebbf879659da1c5",
+      "module_family": "mlp0_or_early_mlp",
+      "receipt_first_add_unix": 1788246077,
+      "receipt_path": "basis_aligned/bilinear_quotient/mlp0_tail_robust_context_metric_screen_results.json",
+      "receipt_sha256": "bebbf879659da1c5a42f16c46f887c7aa4edf3cfce3ae09818ffbf919f69b49b",
+      "rung": 350,
+      "source_ast": {
+        "branches": 6,
+        "calls": 115,
+        "functions": 8,
+        "loops": 10,
+        "nodes": 2104
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/mlp0_tail_robust_context_metric_screen.py",
+      "source_sha256": "4f5cd0112397e30ecef83c106ac396baf914bed9ecb652fdfe087acede44d778",
+      "structural_summaries": {
+        "runtime_s": {
+          "count": 1,
+          "maximum": 18.347174406051636,
+          "minimum": 18.347174406051636,
+          "sum_abs": 18.347174406051636
+        }
+      }
+    },
+    {
+      "declared_arm_count": 0,
+      "declared_arm_names": [],
+      "grammar_family": "composite_program",
+      "has_machine_readable_price": true,
+      "join_key": "r351:92a4d63386dd09e8",
+      "module_family": "other_attention",
+      "receipt_first_add_unix": 1788246463,
+      "receipt_path": "basis_aligned/bilinear_quotient/mixed48_context_metric_qk_newcorpus_ood_results.json",
+      "receipt_sha256": "92a4d63386dd09e8dcbea6ee7efd383af2985122129bde2cf00a4176fc86291d",
+      "rung": 351,
+      "source_ast": {
+        "branches": 3,
+        "calls": 36,
+        "functions": 1,
+        "loops": 1,
+        "nodes": 781
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/mixed48_context_metric_qk_newcorpus_ood.py",
+      "source_sha256": "507bace95b2d8650c16b931fc5c1f2875b5854f67361c02e958b5b65fa5fa601",
+      "structural_summaries": {
+        "literal_raw_tensor_bytes": {
+          "count": 1,
+          "maximum": 1916281452.0,
+          "minimum": 1916281452.0,
+          "sum_abs": 1916281452.0
+        },
+        "literal_standalone_scalars": {
+          "count": 1,
+          "maximum": 508055862.0,
+          "minimum": 508055862.0,
+          "sum_abs": 508055862.0
+        },
+        "qk_rank": {
+          "count": 1,
+          "maximum": 48.0,
+          "minimum": 48.0,
+          "sum_abs": 48.0
+        },
+        "runtime_s": {
+          "count": 1,
+          "maximum": 129.77792859077454,
+          "minimum": 129.77792859077454,
+          "sum_abs": 129.77792859077454
+        }
+      }
+    },
+    {
+      "declared_arm_count": 0,
+      "declared_arm_names": [],
+      "grammar_family": "composite_program",
+      "has_machine_readable_price": true,
+      "join_key": "r352:6a5da91e76ee5964",
+      "module_family": "mlp0_or_early_mlp",
+      "receipt_first_add_unix": 1788246633,
+      "receipt_path": "basis_aligned/bilinear_quotient/mixed56_context_qk_mlp0_context_p512_ood_results.json",
+      "receipt_sha256": "6a5da91e76ee596424c089a0c04c1364903c81646eb906111cdd643ef11d25fd",
+      "rung": 352,
+      "source_ast": {
+        "branches": 4,
+        "calls": 44,
+        "functions": 4,
+        "loops": 2,
+        "nodes": 965
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/mixed56_context_qk_mlp0_context_p512_ood.py",
+      "source_sha256": "813a95a02fe7c5c27e01ab284591a0a9cc9c9e50d05afb93a367c3cd460ddb4d",
+      "structural_summaries": {
+        "literal_raw_tensor_bytes": {
+          "count": 1,
+          "maximum": 1913070188.0,
+          "minimum": 1913070188.0,
+          "sum_abs": 1913070188.0
+        },
+        "literal_standalone_scalars": {
+          "count": 1,
+          "maximum": 507253046.0,
+          "minimum": 507253046.0,
+          "sum_abs": 507253046.0
+        },
+        "mlp0_rank": {
+          "count": 1,
+          "maximum": 512.0,
+          "minimum": 512.0,
+          "sum_abs": 512.0
+        },
+        "qk_rank": {
+          "count": 1,
+          "maximum": 56.0,
+          "minimum": 56.0,
+          "sum_abs": 56.0
+        },
+        "runtime_s": {
+          "count": 1,
+          "maximum": 131.72459435462952,
+          "minimum": 131.72459435462952,
+          "sum_abs": 131.72459435462952
+        }
+      }
+    },
+    {
+      "declared_arm_count": 0,
+      "declared_arm_names": [],
+      "grammar_family": "other",
+      "has_machine_readable_price": false,
+      "join_key": "r353:eda677321142c26d",
+      "module_family": "mlp0_or_early_mlp",
+      "receipt_first_add_unix": 1788246633,
+      "receipt_path": "basis_aligned/bilinear_quotient/mlp0_consequence_weighted_context_metric_screen_results.json",
+      "receipt_sha256": "eda677321142c26d971980119bf37927b67e42b492397d638dbdf37ca23fb9a1",
+      "rung": 353,
+      "source_ast": {
+        "branches": 5,
+        "calls": 115,
+        "functions": 5,
+        "loops": 10,
+        "nodes": 1955
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/mlp0_consequence_weighted_context_metric_screen.py",
+      "source_sha256": "be5a76806d493401316de030dc4c35a4976ea0c29899524ae262d0c1b9da9db3",
+      "structural_summaries": {
+        "runtime_s": {
+          "count": 1,
+          "maximum": 18.760560512542725,
+          "minimum": 18.760560512542725,
+          "sum_abs": 18.760560512542725
+        }
+      }
+    },
+    {
+      "declared_arm_count": 0,
+      "declared_arm_names": [],
+      "grammar_family": "other",
+      "has_machine_readable_price": false,
+      "join_key": "r354:b51fc153f72cfb52",
+      "module_family": "mlp0_or_early_mlp",
+      "receipt_first_add_unix": 1788247116,
+      "receipt_path": "basis_aligned/bilinear_quotient/mlp0_finite_moe_subspace_router_screen_results.json",
+      "receipt_sha256": "b51fc153f72cfb52b76bf6bc86535015690a0bba600fe1d3c327f6f8236e00bb",
+      "rung": 354,
+      "source_ast": {
+        "branches": 6,
+        "calls": 143,
+        "functions": 8,
+        "loops": 7,
+        "nodes": 2538
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/mlp0_finite_moe_subspace_router_screen.py",
+      "source_sha256": "4ef5a5d2ea5438f015fa058d601a9adbcc042a2156b8f6a70d9dcf0894eae0a8",
+      "structural_summaries": {
+        "runtime_s": {
+          "count": 1,
+          "maximum": 14.568837404251099,
+          "minimum": 14.568837404251099,
+          "sum_abs": 14.568837404251099
+        }
+      }
+    },
+    {
+      "declared_arm_count": 0,
+      "declared_arm_names": [],
+      "grammar_family": "other",
+      "has_machine_readable_price": false,
+      "join_key": "r355:9f05c57f8f7c5c7d",
+      "module_family": "other",
+      "receipt_first_add_unix": 1788247116,
+      "receipt_path": "basis_aligned/bilinear_quotient/context_metric_tail_waterfilling_law_results.json",
+      "receipt_sha256": "9f05c57f8f7c5c7d6b1ebcd84c93221b5f0f6531ac94d909f5c8648327863534",
+      "rung": 355,
+      "source_ast": {
+        "branches": 5,
+        "calls": 151,
+        "functions": 3,
+        "loops": 6,
+        "nodes": 2198
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/context_metric_tail_waterfilling_law.py",
+      "source_sha256": "f1775acca3df7027c8d2239c2db52b3f074eafba25724506c64f37317a7260f7",
+      "structural_summaries": {
+        "runtime_s": {
+          "count": 1,
+          "maximum": 5.610871315002441,
+          "minimum": 5.610871315002441,
+          "sum_abs": 5.610871315002441
+        }
+      }
+    },
+    {
+      "declared_arm_count": 0,
+      "declared_arm_names": [],
+      "grammar_family": "other",
+      "has_machine_readable_price": false,
+      "join_key": "r356:6ecbc9aeb48170f6",
+      "module_family": "other",
+      "receipt_first_add_unix": 1788247324,
+      "receipt_path": "basis_aligned/bilinear_quotient/certificate_damage_axis_transfer_results.json",
+      "receipt_sha256": "6ecbc9aeb48170f6bc5fc077df2f27be790c2f6b3555504d0c10ed7c1bbac43d",
+      "rung": 356,
+      "source_ast": {
+        "branches": 5,
+        "calls": 111,
+        "functions": 4,
+        "loops": 5,
+        "nodes": 1426
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/certificate_damage_axis_transfer.py",
+      "source_sha256": "28e4b9202b86224531511aa23e17f966d1d2d4100b71ab5173d42a4b89c92b9a",
+      "structural_summaries": {
+        "runtime_s": {
+          "count": 1,
+          "maximum": 3.4970285892486572,
+          "minimum": 3.4970285892486572,
+          "sum_abs": 3.4970285892486572
+        }
+      }
+    },
+    {
+      "declared_arm_count": 0,
+      "declared_arm_names": [],
+      "grammar_family": "other",
+      "has_machine_readable_price": false,
+      "join_key": "r357:e6f22d1e11cdb51f",
+      "module_family": "other",
+      "receipt_first_add_unix": 1788248026,
+      "receipt_path": "basis_aligned/bilinear_quotient/certificate_constrained_waterfilling_allocator_results.json",
+      "receipt_sha256": "e6f22d1e11cdb51f0b201098b935883e49fc6e999e38767d0e3f80550fe6c637",
+      "rung": 357,
+      "source_ast": {
+        "branches": 9,
+        "calls": 168,
+        "functions": 6,
+        "loops": 7,
+        "nodes": 2484
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/certificate_constrained_waterfilling_allocator.py",
+      "source_sha256": "5de7fa8704f0dd21e47271e8a7af5adfbcebddfc994632f125764b578baf1473",
+      "structural_summaries": {
+        "runtime_s": {
+          "count": 1,
+          "maximum": 3.602104902267456,
+          "minimum": 3.602104902267456,
+          "sum_abs": 3.602104902267456
+        }
+      }
+    },
+    {
+      "declared_arm_count": 0,
+      "declared_arm_names": [],
+      "grammar_family": "composite_program",
+      "has_machine_readable_price": false,
+      "join_key": "r358:bb456bb2c2152fe5",
+      "module_family": "other_attention",
+      "receipt_first_add_unix": 1788248226,
+      "receipt_path": "basis_aligned/bilinear_quotient/qk_frontier_mdl_crossover_results.json",
+      "receipt_sha256": "bb456bb2c2152fe52eff02a28ba108569c1f6b03963e23c761dd388288400735",
+      "rung": 358,
+      "source_ast": {
+        "branches": 8,
+        "calls": 61,
+        "functions": 4,
+        "loops": 6,
+        "nodes": 1293
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/qk_frontier_mdl_crossover.py",
+      "source_sha256": "a0322148649479d720c248d1a9adfc3a270f88e767292d0386f9b3e7e9c0bd8a",
+      "structural_summaries": {
+        "mapped_rank48_schedules": {
+          "count": 66,
+          "maximum": 169463153436.66824,
+          "minimum": 0.0,
+          "sum_abs": 2680748836031.093
+        },
+        "runtime_s": {
+          "count": 1,
+          "maximum": 0.00072479248046875,
+          "minimum": 0.00072479248046875,
+          "sum_abs": 0.00072479248046875
+        }
+      }
+    },
+    {
+      "declared_arm_count": 0,
+      "declared_arm_names": [],
+      "grammar_family": "state_or_continuous",
+      "has_machine_readable_price": false,
+      "join_key": "r359:a0a3ed9e3b77c20b",
+      "module_family": "mlp0_or_early_mlp",
+      "receipt_first_add_unix": 1788248518,
+      "receipt_path": "basis_aligned/bilinear_quotient/mlp0_context_state_finite_moe_router_results.json",
+      "receipt_sha256": "a0a3ed9e3b77c20bac245504ab307dbf07756d1e8b98102b638df1112cb74204",
+      "rung": 359,
+      "source_ast": {
+        "branches": 7,
+        "calls": 139,
+        "functions": 9,
+        "loops": 8,
+        "nodes": 2663
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/mlp0_context_state_finite_moe_router.py",
+      "source_sha256": "9350f2f444d8b5703ae08a6b258210fe5306e34ba0bc6f4b33a995ab181e5207",
+      "structural_summaries": {
+        "runtime_s": {
+          "count": 1,
+          "maximum": 15.705793142318726,
+          "minimum": 15.705793142318726,
+          "sum_abs": 15.705793142318726
+        }
+      }
+    },
+    {
+      "declared_arm_count": 0,
+      "declared_arm_names": [],
+      "grammar_family": "composite_program",
+      "has_machine_readable_price": true,
+      "join_key": "r360:f2c5ef25926cb91e",
+      "module_family": "other_attention",
+      "receipt_first_add_unix": 1788248887,
+      "receipt_path": "basis_aligned/bilinear_quotient/mixed56_context_qk_fp16_storage_ood_results.json",
+      "receipt_sha256": "f2c5ef25926cb91e82f27774a3052eb5e49aa9d6171425eb9a3d6f4434a85ceb",
+      "rung": 360,
+      "source_ast": {
+        "branches": 5,
+        "calls": 121,
+        "functions": 2,
+        "loops": 1,
+        "nodes": 1660
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/mixed56_context_qk_fp16_storage_ood.py",
+      "source_sha256": "452bf2ae3d7a1f88ab0352db0ed6fb1de24965f20a4f076cdab7ae72156e1cfb",
+      "structural_summaries": {
+        "byte_saving_fraction_vs_native": {
+          "count": 1,
+          "maximum": 0.09500751902523971,
+          "minimum": 0.09500751902523971,
+          "sum_abs": 0.09500751902523971
+        },
+        "byte_saving_vs_native": {
+          "count": 1,
+          "maximum": 196444160.0,
+          "minimum": 196444160.0,
+          "sum_abs": 196444160.0
+        },
+        "literal_raw_tensor_bytes": {
+          "count": 1,
+          "maximum": 1871225452.0,
+          "minimum": 1871225452.0,
+          "sum_abs": 1871225452.0
+        },
+        "literal_standalone_scalars": {
+          "count": 1,
+          "maximum": 512561462.0,
+          "minimum": 512561462.0,
+          "sum_abs": 512561462.0
+        },
+        "qk_factor_scalars": {
+          "count": 1,
+          "maximum": 31539200.0,
+          "minimum": 31539200.0,
+          "sum_abs": 31539200.0
+        },
+        "qk_rank": {
+          "count": 1,
+          "maximum": 56.0,
+          "minimum": 56.0,
+          "sum_abs": 56.0
+        },
+        "runtime_s": {
+          "count": 1,
+          "maximum": 135.78838872909546,
+          "minimum": 135.78838872909546,
+          "sum_abs": 135.78838872909546
+        }
+      }
+    },
+    {
+      "declared_arm_count": 0,
+      "declared_arm_names": [],
+      "grammar_family": "composite_program",
+      "has_machine_readable_price": true,
+      "join_key": "r361:8efe01ae237ee219",
+      "module_family": "other_attention",
+      "receipt_first_add_unix": 1788249052,
+      "receipt_path": "basis_aligned/bilinear_quotient/a16_transfer_mixed56_context_qk_fp16_storage_results.json",
+      "receipt_sha256": "8efe01ae237ee219b6122135f81cdbd06da1540c5317734cca9ade1e889591f1",
+      "rung": 361,
+      "source_ast": {
+        "branches": 3,
+        "calls": 31,
+        "functions": 1,
+        "loops": 2,
+        "nodes": 651
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/a16_transfer_mixed56_context_qk_fp16_storage.py",
+      "source_sha256": "f35c87b242d2a8e971221042809ee032f128f8780033a916b8227c148080fe37",
+      "structural_summaries": {
+        "literal_raw_tensor_bytes": {
+          "count": 1,
+          "maximum": 1871225452.0,
+          "minimum": 1871225452.0,
+          "sum_abs": 1871225452.0
+        },
+        "literal_standalone_scalars": {
+          "count": 1,
+          "maximum": 512561462.0,
+          "minimum": 512561462.0,
+          "sum_abs": 512561462.0
+        },
+        "qk_rank": {
+          "count": 1,
+          "maximum": 56.0,
+          "minimum": 56.0,
+          "sum_abs": 56.0
+        },
+        "runtime_s": {
+          "count": 1,
+          "maximum": 139.9391520023346,
+          "minimum": 139.9391520023346,
+          "sum_abs": 139.9391520023346
+        }
+      }
+    },
+    {
+      "declared_arm_count": 0,
+      "declared_arm_names": [],
+      "grammar_family": "other",
+      "has_machine_readable_price": false,
+      "join_key": "r362:3e934db6d1a91c01",
+      "module_family": "other",
+      "receipt_first_add_unix": 1788249388,
+      "receipt_path": "basis_aligned/bilinear_quotient/bilin18_universal_bf16_storage_screen_results.json",
+      "receipt_sha256": "3e934db6d1a91c013f9497e822b9e0d226747a46bfa3168753d8749dc40ea172",
+      "rung": 362,
+      "source_ast": {
+        "branches": 5,
+        "calls": 87,
+        "functions": 1,
+        "loops": 2,
+        "nodes": 1276
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/bilin18_universal_bf16_storage_screen.py",
+      "source_sha256": "67ce61ce7fe245ccdc26112b0eeaaef54c51f522def16f96bfa6d9da1d022e9c",
+      "structural_summaries": {
+        "runtime_s": {
+          "count": 1,
+          "maximum": 9.433077812194824,
+          "minimum": 9.433077812194824,
+          "sum_abs": 9.433077812194824
+        }
+      }
+    },
+    {
+      "declared_arm_count": 0,
+      "declared_arm_names": [],
+      "grammar_family": "composite_program",
+      "has_machine_readable_price": true,
+      "join_key": "r363:f7ea02e7c1562e7d",
+      "module_family": "other_attention",
+      "receipt_first_add_unix": 1788249776,
+      "receipt_path": "basis_aligned/bilinear_quotient/mixed56_universal_bf16_qk_fp16_storage_ood_results.json",
+      "receipt_sha256": "f7ea02e7c1562e7da1fd1f78e5552166d9116a1c2a99f6a4d245915526464cbf",
+      "rung": 363,
+      "source_ast": {
+        "branches": 7,
+        "calls": 160,
+        "functions": 2,
+        "loops": 2,
+        "nodes": 2097
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/mixed56_universal_bf16_qk_fp16_storage_ood.py",
+      "source_sha256": "0a28a90ab6bdad60830e0ccaf877f5c7d7bfac36a22faf9f5431f47d3869f341",
+      "structural_summaries": {
+        "byte_saving_fraction_vs_native": {
+          "count": 1,
+          "maximum": 0.5042133820362013,
+          "minimum": 0.5042133820362013,
+          "sum_abs": 0.5042133820362013
+        },
+        "byte_saving_vs_native": {
+          "count": 1,
+          "maximum": 1042546688.0,
+          "minimum": 1042546688.0,
+          "sum_abs": 1042546688.0
+        },
+        "literal_raw_tensor_bytes": {
+          "count": 1,
+          "maximum": 1025122924.0,
+          "minimum": 1025122924.0,
+          "sum_abs": 1025122924.0
+        },
+        "literal_standalone_scalars": {
+          "count": 1,
+          "maximum": 512561462.0,
+          "minimum": 512561462.0,
+          "sum_abs": 512561462.0
+        },
+        "qk_factor_scalars": {
+          "count": 1,
+          "maximum": 31539200.0,
+          "minimum": 31539200.0,
+          "sum_abs": 31539200.0
+        },
+        "qk_rank": {
+          "count": 1,
+          "maximum": 56.0,
+          "minimum": 56.0,
+          "sum_abs": 56.0
+        },
+        "rounded_fp32_scalars_changed": {
+          "count": 1,
+          "maximum": 487924449.0,
+          "minimum": 487924449.0,
+          "sum_abs": 487924449.0
+        },
+        "runtime_s": {
+          "count": 1,
+          "maximum": 137.9761130809784,
+          "minimum": 137.9761130809784,
+          "sum_abs": 137.9761130809784
+        },
+        "source_dtype_scalars": {
+          "count": 2,
+          "maximum": 487931904.0,
+          "minimum": 57970998.0,
+          "sum_abs": 545902902.0
+        }
+      }
+    },
+    {
+      "declared_arm_count": 0,
+      "declared_arm_names": [],
+      "grammar_family": "composite_program",
+      "has_machine_readable_price": true,
+      "join_key": "r364:1faf34cc47980c58",
+      "module_family": "other_attention",
+      "receipt_first_add_unix": 1788249978,
+      "receipt_path": "basis_aligned/bilinear_quotient/a16_transfer_mixed56_universal_bf16_qk_fp16_storage_results.json",
+      "receipt_sha256": "1faf34cc47980c584ab009949a11100de42935387ab055bc7dfb0d86456a014c",
+      "rung": 364,
+      "source_ast": {
+        "branches": 8,
+        "calls": 201,
+        "functions": 5,
+        "loops": 7,
+        "nodes": 2593
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/a16_transfer_mixed56_universal_bf16_qk_fp16_storage.py",
+      "source_sha256": "3e048db077b21fc97e9fb54aea4d4053db69dadc5f93fe1ed2d02ee15d5b512c",
+      "structural_summaries": {
+        "literal_raw_tensor_bytes": {
+          "count": 1,
+          "maximum": 1025122924.0,
+          "minimum": 1025122924.0,
+          "sum_abs": 1025122924.0
+        },
+        "literal_standalone_scalars": {
+          "count": 1,
+          "maximum": 512561462.0,
+          "minimum": 512561462.0,
+          "sum_abs": 512561462.0
+        },
+        "qk_rank": {
+          "count": 1,
+          "maximum": 56.0,
+          "minimum": 56.0,
+          "sum_abs": 56.0
+        },
+        "runtime_s": {
+          "count": 1,
+          "maximum": 137.74356627464294,
+          "minimum": 137.74356627464294,
+          "sum_abs": 137.74356627464294
+        },
+        "source_dtype_scalars": {
+          "count": 2,
+          "maximum": 487931904.0,
+          "minimum": 57970998.0,
+          "sum_abs": 545902902.0
+        }
+      }
+    },
+    {
+      "declared_arm_count": 0,
+      "declared_arm_names": [],
+      "grammar_family": "other",
+      "has_machine_readable_price": true,
+      "join_key": "r365:4a350422aac53153",
+      "module_family": "other",
+      "receipt_first_add_unix": 1788250409,
+      "receipt_path": "basis_aligned/bilinear_quotient/bilin18_universal_bf16_full_gate_results.json",
+      "receipt_sha256": "4a350422aac5315314c12d38df4ff93920b87d96e62d0a9df6f2ba82c5ff3c6e",
+      "rung": 365,
+      "source_ast": {
+        "branches": 10,
+        "calls": 177,
+        "functions": 6,
+        "loops": 7,
+        "nodes": 2186
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/bilin18_universal_bf16_full_gate.py",
+      "source_sha256": "3540ba3647e4dd764162637c2f2e82162e8a768812fdccb4cbcb0711c1611bb4",
+      "structural_summaries": {
+        "byte_saving_fraction_vs_native": {
+          "count": 1,
+          "maximum": 0.4719631232845144,
+          "minimum": 0.4719631232845144,
+          "sum_abs": 0.4719631232845144
+        },
+        "byte_saving_vs_native": {
+          "count": 1,
+          "maximum": 975863808.0,
+          "minimum": 975863808.0,
+          "sum_abs": 975863808.0
+        },
+        "literal_raw_tensor_bytes": {
+          "count": 1,
+          "maximum": 1091805804.0,
+          "minimum": 1091805804.0,
+          "sum_abs": 1091805804.0
+        },
+        "literal_standalone_scalars": {
+          "count": 1,
+          "maximum": 545902902.0,
+          "minimum": 545902902.0,
+          "sum_abs": 545902902.0
+        },
+        "runtime_s": {
+          "count": 1,
+          "maximum": 19.905651569366455,
+          "minimum": 19.905651569366455,
+          "sum_abs": 19.905651569366455
+        },
+        "source_dtype_scalars": {
+          "count": 2,
+          "maximum": 487931904.0,
+          "minimum": 57970998.0,
+          "sum_abs": 545902902.0
+        }
+      }
+    },
+    {
+      "declared_arm_count": 18,
+      "declared_arm_names": [
+        "0",
+        "1",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15",
+        "16",
+        "17",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9"
+      ],
+      "grammar_family": "other",
+      "has_machine_readable_price": true,
+      "join_key": "r366:c70ce96adc9b39ea",
+      "module_family": "other_mlp",
+      "receipt_first_add_unix": 1788250409,
+      "receipt_path": "basis_aligned/bilinear_quotient/mlp_all_layer_context_metric_shared_input_screen_results.json",
+      "receipt_sha256": "c70ce96adc9b39ea0adbd6b4f5a962ad4aff371d11db7853fadb2bdb6da870e9",
+      "rung": 366,
+      "source_ast": {
+        "branches": 7,
+        "calls": 164,
+        "functions": 7,
+        "loops": 11,
+        "nodes": 2650
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/mlp_all_layer_context_metric_shared_input_screen.py",
+      "source_sha256": "7723c29bcc04b222deeb0c887d7f5b8b58f26ea31952eecc0d70ff2e3d0695ff",
+      "structural_summaries": {
+        "ranks": {
+          "count": 2,
+          "maximum": 768.0,
+          "minimum": 512.0,
+          "sum_abs": 1280.0
+        },
+        "runtime_s": {
+          "count": 1,
+          "maximum": 41.112159729003906,
+          "minimum": 41.112159729003906,
+          "sum_abs": 41.112159729003906
+        },
+        "saving_scalars_per_installed_layer": {
+          "count": 2,
+          "maximum": 5308416.0,
+          "minimum": 2654208.0,
+          "sum_abs": 7962624.0
+        }
+      }
+    },
+    {
+      "declared_arm_count": 0,
+      "declared_arm_names": [],
+      "grammar_family": "composite_program",
+      "has_machine_readable_price": true,
+      "join_key": "r368:8501013259dba2dd",
+      "module_family": "mlp0_or_early_mlp",
+      "receipt_first_add_unix": 1788251028,
+      "receipt_path": "basis_aligned/bilinear_quotient/mixed64_bf16_qk_fp16_mlp04_context_p768_ood_results.json",
+      "receipt_sha256": "8501013259dba2dd6cd28630f72ab72d2aaafca9305ca49b108c090fad8f5956",
+      "rung": 368,
+      "source_ast": {
+        "branches": 5,
+        "calls": 86,
+        "functions": 1,
+        "loops": 2,
+        "nodes": 1386
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/mixed64_bf16_qk_fp16_mlp04_context_p768_ood.py",
+      "source_sha256": "126f218948accf0b6a840df26a6796a1a128e6826825d7b10f27e5ba86087001",
+      "structural_summaries": {
+        "byte_saving_fraction_vs_native": {
+          "count": 1,
+          "maximum": 0.5049899238931215,
+          "minimum": 0.5049899238931215,
+          "sum_abs": 0.5049899238931215
+        },
+        "byte_saving_vs_native": {
+          "count": 1,
+          "maximum": 1044152320.0,
+          "minimum": 1044152320.0,
+          "sum_abs": 1044152320.0
+        },
+        "literal_raw_tensor_bytes": {
+          "count": 1,
+          "maximum": 1023517292.0,
+          "minimum": 1023517292.0,
+          "sum_abs": 1023517292.0
+        },
+        "literal_standalone_scalars": {
+          "count": 1,
+          "maximum": 511758646.0,
+          "minimum": 511758646.0,
+          "sum_abs": 511758646.0
+        },
+        "mlp_rank": {
+          "count": 1,
+          "maximum": 768.0,
+          "minimum": 768.0,
+          "sum_abs": 768.0
+        },
+        "qk_rank": {
+          "count": 1,
+          "maximum": 64.0,
+          "minimum": 64.0,
+          "sum_abs": 64.0
+        },
+        "runtime_s": {
+          "count": 1,
+          "maximum": 130.84890127182007,
+          "minimum": 130.84890127182007,
+          "sum_abs": 130.84890127182007
+        },
+        "saving_vs_native_scalars": {
+          "count": 1,
+          "maximum": 34144256.0,
+          "minimum": 34144256.0,
+          "sum_abs": 34144256.0
+        },
+        "selection_ranking": {
+          "count": 16,
+          "maximum": 7.0,
+          "minimum": 0.0,
+          "sum_abs": 28.032772481441498
+        },
+        "source_dtype_scalars": {
+          "count": 2,
+          "maximum": 487931904.0,
+          "minimum": 57970998.0,
+          "sum_abs": 545902902.0
+        }
+      }
+    },
+    {
+      "declared_arm_count": 0,
+      "declared_arm_names": [],
+      "grammar_family": "composite_program",
+      "has_machine_readable_price": true,
+      "join_key": "r369:28d935e0ec923f62",
+      "module_family": "mlp0_or_early_mlp",
+      "receipt_first_add_unix": 1788251172,
+      "receipt_path": "basis_aligned/bilinear_quotient/a16_transfer_mixed64_bf16_qk_fp16_mlp04_p768_results.json",
+      "receipt_sha256": "28d935e0ec923f6235e95f88749106920c96ad3846abb36f65376d58fa01d5f1",
+      "rung": 369,
+      "source_ast": {
+        "branches": 8,
+        "calls": 183,
+        "functions": 4,
+        "loops": 6,
+        "nodes": 2390
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/a16_transfer_mixed64_bf16_qk_fp16_mlp04_p768.py",
+      "source_sha256": "c75c92042256b3b1e9d40604d12a07d2705828ef23c28442891df76a0ead3725",
+      "structural_summaries": {
+        "literal_raw_tensor_bytes": {
+          "count": 1,
+          "maximum": 1023517292.0,
+          "minimum": 1023517292.0,
+          "sum_abs": 1023517292.0
+        },
+        "literal_standalone_scalars": {
+          "count": 1,
+          "maximum": 511758646.0,
+          "minimum": 511758646.0,
+          "sum_abs": 511758646.0
+        },
+        "qk_rank": {
+          "count": 1,
+          "maximum": 64.0,
+          "minimum": 64.0,
+          "sum_abs": 64.0
+        },
+        "runtime_s": {
+          "count": 1,
+          "maximum": 131.52825260162354,
+          "minimum": 131.52825260162354,
+          "sum_abs": 131.52825260162354
+        }
+      }
+    },
+    {
+      "declared_arm_count": 0,
+      "declared_arm_names": [],
+      "grammar_family": "sparse_or_dictionary",
+      "has_machine_readable_price": true,
+      "join_key": "r370:32140320c0ac44e7",
+      "module_family": "mlp0_or_early_mlp",
+      "receipt_first_add_unix": 1788251412,
+      "receipt_path": "basis_aligned/bilinear_quotient/mlp04_shared_grassmann_encoder_screen_results.json",
+      "receipt_sha256": "32140320c0ac44e74cfa5e162a8adaad64f93c25feb48b1b4c585adc984595de",
+      "rung": 370,
+      "source_ast": {
+        "branches": 4,
+        "calls": 121,
+        "functions": 6,
+        "loops": 7,
+        "nodes": 2259
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/mlp04_shared_grassmann_encoder_screen.py",
+      "source_sha256": "58e03cf389265e73870a76252244c4ec4c84d505136a9c02b08bf7df1002a811",
+      "structural_summaries": {
+        "independent_pair_scalars": {
+          "count": 1,
+          "maximum": 26544384.0,
+          "minimum": 26544384.0,
+          "sum_abs": 26544384.0
+        },
+        "prospective_full_program_scalars": {
+          "count": 1,
+          "maximum": 510873910.0,
+          "minimum": 510873910.0,
+          "sum_abs": 510873910.0
+        },
+        "rank": {
+          "count": 1,
+          "maximum": 768.0,
+          "minimum": 768.0,
+          "sum_abs": 768.0
+        },
+        "runtime_s": {
+          "count": 1,
+          "maximum": 8.857190608978271,
+          "minimum": 8.857190608978271,
+          "sum_abs": 8.857190608978271
+        },
+        "shared_pair_scalars": {
+          "count": 1,
+          "maximum": 25659648.0,
+          "minimum": 25659648.0,
+          "sum_abs": 25659648.0
+        }
+      }
+    },
+    {
+      "declared_arm_count": 0,
+      "declared_arm_names": [],
+      "grammar_family": "other",
+      "has_machine_readable_price": false,
+      "join_key": "r374:f628b80bbe54117e",
+      "module_family": "other_mlp",
+      "receipt_first_add_unix": 1788252840,
+      "receipt_path": "basis_aligned/bilinear_quotient/distributed_mlp_certificate_ray_transfer_results.json",
+      "receipt_sha256": "f628b80bbe54117e982aa8e9eb83eafd54cbf2826d32d2d6879a079bc44964c9",
+      "rung": 374,
+      "source_ast": {
+        "branches": 4,
+        "calls": 83,
+        "functions": 3,
+        "loops": 3,
+        "nodes": 997
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/distributed_mlp_certificate_ray_transfer.py",
+      "source_sha256": "441becba4cfb4d035ac4ef73e74b38a6846c29a7533395eed276585b59688d9e",
+      "structural_summaries": {}
+    },
+    {
+      "declared_arm_count": 0,
+      "declared_arm_names": [],
+      "grammar_family": "low_rank",
+      "has_machine_readable_price": true,
+      "join_key": "r375:91ab9fee315af9b0",
+      "module_family": "other_mlp",
+      "receipt_first_add_unix": 1788252840,
+      "receipt_path": "basis_aligned/bilinear_quotient/mlp_all_layer_variable_rank_waterfill_results.json",
+      "receipt_sha256": "91ab9fee315af9b039eaaa97199e3bf6c4fa37354fd3744b71ebf82ee645faca",
+      "rung": 375,
+      "source_ast": {
+        "branches": 6,
+        "calls": 91,
+        "functions": 4,
+        "loops": 7,
+        "nodes": 1682
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/mlp_all_layer_variable_rank_waterfill.py",
+      "source_sha256": "f0db26e80282fa016c6ceb098ae875c5e1a41578698abfa7d21dec63159dc6eb",
+      "structural_summaries": {
+        "fit_b_rank_order_agree_layers": {
+          "count": 1,
+          "maximum": 18.0,
+          "minimum": 18.0,
+          "sum_abs": 18.0
+        },
+        "ranks": {
+          "count": 4,
+          "maximum": 896.0,
+          "minimum": 512.0,
+          "sum_abs": 2816.0
+        },
+        "saving_unit_scalars": {
+          "count": 1,
+          "maximum": 1327104.0,
+          "minimum": 1327104.0,
+          "sum_abs": 1327104.0
+        }
+      }
+    },
+    {
+      "declared_arm_count": 0,
+      "declared_arm_names": [],
+      "grammar_family": "other",
+      "has_machine_readable_price": false,
+      "join_key": "r376:1d2226e54e0d030d",
+      "module_family": "other_mlp",
+      "receipt_first_add_unix": 1788253143,
+      "receipt_path": "basis_aligned/bilinear_quotient/mlp_second_certificate_mode_transfer_results.json",
+      "receipt_sha256": "1d2226e54e0d030d843387562ad0423de1cf7a72941f2e3ef8944e5242356b0f",
+      "rung": 376,
+      "source_ast": {
+        "branches": 3,
+        "calls": 104,
+        "functions": 4,
+        "loops": 3,
+        "nodes": 1298
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/mlp_second_certificate_mode_transfer.py",
+      "source_sha256": "d7e77127bdff73df360a880bdbc2c4a27988c3adf48348eb2989d96e8e121831",
+      "structural_summaries": {
+        "train_residual_rank1_r2": {
+          "count": 1,
+          "maximum": 0.9351863540382478,
+          "minimum": 0.9351863540382478,
+          "sum_abs": 0.9351863540382478
+        }
+      }
+    },
+    {
+      "declared_arm_count": 0,
+      "declared_arm_names": [],
+      "grammar_family": "composite_program",
+      "has_machine_readable_price": true,
+      "join_key": "r377:8f83bcb22a17539e",
+      "module_family": "mlp0_or_early_mlp",
+      "receipt_first_add_unix": 1788253522,
+      "receipt_path": "basis_aligned/bilinear_quotient/mixed72_bf16_qk_fp16_mlp04_context_p768_ood_results.json",
+      "receipt_sha256": "8f83bcb22a17539efd730f9f584b92703ac7898d23fea5b59f2b615975030ba3",
+      "rung": 377,
+      "source_ast": {
+        "branches": 1,
+        "calls": 5,
+        "functions": 1,
+        "loops": 0,
+        "nodes": 190
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/mixed72_bf16_qk_fp16_mlp04_context_p768_ood.py",
+      "source_sha256": "5213ca268e94e9662e808db3096b1afde37713fce3b7a9eccc2a68a3f80b02dc",
+      "structural_summaries": {
+        "byte_saving_fraction_vs_native": {
+          "count": 1,
+          "maximum": 0.5006317808185692,
+          "minimum": 0.5006317808185692,
+          "sum_abs": 0.5006317808185692
+        },
+        "byte_saving_vs_native": {
+          "count": 1,
+          "maximum": 1035141120.0,
+          "minimum": 1035141120.0,
+          "sum_abs": 1035141120.0
+        },
+        "literal_raw_tensor_bytes": {
+          "count": 1,
+          "maximum": 1032528492.0,
+          "minimum": 1032528492.0,
+          "sum_abs": 1032528492.0
+        },
+        "literal_standalone_scalars": {
+          "count": 1,
+          "maximum": 516264246.0,
+          "minimum": 516264246.0,
+          "sum_abs": 516264246.0
+        },
+        "mlp_rank": {
+          "count": 1,
+          "maximum": 768.0,
+          "minimum": 768.0,
+          "sum_abs": 768.0
+        },
+        "qk_rank": {
+          "count": 1,
+          "maximum": 72.0,
+          "minimum": 72.0,
+          "sum_abs": 72.0
+        },
+        "runtime_s": {
+          "count": 1,
+          "maximum": 131.11808109283447,
+          "minimum": 131.11808109283447,
+          "sum_abs": 131.11808109283447
+        },
+        "saving_vs_native_scalars": {
+          "count": 1,
+          "maximum": 29638656.0,
+          "minimum": 29638656.0,
+          "sum_abs": 29638656.0
+        },
+        "selection_ranking": {
+          "count": 16,
+          "maximum": 7.0,
+          "minimum": 0.0,
+          "sum_abs": 28.032772481441498
+        },
+        "source_dtype_scalars": {
+          "count": 2,
+          "maximum": 487931904.0,
+          "minimum": 57970998.0,
+          "sum_abs": 545902902.0
+        }
+      }
+    },
+    {
+      "declared_arm_count": 0,
+      "declared_arm_names": [],
+      "grammar_family": "composite_program",
+      "has_machine_readable_price": true,
+      "join_key": "r378:cb9038d2843533ec",
+      "module_family": "mlp0_or_early_mlp",
+      "receipt_first_add_unix": 1788253706,
+      "receipt_path": "basis_aligned/bilinear_quotient/a16_transfer_mixed72_bf16_qk_fp16_mlp04_p768_results.json",
+      "receipt_sha256": "cb9038d2843533ecb6ab9758b6d8e058314fc28fa970988e8d5433c9d112cd30",
+      "rung": 378,
+      "source_ast": {
+        "branches": 1,
+        "calls": 5,
+        "functions": 1,
+        "loops": 0,
+        "nodes": 182
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/a16_transfer_mixed72_bf16_qk_fp16_mlp04_p768.py",
+      "source_sha256": "8efd041923ef358937c61eda685eedfd545eb3fac6277b0f72fd08ba0a13a13e",
+      "structural_summaries": {
+        "literal_raw_tensor_bytes": {
+          "count": 1,
+          "maximum": 1032528492.0,
+          "minimum": 1032528492.0,
+          "sum_abs": 1032528492.0
+        },
+        "literal_standalone_scalars": {
+          "count": 1,
+          "maximum": 516264246.0,
+          "minimum": 516264246.0,
+          "sum_abs": 516264246.0
+        },
+        "qk_rank": {
+          "count": 1,
+          "maximum": 72.0,
+          "minimum": 72.0,
+          "sum_abs": 72.0
+        },
+        "runtime_s": {
+          "count": 1,
+          "maximum": 132.04036355018616,
+          "minimum": 132.04036355018616,
+          "sum_abs": 132.04036355018616
+        }
+      }
+    },
+    {
+      "declared_arm_count": 7,
+      "declared_arm_names": [
+        "104",
+        "112",
+        "64",
+        "72",
+        "80",
+        "88",
+        "96"
+      ],
+      "grammar_family": "other",
+      "has_machine_readable_price": true,
+      "join_key": "r379:d478b58507a6dea2",
+      "module_family": "other",
+      "receipt_first_add_unix": 1788253978,
+      "receipt_path": "basis_aligned/bilinear_quotient/value_context_tail_price_closure_results.json",
+      "receipt_sha256": "d478b58507a6dea2e634b08705cb26d915e4dcedb5c9860821c4ca234f2d900a",
+      "rung": 379,
+      "source_ast": {
+        "branches": 4,
+        "calls": 73,
+        "functions": 1,
+        "loops": 3,
+        "nodes": 1142
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/value_context_tail_price_closure.py",
+      "source_sha256": "a8fd34cdd6b57c36574de53ae622d393624ed7ed2d06835d8b9931f850f410a9",
+      "structural_summaries": {
+        "adopted_mlp04_saving_scalars": {
+          "count": 1,
+          "maximum": 5308416.0,
+          "minimum": 5308416.0,
+          "sum_abs": 5308416.0
+        },
+        "best_noncalibration_rank": {
+          "count": 1,
+          "maximum": 104.0,
+          "minimum": 104.0,
+          "sum_abs": 104.0
+        },
+        "best_rank": {
+          "count": 1,
+          "maximum": 104.0,
+          "minimum": 104.0,
+          "sum_abs": 104.0
+        },
+        "ranks": {
+          "count": 7,
+          "maximum": 112.0,
+          "minimum": 64.0,
+          "sum_abs": 616.0
+        }
+      }
+    },
+    {
+      "declared_arm_count": 0,
+      "declared_arm_names": [],
+      "grammar_family": "low_rank",
+      "has_machine_readable_price": true,
+      "join_key": "r380:9294175196a623b9",
+      "module_family": "other",
+      "receipt_first_add_unix": 1788254487,
+      "receipt_path": "basis_aligned/bilinear_quotient/bilinear_invariant_tucker_toy_results.json",
+      "receipt_sha256": "9294175196a623b912020ad5b16f112cd231463099e1068da979b47db676c253",
+      "rung": 380,
+      "source_ast": {
+        "branches": 2,
+        "calls": 91,
+        "functions": 8,
+        "loops": 0,
+        "nodes": 1426
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/bilinear_invariant_tucker_toy.py",
+      "source_sha256": "bd0c738616e3936f2a6f119c058272c6f16b6680b1bb073af0e38b50ceffa070",
+      "structural_summaries": {
+        "literal_dense_symmetric_tensor_price": {
+          "count": 1,
+          "maximum": 56448.0,
+          "minimum": 56448.0,
+          "sum_abs": 56448.0
+        },
+        "literal_symmetric_tucker_price": {
+          "count": 1,
+          "maximum": 1836.0,
+          "minimum": 1836.0,
+          "sum_abs": 1836.0
+        }
+      }
+    },
+    {
+      "declared_arm_count": 0,
+      "declared_arm_names": [],
+      "grammar_family": "low_rank",
+      "has_machine_readable_price": true,
+      "join_key": "r381:1c97ba5814d99455",
+      "module_family": "mlp0_or_early_mlp",
+      "receipt_first_add_unix": 1788254487,
+      "receipt_path": "basis_aligned/bilinear_quotient/mlp0_real_invariant_output_tucker_screen_results.json",
+      "receipt_sha256": "1c97ba5814d99455f071272e6dc64eeaf9fd0ff04df39dda50a9dee83b21ab07",
+      "rung": 381,
+      "source_ast": {
+        "branches": 3,
+        "calls": 69,
+        "functions": 5,
+        "loops": 1,
+        "nodes": 1383
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/mlp0_real_invariant_output_tucker_screen.py",
+      "source_sha256": "5363555cdc3d6c2325c1a55a095de7eb5a5cc167882ec927d80ec2ab6a3b5886",
+      "structural_summaries": {
+        "native_down_bias_price": {
+          "count": 1,
+          "maximum": 5309568.0,
+          "minimum": 5309568.0,
+          "sum_abs": 5309568.0
+        },
+        "output_p512_factor_price": {
+          "count": 1,
+          "maximum": 2950272.0,
+          "minimum": 2950272.0,
+          "sum_abs": 2950272.0
+        },
+        "saving_scalars_if_output_p512_installed": {
+          "count": 1,
+          "maximum": 2359296.0,
+          "minimum": 2359296.0,
+          "sum_abs": 2359296.0
+        }
+      }
+    },
+    {
+      "declared_arm_count": 0,
+      "declared_arm_names": [],
+      "grammar_family": "other",
+      "has_machine_readable_price": true,
+      "join_key": "r383:29a631567dde814d",
+      "module_family": "mlp0_or_early_mlp",
+      "receipt_first_add_unix": 1788258638,
+      "receipt_path": "basis_aligned/bilinear_quotient/mlp0_product_mode_gram_screen_results.json",
+      "receipt_sha256": "29a631567dde814d38d25cc7fc78461effd71722e11f47e69e4e0d468353d99f",
+      "rung": 383,
+      "source_ast": {
+        "branches": 5,
+        "calls": 79,
+        "functions": 6,
+        "loops": 0,
+        "nodes": 1406
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/mlp0_product_mode_gram_screen.py",
+      "source_sha256": "96a8f0f0db652dddab9dccd625c671700885ee976bf5b1ac1210b616ab01185d",
+      "structural_summaries": {
+        "frozen_grid_corner_prices": {
+          "count": 2,
+          "maximum": 7079040.0,
+          "minimum": 3540096.0,
+          "sum_abs": 10619136.0
+        },
+        "widths": {
+          "count": 4,
+          "maximum": 3456.0,
+          "minimum": 576.0,
+          "sum_abs": 7488.0
+        }
+      }
+    },
+    {
+      "declared_arm_count": 0,
+      "declared_arm_names": [],
+      "grammar_family": "other",
+      "has_machine_readable_price": false,
+      "join_key": "r384:d2d0282aeac61a01",
+      "module_family": "other_mlp",
+      "receipt_first_add_unix": 1788260341,
+      "receipt_path": "basis_aligned/bilinear_quotient/mlp_product_mode_gram_layers_screen_results.json",
+      "receipt_sha256": "d2d0282aeac61a017750514e022f658f3e84badc88d4990dfa9900c519d6470b",
+      "rung": 384,
+      "source_ast": {
+        "branches": 3,
+        "calls": 73,
+        "functions": 5,
+        "loops": 1,
+        "nodes": 1223
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/mlp_product_mode_gram_layers_screen.py",
+      "source_sha256": "ea6213d61d01fc416442315806b9cc49ce9f543aae8a553776548c286a39613c",
+      "structural_summaries": {
+        "widths": {
+          "count": 4,
+          "maximum": 3456.0,
+          "minimum": 576.0,
+          "sum_abs": 7488.0
+        }
+      }
+    },
+    {
+      "declared_arm_count": 0,
+      "declared_arm_names": [],
+      "grammar_family": "other",
+      "has_machine_readable_price": false,
+      "join_key": "r385:984c8ab9d8c60d18",
+      "module_family": "other_mlp",
+      "receipt_first_add_unix": 1788262124,
+      "receipt_path": "basis_aligned/bilinear_quotient/mlp_mode_concentration_depth_profile_results.json",
+      "receipt_sha256": "984c8ab9d8c60d181c51530f3dca3338d688af3f3faa1a0157f40bc2522d43c9",
+      "rung": 385,
+      "source_ast": {
+        "branches": 3,
+        "calls": 83,
+        "functions": 4,
+        "loops": 1,
+        "nodes": 1167
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/mlp_mode_concentration_depth_profile.py",
+      "source_sha256": "a3870bdf9621349ecc9baa950a54c5d38652f7dafc30336ab722d6ccb943f049",
+      "structural_summaries": {}
+    },
+    {
+      "declared_arm_count": 0,
+      "declared_arm_names": [],
+      "grammar_family": "low_rank",
+      "has_machine_readable_price": true,
+      "join_key": "r386:b04940656412556d",
+      "module_family": "other_mlp",
+      "receipt_first_add_unix": 1788266137,
+      "receipt_path": "basis_aligned/bilinear_quotient/mlp16_tucker_core_function_als_screen_results.json",
+      "receipt_sha256": "b04940656412556dd16cdee4f1c5d3296d1251e4d385b0f8daeaeee8b77bb7b0",
+      "rung": 386,
+      "source_ast": {
+        "branches": 7,
+        "calls": 115,
+        "functions": 7,
+        "loops": 3,
+        "nodes": 1887
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/mlp16_tucker_core_function_als_screen.py",
+      "source_sha256": "3b1934b3763b510dd0624f4a10168cef413c080610e07016861211c8bde097b1",
+      "structural_summaries": {
+        "core_price_scalars": {
+          "count": 1,
+          "maximum": 2065536.0,
+          "minimum": 2065536.0,
+          "sum_abs": 2065536.0
+        },
+        "native_layer_price_scalars": {
+          "count": 1,
+          "maximum": 15926400.0,
+          "minimum": 15926400.0,
+          "sum_abs": 15926400.0
+        },
+        "ranks": {
+          "count": 3,
+          "maximum": 576.0,
+          "minimum": 512.0,
+          "sum_abs": 1600.0
+        }
+      }
+    },
+    {
+      "declared_arm_count": 0,
+      "declared_arm_names": [],
+      "grammar_family": "low_rank",
+      "has_machine_readable_price": true,
+      "join_key": "r387:f1496e907b948e0e",
+      "module_family": "other_mlp",
+      "receipt_first_add_unix": 1788266206,
+      "receipt_path": "basis_aligned/bilinear_quotient/mlp16_tucker_core_joint_fit_screen_results.json",
+      "receipt_sha256": "f1496e907b948e0ec94974e126da7076168df7d9c588a78c5a011f376cf65cdc",
+      "rung": 387,
+      "source_ast": {
+        "branches": 7,
+        "calls": 120,
+        "functions": 6,
+        "loops": 2,
+        "nodes": 1719
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/mlp16_tucker_core_joint_fit_screen.py",
+      "source_sha256": "68565f084579a0eb4729babca7d6b1594fb0cdc5781ec3371fddfd1975c49bda",
+      "structural_summaries": {
+        "core_price_scalars": {
+          "count": 1,
+          "maximum": 2065536.0,
+          "minimum": 2065536.0,
+          "sum_abs": 2065536.0
+        },
+        "ranks": {
+          "count": 3,
+          "maximum": 576.0,
+          "minimum": 512.0,
+          "sum_abs": 1600.0
+        }
+      }
+    },
+    {
+      "declared_arm_count": 0,
+      "declared_arm_names": [],
+      "grammar_family": "low_rank",
+      "has_machine_readable_price": true,
+      "join_key": "r388:f2a62ffcbd5ef7be",
+      "module_family": "other_mlp",
+      "receipt_first_add_unix": 1788267234,
+      "receipt_path": "basis_aligned/bilinear_quotient/mlp16_tucker_physical_calibration_results.json",
+      "receipt_sha256": "f2a62ffcbd5ef7be574f647eeaa166c9da2566630eab8b1c085be4a863aa053f",
+      "rung": 388,
+      "source_ast": {
+        "branches": 7,
+        "calls": 264,
+        "functions": 11,
+        "loops": 7,
+        "nodes": 4085
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/mlp16_tucker_physical_calibration.py",
+      "source_sha256": "489de556c66f21e3a077fffe9f003b1e9b07f9b72cf0f5e4fae66767ed240e1b",
+      "structural_summaries": {
+        "prices": {
+          "count": 6,
+          "maximum": 545902902.0,
+          "minimum": 1991808.0,
+          "sum_abs": 1629896994.0
+        },
+        "ranks": {
+          "count": 3,
+          "maximum": 576.0,
+          "minimum": 512.0,
+          "sum_abs": 1600.0
+        },
+        "runtime_s": {
+          "count": 1,
+          "maximum": 42.9439902305603,
+          "minimum": 42.9439902305603,
+          "sum_abs": 42.9439902305603
+        }
+      }
+    },
+    {
+      "declared_arm_count": 0,
+      "declared_arm_names": [],
+      "grammar_family": "low_rank",
+      "has_machine_readable_price": true,
+      "join_key": "r389:e1d137514bc0fd5d",
+      "module_family": "other_mlp",
+      "receipt_first_add_unix": 1788268235,
+      "receipt_path": "basis_aligned/bilinear_quotient/mlp16_rank2_quadratic_current_gate_results.json",
+      "receipt_sha256": "e1d137514bc0fd5de3b89e1eb014b047983ef9ea842978d4826d44f49c832f7e",
+      "rung": 389,
+      "source_ast": {
+        "branches": 7,
+        "calls": 187,
+        "functions": 7,
+        "loops": 3,
+        "nodes": 3136
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/mlp16_rank2_quadratic_current_gate.py",
+      "source_sha256": "f1bd5a2fbd4a005543fd53b9acaa15b4c725b0c40a62bb740b0ea27a666fb8d5",
+      "structural_summaries": {
+        "prices": {
+          "count": 7,
+          "maximum": 545902902.0,
+          "minimum": 0.0009408278079164155,
+          "sum_abs": 1091849604.0081952
+        },
+        "ranks": {
+          "count": 3,
+          "maximum": 8.0,
+          "minimum": 2.0,
+          "sum_abs": 14.0
+        },
+        "runtime_s": {
+          "count": 1,
+          "maximum": 35.925849199295044,
+          "minimum": 35.925849199295044,
+          "sum_abs": 35.925849199295044
+        }
+      }
+    },
+    {
+      "declared_arm_count": 0,
+      "declared_arm_names": [],
+      "grammar_family": "low_rank",
+      "has_machine_readable_price": true,
+      "join_key": "r390:5644ecaed0f3d7f6",
+      "module_family": "other_mlp",
+      "receipt_first_add_unix": 1788268775,
+      "receipt_path": "basis_aligned/bilinear_quotient/a16_transfer_mlp16_rank2_quadratic_results.json",
+      "receipt_sha256": "5644ecaed0f3d7f62715bff1e77eaeedd60d3696523b5e3d4c706ebb623c789d",
+      "rung": 390,
+      "source_ast": {
+        "branches": 5,
+        "calls": 156,
+        "functions": 5,
+        "loops": 5,
+        "nodes": 1939
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/a16_transfer_mlp16_rank2_quadratic.py",
+      "source_sha256": "9e5ac7e8286287608e8f0cb0136dc8132f5cc1bbb5c78bd24317a60ab9d4157e",
+      "structural_summaries": {
+        "literal_layer_scalars": {
+          "count": 1,
+          "maximum": 14984.0,
+          "minimum": 14984.0,
+          "sum_abs": 14984.0
+        },
+        "literal_model_scalars": {
+          "count": 1,
+          "maximum": 529991486.0,
+          "minimum": 529991486.0,
+          "sum_abs": 529991486.0
+        },
+        "ranks": {
+          "count": 2,
+          "maximum": 4.0,
+          "minimum": 2.0,
+          "sum_abs": 6.0
+        },
+        "runtime_s": {
+          "count": 1,
+          "maximum": 24.8467276096344,
+          "minimum": 24.8467276096344,
+          "sum_abs": 24.8467276096344
+        }
+      }
+    },
+    {
+      "declared_arm_count": 0,
+      "declared_arm_names": [],
+      "grammar_family": "low_rank",
+      "has_machine_readable_price": true,
+      "join_key": "r391:81dcda3be74a6281",
+      "module_family": "other_mlp",
+      "receipt_first_add_unix": 1788269424,
+      "receipt_path": "basis_aligned/bilinear_quotient/mlp16_rank2_quadratic_factored_gate_results.json",
+      "receipt_sha256": "81dcda3be74a6281129c456285b6d46a8bf8f6e7ef9281109fab0712068f9600",
+      "rung": 391,
+      "source_ast": {
+        "branches": 5,
+        "calls": 237,
+        "functions": 10,
+        "loops": 6,
+        "nodes": 2975
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/mlp16_rank2_quadratic_factored_gate.py",
+      "source_sha256": "0cead0930de6a4539c97ce2371e3c2e3b8b4ec73beb5f3eac2707c2b2138f986",
+      "structural_summaries": {
+        "price_correction": {
+          "count": 3,
+          "maximum": 529991486.0,
+          "minimum": 14984.0,
+          "sum_abs": 535320646.0
+        },
+        "runtime_s": {
+          "count": 1,
+          "maximum": 25.099854230880737,
+          "minimum": 25.099854230880737,
+          "sum_abs": 25.099854230880737
+        }
+      }
+    },
+    {
+      "declared_arm_count": 0,
+      "declared_arm_names": [],
+      "grammar_family": "composite_program",
+      "has_machine_readable_price": true,
+      "join_key": "r392:a64a9b83ee4b902e",
+      "module_family": "mlp0_or_early_mlp",
+      "receipt_first_add_unix": 1788269962,
+      "receipt_path": "basis_aligned/bilinear_quotient/mixed64_mlp04_mlp16_factored_composition_results.json",
+      "receipt_sha256": "a64a9b83ee4b902eb8bafd309ba8c01a848fe3d8fab2ba7af4dafc092eff5c9e",
+      "rung": 392,
+      "source_ast": {
+        "branches": 3,
+        "calls": 114,
+        "functions": 3,
+        "loops": 2,
+        "nodes": 1895
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/mixed64_mlp04_mlp16_factored_composition.py",
+      "source_sha256": "27d33911d7b91b32feb62258c1593b6cc659aed33c9ecaf118ca8f3c1813c014",
+      "structural_summaries": {
+        "literal_raw_tensor_bytes": {
+          "count": 1,
+          "maximum": 1867449228.0,
+          "minimum": 1867449228.0,
+          "sum_abs": 1867449228.0
+        },
+        "literal_source_format_bytes": {
+          "count": 1,
+          "maximum": 1867449228.0,
+          "minimum": 1867449228.0,
+          "sum_abs": 1867449228.0
+        },
+        "literal_standalone_scalars": {
+          "count": 1,
+          "maximum": 495847230.0,
+          "minimum": 495847230.0,
+          "sum_abs": 495847230.0
+        },
+        "mlp16_factor_scalars": {
+          "count": 1,
+          "maximum": 14984.0,
+          "minimum": 14984.0,
+          "sum_abs": 14984.0
+        },
+        "mlp_rank": {
+          "count": 1,
+          "maximum": 768.0,
+          "minimum": 768.0,
+          "sum_abs": 768.0
+        },
+        "qk_rank": {
+          "count": 1,
+          "maximum": 64.0,
+          "minimum": 64.0,
+          "sum_abs": 64.0
+        },
+        "runtime_s": {
+          "count": 1,
+          "maximum": 130.42816519737244,
+          "minimum": 130.42816519737244,
+          "sum_abs": 130.42816519737244
+        },
+        "runtime_s_total": {
+          "count": 1,
+          "maximum": 140.8623173236847,
+          "minimum": 140.8623173236847,
+          "sum_abs": 140.8623173236847
+        },
+        "saving_vs_native_scalars": {
+          "count": 1,
+          "maximum": 50055672.0,
+          "minimum": 50055672.0,
+          "sum_abs": 50055672.0
+        },
+        "saving_vs_native_source_bytes": {
+          "count": 1,
+          "maximum": 200220384.0,
+          "minimum": 200220384.0,
+          "sum_abs": 200220384.0
+        },
+        "selection_ranking": {
+          "count": 16,
+          "maximum": 7.0,
+          "minimum": 0.0,
+          "sum_abs": 28.032772481441498
+        }
+      }
+    },
+    {
+      "declared_arm_count": 0,
+      "declared_arm_names": [],
+      "grammar_family": "composite_program",
+      "has_machine_readable_price": true,
+      "join_key": "r393:d726000b7f896400",
+      "module_family": "mlp0_or_early_mlp",
+      "receipt_first_add_unix": 1788270418,
+      "receipt_path": "basis_aligned/bilinear_quotient/a16_transfer_mixed64_mlp04_mlp16_factored_results.json",
+      "receipt_sha256": "d726000b7f89640096a6c522df074db02268be19460a1e13e4f216327ea7d2e0",
+      "rung": 393,
+      "source_ast": {
+        "branches": 6,
+        "calls": 193,
+        "functions": 6,
+        "loops": 5,
+        "nodes": 2537
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/a16_transfer_mixed64_mlp04_mlp16_factored.py",
+      "source_sha256": "7a15ca80e6a1ef4dafef418da61a661612073c6b8ee406656c294b14185a4ea0",
+      "structural_summaries": {
+        "literal_source_format_bytes": {
+          "count": 1,
+          "maximum": 1867449228.0,
+          "minimum": 1867449228.0,
+          "sum_abs": 1867449228.0
+        },
+        "literal_standalone_scalars": {
+          "count": 1,
+          "maximum": 495847230.0,
+          "minimum": 495847230.0,
+          "sum_abs": 495847230.0
+        },
+        "mlp16_factor_scalars": {
+          "count": 1,
+          "maximum": 14984.0,
+          "minimum": 14984.0,
+          "sum_abs": 14984.0
+        },
+        "qk_factor_widths": {
+          "count": 1,
+          "maximum": 64.0,
+          "minimum": 64.0,
+          "sum_abs": 64.0
+        },
+        "qk_rank": {
+          "count": 1,
+          "maximum": 64.0,
+          "minimum": 64.0,
+          "sum_abs": 64.0
+        },
+        "runtime_s": {
+          "count": 1,
+          "maximum": 130.47155690193176,
+          "minimum": 130.47155690193176,
+          "sum_abs": 130.47155690193176
+        }
+      }
+    },
+    {
+      "declared_arm_count": 0,
+      "declared_arm_names": [],
+      "grammar_family": "sparse_or_dictionary",
+      "has_machine_readable_price": false,
+      "join_key": "r394:5c96aee6053d0595",
+      "module_family": "mlp0_or_early_mlp",
+      "receipt_first_add_unix": 1788271011,
+      "receipt_path": "basis_aligned/bilinear_quotient/mlp0_exact_token_downstream_sparse_code_results.json",
+      "receipt_sha256": "5c96aee6053d059528b128d9e41b4f15bb94b2cadfebc7f69629c19db71e5eaa",
+      "rung": 394,
+      "source_ast": {
+        "branches": 6,
+        "calls": 344,
+        "functions": 16,
+        "loops": 9,
+        "nodes": 4596
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/mlp0_exact_token_downstream_sparse_code.py",
+      "source_sha256": "f22c1e942f2476884dd79d67aa01b824dae634c14b26ff45b366c3d9a2fd9e7c",
+      "structural_summaries": {
+        "runtime_s": {
+          "count": 1,
+          "maximum": 9.100890874862671,
+          "minimum": 9.100890874862671,
+          "sum_abs": 9.100890874862671
+        }
+      }
+    },
+    {
+      "declared_arm_count": 0,
+      "declared_arm_names": [],
+      "grammar_family": "other",
+      "has_machine_readable_price": false,
+      "join_key": "r395:4ab7c8af6cd0330e",
+      "module_family": "mlp0_or_early_mlp",
+      "receipt_first_add_unix": 1788271462,
+      "receipt_path": "basis_aligned/bilinear_quotient/mlp0_token_identity_transport_results.json",
+      "receipt_sha256": "4ab7c8af6cd0330eef105664c94ccbb890016fa1e4373935e96a2bf106f858a3",
+      "rung": 395,
+      "source_ast": {
+        "branches": 2,
+        "calls": 199,
+        "functions": 10,
+        "loops": 4,
+        "nodes": 2787
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/mlp0_token_identity_transport.py",
+      "source_sha256": "1e8790d2277c9b3bd4d0736b7d8be348ad3ca80f6186aca6f4481fc05c3f541a",
+      "structural_summaries": {
+        "runtime_s": {
+          "count": 1,
+          "maximum": 4.943133592605591,
+          "minimum": 4.943133592605591,
+          "sum_abs": 4.943133592605591
+        }
+      }
+    },
+    {
+      "declared_arm_count": 0,
+      "declared_arm_names": [],
+      "grammar_family": "low_rank",
+      "has_machine_readable_price": false,
+      "join_key": "r396:641292cc30d486a1",
+      "module_family": "mlp0_or_early_mlp",
+      "receipt_first_add_unix": 1788271860,
+      "receipt_path": "basis_aligned/bilinear_quotient/mlp0_quadratic_token_degree1_rank_curve_results.json",
+      "receipt_sha256": "641292cc30d486a1b13e6d5b59ffc7ac250711fc8b1bd4d10625c25e8cddf8ce",
+      "rung": 396,
+      "source_ast": {
+        "branches": 2,
+        "calls": 184,
+        "functions": 10,
+        "loops": 8,
+        "nodes": 2996
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/mlp0_quadratic_token_degree1_rank_curve.py",
+      "source_sha256": "16054ae7087cb7a26144e56bbbe8067d145a4fa83bc1d33c852053ef1e114c8a",
+      "structural_summaries": {
+        "qualifying_causal_rank_le128": {
+          "count": 4,
+          "maximum": 128.0,
+          "minimum": 16.0,
+          "sum_abs": 240.0
+        },
+        "qualifying_retrieval_rank_le256": {
+          "count": 3,
+          "maximum": 256.0,
+          "minimum": 64.0,
+          "sum_abs": 448.0
+        },
+        "raw_x0_rank_curve_control": {
+          "count": 16,
+          "maximum": 2656512.0,
+          "minimum": 0.2696486711502075,
+          "sum_abs": 6764546.885965645
+        },
+        "runtime_s": {
+          "count": 1,
+          "maximum": 5.964414596557617,
+          "minimum": 5.964414596557617,
+          "sum_abs": 5.964414596557617
+        },
+        "shuffled_z_rank256_write_r2": {
+          "count": 1,
+          "maximum": -0.024707436561584473,
+          "minimum": -0.024707436561584473,
+          "sum_abs": 0.024707436561584473
+        },
+        "z_degree1_rank_curve": {
+          "count": 16,
+          "maximum": 2656512.0,
+          "minimum": 0.2694491744041443,
+          "sum_abs": 6764546.887878299
+        }
+      }
+    },
+    {
+      "declared_arm_count": 0,
+      "declared_arm_names": [],
+      "grammar_family": "polynomial",
+      "has_machine_readable_price": false,
+      "join_key": "r397:e1ad326f7f709f76",
+      "module_family": "mlp0_or_early_mlp",
+      "receipt_first_add_unix": 1788272513,
+      "receipt_path": "basis_aligned/bilinear_quotient/mlp0_mean_linear_quadratic_causal_factorial_results.json",
+      "receipt_sha256": "e1ad326f7f709f760b26ca1f8d375958a9be04046fcb739d7f362a819dd08c6f",
+      "rung": 397,
+      "source_ast": {
+        "branches": 7,
+        "calls": 234,
+        "functions": 11,
+        "loops": 11,
+        "nodes": 3505
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/mlp0_mean_linear_quadratic_causal_factorial.py",
+      "source_sha256": "81b5804d7161948e0daad316f0f767a94bd5618c787e21a1c382eca3e0888e76",
+      "structural_summaries": {
+        "runtime_s": {
+          "count": 1,
+          "maximum": 5.801689386367798,
+          "minimum": 5.801689386367798,
+          "sum_abs": 5.801689386367798
+        }
+      }
+    },
+    {
+      "declared_arm_count": 0,
+      "declared_arm_names": [],
+      "grammar_family": "other",
+      "has_machine_readable_price": false,
+      "join_key": "r398:bb3c358fbe777f09",
+      "module_family": "mlp0_or_early_mlp",
+      "receipt_first_add_unix": 1788273162,
+      "receipt_path": "basis_aligned/bilinear_quotient/mlp0_far_action_effect_interchange_results.json",
+      "receipt_sha256": "bb3c358fbe777f094a3a75c12fa817d4187c1dc097fe961dc3a040b29443a687",
+      "rung": 398,
+      "source_ast": {
+        "branches": 4,
+        "calls": 280,
+        "functions": 10,
+        "loops": 11,
+        "nodes": 4396
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/mlp0_far_action_effect_interchange.py",
+      "source_sha256": "43c51f39e83bbedca8d6af57fb3ddda92e8d7a08434accce8ca4df4c928e1cc0",
+      "structural_summaries": {
+        "runtime_s": {
+          "count": 1,
+          "maximum": 7.3606555461883545,
+          "minimum": 7.3606555461883545,
+          "sum_abs": 7.3606555461883545
+        }
+      }
+    },
+    {
+      "declared_arm_count": 0,
+      "declared_arm_names": [],
+      "grammar_family": "other",
+      "has_machine_readable_price": false,
+      "join_key": "r399:4e8e0937b0629d99",
+      "module_family": "mlp0_or_early_mlp",
+      "receipt_first_add_unix": 1788273651,
+      "receipt_path": "basis_aligned/bilinear_quotient/mlp0_consumer_aware_q_spectrum_results.json",
+      "receipt_sha256": "4e8e0937b0629d9953bdebaef3bd3c1fed050b4c43b6f913e740741b2221a2f9",
+      "rung": 399,
+      "source_ast": {
+        "branches": 2,
+        "calls": 156,
+        "functions": 7,
+        "loops": 6,
+        "nodes": 2971
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/mlp0_consumer_aware_q_spectrum.py",
+      "source_sha256": "1998fde265785cf90c3304a4ece05274ea8bfa11e39a7964a2da4644e7544d7e",
+      "structural_summaries": {
+        "runtime_s": {
+          "count": 1,
+          "maximum": 8.39979600906372,
+          "minimum": 8.39979600906372,
+          "sum_abs": 8.39979600906372
+        }
+      }
+    },
+    {
+      "declared_arm_count": 0,
+      "declared_arm_names": [],
+      "grammar_family": "other",
+      "has_machine_readable_price": false,
+      "join_key": "r400:101c74a89595b51a",
+      "module_family": "mlp0_or_early_mlp",
+      "receipt_first_add_unix": 1788274442,
+      "receipt_path": "basis_aligned/bilinear_quotient/mlp0_centered_context_anova_factorial_results.json",
+      "receipt_sha256": "101c74a89595b51a40a48c2199422ffa4fe06fcd63d50eebb2b3a6af97e1fc58",
+      "rung": 400,
+      "source_ast": {
+        "branches": 4,
+        "calls": 243,
+        "functions": 12,
+        "loops": 10,
+        "nodes": 3668
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/mlp0_centered_context_anova_factorial.py",
+      "source_sha256": "1495ec13abf80bbd3d0bf33db8c0457e1bc5eab7421bcb1b96a780278d808322",
+      "structural_summaries": {
+        "runtime_s": {
+          "count": 1,
+          "maximum": 68.8709225654602,
+          "minimum": 68.8709225654602,
+          "sum_abs": 68.8709225654602
+        }
+      }
+    },
+    {
+      "declared_arm_count": 0,
+      "declared_arm_names": [],
+      "grammar_family": "other",
+      "has_machine_readable_price": false,
+      "join_key": "r401:6650b97c9f5b5371",
+      "module_family": "mlp0_or_early_mlp",
+      "receipt_first_add_unix": 1788274807,
+      "receipt_path": "basis_aligned/bilinear_quotient/mlp0_centered_context_anova_exact_residual_results.json",
+      "receipt_sha256": "6650b97c9f5b53714d29f999eff6653bdbc9273c9238e4c10ce607d8d5728277",
+      "rung": 401,
+      "source_ast": {
+        "branches": 5,
+        "calls": 59,
+        "functions": 2,
+        "loops": 4,
+        "nodes": 1024
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/mlp0_centered_context_anova_exact_residual.py",
+      "source_sha256": "7a64736ec5cb4b6fb4088b896c8638138ad2c93c8ceb6c577d7d5782b32cd032",
+      "structural_summaries": {
+        "runtime_s": {
+          "count": 1,
+          "maximum": 70.51598238945007,
+          "minimum": 70.51598238945007,
+          "sum_abs": 70.51598238945007
+        }
+      }
+    },
+    {
+      "declared_arm_count": 0,
+      "declared_arm_names": [],
+      "grammar_family": "other",
+      "has_machine_readable_price": false,
+      "join_key": "r402:15356b1208ce7e80",
+      "module_family": "mlp0_or_early_mlp",
+      "receipt_first_add_unix": 1788275747,
+      "receipt_path": "basis_aligned/bilinear_quotient/mlp0_centered_interaction_head_carriers_results.json",
+      "receipt_sha256": "15356b1208ce7e808f3fc25362919bfe765f1504a7149d62f6f03a1432b5f4d4",
+      "rung": 402,
+      "source_ast": {
+        "branches": 16,
+        "calls": 253,
+        "functions": 14,
+        "loops": 7,
+        "nodes": 3815
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/mlp0_centered_interaction_head_carriers.py",
+      "source_sha256": "99b9c5a7eb69b928457da0cb206d4df40e2e05944532e910b62990b048f58949",
+      "structural_summaries": {
+        "runtime_s": {
+          "count": 1,
+          "maximum": 76.12459516525269,
+          "minimum": 76.12459516525269,
+          "sum_abs": 76.12459516525269
+        }
+      }
+    },
+    {
+      "declared_arm_count": 0,
+      "declared_arm_names": [],
+      "grammar_family": "low_rank",
+      "has_machine_readable_price": false,
+      "join_key": "r403:945620380b1f680d",
+      "module_family": "mlp0_or_early_mlp",
+      "receipt_first_add_unix": 1788277245,
+      "receipt_path": "basis_aligned/bilinear_quotient/mlp0_rank448_branch_error_factorial_results.json",
+      "receipt_sha256": "945620380b1f680d24a363756aa1f0b6f7d487225b65dad6832eedaea6f5fc06",
+      "rung": 403,
+      "source_ast": {
+        "branches": 11,
+        "calls": 296,
+        "functions": 15,
+        "loops": 10,
+        "nodes": 4553
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/mlp0_rank448_branch_error_factorial.py",
+      "source_sha256": "b2cc8960dc7865b995ee0c2bd295868db02f63e16f250fc720e177fac37f31bd",
+      "structural_summaries": {
+        "runtime_s": {
+          "count": 1,
+          "maximum": 118.66388201713562,
+          "minimum": 118.66388201713562,
+          "sum_abs": 118.66388201713562
+        }
+      }
+    },
+    {
+      "declared_arm_count": 0,
+      "declared_arm_names": [],
+      "grammar_family": "low_rank",
+      "has_machine_readable_price": false,
+      "join_key": "r404:545941a446338d44",
+      "module_family": "mlp0_or_early_mlp",
+      "receipt_first_add_unix": 1788278333,
+      "receipt_path": "basis_aligned/bilinear_quotient/mlp0_rank448_branch_large_confirmation_results.json",
+      "receipt_sha256": "545941a446338d4470d712feccd1a88e986eea33454046a3ed2cdd830224d76f",
+      "rung": 404,
+      "source_ast": {
+        "branches": 6,
+        "calls": 141,
+        "functions": 5,
+        "loops": 1,
+        "nodes": 2217
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/mlp0_rank448_branch_large_confirmation.py",
+      "source_sha256": "1c26db03d7b790b1cd9495af2f97d609ac89d847eae37675ecee2338b1bb6fc0",
+      "structural_summaries": {
+        "runtime_s": {
+          "count": 1,
+          "maximum": 228.92374324798584,
+          "minimum": 228.92374324798584,
+          "sum_abs": 228.92374324798584
+        }
+      }
+    },
+    {
+      "declared_arm_count": 0,
+      "declared_arm_names": [],
+      "grammar_family": "low_rank",
+      "has_machine_readable_price": false,
+      "join_key": "r405:cb02714f2065c94e",
+      "module_family": "mlp0_or_early_mlp",
+      "receipt_first_add_unix": 1788278909,
+      "receipt_path": "basis_aligned/bilinear_quotient/mlp0_rank448_token_grammar_active_subspace_results.json",
+      "receipt_sha256": "cb02714f2065c94ef85f044c08714362e0a0cf4593e389cafafaea1c7df14c79",
+      "rung": 405,
+      "source_ast": {
+        "branches": 6,
+        "calls": 316,
+        "functions": 12,
+        "loops": 11,
+        "nodes": 4977
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/mlp0_rank448_token_grammar_active_subspace.py",
+      "source_sha256": "38e1440afd5c36fc646740733cada40deb4514f8690214ff4f0742e3e2c8d759",
+      "structural_summaries": {
+        "runtime_s": {
+          "count": 1,
+          "maximum": 49.74904465675354,
+          "minimum": 49.74904465675354,
+          "sum_abs": 49.74904465675354
+        }
+      }
+    },
+    {
+      "declared_arm_count": 0,
+      "declared_arm_names": [],
+      "grammar_family": "low_rank",
+      "has_machine_readable_price": false,
+      "join_key": "r406:dba6326f8c4fd434",
+      "module_family": "mlp0_or_early_mlp",
+      "receipt_first_add_unix": 1788279858,
+      "receipt_path": "basis_aligned/bilinear_quotient/mlp0_rank448_downstream_fisher_results.json",
+      "receipt_sha256": "dba6326f8c4fd434b2fd9bf9b243d7fc6fb09f4aba7df40424296c4b70544786",
+      "rung": 406,
+      "source_ast": {
+        "branches": 7,
+        "calls": 221,
+        "functions": 5,
+        "loops": 8,
+        "nodes": 3536
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/mlp0_rank448_downstream_fisher.py",
+      "source_sha256": "6b246cbd2f15cc9a61aee6e2a11bc8064a0fc50ba5913a316adf7734a50a0ea3",
+      "structural_summaries": {
+        "runtime_s": {
+          "count": 1,
+          "maximum": 91.4783878326416,
+          "minimum": 91.4783878326416,
+          "sum_abs": 91.4783878326416
+        }
+      }
+    },
+    {
+      "declared_arm_count": 0,
+      "declared_arm_names": [],
+      "grammar_family": "other",
+      "has_machine_readable_price": true,
+      "join_key": "r407:8beea1f87786d28f",
+      "module_family": "mlp0_or_early_mlp",
+      "receipt_first_add_unix": 1788280386,
+      "receipt_path": "basis_aligned/bilinear_quotient/mlp0_p448_router_oracle_ceiling_results.json",
+      "receipt_sha256": "8beea1f87786d28f09d2aac18fd81c7e372cb32b7b1756c4541947ea250b9b5f",
+      "rung": 407,
+      "source_ast": {
+        "branches": 7,
+        "calls": 244,
+        "functions": 9,
+        "loops": 11,
+        "nodes": 3781
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/mlp0_p448_router_oracle_ceiling.py",
+      "source_sha256": "c58d173f7056f713c4a5716aaca0dbf96665b92cc637010d1299f5e838a11621",
+      "structural_summaries": {
+        "literal_prices": {
+          "count": 5,
+          "maximum": 15926400.0,
+          "minimum": 9954432.0,
+          "sum_abs": 65697408.0
+        },
+        "runtime_s": {
+          "count": 1,
+          "maximum": 61.256014823913574,
+          "minimum": 61.256014823913574,
+          "sum_abs": 61.256014823913574
+        }
+      }
+    },
+    {
+      "declared_arm_count": 0,
+      "declared_arm_names": [],
+      "grammar_family": "state_or_continuous",
+      "has_machine_readable_price": true,
+      "join_key": "r408:c2f79ef34bfd51f3",
+      "module_family": "mlp0_or_early_mlp",
+      "receipt_first_add_unix": 1788281130,
+      "receipt_path": "basis_aligned/bilinear_quotient/mlp0_prefix_token_state_router_feasibility_results.json",
+      "receipt_sha256": "c2f79ef34bfd51f3fc527ff90ff9cabbedf6e759b7ea49ce2e1a63d966e56dc9",
+      "rung": 408,
+      "source_ast": {
+        "branches": 15,
+        "calls": 230,
+        "functions": 7,
+        "loops": 8,
+        "nodes": 3189
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/mlp0_prefix_token_state_router_feasibility.py",
+      "source_sha256": "8365f31e0055242e42e13e34a453a9bee1d1f4886d073a12e3460cbb651f009a",
+      "structural_summaries": {
+        "literal_price": {
+          "count": 5,
+          "maximum": 14599312.0,
+          "minimum": 0.0,
+          "sum_abs": 42470816.0
+        },
+        "runtime_s": {
+          "count": 1,
+          "maximum": 0.9536597728729248,
+          "minimum": 0.9536597728729248,
+          "sum_abs": 0.9536597728729248
+        }
+      }
+    },
+    {
+      "declared_arm_count": 0,
+      "declared_arm_names": [],
+      "grammar_family": "causal_probe",
+      "has_machine_readable_price": true,
+      "join_key": "r409:be00f0c53f2fbe19",
+      "module_family": "mlp0_or_early_mlp",
+      "receipt_first_add_unix": 1788281852,
+      "receipt_path": "basis_aligned/bilinear_quotient/mlp0_p448_causal_output_interface_oracle_results.json",
+      "receipt_sha256": "be00f0c53f2fbe19b0685d7abf21c1400aa491422c82763c71b1de81d77b91e2",
+      "rung": 409,
+      "source_ast": {
+        "branches": 23,
+        "calls": 331,
+        "functions": 11,
+        "loops": 8,
+        "nodes": 4870
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/mlp0_p448_causal_output_interface_oracle.py",
+      "source_sha256": "e55cea860914d1eefb90f3af0da43a59f78d62a6dec94ff39d43635477a0a8ab",
+      "structural_summaries": {
+        "literal_price": {
+          "count": 5,
+          "maximum": 13272192.0,
+          "minimum": 153920.0,
+          "sum_abs": 45433984.0
+        },
+        "runtime_s": {
+          "count": 1,
+          "maximum": 51.48352909088135,
+          "minimum": 51.48352909088135,
+          "sum_abs": 51.48352909088135
+        }
+      }
+    },
+    {
+      "declared_arm_count": 0,
+      "declared_arm_names": [],
+      "grammar_family": "polynomial",
+      "has_machine_readable_price": true,
+      "join_key": "r410:e4b97413ae129a7b",
+      "module_family": "mlp0_or_early_mlp",
+      "receipt_first_add_unix": 1788282691,
+      "receipt_path": "basis_aligned/bilinear_quotient/mlp0_p448_shared_output_quadratic_producer_results.json",
+      "receipt_sha256": "e4b97413ae129a7b7c3d372a128c83cc6f3bdae476d46cb747961c598be6e6f5",
+      "rung": 410,
+      "source_ast": {
+        "branches": 21,
+        "calls": 342,
+        "functions": 13,
+        "loops": 10,
+        "nodes": 5454
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/mlp0_p448_shared_output_quadratic_producer.py",
+      "source_sha256": "434cf77fa2b1d68253605e613a224f3fb4c1ab3fa6d3c2fec03702917c378302",
+      "structural_summaries": {
+        "literal_price": {
+          "count": 14,
+          "maximum": 13272192.0,
+          "minimum": 1536.0,
+          "sum_abs": 84656000.0
+        },
+        "rank24_oracle_gain_recovery": {
+          "count": 1,
+          "maximum": 0.3203854072760163,
+          "minimum": 0.3203854072760163,
+          "sum_abs": 0.3203854072760163
+        },
+        "runtime_s": {
+          "count": 1,
+          "maximum": 48.68941283226013,
+          "minimum": 48.68941283226013,
+          "sum_abs": 48.68941283226013
+        }
+      }
+    },
+    {
+      "declared_arm_count": 0,
+      "declared_arm_names": [],
+      "grammar_family": "low_rank",
+      "has_machine_readable_price": true,
+      "join_key": "r411:c283d46968695a1f",
+      "module_family": "mlp0_or_early_mlp",
+      "receipt_first_add_unix": 1788283409,
+      "receipt_path": "basis_aligned/bilinear_quotient/mlp0_p448_joint_tucker_quadratic_producer_results.json",
+      "receipt_sha256": "c283d46968695a1f46517f8ad794d8d5559cd344135cd545711e092b5bf5d6af",
+      "rung": 411,
+      "source_ast": {
+        "branches": 17,
+        "calls": 335,
+        "functions": 12,
+        "loops": 8,
+        "nodes": 5113
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/mlp0_p448_joint_tucker_quadratic_producer.py",
+      "source_sha256": "3cdeb66b59faa076b477255b110fc4d4e6c55bc7c862b685ff1c98022e8b4b86",
+      "structural_summaries": {
+        "literal_price": {
+          "count": 15,
+          "maximum": 11945088.0,
+          "minimum": 494.0,
+          "sum_abs": 92234964.0
+        },
+        "runtime_s": {
+          "count": 1,
+          "maximum": 54.575682163238525,
+          "minimum": 54.575682163238525,
+          "sum_abs": 54.575682163238525
+        }
+      }
+    },
+    {
+      "declared_arm_count": 0,
+      "declared_arm_names": [],
+      "grammar_family": "composite_program",
+      "has_machine_readable_price": true,
+      "join_key": "r412:1ee2b6247a850a0e",
+      "module_family": "mlp0_or_early_mlp",
+      "receipt_first_add_unix": 1788284327,
+      "receipt_path": "basis_aligned/bilinear_quotient/mixed64_physical_bf16_mlp04_byte_repair_results.json",
+      "receipt_sha256": "1ee2b6247a850a0ee75b7fc3392bf7a3891cfb4fa8abc1b84f11ee81c275db5e",
+      "rung": 412,
+      "source_ast": {
+        "branches": 3,
+        "calls": 68,
+        "functions": 2,
+        "loops": 3,
+        "nodes": 1311
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/mixed64_physical_bf16_mlp04_byte_repair.py",
+      "source_sha256": "b87fd3209d399f94b3cb40c086b51336c9c9c7813aa4f5aa847927a21d11f5b4",
+      "structural_summaries": {
+        "byte_saving_fraction_vs_native": {
+          "count": 1,
+          "maximum": 0.5049899238931215,
+          "minimum": 0.5049899238931215,
+          "sum_abs": 0.5049899238931215
+        },
+        "byte_saving_vs_native": {
+          "count": 1,
+          "maximum": 1044152320.0,
+          "minimum": 1044152320.0,
+          "sum_abs": 1044152320.0
+        },
+        "generated_mlp_program_bytes": {
+          "count": 1,
+          "maximum": 53088768.0,
+          "minimum": 53088768.0,
+          "sum_abs": 53088768.0
+        },
+        "generated_mlp_program_scalars": {
+          "count": 1,
+          "maximum": 26544384.0,
+          "minimum": 26544384.0,
+          "sum_abs": 26544384.0
+        },
+        "literal_raw_tensor_bytes": {
+          "count": 1,
+          "maximum": 1023517292.0,
+          "minimum": 1023517292.0,
+          "sum_abs": 1023517292.0
+        },
+        "literal_standalone_scalars": {
+          "count": 1,
+          "maximum": 511758646.0,
+          "minimum": 511758646.0,
+          "sum_abs": 511758646.0
+        },
+        "mlp_rank": {
+          "count": 1,
+          "maximum": 768.0,
+          "minimum": 768.0,
+          "sum_abs": 768.0
+        },
+        "qk_rank": {
+          "count": 1,
+          "maximum": 64.0,
+          "minimum": 64.0,
+          "sum_abs": 64.0
+        },
+        "runtime_s": {
+          "count": 1,
+          "maximum": 130.42384886741638,
+          "minimum": 130.42384886741638,
+          "sum_abs": 130.42384886741638
+        },
+        "saving_vs_native_scalars": {
+          "count": 1,
+          "maximum": 34144256.0,
+          "minimum": 34144256.0,
+          "sum_abs": 34144256.0
+        },
+        "selection_ranking": {
+          "count": 16,
+          "maximum": 7.0,
+          "minimum": 0.0,
+          "sum_abs": 28.032772481441498
+        },
+        "source_dtype_scalars": {
+          "count": 2,
+          "maximum": 487931904.0,
+          "minimum": 57970998.0,
+          "sum_abs": 545902902.0
+        },
+        "verified_old_mixed_dtype_bytes": {
+          "count": 1,
+          "maximum": 1076606060.0,
+          "minimum": 1076606060.0,
+          "sum_abs": 1076606060.0
+        }
+      }
+    },
+    {
+      "declared_arm_count": 0,
+      "declared_arm_names": [],
+      "grammar_family": "composite_program",
+      "has_machine_readable_price": true,
+      "join_key": "r413:e0b37fa5350b3472",
+      "module_family": "mlp0_or_early_mlp",
+      "receipt_first_add_unix": 1788284624,
+      "receipt_path": "basis_aligned/bilinear_quotient/a16_transfer_mixed64_physical_bf16_mlp04_results.json",
+      "receipt_sha256": "e0b37fa5350b347253caa6e1b3c433278cd0c9cc901d5545fbe8ed97cdca72b7",
+      "rung": 413,
+      "source_ast": {
+        "branches": 3,
+        "calls": 54,
+        "functions": 2,
+        "loops": 3,
+        "nodes": 951
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/a16_transfer_mixed64_physical_bf16_mlp04.py",
+      "source_sha256": "c7ed99739b020f2269d0a3f1cb76dd6ffd4b317f895502f899db2f3a04d642a3",
+      "structural_summaries": {
+        "generated_mlp_program_bytes": {
+          "count": 1,
+          "maximum": 53088768.0,
+          "minimum": 53088768.0,
+          "sum_abs": 53088768.0
+        },
+        "generated_mlp_program_scalars": {
+          "count": 1,
+          "maximum": 26544384.0,
+          "minimum": 26544384.0,
+          "sum_abs": 26544384.0
+        },
+        "literal_raw_tensor_bytes": {
+          "count": 1,
+          "maximum": 1023517292.0,
+          "minimum": 1023517292.0,
+          "sum_abs": 1023517292.0
+        },
+        "literal_standalone_scalars": {
+          "count": 1,
+          "maximum": 511758646.0,
+          "minimum": 511758646.0,
+          "sum_abs": 511758646.0
+        },
+        "qk_rank": {
+          "count": 1,
+          "maximum": 64.0,
+          "minimum": 64.0,
+          "sum_abs": 64.0
+        },
+        "runtime_s": {
+          "count": 1,
+          "maximum": 129.05303406715393,
+          "minimum": 129.05303406715393,
+          "sum_abs": 129.05303406715393
+        }
+      }
+    },
+    {
+      "declared_arm_count": 0,
+      "declared_arm_names": [],
+      "grammar_family": "composite_program",
+      "has_machine_readable_price": true,
+      "join_key": "r414:37cf9756520b281f",
+      "module_family": "mlp0_or_early_mlp",
+      "receipt_first_add_unix": 1788285217,
+      "receipt_path": "basis_aligned/bilinear_quotient/mixed64_physical_bf16_mlp04_mlp16_factored_results.json",
+      "receipt_sha256": "37cf9756520b281fff94b062870cdbeeb321cd62878eac19a838ab9a4c078735",
+      "rung": 414,
+      "source_ast": {
+        "branches": 5,
+        "calls": 132,
+        "functions": 4,
+        "loops": 5,
+        "nodes": 2215
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/mixed64_physical_bf16_mlp04_mlp16_factored.py",
+      "source_sha256": "61af3247961fc2c84aecc136adba2323fd6aa40c7ecd4174e4713039f720d3e8",
+      "structural_summaries": {
+        "generated_mlp_program_bytes": {
+          "count": 1,
+          "maximum": 53088768.0,
+          "minimum": 53088768.0,
+          "sum_abs": 53088768.0
+        },
+        "generated_mlp_program_scalars": {
+          "count": 1,
+          "maximum": 26544384.0,
+          "minimum": 26544384.0,
+          "sum_abs": 26544384.0
+        },
+        "literal_gibibytes": {
+          "count": 1,
+          "maximum": 0.9235874377191067,
+          "minimum": 0.9235874377191067,
+          "sum_abs": 0.9235874377191067
+        },
+        "literal_raw_tensor_bytes": {
+          "count": 1,
+          "maximum": 991694460.0,
+          "minimum": 991694460.0,
+          "sum_abs": 991694460.0
+        },
+        "literal_source_format_bytes": {
+          "count": 1,
+          "maximum": 991694460.0,
+          "minimum": 991694460.0,
+          "sum_abs": 991694460.0
+        },
+        "literal_standalone_scalars": {
+          "count": 1,
+          "maximum": 495847230.0,
+          "minimum": 495847230.0,
+          "sum_abs": 495847230.0
+        },
+        "mlp16_factor_bytes": {
+          "count": 1,
+          "maximum": 29968.0,
+          "minimum": 29968.0,
+          "sum_abs": 29968.0
+        },
+        "mlp16_factor_scalars": {
+          "count": 1,
+          "maximum": 14984.0,
+          "minimum": 14984.0,
+          "sum_abs": 14984.0
+        },
+        "mlp_rank": {
+          "count": 1,
+          "maximum": 768.0,
+          "minimum": 768.0,
+          "sum_abs": 768.0
+        },
+        "qk_rank": {
+          "count": 1,
+          "maximum": 64.0,
+          "minimum": 64.0,
+          "sum_abs": 64.0
+        },
+        "runtime_s": {
+          "count": 1,
+          "maximum": 130.83621621131897,
+          "minimum": 130.83621621131897,
+          "sum_abs": 130.83621621131897
+        },
+        "runtime_s_total": {
+          "count": 1,
+          "maximum": 136.46672940254211,
+          "minimum": 136.46672940254211,
+          "sum_abs": 136.46672940254211
+        },
+        "saving_vs_native_scalars": {
+          "count": 1,
+          "maximum": 50055672.0,
+          "minimum": 50055672.0,
+          "sum_abs": 50055672.0
+        },
+        "saving_vs_native_source_bytes": {
+          "count": 1,
+          "maximum": 1075975152.0,
+          "minimum": 1075975152.0,
+          "sum_abs": 1075975152.0
+        },
+        "selection_ranking": {
+          "count": 16,
+          "maximum": 7.0,
+          "minimum": 0.0,
+          "sum_abs": 28.032772481441498
+        },
+        "source_dtype_scalars": {
+          "count": 2,
+          "maximum": 487931904.0,
+          "minimum": 57970998.0,
+          "sum_abs": 545902902.0
+        }
+      }
+    },
+    {
+      "declared_arm_count": 0,
+      "declared_arm_names": [],
+      "grammar_family": "low_rank",
+      "has_machine_readable_price": true,
+      "join_key": "r415:9f1acfdbaf5f43bd",
+      "module_family": "other_mlp",
+      "receipt_first_add_unix": 1788285510,
+      "receipt_path": "basis_aligned/bilinear_quotient/mlp17_rank2_quadratic_current_physical_gate_results.json",
+      "receipt_sha256": "9f1acfdbaf5f43bdc349f848b6adf8678c60e0142fc3742eac4c0d407dae7c61",
+      "rung": 415,
+      "source_ast": {
+        "branches": 5,
+        "calls": 88,
+        "functions": 4,
+        "loops": 3,
+        "nodes": 1718
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/mlp17_rank2_quadratic_current_physical_gate.py",
+      "source_sha256": "b88f14d611125f00d480627e3abc0ba450ba09885f7c7efdba8caee473006598",
+      "structural_summaries": {
+        "literal_layer_program_scalars": {
+          "count": 1,
+          "maximum": 14984.0,
+          "minimum": 14984.0,
+          "sum_abs": 14984.0
+        },
+        "literal_whole_model_scalars": {
+          "count": 1,
+          "maximum": 529991486.0,
+          "minimum": 529991486.0,
+          "sum_abs": 529991486.0
+        },
+        "prices": {
+          "count": 7,
+          "maximum": 545902902.0,
+          "minimum": 0.0009408278079164155,
+          "sum_abs": 1091849604.0081952
+        },
+        "ranks": {
+          "count": 3,
+          "maximum": 8.0,
+          "minimum": 2.0,
+          "sum_abs": 14.0
+        },
+        "runtime_s": {
+          "count": 1,
+          "maximum": 36.573198318481445,
+          "minimum": 36.573198318481445,
+          "sum_abs": 36.573198318481445
+        }
+      }
+    },
+    {
+      "declared_arm_count": 0,
+      "declared_arm_names": [],
+      "grammar_family": "other",
+      "has_machine_readable_price": true,
+      "join_key": "r416:bb313bfa73eacc41",
+      "module_family": "mlp0_or_early_mlp",
+      "receipt_first_add_unix": 1788286347,
+      "receipt_path": "basis_aligned/bilinear_quotient/mlp0_shared_head_written_subspaces_results.json",
+      "receipt_sha256": "bb313bfa73eacc415d520e5273443a28b9e159c4b668ad7e0324c1d61855b9d6",
+      "rung": 416,
+      "source_ast": {
+        "branches": 7,
+        "calls": 225,
+        "functions": 11,
+        "loops": 14,
+        "nodes": 3986
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/mlp0_shared_head_written_subspaces.py",
+      "source_sha256": "fb4117a8240f0196900491d1744ab45c1b354b845699f17a99d6f4a120501266",
+      "structural_summaries": {
+        "literal_diagnostic_price_per_basis_values": {
+          "count": 1,
+          "maximum": 73728.0,
+          "minimum": 73728.0,
+          "sum_abs": 73728.0
+        },
+        "rank": {
+          "count": 1,
+          "maximum": 64.0,
+          "minimum": 64.0,
+          "sum_abs": 64.0
+        },
+        "runtime_s": {
+          "count": 1,
+          "maximum": 37.12058925628662,
+          "minimum": 37.12058925628662,
+          "sum_abs": 37.12058925628662
+        }
+      }
+    },
+    {
+      "declared_arm_count": 0,
+      "declared_arm_names": [],
+      "grammar_family": "other",
+      "has_machine_readable_price": true,
+      "join_key": "r417:b6466f4a3afaade8",
+      "module_family": "mlp0_or_early_mlp",
+      "receipt_first_add_unix": 1788287408,
+      "receipt_path": "basis_aligned/bilinear_quotient/mlp0_finite_response_head_service_results.json",
+      "receipt_sha256": "b6466f4a3afaade8406708817d4d7c6ff310c58b6feb7c4c871b98c897c94ade",
+      "rung": 417,
+      "source_ast": {
+        "branches": 17,
+        "calls": 267,
+        "functions": 16,
+        "loops": 11,
+        "nodes": 4051
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/mlp0_finite_response_head_service.py",
+      "source_sha256": "9746d8d0dcba571de71be0537841fe91e95e50c99f3d32ab559e28b55597e9f2",
+      "structural_summaries": {
+        "diagnostic_price": {
+          "count": 3,
+          "maximum": 405.0,
+          "minimum": 0.0,
+          "sum_abs": 469.0
+        },
+        "runtime_s": {
+          "count": 1,
+          "maximum": 10.27259087562561,
+          "minimum": 10.27259087562561,
+          "sum_abs": 10.27259087562561
+        }
+      }
+    },
+    {
+      "declared_arm_count": 0,
+      "declared_arm_names": [],
+      "grammar_family": "other",
+      "has_machine_readable_price": true,
+      "join_key": "r418:e0390469c9a7c623",
+      "module_family": "attention0",
+      "receipt_first_add_unix": 1788288313,
+      "receipt_path": "basis_aligned/bilinear_quotient/attention0_cross_head_qk_shared_half_results.json",
+      "receipt_sha256": "e0390469c9a7c623b9c8d4fd918a9a5fe1a65e859b3230ac007324e2918889ab",
+      "rung": 418,
+      "source_ast": {
+        "branches": 19,
+        "calls": 325,
+        "functions": 18,
+        "loops": 25,
+        "nodes": 4937
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/attention0_cross_head_qk_shared_half.py",
+      "source_sha256": "2bf31c35df2264cb54aba60f49af4cc1419a2b54812946603b62d8f72d05718c",
+      "structural_summaries": {
+        "eligible_edge_count": {
+          "count": 1,
+          "maximum": 0.0,
+          "minimum": 0.0,
+          "sum_abs": 0.0
+        },
+        "literal_price": {
+          "count": 3,
+          "maximum": 294912.0,
+          "minimum": 0.0,
+          "sum_abs": 327680.0
+        },
+        "runtime_s": {
+          "count": 1,
+          "maximum": 11.42403244972229,
+          "minimum": 11.42403244972229,
+          "sum_abs": 11.42403244972229
+        }
+      }
+    },
+    {
+      "declared_arm_count": 0,
+      "declared_arm_names": [],
+      "grammar_family": "sparse_or_dictionary",
+      "has_machine_readable_price": false,
+      "join_key": "r419:15485e62ad396d06",
+      "module_family": "attention0",
+      "receipt_first_add_unix": 1788290616,
+      "receipt_path": "basis_aligned/bilinear_quotient/attention0_ov_downstream_codebook_results.json",
+      "receipt_sha256": "15485e62ad396d067b83573598ec7c9bae42035ddbd787522f58ca2f4f2b07a2",
+      "rung": 419,
+      "source_ast": {
+        "branches": 22,
+        "calls": 670,
+        "functions": 28,
+        "loops": 42,
+        "nodes": 9085
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/attention0_ov_downstream_codebook.py",
+      "source_sha256": "334b262bab44fd6a265e4418f83215238445f6a138c3b9a1786fa370636162b7",
+      "structural_summaries": {
+        "interface_calibration": {
+          "count": 9,
+          "maximum": 3.051129925996065,
+          "minimum": -3.8494666565469515e-08,
+          "sum_abs": 7.505477891607738
+        },
+        "runtime_s": {
+          "count": 1,
+          "maximum": 90.49003314971924,
+          "minimum": 90.49003314971924,
+          "sum_abs": 90.49003314971924
+        }
+      }
+    },
+    {
+      "declared_arm_count": 0,
+      "declared_arm_names": [],
+      "grammar_family": "other",
+      "has_machine_readable_price": false,
+      "join_key": "r420:4b0bcc14d2bd23df",
+      "module_family": "attention0",
+      "receipt_first_add_unix": 1788290983,
+      "receipt_path": "basis_aligned/bilinear_quotient/attention0_qk_common_carrier_results.json",
+      "receipt_sha256": "4b0bcc14d2bd23dfb85f77b15887255091273df4fdd3ea9c6cce170f0ec752b8",
+      "rung": 420,
+      "source_ast": {
+        "branches": 8,
+        "calls": 273,
+        "functions": 14,
+        "loops": 11,
+        "nodes": 4149
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/attention0_qk_common_carrier.py",
+      "source_sha256": "440f5133533c4cf46186dde66b3b6b9ec0441a18e63c67750e1b280b4e906f1c",
+      "structural_summaries": {
+        "rank": {
+          "count": 2,
+          "maximum": 64.0,
+          "minimum": 24.0,
+          "sum_abs": 88.0
+        },
+        "runtime_s": {
+          "count": 1,
+          "maximum": 10.182440042495728,
+          "minimum": 10.182440042495728,
+          "sum_abs": 10.182440042495728
+        }
+      }
+    },
+    {
+      "declared_arm_count": 0,
+      "declared_arm_names": [],
+      "grammar_family": "other",
+      "has_machine_readable_price": false,
+      "join_key": "r421:0365063124c2fb1e",
+      "module_family": "attention0",
+      "receipt_first_add_unix": 1788291393,
+      "receipt_path": "basis_aligned/bilinear_quotient/attention0_ov_transport_fresh_rows_results.json",
+      "receipt_sha256": "0365063124c2fb1e191f7360072b62e3140fd013d074ca002d3c1b72b311de23",
+      "rung": 421,
+      "source_ast": {
+        "branches": 3,
+        "calls": 99,
+        "functions": 2,
+        "loops": 1,
+        "nodes": 1490
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/attention0_ov_transport_fresh_rows.py",
+      "source_sha256": "4ad0ea9a1399ac843fd40cbc85b2007b634fd76cae00e83614bded1b4a1bbb70",
+      "structural_summaries": {
+        "runtime_s": {
+          "count": 1,
+          "maximum": 19.49226427078247,
+          "minimum": 19.49226427078247,
+          "sum_abs": 19.49226427078247
+        }
+      }
+    },
+    {
+      "declared_arm_count": 0,
+      "declared_arm_names": [],
+      "grammar_family": "low_rank",
+      "has_machine_readable_price": false,
+      "join_key": "r422:5d4fd044e3d1cd91",
+      "module_family": "attention0",
+      "receipt_first_add_unix": 1788291662,
+      "receipt_path": "basis_aligned/bilinear_quotient/attention0_qk_carrier_rank_sweep_results.json",
+      "receipt_sha256": "5d4fd044e3d1cd91d06c94aecabc6d41a954898ec4c2bd6d67b3362b5554b55a",
+      "rung": 422,
+      "source_ast": {
+        "branches": 4,
+        "calls": 76,
+        "functions": 2,
+        "loops": 6,
+        "nodes": 1440
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/attention0_qk_carrier_rank_sweep.py",
+      "source_sha256": "748e5ee9a3327d1a2c5088c9afb51bd347bd0e44c6d41325db6f2c3dbf175098",
+      "structural_summaries": {
+        "ranks": {
+          "count": 6,
+          "maximum": 104.0,
+          "minimum": 24.0,
+          "sum_abs": 384.0
+        },
+        "runtime_s": {
+          "count": 1,
+          "maximum": 23.69071364402771,
+          "minimum": 23.69071364402771,
+          "sum_abs": 23.69071364402771
+        }
+      }
+    },
+    {
+      "declared_arm_count": 0,
+      "declared_arm_names": [],
+      "grammar_family": "other",
+      "has_machine_readable_price": false,
+      "join_key": "r423:14df802d942631a8",
+      "module_family": "attention0",
+      "receipt_first_add_unix": 1788291873,
+      "receipt_path": "basis_aligned/bilinear_quotient/attention0_payload_carrier_token_geometry_results.json",
+      "receipt_sha256": "14df802d942631a85c635fe324203813f65f205fdeefb5deb18036d4ab69222c",
+      "rung": 423,
+      "source_ast": {
+        "branches": 5,
+        "calls": 133,
+        "functions": 4,
+        "loops": 7,
+        "nodes": 2029
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/attention0_payload_carrier_token_geometry.py",
+      "source_sha256": "ecf2904406d1a22a5df92a4fb27ef1706d37881c32dadf4ab4d14d44daa170d0",
+      "structural_summaries": {
+        "runtime_s": {
+          "count": 1,
+          "maximum": 9.724711894989014,
+          "minimum": 9.724711894989014,
+          "sum_abs": 9.724711894989014
+        }
+      }
+    },
+    {
+      "declared_arm_count": 0,
+      "declared_arm_names": [],
+      "grammar_family": "other",
+      "has_machine_readable_price": false,
+      "join_key": "r424:33facaa3a8a4c128",
+      "module_family": "attention0",
+      "receipt_first_add_unix": 1788291906,
+      "receipt_path": "basis_aligned/bilinear_quotient/attention0_realized_edge_block_term_results.json",
+      "receipt_sha256": "33facaa3a8a4c12861f024824124174f5d7f45533232f264dbde15921c751e42",
+      "rung": 424,
+      "source_ast": {
+        "branches": 11,
+        "calls": 435,
+        "functions": 18,
+        "loops": 21,
+        "nodes": 6911
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/attention0_realized_edge_block_term.py",
+      "source_sha256": "14c8dc91de45e7cf99dcf3033e8c3999e6fa7e50aa9a2effb6185ba2b0231b96",
+      "structural_summaries": {
+        "edges": {
+          "count": 17,
+          "maximum": 185760.0,
+          "minimum": 16.0,
+          "sum_abs": 373440.0
+        },
+        "ranks": {
+          "count": 3,
+          "maximum": 32.0,
+          "minimum": 6.0,
+          "sum_abs": 44.0
+        },
+        "runtime_s": {
+          "count": 1,
+          "maximum": 18.740784883499146,
+          "minimum": 18.740784883499146,
+          "sum_abs": 18.740784883499146
+        },
+        "select_edge_metrics": {
+          "count": 9,
+          "maximum": 1.6315117710114975,
+          "minimum": -0.6297686809594969,
+          "sum_abs": 6.257864514610922
+        }
+      }
+    },
+    {
+      "declared_arm_count": 0,
+      "declared_arm_names": [],
+      "grammar_family": "other",
+      "has_machine_readable_price": false,
+      "join_key": "r425:3f6684b3102078f5",
+      "module_family": "attention0",
+      "receipt_first_add_unix": 1788292844,
+      "receipt_path": "basis_aligned/bilinear_quotient/attention0_edge_block_fresh_rows_results.json",
+      "receipt_sha256": "3f6684b3102078f5ac0fab1b0f65f888a3630ab368f4d017c102d9a7872d1e71",
+      "rung": 425,
+      "source_ast": {
+        "branches": 3,
+        "calls": 111,
+        "functions": 2,
+        "loops": 2,
+        "nodes": 1751
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/attention0_edge_block_fresh_rows.py",
+      "source_sha256": "d0de3260331af3d820dee5a190a9dacdf4dd59105faaa2ec0b64f79adf994b25",
+      "structural_summaries": {
+        "fresh_edge_metrics": {
+          "count": 9,
+          "maximum": 1.6552430146152983,
+          "minimum": -0.6552430146152983,
+          "sum_abs": 6.362978089753666
+        },
+        "runtime_s": {
+          "count": 1,
+          "maximum": 16.0654616355896,
+          "minimum": 16.0654616355896,
+          "sum_abs": 16.0654616355896
+        }
+      }
+    },
+    {
+      "declared_arm_count": 0,
+      "declared_arm_names": [],
+      "grammar_family": "sparse_or_dictionary",
+      "has_machine_readable_price": true,
+      "join_key": "r426:274c2d2891f93ef0",
+      "module_family": "attention0",
+      "receipt_first_add_unix": 1788294426,
+      "receipt_path": "basis_aligned/bilinear_quotient/attention0_cross_head_sparse_qk_vocabulary_results.json",
+      "receipt_sha256": "274c2d2891f93ef08dd232036ce8c4250132277f3bce70d95e7f0fdefdd97ba3",
+      "rung": 426,
+      "source_ast": {
+        "branches": 10,
+        "calls": 483,
+        "functions": 18,
+        "loops": 26,
+        "nodes": 6950
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/attention0_cross_head_sparse_qk_vocabulary.py",
+      "source_sha256": "5da7dd54c881831ed03d4d8854832ba1ce9e15f77b4b96f0bddad256506bc2f8",
+      "structural_summaries": {
+        "global_atom_head_participation": {
+          "count": 6,
+          "maximum": 8.749288543583999,
+          "minimum": 1.0,
+          "sum_abs": 31.932777977336393
+        },
+        "literal_raw_tensor_bytes": {
+          "count": 6,
+          "maximum": 19201824.0,
+          "minimum": 0.1884458476444738,
+          "sum_abs": 62913888.18844585
+        },
+        "runtime_s": {
+          "count": 1,
+          "maximum": 20.01481032371521,
+          "minimum": 20.01481032371521,
+          "sum_abs": 20.01481032371521
+        }
+      }
+    },
+    {
+      "declared_arm_count": 0,
+      "declared_arm_names": [],
+      "grammar_family": "sparse_or_dictionary",
+      "has_machine_readable_price": false,
+      "join_key": "r427:22c28332879a6a1b",
+      "module_family": "attention0",
+      "receipt_first_add_unix": 1788294699,
+      "receipt_path": "basis_aligned/bilinear_quotient/attention0_sparse_vocab_fresh_docs_results.json",
+      "receipt_sha256": "22c28332879a6a1b9ad0cef0de0601c6fb333c7c00a5d41f1821671c06c5bddd",
+      "rung": 427,
+      "source_ast": {
+        "branches": 4,
+        "calls": 107,
+        "functions": 3,
+        "loops": 2,
+        "nodes": 1662
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/attention0_sparse_vocab_fresh_docs.py",
+      "source_sha256": "21eec33b51c046a1b1fd567201882a57b9137af0617ce3fbe871f9d789a19b1a",
+      "structural_summaries": {
+        "runtime_s": {
+          "count": 1,
+          "maximum": 22.65258502960205,
+          "minimum": 22.65258502960205,
+          "sum_abs": 22.65258502960205
+        }
+      }
+    },
+    {
+      "declared_arm_count": 0,
+      "declared_arm_names": [],
+      "grammar_family": "other",
+      "has_machine_readable_price": false,
+      "join_key": "r428:122c5fa507b734c3",
+      "module_family": "attention0",
+      "receipt_first_add_unix": 1788294907,
+      "receipt_path": "basis_aligned/bilinear_quotient/attention0_head6_positional_share_results.json",
+      "receipt_sha256": "122c5fa507b734c3aa3beb6fa7a42a05392b5c92ccf93e0c5fc50d3612bbd6d6",
+      "rung": 428,
+      "source_ast": {
+        "branches": 3,
+        "calls": 142,
+        "functions": 8,
+        "loops": 7,
+        "nodes": 1884
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/attention0_head6_positional_share.py",
+      "source_sha256": "8f24765d0e0f7c41c8b6b8348e08eb3645969acc4cc10001ee8c53e243678291",
+      "structural_summaries": {
+        "runtime_s": {
+          "count": 1,
+          "maximum": 7.805877447128296,
+          "minimum": 7.805877447128296,
+          "sum_abs": 7.805877447128296
+        }
+      }
+    },
+    {
+      "declared_arm_count": 0,
+      "declared_arm_names": [],
+      "grammar_family": "other",
+      "has_machine_readable_price": false,
+      "join_key": "r429:05cb4bee00d505c0",
+      "module_family": "attention0",
+      "receipt_first_add_unix": 1788295060,
+      "receipt_path": "basis_aligned/bilinear_quotient/attention0_head3_positional_confirm_results.json",
+      "receipt_sha256": "05cb4bee00d505c0fe06ec831bdb51e3869f604f5ee57b0cf61deee14500a78d",
+      "rung": 429,
+      "source_ast": {
+        "branches": 3,
+        "calls": 170,
+        "functions": 9,
+        "loops": 9,
+        "nodes": 2178
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/attention0_head3_positional_confirm.py",
+      "source_sha256": "64966279653c4ae48ec05fc5410de97a9249a9470a8018af75e004278bd44ada",
+      "structural_summaries": {
+        "runtime_s": {
+          "count": 1,
+          "maximum": 7.828123569488525,
+          "minimum": 7.828123569488525,
+          "sum_abs": 7.828123569488525
+        }
+      }
+    },
+    {
+      "declared_arm_count": 0,
+      "declared_arm_names": [],
+      "grammar_family": "sparse_or_dictionary",
+      "has_machine_readable_price": true,
+      "join_key": "r430:8c445b0f1b855b3f",
+      "module_family": "attention0",
+      "receipt_first_add_unix": 1788295258,
+      "receipt_path": "basis_aligned/bilinear_quotient/attention0_coupled_sparse_qk_score_product_results.json",
+      "receipt_sha256": "8c445b0f1b855b3f05aab6bde77b6ecd1c662179883c97aa77e32f49dca03922",
+      "rung": 430,
+      "source_ast": {
+        "branches": 11,
+        "calls": 424,
+        "functions": 19,
+        "loops": 11,
+        "nodes": 6840
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/attention0_coupled_sparse_qk_score_product.py",
+      "source_sha256": "619786411e8813406fa7b916c7d9776146aff73908c756b2fc91345fbda5cfe9",
+      "structural_summaries": {
+        "active_atom_pair_concentration": {
+          "count": 262,
+          "maximum": 263168.0,
+          "minimum": 0.019958624189917507,
+          "sum_abs": 33038036.626551233
+        },
+        "literal_raw_tensor_bytes": {
+          "count": 2,
+          "maximum": 19201824.0,
+          "minimum": 15583320.0,
+          "sum_abs": 34785144.0
+        },
+        "restart_atom_pair_concentration": {
+          "count": 262,
+          "maximum": 263168.0,
+          "minimum": 0.018728875675383408,
+          "sum_abs": 33541564.640246317
+        },
+        "runtime_s": {
+          "count": 1,
+          "maximum": 27.800930976867676,
+          "minimum": 27.800930976867676,
+          "sum_abs": 27.800930976867676
+        }
+      }
+    },
+    {
+      "declared_arm_count": 0,
+      "declared_arm_names": [],
+      "grammar_family": "composite_program",
+      "has_machine_readable_price": true,
+      "join_key": "r431:8f76b57a4f55c4e3",
+      "module_family": "attention0",
+      "receipt_first_add_unix": 1788296494,
+      "receipt_path": "basis_aligned/bilinear_quotient/attention0_direct_composite_score_generator_results.json",
+      "receipt_sha256": "8f76b57a4f55c4e30280c8efa0d8061b5078916d496a223ba7ef07c5ea64c7a3",
+      "rung": 431,
+      "source_ast": {
+        "branches": 22,
+        "calls": 433,
+        "functions": 15,
+        "loops": 22,
+        "nodes": 7359
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/attention0_direct_composite_score_generator.py",
+      "source_sha256": "669b845478cf08cdcc3f1602b173d5433a41fd7eb612f2dc3daee5fe64cd41f0",
+      "structural_summaries": {
+        "price": {
+          "count": 5,
+          "maximum": 5308416.0,
+          "minimum": 2654208.0,
+          "sum_abs": 15925484.0
+        },
+        "runtime_s": {
+          "count": 1,
+          "maximum": 26.996570110321045,
+          "minimum": 26.996570110321045,
+          "sum_abs": 26.996570110321045
+        },
+        "select_edge_metrics": {
+          "count": 32,
+          "maximum": 11649286.42016126,
+          "minimum": 2.630293932136785,
+          "sum_abs": 14377507.02454633
+        }
+      }
+    },
+    {
+      "declared_arm_count": 0,
+      "declared_arm_names": [],
+      "grammar_family": "low_rank",
+      "has_machine_readable_price": false,
+      "join_key": "r432:52d0a1a94bd7b309",
+      "module_family": "attention0",
+      "receipt_first_add_unix": 1788296413,
+      "receipt_path": "basis_aligned/bilinear_quotient/attention0_interaction_rank_taxonomy_results.json",
+      "receipt_sha256": "52d0a1a94bd7b3094ff6581f1cdd5beb09ffbbda4665a82724d631cad15e1ea0",
+      "rung": 432,
+      "source_ast": {
+        "branches": 3,
+        "calls": 127,
+        "functions": 6,
+        "loops": 6,
+        "nodes": 1788
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/attention0_interaction_rank_taxonomy.py",
+      "source_sha256": "f7465353735aaa36bc20b9651ebe1e5ae563e27700fc6828dbfbcd8a874b8702",
+      "structural_summaries": {
+        "runtime_s": {
+          "count": 1,
+          "maximum": 8.40510368347168,
+          "minimum": 8.40510368347168,
+          "sum_abs": 8.40510368347168
+        }
+      }
+    },
+    {
+      "declared_arm_count": 0,
+      "declared_arm_names": [],
+      "grammar_family": "other",
+      "has_machine_readable_price": false,
+      "join_key": "r434:66b252b26649523d",
+      "module_family": "attention0",
+      "receipt_first_add_unix": 1788298173,
+      "receipt_path": "basis_aligned/bilinear_quotient/attention0_interaction_excess_census_results.json",
+      "receipt_sha256": "66b252b26649523dac640857062dfcfb10d4bb5c5fc6f38bf7f400e7f2f11689",
+      "rung": 434,
+      "source_ast": {
+        "branches": 3,
+        "calls": 139,
+        "functions": 7,
+        "loops": 6,
+        "nodes": 1948
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/attention0_interaction_excess_census.py",
+      "source_sha256": "2dc245bdf24761208675dd193613c1f6c955cead31c9ed186a4dfae8a67b5f1c",
+      "structural_summaries": {
+        "runtime_s": {
+          "count": 1,
+          "maximum": 8.444730997085571,
+          "minimum": 8.444730997085571,
+          "sum_abs": 8.444730997085571
+        }
+      }
+    },
+    {
+      "declared_arm_count": 0,
+      "declared_arm_names": [],
+      "grammar_family": "composite_program",
+      "has_machine_readable_price": true,
+      "join_key": "r436:0787898a70e91c92",
+      "module_family": "mlp0_or_early_mlp",
+      "receipt_first_add_unix": 1788299218,
+      "receipt_path": "basis_aligned/bilinear_quotient/mixed64_physical_mixedprecision_mlp04_mlp16_factored_results.json",
+      "receipt_sha256": "0787898a70e91c929931d44110223cbe42dbb1f4e4fcab134eaa8105b379014d",
+      "rung": 436,
+      "source_ast": {
+        "branches": 5,
+        "calls": 142,
+        "functions": 4,
+        "loops": 5,
+        "nodes": 2366
+      },
+      "source_path": "basis_aligned/bilinear_quotient/ops/mixed64_physical_mixedprecision_mlp04_mlp16_factored.py",
+      "source_sha256": "9696f54653c214b565c419fe2e9bae96cb48b79369e5a02206d937f9b966aa3b",
+      "structural_summaries": {
+        "generated_mlp_program_bytes": {
+          "count": 1,
+          "maximum": 53088768.0,
+          "minimum": 53088768.0,
+          "sum_abs": 53088768.0
+        },
+        "generated_mlp_program_scalars": {
+          "count": 1,
+          "maximum": 26544384.0,
+          "minimum": 26544384.0,
+          "sum_abs": 26544384.0
+        },
+        "literal_gibibytes": {
+          "count": 1,
+          "maximum": 0.9236153475940228,
+          "minimum": 0.9236153475940228,
+          "sum_abs": 0.9236153475940228
+        },
+        "literal_raw_tensor_bytes": {
+          "count": 1,
+          "maximum": 991724428.0,
+          "minimum": 991724428.0,
+          "sum_abs": 991724428.0
+        },
+        "literal_source_format_bytes": {
+          "count": 1,
+          "maximum": 991724428.0,
+          "minimum": 991724428.0,
+          "sum_abs": 991724428.0
+        },
+        "literal_standalone_scalars": {
+          "count": 1,
+          "maximum": 495847230.0,
+          "minimum": 495847230.0,
+          "sum_abs": 495847230.0
+        },
+        "mlp16_factor_bytes": {
+          "count": 1,
+          "maximum": 59936.0,
+          "minimum": 59936.0,
+          "sum_abs": 59936.0
+        },
+        "mlp16_factor_scalars": {
+          "count": 1,
+          "maximum": 14984.0,
+          "minimum": 14984.0,
+          "sum_abs": 14984.0
+        },
+        "mlp_rank": {
+          "count": 1,
+          "maximum": 768.0,
+          "minimum": 768.0,
+          "sum_abs": 768.0
+        },
+        "qk_rank": {
+          "count": 1,
+          "maximum": 64.0,
+          "minimum": 64.0,
+          "sum_abs": 64.0
+        },
+        "runtime_s": {
+          "count": 1,
+          "maximum": 130.5625865459442,
+          "minimum": 130.5625865459442,
+          "sum_abs": 130.5625865459442
+        },
+        "runtime_s_total": {
+          "count": 1,
+          "maximum": 136.24866342544556,
+          "minimum": 136.24866342544556,
+          "sum_abs": 136.24866342544556
+        },
+        "saving_vs_native_scalars": {
+          "count": 1,
+          "maximum": 50055672.0,
+          "minimum": 50055672.0,
+          "sum_abs": 50055672.0
+        },
+        "saving_vs_native_source_bytes": {
+          "count": 1,
+          "maximum": 1075945184.0,
+          "minimum": 1075945184.0,
+          "sum_abs": 1075945184.0
+        },
+        "selection_ranking": {
+          "count": 16,
+          "maximum": 7.0,
+          "minimum": 0.0,
+          "sum_abs": 28.032772481441498
+        },
+        "source_dtype_scalars": {
+          "count": 2,
+          "maximum": 487931904.0,
+          "minimum": 57970998.0,
+          "sum_abs": 545902902.0
+        }
+      }
+    }
+  ],
+  "rung_interval_inclusive": [
+    300,
+    436
+  ],
+  "schema": "simplicity_archive_features_v1"
+}

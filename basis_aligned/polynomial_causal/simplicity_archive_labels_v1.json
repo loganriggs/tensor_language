@@ -1,0 +1,3877 @@
+{
+  "frozen_feature_sha256": "909ad18a438c0ce4d45ba82e8e53e06331c0adf7a876719477ca1ae997fd2d46",
+  "rows": [
+    {
+      "join_key": "r300:e7f4db2a837379c5",
+      "registered_labels": {
+        "null_predictive_or_price_matched": {
+          "categories": [],
+          "instrument": false,
+          "value": true
+        },
+        "pred_a_shared_code_predictive": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_b_shared_beats_price_matched_independent": {
+          "categories": [],
+          "instrument": false,
+          "value": true
+        },
+        "pred_c_rare_token_stability": {
+          "categories": [
+            "ood_transport"
+          ],
+          "instrument": false,
+          "value": true
+        }
+      }
+    },
+    {
+      "join_key": "r301:cf9d88a57a536be3",
+      "registered_labels": {
+        "null_no_stable_response_advantage": {
+          "categories": [],
+          "instrument": false,
+          "value": true
+        },
+        "pred_a_response_beats_noncausal_bases": {
+          "categories": [
+            "removal_intervention"
+          ],
+          "instrument": false,
+          "value": false
+        },
+        "pred_b_response_rank_is_predictive_and_priced": {
+          "categories": [],
+          "instrument": false,
+          "value": true
+        },
+        "pred_c_response_basis_is_split_stable": {
+          "categories": [
+            "ood_transport"
+          ],
+          "instrument": false,
+          "value": false
+        }
+      }
+    },
+    {
+      "join_key": "r302:aeba876ff6048809",
+      "registered_labels": {
+        "null_no_small_causal_state": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_a_small_predictive_state": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_b_state_transfers": {
+          "categories": [
+            "ood_transport"
+          ],
+          "instrument": false,
+          "value": false
+        },
+        "pred_c_delimiter_head_carries_state": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        }
+      }
+    },
+    {
+      "join_key": "r303:c46f754dbc9a90fa",
+      "registered_labels": {
+        "null_contract_failure": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_a_transfer_coverage": {
+          "categories": [
+            "ood_transport"
+          ],
+          "instrument": false,
+          "value": true
+        },
+        "pred_b_contract_is_nonvacuous": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_c_lower_bound_is_decision_useful": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        }
+      }
+    },
+    {
+      "join_key": "r304:c6e782015c3fad47",
+      "registered_labels": {
+        "null_no_rare_row_repair": {
+          "categories": [],
+          "instrument": false,
+          "value": true
+        },
+        "pred_a_fisher_repairs_aggregate": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_b_fisher_repairs_unseen_without_common_regression": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_c_fisher_beats_equal_price_controls": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        }
+      }
+    },
+    {
+      "join_key": "r305:ada2c09bd990f0c1",
+      "registered_labels": {
+        "null_no_useful_distributed_frontier": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_a_distributed_rank_is_predictive": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_b_shared_beats_matched_independent": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_c_tail_is_predictive": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        }
+      }
+    },
+    {
+      "join_key": "r306:a6c54bd223233ee1",
+      "registered_labels": {
+        "null_no_composable_pca_layers": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_a_pca_generality": {
+          "categories": [
+            "ood_transport"
+          ],
+          "instrument": false,
+          "value": true
+        },
+        "pred_b_calibration_selects_safe_layers": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_c_four_layer_composition_is_predictive": {
+          "categories": [
+            "composition"
+          ],
+          "instrument": false,
+          "value": false
+        }
+      }
+    },
+    {
+      "join_key": "r307:e4dec177e2ccf12a",
+      "registered_labels": {
+        "null_pair_allocator_failure": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_a_pair_interactions_replicate": {
+          "categories": [
+            "composition"
+          ],
+          "instrument": false,
+          "value": false
+        },
+        "pred_b_interaction_selected_quartet_is_predictive": {
+          "categories": [
+            "composition"
+          ],
+          "instrument": false,
+          "value": false
+        },
+        "pred_c_allocator_beats_controls_and_composes": {
+          "categories": [
+            "composition"
+          ],
+          "instrument": false,
+          "value": false
+        }
+      }
+    },
+    {
+      "join_key": "r308:fad5ac4d5d469718",
+      "registered_labels": {
+        "null_triple_not_useful": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_a_selected_triple_is_predictive": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_b_triple_composition_is_controlled": {
+          "categories": [
+            "composition"
+          ],
+          "instrument": false,
+          "value": true
+        },
+        "pred_c_triple_beats_equal_price_controls": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        }
+      }
+    },
+    {
+      "join_key": "r309:d872ea5c70579b55",
+      "registered_labels": {
+        "null_fixed_triple_unstable": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_a_fixed_triple_mean_stable": {
+          "categories": [
+            "ood_transport"
+          ],
+          "instrument": false,
+          "value": true
+        },
+        "pred_b_fixed_triple_tail_stable": {
+          "categories": [
+            "ood_transport"
+          ],
+          "instrument": false,
+          "value": true
+        },
+        "pred_c_fixed_triple_transfers": {
+          "categories": [
+            "ood_transport"
+          ],
+          "instrument": false,
+          "value": true
+        }
+      }
+    },
+    {
+      "join_key": "r310:ce5ff37226fe59bc",
+      "registered_labels": {
+        "null_combined_program_unusable": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_a_combined_census_and_certificates": {
+          "categories": [
+            "extraction_identification"
+          ],
+          "instrument": false,
+          "value": false
+        },
+        "pred_b_mlp_surcharge_composes": {
+          "categories": [
+            "composition"
+          ],
+          "instrument": false,
+          "value": true
+        },
+        "pred_c_fresh_and_identity": {
+          "categories": [
+            "ood_transport"
+          ],
+          "instrument": true,
+          "value": true
+        }
+      }
+    },
+    {
+      "join_key": "r311:e6aacdaecc11e169",
+      "registered_labels": {
+        "null_no_useful_pair": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_a_some_pair_is_predictive_and_certified": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_b_pair_surcharges_are_in_range": {
+          "categories": [],
+          "instrument": false,
+          "value": true
+        },
+        "pred_c_best_pair_improves_triple_tradeoff": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        }
+      }
+    },
+    {
+      "join_key": "r312:1f2a47b6d493d1f5",
+      "registered_labels": {
+        "null_higher_rank_does_not_recover_certificates": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_a_capacity_crosses_useful_certificate_bars": {
+          "categories": [
+            "extraction_identification"
+          ],
+          "instrument": false,
+          "value": false
+        },
+        "pred_b_frontier_is_monotone": {
+          "categories": [],
+          "instrument": false,
+          "value": true
+        },
+        "pred_c_certificate_recovery_beats_scalar_giveback": {
+          "categories": [
+            "extraction_identification"
+          ],
+          "instrument": false,
+          "value": false
+        }
+      }
+    },
+    {
+      "join_key": "r313:b458d81abf0bc956",
+      "registered_labels": {
+        "null_no_constraint_orthogonal_gain": {
+          "categories": [],
+          "instrument": false,
+          "value": true
+        },
+        "pred_a_hybrid_improves_full_certificates_at_equal_price": {
+          "categories": [
+            "extraction_identification"
+          ],
+          "instrument": false,
+          "value": false
+        },
+        "pred_b_improvement_transfers_to_heldout_tags": {
+          "categories": [
+            "ood_transport"
+          ],
+          "instrument": false,
+          "value": false
+        },
+        "pred_c_hybrid_breaks_the_one_dimensional_damage_law": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        }
+      }
+    },
+    {
+      "join_key": "r314:399f7ebeb9862101",
+      "registered_labels": {
+        "null_no_useful_shared_input_structure": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_a_exact_token_function_has_low_shared_input_rank": {
+          "categories": [],
+          "instrument": true,
+          "value": false
+        },
+        "pred_b_structure_transfers_to_contextual_inputs": {
+          "categories": [
+            "ood_transport"
+          ],
+          "instrument": false,
+          "value": false
+        },
+        "pred_c_token_metric_beats_matched_controls": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        }
+      }
+    },
+    {
+      "join_key": "r315:bd034f4edb78a2b8",
+      "registered_labels": {
+        "null_no_useful_shared_input_point": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_a_rank_specific_census_and_certificate_bars": {
+          "categories": [
+            "extraction_identification"
+          ],
+          "instrument": false,
+          "value": false
+        },
+        "pred_b_monotone_composition_and_surcharge": {
+          "categories": [
+            "composition"
+          ],
+          "instrument": false,
+          "value": true
+        },
+        "pred_c_fresh_price_and_identity": {
+          "categories": [
+            "ood_transport"
+          ],
+          "instrument": true,
+          "value": true
+        }
+      }
+    },
+    {
+      "join_key": "r316:43b1a35c43b55e11",
+      "registered_labels": {
+        "null_shifted_transport_fails": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_a_shifted_mean_tail_and_max": {
+          "categories": [],
+          "instrument": false,
+          "value": true
+        },
+        "pred_b_census_and_certificates_reproduce": {
+          "categories": [
+            "extraction_identification"
+          ],
+          "instrument": false,
+          "value": true
+        },
+        "pred_c_dataset_price_and_identity": {
+          "categories": [],
+          "instrument": true,
+          "value": true
+        }
+      }
+    },
+    {
+      "join_key": "r317:0ddd171b18091506",
+      "registered_labels": {
+        "null_signed_transport_fails": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_a_live_baseline_and_identity": {
+          "categories": [],
+          "instrument": true,
+          "value": true
+        },
+        "pred_b_signed_effect_vector": {
+          "categories": [
+            "removal_intervention"
+          ],
+          "instrument": false,
+          "value": true
+        },
+        "pred_c_circuit_effect_transport": {
+          "categories": [
+            "ood_transport",
+            "extraction_identification"
+          ],
+          "instrument": false,
+          "value": true
+        }
+      }
+    },
+    {
+      "join_key": "r318:17935d0c968b1a03",
+      "registered_labels": {
+        "null_p768_is_not_a_repeated_law": {
+          "categories": [],
+          "instrument": false,
+          "value": true
+        },
+        "pred_a_p768_is_broad": {
+          "categories": [],
+          "instrument": false,
+          "value": true
+        },
+        "pred_b_p768_distribution_is_tight": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_c_p512_has_a_real_lower_fidelity_regime": {
+          "categories": [],
+          "instrument": false,
+          "value": true
+        }
+      }
+    },
+    {
+      "join_key": "r319:64c1ed1f441fe28a",
+      "registered_labels": {
+        "null_front_mid_composition_is_not_useful": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_a_census_and_certificate_screen": {
+          "categories": [
+            "extraction_identification"
+          ],
+          "instrument": false,
+          "value": false
+        },
+        "pred_b_composition_surcharge_is_controlled": {
+          "categories": [
+            "composition"
+          ],
+          "instrument": false,
+          "value": true
+        },
+        "pred_c_fresh_price_and_identity": {
+          "categories": [
+            "ood_transport"
+          ],
+          "instrument": true,
+          "value": true
+        }
+      }
+    },
+    {
+      "join_key": "r320:61d313923074b63a",
+      "registered_labels": {
+        "null_pair_capacity_is_still_not_useful": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_a_one_pair_crosses_the_certificate_grade_screen": {
+          "categories": [
+            "extraction_identification"
+          ],
+          "instrument": false,
+          "value": false
+        },
+        "pred_b_both_pairs_lie_on_the_monotone_composition_segment": {
+          "categories": [
+            "composition"
+          ],
+          "instrument": false,
+          "value": true
+        },
+        "pred_c_primary_fresh_price_and_all_identities": {
+          "categories": [
+            "ood_transport"
+          ],
+          "instrument": false,
+          "value": true
+        }
+      }
+    },
+    {
+      "join_key": "r321:931a560fab669a04",
+      "registered_labels": {
+        "null_context_metric_does_not_repair_late_depth": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_a_context_metric_opens_a_late_layer_regime": {
+          "categories": [],
+          "instrument": false,
+          "value": true
+        },
+        "pred_b_context_metric_beats_frobenius_at_every_late_layer": {
+          "categories": [],
+          "instrument": false,
+          "value": true
+        },
+        "pred_c_context_metric_is_split_stable": {
+          "categories": [
+            "ood_transport"
+          ],
+          "instrument": false,
+          "value": true
+        }
+      }
+    },
+    {
+      "join_key": "r322:f5d5c6b3869b30dc",
+      "registered_labels": {
+        "null_late_context_metric_composition_not_useful": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_a_census_and_certificate_screen": {
+          "categories": [
+            "extraction_identification"
+          ],
+          "instrument": false,
+          "value": false
+        },
+        "pred_b_composition_surcharge_is_controlled": {
+          "categories": [
+            "composition"
+          ],
+          "instrument": false,
+          "value": false
+        },
+        "pred_c_fresh_fit_price_and_identity": {
+          "categories": [
+            "ood_transport"
+          ],
+          "instrument": true,
+          "value": false
+        }
+      }
+    },
+    {
+      "join_key": "r323:db0599965b3e7706",
+      "registered_labels": {
+        "null_sequential_fit_does_not_repair_composition": {
+          "categories": [],
+          "instrument": false,
+          "value": true
+        },
+        "pred_a_absolute_census_and_certificate_screen": {
+          "categories": [
+            "extraction_identification"
+          ],
+          "instrument": false,
+          "value": false
+        },
+        "pred_b_sequential_fit_repairs_open_loop_composition": {
+          "categories": [
+            "composition"
+          ],
+          "instrument": false,
+          "value": false
+        },
+        "pred_c_fresh_sequential_identity_and_price": {
+          "categories": [
+            "ood_transport"
+          ],
+          "instrument": true,
+          "value": false
+        }
+      }
+    },
+    {
+      "join_key": "r324:aa627ce4640b9c2f",
+      "registered_labels": {
+        "null_context_metric_does_not_improve_mlp0": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_a_context_p512_is_a_low_damage_price_point": {
+          "categories": [],
+          "instrument": false,
+          "value": true
+        },
+        "pred_b_context_p640_is_near_adoption_quality": {
+          "categories": [],
+          "instrument": false,
+          "value": true
+        },
+        "pred_c_both_ranks_are_split_stable": {
+          "categories": [
+            "ood_transport"
+          ],
+          "instrument": false,
+          "value": true
+        }
+      }
+    },
+    {
+      "join_key": "r325:b80419147bba16b8",
+      "registered_labels": {
+        "null_no_useful_context_metric_mlp0_point": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_a_rank_specific_census_and_certificate_bars": {
+          "categories": [
+            "extraction_identification"
+          ],
+          "instrument": false,
+          "value": true
+        },
+        "pred_b_monotone_composition_and_surcharge": {
+          "categories": [
+            "composition"
+          ],
+          "instrument": false,
+          "value": true
+        },
+        "pred_c_primary_fresh_fit_price_and_identity": {
+          "categories": [
+            "ood_transport"
+          ],
+          "instrument": true,
+          "value": true
+        }
+      }
+    },
+    {
+      "join_key": "r326:51b82144d57a02a9",
+      "registered_labels": {
+        "null_both_variants_fail_shifted_transport": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_a_both_variants_transport_on_shifted_ood": {
+          "categories": [
+            "ood_transport"
+          ],
+          "instrument": false,
+          "value": true
+        },
+        "pred_b_census_and_certificates_reproduce": {
+          "categories": [
+            "extraction_identification"
+          ],
+          "instrument": false,
+          "value": true
+        },
+        "pred_c_dataset_fit_price_identity_and_primary_fresh": {
+          "categories": [
+            "ood_transport"
+          ],
+          "instrument": true,
+          "value": true
+        }
+      }
+    },
+    {
+      "join_key": "r327:31428fc9b2061a28",
+      "registered_labels": {
+        "null_both_signed_transports_fail": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_a_live_baselines_price_and_identity": {
+          "categories": [],
+          "instrument": true,
+          "value": true
+        },
+        "pred_b_both_signed_effect_vectors_transfer": {
+          "categories": [
+            "ood_transport",
+            "removal_intervention"
+          ],
+          "instrument": false,
+          "value": true
+        },
+        "pred_c_both_circuit_effect_profiles_transfer": {
+          "categories": [
+            "ood_transport",
+            "extraction_identification"
+          ],
+          "instrument": false,
+          "value": true
+        }
+      }
+    },
+    {
+      "join_key": "r328:12decd6a209e53eb",
+      "registered_labels": {
+        "null_lower_rank_context_metric_is_not_useful": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_a_p448_and_p384_cross_rank_specific_bars": {
+          "categories": [],
+          "instrument": false,
+          "value": true
+        },
+        "pred_b_p256_is_useful_and_frontier_is_monotone": {
+          "categories": [],
+          "instrument": false,
+          "value": true
+        },
+        "pred_c_primary_fresh_fit_price_and_identity": {
+          "categories": [
+            "ood_transport"
+          ],
+          "instrument": true,
+          "value": true
+        }
+      }
+    },
+    {
+      "join_key": "r329:b060525f82dcfc60",
+      "registered_labels": {
+        "null_all_lower_ranks_fail_shifted_transport": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_a_all_rank_specific_ood_bars_hold": {
+          "categories": [
+            "ood_transport"
+          ],
+          "instrument": false,
+          "value": false
+        },
+        "pred_b_census_and_certificates_reproduce": {
+          "categories": [
+            "extraction_identification"
+          ],
+          "instrument": false,
+          "value": true
+        },
+        "pred_c_dataset_fit_price_identity_and_primary_fresh": {
+          "categories": [
+            "ood_transport"
+          ],
+          "instrument": true,
+          "value": true
+        }
+      }
+    },
+    {
+      "join_key": "r330:810fa2bbf6e8ff21",
+      "registered_labels": {
+        "null_signed_p448_transport_fails": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_a_live_baseline_price_and_identity": {
+          "categories": [],
+          "instrument": true,
+          "value": true
+        },
+        "pred_b_signed_effect_vector_transfers": {
+          "categories": [
+            "ood_transport",
+            "removal_intervention"
+          ],
+          "instrument": false,
+          "value": true
+        },
+        "pred_c_circuit_effect_profile_transfers": {
+          "categories": [
+            "ood_transport",
+            "extraction_identification"
+          ],
+          "instrument": false,
+          "value": true
+        }
+      }
+    },
+    {
+      "join_key": "r331:cd5c3cd478a23242",
+      "registered_labels": {
+        "null_context_qk96_is_not_useful": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_a_context96_reaches_mixed_grade_prediction_and_certificates": {
+          "categories": [
+            "extraction_identification"
+          ],
+          "instrument": false,
+          "value": true
+        },
+        "pred_b_context96_improves_weight_top96_at_same_rank": {
+          "categories": [],
+          "instrument": false,
+          "value": true
+        },
+        "pred_c_fresh_context_metric_identity_and_price": {
+          "categories": [
+            "ood_transport"
+          ],
+          "instrument": true,
+          "value": true
+        }
+      }
+    },
+    {
+      "join_key": "r332:5731f20cbb56b82c",
+      "registered_labels": {
+        "null_context_qk96_split_or_ood_fails": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_a_independent_fit_reproduces_census_and_certificates": {
+          "categories": [
+            "extraction_identification"
+          ],
+          "instrument": false,
+          "value": true
+        },
+        "pred_b_shifted_ood_mean_and_tails_hold": {
+          "categories": [
+            "ood_transport"
+          ],
+          "instrument": false,
+          "value": true
+        },
+        "pred_c_dataset_fit_context_identity_price_and_fresh": {
+          "categories": [
+            "ood_transport"
+          ],
+          "instrument": true,
+          "value": true
+        }
+      }
+    },
+    {
+      "join_key": "r333:1a5092c94185a364",
+      "registered_labels": {
+        "null_signed_context_qk96_transport_fails": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_a_live_baseline_price_and_identity": {
+          "categories": [],
+          "instrument": true,
+          "value": true
+        },
+        "pred_b_signed_effect_vector_transfers": {
+          "categories": [
+            "ood_transport",
+            "removal_intervention"
+          ],
+          "instrument": false,
+          "value": true
+        },
+        "pred_c_circuit_effect_profile_transfers": {
+          "categories": [
+            "ood_transport",
+            "extraction_identification"
+          ],
+          "instrument": false,
+          "value": true
+        }
+      }
+    },
+    {
+      "join_key": "r334:24f0deb7167035e7",
+      "registered_labels": {
+        "null_dual_context_composition_fails": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_a_census_certificates_and_composition_residual_hold": {
+          "categories": [
+            "extraction_identification",
+            "composition"
+          ],
+          "instrument": false,
+          "value": true
+        },
+        "pred_b_new_shifted_ood_mean_and_tails_hold": {
+          "categories": [
+            "ood_transport"
+          ],
+          "instrument": false,
+          "value": true
+        },
+        "pred_c_exact_dual_context_identity_price_and_fresh_hold": {
+          "categories": [
+            "ood_transport"
+          ],
+          "instrument": true,
+          "value": true
+        }
+      }
+    },
+    {
+      "join_key": "r335:0d135491a5fd9cf6",
+      "registered_labels": {
+        "null_signed_dual_context_p448_transport_fails": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_a_live_baseline_price_and_dual_identity": {
+          "categories": [],
+          "instrument": true,
+          "value": true
+        },
+        "pred_b_signed_effect_vector_transfers": {
+          "categories": [
+            "ood_transport",
+            "removal_intervention"
+          ],
+          "instrument": false,
+          "value": true
+        },
+        "pred_c_circuit_effect_profile_transfers": {
+          "categories": [
+            "ood_transport",
+            "extraction_identification"
+          ],
+          "instrument": false,
+          "value": true
+        }
+      }
+    },
+    {
+      "join_key": "r336:d30560a7101f2bc2",
+      "registered_labels": {
+        "null_context_qk88_crosses_cliff": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_a_rank88_retains_high_fidelity_census_and_certificates": {
+          "categories": [
+            "extraction_identification"
+          ],
+          "instrument": false,
+          "value": true
+        },
+        "pred_b_new_shifted_ood_mean_and_tails_hold": {
+          "categories": [
+            "ood_transport"
+          ],
+          "instrument": false,
+          "value": true
+        },
+        "pred_c_context88_identity_price_dataset_and_fresh_hold": {
+          "categories": [
+            "ood_transport"
+          ],
+          "instrument": true,
+          "value": true
+        }
+      }
+    },
+    {
+      "join_key": "r337:537c951753ad7d4a",
+      "registered_labels": {
+        "null_cross_family_near_additivity_fails": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_a_both_compositions_are_near_additive_and_predictive": {
+          "categories": [
+            "composition"
+          ],
+          "instrument": false,
+          "value": true
+        },
+        "pred_b_both_new_shifted_ood_tail_bars_hold": {
+          "categories": [
+            "ood_transport"
+          ],
+          "instrument": false,
+          "value": true
+        },
+        "pred_c_dual_context_variants_identity_price_and_fresh_hold": {
+          "categories": [
+            "ood_transport"
+          ],
+          "instrument": true,
+          "value": true
+        }
+      }
+    },
+    {
+      "join_key": "r338:17692c59c24a7dfa",
+      "registered_labels": {
+        "null_signed_context_qk88_transport_fails": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_a_live_baseline_price_and_identity": {
+          "categories": [],
+          "instrument": true,
+          "value": true
+        },
+        "pred_b_signed_effect_vector_transfers": {
+          "categories": [
+            "ood_transport",
+            "removal_intervention"
+          ],
+          "instrument": false,
+          "value": true
+        },
+        "pred_c_circuit_effect_profile_transfers": {
+          "categories": [
+            "ood_transport",
+            "extraction_identification"
+          ],
+          "instrument": false,
+          "value": true
+        }
+      }
+    },
+    {
+      "join_key": "r339:ea67f32b7716c9e5",
+      "registered_labels": {
+        "null_context_qk80_crosses_cliff": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_a_rank80_retains_high_fidelity_census_and_certificates": {
+          "categories": [
+            "extraction_identification"
+          ],
+          "instrument": false,
+          "value": true
+        },
+        "pred_b_new_shifted_ood_mean_and_tails_hold": {
+          "categories": [
+            "ood_transport"
+          ],
+          "instrument": false,
+          "value": true
+        },
+        "pred_c_context80_identity_price_dataset_and_fresh_hold": {
+          "categories": [
+            "ood_transport"
+          ],
+          "instrument": true,
+          "value": true
+        }
+      }
+    },
+    {
+      "join_key": "r340:b36ec37e4ec45900",
+      "registered_labels": {
+        "null_real_mlp0_is_as_irreducible_as_spectral_null": {
+          "categories": [],
+          "instrument": false,
+          "value": true
+        },
+        "pred_a_planted_blocks_and_dense_null_are_identified": {
+          "categories": [],
+          "instrument": false,
+          "value": true
+        },
+        "pred_b_real_mlp0_has_nontrivial_approximate_commutant_signal": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_c_real_signal_is_split_stable_and_block_reducing": {
+          "categories": [
+            "ood_transport"
+          ],
+          "instrument": false,
+          "value": false
+        }
+      }
+    },
+    {
+      "join_key": "r341:195dac4e5da91cfb",
+      "registered_labels": {
+        "null_signed_context_qk80_transport_fails": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_a_live_baseline_price_and_identity": {
+          "categories": [],
+          "instrument": true,
+          "value": true
+        },
+        "pred_b_signed_effect_vector_transfers": {
+          "categories": [
+            "ood_transport",
+            "removal_intervention"
+          ],
+          "instrument": false,
+          "value": true
+        },
+        "pred_c_circuit_effect_profile_transfers": {
+          "categories": [
+            "ood_transport",
+            "extraction_identification"
+          ],
+          "instrument": false,
+          "value": true
+        }
+      }
+    },
+    {
+      "join_key": "r342:78620af55df48b1f",
+      "registered_labels": {
+        "null_context_qk72_crosses_cliff": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_a_rank72_retains_predictive_census_and_certificates": {
+          "categories": [
+            "extraction_identification"
+          ],
+          "instrument": false,
+          "value": true
+        },
+        "pred_b_new_shifted_ood_mean_and_tails_hold": {
+          "categories": [
+            "ood_transport"
+          ],
+          "instrument": false,
+          "value": true
+        },
+        "pred_c_context72_identity_price_dataset_and_fresh_hold": {
+          "categories": [
+            "ood_transport"
+          ],
+          "instrument": true,
+          "value": true
+        }
+      }
+    },
+    {
+      "join_key": "r343:49a1a09f1d2dc2be",
+      "registered_labels": {
+        "null_context_value96_is_not_useful": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_a_value96_adds_bounded_census_damage_and_certificates": {
+          "categories": [
+            "extraction_identification"
+          ],
+          "instrument": false,
+          "value": false
+        },
+        "pred_b_new_shifted_ood_mean_and_tails_hold": {
+          "categories": [
+            "ood_transport"
+          ],
+          "instrument": false,
+          "value": true
+        },
+        "pred_c_exact_qk80_value96_context_identity_price_and_fresh": {
+          "categories": [
+            "ood_transport"
+          ],
+          "instrument": true,
+          "value": true
+        }
+      }
+    },
+    {
+      "join_key": "r344:c69a65ff3b439596",
+      "registered_labels": {
+        "null_signed_context_qk72_transport_fails": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_a_live_baseline_price_and_identity": {
+          "categories": [],
+          "instrument": true,
+          "value": true
+        },
+        "pred_b_signed_effect_vector_transfers": {
+          "categories": [
+            "ood_transport",
+            "removal_intervention"
+          ],
+          "instrument": false,
+          "value": true
+        },
+        "pred_c_circuit_effect_profile_transfers": {
+          "categories": [
+            "ood_transport",
+            "extraction_identification"
+          ],
+          "instrument": false,
+          "value": true
+        }
+      }
+    },
+    {
+      "join_key": "r345:1766dbff81263404",
+      "registered_labels": {
+        "null_context_qk64_crosses_cliff": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_a_rank64_retains_predictive_census_and_certificates": {
+          "categories": [
+            "extraction_identification"
+          ],
+          "instrument": false,
+          "value": true
+        },
+        "pred_b_new_shifted_ood_mean_and_tails_hold": {
+          "categories": [
+            "ood_transport"
+          ],
+          "instrument": false,
+          "value": true
+        },
+        "pred_c_context64_identity_price_dataset_and_fresh_hold": {
+          "categories": [
+            "ood_transport"
+          ],
+          "instrument": true,
+          "value": true
+        }
+      }
+    },
+    {
+      "join_key": "r346:10daf3dc497976f0",
+      "registered_labels": {
+        "null_full_mlp0_is_as_irreducible_as_graph_null": {
+          "categories": [],
+          "instrument": false,
+          "value": true
+        },
+        "pred_a_planted_full_graph_recovers_blocks_and_controls": {
+          "categories": [],
+          "instrument": false,
+          "value": true
+        },
+        "pred_b_real_full_space_has_nontrivial_block_signal": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_c_real_partition_is_split_stable_and_reducing": {
+          "categories": [
+            "ood_transport"
+          ],
+          "instrument": false,
+          "value": false
+        }
+      }
+    },
+    {
+      "join_key": "r347:9f4989c6c721b9d9",
+      "registered_labels": {
+        "null_signed_context_qk64_transport_fails": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_a_live_baseline_price_and_identity": {
+          "categories": [],
+          "instrument": true,
+          "value": true
+        },
+        "pred_b_signed_effect_vector_transfers": {
+          "categories": [
+            "ood_transport",
+            "removal_intervention"
+          ],
+          "instrument": false,
+          "value": true
+        },
+        "pred_c_circuit_effect_profile_transfers": {
+          "categories": [
+            "ood_transport",
+            "extraction_identification"
+          ],
+          "instrument": false,
+          "value": true
+        }
+      }
+    },
+    {
+      "join_key": "r348:128900372850fd58",
+      "registered_labels": {
+        "null_context_qk56_crosses_cliff": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_a_rank56_retains_predictive_census_and_certificates": {
+          "categories": [
+            "extraction_identification"
+          ],
+          "instrument": false,
+          "value": true
+        },
+        "pred_b_new_shifted_ood_mean_and_tails_hold": {
+          "categories": [
+            "ood_transport"
+          ],
+          "instrument": false,
+          "value": true
+        },
+        "pred_c_context56_identity_price_dataset_and_fresh_hold": {
+          "categories": [
+            "ood_transport"
+          ],
+          "instrument": true,
+          "value": true
+        }
+      }
+    },
+    {
+      "join_key": "r349:938238a761aa17ca",
+      "registered_labels": {
+        "null_signed_context_qk56_transport_fails": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_a_live_baseline_price_and_identity": {
+          "categories": [],
+          "instrument": true,
+          "value": true
+        },
+        "pred_b_tight_signed_effect_vector_transfers": {
+          "categories": [
+            "ood_transport",
+            "removal_intervention"
+          ],
+          "instrument": false,
+          "value": true
+        },
+        "pred_c_tight_circuit_effect_profile_transfers": {
+          "categories": [
+            "ood_transport",
+            "extraction_identification"
+          ],
+          "instrument": false,
+          "value": true
+        }
+      }
+    },
+    {
+      "join_key": "r350:bebbf879659da1c5",
+      "registered_labels": {
+        "null_tail_robust_metric_has_no_replicable_advantage": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_a_robust_p384_reduces_both_tail_distributions": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_b_robust_p384_preserves_mean_prediction": {
+          "categories": [],
+          "instrument": false,
+          "value": true
+        },
+        "pred_c_metric_is_split_stable_and_p448_safe": {
+          "categories": [
+            "ood_transport"
+          ],
+          "instrument": false,
+          "value": false
+        }
+      }
+    },
+    {
+      "join_key": "r351:92a4d63386dd09e8",
+      "registered_labels": {
+        "null_context_qk48_crosses_cliff": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_a_rank48_retains_useful_census_and_certificates": {
+          "categories": [
+            "extraction_identification"
+          ],
+          "instrument": false,
+          "value": false
+        },
+        "pred_b_new_shifted_ood_mean_and_tails_hold": {
+          "categories": [
+            "ood_transport"
+          ],
+          "instrument": false,
+          "value": true
+        },
+        "pred_c_context48_identity_price_dataset_and_fresh_hold": {
+          "categories": [
+            "ood_transport"
+          ],
+          "instrument": true,
+          "value": true
+        }
+      }
+    },
+    {
+      "join_key": "r352:6a5da91e76ee5964",
+      "registered_labels": {
+        "null_lower_boundary_cross_family_composition_fails": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_a_composition_is_near_additive_predictive_and_certified": {
+          "categories": [
+            "composition"
+          ],
+          "instrument": false,
+          "value": false
+        },
+        "pred_b_new_shifted_ood_mean_and_tails_hold": {
+          "categories": [
+            "ood_transport"
+          ],
+          "instrument": false,
+          "value": true
+        },
+        "pred_c_exact_dual_context_identity_price_and_fresh_hold": {
+          "categories": [
+            "ood_transport"
+          ],
+          "instrument": true,
+          "value": true
+        }
+      }
+    },
+    {
+      "join_key": "r353:eda677321142c26d",
+      "registered_labels": {
+        "null_consequence_metric_has_no_replicable_advantage": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_a_gradient_p384_reduces_both_tail_distributions": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_b_gradient_p384_preserves_mean_prediction": {
+          "categories": [],
+          "instrument": false,
+          "value": true
+        },
+        "pred_c_metric_is_split_stable_clipped_and_p448_safe": {
+          "categories": [
+            "ood_transport"
+          ],
+          "instrument": false,
+          "value": true
+        }
+      }
+    },
+    {
+      "join_key": "r354:b51fc153f72cfb52",
+      "registered_labels": {
+        "null_finite_router_has_no_equal_price_advantage": {
+          "categories": [],
+          "instrument": false,
+          "value": true
+        },
+        "pred_a_cluster_router_beats_global_mean_at_equal_price": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_b_cluster_router_beats_global_tails": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_c_states_are_real_balanced_and_split_stable": {
+          "categories": [
+            "ood_transport"
+          ],
+          "instrument": false,
+          "value": false
+        }
+      }
+    },
+    {
+      "join_key": "r355:9f05c57f8f7c5c7d",
+      "registered_labels": {
+        "null_singular_tail_law_fails": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_a_qk_tail_predicts_measured_damage": {
+          "categories": [],
+          "instrument": false,
+          "value": true
+        },
+        "pred_b_mlp0_tail_predicts_measured_damage": {
+          "categories": [],
+          "instrument": false,
+          "value": true
+        },
+        "pred_c_family_specific_gain_is_required": {
+          "categories": [],
+          "instrument": false,
+          "value": true
+        }
+      }
+    },
+    {
+      "join_key": "r356:6ecbc9aeb48170f6",
+      "registered_labels": {
+        "null_value_family_rejects_universal_ray": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_a_qk_certificate_vectors_are_one_ray": {
+          "categories": [
+            "extraction_identification"
+          ],
+          "instrument": false,
+          "value": true
+        },
+        "pred_b_cross_family_combo_stays_on_ray": {
+          "categories": [],
+          "instrument": false,
+          "value": true
+        },
+        "pred_c_value_family_stays_on_ray": {
+          "categories": [],
+          "instrument": false,
+          "value": true
+        }
+      }
+    },
+    {
+      "join_key": "r357:e6f22d1e11cdb51f",
+      "registered_labels": {
+        "null_allocator_is_not_predictive": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_a_intensity_transfers_to_heldout_compositions": {
+          "categories": [
+            "ood_transport",
+            "composition"
+          ],
+          "instrument": false,
+          "value": true
+        },
+        "pred_b_tail_plus_tax_predicts_end_to_end_counts": {
+          "categories": [
+            "composition"
+          ],
+          "instrument": false,
+          "value": true
+        },
+        "pred_c_discrete_frontier_is_resolved": {
+          "categories": [],
+          "instrument": false,
+          "value": true
+        }
+      }
+    },
+    {
+      "join_key": "r358:bb456bb2c2152fe5",
+      "registered_labels": {
+        "null_adopted_point_is_mdl_dominated_or_crossing_nonpositive": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_a_every_gated_qk_point_has_an_mdl_interval": {
+          "categories": [],
+          "instrument": false,
+          "value": true
+        },
+        "pred_b_break_even_schedule_is_coherently_convex": {
+          "categories": [],
+          "instrument": false,
+          "value": true
+        },
+        "pred_c_literal_bytes_match_uniform_fp32_and_r48_is_only_mapped": {
+          "categories": [],
+          "instrument": false,
+          "value": true
+        }
+      }
+    },
+    {
+      "join_key": "r359:a0a3ed9e3b77c20b",
+      "registered_labels": {
+        "null_context_router_has_no_equal_price_advantage": {
+          "categories": [],
+          "instrument": false,
+          "value": true
+        },
+        "pred_a_context_router_beats_cheaper_global_mean": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_b_context_router_beats_cheaper_global_tails": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_c_states_are_live_balanced_stable_and_nonrandom": {
+          "categories": [
+            "ood_transport"
+          ],
+          "instrument": false,
+          "value": false
+        }
+      }
+    },
+    {
+      "join_key": "r360:f2c5ef25926cb91e",
+      "registered_labels": {
+        "null_fp16_storage_breaks_qk56": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_a_fp16_storage_preserves_census_and_certificates": {
+          "categories": [
+            "extraction_identification"
+          ],
+          "instrument": false,
+          "value": true
+        },
+        "pred_b_fp16_storage_transfers_and_matches_fp32_cev": {
+          "categories": [
+            "ood_transport"
+          ],
+          "instrument": false,
+          "value": true
+        },
+        "pred_c_fp16_identity_and_literal_byte_bill_hold": {
+          "categories": [],
+          "instrument": true,
+          "value": true
+        }
+      }
+    },
+    {
+      "join_key": "r361:8efe01ae237ee219",
+      "registered_labels": {
+        "null_signed_fp16_context_qk56_transport_fails": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_a_live_fp16_baseline_price_and_identity": {
+          "categories": [],
+          "instrument": true,
+          "value": true
+        },
+        "pred_b_tight_signed_effect_vector_transfers": {
+          "categories": [
+            "ood_transport",
+            "removal_intervention"
+          ],
+          "instrument": false,
+          "value": true
+        },
+        "pred_c_tight_circuit_effect_profile_transfers": {
+          "categories": [
+            "ood_transport",
+            "extraction_identification"
+          ],
+          "instrument": false,
+          "value": true
+        }
+      }
+    },
+    {
+      "join_key": "r362:3e934db6d1a91c01",
+      "registered_labels": {
+        "null_universal_bf16_storage_breaks_prediction": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_a_bf16_storage_preserves_mean_on_both_corpora": {
+          "categories": [],
+          "instrument": false,
+          "value": true
+        },
+        "pred_b_bf16_storage_preserves_tails_and_transfers": {
+          "categories": [
+            "ood_transport"
+          ],
+          "instrument": false,
+          "value": true
+        },
+        "pred_c_checkpoint_identity_and_two_byte_bill_hold": {
+          "categories": [],
+          "instrument": true,
+          "value": true
+        }
+      }
+    },
+    {
+      "join_key": "r363:f7ea02e7c1562e7d",
+      "registered_labels": {
+        "null_combined_precision_structure_breaks_prediction": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_a_combined_census_and_certificates_hold": {
+          "categories": [
+            "extraction_identification"
+          ],
+          "instrument": false,
+          "value": true
+        },
+        "pred_b_combined_shifted_and_fresh_transfer_hold": {
+          "categories": [
+            "ood_transport"
+          ],
+          "instrument": false,
+          "value": true
+        },
+        "pred_c_combined_identity_and_two_byte_bill_hold": {
+          "categories": [],
+          "instrument": true,
+          "value": true
+        }
+      }
+    },
+    {
+      "join_key": "r364:1faf34cc47980c58",
+      "registered_labels": {
+        "null_signed_global_bf16_fp16_qk56_transport_fails": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_a_live_combined_baseline_price_and_identity": {
+          "categories": [],
+          "instrument": true,
+          "value": true
+        },
+        "pred_b_tight_original_native_signed_effect_transfers": {
+          "categories": [
+            "ood_transport",
+            "removal_intervention"
+          ],
+          "instrument": false,
+          "value": true
+        },
+        "pred_c_tight_original_native_circuit_profile_transfers": {
+          "categories": [
+            "ood_transport",
+            "extraction_identification"
+          ],
+          "instrument": false,
+          "value": true
+        }
+      }
+    },
+    {
+      "join_key": "r365:4a350422aac53153",
+      "registered_labels": {
+        "null_universal_bf16_full_gate_fails": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_a_bf16_census_and_certificates_hold": {
+          "categories": [
+            "extraction_identification"
+          ],
+          "instrument": false,
+          "value": true
+        },
+        "pred_b_bf16_original_native_signed_effect_holds": {
+          "categories": [
+            "removal_intervention"
+          ],
+          "instrument": false,
+          "value": true
+        },
+        "pred_c_bf16_circuit_profile_identity_and_bill_hold": {
+          "categories": [
+            "extraction_identification"
+          ],
+          "instrument": true,
+          "value": true
+        }
+      }
+    },
+    {
+      "join_key": "r366:c70ce96adc9b39ea",
+      "registered_labels": {
+        "null_context_metric_shared_input_rank_is_not_broad": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_a_context_metric_shared_input_rank_is_broad": {
+          "categories": [],
+          "instrument": false,
+          "value": true
+        },
+        "pred_b_context_metric_beats_matched_weight_svd_broadly": {
+          "categories": [],
+          "instrument": false,
+          "value": true
+        },
+        "pred_c_context_metric_is_split_stable_and_priced": {
+          "categories": [
+            "ood_transport"
+          ],
+          "instrument": false,
+          "value": true
+        }
+      }
+    },
+    {
+      "join_key": "r368:8501013259dba2dd",
+      "registered_labels": {
+        "null_two_byte_selected_mlp_qk64_breaks_prediction": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_a_two_byte_census_and_certificates_hold": {
+          "categories": [
+            "extraction_identification"
+          ],
+          "instrument": false,
+          "value": true
+        },
+        "pred_b_two_byte_shifted_and_fresh_hold": {
+          "categories": [
+            "ood_transport"
+          ],
+          "instrument": false,
+          "value": true
+        },
+        "pred_c_two_byte_selection_identity_and_bill_hold": {
+          "categories": [],
+          "instrument": true,
+          "value": true
+        }
+      }
+    },
+    {
+      "join_key": "r369:28d935e0ec923f62",
+      "registered_labels": {
+        "null_final_signed_transport_fails": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_a_final_baseline_identity_and_bill_hold": {
+          "categories": [],
+          "instrument": true,
+          "value": true
+        },
+        "pred_b_final_original_native_signed_effect_holds": {
+          "categories": [
+            "removal_intervention"
+          ],
+          "instrument": false,
+          "value": true
+        },
+        "pred_c_final_circuit_profile_holds": {
+          "categories": [
+            "extraction_identification"
+          ],
+          "instrument": false,
+          "value": true
+        }
+      }
+    },
+    {
+      "join_key": "r370:32140320c0ac44e7",
+      "registered_labels": {
+        "null_shared_midpoint_encoder_not_useful": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_a_midpoint_matches_independent_pair": {
+          "categories": [],
+          "instrument": false,
+          "value": true
+        },
+        "pred_b_midpoint_preserves_row_tails": {
+          "categories": [],
+          "instrument": false,
+          "value": true
+        },
+        "pred_c_shared_geometry_identity_and_price_hold": {
+          "categories": [],
+          "instrument": true,
+          "value": false
+        }
+      }
+    },
+    {
+      "join_key": "r374:f628b80bbe54117e",
+      "registered_labels": {
+        "null_distributed_mlp_rejects_fixed_ray": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_a_two_layer_frontier_stays_on_fixed_ray": {
+          "categories": [],
+          "instrument": false,
+          "value": true
+        },
+        "pred_b_third_layer_cliff_stays_on_fixed_ray": {
+          "categories": [],
+          "instrument": false,
+          "value": true
+        },
+        "pred_c_mid_tier_stays_on_fixed_ray": {
+          "categories": [],
+          "instrument": false,
+          "value": true
+        }
+      }
+    },
+    {
+      "join_key": "r375:91ab9fee315af9b0",
+      "registered_labels": {
+        "null_variable_rank_waterfill_not_useful": {
+          "categories": [],
+          "instrument": false,
+          "value": true
+        },
+        "pred_a_tail_model_transfers_to_fit_b": {
+          "categories": [
+            "ood_transport"
+          ],
+          "instrument": false,
+          "value": true
+        },
+        "pred_b_exact_four_spreading_beats_two_deep_cuts": {
+          "categories": [],
+          "instrument": true,
+          "value": false
+        },
+        "pred_c_exact_five_candidate_beats_comparator_at_lower_price": {
+          "categories": [],
+          "instrument": true,
+          "value": false
+        }
+      }
+    },
+    {
+      "join_key": "r376:1d2226e54e0d030d",
+      "registered_labels": {
+        "null_no_useful_second_certificate_mode": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_a_mlp_residual_has_stable_second_mode": {
+          "categories": [
+            "ood_transport"
+          ],
+          "instrument": false,
+          "value": true
+        },
+        "pred_b_second_mode_predicts_heldout_mlp_vector": {
+          "categories": [],
+          "instrument": false,
+          "value": true
+        },
+        "pred_c_second_mode_is_value_family_specific": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        }
+      }
+    },
+    {
+      "join_key": "r377:8f83bcb22a17539e",
+      "registered_labels": {
+        "null_two_byte_selected_mlp_qk64_breaks_prediction": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_a_two_byte_census_and_certificates_hold": {
+          "categories": [
+            "extraction_identification"
+          ],
+          "instrument": false,
+          "value": true
+        },
+        "pred_b_two_byte_shifted_and_fresh_hold": {
+          "categories": [
+            "ood_transport"
+          ],
+          "instrument": false,
+          "value": true
+        },
+        "pred_c_two_byte_selection_identity_and_bill_hold": {
+          "categories": [],
+          "instrument": true,
+          "value": true
+        }
+      }
+    },
+    {
+      "join_key": "r378:cb9038d2843533ec",
+      "registered_labels": {
+        "null_final_signed_transport_fails": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_a_final_baseline_identity_and_bill_hold": {
+          "categories": [],
+          "instrument": true,
+          "value": true
+        },
+        "pred_b_final_original_native_signed_effect_holds": {
+          "categories": [
+            "removal_intervention"
+          ],
+          "instrument": false,
+          "value": true
+        },
+        "pred_c_final_circuit_profile_holds": {
+          "categories": [
+            "extraction_identification"
+          ],
+          "instrument": false,
+          "value": true
+        }
+      }
+    },
+    {
+      "join_key": "r379:d478b58507a6dea2",
+      "registered_labels": {
+        "null_value_rank_can_compete_with_adopted_mlp": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_a_value_tail_and_calibration_identities_hold": {
+          "categories": [],
+          "instrument": false,
+          "value": true
+        },
+        "pred_b_no_value_rank_beats_two_x_mlp_exchange": {
+          "categories": [],
+          "instrument": false,
+          "value": true
+        },
+        "pred_c_noncalibration_value_ranks_remain_inefficient": {
+          "categories": [],
+          "instrument": false,
+          "value": true
+        }
+      }
+    },
+    {
+      "join_key": "r380:9294175196a623b9",
+      "registered_labels": {
+        "null_tucker_instrument_is_not_discriminating": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_a_planted_tucker_function_and_subspaces_recover": {
+          "categories": [],
+          "instrument": false,
+          "value": true
+        },
+        "pred_b_recovery_is_bilinear_factor_gauge_invariant": {
+          "categories": [],
+          "instrument": false,
+          "value": true
+        },
+        "pred_c_dense_negative_does_not_look_tucker_low_rank": {
+          "categories": [],
+          "instrument": false,
+          "value": true
+        }
+      }
+    },
+    {
+      "join_key": "r381:1c97ba5814d99455",
+      "registered_labels": {
+        "null_real_output_tucker_structure_absent": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_a_real_context_output_mode_is_low_rank": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_b_output_subspace_transfers_across_inputs": {
+          "categories": [
+            "ood_transport"
+          ],
+          "instrument": false,
+          "value": true
+        },
+        "pred_c_low_rank_is_joint_alignment_not_down_only": {
+          "categories": [
+            "composition"
+          ],
+          "instrument": false,
+          "value": true
+        }
+      }
+    },
+    {
+      "join_key": "r383:29a631567dde814d",
+      "registered_labels": {
+        "null_product_gram_instrument_fails": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_a_gram_instrument_identities_hold": {
+          "categories": [],
+          "instrument": true,
+          "value": true
+        },
+        "pred_b_spectrum_decreasing_and_split_stable": {
+          "categories": [
+            "ood_transport"
+          ],
+          "instrument": false,
+          "value": true
+        },
+        "pred_c_product_mode_flatter_than_output_mode": {
+          "categories": [],
+          "instrument": false,
+          "value": true
+        }
+      }
+    },
+    {
+      "join_key": "r384:d2d0282aeac61a01",
+      "registered_labels": {
+        "null_product_gram_instrument_fails_either_layer": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_a_gram_instrument_identities_hold_both_layers": {
+          "categories": [],
+          "instrument": true,
+          "value": true
+        },
+        "pred_b_spectra_increasing_and_split_stable_both_layers": {
+          "categories": [
+            "ood_transport"
+          ],
+          "instrument": false,
+          "value": true
+        },
+        "pred_c_product_mode_flatness_is_layer_general": {
+          "categories": [
+            "ood_transport"
+          ],
+          "instrument": false,
+          "value": false
+        }
+      }
+    },
+    {
+      "join_key": "r385:984c8ab9d8c60d18",
+      "registered_labels": {
+        "null_instrument_fails_any_layer": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_a_instrument_identities_hold_all_layers": {
+          "categories": [],
+          "instrument": true,
+          "value": true
+        },
+        "pred_b_product_concentration_rises_with_depth": {
+          "categories": [],
+          "instrument": false,
+          "value": true
+        },
+        "pred_c_late_stack_jointly_compressible": {
+          "categories": [
+            "composition"
+          ],
+          "instrument": false,
+          "value": true
+        }
+      }
+    },
+    {
+      "join_key": "r386:b04940656412556d",
+      "registered_labels": {
+        "null_core_cannot_capture_function": {
+          "categories": [],
+          "instrument": false,
+          "value": true
+        },
+        "pred_a_als_converges_on_adequate_samples": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_b_core_captures_function_r2_090": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_c_als_beats_modewise_control_and_price_exact": {
+          "categories": [],
+          "instrument": true,
+          "value": false
+        }
+      }
+    },
+    {
+      "join_key": "r387:f1496e907b948e0e",
+      "registered_labels": {
+        "null_joint_no_better_or_transfer_collapses": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_a_joint_fit_trains_below_control_mse": {
+          "categories": [
+            "composition"
+          ],
+          "instrument": false,
+          "value": true
+        },
+        "pred_b_joint_fit_beats_control_and_087": {
+          "categories": [
+            "composition"
+          ],
+          "instrument": false,
+          "value": false
+        },
+        "pred_c_truncation_core_transfers_to_fresh_rows": {
+          "categories": [
+            "ood_transport"
+          ],
+          "instrument": false,
+          "value": true
+        }
+      }
+    },
+    {
+      "join_key": "r388:f2a62ffcbd5ef7be",
+      "registered_labels": {
+        "null_l16_two_million_regime_or_selection_instrument_fails": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_a_tucker_predictive_and_beats_equal_cheaper_product": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_b_tucker_shifted_and_fresh_transfer": {
+          "categories": [
+            "ood_transport"
+          ],
+          "instrument": false,
+          "value": false
+        },
+        "pred_c_program_identity_local_transfer_and_selection_control": {
+          "categories": [
+            "ood_transport"
+          ],
+          "instrument": true,
+          "value": true
+        },
+        "pred_d_certificate_ray_transfer": {
+          "categories": [
+            "ood_transport",
+            "extraction_identification"
+          ],
+          "instrument": false,
+          "value": true
+        }
+      }
+    },
+    {
+      "join_key": "r389:e1d137514bc0fd5d",
+      "registered_labels": {
+        "null_old_quadratic_surrogate_fails_to_generalize": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_a_legacy_identity_corrected_price_and_clean_identity": {
+          "categories": [],
+          "instrument": true,
+          "value": true
+        },
+        "pred_b_clean_split_predictive_behavior_and_transfer": {
+          "categories": [
+            "ood_transport"
+          ],
+          "instrument": false,
+          "value": true
+        },
+        "pred_c_clean_directly_dominates_rung388_tucker": {
+          "categories": [],
+          "instrument": false,
+          "value": true
+        },
+        "pred_d_output_directions_beat_random_and_ray_transfers": {
+          "categories": [
+            "ood_transport"
+          ],
+          "instrument": false,
+          "value": true
+        }
+      }
+    },
+    {
+      "join_key": "r390:5644ecaed0f3d7f6",
+      "registered_labels": {
+        "null_signed_transport_fails": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_a_unablated_identity_price_and_hooks_hold": {
+          "categories": [],
+          "instrument": true,
+          "value": true
+        },
+        "pred_b_original_native_signed_effect_holds": {
+          "categories": [
+            "removal_intervention"
+          ],
+          "instrument": false,
+          "value": true
+        },
+        "pred_c_circuit_profile_holds": {
+          "categories": [
+            "extraction_identification"
+          ],
+          "instrument": false,
+          "value": true
+        }
+      }
+    },
+    {
+      "join_key": "r391:81dcda3be74a6281",
+      "registered_labels": {
+        "null_physicalization_or_signed_transport_fails": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_a_physical_factorization_identity_holds": {
+          "categories": [],
+          "instrument": true,
+          "value": true
+        },
+        "pred_b_unablated_dense_reproduction_holds": {
+          "categories": [],
+          "instrument": false,
+          "value": true
+        },
+        "pred_c_signed_dense_and_native_reproduction_holds": {
+          "categories": [
+            "removal_intervention"
+          ],
+          "instrument": false,
+          "value": true
+        }
+      }
+    },
+    {
+      "join_key": "r392:a64a9b83ee4b902e",
+      "registered_labels": {
+        "null_composition_breaks_prediction_or_identity": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_a_physical_lower_fidelity_holds": {
+          "categories": [],
+          "instrument": true,
+          "value": true
+        },
+        "pred_b_additive_composition_law_holds": {
+          "categories": [
+            "composition"
+          ],
+          "instrument": false,
+          "value": true
+        },
+        "pred_c_shifted_and_conditional_fresh_hold": {
+          "categories": [
+            "ood_transport"
+          ],
+          "instrument": false,
+          "value": true
+        },
+        "pred_d_shipped_program_identity_and_bills_hold": {
+          "categories": [],
+          "instrument": true,
+          "value": true
+        }
+      }
+    },
+    {
+      "join_key": "r393:d726000b7f896400",
+      "registered_labels": {
+        "null_signed_composite_transport_fails": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_a_baseline_physical_identity_and_hooks_hold": {
+          "categories": [],
+          "instrument": true,
+          "value": true
+        },
+        "pred_b_original_native_signed_effect_holds": {
+          "categories": [
+            "removal_intervention"
+          ],
+          "instrument": false,
+          "value": true
+        },
+        "pred_c_circuit_profile_holds": {
+          "categories": [
+            "extraction_identification"
+          ],
+          "instrument": false,
+          "value": true
+        }
+      }
+    },
+    {
+      "join_key": "r394:5c96aee6053d0595",
+      "registered_labels": {
+        "null_no_sparse_downstream_equivalence_signal": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_a_mlp0_is_small_nonlinear_correction_not_token_copy": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_b_downstream_response_is_more_compressed_than_write": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_c_joint_sparse_code_predicts_heldout_response": {
+          "categories": [
+            "composition"
+          ],
+          "instrument": false,
+          "value": false
+        },
+        "pred_d_joint_sparse_code_is_stable_and_groups_response": {
+          "categories": [
+            "ood_transport",
+            "composition"
+          ],
+          "instrument": false,
+          "value": false
+        }
+      }
+    },
+    {
+      "join_key": "r395:4ab7c8af6cd0330e",
+      "registered_labels": {
+        "null_no_token_identity_transport": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_a_mlp0_write_linearly_recovers_exact_token_identity": {
+          "categories": [],
+          "instrument": true,
+          "value": false
+        },
+        "pred_b_raw_token_linearly_predicts_mlp0_write": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_c_identity_component_carries_downstream_response": {
+          "categories": [],
+          "instrument": true,
+          "value": true
+        },
+        "pred_d_residual_is_smaller_shared_feature_target": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        }
+      }
+    },
+    {
+      "join_key": "r396:641292cc30d486a1",
+      "registered_labels": {
+        "null_degree1_token_kernel_not_causally_sufficient": {
+          "categories": [],
+          "instrument": false,
+          "value": true
+        },
+        "pred_a_exact_z_degree1_explains_write_better_than_raw": {
+          "categories": [],
+          "instrument": true,
+          "value": false
+        },
+        "pred_b_compact_degree1_rank_preserves_downstream_response": {
+          "categories": [],
+          "instrument": false,
+          "value": true
+        },
+        "pred_c_compact_degree1_rank_preserves_token_identity": {
+          "categories": [],
+          "instrument": true,
+          "value": true
+        },
+        "pred_d_rank_curve_and_shuffle_control_hold": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        }
+      }
+    },
+    {
+      "join_key": "r397:e1ad326f7f709f76",
+      "registered_labels": {
+        "null_wrong_token_action_is_equivalent_or_no_specificity": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_a_exact_decomposition_and_instruments_hold": {
+          "categories": [
+            "composition"
+          ],
+          "instrument": true,
+          "value": true
+        },
+        "pred_b_degree_one_has_aligned_increment_after_mean": {
+          "categories": [],
+          "instrument": false,
+          "value": true
+        },
+        "pred_c_quadratic_or_interaction_has_distinct_role": {
+          "categories": [
+            "composition"
+          ],
+          "instrument": false,
+          "value": true
+        },
+        "pred_d_attention_and_mlp_consumer_roles_split": {
+          "categories": [],
+          "instrument": false,
+          "value": true
+        }
+      }
+    },
+    {
+      "join_key": "r398:bb3c358fbe777f09",
+      "registered_labels": {
+        "null_far_effect_equivalence_absent": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_a_exact_split_far_candidates_and_live_swaps": {
+          "categories": [],
+          "instrument": true,
+          "value": true
+        },
+        "pred_b_far_L_effect_equivalence_cross_validates": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_c_far_Q_effect_equivalence_cross_validates": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_d_equivalence_is_widespread_not_one_donor": {
+          "categories": [],
+          "instrument": false,
+          "value": true
+        }
+      }
+    },
+    {
+      "join_key": "r399:4e8e0937b0629d99",
+      "registered_labels": {
+        "null_response_aware_Q_spectrum_fails": {
+          "categories": [],
+          "instrument": false,
+          "value": true
+        },
+        "pred_a_exact_full_live_and_monotone": {
+          "categories": [],
+          "instrument": true,
+          "value": true
+        },
+        "pred_b_compact_joint_basis_beats_pca_and_shuffle": {
+          "categories": [
+            "composition"
+          ],
+          "instrument": false,
+          "value": false
+        },
+        "pred_c_rank256_preserves_both_consumers": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_d_consumer_specific_bases_cross_over": {
+          "categories": [],
+          "instrument": false,
+          "value": true
+        }
+      }
+    },
+    {
+      "join_key": "r400:101c74a89595b51a",
+      "registered_labels": {
+        "null_context_anova_not_stable_or_not_substantial": {
+          "categories": [],
+          "instrument": false,
+          "value": true
+        },
+        "pred_a_exact_identity_and_live_census": {
+          "categories": [
+            "extraction_identification"
+          ],
+          "instrument": true,
+          "value": false
+        },
+        "pred_b_context_main_and_centered_cross_are_large": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_c_normalization_matters_and_context_dominates": {
+          "categories": [],
+          "instrument": false,
+          "value": true
+        },
+        "pred_d_fit_select_sign_and_order_transport": {
+          "categories": [
+            "ood_transport"
+          ],
+          "instrument": false,
+          "value": true
+        }
+      }
+    },
+    {
+      "join_key": "r401:6650b97c9f5b5371",
+      "registered_labels": {
+        "null_exact_repair_or_context_stability_fails": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_a_exact_residual_identity_and_live_census": {
+          "categories": [
+            "extraction_identification"
+          ],
+          "instrument": true,
+          "value": true
+        },
+        "pred_b_all_physical_arms_reproduce_rung400": {
+          "categories": [],
+          "instrument": true,
+          "value": true
+        },
+        "pred_c_inherited_context_outcome_holds_without_bar_change": {
+          "categories": [],
+          "instrument": false,
+          "value": true
+        },
+        "pred_d_fit_select_sign_and_order_transport": {
+          "categories": [
+            "ood_transport"
+          ],
+          "instrument": false,
+          "value": true
+        }
+      }
+    },
+    {
+      "join_key": "r402:15356b1208ce7e80",
+      "registered_labels": {
+        "null_head_attribution_invalid_or_unstructured": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_a_exact_live_parent_and_numerical_controls": {
+          "categories": [],
+          "instrument": true,
+          "value": true
+        },
+        "pred_b_old_head_map_predicts_isolated_interaction": {
+          "categories": [
+            "composition"
+          ],
+          "instrument": false,
+          "value": true
+        },
+        "pred_c_sparse_split_stable_carrier": {
+          "categories": [
+            "ood_transport"
+          ],
+          "instrument": false,
+          "value": false
+        },
+        "pred_d_individually_material_head_route": {
+          "categories": [],
+          "instrument": false,
+          "value": true
+        }
+      }
+    },
+    {
+      "join_key": "r403:945620380b1f680d",
+      "registered_labels": {
+        "null_branch_audit_is_invalid_or_uninformative": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_a_exact_instrument_and_fixed_program_identity": {
+          "categories": [],
+          "instrument": true,
+          "value": true
+        },
+        "pred_b_fixed_p448_remains_useful_on_grammar_rows": {
+          "categories": [],
+          "instrument": false,
+          "value": true
+        },
+        "pred_c_token_main_is_leading_named_obstruction": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_d_named_grammar_localizes_error_not_auxiliary": {
+          "categories": [],
+          "instrument": false,
+          "value": true
+        }
+      }
+    },
+    {
+      "join_key": "r404:545941a446338d44",
+      "registered_labels": {
+        "null_large_confirmation_fails": {
+          "categories": [],
+          "instrument": false,
+          "value": true
+        },
+        "pred_a_population_program_and_instrument_are_exact": {
+          "categories": [],
+          "instrument": true,
+          "value": true
+        },
+        "pred_b_interaction_damage_dominates_at_larger_scale": {
+          "categories": [
+            "composition"
+          ],
+          "instrument": false,
+          "value": false
+        },
+        "pred_c_rung403_interaction_route_transports": {
+          "categories": [
+            "ood_transport",
+            "composition"
+          ],
+          "instrument": false,
+          "value": false
+        },
+        "pred_d_not_auxiliary_or_one_unstable_wave": {
+          "categories": [
+            "ood_transport"
+          ],
+          "instrument": false,
+          "value": true
+        }
+      }
+    },
+    {
+      "join_key": "r405:cb02714f2065c94e",
+      "registered_labels": {
+        "null_first_order_token_grammar_metric_fails": {
+          "categories": [],
+          "instrument": false,
+          "value": true
+        },
+        "pred_a_instrument_identity_and_price_are_exact": {
+          "categories": [],
+          "instrument": true,
+          "value": true
+        },
+        "pred_b_derivative_metrics_are_branch_specific": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_c_joint_metric_improves_physical_prediction_robustly": {
+          "categories": [
+            "composition"
+          ],
+          "instrument": true,
+          "value": false
+        },
+        "pred_d_joint_basis_is_balanced_and_competitive": {
+          "categories": [
+            "composition"
+          ],
+          "instrument": false,
+          "value": true
+        }
+      }
+    },
+    {
+      "join_key": "r406:dba6326f8c4fd434",
+      "registered_labels": {
+        "null_downstream_fisher_does_not_improve_p448": {
+          "categories": [],
+          "instrument": false,
+          "value": true
+        },
+        "pred_a_fisher_instrument_and_equal_price_are_exact": {
+          "categories": [],
+          "instrument": true,
+          "value": true
+        },
+        "pred_b_directional_fisher_is_stable_and_beats_shuffle": {
+          "categories": [
+            "ood_transport"
+          ],
+          "instrument": false,
+          "value": true
+        },
+        "pred_c_fisher_improves_heldout_prediction_robustly": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_d_fisher_repairs_token_grammar_damage": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        }
+      }
+    },
+    {
+      "join_key": "r407:8beea1f87786d28f",
+      "registered_labels": {
+        "null_router_oracle_has_no_adoption_headroom": {
+          "categories": [],
+          "instrument": false,
+          "value": true
+        },
+        "pred_a_fixed_programs_population_and_measurement_are_exact": {
+          "categories": [],
+          "instrument": true,
+          "value": true
+        },
+        "pred_b_some_two_expert_oracle_has_material_headroom": {
+          "categories": [],
+          "instrument": false,
+          "value": true
+        },
+        "pred_c_best_pair_oracle_survives_cheaper_p768_control": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_d_best_pair_is_balanced_and_all_wave": {
+          "categories": [],
+          "instrument": false,
+          "value": true
+        }
+      }
+    },
+    {
+      "join_key": "r408:c2f79ef34bfd51f3",
+      "registered_labels": {
+        "null_cheap_prefix_state_cannot_harvest_oracle": {
+          "categories": [],
+          "instrument": false,
+          "value": true
+        },
+        "pred_a_authority_split_and_state_instrument_are_exact": {
+          "categories": [],
+          "instrument": true,
+          "value": true
+        },
+        "pred_b_heldout_position_oracle_has_price_relevant_headroom": {
+          "categories": [],
+          "instrument": false,
+          "value": true
+        },
+        "pred_c_four_prefix_states_recover_enough_headroom": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_d_tree_gain_transports_and_uses_both_experts": {
+          "categories": [
+            "ood_transport"
+          ],
+          "instrument": false,
+          "value": false
+        }
+      }
+    },
+    {
+      "join_key": "r409:be00f0c53f2fbe19",
+      "registered_labels": {
+        "null_rank64_output_repair_has_no_specific_heldout_gain": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_a_authority_programs_branches_and_physical_paths_are_exact": {
+          "categories": [],
+          "instrument": true,
+          "value": true
+        },
+        "pred_b_frozen_causal_interface_contains_current_p448_error": {
+          "categories": [
+            "removal_intervention"
+          ],
+          "instrument": false,
+          "value": false
+        },
+        "pred_c_frozen_interface_gain_is_token_grammar_led": {
+          "categories": [],
+          "instrument": false,
+          "value": true
+        },
+        "pred_d_separate_token_and_interaction_output_bases_win": {
+          "categories": [
+            "composition"
+          ],
+          "instrument": false,
+          "value": false
+        }
+      }
+    },
+    {
+      "join_key": "r410:e4b97413ae129a7b",
+      "registered_labels": {
+        "null_no_specific_priced_executable_output_producer": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_a_weight_derivation_authority_and_price_are_exact": {
+          "categories": [],
+          "instrument": true,
+          "value": true
+        },
+        "pred_b_priced_rank24_recovers_half_the_output_oracle": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_c_quadratic_spectrum_is_live_and_ordered": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_d_quadratic_producer_beats_shuffle_and_affine": {
+          "categories": [],
+          "instrument": false,
+          "value": true
+        }
+      }
+    },
+    {
+      "join_key": "r411:c283d46968695a1f",
+      "registered_labels": {
+        "null_no_joint_tucker_producer_beats_matched_covariance_rank": {
+          "categories": [],
+          "instrument": false,
+          "value": true
+        },
+        "pred_a_authority_tensor_identity_and_prices_are_exact": {
+          "categories": [],
+          "instrument": true,
+          "value": true
+        },
+        "pred_b_tucker226_enters_matched_price_contention": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_c_shared_input_structure_is_more_efficient": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_d_joint_tucker_is_specific_vs_haar_and_independent": {
+          "categories": [
+            "composition"
+          ],
+          "instrument": false,
+          "value": false
+        }
+      }
+    },
+    {
+      "join_key": "r412:1ee2b6247a850a0e",
+      "registered_labels": {
+        "null_physical_two_byte_repair_breaks_frontier": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_a_physical_program_dtypes_and_bill_hold": {
+          "categories": [],
+          "instrument": true,
+          "value": true
+        },
+        "pred_b_census_and_certificates_hold": {
+          "categories": [
+            "extraction_identification"
+          ],
+          "instrument": false,
+          "value": true
+        },
+        "pred_c_shifted_and_fresh_hold": {
+          "categories": [
+            "ood_transport"
+          ],
+          "instrument": false,
+          "value": true
+        },
+        "pred_d_parent_precision_delta_small": {
+          "categories": [],
+          "instrument": false,
+          "value": true
+        }
+      }
+    },
+    {
+      "join_key": "r413:e0b37fa5350b3472",
+      "registered_labels": {
+        "null_physical_all_two_byte_signed_transport_fails": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_a_physical_baseline_identity_and_bill_hold": {
+          "categories": [],
+          "instrument": true,
+          "value": true
+        },
+        "pred_b_original_native_signed_effect_holds": {
+          "categories": [
+            "removal_intervention"
+          ],
+          "instrument": false,
+          "value": true
+        },
+        "pred_c_circuit_profile_holds": {
+          "categories": [
+            "extraction_identification"
+          ],
+          "instrument": false,
+          "value": true
+        }
+      }
+    },
+    {
+      "join_key": "r414:37cf9756520b281f",
+      "registered_labels": {
+        "null_physical_sub500_tier_breaks_prediction_or_identity": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_a_physical_dtypes_shapes_hooks_and_bill_hold": {
+          "categories": [],
+          "instrument": true,
+          "value": true
+        },
+        "pred_b_census_certificates_and_parent_delta_hold": {
+          "categories": [
+            "extraction_identification"
+          ],
+          "instrument": false,
+          "value": false
+        },
+        "pred_c_additive_composition_law_holds": {
+          "categories": [
+            "composition"
+          ],
+          "instrument": false,
+          "value": true
+        },
+        "pred_d_shifted_and_fresh_hold": {
+          "categories": [
+            "ood_transport"
+          ],
+          "instrument": false,
+          "value": true
+        }
+      }
+    },
+    {
+      "join_key": "r415:9f1acfdbaf5f43bd",
+      "registered_labels": {
+        "null_mlp17_quadratic_surrogate_fails_current_harness": {
+          "categories": [],
+          "instrument": false,
+          "value": true
+        },
+        "pred_a_legacy_and_physical_identity_hold": {
+          "categories": [],
+          "instrument": true,
+          "value": true
+        },
+        "pred_b_clean_prediction_and_transfer_hold": {
+          "categories": [
+            "ood_transport"
+          ],
+          "instrument": false,
+          "value": false
+        },
+        "pred_c_historical_scale_and_random_specificity_hold": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_d_damage_ray_transfers": {
+          "categories": [
+            "ood_transport"
+          ],
+          "instrument": false,
+          "value": true
+        }
+      }
+    },
+    {
+      "join_key": "r416:bb313bfa73eacc41",
+      "registered_labels": {
+        "null_shared_residual_subspace_not_identified": {
+          "categories": [],
+          "instrument": false,
+          "value": true
+        },
+        "pred_a_exact_live_boundaries": {
+          "categories": [],
+          "instrument": true,
+          "value": true
+        },
+        "pred_b_shared_multhead_and_split_stable": {
+          "categories": [
+            "ood_transport"
+          ],
+          "instrument": false,
+          "value": false
+        },
+        "pred_c_shared_modes_causally_material_for_I": {
+          "categories": [
+            "removal_intervention"
+          ],
+          "instrument": false,
+          "value": true
+        },
+        "pred_d_I_and_C_prefer_different_bases": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        }
+      }
+    },
+    {
+      "join_key": "r417:b6466f4a3afaade8",
+      "registered_labels": {
+        "null_no_finite_block1_head_service": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_a_exact_live_disjoint": {
+          "categories": [
+            "composition"
+          ],
+          "instrument": true,
+          "value": true
+        },
+        "pred_b_downstream_response_shared_head_service": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_c_redundant_head3_producer": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_d_equivalence_survives_consumer_and_background": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        }
+      }
+    },
+    {
+      "join_key": "r418:e0390469c9a7c623",
+      "registered_labels": {
+        "null_no_cross_head_qk_half_vocabulary": {
+          "categories": [],
+          "instrument": false,
+          "value": true
+        },
+        "pred_a_exact_auditable_fold": {
+          "categories": [],
+          "instrument": true,
+          "value": true
+        },
+        "pred_b_multihead_shared_half_subspace": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_c_unseen_token_and_score_transport": {
+          "categories": [
+            "ood_transport"
+          ],
+          "instrument": false,
+          "value": false
+        },
+        "pred_d_shared_half_different_companion": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        }
+      }
+    },
+    {
+      "join_key": "r419:15485e62ad396d06",
+      "registered_labels": {
+        "null_no_discrete_shared_downstream_ov_vocabulary_k256": {
+          "categories": [],
+          "instrument": false,
+          "value": true
+        },
+        "pred_a_exact_interface_calibration": {
+          "categories": [],
+          "instrument": true,
+          "value": true
+        },
+        "pred_b_downstream_metric_stable_nontrivial": {
+          "categories": [
+            "ood_transport"
+          ],
+          "instrument": false,
+          "value": false
+        },
+        "pred_c_cross_head_shared_payload_vocabulary": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_d_native_qk_routed_transport": {
+          "categories": [
+            "ood_transport"
+          ],
+          "instrument": false,
+          "value": true
+        }
+      }
+    },
+    {
+      "join_key": "r420:4b0bcc14d2bd23df",
+      "registered_labels": {
+        "pred_a_exact_reproducible_instrument": {
+          "categories": [],
+          "instrument": true,
+          "value": true
+        },
+        "pred_b_global_fit_carrier": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_c_unseen_carrier_and_private_residual": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_d_mlp0_degree_one_connection": {
+          "categories": [],
+          "instrument": false,
+          "value": true
+        },
+        "strong_null_no_transporting_qk_mlp0_common_carrier": {
+          "categories": [],
+          "instrument": false,
+          "value": true
+        }
+      }
+    },
+    {
+      "join_key": "r421:0365063124c2fb1e",
+      "registered_labels": {
+        "null_419_pred_d_was_row_sampling_artifact": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_a_instrument_reproduces_419": {
+          "categories": [],
+          "instrument": true,
+          "value": true
+        },
+        "pred_b_fresh_row_transport_replicates": {
+          "categories": [
+            "ood_transport"
+          ],
+          "instrument": false,
+          "value": true
+        },
+        "pred_c_global_over_private_margins_survive": {
+          "categories": [],
+          "instrument": false,
+          "value": true
+        }
+      }
+    },
+    {
+      "join_key": "r422:5d4fd044e3d1cd91",
+      "registered_labels": {
+        "null_moderate_hidden_carrier_or_incoherent_curve": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_a_instrument_reproduces_420_at_r24": {
+          "categories": [],
+          "instrument": true,
+          "value": true
+        },
+        "pred_b_distributed_monotone_decline_no_cliff": {
+          "categories": [],
+          "instrument": false,
+          "value": true
+        },
+        "pred_c_no_cheap_collapse_above_rank88_and_beats_haar": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        }
+      }
+    },
+    {
+      "join_key": "r423:14df802d942631a8",
+      "registered_labels": {
+        "null_unrelated_token_geometries": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_a_exact_instruments_and_stable_carriers": {
+          "categories": [
+            "ood_transport"
+          ],
+          "instrument": true,
+          "value": false
+        },
+        "pred_b_payload_lives_in_carrier_geometry": {
+          "categories": [],
+          "instrument": false,
+          "value": true
+        },
+        "pred_c_head3_min_and_split_stable_ordering": {
+          "categories": [
+            "ood_transport"
+          ],
+          "instrument": false,
+          "value": false
+        }
+      }
+    },
+    {
+      "join_key": "r424:33facaa3a8a4c128",
+      "registered_labels": {
+        "pred_a_instrument_valid": {
+          "categories": [],
+          "instrument": true,
+          "value": true
+        },
+        "pred_b_complete_edge_joint_block": {
+          "categories": [
+            "composition"
+          ],
+          "instrument": false,
+          "value": true
+        },
+        "pred_c_downstream_transport": {
+          "categories": [
+            "ood_transport"
+          ],
+          "instrument": false,
+          "value": true
+        },
+        "pred_d_reproducible_specific_coupling": {
+          "categories": [],
+          "instrument": false,
+          "value": true
+        },
+        "strong_null_no_low_rank_realized_head_service_coupling": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        }
+      }
+    },
+    {
+      "join_key": "r425:3f6684b3102078f5",
+      "registered_labels": {
+        "null_424_block_is_row_specific": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_a_instrument_and_select_bridge": {
+          "categories": [],
+          "instrument": true,
+          "value": true
+        },
+        "pred_b_fresh_row_block_replicates": {
+          "categories": [
+            "ood_transport"
+          ],
+          "instrument": false,
+          "value": true
+        },
+        "pred_c_controls_keep_ordering_off_rows": {
+          "categories": [],
+          "instrument": false,
+          "value": true
+        }
+      }
+    },
+    {
+      "join_key": "r426:274c2d2891f93ef0",
+      "registered_labels": {
+        "pred_a_exact_physical_instrument": {
+          "categories": [],
+          "instrument": true,
+          "value": true
+        },
+        "pred_b_same_token_sparse_sharing": {
+          "categories": [],
+          "instrument": false,
+          "value": true
+        },
+        "pred_c_composed_equal_or_lower_price": {
+          "categories": [
+            "composition"
+          ],
+          "instrument": false,
+          "value": true
+        },
+        "pred_d_atom_coupling_specific": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "strong_null_no_efficient_cross_head_sparse_qk_vocabulary": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        }
+      }
+    },
+    {
+      "join_key": "r427:22c28332879a6a1b",
+      "registered_labels": {
+        "null_426_ordering_is_document_specific": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_a_instrument_and_select_bridge": {
+          "categories": [],
+          "instrument": true,
+          "value": true
+        },
+        "pred_b_global_beats_independent_off_docs": {
+          "categories": [],
+          "instrument": false,
+          "value": true
+        },
+        "pred_c_derangement_costly_and_damage_stable": {
+          "categories": [
+            "ood_transport"
+          ],
+          "instrument": false,
+          "value": true
+        }
+      }
+    },
+    {
+      "join_key": "r428:122c5fa507b734c3",
+      "registered_labels": {
+        "null_head6_outsider_status_not_positional": {
+          "categories": [],
+          "instrument": false,
+          "value": true
+        },
+        "pred_a_exact_instrument_and_stable_estimator": {
+          "categories": [
+            "ood_transport"
+          ],
+          "instrument": true,
+          "value": false
+        },
+        "pred_b_head6_is_positional_maximum": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_c_head6_token_minimum_and_absolute_bar": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        }
+      }
+    },
+    {
+      "join_key": "r429:05cb4bee00d505c0",
+      "registered_labels": {
+        "null_head3_positional_finding_sample_specific": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_a_instrument_with_corrected_control_window": {
+          "categories": [],
+          "instrument": true,
+          "value": false
+        },
+        "pred_b_head3_positional_maximum_2x_both_populations": {
+          "categories": [],
+          "instrument": false,
+          "value": true
+        },
+        "pred_c_head3_token_minimum_and_profile_stable": {
+          "categories": [
+            "ood_transport"
+          ],
+          "instrument": false,
+          "value": true
+        }
+      }
+    },
+    {
+      "join_key": "r430:8c445b0f1b855b3f",
+      "registered_labels": {
+        "pred_a_valid_physical_instrument": {
+          "categories": [],
+          "instrument": true,
+          "value": true
+        },
+        "pred_b_product_coupling_learns_real_relation": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_c_improves_r426_at_matched_price": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_d_stable_sparse_compositions": {
+          "categories": [
+            "ood_transport",
+            "composition"
+          ],
+          "instrument": false,
+          "value": false
+        },
+        "strong_null_no_efficient_coupled_sparse_composition": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        }
+      }
+    },
+    {
+      "join_key": "r431:8f76b57a4f55c4e3",
+      "registered_labels": {
+        "pred_a_valid_independent_instrument": {
+          "categories": [],
+          "instrument": true,
+          "value": true
+        },
+        "pred_b_direct_composite_generator_feasible": {
+          "categories": [
+            "composition"
+          ],
+          "instrument": false,
+          "value": false
+        },
+        "pred_c_non_head_beats_matched_head_basis": {
+          "categories": [],
+          "instrument": false,
+          "value": true
+        },
+        "pred_d_pairing_and_token_relation_specific": {
+          "categories": [],
+          "instrument": false,
+          "value": true
+        },
+        "strong_null_direct_linear_bilinear_family": {
+          "categories": [],
+          "instrument": false,
+          "value": true
+        }
+      }
+    },
+    {
+      "join_key": "r432:52d0a1a94bd7b309",
+      "registered_labels": {
+        "null_taxonomy_wrong_keep_main_effect_facts_only": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_a_instrument_and_sane_controls": {
+          "categories": [],
+          "instrument": true,
+          "value": false
+        },
+        "pred_b_head3_low_rank_modulated_positional": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_c_head6_high_rank_conjunctive": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        }
+      }
+    },
+    {
+      "join_key": "r434:66b252b26649523d",
+      "registered_labels": {
+        "null_excess_census_unstable_drop_thread": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_a_instrument_and_stable_excess": {
+          "categories": [
+            "ood_transport"
+          ],
+          "instrument": true,
+          "value": true
+        },
+        "pred_b_taxonomy_distinction_dies_under_excess": {
+          "categories": [
+            "composition"
+          ],
+          "instrument": false,
+          "value": true
+        },
+        "pred_c_heads_7_4_lead_replacement_ordering": {
+          "categories": [],
+          "instrument": false,
+          "value": true
+        }
+      }
+    },
+    {
+      "join_key": "r436:0787898a70e91c92",
+      "registered_labels": {
+        "null_physical_sub500_tier_breaks_prediction_or_identity": {
+          "categories": [],
+          "instrument": false,
+          "value": false
+        },
+        "pred_a_physical_dtypes_shapes_hooks_and_bill_hold": {
+          "categories": [],
+          "instrument": true,
+          "value": true
+        },
+        "pred_b_census_certificates_and_parent_delta_hold": {
+          "categories": [
+            "extraction_identification"
+          ],
+          "instrument": false,
+          "value": false
+        },
+        "pred_c_additive_composition_law_holds": {
+          "categories": [
+            "composition"
+          ],
+          "instrument": false,
+          "value": true
+        },
+        "pred_d_shifted_and_fresh_hold": {
+          "categories": [
+            "ood_transport"
+          ],
+          "instrument": false,
+          "value": true
+        }
+      }
+    }
+  ],
+  "schema": "simplicity_archive_labels_v1"
+}

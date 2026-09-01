@@ -4444,3 +4444,17 @@ later per-rung backlog edits had silently anchored on text that was not here.
   cross-cell R2 bars fail. A holds; B/C/D fail; strong null false.
 - Do not call attention0 MLP0-interaction paths duplicate services and do not tune. Dossier audit closes another
   global token partition; advance the still-open gauge-invariant cross-head QK shared-half test, then attention1.
+
+### Rung 440 — historical learned-simplicity archive feasibility — COMPLETE / ARM SCHEMA REQUIRED
+
+- Frozen CPU-only audit of top-level terminal receipts from rungs300–436. Structural features and registered
+  consequence labels were emitted separately and joined only by hash-bound keys; zero forbidden consequence fields
+  appear in the feature schema.
+- A/B/D hold:130 canonical receipts, one ambiguous rung excluded,100% source/Git chronology linkage,8 module and7
+  grammar families, and adequate registered-label coverage for OOD/transport, extraction/identification, and
+  composition. Strong null false.
+- C fails: only22/130 receipts (16.9%) expose explicit arm maps and76/130 (58.5%) expose machine-readable structural
+  price, versus70%/70% bars. A receipt frequently compares several candidate programs and cannot legally become one
+  training row.
+- Do not fit the historical predictor. Next build a hand-reviewed candidate-arm manifest and common consequence
+  schema, rerun the feasibility gate as a new generation, and only then license a held-family backtest.

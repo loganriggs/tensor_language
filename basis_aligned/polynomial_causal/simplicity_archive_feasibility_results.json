@@ -1,0 +1,73 @@
+{
+  "ambiguity_fraction": 0.007633587786259542,
+  "ambiguous_rungs": 1,
+  "archive_cutoff": [
+    300,
+    436
+  ],
+  "canonical_receipts": 130,
+  "chronology_complete": true,
+  "claim_level": "research_instrument_feasibility",
+  "consequence_category_cell_counts": {
+    "composition": 14,
+    "extraction_identification": 7,
+    "ood_transport": 14,
+    "removal_intervention": 7
+  },
+  "consequence_category_label_counts": {
+    "composition": 39,
+    "extraction_identification": 50,
+    "ood_transport": 98,
+    "removal_intervention": 22
+  },
+  "consequence_category_pass": {
+    "composition": true,
+    "extraction_identification": true,
+    "ood_transport": true,
+    "removal_intervention": false
+  },
+  "excluded_receipts": 3,
+  "explicit_arm_map_count": 22,
+  "explicit_arm_map_fraction": 0.16923076923076924,
+  "feature_path": "basis_aligned/polynomial_causal/simplicity_archive_features_v1.json",
+  "feature_sha256": "909ad18a438c0ce4d45ba82e8e53e06331c0adf7a876719477ca1ae997fd2d46",
+  "forbidden_feature_keys": [],
+  "grammar_families": [
+    "causal_probe",
+    "composite_program",
+    "low_rank",
+    "other",
+    "polynomial",
+    "sparse_or_dictionary",
+    "state_or_continuous"
+  ],
+  "instrument_labels": 101,
+  "join_keys_match": true,
+  "label_path": "basis_aligned/polynomial_causal/simplicity_archive_labels_v1.json",
+  "label_sha256": "567f4c3d5e84cc5dffbed82155e8e73e3413bc000649e446a78ee71a0f4acf7c",
+  "literal_deployed_model_values": 0,
+  "machine_readable_price_count": 76,
+  "machine_readable_price_fraction": 0.5846153846153846,
+  "module_families": [
+    "attention0",
+    "mlp0_or_early_mlp",
+    "other",
+    "other_attention",
+    "other_mlp",
+    "predictive_state",
+    "vocabulary",
+    "whole_program"
+  ],
+  "native_model_calls": 0,
+  "pred_a_separation_and_provenance": true,
+  "pred_b_archive_volume": true,
+  "pred_c_candidate_granularity_and_price": false,
+  "pred_d_consequence_coverage": true,
+  "registered_predicate_labels": 424,
+  "routing": "do_not_fit_build_hand_reviewed_candidate_arm_manifest_and_common_consequence_schema",
+  "rung": 440,
+  "source_linkage_count": 130,
+  "source_linkage_fraction": 1.0,
+  "status": "complete",
+  "strong_null_archive_not_viable": false
+}

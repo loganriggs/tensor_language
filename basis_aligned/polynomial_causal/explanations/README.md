@@ -11,6 +11,10 @@ state what was actually measured and what unit is being used.
 
 ## Start here
 
+- [explanation_2026-09-01_2205.md](explanation_2026-09-01_2205.md) — audits every proposed action from the 20:54
+  plan, reports the completed negative Archetypal-Q/K hull test, defines queued/conditional/closed/withdrawn, and
+  records rung440's leakage-safe archive audit:130 receipts are broad enough, but only16.9% expose candidate arms and
+  58.5% expose price, so an arm-level manifest is required before learned-simplicity fitting
 - [explanation_2026-09-01_2147.md](explanation_2026-09-01_2147.md) — the pre-registered +29,968-byte repair of the
   sub-500M tier fails its position-level consequence; FP32 quadratic coefficients explain only 3.9% of the squared
   deviation, identifying nonlinear amplification of upstream rounding and supplying an adversarial learned-simplicity
