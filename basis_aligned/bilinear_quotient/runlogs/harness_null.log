@@ -17,3 +17,33 @@ fit a15
 fit a16
 fit a17
   cp_swap: front MLPs m0-m3 -> CP top-4608 in place (tailE remains table-front-fit)
+  QK rank-128 factors built for all motif heads
+L1 (+38 heads): C +0.2160 | fresh +0.2067
+fit a10L
+fit a11L
+fit a12L
+fit a13L
+fit a14L
+fit a15L
+fit a16L
+fit a17L
+  window 0 (7 docs): L2 fresh +0.4358
+  window 1 (42 docs): L2 fresh +0.4923
+  window 2 (17 docs): L2 fresh +0.4735
+  window 3 (23 docs): L2 fresh +0.4838
+  window 4 (43 docs): L2 fresh +0.5727
+  window 5 (26 docs): L2 fresh +0.4824
+  window 6 (35 docs): L2 fresh +0.5006
+  window 7 (35 docs): L2 fresh +0.4613
+L2 empirical: C +0.3672 | fresh +0.4358 | tail-attn increment +0.2292
+(a) L2 <= +2.75 fresh: HELD
+(b) increment in [0.30,0.55]: FAILED
+cev saved: cev_harnessnull.pt
+  per-class dCE: digit:+0.016 bclose:+0.245 newline:-0.022 sentend:-0.047 comma:-0.149 name:+0.959 rep:+0.377 subword:+0.261 ind:+0.812 other:+0.337
+  era Spearman vs rung-132: 0.7190 over 62
+  median member/ref ratio 2.581; tau-curve {'0.5': 0, '1.0': 4, '1.5': 15, '2.0': 24, '3.0': 45}
+L2 fresh +0.4358 (was +1.8765); census +0.4320 (was +1.9474); increment +0.2292; valid 0/62
+(a) HARNESS NULL - |census +0.4320| <= 0.003: FAILED
+(b) valid 0 >= 55; margin 2.581: FAILED
+(c) |L2F +0.4358| <= 0.005: FAILED
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/harness_null_results.json (124s)

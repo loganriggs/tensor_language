@@ -3155,6 +3155,9 @@ later per-rung backlog edits had silently anchored on text that was not here.
 282. PATH CONTROL II (corner lineage, independent implementation):
     same bars; disagreement with 281 by > 0.01 = lineage bug.
     -> ops/path_full2.py [QUEUED 01:24Z]
+    RUN 2026-09-01, S2382: FLIP CONFIRMED - bit-exact agreement with
+    281 (+0.0520). Shared-core caveat noted; 283/284 localize. All
+    pattern-config census numbers carry ~0.052 instrument error.
 
 283. HARNESS NULL: no replacements installed (real model through the
     harness): pred_a |census| <= 0.003; pred_b valid >= 55; pred_c
