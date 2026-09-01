@@ -4482,3 +4482,17 @@ later per-rung backlog edits had silently anchored on text that was not here.
 - Direct MLP0 recovery transfers better at.8197. Therefore structure predicts adjacent-site validation behavior but
   does not replace measured upstream performance, generalize to unseen grammars, or validate OOD/removal/composition.
   Use only to design one new prospective family with sealed consequences.
+
+### Rung 444 — downstream-response Archetypal SAE — COMPLETE / STRONG NULL
+
+- On each exact causal attention0 edge, fit32-atom/top4 unconstrained, real-convex, and source-permuted-convex sparse
+  response dictionaries under rung424's downstream-response metric. The authoritative managed receipt passes every
+  instrument check; earlier serialization, Boolean-identity, and accidentally unmanaged receipts remain invalid.
+- SELECT response-metric error is U32/A32/P32 `.07571/.09780/.09432`. The real convex hull loses to its
+  source-permuted control. Median restart cosine is A32 `.6476` versus U32 `.7042`; convex anchoring does not improve
+  identification.
+- A32 routed-U16 R2 is`.8302`, all six reader R2 values are`.9034-.9353`, and CE damage is+.001889 nat. The reader
+  and CE clauses hold, but routed reproduction misses`.90` and remains worse than U32 `.8898`.
+- A true, B/C/D false; strong null true on both no real-vs-permuted advantage and no stability improvement. Close
+  K32/top4 convex response atoms; retain the continuous rung424 quotient. Next active work is the separately frozen
+  prospective removal/composition bank, not another convex-atom budget sweep.

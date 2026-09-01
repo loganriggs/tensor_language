@@ -11,6 +11,9 @@ state what was actually measured and what unit is being used.
 
 ## Start here
 
+- [explanation_2026-09-01_2249.md](explanation_2026-09-01_2249.md) — clarifies that “dropped” means proposed but
+  unexecuted, reports the response-metric Archetypal-SAE strong null, and restores the remaining20:54 work as a
+  six-step prospective removal/composition and learned-simplicity queue
 - [explanation_2026-09-01_2205.md](explanation_2026-09-01_2205.md) — audits every proposed action from the 20:54
   plan, reports the completed negative Archetypal-Q/K hull test, defines queued/conditional/closed/withdrawn, and
   records rung440's leakage-safe archive audit:130 receipts are broad enough, but only16.9% expose candidate arms and
