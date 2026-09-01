@@ -4307,3 +4307,15 @@ later per-rung backlog edits had silently anchored on text that was not here.
   Morphology is essentially tied with constant I, while quartile and repetition controls regress. The tree loses to
   p768 in both waves and costs at least14,599,312 values versus13,272,192. No physical router; close this cheap
   prefix-state family and change object to path-specific output/causal-response structure or direct nonlinear CE.
+
+### Rung 409 — frozen rank64 causal-output interface oracle on p448 branch error — CLAIMED
+
+- Reconstruct exact native/p448 T/C/I/S/A output errors on docs0:384; fit new controls only on0:192 and evaluate
+  192:384 in two96-document waves, with FINAL closed.
+- Compare the independent frozen historical B0 rank64 causal basis, joint T+I PCA64, separate T32/I32 bases,
+  total-error PCA64, and seeded random64 by physical oracle output corrections.
+- Freeze exact authorities, p448/p640/p768 reproduction, branch identity, B0 gain/random specificity, T+I share,
+  equal-direction split-vs-joint error and CE bars, literal prices, and strong null in
+  `MLP0_P448_CAUSAL_OUTPUT_INTERFACE_ORACLE_PREREGISTRATION.md`.
+- Oracle ceiling only. B0 pass licenses the old executable predictor on p448; split pass licenses separate path
+  producers; all-rank64 miss closes this output-repair scale and routes to direct nonlinear or later-layer work.
