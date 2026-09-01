@@ -4263,3 +4263,13 @@ later per-rung backlog edits had silently anchored on text that was not here.
   covariance `.007107`, T `.007280`, I `.007106`, joint `.007357`; joint improves only2/4 waves. Random costs `.1956`.
   Close these Euclidean T/I derivative metrics. Do not claim all p448 subspaces impossible; CE-Fisher weighting,
   direct nonlinear fitting, and observable-state routing are mathematically different candidates.
+
+### Rung 406 — downstream CE-Fisher rank448 screen — CLAIMED
+
+- Preserve full directional suffix-CE gradients at MLP0 input on the unchanged24 fit documents, rather than
+  rung353's scalar gradient-norm weights or rung405's isotropic T/I probes.
+- Compare covariance, Fisher, and eigenvalue-matched shuffled-Fisher p448 at equal price on four96-document waves;
+  run the exact32-arm SELECT branch audit for the fixed Fisher candidate.
+- Freeze split stability, predictive wave gains, shuffled control, T+I repair, identities, price, and strong null in
+  `MLP0_RANK448_DOWNSTREAM_FISHER_PREREGISTRATION.md`.
+- Screen only. Null routes to direct nonlinear CE fitting versus a small-state oracle/headroom test.
