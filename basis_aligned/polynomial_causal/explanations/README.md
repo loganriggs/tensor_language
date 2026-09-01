@@ -7,6 +7,9 @@ primary evidence.
 
 ## Start here
 
+- [`explanation_2026-09-01_1415.md`](explanation_2026-09-01_1415.md) — 2026-09-01 14:15 UTC correction and
+  stronger MLP0 token-only result: the 97% figure included a common mean; the supported split is common write plus
+  rank64 token modulation (97.6% identity retrieval) plus broad quadratic residual
 - [`explanation_2026-09-01_1406.md`](explanation_2026-09-01_1406.md) — 2026-09-01 14:06 UTC MLP0 token-identity
   result: exact token retrieval is 90.4%, and the 39.7%-energy token-predictable slice preserves 97.2% of immediate
   causal response despite the failure of a simple linear/rotated-copy model

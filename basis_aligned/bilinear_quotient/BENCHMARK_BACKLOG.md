@@ -4122,9 +4122,12 @@ later per-rung backlog edits had silently anchored on text that was not here.
   The raw-token-predicted component reproduces attention1/MLP1/joint response R2 .926/.972/.972 despite only .397
   write R2. Residual PR is 3.98x native and residual-only joint R2 .247. Pivot to exact quadratic token kernel.
 
-### Rung 396 — exact MLP0-input degree-one token-kernel rank curve — QUEUED
+### Rung 396 — exact MLP0-input degree-one token-kernel rank curve — COMPLETE
 
 - In exact normalized MLP0-input z coordinates, project the exhaustive quadratic write onto constant+degree-one
   functions under the empirical vocabulary metric; freeze ranks16..1152 and exact factor prices.
 - Score heldout write, physical attention1/MLP1 response, and exact-token retrieval; compare raw-x0 rank curves and
   shuffled z→write r256. Full pass licenses one live TT transfer; miss closes degree-one rank tuning.
+- RUN 2026-09-01: B/C held, A/D failed, strong null fired. Exact-z/raw full write R2 .39746/.39695; rank64 token
+  retrieval 97.58% and joint response R2 .96404. But mean-preserving shuffled r256 itself scores .92525, within
+  .04517 of real r256; correct rung395's 97% interpretation. No live TT transfer or rank tuning.

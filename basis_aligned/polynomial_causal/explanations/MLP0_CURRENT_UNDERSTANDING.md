@@ -1035,16 +1035,24 @@ the object that must be described.
 
 Rung395 answered this more sharply. A simple global linear/orthogonal copy fails its registered reconstruction bars
 (write→raw R² .227, raw→write .397, Procrustes cosine .387), but nearest-vocabulary decoding recovers the exact
-heldout token 90.4% top1 and 96.2% top5, versus zero under shuffled pairing. More importantly, physical injection of
-the raw-token-predicted write component reproduces the native attention1/MLP1 joint response at R² .972 and cosine
-.986 despite explaining only .397 of write variation. The exact residual is four times broader in participation
-rank and has only .247 response R² alone.
+heldout token 90.4% top1 and 96.2% top5, versus zero under shuffled pairing. Physical injection of the fitted
+raw-token component reached joint response R² .972, but rung396 exposed that this included a dominant common mean:
+a mean-preserving shuffled token map already reaches .925. The stronger “token identity is 97%-sufficient” wording
+is therefore withdrawn.
+
+The corrected degree-one result remains important. Rank64 retrieves 97.58% of exact heldout tokens and reaches
+joint response R² .964, removing about52% of error left after the mean; for attention1 it improves .720→.886,
+removing about59% of remaining error. Exact-z and raw-x0 projection curves are nearly identical and saturate near
+.397 write R². The current token-only decomposition is a large common write, a compact token-identity modulation,
+and a broad orthogonal quadratic residual. The registered strong null fired, so no live TT transfer or rank tuning is
+licensed until the common mean is explicitly conditioned out in every comparison.
 
 Thus the supported token-only account is not “a rotated embedding” and not “a compact universal sparse quotient.”
-It is a nonlinearly warped token-identity code with a token-predictable slice that is almost sufficient for immediate
-causal use, plus a large downstream-misaligned residual. The next legal object is the exact quadratic token kernel:
-the empirical orthogonal-polynomial split of the bilinear function into constant, best degree-one token component,
-and orthogonal quadratic residual, followed by a frozen rank/cause analysis of the degree-one component.
+It is a common operating-point write plus a nonlinearly warped token-identity modulation and a broad quadratic
+residual. The modulation is incrementally causal after conditioning on the common write, especially for attention1,
+but it is not sufficient on its own. The next legal object is a prospectively registered causal factorial over the
+exact constant, complete degree-one, and orthogonal quadratic components; every score must be reported relative to
+the common-write arm rather than as an unconditioned response R².
 
 ## Related authoritative write-ups
 
@@ -1056,3 +1064,4 @@ and orthogonal quadratic residual, followed by a frozen rank/cause analysis of t
 - `MLP0_C512_MLP2_COMPENSATION_V2_FINDINGS.md`
 - `explanation_2026-09-01_1358.md`
 - `explanation_2026-09-01_1406.md`
+- `explanation_2026-09-01_1415.md`
