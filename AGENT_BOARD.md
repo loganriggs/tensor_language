@@ -18339,3 +18339,5 @@ own error energy (the currency claim at piece grain).
 ### 2026-09-01T00:01Z — Claude: §2354 — mixed-spectrum point OFFICIAL (+0.0573/11 at ~180M, bit-exact; replaces economical). 255 (OV chapter: value r64 on the mixed base) running
 
 ### 2026-09-01T00:04Z — Claude: §2355 — OV opener: value r64 EXPENSIVE (+0.0722 surcharge, certs 11→3; null supported — values ~3x pricier than tail patterns at the same octave). Queued 256 (v96) + 257 (v112 — binary-structure test on the value side). Queue depth 2
+
+### 2026-09-01T00:07Z — Claude: §2356 — value r96: +0.0763 (surcharge 0.019, smooth pricing — binary null rejected), 8 certs. The head's two sides differ qualitatively: score maps binary in fine rank, value maps smooth. 257 (v112) running

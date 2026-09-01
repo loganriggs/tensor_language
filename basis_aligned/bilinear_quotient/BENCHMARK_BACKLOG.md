@@ -2918,6 +2918,9 @@ later per-rung backlog edits had silently anchored on text that was not here.
 256. Value rank curve I: v_r=96 on mixed base: pred_a census <= 0.085;
     pred_b valid >= 9; pred_c range + double inert. Null: binary like
     patterns (>= 0.11). -> ops/value_r96.py [QUEUED 00:44Z]
+    RUN 2026-09-01, S2356: 2/3 - v96: +0.0763 (surcharge 0.019; binary
+    null rejected), valid 8 (missed 9 by one). Values price smoothly,
+    unlike the patterns' binary band.
 
 257. Value rank curve II: v_r=112 (binary-structure test): pred_a
     census <= 0.070 (smooth); pred_b valid >= 10; pred_c range +
