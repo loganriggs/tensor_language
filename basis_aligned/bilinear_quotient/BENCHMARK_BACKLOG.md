@@ -4458,3 +4458,15 @@ later per-rung backlog edits had silently anchored on text that was not here.
   training row.
 - Do not fit the historical predictor. Next build a hand-reviewed candidate-arm manifest and common consequence
   schema, rerun the feasibility gate as a new generation, and only then license a held-family backtest.
+
+### Rung 441 — hand-reviewed candidate-arm manifest — COMPLETE / NO HISTORICAL FIT LICENSE
+
+- Manually expanded and deduplicated four frozen program families: vocabulary r300/304/305, mixed104 MLP-PCA
+  r311–313, MLP0 context-input r325–329, and attention0 sparse Q/K r426/430. Structural and consequence files remain
+  separately hashed; every consequence source is hash-pinned.
+- A/B/C hold:45 unique fully priced arms, zero duplicates/forbidden structural outcomes, OOD28 arms across2 families,
+  and extraction12 across2 families. Strong null false.
+- D fails: removal has only2 arms in1 family and composition has0. No consequence reaches the stricter fitting license
+  of20 candidates across3 whole program families.
+- Do not fit. Preserve the useful slices and prospectively generate independent removal and composition families
+  under sealed consequence labels; the historical archive alone cannot validate a learned simplicity rule.

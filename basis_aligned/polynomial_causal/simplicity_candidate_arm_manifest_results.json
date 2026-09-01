@@ -1,0 +1,63 @@
+{
+  "candidate_count": 45,
+  "claim_level": "dataset_instrument",
+  "consequence_sha256": "26900a5b28afbec4889964439581914b9459d9a1d3dc37bef85eb14986149931",
+  "consequence_source_hashes_complete": true,
+  "coverage": {
+    "composition": {
+      "candidates": 0,
+      "families": [],
+      "family_count": 0,
+      "historical_fit_licensed": false
+    },
+    "extraction": {
+      "candidates": 12,
+      "families": [
+        "mixed104_mlp0_context_input",
+        "mixed104_mlp_pca"
+      ],
+      "family_count": 2,
+      "historical_fit_licensed": false
+    },
+    "ood": {
+      "candidates": 28,
+      "families": [
+        "mixed104_mlp0_context_input",
+        "vocabulary_factorization"
+      ],
+      "family_count": 2,
+      "historical_fit_licensed": false
+    },
+    "removal": {
+      "candidates": 2,
+      "families": [
+        "mixed104_mlp0_context_input"
+      ],
+      "family_count": 1,
+      "historical_fit_licensed": false
+    }
+  },
+  "duplicate_candidate_ids": 0,
+  "feature_sha256": "6d3e984f0ab5b343fabcbaae5b25a8b5b60284b1dc4b46ad6848d8cb72654738",
+  "forbidden_structural_keys": [],
+  "historical_fit_licensed_consequences": [],
+  "join_keys_match": true,
+  "literal_deployed_model_values": 0,
+  "native_model_calls": 0,
+  "pred_a_unique_priced_arm_manifest": true,
+  "pred_b_ood_coverage": true,
+  "pred_c_extraction_coverage": true,
+  "pred_d_removal_and_composition_coverage": false,
+  "price_complete": true,
+  "program_families": [
+    "attention0_sparse_qk",
+    "mixed104_mlp0_context_input",
+    "mixed104_mlp_pca",
+    "vocabulary_factorization"
+  ],
+  "routing": "do_not_fit_generate_prospective_removal_and_composition_families",
+  "rung": 441,
+  "source_hashes_complete": true,
+  "status": "complete",
+  "strong_null_no_salvageable_historical_slice": false
+}

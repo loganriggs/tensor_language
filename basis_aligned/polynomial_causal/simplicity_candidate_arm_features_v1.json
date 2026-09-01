@@ -1,0 +1,815 @@
+{
+  "rows": [
+    {
+      "atom_count": null,
+      "candidate_id": "vocab_r300_shared_0",
+      "control_type": "candidate",
+      "grammar_family": "shared_low_rank",
+      "price_bytes": null,
+      "price_scalars": 59277312,
+      "program_family": "vocabulary_factorization",
+      "rank": 0,
+      "shares_parameters_across_input_output": true,
+      "sources": [
+        {
+          "receipt": "joint_vocab_shared_code_screen_results.json",
+          "sha256": "e7f4db2a837379c5cc7d2ab242c30d96a08089bab01da4522227aabb4f0d8b3d"
+        }
+      ],
+      "sparse_rows": 0
+    },
+    {
+      "atom_count": null,
+      "candidate_id": "vocab_r300_independent_0",
+      "control_type": "price_matched_baseline",
+      "grammar_family": "independent_low_rank",
+      "price_bytes": null,
+      "price_scalars": 59236608,
+      "program_family": "vocabulary_factorization",
+      "rank": 25,
+      "shares_parameters_across_input_output": false,
+      "sources": [
+        {
+          "receipt": "joint_vocab_shared_code_screen_results.json",
+          "sha256": "e7f4db2a837379c5cc7d2ab242c30d96a08089bab01da4522227aabb4f0d8b3d"
+        }
+      ],
+      "sparse_rows": 0
+    },
+    {
+      "atom_count": null,
+      "candidate_id": "vocab_r300_shared_128",
+      "control_type": "candidate",
+      "grammar_family": "shared_low_rank",
+      "price_bytes": null,
+      "price_scalars": 65863680,
+      "program_family": "vocabulary_factorization",
+      "rank": 128,
+      "shares_parameters_across_input_output": true,
+      "sources": [
+        {
+          "receipt": "joint_vocab_shared_code_screen_results.json",
+          "sha256": "e7f4db2a837379c5cc7d2ab242c30d96a08089bab01da4522227aabb4f0d8b3d"
+        }
+      ],
+      "sparse_rows": 0
+    },
+    {
+      "atom_count": null,
+      "candidate_id": "vocab_r300_independent_128",
+      "control_type": "price_matched_baseline",
+      "grammar_family": "independent_low_rank",
+      "price_bytes": null,
+      "price_scalars": 65822976,
+      "program_family": "vocabulary_factorization",
+      "rank": 153,
+      "shares_parameters_across_input_output": false,
+      "sources": [
+        {
+          "receipt": "joint_vocab_shared_code_screen_results.json",
+          "sha256": "e7f4db2a837379c5cc7d2ab242c30d96a08089bab01da4522227aabb4f0d8b3d"
+        }
+      ],
+      "sparse_rows": 0
+    },
+    {
+      "atom_count": null,
+      "candidate_id": "vocab_r300_shared_256",
+      "control_type": "candidate",
+      "grammar_family": "shared_low_rank",
+      "price_bytes": null,
+      "price_scalars": 72450048,
+      "program_family": "vocabulary_factorization",
+      "rank": 256,
+      "shares_parameters_across_input_output": true,
+      "sources": [
+        {
+          "receipt": "joint_vocab_shared_code_screen_results.json",
+          "sha256": "e7f4db2a837379c5cc7d2ab242c30d96a08089bab01da4522227aabb4f0d8b3d"
+        }
+      ],
+      "sparse_rows": 0
+    },
+    {
+      "atom_count": null,
+      "candidate_id": "vocab_r300_independent_256",
+      "control_type": "price_matched_baseline",
+      "grammar_family": "independent_low_rank",
+      "price_bytes": null,
+      "price_scalars": 72409344,
+      "program_family": "vocabulary_factorization",
+      "rank": 281,
+      "shares_parameters_across_input_output": false,
+      "sources": [
+        {
+          "receipt": "joint_vocab_shared_code_screen_results.json",
+          "sha256": "e7f4db2a837379c5cc7d2ab242c30d96a08089bab01da4522227aabb4f0d8b3d"
+        }
+      ],
+      "sparse_rows": 0
+    },
+    {
+      "atom_count": null,
+      "candidate_id": "vocab_r300_shared_512",
+      "control_type": "candidate",
+      "grammar_family": "shared_low_rank",
+      "price_bytes": null,
+      "price_scalars": 85622784,
+      "program_family": "vocabulary_factorization",
+      "rank": 512,
+      "shares_parameters_across_input_output": true,
+      "sources": [
+        {
+          "receipt": "joint_vocab_shared_code_screen_results.json",
+          "sha256": "e7f4db2a837379c5cc7d2ab242c30d96a08089bab01da4522227aabb4f0d8b3d"
+        }
+      ],
+      "sparse_rows": 0
+    },
+    {
+      "atom_count": null,
+      "candidate_id": "vocab_r300_independent_512",
+      "control_type": "price_matched_baseline",
+      "grammar_family": "independent_low_rank",
+      "price_bytes": null,
+      "price_scalars": 85582080,
+      "program_family": "vocabulary_factorization",
+      "rank": 537,
+      "shares_parameters_across_input_output": false,
+      "sources": [
+        {
+          "receipt": "joint_vocab_shared_code_screen_results.json",
+          "sha256": "e7f4db2a837379c5cc7d2ab242c30d96a08089bab01da4522227aabb4f0d8b3d"
+        }
+      ],
+      "sparse_rows": 0
+    },
+    {
+      "atom_count": null,
+      "candidate_id": "vocab_r304_fisher_rare",
+      "control_type": "candidate",
+      "grammar_family": "shared_low_rank_plus_indexed_rows",
+      "price_bytes": null,
+      "price_scalars": 86924521,
+      "program_family": "vocabulary_factorization",
+      "rank": 512,
+      "shares_parameters_across_input_output": true,
+      "sources": [
+        {
+          "receipt": "joint_vocab_sparse_rare_residual_results.json",
+          "sha256": "c6e782015c3fad47a49818f7a453878f46716875a1f10e06f72d160b17f5ea48"
+        }
+      ],
+      "sparse_rows": 1129
+    },
+    {
+      "atom_count": null,
+      "candidate_id": "vocab_r304_norm_rare",
+      "control_type": "selector_control",
+      "grammar_family": "shared_low_rank_plus_indexed_rows",
+      "price_bytes": null,
+      "price_scalars": 86924521,
+      "program_family": "vocabulary_factorization",
+      "rank": 512,
+      "shares_parameters_across_input_output": true,
+      "sources": [
+        {
+          "receipt": "joint_vocab_sparse_rare_residual_results.json",
+          "sha256": "c6e782015c3fad47a49818f7a453878f46716875a1f10e06f72d160b17f5ea48"
+        }
+      ],
+      "sparse_rows": 1129
+    },
+    {
+      "atom_count": null,
+      "candidate_id": "vocab_r304_random_rare",
+      "control_type": "selector_control",
+      "grammar_family": "shared_low_rank_plus_indexed_rows",
+      "price_bytes": null,
+      "price_scalars": 86924521,
+      "program_family": "vocabulary_factorization",
+      "rank": 512,
+      "shares_parameters_across_input_output": true,
+      "sources": [
+        {
+          "receipt": "joint_vocab_sparse_rare_residual_results.json",
+          "sha256": "c6e782015c3fad47a49818f7a453878f46716875a1f10e06f72d160b17f5ea48"
+        }
+      ],
+      "sparse_rows": 1129
+    },
+    {
+      "atom_count": null,
+      "candidate_id": "vocab_r305_sqrt_count_plus_1_s512_shared",
+      "control_type": "candidate",
+      "grammar_family": "shared_weighted_low_rank",
+      "price_bytes": null,
+      "price_scalars": 85622784,
+      "program_family": "vocabulary_factorization",
+      "rank": 512,
+      "shares_parameters_across_input_output": true,
+      "sources": [
+        {
+          "receipt": "joint_vocab_distributed_rank_frontier_results.json",
+          "sha256": "ada2c09bd990f0c18c6d1bf1e4248301411816ca22ef077a30107da666e91fb6"
+        }
+      ],
+      "sparse_rows": 0
+    },
+    {
+      "atom_count": null,
+      "candidate_id": "vocab_r305_sqrt_count_plus_1_s512_independent",
+      "control_type": "price_matched_baseline",
+      "grammar_family": "independent_weighted_low_rank",
+      "price_bytes": null,
+      "price_scalars": 85582080,
+      "program_family": "vocabulary_factorization",
+      "rank": 537,
+      "shares_parameters_across_input_output": false,
+      "sources": [
+        {
+          "receipt": "joint_vocab_distributed_rank_frontier_results.json",
+          "sha256": "ada2c09bd990f0c18c6d1bf1e4248301411816ca22ef077a30107da666e91fb6"
+        }
+      ],
+      "sparse_rows": 0
+    },
+    {
+      "atom_count": null,
+      "candidate_id": "vocab_r305_sqrt_count_plus_1_s640_shared",
+      "control_type": "candidate",
+      "grammar_family": "shared_weighted_low_rank",
+      "price_bytes": null,
+      "price_scalars": 92209152,
+      "program_family": "vocabulary_factorization",
+      "rank": 640,
+      "shares_parameters_across_input_output": true,
+      "sources": [
+        {
+          "receipt": "joint_vocab_distributed_rank_frontier_results.json",
+          "sha256": "ada2c09bd990f0c18c6d1bf1e4248301411816ca22ef077a30107da666e91fb6"
+        }
+      ],
+      "sparse_rows": 0
+    },
+    {
+      "atom_count": null,
+      "candidate_id": "vocab_r305_sqrt_count_plus_1_s640_independent",
+      "control_type": "price_matched_baseline",
+      "grammar_family": "independent_weighted_low_rank",
+      "price_bytes": null,
+      "price_scalars": 92168448,
+      "program_family": "vocabulary_factorization",
+      "rank": 665,
+      "shares_parameters_across_input_output": false,
+      "sources": [
+        {
+          "receipt": "joint_vocab_distributed_rank_frontier_results.json",
+          "sha256": "ada2c09bd990f0c18c6d1bf1e4248301411816ca22ef077a30107da666e91fb6"
+        }
+      ],
+      "sparse_rows": 0
+    },
+    {
+      "atom_count": null,
+      "candidate_id": "vocab_r305_sqrt_count_plus_1_s768_shared",
+      "control_type": "candidate",
+      "grammar_family": "shared_weighted_low_rank",
+      "price_bytes": null,
+      "price_scalars": 98795520,
+      "program_family": "vocabulary_factorization",
+      "rank": 768,
+      "shares_parameters_across_input_output": true,
+      "sources": [
+        {
+          "receipt": "joint_vocab_distributed_rank_frontier_results.json",
+          "sha256": "ada2c09bd990f0c18c6d1bf1e4248301411816ca22ef077a30107da666e91fb6"
+        }
+      ],
+      "sparse_rows": 0
+    },
+    {
+      "atom_count": null,
+      "candidate_id": "vocab_r305_sqrt_count_plus_1_s768_independent",
+      "control_type": "price_matched_baseline",
+      "grammar_family": "independent_weighted_low_rank",
+      "price_bytes": null,
+      "price_scalars": 98754816,
+      "program_family": "vocabulary_factorization",
+      "rank": 793,
+      "shares_parameters_across_input_output": false,
+      "sources": [
+        {
+          "receipt": "joint_vocab_distributed_rank_frontier_results.json",
+          "sha256": "ada2c09bd990f0c18c6d1bf1e4248301411816ca22ef077a30107da666e91fb6"
+        }
+      ],
+      "sparse_rows": 0
+    },
+    {
+      "atom_count": null,
+      "candidate_id": "vocab_r305_count_plus_1_s512_shared",
+      "control_type": "candidate",
+      "grammar_family": "shared_weighted_low_rank",
+      "price_bytes": null,
+      "price_scalars": 85622784,
+      "program_family": "vocabulary_factorization",
+      "rank": 512,
+      "shares_parameters_across_input_output": true,
+      "sources": [
+        {
+          "receipt": "joint_vocab_distributed_rank_frontier_results.json",
+          "sha256": "ada2c09bd990f0c18c6d1bf1e4248301411816ca22ef077a30107da666e91fb6"
+        }
+      ],
+      "sparse_rows": 0
+    },
+    {
+      "atom_count": null,
+      "candidate_id": "vocab_r305_count_plus_1_s512_independent",
+      "control_type": "price_matched_baseline",
+      "grammar_family": "independent_weighted_low_rank",
+      "price_bytes": null,
+      "price_scalars": 85582080,
+      "program_family": "vocabulary_factorization",
+      "rank": 537,
+      "shares_parameters_across_input_output": false,
+      "sources": [
+        {
+          "receipt": "joint_vocab_distributed_rank_frontier_results.json",
+          "sha256": "ada2c09bd990f0c18c6d1bf1e4248301411816ca22ef077a30107da666e91fb6"
+        }
+      ],
+      "sparse_rows": 0
+    },
+    {
+      "atom_count": null,
+      "candidate_id": "vocab_r305_count_plus_1_s640_shared",
+      "control_type": "candidate",
+      "grammar_family": "shared_weighted_low_rank",
+      "price_bytes": null,
+      "price_scalars": 92209152,
+      "program_family": "vocabulary_factorization",
+      "rank": 640,
+      "shares_parameters_across_input_output": true,
+      "sources": [
+        {
+          "receipt": "joint_vocab_distributed_rank_frontier_results.json",
+          "sha256": "ada2c09bd990f0c18c6d1bf1e4248301411816ca22ef077a30107da666e91fb6"
+        }
+      ],
+      "sparse_rows": 0
+    },
+    {
+      "atom_count": null,
+      "candidate_id": "vocab_r305_count_plus_1_s640_independent",
+      "control_type": "price_matched_baseline",
+      "grammar_family": "independent_weighted_low_rank",
+      "price_bytes": null,
+      "price_scalars": 92168448,
+      "program_family": "vocabulary_factorization",
+      "rank": 665,
+      "shares_parameters_across_input_output": false,
+      "sources": [
+        {
+          "receipt": "joint_vocab_distributed_rank_frontier_results.json",
+          "sha256": "ada2c09bd990f0c18c6d1bf1e4248301411816ca22ef077a30107da666e91fb6"
+        }
+      ],
+      "sparse_rows": 0
+    },
+    {
+      "atom_count": null,
+      "candidate_id": "vocab_r305_count_plus_1_s768_shared",
+      "control_type": "candidate",
+      "grammar_family": "shared_weighted_low_rank",
+      "price_bytes": null,
+      "price_scalars": 98795520,
+      "program_family": "vocabulary_factorization",
+      "rank": 768,
+      "shares_parameters_across_input_output": true,
+      "sources": [
+        {
+          "receipt": "joint_vocab_distributed_rank_frontier_results.json",
+          "sha256": "ada2c09bd990f0c18c6d1bf1e4248301411816ca22ef077a30107da666e91fb6"
+        }
+      ],
+      "sparse_rows": 0
+    },
+    {
+      "atom_count": null,
+      "candidate_id": "vocab_r305_count_plus_1_s768_independent",
+      "control_type": "price_matched_baseline",
+      "grammar_family": "independent_weighted_low_rank",
+      "price_bytes": null,
+      "price_scalars": 98754816,
+      "program_family": "vocabulary_factorization",
+      "rank": 793,
+      "shares_parameters_across_input_output": false,
+      "sources": [
+        {
+          "receipt": "joint_vocab_distributed_rank_frontier_results.json",
+          "sha256": "ada2c09bd990f0c18c6d1bf1e4248301411816ca22ef077a30107da666e91fb6"
+        }
+      ],
+      "sparse_rows": 0
+    },
+    {
+      "atom_count": null,
+      "candidate_id": "mlp_pca_p0_8_r256",
+      "control_type": "candidate",
+      "grammar_family": "activation_pca_pair",
+      "price_bytes": 2011767404,
+      "price_scalars": 531927350,
+      "program_family": "mixed104_mlp_pca",
+      "rank": 256,
+      "shares_parameters_across_input_output": false,
+      "sources": [
+        {
+          "receipt": "mixed104_pca_fixed_pair_frontier_results.json",
+          "sha256": "e6aacdaecc11e1693c73b5638f75e197a79676e5b288a4cbb42e57d25eb45ce1"
+        }
+      ],
+      "sparse_rows": 0
+    },
+    {
+      "atom_count": null,
+      "candidate_id": "mlp_pca_p0_17_r256",
+      "control_type": "candidate",
+      "grammar_family": "activation_pca_pair",
+      "price_bytes": 2011767404,
+      "price_scalars": 531927350,
+      "program_family": "mixed104_mlp_pca",
+      "rank": 256,
+      "shares_parameters_across_input_output": false,
+      "sources": [
+        {
+          "receipt": "mixed104_pca_fixed_pair_frontier_results.json",
+          "sha256": "e6aacdaecc11e1693c73b5638f75e197a79676e5b288a4cbb42e57d25eb45ce1"
+        }
+      ],
+      "sparse_rows": 0
+    },
+    {
+      "atom_count": null,
+      "candidate_id": "mlp_pca_p8_17_r256",
+      "control_type": "candidate",
+      "grammar_family": "activation_pca_pair",
+      "price_bytes": 2011767404,
+      "price_scalars": 531927350,
+      "program_family": "mixed104_mlp_pca",
+      "rank": 256,
+      "shares_parameters_across_input_output": false,
+      "sources": [
+        {
+          "receipt": "mixed104_pca_fixed_pair_frontier_results.json",
+          "sha256": "e6aacdaecc11e1693c73b5638f75e197a79676e5b288a4cbb42e57d25eb45ce1"
+        }
+      ],
+      "sparse_rows": 0
+    },
+    {
+      "atom_count": null,
+      "candidate_id": "mlp_pca_p8_17_r384",
+      "control_type": "candidate",
+      "grammar_family": "activation_pca_pair",
+      "price_bytes": 2017665644,
+      "price_scalars": 533401910,
+      "program_family": "mixed104_mlp_pca",
+      "rank": 384,
+      "shares_parameters_across_input_output": false,
+      "sources": [
+        {
+          "receipt": "mixed104_pca_fixed_pair_rank_frontier_results.json",
+          "sha256": "1f2a47b6d493d1f555ad6331c8ef352bb9cb795f933df48f6d060de5092827da"
+        }
+      ],
+      "sparse_rows": 0
+    },
+    {
+      "atom_count": null,
+      "candidate_id": "mlp_pca_p8_17_r512",
+      "control_type": "candidate",
+      "grammar_family": "activation_pca_pair",
+      "price_bytes": 2023563884,
+      "price_scalars": 534876470,
+      "program_family": "mixed104_mlp_pca",
+      "rank": 512,
+      "shares_parameters_across_input_output": false,
+      "sources": [
+        {
+          "receipt": "mixed104_pca_fixed_pair_rank_frontier_results.json",
+          "sha256": "1f2a47b6d493d1f555ad6331c8ef352bb9cb795f933df48f6d060de5092827da"
+        }
+      ],
+      "sparse_rows": 0
+    },
+    {
+      "atom_count": null,
+      "candidate_id": "mlp_pca_grad32",
+      "control_type": "candidate",
+      "grammar_family": "gradient_plus_activation_pca",
+      "price_bytes": 2011767404,
+      "price_scalars": 531927350,
+      "program_family": "mixed104_mlp_pca",
+      "rank": 32,
+      "shares_parameters_across_input_output": false,
+      "sources": [
+        {
+          "receipt": "mixed104_pca_certificate_gradient_hybrid_results.json",
+          "sha256": "b458d81abf0bc9561f71d93991cd7120b6b9db030f68395a5720065bf58d3890"
+        }
+      ],
+      "sparse_rows": 0
+    },
+    {
+      "atom_count": null,
+      "candidate_id": "mlp_pca_grad64",
+      "control_type": "candidate",
+      "grammar_family": "gradient_plus_activation_pca",
+      "price_bytes": 2011767404,
+      "price_scalars": 531927350,
+      "program_family": "mixed104_mlp_pca",
+      "rank": 64,
+      "shares_parameters_across_input_output": false,
+      "sources": [
+        {
+          "receipt": "mixed104_pca_certificate_gradient_hybrid_results.json",
+          "sha256": "b458d81abf0bc9561f71d93991cd7120b6b9db030f68395a5720065bf58d3890"
+        }
+      ],
+      "sparse_rows": 0
+    },
+    {
+      "atom_count": null,
+      "candidate_id": "mlp0_context_input_r256",
+      "control_type": "candidate",
+      "grammar_family": "context_metric_shared_input_low_rank",
+      "price_bytes": 2010587756,
+      "price_scalars": 531632438,
+      "program_family": "mixed104_mlp0_context_input",
+      "rank": 256,
+      "shares_parameters_across_input_output": true,
+      "sources": [
+        {
+          "receipt": "mixed104_mlp0_context_metric_lower_rank_frontier_results.json",
+          "sha256": "12decd6a209e53eb49bd50df407e8f1f0989671ed2a83cf57383abaa150c83c8"
+        }
+      ],
+      "sparse_rows": 0
+    },
+    {
+      "atom_count": null,
+      "candidate_id": "mlp0_context_input_r384",
+      "control_type": "candidate",
+      "grammar_family": "context_metric_shared_input_low_rank",
+      "price_bytes": 2015896172,
+      "price_scalars": 532959542,
+      "program_family": "mixed104_mlp0_context_input",
+      "rank": 384,
+      "shares_parameters_across_input_output": true,
+      "sources": [
+        {
+          "receipt": "mixed104_mlp0_context_metric_lower_rank_frontier_results.json",
+          "sha256": "12decd6a209e53eb49bd50df407e8f1f0989671ed2a83cf57383abaa150c83c8"
+        }
+      ],
+      "sparse_rows": 0
+    },
+    {
+      "atom_count": null,
+      "candidate_id": "mlp0_context_input_r448",
+      "control_type": "candidate",
+      "grammar_family": "context_metric_shared_input_low_rank",
+      "price_bytes": 2018550380,
+      "price_scalars": 533623094,
+      "program_family": "mixed104_mlp0_context_input",
+      "rank": 448,
+      "shares_parameters_across_input_output": true,
+      "sources": [
+        {
+          "receipt": "mixed104_mlp0_context_metric_lower_rank_frontier_results.json",
+          "sha256": "12decd6a209e53eb49bd50df407e8f1f0989671ed2a83cf57383abaa150c83c8"
+        }
+      ],
+      "sparse_rows": 0
+    },
+    {
+      "atom_count": null,
+      "candidate_id": "mlp0_context_input_r512",
+      "control_type": "candidate",
+      "grammar_family": "context_metric_shared_input_low_rank",
+      "price_bytes": 2021204588,
+      "price_scalars": 534286646,
+      "program_family": "mixed104_mlp0_context_input",
+      "rank": 512,
+      "shares_parameters_across_input_output": true,
+      "sources": [
+        {
+          "receipt": "mixed104_mlp0_context_metric_input_frontier_results.json",
+          "sha256": "b80419147bba16b884593ed9a0214c5ef0fa3cb4e45fc6f85340799941b4d745"
+        }
+      ],
+      "sparse_rows": 0
+    },
+    {
+      "atom_count": null,
+      "candidate_id": "mlp0_context_input_r640",
+      "control_type": "candidate",
+      "grammar_family": "context_metric_shared_input_low_rank",
+      "price_bytes": 2026513004,
+      "price_scalars": 535613750,
+      "program_family": "mixed104_mlp0_context_input",
+      "rank": 640,
+      "shares_parameters_across_input_output": true,
+      "sources": [
+        {
+          "receipt": "mixed104_mlp0_context_metric_input_frontier_results.json",
+          "sha256": "b80419147bba16b884593ed9a0214c5ef0fa3cb4e45fc6f85340799941b4d745"
+        }
+      ],
+      "sparse_rows": 0
+    },
+    {
+      "atom_count": 512,
+      "candidate_id": "attention0_r426_I72",
+      "control_type": "candidate",
+      "grammar_family": "sparse_qk_dictionary",
+      "price_bytes": 19201824,
+      "price_scalars": null,
+      "program_family": "attention0_sparse_qk",
+      "rank": null,
+      "shares_parameters_across_input_output": false,
+      "sources": [
+        {
+          "receipt": "attention0_cross_head_sparse_qk_vocabulary_results.json",
+          "sha256": "274c2d2891f93ef08dd232036ce8c4250132277f3bce70d95e7f0fdefdd97ba3"
+        }
+      ],
+      "sparse_rows": 72
+    },
+    {
+      "atom_count": 512,
+      "candidate_id": "attention0_r426_G54",
+      "control_type": "candidate",
+      "grammar_family": "sparse_qk_dictionary",
+      "price_bytes": 15583320,
+      "price_scalars": null,
+      "program_family": "attention0_sparse_qk",
+      "rank": null,
+      "shares_parameters_across_input_output": true,
+      "sources": [
+        {
+          "receipt": "attention0_cross_head_sparse_qk_vocabulary_results.json",
+          "sha256": "274c2d2891f93ef08dd232036ce8c4250132277f3bce70d95e7f0fdefdd97ba3"
+        }
+      ],
+      "sparse_rows": 54
+    },
+    {
+      "atom_count": 512,
+      "candidate_id": "attention0_r426_G72",
+      "control_type": "candidate",
+      "grammar_family": "sparse_qk_dictionary",
+      "price_bytes": 19201824,
+      "price_scalars": null,
+      "program_family": "attention0_sparse_qk",
+      "rank": null,
+      "shares_parameters_across_input_output": true,
+      "sources": [
+        {
+          "receipt": "attention0_cross_head_sparse_qk_vocabulary_results.json",
+          "sha256": "274c2d2891f93ef08dd232036ce8c4250132277f3bce70d95e7f0fdefdd97ba3"
+        }
+      ],
+      "sparse_rows": 72
+    },
+    {
+      "atom_count": 512,
+      "candidate_id": "attention0_r426_D54",
+      "control_type": "deranged_control",
+      "grammar_family": "sparse_qk_dictionary",
+      "price_bytes": 15583320,
+      "price_scalars": null,
+      "program_family": "attention0_sparse_qk",
+      "rank": null,
+      "shares_parameters_across_input_output": false,
+      "sources": [
+        {
+          "receipt": "attention0_cross_head_sparse_qk_vocabulary_results.json",
+          "sha256": "274c2d2891f93ef08dd232036ce8c4250132277f3bce70d95e7f0fdefdd97ba3"
+        }
+      ],
+      "sparse_rows": 54
+    },
+    {
+      "atom_count": 512,
+      "candidate_id": "attention0_r430_SQ54",
+      "control_type": "candidate",
+      "grammar_family": "coupled_sparse_qk_dictionary",
+      "price_bytes": 15583320,
+      "price_scalars": null,
+      "program_family": "attention0_sparse_qk",
+      "rank": null,
+      "shares_parameters_across_input_output": true,
+      "sources": [
+        {
+          "receipt": "attention0_coupled_sparse_qk_score_product_results.json",
+          "sha256": "8c445b0f1b855b3f05aab6bde77b6ecd1c662179883c97aa77e32f49dca03922"
+        }
+      ],
+      "sparse_rows": 54
+    },
+    {
+      "atom_count": 512,
+      "candidate_id": "attention0_r430_SC54",
+      "control_type": "candidate",
+      "grammar_family": "coupled_sparse_qk_dictionary",
+      "price_bytes": 15583320,
+      "price_scalars": null,
+      "program_family": "attention0_sparse_qk",
+      "rank": null,
+      "shares_parameters_across_input_output": true,
+      "sources": [
+        {
+          "receipt": "attention0_coupled_sparse_qk_score_product_results.json",
+          "sha256": "8c445b0f1b855b3f05aab6bde77b6ecd1c662179883c97aa77e32f49dca03922"
+        }
+      ],
+      "sparse_rows": 54
+    },
+    {
+      "atom_count": 512,
+      "candidate_id": "attention0_r430_CP54",
+      "control_type": "candidate",
+      "grammar_family": "coupled_sparse_qk_dictionary",
+      "price_bytes": 15583320,
+      "price_scalars": null,
+      "program_family": "attention0_sparse_qk",
+      "rank": null,
+      "shares_parameters_across_input_output": true,
+      "sources": [
+        {
+          "receipt": "attention0_coupled_sparse_qk_score_product_results.json",
+          "sha256": "8c445b0f1b855b3f05aab6bde77b6ecd1c662179883c97aa77e32f49dca03922"
+        }
+      ],
+      "sparse_rows": 54
+    },
+    {
+      "atom_count": 512,
+      "candidate_id": "attention0_r430_CP72",
+      "control_type": "candidate",
+      "grammar_family": "coupled_sparse_qk_dictionary",
+      "price_bytes": 19201824,
+      "price_scalars": null,
+      "program_family": "attention0_sparse_qk",
+      "rank": null,
+      "shares_parameters_across_input_output": true,
+      "sources": [
+        {
+          "receipt": "attention0_coupled_sparse_qk_score_product_results.json",
+          "sha256": "8c445b0f1b855b3f05aab6bde77b6ecd1c662179883c97aa77e32f49dca03922"
+        }
+      ],
+      "sparse_rows": 72
+    },
+    {
+      "atom_count": 512,
+      "candidate_id": "attention0_r430_PP54",
+      "control_type": "relation_control",
+      "grammar_family": "coupled_sparse_qk_dictionary",
+      "price_bytes": 15583320,
+      "price_scalars": null,
+      "program_family": "attention0_sparse_qk",
+      "rank": null,
+      "shares_parameters_across_input_output": true,
+      "sources": [
+        {
+          "receipt": "attention0_coupled_sparse_qk_score_product_results.json",
+          "sha256": "8c445b0f1b855b3f05aab6bde77b6ecd1c662179883c97aa77e32f49dca03922"
+        }
+      ],
+      "sparse_rows": 54
+    },
+    {
+      "atom_count": 512,
+      "candidate_id": "attention0_r430_WH54",
+      "control_type": "relation_control",
+      "grammar_family": "coupled_sparse_qk_dictionary",
+      "price_bytes": 15583320,
+      "price_scalars": null,
+      "program_family": "attention0_sparse_qk",
+      "rank": null,
+      "shares_parameters_across_input_output": true,
+      "sources": [
+        {
+          "receipt": "attention0_coupled_sparse_qk_score_product_results.json",
+          "sha256": "8c445b0f1b855b3f05aab6bde77b6ecd1c662179883c97aa77e32f49dca03922"
+        }
+      ],
+      "sparse_rows": 54
+    }
+  ],
+  "schema": "simplicity_candidate_arm_features_v1"
+}
