@@ -5,11 +5,11 @@
 ## Short version
 
 MLP16 has an unusually concentrated function on natural text, but three different “low-rank” statements describe
-different objects. An old whole-layer quadratic surrogate was reported as 13,832 numbers, but its literal price is
-14,984 after counting the constant output vector; it measured +0.03073 CE on overlapping fit/evaluation rows. A
-later activation-conditioned factorization found that one `Down` output direction recovers about 90% of the
-module's loss benefit. The new 2,065,536-number three-mode Tucker core adds +0.047796 CE and passes 22/62 current
-behavior checks. It confirms meaningful joint tensor structure, but does not improve the old size/damage result.
+different objects. The old whole-layer quadratic surrogate was reported as 13,832 numbers; after correcting its
+constant-vector price to 14,984 and rebuilding it on clean splits, it adds +0.038978 CE and passes 27/62 current
+behavior checks. A later activation-conditioned factorization found that one `Down` output direction recovers about
+90% of the module's loss benefit. The new 2,065,536-number three-mode Tucker core adds +0.047796 CE and passes
+22/62. Its joint structure is real, but the clean old quadratic representation strictly dominates it.
 
 ## Native object
 
@@ -75,12 +75,21 @@ ledger §§2481–2485.
 
 ## Reconciliation and next legal question
 
-The old corrected-14,984-number surrogate and new 2,065,536-number core have similar-scale aggregate CE damage on
-different old/current evaluations. The correct next experiment is a **clean-split current-harness rebuild and
-direct head-to-head comparison of the same mathematical surrogate family**, including all 62 behavior checks and
-the fresh/shifted corpora. Until that is done:
+Rung389 completed the clean-split current-harness rebuild. The corrected-14,984-number R4/k2 program achieved:
 
-- do not call the new Tucker result a compression frontier;
+- local function R² .82368 heldout / .82178 fresh;
+- census +.038978 and 27/62 behavior checks;
+- shifted WikiText mean/p95/max .039663/.071978/.094419;
+- untouched FineWeb mean/max .040634/.066339;
+- damage-ray cosine .97722 and vector R² .81476;
+- versus a matched random-output arm at R² −.0062, census +.148198, and 5/62.
+
+It beats rung388's Tucker core on every common modern measure while using 0.725% as many layer values. Therefore:
+
+- do not call the Tucker result a compression frontier;
 - do not tune Tucker ranks at layer 16;
-- do not infer that the old surrogate will preserve current causal behaviors; and
-- do not start another late-layer core merely because its tensor spectrum is concentrated.
+- next run only the licensed original-native signed-a16 gate; and
+- attempt composition only if signed fidelity passes.
+
+Primary new artifacts: `mlp16_rank2_quadratic_current_gate_results.json`,
+`ops/mlp16_rank2_quadratic_current_gate.py`, ledger §2486.

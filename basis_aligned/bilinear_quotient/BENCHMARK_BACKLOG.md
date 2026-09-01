@@ -4042,3 +4042,10 @@ later per-rung backlog edits had silently anchored on text that was not here.
     predicted/actual24/22. Equal-cheaper selected product is +.75230/0 certs and
     random +.75159/0, so joint coordinates are necessary but the L16 2.07M corner
     is not adoption-grade. No signed/composition gate and no L16 rank tuning.
+### Rung 389 — clean-split current-harness gate for old L16 quadratic surrogate — COMPLETE
+
+- Reproduced old overlapping-row CE exactly, corrected its omitted constant from 13,832 to 14,984 literal values.
+- Clean fit-B-only R4/k2 program: local R² .82368/.82178, census +.038978, 27/62, WT mean .039663,
+  fresh mean .040634. Equal-price random-output null: R² −.0062, +.148198, 5/62.
+- All registered predictions held; null false. Strictly dominates rung388 Tucker at 137.85× lower layer price.
+- Licensed successor: original-native signed-a16 gate, then one composition screen only on a signed pass.
