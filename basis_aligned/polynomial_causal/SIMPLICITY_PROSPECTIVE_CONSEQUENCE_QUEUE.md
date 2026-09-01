@@ -46,8 +46,10 @@ written separately and joined only by hash-bound candidate IDs.
    mixed104+MLP0 candidate; those local interventions therefore do not count as bank labels. Rung449 repaired the
    object and all five complete candidates passed the variation and two-wave stability gates. Rung450 measured all
    seven MLP-PCA labels: instrument/rank-ladder/variation pass, but removal wave-order rho`.50` misses`.70`, so the
-   family does not count yet. Freeze an independent larger reliability role and a tie/uncertainty-aware test before
-   reconsideration; do not relax rung450. Vocabulary23 remains queued rather than silently dropped.
+   family does not count yet. Rungs451–452 froze an independent192-document role and, before opening its outcomes,
+   the13 removal and16 composition pair-directions whose old95% document-bootstrap intervals excluded zero. Run that
+   independent reproduction test before reconsideration; do not relax rung450. Vocabulary23 remains queued rather
+   than silently dropped.
 3. **Consequence-specific rule fitting.** Fit removal and composition predictors only on the three teaching families,
    choose regularization by leave-one-whole-family-out validation, and freeze coefficients, feature transforms,
    uncertainty rule, and hashes before the attention0 label file exists.
