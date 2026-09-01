@@ -233,8 +233,9 @@ def _layer_sketch(
     def curve(values: torch.Tensor) -> dict[str, float]:
         energy = values.square()
         cumulative = energy.cumsum(0) / energy.sum().clamp_min(1e-20)
-        ranks = (1, 3, 6, 9, 12, min(13, len(values)), len(values))
-        return {str(rank): float(cumulative[rank - 1]) for rank in sorted(set(ranks))}
+        requested = (1, 3, 6, 9, 12, min(13, len(values)), len(values))
+        ranks = sorted({rank for rank in requested if 1 <= rank <= len(values)})
+        return {str(rank): float(cumulative[rank - 1]) for rank in ranks}
 
     return {
         "raw_energy_curve": curve(raw_singular),
