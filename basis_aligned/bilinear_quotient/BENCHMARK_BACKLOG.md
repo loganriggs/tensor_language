@@ -3739,3 +3739,30 @@ later per-rung backlog edits had silently anchored on text that was not here.
     commutant to a reference-eigenbasis graph Laplacian; planted/common-gauge,
     independently permuted spectral null, split-projector and offblock bars.
     -> ops/mlp0_full_fold_contraction_graph.py
+
+347. [CODEX, board-claimed 06:52Z] CONTEXT-QK64 SIGNED a16 GATE:
+    identical native/compiled a16 mean ablation against saved r345 CEV;
+    live baseline/identity/bill, direct signed/collateral/own effects.
+    -> ops/a16_transfer_mixed64_context_metric_qk.py
+    RUN 2026-09-01: ALL HELD, null false. cosine/error/norm
+    .988466/.178663/1.083107; rho .994592, own ratio 1.081668. Formally
+    adopt 517,067,062 / +.00819306 / 50.
+
+348. [CODEX, board-claimed 06:57Z] CONTEXT-QK56 NEW-CORPUS PHYSICAL + OOD:
+    fixed split-B rank56/440 maps; census/certs/fresh; first 120 chunks from
+    hashed WikiText-103 train rows100000:110000; exact 512,561,462 bill/CEV.
+    -> ops/mixed56_context_metric_qk_newcorpus_ood.py
+    RUN 2026-09-01: ALL HELD, null false. +.01250780/43, surcharge
+    +.00431473; new-corpus mean/p95/max +.005698/.037966/.056886.
+
+349. [CODEX, board-claimed 07:00Z] TIGHTENED CONTEXT-QK56 SIGNED a16 GATE:
+    live baseline/identity and direct a16 effects with prospective cosine .98,
+    error .30, effect/own-ratio 1.15, and collateral-rho .98 bars.
+    -> ops/a16_transfer_mixed56_context_metric_qk.py
+
+350. [CODEX, board-claimed 07:02Z] MLP0 TAIL-ROBUST CONTEXT METRIC:
+    mix ordinary covariance with top-10%-leverage covariance at .25; compare
+    p384/p448 ordinary/robust across two fits and two row-tail populations.
+    -> ops/mlp0_tail_robust_context_metric_screen.py
+    RUN 2026-09-01: pred_b only, null false. Means improve, split overlaps
+    .735/.743, but maxima do not; do not advance or tune leverage weighting.

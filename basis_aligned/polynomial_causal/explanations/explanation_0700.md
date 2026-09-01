@@ -42,6 +42,7 @@ at every eight-rank step. The independently fitted and causally gated staircase 
 | 80 | 526,078,262 | +.003336 | 54/62 | -.000879 / .013861 / .026134 | .994961 |
 | 72 | 521,572,662 | +.005238 | 54/62 | +.000498 / .020242 / .035112 | .992435 |
 | 64 | 517,067,062 | +.008193 | 50/62 | +.004753 / .021539 / .033750 | .988466 |
+| 56 | 512,561,462 | +.012508 | 43/62 | +.005698 / .037966 / .056886 | tightened gate running |
 
 Negative shifted means are sampling-scale zero, not evidence that compression improves the native model. The
 incremental census costs are `+.000781, +.001140, +.001902, +.002955`: the curve is convex, but there is still no
@@ -49,6 +50,8 @@ discontinuity. Certificates are not a fixed function of aggregate loss—the 80�
 certificates—so future bars must track both. Rank64's signed gate also passed: normalized effect error `.178663`,
 collateral Spearman `.994592`, and own-effect median ratio `1.081668`. Signed fidelity degrades monotonically but
 smoothly down the ladder; the current causal bars are catastrophic-failure guards rather than the binding frontier.
+For rank56, before observing its intervention, we tightened the bars to cosine `>=.98`, normalized error `<=.30`,
+effect norm and own-effect ratios in `[.90,1.15]`, and collateral Spearman `>=.98`.
 
 ## What composition taught us
 
@@ -147,3 +150,13 @@ The present best direction is the Q/K functional-rank ladder because it has repe
 OOD, certificate, and signed-causal gates. The most important independent research direction is tail-robust or
 downstream-aware metric learning, because it attacks the specific failure mode that prevents the much larger MLP
 tensors from yielding comparable savings.
+
+### First tail-robust test
+
+The first version upweighted the 10% of fitted MLP0 inputs with greatest whitened leverage and mixed their
+covariance into the ordinary covariance at weight `.25`. It improved p384 mean damage on both evaluation corpora
+(`.00391→.00207` FineWeb, `.00618→.00508` WikiText-103) and its split overlap was stable (`.735`). But worst-row
+damage did not improve reliably: FineWeb max worsened `.02379→.02448`, and p448 maxima also worsened. The mean bar
+held, the tail and safety bars failed, and the null did not fire. High input leverage is therefore not the rare-loss
+variable. We will not tune this mixture post hoc; a continuation must use consequence weighting such as loss
+gradient or influence.
