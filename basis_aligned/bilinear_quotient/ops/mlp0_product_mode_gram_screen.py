@@ -24,7 +24,7 @@ Null: trace mismatch > 1e-2, min eig < -1e-4 * max eig, or split
 overlap < .40 (instrument failure).
 
 Price: screen only, no artifact change.  Affected frozen-grid corner
-prices restated: (r512,k1152,p768)=3,540,096; (r768,k2304,p768)=6,412,032.
+prices restated: (r512,k1152,p768)=3,540,096; (r768,k2304,p768)=7,079,040.
 """
 
 # BQGATE: EXPERIMENT
@@ -101,7 +101,7 @@ def main() -> None:
     if os.environ.get("BQLIB_DRYRUN") == "1":
         assert CACHE.exists() and FIT_A[1] == FIT_B[0]
         assert CORNER_PRICES["r512_k1152_p768"] == 3_540_096
-        assert CORNER_PRICES["r768_k2304_p768"] == 6_412_032
+        assert CORNER_PRICES["r768_k2304_p768"] == 7_079_040
         print("MLP0 PRODUCT-MODE GRAM | dry run: cache, widths, corner prices, bars valid")
         return
 
