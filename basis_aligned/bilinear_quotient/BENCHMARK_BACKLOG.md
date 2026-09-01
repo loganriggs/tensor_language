@@ -3677,8 +3677,16 @@ later per-rung backlog edits had silently anchored on text that was not here.
     run; frozen near-additive ratios, census/certs, Wiki skip200000 tails,
     exact 529,781,046 / 531,108,150 bills, identities, fresh and saved CEVs.
     -> ops/mixed96_context_qk_mlp0_context_p512_p640_ood.py
+    RUN 2026-09-01: ALL HELD, null false. p512 +.0076304/51,
+    ratio1.0241, Wiki +.004275/.025570/.028409; p640 +.0050872/54,
+    ratio1.0199, Wiki +.001977/.018504/.022504. Near-additivity repeats.
 
 338. [CODEX, board-claimed 06:27Z] CONTEXT-QK88 SIGNED a16 GATE:
     identical native/compiled a16 mean ablation against saved r336 CEV,
     direct signed/collateral/own effects, live rank88 identity and exact bill.
     -> ops/a16_transfer_mixed88_context_metric_qk.py
+
+339. [CODEX, board-claimed 06:30Z] CONTEXT-QK80 PHYSICAL + OOD:
+    fixed split-B context rank80 at all 440 maps, census/certs/fresh, untouched
+    Wiki skip220000 tails, exact 526,078,262 bill and saved CEV.
+    -> ops/mixed80_context_metric_qk_ood.py
