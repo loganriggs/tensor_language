@@ -1,0 +1,25 @@
+/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/attention0_response_archetypal_sae.py:175: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:836.)
+  "weight_min": float(weights.min()),
+Traceback (most recent call last):
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/attention0_response_archetypal_sae.py", line 545, in <module>
+    main()
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/attention0_response_archetypal_sae.py", line 540, in main
+    OUT.write_text(json.dumps(result, indent=2, sort_keys=True) + "\n")
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/venv/main/lib/python3.12/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "/venv/main/lib/python3.12/json/encoder.py", line 202, in encode
+    chunks = list(chunks)
+             ^^^^^^^^^^^^
+  File "/venv/main/lib/python3.12/json/encoder.py", line 432, in _iterencode
+    yield from _iterencode_dict(o, _current_indent_level)
+  File "/venv/main/lib/python3.12/json/encoder.py", line 406, in _iterencode_dict
+    yield from chunks
+  File "/venv/main/lib/python3.12/json/encoder.py", line 439, in _iterencode
+    o = _default(o)
+        ^^^^^^^^^^^
+  File "/venv/main/lib/python3.12/json/encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type CheckpointReceipt is not JSON serializable
