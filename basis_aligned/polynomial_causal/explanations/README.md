@@ -7,6 +7,9 @@ primary evidence.
 
 ## Start here
 
+- [`explanation_0730.md`](explanation_0730.md) — 2026-09-01 current goal and frontier, family-weighted
+  singular-tail/water-filling law, universal certificate damage ray, literal finite-MoE result, folded-MLP0
+  structural conclusion, and the next certificate-constrained allocation plan
 - [`explanation_0700.md`](explanation_0700.md) — 2026-09-01 context-QK rank staircase through the physical
   rank64 point, two-regime composition law, value-map inefficiency, full-space MLP0 block-structure falsification,
   top-k versus finite-router distinction, OOD corpus correction, and six next paths

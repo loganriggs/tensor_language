@@ -3797,6 +3797,9 @@ later per-rung backlog edits had silently anchored on text that was not here.
     -> ops/mlp0_finite_moe_subspace_router_screen.py
     NO-RECEIPT REPAIR: ambient-D sample guard corrected to registered >=500
     and >=expert-rank condition; all states/ranks/bars/seeds unchanged.
+    RUN 2026-09-01: ALL POSITIVES FAILED, strong null fired. Four-state
+    clustered router FW/WT means .03405/.04047 versus global p517
+    .003677/.002102 at essentially equal price; no S/rank/cluster tuning.
 
 355. [CODEX, board-claimed 07:20Z] CONTEXT-METRIC TAIL/WATER-FILLING LAW:
     exact QK/MLP0 omitted singular energies versus measured rank ladders;
@@ -3804,3 +3807,11 @@ later per-rung backlog edits had silently anchored on text that was not here.
     -> ops/context_metric_tail_waterfilling_law.py
     RUN 2026-09-01: ALL HELD, null false. QK/MLP R2 .9951/.9947,
     LOOCV medians 7.86%/6.85%; joint R2 .394, family gain ratio3.297.
+
+356. [CODEX, board-claimed 07:28Z] CERTIFICATE DAMAGE-AXIS TRANSFER:
+    normalize 62 member damages by native ablation margins; fit one QK ray,
+    leave-one-rank counts, then falsify on held-out QK+MLP and value families.
+    -> ops/certificate_damage_axis_transfer.py
+    RUN 2026-09-01: ALL HELD, null false. QK ray R2 .999452 and zero
+    leave-one-rank count MAE; combo cosine/R2/count .998523/.989801/27-vs-29;
+    value .997734/.983549/45-vs-46. Shape identified; prospective scale pending.
