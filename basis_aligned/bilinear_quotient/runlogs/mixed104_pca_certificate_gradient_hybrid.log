@@ -1,0 +1,53 @@
+gradient fit rows: [900, 919, 30, 682, 684, 943, 941, 113, 656, 779, 431, 174, 181, 698, 685, 775]
+plain PCA layer 8: top256 energy 0.7077
+plain PCA layer 17: top256 energy 0.9896
+gradient layer 8: rms 0.000207645
+gradient layer 17: rms 4.88462e-05
+ARM FAMILY: mixed104 + {8,17}@r256 PCA/grad32/grad64
+a2-input probe acc 0.69
+fit a2
+fit a3
+fit a4
+fit a5
+fit a6
+fit a7
+fit a8
+fit a9
+fit a10
+fit a11
+fit a12
+fit a13
+fit a14
+fit a15
+fit a16
+fit a17
+  cp_swap: front MLPs m0-m3 -> CP top-4608 in place (tailE remains table-front-fit)
+  QK rank-96 factors built for all motif heads
+  QK rank-96 factors built for tail blocks 10-17
+  tail QK hooks registered (gated)
+L1 (+38 heads): C +0.2279 | fresh +0.2107
+  window 0 (7 docs): L2 fresh +0.0410
+  window 1 (42 docs): L2 fresh +0.0528
+  window 2 (17 docs): L2 fresh +0.0565
+  window 3 (23 docs): L2 fresh +0.0499
+  window 4 (43 docs): L2 fresh +0.0488
+  window 5 (26 docs): L2 fresh +0.0440
+  window 6 (35 docs): L2 fresh +0.0228
+  window 7 (35 docs): L2 fresh +0.0410
+L2 empirical: C +0.0536 | fresh +0.0432 | tail-attn increment -0.1675
+(a) L2 <= +2.75 fresh: HELD
+(b) increment in [0.30,0.55]: FAILED
+pca256: census +0.047265, full 19/62, heldout 10/31, predicted 18
+grad32: census +0.046353, full 19/62, heldout 10/31, predicted 18
+grad64: census +0.047879, full 19/62, heldout 10/31, predicted 17
+{
+  "qualifying": [],
+  "predicates": [
+    false,
+    false,
+    false
+  ],
+  "null": true,
+  "runtime_s": 164.0248041152954
+}
+MIXED104 PCA CERTIFICATE-GRADIENT HYBRID DONE

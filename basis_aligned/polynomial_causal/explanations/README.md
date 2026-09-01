@@ -77,3 +77,4 @@ primary evidence.
 - [explanation_2333.md](explanation_2333.md) — allocation night: early blocks carry it, super-modular certificate
 - [explanation_0033.md](explanation_0033.md) — the floor law: one delicate all-or-nothing trick in the small directions
 - [explanation_0130.md](explanation_0130.md) — the crooked measuring stick: path error may explain the floor
+- [explanation_0427.md](explanation_0427.md) — full-night wrap: one adopted artifact, mapped cliffs, two laws

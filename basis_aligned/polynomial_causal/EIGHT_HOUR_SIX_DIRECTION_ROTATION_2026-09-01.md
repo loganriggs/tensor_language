@@ -360,3 +360,16 @@ Full ranking and adoption gates: `SIX_DIRECTION_COMPARISON_2026-09-01.md`.
   directions for certificate-loss gradients orthogonal to the leading PCA basis, fitted on split tags/removed rows.
   Require held-out certificate improvement beyond the frozen one-dimensional prediction. A miss closes MLP
   adoption work and yields the two-tier morning conclusion.
+
+### `04:25 UTC` — exploit checkpoint `313`
+
+- Result: plain/grad32/grad64 census damage was `+.047265/+.046353/+.047879`; every arm retained exactly `19/62`
+  row-excluded full certificates and `10/31` held-out-tag certificates. The rotations were substantive: grad32/64
+  PCA overlap was about `.879/.766`, and fit-gradient energy capture rose to 65–71% / 76–83%. Yet no threshold
+  moved. All three predictions failed and the registered null won.
+- Information gained: the one-dimensional certificate law is not an artifact of choosing the PCA basis. Even an
+  explicitly consequence-oriented rotation fails to create damage orthogonal to that law, including on held-out
+  tags and after excluding fit rows.
+- Decision: close activation-PCA MLP adoption. Retain the mapped lower-fidelity compression tier separately. Return
+  to direction 6 for one input-side, exact-token-metric MLP0 shared-encoder screen, which is structurally distinct
+  from output projection and from the old weight-metric HOSVD null.

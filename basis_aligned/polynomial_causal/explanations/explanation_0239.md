@@ -419,3 +419,30 @@ $$
 Ordinary PCA minimizes only the second factor. The hybrid sacrifices some activation variance to reduce the first.
 It advances only if it beats both plain PCA and the already-frozen one-dimensional threshold prediction on held-out
 tags. Otherwise the MLP campaign closes with a two-tier result.
+
+## Constraint-orthogonal result: a real rotation, zero certificate movement (04:25 UTC)
+
+The hybrid instrument worked. Grad32 overlaps plain PCA by only `.879` and captures 65–71% of the fit-gradient
+energy; grad64 overlaps by `.766–.767` and captures 76–83%. Nevertheless, plain/grad32/grad64 score exactly
+`19/19/19` full certificates and `10/10/10` held-out certificates after removing every gradient-fit row. Their
+census damages are `+.047265/+.046353/+.047879`. Grad32 slightly improves aggregate loss but slightly worsens the
+held-out normalized certificate margin; grad64 worsens both. Every positive prediction fails and the strong null
+wins.
+
+This closes activation-PCA MLP adoption tonight. Layer choice, number of layers, rank, interaction-aware allocation,
+and an explicitly different certificate-gradient basis have all been tested. The prediction/compression tier remains
+scientifically real, but it cannot be merged into the certificate-grade artifact under the frozen gates.
+
+The next experiment returns to the user's original MLP0 idea without repeating this output-rank campaign or the old
+coefficient-space HOSVD null. On the exhaustive position-zero token population, concatenate MLP0's Left and Right
+linear maps and fit a **shared input encoder** under the exact token-induced metric. Deployment computes one latent
+`z=B x`, then separate `A_L z` and `A_R z`, preserving the bilinear product and native Down. At latent rank `p`,
+
+$$
+N(p)=1152p+2(4608)p+4608(1152)+1152.
+$$
+
+Thus `p=512` saves 5,308,416 scalars (one third of MLP0), and `p=768` saves 2,654,208 (one sixth). Compare the
+token-metric reduced-rank factorization against weight-SVD and input-PCA controls on held-out token identities, then
+test the same literal maps on contextual FineWeb and WikiText. This asks whether the folded finite function exposes
+input-side bilinear structure in the weights that ordinary coefficient metrics miss.

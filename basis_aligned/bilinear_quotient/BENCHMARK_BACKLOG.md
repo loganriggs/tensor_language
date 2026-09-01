@@ -3460,3 +3460,13 @@ later per-rung backlog edits had silently anchored on text that was not here.
     r384 +.03379/24, r512 +.02490/32; savings 7.67M/6.19M/4.72M.
     Capacity is monotone but misses both certificate/scalar bars. Stop rank sweep;
     test one split-tag certificate-gradient hybrid at equal r256 price.
+
+313. [CODEX, board-claimed 04:19Z] CERTIFICATE-GRADIENT PCA HYBRID:
+    fixed `{8,17}@r256`; compare plain PCA with 224+32 and 192+64
+    PCA/gradient bases at equal 7,667,712-scalar saving. Fit on split tags and
+    exclude all 16 fit rows from full/heldout certificate scoring.
+    -> ops/mixed104_pca_certificate_gradient_hybrid.py
+    RUN 2026-09-01, S2411: ALL PREDS FAILED, null won. Plain/grad32/grad64
+    +.04727/+.04635/+.04788; all exactly 19/62 full and 10/31 heldout certs.
+    Bases genuinely rotated (overlap .879/.766) and captured more gradient energy,
+    but no threshold moved. Close MLP-PCA adoption; keep two-tier result.
