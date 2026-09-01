@@ -7,6 +7,9 @@ primary evidence.
 
 ## Start here
 
+- [`explanation_2026-09-01_1241.md`](explanation_2026-09-01_1241.md) — 2026-09-01 12:41 UTC restart:
+  current goal, the fully gated three-tier frontier, the depth inversion that makes layers16/17 the new Tucker
+  sites, rung387's stable ~.82 function level at 2.07M scalars, and the next physical calibration
 - [`explanation_0900.md`](explanation_0900.md) — 2026-09-01 completed overnight synthesis: goal and six-route
   scorecard, exact MLP0 identifiability limits, 511.76M/1.0235GB adopted frontier, 516.26M/50-cert mid-tier,
   universal certificate ray, local water-fill closure, and genuinely different next directions
@@ -78,6 +81,11 @@ primary evidence.
 - [`CURRENT_PROJECT_UPDATE_2026-08-28_2350.md`](CURRENT_PROJECT_UPDATE_2026-08-28_2350.md)
 - [`CURRENT_PROJECT_UPDATE_2026-08-28_1830.md`](CURRENT_PROJECT_UPDATE_2026-08-28_1830.md)
 - [`CURRENT_PROJECT_UPDATE_2026-08-28_1800.md`](CURRENT_PROJECT_UPDATE_2026-08-28_1800.md)
+
+## Naming convention
+
+New updates use `explanation_YYYY-MM-DD_HHMM.md` (UTC date first, then time) so multiple explanations from the
+same day sort and link unambiguously.  Older `explanation_HHMM.md` files are retained as historical records.
 - [`CURRENT_PROJECT_UPDATE_2026-08-28_1730.md`](CURRENT_PROJECT_UPDATE_2026-08-28_1730.md)
 - [`CURRENT_PROJECT_UPDATE_2026-08-28_1709.md`](CURRENT_PROJECT_UPDATE_2026-08-28_1709.md)
 - [`CURRENT_PROJECT_UPDATE_2026-08-28.md`](CURRENT_PROJECT_UPDATE_2026-08-28.md)
