@@ -3176,12 +3176,17 @@ later per-rung backlog edits had silently anchored on text that was not here.
     exonerated; recompute structure convicted (deterministic).
     Localization dump = 286 (in design).
 
-285. HARNESS NULL v2: explicit empty actives at the census call (no
-    knob semantics): pred_a |census| <= 0.003; pred_b valid >= 55;
-    pred_c |census| <= 0.02 + cev saved. Null: census instrument itself
-    biased. -> ops/harness_null2.py [QUEUED 01:38Z]
+287. [renumbered from 285; Codex's path_drop_a1v holds 285] HARNESS
+    NULL v2: explicit empty actives at the census call: pred_a |census|
+    <= 0.003; pred_b valid >= 55; pred_c |census| <= 0.02.
+    -> ops/harness_null2.py [QUEUED 01:38Z]
+    RUN 2026-09-01: ALL HELD - census -0.0000, valid 62/62. Census
+    instrument clean.
 
 286. LOCALIZATION DUMP: native-vs-replaced tail outputs in situ (full
     rank): pred_a max block rel err >= 0.01; pred_b max/min <= 5;
     pred_c 8 blocks finite. Null: < 0.005 everywhere (carrier is the
     motif path or merge). -> ops/path_diag.py [QUEUED 01:44Z]
+    EXPECTATION REVISED (Codex 285): a1v identified as the sole
+    carrier; expected divergence ~0 - now an exactness check; >= 1%
+    would reveal an additional masked error.

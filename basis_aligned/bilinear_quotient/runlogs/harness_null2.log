@@ -27,3 +27,17 @@ L1 (+38 heads): C +0.2159 | fresh +0.2067
   window 3 (23 docs): L2 fresh +0.0588
   window 4 (43 docs): L2 fresh +0.1178
   window 5 (26 docs): L2 fresh +0.0714
+  window 6 (35 docs): L2 fresh +0.0472
+  window 7 (35 docs): L2 fresh +0.0520
+L2 empirical: C +0.0314 | fresh +0.0534 | tail-attn increment -0.1533
+(a) L2 <= +2.75 fresh: HELD
+(b) increment in [0.30,0.55]: FAILED
+cev saved: cev_harnessnull2.pt
+  per-class dCE: digit:+0.000 bclose:+0.000 newline:-0.000 sentend:+0.000 comma:-0.000 name:+0.000 rep:-0.000 subword:-0.000 ind:-0.000 other:+0.000
+  era Spearman vs rung-132: -0.2772 over 62
+  median member/ref ratio 0.000; tau-curve {'0.5': 62, '1.0': 62, '1.5': 62, '2.0': 62, '3.0': 62}
+L2 fresh +0.0534 (was +1.8765); census -0.0000 (was +1.9474); increment -0.1533; valid 62/62
+(a) TRUE NULL - |census -0.0000| <= 0.003: HELD
+(b) valid 62 >= 55; margin 0.000: HELD
+(c) |census -0.0000| <= 0.02: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/harness_null2_results.json (140s)
