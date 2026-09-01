@@ -3914,3 +3914,6 @@ later per-rung backlog edits had silently anchored on text that was not here.
 369. [CODEX, conditional board-claim 08:17Z] FINAL ORIGINAL-NATIVE SIGNED GATE:
     only after rung368 full pass; identical a16 mean KO with .98/.30/.98
     tightened bars and exact final selection/storage/scalar/byte identities.
+    RUN 2026-09-01: ALL TIGHT BARS HELD, null false. signed cosine/error/norm
+    .986524/.191595/1.086070, rho .995306, own1.085463. Formally adopt
+    511,758,646 scalars / 1,023,517,292 bytes / +.01232938 /43.

@@ -1,8 +1,8 @@
 # Plain-English update — 2026-09-01 08:10 UTC
 
 **The headline:** the overnight program produced a fully gated model artifact that occupies almost exactly half
-the native storage, plus a near-lossless high-fidelity endpoint. The smaller point is **512,561,462 semantic
-scalars in 1,025,122,924 bytes**, adds `.012612` CE, retains 43/62 circuit certificates, transfers to shifted
+the native storage, plus a near-lossless high-fidelity endpoint. The final smaller point is **511,758,646 semantic
+scalars in 1,023,517,292 bytes**, adds `.012329` CE, retains 43/62 circuit certificates, transfers to shifted
 text, and preserves an original-native signed intervention. The high-fidelity point stores the native semantic
 graph in BF16: **545,902,902 scalars in 1,091,805,804 bytes**, adds only `.000009` CE, and retains 62/62.
 
@@ -136,3 +136,9 @@ The two-byte rebuild also passes. It scores `.012329` census damage, retains43 c
 mean/p95/max `.00612/.02860/.04038`. Its exact bill is **511,758,646 scalars / 1,023,517,292 bytes**, a 50.4990%
 byte saving from native. The only unresolved adoption condition is the already-frozen original-native signed a16
 gate; if it holds, this point replaces Q/K56 as both the semantic-scalar and literal-byte frontier.
+
+It holds. The final signed effect cosine/error/norm ratio is `.986524/.191595/1.086070`, collateral Spearman is
+`.995306`, and a16-own median ratio is `1.085463`. The **511,758,646-scalar / 1,023,517,292-byte artifact is now
+formally adopted**: 6.2546% fewer semantic scalars and 50.4990% fewer raw tensor bytes than native, `.012329` CE
+damage, 43/62 certificates, shifted-corpus transfer, and original-native signed causal fidelity. This is the
+overnight program's new deliverable frontier; it computes in fp32 after dequantization.
