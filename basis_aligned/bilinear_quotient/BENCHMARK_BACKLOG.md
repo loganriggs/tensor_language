@@ -2911,3 +2911,15 @@ later per-rung backlog edits had silently anchored on text that was not here.
     mixed base (+~9.0M factors): pred_a census <= 0.075; pred_b valid
     >= 9; pred_c range + inert. Null: values as rank-hungry as patterns
     (>= 0.10). -> ops/value_r64.py [QUEUED 00:28Z]
+    RUN 2026-09-01, S2355: 1/3, NULL SUPPORTED - value r64 costs
+    +0.0722 surcharge, certs 11->3. Values ~3x more expensive than
+    tail patterns at the same octave. Curve up = 256/257.
+
+256. Value rank curve I: v_r=96 on mixed base: pred_a census <= 0.085;
+    pred_b valid >= 9; pred_c range + double inert. Null: binary like
+    patterns (>= 0.11). -> ops/value_r96.py [QUEUED 00:44Z]
+
+257. Value rank curve II: v_r=112 (binary-structure test): pred_a
+    census <= 0.070 (smooth); pred_b valid >= 10; pred_c range +
+    double inert. Null: value side binary too (>= 0.09).
+    -> ops/value_r112.py [QUEUED 00:44Z]
