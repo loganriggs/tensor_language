@@ -4181,9 +4181,25 @@ later per-rung backlog edits had silently anchored on text that was not here.
   Pending exact repair only: split-stable Shapley I1.538, T1.498, C.418, S.067; combined context2.023. Do not
   publish/promote until explicit vector RMS residual reproduces all arms and closes exactness.
 
-### Rung 401 — exact vector normalization-residual repair of centered ANOVA — QUEUED
+### Rung 401 — exact vector normalization-residual repair of centered ANOVA — COMPLETE
 
 - Keep every rung400 physical arm unchanged but write `z=s(e+a)+r` and explicitly retain the missing bilinear
   residual involving r. Preserve the original 1e-8 identity bar rather than relaxing it.
 - Require all16 FIT/SELECT arm CEs and T/C/I/S Shapleys to reproduce rung400, then rescore its frozen B/C/D outcome.
 - Exact attribution only; no FINAL, compression, or adoption. Largest stable contextual role selects the next grammar.
+- RUN 2026-09-01: all registered repair predicates held, null false. Explicitly retaining
+  `R=T(s(e+a),r)+T(r,s(e+a))+T(r,r)` reduced analytical relative MSE to `2.88e-13/2.89e-13` on FIT/SELECT and
+  reproduced every rung400 arm CE and Shapley value exactly. The original `C>=.50` prediction remains failed;
+  SELECT roles are `I=1.53753 > T=1.49833 > C=.41773 > S=.06749`, with combined context `2.02275`. Exact causal
+  attribution only; route to centered interaction `I`.
+
+### Rung 402 — centered token×context interaction head carriers — QUEUED
+
+- Split attention0's native write exactly into nine output-projected head writes plus an always-retained BF16
+  arithmetic remainder. By bilinearity, split rung401's centered `I` into nine semantic `I_h` terms plus a retained
+  numerical interaction remainder.
+- On the same frozen FIT/SELECT roles, physically score 20 arms with `T/C/S` fixed: all heads, no heads, every head
+  alone, and every head omitted. Report singleton sufficiency, full-boundary necessity, endpoint-average benefit,
+  split transport, and comparison with the frozen historical direct-head cost map.
+- Exact diagnostic only. Sparse, stable carriage licenses source-position resolution of the fixed top heads;
+  distributed/redundant carriage pivots to branch-resolved auditing of the adopted rank448 MLP0 context projection.
