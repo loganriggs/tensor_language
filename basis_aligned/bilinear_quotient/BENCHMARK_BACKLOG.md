@@ -3259,4 +3259,13 @@ later per-rung backlog edits had silently anchored on text that was not here.
 
 294. [CODEX, board-claimed 02:11Z] SIGNED a16 ADOPTION GATE on true
     mixed104. Same direct-effect bars as 291 plus exact 104-index-set
-    tripwire. -> ops/a16_transfer_mixed104_native_a1v.py [BUILDING]
+    tripwire. -> ops/a16_transfer_mixed104_native_a1v.py
+    RUN 2026-09-01: ALL HELD — cosine 0.995879, error 0.096599,
+    collateral rho 0.997959, own ratio 1.034785.
+
+295. [CODEX, board-claimed 02:14Z, CPU ONLY] EXACT PHYSICAL BILL:
+    distinguish deployable semantic program, hook-harness footprint, and
+    historical incremental ledger; enumerate named tensor dependencies once
+    with source/shape/multiplicity assertions; storage and compute separate.
+    First closed line: mixed104 QK factors =110*4*(128+1152)*104
+    =58,572,800 scalars. Historical 52.9M headline cannot be reused.

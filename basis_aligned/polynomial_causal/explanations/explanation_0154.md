@@ -151,3 +151,12 @@ The compute rung subsequently held its aggregate prediction but failed its certi
 `+0.015464` census damage, matching the old additive law, and kept all fresh windows below `+0.0276`; however,
 certificates fell from `52/62` to `26/62` rather than staying above 40.  Quarter-density is therefore a useful
 4× compute tier, but not the certificate-preserving adoption base.
+
+The true mixed104 companion then held at `+0.00469196` census, `54/62` certificates, and fresh-window damage
+no worse than `+0.0032`.  Its exact QK indices and factor width were verified.  Signed a16 effects also held:
+cosine `0.995879`, normalized error `0.096599`, collateral Spearman `0.997959`, and own ratio `1.034785`.
+
+The price headline is still deliberately withheld.  An exact first line item gives `58,572,800` QK-factor
+scalars for the physical mixed104 program, already inconsistent with the historical 52.9M pattern estimate.
+The active CPU audit now constructs the full semantic deployment bill; shifted-corpus OOD is the next GPU
+gate.  This is why the result is behaviorally adoption-ready but not yet a literal Pareto point.
