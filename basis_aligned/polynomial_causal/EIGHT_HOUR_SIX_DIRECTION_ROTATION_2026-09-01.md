@@ -417,3 +417,13 @@ Full ranking and adoption gates: `SIX_DIRECTION_COMPARISON_2026-09-01.md`.
 - Decision: formally adopt the 536,940,854-scalar point as the smaller member of a two-point Pareto set. Next
   screen the same weight-only p512/p768 factor at all 18 MLPs on untouched FineWeb and WikiText; if broad, compose
   only the prospectively fixed `{0,8,17}@p768` set.
+
+### `04:53 UTC` — exploit checkpoint `318`
+
+- Result: p768 qualifies at 13/18 layers and p512 at 14/18, but p768 WikiText median is `+.01290` and maximum
+  damage is `+1.20970`. Layers 15--17 fail sharply; pred_a/c hold, pred_b fails, and the catastrophic-tail null
+  wins. Their p768 weight-energy capture is ordinary, about 80.8--81.3%.
+- Information gained: paired Left/Right input compression is a broad front/middle-depth law, not a stationary
+  all-layer law. Weight spectrum alone cannot predict late functional sensitivity.
+- Decision: cancel the fixed `{0,8,17}` composition and do not adaptively select the 13 winners. Validate the
+  instrument with p1152 and measure p1024 only at layers 15--17; no late layer may be selected from that diagnosis.

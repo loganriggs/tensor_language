@@ -3507,3 +3507,17 @@ later per-rung backlog edits had silently anchored on text that was not here.
     signed cosine .994191, normalized error .113700, norm ratio 1.030480,
     collateral rho .998061, own median ratio 1.034104. Formally adopt
     536,940,854 scalars / 2,031,821,420 bytes as the smaller Pareto point.
+
+318. [CODEX, board-claimed 04:49Z] ALL-LAYER SHARED-INPUT WEIGHT-SVD SCREEN:
+    install p512/p768 independently at all 18 MLPs on untouched FineWeb rows
+    176:188 and WikiText skip80000; no adaptive layer selection.
+    -> ops/mlp_shared_input_svd_all_layers_screen.py
+    RUN 2026-09-01: pred_a/c held, pred_b failed, null won. p768 qualifies at
+    13/18 layers, but Wiki median is +.01290 and late layers 15/16/17 reach
+    +.129/+1.210/+.235. Cancel fixed {0,8,17} composition. Run full-rank late
+    controls before interpreting the depth boundary.
+
+318B. [CODEX, board-claimed 04:54Z] LATE-DEPTH SVD CONTROL:
+    test p1152 reconstruction inertness and p1024 repair at layers 15--17 on
+    the identical rows; diagnosis only, with no layer selection.
+    -> ops/mlp_shared_input_svd_late_depth_control.py

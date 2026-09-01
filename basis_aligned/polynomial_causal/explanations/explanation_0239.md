@@ -510,3 +510,17 @@ The next test asks whether this is a front-layer exception or a repeated bilinea
 weight-only p512/p768 construction independently at all 18 MLPs on untouched FineWeb and shifted WikiText. No
 layer selection may adapt to those results. If the law is broad, the first physical composition is fixed in
 advance to `{0,8,17}` at p768; otherwise MLP0 remains the sole adopted instance.
+
+## The shared-input law has a sharp late-depth boundary (04:53 UTC)
+
+Independent p768 factors qualify at 13/18 layers: `{0,2,3,4,6,7,8,9,10,11,12,13,14}`. The FineWeb median is
+`+.00953`, but WikiText median `+.01290` narrowly misses `.012`. More importantly, layers 15/16/17 score as badly
+as `+.105/.129`, `+.741/1.210`, and `+.080/.235`. The registered catastrophic-tail null therefore wins even
+though the breadth and p512 lower-fidelity predicates hold. The fixed `{0,8,17}` composition is cancelled; no
+favorable subset is chosen after seeing the screen.
+
+This boundary is not visible in ordinary weight-energy capture: p768 retains about 80.8--81.3% at layers 15--17,
+essentially the same as successful middle layers. Before calling this a depth-dependent sensitivity law, run
+p1152 reconstruction controls at the three late layers and a p1024 capacity frontier on the identical rows. Full
+rank must be inert; otherwise the late result is an instrument artifact. This diagnostic cannot select a late
+layer for composition.
