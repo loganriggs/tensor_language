@@ -33,3 +33,21 @@ Staged for the morning synthesis. Every rung scored against its frozen bars as r
 - Context-metric ladder over the 13-layer mid-stack band (ranked #1 in my 0530 review) — untouched savings 30–70M scalars, ladder needed because one-shot additive ~.052 → ~.072 census.
 - Context metric on the QK fine band {120..127} — same mechanism question, new site.
 - Rung 330 awaits its ledger § (ledger at §2427).
+
+## Addendum — rungs 331–347 (written 06:56 UTC)
+Convention unchanged: CE added above native, LOWER IS BETTER. All scored as registered; zero relaxed bars continues.
+
+| Rung | Claim | Outcome | Law fed |
+|---|---|---|---|
+| 331–333 | Context-QK96 (no hand fine band) + split/OOD + signed | ALL HELD ×3 | Fine band was a Frobenius artifact; first 62/62 config; dominance adoption over mixed104 parent |
+| 334–335 | Dual-context QK96+p448 composition + signed | ALL HELD; tax 1.02× | Cross-family ~free (my 1.3× prediction WRONG — exposed two-regime tax) |
+| 336–338 | QK88 screen + signed | ALL HELD | QK ladder gentle; retired p640-combo pre-gate |
+| 337 | Cross-family discriminator (p512/p640) | ALL HELD | INTRA-FAMILY TAX LAW confirmed (~1.3× intra / ~1.02× cross, 4 measurements) |
+| 339/341 | QK80 + signed | ALL HELD | Retired p512-combo AND adopted p448-dual by dominance |
+| 342/344 | QK72 + signed | ALL HELD | Cert plateau at 54: cert slope is axis-dependent, not constant |
+| 340/346 | Gauge commutant screens (PCA32; full exact fold) | Instrument HELD; real NULL FIRED ×2 | No combinatorial block structure at MLP0 in any gauge — modularity is spectral, not partitional |
+| 343 | Third family: value r96 | pred_a FAIL (honest) | Value maps real but ~5–15× pricier/scalar than QK |
+| 345/347 | QK64 + signed | ALL HELD | Convex ladder (~1.6×/rung); signed signature eroding monotonely (flagged) |
+| ops | WikiText-2 OOD stream EXHAUSTED (286,177 tokens) | 2 pre-model crashes, 0 GPU lost | Corpus switch to WT-103 TRAIN (fingerprinted); overlap caveat → proposed audit rule #4 (skip steps ≥30,840) |
+
+**Gated frontier (10 points earned, 5 survive as Pareto):** 535.1M/+.0012/62 ↔ 530.6M/+.0022/58 ↔ 526.1M/+.0033/54 ↔ 521.6M/+.0052/54 ↔ 517.1M/+.0082/50 — a pure context-QK ladder. In flight: QK56 (512.6M) on the new frozen corpus.

@@ -7,6 +7,9 @@ primary evidence.
 
 ## Start here
 
+- [`explanation_0700.md`](explanation_0700.md) — 2026-09-01 context-QK rank staircase through the physical
+  rank64 point, two-regime composition law, value-map inefficiency, full-space MLP0 block-structure falsification,
+  top-k versus finite-router distinction, OOD corpus correction, and six next paths
 - [`explanation_0615.md`](explanation_0615.md) — 2026-09-01 formal context-QK96 adoption: the independent-fit
   535.09M artifact reaches +.001415/61 certificates and .9976 signed-effect cosine; current composition test and
   six next paths
