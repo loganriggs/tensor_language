@@ -1,0 +1,360 @@
+MLP0 EMBEDDING FOLD STRUCTURE SCREEN | planted identifiability then exhaustive real vocabulary
+toy: {
+  "teacher_positive_control": {
+    "mean_best_jaccard": 1.0,
+    "min_best_jaccard": 1.0,
+    "reachability_f1": 1.0,
+    "matched_masks": [
+      [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      [
+        0,
+        1,
+        2,
+        3
+      ],
+      [
+        2,
+        3,
+        4,
+        5
+      ],
+      [
+        4,
+        5,
+        6,
+        7
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        4,
+        5
+      ],
+      [
+        6,
+        7
+      ],
+      [
+        0
+      ],
+      [
+        1
+      ],
+      [
+        2
+      ],
+      [
+        3
+      ],
+      [
+        4
+      ],
+      [
+        5
+      ],
+      [
+        6
+      ],
+      [
+        7
+      ]
+    ]
+  },
+  "student_heldout_r2": 0.9999397993087769,
+  "student_family": {
+    "mean_best_jaccard": 0.28125,
+    "min_best_jaccard": 0.125,
+    "reachability_f1": 0.0,
+    "matched_masks": [
+      [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    ]
+  },
+  "curve": [
+    {
+      "step": 0,
+      "heldout_r2": -1.1179215908050537
+    },
+    {
+      "step": 250,
+      "heldout_r2": 0.9856055378913879
+    },
+    {
+      "step": 500,
+      "heldout_r2": 0.9972911477088928
+    },
+    {
+      "step": 750,
+      "heldout_r2": 0.9990513920783997
+    },
+    {
+      "step": 1000,
+      "heldout_r2": 0.9995810389518738
+    },
+    {
+      "step": 1250,
+      "heldout_r2": 0.9997848272323608
+    },
+    {
+      "step": 1500,
+      "heldout_r2": 0.9998740553855896
+    },
+    {
+      "step": 1750,
+      "heldout_r2": 0.9999138116836548
+    },
+    {
+      "step": 2000,
+      "heldout_r2": 0.9999321103096008
+    },
+    {
+      "step": 2250,
+      "heldout_r2": 0.9999387860298157
+    },
+    {
+      "step": 2499,
+      "heldout_r2": 0.9999397993087769
+    }
+  ],
+  "states": 8,
+  "support_nodes": 16,
+  "hidden_units": 64
+}
+real: {
+  "population": 50257,
+  "fit_tokens": 40205,
+  "eval_tokens": 10052,
+  "k": 512,
+  "global_fixed_k_r2": -0.17628252506256104,
+  "global_fixed_k_relative_mse": 1.176282525062561,
+  "per_token_topk_r2": 0.7537602335214615,
+  "arms": {
+    "4": {
+      "router_train_accuracy": 0.6819301247596741,
+      "router_eval_accuracy": 0.6524074673652649,
+      "chance_accuracy": 0.25,
+      "union_units": 980,
+      "union_fraction": 0.2126736111111111,
+      "stored_scalars": 3392644,
+      "native_mlp0_scalars": 15926400,
+      "storage_fraction_of_native_mlp0": 0.2130201426562186,
+      "oracle_state_r2": -0.12366485595703125,
+      "legal_router_r2": -0.1143643856048584,
+      "legal_mse_improvement_vs_global": 0.05263883305110691
+    },
+    "8": {
+      "router_train_accuracy": 0.5984827876091003,
+      "router_eval_accuracy": 0.5411858558654785,
+      "chance_accuracy": 0.125,
+      "union_units": 1390,
+      "union_fraction": 0.3016493055555556,
+      "stored_scalars": 4814216,
+      "native_mlp0_scalars": 15926400,
+      "storage_fraction_of_native_mlp0": 0.3022789833232871,
+      "oracle_state_r2": -0.10176634788513184,
+      "legal_router_r2": -0.08666324615478516,
+      "legal_mse_improvement_vs_global": 0.07618856609555552
+    },
+    "16": {
+      "router_train_accuracy": 0.5496331453323364,
+      "router_eval_accuracy": 0.4524472951889038,
+      "chance_accuracy": 0.0625,
+      "union_units": 1812,
+      "union_fraction": 0.3932291666666667,
+      "stored_scalars": 6281872,
+      "native_mlp0_scalars": 15926400,
+      "storage_fraction_of_native_mlp0": 0.3944313843680932,
+      "oracle_state_r2": -0.08095049858093262,
+      "legal_router_r2": -0.061366915702819824,
+      "legal_mse_improvement_vs_global": 0.09769388468440385
+    },
+    "32": {
+      "router_train_accuracy": 0.5326203107833862,
+      "router_eval_accuracy": 0.3636092245578766,
+      "chance_accuracy": 0.03125,
+      "union_units": 2486,
+      "union_fraction": 0.5394965277777778,
+      "stored_scalars": 8629664,
+      "native_mlp0_scalars": 15926400,
+      "storage_fraction_of_native_mlp0": 0.5418464938718103,
+      "oracle_state_r2": -0.060418128967285156,
+      "legal_router_r2": -0.052005767822265625,
+      "legal_mse_improvement_vs_global": 0.10565213253821458
+    }
+  }
+}
+predicates: False False False null False
+MLP0 EMBEDDING FOLD STRUCTURE SCREEN DONE
