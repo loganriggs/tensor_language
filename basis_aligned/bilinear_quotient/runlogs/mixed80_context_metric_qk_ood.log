@@ -6,3 +6,21 @@ fit a4
 fit a5
 fit a6
 fit a7
+fit a8
+fit a9
+fit a10
+fit a11
+fit a12
+fit a13
+fit a14
+fit a15
+fit a16
+fit a17
+  cp_swap: front MLPs m0-m3 -> CP top-4608 in place (tailE remains table-front-fit)
+  QK rank-80 factors built for all motif heads
+  QK rank-80 factors built for tail blocks 10-17
+  tail QK hooks registered (gated)
+L1 (+38 heads): C +0.2070 | fresh +0.2073
+  extra eval wikitext-2-raw-v1-test-skip180000: native 3.777375 compiled 3.776497 damage -0.00087850
+  window 0 (7 docs): L2 fresh +0.0000
+  window 1 (42 docs): L2 fresh +0.0018

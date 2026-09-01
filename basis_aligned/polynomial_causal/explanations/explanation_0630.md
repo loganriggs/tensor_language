@@ -1,0 +1,9 @@
+# Plain-English update — 2026-09-01 06:30 UTC
+
+**Headline:** the "better measuring stick" discovery turned out to apply everywhere, and it just made our compressed model both smaller and nearly perfect on its test battery.
+
+**What happened.** Last hour we learned that ranking directions by *how they're actually used on real text* (contextual covariance) beats ranking them by raw weight size. This hour we applied that measuring stick to the attention system's 440 query/key maps — a place where we'd previously needed a hand-crafted patch (a "fine band" of 8 extra special directions) to make compression work. With the better metric, the patch is unnecessary: plain rank-96 compression passes **all 62 of 62** behavioral certificates — the first compressed configuration ever to ace the full battery — while using 4.5 million fewer parameters than our previous best (lower added-error is better throughout; this one adds just +.0012 nats).
+
+**The second discovery — a tax law with two rates.** Combining two compressions from the *same* subsystem costs ~1.3× the sum of their individual damages. But combining across *different* subsystems (attention + first-layer MLP) costs almost nothing extra — 1.02×, measured four separate times, with the deciding experiment's pass/fail thresholds frozen before it ran. I had publicly predicted 1.3× for the first cross-subsystem test and was wrong — the miss is what revealed the two-rate structure.
+
+**Why that matters:** it gives a recipe. Compress each subsystem to its own sweet spot independently, then stack them — the stacking is nearly free. The result frontier is now a staircase of four artifacts, from "62/62 certificates, barely distinguishable from the original" down to "10 million parameters cheaper, still causally faithful," and every point on it passed out-of-distribution and intervention tests with no thresholds relaxed anywhere.
