@@ -94,6 +94,7 @@ def _spectrum(matrix: torch.Tensor) -> dict[str, float | int]:
     }
 
 
+@torch.no_grad()
 def _pca_response(train_x: torch.Tensor, eval_x: torch.Tensor,
                   train_s: torch.Tensor, eval_s: torch.Tensor,
                   rank: int) -> tuple[float, torch.Tensor]:
@@ -109,6 +110,7 @@ def _pca_response(train_x: torch.Tensor, eval_x: torch.Tensor,
     return _r2(eval_s, prediction), z_eval
 
 
+@torch.no_grad()
 def _fit_code_response(train_code: torch.Tensor, eval_code: torch.Tensor,
                        train_s: torch.Tensor, eval_s: torch.Tensor) -> tuple[float, torch.Tensor]:
     ones_train = torch.ones(len(train_code), 1, device=DEV)
@@ -290,7 +292,6 @@ def _decode_token(token: int) -> str:
         return f"token_{token}"
 
 
-@torch.no_grad()
 def main() -> None:
     if os.environ.get("BQLIB_DRYRUN") == "1":
         assert REAL_V == 50_257 and P == 256 and TOPK == 16
@@ -361,8 +362,9 @@ def main() -> None:
     sparse = {}
     codes = {}
     for name, sparse_model in models.items():
-        train_code, train_yhat, _ = sparse_model(train_y)
-        eval_code, eval_yhat, _ = sparse_model(eval_y)
+        with torch.no_grad():
+            train_code, train_yhat, _ = sparse_model(train_y)
+            eval_code, eval_yhat, _ = sparse_model(eval_y)
         response_r2, _prediction = _fit_code_response(
             train_code, eval_code, train_s, eval_s)
         sparse[name] = {
