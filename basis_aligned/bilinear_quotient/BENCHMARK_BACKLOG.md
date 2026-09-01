@@ -3878,7 +3878,17 @@ later per-rung backlog edits had silently anchored on text that was not here.
 364. [CODEX, conditional board-claim 08:00Z] ORIGINAL-NATIVE SIGNED GATE:
     only after full rung363 pass; measure original-native a16 KO before model
     rounding, then exact combined-program KO; tight .98/.30/.98 signed bars.
+    RUN 2026-09-01: ALL TIGHT BARS HELD, null false. Original-native signed
+    cosine/error/norm .981519/.237538/1.122134, rho .993980, own1.118250;
+    exact 1,025,122,924-byte bill. Formally adopt the 50.4213%-smaller point.
 
 365. [CODEX, board-claim 08:05Z] UNIVERSAL-BF16 HIGH-FIDELITY FULL GATE:
     original-native census/certificates and a16 signed comparison for the
     exact 545,902,902-scalar / 1,091,805,804-byte source-aware BF16 endpoint.
+    RUN 2026-09-01: ALL HELD, null false. Census +.00000908/62; signed
+    cosine/error/norm 1.000002/.005005/1.000537, rho .999898, own1.000878;
+    exact 1,091,805,804 bytes. Formally adopt high-fidelity BF16 endpoint.
+
+366. [CODEX, board-claim 08:11Z] ALL-LAYER CONTEXT-METRIC MLP INPUT RANK:
+    independently fit paired-Left/Right context-RRR p512/p768 at all18 layers
+    on two splits; two untouched corpora; historical matched weight-SVD control.

@@ -241,3 +241,16 @@ peaks at `.0066`. Every program-identity and price assertion holds. Thus global 
 Q/K rank reduction are empirically orthogonal at this point: the combined **1,025,122,924-byte** program behaves
 like Q/K56, not like the sum of two damaging approximations. The final remaining adoption condition is the
 preregistered signed a16 comparison to the genuinely original native model, measured before any rounding.
+
+That final condition passes. The signed effect cosine/error/norm ratio is
+`.981519/.237538/1.122134`, collateral Spearman is `.993980`, and the a16-own median ratio is `1.118250`.
+These reproduce the structural Q/K56 signature despite global BF16 storage. The **1,025,122,924-byte artifact is
+therefore formally adopted**: 50.4213% below native bytes, 43/62 certificates, cross-corpus transfer, and direct
+original-native signed causal fidelity. Its semantic scalar count remains 512,561,462 and its compute path remains
+fp32 after dequantization; byte compression and structural scalar compression are separate, composable axes.
+
+The companion high-fidelity endpoint also clears a full gate. Universal BF16 alone adds only `.0000091` census
+CE, retains all **62/62** certificates, and matches the original-native a16 effect at cosine `1.000002` and
+normalized error `.0050`. It stores 545,902,902 semantic scalars in **1,091,805,804 bytes**, 47.1963% below
+native. The measured byte frontier therefore has two different operating points: near-lossless **1.092GB/62**
+and structurally smaller **1.025GB/43**. Both compute in fp32 after dequantization.

@@ -7,6 +7,9 @@ primary evidence.
 
 ## Start here
 
+- [`explanation_0810.md`](explanation_0810.md) — 2026-09-01 overnight synthesis: six-route scorecard,
+  induced-tail and certificate-ray compiler laws, fully gated 1.092GB/62 and 1.025GB/43 byte frontier,
+  folded-MLP0/MoE conclusions, and ranked next scalar directions
 - [`explanation_0730.md`](explanation_0730.md) — 2026-09-01 current goal and frontier, family-weighted
   singular-tail/water-filling law, universal certificate damage ray, literal finite-MoE result, folded-MLP0
   structural conclusion, and the next certificate-constrained allocation plan
