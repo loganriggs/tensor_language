@@ -1,4 +1,4 @@
-"""RUNG 422 -- REALIZED CONTINUOUS ATTENTION0 QK1 x QK2 x OV BLOCK TERM.
+"""RUNG 424 -- REALIZED CONTINUOUS ATTENTION0 QK1 x QK2 x OV BLOCK TERM.
 
 On exact natural edges, compare equal-parameter marginal PCA projectors with
 the same score-half6/score-half6/payload32 bases jointly optimized for the
@@ -574,7 +574,7 @@ def main():
     } for value in restarts]
     result = {
         "status": "attention0_realized_edge_block_term_complete",
-        "rung": 422,
+        "rung": 424,
         "claim_level": "realized_continuous_edge_identification_screen_not_compression_or_adoption",
         "definition": {
             "edge": "e[n,h,c]=score1[n,h]*score2[n,h]*U16_payload[n,h,c]",

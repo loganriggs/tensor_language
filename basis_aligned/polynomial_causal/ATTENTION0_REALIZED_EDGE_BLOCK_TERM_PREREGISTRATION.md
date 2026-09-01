@@ -6,7 +6,7 @@ Date: 2026-09-01 19:35 UTC
 
 Rungs 416–420 reject whole-head equivalence, discrete cross-head QK/OV atoms, and one rank-24 global carrier, while
 rung 421 independently confirms that the downstream U16 output interface transports through native QK routing.
-Rung 422 asks the next changed-object question: can the **complete realized edge product** be represented by a small
+Rung 424 asks the next changed-object question: can the **complete realized edge product** be represented by a small
 set of continuous score and payload modes whose coupling matters?
 
 For natural edge `n`, architectural head `h`, and downstream output coordinate `c`, define
@@ -159,3 +159,10 @@ waves.
 - C holds but D fails: record predictive projection without shared-coupling identification.
 - Strong null: close low-rank head-service coupling at these frozen ranks and move to MLP0's nonlinear token `Q` or
   attention1's stronger copy/retrieval prior. Do not tune ranks, K, heads, or thresholds.
+
+## Coordination-only rung renumbering
+
+This experiment was first claimed as rung 422 at 19:35 UTC. A concurrently prepared carrier-rank sweep landed under
+that number, and the other lane then reserved rung 423 for its cross-arc token-geometry test. The present experiment
+is therefore rung 424. Its data, seeds (including the already frozen seeds 422 and 423), model family, controls,
+prices, predictions, nulls, and decision rules are unchanged; it had not been executed when it was renumbered.
