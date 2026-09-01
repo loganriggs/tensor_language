@@ -3690,9 +3690,17 @@ later per-rung backlog edits had silently anchored on text that was not here.
     fixed split-B context rank80 at all 440 maps, census/certs/fresh, untouched
     Wiki skip220000 tails, exact 526,078,262 bill and saved CEV.
     -> ops/mixed80_context_metric_qk_ood.py
+    RUN 2026-09-01: ALL HELD, null false. +.00333585/54 (cert bar exact),
+    surcharge +.00113979 over r88; fresh max+.0027; Wiki mean/p95/max
+    -.000878/.013861/.026134. Advance signed gate.
 
 340. [CODEX, board-claimed 06:36Z] MLP0 QUADRATIC CONTRACTION COMMUTANT:
     gauge-invariant planted-to-real screen on exact MLP0 quadratic function
     tensor, exhaustive embedding PCA32, 12 output contractions, common-gauge
     check and independent-conjugation spectral null; block/split/offblock bars.
     -> ops/mlp0_embedding_fold_contraction_commutant.py
+
+341. [CODEX, board-claimed 06:39Z] CONTEXT-QK80 SIGNED a16 GATE:
+    identical native/compiled a16 mean ablation against saved r339 CEV,
+    direct signed/collateral/own effects, live rank80 identity and exact bill.
+    -> ops/a16_transfer_mixed80_context_metric_qk.py
