@@ -131,3 +131,18 @@ The sequence is therefore:
 At each elapsed hour the research driver steps back, restates the full four-part goal, audits instrument and
 composition confounds, re-ranks these alternatives, records material direction changes, and then takes the
 next concrete step.  A completed rung is a decision input, not a reason for the research process to stop.
+
+## First two results
+
+The first corrected run measured `+0.00853845` census, `52/62` certificates, and eight fresh-window damages
+between `-0.0061` and `+0.0052`.  A subsequent code audit caught a label mismatch before adoption: the
+physical factors were contiguous top 96, whereas the historical mixed-spectrum point used top 96 plus the
+smallest eight directions.  The prediction/certificate/fresh receipt remains valid for the top-96 program,
+but its scalar comparison to the mixed receipt and the 123.4M mixed-anchor headline are void.  The true
+104-direction companion is now registered with an exact index-set tripwire and no subtraction bar.
+
+The signed a16 falsifier then held decisively: effect cosine `0.992605`, normalized error `0.133050`,
+collateral circuit Spearman `0.997347`, and own-family magnitude ratio `1.053832`.  Those causal numbers are
+for the physical top-96 program and remain valid; the old a16 anomaly was path-contaminated.  The active
+compute rung composes per-token top-1152 MLP execution with top96, while the true mixed companion, exact
+component pricing, and shifted-corpus OOD remain required before final adoption.

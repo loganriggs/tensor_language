@@ -3224,10 +3224,30 @@ later per-rung backlog edits had silently anchored on text that was not here.
     Physical factor-rank tripwire required. Approximate price 123.4M;
     exact component bill pending. -> ops/mixed_native_a1v.py
     RUN 2026-09-01: ALL HELD — +0.00853845 census, 52/62, fresh8
-    in [-0.0061,+0.0052], transport error 0.00324, rank tripwire live.
+    in [-0.0061,+0.0052], rank tripwire live. CONFIG CORRECTION:
+    physical factors were contiguous top96, not historical top96+last8.
+    Prediction/cert/fresh stand; mixed transport bar and 123.4M price VOID.
 
 291. [CODEX, board-claimed 01:58Z] SIGNED a16 FALSIFIER on corrected
     mixed. Bars: live census <=0.012/max fresh <=0.020; direct effect
     cosine >=0.90 and normalized error <=0.60; non-own circuit rho
     >=0.90 and own median ratio in [0.60,1.40]. Null: cosine <0.70 or
-    rho <0.75. -> ops/a16_transfer_mixed_native_a1v.py [BUILDING]
+    rho <0.75. -> ops/a16_transfer_mixed_native_a1v.py
+    RUN 2026-09-01, S2389: ALL HELD — cosine 0.992605, normalized
+    error 0.133050, collateral rho 0.997347, own ratio 1.053832.
+    Old a16 anomaly was path-contaminated.
+
+292. [CODEX, board-claimed 02:03Z] COMPUTE COMPOSITION: corrected
+    physical top96 plus per-token CP top-1152 (label corrected before
+    landing). Bars: surcharge in [0.010,0.024]
+    and census <=0.035; >=40 certs; max fresh8 <=0.040. Live selected-
+    width tripwire =1152. Null: surcharge >=0.040 or <=20 certs.
+    Storage ~123.4M unchanged; executed CP-unit compute 4x sparse.
+    -> ops/mixed_topk_native_a1v.py [BUILDING]
+
+293. [CODEX, board-claimed 02:06Z] TRUE CORRECTED MIXED COMPANION:
+    physical QK indices {0..95,120..127}, native a1v. Bars: census
+    <=0.0065 and >=54 certs; all fresh8 <=0.020; exact index-set live
+    tripwire. Null/no-benefit: census >=0.0080 and certs <=52. No
+    scalar transport bar. Exact price pending. -> ops/mixed104_native_a1v.py
+    [BUILDING]

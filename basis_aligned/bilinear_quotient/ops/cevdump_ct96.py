@@ -170,7 +170,13 @@ def main():
                 _,li,Lk,Rk,Dk,db=S[nm]
                 def h(mod,i_,o_,Lk=Lk,Rk=Rk,Dk=Dk,db=db):
                     x=i_[0].float()
-                    return (((x@Lk.T)*(x@Rk.T))@Dk.T+db).to(o_.dtype)
+                    units=(x@Lk.T)*(x@Rk.T)
+                    topk=int(SEL.get('cp_topk') or 0)
+                    if topk and units.shape[-1]>topk:
+                        chosen=(units.abs()*Dk.norm(dim=0)).topk(topk,dim=-1).indices
+                        units=units*torch.zeros_like(units).scatter_(-1,chosen,1.0)
+                        SEL['_cp_topk_observed']=int(chosen.shape[-1])
+                    return ((units@Dk.T)+db).to(o_.dtype)
                 hs.append(m.transformer.h[li].mlp
                           .register_forward_hook(h))
             elif kind=='attnd':
@@ -573,8 +579,18 @@ def main():
     if SEL.get('qk_r'):
         _r=int(SEL['qk_r'])
         SEL['_QKR']={}
+        SEL['_QK_INDEX_SETS']={}
         for _li in range(2,10):
             _r=int(SEL.get('qk_rmap',{}).get(_li,SEL['qk_r']))
+            _extra=int(SEL.get('qk_extra_tail') or 0)
+            if _extra:
+                if _r+_extra>128 or _r>128-_extra:
+                    raise ValueError(f'overlapping QK index request r={_r}, extra={_extra}')
+                _idx=torch.cat([torch.arange(_r,device=DEV),
+                                torch.arange(128-_extra,128,device=DEV)])
+            else:
+                _idx=torch.arange(_r,device=DEV)
+            SEL['_QK_INDEX_SETS'][_li]=tuple(int(x) for x in _idx.cpu())
             _at=m.transformer.h[_li].attn
             _heads=list(prevh.get(_li,[]))+list(selfh.get(_li,[]))
             if not _heads: continue
@@ -584,13 +600,22 @@ def main():
                 for _W in (_at.c_q,_at.c_k,_at.c_q2,_at.c_k2):
                     _M=_W.weight[_hd*128:(_hd+1)*128,:].detach().float()
                     _U,_S,_Vh=torch.linalg.svd(_M,full_matrices=False)
-                    _fac.append(((_U[:,:_r]*_S[:_r]).contiguous(),_Vh[:_r].contiguous()))
+                    _fac.append(((_U[:,_idx]*_S[_idx]).contiguous(),_Vh[_idx].contiguous()))
                 _d[_hd]=_fac
             SEL['_QKR'][_li]=_d
         print(f'  QK rank-{_r} factors built for all motif heads',flush=True)
         if SEL.get('qk_tail'):
             for _li in range(10,18):
                 _r=int(SEL.get('qk_rmap',{}).get(_li,SEL['qk_r']))
+                _extra=int(SEL.get('qk_extra_tail') or 0)
+                if _extra:
+                    if _r+_extra>128 or _r>128-_extra:
+                        raise ValueError(f'overlapping QK index request r={_r}, extra={_extra}')
+                    _idx=torch.cat([torch.arange(_r,device=DEV),
+                                    torch.arange(128-_extra,128,device=DEV)])
+                else:
+                    _idx=torch.arange(_r,device=DEV)
+                SEL['_QK_INDEX_SETS'][_li]=tuple(int(x) for x in _idx.cpu())
                 _at=m.transformer.h[_li].attn
                 _d={}
                 for _hd in range(9):
@@ -598,7 +623,7 @@ def main():
                     for _W in (_at.c_q,_at.c_k,_at.c_q2,_at.c_k2):
                         _M=_W.weight[_hd*128:(_hd+1)*128,:].detach().float()
                         _U,_S,_Vh=torch.linalg.svd(_M,full_matrices=False)
-                        _fac.append(((_U[:,:_r]*_S[:_r]).contiguous(),_Vh[:_r].contiguous()))
+                        _fac.append(((_U[:,_idx]*_S[_idx]).contiguous(),_Vh[_idx].contiguous()))
                     _d[_hd]=_fac
                 SEL['_QKR'][_li]=_d
             print(f'  QK rank-{_r} factors built for tail blocks 10-17',flush=True)
