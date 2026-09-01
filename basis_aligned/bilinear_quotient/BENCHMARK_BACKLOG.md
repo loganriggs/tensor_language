@@ -4049,3 +4049,12 @@ later per-rung backlog edits had silently anchored on text that was not here.
   fresh mean .040634. Equal-price random-output null: R² −.0062, +.148198, 5/62.
 - All registered predictions held; null false. Strictly dominates rung388 Tucker at 137.85× lower layer price.
 - Licensed successor: original-native signed-a16 gate, then one composition screen only on a signed pass.
+
+### Rung 390 — original-native signed-a16 gate for clean L16 quadratic program — COMPLETE
+
+- Rebuilt the identical fit-B-only R4/k2 program and reproduced its saved unablated CEV bit-exact at
+  +.0389782861 and 27/62, with exact 14,984/529,991,486 price, shapes, and live hooks.
+- Signed candidate/native attention-16 knockout cosine/error/norm is .9797226/.2130622/1.0520105;
+  collateral Spearman .9973469 and a16-owned median magnitude ratio 1.0411815.
+- All registered predictions held and the strong null is false. This is causal identification, not standalone
+  adoption. Exactly one physical QK64+MLP0/4 composition at 495,847,230 scalars is licensed next.

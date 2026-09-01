@@ -7,6 +7,8 @@ primary evidence.
 
 ## Start here
 
+- [`explanation_2026-09-01_1319.md`](explanation_2026-09-01_1319.md) — 2026-09-01 13:19 UTC signed causal
+  validation of the 14,984-value layer-16 quadratic program and the exact one-composition next step
 - [`explanation_2026-09-01_1241.md`](explanation_2026-09-01_1241.md) — 2026-09-01 12:41 UTC restart and
   question-driven correction: current goal, plain computational definitions for BF16/QK/MLP/Tucker terms, an
   honest six-direction time audit, rung388's physical result, and the older late-layer result that changes the plan
