@@ -1,0 +1,168 @@
+{
+  "status": "mlp_mode_concentration_depth_profile_complete",
+  "rung": 385,
+  "claim_level": "all_layer_mode_concentration_profile_screen_only",
+  "fit_cache": "fineweb_n192_skip11000.pt",
+  "fit_b": [
+    24,
+    48
+  ],
+  "layers": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17
+  ],
+  "profile": {
+    "0": {
+      "product_retained_2304": 0.6587068438529968,
+      "output_retained_512": 0.8260533213615417,
+      "entry_sum_relative_error": 0.0
+    },
+    "1": {
+      "product_retained_2304": 0.5995312929153442,
+      "output_retained_512": 0.8020879030227661,
+      "entry_sum_relative_error": 0.0
+    },
+    "2": {
+      "product_retained_2304": 0.5978261828422546,
+      "output_retained_512": 0.7809665203094482,
+      "entry_sum_relative_error": 6.947339169098235e-08
+    },
+    "3": {
+      "product_retained_2304": 0.5983005166053772,
+      "output_retained_512": 0.7950045466423035,
+      "entry_sum_relative_error": 0.0
+    },
+    "4": {
+      "product_retained_2304": 0.603438675403595,
+      "output_retained_512": 0.7929852604866028,
+      "entry_sum_relative_error": 0.0
+    },
+    "5": {
+      "product_retained_2304": 0.7418144345283508,
+      "output_retained_512": 0.8959788680076599,
+      "entry_sum_relative_error": 2.642450079713911e-07
+    },
+    "6": {
+      "product_retained_2304": 0.812185525894165,
+      "output_retained_512": 0.8955579400062561,
+      "entry_sum_relative_error": 1.5672544131925207e-07
+    },
+    "7": {
+      "product_retained_2304": 0.6147189736366272,
+      "output_retained_512": 0.7679380774497986,
+      "entry_sum_relative_error": 0.0
+    },
+    "8": {
+      "product_retained_2304": 0.6099356412887573,
+      "output_retained_512": 0.7506531476974487,
+      "entry_sum_relative_error": 0.0
+    },
+    "9": {
+      "product_retained_2304": 0.6374043822288513,
+      "output_retained_512": 0.7722910642623901,
+      "entry_sum_relative_error": 0.0
+    },
+    "10": {
+      "product_retained_2304": 0.594373881816864,
+      "output_retained_512": 0.7313311100006104,
+      "entry_sum_relative_error": 0.0
+    },
+    "11": {
+      "product_retained_2304": 0.707585334777832,
+      "output_retained_512": 0.8246561288833618,
+      "entry_sum_relative_error": 0.0
+    },
+    "12": {
+      "product_retained_2304": 0.623745322227478,
+      "output_retained_512": 0.7553853392601013,
+      "entry_sum_relative_error": 0.0
+    },
+    "13": {
+      "product_retained_2304": 0.698513925075531,
+      "output_retained_512": 0.8428542613983154,
+      "entry_sum_relative_error": 0.0
+    },
+    "14": {
+      "product_retained_2304": 0.681955873966217,
+      "output_retained_512": 0.8373332023620605,
+      "entry_sum_relative_error": 1.680413287565597e-07
+    },
+    "15": {
+      "product_retained_2304": 0.827159583568573,
+      "output_retained_512": 0.9746565818786621,
+      "entry_sum_relative_error": 1.352649437835512e-07
+    },
+    "16": {
+      "product_retained_2304": 0.925390362739563,
+      "output_retained_512": 0.9933114647865295,
+      "entry_sum_relative_error": 1.8010748814892727e-07
+    },
+    "17": {
+      "product_retained_2304": 0.973341703414917,
+      "output_retained_512": 0.9971458911895752,
+      "entry_sum_relative_error": 2.0887621567262998e-07
+    }
+  },
+  "product_retained_2304_by_layer": [
+    0.6587068438529968,
+    0.5995312929153442,
+    0.5978261828422546,
+    0.5983005166053772,
+    0.603438675403595,
+    0.7418144345283508,
+    0.812185525894165,
+    0.6147189736366272,
+    0.6099356412887573,
+    0.6374043822288513,
+    0.594373881816864,
+    0.707585334777832,
+    0.623745322227478,
+    0.698513925075531,
+    0.681955873966217,
+    0.827159583568573,
+    0.925390362739563,
+    0.973341703414917
+  ],
+  "output_retained_512_by_layer": [
+    0.8260533213615417,
+    0.8020879030227661,
+    0.7809665203094482,
+    0.7950045466423035,
+    0.7929852604866028,
+    0.8959788680076599,
+    0.8955579400062561,
+    0.7679380774497986,
+    0.7506531476974487,
+    0.7722910642623901,
+    0.7313311100006104,
+    0.8246561288833618,
+    0.7553853392601013,
+    0.8428542613983154,
+    0.8373332023620605,
+    0.9746565818786621,
+    0.9933114647865295,
+    0.9971458911895752
+  ],
+  "depth_spearman_product_2304": 0.6160990712074302,
+  "late_jointly_compressible_layers": 2,
+  "pred_a_instrument_identities_hold_all_layers": true,
+  "pred_b_product_concentration_rises_with_depth": true,
+  "pred_c_late_stack_jointly_compressible": true,
+  "null_instrument_fails_any_layer": false
+}
