@@ -4561,3 +4561,12 @@ later per-rung backlog edits had silently anchored on text that was not here.
 - Strong null false, but full pass was required. Preserve all seven labels; count no second family and fit nothing.
   Next preregister independent additional documents plus a tie/uncertainty-aware reliability test without changing
   rung450, while continuing the still-queued vocabulary family.
+
+### Rung 451 — independent MLP-PCA reliability rows — COMPLETE / ALL HELD
+
+- Create-only freeze the full192-row authoritative MLP0+MLP2 composition-v2 EVALUATION role before any reliability
+  outcome, with fixed waves0:96 and96:192. Candidate-consequence fresh, not globally unused.
+- A/B/C/D true, null false: exact parent hashes/tensor/provenance; unique int64 rows/prefixes/documents/indices; zero
+  overlap with TEACHING, SEALED_CONFIRMATION, or bank fit caches under every registered key.
+- Receipt `d9914694…`, tensor `ff34039b…`; model and consequence access false. Next preregister uncertainty-aware
+  replication; this row instrument does not reverse rung450 or count family2.
