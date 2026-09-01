@@ -280,7 +280,9 @@ def main() -> None:
         }
 
     CN.use_state(str(ROOT / "census_state_diverse.pt"))
-    census_rows = CN.rows().cpu().long()
+    # The diverse state stores 513-token source rows, while its frozen CEV and
+    # every census harness score the first 257-token window (256 targets).
+    census_rows = CN.rows().cpu().long()[:, :257].contiguous()
     base = CN.base_ce().float().reshape(-1).cpu()
     assert base.numel() == CN.nflat() == census_rows.shape[0] * 256
     assert 2.0 <= float(base.mean()) <= 8.0
