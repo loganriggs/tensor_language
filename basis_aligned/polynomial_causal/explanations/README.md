@@ -12,8 +12,8 @@ state what was actually measured and what unit is being used.
 ## Start here
 
 - [explanation_2026-09-01_2314.md](explanation_2026-09-01_2314.md) — confirms that viable “dropped” work remains an
-  executable queue and reports the first completed item: all five MLP0 context ranks give monotone, two-wave-stable
-  downstream removal and composition labels, with a graph and explicit computational definitions
+  executable queue, graphs the monotone two-wave-stable local MLP0 result, and records why its native-model object
+  cannot be mislabeled with the complete mixed104 candidate prices; the whole-candidate rerun is required
 - [explanation_2026-09-01_2305.md](explanation_2026-09-01_2305.md) — freezes disjoint96-row teaching and sealed
   candidate-consequence roles, records the safe hash-convention repair, and explains rung446's measured split between
   downstream weighting and joint product coupling
