@@ -1,0 +1,69 @@
+{
+  "status": "a16_transfer_mlp16_rank2_quadratic_complete",
+  "rung": 390,
+  "claim_level": "original_native_signed_a16_gate_for_clean_l16_quadratic_program",
+  "convention": "signed effect = KO CE minus unablated CE within original-native and candidate models",
+  "native_ko_measured_before_candidate_installation": true,
+  "fit": {
+    "cache": "fineweb_n192_skip11000.pt",
+    "fit_b": [
+      24,
+      48
+    ]
+  },
+  "ranks": {
+    "output_directions": 4,
+    "rank_per_form": 2
+  },
+  "program_shapes": {
+    "output_directions": [
+      4,
+      1152
+    ],
+    "forms": [
+      4,
+      1152,
+      1152
+    ],
+    "constant": [
+      1152
+    ]
+  },
+  "literal_layer_scalars": 14984,
+  "literal_model_scalars": 529991486,
+  "unablated_max_abs_reproduction_error": 0.0,
+  "unablated_census_damage": 0.03897828608751297,
+  "unablated_certificates": 27,
+  "effect_cosine": 0.9797225594520569,
+  "effect_normalized_error": 0.21306218206882477,
+  "effect_norm_ratio": 1.0520105361938477,
+  "effect_candidate_mean_abs": 0.08489329367876053,
+  "collateral_spearman": 0.9973469376564026,
+  "own_effect_median_ratio": 1.0411815253283925,
+  "own_effect_ratios": [
+    1.029693359822445,
+    1.0322446182160583,
+    1.034220887777664,
+    1.0357618403978879,
+    1.0363245043518539,
+    1.0377447444630832,
+    1.0411815253283925,
+    1.0419345739975159,
+    1.0428672601678675,
+    1.0440245156774592,
+    1.045287917645023,
+    1.0501130111405765,
+    1.0646813071631556
+  ],
+  "hook_calls": {
+    "candidate": 1000,
+    "ablation": 500
+  },
+  "saved_candidate_ko_cev": "cev_a16ko_mlp16_rank2_quadratic.pt",
+  "pred_a_unablated_identity_price_and_hooks_hold": true,
+  "pred_b_original_native_signed_effect_holds": true,
+  "pred_c_circuit_profile_holds": true,
+  "null_signed_transport_fails": false,
+  "composition_licensed": true,
+  "runtime_s": 24.8467276096344
+}
