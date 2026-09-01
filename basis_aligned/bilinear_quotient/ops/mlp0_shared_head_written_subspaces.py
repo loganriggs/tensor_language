@@ -389,11 +389,11 @@ def main():
         "parent_boundary_absolute_differences": boundaries,
         "best_basis": {"I": max(i_endpoint, key=i_endpoint.get),
                        "C": max(c_endpoint, key=c_endpoint.get)},
-        "pred_a_exact_live_boundaries": bool(pred_a),
-        "pred_b_shared_multhead_and_split_stable": bool(pred_b),
-        "pred_c_shared_modes_causally_material_for_I": bool(pred_c),
-        "pred_d_I_and_C_prefer_different_bases": bool(pred_d),
-        "null_shared_residual_subspace_not_identified": bool(strong_null),
+        'pred_a_exact_live_boundaries': bool(pred_a),
+        'pred_b_shared_multhead_and_split_stable': bool(pred_b),
+        'pred_c_shared_modes_causally_material_for_I': bool(pred_c),
+        'pred_d_I_and_C_prefer_different_bases': bool(pred_d),
+        'null_shared_residual_subspace_not_identified': bool(strong_null),
         "next_step": (
             "source_position_and_token_resolution_plus_causal_response_weighted_basis"
             if pred_a and pred_b and pred_c and not strong_null
