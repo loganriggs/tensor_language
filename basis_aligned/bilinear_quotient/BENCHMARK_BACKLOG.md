@@ -3180,3 +3180,8 @@ later per-rung backlog edits had silently anchored on text that was not here.
     knob semantics): pred_a |census| <= 0.003; pred_b valid >= 55;
     pred_c |census| <= 0.02 + cev saved. Null: census instrument itself
     biased. -> ops/harness_null2.py [QUEUED 01:38Z]
+
+286. LOCALIZATION DUMP: native-vs-replaced tail outputs in situ (full
+    rank): pred_a max block rel err >= 0.01; pred_b max/min <= 5;
+    pred_c 8 blocks finite. Null: < 0.005 everywhere (carrier is the
+    motif path or merge). -> ops/path_diag.py [QUEUED 01:44Z]
