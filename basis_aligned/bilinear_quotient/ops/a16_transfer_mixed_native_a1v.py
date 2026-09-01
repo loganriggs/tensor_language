@@ -23,15 +23,22 @@ import time
 from pathlib import Path
 
 ROOT = Path('/workspace/tensor_language/basis_aligned/bilinear_quotient')
-OUT = ROOT / 'a16_transfer_mixed_native_a1v_results.json'
-COMP_KO = ROOT / 'cev_a16ko_mixed_native_a1v.pt'
+TRUE_MIXED = os.environ.get('BILIN18_A16_TRUE_MIXED') == '1'
+BASE_RESULT = ROOT / ('mixed104_native_a1v_results.json' if TRUE_MIXED else
+                      'mixed_native_a1v_results.json')
+BASE_CEV = ROOT / ('cev_mixed104_native_a1v.pt' if TRUE_MIXED else
+                   'cev_mixed_native_a1v.pt')
+OUT = ROOT / ('a16_transfer_mixed104_native_a1v_results.json' if TRUE_MIXED else
+              'a16_transfer_mixed_native_a1v_results.json')
+COMP_KO = ROOT / ('cev_a16ko_mixed104_native_a1v.pt' if TRUE_MIXED else
+                  'cev_a16ko_mixed_native_a1v.pt')
 NATIVE_KO = ROOT / 'cev_a16ko_native.pt'
 
 if os.environ.get('BQLIB_DRYRUN') == '1':
     needed = [
         ROOT / 'frontier_tail_traj_results.json', ROOT / 'circuits/BATTERY.json',
-        ROOT / 'census_state_diverse.pt', ROOT / 'mixed_native_a1v_results.json',
-        ROOT / 'cev_mixed_native_a1v.pt', ROOT / 'ops/cevdump_ct96.py',
+        ROOT / 'census_state_diverse.pt', BASE_RESULT, BASE_CEV,
+        ROOT / 'ops/cevdump_ct96.py',
     ]
     missing = [str(path) for path in needed if not path.exists()]
     if missing:
@@ -43,7 +50,7 @@ if os.environ.get('BQLIB_DRYRUN') == '1':
             baseline.get('max_fresh_damage', 1.0) > 0.020):
         print('DRYRUN FAIL: rung 290 did not pass its frozen bars')
         raise SystemExit(1)
-    print('DRYRUN OK: rung 291 signed a16 transfer on corrected mixed')
+    print('DRYRUN OK: signed a16 transfer on '+('true mixed104' if TRUE_MIXED else 'top96'))
     raise SystemExit(0)
 
 sys.path.insert(0, str(ROOT))
@@ -96,8 +103,8 @@ def main():
     rows = CN.rows().cpu()
     base_ce = CN.base_ce().float().cpu()
     nflat = CN.nflat()
-    baseline = torch.load(ROOT / 'cev_mixed_native_a1v.pt', map_location='cpu').float().reshape(-1)
-    baseline_result = json.load(open(ROOT / 'mixed_native_a1v_results.json'))
+    baseline = torch.load(BASE_CEV, map_location='cpu').float().reshape(-1)
+    baseline_result = json.load(open(BASE_RESULT))
     assert baseline.numel() == nflat
 
     C.CROWS = rows
@@ -108,6 +115,7 @@ def main():
         'mode': 'norm', 'K': 4608, 'K69': 4608, 'K69MAP': {},
         'skipset': tuple(range(10, 18)), 'motif_off': (), 'clsdmg': True,
         'ext_rows': rows, 'cp_swap': 4608, 'qk_r': 96, 'qk_rmap': {},
+        'qk_extra_tail': 8 if TRUE_MIXED else 0,
         'qk_tail': True, 'drop_tailE': True, 'drop_a1v': True,
         'ablate_on_census': True,
     })
@@ -137,15 +145,22 @@ def main():
         return mean_value.expand_as(values).to(values.dtype), v1
 
     C.SEL['_ablh'] = ablate
-    print('ARM: corrected mixed with a16 mean ablated only at census', flush=True)
+    print('ARM: corrected '+('true mixed104' if TRUE_MIXED else 'top96')+
+          ' with a16 mean ablated only at census', flush=True)
     run = C.main()
     qk = C.SEL.get('_QKR', {})
     factor_ranks = {
         int(factor[0].shape[1])
         for heads in qk.values() for factors in heads.values() for factor in factors
     }
-    if set(qk) != set(range(2, 18)) or factor_ranks != {96}:
+    expected_width = 104 if TRUE_MIXED else 96
+    if set(qk) != set(range(2, 18)) or factor_ranks != {expected_width}:
         raise SystemExit(f'INSTRUMENT FAIL: QK layers/ranks {sorted(qk)}/{factor_ranks}')
+    if TRUE_MIXED:
+        wanted = tuple(list(range(96)) + list(range(120, 128)))
+        index_sets = C.SEL.get('_QK_INDEX_SETS', {})
+        if set(index_sets) != set(range(2, 18)) or any(v != wanted for v in index_sets.values()):
+            raise SystemExit('INSTRUMENT FAIL: true-mixed index construction not live')
 
     compiled_ko = C.SEL['cev'].float().cpu()
     assert compiled_ko.numel() == nflat
@@ -191,7 +206,8 @@ def main():
     own_median = own_ratios[len(own_ratios) // 2]
     collateral_rho = spearman(collateral_real, collateral_comp)
 
-    pred_a = (baseline_result['census_damage'] <= 0.012 and
+    baseline_bar = 0.0065 if TRUE_MIXED else 0.012
+    pred_a = (baseline_result['census_damage'] <= baseline_bar and
               baseline_result['max_fresh_damage'] <= 0.020 and run['L2_F'] <= 0.020)
     pred_b = cosine >= 0.90 and normalized_error <= 0.60
     pred_c = collateral_rho >= 0.90 and 0.60 <= own_median <= 1.40
@@ -213,7 +229,8 @@ def main():
         'pred_b_signed_effect': bool(pred_b),
         'pred_c_circuits': bool(pred_c),
         'null_triggered': bool(cosine < 0.70 or collateral_rho < 0.75),
-        'decision_level': 'a16 causal falsifier for corrected mixed adoption',
+        'decision_level': ('a16 adoption gate for true corrected mixed104' if TRUE_MIXED else
+                           'a16 causal falsifier for corrected top96'),
         'runtime_s': round(time.time() - started, 1),
     }
     OUT.write_text(json.dumps(result, indent=2) + '\n')

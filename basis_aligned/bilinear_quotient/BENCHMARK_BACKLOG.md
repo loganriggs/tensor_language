@@ -3253,4 +3253,10 @@ later per-rung backlog edits had silently anchored on text that was not here.
     <=0.0065 and >=54 certs; all fresh8 <=0.020; exact index-set live
     tripwire. Null/no-benefit: census >=0.0080 and certs <=52. No
     scalar transport bar. Exact price pending. -> ops/mixed104_native_a1v.py
-    [BUILDING]
+    RUN 2026-09-01: ALL HELD — exact indices/factor width live;
+    +0.00469196 census, 54/62, fresh8 [-0.0066,+0.0032]. Last8 buy
+    -0.0038465 CE and +2 certs over physical top96.
+
+294. [CODEX, board-claimed 02:11Z] SIGNED a16 ADOPTION GATE on true
+    mixed104. Same direct-effect bars as 291 plus exact 104-index-set
+    tripwire. -> ops/a16_transfer_mixed104_native_a1v.py [BUILDING]
