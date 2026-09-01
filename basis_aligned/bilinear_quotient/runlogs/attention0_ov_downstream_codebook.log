@@ -2,7 +2,8 @@
   "status": "attention0_ov_downstream_codebook_complete",
   "exactness": {
     "payload_float64_fold_max_abs": 5.400124791776761e-13,
-    "natural_u16_edge_replay_max_abs": 0.000640869140625,
+    "natural_u16_edge_replay_before_remainder_max_abs": 0.000640869140625,
+    "natural_u16_edge_replay_after_measured_remainder_max_abs": 0.0,
     "natural_u16_edge_relative_squared_error_before_remainder": 4.4439422816160143e-13,
     "natural_u16_edge_relative_squared_error_after_measured_remainder": 0.0
   },
@@ -800,16 +801,17 @@
         ]
       }
     },
-    "u16_edge_replay_max_abs": 0.000640869140625,
+    "u16_edge_replay_before_remainder_max_abs": 0.000640869140625,
+    "u16_edge_replay_after_measured_remainder_max_abs": 0.0,
     "u16_edge_relative_squared_error_before_remainder": 4.4439422816160143e-13,
     "u16_edge_relative_squared_error_after_measured_remainder": 0.0
   },
-  "pred_a": false,
+  "pred_a": true,
   "pred_b": false,
   "pred_c": false,
   "pred_d": true,
   "strong_null": true,
-  "next_step": "instrument_repair_only",
-  "runtime_s": 90.2880585193634
+  "next_step": "continuous_block_term_complete_qk_times_ov",
+  "runtime_s": 90.49003314971924
 }
 ATTENTION0 OV DOWNSTREAM CODEBOOK DONE

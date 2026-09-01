@@ -1,0 +1,540 @@
+{
+  "status": "attention0_qk_common_carrier_complete",
+  "exactness": {
+    "fold_max_abs_by_branch": {
+      "1": 1.1102230246251565e-15,
+      "2": 8.881784197001252e-16
+    },
+    "factor_unit_rms_max_abs": 3.5762786865234375e-07,
+    "fit_whitening_max_abs": 5.960464477539062e-07,
+    "component_orthogonality_max_abs": 5.960464477539062e-07,
+    "mlp_token_basis_orthogonality_max_abs": 4.98961890116334e-06
+  },
+  "q_vs_k_carrier_overlap": 0.612136721611023,
+  "sides": {
+    "q": {
+      "original_fit": {
+        "count": 144,
+        "mean": 0.1910813343193796,
+        "sd": 0.009982481576707405,
+        "min": 0.16661247611045837,
+        "max": 0.2146119475364685,
+        "p99": 0.21133627474308012
+      },
+      "original_select": {
+        "count": 144,
+        "mean": 0.19767493216527832,
+        "sd": 0.00985501753178961,
+        "min": 0.17390727996826172,
+        "max": 0.22150376439094543,
+        "p99": 0.21810005754232406
+      },
+      "parent_fit_mean": 0.19108129582471317,
+      "parent_fit_mean_abs_error": 3.849466642669164e-08,
+      "carrier_average_projector_eigenvalues": [
+        0.9028894901275635,
+        0.806102454662323,
+        0.7773642539978027,
+        0.6915717720985413,
+        0.6829466819763184,
+        0.6657589673995972,
+        0.6293182373046875,
+        0.6017283797264099,
+        0.5699191689491272,
+        0.5559300780296326,
+        0.5492586493492126,
+        0.5365778207778931,
+        0.5257570743560791,
+        0.5165613889694214,
+        0.5093508362770081,
+        0.5045403838157654,
+        0.4959121346473694,
+        0.48635533452033997,
+        0.4846363663673401,
+        0.46561744809150696,
+        0.4632328152656555,
+        0.45579811930656433,
+        0.454916775226593,
+        0.4461023211479187
+      ],
+      "carrier_repeat_eigenvalues": [
+        0.9028968214988708,
+        0.8061075806617737,
+        0.7773573398590088,
+        0.6915653347969055,
+        0.6829389929771423,
+        0.6657222509384155,
+        0.629315197467804,
+        0.6017181277275085,
+        0.5703709125518799,
+        0.555879533290863,
+        0.5489628314971924,
+        0.5369051098823547,
+        0.5257138013839722,
+        0.5166394114494324,
+        0.5087677836418152,
+        0.5034787654876709,
+        0.4956645965576172,
+        0.4865726828575134,
+        0.4849742650985718,
+        0.4668561518192291,
+        0.4623042941093445,
+        0.45578813552856445,
+        0.45396578311920166,
+        0.44841495156288147
+      ],
+      "carrier_solver_relative_residual": 0.017240144312381744,
+      "carrier_repeat_solver_relative_residual": 0.01723317615687847,
+      "carrier_repeat_projector_overlap": 0.9699214696884155,
+      "branch_carrier_capture": {
+        "mean": 0.5740909609529707,
+        "min": 0.5085352063179016,
+        "max": 0.6193273067474365
+      },
+      "select_carrier_only": {
+        "count": 144,
+        "mean": 0.3164771269592974,
+        "sd": 0.02325289816904586,
+        "min": 0.25520598888397217,
+        "max": 0.38440704345703125,
+        "p99": 0.3770558929443359
+      },
+      "select_private_remainder": {
+        "count": 144,
+        "mean": 0.14284933555043405,
+        "sd": 0.00862183337793195,
+        "min": 0.12549859285354614,
+        "max": 0.16498243808746338,
+        "p99": 0.16346886977553368
+      },
+      "select_haar_removal_remainder": {
+        "count": 144,
+        "mean": 0.16142567226456273,
+        "sd": 0.00827998344839522,
+        "min": 0.14107494056224823,
+        "max": 0.17941898107528687,
+        "p99": 0.17902256429195404
+      },
+      "select_permuted_carrier_only": {
+        "count": 144,
+        "mean": 0.06229446864583426,
+        "sd": 0.005721412363439842,
+        "min": 0.04824194312095642,
+        "max": 0.07543821632862091,
+        "p99": 0.07465702414512634
+      },
+      "permuted_average_projector_eigenvalues": [
+        0.08031245321035385,
+        0.08001841604709625,
+        0.07976646721363068,
+        0.07966127246618271,
+        0.07959374040365219,
+        0.0795169398188591,
+        0.07941770553588867,
+        0.07923675328493118,
+        0.07908765226602554,
+        0.07882657647132874,
+        0.07871285080909729,
+        0.07860105484724045,
+        0.07848856598138809,
+        0.07842206209897995,
+        0.07817617058753967,
+        0.07809250056743622,
+        0.07797673344612122,
+        0.0778171494603157,
+        0.07781112939119339,
+        0.07762309163808823,
+        0.07753904163837433,
+        0.07744046300649643,
+        0.07736407220363617,
+        0.07721259444952011
+      ],
+      "permuted_solver_relative_residual": 0.060219161212444305,
+      "component_ranks": {
+        "(0, 1)": {
+          "carrier": 24,
+          "remainder": 104,
+          "haar_remainder": 104,
+          "fit_carrier_coordinate_min_singular": 0.5417303442955017
+        },
+        "(0, 2)": {
+          "carrier": 24,
+          "remainder": 104,
+          "haar_remainder": 104,
+          "fit_carrier_coordinate_min_singular": 0.5851812362670898
+        },
+        "(1, 1)": {
+          "carrier": 24,
+          "remainder": 104,
+          "haar_remainder": 104,
+          "fit_carrier_coordinate_min_singular": 0.5705127120018005
+        },
+        "(1, 2)": {
+          "carrier": 24,
+          "remainder": 104,
+          "haar_remainder": 104,
+          "fit_carrier_coordinate_min_singular": 0.504206120967865
+        },
+        "(2, 1)": {
+          "carrier": 24,
+          "remainder": 104,
+          "haar_remainder": 104,
+          "fit_carrier_coordinate_min_singular": 0.5279577970504761
+        },
+        "(2, 2)": {
+          "carrier": 24,
+          "remainder": 104,
+          "haar_remainder": 104,
+          "fit_carrier_coordinate_min_singular": 0.540255606174469
+        },
+        "(3, 1)": {
+          "carrier": 24,
+          "remainder": 104,
+          "haar_remainder": 104,
+          "fit_carrier_coordinate_min_singular": 0.4817722737789154
+        },
+        "(3, 2)": {
+          "carrier": 24,
+          "remainder": 104,
+          "haar_remainder": 104,
+          "fit_carrier_coordinate_min_singular": 0.5354630351066589
+        },
+        "(4, 1)": {
+          "carrier": 24,
+          "remainder": 104,
+          "haar_remainder": 104,
+          "fit_carrier_coordinate_min_singular": 0.5587065815925598
+        },
+        "(4, 2)": {
+          "carrier": 24,
+          "remainder": 104,
+          "haar_remainder": 104,
+          "fit_carrier_coordinate_min_singular": 0.5614170432090759
+        },
+        "(5, 1)": {
+          "carrier": 24,
+          "remainder": 104,
+          "haar_remainder": 104,
+          "fit_carrier_coordinate_min_singular": 0.5622453689575195
+        },
+        "(5, 2)": {
+          "carrier": 24,
+          "remainder": 104,
+          "haar_remainder": 104,
+          "fit_carrier_coordinate_min_singular": 0.543279230594635
+        },
+        "(6, 1)": {
+          "carrier": 24,
+          "remainder": 104,
+          "haar_remainder": 104,
+          "fit_carrier_coordinate_min_singular": 0.5332167148590088
+        },
+        "(6, 2)": {
+          "carrier": 24,
+          "remainder": 104,
+          "haar_remainder": 104,
+          "fit_carrier_coordinate_min_singular": 0.5733791589736938
+        },
+        "(7, 1)": {
+          "carrier": 24,
+          "remainder": 104,
+          "haar_remainder": 104,
+          "fit_carrier_coordinate_min_singular": 0.5456300973892212
+        },
+        "(7, 2)": {
+          "carrier": 24,
+          "remainder": 104,
+          "haar_remainder": 104,
+          "fit_carrier_coordinate_min_singular": 0.6007990837097168
+        },
+        "(8, 1)": {
+          "carrier": 24,
+          "remainder": 104,
+          "haar_remainder": 104,
+          "fit_carrier_coordinate_min_singular": 0.5416956543922424
+        },
+        "(8, 2)": {
+          "carrier": 24,
+          "remainder": 104,
+          "haar_remainder": 104,
+          "fit_carrier_coordinate_min_singular": 0.5042638182640076
+        }
+      }
+    },
+    "k": {
+      "original_fit": {
+        "count": 144,
+        "mean": 0.18573630828824308,
+        "sd": 0.014377151986545864,
+        "min": 0.15298938751220703,
+        "max": 0.22533798217773438,
+        "p99": 0.223325966745615
+      },
+      "original_select": {
+        "count": 144,
+        "mean": 0.1923321427570449,
+        "sd": 0.014093053797254229,
+        "min": 0.1605982929468155,
+        "max": 0.2321493923664093,
+        "p99": 0.22940802708268163
+      },
+      "parent_fit_mean": 0.18573629597408903,
+      "parent_fit_mean_abs_error": 1.2314154057557758e-08,
+      "carrier_average_projector_eigenvalues": [
+        0.8693049550056458,
+        0.7116489410400391,
+        0.6561900973320007,
+        0.6471699476242065,
+        0.6251122355461121,
+        0.600888729095459,
+        0.5856343507766724,
+        0.5754260420799255,
+        0.553443193435669,
+        0.5432708859443665,
+        0.5359323024749756,
+        0.5238785147666931,
+        0.5138267874717712,
+        0.5023196339607239,
+        0.4906894862651825,
+        0.4879504442214966,
+        0.48184633255004883,
+        0.4745233356952667,
+        0.471051424741745,
+        0.4601396918296814,
+        0.4578210115432739,
+        0.45594918727874756,
+        0.4497680068016052,
+        0.4440072476863861
+      ],
+      "carrier_repeat_eigenvalues": [
+        0.8693128228187561,
+        0.7116667628288269,
+        0.6561866998672485,
+        0.6471571326255798,
+        0.6251272559165955,
+        0.6009199619293213,
+        0.5856955647468567,
+        0.575462818145752,
+        0.55347740650177,
+        0.5435448288917542,
+        0.5360992550849915,
+        0.5237929224967957,
+        0.51408851146698,
+        0.5022750496864319,
+        0.49064749479293823,
+        0.4868830442428589,
+        0.4815632104873657,
+        0.4740857481956482,
+        0.46996814012527466,
+        0.46348437666893005,
+        0.4596538245677948,
+        0.45477166771888733,
+        0.44930753111839294,
+        0.4444698095321655
+      ],
+      "carrier_solver_relative_residual": 0.02077990397810936,
+      "carrier_repeat_solver_relative_residual": 0.020281394943594933,
+      "carrier_repeat_projector_overlap": 0.9594734907150269,
+      "branch_carrier_capture": {
+        "mean": 0.546576761537128,
+        "min": 0.47295305132865906,
+        "max": 0.6038593053817749
+      },
+      "select_carrier_only": {
+        "count": 144,
+        "mean": 0.28033309740324813,
+        "sd": 0.02986716211752958,
+        "min": 0.2154511660337448,
+        "max": 0.35884031653404236,
+        "p99": 0.35657520085573197
+      },
+      "select_private_remainder": {
+        "count": 144,
+        "mean": 0.14307926517600814,
+        "sd": 0.011849666390312345,
+        "min": 0.11962610483169556,
+        "max": 0.17815306782722473,
+        "p99": 0.1742744334042072
+      },
+      "select_haar_removal_remainder": {
+        "count": 144,
+        "mean": 0.15696079190820456,
+        "sd": 0.011643147969446235,
+        "min": 0.13022145628929138,
+        "max": 0.18947254121303558,
+        "p99": 0.18793407842516896
+      },
+      "select_permuted_carrier_only": {
+        "count": 144,
+        "mean": 0.06076547987241712,
+        "sd": 0.006885006175070315,
+        "min": 0.04267223924398422,
+        "max": 0.07850365340709686,
+        "p99": 0.07660470016300677
+      },
+      "permuted_average_projector_eigenvalues": [
+        0.08061536401510239,
+        0.0805179700255394,
+        0.08002219349145889,
+        0.07999535650014877,
+        0.07957714051008224,
+        0.07939943671226501,
+        0.07936982810497284,
+        0.07922589778900146,
+        0.07914770394563675,
+        0.07883967459201813,
+        0.07872489094734192,
+        0.0786823034286499,
+        0.07845421880483627,
+        0.07835926860570908,
+        0.07822810858488083,
+        0.07816211134195328,
+        0.07799417525529861,
+        0.07771138101816177,
+        0.07763437181711197,
+        0.07753221690654755,
+        0.07743776589632034,
+        0.07729851454496384,
+        0.07720928639173508,
+        0.07708520442247391
+      ],
+      "permuted_solver_relative_residual": 0.05964763090014458,
+      "component_ranks": {
+        "(0, 1)": {
+          "carrier": 24,
+          "remainder": 104,
+          "haar_remainder": 104,
+          "fit_carrier_coordinate_min_singular": 0.5249902606010437
+        },
+        "(0, 2)": {
+          "carrier": 24,
+          "remainder": 104,
+          "haar_remainder": 104,
+          "fit_carrier_coordinate_min_singular": 0.5829447507858276
+        },
+        "(1, 1)": {
+          "carrier": 24,
+          "remainder": 104,
+          "haar_remainder": 104,
+          "fit_carrier_coordinate_min_singular": 0.5278233885765076
+        },
+        "(1, 2)": {
+          "carrier": 24,
+          "remainder": 104,
+          "haar_remainder": 104,
+          "fit_carrier_coordinate_min_singular": 0.5351543426513672
+        },
+        "(2, 1)": {
+          "carrier": 24,
+          "remainder": 104,
+          "haar_remainder": 104,
+          "fit_carrier_coordinate_min_singular": 0.5235487818717957
+        },
+        "(2, 2)": {
+          "carrier": 24,
+          "remainder": 104,
+          "haar_remainder": 104,
+          "fit_carrier_coordinate_min_singular": 0.5153056383132935
+        },
+        "(3, 1)": {
+          "carrier": 24,
+          "remainder": 104,
+          "haar_remainder": 104,
+          "fit_carrier_coordinate_min_singular": 0.42610156536102295
+        },
+        "(3, 2)": {
+          "carrier": 24,
+          "remainder": 104,
+          "haar_remainder": 104,
+          "fit_carrier_coordinate_min_singular": 0.4634469151496887
+        },
+        "(4, 1)": {
+          "carrier": 24,
+          "remainder": 104,
+          "haar_remainder": 104,
+          "fit_carrier_coordinate_min_singular": 0.5636637806892395
+        },
+        "(4, 2)": {
+          "carrier": 24,
+          "remainder": 104,
+          "haar_remainder": 104,
+          "fit_carrier_coordinate_min_singular": 0.5948537588119507
+        },
+        "(5, 1)": {
+          "carrier": 24,
+          "remainder": 104,
+          "haar_remainder": 104,
+          "fit_carrier_coordinate_min_singular": 0.4988324046134949
+        },
+        "(5, 2)": {
+          "carrier": 24,
+          "remainder": 104,
+          "haar_remainder": 104,
+          "fit_carrier_coordinate_min_singular": 0.5281261205673218
+        },
+        "(6, 1)": {
+          "carrier": 24,
+          "remainder": 104,
+          "haar_remainder": 104,
+          "fit_carrier_coordinate_min_singular": 0.5373221635818481
+        },
+        "(6, 2)": {
+          "carrier": 24,
+          "remainder": 104,
+          "haar_remainder": 104,
+          "fit_carrier_coordinate_min_singular": 0.5145470499992371
+        },
+        "(7, 1)": {
+          "carrier": 24,
+          "remainder": 104,
+          "haar_remainder": 104,
+          "fit_carrier_coordinate_min_singular": 0.5703078508377075
+        },
+        "(7, 2)": {
+          "carrier": 24,
+          "remainder": 104,
+          "haar_remainder": 104,
+          "fit_carrier_coordinate_min_singular": 0.594332218170166
+        },
+        "(8, 1)": {
+          "carrier": 24,
+          "remainder": 104,
+          "haar_remainder": 104,
+          "fit_carrier_coordinate_min_singular": 0.5836774110794067
+        },
+        "(8, 2)": {
+          "carrier": 24,
+          "remainder": 104,
+          "haar_remainder": 104,
+          "fit_carrier_coordinate_min_singular": 0.5634393692016602
+        }
+      }
+    }
+  },
+  "mlp_alignment": {
+    "q": {
+      "L": 0.7635132670402527,
+      "z": 0.8351165652275085,
+      "F": 0.5335487127304077,
+      "Q": 0.0004371473041828722,
+      "L_token_permuted": 0.0016531472792848945,
+      "L_margin_over_permuted": 0.7618601197609678
+    },
+    "k": {
+      "L": 0.7301836013793945,
+      "z": 0.8463556170463562,
+      "F": 0.498757541179657,
+      "Q": 0.00022385624470189214,
+      "L_token_permuted": 0.0016063596121966839,
+      "L_margin_over_permuted": 0.7285772417671978
+    }
+  },
+  "pred_a": true,
+  "pred_b": false,
+  "pred_c": false,
+  "pred_d": true,
+  "strong_null": true,
+  "next_step": "continuous_coupled_qk_times_ov_block_term",
+  "runtime_s": 10.182440042495728
+}
+ATTENTION0 QK COMMON CARRIER DONE
