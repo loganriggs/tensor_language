@@ -1,0 +1,364 @@
+{
+  "status": "mlp0_embedding_fold_prior_sweep_complete",
+  "rung": "298B",
+  "arms": {
+    "spectrum": {
+      "heldout_r2": 0.9999268651008606,
+      "family": {
+        "mean_best_jaccard": 0.8197916666666667,
+        "min_best_jaccard": 0.5,
+        "reachability_f1": 0.775,
+        "matched_masks": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          [
+            0,
+            1,
+            3
+          ],
+          [
+            0,
+            2,
+            3,
+            4
+          ],
+          [
+            0,
+            5,
+            6,
+            7
+          ],
+          [
+            0,
+            1,
+            3
+          ],
+          [
+            0,
+            2,
+            3,
+            4
+          ],
+          [
+            4
+          ],
+          [
+            0,
+            3,
+            6,
+            7
+          ],
+          [
+            0
+          ],
+          [
+            1
+          ],
+          [
+            2
+          ],
+          [
+            3
+          ],
+          [
+            4
+          ],
+          [
+            5
+          ],
+          [
+            6
+          ],
+          [
+            7
+          ]
+        ]
+      },
+      "structural_nonzero_scalars": 2192,
+      "dense_shape_scalars": 3584,
+      "curve": [
+        {
+          "step": 0,
+          "heldout_r2": -0.04679417610168457
+        },
+        {
+          "step": 250,
+          "heldout_r2": 0.9937223196029663
+        },
+        {
+          "step": 500,
+          "heldout_r2": 0.9986040592193604
+        },
+        {
+          "step": 750,
+          "heldout_r2": 0.999470055103302
+        },
+        {
+          "step": 1000,
+          "heldout_r2": 0.9997424483299255
+        },
+        {
+          "step": 1250,
+          "heldout_r2": 0.9998459815979004
+        },
+        {
+          "step": 1500,
+          "heldout_r2": 0.9998894333839417
+        },
+        {
+          "step": 1750,
+          "heldout_r2": 0.999910831451416
+        },
+        {
+          "step": 2000,
+          "heldout_r2": 0.9999220967292786
+        },
+        {
+          "step": 2250,
+          "heldout_r2": 0.9999261498451233
+        },
+        {
+          "step": 2499,
+          "heldout_r2": 0.9999268651008606
+        }
+      ]
+    },
+    "pair_only": {
+      "heldout_r2": 0.9999991655349731,
+      "family": {
+        "mean_best_jaccard": 0.734375,
+        "min_best_jaccard": 0.25,
+        "reachability_f1": 0.24489795918367346,
+        "matched_masks": [
+          [
+            1,
+            4
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            4
+          ],
+          [
+            6,
+            7
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            4,
+            5
+          ],
+          [
+            6,
+            7
+          ],
+          [
+            0,
+            6
+          ],
+          [
+            1,
+            4
+          ],
+          [
+            2,
+            6
+          ],
+          [
+            3
+          ],
+          [
+            1,
+            4
+          ],
+          [
+            5
+          ],
+          [
+            6
+          ],
+          [
+            7
+          ]
+        ]
+      },
+      "structural_nonzero_scalars": 2176,
+      "dense_shape_scalars": 3584,
+      "curve": [
+        {
+          "step": 0,
+          "heldout_r2": -0.04109489917755127
+        },
+        {
+          "step": 250,
+          "heldout_r2": 0.9964056015014648
+        },
+        {
+          "step": 500,
+          "heldout_r2": 0.9997499585151672
+        },
+        {
+          "step": 750,
+          "heldout_r2": 0.9999663233757019
+        },
+        {
+          "step": 1000,
+          "heldout_r2": 0.9999896287918091
+        },
+        {
+          "step": 1250,
+          "heldout_r2": 0.9999957084655762
+        },
+        {
+          "step": 1500,
+          "heldout_r2": 0.9999978542327881
+        },
+        {
+          "step": 1750,
+          "heldout_r2": 0.9999986886978149
+        },
+        {
+          "step": 2000,
+          "heldout_r2": 0.9999990463256836
+        },
+        {
+          "step": 2250,
+          "heldout_r2": 0.9999991655349731
+        },
+        {
+          "step": 2499,
+          "heldout_r2": 0.9999991655349731
+        }
+      ]
+    },
+    "singleton": {
+      "heldout_r2": 0.9917332530021667,
+      "family": {
+        "mean_best_jaccard": 0.6796875,
+        "min_best_jaccard": 0.125,
+        "reachability_f1": 0.0,
+        "matched_masks": [
+          [
+            0
+          ],
+          [
+            0
+          ],
+          [
+            4
+          ],
+          [
+            6
+          ],
+          [
+            0
+          ],
+          [
+            2
+          ],
+          [
+            4
+          ],
+          [
+            6
+          ],
+          [
+            0
+          ],
+          [
+            1
+          ],
+          [
+            2
+          ],
+          [
+            3
+          ],
+          [
+            4
+          ],
+          [
+            5
+          ],
+          [
+            6
+          ],
+          [
+            7
+          ]
+        ]
+      },
+      "structural_nonzero_scalars": 2112,
+      "dense_shape_scalars": 3584,
+      "curve": [
+        {
+          "step": 0,
+          "heldout_r2": -0.026461482048034668
+        },
+        {
+          "step": 250,
+          "heldout_r2": 0.986905038356781
+        },
+        {
+          "step": 500,
+          "heldout_r2": 0.9916775822639465
+        },
+        {
+          "step": 750,
+          "heldout_r2": 0.9916720390319824
+        },
+        {
+          "step": 1000,
+          "heldout_r2": 0.9917019009590149
+        },
+        {
+          "step": 1250,
+          "heldout_r2": 0.9917336702346802
+        },
+        {
+          "step": 1500,
+          "heldout_r2": 0.9917258620262146
+        },
+        {
+          "step": 1750,
+          "heldout_r2": 0.9917265176773071
+        },
+        {
+          "step": 2000,
+          "heldout_r2": 0.9917052388191223
+        },
+        {
+          "step": 2250,
+          "heldout_r2": 0.9917389154434204
+        },
+        {
+          "step": 2499,
+          "heldout_r2": 0.9917332530021667
+        }
+      ]
+    }
+  },
+  "pred_a_spectrum_recovers_structure": false,
+  "pred_b_prior_beats_dense_identifiability": true,
+  "pred_c_wrong_priors_discriminate": false,
+  "null_spectrum_nonidentifying": false,
+  "runtime_s": 16.830613136291504
+}
