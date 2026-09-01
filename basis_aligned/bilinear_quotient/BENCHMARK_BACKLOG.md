@@ -4412,3 +4412,14 @@ later per-rung backlog edits had silently anchored on text that was not here.
 - TOTAL wins both I/C endpoint averages (.080964/.033411) over SHARED (.074135/.030863). A/C hold, B/D fail, strong
   null true. Do not call covariance modes shared features or tune rank. Next object is a heldout downstream-response
   quotient plus the dual shared-reader-input and double-QK-half decompositions specified in explanation_1807.
+### Rung 417 — finite downstream-response head service at MLP0 — COMPLETE / NO SERVICE IDENTIFIED
+
+- Exact two-background response tensor for the nine rung402 `I_h` paths: singleton/removal changes in native
+  attention1 and MLP1 writes, 96 FIT/96 disjoint SELECT documents, 192 positions/document, FINAL closed.
+- RUN: interaction closure relMSE≈2.2e-18; direct block1/native-dispatch replay max error0; response Grams transport
+  .849-.964. Action rank90=6 and response ranks=5-6, so no material downstream head-mode collapse.
+- Heldout head3-from-other8 R2 is .1008/.0951/.0560/.2569 across singleton-A1/singleton-M1/drop-A1/drop-M1 versus
+  raw-action .0394 and shuffled≈0. Head8 is the largest coefficient in all cells, but coefficient stability and
+  cross-cell R2 bars fail. A holds; B/C/D fail; strong null false.
+- Do not call attention0 MLP0-interaction paths duplicate services and do not tune. Dossier audit closes another
+  global token partition; advance the still-open gauge-invariant cross-head QK shared-half test, then attention1.

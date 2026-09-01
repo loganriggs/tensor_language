@@ -20,3 +20,25 @@
 3. Efficiency lane: watch for the QK-factorization rungs to reuse 416/417's saved Grams/banks (the 0.9–37s CPU rungs this hour are the model to hold).
 4. Prequential pricing of the mechanism dossier (mine, quiet-hour, still queued behind live work).
 5. Nothing else clears the bar.
+
+## Codex dossier audit before building the shared-half rung
+
+The old `qk_mdl` dossier narrows the open object and prevents duplication:
+
+- Layer0 QK is already folded exactly into 18 `(vocabulary,256)` query/key factor tables—nine heads times two
+  bilinear score branches—with rotary-position and RMS gauges checked to about `1e-15`.
+- Per-head-branch sparse dictionaries are causally substitutable, while a **single global vocabulary partition**
+  across all 18 branches was worse than independent partitions at matched bits (`+.035` versus about `+.020` CE).
+  Another shared token partition is therefore closed.
+- The head-local `[key1,key2,value]` third-moment ledgers found gated function-word/punctuation archetypes, but did
+  not test a gauge-invariant shared bilinear half across heads.
+- The July dossier explicitly leaves “shared atoms across head-branches” and “joint product-of-branches
+  decomposition” open. Its failed shared table on an induction path was downstream of a per-head table that already
+  failed, and the dossier correctly marks the sharing question unresolved.
+- Layer0 has no direct-path copy head under the old archetype assay; layer1 is strongly super-additive across heads.
+  A negative layer0 result must not be generalized to the user's duplicate-copy-head hypothesis at layer1/later.
+
+Consequently the next screen must use the complete relative-offset bilinear operators `Q_h^T R_delta K_h`, with
+matched Haar/head-permuted/independent controls, and ask whether a query/key half is reused with different partners.
+It must not refit the rejected global token partition. A negative moves directly to attention1 finite-response
+producer groups; a positive still needs score, value-write, and downstream-response transport before interpretation.
