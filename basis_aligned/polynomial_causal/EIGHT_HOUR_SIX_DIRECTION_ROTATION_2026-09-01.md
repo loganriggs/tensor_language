@@ -501,3 +501,13 @@ Full ranking and adoption gates: `SIX_DIRECTION_COMPARISON_2026-09-01.md`.
   dominates adopted weight-SVD p768, while p512 extends the literal Pareto frontier with twice its MLP0 saving.
 - Decision: evaluate both variants on common WikiText skip100000 n120, reproduce census/certificates, and save
   exact CEVs. Only OOD-passing variants receive direct signed a16 gates.
+
+### `05:32 UTC` — exploit checkpoint `326`
+
+- Result: p512 shifted mean/p95/max `+.010411/.031169/.037714`; p640
+  `+.008580/.026783/.035271`. Census/certs reproduce exactly, primary fresh max +.0109, all identities hold.
+  All predicates true, null false; both exact unablated CEVs saved.
+- Information gained: contextual MLP0 compression transports across a later WikiText segment at both ranks, with
+  tails comfortably inside frozen bars. The improvement is not fit-corpus or short-window selection.
+- Decision: one common direct signed-a16 run for both. Require per-arm cosine>=.90/error<=.60, collateral rho>=.90,
+  own ratio [.60,1.40], live baseline and exact maps/bills. A full pass formally adopts both.

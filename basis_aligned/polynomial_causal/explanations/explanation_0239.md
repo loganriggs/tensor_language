@@ -604,3 +604,13 @@ point in size, census loss, and certificates; p512 is a smaller Pareto candidate
 Advance both unchanged to 120 shifted WikiText rows after token 100,000 in one rebuild. Save the exact census CE
 vectors for direct signed intervention comparisons. Adoption still requires shifted mean/tail transport and signed
 causal fidelity; this physical frontier alone is not enough.
+
+Both OOD gates hold. p512 WikiText mean/p95/max is `+.010411/.031169/.037714`; p640 is
+`+.008580/.026783/.035271`. Census and certificates reproduce exactly at `+.0107277/48` and `+.0082647/52`;
+fresh max, dataset fingerprint, fit split, variants, QK program, active objects, and bills all hold. The exact
+unablated census vectors are saved.
+
+The final gate applies the identical native a16 mean ablation to native and both compiled variants, comparing
+direct signed effect vectors, collateral circuit order, and a16-own magnitudes. No unsigned or aggregate proxy is
+accepted. If both pass, p640 becomes the new dominant adopted artifact and p512 becomes the new smallest adopted
+Pareto point.

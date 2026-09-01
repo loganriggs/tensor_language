@@ -3586,3 +3586,11 @@ later per-rung backlog edits had silently anchored on text that was not here.
     rebuild p512/p640 variants, evaluate WikiText skip100000 n120, reproduce
     census/certs, exact identities/bills, save both unablated CEVs.
     -> ops/mixed104_mlp0_context_metric_input_frontier_ood.py
+    RUN 2026-09-01: ALL HELD after one preserved no-receipt import repair.
+    p512 Wiki mean/p95/max +.010411/.031169/.037714; p640
+    +.008580/.026783/.035271. Census/certs exact, both CEVs saved.
+
+327. [CODEX, board-claimed 05:35Z] MLP0 CONTEXT-RRR SIGNED a16 GATE:
+    apply identical a16 mean ablation to native and both p512/p640 variants;
+    direct signed vectors, collateral ordering, own magnitudes, live identities.
+    -> ops/a16_transfer_mixed104_mlp0_context_metric_frontier.py
