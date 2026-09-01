@@ -1,0 +1,30 @@
+activation_pca_r64: eps 0.3711/0.3809 damage +0.0939/+0.0958
+activation_pca_r128: eps 0.2836/0.2963 damage +0.0504/+0.0467
+activation_pca_r256: eps 0.1875/0.1993 damage +0.0231/+0.0186
+weight_svd_r64: eps 0.5508/0.5402 damage +0.1188/+0.1197
+weight_svd_r128: eps 0.4363/0.4295 damage +0.0606/+0.0672
+weight_svd_r256: eps 0.2882/0.2861 damage +0.0235/+0.0326
+response_r64: eps 0.5231/0.5177 damage +0.1545/+0.1524
+response_r128: eps 0.4320/0.4303 damage +0.0770/+0.0815
+response_r256: eps 0.3184/0.3209 damage +0.0363/+0.0370
+{
+  "contract": {
+    "intercept": -1.0490270836992377,
+    "slope": 1.7464810239832742,
+    "log_residual_lower": -0.6719327928955287,
+    "log_residual_upper": 0.5558796790763111,
+    "multiplicative_width": 3.413753680591378,
+    "calibration_spearman": 0.8666666666666667,
+    "validation_spearman": 0.9166666666666666,
+    "validation_coverage": 9,
+    "validation_total": 9
+  },
+  "predicates": [
+    true,
+    false,
+    false
+  ],
+  "null": false,
+  "runtime_s": 6.043759822845459
+}
+MLP0 PROJECTION ERROR CONTRACT DONE

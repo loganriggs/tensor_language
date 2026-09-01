@@ -1,0 +1,225 @@
+{
+  "status": "mlp0_projection_error_contract_complete",
+  "rung": 303,
+  "claim_level": "prospective_empirical_family_corpus_contract_only",
+  "populations": {
+    "fit_rows": 32,
+    "calibration_skip7000_rows": 8,
+    "validation_skip11000_rows": 8
+  },
+  "native": {
+    "calibration_ce": 3.138731062412262,
+    "validation_ce": 3.1184757947921753
+  },
+  "contract": {
+    "intercept": -1.0490270836992377,
+    "slope": 1.7464810239832742,
+    "log_residual_lower": -0.6719327928955287,
+    "log_residual_upper": 0.5558796790763111,
+    "multiplicative_width": 3.413753680591378,
+    "calibration_spearman": 0.8666666666666667,
+    "validation_spearman": 0.9166666666666666,
+    "validation_coverage": 9,
+    "validation_total": 9
+  },
+  "historical_isotropic_random_control": {
+    "relative_norms": [
+      0.25,
+      0.5,
+      1.0
+    ],
+    "damages": [
+      0.00483,
+      0.02765,
+      0.33979
+    ],
+    "squared_error_power_exponent": 1.5341190988572908
+  },
+  "arms": {
+    "activation_pca_r64": {
+      "family": "activation_pca",
+      "rank": 64,
+      "literal_mlp0_scalars": 10986624,
+      "storage_fraction_native_mlp0": 0.6898372513562387,
+      "calibration": {
+        "ce": 3.2326002717018127,
+        "relative_omitted_energy": 0.3711474739315267,
+        "damage": 0.09386920928955078
+      },
+      "validation": {
+        "ce": 3.2142924666404724,
+        "relative_omitted_energy": 0.38090576112084307,
+        "damage": 0.09581667184829712,
+        "contract_lower": 0.03315144112542431,
+        "contract_estimate": 0.06491112206996015,
+        "contract_upper": 0.11317085415882563,
+        "covered": true
+      }
+    },
+    "activation_pca_r128": {
+      "family": "activation_pca",
+      "rank": 128,
+      "literal_mlp0_scalars": 11355264,
+      "storage_fraction_native_mlp0": 0.7129837251356239,
+      "calibration": {
+        "ce": 3.189155399799347,
+        "relative_omitted_energy": 0.28357852879658063,
+        "damage": 0.05042433738708496
+      },
+      "validation": {
+        "ce": 3.1651946902275085,
+        "relative_omitted_energy": 0.2962636204993567,
+        "damage": 0.04671889543533325,
+        "contract_lower": 0.021374346405215027,
+        "contract_estimate": 0.04185135733391948,
+        "contract_upper": 0.07296675371103792,
+        "covered": true
+      }
+    },
+    "activation_pca_r256": {
+      "family": "activation_pca",
+      "rank": 256,
+      "literal_mlp0_scalars": 12092544,
+      "storage_fraction_native_mlp0": 0.7592766726943943,
+      "calibration": {
+        "ce": 3.1618196964263916,
+        "relative_omitted_energy": 0.1874844932544354,
+        "damage": 0.02308863401412964
+      },
+      "validation": {
+        "ce": 3.137074649333954,
+        "relative_omitted_energy": 0.19926530583652377,
+        "damage": 0.018598854541778564,
+        "contract_lower": 0.01069220711573585,
+        "contract_estimate": 0.020935535160025207,
+        "contract_upper": 0.03650056139498859,
+        "covered": true
+      }
+    },
+    "weight_svd_r64": {
+      "family": "weight_svd",
+      "rank": 64,
+      "literal_mlp0_scalars": 10986624,
+      "storage_fraction_native_mlp0": 0.6898372513562387,
+      "calibration": {
+        "ce": 3.257539451122284,
+        "relative_omitted_energy": 0.5508224568139883,
+        "damage": 0.11880838871002197
+      },
+      "validation": {
+        "ce": 3.2381573915481567,
+        "relative_omitted_energy": 0.5402340550493907,
+        "damage": 0.11968159675598145,
+        "contract_lower": 0.0610317868970794,
+        "contract_estimate": 0.11950134398187222,
+        "contract_upper": 0.20834748715297352,
+        "covered": true
+      }
+    },
+    "weight_svd_r128": {
+      "family": "weight_svd",
+      "rank": 128,
+      "literal_mlp0_scalars": 11355264,
+      "storage_fraction_native_mlp0": 0.7129837251356239,
+      "calibration": {
+        "ce": 3.199295163154602,
+        "relative_omitted_energy": 0.43634073930939,
+        "damage": 0.06056410074234009
+      },
+      "validation": {
+        "ce": 3.185697019100189,
+        "relative_omitted_energy": 0.42950789378729115,
+        "damage": 0.06722122430801392,
+        "contract_lower": 0.04088723103283727,
+        "contract_estimate": 0.08005793879771173,
+        "contract_upper": 0.13957893542753827,
+        "covered": true
+      }
+    },
+    "weight_svd_r256": {
+      "family": "weight_svd",
+      "rank": 256,
+      "literal_mlp0_scalars": 12092544,
+      "storage_fraction_native_mlp0": 0.7592766726943943,
+      "calibration": {
+        "ce": 3.162195920944214,
+        "relative_omitted_energy": 0.28817292683146734,
+        "damage": 0.023464858531951904
+      },
+      "validation": {
+        "ce": 3.151083290576935,
+        "relative_omitted_energy": 0.2861294313250267,
+        "damage": 0.03260749578475952,
+        "contract_lower": 0.020113766121096364,
+        "contract_estimate": 0.03938311830950318,
+        "contract_upper": 0.0686634431264469,
+        "covered": true
+      }
+    },
+    "response_r64": {
+      "family": "response",
+      "rank": 64,
+      "literal_mlp0_scalars": 10986624,
+      "storage_fraction_native_mlp0": 0.6898372513562387,
+      "calibration": {
+        "ce": 3.2932669520378113,
+        "relative_omitted_energy": 0.5231152380335516,
+        "damage": 0.15453588962554932
+      },
+      "validation": {
+        "ce": 3.2708660364151,
+        "relative_omitted_energy": 0.5177163982330185,
+        "damage": 0.1523902416229248,
+        "contract_lower": 0.05665830626440603,
+        "contract_estimate": 0.11093798970282248,
+        "contract_upper": 0.19341750154618967,
+        "covered": true
+      }
+    },
+    "response_r128": {
+      "family": "response",
+      "rank": 128,
+      "literal_mlp0_scalars": 11355264,
+      "storage_fraction_native_mlp0": 0.7129837251356239,
+      "calibration": {
+        "ce": 3.2157524824142456,
+        "relative_omitted_energy": 0.4320208510114523,
+        "damage": 0.07702142000198364
+      },
+      "validation": {
+        "ce": 3.2000069618225098,
+        "relative_omitted_energy": 0.43026564051663646,
+        "damage": 0.08153116703033447,
+        "contract_lower": 0.04101329481391871,
+        "contract_estimate": 0.08030477396398455,
+        "contract_upper": 0.1400092861241943,
+        "covered": true
+      }
+    },
+    "response_r256": {
+      "family": "response",
+      "rank": 256,
+      "literal_mlp0_scalars": 12092544,
+      "storage_fraction_native_mlp0": 0.7592766726943943,
+      "calibration": {
+        "ce": 3.174996316432953,
+        "relative_omitted_energy": 0.318415974905813,
+        "damage": 0.03626525402069092
+      },
+      "validation": {
+        "ce": 3.15547639131546,
+        "relative_omitted_energy": 0.3209457097974935,
+        "damage": 0.03700059652328491,
+        "contract_lower": 0.024580387957146243,
+        "contract_estimate": 0.048128844751477655,
+        "contract_upper": 0.083911389859072,
+        "covered": true
+      }
+    }
+  },
+  "pred_a_transfer_coverage": true,
+  "pred_b_contract_is_nonvacuous": false,
+  "pred_c_lower_bound_is_decision_useful": false,
+  "null_contract_failure": false,
+  "runtime_s": 6.043759822845459
+}
