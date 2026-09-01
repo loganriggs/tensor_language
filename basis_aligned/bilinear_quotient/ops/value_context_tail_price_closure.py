@@ -62,11 +62,11 @@ def main() -> None:
     covariances = _attention_input_covariances(C.m, rows, _manual_logits)
     squares = []
     for layer in LAYERS:
-        covariance = covariances[layer].float()
+        value = C.m.transformer.h[layer].attn.c_v.weight.detach().float()
+        covariance = covariances[layer].to(value.device).float()
         values, vectors = torch.linalg.eigh(covariance)
         floor = float(values[-1]) * 1e-6
         sqrt = (vectors * values.clamp_min(floor).sqrt()) @ vectors.T
-        value = C.m.transformer.h[layer].attn.c_v.weight.detach().float()
         for head in range(9):
             matrix = value[head * 128:(head + 1) * 128]
             squares.append(torch.linalg.svdvals(matrix @ sqrt).square().cpu())

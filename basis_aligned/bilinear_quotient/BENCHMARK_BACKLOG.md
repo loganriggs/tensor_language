@@ -4008,3 +4008,8 @@ later per-rung backlog edits had silently anchored on text that was not here.
     measured value96 surcharge, give every rank the optimistic exponent from
     the observed MLP/QK envelope, and compare CE/saved-scalar to adopted MLP04.
     Screen only; pass closes this rank grid, fail licenses one winning build.
+    NO-RECEIPT REPAIR: covariance returned CPU while c_v is CUDA; add the
+    explicit device transfer used by rung355 and rerun unchanged. No tails seen.
+    RUN 2026-09-01: ALL HELD, null false. Exact tails/order/identities; best
+    optimistic rank104 exchange is3.6838x adopted MLP04 (r96 is4.0898x;
+    range3.68--5.48x). Close value ranks64--112; no physical build.

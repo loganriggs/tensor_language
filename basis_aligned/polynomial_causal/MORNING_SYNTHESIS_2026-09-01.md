@@ -124,8 +124,8 @@ MLP-specific causal coordinate; the one-ray model remains the conservative alloc
 3. Keep the all-layer variable-rank result as a local optimality certificate.  Its fit-B error is only `1.223x`
    with Spearman `.952`, yet exact water-filling at the current price chooses the already-adopted `{0,4}@p768`
    pair; the next cheaper unit predicts `1.369x` its damage.  Do not run more manual layer/rank variants.
-4. Extend the tail law to value maps on CPU before spending GPU time; the measured value96 point is currently much
-   less efficient per scalar than Q/K.
+4. Keep the value rank64--112 grid closed.  Exact context tails calibrated at the physical value96 point show that
+   even the most optimistic rank (r104) costs `3.6838x` the adopted MLP CE per saved scalar; no GPU build is licensed.
 5. Treat vocabulary sharing as a representation result, not a live adoption branch.  Both the sparse rare-row
    repair and a distributed-rank frontier have already failed their prospective predictive bars.
 6. Once the semantic frontier stabilizes, measure serialized load, dequantization memory, and fused BF16/FP16

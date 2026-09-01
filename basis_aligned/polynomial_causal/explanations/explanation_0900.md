@@ -76,8 +76,9 @@ not itself earn a block/tree/DAG program.
    consequence weighting of the same covariance.
 2. Fit a genuinely new joint CP/tensor-train factorization under the live activation metric; native atom reuse and
    cross-layer Grassmann sharing are already negative controls.
-3. Extend the induced-metric law to value maps on CPU and run a physical point only if it reveals a new knee; the
-   existing value96 point is much less efficient than Q/K.
+3. Keep value ranks64–112 closed: the exact tail screen is now done, and even the most optimistic rank104 estimate
+   costs `3.6838x` the adopted MLP CE per saved scalar (value96 costs `4.0898x`). A new value representation—not
+   another rank in this grid—would be required to reopen the family.
 4. Reopen finite-state structure only when an independently named behavior supplies stable supported states and a
    causal consumer. Do not cluster first and name the states afterward.
 5. Once semantic structure moves again, implement fused BF16/FP16 execution and measure load time, peak memory, and
