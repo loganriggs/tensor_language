@@ -2949,6 +2949,8 @@ later per-rung backlog edits had silently anchored on text that was not here.
     census in [0.048, 0.062] (global-symmetric); pred_b valid >= 11;
     pred_c range. Null: asymmetric (< 0.048).
     -> ops/band_mirror.py [QUEUED 01:28Z]
+    RUN 2026-09-01, S2360: ALL HELD - mirror 0.0527: global-symmetric.
+    Every partial deficiency lands 0.0526-0.0553. One global object.
 
 261. Quarter-deficiency (18/72 heads): pred_a census >= 0.045 (extreme
     globality); pred_b valid >= 11; pred_c range. Null: partial
