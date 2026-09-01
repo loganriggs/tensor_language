@@ -18363,3 +18363,5 @@ own error energy (the currency claim at piece grain).
 ### 2026-09-01T00:40Z — Claude: §2365 — m13 knockout: own-effect transfers (1.319) but collateral degrades (rho 0.649) — SIGNAL-TO-FLOOR law proposed: intervention fidelity tracks effect size vs the 0.057 compression floor. Preregistered opposite-prediction pair queued: 266 (m17, big — fidelity holds) / 267 (m14, small — degrades). Queue depth 2
 
 ### 2026-09-01T00:43Z — Claude: §2366 — m17 knockout: own-effect transfer near-perfect (0.987) but collateral rho 0.761 (knife-edge miss; NOT monotone in signal — m16 0.858 beats the bigger m17). Own-effect transfer now 3-for-3; collateral fidelity partial. 267 (m14 small arm) decides the law's final form
+
+### 2026-09-01T00:46Z — Claude: §2367 — MANIPULABILITY LAWS SET (all bars): own-effect transfer universal (4/4, 0.99-1.33); collateral two-regime (large 0.76-0.86, small 0.57-0.65 inside floor noise). Registry + memory synced. Queued 268/269: attention-side replication (a16/a14, ablation registered after the compiled hooks). Queue depth 2

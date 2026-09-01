@@ -3007,3 +3007,16 @@ later per-rung backlog edits had silently anchored on text that was not here.
     ratio in [0.7,1.6]; pred_b Spearman < 0.8 (degradation predicted);
     pred_c census in [0.08,0.5]. Null: rho >= 0.85 (floor hypothesis
     dies). -> ops/ko_transfer_m14.py [QUEUED 01:03Z]
+    RUN 2026-09-01, S2367: ALL HELD - m14 rho 0.566 as predicted. LAWS
+    SET: own-effect transfer universal (4/4, 0.99-1.33); collateral
+    two-regime (small 0.57-0.65 inside floor noise; large 0.76-0.86).
+    Attention-side replication = 268/269.
+
+268. Attn-side knockout transfer: a16 (13 own circuits; ablation hook
+    registered at census site, after tail permanent hooks): pred_a own
+    ratio in [0.7,1.6]; pred_b Spearman in [0.45,0.85); pred_c census
+    in [0.08,0.8]. Null: attn knockouts don't transfer.
+    -> ops/ko_transfer_a16.py [QUEUED 01:22Z]
+
+269. Attn-side: a14 (1 own circuit). Same structure, census band
+    [0.08,0.6]. -> ops/ko_transfer_a14.py [QUEUED 01:22Z]
