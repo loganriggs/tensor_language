@@ -1,0 +1,183 @@
+ARM: mixed104 with online native block-0 c_v; no a0/a1v tables
+a2-input probe acc 0.69
+fit a2
+fit a3
+fit a4
+fit a5
+fit a6
+fit a7
+fit a8
+fit a9
+fit a10
+fit a11
+fit a12
+fit a13
+fit a14
+fit a15
+fit a16
+fit a17
+  cp_swap: front MLPs m0-m3 -> CP top-4608 in place (tailE remains table-front-fit)
+  QK rank-96 factors built for all motif heads
+  QK rank-96 factors built for tail blocks 10-17
+  tail QK hooks registered (gated)
+L1 (+38 heads): C +0.2280 | fresh +0.2108
+  window 0 (7 docs): L2 fresh +0.0018
+  window 1 (42 docs): L2 fresh +0.0025
+  window 2 (17 docs): L2 fresh -0.0066
+  window 3 (23 docs): L2 fresh +0.0002
+  window 4 (43 docs): L2 fresh +0.0011
+  window 5 (26 docs): L2 fresh +0.0032
+  window 6 (35 docs): L2 fresh +0.0006
+  window 7 (35 docs): L2 fresh +0.0019
+L2 empirical: C +0.0118 | fresh +0.0040 | tail-attn increment -0.2068
+(a) L2 <= +2.75 fresh: HELD
+(b) increment in [0.30,0.55]: FAILED
+{
+  "convention": "CE added above native model; lower is better",
+  "implementation": "online native c_v0; no a0/a1v/tailE table hooks",
+  "active_replacements": [
+    "m0E",
+    "m1",
+    "m2E",
+    "m3E",
+    "c4",
+    "c5",
+    "c6",
+    "c7",
+    "c8",
+    "c9"
+  ],
+  "qk_singular_indices": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    56,
+    57,
+    58,
+    59,
+    60,
+    61,
+    62,
+    63,
+    64,
+    65,
+    66,
+    67,
+    68,
+    69,
+    70,
+    71,
+    72,
+    73,
+    74,
+    75,
+    76,
+    77,
+    78,
+    79,
+    80,
+    81,
+    82,
+    83,
+    84,
+    85,
+    86,
+    87,
+    88,
+    89,
+    90,
+    91,
+    92,
+    93,
+    94,
+    95,
+    120,
+    121,
+    122,
+    123,
+    124,
+    125,
+    126,
+    127
+  ],
+  "physical_qk_factor_widths": [
+    104
+  ],
+  "census_damage": 0.00469195,
+  "certificates_valid": 54,
+  "fresh8": [
+    0.0018,
+    0.0025,
+    -0.0066,
+    0.0002,
+    0.0011,
+    0.0032,
+    0.0006,
+    0.0019
+  ],
+  "max_fresh_damage": 0.0032,
+  "table_ce_vector_mean_abs_difference": 5.1963e-05,
+  "table_ce_vector_mean_signed_difference": -1e-08,
+  "literal_standalone_scalars": 539595062,
+  "literal_raw_tensor_bytes": 2042438252,
+  "pred_a_literal_candidate": true,
+  "pred_b_table_equivalence": true,
+  "pred_c_transfer_and_identity": true,
+  "null_triggered": false,
+  "decision_level": "literal-price identification; shifted-corpus OOD still required",
+  "runtime_s": 126.2
+}
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/mixed104_online_cv0_results.json and /workspace/tensor_language/basis_aligned/bilinear_quotient/cev_mixed104_online_cv0.pt
