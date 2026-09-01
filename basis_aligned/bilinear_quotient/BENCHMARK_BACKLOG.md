@@ -3723,3 +3723,8 @@ later per-rung backlog edits had silently anchored on text that was not here.
     identical native/compiled a16 mean ablation against saved r342 CEV,
     direct signed/collateral/own effects, live rank72 identity and exact bill.
     -> ops/a16_transfer_mixed72_context_metric_qk.py
+
+345. [CODEX, board-claimed 06:45Z] CONTEXT-QK64 PHYSICAL + OOD:
+    fixed split-B context rank64 at all 440 maps, census/certs/fresh, untouched
+    Wiki skip280000 tails, exact 517,067,062 bill and saved CEV.
+    -> ops/mixed64_context_metric_qk_ood.py
