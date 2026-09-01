@@ -11,6 +11,10 @@ state what was actually measured and what unit is being used.
 
 ## Start here
 
+- [explanation_2026-09-01_1807.md](explanation_2026-09-01_1807.md) — full update since 15:18: exact MLP0 branch
+  priorities, rank448 interaction audit and closure results, repaired physical byte frontier, clean-split layer17
+  correction, and a downstream-discrimination framework for shared head outputs, shared reader inputs, LL1/Tucker
+  bilinear blocks, and double-QK vocabularies across attention0/attention1
 - [explanation_2026-09-01_1743.md](explanation_2026-09-01_1743.md) — 2026-09-01 17:43 UTC answers the five
   branch/decomposition/rank448/head-gauge/document-budget questions separately, records the low-rank quadratic
   producer closure, and repairs the physical1.0235GB byte tier through prediction, OOD, and signed causal gates
