@@ -11,6 +11,10 @@ state what was actually measured and what unit is being used.
 
 ## Start here
 
+- [explanation_2026-09-01_2147.md](explanation_2026-09-01_2147.md) — the pre-registered +29,968-byte repair of the
+  sub-500M tier fails its position-level consequence; FP32 quadratic coefficients explain only 3.9% of the squared
+  deviation, identifying nonlinear amplification of upstream rounding and supplying an adversarial learned-simplicity
+  example where bytes and average metrics would Goodhart the decision
 - [explanation_2026-09-01_2054.md](explanation_2026-09-01_2054.md) — evaluates Archetypal/relaxed SAEs for the
   unstable Q/K atoms, proposes a gauge-safe score-profile convex hull, specifies the causal/OOD tests needed beyond
   restart stability, and gives a nested held-out protocol for learning and optimizing consequence-predictive

@@ -4392,6 +4392,16 @@ later per-rung backlog edits had silently anchored on text that was not here.
   .047773/.086460/.134243; fresh.0125.
 - A/C/D held, B failed, strong null false. Parent-r392 CEV mean/max delta .006527/.117641; maximum exceeded frozen
   .100. No signed gate, rerun, threshold relaxation, or adoption. Move to L17 current-harness screen.
+
+### Rung 436 — +29,968-byte mixed-precision repair of rung414 — COMPLETE / FAILED, NO SIGNED GATE
+
+- Pre-registered diagnosis: keep the 14,984-value degree-two MLP16 program FP32 while source/QK/MLP0/4 retain
+  rung414 precision; exact bill495,847,230 scalars/991,724,428 bytes; untouched WT103 `[470824,501664)`.
+- RUN: A/C/D hold; census+.052969/17, composition tax/cosine/cert difference1.03409/.999959/0, OOD
+  mean/p95/max.065277/.111963/.161361, fresh.0125, all dtypes/counts/hooks/bill exact.
+- B fails: parent-r392 CEV max `.116467` versus frozen `.050` and half-r414 bars. FP32 restoration changes only3.91%
+  of squared deviation and partly cancels the persistent residual. Diagnosis corrected to nonlinear amplification of
+  upstream rounding. Conditional rung437 not licensed or run. No precision sweep; physical frontier unchanged.
 ### Rung 415 — physical current-harness MLP17 four-output/eight-square surrogate — COMPLETE / STRONG NULL
 
 - Dossier-controlled port of the old whole-layer object, distinct from output projection and activation-conditioned
