@@ -784,7 +784,9 @@ def main():
         print('  tailE rebuilt under the CP-front+motif frame'
               +(' with trajectory targets' if SEL.get('tailE_traj') else ''),flush=True)
 
-    order2=[nm for nm in cfgF if not (SEL.get('drop_tailE') and nm=='tailE')]
+    order2=[nm for nm in cfgF
+            if not (SEL.get('drop_tailE') and nm=='tailE')
+            and not (SEL.get('drop_a1v') and nm=='a1v')]
     Wp2=None
     ML=[l for l in range(2,10) if l not in SEL.get('motif_off',())]
     for li in range(10,18):
