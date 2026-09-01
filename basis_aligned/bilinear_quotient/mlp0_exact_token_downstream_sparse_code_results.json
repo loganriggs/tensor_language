@@ -1,26 +1,3 @@
-/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/mlp0_exact_token_downstream_sparse_code.py:173: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
-Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:836.)
-  print(f"{mode} seed{seed} step{step + 1}: y={float(loss_y):.5f} "
-activation seed0 step1: y=1.34431 s=1.34061
-activation seed0 step250: y=0.51359 s=1.61947
-activation seed0 step500: y=0.48372 s=1.71604
-activation seed0 step750: y=0.47507 s=1.73474
-activation seed0 step1000: y=0.46431 s=1.71090
-shuffled seed0 step1: y=1.34431 s=1.33075
-shuffled seed0 step250: y=0.55861 s=0.97498
-shuffled seed0 step500: y=0.53302 s=0.93091
-shuffled seed0 step750: y=0.52654 s=0.93376
-shuffled seed0 step1000: y=0.51520 s=0.91521
-joint seed0 step1: y=1.34431 s=1.34061
-joint seed0 step250: y=0.53817 s=0.68671
-joint seed0 step500: y=0.50495 s=0.65307
-joint seed0 step750: y=0.49642 s=0.64130
-joint seed0 step1000: y=0.48524 s=0.63679
-joint seed1 step1: y=1.32458 s=1.34476
-joint seed1 step250: y=0.53857 s=0.68270
-joint seed1 step500: y=0.49408 s=0.65292
-joint seed1 step750: y=0.48045 s=0.63976
-joint seed1 step1000: y=0.48605 s=0.63789
 {
   "status": "mlp0_exact_token_downstream_sparse_code_complete",
   "rung": 394,
@@ -156,6 +133,7 @@ joint seed1 step1000: y=0.48605 s=0.63789
       "discordant_count": 0
     }
   },
+  "shared_effect_different_write_examples": [],
   "pred_a_mlp0_is_small_nonlinear_correction_not_token_copy": false,
   "pred_b_downstream_response_is_more_compressed_than_write": false,
   "pred_c_joint_sparse_code_predicts_heldout_response": false,
@@ -164,4 +142,3 @@ joint seed1 step1000: y=0.48605 s=0.63789
   "live_tt_x_transfer_licensed": false,
   "runtime_s": 9.100890874862671
 }
-MLP0 EXACT TOKEN DOWNSTREAM SPARSE CODE DONE
