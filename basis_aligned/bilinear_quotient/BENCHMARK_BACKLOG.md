@@ -4057,4 +4057,15 @@ later per-rung backlog edits had silently anchored on text that was not here.
 - Signed candidate/native attention-16 knockout cosine/error/norm is .9797226/.2130622/1.0520105;
   collateral Spearman .9973469 and a16-owned median magnitude ratio 1.0411815.
 - All registered predictions held and the strong null is false. This is causal identification, not standalone
-  adoption. Exactly one physical QK64+MLP0/4 composition at 495,847,230 scalars is licensed next.
+  adoption.
+- PRICE CORRECTION after scoring: the hook retained four dense 1152×1152 forms, so the executed layer dictionary
+  stored 5,314,176 values. The 14,984 count is the mathematical factor bill, not yet physical. Composition is
+  paused; function and signed results stand, but low-price/dominance claims await rung391.
+
+### Rung 391 — physical eight-projection storage and signed reproduction — CLAIMED
+
+- Rebuild identical fit-B forms; replace every dense rank-2 matrix by two signed projection vectors plus two
+  scalars; retain only output directions, 4×2 vectors/scalars, and constant (exact 14,984 values).
+- Require form/prediction equivalence, saved dense-CEV reproduction, exactly27 checks, and original-native signed
+  a16 fidelity plus live hooks. A pass restores the literal price and one-composition license; failure maps the
+  result only as a 5,314,176-value dense surrogate.

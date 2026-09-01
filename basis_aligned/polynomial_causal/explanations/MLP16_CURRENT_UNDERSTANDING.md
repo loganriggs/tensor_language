@@ -6,7 +6,7 @@
 
 MLP16 has an unusually concentrated function on natural text, but three different “low-rank” statements describe
 different objects. The old whole-layer quadratic surrogate was reported as 13,832 numbers; after correcting its
-constant-vector price to 14,984 and rebuilding it on clean splits, it adds +0.038978 CE and passes 27/62 current
+constant-inclusive mathematical factor price to 14,984 and rebuilding it on clean splits, it adds +0.038978 CE and passes 27/62 current
 behavior checks. A later activation-conditioned factorization found that one `Down` output direction recovers about
 90% of the module's loss benefit. The new 2,065,536-number three-mode Tucker core adds +0.047796 CE and passes
 22/62. Its joint structure is real, but the clean old quadratic representation strictly dominates it.
@@ -25,8 +25,10 @@ therefore used eight squared projections plus four output directions:
 
 `8*1152 input-direction numbers + 4*1152 output-direction numbers + 8 coefficients = 13,832`.
 
-That old formula omitted the 1,152-number constant vector `mu_perp + bias` needed by the executable replacement.
-The corrected literal price is therefore **14,984**. It cost 4.2% of the measured damage of deleting the layer;
+That old formula omitted the 1,152-number constant vector `mu_perp + bias` needed by the replacement.
+The corrected mathematical factor price is therefore **14,984**. A later literal-storage audit found that the
+scored hook retained dense quadratic matrices (5,314,176 values); rung391 must reproduce the same function with
+the actual eight-projection tensors before 14,984 becomes a physical executable price. It cost 4.2% of the measured damage of deleting the layer;
 the receipt's exact CE was `3.48647776` against `3.45574331`, or **+0.03073445**. The output PCs, whitening metric,
 and CE evaluation were all derived from overlapping portions of `bilin18_eval_tokens.pt`, so this was a live-model
 replacement but not a clean held-out generalization test. It also predates the current 62 behavior checks,
@@ -75,7 +77,8 @@ ledger §§2481–2485.
 
 ## Reconciliation and next legal question
 
-Rung389 completed the clean-split current-harness rebuild. The corrected-14,984-number R4/k2 program achieved:
+Rung389 completed the clean-split current-harness rebuild. The R4/k2 quadratic function, whose target factored
+price is 14,984 but whose scored hook was later found to store 5,314,176 dense values, achieved:
 
 - local function R² .82368 heldout / .82178 fresh;
 - census +.038978 and 27/62 behavior checks;
@@ -84,7 +87,8 @@ Rung389 completed the clean-split current-harness rebuild. The corrected-14,984-
 - damage-ray cosine .97722 and vector R² .81476;
 - versus a matched random-output arm at R² −.0062, census +.148198, and 5/62.
 
-It beats rung388's Tucker core on every common modern measure while using 0.725% as many layer values. Therefore:
+It beats rung388's Tucker core on every common modern quality measure. Its 0.725%-of-Tucker price claim remains
+conditional on rung391 physically reproducing the function from eight projection vectors. Therefore:
 
 - do not call the Tucker result a compression frontier;
 - do not tune Tucker ranks at layer 16;
