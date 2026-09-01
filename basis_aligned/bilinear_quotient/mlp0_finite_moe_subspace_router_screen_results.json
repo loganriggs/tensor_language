@@ -1,0 +1,128 @@
+{
+  "status": "mlp0_finite_moe_subspace_router_screen_complete",
+  "rung": 354,
+  "claim_level": "exact_token_router_context_fit_two_corpus_equal_price_screen_only",
+  "program": {
+    "states": 4,
+    "expert_rank": 128,
+    "router": "stored_exact_token_to_state_table",
+    "router_table_entries": 50304,
+    "literal_mlp0_scalars": 10668288,
+    "matched_global_rank": 517,
+    "matched_global_scalars": 10669824
+  },
+  "clustering": {
+    "population": "all_50257_exact_folded_token_inputs",
+    "feature": "centered_embedding_fold_pca32_then_unit_normalize",
+    "state_fractions": [
+      0.16093279421329498,
+      0.3426189124584198,
+      0.2549097537994385,
+      0.24153847992420197
+    ],
+    "center_norms": [
+      0.5587570071220398,
+      0.267417848110199,
+      0.2973373830318451,
+      0.35561272501945496
+    ]
+  },
+  "fit": {
+    "cache": "fineweb_n192_skip11000.pt",
+    "fit_a": [
+      0,
+      48
+    ],
+    "fit_b": [
+      48,
+      96
+    ],
+    "cluster_counts_a": [
+      1272,
+      5003,
+      1991,
+      4022
+    ],
+    "cluster_counts_b": [
+      1018,
+      5306,
+      1899,
+      4065
+    ],
+    "random_counts_a": [
+      3607,
+      2863,
+      2968,
+      2850
+    ]
+  },
+  "evaluation": {
+    "fineweb_cache": "fineweb_n192_skip7000.pt",
+    "fineweb_rows_half_open": [
+      40,
+      80
+    ],
+    "wikitext103_train_token_span_half_open": [
+      113080,
+      123360
+    ],
+    "dataset_fingerprint": "7dabb830ac9ebb0d",
+    "source_token_count": 675457
+  },
+  "row_damage_summaries": {
+    "cluster_fit_a": {
+      "fineweb": {
+        "mean": 0.03405035138130188,
+        "p95": 0.0764501571655273,
+        "max": 0.11286211013793945
+      },
+      "wikitext": {
+        "mean": 0.04046915173530578,
+        "p95": 0.07913622856140133,
+        "max": 0.10473346710205078
+      }
+    },
+    "cluster_fit_b": {
+      "fineweb": {
+        "mean": 0.034453898668289185,
+        "p95": 0.08385821580886839,
+        "max": 0.10690641403198242
+      },
+      "wikitext": {
+        "mean": 0.04098213911056518,
+        "p95": 0.08805621862411499,
+        "max": 0.08889198303222656
+      }
+    },
+    "random_fit_a": {
+      "fineweb": {
+        "mean": 0.0389646053314209,
+        "p95": 0.08312644958496093,
+        "max": 0.1273796558380127
+      },
+      "wikitext": {
+        "mean": 0.04871073365211487,
+        "p95": 0.0855482816696167,
+        "max": 0.09352874755859375
+      }
+    },
+    "global_p517": {
+      "fineweb": {
+        "mean": 0.0036772072315216066,
+        "p95": 0.016008579730987547,
+        "max": 0.02451038360595703
+      },
+      "wikitext": {
+        "mean": 0.002102053165435791,
+        "p95": 0.019954657554626446,
+        "max": 0.026961088180541992
+      }
+    }
+  },
+  "pred_a_cluster_router_beats_global_mean_at_equal_price": false,
+  "pred_b_cluster_router_beats_global_tails": false,
+  "pred_c_states_are_real_balanced_and_split_stable": false,
+  "null_finite_router_has_no_equal_price_advantage": true,
+  "stop_rule": "no_state_count_rank_or_cluster_tuning_after_result",
+  "runtime_s": 14.568837404251099
+}

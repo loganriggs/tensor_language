@@ -83,7 +83,7 @@ def _state_programs(model, x, token, route, rrr_program):
     for state in range(STATES):
         member = x[labels == state]
         counts.append(int(len(member)))
-        if len(member) < D:
+        if len(member) < max(500, EXPERT_RANK):
             raise RuntimeError(f"state {state} has only {len(member)} contextual fit tokens")
         covariance = member.T @ member / len(member)
         covariance = .5 * (covariance + covariance.T)

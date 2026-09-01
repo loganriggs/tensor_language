@@ -1,15 +1,24 @@
-Traceback (most recent call last):
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/mlp0_finite_moe_subspace_router_screen.py", line 309, in <module>
-    main()
-  File "/venv/main/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/mlp0_finite_moe_subspace_router_screen.py", line 199, in main
-    cluster_b, cluster_count_b = _state_programs(
-                                 ^^^^^^^^^^^^^^^^
-  File "/venv/main/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/mlp0_finite_moe_subspace_router_screen.py", line 87, in _state_programs
-    raise RuntimeError(f"state {state} has only {len(member)} contextual fit tokens")
-RuntimeError: state 0 has only 1018 contextual fit tokens
+cluster_fit_a fineweb: {'mean': 0.03405035138130188, 'p95': 0.0764501571655273, 'max': 0.11286211013793945}
+cluster_fit_a wikitext: {'mean': 0.04046915173530578, 'p95': 0.07913622856140133, 'max': 0.10473346710205078}
+cluster_fit_b fineweb: {'mean': 0.034453898668289185, 'p95': 0.08385821580886839, 'max': 0.10690641403198242}
+cluster_fit_b wikitext: {'mean': 0.04098213911056518, 'p95': 0.08805621862411499, 'max': 0.08889198303222656}
+random_fit_a fineweb: {'mean': 0.0389646053314209, 'p95': 0.08312644958496093, 'max': 0.1273796558380127}
+random_fit_a wikitext: {'mean': 0.04871073365211487, 'p95': 0.0855482816696167, 'max': 0.09352874755859375}
+global_p517 fineweb: {'mean': 0.0036772072315216066, 'p95': 0.016008579730987547, 'max': 0.02451038360595703}
+global_p517 wikitext: {'mean': 0.002102053165435791, 'p95': 0.019954657554626446, 'max': 0.026961088180541992}
+{
+  "predicates": [
+    false,
+    false,
+    false
+  ],
+  "null": true,
+  "state_fraction": [
+    0.16093279421329498,
+    0.3426189124584198,
+    0.2549097537994385,
+    0.24153847992420197
+  ],
+  "runtime_s": 14.568837404251099
+}
+FINITE MLP0 MOE SUBSPACE ROUTER SCREEN DONE
