@@ -16,12 +16,12 @@ fit layer 14: top256 energy 0.6800
 fit layer 15: top256 energy 0.7504
 fit layer 16: top256 energy 0.9595
 Traceback (most recent call last):
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/mlp_activation_pca_four_layer_composition.py", line 296, in <module>
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/mlp_activation_pca_four_layer_composition.py", line 307, in <module>
     main()
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/mlp_activation_pca_four_layer_composition.py", line 182, in main
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/mlp_activation_pca_four_layer_composition.py", line 193, in main
     pca = _fit_pca(outputs)
           ^^^^^^^^^^^^^^^^^
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/mlp_activation_pca_four_layer_composition.py", line 106, in _fit_pca
-    values, vectors = torch.linalg.eigh(covariance)
-                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-torch._C._LinAlgError: linalg.eigh: The algorithm failed to converge because the input matrix is ill-conditioned or has too many repeated eigenvalues (error code: 1127).
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/mlp_activation_pca_four_layer_composition.py", line 107, in _fit_pca
+    assert bool(torch.isfinite(covariance).all())
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

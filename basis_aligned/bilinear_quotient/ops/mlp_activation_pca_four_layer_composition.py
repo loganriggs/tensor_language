@@ -82,7 +82,10 @@ def _capture_outputs(model: torch.nn.Module, rows: torch.Tensor, manual_logits) 
     handles = []
     for layer in range(LAYERS):
         def hook(_module, _args, output, layer=layer):
-            captured[layer].append(output.detach().half().cpu().reshape(-1, D))
+            # Layer 17 can exceed fp16 range even though the native residual
+            # stream remains finite.  Capture in fp32 so PCA sees the actual
+            # output rather than fp16 infinities.
+            captured[layer].append(output.detach().float().cpu().reshape(-1, D))
         handles.append(model.transformer.h[layer].mlp.register_forward_hook(hook))
     try:
         for start in range(0, len(rows), 2):
@@ -110,8 +113,7 @@ def _fit_pca(outputs: list[torch.Tensor]) -> dict[int, tuple[torch.Tensor, torch
         try:
             values, vectors = torch.linalg.eigh(covariance)
         except torch._C._LinAlgError:
-            # The last native MLP has an extremely repeated fp16-captured
-            # spectrum.  Float64 is a numerical fallback only; it does not
+            # Float64 is a numerical fallback only; it does not
             # change the population, rank, basis objective, or bars.
             values64, vectors64 = torch.linalg.eigh(covariance.double())
             values, vectors = values64.float(), vectors64.float()
