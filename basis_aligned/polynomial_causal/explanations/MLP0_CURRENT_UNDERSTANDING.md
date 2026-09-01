@@ -1082,6 +1082,18 @@ many-to-one structure already tracked by action geometry; Q is predominantly tok
 The next object is a consumer-aware quadratic spectrum, which can seek a small set of Q directions read by each
 consumer without asserting token interchangeability.
 
+Rung399 closed that spectrum test. Separate consumer bases do cross over at rank64: attention-aware beats MLP-aware
+on attention R² by .106, and MLP-aware beats attention-aware on MLP R² by .069. Q→attention has one dominant
+cross-Gram strength 273 followed by33,30,23,20, whereas Q→MLP is broad at17.5,14.3,12.8,10.4,7.7. But every
+response-aware joint basis loses to ordinary Q-PCA. At ranks16/64/256/512, response-aware joined R² is
+.189/.375/.665/.827 versus PCA .207/.398/.698/.865. Rank512 costs26,322,560 values, 45% of the57,896,064-value
+exact Q table, yet remains partial. Pred_a/d held, b/c failed, and the registered no-PCA-advantage strong null fired.
+
+Thus token-only M/L/Q causal roles are identified, local interchange niches are bounded, and current sparse,
+degree-one, grouping, and reader-weighted compression routes are closed. Attention1 reads a narrow Q signal; MLP1
+reads broad token-private Q. Retain exact Q rather than tune ranks. The next program must reuse the existing exact
+TT/X/CC real-context factorial and connect this length-one token anatomy to X and CC under new crossed controls.
+
 ## Related authoritative write-ups
 
 - `MLP0_QUOTIENT_STAGE0_V2_FINDINGS.md`
@@ -1095,3 +1107,4 @@ consumer without asserting token interchangeability.
 - `explanation_2026-09-01_1415.md`
 - `explanation_2026-09-01_1421.md`
 - `explanation_2026-09-01_1432.md`
+- `explanation_2026-09-01_1441.md`

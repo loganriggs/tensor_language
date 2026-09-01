@@ -4158,10 +4158,13 @@ later per-rung backlog edits had silently anchored on text that was not here.
   transfer .338/.697 is asymmetric with negative selected MLP R2, and only .43%–1.44% preserve both consumers.
   Local semantic pairs exist, but global equivalence is unsupported. Retain exact identity; route to Q spectra.
 
-### Rung 399 — consumer-aware quadratic-residual action spectra — QUEUED
+### Rung 399 — consumer-aware quadratic-residual action spectra — COMPLETE
 
 - Fit mod5-train-only Q-whitened action directions from attention1, MLP1, balanced joint, and shuffled-joint
   conditional effects. Reconstruct heldout Q at frozen ranks16/64/256/512 and physically inject after M+L.
 - Compare equal-rank ordinary Q-PCA, require full-rank exactness, and price literal per-token codes plus decoder.
 - A response-aware win licenses one fixed Q-table rank confirmation. Failure retains exact Q or ordinary PCA as
   measured; no token grouping or context transfer.
+- RUN 2026-09-01: A/D held, B/C failed, strong null fired. Consumer spectra differ at r64 (attention-aware gains
+  .106 attention R2 over MLP-aware; MLP-aware gains .069 MLP R2), but joint response-aware R2 at16/64/256/512 is
+  .189/.375/.665/.827 versus PCA .207/.398/.698/.865. No response-aware rank beats PCA. No confirmation; exact Q.

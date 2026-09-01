@@ -7,6 +7,9 @@ primary evidence.
 
 ## Start here
 
+- [`explanation_2026-09-01_1441.md`](explanation_2026-09-01_1441.md) — 2026-09-01 14:41 UTC token-only closure:
+  attention1 reads a narrow Q signal, MLP1 reads a broad spectrum, response-aware rotations lose to PCA, and exact
+  token-specific Q remains necessary; next work returns to the existing TT/X/CC context decomposition
 - [`explanation_2026-09-01_1432.md`](explanation_2026-09-01_1432.md) — 2026-09-01 14:32 UTC physical token
   interchange: local far-direction semantic pairs exist, but global L/Q equivalence fails against storage/raw
   controls; exact token identity remains necessary and Q is mostly token-private
