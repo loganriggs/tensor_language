@@ -1,0 +1,48 @@
+ARMS: mixed104 + p768 fixed pairs {0,7} / {0,14}
+a2-input probe acc 0.69
+fit a2
+fit a3
+fit a4
+fit a5
+fit a6
+fit a7
+fit a8
+fit a9
+fit a10
+fit a11
+fit a12
+fit a13
+fit a14
+fit a15
+fit a16
+fit a17
+  cp_swap: front MLPs m0-m3 -> CP top-4608 in place (tailE remains table-front-fit)
+  QK rank-96 factors built for all motif heads
+  QK rank-96 factors built for tail blocks 10-17
+  tail QK hooks registered (gated)
+L1 (+38 heads): C +0.2280 | fresh +0.2107
+  window 0 (7 docs): L2 fresh +0.0115
+  window 1 (42 docs): L2 fresh +0.0085
+  window 2 (17 docs): L2 fresh +0.0092
+  window 3 (23 docs): L2 fresh +0.0091
+  window 4 (43 docs): L2 fresh +0.0099
+  window 5 (26 docs): L2 fresh +0.0116
+  window 6 (35 docs): L2 fresh -0.0270
+  window 7 (35 docs): L2 fresh +0.0085
+L2 empirical: C +0.0142 | fresh +0.0137 | tail-attn increment -0.1970
+(a) L2 <= +2.75 fresh: HELD
+(b) increment in [0.30,0.55]: FAILED
+pair_0_7: census +0.0194085, certs 34/62
+pair_0_14: census +0.0158801, certs 37/62
+{
+  "qualifying": [],
+  "winner": null,
+  "predicates": [
+    false,
+    true,
+    true
+  ],
+  "null": false,
+  "runtime_s": 148.00979328155518
+}
+MIXED104 FRONT/MID INPUT-SVD PAIRS DONE

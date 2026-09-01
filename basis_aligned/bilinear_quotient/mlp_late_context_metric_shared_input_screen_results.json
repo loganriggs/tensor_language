@@ -1,0 +1,137 @@
+{
+  "status": "mlp_late_context_metric_shared_input_screen_complete",
+  "rung": 321,
+  "claim_level": "split_fit_late_layer_context_metric_two_corpus_screen_only",
+  "convention": "CE added above native; lower is better",
+  "fit_rows": {
+    "cache": "fineweb_n192_skip11000.pt",
+    "fit_a": [
+      0,
+      24
+    ],
+    "fit_b": [
+      24,
+      48
+    ]
+  },
+  "evaluation_rows": {
+    "fineweb_cache": "fineweb_n192_skip7000.pt",
+    "fineweb_slice": [
+      176,
+      188
+    ],
+    "wikitext_skip": 90000,
+    "wikitext_fingerprint": "a46124b21ac53738"
+  },
+  "native_ce": {
+    "fineweb": 3.1668707927068076,
+    "wikitext": 3.9914840857187905
+  },
+  "rank": 768,
+  "saving_scalars_per_installed_layer": 2654208,
+  "arms": {
+    "15": {
+      "context_rrr_fit_a": {
+        "fineweb_damage": 0.011308391888936065,
+        "wikitext_damage": -0.00018731753031397957
+      },
+      "context_rrr_fit_b": {
+        "fineweb_damage": 0.00852139790852835,
+        "wikitext_damage": -0.00023674964904785156
+      },
+      "weight_svd": {
+        "fineweb_damage": 0.1298375527064004,
+        "wikitext_damage": 0.13014562924702977
+      }
+    },
+    "16": {
+      "context_rrr_fit_a": {
+        "fineweb_damage": 0.003964066505432129,
+        "wikitext_damage": 0.0020538965861005565
+      },
+      "context_rrr_fit_b": {
+        "fineweb_damage": 0.0056493282318115234,
+        "wikitext_damage": 0.005065282185872544
+      },
+      "weight_svd": {
+        "fineweb_damage": 0.7959769566853838,
+        "wikitext_damage": 1.087412198384603
+      }
+    },
+    "17": {
+      "context_rrr_fit_a": {
+        "fineweb_damage": 0.011458913485208999,
+        "wikitext_damage": 0.0040691296259565135
+      },
+      "context_rrr_fit_b": {
+        "fineweb_damage": 0.009238719940185547,
+        "wikitext_damage": 0.003972649574279785
+      },
+      "weight_svd": {
+        "fineweb_damage": 0.12907405694325735,
+        "wikitext_damage": 0.2573628425598149
+      }
+    }
+  },
+  "diagnostics": {
+    "15": {
+      "fit_a": {
+        "context_cov_top768_energy": 0.9872146844863892,
+        "context_cov_condition_after_floor": 46167.6796875,
+        "covariance_floor": 0.0008408865356445312
+      },
+      "fit_b": {
+        "context_cov_top768_energy": 0.9849299192428589,
+        "context_cov_condition_after_floor": 38993.3203125,
+        "covariance_floor": 0.0008336590576171874
+      },
+      "whitened_subspace_overlap": 0.7726342678070068
+    },
+    "16": {
+      "fit_a": {
+        "context_cov_top768_energy": 0.9840137362480164,
+        "context_cov_condition_after_floor": 34036.09375,
+        "covariance_floor": 0.000756614013671875
+      },
+      "fit_b": {
+        "context_cov_top768_energy": 0.9812365770339966,
+        "context_cov_condition_after_floor": 27908.15625,
+        "covariance_floor": 0.0007509113159179687
+      },
+      "whitened_subspace_overlap": 0.768589437007904
+    },
+    "17": {
+      "fit_a": {
+        "context_cov_top768_energy": 0.9849985837936401,
+        "context_cov_condition_after_floor": 29959.775390625,
+        "covariance_floor": 0.0006008871459960937
+      },
+      "fit_b": {
+        "context_cov_top768_energy": 0.9823646545410156,
+        "context_cov_condition_after_floor": 26077.607421875,
+        "covariance_floor": 0.0006112827758789063
+      },
+      "whitened_subspace_overlap": 0.7625309824943542
+    }
+  },
+  "primary_qualifying_layers": [
+    15,
+    16,
+    17
+  ],
+  "split_stable_layers": [
+    15,
+    16,
+    17
+  ],
+  "layers_improving_weight_svd_by_20pct": [
+    15,
+    16,
+    17
+  ],
+  "pred_a_context_metric_opens_a_late_layer_regime": true,
+  "pred_b_context_metric_beats_frobenius_at_every_late_layer": true,
+  "pred_c_context_metric_is_split_stable": true,
+  "null_context_metric_does_not_repair_late_depth": false,
+  "runtime_s": 9.678802728652954
+}
