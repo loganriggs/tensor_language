@@ -3392,3 +3392,12 @@ later per-rung backlog edits had silently anchored on text that was not here.
     only 1.8%/4.4% and unseen 2.1%/.5%; norm was 3.4%/4.2%. Selectors overlapped
     only 3-5%, so rare error is distributed rather than a small exception table.
     Kill sparse-row repair; test one distributed-rank frontier.
+
+305. [CODEX, board-claimed 03:39Z] DISTRIBUTED SHARED-VOCAB RANK FRONTIER:
+    sqrt/count weights, shared s={512,640,768} versus price-matched independent
+    r=s+25 on new FineWeb/WikiText windows. Eligible saving >=14.5% vocab.
+    -> ops/joint_vocab_distributed_rank_frontier.py
+    RUN 2026-09-01, S2403: ALL PREDS FAILED, strong null false. Best rank640
+    about +.180/.197; rank768 +.127/.145 at 14.76% saving. Shared beats matched
+    independent 2-3x, but sqrt-r768 unseen still +.724/.566. Stop adoption route;
+    preserve shared-code representation result and switch exploit to MLP PCA.

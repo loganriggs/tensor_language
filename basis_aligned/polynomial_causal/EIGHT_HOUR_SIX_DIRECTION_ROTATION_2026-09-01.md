@@ -259,3 +259,17 @@ Full ranking and adoption gates: `SIX_DIRECTION_COMPARISON_2026-09-01.md`.
   of unseen damage. The tail is not a small exception table; error is distributed over many rare/unseen rows.
 - Decision: **kill** sparse exact-row repair at the available budget. Continue the shared-code route once with
   a distributed residual-rank frontier; stop it if ranks 640/768 cannot reach new predictive and tail bars.
+
+### `03:43 UTC` — exploit checkpoint `305`
+
+- Exact object and price: sqrt/count-weighted shared vocabulary residual ranks 512/640/768, with independent
+  weighted SVD controls at ranks 537/665/793. Shared rank640 saves 20.44% of vocabulary; rank768 saves 14.76%.
+- Result: the best aggregate arm at rank640 was about `+.180/.197` FineWeb/WikiText. Rank768 improved to
+  `+.127/.145`, still missing the `+.10/.12` prospective bar. The gentler sqrt weighting had rank768 unseen
+  damage `+.724/.566`, missing `+.50` on both. Every shared arm beat its slightly cheaper independent control
+  by roughly 2–3x, so the strong null was false, but all three positive predictions failed.
+- Information gained: shared vocabulary geometry is real and smoothly improves with distributed rank, yet its
+  useful predictive point extrapolates beyond the materially saving regime. Neither sparse nor distributed tail
+  repair reaches adoption-scale loss at >=14.5% vocabulary saving.
+- Decision: **stop/park** vocabulary compression as an adoption route. Preserve it as a representation result;
+  do not spend the remaining exploit window on ranks with <14.5% saving. Switch to multi-layer activation-PCA.

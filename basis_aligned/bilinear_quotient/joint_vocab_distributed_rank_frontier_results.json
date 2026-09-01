@@ -1,0 +1,1113 @@
+{
+  "status": "joint_vocab_distributed_rank_frontier_complete",
+  "rung": 305,
+  "claim_level": "fresh_two_corpus_distributed_rank_frontier_screen_only",
+  "price": {
+    "native_vocab_scalars": 115900416,
+    "shared_formula": "50304*1152 + 1152^2 + s*(50304+1152)",
+    "matched_independent_rank_offset": 25
+  },
+  "fit": {
+    "rows": 480,
+    "positions": 122880,
+    "evaluation_labels_used": false
+  },
+  "evaluation": {
+    "fineweb_skip": 11000,
+    "fineweb_rows": 32,
+    "wikitext_skip": 20000,
+    "wikitext_rows": 32,
+    "wikitext_fingerprint": "a46124b21ac53738"
+  },
+  "native": {
+    "fineweb": {
+      "ce": 3.0407748489130144,
+      "n_positions": 8192,
+      "ce_by_frequency": {
+        "unseen": {
+          "ce": 4.758013012754305,
+          "n": 941
+        },
+        "count_1_2": {
+          "ce": 4.344640344109612,
+          "n": 945
+        },
+        "count_3_9": {
+          "ce": 3.8369306410733635,
+          "n": 1199
+        },
+        "count_ge_10": {
+          "ce": 2.296176297917185,
+          "n": 5107
+        }
+      }
+    },
+    "wikitext": {
+      "ce": 3.927490013518767,
+      "n_positions": 8192,
+      "ce_by_frequency": {
+        "unseen": {
+          "ce": 6.302216914462402,
+          "n": 1050
+        },
+        "count_1_2": {
+          "ce": 4.748146822718831,
+          "n": 886
+        },
+        "count_3_9": {
+          "ce": 4.103883847023763,
+          "n": 1830
+        },
+        "count_ge_10": {
+          "ce": 3.126910281422921,
+          "n": 4426
+        }
+      }
+    }
+  },
+  "arms": {
+    "sqrt_count_plus_1_s512": {
+      "weighting": "sqrt_count_plus_1",
+      "shared_rank": 512,
+      "independent_rank": 537,
+      "shared_scalars": 85622784,
+      "independent_scalars": 85582080,
+      "saving_fraction_native_vocab": 0.26123833757421544,
+      "ridge": 7.558929777777777,
+      "shared_fineweb": {
+        "ce": 3.272988642012358,
+        "n_positions": 8192,
+        "ce_by_frequency": {
+          "unseen": {
+            "ce": 5.9469327744247895,
+            "n": 941
+          },
+          "count_1_2": {
+            "ce": 4.860048698984787,
+            "n": 945
+          },
+          "count_3_9": {
+            "ce": 3.961855704113213,
+            "n": 1199
+          },
+          "count_ge_10": {
+            "ce": 2.324896848415732,
+            "n": 5107
+          }
+        },
+        "damage": 0.23221379309934376,
+        "damage_by_frequency": {
+          "unseen": {
+            "damage": 1.1889197616704843,
+            "n": 941
+          },
+          "count_1_2": {
+            "damage": 0.5154083548751753,
+            "n": 945
+          },
+          "count_3_9": {
+            "damage": 0.12492506303984952,
+            "n": 1199
+          },
+          "count_ge_10": {
+            "damage": 0.02872055049854705,
+            "n": 5107
+          }
+        }
+      },
+      "independent_fineweb": {
+        "ce": 3.7145869188697898,
+        "n_positions": 8192,
+        "ce_by_frequency": {
+          "unseen": {
+            "ce": 6.630749473706537,
+            "n": 941
+          },
+          "count_1_2": {
+            "ce": 5.341727958518085,
+            "n": 945
+          },
+          "count_3_9": {
+            "ce": 4.546796611706541,
+            "n": 1199
+          },
+          "count_ge_10": {
+            "ce": 2.68079473788677,
+            "n": 5107
+          }
+        },
+        "damage": 0.6738120699567753,
+        "damage_by_frequency": {
+          "unseen": {
+            "damage": 1.8727364609522317,
+            "n": 941
+          },
+          "count_1_2": {
+            "damage": 0.997087614408473,
+            "n": 945
+          },
+          "count_3_9": {
+            "damage": 0.7098659706331776,
+            "n": 1199
+          },
+          "count_ge_10": {
+            "damage": 0.3846184399695849,
+            "n": 5107
+          }
+        }
+      },
+      "shared_wikitext": {
+        "ce": 4.19369822452985,
+        "n_positions": 8192,
+        "ce_by_frequency": {
+          "unseen": {
+            "ce": 7.222669340894291,
+            "n": 1050
+          },
+          "count_1_2": {
+            "ce": 5.405929604640102,
+            "n": 886
+          },
+          "count_3_9": {
+            "ce": 4.285174004974091,
+            "n": 1830
+          },
+          "count_ge_10": {
+            "ce": 3.1946342043822438,
+            "n": 4426
+          }
+        },
+        "damage": 0.26620821101108305,
+        "damage_by_frequency": {
+          "unseen": {
+            "damage": 0.920452426431889,
+            "n": 1050
+          },
+          "count_1_2": {
+            "damage": 0.6577827819212709,
+            "n": 886
+          },
+          "count_3_9": {
+            "damage": 0.1812901579503281,
+            "n": 1830
+          },
+          "count_ge_10": {
+            "damage": 0.06772392295932272,
+            "n": 4426
+          }
+        }
+      },
+      "independent_wikitext": {
+        "ce": 4.771459621342558,
+        "n_positions": 8192,
+        "ce_by_frequency": {
+          "unseen": {
+            "ce": 7.7846035153472,
+            "n": 1050
+          },
+          "count_1_2": {
+            "ce": 5.868210963252091,
+            "n": 886
+          },
+          "count_3_9": {
+            "ce": 5.421147831100106,
+            "n": 1830
+          },
+          "count_ge_10": {
+            "ce": 3.5684654501963693,
+            "n": 4426
+          }
+        },
+        "damage": 0.8439696078237908,
+        "damage_by_frequency": {
+          "unseen": {
+            "damage": 1.482386600884798,
+            "n": 1050
+          },
+          "count_1_2": {
+            "damage": 1.1200641405332599,
+            "n": 886
+          },
+          "count_3_9": {
+            "damage": 1.3172639840763427,
+            "n": 1830
+          },
+          "count_ge_10": {
+            "damage": 0.44155516877344825,
+            "n": 4426
+          }
+        }
+      }
+    },
+    "sqrt_count_plus_1_s640": {
+      "weighting": "sqrt_count_plus_1",
+      "shared_rank": 640,
+      "independent_rank": 665,
+      "shared_scalars": 92209152,
+      "independent_scalars": 92168448,
+      "saving_fraction_native_vocab": 0.20441051738761662,
+      "ridge": 7.558929777777777,
+      "shared_fineweb": {
+        "ce": 3.2204488062962575,
+        "n_positions": 8192,
+        "ce_by_frequency": {
+          "unseen": {
+            "ce": 5.708262954889931,
+            "n": 941
+          },
+          "count_1_2": {
+            "ce": 4.750320727601405,
+            "n": 945
+          },
+          "count_3_9": {
+            "ce": 3.8980230007368606,
+            "n": 1199
+          },
+          "count_ge_10": {
+            "ce": 2.319886139643762,
+            "n": 5107
+          }
+        },
+        "damage": 0.1796739573832431,
+        "damage_by_frequency": {
+          "unseen": {
+            "damage": 0.9502499421356259,
+            "n": 941
+          },
+          "count_1_2": {
+            "damage": 0.40568038349179325,
+            "n": 945
+          },
+          "count_3_9": {
+            "damage": 0.06109235966349713,
+            "n": 1199
+          },
+          "count_ge_10": {
+            "damage": 0.02370984172657664,
+            "n": 5107
+          }
+        }
+      },
+      "independent_fineweb": {
+        "ce": 3.5195801004658795,
+        "n_positions": 8192,
+        "ce_by_frequency": {
+          "unseen": {
+            "ce": 6.1753841496268675,
+            "n": 941
+          },
+          "count_1_2": {
+            "ce": 5.030093758826873,
+            "n": 945
+          },
+          "count_3_9": {
+            "ce": 4.277541756869061,
+            "n": 1199
+          },
+          "count_ge_10": {
+            "ce": 2.57277316029767,
+            "n": 5107
+          }
+        },
+        "damage": 0.47880525155286513,
+        "damage_by_frequency": {
+          "unseen": {
+            "damage": 1.4173711368725623,
+            "n": 941
+          },
+          "count_1_2": {
+            "damage": 0.6854534147172613,
+            "n": 945
+          },
+          "count_3_9": {
+            "damage": 0.44061111579569756,
+            "n": 1199
+          },
+          "count_ge_10": {
+            "damage": 0.27659686238048486,
+            "n": 5107
+          }
+        }
+      },
+      "shared_wikitext": {
+        "ce": 4.128113289631248,
+        "n_positions": 8192,
+        "ce_by_frequency": {
+          "unseen": {
+            "ce": 7.033971454555812,
+            "n": 1050
+          },
+          "count_1_2": {
+            "ce": 5.2349664792053865,
+            "n": 886
+          },
+          "count_3_9": {
+            "ce": 4.218107238854059,
+            "n": 1830
+          },
+          "count_ge_10": {
+            "ce": 3.179963283709146,
+            "n": 4426
+          }
+        },
+        "damage": 0.20062327611248065,
+        "damage_by_frequency": {
+          "unseen": {
+            "damage": 0.7317545400934096,
+            "n": 1050
+          },
+          "count_1_2": {
+            "damage": 0.48681965648655545,
+            "n": 886
+          },
+          "count_3_9": {
+            "damage": 0.11422339183029617,
+            "n": 1830
+          },
+          "count_ge_10": {
+            "damage": 0.05305300228622478,
+            "n": 4426
+          }
+        }
+      },
+      "independent_wikitext": {
+        "ce": 4.5310153648093525,
+        "n_positions": 8192,
+        "ce_by_frequency": {
+          "unseen": {
+            "ce": 7.330095056285194,
+            "n": 1050
+          },
+          "count_1_2": {
+            "ce": 5.534711860251691,
+            "n": 886
+          },
+          "count_3_9": {
+            "ce": 5.032313788322798,
+            "n": 1830
+          },
+          "count_ge_10": {
+            "ce": 3.4587865157263993,
+            "n": 4426
+          }
+        },
+        "damage": 0.6035253512905854,
+        "damage_by_frequency": {
+          "unseen": {
+            "damage": 1.027878141822792,
+            "n": 1050
+          },
+          "count_1_2": {
+            "damage": 0.7865650375328599,
+            "n": 886
+          },
+          "count_3_9": {
+            "damage": 0.9284299412990356,
+            "n": 1830
+          },
+          "count_ge_10": {
+            "damage": 0.33187623430347823,
+            "n": 4426
+          }
+        }
+      }
+    },
+    "sqrt_count_plus_1_s768": {
+      "weighting": "sqrt_count_plus_1",
+      "shared_rank": 768,
+      "independent_rank": 793,
+      "shared_scalars": 98795520,
+      "independent_scalars": 98754816,
+      "saving_fraction_native_vocab": 0.1475826972010178,
+      "ridge": 7.558929777777777,
+      "shared_fineweb": {
+        "ce": 3.173656196954116,
+        "n_positions": 8192,
+        "ce_by_frequency": {
+          "unseen": {
+            "ce": 5.4820641111266735,
+            "n": 941
+          },
+          "count_1_2": {
+            "ce": 4.643673769864289,
+            "n": 945
+          },
+          "count_3_9": {
+            "ce": 3.848206907854014,
+            "n": 1199
+          },
+          "count_ge_10": {
+            "ce": 2.3179356651339735,
+            "n": 5107
+          }
+        },
+        "damage": 0.13288134804110152,
+        "damage_by_frequency": {
+          "unseen": {
+            "damage": 0.7240510983723683,
+            "n": 941
+          },
+          "count_1_2": {
+            "damage": 0.2990334257546774,
+            "n": 945
+          },
+          "count_3_9": {
+            "damage": 0.011276266780650523,
+            "n": 1199
+          },
+          "count_ge_10": {
+            "damage": 0.021759367216788394,
+            "n": 5107
+          }
+        }
+      },
+      "independent_fineweb": {
+        "ce": 3.3963327847243265,
+        "n_positions": 8192,
+        "ce_by_frequency": {
+          "unseen": {
+            "ce": 5.830376951241643,
+            "n": 941
+          },
+          "count_1_2": {
+            "ce": 4.839049500237415,
+            "n": 945
+          },
+          "count_3_9": {
+            "ce": 4.101086424490715,
+            "n": 1199
+          },
+          "count_ge_10": {
+            "ce": 2.51542374400912,
+            "n": 5107
+          }
+        },
+        "damage": 0.3555579358113121,
+        "damage_by_frequency": {
+          "unseen": {
+            "damage": 1.0723639384873378,
+            "n": 941
+          },
+          "count_1_2": {
+            "damage": 0.49440915612780323,
+            "n": 945
+          },
+          "count_3_9": {
+            "damage": 0.2641557834173516,
+            "n": 1199
+          },
+          "count_ge_10": {
+            "damage": 0.2192474460919347,
+            "n": 5107
+          }
+        }
+      },
+      "shared_wikitext": {
+        "ce": 4.0762478901200225,
+        "n_positions": 8192,
+        "ce_by_frequency": {
+          "unseen": {
+            "ce": 6.867857130399816,
+            "n": 1050
+          },
+          "count_1_2": {
+            "ce": 5.141342891424537,
+            "n": 886
+          },
+          "count_3_9": {
+            "ce": 4.146138638728111,
+            "n": 1830
+          },
+          "count_ge_10": {
+            "ce": 3.171872846423144,
+            "n": 4426
+          }
+        },
+        "damage": 0.1487578766012554,
+        "damage_by_frequency": {
+          "unseen": {
+            "damage": 0.5656402159374139,
+            "n": 1050
+          },
+          "count_1_2": {
+            "damage": 0.39319606870570567,
+            "n": 886
+          },
+          "count_3_9": {
+            "damage": 0.042254791704348094,
+            "n": 1830
+          },
+          "count_ge_10": {
+            "damage": 0.044962565000223,
+            "n": 4426
+          }
+        }
+      },
+      "independent_wikitext": {
+        "ce": 4.359721854652552,
+        "n_positions": 8192,
+        "ce_by_frequency": {
+          "unseen": {
+            "ce": 7.050056437902939,
+            "n": 1050
+          },
+          "count_1_2": {
+            "ce": 5.243112335520803,
+            "n": 886
+          },
+          "count_3_9": {
+            "ce": 4.6891812803326465,
+            "n": 1830
+          },
+          "count_ge_10": {
+            "ce": 3.4084236107626396,
+            "n": 4426
+          }
+        },
+        "damage": 0.43223184113378466,
+        "damage_by_frequency": {
+          "unseen": {
+            "damage": 0.7478395234405371,
+            "n": 1050
+          },
+          "count_1_2": {
+            "damage": 0.4949655128019721,
+            "n": 886
+          },
+          "count_3_9": {
+            "damage": 0.5852974333088836,
+            "n": 1830
+          },
+          "count_ge_10": {
+            "damage": 0.2815133293397185,
+            "n": 4426
+          }
+        }
+      }
+    },
+    "count_plus_1_s512": {
+      "weighting": "count_plus_1",
+      "shared_rank": 512,
+      "independent_rank": 537,
+      "shared_scalars": 85622784,
+      "independent_scalars": 85582080,
+      "saving_fraction_native_vocab": 0.26123833757421544,
+      "ridge": 12.022220444444445,
+      "shared_fineweb": {
+        "ce": 3.2881815509585364,
+        "n_positions": 8192,
+        "ce_by_frequency": {
+          "unseen": {
+            "ce": 6.319812145369815,
+            "n": 941
+          },
+          "count_1_2": {
+            "ce": 5.089032142804014,
+            "n": 945
+          },
+          "count_3_9": {
+            "ce": 4.061420478481925,
+            "n": 1199
+          },
+          "count_ge_10": {
+            "ce": 2.214815255141906,
+            "n": 5107
+          }
+        },
+        "damage": 0.24740670204552195,
+        "damage_by_frequency": {
+          "unseen": {
+            "damage": 1.5617991326155094,
+            "n": 941
+          },
+          "count_1_2": {
+            "damage": 0.7443917986944024,
+            "n": 945
+          },
+          "count_3_9": {
+            "damage": 0.22448983740856177,
+            "n": 1199
+          },
+          "count_ge_10": {
+            "damage": -0.08136104277527911,
+            "n": 5107
+          }
+        }
+      },
+      "independent_fineweb": {
+        "ce": 3.7710569796715374,
+        "n_positions": 8192,
+        "ce_by_frequency": {
+          "unseen": {
+            "ce": 7.894894814577971,
+            "n": 941
+          },
+          "count_1_2": {
+            "ce": 6.245451173280173,
+            "n": 945
+          },
+          "count_3_9": {
+            "ce": 5.13850610599262,
+            "n": 1199
+          },
+          "count_ge_10": {
+            "ce": 2.2323051844755137,
+            "n": 5107
+          }
+        },
+        "damage": 0.730282130758523,
+        "damage_by_frequency": {
+          "unseen": {
+            "damage": 3.136881801823666,
+            "n": 941
+          },
+          "count_1_2": {
+            "damage": 1.9008108291705614,
+            "n": 945
+          },
+          "count_3_9": {
+            "damage": 1.3015754649192561,
+            "n": 1199
+          },
+          "count_ge_10": {
+            "damage": -0.0638711134416714,
+            "n": 5107
+          }
+        }
+      },
+      "shared_wikitext": {
+        "ce": 4.196221983073482,
+        "n_positions": 8192,
+        "ce_by_frequency": {
+          "unseen": {
+            "ce": 7.529045584795198,
+            "n": 1050
+          },
+          "count_1_2": {
+            "ce": 5.635106806509154,
+            "n": 886
+          },
+          "count_3_9": {
+            "ce": 4.328771306785928,
+            "n": 1830
+          },
+          "count_ge_10": {
+            "ce": 3.062719498264267,
+            "n": 4426
+          }
+        },
+        "damage": 0.26873196955471457,
+        "damage_by_frequency": {
+          "unseen": {
+            "damage": 1.2268286703327957,
+            "n": 1050
+          },
+          "count_1_2": {
+            "damage": 0.886959983790323,
+            "n": 886
+          },
+          "count_3_9": {
+            "damage": 0.22488745976216507,
+            "n": 1830
+          },
+          "count_ge_10": {
+            "damage": -0.0641907831586539,
+            "n": 4426
+          }
+        }
+      },
+      "independent_wikitext": {
+        "ce": 4.793442579401825,
+        "n_positions": 8192,
+        "ce_by_frequency": {
+          "unseen": {
+            "ce": 8.871042781621219,
+            "n": 1050
+          },
+          "count_1_2": {
+            "ce": 6.743806612650542,
+            "n": 886
+          },
+          "count_3_9": {
+            "ce": 5.514829097864793,
+            "n": 1830
+          },
+          "count_ge_10": {
+            "ce": 3.137400990026326,
+            "n": 4426
+          }
+        },
+        "damage": 0.8659525658830578,
+        "damage_by_frequency": {
+          "unseen": {
+            "damage": 2.5688258671588162,
+            "n": 1050
+          },
+          "count_1_2": {
+            "damage": 1.995659789931711,
+            "n": 886
+          },
+          "count_3_9": {
+            "damage": 1.4109452508410305,
+            "n": 1830
+          },
+          "count_ge_10": {
+            "damage": 0.010490708603405174,
+            "n": 4426
+          }
+        }
+      }
+    },
+    "count_plus_1_s640": {
+      "weighting": "count_plus_1",
+      "shared_rank": 640,
+      "independent_rank": 665,
+      "shared_scalars": 92209152,
+      "independent_scalars": 92168448,
+      "saving_fraction_native_vocab": 0.20441051738761662,
+      "ridge": 12.022220444444445,
+      "shared_fineweb": {
+        "ce": 3.2225351058702643,
+        "n_positions": 8192,
+        "ce_by_frequency": {
+          "unseen": {
+            "ce": 5.984234384914377,
+            "n": 941
+          },
+          "count_1_2": {
+            "ce": 4.9164602349025985,
+            "n": 945
+          },
+          "count_3_9": {
+            "ce": 3.96184108863149,
+            "n": 1199
+          },
+          "count_ge_10": {
+            "ce": 2.22665765495059,
+            "n": 5107
+          }
+        },
+        "damage": 0.18176025695724984,
+        "damage_by_frequency": {
+          "unseen": {
+            "damage": 1.2262213721600714,
+            "n": 941
+          },
+          "count_1_2": {
+            "damage": 0.5718198907929866,
+            "n": 945
+          },
+          "count_3_9": {
+            "damage": 0.12491044755812641,
+            "n": 1199
+          },
+          "count_ge_10": {
+            "damage": -0.06951864296659505,
+            "n": 5107
+          }
+        }
+      },
+      "independent_fineweb": {
+        "ce": 3.520757120615775,
+        "n_positions": 8192,
+        "ce_by_frequency": {
+          "unseen": {
+            "ce": 7.087660368049951,
+            "n": 941
+          },
+          "count_1_2": {
+            "ce": 5.621635105308495,
+            "n": 945
+          },
+          "count_3_9": {
+            "ce": 4.628119439298319,
+            "n": 1199
+          },
+          "count_ge_10": {
+            "ce": 2.2148019470362668,
+            "n": 5107
+          }
+        },
+        "damage": 0.4799822717027604,
+        "damage_by_frequency": {
+          "unseen": {
+            "damage": 2.329647355295646,
+            "n": 941
+          },
+          "count_1_2": {
+            "damage": 1.2769947611988828,
+            "n": 945
+          },
+          "count_3_9": {
+            "damage": 0.7911887982249559,
+            "n": 1199
+          },
+          "count_ge_10": {
+            "damage": -0.08137435088091838,
+            "n": 5107
+          }
+        }
+      },
+      "shared_wikitext": {
+        "ce": 4.124008692564633,
+        "n_positions": 8192,
+        "ce_by_frequency": {
+          "unseen": {
+            "ce": 7.272446795056929,
+            "n": 1050
+          },
+          "count_1_2": {
+            "ce": 5.411580502732857,
+            "n": 886
+          },
+          "count_3_9": {
+            "ce": 4.239426598081869,
+            "n": 1830
+          },
+          "count_ge_10": {
+            "ce": 3.0716220232192875,
+            "n": 4426
+          }
+        },
+        "damage": 0.19651867904586595,
+        "damage_by_frequency": {
+          "unseen": {
+            "damage": 0.9702298805945269,
+            "n": 1050
+          },
+          "count_1_2": {
+            "damage": 0.6634336800140259,
+            "n": 886
+          },
+          "count_3_9": {
+            "damage": 0.13554275105810643,
+            "n": 1830
+          },
+          "count_ge_10": {
+            "damage": -0.05528825820363359,
+            "n": 4426
+          }
+        }
+      },
+      "independent_wikitext": {
+        "ce": 4.478460291838253,
+        "n_positions": 8192,
+        "ce_by_frequency": {
+          "unseen": {
+            "ce": 8.142643869673567,
+            "n": 1050
+          },
+          "count_1_2": {
+            "ce": 6.1259941610607,
+            "n": 886
+          },
+          "count_3_9": {
+            "ce": 5.018563952701436,
+            "n": 1830
+          },
+          "count_ge_10": {
+            "ce": 3.0560704445183724,
+            "n": 4426
+          }
+        },
+        "damage": 0.5509702783194861,
+        "damage_by_frequency": {
+          "unseen": {
+            "damage": 1.8404269552111643,
+            "n": 1050
+          },
+          "count_1_2": {
+            "damage": 1.3778473383418692,
+            "n": 886
+          },
+          "count_3_9": {
+            "damage": 0.9146801056776734,
+            "n": 1830
+          },
+          "count_ge_10": {
+            "damage": -0.07083983690454865,
+            "n": 4426
+          }
+        }
+      }
+    },
+    "count_plus_1_s768": {
+      "weighting": "count_plus_1",
+      "shared_rank": 768,
+      "independent_rank": 793,
+      "shared_scalars": 98795520,
+      "independent_scalars": 98754816,
+      "saving_fraction_native_vocab": 0.1475826972010178,
+      "ridge": 12.022220444444445,
+      "shared_fineweb": {
+        "ce": 3.168152596689939,
+        "n_positions": 8192,
+        "ce_by_frequency": {
+          "unseen": {
+            "ce": 5.690764064351006,
+            "n": 941
+          },
+          "count_1_2": {
+            "ce": 4.753841901453747,
+            "n": 945
+          },
+          "count_3_9": {
+            "ce": 3.886652540052031,
+            "n": 1199
+          },
+          "count_ge_10": {
+            "ce": 2.241241451954867,
+            "n": 5107
+          }
+        },
+        "damage": 0.12737774777692445,
+        "damage_by_frequency": {
+          "unseen": {
+            "damage": 0.9327510515967008,
+            "n": 941
+          },
+          "count_1_2": {
+            "damage": 0.40920155734413477,
+            "n": 945
+          },
+          "count_3_9": {
+            "damage": 0.04972189897866741,
+            "n": 1199
+          },
+          "count_ge_10": {
+            "damage": -0.054934845962318235,
+            "n": 5107
+          }
+        }
+      },
+      "independent_fineweb": {
+        "ce": 3.3557954896381292,
+        "n_positions": 8192,
+        "ce_by_frequency": {
+          "unseen": {
+            "ce": 6.470293468268693,
+            "n": 941
+          },
+          "count_1_2": {
+            "ce": 5.215883297022437,
+            "n": 945
+          },
+          "count_3_9": {
+            "ce": 4.295835748648787,
+            "n": 1199
+          },
+          "count_ge_10": {
+            "ce": 2.217038127894775,
+            "n": 5107
+          }
+        },
+        "damage": 0.3150206407251148,
+        "damage_by_frequency": {
+          "unseen": {
+            "damage": 1.7122804555143878,
+            "n": 941
+          },
+          "count_1_2": {
+            "damage": 0.8712429529128247,
+            "n": 945
+          },
+          "count_3_9": {
+            "damage": 0.45890510757542335,
+            "n": 1199
+          },
+          "count_ge_10": {
+            "damage": -0.0791381700224103,
+            "n": 5107
+          }
+        }
+      },
+      "shared_wikitext": {
+        "ce": 4.072386845092105,
+        "n_positions": 8192,
+        "ce_by_frequency": {
+          "unseen": {
+            "ce": 7.0724016778140015,
+            "n": 1050
+          },
+          "count_1_2": {
+            "ce": 5.2468403246317195,
+            "n": 886
+          },
+          "count_3_9": {
+            "ce": 4.171104885407076,
+            "n": 1830
+          },
+          "count_ge_10": {
+            "ce": 3.0847602361886954,
+            "n": 4426
+          }
+        },
+        "damage": 0.14489683157333744,
+        "damage_by_frequency": {
+          "unseen": {
+            "damage": 0.7701847633515992,
+            "n": 1050
+          },
+          "count_1_2": {
+            "damage": 0.4986935019128884,
+            "n": 886
+          },
+          "count_3_9": {
+            "damage": 0.06722103838331339,
+            "n": 1830
+          },
+          "count_ge_10": {
+            "damage": -0.04215004523422561,
+            "n": 4426
+          }
+        }
+      },
+      "independent_wikitext": {
+        "ce": 4.2690876632981265,
+        "n_positions": 8192,
+        "ce_by_frequency": {
+          "unseen": {
+            "ce": 7.596586143137843,
+            "n": 1050
+          },
+          "count_1_2": {
+            "ce": 5.617677365217103,
+            "n": 886
+          },
+          "count_3_9": {
+            "ce": 4.677509101677007,
+            "n": 1830
+          },
+          "count_ge_10": {
+            "ce": 3.040860118796259,
+            "n": 4426
+          }
+        },
+        "damage": 0.34159764977935936,
+        "damage_by_frequency": {
+          "unseen": {
+            "damage": 1.294369228675441,
+            "n": 1050
+          },
+          "count_1_2": {
+            "damage": 0.8695305424982722,
+            "n": 886
+          },
+          "count_3_9": {
+            "damage": 0.5736252546532441,
+            "n": 1830
+          },
+          "count_ge_10": {
+            "damage": -0.0860501626266621,
+            "n": 4426
+          }
+        }
+      }
+    }
+  },
+  "pred_a_distributed_rank_is_predictive": false,
+  "pred_b_shared_beats_matched_independent": false,
+  "pred_c_tail_is_predictive": false,
+  "null_no_useful_distributed_frontier": false,
+  "runtime_s": 8.483073711395264
+}

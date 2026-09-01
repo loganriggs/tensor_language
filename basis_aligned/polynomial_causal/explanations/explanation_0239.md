@@ -299,3 +299,18 @@ exception table. Sparse corrections are stopped. The last vocabulary exploit the
 rank instead: ranks 640 and 768 relax vocabulary savings toward 20% and 15%, respectively. If that frontier cannot
 reach predictive and unseen-tail bars against matched independent controls, the route is stopped and the secondary
 activation-PCA MLP direction takes over.
+
+## Exploit checkpoint: the shared-code frontier remains too costly (03:43 UTC)
+
+Buying distributed residual rank works smoothly, but not fast enough. At rank 640 the shared program still adds
+about `+.180/.197` FineWeb/WikiText while saving 20.4% of vocabulary. At rank 768 it adds `+.127/.145` while
+saving 14.8%. The shared arms beat their price-matched independent SVDs by a large margin everywhere, confirming
+that the input and output maps genuinely share a useful code. However, the unseen tail remains `+.724/.566` even
+for the better sqrt-weighted rank-768 arm.
+
+That distinction matters: this is a positive representation result and a negative compression decision. The code
+is real, but the amount of distributed residual rank needed for low loss consumes most of the saving. I therefore
+stop the vocabulary route at the preregistered boundary rather than chasing rank 896/1024. The exploit moves to
+activation-PCA MLP outputs, where MLP0 rank256 already showed `+.0209/.0114` damage while saving 3.83M scalars.
+The next test asks whether four calibration-selected layers compose on fresh FineWeb and WikiText for a literal
+15.34M-scalar saving.
