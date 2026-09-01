@@ -4235,10 +4235,15 @@ later per-rung backlog edits had silently anchored on text that was not here.
   ordering `I>T>C>S` transports at rho1.0. SELECT Shapley `I=.00581`, `T=.00190`, `C=.00006`, `S=-.00201`,
   AUX `=-.00012`. The compressor's error is interaction-led. Confirm on larger documents before changing metric.
 
-### Rung 404 — large-document confirmation of p448 interaction-led damage — CLAIMED
+### Rung 404 — large-document confirmation of p448 interaction-led damage — COMPLETE / STRONG NULL
 
 - Select exactly chunk0 from each of 384 frozen, disjoint FineWeb source documents; split into four fixed96-document
   waves and score the unchanged rung403 32-arm factorial with the same map/reference.
 - Freeze population, program, exactness, all-wave I dominance, pooled transport/concentration, auxiliary bound,
   total-damage stability, and strong null in `MLP0_RANK448_BRANCH_LARGE_CONFIRMATION_PREREGISTRATION.md`.
 - A full pass routes to a global equal-price interaction-weighted projection; no compressor/adoption by confirmation.
+- RUN 2026-09-01: A/D held, B/C failed, and the strong null fired. The exact fixed map has pooled damage `.00711`
+  nat and named order `I>T>C>S`, but wave Shapleys alternate: I leads waves0/2 and T leads waves1/3. Pooled
+  `I=.00479`, `T=.00334`; their gap `.001448` misses the frozen `.0015`, and I's positive named share `.544`
+  misses `.60`. The stable statement is token-grammar-led `T+I`, not interaction-only. Do not build the licensed
+  I-only projection; compare joint T+I, I-only, T-only, and covariance objectives at equal rank/price.
