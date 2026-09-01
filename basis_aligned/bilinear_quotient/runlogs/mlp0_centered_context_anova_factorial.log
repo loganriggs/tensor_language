@@ -1,0 +1,22 @@
+Traceback (most recent call last):
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/mlp0_centered_context_anova_factorial.py", line 393, in <module>
+    main()
+  File "/venv/main/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/mlp0_centered_context_anova_factorial.py", line 324, in main
+    "FIT": _score_role(model, fit_rows, device, reference),
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/mlp0_centered_context_anova_factorial.py", line 266, in _score_role
+    logits = facade.forward_with_dispatch(model, tokens, attention, mlp)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tensor_language/basis_aligned/polynomial_causal/bilin18_observed_model_facade.py", line 267, in forward_with_dispatch
+    write = mlp_dispatcher(EarlyMLPEvent(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/mlp0_centered_context_anova_factorial.py", line 262, in mlp
+    gram += torch.einsum("and,bnd->ab", flat, flat).cpu()
+    ^^^^
+UnboundLocalError: cannot access local variable 'gram' where it is not associated with a value
