@@ -3114,8 +3114,19 @@ later per-rung backlog edits had silently anchored on text that was not here.
     (non-band damage family; bars = the S2356 preds unchanged).
     Registered control bar: cosine(d_v96, d_ct96) < 0.8 (band
     specificity). -> ops/cevdump_v96.py [QUEUED 01:35Z]
+    RUN 2026-09-01, S2378: control bar FAILED as written (0.8660) by
+    control mis-design (config contains the band). Residual d_v96 -
+    d_ct96 ORTHOGONAL to band (cos -0.017) - provisional vector-
+    additivity. PREREG ADDENDUM for 278 (before landing): residual
+    cosine in [-0.3, 0.3]. Clean band-free control = 279.
 
 278. RED-TEAM specificity control: cev dump of the m16-knockout config
     (intervention family; bars = S2364 preds unchanged). Same control
     bar vs d_ct96; also feeds the signed-composition test (math review
     move 2). -> ops/cevdump_kom16.py [QUEUED 01:35Z]
+
+279. CLEAN band-free control: value r96 on EXACT patterns (pure value
+    direction): pred_a census in [0.005,0.06] (live config check);
+    pred_b valid >= 10; pred_c offline cosine bars per S2378 (spec
+    < 0.3, norm within 25% of 109.7). Null: shares the band direction
+    or inert edit. -> ops/cev_purevalue.py [QUEUED 01:45Z]
