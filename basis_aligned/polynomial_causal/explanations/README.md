@@ -7,9 +7,15 @@ primary evidence.
 
 ## Start here
 
-- [`explanation_2026-09-01_1241.md`](explanation_2026-09-01_1241.md) — 2026-09-01 12:41 UTC restart:
-  current goal, the fully gated three-tier frontier, the depth inversion that makes layers16/17 the new Tucker
-  sites, rung387's stable ~.82 function level at 2.07M scalars, and the next physical calibration
+- [`explanation_2026-09-01_1241.md`](explanation_2026-09-01_1241.md) — 2026-09-01 12:41 UTC restart and
+  question-driven correction: current goal, plain computational definitions for BF16/QK/MLP/Tucker terms, an
+  honest six-direction time audit, rung388's physical result, and the older late-layer result that changes the plan
+- [`MLP_MODULE_DOSSIER_INDEX.md`](MLP_MODULE_DOSSIER_INDEX.md) — one-row-per-MLP prior-work index and mandatory
+  duplicate-work preflight; links the detailed MLP0, MLP16, and MLP17 dossiers
+- [`MLP16_CURRENT_UNDERSTANDING.md`](MLP16_CURRENT_UNDERSTANDING.md) — reconciles the old reported-13,832/corrected-14,984-number quadratic
+  replacement, rank-1 activation-conditioned output result, and the new 2.07M-number Tucker calibration
+- [`MLP17_CURRENT_UNDERSTANDING.md`](MLP17_CURRENT_UNDERSTANDING.md) — reconciles rank-2 quadratic forms,
+  output-direction functional rank, activation-conditioned `Down` rank, semantics, and causal checks
 - [`explanation_0900.md`](explanation_0900.md) — 2026-09-01 completed overnight synthesis: goal and six-route
   scorecard, exact MLP0 identifiability limits, 511.76M/1.0235GB adopted frontier, 516.26M/50-cert mid-tier,
   universal certificate ray, local water-fill closure, and genuinely different next directions

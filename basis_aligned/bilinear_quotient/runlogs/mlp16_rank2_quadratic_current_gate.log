@@ -1,0 +1,19 @@
+Traceback (most recent call last):
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/mlp16_rank2_quadratic_current_gate.py", line 388, in <module>
+    main()
+  File "/venv/main/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/mlp16_rank2_quadratic_current_gate.py", line 235, in main
+    clean = _build_clean(model, xb, yb, random_output=False)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/mlp16_rank2_quadratic_current_gate.py", line 121, in _build_clean
+    form_for_direction(mlp, output_directions[index]) for index in range(R)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/experiments/structure_mapping/bilin18_identifiable.py", line 72, in form_for_direction
+    c = (mlp.Down.weight.T @ d).double()            # (4608,)
+         ~~~~~~~~~~~~~~~~~~^~~
+RuntimeError: expected scalar type Float but found Double
