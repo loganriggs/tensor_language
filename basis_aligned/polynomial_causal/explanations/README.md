@@ -11,6 +11,10 @@ state what was actually measured and what unit is being used.
 
 ## Start here
 
+- [explanation_2026-09-01_2054.md](explanation_2026-09-01_2054.md) — evaluates Archetypal/relaxed SAEs for the
+  unstable Q/K atoms, proposes a gauge-safe score-profile convex hull, specifies the causal/OOD tests needed beyond
+  restart stability, and gives a nested held-out protocol for learning and optimizing consequence-predictive
+  simplicity measures without exposing their validation circuits
 - [explanation_2026-09-01_1957.md](explanation_2026-09-01_1957.md) — complete update since 18:07 covering rungs
   418–425, all nulls, repairs, and fresh-row replication, the continuous QK1×QK2×OV result, and a leakage-safe method
   for using the 62 circuit-behavior response vector to discover and falsify decompositions; sections 5 and 15 define

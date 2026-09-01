@@ -114,3 +114,49 @@ Thus a smaller physical continuous generator would be only a storage/execution r
 evidence for the user's desired kind of simplicity only when the same representation makes steps 3–6 work better
 than matched-fidelity ordinary rank, the sparse generator, and difficulty-matched controls. Future hourly reviews
 will report these consequence ledgers explicitly rather than using “simpler” as shorthand for fewer bytes.
+
+## 20:54 addendum — archetypal dictionaries and learning the simplicity prior
+
+The user's Archetypal-SAE suggestion is a useful new sparse-family arm, but not an identifiability theorem for this
+model. Fel et al. constrain decoder atoms to `D = W A`, where each row of `W` is nonnegative and sums to one, so
+each atom is a convex mixture of observed activation rows. Their relaxed version uses `D = W C + Lambda` with a
+bounded deviation from a centroid hull. This is principled when the intended latent concepts are extremal or
+prototype-like points of the data geometry. It reduces the arbitrary freedom of placing decoder atoms anywhere.
+
+It does not make arbitrary latents identifiable. The paper itself says the inductive bias must match the generating
+process and evaluates “soft identifiability” on synthetic object mixtures. Its stability bound also contains a term
+depending on the difference between the two learned convex weights, so convex membership alone does not force two
+optimizers to select the same atoms. In our case there are three additional mismatches:
+
+- rung 430 uses signed sparse codes, whereas the archetypal conic interpretation assumes nonnegative codes;
+- useful Q/K roles may be signed contrasts between token groups rather than extreme token rows;
+- convex-hull membership in native Q/K coordinates is not invariant to a function-preserving Q/K gauge.
+
+Therefore the closest replication arm is worth running, but the more project-specific version should constrain
+atoms in **induced score-profile space**: a row is what one query token scores against a frozen bank of key tokens
+and offsets (and analogously for keys). Convex mixtures there are mixtures of observable attention roles and are
+invariant to private Q/K coordinate rotations. A downstream-response-profile hull is an even stronger later version.
+Strict, relaxed, symmetric signed-hull, and ordinary rung-430 arms should be matched for active count and complete
+price. Success requires not merely higher restart cosine but better held-out score/product/CE, atom-pair stability,
+shifted-token/document transport, extraction, and selective removal collateral.
+
+The user's second idea is the general form of this move: **learn which proposed simplicity measures predict useful
+consequences, then optimize programs under those measures**. This is legitimate bootstrapping rather than cheating
+if it is nested and prospective:
+
+1. On meta-training circuit families, fit small consequence-specific predictors from the simplicity vector `K(P)`
+   to OOD transport, extraction, edit specificity/collateral, and composition/reuse outcomes.
+2. Select measures and weights only on different validation circuit families, not different examples of the same
+   circuit. Prefer monotone pairwise order predictions at matched causal distortion to a free scalar reward.
+3. Use the selected measure to search a new program on training data.
+4. Freeze the program, measure, extractor, edit, and semantic labels before opening held-out circuit families,
+   shifted data, intervention types, and compositions.
+5. Include adversarial candidates: equally small random rotations, label/tag permutations, causally wrong
+   reconstruction matches, duplicated “reusable” modules, and programs that hide native calls or collateral.
+
+The held-out result is not “the optimized objective became small.” It is whether the simplicity ordering predicted
+the consequence vector before measurement. Keep separate predictors unless evidence supports scalarization. The
+learned simplicity rule itself has a description length and must beat bytes, rank, sparse graph locality, causal
+interface dimension, and shuffled-rule controls. This protocol is now a standing item in hourly reviews: ask not
+only for alternative program decompositions, but whether the accumulated circuit ledger can train and prospectively
+falsify a better simplicity prior without reusing held-out circuit or data roles.

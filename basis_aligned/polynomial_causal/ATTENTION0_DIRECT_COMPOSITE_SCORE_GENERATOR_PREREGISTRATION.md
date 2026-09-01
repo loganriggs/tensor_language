@@ -52,6 +52,16 @@ of normalized branch-score error and the same individual-plus-head-summed downst
 used by rung 424. Rank, frequencies, objective weights, steps, seeds, and roles are frozen here; SELECT is not used
 for model or hyperparameter selection.
 
+### Pre-implementation optimizer constants
+
+All maps are float32 and initialized independently as zero-mean Gaussian values with standard deviation
+`1/sqrt(1,152)`; learned score biases start at zero. Each arm uses Adam with learning rate `0.001`, batch size
+`1,024`, and exactly `1,000` updates. The loss assigns weight `0.25` each to normalized branch-score error,
+two-branch-product error, downstream-metric individual-head edge error, and downstream-metric head-summed edge
+error. Sampling/initialization seeds are 4311 for MODE96, 4312 for HEAD64, and 4313 for
+QUERY-SOURCE-PERMUTED. The fixed FIT edge-level source permutation uses seed 4314. No restart selection,
+early stopping, learning-rate search, or post-SELECT repair is permitted.
+
 ## Roles and controls
 
 - FIT/SELECT documents and query positions are exactly rung 424's bound role tensors and positions.
