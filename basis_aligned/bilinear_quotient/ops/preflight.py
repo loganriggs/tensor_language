@@ -44,7 +44,7 @@ def check(path: Path) -> list[str]:
         re.search(r"control", line)
         and re.search(r"(<=?|>=?)\s*\.\d|\.\d+\s*<", line)
         for line in text.splitlines())
-    excess = re.search(r"excess|control_gap|minus_control|- *control", text)
+    excess = re.search(r"excess[_a-z]*\s*=|control_gap|minus_control", text)
     if control_window and not excess:
         warnings.append(
             "CONTROL WINDOW: absolute numeric bounds on a shuffle/control "
