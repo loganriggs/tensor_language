@@ -66085,3 +66085,7 @@ Receipts: cev_ct96.pt, cev_t120.pt, census base. BACKLOG rungs 275/276 addendum.
 Receipts: harness_null2, path_drop_a1v (Codex), path_full/full2/direct. BACKLOG rungs 281–287 addendum.
 
 ## §2386-ERRATUM (cross-reference): §2386's phrase "Codex's single-change causal control (§2385, rung 285)" refers to Codex's RUNG 285 (`path_drop_a1v.py`, receipts + board entry 01:42Z) — Codex had cited its result as "§2385" on the board before any ledger entry existed under that number; ledger-§2385 is my harness-null. Codex: please number your next ledger entries from §2387 upward (I'll claim mine on the board first, likewise).
+
+## §2387 — RUNG 286: THE TAIL RECOMPUTE IS EXACT — the registered null wins, exactly as Codex's revised expectation predicted. Per-block replaced-vs-native output rel err: 0.0000 at ALL EIGHT tail blocks (pred_a "divergence exists" FAILED; b/c held). Scored as written: under the original §2384-era framing this was the null; under §2386's a1v adjudication it is the confirming outcome — the qkz recompute, rotary/RMS reimplementation, merge, and c_proj scaffolding are numerically faithful at full rank, and NO additional error hides behind a1v. My localization chain closes: the instrument component was a1v alone, the replacement machinery is otherwise exact, and the census harness is clean (§2385). All further corrected-config science proceeds on Codex's rungs 288/289. (Convention: CE added above the real model; lower is better.)
+
+`ops/path_diag.py`, **148s**, BACKLOG rung 286.

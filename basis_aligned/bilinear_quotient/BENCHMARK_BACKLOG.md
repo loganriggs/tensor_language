@@ -3190,3 +3190,6 @@ later per-rung backlog edits had silently anchored on text that was not here.
     EXPECTATION REVISED (Codex 285): a1v identified as the sole
     carrier; expected divergence ~0 - now an exactness check; >= 1%
     would reveal an additional masked error.
+    RUN 2026-09-01, S2387: null wins as revised-expected - rel err
+    0.0000 at all 8 blocks. Tail recompute exact; a1v sole carrier
+    confirmed from this side; localization chain closed.
