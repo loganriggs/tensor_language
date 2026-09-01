@@ -115,6 +115,24 @@ Additional controls:
 
 All k-means initializations, tie breaks, iteration caps, and seeds are fixed in code before SELECT is read.
 
+### Execution freeze before implementation
+
+To obtain the complete private-center allocation curve without fitting thousands of unrelated initializations, use
+deterministic **bisecting k-means** for both the global and private arms. Begin with the exact mean. At every step,
+split the occupied cluster with greatest total squared error; ties choose the smaller cluster ID. Initialize its two
+children at the mean plus/minus the leading covariance eigenvector scaled by one half standard deviation, perform 12
+two-center Lloyd updates, keep the old ID for the child with lexicographically smaller center, and assign the other
+the next ID. Save the distortion after every split. The global arm stops at256. Each private-head curve runs through
+248 centers, the maximum possible under `K_h>=1` for the other eight heads, and the registered dynamic program chooses
+the exact minimum-sum allocation. Empty children are repaired by moving the point with largest current residual;
+lexicographic index breaks ties. All accumulation is float64; assignments may be computed in float32 chunks.
+
+Seed419 controls only token-row ordering and Haar matrices; the bisecting construction itself is deterministic. The
+phrase “raw Euclidean geometry alone is not sufficient” in prediction C means the response-metric global advantage
+must exceed the raw-U16 global advantage by at least 5 percentage points. This sentence resolves the computational
+procedure and an otherwise qualitative clause before any implementation or SELECT measurement; it changes no arm,
+budget, or previously numeric bar.
+
 ## Natural routed-edge transport
 
 On SELECT natural positions, replace each projected payload coordinate `a_h(t)` by its frozen center while retaining:
