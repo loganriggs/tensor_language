@@ -246,7 +246,8 @@ def _score_wave(model, rows, programs, rung403, device):
         logits = _manual_logits(model, index)
         handle.remove()
         losses = F.cross_entropy(
-            logits[:, SCORING].transpose(1, 2), target[:, SCORING], reduction="none"
+            logits[:, SCORING].float().transpose(1, 2),
+            target[:, SCORING], reduction="none"
         ).mean(1)
         document_ce["native"].extend(float(loss) for loss in losses)
         for name, program in programs.items():
@@ -264,7 +265,8 @@ def _score_wave(model, rows, programs, rung403, device):
             logits = _manual_logits(model, index)
             handle.remove()
             losses = F.cross_entropy(
-                logits[:, SCORING].transpose(1, 2), target[:, SCORING], reduction="none"
+                logits[:, SCORING].float().transpose(1, 2),
+                target[:, SCORING], reduction="none"
             ).mean(1)
             document_ce[name].extend(float(loss) for loss in losses)
     ce = {
