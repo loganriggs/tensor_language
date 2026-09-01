@@ -161,3 +161,25 @@ fidelity, identifiability, robustness to corpus shift, and cost of the decisive 
 highest expected-value route or two after 10:40 UTC. A beautiful latent structure that cannot be identified
 under gauge/null controls remains a screen; a high-fidelity hook that stores the native graph is not a compiler
 win; and a small finite-state router must beat the fully priced top-k and dense baselines.
+
+## First live checkpoint: embedding-folded MLP0 (03:02 UTC)
+
+The first direction produced a useful negative and a stricter standard for every later direction. The planted
+teacher's support poset was recoverable directly from its own factors (Jaccard and reachability F1 both `1.0`).
+But an independently trained bilinear student represented the same function with held-out R2 `0.999940` while
+recovering only Jaccard `0.281` and reachability F1 `0.0`. A dense-random negative teacher produced the same
+low structural scores. Therefore a structured function need not give gradient descent a canonical structured
+factorization, even in the toy setting.
+
+Adding the correct support-size spectrum as a hard prior improved recovery to Jaccard `0.820` and F1 `0.775`
+at R2 `0.999927`, a real but sub-threshold signal. The decisive confound is that an incorrect pair-only prior
+fit even better (R2 `0.999999`) while recovering the wrong graph (F1 `0.245`). Function fit alone therefore
+cannot choose a structural prior. A real hierarchy or DAG must win on an external criterion: a smaller literal
+program, held-out interventions, or shifted-distribution behavior.
+
+On the exact 50,257-token position-zero population, small router-state labels were predictable above chance,
+but fixed `K=512` expert subsets failed even with oracle state labels. The best legal fixed-subset program had
+R2 `-0.052`, versus `0.754` for unconstrained per-token top-k. This kills the tested small-state/fixed-subset
+model and strengthens the distinction between a small tensor network and a combinatorial execution policy.
+Raw support recovery and this router are stopped; structured minimum-description fitting is parked until an
+external discriminator exists. The rotation now tests direct cross-layer bilinear-tensor sharing.

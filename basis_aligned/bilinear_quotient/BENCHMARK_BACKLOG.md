@@ -3298,3 +3298,21 @@ later per-rung backlog edits had silently anchored on text that was not here.
     compiled 3.95501661, mean damage +0.00485625, row p95 +0.01721914,
     worst row +0.02691667; config and population tripwires held. Literal
     mixed104 online-c_v0 formally adopted at 539,595,062 scalars.
+
+298. [CODEX, board-claimed 02:40Z] EMBEDDING-FOLDED MLP0 STRUCTURE:
+    planted block/tree/DAG support recovery followed by all 50,257 exact
+    position-zero token inputs and legal S-state fixed-K512 routers. Native
+    MLP0 price 15,926,400; router price counts union experts plus router.
+    -> ops/mlp0_embedding_fold_structure_screen.py
+    RUN 2026-09-01, S2395: raw factor identification FAILED despite student
+    R2 0.999940 (Jaccard .281/F1 0); real fixed-subset routers FAILED
+    (best legal R2 -.052, oracle also negative) although state labels beat
+    chance; unconstrained per-token top-k R2 .754. Negative control clean.
+
+298B. [CODEX] STRUCTURAL-PRIOR DISCRIMINATOR: correct support-size spectrum
+    versus pair-only and singleton hard priors on the planted teacher.
+    -> ops/mlp0_embedding_fold_prior_sweep.py
+    RUN 2026-09-01, S2395: correct spectrum partially recovered structure
+    (R2/Jaccard/F1 .999927/.820/.775) but missed its frozen bar; wrong
+    pair-only fit better (R2 .999999) with wrong graph (F1 .245). R2 cannot
+    identify the prior; require compression/intervention/OOD discrimination.
