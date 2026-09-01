@@ -91,3 +91,14 @@ around its current frontier are now closed by prospective tests rather than by t
 
 The exact price formulas, controls, and kill criteria for the five representation-changing directions above are in
 `NEXT_REPRESENTATION_DIRECTIONS_2026-09-01.md` one directory above this explanation.
+
+The first instrument for the top direction is already complete: a planted low-Tucker bilinear tensor survives
+factor permutation/scale/swap gauges, recovers its input/output subspaces and fresh values/Jacobians at numerical
+1.0, and rejects a dense matched-norm negative (fresh-value R2 `.118`). This licenses a randomized **real** MLP0
+invariant-Tucker screen; it is not evidence yet that the real MLP has the planted ranks.
+
+That real screen has now landed. There is genuine weight-level structure: the invariant MLP0 output subspace has
+top-512 overlap `.927` across context splits and `.836` between all 50,304 embeddings and live contexts, and it
+retains `.078` more energy than a Down-to-product permutation null. But it is broad—context p256/p512 retains only
+`.657/.826`, below the frozen `.75/.90` bar. So this is the first direct positive for stable structure in the real
+bilinear contraction itself, but not a compression win. We did not retune to the observed p768 result.

@@ -61,10 +61,18 @@ and named intervention directions supply the general-regime and Sobolev tests.
 
 First decisive experiment:
 
-1. Recover a gauge-scrambled planted `(r,p,k)` teacher by function, input/output subspace, and derivative transfer.
-2. On real MLP0, compare one literally price-matched joint program with context-input-only RRR, output-only PCA,
+1. **Completed instrument:** the gauge-scrambled planted `(r,p,k)` teacher recovers input/output subspaces, fresh
+   values, and directional derivatives at numerical1.0; gauge tensor error is `1.72e-7`, while a dense matched-norm
+   negative reaches only `.118` fresh-value R2.
+2. Next, on real MLP0, compare one literally price-matched joint program with context-input-only RRR, output-only PCA,
    and their independently composed product.
 3. Freeze ranks from a CPU spectrum/sketch before one physical census build.
+
+The first real invariant output-mode screen is also complete.  It finds a stable non-null object—top512 overlap
+`.927` across context splits and `.836` between the exhaustive embedding population and live contexts, with `.078`
+more retained energy than a Down-column alignment permutation.  However, absolute context p256/p512 energy is only
+`.657/.826`, below the frozen `.75/.90` compression bar.  Therefore an output projector is mapped but not licensed;
+the next step, if pursued, must fit the **joint** `(r,p,k)` core and beat this projector at equal literal price.
 
 Advance only if the joint program lowers two-corpus damage by >=20% versus every equal-or-cheaper control, has
 split-stable input/output subspaces, and preserves held-out derivative cosine>=.95.  Kill if it merely matches the

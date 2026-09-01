@@ -1,0 +1,71 @@
+euclidean {128: 0.2829590141773224, 256: 0.4591631293296814, 512: 0.7086648941040039, 768: 0.8700147867202759}
+full_embedding {128: 0.5199805498123169, 256: 0.6461736559867859, 512: 0.8147987723350525, 768: 0.9188646078109741}
+context_a {128: 0.5368979573249817, 256: 0.6689966917037964, 512: 0.8327639102935791, 768: 0.9285561442375183}
+context_b {128: 0.5220744013786316, 256: 0.6569872498512268, 512: 0.8260533213615417, 768: 0.9254350662231445}
+{
+  "status": "mlp0_real_invariant_output_tucker_screen_complete",
+  "rung": 381,
+  "claim_level": "real_mlp0_invariant_output_mode_metric_spectrum_screen",
+  "tensor_definition": "Down columns times symmetric Left/Right input forms",
+  "metrics": {
+    "euclidean": {
+      "128": 0.2829590141773224,
+      "256": 0.4591631293296814,
+      "512": 0.7086648941040039,
+      "768": 0.8700147867202759
+    },
+    "full_embedding": {
+      "128": 0.5199805498123169,
+      "256": 0.6461736559867859,
+      "512": 0.8147987723350525,
+      "768": 0.9188646078109741
+    },
+    "context_a": {
+      "128": 0.5368979573249817,
+      "256": 0.6689966917037964,
+      "512": 0.8327639102935791,
+      "768": 0.9285561442375183
+    },
+    "context_b": {
+      "128": 0.5220744013786316,
+      "256": 0.6569872498512268,
+      "512": 0.8260533213615417,
+      "768": 0.9254350662231445
+    }
+  },
+  "context_b_permuted_down_null": {
+    "128": 0.3468564748764038,
+    "256": 0.5184605121612549,
+    "512": 0.7479896545410156,
+    "768": 0.8897789716720581
+  },
+  "real_minus_null_energy_gaps": {
+    "128": 0.17521792650222778,
+    "256": 0.13852673768997192,
+    "512": 0.07806366682052612,
+    "768": 0.035656094551086426
+  },
+  "context_split_top512_overlap": 0.92705899477005,
+  "embedding_context_top512_overlap": 0.8358873128890991,
+  "embedding_rows": 50304,
+  "fit_cache": "fineweb_n192_skip11000.pt",
+  "fit_a": [
+    0,
+    24
+  ],
+  "fit_b": [
+    24,
+    48
+  ],
+  "dimensions": {
+    "d": 1152,
+    "product_width": 4608
+  },
+  "output_p512_factor_price": 2950272,
+  "native_down_bias_price": 5309568,
+  "saving_scalars_if_output_p512_installed": 2359296,
+  "pred_a_real_context_output_mode_is_low_rank": false,
+  "pred_b_output_subspace_transfers_across_inputs": true,
+  "pred_c_low_rank_is_joint_alignment_not_down_only": true,
+  "null_real_output_tucker_structure_absent": false
+}

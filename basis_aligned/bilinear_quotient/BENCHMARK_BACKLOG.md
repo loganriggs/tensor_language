@@ -4013,3 +4013,19 @@ later per-rung backlog edits had silently anchored on text that was not here.
     RUN 2026-09-01: ALL HELD, null false. Exact tails/order/identities; best
     optimistic rank104 exchange is3.6838x adopted MLP04 (r96 is4.0898x;
     range3.68--5.48x). Close value ranks64--112; no physical build.
+
+380. [CODEX, board-claim 09:22Z] GAUGE-INVARIANT TUCKER TOY:
+    d48 planted input-r12/output-r10/product-k18 symmetric bilinear tensor;
+    invariant unfolding recovery, factor gauge scramble, fresh values/JVPs,
+    dense symmetric negative, exact1836-vs56448 price. CPU instrument only.
+    RUN 2026-09-01: ALL HELD, null false. Input/output overlap~1; tensor/value/
+    JVP R2=1; gauge error1.72e-7/projector.9999998; dense negative tensor/value
+    R2.0856/.1181. Licenses one randomized real-MLP0 invariant-Tucker screen.
+
+381. [CODEX, board-claim 09:27Z] REAL MLP0 OUTPUT-TUCKER GRAM:
+    exact invariant output-mode Gram under Euclidean, exhaustive embedding,
+    and split-A/B context metrics; Down-column alignment permutation null;
+    p256/p512 energy, split/embedding overlap, exact2,950,272-vs5,309,568 price.
+    RUN 2026-09-01: pred_b/c held, pred_a failed, null false. Context p256/
+    p512 energy.657/.826 (<.75/.90), but split/embedding overlaps.927/.836
+    and real-null gaps.139/.078. Real stable broad alignment; no promotion/tuning.
