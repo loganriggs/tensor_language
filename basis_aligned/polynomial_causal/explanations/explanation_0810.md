@@ -131,3 +131,8 @@ is `.0122`. This is 802,816 scalars smaller and slightly more accurate than Q/K5
 Q/K64+MLP0-p512 program retained only29 certificates: distributing the same rank budget across two independently
 low-damage bilinear layers escapes the MLP0-only allocation grid. The only remaining work is the already-frozen
 global two-byte rebuild and original-native signed gate.
+
+The two-byte rebuild also passes. It scores `.012329` census damage, retains43 certificates, and reaches shifted
+mean/p95/max `.00612/.02860/.04038`. Its exact bill is **511,758,646 scalars / 1,023,517,292 bytes**, a 50.4990%
+byte saving from native. The only unresolved adoption condition is the already-frozen original-native signed a16
+gate; if it holds, this point replaces Q/K56 as both the semantic-scalar and literal-byte frontier.

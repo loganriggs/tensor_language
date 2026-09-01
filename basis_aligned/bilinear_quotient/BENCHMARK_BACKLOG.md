@@ -3907,6 +3907,9 @@ later per-rung backlog edits had silently anchored on text that was not here.
     only after rung367 full pass; global source-aware BF16, fp16 QK factors,
     original-native census/certs/fresh and WT103 tokens240552:271392;
     exact 511,758,646 scalars / 1,023,517,292 bytes.
+    RUN 2026-09-01: ALL HELD, null false. +.01232938/43, OOD total
+    .006120/.028598/.040376, fresh .0121; exact global-BF16/fp16-QK/maps and
+    1,023,517,292 bytes. Advances frozen rung369 only.
 
 369. [CODEX, conditional board-claim 08:17Z] FINAL ORIGINAL-NATIVE SIGNED GATE:
     only after rung368 full pass; identical a16 mean KO with .98/.30/.98
