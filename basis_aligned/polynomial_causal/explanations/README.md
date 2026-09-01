@@ -11,6 +11,9 @@ state what was actually measured and what unit is being used.
 
 ## Start here
 
+- [`explanation_2026-09-01_1643.md`](explanation_2026-09-01_1643.md) — 2026-09-01 16:43 UTC separates branch
+  deletion, singleton, and Shapley CE importance; resolves the T/I/C/S priorities; proves the within-head gauge;
+  proposes shared head-written subspaces and path-specific decompositions; and records the held-out router null
 - [`explanation_2026-09-01_1633.md`](explanation_2026-09-01_1633.md) — 2026-09-01 16:33 UTC exact MLP0
   compression bridge: larger documents qualify the error as joint T+I, five metric families leave covariance best,
   a price-aware document-router oracle loses to cheaper p768, and only token-state feasibility remains open

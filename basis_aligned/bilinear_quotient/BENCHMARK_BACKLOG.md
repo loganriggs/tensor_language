@@ -4293,7 +4293,7 @@ later per-rung backlog edits had silently anchored on text that was not here.
   dominated. Position oracle is `-.02107` for the pair / `-.03928` all-five, leaving only the preregistered
   token-state feasibility study open; it must be prefix-observable, physical, heldout, and beat p768 after price.
 
-### Rung 408 — heldout four-state prefix-token router feasibility — CLAIMED
+### Rung 408 — heldout four-state prefix-token router feasibility — COMPLETE / STRONG NULL
 
 - Fix I-active/Fisher experts and saved rung407 losses; train docs0:192, evaluate192:384 in two96-doc waves.
 - Freeze a max4-leaf/min2048 tree over position, GPT2-byte morphology, prefix repetition distance, and training-only
@@ -4301,3 +4301,9 @@ later per-rung backlog edits had silently anchored on text that was not here.
 - Require25% oracle recovery, `.001` gain over I, `.0002` over cheaper p768, both-wave transport, expert balance,
   exact hashes/no leakage, and frozen nulls in `MLP0_PREFIX_TOKEN_STATE_ROUTER_FEASIBILITY_PREREGISTRATION.md`.
 - Off-policy feasibility only. Pass licenses one exact physical router; miss closes cheap prefix-state routing.
+- RUN 2026-09-01: A/B held, C/D failed, strong null true. Exact hashes, rows, split, no-future perturbation, and tree
+  support/liveness hold. On heldout documents, constant I-active damage is `.007577`, p768 is `.001402`, and the
+  four-leaf tree is worse at `.008037` despite using both experts `.734/.266`; it selects only on absolute position.
+  Morphology is essentially tied with constant I, while quartile and repetition controls regress. The tree loses to
+  p768 in both waves and costs at least14,599,312 values versus13,272,192. No physical router; close this cheap
+  prefix-state family and change object to path-specific output/causal-response structure or direct nonlinear CE.

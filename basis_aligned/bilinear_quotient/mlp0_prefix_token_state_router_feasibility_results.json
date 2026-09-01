@@ -1,0 +1,242 @@
+{
+  "status": "mlp0_prefix_token_state_router_feasibility_complete",
+  "rung": 408,
+  "claim_level": "heldout_off_policy_prefix_state_feasibility_not_physical_router",
+  "convention": "CE added above saved native; lower is better",
+  "authority": {
+    "parent": "/workspace/tensor_language/basis_aligned/bilinear_quotient/mlp0_p448_router_oracle_ceiling_results.json",
+    "loss_artifact": "/workspace/tensor_language/basis_aligned/bilinear_quotient/mlp0_p448_router_oracle_losses.pt",
+    "loss_tensor_sha256": "e6d92614ad4fbe5b6e63aa2939e7df6ecb197281c114aae9696baf3bc68ab082",
+    "expected_loss_tensor_sha256": "e6d92614ad4fbe5b6e63aa2939e7df6ecb197281c114aae9696baf3bc68ab082",
+    "loss_shape": [
+      8,
+      384,
+      192
+    ],
+    "program_names": [
+      "native",
+      "covariance_p448",
+      "T_active_p448",
+      "I_active_p448",
+      "TI_active_p448",
+      "Fisher_p448",
+      "covariance_p640",
+      "covariance_p768"
+    ],
+    "row_cache": "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_mlp0_c512_mlp1_interchange_v1/eval_384_source_documents.pt",
+    "source_documents": 384,
+    "train_documents_half_open": [
+      0,
+      192
+    ],
+    "evaluation_documents_half_open": [
+      192,
+      384
+    ],
+    "evaluation_waves": [
+      [
+        192,
+        288
+      ],
+      [
+        288,
+        384
+      ]
+    ],
+    "scoring_positions_half_open": [
+      64,
+      256
+    ],
+    "authority_exact": true,
+    "FINAL_opened": 0
+  },
+  "feature_definition": {
+    "columns": [
+      "position_over_255",
+      "repeated",
+      "log_repeat_distance",
+      "training_log_frequency",
+      "current_morphology4_onehot",
+      "previous_morphology4_onehot"
+    ],
+    "dimension": 12,
+    "morphology_states": [
+      "word_start_alpha",
+      "continuation_alpha",
+      "digit",
+      "other"
+    ],
+    "training_frequency_only": true,
+    "future_perturbation_max_abs_feature_change": 0.0,
+    "finite": true
+  },
+  "evaluation_reference": {
+    "native_ce": 3.02915358543396,
+    "I_active_damage": 0.007577180862426758,
+    "Fisher_damage": 0.009045839309692383,
+    "covariance_p768_damage": 0.001402139663696289,
+    "future_label_position_oracle_damage": -0.020650148391723633,
+    "I_to_oracle_available_gain": 0.02822732925415039
+  },
+  "tree": {
+    "damage": 0.008037090301513672,
+    "gain_over_constant_I": -0.00045990943908691406,
+    "oracle_gain_recovery_fraction": -0.016293055391320505,
+    "gain_over_p768": -0.006634950637817383,
+    "expert_use_fraction": {
+      "I_active_p448": 0.734375,
+      "Fisher_p448": 0.265625
+    },
+    "wave_damage": [
+      0.008745908737182617,
+      0.0073282718658447266
+    ],
+    "selection_accuracy_vs_future_oracle": 0.5009223090277778,
+    "mean_regret_to_future_oracle": 0.028687357902526855,
+    "leaf_count": 4,
+    "node_count": 7,
+    "leaf_train_support": {
+      "1": 7104,
+      "3": 9792,
+      "5": 7872,
+      "6": 12096
+    },
+    "feature_indices": [
+      0,
+      -2,
+      0,
+      -2,
+      0,
+      -2,
+      -2
+    ],
+    "thresholds": [
+      0.39411765336990356,
+      -2.0,
+      0.594117671251297,
+      -2.0,
+      0.7549019753932953,
+      -2.0,
+      -2.0
+    ],
+    "children_left": [
+      1,
+      -1,
+      3,
+      -1,
+      5,
+      -1,
+      -1
+    ],
+    "children_right": [
+      2,
+      -1,
+      4,
+      -1,
+      6,
+      -1,
+      -1
+    ],
+    "leaf_predictions": [
+      0.0013449150132978465,
+      0.0036686517334928097,
+      0.0007902165704125971,
+      -0.0007199815383031696,
+      0.0015307944891097519,
+      0.003847404504341743,
+      2.315939983178948e-05
+    ]
+  },
+  "controls": {
+    "position_quartile": {
+      "damage": 0.00814056396484375,
+      "gain_over_constant_I": -0.0005633831024169922,
+      "oracle_gain_recovery_fraction": -0.01995878169501833,
+      "gain_over_p768": -0.006738424301147461,
+      "expert_use_fraction": {
+        "I_active_p448": 0.75,
+        "Fisher_p448": 0.25
+      },
+      "wave_damage": [
+        0.008678436279296875,
+        0.007602691650390625
+      ],
+      "state_choice_I": {
+        "0": true,
+        "1": false,
+        "2": true,
+        "3": true
+      }
+    },
+    "current_morphology4": {
+      "damage": 0.007573366165161133,
+      "gain_over_constant_I": 3.814697265625e-06,
+      "oracle_gain_recovery_fraction": 0.0001351419835464635,
+      "gain_over_p768": -0.006171226501464844,
+      "expert_use_fraction": {
+        "I_active_p448": 0.9791395399305556,
+        "Fisher_p448": 0.020860460069444444
+      },
+      "wave_damage": [
+        0.00817108154296875,
+        0.006975650787353516
+      ],
+      "state_choice_I": {
+        "0": true,
+        "1": true,
+        "2": false,
+        "3": true
+      }
+    },
+    "repeat_distance4": {
+      "damage": 0.008249044418334961,
+      "gain_over_constant_I": -0.0006718635559082031,
+      "oracle_gain_recovery_fraction": -0.023801881852120885,
+      "gain_over_p768": -0.006846904754638672,
+      "expert_use_fraction": {
+        "I_active_p448": 0.60107421875,
+        "Fisher_p448": 0.39892578125
+      },
+      "wave_damage": [
+        0.009027481079101562,
+        0.007470607757568359
+      ],
+      "state_choice_I": {
+        "0": true,
+        "1": true,
+        "2": false,
+        "3": false
+      }
+    },
+    "constant_I": {
+      "damage": 0.007577180862426758,
+      "gain_over_constant_I": 0.0,
+      "oracle_gain_recovery_fraction": 0.0,
+      "gain_over_p768": -0.006175041198730469,
+      "expert_use_fraction": {
+        "I_active_p448": 1.0,
+        "Fisher_p448": 0.0
+      },
+      "wave_damage": [
+        0.008119344711303711,
+        0.007035017013549805
+      ]
+    }
+  },
+  "literal_price": {
+    "two_p448_shared_down_bias_values": 14599296,
+    "tree_internal_and_leaf_values": 16,
+    "training_frequency_table_values_if_used": 0,
+    "optimistic_total_values": 14599312,
+    "p768_values": 13272192,
+    "runtime_operations_and_prefix_cache_not_priced": true
+  },
+  "pred_a_authority_split_and_state_instrument_are_exact": true,
+  "pred_b_heldout_position_oracle_has_price_relevant_headroom": true,
+  "pred_c_four_prefix_states_recover_enough_headroom": false,
+  "pred_d_tree_gain_transports_and_uses_both_experts": false,
+  "null_cheap_prefix_state_cannot_harvest_oracle": true,
+  "next_object": null,
+  "physical_router_or_adoption_licensed": false,
+  "runtime_s": 0.9536597728729248
+}
