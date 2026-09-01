@@ -88,7 +88,7 @@ def main() -> None:
         ROOT / "circuits/BATTERY.json",
         ROOT / "census_state_diverse.pt",
         ROOT / "cev_mixed104_online_cv0.pt",
-        ROOT / "mixed104_online_cv0_ood_results.json",
+        ROOT / "mixed104_online_cv0_results.json",
         ROOT / "cev_mixed104_mlp0_context_rrr_frontier.pt",
         ROOT / "mixed104_mlp0_context_metric_input_frontier_ood_results.json",
         ROOT / "cev_mixed104_mlp0_context_rrr_lower_ranks.pt",
@@ -148,7 +148,7 @@ def main() -> None:
                       "scale": float(scale), "certificates": int(count)})
 
     # Training family 2: mixed104 alone and mixed104 plus each saved MLP0 rank.
-    base_receipt = json.loads((ROOT / "mixed104_online_cv0_ood_results.json").read_text())
+    base_receipt = json.loads((ROOT / "mixed104_online_cv0_results.json").read_text())
     base_cev = torch.load(ROOT / "cev_mixed104_online_cv0.pt", map_location="cpu")
     scale, count = project(base_cev)
     assert count == int(base_receipt["certificates_valid"])
@@ -300,9 +300,9 @@ def main() -> None:
         "best_cheaper_rows_by_conservative_certificate_count": cheaper[:8],
         "minimum_price_by_conservative_certificate_bar": tier_summary,
         "discrete_no_improvement_at_43": len(improving) == 0,
-        "pred_a_intensity_transfers_to_heldout_compositions": bool(pred_a),
-        "pred_b_tail_plus_tax_predicts_end_to_end_counts": bool(pred_b),
-        "pred_c_discrete_frontier_is_resolved": bool(pred_c),
+        'pred_a_intensity_transfers_to_heldout_compositions': bool(pred_a),
+        'pred_b_tail_plus_tax_predicts_end_to_end_counts': bool(pred_b),
+        'pred_c_discrete_frontier_is_resolved': bool(pred_c),
         "null_allocator_is_not_predictive": bool(null),
         "scope_warning": "No theorem outside the enumerated calibrated ranks or QK/MLP0 families; conservative bound is empirical heldout error, not a probabilistic guarantee.",
         "runtime_s": time.time() - started,
