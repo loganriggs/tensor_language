@@ -3193,3 +3193,33 @@ later per-rung backlog edits had silently anchored on text that was not here.
     RUN 2026-09-01, S2387: null wins as revised-expected - rel err
     0.0000 at all 8 blocks. Tail recompute exact; a1v sole carrier
     confirmed from this side; localization chain closed.
+
+285. [CODEX] SINGLE-CHANGE a1v CONTROL: full-rank QK path with only
+    the context-blind block-1 value table omitted. Bars: path anchor
+    [0.04,0.07]; corrected census <=0.01, >=55 certificates, residual
+    vector norm <=25% of path. Null: >=0.04.
+    -> ops/path_drop_a1v.py
+    RUN 2026-09-01, S2388: ALL HELD — census -0.0000, 62/62, all eight
+    fresh windows 0.0000, residual norm ratio 0.000226. a1v identified.
+
+288. [CODEX] CORRECTED ct96: exact motif-front QK, tail rank 96,
+    native block-1 values. Bars: census <=0.010 and >=50 certs; all
+    eight fresh <=0.020; vector prediction cosine >=0.95 and relative
+    error <=0.25. Null: census >=0.040. -> ops/ct96_native_a1v.py
+    RUN 2026-09-01, S2388: PRIMARY BARS HELD (+0.0034195, 56/62,
+    fresh8 all 0.0000); VECTOR BAR FAILED as written (0.94857/0.3227).
+    Approximate price 154.4M after exact -56,568,960 a1v delta.
+
+289. [CODEX] SIGNED m16 ADOPTION SENTINEL on corrected ct96. Direct
+    signed compiled/native effect-vector bars: cosine >=0.90; normalized
+    error <=0.60; non-own circuit Spearman >=0.90; own median ratio in
+    [0.60,1.20]. -> ops/m16_transfer_ct96_native_a1v.py
+    RUN 2026-09-01, S2388: ALL HELD — 0.996324 cosine, 0.103727 error,
+    0.998223 collateral rho, 1.037211 own ratio.
+
+290. [CODEX, board-claimed 01:54Z] CORRECTED MIXED-SPECTRUM POINT:
+    rank-96 QK at every replaced head, native block-1 values. Bars:
+    census <=0.012 and >=50 certs; all fresh8 <=0.020; damage within
+    0.008 of +0.0053 transport prediction. Null: census >=0.040.
+    Physical factor-rank tripwire required. Approximate price 123.4M;
+    exact component bill pending. -> ops/mixed_native_a1v.py [RUNNING]
