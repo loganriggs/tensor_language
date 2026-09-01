@@ -168,3 +168,17 @@ Prediction B holds but Prediction C fails, normalization matters but is head-pri
 and independently factored forms against shared-QK at complete price. Only if B and C both hold does the next rung
 fit the gauge-canonical partially symmetric quadratic tensor, with matched private-form and permutation controls,
 before reconnecting it to head-indexed numerators and physical scores.
+
+## Rung 433b instrument-only re-registration (2026-09-01T21:27Z)
+
+Rung 433 remains instrument-invalid as written: its exact-table path had approximately `1e-13` relative product and
+write error and `3.7e-9` nat CE difference, but a `6.15e-5` maximum absolute suffix-logit difference exceeded the
+registered `2e-5` bar. That first result and log are preserved with `first_invalid` in their names and are not
+retroactively passed.
+
+Before rerunning, replace only that scale-dependent absolute-logit clause in Prediction A with suffix-logit relative
+squared error at most `1e-10`. Accumulate numerator and denominator in float64 over every suffix logit. Continue to
+report maximum absolute difference descriptively. Do not add the native attention write back into the exact-table
+path: that would make the downstream replay pass by construction and would hide the quantity the instrument is meant
+to test. No data, causal arm, token table, seed, price, Prediction B/C/D clause, strong null, or routing rule changes.
+The repaired receipt is rung 433b; rung 433's failure remains part of the record.
