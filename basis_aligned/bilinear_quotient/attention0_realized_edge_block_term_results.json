@@ -1,5 +1,42 @@
 {
   "status": "attention0_realized_edge_block_term_complete",
+  "rung": 424,
+  "claim_level": "realized_continuous_edge_identification_screen_not_compression_or_adoption",
+  "definition": {
+    "edge": "e[n,h,c]=score1[n,h]*score2[n,h]*U16_payload[n,h,c]",
+    "marginal": "affine PCA ranks score1=6,score2=6,flattened_head_payload=32",
+    "joint": "same shapes optimized for normalized individual plus head-summed response-metric edge error",
+    "deranged": "joint reconstruction with score2 head h mapped to (h+4) mod 9 before product"
+  },
+  "documents": {
+    "FIT": 96,
+    "SELECT": 96,
+    "FIT_sha256": "153f9e1901dae2571a7051120606c546e3bda6e835e3bd4fbce95e0119792b3e",
+    "SELECT_sha256": "92c9885171a8acb0a9c0aed7d963b0b8fd08827a12e390c97caeeaeb091bc08e",
+    "FINAL_opened": 0
+  },
+  "edges": {
+    "FIT": 185760,
+    "SELECT": 185760,
+    "query_positions": [
+      16,
+      32,
+      48,
+      64,
+      80,
+      96,
+      112,
+      128,
+      144,
+      160,
+      176,
+      192,
+      208,
+      224,
+      240
+    ],
+    "all_causal_sources": true
+  },
   "instrument": {
     "calibration": {
       "full": -3.8494666565469515e-08,
@@ -26,12 +63,49 @@
     "edge_replay_relative_squared_before_remainder": 4.4439422816160143e-13,
     "edge_replay_relative_squared_after_remainder": 0.0
   },
-  "fit_half_overlap": {
+  "ranks": {
+    "score1": 6,
+    "score2": 6,
+    "payload": 32
+  },
+  "literal_screen_values": 23310,
+  "net_model_saving_values": 0,
+  "native_generators_retained": true,
+  "fit_restarts": [
+    {
+      "fit_objective": 0.010120976587036529,
+      "gradient_max": {
+        "score1": 0.4336247146129608,
+        "score2": 0.23678387701511383,
+        "payload": 0.061459731310606
+      },
+      "movement_from_pca": {
+        "score1": 0.4749253988265991,
+        "score2": 0.3485013246536255,
+        "payload": 0.16268867254257202
+      }
+    },
+    {
+      "fit_objective": 0.011308457887762607,
+      "gradient_max": {
+        "score1": 0.5216935873031616,
+        "score2": 0.18471956253051758,
+        "payload": 0.06311524659395218
+      },
+      "movement_from_pca": {
+        "score1": 0.43338388204574585,
+        "score2": 0.34807276725769043,
+        "payload": 0.16632366180419922
+      }
+    }
+  ],
+  "selected_restart": 0,
+  "fit_half_projector_overlap": {
     "score1": 0.9459691047668457,
     "score2": 0.986024022102356,
     "payload": 0.9059898853302002
   },
-  "edge_metrics": {
+  "select_edge_metrics": {
     "marginal": {
       "individual_relative_mse": 0.352593064343975,
       "summed_relative_mse": 0.3167502001474989,
@@ -48,9 +122,9 @@
       "summed_r2_zero_origin": -0.630659340331758
     }
   },
-  "joint_gain_over_marginal": 0.9693227461118493,
-  "joint_gain_over_deranged": 0.9940410445831865,
-  "transport": {
+  "select_joint_gain_over_marginal": 0.9693227461118493,
+  "select_joint_gain_over_deranged": 0.9940410445831865,
+  "select_transport": {
     "routed_u16_r2": {
       "marginal": 0.7078741712284853,
       "joint": 0.9849729793659919,
@@ -122,12 +196,22 @@
       }
     }
   },
-  "pred_a": false,
-  "pred_b": true,
-  "pred_c": true,
-  "pred_d": true,
-  "strong_null": true,
+  "pred_a_instrument_valid": false,
+  "pred_b_complete_edge_joint_block": true,
+  "pred_c_downstream_transport": true,
+  "pred_d_reproducible_specific_coupling": true,
+  "strong_null_no_low_rank_realized_head_service_coupling": true,
+  "compression_or_adoption_licensed": false,
+  "FINAL_opened": 0,
   "next_step": "instrument_repair_only",
+  "checkpoint": {
+    "revision": "ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240",
+    "snapshot": "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240",
+    "config_sha256": "428042bfd807ba36f8b4326395440fbbebe52cd3d040212e6fef14a4fdf2d83c",
+    "weights_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+    "weights_bytes": 2067738635,
+    "tokenizer_vocab": 50257,
+    "logit_vocab": 50304
+  },
   "runtime_s": 18.78262710571289
 }
-ATTENTION0 REALIZED EDGE BLOCK TERM DONE
