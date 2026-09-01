@@ -4331,3 +4331,15 @@ later per-rung backlog edits had silently anchored on text that was not here.
   gains `.001776`, 132% of full gain: token grammar confirmed. Equal64-direction split T32/I32 is worse than joint
   TI64 in branch MSE (`.750>.708`) and physical damage (`.005876>.004838`). Total-error64 reaches `.004769`, still
   above p640 `.002868`. Select one shared rank64 T+I output producer; no separate path dictionaries or B0 reuse.
+
+### Rung 410 — weight-derived shared rank64 output quadratic producer — CLAIMED
+
+- Reconstruct rung409's total-error U64 on train docs0:192. Contract U64 into the exact native-minus-p448 bilinear
+  weights to obtain64 symmetric quadratic coefficient forms in the causally available normalized MLP0 input.
+- Under the frozen uncentered input second moment, compare signed eigentruncations r8/r16/r24, full-rank derivation,
+  an affine producer, and a seed410 component-shuffle control on heldout docs192:384.
+- Rank24 producer/interface costs1,844,800 values; with p448 totals11,799,232, below p64011,945,088. Freeze exact
+  derivation, half-oracle recovery, rank ordering, affine/shuffle specificity, calls, waves, and strong null in
+  `MLP0_P448_SHARED_OUTPUT_QUADRATIC_PRODUCER_PREREGISTRATION.md`.
+- Executable screen only. A priced pass selects one fresh/OOD+signed+composition gate; miss routes away without rank
+  tuning. The runtime never reads native output, target IDs, future loss, document ID, or evaluation lookup.
