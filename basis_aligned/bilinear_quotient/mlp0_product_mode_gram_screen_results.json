@@ -1,6 +1,6 @@
 {
   "status": "mlp0_product_mode_gram_screen_complete",
-  "rung": 382,
+  "rung": 383,
   "claim_level": "product_mode_width_gram_closure_screen_only",
   "tensor_definition": "M[u,v]=(d_u.d_v)*<sym(l_u,r_u),sym(l_v,r_v)>_C",
   "fit_cache": "fineweb_n192_skip11000.pt",
@@ -34,9 +34,10 @@
     "2304": 0.6594358086585999,
     "3456": 0.8504754304885864
   },
-  "trace_product_mode": 192962784.0,
+  "trace_product_mode_diagonal": 192962784.0,
+  "entry_sum_product_mode": 282011744.0,
   "trace_output_mode_independent": 282011744.0,
-  "trace_relative_error": 0.31576330381475176,
+  "trace_relative_error": 0.0,
   "min_eigenvalue": 3701.298828125,
   "max_eigenvalue": 6802499.0,
   "split_top2304_overlap": 0.829229474067688,
@@ -45,8 +46,8 @@
     "r768_k2304_p768": 7079040
   },
   "license_determination": "all k<3456 corners closed; calibration build must use k>=3456",
-  "pred_a_gram_instrument_identities_hold": false,
+  "pred_a_gram_instrument_identities_hold": true,
   "pred_b_spectrum_decreasing_and_split_stable": true,
   "pred_c_product_mode_flatter_than_output_mode": true,
-  "null_product_gram_instrument_fails": true
+  "null_product_gram_instrument_fails": false
 }
