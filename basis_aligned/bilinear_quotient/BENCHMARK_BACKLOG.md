@@ -2965,3 +2965,9 @@ later per-rung backlog edits had silently anchored on text that was not here.
     -> ops/mixed_topk.py [QUEUED 02:00Z]
     BUILDER NOTE: first build failed a multiline pc anchor (tripwire
     block layout drifted); rebuilt line-wise, enqueued 02:05Z.
+
+263. Motif band in isolation ({motifs r96, tail EXACT} — cross-half
+    overlap test + tail-free certificate ceiling): pred_a census <=
+    0.012 (independent mechanisms); pred_b valid >= 20 (margins were
+    tail-pinned); pred_c range. Null: cross-half overlap (>= 0.03) or
+    ceiling stays. -> ops/motif_band_iso.py [QUEUED 00:30Z]
