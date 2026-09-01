@@ -202,8 +202,9 @@ def main():
         identity["compact_den"] += float(direct_p.double().square().sum())
         branch_errors = {name: branches_n[name] - branches_p[name] for name in ("T", "C", "I", "S")}
         total = native.float() - compact.float()
-        branch_errors["A"] = total - sum(branch_errors.values())
-        closure = total - sum(branch_errors.values())
+        named_sum64 = sum(value.double() for value in branch_errors.values())
+        branch_errors["A"] = total.double() - named_sum64
+        closure = total.double() - named_sum64 - branch_errors["A"]
         identity["branch_closure_max_abs"] = max(
             identity["branch_closure_max_abs"], float(closure.abs().max()))
         return compact, branch_errors, total
