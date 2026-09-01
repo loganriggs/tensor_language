@@ -200,3 +200,23 @@ require reusing at least `25.390625%` of 82,944 pooled native atoms; the observe
 zero. This does not close newly fitted joint CP atoms under an activation or causal-response metric. It says
 that such a method must genuinely refactor the functions; it cannot discover a large pre-existing common bank
 by aligning the native factors. The rotation now moves to the two untied vocabulary matrices.
+
+## Third live checkpoint: joint vocabulary code (03:15 UTC)
+
+The useful executable family keeps the input embedding `E` exactly and reconstructs the output head as
+`U_hat = E M + P_s V_s^T`. At residual rank 512 it costs `85,622,784` scalars, 73.88% of the two native
+vocabulary maps, and its independent-SVD control is slightly cheaper. A data-free fit established real shared
+geometry—`E M` alone explains 33.24% of output-weight energy, and the shared rank-512 program beats independent
+rank 537 by more than 2x—but remained predictively bad at `+.743` FineWeb and `+.647` WikiText.
+
+The frozen frequency diagnostic localized that failure enough to justify a separately preregistered metric
+change. Refitting the same map and same rank under natural target-frequency weights reduced damage to `+.193`
+FineWeb and `+.225` WikiText, while the identically weighted independent control remained at `+.552/+.778`.
+All three prospective follow-up bars held. Thus the input/output maps share a *functionally useful* token code,
+and consequence weighting matters far more than ordinary weight error.
+
+This is the rotation's first route worth advancing, not an adoption. The gain comes with a clear rare-tail
+failure: count>=10 targets are slightly better than native, but unseen targets cost `+1.57` FineWeb and `+.895`
+WikiText. The 25%-saving ceiling leaves room for about 1,129 explicitly indexed residual rows beyond rank 512.
+A fit-selected rare-row correction is therefore the natural exploit-phase test. Before that, the rotation moves
+to causal-response coordinates, asking whether the same consequence-weighting lesson improves MLP rank allocation.

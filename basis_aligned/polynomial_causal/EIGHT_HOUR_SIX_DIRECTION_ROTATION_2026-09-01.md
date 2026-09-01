@@ -16,8 +16,8 @@ only explicitly priced small finite router states count as a structural decompos
 |---|---|---|---|
 | 02:40–03:40 | Embedding-folded MLP0 block/tree/DAG/finite-router recovery | Planted recovery receipt plus real-MLP0 screen design/result | COMPLETED 03:02 |
 | 03:40–04:40 | Direct shared bilinear-MLP tensor compression | Price-matched rank/share screen and literal replacement hypothesis | COMPLETED 03:06 |
-| 04:40–05:40 | Joint untied-vocabulary factorization | Shared-code spectrum with rare-token/OOD falsifier | IN PROGRESS (early start 03:06) |
-| 05:40–06:40 | Causal-response rank coordinates | Held-out response-per-scalar comparison against SVD | PENDING |
+| 04:40–05:40 | Joint untied-vocabulary factorization | Shared-code spectrum with rare-token/OOD falsifier | COMPLETED 03:15 |
+| 05:40–06:40 | Causal-response rank coordinates | Held-out response-per-scalar comparison against SVD | IN PROGRESS (early start 03:15) |
 | 06:40–07:40 | Predictive causal-state quotient | Hankel/observable-rank screen with corpus/intervention stability | PENDING |
 | 07:40–08:40 | Executable error contracts/lower bounds | Bound calibration against known rungs plus useful/impossible verdict | PENDING |
 | 08:40–09:40 | Common comparison | Completed scorecard and confound audit | PENDING |
@@ -42,7 +42,7 @@ only explicitly priced small finite router states count as a structural decompos
 |---|---:|---:|---:|---:|---:|---:|---|
 | Embedding-folded MLP0 structure | conditional toy-prior signal; real small-state weak | at most 15.9M for exact MLP0, unearned | toy R2 is non-discriminating; real best legal R2 -0.052 | none yet | poor without external prior | low for intervention/OOD discriminator | kill raw-support and fixed-K512 router; park structured MDL |
 | Shared MLP tensor | coefficient sharing indistinguishable from orthogonal null | 71.7M at 25%, but capacity absent | coefficient screen only | none | planted instrument valid; real null | high for arbitrary joint CP, low for reuse | kill native-atom reuse/layer mixing; leave changed-metric CP open |
-| Joint vocabulary maps | — | — | — | — | — | — | pending |
+| Joint vocabulary maps | strong shared-code + frequency-metric signal | 30.28M at tested point (26.1% of vocab) | +.193 FW / +.225 Wiki screen | none | external two-corpus discriminator; fit/eval split | moderate: full census + sparse rare residual | advance; exploit hybrid rare-row correction |
 | Causal-response coordinates | — | — | — | — | — | — | pending |
 | Predictive causal state | — | — | — | — | — | — | pending |
 | Error contracts/lower bounds | — | — | — | — | — | — | pending |
@@ -116,3 +116,33 @@ only explicitly priced small finite router states count as a structural decompos
   atoms or change the metric.
 - Next direction started: joint factorization of the untied input embedding and output head, beginning with the
   exact shared-code/independent-code price frontier and token-frequency/OOD residual diagnostics.
+
+### `03:15 UTC` — direction `2`
+
+- Full goal restated: earn a smaller executable whole-model program, not just a correlated embedding geometry;
+  prediction on fresh and shifted text is the first external discriminator, with composition and causal gates
+  still required before adoption.
+- Exact object and literal price: keep the full `50304x1152` input embedding once and write
+  `U_hat=E M + P_s V_s^T`. At `s=512`, this stores **85,622,784** scalars, `73.8762%` of native vocabulary
+  storage (**115,900,416**), saving **30,277,632**. The matched independent output SVD uses rank 537 and
+  85,582,080 scalars, so it is slightly cheaper.
+- Opposing predictions and frozen bars: the data-free screen required <=+.05 FineWeb and <=+.08 WikiText,
+  or a >=20% shared-over-independent win on both; its frequency diagnostic motivated a separate preregistered
+  refit requiring >=35% damage reduction on both, absolute <=+.25/+.30, and >=20% shared-over-independent.
+- Result/receipt: the full E->U map explains `33.24%` of output-weight energy. Uniform shared rank512 beat
+  independent decisively but remained unusable: FineWeb `+.7430` vs `+1.7377`, WikiText `+.6474` vs `+2.0295`.
+  A frequency-weighted fit on 480 disjoint FineWeb rows changed no rank or price and landed FineWeb `+.1930`
+  and WikiText `+.2249`; matched independent was `+.5518/+ .7781`. All three follow-up predictions held and
+  its null was false.
+- Null, confound, or identifiability limit: the frequency metric trades common-token fidelity for rare/unseen
+  errors: count>=10 targets improve slightly below native, while unseen targets suffer `+1.57` FW / `+.895`
+  WikiText. The aggregate win is therefore identifiable and OOD-stable, but not uniformly safe. The result has
+  only 16+16 evaluation rows and no certificates, composition, or interventions.
+- Information gained: input and output vocabulary maps really do share a functionally useful token code; this
+  is not ordinary low-rank compression, because shared beats an identically weighted, price-matched independent
+  SVD by about 3x. Consequence weighting, not weight Frobenius error, exposes it.
+- Continue/kill/park decision: **advance** to the final exploit phase. The most surgical next candidate uses
+  the remaining 1.30M-scalar headroom under 25% saving for at most 1,129 indexed exact residual rows selected
+  on fit data, targeting the rare/unseen failure without disturbing the common-token win.
+- Next direction started: an error-relative causal-response basis for MLP0 output rank, compared at literal
+  factorized-Down price with activation PCA and weight SVD on held-out FineWeb/WikiText.

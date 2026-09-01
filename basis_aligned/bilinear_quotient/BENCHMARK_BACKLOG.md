@@ -3327,3 +3327,18 @@ later per-rung backlog edits had silently anchored on text that was not here.
     atom matches even at cosine .80; best median .000516 vs null .000393;
     top-13 layer energy .7724/.7683 vs null .7716/.7728. Kill native-atom
     reuse and whole-layer mixing; newly fitted changed-metric joint CP remains open.
+
+300. [CODEX, board-claimed 03:06Z] JOINT UNTIED VOCABULARY CODE: keep E
+    exact; Uhat=E M plus rank-s residual; compare with price-matched independent
+    U SVD on 16 FineWeb +16 frozen WikiText rows and frequency bins.
+    -> ops/joint_vocab_shared_code_screen.py
+    RUN 2026-09-01, S2397: shared geometry real (E->U weight R2 .3324;
+    s512 beats independent r537), but uniform predictive arm fails at +.7430
+    FW/+.6474 WT; registered null triggered.
+
+300B. [CODEX, board-claimed 03:12Z] FREQUENCY-WEIGHTED VOCAB FOLLOW-UP:
+    same s512/r537 and prices; refit map+bases using 480 disjoint FineWeb rows.
+    -> ops/joint_vocab_frequency_weighted_followup.py
+    RUN 2026-09-01, S2397: ALL THREE HELD, null false. Shared count-weighted
+    +.1930 FW/+.2249 WT vs independent +.5518/+.7781 at 73.88% vocab
+    storage. Advance; sparse rare residual rows are the exploit-phase test.
