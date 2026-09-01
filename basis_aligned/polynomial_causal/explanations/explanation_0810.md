@@ -142,3 +142,9 @@ It holds. The final signed effect cosine/error/norm ratio is `.986524/.191595/1.
 formally adopted**: 6.2546% fewer semantic scalars and 50.4990% fewer raw tensor bytes than native, `.012329` CE
 damage, 43/62 certificates, shifted-corpus transfer, and original-native signed causal fidelity. This is the
 overnight program's new deliverable frontier; it computes in fp32 after dequantization.
+
+One attempted extra reduction did not earn promotion. A single Grassmann-midpoint encoder for MLP0 and4 preserved
+mean and tail behavior while saving a prospective884,736 scalars, but the independent encoder rowspaces overlap
+only `.6788`, essentially the `.6667` random expectation for two rank768 subspaces in1152 dimensions. The frozen
+structural bar therefore fails. This is useful functional averaging, not identified shared bilinear structure, so
+the physical frontier remains511,758,646 scalars without rank or grouping tweaks.

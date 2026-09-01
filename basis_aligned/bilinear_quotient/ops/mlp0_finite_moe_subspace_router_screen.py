@@ -51,6 +51,7 @@ WIKI_SKIP = 440 * 257
 EVAL_ROWS = 40
 ROUTER_PRICE = STATES * EXPERT_RANK * (D + 2 * H) + H * D + D + VOCAB
 GLOBAL_PRICE = GLOBAL_RANK * (D + 2 * H) + H * D + D
+MIN_STATE_SAMPLES = 500
 
 
 @torch.no_grad()
@@ -83,7 +84,7 @@ def _state_programs(model, x, token, route, rrr_program):
     for state in range(STATES):
         member = x[labels == state]
         counts.append(int(len(member)))
-        if len(member) < max(500, EXPERT_RANK):
+        if len(member) < max(MIN_STATE_SAMPLES, EXPERT_RANK):
             raise RuntimeError(f"state {state} has only {len(member)} contextual fit tokens")
         covariance = member.T @ member / len(member)
         covariance = .5 * (covariance + covariance.T)
