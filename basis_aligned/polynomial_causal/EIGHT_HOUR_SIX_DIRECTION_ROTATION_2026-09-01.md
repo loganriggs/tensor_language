@@ -405,3 +405,15 @@ Full ranking and adoption gates: `SIX_DIRECTION_COMPARISON_2026-09-01.md`.
   its gain is not a twelve-row or FineWeb-window artifact.
 - Decision: use the saved unablated CEV for a direct signed a16 effect comparison. Adoption requires effect cosine
   >=.90, normalized error <=.60, collateral rho >=.90, own-effect ratio in [.60,1.40], plus live baseline identity.
+
+### `04:47 UTC` — exploit checkpoint `317`
+
+- Result: every signed gate holds. Effect cosine/error/norm ratio is `.994191/.113700/1.030480`; collateral
+  Spearman is `.998061`; a16-own median magnitude ratio is `1.034104`. The live baseline remains
+  `+.00901182/50`, all identities and the 536,940,854-scalar bill are exact, and the registered null is false.
+- Information gained: MLP0 has a literal context-robust shared input subspace visible directly in the paired
+  Left/Right weights. This is qualitatively different from the output-PCA family that followed the common
+  certificate-damage direction.
+- Decision: formally adopt the 536,940,854-scalar point as the smaller member of a two-point Pareto set. Next
+  screen the same weight-only p512/p768 factor at all 18 MLPs on untouched FineWeb and WikiText; if broad, compose
+  only the prospectively fixed `{0,8,17}@p768` set.

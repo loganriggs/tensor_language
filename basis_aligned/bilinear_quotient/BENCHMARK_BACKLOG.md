@@ -3497,3 +3497,13 @@ later per-rung backlog edits had silently anchored on text that was not here.
     RUN 2026-09-01, S2414: ALL HELD, null false. Wiki mean/p95/max
     +.010620/+.032453/+.039183; census +.00901182, 50 certs; fresh8 all <=-.0004.
     Identities/bill exact. Advance to direct signed a16 transfer.
+
+317. [CODEX, board-claimed 04:42Z] MLP0 SVD768 SIGNED a16 ADOPTION GATE:
+    apply the identical native a16 mean ablation within the p768 program and native;
+    compare direct signed effects, collateral ordering, own magnitude, live baseline,
+    exact identities, and the literal bill.
+    -> ops/a16_transfer_mixed104_mlp0_svd768.py
+    RUN 2026-09-01, S2415: ALL HELD, null false. Live baseline +.00901182/50;
+    signed cosine .994191, normalized error .113700, norm ratio 1.030480,
+    collateral rho .998061, own median ratio 1.034104. Formally adopt
+    536,940,854 scalars / 2,031,821,420 bytes as the smaller Pareto point.

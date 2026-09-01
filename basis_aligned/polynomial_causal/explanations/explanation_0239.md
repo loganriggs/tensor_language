@@ -490,3 +490,23 @@ non-positive (`-.0127` to `-.0004`). Exact p768 and mixed104 identities and the 
 The run saved the full unablated 256,000-position CE vector, so the final gate can compare the signed effect of the
 same native a16 mean ablation within native and compiled models. No aggregate subtraction or unsigned proxy is
 accepted: cosine, normalized vector error, collateral circuit ordering, and a16-own magnitude ratios are frozen.
+
+## Second formal adoption: MLP0's shared input subspace (04:47 UTC)
+
+The signed gate passed decisively. Relative to the same native a16 mean ablation, the compiled program's signed
+effect has cosine **0.994191**, normalized vector error **0.113700**, norm ratio **1.030480**, collateral-circuit
+Spearman **0.998061**, and a16-own median magnitude ratio **1.034104**. Its live unablated baseline again gives
+`+.00901182`, `50/62` certificates, and non-positive fresh-window damage. Every rank, map, QK, active-object, and
+literal-bill identity holds.
+
+Therefore **536,940,854 scalars / 2,031,821,420 raw tensor bytes** is formally adopted: 8,962,048 scalars
+(1.64%) below native, census `+.00901182`, 50/62 certificates, fresh max `-.0004`, shifted WikiText mean/p95/max
+`+.010620/.032453/.039183`, and faithful signed intervention transfer. This is a smaller Pareto mate, not a
+replacement for the higher-fidelity 539,595,062-scalar point (`+.004692`, 54/62). The structural statement is
+literal: MLP0's Left and Right maps share one rank-768 input encoder obtained directly from the weight SVD, while
+the native elementwise product and Down map remain explicit.
+
+The next test asks whether this is a front-layer exception or a repeated bilinear law. Screen the identical
+weight-only p512/p768 construction independently at all 18 MLPs on untouched FineWeb and shifted WikiText. No
+layer selection may adapt to those results. If the law is broad, the first physical composition is fixed in
+advance to `{0,8,17}` at p768; otherwise MLP0 remains the sole adopted instance.
