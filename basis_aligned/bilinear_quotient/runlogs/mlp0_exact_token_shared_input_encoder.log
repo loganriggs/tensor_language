@@ -1,0 +1,23 @@
+token_rrr_512: heldout-token output R2 0.846148
+weight_svd_512: heldout-token output R2 0.686163
+input_pca_512: heldout-token output R2 0.801975
+token_rrr_768: heldout-token output R2 0.937473
+weight_svd_768: heldout-token output R2 0.888244
+input_pca_768: heldout-token output R2 0.908971
+token_rrr_512: FW/WT +0.02893/+0.02246
+weight_svd_512: FW/WT +0.01662/+0.01012
+input_pca_512: FW/WT +0.36650/+0.18407
+token_rrr_768: FW/WT +0.00568/+0.00861
+weight_svd_768: FW/WT +0.00355/+0.00278
+input_pca_768: FW/WT +0.03467/+0.01916
+{
+  "qualifying": [],
+  "predicates": [
+    false,
+    false,
+    false
+  ],
+  "null": false,
+  "runtime_s": 8.862271308898926
+}
+MLP0 EXACT-TOKEN SHARED INPUT ENCODER DONE

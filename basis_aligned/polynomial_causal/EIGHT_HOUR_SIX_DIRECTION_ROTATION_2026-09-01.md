@@ -373,3 +373,15 @@ Full ranking and adoption gates: `SIX_DIRECTION_COMPARISON_2026-09-01.md`.
 - Decision: close activation-PCA MLP adoption. Retain the mapped lower-fidelity compression tier separately. Return
   to direction 6 for one input-side, exact-token-metric MLP0 shared-encoder screen, which is structurally distinct
   from output projection and from the old weight-metric HOSVD null.
+
+### `04:31 UTC` — exploit checkpoint `314`
+
+- Result: exact-token RRR ranks 512/768 achieved heldout-token output R2 `.846/.937`, better than matched
+  weight SVD `.686/.888` but below the frozen `.95/.98` bar. Context reversed the ordering: RRR damage was
+  `+.02893/.02246` and `+.00568/.00861` FineWeb/WikiText, while weight SVD was **`+.01662/.01012`** and
+  **`+.00355/.00278`**; input PCA was much worse. All predicates failed; strong null false.
+- Information gained: the exact finite token metric is identifiable but not the best deployment metric because
+  contextual MLP0 inputs differ. The simpler matched control discovers a shared Left/Right input subspace directly
+  in the weights and transfers exceptionally well.
+- Decision: promote weight-SVD ranks 512/768 as a separately preregistered control-winner follow-up. Compose both
+  physically with mixed104 in one rebuild and measure census, all certificates, fresh windows, exact maps, and bills.

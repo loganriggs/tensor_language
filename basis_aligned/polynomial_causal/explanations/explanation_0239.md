@@ -446,3 +446,22 @@ Thus `p=512` saves 5,308,416 scalars (one third of MLP0), and `p=768` saves 2,65
 token-metric reduced-rank factorization against weight-SVD and input-PCA controls on held-out token identities, then
 test the same literal maps on contextual FineWeb and WikiText. This asks whether the folded finite function exposes
 input-side bilinear structure in the weights that ordinary coefficient metrics miss.
+
+## MLP0 shared input result: the matched weight control wins (04:31 UTC)
+
+The registered exact-token hypothesis fails, but its control exposes the best new deployment candidate of the
+night. Token-metric RRR does what it should on the held-out token function: at ranks 512/768 its output R2 is
+`.846/.937`, versus weight SVD's `.686/.888`. Neither reaches the frozen `.95/.98` bar. More importantly, this
+ordering reverses on contextual text. Token RRR adds `+.0289/.0225` and `+.00568/.00861` FineWeb/WikiText, while
+the matched weight-SVD encoders add only **`+.01662/.01012`** and **`+.00355/.00278`**. Input PCA is far worse.
+All registered predicates are false, but the strong null is also false.
+
+The interpretation is sharp. The exhaustive position-zero fold finds a real finite-population metric, but optimizing
+it overweights the static token regime relative to contextual MLP0 inputs. Ordinary SVD of `[Left;Right]` finds a
+shared input subspace that transfers better. This is nevertheless exactly weight-level bilinear structure: one
+stored encoder feeds both native bilinear sides, while Down and the elementwise product remain explicit.
+
+Promote the rank-512 and rank-768 weight controls in one physical mixed104 rebuild. Proposed standalone totals are
+`534,286,646` and `536,940,854` scalars. The rank-512 point is particularly interesting: it removes one third of
+MLP0 (5,308,416 scalars) at about `+.013` mean contextual damage. Census, all 62 certificates, fresh windows, exact
+active-map identities, and literal bills now decide whether that signal survives whole-program composition.

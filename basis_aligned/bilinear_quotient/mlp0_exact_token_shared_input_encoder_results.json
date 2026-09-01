@@ -1,0 +1,85 @@
+{
+  "status": "mlp0_exact_token_shared_input_encoder_complete",
+  "rung": 314,
+  "claim_level": "single_mlp_exact_token_metric_and_two_corpus_contextual_screen_only",
+  "convention": "CE added above native; lower is better",
+  "population": {
+    "real_tokens": 50257,
+    "fit_tokens": 40205,
+    "heldout_tokens": 10052,
+    "split": "token_id_mod5"
+  },
+  "diagnostics": {
+    "folded_input_top512_energy": 0.7584768533706665,
+    "folded_input_top768_energy": 0.8777905702590942,
+    "folded_input_condition_after_floor": 96.93705749511719,
+    "covariance_eigenvalue_floor": 2.6530340194702146e-05
+  },
+  "native_context_ce": {
+    "fineweb": 3.007435401280721,
+    "wikitext": 3.7670718828837075
+  },
+  "wikitext_fingerprint": "a46124b21ac53738",
+  "arms": {
+    "token_rrr_512": {
+      "method": "token_rrr",
+      "rank": 512,
+      "heldout_token_output_r2": 0.8461483704581942,
+      "fineweb_damage": 0.028926452000935576,
+      "wikitext_damage": 0.0224609375,
+      "literal_mlp0_scalars": 10617984,
+      "saving_scalars": 5308416
+    },
+    "weight_svd_512": {
+      "method": "weight_svd",
+      "rank": 512,
+      "heldout_token_output_r2": 0.686163305442038,
+      "fineweb_damage": 0.016621311505635283,
+      "wikitext_damage": 0.01012285550435399,
+      "literal_mlp0_scalars": 10617984,
+      "saving_scalars": 5308416
+    },
+    "input_pca_512": {
+      "method": "input_pca",
+      "rank": 512,
+      "heldout_token_output_r2": 0.8019750307744196,
+      "fineweb_damage": 0.36650049686431885,
+      "wikitext_damage": 0.18407177925109863,
+      "literal_mlp0_scalars": 10617984,
+      "saving_scalars": 5308416
+    },
+    "token_rrr_768": {
+      "method": "token_rrr",
+      "rank": 768,
+      "heldout_token_output_r2": 0.9374730106427244,
+      "fineweb_damage": 0.0056792497634887695,
+      "wikitext_damage": 0.008607308069865205,
+      "literal_mlp0_scalars": 13272192,
+      "saving_scalars": 2654208
+    },
+    "weight_svd_768": {
+      "method": "weight_svd",
+      "rank": 768,
+      "heldout_token_output_r2": 0.8882444776775784,
+      "fineweb_damage": 0.0035531123479204396,
+      "wikitext_damage": 0.002776662508646943,
+      "literal_mlp0_scalars": 13272192,
+      "saving_scalars": 2654208
+    },
+    "input_pca_768": {
+      "method": "input_pca",
+      "rank": 768,
+      "heldout_token_output_r2": 0.9089709299953292,
+      "fineweb_damage": 0.03467353185017874,
+      "wikitext_damage": 0.019155422846476533,
+      "literal_mlp0_scalars": 13272192,
+      "saving_scalars": 2654208
+    }
+  },
+  "jointly_qualifying_ranks": [],
+  "pred_a_exact_token_function_has_low_shared_input_rank": false,
+  "pred_b_structure_transfers_to_contextual_inputs": false,
+  "pred_c_token_metric_beats_matched_controls": false,
+  "null_no_useful_shared_input_structure": false,
+  "runtime_s": 8.862271308898926
+}

@@ -3470,3 +3470,13 @@ later per-rung backlog edits had silently anchored on text that was not here.
     +.04727/+.04635/+.04788; all exactly 19/62 full and 10/31 heldout certs.
     Bases genuinely rotated (overlap .879/.766) and captured more gradient energy,
     but no threshold moved. Close MLP-PCA adoption; keep two-tier result.
+
+314. [CODEX, board-claimed 04:25Z] MLP0 EXACT-TOKEN SHARED INPUT ENCODER:
+    factor `[Left;Right]` through one p512/768 encoder; compare exact-token RRR,
+    weight SVD, and input PCA at matched literal prices on heldout token ids and
+    contextual FineWeb/WikiText.
+    -> ops/mlp0_exact_token_shared_input_encoder.py
+    RUN 2026-09-01, S2412: ALL PREDS FAILED, null false. RRR improves token R2
+    (.846/.937 vs weight .686/.888) but loses contextual CE. Weight SVD wins:
+    p512 +.01662/.01012 at 5,308,416 saved; p768 +.00355/.00278 at 2,654,208.
+    Promote the matched control to mixed104 census/certificate composition.

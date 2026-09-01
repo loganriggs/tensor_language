@@ -714,8 +714,37 @@ def main():
             handles.append(m.transformer.h[li].mlp.register_forward_hook(h))
         SEL['_final_mlp_projectors_observed']=observed
         return handles
+    def final_mlp_input_program_hooks(active):
+        """Optional shared-input bilinear MLP factors, final candidate side only."""
+        if (not active or not SEL.get('_enable_final_mlp_input_programs')
+                or not SEL.get('final_mlp_input_programs')):
+            return []
+        handles=[]
+        observed={}
+        for li,program0 in sorted(SEL['final_mlp_input_programs'].items()):
+            encoder=program0['encoder'].to(DEV).float()
+            left=program0['left'].to(DEV).float()
+            right=program0['right'].to(DEV).float()
+            down=program0['down'].to(DEV).float()
+            bias=program0['bias'].to(DEV).float()
+            rank=int(encoder.shape[0])
+            if (encoder.shape != (rank,D) or left.shape != (4608,rank)
+                    or right.shape != (4608,rank) or down.shape != (D,4608)
+                    or bias.shape != (D,)):
+                raise ValueError(f'bad MLP input program layer {li}: '
+                                 f'{tuple(encoder.shape)} {tuple(left.shape)} '
+                                 f'{tuple(right.shape)} {tuple(down.shape)} {tuple(bias.shape)}')
+            observed[int(li)]=rank
+            def h(_mo,args,out,encoder=encoder,left=left,right=right,down=down,bias=bias):
+                x=args[0].float(); z=x@encoder.T
+                hidden=(z@left.T)*(z@right.T)
+                return (hidden@down.T+bias).to(out.dtype)
+            handles.append(m.transformer.h[li].mlp.register_forward_hook(h))
+        SEL['_final_mlp_input_programs_observed']=observed
+        return handles
     def evalV(TOK,N,active,mlayers):
-        hs=install(active)+motif_hooks(mlayers)+final_mlp_projector_hooks(active)
+        hs=(install(active)+motif_hooks(mlayers)+final_mlp_projector_hooks(active)
+            +final_mlp_input_program_hooks(active))
         ces=[]; final_states=[]
         for i in range(0,N,4):
             bb=TOK[i:i+4,:257].to(DEV)
@@ -738,7 +767,8 @@ def main():
             SEL['final_state']=torch.cat(final_states).reshape(-1,D).contiguous()
         return torch.cat(ces)
     def evalM(TOK,N,active,mlayers):
-        hs=install(active)+motif_hooks(mlayers)+final_mlp_projector_hooks(active)
+        hs=(install(active)+motif_hooks(mlayers)+final_mlp_projector_hooks(active)
+            +final_mlp_input_program_hooks(active))
         ces=[]
         for i in range(0,N,4):
             bb=TOK[i:i+4,:257].to(DEV)
@@ -874,6 +904,7 @@ def main():
     # factors compose only in final candidate evaluations below, never while
     # fitting those dictionaries.
     SEL['_enable_final_mlp_projectors']=bool(SEL.get('final_mlp_projectors'))
+    SEL['_enable_final_mlp_input_programs']=bool(SEL.get('final_mlp_input_programs'))
     cur['clsmap']=clsC.reshape(R1-R0,256)
     L2C=evalM(FW[R0:R1],R1-R0,order2,ML)-baseC
     del cur['clsmap']
@@ -917,7 +948,24 @@ def main():
             SEL['abl_on']=True
         try:
             _variants=SEL.get('final_mlp_projector_variants')
-            if _variants:
+            _input_variants=SEL.get('final_mlp_input_program_variants')
+            if _variants and _input_variants:
+                raise ValueError('cannot combine final MLP projector and input-program variants')
+            if _input_variants:
+                _primary=str(SEL.get('final_mlp_input_primary_variant'))
+                if _primary not in _input_variants:
+                    raise ValueError(f'final_mlp_input_primary_variant {_primary!r} not in variants')
+                SEL['_final_mlp_input_variant_cevs']={}
+                SEL['_final_mlp_input_variant_observed']={}
+                for _name,_programs in _input_variants.items():
+                    SEL['final_mlp_input_programs']=_programs
+                    _value=evalV(_ROWS,_ROWS.shape[0],order2,ML).detach().cpu()
+                    SEL['_final_mlp_input_variant_cevs'][str(_name)]=_value
+                    SEL['_final_mlp_input_variant_observed'][str(_name)]=dict(
+                        SEL.get('_final_mlp_input_programs_observed',{}))
+                SEL['final_mlp_input_programs']=_input_variants[_primary]
+                SEL['cev']=SEL['_final_mlp_input_variant_cevs'][_primary]
+            elif _variants:
                 _primary=str(SEL.get('final_mlp_primary_variant'))
                 if _primary not in _variants:
                     raise ValueError(f'final_mlp_primary_variant {_primary!r} not in variants')
