@@ -4308,7 +4308,7 @@ later per-rung backlog edits had silently anchored on text that was not here.
   p768 in both waves and costs at least14,599,312 values versus13,272,192. No physical router; close this cheap
   prefix-state family and change object to path-specific output/causal-response structure or direct nonlinear CE.
 
-### Rung 409 — frozen rank64 causal-output interface oracle on p448 branch error — CLAIMED
+### Rung 409 — frozen rank64 causal-output interface oracle on p448 branch error — COMPLETE
 
 - Reconstruct exact native/p448 T/C/I/S/A output errors on docs0:384; fit new controls only on0:192 and evaluate
   192:384 in two96-document waves, with FINAL closed.
@@ -4325,3 +4325,9 @@ later per-rung backlog edits had silently anchored on text that was not here.
   `total-sum(named)` and then re-summed in a different float order, leaving max closure `1.53e-5` rather than0.
   Same-rung mechanical repair computes and replays that diagnostic remainder once in float64; arms/bases/rows/bars
   are unchanged. Preserve first receipt at its pre-repair commit and rerun through the managed lane.
+- REPAIRED RUN 2026-09-01: A/C held, B/D failed, strong null false. All authorities and saved baseline losses are
+  bit-exact; branch closure is0 and identities `~3e-13`; all calls/bases live. Historical B0 improves p448 only
+  `.001348` (17%, not30%) and beats random by only`.000330`, so do not reuse its old predictor. Its T+I correction
+  gains `.001776`, 132% of full gain: token grammar confirmed. Equal64-direction split T32/I32 is worse than joint
+  TI64 in branch MSE (`.750>.708`) and physical damage (`.005876>.004838`). Total-error64 reaches `.004769`, still
+  above p640 `.002868`. Select one shared rank64 T+I output producer; no separate path dictionaries or B0 reuse.
