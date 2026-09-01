@@ -77,7 +77,7 @@ the input/product/output coupling is real. The core is nevertheless not accurate
 Primary artifacts: `mlp16_tucker_physical_calibration_results.json`, `ops/mlp16_tucker_physical_calibration.py`,
 ledger §§2481–2485.
 
-## Reconciliation and next legal question
+## Reconciliation and completed adoption decision
 
 Rung389 completed the clean-split current-harness rebuild. The R4/k2 quadratic function, whose target factored
 price is 14,984 but whose scored hook was later found to store 5,314,176 dense values, achieved:
@@ -89,14 +89,23 @@ price is 14,984 but whose scored hook was later found to store 5,314,176 dense v
 - damage-ray cosine .97722 and vector R² .81476;
 - versus a matched random-output arm at R² −.0062, census +.148198, and 5/62.
 
-It beats rung388's Tucker core on every common modern quality measure. Its 0.725%-of-Tucker price claim remains
+It beats rung388's Tucker core on every common modern quality measure. Its 0.725%-of-Tucker price claim was
 conditional on rung391 physically reproducing the function from eight projection vectors; rung391 passed and
-restored that price claim. Therefore:
+restored that price claim.
+
+Rungs392–393 then installed the physical factor program jointly with structural QK64 and split-B MLP0/4 p768.
+The 495,847,230-scalar composite scored +.052854 and 17/62 checks, only 1.03185 times its additive CE prediction;
+its 62-effect vector matched that prediction at cosine .999966. The final original-native attention-16 knockout
+gate passed at signed cosine/error/norm .965712/.317149/1.147792, collateral Spearman .989592, and a16-owned
+median ratio 1.135428. Thus the object is adopted as a lower-fidelity predictive, composable, and manipulable
+tier, not as the high-fidelity frontier. Therefore:
 
 - do not call the Tucker result a compression frontier;
 - do not tune Tucker ranks at layer 16;
-- next run only the licensed original-native signed-a16 gate; and
-- attempt composition only if signed fidelity passes.
+- do not repeat the L16 Tucker or quadratic rank/site sweep;
+- quote the exact physical four-tensor object rather than the old intended/dense hook; and
+- treat 17/62 as a deliberately lower-fidelity tier, not a replacement for the 43/50/62-check programs.
 
 Primary new artifacts: `mlp16_rank2_quadratic_current_gate_results.json`,
-`ops/mlp16_rank2_quadratic_current_gate.py`, ledger §2486.
+`mixed64_mlp04_mlp16_factored_composition_results.json`,
+`a16_transfer_mixed64_mlp04_mlp16_factored_results.json`, ledger §§2486–2492.

@@ -4084,9 +4084,21 @@ later per-rung backlog edits had silently anchored on text that was not here.
   predictions held, strong null false, and all hooks/maps/fits/bills were live and exact.
 - Licensed successor: one original-native signed a16 composite gate, then stop the short L16 adoption chain.
 
-### Rung 393 — original-native signed gate for physical three-family composite — QUEUED
+### Rung 393 — original-native signed gate for physical three-family composite — COMPLETE
 
 - Apply the fixed original-native attention-16 mean knockout to the exact rung392 physical program.
 - Require exact rung392 identity and live factor/ablation hooks; signed cosine >=.95, normalized error <=.40,
   norm ratio [.70,1.30], collateral Spearman >=.95, and a16-own median ratio [.70,1.30].
-- A full pass adopts a lower-fidelity manipulable tier; a miss keeps rung392 predictive+composable only. No tuning.
+- RUN 2026-09-01: all held, null false. Signed cosine/error/norm .965712/.317149/1.147792, collateral
+  Spearman .989592, a16-own median ratio 1.135428; factor/ablation hooks 2,341/250; all identities exact.
+- Formally adopt the 495,847,230-scalar program only as a 17/62 lower-fidelity predictive, composable, and
+  manipulable tier. Close the L16 chain and prioritize MLP0 token/downstream-equivalence work.
+
+### Rung 394 — exhaustive exact-token MLP0 downstream sparse code — QUEUED
+
+- Enumerate all 50,257 length-one token paths; delete only the bias-free MLP0 write while retaining identical raw
+  x0, attention0 value, bias, and block1 remix; measure causal attention1+MLP1 response.
+- Fit P256/k16 action-only, joint action+response (two seeds), and shuffled-response codes on token-id mod5 train;
+  score the untouched fifth against dense MLP0-write PCA and raw-x0 linear controls.
+- Require raw-token remix dominance, lower response than write effective rank, heldout joint response R2 advantage,
+  seed/subspace stability, and response-neighbor advantage. Screen only; a full pass licenses live TT/TT-X transfer.
