@@ -4470,3 +4470,15 @@ later per-rung backlog edits had silently anchored on text that was not here.
   of20 candidates across3 whole program families.
 - Do not fit. Preserve the useful slices and prospectively generate independent removal and composition families
   under sealed consequence labels; the historical archive alone cannot validate a learned simplicity rule.
+
+### Rung 443 — old compiler-v2.1 MLP0→MLP1 structural-score transfer — COMPLETE / HISTORICAL POSITIVE
+
+- Recovered matching108-candidate true/shuffle banks at MLP0 and MLP1. Fit only on MLP0 using log price, operations,
+  capacity, regularization, and affine/state-complete/causal flags; leave-family-out CV chose ridge alpha100. Freeze
+  fit hash before opening MLP1.
+- After two preserved output-instrument aborts, A/B/C/D all hold and strong null is false. MLP1 Spearman/pairwise
+  accuracy are.6541/.7378; price/rank/shuffle-trained baselines are.3666/.4184/.4679; frozen top-decile true-minus-
+  shuffle recovery gap is.5798. Permutation p=.000999.
+- Direct MLP0 recovery transfers better at.8197. Therefore structure predicts adjacent-site validation behavior but
+  does not replace measured upstream performance, generalize to unseen grammars, or validate OOD/removal/composition.
+  Use only to design one new prospective family with sealed consequences.
