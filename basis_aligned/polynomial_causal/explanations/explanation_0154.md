@@ -146,3 +146,8 @@ collateral circuit Spearman `0.997347`, and own-family magnitude ratio `1.053832
 for the physical top-96 program and remain valid; the old a16 anomaly was path-contaminated.  The active
 compute rung composes per-token top-1152 MLP execution with top96, while the true mixed companion, exact
 component pricing, and shifted-corpus OOD remain required before final adoption.
+
+The compute rung subsequently held its aggregate prediction but failed its certificate bar.  Top-1152 added
+`+0.015464` census damage, matching the old additive law, and kept all fresh windows below `+0.0276`; however,
+certificates fell from `52/62` to `26/62` rather than staying above 40.  Quarter-density is therefore a useful
+4× compute tier, but not the certificate-preserving adoption base.

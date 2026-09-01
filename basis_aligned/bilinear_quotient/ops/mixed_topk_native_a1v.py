@@ -118,7 +118,7 @@ def main():
         'full_cp_width': 4608,
         'cp_unit_compute_reduction': 4.0,
         'physical_qk_factor_ranks': sorted(factor_ranks),
-        'approx_storage_values': baseline['approx_total_values_from_180m_anchor'],
+        'price_status': 'exact physical top96 bill pending; former mixed-anchor estimate withdrawn',
         'member_abs_dce': member_abs,
         'pred_a_additive_compute_price': bool(pred_a),
         'pred_b_certificates': bool(pred_b),

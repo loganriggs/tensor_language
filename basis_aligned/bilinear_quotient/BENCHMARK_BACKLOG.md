@@ -3242,8 +3242,11 @@ later per-rung backlog edits had silently anchored on text that was not here.
     landing). Bars: surcharge in [0.010,0.024]
     and census <=0.035; >=40 certs; max fresh8 <=0.040. Live selected-
     width tripwire =1152. Null: surcharge >=0.040 or <=20 certs.
-    Storage ~123.4M unchanged; executed CP-unit compute 4x sparse.
-    -> ops/mixed_topk_native_a1v.py [BUILDING]
+    Exact storage pending; executed CP-unit compute 4x sparse.
+    -> ops/mixed_topk_native_a1v.py
+    RUN 2026-09-01: 2/3 — surcharge +0.015464 and fresh max +0.0276
+    HELD; certificates FAILED materially at 26/62 vs >=40. Null <=20
+    not triggered. Prediction-cheap, not certificate-cheap.
 
 293. [CODEX, board-claimed 02:06Z] TRUE CORRECTED MIXED COMPANION:
     physical QK indices {0..95,120..127}, native a1v. Bars: census
