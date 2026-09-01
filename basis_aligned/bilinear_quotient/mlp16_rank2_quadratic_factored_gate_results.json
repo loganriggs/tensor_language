@@ -1,0 +1,71 @@
+{
+  "status": "mlp16_rank2_quadratic_factored_gate_complete",
+  "rung": 391,
+  "claim_level": "physical_eight_projection_storage_and_signed_reproduction",
+  "price_correction": {
+    "prior_executed_dense_layer_scalars": 5314176,
+    "factored_layer_scalars": 14984,
+    "factored_model_scalars": 529991486
+  },
+  "stored_program": "mlp16_rank2_quadratic_factored.pt",
+  "stored_shapes": {
+    "output_directions": [
+      4,
+      1152
+    ],
+    "form_vectors": [
+      4,
+      2,
+      1152
+    ],
+    "form_values": [
+      4,
+      2
+    ],
+    "constant": [
+      1152
+    ]
+  },
+  "no_dense_form_in_physical_program": true,
+  "form_relative_error": 4.890185703403436e-08,
+  "heldout_prediction_relative_error": 4.646015270282078e-07,
+  "unablated_cev_max_abs_difference_from_dense": 1.239776611328125e-05,
+  "unablated_cev_mean_abs_difference_from_dense": 1.0890025805565529e-06,
+  "unablated_census_damage": 0.03897828608751297,
+  "unablated_certificates": 27,
+  "factored_vs_dense_signed_cosine": 1.0000110864639282,
+  "factored_vs_dense_signed_error": 1.2481548765208572e-05,
+  "factored_vs_dense_signed_norm_ratio": 1.0000001192092896,
+  "factored_vs_original_native_signed_cosine": 0.9797223806381226,
+  "factored_vs_original_native_signed_error": 0.21306228637695312,
+  "factored_vs_original_native_signed_norm_ratio": 1.0520107746124268,
+  "collateral_spearman": 0.9973469376564026,
+  "own_effect_median_ratio": 1.041181399182499,
+  "own_effect_ratios": [
+    1.0296934537510236,
+    1.0322448104389323,
+    1.0342208137003852,
+    1.0357612345781777,
+    1.036325020589829,
+    1.0377454559166195,
+    1.041181399182499,
+    1.0419350138583658,
+    1.04286705150206,
+    1.0440248081714636,
+    1.0452876100932742,
+    1.0501129035416614,
+    1.064681077254658
+  ],
+  "hook_calls": {
+    "candidate": 1000,
+    "ablation": 500
+  },
+  "saved_factored_cev": "cev_mlp16_rank2_quadratic_factored.pt",
+  "saved_factored_ko_cev": "cev_a16ko_mlp16_rank2_quadratic_factored.pt",
+  "pred_a_physical_factorization_identity_holds": true,
+  "pred_b_unablated_dense_reproduction_holds": true,
+  "pred_c_signed_dense_and_native_reproduction_holds": true,
+  "null_physicalization_or_signed_transport_fails": false,
+  "composition_licensed": true,
+  "runtime_s": 25.099854230880737
+}
