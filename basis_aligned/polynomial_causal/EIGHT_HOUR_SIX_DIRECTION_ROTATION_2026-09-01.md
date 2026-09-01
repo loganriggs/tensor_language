@@ -273,3 +273,18 @@ Full ranking and adoption gates: `SIX_DIRECTION_COMPARISON_2026-09-01.md`.
   repair reaches adoption-scale loss at >=14.5% vocabulary saving.
 - Decision: **stop/park** vocabulary compression as an adoption route. Preserve it as a representation result;
   do not spend the remaining exploit window on ranks with <14.5% saving. Switch to multi-layer activation-PCA.
+
+### `03:49 UTC` — exploit checkpoint `306`
+
+- Exact object and price: rank256 activation-PCA output projection at every MLP; each factorized Down realization
+  costs 12,092,544 instead of 15,926,400 scalars, saving 3,833,856. Four layers save 15,335,424.
+- Result: 17/18 layers were individually <=+.04 on calibration FineWeb, validation FineWeb, and WikiText. But
+  calibration-to-validation layer sensitivity Spearman was only `.298`. The calibration-selected layers
+  `{6,7,9,12}` composed to `+.1304/.1217`, versus nonnegative individual sums predicting +.0732/.0756
+  (ratios 1.780/1.610). The fixed `{0,5,11,17}` control was better at `+.0983/.0835`. pred_a alone held;
+  pred_b/c failed; strong null false.
+- Information gained: low-rank MLP output is broad and real, but error composes super-additively and single-site
+  sensitivity does not select a safe set. The unexpected fixed-control result shows a near-predictive quartet
+  exists, while targeted scalar ranking again loses to a spread allocation.
+- Decision: advance one interaction-aware allocator. Measure all 153 layer pairs on two calibration halves,
+  penalize unstable attractive interactions, enumerate 3,060 quartets, then freeze and validate the winner.

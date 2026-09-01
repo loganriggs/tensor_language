@@ -3401,3 +3401,12 @@ later per-rung backlog edits had silently anchored on text that was not here.
     about +.180/.197; rank768 +.127/.145 at 14.76% saving. Shared beats matched
     independent 2-3x, but sqrt-r768 unseen still +.724/.566. Stop adoption route;
     preserve shared-code representation result and switch exploit to MLP PCA.
+
+306. [CODEX, board-claimed 03:43Z] FOUR-LAYER ACTIVATION-PCA COMPOSITION:
+    fit rank256 MLP-output PCA at all 18 layers; choose four on calibration only;
+    validate jointly against fixed spaced control. Four-layer saving 15,335,424.
+    -> ops/mlp_activation_pca_four_layer_composition.py
+    RUN 2026-09-01, S2404: pred_a only, null false. 17/18 layers individually
+    safe, but layer-rank rho .298; selected quartet +.130/.122 at 1.78x/1.61x
+    additive, worse than fixed {0,5,11,17} +.098/.084. Advance pair-interaction
+    allocator once; scalar sensitivity selection is killed.

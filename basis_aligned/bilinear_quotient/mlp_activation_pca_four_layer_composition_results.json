@@ -1,0 +1,191 @@
+{
+  "status": "mlp_activation_pca_four_layer_composition_complete",
+  "rung": 306,
+  "claim_level": "calibration_selected_two_corpus_four_layer_composition_screen_only",
+  "price": {
+    "native_mlp_scalars_each": 15926400,
+    "factorized_mlp_scalars_each": 12092544,
+    "saving_scalars_each": 3833856,
+    "selected_layers": 4,
+    "total_saving_scalars": 15335424
+  },
+  "fit": {
+    "rows": 16,
+    "positions_per_layer": 4096,
+    "rank": 256,
+    "validation_labels_used_for_selection": false
+  },
+  "evaluation": {
+    "rows_per_population": 8,
+    "fineweb_calibration_skip": 7000,
+    "fineweb_validation_skip": 11000,
+    "wikitext_skip": 30000,
+    "wikitext_fingerprint": "a46124b21ac53738"
+  },
+  "native": {
+    "calibration_fineweb": 3.138731062412262,
+    "validation_fineweb": 3.1184757947921753,
+    "wikitext": 4.2276880741119385
+  },
+  "individual": {
+    "0": {
+      "calibration_fineweb_damage": 0.024087369441986084,
+      "validation_fineweb_damage": 0.02104473114013672,
+      "wikitext_damage": 0.0015028715133666992
+    },
+    "1": {
+      "calibration_fineweb_damage": 0.03165715932846069,
+      "validation_fineweb_damage": 0.039087116718292236,
+      "wikitext_damage": 0.04218089580535889
+    },
+    "2": {
+      "calibration_fineweb_damage": 0.013300776481628418,
+      "validation_fineweb_damage": 0.013345539569854736,
+      "wikitext_damage": 0.025044560432434082
+    },
+    "3": {
+      "calibration_fineweb_damage": 0.018378376960754395,
+      "validation_fineweb_damage": 0.012752711772918701,
+      "wikitext_damage": 0.017870426177978516
+    },
+    "4": {
+      "calibration_fineweb_damage": 0.010331690311431885,
+      "validation_fineweb_damage": 0.011647284030914307,
+      "wikitext_damage": 0.01607036590576172
+    },
+    "5": {
+      "calibration_fineweb_damage": 0.011524081230163574,
+      "validation_fineweb_damage": 0.012000858783721924,
+      "wikitext_damage": 0.017592430114746094
+    },
+    "6": {
+      "calibration_fineweb_damage": 0.008839607238769531,
+      "validation_fineweb_damage": 0.01975226402282715,
+      "wikitext_damage": 0.012026548385620117
+    },
+    "7": {
+      "calibration_fineweb_damage": 0.010243237018585205,
+      "validation_fineweb_damage": 0.016881108283996582,
+      "wikitext_damage": 0.01930999755859375
+    },
+    "8": {
+      "calibration_fineweb_damage": 0.013269186019897461,
+      "validation_fineweb_damage": 0.01532435417175293,
+      "wikitext_damage": 0.021544575691223145
+    },
+    "9": {
+      "calibration_fineweb_damage": 0.009730935096740723,
+      "validation_fineweb_damage": 0.019212067127227783,
+      "wikitext_damage": 0.016917705535888672
+    },
+    "10": {
+      "calibration_fineweb_damage": 0.01294410228729248,
+      "validation_fineweb_damage": 0.01633220911026001,
+      "wikitext_damage": 0.017529010772705078
+    },
+    "11": {
+      "calibration_fineweb_damage": 0.01685565710067749,
+      "validation_fineweb_damage": 0.01846158504486084,
+      "wikitext_damage": 0.023064851760864258
+    },
+    "12": {
+      "calibration_fineweb_damage": 0.008857786655426025,
+      "validation_fineweb_damage": 0.017407238483428955,
+      "wikitext_damage": 0.02731490135192871
+    },
+    "13": {
+      "calibration_fineweb_damage": 0.012559652328491211,
+      "validation_fineweb_damage": 0.015427887439727783,
+      "wikitext_damage": 0.014861702919006348
+    },
+    "14": {
+      "calibration_fineweb_damage": 0.014432191848754883,
+      "validation_fineweb_damage": 0.015870630741119385,
+      "wikitext_damage": 0.013883471488952637
+    },
+    "15": {
+      "calibration_fineweb_damage": 0.012641072273254395,
+      "validation_fineweb_damage": 0.01758354902267456,
+      "wikitext_damage": 0.009932518005371094
+    },
+    "16": {
+      "calibration_fineweb_damage": 0.013708770275115967,
+      "validation_fineweb_damage": 0.02417731285095215,
+      "wikitext_damage": 0.009235262870788574
+    },
+    "17": {
+      "calibration_fineweb_damage": 0.023861050605773926,
+      "validation_fineweb_damage": 0.030366957187652588,
+      "wikitext_damage": 0.024988889694213867
+    }
+  },
+  "selection": {
+    "selected_layers": [
+      6,
+      12,
+      9,
+      7
+    ],
+    "fixed_control_layers": [
+      0,
+      5,
+      11,
+      17
+    ],
+    "broadly_safe_layers": [
+      0,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17
+    ],
+    "calibration_validation_spearman": 0.2982456140350877
+  },
+  "compositions": {
+    "calibration_selected": {
+      "layers": [
+        6,
+        7,
+        9,
+        12
+      ],
+      "validation_fineweb_damage": 0.13041716814041138,
+      "wikitext_damage": 0.12170195579528809
+    },
+    "fixed_spaced_control": {
+      "layers": [
+        0,
+        5,
+        11,
+        17
+      ],
+      "validation_fineweb_damage": 0.09826374053955078,
+      "wikitext_damage": 0.08349299430847168
+    }
+  },
+  "selected_additive_nonnegative_prediction": {
+    "validation_fineweb": 0.07325267791748047,
+    "wikitext": 0.07556915283203125
+  },
+  "selected_composition_ratio": {
+    "validation_fineweb": 1.7803740675163713,
+    "wikitext": 1.6104713528520949
+  },
+  "pred_a_pca_generality": true,
+  "pred_b_calibration_selects_safe_layers": false,
+  "pred_c_four_layer_composition_is_predictive": false,
+  "null_no_composable_pca_layers": false,
+  "runtime_s": 11.713285446166992
+}

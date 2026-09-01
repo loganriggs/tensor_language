@@ -314,3 +314,18 @@ stop the vocabulary route at the preregistered boundary rather than chasing rank
 activation-PCA MLP outputs, where MLP0 rank256 already showed `+.0209/.0114` damage while saving 3.83M scalars.
 The next test asks whether four calibration-selected layers compose on fresh FineWeb and WikiText for a literal
 15.34M-scalar saving.
+
+## Exploit checkpoint: PCA generalizes, naive allocation fails (03:49 UTC)
+
+Rank-256 output PCA is not an MLP0 curiosity: 17 of 18 layers individually added at most `.04` CE on all three
+populations. The problem is composition. Calibration damage barely ranked validation sensitivity (`rho=.298`),
+and choosing the four smallest calibration layers produced `+.130/.122` damage. That is 1.78x/1.61x the sum of
+their separate validation damages. A fixed, evenly spaced control quartet was substantially better at
+`+.098/.084` for the same 15.34M-scalar saving.
+
+This recovers a recurring law in a new object: local compression errors are broadly cheap but interact, so targeted
+single-site ranking overfits while spread allocations can win. The positive part is that the fixed control sits
+close enough to the desired range to justify one mathematical follow-up. I will measure every layer pair on two
+calibration halves, estimate its excess-over-additive interaction, penalize interactions that do not replicate,
+and enumerate all 3,060 four-layer subsets. Only the frozen risk-adjusted winner is evaluated on the disjoint
+FineWeb/WikiText windows.

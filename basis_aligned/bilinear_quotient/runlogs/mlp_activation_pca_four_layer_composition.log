@@ -15,13 +15,46 @@ fit layer 13: top256 energy 0.7009
 fit layer 14: top256 energy 0.6800
 fit layer 15: top256 energy 0.7504
 fit layer 16: top256 energy 0.9595
-Traceback (most recent call last):
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/mlp_activation_pca_four_layer_composition.py", line 307, in <module>
-    main()
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/mlp_activation_pca_four_layer_composition.py", line 193, in main
-    pca = _fit_pca(outputs)
-          ^^^^^^^^^^^^^^^^^
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/mlp_activation_pca_four_layer_composition.py", line 107, in _fit_pca
-    assert bool(torch.isfinite(covariance).all())
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-AssertionError
+fit layer 17: top256 energy 0.9896
+layer 0: cal/val/wiki +0.0241/+0.0210/+0.0015
+layer 1: cal/val/wiki +0.0317/+0.0391/+0.0422
+layer 2: cal/val/wiki +0.0133/+0.0133/+0.0250
+layer 3: cal/val/wiki +0.0184/+0.0128/+0.0179
+layer 4: cal/val/wiki +0.0103/+0.0116/+0.0161
+layer 5: cal/val/wiki +0.0115/+0.0120/+0.0176
+layer 6: cal/val/wiki +0.0088/+0.0198/+0.0120
+layer 7: cal/val/wiki +0.0102/+0.0169/+0.0193
+layer 8: cal/val/wiki +0.0133/+0.0153/+0.0215
+layer 9: cal/val/wiki +0.0097/+0.0192/+0.0169
+layer 10: cal/val/wiki +0.0129/+0.0163/+0.0175
+layer 11: cal/val/wiki +0.0169/+0.0185/+0.0231
+layer 12: cal/val/wiki +0.0089/+0.0174/+0.0273
+layer 13: cal/val/wiki +0.0126/+0.0154/+0.0149
+layer 14: cal/val/wiki +0.0144/+0.0159/+0.0139
+layer 15: cal/val/wiki +0.0126/+0.0176/+0.0099
+layer 16: cal/val/wiki +0.0137/+0.0242/+0.0092
+layer 17: cal/val/wiki +0.0239/+0.0304/+0.0250
+calibration_selected [6, 7, 9, 12]: val/wiki +0.1304/+0.1217
+fixed_spaced_control [0, 5, 11, 17]: val/wiki +0.0983/+0.0835
+{
+  "selected": [
+    6,
+    12,
+    9,
+    7
+  ],
+  "safe_count": 17,
+  "rho": 0.2982456140350877,
+  "composition_ratio": {
+    "validation_fineweb": 1.7803740675163713,
+    "wikitext": 1.6104713528520949
+  },
+  "predicates": [
+    true,
+    false,
+    false
+  ],
+  "null": false,
+  "runtime_s": 11.713285446166992
+}
+MLP ACTIVATION PCA FOUR-LAYER COMPOSITION DONE
