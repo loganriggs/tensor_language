@@ -1,0 +1,40 @@
+fit layer 0: top256 energy 0.8573
+fit layer 1: top256 energy 0.8149
+fit layer 2: top256 energy 0.7641
+fit layer 3: top256 energy 0.7684
+fit layer 4: top256 energy 0.8068
+fit layer 5: top256 energy 0.7990
+fit layer 6: top256 energy 0.7612
+fit layer 7: top256 energy 0.7039
+fit layer 8: top256 energy 0.7077
+fit layer 9: top256 energy 0.6922
+fit layer 10: top256 energy 0.6802
+fit layer 11: top256 energy 0.7017
+fit layer 12: top256 energy 0.7017
+fit layer 13: top256 energy 0.7009
+fit layer 14: top256 energy 0.6800
+fit layer 15: top256 energy 0.7504
+fit layer 16: top256 energy 0.9595
+fit layer 17: top256 energy 0.9896
+interaction_selected (4, 14, 15): FW/WT +0.0668/+0.0672
+scalar_control (6, 9, 12): FW/WT +0.0839/+0.0691
+fixed_spaced_control (0, 8, 17): FW/WT +0.0725/+0.0334
+{
+  "selected": [
+    4,
+    14,
+    15
+  ],
+  "ratio": {
+    "fineweb": 1.191694564852115,
+    "wikitext": 1.2080033597312214
+  },
+  "predicates": [
+    false,
+    true,
+    false
+  ],
+  "null": false,
+  "runtime_s": 9.632307052612305
+}
+MLP PCA INTERACTION-SELECTED TRIPLE DONE

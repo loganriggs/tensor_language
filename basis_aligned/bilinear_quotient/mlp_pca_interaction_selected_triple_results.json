@@ -1,0 +1,137 @@
+{
+  "status": "mlp_pca_interaction_selected_triple_complete",
+  "rung": 308,
+  "claim_level": "frozen_pair_model_untouched_two_corpus_triple_screen_only",
+  "price": {
+    "native_mlp_scalars_each": 15926400,
+    "factorized_mlp_scalars_each": 12092544,
+    "selected_layers": 3,
+    "total_saving_scalars": 11501568
+  },
+  "selection": {
+    "parent_rung": 307,
+    "candidate_count": 816,
+    "selected_layers": [
+      4,
+      14,
+      15
+    ],
+    "risk_adjusted_score": 0.048897773027420044,
+    "mean_interaction_component": 0.011191904544830322,
+    "replication_penalty": 0.0024442672729492188,
+    "top5": [
+      {
+        "layers": [
+          4,
+          14,
+          15
+        ],
+        "score": 0.048897773027420044
+      },
+      {
+        "layers": [
+          4,
+          14,
+          16
+        ],
+        "score": 0.049575626850128174
+      },
+      {
+        "layers": [
+          4,
+          12,
+          15
+        ],
+        "score": 0.04974827170372009
+      },
+      {
+        "layers": [
+          5,
+          14,
+          15
+        ],
+        "score": 0.05035164952278137
+      },
+      {
+        "layers": [
+          5,
+          14,
+          16
+        ],
+        "score": 0.050695836544036865
+      }
+    ],
+    "new_population_used": false
+  },
+  "evaluation": {
+    "fineweb_cache_skip": 11000,
+    "fineweb_cache_rows": [
+      8,
+      15
+    ],
+    "fineweb_rows": 8,
+    "wikitext_skip": 40000,
+    "wikitext_rows": 8,
+    "wikitext_fingerprint": "a46124b21ac53738"
+  },
+  "native": {
+    "fineweb_ce": 2.7321956753730774,
+    "wikitext_ce": 4.074350476264954
+  },
+  "compositions": {
+    "interaction_selected": {
+      "layers": [
+        4,
+        14,
+        15
+      ],
+      "fineweb_damage": 0.06679171323776245,
+      "wikitext_damage": 0.06720781326293945
+    },
+    "scalar_control": {
+      "layers": [
+        6,
+        9,
+        12
+      ],
+      "fineweb_damage": 0.08387386798858643,
+      "wikitext_damage": 0.06913948059082031
+    },
+    "fixed_spaced_control": {
+      "layers": [
+        0,
+        8,
+        17
+      ],
+      "fineweb_damage": 0.0724591612815857,
+      "wikitext_damage": 0.033408284187316895
+    }
+  },
+  "selected_individual": {
+    "4": {
+      "fineweb_damage": 0.017921626567840576,
+      "wikitext_damage": 0.02447497844696045
+    },
+    "14": {
+      "fineweb_damage": 0.018636465072631836,
+      "wikitext_damage": 0.019362926483154297
+    },
+    "15": {
+      "fineweb_damage": 0.019489586353302002,
+      "wikitext_damage": 0.011797547340393066
+    }
+  },
+  "selected_additive_nonnegative_prediction": {
+    "fineweb": 0.056047677993774414,
+    "wikitext": 0.05563545227050781
+  },
+  "selected_composition_ratio": {
+    "fineweb": 1.191694564852115,
+    "wikitext": 1.2080033597312214
+  },
+  "pred_a_selected_triple_is_predictive": false,
+  "pred_b_triple_composition_is_controlled": true,
+  "pred_c_triple_beats_equal_price_controls": false,
+  "null_triple_not_useful": false,
+  "runtime_s": 9.632307052612305
+}

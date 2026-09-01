@@ -3419,3 +3419,11 @@ later per-rung backlog edits had silently anchored on text that was not here.
     .917 (real law), total pair rho .476; selected {0,4,14,15} +.0876/.0586,
     ratios 1.324/1.415. Large win over naive, only 10.9% FW win over fixed.
     Reduce to a three-layer interaction-selected final screen.
+
+308. [CODEX, board-claimed 03:53Z] INTERACTION-SELECTED PCA TRIPLE:
+    enumerate 816 triples from frozen rung307 model; evaluate on untouched
+    FineWeb rows and WikiText skip40000 against scalar/fixed controls.
+    -> ops/mlp_pca_interaction_selected_triple.py
+    RUN 2026-09-01, S2406: pred_b only, null false. Selected {4,14,15}
+    +.0668/.0672, ratios 1.192/1.208; misses FW .06 and loses to fixed
+    {0,8,17} +.0725/.0334 on WikiText. Stop targeting; broad-confirm fixed.

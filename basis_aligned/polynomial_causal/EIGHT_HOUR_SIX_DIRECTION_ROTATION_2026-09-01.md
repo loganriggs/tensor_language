@@ -301,3 +301,13 @@ Full ranking and adoption gates: `SIX_DIRECTION_COMPARISON_2026-09-01.md`.
   the strict FineWeb quality bar.
 - Decision: reduce capacity once. Enumerate triples from the already frozen two-half pair model, then evaluate the
   winner on untouched skip11000 rows 8–15 and WikiText skip40000. Stop MLP exploitation after this gate.
+
+### `03:56 UTC` — exploit checkpoint `308`
+
+- Result: the frozen pair model selected `{4,14,15}`. On untouched data it landed `+.0668/.0672`, with controlled
+  composition ratios 1.192/1.208. pred_b held, but FineWeb missed the `.06` bar and it did not beat both controls:
+  scalar `{6,9,12}` was `+.0839/.0691`; fixed `{0,8,17}` was **`+.0725/.0334`**. pred_a/c failed, null false.
+- Information gained: interaction-aware selection consistently reduces composition tax, but its identity is
+  corpus-fragile and does not dominate a spread allocation. No further allocator tuning is justified.
+- Decision: stop targeted allocation. Because the fixed triple was frozen prospectively and clears `.08/.07` on
+  the untouched screen, promote that control—not the selected triple—to one broad stability gate before synthesis.

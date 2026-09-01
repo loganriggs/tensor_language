@@ -343,3 +343,15 @@ fixed control misses the 15% requirement. But the stable interaction law and shi
 final smaller candidate. I now enumerate triples using only the already frozen calibration pair model, then test
 the winner on untouched cache rows and a later WikiText window. Three layers save 11.50M scalars and remove three
 of a quartet's six pair interactions; this is the last MLP exploit before the morning synthesis.
+
+## Exploit checkpoint: targeting stops; the spread control gets a stability gate (03:56 UTC)
+
+The pair-selected triple `{4,14,15}` adds `+.0668/.0672` on untouched FineWeb/WikiText. Its composition ratio is
+only 1.19–1.21, confirming that the interaction model avoids much of the tax. But it misses the FineWeb `.06` bar
+and loses badly to the fixed `{0,8,17}` control on WikiText (`+.0672` versus `+.0334`). Interaction-aware targeting
+is therefore useful diagnostically but not robust enough to choose deployment layers.
+
+The fixed control is scientifically interesting because it was chosen before seeing this population and lands
+`+.0725/.0334` while saving 11.50M scalars. Rather than tune another subset, I promote this exact spaced triple to
+a broad confirmation: 176 untouched rows from each FineWeb cache and 120 later WikiText rows, including row-p95
+and worst-case gates. A fail ends MLP compression; a pass only earns integration and certificate work.
