@@ -3929,3 +3929,18 @@ later per-rung backlog edits had silently anchored on text that was not here.
 371. [CODEX, board-claim 08:31Z] BEHAVIOR-NAMED FINITE MLP0 ROUTER:
     four exact token-morphology states, four p128 context experts, matched
     global p517 and balanced-random controls; two fit halves/two corpora.
+    NO-RECEIPT REPAIR: inherited500 guard parameterized; rung uses frozen300.
+    RERUN: feasibility failed before arm scoring—digit state356/206 across
+    fits, so fit-B misses registered>=300. No lowering/merge/refit; close.
+
+372. [CODEX, board-claim 09:40Z] QK64 + SELECTED MLP{4,0,2}@P768:
+    one-step falsifier of distributed mild cuts using the already-frozen
+    all-layer rule; split-B maps, census/all62/fresh and untouched WT103
+    tokens285784:316624. Exact 509,104,438-scalar / 1,920,475,756-byte
+    structural bill. >=43 certs is required for frontier advancement; no
+    fourth layer, rank, subset, rule, or bar tuning after observation.
+    RUN 2026-09-01: FRONTIER BAR FAILED. +.01517842 and 38/62 certs;
+    OOD .006355/.031895/.050956 and fresh .0159 held. Emitted pred_c false
+    from inherited old scalar literal, while recorded identities/bill are
+    exact; constant repaired for future use, receipt preserved, no rerun.
+    Close this continuation and retain rung369 as the 43-cert frontier.

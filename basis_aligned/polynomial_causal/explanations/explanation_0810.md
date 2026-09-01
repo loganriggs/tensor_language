@@ -148,3 +148,9 @@ mean and tail behavior while saving a prospective884,736 scalars, but the indepe
 only `.6788`, essentially the `.6667` random expectation for two rank768 subspaces in1152 dimensions. The frozen
 structural bar therefore fails. This is useful functional averaging, not identified shared bilinear structure, so
 the physical frontier remains511,758,646 scalars without rank or grouping tweaks.
+
+A final behavior-named finite-router probe also stops honestly. The four fixed token-morphology states included a
+digit-containing state with356 fit-A examples but only206 fit-B examples, below the frozen300-per-half support bar.
+No expert arm was scored, and we did not lower the bar or merge/redefine states. Thus the natural morphology grammar
+is not a stable executable partition at this fit budget; behavior-conditioned routing remains open only for a state
+whose support and causal meaning are justified independently.

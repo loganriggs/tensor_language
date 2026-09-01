@@ -1,0 +1,15 @@
+Traceback (most recent call last):
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/mlp0_morphology_state_finite_router.py", line 203, in <module>
+    main()
+  File "/venv/main/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/mlp0_morphology_state_finite_router.py", line 122, in main
+    morphology_b, counts_b = H._state_programs(model, x_b, token_b, route, _rrr_program)
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/mlp0_finite_moe_subspace_router_screen.py", line 88, in _state_programs
+    raise RuntimeError(f"state {state} has only {len(member)} contextual fit tokens")
+RuntimeError: state 2 has only 206 contextual fit tokens

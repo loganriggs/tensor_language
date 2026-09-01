@@ -38,6 +38,8 @@ QK_FIT_CACHE = "fineweb_n192_skip11000.pt"
 QK_FIT_SLICE = (72, 96)
 MLP_FIT_SLICE = (24, 48)
 LAYERS = (0, 4)
+SELECT_COUNT = 2
+EXPECTED_SELECTED = (4, 0)
 RANK = 768
 QK_RANK = 64
 QK_LAYERS = tuple(range(2, 18))
@@ -48,6 +50,14 @@ SCALARS = 511_758_646
 BYTES = 1_931_092_588
 QK_STORAGE_DTYPE = None
 EXPECTED_QK_FACTOR_DTYPE = "torch.float32"
+CENSUS_MAX = .014
+CERTIFICATE_MIN = 43
+OOD_MEAN_MAX = .025
+OOD_P95_MAX = .060
+OOD_MAX = .120
+FRESH_MAX = .030
+NULL_CENSUS = .025
+NULL_CERTIFICATES = 35
 
 
 def _certificate_count(census_lib, battery, damage):
@@ -77,7 +87,7 @@ def _selected_layers(screen):
             primary_max = max(arm_a["fineweb_damage"], arm_a["wikitext_damage"])
             eligible.append((primary_max, layer))
     eligible.sort()
-    return tuple(layer for _score, layer in eligible[:2]), eligible
+    return tuple(layer for _score, layer in eligible[:SELECT_COUNT]), eligible
 
 
 @torch.no_grad()
@@ -86,13 +96,13 @@ def main() -> None:
         assert SCREEN.exists() and (ROOT / f".rowcache/{QK_FIT_CACHE}").exists()
         screen = json.loads(SCREEN.read_text())
         selected, _eligible = _selected_layers(screen)
-        assert selected == (4, 0) and set(selected) == set(LAYERS)
-        assert 517_067_062 - 2 * 2_654_208 == SCALARS
+        assert selected == EXPECTED_SELECTED and set(selected) == set(LAYERS)
+        assert 517_067_062 - SELECT_COUNT * 2_654_208 == SCALARS
         if QK_STORAGE_DTYPE is None:
-            assert 1_952_326_252 - 2 * 4 * 2_654_208 == BYTES
+            assert 1_952_326_252 - SELECT_COUNT * 4 * 2_654_208 == BYTES
         else:
             assert QK_STORAGE_DTYPE == "float16" and BYTES == 2 * SCALARS
-        assert WIKI_STOP == 240_552
+        assert WIKI_STOP == WIKI_SKIP + N_ROWS * 257
         print("QK64 + MLP{0,4}P768 | dry run: selection, fits, price, population, bars valid")
         return
 
@@ -110,7 +120,7 @@ def main() -> None:
 
     screen = json.loads(SCREEN.read_text())
     selected, eligible = _selected_layers(screen)
-    assert selected == (4, 0) and set(selected) == set(LAYERS)
+    assert selected == EXPECTED_SELECTED and set(selected) == set(LAYERS)
     cached = torch.load(ROOT / f".rowcache/{QK_FIT_CACHE}", map_location="cpu")
     cached = cached["rows"] if isinstance(cached, dict) else cached
     qk_fit_rows = cached[QK_FIT_SLICE[0]:QK_FIT_SLICE[1], :257].long().contiguous()
@@ -151,7 +161,7 @@ def main() -> None:
 
     observed = {int(key): int(value) for key, value in
                 C.SEL.get("_final_mlp_input_programs_observed", {}).items()}
-    wanted_observed = {0: RANK, 4: RANK}
+    wanted_observed = {layer: RANK for layer in LAYERS}
     wanted_qk = tuple(range(QK_RANK))
     index_sets = C.SEL.get("_QK_INDEX_SETS", {})
     qk = C.SEL.get("_QKR", {})
@@ -187,17 +197,18 @@ def main() -> None:
     maximum = float(by_row.max())
     fresh = [float(value) for value in run["fresh8"]]
 
-    pred_a = census <= .014 and certificates >= 43
-    pred_b = (extra["damage_mean"] <= .025 and p95 <= .060 and maximum <= .120
-              and max(fresh) <= .030)
-    pred_c = (selected == (4, 0) and observed == wanted_observed
+    pred_a = census <= CENSUS_MAX and certificates >= CERTIFICATE_MIN
+    pred_b = (extra["damage_mean"] <= OOD_MEAN_MAX and p95 <= OOD_P95_MAX
+              and maximum <= OOD_MAX and max(fresh) <= FRESH_MAX)
+    pred_c = (selected == EXPECTED_SELECTED and observed == wanted_observed
               and fingerprint == "7dabb830ac9ebb0d" and token_count == 675_457
               and QK_FIT_SLICE == (72, 96) and MLP_FIT_SLICE == (24, 48)
               and metric == "context_rrr" and context_layers == QK_LAYERS
               and widths == {QK_RANK} and factor_dtypes == {EXPECTED_QK_FACTOR_DTYPE}
               and len(factor_pairs) == 440 and all(value == wanted_qk for value in index_sets.values())
-              and SCALARS == 511_758_646 and BYTES > 0 and CEV.exists())
-    null = census >= .025 or certificates <= 35
+              and SCALARS == 517_067_062 - SELECT_COUNT * 2_654_208
+              and BYTES > 0 and CEV.exists())
+    null = census >= NULL_CENSUS or certificates <= NULL_CERTIFICATES
     result = {
         "status": "mixed64_context_qk_mlp04_context_p768_ood_complete",
         "rung": 367,
