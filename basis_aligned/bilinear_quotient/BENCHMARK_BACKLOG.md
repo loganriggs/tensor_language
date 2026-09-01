@@ -4108,3 +4108,12 @@ later per-rung backlog edits had silently anchored on text that was not here.
   broad (734/121.83), making the joined response rank90 841 versus write 601.
 - Joint sparse heldout R2 .3308 is only +.0107 over activation-only and +.0415 over shuffled, near dense-PCA256's
   .3535 ceiling; seeds are stable but neighbor margins and discordant-pair test fail. No TT/X promotion or tuning.
+
+### Rung 395 — exact-token identity transport and causal component split — QUEUED
+
+- Fit heldout full linear+intercept raw-x0↔MLP0-write and orthogonal maps, retrieve each predicted raw vector from
+  all 50,257 embeddings, and compare with shuffled token pairing.
+- Inject the fitted token-identity write component and exact residual separately through native block1; score
+  attention1/MLP1 response reproduction and residual dimension. Diagnostic identity test, not compression.
+- A/B/C identify a private transformed-token component; D additionally licenses shared-residual work. A strong
+  miss pivots to the exact quadratic token kernel. No rung394 sparse-rank tuning.
