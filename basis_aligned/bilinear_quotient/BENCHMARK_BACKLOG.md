@@ -4216,3 +4216,12 @@ later per-rung backlog edits had silently anchored on text that was not here.
   live census. Head3 is top on both roles, with SELECT singleton/removal/average `.09957/.04128/.07042`; split rho
   `.9333`, old-direct-map rho `.9000`. But positive top2 share `.6224/.6046` misses the frozen `.65`: one dominant
   head plus distributed tail, not a two-head program. Route to branch-resolved p448 MLP0 audit, not source positions.
+
+### Rung 403 — exact T/C/I/S/A branch errors of fixed rank448 MLP0 — CLAIMED
+
+- Reconstruct the exact rung328 fit-A p448 shared-input program and the exact rung401 product-reference grammar.
+- Resolve native-to-p448 output change into delta-T/C/I/S plus explicit auxiliary constant/vector-residual/BF16
+  closure, then physically score the complete 32-arm factorial on unchanged FIT/SELECT documents.
+- Exact endpoints, map identity, live census, price, transported Shapley damage, concentration, and strong null are
+  frozen in `MLP0_RANK448_BRANCH_ERROR_FACTORIAL_PREREGISTRATION.md`.
+- Diagnostic only. The winning stable branch selects a new object; no rank tuning or compressor/adoption license.

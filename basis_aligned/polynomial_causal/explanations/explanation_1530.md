@@ -1,0 +1,9 @@
+# Plain-English update — 2026-09-01 15:30 UTC
+
+**Headline:** the first layer of the model now has a complete, tested "grammar" — and the biggest word in it is the interaction term.
+
+**The capstone experiment.** Using a 16-way factorial (every combination of four causal ingredients switched on/off), the layer's contribution to prediction was split into: a token part (what word is here), a context part (what came before), their interaction, and a normalization effect. The winner, measured in nats of prediction benefit: **the token×context interaction (1.54) — bigger than the token part itself (1.50)**, with pure context (0.42) and normalization (0.07) far behind. In plain terms: this layer's main job is not "look up the word" or "summarize the context" — it's *multiplying the two together*, exactly what its squared-bilinear architecture was built to do.
+
+**Two quality-control stories worth telling.** First, the initial run failed its own precision alarm — and instead of loosening the alarm (my suggestion), Codex made the measurement exact, tracking a tiny normalization residual explicitly; precision improved 10-million-fold and every number reproduced bit-for-bit. Second, an old result claiming one attention head carried 88% of this layer's action turned out to be inflated by a blunt measurement: with the sharp version, that head is still the biggest contributor, but the work is genuinely spread across several heads. The old story is now corrected in the permanent record.
+
+**Where this leaves the day:** compressed artifacts on a four-setting dial (down to 495.8M parameters), plus a mechanism map of the first layer deep enough to say which head multiplies what with what — every claim behind pre-frozen bars. Next: connecting the mechanism map to the compressed artifact itself.
