@@ -3709,3 +3709,17 @@ later per-rung backlog edits had silently anchored on text that was not here.
     fixed split-B context rank72 at all 440 maps, census/certs/fresh, untouched
     Wiki skip240000 tails, exact 521,572,662 bill and saved CEV.
     -> ops/mixed72_context_metric_qk_ood.py
+    RUN 2026-09-01: ALL HELD, null false. +.00523783/54, surcharge
+    +.00190197 over r80; fresh max+.0043; Wiki mean/p95/max
+    +.000498/.020242/.035112. Advance signed gate.
+
+343. [CODEX, board-claimed 06:41Z] QK80 + CONTEXT-VALUE96 PHYSICAL OOD:
+    factor c_v head maps at layers2--17 under split-B covariance, 144 maps;
+    census/certs/surcharge, Wiki skip260000 tails, exact QK80/value96 identity,
+    522,539,318 bill and saved CEV.
+    -> ops/mixed80_context_qk_value96_context_ood.py
+
+344. [CODEX, board-claimed 06:41Z] CONTEXT-QK72 SIGNED a16 GATE:
+    identical native/compiled a16 mean ablation against saved r342 CEV,
+    direct signed/collateral/own effects, live rank72 identity and exact bill.
+    -> ops/a16_transfer_mixed72_context_metric_qk.py
