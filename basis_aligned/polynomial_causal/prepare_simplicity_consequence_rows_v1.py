@@ -48,7 +48,12 @@ def sha256(path: Path) -> str:
 
 
 def tensor_sha256(value: torch.Tensor) -> str:
-    return hashlib.sha256(value.detach().cpu().contiguous().numpy().tobytes()).hexdigest()
+    tensor = value.detach().cpu().contiguous()
+    digest = hashlib.sha256()
+    digest.update(str(tensor.dtype).encode())
+    digest.update(json.dumps(list(tensor.shape), separators=(",", ":")).encode())
+    digest.update(tensor.numpy().tobytes())
+    return digest.hexdigest()
 
 
 def committed_source() -> tuple[str, str]:
@@ -193,4 +198,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-

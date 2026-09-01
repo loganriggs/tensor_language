@@ -42,3 +42,10 @@ compression, or adoption.
 
 Literal price: zero deployed model values and zero native calls. Claim level: prospective row instrument.
 
+## Rung447b instrument repair
+
+The first execution stopped before publishing any cache or receipt because the new source hashed tensor bytes alone,
+while both frozen parent receipts use the repository semantic tensor hash: dtype text, compact JSON shape, then raw
+contiguous bytes. File hashes had already passed and no row statistic or consequence was emitted. Rung447b changes
+only `tensor_sha256` to the canonical repository function. Parent pools, slices, roles, overlap checks, bars, null,
+and output namespace are unchanged. The repaired source must again be committed and pushed before execution.
