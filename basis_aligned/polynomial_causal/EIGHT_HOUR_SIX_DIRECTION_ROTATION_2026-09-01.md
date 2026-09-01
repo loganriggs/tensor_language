@@ -549,7 +549,7 @@ Full ranking and adoption gates: `SIX_DIRECTION_COMPARISON_2026-09-01.md`.
 - Decision: formally adopt 533,623,094 scalars, +.012662, 43/62, Wiki +.011411 as the smallest fully gated point.
   Switch modules and test contextual rank96 Q/K factors against mixed104's hand-selected rank104 fine band.
 
-### `06:20 UTC` — exploit checkpoint `331`
+### `06:01 UTC` — exploit checkpoint `331`
 
 - Result: context-QK96 is **`+.00124485`, 62/62 certificates**, fresh max +.0015 at 535,089,462 scalars.
   It improves physical weight-top96 by .007294 and mixed104 by .003447 while saving 4,505,600 scalars. All
@@ -559,7 +559,7 @@ Full ranking and adoption gates: `SIX_DIRECTION_COMPARISON_2026-09-01.md`.
 - Decision: freeze independent fit rows72:96 as the shipping map; require census reproduction, 58+ certificates,
   WikiText skip140000 mean/p95/max, exact bill/identity, and save CEV before signed causal testing.
 
-### `06:31 UTC` — exploit checkpoint `332`
+### `06:06 UTC` — exploit checkpoint `332`
 
 - Result: independent split-B context-QK96 is `+.00141535`, 61/62, only +.0001705 from split A; fresh max +.0014.
   Shifted Wiki mean/p95/max `-.001674/.007033/.015147`. All predicates hold, null false, CEV saved.
@@ -567,3 +567,21 @@ Full ranking and adoption gates: `SIX_DIRECTION_COMPARISON_2026-09-01.md`.
   better than native rather than merely inside a permissive bar.
 - Decision: direct signed a16 gate for the fixed split-B artifact. A full pass formally adopts it as the new global
   dominant point before any composition with MLP0.
+
+### `06:13 UTC` — exploit checkpoint `333`, formal adoption
+
+- Result: direct a16 signed cosine/error/norm ratio `.997617/.074857/1.026198`; collateral rho `.998265`, own
+  median ratio `1.029761`. All baseline, OOD, identity, price, and causal predicates hold; null false.
+- Information gained: the context metric preserves direct causal action as well as prediction. The old Q/K
+  fine-band artifact was not merely overparameterized; it used the wrong metric to select directions.
+- Decision: formally adopt 535,089,462 scalars / +.00141535 / 61 certificates as the high-fidelity point. Run the
+  frozen context-QK96 + context-MLP0-p448 composition at 529,117,494 scalars, then map the context-QK rank ladder.
+
+### `06:18 UTC` — exploit checkpoint `334`
+
+- Result: dual-context p448 is `+.00958546/49` at 529,117,494 scalars; additive prediction `+.00938511`, residual
+  `+.00020035`, ratio `1.02135x`. Wiki mean/p95/max `+.001609/.028941/.049312`; all predicates hold, null false.
+- Information gained: the previously measured ~1.3x interaction tax is not universal. This first cross-family
+  Q/K-times-MLP composition is nearly additive, suggesting a provisional intra-family-tax hypothesis.
+- Decision: direct signed a16 gate against the saved CEV. If it passes, adopt the smaller point and then run a
+  QK96 + MLP0 p512/p640 discriminating ladder plus lower-rank context-QK arms.

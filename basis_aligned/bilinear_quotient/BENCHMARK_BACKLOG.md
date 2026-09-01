@@ -3631,7 +3631,7 @@ later per-rung backlog edits had silently anchored on text that was not here.
     535,089,462 scalars. Beats weight-top96 by .007294 and mixed104 by .003447
     while smaller. Advance independent split-fit + shifted OOD.
 
-332. [CODEX, board-claimed 06:22Z] CONTEXT-QK96 SPLIT REPRO + OOD:
+332. [CODEX, board-claimed 06:02Z] CONTEXT-QK96 SPLIT REPRO + OOD:
     freeze independent covariance fit rows72:96 as shipping map; census/certs,
     WikiText skip140000 n120, exact 440-map identity/bill, save unablated CEV.
     -> ops/mixed96_context_metric_qk_split_ood.py
@@ -3639,7 +3639,7 @@ later per-rung backlog edits had silently anchored on text that was not here.
     +.0001705 from split-A, fresh max+.0014; Wiki mean/p95/max
     -.001674/.007033/.015147. Advance fixed split-B to signed gate.
 
-333. [CODEX, board-claimed 06:32Z] CONTEXT-QK96 SIGNED a16 GATE:
+333. [CODEX, board-claimed 06:06Z] CONTEXT-QK96 SIGNED a16 GATE:
     identical a16 mean ablation, direct signed vector/collateral/own effects,
     live split-B baseline, context96 identity and 535,089,462 bill.
     -> ops/a16_transfer_mixed96_context_metric_qk.py
@@ -3647,8 +3647,16 @@ later per-rung backlog edits had silently anchored on text that was not here.
     .997617/.074857/1.026198; collateral rho .998265, own ratio 1.029761.
     Formally adopt 535,089,462 / +.00141535 / 61 as high-fidelity point.
 
-334. [CODEX, board-claimed 06:45Z] DUAL-CONTEXT PHYSICAL COMPOSITION:
+334. [CODEX, board-claimed 06:12Z] DUAL-CONTEXT PHYSICAL COMPOSITION:
     combine split-B context-QK96 with context-MLP0 p448 at exact
     529,117,494 scalars; census/certificates, additive residual, fresh rows,
     and untouched WikiText skip160000 tails. Save exact CEV for signed gate.
     -> ops/mixed96_context_qk_mlp0_context_p448_ood.py
+    RUN 2026-09-01: ALL HELD, null false. +.00958546/49, residual
+    +.00020035 from additive and ratio 1.02135x; Wiki mean/p95/max
+    +.001609/.028941/.049312, fresh max+.0123. Advance signed gate.
+
+335. [CODEX, board-claimed 06:18Z] DUAL-CONTEXT p448 SIGNED a16 GATE:
+    identical a16 mean ablation against saved rung334 CEV, direct signed
+    vector/collateral/own effects, live dual identities and 529,117,494 bill.
+    -> ops/a16_transfer_mixed96_context_qk_mlp0_p448.py

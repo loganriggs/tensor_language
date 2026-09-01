@@ -50,14 +50,14 @@ Every preregistered baseline, identity, price, OOD, and signed-effect gate held,
 strictly dominates the former 539,595,062-scalar high-fidelity point (`+.004692`, 54/62): it is 4,505,600 scalars
 smaller, substantially more accurate, and preserves seven more certificates.
 
-## What is running now
+## What just landed
 
-The immediate test combines this context-QK96 program with the independently adopted MLP0 context-RRR rank-448
-program. The literal target is **529,117,494 scalars / 2,000,527,980 bytes**. From the two component measurements,
-simple additivity predicts about `+.00939` census damage. Previous compositions paid about a 1.3x interaction tax,
-so a landing near `+.0122` is plausible. The frozen test requires `<=+.018`, at least 36 certificates, bounded
-deviation from additivity, new WikiText tails, exact dual identities, and fresh stability. A pass earns a signed
-gate; it does not automatically earn adoption.
+The immediate test combined this context-QK96 program with the independently adopted MLP0 context-RRR rank-448
+program at **529,117,494 scalars / 2,000,527,980 bytes**. It landed at `+.009585` and 49/62 certificates. Simple
+additivity predicted `+.009385`: the residual is only `+.000200`, or a 1.021x ratio. New WikiText
+mean/p95/max is `+.001609 / +.028941 / +.049312`, and every frozen physical gate held. This is the first evidence
+that the recurring ~1.3x tax may be mainly **within** a map family; Q/K and MLP0 residuals appear much closer to
+orthogonal. One result is not yet a law. The exact saved artifact is now receiving its direct signed a16 gate.
 
 ## Independent next paths
 
