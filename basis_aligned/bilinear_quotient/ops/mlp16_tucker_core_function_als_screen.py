@@ -93,8 +93,9 @@ def _capture(model, rows, layer):
         ys.append(out.detach().reshape(-1, D).float().cpu())
     h = mlp.register_forward_hook(hook)
     dev = next(model.parameters()).device
+    from mlp_shared_input_svd_all_layers_screen import _manual_logits
     for i in range(rows.shape[0]):
-        model(rows[i:i + 1].to(dev))
+        _manual_logits(model, rows[i:i + 1, :-1].to(dev))
     h.remove()
     return torch.cat(xs), torch.cat(ys)
 
