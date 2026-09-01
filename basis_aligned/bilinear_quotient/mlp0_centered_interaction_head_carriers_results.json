@@ -64,7 +64,7 @@
     "FIT": {
       "pooled_ce": {
         "FULL": 3.0642469177643457,
-        "ZERO_I": 3.1803124099969864,
+        "ZERO_I": 3.1802481189370155,
         "NUMERIC": 3.1804680625597634,
         "SINGLE_0": 3.1635962376991906,
         "SINGLE_1": 3.1721761350830397,
@@ -85,8 +85,8 @@
         "DROP_7": 3.064940276245276,
         "DROP_8": 3.066900312900543
       },
-      "conditional_full_interaction_benefit": 0.11606549223264073,
-      "numerical_interaction_ce_effect": -0.0001556525627770533,
+      "conditional_full_interaction_benefit": 0.11600120117266988,
+      "numerical_interaction_ce_effect": -0.00021994362274790902,
       "singleton_benefit": [
         0.016871824860572815,
         0.008291927476723693,
@@ -262,7 +262,7 @@
     "SELECT": {
       "pooled_ce": {
         "FULL": 2.9596006025870643,
-        "ZERO_I": 3.0852453485131264,
+        "ZERO_I": 3.0851410627365112,
         "NUMERIC": 3.085436979929606,
         "SINGLE_0": 3.067693696667751,
         "SINGLE_1": 3.078416104118029,
@@ -283,8 +283,8 @@
         "DROP_7": 2.9602845956881843,
         "DROP_8": 2.96260816603899
       },
-      "conditional_full_interaction_benefit": 0.12564474592606212,
-      "numerical_interaction_ce_effect": -0.00019163141647959847,
+      "conditional_full_interaction_benefit": 0.12554046014944698,
+      "numerical_interaction_ce_effect": -0.0002959171930947413,
       "singleton_benefit": [
         0.017743283261855147,
         0.007020875811576843,
@@ -467,19 +467,19 @@
   "parent_pooled_ce_absolute_differences": {
     "FIT": {
       "FULL_vs_parent_full": 0.0,
-      "ZERO_I_vs_parent_no_I": 6.429105997085571e-05
+      "ZERO_I_vs_parent_no_I": 0.0
     },
     "SELECT": {
       "FULL_vs_parent_full": 0.0,
-      "ZERO_I_vs_parent_no_I": 0.00010428577661514282
+      "ZERO_I_vs_parent_no_I": 0.0
     }
   },
-  "pred_a_exact_live_parent_and_numerical_controls": false,
+  "pred_a_exact_live_parent_and_numerical_controls": true,
   "pred_b_old_head_map_predicts_isolated_interaction": true,
   "pred_c_sparse_split_stable_carrier": false,
   "pred_d_individually_material_head_route": true,
-  "null_head_attribution_invalid_or_unstructured": true,
-  "next_step": "instrument_repair_only",
+  "null_head_attribution_invalid_or_unstructured": false,
+  "next_step": "branch_resolved_p448_context_projection_audit",
   "compression_or_adoption_licensed": false,
   "FINAL_opened": 0,
   "checkpoint": {
@@ -491,5 +491,5 @@
     "tokenizer_vocab": 50257,
     "logit_vocab": 50304
   },
-  "runtime_s": 76.02433896064758
+  "runtime_s": 76.12459516525269
 }
