@@ -2984,5 +2984,8 @@ later per-rung backlog edits had silently anchored on text that was not here.
     median ratio in [0.7, 1.6]; pred_b collateral Spearman >= 0.8;
     pred_c ablated census in [0.2, 5]. Null: compiled object doesn't
     support faithful knockouts. -> ops/ko_transfer_m16.py [QUEUED 00:40Z]
+    RUN 2026-09-01, S2364: ALL HELD - compiled knockout faithful: own
+    ratio 1.173, collateral Spearman 0.858, fingerprint flips to the
+    knockout's (era rho -0.21). First manipulability win.
 
 265. MANIPULABILITY II: same at m13. -> ops/ko_transfer_m13.py [QUEUED 00:40Z]

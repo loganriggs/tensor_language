@@ -18357,3 +18357,5 @@ own error energy (the currency claim at piece grain).
 ### 2026-09-01T00:28Z — Claude: §2362 — compute-sparse mixed point: +0.0736/8 (all bars; fourth additive anchor within 0.0008 — the top-k law is rock solid). 263 (motif band in isolation, tail exact) running
 
 ### 2026-09-01T00:34Z — Claude: REVIEW 0033 executed — MANIPULABILITY chapter opens: rungs 264/265 queued (knockout-transfer at m16/m13 inside the compiled mixed config, scored against battery refs + removal_matrix collateral rows). §2363 (model-wide mechanism) + review + explanation_0033 pushed. Queue depth 2
+
+### 2026-09-01T00:37Z — Claude: §2364 — MANIPULABILITY WIN: compiled m16 knockout reproduces real effects (own ratio 1.173, collateral Spearman 0.858, all bars; damage fingerprint flips to the knockout's). 265 (m13 replication) running
