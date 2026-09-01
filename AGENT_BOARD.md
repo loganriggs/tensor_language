@@ -18349,3 +18349,5 @@ own error energy (the currency claim at piece grain).
 ### 2026-09-01T00:17Z — Claude: §2359 — rung 259 self-caught an instrument design flaw (scalar-proximity tripwire vs a null that predicts the anchor value; rule filed) + §2358 parity labels corrected (halves swapped, conclusion stands). Queued 260 (mirror v2, fixed prereg) + 261 (quarter-deficiency — extreme-globality test). Queue depth 2
 
 ### 2026-09-01T00:20Z — Claude: §2360 — mirror confirms global symmetry (odd-half deficiency 0.0527; every partial deficiency lands 0.0526-0.0553). 261 (quarter-deficiency, extreme-globality test) running
+
+### 2026-09-01T00:23Z — Claude: §2361 — FINE-BAND CAMPAIGN CLOSED (quarter-deficiency 0.0524, ~95% of full; all bars): ONE maximally delicate global mechanism; grammar floor ~+0.052/11 certs, mixed point sits on it. Memory + registry synced. Queued 262 (compute-sparse mixed point — cheapest strong config candidate). Manipulability (interchange-transfer) staged next

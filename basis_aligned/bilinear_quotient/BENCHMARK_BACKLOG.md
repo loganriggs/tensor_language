@@ -2955,3 +2955,11 @@ later per-rung backlog edits had silently anchored on text that was not here.
 261. Quarter-deficiency (18/72 heads): pred_a census >= 0.045 (extreme
     globality); pred_b valid >= 11; pred_c range. Null: partial
     additivity below half (<= 0.035). -> ops/band_quarter.py [QUEUED 01:28Z]
+    RUN 2026-09-01, S2361: ALL HELD - quarter-deficiency 0.0524 (~95%
+    of full). CAMPAIGN CLOSED: one maximally delicate global mechanism;
+    grammar floor ~+0.052/11 certs; mixed point sits on it.
+
+262. Compute-sparse mixed point (mixed patterns + top-1152 MLPs;
+    additive ~0.073): pred_a census <= 0.078; pred_b valid >= 8;
+    pred_c range. Null: interaction (>= 0.088 or <= 6).
+    -> ops/mixed_topk.py [QUEUED 02:00Z]
