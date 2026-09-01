@@ -7,12 +7,15 @@ primary evidence.
 
 ## Start here
 
+- [`explanation_2026-09-01_1421.md`](explanation_2026-09-01_1421.md) — 2026-09-01 14:21 UTC exact MLP0 token-only
+  causal factorial: shared operating point, aligned token-label modulation, and aligned quadratic correction all
+  have distinct roles; next test is downstream-effect token grouping by physical interchange
 - [`explanation_2026-09-01_1415.md`](explanation_2026-09-01_1415.md) — 2026-09-01 14:15 UTC correction and
   stronger MLP0 token-only result: the 97% figure included a common mean; the supported split is common write plus
   rank64 token modulation (97.6% identity retrieval) plus broad quadratic residual
 - [`explanation_2026-09-01_1406.md`](explanation_2026-09-01_1406.md) — 2026-09-01 14:06 UTC MLP0 token-identity
-  result: exact token retrieval is 90.4%, and the 39.7%-energy token-predictable slice preserves 97.2% of immediate
-  causal response despite the failure of a simple linear/rotated-copy model
+  result, retained with a correction banner: exact token retrieval is 90.4%, but the original 97.2% causal wording
+  included the common-write confound resolved by the 14:15 and 14:21 updates
 - [`explanation_2026-09-01_1358.md`](explanation_2026-09-01_1358.md) — 2026-09-01 13:58 UTC exhaustive
   MLP0 token-only causal-response result: the write dominates rather than copies the raw token, attention1 is compact,
   MLP1 is broad, and one shared sparse downstream-equivalence code is rejected

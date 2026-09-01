@@ -4132,7 +4132,7 @@ later per-rung backlog edits had silently anchored on text that was not here.
   retrieval 97.58% and joint response R2 .96404. But mean-preserving shuffled r256 itself scores .92525, within
   .04517 of real r256; correct rung395's 97% interpretation. No live TT transfer or rank tuning.
 
-### Rung 397 — exact MLP0 mean/linear/quadratic token causal factorial — QUEUED
+### Rung 397 — exact MLP0 mean/linear/quadratic token causal factorial — COMPLETE
 
 - Freeze `F=M+L+Q` on heldout length-one tokens: training-write mean M, complete canonical degree-one projection L,
   and exact residual Q. No selected rank and no compression claim.
@@ -4140,3 +4140,7 @@ later per-rung backlog edits had silently anchored on text that was not here.
   conditional error recovery against fixed shuffled-L, shuffled-Q, and wrong-token full-write controls.
 - Distinct L action routes to consumer-effect token interchange classes; Q or interaction dominance routes to a
   consumer-aware quadratic spectrum. This rung cannot license live token-by-context transfer.
+- RUN 2026-09-01: all A/B/C/D held, null false. M alone gives joined R2 .92492. Aligned L|M recovers 62.19% of
+  remaining joined error versus -0.17% shuffled; aligned Q|M recovers 47.95% versus 4.26% shuffled. Attention1
+  recoveries are 73.51%/63.52%, exposing a consumer split. Wrong-token full write R2 .91539. Route to validated
+  consumer-effect token interchange; no live context transfer.

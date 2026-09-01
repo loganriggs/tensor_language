@@ -1054,6 +1054,20 @@ but it is not sufficient on its own. The next legal object is a prospectively re
 exact constant, complete degree-one, and orthogonal quadratic components; every score must be reported relative to
 the common-write arm rather than as an unconditioned response R².
 
+Rung397 performed that conditioning with an exact eight-arm causal factorial. The common write alone reaches joined
+response R² .92492. Adding the correctly paired complete degree-one modulation recovers 62.19% of the joined error
+left by the mean, versus -0.17% for a fixed shuffled-token control; attention1 recovery is 73.51%. Adding the correctly
+paired exact quadratic residual after the mean recovers 47.95% joined error, versus 4.26% shuffled; attention1 recovery
+is 63.52%. A wrong token's complete write reaches only .91539 joined R², below the registered .95 null. All exactness,
+consumer-split, and aligned-component predicates held; null false.
+
+The supported length-one account is therefore stronger than the provisional split: the common vector is an operating
+point, the degree-one component is a compact token label/control modulation, and the broad quadratic residual is an
+additional correctly paired token correction rather than disposable noise. Their block1 consequences are strongly
+nonlinear—large pair and triple Möbius terms cancel—so component roles must be stated conditionally after the common
+write. This is exact causal attribution, not compression: Q is an exact heldout residual. The next legal token-only
+test is downstream-effect equivalence by cross-consumer physical interchange, not another activation sparse code.
+
 ## Related authoritative write-ups
 
 - `MLP0_QUOTIENT_STAGE0_V2_FINDINGS.md`
@@ -1065,3 +1079,4 @@ the common-write arm rather than as an unconditioned response R².
 - `explanation_2026-09-01_1358.md`
 - `explanation_2026-09-01_1406.md`
 - `explanation_2026-09-01_1415.md`
+- `explanation_2026-09-01_1421.md`
