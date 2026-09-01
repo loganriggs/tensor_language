@@ -585,3 +585,13 @@ proved adoption-grade: MLP0. Unlike the exhaustive position-zero token covarianc
 metric on actual contextual MLP0 inputs. Compare context-RRR and weight SVD at p512/p640 on independent fit halves
 and two untouched corpora. If the contextual metric materially lowers p512 damage, it may replace the current p768
 MLP0 map without incurring any multi-site composition tax.
+
+That transfer succeeds strongly. On untouched FineWeb/WikiText, context-RRR p512 scores `+.00397/+.00121` versus
+matched weight SVD `+.01363/+.02244`; p640 scores `+.00274/+.00098` versus `+.00759/+.01414`. The second fit half
+reproduces p512 at `+.00505/+.00507` and p640 at `+.00262/+.00324`; both subspaces clear the frozen stability bar.
+All predictions hold.
+
+Promote p512 and p640 together in one physical mixed104 rebuild. Their proposed totals are 534,286,646 and
+535,613,750 scalars. p512 is the key candidate: it saves twice as much MLP0 input storage as adopted p768 while
+its external screen is lower-damage than p768 weight SVD. Census, all certificates, fresh windows, fit identity,
+map identity, and literal bills now decide whether it becomes a new adopted point.

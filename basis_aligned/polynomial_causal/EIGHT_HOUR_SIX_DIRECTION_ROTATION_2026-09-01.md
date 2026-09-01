@@ -483,3 +483,12 @@ Full ranking and adoption gates: `SIX_DIRECTION_COMPARISON_2026-09-01.md`.
   low-rank action is individually real but its errors still couple along the common whole-program damage direction.
 - Decision: close late multi-site composition. Transfer the successful metric to single-site MLP0 at p512/p640,
   with two fit halves and matched weight controls. This avoids composition tax and directly targets the adopted map.
+
+### `05:20 UTC` — exploit checkpoint `324`
+
+- Result: context-RRR p512 is `+.00397/+.00121` and p640 `+.00274/+.00098` FineWeb/WikiText, beating matched
+  weight SVD by 70--90%. Independent fit halves reproduce and all three predicates hold; null false.
+- Information gained: MLP0's apparent weight-rank frontier was metric-limited. Contextual input covariance exposes
+  substantially stronger shared Left/Right rank than both Frobenius weights and the position-zero token metric.
+- Decision: physically compose both p512/p640 with mixed104 in one rebuild. Require p512 <=+.012/>=47 certs and
+  p640 <=+.010/>=49, plus monotonicity, fresh, fit/map/QK identity, and exact bills.

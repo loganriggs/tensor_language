@@ -3570,3 +3570,11 @@ later per-rung backlog edits had silently anchored on text that was not here.
     two independent contextual input-covariance fits versus matched weight SVD
     on untouched FineWeb/WikiText; single-site screen avoids composition tax.
     -> ops/mlp0_context_metric_shared_input_frontier.py
+    RUN 2026-09-01: ALL HELD, null false. p512 +.00397/+.00121 versus weight
+    +.01363/+.02244; p640 +.00274/+.00098 versus +.00759/+.01414. Independent
+    halves reproduce. Promote both in one physical mixed104 frontier.
+
+325. [CODEX, board-claimed 05:21Z] PHYSICAL MLP0 CONTEXT-RRR FRONTIER:
+    compose p512/p640 context-RRR variants with mixed104 in one rebuild;
+    census, 62 certificates, fresh8, fit/map/QK identities, exact bills.
+    -> ops/mixed104_mlp0_context_metric_input_frontier.py
