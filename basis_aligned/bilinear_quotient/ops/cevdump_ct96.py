@@ -580,6 +580,35 @@ def main():
         _r=int(SEL['qk_r'])
         SEL['_QKR']={}
         SEL['_QK_INDEX_SETS']={}
+        _qk_context=SEL.get('qk_context_covariances')
+        _qk_context_metric={}
+        if _qk_context:
+            SEL['_QK_METRIC']='context_rrr'
+            for _li,_cov0 in _qk_context.items():
+                _cov=_cov0.to(DEV).float()
+                if _cov.shape != (D,D):
+                    raise ValueError(f'bad QK context covariance layer {_li}: {_cov.shape}')
+                _ev,_evec=torch.linalg.eigh(0.5*(_cov+_cov.T))
+                _ord=torch.argsort(_ev,descending=True); _ev=_ev[_ord]; _evec=_evec[:,_ord]
+                _floor=float(_ev[0])*1e-6; _safe=_ev.clamp_min(_floor)
+                _sqrt=(_evec*_safe.sqrt())@_evec.T
+                _invsqrt=(_evec*_safe.rsqrt())@_evec.T
+                _qk_context_metric[int(_li)]=(_sqrt,_invsqrt)
+            SEL['_QK_CONTEXT_LAYERS']=tuple(sorted(int(x) for x in _qk_context_metric))
+        else:
+            SEL['_QK_METRIC']='weight_svd'
+
+        def _factor_qk_map(_M,_li,_idx):
+            if _li not in _qk_context_metric:
+                _U,_S,_Vh=torch.linalg.svd(_M,full_matrices=False)
+                return ((_U[:,_idx]*_S[_idx]).contiguous(),_Vh[_idx].contiguous())
+            if int(SEL.get('qk_extra_tail') or 0):
+                raise ValueError('qk_extra_tail is incompatible with context-RRR QK factors')
+            _sqrt,_invsqrt=_qk_context_metric[_li]
+            _U,_S,_Vh=torch.linalg.svd(_M@_sqrt,full_matrices=False)
+            _rank=int(_idx.numel())
+            return ((_U[:,:_rank]*_S[:_rank]).contiguous(),
+                    (_Vh[:_rank]@_invsqrt).contiguous())
         for _li in range(2,10):
             _r=int(SEL.get('qk_rmap',{}).get(_li,SEL['qk_r']))
             _extra=int(SEL.get('qk_extra_tail') or 0)
@@ -599,8 +628,7 @@ def main():
                 _fac=[]
                 for _W in (_at.c_q,_at.c_k,_at.c_q2,_at.c_k2):
                     _M=_W.weight[_hd*128:(_hd+1)*128,:].detach().float()
-                    _U,_S,_Vh=torch.linalg.svd(_M,full_matrices=False)
-                    _fac.append(((_U[:,_idx]*_S[_idx]).contiguous(),_Vh[_idx].contiguous()))
+                    _fac.append(_factor_qk_map(_M,_li,_idx))
                 _d[_hd]=_fac
             SEL['_QKR'][_li]=_d
         print(f'  QK rank-{_r} factors built for all motif heads',flush=True)
@@ -622,8 +650,7 @@ def main():
                     _fac=[]
                     for _W in (_at.c_q,_at.c_k,_at.c_q2,_at.c_k2):
                         _M=_W.weight[_hd*128:(_hd+1)*128,:].detach().float()
-                        _U,_S,_Vh=torch.linalg.svd(_M,full_matrices=False)
-                        _fac.append(((_U[:,_idx]*_S[_idx]).contiguous(),_Vh[_idx].contiguous()))
+                        _fac.append(_factor_qk_map(_M,_li,_idx))
                     _d[_hd]=_fac
                 SEL['_QKR'][_li]=_d
             print(f'  QK rank-{_r} factors built for tail blocks 10-17',flush=True)

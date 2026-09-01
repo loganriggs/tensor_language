@@ -3622,3 +3622,8 @@ later per-rung backlog edits had silently anchored on text that was not here.
     RUN 2026-09-01: ALL HELD, null false. cosine/error/rho/own
     .992558/.127682/.996020/1.035203. Formally adopt p448 at 533,623,094,
     +.012662/43, Wiki +.011411; smallest fully gated point.
+
+331. [CODEX, board-claimed 06:15Z] CONTEXT-METRIC QK96:
+    rank96 RRR under contextual attention-input covariance for all 440 Q/K
+    maps; compare physical weight-top96 and mixed104, exact price/identity.
+    -> ops/mixed96_context_metric_qk.py
