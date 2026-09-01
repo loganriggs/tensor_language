@@ -11,6 +11,9 @@ state what was actually measured and what unit is being used.
 
 ## Start here
 
+- [explanation_2026-09-01_2335.md](explanation_2026-09-01_2335.md) — reports the corrected full mixed104+MLP0 result:
+  five legal teaching labels, perfect two-wave rank ordering for removal and composition, a complete-versus-local
+  graph, and the two preserved scorer-only failures
 - [explanation_2026-09-01_2314.md](explanation_2026-09-01_2314.md) — confirms that viable “dropped” work remains an
   executable queue, graphs the monotone two-wave-stable local MLP0 result, and records why its native-model object
   cannot be mislabeled with the complete mixed104 candidate prices; the whole-candidate rerun is required

@@ -4534,3 +4534,17 @@ later per-rung backlog edits had silently anchored on text that was not here.
   the source replaced only MLP0 inside native, while rung445's candidate ID and531.6–535.6M prices refer to complete
   mixed104+MLP0 compiled models. Preserve these results as local-component diagnostics, but do not count them as
   teaching labels or fit a predictor. Rung449 must install the whole candidate under the same consequences.
+
+### Rung 449c — complete mixed104+MLP0 consequence labels — COMPLETE / ALL HELD
+
+- Rebuild each full mixed104+MLP0 rank256/384/448/512/640 candidate in isolated unablated, attention16-knockout,
+  and MLP16-partner processes on TEACHING. Two scorer-only lookup aborts are preserved; the third managed scorer
+  reuses the completed condition bundles without repeating model work.
+- A holds: all three builds reproduce the complete rank104 Q/K/active-program/rank-r identities and frozen prices;
+  KO/partner each fire120 candidate calls; native KO/partner each fire24; replay0; SEALED remains closed. Complete
+  candidate CE differs from rung448's local object by mean absolute `.06830–.06950` per token, confirming the repair.
+- Removal error falls `.18156→.14676→.13560→.12583→.11370`; composition error
+  `.16753→.15050→.14203→.13491→.12373`. Both rank correlations and both two-wave ordering correlations are1.0;
+  spans `.06786/.04380` exceed`.015`.
+- A/B/C/D true, strong null false. Count five complete labels and MLP0-context as teaching family1/3. Next run the
+  seven complete MLP-PCA candidates; fit nothing until all three teaching families exist.
