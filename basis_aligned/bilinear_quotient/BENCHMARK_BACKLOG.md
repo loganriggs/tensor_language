@@ -4319,3 +4319,9 @@ later per-rung backlog edits had silently anchored on text that was not here.
   `MLP0_P448_CAUSAL_OUTPUT_INTERFACE_ORACLE_PREREGISTRATION.md`.
 - Oracle ceiling only. B0 pass licenses the old executable predictor on p448; split pass licenses separate path
   producers; all-rank64 miss closes this output-repair scale and routes to direct nonlinear or later-layer work.
+- FIRST RUN 2026-09-01: A failed and the strong null fired only on branch-closure exactness, so all substantive arm
+  comparisons are withheld. Rows/bases/loss hashes, p448/p640/p768 losses (bit-exact), programs, calls, state replay,
+  and native/compact analytical identities (`2.88e-13/3.39e-13`) hold. The implementation formed float32 A as
+  `total-sum(named)` and then re-summed in a different float order, leaving max closure `1.53e-5` rather than0.
+  Same-rung mechanical repair computes and replays that diagnostic remainder once in float64; arms/bases/rows/bars
+  are unchanged. Preserve first receipt at its pre-repair commit and rerun through the managed lane.
