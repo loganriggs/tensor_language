@@ -692,8 +692,30 @@ def main():
                 return (ynew,v1r)
             hs2.append(at.register_forward_hook(h))
         return hs2
+    def final_mlp_projector_hooks(active):
+        """Optional literal MLP-output factors, enabled only after dictionaries fit.
+
+        An empty ``active`` denotes the native side of a paired evaluation and
+        must remain unprojected.  This keeps extra-eval and fresh baselines live.
+        """
+        if (not active or not SEL.get('_enable_final_mlp_projectors')
+                or not SEL.get('final_mlp_projectors')):
+            return []
+        handles=[]
+        observed={}
+        for li,(q0,mu0) in sorted(SEL['final_mlp_projectors'].items()):
+            q=q0.to(DEV).float(); mu=mu0.to(DEV).float()
+            if q.ndim != 2 or q.shape[0] != D or mu.shape != (D,):
+                raise ValueError(f'bad MLP projector layer {li}: q={tuple(q.shape)} mu={tuple(mu.shape)}')
+            observed[int(li)]=int(q.shape[1])
+            def h(_mo,_args,out,q=q,mu=mu):
+                z=out.float()-mu
+                return (mu+(z@q)@q.T).to(out.dtype)
+            handles.append(m.transformer.h[li].mlp.register_forward_hook(h))
+        SEL['_final_mlp_projectors_observed']=observed
+        return handles
     def evalV(TOK,N,active,mlayers):
-        hs=install(active)+motif_hooks(mlayers)
+        hs=install(active)+motif_hooks(mlayers)+final_mlp_projector_hooks(active)
         ces=[]; final_states=[]
         for i in range(0,N,4):
             bb=TOK[i:i+4,:257].to(DEV)
@@ -716,7 +738,7 @@ def main():
             SEL['final_state']=torch.cat(final_states).reshape(-1,D).contiguous()
         return torch.cat(ces)
     def evalM(TOK,N,active,mlayers):
-        hs=install(active)+motif_hooks(mlayers)
+        hs=install(active)+motif_hooks(mlayers)+final_mlp_projector_hooks(active)
         ces=[]
         for i in range(0,N,4):
             bb=TOK[i:i+4,:257].to(DEV)
@@ -848,6 +870,10 @@ def main():
         S[f'a{li}L']=('attnd',li,CV,LW,Wp2)
         order2.append(f'a{li}L')
         print(f'fit a{li}L',flush=True)
+    # All learned program dictionaries are now frozen.  Optional external MLP
+    # factors compose only in final candidate evaluations below, never while
+    # fitting those dictionaries.
+    SEL['_enable_final_mlp_projectors']=bool(SEL.get('final_mlp_projectors'))
     cur['clsmap']=clsC.reshape(R1-R0,256)
     L2C=evalM(FW[R0:R1],R1-R0,order2,ML)-baseC
     del cur['clsmap']

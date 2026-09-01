@@ -311,3 +311,13 @@ Full ranking and adoption gates: `SIX_DIRECTION_COMPARISON_2026-09-01.md`.
   corpus-fragile and does not dominate a spread allocation. No further allocator tuning is justified.
 - Decision: stop targeted allocation. Because the fixed triple was frozen prospectively and clears `.08/.07` on
   the untouched screen, promote that control—not the selected triple—to one broad stability gate before synthesis.
+
+### `03:59 UTC` — exploit checkpoint `309`
+
+- Result: fixed `{0,8,17}@r256` passed every large-sample bar. Mean/p95/max row damage was
+  `+.0589/+.1027/+.1539` on 176 FineWeb skip7000 rows, `+.0600/+.1002/+.1421` on 176 skip11000 rows, and
+  `+.0477/+.0997/+.1208` on 120 WikiText skip50000 rows. Mean spread was `.0123`; all preds true, null false.
+- Information gained: the spread triple is reproducible at both mean and tail levels. It is the first MLP candidate
+  tonight to clear a prospectively frozen broad transfer screen at a literal 11,501,568-scalar saving.
+- Decision: advance to composition with adopted mixed104 online-c_v0, census/certificates, and exact active-object
+  tripwires. Proposed combined bill is 528,093,494 scalars, pending the live integration audit.

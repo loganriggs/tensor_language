@@ -355,3 +355,15 @@ The fixed control is scientifically interesting because it was chosen before see
 `+.0725/.0334` while saving 11.50M scalars. Rather than tune another subset, I promote this exact spaced triple to
 a broad confirmation: 176 untouched rows from each FineWeb cache and 120 later WikiText rows, including row-p95
 and worst-case gates. A fail ends MLP compression; a pass only earns integration and certificate work.
+
+## Exploit checkpoint: the spread triple is stable (03:59 UTC)
+
+The large gate confirms `{0,8,17}@r256`. Across 176 + 176 untouched FineWeb rows and 120 later WikiText rows,
+mean damage is `+.0589/+.0600/+.0477`; every row-p95 is about `.10`, and the worst observed row is `+.154`.
+Population means span only `.0123`. All three predictions hold.
+
+This is the first MLP-side result tonight that earns adoption work. It remains much more expensive in CE per saved
+scalar than the adopted QK program, and composition taxes are the central risk. The next exact object combines the
+three factorized MLP Down maps with mixed104 online-c_v0. If the dependencies are disjoint, the proposed standalone
+bill is `539,595,062 - 11,501,568 = 528,093,494` scalars. That number is not adopted until live active-set checks,
+census, all 62 certificates, fresh windows, and a standalone dependency audit agree.

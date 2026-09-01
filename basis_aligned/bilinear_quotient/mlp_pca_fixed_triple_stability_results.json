@@ -1,0 +1,71 @@
+{
+  "status": "mlp_pca_fixed_triple_stability_complete",
+  "rung": 309,
+  "claim_level": "large_untouched_three_population_stability_screen_only",
+  "price": {
+    "layers": [
+      0,
+      8,
+      17
+    ],
+    "native_mlp_scalars_each": 15926400,
+    "factorized_mlp_scalars_each": 12092544,
+    "total_saving_scalars": 11501568
+  },
+  "fit": {
+    "rows": 16,
+    "rank": 256,
+    "evaluation_used": false
+  },
+  "evaluation": {
+    "fineweb_cache_row_range": [
+      16,
+      191
+    ],
+    "fineweb_rows_each": 176,
+    "wikitext_rows": 120,
+    "wikitext_skip": 50000,
+    "wikitext_fingerprint": "a46124b21ac53738"
+  },
+  "populations": {
+    "fineweb_skip7000": {
+      "rows": 176,
+      "native_ce": 3.2659158381548794,
+      "candidate_ce": 3.324798508123918,
+      "mean_damage": 0.05888266996903853,
+      "std_row_damage": 0.033169493170591334,
+      "p50_row_damage": 0.05901932716369629,
+      "p95_row_damage": 0.10270845890045166,
+      "min_row_damage": -0.14115643501281738,
+      "max_row_damage": 0.15391254425048828
+    },
+    "fineweb_skip11000": {
+      "rows": 176,
+      "native_ce": 3.061185473068194,
+      "candidate_ce": 3.1211524551564995,
+      "mean_damage": 0.05996698208830573,
+      "std_row_damage": 0.025723623358487817,
+      "p50_row_damage": 0.059865355491638184,
+      "p95_row_damage": 0.1001509428024292,
+      "min_row_damage": -0.006290912628173828,
+      "max_row_damage": 0.14205050468444824
+    },
+    "wikitext_skip50000": {
+      "rows": 120,
+      "native_ce": 3.644221605857213,
+      "candidate_ce": 3.69195636510849,
+      "mean_damage": 0.047734759251276654,
+      "std_row_damage": 0.03184801057579321,
+      "p50_row_damage": 0.047827720642089844,
+      "p95_row_damage": 0.09966999292373654,
+      "min_row_damage": -0.0359036922454834,
+      "max_row_damage": 0.12078690528869629
+    }
+  },
+  "population_mean_spread": 0.012232222837029079,
+  "pred_a_fixed_triple_mean_stable": true,
+  "pred_b_fixed_triple_tail_stable": true,
+  "pred_c_fixed_triple_transfers": true,
+  "null_fixed_triple_unstable": false,
+  "runtime_s": 37.40243124961853
+}

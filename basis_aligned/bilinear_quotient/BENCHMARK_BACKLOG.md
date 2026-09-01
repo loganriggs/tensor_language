@@ -3427,3 +3427,11 @@ later per-rung backlog edits had silently anchored on text that was not here.
     RUN 2026-09-01, S2406: pred_b only, null false. Selected {4,14,15}
     +.0668/.0672, ratios 1.192/1.208; misses FW .06 and loses to fixed
     {0,8,17} +.0725/.0334 on WikiText. Stop targeting; broad-confirm fixed.
+
+309. [CODEX, board-claimed 03:56Z] FIXED-SPACED PCA TRIPLE STABILITY:
+    {0,8,17}@r256 on 176+176 untouched FineWeb rows and WikiText n120;
+    mean, row-p95, max, and population-spread bars. Saving 11,501,568.
+    -> ops/mlp_pca_fixed_triple_stability.py
+    RUN 2026-09-01, S2407: ALL HELD, null false. Means .0589/.0600/.0477;
+    p95 .1027/.1002/.0997; maxima .1539/.1421/.1208; spread .0123.
+    Advance exact composition with adopted mixed104 plus certs/bill/tripwires.
