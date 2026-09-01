@@ -3732,3 +3732,10 @@ later per-rung backlog edits had silently anchored on text that was not here.
     -> ops/mixed64_context_metric_qk_ood.py
     PREFLIGHT CORRECTION: skip280000 n120 exceeded stream before model load.
     Freeze untouched terminal skip270840 n56; numerical bars unchanged.
+
+346. [CODEX, board-claimed 06:55Z] FULL-SPACE EXACT-FOLD MLP0 CONTRACTION GRAPH:
+    capture all50,304 deterministic position-zero MLP0 inputs, metric-weight
+    seven exact quadratic contractions in full1152D, and reduce their common
+    commutant to a reference-eigenbasis graph Laplacian; planted/common-gauge,
+    independently permuted spectral null, split-projector and offblock bars.
+    -> ops/mlp0_full_fold_contraction_graph.py
