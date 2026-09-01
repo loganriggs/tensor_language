@@ -3594,3 +3594,7 @@ later per-rung backlog edits had silently anchored on text that was not here.
     apply identical a16 mean ablation to native and both p512/p640 variants;
     direct signed vectors, collateral ordering, own magnitudes, live identities.
     -> ops/a16_transfer_mixed104_mlp0_context_metric_frontier.py
+    RUN 2026-09-01: ALL HELD, null false. p512 cosine/error/rho/own
+    .993405/.120526/.996939/1.035403; p640 .994483/.110815/.997653/1.035874.
+    Formally adopt p640 535,613,750 (+.008265/52) and p512 534,286,646
+    (+.010728/48); p640 strictly dominates prior weight-p768.

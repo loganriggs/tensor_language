@@ -7,6 +7,9 @@ primary evidence.
 
 ## Start here
 
+- [`explanation_0545.md`](explanation_0545.md) — 2026-09-01 formal adoption: contextual-covariance MLP0 ranks
+  640/512 pass census, certificates, shifted OOD, literal price, and signed causal gates; new dominant artifact
+  535.61M and smallest adopted Pareto point 534.29M
 - [`explanation_0239.md`](explanation_0239.md) — 2026-09-01 eight-hour plan: six independent one-hour screens,
   the correction that generic top-k is a compute policy rather than a small tensor network, and the new
   embedding-folded MLP0 block/tree/DAG/finite-router structural-recovery route

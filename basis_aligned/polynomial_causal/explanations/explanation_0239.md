@@ -614,3 +614,22 @@ The final gate applies the identical native a16 mean ablation to native and both
 direct signed effect vectors, collateral circuit order, and a16-own magnitudes. No unsigned or aggregate proxy is
 accepted. If both pass, p640 becomes the new dominant adopted artifact and p512 becomes the new smallest adopted
 Pareto point.
+
+## Formal adoption: context-metric MLP0 ranks 640 and 512 (05:44 UTC)
+
+Both signed gates pass. p512 effect cosine/error/collateral rho/own ratio is
+`.993405/.120526/.996939/1.035403`; p640 is `.994483/.110815/.997653/1.035874`. Live baselines, fit split,
+variant maps, QK program, active set, OOD receipts, and both bills remain exact. Every frozen predicate holds and
+the null is false.
+
+The adopted literal frontier is now:
+
+- 539,595,062 scalars, `+.00469195`, 54/62 certificates;
+- **535,613,750 scalars, `+.00826466`, 52/62 certificates**, context-RRR p640;
+- **534,286,646 scalars, `+.01072772`, 48/62 certificates**, context-RRR p512.
+
+The p640 point strictly dominates the formerly adopted 536,940,854-scalar weight-SVD p768 artifact on size,
+census damage, and certificates. p512 is the smallest fully gated artifact. Both also pass shifted WikiText and
+direct signed causal transfer. The structural statement is now stronger and more precise: MLP0's paired Left/Right
+maps have low shared input rank under the contextual input metric, even when Frobenius weights and position-zero
+token geometry obscure it.

@@ -511,3 +511,12 @@ Full ranking and adoption gates: `SIX_DIRECTION_COMPARISON_2026-09-01.md`.
   tails comfortably inside frozen bars. The improvement is not fit-corpus or short-window selection.
 - Decision: one common direct signed-a16 run for both. Require per-arm cosine>=.90/error<=.60, collateral rho>=.90,
   own ratio [.60,1.40], live baseline and exact maps/bills. A full pass formally adopts both.
+
+### `05:44 UTC` — exploit checkpoint `327`, formal adoption
+
+- Result: p512 signed cosine/error/rho/own is `.993405/.120526/.996939/1.035403`; p640
+  `.994483/.110815/.997653/1.035874`. Every live baseline, identity, price, and causal predicate holds; null false.
+- Information gained: context-metric shared-input rank is not only predictive but manipulable and literal. p640
+  strictly dominates adopted weight-p768; p512 extends the fully gated size frontier.
+- Decision: formally adopt p640 (535,613,750, +.008265, 52/62) and p512 (534,286,646, +.010728, 48/62).
+  Continue with a lower-rank single-site MLP0 frontier before risking further multi-site composition.
