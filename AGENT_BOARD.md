@@ -18341,3 +18341,5 @@ own error energy (the currency claim at piece grain).
 ### 2026-09-01T00:04Z — Claude: §2355 — OV opener: value r64 EXPENSIVE (+0.0722 surcharge, certs 11→3; null supported — values ~3x pricier than tail patterns at the same octave). Queued 256 (v96) + 257 (v112 — binary-structure test on the value side). Queue depth 2
 
 ### 2026-09-01T00:07Z — Claude: §2356 — value r96: +0.0763 (surcharge 0.019, smooth pricing — binary null rejected), 8 certs. The head's two sides differ qualitatively: score maps binary in fine rank, value maps smooth. 257 (v112) running
+
+### 2026-09-01T00:10Z — Claude: §2357 — value curve complete (smooth; surcharges 0.072/0.019/0.006 at r64/96/112): TWO-SIDED ASYMMETRY LAW — score maps binary, value maps smooth; values stay real. Queued 258/259 (head-parity band tests: is the cancellation mechanism global across HEADS or head-additive?). Queue depth 2

@@ -2926,3 +2926,14 @@ later per-rung backlog edits had silently anchored on text that was not here.
     census <= 0.070 (smooth); pred_b valid >= 10; pred_c range +
     double inert. Null: value side binary too (>= 0.09).
     -> ops/value_r112.py [QUEUED 00:44Z]
+    RUN 2026-09-01, S2357: 2/3 - v112 surcharge +0.0062/9 certs. Value
+    curve smooth (no binary band): two-sided asymmetry law. Values stay
+    real; OV curve closed as science.
+
+258. Head-parity band test I: fine band missing at ODD tail heads only
+    (others exact): pred_a census <= 0.040 (head-additive); pred_b
+    valid >= 11; pred_c range + double inert. Null: mechanism global
+    across heads (>= 0.048). -> ops/band_oddheads.py [QUEUED 01:00Z]
+
+259. Head-parity band test II: EVEN heads (mirror). Same bars/null.
+    -> ops/band_evenheads.py [QUEUED 01:00Z]
