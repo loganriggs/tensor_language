@@ -11,6 +11,9 @@ state what was actually measured and what unit is being used.
 
 ## Start here
 
+- [explanation_2026-09-01_2305.md](explanation_2026-09-01_2305.md) — freezes disjoint96-row teaching and sealed
+  candidate-consequence roles, records the safe hash-convention repair, and explains rung446's measured split between
+  downstream weighting and joint product coupling
 - [explanation_2026-09-01_2259.md](explanation_2026-09-01_2259.md) — reports the clean45-candidate prospective-bank
   freeze, defines the35-candidate teaching/10-candidate sealed-family split, and corrects rung443 to a fixed
   reconstruction baseline rather than relabeling it a removal/composition rule

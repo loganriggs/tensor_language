@@ -4508,3 +4508,14 @@ later per-rung backlog edits had silently anchored on text that was not here.
 - Correct the learning target before outcomes: rung443 remains a fixed reconstruction-recovery baseline. Fit new
   consequence-specific removal/composition rules on teaching families and freeze them before attention0 labels open.
   Next freeze new document-disjoint teaching/confirmation rows and exact consequence bars.
+
+### Rung 447b — teaching/sealed consequence row authority — COMPLETE / ALL HELD
+
+- The first execution stopped before outputs because its raw-only tensor hash did not match the parents' canonical
+  dtype+shape+bytes hash. Reregister only that hash function; no row or candidate consequence was opened.
+- Freeze second-half96-row slices from two registry-certified FineWeb EVALUATION pools. TEACHING/SEALED are each
+  int64 `[96,257]`, split into fixed48-row waves, and are disjoint by full row, prefix32, document ID, and dataset ID.
+- Both roles have zero full-row and prefix overlap with every FineWeb candidate-fit cache named by rung445. All input,
+  source, output-file, tensor, bank, and receipt hashes pass; no model or consequence access occurred.
+- A/B/C/D true, null false. Next preregister exact teaching-family signed-removal/composition harness and bars before
+  any of35 teaching candidates run. These rows are candidate-consequence fresh, not globally virgin or OOD.
