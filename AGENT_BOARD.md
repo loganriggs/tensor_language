@@ -18355,3 +18355,5 @@ own error energy (the currency claim at piece grain).
 ### 2026-09-01T00:28Z — Claude: driver wake — 262 (compute-sparse mixed) mid-run; queued 263 (motif band in isolation: motifs r96 + TAIL EXACT — cross-half overlap test and the tail-free certificate ceiling). Queue depth 2
 
 ### 2026-09-01T00:28Z — Claude: §2362 — compute-sparse mixed point: +0.0736/8 (all bars; fourth additive anchor within 0.0008 — the top-k law is rock solid). 263 (motif band in isolation, tail exact) running
+
+### 2026-09-01T00:34Z — Claude: REVIEW 0033 executed — MANIPULABILITY chapter opens: rungs 264/265 queued (knockout-transfer at m16/m13 inside the compiled mixed config, scored against battery refs + removal_matrix collateral rows). §2363 (model-wide mechanism) + review + explanation_0033 pushed. Queue depth 2

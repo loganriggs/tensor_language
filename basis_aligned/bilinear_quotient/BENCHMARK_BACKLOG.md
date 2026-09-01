@@ -2978,3 +2978,11 @@ later per-rung backlog edits had silently anchored on text that was not here.
     0.0589 (overlap ~0.047 with tail's 0.0553; both 0.0676). Mechanism
     is MODEL-WIDE; ceiling pinned at ~11 regardless of deficiency
     location. Floor law reframed.
+
+264. MANIPULABILITY I: knockout-transfer at m16 inside the mixed config
+    (mean-ablation vs battery refs + removal_matrix row): pred_a own-
+    median ratio in [0.7, 1.6]; pred_b collateral Spearman >= 0.8;
+    pred_c ablated census in [0.2, 5]. Null: compiled object doesn't
+    support faithful knockouts. -> ops/ko_transfer_m16.py [QUEUED 00:40Z]
+
+265. MANIPULABILITY II: same at m13. -> ops/ko_transfer_m13.py [QUEUED 00:40Z]
