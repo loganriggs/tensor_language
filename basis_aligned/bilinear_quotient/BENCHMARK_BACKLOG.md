@@ -3163,9 +3163,17 @@ later per-rung backlog edits had silently anchored on text that was not here.
     harness): pred_a |census| <= 0.003; pred_b valid >= 55; pred_c
     |L2F| <= 0.005. Null: harness leaks (> 0.01). Dead-knob caveat
     noted in-script. -> ops/harness_null.py [QUEUED 01:28Z]
+    RUN 2026-09-01, S2383: MISFIRE - knobs left legacy replacements
+    installed (+0.4320, increment +0.229 signature). Not a control.
+    v2 = 285 (explicit empty actives at the census call).
 
 284. PATH DECOMPOSITION: full-rank config with DIRECT weight-slice
     matmuls in qkz (same recompute structure): pred_a census <= 0.01
     (factor arithmetic culprit); pred_b valid >= 12; pred_c range +
     cev saved. Null: recompute structure carries it (>= 0.04) - fix =
     bf16-matched op order. -> ops/path_direct.py [QUEUED 01:32Z]
+
+285. HARNESS NULL v2: explicit empty actives at the census call (no
+    knob semantics): pred_a |census| <= 0.003; pred_b valid >= 55;
+    pred_c |census| <= 0.02 + cev saved. Null: census instrument itself
+    biased. -> ops/harness_null2.py [QUEUED 01:38Z]
