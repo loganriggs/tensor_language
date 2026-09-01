@@ -1,0 +1,760 @@
+{
+  "status": "mlp0_far_action_effect_interchange_complete",
+  "rung": 398,
+  "claim_level": "token_only_cross_consumer_physical_interchange_not_compression",
+  "population": {
+    "real_tokens": 50257,
+    "donor_tokens": 40205,
+    "receiver_tokens": 10052,
+    "split": "token_id_mod5"
+  },
+  "literal_diagnostic_intervention_values": 115793280,
+  "executable_compression_claim": false,
+  "far_component_cosine_ceiling": 0.5,
+  "instrument": {
+    "exact_decomposition_relative_error": 0.0,
+    "base_batches": 197,
+    "live_full_action_relative_error": 3.2574379232225295e-08,
+    "swap_batches": 40,
+    "l_far_candidate_fraction": 1.0,
+    "q_far_candidate_fraction": 1.0,
+    "maximum_selected_far_action_cosine": 0.49999988079071045
+  },
+  "L_selection": {
+    "attention_selector_cosine": {
+      "median": 0.8409847021102905,
+      "p05": 0.6594718098640442,
+      "p95": 0.9625393748283386
+    },
+    "mlp_selector_cosine": {
+      "median": 0.6592600345611572,
+      "p05": 0.5057955980300903,
+      "p95": 0.7400022745132446
+    },
+    "attention_far_action_cosine": {
+      "median": 0.4734865427017212,
+      "p05": 0.37867271900177,
+      "p95": 0.4979158341884613
+    },
+    "mlp_far_action_cosine": {
+      "median": 0.4769088625907898,
+      "p05": 0.39782822132110596,
+      "p95": 0.49827179312705994
+    }
+  },
+  "Q_selection": {
+    "attention_selector_cosine": {
+      "median": 0.7822704315185547,
+      "p05": 0.4711248278617859,
+      "p95": 0.9191159605979919
+    },
+    "mlp_selector_cosine": {
+      "median": 0.4503474533557892,
+      "p05": 0.24578404426574707,
+      "p95": 0.6943855881690979
+    },
+    "attention_far_action_cosine": {
+      "median": 0.1181493028998375,
+      "p05": 0.005772050935775042,
+      "p95": 0.42568570375442505
+    },
+    "mlp_far_action_cosine": {
+      "median": 0.22312681376934052,
+      "p05": 0.04495394602417946,
+      "p95": 0.47479021549224854
+    }
+  },
+  "L_physical_conditional_effect": {
+    "effect_attention_far": {
+      "attention1": {
+        "r2": 0.6513392925262451,
+        "cosine": 0.8369054794311523,
+        "norm_ratio": 1.0584264993667603,
+        "relative_error": 0.5904750227928162
+      },
+      "mlp1": {
+        "r2": 0.3801220655441284,
+        "cosine": 0.6512221097946167,
+        "norm_ratio": 0.8609082698822021,
+        "relative_error": 0.7873232960700989
+      },
+      "fraction_both_consumer_cosine_ge_08": 0.05302427336573601,
+      "median_both_consumer_cosine": 0.6856857538223267
+    },
+    "effect_mlp_far": {
+      "attention1": {
+        "r2": 0.3967423439025879,
+        "cosine": 0.6826316118240356,
+        "norm_ratio": 0.9457735419273376,
+        "relative_error": 0.7766966223716736
+      },
+      "mlp1": {
+        "r2": 0.4591694474220276,
+        "cosine": 0.7191506028175354,
+        "norm_ratio": 0.9599995017051697,
+        "relative_error": 0.7354118227958679
+      },
+      "fraction_both_consumer_cosine_ge_08": 0.09182251989841461,
+      "median_both_consumer_cosine": 0.6745141744613647
+    },
+    "action_nearest": {
+      "attention1": {
+        "r2": 0.7381147146224976,
+        "cosine": 0.8797442317008972,
+        "norm_ratio": 1.0690467357635498,
+        "relative_error": 0.5117473602294922
+      },
+      "mlp1": {
+        "r2": 0.6549669504165649,
+        "cosine": 0.835168182849884,
+        "norm_ratio": 1.0414175987243652,
+        "relative_error": 0.5873951315879822
+      },
+      "fraction_both_consumer_cosine_ge_08": 0.5943095684051514,
+      "median_both_consumer_cosine": 0.8215672969818115
+    },
+    "raw_nearest": {
+      "attention1": {
+        "r2": 0.34970933198928833,
+        "cosine": 0.6558610200881958,
+        "norm_ratio": 0.9394881129264832,
+        "relative_error": 0.8064059615135193
+      },
+      "mlp1": {
+        "r2": 0.4294881224632263,
+        "cosine": 0.690719723701477,
+        "norm_ratio": 0.908906877040863,
+        "relative_error": 0.7553223371505737
+      },
+      "fraction_both_consumer_cosine_ge_08": 0.18842022120952606,
+      "median_both_consumer_cosine": 0.664243757724762
+    },
+    "random": {
+      "attention1": {
+        "r2": -0.5863502025604248,
+        "cosine": 0.19323326647281647,
+        "norm_ratio": 0.9829732775688171,
+        "relative_error": 1.259503960609436
+      },
+      "mlp1": {
+        "r2": -0.28938257694244385,
+        "cosine": 0.16546113789081573,
+        "norm_ratio": 0.7282754778862,
+        "relative_error": 1.1355098485946655
+      },
+      "fraction_both_consumer_cosine_ge_08": 0.0020891365129500628,
+      "median_both_consumer_cosine": 0.05162911117076874
+    }
+  },
+  "Q_physical_conditional_effect": {
+    "effect_attention_far": {
+      "attention1": {
+        "r2": -0.07674872875213623,
+        "cosine": 0.7767537236213684,
+        "norm_ratio": 1.6014324426651,
+        "relative_error": 1.0376648902893066
+      },
+      "mlp1": {
+        "r2": -1.0509610176086426,
+        "cosine": 0.33807694911956787,
+        "norm_ratio": 1.4175474643707275,
+        "relative_error": 1.4321177005767822
+      },
+      "fraction_both_consumer_cosine_ge_08": 0.004277755506336689,
+      "median_both_consumer_cosine": 0.3181137442588806
+    },
+    "effect_mlp_far": {
+      "attention1": {
+        "r2": 0.32452571392059326,
+        "cosine": 0.6972387433052063,
+        "norm_ratio": 1.09925377368927,
+        "relative_error": 0.8218724131584167
+      },
+      "mlp1": {
+        "r2": -0.2684890031814575,
+        "cosine": 0.49177801609039307,
+        "norm_ratio": 1.2061550617218018,
+        "relative_error": 1.126272201538086
+      },
+      "fraction_both_consumer_cosine_ge_08": 0.014424989931285381,
+      "median_both_consumer_cosine": 0.47318631410598755
+    },
+    "action_nearest": {
+      "attention1": {
+        "r2": 0.06876295804977417,
+        "cosine": 0.6966672539710999,
+        "norm_ratio": 1.3420990705490112,
+        "relative_error": 0.9650061726570129
+      },
+      "mlp1": {
+        "r2": -1.1674039363861084,
+        "cosine": 0.3962477147579193,
+        "norm_ratio": 1.547080397605896,
+        "relative_error": 1.4722105264663696
+      },
+      "fraction_both_consumer_cosine_ge_08": 0.04655789956450462,
+      "median_both_consumer_cosine": 0.4524891972541809
+    },
+    "raw_nearest": {
+      "attention1": {
+        "r2": 0.29613572359085083,
+        "cosine": 0.6509358286857605,
+        "norm_ratio": 1.0081217288970947,
+        "relative_error": 0.8389661312103271
+      },
+      "mlp1": {
+        "r2": -0.19408893585205078,
+        "cosine": 0.4377576410770416,
+        "norm_ratio": 1.058821678161621,
+        "relative_error": 1.0927437543869019
+      },
+      "fraction_both_consumer_cosine_ge_08": 0.041185833513736725,
+      "median_both_consumer_cosine": 0.4120267629623413
+    },
+    "random": {
+      "attention1": {
+        "r2": -0.04256010055541992,
+        "cosine": 0.46841123700141907,
+        "norm_ratio": 0.980240523815155,
+        "relative_error": 1.0210583209991455
+      },
+      "mlp1": {
+        "r2": -0.6123898029327393,
+        "cosine": 0.14095769822597504,
+        "norm_ratio": 0.9361047148704529,
+        "relative_error": 1.2697991132736206
+      },
+      "fraction_both_consumer_cosine_ge_08": 0.0,
+      "median_both_consumer_cosine": 0.1338457465171814
+    }
+  },
+  "route_summaries": [
+    {
+      "component": "L",
+      "selector": "effect_attention_far",
+      "both_consumer_fraction_ge_08": 0.05302427336573601,
+      "distinct_donors": 7000,
+      "median_selector_cosine": 0.8409847021102905
+    },
+    {
+      "component": "L",
+      "selector": "effect_mlp_far",
+      "both_consumer_fraction_ge_08": 0.09182251989841461,
+      "distinct_donors": 6324,
+      "median_selector_cosine": 0.6592600345611572
+    },
+    {
+      "component": "Q",
+      "selector": "effect_attention_far",
+      "both_consumer_fraction_ge_08": 0.004277755506336689,
+      "distinct_donors": 6045,
+      "median_selector_cosine": 0.7822704315185547
+    },
+    {
+      "component": "Q",
+      "selector": "effect_mlp_far",
+      "both_consumer_fraction_ge_08": 0.014424989931285381,
+      "distinct_donors": 6934,
+      "median_selector_cosine": 0.4503474533557892
+    }
+  ],
+  "decoded_best_preserved_examples": {
+    "L_attention_selected": [
+      {
+        "receiver_id": 2845,
+        "receiver_token": " except",
+        "donor_id": 6023,
+        "donor_token": " Another",
+        "component_cosine": 0.4986521899700165,
+        "selector_cosine": 0.9074169397354126,
+        "physical_attention1_cosine": 0.9472832679748535,
+        "physical_mlp1_cosine": 0.928285539150238
+      },
+      {
+        "receiver_id": 635,
+        "receiver_token": " also",
+        "donor_id": 7411,
+        "donor_token": " involving",
+        "component_cosine": 0.49654147028923035,
+        "selector_cosine": 0.874919056892395,
+        "physical_attention1_cosine": 0.9626295566558838,
+        "physical_mlp1_cosine": 0.9063665270805359
+      },
+      {
+        "receiver_id": 6690,
+        "receiver_token": "Rec",
+        "donor_id": 25877,
+        "donor_token": "Cour",
+        "component_cosine": 0.48532670736312866,
+        "selector_cosine": 0.9266617298126221,
+        "physical_attention1_cosine": 0.9358091950416565,
+        "physical_mlp1_cosine": 0.9007062911987305
+      },
+      {
+        "receiver_id": 13470,
+        "receiver_token": "Direct",
+        "donor_id": 36854,
+        "donor_token": "Prev",
+        "component_cosine": 0.48709550499916077,
+        "selector_cosine": 0.9294444918632507,
+        "physical_attention1_cosine": 0.947514533996582,
+        "physical_mlp1_cosine": 0.8877148628234863
+      },
+      {
+        "receiver_id": 1865,
+        "receiver_token": " yet",
+        "donor_id": 7411,
+        "donor_token": " involving",
+        "component_cosine": 0.48097091913223267,
+        "selector_cosine": 0.8981151580810547,
+        "physical_attention1_cosine": 0.938965380191803,
+        "physical_mlp1_cosine": 0.8823115825653076
+      },
+      {
+        "receiver_id": 14055,
+        "receiver_token": "Core",
+        "donor_id": 38318,
+        "donor_token": "Sac",
+        "component_cosine": 0.4875469207763672,
+        "selector_cosine": 0.862730860710144,
+        "physical_attention1_cosine": 0.8862613439559937,
+        "physical_mlp1_cosine": 0.8799464702606201
+      },
+      {
+        "receiver_id": 31095,
+        "receiver_token": " amidst",
+        "donor_id": 857,
+        "donor_token": " does",
+        "component_cosine": 0.49005126953125,
+        "selector_cosine": 0.9290415048599243,
+        "physical_attention1_cosine": 0.9609552621841431,
+        "physical_mlp1_cosine": 0.8787434101104736
+      },
+      {
+        "receiver_id": 14575,
+        "receiver_token": "asketball",
+        "donor_id": 8337,
+        "donor_token": "ockey",
+        "component_cosine": 0.4939599335193634,
+        "selector_cosine": 0.9025712013244629,
+        "physical_attention1_cosine": 0.920683741569519,
+        "physical_mlp1_cosine": 0.8731604814529419
+      },
+      {
+        "receiver_id": 4460,
+        "receiver_token": " Mil",
+        "donor_id": 42148,
+        "donor_token": " Dul",
+        "component_cosine": 0.48452115058898926,
+        "selector_cosine": 0.8686152100563049,
+        "physical_attention1_cosine": 0.8839380741119385,
+        "physical_mlp1_cosine": 0.8704107999801636
+      },
+      {
+        "receiver_id": 9305,
+        "receiver_token": " concerning",
+        "donor_id": 1101,
+        "donor_token": "'m",
+        "component_cosine": 0.41772839426994324,
+        "selector_cosine": 0.8817236423492432,
+        "physical_attention1_cosine": 0.9464956521987915,
+        "physical_mlp1_cosine": 0.8654701709747314
+      },
+      {
+        "receiver_id": 14590,
+        "receiver_token": " whilst",
+        "donor_id": 8201,
+        "donor_token": "including",
+        "component_cosine": 0.4762302041053772,
+        "selector_cosine": 0.9170215725898743,
+        "physical_attention1_cosine": 0.9611304998397827,
+        "physical_mlp1_cosine": 0.8649694919586182
+      },
+      {
+        "receiver_id": 15865,
+        "receiver_token": "Intern",
+        "donor_id": 40596,
+        "donor_token": "Term",
+        "component_cosine": 0.49278953671455383,
+        "selector_cosine": 0.8669435381889343,
+        "physical_attention1_cosine": 0.8797401785850525,
+        "physical_mlp1_cosine": 0.8647109866142273
+      }
+    ],
+    "L_mlp_selected": [
+      {
+        "receiver_id": 2845,
+        "receiver_token": " except",
+        "donor_id": 5661,
+        "donor_token": "this",
+        "component_cosine": 0.41836827993392944,
+        "selector_cosine": 0.5847547650337219,
+        "physical_attention1_cosine": 0.9480989575386047,
+        "physical_mlp1_cosine": 0.9132868647575378
+      },
+      {
+        "receiver_id": 635,
+        "receiver_token": " also",
+        "donor_id": 7411,
+        "donor_token": " involving",
+        "component_cosine": 0.49654147028923035,
+        "selector_cosine": 0.6968199014663696,
+        "physical_attention1_cosine": 0.9626295566558838,
+        "physical_mlp1_cosine": 0.9063665270805359
+      },
+      {
+        "receiver_id": 6690,
+        "receiver_token": "Rec",
+        "donor_id": 41572,
+        "donor_token": "Cand",
+        "component_cosine": 0.49781858921051025,
+        "selector_cosine": 0.7694635391235352,
+        "physical_attention1_cosine": 0.8937972784042358,
+        "physical_mlp1_cosine": 0.8884032964706421
+      },
+      {
+        "receiver_id": 39075,
+        "receiver_token": "Catal",
+        "donor_id": 47669,
+        "donor_token": "Fle",
+        "component_cosine": 0.48874354362487793,
+        "selector_cosine": 0.83609938621521,
+        "physical_attention1_cosine": 0.9127582907676697,
+        "physical_mlp1_cosine": 0.8872732520103455
+      },
+      {
+        "receiver_id": 48545,
+        "receiver_token": "activation",
+        "donor_id": 11124,
+        "donor_token": "duction",
+        "component_cosine": 0.48103731870651245,
+        "selector_cosine": 0.7235128283500671,
+        "physical_attention1_cosine": 0.941447377204895,
+        "physical_mlp1_cosine": 0.8854016661643982
+      },
+      {
+        "receiver_id": 8205,
+        "receiver_token": "Gu",
+        "donor_id": 37522,
+        "donor_token": "Ven",
+        "component_cosine": 0.4924834966659546,
+        "selector_cosine": 0.7703590393066406,
+        "physical_attention1_cosine": 0.8843041062355042,
+        "physical_mlp1_cosine": 0.8938063383102417
+      },
+      {
+        "receiver_id": 1865,
+        "receiver_token": " yet",
+        "donor_id": 7411,
+        "donor_token": " involving",
+        "component_cosine": 0.48097091913223267,
+        "selector_cosine": 0.6891255378723145,
+        "physical_attention1_cosine": 0.938965380191803,
+        "physical_mlp1_cosine": 0.8823115825653076
+      },
+      {
+        "receiver_id": 9305,
+        "receiver_token": " concerning",
+        "donor_id": 1183,
+        "donor_token": "'ll",
+        "component_cosine": 0.4798990488052368,
+        "selector_cosine": 0.640588641166687,
+        "physical_attention1_cosine": 0.9490071535110474,
+        "physical_mlp1_cosine": 0.8787990212440491
+      },
+      {
+        "receiver_id": 3690,
+        "receiver_token": " throughout",
+        "donor_id": 1183,
+        "donor_token": "'ll",
+        "component_cosine": 0.4983407258987427,
+        "selector_cosine": 0.6716275215148926,
+        "physical_attention1_cosine": 0.9633124470710754,
+        "physical_mlp1_cosine": 0.8776198625564575
+      },
+      {
+        "receiver_id": 34345,
+        "receiver_token": "filename",
+        "donor_id": 35063,
+        "donor_token": "Filename",
+        "component_cosine": 0.48054414987564087,
+        "selector_cosine": 0.737485408782959,
+        "physical_attention1_cosine": 0.8967648148536682,
+        "physical_mlp1_cosine": 0.8762935400009155
+      },
+      {
+        "receiver_id": 39010,
+        "receiver_token": "arij",
+        "donor_id": 23363,
+        "donor_token": "\u30d8",
+        "component_cosine": 0.4927617013454437,
+        "selector_cosine": 0.6992286443710327,
+        "physical_attention1_cosine": 0.9460362195968628,
+        "physical_mlp1_cosine": 0.8753254413604736
+      },
+      {
+        "receiver_id": 12110,
+        "receiver_token": " dimin",
+        "donor_id": 4807,
+        "donor_token": " bul",
+        "component_cosine": 0.45237797498703003,
+        "selector_cosine": 0.7210609316825867,
+        "physical_attention1_cosine": 0.9413671493530273,
+        "physical_mlp1_cosine": 0.8738613128662109
+      }
+    ],
+    "Q_attention_selected": [
+      {
+        "receiver_id": 42535,
+        "receiver_token": "}}}",
+        "donor_id": 37642,
+        "donor_token": "ocobo",
+        "component_cosine": 0.48703932762145996,
+        "selector_cosine": 0.8971441984176636,
+        "physical_attention1_cosine": 0.9223227500915527,
+        "physical_mlp1_cosine": 0.8838805556297302
+      },
+      {
+        "receiver_id": 11445,
+        "receiver_token": " 1950",
+        "donor_id": 28017,
+        "donor_token": " 1938",
+        "component_cosine": 0.47120317816734314,
+        "selector_cosine": 0.854899525642395,
+        "physical_attention1_cosine": 0.8903642892837524,
+        "physical_mlp1_cosine": 0.8825370073318481
+      },
+      {
+        "receiver_id": 7525,
+        "receiver_token": " primarily",
+        "donor_id": 5688,
+        "donor_token": " largely",
+        "component_cosine": 0.4887944459915161,
+        "selector_cosine": 0.952833890914917,
+        "physical_attention1_cosine": 0.9766263961791992,
+        "physical_mlp1_cosine": 0.8683084845542908
+      },
+      {
+        "receiver_id": 38525,
+        "receiver_token": " 1926",
+        "donor_id": 13521,
+        "donor_token": " 1979",
+        "component_cosine": 0.31499382853507996,
+        "selector_cosine": 0.8352701663970947,
+        "physical_attention1_cosine": 0.8581686615943909,
+        "physical_mlp1_cosine": 0.8500230312347412
+      },
+      {
+        "receiver_id": 16450,
+        "receiver_token": " 1969",
+        "donor_id": 14062,
+        "donor_token": " 1920",
+        "component_cosine": 0.4275537133216858,
+        "selector_cosine": 0.8551825881004333,
+        "physical_attention1_cosine": 0.8547836542129517,
+        "physical_mlp1_cosine": 0.8444100022315979
+      },
+      {
+        "receiver_id": 8365,
+        "receiver_token": " rarely",
+        "donor_id": 1239,
+        "donor_token": " never",
+        "component_cosine": 0.4997214376926422,
+        "selector_cosine": 0.9237587451934814,
+        "physical_attention1_cosine": 0.9479784369468689,
+        "physical_mlp1_cosine": 0.8443861603736877
+      },
+      {
+        "receiver_id": 2125,
+        "receiver_token": " isn",
+        "donor_id": 5818,
+        "donor_token": " hasn",
+        "component_cosine": 0.4923695921897888,
+        "selector_cosine": 0.9511851668357849,
+        "physical_attention1_cosine": 0.9812716245651245,
+        "physical_mlp1_cosine": 0.839195966720581
+      },
+      {
+        "receiver_id": 46425,
+        "receiver_token": " 1895",
+        "donor_id": 37637,
+        "donor_token": " 1860",
+        "component_cosine": 0.4689241945743561,
+        "selector_cosine": 0.791305661201477,
+        "physical_attention1_cosine": 0.8460358381271362,
+        "physical_mlp1_cosine": 0.8386629819869995
+      },
+      {
+        "receiver_id": 30410,
+        "receiver_token": " consciously",
+        "donor_id": 16464,
+        "donor_token": " intentionally",
+        "component_cosine": 0.4142721891403198,
+        "selector_cosine": 0.9352519512176514,
+        "physical_attention1_cosine": 0.9567028284072876,
+        "physical_mlp1_cosine": 0.8357653617858887
+      },
+      {
+        "receiver_id": 4960,
+        "receiver_token": " Japanese",
+        "donor_id": 7897,
+        "donor_token": " Spanish",
+        "component_cosine": 0.4954700767993927,
+        "selector_cosine": 0.8380608558654785,
+        "physical_attention1_cosine": 0.8877269625663757,
+        "physical_mlp1_cosine": 0.833598256111145
+      },
+      {
+        "receiver_id": 1290,
+        "receiver_token": " far",
+        "donor_id": 881,
+        "donor_token": " much",
+        "component_cosine": 0.4022144675254822,
+        "selector_cosine": 0.851163387298584,
+        "physical_attention1_cosine": 0.9028106331825256,
+        "physical_mlp1_cosine": 0.8334572315216064
+      },
+      {
+        "receiver_id": 4650,
+        "receiver_token": " Many",
+        "donor_id": 12168,
+        "donor_token": " Several",
+        "component_cosine": 0.4817649722099304,
+        "selector_cosine": 0.9047789573669434,
+        "physical_attention1_cosine": 0.9160466194152832,
+        "physical_mlp1_cosine": 0.8330255746841431
+      }
+    ],
+    "Q_mlp_selected": [
+      {
+        "receiver_id": 4900,
+        "receiver_token": " Although",
+        "donor_id": 3633,
+        "donor_token": "While",
+        "component_cosine": 0.4936116933822632,
+        "selector_cosine": 0.7990726828575134,
+        "physical_attention1_cosine": 0.9549193978309631,
+        "physical_mlp1_cosine": 0.8970663547515869
+      },
+      {
+        "receiver_id": 36565,
+        "receiver_token": " 1927",
+        "donor_id": 24718,
+        "donor_token": " 1954",
+        "component_cosine": 0.4879271388053894,
+        "selector_cosine": 0.8833041191101074,
+        "physical_attention1_cosine": 0.9165937900543213,
+        "physical_mlp1_cosine": 0.8922656774520874
+      },
+      {
+        "receiver_id": 42535,
+        "receiver_token": "}}}",
+        "donor_id": 37642,
+        "donor_token": "ocobo",
+        "component_cosine": 0.48703932762145996,
+        "selector_cosine": 0.5464178323745728,
+        "physical_attention1_cosine": 0.9223227500915527,
+        "physical_mlp1_cosine": 0.8838805556297302
+      },
+      {
+        "receiver_id": 29300,
+        "receiver_token": " 1934",
+        "donor_id": 36864,
+        "donor_token": " 1925",
+        "component_cosine": 0.4555395841598511,
+        "selector_cosine": 0.8648056983947754,
+        "physical_attention1_cosine": 0.8817508816719055,
+        "physical_mlp1_cosine": 0.8739545345306396
+      },
+      {
+        "receiver_id": 11445,
+        "receiver_token": " 1950",
+        "donor_id": 23859,
+        "donor_token": " 1959",
+        "component_cosine": 0.48589667677879333,
+        "selector_cosine": 0.8845052123069763,
+        "physical_attention1_cosine": 0.8734292387962341,
+        "physical_mlp1_cosine": 0.9025329351425171
+      },
+      {
+        "receiver_id": 845,
+        "receiver_token": " very",
+        "donor_id": 8131,
+        "donor_token": " incredibly",
+        "component_cosine": 0.4152594208717346,
+        "selector_cosine": 0.797167956829071,
+        "physical_attention1_cosine": 0.9500231742858887,
+        "physical_mlp1_cosine": 0.8716634511947632
+      },
+      {
+        "receiver_id": 7525,
+        "receiver_token": " primarily",
+        "donor_id": 5688,
+        "donor_token": " largely",
+        "component_cosine": 0.4887944459915161,
+        "selector_cosine": 0.8127859830856323,
+        "physical_attention1_cosine": 0.9766263961791992,
+        "physical_mlp1_cosine": 0.8683084845542908
+      },
+      {
+        "receiver_id": 11695,
+        "receiver_token": " sixth",
+        "donor_id": 19383,
+        "donor_token": " Fifth",
+        "component_cosine": 0.49941107630729675,
+        "selector_cosine": 0.8036684989929199,
+        "physical_attention1_cosine": 0.8967679738998413,
+        "physical_mlp1_cosine": 0.8625330328941345
+      },
+      {
+        "receiver_id": 17575,
+        "receiver_token": " 1964",
+        "donor_id": 15589,
+        "donor_token": " 1977",
+        "component_cosine": 0.4645196497440338,
+        "selector_cosine": 0.896883487701416,
+        "physical_attention1_cosine": 0.8614848852157593,
+        "physical_mlp1_cosine": 0.8964388966560364
+      },
+      {
+        "receiver_id": 6385,
+        "receiver_token": "Since",
+        "donor_id": 8128,
+        "donor_token": "Because",
+        "component_cosine": 0.4358912408351898,
+        "selector_cosine": 0.7553257942199707,
+        "physical_attention1_cosine": 0.9680038690567017,
+        "physical_mlp1_cosine": 0.8594834804534912
+      },
+      {
+        "receiver_id": 13540,
+        "receiver_token": " 1983",
+        "donor_id": 15589,
+        "donor_token": " 1977",
+        "component_cosine": 0.49808886647224426,
+        "selector_cosine": 0.8783203363418579,
+        "physical_attention1_cosine": 0.8593246936798096,
+        "physical_mlp1_cosine": 0.8830345869064331
+      },
+      {
+        "receiver_id": 7795,
+        "receiver_token": " 1998",
+        "donor_id": 11104,
+        "donor_token": " 1989",
+        "component_cosine": 0.4993707537651062,
+        "selector_cosine": 0.8832331299781799,
+        "physical_attention1_cosine": 0.85682213306427,
+        "physical_mlp1_cosine": 0.8936027884483337
+      }
+    ]
+  },
+  "pred_a_exact_split_far_candidates_and_live_swaps": true,
+  "pred_b_far_L_effect_equivalence_cross_validates": false,
+  "pred_c_far_Q_effect_equivalence_cross_validates": false,
+  "pred_d_equivalence_is_widespread_not_one_donor": true,
+  "null_far_effect_equivalence_absent": false,
+  "downstream_token_equivalence_supported": false,
+  "next_route": "consumer_aware_quadratic_spectrum",
+  "live_context_transfer_licensed": false,
+  "runtime_s": 7.3606555461883545
+}
