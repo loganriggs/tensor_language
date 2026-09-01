@@ -855,7 +855,7 @@ def main():
         _ROWS=SEL.get('ext_rows',FR)
         cur['clsmap']=classify2(_ROWS).to(DEV)
         SEL['abl_on']=True
-        m.transformer.h[14].attn.register_forward_hook(_ablh)
+        m.transformer.h[14].attn.register_forward_hook(SEL['_ablh'])
         SEL['cev']=evalV(_ROWS,_ROWS.shape[0],order2,ML).detach().cpu()
         SEL['clsflat']=cur['clsmap'].reshape(-1).cpu()
     if SEL.get('head16'):
@@ -982,6 +982,7 @@ if __name__=='__main__':
         if not SEL.get('abl_on'): return None
         y,v1=o_
         return (MUV.expand_as(y).to(y.dtype),v1)
+    SEL['_ablh']=_ablh
     print('a14 attn mean captured over FW; gated ablation hook armed',flush=True)
     main()
     if 'L2CF' not in SEL: raise SystemExit('INSTRUMENT FAIL: L2CF capture missing')
