@@ -88,3 +88,6 @@ The main lesson is pleasantly concrete: the checkpoint is not yielding a clean s
 weights, but it is yielding a metric-dependent spectral compiler with surprisingly regular error and causal laws.
 That program is already predictive, composable, manipulable, and literally smaller—and the local alternatives
 around its current frontier are now closed by prospective tests rather than by taste.
+
+The exact price formulas, controls, and kill criteria for the five representation-changing directions above are in
+`NEXT_REPRESENTATION_DIRECTIONS_2026-09-01.md` one directory above this explanation.
