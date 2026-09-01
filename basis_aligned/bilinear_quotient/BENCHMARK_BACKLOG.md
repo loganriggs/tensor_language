@@ -3871,7 +3871,14 @@ later per-rung backlog edits had silently anchored on text that was not here.
     source-aware bf16 storage for all model tensors, identical split-B
     context-QK56 factors stored fp16, original-native census/certs/fresh and
     next WT103 tokens174760:205600; exact 1,025,122,924-byte bill.
+    RUN 2026-09-01: ALL HELD, null false. Original-native +.01261160/43;
+    OOD .008268/.040903/.052098, structural fresh max .0066; exact global
+    BF16/QK-fp16 identities and 1,025,122,924 bytes. Advances rung364 only.
 
 364. [CODEX, conditional board-claim 08:00Z] ORIGINAL-NATIVE SIGNED GATE:
     only after full rung363 pass; measure original-native a16 KO before model
     rounding, then exact combined-program KO; tight .98/.30/.98 signed bars.
+
+365. [CODEX, board-claim 08:05Z] UNIVERSAL-BF16 HIGH-FIDELITY FULL GATE:
+    original-native census/certificates and a16 signed comparison for the
+    exact 545,902,902-scalar / 1,091,805,804-byte source-aware BF16 endpoint.

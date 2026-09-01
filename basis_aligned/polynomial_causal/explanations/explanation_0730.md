@@ -234,3 +234,10 @@ we froze a single next test: combine source-aware BF16 storage with the already-
 factors remain fp16, for **512,561,462 semantic scalars and 1,025,122,924 bytes**—50.42% below native. It must still
 pass original-native census, certificate, shifted-text, fresh, exact-identity, and then signed-intervention gates.
 No layer exceptions, nearby precisions, or rank changes are permitted if the physical composition fails.
+
+The physical composition now passes. Relative to the original native model it adds `.012612` census CE while
+retaining 43/62 certificates. Its new WikiText mean/p95/max is `.00827/.04090/.05210`, and fresh structural damage
+peaks at `.0066`. Every program-identity and price assertion holds. Thus global two-byte storage and structural
+Q/K rank reduction are empirically orthogonal at this point: the combined **1,025,122,924-byte** program behaves
+like Q/K56, not like the sum of two damaging approximations. The final remaining adoption condition is the
+preregistered signed a16 comparison to the genuinely original native model, measured before any rounding.
