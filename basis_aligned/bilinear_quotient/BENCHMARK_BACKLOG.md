@@ -3635,3 +3635,11 @@ later per-rung backlog edits had silently anchored on text that was not here.
     freeze independent covariance fit rows72:96 as shipping map; census/certs,
     WikiText skip140000 n120, exact 440-map identity/bill, save unablated CEV.
     -> ops/mixed96_context_metric_qk_split_ood.py
+    RUN 2026-09-01: ALL HELD, null false. split-B +.00141535/61, difference
+    +.0001705 from split-A, fresh max+.0014; Wiki mean/p95/max
+    -.001674/.007033/.015147. Advance fixed split-B to signed gate.
+
+333. [CODEX, board-claimed 06:32Z] CONTEXT-QK96 SIGNED a16 GATE:
+    identical a16 mean ablation, direct signed vector/collateral/own effects,
+    live split-B baseline, context96 identity and 535,089,462 bill.
+    -> ops/a16_transfer_mixed96_context_metric_qk.py

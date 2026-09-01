@@ -558,3 +558,12 @@ Full ranking and adoption gates: `SIX_DIRECTION_COMPARISON_2026-09-01.md`.
   Contextual attention-input covariance makes rank96 both smaller and substantially more faithful than rank104.
 - Decision: freeze independent fit rows72:96 as the shipping map; require census reproduction, 58+ certificates,
   WikiText skip140000 mean/p95/max, exact bill/identity, and save CEV before signed causal testing.
+
+### `06:31 UTC` — exploit checkpoint `332`
+
+- Result: independent split-B context-QK96 is `+.00141535`, 61/62, only +.0001705 from split A; fresh max +.0014.
+  Shifted Wiki mean/p95/max `-.001674/.007033/.015147`. All predicates hold, null false, CEV saved.
+- Information gained: the context-QK gain is fit-stable and transports exceptionally; shifted mean is slightly
+  better than native rather than merely inside a permissive bar.
+- Decision: direct signed a16 gate for the fixed split-B artifact. A full pass formally adopts it as the new global
+  dominant point before any composition with MLP0.
