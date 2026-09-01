@@ -3611,3 +3611,11 @@ later per-rung backlog edits had silently anchored on text that was not here.
     rebuild p448/p384/p256, WikiText skip120000 n120, reproduce census/certs,
     exact identities/bills and save all three unablated CEVs.
     -> ops/mixed104_mlp0_context_metric_lower_rank_ood.py
+    RUN 2026-09-01: pred_b/c held, pred_a failed, null false. p448 OOD
+    mean/p95/max +.011411/.036166/.081581 passes; p384 max .108456>.100 and
+    p256 max .154458>.120 fail. Advance signed p448 only.
+
+330. [CODEX, board-claimed 06:03Z] P448 CONTEXT-RRR SIGNED a16 GATE:
+    direct signed a16 mean-ablation effect versus saved p448 baseline; live
+    identity/price, collateral ordering, own magnitudes.
+    -> ops/a16_transfer_mixed104_mlp0_context_metric_p448.py

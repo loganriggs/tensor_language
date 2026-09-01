@@ -529,3 +529,13 @@ Full ranking and adoption gates: `SIX_DIRECTION_COMPARISON_2026-09-01.md`.
   per returned rank step. p448/p384 are plausible fully gated points; p256 is a lower-fidelity compression tier.
 - Decision: common shifted WikiText skip120000 n120 for all three, census/certificate reproduction and saved CEVs.
   Do not insert intermediate ranks; causal gates follow only after OOD.
+
+### `06:02 UTC` — exploit checkpoint `329`
+
+- Result: p448 shifted mean/p95/max `+.011411/.036166/.081581` passes; p384
+  `+.013486/.043313/.108456` misses max .100; p256 `+.022158/.060519/.154458` misses max .120. Census/certs and
+  identities reproduce, so pred_b/c hold, joint pred_a fails, null false.
+- Information gained: mean and p95 transport remain smooth, but rare-row tails become the first binding constraint
+  below p448. Aggregate census alone would incorrectly advance p384/p256.
+- Decision: signed causal gate for p448 only. Stop p384/p256 at labeled tiers and do not relax tail bars or insert
+  intermediate ranks.
