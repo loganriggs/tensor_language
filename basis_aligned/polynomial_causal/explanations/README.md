@@ -7,6 +7,11 @@ primary evidence.
 
 ## Start here
 
+- [`explanation_0239.md`](explanation_0239.md) — 2026-09-01 eight-hour plan: six independent one-hour screens,
+  the correction that generic top-k is a compute policy rather than a small tensor network, and the new
+  embedding-folded MLP0 block/tree/DAG/finite-router structural-recovery route
+- [`explanation_0221.md`](explanation_0221.md) — 2026-09-01 exact standalone-price correction, the narrowly
+  adopted 539.60M online-`c_v0` point, and the reordered MLP/vocabulary/state-space compression directions
 - [`explanation_0154.md`](explanation_0154.md) — 2026-09-01 executing plan after the corrected ct96 milestone: test the ~123.4M corrected mixed point, exact-price and OOD stress it, use signed a16 as the causal falsifier, then choose among tangent, causal-response, predictive-state, and lower-bound routes
 - [`explanation_0143.md`](explanation_0143.md) — 2026-09-01 correction and verified milestone: the 0.055 "attention floor" was the context-blind `a1v` table; corrected ct96 reaches +0.00342 CE, 56/62 certificates and near-native signed m16 effects at ~154.4M values
 - [`explanation_0112.md`](explanation_0112.md) — 2026-09-01 research plan: the full predictive/composable/manipulable/simplicity goal, the current function-space rank-one repair test, and four independent mathematical routes (tangent compiler, predictive-state quotient, shared invariant, causal-response basis)

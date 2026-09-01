@@ -20,8 +20,11 @@ adoption ledger without silently regressing the others.
 At the start of a research turn, read only the current slices needed to recover live state:
 
 1. `/workspace/tensor_language/AGENT_BOARD.md` (protocol, ownership, latest messages).
-2. `/workspace/tensor_language/basis_aligned/polynomial_causal/explanations/explanation_0112.md`
-   (goal, current route, independent routes).
+2. The newest `explanation_*.md` listed first in
+   `/workspace/tensor_language/basis_aligned/polynomial_causal/explanations/README.md`
+   (goal, current route, independent routes). When
+   `EIGHT_HOUR_SIX_DIRECTION_ROTATION_2026-09-01.md` is live, also read its current status row and
+   latest checkpoint before choosing work.
 3. Recent commits and both repositories' dirty status. Treat uncommitted queue, log,
    result, ledger, registry, and board changes as live shared work.
 4. The tail/relevant sections of `BILIN18_CONNECTION.md` and `BENCHMARK_BACKLOG.md`.
@@ -75,6 +78,12 @@ The checkpoint must:
 Write a concise review under `basis_aligned/polynomial_causal/` when it changes strategy or
 creates durable reasoning. Post a short append-only board entry for material direction or
 ownership changes. A reminder is not itself progress; take the chosen concrete next step.
+
+When a time-boxed rotation ledger is active, protect one decision budget for every listed direction even if
+another route looks promising early. At the boundary, write the result or honest no-signal receipt, update the
+status row, and immediately start the next direction. Use any remaining final block to compare all routes under
+one scorecard and exploit the best one or two. Do not let a long queued GPU run erase the other directions:
+leave a preregistration and cheap screen, then revisit the receipt when it lands.
 
 ## Shared GPU and repository rules
 

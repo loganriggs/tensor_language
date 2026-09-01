@@ -1,0 +1,163 @@
+# Six independent routes for the next eight hours — 2026-09-01 02:39 UTC
+
+(Damage means next-token cross-entropy added above the native model; lower is better. A stored-value price
+means the complete standalone dependency graph, not the size of a replacement hook.)
+
+## Our goal
+
+We are trying to compile the 545,902,902-scalar bilin18 language model into a substantially smaller explicit
+tensor program that remains predictive on fresh and shifted text, composes when several replacements are
+installed together, and transports named causal interventions with the correct sign and relative magnitude.
+The program must also be literally simpler: every required tensor, router state, lookup table, and executed
+operation is counted.
+
+The first honest point now exists. The mixed104 online-`c_v0` program uses exactly 539,595,062 scalars,
+1.16% fewer than native, with census damage `+0.00469195`, `54/62` circuit certificates, signed-a16 effect
+cosine `0.995879`, and WikiText-2 damage `+0.00485625`. That is a useful calibration point, not the desired
+compression. The largest remaining targets are the eighteen bilinear MLPs (286.67M scalars) and the untied
+input/output vocabulary maps (115.90M scalars).
+
+## Correction: top-k is a compute policy, not the structural decomposition
+
+A generic per-token top-k gate over `H` units has up to `binom(H,k)` possible supports. For the existing
+`H=4608, k=1152` tier, the support index alone has roughly
+
+$$
+\log_2 {4608 \choose 1152} \approx 4608 H_2(1/4) \approx 3738\ \text{bits}
+$$
+
+of combinatorial capacity. It is a compact *algorithm* for deciding which dense units to execute, but it is
+not a fixed small tensor network and it stores the full Left/Right/Down maps. We will therefore keep it as an
+honest compute-sparse tier, not call it a discovered tensor decomposition.
+
+A small-state MoE router is different. If a router chooses one of `S` named states and every state owns a
+fixed expert subset, it can be written as
+
+$$
+y(x)=\sum_{s=1}^{S} r_s(x)\,T_s(x),
+$$
+
+with a router bond of dimension `S`. When `S` and the expert bank are small, the states, fixed subsets,
+router, and executed experts can all be priced explicitly. This finite-state object is one of the structures
+we will test; unconstrained top-k is its combinatorial null.
+
+## The new sixth direction: fold the vocabulary into MLP0 and recover structure from the function
+
+For a bilinear MLP,
+
+$$
+y(x)=D\big[(Lx)\odot(Rx)\big]+b
+     =\sum_{u=1}^{H} d_u\,(l_u^\top x)(r_u^\top x)+b.
+$$
+
+At sequence length one, position zero, the block-0 input is a deterministic function of token identity: the
+embedding, RMS normalization, block-0 remix, and self-only attention can all be folded exactly. Thus the
+entire vocabulary supplies an exhaustive finite population `X={x_t}` rather than a sample of natural-text
+activations. We can evaluate
+
+$$
+H_{tu}=(l_u^\top x_t)(r_u^\top x_t), \qquad Y=HD^\top+b
+$$
+
+for every token, and study the bilinear tensor
+
+$$
+\mathcal T=\sum_u d_u\otimes l_u\otimes r_u
+$$
+
+under the exact vocabulary-induced metric. This is stronger than applying an SAE only to observed output
+activations: the inputs and weights are known, so the test can use the complete finite function and can ask
+whether block, tree, DAG-like, or finite-router descriptions compress it.
+
+There is already encouraging evidence in the repository. A previous weight-only fold recovered MLP0's
+token-class geometry with per-token cosine `0.83`, pairwise-distance congruence `0.90`, and the same `3.30x`
+class separation as the data-derived map. A flat `P=512, k=32` weight-action SAE recovered about 98.3% of
+MLP0's live CE value, but only `R2≈0.739`; its function was seed-stable while individual atoms were not
+(mean best-atom cosine about `0.52`). That is exactly the signature for trying structure above a flat SAE,
+not another optimizer tweak.
+
+Two qualifications matter:
+
+1. General MLP0 inputs at later positions include context through block-0 attention. Only the one-token or
+   position-zero map is exhaustively foldable from token identity. We will first identify that exact static
+   component, then measure the contextual residual rather than claiming the finite vocabulary is all of MLP0.
+2. Bilinear CP factors have permutation, scale, and Left/Right-swap gauges, and overcomplete factorizations
+   can be non-unique. We will score recovered projectors, functional blocks, fixed router supports, and partial
+   orders—not equality of raw hidden-unit labels. A real DAG claim also needs interventions or asymmetry;
+   covariance clustering alone cannot orient an edge.
+
+## The planted-to-real test
+
+Before interpreting real weights, train bilinear toys whose embedding-to-output function contains a known
+structure, then hide that structure behind unit permutation/rescaling and within-subspace rotations.
+
+- **Block toy:** disjoint token/input groups write disjoint output subspaces.
+- **Hierarchy toy:** child subspaces share parent features, with a known nesting tree.
+- **DAG toy:** blocks have a known triangular parent-to-child innovation rule; score reachability and the
+  transitive reduction, not an arbitrary dense edge representation.
+- **Finite-router toy:** one of a small number of router states selects a fixed expert subset; compare its
+  description length and recovery with unconstrained top-k.
+- **Nulls:** a randomly rotated flat bilinear map, overlapping non-identifiable blocks, shuffled token labels,
+  and a state count large enough to memorize tokens.
+
+The recovery metrics are held-out function fidelity, adjusted Rand index for block/router assignments,
+projector distance for nested subspaces, reachability and transitive-reduction F1 for the DAG, stability across
+seeds and gauges, and literal description length. A planted route advances only if it recovers the known object
+above its nulls. The same instrument then becomes a *screen* on real MLP0; it becomes an identification only
+after held-out contextual positions and interventions agree.
+
+## The other five independent directions
+
+1. **Direct shared MLP tensor compression.** Fit layer-shared CP/Tucker/tensor-train factors to the eighteen
+   Left/Right/Down tensors under a ridged real-input and causal-response metric. Test a literal replacement,
+   not merely tensor similarity. A 25% saving would remove about 72M scalars.
+2. **Joint vocabulary factorization.** Learn a shared vocabulary code for the untied input embedding and
+   output head, plus separately priced sparse residuals for exceptional tokens. Rare-token and shifted-corpus
+   loss are the decisive nulls.
+3. **Causal-response coordinates.** Allocate tensor rank by signed intervention effect preserved per scalar,
+   using held-out circuits and text. This tests whether the smallest weight singular directions matter because
+   they align with a much smaller observable response basis.
+4. **Predictive causal-state quotient.** Estimate a prefix/continuation/intervention Hankel rank and compile
+   equivalence classes of residual states that have the same controlled future behavior. This can remove
+   redundancy spanning modules rather than compressing each matrix separately.
+5. **Executable error contracts and lower bounds.** Propagate local tensor approximation bounds through the
+   residual stream and compare the empirical storage frontier with predictive-state/information lower bounds.
+   The goal is to kill impossible compression targets cheaply and identify where precision is actually spent.
+
+## Eight-hour allocation
+
+Each direction gets one protected hour. The final two hours compare and exploit rather than starting a seventh
+idea.
+
+| UTC window | Work product |
+|---|---|
+| 02:40–03:40 | Direction 6: planted-to-real embedding-folded MLP0 structural screen |
+| 03:40–04:40 | Direction 1: direct shared bilinear-MLP compression screen |
+| 04:40–05:40 | Direction 2: joint vocabulary-map factorization screen |
+| 05:40–06:40 | Direction 3: causal-response-coordinate screen |
+| 06:40–07:40 | Direction 4: predictive causal-state/Hankel screen |
+| 07:40–08:40 | Direction 5: executable error contract/lower-bound screen |
+| 08:40–09:40 | Common scorecard, confound audit, and ranking |
+| 09:40–10:40 | Execute the decisive follow-up for the best one or two routes; write the morning synthesis |
+
+An hour is a decision budget, not a promise to burn sixty minutes after a result is decisive. Every checkpoint
+must leave a durable record of the object tested, opposing prediction, receipt, null/limitation, literal price,
+and next decision, then immediately begin the next lane. A long GPU job may finish later, but its lane still
+owes a preregistration and a cheap discriminating screen within its hour.
+
+## How the plan survives context resets
+
+The active Codex durable goal contains the full six-route contract and the morning stopping condition. The
+`bilin18-research-driver` skill restores the current explanation, rotation ledger, board, runner, and repository
+state at every new research turn. At each elapsed hour it performs the strategic step-back and launches the
+next concrete probe. The managed GPU runner serializes registered jobs while CPU mathematics and analysis
+continue. The schedule is therefore stored in three independent places—the durable goal, the skill, and the
+checked-in rotation ledger—rather than relying on conversational memory.
+
+## Morning decision rule
+
+Rank every route on measured signal, possible literal scalar/byte and compute saving, predictive and causal
+fidelity, identifiability, robustness to corpus shift, and cost of the decisive next experiment. Continue the
+highest expected-value route or two after 10:40 UTC. A beautiful latent structure that cannot be identified
+under gauge/null controls remains a screen; a high-fidelity hook that stores the native graph is not a compiler
+win; and a small finite-state router must beat the fully priced top-k and dense baselines.
