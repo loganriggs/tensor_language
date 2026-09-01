@@ -1,0 +1,360 @@
+{
+  "status": "mlp_shared_input_svd_all_layers_screen_complete",
+  "rung": 318,
+  "claim_level": "independent_all_layer_weight_only_two_corpus_screen",
+  "convention": "CE added above native; lower is better",
+  "evaluation": {
+    "fineweb_cache": "fineweb_n192_skip11000.pt",
+    "fineweb_rows_half_open": [
+      176,
+      188
+    ],
+    "wikitext_skip": 80000,
+    "wikitext_rows": 12,
+    "wikitext_fingerprint": "a46124b21ac53738"
+  },
+  "native_ce": {
+    "fineweb": 3.034735163052877,
+    "wikitext": 4.080948988596599
+  },
+  "weight_energy_capture": {
+    "0": {
+      "512": 0.6453236937522888,
+      "768": 0.8268525004386902
+    },
+    "1": {
+      "512": 0.5821823477745056,
+      "768": 0.7861154675483704
+    },
+    "2": {
+      "512": 0.6016983985900879,
+      "768": 0.7986058592796326
+    },
+    "3": {
+      "512": 0.6154130697250366,
+      "768": 0.8079177141189575
+    },
+    "4": {
+      "512": 0.6171456575393677,
+      "768": 0.8100883364677429
+    },
+    "5": {
+      "512": 0.6194077134132385,
+      "768": 0.8135525584220886
+    },
+    "6": {
+      "512": 0.6167622208595276,
+      "768": 0.8126696348190308
+    },
+    "7": {
+      "512": 0.6125520467758179,
+      "768": 0.8109027743339539
+    },
+    "8": {
+      "512": 0.6155605912208557,
+      "768": 0.8128417730331421
+    },
+    "9": {
+      "512": 0.6118251085281372,
+      "768": 0.8094979524612427
+    },
+    "10": {
+      "512": 0.6086961627006531,
+      "768": 0.807807445526123
+    },
+    "11": {
+      "512": 0.6068517565727234,
+      "768": 0.8057085871696472
+    },
+    "12": {
+      "512": 0.60634845495224,
+      "768": 0.8052091598510742
+    },
+    "13": {
+      "512": 0.607363224029541,
+      "768": 0.8059680461883545
+    },
+    "14": {
+      "512": 0.6101055145263672,
+      "768": 0.8075869679450989
+    },
+    "15": {
+      "512": 0.6116071939468384,
+      "768": 0.8077231049537659
+    },
+    "16": {
+      "512": 0.6151407957077026,
+      "768": 0.8093670606613159
+    },
+    "17": {
+      "512": 0.6220285296440125,
+      "768": 0.8127621412277222
+    }
+  },
+  "arms": {
+    "0": {
+      "512": {
+        "fineweb_damage": 0.01144997278849269,
+        "wikitext_damage": 0.011822223663330078,
+        "saving_scalars_if_installed": 5308416
+      },
+      "768": {
+        "fineweb_damage": 0.002262751261393081,
+        "wikitext_damage": 0.0076749324798583984,
+        "saving_scalars_if_installed": 2654208
+      }
+    },
+    "1": {
+      "512": {
+        "fineweb_damage": 0.07164148489634181,
+        "wikitext_damage": 0.0994705359141026,
+        "saving_scalars_if_installed": 5308416
+      },
+      "768": {
+        "fineweb_damage": 0.02609837055206299,
+        "wikitext_damage": 0.03887951374053955,
+        "saving_scalars_if_installed": 2654208
+      }
+    },
+    "2": {
+      "512": {
+        "fineweb_damage": 0.021992087364196777,
+        "wikitext_damage": 0.03011218706766705,
+        "saving_scalars_if_installed": 5308416
+      },
+      "768": {
+        "fineweb_damage": 0.009876569112141631,
+        "wikitext_damage": 0.01733088493347168,
+        "saving_scalars_if_installed": 2654208
+      }
+    },
+    "3": {
+      "512": {
+        "fineweb_damage": 0.03049914042154933,
+        "wikitext_damage": 0.029975016911824248,
+        "saving_scalars_if_installed": 5308416
+      },
+      "768": {
+        "fineweb_damage": 0.0102689663569131,
+        "wikitext_damage": 0.015583316485086485,
+        "saving_scalars_if_installed": 2654208
+      }
+    },
+    "4": {
+      "512": {
+        "fineweb_damage": 0.014795422554016113,
+        "wikitext_damage": 0.030968546867370605,
+        "saving_scalars_if_installed": 5308416
+      },
+      "768": {
+        "fineweb_damage": 0.008687853813171387,
+        "wikitext_damage": 0.019084135691324278,
+        "saving_scalars_if_installed": 2654208
+      }
+    },
+    "5": {
+      "512": {
+        "fineweb_damage": 0.024141311645507812,
+        "wikitext_damage": 0.03114799658457379,
+        "saving_scalars_if_installed": 5308416
+      },
+      "768": {
+        "fineweb_damage": 0.018518805503845215,
+        "wikitext_damage": 0.021648049354553223,
+        "saving_scalars_if_installed": 2654208
+      }
+    },
+    "6": {
+      "512": {
+        "fineweb_damage": 0.019919355710347197,
+        "wikitext_damage": 0.02126634120941162,
+        "saving_scalars_if_installed": 5308416
+      },
+      "768": {
+        "fineweb_damage": 0.012641191482543945,
+        "wikitext_damage": 0.018021504084268614,
+        "saving_scalars_if_installed": 2654208
+      }
+    },
+    "7": {
+      "512": {
+        "fineweb_damage": 0.013922293980916045,
+        "wikitext_damage": 0.01991140842437744,
+        "saving_scalars_if_installed": 5308416
+      },
+      "768": {
+        "fineweb_damage": 0.005951444307962905,
+        "wikitext_damage": 0.008481105168660186,
+        "saving_scalars_if_installed": 2654208
+      }
+    },
+    "8": {
+      "512": {
+        "fineweb_damage": 0.019314249356587432,
+        "wikitext_damage": 0.018085519472757383,
+        "saving_scalars_if_installed": 5308416
+      },
+      "768": {
+        "fineweb_damage": 0.009419520696003936,
+        "wikitext_damage": 0.011555751164753936,
+        "saving_scalars_if_installed": 2654208
+      }
+    },
+    "9": {
+      "512": {
+        "fineweb_damage": 0.015850424766540527,
+        "wikitext_damage": 0.012138803799946807,
+        "saving_scalars_if_installed": 5308416
+      },
+      "768": {
+        "fineweb_damage": 0.009529471397399902,
+        "wikitext_damage": 0.011191566785176299,
+        "saving_scalars_if_installed": 2654208
+      }
+    },
+    "10": {
+      "512": {
+        "fineweb_damage": 0.017989754676818848,
+        "wikitext_damage": 0.015725533167520567,
+        "saving_scalars_if_installed": 5308416
+      },
+      "768": {
+        "fineweb_damage": 0.007335464159647476,
+        "wikitext_damage": 0.010133862495422363,
+        "saving_scalars_if_installed": 2654208
+      }
+    },
+    "11": {
+      "512": {
+        "fineweb_damage": 0.01574075222015381,
+        "wikitext_damage": 0.0166473388671875,
+        "saving_scalars_if_installed": 5308416
+      },
+      "768": {
+        "fineweb_damage": 0.007214268048604033,
+        "wikitext_damage": 0.012899597485859893,
+        "saving_scalars_if_installed": 2654208
+      }
+    },
+    "12": {
+      "512": {
+        "fineweb_damage": 0.01687403519948294,
+        "wikitext_damage": 0.0069730281829833984,
+        "saving_scalars_if_installed": 5308416
+      },
+      "768": {
+        "fineweb_damage": 0.010484496752420913,
+        "wikitext_damage": 0.00656735897064209,
+        "saving_scalars_if_installed": 2654208
+      }
+    },
+    "13": {
+      "512": {
+        "fineweb_damage": 0.011808594067891143,
+        "wikitext_damage": 0.009265542030334473,
+        "saving_scalars_if_installed": 5308416
+      },
+      "768": {
+        "fineweb_damage": 0.006441513697306167,
+        "wikitext_damage": 0.004720966021219297,
+        "saving_scalars_if_installed": 2654208
+      }
+    },
+    "14": {
+      "512": {
+        "fineweb_damage": 0.019334276517231963,
+        "wikitext_damage": 0.008269468943277403,
+        "saving_scalars_if_installed": 5308416
+      },
+      "768": {
+        "fineweb_damage": 0.007845600446064971,
+        "wikitext_damage": 0.0015211502710972269,
+        "saving_scalars_if_installed": 2654208
+      }
+    },
+    "15": {
+      "512": {
+        "fineweb_damage": 0.1140594482421875,
+        "wikitext_damage": 0.13254872957865338,
+        "saving_scalars_if_installed": 5308416
+      },
+      "768": {
+        "fineweb_damage": 0.10523660977681448,
+        "wikitext_damage": 0.1286927858988438,
+        "saving_scalars_if_installed": 2654208
+      }
+    },
+    "16": {
+      "512": {
+        "fineweb_damage": 0.789997617403666,
+        "wikitext_damage": 1.2724285125732422,
+        "saving_scalars_if_installed": 5308416
+      },
+      "768": {
+        "fineweb_damage": 0.7408650318781533,
+        "wikitext_damage": 1.2097004254659014,
+        "saving_scalars_if_installed": 2654208
+      }
+    },
+    "17": {
+      "512": {
+        "fineweb_damage": 0.10000920295715332,
+        "wikitext_damage": 0.27155383427937796,
+        "saving_scalars_if_installed": 5308416
+      },
+      "768": {
+        "fineweb_damage": 0.08011412620544434,
+        "wikitext_damage": 0.23539980252583792,
+        "saving_scalars_if_installed": 2654208
+      }
+    }
+  },
+  "p768_qualifying_layers": [
+    0,
+    2,
+    3,
+    4,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14
+  ],
+  "p512_qualifying_layers": [
+    0,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14
+  ],
+  "p768_median_fineweb_damage": 0.009529471397399902,
+  "p768_median_wikitext_damage": 0.012899597485859893,
+  "p768_max_damage": 1.2097004254659014,
+  "p768_no_worse_on_every_p512_qualifier": true,
+  "pred_a_p768_is_broad": true,
+  "pred_b_p768_distribution_is_tight": false,
+  "pred_c_p512_has_a_real_lower_fidelity_regime": true,
+  "null_p768_is_not_a_repeated_law": true,
+  "prospective_first_composition_if_earned": {
+    "layers": [
+      0,
+      8,
+      17
+    ],
+    "rank": 768
+  },
+  "runtime_s": 15.295558452606201
+}
