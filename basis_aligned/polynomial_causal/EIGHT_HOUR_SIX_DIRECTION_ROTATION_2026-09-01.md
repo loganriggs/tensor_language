@@ -539,3 +539,12 @@ Full ranking and adoption gates: `SIX_DIRECTION_COMPARISON_2026-09-01.md`.
   below p448. Aggregate census alone would incorrectly advance p384/p256.
 - Decision: signed causal gate for p448 only. Stop p384/p256 at labeled tiers and do not relax tail bars or insert
   intermediate ranks.
+
+### `06:10 UTC` — exploit checkpoint `330`, formal p448 adoption
+
+- Result: p448 signed cosine/error/norm ratio `.992558/.127682/1.030608`, collateral rho `.996020`, own ratio
+  `1.035203`; every live baseline, OOD, identity, and price predicate holds, null false.
+- Information gained: contextual MLP0 rank448 remains intervention-faithful; shifted worst-row tail, not causal
+  distortion, is what stops lower ranks.
+- Decision: formally adopt 533,623,094 scalars, +.012662, 43/62, Wiki +.011411 as the smallest fully gated point.
+  Switch modules and test contextual rank96 Q/K factors against mixed104's hand-selected rank104 fine band.

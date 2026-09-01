@@ -3619,3 +3619,6 @@ later per-rung backlog edits had silently anchored on text that was not here.
     direct signed a16 mean-ablation effect versus saved p448 baseline; live
     identity/price, collateral ordering, own magnitudes.
     -> ops/a16_transfer_mixed104_mlp0_context_metric_p448.py
+    RUN 2026-09-01: ALL HELD, null false. cosine/error/rho/own
+    .992558/.127682/.996020/1.035203. Formally adopt p448 at 533,623,094,
+    +.012662/43, Wiki +.011411; smallest fully gated point.
