@@ -3643,6 +3643,9 @@ later per-rung backlog edits had silently anchored on text that was not here.
     identical a16 mean ablation, direct signed vector/collateral/own effects,
     live split-B baseline, context96 identity and 535,089,462 bill.
     -> ops/a16_transfer_mixed96_context_metric_qk.py
+    RUN 2026-09-01: ALL HELD, null false. cosine/error/norm ratio
+    .997617/.074857/1.026198; collateral rho .998265, own ratio 1.029761.
+    Formally adopt 535,089,462 / +.00141535 / 61 as high-fidelity point.
 
 334. [CODEX, board-claimed 06:45Z] DUAL-CONTEXT PHYSICAL COMPOSITION:
     combine split-B context-QK96 with context-MLP0 p448 at exact

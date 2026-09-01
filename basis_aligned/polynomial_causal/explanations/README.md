@@ -7,6 +7,9 @@ primary evidence.
 
 ## Start here
 
+- [`explanation_0615.md`](explanation_0615.md) — 2026-09-01 formal context-QK96 adoption: the independent-fit
+  535.09M artifact reaches +.001415/61 certificates and .9976 signed-effect cosine; current composition test and
+  six next paths
 - [`explanation_0545.md`](explanation_0545.md) — 2026-09-01 formal adoption: contextual-covariance MLP0 ranks
   640/512 pass census, certificates, shifted OOD, literal price, and signed causal gates; new dominant artifact
   535.61M and smallest adopted Pareto point 534.29M
