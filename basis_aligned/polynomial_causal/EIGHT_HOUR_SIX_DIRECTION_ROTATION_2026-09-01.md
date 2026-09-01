@@ -246,3 +246,16 @@ only explicitly priced small finite router states count as a structural decompos
   on fit data by a diagonal Fisher-error score and compared with norm-selected and random rare rows at equal price.
 
 Full ranking and adoption gates: `SIX_DIRECTION_COMPARISON_2026-09-01.md`.
+
+### `03:39 UTC` — exploit checkpoint `304`
+
+- Exact object and price: count-weighted shared rank512 plus `K=1129` indexed exact residual rows, one
+  1152-vector and one index each. Total vocabulary price was **86,924,521** scalars, **74.9993%** of native,
+  the maximal integer-row program under a strict 25% saving.
+- Result: the base on the new windows was `+.2336` FineWeb / `+.2668` WikiText. Fisher selection repaired only
+  `1.77%/4.36%`; residual-norm selection was slightly better at `3.40%/4.22%`; random was `-.17%/+1.80%`.
+  Fisher unseen-target repair was only `2.09%/.53%`. All three predictions failed and the null triggered.
+- Information gained: Fisher, norm, and random selections overlap by only 3–5%, yet none repairs more than 6%
+  of unseen damage. The tail is not a small exception table; error is distributed over many rare/unseen rows.
+- Decision: **kill** sparse exact-row repair at the available budget. Continue the shared-code route once with
+  a distributed residual-rank frontier; stop it if ranks 640/768 cannot reach new predictive and tail bars.

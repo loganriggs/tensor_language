@@ -3383,3 +3383,12 @@ later per-rung backlog edits had silently anchored on text that was not here.
     null false. All real classifiers beat mean shuffle by >=.10, but parenthesis
     R2 fell below shuffle-p95. Withdraw R2-level state evidence; circuit-level
     classifier survives. Compiler-route kill unchanged.
+
+304. [CODEX, board-claimed 03:42Z] FISHER-SELECTED SPARSE RARE RESIDUAL:
+    count-weighted shared rank512 plus maximal K=1129 indexed exact rows under
+    25% vocabulary saving; compare Fisher, residual-norm, and random rare rows.
+    -> ops/joint_vocab_sparse_rare_residual.py
+    RUN 2026-09-01, S2402: ALL PREDS FAILED, null won. Fisher repaired aggregate
+    only 1.8%/4.4% and unseen 2.1%/.5%; norm was 3.4%/4.2%. Selectors overlapped
+    only 3-5%, so rare error is distributed rather than a small exception table.
+    Kill sparse-row repair; test one distributed-rank frontier.

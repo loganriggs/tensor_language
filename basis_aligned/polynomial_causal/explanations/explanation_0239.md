@@ -284,3 +284,18 @@ The exploit phase uses the small amount of room still available under a strict 2
 logit errors contribute most to CE. That selection is compared prospectively against equal-price residual-norm and
 random rare-row controls on new FineWeb and WikiText windows. A pass must repair the unseen-token tail as well as
 aggregate CE; simply protecting common tokens again will not count.
+
+## Exploit checkpoint: sparse rows fail (03:39 UTC)
+
+The maximal exact-row hybrid under a strict 25% vocabulary saving stores 1,129 corrected rows. It did not repair
+the tail. Fisher selection reduced aggregate damage by only `1.8%` on FineWeb and `4.4%` on WikiText; selecting
+the largest residual-row norms was slightly better on FineWeb and essentially tied on WikiText. Unseen-target
+damage moved by at most about 6% for any arm, far below the 40% bar. All registered predictions failed and the
+null won.
+
+This is informative because the three selectors chose almost disjoint sets (only 3–5% overlap) but all failed.
+The rare failure is distributed across far more than a thousand token rows, not concentrated in a recoverable
+exception table. Sparse corrections are stopped. The last vocabulary exploit therefore buys distributed residual
+rank instead: ranks 640 and 768 relax vocabulary savings toward 20% and 15%, respectively. If that frontier cannot
+reach predictive and unseen-tail bars against matched independent controls, the route is stopped and the secondary
+activation-PCA MLP direction takes over.
