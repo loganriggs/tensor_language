@@ -53,3 +53,6 @@ n=$(grep -cve '^[[:space:]]*$' "$D/queue.txt" 2>/dev/null); n=${n:-0}
 if bash "$D/ops/gpu_free.sh" >/dev/null 2>&1; then g="GPU free"; else g="GPU busy"; fi
 echo "QUEUED $f"
 echo "  lane 1 depth now $n   ($g -- the runner serializes; depth >= 2 keeps it fed)"
+
+# Advisory lint (never blocking): show instrument-clause warnings at enqueue time.
+/venv/main/bin/python "$(dirname "$0")/preflight.py" "$1" 2>/dev/null || true
