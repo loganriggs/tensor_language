@@ -4062,10 +4062,14 @@ later per-rung backlog edits had silently anchored on text that was not here.
   stored 5,314,176 values. The 14,984 count is the mathematical factor bill, not yet physical. Composition is
   paused; function and signed results stand, but low-price/dominance claims await rung391.
 
-### Rung 391 — physical eight-projection storage and signed reproduction — CLAIMED
+### Rung 391 — physical eight-projection storage and signed reproduction — COMPLETE
 
 - Rebuild identical fit-B forms; replace every dense rank-2 matrix by two signed projection vectors plus two
   scalars; retain only output directions, 4×2 vectors/scalars, and constant (exact 14,984 values).
 - Require form/prediction equivalence, saved dense-CEV reproduction, exactly27 checks, and original-native signed
   a16 fidelity plus live hooks. A pass restores the literal price and one-composition license; failure maps the
   result only as a 5,314,176-value dense surrogate.
+- RUN 2026-09-01: all held, null false. Actual stored shapes `[4,1152]`, `[4,2,1152]`, `[4,2]`, `[1152]`
+  sum to14,984 with no dense form. Form/output errors 4.89e-8/4.65e-7; CEV max/mean differences
+  1.24e-5/1.09e-6; +.038978/27 exact; native signed cosine/error/norm .979722/.213062/1.052011.
+  Literal price, Tucker dominance, and one QK64+MLP0/4 composition license restored.

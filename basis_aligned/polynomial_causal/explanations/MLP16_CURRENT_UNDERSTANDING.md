@@ -28,7 +28,9 @@ therefore used eight squared projections plus four output directions:
 That old formula omitted the 1,152-number constant vector `mu_perp + bias` needed by the replacement.
 The corrected mathematical factor price is therefore **14,984**. A later literal-storage audit found that the
 scored hook retained dense quadratic matrices (5,314,176 values); rung391 must reproduce the same function with
-the actual eight-projection tensors before 14,984 becomes a physical executable price. It cost 4.2% of the measured damage of deleting the layer;
+the actual eight-projection tensors before 14,984 becomes a physical executable price. Rung391 did so: its saved
+object contains exactly 14,984 tensor values, no dense form, and reproduces the dense function and signed gate to
+numerical precision. It cost 4.2% of the measured damage of deleting the layer;
 the receipt's exact CE was `3.48647776` against `3.45574331`, or **+0.03073445**. The output PCs, whitening metric,
 and CE evaluation were all derived from overlapping portions of `bilin18_eval_tokens.pt`, so this was a live-model
 replacement but not a clean held-out generalization test. It also predates the current 62 behavior checks,
@@ -88,7 +90,8 @@ price is 14,984 but whose scored hook was later found to store 5,314,176 dense v
 - versus a matched random-output arm at R² −.0062, census +.148198, and 5/62.
 
 It beats rung388's Tucker core on every common modern quality measure. Its 0.725%-of-Tucker price claim remains
-conditional on rung391 physically reproducing the function from eight projection vectors. Therefore:
+conditional on rung391 physically reproducing the function from eight projection vectors; rung391 passed and
+restored that price claim. Therefore:
 
 - do not call the Tucker result a compression frontier;
 - do not tune Tucker ranks at layer 16;
