@@ -700,6 +700,8 @@ def main() -> None:
         "next_step": (
             "product_metric_physical_sparse_vs_continuous_vs_rank_matched_price"
             if pred_a and pred_b and pred_c and pred_d and not strong_null
+            else "efficient_shared_sparse_generator_atom_specificity_partial_run_coupled_score"
+            if pred_a and pred_b and pred_c and not pred_d and not strong_null
             else "descriptive_sparse_atoms_only_continue_continuous_generator"
             if pred_a and pred_b and not pred_c
             else "generic_global_capacity_not_shared_vocabulary"
