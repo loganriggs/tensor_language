@@ -3443,3 +3443,12 @@ later per-rung backlog edits had silently anchored on text that was not here.
     RUN 2026-09-01, S2408: pred_b/c held, pred_a failed, null false. Census
     +.06745057, MLP surcharge +.06275862, fresh max +.0687, all identities live;
     but only 8/62 certificates. Not adopted. Test exactly three two-layer subsets.
+
+311. [CODEX, board-claimed 04:05Z] MIXED104 + PCA PAIR FRONTIER:
+    evaluate `{0,8}`, `{0,17}`, and `{8,17}` at rank256 inside one common
+    mixed104 rebuild; identical 7,667,712-scalar saving and all 62 certificates.
+    -> ops/mixed104_pca_fixed_pair_frontier.py
+    RUN 2026-09-01, S2409: pred_b only, null false. `{0,8}` +.04021/16 certs,
+    `{0,17}` +.04970/17, `{8,17}` +.04726/19. No pair reaches the frozen
+    20-certificate bar or improves the triple-normalized price/damage tradeoff.
+    Stop subset search; test a fixed-pair rank frontier.

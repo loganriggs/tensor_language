@@ -333,3 +333,16 @@ Full ranking and adoption gates: `SIX_DIRECTION_COMPARISON_2026-09-01.md`.
   collapse from 54 to 8. This is the same certificate sensitivity seen in compute top-k, now for low-rank MLPs.
 - Decision: do not adopt triple. Test the three two-layer subsets in one frozen mixed104 rebuild; ask whether one
   recovers certificate thresholds disproportionately at 7,667,712-scalar saving. No further layer search.
+
+### `04:12 UTC` — exploit checkpoint `311`
+
+- Result: the common-rebuild pair frontier was `{0,8}: +.04021, 16/62`, `{0,17}: +.04970, 17/62`, and
+  `{8,17}: +.04726, 19/62`. Every pair's surcharge was in the frozen range, but no pair reached the joint
+  `<=+.050` and `>=20` bar. The certificate-first winner also narrowly missed the triple-normalized
+  damage-per-saved-scalar bar. pred_b held; pred_a/c failed; strong null false.
+- Information gained: deleting one projected layer buys 8–11 certificates, but there is no discontinuous recovery
+  and no uniquely toxic member of the spread triple. Certificates track a smooth common damage direction with
+  circuit-specific thresholds.
+- Decision: stop subset search. Measure ranks 384 and 512 on the fixed `{8,17}` pair in one rebuild, with literal
+  prices and certificates. This directly tests whether capacity buys certificates efficiently before attempting a
+  constraint-aware basis or accepting a two-tier identification/compression result.

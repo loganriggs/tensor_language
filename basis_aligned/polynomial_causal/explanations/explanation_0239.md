@@ -379,3 +379,17 @@ The blocker is manipulability: only 8 of 62 certificates survive, missing the pr
 below the parent's 54. The triple is not adopted. One final capacity frontier tests its three two-layer subsets in
 the same frozen mixed104 rebuild. If a pair restores certificate thresholds at a useful rate, it may earn fresh/OOD
 confirmation; otherwise MLP compression closes as prediction-cheap but certificate-expensive.
+
+## Physical pair frontier: capacity helps smoothly, not disproportionately (04:12 UTC)
+
+All three rank-256 two-layer subsets remain predictively usable, but none clears the certificate gate. `{0,8}`
+lands at `+.04021` with `16/62` certificates, `{0,17}` at `+.04970` with `17/62`, and `{8,17}` at `+.04726`
+with `19/62`. Each saves exactly 7,667,712 scalars and proposes a 531,927,350-scalar standalone program.
+
+Removing one projection therefore recovers 8–11 certificates from the triple, but the best arm misses the frozen
+20-certificate bar by one and its surcharge per saved scalar is slightly worse than the triple's. The result rejects
+a special toxic-layer explanation: the certificate count moves smoothly with total distortion, and every pair
+lies in the expected aggregate-loss band. The next test buys rank rather than searching more subsets: compare
+rank 384 and 512 on the frozen best pair at equal layer identities. This measures the certificate/scalar frontier
+directly. If higher rank cannot restore certificates faster than its storage cost, the honest outcome is a
+certificate-grade identification tier plus a lower-fidelity compression tier, not another adoption claim.
