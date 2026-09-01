@@ -1,0 +1,184 @@
+{
+  "legacy": {
+    "ce": 3.55755478143692,
+    "damage_from_recorded_baseline": 0.1018114686012268
+  },
+  "local": {
+    "clean": {
+      "heldout_r2": -29.684560775756836,
+      "fresh_r2": -32.076229095458984
+    },
+    "random_output": {
+      "heldout_r2": -0.04954659938812256,
+      "fresh_r2": -0.042272090911865234
+    }
+  },
+  "prices": {
+    "old_reported_layer_scalars_omitting_constant": 13832,
+    "corrected_layer_scalars": 14984,
+    "native_layer_scalars": 15926400,
+    "program_fraction_of_native_layer": 0.0009408278079164155,
+    "program_fraction_of_rung388_tucker_layer": 0.007254291380058251,
+    "native_model_scalars": 545902902,
+    "program_model_scalars": 529991486
+  },
+  "census": {
+    "clean": {
+      "damage": 0.3031396269798279,
+      "mean_absolute_position_damage": 0.6170122623443604,
+      "certificates": 0,
+      "ray_projection_scale": 39.101757200878396,
+      "ray_cosine": 0.9665418236900606,
+      "ray_vector_r2": 0.7790329553348837,
+      "ray_predicted_certificates": 1,
+      "ray_certificate_count_error": 1
+    },
+    "random_output": {
+      "damage": 0.6012564897537231,
+      "mean_absolute_position_damage": 0.9433754682540894,
+      "certificates": 0,
+      "ray_projection_scale": 48.96165366260358,
+      "ray_cosine": 0.9349300555602552,
+      "ray_vector_r2": 0.6392739263970982,
+      "ray_predicted_certificates": 1,
+      "ray_certificate_count_error": 1
+    }
+  },
+  "transfer": {
+    "clean": {
+      "wikitext103": {
+        "mean": 0.3920160936129103,
+        "p95": 0.5510763262194814,
+        "max": 0.6914699838553133
+      },
+      "fineweb_fresh": {
+        "mean": 0.3144954290459978,
+        "p95": 0.45992081793713735,
+        "max": 0.4747360258634217
+      }
+    },
+    "random_output": {
+      "wikitext103": {
+        "mean": 0.6990093227199063,
+        "p95": 0.9309960732204559,
+        "max": 1.1365527838288472
+      },
+      "fineweb_fresh": {
+        "mean": 0.5556135160290813,
+        "p95": 0.7381390707569281,
+        "max": 0.7613144427506597
+      }
+    }
+  },
+  "predicates": [
+    false,
+    false,
+    false,
+    false
+  ],
+  "strong_null": true,
+  "composition_licensed": false,
+  "runtime_s": 36.573198318481445
+}
+L16 RANK2 QUADRATIC CURRENT GATE DONE
+{
+  "legacy_ce": 3.55755478143692,
+  "local": {
+    "clean": {
+      "heldout_r2": -29.684560775756836,
+      "fresh_r2": -32.076229095458984
+    },
+    "random_output": {
+      "heldout_r2": -0.04954659938812256,
+      "fresh_r2": -0.042272090911865234
+    }
+  },
+  "census": {
+    "clean": {
+      "damage": 0.3031396269798279,
+      "certificates": 0,
+      "ray_cosine": 0.9665418236900606,
+      "ray_vector_r2": 0.7790329553348837
+    },
+    "random_output": {
+      "damage": 0.6012564897537231,
+      "certificates": 0,
+      "ray_cosine": 0.9349300555602552,
+      "ray_vector_r2": 0.6392739263970982
+    }
+  },
+  "transfer": {
+    "wikitext": {
+      "mean": 0.3920160936129103,
+      "p95": 0.5510763262194814,
+      "max": 0.6914699838553133
+    },
+    "fresh": {
+      "mean": 0.3144954290459978,
+      "p95": 0.45992081793713735,
+      "max": 0.4747360258634217
+    }
+  },
+  "physical": {
+    "clean": {
+      "shapes": {
+        "output_directions": [
+          4,
+          1152
+        ],
+        "form_vectors": [
+          4,
+          2,
+          1152
+        ],
+        "form_values": [
+          4,
+          2
+        ],
+        "constant": [
+          1152
+        ]
+      },
+      "scalars": 14984,
+      "dtypes": [
+        "torch.float32"
+      ],
+      "no_dense_form": true,
+      "factorization_relative_error": 2.5004576383759353e-08
+    },
+    "random_output": {
+      "shapes": {
+        "output_directions": [
+          4,
+          1152
+        ],
+        "form_vectors": [
+          4,
+          2,
+          1152
+        ],
+        "form_values": [
+          4,
+          2
+        ],
+        "constant": [
+          1152
+        ]
+      },
+      "scalars": 14984,
+      "dtypes": [
+        "torch.float32"
+      ],
+      "no_dense_form": true,
+      "factorization_relative_error": 2.517514203643637e-08
+    }
+  },
+  "predicates": [
+    true,
+    false,
+    false,
+    true
+  ],
+  "null": true
+}
+R415 PHYSICAL CURRENT-HARNESS MLP17 QUADRATIC DONE
