@@ -210,6 +210,8 @@ def _physical(model, rows: torch.Tensor, state_table: torch.Tensor,
     consumer_den = {name: 0.0 for name in CONSUMERS}
     ce = {"NATIVE": [], **{arm: [] for arm in arms}}
     logit_max = {arm: 0.0 for arm in arms}
+    logit_sse = {arm: 0.0 for arm in arms}
+    logit_den = 0.0
     state_max = 0.0
     direct_rescale_sse = 0.0
     direct_rescale_den = 0.0
@@ -277,6 +279,7 @@ def _physical(model, rows: torch.Tensor, state_table: torch.Tensor,
             consumer_den[name] += float(target.double().square().sum())
         native_logits = edge_mod._suffix_logits(
             model, tokens, x0, token_base, native_attention, first_value)
+        logit_den += float(native_logits.double().square().sum())
         for row in range(len(batch)):
             ce["NATIVE"].append(scoring.document_mean_ce(native_logits[row], batch[row, 1:]))
 
@@ -302,6 +305,8 @@ def _physical(model, rows: torch.Tensor, state_table: torch.Tensor,
             logits = edge_mod._suffix_logits(
                 model, tokens, x0, token_base, changed, first_value)
             logit_max[arm] = max(logit_max[arm], float((logits - native_logits).abs().max()))
+            logit_sse[arm] += float(
+                (logits.double() - native_logits.double()).square().sum())
             for row in range(len(batch)):
                 ce[arm].append(scoring.document_mean_ce(logits[row], batch[row, 1:]))
 
@@ -337,6 +342,8 @@ def _physical(model, rows: torch.Tensor, state_table: torch.Tensor,
             arm: {name: 1 - consumer_sse[arm][name] / max(consumer_den[name], 1e-30)
                   for name in CONSUMERS} for arm in arms},
         "max_absolute_logit_difference": logit_max,
+        "logit_relative_squared_error": {
+            arm: logit_sse[arm] / max(logit_den, 1e-30) for arm in arms},
         "ce": ce_report,
     }
 
@@ -404,7 +411,7 @@ def main() -> None:
         and physical["direct_constant_vs_rescaled_native_relative_squared_error"] <= 1e-10
         and exact_product <= 1e-10
         and exact_write <= 1e-10
-        and physical["max_absolute_logit_difference"]["EXACT_TABLE"] <= 2e-5
+        and physical["logit_relative_squared_error"]["EXACT_TABLE"] <= 1e-10
         and abs(exact_ce["damage"]) <= 1e-6
         and physical["constant_ratio_max_deviation_from_one"] >= 1e-3)
     pred_b = bool(
