@@ -1,4 +1,4 @@
-# Preregistration — coupled sparse query/key score-product generator (rung 428)
+# Preregistration — coupled sparse query/key score-product generator (rung 430)
 
 Date: 2026-09-01 20:31 UTC  
 Claim level: held-out composition, physical-generator, and semantic-candidate screen; not adoption

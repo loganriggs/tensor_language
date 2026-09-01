@@ -1,4 +1,4 @@
-"""RUNG 428 -- COUPLED SPARSE QUERY/KEY SCORE-PRODUCT GENERATOR.
+"""RUNG 430 -- COUPLED SPARSE QUERY/KEY SCORE-PRODUCT GENERATOR.
 
 User-directed second section-14.3 experiment.  Rung426 established that one
 global sparse [q|k] token code beats 18 independent codes at lower bytes, but
@@ -300,11 +300,18 @@ def _pair_concentration(encoded: dict, select_ids: torch.Tensor,
             stop = min(start + 128, PAIR_SAMPLE)
             qv = qdict[qidx[start:stop]]
             kv = kdict[kidx[start:stop]]
+            qraw = (qv * qcoef[start:stop, :, None]).sum(1)
+            kraw = (kv * kcoef[start:stop, :, None]).sum(1)
+            qscale = qraw.square().mean(-1).add(
+                torch.finfo(qraw.dtype).eps).rsqrt()
+            kscale = kraw.square().mean(-1).add(
+                torch.finfo(kraw.dtype).eps).rsqrt()
             c = cos[delta[start:stop]][:, None]
             s = sin[delta[start:stop]][:, None]
             qv = apply_rot(qv, c, s)
             contribution = torch.einsum("biu,bju->bij", qv, kv) / HD
             contribution = contribution * qcoef[start:stop, :, None] * kcoef[start:stop, None, :]
+            contribution = contribution * qscale[:, None, None] * kscale[:, None, None]
             full = contribution.sum((1, 2))
             denominator += float(full.double().square().sum())
             absolute = contribution.abs()
@@ -484,10 +491,26 @@ def main() -> None:
             and tuple(bundle["query_decoder_fp16"].shape) == (N_ATOM, SIDE_DIM),
         "key_decoder": bundle["key_decoder_fp16"].dtype == torch.float16
             and tuple(bundle["key_decoder_fp16"].shape) == (N_ATOM, SIDE_DIM),
+        "query_bias": bundle["query_bias_fp16"].dtype == torch.float16
+            and tuple(bundle["query_bias_fp16"].shape) == (SIDE_DIM,),
+        "key_bias": bundle["key_bias_fp16"].dtype == torch.float16
+            and tuple(bundle["key_bias_fp16"].shape) == (SIDE_DIM,),
         "query54_indices": bundle["query54_indices_uint16"].dtype == torch.uint16
             and tuple(bundle["query54_indices_uint16"].shape) == (VOCAB, K_SIDE),
+        "query54_coefficients": bundle["query54_coefficients_fp16"].dtype == torch.float16
+            and tuple(bundle["query54_coefficients_fp16"].shape) == (VOCAB, K_SIDE),
+        "key54_indices": bundle["key54_indices_uint16"].dtype == torch.uint16
+            and tuple(bundle["key54_indices_uint16"].shape) == (VOCAB, K_SIDE),
         "key54_coefficients": bundle["key54_coefficients_fp16"].dtype == torch.float16
             and tuple(bundle["key54_coefficients_fp16"].shape) == (VOCAB, K_SIDE),
+        "query72_indices": bundle["query72_indices_uint16"].dtype == torch.uint16
+            and tuple(bundle["query72_indices_uint16"].shape) == (VOCAB, K_SIDE_EQUAL),
+        "query72_coefficients": bundle["query72_coefficients_fp16"].dtype == torch.float16
+            and tuple(bundle["query72_coefficients_fp16"].shape) == (VOCAB, K_SIDE_EQUAL),
+        "key72_indices": bundle["key72_indices_uint16"].dtype == torch.uint16
+            and tuple(bundle["key72_indices_uint16"].shape) == (VOCAB, K_SIDE_EQUAL),
+        "key72_coefficients": bundle["key72_coefficients_fp16"].dtype == torch.float16
+            and tuple(bundle["key72_coefficients_fp16"].shape) == (VOCAB, K_SIDE_EQUAL),
         "bills": QK54_BYTES == 15_583_320 and QK72_BYTES == 19_201_824,
     }
     training = {"SQ54": warm, "SC54": score_model, "CP54": product_model,
@@ -510,12 +533,14 @@ def main() -> None:
     r426_g54_ce = r426["select_document_metrics"]["ce"]["G54"]["damage"]
     r426_g72_ce = r426["select_document_metrics"]["ce"]["G72"]["damage"]
 
+    warm_hash_recheck = _checkpoint_hash(warm)
     pred_a = (max(fold_errors.values()) <= 1e-10
               and len(fit_ids) == 40_206 and len(select_ids) == 10_051
               and not bool(torch.isin(fit_ids, select_ids).any())
               and all(v >= .20 for v in decreases.values())
               and all(v["gradient_max"] > 0 for v in loss_reports.values())
-              and all(artifact_checks.values()) and no_native <= 1e-12)
+              and all(artifact_checks.values()) and warm_hash == warm_hash_recheck
+              and no_native <= 1e-12)
     pred_b = (pattern["CP54"] <= .80 * pattern["SQ54"]
               and pattern["CP54"] <= .90 * pattern["SC54"]
               and branch["CP54"] <= 1.10 * branch["SC54"]
@@ -543,7 +568,7 @@ def main() -> None:
 
     result = {
         "status": "attention0_coupled_sparse_qk_score_product_complete",
-        "rung": 428,
+        "rung": 430,
         "claim_level": "heldout_physical_generator_and_semantic_candidate_screen_not_adoption",
         "convention": "CE added above native; lower is better",
         "literal_raw_tensor_bytes": {"CP54": QK54_BYTES, "CP72": QK72_BYTES,
@@ -551,6 +576,7 @@ def main() -> None:
         "instrument": {"fold_max_abs_by_branch": fold_errors,
                        "no_native_qk_logits_relative_squared_error": no_native,
                        "warm_checkpoint_sha256": warm_hash,
+                       "warm_checkpoint_recheck_sha256": warm_hash_recheck,
                        "artifact_checks": artifact_checks},
         "training": {"warm_steps": WARM_STEPS, "fine_steps": FINE_STEPS,
                      "batch": BATCH, "anchor": ANCHOR,

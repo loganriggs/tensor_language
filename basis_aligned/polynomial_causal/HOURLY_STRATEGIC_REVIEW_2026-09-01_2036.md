@@ -28,7 +28,7 @@ discrete composition exists. It is cheap, uses the already validated physical ex
 separate real query×key relations from capacity.
 
 It must not displace the continuous physical generator if it only improves interpretability while remaining around
-+.02 nat damage. Rung 424 is roughly two orders of magnitude better in CE but has no saving; rung 428 is useful only
++.02 nat damage. Rung 424 is roughly two orders of magnitude better in CE but has no saving; rung 430 is useful only
 if it either moves sparse fidelity materially toward 424 or identifies stable atom-pair structure. The comparison is
 therefore complementary rather than winner-take-all at this stage.
 
@@ -51,10 +51,11 @@ therefore complementary rather than winner-take-all at this stage.
 
 ## Frozen decision after review
 
-Run rung 428 once at its preregistered 512-atom k27+k27 and k36+k36 prices. Do not tune after SELECT. If coupled
+Run rung 430 once at its preregistered 512-atom k27+k27 and k36+k36 prices. Do not tune after SELECT. If coupled
 training passes computation but not stability, retain the sparse generator and treat its atoms as a non-unique
 coordinate system. If it misses computation or the strong null fires, close this sparse-composition budget and move
 immediately to the direct continuous composite generator. If it passes both, fresh/OOD and 62-behavior tests precede
 any semantic name or adoption claim.
 
-This review changes no registered rung-428 bar, arm, seed, split, or objective.
+This review changes no registered rung-430 bar, arm, seed, split, or objective. The number was repaired after the
+review because the red-team lane had already claimed and executed rungs 428 and 429; no scientific content changed.
