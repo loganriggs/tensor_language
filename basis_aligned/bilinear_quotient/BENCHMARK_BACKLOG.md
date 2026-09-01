@@ -4496,3 +4496,15 @@ later per-rung backlog edits had silently anchored on text that was not here.
 - A true, B/C/D false; strong null true on both no real-vs-permuted advantage and no stability improvement. Close
   K32/top4 convex response atoms; retain the continuous rung424 quotient. Next active work is the separately frozen
   prospective removal/composition bank, not another convex-atom budget sweep.
+
+### Rung 445 — prospective consequence candidate-bank freezer — COMPLETE / ALL HELD
+
+- Freeze the exact outcome-free rung441 structure hash before opening any candidate consequence. Teaching roles are
+  vocabulary23, mixed104 MLP-PCA7, and MLP0 context-input5; attention0 sparse-Q/K10 is the sealed fourth family.
+- All45 candidates map to one of10 compiling, hash-pinned producer sources and a deterministic-refit or retained-
+  bundle rebuild path. Ten required artifact classes exist and are hash-pinned; every candidate has positive price.
+- A/B/C/D hold, strong null false: teaching has35 candidates/3 whole families; sealed has10 candidates/1 unseen
+  family,7 non-controls+3 controls, and zero family overlap. No consequence file, model, or row role was loaded.
+- Correct the learning target before outcomes: rung443 remains a fixed reconstruction-recovery baseline. Fit new
+  consequence-specific removal/composition rules on teaching families and freeze them before attention0 labels open.
+  Next freeze new document-disjoint teaching/confirmation rows and exact consequence bars.
