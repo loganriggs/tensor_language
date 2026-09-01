@@ -103,7 +103,18 @@ def _fit_pca(outputs: list[torch.Tensor]) -> dict[int, tuple[torch.Tensor, torch
         mean = output.mean(0)
         centered = output - mean
         covariance = centered.T @ centered / len(centered)
-        values, vectors = torch.linalg.eigh(covariance)
+        covariance = 0.5 * (covariance + covariance.T)
+        assert bool(torch.isfinite(covariance).all())
+        jitter = 1e-7 * float(torch.diagonal(covariance).mean().abs().clamp_min(1e-12))
+        covariance = covariance + jitter * torch.eye(D, device=DEV)
+        try:
+            values, vectors = torch.linalg.eigh(covariance)
+        except torch._C._LinAlgError:
+            # The last native MLP has an extremely repeated fp16-captured
+            # spectrum.  Float64 is a numerical fallback only; it does not
+            # change the population, rank, basis objective, or bars.
+            values64, vectors64 = torch.linalg.eigh(covariance.double())
+            values, vectors = values64.float(), vectors64.float()
         basis = vectors[:, torch.argsort(values, descending=True)[:RANK]]
         result[layer] = (basis.cpu(), mean.cpu())
         print(f"fit layer {layer}: top{RANK} energy "
