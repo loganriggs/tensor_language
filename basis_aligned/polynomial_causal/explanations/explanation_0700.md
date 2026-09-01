@@ -41,12 +41,14 @@ at every eight-rank step. The independently fitted and causally gated staircase 
 | 88 | 530,583,862 | +.002196 | 58/62 | -.003865 / .006220 / .007768 | .996520 |
 | 80 | 526,078,262 | +.003336 | 54/62 | -.000879 / .013861 / .026134 | .994961 |
 | 72 | 521,572,662 | +.005238 | 54/62 | +.000498 / .020242 / .035112 | .992435 |
-| 64 | 517,067,062 | +.008193 | 50/62 | +.004753 / .021539 / .033750 | signed gate running |
+| 64 | 517,067,062 | +.008193 | 50/62 | +.004753 / .021539 / .033750 | .988466 |
 
 Negative shifted means are sampling-scale zero, not evidence that compression improves the native model. The
 incremental census costs are `+.000781, +.001140, +.001902, +.002955`: the curve is convex, but there is still no
 discontinuity. Certificates are not a fixed function of aggregate loss—the 80→72 step costs census loss but no
-certificates—so future bars must track both.
+certificates—so future bars must track both. Rank64's signed gate also passed: normalized effect error `.178663`,
+collateral Spearman `.994592`, and own-effect median ratio `1.081668`. Signed fidelity degrades monotonically but
+smoothly down the ladder; the current causal bars are catastrophic-failure guards rather than the binding frontier.
 
 ## What composition taught us
 
