@@ -524,3 +524,10 @@ essentially the same as successful middle layers. Before calling this a depth-de
 p1152 reconstruction controls at the three late layers and a p1024 capacity frontier on the identical rows. Full
 rank must be inert; otherwise the late result is an instrument artifact. This diagnostic cannot select a late
 layer for composition.
+
+The control resolves the ambiguity. Every p1152 reconstruction is inert to about `4e-8` CE, so the hook and
+factorization are exact. Yet p1024 still gives layers 15/16/17 FineWeb/WikiText damage
+`+.098/.126`, `+.676/1.126`, and `+.061/.217`; none improves its p768 mean by the frozen 25%, and none qualifies.
+The spectral tail is functionally indispensable at late depth even though its Frobenius mass is small. Stop
+ordinary shared-input SVD at layers 15--17. The separately preregistered front/middle composition remains the
+only active extension of this structural route.

@@ -427,3 +427,13 @@ Full ranking and adoption gates: `SIX_DIRECTION_COMPARISON_2026-09-01.md`.
   all-layer law. Weight spectrum alone cannot predict late functional sensitivity.
 - Decision: cancel the fixed `{0,8,17}` composition and do not adaptively select the 13 winners. Validate the
   instrument with p1152 and measure p1024 only at layers 15--17; no late layer may be selected from that diagnosis.
+
+### `04:55 UTC` — exploit checkpoint `318B`
+
+- Result: p1152 is inert at all three late layers to about `4e-8` CE. p1024 remains
+  `+.098/.126`, `+.676/1.126`, and `+.061/.217` FineWeb/WikiText; pred_a holds, pred_b/c fail, and the
+  irreducible-sensitivity null wins.
+- Information gained: the depth boundary is real, not an instrument artifact. Small paired-weight spectral tails
+  are disproportionately necessary at layers 15--17; ordinary Frobenius rank is not a functional rank there.
+- Decision: stop late-layer weight SVD. Continue only the prospectively fixed, equally spaced front/middle
+  `{0,7,14}@p768` physical composition, with full census/certificate/identity accounting.

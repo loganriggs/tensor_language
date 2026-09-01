@@ -3521,3 +3521,12 @@ later per-rung backlog edits had silently anchored on text that was not here.
     test p1152 reconstruction inertness and p1024 repair at layers 15--17 on
     the identical rows; diagnosis only, with no layer selection.
     -> ops/mlp_shared_input_svd_late_depth_control.py
+    RUN 2026-09-01: pred_a held, pred_b/c failed, null won. p1152 is inert to
+    ~4e-8 CE, but p1024 remains +.126/+1.126/+.217 worst-corpus damage at
+    layers15/16/17; zero layers repair by 25% or qualify. Late ordinary-SVD
+    compression is closed.
+
+319. [CODEX, board-claimed 04:58Z] FRONT/MIDDLE INPUT-SVD TRIPLE:
+    compose equally spaced {0,7,14}@p768 physically with mixed104; measure
+    census, 62 certificates, fresh8, identities, and exact 531,632,438 bill.
+    -> ops/mixed104_shared_input_svd_front_mid_triple.py
