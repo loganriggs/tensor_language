@@ -3530,3 +3530,11 @@ later per-rung backlog edits had silently anchored on text that was not here.
     compose equally spaced {0,7,14}@p768 physically with mixed104; measure
     census, 62 certificates, fresh8, identities, and exact 531,632,438 bill.
     -> ops/mixed104_shared_input_svd_front_mid_triple.py
+    RUN 2026-09-01: pred_b/c held, pred_a failed, null false. Census +.026044,
+    25/62 certs, fresh max +.0277, identities/bill exact. Valid compression
+    tier, not adoption. Allow one final common-rebuild pair decrement.
+
+320. [CODEX, board-claimed 05:01Z] FINAL FRONT/MIDDLE INPUT-SVD PAIRS:
+    compare {0,7} and {0,14}@p768 at the common 534,286,646-scalar price;
+    frozen selection by certificates then census; no further subset/rank search.
+    -> ops/mixed104_shared_input_svd_front_mid_pairs.py

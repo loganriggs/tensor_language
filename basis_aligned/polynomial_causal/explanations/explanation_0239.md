@@ -531,3 +531,15 @@ factorization are exact. Yet p1024 still gives layers 15/16/17 FineWeb/WikiText 
 The spectral tail is functionally indispensable at late depth even though its Frobenius mass is small. Stop
 ordinary shared-input SVD at layers 15--17. The separately preregistered front/middle composition remains the
 only active extension of this structural route.
+
+## Front/middle composition reveals the certificate price (05:00 UTC)
+
+The fixed `{0,7,14}@p768` program physically lands at **531,632,438 scalars**, census `+.026044`, fresh max
+`+.0277`, and 25/62 certificates. Composition surcharge, fresh transfer, exact maps, QK identity, and the literal
+bill all hold, but the frozen 35-certificate screen does not. It is a valid compression tier, not an adopted point.
+
+Allow one final capacity decrement in a single common rebuild: `{0,7}` versus `{0,14}`, each 534,286,646 scalars.
+An arm must reach `<=+.020` and at least 38 certificates. Selection is frozen as more certificates then lower
+damage; no further pair, subset, or rank search follows. Separately, the late-depth counterexample motivates a
+new metric family—context-weighted shared-input rank rather than Frobenius weight rank—but it cannot rescue or
+reinterpret this composition gate.

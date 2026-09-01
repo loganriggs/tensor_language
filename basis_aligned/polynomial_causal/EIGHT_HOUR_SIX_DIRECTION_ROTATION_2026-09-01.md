@@ -437,3 +437,12 @@ Full ranking and adoption gates: `SIX_DIRECTION_COMPARISON_2026-09-01.md`.
   are disproportionately necessary at layers 15--17; ordinary Frobenius rank is not a functional rank there.
 - Decision: stop late-layer weight SVD. Continue only the prospectively fixed, equally spaced front/middle
   `{0,7,14}@p768` physical composition, with full census/certificate/identity accounting.
+
+### `05:00 UTC` — exploit checkpoint `319`
+
+- Result: the fixed triple lands census `+.026044`, 25/62 certificates, fresh max `+.0277`, and exact
+  531,632,438-scalar identity. pred_b/c hold, pred_a fails its 35-certificate bar, and the strong null is false.
+- Information gained: the banded input structure composes predictively and saves 14.27M scalars versus native,
+  but certificate loss remains the binding constraint even though its exchange rate is better than output PCA.
+- Decision: one final common-rebuild capacity decrement compares fixed `{0,7}` and `{0,14}` at identical price.
+  Require <=+.020 and >=38 certificates; then close all subset/rank search regardless of outcome.
