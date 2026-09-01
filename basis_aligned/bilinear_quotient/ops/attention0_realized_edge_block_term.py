@@ -98,7 +98,9 @@ def _pca(value, rank):
     centered = value - mean
     covariance = centered.T @ centered / len(centered)
     eigenvalues, eigenvectors = torch.linalg.eigh(0.5 * (covariance + covariance.T))
-    basis = eigenvectors[:, -rank:]
+    # eigh is only approximately orthogonal in float32; explicitly realize the
+    # registered orthogonal projector before using or checking it.
+    basis = torch.linalg.qr(eigenvectors[:, -rank:], mode="reduced").Q
     return mean, basis, eigenvalues
 
 
