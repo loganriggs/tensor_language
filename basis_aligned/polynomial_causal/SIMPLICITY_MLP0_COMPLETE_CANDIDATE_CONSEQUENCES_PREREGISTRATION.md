@@ -45,3 +45,12 @@ is inert; both spans are below`.003`; or either wave correlation is negative.
 
 A/B/C/D with no null makes MLP0-context one eligible complete-candidate teaching family. It fits no predictor, opens
 no sealed outcome, and licenses no semantic, compression, OOD, or adoption claim. Literal new deployed values are zero.
+
+## 449b scorer-only repair after the first managed attempt
+
+The first managed parent completed and saved all three condition bundles, then stopped before any result or final
+bundle because the scorer read `native_counts` from the nested `native_aux` dictionary rather than its actual sibling
+field. Preserve the failed runlog and the three complete condition files. Repair only that dictionary lookup and allow
+the parent to reuse the condition files when all three exist; a partial set still aborts. Candidate programs, model
+calls, rows, interventions, partner, hashes, metrics, masks, A/B/C/D bars, null, and routing do not change. The repair
+is scorer-only and must still be committed, gated, and submitted through the managed queue before authoritative output.

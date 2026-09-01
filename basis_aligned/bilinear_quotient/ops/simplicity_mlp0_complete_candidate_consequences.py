@@ -266,8 +266,9 @@ def parent() -> None:
     for path, digest in HASHES.items():
         if sha256(path) != digest:
             raise RuntimeError(f"frozen hash mismatch: {path}")
-    if any(path.exists() for path in CONDITION_FILES.values()) or OUT.exists() or BUNDLE.exists():
-        raise RuntimeError("rung449 output namespace already exists; preserve and reregister before rerun")
+    existing_conditions = [path.exists() for path in CONDITION_FILES.values()]
+    if OUT.exists() or BUNDLE.exists() or (any(existing_conditions) and not all(existing_conditions)):
+        raise RuntimeError("rung449 output namespace is partial; preserve and reregister before rerun")
     bank = json.loads(BANK.read_text())
     bank_rows = {row["candidate_id"]: row for row in bank["rows"]}
     for rank in RANKS:
@@ -275,12 +276,15 @@ def parent() -> None:
         if row["price_scalars"] != PRICES[rank] or row["family_role"] != "teaching":
             raise RuntimeError("frozen bank price/role changed")
 
-    for condition in CONDITIONS:
-        environment = dict(os.environ)
-        environment.pop("BQLIB_DRYRUN", None)
-        environment["RUNG449_CHILD"] = condition
-        source = ROOT / "ops/simplicity_mlp0_complete_candidate_consequences.py"
-        subprocess.run([sys.executable, str(source)], env=environment, check=True)
+    if all(existing_conditions):
+        print("RUNG449B scorer repair: reusing three completed condition bundles", flush=True)
+    else:
+        for condition in CONDITIONS:
+            environment = dict(os.environ)
+            environment.pop("BQLIB_DRYRUN", None)
+            environment["RUNG449_CHILD"] = condition
+            source = ROOT / "ops/simplicity_mlp0_complete_candidate_consequences.py"
+            subprocess.run([sys.executable, str(source)], env=environment, check=True)
 
     data = {name: torch.load(path, map_location="cpu", weights_only=True)
             for name, path in CONDITION_FILES.items()}
@@ -336,7 +340,7 @@ def parent() -> None:
         for rank in RANKS)
     live = bool(data["knockout"]["intervention_calls"] == 120
                 and data["partner"]["intervention_calls"] == 120
-                and base["native_counts"] == {"knockout": 24, "partner": 24}
+                and data["unablated"]["native_counts"] == {"knockout": 24, "partner": 24}
                 and data["unablated"]["mean_n"] == 128 * 256)
     pred_a = bool(replay_max == 0 and same_identity and complete_differs and live)
     pred_b = bool(rank_removal >= .50 and rank_composition >= .50)
