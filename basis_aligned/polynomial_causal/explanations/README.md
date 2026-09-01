@@ -100,3 +100,4 @@ primary evidence.
 - [explanation_0630.md](explanation_0630.md) — context metric everywhere, two-rate tax law, staircase frontier
 - [explanation_0830.md](explanation_0830.md) — design-first frontier point, both currencies, distributed beats concentrated
 - [explanation_1030.md](explanation_1030.md) — fidelity dial shipped; solo ops; the apparatus audits its auditor
+- [explanation_1230.md](explanation_1230.md) — depth map done; the one question bounds can't answer is now running
