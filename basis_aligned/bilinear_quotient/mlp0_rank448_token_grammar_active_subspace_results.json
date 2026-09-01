@@ -1,0 +1,401 @@
+{
+  "status": "mlp0_rank448_token_grammar_active_subspace_complete",
+  "rung": 405,
+  "claim_level": "single_site_equal_price_tangent_active_subspace_screen_not_compression",
+  "convention": "CE added above native; lower is better",
+  "population": {
+    "program_fit_cache": "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache/fineweb_n192_skip11000.pt",
+    "program_fit_slice": [
+      0,
+      24
+    ],
+    "program_fit_documents": 24,
+    "evaluation_receipt": "/workspace/tensor_language/basis_aligned/bilinear_quotient/mlp0_c512_mlp1_interchange_v1_rows_receipt.json",
+    "source_documents": 384,
+    "waves": 4,
+    "documents_per_wave": 96,
+    "total_scored_positions": 73728,
+    "population_exact": true
+  },
+  "program": {
+    "source_checkpoint": {
+      "revision": "ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240",
+      "snapshot": "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240",
+      "config_sha256": "428042bfd807ba36f8b4326395440fbbebe52cd3d040212e6fef14a4fdf2d83c",
+      "weights_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+      "weights_bytes": 2067738635,
+      "tokenizer_vocab": 50257,
+      "logit_vocab": 50304
+    },
+    "source_dtype": "float32_as_in_rung328",
+    "evaluation_dtype": "bfloat16_as_in_rung401",
+    "rank": 448,
+    "literal_mlp0_values": 9954432,
+    "saving_values": 5971968,
+    "shapes_exact": true,
+    "basis_hashes": {
+      "covariance": "ce9bb5e3cb62d0b468c3dc3c18207e04ff339590732b8258b645da8dc4fe4b42",
+      "T_active": "64b7792c15edc272d5350bc50591a45bd56c6c013a243946305b0158d7167757",
+      "I_active": "06f05f2f55185a4bdb2027c4ff7e0e2100cc4d856730f22ebf06db50f984a3aa",
+      "TI_active": "1d38ce754d197c2cf6fa4ba8df94dac11bcea2b245012b408559fc8a5e897939",
+      "random": "e89a80a3445b9c71a54383e7b5eb22b802189f85bd7869129a496a387ec3738a"
+    },
+    "orthogonality_max_abs_error": {
+      "T_active": 1.0132789611816406e-06,
+      "I_active": 1.3168901205062866e-06,
+      "TI_active": 9.739305824041367e-07,
+      "random": 4.76837158203125e-07
+    },
+    "covariance_baseline_diagnostic": {
+      "context_cov_retained_energy": 0.9011108875274658,
+      "rank": 448,
+      "context_cov_condition_after_floor": 3212.24560546875,
+      "covariance_floor": 8.654058837890625e-05
+    }
+  },
+  "metric_diagnostic": {
+    "probe_seed": 405,
+    "probes_per_position": 2,
+    "positions": 6144,
+    "gradient_observations": 12288,
+    "raw_metric_symmetry_relative_error": {
+      "T": 0.0,
+      "I": 0.0
+    },
+    "whitened_trace": {
+      "T": 196341071872.0,
+      "I": 324394745856.0
+    },
+    "covariance_floor": 8.654058837890625e-05,
+    "covariance_top448_energy": 0.9011108875274658,
+    "metric_hash": {
+      "T": "92ece46bf52d47e7de3e321040b031c4e62ee606756ba6e5587ec002978a5fe6",
+      "I": "563be7887f8e48ba50e33f0951d0218f24ca6b5c4cdceb78a813113466e45fa9",
+      "TI": "071b8ba5fe9459ee0fec4e4b678371fdfb96e670d1fb3bd7fad9649324ca7b67"
+    }
+  },
+  "wave_results": {
+    "0": {
+      "wave": 0,
+      "branch_relative_mse": {
+        "covariance": {
+          "T": 0.09430892926132359,
+          "I": 0.11480030191523653
+        },
+        "T_active": {
+          "T": 0.08768050496552617,
+          "I": 0.1148278727616828
+        },
+        "I_active": {
+          "T": 0.08926334244259328,
+          "I": 0.11191545463133663
+        },
+        "TI_active": {
+          "T": 0.08773344337676654,
+          "I": 0.11203835074352614
+        },
+        "random": {
+          "T": 1.0657244046210728,
+          "I": 0.9180971696613558
+        }
+      },
+      "native_branch_squared_energy": {
+        "T": 17275324940288.0,
+        "I": 15231244525568.0
+      },
+      "ce": {
+        "native": 3.024584432442983,
+        "covariance": 3.0313910179668,
+        "T_active": 3.0320629609955683,
+        "I_active": 3.0311257044474282,
+        "TI_active": 3.0317921241124473,
+        "random": 3.202645937601725
+      },
+      "damage": {
+        "covariance": 0.006806585523817077,
+        "T_active": 0.007478528552585129,
+        "I_active": 0.006541272004445098,
+        "TI_active": 0.007207691669464111,
+        "random": 0.17806150515874197
+      },
+      "calls": {
+        "covariance": 24,
+        "T_active": 24,
+        "I_active": 24,
+        "TI_active": 24,
+        "random": 24
+      },
+      "pre_mlp0_state_replay_max_abs_error": {
+        "covariance": 0.0,
+        "T_active": 0.0,
+        "I_active": 0.0,
+        "TI_active": 0.0,
+        "random": 0.0
+      },
+      "compact_endpoint_duplicate_max_abs_error": {
+        "covariance": 0.0,
+        "T_active": 0.0,
+        "I_active": 0.0,
+        "TI_active": 0.0,
+        "random": 0.0
+      },
+      "scored_positions": 18432
+    },
+    "1": {
+      "wave": 1,
+      "branch_relative_mse": {
+        "covariance": {
+          "T": 0.0952361018623691,
+          "I": 0.11610215057853283
+        },
+        "T_active": {
+          "T": 0.08871789277964694,
+          "I": 0.11645983149844681
+        },
+        "I_active": {
+          "T": 0.09037509679297435,
+          "I": 0.11336190473539992
+        },
+        "TI_active": {
+          "T": 0.08879851234779407,
+          "I": 0.11356240862890006
+        },
+        "random": {
+          "T": 1.0694138058312184,
+          "I": 0.9205096511723678
+        }
+      },
+      "native_branch_squared_energy": {
+        "T": 17321645948928.0,
+        "I": 15038738866176.0
+      },
+      "ce": {
+        "native": 2.936893257829878,
+        "covariance": 2.9426225357585483,
+        "T_active": 2.943387826283773,
+        "I_active": 2.9436246818966336,
+        "TI_active": 2.9439087443881564,
+        "random": 3.1440179215537176
+      },
+      "damage": {
+        "covariance": 0.005729277928670395,
+        "T_active": 0.0064945684538950665,
+        "I_active": 0.0067314240667557534,
+        "TI_active": 0.00701548655827855,
+        "random": 0.20712466372383975
+      },
+      "calls": {
+        "covariance": 24,
+        "T_active": 24,
+        "I_active": 24,
+        "TI_active": 24,
+        "random": 24
+      },
+      "pre_mlp0_state_replay_max_abs_error": {
+        "covariance": 0.0,
+        "T_active": 0.0,
+        "I_active": 0.0,
+        "TI_active": 0.0,
+        "random": 0.0
+      },
+      "compact_endpoint_duplicate_max_abs_error": {
+        "covariance": 0.0,
+        "T_active": 0.0,
+        "I_active": 0.0,
+        "TI_active": 0.0,
+        "random": 0.0
+      },
+      "scored_positions": 18432
+    },
+    "2": {
+      "wave": 2,
+      "branch_relative_mse": {
+        "covariance": {
+          "T": 0.09438736638501426,
+          "I": 0.11603616635539615
+        },
+        "T_active": {
+          "T": 0.08784912672136988,
+          "I": 0.11661145056897843
+        },
+        "I_active": {
+          "T": 0.08951981167798528,
+          "I": 0.11324084098679743
+        },
+        "TI_active": {
+          "T": 0.08797946067713977,
+          "I": 0.11351526343904632
+        },
+        "random": {
+          "T": 1.0765577004028004,
+          "I": 0.922691213069485
+        }
+      },
+      "native_branch_squared_energy": {
+        "T": 17309655236608.0,
+        "I": 15080304508928.0
+      },
+      "ce": {
+        "native": 3.026141193177965,
+        "covariance": 3.03475464714898,
+        "T_active": 3.03474407725864,
+        "I_active": 3.0342615180545383,
+        "TI_active": 3.0342309210035534,
+        "random": 3.2230508062574597
+      },
+      "damage": {
+        "covariance": 0.008613453971014984,
+        "T_active": 0.008602884080674666,
+        "I_active": 0.008120324876573104,
+        "TI_active": 0.008089727825588255,
+        "random": 0.1969096130794945
+      },
+      "calls": {
+        "covariance": 24,
+        "T_active": 24,
+        "I_active": 24,
+        "TI_active": 24,
+        "random": 24
+      },
+      "pre_mlp0_state_replay_max_abs_error": {
+        "covariance": 0.0,
+        "T_active": 0.0,
+        "I_active": 0.0,
+        "TI_active": 0.0,
+        "random": 0.0
+      },
+      "compact_endpoint_duplicate_max_abs_error": {
+        "covariance": 0.0,
+        "T_active": 0.0,
+        "I_active": 0.0,
+        "TI_active": 0.0,
+        "random": 0.0
+      },
+      "scored_positions": 18432
+    },
+    "3": {
+      "wave": 3,
+      "branch_relative_mse": {
+        "covariance": {
+          "T": 0.09443108472697738,
+          "I": 0.11486730532899792
+        },
+        "T_active": {
+          "T": 0.087947219538646,
+          "I": 0.11536770881204066
+        },
+        "I_active": {
+          "T": 0.08952760278066016,
+          "I": 0.11212446964435577
+        },
+        "TI_active": {
+          "T": 0.08799814835105288,
+          "I": 0.1123902768360544
+        },
+        "random": {
+          "T": 1.0737365895521016,
+          "I": 0.916859854317608
+        }
+      },
+      "native_branch_squared_energy": {
+        "T": 17133670760448.0,
+        "I": 14892159172608.0
+      },
+      "ce": {
+        "native": 3.032497419251336,
+        "covariance": 3.039778815375434,
+        "T_active": 3.0390431880950928,
+        "I_active": 3.039533509148492,
+        "TI_active": 3.039617247051663,
+        "random": 3.2329403162002563
+      },
+      "damage": {
+        "covariance": 0.007281396124097839,
+        "T_active": 0.006545768843756683,
+        "I_active": 0.007036089897155762,
+        "TI_active": 0.007119827800326828,
+        "random": 0.20044289694892026
+      },
+      "calls": {
+        "covariance": 24,
+        "T_active": 24,
+        "I_active": 24,
+        "TI_active": 24,
+        "random": 24
+      },
+      "pre_mlp0_state_replay_max_abs_error": {
+        "covariance": 0.0,
+        "T_active": 0.0,
+        "I_active": 0.0,
+        "TI_active": 0.0,
+        "random": 0.0
+      },
+      "compact_endpoint_duplicate_max_abs_error": {
+        "covariance": 0.0,
+        "T_active": 0.0,
+        "I_active": 0.0,
+        "TI_active": 0.0,
+        "random": 0.0
+      },
+      "scored_positions": 18432
+    }
+  },
+  "pooled_ce_damage": {
+    "covariance": 0.007107678386900074,
+    "T_active": 0.007280437482727886,
+    "I_active": 0.007107277711232429,
+    "TI_active": 0.007358183463414436,
+    "random": 0.19563466972774912
+  },
+  "pooled_branch_relative_mse": {
+    "covariance": {
+      "T": 0.0945915301119534,
+      "I": 0.11545122500332256
+    },
+    "T_active": {
+      "T": 0.08804924394432521,
+      "I": 0.11581519689957252
+    },
+    "I_active": {
+      "T": 0.08967215526906315,
+      "I": 0.11265999112101598
+    },
+    "TI_active": {
+      "T": 0.08812803307851681,
+      "I": 0.11287552027387736
+    },
+    "random": {
+      "T": 1.0713545260544144,
+      "I": 0.9195435577178306
+    }
+  },
+  "joint_wave_ce_improvement_over_covariance": [
+    -0.0004011061456470344,
+    -0.0012862086296081543,
+    0.0005237261454267284,
+    0.00016156832377101082
+  ],
+  "baseline_wave_reproduction_max_abs_error": 1.2603898844609773e-06,
+  "specialist_own_branch_relative_gain": {
+    "T": 0.06916355153453047,
+    "I": 0.024176736818740996
+  },
+  "pred_a_instrument_identity_and_price_are_exact": false,
+  "pred_b_derivative_metrics_are_branch_specific": false,
+  "pred_c_joint_metric_improves_physical_prediction_robustly": false,
+  "pred_d_joint_basis_is_balanced_and_competitive": true,
+  "null_first_order_token_grammar_metric_fails": true,
+  "next_object": null,
+  "compression_or_adoption_licensed": false,
+  "FINAL_opened": 0,
+  "checkpoint": {
+    "revision": "ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240",
+    "snapshot": "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240",
+    "config_sha256": "428042bfd807ba36f8b4326395440fbbebe52cd3d040212e6fef14a4fdf2d83c",
+    "weights_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+    "weights_bytes": 2067738635,
+    "tokenizer_vocab": 50257,
+    "logit_vocab": 50304
+  },
+  "runtime_s": 19.301565170288086
+}
