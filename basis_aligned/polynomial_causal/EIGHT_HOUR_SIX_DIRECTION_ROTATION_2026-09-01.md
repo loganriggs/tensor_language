@@ -474,3 +474,12 @@ Full ranking and adoption gates: `SIX_DIRECTION_COMPARISON_2026-09-01.md`.
   was fit on native inputs that its upstream replacements change; open-loop fitting is now the leading confound.
 - Decision: no pair/subset search. Refit causally in execution order—15 native, 16 under fitted15, 17 under
   fitted15+16—then rerun the unchanged full triple and price. Require >=30% damage repair and +8 certificates.
+
+### `05:15 UTC` — exploit checkpoint `323` and strategic reset
+
+- Result: sequential fitting is `+.039614`, 28/62, fresh max `+.0548`, a 1.003x ratio to open-loop. All positive
+  predicates fail and the strong null wins; identities and bill hold.
+- Information gained: upstream replacement-induced input shift does not explain composition tax. Contextual
+  low-rank action is individually real but its errors still couple along the common whole-program damage direction.
+- Decision: close late multi-site composition. Transfer the successful metric to single-site MLP0 at p512/p640,
+  with two fit halves and matched weight controls. This avoids composition tax and directly targets the adopted map.

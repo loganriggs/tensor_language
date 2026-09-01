@@ -574,3 +574,14 @@ fit 15 on native contexts, capture/factor 16 with the fitted 15 program active, 
 active. A physical rerun must reduce census damage by at least 30% and recover eight certificates, as well as hit
 the absolute `<=+.025`/`>=38` screen. This distinguishes an open-loop metric error from irreducible nonlinear
 composition tax.
+
+Sequential fitting changes nothing: census is `+.039614`, 28/62 certificates, fresh max `+.0548`, and the damage
+ratio to open-loop is 1.003. All positive predicates fail and the registered null wins. The serial context-shift
+confound is ruled out; the multi-site tax is a real nonlinear/common-damage interaction. Close late context-metric
+composition with no subset search.
+
+The individual-site discovery remains valuable. A strategic reset therefore returns it to the one MLP site already
+proved adoption-grade: MLP0. Unlike the exhaustive position-zero token covariance, which was misaligned, fit the
+metric on actual contextual MLP0 inputs. Compare context-RRR and weight SVD at p512/p640 on independent fit halves
+and two untouched corpora. If the contextual metric materially lowers p512 damage, it may replace the current p768
+MLP0 map without incurring any multi-site composition tax.

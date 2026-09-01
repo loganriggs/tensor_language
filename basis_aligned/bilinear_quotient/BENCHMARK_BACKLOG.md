@@ -3562,3 +3562,11 @@ later per-rung backlog edits had silently anchored on text that was not here.
     fit L15 on native contexts, L16 under fitted L15, L17 under fitted L15+16;
     physically rerun unchanged {15,16,17}@p768 and 531,632,438 bill.
     -> ops/mixed104_late_context_metric_input_triple_sequential.py
+    RUN 2026-09-01: all positives failed, null won. +.039614, 28 certs,
+    fresh max +.0548, damage ratio 1.003 vs open-loop. Serial context shift is
+    ruled out; close late composition without subset search.
+
+324. [CODEX, board-claimed 05:17Z] MLP0 CONTEXT-METRIC p512/p640:
+    two independent contextual input-covariance fits versus matched weight SVD
+    on untouched FineWeb/WikiText; single-site screen avoids composition tax.
+    -> ops/mlp0_context_metric_shared_input_frontier.py

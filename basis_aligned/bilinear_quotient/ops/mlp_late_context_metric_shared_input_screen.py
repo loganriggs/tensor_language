@@ -88,7 +88,7 @@ def _covariances(model, rows, manual_logits):
 
 
 @torch.no_grad()
-def _rrr_program(mlp, covariance):
+def _rrr_program(mlp, covariance, rank=RANK):
     left = mlp.Left.weight.detach().float()
     right = mlp.Right.weight.detach().float()
     down = mlp.Down.weight.detach().float()
@@ -105,7 +105,7 @@ def _rrr_program(mlp, covariance):
     metric = covariance_sqrt @ gram @ covariance_sqrt
     metric = 0.5 * (metric + metric.T)
     values, vectors = torch.linalg.eigh(metric)
-    whitened_basis = vectors[:, torch.argsort(values, descending=True)[:RANK]]
+    whitened_basis = vectors[:, torch.argsort(values, descending=True)[:rank]]
     encoder = whitened_basis.T @ covariance_inv_sqrt
     coefficient = stacked @ covariance_sqrt @ whitened_basis
     program = {
@@ -116,8 +116,9 @@ def _rrr_program(mlp, covariance):
         "bias": bias,
     }
     diagnostics = {
-        "context_cov_top768_energy": float(values_c[:RANK].clamp_min(0).sum()
-                                              / values_c.clamp_min(0).sum()),
+        "context_cov_retained_energy": float(values_c[:rank].clamp_min(0).sum()
+                                               / values_c.clamp_min(0).sum()),
+        "rank": int(rank),
         "context_cov_condition_after_floor": float(values_c[0] / safe[-1]),
         "covariance_floor": floor,
     }
