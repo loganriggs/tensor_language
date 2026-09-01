@@ -3093,6 +3093,10 @@ later per-rung backlog edits had silently anchored on text that was not here.
 274. ADDITIVITY CONTROL v2: m16 on corner (mixed subtracted 0.755/
     0.934): pred_a in [0.50,1.00]; pred_b >= 0.85; pred_c [0.2,5.0].
     -> ops/ko_m16_corner2.py [QUEUED 01:20Z]
+    RUN 2026-09-01, S2374: ALL HELD - subtracted 0.767/0.937 vs mixed
+    0.755/0.934. CORRECTION PUBLISHED: collateral fidelity near-uniform
+    0.86-0.94 (two-regime law was accounting); own-effects undershoot
+    0.37-0.80; a16 the lone anomaly.
 
 275. cev-dump repro: frontier (corner+tail-r96) with the per-position
     damage vector saved (bars = the S2347 repro claims, unchanged).
