@@ -3643,3 +3643,9 @@ later per-rung backlog edits had silently anchored on text that was not here.
     identical a16 mean ablation, direct signed vector/collateral/own effects,
     live split-B baseline, context96 identity and 535,089,462 bill.
     -> ops/a16_transfer_mixed96_context_metric_qk.py
+
+334. [CODEX, board-claimed 06:45Z] DUAL-CONTEXT PHYSICAL COMPOSITION:
+    combine split-B context-QK96 with context-MLP0 p448 at exact
+    529,117,494 scalars; census/certificates, additive residual, fresh rows,
+    and untouched WikiText skip160000 tails. Save exact CEV for signed gate.
+    -> ops/mixed96_context_qk_mlp0_context_p448_ood.py
