@@ -385,3 +385,13 @@ Full ranking and adoption gates: `SIX_DIRECTION_COMPARISON_2026-09-01.md`.
   in the weights and transfers exceptionally well.
 - Decision: promote weight-SVD ranks 512/768 as a separately preregistered control-winner follow-up. Compose both
   physically with mixed104 in one rebuild and measure census, all certificates, fresh windows, exact maps, and bills.
+
+### `04:36 UTC` — exploit checkpoint `315`
+
+- Result: rank512 lands `+.018900`, `31/62`, at 534,286,646 scalars; rank768 lands **`+.009012`, `50/62`**,
+  at 536,940,854. Rank512 fresh8 is `[+.0035,+.0024,-.0049,-.0019,+.0023,+.0071,-.0292,+.0007]`.
+  All map/QK/active/bill tripwires pass. pred_b/c hold; pred_a fails because rank512 misses 35 certificates.
+- Information gained: shared Left/Right input rank is a literal, context-robust weight structure. Its rank768 point
+  lies just beyond the adopted parent at a measured +.00432 surcharge for 2.65M additional scalar saving.
+- Decision: do not relax the rank512 bar. Advance rank768 alone to 120-row shifted WikiText, saving its exact CEV,
+  then run the signed a16 causal gate against that same unablated baseline.

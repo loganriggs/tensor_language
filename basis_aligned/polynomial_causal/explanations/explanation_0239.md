@@ -465,3 +465,17 @@ Promote the rank-512 and rank-768 weight controls in one physical mixed104 rebui
 `534,286,646` and `536,940,854` scalars. The rank-512 point is particularly interesting: it removes one third of
 MLP0 (5,308,416 scalars) at about `+.013` mean contextual damage. Census, all 62 certificates, fresh windows, exact
 active-map identities, and literal bills now decide whether that signal survives whole-program composition.
+
+## Physical MLP0 composition: rank 768 clears the first gate (04:36 UTC)
+
+The shared-input factor is live, not a hook-accounting artifact. Rank 512 composes to `+.018900` census and
+`31/62` certificates at 534,286,646 scalars. It misses its frozen 35-certificate bar and is retained only as a
+lower-fidelity compression point. Rank 768 composes to **`+.009012`, `50/62` certificates**, and
+536,940,854 scalars. Both arms have the exact shared-encoder/Left/Right shapes and mixed104 identity; the primary
+rank-512 fresh windows range from `-.0292` to `+.0071`. Monotonicity, surcharge, fresh, price, and identity hold;
+the joint rank-specific predicate fails only because rank 512 has 31 rather than 35 certificates.
+
+Rank 768 is the strongest new candidate: it saves another 2,654,208 scalars over the fully adopted parent with a
+`+.004320` MLP surcharge, retains 50 certificates, and is directly visible in `[Left;Right]`'s shared right-singular
+subspace. It now gets the same shifted-corpus and signed-intervention gates as the adopted parent. Rank 512 does not
+advance, preventing post-hoc relaxation of its certificate bar.

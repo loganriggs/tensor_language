@@ -3480,3 +3480,12 @@ later per-rung backlog edits had silently anchored on text that was not here.
     (.846/.937 vs weight .686/.888) but loses contextual CE. Weight SVD wins:
     p512 +.01662/.01012 at 5,308,416 saved; p768 +.00355/.00278 at 2,654,208.
     Promote the matched control to mixed104 census/certificate composition.
+
+315. [CODEX, board-claimed 04:31Z] MIXED104 + MLP0 SHARED-INPUT SVD:
+    physically compose weight-SVD p512/p768 in one common census with exact
+    bills, all 62 certificates, fresh windows, and identity tripwires.
+    -> ops/mixed104_mlp0_shared_input_svd_frontier.py
+    RUN 2026-09-01, S2413: pred_b/c held, pred_a failed, null false. p512
+    +.018900/31 certs at 534,286,646; p768 +.009012/50 at 536,940,854.
+    Primary p512 fresh max +.0071; identities exact. Stop p512 at its missed
+    35-cert bar; advance p768 to shifted OOD and signed intervention gates.
