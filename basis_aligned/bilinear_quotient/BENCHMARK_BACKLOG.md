@@ -4402,3 +4402,13 @@ later per-rung backlog edits had silently anchored on text that was not here.
   mean/max.3145/.4747. Random census+.6013 but local R2≈-.05. A/D held, B/C failed, strong null true.
 - Close the clean whole-layer R4k2 L17 surrogate. No signed gate, composition, or rank/output tuning; retain only
   the older Down-map/frequency-direction causal facts.
+### Rung 416 — gauge-stable shared head-written MLP0 subspaces — COMPLETE / STRONG NULL
+
+- Fit rank64 output-projected SHARED-head, TOTAL-write, HEAD3-only, and Haar bases on96 FIT documents; score exact
+  MLP0 `I` and `C` singleton/removal endpoints on96 disjoint SELECT documents with FINAL closed.
+- RUN: exact/live parent boundary differences0; pooled SHARED FIT-half overlap.85285, heldout I MSE improvement.76936,
+  and I endpoint average.074135 versus Haar.010733. Yet median effective writers1.962, only7/64 modes reach3,
+  and head3 is top writer for61/64 modes with68.0% mean energy.
+- TOTAL wins both I/C endpoint averages (.080964/.033411) over SHARED (.074135/.030863). A/C hold, B/D fail, strong
+  null true. Do not call covariance modes shared features or tune rank. Next object is a heldout downstream-response
+  quotient plus the dual shared-reader-input and double-QK-half decompositions specified in explanation_1807.
