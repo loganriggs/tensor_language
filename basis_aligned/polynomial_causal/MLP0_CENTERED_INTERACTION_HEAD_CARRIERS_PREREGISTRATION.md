@@ -48,17 +48,23 @@ assigned to a semantic head.
 
 ## Physical arms and scores
 
+**Pre-execution amendment, 15:10 UTC:** retaining `I_eps` means a no-semantic-head arm is not algebraically identical
+to rung401's arm that removes all of `I`. Add the latter as a separate control before implementation. This makes the
+parent-boundary check exact and tests that the BF16 remainder is causally negligible without assigning it to head8.
+No model/data execution preceded this amendment.
+
 On the same frozen 96 FIT and 96 SELECT documents and scored positions 64:256, always retain rung401's constant,
 `T`, `C`, `S`, native bias, `R`, and `I_eps`. Change only which semantic `I_h` terms are present:
 
-- `NONE`: no semantic interaction head;
+- `ZERO_I`: neither semantic heads nor `I_eps`, exactly rung401's no-interaction boundary;
+- `NUMERIC`: `I_eps` only and no semantic interaction head;
 - `FULL`: all nine interaction heads;
 - `SINGLE_h`: only head `h`'s interaction term;
 - `DROP_h`: all interaction heads except `h`.
 
-This is 20 arms. For each head define
+This is 21 arms. For each head define
 
-- singleton benefit `u_h = CE(NONE)-CE(SINGLE_h)`;
+- singleton benefit `u_h = CE(NUMERIC)-CE(SINGLE_h)`;
 - removal benefit `n_h = CE(DROP_h)-CE(FULL)`;
 - endpoint-average benefit `b_h=(u_h+n_h)/2`.
 
@@ -69,9 +75,9 @@ rank correlation, and correlation with the frozen historical direct-head removal
 ## Frozen predictions
 
 1. **A — exact and live.** In both roles, the nine `I_h` plus retained `I_eps` reconstruct rung401 `I` at relative
-   MSE `<=1e-8`; `FULL` and `NONE` reproduce rung401's `T+C+I+S` and `T+C+S` pooled CE within `1e-6`; every arm has
+   MSE `<=1e-8`; `FULL` and `ZERO_I` reproduce rung401's `T+C+I+S` and `T+C+S` pooled CE within `1e-6`; every arm has
    the expected 24 forwards, 432 attention calls, 24 MLP0 calls, and 408 later-MLP calls. The BF16 head-write
-   remainder has relative squared energy `<=1e-4`.
+   remainder has relative squared energy `<=1e-4`, and `|CE(NUMERIC)-CE(ZERO_I)|<=.002` nat.
 2. **B — old head map predicts the isolated interaction.** On SELECT, head3 has the largest `b_h`, and Spearman
    correlation between `b_h` and the frozen direct-head removal costs is at least `.50`.
 3. **C — sparse carrier.** In each role, the two largest positive `b_h` values account for at least `.65` of total

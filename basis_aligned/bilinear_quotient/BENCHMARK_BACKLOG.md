@@ -4198,8 +4198,10 @@ later per-rung backlog edits had silently anchored on text that was not here.
 - Split attention0's native write exactly into nine output-projected head writes plus an always-retained BF16
   arithmetic remainder. By bilinearity, split rung401's centered `I` into nine semantic `I_h` terms plus a retained
   numerical interaction remainder.
-- On the same frozen FIT/SELECT roles, physically score 20 arms with `T/C/S` fixed: all heads, no heads, every head
-  alone, and every head omitted. Report singleton sufficiency, full-boundary necessity, endpoint-average benefit,
-  split transport, and comparison with the frozen historical direct-head cost map.
+- On the same frozen FIT/SELECT roles, physically score 21 arms with `T/C/S` fixed: all heads, numerical remainder
+  only, zero total interaction, every semantic head alone, and every head omitted. Report singleton sufficiency,
+  full-boundary necessity, endpoint-average benefit, split transport, and comparison with the frozen historical
+  direct-head cost map. The extra zero-total arm was added pre-execution so both the parent boundary and the causal
+  inertness of the always-retained BF16 remainder are testable.
 - Exact diagnostic only. Sparse, stable carriage licenses source-position resolution of the fixed top heads;
   distributed/redundant carriage pivots to branch-resolved auditing of the adopted rank448 MLP0 context projection.
