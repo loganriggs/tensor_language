@@ -172,3 +172,12 @@ also passed, including explicit absence of `a0`, `a1v`, and `tailE`.
 The 539,595,062-scalar candidate is therefore physically identified rather than only algebraically proposed.
 It remains a narrow 1.16% compression claim, and formal adoption still waits on the preregistered WikiText-2
 shifted-corpus gate and a broader signed causal battery.
+
+That WikiText-2 gate then held.  Native CE was `3.95016050`, compiled CE `3.95501661`, mean damage
+`+0.00485625`, and the 95th percentile of row-mean damage `+0.01721914`; all population and configuration
+tripwires passed.  We therefore formally adopt the exact 539,595,062-scalar point under the frozen gate
+set.  “Adopt” here means the first honest literal Pareto point—predictive, composed, causally faithful at
+the discriminating a16 test, and shifted-corpus stable—not a claim of dramatic compression.  It is only
+1.16% smaller than native.  The next research phase attacks the 286.67M MLP scalars and 115.90M vocabulary
+scalars where a large reduction is still possible; a broader signed intervention battery expands the causal
+claim but is no longer a blocker to this narrow adoption.

@@ -3294,3 +3294,7 @@ later per-rung backlog edits had silently anchored on text that was not here.
     native CE [2,8], exact mixed104/active-set and 120-row tripwires.
     Null: mean >=0.030 or p95 >=0.060.
     -> ops/mixed104_online_cv0_ood.py [QUEUED 02:34Z]
+    RUN 2026-09-01, S2394: ALL HELD — native CE 3.95016050,
+    compiled 3.95501661, mean damage +0.00485625, row p95 +0.01721914,
+    worst row +0.02691667; config and population tripwires held. Literal
+    mixed104 online-c_v0 formally adopted at 539,595,062 scalars.
