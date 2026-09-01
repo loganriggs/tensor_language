@@ -43,6 +43,7 @@ LAYERS = tuple(range(2, 18))
 RANK = 88
 SCALARS = 530_583_862
 BYTES = 2_006_393_452
+QK_STORAGE_DTYPE = None
 
 
 def _spearman(left, right):
@@ -118,6 +119,7 @@ def main() -> None:
         "qk_extra_tail": 0, "qk_tail": True, "drop_tailE": True,
         "drop_a1v": True, "drop_a0": True,
         "qk_context_covariances": covariances,
+        "qk_factor_storage_dtype": QK_STORAGE_DTYPE,
         "ablate_on_census": True,
     })
     capture = {"sum": torch.zeros(C.D, device=C.DEV), "n": 0}
@@ -183,9 +185,14 @@ def main() -> None:
     qk = C.SEL.get("_QKR", {})
     widths = {int(factor[0].shape[1]) for heads in qk.values()
               for factors in heads.values() for factor in factors}
+    factor_dtypes = {str(tensor.dtype) for heads in qk.values()
+                     for factors in heads.values() for factor in factors for tensor in factor}
     factor_maps = sum(4 * len(heads) for heads in qk.values())
     active = tuple(C.SEL.get("_ORDER2", ()))
     metric = C.SEL.get("_QK_METRIC")
+    storage_dtype = C.SEL.get("_QK_STORAGE_DTYPE")
+    expected_storage_dtype = "float16" if QK_STORAGE_DTYPE == "float16" else "float32"
+    expected_tensor_dtype = {"torch.float16"} if QK_STORAGE_DTYPE == "float16" else {"torch.float32"}
     context_layers = tuple(C.SEL.get("_QK_CONTEXT_LAYERS", ()))
     pred_a = (baseline_result["census_damage"] <= .004
               and baseline_result["certificates_valid"] >= 55
@@ -194,6 +201,8 @@ def main() -> None:
               and context_layers == LAYERS and set(index_sets) == set(LAYERS)
               and all(value == wanted_indices for value in index_sets.values())
               and widths == {RANK} and factor_maps == 440
+              and storage_dtype == expected_storage_dtype
+              and factor_dtypes == expected_tensor_dtype
               and not any(name in active for name in ("a0", "a1v", "tailE"))
               and SCALARS == 530_583_862 and BYTES == 2_006_393_452)
     pred_b = cosine >= .90 and normalized_error <= .60
@@ -216,6 +225,8 @@ def main() -> None:
         "own_effect_median_ratio": own_median,
         "own_effect_ratios": own_ratios,
         "qk_metric": metric,
+        "qk_storage_dtype": storage_dtype,
+        "qk_factor_tensor_dtypes": sorted(factor_dtypes),
         "qk_context_layers": list(context_layers),
         "qk_rank": RANK,
         "qk_factorized_maps": factor_maps,

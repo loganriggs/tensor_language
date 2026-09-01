@@ -178,6 +178,19 @@ amortize the higher-fidelity model. The 8/16-bit calculations assume quantizatio
 not physical claims. Rank48 is also MDL-optimal at sufficiently small token counts if circuit utility is ignored,
 but its 29 certificates keep it outside the adopted set.
 
+### The contextual finite-MoE alternative also fails
+
+The first four-state router used token identity, so we tested the strongest obvious qualifier: route on the live
+contextual MLP0 input. The literal program stored a PCA32 projection and four centroids, then selected one of four
+fixed rank128 experts. Its 10,656,128-scalar price was bracketed by shared global ranks515 and516.
+
+The states were populated and executable, but the shared control won overwhelmingly. Context routing added
+`.0424/.0606` mean damage on FineWeb/WikiText, versus only `.00159/.00310` for the slightly cheaper global p515
+subspace. It was about 27x/20x worse, failed the tail bars, did not beat random centroids on WikiText, and its
+independent-fit WikiText mean was unstable. We therefore close simple four-state token-geometry and input-geometry
+routers without tuning their state count or rank. A behavior-named state remains logically possible, but it needs
+an independent mechanistic reason for its state variable and expert grammar.
+
 The independent alternatives remain alive but ranked behind this bridge: an explicitly priced sparse-row repair
 for the promising shared vocabulary code; a vector-valued suffix-Jacobian objective for MLP0 tails; and a
 task-conditioned folded-MLP contraction/router whose state is named before fitting. The important methodological

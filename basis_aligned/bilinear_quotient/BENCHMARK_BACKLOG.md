@@ -3839,3 +3839,16 @@ later per-rung backlog edits had silently anchored on text that was not here.
     four nearest-centroid states in live MLP0-input PCA32, four fixed p128
     experts, literal router price; p515/p516 shared and random-centroid controls.
     -> ops/mlp0_context_state_finite_moe_router.py
+    RUN 2026-09-01: ALL FAILED, strong null fired. Kmeans FW/WT mean
+    .04244/.06062 vs cheaper global-p515 .001587/.003097; no better than
+    random on WT and fit-B WT unstable. No state/rank/PCA/cluster tuning.
+
+360. [CODEX, board-claimed 07:47Z] PHYSICAL FP16-STORED QK56 FACTORS:
+    fixed gated QK56; store all 31,539,200 factor scalars fp16, dequantize for
+    contractions; census/certs/fresh/CEV and WT103 tokens133640:164480.
+    -> ops/mixed56_context_qk_fp16_storage_ood.py
+
+361. [CODEX, conditional board-claim 07:50Z] TIGHT SIGNED FP16-QK56 GATE:
+    only after full rung360 pass; identical a16 intervention, fp16 storage
+    identity/byte bill, and frozen rank56 .98/.30/.98 signed bars.
+    -> ops/a16_transfer_mixed56_context_qk_fp16_storage.py

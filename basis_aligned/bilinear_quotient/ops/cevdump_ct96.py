@@ -634,17 +634,28 @@ def main():
         else:
             SEL['_QK_METRIC']='weight_svd'
 
+        _qk_storage_dtype=SEL.get('qk_factor_storage_dtype')
+        if _qk_storage_dtype not in (None,'float32','float16'):
+            raise ValueError(f'unsupported qk_factor_storage_dtype={_qk_storage_dtype!r}')
+        SEL['_QK_STORAGE_DTYPE']='float16' if _qk_storage_dtype=='float16' else 'float32'
+
+        def _store_qk_factor(_pair):
+            if _qk_storage_dtype=='float16':
+                return tuple(_value.to(torch.float16).contiguous() for _value in _pair)
+            return _pair
+
         def _factor_qk_map(_M,_li,_idx):
             if _li not in _qk_context_metric:
                 _U,_S,_Vh=torch.linalg.svd(_M,full_matrices=False)
-                return ((_U[:,_idx]*_S[_idx]).contiguous(),_Vh[_idx].contiguous())
+                return _store_qk_factor(((_U[:,_idx]*_S[_idx]).contiguous(),
+                                         _Vh[_idx].contiguous()))
             if int(SEL.get('qk_extra_tail') or 0):
                 raise ValueError('qk_extra_tail is incompatible with context-RRR QK factors')
             _sqrt,_invsqrt=_qk_context_metric[_li]
             _U,_S,_Vh=torch.linalg.svd(_M@_sqrt,full_matrices=False)
             _rank=int(_idx.numel())
-            return ((_U[:,:_rank]*_S[:_rank]).contiguous(),
-                    (_Vh[:_rank]@_invsqrt).contiguous())
+            return _store_qk_factor(((_U[:,:_rank]*_S[:_rank]).contiguous(),
+                                     (_Vh[:_rank]@_invsqrt).contiguous()))
         for _li in range(2,10):
             _r=int(SEL.get('qk_rmap',{}).get(_li,SEL['qk_r']))
             _extra=int(SEL.get('qk_extra_tail') or 0)
@@ -696,10 +707,10 @@ def main():
             Q2=torch.zeros_like(Q); K2=torch.zeros_like(Q)
             for hd,(fq,fk,fq2,fk2) in SEL['_QKR'][li].items():
                 Xf=X2.float()
-                Q[:,:,hd]=(Xf@fq[1].T)@fq[0].T
-                K[:,:,hd]=(Xf@fk[1].T)@fk[0].T
-                Q2[:,:,hd]=(Xf@fq2[1].T)@fq2[0].T
-                K2[:,:,hd]=(Xf@fk2[1].T)@fk2[0].T
+                Q[:,:,hd]=(Xf@fq[1].float().T)@fq[0].float().T
+                K[:,:,hd]=(Xf@fk[1].float().T)@fk[0].float().T
+                Q2[:,:,hd]=(Xf@fq2[1].float().T)@fq2[0].float().T
+                K2[:,:,hd]=(Xf@fk2[1].float().T)@fk2[0].float().T
             cos,sin=at.rotary(Q)
             qn=F.rms_norm(Q,(128,)); kn=F.rms_norm(K,(128,))
             qn,kn=are(qn,cos,sin),are(kn,cos,sin)
