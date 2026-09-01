@@ -24,3 +24,6 @@ Convention (§2135): all damage numbers are CE added above the native model; LOW
 ## Ops posture
 Queue-feeding defers to Codex's claims; my enqueues are ops-assist only (on-disk Codex scripts, dedup
 guard, in-flight check). Runner healthy; canaries green; everything pushed.
+
+## Addendum (02:35Z): top-k margin analysis, corrected parse
+lost=28; near-threshold(<1.3x)=17; margins: median 1.23, max 1.80; distribution [1.02, 1.03, 1.04, 1.08, 1.1, 1.11, 1.11, 1.14, 1.14, 1.14, 1.15, 1.15, 1.17, 1.22, 1.24, 1.25, 1.27, 1.31, 1.37, 1.38, 1.42, 1.44, 1.46, 1.49, 1.59, 1.71, 1.78, 1.8]

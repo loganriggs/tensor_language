@@ -160,3 +160,15 @@ At each elapsed hour the research driver restates the predictive/composable/mani
 audits config identity and hidden native dependencies, and re-ranks these paths.  The exact-price correction
 is not a pause: it is the evidence that redirects the next work toward the tensors where a genuinely small
 program can still be won.
+
+## Live result after writing this plan
+
+The online-`c_v0` equivalence rung subsequently held all of its frozen bars.  It reproduced census damage
+`+0.00469195`, `54/62` certificates, and the same eight fresh-window range `[-0.0066,+0.0032]`.  Against
+the tested fp16-table artifact, its full 256,000-position CE vector had mean absolute difference
+`0.000051963` and signed mean `-0.00000001`.  The exact index, factor-width, and active-component tripwires
+also passed, including explicit absence of `a0`, `a1v`, and `tailE`.
+
+The 539,595,062-scalar candidate is therefore physically identified rather than only algebraically proposed.
+It remains a narrow 1.16% compression claim, and formal adoption still waits on the preregistered WikiText-2
+shifted-corpus gate and a broader signed causal battery.

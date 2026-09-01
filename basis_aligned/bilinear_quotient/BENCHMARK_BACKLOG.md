@@ -3282,3 +3282,15 @@ later per-rung backlog edits had silently anchored on text that was not here.
     index/factor and final-active-set tripwires. Null: census >=0.010 or
     <=50 certs. Exact bill 539,595,062 scalars / 2,042,438,252 raw bytes.
     -> ops/mixed104_online_cv0.py [QUEUED 02:24Z]
+    RUN 2026-09-01, S2393: ALL HELD — census +0.00469195, 54/62,
+    fresh8 [-0.0066,+0.0032], table-vector MAD 0.000051963 and signed
+    mean -1e-8; exact active/index/width tripwires passed. Literal candidate
+    physically identified; shifted OOD still required.
+
+297. [CODEX, board-claimed 02:34Z] SHIFTED-CORPUS OOD: frozen
+    Salesforce/WikiText-2 raw TEST, GPT-2 tokenization, 120 deterministic
+    nonoverlapping 257-token chunks after skip1024. No OOD fit exposure.
+    Bars: mean compiled-minus-native CE <=0.012; row-mean p95 <=0.020;
+    native CE [2,8], exact mixed104/active-set and 120-row tripwires.
+    Null: mean >=0.030 or p95 >=0.060.
+    -> ops/mixed104_online_cv0_ood.py [QUEUED 02:34Z]
