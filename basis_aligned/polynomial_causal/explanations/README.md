@@ -191,3 +191,4 @@ same day sort and link unambiguously.  Older `explanation_HHMM.md` files are ret
 # Latest cumulative update
 
 - [`explanation_2026-09-01_2153.md`](explanation_2026-09-01_2153.md) — full update since 19:57: sparse SAE-style Q/K results, the continuous quotient and failed generator, necessary normalization functions, why quantization is not interpretability, and the anti-Goodhart learned-simplicity direction.
+- [`explanation_2026-09-01_2205.md`](explanation_2026-09-01_2205.md) — implementation audit of the 20:54 plan: distinguishes completed, running, conditional, and previously prose-only work; specifies the live Archetypal hull computation and the still-to-build learned-simplicity backtest.
