@@ -296,6 +296,7 @@ def main():
     fit = fit_cpu.to(DEV)
     linear_standard, _coefficient, _info = _complete_degree_one(z[fit], z, action[fit])
     native = action_cpu.to(DEV)
+    raw = raw_cpu.to(DEV)
     mean = action_mean.to(DEV).expand(REAL_V, -1)
     linear = linear_standard * action_scale
     quadratic = native - mean - linear
@@ -309,10 +310,10 @@ def main():
     q_mlp_effect = base["MLQ"]["mlp1"] - base["ML"]["mlp1"]
 
     l_donors, l_selection, l_feasible = _donor_maps(
-        receiver_ids, donor_ids, native.new_tensor(raw_cpu.numpy()), linear,
+        receiver_ids, donor_ids, raw, linear,
         l_attention_effect, l_mlp_effect, 398)
     q_donors, q_selection, q_feasible = _donor_maps(
-        receiver_ids, donor_ids, native.new_tensor(raw_cpu.numpy()), quadratic,
+        receiver_ids, donor_ids, raw, quadratic,
         q_attention_effect, q_mlp_effect, 1398)
     swaps, swap_batches = _swap_outputs(
         model, receiver_ids, mean, linear, quadratic, l_donors, q_donors)
