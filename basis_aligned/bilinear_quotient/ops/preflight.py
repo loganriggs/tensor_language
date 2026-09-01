@@ -40,8 +40,10 @@ def check(path: Path) -> list[str]:
         warnings.append(
             "RETRACTION: bases are optimized and pred gates on _orth_error "
             "but no QR retraction found (rung 424 cost 1 rerun on this).")
-    control_window = re.search(
-        r"control[a-z_]*\s*(<=?|>=?)\s*\.?\d|(\.\d+\s*<\s*control)", text)
+    control_window = any(
+        re.search(r"control", line)
+        and re.search(r"(<=?|>=?)\s*\.\d|\.\d+\s*<", line)
+        for line in text.splitlines())
     excess = re.search(r"excess|control_gap|minus_control|- *control", text)
     if control_window and not excess:
         warnings.append(
