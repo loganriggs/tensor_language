@@ -3788,3 +3788,5 @@ later per-rung backlog edits had silently anchored on text that was not here.
     weight inputs by clipped full-suffix CE gradient norm at MLP0 output;
     compare p384/p448 against ordinary covariance on two fits/two tail sets.
     -> ops/mlp0_consequence_weighted_context_metric_screen.py
+    RUN 2026-09-01: pred_b/c held, pred_a failed, null false. WT p384 tail
+    improves strongly but FW max only 4.2%; no clip/rank tuning or promotion.
