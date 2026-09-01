@@ -254,6 +254,11 @@ def _score_role(model, rows, device, reference, head_means, epsilon_mean, base):
 
         cached_writes = {}
         for label, mode, head in ARMS:
+            if mode == "zero":
+                # Match rung401's one-tensor BF16 subtraction exactly.  Summing the
+                # ten float head/numerical pieces before casting changes rounding.
+                cached_writes[label] = native0 - branches["I"].to(native0.dtype)
+                continue
             semantic_set, keep_numerical = _included(mode, head)
             omitted = sum(
                 (semantic[h] for h in range(N_HEAD) if h not in semantic_set),
