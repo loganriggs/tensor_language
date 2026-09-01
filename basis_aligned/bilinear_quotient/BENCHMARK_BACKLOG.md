@@ -3759,6 +3759,9 @@ later per-rung backlog edits had silently anchored on text that was not here.
     live baseline/identity and direct a16 effects with prospective cosine .98,
     error .30, effect/own-ratio 1.15, and collateral-rho .98 bars.
     -> ops/a16_transfer_mixed56_context_metric_qk.py
+    RUN 2026-09-01: ALL TIGHT BARS HELD, null false. cosine/error/norm
+    .981641/.236669/1.121655; rho .993980, own ratio 1.117505. Formally
+    adopt 512,561,462 / +.01250780 / 43; license final rank48 probe only.
 
 350. [CODEX, board-claimed 07:02Z] MLP0 TAIL-ROBUST CONTEXT METRIC:
     mix ordinary covariance with top-10%-leverage covariance at .25; compare
@@ -3766,3 +3769,15 @@ later per-rung backlog edits had silently anchored on text that was not here.
     -> ops/mlp0_tail_robust_context_metric_screen.py
     RUN 2026-09-01: pred_b only, null false. Means improve, split overlaps
     .735/.743, but maxima do not; do not advance or tune leverage weighting.
+
+351. [CODEX, board-claimed 07:04Z] FINAL CONTEXT-QK48 CLIFF PROBE:
+    rank48/440 maps, census/certs/fresh, next non-overlapping hashed WT103
+    train tokens41120:71960, exact 508,055,862 bill and saved CEV.
+    -> ops/mixed48_context_metric_qk_newcorpus_ood.py
+    RUN 2026-09-01: pred_b/c held, pred_a failed, null false. +.01877572/29,
+    OOD +.016828/.048266/.066896. Certificate ledge; no signed gate/rank40.
+
+352. [CODEX, board-claimed 07:07Z] QK56 + MLP0-p512 CROSS-FAMILY COMPOSITION:
+    compose two gated components at 507,253,046 scalars; census/certs/additive
+    law, next WT103 tokens71960:102800, exact identity/price/fresh/saved CEV.
+    -> ops/mixed56_context_qk_mlp0_context_p512_ood.py

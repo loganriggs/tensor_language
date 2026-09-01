@@ -42,7 +42,7 @@ at every eight-rank step. The independently fitted and causally gated staircase 
 | 80 | 526,078,262 | +.003336 | 54/62 | -.000879 / .013861 / .026134 | .994961 |
 | 72 | 521,572,662 | +.005238 | 54/62 | +.000498 / .020242 / .035112 | .992435 |
 | 64 | 517,067,062 | +.008193 | 50/62 | +.004753 / .021539 / .033750 | .988466 |
-| 56 | 512,561,462 | +.012508 | 43/62 | +.005698 / .037966 / .056886 | tightened gate running |
+| 56 | 512,561,462 | +.012508 | 43/62 | +.005698 / .037966 / .056886 | .981641 |
 
 Negative shifted means are sampling-scale zero, not evidence that compression improves the native model. The
 incremental census costs are `+.000781, +.001140, +.001902, +.002955`: the curve is convex, but there is still no
@@ -51,7 +51,14 @@ certificates—so future bars must track both. Rank64's signed gate also passed:
 collateral Spearman `.994592`, and own-effect median ratio `1.081668`. Signed fidelity degrades monotonically but
 smoothly down the ladder; the current causal bars are catastrophic-failure guards rather than the binding frontier.
 For rank56, before observing its intervention, we tightened the bars to cosine `>=.98`, normalized error `<=.30`,
-effect norm and own-effect ratios in `[.90,1.15]`, and collateral Spearman `>=.98`.
+effect norm and own-effect ratios in `[.90,1.15]`, and collateral Spearman `>=.98`. It passed narrowly but cleanly:
+cosine/error/norm `.981641/.236669/1.121655`, collateral rho `.993980`, own ratio `1.117505`. Rank56 is therefore
+formally adopted, and exactly one final rank48 cliff probe is permitted; rank40 is not an automatic continuation.
+
+That final probe has now landed. Rank48 reaches **508,055,862 scalars** and remains predictively smooth at
+`+.018776` census with new-corpus mean/p95/max `+.016828/.048266/.066896`, but certificates fall from 43 to
+**29/62**, below the frozen 34 bar. This is the Q/K certificate ledge. The pure ladder is closed at rank56: no
+rank48 signed gate, no rank40 sweep, and no relaxed certificate threshold.
 
 ## What composition taught us
 
