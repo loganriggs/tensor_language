@@ -4402,6 +4402,17 @@ later per-rung backlog edits had silently anchored on text that was not here.
 - B fails: parent-r392 CEV max `.116467` versus frozen `.050` and half-r414 bars. FP32 restoration changes only3.91%
   of squared deviation and partly cancels the persistent residual. Diagnosis corrected to nonlinear amplification of
   upstream rounding. Conditional rung437 not licensed or run. No precision sweep; physical frontier unchanged.
+
+### Rung 439b — causal-profile-scored Archetypal Q/K hull — COMPLETE / STRONG NULL
+
+- First receipt preserved as instrument-invalid on a BF16-path gauge check. The exact-float64 instrument-only rerun
+  passes every identity and reproduces the science.
+- Signed real-token hull residuals beat entry-permuted controls by about21% on query and key, establishing real
+  whole-token convex geometry.
+- Strict hull changes FINAL pattern/write/CE from U54 `.189/.341/+.0253` to `2.468/1.458/+.0554`; fixed25%-relaxed
+  hull remains `1.298/.943/+.0412`. Observable restart stability improves but misses absolute and FIT-half bars.
+- A/B true, C/D false, strong null true. No extraction/removal gate. Close factor-row convex anchoring at this
+  512-atom/k27 object; retain a causal-response-profile dictionary as a distinct untested object.
 ### Rung 415 — physical current-harness MLP17 four-output/eight-square surrogate — COMPLETE / STRONG NULL
 
 - Dossier-controlled port of the old whole-layer object, distinct from output projection and activation-conditioned
