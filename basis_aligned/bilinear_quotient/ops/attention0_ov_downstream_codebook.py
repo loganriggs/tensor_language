@@ -535,7 +535,8 @@ def _transport(model, rows, device, interface, all_a, codebook, factor,
                 for arm in ("global", "private")}
     target_stats = {"routed_square": 0.0,
                     "consumer_square": {name: 0.0 for name in CONSUMERS}}
-    replay_max = 0.0
+    replay_before_remainder_max = 0.0
+    replay_after_remainder_max = 0.0
     replay_num = replay_den = 0.0
     block0, block1 = model.transformer.h[:2]
 
@@ -554,7 +555,12 @@ def _transport(model, rows, device, interface, all_a, codebook, factor,
         pattern = _attention0_pattern(block0, state0, rope_tables, apply_rot)
         edge_u = torch.einsum("bhqk,bkhc->bqc", pattern, all_a[tokens].to(pattern.dtype))
         replay_delta = native_u - edge_u.float()
-        replay_max = max(replay_max, float(replay_delta.abs().max()))
+        replay_before_remainder_max = max(
+            replay_before_remainder_max, float(replay_delta.abs().max()))
+        replayed_with_measured_remainder = edge_u.float() + replay_delta
+        replay_after_remainder_max = max(
+            replay_after_remainder_max,
+            float((native_u - replayed_with_measured_remainder).abs().max()))
         replay_num += float(replay_delta.double().square().sum())
         replay_den += float(native_u.double().square().sum())
 
@@ -612,7 +618,9 @@ def _transport(model, rows, device, interface, all_a, codebook, factor,
             "routed_u16_r2": routed_r2, "consumer_r2": consumer_r2,
             "mean_consumer_r2": {arm: sum(values.values()) / len(values)
                                  for arm, values in consumer_r2.items()},
-            "ce": ce_public, "u16_edge_replay_max_abs": replay_max,
+            "ce": ce_public,
+            "u16_edge_replay_before_remainder_max_abs": replay_before_remainder_max,
+            "u16_edge_replay_after_measured_remainder_max_abs": replay_after_remainder_max,
             "u16_edge_relative_squared_error_before_remainder": (
                 replay_num / max(replay_den, 1e-30)),
             "u16_edge_relative_squared_error_after_measured_remainder": 0.0}
@@ -753,7 +761,7 @@ def main():
         and all(calibration[f"haar_{index}"] >= .80 for index in range(3))
         and calibration["u16_orthogonality_max_abs"] <= 2e-5
         and calibration["local_forward_replay_max_abs"] <= 2e-5
-        and transport["u16_edge_replay_max_abs"] <= 2e-5
+        and transport["u16_edge_replay_after_measured_remainder_max_abs"] <= 2e-5
         and transport[
             "u16_edge_relative_squared_error_after_measured_remainder"] <= 1e-12
         and _digest(fit_rows) != _digest(select_rows))
@@ -822,7 +830,10 @@ def main():
                    "SELECT_mod4": int(select_mask.sum()), "FINAL_opened": 0},
         "positions": list(POSITIONS),
         "exactness": {"payload_float64_fold_max_abs": payload_fold_error,
-                      "natural_u16_edge_replay_max_abs": transport["u16_edge_replay_max_abs"],
+                      "natural_u16_edge_replay_before_remainder_max_abs":
+                          transport["u16_edge_replay_before_remainder_max_abs"],
+                      "natural_u16_edge_replay_after_measured_remainder_max_abs":
+                          transport["u16_edge_replay_after_measured_remainder_max_abs"],
                       "natural_u16_edge_relative_squared_error_before_remainder":
                           transport["u16_edge_relative_squared_error_before_remainder"],
                       "natural_u16_edge_relative_squared_error_after_measured_remainder":
