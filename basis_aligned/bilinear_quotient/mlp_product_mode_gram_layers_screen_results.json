@@ -1,0 +1,72 @@
+{
+  "status": "mlp_product_mode_gram_layers_screen_complete",
+  "rung": 384,
+  "claim_level": "product_mode_layer_generality_closure_screen_only",
+  "tensor_definition": "M[u,v]=(d_u.d_v)*<sym(l_u,r_u),sym(l_v,r_v)>_C per layer",
+  "fit_cache": "fineweb_n192_skip11000.pt",
+  "fit_a": [
+    0,
+    24
+  ],
+  "fit_b": [
+    24,
+    48
+  ],
+  "layers": [
+    4,
+    16
+  ],
+  "widths": [
+    576,
+    1152,
+    2304,
+    3456
+  ],
+  "per_layer": {
+    "4": {
+      "context_b_retained_energy": {
+        "576": 0.2222243845462799,
+        "1152": 0.36188194155693054,
+        "2304": 0.603438675403595,
+        "3456": 0.8168948292732239
+      },
+      "context_a_retained_energy": {
+        "576": 0.23501990735530853,
+        "1152": 0.3745618462562561,
+        "2304": 0.6144985556602478,
+        "3456": 0.8230706453323364
+      },
+      "entry_sum": 61311928.0,
+      "output_trace_independent": 61311928.0,
+      "entry_sum_relative_error": 0.0,
+      "min_eigenvalue": 5161.75634765625,
+      "max_eigenvalue": 126086.3203125,
+      "split_top2304_overlap": 0.8213416337966919
+    },
+    "16": {
+      "context_b_retained_energy": {
+        "576": 0.8488433957099915,
+        "1152": 0.8771034479141235,
+        "2304": 0.925390362739563,
+        "3456": 0.9670899510383606
+      },
+      "context_a_retained_energy": {
+        "576": 0.8442976474761963,
+        "1152": 0.8748247623443604,
+        "2304": 0.9251568913459778,
+        "3456": 0.9673709869384766
+      },
+      "entry_sum": 710686592.0,
+      "output_trace_independent": 710686720.0,
+      "entry_sum_relative_error": 1.8010748814892727e-07,
+      "min_eigenvalue": 155.5561981201172,
+      "max_eigenvalue": 25850014.0,
+      "split_top2304_overlap": 0.7048958539962769
+    }
+  },
+  "layer0_reference_retained_2304": 0.6587068438529968,
+  "pred_a_gram_instrument_identities_hold_both_layers": true,
+  "pred_b_spectra_increasing_and_split_stable_both_layers": true,
+  "pred_c_product_mode_flatness_is_layer_general": false,
+  "null_product_gram_instrument_fails_either_layer": false
+}
