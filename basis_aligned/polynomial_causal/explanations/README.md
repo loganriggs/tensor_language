@@ -11,6 +11,9 @@ state what was actually measured and what unit is being used.
 
 ## Start here
 
+- [`explanation_2026-09-01_1633.md`](explanation_2026-09-01_1633.md) — 2026-09-01 16:33 UTC exact MLP0
+  compression bridge: larger documents qualify the error as joint T+I, five metric families leave covariance best,
+  a price-aware document-router oracle loses to cheaper p768, and only token-state feasibility remains open
 - [`explanation_2026-09-01_1518.md`](explanation_2026-09-01_1518.md) — 2026-09-01 15:18 UTC exact interaction-head
   update with computational definitions: head3 is dominant and stable, but the two-head sparsity bar fails; the next
   bridge to compression is a T/C/I/S-resolved audit of the rank448 shared-input program

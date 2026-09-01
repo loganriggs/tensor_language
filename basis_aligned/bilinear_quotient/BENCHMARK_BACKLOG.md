@@ -4279,7 +4279,7 @@ later per-rung backlog edits had silently anchored on text that was not here.
   `.007710 -> .010280`. Close fixed first-order p448 metrics; do not clip/interpolate/tune. Measure heldout oracle
   headroom before any small-state router, and compare that route with direct nonlinear CE fitting.
 
-### Rung 407 — price-aware two-state p448 router oracle ceiling — CLAIMED
+### Rung 407 — price-aware two-state p448 router oracle ceiling — COMPLETE / STRONG NULL
 
 - Rebuild the five outcome-frozen p448 programs from rungs403/405/406 plus covariance p640/p768 controls.
 - Save physical per-document/per-position losses on the 384-document authority; enumerate all10 two-expert future-
@@ -4287,3 +4287,8 @@ later per-rung backlog edits had silently anchored on text that was not here.
 - Compare optimistic two-p448 price14,599,296 against cheaper p76813,272,192 and p64011,945,088, with frozen
   headroom, balance, wave, identity, and strong-null bars in `MLP0_P448_ROUTER_ORACLE_CEILING_PREREGISTRATION.md`.
 - Diagnostic ceiling only. A null kills router-state search among these experts before code is spent on it.
+- RUN 2026-09-01: A/B/D held, C failed, null true. Best document pair I-active+Fisher has damage `.004817`, a
+  32% p448 gain, balanced `.581/.419` use, and all-wave benefit; all-five document oracle `.002888`. But cheaper
+  p768 is `.001173` at13,272,192 values versus at least14,599,296 for two p448 experts, so document routing is
+  dominated. Position oracle is `-.02107` for the pair / `-.03928` all-five, leaving only the preregistered
+  token-state feasibility study open; it must be prefix-observable, physical, heldout, and beat p768 after price.
