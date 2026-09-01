@@ -3102,6 +3102,7 @@ later per-rung backlog edits had silently anchored on text that was not here.
     damage vector saved (bars = the S2347 repro claims, unchanged).
     Registered follow-up bar (math review 0107): cosine(d_ct96, d_t120)
     >= 0.95 = rank-one mechanism. -> ops/cevdump_ct96.py [QUEUED 01:10Z]
+    RUN 2026-09-01, S2375: ALL HELD, bit-exact; cev_ct96.pt saved.
 
 276. cev-dump repro: corner+tail-r120 (bars = S2349 cliff preds,
     unchanged). -> ops/cevdump_t120.py [QUEUED 01:10Z]
