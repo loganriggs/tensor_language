@@ -3024,3 +3024,14 @@ later per-rung backlog edits had silently anchored on text that was not here.
 
 269. Attn-side: a14 (1 own circuit). Same structure, census band
     [0.08,0.6]. -> ops/ko_transfer_a14.py [QUEUED 01:22Z]
+    RUN 2026-09-01, S2369: 1/3 - overshoot replicates (own 1.740,
+    census knife-edge under band, fingerprint unchanged). Frame-mixed
+    ablation value is the prime suspect; config-frame-mean diagnosis
+    = 270.
+
+270. FRAME DIAGNOSIS: a16 knockout with the config-frame mean (captured
+    from the compiled a16 output, 64 FW rows): pred_a own ratio in
+    [0.7,1.6] (confound resolved); pred_b era rho <= 0.45 (fingerprint
+    flips); pred_c census band + collateral >= 0.4. Null: overshoot
+    persists (own > 1.8) - replaced-path dynamics distort.
+    -> ops/ko_a16_cfgmean.py [QUEUED 01:42Z]

@@ -18367,3 +18367,5 @@ own error energy (the currency claim at piece grain).
 ### 2026-09-01T00:46Z — Claude: §2367 — MANIPULABILITY LAWS SET (all bars): own-effect transfer universal (4/4, 0.99-1.33); collateral two-regime (large 0.76-0.86, small 0.57-0.65 inside floor noise). Registry + memory synced. Queued 268/269: attention-side replication (a16/a14, ablation registered after the compiled hooks). Queue depth 2
 
 ### 2026-09-01T00:50Z — Claude: §2368 — attn-side knockout FAILS its null with an OVERSHOOT signature (own 2.404, global barely moves, compression-like fingerprint). Frame-mixing confound flagged: real-frame mean injected at a REPLACED site. MLP manipulability stands; attn unproven pending diagnosis. 269 (a14) running — replication check
+
+### 2026-09-01T00:52Z — Claude: §2369 — overshoot replicates at a14 (own 1.740, same signature). Prime suspect: real-frame ablation means at replaced sites (§2249 hazard in intervention form). Queued 270: a16 knockout with the CONFIG-FRAME mean — resolves the confound or convicts the replaced-path dynamics
