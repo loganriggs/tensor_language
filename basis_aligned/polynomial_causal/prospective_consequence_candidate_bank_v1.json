@@ -1,0 +1,1432 @@
+{
+  "role_policy": {
+    "sealed_confirmation_families": [
+      "attention0_sparse_qk"
+    ],
+    "teaching_families": [
+      "mixed104_mlp0_context_input",
+      "mixed104_mlp_pca",
+      "vocabulary_factorization"
+    ]
+  },
+  "rows": [
+    {
+      "atom_count": null,
+      "candidate_id": "vocab_r300_shared_0",
+      "control_type": "candidate",
+      "family_role": "teaching",
+      "grammar_family": "shared_low_rank",
+      "price_bytes": null,
+      "price_scalars": 59277312,
+      "producer_source": "ops/joint_vocab_shared_code_screen.py",
+      "producer_source_sha256": "8eb17993fda6e284b512ad86519f3729e3bd59d38bee251d4da195dc7dc0ed5b",
+      "program_family": "vocabulary_factorization",
+      "rank": 0,
+      "rebuild_mode": "deterministic_refit",
+      "required_artifacts": [
+        {
+          "path": ".rowcache/fineweb_n96_skip1200.pt",
+          "sha256": "21707551f35d13818c10ac59e12e9445ef076d0522371fe779691bfab719d34f"
+        },
+        {
+          "path": ".rowcache/fineweb_n96_skip80.pt",
+          "sha256": "94bc1fb3e3a6a061541e555295e0af8c50ae6068fdff84e95a69c25844091eda"
+        }
+      ],
+      "shares_parameters_across_input_output": true,
+      "sources": [
+        {
+          "receipt": "joint_vocab_shared_code_screen_results.json",
+          "sha256": "e7f4db2a837379c5cc7d2ab242c30d96a08089bab01da4522227aabb4f0d8b3d"
+        }
+      ],
+      "sparse_rows": 0
+    },
+    {
+      "atom_count": null,
+      "candidate_id": "vocab_r300_independent_0",
+      "control_type": "price_matched_baseline",
+      "family_role": "teaching",
+      "grammar_family": "independent_low_rank",
+      "price_bytes": null,
+      "price_scalars": 59236608,
+      "producer_source": "ops/joint_vocab_shared_code_screen.py",
+      "producer_source_sha256": "8eb17993fda6e284b512ad86519f3729e3bd59d38bee251d4da195dc7dc0ed5b",
+      "program_family": "vocabulary_factorization",
+      "rank": 25,
+      "rebuild_mode": "deterministic_refit",
+      "required_artifacts": [
+        {
+          "path": ".rowcache/fineweb_n96_skip1200.pt",
+          "sha256": "21707551f35d13818c10ac59e12e9445ef076d0522371fe779691bfab719d34f"
+        },
+        {
+          "path": ".rowcache/fineweb_n96_skip80.pt",
+          "sha256": "94bc1fb3e3a6a061541e555295e0af8c50ae6068fdff84e95a69c25844091eda"
+        }
+      ],
+      "shares_parameters_across_input_output": false,
+      "sources": [
+        {
+          "receipt": "joint_vocab_shared_code_screen_results.json",
+          "sha256": "e7f4db2a837379c5cc7d2ab242c30d96a08089bab01da4522227aabb4f0d8b3d"
+        }
+      ],
+      "sparse_rows": 0
+    },
+    {
+      "atom_count": null,
+      "candidate_id": "vocab_r300_shared_128",
+      "control_type": "candidate",
+      "family_role": "teaching",
+      "grammar_family": "shared_low_rank",
+      "price_bytes": null,
+      "price_scalars": 65863680,
+      "producer_source": "ops/joint_vocab_shared_code_screen.py",
+      "producer_source_sha256": "8eb17993fda6e284b512ad86519f3729e3bd59d38bee251d4da195dc7dc0ed5b",
+      "program_family": "vocabulary_factorization",
+      "rank": 128,
+      "rebuild_mode": "deterministic_refit",
+      "required_artifacts": [
+        {
+          "path": ".rowcache/fineweb_n96_skip1200.pt",
+          "sha256": "21707551f35d13818c10ac59e12e9445ef076d0522371fe779691bfab719d34f"
+        },
+        {
+          "path": ".rowcache/fineweb_n96_skip80.pt",
+          "sha256": "94bc1fb3e3a6a061541e555295e0af8c50ae6068fdff84e95a69c25844091eda"
+        }
+      ],
+      "shares_parameters_across_input_output": true,
+      "sources": [
+        {
+          "receipt": "joint_vocab_shared_code_screen_results.json",
+          "sha256": "e7f4db2a837379c5cc7d2ab242c30d96a08089bab01da4522227aabb4f0d8b3d"
+        }
+      ],
+      "sparse_rows": 0
+    },
+    {
+      "atom_count": null,
+      "candidate_id": "vocab_r300_independent_128",
+      "control_type": "price_matched_baseline",
+      "family_role": "teaching",
+      "grammar_family": "independent_low_rank",
+      "price_bytes": null,
+      "price_scalars": 65822976,
+      "producer_source": "ops/joint_vocab_shared_code_screen.py",
+      "producer_source_sha256": "8eb17993fda6e284b512ad86519f3729e3bd59d38bee251d4da195dc7dc0ed5b",
+      "program_family": "vocabulary_factorization",
+      "rank": 153,
+      "rebuild_mode": "deterministic_refit",
+      "required_artifacts": [
+        {
+          "path": ".rowcache/fineweb_n96_skip1200.pt",
+          "sha256": "21707551f35d13818c10ac59e12e9445ef076d0522371fe779691bfab719d34f"
+        },
+        {
+          "path": ".rowcache/fineweb_n96_skip80.pt",
+          "sha256": "94bc1fb3e3a6a061541e555295e0af8c50ae6068fdff84e95a69c25844091eda"
+        }
+      ],
+      "shares_parameters_across_input_output": false,
+      "sources": [
+        {
+          "receipt": "joint_vocab_shared_code_screen_results.json",
+          "sha256": "e7f4db2a837379c5cc7d2ab242c30d96a08089bab01da4522227aabb4f0d8b3d"
+        }
+      ],
+      "sparse_rows": 0
+    },
+    {
+      "atom_count": null,
+      "candidate_id": "vocab_r300_shared_256",
+      "control_type": "candidate",
+      "family_role": "teaching",
+      "grammar_family": "shared_low_rank",
+      "price_bytes": null,
+      "price_scalars": 72450048,
+      "producer_source": "ops/joint_vocab_shared_code_screen.py",
+      "producer_source_sha256": "8eb17993fda6e284b512ad86519f3729e3bd59d38bee251d4da195dc7dc0ed5b",
+      "program_family": "vocabulary_factorization",
+      "rank": 256,
+      "rebuild_mode": "deterministic_refit",
+      "required_artifacts": [
+        {
+          "path": ".rowcache/fineweb_n96_skip1200.pt",
+          "sha256": "21707551f35d13818c10ac59e12e9445ef076d0522371fe779691bfab719d34f"
+        },
+        {
+          "path": ".rowcache/fineweb_n96_skip80.pt",
+          "sha256": "94bc1fb3e3a6a061541e555295e0af8c50ae6068fdff84e95a69c25844091eda"
+        }
+      ],
+      "shares_parameters_across_input_output": true,
+      "sources": [
+        {
+          "receipt": "joint_vocab_shared_code_screen_results.json",
+          "sha256": "e7f4db2a837379c5cc7d2ab242c30d96a08089bab01da4522227aabb4f0d8b3d"
+        }
+      ],
+      "sparse_rows": 0
+    },
+    {
+      "atom_count": null,
+      "candidate_id": "vocab_r300_independent_256",
+      "control_type": "price_matched_baseline",
+      "family_role": "teaching",
+      "grammar_family": "independent_low_rank",
+      "price_bytes": null,
+      "price_scalars": 72409344,
+      "producer_source": "ops/joint_vocab_shared_code_screen.py",
+      "producer_source_sha256": "8eb17993fda6e284b512ad86519f3729e3bd59d38bee251d4da195dc7dc0ed5b",
+      "program_family": "vocabulary_factorization",
+      "rank": 281,
+      "rebuild_mode": "deterministic_refit",
+      "required_artifacts": [
+        {
+          "path": ".rowcache/fineweb_n96_skip1200.pt",
+          "sha256": "21707551f35d13818c10ac59e12e9445ef076d0522371fe779691bfab719d34f"
+        },
+        {
+          "path": ".rowcache/fineweb_n96_skip80.pt",
+          "sha256": "94bc1fb3e3a6a061541e555295e0af8c50ae6068fdff84e95a69c25844091eda"
+        }
+      ],
+      "shares_parameters_across_input_output": false,
+      "sources": [
+        {
+          "receipt": "joint_vocab_shared_code_screen_results.json",
+          "sha256": "e7f4db2a837379c5cc7d2ab242c30d96a08089bab01da4522227aabb4f0d8b3d"
+        }
+      ],
+      "sparse_rows": 0
+    },
+    {
+      "atom_count": null,
+      "candidate_id": "vocab_r300_shared_512",
+      "control_type": "candidate",
+      "family_role": "teaching",
+      "grammar_family": "shared_low_rank",
+      "price_bytes": null,
+      "price_scalars": 85622784,
+      "producer_source": "ops/joint_vocab_shared_code_screen.py",
+      "producer_source_sha256": "8eb17993fda6e284b512ad86519f3729e3bd59d38bee251d4da195dc7dc0ed5b",
+      "program_family": "vocabulary_factorization",
+      "rank": 512,
+      "rebuild_mode": "deterministic_refit",
+      "required_artifacts": [
+        {
+          "path": ".rowcache/fineweb_n96_skip1200.pt",
+          "sha256": "21707551f35d13818c10ac59e12e9445ef076d0522371fe779691bfab719d34f"
+        },
+        {
+          "path": ".rowcache/fineweb_n96_skip80.pt",
+          "sha256": "94bc1fb3e3a6a061541e555295e0af8c50ae6068fdff84e95a69c25844091eda"
+        }
+      ],
+      "shares_parameters_across_input_output": true,
+      "sources": [
+        {
+          "receipt": "joint_vocab_shared_code_screen_results.json",
+          "sha256": "e7f4db2a837379c5cc7d2ab242c30d96a08089bab01da4522227aabb4f0d8b3d"
+        }
+      ],
+      "sparse_rows": 0
+    },
+    {
+      "atom_count": null,
+      "candidate_id": "vocab_r300_independent_512",
+      "control_type": "price_matched_baseline",
+      "family_role": "teaching",
+      "grammar_family": "independent_low_rank",
+      "price_bytes": null,
+      "price_scalars": 85582080,
+      "producer_source": "ops/joint_vocab_shared_code_screen.py",
+      "producer_source_sha256": "8eb17993fda6e284b512ad86519f3729e3bd59d38bee251d4da195dc7dc0ed5b",
+      "program_family": "vocabulary_factorization",
+      "rank": 537,
+      "rebuild_mode": "deterministic_refit",
+      "required_artifacts": [
+        {
+          "path": ".rowcache/fineweb_n96_skip1200.pt",
+          "sha256": "21707551f35d13818c10ac59e12e9445ef076d0522371fe779691bfab719d34f"
+        },
+        {
+          "path": ".rowcache/fineweb_n96_skip80.pt",
+          "sha256": "94bc1fb3e3a6a061541e555295e0af8c50ae6068fdff84e95a69c25844091eda"
+        }
+      ],
+      "shares_parameters_across_input_output": false,
+      "sources": [
+        {
+          "receipt": "joint_vocab_shared_code_screen_results.json",
+          "sha256": "e7f4db2a837379c5cc7d2ab242c30d96a08089bab01da4522227aabb4f0d8b3d"
+        }
+      ],
+      "sparse_rows": 0
+    },
+    {
+      "atom_count": null,
+      "candidate_id": "vocab_r304_fisher_rare",
+      "control_type": "candidate",
+      "family_role": "teaching",
+      "grammar_family": "shared_low_rank_plus_indexed_rows",
+      "price_bytes": null,
+      "price_scalars": 86924521,
+      "producer_source": "ops/joint_vocab_sparse_rare_residual.py",
+      "producer_source_sha256": "18c38fdbc6849dd4aa33ff30b58471a02c0427dfcf6bf16d842b6cb9c9a83532",
+      "program_family": "vocabulary_factorization",
+      "rank": 512,
+      "rebuild_mode": "deterministic_refit",
+      "required_artifacts": [
+        {
+          "path": ".rowcache/fineweb_n480_skip80.pt",
+          "sha256": "2acf75382486988a1e124a1a575ef3230af43aa1b1507d80dee02eefc7bba496"
+        },
+        {
+          "path": ".rowcache/fineweb_n192_skip7000.pt",
+          "sha256": "d66c1ee7807bc6b9bd7d0ddba5cdd7e3bc64926b00320a10675a2f817d67128c"
+        }
+      ],
+      "shares_parameters_across_input_output": true,
+      "sources": [
+        {
+          "receipt": "joint_vocab_sparse_rare_residual_results.json",
+          "sha256": "c6e782015c3fad47a49818f7a453878f46716875a1f10e06f72d160b17f5ea48"
+        }
+      ],
+      "sparse_rows": 1129
+    },
+    {
+      "atom_count": null,
+      "candidate_id": "vocab_r304_norm_rare",
+      "control_type": "selector_control",
+      "family_role": "teaching",
+      "grammar_family": "shared_low_rank_plus_indexed_rows",
+      "price_bytes": null,
+      "price_scalars": 86924521,
+      "producer_source": "ops/joint_vocab_sparse_rare_residual.py",
+      "producer_source_sha256": "18c38fdbc6849dd4aa33ff30b58471a02c0427dfcf6bf16d842b6cb9c9a83532",
+      "program_family": "vocabulary_factorization",
+      "rank": 512,
+      "rebuild_mode": "deterministic_refit",
+      "required_artifacts": [
+        {
+          "path": ".rowcache/fineweb_n480_skip80.pt",
+          "sha256": "2acf75382486988a1e124a1a575ef3230af43aa1b1507d80dee02eefc7bba496"
+        },
+        {
+          "path": ".rowcache/fineweb_n192_skip7000.pt",
+          "sha256": "d66c1ee7807bc6b9bd7d0ddba5cdd7e3bc64926b00320a10675a2f817d67128c"
+        }
+      ],
+      "shares_parameters_across_input_output": true,
+      "sources": [
+        {
+          "receipt": "joint_vocab_sparse_rare_residual_results.json",
+          "sha256": "c6e782015c3fad47a49818f7a453878f46716875a1f10e06f72d160b17f5ea48"
+        }
+      ],
+      "sparse_rows": 1129
+    },
+    {
+      "atom_count": null,
+      "candidate_id": "vocab_r304_random_rare",
+      "control_type": "selector_control",
+      "family_role": "teaching",
+      "grammar_family": "shared_low_rank_plus_indexed_rows",
+      "price_bytes": null,
+      "price_scalars": 86924521,
+      "producer_source": "ops/joint_vocab_sparse_rare_residual.py",
+      "producer_source_sha256": "18c38fdbc6849dd4aa33ff30b58471a02c0427dfcf6bf16d842b6cb9c9a83532",
+      "program_family": "vocabulary_factorization",
+      "rank": 512,
+      "rebuild_mode": "deterministic_refit",
+      "required_artifacts": [
+        {
+          "path": ".rowcache/fineweb_n480_skip80.pt",
+          "sha256": "2acf75382486988a1e124a1a575ef3230af43aa1b1507d80dee02eefc7bba496"
+        },
+        {
+          "path": ".rowcache/fineweb_n192_skip7000.pt",
+          "sha256": "d66c1ee7807bc6b9bd7d0ddba5cdd7e3bc64926b00320a10675a2f817d67128c"
+        }
+      ],
+      "shares_parameters_across_input_output": true,
+      "sources": [
+        {
+          "receipt": "joint_vocab_sparse_rare_residual_results.json",
+          "sha256": "c6e782015c3fad47a49818f7a453878f46716875a1f10e06f72d160b17f5ea48"
+        }
+      ],
+      "sparse_rows": 1129
+    },
+    {
+      "atom_count": null,
+      "candidate_id": "vocab_r305_sqrt_count_plus_1_s512_shared",
+      "control_type": "candidate",
+      "family_role": "teaching",
+      "grammar_family": "shared_weighted_low_rank",
+      "price_bytes": null,
+      "price_scalars": 85622784,
+      "producer_source": "ops/joint_vocab_distributed_rank_frontier.py",
+      "producer_source_sha256": "76a6525b67e6128d733c62343741d79f058072966b38a06af4ad2add6c4421de",
+      "program_family": "vocabulary_factorization",
+      "rank": 512,
+      "rebuild_mode": "deterministic_refit",
+      "required_artifacts": [
+        {
+          "path": ".rowcache/fineweb_n480_skip80.pt",
+          "sha256": "2acf75382486988a1e124a1a575ef3230af43aa1b1507d80dee02eefc7bba496"
+        },
+        {
+          "path": ".rowcache/fineweb_n192_skip11000.pt",
+          "sha256": "b1564bfd071418f401a816cb01e3d26b082a3e73ba858838f1c83c250db4d868"
+        }
+      ],
+      "shares_parameters_across_input_output": true,
+      "sources": [
+        {
+          "receipt": "joint_vocab_distributed_rank_frontier_results.json",
+          "sha256": "ada2c09bd990f0c18c6d1bf1e4248301411816ca22ef077a30107da666e91fb6"
+        }
+      ],
+      "sparse_rows": 0
+    },
+    {
+      "atom_count": null,
+      "candidate_id": "vocab_r305_sqrt_count_plus_1_s512_independent",
+      "control_type": "price_matched_baseline",
+      "family_role": "teaching",
+      "grammar_family": "independent_weighted_low_rank",
+      "price_bytes": null,
+      "price_scalars": 85582080,
+      "producer_source": "ops/joint_vocab_distributed_rank_frontier.py",
+      "producer_source_sha256": "76a6525b67e6128d733c62343741d79f058072966b38a06af4ad2add6c4421de",
+      "program_family": "vocabulary_factorization",
+      "rank": 537,
+      "rebuild_mode": "deterministic_refit",
+      "required_artifacts": [
+        {
+          "path": ".rowcache/fineweb_n480_skip80.pt",
+          "sha256": "2acf75382486988a1e124a1a575ef3230af43aa1b1507d80dee02eefc7bba496"
+        },
+        {
+          "path": ".rowcache/fineweb_n192_skip11000.pt",
+          "sha256": "b1564bfd071418f401a816cb01e3d26b082a3e73ba858838f1c83c250db4d868"
+        }
+      ],
+      "shares_parameters_across_input_output": false,
+      "sources": [
+        {
+          "receipt": "joint_vocab_distributed_rank_frontier_results.json",
+          "sha256": "ada2c09bd990f0c18c6d1bf1e4248301411816ca22ef077a30107da666e91fb6"
+        }
+      ],
+      "sparse_rows": 0
+    },
+    {
+      "atom_count": null,
+      "candidate_id": "vocab_r305_sqrt_count_plus_1_s640_shared",
+      "control_type": "candidate",
+      "family_role": "teaching",
+      "grammar_family": "shared_weighted_low_rank",
+      "price_bytes": null,
+      "price_scalars": 92209152,
+      "producer_source": "ops/joint_vocab_distributed_rank_frontier.py",
+      "producer_source_sha256": "76a6525b67e6128d733c62343741d79f058072966b38a06af4ad2add6c4421de",
+      "program_family": "vocabulary_factorization",
+      "rank": 640,
+      "rebuild_mode": "deterministic_refit",
+      "required_artifacts": [
+        {
+          "path": ".rowcache/fineweb_n480_skip80.pt",
+          "sha256": "2acf75382486988a1e124a1a575ef3230af43aa1b1507d80dee02eefc7bba496"
+        },
+        {
+          "path": ".rowcache/fineweb_n192_skip11000.pt",
+          "sha256": "b1564bfd071418f401a816cb01e3d26b082a3e73ba858838f1c83c250db4d868"
+        }
+      ],
+      "shares_parameters_across_input_output": true,
+      "sources": [
+        {
+          "receipt": "joint_vocab_distributed_rank_frontier_results.json",
+          "sha256": "ada2c09bd990f0c18c6d1bf1e4248301411816ca22ef077a30107da666e91fb6"
+        }
+      ],
+      "sparse_rows": 0
+    },
+    {
+      "atom_count": null,
+      "candidate_id": "vocab_r305_sqrt_count_plus_1_s640_independent",
+      "control_type": "price_matched_baseline",
+      "family_role": "teaching",
+      "grammar_family": "independent_weighted_low_rank",
+      "price_bytes": null,
+      "price_scalars": 92168448,
+      "producer_source": "ops/joint_vocab_distributed_rank_frontier.py",
+      "producer_source_sha256": "76a6525b67e6128d733c62343741d79f058072966b38a06af4ad2add6c4421de",
+      "program_family": "vocabulary_factorization",
+      "rank": 665,
+      "rebuild_mode": "deterministic_refit",
+      "required_artifacts": [
+        {
+          "path": ".rowcache/fineweb_n480_skip80.pt",
+          "sha256": "2acf75382486988a1e124a1a575ef3230af43aa1b1507d80dee02eefc7bba496"
+        },
+        {
+          "path": ".rowcache/fineweb_n192_skip11000.pt",
+          "sha256": "b1564bfd071418f401a816cb01e3d26b082a3e73ba858838f1c83c250db4d868"
+        }
+      ],
+      "shares_parameters_across_input_output": false,
+      "sources": [
+        {
+          "receipt": "joint_vocab_distributed_rank_frontier_results.json",
+          "sha256": "ada2c09bd990f0c18c6d1bf1e4248301411816ca22ef077a30107da666e91fb6"
+        }
+      ],
+      "sparse_rows": 0
+    },
+    {
+      "atom_count": null,
+      "candidate_id": "vocab_r305_sqrt_count_plus_1_s768_shared",
+      "control_type": "candidate",
+      "family_role": "teaching",
+      "grammar_family": "shared_weighted_low_rank",
+      "price_bytes": null,
+      "price_scalars": 98795520,
+      "producer_source": "ops/joint_vocab_distributed_rank_frontier.py",
+      "producer_source_sha256": "76a6525b67e6128d733c62343741d79f058072966b38a06af4ad2add6c4421de",
+      "program_family": "vocabulary_factorization",
+      "rank": 768,
+      "rebuild_mode": "deterministic_refit",
+      "required_artifacts": [
+        {
+          "path": ".rowcache/fineweb_n480_skip80.pt",
+          "sha256": "2acf75382486988a1e124a1a575ef3230af43aa1b1507d80dee02eefc7bba496"
+        },
+        {
+          "path": ".rowcache/fineweb_n192_skip11000.pt",
+          "sha256": "b1564bfd071418f401a816cb01e3d26b082a3e73ba858838f1c83c250db4d868"
+        }
+      ],
+      "shares_parameters_across_input_output": true,
+      "sources": [
+        {
+          "receipt": "joint_vocab_distributed_rank_frontier_results.json",
+          "sha256": "ada2c09bd990f0c18c6d1bf1e4248301411816ca22ef077a30107da666e91fb6"
+        }
+      ],
+      "sparse_rows": 0
+    },
+    {
+      "atom_count": null,
+      "candidate_id": "vocab_r305_sqrt_count_plus_1_s768_independent",
+      "control_type": "price_matched_baseline",
+      "family_role": "teaching",
+      "grammar_family": "independent_weighted_low_rank",
+      "price_bytes": null,
+      "price_scalars": 98754816,
+      "producer_source": "ops/joint_vocab_distributed_rank_frontier.py",
+      "producer_source_sha256": "76a6525b67e6128d733c62343741d79f058072966b38a06af4ad2add6c4421de",
+      "program_family": "vocabulary_factorization",
+      "rank": 793,
+      "rebuild_mode": "deterministic_refit",
+      "required_artifacts": [
+        {
+          "path": ".rowcache/fineweb_n480_skip80.pt",
+          "sha256": "2acf75382486988a1e124a1a575ef3230af43aa1b1507d80dee02eefc7bba496"
+        },
+        {
+          "path": ".rowcache/fineweb_n192_skip11000.pt",
+          "sha256": "b1564bfd071418f401a816cb01e3d26b082a3e73ba858838f1c83c250db4d868"
+        }
+      ],
+      "shares_parameters_across_input_output": false,
+      "sources": [
+        {
+          "receipt": "joint_vocab_distributed_rank_frontier_results.json",
+          "sha256": "ada2c09bd990f0c18c6d1bf1e4248301411816ca22ef077a30107da666e91fb6"
+        }
+      ],
+      "sparse_rows": 0
+    },
+    {
+      "atom_count": null,
+      "candidate_id": "vocab_r305_count_plus_1_s512_shared",
+      "control_type": "candidate",
+      "family_role": "teaching",
+      "grammar_family": "shared_weighted_low_rank",
+      "price_bytes": null,
+      "price_scalars": 85622784,
+      "producer_source": "ops/joint_vocab_distributed_rank_frontier.py",
+      "producer_source_sha256": "76a6525b67e6128d733c62343741d79f058072966b38a06af4ad2add6c4421de",
+      "program_family": "vocabulary_factorization",
+      "rank": 512,
+      "rebuild_mode": "deterministic_refit",
+      "required_artifacts": [
+        {
+          "path": ".rowcache/fineweb_n480_skip80.pt",
+          "sha256": "2acf75382486988a1e124a1a575ef3230af43aa1b1507d80dee02eefc7bba496"
+        },
+        {
+          "path": ".rowcache/fineweb_n192_skip11000.pt",
+          "sha256": "b1564bfd071418f401a816cb01e3d26b082a3e73ba858838f1c83c250db4d868"
+        }
+      ],
+      "shares_parameters_across_input_output": true,
+      "sources": [
+        {
+          "receipt": "joint_vocab_distributed_rank_frontier_results.json",
+          "sha256": "ada2c09bd990f0c18c6d1bf1e4248301411816ca22ef077a30107da666e91fb6"
+        }
+      ],
+      "sparse_rows": 0
+    },
+    {
+      "atom_count": null,
+      "candidate_id": "vocab_r305_count_plus_1_s512_independent",
+      "control_type": "price_matched_baseline",
+      "family_role": "teaching",
+      "grammar_family": "independent_weighted_low_rank",
+      "price_bytes": null,
+      "price_scalars": 85582080,
+      "producer_source": "ops/joint_vocab_distributed_rank_frontier.py",
+      "producer_source_sha256": "76a6525b67e6128d733c62343741d79f058072966b38a06af4ad2add6c4421de",
+      "program_family": "vocabulary_factorization",
+      "rank": 537,
+      "rebuild_mode": "deterministic_refit",
+      "required_artifacts": [
+        {
+          "path": ".rowcache/fineweb_n480_skip80.pt",
+          "sha256": "2acf75382486988a1e124a1a575ef3230af43aa1b1507d80dee02eefc7bba496"
+        },
+        {
+          "path": ".rowcache/fineweb_n192_skip11000.pt",
+          "sha256": "b1564bfd071418f401a816cb01e3d26b082a3e73ba858838f1c83c250db4d868"
+        }
+      ],
+      "shares_parameters_across_input_output": false,
+      "sources": [
+        {
+          "receipt": "joint_vocab_distributed_rank_frontier_results.json",
+          "sha256": "ada2c09bd990f0c18c6d1bf1e4248301411816ca22ef077a30107da666e91fb6"
+        }
+      ],
+      "sparse_rows": 0
+    },
+    {
+      "atom_count": null,
+      "candidate_id": "vocab_r305_count_plus_1_s640_shared",
+      "control_type": "candidate",
+      "family_role": "teaching",
+      "grammar_family": "shared_weighted_low_rank",
+      "price_bytes": null,
+      "price_scalars": 92209152,
+      "producer_source": "ops/joint_vocab_distributed_rank_frontier.py",
+      "producer_source_sha256": "76a6525b67e6128d733c62343741d79f058072966b38a06af4ad2add6c4421de",
+      "program_family": "vocabulary_factorization",
+      "rank": 640,
+      "rebuild_mode": "deterministic_refit",
+      "required_artifacts": [
+        {
+          "path": ".rowcache/fineweb_n480_skip80.pt",
+          "sha256": "2acf75382486988a1e124a1a575ef3230af43aa1b1507d80dee02eefc7bba496"
+        },
+        {
+          "path": ".rowcache/fineweb_n192_skip11000.pt",
+          "sha256": "b1564bfd071418f401a816cb01e3d26b082a3e73ba858838f1c83c250db4d868"
+        }
+      ],
+      "shares_parameters_across_input_output": true,
+      "sources": [
+        {
+          "receipt": "joint_vocab_distributed_rank_frontier_results.json",
+          "sha256": "ada2c09bd990f0c18c6d1bf1e4248301411816ca22ef077a30107da666e91fb6"
+        }
+      ],
+      "sparse_rows": 0
+    },
+    {
+      "atom_count": null,
+      "candidate_id": "vocab_r305_count_plus_1_s640_independent",
+      "control_type": "price_matched_baseline",
+      "family_role": "teaching",
+      "grammar_family": "independent_weighted_low_rank",
+      "price_bytes": null,
+      "price_scalars": 92168448,
+      "producer_source": "ops/joint_vocab_distributed_rank_frontier.py",
+      "producer_source_sha256": "76a6525b67e6128d733c62343741d79f058072966b38a06af4ad2add6c4421de",
+      "program_family": "vocabulary_factorization",
+      "rank": 665,
+      "rebuild_mode": "deterministic_refit",
+      "required_artifacts": [
+        {
+          "path": ".rowcache/fineweb_n480_skip80.pt",
+          "sha256": "2acf75382486988a1e124a1a575ef3230af43aa1b1507d80dee02eefc7bba496"
+        },
+        {
+          "path": ".rowcache/fineweb_n192_skip11000.pt",
+          "sha256": "b1564bfd071418f401a816cb01e3d26b082a3e73ba858838f1c83c250db4d868"
+        }
+      ],
+      "shares_parameters_across_input_output": false,
+      "sources": [
+        {
+          "receipt": "joint_vocab_distributed_rank_frontier_results.json",
+          "sha256": "ada2c09bd990f0c18c6d1bf1e4248301411816ca22ef077a30107da666e91fb6"
+        }
+      ],
+      "sparse_rows": 0
+    },
+    {
+      "atom_count": null,
+      "candidate_id": "vocab_r305_count_plus_1_s768_shared",
+      "control_type": "candidate",
+      "family_role": "teaching",
+      "grammar_family": "shared_weighted_low_rank",
+      "price_bytes": null,
+      "price_scalars": 98795520,
+      "producer_source": "ops/joint_vocab_distributed_rank_frontier.py",
+      "producer_source_sha256": "76a6525b67e6128d733c62343741d79f058072966b38a06af4ad2add6c4421de",
+      "program_family": "vocabulary_factorization",
+      "rank": 768,
+      "rebuild_mode": "deterministic_refit",
+      "required_artifacts": [
+        {
+          "path": ".rowcache/fineweb_n480_skip80.pt",
+          "sha256": "2acf75382486988a1e124a1a575ef3230af43aa1b1507d80dee02eefc7bba496"
+        },
+        {
+          "path": ".rowcache/fineweb_n192_skip11000.pt",
+          "sha256": "b1564bfd071418f401a816cb01e3d26b082a3e73ba858838f1c83c250db4d868"
+        }
+      ],
+      "shares_parameters_across_input_output": true,
+      "sources": [
+        {
+          "receipt": "joint_vocab_distributed_rank_frontier_results.json",
+          "sha256": "ada2c09bd990f0c18c6d1bf1e4248301411816ca22ef077a30107da666e91fb6"
+        }
+      ],
+      "sparse_rows": 0
+    },
+    {
+      "atom_count": null,
+      "candidate_id": "vocab_r305_count_plus_1_s768_independent",
+      "control_type": "price_matched_baseline",
+      "family_role": "teaching",
+      "grammar_family": "independent_weighted_low_rank",
+      "price_bytes": null,
+      "price_scalars": 98754816,
+      "producer_source": "ops/joint_vocab_distributed_rank_frontier.py",
+      "producer_source_sha256": "76a6525b67e6128d733c62343741d79f058072966b38a06af4ad2add6c4421de",
+      "program_family": "vocabulary_factorization",
+      "rank": 793,
+      "rebuild_mode": "deterministic_refit",
+      "required_artifacts": [
+        {
+          "path": ".rowcache/fineweb_n480_skip80.pt",
+          "sha256": "2acf75382486988a1e124a1a575ef3230af43aa1b1507d80dee02eefc7bba496"
+        },
+        {
+          "path": ".rowcache/fineweb_n192_skip11000.pt",
+          "sha256": "b1564bfd071418f401a816cb01e3d26b082a3e73ba858838f1c83c250db4d868"
+        }
+      ],
+      "shares_parameters_across_input_output": false,
+      "sources": [
+        {
+          "receipt": "joint_vocab_distributed_rank_frontier_results.json",
+          "sha256": "ada2c09bd990f0c18c6d1bf1e4248301411816ca22ef077a30107da666e91fb6"
+        }
+      ],
+      "sparse_rows": 0
+    },
+    {
+      "atom_count": null,
+      "candidate_id": "mlp_pca_p0_8_r256",
+      "control_type": "candidate",
+      "family_role": "teaching",
+      "grammar_family": "activation_pca_pair",
+      "price_bytes": 2011767404,
+      "price_scalars": 531927350,
+      "producer_source": "ops/mixed104_pca_fixed_pair_frontier.py",
+      "producer_source_sha256": "82af814e73d7321b981ba520e7df75d4f8452213c1c75af70a15c809a50aa6b2",
+      "program_family": "mixed104_mlp_pca",
+      "rank": 256,
+      "rebuild_mode": "deterministic_refit",
+      "required_artifacts": [
+        {
+          "path": ".rowcache/fineweb_n480_skip80.pt",
+          "sha256": "2acf75382486988a1e124a1a575ef3230af43aa1b1507d80dee02eefc7bba496"
+        },
+        {
+          "path": "census_state_diverse.pt",
+          "sha256": "c785f3d938091253535aa4f613ab2b4107bf297c8d615da4f7eab4f8282f5e0b"
+        }
+      ],
+      "shares_parameters_across_input_output": false,
+      "sources": [
+        {
+          "receipt": "mixed104_pca_fixed_pair_frontier_results.json",
+          "sha256": "e6aacdaecc11e1693c73b5638f75e197a79676e5b288a4cbb42e57d25eb45ce1"
+        }
+      ],
+      "sparse_rows": 0
+    },
+    {
+      "atom_count": null,
+      "candidate_id": "mlp_pca_p0_17_r256",
+      "control_type": "candidate",
+      "family_role": "teaching",
+      "grammar_family": "activation_pca_pair",
+      "price_bytes": 2011767404,
+      "price_scalars": 531927350,
+      "producer_source": "ops/mixed104_pca_fixed_pair_frontier.py",
+      "producer_source_sha256": "82af814e73d7321b981ba520e7df75d4f8452213c1c75af70a15c809a50aa6b2",
+      "program_family": "mixed104_mlp_pca",
+      "rank": 256,
+      "rebuild_mode": "deterministic_refit",
+      "required_artifacts": [
+        {
+          "path": ".rowcache/fineweb_n480_skip80.pt",
+          "sha256": "2acf75382486988a1e124a1a575ef3230af43aa1b1507d80dee02eefc7bba496"
+        },
+        {
+          "path": "census_state_diverse.pt",
+          "sha256": "c785f3d938091253535aa4f613ab2b4107bf297c8d615da4f7eab4f8282f5e0b"
+        }
+      ],
+      "shares_parameters_across_input_output": false,
+      "sources": [
+        {
+          "receipt": "mixed104_pca_fixed_pair_frontier_results.json",
+          "sha256": "e6aacdaecc11e1693c73b5638f75e197a79676e5b288a4cbb42e57d25eb45ce1"
+        }
+      ],
+      "sparse_rows": 0
+    },
+    {
+      "atom_count": null,
+      "candidate_id": "mlp_pca_p8_17_r256",
+      "control_type": "candidate",
+      "family_role": "teaching",
+      "grammar_family": "activation_pca_pair",
+      "price_bytes": 2011767404,
+      "price_scalars": 531927350,
+      "producer_source": "ops/mixed104_pca_fixed_pair_frontier.py",
+      "producer_source_sha256": "82af814e73d7321b981ba520e7df75d4f8452213c1c75af70a15c809a50aa6b2",
+      "program_family": "mixed104_mlp_pca",
+      "rank": 256,
+      "rebuild_mode": "deterministic_refit",
+      "required_artifacts": [
+        {
+          "path": ".rowcache/fineweb_n480_skip80.pt",
+          "sha256": "2acf75382486988a1e124a1a575ef3230af43aa1b1507d80dee02eefc7bba496"
+        },
+        {
+          "path": "census_state_diverse.pt",
+          "sha256": "c785f3d938091253535aa4f613ab2b4107bf297c8d615da4f7eab4f8282f5e0b"
+        }
+      ],
+      "shares_parameters_across_input_output": false,
+      "sources": [
+        {
+          "receipt": "mixed104_pca_fixed_pair_frontier_results.json",
+          "sha256": "e6aacdaecc11e1693c73b5638f75e197a79676e5b288a4cbb42e57d25eb45ce1"
+        }
+      ],
+      "sparse_rows": 0
+    },
+    {
+      "atom_count": null,
+      "candidate_id": "mlp_pca_p8_17_r384",
+      "control_type": "candidate",
+      "family_role": "teaching",
+      "grammar_family": "activation_pca_pair",
+      "price_bytes": 2017665644,
+      "price_scalars": 533401910,
+      "producer_source": "ops/mixed104_pca_fixed_pair_rank_frontier.py",
+      "producer_source_sha256": "df52ecc8b7183a9e1a55524a987e806fc6b616d511df05c6ee6da91c7d25bbbd",
+      "program_family": "mixed104_mlp_pca",
+      "rank": 384,
+      "rebuild_mode": "deterministic_refit",
+      "required_artifacts": [
+        {
+          "path": ".rowcache/fineweb_n480_skip80.pt",
+          "sha256": "2acf75382486988a1e124a1a575ef3230af43aa1b1507d80dee02eefc7bba496"
+        },
+        {
+          "path": "census_state_diverse.pt",
+          "sha256": "c785f3d938091253535aa4f613ab2b4107bf297c8d615da4f7eab4f8282f5e0b"
+        }
+      ],
+      "shares_parameters_across_input_output": false,
+      "sources": [
+        {
+          "receipt": "mixed104_pca_fixed_pair_rank_frontier_results.json",
+          "sha256": "1f2a47b6d493d1f555ad6331c8ef352bb9cb795f933df48f6d060de5092827da"
+        }
+      ],
+      "sparse_rows": 0
+    },
+    {
+      "atom_count": null,
+      "candidate_id": "mlp_pca_p8_17_r512",
+      "control_type": "candidate",
+      "family_role": "teaching",
+      "grammar_family": "activation_pca_pair",
+      "price_bytes": 2023563884,
+      "price_scalars": 534876470,
+      "producer_source": "ops/mixed104_pca_fixed_pair_rank_frontier.py",
+      "producer_source_sha256": "df52ecc8b7183a9e1a55524a987e806fc6b616d511df05c6ee6da91c7d25bbbd",
+      "program_family": "mixed104_mlp_pca",
+      "rank": 512,
+      "rebuild_mode": "deterministic_refit",
+      "required_artifacts": [
+        {
+          "path": ".rowcache/fineweb_n480_skip80.pt",
+          "sha256": "2acf75382486988a1e124a1a575ef3230af43aa1b1507d80dee02eefc7bba496"
+        },
+        {
+          "path": "census_state_diverse.pt",
+          "sha256": "c785f3d938091253535aa4f613ab2b4107bf297c8d615da4f7eab4f8282f5e0b"
+        }
+      ],
+      "shares_parameters_across_input_output": false,
+      "sources": [
+        {
+          "receipt": "mixed104_pca_fixed_pair_rank_frontier_results.json",
+          "sha256": "1f2a47b6d493d1f555ad6331c8ef352bb9cb795f933df48f6d060de5092827da"
+        }
+      ],
+      "sparse_rows": 0
+    },
+    {
+      "atom_count": null,
+      "candidate_id": "mlp_pca_grad32",
+      "control_type": "candidate",
+      "family_role": "teaching",
+      "grammar_family": "gradient_plus_activation_pca",
+      "price_bytes": 2011767404,
+      "price_scalars": 531927350,
+      "producer_source": "ops/mixed104_pca_certificate_gradient_hybrid.py",
+      "producer_source_sha256": "9b7959e1be07545de99d51d13d279b18fd470a4f385d8a127f17381920eb9c46",
+      "program_family": "mixed104_mlp_pca",
+      "rank": 32,
+      "rebuild_mode": "deterministic_refit",
+      "required_artifacts": [
+        {
+          "path": ".rowcache/fineweb_n480_skip80.pt",
+          "sha256": "2acf75382486988a1e124a1a575ef3230af43aa1b1507d80dee02eefc7bba496"
+        },
+        {
+          "path": "census_state_diverse.pt",
+          "sha256": "c785f3d938091253535aa4f613ab2b4107bf297c8d615da4f7eab4f8282f5e0b"
+        },
+        {
+          "path": "mixed104_online_cv0_results.json",
+          "sha256": "d8817d7e81ca075130055ed4c01f395b93fd7bc86c8f137b83ae7dd92e411631"
+        }
+      ],
+      "shares_parameters_across_input_output": false,
+      "sources": [
+        {
+          "receipt": "mixed104_pca_certificate_gradient_hybrid_results.json",
+          "sha256": "b458d81abf0bc9561f71d93991cd7120b6b9db030f68395a5720065bf58d3890"
+        }
+      ],
+      "sparse_rows": 0
+    },
+    {
+      "atom_count": null,
+      "candidate_id": "mlp_pca_grad64",
+      "control_type": "candidate",
+      "family_role": "teaching",
+      "grammar_family": "gradient_plus_activation_pca",
+      "price_bytes": 2011767404,
+      "price_scalars": 531927350,
+      "producer_source": "ops/mixed104_pca_certificate_gradient_hybrid.py",
+      "producer_source_sha256": "9b7959e1be07545de99d51d13d279b18fd470a4f385d8a127f17381920eb9c46",
+      "program_family": "mixed104_mlp_pca",
+      "rank": 64,
+      "rebuild_mode": "deterministic_refit",
+      "required_artifacts": [
+        {
+          "path": ".rowcache/fineweb_n480_skip80.pt",
+          "sha256": "2acf75382486988a1e124a1a575ef3230af43aa1b1507d80dee02eefc7bba496"
+        },
+        {
+          "path": "census_state_diverse.pt",
+          "sha256": "c785f3d938091253535aa4f613ab2b4107bf297c8d615da4f7eab4f8282f5e0b"
+        },
+        {
+          "path": "mixed104_online_cv0_results.json",
+          "sha256": "d8817d7e81ca075130055ed4c01f395b93fd7bc86c8f137b83ae7dd92e411631"
+        }
+      ],
+      "shares_parameters_across_input_output": false,
+      "sources": [
+        {
+          "receipt": "mixed104_pca_certificate_gradient_hybrid_results.json",
+          "sha256": "b458d81abf0bc9561f71d93991cd7120b6b9db030f68395a5720065bf58d3890"
+        }
+      ],
+      "sparse_rows": 0
+    },
+    {
+      "atom_count": null,
+      "candidate_id": "mlp0_context_input_r256",
+      "control_type": "candidate",
+      "family_role": "teaching",
+      "grammar_family": "context_metric_shared_input_low_rank",
+      "price_bytes": 2010587756,
+      "price_scalars": 531632438,
+      "producer_source": "ops/mixed104_mlp0_context_metric_lower_rank_frontier.py",
+      "producer_source_sha256": "3c89d48ca99b8e18f5bb99b78cdb07ed71e85aded057279374ba7a193991a6d9",
+      "program_family": "mixed104_mlp0_context_input",
+      "rank": 256,
+      "rebuild_mode": "deterministic_refit",
+      "required_artifacts": [
+        {
+          "path": ".rowcache/fineweb_n192_skip11000.pt",
+          "sha256": "b1564bfd071418f401a816cb01e3d26b082a3e73ba858838f1c83c250db4d868"
+        },
+        {
+          "path": "census_state_diverse.pt",
+          "sha256": "c785f3d938091253535aa4f613ab2b4107bf297c8d615da4f7eab4f8282f5e0b"
+        }
+      ],
+      "shares_parameters_across_input_output": true,
+      "sources": [
+        {
+          "receipt": "mixed104_mlp0_context_metric_lower_rank_frontier_results.json",
+          "sha256": "12decd6a209e53eb49bd50df407e8f1f0989671ed2a83cf57383abaa150c83c8"
+        }
+      ],
+      "sparse_rows": 0
+    },
+    {
+      "atom_count": null,
+      "candidate_id": "mlp0_context_input_r384",
+      "control_type": "candidate",
+      "family_role": "teaching",
+      "grammar_family": "context_metric_shared_input_low_rank",
+      "price_bytes": 2015896172,
+      "price_scalars": 532959542,
+      "producer_source": "ops/mixed104_mlp0_context_metric_lower_rank_frontier.py",
+      "producer_source_sha256": "3c89d48ca99b8e18f5bb99b78cdb07ed71e85aded057279374ba7a193991a6d9",
+      "program_family": "mixed104_mlp0_context_input",
+      "rank": 384,
+      "rebuild_mode": "deterministic_refit",
+      "required_artifacts": [
+        {
+          "path": ".rowcache/fineweb_n192_skip11000.pt",
+          "sha256": "b1564bfd071418f401a816cb01e3d26b082a3e73ba858838f1c83c250db4d868"
+        },
+        {
+          "path": "census_state_diverse.pt",
+          "sha256": "c785f3d938091253535aa4f613ab2b4107bf297c8d615da4f7eab4f8282f5e0b"
+        }
+      ],
+      "shares_parameters_across_input_output": true,
+      "sources": [
+        {
+          "receipt": "mixed104_mlp0_context_metric_lower_rank_frontier_results.json",
+          "sha256": "12decd6a209e53eb49bd50df407e8f1f0989671ed2a83cf57383abaa150c83c8"
+        }
+      ],
+      "sparse_rows": 0
+    },
+    {
+      "atom_count": null,
+      "candidate_id": "mlp0_context_input_r448",
+      "control_type": "candidate",
+      "family_role": "teaching",
+      "grammar_family": "context_metric_shared_input_low_rank",
+      "price_bytes": 2018550380,
+      "price_scalars": 533623094,
+      "producer_source": "ops/mixed104_mlp0_context_metric_lower_rank_frontier.py",
+      "producer_source_sha256": "3c89d48ca99b8e18f5bb99b78cdb07ed71e85aded057279374ba7a193991a6d9",
+      "program_family": "mixed104_mlp0_context_input",
+      "rank": 448,
+      "rebuild_mode": "deterministic_refit",
+      "required_artifacts": [
+        {
+          "path": ".rowcache/fineweb_n192_skip11000.pt",
+          "sha256": "b1564bfd071418f401a816cb01e3d26b082a3e73ba858838f1c83c250db4d868"
+        },
+        {
+          "path": "census_state_diverse.pt",
+          "sha256": "c785f3d938091253535aa4f613ab2b4107bf297c8d615da4f7eab4f8282f5e0b"
+        }
+      ],
+      "shares_parameters_across_input_output": true,
+      "sources": [
+        {
+          "receipt": "mixed104_mlp0_context_metric_lower_rank_frontier_results.json",
+          "sha256": "12decd6a209e53eb49bd50df407e8f1f0989671ed2a83cf57383abaa150c83c8"
+        }
+      ],
+      "sparse_rows": 0
+    },
+    {
+      "atom_count": null,
+      "candidate_id": "mlp0_context_input_r512",
+      "control_type": "candidate",
+      "family_role": "teaching",
+      "grammar_family": "context_metric_shared_input_low_rank",
+      "price_bytes": 2021204588,
+      "price_scalars": 534286646,
+      "producer_source": "ops/mixed104_mlp0_context_metric_input_frontier.py",
+      "producer_source_sha256": "25eb8c265dcbb43d50e9648768ae4bc862f0575793a08ae422a5693d007e6ebc",
+      "program_family": "mixed104_mlp0_context_input",
+      "rank": 512,
+      "rebuild_mode": "deterministic_refit",
+      "required_artifacts": [
+        {
+          "path": ".rowcache/fineweb_n192_skip11000.pt",
+          "sha256": "b1564bfd071418f401a816cb01e3d26b082a3e73ba858838f1c83c250db4d868"
+        },
+        {
+          "path": "census_state_diverse.pt",
+          "sha256": "c785f3d938091253535aa4f613ab2b4107bf297c8d615da4f7eab4f8282f5e0b"
+        },
+        {
+          "path": "mlp0_context_metric_shared_input_frontier_results.json",
+          "sha256": "aa627ce4640b9c2f46934451e4ba1607daef6f8a238abe523662c7e9a151a6c7"
+        }
+      ],
+      "shares_parameters_across_input_output": true,
+      "sources": [
+        {
+          "receipt": "mixed104_mlp0_context_metric_input_frontier_results.json",
+          "sha256": "b80419147bba16b884593ed9a0214c5ef0fa3cb4e45fc6f85340799941b4d745"
+        }
+      ],
+      "sparse_rows": 0
+    },
+    {
+      "atom_count": null,
+      "candidate_id": "mlp0_context_input_r640",
+      "control_type": "candidate",
+      "family_role": "teaching",
+      "grammar_family": "context_metric_shared_input_low_rank",
+      "price_bytes": 2026513004,
+      "price_scalars": 535613750,
+      "producer_source": "ops/mixed104_mlp0_context_metric_input_frontier.py",
+      "producer_source_sha256": "25eb8c265dcbb43d50e9648768ae4bc862f0575793a08ae422a5693d007e6ebc",
+      "program_family": "mixed104_mlp0_context_input",
+      "rank": 640,
+      "rebuild_mode": "deterministic_refit",
+      "required_artifacts": [
+        {
+          "path": ".rowcache/fineweb_n192_skip11000.pt",
+          "sha256": "b1564bfd071418f401a816cb01e3d26b082a3e73ba858838f1c83c250db4d868"
+        },
+        {
+          "path": "census_state_diverse.pt",
+          "sha256": "c785f3d938091253535aa4f613ab2b4107bf297c8d615da4f7eab4f8282f5e0b"
+        },
+        {
+          "path": "mlp0_context_metric_shared_input_frontier_results.json",
+          "sha256": "aa627ce4640b9c2f46934451e4ba1607daef6f8a238abe523662c7e9a151a6c7"
+        }
+      ],
+      "shares_parameters_across_input_output": true,
+      "sources": [
+        {
+          "receipt": "mixed104_mlp0_context_metric_input_frontier_results.json",
+          "sha256": "b80419147bba16b884593ed9a0214c5ef0fa3cb4e45fc6f85340799941b4d745"
+        }
+      ],
+      "sparse_rows": 0
+    },
+    {
+      "atom_count": 512,
+      "candidate_id": "attention0_r426_I72",
+      "control_type": "candidate",
+      "family_role": "sealed_confirmation",
+      "grammar_family": "sparse_qk_dictionary",
+      "price_bytes": 19201824,
+      "price_scalars": null,
+      "producer_source": "ops/attention0_cross_head_sparse_qk_vocabulary.py",
+      "producer_source_sha256": "5da7dd54c881831ed03d4d8854832ba1ce9e15f77b4b96f0bddad256506bc2f8",
+      "program_family": "attention0_sparse_qk",
+      "rank": null,
+      "rebuild_mode": "retained_bundle_and_deterministic_arm",
+      "required_artifacts": [
+        {
+          "path": "attention0_cross_head_sparse_qk_vocabulary_bundle.pt",
+          "sha256": "3ec26eaf8af976c2cee78876626e05612f10371daeb4c1a62b8671610e17e372"
+        }
+      ],
+      "shares_parameters_across_input_output": false,
+      "sources": [
+        {
+          "receipt": "attention0_cross_head_sparse_qk_vocabulary_results.json",
+          "sha256": "274c2d2891f93ef08dd232036ce8c4250132277f3bce70d95e7f0fdefdd97ba3"
+        }
+      ],
+      "sparse_rows": 72
+    },
+    {
+      "atom_count": 512,
+      "candidate_id": "attention0_r426_G54",
+      "control_type": "candidate",
+      "family_role": "sealed_confirmation",
+      "grammar_family": "sparse_qk_dictionary",
+      "price_bytes": 15583320,
+      "price_scalars": null,
+      "producer_source": "ops/attention0_cross_head_sparse_qk_vocabulary.py",
+      "producer_source_sha256": "5da7dd54c881831ed03d4d8854832ba1ce9e15f77b4b96f0bddad256506bc2f8",
+      "program_family": "attention0_sparse_qk",
+      "rank": null,
+      "rebuild_mode": "retained_bundle_and_deterministic_arm",
+      "required_artifacts": [
+        {
+          "path": "attention0_cross_head_sparse_qk_vocabulary_bundle.pt",
+          "sha256": "3ec26eaf8af976c2cee78876626e05612f10371daeb4c1a62b8671610e17e372"
+        }
+      ],
+      "shares_parameters_across_input_output": true,
+      "sources": [
+        {
+          "receipt": "attention0_cross_head_sparse_qk_vocabulary_results.json",
+          "sha256": "274c2d2891f93ef08dd232036ce8c4250132277f3bce70d95e7f0fdefdd97ba3"
+        }
+      ],
+      "sparse_rows": 54
+    },
+    {
+      "atom_count": 512,
+      "candidate_id": "attention0_r426_G72",
+      "control_type": "candidate",
+      "family_role": "sealed_confirmation",
+      "grammar_family": "sparse_qk_dictionary",
+      "price_bytes": 19201824,
+      "price_scalars": null,
+      "producer_source": "ops/attention0_cross_head_sparse_qk_vocabulary.py",
+      "producer_source_sha256": "5da7dd54c881831ed03d4d8854832ba1ce9e15f77b4b96f0bddad256506bc2f8",
+      "program_family": "attention0_sparse_qk",
+      "rank": null,
+      "rebuild_mode": "retained_bundle_and_deterministic_arm",
+      "required_artifacts": [
+        {
+          "path": "attention0_cross_head_sparse_qk_vocabulary_bundle.pt",
+          "sha256": "3ec26eaf8af976c2cee78876626e05612f10371daeb4c1a62b8671610e17e372"
+        }
+      ],
+      "shares_parameters_across_input_output": true,
+      "sources": [
+        {
+          "receipt": "attention0_cross_head_sparse_qk_vocabulary_results.json",
+          "sha256": "274c2d2891f93ef08dd232036ce8c4250132277f3bce70d95e7f0fdefdd97ba3"
+        }
+      ],
+      "sparse_rows": 72
+    },
+    {
+      "atom_count": 512,
+      "candidate_id": "attention0_r426_D54",
+      "control_type": "deranged_control",
+      "family_role": "sealed_confirmation",
+      "grammar_family": "sparse_qk_dictionary",
+      "price_bytes": 15583320,
+      "price_scalars": null,
+      "producer_source": "ops/attention0_cross_head_sparse_qk_vocabulary.py",
+      "producer_source_sha256": "5da7dd54c881831ed03d4d8854832ba1ce9e15f77b4b96f0bddad256506bc2f8",
+      "program_family": "attention0_sparse_qk",
+      "rank": null,
+      "rebuild_mode": "retained_bundle_and_deterministic_arm",
+      "required_artifacts": [
+        {
+          "path": "attention0_cross_head_sparse_qk_vocabulary_bundle.pt",
+          "sha256": "3ec26eaf8af976c2cee78876626e05612f10371daeb4c1a62b8671610e17e372"
+        }
+      ],
+      "shares_parameters_across_input_output": false,
+      "sources": [
+        {
+          "receipt": "attention0_cross_head_sparse_qk_vocabulary_results.json",
+          "sha256": "274c2d2891f93ef08dd232036ce8c4250132277f3bce70d95e7f0fdefdd97ba3"
+        }
+      ],
+      "sparse_rows": 54
+    },
+    {
+      "atom_count": 512,
+      "candidate_id": "attention0_r430_SQ54",
+      "control_type": "candidate",
+      "family_role": "sealed_confirmation",
+      "grammar_family": "coupled_sparse_qk_dictionary",
+      "price_bytes": 15583320,
+      "price_scalars": null,
+      "producer_source": "ops/attention0_coupled_sparse_qk_score_product.py",
+      "producer_source_sha256": "619786411e8813406fa7b916c7d9776146aff73908c756b2fc91345fbda5cfe9",
+      "program_family": "attention0_sparse_qk",
+      "rank": null,
+      "rebuild_mode": "retained_bundle_and_deterministic_arm",
+      "required_artifacts": [
+        {
+          "path": "attention0_coupled_sparse_qk_score_product_bundle.pt",
+          "sha256": "25f90d163da19b697b15ee736bff665a342f8ce9cd0946a9c83676c6a4d2ee7c"
+        }
+      ],
+      "shares_parameters_across_input_output": true,
+      "sources": [
+        {
+          "receipt": "attention0_coupled_sparse_qk_score_product_results.json",
+          "sha256": "8c445b0f1b855b3f05aab6bde77b6ecd1c662179883c97aa77e32f49dca03922"
+        }
+      ],
+      "sparse_rows": 54
+    },
+    {
+      "atom_count": 512,
+      "candidate_id": "attention0_r430_SC54",
+      "control_type": "candidate",
+      "family_role": "sealed_confirmation",
+      "grammar_family": "coupled_sparse_qk_dictionary",
+      "price_bytes": 15583320,
+      "price_scalars": null,
+      "producer_source": "ops/attention0_coupled_sparse_qk_score_product.py",
+      "producer_source_sha256": "619786411e8813406fa7b916c7d9776146aff73908c756b2fc91345fbda5cfe9",
+      "program_family": "attention0_sparse_qk",
+      "rank": null,
+      "rebuild_mode": "retained_bundle_and_deterministic_arm",
+      "required_artifacts": [
+        {
+          "path": "attention0_coupled_sparse_qk_score_product_bundle.pt",
+          "sha256": "25f90d163da19b697b15ee736bff665a342f8ce9cd0946a9c83676c6a4d2ee7c"
+        }
+      ],
+      "shares_parameters_across_input_output": true,
+      "sources": [
+        {
+          "receipt": "attention0_coupled_sparse_qk_score_product_results.json",
+          "sha256": "8c445b0f1b855b3f05aab6bde77b6ecd1c662179883c97aa77e32f49dca03922"
+        }
+      ],
+      "sparse_rows": 54
+    },
+    {
+      "atom_count": 512,
+      "candidate_id": "attention0_r430_CP54",
+      "control_type": "candidate",
+      "family_role": "sealed_confirmation",
+      "grammar_family": "coupled_sparse_qk_dictionary",
+      "price_bytes": 15583320,
+      "price_scalars": null,
+      "producer_source": "ops/attention0_coupled_sparse_qk_score_product.py",
+      "producer_source_sha256": "619786411e8813406fa7b916c7d9776146aff73908c756b2fc91345fbda5cfe9",
+      "program_family": "attention0_sparse_qk",
+      "rank": null,
+      "rebuild_mode": "retained_bundle_and_deterministic_arm",
+      "required_artifacts": [
+        {
+          "path": "attention0_coupled_sparse_qk_score_product_bundle.pt",
+          "sha256": "25f90d163da19b697b15ee736bff665a342f8ce9cd0946a9c83676c6a4d2ee7c"
+        }
+      ],
+      "shares_parameters_across_input_output": true,
+      "sources": [
+        {
+          "receipt": "attention0_coupled_sparse_qk_score_product_results.json",
+          "sha256": "8c445b0f1b855b3f05aab6bde77b6ecd1c662179883c97aa77e32f49dca03922"
+        }
+      ],
+      "sparse_rows": 54
+    },
+    {
+      "atom_count": 512,
+      "candidate_id": "attention0_r430_CP72",
+      "control_type": "candidate",
+      "family_role": "sealed_confirmation",
+      "grammar_family": "coupled_sparse_qk_dictionary",
+      "price_bytes": 19201824,
+      "price_scalars": null,
+      "producer_source": "ops/attention0_coupled_sparse_qk_score_product.py",
+      "producer_source_sha256": "619786411e8813406fa7b916c7d9776146aff73908c756b2fc91345fbda5cfe9",
+      "program_family": "attention0_sparse_qk",
+      "rank": null,
+      "rebuild_mode": "retained_bundle_and_deterministic_arm",
+      "required_artifacts": [
+        {
+          "path": "attention0_coupled_sparse_qk_score_product_bundle.pt",
+          "sha256": "25f90d163da19b697b15ee736bff665a342f8ce9cd0946a9c83676c6a4d2ee7c"
+        }
+      ],
+      "shares_parameters_across_input_output": true,
+      "sources": [
+        {
+          "receipt": "attention0_coupled_sparse_qk_score_product_results.json",
+          "sha256": "8c445b0f1b855b3f05aab6bde77b6ecd1c662179883c97aa77e32f49dca03922"
+        }
+      ],
+      "sparse_rows": 72
+    },
+    {
+      "atom_count": 512,
+      "candidate_id": "attention0_r430_PP54",
+      "control_type": "relation_control",
+      "family_role": "sealed_confirmation",
+      "grammar_family": "coupled_sparse_qk_dictionary",
+      "price_bytes": 15583320,
+      "price_scalars": null,
+      "producer_source": "ops/attention0_coupled_sparse_qk_score_product.py",
+      "producer_source_sha256": "619786411e8813406fa7b916c7d9776146aff73908c756b2fc91345fbda5cfe9",
+      "program_family": "attention0_sparse_qk",
+      "rank": null,
+      "rebuild_mode": "retained_bundle_and_deterministic_arm",
+      "required_artifacts": [
+        {
+          "path": "attention0_coupled_sparse_qk_score_product_bundle.pt",
+          "sha256": "25f90d163da19b697b15ee736bff665a342f8ce9cd0946a9c83676c6a4d2ee7c"
+        }
+      ],
+      "shares_parameters_across_input_output": true,
+      "sources": [
+        {
+          "receipt": "attention0_coupled_sparse_qk_score_product_results.json",
+          "sha256": "8c445b0f1b855b3f05aab6bde77b6ecd1c662179883c97aa77e32f49dca03922"
+        }
+      ],
+      "sparse_rows": 54
+    },
+    {
+      "atom_count": 512,
+      "candidate_id": "attention0_r430_WH54",
+      "control_type": "relation_control",
+      "family_role": "sealed_confirmation",
+      "grammar_family": "coupled_sparse_qk_dictionary",
+      "price_bytes": 15583320,
+      "price_scalars": null,
+      "producer_source": "ops/attention0_coupled_sparse_qk_score_product.py",
+      "producer_source_sha256": "619786411e8813406fa7b916c7d9776146aff73908c756b2fc91345fbda5cfe9",
+      "program_family": "attention0_sparse_qk",
+      "rank": null,
+      "rebuild_mode": "retained_bundle_and_deterministic_arm",
+      "required_artifacts": [
+        {
+          "path": "attention0_coupled_sparse_qk_score_product_bundle.pt",
+          "sha256": "25f90d163da19b697b15ee736bff665a342f8ce9cd0946a9c83676c6a4d2ee7c"
+        }
+      ],
+      "shares_parameters_across_input_output": true,
+      "sources": [
+        {
+          "receipt": "attention0_coupled_sparse_qk_score_product_results.json",
+          "sha256": "8c445b0f1b855b3f05aab6bde77b6ecd1c662179883c97aa77e32f49dca03922"
+        }
+      ],
+      "sparse_rows": 54
+    }
+  ],
+  "schema": "prospective_consequence_candidate_bank_v1",
+  "source_feature_sha256": "6d3e984f0ab5b343fabcbaae5b25a8b5b60284b1dc4b46ad6848d8cb72654738"
+}
