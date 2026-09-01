@@ -1,0 +1,37 @@
+{
+  "status": "mlp16_tucker_core_joint_fit_screen_complete",
+  "rung": 387,
+  "claim_level": "function_space_joint_fit_screen_only_no_census_no_adoption",
+  "layer": 16,
+  "ranks": {
+    "r": 512,
+    "k": 576,
+    "p": 512
+  },
+  "fit_cache": "fineweb_n192_skip11000.pt",
+  "fit_b_train": [
+    24,
+    48
+  ],
+  "fit_a_heldout": [
+    0,
+    24
+  ],
+  "fresh_rows": [
+    48,
+    72
+  ],
+  "core_price_scalars": 2065536,
+  "control_reference_from_386": 0.814496636390686,
+  "control_train_mse": 34009.515625,
+  "control_heldout_r2": 0.814496636390686,
+  "control_fresh_r2": 0.8305774331092834,
+  "joint_final_train_mse": 14001.6572265625,
+  "joint_heldout_r2": 0.8309162259101868,
+  "adam_steps": 1500,
+  "lr": 0.0003,
+  "pred_a_joint_fit_trains_below_control_mse": true,
+  "pred_b_joint_fit_beats_control_and_087": false,
+  "pred_c_truncation_core_transfers_to_fresh_rows": true,
+  "null_joint_no_better_or_transfer_collapses": false
+}
