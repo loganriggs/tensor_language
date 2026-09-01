@@ -1,0 +1,317 @@
+{
+ "status": "complete",
+ "rung": 450,
+ "claim_level": "prospective_complete_candidate_teaching_label_generation",
+ "sealed_opened": false,
+ "condition_files": {
+  "unablated": {
+   "path": "/workspace/tensor_language/basis_aligned/bilinear_quotient/simplicity_mlp_pca_complete_unablated.pt",
+   "sha256": "04d43269360f7616e047231f26d9e0b5aa2db0e0954f37796952e930598401af"
+  },
+  "knockout": {
+   "path": "/workspace/tensor_language/basis_aligned/bilinear_quotient/simplicity_mlp_pca_complete_knockout.pt",
+   "sha256": "3b5d36062b37ac2aded25b0ed57b9f877504e702b08ca25d03714bc45b13e1f3"
+  },
+  "partner": {
+   "path": "/workspace/tensor_language/basis_aligned/bilinear_quotient/simplicity_mlp_pca_complete_partner.pt",
+   "sha256": "786584aa55929b0edf797b1962cfaf143e095a2d28fc8e40dd039cbf5f5fb9f6"
+  }
+ },
+ "complete_identity_all_conditions": true,
+ "intervention_counts": {
+  "unablated": 0,
+  "knockout": 168,
+  "partner": 168
+ },
+ "arms": {
+  "mlp_pca_p0_8_r256": {
+   "price_scalars": 531927350,
+   "full": {
+    "removal_cosine": 0.97730505926997,
+    "removal_normalized_error": 0.23602429610660533,
+    "removal_norm_ratio": 1.0813850632442183,
+    "composition_cosine": 0.9811512737872422,
+    "composition_normalized_error": 0.19365559709534394,
+    "composition_interaction_mean": 0.007324907587392644,
+    "candidate_ce_damage": 0.046134378761053085,
+    "partner_ce_damage": 0.039386916905641556,
+    "physical_composition_ce_damage": 0.09284620732069016
+   },
+   "waves": [
+    {
+     "removal_cosine": 0.9792459426401858,
+     "removal_normalized_error": 0.2192450476373782,
+     "removal_norm_ratio": 1.0628581851096848,
+     "composition_cosine": 0.9806589270577639,
+     "composition_normalized_error": 0.19647960327210043,
+     "composition_interaction_mean": 0.007598152549848747,
+     "candidate_ce_damage": 0.042309582233428955,
+     "partner_ce_damage": 0.0410243459045887,
+     "physical_composition_ce_damage": 0.09093207865953445
+    },
+    {
+     "removal_cosine": 0.9753008689998157,
+     "removal_normalized_error": 0.2560659571163239,
+     "removal_norm_ratio": 1.1048445275311785,
+     "composition_cosine": 0.9816164178182489,
+     "composition_normalized_error": 0.19105340432629264,
+     "composition_interaction_mean": 0.007051662624936543,
+     "candidate_ce_damage": 0.049959179013967514,
+     "partner_ce_damage": 0.03774948790669441,
+     "physical_composition_ce_damage": 0.09476032108068466
+    }
+   ]
+  },
+  "mlp_pca_p0_17_r256": {
+   "price_scalars": 531927350,
+   "full": {
+    "removal_cosine": 0.9742990041807792,
+    "removal_normalized_error": 0.23969216631336726,
+    "removal_norm_ratio": 1.0562189903846115,
+    "composition_cosine": 0.9757451245555837,
+    "composition_normalized_error": 0.2237701002204288,
+    "composition_interaction_mean": 0.02631206021542365,
+    "candidate_ce_damage": 0.05571635439991951,
+    "partner_ce_damage": 0.039386916905641556,
+    "physical_composition_ce_damage": 0.12141532450914383
+   },
+   "waves": [
+    {
+     "removal_cosine": 0.9763592075731983,
+     "removal_normalized_error": 0.22821548107731063,
+     "removal_norm_ratio": 1.0495685513505384,
+     "composition_cosine": 0.9757879276267614,
+     "composition_normalized_error": 0.22349647910712284,
+     "composition_interaction_mean": 0.026570814243641532,
+     "candidate_ce_damage": 0.053369972854852676,
+     "partner_ce_damage": 0.0410243459045887,
+     "physical_composition_ce_damage": 0.1209651306271553
+    },
+    {
+     "removal_cosine": 0.9717333322356925,
+     "removal_normalized_error": 0.25374243332236274,
+     "removal_norm_ratio": 1.0647435007455535,
+     "composition_cosine": 0.9757053961913217,
+     "composition_normalized_error": 0.22402471388358441,
+     "composition_interaction_mean": 0.026053306187205767,
+     "candidate_ce_damage": 0.05806274339556694,
+     "partner_ce_damage": 0.03774948790669441,
+     "physical_composition_ce_damage": 0.12186553329229355
+    }
+   ]
+  },
+  "mlp_pca_p8_17_r256": {
+   "price_scalars": 531927350,
+   "full": {
+    "removal_cosine": 0.9760042844321155,
+    "removal_normalized_error": 0.24634355737356503,
+    "removal_norm_ratio": 1.0911976500800207,
+    "composition_cosine": 0.9708858269391202,
+    "composition_normalized_error": 0.2479198619532282,
+    "composition_interaction_mean": 0.03148549123618438,
+    "candidate_ce_damage": 0.05213932693004608,
+    "partner_ce_damage": 0.039386916905641556,
+    "physical_composition_ce_damage": 0.12301173061132431
+   },
+   "waves": [
+    {
+     "removal_cosine": 0.9794494152702913,
+     "removal_normalized_error": 0.2275784149435013,
+     "removal_norm_ratio": 1.084868066473523,
+     "composition_cosine": 0.9719821553372382,
+     "composition_normalized_error": 0.2415380343450323,
+     "composition_interaction_mean": 0.03064980587599579,
+     "candidate_ce_damage": 0.050564900040626526,
+     "partner_ce_damage": 0.0410243459045887,
+     "physical_composition_ce_damage": 0.12223905324935913
+    },
+    {
+     "removal_cosine": 0.9716628084910832,
+     "removal_normalized_error": 0.2686383924822034,
+     "removal_norm_ratio": 1.099315459541494,
+     "composition_cosine": 0.969875668569012,
+     "composition_normalized_error": 0.25399211042267184,
+     "composition_interaction_mean": 0.03232117659637298,
+     "candidate_ce_damage": 0.05371374264359474,
+     "partner_ce_damage": 0.03774948790669441,
+     "physical_composition_ce_damage": 0.12378440052270889
+    }
+   ]
+  },
+  "mlp_pca_p8_17_r384": {
+   "price_scalars": 533401910,
+   "full": {
+    "removal_cosine": 0.9820024982731002,
+    "removal_normalized_error": 0.2086485270404537,
+    "removal_norm_ratio": 1.0706767022489108,
+    "composition_cosine": 0.9745618828216355,
+    "composition_normalized_error": 0.22982833837082456,
+    "composition_interaction_mean": 0.023752407072876364,
+    "candidate_ce_damage": 0.03731977567076683,
+    "partner_ce_damage": 0.039386916905641556,
+    "physical_composition_ce_damage": 0.10045909881591797
+   },
+   "waves": [
+    {
+     "removal_cosine": 0.9846459661229126,
+     "removal_normalized_error": 0.19234639833609413,
+     "removal_norm_ratio": 1.065422296535899,
+     "composition_cosine": 0.9758475318830092,
+     "composition_normalized_error": 0.22250447669637058,
+     "composition_interaction_mean": 0.023161823518058327,
+     "candidate_ce_damage": 0.03508494421839714,
+     "partner_ce_damage": 0.0410243459045887,
+     "physical_composition_ce_damage": 0.09927112609148026
+    },
+    {
+     "removal_cosine": 0.97866224324956,
+     "removal_normalized_error": 0.22797760049959676,
+     "removal_norm_ratio": 1.0774224209114633,
+     "composition_cosine": 0.9733894321363131,
+     "composition_normalized_error": 0.23665759386485358,
+     "composition_interaction_mean": 0.024342990627694405,
+     "candidate_ce_damage": 0.03955460712313652,
+     "partner_ce_damage": 0.03774948790669441,
+     "physical_composition_ce_damage": 0.10164707899093628
+    }
+   ]
+  },
+  "mlp_pca_p8_17_r512": {
+   "price_scalars": 534876470,
+   "full": {
+    "removal_cosine": 0.9861267702518494,
+    "removal_normalized_error": 0.17965789963495044,
+    "removal_norm_ratio": 1.0548506227964263,
+    "composition_cosine": 0.9780614143245678,
+    "composition_normalized_error": 0.21272625918152074,
+    "composition_interaction_mean": 0.017609853180747443,
+    "candidate_ce_damage": 0.027764951810240746,
+    "partner_ce_damage": 0.039386916905641556,
+    "physical_composition_ce_damage": 0.08476171642541885
+   },
+   "waves": [
+    {
+     "removal_cosine": 0.9878504281939875,
+     "removal_normalized_error": 0.16735583023764866,
+     "removal_norm_ratio": 1.0499506890434693,
+     "composition_cosine": 0.9797800359960317,
+     "composition_normalized_error": 0.2030023264042622,
+     "composition_interaction_mean": 0.017254543098049375,
+     "candidate_ce_damage": 0.024709701538085938,
+     "partner_ce_damage": 0.0410243459045887,
+     "physical_composition_ce_damage": 0.08298859745264053
+    },
+    {
+     "removal_cosine": 0.9839560367851949,
+     "removal_normalized_error": 0.19439230118358497,
+     "removal_norm_ratio": 1.0611431411840058,
+     "composition_cosine": 0.9764487811799138,
+     "composition_normalized_error": 0.22181759730389874,
+     "composition_interaction_mean": 0.01796516326344551,
+     "candidate_ce_damage": 0.030820198357105255,
+     "partner_ce_damage": 0.03774948790669441,
+     "physical_composition_ce_damage": 0.08653485029935837
+    }
+   ]
+  },
+  "mlp_pca_grad32": {
+   "price_scalars": 531927350,
+   "full": {
+    "removal_cosine": 0.9772852116620873,
+    "removal_normalized_error": 0.2348989539314663,
+    "removal_norm_ratio": 1.078596136499883,
+    "composition_cosine": 0.9736760080279871,
+    "composition_normalized_error": 0.23312759798863203,
+    "composition_interaction_mean": 0.028559361495970492,
+    "candidate_ce_damage": 0.05158789083361626,
+    "partner_ce_damage": 0.039386916905641556,
+    "physical_composition_ce_damage": 0.11953417211771011
+   },
+   "waves": [
+    {
+     "removal_cosine": 0.9807887800148238,
+     "removal_normalized_error": 0.2147379568718509,
+     "removal_norm_ratio": 1.0705608309241126,
+     "composition_cosine": 0.9749664777432244,
+     "composition_normalized_error": 0.22617198990097787,
+     "composition_interaction_mean": 0.02692454644650777,
+     "candidate_ce_damage": 0.04933413490653038,
+     "partner_ce_damage": 0.0410243459045887,
+     "physical_composition_ce_damage": 0.11728303879499435
+    },
+    {
+     "removal_cosine": 0.9729167965217778,
+     "removal_normalized_error": 0.25861342661603354,
+     "removal_norm_ratio": 1.0888822973411194,
+     "composition_cosine": 0.9724756844007996,
+     "composition_normalized_error": 0.23966918453381286,
+     "composition_interaction_mean": 0.030194176545433216,
+     "candidate_ce_damage": 0.05384165048599243,
+     "partner_ce_damage": 0.03774948790669441,
+     "physical_composition_ce_damage": 0.12178530544042587
+    }
+   ]
+  },
+  "mlp_pca_grad64": {
+   "price_scalars": 531927350,
+   "full": {
+    "removal_cosine": 0.977216958599709,
+    "removal_normalized_error": 0.23519277740134464,
+    "removal_norm_ratio": 1.078551191298264,
+    "composition_cosine": 0.9738373371357302,
+    "composition_normalized_error": 0.23247665459360867,
+    "composition_interaction_mean": 0.028636188356820875,
+    "candidate_ce_damage": 0.05327373743057251,
+    "partner_ce_damage": 0.039386916905641556,
+    "physical_composition_ce_damage": 0.12129684537649155
+   },
+   "waves": [
+    {
+     "removal_cosine": 0.9805113618223179,
+     "removal_normalized_error": 0.21607831111046116,
+     "removal_norm_ratio": 1.070468947355738,
+     "composition_cosine": 0.9744048957303466,
+     "composition_normalized_error": 0.2288578529308495,
+     "composition_interaction_mean": 0.02743348166028044,
+     "candidate_ce_damage": 0.05072272941470146,
+     "partner_ce_damage": 0.0410243459045887,
+     "physical_composition_ce_damage": 0.11918055266141891
+    },
+    {
+     "removal_cosine": 0.9731153685106964,
+     "removal_normalized_error": 0.2577825602563702,
+     "removal_norm_ratio": 1.0888969249177256,
+     "composition_cosine": 0.9733164637402063,
+     "composition_normalized_error": 0.23595739947177616,
+     "composition_interaction_mean": 0.02983889505336131,
+     "candidate_ce_damage": 0.05582475662231445,
+     "partner_ce_damage": 0.03774948790669441,
+     "physical_composition_ce_damage": 0.12341313809156418
+    }
+   ]
+  }
+ },
+ "removal_error_span": 0.0666856577386146,
+ "composition_error_span": 0.05426426485788427,
+ "rank_ladder": [
+  "mlp_pca_p8_17_r256",
+  "mlp_pca_p8_17_r384",
+  "mlp_pca_p8_17_r512"
+ ],
+ "rank_removal_spearman": 0.9999999999999998,
+ "rank_composition_spearman": 0.9999999999999998,
+ "removal_wave_order_spearman": 0.49999999999999994,
+ "composition_wave_order_spearman": 0.8214285714285713,
+ "bundle": {
+  "path": "/workspace/tensor_language/basis_aligned/bilinear_quotient/simplicity_mlp_pca_complete_candidate_consequences_bundle.pt",
+  "sha256": "9225f3e4562a6752d8b121b4f4f7f6f9a51d031f1032145c2e912f16eafc4faf"
+ },
+ "pred_a_complete_instrument": true,
+ "pred_b_fixed_rank_ladder_orders_both": true,
+ "pred_c_labels_vary": true,
+ "pred_d_wave_stability": false,
+ "strong_null_complete_family_unusable": false,
+ "next_step": "do_not_count_mlp_pca_family",
+ "new_deployed_values": 0,
+ "runtime_s": 384.3393404483795
+}
