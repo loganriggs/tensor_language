@@ -10,6 +10,9 @@ Targets the three instrument-clause failure classes that cost reruns on
                      `_orth_error(...) <= tol` without a QR retraction.
   3. ABS-VS-REL   -- absolute `*_max_abs` tolerance bars on float32
                      replay quantities (prefer relative-squared bars).
+  4. CONTROL WIN  -- absolute numeric windows on shuffle/permutation
+                     control statistics (rungs 428/429/432: three window
+                     mis-derivations; prefer matched-control EXCESS).
 
 Usage: python ops/preflight.py ops/<script>.py   (warnings only; exit 0)
 Never a gate: registration bars are the registrant's; this only warns.
@@ -37,6 +40,14 @@ def check(path: Path) -> list[str]:
         warnings.append(
             "RETRACTION: bases are optimized and pred gates on _orth_error "
             "but no QR retraction found (rung 424 cost 1 rerun on this).")
+    control_window = re.search(
+        r"control[a-z_]*\s*(<=?|>=?)\s*\.?\d|(\.\d+\s*<\s*control)", text)
+    excess = re.search(r"excess|control_gap|minus_control|- *control", text)
+    if control_window and not excess:
+        warnings.append(
+            "CONTROL WINDOW: absolute numeric bounds on a shuffle/control "
+            "statistic; three window mis-derivations on 2026-09-01 "
+            "(428/429/432) -- prefer matched-control excess statistics.")
     abs_replay = re.search(r"replay[a-z_]*max_abs[\"'\]]*\s*<=\s*[0-9.e-]+", text)
     rel_available = re.search(r"relative_squared", text)
     if abs_replay and not rel_available:
